@@ -1,0 +1,14 @@
+{
+	"name": "asp.net",
+	"private": true,
+	"dependencies": {
+		"bootstrap": "3.3.7",
+		"font-awesome": "4.7.0",
+		"bootbox": "4.4.0",
+		"jquery.serializeJSON": "2.7.2",
+		"bootstrap-validator": "0.11.9",
+		"bootstrap-datepicker": "1.6.4",
+		"moment": "2.18.1",
+		"bootstrap-combobox": "1.1.8"
+	}
+}

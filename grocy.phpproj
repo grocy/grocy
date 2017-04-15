@@ -1,0 +1,58 @@
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>grocy</Name>
+    <ProjectGuid>edb77631-5196-4860-baeb-bca8900a4b6d</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>
+    </RootNamespace>
+    <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
+    <AssemblyName>grocy</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <IncludeDebugInformation>true</IncludeDebugInformation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <IncludeDebugInformation>false</IncludeDebugInformation>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="config-dist.php" />
+    <Compile Include="grocy.php" />
+    <Compile Include="index.php" />
+    <Compile Include="views\consumption.php" />
+    <Compile Include="views\purchase.php" />
+    <Compile Include="views\quantityunitform.php" />
+    <Compile Include="views\locationform.php" />
+    <Compile Include="views\productform.php" />
+    <Compile Include="views\locations.php" />
+    <Compile Include="views\quantityunits.php" />
+    <Compile Include="views\products.php" />
+    <Compile Include="views\dashboard.php" />
+    <Compile Include="views\layout.php" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bower.json" />
+    <None Include="build.bat" />
+    <Content Include="composer.json" />
+    <Content Include="grocy.js" />
+    <None Include="README.md" />
+    <Content Include="README.html">
+      <SubType>Content</SubType>
+      <DependentUpon>README.md</DependentUpon>
+    </Content>
+    <Content Include="robots.txt" />
+    <Content Include="style.css" />
+    <Content Include="version.txt" />
+    <Content Include="views\consumption.js" />
+    <Content Include="views\purchase.js" />
+    <Content Include="views\quantityunitform.js" />
+    <Content Include="views\locationform.js" />
+    <Content Include="views\productform.js" />
+    <Content Include="views\locations.js" />
+    <Content Include="views\quantityunits.js" />
+    <Content Include="views\products.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="views\" />
+  </ItemGroup>
+</Project>
