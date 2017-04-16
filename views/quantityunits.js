@@ -30,3 +30,14 @@
 		}
 	});
 });
+
+$(function()
+{
+	$('#quantityunits-table').DataTable({
+		'pageLength': 50,
+		'order': [[1, 'asc']],
+		'columnDefs': [
+			{ 'orderable': false, 'targets': 0 }
+		]
+	});
+});

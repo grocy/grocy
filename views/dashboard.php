@@ -3,7 +3,7 @@
 
 	<h3>Current stock</h3>
 	<div class="table-responsive">
-		<table class="table table-striped">
+		<table id="current-stock-table" class="table table-striped">
 			<thead>
 				<tr>
 					<th>Product</th>
@@ -15,13 +15,13 @@
 				<?php foreach ($currentStock as $currentStockEntry) : ?>
 				<tr>
 					<td>
-						<?php echo Grocy::FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name; ?>
+						<?php echo GrocyPhpHelper::FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name; ?>
 					</td>
 					<td>
 						<?php echo $currentStockEntry->amount; ?>
 					</td>
 					<td>
-						<?php echo $currentStockEntry->best_before_date; ?>
+						<?php echo $currentStockEntry->best_before_date; ?> <time class="timeago timeago-contextual" datetime="<?php echo $currentStockEntry->best_before_date; ?>"></time>
 					</td>
 				</tr>
 				<?php endforeach; ?>

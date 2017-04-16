@@ -33,4 +33,6 @@
 $(function()
 {
 	$('#name').focus();
+	$('#quantityunit-form').validator();
+	$('#quantityunit-form').validator('validate');
 });

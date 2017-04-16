@@ -6,9 +6,17 @@ use Slim\Views\PhpRenderer;
 
 require_once 'vendor/autoload.php';
 require_once 'config.php';
-require_once 'grocy.php';
+require_once 'Grocy.php';
+require_once 'GrocyDbMigrator.php';
+require_once 'GrocyDemoDataGenerator.php';
+require_once 'GrocyLogicStock.php';
+require_once 'GrocyPhpHelper.php';
 
-$app = new \Slim\App;
+$app = new \Slim\App(new \Slim\Container([
+	'settings' => [
+		'displayErrorDetails' => true,
+	],
+]));
 $container = $app->getContainer();
 $container['renderer'] = new PhpRenderer('./views');
 
@@ -32,7 +40,7 @@ $app->get('/', function(Request $request, Response $response)
 		'title' => 'Dashboard',
 		'contentPage' => 'dashboard.php',
 		'products' => $db->products(),
-		'currentStock' => Grocy::GetCurrentStock()
+		'currentStock' => GrocyLogicStock::GetCurrentStock()
 	]);
 });
 
@@ -217,95 +225,33 @@ $app->group('/api', function()
 		return $response->withHeader('Content-Type', 'application/json');
 	});
 
-	$this->get('/get-product-statistics/{productId}', function(Request $request, Response $response, $args)
+	$this->get('/stock/get-product-details/{productId}', function(Request $request, Response $response, $args)
 	{
-		$db = Grocy::GetDbConnection();
-		$product = $db->products($args['productId']);
-		$productStockAmount = $db->stock()->where('product_id', $args['productId'])->sum('amount');
-		$productLastPurchased = $db->stock()->where('product_id', $args['productId'])->max('purchased_date');
-		$productLastUsed = $db->consumptions()->where('product_id', $args['productId'])->max('used_date');
-		$quPurchase = $db->quantity_units($product->qu_id_purchase);
-		$quStock = $db->quantity_units($product->qu_id_stock);
-
-		echo json_encode(array(
-			'product' => $product,
-			'last_purchased' => $productLastPurchased,
-			'last_used' => $productLastUsed,
-			'stock_amount' => $productStockAmount,
-			'quantity_unit_purchase' => $quPurchase,
-			'quantity_unit_stock' => $quStock
-		));
-
+		echo json_encode(GrocyLogicStock::GetProductDetails($args['productId']));
 		return $response->withHeader('Content-Type', 'application/json');
 	});
 
-	$this->get('/get-current-stock', function(Request $request, Response $response)
+	$this->get('/stock/get-current-stock', function(Request $request, Response $response)
 	{
-		echo json_encode(Grocy::GetCurrentStock());
-
+		echo json_encode(GrocyLogicStock::GetCurrentStock());
 		return $response->withHeader('Content-Type', 'application/json');
 	});
 
-	$this->get('/consume-product/{productId}/{amount}', function(Request $request, Response $response, $args)
+	$this->get('/stock/consume-product/{productId}/{amount}', function(Request $request, Response $response, $args)
 	{
-		$db = Grocy::GetDbConnection();
-		$productStockAmount = $db->stock()->where('product_id', $args['productId'])->sum('amount');
-		$potentialStockEntries = $db->stock()->where('product_id', $args['productId'])->orderBy('purchased_date', 'ASC')->fetchAll(); //FIFO
-		$amount = $args['amount'];
-
-		if ($amount > $productStockAmount)
-		{
-			echo json_encode(array('success' => false));
-			return $response->withStatus(400)->withHeader('Content-Type', 'application/json');
-		}
-
-		$spoiled = 0;
+		$spoiled = false;
 		if (isset($request->getQueryParams()['spoiled']) && !empty($request->getQueryParams()['spoiled']) && $request->getQueryParams()['spoiled'] == '1')
 		{
-			$spoiled = 1;
+			$spoiled = true;
 		}
 
-		foreach ($potentialStockEntries as $stockEntry)
-		{
-			if ($amount == 0)
-			{
-				break;
-			}
+		echo json_encode(array('success' => GrocyLogicStock::ConsumeProduct($args['productId'], $args['amount'], $spoiled)));
+		return $response->withHeader('Content-Type', 'application/json');
+	});
 
-			if ($amount >= $stockEntry->amount) //Take the whole stock entry
-			{
-				$newRow = $db->consumptions()->createRow(array(
-					'product_id' => $stockEntry->product_id,
-					'amount' => $stockEntry->amount,
-					'best_before_date' => $stockEntry->best_before_date,
-					'purchased_date' => $stockEntry->purchased_date,
-					'spoiled' => $spoiled
-				));
-				$newRow->save();
-
-				$stockEntry->delete();
-			}
-			else //Split the stock entry resp. update the amount
-			{
-				$newRow = $db->consumptions()->createRow(array(
-					'product_id' => $stockEntry->product_id,
-					'amount' => $amount,
-					'best_before_date' => $stockEntry->best_before_date,
-					'purchased_date' => $stockEntry->purchased_date,
-					'spoiled' => $spoiled
-				));
-				$newRow->save();
-
-				$restStockAmount = $stockEntry->amount - $amount;
-				$stockEntry->update(array(
-					'amount' => $restStockAmount
-				));
-			}
-
-			$amount -= $stockEntry->amount;
-		}
-
-		echo json_encode(array('success' => true));
+	$this->get('/helper/uniqid', function(Request $request, Response $response)
+	{
+		echo json_encode(array('uniqid' => uniqid()));
 		return $response->withHeader('Content-Type', 'application/json');
 	});
 });

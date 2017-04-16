@@ -9,6 +9,11 @@
 		"bootstrap-validator": "0.11.9",
 		"bootstrap-datepicker": "1.6.4",
 		"moment": "2.18.1",
-		"bootstrap-combobox": "1.1.8"
+		"bootstrap-combobox": "1.1.8",
+		"datatables.net": "1.10.13",
+		"datatables.net-bs": "2.1.1",
+		"datatables.net-responsive": "2.1.1",
+		"datatables.net-responsive-bs": "2.1.1",
+		"jquery-timeago": "1.5.4"
 	}
 }

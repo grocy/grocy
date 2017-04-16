@@ -26,6 +26,10 @@
 		min-width: 210px;
 		max-width: 260px;
 	}
+
+	#navbar-mobile {
+		display: none !important;
+	}
 }
 
 .nav-sidebar {
@@ -70,7 +74,7 @@
 	text-align: center;
 }
 
-a.discrete-link {
+.discrete-link {
 	color: inherit;
 }
 
@@ -89,4 +93,15 @@ a.discrete-link {
 .table th.fit-content {
 	white-space: nowrap;
 	width: 1%;
+}
+
+.dataTables_info,
+.dataTables_length,
+.dataTables_filter {
+	font-style: italic;
+}
+
+.timeago-contextual {
+	font-style: italic;
+	font-size: 0.8em;
 }

@@ -2,8 +2,11 @@
 
 $(function()
 {
-	var menuItem = $('.nav-sidebar').find("[data-nav-for-page='" + Grocy.ContentPage + "']");
+	var menuItem = $('.nav').find("[data-nav-for-page='" + Grocy.ContentPage + "']");
 	menuItem.addClass('active');
+
+	$.timeago.settings.allowFuture = true;
+	$('time.timeago').timeago();
 });
 
 Grocy.FetchJson = function(url, success, error)
@@ -33,7 +36,7 @@ Grocy.FetchJson = function(url, success, error)
 
 	xhr.open('GET', url, true);
 	xhr.send();
-}
+};
 
 Grocy.PostJson = function(url, jsonData, success, error)
 {
@@ -63,4 +66,12 @@ Grocy.PostJson = function(url, jsonData, success, error)
 	xhr.open('POST', url, true);
 	xhr.setRequestHeader('Content-type', 'application/json');
 	xhr.send(JSON.stringify(jsonData));
-}
+};
+
+Grocy.EmptyElementWhenMatches = function(selector, text)
+{
+	if ($(selector).text() === text)
+	{
+		$(selector).text('');
+	}
+};

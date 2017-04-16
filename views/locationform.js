@@ -33,4 +33,6 @@
 $(function()
 {
 	$('#name').focus();
+	$('#location-form').validator();
+	$('#location-form').validator('validate');
 });

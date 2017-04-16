@@ -7,7 +7,7 @@
 	</h1>
 
 	<div class="table-responsive">
-		<table class="table table-striped">
+		<table id="products-table" class="table table-striped">
 			<thead>
 				<tr>
 					<th>#</th>
@@ -34,13 +34,13 @@
 						<?php echo $product->name; ?>
 					</td>
 					<td>
-						<?php echo Grocy::FindObjectInArrayByPropertyValue($locations, 'id', $product->location_id)->name; ?>
+						<?php echo GrocyPhpHelper::FindObjectInArrayByPropertyValue($locations, 'id', $product->location_id)->name; ?>
 					</td>
 					<td>
-						<?php echo Grocy::FindObjectInArrayByPropertyValue($quantityunits, 'id', $product->qu_id_purchase)->name; ?>
+						<?php echo GrocyPhpHelper::FindObjectInArrayByPropertyValue($quantityunits, 'id', $product->qu_id_purchase)->name; ?>
 					</td>
 					<td>
-						<?php echo Grocy::FindObjectInArrayByPropertyValue($quantityunits, 'id', $product->qu_id_stock)->name; ?>
+						<?php echo GrocyPhpHelper::FindObjectInArrayByPropertyValue($quantityunits, 'id', $product->qu_id_stock)->name; ?>
 					</td>
 					<td>
 						<?php echo $product->qu_factor_purchase_to_stock; ?>

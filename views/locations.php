@@ -7,7 +7,7 @@
 	</h1>
 
 	<div class="table-responsive">
-		<table class="table table-striped">
+		<table id="locations-table" class="table table-striped">
 			<thead>
 				<tr>
 					<th>#</th>

@@ -17,7 +17,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="config-dist.php" />
-    <Compile Include="grocy.php" />
+    <Compile Include="Grocy.php" />
+    <Compile Include="GrocyLogicStock.php" />
+    <Compile Include="GrocyDemoDataGenerator.php" />
+    <Compile Include="GrocyPhpHelper.php" />
+    <Compile Include="GrocyDbMigrator.php" />
     <Compile Include="index.php" />
     <Compile Include="views\consumption.php" />
     <Compile Include="views\purchase.php" />
@@ -44,6 +48,7 @@
     <Content Include="style.css" />
     <Content Include="version.txt" />
     <Content Include="views\consumption.js" />
+    <Content Include="views\dashboard.js" />
     <Content Include="views\purchase.js" />
     <Content Include="views\quantityunitform.js" />
     <Content Include="views\locationform.js" />

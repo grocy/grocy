@@ -33,4 +33,6 @@
 $(function()
 {
 	$('#name').focus();
+	$('#product-form').validator();
+	$('#product-form').validator('validate');
 });
