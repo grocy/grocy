@@ -4,7 +4,7 @@ class GrocyDemoDataGenerator
 {
 	public static function PopulateDemoData(PDO $pdo)
 	{
-		$pdo->exec(utf8_encode("
+		$sql = "
 			UPDATE locations SET name = 'Vorratskammer', description = '' WHERE id = 1;
 			INSERT INTO locations (name) VALUES ('Süßigkeitenschrank');
 			INSERT INTO locations (name) VALUES ('Konvervenschrank');
@@ -19,6 +19,11 @@ class GrocyDemoDataGenerator
 			INSERT INTO stock (product_id, amount, best_before_date, stock_id) VALUES (3, 5, date('now', '+180 day'), '".uniqid()."');
 			INSERT INTO stock (product_id, amount, best_before_date, stock_id) VALUES (4, 5, date('now', '+180 day'), '".uniqid()."');
 			INSERT INTO stock (product_id, amount, best_before_date, stock_id) VALUES (5, 5, date('now', '+25 day'), '".uniqid()."');
-		"));
+		";
+
+		if ($pdo->exec(utf8_encode($sql)) === false)
+		{
+			throw new Exception($pdo->errorInfo());
+		}
 	}
 }

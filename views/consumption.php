@@ -1,22 +1,16 @@
 <div class="col-sm-3 col-sm-offset-3 col-md-3 col-md-offset-2 main">
-	<h1 class="page-header">Record consumption</h1>
+	<h1 class="page-header">Consumption</h1>
 
 	<form id="consumption-form">
 		<div class="form-group">
-			<label for="product_id">Product</label>
-			<select class="form-control combobox" id="product_id" name="product_id" required>
+			<label for="product_id">Product&nbsp;&nbsp;<i class="fa fa-barcode"></i></label>
+			<select data-instockproduct="instockproduct" class="form-control combobox" id="product_id" name="product_id" required>
 				<option value=""></option>
 				<?php foreach ($products as $product) : ?>
-					<option value="<?php echo $product->id; ?>"><?php echo $product->name; ?></option>
+					<option value="<?php echo $product->id; ?>"><?php echo $product->name; ?><?php if (!empty($product->barcode)) echo ' [' . $product->barcode . ']'; ?></option>
 				<?php endforeach; ?>
 			</select>
-			<div class="input-group date">
-				<input type="text" class="form-control" id="barcode" name="barcode" />
-				<div class="input-group-addon">
-					<i class="fa fa-barcode"></i>
-				</div>
-			</div>
-			<div class="help-block with-errors"></div>
+			<div id="product-error" class="help-block with-errors"></div>
 		</div>
 		<div class="form-group">
 			<label for="amount">Amount</label>
@@ -32,7 +26,7 @@
 	</form>
 </div>
 
-<div class="col-sm-3 col-md-3 main well">
+<div class="col-sm-4 col-md-4 main well">
 	<h3>Product overview <strong><span id="selected-product-name"></span></strong></h3>
 	<h4><strong>Stock quantity unit:</strong> <span id="selected-product-stock-qu-name"></span></h4>
 

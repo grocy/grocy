@@ -14,6 +14,7 @@
 		"datatables.net-bs": "2.1.1",
 		"datatables.net-responsive": "2.1.1",
 		"datatables.net-responsive-bs": "2.1.1",
-		"jquery-timeago": "1.5.4"
+		"jquery-timeago": "1.5.4",
+		"toastr": "2.1.3"
 	}
 }

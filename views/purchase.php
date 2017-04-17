@@ -1,19 +1,23 @@
-<div class="col-sm-3 col-sm-offset-3 col-md-3 col-md-offset-2 main">
-	<h1 class="page-header">Record purchase</h1>
+<div class="col-sm-4 col-sm-offset-3 col-md-3 col-md-offset-2 main">
+	<h1 class="page-header">Purchase</h1>
 
 	<form id="purchase-form">
 		<div class="form-group">
-			<label for="product_id">Product</label>
+			<label for="product_id">Product&nbsp;&nbsp;<i class="fa fa-barcode"></i></label>
 			<select class="form-control combobox" id="product_id" name="product_id" required>
 				<option value=""></option>
 				<?php foreach ($products as $product) : ?>
-					<option value="<?php echo $product->id; ?>"><?php echo $product->name; ?></option>
+					<option value="<?php echo $product->id; ?>"><?php echo $product->name; ?><?php if (!empty($product->barcode)) echo ' [' . $product->barcode . ']'; ?></option>
 				<?php endforeach; ?>
 			</select>
+			<div class="help-block with-errors"></div>
+		</div>
+		<div class="form-group">
+			<label for="best_before_date">Best before</label>
 			<div class="input-group date">
-				<input type="text" class="form-control" id="barcode" name="barcode" />
-				<div class="input-group-addon">
-					<i class="fa fa-barcode"></i>
+				<input type="text" data-isodate="isodate" class="form-control datepicker" id="best_before_date" name="best_before_date" required autocomplete="off">
+				<div id="best_before_date-datepicker-button" class="input-group-addon">
+					<i class="fa fa-calendar"></i>
 				</div>
 			</div>
 			<div class="help-block with-errors"></div>
@@ -23,21 +27,11 @@
 			<input type="number" class="form-control" id="amount" name="amount" value="1" min="1" required>
 			<div class="help-block with-errors"></div>
 		</div>
-		<div class="form-group">
-			<label for="best_before_date">Best before</label>
-			<div class="input-group date">
-				<input type="text" class="form-control datepicker" id="best_before_date" name="best_before_date" required>
-				<div class="input-group-addon">
-					<i class="fa fa-calendar"></i>
-				</div>
-			</div>
-			<div class="help-block with-errors"></div>
-		</div>
 		<button id="save-purchase-button" type="submit" class="btn btn-default">OK</button>
 	</form>
 </div>
 
-<div class="col-sm-3 col-md-3 main well">
+<div class="col-sm-4 col-md-4 main well">
 	<h3>Product overview <strong><span id="selected-product-name"></span></strong></h3>
 	<h4><strong>Purchase quantity:</strong> <span id="selected-product-purchase-qu-name"></span></h4>
 

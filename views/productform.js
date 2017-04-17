@@ -36,3 +36,12 @@ $(function()
 	$('#product-form').validator();
 	$('#product-form').validator('validate');
 });
+
+$('#barcode').keydown(function(event)
+{
+	if (event.keyCode === 13) //Enter
+	{
+		event.preventDefault();
+		return false;
+	}
+});

@@ -5,7 +5,7 @@ class GrocyLogicStock
 	public static function GetCurrentStock()
 	{
 		$db = Grocy::GetDbConnectionRaw();
-		return $db->query('SELECT product_id, SUM(amount) AS amount, MIN(best_before_date) AS best_before_date from stock GROUP BY product_id ORDER BY MIN(best_before_date) DESC')->fetchAll(PDO::FETCH_OBJ);
+		return $db->query('SELECT product_id, SUM(amount) AS amount, MIN(best_before_date) AS best_before_date from stock GROUP BY product_id ORDER BY MIN(best_before_date) ASC')->fetchAll(PDO::FETCH_OBJ);
 	}
 
 	public static function GetProductDetails(int $productId)
@@ -63,7 +63,7 @@ class GrocyLogicStock
 				$amount -= $stockEntry->amount;
 				$stockEntry->delete();
 			}
-			else //Stock entry amount is > than need amount -> split the stock entry resp. update the amount
+			else //Stock entry amount is > than needed amount -> split the stock entry resp. update the amount
 			{
 				$consumptionRow = $db->consumptions()->createRow(array(
 					'product_id' => $stockEntry->product_id,

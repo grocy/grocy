@@ -72,7 +72,11 @@ class GrocyDbMigrator
 	{
 		if ($pdo->query("SELECT COUNT(*) FROM migrations WHERE migration = $migrationId")->fetchColumn() == 0)
 		{
-			$pdo->exec(utf8_encode($sql));
+			if ($pdo->exec(utf8_encode($sql)) === false)
+			{
+				throw new Exception($pdo->errorInfo());
+			}
+
 			$pdo->exec('INSERT INTO migrations (migration) VALUES (' . $migrationId . ')');
 		}
 	}

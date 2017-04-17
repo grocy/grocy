@@ -1,4 +1,7 @@
 ﻿$(function()
 {
-	$('#current-stock-table').DataTable({ 'paging': false });
+	$('#current-stock-table').DataTable({
+		'paging': false,
+		'order': [[2, 'asc']]
+	});
 });

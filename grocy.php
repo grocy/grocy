@@ -2,9 +2,7 @@
 
 class Grocy
 {
-	private static $DbConnection;
 	private static $DbConnectionRaw;
-
 	/**
 	 * @return PDO
 	 */
@@ -33,6 +31,7 @@ class Grocy
 		return self::$DbConnectionRaw;
 	}
 
+	private static $DbConnection;
 	/**
 	 * @return LessQL\Database
 	 */
@@ -49,5 +48,16 @@ class Grocy
 	public static function IsDemoInstallation()
 	{
 		return file_exists(__DIR__ . '/data/demo.txt');
+	}
+
+	private static $InstalledVersion;
+	public static function GetInstalledVersion()
+	{
+		if (self::$InstalledVersion == null)
+		{
+			self::$InstalledVersion = file_get_contents(__DIR__ . '/version.txt');
+		}
+
+		return self::$InstalledVersion;
 	}
 }
