@@ -37,7 +37,7 @@
 		</div>
 		<div class="form-group">
 			<label for="qu_id_purchase">Quantity unit purchase</label>
-			<select required class="form-control" id="qu_id_purchase" name="qu_id_purchase">
+			<select required class="form-control input-group-qu" id="qu_id_purchase" name="qu_id_purchase">
 				<?php foreach ($quantityunits as $quantityunit) : ?>
 					<option <?php if ($mode == 'edit' && $quantityunit->id == $product->qu_id_purchase) echo 'selected="selected"'; ?> value="<?php echo $quantityunit->id; ?>"><?php echo $quantityunit->name; ?></option>
 				<?php endforeach; ?>
@@ -46,7 +46,7 @@
 		</div>
 		<div class="form-group">
 			<label for="qu_id_stock">Quantity unit stock</label>
-			<select required class="form-control" id="qu_id_stock" name="qu_id_stock">
+			<select required class="form-control input-group-qu" id="qu_id_stock" name="qu_id_stock">
 				<?php foreach ($quantityunits as $quantityunit) : ?>
 					<option <?php if ($mode == 'edit' && $quantityunit->id == $product->qu_id_stock) echo 'selected="selected"'; ?> value="<?php echo $quantityunit->id; ?>"><?php echo $quantityunit->name; ?></option>
 				<?php endforeach; ?>
@@ -55,9 +55,10 @@
 		</div>
 		<div class="form-group">
 			<label for="qu_factor_purchase_to_stock">Factor purchase to stock quantity unit</label>
-			<input required min="1" type="number" class="form-control" id="qu_factor_purchase_to_stock" name="qu_factor_purchase_to_stock" value="<?php if ($mode == 'edit') echo $product->qu_factor_purchase_to_stock; else echo '1'; ?>">
+			<input required min="1" type="number" class="form-control input-group-qu" id="qu_factor_purchase_to_stock" name="qu_factor_purchase_to_stock" value="<?php if ($mode == 'edit') echo $product->qu_factor_purchase_to_stock; else echo '1'; ?>">
 			<div class="help-block with-errors"></div>
 		</div>
+		<p id="qu-conversion-info" class="help-block text-muted"></p>
 		<button id="save-product-button" type="submit" class="btn btn-default">Save</button>
 	</form>
 </div>

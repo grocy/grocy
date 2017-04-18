@@ -32,6 +32,7 @@
 
 $(function()
 {
+	$('#qu_factor_purchase_to_stock').trigger('change');
 	$('#name').focus();
 	$('#product-form').validator();
 	$('#product-form').validator('validate');
@@ -43,5 +44,19 @@ $('#barcode').keydown(function(event)
 	{
 		event.preventDefault();
 		return false;
+	}
+});
+
+$('.input-group-qu').on('change', function(e)
+{
+	var factor = $('#qu_factor_purchase_to_stock').val();
+	if (factor > 1)
+	{
+		$('#qu-conversion-info').text('This means 1 ' + $("#qu_id_purchase option:selected").text() + ' purchased will be converted into ' + (1 * factor).toString() + ' ' + $("#qu_id_stock option:selected").text() + ' in stock.');
+		$('#qu-conversion-info').show();
+	}
+	else
+	{
+		$('#qu-conversion-info').hide();
 	}
 });
