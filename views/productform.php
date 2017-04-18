@@ -14,17 +14,13 @@
 			<div class="help-block with-errors"></div>
 		</div>
 		<div class="form-group">
-			<label for="barcode">Barcode</label>
-			<div class="input-group date">
-				<input type="text" class="form-control" id="barcode" name="barcode" value="<?php if ($mode == 'edit') echo $product->barcode; ?>">
-				<div class="input-group-addon">
-					<i class="fa fa-barcode"></i>
-				</div>
-			</div>
-		</div>
-		<div class="form-group">
 			<label for="description">Description</label>
 			<textarea class="form-control" rows="2" id="description" name="description"><?php if ($mode == 'edit') echo $product->description; ?></textarea>
+		</div>
+		<div class="form-group tm-group">
+			<label for="barcode-taginput">Barcode(s)</label>
+			<input type="text" class="form-control tm-input" id="barcode-taginput" placeholder="Add (scan) a barcode here to add one...">
+			<div id="barcode-taginput-container"></div>
 		</div>
 		<div class="form-group">
 			<label for="location_id">Location</label>

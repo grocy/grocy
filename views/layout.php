@@ -18,6 +18,7 @@
 	<link href="/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet" />
 	<link href="/bower_components/datatables.net-responsive-bs/css/responsive.bootstrap.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet" />
 	<link href="/bower_components/toastr/toastr.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet" />
+	<link href="/bower_components/tagmanager/tagmanager.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet" />
 	<link href="/style.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet" />
 
 	<script src="/bower_components/jquery/dist/jquery.min.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
@@ -122,6 +123,7 @@
 	<script src="/bower_components/datatables.net-responsive-bs/js/responsive.bootstrap.min.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
 	<script src="/bower_components/jquery-timeago/jquery.timeago.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
 	<script src="/bower_components/toastr/toastr.min.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
+	<script src="/bower_components/tagmanager/tagmanager.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
 
 	<?php if (file_exists(__DIR__ . '/' . str_replace('.php', '.js', $contentPage))) : ?>
 		<script src="/views/<?php echo str_replace('.php', '.js', $contentPage) . '?v=' . Grocy::GetInstalledVersion(); ?>"></script>

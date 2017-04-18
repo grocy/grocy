@@ -32,19 +32,35 @@
 
 $(function()
 {
+	$('#barcode-taginput').tagsManager({
+		'hiddenTagListName': 'barcode',
+		'tagsContainer': '#barcode-taginput-container'
+	});
+
+	if (Grocy.EditMode === 'edit')
+	{
+		Grocy.FetchJson('/api/get-object/products/' + Grocy.EditObjectId,
+			function (product)
+			{
+				if (product.barcode.length > 0)
+				{
+					product.barcode.split(',').forEach(function(item)
+					{
+						$('#barcode-taginput').tagsManager('pushTag', item);
+					});
+				}
+			},
+			function(xhr)
+			{
+				console.error(xhr);
+			}
+		);
+	}
+
 	$('#qu_factor_purchase_to_stock').trigger('change');
 	$('#name').focus();
 	$('#product-form').validator();
 	$('#product-form').validator('validate');
-});
-
-$('#barcode').keydown(function(event)
-{
-	if (event.keyCode === 13) //Enter
-	{
-		event.preventDefault();
-		return false;
-	}
 });
 
 $('.input-group-qu').on('change', function(e)
