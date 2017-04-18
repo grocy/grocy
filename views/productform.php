@@ -18,8 +18,8 @@
 			<textarea class="form-control" rows="2" id="description" name="description"><?php if ($mode == 'edit') echo $product->description; ?></textarea>
 		</div>
 		<div class="form-group tm-group">
-			<label for="barcode-taginput">Barcode(s)</label>
-			<input type="text" class="form-control tm-input" id="barcode-taginput" placeholder="Add (scan) a barcode here to add one...">
+			<label for="barcode-taginput">Barcode(s)&nbsp;&nbsp;<i class="fa fa-barcode"></i></label>
+			<input type="text" class="form-control tm-input" id="barcode-taginput">
 			<div id="barcode-taginput-container"></div>
 		</div>
 		<div class="form-group">

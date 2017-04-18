@@ -7,7 +7,7 @@
 			<select class="form-control combobox" id="product_id" name="product_id" required>
 				<option value=""></option>
 				<?php foreach ($products as $product) : ?>
-					<option value="<?php echo $product->id; ?>"><?php echo $product->name; ?><?php if (!empty($product->barcode)) echo ' [' . $product->barcode . ']'; ?></option>
+					<option data-additional-searchdata="<?php echo $product->barcode; ?>" value="<?php echo $product->id; ?>"><?php echo $product->name; ?></option>
 				<?php endforeach; ?>
 			</select>
 			<div class="help-block with-errors"></div>

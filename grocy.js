@@ -75,3 +75,8 @@ Grocy.EmptyElementWhenMatches = function(selector, text)
 		$(selector).text('');
 	}
 };
+
+String.prototype.contains = function(search)
+{
+	return this.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+};

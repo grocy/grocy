@@ -88,7 +88,28 @@ $('#product_id').on('change', function(e)
 
 $(function()
 {
-	$('.combobox').combobox({ appendId: '_text_input' });
+	$('.combobox').combobox({
+		appendId: '_text_input',
+		matcher: function(text)
+		{
+			var input = $('#product_id_text_input').val();
+			var optionElement = $("#product_id option:contains('" + text + "')").first();
+			var additionalSearchdata = optionElement.data('additional-searchdata');
+			
+			if (text.contains(input))
+			{
+				return true;
+			}
+			else if (additionalSearchdata !== null && additionalSearchdata.length > 0)
+			{
+				return additionalSearchdata.contains(input);
+			}
+			else
+			{
+				return false;
+			}
+		}
+	});
 
 	$('#amount').val(1);
 	$('#product_id').val('');

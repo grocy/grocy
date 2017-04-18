@@ -42,7 +42,7 @@ $(function()
 		Grocy.FetchJson('/api/get-object/products/' + Grocy.EditObjectId,
 			function (product)
 			{
-				if (product.barcode.length > 0)
+				if (product.barcode !== null && product.barcode.length > 0)
 				{
 					product.barcode.split(',').forEach(function(item)
 					{
