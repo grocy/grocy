@@ -31,7 +31,7 @@
 	</form>
 </div>
 
-<div class="col-sm-4 col-md-4 main well">
+<div class="col-sm-6 col-md-5 col-lg-3 main well">
 	<h3>Product overview <strong><span id="selected-product-name"></span></strong></h3>
 	<h4><strong>Purchase quantity:</strong> <span id="selected-product-purchase-qu-name"></span></h4>
 
