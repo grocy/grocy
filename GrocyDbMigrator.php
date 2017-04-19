@@ -13,8 +13,8 @@ class GrocyDbMigrator
 				qu_id_purchase INTEGER NOT NULL,
 				qu_id_stock INTEGER NOT NULL,
 				qu_factor_purchase_to_stock REAL NOT NULL,
-				barcode TEXT UNIQUE,
-				created_timestamp DATETIME DEFAULT (datetime('now', 'localtime'))
+				barcode TEXT,
+				row_created_timestamp DATETIME DEFAULT (datetime('now', 'localtime'))
 			)"
 		);
 
@@ -23,7 +23,7 @@ class GrocyDbMigrator
 				id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
 				name TEXT NOT NULL UNIQUE,
 				description TEXT,
-				created_timestamp DATETIME DEFAULT (datetime('now', 'localtime'))
+				row_created_timestamp DATETIME DEFAULT (datetime('now', 'localtime'))
 			)"
 		);
 
@@ -32,7 +32,7 @@ class GrocyDbMigrator
 				id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
 				name TEXT NOT NULL UNIQUE,
 				description TEXT,
-				created_timestamp DATETIME DEFAULT (datetime('now', 'localtime'))
+				row_created_timestamp DATETIME DEFAULT (datetime('now', 'localtime'))
 			)"
 		);
 
@@ -43,20 +43,23 @@ class GrocyDbMigrator
 				amount INTEGER NOT NULL,
 				best_before_date DATE,
 				purchased_date DATE DEFAULT (datetime('now', 'localtime')),
-				stock_id TEXT NOT NULL
+				stock_id TEXT NOT NULL,
+				row_created_timestamp DATETIME DEFAULT (datetime('now', 'localtime'))
 			)"
 		);
 
 		self::ExecuteMigrationWhenNeeded($pdo, 5, "
-			CREATE TABLE consumptions (
+			CREATE TABLE stock_log (
 				id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
 				product_id INTEGER NOT NULL,
 				amount INTEGER NOT NULL,
 				best_before_date DATE,
 				purchased_date DATE,
-				used_date DATE DEFAULT (datetime('now', 'localtime')),
+				used_date DATE,
 				spoiled INTEGER NOT NULL DEFAULT 0,
-				stock_id TEXT NOT NULL
+				stock_id TEXT NOT NULL,
+				transaction_type TEXT NOT NULL,
+				row_created_timestamp DATETIME DEFAULT (datetime('now', 'localtime'))
 			)"
 		);
 

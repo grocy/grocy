@@ -38,6 +38,7 @@
 			</div>
 
 			<div id="navbar-mobile" class="navbar-collapse collapse">
+
 				<ul class="nav navbar-nav navbar-right">
 					<li data-nav-for-page="dashboard.php">
 						<a class="discrete-link" href="/"><i class="fa fa-tachometer fa-fw"></i>&nbsp;Dashboard</a>
@@ -49,6 +50,7 @@
 						<a class="discrete-link" href="/consumption"><i class="fa fa-cutlery fa-fw"></i>&nbsp;Record consumption</a>
 					</li>
 				</ul>
+
 				<ul class="nav navbar-nav navbar-right">
 					<li data-nav-for-page="products.php">
 						<a class="discrete-link" href="/products"><i class="fa fa-product-hunt fa-fw"></i>&nbsp;Manage products</a>
@@ -60,13 +62,16 @@
 						<a class="discrete-link" href="/quantityunits"><i class="fa fa-balance-scale fa-fw"></i>&nbsp;Manage quantity units</a>
 					</li>
 				</ul>
+
 			</div>
 		</div>
 	</nav>
 
 	<div class="container-fluid">
 		<div class="row">
+
 			<div class="col-sm-3 col-md-2 sidebar">
+
 				<ul class="nav nav-sidebar">
 					<li data-nav-for-page="dashboard.php">
 						<a class="discrete-link" href="/"><i class="fa fa-tachometer fa-fw"></i>&nbsp;Dashboard</a>
@@ -78,6 +83,7 @@
 						<a class="discrete-link" href="/consumption"><i class="fa fa-cutlery fa-fw"></i>&nbsp;Record consumption</a>
 					</li>
 				</ul>
+
 				<ul class="nav nav-sidebar">
 					<li data-nav-for-page="products.php">
 						<a class="discrete-link" href="/products"><i class="fa fa-product-hunt fa-fw"></i>&nbsp;Manage products</a>
@@ -89,6 +95,7 @@
 						<a class="discrete-link" href="/quantityunits"><i class="fa fa-balance-scale fa-fw"></i>&nbsp;Manage quantity units</a>
 					</li>
 				</ul>
+
 				<div class="nav-copyright nav nav-sidebar">
 					grocy is a project by
 					<a class="discrete-link" href="https://berrnd.de" target="_blank">Bernd Bestel</a>
@@ -103,10 +110,12 @@
 						<i class="fa fa-github"></i>
 					</a>
 				</div>
+
 			</div>
 
 			<script>Grocy.ContentPage = '<?php echo $contentPage; ?>';</script>
 			<?php include $contentPage; ?>
+
 		</div>
 	</div>
 

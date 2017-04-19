@@ -2,6 +2,7 @@
 	<h1 class="page-header">Consumption</h1>
 
 	<form id="consumption-form">
+
 		<div class="form-group">
 			<label for="product_id">Product&nbsp;&nbsp;<i class="fa fa-barcode"></i></label>
 			<select data-instockproduct="instockproduct" class="form-control combobox" id="product_id" name="product_id" required>
@@ -12,17 +13,21 @@
 			</select>
 			<div id="product-error" class="help-block with-errors"></div>
 		</div>
+
 		<div class="form-group">
 			<label for="amount">Amount</label>
 			<input type="number" class="form-control" id="amount" name="amount" value="1" min="1" required>
 			<div class="help-block with-errors"></div>
 		</div>
+
 		<div class="checkbox">
 			<label for="spoiled">
 				<input type="checkbox" id="spoiled" name="spoiled"> Spoiled
 			</label>
 		</div>
+
 		<button id="save-consumption-button" type="submit" class="btn btn-default">OK</button>
+
 	</form>
 </div>
 

@@ -9,32 +9,19 @@
 		{
 			jsonForm.amount = jsonForm.amount * productDetails.product.qu_factor_purchase_to_stock;
 
-			Grocy.FetchJson('/api/helper/uniqid',
-				function(uniqidResponse)
-				{
-					jsonForm.stock_id = uniqidResponse.uniqid;
+			Grocy.FetchJson('/api/stock/add-product/' + jsonForm.product_id + '/' + jsonForm.amount + '?bestbeforedate=' + $('#best_before_date').val(),
+				function (result) {
+					toastr.success('Added ' + jsonForm.amount + ' ' + productDetails.quantity_unit_stock.name + ' of ' + productDetails.product.name + ' to stock');
 
-					Grocy.PostJson('/api/add-object/stock', jsonForm,
-						function(result)
-						{
-							toastr.success('Added ' + jsonForm.amount + ' ' + productDetails.quantity_unit_stock.name + ' of ' + productDetails.product.name + ' to stock');
-
-							$('#amount').val(1);
-							$('#best_before_date').val('');
-							$('#product_id').val('');
-							$('#product_id_text_input').focus();
-							$('#product_id_text_input').val('');
-							$('#product_id_text_input').trigger('change');
-							$('#purchase-form').validator('validate');
-						},
-						function(xhr)
-						{
-							console.error(xhr);
-						}
-					);
+					$('#amount').val(1);
+					$('#best_before_date').val('');
+					$('#product_id').val('');
+					$('#product_id_text_input').focus();
+					$('#product_id_text_input').val('');
+					$('#product_id_text_input').trigger('change');
+					$('#purchase-form').validator('validate');
 				},
-				function(xhr)
-				{
+				function (xhr) {
 					console.error(xhr);
 				}
 			);

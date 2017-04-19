@@ -15,15 +15,15 @@ class GrocyDemoDataGenerator
 			INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('Gummibärchen', 2, 2, 2, 1);
 			INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('Chips', 2, 2, 2, 1);
 			INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('Eier', 1, 2, 1, 10);
-
-			INSERT INTO stock (product_id, amount, best_before_date, stock_id) VALUES (3, 5, date('now', '+180 day'), '".uniqid()."');
-			INSERT INTO stock (product_id, amount, best_before_date, stock_id) VALUES (4, 5, date('now', '+180 day'), '".uniqid()."');
-			INSERT INTO stock (product_id, amount, best_before_date, stock_id) VALUES (5, 5, date('now', '+25 day'), '".uniqid()."');
 		";
 
 		if ($pdo->exec(utf8_encode($sql)) === false)
 		{
 			throw new Exception($pdo->errorInfo());
 		}
+
+		GrocyLogicStock::AddProduct(3, 5, date('Y-m-d', strtotime('+180 days')), GrocyLogicStock::TRANSACTION_TYPE_PURCHASE);
+		GrocyLogicStock::AddProduct(4, 5, date('Y-m-d', strtotime('+180 days')), GrocyLogicStock::TRANSACTION_TYPE_PURCHASE);
+		GrocyLogicStock::AddProduct(5, 5, date('Y-m-d', strtotime('+25 days')), GrocyLogicStock::TRANSACTION_TYPE_PURCHASE);
 	}
 }

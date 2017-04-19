@@ -2,6 +2,7 @@
 	<h1 class="page-header">Purchase</h1>
 
 	<form id="purchase-form">
+
 		<div class="form-group">
 			<label for="product_id">Product&nbsp;&nbsp;<i class="fa fa-barcode"></i></label>
 			<select class="form-control combobox" id="product_id" name="product_id" required>
@@ -12,6 +13,7 @@
 			</select>
 			<div class="help-block with-errors"></div>
 		</div>
+
 		<div class="form-group">
 			<label for="best_before_date">Best before</label>
 			<div class="input-group date">
@@ -22,12 +24,15 @@
 			</div>
 			<div class="help-block with-errors"></div>
 		</div>
+
 		<div class="form-group">
 			<label for="amount">Amount</label>
 			<input type="number" class="form-control" id="amount" name="amount" value="1" min="1" required>
 			<div class="help-block with-errors"></div>
 		</div>
+
 		<button id="save-purchase-button" type="submit" class="btn btn-default">OK</button>
+
 	</form>
 </div>
 

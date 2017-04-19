@@ -2,6 +2,10 @@
 
 class GrocyLogicStock
 {
+	const TRANSACTION_TYPE_PURCHASE = 'purchase';
+	const TRANSACTION_TYPE_CONSUME = 'consume';
+	const TRANSACTION_TYPE_INVENTORY_CORRECTION = 'inventory-correction';
+
 	public static function GetCurrentStock()
 	{
 		$db = Grocy::GetDbConnectionRaw();
@@ -15,7 +19,7 @@ class GrocyLogicStock
 		$product = $db->products($productId);
 		$productStockAmount = $db->stock()->where('product_id', $productId)->sum('amount');
 		$productLastPurchased = $db->stock()->where('product_id', $productId)->max('purchased_date');
-		$productLastUsed = $db->consumptions()->where('product_id', $productId)->max('used_date');
+		$productLastUsed = $db->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->max('used_date');
 		$quPurchase = $db->quantity_units($product->qu_id_purchase);
 		$quStock = $db->quantity_units($product->qu_id_stock);
 
@@ -29,7 +33,34 @@ class GrocyLogicStock
 		);
 	}
 
-	public static function ConsumeProduct(int $productId, int $amount, bool $spoiled)
+	public static function AddProduct(int $productId, int $amount, string $bestBeforeDate, $transactionType)
+	{
+		$db = Grocy::GetDbConnection();
+		$stockId = uniqid();
+
+		$logRow = $db->stock_log()->createRow(array(
+			'product_id' => $productId,
+			'amount' => $amount,
+			'best_before_date' => $bestBeforeDate,
+			'purchased_date' => date('Y-m-d'),
+			'stock_id' => $stockId,
+			'transaction_type' => $transactionType
+		));
+		$logRow->save();
+
+		$stockRow = $db->stock()->createRow(array(
+			'product_id' => $productId,
+			'amount' => $amount,
+			'best_before_date' => $bestBeforeDate,
+			'purchased_date' => date('Y-m-d'),
+			'stock_id' => $stockId,
+		));
+		$stockRow->save();
+
+		return true;
+	}
+
+	public static function ConsumeProduct(int $productId, int $amount, bool $spoiled, $transactionType)
 	{
 		$db = Grocy::GetDbConnection();
 
@@ -50,30 +81,34 @@ class GrocyLogicStock
 
 			if ($amount >= $stockEntry->amount) //Take the whole stock entry
 			{
-				$consumptionRow = $db->consumptions()->createRow(array(
+				$logRow = $db->stock_log()->createRow(array(
 					'product_id' => $stockEntry->product_id,
-					'amount' => $stockEntry->amount,
+					'amount' => $stockEntry->amount * -1,
 					'best_before_date' => $stockEntry->best_before_date,
 					'purchased_date' => $stockEntry->purchased_date,
+					'used_date' => date('Y-m-d'),
 					'spoiled' => $spoiled,
-					'stock_id' => $stockEntry->stock_id
+					'stock_id' => $stockEntry->stock_id,
+					'transaction_type' => $transactionType
 				));
-				$consumptionRow->save();
+				$logRow->save();
 
 				$amount -= $stockEntry->amount;
 				$stockEntry->delete();
 			}
 			else //Stock entry amount is > than needed amount -> split the stock entry resp. update the amount
 			{
-				$consumptionRow = $db->consumptions()->createRow(array(
+				$logRow = $db->stock_log()->createRow(array(
 					'product_id' => $stockEntry->product_id,
-					'amount' => $amount,
+					'amount' => $amount * -1,
 					'best_before_date' => $stockEntry->best_before_date,
 					'purchased_date' => $stockEntry->purchased_date,
+					'used_date' => date('Y-m-d H:i:s'),
 					'spoiled' => $spoiled,
-					'stock_id' => $stockEntry->stock_id
+					'stock_id' => $stockEntry->stock_id,
+					'transaction_type' => $transactionType
 				));
-				$consumptionRow->save();
+				$logRow->save();
 
 				$restStockAmount = $stockEntry->amount - $amount;
 				$amount = 0;

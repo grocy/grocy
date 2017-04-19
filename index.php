@@ -32,10 +32,10 @@ if (!Grocy::IsDemoInstallation())
 	]));
 }
 
-$app->get('/', function(Request $request, Response $response)
-{
-	$db = Grocy::GetDbConnection();
+$db = Grocy::GetDbConnection();
 
+$app->get('/', function(Request $request, Response $response) use($db)
+{
 	return $this->renderer->render($response, '/layout.php', [
 		'title' => 'Dashboard',
 		'contentPage' => 'dashboard.php',
@@ -44,10 +44,8 @@ $app->get('/', function(Request $request, Response $response)
 	]);
 });
 
-$app->get('/purchase', function(Request $request, Response $response)
+$app->get('/purchase', function(Request $request, Response $response) use($db)
 {
-	$db = Grocy::GetDbConnection();
-
 	return $this->renderer->render($response, '/layout.php', [
 		'title' => 'Purchase',
 		'contentPage' => 'purchase.php',
@@ -55,10 +53,8 @@ $app->get('/purchase', function(Request $request, Response $response)
 	]);
 });
 
-$app->get('/consumption', function(Request $request, Response $response)
+$app->get('/consumption', function(Request $request, Response $response) use($db)
 {
-	$db = Grocy::GetDbConnection();
-
 	return $this->renderer->render($response, '/layout.php', [
 		'title' => 'Consumption',
 		'contentPage' => 'consumption.php',
@@ -66,10 +62,8 @@ $app->get('/consumption', function(Request $request, Response $response)
 	]);
 });
 
-$app->get('/products', function(Request $request, Response $response)
+$app->get('/products', function(Request $request, Response $response) use($db)
 {
-	$db = Grocy::GetDbConnection();
-
 	return $this->renderer->render($response, '/layout.php', [
 		'title' => 'Products',
 		'contentPage' => 'products.php',
@@ -79,10 +73,8 @@ $app->get('/products', function(Request $request, Response $response)
 	]);
 });
 
-$app->get('/locations', function(Request $request, Response $response)
+$app->get('/locations', function(Request $request, Response $response) use($db)
 {
-	$db = Grocy::GetDbConnection();
-
 	return $this->renderer->render($response, '/layout.php', [
 		'title' => 'Locations',
 		'contentPage' => 'locations.php',
@@ -90,10 +82,8 @@ $app->get('/locations', function(Request $request, Response $response)
 	]);
 });
 
-$app->get('/quantityunits', function(Request $request, Response $response)
+$app->get('/quantityunits', function(Request $request, Response $response) use($db)
 {
-	$db = Grocy::GetDbConnection();
-
 	return $this->renderer->render($response, '/layout.php', [
 		'title' => 'Quantity units',
 		'contentPage' => 'quantityunits.php',
@@ -101,10 +91,8 @@ $app->get('/quantityunits', function(Request $request, Response $response)
 	]);
 });
 
-$app->get('/product/{productId}', function(Request $request, Response $response, $args)
+$app->get('/product/{productId}', function(Request $request, Response $response, $args) use($db)
 {
-	$db = Grocy::GetDbConnection();
-
 	if ($args['productId'] == 'new')
 	{
 		return $this->renderer->render($response, '/layout.php', [
@@ -128,10 +116,8 @@ $app->get('/product/{productId}', function(Request $request, Response $response,
 	}
 });
 
-$app->get('/location/{locationId}', function(Request $request, Response $response, $args)
+$app->get('/location/{locationId}', function(Request $request, Response $response, $args) use($db)
 {
-	$db = Grocy::GetDbConnection();
-
 	if ($args['locationId'] == 'new')
 	{
 		return $this->renderer->render($response, '/layout.php', [
@@ -151,10 +137,8 @@ $app->get('/location/{locationId}', function(Request $request, Response $respons
 	}
 });
 
-$app->get('/quantityunit/{quantityunitId}', function(Request $request, Response $response, $args)
+$app->get('/quantityunit/{quantityunitId}', function(Request $request, Response $response, $args) use($db)
 {
-	$db = Grocy::GetDbConnection();
-
 	if ($args['quantityunitId'] == 'new')
 	{
 		return $this->renderer->render($response, '/layout.php', [
@@ -174,67 +158,57 @@ $app->get('/quantityunit/{quantityunitId}', function(Request $request, Response 
 	}
 });
 
-$app->group('/api', function()
+$app->group('/api', function() use($db, $app)
 {
-	$this->get('/get-objects/{entity}', function(Request $request, Response $response, $args)
+	$this->get('/get-objects/{entity}', function(Request $request, Response $response, $args) use($db)
 	{
-		$db = Grocy::GetDbConnection();
 		echo json_encode($db->{$args['entity']}());
-
-		return $response->withHeader('Content-Type', 'application/json');
 	});
 
-	$this->get('/get-object/{entity}/{objectId}', function(Request $request, Response $response, $args)
+	$this->get('/get-object/{entity}/{objectId}', function(Request $request, Response $response, $args) use($db)
 	{
-		$db = Grocy::GetDbConnection();
 		echo json_encode($db->{$args['entity']}($args['objectId']));
-
-		return $response->withHeader('Content-Type', 'application/json');
 	});
 
-	$this->post('/add-object/{entity}', function(Request $request, Response $response, $args)
+	$this->post('/add-object/{entity}', function(Request $request, Response $response, $args) use($db)
 	{
-		$db = Grocy::GetDbConnection();
 		$newRow = $db->{$args['entity']}()->createRow($request->getParsedBody());
 		$newRow->save();
 		$success = $newRow->isClean();
 		echo json_encode(array('success' => $success));
-
-		return $response->withHeader('Content-Type', 'application/json');
 	});
 
-	$this->post('/edit-object/{entity}/{objectId}', function(Request $request, Response $response, $args)
+	$this->post('/edit-object/{entity}/{objectId}', function(Request $request, Response $response, $args) use($db)
 	{
-		$db = Grocy::GetDbConnection();
 		$row = $db->{$args['entity']}($args['objectId']);
 		$row->update($request->getParsedBody());
 		$success = $row->isClean();
 		echo json_encode(array('success' => $success));
-
-		return $response->withHeader('Content-Type', 'application/json');
 	});
 
-	$this->get('/delete-object/{entity}/{objectId}', function(Request $request, Response $response, $args)
+	$this->get('/delete-object/{entity}/{objectId}', function(Request $request, Response $response, $args) use($db)
 	{
-		$db = Grocy::GetDbConnection();
 		$row = $db->{$args['entity']}($args['objectId']);
 		$row->delete();
 		$success = $row->isClean();
 		echo json_encode(array('success' => $success));
-
-		return $response->withHeader('Content-Type', 'application/json');
 	});
 
-	$this->get('/stock/get-product-details/{productId}', function(Request $request, Response $response, $args)
+	$this->get('/stock/add-product/{productId}/{amount}', function(Request $request, Response $response, $args)
 	{
-		echo json_encode(GrocyLogicStock::GetProductDetails($args['productId']));
-		return $response->withHeader('Content-Type', 'application/json');
-	});
+		$bestBeforeDate = date('Y-m-d');
+		if (isset($request->getQueryParams()['bestbeforedate']) && !empty($request->getQueryParams()['bestbeforedate']))
+		{
+			$bestBeforeDate = $request->getQueryParams()['bestbeforedate'];
+		}
 
-	$this->get('/stock/get-current-stock', function(Request $request, Response $response)
-	{
-		echo json_encode(GrocyLogicStock::GetCurrentStock());
-		return $response->withHeader('Content-Type', 'application/json');
+		$transactionType = GrocyLogicStock::TRANSACTION_TYPE_PURCHASE;
+		if (isset($request->getQueryParams()['transactiontype']) && !empty($request->getQueryParams()['transactiontype']))
+		{
+			$transactionType = $request->getQueryParams()['transactiontype'];
+		}
+
+		echo json_encode(array('success' => GrocyLogicStock::AddProduct($args['productId'], $args['amount'], $bestBeforeDate, $transactionType)));
 	});
 
 	$this->get('/stock/consume-product/{productId}/{amount}', function(Request $request, Response $response, $args)
@@ -245,15 +219,28 @@ $app->group('/api', function()
 			$spoiled = true;
 		}
 
-		echo json_encode(array('success' => GrocyLogicStock::ConsumeProduct($args['productId'], $args['amount'], $spoiled)));
-		return $response->withHeader('Content-Type', 'application/json');
+		$transactionType = GrocyLogicStock::TRANSACTION_TYPE_CONSUME;
+		if (isset($request->getQueryParams()['transactiontype']) && !empty($request->getQueryParams()['transactiontype']))
+		{
+			$transactionType = $request->getQueryParams()['transactiontype'];
+		}
+
+		echo json_encode(array('success' => GrocyLogicStock::ConsumeProduct($args['productId'], $args['amount'], $spoiled, $transactionType)));
 	});
 
-	$this->get('/helper/uniqid', function(Request $request, Response $response)
+	$this->get('/stock/get-product-details/{productId}', function(Request $request, Response $response, $args)
 	{
-		echo json_encode(array('uniqid' => uniqid()));
-		return $response->withHeader('Content-Type', 'application/json');
+		echo json_encode(GrocyLogicStock::GetProductDetails($args['productId']));
 	});
+
+	$this->get('/stock/get-current-stock', function(Request $request, Response $response)
+	{
+		echo json_encode(GrocyLogicStock::GetCurrentStock());
+	});
+})->add(function($request, $response, $next)
+{
+	$response = $next($request, $response);
+	return $response->withHeader('Content-Type', 'application/json');
 });
 
 $app->run();
