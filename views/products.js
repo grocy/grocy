@@ -14,7 +14,7 @@
 		},
 		callback: function(result)
 		{
-			if (result == true)
+			if (result === true)
 			{
 				Grocy.FetchJson('/api/delete-object/products/' + $(e.target).attr('data-product-id'),
 					function(result)

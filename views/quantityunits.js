@@ -14,7 +14,7 @@
 		},
 		callback: function(result)
 		{
-			if (result == true)
+			if (result === true)
 			{
 				Grocy.FetchJson('/api/delete-object/quantity_units/' + $(e.target).attr('data-quantityunit-id'),
 					function(result)

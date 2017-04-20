@@ -10,18 +10,49 @@
 			var amount = jsonForm.amount * productDetails.product.qu_factor_purchase_to_stock;
 
 			Grocy.FetchJson('/api/stock/add-product/' + jsonForm.product_id + '/' + amount + '?bestbeforedate=' + $('#best_before_date').val(),
-				function (result) {
+				function(result)
+				{
+					var addBarcode = Grocy.GetUriParam('addbarcodetoselection');
+					if (addBarcode !== undefined)
+					{
+						var existingBarcodes = productDetails.product.barcode || '';
+						if (existingBarcodes.length === 0)
+						{
+							productDetails.product.barcode = addBarcode;
+						}
+						else
+						{
+							productDetails.product.barcode += ',' + addBarcode;
+						}
+
+						Grocy.PostJson('/api/edit-object/products/' + productDetails.product.id, productDetails.product,
+							function (result) { },
+							function(xhr)
+							{
+								console.error(xhr);
+							}
+						);
+					}
+
 					toastr.success('Added ' + amount + ' ' + productDetails.quantity_unit_stock.name + ' of ' + productDetails.product.name + ' to stock');
 
-					$('#amount').val(1);
-					$('#best_before_date').val('');
-					$('#product_id').val('');
-					$('#product_id_text_input').focus();
-					$('#product_id_text_input').val('');
-					$('#product_id_text_input').trigger('change');
-					$('#purchase-form').validator('validate');
+					if (addBarcode !== undefined)
+					{
+						window.location.href = '/purchase';
+					}
+					else
+					{
+						$('#amount').val(1);
+						$('#best_before_date').val('');
+						$('#product_id').val('');
+						$('#product_id_text_input').focus();
+						$('#product_id_text_input').val('');
+						$('#product_id_text_input').trigger('change');
+						$('#purchase-form').validator('validate');
+					}
 				},
-				function (xhr) {
+				function(xhr)
+				{
 					console.error(xhr);
 				}
 			);
@@ -92,11 +123,46 @@ $(function()
 		var input = $('#product_id_text_input').val().toString();
 		var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + input + "']").first();
 		
-		if (possibleOptionElement.length > 0)
+		if (Grocy.GetUriParam('addbarcodetoselection') === undefined && possibleOptionElement.length > 0)
 		{
 			$('#product_id').val(possibleOptionElement.val());
 			$('#product_id').data('combobox').refresh();
 			$('#product_id').trigger('change');
+		}
+		else
+		{
+			var optionElement = $("#product_id option:contains('" + input + "')").first();
+			if (input.length > 0 && optionElement.length === 0 && Grocy.GetUriParam('addbarcodetoselection') === undefined	)
+			{
+				bootbox.dialog({
+					message: '<strong>' + input + '</strong> could not be resolved to a product, how do you want to proceed?',
+					title: 'Create or assign product',
+					onEscape: function() { },
+					buttons: {
+						cancel: {
+							label: 'Cancel',
+							className: 'btn-default',
+							callback: function() { }
+						},
+						addnewproduct: {
+							label: 'Add as new product',
+							className: 'btn-success',
+							callback: function()
+							{
+								window.location.href = '/product/new?prefillname=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(window.location.pathname);
+							}
+						},
+						addbarcode: {
+							label: 'Add as barcode to existing product',
+							className: 'btn-info',
+							callback: function()
+							{
+								window.location.href = '/purchase?addbarcodetoselection=' + encodeURIComponent(input);
+							}
+						}
+					}
+				});
+			}
 		}
 	});
 
@@ -139,6 +205,31 @@ $(function()
 			}
 		}
 	});
+
+	var prefillProduct = Grocy.GetUriParam('createdproduct');
+	if (prefillProduct !== undefined)
+	{
+		var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + prefillProduct + "']").first();
+		if (possibleOptionElement.length === 0)
+		{
+			possibleOptionElement = $("#product_id option:contains('" + prefillProduct + "')").first();
+		}
+
+		if (possibleOptionElement.length > 0)
+		{
+			$('#product_id').val(possibleOptionElement.val());
+			$('#product_id').data('combobox').refresh();
+			$('#product_id').trigger('change');
+			$('#best_before_date').focus();
+		}
+	}
+
+	var addBarcode = Grocy.GetUriParam('addbarcodetoselection');
+	if (addBarcode !== undefined)
+	{
+		$('#addbarcodetoselection').text(addBarcode);
+		$('#flow-info-addbarcodetoselection').removeClass('hide');
+	}
 });
 
 $('#best_before_date-datepicker-button').on('click', function(e)

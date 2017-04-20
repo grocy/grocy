@@ -8,18 +8,50 @@
 		function (productDetails)
 		{
 			Grocy.FetchJson('/api/stock/inventory-product/' + jsonForm.product_id + '/' + jsonForm.new_amount + '?bestbeforedate=' + $('#best_before_date').val(),
-				function (result) {
+				function(result)
+				{
+					var addBarcode = Grocy.GetUriParam('addbarcodetoselection');
+					if (addBarcode !== undefined)
+					{
+						var existingBarcodes = productDetails.product.barcode || '';
+						if (existingBarcodes.length === 0)
+						{
+							productDetails.product.barcode = addBarcode;
+						}
+						else
+						{
+							productDetails.product.barcode += ',' + addBarcode;
+						}
+
+						Grocy.PostJson('/api/edit-object/products/' + productDetails.product.id, productDetails.product,
+							function (result) { },
+							function(xhr)
+							{
+								console.error(xhr);
+							}
+						);
+					}
+
 					toastr.success('Stock amount of ' + productDetails.product.name  + ' is now ' + jsonForm.new_amount.toString() + ' ' + productDetails.quantity_unit_stock.name);
 
-					$('#new_amount').val('');
-					$('#best_before_date').val('');
-					$('#product_id').val('');
-					$('#product_id_text_input').focus();
-					$('#product_id_text_input').val('');
-					$('#product_id_text_input').trigger('change');
-					$('#inventory-form').validator('validate');
+					if (addBarcode !== undefined)
+					{
+						window.location.href = '/inventory';
+					}
+					else
+					{
+						$('#inventory-change-info').hide();
+						$('#new_amount').val('');
+						$('#best_before_date').val('');
+						$('#product_id').val('');
+						$('#product_id_text_input').focus();
+						$('#product_id_text_input').val('');
+						$('#product_id_text_input').trigger('change');
+						$('#inventory-form').validator('validate');
+					}
 				},
-				function (xhr) {
+				function(xhr)
+				{
 					console.error(xhr);
 				}
 			);
@@ -86,11 +118,46 @@ $(function()
 		var input = $('#product_id_text_input').val().toString();
 		var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + input + "']").first();
 		
-		if (possibleOptionElement.length > 0)
+		if (Grocy.GetUriParam('addbarcodetoselection') === undefined && possibleOptionElement.length > 0)
 		{
 			$('#product_id').val(possibleOptionElement.val());
 			$('#product_id').data('combobox').refresh();
 			$('#product_id').trigger('change');
+		}
+		else
+		{
+			var optionElement = $("#product_id option:contains('" + input + "')").first();
+			if (input.length > 0 && optionElement.length === 0 && Grocy.GetUriParam('addbarcodetoselection') === undefined	)
+			{
+				bootbox.dialog({
+					message: '<strong>' + input + '</strong> could not be resolved to a product, how do you want to proceed?',
+					title: 'Create or assign product',
+					onEscape: function() { },
+					buttons: {
+						cancel: {
+							label: 'Cancel',
+							className: 'btn-default',
+							callback: function() { }
+						},
+						addnewproduct: {
+							label: 'Add as new product',
+							className: 'btn-success',
+							callback: function()
+							{
+								window.location.href = '/product/new?prefillname=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(window.location.pathname);
+							}
+						},
+						addbarcode: {
+							label: 'Add as barcode to existing product',
+							className: 'btn-info',
+							callback: function()
+							{
+								window.location.href = '/inventory?addbarcodetoselection=' + encodeURIComponent(input);
+							}
+						}
+					}
+				});
+			}
 		}
 	});
 
@@ -140,6 +207,31 @@ $(function()
 			}
 		}
 	});
+
+	var prefillProduct = Grocy.GetUriParam('createdproduct');
+	if (prefillProduct !== undefined)
+	{
+		var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + prefillProduct + "']").first();
+		if (possibleOptionElement.length === 0)
+		{
+			possibleOptionElement = $("#product_id option:contains('" + prefillProduct + "')").first();
+		}
+
+		if (possibleOptionElement.length > 0)
+		{
+			$('#product_id').val(possibleOptionElement.val());
+			$('#product_id').data('combobox').refresh();
+			$('#product_id').trigger('change');
+			$('#new_amount').focus();
+		}
+	}
+
+	var addBarcode = Grocy.GetUriParam('addbarcodetoselection');
+	if (addBarcode !== undefined)
+	{
+		$('#addbarcodetoselection').text(addBarcode);
+		$('#flow-info-addbarcodetoselection').removeClass('hide');
+	}
 });
 
 $('#best_before_date-datepicker-button').on('click', function(e)
@@ -215,18 +307,23 @@ $('#new_amount').on('change', function(e)
 				{
 					var amountToAdd = newAmount - productDetails.stock_amount;
 					$('#inventory-change-info').text('This means ' + amountToAdd.toString() + ' ' + productDetails.quantity_unit_stock.name + ' will be added to stock');
-					$('#inventory-change-infoo').show();
+					$('#inventory-change-info').show();
+					$('#best_before_date').attr('required', 'required');
 				}
 				else if (newAmount < productStockAmount)
 				{
 					var amountToRemove = productStockAmount - newAmount;
 					$('#inventory-change-info').text('This means ' + amountToRemove.toString() + ' ' + productDetails.quantity_unit_stock.name + ' will be removed from stock');
 					$('#inventory-change-info').show();
+					$('#best_before_date').removeAttr('required');
 				}
 				else
 				{
 					$('#inventory-change-info').hide();
 				}
+
+				$('#inventory-form').validator('update');
+				$('#inventory-form').validator('validate');
 			},
 			function(xhr)
 			{

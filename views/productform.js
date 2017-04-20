@@ -2,12 +2,19 @@
 {
 	e.preventDefault();
 
+	var redirectDestination = '/products';
+	var returnTo = Grocy.GetUriParam('returnto');
+	if (returnTo !== undefined)
+	{
+		redirectDestination = returnTo + '?createdproduct=' + encodeURIComponent($('#name').val());
+	}
+
 	if (Grocy.EditMode === 'create')
 	{
 		Grocy.PostJson('/api/add-object/products', $('#product-form').serializeJSON(),
 			function(result)
 			{
-				window.location.href = '/products';
+				window.location.href = redirectDestination;
 			},
 			function(xhr)
 			{
@@ -20,7 +27,7 @@
 		Grocy.PostJson('/api/edit-object/products/' + Grocy.EditObjectId, $('#product-form').serializeJSON(),
 			function(result)
 			{
-				window.location.href = '/products';
+				window.location.href = redirectDestination;
 			},
 			function(xhr)
 			{
@@ -61,6 +68,13 @@ $(function()
 	$('#name').focus();
 	$('#product-form').validator();
 	$('#product-form').validator('validate');
+
+	var prefillName = Grocy.GetUriParam('prefillname');
+	if (prefillName !== undefined)
+	{
+		$('#name').val(prefillName);
+		$('#name').focus();
+	}
 });
 
 $('.input-group-qu').on('change', function(e)
