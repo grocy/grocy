@@ -140,21 +140,31 @@ $(function()
 							callback: function() { }
 						},
 						addnewproduct: {
-							label: 'Add as new product',
-							className: 'btn-success',
+							label: 'Add as new <u><strong>p</strong></u>roduct',
+							className: 'btn-success add-new-product-dialog-button',
 							callback: function()
 							{
 								window.location.href = '/product/new?prefillname=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(window.location.pathname);
 							}
 						},
 						addbarcode: {
-							label: 'Add as barcode to existing product',
-							className: 'btn-info',
+							label: 'Add as <u><strong>b</strong></u>arcode to existing product',
+							className: 'btn-info add-new-barcode-dialog-button',
 							callback: function()
 							{
 								window.location.href = '/inventory?addbarcodetoselection=' + encodeURIComponent(input);
 							}
 						}
+					}
+				}).on('keypress', function(e)
+				{
+					if (e.key === 'B' || e.key === 'b')
+					{
+						$('.add-new-barcode-dialog-button').click();
+					}
+					if (e.key === 'p' || e.key === 'P')
+					{
+						$('.add-new-product-dialog-button').click();
 					}
 				});
 			}
