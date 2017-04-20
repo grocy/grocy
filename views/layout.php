@@ -49,6 +49,9 @@
 					<li data-nav-for-page="consumption.php">
 						<a class="discrete-link" href="/consumption"><i class="fa fa-cutlery fa-fw"></i>&nbsp;Record consumption</a>
 					</li>
+					<li data-nav-for-page="inventory.php">
+						<a class="discrete-link" href="/inventory"><i class="fa fa-list fa-fw"></i>&nbsp;Inventory</a>
+					</li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -81,6 +84,9 @@
 					</li>
 					<li data-nav-for-page="consumption.php">
 						<a class="discrete-link" href="/consumption"><i class="fa fa-cutlery fa-fw"></i>&nbsp;Record consumption</a>
+					</li>
+					<li data-nav-for-page="inventory.php">
+						<a class="discrete-link" href="/inventory"><i class="fa fa-list fa-fw"></i>&nbsp;Inventory</a>
 					</li>
 				</ul>
 

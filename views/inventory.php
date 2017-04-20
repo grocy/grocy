@@ -1,7 +1,7 @@
 <div class="col-sm-4 col-sm-offset-3 col-md-3 col-md-offset-2 main">
-	<h1 class="page-header">Purchase</h1>
+	<h1 class="page-header">Inventory</h1>
 
-	<form id="purchase-form">
+	<form id="inventory-form">
 
 		<div class="form-group">
 			<label for="product_id">Product&nbsp;&nbsp;<i class="fa fa-barcode"></i></label>
@@ -15,9 +15,16 @@
 		</div>
 
 		<div class="form-group">
-			<label for="best_before_date">Best before</label>
+			<label for="new_amount">New amount&nbsp;&nbsp;<span id="new_amount_qu_unit" class="small text-muted"></span></label>
+			<input type="number" data-notequal="notequal" class="form-control" id="new_amount" name="new_amount" min="0" not-equal="-1" required>
+			<div class="help-block with-errors"></div>
+			<div id="inventory-change-info" class="help-block text-muted"></div>
+		</div>
+
+		<div class="form-group">
+			<label for="best_before_date">Best before&nbsp;&nbsp;<span class="small text-muted">This will apply to added products</span></label>
 			<div class="input-group date">
-				<input type="text" data-isodate="isodate" class="form-control datepicker" id="best_before_date" name="best_before_date" required autocomplete="off">
+				<input type="text" data-isodate="isodate" class="form-control datepicker" id="best_before_date" name="best_before_date" autocomplete="off">
 				<div id="best_before_date-datepicker-button" class="input-group-addon">
 					<i class="fa fa-calendar"></i>
 				</div>
@@ -25,13 +32,7 @@
 			<div class="help-block with-errors"></div>
 		</div>
 
-		<div class="form-group">
-			<label for="amount">Amount&nbsp;&nbsp;<span id="new_amount_qu_unit" class="small text-muted"></span></label>
-			<input type="number" class="form-control" id="amount" name="amount" value="1" min="1" required>
-			<div class="help-block with-errors"></div>
-		</div>
-
-		<button id="save-purchase-button" type="submit" class="btn btn-default">OK</button>
+		<button id="save-inventory-button" type="submit" class="btn btn-default">OK</button>
 
 	</form>
 </div>

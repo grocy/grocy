@@ -4,13 +4,13 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use Slim\Views\PhpRenderer;
 
-require_once 'vendor/autoload.php';
-require_once 'config.php';
-require_once 'Grocy.php';
-require_once 'GrocyDbMigrator.php';
-require_once 'GrocyDemoDataGenerator.php';
-require_once 'GrocyLogicStock.php';
-require_once 'GrocyPhpHelper.php';
+require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/data/config.php';
+require_once __DIR__ . '/Grocy.php';
+require_once __DIR__ . '/GrocyDbMigrator.php';
+require_once __DIR__ . '/GrocyDemoDataGenerator.php';
+require_once __DIR__ . '/GrocyLogicStock.php';
+require_once __DIR__ . '/GrocyPhpHelper.php';
 
 $app = new \Slim\App(new \Slim\Container([
 	'settings' => [
@@ -58,6 +58,15 @@ $app->get('/consumption', function(Request $request, Response $response) use($db
 	return $this->renderer->render($response, '/layout.php', [
 		'title' => 'Consumption',
 		'contentPage' => 'consumption.php',
+		'products' => $db->products()
+	]);
+});
+
+$app->get('/inventory', function(Request $request, Response $response) use($db)
+{
+	return $this->renderer->render($response, '/layout.php', [
+		'title' => 'Inventory',
+		'contentPage' => 'inventory.php',
 		'products' => $db->products()
 	]);
 });
@@ -226,6 +235,17 @@ $app->group('/api', function() use($db, $app)
 		}
 
 		echo json_encode(array('success' => GrocyLogicStock::ConsumeProduct($args['productId'], $args['amount'], $spoiled, $transactionType)));
+	});
+
+	$this->get('/stock/inventory-product/{productId}/{newAmount}', function(Request $request, Response $response, $args)
+	{
+		$bestBeforeDate = date('Y-m-d');
+		if (isset($request->getQueryParams()['bestbeforedate']) && !empty($request->getQueryParams()['bestbeforedate']))
+		{
+			$bestBeforeDate = $request->getQueryParams()['bestbeforedate'];
+		}
+
+		echo json_encode(array('success' => GrocyLogicStock::InventoryProduct($args['productId'], $args['newAmount'], $bestBeforeDate)));
 	});
 
 	$this->get('/stock/get-product-details/{productId}', function(Request $request, Response $response, $args)

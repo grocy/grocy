@@ -24,6 +24,7 @@
     <Compile Include="GrocyDbMigrator.php" />
     <Compile Include="index.php" />
     <Compile Include="views\consumption.php" />
+    <Compile Include="views\inventory.php" />
     <Compile Include="views\purchase.php" />
     <Compile Include="views\quantityunitform.php" />
     <Compile Include="views\locationform.php" />
@@ -49,6 +50,7 @@
     <Content Include="version.txt" />
     <Content Include="views\consumption.js" />
     <Content Include="views\dashboard.js" />
+    <Content Include="views\inventory.js" />
     <Content Include="views\purchase.js" />
     <Content Include="views\quantityunitform.js" />
     <Content Include="views\locationform.js" />

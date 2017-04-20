@@ -38,6 +38,18 @@
 		</div>
 
 		<div class="form-group">
+			<label for="min_stock_amount">Minimum stock amount</label>
+			<input required min="0" type="number" class="form-control" id="min_stock_amount" name="min_stock_amount" value="<?php if ($mode == 'edit') echo $product->min_stock_amount; else echo '0'; ?>">
+			<div class="help-block with-errors"></div>
+		</div>
+
+		<div class="form-group">
+			<label for="default_best_before_days">Default best before days<br /><span class="small text-muted">For purchases this amount of days will be added to today for the best before date suggestion</span></label>
+			<input required min="0" type="number" class="form-control" id="default_best_before_days" name="default_best_before_days" value="<?php if ($mode == 'edit') echo $product->default_best_before_days; else echo '0'; ?>">
+			<div class="help-block with-errors"></div>
+		</div>
+
+		<div class="form-group">
 			<label for="qu_id_purchase">Quantity unit purchase</label>
 			<select required class="form-control input-group-qu" id="qu_id_purchase" name="qu_id_purchase">
 				<?php foreach ($quantityunits as $quantityunit) : ?>

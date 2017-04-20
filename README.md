@@ -11,10 +11,7 @@ For now my main focus is on stock management, ERP your fridge!
 Public demo of the latest version &rarr; [https://grocy.projectdemos.berrnd.org](https://grocy.projectdemos.berrnd.org) 
 
 ## How to install
-Just unpack the [latest release](https://github.com/berrnd/grocy/releases/latest) on your PHP enabled webserver, copy `config-dist.php` to `config.php`, edit it to your needs, ensure that the `data` directory is writable and you're ready to go. Alternatively clone this repository and install Composer and Bower dependencies manually.
-
-## Todo
-A lot...
+Just unpack the [latest release](https://github.com/berrnd/grocy/releases/latest) on your PHP enabled webserver, copy `config-dist.php` to `data/config.php`, edit it to your needs, ensure that the `data` directory is writable and you're ready to go. Alternatively clone this repository and install Composer and Bower dependencies manually.
 
 ## License
 The MIT License (MIT)

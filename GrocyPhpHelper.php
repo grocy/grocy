@@ -14,4 +14,36 @@ class GrocyPhpHelper
 
 		return null;
 	}
+
+	public static function FindAllObjectsInArrayByPropertyValue($array, $propertyName, $propertyValue, $operator = '==')
+	{
+		$returnArray = array();
+
+		foreach($array as $object)
+		{
+			switch($operator)
+			{
+				case '==':
+					if($object->{$propertyName} == $propertyValue)
+					{
+						$returnArray[] = $object;
+					}
+					break;
+				case '>':
+					if($object->{$propertyName} > $propertyValue)
+					{
+						$returnArray[] = $object;
+					}
+					break;
+				case '<':
+					if($object->{$propertyName} < $propertyValue)
+					{
+						$returnArray[] = $object;
+					}
+					break;
+			}
+		}
+
+		return $returnArray;
+	}
 }

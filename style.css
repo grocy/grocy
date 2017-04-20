@@ -106,6 +106,15 @@
 	font-size: 0.8em;
 }
 
-.disabled {
+.disabled,
+.no-real-button {
 	pointer-events: none;
+}
+
+.warning-bg {
+	background-color: #fcf8e3 !important;
+}
+
+.error-bg {
+	background-color: #f2dede !important;
 }

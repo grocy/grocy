@@ -198,6 +198,5 @@ FakesAssemblies/
 /bower_components
 /vendor
 /.release
-/config.php
 /composer.phar
 /composer.lock

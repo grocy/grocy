@@ -1,25 +1,23 @@
-﻿$('#save-purchase-button').on('click', function(e)
+﻿$('#save-inventory-button').on('click', function(e)
 {
 	e.preventDefault();
 
-	var jsonForm = $('#purchase-form').serializeJSON();
+	var jsonForm = $('#inventory-form').serializeJSON();
 
 	Grocy.FetchJson('/api/stock/get-product-details/' + jsonForm.product_id,
 		function (productDetails)
 		{
-			var amount = jsonForm.amount * productDetails.product.qu_factor_purchase_to_stock;
-
-			Grocy.FetchJson('/api/stock/add-product/' + jsonForm.product_id + '/' + amount + '?bestbeforedate=' + $('#best_before_date').val(),
+			Grocy.FetchJson('/api/stock/inventory-product/' + jsonForm.product_id + '/' + jsonForm.new_amount + '?bestbeforedate=' + $('#best_before_date').val(),
 				function (result) {
-					toastr.success('Added ' + amount + ' ' + productDetails.quantity_unit_stock.name + ' of ' + productDetails.product.name + ' to stock');
+					toastr.success('Stock amount of ' + productDetails.product.name  + ' is now ' + jsonForm.new_amount.toString() + ' ' + productDetails.quantity_unit_stock.name);
 
-					$('#amount').val(1);
+					$('#new_amount').val('');
 					$('#best_before_date').val('');
 					$('#product_id').val('');
 					$('#product_id_text_input').focus();
 					$('#product_id_text_input').val('');
 					$('#product_id_text_input').trigger('change');
-					$('#purchase-form').validator('validate');
+					$('#inventory-form').validator('validate');
 				},
 				function (xhr) {
 					console.error(xhr);
@@ -50,12 +48,8 @@ $('#product_id').on('change', function(e)
 				$('#selected-product-last-purchased-timeago').text($.timeago(productDetails.last_purchased || ''));
 				$('#selected-product-last-used').text((productDetails.last_used || 'never').substring(0, 10));
 				$('#selected-product-last-used-timeago').text($.timeago(productDetails.last_used || ''));
+				$('#new_amount').attr('not-equal', productDetails.stock_amount);
 				$('#new_amount_qu_unit').text(productDetails.quantity_unit_stock.name);
-				
-				if (productDetails.product.default_best_before_days.toString() !== '0')
-				{
-					$('#best_before_date').val(moment().add(productDetails.product.default_best_before_days, 'days').format('YYYY-MM-DD'));
-				}
 
 				Grocy.EmptyElementWhenMatches('#selected-product-last-purchased-timeago', 'NaN years ago');
 				Grocy.EmptyElementWhenMatches('#selected-product-last-used-timeago', 'NaN years ago');
@@ -100,14 +94,14 @@ $(function()
 		}
 	});
 
-	$('#amount').val(1);
+	$('#new_amount').val('');
 	$('#best_before_date').val('');
 	$('#product_id').val('');
 	$('#product_id_text_input').focus();
 	$('#product_id_text_input').val('');
 	$('#product_id_text_input').trigger('change');
 
-	$('#purchase-form').validator({
+	$('#inventory-form').validator({
 		custom: {
 			'isodate': function($el)
 			{
@@ -115,12 +109,19 @@ $(function()
 				{
 					return 'Wrong date format, needs to be YYYY-MM-DD';
 				}
+			},
+			'notequal': function($el)
+			{
+				if ($el.val().length !== 0 && $el.val().toString() === $el.attr('not-equal').toString())
+				{
+					return 'This value cannot be equal to ' + $el.attr('not-equal').toString();
+				}
 			}
 		}
 	});
-	$('#purchase-form').validator('validate');
+	$('#inventory-form').validator('validate');
 
-	$('#best_before_date').on('focus', function(e)
+	$('#new_amount').on('focus', function(e)
 	{
 		if ($('#product_id_text_input').val().length === 0)
 		{
@@ -128,11 +129,11 @@ $(function()
 		}
 	});
 
-	$('#purchase-form input').keydown(function(event)
+	$('#inventory-form input').keydown(function(event)
 	{
 		if (event.keyCode === 13) //Enter
 		{
-			if ($('#purchase-form').validator('validate').has('.has-error').length !== 0) //There is at least one validation error
+			if ($('#inventory-form').validator('validate').has('.has-error').length !== 0) //There is at least one validation error
 			{
 				event.preventDefault();
 				return false;
@@ -153,7 +154,7 @@ $('#best_before_date').on('change', function(e)
 	{
 		value = value.replace(/(\d{4})(\d{2})(\d{2})/, '$1-$2-$3');
 		$('#best_before_date').val(value);
-		$('#purchase-form').validator('validate');
+		$('#inventory-form').validator('validate');
 	}
 });
 
@@ -189,5 +190,48 @@ $('#best_before_date').on('keypress', function(e)
 		}
 	}
 
-	$('#purchase-form').validator('validate');
+	$('#inventory-form').validator('validate');
+});
+
+$('#new_amount').on('change', function(e)
+{
+	if ($('#product_id').parent().hasClass('has-error'))
+	{
+		$('#inventory-change-info').hide();
+		return;
+	}
+
+	var productId = $('#product_id').val();
+	var newAmount = $('#new_amount').val();
+
+	if (productId)
+	{
+		Grocy.FetchJson('/api/stock/get-product-details/' + productId,
+			function(productDetails)
+			{
+				var productStockAmount = productDetails.stock_amount || '0';
+
+				if (newAmount > productStockAmount)
+				{
+					var amountToAdd = newAmount - productDetails.stock_amount;
+					$('#inventory-change-info').text('This means ' + amountToAdd.toString() + ' ' + productDetails.quantity_unit_stock.name + ' will be added to stock');
+					$('#inventory-change-infoo').show();
+				}
+				else if (newAmount < productStockAmount)
+				{
+					var amountToRemove = productStockAmount - newAmount;
+					$('#inventory-change-info').text('This means ' + amountToRemove.toString() + ' ' + productDetails.quantity_unit_stock.name + ' will be removed from stock');
+					$('#inventory-change-info').show();
+				}
+				else
+				{
+					$('#inventory-change-info').hide();
+				}
+			},
+			function(xhr)
+			{
+				console.error(xhr);
+			}
+		);
+	}
 });

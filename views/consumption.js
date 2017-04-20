@@ -45,22 +45,22 @@ $('#product_id').on('change', function(e)
 	if (productId)
 	{
 		Grocy.FetchJson('/api/stock/get-product-details/' + productId,
-			function(productStatistics)
+			function (productDetails)
 			{
-				$('#selected-product-name').text(productStatistics.product.name);
-				$('#selected-product-stock-amount').text(productStatistics.stock_amount || '0');
-				$('#selected-product-stock-qu-name').text(productStatistics.quantity_unit_stock.name);
-				$('#selected-product-stock-qu-name2').text(productStatistics.quantity_unit_stock.name);
-				$('#selected-product-last-purchased').text((productStatistics.last_purchased || 'never').substring(0, 10));
-				$('#selected-product-last-purchased-timeago').text($.timeago(productStatistics.last_purchased || ''));
-				$('#selected-product-last-used').text((productStatistics.last_used || 'never').substring(0, 10));
-				$('#selected-product-last-used-timeago').text($.timeago(productStatistics.last_used || ''));
-				$('#amount').attr('max', productStatistics.stock_amount);
+				$('#selected-product-name').text(productDetails.product.name);
+				$('#selected-product-stock-amount').text(productDetails.stock_amount || '0');
+				$('#selected-product-stock-qu-name').text(productDetails.quantity_unit_stock.name);
+				$('#selected-product-stock-qu-name2').text(productDetails.quantity_unit_stock.name);
+				$('#selected-product-last-purchased').text((productDetails.last_purchased || 'never').substring(0, 10));
+				$('#selected-product-last-purchased-timeago').text($.timeago(productDetails.last_purchased || ''));
+				$('#selected-product-last-used').text((productDetails.last_used || 'never').substring(0, 10));
+				$('#selected-product-last-used-timeago').text($.timeago(productDetails.last_used || ''));
+				$('#amount').attr('max', productDetails.stock_amount);
 
 				Grocy.EmptyElementWhenMatches('#selected-product-last-purchased-timeago', 'NaN years ago');
 				Grocy.EmptyElementWhenMatches('#selected-product-last-used-timeago', 'NaN years ago');
 
-				if ((productStatistics.stock_amount || 0) === 0)
+				if ((productDetails.stock_amount || 0) === 0)
 				{
 					$('#product_id').val('');
 					$('#product_id_text_input').val('');
@@ -69,6 +69,7 @@ $('#product_id').on('change', function(e)
 					$('#product_id_text_input').closest('.form-group').addClass('has-error');
 					$('#product-error').text('This product is not in stock.');
 					$('#product-error').show();
+					$('#product_id_text_input').focus();
 				}
 				else
 				{
@@ -89,25 +90,19 @@ $('#product_id').on('change', function(e)
 $(function()
 {
 	$('.combobox').combobox({
-		appendId: '_text_input',
-		matcher: function(text)
+		appendId: '_text_input'
+	});
+
+	$('#product_id_text_input').on('change', function(e)
+	{
+		var input = $('#product_id_text_input').val().toString();
+		var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + input + "']").first();
+		
+		if (possibleOptionElement.length > 0)
 		{
-			var input = $('#product_id_text_input').val();
-			var optionElement = $("#product_id option:contains('" + text + "')").first();
-			var additionalSearchdata = optionElement.data('additional-searchdata');
-			
-			if (text.contains(input))
-			{
-				return true;
-			}
-			else if (additionalSearchdata !== null && additionalSearchdata.length > 0)
-			{
-				return additionalSearchdata.contains(input);
-			}
-			else
-			{
-				return false;
-			}
+			$('#product_id').val(possibleOptionElement.val());
+			$('#product_id').data('combobox').refresh();
+			$('#product_id').trigger('change');
 		}
 	});
 
@@ -119,6 +114,14 @@ $(function()
 
 	$('#consumption-form').validator();
 	$('#consumption-form').validator('validate');
+
+	$('#amount').on('focus', function(e)
+	{
+		if ($('#product_id_text_input').val().length === 0)
+		{
+			$('#product_id_text_input').focus();
+		}
+	});
 
 	$('#consumption-form input').keydown(function(event)
 	{

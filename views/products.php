@@ -14,6 +14,7 @@
 					<th>#</th>
 					<th>Name</th>
 					<th>Location</th>
+					<th>Min. stock amount</th>
 					<th>QU purchase</th>
 					<th>QU stock</th>
 					<th>QU factor</th>
@@ -36,6 +37,9 @@
 					</td>
 					<td>
 						<?php echo GrocyPhpHelper::FindObjectInArrayByPropertyValue($locations, 'id', $product->location_id)->name; ?>
+					</td>
+					<td>
+						<?php echo $product->min_stock_amount; ?>
 					</td>
 					<td>
 						<?php echo GrocyPhpHelper::FindObjectInArrayByPropertyValue($quantityunits, 'id', $product->qu_id_purchase)->name; ?>
