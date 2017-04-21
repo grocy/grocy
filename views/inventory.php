@@ -4,7 +4,7 @@
 	<form id="inventory-form">
 
 		<div class="form-group">
-			<label for="product_id">Product&nbsp;&nbsp;<i class="fa fa-barcode"></i></label>
+			<label for="product_id">Product&nbsp;&nbsp;<i class="fa fa-barcode"></i><span id="barcode-lookup-disabled-hint" class="small text-muted hide">&nbsp;&nbsp;Barcode lookup is disabled</span></label>
 			<select class="form-control combobox" id="product_id" name="product_id" required>
 				<option value=""></option>
 				<?php foreach ($products as $product) : ?>

@@ -95,3 +95,8 @@ Grocy.GetUriParam = function(key)
 		}
 	}
 };
+
+Grocy.Wait = function(ms)
+{
+	return new Promise(resolve => setTimeout(resolve, ms));
+}

@@ -33,6 +33,7 @@
 					}
 
 					toastr.success('Stock amount of ' + productDetails.product.name  + ' is now ' + jsonForm.new_amount.toString() + ' ' + productDetails.quantity_unit_stock.name);
+					Grocy.Wait(1000);
 
 					if (addBarcode !== undefined)
 					{
@@ -241,6 +242,7 @@ $(function()
 	{
 		$('#addbarcodetoselection').text(addBarcode);
 		$('#flow-info-addbarcodetoselection').removeClass('hide');
+		$('#barcode-lookup-disabled-hint').removeClass('hide');
 	}
 });
 
