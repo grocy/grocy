@@ -192,6 +192,13 @@ $(function()
 				{
 					return 'Wrong date format, needs to be YYYY-MM-DD';
 				}
+				else if (moment($el.val()).isValid())
+				{
+					if (moment($el.val()).isBefore(moment(), 'day'))
+					{
+						return 'This value cannot be before today.';
+					}
+				}
 			}
 		}
 	});
