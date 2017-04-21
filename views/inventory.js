@@ -134,6 +134,8 @@ $(function()
 					message: '<strong>' + input + '</strong> could not be resolved to a product, how do you want to proceed?',
 					title: 'Create or assign product',
 					onEscape: function() { },
+					size: 'large',
+					backdrop: true,
 					buttons: {
 						cancel: {
 							label: 'Cancel',
@@ -155,6 +157,14 @@ $(function()
 							{
 								window.location.href = '/inventory?addbarcodetoselection=' + encodeURIComponent(input);
 							}
+						},
+						addnewproductwithbarcode: {
+							label: '<u><strong>A</strong></u>dd as new product + prefill barcode',
+							className: 'btn-warning add-new-product-with-barcode-dialog-button',
+							callback: function()
+							{
+								window.location.href = '/product/new?prefillbarcode=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(window.location.pathname);
+							}
 						}
 					}
 				}).on('keypress', function(e)
@@ -166,6 +176,10 @@ $(function()
 					if (e.key === 'p' || e.key === 'P')
 					{
 						$('.add-new-product-dialog-button').click();
+					}
+					if (e.key === 'a' || e.key === 'A')
+					{
+						$('.add-new-product-with-barcode-dialog-button').click();
 					}
 				});
 			}

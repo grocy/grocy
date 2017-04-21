@@ -75,6 +75,13 @@ $(function()
 		$('#name').val(prefillName);
 		$('#name').focus();
 	}
+
+	var prefillBarcode = Grocy.GetUriParam('prefillbarcode');
+	if (prefillBarcode !== undefined)
+	{
+		$('#barcode-taginput').tagsManager('pushTag', prefillBarcode);
+		$('#name').focus();
+	}
 });
 
 $('.input-group-qu').on('change', function(e)
