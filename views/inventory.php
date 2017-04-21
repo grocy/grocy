@@ -37,6 +37,7 @@
 		<button id="save-inventory-button" type="submit" class="btn btn-default">OK</button>
 
 	</form>
+
 </div>
 
 <div class="col-sm-6 col-md-5 col-lg-3 main well">

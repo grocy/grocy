@@ -53,6 +53,7 @@ class GrocyDemoDataGenerator
 			GrocyLogicStock::AddProduct(13, 5, date('Y-m-d', strtotime('-2 days')), GrocyLogicStock::TRANSACTION_TYPE_PURCHASE);
 			GrocyLogicStock::AddProduct(14, 5, date('Y-m-d', strtotime('+2 days')), GrocyLogicStock::TRANSACTION_TYPE_PURCHASE);
 			GrocyLogicStock::AddProduct(15, 5, date('Y-m-d', strtotime('-2 days')), GrocyLogicStock::TRANSACTION_TYPE_PURCHASE);
+			GrocyLogicStock::AddMissingProductsToShoppingList();
 		}
 	}
 }

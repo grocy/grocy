@@ -57,6 +57,7 @@ $('#product_id').on('change', function(e)
 				$('#selected-product-last-used-timeago').text($.timeago(productDetails.last_used || ''));
 				$('#amount').attr('max', productDetails.stock_amount);
 				$('#consumption-form').validator('update');
+				$('#amount_qu_unit').text(productDetails.quantity_unit_stock.name);
 
 				Grocy.EmptyElementWhenMatches('#selected-product-last-purchased-timeago', 'NaN years ago');
 				Grocy.EmptyElementWhenMatches('#selected-product-last-used-timeago', 'NaN years ago');

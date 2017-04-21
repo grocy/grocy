@@ -16,7 +16,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="amount">Amount</label>
+			<label for="amount">Amount&nbsp;&nbsp;<span id="amount_qu_unit" class="small text-muted"></span></label>
 			<input type="number" class="form-control" id="amount" name="amount" value="1" min="1" required>
 			<div class="help-block with-errors"></div>
 		</div>
@@ -30,6 +30,7 @@
 		<button id="save-consumption-button" type="submit" class="btn btn-default">OK</button>
 
 	</form>
+
 </div>
 
 <div class="col-sm-6 col-md-5 col-lg-3 main well">

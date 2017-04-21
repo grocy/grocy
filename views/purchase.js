@@ -82,7 +82,7 @@ $('#product_id').on('change', function(e)
 				$('#selected-product-last-purchased-timeago').text($.timeago(productDetails.last_purchased || ''));
 				$('#selected-product-last-used').text((productDetails.last_used || 'never').substring(0, 10));
 				$('#selected-product-last-used-timeago').text($.timeago(productDetails.last_used || ''));
-				$('#new_amount_qu_unit').text(productDetails.quantity_unit_stock.name);
+				$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name);
 				
 				if (productDetails.product.default_best_before_days.toString() !== '0')
 				{
