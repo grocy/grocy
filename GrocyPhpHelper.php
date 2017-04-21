@@ -46,4 +46,15 @@ class GrocyPhpHelper
 
 		return $returnArray;
 	}
+
+	public static function SumArrayValue($array, $propertyName)
+	{
+		$sum = 0;
+		foreach($array as $object)
+		{
+			$sum += $object->{$propertyName};
+		}
+
+		return $sum;
+	}
 }

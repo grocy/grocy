@@ -2,7 +2,7 @@
 
 	<h1 class="page-header">Dashboard</h1>
 
-	<h3>Stock overview</h3>
+	<h3>Stock overview <span class="text-muded small"><strong><?php echo count($currentStock) ?></strong> products with <strong><?php echo GrocyPhpHelper::SumArrayValue($currentStock, 'amount'); ?></strong> units in stock</span></h3>
 
 	<div class="container-fluid">
 		<div class="row">
