@@ -71,6 +71,27 @@ class GrocyDbMigrator
 			INSERT INTO products (name, description, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('DefaultProduct1', 'This is the first default product, edit or delete it', 1, 1, 1, 1);
 			INSERT INTO products (name, description, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('DefaultProduct2', 'This is the second default product, edit or delete it', 1, 1, 1, 1);"
 		);
+
+		self::ExecuteMigrationWhenNeeded($pdo, 7, "
+			CREATE VIEW stock_missing_products
+			AS
+			SELECT p.id, MAX(p.name) AS name, p.min_stock_amount - IFNULL(SUM(s.amount), 0) AS amount_missing
+			FROM products p
+			LEFT JOIN stock s
+				ON p.id = s.product_id
+			WHERE p.min_stock_amount != 0
+			GROUP BY p.id
+			HAVING SUM(s.amount) < p.min_stock_amount;"
+		);
+
+		self::ExecuteMigrationWhenNeeded($pdo, 8, "
+			CREATE VIEW stock_current
+			AS
+			SELECT product_id, SUM(amount) AS amount, MIN(best_before_date) AS best_before_date
+			from stock
+			GROUP BY product_id
+			ORDER BY MIN(best_before_date) ASC;"
+		);
 	}
 
 	private static function ExecuteMigrationWhenNeeded(PDO $pdo, int $migrationId, string $sql)

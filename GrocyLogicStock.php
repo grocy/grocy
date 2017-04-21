@@ -8,7 +8,13 @@ class GrocyLogicStock
 
 	public static function GetCurrentStock()
 	{
-		$sql = 'SELECT product_id, SUM(amount) AS amount, MIN(best_before_date) AS best_before_date from stock GROUP BY product_id ORDER BY MIN(best_before_date) ASC';
+		$sql = 'SELECT * from stock_current';
+		return Grocy::ExecuteDbQuery(Grocy::GetDbConnectionRaw(), $sql)->fetchAll(PDO::FETCH_OBJ);
+	}
+
+	public static function GetMissingProducts()
+	{
+		$sql = 'SELECT * from stock_missing_products';
 		return Grocy::ExecuteDbQuery(Grocy::GetDbConnectionRaw(), $sql)->fetchAll(PDO::FETCH_OBJ);
 	}
 

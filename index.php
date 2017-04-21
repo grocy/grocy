@@ -37,12 +37,13 @@ $db = Grocy::GetDbConnection();
 $app->get('/', function(Request $request, Response $response) use($db)
 {
 	$db = Grocy::GetDbConnection(true); //For database schema migration
-
+	
 	return $this->renderer->render($response, '/layout.php', [
 		'title' => 'Dashboard',
 		'contentPage' => 'dashboard.php',
 		'products' => $db->products(),
-		'currentStock' => GrocyLogicStock::GetCurrentStock()
+		'currentStock' => GrocyLogicStock::GetCurrentStock(),
+		'missingProducts' => GrocyLogicStock::GetMissingProducts()
 	]);
 });
 

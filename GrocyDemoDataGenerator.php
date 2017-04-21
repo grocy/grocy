@@ -21,8 +21,8 @@ class GrocyDemoDataGenerator
 				INSERT INTO quantity_units (name) VALUES ('Bund'); --6
 
 				DELETE FROM products WHERE id IN (1, 2);
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('Gummibärchen', 2, 2, 2, 1); --3
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('Chips', 2, 2, 2, 1); --4
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount) VALUES ('Gummibärchen', 2, 2, 2, 1, 8); --3
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount) VALUES ('Chips', 2, 2, 2, 1, 10); --4
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('Eier', 1, 2, 1, 10); --5
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('Nudeln', 1, 2, 2, 1); --6
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('Essiggurken', 3, 3, 3, 1); --7
