@@ -8,8 +8,7 @@ class GrocyLogicStock
 
 	public static function GetCurrentStock()
 	{
-		$db = Grocy::GetDbConnectionRaw();
-		return $db->query('SELECT product_id, SUM(amount) AS amount, MIN(best_before_date) AS best_before_date from stock GROUP BY product_id ORDER BY MIN(best_before_date) ASC')->fetchAll(PDO::FETCH_OBJ);
+		return Grocy::ExecuteDbQuery(Grocy::GetDbConnectionRaw(), 'SELECT product_id, SUM(amount) AS amount, MIN(best_before_date) AS best_before_date from stock GROUP BY product_id ORDER BY MIN(best_before_date) ASC')->fetchAll(PDO::FETCH_OBJ);
 	}
 
 	public static function GetProductDetails(int $productId)

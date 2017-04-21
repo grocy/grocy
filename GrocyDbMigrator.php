@@ -75,14 +75,11 @@ class GrocyDbMigrator
 
 	private static function ExecuteMigrationWhenNeeded(PDO $pdo, int $migrationId, string $sql)
 	{
-		if ($pdo->query("SELECT COUNT(*) FROM migrations WHERE migration = $migrationId")->fetchColumn() == 0)
+		$rowCount = Grocy::ExecuteDbQuery($pdo, 'SELECT COUNT(*) FROM migrations WHERE migration = ' . $migrationId)->fetchColumn();
+		if (intval($rowCount) === 0)
 		{
-			if ($pdo->exec(utf8_encode($sql)) === false)
-			{
-				throw new Exception($pdo->errorInfo());
-			}
-
-			$pdo->exec('INSERT INTO migrations (migration) VALUES (' . $migrationId . ')');
+			Grocy::ExecuteDbStatement($pdo, $sql);
+			Grocy::ExecuteDbStatement($pdo, 'INSERT INTO migrations (migration) VALUES (' . $migrationId . ')');
 		}
 	}
 }

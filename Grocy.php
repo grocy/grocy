@@ -6,17 +6,21 @@ class Grocy
 	/**
 	 * @return PDO
 	 */
-	public static function GetDbConnectionRaw()
+	public static function GetDbConnectionRaw($doMigrations = false)
 	{
+		if ($doMigrations === true)
+		{
+			self::$DbConnectionRaw = null;
+		}
+
 		if (self::$DbConnectionRaw == null)
 		{
-			$newDb = !file_exists(__DIR__ . '/data/grocy.db');
 			$pdo = new PDO('sqlite:' . __DIR__ . '/data/grocy.db');
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-			if ($newDb)
+			if ($doMigrations === true)
 			{
-				$pdo->exec("CREATE TABLE migrations (migration INTEGER NOT NULL UNIQUE, execution_time_timestamp DATETIME DEFAULT (datetime('now', 'localtime')), PRIMARY KEY(migration)) WITHOUT ROWID");
+				Grocy::ExecuteDbStatement($pdo, "CREATE TABLE IF NOT EXISTS migrations (migration INTEGER NOT NULL UNIQUE, execution_time_timestamp DATETIME DEFAULT (datetime('now', 'localtime')), PRIMARY KEY(migration)) WITHOUT ROWID");
 				GrocyDbMigrator::MigrateDb($pdo);
 
 				if (self::IsDemoInstallation())
@@ -35,14 +39,39 @@ class Grocy
 	/**
 	 * @return LessQL\Database
 	 */
-	public static function GetDbConnection()
+	public static function GetDbConnection($doMigrations = false)
 	{
+		if ($doMigrations === true)
+		{
+			self::$DbConnection = null;
+		}
+
 		if (self::$DbConnection == null)
 		{
-			self::$DbConnection = new LessQL\Database(self::GetDbConnectionRaw());
+			self::$DbConnection = new LessQL\Database(self::GetDbConnectionRaw($doMigrations));
 		}
 
 		return self::$DbConnection;
+	}
+
+	public static function ExecuteDbStatement(PDO $pdo, string $sql)
+	{
+		if ($pdo->exec(utf8_encode($sql)) === false)
+		{
+			throw new Exception($pdo->errorInfo());
+		}
+
+		return true;
+	}
+
+	public static function ExecuteDbQuery(PDO $pdo, string $sql)
+	{
+		if (self::ExecuteDbStatement($pdo, $sql) === true)
+		{
+			return $pdo->query(utf8_encode($sql));
+		}
+
+		return false;
 	}
 
 	public static function IsDemoInstallation()

@@ -36,6 +36,8 @@ $db = Grocy::GetDbConnection();
 
 $app->get('/', function(Request $request, Response $response) use($db)
 {
+	$db = Grocy::GetDbConnection(true); //For database schema migration
+
 	return $this->renderer->render($response, '/layout.php', [
 		'title' => 'Dashboard',
 		'contentPage' => 'dashboard.php',
@@ -167,7 +169,7 @@ $app->get('/quantityunit/{quantityunitId}', function(Request $request, Response 
 	}
 });
 
-$app->group('/api', function() use($db, $app)
+$app->group('/api', function() use($db)
 {
 	$this->get('/get-objects/{entity}', function(Request $request, Response $response, $args) use($db)
 	{
