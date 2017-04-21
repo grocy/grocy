@@ -268,11 +268,13 @@ $('#best_before_date').on('keypress', function(e)
 
 	$('.datepicker').datepicker('hide');
 
-	if (value.length === 0)
+	//If input is empty and any arrow key is pressed, set date to today
+	if (value.length === 0 && (e.keyCode === 38 || e.keyCode === 40 || e.keyCode === 37 || e.keyCode === 39))
 	{
-		element.val(moment().format('YYYY-MM-DD'));
+		dateObj = moment(new Date(), 'YYYY-MM-DD', true);
 	}
-	else if (dateObj.isValid())
+
+	if (dateObj.isValid())
 	{
 		if (e.keyCode === 38) //Up
 		{
