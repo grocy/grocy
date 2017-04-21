@@ -6,7 +6,7 @@
 
 		<div class="form-group">
 			<label for="product_id">Product&nbsp;&nbsp;<i class="fa fa-barcode"></i></label>
-			<select data-instockproduct="instockproduct" class="form-control combobox" id="product_id" name="product_id" required>
+			<select class="form-control combobox" id="product_id" name="product_id" required>
 				<option value=""></option>
 				<?php foreach ($products as $product) : ?>
 					<option data-additional-searchdata="<?php echo $product->barcode; ?>" value="<?php echo $product->id; ?>"><?php echo $product->name; ?></option>

@@ -81,7 +81,7 @@ class GrocyDbMigrator
 				ON p.id = s.product_id
 			WHERE p.min_stock_amount != 0
 			GROUP BY p.id
-			HAVING SUM(s.amount) < p.min_stock_amount;"
+			HAVING IFNULL(SUM(s.amount), 0) < p.min_stock_amount;"
 		);
 
 		self::ExecuteMigrationWhenNeeded($pdo, 8, "
@@ -91,6 +91,16 @@ class GrocyDbMigrator
 			from stock
 			GROUP BY product_id
 			ORDER BY MIN(best_before_date) ASC;"
+		);
+
+		self::ExecuteMigrationWhenNeeded($pdo, 9, "
+			CREATE TABLE shopping_list (
+				id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+				product_id INTEGER NOT NULL UNIQUE,
+				amount INTEGER NOT NULL DEFAULT 0,
+				amount_autoadded INTEGER NOT NULL DEFAULT 0,
+				row_created_timestamp DATETIME DEFAULT (datetime('now', 'localtime'))
+			)"
 		);
 	}
 

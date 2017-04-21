@@ -37,7 +37,7 @@ $db = Grocy::GetDbConnection();
 $app->get('/', function(Request $request, Response $response) use($db)
 {
 	$db = Grocy::GetDbConnection(true); //For database schema migration
-	
+
 	return $this->renderer->render($response, '/layout.php', [
 		'title' => 'Dashboard',
 		'contentPage' => 'dashboard.php',
@@ -71,6 +71,18 @@ $app->get('/inventory', function(Request $request, Response $response) use($db)
 		'title' => 'Inventory',
 		'contentPage' => 'inventory.php',
 		'products' => $db->products()
+	]);
+});
+
+$app->get('/shoppinglist', function(Request $request, Response $response) use($db)
+{
+	return $this->renderer->render($response, '/layout.php', [
+		'title' => 'Shopping list',
+		'contentPage' => 'shoppinglist.php',
+		'listItems' => $db->shopping_list(),
+		'products' => $db->products(),
+		'quantityunits' => $db->quantity_units(),
+		'missingProducts' => GrocyLogicStock::GetMissingProducts()
 	]);
 });
 
@@ -170,6 +182,29 @@ $app->get('/quantityunit/{quantityunitId}', function(Request $request, Response 
 	}
 });
 
+$app->get('/shoppinglist/{itemId}', function(Request $request, Response $response, $args) use($db)
+{
+	if ($args['itemId'] == 'new')
+	{
+		return $this->renderer->render($response, '/layout.php', [
+			'title' => 'Add shopping list item',
+			'contentPage' => 'shoppinglistform.php',
+			'products' => $db->products(),
+			'mode' => 'create'
+		]);
+	}
+	else
+	{
+		return $this->renderer->render($response, '/layout.php', [
+			'title' => 'Edit shopping list item',
+			'contentPage' => 'shoppinglistform.php',
+			'listItem' => $db->shopping_list($args['itemId']),
+			'products' => $db->products(),
+			'mode' => 'edit'
+		]);
+	}
+});
+
 $app->group('/api', function() use($db)
 {
 	$this->get('/get-objects/{entity}', function(Request $request, Response $response, $args) use($db)
@@ -259,6 +294,12 @@ $app->group('/api', function() use($db)
 	$this->get('/stock/get-current-stock', function(Request $request, Response $response)
 	{
 		echo json_encode(GrocyLogicStock::GetCurrentStock());
+	});
+
+	$this->get('/stock/add-missing-products-to-shoppinglist', function(Request $request, Response $response)
+	{
+		GrocyLogicStock::AddMissingProductsToShoppingList();
+		echo json_encode(array('success' => true));
 	});
 })->add(function($request, $response, $next)
 {

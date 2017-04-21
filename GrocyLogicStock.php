@@ -160,4 +160,32 @@ class GrocyLogicStock
 
 		return true;
 	}
+
+	public static function AddMissingProductsToShoppingList()
+	{
+		$db = Grocy::GetDbConnection();
+
+		$missingProducts = self::GetMissingProducts();
+		foreach ($missingProducts as $missingProduct)
+		{
+			$product = $db->products()->where('id', $missingProduct->id)->fetch();
+			$amount = ceil($missingProduct->amount_missing / $product->qu_factor_purchase_to_stock);
+
+			$alreadyExistingEntry = $db->shopping_list()->where('product_id', $missingProduct->id)->fetch();
+			if ($alreadyExistingEntry) //Update
+			{
+				$alreadyExistingEntry->update(array(
+					'amount_autoadded' => $amount
+				));
+			}
+			else //Insert
+			{
+				$shoppinglistRow = $db->shopping_list()->createRow(array(
+					'product_id' => $missingProduct->id,
+					'amount_autoadded' => $amount
+				));
+				$shoppinglistRow->save();
+			}
+		}
+	}
 }

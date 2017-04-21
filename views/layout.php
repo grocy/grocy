@@ -52,6 +52,9 @@
 					<li data-nav-for-page="inventory.php">
 						<a class="discrete-link" href="/inventory"><i class="fa fa-list fa-fw"></i>&nbsp;Inventory</a>
 					</li>
+					<li data-nav-for-page="shoppinglist.php">
+						<a class="discrete-link" href="/shoppinglist"><i class="fa fa-shopping-bag fa-fw"></i>&nbsp;Shopping list</a>
+					</li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -87,6 +90,9 @@
 					</li>
 					<li data-nav-for-page="inventory.php">
 						<a class="discrete-link" href="/inventory"><i class="fa fa-list fa-fw"></i>&nbsp;Inventory</a>
+					</li>
+					<li data-nav-for-page="shoppinglist.php">
+						<a class="discrete-link" href="/shoppinglist"><i class="fa fa-shopping-bag fa-fw"></i>&nbsp;Shopping list</a>
 					</li>
 				</ul>
 
