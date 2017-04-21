@@ -54,6 +54,9 @@ class Grocy
 		return self::$DbConnection;
 	}
 
+	/**
+	 * @return boolean
+	 */
 	public static function ExecuteDbStatement(PDO $pdo, string $sql)
 	{
 		if ($pdo->exec(utf8_encode($sql)) === false)
@@ -64,6 +67,9 @@ class Grocy
 		return true;
 	}
 
+	/**
+	 * @return boolean|PDOStatement
+	 */
 	public static function ExecuteDbQuery(PDO $pdo, string $sql)
 	{
 		if (self::ExecuteDbStatement($pdo, $sql) === true)
@@ -74,12 +80,18 @@ class Grocy
 		return false;
 	}
 
+	/**
+	 * @return boolean
+	 */
 	public static function IsDemoInstallation()
 	{
 		return file_exists(__DIR__ . '/data/demo.txt');
 	}
 
 	private static $InstalledVersion;
+	/**
+	 * @return string
+	 */
 	public static function GetInstalledVersion()
 	{
 		if (self::$InstalledVersion == null)

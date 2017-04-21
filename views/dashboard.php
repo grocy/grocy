@@ -4,10 +4,14 @@
 
 	<h3>Stock overview</h3>
 
-	<div>
-		<p class="btn btn-lg btn-warning no-real-button"><strong><?php echo count(GrocyPhpHelper::FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d', strtotime('+5 days')), '<')); ?></strong> products expiring within the next 5 days</p>
-		<p class="btn btn-lg btn-danger no-real-button"><strong><?php echo count(GrocyPhpHelper::FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d', strtotime('-1 days')), '<')); ?></strong> products are already expired</p>
+	<div class="container-fluid">
+		<div class="row">
+			<p class="btn btn-lg btn-warning no-real-button"><strong><?php echo count(GrocyPhpHelper::FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d', strtotime('+5 days')), '<')); ?></strong> products expiring within the next 5 days</p>
+			<p class="btn btn-lg btn-danger no-real-button"><strong><?php echo count(GrocyPhpHelper::FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d', strtotime('-1 days')), '<')); ?></strong> products are already expired</p>
+		</div>
 	</div>
+
+	<div class="discrete-content-separator-2x"></div>
 
 	<div class="table-responsive">
 		<table id="current-stock-table" class="table table-striped">

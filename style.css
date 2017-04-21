@@ -118,3 +118,13 @@
 .error-bg {
 	background-color: #f2dede !important;
 }
+
+.discrete-content-separator {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.discrete-content-separator-2x {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}

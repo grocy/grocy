@@ -1,4 +1,5 @@
 <div class="col-sm-4 col-sm-offset-3 col-md-3 col-md-offset-2 main">
+
 	<h1 class="page-header">Purchase</h1>
 
 	<form id="purchase-form">
