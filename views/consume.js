@@ -1,8 +1,8 @@
-﻿$('#save-consumption-button').on('click', function(e)
+﻿$('#save-consume-button').on('click', function(e)
 {
 	e.preventDefault();
 
-	var jsonForm = $('#consumption-form').serializeJSON();
+	var jsonForm = $('#consume-form').serializeJSON();
 
 	var spoiled = 0;
 	if ($('#spoiled').is(':checked'))
@@ -23,7 +23,7 @@
 					$('#product_id_text_input').focus();
 					$('#product_id_text_input').val('');
 					$('#product_id_text_input').trigger('change');
-					$('#consumption-form').validator('validate');
+					$('#consume-form').validator('validate');
 				},
 				function(xhr)
 				{
@@ -56,7 +56,7 @@ $('#product_id').on('change', function(e)
 				$('#selected-product-last-used').text((productDetails.last_used || 'never').substring(0, 10));
 				$('#selected-product-last-used-timeago').text($.timeago(productDetails.last_used || ''));
 				$('#amount').attr('max', productDetails.stock_amount);
-				$('#consumption-form').validator('update');
+				$('#consume-form').validator('update');
 				$('#amount_qu_unit').text(productDetails.quantity_unit_stock.name);
 
 				Grocy.EmptyElementWhenMatches('#selected-product-last-purchased-timeago', 'NaN years ago');
@@ -114,8 +114,8 @@ $(function()
 	$('#product_id_text_input').val('');
 	$('#product_id_text_input').trigger('change');
 
-	$('#consumption-form').validator();
-	$('#consumption-form').validator('validate');
+	$('#consume-form').validator();
+	$('#consume-form').validator('validate');
 
 	$('#amount').on('focus', function(e)
 	{
@@ -125,11 +125,11 @@ $(function()
 		}
 	});
 
-	$('#consumption-form input').keydown(function(event)
+	$('#consume-form input').keydown(function(event)
 	{
 		if (event.keyCode === 13) //Enter
 		{
-			if ($('#consumption-form').validator('validate').has('.has-error').length !== 0) //There is at least one validation error
+			if ($('#consume-form').validator('validate').has('.has-error').length !== 0) //There is at least one validation error
 			{
 				event.preventDefault();
 				return false;

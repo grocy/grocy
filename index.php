@@ -57,11 +57,11 @@ $app->get('/purchase', function(Request $request, Response $response) use($db)
 	]);
 });
 
-$app->get('/consumption', function(Request $request, Response $response) use($db)
+$app->get('/consume', function(Request $request, Response $response) use($db)
 {
 	return $this->renderer->render($response, '/layout.php', [
-		'title' => 'Consumption',
-		'contentPage' => 'consumption.php',
+		'title' => 'Consume',
+		'contentPage' => 'consume.php',
 		'products' => $db->products()
 	]);
 });

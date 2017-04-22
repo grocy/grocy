@@ -1,8 +1,8 @@
 <div class="col-sm-3 col-sm-offset-3 col-md-3 col-md-offset-2 main">
 
-	<h1 class="page-header">Consumption</h1>
+	<h1 class="page-header">Consume</h1>
 
-	<form id="consumption-form">
+	<form id="consume-form">
 
 		<div class="form-group">
 			<label for="product_id">Product&nbsp;&nbsp;<i class="fa fa-barcode"></i></label>
@@ -27,7 +27,7 @@
 			</label>
 		</div>
 
-		<button id="save-consumption-button" type="submit" class="btn btn-default">OK</button>
+		<button id="save-consume-button" type="submit" class="btn btn-default">OK</button>
 
 	</form>
 

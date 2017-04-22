@@ -47,8 +47,8 @@
 					<li data-nav-for-page="purchase.php">
 						<a class="discrete-link" href="/purchase"><i class="fa fa-shopping-cart fa-fw"></i>&nbsp;Purchase</a>
 					</li>
-					<li data-nav-for-page="consumption.php">
-						<a class="discrete-link" href="/consumption"><i class="fa fa-cutlery fa-fw"></i>&nbsp;Consumption</a>
+					<li data-nav-for-page="consume.php">
+						<a class="discrete-link" href="/consume"><i class="fa fa-cutlery fa-fw"></i>&nbsp;Consume</a>
 					</li>
 					<li data-nav-for-page="inventory.php">
 						<a class="discrete-link" href="/inventory"><i class="fa fa-list fa-fw"></i>&nbsp;Inventory</a>
@@ -87,8 +87,8 @@
 					<li data-nav-for-page="purchase.php">
 						<a class="discrete-link" href="/purchase"><i class="fa fa-shopping-cart fa-fw"></i>&nbsp;Purchase</a>
 					</li>
-					<li data-nav-for-page="consumption.php">
-						<a class="discrete-link" href="/consumption"><i class="fa fa-cutlery fa-fw"></i>&nbsp;Consumption</a>
+					<li data-nav-for-page="consume.php">
+						<a class="discrete-link" href="/consume"><i class="fa fa-cutlery fa-fw"></i>&nbsp;Consume</a>
 					</li>
 					<li data-nav-for-page="inventory.php">
 						<a class="discrete-link" href="/inventory"><i class="fa fa-list fa-fw"></i>&nbsp;Inventory</a>

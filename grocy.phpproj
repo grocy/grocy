@@ -29,7 +29,7 @@
     <Compile Include="GrocyPhpHelper.php" />
     <Compile Include="GrocyDbMigrator.php" />
     <Compile Include="index.php" />
-    <Compile Include="views\consumption.php" />
+    <Compile Include="views\consume.php" />
     <Compile Include="views\inventory.php" />
     <Compile Include="views\shoppinglistform.php" />
     <Compile Include="views\shoppinglist.php" />
@@ -57,7 +57,7 @@
     <Content Include="robots.txt" />
     <Content Include="style.css" />
     <Content Include="version.txt" />
-    <Content Include="views\consumption.js" />
+    <Content Include="views\consume.js" />
     <Content Include="views\dashboard.js" />
     <Content Include="views\inventory.js" />
     <Content Include="views\shoppinglistform.js" />
