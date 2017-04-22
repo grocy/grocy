@@ -24,7 +24,7 @@ class GrocyLogicStock
 
 		$product = $db->products($productId);
 		$productStockAmount = $db->stock()->where('product_id', $productId)->sum('amount');
-		$productLastPurchased = $db->stock()->where('product_id', $productId)->max('purchased_date');
+		$productLastPurchased = $db->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_PURCHASE)->max('purchased_date');
 		$productLastUsed = $db->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->max('used_date');
 		$quPurchase = $db->quantity_units($product->qu_id_purchase);
 		$quStock = $db->quantity_units($product->qu_id_stock);
