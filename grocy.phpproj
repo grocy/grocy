@@ -41,6 +41,7 @@
     <Content Include="bower.json" />
     <None Include="build.bat" />
     <Content Include="composer.json" />
+    <Content Include="grocy.png" />
     <Content Include="grocy.js" />
     <None Include="README.md" />
     <Content Include="README.html">

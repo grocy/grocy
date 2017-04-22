@@ -8,6 +8,7 @@
 	<meta name="robots" content="noindex,nofollow" />
 
 	<meta name="author" content="Bernd Bestel (bernd@berrnd.de)" />
+	<link rel="icon" href="/grocy.png" />
 
 	<title><?php echo $title; ?> | grocy</title>
 
