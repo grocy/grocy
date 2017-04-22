@@ -182,7 +182,7 @@ $app->get('/quantityunit/{quantityunitId}', function(Request $request, Response 
 	}
 });
 
-$app->get('/shoppinglist/{itemId}', function(Request $request, Response $response, $args) use($db)
+$app->get('/shoppinglistitem/{itemId}', function(Request $request, Response $response, $args) use($db)
 {
 	if ($args['itemId'] == 'new')
 	{

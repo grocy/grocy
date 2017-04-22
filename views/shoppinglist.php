@@ -2,7 +2,7 @@
 
 	<h1 class="page-header">
 		Shopping List
-		<a class="btn btn-default" href="/shoppinglist/new" role="button">
+		<a class="btn btn-default" href="/shoppinglistitem/new" role="button">
 			<i class="fa fa-plus"></i>&nbsp;Add
 		</a>
 		<a id="add-products-below-min-stock-amount" class="btn btn-info" href="#" role="button">
@@ -23,7 +23,7 @@
 				<?php foreach ($listItems as $listItem) : ?>
 				<tr>
 					<td class="fit-content">
-						<a class="btn btn-info" href="/shoppinglist/<?php echo $listItem->id; ?>" role="button">
+						<a class="btn btn-info" href="/shoppinglistitem/<?php echo $listItem->id; ?>" role="button">
 							<i class="fa fa-pencil"></i>
 						</a>
 						<a class="btn btn-danger shoppinglist-delete-button" href="#" role="button" data-shoppinglist-id="<?php echo $listItem->id; ?>">
