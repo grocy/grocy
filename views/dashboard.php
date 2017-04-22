@@ -30,7 +30,7 @@
 						<?php echo GrocyPhpHelper::FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name; ?>
 					</td>
 					<td>
-						<?php echo $currentStockEntry->amount; ?>
+						<?php echo $currentStockEntry->amount . ' ' . GrocyPhpHelper::FindObjectInArrayByPropertyValue($quantityunits, 'id', GrocyPhpHelper::FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name; ?>
 					</td>
 					<td>
 						<?php echo $currentStockEntry->best_before_date; ?>

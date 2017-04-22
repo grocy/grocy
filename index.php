@@ -42,6 +42,7 @@ $app->get('/', function(Request $request, Response $response) use($db)
 		'title' => 'Dashboard',
 		'contentPage' => 'dashboard.php',
 		'products' => $db->products(),
+		'quantityunits' => $db->quantity_units(),
 		'currentStock' => GrocyLogicStock::GetCurrentStock(),
 		'missingProducts' => GrocyLogicStock::GetMissingProducts()
 	]);
