@@ -278,6 +278,10 @@ $('#best_before_date').on('change', function(e)
 	var centuryStart = Number.parseInt(now.getFullYear().toString().substring(0, 2) + '00');
 	var centuryEnd = Number.parseInt(now.getFullYear().toString().substring(0, 2) + '99');
 
+	if (value === 'x' || value === 'X') {
+		value = '29991231';
+	}
+
 	if (value.length === 4 && !(Number.parseInt(value) > centuryStart && Number.parseInt(value) < centuryEnd))
 	{
 		value = (new Date()).getFullYear().toString() + value;
