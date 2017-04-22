@@ -45,10 +45,10 @@
 						<a class="discrete-link" href="/"><i class="fa fa-tachometer fa-fw"></i>&nbsp;Dashboard</a>
 					</li>
 					<li data-nav-for-page="purchase.php">
-						<a class="discrete-link" href="/purchase"><i class="fa fa-shopping-cart fa-fw"></i>&nbsp;Record purchase</a>
+						<a class="discrete-link" href="/purchase"><i class="fa fa-shopping-cart fa-fw"></i>&nbsp;Purchase</a>
 					</li>
 					<li data-nav-for-page="consumption.php">
-						<a class="discrete-link" href="/consumption"><i class="fa fa-cutlery fa-fw"></i>&nbsp;Record consumption</a>
+						<a class="discrete-link" href="/consumption"><i class="fa fa-cutlery fa-fw"></i>&nbsp;Consumption</a>
 					</li>
 					<li data-nav-for-page="inventory.php">
 						<a class="discrete-link" href="/inventory"><i class="fa fa-list fa-fw"></i>&nbsp;Inventory</a>
@@ -59,14 +59,15 @@
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
+					<li class="disabled"><a href="#"><strong>Manage master data</strong></a></li>
 					<li data-nav-for-page="products.php">
-						<a class="discrete-link" href="/products"><i class="fa fa-product-hunt fa-fw"></i>&nbsp;Manage products</a>
+						<a class="discrete-link" href="/products"><i class="fa fa-product-hunt fa-fw"></i>&nbsp;Products</a>
 					</li>
 					<li data-nav-for-page="locations.php">
-						<a class="discrete-link" href="/locations"><i class="fa fa-map-marker fa-fw"></i>&nbsp;Manage locations</a>
+						<a class="discrete-link" href="/locations"><i class="fa fa-map-marker fa-fw"></i>&nbsp;Locations</a>
 					</li>
 					<li data-nav-for-page="quantityunits.php">
-						<a class="discrete-link" href="/quantityunits"><i class="fa fa-balance-scale fa-fw"></i>&nbsp;Manage quantity units</a>
+						<a class="discrete-link" href="/quantityunits"><i class="fa fa-balance-scale fa-fw"></i>&nbsp;Quantity units</a>
 					</li>
 				</ul>
 
@@ -84,10 +85,10 @@
 						<a class="discrete-link" href="/"><i class="fa fa-tachometer fa-fw"></i>&nbsp;Dashboard</a>
 					</li>
 					<li data-nav-for-page="purchase.php">
-						<a class="discrete-link" href="/purchase"><i class="fa fa-shopping-cart fa-fw"></i>&nbsp;Record purchase</a>
+						<a class="discrete-link" href="/purchase"><i class="fa fa-shopping-cart fa-fw"></i>&nbsp;Purchase</a>
 					</li>
 					<li data-nav-for-page="consumption.php">
-						<a class="discrete-link" href="/consumption"><i class="fa fa-cutlery fa-fw"></i>&nbsp;Record consumption</a>
+						<a class="discrete-link" href="/consumption"><i class="fa fa-cutlery fa-fw"></i>&nbsp;Consumption</a>
 					</li>
 					<li data-nav-for-page="inventory.php">
 						<a class="discrete-link" href="/inventory"><i class="fa fa-list fa-fw"></i>&nbsp;Inventory</a>
@@ -98,14 +99,15 @@
 				</ul>
 
 				<ul class="nav nav-sidebar">
+					<li class="disabled"><a href="#"><strong>Manage master data</strong></a></li>
 					<li data-nav-for-page="products.php">
-						<a class="discrete-link" href="/products"><i class="fa fa-product-hunt fa-fw"></i>&nbsp;Manage products</a>
+						<a class="discrete-link" href="/products"><i class="fa fa-product-hunt fa-fw"></i>&nbsp;Products</a>
 					</li>
 					<li data-nav-for-page="locations.php">
-						<a class="discrete-link" href="/locations"><i class="fa fa-map-marker fa-fw"></i>&nbsp;Manage locations</a>
+						<a class="discrete-link" href="/locations"><i class="fa fa-map-marker fa-fw"></i>&nbsp;Locations</a>
 					</li>
 					<li data-nav-for-page="quantityunits.php">
-						<a class="discrete-link" href="/quantityunits"><i class="fa fa-balance-scale fa-fw"></i>&nbsp;Manage quantity units</a>
+						<a class="discrete-link" href="/quantityunits"><i class="fa fa-balance-scale fa-fw"></i>&nbsp;Quantity units</a>
 					</li>
 				</ul>
 

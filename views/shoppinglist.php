@@ -1,7 +1,7 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
 	<h1 class="page-header">
-		Shopping List
+		Shopping list
 		<a class="btn btn-default" href="/shoppinglistitem/new" role="button">
 			<i class="fa fa-plus"></i>&nbsp;Add
 		</a>
