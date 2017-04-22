@@ -80,7 +80,7 @@ class GrocyLogicStock
 			$db = Grocy::GetDbConnection();
 
 			$productStockAmount = $db->stock()->where('product_id', $productId)->sum('amount');
-			$potentialStockEntries = $db->stock()->where('product_id', $productId)->orderBy('purchased_date', 'ASC')->fetchAll(); //FIFO
+			$potentialStockEntries = $db->stock()->where('product_id', $productId)->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC')->fetchAll(); //First expiring first, then first in first out
 
 			if ($amount > $productStockAmount)
 			{
