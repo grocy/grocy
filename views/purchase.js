@@ -43,7 +43,7 @@
 					}
 					else
 					{
-						$('#amount').val(1);
+						$('#amount').val(0);
 						$('#best_before_date').val('');
 						$('#product_id').val('');
 						$('#product_id_text_input').focus();
@@ -87,6 +87,7 @@ $('#product_id').on('change', function(e)
 				if (productDetails.product.default_best_before_days.toString() !== '0')
 				{
 					$('#best_before_date').val(moment().add(productDetails.product.default_best_before_days, 'days').format('YYYY-MM-DD'));
+					$('#best_before_date').trigger('change');
 				}
 
 				Grocy.EmptyElementWhenMatches('#selected-product-last-purchased-timeago', 'NaN years ago');
@@ -191,7 +192,7 @@ $(function()
 		}
 	});
 
-	$('#amount').val(1);
+	$('#amount').val(0);
 	$('#best_before_date').val('');
 	$('#product_id').val('');
 	$('#product_id_text_input').focus();
