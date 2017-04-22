@@ -274,6 +274,15 @@ $('#best_before_date-datepicker-button').on('click', function(e)
 $('#best_before_date').on('change', function(e)
 {
 	var value = $('#best_before_date').val();
+	var now = new Date();
+	var centuryStart = Number.parseInt(now.getFullYear().toString().substring(0, 2) + '00');
+	var centuryEnd = Number.parseInt(now.getFullYear().toString().substring(0, 2) + '99');
+
+	if (value.length === 4 && !(Number.parseInt(value) > centuryStart && Number.parseInt(value) < centuryEnd))
+	{
+		value = (new Date()).getFullYear().toString() + value;
+	}
+
 	if (value.length === 8 && $.isNumeric(value))
 	{
 		value = value.replace(/(\d{4})(\d{2})(\d{2})/, '$1-$2-$3');
