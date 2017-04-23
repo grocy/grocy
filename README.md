@@ -16,5 +16,15 @@ Just unpack the [latest release](https://github.com/berrnd/grocy/releases/latest
 ## Notes about barcode readers
 Some fields also allow to select a value by scanning a barcode. It works best when your barcode reader prefixes every barcode with a letter this is normally not part of a item name (I use a `$`) and sends a `TAB` after a scan.
 
+## Screenshots
+#### Dashboard
+![Dashboard](https://github.com/berrnd/grocy/raw/master/publication_assets/dashboard.png "Dashboard")
+
+#### Purchase - with barcode scan
+![Purchase - with barcode scan](https://github.com/berrnd/grocy/raw/master/publication_assets/purchase-with-barcode.gif "purchase-with-barcode")
+
+#### Consume - with manual search
+![Consume - with manual search](https://github.com/berrnd/grocy/raw/master/publication_assets/consume.gif "consume")
+
 ## License
 The MIT License (MIT)
