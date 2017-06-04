@@ -30,6 +30,7 @@
     <Compile Include="GrocyDbMigrator.php" />
     <Compile Include="index.php" />
     <Compile Include="views\consume.php" />
+    <Compile Include="views\login.php" />
     <Compile Include="views\inventory.php" />
     <Compile Include="views\shoppinglistform.php" />
     <Compile Include="views\shoppinglist.php" />
@@ -60,6 +61,7 @@
     <Content Include="views\consume.js" />
     <Content Include="views\dashboard.js" />
     <Content Include="views\inventory.js" />
+    <Content Include="views\login.js" />
     <Content Include="views\shoppinglistform.js" />
     <Content Include="views\shoppinglist.js" />
     <Content Include="views\purchase.js" />

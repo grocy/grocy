@@ -2,7 +2,6 @@
     "require": {
         "slim/slim": "^3.8",
         "slim/php-view": "^2.2",
-        "morris/lessql": "^0.3.4",
-        "tuupola/slim-basic-auth": "^2.2"
+        "morris/lessql": "^0.3.4"
     }
 }

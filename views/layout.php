@@ -38,6 +38,14 @@
 				<a class="navbar-brand" href="/">grocy</a>
 			</div>
 
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a class="discrete-link logout-button" href="/logout"><i class="fa fa-sign-out fa-fw"></i>&nbsp;Logout</a>
+					</li>
+				</ul>
+			</div>
+
 			<div id="navbar-mobile" class="navbar-collapse collapse">
 
 				<ul class="nav navbar-nav navbar-right">
@@ -68,6 +76,12 @@
 					</li>
 					<li data-nav-for-page="quantityunits.php">
 						<a class="discrete-link" href="/quantityunits"><i class="fa fa-balance-scale fa-fw"></i>&nbsp;Quantity units</a>
+					</li>
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a class="discrete-link logout-button" href="/logout"><i class="fa fa-sign-out fa-fw"></i>&nbsp;Logout</a>
 					</li>
 				</ul>
 

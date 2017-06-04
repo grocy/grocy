@@ -15,6 +15,7 @@ require_once __DIR__ . '/GrocyPhpHelper.php';
 $app = new \Slim\App(new \Slim\Container([
 	'settings' => [
 		'displayErrorDetails' => true,
+		'determineRouteBeforeAppMiddleware' => true
 	],
 ]));
 $container = $app->getContainer();
@@ -22,17 +23,64 @@ $container['renderer'] = new PhpRenderer('./views');
 
 if (!Grocy::IsDemoInstallation())
 {
-	$isHttpsReverseProxied = !empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https';
-	$app->add(new \Slim\Middleware\HttpBasicAuthentication([
-		'realm' => 'grocy',
-		'secure' => !$isHttpsReverseProxied,
-		'users' => [
-			HTTP_USER => HTTP_PASSWORD
-		]
-	]));
+	$sessionMiddleware = function(Request $request, Response $response, callable $next)
+	{
+		$route = $request->getAttribute('route');
+		$routeName = $route->getName();
+
+		if (!Grocy::IsValidSession($_COOKIE['grocy_session']) && $routeName !== 'login')
+		{
+			$response = $response->withRedirect('/login');
+		}
+		else
+		{
+			$response = $next($request, $response);
+		}
+
+		return $response;
+	};
+
+	$app->add($sessionMiddleware);
 }
 
 $db = Grocy::GetDbConnection();
+
+$app->get('/login', function(Request $request, Response $response)
+{
+	return $this->renderer->render($response, '/layout.php', [
+		'title' => 'Login',
+		'contentPage' => 'login.php'
+	]);
+})->setName('login');
+
+$app->post('/login', function(Request $request, Response $response)
+{
+	$postParams = $request->getParsedBody();
+	if (isset($postParams['username']) && isset($postParams['password']))
+	{
+		if ($postParams['username'] === HTTP_USER && $postParams['password'] === HTTP_PASSWORD)
+		{
+			$sessionKey = Grocy::CreateSession();
+			setcookie('grocy_session', $sessionKey, time()+2592000); //30 days
+
+			return $response->withRedirect('/');
+		}
+		else
+		{
+			return $response->withRedirect('/login?invalid=true');
+		}
+	}
+	else
+	{
+		return $response->withRedirect('/login?invalid=true');
+	}
+})->setName('login');
+
+$app->get('/logout', function(Request $request, Response $response)
+{
+	Grocy::RemoveSession($_COOKIE['grocy_session']);
+	return $response->withRedirect('/');
+});
 
 $app->get('/', function(Request $request, Response $response) use($db)
 {
