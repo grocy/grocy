@@ -24,14 +24,18 @@
   <ItemGroup>
     <Compile Include="config-dist.php" />
     <Compile Include="Grocy.php" />
+    <Compile Include="GrocyLogicHabits.php" />
     <Compile Include="GrocyLogicStock.php" />
     <Compile Include="GrocyDemoDataGenerator.php" />
     <Compile Include="GrocyPhpHelper.php" />
     <Compile Include="GrocyDbMigrator.php" />
     <Compile Include="index.php" />
+    <Compile Include="views\habittracking.php" />
     <Compile Include="views\consume.php" />
     <Compile Include="views\login.php" />
     <Compile Include="views\inventory.php" />
+    <Compile Include="views\habits.php" />
+    <Compile Include="views\habitform.php" />
     <Compile Include="views\shoppinglistform.php" />
     <Compile Include="views\shoppinglist.php" />
     <Compile Include="views\purchase.php" />
@@ -41,7 +45,8 @@
     <Compile Include="views\locations.php" />
     <Compile Include="views\quantityunits.php" />
     <Compile Include="views\products.php" />
-    <Compile Include="views\dashboard.php" />
+    <Compile Include="views\habitsoverview.php" />
+    <Compile Include="views\stockoverview.php" />
     <Compile Include="views\layout.php" />
   </ItemGroup>
   <ItemGroup>
@@ -58,10 +63,14 @@
     <Content Include="robots.txt" />
     <Content Include="style.css" />
     <Content Include="version.txt" />
+    <Content Include="views\habittracking.js" />
     <Content Include="views\consume.js" />
-    <Content Include="views\dashboard.js" />
+    <Content Include="views\habitsoverview.js" />
+    <Content Include="views\stockoverview.js" />
     <Content Include="views\inventory.js" />
     <Content Include="views\login.js" />
+    <Content Include="views\habits.js" />
+    <Content Include="views\habitform.js" />
     <Content Include="views\shoppinglistform.js" />
     <Content Include="views\shoppinglist.js" />
     <Content Include="views\purchase.js" />

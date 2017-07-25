@@ -57,4 +57,10 @@ class GrocyPhpHelper
 
 		return $sum;
 	}
+
+	public static function GetClassConstants($className)
+	{
+		$r = new ReflectionClass($className);
+		return $r->getConstants();
+	}
 }

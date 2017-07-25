@@ -35,6 +35,9 @@ class GrocyDemoDataGenerator
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('Radieschen', 4, 6, 6, 1); --14
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('Tomate', 4, 1, 1, 1); --15
 
+				INSERT INTO habits (name, period_type, period_days) VALUES ('Changed towels in the bathroom', 'manually', 5); --1
+				INSERT INTO habits (name, period_type, period_days) VALUES ('Cleaned the kitchen floor', 'dynamic-regular', 7); --2
+
 				INSERT INTO migrations (migration) VALUES (-1);
 			";
 
@@ -54,6 +57,12 @@ class GrocyDemoDataGenerator
 			GrocyLogicStock::AddProduct(14, 5, date('Y-m-d', strtotime('+2 days')), GrocyLogicStock::TRANSACTION_TYPE_PURCHASE);
 			GrocyLogicStock::AddProduct(15, 5, date('Y-m-d', strtotime('-2 days')), GrocyLogicStock::TRANSACTION_TYPE_PURCHASE);
 			GrocyLogicStock::AddMissingProductsToShoppingList();
+
+			GrocyLogicHabits::TrackHabit(1, date('Y-m-d H:i:s', strtotime('-5 days')));
+			GrocyLogicHabits::TrackHabit(1, date('Y-m-d H:i:s', strtotime('-10 days')));
+			GrocyLogicHabits::TrackHabit(1, date('Y-m-d H:i:s', strtotime('-15 days')));
+			GrocyLogicHabits::TrackHabit(2, date('Y-m-d H:i:s', strtotime('-10 days')));
+			GrocyLogicHabits::TrackHabit(2, date('Y-m-d H:i:s', strtotime('-20 days')));
 		}
 	}
 }

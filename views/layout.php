@@ -20,6 +20,7 @@
 	<link href="/bower_components/datatables.net-responsive-bs/css/responsive.bootstrap.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet" />
 	<link href="/bower_components/toastr/toastr.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet" />
 	<link href="/bower_components/tagmanager/tagmanager.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet" />
+	<link href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet" />
 	<link href="/style.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet" />
 
 	<script src="/bower_components/jquery/dist/jquery.min.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
@@ -49,9 +50,15 @@
 			<div id="navbar-mobile" class="navbar-collapse collapse">
 
 				<ul class="nav navbar-nav navbar-right">
-					<li data-nav-for-page="dashboard.php">
-						<a class="discrete-link" href="/"><i class="fa fa-tachometer fa-fw"></i>&nbsp;Dashboard</a>
+					<li data-nav-for-page="stockoverview.php">
+						<a class="discrete-link" href="/stockoverview"><i class="fa fa-tachometer fa-fw"></i>&nbsp;Stock overview</a>
 					</li>
+					<li data-nav-for-page="habitsoverview.php">
+						<a class="discrete-link" href="/habitsoverview"><i class="fa fa-tachometer fa-fw"></i>&nbsp;Habits overview</a>
+					</li>
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
 					<li data-nav-for-page="purchase.php">
 						<a class="discrete-link" href="/purchase"><i class="fa fa-shopping-cart fa-fw"></i>&nbsp;Purchase</a>
 					</li>
@@ -63,6 +70,9 @@
 					</li>
 					<li data-nav-for-page="shoppinglist.php">
 						<a class="discrete-link" href="/shoppinglist"><i class="fa fa-shopping-bag fa-fw"></i>&nbsp;Shopping list</a>
+					</li>
+					<li data-nav-for-page="habittracking.php">
+						<a class="discrete-link" href="/habittracking"><i class="fa fa-play fa-fw"></i>&nbsp;Habit tracking</a>
 					</li>
 				</ul>
 
@@ -76,6 +86,9 @@
 					</li>
 					<li data-nav-for-page="quantityunits.php">
 						<a class="discrete-link" href="/quantityunits"><i class="fa fa-balance-scale fa-fw"></i>&nbsp;Quantity units</a>
+					</li>
+					<li data-nav-for-page="habits.php">
+						<a class="discrete-link" href="/habits"><i class="fa fa-refresh fa-fw"></i>&nbsp;Habits</a>
 					</li>
 				</ul>
 
@@ -95,9 +108,15 @@
 			<div class="col-sm-3 col-md-2 sidebar">
 
 				<ul class="nav nav-sidebar">
-					<li data-nav-for-page="dashboard.php">
-						<a class="discrete-link" href="/"><i class="fa fa-tachometer fa-fw"></i>&nbsp;Dashboard</a>
+					<li data-nav-for-page="stockoverview.php">
+						<a class="discrete-link" href="/stockoverview"><i class="fa fa-tachometer fa-fw"></i>&nbsp;Stock overview</a>
 					</li>
+					<li data-nav-for-page="habitsoverview.php">
+						<a class="discrete-link" href="/habitsoverview"><i class="fa fa-tachometer fa-fw"></i>&nbsp;Habits overview</a>
+					</li>
+				</ul>
+
+				<ul class="nav nav-sidebar">
 					<li data-nav-for-page="purchase.php">
 						<a class="discrete-link" href="/purchase"><i class="fa fa-shopping-cart fa-fw"></i>&nbsp;Purchase</a>
 					</li>
@@ -109,6 +128,9 @@
 					</li>
 					<li data-nav-for-page="shoppinglist.php">
 						<a class="discrete-link" href="/shoppinglist"><i class="fa fa-shopping-bag fa-fw"></i>&nbsp;Shopping list</a>
+					</li>
+					<li data-nav-for-page="habittracking.php">
+						<a class="discrete-link" href="/habittracking"><i class="fa fa-play fa-fw"></i>&nbsp;Habit tracking</a>
 					</li>
 				</ul>
 
@@ -122,6 +144,9 @@
 					</li>
 					<li data-nav-for-page="quantityunits.php">
 						<a class="discrete-link" href="/quantityunits"><i class="fa fa-balance-scale fa-fw"></i>&nbsp;Quantity units</a>
+					</li>
+					<li data-nav-for-page="habits.php">
+						<a class="discrete-link" href="/habits"><i class="fa fa-refresh fa-fw"></i>&nbsp;Habits</a>
 					</li>
 				</ul>
 
@@ -162,6 +187,7 @@
 	<script src="/bower_components/jquery-timeago/jquery.timeago.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
 	<script src="/bower_components/toastr/toastr.min.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
 	<script src="/bower_components/tagmanager/tagmanager.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
+	<script src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
 
 	<?php if (file_exists(__DIR__ . '/' . str_replace('.php', '.js', $contentPage))) : ?>
 		<script src="/views/<?php echo str_replace('.php', '.js', $contentPage) . '?v=' . Grocy::GetInstalledVersion(); ?>"></script>

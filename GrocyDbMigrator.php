@@ -88,7 +88,7 @@ class GrocyDbMigrator
 			CREATE VIEW stock_current
 			AS
 			SELECT product_id, SUM(amount) AS amount, MIN(best_before_date) AS best_before_date
-			from stock
+			FROM stock
 			GROUP BY product_id
 			ORDER BY MIN(best_before_date) ASC;"
 		);
@@ -101,6 +101,35 @@ class GrocyDbMigrator
 				amount_autoadded INTEGER NOT NULL DEFAULT 0,
 				row_created_timestamp DATETIME DEFAULT (datetime('now', 'localtime'))
 			)"
+		);
+
+		self::ExecuteMigrationWhenNeeded($pdo, 10, "
+			CREATE TABLE habits (
+				id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+				name TEXT NOT NULL UNIQUE,
+				description TEXT,
+				period_type TEXT NOT NULL,
+				period_days INTEGER,
+				row_created_timestamp DATETIME DEFAULT (datetime('now', 'localtime'))
+			)"
+		);
+
+		self::ExecuteMigrationWhenNeeded($pdo, 11, "
+			CREATE TABLE habits_log (
+				id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+				habit_id INTEGER NOT NULL,
+				tracked_time DATETIME,
+				row_created_timestamp DATETIME DEFAULT (datetime('now', 'localtime'))
+			)"
+		);
+
+		self::ExecuteMigrationWhenNeeded($pdo, 12, "
+			CREATE VIEW habits_current
+			AS
+			SELECT habit_id, MAX(tracked_time) AS last_tracked_time
+			FROM habits_log
+			GROUP BY habit_id
+			ORDER BY MAX(tracked_time) DESC;"
 		);
 	}
 

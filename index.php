@@ -10,6 +10,7 @@ require_once __DIR__ . '/Grocy.php';
 require_once __DIR__ . '/GrocyDbMigrator.php';
 require_once __DIR__ . '/GrocyDemoDataGenerator.php';
 require_once __DIR__ . '/GrocyLogicStock.php';
+require_once __DIR__ . '/GrocyLogicHabits.php';
 require_once __DIR__ . '/GrocyPhpHelper.php';
 
 $app = new \Slim\App(new \Slim\Container([
@@ -86,13 +87,28 @@ $app->get('/', function(Request $request, Response $response) use($db)
 {
 	$db = Grocy::GetDbConnection(true); //For database schema migration
 
+	return $response->withRedirect('/stockoverview');
+});
+
+$app->get('/stockoverview', function(Request $request, Response $response) use($db)
+{
 	return $this->renderer->render($response, '/layout.php', [
-		'title' => 'Dashboard',
-		'contentPage' => 'dashboard.php',
+		'title' => 'Stock overview',
+		'contentPage' => 'stockoverview.php',
 		'products' => $db->products(),
 		'quantityunits' => $db->quantity_units(),
 		'currentStock' => GrocyLogicStock::GetCurrentStock(),
 		'missingProducts' => GrocyLogicStock::GetMissingProducts()
+	]);
+});
+
+$app->get('/habitsoverview', function(Request $request, Response $response) use($db)
+{
+	return $this->renderer->render($response, '/layout.php', [
+		'title' => 'Habits overview',
+		'contentPage' => 'habitsoverview.php',
+		'habits' => $db->habits(),
+		'currentHabits' => GrocyLogicHabits::GetCurrentHabits(),
 	]);
 });
 
@@ -135,6 +151,15 @@ $app->get('/shoppinglist', function(Request $request, Response $response) use($d
 	]);
 });
 
+$app->get('/habittracking', function(Request $request, Response $response) use($db)
+{
+	return $this->renderer->render($response, '/layout.php', [
+		'title' => 'Habit tracking',
+		'contentPage' => 'habittracking.php',
+		'habits' => $db->habits()
+	]);
+});
+
 $app->get('/products', function(Request $request, Response $response) use($db)
 {
 	return $this->renderer->render($response, '/layout.php', [
@@ -163,6 +188,16 @@ $app->get('/quantityunits', function(Request $request, Response $response) use($
 		'quantityunits' => $db->quantity_units()
 	]);
 });
+
+$app->get('/habits', function(Request $request, Response $response) use($db)
+{
+	return $this->renderer->render($response, '/layout.php', [
+		'title' => 'Habits',
+		'contentPage' => 'habits.php',
+		'habits' => $db->habits()
+	]);
+});
+
 
 $app->get('/product/{productId}', function(Request $request, Response $response, $args) use($db)
 {
@@ -226,6 +261,29 @@ $app->get('/quantityunit/{quantityunitId}', function(Request $request, Response 
 			'title' => 'Edit quantity unit',
 			'contentPage' => 'quantityunitform.php',
 			'quantityunit' => $db->quantity_units($args['quantityunitId']),
+			'mode' => 'edit'
+		]);
+	}
+});
+
+$app->get('/habit/{habitId}', function(Request $request, Response $response, $args) use($db)
+{
+	if ($args['habitId'] == 'new')
+	{
+		return $this->renderer->render($response, '/layout.php', [
+			'title' => 'Create habit',
+			'contentPage' => 'habitform.php',
+			'periodTypes' => GrocyPhpHelper::GetClassConstants('GrocyLogicHabits'),
+			'mode' => 'create'
+		]);
+	}
+	else
+	{
+		return $this->renderer->render($response, '/layout.php', [
+			'title' => 'Edit habit',
+			'contentPage' => 'habitform.php',
+			'habit' => $db->habits($args['habitId']),
+			'periodTypes' => GrocyPhpHelper::GetClassConstants('GrocyLogicHabits'),
 			'mode' => 'edit'
 		]);
 	}
@@ -349,6 +407,22 @@ $app->group('/api', function() use($db)
 	{
 		GrocyLogicStock::AddMissingProductsToShoppingList();
 		echo json_encode(array('success' => true));
+	});
+
+	$this->get('/habits/track-habit/{habitId}', function(Request $request, Response $response, $args)
+	{
+		$trackedTime = date('Y-m-d H:i:s');
+		if (isset($request->getQueryParams()['tracked_time']) && !empty($request->getQueryParams()['tracked_time']))
+		{
+			$trackedTime = $request->getQueryParams()['tracked_time'];
+		}
+
+		echo json_encode(array('success' => GrocyLogicHabits::TrackHabit($args['habitId'], $trackedTime)));
+	});
+
+	$this->get('/habits/get-habit-details/{habitId}', function(Request $request, Response $response, $args)
+	{
+		echo json_encode(GrocyLogicHabits::GetHabitDetails($args['habitId']));
 	});
 })->add(function($request, $response, $next)
 {

@@ -1,8 +1,6 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-	<h1 class="page-header">Dashboard</h1>
-
-	<h3>Stock overview <span class="text-muded small"><strong><?php echo count($currentStock) ?></strong> products with <strong><?php echo GrocyPhpHelper::SumArrayValue($currentStock, 'amount'); ?></strong> units in stock</span></h3>
+	<h1 class="page-header">Stock overview <span class="text-muded small"><strong><?php echo count($currentStock) ?></strong> products with <strong><?php echo GrocyPhpHelper::SumArrayValue($currentStock, 'amount'); ?></strong> units in stock</span></h1>
 
 	<div class="container-fluid">
 		<div class="row">
@@ -15,7 +13,7 @@
 	<div class="discrete-content-separator-2x"></div>
 
 	<div class="table-responsive">
-		<table id="current-stock-table" class="table table-striped">
+		<table id="stock-overview-table" class="table table-striped">
 			<thead>
 				<tr>
 					<th>Product</th>
