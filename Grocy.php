@@ -20,7 +20,7 @@ class Grocy
 
 			if ($doMigrations === true)
 			{
-				Grocy::ExecuteDbStatement($pdo, "CREATE TABLE IF NOT EXISTS migrations (migration INTEGER NOT NULL UNIQUE, execution_time_timestamp DATETIME DEFAULT (datetime('now', 'localtime')), PRIMARY KEY(migration)) WITHOUT ROWID");
+				Grocy::ExecuteDbStatement($pdo, "CREATE TABLE IF NOT EXISTS migrations (migration INTEGER NOT NULL PRIMARY KEY UNIQUE, execution_time_timestamp DATETIME DEFAULT (datetime('now', 'localtime')))");
 				GrocyDbMigrator::MigrateDb($pdo);
 
 				if (self::IsDemoInstallation())
