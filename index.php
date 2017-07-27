@@ -13,14 +13,24 @@ require_once __DIR__ . '/GrocyLogicStock.php';
 require_once __DIR__ . '/GrocyLogicHabits.php';
 require_once __DIR__ . '/GrocyPhpHelper.php';
 
-$app = new \Slim\App(new \Slim\Container([
-	'settings' => [
-		'displayErrorDetails' => true,
-		'determineRouteBeforeAppMiddleware' => true
-	],
-]));
-$container = $app->getContainer();
-$container['renderer'] = new PhpRenderer('./views');
+$app = new \Slim\App;
+
+if (PHP_SAPI !== 'cli')
+{
+	$app = new \Slim\App(new \Slim\Container([
+		'settings' => [
+			'displayErrorDetails' => true,
+			'determineRouteBeforeAppMiddleware' => true
+		],
+	]));
+	$container = $app->getContainer();
+	$container['renderer'] = new PhpRenderer('./views');
+}
+
+if (PHP_SAPI === 'cli')
+{
+	$app->add(new \pavlakis\cli\CliRequest());
+}
 
 if (!Grocy::IsDemoInstallation())
 {
@@ -428,6 +438,28 @@ $app->group('/api', function() use($db)
 {
 	$response = $next($request, $response);
 	return $response->withHeader('Content-Type', 'application/json');
+});
+
+$app->group('/cli', function()
+{
+	$this->get('/recreatedemo', function(Request $request, Response $response)
+	{
+		if (Grocy::IsDemoInstallation())
+		{
+			GrocyDemoDataGenerator::RecreateDemo();
+		}
+	});
+})->add(function($request, $response, $next)
+{
+	$response = $next($request, $response);
+
+	if (PHP_SAPI !== 'cli')
+	{
+		echo 'Please call this only from CLI';
+		return $response->withHeader('Content-Type', 'text/plain')->withStatus(400);
+	}
+
+	return $response->withHeader('Content-Type', 'text/plain');
 });
 
 $app->run();

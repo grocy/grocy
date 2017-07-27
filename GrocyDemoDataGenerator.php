@@ -65,4 +65,12 @@ class GrocyDemoDataGenerator
 			GrocyLogicHabits::TrackHabit(2, date('Y-m-d H:i:s', strtotime('-20 days')));
 		}
 	}
+
+	public static function RecreateDemo()
+	{
+		unlink(__DIR__ . '/data/grocy.db');
+
+		$db = Grocy::GetDbConnectionRaw(true);
+		self::PopulateDemoData($db);
+	}
 }
