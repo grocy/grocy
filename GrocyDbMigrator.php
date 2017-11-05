@@ -131,6 +131,35 @@ class GrocyDbMigrator
 			GROUP BY habit_id
 			ORDER BY MAX(tracked_time) DESC;"
 		);
+
+		self::ExecuteMigrationWhenNeeded($pdo, 13, "
+			CREATE TABLE batteries (
+				id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+				name TEXT NOT NULL UNIQUE,
+				description TEXT,
+				used_in TEXT,
+				charge_interval_days INTEGER NOT NULL DEFAULT 0,
+				row_created_timestamp DATETIME DEFAULT (datetime('now', 'localtime'))
+			)"
+		);
+
+		self::ExecuteMigrationWhenNeeded($pdo, 14, "
+			CREATE TABLE battery_charge_cycles (
+				id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+				battery_id TEXT NOT NULL,
+				tracked_time DATETIME,
+				row_created_timestamp DATETIME DEFAULT (datetime('now', 'localtime'))
+			)"
+		);
+
+		self::ExecuteMigrationWhenNeeded($pdo, 15, "
+			CREATE VIEW batteries_current
+			AS
+			SELECT battery_id, MAX(tracked_time) AS last_tracked_time
+			FROM battery_charge_cycles
+			GROUP BY battery_id
+			ORDER BY MAX(tracked_time) DESC;"
+		);
 	}
 
 	private static function ExecuteMigrationWhenNeeded(PDO $pdo, int $migrationId, string $sql)

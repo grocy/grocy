@@ -58,6 +58,9 @@
 					<li data-nav-for-page="habitsoverview.php">
 						<a class="discrete-link" href="/habitsoverview"><i class="fa fa-tachometer fa-fw"></i>&nbsp;Habits overview</a>
 					</li>
+					<li data-nav-for-page="batteriesoverview.php">
+						<a class="discrete-link" href="/batteriesoverview"><i class="fa fa-tachometer fa-fw"></i>&nbsp;Batteries overview</a>
+					</li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -76,6 +79,9 @@
 					<li data-nav-for-page="habittracking.php">
 						<a class="discrete-link" href="/habittracking"><i class="fa fa-play fa-fw"></i>&nbsp;Habit tracking</a>
 					</li>
+					<li data-nav-for-page="batterytracking.php">
+						<a class="discrete-link" href="/batterytracking"><i class="fa fa-fire fa-fw"></i>&nbsp;Track battery charge cycle</a>
+					</li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -91,6 +97,9 @@
 					</li>
 					<li data-nav-for-page="habits.php">
 						<a class="discrete-link" href="/habits"><i class="fa fa-refresh fa-fw"></i>&nbsp;Habits</a>
+					</li>
+					<li data-nav-for-page="batteries.php">
+						<a class="discrete-link" href="/batteries"><i class="fa fa-battery-three-quarters fa-fw"></i>&nbsp;Batteries</a>
 					</li>
 				</ul>
 
@@ -116,6 +125,9 @@
 					<li data-nav-for-page="habitsoverview.php">
 						<a class="discrete-link" href="/habitsoverview"><i class="fa fa-tachometer fa-fw"></i>&nbsp;Habits overview</a>
 					</li>
+					<li data-nav-for-page="batteriesoverview.php">
+						<a class="discrete-link" href="/batteriesoverview"><i class="fa fa-tachometer fa-fw"></i>&nbsp;Batteries overview</a>
+					</li>
 				</ul>
 
 				<ul class="nav nav-sidebar">
@@ -134,6 +146,9 @@
 					<li data-nav-for-page="habittracking.php">
 						<a class="discrete-link" href="/habittracking"><i class="fa fa-play fa-fw"></i>&nbsp;Habit tracking</a>
 					</li>
+					<li data-nav-for-page="batterytracking.php">
+						<a class="discrete-link" href="/batterytracking"><i class="fa fa-fire fa-fw"></i>&nbsp;Track battery charge cycle</a>
+					</li>
 				</ul>
 
 				<ul class="nav nav-sidebar">
@@ -149,6 +164,9 @@
 					</li>
 					<li data-nav-for-page="habits.php">
 						<a class="discrete-link" href="/habits"><i class="fa fa-refresh fa-fw"></i>&nbsp;Habits</a>
+					</li>
+					<li data-nav-for-page="batteries.php">
+						<a class="discrete-link" href="/batteries"><i class="fa fa-battery-three-quarters fa-fw"></i>&nbsp;Batteries</a>
 					</li>
 				</ul>
 

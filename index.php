@@ -11,6 +11,7 @@ require_once __DIR__ . '/GrocyDbMigrator.php';
 require_once __DIR__ . '/GrocyDemoDataGenerator.php';
 require_once __DIR__ . '/GrocyLogicStock.php';
 require_once __DIR__ . '/GrocyLogicHabits.php';
+require_once __DIR__ . '/GrocyLogicBatteries.php';
 require_once __DIR__ . '/GrocyPhpHelper.php';
 
 $app = new \Slim\App;
@@ -122,6 +123,16 @@ $app->get('/habitsoverview', function(Request $request, Response $response) use(
 	]);
 });
 
+$app->get('/batteriesoverview', function(Request $request, Response $response) use($db)
+{
+	return $this->renderer->render($response, '/layout.php', [
+		'title' => 'Batteries overview',
+		'contentPage' => 'batteriesoverview.php',
+		'batteries' => $db->batteries(),
+		'current' => GrocyLogicBatteries::GetCurrent(),
+	]);
+});
+
 $app->get('/purchase', function(Request $request, Response $response) use($db)
 {
 	return $this->renderer->render($response, '/layout.php', [
@@ -170,6 +181,15 @@ $app->get('/habittracking', function(Request $request, Response $response) use($
 	]);
 });
 
+$app->get('/batterytracking', function(Request $request, Response $response) use($db)
+{
+	return $this->renderer->render($response, '/layout.php', [
+		'title' => 'Battery tracking',
+		'contentPage' => 'batterytracking.php',
+		'batteries' => $db->batteries()
+	]);
+});
+
 $app->get('/products', function(Request $request, Response $response) use($db)
 {
 	return $this->renderer->render($response, '/layout.php', [
@@ -205,6 +225,15 @@ $app->get('/habits', function(Request $request, Response $response) use($db)
 		'title' => 'Habits',
 		'contentPage' => 'habits.php',
 		'habits' => $db->habits()
+	]);
+});
+
+$app->get('/batteries', function(Request $request, Response $response) use($db)
+{
+	return $this->renderer->render($response, '/layout.php', [
+		'title' => 'Batteries',
+		'contentPage' => 'batteries.php',
+		'batteries' => $db->batteries()
 	]);
 });
 
@@ -294,6 +323,27 @@ $app->get('/habit/{habitId}', function(Request $request, Response $response, $ar
 			'contentPage' => 'habitform.php',
 			'habit' => $db->habits($args['habitId']),
 			'periodTypes' => GrocyPhpHelper::GetClassConstants('GrocyLogicHabits'),
+			'mode' => 'edit'
+		]);
+	}
+});
+
+$app->get('/battery/{batteryId}', function(Request $request, Response $response, $args) use($db)
+{
+	if ($args['batteryId'] == 'new')
+	{
+		return $this->renderer->render($response, '/layout.php', [
+			'title' => 'Create battery',
+			'contentPage' => 'batteryform.php',
+			'mode' => 'create'
+		]);
+	}
+	else
+	{
+		return $this->renderer->render($response, '/layout.php', [
+			'title' => 'Edit battery',
+			'contentPage' => 'batteryform.php',
+			'battery' => $db->batteries($args['batteryId']),
 			'mode' => 'edit'
 		]);
 	}
@@ -433,6 +483,22 @@ $app->group('/api', function() use($db)
 	$this->get('/habits/get-habit-details/{habitId}', function(Request $request, Response $response, $args)
 	{
 		echo json_encode(GrocyLogicHabits::GetHabitDetails($args['habitId']));
+	});
+
+	$this->get('/batteries/track-charge-cycle/{batteryId}', function(Request $request, Response $response, $args)
+	{
+		$trackedTime = date('Y-m-d H:i:s');
+		if (isset($request->getQueryParams()['tracked_time']) && !empty($request->getQueryParams()['tracked_time']))
+		{
+			$trackedTime = $request->getQueryParams()['tracked_time'];
+		}
+
+		echo json_encode(array('success' => GrocyLogicBatteries::TrackChargeCycle($args['batteryId'], $trackedTime)));
+	});
+
+	$this->get('/batteries/get-battery-details/{batteryId}', function(Request $request, Response $response, $args)
+	{
+		echo json_encode(GrocyLogicBatteries::GetBatteryDetails($args['batteryId']));
 	});
 })->add(function($request, $response, $next)
 {
