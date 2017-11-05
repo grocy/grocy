@@ -26,7 +26,7 @@
 							<?php echo GrocyLogicBatteries::GetNextChargeTime($curentBatteryEntry->battery_id); ?>
 							<time class="timeago timeago-contextual" datetime="<?php echo GrocyLogicBatteries::GetNextChargeTime($curentBatteryEntry->battery_id); ?>"></time>
 						<?php else: ?>
-							Whenever you want...
+							...
 						<?php endif; ?>
 					</td>
 				</tr>

@@ -64,6 +64,7 @@
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
+					<li class="disabled"><a href="#"><strong>Record data</strong></a></li>
 					<li data-nav-for-page="purchase.php">
 						<a class="discrete-link" href="/purchase"><i class="fa fa-shopping-cart fa-fw"></i>&nbsp;Purchase</a>
 					</li>
@@ -131,6 +132,7 @@
 				</ul>
 
 				<ul class="nav nav-sidebar">
+					<li class="disabled"><a href="#"><strong>Record data</strong></a></li>
 					<li data-nav-for-page="purchase.php">
 						<a class="discrete-link" href="/purchase"><i class="fa fa-shopping-cart fa-fw"></i>&nbsp;Purchase</a>
 					</li>

@@ -22,7 +22,7 @@
 							<?php echo GrocyLogicHabits::GetNextHabitTime($curentHabitEntry->habit_id); ?>
 							<time class="timeago timeago-contextual" datetime="<?php echo GrocyLogicHabits::GetNextHabitTime($curentHabitEntry->habit_id); ?>"></time>
 						<?php else: ?>
-							Whenever you want...
+							...
 						<?php endif; ?>
 					</td>
 					<td>

@@ -59,7 +59,7 @@ class Grocy
 	 */
 	public static function ExecuteDbStatement(PDO $pdo, string $sql)
 	{
-		if ($pdo->exec(utf8_encode($sql)) === false)
+		if ($pdo->exec($sql) === false)
 		{
 			throw new Exception($pdo->errorInfo());
 		}
@@ -74,7 +74,7 @@ class Grocy
 	{
 		if (self::ExecuteDbStatement($pdo, $sql) === true)
 		{
-			return $pdo->query(utf8_encode($sql));
+			return $pdo->query($sql);
 		}
 
 		return false;
@@ -96,7 +96,7 @@ class Grocy
 	{
 		if (self::$InstalledVersion == null)
 		{
-			self::$InstalledVersion = file_get_contents(__DIR__ . '/version.txt');
+			self::$InstalledVersion = preg_replace("/\r|\n/", '', file_get_contents(__DIR__ . '/version.txt'));
 		}
 
 		return self::$InstalledVersion;
