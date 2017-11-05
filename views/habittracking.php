@@ -36,7 +36,7 @@
 	<h3>Habit overview <strong><span id="selected-habit-name"></span></strong></h3>
 
 	<p>
-		<strong>Tracked count:</strong> <span id="selected-habit-tracked-count"></span><br />
-		<strong>Last tracked:</strong> <span id="selected-habit-last-tracked"></span> <time id="selected-habit-last-tracked-timeago" class="timeago timeago-contextual"></time><br />
+		<strong>Tracked count:</strong> <span id="selected-habit-tracked-count"></span><br>
+		<strong>Last tracked:</strong> <span id="selected-habit-last-tracked"></span> <time id="selected-habit-last-tracked-timeago" class="timeago timeago-contextual"></time><br>
 	</p>
 </div>

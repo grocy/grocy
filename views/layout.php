@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<meta name="robots" content="noindex,nofollow" />
+	<meta name="robots" content="noindex,nofollow">
+	<meta name="format-detection" content="telephone=no">
 
-	<meta name="author" content="Bernd Bestel (bernd@berrnd.de)" />
-	<link rel="icon" href="/grocy.png" />
+	<meta name="author" content="Bernd Bestel (bernd@berrnd.de)">
+	<link rel="icon" type="image/png" sizes="200x200" href="/grocy.png">
 
 	<title><?php echo $title; ?> | grocy</title>
 
-	<link href="/bower_components/bootstrap/dist/css/bootstrap.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet" />
-	<link href="/bower_components/font-awesome/css/font-awesome.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet" />
-	<link href="/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet" />
-	<link href="/bower_components/bootstrap-combobox/css/bootstrap-combobox.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet" />
-	<link href="/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet" />
-	<link href="/bower_components/datatables.net-responsive-bs/css/responsive.bootstrap.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet" />
-	<link href="/bower_components/toastr/toastr.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet" />
-	<link href="/bower_components/tagmanager/tagmanager.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet" />
-	<link href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet" />
-	<link href="/style.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet" />
+	<link href="/bower_components/bootstrap/dist/css/bootstrap.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet">
+	<link href="/bower_components/font-awesome/css/font-awesome.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet">
+	<link href="/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet">
+	<link href="/bower_components/bootstrap-combobox/css/bootstrap-combobox.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet">
+	<link href="/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet">
+	<link href="/bower_components/datatables.net-responsive-bs/css/responsive.bootstrap.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet">
+	<link href="/bower_components/toastr/toastr.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet">
+	<link href="/bower_components/tagmanager/tagmanager.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet">
+	<link href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet">
+	<link href="/vendor_unmanaged/noto-sans-v6-latin/noto-sans-v6-latin.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet">
+	<link href="/style.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet">
 
 	<script src="/bower_components/jquery/dist/jquery.min.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
 	<script src="/grocy.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
@@ -153,13 +155,13 @@
 				<div class="nav-copyright nav nav-sidebar">
 					grocy is a project by
 					<a class="discrete-link" href="https://berrnd.de" target="_blank">Bernd Bestel</a>
-					<br />
+					<br>
 					Created with passion since 2017
-					<br />
+					<br>
 					Version <?php echo Grocy::GetInstalledVersion(); ?>
-					<br />
+					<br>
 					Life runs on code
-					<br />
+					<br>
 					<a class="discrete-link" href="https://github.com/berrnd/grocy" target="_blank">
 						<i class="fa fa-github"></i>
 					</a>

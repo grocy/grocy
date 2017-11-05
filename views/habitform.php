@@ -12,7 +12,7 @@
 
 		<div class="form-group">
 			<label for="name">Name</label>
-			<input type="text" class="form-control" required id="name" name="name" value="<?php if ($mode == 'edit') echo $habit->name; ?>" />
+			<input type="text" class="form-control" required id="name" name="name" value="<?php if ($mode == 'edit') echo $habit->name; ?>">
 			<div class="help-block with-errors"></div>
 		</div>
 
@@ -33,7 +33,7 @@
 
 		<div class="form-group">
 			<label for="period_days">Period days</label>
-			<input type="number" class="form-control input-group-habit-period-type" id="period_days" name="period_days" value="<?php if ($mode == 'edit') echo $habit->period_days; ?>" />
+			<input type="number" class="form-control input-group-habit-period-type" id="period_days" name="period_days" value="<?php if ($mode == 'edit') echo $habit->period_days; ?>">
 			<div class="help-block with-errors"></div>
 		</div>
 

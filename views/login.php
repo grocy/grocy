@@ -6,13 +6,13 @@
 
 		<div class="form-group">
 			<label for="name">Username</label>
-			<input type="text" class="form-control" required id="username" name="username" />
+			<input type="text" class="form-control" required id="username" name="username">
 			<div class="help-block with-errors"></div>
 		</div>
 
 		<div class="form-group">
 			<label for="name">Password</label>
-			<input type="password" class="form-control" required id="password" name="password" />
+			<input type="password" class="form-control" required id="password" name="password">
 			<div id="login-error" class="help-block with-errors"></div>
 		</div>
 

@@ -1,5 +1,6 @@
 ﻿body {
 	padding-top: 50px;
+	font-family: 'Noto Sans', sans-serif;
 }
 
 .navbar-fixed-top {
@@ -70,12 +71,23 @@
 	bottom: 0;
 	width: 100%;
 	color: #b3b3b1;
-	font-size: 0.85em;
+	font-size: 11px;
 	text-align: center;
+	font-family: 'Arial', sans-serif;
 }
 
 .discrete-link {
 	color: inherit;
+}
+
+a.discrete-link:hover {
+	color: #5cb85c;
+	text-decoration: none;
+}
+
+a.discrete-link:focus {
+	color: #337ab7;
+	text-decoration: none;
 }
 
 .navbar-fixed-top {
@@ -87,6 +99,7 @@
 	font-weight: bold;
 	letter-spacing: -2px;
 	font-size: 2.2em;
+	font-family: 'Arial', sans-serif;
 }
 
 .table td.fit-content,

@@ -12,7 +12,7 @@
 
 		<div class="form-group">
 			<label for="name">Name</label>
-			<input type="text" class="form-control" required id="name" name="name" value="<?php if ($mode == 'edit') echo $quantityunit->name; ?>" />
+			<input type="text" class="form-control" required id="name" name="name" value="<?php if ($mode == 'edit') echo $quantityunit->name; ?>">
 			<div class="help-block with-errors"></div>
 		</div>
 

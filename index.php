@@ -39,7 +39,7 @@ if (!Grocy::IsDemoInstallation())
 		$route = $request->getAttribute('route');
 		$routeName = $route->getName();
 
-		if (!Grocy::IsValidSession($_COOKIE['grocy_session']) && $routeName !== 'login')
+		if ((!isset($_COOKIE['grocy_session']) || !Grocy::IsValidSession($_COOKIE['grocy_session'])) && $routeName !== 'login')
 		{
 			$response = $response->withRedirect('/login');
 		}

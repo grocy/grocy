@@ -1,4 +1,4 @@
-﻿var Grocy = {};
+﻿var Grocy = { };
 
 $(function()
 {

@@ -44,7 +44,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="default_best_before_days">Default best before days<br /><span class="small text-muted">For purchases this amount of days will be added to today for the best before date suggestion</span></label>
+			<label for="default_best_before_days">Default best before days<br><span class="small text-muted">For purchases this amount of days will be added to today for the best before date suggestion</span></label>
 			<input required min="0" type="number" class="form-control" id="default_best_before_days" name="default_best_before_days" value="<?php if ($mode == 'edit') echo $product->default_best_before_days; else echo '0'; ?>">
 			<div class="help-block with-errors"></div>
 		</div>
