@@ -79,6 +79,7 @@ $('#product_id').on('change', function(e)
 					$('#product_id_text_input').parent('.input-group').removeClass('has-error');
 					$('#product_id_text_input').closest('.form-group').removeClass('has-error');
 					$('#product-error').hide();
+					$('#amount').focus();
 				}
 			},
 			function(xhr)

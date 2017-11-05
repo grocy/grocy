@@ -84,6 +84,8 @@ $('#product_id').on('change', function(e)
 				$('#new_amount').attr('not-equal', productDetails.stock_amount);
 				$('#new_amount_qu_unit').text(productDetails.quantity_unit_stock.name);
 
+				$('#new_amount').focus();
+
 				Grocy.EmptyElementWhenMatches('#selected-product-last-purchased-timeago', 'NaN years ago');
 				Grocy.EmptyElementWhenMatches('#selected-product-last-used-timeago', 'NaN years ago');
 			},

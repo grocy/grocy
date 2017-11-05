@@ -47,6 +47,8 @@ $('#habit_id').on('change', function(e)
 				$('#selected-habit-last-tracked-timeago').text($.timeago(habitDetails.last_tracked || ''));
 				$('#selected-habit-tracked-count').text((habitDetails.tracked_count || '0'));
 
+				$('#tracked_time').focus();
+
 				Grocy.EmptyElementWhenMatches('#selected-habit-last-tracked-timeago', 'NaN years ago');
 			},
 			function(xhr)
