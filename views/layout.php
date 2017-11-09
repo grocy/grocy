@@ -81,7 +81,7 @@
 						<a class="discrete-link" href="/habittracking"><i class="fa fa-play fa-fw"></i>&nbsp;Habit tracking</a>
 					</li>
 					<li data-nav-for-page="batterytracking.php">
-						<a class="discrete-link" href="/batterytracking"><i class="fa fa-fire fa-fw"></i>&nbsp;Track battery charge cycle</a>
+						<a class="discrete-link" href="/batterytracking"><i class="fa fa-fire fa-fw"></i>&nbsp;Battery tracking</a>
 					</li>
 				</ul>
 
@@ -109,6 +109,21 @@
 						<a class="discrete-link logout-button" href="/logout"><i class="fa fa-sign-out fa-fw"></i>&nbsp;Logout</a>
 					</li>
 				</ul>
+
+				<div class="nav-copyright nav nav-sidebar">
+					grocy is a project by
+					<a class="discrete-link" href="https://berrnd.de" target="_blank">Bernd Bestel</a>
+					<br>
+					Created with passion since 2017
+					<br>
+					Version <?php echo Grocy::GetInstalledVersion(); ?>
+					<br>
+					Life runs on code
+					<br>
+					<a class="discrete-link" href="https://github.com/berrnd/grocy" target="_blank">
+						<i class="fa fa-github"></i>
+					</a>
+				</div>
 
 			</div>
 		</div>
@@ -149,7 +164,7 @@
 						<a class="discrete-link" href="/habittracking"><i class="fa fa-play fa-fw"></i>&nbsp;Habit tracking</a>
 					</li>
 					<li data-nav-for-page="batterytracking.php">
-						<a class="discrete-link" href="/batterytracking"><i class="fa fa-fire fa-fw"></i>&nbsp;Track battery charge cycle</a>
+						<a class="discrete-link" href="/batterytracking"><i class="fa fa-fire fa-fw"></i>&nbsp;Battery tracking</a>
 					</li>
 				</ul>
 
