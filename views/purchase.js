@@ -232,6 +232,18 @@ $(function()
 		}
 	});
 
+	$('#amount').on('focus', function(e)
+	{
+		if ($('#product_id_text_input').val().length === 0)
+		{
+			$('#product_id_text_input').focus();
+		}
+		else
+		{
+			$(this).select();
+		}
+	});
+
 	$('#purchase-form input').keydown(function(event)
 	{
 		if (event.keyCode === 13) //Enter

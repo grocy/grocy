@@ -228,6 +228,10 @@ $(function()
 		{
 			$('#product_id_text_input').focus();
 		}
+		else
+		{
+			$(this).select();
+		}
 	});
 
 	$('#inventory-form input').keydown(function(event)
@@ -274,6 +278,11 @@ $('#best_before_date-datepicker-button').on('click', function(e)
 	$('.datepicker').datepicker('show');
 });
 
+$('#new_amount').on('keypress', function(e)
+{
+	$('#new_amount').trigger('change');
+});
+	
 $('#best_before_date').on('change', function(e)
 {
 	var value = $('#best_before_date').val();
@@ -335,6 +344,14 @@ $('#best_before_date').on('keypress', function(e)
 
 	$('#inventory-form').validator('validate');
 });
+
+$('#best_before_date').on('keydown', function(e)
+{
+	if (e.keyCode === 13) //Enter
+	{
+		$('#best_before_date').trigger('change');
+	}
+});	
 
 $('#new_amount').on('change', function(e)
 {

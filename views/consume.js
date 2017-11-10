@@ -124,6 +124,10 @@ $(function()
 		{
 			$('#product_id_text_input').focus();
 		}
+		else
+		{
+			$(this).select();
+		}
 	});
 
 	$('#consume-form input').keydown(function(event)
