@@ -21,7 +21,7 @@
 			</thead>
 			<tbody>
 				<?php foreach ($listItems as $listItem) : ?>
-				<tr>
+				<tr class="<?php if ($listItem->amount_autoadded > 0) echo 'info-bg'; ?>">
 					<td class="fit-content">
 						<a class="btn btn-info" href="/shoppinglistitem/<?php echo $listItem->id; ?>" role="button">
 							<i class="fa fa-pencil"></i>
