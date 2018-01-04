@@ -281,6 +281,8 @@ $(function()
 		$('#flow-info-addbarcodetoselection').removeClass('hide');
 		$('#barcode-lookup-disabled-hint').removeClass('hide');
 	}
+
+	Grocy.EmptyElementWhenMatches('#best-before-timeago', 'NaN years ago');
 });
 
 $('#best_before_date-datepicker-button').on('click', function(e)
@@ -310,6 +312,9 @@ $('#best_before_date').on('change', function(e)
 		$('#best_before_date').val(value);
 		$('#purchase-form').validator('validate');
 	}
+
+	$('#best-before-timeago').text($.timeago($('#best_before_date').val()));
+	Grocy.EmptyElementWhenMatches('#best-before-timeago', 'NaN years ago');
 });
 
 $('#best_before_date').on('keydown', function(e)

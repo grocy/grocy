@@ -17,7 +17,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="best_before_date">Best before</label>
+			<label for="best_before_date">Best before&nbsp;&nbsp;<span class="small text-muted"><time id="best-before-timeago" class="timeago timeago-contextual"></time></span></label>
 			<div class="input-group date">
 				<input type="text" data-isodate="isodate" class="form-control datepicker" id="best_before_date" name="best_before_date" required autocomplete="off">
 				<div id="best_before_date-datepicker-button" class="input-group-addon">
