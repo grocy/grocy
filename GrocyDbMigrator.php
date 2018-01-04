@@ -160,6 +160,32 @@ class GrocyDbMigrator
 			GROUP BY battery_id
 			ORDER BY MAX(tracked_time) DESC;"
 		);
+
+		self::ExecuteMigrationWhenNeeded($pdo, 16, "
+			ALTER TABLE shopping_list RENAME TO shopping_list_old;"
+		);
+
+		self::ExecuteMigrationWhenNeeded($pdo, 17, "
+			CREATE TABLE shopping_list (
+				id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+				product_id INTEGER,
+				note TEXT,
+				amount INTEGER NOT NULL DEFAULT 0,
+				amount_autoadded INTEGER NOT NULL DEFAULT 0,
+				row_created_timestamp DATETIME DEFAULT (datetime('now', 'localtime'))
+			)"
+		);
+
+		self::ExecuteMigrationWhenNeeded($pdo, 18, "
+			INSERT INTO shopping_list
+				(product_id, amount, amount_autoadded, row_created_timestamp)
+			SELECT product_id, amount, amount_autoadded, row_created_timestamp
+			FROM shopping_list_old"
+		);
+
+		self::ExecuteMigrationWhenNeeded($pdo, 19, "
+			DROP TABLE shopping_list_old;"
+		);
 	}
 
 	private static function ExecuteMigrationWhenNeeded(PDO $pdo, int $migrationId, string $sql)
