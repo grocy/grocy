@@ -15,9 +15,8 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>Product</th>
+					<th>Product / <em>Note</em></th>
 					<th>Amount</th>
-					<th>Note</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -32,13 +31,10 @@
 						</a>
 					</td>
 					<td>
-						<?php if (!empty($listItem->product_id)) echo GrocyPhpHelper::FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->name; ?>
+						<?php if (!empty($listItem->product_id)) echo GrocyPhpHelper::FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->name . '<br>'; ?><em><?php echo $listItem->note; ?></em>
 					</td>
 					<td>
 						<?php echo $listItem->amount + $listItem->amount_autoadded; if (!empty($listItem->product_id)) echo ' ' . GrocyPhpHelper::FindObjectInArrayByPropertyValue($quantityunits, 'id', GrocyPhpHelper::FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name; ?>
-					</td>
-					<td>
-						<?php echo $listItem->note; ?>
 					</td>
 				</tr>
 				<?php endforeach; ?>
