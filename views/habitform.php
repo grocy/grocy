@@ -22,7 +22,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="period_type">Location</label>
+			<label for="period_type">Period type</label>
 			<select required class="form-control input-group-habit-period-type" id="period_type" name="period_type">
 				<?php foreach ($periodTypes as $periodType) : ?>
 					<option <?php if ($mode == 'edit' && $periodType == $habit->period_type) echo 'selected="selected"'; ?> value="<?php echo $periodType; ?>"><?php echo $periodType; ?></option>
