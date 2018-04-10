@@ -1,6 +1,6 @@
 <?php
 
-class GrocyLogicStock
+class StockService
 {
 	const TRANSACTION_TYPE_PURCHASE = 'purchase';
 	const TRANSACTION_TYPE_CONSUME = 'consume';
@@ -9,18 +9,18 @@ class GrocyLogicStock
 	public static function GetCurrentStock()
 	{
 		$sql = 'SELECT * from stock_current';
-		return Grocy::ExecuteDbQuery(Grocy::GetDbConnectionRaw(), $sql)->fetchAll(PDO::FETCH_OBJ);
+		return DatabaseService::ExecuteDbQuery(DatabaseService::GetDbConnectionRaw(), $sql)->fetchAll(PDO::FETCH_OBJ);
 	}
 
 	public static function GetMissingProducts()
 	{
 		$sql = 'SELECT * from stock_missing_products';
-		return Grocy::ExecuteDbQuery(Grocy::GetDbConnectionRaw(), $sql)->fetchAll(PDO::FETCH_OBJ);
+		return DatabaseService::ExecuteDbQuery(DatabaseService::GetDbConnectionRaw(), $sql)->fetchAll(PDO::FETCH_OBJ);
 	}
 
 	public static function GetProductDetails(int $productId)
 	{
-		$db = Grocy::GetDbConnection();
+		$db = DatabaseService::GetDbConnection();
 
 		$product = $db->products($productId);
 		$productStockAmount = $db->stock()->where('product_id', $productId)->sum('amount');
@@ -43,7 +43,7 @@ class GrocyLogicStock
 	{
 		if ($transactionType === self::TRANSACTION_TYPE_CONSUME || $transactionType === self::TRANSACTION_TYPE_PURCHASE || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
 		{
-			$db = Grocy::GetDbConnection();
+			$db = DatabaseService::GetDbConnection();
 			$stockId = uniqid();
 
 			$logRow = $db->stock_log()->createRow(array(
@@ -69,7 +69,7 @@ class GrocyLogicStock
 		}
 		else
 		{
-			throw new Exception("Transaction type $transactionType is not valid (GrocyLogicStock.AddProduct)");
+			throw new Exception("Transaction type $transactionType is not valid (StockService.AddProduct)");
 		}
 	}
 
@@ -77,7 +77,7 @@ class GrocyLogicStock
 	{
 		if ($transactionType === self::TRANSACTION_TYPE_CONSUME || $transactionType === self::TRANSACTION_TYPE_PURCHASE || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
 		{
-			$db = Grocy::GetDbConnection();
+			$db = DatabaseService::GetDbConnection();
 
 			$productStockAmount = $db->stock()->where('product_id', $productId)->sum('amount');
 			$potentialStockEntries = $db->stock()->where('product_id', $productId)->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC')->fetchAll(); //First expiring first, then first in first out
@@ -138,13 +138,13 @@ class GrocyLogicStock
 		}
 		else
 		{
-			throw new Exception("Transaction type $transactionType is not valid (GrocyLogicStock.ConsumeProduct)");
+			throw new Exception("Transaction type $transactionType is not valid (StockService.ConsumeProduct)");
 		}
 	}
 
 	public static function InventoryProduct(int $productId, int $newAmount, string $bestBeforeDate)
 	{
-		$db = Grocy::GetDbConnection();
+		$db = DatabaseService::GetDbConnection();
 		$productStockAmount = $db->stock()->where('product_id', $productId)->sum('amount');
 
 		if ($newAmount > $productStockAmount)
@@ -163,7 +163,7 @@ class GrocyLogicStock
 
 	public static function AddMissingProductsToShoppingList()
 	{
-		$db = Grocy::GetDbConnection();
+		$db = DatabaseService::GetDbConnection();
 
 		$missingProducts = self::GetMissingProducts();
 		foreach ($missingProducts as $missingProduct)

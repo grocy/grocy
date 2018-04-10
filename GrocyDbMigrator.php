@@ -190,11 +190,11 @@ class GrocyDbMigrator
 
 	private static function ExecuteMigrationWhenNeeded(PDO $pdo, int $migrationId, string $sql)
 	{
-		$rowCount = Grocy::ExecuteDbQuery($pdo, 'SELECT COUNT(*) FROM migrations WHERE migration = ' . $migrationId)->fetchColumn();
+		$rowCount = DatabaseService::ExecuteDbQuery($pdo, 'SELECT COUNT(*) FROM migrations WHERE migration = ' . $migrationId)->fetchColumn();
 		if (intval($rowCount) === 0)
 		{
-			Grocy::ExecuteDbStatement($pdo, $sql);
-			Grocy::ExecuteDbStatement($pdo, 'INSERT INTO migrations (migration) VALUES (' . $migrationId . ')');
+			DatabaseService::ExecuteDbStatement($pdo, $sql);
+			DatabaseService::ExecuteDbStatement($pdo, 'INSERT INTO migrations (migration) VALUES (' . $migrationId . ')');
 		}
 	}
 }

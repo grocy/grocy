@@ -4,7 +4,7 @@ class GrocyDemoDataGenerator
 {
 	public static function PopulateDemoData(PDO $pdo)
 	{
-		$rowCount = Grocy::ExecuteDbQuery($pdo, 'SELECT COUNT(*) FROM migrations WHERE migration = -1')->fetchColumn();
+		$rowCount = DatabaseService::ExecuteDbQuery($pdo, 'SELECT COUNT(*) FROM migrations WHERE migration = -1')->fetchColumn();
 		if (intval($rowCount) === 0)
 		{
 			$sql = "
@@ -45,38 +45,38 @@ class GrocyDemoDataGenerator
 				INSERT INTO migrations (migration) VALUES (-1);
 			";
 
-			Grocy::ExecuteDbStatement($pdo, $sql);
+			DatabaseService::ExecuteDbStatement($pdo, $sql);
 
-			GrocyLogicStock::AddProduct(3, 5, date('Y-m-d', strtotime('+180 days')), GrocyLogicStock::TRANSACTION_TYPE_PURCHASE);
-			GrocyLogicStock::AddProduct(4, 5, date('Y-m-d', strtotime('+180 days')), GrocyLogicStock::TRANSACTION_TYPE_PURCHASE);
-			GrocyLogicStock::AddProduct(5, 5, date('Y-m-d', strtotime('+20 days')), GrocyLogicStock::TRANSACTION_TYPE_PURCHASE);
-			GrocyLogicStock::AddProduct(6, 5, date('Y-m-d', strtotime('+600 days')), GrocyLogicStock::TRANSACTION_TYPE_PURCHASE);
-			GrocyLogicStock::AddProduct(7, 5, date('Y-m-d', strtotime('+800 days')), GrocyLogicStock::TRANSACTION_TYPE_PURCHASE);
-			GrocyLogicStock::AddProduct(8, 5, date('Y-m-d', strtotime('+900 days')), GrocyLogicStock::TRANSACTION_TYPE_PURCHASE);
-			GrocyLogicStock::AddProduct(9, 5, date('Y-m-d', strtotime('+14 days')), GrocyLogicStock::TRANSACTION_TYPE_PURCHASE);
-			GrocyLogicStock::AddProduct(10, 5, date('Y-m-d', strtotime('+21 days')), GrocyLogicStock::TRANSACTION_TYPE_PURCHASE);
-			GrocyLogicStock::AddProduct(11, 5, date('Y-m-d', strtotime('+10 days')), GrocyLogicStock::TRANSACTION_TYPE_PURCHASE);
-			GrocyLogicStock::AddProduct(12, 5, date('Y-m-d', strtotime('+2 days')), GrocyLogicStock::TRANSACTION_TYPE_PURCHASE);
-			GrocyLogicStock::AddProduct(13, 5, date('Y-m-d', strtotime('-2 days')), GrocyLogicStock::TRANSACTION_TYPE_PURCHASE);
-			GrocyLogicStock::AddProduct(14, 5, date('Y-m-d', strtotime('+2 days')), GrocyLogicStock::TRANSACTION_TYPE_PURCHASE);
-			GrocyLogicStock::AddProduct(15, 5, date('Y-m-d', strtotime('-2 days')), GrocyLogicStock::TRANSACTION_TYPE_PURCHASE);
-			GrocyLogicStock::AddMissingProductsToShoppingList();
+			StockService::AddProduct(3, 5, date('Y-m-d', strtotime('+180 days')), StockService::TRANSACTION_TYPE_PURCHASE);
+			StockService::AddProduct(4, 5, date('Y-m-d', strtotime('+180 days')), StockService::TRANSACTION_TYPE_PURCHASE);
+			StockService::AddProduct(5, 5, date('Y-m-d', strtotime('+20 days')), StockService::TRANSACTION_TYPE_PURCHASE);
+			StockService::AddProduct(6, 5, date('Y-m-d', strtotime('+600 days')), StockService::TRANSACTION_TYPE_PURCHASE);
+			StockService::AddProduct(7, 5, date('Y-m-d', strtotime('+800 days')), StockService::TRANSACTION_TYPE_PURCHASE);
+			StockService::AddProduct(8, 5, date('Y-m-d', strtotime('+900 days')), StockService::TRANSACTION_TYPE_PURCHASE);
+			StockService::AddProduct(9, 5, date('Y-m-d', strtotime('+14 days')), StockService::TRANSACTION_TYPE_PURCHASE);
+			StockService::AddProduct(10, 5, date('Y-m-d', strtotime('+21 days')), StockService::TRANSACTION_TYPE_PURCHASE);
+			StockService::AddProduct(11, 5, date('Y-m-d', strtotime('+10 days')), StockService::TRANSACTION_TYPE_PURCHASE);
+			StockService::AddProduct(12, 5, date('Y-m-d', strtotime('+2 days')), StockService::TRANSACTION_TYPE_PURCHASE);
+			StockService::AddProduct(13, 5, date('Y-m-d', strtotime('-2 days')), StockService::TRANSACTION_TYPE_PURCHASE);
+			StockService::AddProduct(14, 5, date('Y-m-d', strtotime('+2 days')), StockService::TRANSACTION_TYPE_PURCHASE);
+			StockService::AddProduct(15, 5, date('Y-m-d', strtotime('-2 days')), StockService::TRANSACTION_TYPE_PURCHASE);
+			StockService::AddMissingProductsToShoppingList();
 
-			GrocyLogicHabits::TrackHabit(1, date('Y-m-d H:i:s', strtotime('-5 days')));
-			GrocyLogicHabits::TrackHabit(1, date('Y-m-d H:i:s', strtotime('-10 days')));
-			GrocyLogicHabits::TrackHabit(1, date('Y-m-d H:i:s', strtotime('-15 days')));
-			GrocyLogicHabits::TrackHabit(2, date('Y-m-d H:i:s', strtotime('-10 days')));
-			GrocyLogicHabits::TrackHabit(2, date('Y-m-d H:i:s', strtotime('-20 days')));
+			HabitsService::TrackHabit(1, date('Y-m-d H:i:s', strtotime('-5 days')));
+			HabitsService::TrackHabit(1, date('Y-m-d H:i:s', strtotime('-10 days')));
+			HabitsService::TrackHabit(1, date('Y-m-d H:i:s', strtotime('-15 days')));
+			HabitsService::TrackHabit(2, date('Y-m-d H:i:s', strtotime('-10 days')));
+			HabitsService::TrackHabit(2, date('Y-m-d H:i:s', strtotime('-20 days')));
 
-			GrocyLogicBatteries::TrackChargeCycle(1, date('Y-m-d H:i:s', strtotime('-200 days')));
-			GrocyLogicBatteries::TrackChargeCycle(1, date('Y-m-d H:i:s', strtotime('-150 days')));
-			GrocyLogicBatteries::TrackChargeCycle(1, date('Y-m-d H:i:s', strtotime('-100 days')));
-			GrocyLogicBatteries::TrackChargeCycle(1, date('Y-m-d H:i:s', strtotime('-50 days')));
-			GrocyLogicBatteries::TrackChargeCycle(2, date('Y-m-d H:i:s', strtotime('-200 days')));
-			GrocyLogicBatteries::TrackChargeCycle(2, date('Y-m-d H:i:s', strtotime('-150 days')));
-			GrocyLogicBatteries::TrackChargeCycle(2, date('Y-m-d H:i:s', strtotime('-100 days')));
-			GrocyLogicBatteries::TrackChargeCycle(2, date('Y-m-d H:i:s', strtotime('-50 days')));
-			GrocyLogicBatteries::TrackChargeCycle(3, date('Y-m-d H:i:s', strtotime('-65 days')));
+			BatteriesService::TrackChargeCycle(1, date('Y-m-d H:i:s', strtotime('-200 days')));
+			BatteriesService::TrackChargeCycle(1, date('Y-m-d H:i:s', strtotime('-150 days')));
+			BatteriesService::TrackChargeCycle(1, date('Y-m-d H:i:s', strtotime('-100 days')));
+			BatteriesService::TrackChargeCycle(1, date('Y-m-d H:i:s', strtotime('-50 days')));
+			BatteriesService::TrackChargeCycle(2, date('Y-m-d H:i:s', strtotime('-200 days')));
+			BatteriesService::TrackChargeCycle(2, date('Y-m-d H:i:s', strtotime('-150 days')));
+			BatteriesService::TrackChargeCycle(2, date('Y-m-d H:i:s', strtotime('-100 days')));
+			BatteriesService::TrackChargeCycle(2, date('Y-m-d H:i:s', strtotime('-50 days')));
+			BatteriesService::TrackChargeCycle(3, date('Y-m-d H:i:s', strtotime('-65 days')));
 		}
 	}
 
@@ -84,7 +84,7 @@ class GrocyDemoDataGenerator
 	{
 		unlink(__DIR__ . '/data/grocy.db');
 
-		$db = Grocy::GetDbConnectionRaw(true);
+		$db = DatabaseService::GetDbConnectionRaw(true);
 		self::PopulateDemoData($db);
 	}
 }

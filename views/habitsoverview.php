@@ -13,14 +13,14 @@
 			</thead>
 			<tbody>
 				<?php foreach ($currentHabits as $curentHabitEntry) : ?>
-				<tr class="<?php if (GrocyPhpHelper::FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->period_type === GrocyLogicHabits::HABIT_TYPE_DYNAMIC_REGULAR && GrocyLogicHabits::GetNextHabitTime($curentHabitEntry->habit_id) < date('Y-m-d H:i:s')) echo 'error-bg'; ?>">
+				<tr class="<?php if (GrocyPhpHelper::FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->period_type === HabitsService::HABIT_TYPE_DYNAMIC_REGULAR && HabitsService::GetNextHabitTime($curentHabitEntry->habit_id) < date('Y-m-d H:i:s')) echo 'error-bg'; ?>">
 					<td>
 						<?php echo GrocyPhpHelper::FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->name; ?>
 					</td>
 					<td>
-						<?php if (GrocyPhpHelper::FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->period_type === GrocyLogicHabits::HABIT_TYPE_DYNAMIC_REGULAR): ?>
-							<?php echo GrocyLogicHabits::GetNextHabitTime($curentHabitEntry->habit_id); ?>
-							<time class="timeago timeago-contextual" datetime="<?php echo GrocyLogicHabits::GetNextHabitTime($curentHabitEntry->habit_id); ?>"></time>
+						<?php if (GrocyPhpHelper::FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->period_type === HabitsService::HABIT_TYPE_DYNAMIC_REGULAR): ?>
+							<?php echo HabitsService::GetNextHabitTime($curentHabitEntry->habit_id); ?>
+							<time class="timeago timeago-contextual" datetime="<?php echo HabitsService::GetNextHabitTime($curentHabitEntry->habit_id); ?>"></time>
 						<?php else: ?>
 							...
 						<?php endif; ?>

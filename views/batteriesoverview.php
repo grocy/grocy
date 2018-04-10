@@ -13,7 +13,7 @@
 			</thead>
 			<tbody>
 				<?php foreach ($current as $curentBatteryEntry) : ?>
-				<tr class="<?php if (GrocyPhpHelper::FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0 && GrocyLogicBatteries::GetNextChargeTime($curentBatteryEntry->battery_id) < date('Y-m-d H:i:s')) echo 'error-bg'; ?>">
+				<tr class="<?php if (GrocyPhpHelper::FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0 && BatteriesService::GetNextChargeTime($curentBatteryEntry->battery_id) < date('Y-m-d H:i:s')) echo 'error-bg'; ?>">
 					<td>
 						<?php echo GrocyPhpHelper::FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->name; ?>
 					</td>
@@ -23,8 +23,8 @@
 					</td>
 					<td>
 						<?php if (GrocyPhpHelper::FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0): ?>
-							<?php echo GrocyLogicBatteries::GetNextChargeTime($curentBatteryEntry->battery_id); ?>
-							<time class="timeago timeago-contextual" datetime="<?php echo GrocyLogicBatteries::GetNextChargeTime($curentBatteryEntry->battery_id); ?>"></time>
+							<?php echo BatteriesService::GetNextChargeTime($curentBatteryEntry->battery_id); ?>
+							<time class="timeago timeago-contextual" datetime="<?php echo BatteriesService::GetNextChargeTime($curentBatteryEntry->battery_id); ?>"></time>
 						<?php else: ?>
 							...
 						<?php endif; ?>

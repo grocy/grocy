@@ -13,20 +13,20 @@
 
 	<title><?php echo $title; ?> | grocy</title>
 
-	<link href="/bower_components/bootstrap/dist/css/bootstrap.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet">
-	<link href="/bower_components/font-awesome/css/font-awesome.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet">
-	<link href="/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet">
-	<link href="/bower_components/bootstrap-combobox/css/bootstrap-combobox.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet">
-	<link href="/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet">
-	<link href="/bower_components/datatables.net-responsive-bs/css/responsive.bootstrap.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet">
-	<link href="/bower_components/toastr/toastr.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet">
-	<link href="/bower_components/tagmanager/tagmanager.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet">
-	<link href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet">
-	<link href="/vendor_unmanaged/noto-sans-v6-latin/noto-sans-v6-latin.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet">
-	<link href="/style.css?v=<?php echo Grocy::GetInstalledVersion(); ?>" rel="stylesheet">
+	<link href="/bower_components/bootstrap/dist/css/bootstrap.min.css?v=<?php echo ApplicationService::GetInstalledVersion(); ?>" rel="stylesheet">
+	<link href="/bower_components/font-awesome/css/font-awesome.min.css?v=<?php echo ApplicationService::GetInstalledVersion(); ?>" rel="stylesheet">
+	<link href="/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css?v=<?php echo ApplicationService::GetInstalledVersion(); ?>" rel="stylesheet">
+	<link href="/bower_components/bootstrap-combobox/css/bootstrap-combobox.css?v=<?php echo ApplicationService::GetInstalledVersion(); ?>" rel="stylesheet">
+	<link href="/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css?v=<?php echo ApplicationService::GetInstalledVersion(); ?>" rel="stylesheet">
+	<link href="/bower_components/datatables.net-responsive-bs/css/responsive.bootstrap.min.css?v=<?php echo ApplicationService::GetInstalledVersion(); ?>" rel="stylesheet">
+	<link href="/bower_components/toastr/toastr.min.css?v=<?php echo ApplicationService::GetInstalledVersion(); ?>" rel="stylesheet">
+	<link href="/bower_components/tagmanager/tagmanager.css?v=<?php echo ApplicationService::GetInstalledVersion(); ?>" rel="stylesheet">
+	<link href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css?v=<?php echo ApplicationService::GetInstalledVersion(); ?>" rel="stylesheet">
+	<link href="/vendor_unmanaged/noto-sans-v6-latin/noto-sans-v6-latin.css?v=<?php echo ApplicationService::GetInstalledVersion(); ?>" rel="stylesheet">
+	<link href="/style.css?v=<?php echo ApplicationService::GetInstalledVersion(); ?>" rel="stylesheet">
 
-	<script src="/bower_components/jquery/dist/jquery.min.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
-	<script src="/grocy.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
+	<script src="/bower_components/jquery/dist/jquery.min.js?v=<?php echo ApplicationService::GetInstalledVersion(); ?>"></script>
+	<script src="/grocy.js?v=<?php echo ApplicationService::GetInstalledVersion(); ?>"></script>
 </head>
 
 <body>
@@ -116,7 +116,7 @@
 					<br>
 					Created with passion since 2017
 					<br>
-					Version <?php echo Grocy::GetInstalledVersion(); ?>
+					Version <?php echo ApplicationService::GetInstalledVersion(); ?>
 					<br>
 					Life runs on code
 					<br>
@@ -193,7 +193,7 @@
 					<br>
 					Created with passion since 2017
 					<br>
-					Version <?php echo Grocy::GetInstalledVersion(); ?>
+					Version <?php echo ApplicationService::GetInstalledVersion(); ?>
 					<br>
 					Life runs on code
 					<br>
@@ -205,29 +205,29 @@
 			</div>
 
 			<script>Grocy.ContentPage = '<?php echo $contentPage; ?>';</script>
-			<?php include $contentPage; ?>
+			<?php include __DIR__ . '/../' . $contentPage; ?>
 
 		</div>
 	</div>
 
-	<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/bootbox/bootbox.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/jquery.serializeJSON/jquery.serializejson.min.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/moment/min/moment.min.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/bootstrap-validator/dist/validator.min.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/bootstrap-combobox/js/bootstrap-combobox.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/datatables.net/js/jquery.dataTables.min.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/datatables.net-responsive-bs/js/responsive.bootstrap.min.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/jquery-timeago/jquery.timeago.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/toastr/toastr.min.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/tagmanager/tagmanager.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js?v=<?php echo Grocy::GetInstalledVersion(); ?>"></script>
+	<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js?v=<?php echo ApplicationService::GetInstalledVersion(); ?>"></script>
+	<script src="/bower_components/bootbox/bootbox.js?v=<?php echo ApplicationService::GetInstalledVersion(); ?>"></script>
+	<script src="/bower_components/jquery.serializeJSON/jquery.serializejson.min.js?v=<?php echo ApplicationService::GetInstalledVersion(); ?>"></script>
+	<script src="/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js?v=<?php echo ApplicationService::GetInstalledVersion(); ?>"></script>
+	<script src="/bower_components/moment/min/moment.min.js?v=<?php echo ApplicationService::GetInstalledVersion(); ?>"></script>
+	<script src="/bower_components/bootstrap-validator/dist/validator.min.js?v=<?php echo ApplicationService::GetInstalledVersion(); ?>"></script>
+	<script src="/bower_components/bootstrap-combobox/js/bootstrap-combobox.js?v=<?php echo ApplicationService::GetInstalledVersion(); ?>"></script>
+	<script src="/bower_components/datatables.net/js/jquery.dataTables.min.js?v=<?php echo ApplicationService::GetInstalledVersion(); ?>"></script>
+	<script src="/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js?v=<?php echo ApplicationService::GetInstalledVersion(); ?>"></script>
+	<script src="/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js?v=<?php echo ApplicationService::GetInstalledVersion(); ?>"></script>
+	<script src="/bower_components/datatables.net-responsive-bs/js/responsive.bootstrap.min.js?v=<?php echo ApplicationService::GetInstalledVersion(); ?>"></script>
+	<script src="/bower_components/jquery-timeago/jquery.timeago.js?v=<?php echo ApplicationService::GetInstalledVersion(); ?>"></script>
+	<script src="/bower_components/toastr/toastr.min.js?v=<?php echo ApplicationService::GetInstalledVersion(); ?>"></script>
+	<script src="/bower_components/tagmanager/tagmanager.js?v=<?php echo ApplicationService::GetInstalledVersion(); ?>"></script>
+	<script src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js?v=<?php echo ApplicationService::GetInstalledVersion(); ?>"></script>
 
 	<?php if (file_exists(__DIR__ . '/' . str_replace('.php', '.js', $contentPage))) : ?>
-		<script src="/views/<?php echo str_replace('.php', '.js', $contentPage) . '?v=' . Grocy::GetInstalledVersion(); ?>"></script>
+		<script src="/views/<?php echo str_replace('.php', '.js', $contentPage) . '?v=' . ApplicationService::GetInstalledVersion(); ?>"></script>
 	<?php endif; ?>
 
 	<?php if (file_exists(__DIR__ . '/../data/add_before_end_body.html')) include __DIR__ . '/../data/add_before_end_body.html' ?>

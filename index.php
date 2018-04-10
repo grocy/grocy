@@ -6,12 +6,14 @@ use Slim\Views\PhpRenderer;
 
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/data/config.php';
-require_once __DIR__ . '/Grocy.php';
+require_once __DIR__ . '/services/ApplicationService.php';
+require_once __DIR__ . '/services/DatabaseService.php';
+require_once __DIR__ . '/services/SessionService.php';
 require_once __DIR__ . '/GrocyDbMigrator.php';
 require_once __DIR__ . '/GrocyDemoDataGenerator.php';
-require_once __DIR__ . '/GrocyLogicStock.php';
-require_once __DIR__ . '/GrocyLogicHabits.php';
-require_once __DIR__ . '/GrocyLogicBatteries.php';
+require_once __DIR__ . '/services/StockService.php';
+require_once __DIR__ . '/services/HabitsService.php';
+require_once __DIR__ . '/services/BatteriesService.php';
 require_once __DIR__ . '/GrocyPhpHelper.php';
 
 $app = new \Slim\App;
@@ -33,14 +35,14 @@ if (PHP_SAPI === 'cli')
 	$app->add(new \pavlakis\cli\CliRequest());
 }
 
-if (!Grocy::IsDemoInstallation())
+if (!ApplicationService::IsDemoInstallation())
 {
 	$sessionMiddleware = function(Request $request, Response $response, callable $next)
 	{
 		$route = $request->getAttribute('route');
 		$routeName = $route->getName();
 
-		if ((!isset($_COOKIE['grocy_session']) || !Grocy::IsValidSession($_COOKIE['grocy_session'])) && $routeName !== 'login')
+		if ((!isset($_COOKIE['grocy_session']) || !SessionService::IsValidSession($_COOKIE['grocy_session'])) && $routeName !== 'login')
 		{
 			$response = $response->withRedirect('/login');
 		}
@@ -55,11 +57,11 @@ if (!Grocy::IsDemoInstallation())
 	$app->add($sessionMiddleware);
 }
 
-$db = Grocy::GetDbConnection();
+$db = DatabaseService::GetDbConnection();
 
 $app->get('/login', function(Request $request, Response $response)
 {
-	return $this->renderer->render($response, '/layout.php', [
+	return $this->renderer->render($response, 'layout/default.php', [
 		'title' => 'Login',
 		'contentPage' => 'login.php'
 	]);
@@ -72,7 +74,7 @@ $app->post('/login', function(Request $request, Response $response)
 	{
 		if ($postParams['username'] === HTTP_USER && $postParams['password'] === HTTP_PASSWORD)
 		{
-			$sessionKey = Grocy::CreateSession();
+			$sessionKey = SessionService::CreateSession();
 			setcookie('grocy_session', $sessionKey, time()+2592000); //30 days
 
 			return $response->withRedirect('/');
@@ -90,52 +92,52 @@ $app->post('/login', function(Request $request, Response $response)
 
 $app->get('/logout', function(Request $request, Response $response)
 {
-	Grocy::RemoveSession($_COOKIE['grocy_session']);
+	SessionService::RemoveSession($_COOKIE['grocy_session']);
 	return $response->withRedirect('/');
 });
 
 $app->get('/', function(Request $request, Response $response) use($db)
 {
-	$db = Grocy::GetDbConnection(true); //For database schema migration
+	$db = DatabaseService::GetDbConnection(true); //For database schema migration
 
 	return $response->withRedirect('/stockoverview');
 });
 
 $app->get('/stockoverview', function(Request $request, Response $response) use($db)
 {
-	return $this->renderer->render($response, '/layout.php', [
+	return $this->renderer->render($response, 'layout/default.php', [
 		'title' => 'Stock overview',
 		'contentPage' => 'stockoverview.php',
 		'products' => $db->products(),
 		'quantityunits' => $db->quantity_units(),
-		'currentStock' => GrocyLogicStock::GetCurrentStock(),
-		'missingProducts' => GrocyLogicStock::GetMissingProducts()
+		'currentStock' => StockService::GetCurrentStock(),
+		'missingProducts' => StockService::GetMissingProducts()
 	]);
 });
 
 $app->get('/habitsoverview', function(Request $request, Response $response) use($db)
 {
-	return $this->renderer->render($response, '/layout.php', [
+	return $this->renderer->render($response, 'layout/default.php', [
 		'title' => 'Habits overview',
 		'contentPage' => 'habitsoverview.php',
 		'habits' => $db->habits(),
-		'currentHabits' => GrocyLogicHabits::GetCurrentHabits(),
+		'currentHabits' => HabitsService::GetCurrentHabits(),
 	]);
 });
 
 $app->get('/batteriesoverview', function(Request $request, Response $response) use($db)
 {
-	return $this->renderer->render($response, '/layout.php', [
+	return $this->renderer->render($response, 'layout/default.php', [
 		'title' => 'Batteries overview',
 		'contentPage' => 'batteriesoverview.php',
 		'batteries' => $db->batteries(),
-		'current' => GrocyLogicBatteries::GetCurrent(),
+		'current' => BatteriesService::GetCurrent(),
 	]);
 });
 
 $app->get('/purchase', function(Request $request, Response $response) use($db)
 {
-	return $this->renderer->render($response, '/layout.php', [
+	return $this->renderer->render($response, 'layout/default.php', [
 		'title' => 'Purchase',
 		'contentPage' => 'purchase.php',
 		'products' => $db->products()
@@ -144,7 +146,7 @@ $app->get('/purchase', function(Request $request, Response $response) use($db)
 
 $app->get('/consume', function(Request $request, Response $response) use($db)
 {
-	return $this->renderer->render($response, '/layout.php', [
+	return $this->renderer->render($response, 'layout/default.php', [
 		'title' => 'Consume',
 		'contentPage' => 'consume.php',
 		'products' => $db->products()
@@ -153,7 +155,7 @@ $app->get('/consume', function(Request $request, Response $response) use($db)
 
 $app->get('/inventory', function(Request $request, Response $response) use($db)
 {
-	return $this->renderer->render($response, '/layout.php', [
+	return $this->renderer->render($response, 'layout/default.php', [
 		'title' => 'Inventory',
 		'contentPage' => 'inventory.php',
 		'products' => $db->products()
@@ -162,19 +164,19 @@ $app->get('/inventory', function(Request $request, Response $response) use($db)
 
 $app->get('/shoppinglist', function(Request $request, Response $response) use($db)
 {
-	return $this->renderer->render($response, '/layout.php', [
+	return $this->renderer->render($response, 'layout/default.php', [
 		'title' => 'Shopping list',
 		'contentPage' => 'shoppinglist.php',
 		'listItems' => $db->shopping_list(),
 		'products' => $db->products(),
 		'quantityunits' => $db->quantity_units(),
-		'missingProducts' => GrocyLogicStock::GetMissingProducts()
+		'missingProducts' => StockService::GetMissingProducts()
 	]);
 });
 
 $app->get('/habittracking', function(Request $request, Response $response) use($db)
 {
-	return $this->renderer->render($response, '/layout.php', [
+	return $this->renderer->render($response, 'layout/default.php', [
 		'title' => 'Habit tracking',
 		'contentPage' => 'habittracking.php',
 		'habits' => $db->habits()
@@ -183,7 +185,7 @@ $app->get('/habittracking', function(Request $request, Response $response) use($
 
 $app->get('/batterytracking', function(Request $request, Response $response) use($db)
 {
-	return $this->renderer->render($response, '/layout.php', [
+	return $this->renderer->render($response, 'layout/default.php', [
 		'title' => 'Battery tracking',
 		'contentPage' => 'batterytracking.php',
 		'batteries' => $db->batteries()
@@ -192,7 +194,7 @@ $app->get('/batterytracking', function(Request $request, Response $response) use
 
 $app->get('/products', function(Request $request, Response $response) use($db)
 {
-	return $this->renderer->render($response, '/layout.php', [
+	return $this->renderer->render($response, 'layout/default.php', [
 		'title' => 'Products',
 		'contentPage' => 'products.php',
 		'products' => $db->products(),
@@ -203,7 +205,7 @@ $app->get('/products', function(Request $request, Response $response) use($db)
 
 $app->get('/locations', function(Request $request, Response $response) use($db)
 {
-	return $this->renderer->render($response, '/layout.php', [
+	return $this->renderer->render($response, 'layout/default.php', [
 		'title' => 'Locations',
 		'contentPage' => 'locations.php',
 		'locations' => $db->locations()
@@ -212,7 +214,7 @@ $app->get('/locations', function(Request $request, Response $response) use($db)
 
 $app->get('/quantityunits', function(Request $request, Response $response) use($db)
 {
-	return $this->renderer->render($response, '/layout.php', [
+	return $this->renderer->render($response, 'layout/default.php', [
 		'title' => 'Quantity units',
 		'contentPage' => 'quantityunits.php',
 		'quantityunits' => $db->quantity_units()
@@ -221,7 +223,7 @@ $app->get('/quantityunits', function(Request $request, Response $response) use($
 
 $app->get('/habits', function(Request $request, Response $response) use($db)
 {
-	return $this->renderer->render($response, '/layout.php', [
+	return $this->renderer->render($response, 'layout/default.php', [
 		'title' => 'Habits',
 		'contentPage' => 'habits.php',
 		'habits' => $db->habits()
@@ -230,7 +232,7 @@ $app->get('/habits', function(Request $request, Response $response) use($db)
 
 $app->get('/batteries', function(Request $request, Response $response) use($db)
 {
-	return $this->renderer->render($response, '/layout.php', [
+	return $this->renderer->render($response, 'layout/default.php', [
 		'title' => 'Batteries',
 		'contentPage' => 'batteries.php',
 		'batteries' => $db->batteries()
@@ -242,7 +244,7 @@ $app->get('/product/{productId}', function(Request $request, Response $response,
 {
 	if ($args['productId'] == 'new')
 	{
-		return $this->renderer->render($response, '/layout.php', [
+		return $this->renderer->render($response, 'layout/default.php', [
 			'title' => 'Create product',
 			'contentPage' => 'productform.php',
 			'locations' => $db->locations(),
@@ -252,7 +254,7 @@ $app->get('/product/{productId}', function(Request $request, Response $response,
 	}
 	else
 	{
-		return $this->renderer->render($response, '/layout.php', [
+		return $this->renderer->render($response, 'layout/default.php', [
 			'title' => 'Edit product',
 			'contentPage' => 'productform.php',
 			'product' => $db->products($args['productId']),
@@ -267,7 +269,7 @@ $app->get('/location/{locationId}', function(Request $request, Response $respons
 {
 	if ($args['locationId'] == 'new')
 	{
-		return $this->renderer->render($response, '/layout.php', [
+		return $this->renderer->render($response, 'layout/default.php', [
 			'title' => 'Create location',
 			'contentPage' => 'locationform.php',
 			'mode' => 'create'
@@ -275,7 +277,7 @@ $app->get('/location/{locationId}', function(Request $request, Response $respons
 	}
 	else
 	{
-		return $this->renderer->render($response, '/layout.php', [
+		return $this->renderer->render($response, 'layout/default.php', [
 			'title' => 'Edit location',
 			'contentPage' => 'locationform.php',
 			'location' => $db->locations($args['locationId']),
@@ -288,7 +290,7 @@ $app->get('/quantityunit/{quantityunitId}', function(Request $request, Response 
 {
 	if ($args['quantityunitId'] == 'new')
 	{
-		return $this->renderer->render($response, '/layout.php', [
+		return $this->renderer->render($response, 'layout/default.php', [
 			'title' => 'Create quantity unit',
 			'contentPage' => 'quantityunitform.php',
 			'mode' => 'create'
@@ -296,7 +298,7 @@ $app->get('/quantityunit/{quantityunitId}', function(Request $request, Response 
 	}
 	else
 	{
-		return $this->renderer->render($response, '/layout.php', [
+		return $this->renderer->render($response, 'layout/default.php', [
 			'title' => 'Edit quantity unit',
 			'contentPage' => 'quantityunitform.php',
 			'quantityunit' => $db->quantity_units($args['quantityunitId']),
@@ -309,20 +311,20 @@ $app->get('/habit/{habitId}', function(Request $request, Response $response, $ar
 {
 	if ($args['habitId'] == 'new')
 	{
-		return $this->renderer->render($response, '/layout.php', [
+		return $this->renderer->render($response, 'layout/default.php', [
 			'title' => 'Create habit',
 			'contentPage' => 'habitform.php',
-			'periodTypes' => GrocyPhpHelper::GetClassConstants('GrocyLogicHabits'),
+			'periodTypes' => GrocyPhpHelper::GetClassConstants('HabitsService'),
 			'mode' => 'create'
 		]);
 	}
 	else
 	{
-		return $this->renderer->render($response, '/layout.php', [
+		return $this->renderer->render($response, 'layout/default.php', [
 			'title' => 'Edit habit',
 			'contentPage' => 'habitform.php',
 			'habit' => $db->habits($args['habitId']),
-			'periodTypes' => GrocyPhpHelper::GetClassConstants('GrocyLogicHabits'),
+			'periodTypes' => GrocyPhpHelper::GetClassConstants('HabitsService'),
 			'mode' => 'edit'
 		]);
 	}
@@ -332,7 +334,7 @@ $app->get('/battery/{batteryId}', function(Request $request, Response $response,
 {
 	if ($args['batteryId'] == 'new')
 	{
-		return $this->renderer->render($response, '/layout.php', [
+		return $this->renderer->render($response, 'layout/default.php', [
 			'title' => 'Create battery',
 			'contentPage' => 'batteryform.php',
 			'mode' => 'create'
@@ -340,7 +342,7 @@ $app->get('/battery/{batteryId}', function(Request $request, Response $response,
 	}
 	else
 	{
-		return $this->renderer->render($response, '/layout.php', [
+		return $this->renderer->render($response, 'layout/default.php', [
 			'title' => 'Edit battery',
 			'contentPage' => 'batteryform.php',
 			'battery' => $db->batteries($args['batteryId']),
@@ -353,7 +355,7 @@ $app->get('/shoppinglistitem/{itemId}', function(Request $request, Response $res
 {
 	if ($args['itemId'] == 'new')
 	{
-		return $this->renderer->render($response, '/layout.php', [
+		return $this->renderer->render($response, 'layout/default.php', [
 			'title' => 'Add shopping list item',
 			'contentPage' => 'shoppinglistform.php',
 			'products' => $db->products(),
@@ -362,7 +364,7 @@ $app->get('/shoppinglistitem/{itemId}', function(Request $request, Response $res
 	}
 	else
 	{
-		return $this->renderer->render($response, '/layout.php', [
+		return $this->renderer->render($response, 'layout/default.php', [
 			'title' => 'Edit shopping list item',
 			'contentPage' => 'shoppinglistform.php',
 			'listItem' => $db->shopping_list($args['itemId']),
@@ -416,13 +418,13 @@ $app->group('/api', function() use($db)
 			$bestBeforeDate = $request->getQueryParams()['bestbeforedate'];
 		}
 
-		$transactionType = GrocyLogicStock::TRANSACTION_TYPE_PURCHASE;
+		$transactionType = StockService::TRANSACTION_TYPE_PURCHASE;
 		if (isset($request->getQueryParams()['transactiontype']) && !empty($request->getQueryParams()['transactiontype']))
 		{
 			$transactionType = $request->getQueryParams()['transactiontype'];
 		}
 
-		echo json_encode(array('success' => GrocyLogicStock::AddProduct($args['productId'], $args['amount'], $bestBeforeDate, $transactionType)));
+		echo json_encode(array('success' => StockService::AddProduct($args['productId'], $args['amount'], $bestBeforeDate, $transactionType)));
 	});
 
 	$this->get('/stock/consume-product/{productId}/{amount}', function(Request $request, Response $response, $args)
@@ -433,13 +435,13 @@ $app->group('/api', function() use($db)
 			$spoiled = true;
 		}
 
-		$transactionType = GrocyLogicStock::TRANSACTION_TYPE_CONSUME;
+		$transactionType = StockService::TRANSACTION_TYPE_CONSUME;
 		if (isset($request->getQueryParams()['transactiontype']) && !empty($request->getQueryParams()['transactiontype']))
 		{
 			$transactionType = $request->getQueryParams()['transactiontype'];
 		}
 
-		echo json_encode(array('success' => GrocyLogicStock::ConsumeProduct($args['productId'], $args['amount'], $spoiled, $transactionType)));
+		echo json_encode(array('success' => StockService::ConsumeProduct($args['productId'], $args['amount'], $spoiled, $transactionType)));
 	});
 
 	$this->get('/stock/inventory-product/{productId}/{newAmount}', function(Request $request, Response $response, $args)
@@ -450,22 +452,22 @@ $app->group('/api', function() use($db)
 			$bestBeforeDate = $request->getQueryParams()['bestbeforedate'];
 		}
 
-		echo json_encode(array('success' => GrocyLogicStock::InventoryProduct($args['productId'], $args['newAmount'], $bestBeforeDate)));
+		echo json_encode(array('success' => StockService::InventoryProduct($args['productId'], $args['newAmount'], $bestBeforeDate)));
 	});
 
 	$this->get('/stock/get-product-details/{productId}', function(Request $request, Response $response, $args)
 	{
-		echo json_encode(GrocyLogicStock::GetProductDetails($args['productId']));
+		echo json_encode(StockService::GetProductDetails($args['productId']));
 	});
 
 	$this->get('/stock/get-current-stock', function(Request $request, Response $response)
 	{
-		echo json_encode(GrocyLogicStock::GetCurrentStock());
+		echo json_encode(StockService::GetCurrentStock());
 	});
 
 	$this->get('/stock/add-missing-products-to-shoppinglist', function(Request $request, Response $response)
 	{
-		GrocyLogicStock::AddMissingProductsToShoppingList();
+		StockService::AddMissingProductsToShoppingList();
 		echo json_encode(array('success' => true));
 	});
 
@@ -477,12 +479,12 @@ $app->group('/api', function() use($db)
 			$trackedTime = $request->getQueryParams()['tracked_time'];
 		}
 
-		echo json_encode(array('success' => GrocyLogicHabits::TrackHabit($args['habitId'], $trackedTime)));
+		echo json_encode(array('success' => HabitsService::TrackHabit($args['habitId'], $trackedTime)));
 	});
 
 	$this->get('/habits/get-habit-details/{habitId}', function(Request $request, Response $response, $args)
 	{
-		echo json_encode(GrocyLogicHabits::GetHabitDetails($args['habitId']));
+		echo json_encode(HabitsService::GetHabitDetails($args['habitId']));
 	});
 
 	$this->get('/batteries/track-charge-cycle/{batteryId}', function(Request $request, Response $response, $args)
@@ -493,12 +495,12 @@ $app->group('/api', function() use($db)
 			$trackedTime = $request->getQueryParams()['tracked_time'];
 		}
 
-		echo json_encode(array('success' => GrocyLogicBatteries::TrackChargeCycle($args['batteryId'], $trackedTime)));
+		echo json_encode(array('success' => BatteriesService::TrackChargeCycle($args['batteryId'], $trackedTime)));
 	});
 
 	$this->get('/batteries/get-battery-details/{batteryId}', function(Request $request, Response $response, $args)
 	{
-		echo json_encode(GrocyLogicBatteries::GetBatteryDetails($args['batteryId']));
+		echo json_encode(BatteriesService::GetBatteryDetails($args['batteryId']));
 	});
 })->add(function($request, $response, $next)
 {
@@ -510,7 +512,7 @@ $app->group('/cli', function()
 {
 	$this->get('/recreatedemo', function(Request $request, Response $response)
 	{
-		if (Grocy::IsDemoInstallation())
+		if (ApplicationService::IsDemoInstallation())
 		{
 			GrocyDemoDataGenerator::RecreateDemo();
 		}

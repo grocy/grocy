@@ -1,19 +1,19 @@
 <?php
 
-class GrocyLogicBatteries
+class BatteriesService
 {
 	public static function GetCurrent()
 	{
 		$sql = 'SELECT * from batteries_current';
-		return Grocy::ExecuteDbQuery(Grocy::GetDbConnectionRaw(), $sql)->fetchAll(PDO::FETCH_OBJ);
+		return DatabaseService::ExecuteDbQuery(DatabaseService::GetDbConnectionRaw(), $sql)->fetchAll(PDO::FETCH_OBJ);
 	}
 
 	public static function GetNextChargeTime(int $batteryId)
 	{
-		$db = Grocy::GetDbConnection();
+		$db = DatabaseService::GetDbConnection();
 
 		$battery = $db->batteries($batteryId);
-		$batteryLastLogRow = Grocy::ExecuteDbQuery(Grocy::GetDbConnectionRaw(), "SELECT * from batteries_current WHERE battery_id = $batteryId LIMIT 1")->fetch(PDO::FETCH_OBJ);
+		$batteryLastLogRow = DatabaseService::ExecuteDbQuery(DatabaseService::GetDbConnectionRaw(), "SELECT * from batteries_current WHERE battery_id = $batteryId LIMIT 1")->fetch(PDO::FETCH_OBJ);
 
 		if ($battery->charge_interval_days > 0)
 		{
@@ -29,7 +29,7 @@ class GrocyLogicBatteries
 
 	public static function GetBatteryDetails(int $batteryId)
 	{
-		$db = Grocy::GetDbConnection();
+		$db = DatabaseService::GetDbConnection();
 
 		$battery = $db->batteries($batteryId);
 		$batteryChargeCylcesCount = $db->battery_charge_cycles()->where('battery_id', $batteryId)->count();
@@ -44,7 +44,7 @@ class GrocyLogicBatteries
 
 	public static function TrackChargeCycle(int $batteryId, string $trackedTime)
 	{
-		$db = Grocy::GetDbConnection();
+		$db = DatabaseService::GetDbConnection();
 
 		$logRow = $db->battery_charge_cycles()->createRow(array(
 			'battery_id' => $batteryId,

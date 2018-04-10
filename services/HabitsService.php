@@ -1,6 +1,6 @@
 <?php
 
-class GrocyLogicHabits
+class HabitsService
 {
 	const HABIT_TYPE_MANUALLY = 'manually';
 	const HABIT_TYPE_DYNAMIC_REGULAR = 'dynamic-regular';
@@ -8,15 +8,15 @@ class GrocyLogicHabits
 	public static function GetCurrentHabits()
 	{
 		$sql = 'SELECT * from habits_current';
-		return Grocy::ExecuteDbQuery(Grocy::GetDbConnectionRaw(), $sql)->fetchAll(PDO::FETCH_OBJ);
+		return DatabaseService::ExecuteDbQuery(DatabaseService::GetDbConnectionRaw(), $sql)->fetchAll(PDO::FETCH_OBJ);
 	}
 
 	public static function GetNextHabitTime(int $habitId)
 	{
-		$db = Grocy::GetDbConnection();
+		$db = DatabaseService::GetDbConnection();
 
 		$habit = $db->habits($habitId);
-		$habitLastLogRow = Grocy::ExecuteDbQuery(Grocy::GetDbConnectionRaw(), "SELECT * from habits_current WHERE habit_id = $habitId LIMIT 1")->fetch(PDO::FETCH_OBJ);
+		$habitLastLogRow = DatabaseService::ExecuteDbQuery(DatabaseService::GetDbConnectionRaw(), "SELECT * from habits_current WHERE habit_id = $habitId LIMIT 1")->fetch(PDO::FETCH_OBJ);
 
 		switch ($habit->period_type)
 		{
@@ -31,7 +31,7 @@ class GrocyLogicHabits
 
 	public static function GetHabitDetails(int $habitId)
 	{
-		$db = Grocy::GetDbConnection();
+		$db = DatabaseService::GetDbConnection();
 
 		$habit = $db->habits($habitId);
 		$habitTrackedCount = $db->habits_log()->where('habit_id', $habitId)->count();
@@ -46,7 +46,7 @@ class GrocyLogicHabits
 
 	public static function TrackHabit(int $habitId, string $trackedTime)
 	{
-		$db = Grocy::GetDbConnection();
+		$db = DatabaseService::GetDbConnection();
 
 		$logRow = $db->habits_log()->createRow(array(
 			'habit_id' => $habitId,
