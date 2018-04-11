@@ -16,7 +16,7 @@ $applicationService = new ApplicationService();
 	<meta name="format-detection" content="telephone=no">
 
 	<meta name="author" content="Bernd Bestel (bernd@berrnd.de)">
-	<link rel="icon" type="image/png" sizes="200x200" href="/views/img/grocy.png">
+	<link rel="icon" type="image/png" sizes="200x200" href="/img/grocy.png">
 
 	<title><?php echo $title; ?> | grocy</title>
 
@@ -30,10 +30,10 @@ $applicationService = new ApplicationService();
 	<link href="/bower_components/tagmanager/tagmanager.css?v=<?php echo $applicationService->GetInstalledVersion(); ?>" rel="stylesheet">
 	<link href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css?v=<?php echo $applicationService->GetInstalledVersion(); ?>" rel="stylesheet">
 	<link href="/vendor_unmanaged/noto-sans-v6-latin/noto-sans-v6-latin.css?v=<?php echo $applicationService->GetInstalledVersion(); ?>" rel="stylesheet">
-	<link href="/views/css/grocy.css?v=<?php echo $applicationService->GetInstalledVersion(); ?>" rel="stylesheet">
+	<link href="/css/grocy.css?v=<?php echo $applicationService->GetInstalledVersion(); ?>" rel="stylesheet">
 
 	<script src="/bower_components/jquery/dist/jquery.min.js?v=<?php echo $applicationService->GetInstalledVersion(); ?>"></script>
-	<script src="/views/js/grocy.js?v=<?php echo $applicationService->GetInstalledVersion(); ?>"></script>
+	<script src="/js/grocy.js?v=<?php echo $applicationService->GetInstalledVersion(); ?>"></script>
 </head>
 
 <body>
@@ -234,8 +234,8 @@ $applicationService = new ApplicationService();
 	<script src="/bower_components/tagmanager/tagmanager.js?v=<?php echo $applicationService->GetInstalledVersion(); ?>"></script>
 	<script src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js?v=<?php echo $applicationService->GetInstalledVersion(); ?>"></script>
 
-	<?php if (file_exists(__DIR__ . '/../../views/viewjs/' . str_replace('.php', '.js', $contentPage))) : ?>
-		<script src="/views/viewjs/<?php echo str_replace('.php', '.js', $contentPage) . '?v=' . $applicationService->GetInstalledVersion(); ?>"></script>
+	<?php if (file_exists(__DIR__ . '/../../public/viewjs/' . str_replace('.php', '.js', $contentPage))) : ?>
+		<script src="/viewjs/<?php echo str_replace('.php', '.js', $contentPage) . '?v=' . $applicationService->GetInstalledVersion(); ?>"></script>
 	<?php endif; ?>
 
 	<?php if (file_exists(__DIR__ . '/../data/add_before_end_body.html')) include __DIR__ . '/../data/add_before_end_body.html' ?>
