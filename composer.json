@@ -1,8 +1,15 @@
 {
 	"require": {
 		"slim/slim": "^3.8",
-		"slim/php-view": "^2.2",
 		"morris/lessql": "^0.3.4",
-		"pavlakis/slim-cli": "^1.0"
+		"pavlakis/slim-cli": "^1.0",
+		"rubellum/slim-blade-view": "^0.1.1"
+	},
+	"autoload": {
+		"psr-4": {
+			"Grocy\\Services\\": "services/",
+			"Grocy\\Controllers\\": "controllers/",
+			"Grocy\\Middleware\\": "middleware/"
+		}
 	}
 }

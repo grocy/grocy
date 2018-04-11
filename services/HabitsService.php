@@ -1,22 +1,22 @@
 <?php
 
-class HabitsService
+namespace Grocy\Services;
+
+class HabitsService extends BaseService
 {
 	const HABIT_TYPE_MANUALLY = 'manually';
 	const HABIT_TYPE_DYNAMIC_REGULAR = 'dynamic-regular';
 
-	public static function GetCurrentHabits()
+	public function GetCurrentHabits()
 	{
 		$sql = 'SELECT * from habits_current';
-		return DatabaseService::ExecuteDbQuery(DatabaseService::GetDbConnectionRaw(), $sql)->fetchAll(PDO::FETCH_OBJ);
+		return $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
 
-	public static function GetNextHabitTime(int $habitId)
+	public function GetNextHabitTime(int $habitId)
 	{
-		$db = DatabaseService::GetDbConnection();
-
-		$habit = $db->habits($habitId);
-		$habitLastLogRow = DatabaseService::ExecuteDbQuery(DatabaseService::GetDbConnectionRaw(), "SELECT * from habits_current WHERE habit_id = $habitId LIMIT 1")->fetch(PDO::FETCH_OBJ);
+		$habit = $this->Database->habits($habitId);
+		$habitLastLogRow = $this->DatabaseService->ExecuteDbQuery("SELECT * from habits_current WHERE habit_id = $habitId LIMIT 1")->fetch(\PDO::FETCH_OBJ);
 
 		switch ($habit->period_type)
 		{
@@ -29,13 +29,11 @@ class HabitsService
 		return null;
 	}
 
-	public static function GetHabitDetails(int $habitId)
+	public function GetHabitDetails(int $habitId)
 	{
-		$db = DatabaseService::GetDbConnection();
-
-		$habit = $db->habits($habitId);
-		$habitTrackedCount = $db->habits_log()->where('habit_id', $habitId)->count();
-		$habitLastTrackedTime = $db->habits_log()->where('habit_id', $habitId)->max('tracked_time');
+		$habit = $this->Database->habits($habitId);
+		$habitTrackedCount = $this->Database->habits_log()->where('habit_id', $habitId)->count();
+		$habitLastTrackedTime = $this->Database->habits_log()->where('habit_id', $habitId)->max('tracked_time');
 
 		return array(
 			'habit' => $habit,
@@ -44,11 +42,9 @@ class HabitsService
 		);
 	}
 
-	public static function TrackHabit(int $habitId, string $trackedTime)
+	public function TrackHabit(int $habitId, string $trackedTime)
 	{
-		$db = DatabaseService::GetDbConnection();
-
-		$logRow = $db->habits_log()->createRow(array(
+		$logRow = $this->Database->habits_log()->createRow(array(
 			'habit_id' => $habitId,
 			'tracked_time' => $trackedTime
 		));

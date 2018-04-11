@@ -7,7 +7,7 @@
 	Grocy.FetchJson('/api/habits/get-habit-details/' + jsonForm.habit_id,
 		function (habitDetails)
 		{
-			Grocy.FetchJson('/api/habits/track-habit/' + jsonForm.habit_id + '?tracked_time=' + $('#tracked_time').val(),
+			Grocy.FetchJson('/api/habits/track-habit-exeuction/' + jsonForm.habit_id + '?tracked_time=' + $('#tracked_time').val(),
 				function(result)
 				{
 					toastr.success('Tracked execution of habit ' + habitDetails.habit.name + ' on ' + $('#tracked_time').val());

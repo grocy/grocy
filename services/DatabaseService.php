@@ -1,64 +1,47 @@
 <?php
 
+namespace Grocy\Services;
+
+use Grocy\Services\ApplicationService;
+
 class DatabaseService
 {
-	private static $DbConnectionRaw;
+	private $DbConnectionRaw;
 	/**
-	 * @return PDO
+	 * @return \PDO
 	 */
-	public static function GetDbConnectionRaw($doMigrations = false)
+	public function GetDbConnectionRaw()
 	{
-		if ($doMigrations === true)
+		if ($this->DbConnectionRaw == null)
 		{
-			self::$DbConnectionRaw = null;
+			$pdo = new \PDO('sqlite:' . __DIR__ . '/../data/grocy.db');
+			$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+			$this->DbConnectionRaw = $pdo;
 		}
 
-		if (self::$DbConnectionRaw == null)
-		{
-			$pdo = new PDO('sqlite:' . __DIR__ . '/../data/grocy.db');
-			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-			if ($doMigrations === true)
-			{
-				self::ExecuteDbStatement($pdo, "CREATE TABLE IF NOT EXISTS migrations (migration INTEGER NOT NULL PRIMARY KEY UNIQUE, execution_time_timestamp DATETIME DEFAULT (datetime('now', 'localtime')))");
-				GrocyDbMigrator::MigrateDb($pdo);
-
-				if (ApplicationService::IsDemoInstallation())
-				{
-					GrocyDemoDataGenerator::PopulateDemoData($pdo);
-				}
-			}
-
-			self::$DbConnectionRaw = $pdo;
-		}
-
-		return self::$DbConnectionRaw;
+		return $this->DbConnectionRaw;
 	}
 
-	private static $DbConnection;
+	private $DbConnection;
 	/**
-	 * @return LessQL\Database
+	 * @return \LessQL\Database
 	 */
-	public static function GetDbConnection($doMigrations = false)
+	public function GetDbConnection()
 	{
-		if ($doMigrations === true)
+		if ($this->DbConnection == null)
 		{
-			self::$DbConnection = null;
+			$this->DbConnection = new \LessQL\Database($this->GetDbConnectionRaw());
 		}
 
-		if (self::$DbConnection == null)
-		{
-			self::$DbConnection = new LessQL\Database(self::GetDbConnectionRaw($doMigrations));
-		}
-
-		return self::$DbConnection;
+		return $this->DbConnection;
 	}
 
 	/**
 	 * @return boolean
 	 */
-	public static function ExecuteDbStatement(PDO $pdo, string $sql)
+	public function ExecuteDbStatement(string $sql)
 	{
+		$pdo = $this->GetDbConnectionRaw();
 		if ($pdo->exec($sql) === false)
 		{
 			throw new Exception($pdo->errorInfo());
@@ -68,11 +51,12 @@ class DatabaseService
 	}
 
 	/**
-	 * @return boolean|PDOStatement
+	 * @return boolean|\PDOStatement
 	 */
-	public static function ExecuteDbQuery(PDO $pdo, string $sql)
+	public function ExecuteDbQuery(string $sql)
 	{
-		if (self::ExecuteDbStatement($pdo, $sql) === true)
+		$pdo = $this->GetDbConnectionRaw();
+		if ($this->ExecuteDbStatement($sql) === true)
 		{
 			return $pdo->query($sql);
 		}
