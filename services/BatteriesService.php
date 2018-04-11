@@ -1,19 +1,19 @@
 <?php
 
-class BatteriesService
+namespace Grocy\Services;
+
+class BatteriesService extends BaseService
 {
-	public static function GetCurrent()
+	public function GetCurrent()
 	{
 		$sql = 'SELECT * from batteries_current';
-		return DatabaseService::ExecuteDbQuery(DatabaseService::GetDbConnectionRaw(), $sql)->fetchAll(PDO::FETCH_OBJ);
+		return $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
 
-	public static function GetNextChargeTime(int $batteryId)
+	public function GetNextChargeTime(int $batteryId)
 	{
-		$db = DatabaseService::GetDbConnection();
-
-		$battery = $db->batteries($batteryId);
-		$batteryLastLogRow = DatabaseService::ExecuteDbQuery(DatabaseService::GetDbConnectionRaw(), "SELECT * from batteries_current WHERE battery_id = $batteryId LIMIT 1")->fetch(PDO::FETCH_OBJ);
+		$battery = $this->Database->batteries($batteryId);
+		$batteryLastLogRow = $this->DatabaseService->ExecuteDbQuery("SELECT * from batteries_current WHERE battery_id = $batteryId LIMIT 1")->fetch(\PDO::FETCH_OBJ);
 
 		if ($battery->charge_interval_days > 0)
 		{
@@ -27,13 +27,11 @@ class BatteriesService
 		return null;
 	}
 
-	public static function GetBatteryDetails(int $batteryId)
+	public function GetBatteryDetails(int $batteryId)
 	{
-		$db = DatabaseService::GetDbConnection();
-
-		$battery = $db->batteries($batteryId);
-		$batteryChargeCylcesCount = $db->battery_charge_cycles()->where('battery_id', $batteryId)->count();
-		$batteryLastChargedTime = $db->battery_charge_cycles()->where('battery_id', $batteryId)->max('tracked_time');
+		$battery = $this->Database->batteries($batteryId);
+		$batteryChargeCylcesCount = $this->Database->battery_charge_cycles()->where('battery_id', $batteryId)->count();
+		$batteryLastChargedTime = $this->Database->battery_charge_cycles()->where('battery_id', $batteryId)->max('tracked_time');
 
 		return array(
 			'battery' => $battery,
@@ -42,11 +40,9 @@ class BatteriesService
 		);
 	}
 
-	public static function TrackChargeCycle(int $batteryId, string $trackedTime)
+	public function TrackChargeCycle(int $batteryId, string $trackedTime)
 	{
-		$db = DatabaseService::GetDbConnection();
-
-		$logRow = $db->battery_charge_cycles()->createRow(array(
+		$logRow = $this->Database->battery_charge_cycles()->createRow(array(
 			'battery_id' => $batteryId,
 			'tracked_time' => $trackedTime
 		));

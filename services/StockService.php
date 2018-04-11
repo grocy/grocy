@@ -1,33 +1,33 @@
 <?php
 
-class StockService
+namespace Grocy\Services;
+
+class StockService extends BaseService
 {
 	const TRANSACTION_TYPE_PURCHASE = 'purchase';
 	const TRANSACTION_TYPE_CONSUME = 'consume';
 	const TRANSACTION_TYPE_INVENTORY_CORRECTION = 'inventory-correction';
 
-	public static function GetCurrentStock()
+	public function GetCurrentStock()
 	{
 		$sql = 'SELECT * from stock_current';
-		return DatabaseService::ExecuteDbQuery(DatabaseService::GetDbConnectionRaw(), $sql)->fetchAll(PDO::FETCH_OBJ);
+		return $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
 
-	public static function GetMissingProducts()
+	public function GetMissingProducts()
 	{
 		$sql = 'SELECT * from stock_missing_products';
-		return DatabaseService::ExecuteDbQuery(DatabaseService::GetDbConnectionRaw(), $sql)->fetchAll(PDO::FETCH_OBJ);
+		return $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
 
-	public static function GetProductDetails(int $productId)
+	public function GetProductDetails(int $productId)
 	{
-		$db = DatabaseService::GetDbConnection();
-
-		$product = $db->products($productId);
-		$productStockAmount = $db->stock()->where('product_id', $productId)->sum('amount');
-		$productLastPurchased = $db->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_PURCHASE)->max('purchased_date');
-		$productLastUsed = $db->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->max('used_date');
-		$quPurchase = $db->quantity_units($product->qu_id_purchase);
-		$quStock = $db->quantity_units($product->qu_id_stock);
+		$product = $this->Database->products($productId);
+		$productStockAmount = $this->Database->stock()->where('product_id', $productId)->sum('amount');
+		$productLastPurchased = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_PURCHASE)->max('purchased_date');
+		$productLastUsed = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->max('used_date');
+		$quPurchase = $this->Database->quantity_units($product->qu_id_purchase);
+		$quStock = $this->Database->quantity_units($product->qu_id_stock);
 
 		return array(
 			'product' => $product,
@@ -39,14 +39,13 @@ class StockService
 		);
 	}
 
-	public static function AddProduct(int $productId, int $amount, string $bestBeforeDate, $transactionType)
+	public function AddProduct(int $productId, int $amount, string $bestBeforeDate, $transactionType)
 	{
 		if ($transactionType === self::TRANSACTION_TYPE_CONSUME || $transactionType === self::TRANSACTION_TYPE_PURCHASE || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
 		{
-			$db = DatabaseService::GetDbConnection();
 			$stockId = uniqid();
 
-			$logRow = $db->stock_log()->createRow(array(
+			$logRow = $this->Database->stock_log()->createRow(array(
 				'product_id' => $productId,
 				'amount' => $amount,
 				'best_before_date' => $bestBeforeDate,
@@ -56,7 +55,7 @@ class StockService
 			));
 			$logRow->save();
 
-			$stockRow = $db->stock()->createRow(array(
+			$stockRow = $this->Database->stock()->createRow(array(
 				'product_id' => $productId,
 				'amount' => $amount,
 				'best_before_date' => $bestBeforeDate,
@@ -73,14 +72,12 @@ class StockService
 		}
 	}
 
-	public static function ConsumeProduct(int $productId, int $amount, bool $spoiled, $transactionType)
+	public function ConsumeProduct(int $productId, int $amount, bool $spoiled, $transactionType)
 	{
 		if ($transactionType === self::TRANSACTION_TYPE_CONSUME || $transactionType === self::TRANSACTION_TYPE_PURCHASE || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
 		{
-			$db = DatabaseService::GetDbConnection();
-
-			$productStockAmount = $db->stock()->where('product_id', $productId)->sum('amount');
-			$potentialStockEntries = $db->stock()->where('product_id', $productId)->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC')->fetchAll(); //First expiring first, then first in first out
+			$productStockAmount = $this->Database->stock()->where('product_id', $productId)->sum('amount');
+			$potentialStockEntries = $this->Database->stock()->where('product_id', $productId)->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC')->fetchAll(); //First expiring first, then first in first out
 
 			if ($amount > $productStockAmount)
 			{
@@ -96,7 +93,7 @@ class StockService
 
 				if ($amount >= $stockEntry->amount) //Take the whole stock entry
 				{
-					$logRow = $db->stock_log()->createRow(array(
+					$logRow = $this->Database->stock_log()->createRow(array(
 						'product_id' => $stockEntry->product_id,
 						'amount' => $stockEntry->amount * -1,
 						'best_before_date' => $stockEntry->best_before_date,
@@ -113,7 +110,7 @@ class StockService
 				}
 				else //Stock entry amount is > than needed amount -> split the stock entry resp. update the amount
 				{
-					$logRow = $db->stock_log()->createRow(array(
+					$logRow = $this->Database->stock_log()->createRow(array(
 						'product_id' => $stockEntry->product_id,
 						'amount' => $amount * -1,
 						'best_before_date' => $stockEntry->best_before_date,
@@ -142,36 +139,33 @@ class StockService
 		}
 	}
 
-	public static function InventoryProduct(int $productId, int $newAmount, string $bestBeforeDate)
+	public function InventoryProduct(int $productId, int $newAmount, string $bestBeforeDate)
 	{
-		$db = DatabaseService::GetDbConnection();
-		$productStockAmount = $db->stock()->where('product_id', $productId)->sum('amount');
+		$productStockAmount = $this->Database->stock()->where('product_id', $productId)->sum('amount');
 
 		if ($newAmount > $productStockAmount)
 		{
 			$amountToAdd = $newAmount - $productStockAmount;
-			self::AddProduct($productId, $amountToAdd, $bestBeforeDate, self::TRANSACTION_TYPE_INVENTORY_CORRECTION);
+			$this->AddProduct($productId, $amountToAdd, $bestBeforeDate, self::TRANSACTION_TYPE_INVENTORY_CORRECTION);
 		}
 		else if ($newAmount < $productStockAmount)
 		{
 			$amountToRemove = $productStockAmount - $newAmount;
-			self::ConsumeProduct($productId, $amountToRemove, false, self::TRANSACTION_TYPE_INVENTORY_CORRECTION);
+			$this->ConsumeProduct($productId, $amountToRemove, false, self::TRANSACTION_TYPE_INVENTORY_CORRECTION);
 		}
 
 		return true;
 	}
 
-	public static function AddMissingProductsToShoppingList()
+	public function AddMissingProductsToShoppingList()
 	{
-		$db = DatabaseService::GetDbConnection();
-
-		$missingProducts = self::GetMissingProducts();
+		$missingProducts = $this->GetMissingProducts();
 		foreach ($missingProducts as $missingProduct)
 		{
-			$product = $db->products()->where('id', $missingProduct->id)->fetch();
+			$product = $this->Database->products()->where('id', $missingProduct->id)->fetch();
 			$amount = ceil($missingProduct->amount_missing / $product->qu_factor_purchase_to_stock);
 
-			$alreadyExistingEntry = $db->shopping_list()->where('product_id', $missingProduct->id)->fetch();
+			$alreadyExistingEntry = $this->Database->shopping_list()->where('product_id', $missingProduct->id)->fetch();
 			if ($alreadyExistingEntry) //Update
 			{
 				$alreadyExistingEntry->update(array(
@@ -180,7 +174,7 @@ class StockService
 			}
 			else //Insert
 			{
-				$shoppinglistRow = $db->shopping_list()->createRow(array(
+				$shoppinglistRow = $this->Database->shopping_list()->createRow(array(
 					'product_id' => $missingProduct->id,
 					'amount_autoadded' => $amount
 				));

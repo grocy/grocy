@@ -1,11 +1,13 @@
 <?php
 
-class SessionService
+namespace Grocy\Services;
+
+class SessionService extends BaseService
 {
 	/**
 	 * @return boolean
 	 */
-	public static function IsValidSession($sessionKey)
+	public function IsValidSession($sessionKey)
 	{
 		if ($sessionKey === null || empty($sessionKey))
 		{
@@ -20,7 +22,7 @@ class SessionService
 	/**
 	 * @return string
 	 */
-	public static function CreateSession()
+	public function CreateSession()
 	{
 		if (!file_exists(__DIR__ . '/../data/sessions'))
 		{
@@ -28,7 +30,7 @@ class SessionService
 		}
 
 		$now = time();
-		foreach (new FilesystemIterator(__DIR__ . '/../data/sessions') as $file)
+		foreach (new \FilesystemIterator(__DIR__ . '/../data/sessions') as $file)
 		{
 			if ($now - $file->getCTime() >= 2678400) //31 days
 			{
@@ -41,7 +43,7 @@ class SessionService
 		return $newSessionKey;
 	}
 
-	public static function RemoveSession($sessionKey)
+	public function RemoveSession($sessionKey)
 	{
 		unlink(__DIR__ . "/../data/sessions/$sessionKey.txt");
 	}

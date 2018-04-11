@@ -1,26 +1,28 @@
 <?php
 
-class ApplicationService
+namespace Grocy\Services;
+
+class ApplicationService extends BaseService
 {
 	/**
 	 * @return boolean
 	 */
-	public static function IsDemoInstallation()
+	public function IsDemoInstallation()
 	{
 		return file_exists(__DIR__ . '/../data/demo.txt');
 	}
 
-	private static $InstalledVersion;
+	private $InstalledVersion;
 	/**
 	 * @return string
 	 */
-	public static function GetInstalledVersion()
+	public function GetInstalledVersion()
 	{
-		if (self::$InstalledVersion == null)
+		if ($this->InstalledVersion == null)
 		{
-			self::$InstalledVersion = preg_replace("/\r|\n/", '', file_get_contents(__DIR__ . '/../version.txt'));
+			$this->InstalledVersion = preg_replace("/\r|\n/", '', file_get_contents(__DIR__ . '/../version.txt'));
 		}
 
-		return self::$InstalledVersion;
+		return $this->InstalledVersion;
 	}
 }
