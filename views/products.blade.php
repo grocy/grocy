@@ -1,5 +1,9 @@
 @extends('layout.default')
 
+@section('title', 'Products')
+@section('activeNav', 'products')
+@section('viewJsName', 'products')
+
 @section('content')
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
@@ -25,39 +29,39 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($products as $product) : ?>
+				@foreach($products as $product)
 				<tr>
 					<td class="fit-content">
-						<a class="btn btn-info" href="/product/<?php echo $product->id; ?>" role="button">
+						<a class="btn btn-info" href="/product/{{ $product->id }}" role="button">
 							<i class="fa fa-pencil"></i>
 						</a>
-						<a class="btn btn-danger product-delete-button" href="#" role="button" data-product-id="<?php echo $product->id; ?>" data-product-name="<?php echo $product->name; ?>">
+						<a class="btn btn-danger product-delete-button" href="#" role="button" data-product-id="{{ $product->id }}" data-product-name="{{ $product->name }}">
 							<i class="fa fa-trash"></i>
 						</a>
 					</td>
 					<td>
-						<?php echo $product->name; ?>
+						{{ $product->name }}
 					</td>
 					<td>
-						<?php echo FindObjectInArrayByPropertyValue($locations, 'id', $product->location_id)->name; ?>
+						{{ FindObjectInArrayByPropertyValue($locations, 'id', $product->location_id)->name }}
 					</td>
 					<td>
-						<?php echo $product->min_stock_amount; ?>
+						{{ $product->min_stock_amount }}
 					</td>
 					<td>
-						<?php echo FindObjectInArrayByPropertyValue($quantityunits, 'id', $product->qu_id_purchase)->name; ?>
+						{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', $product->qu_id_purchase)->name }}
 					</td>
 					<td>
-						<?php echo FindObjectInArrayByPropertyValue($quantityunits, 'id', $product->qu_id_stock)->name; ?>
+						{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', $product->qu_id_stock)->name }}
 					</td>
 					<td>
-						<?php echo $product->qu_factor_purchase_to_stock; ?>
+						{{ $product->qu_factor_purchase_to_stock }}
 					</td>
 					<td>
-						<?php echo $product->description; ?>
+						{{ $product->description }}
 					</td>
 				</tr>
-				<?php endforeach; ?>
+				@endforeach
 			</tbody>
 		</table>
 	</div>

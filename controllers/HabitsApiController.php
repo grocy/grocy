@@ -2,7 +2,7 @@
 
 namespace Grocy\Controllers;
 
-use Grocy\Services\HabitsService;
+use \Grocy\Services\HabitsService;
 
 class HabitsApiController extends BaseApiController
 {
@@ -14,7 +14,7 @@ class HabitsApiController extends BaseApiController
 
 	protected $HabitsService;
 
-	public function TrackHabitExecution($request, $response, $args)
+	public function TrackHabitExecution(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$trackedTime = date('Y-m-d H:i:s');
 		if (isset($request->getQueryParams()['tracked_time']) && !empty($request->getQueryParams()['tracked_time']))
@@ -22,11 +22,11 @@ class HabitsApiController extends BaseApiController
 			$trackedTime = $request->getQueryParams()['tracked_time'];
 		}
 
-		return $this->ApiEncode(array('success' => $this->HabitsService->TrackHabit($args['habitId'], $trackedTime)));
+		return $this->ApiResponse(array('success' => $this->HabitsService->TrackHabit($args['habitId'], $trackedTime)));
 	}
 
-	public function HabitDetails($request, $response, $args)
+	public function HabitDetails(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->ApiEncode($this->HabitsService->GetHabitDetails($args['habitId']));
+		return $this->ApiResponse($this->HabitsService->GetHabitDetails($args['habitId']));
 	}
 }

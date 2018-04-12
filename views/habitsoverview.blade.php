@@ -1,9 +1,8 @@
-<?php
-use Grocy\Services\HabitsService;
-$habitsService = new HabitsService();
-?>
-
 @extends('layout.default')
+
+@section('title', 'Habits overview')
+@section('activeNav', 'habitsoverview')
+@section('viewJsName', 'habitsoverview')
 
 @section('content')
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -20,25 +19,25 @@ $habitsService = new HabitsService();
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($currentHabits as $curentHabitEntry) : ?>
-				<tr class="<?php if (FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->period_type === HabitsService::HABIT_TYPE_DYNAMIC_REGULAR && $habitsService->GetNextHabitTime($curentHabitEntry->habit_id) < date('Y-m-d H:i:s')) echo 'error-bg'; ?>">
+				@foreach($currentHabits as $curentHabitEntry)
+				<tr class="@if(FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->period_type === \Grocy\Services\HabitsService::HABIT_TYPE_DYNAMIC_REGULAR && $nextHabitTimes[$curentHabitEntry->habit_id] < date('Y-m-d H:i:s')) error-bg @endif">
 					<td>
-						<?php echo FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->name; ?>
+						{{ FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->name }}
 					</td>
 					<td>
-						<?php if (FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->period_type === HabitsService::HABIT_TYPE_DYNAMIC_REGULAR): ?>
-							<?php echo $habitsService->GetNextHabitTime($curentHabitEntry->habit_id); ?>
-							<time class="timeago timeago-contextual" datetime="<?php echo $habitsService->GetNextHabitTime($curentHabitEntry->habit_id); ?>"></time>
-						<?php else: ?>
+						@if(FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->period_type === \Grocy\Services\HabitsService::HABIT_TYPE_DYNAMIC_REGULAR)
+							{{ $nextHabitTimes[$curentHabitEntry->habit_id] }}
+							<time class="timeago timeago-contextual" datetime="{{ $nextHabitTimes[$curentHabitEntry->habit_id] }}"></time>
+						@else
 							...
-						<?php endif; ?>
+						@endif
 					</td>
 					<td>
-						<?php echo $curentHabitEntry->last_tracked_time; ?>
-						<time class="timeago timeago-contextual" datetime="<?php echo $curentHabitEntry->last_tracked_time; ?>"></time>
+						{{ $curentHabitEntry->last_tracked_time }}
+						<time class="timeago timeago-contextual" datetime="{{ $curentHabitEntry->last_tracked_time }}"></time>
 					</td>
 				</tr>
-				<?php endforeach; ?>
+				@endforeach
 			</tbody>
 		</table>
 	</div>

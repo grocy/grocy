@@ -2,8 +2,11 @@
 
 $(function()
 {
-	var menuItem = $('.nav').find("[data-nav-for-page='" + Grocy.ContentPage + "']");
-	menuItem.addClass('active');
+	if (!Grocy.ActiveNav.isEmpty())
+	{
+		var menuItem = $('.nav').find("[data-nav-for-page='" + Grocy.ActiveNav + "']");
+		menuItem.addClass('active');
+	}	
 
 	$.timeago.settings.allowFuture = true;
 	$('time.timeago').timeago();
@@ -79,6 +82,11 @@ Grocy.EmptyElementWhenMatches = function(selector, text)
 String.prototype.contains = function(search)
 {
 	return this.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+};
+
+String.prototype.isEmpty = function()
+{
+	return (this.length === 0 || !this.trim());
 };
 
 Grocy.GetUriParam = function(key)

@@ -2,7 +2,7 @@
 
 namespace Grocy\Controllers;
 
-use Grocy\Services\BatteriesService;
+use \Grocy\Services\BatteriesService;
 
 class BatteriesApiController extends BaseApiController
 {
@@ -14,7 +14,7 @@ class BatteriesApiController extends BaseApiController
 
 	protected $BatteriesService;
 
-	public function TrackChargeCycle($request, $response, $args)
+	public function TrackChargeCycle(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$trackedTime = date('Y-m-d H:i:s');
 		if (isset($request->getQueryParams()['tracked_time']) && !empty($request->getQueryParams()['tracked_time']))
@@ -22,11 +22,11 @@ class BatteriesApiController extends BaseApiController
 			$trackedTime = $request->getQueryParams()['tracked_time'];
 		}
 
-		return $this->ApiEncode(array('success' => $this->BatteriesService->TrackChargeCycle($args['batteryId'], $trackedTime)));
+		return $this->ApiResponse(array('success' => $this->BatteriesService->TrackChargeCycle($args['batteryId'], $trackedTime)));
 	}
 
-	public function BatteryDetails($request, $response, $args)
+	public function BatteryDetails(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->ApiEncode($this->BatteriesService->GetBatteryDetails($args['batteryId']));
+		return $this->ApiResponse($this->BatteriesService->GetBatteryDetails($args['batteryId']));
 	}
 }

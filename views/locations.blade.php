@@ -1,5 +1,9 @@
 @extends('layout.default')
 
+@section('title', 'Locations')
+@section('activeNav', 'locations')
+@section('viewJsName', 'locations')
+
 @section('content')
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
@@ -20,24 +24,24 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($locations as $location) : ?>
+				@foreach($locations as $location)
 				<tr>
 					<td class="fit-content">
-						<a class="btn btn-info" href="/location/<?php echo $location->id; ?>" role="button">
+						<a class="btn btn-info" href="/location/{{ $location->id }}" role="button">
 							<i class="fa fa-pencil"></i>
 						</a>
-						<a class="btn btn-danger location-delete-button" href="#" role="button" data-location-id="<?php echo $location->id; ?>" data-location-name="<?php echo $location->name; ?>">
+						<a class="btn btn-danger location-delete-button" href="#" role="button" data-location-id="{{ $location->id }}" data-location-name="{{ $location->name }}">
 							<i class="fa fa-trash"></i>
 						</a>
 					</td>
 					<td>
-						<?php echo $location->name; ?>
+						{{ $location->name }}
 					</td>
 					<td>
-						<?php echo $location->description; ?>
+						{{ $location->description }}
 					</td>
 				</tr>
-				<?php endforeach; ?>
+				@endforeach
 			</tbody>
 		</table>
 	</div>

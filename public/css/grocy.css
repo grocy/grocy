@@ -22,8 +22,8 @@
 		padding: 20px;
 		overflow-x: hidden;
 		overflow-y: auto;
-		background-color: #f5f5f5;
-		border-right: 1px solid #5e5e5e;
+		background-color: #e5e5e5;
+		border-right: 1px solid #d6d6d6;
 		min-width: 220px;
 		max-width: 260px;
 	}
@@ -47,8 +47,11 @@
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
-	color: #fff;
-	background-color: #5e5e5e;
+	background-color: #d6d6d6;
+}
+
+.navbar-default {
+	background-color: #e5e5e5;
 }
 
 .main {
@@ -67,7 +70,7 @@
 }
 
 .nav-copyright {
-	color: #b3b3b1;
+	color: #a7a7a7;
 	font-size: 11px;
 	text-align: center;
 	font-family: 'Arial', sans-serif;
@@ -75,21 +78,24 @@
 
 .discrete-link {
 	color: inherit;
+	transition: all 0.3s;
 }
 
 a.discrete-link:hover {
-	color: #5cb85c;
+	color: #337ab7;
 	text-decoration: none;
+	transition: all 0.3s;
 }
 
 a.discrete-link:focus {
-	color: #337ab7;
+	color: #ab2230;
 	text-decoration: none;
+	transition: all 0.3s;
 }
 
 .navbar-fixed-top {
 	border-bottom: solid;
-	border-color: #5e5e5e;
+	border-color: #d6d6d6;
 }
 
 .navbar-brand {

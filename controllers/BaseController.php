@@ -2,7 +2,8 @@
 
 namespace Grocy\Controllers;
 
-use Grocy\Services\DatabaseService;
+use \Grocy\Services\DatabaseService;
+use \Grocy\Services\ApplicationService;
 
 class BaseController
 {
@@ -11,6 +12,9 @@ class BaseController
 
 		$databaseService = new DatabaseService();
 		$this->Database = $databaseService->GetDbConnection();
+
+		$applicationService = new ApplicationService();
+		$container->view->set('version', $applicationService->GetInstalledVersion());
 	}
 
 	protected $AppContainer;

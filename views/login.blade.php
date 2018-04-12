@@ -1,5 +1,8 @@
 @extends('layout.default')
 
+@section('title', 'Login')
+@section('viewJsName', 'login')
+
 @section('content')
 <div class="col-md-4 col-md-offset-5 main">
 

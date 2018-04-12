@@ -1,5 +1,9 @@
 @extends('layout.default')
 
+@section('title', 'Habit tracking')
+@section('activeNav', 'habittracking')
+@section('viewJsName', 'habittracking')
+
 @section('content')
 <div class="col-sm-3 col-sm-offset-3 col-md-3 col-md-offset-2 main">
 
@@ -11,9 +15,9 @@
 			<label for="habit_id">Habit</label>
 			<select class="form-control combobox" id="habit_id" name="habit_id" required>
 				<option value=""></option>
-				<?php foreach ($habits as $habit) : ?>
-					<option value="<?php echo $habit->id; ?>"><?php echo $habit->name; ?></option>
-				<?php endforeach; ?>
+				@foreach($habits as $habit)
+					<option value="{{ $habit->id }}">{{ $habit->name }}</option>
+				@endforeach
 			</select>
 			<div id="product-error" class="help-block with-errors"></div>
 		</div>

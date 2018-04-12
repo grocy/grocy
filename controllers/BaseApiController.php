@@ -4,7 +4,7 @@ namespace Grocy\Controllers;
 
 class BaseApiController extends BaseController
 {
-	protected function ApiEncode($response)
+	protected function ApiResponse($response)
 	{
 		return json_encode($response);
 	}

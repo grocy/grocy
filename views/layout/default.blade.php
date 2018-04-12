@@ -1,10 +1,3 @@
-<?php
-
-use Grocy\Services\ApplicationService;
-$applicationService = new ApplicationService();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,22 +11,23 @@ $applicationService = new ApplicationService();
 	<meta name="author" content="Bernd Bestel (bernd@berrnd.de)">
 	<link rel="icon" type="image/png" sizes="200x200" href="/img/grocy.png">
 
-	<title><?php echo $title; ?> | grocy</title>
+	<title>@yield('title') | grocy</title>
 
-	<link href="/bower_components/bootstrap/dist/css/bootstrap.min.css?v=<?php echo $applicationService->GetInstalledVersion(); ?>" rel="stylesheet">
-	<link href="/bower_components/font-awesome/css/font-awesome.min.css?v=<?php echo $applicationService->GetInstalledVersion(); ?>" rel="stylesheet">
-	<link href="/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css?v=<?php echo $applicationService->GetInstalledVersion(); ?>" rel="stylesheet">
-	<link href="/bower_components/bootstrap-combobox/css/bootstrap-combobox.css?v=<?php echo $applicationService->GetInstalledVersion(); ?>" rel="stylesheet">
-	<link href="/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css?v=<?php echo $applicationService->GetInstalledVersion(); ?>" rel="stylesheet">
-	<link href="/bower_components/datatables.net-responsive-bs/css/responsive.bootstrap.min.css?v=<?php echo $applicationService->GetInstalledVersion(); ?>" rel="stylesheet">
-	<link href="/bower_components/toastr/toastr.min.css?v=<?php echo $applicationService->GetInstalledVersion(); ?>" rel="stylesheet">
-	<link href="/bower_components/tagmanager/tagmanager.css?v=<?php echo $applicationService->GetInstalledVersion(); ?>" rel="stylesheet">
-	<link href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css?v=<?php echo $applicationService->GetInstalledVersion(); ?>" rel="stylesheet">
-	<link href="/vendor_unmanaged/noto-sans-v6-latin/noto-sans-v6-latin.css?v=<?php echo $applicationService->GetInstalledVersion(); ?>" rel="stylesheet">
-	<link href="/css/grocy.css?v=<?php echo $applicationService->GetInstalledVersion(); ?>" rel="stylesheet">
+	<link href="/bower_components/bootstrap/dist/css/bootstrap.min.css?v={{ $version }}" rel="stylesheet">
+	<link href="/bower_components/font-awesome/css/font-awesome.min.css?v={{ $version }}" rel="stylesheet">
+	<link href="/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css?v={{ $version }}" rel="stylesheet">
+	<link href="/bower_components/bootstrap-combobox/css/bootstrap-combobox.css?v={{ $version }}" rel="stylesheet">
+	<link href="/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css?v={{ $version }}" rel="stylesheet">
+	<link href="/bower_components/datatables.net-responsive-bs/css/responsive.bootstrap.min.css?v={{ $version }}" rel="stylesheet">
+	<link href="/bower_components/toastr/toastr.min.css?v={{ $version }}" rel="stylesheet">
+	<link href="/bower_components/tagmanager/tagmanager.css?v={{ $version }}" rel="stylesheet">
+	<link href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css?v={{ $version }}" rel="stylesheet">
+	<link href="/components_unmanaged/noto-sans-v6-latin/noto-sans-v6-latin.css?v={{ $version }}" rel="stylesheet">
+	<link href="/css/grocy.css?v={{ $version }}" rel="stylesheet">
 
-	<script src="/bower_components/jquery/dist/jquery.min.js?v=<?php echo $applicationService->GetInstalledVersion(); ?>"></script>
-	<script src="/js/grocy.js?v=<?php echo $applicationService->GetInstalledVersion(); ?>"></script>
+	<script src="/bower_components/jquery/dist/jquery.min.js?v={{ $version }}"></script>
+	<script src="/js/grocy.js?v={{ $version }}"></script>
+	<script>Grocy.ActiveNav = '@yield('activeNav', '')';</script>
 </head>
 
 <body>
@@ -59,54 +53,54 @@ $applicationService = new ApplicationService();
 			<div id="navbar-mobile" class="navbar-collapse collapse">
 
 				<ul class="nav navbar-nav navbar-right">
-					<li data-nav-for-page="stockoverview.php">
+					<li data-nav-for-page="stockoverview">
 						<a class="discrete-link" href="/stockoverview"><i class="fa fa-tachometer fa-fw"></i>&nbsp;Stock overview</a>
 					</li>
-					<li data-nav-for-page="habitsoverview.php">
+					<li data-nav-for-page="habitsoverview">
 						<a class="discrete-link" href="/habitsoverview"><i class="fa fa-tachometer fa-fw"></i>&nbsp;Habits overview</a>
 					</li>
-					<li data-nav-for-page="batteriesoverview.php">
+					<li data-nav-for-page="batteriesoverview">
 						<a class="discrete-link" href="/batteriesoverview"><i class="fa fa-tachometer fa-fw"></i>&nbsp;Batteries overview</a>
 					</li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
 					<li class="disabled"><a href="#"><strong>Record data</strong></a></li>
-					<li data-nav-for-page="purchase.php">
+					<li data-nav-for-page="purchase">
 						<a class="discrete-link" href="/purchase"><i class="fa fa-shopping-cart fa-fw"></i>&nbsp;Purchase</a>
 					</li>
-					<li data-nav-for-page="consume.php">
+					<li data-nav-for-page="consume">
 						<a class="discrete-link" href="/consume"><i class="fa fa-cutlery fa-fw"></i>&nbsp;Consume</a>
 					</li>
-					<li data-nav-for-page="inventory.php">
+					<li data-nav-for-page="inventory">
 						<a class="discrete-link" href="/inventory"><i class="fa fa-list fa-fw"></i>&nbsp;Inventory</a>
 					</li>
-					<li data-nav-for-page="shoppinglist.php">
+					<li data-nav-for-page="shoppinglist">
 						<a class="discrete-link" href="/shoppinglist"><i class="fa fa-shopping-bag fa-fw"></i>&nbsp;Shopping list</a>
 					</li>
-					<li data-nav-for-page="habittracking.php">
+					<li data-nav-for-page="habittracking">
 						<a class="discrete-link" href="/habittracking"><i class="fa fa-play fa-fw"></i>&nbsp;Habit tracking</a>
 					</li>
-					<li data-nav-for-page="batterytracking.php">
+					<li data-nav-for-page="batterytracking">
 						<a class="discrete-link" href="/batterytracking"><i class="fa fa-fire fa-fw"></i>&nbsp;Battery tracking</a>
 					</li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
 					<li class="disabled"><a href="#"><strong>Manage master data</strong></a></li>
-					<li data-nav-for-page="products.php">
+					<li data-nav-for-page="products">
 						<a class="discrete-link" href="/products"><i class="fa fa-product-hunt fa-fw"></i>&nbsp;Products</a>
 					</li>
-					<li data-nav-for-page="locations.php">
+					<li data-nav-for-page="locations">
 						<a class="discrete-link" href="/locations"><i class="fa fa-map-marker fa-fw"></i>&nbsp;Locations</a>
 					</li>
-					<li data-nav-for-page="quantityunits.php">
+					<li data-nav-for-page="quantityunits">
 						<a class="discrete-link" href="/quantityunits"><i class="fa fa-balance-scale fa-fw"></i>&nbsp;Quantity units</a>
 					</li>
-					<li data-nav-for-page="habits.php">
+					<li data-nav-for-page="habits">
 						<a class="discrete-link" href="/habits"><i class="fa fa-refresh fa-fw"></i>&nbsp;Habits</a>
 					</li>
-					<li data-nav-for-page="batteries.php">
+					<li data-nav-for-page="batteries">
 						<a class="discrete-link" href="/batteries"><i class="fa fa-battery-three-quarters fa-fw"></i>&nbsp;Batteries</a>
 					</li>
 				</ul>
@@ -123,7 +117,7 @@ $applicationService = new ApplicationService();
 					<br>
 					Created with passion since 2017
 					<br>
-					Version <?php echo $applicationService->GetInstalledVersion(); ?>
+					Version {{ $version }}
 					<br>
 					Life runs on code
 					<br>
@@ -142,54 +136,54 @@ $applicationService = new ApplicationService();
 			<div class="col-sm-3 col-md-2 sidebar">
 
 				<ul class="nav nav-sidebar">
-					<li data-nav-for-page="stockoverview.php">
+					<li data-nav-for-page="stockoverview">
 						<a class="discrete-link" href="/stockoverview"><i class="fa fa-tachometer fa-fw"></i>&nbsp;Stock overview</a>
 					</li>
-					<li data-nav-for-page="habitsoverview.php">
+					<li data-nav-for-page="habitsoverview">
 						<a class="discrete-link" href="/habitsoverview"><i class="fa fa-tachometer fa-fw"></i>&nbsp;Habits overview</a>
 					</li>
-					<li data-nav-for-page="batteriesoverview.php">
+					<li data-nav-for-page="batteriesoverview">
 						<a class="discrete-link" href="/batteriesoverview"><i class="fa fa-tachometer fa-fw"></i>&nbsp;Batteries overview</a>
 					</li>
 				</ul>
 
 				<ul class="nav nav-sidebar">
 					<li class="disabled"><a href="#"><strong>Record data</strong></a></li>
-					<li data-nav-for-page="purchase.php">
+					<li data-nav-for-page="purchase">
 						<a class="discrete-link" href="/purchase"><i class="fa fa-shopping-cart fa-fw"></i>&nbsp;Purchase</a>
 					</li>
-					<li data-nav-for-page="consume.php">
+					<li data-nav-for-page="consume">
 						<a class="discrete-link" href="/consume"><i class="fa fa-cutlery fa-fw"></i>&nbsp;Consume</a>
 					</li>
-					<li data-nav-for-page="inventory.php">
+					<li data-nav-for-page="inventory">
 						<a class="discrete-link" href="/inventory"><i class="fa fa-list fa-fw"></i>&nbsp;Inventory</a>
 					</li>
-					<li data-nav-for-page="shoppinglist.php">
+					<li data-nav-for-page="shoppinglist">
 						<a class="discrete-link" href="/shoppinglist"><i class="fa fa-shopping-bag fa-fw"></i>&nbsp;Shopping list</a>
 					</li>
-					<li data-nav-for-page="habittracking.php">
+					<li data-nav-for-page="habittracking">
 						<a class="discrete-link" href="/habittracking"><i class="fa fa-play fa-fw"></i>&nbsp;Habit tracking</a>
 					</li>
-					<li data-nav-for-page="batterytracking.php">
+					<li data-nav-for-page="batterytracking">
 						<a class="discrete-link" href="/batterytracking"><i class="fa fa-fire fa-fw"></i>&nbsp;Battery tracking</a>
 					</li>
 				</ul>
 
 				<ul class="nav nav-sidebar">
 					<li class="disabled"><a href="#"><strong>Manage master data</strong></a></li>
-					<li data-nav-for-page="products.php">
+					<li data-nav-for-page="products">
 						<a class="discrete-link" href="/products"><i class="fa fa-product-hunt fa-fw"></i>&nbsp;Products</a>
 					</li>
-					<li data-nav-for-page="locations.php">
+					<li data-nav-for-page="locations">
 						<a class="discrete-link" href="/locations"><i class="fa fa-map-marker fa-fw"></i>&nbsp;Locations</a>
 					</li>
-					<li data-nav-for-page="quantityunits.php">
+					<li data-nav-for-page="quantityunits">
 						<a class="discrete-link" href="/quantityunits"><i class="fa fa-balance-scale fa-fw"></i>&nbsp;Quantity units</a>
 					</li>
-					<li data-nav-for-page="habits.php">
+					<li data-nav-for-page="habits">
 						<a class="discrete-link" href="/habits"><i class="fa fa-refresh fa-fw"></i>&nbsp;Habits</a>
 					</li>
-					<li data-nav-for-page="batteries.php">
+					<li data-nav-for-page="batteries">
 						<a class="discrete-link" href="/batteries"><i class="fa fa-battery-three-quarters fa-fw"></i>&nbsp;Batteries</a>
 					</li>
 				</ul>
@@ -200,7 +194,7 @@ $applicationService = new ApplicationService();
 					<br>
 					Created with passion since 2017
 					<br>
-					Version <?php echo $applicationService->GetInstalledVersion(); ?>
+					Version {{ $version }}
 					<br>
 					Life runs on code
 					<br>
@@ -211,33 +205,32 @@ $applicationService = new ApplicationService();
 
 			</div>
 
-			<script>Grocy.ContentPage = '{{ $contentPage }}';</script>
 			@section('content')
 			@show
 
 		</div>
 	</div>
 
-	<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js?v=<?php echo $applicationService->GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/bootbox/bootbox.js?v=<?php echo $applicationService->GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/jquery.serializeJSON/jquery.serializejson.min.js?v=<?php echo $applicationService->GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js?v=<?php echo $applicationService->GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/moment/min/moment.min.js?v=<?php echo $applicationService->GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/bootstrap-validator/dist/validator.min.js?v=<?php echo $applicationService->GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/bootstrap-combobox/js/bootstrap-combobox.js?v=<?php echo $applicationService->GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/datatables.net/js/jquery.dataTables.min.js?v=<?php echo $applicationService->GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js?v=<?php echo $applicationService->GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js?v=<?php echo $applicationService->GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/datatables.net-responsive-bs/js/responsive.bootstrap.min.js?v=<?php echo $applicationService->GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/jquery-timeago/jquery.timeago.js?v=<?php echo $applicationService->GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/toastr/toastr.min.js?v=<?php echo $applicationService->GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/tagmanager/tagmanager.js?v=<?php echo $applicationService->GetInstalledVersion(); ?>"></script>
-	<script src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js?v=<?php echo $applicationService->GetInstalledVersion(); ?>"></script>
+	<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js?v={{ $version }}"></script>
+	<script src="/bower_components/bootbox/bootbox.js?v={{ $version }}"></script>
+	<script src="/bower_components/jquery.serializeJSON/jquery.serializejson.min.js?v={{ $version }}"></script>
+	<script src="/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js?v={{ $version }}"></script>
+	<script src="/bower_components/moment/min/moment.min.js?v={{ $version }}"></script>
+	<script src="/bower_components/bootstrap-validator/dist/validator.min.js?v={{ $version }}"></script>
+	<script src="/bower_components/bootstrap-combobox/js/bootstrap-combobox.js?v={{ $version }}"></script>
+	<script src="/bower_components/datatables.net/js/jquery.dataTables.min.js?v={{ $version }}"></script>
+	<script src="/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js?v={{ $version }}"></script>
+	<script src="/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js?v={{ $version }}"></script>
+	<script src="/bower_components/datatables.net-responsive-bs/js/responsive.bootstrap.min.js?v={{ $version }}"></script>
+	<script src="/bower_components/jquery-timeago/jquery.timeago.js?v={{ $version }}"></script>
+	<script src="/bower_components/toastr/toastr.min.js?v={{ $version }}"></script>
+	<script src="/bower_components/tagmanager/tagmanager.js?v={{ $version }}"></script>
+	<script src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js?v={{ $version }}"></script>
 
-	<?php if (file_exists(__DIR__ . '/../../public/viewjs/' . str_replace('.php', '.js', $contentPage))) : ?>
-		<script src="/viewjs/<?php echo str_replace('.php', '.js', $contentPage) . '?v=' . $applicationService->GetInstalledVersion(); ?>"></script>
-	<?php endif; ?>
+	<script src="/viewjs/@yield('viewJsName').js"></script>
 
-	<?php if (file_exists(__DIR__ . '/../data/add_before_end_body.html')) include __DIR__ . '/../data/add_before_end_body.html' ?>
+	@if(file_exists(__DIR__ . '/../../data/add_before_end_body.html'))
+		@php include __DIR__ . '/../../data/add_before_end_body.html' @endphp
+	@endif
 </body>
 </html>

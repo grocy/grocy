@@ -1,5 +1,9 @@
 @extends('layout.default')
 
+@section('title', 'Shopping list')
+@section('activeNav', 'shoppinglist')
+@section('viewJsName', 'shoppinglist')
+
 @section('content')
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
@@ -23,24 +27,24 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($listItems as $listItem) : ?>
-				<tr class="<?php if ($listItem->amount_autoadded > 0) echo 'info-bg'; ?>">
+				@foreach($listItems as $listItem)
+				<tr class="@if($listItem->amount_autoadded > 0) info-bg @endif">
 					<td class="fit-content">
-						<a class="btn btn-info" href="/shoppinglistitem/<?php echo $listItem->id; ?>" role="button">
+						<a class="btn btn-info" href="/shoppinglistitem/{{ $listItem->id }}" role="button">
 							<i class="fa fa-pencil"></i>
 						</a>
-						<a class="btn btn-danger shoppinglist-delete-button" href="#" role="button" data-shoppinglist-id="<?php echo $listItem->id; ?>">
+						<a class="btn btn-danger shoppinglist-delete-button" href="#" role="button" data-shoppinglist-id="{{ $listItem->id }}">
 							<i class="fa fa-trash"></i>
 						</a>
 					</td>
 					<td>
-						<?php if (!empty($listItem->product_id)) echo FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->name . '<br>'; ?><em><?php echo $listItem->note; ?></em>
+						@if(!empty($listItem->product_id)) {{ FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->name }}<br>@endif<em>{{ $listItem->note }}</em>
 					</td>
 					<td>
-						<?php echo $listItem->amount + $listItem->amount_autoadded; if (!empty($listItem->product_id)) echo ' ' . FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name; ?>
+						{{ $listItem->amount + $listItem->amount_autoadded }} @if(!empty($listItem->product_id))  {{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name }}@endif
 					</td>
 				</tr>
-				<?php endforeach; ?>
+				@endforeach
 			</tbody>
 		</table>
 	</div>

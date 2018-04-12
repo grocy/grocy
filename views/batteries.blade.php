@@ -1,5 +1,9 @@
 @extends('layout.default')
 
+@section('title', 'Batteries')
+@section('activeNav', 'batteries')
+@section('viewJsName', 'batteries')
+
 @section('content')
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
@@ -21,27 +25,27 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($batteries as $battery) : ?>
+				@foreach($batteries as $battery)
 				<tr>
 					<td class="fit-content">
-						<a class="btn btn-info" href="/battery/<?php echo $battery->id; ?>" role="button">
+						<a class="btn btn-info" href="/battery/{{ $battery->id }}" role="button">
 							<i class="fa fa-pencil"></i>
 						</a>
-						<a class="btn btn-danger battery-delete-button" href="#" role="button" data-battery-id="<?php echo $battery->id; ?>" data-battery-name="<?php echo $battery->name; ?>">
+						<a class="btn btn-danger battery-delete-button" href="#" role="button" data-battery-id="{{ $battery->id }}" data-battery-name="{{ $battery->name }}">
 							<i class="fa fa-trash"></i>
 						</a>
 					</td>
 					<td>
-						<?php echo $battery->name; ?>
+						{{ $battery->name }}
 					</td>
 					<td>
-						<?php echo $battery->description; ?>
+						{{ $battery->description }}
 					</td>
 					<td>
-						<?php echo $battery->used_in; ?>
+						{{ $battery->used_in }}
 					</td>
 				</tr>
-				<?php endforeach; ?>
+				@endforeach
 			</tbody>
 		</table>
 	</div>

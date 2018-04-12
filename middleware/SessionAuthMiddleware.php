@@ -2,9 +2,9 @@
 
 namespace Grocy\Middleware;
 
-use Grocy\Services\SessionService;
+use \Grocy\Services\SessionService;
 
-class SessionMiddleware
+class SessionAuthMiddleware
 {
 	public function __construct(\Slim\Container $container) {
 		$this->container = $container;

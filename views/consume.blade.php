@@ -1,5 +1,9 @@
 @extends('layout.default')
 
+@section('title', 'Consume')
+@section('activeNav', 'consume')
+@section('viewJsName', 'consume')
+
 @section('content')
 <div class="col-sm-3 col-sm-offset-3 col-md-3 col-md-offset-2 main">
 
@@ -11,9 +15,9 @@
 			<label for="product_id">Product&nbsp;&nbsp;<i class="fa fa-barcode"></i></label>
 			<select class="form-control combobox" id="product_id" name="product_id" required>
 				<option value=""></option>
-				<?php foreach ($products as $product) : ?>
-					<option data-additional-searchdata="<?php echo $product->barcode; ?>" value="<?php echo $product->id; ?>"><?php echo $product->name; ?></option>
-				<?php endforeach; ?>
+				@foreach($products as $product)
+					<option data-additional-searchdata="{{ $product->barcode }}" value="{{ $product->id }}">{{ $product->name }}</option>
+				@endforeach
 			</select>
 			<div id="product-error" class="help-block with-errors"></div>
 		</div>

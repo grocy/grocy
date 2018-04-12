@@ -1,5 +1,9 @@
 @extends('layout.default')
 
+@section('title', 'Quantity units')
+@section('activeNav', 'quantityunits')
+@section('viewJsName', 'quantityunits')
+
 @section('content')
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
@@ -20,24 +24,24 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($quantityunits as $quantityunit) : ?>
+				@foreach($quantityunits as $quantityunit)
 				<tr>
 					<td class="fit-content">
-						<a class="btn btn-info" href="/quantityunit/<?php echo $quantityunit->id; ?>" role="button">
+						<a class="btn btn-info" href="/quantityunit/{{ $quantityunit->id }}" role="button">
 							<i class="fa fa-pencil"></i>
 						</a>
-						<a class="btn btn-danger quantityunit-delete-button" href="#" role="button" data-quantityunit-id="<?php echo $quantityunit->id; ?>" data-quantityunit-name="<?php echo $quantityunit->name; ?>">
+						<a class="btn btn-danger quantityunit-delete-button" href="#" role="button" data-quantityunit-id="{{ $quantityunit->id }}" data-quantityunit-name="{{ $quantityunit->name }}">
 							<i class="fa fa-trash"></i>
 						</a>
 					</td>
 					<td>
-						<?php echo $quantityunit->name; ?>
+						{{ $quantityunit->name }}
 					</td>
 					<td>
-						<?php echo $quantityunit->description; ?>
+						{{ $quantityunit->description }}
 					</td>
 				</tr>
-				<?php endforeach; ?>
+				@endforeach
 			</tbody>
 		</table>
 	</div>

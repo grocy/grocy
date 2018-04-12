@@ -87,7 +87,7 @@ class DemoDataGeneratorService extends BaseService
 
 	public function RecreateDemo()
 	{
-		unlink(__DIR__ . '/data/grocy.db');
-		$this->PopulateDemoData($this->DatabaseService->GetDbConnectionRaw(true));
+		unlink(__DIR__ . '/../data/grocy.db');
+		$this->PopulateDemoData();
 	}
 }

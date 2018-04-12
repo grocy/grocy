@@ -1,5 +1,9 @@
 @extends('layout.default')
 
+@section('title', 'Inventory')
+@section('activeNav', 'inventory')
+@section('viewJsName', 'inventory')
+
 @section('content')
 <div class="col-sm-4 col-sm-offset-3 col-md-3 col-md-offset-2 main">
 
@@ -11,9 +15,9 @@
 			<label for="product_id">Product&nbsp;&nbsp;<i class="fa fa-barcode"></i><span id="barcode-lookup-disabled-hint" class="small text-muted hide">&nbsp;&nbsp;Barcode lookup is disabled</span></label>
 			<select class="form-control combobox" id="product_id" name="product_id" required>
 				<option value=""></option>
-				<?php foreach ($products as $product) : ?>
-					<option data-additional-searchdata="<?php echo $product->barcode; ?>" value="<?php echo $product->id; ?>"><?php echo $product->name; ?></option>
-				<?php endforeach; ?>
+				@foreach($products as $product)
+					<option data-additional-searchdata="{{ $product->barcode }}" value="{{ $product->id }}">{{ $product->name }}</option>
+				@endforeach
 			</select>
 			<div class="help-block with-errors"></div>
 			<div id="flow-info-addbarcodetoselection" class="text-muted small hide"><strong><span id="addbarcodetoselection"></span></strong> will be added to the list of barcodes for the selected product on submit.</div>

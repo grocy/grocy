@@ -2,11 +2,10 @@
 
 namespace Grocy\Controllers;
 
-use Grocy\Services\SessionService;
-use Grocy\Services\DatabaseService;
-use Grocy\Services\ApplicationService;
-use Grocy\Services\DatabaseMigrationService;
-use Grocy\Services\DemoDataGeneratorService;
+use \Grocy\Services\SessionService;
+use \Grocy\Services\ApplicationService;
+use \Grocy\Services\DatabaseMigrationService;
+use \Grocy\Services\DemoDataGeneratorService;
 
 class LoginController extends BaseController
 {
@@ -18,7 +17,7 @@ class LoginController extends BaseController
 
 	protected $SessionService;
 
-	public function ProcessLogin($request, $response, $args)
+	public function ProcessLogin(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$postParams = $request->getParsedBody();
 		if (isset($postParams['username']) && isset($postParams['password']))
@@ -41,21 +40,18 @@ class LoginController extends BaseController
 		}
 	}
 
-	public function LoginPage($request, $response, $args)
+	public function LoginPage(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'login', [
-			'title' => 'Login',
-			'contentPage' => 'login.php'
-		]);
+		return $this->AppContainer->view->render($response, 'login');
 	}
 
-	public function Logout($request, $response, $args)
+	public function Logout(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$this->SessionService->RemoveSession($_COOKIE['grocy_session']);
 		return $response->withRedirect('/');
 	}
 
-	public function Root($request, $response, $args)
+	public function Root(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		// Schema migration is done here
 		$databaseMigrationService = new DatabaseMigrationService();

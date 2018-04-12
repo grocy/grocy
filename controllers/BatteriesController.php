@@ -2,7 +2,7 @@
 
 namespace Grocy\Controllers;
 
-use Grocy\Services\BatteriesService;
+use \Grocy\Services\BatteriesService;
 
 class BatteriesController extends BaseController
 {
@@ -14,49 +14,46 @@ class BatteriesController extends BaseController
 
 	protected $BatteriesService;
 
-	public function Overview($request, $response, $args)
+	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
+		$nextChargeTimes = array();
+		foreach($this->Database->batteries() as $battery)
+		{
+			$nextChargeTimes[$battery->id] = $this->BatteriesService->GetNextChargeTime($battery->id);
+		}
+
 		return $this->AppContainer->view->render($response, 'batteriesoverview', [
-			'title' => 'Batteries overview',
-			'contentPage' => 'batteriesoverview.php',
 			'batteries' => $this->Database->batteries(),
 			'current' => $this->BatteriesService->GetCurrent(),
+			'nextChargeTimes' => $nextChargeTimes
 		]);
 	}
 
-	public function TrackChargeCycle($request, $response, $args)
+	public function TrackChargeCycle(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->AppContainer->view->render($response, 'batterytracking', [
-			'title' => 'Battery tracking',
-			'contentPage' => 'batterytracking.php',
 			'batteries' =>  $this->Database->batteries()
 		]);
 	}
 
-	public function BatteriesList($request, $response, $args)
+	public function BatteriesList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->AppContainer->view->render($response, 'batteries', [
-			'title' => 'Batteries',
-			'contentPage' => 'batteries.php',
 			'batteries' => $this->Database->batteries()
 		]);
 	}
 
-	public function BatteryEditForm($request, $response, $args)
+	public function BatteryEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		if ($args['batteryId'] == 'new')
 		{
 			return $this->AppContainer->view->render($response, 'batteryform', [
-				'title' => 'Create battery',
-				'contentPage' => 'batteryform.php',
 				'mode' => 'create'
 			]);
 		}
 		else
 		{
 			return $this->AppContainer->view->render($response, 'batteryform', [
-				'title' => 'Edit battery',
-				'contentPage' => 'batteryform.php',
 				'battery' =>  $this->Database->batteries($args['batteryId']),
 				'mode' => 'edit'
 			]);

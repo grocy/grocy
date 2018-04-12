@@ -3,35 +3,35 @@
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
-use Grocy\Middleware\SessionMiddleware;
-use Grocy\Middleware\JsonMiddleware;
-use Grocy\Middleware\CliMiddleware;
+use \Grocy\Middleware\SessionAuthMiddleware;
+use \Grocy\Middleware\JsonMiddleware;
+use \Grocy\Middleware\CliMiddleware;
 
-use Grocy\Services\ApplicationService;
+use \Grocy\Services\ApplicationService;
 
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/data/config.php';
 require_once __DIR__ . '/extensions.php';
 
 // Setup base application
-$app = new \Slim\App;
 if (PHP_SAPI !== 'cli')
 {
-	$app = new \Slim\App(new \Slim\Container([
+	$appContainer = new \Slim\Container([
 		'settings' => [
 			'displayErrorDetails' => true,
 			'determineRouteBeforeAppMiddleware' => true
 		],
-	]));
-	
-	$container = $app->getContainer();
-	$container['view'] = function($container)
-	{
-		return new \Slim\Views\Blade(__DIR__ . '/views', __DIR__ . '/data/viewcache');
-	};
+		'view' => function($container)
+		{
+			return new \Slim\Views\Blade(__DIR__ . '/views', __DIR__ . '/data/viewcache');
+		}
+	]);
+
+	$app = new \Slim\App($appContainer);
 }
 else
 {
+	$app = new \Slim\App();
 	$app->add(\pavlakis\cli\CliRequest::class);
 }
 
@@ -39,7 +39,7 @@ else
 $applicationService = new ApplicationService();
 if (!$applicationService->IsDemoInstallation())
 {
-	$app->add(SessionMiddleware::class);
+	$app->add(SessionAuthMiddleware::class);
 }
 
 // Base route

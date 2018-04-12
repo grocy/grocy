@@ -18,7 +18,7 @@ class HabitsService extends BaseService
 		$habit = $this->Database->habits($habitId);
 		$habitLastLogRow = $this->DatabaseService->ExecuteDbQuery("SELECT * from habits_current WHERE habit_id = $habitId LIMIT 1")->fetch(\PDO::FETCH_OBJ);
 
-		switch ($habit->period_type)
+		switch($habit->period_type)
 		{
 			case self::HABIT_TYPE_MANUALLY:
 				return date('Y-m-d H:i:s');

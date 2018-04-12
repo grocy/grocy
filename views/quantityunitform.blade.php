@@ -1,27 +1,35 @@
 @extends('layout.default')
 
+@if($mode == 'edit')
+	@section('title', 'Edit quantity unit')
+@else
+	@section('title', 'Create quantity unit')
+@endif
+
+@section('viewJsName', 'quantityunitform')
+
 @section('content')
 <div class="col-sm-3 col-sm-offset-3 col-md-4 col-md-offset-2 main">
 
-	<h1 class="page-header"><?php echo $title; ?></h1>
+	<h1 class="page-header">@yield('title')</h1>
 
-	<script>Grocy.EditMode = '<?php echo $mode; ?>';</script>
+	<script>Grocy.EditMode = '{{ $mode }}';</script>
 
-	<?php if ($mode == 'edit') : ?>
-		<script>Grocy.EditObjectId = <?php echo $quantityunit->id; ?>;</script>
-	<?php endif; ?>
+	@if($mode == 'edit')
+		<script>Grocy.EditObjectId = {{ $quantityunit->id }};</script>
+	@endif
 
 	<form id="quantityunit-form">
 
 		<div class="form-group">
 			<label for="name">Name</label>
-			<input type="text" class="form-control" required id="name" name="name" value="<?php if ($mode == 'edit') echo $quantityunit->name; ?>">
+			<input type="text" class="form-control" required id="name" name="name" value="@if($mode == 'edit'){{ $quantityunit->name }}@endif">
 			<div class="help-block with-errors"></div>
 		</div>
 
 		<div class="form-group">
 			<label for="description">Description</label>
-			<textarea class="form-control" rows="2" id="description" name="description"><?php if ($mode == 'edit') echo $quantityunit->description; ?></textarea>
+			<textarea class="form-control" rows="2" id="description" name="description">@if($mode == 'edit'){{ $quantityunit->description }}@endif</textarea>
 		</div>
 
 		<button id="save-quantityunit-button" type="submit" class="btn btn-default">Save</button>

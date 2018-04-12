@@ -2,7 +2,7 @@
 
 namespace Grocy\Controllers;
 
-use Grocy\Services\HabitsService;
+use \Grocy\Services\HabitsService;
 
 class HabitsController extends BaseController
 {
@@ -14,52 +14,49 @@ class HabitsController extends BaseController
 
 	protected $HabitsService;
 
-	public function Overview($request, $response, $args)
+	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
+		$nextHabitTimes = array();
+		foreach($this->Database->habits() as $habit)
+		{
+			$nextHabitTimes[$habit->id] = $this->HabitsService->GetNextHabitTime($habit->id);
+		}
+
 		return $this->AppContainer->view->render($response, 'habitsoverview', [
-			'title' => 'Habits overview',
-			'contentPage' => 'habitsoverview.php',
 			'habits' => $this->Database->habits(),
 			'currentHabits' => $this->HabitsService->GetCurrentHabits(),
+			'nextHabitTimes' => $nextHabitTimes
 		]);
 	}
 
-	public function TrackHabitExecution($request, $response, $args)
+	public function TrackHabitExecution(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->AppContainer->view->render($response, 'habittracking', [
-			'title' => 'Habit tracking',
-			'contentPage' => 'habittracking.php',
 			'habits' => $this->Database->habits()
 		]);
 	}
 
-	public function HabitsList($request, $response, $args)
+	public function HabitsList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->AppContainer->view->render($response, 'habits', [
-			'title' => 'Habits',
-			'contentPage' => 'habits.php',
 			'habits' => $this->Database->habits()
 		]);
 	}
 
-	public function HabitEditForm($request, $response, $args)
+	public function HabitEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		if ($args['habitId'] == 'new')
 		{
 			return $this->AppContainer->view->render($response, 'habitform', [
-				'title' => 'Create habit',
-				'contentPage' => 'habitform.php',
-				'periodTypes' => GetClassConstants('Grocy\Services\HabitsService'),
+				'periodTypes' => GetClassConstants('\Grocy\Services\HabitsService'),
 				'mode' => 'create'
 			]);
 		}
 		else
 		{
 			return $this->AppContainer->view->render($response, 'habitform', [
-				'title' => 'Edit habit',
-				'contentPage' => 'habitform.php',
 				'habit' =>  $this->Database->habits($args['habitId']),
-				'periodTypes' => GetClassConstants('Grocy\Services\HabitsService'),
+				'periodTypes' => GetClassConstants('\Grocy\Services\HabitsService'),
 				'mode' => 'edit'
 			]);
 		}

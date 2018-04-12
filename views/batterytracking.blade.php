@@ -1,5 +1,9 @@
 @extends('layout.default')
 
+@section('title', 'Battery tracking')
+@section('activeNav', 'batterytracking')
+@section('viewJsName', 'batterytracking')
+
 @section('content')
 <div class="col-sm-3 col-sm-offset-3 col-md-3 col-md-offset-2 main">
 
@@ -11,9 +15,9 @@
 			<label for="battery_id">Battery</label>
 			<select class="form-control combobox" id="battery_id" name="battery_id" required>
 				<option value=""></option>
-				<?php foreach ($batteries as $battery) : ?>
-					<option value="<?php echo $battery->id; ?>"><?php echo $battery->name; ?></option>
-				<?php endforeach; ?>
+				@foreach($batteries as $battery)
+					<option value="{{ $battery->id }}">{{ $battery->name }}</option>
+				@endforeach
 			</select>
 			<div id="battery-error" class="help-block with-errors"></div>
 		</div>

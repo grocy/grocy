@@ -1,5 +1,9 @@
 @extends('layout.default')
 
+@section('title', 'Habits')
+@section('activeNav', 'habits')
+@section('viewJsName', 'habits')
+
 @section('content')
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
@@ -22,30 +26,30 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($habits as $habit) : ?>
+				@foreach($habits as $habit)
 				<tr>
 					<td class="fit-content">
-						<a class="btn btn-info" href="/habit/<?php echo $habit->id; ?>" role="button">
+						<a class="btn btn-info" href="/habit/{{ $habit->id }}" role="button">
 							<i class="fa fa-pencil"></i>
 						</a>
-						<a class="btn btn-danger habit-delete-button" href="#" role="button" data-habit-id="<?php echo $habit->id; ?>" data-habit-name="<?php echo $habit->name; ?>">
+						<a class="btn btn-danger habit-delete-button" href="#" role="button" data-habit-id="{{ $habit->id }}" data-habit-name="{{ $habit->name }}">
 							<i class="fa fa-trash"></i>
 						</a>
 					</td>
 					<td>
-						<?php echo $habit->name; ?>
+						{{ $habit->name }}
 					</td>
 					<td>
-						<?php echo $habit->period_type; ?>
+						{{ $habit->period_type }}
 					</td>
 					<td>
-						<?php echo $habit->period_days; ?>
+						{{ $habit->period_days }}
 					</td>
 					<td>
-						<?php echo $habit->description; ?>
+						{{ $habit->description }}
 					</td>
 				</tr>
-				<?php endforeach; ?>
+				@endforeach
 			</tbody>
 		</table>
 	</div>

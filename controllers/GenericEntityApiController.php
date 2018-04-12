@@ -4,37 +4,37 @@ namespace Grocy\Controllers;
 
 class GenericEntityApiController extends BaseApiController
 {
-	public function GetObjects($request, $response, $args)
+	public function GetObjects(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->ApiEncode($this->Database->{$args['entity']}());
+		return $this->ApiResponse($this->Database->{$args['entity']}());
 	}
 
-	public function GetObject($request, $response, $args)
+	public function GetObject(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->ApiEncode($this->Database->{$args['entity']}($args['objectId']));
+		return $this->ApiResponse($this->Database->{$args['entity']}($args['objectId']));
 	}
 
-	public function AddObject($request, $response, $args)
+	public function AddObject(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$newRow = $this->Database->{$args['entity']}()->createRow($request->getParsedBody());
 		$newRow->save();
 		$success = $newRow->isClean();
-		return $this->ApiEncode(array('success' => $success));
+		return $this->ApiResponse(array('success' => $success));
 	}
 
-	public function EditObject($request, $response, $args)
+	public function EditObject(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$row = $this->Database->{$args['entity']}($args['objectId']);
 		$row->update($request->getParsedBody());
 		$success = $row->isClean();
-		return $this->ApiEncode(array('success' => $success));
+		return $this->ApiResponse(array('success' => $success));
 	}
 
-	public function DeleteObject($request, $response, $args)
+	public function DeleteObject(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$row = $this->Database->{$args['entity']}($args['objectId']);
 		$row->delete();
 		$success = $row->isClean();
-		return $this->ApiEncode(array('success' => $success));
+		return $this->ApiResponse(array('success' => $success));
 	}
 }

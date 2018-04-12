@@ -12,14 +12,15 @@ class CliMiddleware
 
 	public function __invoke(\Slim\Http\Request $request, \Slim\Http\Response $response, callable $next)
 	{
-		$response = $next($request, $response);
-
 		if (PHP_SAPI !== 'cli')
 		{
 			$response->write('Please call this only from CLI');
 			return $response->withHeader('Content-Type', 'text/plain')->withStatus(400);
 		}
-
-		return $response->withHeader('Content-Type', 'text/plain');
+		else
+		{
+			$response = $next($request, $response, $next);
+			return $response->withHeader('Content-Type', 'text/plain');
+		}
 	}
 }

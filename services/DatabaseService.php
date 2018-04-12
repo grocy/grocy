@@ -2,7 +2,7 @@
 
 namespace Grocy\Services;
 
-use Grocy\Services\ApplicationService;
+use \Grocy\Services\ApplicationService;
 
 class DatabaseService
 {

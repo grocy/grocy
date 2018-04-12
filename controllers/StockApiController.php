@@ -2,7 +2,7 @@
 
 namespace Grocy\Controllers;
 
-use Grocy\Services\StockService;
+use \Grocy\Services\StockService;
 
 class StockApiController extends BaseApiController
 {
@@ -14,12 +14,12 @@ class StockApiController extends BaseApiController
 
 	protected $StockService;
 
-	public function ProductDetails($request, $response, $args)
+	public function ProductDetails(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->ApiEncode($this->StockService->GetProductDetails($args['productId']));
+		return $this->ApiResponse($this->StockService->GetProductDetails($args['productId']));
 	}
 
-	public function AddProduct($request, $response, $args)
+	public function AddProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$bestBeforeDate = date('Y-m-d');
 		if (isset($request->getQueryParams()['bestbeforedate']) && !empty($request->getQueryParams()['bestbeforedate']))
@@ -33,10 +33,10 @@ class StockApiController extends BaseApiController
 			$transactionType = $request->getQueryParams()['transactiontype'];
 		}
 
-		return $this->ApiEncode(array('success' => $this->StockService->AddProduct($args['productId'], $args['amount'], $bestBeforeDate, $transactionType)));
+		return $this->ApiResponse(array('success' => $this->StockService->AddProduct($args['productId'], $args['amount'], $bestBeforeDate, $transactionType)));
 	}
 
-	public function ConsumeProduct($request, $response, $args)
+	public function ConsumeProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$spoiled = false;
 		if (isset($request->getQueryParams()['spoiled']) && !empty($request->getQueryParams()['spoiled']) && $request->getQueryParams()['spoiled'] == '1')
@@ -50,10 +50,10 @@ class StockApiController extends BaseApiController
 			$transactionType = $request->getQueryParams()['transactiontype'];
 		}
 
-		return $this->ApiEncode(array('success' => $this->StockService->ConsumeProduct($args['productId'], $args['amount'], $spoiled, $transactionType)));
+		return $this->ApiResponse(array('success' => $this->StockService->ConsumeProduct($args['productId'], $args['amount'], $spoiled, $transactionType)));
 	}
 
-	public function InventoryProduct($request, $response, $args)
+	public function InventoryProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$bestBeforeDate = date('Y-m-d');
 		if (isset($request->getQueryParams()['bestbeforedate']) && !empty($request->getQueryParams()['bestbeforedate']))
@@ -61,17 +61,17 @@ class StockApiController extends BaseApiController
 			$bestBeforeDate = $request->getQueryParams()['bestbeforedate'];
 		}
 
-		return $this->ApiEncode(array('success' => $this->StockService->InventoryProduct($args['productId'], $args['newAmount'], $bestBeforeDate)));
+		return $this->ApiResponse(array('success' => $this->StockService->InventoryProduct($args['productId'], $args['newAmount'], $bestBeforeDate)));
 	}
 
-	public function CurrentStock($request, $response, $args)
+	public function CurrentStock(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->ApiEncode($this->StockService->GetCurrentStock());
+		return $this->ApiResponse($this->StockService->GetCurrentStock());
 	}
 
-	public function AddmissingProductsToShoppingList($request, $response, $args)
+	public function AddmissingProductsToShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$this->StockService->AddMissingProductsToShoppingList();
-		return $this->ApiEncode(array('success' => true));
+		return $this->ApiResponse(array('success' => true));
 	}
 }
