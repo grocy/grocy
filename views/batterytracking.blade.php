@@ -5,7 +5,7 @@
 @section('viewJsName', 'batterytracking')
 
 @section('content')
-<div class="col-sm-3 col-sm-offset-3 col-md-3 col-md-offset-2 main">
+<div class="col-sm-3 col-sm-offset-3 col-md-3 col-md-offset-2">
 
 	<h1 class="page-header">Battery tracking</h1>
 
@@ -39,12 +39,7 @@
 
 </div>
 
-<div class="col-sm-6 col-md-5 col-lg-3 main well">
-	<h3>Battery overview <strong><span id="selected-battery-name"></span></strong></h3>
-
-	<p>
-		<strong>Charge cycles count:</strong> <span id="selected-battery-charge-cycles-count"></span><br>
-		<strong>Last charged:</strong> <span id="selected-battery-last-charged"></span> <time id="selected-battery-last-charged-timeago" class="timeago timeago-contextual"></time><br>
-	</p>
+<div class="col-sm-6 col-md-5 col-lg-3">
+	@include('components.batterycard')
 </div>
 @stop

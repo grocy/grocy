@@ -3,7 +3,7 @@
 	e.preventDefault();
 
 	var redirectDestination = '/products';
-	var returnTo = Grocy.GetUriParam('returnto');
+	var returnTo = GetUriParam('returnto');
 	if (returnTo !== undefined)
 	{
 		redirectDestination = returnTo + '?createdproduct=' + encodeURIComponent($('#name').val());
@@ -69,14 +69,14 @@ $(function()
 	$('#product-form').validator();
 	$('#product-form').validator('validate');
 
-	var prefillName = Grocy.GetUriParam('prefillname');
+	var prefillName = GetUriParam('prefillname');
 	if (prefillName !== undefined)
 	{
 		$('#name').val(prefillName);
 		$('#name').focus();
 	}
 
-	var prefillBarcode = Grocy.GetUriParam('prefillbarcode');
+	var prefillBarcode = GetUriParam('prefillbarcode');
 	if (prefillBarcode !== undefined)
 	{
 		$('#barcode-taginput').tagsManager('pushTag', prefillBarcode);

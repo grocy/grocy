@@ -9,7 +9,7 @@
 @section('viewJsName', 'quantityunitform')
 
 @section('content')
-<div class="col-sm-3 col-sm-offset-3 col-md-4 col-md-offset-2 main">
+<div class="col-sm-3 col-sm-offset-3 col-md-4 col-md-offset-2">
 
 	<h1 class="page-header">@yield('title')</h1>
 

@@ -4,7 +4,7 @@
 @section('viewJsName', 'login')
 
 @section('content')
-<div class="col-md-4 col-md-offset-5 main">
+<div class="col-md-4 col-md-offset-5">
 
 	<h1 class="page-header text-center">Login</h1>
 

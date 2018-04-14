@@ -2,14 +2,8 @@
 
 namespace Grocy\Middleware;
 
-class JsonMiddleware
+class JsonMiddleware extends BaseMiddleware
 {
-	public function __construct(\Slim\Container $container) {
-		$this->container = $container;
-	}
-
-	protected $container;
-
 	public function __invoke(\Slim\Http\Request $request, \Slim\Http\Response $response, callable $next)
 	{
 		$response = $next($request, $response, $next);

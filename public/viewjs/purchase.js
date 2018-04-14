@@ -12,7 +12,7 @@
 			Grocy.FetchJson('/api/stock/add-product/' + jsonForm.product_id + '/' + amount + '?bestbeforedate=' + $('#best_before_date').val(),
 				function(result)
 				{
-					var addBarcode = Grocy.GetUriParam('addbarcodetoselection');
+					var addBarcode = GetUriParam('addbarcodetoselection');
 					if (addBarcode !== undefined)
 					{
 						var existingBarcodes = productDetails.product.barcode || '';
@@ -35,7 +35,6 @@
 					}
 
 					toastr.success('Added ' + amount + ' ' + productDetails.quantity_unit_stock.name + ' of ' + productDetails.product.name + ' to stock');
-					Grocy.Wait(1000);
 
 					if (addBarcode !== undefined)
 					{
@@ -71,17 +70,11 @@ $('#product_id').on('change', function(e)
 
 	if (productId)
 	{
+		Grocy.Components.ProductCard.Refresh(productId);
+
 		Grocy.FetchJson('/api/stock/get-product-details/' + productId,
 			function(productDetails)
 			{
-				$('#selected-product-name').text(productDetails.product.name);
-				$('#selected-product-stock-amount').text(productDetails.stock_amount || '0');
-				$('#selected-product-stock-qu-name').text(productDetails.quantity_unit_stock.name);
-				$('#selected-product-purchase-qu-name').text(productDetails.quantity_unit_purchase.name);
-				$('#selected-product-last-purchased').text((productDetails.last_purchased || 'never').substring(0, 10));
-				$('#selected-product-last-purchased-timeago').text($.timeago(productDetails.last_purchased || ''));
-				$('#selected-product-last-used').text((productDetails.last_used || 'never').substring(0, 10));
-				$('#selected-product-last-used-timeago').text($.timeago(productDetails.last_used || ''));
 				$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name);
 				
 				if (productDetails.product.default_best_before_days.toString() !== '0')
@@ -93,10 +86,7 @@ $('#product_id').on('change', function(e)
 				else
 				{
 					$('#best_before_date').focus();
-				}	
-
-				Grocy.EmptyElementWhenMatches('#selected-product-last-purchased-timeago', 'NaN years ago');
-				Grocy.EmptyElementWhenMatches('#selected-product-last-used-timeago', 'NaN years ago');
+				}
 			},
 			function(xhr)
 			{
@@ -130,7 +120,7 @@ $(function()
 		var input = $('#product_id_text_input').val().toString();
 		var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + input + "']").first();
 		
-		if (Grocy.GetUriParam('addbarcodetoselection') === undefined && possibleOptionElement.length > 0)
+		if (GetUriParam('addbarcodetoselection') === undefined && possibleOptionElement.length > 0)
 		{
 			$('#product_id').val(possibleOptionElement.val());
 			$('#product_id').data('combobox').refresh();
@@ -139,7 +129,7 @@ $(function()
 		else
 		{
 			var optionElement = $("#product_id option:contains('" + input + "')").first();
-			if (input.length > 0 && optionElement.length === 0 && Grocy.GetUriParam('addbarcodetoselection') === undefined	)
+			if (input.length > 0 && optionElement.length === 0 && GetUriParam('addbarcodetoselection') === undefined	)
 			{
 				bootbox.dialog({
 					message: '<strong>' + input + '</strong> could not be resolved to a product, how do you want to proceed?',
@@ -256,7 +246,7 @@ $(function()
 		}
 	});
 
-	var prefillProduct = Grocy.GetUriParam('createdproduct');
+	var prefillProduct = GetUriParam('createdproduct');
 	if (prefillProduct !== undefined)
 	{
 		var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + prefillProduct + "']").first();
@@ -274,7 +264,7 @@ $(function()
 		}
 	}
 
-	var addBarcode = Grocy.GetUriParam('addbarcodetoselection');
+	var addBarcode = GetUriParam('addbarcodetoselection');
 	if (addBarcode !== undefined)
 	{
 		$('#addbarcodetoselection').text(addBarcode);
@@ -282,7 +272,7 @@ $(function()
 		$('#barcode-lookup-disabled-hint').removeClass('hide');
 	}
 
-	Grocy.EmptyElementWhenMatches('#best-before-timeago', 'NaN years ago');
+	EmptyElementWhenMatches('#best-before-timeago', 'NaN years ago');
 });
 
 $('#best_before_date-datepicker-button').on('click', function(e)
@@ -314,7 +304,7 @@ $('#best_before_date').on('change', function(e)
 	}
 
 	$('#best-before-timeago').text($.timeago($('#best_before_date').val()));
-	Grocy.EmptyElementWhenMatches('#best-before-timeago', 'NaN years ago');
+	EmptyElementWhenMatches('#best-before-timeago', 'NaN years ago');
 });
 
 $('#best_before_date').on('keydown', function(e)

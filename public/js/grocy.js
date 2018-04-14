@@ -1,4 +1,5 @@
 ﻿var Grocy = { };
+Grocy.Components = { };
 
 $(function()
 {
@@ -70,42 +71,3 @@ Grocy.PostJson = function(url, jsonData, success, error)
 	xhr.setRequestHeader('Content-type', 'application/json');
 	xhr.send(JSON.stringify(jsonData));
 };
-
-Grocy.EmptyElementWhenMatches = function(selector, text)
-{
-	if ($(selector).text() === text)
-	{
-		$(selector).text('');
-	}
-};
-
-String.prototype.contains = function(search)
-{
-	return this.toLowerCase().indexOf(search.toLowerCase()) !== -1;
-};
-
-String.prototype.isEmpty = function()
-{
-	return (this.length === 0 || !this.trim());
-};
-
-Grocy.GetUriParam = function(key)
-{
-	var currentUri = decodeURIComponent(window.location.search.substring(1));
-	var vars = currentUri.split('&');
-
-	for (i = 0; i < vars.length; i++)
-	{
-		var currentParam = vars[i].split('=');
-
-		if (currentParam[0] === key)
-		{
-			return currentParam[1] === undefined ? true : currentParam[1];
-		}
-	}
-};
-
-Grocy.Wait = function(ms)
-{
-	return new Promise(resolve => setTimeout(resolve, ms));
-}

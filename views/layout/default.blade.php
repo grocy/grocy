@@ -27,6 +27,7 @@
 
 	<script src="/bower_components/jquery/dist/jquery.min.js?v={{ $version }}"></script>
 	<script src="/js/grocy.js?v={{ $version }}"></script>
+	<script src="/js/extensions.js?v={{ $version }}"></script>
 	<script>Grocy.ActiveNav = '@yield('activeNav', '')';</script>
 </head>
 
@@ -228,6 +229,7 @@
 	<script src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js?v={{ $version }}"></script>
 
 	<script src="/viewjs/@yield('viewJsName').js"></script>
+	@stack('componentScripts')
 
 	@if(file_exists(__DIR__ . '/../../data/add_before_end_body.html'))
 		@php include __DIR__ . '/../../data/add_before_end_body.html' @endphp

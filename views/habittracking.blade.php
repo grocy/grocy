@@ -5,7 +5,7 @@
 @section('viewJsName', 'habittracking')
 
 @section('content')
-<div class="col-sm-3 col-sm-offset-3 col-md-3 col-md-offset-2 main">
+<div class="col-sm-3 col-sm-offset-3 col-md-3 col-md-offset-2">
 
 	<h1 class="page-header">Habit tracking</h1>
 
@@ -39,12 +39,7 @@
 
 </div>
 
-<div class="col-sm-6 col-md-5 col-lg-3 main well">
-	<h3>Habit overview <strong><span id="selected-habit-name"></span></strong></h3>
-
-	<p>
-		<strong>Tracked count:</strong> <span id="selected-habit-tracked-count"></span><br>
-		<strong>Last tracked:</strong> <span id="selected-habit-last-tracked"></span> <time id="selected-habit-last-tracked-timeago" class="timeago timeago-contextual"></time><br>
-	</p>
+<div class="col-sm-6 col-md-5 col-lg-3">
+	@include('components.habitcard')
 </div>
 @stop

@@ -5,7 +5,7 @@
 @section('viewJsName', 'consume')
 
 @section('content')
-<div class="col-sm-3 col-sm-offset-3 col-md-3 col-md-offset-2 main">
+<div class="col-sm-3 col-sm-offset-3 col-md-3 col-md-offset-2">
 
 	<h1 class="page-header">Consume</h1>
 
@@ -40,14 +40,7 @@
 
 </div>
 
-<div class="col-sm-6 col-md-5 col-lg-3 main well">
-	<h3>Product overview <strong><span id="selected-product-name"></span></strong></h3>
-	<h4><strong>Stock quantity unit:</strong> <span id="selected-product-stock-qu-name"></span></h4>
-
-	<p>
-		<strong>Stock amount:</strong> <span id="selected-product-stock-amount"></span> <span id="selected-product-stock-qu-name2"></span><br>
-		<strong>Last purchased:</strong> <span id="selected-product-last-purchased"></span> <time id="selected-product-last-purchased-timeago" class="timeago timeago-contextual"></time><br>
-		<strong>Last used:</strong> <span id="selected-product-last-used"></span> <time id="selected-product-last-used-timeago" class="timeago timeago-contextual"></time>
-	</p>
+<div class="col-sm-6 col-md-5 col-lg-3">
+	@include('components.productcard')
 </div>
 @stop

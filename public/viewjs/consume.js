@@ -44,23 +44,14 @@ $('#product_id').on('change', function(e)
 
 	if (productId)
 	{
+		Grocy.Components.ProductCard.Refresh(productId);
+
 		Grocy.FetchJson('/api/stock/get-product-details/' + productId,
 			function (productDetails)
 			{
-				$('#selected-product-name').text(productDetails.product.name);
-				$('#selected-product-stock-amount').text(productDetails.stock_amount || '0');
-				$('#selected-product-stock-qu-name').text(productDetails.quantity_unit_stock.name);
-				$('#selected-product-stock-qu-name2').text(productDetails.quantity_unit_stock.name);
-				$('#selected-product-last-purchased').text((productDetails.last_purchased || 'never').substring(0, 10));
-				$('#selected-product-last-purchased-timeago').text($.timeago(productDetails.last_purchased || ''));
-				$('#selected-product-last-used').text((productDetails.last_used || 'never').substring(0, 10));
-				$('#selected-product-last-used-timeago').text($.timeago(productDetails.last_used || ''));
 				$('#amount').attr('max', productDetails.stock_amount);
 				$('#consume-form').validator('update');
 				$('#amount_qu_unit').text(productDetails.quantity_unit_stock.name);
-
-				Grocy.EmptyElementWhenMatches('#selected-product-last-purchased-timeago', 'NaN years ago');
-				Grocy.EmptyElementWhenMatches('#selected-product-last-used-timeago', 'NaN years ago');
 
 				if ((productDetails.stock_amount || 0) === 0)
 				{

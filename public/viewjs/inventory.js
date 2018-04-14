@@ -10,7 +10,7 @@
 			Grocy.FetchJson('/api/stock/inventory-product/' + jsonForm.product_id + '/' + jsonForm.new_amount + '?bestbeforedate=' + $('#best_before_date').val(),
 				function(result)
 				{
-					var addBarcode = Grocy.GetUriParam('addbarcodetoselection');
+					var addBarcode = GetUriParam('addbarcodetoselection');
 					if (addBarcode !== undefined)
 					{
 						var existingBarcodes = productDetails.product.barcode || '';
@@ -33,7 +33,6 @@
 					}
 
 					toastr.success('Stock amount of ' + productDetails.product.name  + ' is now ' + jsonForm.new_amount.toString() + ' ' + productDetails.quantity_unit_stock.name);
-					Grocy.Wait(1000);
 
 					if (addBarcode !== undefined)
 					{
@@ -70,24 +69,15 @@ $('#product_id').on('change', function(e)
 
 	if (productId)
 	{
+		Grocy.Components.ProductCard.Refresh(productId);
+
 		Grocy.FetchJson('/api/stock/get-product-details/' + productId,
 			function(productDetails)
 			{
-				$('#selected-product-name').text(productDetails.product.name);
-				$('#selected-product-stock-amount').text(productDetails.stock_amount || '0');
-				$('#selected-product-stock-qu-name').text(productDetails.quantity_unit_stock.name);
-				$('#selected-product-purchase-qu-name').text(productDetails.quantity_unit_purchase.name);
-				$('#selected-product-last-purchased').text((productDetails.last_purchased || 'never').substring(0, 10));
-				$('#selected-product-last-purchased-timeago').text($.timeago(productDetails.last_purchased || ''));
-				$('#selected-product-last-used').text((productDetails.last_used || 'never').substring(0, 10));
-				$('#selected-product-last-used-timeago').text($.timeago(productDetails.last_used || ''));
 				$('#new_amount').attr('not-equal', productDetails.stock_amount);
 				$('#new_amount_qu_unit').text(productDetails.quantity_unit_stock.name);
 
 				$('#new_amount').focus();
-
-				Grocy.EmptyElementWhenMatches('#selected-product-last-purchased-timeago', 'NaN years ago');
-				Grocy.EmptyElementWhenMatches('#selected-product-last-used-timeago', 'NaN years ago');
 			},
 			function(xhr)
 			{
@@ -121,7 +111,7 @@ $(function()
 		var input = $('#product_id_text_input').val().toString();
 		var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + input + "']").first();
 		
-		if (Grocy.GetUriParam('addbarcodetoselection') === undefined && possibleOptionElement.length > 0)
+		if (GetUriParam('addbarcodetoselection') === undefined && possibleOptionElement.length > 0)
 		{
 			$('#product_id').val(possibleOptionElement.val());
 			$('#product_id').data('combobox').refresh();
@@ -130,7 +120,7 @@ $(function()
 		else
 		{
 			var optionElement = $("#product_id option:contains('" + input + "')").first();
-			if (input.length > 0 && optionElement.length === 0 && Grocy.GetUriParam('addbarcodetoselection') === undefined	)
+			if (input.length > 0 && optionElement.length === 0 && GetUriParam('addbarcodetoselection') === undefined	)
 			{
 				bootbox.dialog({
 					message: '<strong>' + input + '</strong> could not be resolved to a product, how do you want to proceed?',
@@ -246,7 +236,7 @@ $(function()
 		}
 	});
 
-	var prefillProduct = Grocy.GetUriParam('createdproduct');
+	var prefillProduct = GetUriParam('createdproduct');
 	if (prefillProduct !== undefined)
 	{
 		var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + prefillProduct + "']").first();
@@ -264,7 +254,7 @@ $(function()
 		}
 	}
 
-	var addBarcode = Grocy.GetUriParam('addbarcodetoselection');
+	var addBarcode = GetUriParam('addbarcodetoselection');
 	if (addBarcode !== undefined)
 	{
 		$('#addbarcodetoselection').text(addBarcode);

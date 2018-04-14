@@ -39,23 +39,8 @@ $('#habit_id').on('change', function(e)
 
 	if (habitId)
 	{
-		Grocy.FetchJson('/api/habits/get-habit-details/' + habitId,
-			function(habitDetails)
-			{
-				$('#selected-habit-name').text(habitDetails.habit.name);
-				$('#selected-habit-last-tracked').text((habitDetails.last_tracked || 'never'));
-				$('#selected-habit-last-tracked-timeago').text($.timeago(habitDetails.last_tracked || ''));
-				$('#selected-habit-tracked-count').text((habitDetails.tracked_count || '0'));
-
-				$('#tracked_time').focus();
-
-				Grocy.EmptyElementWhenMatches('#selected-habit-last-tracked-timeago', 'NaN years ago');
-			},
-			function(xhr)
-			{
-				console.error(xhr);
-			}
-		);
+		Grocy.Components.HabitCard.Refresh(habitId);
+		$('#tracked_time').focus();
 	}
 });
 

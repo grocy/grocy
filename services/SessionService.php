@@ -15,7 +15,7 @@ class SessionService extends BaseService
 		}
 		else
 		{
-			return file_exists(__DIR__ . "/../data/sessions/$sessionKey.txt");
+			return $this->Database->sessions()->where('session_key = :1 AND expires > :2', $sessionKey, time())->count() === 1;
 		}
 	}
 
@@ -24,27 +24,19 @@ class SessionService extends BaseService
 	 */
 	public function CreateSession()
 	{
-		if (!file_exists(__DIR__ . '/../data/sessions'))
-		{
-			mkdir(__DIR__ . '/../data/sessions');
-		}
-
-		$now = time();
-		foreach (new \FilesystemIterator(__DIR__ . '/../data/sessions') as $file)
-		{
-			if ($now - $file->getCTime() >= 2678400) //31 days
-			{
-				unlink(__DIR__ . '/../data/sessions/' . $file->getFilename());
-			}
-		}
-
 		$newSessionKey = uniqid() . uniqid() . uniqid();
-		file_put_contents(__DIR__ . "/../data/sessions/$newSessionKey.txt", '');
+		
+		$sessionRow = $this->Database->sessions()->createRow(array(
+			'session_key' => $newSessionKey,
+			'expires' => time() + 2592000 //30 days
+		));
+		$sessionRow->save();
+
 		return $newSessionKey;
 	}
 
 	public function RemoveSession($sessionKey)
 	{
-		unlink(__DIR__ . "/../data/sessions/$sessionKey.txt");
+		$this->Database->sessions()->where('session_key', $sessionKey)->delete();
 	}
 }

@@ -49,8 +49,8 @@ $('#product_id').on('change', function(e)
 				$('#selected-product-last-used-timeago').text($.timeago(productDetails.last_used || ''));
 				$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name);
 
-				Grocy.EmptyElementWhenMatches('#selected-product-last-purchased-timeago', 'NaN years ago');
-				Grocy.EmptyElementWhenMatches('#selected-product-last-used-timeago', 'NaN years ago');
+				EmptyElementWhenMatches('#selected-product-last-purchased-timeago', 'NaN years ago');
+				EmptyElementWhenMatches('#selected-product-last-used-timeago', 'NaN years ago');
 
 				if ($('#product_id').hasClass('suppress-next-custom-validate-event'))
 				{

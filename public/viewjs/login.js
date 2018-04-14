@@ -4,7 +4,7 @@
 
 	$('#username').focus();
 
-	if (Grocy.GetUriParam('invalid') === 'true')
+	if (GetUriParam('invalid') === 'true')
 	{
 		$('#login-error').text('Invalid credentials, please try again.');
 		$('#login-error').show();

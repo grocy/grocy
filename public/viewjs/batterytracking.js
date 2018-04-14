@@ -39,23 +39,8 @@ $('#battery_id').on('change', function(e)
 
 	if (batteryId)
 	{
-		Grocy.FetchJson('/api/batteries/get-battery-details/' + batteryId,
-			function(batteryDetails)
-			{
-				$('#selected-battery-name').text(batteryDetails.battery.name);
-				$('#selected-battery-last-charged').text((batteryDetails.last_charged || 'never'));
-				$('#selected-battery-last-charged-timeago').text($.timeago(batteryDetails.last_charged || ''));
-				$('#selected-battery-charge-cycles-count').text((batteryDetails.charge_cycles_count || '0'));
-
-				$('#tracked_time').focus();
-
-				Grocy.EmptyElementWhenMatches('#selected-battery-last-charged-timeago', 'NaN years ago');
-			},
-			function(xhr)
-			{
-				console.error(xhr);
-			}
-		);
+		Grocy.Components.BatteryCard.Refresh(batteryId);
+		$('#tracked_time').focus();
 	}
 });
 

@@ -4,14 +4,8 @@ namespace Grocy\Middleware;
 
 use \Grocy\Services\SessionService;
 
-class SessionAuthMiddleware
+class SessionAuthMiddleware extends BaseMiddleware
 {
-	public function __construct(\Slim\Container $container) {
-		$this->container = $container;
-	}
-
-	protected $container;
-
 	public function __invoke(\Slim\Http\Request $request, \Slim\Http\Response $response, callable $next)
 	{
 		$route = $request->getAttribute('route');

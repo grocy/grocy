@@ -23,7 +23,7 @@
 		overflow-x: hidden;
 		overflow-y: auto;
 		background-color: #e5e5e5;
-		border-right: 1px solid #d6d6d6;
+		border-right: 2px solid #d6d6d6;
 		min-width: 220px;
 		max-width: 260px;
 	}
@@ -42,12 +42,14 @@
 .nav-sidebar > li > a {
 	padding-right: 20px;
 	padding-left: 20px;
+	transition: all 0.3s;
 }
 
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
 	background-color: #d6d6d6;
+	transition: all 0.3s;
 }
 
 .navbar-default {
@@ -73,7 +75,6 @@
 	color: #a7a7a7;
 	font-size: 11px;
 	text-align: center;
-	font-family: 'Arial', sans-serif;
 }
 
 .discrete-link {
@@ -94,15 +95,15 @@ a.discrete-link:focus {
 }
 
 .navbar-fixed-top {
-	border-bottom: solid;
+	border-bottom: 2px solid;
 	border-color: #d6d6d6;
 }
 
 .navbar-brand {
 	font-weight: bold;
-	letter-spacing: -2px;
+	letter-spacing: -5px;
 	font-size: 2.2em;
-	font-family: 'Arial', sans-serif;
+	
 }
 
 .table td.fit-content,

@@ -25,7 +25,7 @@ class LoginController extends BaseController
 			if ($postParams['username'] === HTTP_USER && $postParams['password'] === HTTP_PASSWORD)
 			{
 				$sessionKey = $this->SessionService->CreateSession();
-				setcookie('grocy_session', $sessionKey, time()+2592000); //30 days
+				setcookie('grocy_session', $sessionKey, time() + 31536000); // Cookie expires in 1 year, but session validity is up to SessionService
 
 				return $response->withRedirect('/');
 			}
