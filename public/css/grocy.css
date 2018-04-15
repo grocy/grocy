@@ -45,10 +45,21 @@
 	transition: all 0.3s;
 }
 
+.nav-sidebar > li > a:hover {
+	box-shadow: inset 4px 0 0 #337ab7;
+	transition: all 0.3s;
+}
+
+.nav-sidebar > li > a:focus {
+	box-shadow: inset 4px 0 0 #ab2230;
+	transition: all 0.3s;
+}
+
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
 	background-color: #d6d6d6;
+	box-shadow: inset 4px 0 0 #ab2230;
 	transition: all 0.3s;
 }
 
@@ -78,20 +89,20 @@
 }
 
 .discrete-link {
-	color: inherit;
-	transition: all 0.3s;
+	color: inherit !important;
+	transition: all 0.3s !important;
 }
 
 a.discrete-link:hover {
-	color: #337ab7;
-	text-decoration: none;
-	transition: all 0.3s;
+	color: #337ab7 !important;
+	text-decoration: none !important;
+	transition: all 0.3s !important;
 }
 
 a.discrete-link:focus {
-	color: #ab2230;
-	text-decoration: none;
-	transition: all 0.3s;
+	color: #ab2230 !important;
+	text-decoration: none !important;
+	transition: all 0.3s !important;
 }
 
 .navbar-fixed-top {
@@ -103,6 +114,7 @@ a.discrete-link:focus {
 	font-weight: bold;
 	letter-spacing: -5px;
 	font-size: 2.2em;
+	color: inherit !important;
 	
 }
 
@@ -150,4 +162,8 @@ a.discrete-link:focus {
 .discrete-content-separator-2x {
 	padding-top: 10px;
 	padding-bottom: 10px;
+}
+
+.well {
+	background-color: #e5e5e5;
 }
