@@ -1,5 +1,8 @@
 <?php
 
+use \Grocy\Middleware\JsonMiddleware;
+use \Grocy\Middleware\CliMiddleware;
+
 // Base route
 $app->get('/', 'Grocy\Controllers\LoginController:Root')->setName('root');
 

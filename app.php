@@ -4,9 +4,6 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 use \Grocy\Middleware\SessionAuthMiddleware;
-use \Grocy\Middleware\JsonMiddleware;
-use \Grocy\Middleware\CliMiddleware;
-
 use \Grocy\Services\ApplicationService;
 
 require_once __DIR__ . '/vendor/autoload.php';
