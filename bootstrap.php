@@ -43,7 +43,7 @@ if (!$applicationService->IsDemoInstallation())
 }
 
 // Base route
-$app->get('/', 'Grocy\Controllers\LoginController:Root');
+$app->get('/', 'Grocy\Controllers\LoginController:Root')->setName('root');
 
 // Login routes
 $app->get('/login', 'Grocy\Controllers\LoginController:LoginPage')->setName('login');

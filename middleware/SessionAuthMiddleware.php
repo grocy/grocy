@@ -11,14 +11,21 @@ class SessionAuthMiddleware extends BaseMiddleware
 		$route = $request->getAttribute('route');
 		$routeName = $route->getName();
 
-		$sessionService = new SessionService();
-		if ((!isset($_COOKIE['grocy_session']) || !$sessionService->IsValidSession($_COOKIE['grocy_session'])) && $routeName !== 'login')
+		if ($routeName === 'root')
 		{
-			$response = $response->withRedirect('/login');
+			$response = $next($request, $response);
 		}
 		else
 		{
-			$response = $next($request, $response);
+			$sessionService = new SessionService();
+			if ((!isset($_COOKIE['grocy_session']) || !$sessionService->IsValidSession($_COOKIE['grocy_session'])) && $routeName !== 'login')
+			{
+				$response = $response->withRedirect('/login');
+			}
+			else
+			{
+				$response = $next($request, $response);
+			}
 		}
 
 		return $response;
