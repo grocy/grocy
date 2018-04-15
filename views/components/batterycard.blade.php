@@ -1,8 +1,7 @@
-@extends('layout.basecomponent')
+@push('componentScripts')
+	<script src="/viewjs/components/batterycard.js"></script>
+@endpush
 
-@section('componentJsName', 'batterycard')
-
-@section('componentContent')
 <div class="main well">
 
 	<h3>Battery overview <strong><span id="batterycard-battery-name"></span></strong></h3>
@@ -13,4 +12,3 @@
 	</p>
 	
 </div>
-@stop

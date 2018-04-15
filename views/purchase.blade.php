@@ -23,16 +23,10 @@
 			<div id="flow-info-addbarcodetoselection" class="text-muted small hide"><strong><span id="addbarcodetoselection"></span></strong> will be added to the list of barcodes for the selected product on submit.</div>
 		</div>
 
-		<div class="form-group">
-			<label for="best_before_date">Best before&nbsp;&nbsp;<span class="small text-muted"><time id="best-before-timeago" class="timeago timeago-contextual"></time></span></label>
-			<div class="input-group date">
-				<input type="text" data-isodate="isodate" class="form-control datepicker" id="best_before_date" name="best_before_date" required autocomplete="off">
-				<div id="best_before_date-datepicker-button" class="input-group-addon">
-					<i class="fa fa-calendar"></i>
-				</div>
-			</div>
-			<div class="help-block with-errors"></div>
-		</div>
+		@include('components.datepicker', array(
+			'id' => 'best_before_date',
+			'label' => 'Best before'
+		))
 
 		<div class="form-group">
 			<label for="amount">Amount&nbsp;&nbsp;<span id="amount_qu_unit" class="small text-muted"></span></label>

@@ -1,8 +1,7 @@
-@extends('layout.basecomponent')
+@push('componentScripts')
+	<script src="/viewjs/components/productcard.js"></script>
+@endpush
 
-@section('componentJsName', 'productcard')
-
-@section('componentContent')
 <div class="main well">
 
 	<h3>Product overview <strong><span id="productcard-product-name"></span></strong></h3>
@@ -15,4 +14,3 @@
 	</p>
 	
 </div>
-@stop

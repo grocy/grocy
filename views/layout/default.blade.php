@@ -206,8 +206,7 @@
 
 			</div>
 
-			@section('content')
-			@show
+			@yield('content')
 
 		</div>
 	</div>

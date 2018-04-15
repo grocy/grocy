@@ -30,16 +30,10 @@
 			<div id="inventory-change-info" class="help-block text-muted"></div>
 		</div>
 
-		<div class="form-group">
-			<label for="best_before_date">Best before&nbsp;&nbsp;<span class="small text-muted">This will apply to added products</span></label>
-			<div class="input-group date">
-				<input type="text" data-isodate="isodate" class="form-control datepicker" id="best_before_date" name="best_before_date" autocomplete="off">
-				<div id="best_before_date-datepicker-button" class="input-group-addon">
-					<i class="fa fa-calendar"></i>
-				</div>
-			</div>
-			<div class="help-block with-errors"></div>
-		</div>
+		@include('components.datepicker', array(
+			'id' => 'best_before_date',
+			'label' => 'Best before&nbsp;&nbsp;<span class="small text-muted">This will apply to added products</span>'
+		))
 
 		<button id="save-inventory-button" type="submit" class="btn btn-default">OK</button>
 

@@ -7,7 +7,7 @@
 	Grocy.FetchJson('/api/habits/get-habit-details/' + jsonForm.habit_id,
 		function (habitDetails)
 		{
-			Grocy.FetchJson('/api/habits/track-habit-exeuction/' + jsonForm.habit_id + '?tracked_time=' + $('#tracked_time').val(),
+			Grocy.FetchJson('/api/habits/track-habit-execution/' + jsonForm.habit_id + '?tracked_time=' + $('#tracked_time').val(),
 				function(result)
 				{
 					toastr.success('Tracked execution of habit ' + habitDetails.habit.name + ' on ' + $('#tracked_time').val());
@@ -46,14 +46,6 @@ $('#habit_id').on('change', function(e)
 
 $(function()
 {
-	$('.datetimepicker').datetimepicker(
-	{
-		format: 'YYYY-MM-DD HH:mm:ss',
-		showTodayButton: true,
-		calendarWeeks: true,
-		maxDate: moment()
-	});
-
 	$('#tracked_time').val(moment().format('YYYY-MM-DD HH:mm:ss'));
 	$('#tracked_time').trigger('change');
 
@@ -90,63 +82,7 @@ $(function()
 	});
 });
 
-$('#tracked_time').on('change', function(e)
-{
-	var value = $('#tracked_time').val();
-	var now = new Date();
-	var centuryStart = Number.parseInt(now.getFullYear().toString().substring(0, 2) + '00');
-	var centuryEnd = Number.parseInt(now.getFullYear().toString().substring(0, 2) + '99');
-
-	if (value === 'x' || value === 'X') {
-		value = '29991231';
-	}
-
-	if (value.length === 4 && !(Number.parseInt(value) > centuryStart && Number.parseInt(value) < centuryEnd))
-	{
-		value = (new Date()).getFullYear().toString() + value;
-	}
-
-	if (value.length === 8 && $.isNumeric(value))
-	{
-		value = value.replace(/(\d{4})(\d{2})(\d{2})/, '$1-$2-$3');
-		$('#tracked_time').val(value);
-		$('#habittracking-form').validator('validate');
-	}
-});
-
 $('#tracked_time').on('keypress', function(e)
 {
-	var element = $(e.target);
-	var value = element.val();
-	var dateObj = moment(element.val(), 'YYYY-MM-DD', true);
-
-	$('.datepicker').datepicker('hide');
-
-	//If input is empty and any arrow key is pressed, set date to today
-	if (value.length === 0 && (e.keyCode === 38 || e.keyCode === 40 || e.keyCode === 37 || e.keyCode === 39))
-	{
-		dateObj = moment(new Date(), 'YYYY-MM-DD', true);
-	}
-
-	if (dateObj.isValid())
-	{
-		if (e.keyCode === 38) //Up
-		{
-			element.val(dateObj.add(-1, 'days').format('YYYY-MM-DD'));
-		}
-		else if (e.keyCode === 40) //Down
-		{
-			element.val(dateObj.add(1, 'days').format('YYYY-MM-DD'));
-		}
-		else if (e.keyCode === 37) //Left
-		{
-			element.val(dateObj.add(-1, 'weeks').format('YYYY-MM-DD'));
-		}
-		else if (e.keyCode === 39) //Right
-		{
-			element.val(dateObj.add(1, 'weeks').format('YYYY-MM-DD'));
-		}
-	}
-
 	$('#habittracking-form').validator('validate');
 });

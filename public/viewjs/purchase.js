@@ -98,19 +98,6 @@ $('#product_id').on('change', function(e)
 
 $(function()
 {
-	$('.datepicker').datepicker(
-	{
-		format: 'yyyy-mm-dd',
-		startDate: '+0d',
-		todayHighlight: true,
-		autoclose: true,
-		calendarWeeks: true,
-		orientation: 'bottom auto',
-		weekStart: 1,
-		showOnFocus: false
-	});
-	$('.datepicker').trigger('change');
-
 	$('.combobox').combobox({
 		appendId: '_text_input'
 	});
@@ -271,83 +258,14 @@ $(function()
 		$('#flow-info-addbarcodetoselection').removeClass('hide');
 		$('#barcode-lookup-disabled-hint').removeClass('hide');
 	}
-
-	EmptyElementWhenMatches('#best-before-timeago', 'NaN years ago');
-});
-
-$('#best_before_date-datepicker-button').on('click', function(e)
-{
-	$('.datepicker').datepicker('show');
 });
 
 $('#best_before_date').on('change', function(e)
 {
-	var value = $('#best_before_date').val();
-	var now = new Date();
-	var centuryStart = Number.parseInt(now.getFullYear().toString().substring(0, 2) + '00');
-	var centuryEnd = Number.parseInt(now.getFullYear().toString().substring(0, 2) + '99');
-
-	if (value === 'x' || value === 'X') {
-		value = '29991231';
-	}
-
-	if (value.length === 4 && !(Number.parseInt(value) > centuryStart && Number.parseInt(value) < centuryEnd))
-	{
-		value = (new Date()).getFullYear().toString() + value;
-	}
-
-	if (value.length === 8 && $.isNumeric(value))
-	{
-		value = value.replace(/(\d{4})(\d{2})(\d{2})/, '$1-$2-$3');
-		$('#best_before_date').val(value);
-		$('#purchase-form').validator('validate');
-	}
-
-	$('#best-before-timeago').text($.timeago($('#best_before_date').val()));
-	EmptyElementWhenMatches('#best-before-timeago', 'NaN years ago');
+	$('#purchase-form').validator('validate');
 });
-
-$('#best_before_date').on('keydown', function(e)
-{
-	if (e.keyCode === 13) //Enter
-	{
-		$('#best_before_date').trigger('change');
-	}
-});	
 
 $('#best_before_date').on('keypress', function(e)
 {
-	var element = $(e.target);
-	var value = element.val();
-	var dateObj = moment(element.val(), 'YYYY-MM-DD', true);
-
-	$('.datepicker').datepicker('hide');
-
-	//If input is empty and any arrow key is pressed, set date to today
-	if (value.length === 0 && (e.keyCode === 38 || e.keyCode === 40 || e.keyCode === 37 || e.keyCode === 39))
-	{
-		dateObj = moment(new Date(), 'YYYY-MM-DD', true);
-	}
-
-	if (dateObj.isValid())
-	{
-		if (e.keyCode === 38) //Up
-		{
-			element.val(dateObj.add(-1, 'days').format('YYYY-MM-DD'));
-		}
-		else if (e.keyCode === 40) //Down
-		{
-			element.val(dateObj.add(1, 'days').format('YYYY-MM-DD'));
-		}
-		else if (e.keyCode === 37) //Left
-		{
-			element.val(dateObj.add(-1, 'weeks').format('YYYY-MM-DD'));
-		}
-		else if (e.keyCode === 39) //Right
-		{
-			element.val(dateObj.add(1, 'weeks').format('YYYY-MM-DD'));
-		}
-	}
-
 	$('#purchase-form').validator('validate');
 });

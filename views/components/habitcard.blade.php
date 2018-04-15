@@ -1,8 +1,7 @@
-@extends('layout.basecomponent')
+@push('componentScripts')
+	<script src="/viewjs/components/habitcard.js"></script>
+@endpush
 
-@section('componentJsName', 'habitcard')
-
-@section('componentContent')
 <div class="main well">
 
 	<h3>Habit overview <strong><span id="habitcard-habit-name"></span></strong></h3>
@@ -13,4 +12,3 @@
 	</p>
 	
 </div>
-@stop

@@ -1,0 +1,14 @@
+@push('componentScripts')
+	<script src="/viewjs/components/datetimepicker.js"></script>
+@endpush
+
+<div class="form-group">
+<label for="{{ $id }}">{{ $label }}</label>
+	<div class="input-group date datetimepicker">
+		<input type="text" class="form-control" id="{{ $id }}" name="{{ $id }}" required>
+		<span class="input-group-addon">
+			<span class="fa fa-calendar"></span>
+		</span>
+	</div>
+	<div class="help-block with-errors"></div>
+</div>
