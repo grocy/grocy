@@ -44,42 +44,39 @@ $('#habit_id').on('change', function(e)
 	}
 });
 
-$(function()
+$('#tracked_time').val(moment().format('YYYY-MM-DD HH:mm:ss'));
+$('#tracked_time').trigger('change');
+
+$('#tracked_time').on('focus', function(e)
 {
-	$('#tracked_time').val(moment().format('YYYY-MM-DD HH:mm:ss'));
-	$('#tracked_time').trigger('change');
-
-	$('#tracked_time').on('focus', function(e)
+	if ($('#habit_id_text_input').val().length === 0)
 	{
-		if ($('#habit_id_text_input').val().length === 0)
-		{
-			$('#habit_id_text_input').focus();
-		}
-	});
+		$('#habit_id_text_input').focus();
+	}
+});
 
-	$('.combobox').combobox({
-		appendId: '_text_input'
-	});
+$('.combobox').combobox({
+	appendId: '_text_input'
+});
 
-	$('#habit_id').val('');
-	$('#habit_id_text_input').focus();
-	$('#habit_id_text_input').val('');
-	$('#habit_id_text_input').trigger('change');
+$('#habit_id').val('');
+$('#habit_id_text_input').focus();
+$('#habit_id_text_input').val('');
+$('#habit_id_text_input').trigger('change');
 
-	$('#habittracking-form').validator();
-	$('#habittracking-form').validator('validate');
+$('#habittracking-form').validator();
+$('#habittracking-form').validator('validate');
 
-	$('#habittracking-form input').keydown(function(event)
+$('#habittracking-form input').keydown(function(event)
+{
+	if (event.keyCode === 13) //Enter
 	{
-		if (event.keyCode === 13) //Enter
+		if ($('#habittracking-form').validator('validate').has('.has-error').length !== 0) //There is at least one validation error
 		{
-			if ($('#habittracking-form').validator('validate').has('.has-error').length !== 0) //There is at least one validation error
-			{
-				event.preventDefault();
-				return false;
-			}
+			event.preventDefault();
+			return false;
 		}
-	});
+	}
 });
 
 $('#tracked_time').on('keypress', function(e)

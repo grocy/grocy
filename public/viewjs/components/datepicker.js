@@ -9,11 +9,12 @@ $(function()
 		calendarWeeks: true,
 		orientation: 'bottom auto',
 		weekStart: 1,
-		showOnFocus: false
+		showOnFocus: false,
+		language: L('bootstrap_datepicker_locale')
 	});
 	$('.datepicker').trigger('change');
 
-	EmptyElementWhenMatches('#datepicker-timeago', 'NaN years ago');
+	EmptyElementWhenMatches('#datepicker-timeago', L('timeago_nan'));
 });
 
 $('.datepicker').on('keydown', function(e)
@@ -82,7 +83,7 @@ $('.datepicker').on('change', function(e)
 	}
 
 	$('#datepicker-timeago').text($.timeago($('.datepicker').val()));
-	EmptyElementWhenMatches('#datepicker-timeago', 'NaN years ago');
+	EmptyElementWhenMatches('#datepicker-timeago', L('timeago_nan'));
 });
 
 $('#datepicker-button').on('click', function(e)

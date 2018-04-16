@@ -1,21 +1,21 @@
 @extends('layout.default')
 
-@section('title', 'Batteries overview')
+@section('title', $L('Batteries overview'))
 @section('activeNav', 'batteriesoverview')
 @section('viewJsName', 'batteriesoverview')
 
 @section('content')
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
 
-	<h1 class="page-header">Batteries overview</h1>
+	<h1 class="page-header">@yield('title')</h1>
 
 	<div class="table-responsive">
 		<table id="batteries-overview-table" class="table table-striped">
 			<thead>
 				<tr>
-					<th>Battery</th>
-					<th>Last charged</th>
-					<th>Next planned charge cycle</th>
+					<th>{{ $L('Battery') }}</th>
+					<th>{{ $L('Last charged') }}</th>
+					<th>{{ $L('Next planned charge cycle') }}</th>
 				</tr>
 			</thead>
 			<tbody>

@@ -1,18 +1,18 @@
 @extends('layout.default')
 
-@section('title', 'Habit tracking')
+@section('title', $L('Habit tracking'))
 @section('activeNav', 'habittracking')
 @section('viewJsName', 'habittracking')
 
 @section('content')
 <div class="col-sm-3 col-sm-offset-3 col-md-3 col-md-offset-2">
 
-	<h1 class="page-header">Habit tracking</h1>
+	<h1 class="page-header">@yield('title')</h1>
 
 	<form id="habittracking-form">
 
 		<div class="form-group">
-			<label for="habit_id">Habit</label>
+			<label for="habit_id">{{ $L('Habit') }}</label>
 			<select class="form-control combobox" id="habit_id" name="habit_id" required>
 				<option value=""></option>
 				@foreach($habits as $habit)
@@ -27,7 +27,7 @@
 			'label' => 'Tracked time'
 		))
 
-		<button id="save-habittracking-button" type="submit" class="btn btn-default">OK</button>
+		<button id="save-habittracking-button" type="submit" class="btn btn-default">{{ $L('OK') }}</button>
 
 	</form>
 

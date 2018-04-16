@@ -81,55 +81,52 @@ $('#product_id').on('change', function(e)
 	}
 });
 
-$(function()
+$('.combobox').combobox({
+	appendId: '_text_input'
+});
+
+$('#product_id_text_input').on('change', function(e)
 {
-	$('.combobox').combobox({
-		appendId: '_text_input'
-	});
-
-	$('#product_id_text_input').on('change', function(e)
+	var input = $('#product_id_text_input').val().toString();
+	var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + input + "']").first();
+	
+	if (possibleOptionElement.length > 0)
 	{
-		var input = $('#product_id_text_input').val().toString();
-		var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + input + "']").first();
-		
-		if (possibleOptionElement.length > 0)
-		{
-			$('#product_id').val(possibleOptionElement.val());
-			$('#product_id').data('combobox').refresh();
-			$('#product_id').trigger('change');
-		}
-	});
+		$('#product_id').val(possibleOptionElement.val());
+		$('#product_id').data('combobox').refresh();
+		$('#product_id').trigger('change');
+	}
+});
 
-	$('#amount').val(1);
-	$('#product_id').val('');
-	$('#product_id_text_input').focus();
-	$('#product_id_text_input').val('');
-	$('#product_id_text_input').trigger('change');
+$('#amount').val(1);
+$('#product_id').val('');
+$('#product_id_text_input').focus();
+$('#product_id_text_input').val('');
+$('#product_id_text_input').trigger('change');
 
-	$('#consume-form').validator();
-	$('#consume-form').validator('validate');
+$('#consume-form').validator();
+$('#consume-form').validator('validate');
 
-	$('#amount').on('focus', function(e)
+$('#amount').on('focus', function(e)
+{
+	if ($('#product_id_text_input').val().length === 0)
 	{
-		if ($('#product_id_text_input').val().length === 0)
-		{
-			$('#product_id_text_input').focus();
-		}
-		else
-		{
-			$(this).select();
-		}
-	});
-
-	$('#consume-form input').keydown(function(event)
+		$('#product_id_text_input').focus();
+	}
+	else
 	{
-		if (event.keyCode === 13) //Enter
+		$(this).select();
+	}
+});
+
+$('#consume-form input').keydown(function(event)
+{
+	if (event.keyCode === 13) //Enter
+	{
+		if ($('#consume-form').validator('validate').has('.has-error').length !== 0) //There is at least one validation error
 		{
-			if ($('#consume-form').validator('validate').has('.has-error').length !== 0) //There is at least one validation error
-			{
-				event.preventDefault();
-				return false;
-			}
+			event.preventDefault();
+			return false;
 		}
-	});
+	}
 });

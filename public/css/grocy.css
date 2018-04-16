@@ -46,12 +46,12 @@
 }
 
 .nav-sidebar > li > a:hover {
-	box-shadow: inset 4px 0 0 #337ab7;
+	box-shadow: inset 5px 0 0 #337ab7;
 	transition: all 0.3s;
 }
 
 .nav-sidebar > li > a:focus {
-	box-shadow: inset 4px 0 0 #ab2230;
+	box-shadow: inset 5px 0 0 #ab2230;
 	transition: all 0.3s;
 }
 
@@ -59,7 +59,7 @@
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
 	background-color: #d6d6d6;
-	box-shadow: inset 4px 0 0 #ab2230;
+	box-shadow: inset 5px 0 0 #ab2230;
 	transition: all 0.3s;
 }
 
@@ -114,7 +114,9 @@ a.discrete-link:focus {
 	font-weight: bold;
 	letter-spacing: -5px;
 	font-size: 2.2em;
-	color: inherit !important;
+	color: #0b024c !important;
+	margin-left: 0 !important;
+	padding-left: 5px !important;
 	
 }
 

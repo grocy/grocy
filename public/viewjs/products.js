@@ -31,13 +31,11 @@
 	});
 });
 
-$(function()
-{
-	$('#products-table').DataTable({
-		'pageLength': 50,
-		'order': [[1, 'asc']],
-		'columnDefs': [
-			{ 'orderable': false, 'targets': 0 }
-		]
-	});
+$('#products-table').DataTable({
+	'pageLength': 50,
+	'order': [[1, 'asc']],
+	'columnDefs': [
+		{ 'orderable': false, 'targets': 0 }
+	],
+	'language': JSON.parse(L('datatables_localization'))
 });

@@ -36,21 +36,12 @@ $('#product_id').on('change', function(e)
 
 	if (productId)
 	{
+		Grocy.Components.ProductCard.Refresh(productId);
+		
 		Grocy.FetchJson('/api/stock/get-product-details/' + productId,
 			function (productDetails)
 			{
-				$('#selected-product-name').text(productDetails.product.name);
-				$('#selected-product-stock-amount').text(productDetails.stock_amount || '0');
-				$('#selected-product-stock-qu-name').text(productDetails.quantity_unit_stock.name);
-				$('#selected-product-stock-qu-name2').text(productDetails.quantity_unit_stock.name);
-				$('#selected-product-last-purchased').text((productDetails.last_purchased || 'never').substring(0, 10));
-				$('#selected-product-last-purchased-timeago').text($.timeago(productDetails.last_purchased || ''));
-				$('#selected-product-last-used').text((productDetails.last_used || 'never').substring(0, 10));
-				$('#selected-product-last-used-timeago').text($.timeago(productDetails.last_used || ''));
 				$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name);
-
-				EmptyElementWhenMatches('#selected-product-last-purchased-timeago', 'NaN years ago');
-				EmptyElementWhenMatches('#selected-product-last-used-timeago', 'NaN years ago');
 
 				if ($('#product_id').hasClass('suppress-next-custom-validate-event'))
 				{
@@ -97,53 +88,50 @@ $('#product_id').on('change', function(e)
 	}
 });
 
-$(function()
+$('.combobox').combobox({
+	appendId: '_text_input'
+});
+
+$('#product_id_text_input').on('change', function(e)
 {
-	$('.combobox').combobox({
-		appendId: '_text_input'
-	});
+	var input = $('#product_id_text_input').val().toString();
+	var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + input + "']").first();
 
-	$('#product_id_text_input').on('change', function(e)
-	{
-		var input = $('#product_id_text_input').val().toString();
-		var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + input + "']").first();
-
-		if (possibleOptionElement.length > 0 && possibleOptionElement.text().length > 0) {
-			$('#product_id').val(possibleOptionElement.val());
-			$('#product_id').data('combobox').refresh();
-			$('#product_id').trigger('change');
-		}
-	});
-	
-	$('#product_id_text_input').focus();
-	$('#product_id_text_input').trigger('change');
-
-	if (Grocy.EditMode === 'edit')
-	{
-		$('#product_id').addClass('suppress-next-custom-validate-event');
+	if (possibleOptionElement.length > 0 && possibleOptionElement.text().length > 0) {
+		$('#product_id').val(possibleOptionElement.val());
+		$('#product_id').data('combobox').refresh();
 		$('#product_id').trigger('change');
 	}
-	
-	$('#shoppinglist-form').validator();
-	$('#shoppinglist-form').validator('validate');
+});
 
-	$('#amount').on('focus', function(e)
-	{
-		if ($('#product_id_text_input').val().length === 0)
-		{
-			$('#product_id_text_input').focus();
-		}
-	});
+$('#product_id_text_input').focus();
+$('#product_id_text_input').trigger('change');
 
-	$('#shoppinglist-form input').keydown(function(event)
+if (Grocy.EditMode === 'edit')
+{
+	$('#product_id').addClass('suppress-next-custom-validate-event');
+	$('#product_id').trigger('change');
+}
+
+$('#shoppinglist-form').validator();
+$('#shoppinglist-form').validator('validate');
+
+$('#amount').on('focus', function(e)
+{
+	if ($('#product_id_text_input').val().length === 0)
 	{
-		if (event.keyCode === 13) //Enter
+		$('#product_id_text_input').focus();
+	}
+});
+
+$('#shoppinglist-form input').keydown(function(event)
+{
+	if (event.keyCode === 13) //Enter
+	{
+		if ($('#shoppinglist-form').validator('validate').has('.has-error').length !== 0) //There is at least one validation error
 		{
-			if ($('#shoppinglist-form').validator('validate').has('.has-error').length !== 0) //There is at least one validation error
-			{
-				event.preventDefault();
-				return false;
-			}
+			event.preventDefault();
+			return false;
 		}
-	});
+	}
 });

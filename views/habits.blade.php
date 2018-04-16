@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', 'Habits')
+@section('title', $L('Habits'))
 @section('activeNav', 'habits')
 @section('viewJsName', 'habits')
 
@@ -8,9 +8,9 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
 
 	<h1 class="page-header">
-		Habits
+		@yield('title')
 		<a class="btn btn-default" href="/habit/new" role="button">
-			<i class="fa fa-plus"></i>&nbsp;Add
+			<i class="fa fa-plus"></i>&nbsp;{{ $L('Add') }}
 		</a>
 	</h1>
 
@@ -19,10 +19,10 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>Name</th>
-					<th>Period type</th>
-					<th>Period days</th>
-					<th>Description</th>
+					<th>{{ $L('Name') }}</th>
+					<th>{{ $L('Period type') }}</th>
+					<th>{{ $L('Period days') }}</th>
+					<th>{{ $L('Description') }}</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -40,7 +40,7 @@
 						{{ $habit->name }}
 					</td>
 					<td>
-						{{ $habit->period_type }}
+						{{ $L($habit->period_type) }}
 					</td>
 					<td>
 						{{ $habit->period_days }}

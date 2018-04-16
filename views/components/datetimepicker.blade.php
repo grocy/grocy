@@ -3,7 +3,7 @@
 @endpush
 
 <div class="form-group">
-<label for="{{ $id }}">{{ $label }}</label>
+<label for="{{ $id }}">{{ $L($label) }}</label>
 	<div class="input-group date datetimepicker">
 		<input type="text" class="form-control" id="{{ $id }}" name="{{ $id }}" required>
 		<span class="input-group-addon">

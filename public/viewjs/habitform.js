@@ -30,12 +30,9 @@
 	}
 });
 
-$(function()
-{
-	$('#name').focus();
-	$('#habit-form').validator();
-	$('#habit-form').validator('validate');
-});
+$('#name').focus();
+$('#habit-form').validator();
+$('#habit-form').validator('validate');
 
 $('.input-group-habit-period-type').on('change', function(e)
 {

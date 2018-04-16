@@ -1,12 +1,9 @@
-﻿$(function()
+﻿$('.logout-button').hide();
+
+$('#username').focus();
+
+if (GetUriParam('invalid') === 'true')
 {
-	$('.logout-button').hide();
-
-	$('#username').focus();
-
-	if (GetUriParam('invalid') === 'true')
-	{
-		$('#login-error').text('Invalid credentials, please try again.');
-		$('#login-error').show();
-	}
-});
+	$('#login-error').text(L('Invalid credentials, please try again'));
+	$('#login-error').show();
+}

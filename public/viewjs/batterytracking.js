@@ -44,50 +44,47 @@ $('#battery_id').on('change', function(e)
 	}
 });
 
-$(function()
+$('.datetimepicker').datetimepicker(
 {
-	$('.datetimepicker').datetimepicker(
-	{
-		format: 'YYYY-MM-DD HH:mm:ss',
-		showTodayButton: true,
-		calendarWeeks: true,
-		maxDate: moment()
-	});
+	format: 'YYYY-MM-DD HH:mm:ss',
+	showTodayButton: true,
+	calendarWeeks: true,
+	maxDate: moment()
+});
 
-	$('#tracked_time').val(moment().format('YYYY-MM-DD HH:mm:ss'));
-	$('#tracked_time').trigger('change');
+$('#tracked_time').val(moment().format('YYYY-MM-DD HH:mm:ss'));
+$('#tracked_time').trigger('change');
 
-	$('#tracked_time').on('focus', function(e)
+$('#tracked_time').on('focus', function(e)
+{
+	if ($('#battery_id_text_input').val().length === 0)
 	{
-		if ($('#battery_id_text_input').val().length === 0)
+		$('#battery_id_text_input').focus();
+	}
+});
+
+$('.combobox').combobox({
+	appendId: '_text_input'
+});
+
+$('#battery_id').val('');
+$('#battery_id_text_input').focus();
+$('#battery_id_text_input').val('');
+$('#battery_id_text_input').trigger('change');
+
+$('#batterytracking-form').validator();
+$('#batterytracking-form').validator('validate');
+
+$('#batterytracking-form input').keydown(function(event)
+{
+	if (event.keyCode === 13) //Enter
+	{
+		if ($('#batterytracking-form').validator('validate').has('.has-error').length !== 0) //There is at least one validation error
 		{
-			$('#battery_id_text_input').focus();
+			event.preventDefault();
+			return false;
 		}
-	});
-
-	$('.combobox').combobox({
-		appendId: '_text_input'
-	});
-
-	$('#battery_id').val('');
-	$('#battery_id_text_input').focus();
-	$('#battery_id_text_input').val('');
-	$('#battery_id_text_input').trigger('change');
-
-	$('#batterytracking-form').validator();
-	$('#batterytracking-form').validator('validate');
-
-	$('#batterytracking-form input').keydown(function(event)
-	{
-		if (event.keyCode === 13) //Enter
-		{
-			if ($('#batterytracking-form').validator('validate').has('.has-error').length !== 0) //There is at least one validation error
-			{
-				event.preventDefault();
-				return false;
-			}
-		}
-	});
+	}
 });
 
 $('#tracked_time').on('change', function(e)

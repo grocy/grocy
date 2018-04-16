@@ -31,13 +31,11 @@
 	});
 });
 
-$(function()
-{
-	$('#habits-table').DataTable({
-		'pageLength': 50,
-		'order': [[1, 'asc']],
-		'columnDefs': [
-			{ 'orderable': false, 'targets': 0 }
-		]
-	});
+$('#habits-table').DataTable({
+	'pageLength': 50,
+	'order': [[1, 'asc']],
+	'columnDefs': [
+		{ 'orderable': false, 'targets': 0 }
+	],
+	'language': JSON.parse(L('datatables_localization'))
 });

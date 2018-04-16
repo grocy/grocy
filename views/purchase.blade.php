@@ -1,18 +1,18 @@
 @extends('layout.default')
 
-@section('title', 'Purchase')
+@section('title', $L('Purchase'))
 @section('activeNav', 'purchase')
 @section('viewJsName', 'purchase')
 
 @section('content')
 <div class="col-sm-4 col-sm-offset-3 col-md-3 col-md-offset-2">
 
-	<h1 class="page-header">Purchase</h1>
+	<h1 class="page-header">@yield('title')</h1>
 
 	<form id="purchase-form">
 
 		<div class="form-group">
-			<label for="product_id">Product&nbsp;&nbsp;<i class="fa fa-barcode"></i><span id="barcode-lookup-disabled-hint" class="small text-muted hide">&nbsp;&nbsp;Barcode lookup is disabled</span></label>
+			<label for="product_id">{{ $L('Product') }}&nbsp;&nbsp;<i class="fa fa-barcode"></i><span id="barcode-lookup-disabled-hint" class="small text-muted hide">&nbsp;&nbsp;Barcode lookup is disabled</span></label>
 			<select class="form-control combobox" id="product_id" name="product_id" required>
 				<option value=""></option>
 				@foreach($products as $product)
@@ -29,12 +29,12 @@
 		))
 
 		<div class="form-group">
-			<label for="amount">Amount&nbsp;&nbsp;<span id="amount_qu_unit" class="small text-muted"></span></label>
+			<label for="amount">{{ $L('Amount') }}&nbsp;&nbsp;<span id="amount_qu_unit" class="small text-muted"></span></label>
 			<input type="number" class="form-control" id="amount" name="amount" value="1" min="1" required>
 			<div class="help-block with-errors"></div>
 		</div>
 
-		<button id="save-purchase-button" type="submit" class="btn btn-default">OK</button>
+		<button id="save-purchase-button" type="submit" class="btn btn-default">{{ $L('OK') }}</button>
 
 	</form>
 

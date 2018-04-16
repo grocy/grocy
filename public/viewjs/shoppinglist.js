@@ -26,13 +26,11 @@ $(document).on('click', '#add-products-below-min-stock-amount', function(e)
 	);
 });
 
-$(function()
-{
-	$('#shoppinglist-table').DataTable({
-		'pageLength': 50,
-		'order': [[1, 'asc']],
-		'columnDefs': [
-			{ 'orderable': false, 'targets': 0 }
-		]
-	});
+$('#shoppinglist-table').DataTable({
+	'pageLength': 50,
+	'order': [[1, 'asc']],
+	'columnDefs': [
+		{ 'orderable': false, 'targets': 0 }
+	],
+	'language': JSON.parse(L('datatables_localization'))
 });

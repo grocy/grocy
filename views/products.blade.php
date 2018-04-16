@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', 'Products')
+@section('title', $L('Products'))
 @section('activeNav', 'products')
 @section('viewJsName', 'products')
 
@@ -8,9 +8,9 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
 
 	<h1 class="page-header">
-		Products
+		@yield('title')
 		<a class="btn btn-default" href="/product/new" role="button">
-			<i class="fa fa-plus"></i>&nbsp;Add
+			<i class="fa fa-plus"></i>&nbsp;{{ $L('Add') }}
 		</a>
 	</h1>
 
@@ -19,13 +19,13 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>Name</th>
-					<th>Location</th>
-					<th>Min. stock amount</th>
-					<th>QU purchase</th>
-					<th>QU stock</th>
-					<th>QU factor</th>
-					<th>Description</th>
+					<th>{{ $L('Name') }}</th>
+					<th>{{ $L('Location') }}</th>
+					<th>{{ $L('Min. stock amount') }}</th>
+					<th>{{ $L('QU purchase') }}</th>
+					<th>{{ $L('QU stock') }}</th>
+					<th>{{ $L('QU factor') }}</th>
+					<th>{{ $L('Description') }}</th>
 				</tr>
 			</thead>
 			<tbody>

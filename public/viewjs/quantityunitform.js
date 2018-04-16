@@ -30,9 +30,6 @@
 	}
 });
 
-$(function()
-{
-	$('#name').focus();
-	$('#quantityunit-form').validator();
-	$('#quantityunit-form').validator('validate');
-});
+$('#name').focus();
+$('#quantityunit-form').validator();
+$('#quantityunit-form').validator('validate');

@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', 'Shopping list')
+@section('title', $L('Shopping list'))
 @section('activeNav', 'shoppinglist')
 @section('viewJsName', 'shoppinglist')
 
@@ -8,12 +8,12 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
 
 	<h1 class="page-header">
-		Shopping list
+		@yield('title')
 		<a class="btn btn-default" href="/shoppinglistitem/new" role="button">
-			<i class="fa fa-plus"></i>&nbsp;Add
+			<i class="fa fa-plus"></i>&nbsp;{{ $L('Add') }}
 		</a>
 		<a id="add-products-below-min-stock-amount" class="btn btn-info" href="#" role="button">
-			<i class="fa fa-plus"></i>&nbsp;Add products that are below defined min. stock amount
+			<i class="fa fa-plus"></i>&nbsp;{{ $L('Add products that are below defined min. stock amount') }}
 		</a>
 	</h1>
 
@@ -22,8 +22,8 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>Product / <em>Note</em></th>
-					<th>Amount</th>
+					<th>{{ $L('Product') }} / <em>{{ $L('Note') }}</em></th>
+					<th>{{ $L('Amount') }}</th>
 				</tr>
 			</thead>
 			<tbody>

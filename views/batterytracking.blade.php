@@ -1,18 +1,18 @@
 @extends('layout.default')
 
-@section('title', 'Battery tracking')
+@section('title', $L('Battery tracking'))
 @section('activeNav', 'batterytracking')
 @section('viewJsName', 'batterytracking')
 
 @section('content')
 <div class="col-sm-3 col-sm-offset-3 col-md-3 col-md-offset-2">
 
-	<h1 class="page-header">Battery tracking</h1>
+	<h1 class="page-header">@yield('title')</h1>
 
 	<form id="batterytracking-form">
 
 		<div class="form-group">
-			<label for="battery_id">Battery</label>
+			<label for="battery_id">{{ $L('Battery') }}</label>
 			<select class="form-control combobox" id="battery_id" name="battery_id" required>
 				<option value=""></option>
 				@foreach($batteries as $battery)
@@ -23,7 +23,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="tracked_time">Tracked time</label>
+			<label for="tracked_time">{{ $L('Tracked time') }}</label>
 			<div class="input-group date datetimepicker">
 				<input type="text" class="form-control" id="tracked_time" name="tracked_time" required >
 				<span class="input-group-addon">
@@ -33,7 +33,7 @@
 			<div class="help-block with-errors"></div>
 		</div>
 
-		<button id="save-batterytracking-button" type="submit" class="btn btn-default">OK</button>
+		<button id="save-batterytracking-button" type="submit" class="btn btn-default">{{ $L('OK') }}</button>
 
 	</form>
 

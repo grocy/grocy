@@ -30,9 +30,6 @@
 	}
 });
 
-$(function()
-{
-	$('#name').focus();
-	$('#battery-form').validator();
-	$('#battery-form').validator('validate');
-});
+$('#name').focus();
+$('#battery-form').validator();
+$('#battery-form').validator('validate');

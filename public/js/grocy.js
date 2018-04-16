@@ -1,17 +1,27 @@
-﻿var Grocy = { };
-Grocy.Components = { };
-
-$(function()
+﻿L = function(text, ...placeholderValues)
 {
-	if (!Grocy.ActiveNav.isEmpty())
+	var localizedText = Grocy.LocalizationStrings[text];
+	if (localizedText === undefined)
 	{
-		var menuItem = $('.nav').find("[data-nav-for-page='" + Grocy.ActiveNav + "']");
-		menuItem.addClass('active');
-	}	
+		localizedText = text;
+	}
+	
+	for (var i = 0; i < placeholderValues.length; i++)
+	{
+		localizedText = localizedText.replace('#' + (i + 1), placeholderValues[i]);
+	}
+	
+	return localizedText;
+}
 
-	$.timeago.settings.allowFuture = true;
-	$('time.timeago').timeago();
-});
+if (!Grocy.ActiveNav.isEmpty())
+{
+	var menuItem = $('.nav').find("[data-nav-for-page='" + Grocy.ActiveNav + "']");
+	menuItem.addClass('active');
+}	
+
+$.timeago.settings.allowFuture = true;
+$('time.timeago').timeago();
 
 Grocy.FetchJson = function(url, success, error)
 {

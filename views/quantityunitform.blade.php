@@ -1,9 +1,9 @@
 @extends('layout.default')
 
 @if($mode == 'edit')
-	@section('title', 'Edit quantity unit')
+	@section('title', $L('Edit quantity unit'))
 @else
-	@section('title', 'Create quantity unit')
+	@section('title', $L('Create quantity unit'))
 @endif
 
 @section('viewJsName', 'quantityunitform')
@@ -22,17 +22,17 @@
 	<form id="quantityunit-form">
 
 		<div class="form-group">
-			<label for="name">Name</label>
+			<label for="name">{{ $L('Name') }}</label>
 			<input type="text" class="form-control" required id="name" name="name" value="@if($mode == 'edit'){{ $quantityunit->name }}@endif">
 			<div class="help-block with-errors"></div>
 		</div>
 
 		<div class="form-group">
-			<label for="description">Description</label>
+			<label for="description">{{ $L('Description') }}</label>
 			<textarea class="form-control" rows="2" id="description" name="description">@if($mode == 'edit'){{ $quantityunit->description }}@endif</textarea>
 		</div>
 
-		<button id="save-quantityunit-button" type="submit" class="btn btn-default">Save</button>
+		<button id="save-quantityunit-button" type="submit" class="btn btn-default">{{ $L('Save') }}</button>
 
 	</form>
 

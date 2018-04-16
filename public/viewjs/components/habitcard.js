@@ -10,7 +10,7 @@ Grocy.Components.HabitCard.Refresh = function (habitId)
 			$('#habitcard-habit-last-tracked-timeago').text($.timeago(habitDetails.last_tracked || ''));
 			$('#habitcard-habit-tracked-count').text((habitDetails.tracked_count || '0'));
 
-			EmptyElementWhenMatches('#habitcard-habit-last-tracked-timeago', 'NaN years ago');
+			EmptyElementWhenMatches('#habitcard-habit-last-tracked-timeago', L('timeago_nan'));
 		},
 		function(xhr)
 		{

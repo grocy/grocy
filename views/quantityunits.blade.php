@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', 'Quantity units')
+@section('title', $L('Quantity units'))
 @section('activeNav', 'quantityunits')
 @section('viewJsName', 'quantityunits')
 
@@ -8,7 +8,7 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
 
 	<h1 class="page-header">
-		Quantity units
+		@yield('title')
 		<a class="btn btn-default" href="/quantityunit/new" role="button">
 			<i class="fa fa-plus"></i>&nbsp;Add
 		</a>
@@ -19,8 +19,8 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>Name</th>
-					<th>Description</th>
+					<th>{{ $L('Name') }}</th>
+					<th>{{ $L('Description') }}</th>
 				</tr>
 			</thead>
 			<tbody>

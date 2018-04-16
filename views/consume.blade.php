@@ -1,18 +1,18 @@
 @extends('layout.default')
 
-@section('title', 'Consume')
+@section('title', $L('Consume'))
 @section('activeNav', 'consume')
 @section('viewJsName', 'consume')
 
 @section('content')
 <div class="col-sm-3 col-sm-offset-3 col-md-3 col-md-offset-2">
 
-	<h1 class="page-header">Consume</h1>
+	<h1 class="page-header">@yield('title')</h1>
 
 	<form id="consume-form">
 
 		<div class="form-group">
-			<label for="product_id">Product&nbsp;&nbsp;<i class="fa fa-barcode"></i></label>
+			<label for="product_id">{{ $L('Product') }}&nbsp;&nbsp;<i class="fa fa-barcode"></i></label>
 			<select class="form-control combobox" id="product_id" name="product_id" required>
 				<option value=""></option>
 				@foreach($products as $product)
@@ -23,18 +23,18 @@
 		</div>
 
 		<div class="form-group">
-			<label for="amount">Amount&nbsp;&nbsp;<span id="amount_qu_unit" class="small text-muted"></span></label>
+			<label for="amount">{{ $L('Amount') }}&nbsp;&nbsp;<span id="amount_qu_unit" class="small text-muted"></span></label>
 			<input type="number" class="form-control" id="amount" name="amount" value="1" min="1" required>
 			<div class="help-block with-errors"></div>
 		</div>
 
 		<div class="checkbox">
 			<label for="spoiled">
-				<input type="checkbox" id="spoiled" name="spoiled"> Spoiled
+				<input type="checkbox" id="spoiled" name="spoiled"> {{ $L('Spoiled') }}
 			</label>
 		</div>
 
-		<button id="save-consume-button" type="submit" class="btn btn-default">OK</button>
+		<button id="save-consume-button" type="submit" class="btn btn-default">{{ $L('OK') }}</button>
 
 	</form>
 
