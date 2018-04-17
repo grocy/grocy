@@ -25,9 +25,9 @@ Some fields also allow to select a value by scanning a barcode. It works best wh
 ### Input shorthands for date fields
 For (productivity) reasons all date (and time) input fields use the ISO-8601 format regardless of localization.
 The following shorthands are available:
-- `MMDD` gets expanded to the given day on the current year
+- `MMDD` gets expanded to the given day on the current year in proper notation
   - Example: `0517` will be converted to `2018-05-17`
-- `DDMMYYYY` gets expanded to the proper ISO-8601 notation
+- `YYYYMMDD` gets expanded to the proper ISO-8601 notation
   - Example: `20190417` will be converted to `2019-04-17`
 - `x` gets expanded to `2099-12-31` (which I use for products which never expire)
 - Down/up arrow keys will increase/decrease the date by one day
