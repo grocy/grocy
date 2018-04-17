@@ -11,7 +11,9 @@ A household needs to be managed. I did this so far (almost 10 years) with my fir
 For now my main focus is on stock management, ERP your fridge!
 
 ## How to install
-Just unpack the [latest release](https://github.com/berrnd/grocy/releases/latest) on your PHP (7.0 or later required) enabled webserver (root is the `/public` directory), copy `config-dist.php` to `data/config.php`, edit it to your needs, ensure that the `data` directory is writable and you're ready to go. Default login is user `admin` with password `admin` - the `data/config.php` file. Alternatively clone this repository and install Composer and Bower dependencies manually.
+Just unpack the [latest release](https://github.com/berrnd/grocy/releases/latest) on your PHP (7.0 or later required) enabled webserver (root is the `/public` directory), copy `config-dist.php` to `data/config.php`, edit it to your needs, ensure that the `data` directory is writable and you're ready to go.
+
+Default login is user `admin` with password `admin` - see the `data/config.php` file. Alternatively clone this repository and install Composer and Bower dependencies manually.
 
 If you use nginx as your webserver, please include `try_files $uri /index.php;` in your location block.
 
