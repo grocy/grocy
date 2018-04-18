@@ -117,8 +117,8 @@ $('#product_id_text_input').on('change', function(e)
 		if (input.length > 0 && optionElement.length === 0 && GetUriParam('addbarcodetoselection') === undefined	)
 		{
 			bootbox.dialog({
-				message: '<strong>' + input + '</strong> could not be resolved to a product, how do you want to proceed?',
-				title: 'Create or assign product',
+				message: L('"#1" could not be resolved to a product, how do you want to proceed?', input),
+				title: L('Create or assign product'),
 				onEscape: function() { },
 				size: 'large',
 				backdrop: true,
@@ -129,7 +129,7 @@ $('#product_id_text_input').on('change', function(e)
 						callback: function() { }
 					},
 					addnewproduct: {
-						label: 'Add as new <u><strong>p</strong></u>roduct',
+						label: '<strong>P</strong> ' + L('Add as new product'),
 						className: 'btn-success add-new-product-dialog-button',
 						callback: function()
 						{
@@ -137,7 +137,7 @@ $('#product_id_text_input').on('change', function(e)
 						}
 					},
 					addbarcode: {
-						label: 'Add as <u><strong>b</strong></u>arcode to existing product',
+						label: '<strong>B</strong> ' + L('Add as barcode to existing product'),
 						className: 'btn-info add-new-barcode-dialog-button',
 						callback: function()
 						{
@@ -145,7 +145,7 @@ $('#product_id_text_input').on('change', function(e)
 						}
 					},
 					addnewproductwithbarcode: {
-						label: '<u><strong>A</strong></u>dd as new product + prefill barcode',
+						label: '<strong>A</strong> ' + L('Add as new product and prefill barcode'),
 						className: 'btn-warning add-new-product-with-barcode-dialog-button',
 						callback: function()
 						{

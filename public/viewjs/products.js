@@ -1,14 +1,14 @@
 ﻿$(document).on('click', '.product-delete-button', function(e)
 {
 	bootbox.confirm({
-		message: 'Delete product <strong>' + $(e.currentTarget).attr('data-product-name') + '</strong>?',
+		message: L('Are you sure to delete product "#1"?', $(e.currentTarget).attr('data-product-name')),
 		buttons: {
 			confirm: {
-				label: 'Yes',
+				label: L('Yes'),
 				className: 'btn-success'
 			},
 			cancel: {
-				label: 'No',
+				label: L('No'),
 				className: 'btn-danger'
 			}
 		},

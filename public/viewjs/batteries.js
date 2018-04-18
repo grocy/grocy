@@ -1,14 +1,14 @@
 ﻿$(document).on('click', '.battery-delete-button', function(e)
 {
 	bootbox.confirm({
-		message: 'Delete battery <strong>' + $(e.currentTarget).attr('data-battery-name') + '</strong>?',
+		message: L('Are you sure to delete battery "#1"?', $(e.currentTarget).attr('data-battery-name')),
 		buttons: {
 			confirm: {
-				label: 'Yes',
+				label: L('Yes'),
 				className: 'btn-success'
 			},
 			cancel: {
-				label: 'No',
+				label: L('No'),
 				className: 'btn-danger'
 			}
 		},

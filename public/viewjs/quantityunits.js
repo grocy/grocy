@@ -1,7 +1,7 @@
 ﻿$(document).on('click', '.quantityunit-delete-button', function(e)
 {
 	bootbox.confirm({
-		message: 'Delete quantity unit <strong>' + $(e.currentTarget).attr('data-quantityunit-name') + '</strong>?',
+		message: L('Are you sure to delete quantity unit "#1"?', $(e.currentTarget).attr('data-quantityunit-name')),
 		buttons: {
 			confirm: {
 				label: 'Yes',

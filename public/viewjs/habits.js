@@ -1,14 +1,14 @@
 ﻿$(document).on('click', '.habit-delete-button', function(e)
 {
 	bootbox.confirm({
-		message: 'Delete habit <strong>' + $(e.currentTarget).attr('data-habit-name') + '</strong>?',
+		message: L('Are you sure to delete habit "#1"?', $(e.currentTarget).attr('data-habit-name')),
 		buttons: {
 			confirm: {
-				label: 'Yes',
+				label: L('Yes'),
 				className: 'btn-success'
 			},
 			cancel: {
-				label: 'No',
+				label: L('No'),
 				className: 'btn-danger'
 			}
 		},

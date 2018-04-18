@@ -1,14 +1,14 @@
 ﻿$(document).on('click', '.location-delete-button', function(e)
 {
 	bootbox.confirm({
-		message: 'Delete location <strong>' + $(e.currentTarget).attr('data-location-name') + '</strong>?',
+		message: L('Are you sure to delete location "#1"?', $(e.currentTarget).attr('data-location-name')),
 		buttons: {
 			confirm: {
-				label: 'Yes',
+				label: L('Yes'),
 				className: 'btn-success'
 			},
 			cancel: {
-				label: 'No',
+				label: L('No'),
 				className: 'btn-danger'
 			}
 		},
