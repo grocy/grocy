@@ -4,12 +4,12 @@
 
 	var jsonForm = $('#purchase-form').serializeJSON();
 
-	Grocy.FetchJson('/api/stock/get-product-details/' + jsonForm.product_id,
+	Grocy.Api.Get('stock/get-product-details/' + jsonForm.product_id,
 		function (productDetails)
 		{
 			var amount = jsonForm.amount * productDetails.product.qu_factor_purchase_to_stock;
 
-			Grocy.FetchJson('/api/stock/add-product/' + jsonForm.product_id + '/' + amount + '?bestbeforedate=' + $('#best_before_date').val(),
+			Grocy.Api.Get('stock/add-product/' + jsonForm.product_id + '/' + amount + '?bestbeforedate=' + $('#best_before_date').val(),
 				function(result)
 				{
 					var addBarcode = GetUriParam('addbarcodetoselection');
@@ -25,7 +25,7 @@
 							productDetails.product.barcode += ',' + addBarcode;
 						}
 
-						Grocy.PostJson('/api/edit-object/products/' + productDetails.product.id, productDetails.product,
+						Grocy.Api.Post('edit-object/products/' + productDetails.product.id, productDetails.product,
 							function (result) { },
 							function(xhr)
 							{
@@ -38,7 +38,7 @@
 
 					if (addBarcode !== undefined)
 					{
-						window.location.href = '/purchase';
+						window.location.href = U('/purchase');
 					}
 					else
 					{
@@ -72,7 +72,7 @@ $('#product_id').on('change', function(e)
 	{
 		Grocy.Components.ProductCard.Refresh(productId);
 
-		Grocy.FetchJson('/api/stock/get-product-details/' + productId,
+		Grocy.Api.Get('stock/get-product-details/' + productId,
 			function(productDetails)
 			{
 				$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name);
@@ -133,7 +133,7 @@ $('#product_id_text_input').on('change', function(e)
 						className: 'btn-success add-new-product-dialog-button',
 						callback: function()
 						{
-							window.location.href = '/product/new?prefillname=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(window.location.pathname);
+							window.location.href = U('/product/new?prefillname=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(window.location.pathname));
 						}
 					},
 					addbarcode: {
@@ -141,7 +141,7 @@ $('#product_id_text_input').on('change', function(e)
 						className: 'btn-info add-new-barcode-dialog-button',
 						callback: function()
 						{
-							window.location.href = '/purchase?addbarcodetoselection=' + encodeURIComponent(input);
+							window.location.href = U('/purchase?addbarcodetoselection=' + encodeURIComponent(input));
 						}
 					},
 					addnewproductwithbarcode: {
@@ -149,7 +149,7 @@ $('#product_id_text_input').on('change', function(e)
 						className: 'btn-warning add-new-product-with-barcode-dialog-button',
 						callback: function()
 						{
-							window.location.href = '/product/new?prefillbarcode=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(window.location.pathname);
+							window.location.href = U('/product/new?prefillbarcode=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(window.location.pathname));
 						}
 					}
 				}

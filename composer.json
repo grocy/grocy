@@ -9,7 +9,11 @@
 		"psr-4": {
 			"Grocy\\Services\\": "services/",
 			"Grocy\\Controllers\\": "controllers/",
-			"Grocy\\Middleware\\": "middleware/"
-		}
+			"Grocy\\Middleware\\": "middleware/",
+			"Grocy\\Helpers\\": "helpers/"
+		},
+		"files": [
+			"helpers/extensions.php"
+		]
 	}
 }

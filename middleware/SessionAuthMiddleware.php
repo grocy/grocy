@@ -20,7 +20,7 @@ class SessionAuthMiddleware extends BaseMiddleware
 			$sessionService = new SessionService();
 			if ((!isset($_COOKIE['grocy_session']) || !$sessionService->IsValidSession($_COOKIE['grocy_session'])) && $routeName !== 'login')
 			{
-				$response = $response->withRedirect('/login');
+				$response = $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl('/login'));
 			}
 			else
 			{

@@ -2,7 +2,7 @@ Grocy.Components.HabitCard = { };
 
 Grocy.Components.HabitCard.Refresh = function (habitId)
 {
-	Grocy.FetchJson('/api/habits/get-habit-details/' + habitId,
+	Grocy.Api.Get('habits/get-habit-details/' + habitId,
 		function(habitDetails)
 		{
 			$('#habitcard-habit-name').text(habitDetails.habit.name);

@@ -4,10 +4,10 @@
 
 	var jsonForm = $('#inventory-form').serializeJSON();
 
-	Grocy.FetchJson('/api/stock/get-product-details/' + jsonForm.product_id,
+	Grocy.Api.Get('stock/get-product-details/' + jsonForm.product_id,
 		function (productDetails)
 		{
-			Grocy.FetchJson('/api/stock/inventory-product/' + jsonForm.product_id + '/' + jsonForm.new_amount + '?bestbeforedate=' + $('#best_before_date').val(),
+			Grocy.Api.Get('stock/inventory-product/' + jsonForm.product_id + '/' + jsonForm.new_amount + '?bestbeforedate=' + $('#best_before_date').val(),
 				function(result)
 				{
 					var addBarcode = GetUriParam('addbarcodetoselection');
@@ -23,7 +23,7 @@
 							productDetails.product.barcode += ',' + addBarcode;
 						}
 
-						Grocy.PostJson('/api/edit-object/products/' + productDetails.product.id, productDetails.product,
+						Grocy.Api.Get('edit-object/products/' + productDetails.product.id, productDetails.product,
 							function (result) { },
 							function(xhr)
 							{
@@ -36,7 +36,7 @@
 
 					if (addBarcode !== undefined)
 					{
-						window.location.href = '/inventory';
+						window.location.href = U('/inventory');
 					}
 					else
 					{
@@ -71,7 +71,7 @@ $('#product_id').on('change', function(e)
 	{
 		Grocy.Components.ProductCard.Refresh(productId);
 
-		Grocy.FetchJson('/api/stock/get-product-details/' + productId,
+		Grocy.Api.Get('stock/get-product-details/' + productId,
 			function(productDetails)
 			{
 				$('#new_amount').attr('not-equal', productDetails.stock_amount);
@@ -124,7 +124,7 @@ $('#product_id_text_input').on('change', function(e)
 						className: 'btn-success add-new-product-dialog-button',
 						callback: function()
 						{
-							window.location.href = '/product/new?prefillname=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(window.location.pathname);
+							window.location.href = U('/product/new?prefillname=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(window.location.pathname));
 						}
 					},
 					addbarcode: {
@@ -132,7 +132,7 @@ $('#product_id_text_input').on('change', function(e)
 						className: 'btn-info add-new-barcode-dialog-button',
 						callback: function()
 						{
-							window.location.href = '/inventory?addbarcodetoselection=' + encodeURIComponent(input);
+							window.location.href = U('/inventory?addbarcodetoselection=' + encodeURIComponent(input));
 						}
 					},
 					addnewproductwithbarcode: {
@@ -140,7 +140,7 @@ $('#product_id_text_input').on('change', function(e)
 						className: 'btn-warning add-new-product-with-barcode-dialog-button',
 						callback: function()
 						{
-							window.location.href = '/product/new?prefillbarcode=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(window.location.pathname);
+							window.location.href = U('/product/new?prefillbarcode=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(window.location.pathname));
 						}
 					}
 				}
@@ -283,7 +283,7 @@ $('#new_amount').on('change', function(e)
 
 	if (productId)
 	{
-		Grocy.FetchJson('/api/stock/get-product-details/' + productId,
+		Grocy.Api.Get('stock/get-product-details/' + productId,
 			function(productDetails)
 			{
 				var productStockAmount = productDetails.stock_amount || '0';

@@ -4,10 +4,10 @@
 
 	var jsonForm = $('#habittracking-form').serializeJSON();
 
-	Grocy.FetchJson('/api/habits/get-habit-details/' + jsonForm.habit_id,
+	Grocy.Api.Get('habits/get-habit-details/' + jsonForm.habit_id,
 		function (habitDetails)
 		{
-			Grocy.FetchJson('/api/habits/track-habit-execution/' + jsonForm.habit_id + '?tracked_time=' + $('#tracked_time').val(),
+			Grocy.Api.Get('habits/track-habit-execution/' + jsonForm.habit_id + '?tracked_time=' + $('#tracked_time').val(),
 				function(result)
 				{
 					toastr.success('Tracked execution of habit ' + habitDetails.habit.name + ' on ' + $('#tracked_time').val());

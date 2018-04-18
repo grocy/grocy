@@ -27,16 +27,16 @@ class LoginController extends BaseController
 				$sessionKey = $this->SessionService->CreateSession();
 				setcookie('grocy_session', $sessionKey, time() + 31536000); // Cookie expires in 1 year, but session validity is up to SessionService
 
-				return $response->withRedirect('/');
+				return $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl('/'));
 			}
 			else
 			{
-				return $response->withRedirect('/login?invalid=true');
+				return $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl('/login?invalid=true'));
 			}
 		}
 		else
 		{
-			return $response->withRedirect('/login?invalid=true');
+			return $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl('/login?invalid=true'));
 		}
 	}
 
@@ -48,7 +48,7 @@ class LoginController extends BaseController
 	public function Logout(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$this->SessionService->RemoveSession($_COOKIE['grocy_session']);
-		return $response->withRedirect('/');
+		return $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl('/'));
 	}
 
 	public function Root(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
@@ -64,6 +64,6 @@ class LoginController extends BaseController
 			$demoDataGeneratorService->PopulateDemoData();
 		}
 
-		return $response->withRedirect('/stockoverview');
+		return $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl('/stockoverview'));
 	}
 }

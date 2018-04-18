@@ -10,10 +10,10 @@
 		spoiled = 1;
 	}
 
-	Grocy.FetchJson('/api/stock/get-product-details/' + jsonForm.product_id,
+	Grocy.Api.Get('stock/get-product-details/' + jsonForm.product_id,
 		function (productDetails)
 		{
-			Grocy.FetchJson('/api/stock/consume-product/' + jsonForm.product_id + '/' + jsonForm.amount + '?spoiled=' + spoiled,
+			Grocy.Api.Get('stock/consume-product/' + jsonForm.product_id + '/' + jsonForm.amount + '?spoiled=' + spoiled,
 				function(result)
 				{
 					toastr.success('Removed ' + jsonForm.amount + ' ' + productDetails.quantity_unit_stock.name + ' of ' + productDetails.product.name + ' from stock');
@@ -46,7 +46,7 @@ $('#product_id').on('change', function(e)
 	{
 		Grocy.Components.ProductCard.Refresh(productId);
 
-		Grocy.FetchJson('/api/stock/get-product-details/' + productId,
+		Grocy.Api.Get('stock/get-product-details/' + productId,
 			function (productDetails)
 			{
 				$('#amount').attr('max', productDetails.stock_amount);

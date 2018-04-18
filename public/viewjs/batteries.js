@@ -1,7 +1,7 @@
 ﻿$(document).on('click', '.battery-delete-button', function(e)
 {
 	bootbox.confirm({
-		message: 'Delete battery <strong>' + $(e.target).attr('data-battery-name') + '</strong>?',
+		message: 'Delete battery <strong>' + $(e.currentTarget).attr('data-battery-name') + '</strong>?',
 		buttons: {
 			confirm: {
 				label: 'Yes',
@@ -16,10 +16,10 @@
 		{
 			if (result === true)
 			{
-				Grocy.FetchJson('/api/delete-object/batteries/' + $(e.target).attr('data-battery-id'),
+				Grocy.Api.Get('delete-object/batteries/' + $(e.currentTarget).attr('data-battery-id'),
 					function(result)
 					{
-						window.location.href = '/batteries';
+						window.location.href = U('/batteries');
 					},
 					function(xhr)
 					{

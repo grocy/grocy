@@ -1,7 +1,7 @@
 ﻿$(document).on('click', '.habit-delete-button', function(e)
 {
 	bootbox.confirm({
-		message: 'Delete habit <strong>' + $(e.target).attr('data-habit-name') + '</strong>?',
+		message: 'Delete habit <strong>' + $(e.currentTarget).attr('data-habit-name') + '</strong>?',
 		buttons: {
 			confirm: {
 				label: 'Yes',
@@ -16,10 +16,10 @@
 		{
 			if (result === true)
 			{
-				Grocy.FetchJson('/api/delete-object/habits/' + $(e.target).attr('data-habit-id'),
+				Grocy.Api.Get('delete-object/habits/' + $(e.currentTarget).attr('data-habit-id'),
 					function(result)
 					{
-						window.location.href = '/habits';
+						window.location.href = U('/habits');
 					},
 					function(xhr)
 					{

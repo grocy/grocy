@@ -4,10 +4,10 @@
 
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.PostJson('/api/add-object/quantity_units', $('#quantityunit-form').serializeJSON(),
+		Grocy.Api.Post('add-object/quantity_units', $('#quantityunit-form').serializeJSON(),
 			function(result)
 			{
-				window.location.href = '/quantityunits';
+				window.location.href = U('/quantityunits');
 			},
 			function(xhr)
 			{
@@ -17,10 +17,10 @@
 	}
 	else
 	{
-		Grocy.PostJson('/api/edit-object/quantity_units/' + Grocy.EditObjectId, $('#quantityunit-form').serializeJSON(),
+		Grocy.Api.Post('edit-object/quantity_units/' + Grocy.EditObjectId, $('#quantityunit-form').serializeJSON(),
 			function(result)
 			{
-				window.location.href = '/quantityunits';
+				window.location.href = U('/quantityunits');
 			},
 			function(xhr)
 			{

@@ -4,10 +4,10 @@
 
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.PostJson('/api/add-object/shopping_list', $('#shoppinglist-form').serializeJSON(),
+		Grocy.Api.Post('add-object/shopping_list', $('#shoppinglist-form').serializeJSON(),
 			function(result)
 			{
-				window.location.href = '/shoppinglist';
+				window.location.href = U('/shoppinglist');
 			},
 			function(xhr)
 			{
@@ -17,10 +17,10 @@
 	}
 	else
 	{
-		Grocy.PostJson('/api/edit-object/shopping_list/' + Grocy.EditObjectId, $('#shoppinglist-form').serializeJSON(),
+		Grocy.Api.Post('edit-object/shopping_list/' + Grocy.EditObjectId, $('#shoppinglist-form').serializeJSON(),
 			function(result)
 			{
-				window.location.href = '/shoppinglist';
+				window.location.href = U('/shoppinglist');
 			},
 			function(xhr)
 			{
@@ -38,7 +38,7 @@ $('#product_id').on('change', function(e)
 	{
 		Grocy.Components.ProductCard.Refresh(productId);
 		
-		Grocy.FetchJson('/api/stock/get-product-details/' + productId,
+		Grocy.Api.Get('stock/get-product-details/' + productId,
 			function (productDetails)
 			{
 				$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name);
@@ -49,7 +49,7 @@ $('#product_id').on('change', function(e)
 				}
 				else
 				{
-					Grocy.FetchJson('/api/get-objects/shopping_list',
+					Grocy.Api.Get('get-objects/shopping_list',
 						function (currentShoppingListItems)
 						{
 							if (currentShoppingListItems.filter(function (e) { return e.product_id === productId; }).length > 0)

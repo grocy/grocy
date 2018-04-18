@@ -2,7 +2,7 @@ Grocy.Components.BatteryCard = { };
 
 Grocy.Components.BatteryCard.Refresh = function(batteryId)
 {
-	Grocy.FetchJson('/api/batteries/get-battery-details/' + batteryId,
+	Grocy.Api.Get('batteries/get-battery-details/' + batteryId,
 		function(batteryDetails)
 		{
 			$('#batterycard-battery-name').text(batteryDetails.battery.name);

@@ -2,7 +2,7 @@
 {
 	e.preventDefault();
 
-	var redirectDestination = '/products';
+	var redirectDestination = U('/products');
 	var returnTo = GetUriParam('returnto');
 	if (returnTo !== undefined)
 	{
@@ -11,7 +11,7 @@
 
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.PostJson('/api/add-object/products', $('#product-form').serializeJSON(),
+		Grocy.Api.Post('add-object/products', $('#product-form').serializeJSON(),
 			function(result)
 			{
 				window.location.href = redirectDestination;
@@ -24,7 +24,7 @@
 	}
 	else
 	{
-		Grocy.PostJson('/api/edit-object/products/' + Grocy.EditObjectId, $('#product-form').serializeJSON(),
+		Grocy.Api.Post('edit-object/products/' + Grocy.EditObjectId, $('#product-form').serializeJSON(),
 			function(result)
 			{
 				window.location.href = redirectDestination;
@@ -44,7 +44,7 @@ $('#barcode-taginput').tagsManager({
 
 if (Grocy.EditMode === 'edit')
 {
-	Grocy.FetchJson('/api/get-object/products/' + Grocy.EditObjectId,
+	Grocy.Api.Get('get-object/products/' + Grocy.EditObjectId,
 		function (product)
 		{
 			if (product.barcode !== null && product.barcode.length > 0)

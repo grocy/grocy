@@ -1,9 +1,9 @@
 ﻿$(document).on('click', '.shoppinglist-delete-button', function(e)
 {
-	Grocy.FetchJson('/api/delete-object/shopping_list/' + $(e.target).attr('data-shoppinglist-id'),
+	Grocy.Api.Get('delete-object/shopping_list/' + $(e.currentTarget).attr('data-shoppinglist-id'),
 		function(result)
 		{
-			window.location.href = '/shoppinglist';
+			window.location.href = U('/shoppinglist');
 		},
 		function(xhr)
 		{
@@ -14,10 +14,10 @@
 
 $(document).on('click', '#add-products-below-min-stock-amount', function(e)
 {
-	Grocy.FetchJson('/api/stock/add-missing-products-to-shoppinglist',
+	Grocy.Api.Get('stock/add-missing-products-to-shoppinglist',
 		function(result)
 		{
-			window.location.href = '/shoppinglist';
+			window.location.href = U('/shoppinglist');
 		},
 		function(xhr)
 		{

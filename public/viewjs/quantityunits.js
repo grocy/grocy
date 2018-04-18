@@ -1,7 +1,7 @@
 ﻿$(document).on('click', '.quantityunit-delete-button', function(e)
 {
 	bootbox.confirm({
-		message: 'Delete quantity unit <strong>' + $(e.target).attr('data-quantityunit-name') + '</strong>?',
+		message: 'Delete quantity unit <strong>' + $(e.currentTarget).attr('data-quantityunit-name') + '</strong>?',
 		buttons: {
 			confirm: {
 				label: 'Yes',
@@ -16,10 +16,10 @@
 		{
 			if (result === true)
 			{
-				Grocy.FetchJson('/api/delete-object/quantity_units/' + $(e.target).attr('data-quantityunit-id'),
+				Grocy.Api.Get('delete-object/quantity_units/' + $(e.currentTarget).attr('data-quantityunit-id'),
 					function(result)
 					{
-						window.location.href = '/quantityunits';
+						window.location.href = U('/quantityunits');
 					},
 					function(xhr)
 					{

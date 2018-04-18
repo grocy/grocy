@@ -4,10 +4,10 @@
 
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.PostJson('/api/add-object/batteries', $('#battery-form').serializeJSON(),
+		Grocy.Api.Post('add-object/batteries', $('#battery-form').serializeJSON(),
 			function(result)
 			{
-				window.location.href = '/batteries';
+				window.location.href = U('/batteries');
 			},
 			function(xhr)
 			{
@@ -17,10 +17,10 @@
 	}
 	else
 	{
-		Grocy.PostJson('/api/edit-object/batteries/' + Grocy.EditObjectId, $('#battery-form').serializeJSON(),
+		Grocy.Api.Post('edit-object/batteries/' + Grocy.EditObjectId, $('#battery-form').serializeJSON(),
 			function(result)
 			{
-				window.location.href = '/batteries';
+				window.location.href = U('/batteries');
 			},
 			function(xhr)
 			{

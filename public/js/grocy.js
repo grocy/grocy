@@ -14,6 +14,11 @@
 	return localizedText;
 }
 
+U = function(relativePath)
+{
+	return Grocy.BaseUrl.replace(/\/$/, '') + relativePath;
+}
+
 if (!Grocy.ActiveNav.isEmpty())
 {
 	var menuItem = $('.nav').find("[data-nav-for-page='" + Grocy.ActiveNav + "']");
@@ -23,9 +28,11 @@ if (!Grocy.ActiveNav.isEmpty())
 $.timeago.settings.allowFuture = true;
 $('time.timeago').timeago();
 
-Grocy.FetchJson = function(url, success, error)
+Grocy.Api = { };
+Grocy.Api.Get = function(apiFunction, success, error)
 {
 	var xhr = new XMLHttpRequest();
+	var url = U('/api/' + apiFunction);
 
 	xhr.onreadystatechange = function()
 	{
@@ -52,9 +59,10 @@ Grocy.FetchJson = function(url, success, error)
 	xhr.send();
 };
 
-Grocy.PostJson = function(url, jsonData, success, error)
+Grocy.Api.Post = function(apiFunction, jsonData, success, error)
 {
 	var xhr = new XMLHttpRequest();
+	var url = U('/api/' + apiFunction);
 
 	xhr.onreadystatechange = function()
 	{

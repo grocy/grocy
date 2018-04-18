@@ -4,10 +4,10 @@
 
 	var jsonForm = $('#batterytracking-form').serializeJSON();
 
-	Grocy.FetchJson('/api/batteries/get-battery-details/' + jsonForm.battery_id,
+	Grocy.Api.Get('batteries/get-battery-details/' + jsonForm.battery_id,
 		function (batteryDetails)
 		{
-			Grocy.FetchJson('/api/batteries/track-charge-cycle/' + jsonForm.battery_id + '?tracked_time=' + $('#tracked_time').val(),
+			Grocy.Api.Get('batteries/track-charge-cycle/' + jsonForm.battery_id + '?tracked_time=' + $('#tracked_time').val(),
 				function(result)
 				{
 					toastr.success('Tracked charge cylce of battery ' + batteryDetails.battery.name + ' on ' + $('#tracked_time').val());

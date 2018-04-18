@@ -1,5 +1,5 @@
 @push('componentScripts')
-	<script src="/viewjs/components/habitcard.js"></script>
+	<script src="{{ $U('/viewjs/components/habitcard.js') }}?v={{ $version }}"></script>
 @endpush
 
 <div class="main well">

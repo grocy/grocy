@@ -4,11 +4,11 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 use \Grocy\Middleware\SessionAuthMiddleware;
+use \Grocy\Helpers\UrlManager;
 use \Grocy\Services\ApplicationService;
 
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/data/config.php';
-require_once __DIR__ . '/extensions.php';
 
 // Setup base application
 if (PHP_SAPI !== 'cli')
@@ -21,6 +21,10 @@ if (PHP_SAPI !== 'cli')
 		'view' => function($container)
 		{
 			return new \Slim\Views\Blade(__DIR__ . '/views', __DIR__ . '/data/viewcache');
+		},
+		'UrlManager' => function($container)
+		{
+			return new UrlManager(BASE_URL);
 		}
 	]);
 

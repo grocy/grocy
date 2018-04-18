@@ -9,8 +9,6 @@ use \Grocy\Services\LocalizationService;
 class BaseController
 {
 	public function __construct(\Slim\Container $container) {
-		$this->AppContainer = $container;
-
 		$databaseService = new DatabaseService();
 		$this->Database = $databaseService->GetDbConnection();
 
@@ -23,6 +21,12 @@ class BaseController
 		{
 			return $localizationService->Localize($text, ...$placeholderValues);
 		});
+		$container->view->set('U', function($relativePath) use($container)
+		{
+			return $container->UrlManager->ConstructUrl($relativePath);
+		});
+
+		$this->AppContainer = $container;
 	}
 
 	protected $AppContainer;

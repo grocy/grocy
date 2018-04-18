@@ -2,7 +2,7 @@ Grocy.Components.ProductCard = { };
 
 Grocy.Components.ProductCard.Refresh = function(productId)
 {
-	Grocy.FetchJson('/api/stock/get-product-details/' + productId,
+	Grocy.Api.Get('stock/get-product-details/' + productId,
 		function(productDetails)
 		{
 			$('#productcard-product-name').text(productDetails.product.name);

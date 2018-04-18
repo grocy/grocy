@@ -4,10 +4,10 @@
 
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.PostJson('/api/add-object/habits', $('#habit-form').serializeJSON(),
+		Grocy.Api.Post('add-object/habits', $('#habit-form').serializeJSON(),
 			function(result)
 			{
-				window.location.href = '/habits';
+				window.location.href = U('/habits');
 			},
 			function(xhr)
 			{
@@ -17,10 +17,10 @@
 	}
 	else
 	{
-		Grocy.PostJson('/api/edit-object/habits/' + Grocy.EditObjectId, $('#habit-form').serializeJSON(),
+		Grocy.Api.Post('edit-object/habits/' + Grocy.EditObjectId, $('#habit-form').serializeJSON(),
 			function(result)
 			{
-				window.location.href = '/habits';
+				window.location.href = U('/habits');
 			},
 			function(xhr)
 			{

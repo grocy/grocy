@@ -1,7 +1,7 @@
 ﻿$(document).on('click', '.product-delete-button', function(e)
 {
 	bootbox.confirm({
-		message: 'Delete product <strong>' + $(e.target).attr('data-product-name') + '</strong>?',
+		message: 'Delete product <strong>' + $(e.currentTarget).attr('data-product-name') + '</strong>?',
 		buttons: {
 			confirm: {
 				label: 'Yes',
@@ -16,10 +16,10 @@
 		{
 			if (result === true)
 			{
-				Grocy.FetchJson('/api/delete-object/products/' + $(e.target).attr('data-product-id'),
+				Grocy.Api.Get('delete-object/products/' + $(e.currentTarget).attr('data-product-id'),
 					function(result)
 					{
-						window.location.href = '/products';
+						window.location.href = U('/products');
 					},
 					function(xhr)
 					{
