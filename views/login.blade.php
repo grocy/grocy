@@ -8,7 +8,7 @@
 
 	<h1 class="page-header text-center">@yield('title')</h1>
 
-	<form method="post" action="/login" id="login-form">
+	<form method="post" action="{{ $U('/login') }}" id="login-form">
 
 		<div class="form-group">
 			<label for="name">{{ $L('Username') }}</label>
