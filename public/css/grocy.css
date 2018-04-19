@@ -169,3 +169,22 @@ a.discrete-link:focus {
 .well {
 	background-color: #e5e5e5;
 }
+
+.nav > li.disabled > a,
+.navbar-default .navbar-nav > .disabled > a
+{
+	color: #a7a7a7;
+}
+
+#toast-container > div {
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+
+ .toast-success {
+	background-color: #4c994c;
+}
+
+#toast-container > div {
+	box-shadow: none;
+}

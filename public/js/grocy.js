@@ -28,6 +28,13 @@ if (!Grocy.ActiveNav.isEmpty())
 $.timeago.settings.allowFuture = true;
 $('time.timeago').timeago();
 
+toastr.options = {
+	toastClass: 'alert',
+	closeButton: true,
+	timeOut: 20000,
+	extendedTimeOut: 5000
+};
+
 Grocy.Api = { };
 Grocy.Api.Get = function(apiFunction, success, error)
 {
