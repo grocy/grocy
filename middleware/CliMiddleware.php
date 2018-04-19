@@ -13,7 +13,7 @@ class CliMiddleware extends BaseMiddleware
 		}
 		else
 		{
-			$response = $next($request, $response, $next);
+			$response = $next($request, $response);
 			return $response->withHeader('Content-Type', 'text/plain');
 		}
 	}

@@ -24,11 +24,11 @@ class SessionService extends BaseService
 	 */
 	public function CreateSession()
 	{
-		$newSessionKey = uniqid() . uniqid() . uniqid();
+		$newSessionKey = $this->GenerateSessionKey();
 		
 		$sessionRow = $this->Database->sessions()->createRow(array(
 			'session_key' => $newSessionKey,
-			'expires' => time() + 2592000 //30 days
+			'expires' => time() + 2592000 // 30 days
 		));
 		$sessionRow->save();
 
@@ -38,5 +38,10 @@ class SessionService extends BaseService
 	public function RemoveSession($sessionKey)
 	{
 		$this->Database->sessions()->where('session_key', $sessionKey)->delete();
+	}
+
+	private function GenerateSessionKey()
+	{
+		return RandomString(50);
 	}
 }

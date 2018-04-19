@@ -9,13 +9,15 @@ use \Grocy\Services\DemoDataGeneratorService;
 
 class LoginController extends BaseController
 {
-	public function __construct(\Slim\Container $container)
+	public function __construct(\Slim\Container $container, string $sessionCookieName)
 	{
 		parent::__construct($container);
 		$this->SessionService = new SessionService();
+		$this->SessionCookieName = $sessionCookieName;
 	}
 
 	protected $SessionService;
+	protected $SessionCookieName;
 
 	public function ProcessLogin(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
@@ -25,7 +27,7 @@ class LoginController extends BaseController
 			if ($postParams['username'] === HTTP_USER && $postParams['password'] === HTTP_PASSWORD)
 			{
 				$sessionKey = $this->SessionService->CreateSession();
-				setcookie('grocy_session', $sessionKey, time() + 31536000); // Cookie expires in 1 year, but session validity is up to SessionService
+				setcookie($this->SessionCookieName, $sessionKey, time() + 31536000); // Cookie expires in 1 year, but session validity is up to SessionService
 
 				return $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl('/'));
 			}
@@ -47,7 +49,7 @@ class LoginController extends BaseController
 
 	public function Logout(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$this->SessionService->RemoveSession($_COOKIE['grocy_session']);
+		$this->SessionService->RemoveSession($_COOKIE[$this->SessionCookieName]);
 		return $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl('/'));
 	}
 
@@ -65,5 +67,10 @@ class LoginController extends BaseController
 		}
 
 		return $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl('/stockoverview'));
+	}
+
+	public function GetSessionCookieName()
+	{
+		return $this->SessionCookieName;
 	}
 }

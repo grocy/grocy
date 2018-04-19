@@ -2,48 +2,51 @@
 
 use \Grocy\Middleware\JsonMiddleware;
 use \Grocy\Middleware\CliMiddleware;
+use \Grocy\Middleware\SessionAuthMiddleware;
 
-// Base route
-$app->get('/', 'Grocy\Controllers\LoginController:Root')->setName('root');
+$app->group('', function()
+{
+	// Base route
+	$this->get('/', 'LoginControllerInstance:Root')->setName('root');
 
-// Login routes
-$app->get('/login', 'Grocy\Controllers\LoginController:LoginPage')->setName('login');
-$app->post('/login', 'Grocy\Controllers\LoginController:ProcessLogin')->setName('login');
-$app->get('/logout', 'Grocy\Controllers\LoginController:Logout');
+	// Login routes
+	$this->get('/login', 'LoginControllerInstance:LoginPage')->setName('login');
+	$this->post('/login', 'LoginControllerInstance:ProcessLogin')->setName('login');
+	$this->get('/logout', 'LoginControllerInstance:Logout');
 
-// Stock routes
-$app->get('/stockoverview', 'Grocy\Controllers\StockController:Overview');
-$app->get('/purchase', 'Grocy\Controllers\StockController:Purchase');
-$app->get('/consume', 'Grocy\Controllers\StockController:Consume');
-$app->get('/inventory', 'Grocy\Controllers\StockController:Inventory');
+	// Stock routes
+	$this->get('/stockoverview', 'Grocy\Controllers\StockController:Overview');
+	$this->get('/purchase', 'Grocy\Controllers\StockController:Purchase');
+	$this->get('/consume', 'Grocy\Controllers\StockController:Consume');
+	$this->get('/inventory', 'Grocy\Controllers\StockController:Inventory');
 
-$app->get('/products', 'Grocy\Controllers\StockController:ProductsList');
-$app->get('/product/{productId}', 'Grocy\Controllers\StockController:ProductEditForm');
+	$this->get('/products', 'Grocy\Controllers\StockController:ProductsList');
+	$this->get('/product/{productId}', 'Grocy\Controllers\StockController:ProductEditForm');
 
-$app->get('/locations', 'Grocy\Controllers\StockController:LocationsList');
-$app->get('/location/{locationId}', 'Grocy\Controllers\StockController:LocationEditForm');
+	$this->get('/locations', 'Grocy\Controllers\StockController:LocationsList');
+	$this->get('/location/{locationId}', 'Grocy\Controllers\StockController:LocationEditForm');
 
-$app->get('/quantityunits', 'Grocy\Controllers\StockController:QuantityUnitsList');
-$app->get('/quantityunit/{quantityunitId}', 'Grocy\Controllers\StockController:QuantityUnitEditForm');
+	$this->get('/quantityunits', 'Grocy\Controllers\StockController:QuantityUnitsList');
+	$this->get('/quantityunit/{quantityunitId}', 'Grocy\Controllers\StockController:QuantityUnitEditForm');
 
-$app->get('/shoppinglist', 'Grocy\Controllers\StockController:ShoppingList');
-$app->get('/shoppinglistitem/{itemId}', 'Grocy\Controllers\StockController:ShoppingListItemEditForm');
+	$this->get('/shoppinglist', 'Grocy\Controllers\StockController:ShoppingList');
+	$this->get('/shoppinglistitem/{itemId}', 'Grocy\Controllers\StockController:ShoppingListItemEditForm');
 
 
-// Habit routes
-$app->get('/habitsoverview', 'Grocy\Controllers\HabitsController:Overview');
-$app->get('/habittracking', 'Grocy\Controllers\HabitsController:TrackHabitExecution');
+	// Habit routes
+	$this->get('/habitsoverview', 'Grocy\Controllers\HabitsController:Overview');
+	$this->get('/habittracking', 'Grocy\Controllers\HabitsController:TrackHabitExecution');
 
-$app->get('/habits', 'Grocy\Controllers\HabitsController:HabitsList');
-$app->get('/habit/{habitId}', 'Grocy\Controllers\HabitsController:HabitEditForm');
+	$this->get('/habits', 'Grocy\Controllers\HabitsController:HabitsList');
+	$this->get('/habit/{habitId}', 'Grocy\Controllers\HabitsController:HabitEditForm');
 
-// Batterry routes
-$app->get('/batteriesoverview', 'Grocy\Controllers\BatteriesController:Overview');
-$app->get('/batterytracking', 'Grocy\Controllers\BatteriesController:TrackChargeCycle');
+	// Batterry routes
+	$this->get('/batteriesoverview', 'Grocy\Controllers\BatteriesController:Overview');
+	$this->get('/batterytracking', 'Grocy\Controllers\BatteriesController:TrackChargeCycle');
 
-$app->get('/batteries', 'Grocy\Controllers\BatteriesController:BatteriesList');
-$app->get('/battery/{batteryId}', 'Grocy\Controllers\BatteriesController:BatteryEditForm');
-
+	$this->get('/batteries', 'Grocy\Controllers\BatteriesController:BatteriesList');
+	$this->get('/battery/{batteryId}', 'Grocy\Controllers\BatteriesController:BatteryEditForm');
+})->add(new SessionAuthMiddleware($appContainer, $appContainer->LoginControllerInstance->GetSessionCookieName()));
 
 $app->group('/api', function()
 {
@@ -65,7 +68,7 @@ $app->group('/api', function()
 	
 	$this->get('/batteries/track-charge-cycle/{batteryId}', 'Grocy\Controllers\BatteriesApiController:TrackChargeCycle');
 	$this->get('/batteries/get-battery-details/{batteryId}', 'Grocy\Controllers\BatteriesApiController:BatteryDetails');
-})->add(JsonMiddleware::class);
+})->add(new SessionAuthMiddleware($appContainer, $appContainer->LoginControllerInstance->GetSessionCookieName()))->add(JsonMiddleware::class);
 
 $app->group('/cli', function()
 {

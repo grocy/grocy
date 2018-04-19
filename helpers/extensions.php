@@ -61,3 +61,14 @@ function GetClassConstants($className)
 	$r = new ReflectionClass($className);
 	return $r->getConstants();
 }
+
+function RandomString($length, $allowedChars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
+{
+	$randomString = '';
+	for ($i = 0; $i < $length; $i++)
+	{
+		$randomString .= $allowedChars[rand(0, strlen($allowedChars) - 1)];
+	}
+
+	return $randomString;
+}
