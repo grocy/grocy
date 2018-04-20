@@ -32,7 +32,6 @@ $app->group('', function()
 	$this->get('/shoppinglist', 'Grocy\Controllers\StockController:ShoppingList');
 	$this->get('/shoppinglistitem/{itemId}', 'Grocy\Controllers\StockController:ShoppingListItemEditForm');
 
-
 	// Habit routes
 	$this->get('/habitsoverview', 'Grocy\Controllers\HabitsController:Overview');
 	$this->get('/habittracking', 'Grocy\Controllers\HabitsController:TrackHabitExecution');
@@ -46,10 +45,15 @@ $app->group('', function()
 
 	$this->get('/batteries', 'Grocy\Controllers\BatteriesController:BatteriesList');
 	$this->get('/battery/{batteryId}', 'Grocy\Controllers\BatteriesController:BatteryEditForm');
+
+	// Other routes
+	$this->get('/apidoc', 'Grocy\Controllers\OpenApiController:DocumentationUi');
 })->add(new SessionAuthMiddleware($appContainer, $appContainer->LoginControllerInstance->GetSessionCookieName()));
 
 $app->group('/api', function()
 {
+	$this->get('/get-open-api-specification', 'Grocy\Controllers\OpenApiController:DocumentationSpec');
+
 	$this->get('/get-objects/{entity}', 'Grocy\Controllers\GenericEntityApiController:GetObjects');
 	$this->get('/get-object/{entity}/{objectId}', 'Grocy\Controllers\GenericEntityApiController:GetObject');
 	$this->post('/add-object/{entity}', 'Grocy\Controllers\GenericEntityApiController:AddObject');

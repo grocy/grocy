@@ -9,7 +9,7 @@
 	<meta name="format-detection" content="telephone=no">
 
 	<meta name="author" content="Bernd Bestel (bernd@berrnd.de)">
-	<link rel="icon" type="image/png" sizes="200x200" href="/img/grocy.png">
+	<link rel="icon" type="image/png" sizes="200x200" href="/img/grocy.png?v={{ $version }}">
 
 	<title>@yield('title') | grocy</title>
 
@@ -24,6 +24,7 @@
 	<link href="{{ $U('/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css?v=') }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/components_unmanaged/noto-sans-v6-latin/noto-sans-v6-latin.css?v=') }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/css/grocy.css?v=') }}{{ $version }}" rel="stylesheet">
+	@stack('pageStyles')
 
 	<script>
 		var Grocy = { };
@@ -237,6 +238,7 @@
 	<script src="{{ $U('/js/extensions.js?v=') }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy.js?v=') }}{{ $version }}"></script>
 	<script src="{{ $U('/viewjs') }}/@yield('viewJsName').js?v={{ $version }}"></script>
+	@stack('pageScripts')
 	@stack('componentScripts')
 
 	@if(file_exists(__DIR__ . '/../../data/add_before_end_body.html'))

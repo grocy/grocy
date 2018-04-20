@@ -4,7 +4,8 @@
 		"slim/slim": "^3.8",
 		"morris/lessql": "^0.3.4",
 		"pavlakis/slim-cli": "^1.0",
-		"rubellum/slim-blade-view": "^0.1.1"
+		"rubellum/slim-blade-view": "^0.1.1",
+		"tuupola/cors-middleware": "^0.7.0"
 	},
 	"autoload": {
 		"psr-4": {
