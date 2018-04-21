@@ -60,7 +60,7 @@ $('#product_id').on('change', function(e)
 					$('#product_id_text_input').addClass('has-error');
 					$('#product_id_text_input').parent('.input-group').addClass('has-error');
 					$('#product_id_text_input').closest('.form-group').addClass('has-error');
-					$('#product-error').text('This product is not in stock.');
+					$('#product-error').text(L('This product is not in stock'));
 					$('#product-error').show();
 					$('#product_id_text_input').focus();
 				}

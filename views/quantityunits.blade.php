@@ -9,7 +9,7 @@
 
 	<h1 class="page-header">
 		@yield('title')
-		<a class="btn btn-default" href="/quantityunit/new" role="button">
+		<a class="btn btn-default" href="{{ $U('/quantityunit/new') }}" role="button">
 			<i class="fa fa-plus"></i>&nbsp;Add
 		</a>
 	</h1>
@@ -27,7 +27,7 @@
 				@foreach($quantityunits as $quantityunit)
 				<tr>
 					<td class="fit-content">
-						<a class="btn btn-info" href="/quantityunit/{{ $quantityunit->id }}" role="button">
+						<a class="btn btn-info" href="{{ $U('/quantityunit/') }}{{ $quantityunit->id }}" role="button">
 							<i class="fa fa-pencil"></i>
 						</a>
 						<a class="btn btn-danger quantityunit-delete-button" href="#" role="button" data-quantityunit-id="{{ $quantityunit->id }}" data-quantityunit-name="{{ $quantityunit->name }}">

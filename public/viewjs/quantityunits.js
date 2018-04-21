@@ -1,7 +1,10 @@
 ﻿$(document).on('click', '.quantityunit-delete-button', function(e)
 {
+	var objectName = $(e.currentTarget).attr('data-quantityunit-name');
+	var objectId = $(e.currentTarget).attr('data-quantityunit-id');
+
 	bootbox.confirm({
-		message: L('Are you sure to delete quantity unit "#1"?', $(e.currentTarget).attr('data-quantityunit-name')),
+		message: L('Are you sure to delete quantity unit "#1"?', objectName),
 		buttons: {
 			confirm: {
 				label: 'Yes',
@@ -16,7 +19,7 @@
 		{
 			if (result === true)
 			{
-				Grocy.Api.Get('delete-object/quantity_units/' + $(e.currentTarget).attr('data-quantityunit-id'),
+				Grocy.Api.Get('delete-object/quantity_units/' + objectId,
 					function(result)
 					{
 						window.location.href = U('/quantityunits');

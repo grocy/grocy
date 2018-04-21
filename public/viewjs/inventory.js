@@ -291,14 +291,14 @@ $('#new_amount').on('change', function(e)
 				if (newAmount > productStockAmount)
 				{
 					var amountToAdd = newAmount - productDetails.stock_amount;
-					$('#inventory-change-info').text('This means ' + amountToAdd.toString() + ' ' + productDetails.quantity_unit_stock.name + ' will be added to stock');
+					$('#inventory-change-info').text(L('This means #1 will be added to stock', amountToAdd.toString() + ' ' + productDetails.quantity_unit_stock.name));
 					$('#inventory-change-info').show();
 					$('#best_before_date').attr('required', 'required');
 				}
 				else if (newAmount < productStockAmount)
 				{
 					var amountToRemove = productStockAmount - newAmount;
-					$('#inventory-change-info').text('This means ' + amountToRemove.toString() + ' ' + productDetails.quantity_unit_stock.name + ' will be removed from stock');
+					$('#inventory-change-info').text(L('This means #1 will be removed from stock', amountToRemove.toString() + ' ' + productDetails.quantity_unit_stock.name));
 					$('#inventory-change-info').show();
 					$('#best_before_date').removeAttr('required');
 				}

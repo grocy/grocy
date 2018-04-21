@@ -1,7 +1,10 @@
 ﻿$(document).on('click', '.battery-delete-button', function(e)
 {
+	var objectName = $(e.currentTarget).attr('data-battery-name');
+	var objectId = $(e.currentTarget).attr('data-battery-id');
+
 	bootbox.confirm({
-		message: L('Are you sure to delete battery "#1"?', $(e.currentTarget).attr('data-battery-name')),
+		message: L('Are you sure to delete battery "#1"?', objectName),
 		buttons: {
 			confirm: {
 				label: L('Yes'),
@@ -16,7 +19,7 @@
 		{
 			if (result === true)
 			{
-				Grocy.Api.Get('delete-object/batteries/' + $(e.currentTarget).attr('data-battery-id'),
+				Grocy.Api.Get('delete-object/batteries/' + objectId,
 					function(result)
 					{
 						window.location.href = U('/batteries');

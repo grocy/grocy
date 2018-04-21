@@ -41,7 +41,7 @@ $('.input-group-habit-period-type').on('change', function(e)
 
 	if (periodType === 'dynamic-regular')
 	{
-		$('#habit-period-type-info').text('This means it is estimated that a new "execution" of this habit is tracked ' + periodDays.toString() + ' days after the last was tracked.');
+		$('#habit-period-type-info').text(L('This means it is estimated that a new execution of this habit is tracked #1 days after the last was tracked', periodDays.toString()));
 		$('#habit-period-type-info').show();
 	}
 	else

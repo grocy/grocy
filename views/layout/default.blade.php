@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ CULTURE }}">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -9,7 +9,7 @@
 	<meta name="format-detection" content="telephone=no">
 
 	<meta name="author" content="Bernd Bestel (bernd@berrnd.de)">
-	<link rel="icon" type="image/png" sizes="200x200" href="/img/grocy.png?v={{ $version }}">
+	<link rel="icon" type="image/png" sizes="200x200" href="{{ $U('/img/grocy.png?v=') }}{{ $version }}">
 
 	<title>@yield('title') | grocy</title>
 
@@ -49,8 +49,20 @@
 
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<a class="discrete-link logout-button" href="{{ $U('/logout') }}"><i class="fa fa-sign-out fa-fw"></i>&nbsp;{{ $L('Logout') }}</a>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ HTTP_USER }} <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li>
+								<a class="discrete-link logout-button" href="{{ $U('/logout') }}"><i class="fa fa-sign-out fa-fw"></i>&nbsp;{{ $L('Logout') }}</a>
+							</li>
+							<li role="separator" class="divider"></li>
+							<li>
+								<a class="discrete-link" href="{{ $U('/manageapikeys') }}"><i class="fa fa-handshake-o fa-fw"></i>&nbsp;{{ $L('Manage API keys') }}</a>
+							</li>
+							<li>
+								<a class="discrete-link" target="_blank" href="{{ $U('/api') }}"><i class="fa fa-book"></i>&nbsp;{{ $L('REST API & data model documentation') }}</a>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</div>
@@ -111,8 +123,20 @@
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<a class="discrete-link logout-button" href="{{ $U('/logout') }}"><i class="fa fa-sign-out fa-fw"></i>&nbsp;{{ $L('Logout') }}</a>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ HTTP_USER }} <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li>
+								<a class="discrete-link logout-button" href="{{ $U('/logout') }}"><i class="fa fa-sign-out fa-fw"></i>&nbsp;{{ $L('Logout') }}</a>
+							</li>
+							<li role="separator" class="divider"></li>
+							<li>
+								<a class="discrete-link" href="{{ $U('/manageapikeys') }}"><i class="fa fa-handshake-o fa-fw"></i>&nbsp;{{ $L('Manage API keys') }}</a>
+							</li>
+							<li>
+								<a class="discrete-link" target="_blank" href="{{ $U('/api') }}"><i class="fa fa-book"></i>&nbsp;{{ $L('REST API & data model documentation') }}</a>
+							</li>
+						</ul>
 					</li>
 				</ul>
 

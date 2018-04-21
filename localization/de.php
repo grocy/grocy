@@ -101,6 +101,17 @@ return array(
 	'Are you sure to delete quantity unit "#1"?' => 'Mengeneinheit "#1" wirklich löschen?',
 	'Are you sure to delete product "#1"?' => 'Produkt "#1" wirklich löschen?',
 	'Are you sure to delete location "#1"?' => 'Standort "#1" wirklich löschen?',
+	'Manage API keys' => 'API-Keys verwalten',
+    'REST API & data model documentation' => 'REST-API & Datenmodell Dokumentation',
+    'API keys' => 'API-Keys',
+    'Create new API key' => 'Neuen API-Key erstellen',
+    'API key' => 'API-Key',
+    'Expires' => 'Läuft ab',
+    'Created' => 'Erstellt',
+	'This product is not in stock' => 'Dieses Produkt ist nicht vorrätig',
+	'This means #1 will be added to stock' => 'Das bedeutet #1 wird dem Bestand hinzugefügt',
+	'This means #1 will be removed from stock' => 'Das bedeutet #1 wird aus dem Bestand entfernt',
+	'This means it is estimated that a new execution of this habit is tracked #1 days after the last was tracked' => 'Das bedeutet, dass eine erneute Ausführung der Gewohnheit #1 Tage nach der letzten Ausführung geplant wird',
 	
 	//Constants
 	'manually' => 'Manuell',

@@ -3,6 +3,8 @@
 use \Grocy\Middleware\JsonMiddleware;
 use \Grocy\Middleware\CliMiddleware;
 use \Grocy\Middleware\SessionAuthMiddleware;
+use \Grocy\Middleware\ApiKeyAuthMiddleware;
+use \Tuupola\Middleware\CorsMiddleware;
 
 $app->group('', function()
 {
@@ -47,12 +49,14 @@ $app->group('', function()
 	$this->get('/battery/{batteryId}', 'Grocy\Controllers\BatteriesController:BatteryEditForm');
 
 	// Other routes
-	$this->get('/apidoc', 'Grocy\Controllers\OpenApiController:DocumentationUi');
+	$this->get('/api', 'Grocy\Controllers\OpenApiController:DocumentationUi');
+	$this->get('/manageapikeys', 'Grocy\Controllers\OpenApiController:ApiKeysList');
+	$this->get('/manageapikeys/new', 'Grocy\Controllers\OpenApiController:CreateNewApiKey');
 })->add(new SessionAuthMiddleware($appContainer, $appContainer->LoginControllerInstance->GetSessionCookieName()));
 
 $app->group('/api', function()
 {
-	$this->get('/get-open-api-specification', 'Grocy\Controllers\OpenApiController:DocumentationSpec');
+	$this->get('/get-openapi-specification', 'Grocy\Controllers\OpenApiController:DocumentationSpec');
 
 	$this->get('/get-objects/{entity}', 'Grocy\Controllers\GenericEntityApiController:GetObjects');
 	$this->get('/get-object/{entity}/{objectId}', 'Grocy\Controllers\GenericEntityApiController:GetObject');
@@ -72,7 +76,16 @@ $app->group('/api', function()
 	
 	$this->get('/batteries/track-charge-cycle/{batteryId}', 'Grocy\Controllers\BatteriesApiController:TrackChargeCycle');
 	$this->get('/batteries/get-battery-details/{batteryId}', 'Grocy\Controllers\BatteriesApiController:BatteryDetails');
-})->add(new SessionAuthMiddleware($appContainer, $appContainer->LoginControllerInstance->GetSessionCookieName()))->add(JsonMiddleware::class);
+})->add(new ApiKeyAuthMiddleware($appContainer, $appContainer->LoginControllerInstance->GetSessionCookieName(), $appContainer->ApiKeyHeaderName))
+->add(JsonMiddleware::class)
+->add(new CorsMiddleware([
+	'origin' => ["*"],
+	'methods' => ["GET", "POST"],
+	'headers.allow' => [ $appContainer->ApiKeyHeaderName ],
+	'headers.expose' => [ ],
+	'credentials' => false,
+	'cache' => 0,
+]));
 
 $app->group('/cli', function()
 {

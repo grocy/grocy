@@ -1,0 +1,1137 @@
+{
+	"openapi": "3.0.0",
+	"info": {
+		"title": "grocy REST API",
+		"description": "Authentication is done via API keys (header *GROCY-API-KEY*), which you can manage [here](PlaceHolderManageApiKeysUrl).<br>Additionally requests from within the frontend are also valid (via session cookie).",
+		"version": "xxx",
+		"contact": {
+			"email": "bernd@berrnd.de"
+		},
+		"license": {
+			"name": "grocy.info",
+			"url": "https://grocy.info"
+		}
+	},
+	"servers": [
+		{
+			"url": "xxx"
+		}
+	],
+	"tags": [
+		{
+			"name": "Generic entity interactions",
+			"description": "A limited set of entities are directly exposed for convenience"
+		}
+	],
+	"paths": {
+		"/get-objects/{entity}": {
+			"get": {
+				"description": "Returns all objects of the given entity",
+				"tags": [
+					"Generic entity interactions"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "entity",
+						"required": true,
+						"description": "A valid entity name",
+						"schema": {
+							"$ref": "#/components/internalSchemas/Entity"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An entity object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"oneOf": [
+											{
+												"$ref": "#/components/schemas/Product"
+											},
+											{
+												"$ref": "#/components/schemas/Habit"
+											},
+											{
+												"$ref": "#/components/schemas/Battery"
+											},
+											{
+												"$ref": "#/components/schemas/Location"
+											},
+											{
+												"$ref": "#/components/schemas/QuantityUnit"
+											},
+											{
+												"$ref": "#/components/schemas/ShoppingListItem"
+											},
+											{
+												"$ref": "#/components/schemas/StockEntry"
+											}
+										]	
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/get-object/{entity}/{objectId}": {
+			"get": {
+				"description": "Returns a single object of the given entity",
+				"tags": [
+					"Generic entity interactions"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "entity",
+						"required": true,
+						"description": "A valid entity name",
+						"schema": {
+							"$ref": "#/components/internalSchemas/Entity"
+						}
+					},
+					{
+						"in": "path",
+						"name": "objectId",
+						"required": true,
+						"description": "A valid object id of the given entity",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An entity object",
+						"content": {
+							"application/json": {
+								"schema":{
+									"type": "object",
+									"oneOf": [
+										{
+											"$ref": "#/components/schemas/Product"
+										},
+										{
+											"$ref": "#/components/schemas/Habit"
+										},
+										{
+											"$ref": "#/components/schemas/Battery"
+										},
+										{
+											"$ref": "#/components/schemas/Location"
+										},
+										{
+											"$ref": "#/components/schemas/QuantityUnit"
+										},
+										{
+											"$ref": "#/components/schemas/ShoppingListItem"
+										},
+										{
+											"$ref": "#/components/schemas/StockEntry"
+										}
+									]
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/add-object/{entity}": {
+			"post": {
+				"description": "Adds a single object of the given entity",
+				"tags": [
+					"Generic entity interactions"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "entity",
+						"required": true,
+						"description": "A valid entity name",
+						"schema": {
+							"$ref": "#/components/internalSchemas/Entity"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "A valid entity object of entity specified in parameter *entity*",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"oneOf": [
+									{
+										"$ref": "#/components/schemas/Product"
+									},
+									{
+										"$ref": "#/components/schemas/Habit"
+									},
+									{
+										"$ref": "#/components/schemas/Battery"
+									},
+									{
+										"$ref": "#/components/schemas/Location"
+									},
+									{
+										"$ref": "#/components/schemas/QuantityUnit"
+									},
+									{
+										"$ref": "#/components/schemas/ShoppingListItem"
+									},
+									{
+										"$ref": "#/components/schemas/StockEntry"
+									}
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/edit-object/{entity}/{objectId}": {
+			"post": {
+				"description": "Edits the given object of the given entity",
+				"tags": [
+					"Generic entity interactions"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "entity",
+						"required": true,
+						"description": "A valid entity name",
+						"schema": {
+							"$ref": "#/components/internalSchemas/Entity"
+						}
+					},
+					{
+						"in": "path",
+						"name": "objectId",
+						"required": true,
+						"description": "A valid object id of the given entity",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "A valid entity object of entity specified in parameter *entity*",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"oneOf": [
+									{
+										"$ref": "#/components/schemas/Product"
+									},
+									{
+										"$ref": "#/components/schemas/Habit"
+									},
+									{
+										"$ref": "#/components/schemas/Battery"
+									},
+									{
+										"$ref": "#/components/schemas/Location"
+									},
+									{
+										"$ref": "#/components/schemas/QuantityUnit"
+									},
+									{
+										"$ref": "#/components/schemas/ShoppingListItem"
+									},
+									{
+										"$ref": "#/components/schemas/StockEntry"
+									}
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/delete-object/{entity}/{objectId}": {
+			"get": {
+				"description": "Deletes a single object of the given entity",
+				"tags": [
+					"Generic entity interactions"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "entity",
+						"required": true,
+						"description": "A valid entity name",
+						"schema": {
+							"$ref": "#/components/internalSchemas/Entity"
+						}
+					},
+					{
+						"in": "path",
+						"name": "objectId",
+						"required": true,
+						"description": "A valid object id of the given entity",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/add-product/{productId}/{amount}": {
+			"get": {
+				"description": "Adds the the given amount of the given product to stock",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					},
+					{
+						"in": "path",
+						"name": "amount",
+						"required": true,
+						"description": "The amount to add",
+						"schema": {
+							"type": "integer"
+						}
+					},
+					{
+						"in": "query",
+						"name": "bestbeforedate",
+						"required": false,
+						"description": "The best before date of the product to add, when omitted, the current date is used",
+						"schema": {
+							"type": "date"
+						}
+					},
+					{
+						"in": "query",
+						"name": "transactiontype",
+						"required": false,
+						"description": "The transaction type for this transaction, when omitted, *purchase* is used",
+						"schema": {
+							"$ref": "#/components/internalSchemas/StockTransactionType"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/consume-product/{productId}/{amount}": {
+			"get": {
+				"description": "Removes the the given amount of the given product from stock",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					},
+					{
+						"in": "path",
+						"name": "amount",
+						"required": false,
+						"description": "The amount to remove",
+						"schema": {
+							"type": "boolean",
+							"default": false
+						}
+					},
+					{
+						"in": "query",
+						"name": "spoiled",
+						"required": true,
+						"description": "True when the given product was spoiled, defaults to false",
+						"schema": {
+							"type": "integer"
+						}
+					},
+					{
+						"in": "query",
+						"name": "transactiontype",
+						"required": false,
+						"description": "The transaction type for this transaction, when omitted, *consume* is used",
+						"schema": {
+							"$ref": "#/components/internalSchemas/StockTransactionType"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/inventory-product/{productId}/{newAmount}": {
+			"get": {
+				"description": "Inventories the the given product (adds/removes based on the given new current amount)",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					},
+					{
+						"in": "path",
+						"name": "newAmount",
+						"required": true,
+						"description": "The new current amount for the given product",
+						"schema": {
+							"type": "integer"
+						}
+					},
+					{
+						"in": "query",
+						"name": "bestbeforedate",
+						"required": false,
+						"description": "The best before date which applies to added products",
+						"schema": {
+							"type": "date"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/get-product-details/{productId}": {
+			"get": {
+				"description": "Returns details of the given product",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A ProductDetailsResponse object",
+						"content": {
+							"application/json": {
+								"schema":{
+									"$ref": "#/components/schemas/ProductDetailsResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/get-current-stock": {
+			"get": {
+				"description": "Returns all products which are currently in stock incl. the next expiring date per product",
+				"tags": [
+					"Stock"
+				],
+				"responses": {
+					"200": {
+						"description": "An array of CurrentStockResponse objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/Product"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/add-missing-products-to-shoppinglist": {
+			"get": {
+				"description": "Adds currently missing products (below defined min. stock amount) to the shopping list",
+				"tags": [
+					"Stock"
+				],
+				"responses": {
+					"200": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/habits/track-habit-execution/{habitId}": {
+			"get": {
+				"description": "Tracks an execution of the given habit",
+				"tags": [
+					"Habits"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "habitId",
+						"required": true,
+						"description": "A valid habit id",
+						"schema": {
+							"type": "integer"
+						}
+					},
+					{
+						"in": "query",
+						"name": "tracked_time",
+						"required": false,
+						"description": "The time of when the habit was executed, when omitted, the current time is used",
+						"schema": {
+							"type": "date-time"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/habits/get-habit-details/{habitId}": {
+			"get": {
+				"description": "Returns details of the given habit",
+				"tags": [
+					"Habits"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "habitId",
+						"required": true,
+						"description": "A valid habit id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A HabitDetailsResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HabitDetailsResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/batteries/track-charge-cycle/{batteryId}": {
+			"get": {
+				"description": "Tracks a charge cycle of the given battery",
+				"tags": [
+					"Batteries"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "batteryId",
+						"required": true,
+						"description": "A valid battery id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/batteries/get-battery-details/{batteryId}": {
+			"get": {
+				"description": "Returns details of the given battery",
+				"tags": [
+					"Batteries"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "batteryId",
+						"required": true,
+						"description": "A valid battery id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A BatteryDetailsResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/BatteryDetailsResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"internalSchemas": {
+			"Entity": {
+				"type": "string",
+				"enum": [
+					"products",
+					"habits",
+					"batteries",
+					"locations",
+					"quantity_units",
+					"shopping_list",
+					"stock"
+				]
+			},
+			"StockTransactionType": {
+				"type": "string",
+				"enum": [
+					"purchase",
+					"consume",
+					"inventory-correction"
+				]
+			}
+		},
+		"schemas": {
+			"Product": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"name": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"location_id": {
+						"type": "integer"
+					},
+					"qu_id_purchase": {
+						"type": "integer"
+					},
+					"qu_id_stock": {
+						"type": "integer"
+					},
+					"qu_factor_purchase_to_stock": {
+						"type": "number",
+						"format": "double"
+					},
+					"barcode": {
+						"type": "string",
+						"description": "Can contain multiple barcodes separated by comma"
+					},
+					"min_stock_amount": {
+						"type": "integer",
+						"minimum": 0,
+						"default": 0
+					},
+					"default_best_before_days": {
+						"type": "integer",
+						"minimum": 0,
+						"default": 0
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"QuantityUnit": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"name": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"Location": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"name": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"StockEntry": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"product_id": {
+						"type": "integer"
+					},
+					"amount": {
+						"type": "integer"
+					},
+					"best_before_date": {
+						"type": "string",
+						"format": "date"
+					},
+					"purchased_date": {
+						"type": "string",
+						"format": "date"
+					},
+					"stock_id": {
+						"type": "string",
+						"description": "A unique id which references this stock entry during its lifetime"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"ProductDetailsResponse": {
+				"type": "object",
+				"properties": {
+					"product": {
+						"$ref": "#/components/schemas/Product"
+					},
+					"quantity_unit_purchase": {
+						"$ref": "#/components/schemas/QuantityUnit"
+					},
+					"quantity_unit_stock": {
+						"$ref": "#/components/schemas/QuantityUnit"
+					},
+					"last_purchased": {
+						"type": "string",
+						"format": "date"
+					},
+					"last_used": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"stock_amount": {
+						"type": "integer"
+					}
+				}
+			},
+			"HabitDetailsResponse": {
+				"type": "object",
+				"properties": {
+					"habit": {
+						"$ref": "#/components/schemas/Habit"
+					},
+					"last_tracked": {
+						"type": "string",
+						"format": "date-time",
+						"description": "When this habit was last tracked"
+					},
+					"track_count": {
+						"type": "integer",
+						"description": "How often this habit was tracked so far"
+					}
+				}
+			},
+			"BatteryDetailsResponse": {
+				"type": "object",
+				"properties": {
+					"habit": {
+						"$ref": "#/components/schemas/Battery"
+					},
+					"last_charged": {
+						"type": "string",
+						"format": "date-time",
+						"description": "When this battery was last charged"
+					},
+					"charge_cycles_count": {
+						"type": "integer",
+						"description": "How often this battery was charged so far"
+					}
+				}
+			},
+			"Session": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"session_key": {
+						"type": "string"
+					},
+					"expires": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"last_used": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"ApiKey": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"api_key": {
+						"type": "string"
+					},
+					"expires": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"last_used": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"ShoppingListItem": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"product_id": {
+						"type": "integer"
+					},
+					"note": {
+						"type": "string"
+					},
+					"amount": {
+						"type": "integer",
+						"minimum": 0,
+						"default": 0,
+						"description": "The manual entered amount"
+					},
+					"amount_autoadded": {
+						"type": "integer",
+						"minimum": 0,
+						"default": 0,
+						"description": "The automatically added amount based on defined minimum stock amounts"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"Battery": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"name": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"used_in": {
+						"type": "string"
+					},
+					"charge_interval_days": {
+						"type": "integer",
+						"minimum": 0,
+						"default": 0
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"BatteryChargeCycle": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"battery_id": {
+						"type": "integer"
+					},
+					"tracked_time": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"Habit": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"name": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"period_type": {
+						"type": "string",
+						"enum": [
+							"manually",
+							"dynamic-regular"
+						]
+					},
+					"period_days": {
+						"type": "integer"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"HabitLogEntry": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"habit_id": {
+						"type": "integer"
+					},
+					"tracked_time": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"StockLogEntry": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"product_id": {
+						"type": "integer"
+					},
+					"amount": {
+						"type": "integer"
+					},
+					"best_before_date": {
+						"type": "string",
+						"format": "date"
+					},
+					"purchased_date": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"used_date": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"spoiled": {
+						"type": "boolean",
+						"default": false
+					},
+					"stock_id": {
+						"type": "string"
+					},
+					"transaction_type": {
+						"$ref": "#/components/internalSchemas/StockTransactionType"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"VoidApiActionResponse": {
+				"type": "object",
+				"properties": {
+					"success": {
+						"type": "boolean",
+						"default": true
+					}
+				}
+			},
+			"CurrentStockResponse": {
+				"type": "object",
+				"properties": {
+					"product_id": {
+						"type": "integer"
+					},
+					"amount": {
+						"type": "integer"
+					},
+					"best_before_date": {
+						"type": "date",
+						"description": "The next best before date for this product"
+					}
+				}
+			}
+		},
+		"securitySchemes": {
+			"ApiKeyAuth": {
+				"type": "apiKey",
+				"in": "header",
+				"name": "GROCY-API-KEY"
+			}
+		}
+	},
+	"security": [
+		{
+			"ApiKeyAuth": [ ]
+		}
+	]
+}

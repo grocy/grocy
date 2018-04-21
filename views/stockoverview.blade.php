@@ -7,7 +7,7 @@
 @section('content')
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
 
-	<h1 class="page-header">{{ $L('Stock overview') }} <span class="text-muded small">{{ $L('#1 products with #2 units in stock', count($currentStock), SumArrayValue($currentStock, 'amount')) }}</span></h1>
+	<h1 class="page-header">{{ $L('Stock overview') }} <span class="text-muted small">{{ $L('#1 products with #2 units in stock', count($currentStock), SumArrayValue($currentStock, 'amount')) }}</span></h1>
 
 	<div class="container-fluid">
 		<div class="row">

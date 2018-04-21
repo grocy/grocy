@@ -15,7 +15,18 @@ class SessionService extends BaseService
 		}
 		else
 		{
-			return $this->Database->sessions()->where('session_key = :1 AND expires > :2', $sessionKey, time())->count() === 1;
+			$sessionRow = $this->Database->sessions()->where('session_key = :1 AND expires > :2', $sessionKey, date('Y-m-d H:i:s', time()))->fetch();
+			if ($sessionRow !== null)
+			{
+				$sessionRow->update(array(
+					'last_used' => date('Y-m-d H:i:s', time())
+				));
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 	}
 
@@ -28,7 +39,7 @@ class SessionService extends BaseService
 		
 		$sessionRow = $this->Database->sessions()->createRow(array(
 			'session_key' => $newSessionKey,
-			'expires' => time() + 2592000 // 30 days
+			'expires' => date('Y-m-d H:i:s', time() + 2592000) // Default is that sessions expire in 30 days
 		));
 		$sessionRow->save();
 

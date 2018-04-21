@@ -3,21 +3,46 @@
 namespace Grocy\Controllers;
 
 use \Grocy\Services\ApplicationService;
+use \Grocy\Services\ApiKeyService;
 
 class OpenApiController extends BaseApiController
 {
+	public function __construct(\Slim\Container $container)
+	{
+		parent::__construct($container);
+		$this->ApiKeyService = new ApiKeyService();
+	}
+
+	protected $ApiKeyService;
+
 	public function DocumentationUi(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'apidoc');
+		return $this->AppContainer->view->render($response, 'openapiui');
 	}
 
 	public function DocumentationSpec(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$applicationService = new ApplicationService();
 
-		$specJson = json_decode(file_get_contents(__DIR__ . '/../helpers/grocy.openapi.json'));
+		$specJson = json_decode(file_get_contents(__DIR__ . '/../grocy.openapi.json'));
 		$specJson->info->version = $applicationService->GetInstalledVersion();
+		$specJson->info->description = str_replace('PlaceHolderManageApiKeysUrl', $this->AppContainer->UrlManager->ConstructUrl('/manageapikeys'), $specJson->info->description);
+		$specJson->servers[0]->url = $this->AppContainer->UrlManager->ConstructUrl('/api');
 
 		return $this->ApiResponse($specJson);
+	}
+
+	public function ApiKeysList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->AppContainer->view->render($response, 'manageapikeys', [
+			'apiKeys' => $this->Database->api_keys()
+		]);
+	}
+
+	public function CreateNewApiKey(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		$newApiKey = $this->ApiKeyService->CreateApiKey();
+		$newApiKeyId = $this->ApiKeyService->GetApiKeyId($newApiKey);
+		return $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl("/manageapikeys?CreatedApiKeyId=$newApiKeyId"));
 	}
 }

@@ -9,7 +9,7 @@
 
 	<h1 class="page-header">
 		@yield('title')
-		<a class="btn btn-default" href="/habit/new" role="button">
+		<a class="btn btn-default" href="{{ $U('/habit/new') }}" role="button">
 			<i class="fa fa-plus"></i>&nbsp;{{ $L('Add') }}
 		</a>
 	</h1>
@@ -29,7 +29,7 @@
 				@foreach($habits as $habit)
 				<tr>
 					<td class="fit-content">
-						<a class="btn btn-info" href="/habit/{{ $habit->id }}" role="button">
+						<a class="btn btn-info" href="{{ $U('/habit/') }}{{ $habit->id }}" role="button">
 							<i class="fa fa-pencil"></i>
 						</a>
 						<a class="btn btn-danger habit-delete-button" href="#" role="button" data-habit-id="{{ $habit->id }}" data-habit-name="{{ $habit->name }}">

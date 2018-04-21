@@ -188,3 +188,12 @@ a.discrete-link:focus {
 #toast-container > div {
 	box-shadow: none;
 }
+
+.navbar-default .navbar-nav > .open > a {
+	background-color: #d6d6d6 !important;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+	background-color: #e5e5e5 !important;
+}

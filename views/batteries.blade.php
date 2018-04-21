@@ -9,7 +9,7 @@
 
 	<h1 class="page-header">
 		@yield('title')
-		<a class="btn btn-default" href="/battery/new" role="button">
+		<a class="btn btn-default" href="{{ $U('/battery/new') }}" role="button">
 			<i class="fa fa-plus"></i>&nbsp;{{ $L('Add') }}
 		</a>
 	</h1>
@@ -28,7 +28,7 @@
 				@foreach($batteries as $battery)
 				<tr>
 					<td class="fit-content">
-						<a class="btn btn-info" href="/battery/{{ $battery->id }}" role="button">
+						<a class="btn btn-info" href="{{ $U('/battery/') }}{{ $battery->id }}" role="button">
 							<i class="fa fa-pencil"></i>
 						</a>
 						<a class="btn btn-danger battery-delete-button" href="#" role="button" data-battery-id="{{ $battery->id }}" data-battery-name="{{ $battery->name }}">

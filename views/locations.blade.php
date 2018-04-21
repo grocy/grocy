@@ -9,7 +9,7 @@
 
 	<h1 class="page-header">
 		@yield('title')
-		<a class="btn btn-default" href="/location/new" role="button">
+		<a class="btn btn-default" href="{{ $U('/location/new') }}" role="button">
 			<i class="fa fa-plus"></i>&nbsp;{{ $L('Add') }}
 		</a>
 	</h1>
@@ -27,7 +27,7 @@
 				@foreach($locations as $location)
 				<tr>
 					<td class="fit-content">
-						<a class="btn btn-info" href="/location/{{ $location->id }}" role="button">
+						<a class="btn btn-info" href="{{ $U('/location/') }}{{ $location->id }}" role="button">
 							<i class="fa fa-pencil"></i>
 						</a>
 						<a class="btn btn-danger location-delete-button" href="#" role="button" data-location-id="{{ $location->id }}" data-location-name="{{ $location->name }}">

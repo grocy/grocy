@@ -1,6 +1,6 @@
 Grocy.Components.HabitCard = { };
 
-Grocy.Components.HabitCard.Refresh = function (habitId)
+Grocy.Components.HabitCard.Refresh = function(habitId)
 {
 	Grocy.Api.Get('habits/get-habit-details/' + habitId,
 		function(habitDetails)

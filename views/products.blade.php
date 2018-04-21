@@ -9,7 +9,7 @@
 
 	<h1 class="page-header">
 		@yield('title')
-		<a class="btn btn-default" href="/product/new" role="button">
+		<a class="btn btn-default" href="{{ $U('/product/new') }}" role="button">
 			<i class="fa fa-plus"></i>&nbsp;{{ $L('Add') }}
 		</a>
 	</h1>
@@ -32,7 +32,7 @@
 				@foreach($products as $product)
 				<tr>
 					<td class="fit-content">
-						<a class="btn btn-info" href="/product/{{ $product->id }}" role="button">
+						<a class="btn btn-info" href="{{ $U('/product/') }}{{ $product->id }}" role="button">
 							<i class="fa fa-pencil"></i>
 						</a>
 						<a class="btn btn-danger product-delete-button" href="#" role="button" data-product-id="{{ $product->id }}" data-product-name="{{ $product->name }}">

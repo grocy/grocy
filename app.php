@@ -26,6 +26,10 @@ $appContainer = new \Slim\Container([
 	'UrlManager' => function($container)
 	{
 		return new UrlManager(BASE_URL);
+	},
+	'ApiKeyHeaderName' => function($container)
+	{
+		return 'GROCY-API-KEY';
 	}
 ]);
 $app = new \Slim\App($appContainer);

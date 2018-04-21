@@ -1,7 +1,10 @@
 ﻿$(document).on('click', '.location-delete-button', function(e)
 {
+	var objectName = $(e.currentTarget).attr('data-location-name');
+	var objectId = $(e.currentTarget).attr('data-location-id');
+
 	bootbox.confirm({
-		message: L('Are you sure to delete location "#1"?', $(e.currentTarget).attr('data-location-name')),
+		message: L('Are you sure to delete location "#1"?', objectName),
 		buttons: {
 			confirm: {
 				label: L('Yes'),
@@ -16,7 +19,7 @@
 		{
 			if (result === true)
 			{
-				Grocy.Api.Get('delete-object/locations/' + $(e.currentTarget).attr('data-location-id'),
+				Grocy.Api.Get('delete-object/locations/' + objectId,
 					function(result)
 					{
 						window.location.href = U('/locations');

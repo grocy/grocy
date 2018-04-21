@@ -20,7 +20,7 @@
 				@endforeach
 			</select>
 			<div class="help-block with-errors"></div>
-			<div id="flow-info-addbarcodetoselection" class="text-muted small hide"><strong><span id="addbarcodetoselection"></span></strong> will be added to the list of barcodes for the selected product on submit.</div>
+			<div id="flow-info-addbarcodetoselection" class="text-muted small hide"><strong><span id="addbarcodetoselection"></span></strong> {{ $L('will be added to the list of barcodes for the selected product on submit') }}</div>
 		</div>
 
 		@include('components.datepicker', array(
