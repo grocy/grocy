@@ -37,7 +37,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/Entity"
+							"$ref": "#/components/internalSchemas/ExposedEntity"
 						}
 					}
 				],
@@ -93,7 +93,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/Entity"
+							"$ref": "#/components/internalSchemas/ExposedEntity"
 						}
 					},
 					{
@@ -156,7 +156,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/Entity"
+							"$ref": "#/components/internalSchemas/ExposedEntity"
 						}
 					}
 				],
@@ -220,7 +220,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/Entity"
+							"$ref": "#/components/internalSchemas/ExposedEntity"
 						}
 					},
 					{
@@ -293,7 +293,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/Entity"
+							"$ref": "#/components/internalSchemas/ExposedEntity"
 						}
 					},
 					{
@@ -696,7 +696,7 @@
 	},
 	"components": {
 		"internalSchemas": {
-			"Entity": {
+			"ExposedEntity": {
 				"type": "string",
 				"enum": [
 					"products",
@@ -704,8 +704,7 @@
 					"batteries",
 					"locations",
 					"quantity_units",
-					"shopping_list",
-					"stock"
+					"shopping_list"
 				]
 			},
 			"StockTransactionType": {
