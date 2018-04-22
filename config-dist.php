@@ -15,3 +15,8 @@ define('CULTURE', 'en');
 # should be just "/" when running directly under the root of a (sub)domain
 # or for example "https:/example.com/grocy" when using a subdirectory
 define('BASE_URL', '/');
+
+# The plugin to use for external barcode lookups,
+# must be the filename without .php extension and must be located in /data/plugins,
+# see /data/plugins/DemoBarcodeLookupPlugin.php for an example implementation
+define('STOCK_BARCODE_LOOKUP_PLUGIN', 'DemoBarcodeLookupPlugin');

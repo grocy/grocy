@@ -208,4 +208,44 @@ class StockService extends BaseService
 		$productRow = $this->Database->products()->where('id = :1', $productId)->fetch();
 		return $productRow !== null;
 	}
+
+	private function LoadBarcodeLookupPlugin()
+	{
+		$pluginName = defined('STOCK_BARCODE_LOOKUP_PLUGIN') ? STOCK_BARCODE_LOOKUP_PLUGIN : '';
+		if (empty($pluginName))
+		{
+			throw new \Exception('No barcode lookup plugin defined');
+		}
+
+		$path = __DIR__ . "/../data/plugins/$pluginName.php";
+		if (file_exists($path))
+		{
+			require_once $path;
+			return new $pluginName($this->Database->locations()->fetchAll(), $this->Database->quantity_units()->fetchAll());
+		}
+		else
+		{
+			throw new \Exception("Plugin $pluginName was not found");
+		}
+	}
+
+	public function ExternalBarcodeLookup($barcode, $addFoundProduct)
+	{
+		$plugin = $this->LoadBarcodeLookupPlugin();
+		$pluginOutput = $plugin->Lookup($barcode);
+
+		if ($pluginOutput !== null) // Lookup was successful
+		{
+			if ($addFoundProduct === true)
+			{
+				// Add product to database and include new product id in output
+				$newRow = $this->Database->products()->createRow($pluginOutput);
+				$newRow->save();
+
+				$pluginOutput['id'] = $newRow->id;
+			}
+		}
+
+		return $pluginOutput;
+	}
 }

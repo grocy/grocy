@@ -650,6 +650,57 @@
 				}
 			}
 		},
+		"/stock/external-barcode-lookup/{barcode}": {
+			"get": {
+				"description": "Executes an external barcode lookoup via the configured plugin with the given barcode",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "barcode",
+						"required": true,
+						"description": "The barcode to lookup up",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "add",
+						"required": false,
+						"description": "When true, the product is added to the database on a successful lookup and the new product id is in included in output",
+						"schema": {
+							"type": "boolean",
+							"default": false
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An ExternalBarcodeLookupResponse object or null, when nothing was found for the given barcode",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ExternalBarcodeLookupResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object (possible errors are: Plugin error)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/habits/track-habit-execution/{habitId}": {
 			"get": {
 				"description": "Tracks an execution of the given habit",
@@ -989,6 +1040,35 @@
 					},
 					"stock_amount": {
 						"type": "integer"
+					}
+				}
+			},
+			"ExternalBarcodeLookupResponse": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"location_id": {
+						"type": "integer"
+					},
+					"qu_id_purchase": {
+						"type": "integer"
+					},
+					"qu_id_stock": {
+						"type": "integer"
+					},
+					"qu_factor_purchase_to_stock": {
+						"type": "number",
+						"format": "double"
+					},
+					"barcode": {
+						"type": "string",
+						"description": "Can contain multiple barcodes separated by comma"
+					},
+					"id": {
+						"type": "integer",
+						"description": "The id of the added product, only included when the producted was added to the database"
 					}
 				}
 			},

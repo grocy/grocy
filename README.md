@@ -43,6 +43,11 @@ The following shorthands are available:
 Wherever a button contains a bold highlighted letter, this is a shortcut key.
 Example: Button "Add as new **p**roduct" can be "pressed" by using the `P` key on your keyboard.
 
+### Barcode lookup via external services
+Products can be directly added to the database via looking them up against external services by a barcode.
+This is currently only possible through the REST API.
+There is no plugin included for any service, see the reference implementation in `data/plugins/DemoBarcodeLookupPlugin.php`.
+
 ### Database migrations
 Database schema migration is automatically done when visiting the root (`/`) route (click on the logo in the left upper edge).
 

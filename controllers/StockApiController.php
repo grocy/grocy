@@ -105,4 +105,22 @@ class StockApiController extends BaseApiController
 		$this->StockService->AddMissingProductsToShoppingList();
 		return $this->VoidApiActionResponse($response);
 	}
+
+	public function ExternalBarcodeLookup(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		try
+		{
+			$addFoundProduct = false;
+			if (isset($request->getQueryParams()['add']) && ($request->getQueryParams()['add'] === 'true' || $request->getQueryParams()['add'] === 1))
+			{
+				$addFoundProduct = true;
+			}
+			
+			return $this->ApiResponse($this->StockService->ExternalBarcodeLookup($args['barcode'], $addFoundProduct));
+		}
+		catch (\Exception $ex)
+		{
+			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+		}
+	}
 }

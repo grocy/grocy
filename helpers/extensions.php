@@ -72,3 +72,9 @@ function RandomString($length, $allowedChars = '0123456789abcdefghijklmnopqrstuv
 
 	return $randomString;
 }
+
+function IsAssociativeArray(array $array)
+{
+	$keys = array_keys($array);
+	return array_keys($keys) !== $keys;
+}
