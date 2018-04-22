@@ -22,11 +22,26 @@ class BatteriesApiController extends BaseApiController
 			$trackedTime = $request->getQueryParams()['tracked_time'];
 		}
 
-		return $this->ApiResponse(array('success' => $this->BatteriesService->TrackChargeCycle($args['batteryId'], $trackedTime)));
+		try
+		{
+			$this->BatteriesService->TrackChargeCycle($args['batteryId'], $trackedTime);
+			return $this->VoidApiActionResponse($response);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+		}
 	}
 
 	public function BatteryDetails(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->ApiResponse($this->BatteriesService->GetBatteryDetails($args['batteryId']));
+		try
+		{
+			return $this->ApiResponse($this->BatteriesService->GetBatteryDetails($args['batteryId']));
+		}
+		catch (\Exception $ex)
+		{
+			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+		}
 	}
 }

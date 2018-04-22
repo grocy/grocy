@@ -22,11 +22,26 @@ class HabitsApiController extends BaseApiController
 			$trackedTime = $request->getQueryParams()['tracked_time'];
 		}
 
-		return $this->ApiResponse(array('success' => $this->HabitsService->TrackHabit($args['habitId'], $trackedTime)));
+		try
+		{
+			$this->HabitsService->TrackHabit($args['habitId'], $trackedTime);
+			return $this->VoidApiActionResponse($response);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+		}
 	}
 
 	public function HabitDetails(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->ApiResponse($this->HabitsService->GetHabitDetails($args['habitId']));
+		try
+		{
+			return $this->ApiResponse($this->HabitsService->GetHabitDetails($args['habitId']));
+		}
+		catch (\Exception $ex)
+		{
+			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+		}
 	}
 }

@@ -76,6 +76,16 @@
 								}
 							}
 						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
 					}
 				}
 			}
@@ -136,6 +146,16 @@
 											"$ref": "#/components/schemas/StockEntry"
 										}
 									]
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
 								}
 							}
 						}
@@ -200,6 +220,16 @@
 							"application/json": {
 								"schema": {
 									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
 								}
 							}
 						}
@@ -276,6 +306,16 @@
 								}
 							}
 						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
 					}
 				}
 			}
@@ -313,6 +353,16 @@
 							"application/json": {
 								"schema": {
 									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
 								}
 							}
 						}
@@ -371,6 +421,16 @@
 							"application/json": {
 								"schema": {
 									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object (possible errors are: Not existing product, invalid transaction type)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
 								}
 							}
 						}
@@ -433,6 +493,16 @@
 								}
 							}
 						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object (possible errors are: Not existing product, invalid transaction type)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
 					}
 				}
 			}
@@ -482,6 +552,16 @@
 								}
 							}
 						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object (possible errors are: Not existing product)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
 					}
 				}
 			}
@@ -510,6 +590,16 @@
 							"application/json": {
 								"schema":{
 									"$ref": "#/components/schemas/ProductDetailsResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object (possible errors are: Not existing product)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
 								}
 							}
 						}
@@ -596,6 +686,16 @@
 								}
 							}
 						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object (possible errors are: Not existing habit)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
 					}
 				}
 			}
@@ -627,6 +727,16 @@
 								}
 							}
 						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object (possible errors are: Not existing habit)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
 					}
 				}
 			}
@@ -646,6 +756,15 @@
 						"schema": {
 							"type": "integer"
 						}
+					},
+					{
+						"in": "query",
+						"name": "tracked_time",
+						"required": false,
+						"description": "The time of when the battery was charged, when omitted, the current time is used",
+						"schema": {
+							"type": "date-time"
+						}
 					}
 				],
 				"responses": {
@@ -655,6 +774,16 @@
 							"application/json": {
 								"schema": {
 									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object (possible errors are: Not existing battery)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
 								}
 							}
 						}
@@ -686,6 +815,16 @@
 							"application/json": {
 								"schema": {
 									"$ref": "#/components/schemas/BatteryDetailsResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object (possible errors are: Not existing battery)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
 								}
 							}
 						}
@@ -1095,13 +1234,34 @@
 					}
 				}
 			},
+			"ErrorExampleVoidApiActionResponse": {
+				"type": "object",
+				"properties": {
+					"success": {
+						"type": "boolean"
+					},
+					"error_message": {
+						"type": "string"
+					}
+				},
+				"example": {
+					"success": false,
+					"error_message": "The error message..."
+				}
+			},
 			"VoidApiActionResponse": {
 				"type": "object",
 				"properties": {
 					"success": {
-						"type": "boolean",
-						"default": true
+						"type": "boolean"
+					},
+					"error_message": {
+						"type": "string"
 					}
+				},
+				"example": {
+					"success": true,
+					"error_message": ""
 				}
 			},
 			"CurrentStockResponse": {
@@ -1117,6 +1277,14 @@
 						"type": "date",
 						"description": "The next best before date for this product"
 					}
+				}
+			}
+		},
+		"examples": {
+			"ErrorVoidApiActionResponseExample": {
+				"value": {
+					"success": false,
+					"error_message": "The error message..."
 				}
 			}
 		},

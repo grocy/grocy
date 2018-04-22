@@ -261,9 +261,9 @@
 
 	<script src="{{ $U('/js/extensions.js?v=') }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy.js?v=') }}{{ $version }}"></script>
-	<script src="{{ $U('/viewjs') }}/@yield('viewJsName').js?v={{ $version }}"></script>
 	@stack('pageScripts')
 	@stack('componentScripts')
+	<script src="{{ $U('/viewjs') }}/@yield('viewJsName').js?v={{ $version }}"></script>
 
 	@if(file_exists(__DIR__ . '/../../data/add_before_end_body.html'))
 		@php include __DIR__ . '/../../data/add_before_end_body.html' @endphp

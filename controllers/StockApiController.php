@@ -16,7 +16,14 @@ class StockApiController extends BaseApiController
 
 	public function ProductDetails(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->ApiResponse($this->StockService->GetProductDetails($args['productId']));
+		try
+		{
+			return $this->ApiResponse($this->StockService->GetProductDetails($args['productId']));
+		}
+		catch (\Exception $ex)
+		{
+			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+		}
 	}
 
 	public function AddProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
@@ -33,7 +40,15 @@ class StockApiController extends BaseApiController
 			$transactionType = $request->getQueryParams()['transactiontype'];
 		}
 
-		return $this->ApiResponse(array('success' => $this->StockService->AddProduct($args['productId'], $args['amount'], $bestBeforeDate, $transactionType)));
+		try
+		{
+			$this->StockService->AddProduct($args['productId'], $args['amount'], $bestBeforeDate, $transactionType);
+			return $this->VoidApiActionResponse($response);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+		}
 	}
 
 	public function ConsumeProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
@@ -50,7 +65,15 @@ class StockApiController extends BaseApiController
 			$transactionType = $request->getQueryParams()['transactiontype'];
 		}
 
-		return $this->ApiResponse(array('success' => $this->StockService->ConsumeProduct($args['productId'], $args['amount'], $spoiled, $transactionType)));
+		try
+		{
+			$this->StockService->ConsumeProduct($args['productId'], $args['amount'], $spoiled, $transactionType);
+			return $this->VoidApiActionResponse($response);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+		}
 	}
 
 	public function InventoryProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
@@ -61,7 +84,15 @@ class StockApiController extends BaseApiController
 			$bestBeforeDate = $request->getQueryParams()['bestbeforedate'];
 		}
 
-		return $this->ApiResponse(array('success' => $this->StockService->InventoryProduct($args['productId'], $args['newAmount'], $bestBeforeDate)));
+		try
+		{
+			$this->StockService->InventoryProduct($args['productId'], $args['newAmount'], $bestBeforeDate);
+			return $this->VoidApiActionResponse($response);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+		}
 	}
 
 	public function CurrentStock(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
@@ -69,9 +100,9 @@ class StockApiController extends BaseApiController
 		return $this->ApiResponse($this->StockService->GetCurrentStock());
 	}
 
-	public function AddmissingProductsToShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function AddMissingProductsToShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$this->StockService->AddMissingProductsToShoppingList();
-		return $this->ApiResponse(array('success' => true));
+		return $this->VoidApiActionResponse($response);
 	}
 }

@@ -24,12 +24,11 @@ class OpenApiController extends BaseApiController
 	{
 		$applicationService = new ApplicationService();
 
-		$specJson = json_decode(file_get_contents(__DIR__ . '/../grocy.openapi.json'));
-		$specJson->info->version = $applicationService->GetInstalledVersion();
-		$specJson->info->description = str_replace('PlaceHolderManageApiKeysUrl', $this->AppContainer->UrlManager->ConstructUrl('/manageapikeys'), $specJson->info->description);
-		$specJson->servers[0]->url = $this->AppContainer->UrlManager->ConstructUrl('/api');
+		$this->OpenApiSpec->info->version = $applicationService->GetInstalledVersion();
+		$this->OpenApiSpec->info->description = str_replace('PlaceHolderManageApiKeysUrl', $this->AppContainer->UrlManager->ConstructUrl('/manageapikeys'), $this->OpenApiSpec->info->description);
+		$this->OpenApiSpec->servers[0]->url = $this->AppContainer->UrlManager->ConstructUrl('/api');
 
-		return $this->ApiResponse($specJson);
+		return $this->ApiResponse($this->OpenApiSpec);
 	}
 
 	public function ApiKeysList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)

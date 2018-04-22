@@ -12,6 +12,11 @@ class BatteriesService extends BaseService
 
 	public function GetNextChargeTime(int $batteryId)
 	{
+		if (!$this->BatteryExists($batteryId))
+		{
+			throw new \Exception('Battery does not exist');
+		}
+		
 		$battery = $this->Database->batteries($batteryId);
 		$batteryLastLogRow = $this->DatabaseService->ExecuteDbQuery("SELECT * from batteries_current WHERE battery_id = $batteryId LIMIT 1")->fetch(\PDO::FETCH_OBJ);
 
@@ -29,6 +34,11 @@ class BatteriesService extends BaseService
 
 	public function GetBatteryDetails(int $batteryId)
 	{
+		if (!$this->BatteryExists($batteryId))
+		{
+			throw new \Exception('Battery does not exist');
+		}
+
 		$battery = $this->Database->batteries($batteryId);
 		$batteryChargeCylcesCount = $this->Database->battery_charge_cycles()->where('battery_id', $batteryId)->count();
 		$batteryLastChargedTime = $this->Database->battery_charge_cycles()->where('battery_id', $batteryId)->max('tracked_time');
@@ -42,6 +52,11 @@ class BatteriesService extends BaseService
 
 	public function TrackChargeCycle(int $batteryId, string $trackedTime)
 	{
+		if (!$this->BatteryExists($batteryId))
+		{
+			throw new \Exception('Battery does not exist');
+		}
+
 		$logRow = $this->Database->battery_charge_cycles()->createRow(array(
 			'battery_id' => $batteryId,
 			'tracked_time' => $trackedTime
@@ -49,5 +64,11 @@ class BatteriesService extends BaseService
 		$logRow->save();
 
 		return true;
+	}
+
+	private function BatteryExists($batteryId)
+	{
+		$batteryRow = $this->Database->batteries()->where('id = :1', $batteryId)->fetch();
+		return $batteryRow !== null;
 	}
 }

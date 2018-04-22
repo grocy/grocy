@@ -22,6 +22,11 @@ class StockService extends BaseService
 
 	public function GetProductDetails(int $productId)
 	{
+		if (!$this->ProductExists($productId))
+		{
+			throw new \Exception('Product does not exist');
+		}
+
 		$product = $this->Database->products($productId);
 		$productStockAmount = $this->Database->stock()->where('product_id', $productId)->sum('amount');
 		$productLastPurchased = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_PURCHASE)->max('purchased_date');
@@ -41,6 +46,11 @@ class StockService extends BaseService
 
 	public function AddProduct(int $productId, int $amount, string $bestBeforeDate, $transactionType)
 	{
+		if (!$this->ProductExists($productId))
+		{
+			throw new \Exception('Product does not exist');
+		}
+
 		if ($transactionType === self::TRANSACTION_TYPE_CONSUME || $transactionType === self::TRANSACTION_TYPE_PURCHASE || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
 		{
 			$stockId = uniqid();
@@ -68,12 +78,17 @@ class StockService extends BaseService
 		}
 		else
 		{
-			throw new Exception("Transaction type $transactionType is not valid (StockService.AddProduct)");
+			throw new \Exception("Transaction type $transactionType is not valid (StockService.AddProduct)");
 		}
 	}
 
 	public function ConsumeProduct(int $productId, int $amount, bool $spoiled, $transactionType)
 	{
+		if (!$this->ProductExists($productId))
+		{
+			throw new \Exception('Product does not exist');
+		}
+
 		if ($transactionType === self::TRANSACTION_TYPE_CONSUME || $transactionType === self::TRANSACTION_TYPE_PURCHASE || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
 		{
 			$productStockAmount = $this->Database->stock()->where('product_id', $productId)->sum('amount');
@@ -141,6 +156,11 @@ class StockService extends BaseService
 
 	public function InventoryProduct(int $productId, int $newAmount, string $bestBeforeDate)
 	{
+		if (!$this->ProductExists($productId))
+		{
+			throw new \Exception('Product does not exist');
+		}
+		
 		$productStockAmount = $this->Database->stock()->where('product_id', $productId)->sum('amount');
 
 		if ($newAmount > $productStockAmount)
@@ -181,5 +201,11 @@ class StockService extends BaseService
 				$shoppinglistRow->save();
 			}
 		}
+	}
+
+	private function ProductExists($productId)
+	{
+		$productRow = $this->Database->products()->where('id = :1', $productId)->fetch();
+		return $productRow !== null;
 	}
 }

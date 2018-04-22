@@ -15,6 +15,11 @@ class HabitsService extends BaseService
 
 	public function GetNextHabitTime(int $habitId)
 	{
+		if (!$this->HabitExists($habitId))
+		{
+			throw new \Exception('Habit does not exist');
+		}
+
 		$habit = $this->Database->habits($habitId);
 		$habitLastLogRow = $this->DatabaseService->ExecuteDbQuery("SELECT * from habits_current WHERE habit_id = $habitId LIMIT 1")->fetch(\PDO::FETCH_OBJ);
 
@@ -31,6 +36,11 @@ class HabitsService extends BaseService
 
 	public function GetHabitDetails(int $habitId)
 	{
+		if (!$this->HabitExists($habitId))
+		{
+			throw new \Exception('Habit does not exist');
+		}
+
 		$habit = $this->Database->habits($habitId);
 		$habitTrackedCount = $this->Database->habits_log()->where('habit_id', $habitId)->count();
 		$habitLastTrackedTime = $this->Database->habits_log()->where('habit_id', $habitId)->max('tracked_time');
@@ -44,6 +54,11 @@ class HabitsService extends BaseService
 
 	public function TrackHabit(int $habitId, string $trackedTime)
 	{
+		if (!$this->HabitExists($habitId))
+		{
+			throw new \Exception('Habit does not exist');
+		}
+		
 		$logRow = $this->Database->habits_log()->createRow(array(
 			'habit_id' => $habitId,
 			'tracked_time' => $trackedTime
@@ -51,5 +66,11 @@ class HabitsService extends BaseService
 		$logRow->save();
 
 		return true;
+	}
+
+	private function HabitExists($habitId)
+	{
+		$habitRow = $this->Database->habits()->where('id = :1', $habitId)->fetch();
+		return $habitRow !== null;
 	}
 }
