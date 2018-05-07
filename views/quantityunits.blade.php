@@ -10,7 +10,7 @@
 	<h1 class="page-header">
 		@yield('title')
 		<a class="btn btn-default" href="{{ $U('/quantityunit/new') }}" role="button">
-			<i class="fa fa-plus"></i>&nbsp;Add
+			<i class="fa fa-plus"></i>&nbsp;{{ $L('Add') }}
 		</a>
 	</h1>
 
