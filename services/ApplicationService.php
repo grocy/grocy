@@ -13,14 +13,11 @@ class ApplicationService extends BaseService
 	}
 
 	private $InstalledVersion;
-	/**
-	 * @return string
-	 */
 	public function GetInstalledVersion()
 	{
 		if ($this->InstalledVersion == null)
 		{
-			$this->InstalledVersion = preg_replace("/\r|\n/", '', file_get_contents(__DIR__ . '/../version.txt'));
+			$this->InstalledVersion = json_decode(file_get_contents(__DIR__ . '/../version.json'));
 		}
 
 		return $this->InstalledVersion;

@@ -86,14 +86,13 @@
 				</div>
 				<div class="modal-body">
 					grocy is a project by
-					<a href="https://berrnd.de" target="_blank">Bernd Bestel</a>
+					<a href="https://berrnd.de" target="_blank">Bernd Bestel</a><br>
+					Created with passion since 2017<br>
 					<br>
-					Created with passion since 2017
+					Version {{ $version }}<br>
+					{{ $L('Released on') }} {{ $releaseDate }} <time class="timeago timeago-contextual" datetime="{{ $releaseDate }}"></time><br>
 					<br>
-					Version {{ $version }}
-					<br>
-					Life runs on code
-					<br>
+					Life runs on code<br>
 					<a href="https://github.com/berrnd/grocy" target="_blank">
 						<i class="fa fa-github"></i>
 					</a>

@@ -13,7 +13,9 @@ class BaseController
 		$this->Database = $databaseService->GetDbConnection();
 
 		$applicationService = new ApplicationService();
-		$container->view->set('version', $applicationService->GetInstalledVersion());
+		$versionInfo = $applicationService->GetInstalledVersion();
+		$container->view->set('version', $versionInfo->Version);
+		$container->view->set('releaseDate', $versionInfo->ReleaseDate);
 
 		$localizationService = new LocalizationService(CULTURE);
 		$container->view->set('localizationStrings', $localizationService->GetCurrentCultureLocalizations());
