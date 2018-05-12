@@ -9,8 +9,7 @@
 @section('viewJsName', 'habitform')
 
 @section('content')
-<div class="col-sm-3 col-sm-offset-3 col-md-4 col-md-offset-2">
-
+<div class="col-lg-4 col-xs-12">
 	<h1 class="page-header">@yield('title')</h1>
 
 	<script>Grocy.EditMode = '{{ $mode }}';</script>
@@ -53,6 +52,5 @@
 		<button id="save-habit-button" type="submit" class="btn btn-default">{{ $L('Save') }}</button>
 
 	</form>
-
 </div>
 @stop

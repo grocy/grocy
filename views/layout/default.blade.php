@@ -22,6 +22,7 @@
 	<link href="{{ $U('/bower_components/toastr/toastr.min.css?v=') }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/bower_components/tagmanager/tagmanager.css?v=') }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css?v=') }}{{ $version }}" rel="stylesheet">
+	<link href="{{ $U('/bower_components/bootstrap-side-navbar/source/assets/stylesheets/navbar-fixed-side.css?v=') }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/components_unmanaged/noto-sans-v6-latin/noto-sans-v6-latin.css?v=') }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/css/grocy.css?v=') }}{{ $version }}" rel="stylesheet">
 	@stack('pageStyles')
@@ -48,113 +49,12 @@
 			</div>
 
 			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ HTTP_USER }} <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li>
-								<a class="discrete-link logout-button" href="{{ $U('/logout') }}"><i class="fa fa-sign-out fa-fw"></i>&nbsp;{{ $L('Logout') }}</a>
-							</li>
-							<li role="separator" class="divider"></li>
-							<li>
-								<a class="discrete-link" href="{{ $U('/manageapikeys') }}"><i class="fa fa-handshake-o fa-fw"></i>&nbsp;{{ $L('Manage API keys') }}</a>
-							</li>
-							<li>
-								<a class="discrete-link" target="_blank" href="{{ $U('/api') }}"><i class="fa fa-book"></i>&nbsp;{{ $L('REST API & data model documentation') }}</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
+				@include('components.usermenu')
 			</div>
 
 			<div id="navbar-mobile" class="navbar-collapse collapse">
-
-				<ul class="nav navbar-nav navbar-right">
-					<li data-nav-for-page="stockoverview">
-						<a class="discrete-link" href="{{ $U('/stockoverview') }}"><i class="fa fa-tachometer fa-fw"></i>&nbsp;{{ $L('Stock overview') }}</a>
-					</li>
-					<li data-nav-for-page="habitsoverview">
-						<a class="discrete-link" href="{{ $U('/habitsoverview') }}"><i class="fa fa-tachometer fa-fw"></i>&nbsp;{{ $L('Habits overview') }}</a>
-					</li>
-					<li data-nav-for-page="batteriesoverview">
-						<a class="discrete-link" href="{{ $U('/batteriesoverview') }}"><i class="fa fa-tachometer fa-fw"></i>&nbsp;{{ $L('Batteries overview') }}</a>
-					</li>
-				</ul>
-
-				<ul class="nav navbar-nav navbar-right">
-					<li class="disabled"><a href="#"><strong>{{ $L('Record data') }}</strong></a></li>
-					<li data-nav-for-page="purchase">
-						<a class="discrete-link" href="{{ $U('/purchase') }}"><i class="fa fa-shopping-cart fa-fw"></i>&nbsp;{{ $L('Purchase') }}</a>
-					</li>
-					<li data-nav-for-page="consume">
-						<a class="discrete-link" href="{{ $U('/consume') }}"><i class="fa fa-cutlery fa-fw"></i>&nbsp;{{ $L('Consume') }}</a>
-					</li>
-					<li data-nav-for-page="shoppinglist">
-						<a class="discrete-link" href="{{ $U('/shoppinglist') }}"><i class="fa fa-shopping-bag fa-fw"></i>&nbsp;{{ $L('Shopping list') }}</a>
-					</li>
-					<li data-nav-for-page="inventory">
-						<a class="discrete-link" href="{{ $U('/inventory') }}"><i class="fa fa-list fa-fw"></i>&nbsp;{{ $L('Inventory') }}</a>
-					</li>
-					<li data-nav-for-page="habittracking">
-						<a class="discrete-link" href="{{ $U('/habittracking') }}"><i class="fa fa-play fa-fw"></i>&nbsp;{{ $L('Habit tracking') }}</a>
-					</li>
-					<li data-nav-for-page="batterytracking">
-						<a class="discrete-link" href="{{ $U('/batterytracking') }}"><i class="fa fa-fire fa-fw"></i>&nbsp;{{ $L('Battery tracking') }}</a>
-					</li>
-				</ul>
-
-				<ul class="nav navbar-nav navbar-right">
-					<li class="disabled"><a href="#"><strong>{{ $L('Manage master data') }}</strong></a></li>
-					<li data-nav-for-page="products">
-						<a class="discrete-link" href="{{ $U('/products') }}"><i class="fa fa-product-hunt fa-fw"></i>&nbsp;{{ $L('Products') }}</a>
-					</li>
-					<li data-nav-for-page="locations">
-						<a class="discrete-link" href="{{ $U('/locations') }}"><i class="fa fa-map-marker fa-fw"></i>&nbsp;{{ $L('Locations') }}</a>
-					</li>
-					<li data-nav-for-page="quantityunits">
-						<a class="discrete-link" href="{{ $U('/quantityunits') }}"><i class="fa fa-balance-scale fa-fw"></i>&nbsp;{{ $L('Quantity units') }}</a>
-					</li>
-					<li data-nav-for-page="habits">
-						<a class="discrete-link" href="{{ $U('/habits') }}"><i class="fa fa-refresh fa-fw"></i>&nbsp;{{ $L('Habits') }}</a>
-					</li>
-					<li data-nav-for-page="batteries">
-						<a class="discrete-link" href="{{ $U('/batteries') }}"><i class="fa fa-battery-three-quarters fa-fw"></i>&nbsp;{{ $L('Batteries') }}</a>
-					</li>
-				</ul>
-
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ HTTP_USER }} <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li>
-								<a class="discrete-link logout-button" href="{{ $U('/logout') }}"><i class="fa fa-sign-out fa-fw"></i>&nbsp;{{ $L('Logout') }}</a>
-							</li>
-							<li role="separator" class="divider"></li>
-							<li>
-								<a class="discrete-link" href="{{ $U('/manageapikeys') }}"><i class="fa fa-handshake-o fa-fw"></i>&nbsp;{{ $L('Manage API keys') }}</a>
-							</li>
-							<li>
-								<a class="discrete-link" target="_blank" href="{{ $U('/api') }}"><i class="fa fa-book"></i>&nbsp;{{ $L('REST API & data model documentation') }}</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-
-				<div class="nav-copyright nav nav-sidebar">
-					grocy is a project by
-					<a class="discrete-link" href="https://berrnd.de" target="_blank">Bernd Bestel</a>
-					<br>
-					Created with passion since 2017
-					<br>
-					Version {{ $version }}
-					<br>
-					Life runs on code
-					<br>
-					<a class="discrete-link" href="https://github.com/berrnd/grocy" target="_blank">
-						<i class="fa fa-github"></i>
-					</a>
-				</div>
-
+				@include('components.menu')
+				@include('components.usermenu')
 			</div>
 		</div>
 	</nav>
@@ -162,64 +62,31 @@
 	<div class="container-fluid">
 		<div class="row">
 
-			<div class="col-sm-3 col-md-2 sidebar">
+			<div id="sidebar" class="col-sm-3 col-lg-2">
+				<nav class="navbar navbar-default navbar-fixed-side hidden-xs">
+					<div class="navbar-collapse collapse">
+						@include('components.menu')
+					</div>
+				</nav>
+			</div>
 
-				<ul class="nav nav-sidebar">
-					<li data-nav-for-page="stockoverview">
-						<a class="discrete-link" href="{{ $U('/stockoverview') }}"><i class="fa fa-tachometer fa-fw"></i>&nbsp;{{ $L('Stock overview') }}</a>
-					</li>
-					<li data-nav-for-page="habitsoverview">
-						<a class="discrete-link" href="{{ $U('/habitsoverview') }}"><i class="fa fa-tachometer fa-fw"></i>&nbsp;{{ $L('Habits overview') }}</a>
-					</li>
-					<li data-nav-for-page="batteriesoverview">
-						<a class="discrete-link" href="{{ $U('/batteriesoverview') }}"><i class="fa fa-tachometer fa-fw"></i>&nbsp;{{ $L('Batteries overview') }}</a>
-					</li>
-				</ul>
+			<div class="col-sm-9 col-lg-10">
+				@yield('content')
+			</div>
 
-				<ul class="nav nav-sidebar">
-					<li class="disabled"><a href="#"><strong>{{ $L('Record data') }}</strong></a></li>
-					<li data-nav-for-page="purchase">
-						<a class="discrete-link" href="{{ $U('/purchase') }}"><i class="fa fa-shopping-cart fa-fw"></i>&nbsp;{{ $L('Purchase') }}</a>
-					</li>
-					<li data-nav-for-page="consume">
-						<a class="discrete-link" href="{{ $U('/consume') }}"><i class="fa fa-cutlery fa-fw"></i>&nbsp;{{ $L('Consume') }}</a>
-					</li>
-					<li data-nav-for-page="shoppinglist">
-						<a class="discrete-link" href="{{ $U('/shoppinglist') }}"><i class="fa fa-shopping-bag fa-fw"></i>&nbsp;{{ $L('Shopping list') }}</a>
-					</li>
-					<li data-nav-for-page="inventory">
-						<a class="discrete-link" href="{{ $U('/inventory') }}"><i class="fa fa-list fa-fw"></i>&nbsp;{{ $L('Inventory') }}</a>
-					</li>
-					<li data-nav-for-page="habittracking">
-						<a class="discrete-link" href="{{ $U('/habittracking') }}"><i class="fa fa-play fa-fw"></i>&nbsp;{{ $L('Habit tracking') }}</a>
-					</li>
-					<li data-nav-for-page="batterytracking">
-						<a class="discrete-link" href="{{ $U('/batterytracking') }}"><i class="fa fa-fire fa-fw"></i>&nbsp;{{ $L('Battery tracking') }}</a>
-					</li>
-				</ul>
+		</div>
+	</div>
 
-				<ul class="nav nav-sidebar">
-					<li class="disabled"><a href="#"><strong>{{ $L('Manage master data') }}</strong></a></li>
-					<li data-nav-for-page="products">
-						<a class="discrete-link" href="{{ $U('/products') }}"><i class="fa fa-product-hunt fa-fw"></i>&nbsp;{{ $L('Products') }}</a>
-					</li>
-					<li data-nav-for-page="locations">
-						<a class="discrete-link" href="{{ $U('/locations') }}"><i class="fa fa-map-marker fa-fw"></i>&nbsp;{{ $L('Locations') }}</a>
-					</li>
-					<li data-nav-for-page="quantityunits">
-						<a class="discrete-link" href="{{ $U('/quantityunits') }}"><i class="fa fa-balance-scale fa-fw"></i>&nbsp;{{ $L('Quantity units') }}</a>
-					</li>
-					<li data-nav-for-page="habits">
-						<a class="discrete-link" href="{{ $U('/habits') }}"><i class="fa fa-refresh fa-fw"></i>&nbsp;{{ $L('Habits') }}</a>
-					</li>
-					<li data-nav-for-page="batteries">
-						<a class="discrete-link" href="{{ $U('/batteries') }}"><i class="fa fa-battery-three-quarters fa-fw"></i>&nbsp;{{ $L('Batteries') }}</a>
-					</li>
-				</ul>
-
-				<div class="nav-copyright nav nav-sidebar">
+	<div class="modal fade" id="about-modal" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content text-center">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">{{ $L('About grocy') }}</h4>
+				</div>
+				<div class="modal-body">
 					grocy is a project by
-					<a class="discrete-link" href="https://berrnd.de" target="_blank">Bernd Bestel</a>
+					<a href="https://berrnd.de" target="_blank">Bernd Bestel</a>
 					<br>
 					Created with passion since 2017
 					<br>
@@ -227,15 +94,14 @@
 					<br>
 					Life runs on code
 					<br>
-					<a class="discrete-link" href="https://github.com/berrnd/grocy" target="_blank">
+					<a href="https://github.com/berrnd/grocy" target="_blank">
 						<i class="fa fa-github"></i>
 					</a>
 				</div>
-
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">{{ $L('Close') }}</button>
+				</div>
 			</div>
-
-			@yield('content')
-
 		</div>
 	</div>
 

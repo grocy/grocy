@@ -5,8 +5,7 @@
 @section('viewJsName', 'habittracking')
 
 @section('content')
-<div class="col-sm-3 col-sm-offset-3 col-md-3 col-md-offset-2">
-
+<div class="col-lg-4 col-xs-12">
 	<h1 class="page-header">@yield('title')</h1>
 
 	<form id="habittracking-form">
@@ -30,10 +29,9 @@
 		<button id="save-habittracking-button" type="submit" class="btn btn-default">{{ $L('OK') }}</button>
 
 	</form>
-
 </div>
 
-<div class="col-sm-6 col-md-5 col-lg-3">
+<div class="col-lg-4 col-xs-12">
 	@include('components.habitcard')
 </div>
 @stop

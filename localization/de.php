@@ -155,5 +155,7 @@ return array(
 	'Warranty ends' => 'Garantie endet',
 	'TV remote control' => 'TV Fernbedienung',
 	'Alarm clock' => 'Wecker',
-	'Heat remote control' => 'Fernbedienung Heizung'
+	'Heat remote control' => 'Fernbedienung Heizung',
+	'About grocy' => 'Über grocy',
+	'Close' => 'Schließen'
 );

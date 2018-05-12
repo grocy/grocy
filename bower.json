@@ -19,6 +19,7 @@
 		"tagmanager": "^3.0.2",
 		"eonasdan-bootstrap-datetimepicker": "^4.17.47",
 		"swagger-ui": "^3.13.4",
-		"jquery-ui": "^1.12.1"
+		"jquery-ui": "^1.12.1",
+		"bootstrap-side-navbar": "^1.0.1"
 	}
 }
