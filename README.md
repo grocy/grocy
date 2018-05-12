@@ -35,7 +35,7 @@ The following shorthands are available:
   - Example: `0517` will be converted to `2018-05-17`
 - `YYYYMMDD` gets expanded to the proper ISO-8601 notation
   - Example: `20190417` will be converted to `2019-04-17`
-- `x` gets expanded to `2099-12-31` (which I use for products which never expire)
+- `x` gets expanded to `2999-12-31` (which I use for products which never expire)
 - Down/up arrow keys will increase/decrease the date by one day
 - Right/left arrow keys will increase/decrease the date by 1 week
 
@@ -53,6 +53,9 @@ Database schema migration is automatically done when visiting the root (`/`) rou
 
 ### Demo mode
 When the file `data/demo.txt` exists, the application will work in a demo mode which means authentication is disabled and some demo data will be generated during the database schema migration.
+
+### Other things
+When the file `data/add_before_end_body.html` exists, the contents of the file be added just before `</body>` on every page, useful for your own JS/CSS without to have to modify the application itself.
 
 ## Screenshots
 #### Dashboard
