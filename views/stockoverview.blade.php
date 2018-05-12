@@ -9,9 +9,9 @@
 
 <div class="container-fluid">
 	<div class="row">
-		<p class="btn btn-lg btn-warning no-real-button">{{ $L('#1 products expiring within the next #2 days', $countExpiringNextXDays, $nextXDays) }}</p>
-		<p class="btn btn-lg btn-danger no-real-button">{{ $L('#1 products are already expired', $countAlreadyExpired) }}</p>
-		<p class="btn btn-lg btn-info no-real-button">{{ $L('#1 products are below defined min. stock amount', count($missingProducts)) }}</p>
+		<p class="btn btn-lg btn-warning no-real-button responsive-button">{{ $L('#1 products expiring within the next #2 days', $countExpiringNextXDays, $nextXDays) }}</p>
+		<p class="btn btn-lg btn-danger no-real-button responsive-button">{{ $L('#1 products are already expired', $countAlreadyExpired) }}</p>
+		<p class="btn btn-lg btn-info no-real-button responsive-button">{{ $L('#1 products are below defined min. stock amount', count($missingProducts)) }}</p>
 	</div>
 </div>
 

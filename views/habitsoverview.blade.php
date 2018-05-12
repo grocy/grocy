@@ -9,8 +9,8 @@
 
 <div class="container-fluid">
 	<div class="row">
-		<p class="btn btn-lg btn-warning no-real-button">{{ $L('#1 habits are due to be done within the next #2 days', $countDueNextXDays, $nextXDays) }}</p>
-		<p class="btn btn-lg btn-danger no-real-button">{{ $L('#1 habits are overdue to be done', $countOverdue) }}</p>
+		<p class="btn btn-lg btn-warning no-real-button responsive-button">{{ $L('#1 habits are due to be done within the next #2 days', $countDueNextXDays, $nextXDays) }}</p>
+		<p class="btn btn-lg btn-danger no-real-button responsive-button">{{ $L('#1 habits are overdue to be done', $countOverdue) }}</p>
 	</div>
 </div>
 

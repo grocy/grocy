@@ -108,6 +108,10 @@ td {
      vertical-align: middle !important;
 }
 
+.responsive-button {
+    white-space: normal;
+}
+
 .discrete-link {
 	color: inherit !important;
 	transition: all 0.3s !important;
