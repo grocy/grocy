@@ -112,6 +112,19 @@ return array(
 	'This means #1 will be added to stock' => 'Das bedeutet #1 wird dem Bestand hinzugefügt',
 	'This means #1 will be removed from stock' => 'Das bedeutet #1 wird aus dem Bestand entfernt',
 	'This means it is estimated that a new execution of this habit is tracked #1 days after the last was tracked' => 'Das bedeutet, dass eine erneute Ausführung der Gewohnheit #1 Tage nach der letzten Ausführung geplant wird',
+	'Removed #1 #2 of #3 from stock' => '#1 #2 #3 aus dem Bestand entfernt',
+	'About grocy' => 'Über grocy',
+	'Close' => 'Schließen',
+	'#1 batteries are due to be charged within the next #2 days' => '#1 Batterien müssen in den nächsten #2 Tagen geladen werden',
+	'#1 batteries are overdue to be charged' => '#1 Batterien sind überfällig',
+	'#1 habits are due to be done within the next #2 days' => '#1 Gewohnheiten stehen in den nächsten #2 Tagen an',
+	'#1 habits are overdue to be done' => '#1 Gewohnheiten sind überfällig',
+	'Released on' => 'Veröffentlicht am',
+	'Consume 1 #1 of #2' => 'Verbrauche 1 #1 #2',
+	'Added #1 #2 of #3 to stock' => '#1 #2 #3 dem Bestand hinzugefügt',
+	'Stock amount of #1 is now #2 #3' => 'Es sind nun #2 #3 #1 im Bestand',
+	'Tracked execution of habit #1 on #2' => 'Ausführung von #1 am #2 erfasst',
+	'Tracked charge cylce of battery #1 on #2' => 'Ladezyklus für Batterie #1 am #2 erfasst',
 	
 	//Constants
 	'manually' => 'Manuell',
@@ -155,13 +168,5 @@ return array(
 	'Warranty ends' => 'Garantie endet',
 	'TV remote control' => 'TV Fernbedienung',
 	'Alarm clock' => 'Wecker',
-	'Heat remote control' => 'Fernbedienung Heizung',
-	'About grocy' => 'Über grocy',
-	'Close' => 'Schließen',
-	'#1 batteries are due to be charged within the next #2 days' => '#1 Batterien müssen in den nächsten #2 Tagen geladen werden',
-	'#1 batteries are overdue to be charged' => '#1 Batterien sind überfällig',
-	'#1 habits are due to be done within the next #2 days' => '#1 Gewohnheiten stehen in den nächsten #2 Tagen an',
-	'#1 habits are overdue to be done' => '#1 Gewohnheiten sind überfällig',
-	'Released on' => 'Veröffentlicht am',
-	'Consume 1 #1 of #2' => 'Verbrauche 1 #1 von #2'
+	'Heat remote control' => 'Fernbedienung Heizung'
 );

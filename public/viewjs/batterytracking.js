@@ -10,7 +10,7 @@
 			Grocy.Api.Get('batteries/track-charge-cycle/' + jsonForm.battery_id + '?tracked_time=' + $('#tracked_time').val(),
 				function(result)
 				{
-					toastr.success('Tracked charge cylce of battery ' + batteryDetails.battery.name + ' on ' + $('#tracked_time').val());
+					toastr.success(L('Tracked charge cylce of battery #1 on #2', batteryDetails.battery.name, $('#tracked_time').val()));
 
 					$('#battery_id').val('');
 					$('#battery_id_text_input').focus();

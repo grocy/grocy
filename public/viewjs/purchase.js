@@ -34,7 +34,7 @@
 						);
 					}
 
-					toastr.success('Added ' + amount + ' ' + productDetails.quantity_unit_stock.name + ' of ' + productDetails.product.name + ' to stock');
+					toastr.success(L('Added #1 #2 of #3 to stock', amount, productDetails.quantity_unit_stock.name, productDetails.product.name));
 
 					if (addBarcode !== undefined)
 					{

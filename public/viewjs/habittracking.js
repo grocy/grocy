@@ -10,7 +10,7 @@
 			Grocy.Api.Get('habits/track-habit-execution/' + jsonForm.habit_id + '?tracked_time=' + $('#tracked_time').val(),
 				function(result)
 				{
-					toastr.success('Tracked execution of habit ' + habitDetails.habit.name + ' on ' + $('#tracked_time').val());
+					toastr.success(L('Tracked execution of habit #1 on #2', habitDetails.habit.name, $('#tracked_time').val()));
 
 					$('#habit_id').val('');
 					$('#habit_id_text_input').focus();

@@ -27,7 +27,7 @@ $(document).on('click', '.product-consume-button', function(e)
 				$('#product-' + productId + '-amount').text(newAmount);
 			}	
 
-			toastr.success('Removed 1 ' + productQuName + ' of ' + productName + ' from stock');
+			toastr.success(L('Removed #1 #2 of #3 from stock', 1, productQuName, productName));
 		},
 		function(xhr)
 		{

@@ -32,7 +32,7 @@
 						);
 					}
 
-					toastr.success('Stock amount of ' + productDetails.product.name  + ' is now ' + jsonForm.new_amount.toString() + ' ' + productDetails.quantity_unit_stock.name);
+					toastr.success(L('Stock amount of #1 is now #2 #3', productDetails.product.name, jsonForm.new_amount, productDetails.quantity_unit_stock.name));
 
 					if (addBarcode !== undefined)
 					{
