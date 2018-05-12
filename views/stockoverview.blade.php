@@ -21,6 +21,7 @@
 	<table id="stock-overview-table" class="table table-striped">
 		<thead>
 			<tr>
+				<th>#</th>
 				<th>{{ $L('Product') }}</th>
 				<th>{{ $L('Amount') }}</th>
 				<th>{{ $L('Next best before date') }}</th>
@@ -28,12 +29,20 @@
 		</thead>
 		<tbody>
 			@foreach($currentStock as $currentStockEntry) 
-			<tr class="@if($currentStockEntry->best_before_date < date('Y-m-d', strtotime('-1 days'))) error-bg @elseif($currentStockEntry->best_before_date < date('Y-m-d', strtotime('+5 days'))) warning-bg @elseif (FindObjectInArrayByPropertyValue($missingProducts, 'id', $currentStockEntry->product_id) !== null) info-bg @endif">
+			<tr id="product-{{ $currentStockEntry->product_id }}-row" class="@if($currentStockEntry->best_before_date < date('Y-m-d', strtotime('-1 days'))) error-bg @elseif($currentStockEntry->best_before_date < date('Y-m-d', strtotime('+5 days'))) warning-bg @elseif (FindObjectInArrayByPropertyValue($missingProducts, 'id', $currentStockEntry->product_id) !== null) info-bg @endif">
+				<td class="fit-content">
+					<a class="btn btn-danger btn-xs product-consume-button" href="#" title="{{ $L('Consume 1 #1 of #2', FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name) }}"
+						data-product-id="{{ $currentStockEntry->product_id }}"
+						data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}"
+						data-product-qu-name="{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name }}">
+						<i class="fa fa-cutlery"></i>
+					</a>
+				</td>
 				<td>
 					{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}
 				</td>
 				<td>
-					{{ $currentStockEntry->amount . ' ' . FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name }}
+					<span id="product-{{ $currentStockEntry->product_id }}-amount">{{ $currentStockEntry->amount }}</span> {{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name }}
 				</td>
 				<td>
 					{{ $currentStockEntry->best_before_date }}
