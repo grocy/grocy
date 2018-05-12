@@ -104,6 +104,10 @@
 	padding-left: 25px;
 }
 
+td {
+     vertical-align: middle !important;
+}
+
 .discrete-link {
 	color: inherit !important;
 	transition: all 0.3s !important;
