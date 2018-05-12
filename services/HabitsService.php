@@ -26,7 +26,7 @@ class HabitsService extends BaseService
 		switch($habit->period_type)
 		{
 			case self::HABIT_TYPE_MANUALLY:
-				return date('Y-m-d H:i:s');
+				return date('2999-12-31 23:59:59');
 			case self::HABIT_TYPE_DYNAMIC_REGULAR:
 				return date('Y-m-d H:i:s', strtotime('+' . $habit->period_days . ' day', strtotime($habitLastLogRow->last_tracked_time)));
 		}

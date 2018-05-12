@@ -26,7 +26,7 @@ class BatteriesService extends BaseService
 		}
 		else
 		{
-			return date('Y-m-d H:i:s');
+			return date('2999-12-31 23:59:59');
 		}
 
 		return null;

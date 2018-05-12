@@ -17,11 +17,18 @@ class StockController extends BaseController
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
+		$currentStock = $this->StockService->GetCurrentStock();
+		$nextXDays = 5;
+		$countExpiringNextXDays = count(FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d', strtotime('+5 days')), '<'));
+		$countAlreadyExpired = count(FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d', strtotime('-1 days')), '<'));
 		return $this->AppContainer->view->render($response, 'stockoverview', [
 			'products' => $this->Database->products(),
 			'quantityunits' => $this->Database->quantity_units(),
-			'currentStock' => $this->StockService->GetCurrentStock(),
-			'missingProducts' => $this->StockService->GetMissingProducts()
+			'currentStock' => $currentStock,
+			'missingProducts' => $this->StockService->GetMissingProducts(),
+			'nextXDays' => $nextXDays,
+			'countExpiringNextXDays' => $countExpiringNextXDays,
+			'countAlreadyExpired' => $countAlreadyExpired
 		]);
 	}
 

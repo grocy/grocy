@@ -157,5 +157,9 @@ return array(
 	'Alarm clock' => 'Wecker',
 	'Heat remote control' => 'Fernbedienung Heizung',
 	'About grocy' => 'Über grocy',
-	'Close' => 'Schließen'
+	'Close' => 'Schließen',
+	'#1 batteries are due to be charged within the next #2 days' => '#1 Batterien müssen in den nächsten #2 Tagen geladen werden',
+	'#1 batteries are overdue to be charged' => '#1 Batterien sind überfällig',
+	'#1 habits are due to be done within the next #2 days' => '#1 Gewohnheiten stehen in den nächsten #2 Tagen an',
+	'#1 habits are overdue to be done' => '#1 Gewohnheiten sind überfällig'
 );

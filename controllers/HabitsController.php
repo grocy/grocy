@@ -22,10 +22,16 @@ class HabitsController extends BaseController
 			$nextHabitTimes[$habit->id] = $this->HabitsService->GetNextHabitTime($habit->id);
 		}
 
+		$nextXDays = 5;
+		$countDueNextXDays = count(FindAllItemsInArrayByValue($nextHabitTimes, date('Y-m-d', strtotime("+$nextXDays days")), '<'));
+		$countOverdue = count(FindAllItemsInArrayByValue($nextHabitTimes, date('Y-m-d', strtotime('-1 days')), '<'));
 		return $this->AppContainer->view->render($response, 'habitsoverview', [
 			'habits' => $this->Database->habits(),
 			'currentHabits' => $this->HabitsService->GetCurrentHabits(),
-			'nextHabitTimes' => $nextHabitTimes
+			'nextHabitTimes' => $nextHabitTimes,
+			'nextXDays' => $nextXDays,
+			'countDueNextXDays' => $countDueNextXDays - $countOverdue,
+			'countOverdue' => $countOverdue
 		]);
 	}
 

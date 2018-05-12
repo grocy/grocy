@@ -45,6 +45,38 @@ function FindAllObjectsInArrayByPropertyValue($array, $propertyName, $propertyVa
 	return $returnArray;
 }
 
+function FindAllItemsInArrayByValue($array, $value, $operator = '==')
+{
+	$returnArray = array();
+
+	foreach($array as $item)
+	{
+		switch($operator)
+		{
+			case '==':
+				if($item == $value)
+				{
+					$returnArray[] = $item;
+				}
+				break;
+			case '>':
+				if($item > $value)
+				{
+					$returnArray[] = $item;
+				}
+				break;
+			case '<':
+				if($item < $value)
+				{
+					$returnArray[] = $item;
+				}
+				break;
+		}
+	}
+
+	return $returnArray;
+}
+
 function SumArrayValue($array, $propertyName)
 {
 	$sum = 0;

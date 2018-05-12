@@ -9,8 +9,8 @@
 
 <div class="container-fluid">
 	<div class="row">
-		<p class="btn btn-lg btn-warning no-real-button">{{ $L('#1 products expiring within the next #2 days', count(FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d', strtotime('+5 days')), '<')), 5) }}</p>
-		<p class="btn btn-lg btn-danger no-real-button">{{ $L('#1 products are already expired', count(FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d', strtotime('-1 days')), '<'))) }}</p>
+		<p class="btn btn-lg btn-warning no-real-button">{{ $L('#1 products expiring within the next #2 days', $countExpiringNextXDays, $nextXDays) }}</p>
+		<p class="btn btn-lg btn-danger no-real-button">{{ $L('#1 products are already expired', $countAlreadyExpired) }}</p>
 		<p class="btn btn-lg btn-info no-real-button">{{ $L('#1 products are below defined min. stock amount', count($missingProducts)) }}</p>
 	</div>
 </div>

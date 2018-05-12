@@ -22,10 +22,16 @@ class BatteriesController extends BaseController
 			$nextChargeTimes[$battery->id] = $this->BatteriesService->GetNextChargeTime($battery->id);
 		}
 
+		$nextXDays = 5;
+		$countDueNextXDays = count(FindAllItemsInArrayByValue($nextChargeTimes, date('Y-m-d', strtotime("+$nextXDays days")), '<'));
+		$countOverdue = count(FindAllItemsInArrayByValue($nextChargeTimes, date('Y-m-d', strtotime('-1 days')), '<'));
 		return $this->AppContainer->view->render($response, 'batteriesoverview', [
 			'batteries' => $this->Database->batteries(),
 			'current' => $this->BatteriesService->GetCurrent(),
-			'nextChargeTimes' => $nextChargeTimes
+			'nextChargeTimes' => $nextChargeTimes,
+			'nextXDays' => $nextXDays,
+			'countDueNextXDays' => $countDueNextXDays - $countOverdue,
+			'countOverdue' => $countOverdue
 		]);
 	}
 
