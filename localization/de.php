@@ -120,11 +120,13 @@ return array(
 	'#1 habits are due to be done within the next #2 days' => '#1 Gewohnheiten stehen in den nächsten #2 Tagen an',
 	'#1 habits are overdue to be done' => '#1 Gewohnheiten sind überfällig',
 	'Released on' => 'Veröffentlicht am',
-	'Consume 1 #1 of #2' => 'Verbrauche 1 #1 #2',
+	'Consume #3 #1 of #2' => 'Verbrauche #3 #1 #2',
 	'Added #1 #2 of #3 to stock' => '#1 #2 #3 dem Bestand hinzugefügt',
 	'Stock amount of #1 is now #2 #3' => 'Es sind nun #2 #3 #1 im Bestand',
 	'Tracked execution of habit #1 on #2' => 'Ausführung von #1 am #2 erfasst',
 	'Tracked charge cylce of battery #1 on #2' => 'Ladezyklus für Batterie #1 am #2 erfasst',
+	'Consume all #1 which are currently in stock' => 'Verbrauche den kompletten Bestand von #1',
+	'All' => 'Alle',
 	
 	//Constants
 	'manually' => 'Manuell',
