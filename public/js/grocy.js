@@ -26,7 +26,11 @@ if (!Grocy.ActiveNav.isEmpty())
 }	
 
 $.timeago.settings.allowFuture = true;
-$('time.timeago').timeago();
+RefreshContextualTimeago = function()
+{	
+	$('time.timeago').timeago();
+}
+RefreshContextualTimeago();
 
 toastr.options = {
 	toastClass: 'alert',

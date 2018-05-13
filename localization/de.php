@@ -127,6 +127,8 @@ return array(
 	'Tracked charge cylce of battery #1 on #2' => 'Ladezyklus für Batterie #1 am #2 erfasst',
 	'Consume all #1 which are currently in stock' => 'Verbrauche den kompletten Bestand von #1',
 	'All' => 'Alle',
+	'Track charge cycle of battery #1' => 'Erfasse einen Ladezyklus für Batterie #1',
+	'Track execution of habit #1' => 'Erfasse eine Ausführung von #1',
 	
 	//Constants
 	'manually' => 'Manuell',

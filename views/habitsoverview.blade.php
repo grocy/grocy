@@ -4,6 +4,10 @@
 @section('activeNav', 'habitsoverview')
 @section('viewJsName', 'habitsoverview')
 
+@push('pageScripts')
+	<script src="{{ $U('/bower_components/jquery-ui/jquery-ui.min.js?v=') }}{{ $version }}"></script>
+@endpush
+
 @section('content')
 <h1 class="page-header">@yield('title')</h1>
 
@@ -20,6 +24,7 @@
 	<table id="habits-overview-table" class="table table-striped">
 		<thead>
 			<tr>
+				<th>#</th>
 				<th>{{ $L('Habit') }}</th>
 				<th>{{ $L('Next estimated tracking') }}</th>
 				<th>{{ $L('Last tracked') }}</th>
@@ -28,6 +33,13 @@
 		<tbody>
 			@foreach($currentHabits as $curentHabitEntry)
 			<tr class="@if(FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->period_type === \Grocy\Services\HabitsService::HABIT_TYPE_DYNAMIC_REGULAR && $nextHabitTimes[$curentHabitEntry->habit_id] < date('Y-m-d H:i:s')) error-bg @endif">
+				<td class="fit-content">
+					<a class="btn btn-success btn-xs track-habit-button" href="#" title="{{ $L('Track execution of habit #1', FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->name) }}"
+						data-habit-id="{{ $curentHabitEntry->habit_id }}"
+						data-habit-name="{{ FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->name }}">
+						<i class="fa fa-play"></i>
+					</a>
+				</td>
 				<td>
 					{{ FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->name }}
 				</td>
@@ -40,8 +52,8 @@
 					@endif
 				</td>
 				<td>
-					{{ $curentHabitEntry->last_tracked_time }}
-					<time class="timeago timeago-contextual" datetime="{{ $curentHabitEntry->last_tracked_time }}"></time>
+					<span id="habit-{{ $curentHabitEntry->habit_id }}-last-tracked-time">{{ $curentHabitEntry->last_tracked_time }}</span>
+					<time id="habit-{{ $curentHabitEntry->habit_id }}-last-tracked-time-timeago" class="timeago timeago-contextual" datetime="{{ $curentHabitEntry->last_tracked_time }}"></time>
 				</td>
 			</tr>
 			@endforeach

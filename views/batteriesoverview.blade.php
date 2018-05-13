@@ -4,6 +4,10 @@
 @section('activeNav', 'batteriesoverview')
 @section('viewJsName', 'batteriesoverview')
 
+@push('pageScripts')
+	<script src="{{ $U('/bower_components/jquery-ui/jquery-ui.min.js?v=') }}{{ $version }}"></script>
+@endpush
+
 @section('content')
 <h1 class="page-header">@yield('title')</h1>
 
@@ -20,6 +24,7 @@
 	<table id="batteries-overview-table" class="table table-striped">
 		<thead>
 			<tr>
+				<th>#</th>
 				<th>{{ $L('Battery') }}</th>
 				<th>{{ $L('Last charged') }}</th>
 				<th>{{ $L('Next planned charge cycle') }}</th>
@@ -28,12 +33,19 @@
 		<tbody>
 			@foreach($current as $curentBatteryEntry)
 			<tr class="@if(FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0 && $nextChargeTimes[$curentBatteryEntry->battery_id] < date('Y-m-d H:i:s')) error-bg @endif">
+				<td class="fit-content">
+					<a class="btn btn-success btn-xs track-charge-cycle-button" href="#" title="{{ $L('Track charge cycle of battery #1', FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->name) }}"
+						data-battery-id="{{ $curentBatteryEntry->battery_id }}"
+						data-battery-name="{{ FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->name }}">
+						<i class="fa fa-fire"></i>
+					</a>
+				</td>
 				<td>
 					{{ FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->name }}
 				</td>
 				<td>
-					{{ $curentBatteryEntry->last_tracked_time }}
-					<time class="timeago timeago-contextual" datetime="{{ $curentBatteryEntry->last_tracked_time }}"></time>
+					<span id="battery-{{ $curentBatteryEntry->battery_id }}-last-tracked-time">{{ $curentBatteryEntry->last_tracked_time }}</span>
+					<time id="battery-{{ $curentBatteryEntry->battery_id }}-last-tracked-time-timeago" class="timeago timeago-contextual" datetime="{{ $curentBatteryEntry->last_tracked_time }}"></time>
 				</td>
 				<td>
 					@if(FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0)
