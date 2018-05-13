@@ -24,7 +24,8 @@ class OpenApiController extends BaseApiController
 	{
 		$applicationService = new ApplicationService();
 
-		$this->OpenApiSpec->info->version = $applicationService->GetInstalledVersion();
+		$versionInfo = $applicationService->GetInstalledVersion();
+		$this->OpenApiSpec->info->version = $versionInfo->Version;
 		$this->OpenApiSpec->info->description = str_replace('PlaceHolderManageApiKeysUrl', $this->AppContainer->UrlManager->ConstructUrl('/manageapikeys'), $this->OpenApiSpec->info->description);
 		$this->OpenApiSpec->servers[0]->url = $this->AppContainer->UrlManager->ConstructUrl('/api');
 
