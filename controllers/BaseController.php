@@ -23,9 +23,9 @@ class BaseController
 		{
 			return $localizationService->Localize($text, ...$placeholderValues);
 		});
-		$container->view->set('U', function($relativePath) use($container)
+		$container->view->set('U', function($relativePath, $isResource = false) use($container)
 		{
-			return $container->UrlManager->ConstructUrl($relativePath);
+			return $container->UrlManager->ConstructUrl($relativePath, $isResource);
 		});
 
 		$this->AppContainer = $container;

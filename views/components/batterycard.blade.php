@@ -1,5 +1,5 @@
 @push('componentScripts')
-	<script src="{{ $U('/viewjs/components/batterycard.js') }}?v={{ $version }}"></script>
+	<script src="{{ $U('/viewjs/components/batterycard.js', true) }}?v={{ $version }}"></script>
 @endpush
 
 <div class="main well">

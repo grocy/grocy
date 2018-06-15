@@ -20,3 +20,7 @@ define('BASE_URL', '/');
 # must be the filename without .php extension and must be located in /data/plugins,
 # see /data/plugins/DemoBarcodeLookupPlugin.php for an example implementation
 define('STOCK_BARCODE_LOOKUP_PLUGIN', 'DemoBarcodeLookupPlugin');
+
+# If, however, your webserver does not support URL rewriting,
+# set this to true
+define('DISABLE_URL_REWRITING', false);

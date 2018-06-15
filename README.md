@@ -17,6 +17,8 @@ Default login is user `admin` with password `admin` - see the `data/config.php` 
 
 If you use nginx as your webserver, please include `try_files $uri /index.php;` in your location block.
 
+If, however, your webserver does not support URL rewriting, set `DISABLE_URL_REWRITING` in `data/config.php`.
+
 ## How to update
 Just overwrite everything with the latest release while keeping the `/data` directory, check `config-dist.php` for new configuration options and add them to your `data/config.php` (it will show up as an error if something is missing there).
 

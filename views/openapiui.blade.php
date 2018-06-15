@@ -9,11 +9,11 @@
 	<meta name="format-detection" content="telephone=no">
 
 	<meta name="author" content="Bernd Bestel (bernd@berrnd.de)">
-	<link rel="icon" type="image/png" sizes="200x200" href="{{ $U('/img/grocy.png?v=') }}{{ $version }}">
+	<link rel="icon" type="image/png" sizes="200x200" href="{{ $U('/img/grocy.png?v=', true) }}{{ $version }}">
 
 	<title>{{ $L('REST API & data model documentation') }} | grocy</title>
 
-	<link href="{{ $U('/bower_components/swagger-ui/dist/swagger-ui.css?v=') }}{{ $version }}" rel="stylesheet">
+	<link href="{{ $U('/bower_components/swagger-ui/dist/swagger-ui.css?v=', true) }}{{ $version }}" rel="stylesheet">
 
 	<script>
 		var Grocy = { };
@@ -25,9 +25,9 @@
 <body>
 	<div id="swagger-ui"></div>
 
-	<script src="{{ $U('/bower_components/swagger-ui/dist/swagger-ui-bundle.js?v=') }}{{ $version }}"></script>
-	<script src="{{ $U('/bower_components/swagger-ui/dist/swagger-ui-standalone-preset.js?v=') }}{{ $version }}"></script>
-	<script src="{{ $U('/viewjs') }}/openapiui.js?v={{ $version }}"></script>
+	<script src="{{ $U('/bower_components/swagger-ui/dist/swagger-ui-bundle.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/bower_components/swagger-ui/dist/swagger-ui-standalone-preset.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/viewjs', true) }}/openapiui.js?v={{ $version }}"></script>
 
 	@if(file_exists(__DIR__ . '/../../data/add_before_end_body.html'))
 		@php include __DIR__ . '/../../data/add_before_end_body.html' @endphp

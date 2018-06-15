@@ -18,9 +18,16 @@ class UrlManager
 
 	protected $BasePath;
 
-	public function ConstructUrl($relativePath)
+	public function ConstructUrl($relativePath, $isResource = false)
 	{
-		return rtrim($this->BasePath, '/') . $relativePath;
+		if (DISABLE_URL_REWRITING === false || $isResource === true)
+		{
+			return rtrim($this->BasePath, '/') . $relativePath;
+		}
+		else // Is not a resource and URL rewriting is disabled
+		{
+			return rtrim($this->BasePath, '/') . '/index.php' . $relativePath;
+		}
 	}
 
 	private function GetBaseUrl()

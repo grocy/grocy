@@ -5,7 +5,7 @@
 @section('viewJsName', 'habitsoverview')
 
 @push('pageScripts')
-	<script src="{{ $U('/bower_components/jquery-ui/jquery-ui.min.js?v=') }}{{ $version }}"></script>
+	<script src="{{ $U('/bower_components/jquery-ui/jquery-ui.min.js?v=', true) }}{{ $version }}"></script>
 @endpush
 
 @section('content')

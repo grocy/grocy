@@ -1,5 +1,5 @@
 @push('componentScripts')
-	<script src="{{ $U('/viewjs/components/datepicker.js') }}?v={{ $version }}"></script>
+	<script src="{{ $U('/viewjs/components/datepicker.js', true) }}?v={{ $version }}"></script>
 @endpush
 
 <div class="form-group">
