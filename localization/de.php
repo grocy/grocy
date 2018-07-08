@@ -130,6 +130,7 @@ return array(
 	'Track charge cycle of battery #1' => 'Erfasse einen Ladezyklus für Batterie #1',
 	'Track execution of habit #1' => 'Erfasse eine Ausführung von #1',
 	'Filter by location' => 'Nach Standort filtern',
+	'Search' => 'Suche',
 	
 	//Constants
 	'manually' => 'Manuell',
