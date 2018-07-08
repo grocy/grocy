@@ -5,7 +5,7 @@
 @section('viewJsName', 'batteriesoverview')
 
 @push('pageScripts')
-	<script src="{{ $U('/bower_components/jquery-ui/jquery-ui.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/jquery-ui-dist/jquery-ui.min.js?v=', true) }}{{ $version }}"></script>
 @endpush
 
 @section('content')

@@ -13,16 +13,16 @@
 
 	<title>@yield('title') | grocy</title>
 
-	<link href="{{ $U('/bower_components/bootstrap/dist/css/bootstrap.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
-	<link href="{{ $U('/bower_components/font-awesome/css/font-awesome.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
-	<link href="{{ $U('/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
-	<link href="{{ $U('/bower_components/bootstrap-combobox/css/bootstrap-combobox.css?v=', true) }}{{ $version }}" rel="stylesheet">
-	<link href="{{ $U('/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
-	<link href="{{ $U('/bower_components/datatables.net-responsive-bs/css/responsive.bootstrap.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
-	<link href="{{ $U('/bower_components/toastr/toastr.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
-	<link href="{{ $U('/bower_components/tagmanager/tagmanager.css?v=', true) }}{{ $version }}" rel="stylesheet">
-	<link href="{{ $U('/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
-	<link href="{{ $U('/bower_components/bootstrap-side-navbar/source/assets/stylesheets/navbar-fixed-side.css?v=', true) }}{{ $version }}" rel="stylesheet">
+	<link href="{{ $U('/node_modules/bootstrap/dist/css/bootstrap.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
+	<link href="{{ $U('/node_modules/font-awesome/css/font-awesome.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
+	<link href="{{ $U('/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
+	<link href="{{ $U('/node_modules/@danielfarrell/bootstrap-combobox/css/bootstrap-combobox.css?v=', true) }}{{ $version }}" rel="stylesheet">
+	<link href="{{ $U('/node_modules/datatables.net-bs/css/dataTables.bootstrap.css?v=', true) }}{{ $version }}" rel="stylesheet">
+	<link href="{{ $U('/node_modules/datatables.net-responsive-bs/css/responsive.bootstrap.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
+	<link href="{{ $U('/node_modules/toastr/build/toastr.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
+	<link href="{{ $U('/node_modules/tagmanager/tagmanager.css?v=', true) }}{{ $version }}" rel="stylesheet">
+	<link href="{{ $U('/node_modules/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
+	<link href="{{ $U('/node_modules/bootstrap-side-navbar/source/assets/stylesheets/navbar-fixed-side.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/components_unmanaged/noto-sans-v6-latin/noto-sans-v6-latin.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/css/grocy.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	@stack('pageStyles')
@@ -104,25 +104,25 @@
 		</div>
 	</div>
 
-	<script src="{{ $U('/bower_components/jquery/dist/jquery.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/bower_components/bootstrap/dist/js/bootstrap.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/bower_components/bootbox/bootbox.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/bower_components/jquery.serializeJSON/jquery.serializejson.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/jquery/dist/jquery.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/bootstrap/dist/js/bootstrap.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/bootbox/bootbox.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/jquery-serializeJSON/jquery.serializejson.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js?v=', true) }}{{ $version }}"></script>
 	@if(!empty($L('bootstrap_datepicker_locale')))<script src="{{ $U('/bower_components', true) }}/bootstrap-datepicker/dist/locales/bootstrap-datepicker.{{ $L('bootstrap_datepicker_locale') }}.min.js?v={{ $version }}"></script>@endif
-	<script src="{{ $U('/bower_components/moment/min/moment.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/moment/min/moment.min.js?v=', true) }}{{ $version }}"></script>
 	@if(!empty($L('moment_locale')))<script src="{{ $U('/bower_components', true) }}/moment/locale/{{ $L('moment_locale') }}.js?v={{ $version }}"></script>@endif
-	<script src="{{ $U('/bower_components/bootstrap-validator/dist/validator.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/bower_components/bootstrap-combobox/js/bootstrap-combobox.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/bower_components/datatables.net/js/jquery.dataTables.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/bower_components/datatables.net-responsive-bs/js/responsive.bootstrap.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/bower_components/jquery-timeago/jquery.timeago.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/bower_components', true) }}/jquery-timeago/locales/jquery.timeago.{{ $L('timeago_locale') }}.js?v={{ $version }}"></script>
-	<script src="{{ $U('/bower_components/toastr/toastr.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/bower_components/tagmanager/tagmanager.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/bootstrap-validator/dist/validator.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/@danielfarrell/bootstrap-combobox/js/bootstrap-combobox.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/datatables.net/js/jquery.dataTables.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/datatables.net-bs/js/dataTables.bootstrap.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/datatables.net-responsive/js/dataTables.responsive.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/datatables.net-responsive-bs/js/responsive.bootstrap.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/timeago/jquery.timeago.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules', true) }}/timeago/locales/jquery.timeago.{{ $L('timeago_locale') }}.js?v={{ $version }}"></script>
+	<script src="{{ $U('/node_modules/toastr/build/toastr.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/tagmanager/tagmanager.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js?v=', true) }}{{ $version }}"></script>
 
 	<script src="{{ $U('/js/extensions.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy.js?v=', true) }}{{ $version }}"></script>

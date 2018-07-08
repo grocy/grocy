@@ -13,7 +13,7 @@
 
 	<title>{{ $L('REST API & data model documentation') }} | grocy</title>
 
-	<link href="{{ $U('/bower_components/swagger-ui/dist/swagger-ui.css?v=', true) }}{{ $version }}" rel="stylesheet">
+	<link href="{{ $U('/node_modules/swagger-ui-dist/swagger-ui.css?v=', true) }}{{ $version }}" rel="stylesheet">
 
 	<script>
 		var Grocy = { };
@@ -25,8 +25,9 @@
 <body>
 	<div id="swagger-ui"></div>
 
-	<script src="{{ $U('/bower_components/swagger-ui/dist/swagger-ui-bundle.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/bower_components/swagger-ui/dist/swagger-ui-standalone-preset.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/swagger-ui-dist/swagger-ui.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/swagger-ui-dist/swagger-ui-bundle.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/swagger-ui-dist/swagger-ui-standalone-preset.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/viewjs', true) }}/openapiui.js?v={{ $version }}"></script>
 
 	@if(file_exists(__DIR__ . '/../../data/add_before_end_body.html'))

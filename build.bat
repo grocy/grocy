@@ -7,7 +7,7 @@ mkdir "%releasePath%"
 for /f "tokens=*" %%a in ('type version.txt') do set version=%%a
 
 del "%releasePath%\grocy_%version%.zip"
-"build_tools\7za.exe" a -r "%releasePath%\grocy_%version%.zip" "%projectPath%\*" -xr!.* -xr!build_tools -xr!build.bat -xr!composer.json -xr!composer.lock -xr!bower.json -xr!publication_assets
+"build_tools\7za.exe" a -r "%releasePath%\grocy_%version%.zip" "%projectPath%\*" -xr!.* -xr!build_tools -xr!build.bat -xr!composer.json -xr!composer.lock -xr!package.json -xr!yarn.lock -xr!publication_assets
 "build_tools\7za.exe" a "%releasePath%\grocy_%version%.zip" "%projectPath%\public\.htaccess"
 "build_tools\7za.exe" rn "%releasePath%\grocy_%version%.zip" .htaccess public\.htaccess
 "build_tools\7za.exe" d "%releasePath%\grocy_%version%.zip" data\*.* data\sessions data\viewcache\*
