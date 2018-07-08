@@ -1,5 +1,5 @@
 ﻿$('#stock-overview-table').DataTable({
-	'pageLength': 50,
+	'bPaginate': false,
 	'order': [[3, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 }

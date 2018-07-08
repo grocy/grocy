@@ -35,7 +35,7 @@
 });
 
 $('#apikeys-table').DataTable({
-	'pageLength': 50,
+	'bPaginate': false,
 	'order': [[4, 'desc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 }

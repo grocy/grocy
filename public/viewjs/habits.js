@@ -35,7 +35,7 @@
 });
 
 $('#habits-table').DataTable({
-	'pageLength': 50,
+	'bPaginate': false,
 	'order': [[1, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 }
