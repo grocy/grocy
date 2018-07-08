@@ -24,6 +24,7 @@ class StockController extends BaseController
 		return $this->AppContainer->view->render($response, 'stockoverview', [
 			'products' => $this->Database->products()->orderBy('name'),
 			'quantityunits' => $this->Database->quantity_units()->orderBy('name'),
+			'locations' => $this->Database->locations()->orderBy('name'),
 			'currentStock' => $currentStock,
 			'missingProducts' => $this->StockService->GetMissingProducts(),
 			'nextXDays' => $nextXDays,

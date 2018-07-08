@@ -1,10 +1,46 @@
-﻿$('#stock-overview-table').DataTable({
+﻿var stockOverviewTable = $('#stock-overview-table').DataTable({
 	'bPaginate': false,
 	'order': [[3, 'asc']],
 	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 }
+		{ 'orderable': false, 'targets': 0 },
+		{ 'visible': false, 'targets': 4 }
 	],
-	'language': JSON.parse(L('datatables_localization'))
+	'language': JSON.parse(L('datatables_localization')),
+	"dom": '<"filter-by-location">f'
+});
+
+$("div.filter-by-location").html('<div class="dataTables_filter"><label>' + L('Filter by location') + ':<select id="location-filter" class="form-control input-sm" style="margin-left: 0.5em;"></label></div>');
+
+$('#stock-overview-table_wrapper').on("DOMSubtreeModified", function()
+{
+	$('#stock-overview-table_wrapper').off("DOMSubtreeModified");
+
+	Grocy.Api.Get('get-objects/locations',
+		function(locations)
+		{
+			$('#location-filter').append($('<option></option>').val("all").html(L("All")));
+			$.each(locations, function(index)
+			{
+				var locationName = locations[index].name;
+				$('#location-filter').append($('<option></option>').val(locationName).html(locationName));
+			});
+		},
+		function(xhr)
+		{
+			console.error(xhr);
+		}
+	);
+
+	$("#location-filter").on("change", function()
+	{
+		var value = $(this).val();
+		if (value === "all")
+		{
+			value = "";
+		}
+
+		stockOverviewTable.column(4).search(value).draw();
+	});
 });
 
 $(document).on('click', '.product-consume-button', function(e)

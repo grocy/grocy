@@ -29,6 +29,7 @@
 				<th>{{ $L('Product') }}</th>
 				<th>{{ $L('Amount') }}</th>
 				<th>{{ $L('Next best before date') }}</th>
+				<th class="hidden">Hidden location</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -59,6 +60,9 @@
 				<td>
 					{{ $currentStockEntry->best_before_date }}
 					<time class="timeago timeago-contextual" datetime="{{ $currentStockEntry->best_before_date }}"></time>
+				</td>
+				<td class="hidden">
+					{{ FindObjectInArrayByPropertyValue($locations, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->location_id)->name }}
 				</td>
 			</tr>
 			@endforeach
