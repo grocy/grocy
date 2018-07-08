@@ -26,7 +26,7 @@ class HabitsController extends BaseController
 		$countDueNextXDays = count(FindAllItemsInArrayByValue($nextHabitTimes, date('Y-m-d', strtotime("+$nextXDays days")), '<'));
 		$countOverdue = count(FindAllItemsInArrayByValue($nextHabitTimes, date('Y-m-d', strtotime('-1 days')), '<'));
 		return $this->AppContainer->view->render($response, 'habitsoverview', [
-			'habits' => $this->Database->habits(),
+			'habits' => $this->Database->habits()->orderBy('name'),
 			'currentHabits' => $this->HabitsService->GetCurrentHabits(),
 			'nextHabitTimes' => $nextHabitTimes,
 			'nextXDays' => $nextXDays,
@@ -38,14 +38,14 @@ class HabitsController extends BaseController
 	public function TrackHabitExecution(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->AppContainer->view->render($response, 'habittracking', [
-			'habits' => $this->Database->habits()
+			'habits' => $this->Database->habits()->orderBy('name')
 		]);
 	}
 
 	public function HabitsList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->AppContainer->view->render($response, 'habits', [
-			'habits' => $this->Database->habits()
+			'habits' => $this->Database->habits()->orderBy('name')
 		]);
 	}
 

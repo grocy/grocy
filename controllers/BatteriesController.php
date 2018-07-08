@@ -26,7 +26,7 @@ class BatteriesController extends BaseController
 		$countDueNextXDays = count(FindAllItemsInArrayByValue($nextChargeTimes, date('Y-m-d', strtotime("+$nextXDays days")), '<'));
 		$countOverdue = count(FindAllItemsInArrayByValue($nextChargeTimes, date('Y-m-d', strtotime('-1 days')), '<'));
 		return $this->AppContainer->view->render($response, 'batteriesoverview', [
-			'batteries' => $this->Database->batteries(),
+			'batteries' => $this->Database->batteries()->orderBy('name'),
 			'current' => $this->BatteriesService->GetCurrent(),
 			'nextChargeTimes' => $nextChargeTimes,
 			'nextXDays' => $nextXDays,
@@ -38,14 +38,14 @@ class BatteriesController extends BaseController
 	public function TrackChargeCycle(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->AppContainer->view->render($response, 'batterytracking', [
-			'batteries' =>  $this->Database->batteries()
+			'batteries' =>  $this->Database->batteries()->orderBy('name')
 		]);
 	}
 
 	public function BatteriesList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->AppContainer->view->render($response, 'batteries', [
-			'batteries' => $this->Database->batteries()
+			'batteries' => $this->Database->batteries()->orderBy('name')
 		]);
 	}
 
