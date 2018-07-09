@@ -1,4 +1,24 @@
-﻿$(document).on('click', '.battery-delete-button', function(e)
+﻿var batteriesTable = $('#batteries-table').DataTable({
+	'paginate': false,
+	'order': [[1, 'asc']],
+	'columnDefs': [
+		{ 'orderable': false, 'targets': 0 }
+	],
+	'language': JSON.parse(L('datatables_localization'))
+});
+
+$("#search").on("keyup", function()
+{
+	var value = $(this).val();
+	if (value === "all")
+	{
+		value = "";
+	}
+	
+	batteriesTable.search(value).draw();
+});
+
+$(document).on('click', '.battery-delete-button', function (e)
 {
 	var objectName = $(e.currentTarget).attr('data-battery-name');
 	var objectId = $(e.currentTarget).attr('data-battery-id');
@@ -32,13 +52,4 @@
 			}
 		}
 	});
-});
-
-$('#batteries-table').DataTable({
-	'bPaginate': false,
-	'order': [[1, 'asc']],
-	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 }
-	],
-	'language': JSON.parse(L('datatables_localization'))
 });

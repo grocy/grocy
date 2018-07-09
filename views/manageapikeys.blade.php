@@ -18,6 +18,15 @@
 
 <p class="lead"><a href="{{ $U('/api') }}" target="_blank">{{ $L('REST API & data model documentation') }}</a></p>
 
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3 no-gutters">
+			<label for="search">{{ $L('Search') }}</label>
+			<input type="text" class="form-control" id="search">
+		</div>
+	</div>
+</div>
+
 <div class="table-responsive">
 	<table id="apikeys-table" class="table table-striped">
 		<thead>

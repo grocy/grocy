@@ -5,7 +5,8 @@
 		{ 'orderable': false, 'targets': 0 },
 		{ 'visible': false, 'targets': 4 }
 	],
-	'language': JSON.parse(L('datatables_localization'))
+	'language': JSON.parse(L('datatables_localization')),
+	'scrollY': false
 });
 
 $("#location-filter").on("change", function()

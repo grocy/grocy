@@ -1,4 +1,24 @@
-﻿$(document).on('click', '.quantityunit-delete-button', function(e)
+﻿var quantityUnitsTable = $('#quantityunits-table').DataTable({
+	'paginate': false,
+	'order': [[1, 'asc']],
+	'columnDefs': [
+		{ 'orderable': false, 'targets': 0 }
+	],
+	'language': JSON.parse(L('datatables_localization'))
+});
+
+$("#search").on("keyup", function()
+{
+	var value = $(this).val();
+	if (value === "all")
+	{
+		value = "";
+	}
+	
+	quantityUnitsTable.search(value).draw();
+});
+
+$(document).on('click', '.quantityunit-delete-button', function (e)
 {
 	var objectName = $(e.currentTarget).attr('data-quantityunit-name');
 	var objectId = $(e.currentTarget).attr('data-quantityunit-id');
@@ -32,13 +52,4 @@
 			}
 		}
 	});
-});
-
-$('#quantityunits-table').DataTable({
-	'bPaginate': false,
-	'order': [[1, 'asc']],
-	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 }
-	],
-	'language': JSON.parse(L('datatables_localization'))
 });

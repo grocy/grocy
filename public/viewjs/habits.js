@@ -1,4 +1,24 @@
-﻿$(document).on('click', '.habit-delete-button', function(e)
+﻿var habitsTable  = $('#habits-table').DataTable({
+	'paginate': false,
+	'order': [[1, 'asc']],
+	'columnDefs': [
+		{ 'orderable': false, 'targets': 0 }
+	],
+	'language': JSON.parse(L('datatables_localization'))
+});
+
+$("#search").on("keyup", function()
+{
+	var value = $(this).val();
+	if (value === "all")
+	{
+		value = "";
+	}
+	
+	habitsTable.search(value).draw();
+});
+
+$(document).on('click', '.habit-delete-button', function (e)
 {
 	var objectName = $(e.currentTarget).attr('data-habit-name');
 	var objectId = $(e.currentTarget).attr('data-habit-id');
@@ -32,13 +52,4 @@
 			}
 		}
 	});
-});
-
-$('#habits-table').DataTable({
-	'bPaginate': false,
-	'order': [[1, 'asc']],
-	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 }
-	],
-	'language': JSON.parse(L('datatables_localization'))
 });

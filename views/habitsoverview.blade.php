@@ -16,9 +16,14 @@
 		<p class="btn btn-lg btn-warning no-real-button responsive-button">{{ $L('#1 habits are due to be done within the next #2 days', $countDueNextXDays, $nextXDays) }}</p>
 		<p class="btn btn-lg btn-danger no-real-button responsive-button">{{ $L('#1 habits are overdue to be done', $countOverdue) }}</p>
 	</div>
+	<div class="discrete-content-separator-2x"></div>
+	<div class="row">
+		<div class="col-sm-3 no-gutters">
+			<label for="search">{{ $L('Search') }}</label>
+			<input type="text" class="form-control" id="search">
+		</div>
+	</div>
 </div>
-
-<div class="discrete-content-separator-2x"></div>
 
 <div class="table-responsive">
 	<table id="habits-overview-table" class="table table-striped">

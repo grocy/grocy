@@ -15,6 +15,15 @@
 	</a>
 </h1>
 
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3 no-gutters">
+			<label for="search">{{ $L('Search') }}</label>
+			<input type="text" class="form-control" id="search">
+		</div>
+	</div>
+</div>
+
 <div class="table-responsive">
 	<table id="shoppinglist-table" class="table table-striped">
 		<thead>

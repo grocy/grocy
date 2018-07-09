@@ -1,4 +1,24 @@
-﻿$(document).on('click', '.product-delete-button', function(e)
+﻿var productsTable = $('#products-table').DataTable({
+	'paginate': false,
+	'order': [[1, 'asc']],
+	'columnDefs': [
+		{ 'orderable': false, 'targets': 0 }
+	],
+	'language': JSON.parse(L('datatables_localization'))
+});
+
+$("#search").on("keyup", function()
+{
+	var value = $(this).val();
+	if (value === "all")
+	{
+		value = "";
+	}
+	
+	productsTable.search(value).draw();
+});
+
+$(document).on('click', '.product-delete-button', function (e)
 {
 	var objectName = $(e.currentTarget).attr('data-product-name');
 	var objectId = $(e.currentTarget).attr('data-product-id');
@@ -32,13 +52,4 @@
 			}
 		}
 	});
-});
-
-$('#products-table').DataTable({
-	'bPaginate': false,
-	'order': [[1, 'asc']],
-	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 }
-	],
-	'language': JSON.parse(L('datatables_localization'))
 });

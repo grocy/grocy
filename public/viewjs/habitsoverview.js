@@ -1,10 +1,21 @@
-﻿$('#habits-overview-table').DataTable({
-	'bPaginate': false,
+﻿var habitsOverviewTable = $('#habits-overview-table').DataTable({
+	'paginate': false,
 	'order': [[2, 'desc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 }
 	],
 	'language': JSON.parse(L('datatables_localization'))
+});
+
+$("#search").on("keyup", function()
+{
+	var value = $(this).val();
+	if (value === "all")
+	{
+		value = "";
+	}
+	
+	habitsOverviewTable.search(value).draw();
 });
 
 $(document).on('click', '.track-habit-button', function(e)

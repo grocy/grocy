@@ -1,4 +1,24 @@
-﻿$(document).on('click', '.shoppinglist-delete-button', function(e)
+﻿var shoppingListTable = $('#shoppinglist-table').DataTable({
+	'paginate': false,
+	'order': [[1, 'asc']],
+	'columnDefs': [
+		{ 'orderable': false, 'targets': 0 }
+	],
+	'language': JSON.parse(L('datatables_localization'))
+});
+
+$("#search").on("keyup", function()
+{
+	var value = $(this).val();
+	if (value === "all")
+	{
+		value = "";
+	}
+	
+	shoppingListTable.search(value).draw();
+});
+
+$(document).on('click', '.shoppinglist-delete-button', function (e)
 {
 	Grocy.Api.Get('delete-object/shopping_list/' + $(e.currentTarget).attr('data-shoppinglist-id'),
 		function(result)
@@ -24,13 +44,4 @@ $(document).on('click', '#add-products-below-min-stock-amount', function(e)
 			console.error(xhr);
 		}
 	);
-});
-
-$('#shoppinglist-table').DataTable({
-	'bPaginate': false,
-	'order': [[1, 'asc']],
-	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 }
-	],
-	'language': JSON.parse(L('datatables_localization'))
 });

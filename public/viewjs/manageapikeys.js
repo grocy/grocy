@@ -1,4 +1,30 @@
-﻿$(document).on('click', '.apikey-delete-button', function(e)
+﻿var apiKeysTable = $('#apikeys-table').DataTable({
+	'paginate': false,
+	'order': [[4, 'desc']],
+	'columnDefs': [
+		{ 'orderable': false, 'targets': 0 }
+	],
+	'language': JSON.parse(L('datatables_localization'))
+});
+
+var createdApiKeyId = GetUriParam('CreatedApiKeyId');
+if (createdApiKeyId !== undefined)
+{
+	$('#apiKeyRow_' + createdApiKeyId).effect('highlight', {}, 3000);
+}
+
+$("#search").on("keyup", function()
+{
+	var value = $(this).val();
+	if (value === "all")
+	{
+		value = "";
+	}
+	
+	apiKeysTable.search(value).draw();
+});
+
+$(document).on('click', '.apikey-delete-button', function (e)
 {
 	var objectName = $(e.currentTarget).attr('data-apikey-apikey');
 	var objectId = $(e.currentTarget).attr('data-apikey-id');
@@ -33,18 +59,3 @@
 		}
 	});
 });
-
-$('#apikeys-table').DataTable({
-	'bPaginate': false,
-	'order': [[4, 'desc']],
-	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 }
-	],
-	'language': JSON.parse(L('datatables_localization'))
-});
-
-var createdApiKeyId = GetUriParam('CreatedApiKeyId');
-if (createdApiKeyId !== undefined)
-{
-	$('#apiKeyRow_' + createdApiKeyId).effect('highlight', { }, 3000);
-}
