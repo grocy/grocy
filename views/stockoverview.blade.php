@@ -10,17 +10,16 @@
 
 @section('content')
 <div class="row">
-	<h1>{{ $L('Stock overview') }} <small class="text-muted">{{ $L('#1 products with #2 units in stock', count($currentStock), SumArrayValue($currentStock, 'amount')) }}</small></h1>
-</div>
-
-<div class="row">
-	<p class="btn btn-lg btn-warning no-real-button responsive-button mr-2">{{ $L('#1 products expiring within the next #2 days', $countExpiringNextXDays, $nextXDays) }}</p>
-	<p class="btn btn-lg btn-danger no-real-button responsive-button mr-2">{{ $L('#1 products are already expired', $countAlreadyExpired) }}</p>
-	<p class="btn btn-lg btn-info no-real-button responsive-button">{{ $L('#1 products are below defined min. stock amount', count($missingProducts)) }}</p>
+	<div class="col">
+		<h1>{{ $L('Stock overview') }} <small class="text-muted">{{ $L('#1 products with #2 units in stock', count($currentStock), SumArrayValue($currentStock, 'amount')) }}</small></h1>
+		<p class="btn btn-lg btn-warning no-real-button responsive-button mr-2">{{ $L('#1 products expiring within the next #2 days', $countExpiringNextXDays, $nextXDays) }}</p>
+		<p class="btn btn-lg btn-danger no-real-button responsive-button mr-2">{{ $L('#1 products are already expired', $countAlreadyExpired) }}</p>
+		<p class="btn btn-lg btn-info no-real-button responsive-button">{{ $L('#1 products are below defined min. stock amount', count($missingProducts)) }}</p>
+	</div>
 </div>
 
 <div class="row mt-3">
-	<div class="col-3 pl-0">
+	<div class="col-3">
 		<label for="location-filter">{{ $L('Filter by location') }}</label>
 		<select class="form-control" id="location-filter">
 			<option value="all">{{ $L('All') }}</option>
@@ -29,14 +28,14 @@
 			@endforeach
 		</select>
 	</div>
-	<div class="col-3 pl-0">
+	<div class="col-3">
 		<label for="search">{{ $L('Search') }}</label>
 		<input type="text" class="form-control" id="search">
 	</div>
 </div>
 
 <div class="row table-responsive">
-	<table id="stock-overview-table" class="table table-striped table-sm">
+	<table id="stock-overview-table" class="col table table-sm table-striped">
 		<thead>
 			<tr>
 				<th>#</th>

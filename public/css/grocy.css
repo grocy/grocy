@@ -24,6 +24,12 @@
 	max-width: 260px;
 	border-left: 0;
 	overflow-y: auto;
+	height: 100%;
+}
+
+#sidebar > ul > a > li {
+	background-color: #e5e5e5;
+	border: 0;
 }
 
 @media (min-width: 768px) {
@@ -36,25 +42,25 @@
 	}
 }
 
-.sidebar-nav > li > a {
+.sidebar-nav > li {
 	padding-right: 20px;
 	padding-left: 20px;
 	transition: all 0.3s;
 }
 
-.sidebar-nav > li > a:hover {
+.sidebar-nav > li:hover {
 	box-shadow: inset 5px 0 0 #337ab7;
 	transition: all 0.3s;
 }
 
-.sidebar-nav > li > a:focus {
+.sidebar-nav > li:focus {
 	box-shadow: inset 5px 0 0 #ab2230;
 	transition: all 0.3s;
 }
 
-.sidebar-nav > .active > a,
-.sidebar-nav > .active > a:hover,
-.sidebar-nav > .active > a:focus {
+.sidebar-nav > .active,
+.sidebar-nav > .active:hover,
+.sidebar-nav > .active:focus {
 	background-color: #d6d6d6;
 	box-shadow: inset 5px 0 0 #ab2230;
 	transition: all 0.3s;

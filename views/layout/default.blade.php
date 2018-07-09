@@ -36,7 +36,7 @@
 </head>
 
 <body class="h-100">
-	<nav id="top-nav" class="navbar navbar-expand-lg navbar-light py-0">
+	<nav id="top-nav" class="navbar navbar-expand-lg navbar-light fixed-top py-0">
 		<a class="navbar-brand py-0" href="{{ $U('/') }}">grocy</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-mobile">
 			<span class="navbar-toggler-icon"></span>
@@ -53,13 +53,13 @@
 	</nav>
 
 	<div class="container-fluid h-100">
-		<div class="row h-100">
+		<div class="row h-100 pt-5">
 
-			<div id="sidebar" class="col-sm-3 col-xl-2 d-none d-lg-block sidebar pt-4">
-				<!--@include('components.menu')-->
-			</div>
+			<nav id="sidebar" class="col-2 d-none d-lg-block pt-3 px-0">
+				@include('components.menu')
+			</nav>
 
-			<div class="col pt-4 ml-4 mr-0">
+			<div class="col pt-3 ml-4 mr-0">
 				@yield('content')
 			</div>
 
