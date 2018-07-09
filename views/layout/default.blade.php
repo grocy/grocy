@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ CULTURE }}">
+<html lang="{{ CULTURE }}" class="h-100">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,12 +17,11 @@
 	<link href="{{ $U('/node_modules/font-awesome/css/font-awesome.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/node_modules/@danielfarrell/bootstrap-combobox/css/bootstrap-combobox.css?v=', true) }}{{ $version }}" rel="stylesheet">
-	<link href="{{ $U('/node_modules/datatables.net-bs/css/dataTables.bootstrap.css?v=', true) }}{{ $version }}" rel="stylesheet">
-	<link href="{{ $U('/node_modules/datatables.net-responsive-bs/css/responsive.bootstrap.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
+	<link href="{{ $U('/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css?v=', true) }}{{ $version }}" rel="stylesheet">
+	<link href="{{ $U('/node_modules/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/node_modules/toastr/build/toastr.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/node_modules/tagmanager/tagmanager.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/node_modules/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
-	<link href="{{ $U('/node_modules/bootstrap-side-navbar/source/assets/stylesheets/navbar-fixed-side.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/components_unmanaged/noto-sans-v6-latin/noto-sans-v6-latin.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/css/grocy.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	@stack('pageStyles')
@@ -36,41 +35,31 @@
 	</script>
 </head>
 
-<body>
-	<nav class="navbar navbar-default navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-mobile" >
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="{{ $U('/') }}">grocy</a>
-			</div>
+<body class="h-100">
+	<nav id="top-nav" class="navbar navbar-expand-lg navbar-light py-0">
+		<a class="navbar-brand py-0" href="{{ $U('/') }}">grocy</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-mobile">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-			<div id="navbar" class="navbar-collapse collapse">
-				@include('components.usermenu')
-			</div>
+		<div id="navbar" class="collapse navbar-collapse">
+			@include('components.usermenu')
+		</div>
 
-			<div id="navbar-mobile" class="navbar-collapse collapse">
-				@include('components.menu')
-				@include('components.usermenu')
-			</div>
+		<div id="navbar-mobile" class="collapse navbar-collapse">
+			<!--@include('components.menu')-->
+			@include('components.usermenu')
 		</div>
 	</nav>
 
-	<div class="container-fluid">
-		<div class="row">
+	<div class="container-fluid h-100">
+		<div class="row h-100">
 
-			<div id="sidebar" class="col-sm-3 col-lg-2">
-				<nav class="navbar navbar-default navbar-fixed-side hidden-xs">
-					<div class="navbar-collapse collapse">
-						@include('components.menu')
-					</div>
-				</nav>
+			<div id="sidebar" class="col-sm-3 col-xl-2 d-none d-lg-block sidebar pt-4">
+				<!--@include('components.menu')-->
 			</div>
 
-			<div class="col-sm-9 col-lg-10">
+			<div class="col pt-4 ml-4 mr-0">
 				@yield('content')
 			</div>
 
@@ -115,9 +104,9 @@
 	<script src="{{ $U('/node_modules/bootstrap-validator/dist/validator.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/@danielfarrell/bootstrap-combobox/js/bootstrap-combobox.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/datatables.net/js/jquery.dataTables.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/datatables.net-bs/js/dataTables.bootstrap.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/datatables.net-responsive/js/dataTables.responsive.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/datatables.net-responsive-bs/js/responsive.bootstrap.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/timeago/jquery.timeago.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules', true) }}/timeago/locales/jquery.timeago.{{ $L('timeago_locale') }}.js?v={{ $version }}"></script>
 	<script src="{{ $U('/node_modules/toastr/build/toastr.min.js?v=', true) }}{{ $version }}"></script>
