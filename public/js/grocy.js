@@ -21,8 +21,8 @@ U = function(relativePath)
 
 if (!Grocy.ActiveNav.isEmpty())
 {
-	var menuItem = $('.nav').find("[data-nav-for-page='" + Grocy.ActiveNav + "']");
-	menuItem.addClass('active');
+	var menuItem = $('#sidebarResponsive').find("[data-nav-for-page='" + Grocy.ActiveNav + "']");
+	menuItem.addClass('active-page');
 }	
 
 $.timeago.settings.allowFuture = true;

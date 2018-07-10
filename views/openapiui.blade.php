@@ -9,7 +9,7 @@
 	<meta name="format-detection" content="telephone=no">
 
 	<meta name="author" content="Bernd Bestel (bernd@berrnd.de)">
-	<link rel="icon" type="image/png" sizes="200x200" href="{{ $U('/img/grocy.png?v=', true) }}{{ $version }}">
+	<link rel="icon" href="{{ $U('/img/grocy_icon.svg?v=', true) }}{{ $version }}">
 
 	<title>{{ $L('REST API & data model documentation') }} | grocy</title>
 

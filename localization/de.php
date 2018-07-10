@@ -131,6 +131,7 @@ return array(
 	'Track execution of habit #1' => 'Erfasse eine Ausführung von #1',
 	'Filter by location' => 'Nach Standort filtern',
 	'Search' => 'Suche',
+	'Not logged in' => 'Nicht angemeldet',
 	
 	//Constants
 	'manually' => 'Manuell',

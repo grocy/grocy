@@ -97,7 +97,8 @@ $('#product_id').on('change', function(e)
 });
 
 $('.combobox').combobox({
-	appendId: '_text_input'
+	appendId: '_text_input',
+	bsVersion: '4'
 });
 
 $('#product_id_text_input').on('change', function(e)
@@ -253,8 +254,8 @@ var addBarcode = GetUriParam('addbarcodetoselection');
 if (addBarcode !== undefined)
 {
 	$('#addbarcodetoselection').text(addBarcode);
-	$('#flow-info-addbarcodetoselection').removeClass('hide');
-	$('#barcode-lookup-disabled-hint').removeClass('hide');
+	$('#flow-info-addbarcodetoselection').removeClass('d-none');
+	$('#barcode-lookup-disabled-hint').removeClass('d-none');
 }
 
 $('#best_before_date').on('change', function(e)

@@ -9,30 +9,32 @@
 @section('viewJsName', 'locationform')
 
 @section('content')
-<div class="col-lg-4 col-xs-12">
-	<h1 class="page-header">@yield('title')</h1>
+<div class="row">
+	<div class="col-lg-6 col-xs-12">
+		<h1>@yield('title')</h1>
 
-	<script>Grocy.EditMode = '{{ $mode }}';</script>
+		<script>Grocy.EditMode = '{{ $mode }}';</script>
 
-	@if($mode == 'edit')
-		<script>Grocy.EditObjectId = {{ $location->id }};</script>
-	@endif
+		@if($mode == 'edit')
+			<script>Grocy.EditObjectId = {{ $location->id }};</script>
+		@endif
 
-	<form id="location-form">
+		<form id="location-form">
 
-		<div class="form-group">
-			<label for="name">{{ $L('Name') }}</label>
-			<input type="text" class="form-control" required id="name" name="name" value="@if($mode == 'edit'){{ $location->name }}@endif">
-			<div class="help-block with-errors"></div>
-		</div>
+			<div class="form-group">
+				<label for="name">{{ $L('Name') }}</label>
+				<input type="text" class="form-control" required id="name" name="name" value="@if($mode == 'edit'){{ $location->name }}@endif">
+				<div class="invalid-feedback"></div>
+			</div>
 
-		<div class="form-group">
-			<label for="description">{{ $L('Description') }}</label>
-			<textarea class="form-control" rows="2" id="description" name="description">@if($mode == 'edit'){{ $location->description }}@endif</textarea>
-		</div>
+			<div class="form-group">
+				<label for="description">{{ $L('Description') }}</label>
+				<textarea class="form-control" rows="2" id="description" name="description">@if($mode == 'edit'){{ $location->description }}@endif</textarea>
+			</div>
 
-		<button id="save-location-button" type="submit" class="btn btn-default">{{ $L('Save') }}</button>
+			<button id="save-location-button" type="submit" class="btn btn-success">{{ $L('Save') }}</button>
 
-	</form>
+		</form>
+	</div>
 </div>
 @stop

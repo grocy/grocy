@@ -4,7 +4,8 @@
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 }
 	],
-	'language': JSON.parse(L('datatables_localization'))
+	'language': JSON.parse(L('datatables_localization')),
+	'scrollY': false
 });
 
 var createdApiKeyId = GetUriParam('CreatedApiKeyId');

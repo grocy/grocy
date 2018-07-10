@@ -11,7 +11,7 @@
 @section('content')
 <div class="row">
 	<div class="col">
-		<h1>{{ $L('Stock overview') }} <small class="text-muted">{{ $L('#1 products with #2 units in stock', count($currentStock), SumArrayValue($currentStock, 'amount')) }}</small></h1>
+		<h1>@yield('title') <small class="text-muted">{{ $L('#1 products with #2 units in stock', count($currentStock), SumArrayValue($currentStock, 'amount')) }}</small></h1>
 		<p class="btn btn-lg btn-warning no-real-button responsive-button mr-2">{{ $L('#1 products expiring within the next #2 days', $countExpiringNextXDays, $nextXDays) }}</p>
 		<p class="btn btn-lg btn-danger no-real-button responsive-button mr-2">{{ $L('#1 products are already expired', $countAlreadyExpired) }}</p>
 		<p class="btn btn-lg btn-info no-real-button responsive-button">{{ $L('#1 products are below defined min. stock amount', count($missingProducts)) }}</p>
@@ -34,52 +34,54 @@
 	</div>
 </div>
 
-<div class="row table-responsive">
-	<table id="stock-overview-table" class="col table table-sm table-striped">
-		<thead>
-			<tr>
-				<th>#</th>
-				<th>{{ $L('Product') }}</th>
-				<th>{{ $L('Amount') }}</th>
-				<th>{{ $L('Next best before date') }}</th>
-				<th class="hidden">Hidden location</th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach($currentStock as $currentStockEntry) 
-			<tr id="product-{{ $currentStockEntry->product_id }}-row" class="@if($currentStockEntry->best_before_date < date('Y-m-d', strtotime('-1 days'))) error-bg @elseif($currentStockEntry->best_before_date < date('Y-m-d', strtotime('+5 days'))) warning-bg @elseif (FindObjectInArrayByPropertyValue($missingProducts, 'id', $currentStockEntry->product_id) !== null) info-bg @endif">
-				<td class="fit-content">
-					<a class="btn btn-success btn-sm product-consume-button" href="#" title="{{ $L('Consume #3 #1 of #2', FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name, 1) }}"
-						data-product-id="{{ $currentStockEntry->product_id }}"
-						data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}"
-						data-product-qu-name="{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name }}"
-						data-consume-amount="1">
-						<i class="fa fa-cutlery"></i> 1
-					</a>
-					<a id="product-{{ $currentStockEntry->product_id }}-consume-all-button" class="btn btn-danger btn-sm product-consume-button" href="#" title="{{ $L('Consume all #1 which are currently in stock', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name) }}"
-						data-product-id="{{ $currentStockEntry->product_id }}"
-						data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}"
-						data-product-qu-name="{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name }}"
-						data-consume-amount="{{ $currentStockEntry->amount }}">
-						<i class="fa fa-cutlery"></i> {{ $L('All') }}
-					</a>
-				</td>
-				<td>
-					{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}
-				</td>
-				<td>
-					<span id="product-{{ $currentStockEntry->product_id }}-amount">{{ $currentStockEntry->amount }}</span> {{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name }}
-				</td>
-				<td>
-					{{ $currentStockEntry->best_before_date }}
-					<time class="timeago timeago-contextual" datetime="{{ $currentStockEntry->best_before_date }}"></time>
-				</td>
-				<td class="hidden">
-					{{ FindObjectInArrayByPropertyValue($locations, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->location_id)->name }}
-				</td>
-			</tr>
-			@endforeach
-		</tbody>
-	</table>
+<div class="row">
+	<div class="col">
+		<table id="stock-overview-table" class="table table-sm table-striped dt-responsive">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>{{ $L('Product') }}</th>
+					<th>{{ $L('Amount') }}</th>
+					<th>{{ $L('Next best before date') }}</th>
+					<th class="hidden">Hidden location</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach($currentStock as $currentStockEntry) 
+				<tr id="product-{{ $currentStockEntry->product_id }}-row" class="@if($currentStockEntry->best_before_date < date('Y-m-d', strtotime('-1 days'))) table-danger @elseif($currentStockEntry->best_before_date < date('Y-m-d', strtotime('+5 days'))) table-warning @elseif (FindObjectInArrayByPropertyValue($missingProducts, 'id', $currentStockEntry->product_id) !== null) table-info @endif">
+					<td class="fit-content">
+						<a class="btn btn-success btn-sm product-consume-button" href="#" title="{{ $L('Consume #3 #1 of #2', FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name, 1) }}"
+							data-product-id="{{ $currentStockEntry->product_id }}"
+							data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}"
+							data-product-qu-name="{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name }}"
+							data-consume-amount="1">
+							<i class="fa fa-cutlery"></i> 1
+						</a>
+						<a id="product-{{ $currentStockEntry->product_id }}-consume-all-button" class="btn btn-danger btn-sm product-consume-button" href="#" title="{{ $L('Consume all #1 which are currently in stock', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name) }}"
+							data-product-id="{{ $currentStockEntry->product_id }}"
+							data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}"
+							data-product-qu-name="{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name }}"
+							data-consume-amount="{{ $currentStockEntry->amount }}">
+							<i class="fa fa-cutlery"></i> {{ $L('All') }}
+						</a>
+					</td>
+					<td>
+						{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}
+					</td>
+					<td>
+						<span id="product-{{ $currentStockEntry->product_id }}-amount">{{ $currentStockEntry->amount }}</span> {{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name }}
+					</td>
+					<td>
+						{{ $currentStockEntry->best_before_date }}
+						<time class="timeago timeago-contextual" datetime="{{ $currentStockEntry->best_before_date }}"></time>
+					</td>
+					<td class="hidden">
+						{{ FindObjectInArrayByPropertyValue($locations, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->location_id)->name }}
+					</td>
+				</tr>
+				@endforeach
+			</tbody>
+		</table>
+	</div>
 </div>
 @stop

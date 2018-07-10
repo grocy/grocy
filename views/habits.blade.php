@@ -5,24 +5,27 @@
 @section('viewJsName', 'habits')
 
 @section('content')
-<h1 class="page-header">
-	@yield('title')
-	<a class="btn btn-default" href="{{ $U('/habit/new') }}" role="button">
-		<i class="fa fa-plus"></i>&nbsp;{{ $L('Add') }}
-	</a>
-</h1>
-
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-sm-3 no-gutters">
-			<label for="search">{{ $L('Search') }}</label>
-			<input type="text" class="form-control" id="search">
-		</div>
+<div class="row">
+	<div class="col">
+		<h1>
+			@yield('title')
+			<a class="btn btn-outline-dark" href="{{ $U('/habit/new') }}">
+				<i class="fa fa-plus"></i>&nbsp;{{ $L('Add') }}
+			</a>
+		</h1>
 	</div>
 </div>
 
-<div class="table-responsive">
-	<table id="habits-table" class="table table-striped">
+<div class="row mt-3">
+	<div class="col-3">
+		<label for="search">{{ $L('Search') }}</label>
+		<input type="text" class="form-control" id="search">
+	</div>
+</div>
+
+<div class="row">
+	<div class="col">
+		<table id="habits-table" class="table table-sm table-striped dt-responsive">
 		<thead>
 			<tr>
 				<th>#</th>
@@ -36,10 +39,10 @@
 			@foreach($habits as $habit)
 			<tr>
 				<td class="fit-content">
-					<a class="btn btn-info" href="{{ $U('/habit/') }}{{ $habit->id }}" role="button">
+					<a class="btn btn-info btn-sm" href="{{ $U('/habit/') }}{{ $habit->id }}">
 						<i class="fa fa-pencil"></i>
 					</a>
-					<a class="btn btn-danger habit-delete-button" href="#" role="button" data-habit-id="{{ $habit->id }}" data-habit-name="{{ $habit->name }}">
+					<a class="btn btn-danger btn-sm habit-delete-button" href="#" data-habit-id="{{ $habit->id }}" data-habit-name="{{ $habit->name }}">
 						<i class="fa fa-trash"></i>
 					</a>
 				</td>
@@ -58,6 +61,7 @@
 			</tr>
 			@endforeach
 		</tbody>
-	</table>
+		</table>
+	</div>
 </div>
 @stop

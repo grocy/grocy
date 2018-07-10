@@ -6,6 +6,6 @@ $(function()
 		showTodayButton: true,
 		calendarWeeks: true,
 		maxDate: moment(),
-		locale: moment.locale('de')
+		locale: moment.locale()
 	});
 });

@@ -1,4 +1,5 @@
 ﻿$('.logout-button').hide();
+$('.logout-button-divider').hide();
 
 $('#username').focus();
 
