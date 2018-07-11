@@ -10,15 +10,15 @@
 		<h1>
 			@yield('title')
 			<a class="btn btn-outline-dark" href="{{ $U('/location/new') }}">
-				<i class="fa fa-plus"></i>&nbsp;{{ $L('Add') }}
+				<i class="fas fa-plus"></i>&nbsp;{{ $L('Add') }}
 			</a>
 		</h1>
 	</div>
 </div>
 
 <div class="row mt-3">
-	<div class="col-3">
-		<label for="search">{{ $L('Search') }}</label>
+	<div class="col-xs-12 col-md-6 col-xl-3">
+		<label for="search"><i class="fas fa-search"></i> {{ $L('Search') }}</label>
 		<input type="text" class="form-control" id="search">
 	</div>
 </div>
@@ -38,10 +38,10 @@
 				<tr>
 					<td class="fit-content">
 						<a class="btn btn-info btn-sm" href="{{ $U('/location/') }}{{ $location->id }}">
-							<i class="fa fa-pencil"></i>
+							<i class="fas fa-edit"></i>
 						</a>
 						<a class="btn btn-danger btn-sm location-delete-button" href="#" data-location-id="{{ $location->id }}" data-location-name="{{ $location->name }}">
-							<i class="fa fa-trash"></i>
+							<i class="fas fa-trash"></i>
 						</a>
 					</td>
 					<td>

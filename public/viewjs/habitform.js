@@ -30,9 +30,29 @@
 	}
 });
 
+$('#habit-form input').keyup(function(event)
+{
+	Grocy.FrontendHelpers.ValidateForm('habit-form');
+});
+
+$('#habit-form input').keydown(function(event)
+{
+	if (event.keyCode === 13) //Enter
+	{
+		if (document.getElementById('habit-form').checkValidity() === false) //There is at least one validation error
+		{
+			event.preventDefault();
+			return false;
+		}
+		else
+		{
+			$('#save-habit-button').click();
+		}
+	}
+});
+
 $('#name').focus();
-$('#habit-form').validator();
-$('#habit-form').validator('validate');
+Grocy.FrontendHelpers.ValidateForm('habit-form');
 
 $('.input-group-habit-period-type').on('change', function(e)
 {
@@ -42,10 +62,10 @@ $('.input-group-habit-period-type').on('change', function(e)
 	if (periodType === 'dynamic-regular')
 	{
 		$('#habit-period-type-info').text(L('This means it is estimated that a new execution of this habit is tracked #1 days after the last was tracked', periodDays.toString()));
-		$('#habit-period-type-info').show();
+		$('#habit-period-type-info').removeClass('d-none');
 	}
 	else
 	{
-		$('#habit-period-type-info').hide();
+		$('#habit-period-type-info').addClass('d-none');
 	}
 });

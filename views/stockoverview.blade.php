@@ -19,8 +19,8 @@
 </div>
 
 <div class="row mt-3">
-	<div class="col-3">
-		<label for="location-filter">{{ $L('Filter by location') }}</label>
+	<div class="col-xs-12 col-md-6 col-xl-3">
+		<label for="location-filter"><i class="fas fa-filter"></i> {{ $L('Filter by location') }}</label>
 		<select class="form-control" id="location-filter">
 			<option value="all">{{ $L('All') }}</option>
 			@foreach($locations as $location)
@@ -28,8 +28,8 @@
 			@endforeach
 		</select>
 	</div>
-	<div class="col-3">
-		<label for="search">{{ $L('Search') }}</label>
+	<div class="col-xs-12 col-md-6 col-xl-3">
+		<label for="search"><i class="fas fa-search"></i> {{ $L('Search') }}</label>
 		<input type="text" class="form-control" id="search">
 	</div>
 </div>
@@ -55,14 +55,14 @@
 							data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}"
 							data-product-qu-name="{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name }}"
 							data-consume-amount="1">
-							<i class="fa fa-cutlery"></i> 1
+							<i class="fas fa-utensils"></i> 1
 						</a>
 						<a id="product-{{ $currentStockEntry->product_id }}-consume-all-button" class="btn btn-danger btn-sm product-consume-button" href="#" title="{{ $L('Consume all #1 which are currently in stock', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name) }}"
 							data-product-id="{{ $currentStockEntry->product_id }}"
 							data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}"
 							data-product-qu-name="{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name }}"
 							data-consume-amount="{{ $currentStockEntry->amount }}">
-							<i class="fa fa-cutlery"></i> {{ $L('All') }}
+							<i class="fas fa-utensils"></i> {{ $L('All') }}
 						</a>
 					</td>
 					<td>

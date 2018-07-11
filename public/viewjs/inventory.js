@@ -40,14 +40,14 @@
 					}
 					else
 					{
-						$('#inventory-change-info').hide();
+						$('#inventory-change-info').addClass('d-none');
 						$('#new_amount').val('');
 						$('#best_before_date').val('');
 						$('#product_id').val('');
 						$('#product_id_text_input').focus();
 						$('#product_id_text_input').val('');
 						$('#product_id_text_input').trigger('change');
-						$('#inventory-form').validator('validate');
+						Grocy.FrontendHelpers.ValidateForm('inventory-form');
 					}
 				},
 				function(xhr)
@@ -170,33 +170,6 @@ $('#product_id_text_input').focus();
 $('#product_id_text_input').val('');
 $('#product_id_text_input').trigger('change');
 
-$('#inventory-form').validator({
-	custom: {
-		'isodate': function($el)
-		{
-			if ($el.val().length !== 0 && !moment($el.val(), 'YYYY-MM-DD', true).isValid())
-			{
-				return 'Wrong date format, needs to be YYYY-MM-DD';
-			}
-			else if (moment($el.val()).isValid())
-			{
-				if (moment($el.val()).isBefore(moment(), 'day'))
-				{
-					return 'This value cannot be before today.';
-				}
-			}
-		},
-		'notequal': function($el)
-		{
-			if ($el.val().length !== 0 && $el.val().toString() === $el.attr('not-equal').toString())
-			{
-				return 'This value cannot be equal to ' + $el.attr('not-equal').toString();
-			}
-		}
-	}
-});
-$('#inventory-form').validator('validate');
-
 $('#new_amount').on('focus', function(e)
 {
 	if ($('#product_id_text_input').val().length === 0)
@@ -209,14 +182,23 @@ $('#new_amount').on('focus', function(e)
 	}
 });
 
+$('#inventory-form input').keyup(function (event)
+{
+	Grocy.FrontendHelpers.ValidateForm('inventory-form');
+});
+
 $('#inventory-form input').keydown(function(event)
 {
 	if (event.keyCode === 13) //Enter
 	{
-		if ($('#inventory-form').validator('validate').has('.has-error').length !== 0) //There is at least one validation error
+		if (document.getElementById('inventory-form').checkValidity() === false) //There is at least one validation error
 		{
 			event.preventDefault();
 			return false;
+		}
+		else
+		{
+			$('#save-inventory-button').click();
 		}
 	}
 });
@@ -254,12 +236,12 @@ $('#new_amount').on('keypress', function(e)
 	
 $('#best_before_date').on('change', function(e)
 {
-	$('#inventory-form').validator('validate');
+	Grocy.FrontendHelpers.ValidateForm('inventory-form');
 });
 
 $('#best_before_date').on('keypress', function(e)
 {
-	$('#inventory-form').validator('validate');
+	Grocy.FrontendHelpers.ValidateForm('inventory-form');
 });
 
 $('#best_before_date').on('keydown', function(e)
@@ -270,11 +252,11 @@ $('#best_before_date').on('keydown', function(e)
 	}
 });	
 
-$('#new_amount').on('change', function(e)
+$('#new_amount').on('keyup', function(e)
 {
 	if ($('#product_id').parent().hasClass('has-error'))
 	{
-		$('#inventory-change-info').hide();
+		$('#inventory-change-info').addClass('d-none');
 		return;
 	}
 
@@ -292,23 +274,22 @@ $('#new_amount').on('change', function(e)
 				{
 					var amountToAdd = newAmount - productDetails.stock_amount;
 					$('#inventory-change-info').text(L('This means #1 will be added to stock', amountToAdd.toString() + ' ' + productDetails.quantity_unit_stock.name));
-					$('#inventory-change-info').show();
+					$('#inventory-change-info').removeClass('d-none')
 					$('#best_before_date').attr('required', 'required');
 				}
 				else if (newAmount < productStockAmount)
 				{
 					var amountToRemove = productStockAmount - newAmount;
 					$('#inventory-change-info').text(L('This means #1 will be removed from stock', amountToRemove.toString() + ' ' + productDetails.quantity_unit_stock.name));
-					$('#inventory-change-info').show();
+					$('#inventory-change-info').removeClass('d-none')
 					$('#best_before_date').removeAttr('required');
 				}
 				else
 				{
-					$('#inventory-change-info').hide();
+					$('#inventory-change-info').addClass('d-none');
 				}
 
-				$('#inventory-form').validator('update');
-				$('#inventory-form').validator('validate');
+				Grocy.FrontendHelpers.ValidateForm('inventory-form');
 			},
 			function(xhr)
 			{

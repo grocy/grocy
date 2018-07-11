@@ -18,8 +18,8 @@
 </div>
 
 <div class="row mt-3">
-	<div class="col-3">
-		<label for="search">{{ $L('Search') }}</label>
+	<div class="col-xs-12 col-md-6 col-xl-3">
+		<label for="search"><i class="fas fa-search"></i> {{ $L('Search') }}</label>
 		<input type="text" class="form-control" id="search">
 	</div>
 </div>
@@ -42,7 +42,7 @@
 						<a class="btn btn-success btn-sm track-charge-cycle-button" href="#" title="{{ $L('Track charge cycle of battery #1', FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->name) }}"
 							data-battery-id="{{ $curentBatteryEntry->battery_id }}"
 							data-battery-name="{{ FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->name }}">
-							<i class="fa fa-fire"></i>
+							<i class="fas fa-fire"></i>
 						</a>
 					</td>
 					<td>

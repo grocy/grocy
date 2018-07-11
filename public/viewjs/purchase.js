@@ -48,7 +48,7 @@
 						$('#product_id_text_input').focus();
 						$('#product_id_text_input').val('');
 						$('#product_id_text_input').trigger('change');
-						$('#purchase-form').validator('validate');
+						Grocy.FrontendHelpers.ValidateForm('purchase-form');
 					}
 				},
 				function(xhr)
@@ -180,26 +180,6 @@ $('#product_id_text_input').focus();
 $('#product_id_text_input').val('');
 $('#product_id_text_input').trigger('change');
 
-$('#purchase-form').validator({
-	custom: {
-		'isodate': function($el)
-		{
-			if ($el.val().length !== 0 && !moment($el.val(), 'YYYY-MM-DD', true).isValid())
-			{
-				return 'Wrong date format, needs to be YYYY-MM-DD';
-			}
-			else if (moment($el.val()).isValid())
-			{
-				if (moment($el.val()).isBefore(moment(), 'day'))
-				{
-					return 'This value cannot be before today.';
-				}
-			}
-		}
-	}
-});
-$('#purchase-form').validator('validate');
-
 $('#best_before_date').on('focus', function(e)
 {
 	if ($('#product_id_text_input').val().length === 0)
@@ -220,14 +200,23 @@ $('#amount').on('focus', function(e)
 	}
 });
 
+$('#purchase-form input').keyup(function(event)
+{
+	Grocy.FrontendHelpers.ValidateForm('purchase-form');
+});
+
 $('#purchase-form input').keydown(function(event)
 {
 	if (event.keyCode === 13) //Enter
 	{
-		if ($('#purchase-form').validator('validate').has('.has-error').length !== 0) //There is at least one validation error
+		if (document.getElementById('purchase-form').checkValidity() === false) //There is at least one validation error
 		{
 			event.preventDefault();
 			return false;
+		}
+		else
+		{
+			$('#save-purchase-button').click();
 		}
 	}
 });
@@ -260,10 +249,15 @@ if (addBarcode !== undefined)
 
 $('#best_before_date').on('change', function(e)
 {
-	$('#purchase-form').validator('validate');
+	Grocy.FrontendHelpers.ValidateForm('purchase-form');
 });
 
 $('#best_before_date').on('keypress', function(e)
 {
-	$('#purchase-form').validator('validate');
+	Grocy.FrontendHelpers.ValidateForm('purchase-form');
+});
+
+$('#amount').on('change', function (e)
+{
+	Grocy.FrontendHelpers.ValidateForm('purchase-form');
 });

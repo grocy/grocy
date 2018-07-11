@@ -19,12 +19,12 @@
 			<script>Grocy.EditObjectId = {{ $battery->id }}</script>
 		@endif
 
-		<form id="battery-form">
+		<form id="battery-form" novalidate>
 
 			<div class="form-group">
 				<label for="name">{{ $L('Name') }}</label>
 				<input type="text" class="form-control" required id="name" name="name" value="@if($mode == 'edit'){{ $battery->name }}@endif">
-				<div class="invalid-feedback"></div>
+				<div class="invalid-feedback">{{ $L('A name is required') }}</div>
 			</div>
 
 			<div class="form-group">

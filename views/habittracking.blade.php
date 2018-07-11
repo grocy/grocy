@@ -6,10 +6,10 @@
 
 @section('content')
 <div class="row">
-	<div class="col-lg-4 col-xs-12">
+	<div class="col-xs-12 col-md-6 col-xl-4">
 		<h1>@yield('title')</h1>
 
-		<form id="habittracking-form">
+		<form id="habittracking-form" novalidate>
 
 			<div class="form-group">
 				<label for="habit_id">{{ $L('Habit') }}</label>
@@ -19,7 +19,7 @@
 						<option value="{{ $habit->id }}">{{ $habit->name }}</option>
 					@endforeach
 				</select>
-				<div id="product-error" class="invalid-feedback"></div>
+				<div class="invalid-feedback">{{ $L('You have to select a habit') }}</div>
 			</div>
 
 			@include('components.datetimepicker', array(
@@ -32,7 +32,7 @@
 		</form>
 	</div>
 
-	<div class="col-lg-4 col-xs-12">
+	<div class="col-xs-12 col-md-6 col-xl-4">
 		@include('components.habitcard')
 	</div>
 </div>

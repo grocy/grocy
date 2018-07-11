@@ -8,7 +8,7 @@
 	<div class="col-lg-6 offset-lg-3 col-xs-12">
 		<h1 class="text-center">@yield('title')</h1>
 
-		<form method="post" action="{{ $U('/login') }}" id="login-form">
+		<form method="post" action="{{ $U('/login') }}" id="login-form" novalidate>
 
 			<div class="form-group">
 				<label for="name">{{ $L('Username') }}</label>
@@ -19,7 +19,7 @@
 			<div class="form-group">
 				<label for="name">{{ $L('Password') }}</label>
 				<input type="password" class="form-control" required id="password" name="password">
-				<div id="login-error" class="invalid-feedback"></div>
+				<div id="login-error" class="form-text text-danger d-none"></div>
 			</div>
 
 			<button id="login-button" type="submit" class="btn btn-success">{{ $L('OK') }}</button>

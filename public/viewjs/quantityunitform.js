@@ -30,6 +30,26 @@
 	}
 });
 
+$('#quantityunit-form input').keyup(function(event)
+{
+	Grocy.FrontendHelpers.ValidateForm('quantityunit-form');
+});
+
+$('#quantityunit-form input').keydown(function(event)
+{
+	if (event.keyCode === 13) //Enter
+	{
+		if (document.getElementById('quantityunit-form').checkValidity() === false) //There is at least one validation error
+		{
+			event.preventDefault();
+			return false;
+		}
+		else
+		{
+			$('#save-quantityunit-button').click();
+		}
+	}
+});
+
 $('#name').focus();
-$('#quantityunit-form').validator();
-$('#quantityunit-form').validator('validate');
+Grocy.FrontendHelpers.ValidateForm('quantityunit-form');

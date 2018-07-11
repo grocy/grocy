@@ -39,6 +39,10 @@ toastr.options = {
 	extendedTimeOut: 5000
 };
 
+window.FontAwesomeConfig = {
+	searchPseudoElements: true
+}
+
 Grocy.Api = { };
 Grocy.Api.Get = function(apiFunction, success, error)
 {
@@ -100,3 +104,19 @@ Grocy.Api.Post = function(apiFunction, jsonData, success, error)
 	xhr.setRequestHeader('Content-type', 'application/json');
 	xhr.send(JSON.stringify(jsonData));
 };
+
+Grocy.FrontendHelpers = { };
+Grocy.FrontendHelpers.ValidateForm = function(formId)
+{
+	var form = document.getElementById(formId);
+	if (form.checkValidity() === true)
+	{
+		$(form).find(':submit').removeClass('disabled');
+	}
+	else
+	{
+		$(form).find(':submit').addClass('disabled');
+	}
+
+	$(form).addClass('was-validated');
+}

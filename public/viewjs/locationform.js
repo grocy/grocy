@@ -30,6 +30,26 @@
 	}
 });
 
+$('#location-form input').keyup(function (event)
+{
+	Grocy.FrontendHelpers.ValidateForm('location-form');
+});
+
+$('#location-form input').keydown(function (event)
+{
+	if (event.keyCode === 13) //Enter
+	{
+		if (document.getElementById('location-form').checkValidity() === false) //There is at least one validation error
+		{
+			event.preventDefault();
+			return false;
+		}
+		else
+		{
+			$('#save-location-button').click();
+		}
+	}
+});
+
 $('#name').focus();
-$('#location-form').validator();
-$('#location-form').validator('validate');
+Grocy.FrontendHelpers.ValidateForm('location-form');

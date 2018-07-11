@@ -42,43 +42,6 @@ $('#product_id').on('change', function(e)
 			function (productDetails)
 			{
 				$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name);
-
-				if ($('#product_id').hasClass('suppress-next-custom-validate-event'))
-				{
-					$('#product_id').removeClass('suppress-next-custom-validate-event');
-				}
-				else
-				{
-					Grocy.Api.Get('get-objects/shopping_list',
-						function (currentShoppingListItems)
-						{
-							if (currentShoppingListItems.filter(function (e) { return e.product_id === productId; }).length > 0)
-							{
-								$('#product_id').val('');
-								$('#product_id_text_input').val('');
-								$('#product_id_text_input').addClass('has-error');
-								$('#product_id_text_input').parent('.input-group').addClass('has-error');
-								$('#product_id_text_input').closest('.form-group').addClass('has-error');
-								$('#product-error').text('This product is already on the shopping list.');
-								$('#product-error').show();
-								$('#product_id_text_input').focus();
-							}
-							else
-							{
-								$('#product_id_text_input').removeClass('has-error');
-								$('#product_id_text_input').parent('.input-group').removeClass('has-error');
-								$('#product_id_text_input').closest('.form-group').removeClass('has-error');
-								$('#product-error').hide();
-
-								$('#amount').focus();
-							}
-						},
-						function(xhr)
-						{
-							console.error(xhr);
-						}
-					);
-				}
 			},
 			function(xhr)
 			{
@@ -113,8 +76,7 @@ if (Grocy.EditMode === 'edit')
 	$('#product_id').trigger('change');
 }
 
-$('#shoppinglist-form').validator();
-$('#shoppinglist-form').validator('validate');
+Grocy.FrontendHelpers.ValidateForm('shoppinglist-form');
 
 $('#amount').on('focus', function(e)
 {
@@ -124,14 +86,23 @@ $('#amount').on('focus', function(e)
 	}
 });
 
-$('#shoppinglist-form input').keydown(function(event)
+$('#shoppinglist-form input').keyup(function (event)
+{
+	Grocy.FrontendHelpers.ValidateForm('shoppinglist-form');
+});
+
+$('#shoppinglist-form input').keydown(function (event)
 {
 	if (event.keyCode === 13) //Enter
 	{
-		if ($('#shoppinglist-form').validator('validate').has('.has-error').length !== 0) //There is at least one validation error
+		if (document.getElementById('shoppinglist-form').checkValidity() === false) //There is at least one validation error
 		{
 			event.preventDefault();
 			return false;
+		}
+		else
+		{
+			$('#save-shoppinglist-button').click();
 		}
 	}
 });

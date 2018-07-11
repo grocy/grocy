@@ -14,15 +14,15 @@
 		<h1>
 			@yield('title')
 			<a class="btn btn-outline-dark" href="{{ $U('/manageapikeys/new') }}">
-				<i class="fa fa-plus"></i>&nbsp;{{ $L('Add') }}
+				<i class="fas fa-plus"></i>&nbsp;{{ $L('Add') }}
 			</a>
 		</h1>
 	</div>
 </div>
 
 <div class="row mt-3">
-	<div class="col-3">
-		<label for="search">{{ $L('Search') }}</label>
+	<div class="col-xs-12 col-md-6 col-xl-3">
+		<label for="search"><i class="fas fa-search"></i> {{ $L('Search') }}</label>
 		<input type="text" class="form-control" id="search">
 	</div>
 </div>
@@ -44,7 +44,7 @@
 				<tr id="apiKeyRow_{{ $apiKey->id }}">
 					<td class="fit-content">
 						<a class="btn btn-danger btn-sm apikey-delete-button" href="#" data-apikey-id="{{ $apiKey->id }}" data-apikey-apikey="{{ $apiKey->api_key }}">
-							<i class="fa fa-trash"></i>
+							<i class="fas fa-trash"></i>
 						</a>
 					</td>
 					<td>

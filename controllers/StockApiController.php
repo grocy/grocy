@@ -29,7 +29,7 @@ class StockApiController extends BaseApiController
 	public function AddProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$bestBeforeDate = date('Y-m-d');
-		if (isset($request->getQueryParams()['bestbeforedate']) && !empty($request->getQueryParams()['bestbeforedate']))
+		if (isset($request->getQueryParams()['bestbeforedate']) && !empty($request->getQueryParams()['bestbeforedate']) && IsIsoDate($request->getQueryParams()['bestbeforedate']))
 		{
 			$bestBeforeDate = $request->getQueryParams()['bestbeforedate'];
 		}
@@ -79,7 +79,7 @@ class StockApiController extends BaseApiController
 	public function InventoryProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$bestBeforeDate = date('Y-m-d');
-		if (isset($request->getQueryParams()['bestbeforedate']) && !empty($request->getQueryParams()['bestbeforedate']))
+		if (isset($request->getQueryParams()['bestbeforedate']) && !empty($request->getQueryParams()['bestbeforedate']) && IsIsoDate($request->getQueryParams()['bestbeforedate']))
 		{
 			$bestBeforeDate = $request->getQueryParams()['bestbeforedate'];
 		}

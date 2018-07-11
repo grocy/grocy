@@ -23,7 +23,7 @@
 					$('#product_id_text_input').focus();
 					$('#product_id_text_input').val('');
 					$('#product_id_text_input').trigger('change');
-					$('#consume-form').validator('validate');
+					Grocy.FrontendHelpers.ValidateForm('consume-form');
 				},
 				function(xhr)
 				{
@@ -50,26 +50,19 @@ $('#product_id').on('change', function(e)
 			function (productDetails)
 			{
 				$('#amount').attr('max', productDetails.stock_amount);
-				$('#consume-form').validator('update');
 				$('#amount_qu_unit').text(productDetails.quantity_unit_stock.name);
 
 				if ((productDetails.stock_amount || 0) === 0)
 				{
 					$('#product_id').val('');
 					$('#product_id_text_input').val('');
-					$('#product_id_text_input').addClass('has-error');
-					$('#product_id_text_input').parent('.input-group').addClass('has-error');
-					$('#product_id_text_input').closest('.form-group').addClass('has-error');
+					Grocy.FrontendHelpers.ValidateForm('consume-form');
 					$('#product-error').text(L('This product is not in stock'));
-					$('#product-error').show();
 					$('#product_id_text_input').focus();
 				}
 				else
 				{
-					$('#product_id_text_input').removeClass('has-error');
-					$('#product_id_text_input').parent('.input-group').removeClass('has-error');
-					$('#product_id_text_input').closest('.form-group').removeClass('has-error');
-					$('#product-error').hide();
+					Grocy.FrontendHelpers.ValidateForm('consume-form');
 					$('#amount').focus();
 				}
 			},
@@ -104,9 +97,6 @@ $('#product_id_text_input').focus();
 $('#product_id_text_input').val('');
 $('#product_id_text_input').trigger('change');
 
-$('#consume-form').validator();
-$('#consume-form').validator('validate');
-
 $('#amount').on('focus', function(e)
 {
 	if ($('#product_id_text_input').val().length === 0)
@@ -119,14 +109,23 @@ $('#amount').on('focus', function(e)
 	}
 });
 
+$('#consume-form input').keyup(function (event)
+{
+	Grocy.FrontendHelpers.ValidateForm('consume-form');
+});
+
 $('#consume-form input').keydown(function(event)
 {
 	if (event.keyCode === 13) //Enter
 	{
-		if ($('#consume-form').validator('validate').has('.has-error').length !== 0) //There is at least one validation error
+		if (document.getElementById('consume-form').checkValidity() === false) //There is at least one validation error
 		{
 			event.preventDefault();
 			return false;
+		}
+		else
+		{
+			$('#save-consume-button').click();
 		}
 	}
 });

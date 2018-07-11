@@ -132,6 +132,15 @@ return array(
 	'Filter by location' => 'Nach Standort filtern',
 	'Search' => 'Suche',
 	'Not logged in' => 'Nicht angemeldet',
+	'You have to select a product' => 'Ein Produkt muss ausgewählt werden',
+	'You have to select a habit' => 'Eine Gewohnheit muss ausgewählt werden',
+	'You have to select a battery' => 'Eine Batterie muss ausgewählt werden',
+	'A name is required' => 'Ein Name ist erforderlich',
+	'A location is required' => 'Ein Standort ist erforderlich',
+	'The amount cannot be lower than #1' => 'Die Menge darf nicht kleiner als #1 sein',
+	'This cannot be negative' => 'Dies darf nicht negativ sein',
+	'A quantity unit is required' => 'Eine Mengeneinheit muss ausgewählt werden',
+	'A period type is required' => 'Eine Periodentyp muss ausgewählt werden',
 	
 	//Constants
 	'manually' => 'Manuell',

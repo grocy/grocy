@@ -30,6 +30,26 @@
 	}
 });
 
+$('#battery-form input').keyup(function(event)
+{
+	Grocy.FrontendHelpers.ValidateForm('battery-form');
+});
+
+$('#battery-form input').keydown(function(event)
+{
+	if (event.keyCode === 13) //Enter
+	{
+		if (document.getElementById('battery-form').checkValidity() === false) //There is at least one validation error
+		{
+			event.preventDefault();
+			return false;
+		}
+		else
+		{
+			$('#save-battery-button').click();
+		}
+	}
+});
+
 $('#name').focus();
-$('#battery-form').validator();
-$('#battery-form').validator('validate');
+Grocy.FrontendHelpers.ValidateForm('battery-form');

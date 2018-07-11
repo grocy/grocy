@@ -6,10 +6,10 @@
 
 @section('content')
 <div class="row">
-	<div class="col-lg-4 col-xs-12">
+	<div class="col-xs-12 col-md-6 col-xl-4">
 		<h1>@yield('title')</h1>
 
-		<form id="batterytracking-form">
+		<form id="batterytracking-form" novalidate>
 
 			<div class="form-group">
 				<label for="battery_id">{{ $L('Battery') }}</label>
@@ -19,26 +19,20 @@
 						<option value="{{ $battery->id }}">{{ $battery->name }}</option>
 					@endforeach
 				</select>
-				<div id="battery-error" class="invalid-feedback"></div>
+				<div class="invalid-feedback">{{ $L('You have to select a battery') }}</div>
 			</div>
 
-			<div class="form-group">
-				<label for="tracked_time">{{ $L('Tracked time') }}</label>
-				<div class="input-group date datetimepicker">
-					<input type="text" class="form-control" id="tracked_time" name="tracked_time" required >
-					<span class="input-group-addon">
-						<span class="fa fa-calendar"></span>
-					</span>
-				</div>
-				<div class="invalid-feedback"></div>
-			</div>
+			@include('components.datetimepicker', array(
+				'id' => 'tracked_time',
+				'label' => 'Tracked time'
+			))
 
 			<button id="save-batterytracking-button" type="submit" class="btn btn-success">{{ $L('OK') }}</button>
 
 		</form>
 	</div>
 
-	<div class="col-lg-4 col-xs-12">
+	<div class="col-xs-12 col-md-6 col-xl-4">
 		@include('components.batterycard')
 	</div>
 </div>

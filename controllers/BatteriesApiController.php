@@ -17,7 +17,7 @@ class BatteriesApiController extends BaseApiController
 	public function TrackChargeCycle(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$trackedTime = date('Y-m-d H:i:s');
-		if (isset($request->getQueryParams()['tracked_time']) && !empty($request->getQueryParams()['tracked_time']))
+		if (isset($request->getQueryParams()['tracked_time']) && !empty($request->getQueryParams()['tracked_time']) && IsIsoDateTime($request->getQueryParams()['tracked_time']))
 		{
 			$trackedTime = $request->getQueryParams()['tracked_time'];
 		}

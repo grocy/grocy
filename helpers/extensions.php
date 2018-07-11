@@ -110,3 +110,15 @@ function IsAssociativeArray(array $array)
 	$keys = array_keys($array);
 	return array_keys($keys) !== $keys;
 }
+
+function IsIsoDate($dateString)
+{
+	$d = DateTime::createFromFormat('Y-m-d', $dateString);
+	return $d && $d->format('Y-m-d') === $dateString;
+}
+
+function IsIsoDateTime($dateTimeString)
+{
+	$d = DateTime::createFromFormat('Y-m-d H:i:s', $dateTimeString);
+	return $d && $d->format('Y-m-d H:i:s') === $dateTimeString;
+}

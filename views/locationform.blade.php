@@ -19,12 +19,12 @@
 			<script>Grocy.EditObjectId = {{ $location->id }};</script>
 		@endif
 
-		<form id="location-form">
+		<form id="location-form" novalidate>
 
 			<div class="form-group">
 				<label for="name">{{ $L('Name') }}</label>
 				<input type="text" class="form-control" required id="name" name="name" value="@if($mode == 'edit'){{ $location->name }}@endif">
-				<div class="invalid-feedback"></div>
+				<div class="invalid-feedback">{{ $L('A name is required') }}</div>
 			</div>
 
 			<div class="form-group">

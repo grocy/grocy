@@ -18,8 +18,8 @@
 </div>
 
 <div class="row mt-3">
-	<div class="col-3">
-		<label for="search">{{ $L('Search') }}</label>
+	<div class="col-xs-12 col-md-6 col-xl-3">
+		<label for="search"><i class="fas fa-search"></i> {{ $L('Search') }}</label>
 		<input type="text" class="form-control" id="search">
 	</div>
 </div>
@@ -42,7 +42,7 @@
 						<a class="btn btn-success btn-sm track-habit-button" href="#" title="{{ $L('Track execution of habit #1', FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->name) }}"
 							data-habit-id="{{ $curentHabitEntry->habit_id }}"
 							data-habit-name="{{ FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->name }}">
-							<i class="fa fa-play"></i>
+							<i class="fas fa-play"></i>
 						</a>
 					</td>
 					<td>
