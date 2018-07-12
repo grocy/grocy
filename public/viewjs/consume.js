@@ -96,17 +96,11 @@ $('#product_id').val('');
 $('#product_id_text_input').focus();
 $('#product_id_text_input').val('');
 $('#product_id_text_input').trigger('change');
+Grocy.FrontendHelpers.ValidateForm('consume-form');
 
 $('#amount').on('focus', function(e)
 {
-	if ($('#product_id_text_input').val().length === 0)
-	{
-		$('#product_id_text_input').focus();
-	}
-	else
-	{
-		$(this).select();
-	}
+	$(this).select();
 });
 
 $('#consume-form input').keyup(function (event)

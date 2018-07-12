@@ -7,16 +7,15 @@
 	Grocy.Api.Get('habits/get-habit-details/' + jsonForm.habit_id,
 		function (habitDetails)
 		{
-			Grocy.Api.Get('habits/track-habit-execution/' + jsonForm.habit_id + '?tracked_time=' + $('#tracked_time').find('input').val(),
+			Grocy.Api.Get('habits/track-habit-execution/' + jsonForm.habit_id + '?tracked_time=' + Grocy.Components.DateTimePicker.GetValue(),
 				function(result)
 				{
-					toastr.success(L('Tracked execution of habit #1 on #2', habitDetails.habit.name, $('#tracked_time').find('input').val()));
+					toastr.success(L('Tracked execution of habit #1 on #2', habitDetails.habit.name, Grocy.Components.DateTimePicker.GetValue()));
 
 					$('#habit_id').val('');
 					$('#habit_id_text_input').focus();
 					$('#habit_id_text_input').val('');
-					$('#tracked_time').find('input').val(moment().format('YYYY-MM-DD HH:mm:ss'));
-					$('#tracked_time').find('input').trigger('change');
+					Grocy.Components.DateTimePicker.SetValue(moment().format('YYYY-MM-DD HH:mm:ss'));
 					$('#habit_id_text_input').trigger('change');
 					Grocy.FrontendHelpers.ValidateForm('habittracking-form');
 				},
@@ -40,7 +39,7 @@ $('#habit_id').on('change', function(e)
 	if (habitId)
 	{
 		Grocy.Components.HabitCard.Refresh(habitId);
-		$('#tracked_time').find('input').focus();
+		Grocy.Components.DateTimePicker.GetInputElement().focus();
 	}
 });
 
@@ -48,9 +47,7 @@ $('.combobox').combobox({
 	appendId: '_text_input'
 });
 
-$('#habit_id').val('');
 $('#habit_id_text_input').focus();
-$('#habit_id_text_input').val('');
 $('#habit_id_text_input').trigger('change');
 Grocy.FrontendHelpers.ValidateForm('habittracking-form');
 
@@ -75,7 +72,7 @@ $('#habittracking-form input').keydown(function(event)
 	}
 });
 
-$('#tracked_time').find('input').on('keypress', function(e)
+Grocy.Components.DateTimePicker.GetInputElement().on('keypress', function(e)
 {
 	Grocy.FrontendHelpers.ValidateForm('habittracking-form');
 });

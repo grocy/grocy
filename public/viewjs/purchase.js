@@ -9,7 +9,7 @@
 		{
 			var amount = jsonForm.amount * productDetails.product.qu_factor_purchase_to_stock;
 
-			Grocy.Api.Get('stock/add-product/' + jsonForm.product_id + '/' + amount + '?bestbeforedate=' + $('#best_before_date').val(),
+			Grocy.Api.Get('stock/add-product/' + jsonForm.product_id + '/' + amount + '?bestbeforedate=' + Grocy.Components.DateTimePicker.GetValue(),
 				function(result)
 				{
 					var addBarcode = GetUriParam('addbarcodetoselection');
@@ -43,7 +43,7 @@
 					else
 					{
 						$('#amount').val(0);
-						$('#best_before_date').val('');
+						Grocy.Components.DateTimePicker.SetValue('');
 						$('#product_id').val('');
 						$('#product_id_text_input').focus();
 						$('#product_id_text_input').val('');
@@ -79,13 +79,12 @@ $('#product_id').on('change', function(e)
 				
 				if (productDetails.product.default_best_before_days.toString() !== '0')
 				{
-					$('#best_before_date').val(moment().add(productDetails.product.default_best_before_days, 'days').format('YYYY-MM-DD'));
-					$('#best_before_date').trigger('change');
+					Grocy.Components.DateTimePicker.SetValue(moment().add(productDetails.product.default_best_before_days, 'days').format('YYYY-MM-DD'));
 					$('#amount').focus();
 				}
 				else
 				{
-					$('#best_before_date').focus();
+					Grocy.Components.DateTimePicker.GetInputElement().focus();
 				}
 			},
 			function(xhr)
@@ -174,19 +173,11 @@ $('#product_id_text_input').on('change', function(e)
 });
 
 $('#amount').val(0);
-$('#best_before_date').val('');
 $('#product_id').val('');
 $('#product_id_text_input').focus();
 $('#product_id_text_input').val('');
 $('#product_id_text_input').trigger('change');
-
-$('#best_before_date').on('focus', function(e)
-{
-	if ($('#product_id_text_input').val().length === 0)
-	{
-		$('#product_id_text_input').focus();
-	}
-});
+Grocy.FrontendHelpers.ValidateForm('purchase-form');
 
 $('#amount').on('focus', function(e)
 {
@@ -235,7 +226,7 @@ if (prefillProduct !== undefined)
 		$('#product_id').val(possibleOptionElement.val());
 		$('#product_id').data('combobox').refresh();
 		$('#product_id').trigger('change');
-		$('#best_before_date').focus();
+		Grocy.Components.DateTimePicker.GetInputElement().focus();
 	}
 }
 
@@ -247,12 +238,12 @@ if (addBarcode !== undefined)
 	$('#barcode-lookup-disabled-hint').removeClass('d-none');
 }
 
-$('#best_before_date').on('change', function(e)
+Grocy.Components.DateTimePicker.GetInputElement().on('change', function(e)
 {
 	Grocy.FrontendHelpers.ValidateForm('purchase-form');
 });
 
-$('#best_before_date').on('keypress', function(e)
+Grocy.Components.DateTimePicker.GetInputElement().on('keypress', function(e)
 {
 	Grocy.FrontendHelpers.ValidateForm('purchase-form');
 });

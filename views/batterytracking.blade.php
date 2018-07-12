@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="row">
-	<div class="col-xs-12 col-md-6 col-xl-4">
+	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
 		<h1>@yield('title')</h1>
 
 		<form id="batterytracking-form" novalidate>
@@ -24,7 +24,12 @@
 
 			@include('components.datetimepicker', array(
 				'id' => 'tracked_time',
-				'label' => 'Tracked time'
+				'label' => 'Tracked time',
+				'format' => 'YYYY-MM-DD HH:mm:ss',
+				'initWithNow' => true,
+				'limitEndToNow' => true,
+				'limitStartToNow' => false,
+				'invalidFeedback' => $L('This can only be before now')
 			))
 
 			<button id="save-batterytracking-button" type="submit" class="btn btn-success">{{ $L('OK') }}</button>

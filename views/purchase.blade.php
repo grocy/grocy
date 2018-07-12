@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="row">
-	<div class="col-xs-12 col-md-6 col-xl-4">
+	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
 		<h1>@yield('title')</h1>
 
 		<form id="purchase-form" novalidate>
@@ -23,9 +23,15 @@
 				<div id="flow-info-addbarcodetoselection" class="form-text text-muted small d-none"><strong><span id="addbarcodetoselection"></span></strong> {{ $L('will be added to the list of barcodes for the selected product on submit') }}</div>
 			</div>
 
-			@include('components.datepicker', array(
+			@include('components.datetimepicker', array(
 				'id' => 'best_before_date',
-				'label' => 'Best before'
+				'label' => 'Best before',
+				'format' => 'YYYY-MM-DD',
+				'initWithNow' => false,
+				'limitEndToNow' => false,
+				'limitStartToNow' => true,
+				'invalidFeedback' => $L('A best before date is required and must be later than today'),
+				'nextInputSelector' => '#amount'
 			))
 
 			<div class="form-group">

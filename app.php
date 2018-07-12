@@ -8,6 +8,7 @@ use \Grocy\Controllers\LoginController;
 
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/data/config.php';
+require_once __DIR__ . '/config-dist.php'; //For not in own config defined values we use the default ones
 
 // Setup base application
 $appContainer = new \Slim\Container([

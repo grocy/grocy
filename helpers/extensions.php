@@ -122,3 +122,16 @@ function IsIsoDateTime($dateTimeString)
 	$d = DateTime::createFromFormat('Y-m-d H:i:s', $dateTimeString);
 	return $d && $d->format('Y-m-d H:i:s') === $dateTimeString;
 }
+
+function BoolToString(bool $bool)
+{
+	return $bool ? 'true' : 'false';
+}
+
+function Setting(string $name, string $value)
+{
+	if (!defined($name))
+	{
+		define($name, $value);
+	}
+}

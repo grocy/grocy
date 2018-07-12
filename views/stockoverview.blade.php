@@ -20,7 +20,7 @@
 
 <div class="row mt-3">
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="location-filter"><i class="fas fa-filter"></i> {{ $L('Filter by location') }}</label>
+		<label for="location-filter">{{ $L('Filter by location') }}</label> <i class="fas fa-filter"></i>
 		<select class="form-control" id="location-filter">
 			<option value="all">{{ $L('All') }}</option>
 			@foreach($locations as $location)
@@ -29,7 +29,7 @@
 		</select>
 	</div>
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="search"><i class="fas fa-search"></i> {{ $L('Search') }}</label>
+		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
 	</div>
 </div>

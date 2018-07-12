@@ -42,6 +42,7 @@ $('#product_id').on('change', function(e)
 			function (productDetails)
 			{
 				$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name);
+				$('#amount').focus();
 			},
 			function(xhr)
 			{
@@ -60,7 +61,8 @@ $('#product_id_text_input').on('change', function(e)
 	var input = $('#product_id_text_input').val().toString();
 	var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + input + "']").first();
 
-	if (possibleOptionElement.length > 0 && possibleOptionElement.text().length > 0) {
+	if (possibleOptionElement.length > 0 && possibleOptionElement.text().length > 0)
+	{
 		$('#product_id').val(possibleOptionElement.val());
 		$('#product_id').data('combobox').refresh();
 		$('#product_id').trigger('change');
@@ -83,6 +85,10 @@ $('#amount').on('focus', function(e)
 	if ($('#product_id_text_input').val().length === 0)
 	{
 		$('#product_id_text_input').focus();
+	}
+	else
+	{
+		$(this).select();
 	}
 });
 

@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="row">
-	<div class="col-xs-12 col-md-6 col-xl-4">
+	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
 		<h1>@yield('title')</h1>
 
 		<form id="inventory-form" novalidate>
@@ -29,11 +29,17 @@
 				<div class="invalid-feedback">{{ $L('The amount cannot be lower than #1', '0') }}</div>
 				<div id="inventory-change-info" class="form-text text-muted small d-none"></div>
 			</div>
-
-			@include('components.datepicker', array(
+			
+			@include('components.datetimepicker', array(
 				'id' => 'best_before_date',
 				'label' => 'Best before',
-				'hint' => 'This will apply to added products'
+				'hint' => 'This will apply to added products',
+				'format' => 'YYYY-MM-DD',
+				'initWithNow' => false,
+				'limitEndToNow' => false,
+				'limitStartToNow' => true,
+				'invalidFeedback' => $L('A best before date is required and must be later than today'),
+				'nextInputSelector' => '#best_before_date'
 			))
 
 			<button id="save-inventory-button" type="submit" class="btn btn-success">{{ $L('OK') }}</button>
