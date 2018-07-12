@@ -59,8 +59,9 @@ Database schema migration is automatically done when visiting the root (`/`) rou
 ### Demo mode
 When the file `data/demo.txt` exists, the application will work in a demo mode which means authentication is disabled and some demo data will be generated during the database schema migration.
 
-### Other things
-When the file `data/add_before_end_body.html` exists, the contents of the file be added just before `</body>` on every page, useful for your own JS/CSS without to have to modify the application itself.
+### Adding your own CSS or JS without to have to modify the application itself
+- When the file `data/custom.js` exists, the contents of the file be added just before `</body>` on every page
+- When the file `data/custom.css` exists, the contents of the file be added just before `</head>` on every page
 
 ## Screenshots
 #### Dashboard

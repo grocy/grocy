@@ -26,6 +26,10 @@
 	<link href="{{ $U('/css/grocy.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	@stack('pageStyles')
 
+	@if(file_exists(__DIR__ . '/../../data/custom.css'))
+		@php include __DIR__ . '/../../data/custom.css' @endphp
+	@endif
+
 	<script>
 		var Grocy = { };
 		Grocy.Components = { };
@@ -235,8 +239,8 @@
 	@stack('componentScripts')
 	<script src="{{ $U('/viewjs', true) }}/@yield('viewJsName').js?v={{ $version }}"></script>
 
-	@if(file_exists(__DIR__ . '/../../data/add_before_end_body.html'))
-		@php include __DIR__ . '/../../data/add_before_end_body.html' @endphp
+	@if(file_exists(__DIR__ . '/../../data/custom.js'))
+		@php include __DIR__ . '/../../data/custom.js' @endphp
 	@endif
 </body>
 
