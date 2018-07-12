@@ -208,7 +208,7 @@
 					<br>
 					Life runs on code<br>
 					<a href="https://github.com/berrnd/grocy" class="discrete-link" target="_blank">
-						<i class="fas fa-github"></i>
+						<i class="fab fa-github"></i>
 					</a>
 				</div>
 			</div>
