@@ -11,16 +11,16 @@ A household needs to be managed. I did this so far (almost 10 years) with my fir
 For now my main focus is on stock management, ERP your fridge!
 
 ## How to install
-Just unpack the [latest release](https://github.com/berrnd/grocy/releases/latest) on your PHP (currently only tested with PHP 7.2) enabled webserver (webservers root should point to the `/public` directory), copy `config-dist.php` to `data/config.php`, edit it to your needs, ensure that the `data` directory is writable and you're ready to go.
+Just unpack the [latest release](https://github.com/berrnd/grocy/releases/latest) on your PHP (SQLite extension required, currently only tested with PHP 7.2) enabled webserver (webservers root should point to the `/public` directory), copy `config-dist.php` to `data/config.php`, edit it to your needs, ensure that the `data` directory is writable and you're ready to go.
 
-Default login is user `admin` with password `admin` - see the `data/config.php` file. Alternatively clone this repository and install Composer and Bower dependencies manually.
+Default login is user `admin` with password `admin` - see the `data/config.php` file. Alternatively clone this repository and install Composer and Yarn dependencies manually.
 
 If you use nginx as your webserver, please include `try_files $uri /index.php;` in your location block.
 
-If, however, your webserver does not support URL rewriting, set `DISABLE_URL_REWRITING` in `data/config.php`.
+If, however, your webserver does not support URL rewriting, set `DISABLE_URL_REWRITING` in `data/config.php` (`Setting('DISABLE_URL_REWRITING', true);`).
 
 ## How to update
-Just overwrite everything with the latest release while keeping the `/data` directory, check `config-dist.php` for new configuration options and add them to your `data/config.php` (it will show up as an error if something is missing there).
+Just overwrite everything with the latest release while keeping the `/data` directory, check `config-dist.php` for new configuration options and add them to your `data/config.php` (the default from values `config-dist.php` will be used for not in `data/config.php` defined settings).
 
 ## Things worth to know
 
@@ -49,6 +49,9 @@ Example: Button "Add as new **p**roduct" can be "pressed" by using the `P` key o
 Products can be directly added to the database via looking them up against external services by a barcode.
 This is currently only possible through the REST API.
 There is no plugin included for any service, see the reference implementation in `data/plugins/DemoBarcodeLookupPlugin.php`.
+
+### Localization
+grocy is fully localizable - the default language is English (integrated into code), a German localization is always maintained by me. There is one file per language in the `localization` directory, if you want to create a translation, it's best to copy `localization/de.php` to a new one (e. g. `localization/it.php`) and translating all strings there. (Language can be changed in `data/config.php`, e. g. `Setting('CULTURE', 'it');`)
 
 ### Database migrations
 Database schema migration is automatically done when visiting the root (`/`) route (click on the logo in the left upper edge).
