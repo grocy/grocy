@@ -9,7 +9,7 @@ class DemoBarcodeLookupPlugin extends BaseBarcodeLookupPlugin
 {
 	/*
 		To use this plugin, configure it in data/config.php like this:
-		define('STOCK_BARCODE_LOOKUP_PLUGIN', 'DemoBarcodeLookupPlugin');
+		Setting('STOCK_BARCODE_LOOKUP_PLUGIN', 'DemoBarcodeLookupPlugin');
 	*/
 
 	/*
