@@ -128,7 +128,7 @@ function BoolToString(bool $bool)
 	return $bool ? 'true' : 'false';
 }
 
-function Setting(string $name, string $value)
+function Setting(string $name, $value)
 {
 	if (!defined($name))
 	{
