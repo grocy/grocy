@@ -156,3 +156,8 @@ td {
 		padding: 0.8em;
 	}
 }
+
+/* Third party component customizations - Tempus Dominus */
+.bootstrap-datetimepicker-widget.dropdown-menu {
+	width: auto !important;
+}
