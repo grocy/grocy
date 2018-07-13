@@ -144,6 +144,7 @@ return array(
 	'A best before date is required and must be later than today' => 'Ein Mindesthaltbarkeitsdatum ist erforderlich und muss später als heute sein',
 	'Settings' => 'Einstellungen',
 	'This can only be before now' => 'Dies kann nur vor jetzt sein',
+	'Calendar' => 'Kalender',
 	
 	//Constants
 	'manually' => 'Manuell',

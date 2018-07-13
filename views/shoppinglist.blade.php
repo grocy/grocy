@@ -27,7 +27,7 @@
 </div>
 
 <div class="row">
-	<div class="col">
+	<div class="col-xs-12 col-md-8 pb-3">
 		<table id="shoppinglist-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
@@ -57,6 +57,10 @@
 				@endforeach
 			</tbody>
 		</table>
+	</div>
+
+	<div class="col-xs-12 col-md-4">
+		@include('components.calendarcard')
 	</div>
 </div>
 @stop
