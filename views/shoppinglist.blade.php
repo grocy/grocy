@@ -21,7 +21,7 @@
 
 <div class="row mt-3">
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="search"><i class="fas fa-search"></i> {{ $L('Search') }}</label>
+		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
 	</div>
 </div>
