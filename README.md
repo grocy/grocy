@@ -22,6 +22,12 @@ If, however, your webserver does not support URL rewriting, set `DISABLE_URL_REW
 ## How to update
 Just overwrite everything with the latest release while keeping the `/data` directory, check `config-dist.php` for new configuration options and add them to your `data/config.php` (the default from values `config-dist.php` will be used for not in `data/config.php` defined settings).
 
+## Localization
+grocy is fully localizable - the default language is English (integrated into code), a German localization is always maintained by me. There is one file per language in the `localization` directory, if you want to create a translation, it's best to copy `localization/de.php` to a new one (e. g. `localization/it.php`) and translating all strings there. (Language can be changed in `data/config.php`, e. g. `Setting('CULTURE', 'it');`)
+
+### Maintaining your own localization
+As the German translation will always be the most complete one, for maintaining your localization it would be easiest when you compare your localization with the German one with a diff tool of your choice.
+
 ## Things worth to know
 
 ### REST API & data model documentation
@@ -49,9 +55,6 @@ Example: Button "Add as new **p**roduct" can be "pressed" by using the `P` key o
 Products can be directly added to the database via looking them up against external services by a barcode.
 This is currently only possible through the REST API.
 There is no plugin included for any service, see the reference implementation in `data/plugins/DemoBarcodeLookupPlugin.php`.
-
-### Localization
-grocy is fully localizable - the default language is English (integrated into code), a German localization is always maintained by me. There is one file per language in the `localization` directory, if you want to create a translation, it's best to copy `localization/de.php` to a new one (e. g. `localization/it.php`) and translating all strings there. (Language can be changed in `data/config.php`, e. g. `Setting('CULTURE', 'it');`)
 
 ### Database migrations
 Database schema migration is automatically done when visiting the root (`/`) route (click on the logo in the left upper edge).
