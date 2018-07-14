@@ -74,6 +74,21 @@ datatables.net-bs4@^1.10.15, datatables.net-bs4@^1.10.19:
     datatables.net "1.10.19"
     jquery ">=1.7"
 
+datatables.net-colreorder-bs4@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/datatables.net-colreorder-bs4/-/datatables.net-colreorder-bs4-1.5.1.tgz#7ded353a68296b85f0dbfb234b8cb5d8fc2bee3c"
+  dependencies:
+    datatables.net-bs4 "^1.10.15"
+    datatables.net-colreorder "1.5.1"
+    jquery ">=1.7"
+
+datatables.net-colreorder@1.5.1, datatables.net-colreorder@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/datatables.net-colreorder/-/datatables.net-colreorder-1.5.1.tgz#ee5eacd7178b5fd9396aab44d4907aae35086f8c"
+  dependencies:
+    datatables.net "^1.10.15"
+    jquery ">=1.7"
+
 datatables.net-responsive-bs4@^2.2.3:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/datatables.net-responsive-bs4/-/datatables.net-responsive-bs4-2.2.3.tgz#639de17c1d31210ebf2b3c25f1c774c13f729e94"

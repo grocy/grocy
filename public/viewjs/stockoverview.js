@@ -6,7 +6,8 @@
 		{ 'visible': false, 'targets': 4 }
 	],
 	'language': JSON.parse(L('datatables_localization')),
-	'scrollY': false
+	'scrollY': false,
+	'colReorder': true
 });
 
 $("#location-filter").on("change", function()

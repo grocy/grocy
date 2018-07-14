@@ -5,7 +5,8 @@
 		{ 'orderable': false, 'targets': 0 }
 	],
 	'language': JSON.parse(L('datatables_localization')),
-	'scrollY': false
+	'scrollY': false,
+	'colReorder': true
 });
 
 var createdApiKeyId = GetUriParam('CreatedApiKeyId');
