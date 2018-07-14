@@ -104,6 +104,21 @@ datatables.net-responsive@2.2.3, datatables.net-responsive@^2.2.3:
     datatables.net "^1.10.15"
     jquery ">=1.7"
 
+datatables.net-select-bs4@^1.2.7:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/datatables.net-select-bs4/-/datatables.net-select-bs4-1.2.7.tgz#5e4ddd8feb412e974b54a15e81b2bb29840ba55b"
+  dependencies:
+    datatables.net-bs4 "^1.10.15"
+    datatables.net-select "1.2.7"
+    jquery ">=1.7"
+
+datatables.net-select@1.2.7, datatables.net-select@^1.2.7:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/datatables.net-select/-/datatables.net-select-1.2.7.tgz#7d5badfca49c438f8b51df04483d8d77857e917c"
+  dependencies:
+    datatables.net "^1.10.15"
+    jquery ">=1.7"
+
 datatables.net@1.10.16:
   version "1.10.16"
   resolved "https://registry.yarnpkg.com/datatables.net/-/datatables.net-1.10.16.tgz#4b052d1082824261b68eed9d22741b711d3d2469"
@@ -168,10 +183,6 @@ startbootstrap-sb-admin@^4.0.0:
     font-awesome "4.7.0"
     jquery "3.3.1"
     jquery.easing "^1.4.1"
-
-summernote@^0.8.10:
-  version "0.8.10"
-  resolved "https://registry.yarnpkg.com/summernote/-/summernote-0.8.10.tgz#21a5d7f18a3b07500b58b60d5907417a54897520"
 
 swagger-ui-dist@^3.17.3:
   version "3.17.3"

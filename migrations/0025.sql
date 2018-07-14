@@ -19,20 +19,32 @@ AS
 SELECT
 	r.id AS recipe_id,
 	rp.id AS recipe_pos_id,
-	rp.product_id,
+	rp.product_id AS product_id,
 	rp.amount AS recipe_amount,
 	sc.amount AS stock_amount,
-	CASE WHEN sc.amount >= rp.amount THEN 1 ELSE 0 END AS need_fullfiled
+	CASE WHEN IFNULL(sc.amount, 0) >= rp.amount THEN 1 ELSE 0 END AS need_fulfilled,
+	CASE WHEN IFNULL(sc.amount, 0) - rp.amount < 0 THEN ABS(sc.amount - rp.amount) ELSE 0 END AS missing_amount,
+	IFNULL(sl.amount, 0) AS amount_on_shopping_list,
+	CASE WHEN IFNULL(sc.amount, 0) + IFNULL(sl.amount, 0) >= rp.amount THEN 1 ELSE 0 END AS need_fulfilled_with_shopping_list
 FROM recipes r
-LEFT JOIN recipes_pos rp
+JOIN recipes_pos rp
 	ON r.id = rp.recipe_id
+LEFT JOIN (
+	SELECT product_id, SUM(amount + amount_autoadded) AS amount
+	FROM shopping_list
+	GROUP BY product_id) sl
+	ON rp.product_id = sl.product_id
 LEFT JOIN stock_current sc
 	ON rp.product_id = sc.product_id;
 
 CREATE VIEW recipes_fulfillment_sum
 AS
 SELECT
-	rf.recipe_id,
-	MIN(rf.need_fullfiled) AS need_fullfiled
-FROM recipes_fulfillment rf
-GROUP BY rf.recipe_id;
+	r.id AS recipe_id,
+	IFNULL(MIN(rf.need_fulfilled), 1) AS need_fulfilled,
+	IFNULL(MIN(rf.need_fulfilled_with_shopping_list), 1) AS need_fulfilled_with_shopping_list,
+	(SELECT COUNT(*) FROM recipes_fulfillment WHERE recipe_id = rf.recipe_id AND need_fulfilled = 0 AND recipe_pos_id IS NOT NULL) AS missing_products_count
+FROM recipes r
+LEFT JOIN recipes_fulfillment rf
+	ON rf.recipe_id = r.id
+GROUP BY r.id;

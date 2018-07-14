@@ -12,7 +12,7 @@
 			<a class="btn btn-outline-dark" href="{{ $U('/shoppinglistitem/new') }}">
 				<i class="fas fa-plus"></i>&nbsp;{{ $L('Add') }}
 			</a>
-			<a id="add-products-below-min-stock-amount" class="btn btn-info" href="#">
+			<a id="add-products-below-min-stock-amount" class="btn btn-outline-primary" href="#">
 				<i class="fas fa-plus"></i>&nbsp;{{ $L('Add products that are below defined min. stock amount') }}
 			</a>
 		</h1>

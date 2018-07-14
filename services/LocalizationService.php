@@ -2,14 +2,12 @@
 
 namespace Grocy\Services;
 
-class LocalizationService extends BaseService
+class LocalizationService
 {
 	const DEFAULT_CULTURE = 'en';
 
 	public function __construct(string $culture)
 	{
-		parent::__construct();
-
 		$this->Culture = $culture;
 
 		$this->StringsDefaultCulture = $this->LoadLocalizationFile(self::DEFAULT_CULTURE);

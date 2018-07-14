@@ -22,7 +22,7 @@
 </div>
 
 <div class="row">
-	<div class="col-xs-12 col-md-6 pb-3">
+	<div class="col-xs-12 col-md-4 pb-3">
 		<form id="recipe-form" novalidate>
 
 			<div class="form-group">
@@ -41,7 +41,7 @@
 		</form>
 	</div>
 
-	<div class="col-xs-12 col-md-6 pb-3">
+	<div class="col-xs-12 col-md-8 pb-3">
 		<h2>
 			{{ $L('Ingredients list') }}
 			<a class="btn btn-outline-dark" href="{{ $U('/recipe/' . $recipe->id . '/pos/new') }}">
@@ -60,7 +60,7 @@
 			<tbody>
 				@if($mode == "edit")
 				@foreach($recipePositions as $recipePosition)
-				<tr class="@if(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->need_fullfiled == 1) table-success @endif">
+				<tr class="@if(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->need_fulfilled == 1) table-success @elseif(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->need_fulfilled_with_shopping_list == 1) table-warning  @else table-danger @endif">
 					<td class="fit-content">
 						<a class="btn btn-sm btn-info" href="{{ $U('/recipe/' . $recipe->id . '/pos/' . $recipePosition->id) }}">
 							<i class="fas fa-edit"></i>
@@ -68,13 +68,16 @@
 						<a class="btn btn-sm btn-danger recipe-pos-delete-button" href="#" data-recipe-pos-id="{{ $recipePosition->id }}" data-recipe-pos-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id)->name }}">
 							<i class="fas fa-trash"></i>
 						</a>
+						<a class="btn btn-sm btn-primary recipe-pos-order-missing-button @if(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->need_fulfilled_with_shopping_list == 1){{ disabled }}@endif" href="#" title="{{ $L('Order missing amount') }}" data-recipe-name="{{ $recipe->name }}" data-product-id="{{ $recipePosition->product_id }}" data-product-amount="{{ FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->missing_amount }}" data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id)->name }}">
+							<i class="fas fa-shopping-cart"></i>
+						</a>
 					</td>
 					<td>
 						{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id)->name }}
 					</td>
 					<td>
 						{{ $recipePosition->amount }} {{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id)->qu_id_stock)->name }}
-						<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->need_fullfiled == 1) {{ $L('Enough in stock') }} @else {{ $L('Not enough in stock') }} @endif</span>
+						<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->need_fulfilled == 1) {{ $L('Enough in stock') }} @else {{ $L('Not enough in stock, #1 missing, #2 already on shopping list', FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->missing_amount, FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->amount_on_shopping_list) }} @endif</span>
 					</td>
 					<td>
 						@if(strlen($recipePosition->note) > 50)

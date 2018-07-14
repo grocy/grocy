@@ -10,7 +10,7 @@
 
 @section('content')
 <div class="row">
-	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
+	<div class="col-xs-12 col-md-6 col-xl-5 pb-3">
 		<h1>@yield('title')</h1>
 		<h3 class="text-muted">{{ $L('Recipe') }} <strong>{{ $recipe->name }}</strong></h3>
 

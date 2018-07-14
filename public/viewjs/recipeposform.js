@@ -46,6 +46,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 			{
 				$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name);
 				$('#amount').focus();
+				Grocy.FrontendHelpers.ValidateForm('recipe-pos-form');
 			},
 			function(xhr)
 			{
