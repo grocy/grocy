@@ -11,16 +11,11 @@
 
 		<form id="consume-form" novalidate>
 
-			<div class="form-group">
-				<label for="product_id">{{ $L('Product') }}&nbsp;&nbsp;<i class="fas fa-barcode"></i></label>
-				<select class="form-control combobox" id="product_id" name="product_id" required>
-					<option value=""></option>
-					@foreach($products as $product)
-						<option data-additional-searchdata="{{ $product->barcode }}" value="{{ $product->id }}">{{ $product->name }}</option>
-					@endforeach
-				</select>
-				<div id="product-error" class="invalid-feedback">{{ $L('You have to select a product') }}</div>
-			</div>
+			@include('components.productpicker', array(
+				'products' => $products,
+				'nextInputSelector' => '#amount',
+				'disallowAddProductWorkflows' => true
+			))
 
 			<div class="form-group">
 				<label for="amount">{{ $L('Amount') }}&nbsp;&nbsp;<span id="amount_qu_unit" class="small text-muted"></span></label>

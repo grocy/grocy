@@ -11,17 +11,10 @@
 
 		<form id="purchase-form" novalidate>
 
-			<div class="form-group">
-				<label for="product_id">{{ $L('Product') }}&nbsp;&nbsp;<i class="fas fa-barcode"></i><span id="barcode-lookup-disabled-hint" class="small text-muted d-none">&nbsp;&nbsp;Barcode lookup is disabled</span></label>
-				<select class="form-control combobox" id="product_id" name="product_id" required>
-					<option value=""></option>
-					@foreach($products as $product)
-						<option data-additional-searchdata="{{ $product->barcode }}" value="{{ $product->id }}">{{ $product->name }}</option>
-					@endforeach
-				</select>
-				<div class="invalid-feedback">{{ $L('You have to select a product') }}</div>
-				<div id="flow-info-addbarcodetoselection" class="form-text text-muted small d-none"><strong><span id="addbarcodetoselection"></span></strong> {{ $L('will be added to the list of barcodes for the selected product on submit') }}</div>
-			</div>
+			@include('components.productpicker', array(
+				'products' => $products,
+				'nextInputSelector' => '#best_before_date .datetimepicker-input'
+			))
 
 			@include('components.datetimepicker', array(
 				'id' => 'best_before_date',

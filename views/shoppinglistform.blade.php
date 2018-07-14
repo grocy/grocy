@@ -21,15 +21,10 @@
 
 		<form id="shoppinglist-form" novalidate>
 
-			<div class="form-group">
-				<label for="product_id">{{ $L('Product') }}&nbsp;&nbsp;<i class="fas fa-barcode"></i></label>
-				<select class="form-control combobox" id="product_id" name="product_id" value="@if($mode == 'edit') {{ $listItem->product_id }} @endif">
-					<option value=""></option>
-					@foreach($products as $product)
-						<option @if($mode == 'edit' && $product->id == $listItem->product_id) selected="selected" @endif data-additional-searchdata="{{ $product->barcode }}" value="{{ $product->id }}">{{ $product->name }}</option>
-					@endforeach
-				</select>
-			</div>
+			@include('components.productpicker', array(
+				'products' => $products,
+				'nextInputSelector' => '#amount'
+			))
 
 			<div class="form-group">
 				<label for="amount">{{ $L('Amount') }}&nbsp;&nbsp;<span id="amount_qu_unit" class="small text-muted"></span><br><span class="small text-muted">@if($mode == 'edit' && $listItem->amount_autoadded > 0){{ $L('#1 units were automatically added and will apply in addition to the amount entered here', $listItem->amount_autoadded) }}@endif</span></label>

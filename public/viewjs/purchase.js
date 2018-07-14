@@ -44,10 +44,8 @@
 					{
 						$('#amount').val(0);
 						Grocy.Components.DateTimePicker.SetValue('');
-						$('#product_id').val('');
-						$('#product_id_text_input').focus();
-						$('#product_id_text_input').val('');
-						$('#product_id_text_input').trigger('change');
+						Grocy.Components.ProductPicker.SetValue('');
+						Grocy.Components.ProductPicker.GetInputElement().focus();
 						Grocy.FrontendHelpers.ValidateForm('purchase-form');
 					}
 				},
@@ -64,7 +62,7 @@
 	);
 });
 
-$('#product_id').on('change', function(e)
+Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 {
 	var productId = $(e.target).val();
 
@@ -95,95 +93,23 @@ $('#product_id').on('change', function(e)
 	}
 });
 
-$('.combobox').combobox({
-	appendId: '_text_input',
-	bsVersion: '4'
-});
-
-$('#product_id_text_input').on('change', function(e)
-{
-	var input = $('#product_id_text_input').val().toString();
-	var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + input + "']").first();
-	
-	if (GetUriParam('addbarcodetoselection') === undefined && possibleOptionElement.length > 0)
-	{
-		$('#product_id').val(possibleOptionElement.val());
-		$('#product_id').data('combobox').refresh();
-		$('#product_id').trigger('change');
-	}
-	else
-	{
-		var optionElement = $("#product_id option:contains('" + input + "')").first();
-		if (input.length > 0 && optionElement.length === 0 && GetUriParam('addbarcodetoselection') === undefined	)
-		{
-			bootbox.dialog({
-				message: L('"#1" could not be resolved to a product, how do you want to proceed?', input),
-				title: L('Create or assign product'),
-				onEscape: function() { },
-				size: 'large',
-				backdrop: true,
-				buttons: {
-					cancel: {
-						label: 'Cancel',
-						className: 'btn-default',
-						callback: function() { }
-					},
-					addnewproduct: {
-						label: '<strong>P</strong> ' + L('Add as new product'),
-						className: 'btn-success add-new-product-dialog-button',
-						callback: function()
-						{
-							window.location.href = U('/product/new?prefillname=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(window.location.pathname));
-						}
-					},
-					addbarcode: {
-						label: '<strong>B</strong> ' + L('Add as barcode to existing product'),
-						className: 'btn-info add-new-barcode-dialog-button',
-						callback: function()
-						{
-							window.location.href = U('/purchase?addbarcodetoselection=' + encodeURIComponent(input));
-						}
-					},
-					addnewproductwithbarcode: {
-						label: '<strong>A</strong> ' + L('Add as new product and prefill barcode'),
-						className: 'btn-warning add-new-product-with-barcode-dialog-button',
-						callback: function()
-						{
-							window.location.href = U('/product/new?prefillbarcode=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(window.location.pathname));
-						}
-					}
-				}
-			}).on('keypress', function(e)
-			{
-				if (e.key === 'B' || e.key === 'b')
-				{
-					$('.add-new-barcode-dialog-button').click();
-				}
-				if (e.key === 'p' || e.key === 'P')
-				{
-					$('.add-new-product-dialog-button').click();
-				}
-				if (e.key === 'a' || e.key === 'A')
-				{
-					$('.add-new-product-with-barcode-dialog-button').click();
-				}
-			});
-		}
-	}
-});
-
 $('#amount').val(0);
-$('#product_id').val('');
-$('#product_id_text_input').focus();
-$('#product_id_text_input').val('');
-$('#product_id_text_input').trigger('change');
 Grocy.FrontendHelpers.ValidateForm('purchase-form');
+
+if (Grocy.Components.ProductPicker.InProductAddWorkflow() === false)
+{
+	Grocy.Components.ProductPicker.GetInputElement().focus();
+}
+else
+{
+	Grocy.Components.ProductPicker.GetPicker().trigger('change');
+}
 
 $('#amount').on('focus', function(e)
 {
-	if ($('#product_id_text_input').val().length === 0)
+	if (Grocy.Components.ProductPicker.GetValue().length === 0)
 	{
-		$('#product_id_text_input').focus();
+		Grocy.Components.ProductPicker.GetInputElement().focus();
 	}
 	else
 	{
@@ -211,32 +137,6 @@ $('#purchase-form input').keydown(function(event)
 		}
 	}
 });
-
-var prefillProduct = GetUriParam('createdproduct');
-if (prefillProduct !== undefined)
-{
-	var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + prefillProduct + "']").first();
-	if (possibleOptionElement.length === 0)
-	{
-		possibleOptionElement = $("#product_id option:contains('" + prefillProduct + "')").first();
-	}
-
-	if (possibleOptionElement.length > 0)
-	{
-		$('#product_id').val(possibleOptionElement.val());
-		$('#product_id').data('combobox').refresh();
-		$('#product_id').trigger('change');
-		Grocy.Components.DateTimePicker.GetInputElement().focus();
-	}
-}
-
-var addBarcode = GetUriParam('addbarcodetoselection');
-if (addBarcode !== undefined)
-{
-	$('#addbarcodetoselection').text(addBarcode);
-	$('#flow-info-addbarcodetoselection').removeClass('d-none');
-	$('#barcode-lookup-disabled-hint').removeClass('d-none');
-}
 
 Grocy.Components.DateTimePicker.GetInputElement().on('change', function(e)
 {

@@ -19,10 +19,8 @@
 					toastr.success(L('Removed #1 #2 of #3 from stock', jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.product.name));
 
 					$('#amount').val(1);
-					$('#product_id').val('');
-					$('#product_id_text_input').focus();
-					$('#product_id_text_input').val('');
-					$('#product_id_text_input').trigger('change');
+					Grocy.Components.ProductPicker.SetValue('');
+					Grocy.Components.ProductPicker.GetInputElement().focus();
 					Grocy.FrontendHelpers.ValidateForm('consume-form');
 				},
 				function(xhr)
@@ -38,7 +36,7 @@
 	);
 });
 
-$('#product_id').on('change', function(e)
+Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 {
 	var productId = $(e.target).val();
 
@@ -54,14 +52,14 @@ $('#product_id').on('change', function(e)
 
 				if ((productDetails.stock_amount || 0) === 0)
 				{
-					$('#product_id').val('');
-					$('#product_id_text_input').val('');
+					Grocy.Components.ProductPicker.SetValue('');
 					Grocy.FrontendHelpers.ValidateForm('consume-form');
-					$('#product-error').text(L('This product is not in stock'));
-					$('#product_id_text_input').focus();
+					Grocy.Components.ProductPicker.ShowCustomError(L('This product is not in stock'));
+					Grocy.Components.ProductPicker.GetInputElement().focus();
 				}
 				else
 				{
+					Grocy.Components.ProductPicker.HideCustomError();
 					Grocy.FrontendHelpers.ValidateForm('consume-form');
 					$('#amount').focus();
 				}
@@ -74,28 +72,8 @@ $('#product_id').on('change', function(e)
 	}
 });
 
-$('.combobox').combobox({
-	appendId: '_text_input'
-});
-
-$('#product_id_text_input').on('change', function(e)
-{
-	var input = $('#product_id_text_input').val().toString();
-	var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + input + "']").first();
-	
-	if (possibleOptionElement.length > 0)
-	{
-		$('#product_id').val(possibleOptionElement.val());
-		$('#product_id').data('combobox').refresh();
-		$('#product_id').trigger('change');
-	}
-});
-
 $('#amount').val(1);
-$('#product_id').val('');
-$('#product_id_text_input').focus();
-$('#product_id_text_input').val('');
-$('#product_id_text_input').trigger('change');
+Grocy.Components.ProductPicker.GetInputElement().focus();
 Grocy.FrontendHelpers.ValidateForm('consume-form');
 
 $('#amount').on('focus', function(e)
