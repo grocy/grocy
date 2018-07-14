@@ -32,6 +32,32 @@ if (!Grocy.ActiveNav.isEmpty())
 	}
 }
 
+var observer = new MutationObserver(function(mutations)
+{
+	mutations.forEach(function(mutation)
+	{
+		if (mutation.attributeName === "class")
+		{
+			var attributeValue = $(mutation.target).prop(mutation.attributeName);
+			if (attributeValue.contains("sidenav-toggled"))
+			{
+				window.localStorage.setItem("sidebar_state", "collapsed");
+			}
+			else
+			{
+				window.localStorage.setItem("sidebar_state", "expanded");
+			}
+		}
+	});
+});
+observer.observe(document.body, {
+	attributes: true
+});
+if (window.localStorage.getItem("sidebar_state") === "collapsed")
+{
+	$("#sidenavToggler").click();
+}
+
 $.timeago.settings.allowFuture = true;
 RefreshContextualTimeago = function()
 {	
