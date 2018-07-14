@@ -39,7 +39,8 @@
 				'limitEndToNow' => false,
 				'limitStartToNow' => true,
 				'invalidFeedback' => $L('A best before date is required and must be later than today'),
-				'nextInputSelector' => '#best_before_date'
+				'nextInputSelector' => '#best_before_date',
+				'additionalCssClasses' => 'date-only-datetimepicker'
 			))
 
 			<button id="save-inventory-button" type="submit" class="btn btn-success">{{ $L('OK') }}</button>

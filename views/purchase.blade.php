@@ -31,7 +31,8 @@
 				'limitEndToNow' => false,
 				'limitStartToNow' => true,
 				'invalidFeedback' => $L('A best before date is required and must be later than today'),
-				'nextInputSelector' => '#amount'
+				'nextInputSelector' => '#amount',
+				'additionalCssClasses' => 'date-only-datetimepicker'
 			))
 
 			<div class="form-group">
