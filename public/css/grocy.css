@@ -161,3 +161,8 @@ td {
 .date-only-datetimepicker .bootstrap-datetimepicker-widget.dropdown-menu {
 	width: auto !important;
 }
+
+/* Third party component customizations - Popper.js */
+.tooltip .arrow {
+	display: none;
+}
