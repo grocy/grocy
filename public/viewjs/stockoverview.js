@@ -7,7 +7,8 @@
 	],
 	'language': JSON.parse(L('datatables_localization')),
 	'scrollY': false,
-	'colReorder': true
+	'colReorder': true,
+	'stateSave': true
 });
 
 $("#location-filter").on("change", function()

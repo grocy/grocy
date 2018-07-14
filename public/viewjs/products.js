@@ -6,7 +6,8 @@
 	],
 	'language': JSON.parse(L('datatables_localization')),
 	'scrollY': false,
-	'colReorder': true
+	'colReorder': true,
+	'stateSave': true
 });
 
 $("#search").on("keyup", function()
