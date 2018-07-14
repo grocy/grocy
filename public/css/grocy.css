@@ -59,12 +59,12 @@ a.discrete-link:focus {
 .navbar-sidenav {
 	overflow-y: auto;
 	overflow-x: hidden;
+	border-top: 2px solid !important;
 }
 
 .navbar-sidenav,
 .sidenav-second-level {
 	background-color: #e5e5e5 !important;
-	border-top: 2px solid !important;
 	border-right: 2px solid !important;
 	border-color: #d6d6d6 !important;
 }

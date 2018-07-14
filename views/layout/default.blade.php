@@ -113,31 +113,31 @@
 						<span class="nav-link-text">{{ $L('Manage master data') }}</span>
 					</a>
 					<ul id="top-nav-manager-master-data" class="sidenav-second-level collapse">
-						<li data-nav-for-page="products">
+						<li data-nav-for-page="products" data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link" href="{{ $U('/products') }}">
 								<i class="fab fa-product-hunt"></i>
 								<span class="nav-link-text">{{ $L('Products') }}</span>
 							</a>
 						</li>
-						<li data-nav-for-page="locations">
+						<li data-nav-for-page="locations" data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link" href="{{ $U('/locations') }}">
 								<i class="fas fa-map-marker-alt"></i>
 								<span class="nav-link-text">{{ $L('Locations') }}</span>
 							</a>
 						</li>
-						<li data-nav-for-page="quantityunits">
+						<li data-nav-for-page="quantityunits" data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link" href="{{ $U('/quantityunits') }}">
 								<i class="fas fa-balance-scale"></i>
 								<span class="nav-link-text">{{ $L('Quantity units') }}</span>
 							</a>
 						</li>
-						<li data-nav-for-page="habits">
+						<li data-nav-for-page="habits" data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link" href="{{ $U('/habits') }}">
 								<i class="fas fa-sync-alt"></i>
 								<span class="nav-link-text">{{ $L('Habits') }}</span>
 							</a>
 						</li>
-						<li data-nav-for-page="batteries">
+						<li data-nav-for-page="batteries" data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link" href="{{ $U('/batteries') }}">
 								<i class="fas fa-battery-three-quarters"></i>
 								<span class="nav-link-text">{{ $L('Batteries') }}</span>

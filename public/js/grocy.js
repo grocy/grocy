@@ -23,7 +23,14 @@ if (!Grocy.ActiveNav.isEmpty())
 {
 	var menuItem = $('#sidebarResponsive').find("[data-nav-for-page='" + Grocy.ActiveNav + "']");
 	menuItem.addClass('active-page');
-}	
+
+	var parentMenuSelector = menuItem.data("sub-menu-of");
+	if (typeof parentMenuSelector !== "undefined")
+	{
+		$(parentMenuSelector).collapse("show");
+		$(parentMenuSelector).prev(".nav-link-collapse").addClass("active-page");
+	}
+}
 
 $.timeago.settings.allowFuture = true;
 RefreshContextualTimeago = function()
