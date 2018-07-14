@@ -894,7 +894,9 @@
 					"batteries",
 					"locations",
 					"quantity_units",
-					"shopping_list"
+					"shopping_list",
+					"recipes",
+					"recipes_pos"
 				]
 			},
 			"StockTransactionType": {

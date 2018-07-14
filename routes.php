@@ -34,6 +34,11 @@ $app->group('', function()
 	$this->get('/shoppinglist', 'Grocy\Controllers\StockController:ShoppingList');
 	$this->get('/shoppinglistitem/{itemId}', 'Grocy\Controllers\StockController:ShoppingListItemEditForm');
 
+	// Recipe routes
+	$this->get('/recipes', 'Grocy\Controllers\RecipesController:Overview');
+	$this->get('/recipe/{recipeId}', 'Grocy\Controllers\RecipesController:RecipeEditForm');
+	$this->get('/recipe/{recipeId}/pos/{recipePosId}', 'Grocy\Controllers\RecipesController:RecipePosEditForm');
+
 	// Habit routes
 	$this->get('/habitsoverview', 'Grocy\Controllers\HabitsController:Overview');
 	$this->get('/habittracking', 'Grocy\Controllers\HabitsController:TrackHabitExecution');
@@ -41,7 +46,7 @@ $app->group('', function()
 	$this->get('/habits', 'Grocy\Controllers\HabitsController:HabitsList');
 	$this->get('/habit/{habitId}', 'Grocy\Controllers\HabitsController:HabitEditForm');
 
-	// Batterry routes
+	// Battery routes
 	$this->get('/batteriesoverview', 'Grocy\Controllers\BatteriesController:Overview');
 	$this->get('/batterytracking', 'Grocy\Controllers\BatteriesController:TrackChargeCycle');
 

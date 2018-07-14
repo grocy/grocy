@@ -169,6 +169,10 @@ startbootstrap-sb-admin@^4.0.0:
     jquery "3.3.1"
     jquery.easing "^1.4.1"
 
+summernote@^0.8.10:
+  version "0.8.10"
+  resolved "https://registry.yarnpkg.com/summernote/-/summernote-0.8.10.tgz#21a5d7f18a3b07500b58b60d5907417a54897520"
+
 swagger-ui-dist@^3.17.3:
   version "3.17.3"
   resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-3.17.3.tgz#dfb96408ccc46775155f7369190c5d4b2016fe5c"

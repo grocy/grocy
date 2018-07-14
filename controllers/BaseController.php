@@ -11,13 +11,15 @@ class BaseController
 	public function __construct(\Slim\Container $container) {
 		$databaseService = new DatabaseService();
 		$this->Database = $databaseService->GetDbConnection();
+		
+		$localizationService = new LocalizationService(CULTURE);
+		$this->LocalizationService = $localizationService;
 
 		$applicationService = new ApplicationService();
 		$versionInfo = $applicationService->GetInstalledVersion();
 		$container->view->set('version', $versionInfo->Version);
 		$container->view->set('releaseDate', $versionInfo->ReleaseDate);
 
-		$localizationService = new LocalizationService(CULTURE);
 		$container->view->set('localizationStrings', $localizationService->GetCurrentCultureLocalizations());
 		$container->view->set('L', function($text, ...$placeholderValues) use($localizationService)
 		{
@@ -33,4 +35,5 @@ class BaseController
 
 	protected $AppContainer;
 	protected $Database;
+	protected $LocalizationService;
 }

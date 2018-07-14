@@ -145,6 +145,14 @@ return array(
 	'Settings' => 'Einstellungen',
 	'This can only be before now' => 'Dies kann nur vor jetzt sein',
 	'Calendar' => 'Kalender',
+	'Recipes' => 'Rezepte',
+	'Edit recipe' => 'Rezept bearbeiten',
+	'New recipe' => 'Neues Rezept',
+	'Ingredients list' => 'Zutatenliste',
+	'Add recipe ingredient' => 'Rezeptzutat hinzufügen',
+	'Edit recipe ingredient' => 'Rezeptzutat bearbeiten',
+	'Are you sure to delete recipe "#1"?' => 'Rezept "#1" wirklich löschen?',
+	'Are you sure to delete recipe ingredient "#1"?' => 'Rezeptzutat "#1" wirklich löschen?',
 	
 	//Constants
 	'manually' => 'Manuell',

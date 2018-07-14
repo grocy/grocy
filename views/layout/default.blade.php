@@ -69,6 +69,12 @@
 						<span class="nav-link-text">{{ $L('Batteries overview') }}</span>
 					</a>
 				</li>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Recipes') }}" data-nav-for-page="recipes">
+					<a class="nav-link discrete-link" href="{{ $U('/recipes') }}">
+						<i class="fas fa-lemon"></i>
+						<span class="nav-link-text">{{ $L('Recipes') }}</span>
+					</a>
+				</li>
 
 				<li class="nav-item mt-4" data-toggle="tooltip" data-placement="right" title="{{ $L('Purchase') }}" data-nav-for-page="purchase">
 					<a class="nav-link discrete-link" href="{{ $U('/purchase') }}">

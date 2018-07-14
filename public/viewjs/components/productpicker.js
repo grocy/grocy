@@ -49,6 +49,11 @@ $('.combobox').combobox({
 });
 
 var prefillProduct = GetUriParam('createdproduct');
+var prefillProduct2 = Grocy.Components.ProductPicker.GetPicker().parent().data('prefill-by-name').toString();
+if (!prefillProduct2.isEmpty())
+{
+	prefillProduct = prefillProduct2;
+}
 if (typeof prefillProduct !== "undefined")
 {
 	var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + prefillProduct + "']").first();
