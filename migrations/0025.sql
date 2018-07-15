@@ -21,9 +21,9 @@ SELECT
 	rp.id AS recipe_pos_id,
 	rp.product_id AS product_id,
 	rp.amount AS recipe_amount,
-	sc.amount AS stock_amount,
+	IFNULL(sc.amount, 0) AS stock_amount,
 	CASE WHEN IFNULL(sc.amount, 0) >= rp.amount THEN 1 ELSE 0 END AS need_fulfilled,
-	CASE WHEN IFNULL(sc.amount, 0) - rp.amount < 0 THEN ABS(sc.amount - rp.amount) ELSE 0 END AS missing_amount,
+	CASE WHEN IFNULL(sc.amount, 0) - IFNULL(rp.amount, 0) < 0 THEN ABS(IFNULL(sc.amount, 0) - IFNULL(rp.amount, 0)) ELSE 0 END AS missing_amount,
 	IFNULL(sl.amount, 0) AS amount_on_shopping_list,
 	CASE WHEN IFNULL(sc.amount, 0) + IFNULL(sl.amount, 0) >= rp.amount THEN 1 ELSE 0 END AS need_fulfilled_with_shopping_list
 FROM recipes r
