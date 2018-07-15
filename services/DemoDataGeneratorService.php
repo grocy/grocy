@@ -60,11 +60,11 @@ class DemoDataGeneratorService extends BaseService
 
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (1, 16, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (1, 17, 1);
-				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (1, 18, 1);
+				INSERT INTO recipes_pos (recipe_id, product_id, amount, note) VALUES (1, 18, 1, '{$localizationService->Localize('This is the note content of the recipe ingredient')}');
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (1, 10, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (2, 6, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (2, 10, 1);
-				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (2, 17, 1);
+				INSERT INTO recipes_pos (recipe_id, product_id, amount, note) VALUES (2, 17, 1, '{$localizationService->Localize('This is the note content of the recipe ingredient')}');
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (2, 20, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (3, 10, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (3, 11, 1);

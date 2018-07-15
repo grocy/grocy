@@ -192,7 +192,7 @@
 
 	<div class="content-wrapper">
 		<div class="container-fluid">
-			<div class="row">
+			<div class="row mb-3">
 				<div class="col content-text">
 					@yield('content')
 				</div>

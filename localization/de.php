@@ -225,5 +225,6 @@ return array(
 	'English' => 'Englisch',
 	'German' => 'Deutsch',
 	'Italian' => 'Italienisch',
-	'Demo in different language' => 'Demo in anderer Sprache'
+	'Demo in different language' => 'Demo in anderer Sprache',
+	'This is the note content of the recipe ingredient' => 'Dies ist der Inhalt der Notiz der Zutat'
 );

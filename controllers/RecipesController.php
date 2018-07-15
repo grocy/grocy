@@ -31,6 +31,7 @@ class RecipesController extends BaseController
 			{
 				$selectedRecipe = $recipe;
 				$selectedRecipePositions = $this->Database->recipes_pos()->where('recipe_id', $recipe->id);
+				break;
 			}
 		}
 
