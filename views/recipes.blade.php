@@ -39,7 +39,7 @@
 						<a class="btn btn-sm btn-danger recipe-delete-button" href="#" data-recipe-id="{{ $recipe->id }}" data-recipe-name="{{ $recipe->name }}">
 							<i class="fas fa-trash"></i>
 						</a>
-						<a class="btn btn-sm btn-primary recipe-order-missing-button @if(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1){{ disabled }}@endif" href="#" title="{{ $L('Order missing products') }}" data-recipe-id="{{ $recipe->id }}" data-recipe-name="{{ $recipe->name }}">
+						<a class="btn btn-sm btn-primary recipe-order-missing-button @if(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1){{ disabled }}@endif" href="#" title="{{ $L('Put missing products on shopping list') }}" data-recipe-id="{{ $recipe->id }}" data-recipe-name="{{ $recipe->name }}">
 							<i class="fas fa-cart-plus"></i>
 						</a>
 					</td>

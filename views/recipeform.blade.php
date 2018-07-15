@@ -32,7 +32,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="description">{{ $L('Description') }}</label>
+				<label for="description">{{ $L('Preparation') }}</label>
 				<textarea id="description" class="form-control" name="description" rows="25">@if($mode == 'edit'){{ $recipe->description }}@endif</textarea>
 			</div>
 
@@ -68,7 +68,7 @@
 						<a class="btn btn-sm btn-danger recipe-pos-delete-button" href="#" data-recipe-pos-id="{{ $recipePosition->id }}" data-recipe-pos-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id)->name }}">
 							<i class="fas fa-trash"></i>
 						</a>
-						<a class="btn btn-sm btn-primary recipe-pos-order-missing-button @if(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->need_fulfilled_with_shopping_list == 1){{ disabled }}@endif" href="#" title="{{ $L('Order missing amount') }}" data-recipe-name="{{ $recipe->name }}" data-product-id="{{ $recipePosition->product_id }}" data-product-amount="{{ FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->missing_amount }}" data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id)->name }}">
+						<a class="btn btn-sm btn-primary recipe-pos-order-missing-button @if(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->need_fulfilled_with_shopping_list == 1){{ disabled }}@endif" href="#" title="{{ $L('Put missing amount on shopping list') }}" data-recipe-name="{{ $recipe->name }}" data-product-id="{{ $recipePosition->product_id }}" data-product-amount="{{ FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->missing_amount }}" data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id)->name }}">
 							<i class="fas fa-cart-plus"></i>
 						</a>
 					</td>
