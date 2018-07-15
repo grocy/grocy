@@ -16,6 +16,8 @@ class RecipesController extends BaseController
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
+		$recipes = $this->Database->recipes()->orderBy('name');
+
 		$selectedRecipe = null;
 		$selectedRecipePositions = null;
 		if (isset($request->getQueryParams()['recipe']))
@@ -23,9 +25,17 @@ class RecipesController extends BaseController
 			$selectedRecipe = $this->Database->recipes($request->getQueryParams()['recipe']);
 			$selectedRecipePositions = $this->Database->recipes_pos()->where('recipe_id', $request->getQueryParams()['recipe']);
 		}
+		else
+		{
+			foreach ($recipes as $recipe)
+			{
+				$selectedRecipe = $recipe;
+				$selectedRecipePositions = $this->Database->recipes_pos()->where('recipe_id', $recipe->id);
+			}
+		}
 
 		return $this->AppContainer->view->render($response, 'recipes', [
-			'recipes' => $this->Database->recipes()->orderBy('name'),
+			'recipes' => $recipes,
 			'recipesFulfillment' => $this->RecipesService->GetRecipesFulfillment(),
 			'recipesSumFulfillment' => $this->RecipesService->GetRecipesSumFulfillment(),
 			'selectedRecipe' => $selectedRecipe,

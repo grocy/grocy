@@ -8,7 +8,11 @@
 	'scrollY': false,
 	'colReorder': true,
 	'stateSave': true,
-	'select': 'single'
+	'select': 'single',
+	'initComplete': function()
+	{
+		this.api().row({ order: 'current' }, 0).select();
+	}
 });
 
 var rowSelect = GetUriParam("row");
