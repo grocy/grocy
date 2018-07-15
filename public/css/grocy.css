@@ -45,6 +45,10 @@ a.discrete-link:focus {
 	background-color: #e5e5e5;
 }
 
+.card-body {
+	flex-grow: 0;
+}
+
 .content-text .invalid-feedback {
 	font-size: 95%;
 }
