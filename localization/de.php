@@ -211,5 +211,19 @@ return array(
 	'Warranty ends' => 'Garantie endet',
 	'TV remote control' => 'TV Fernbedienung',
 	'Alarm clock' => 'Wecker',
-	'Heat remote control' => 'Fernbedienung Heizung'
+	'Heat remote control' => 'Fernbedienung Heizung',
+	'Lawn mowed in the garden' => 'Rasen im Garten gemäht',
+	'Some good snacks' => 'Paar gute Snacks',
+	'Pizza dough' => 'Pizzateig',
+	'Sieved tomatoes' => 'Passierte Tomaten',
+	'Salami' => 'Salami',
+	'Toast' => 'Toast',
+	'Minced meat' => 'Hackfleisch',
+	'Pizza' => 'Pizza',
+	'Spaghetti bolognese' => 'Spaghetti Bolognese',
+	'Sandwiches' => 'Belegte Toasts',
+	'English' => 'Englisch',
+	'German' => 'Deutsch',
+	'Italian' => 'Italienisch',
+	'Demo in different language' => 'Demo in anderer Sprache'
 );

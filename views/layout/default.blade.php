@@ -38,6 +38,7 @@
 		Grocy.BaseUrl = '{{ $U('/') }}';
 		Grocy.LocalizationStrings = {!! json_encode($localizationStrings) !!};
 		Grocy.ActiveNav = '@yield('activeNav', '')';
+		Grocy.Culture = '{{ CULTURE }}';
 	</script>
 </head>
 
