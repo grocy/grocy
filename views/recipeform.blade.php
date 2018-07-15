@@ -22,7 +22,7 @@
 </div>
 
 <div class="row">
-	<div class="col-xs-12 col-md-4 pb-3">
+	<div class="col-xs-12 col-md-7 pb-3">
 		<form id="recipe-form" novalidate>
 
 			<div class="form-group">
@@ -41,7 +41,7 @@
 		</form>
 	</div>
 
-	<div class="col-xs-12 col-md-8 pb-3">
+	<div class="col-xs-12 col-md-5 pb-3">
 		<h2>
 			{{ $L('Ingredients list') }}
 			<a class="btn btn-outline-dark" href="{{ $U('/recipe/' . $recipe->id . '/pos/new') }}">
@@ -69,7 +69,7 @@
 							<i class="fas fa-trash"></i>
 						</a>
 						<a class="btn btn-sm btn-primary recipe-pos-order-missing-button @if(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->need_fulfilled_with_shopping_list == 1){{ disabled }}@endif" href="#" title="{{ $L('Order missing amount') }}" data-recipe-name="{{ $recipe->name }}" data-product-id="{{ $recipePosition->product_id }}" data-product-amount="{{ FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->missing_amount }}" data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id)->name }}">
-							<i class="fas fa-shopping-cart"></i>
+							<i class="fas fa-cart-plus"></i>
 						</a>
 					</td>
 					<td>
@@ -79,12 +79,10 @@
 						{{ $recipePosition->amount }} {{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id)->qu_id_stock)->name }}
 						<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->need_fulfilled == 1) {{ $L('Enough in stock') }} @else {{ $L('Not enough in stock, #1 missing, #2 already on shopping list', FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->missing_amount, FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->amount_on_shopping_list) }} @endif</span>
 					</td>
-					<td>
-						@if(strlen($recipePosition->note) > 50)
-							{{ substr($recipePosition->note, 0, 50) }}...
-						@else
-							{{ $recipePosition->note }}
-						@endif
+					<td class="fit-content">
+						<a class="btn btn-sm btn-info recipe-pos-show-note-button @if(empty($recipePosition->note)) disabled @endif" href="#" title="{{ $L('Show notes') }}" data-recipe-pos-note="{{ $recipePosition->note }}">
+							<i class="fas fa-eye"></i>
+						</a>
 					</td>
 				</tr>
 				@endforeach

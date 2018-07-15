@@ -120,3 +120,10 @@ $(document).on('click', '.recipe-pos-order-missing-button', function(e)
 		}
 	);
 });
+
+$(document).on('click', '.recipe-pos-show-note-button', function(e)
+{
+	var note = $(e.currentTarget).attr('data-recipe-pos-note');
+
+	bootbox.alert(note);
+});

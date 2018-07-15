@@ -70,9 +70,15 @@
 						<span class="nav-link-text">{{ $L('Batteries overview') }}</span>
 					</a>
 				</li>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Shopping list') }}" data-nav-for-page="shoppinglist">
+					<a class="nav-link discrete-link" href="{{ $U('/shoppinglist') }}">
+						<i class="fas fa-shopping-cart"></i>
+						<span class="nav-link-text">{{ $L('Shopping list') }}</span>
+					</a>
+				</li>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Recipes') }}" data-nav-for-page="recipes">
 					<a class="nav-link discrete-link" href="{{ $U('/recipes') }}">
-						<i class="fas fa-lemon"></i>
+						<i class="fas fa-cocktail"></i>
 						<span class="nav-link-text">{{ $L('Recipes') }}</span>
 					</a>
 				</li>
@@ -87,12 +93,6 @@
 					<a class="nav-link discrete-link" href="{{ $U('/consume') }}">
 						<i class="fas fa-utensils"></i>
 						<span class="nav-link-text">{{ $L('Consume') }}</span>
-					</a>
-				</li>
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Shopping list') }}" data-nav-for-page="shoppinglist">
-					<a class="nav-link discrete-link" href="{{ $U('/shoppinglist') }}">
-						<i class="fas fa-shopping-cart"></i>
-						<span class="nav-link-text">{{ $L('Shopping list') }}</span>
 					</a>
 				</li>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Inventory') }}" data-nav-for-page="inventory">

@@ -16,10 +16,22 @@ class RecipesController extends BaseController
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
+		$selectedRecipe = null;
+		$selectedRecipePositions = null;
+		if (isset($request->getQueryParams()['recipe']))
+		{
+			$selectedRecipe = $this->Database->recipes($request->getQueryParams()['recipe']);
+			$selectedRecipePositions = $this->Database->recipes_pos()->where('recipe_id', $request->getQueryParams()['recipe']);
+		}
+
 		return $this->AppContainer->view->render($response, 'recipes', [
 			'recipes' => $this->Database->recipes()->orderBy('name'),
 			'recipesFulfillment' => $this->RecipesService->GetRecipesFulfillment(),
-			'recipesSumFulfillment' => $this->RecipesService->GetRecipesSumFulfillment()
+			'recipesSumFulfillment' => $this->RecipesService->GetRecipesSumFulfillment(),
+			'selectedRecipe' => $selectedRecipe,
+			'selectedRecipePositions' => $selectedRecipePositions,
+			'products' => $this->Database->products(),
+			'quantityunits' => $this->Database->quantity_units()
 		]);
 	}
 
@@ -40,8 +52,8 @@ class RecipesController extends BaseController
 			'recipe' =>  $this->Database->recipes($recipeId),
 			'recipePositions' =>  $this->Database->recipes_pos()->where('recipe_id', $recipeId),
 			'mode' => 'edit',
-			'products' => $this->Database->products()->orderBy('name'),
-			'quantityunits' => $this->Database->quantity_units()->orderBy('name'),
+			'products' => $this->Database->products(),
+			'quantityunits' => $this->Database->quantity_units(),
 			'recipesFulfillment' => $this->RecipesService->GetRecipesFulfillment(),
 			'recipesSumFulfillment' => $this->RecipesService->GetRecipesSumFulfillment()
 		]);
@@ -54,7 +66,7 @@ class RecipesController extends BaseController
 			return $this->AppContainer->view->render($response, 'recipeposform', [
 				'mode' => 'create',
 				'recipe' =>  $this->Database->recipes($args['recipeId']),
-				'products' =>  $this->Database->products()
+				'products' =>  $this->Database->products()->orderBy('name')
 			]);
 		}
 		else
@@ -63,7 +75,7 @@ class RecipesController extends BaseController
 				'mode' => 'edit',
 				'recipe' =>  $this->Database->recipes($args['recipeId']),
 				'recipePos' =>  $this->Database->recipes_pos($args['recipePosId']),
-				'products' =>  $this->Database->products()
+				'products' =>  $this->Database->products()->orderBy('name')
 			]);
 		}
 	}

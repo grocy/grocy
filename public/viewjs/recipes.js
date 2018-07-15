@@ -11,6 +11,12 @@
 	'select': 'single'
 });
 
+var rowSelect = GetUriParam("row");
+if (typeof rowSelect !== "undefined")
+{
+	recipesTables.row(rowSelect).select();
+}
+
 $("#search").on("keyup", function()
 {
 	var value = $(this).val();
@@ -92,4 +98,18 @@ $(document).on('click', '.recipe-order-missing-button', function(e)
 			}
 		}
 	});
+});
+
+recipesTables.on('select', function(e, dt, type, indexes)
+{
+	if (type === 'row')
+	{
+		var selectedRecipeId = $(recipesTables.row(indexes[0]).node()).data("recipe-id");
+		window.location.href = U('/recipes?recipe=' + selectedRecipeId.toString() + "&row=" + indexes[0].toString());
+	}
+});
+
+$("#selectedRecipeToggleFullscreenButton").on('click', function(e)
+{
+	$("#selectedRecipeCard").toggleClass("fullscreen");
 });
