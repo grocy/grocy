@@ -167,6 +167,8 @@ return array(
 	'Not enough in stock, #1 missing, #2 already on shopping list' => 'Nicht ausreichend im Bestand, #1 fehlen, #2 stehen bereits auf dem Einkaufszettel',
 	'Show notes' => 'Notizen anzeigen',
 	'Put missing amount on shopping list' => 'Fehlende Menge auf den Einkaufszettel setzen',
+	'Are you sure to put all missing ingredients for recipe "#1" on the shopping list?' => 'Sicher alle fehlenden Zutaten für Rezept "#1" auf die Einkaufsliste zu setzen?',
+	'Added for recipe #1' => 'Hinzugefügt für Rezept #1',
 	
 	//Constants
 	'manually' => 'Manuell',
