@@ -153,6 +153,8 @@ return array(
 	'Edit recipe ingredient' => 'Rezeptzutat bearbeiten',
 	'Are you sure to delete recipe "#1"?' => 'Rezept "#1" wirklich löschen?',
 	'Are you sure to delete recipe ingredient "#1"?' => 'Rezeptzutat "#1" wirklich löschen?',
+	'Are you sure to empty the shopping list?' => 'Sicher, dass die Einkaufsliste geleert werden soll?',
+	'Clear list' => 'Liste leeren',
 	
 	//Constants
 	'manually' => 'Manuell',

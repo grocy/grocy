@@ -75,6 +75,7 @@ $app->group('/api', function()
 	$this->get('/stock/get-product-details/{productId}', 'Grocy\Controllers\StockApiController:ProductDetails');
 	$this->get('/stock/get-current-stock', 'Grocy\Controllers\StockApiController:CurrentStock');
 	$this->get('/stock/add-missing-products-to-shoppinglist', 'Grocy\Controllers\StockApiController:AddMissingProductsToShoppingList');
+	$this->get('/stock/clear-shopping-list', 'Grocy\Controllers\StockApiController:ClearShoppingList');
 	$this->get('/stock/external-barcode-lookup/{barcode}', 'Grocy\Controllers\StockApiController:ExternalBarcodeLookup');
 
 	$this->get('/recipes/add-not-fulfilled-products-to-shopping-list/{recipeId}', 'Grocy\Controllers\RecipesApiController:AddNotFulfilledProductsToShoppingList');

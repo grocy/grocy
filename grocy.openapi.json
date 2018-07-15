@@ -650,6 +650,26 @@
 				}
 			}
 		},
+		"/stock/clear-shopping-list": {
+			"get": {
+				"description": "Removes all items from the shopping list",
+				"tags": [
+					"Stock"
+				],
+				"responses": {
+					"200": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/stock/external-barcode-lookup/{barcode}": {
 			"get": {
 				"description": "Executes an external barcode lookoup via the configured plugin with the given barcode",

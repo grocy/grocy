@@ -9,11 +9,14 @@
 	<div class="col">
 		<h1>
 			@yield('title')
-			<a class="btn btn-outline-dark" href="{{ $U('/shoppinglistitem/new') }}">
-				<i class="fas fa-plus"></i>&nbsp;{{ $L('Add') }}
+			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/shoppinglistitem/new') }}">
+				<i class="fas fa-plus"></i> {{ $L('Add') }}
 			</a>
-			<a id="add-products-below-min-stock-amount" class="btn btn-outline-primary" href="#">
-				<i class="fas fa-plus"></i>&nbsp;{{ $L('Add products that are below defined min. stock amount') }}
+			<a id="clear-shopping-list" class="btn btn-outline-danger responsive-button @if($listItems->count() == 0) disabled @endif" href="#">
+				<i class="fas fa-trash"></i> {{ $L('Clear list') }}
+			</a>
+			<a id="add-products-below-min-stock-amount" class="btn btn-outline-primary responsive-button" href="#">
+				<i class="fas fa-cart-plus"></i> {{ $L('Add products that are below defined min. stock amount') }}
 			</a>
 		</h1>
 	</div>

@@ -48,3 +48,36 @@ $(document).on('click', '#add-products-below-min-stock-amount', function(e)
 		}
 	);
 });
+
+$(document).on('click', '#clear-shopping-list', function(e)
+{
+	bootbox.confirm({
+		message: L('Are you sure to empty the shopping list?'),
+		buttons: {
+			confirm: {
+				label: L('Yes'),
+				className: 'btn-success'
+			},
+			cancel: {
+				label: L('No'),
+				className: 'btn-danger'
+			}
+		},
+		callback: function(result)
+		{
+			if (result === true)
+			{
+				Grocy.Api.Get('stock/clear-shopping-list',
+					function(result)
+					{
+						window.location.href = U('/shoppinglist');
+					},
+					function(xhr)
+					{
+						console.error(xhr);
+					}
+				);
+			}
+		}
+	});
+});

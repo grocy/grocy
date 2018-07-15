@@ -203,6 +203,11 @@ class StockService extends BaseService
 		}
 	}
 
+	public function ClearShoppingList()
+	{
+		$this->Database->shopping_list()->delete();
+	}
+
 	private function ProductExists($productId)
 	{
 		$productRow = $this->Database->products()->where('id = :1', $productId)->fetch();

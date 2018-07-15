@@ -106,6 +106,12 @@ class StockApiController extends BaseApiController
 		return $this->VoidApiActionResponse($response);
 	}
 
+	public function ClearShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		$this->StockService->ClearShoppingList();
+		return $this->VoidApiActionResponse($response);
+	}
+
 	public function ExternalBarcodeLookup(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		try
