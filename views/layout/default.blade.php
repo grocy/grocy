@@ -28,8 +28,8 @@
 	<link href="{{ $U('/css/grocy.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	@stack('pageStyles')
 
-	@if(file_exists(__DIR__ . '/../../data/custom.css'))
-		@php include __DIR__ . '/../../data/custom.css' @endphp
+	@if(file_exists(__DIR__ . '/../../data/custom_css.html'))
+		@php include __DIR__ . '/../../data/custom_css.html' @endphp
 	@endif
 
 	<script>
@@ -252,8 +252,8 @@
 	@stack('componentScripts')
 	<script src="{{ $U('/viewjs', true) }}/@yield('viewJsName').js?v={{ $version }}"></script>
 
-	@if(file_exists(__DIR__ . '/../../data/custom.js'))
-		@php include __DIR__ . '/../../data/custom.js' @endphp
+	@if(file_exists(__DIR__ . '/../../data/custom_js.html'))
+		@php include __DIR__ . '/../../data/custom_js.html' @endphp
 	@endif
 </body>
 
