@@ -9,7 +9,15 @@ class ApplicationService extends BaseService
 	 */
 	public function IsDemoInstallation()
 	{
-		return file_exists(__DIR__ . '/../data/demo.txt');
+		return file_exists(DATAPATH . '/demo.txt');
+	}
+
+	/**
+	 * @return boolean
+	 */
+	public function IsEmbeddedInstallation()
+	{
+		return file_exists(__DIR__ . '/../embedded.txt');
 	}
 
 	private $InstalledVersion;

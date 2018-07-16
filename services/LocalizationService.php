@@ -36,7 +36,7 @@ class LocalizationService
 
 	private function LogMissingLocalization(string $culture, string $text)
 	{
-		$file = __DIR__ . "/../data/missing_translations_$culture.json";
+		$file = DATAPATH . "/missing_translations_$culture.json";
 
 		$missingTranslations = array();
 		if (file_exists($file))

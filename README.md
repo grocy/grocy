@@ -59,12 +59,15 @@ There is no plugin included for any service, see the reference implementation in
 ### Database migrations
 Database schema migration is automatically done when visiting the root (`/`) route (click on the logo in the left upper edge).
 
-### Demo mode
-When the file `data/demo.txt` exists, the application will work in a demo mode which means authentication is disabled and some demo data will be generated during the database schema migration.
-
 ### Adding your own CSS or JS without to have to modify the application itself
 - When the file `data/custom_js.html` exists, the contents of the file will be added just before `</body>` (end of body) on every page
 - When the file `data/custom_css.html` exists, the contents of the file will be added just before `</head>` (end of head) on every page
+
+### Demo mode
+When the file `data/demo.txt` exists, the application will work in a demo mode which means authentication is disabled and some demo data will be generated during the database schema migration.
+
+### Embedded mode
+When the file `/embedded.txt` exists, it must contain a valid and writable path which will be used as the data directory instead of `data/` and authentication will be disabled (used in [grocy-desktop](https://github.com/berrnd/grocy-desktop)).
 
 ## Screenshots
 #### Dashboard

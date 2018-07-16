@@ -222,7 +222,7 @@ class StockService extends BaseService
 			throw new \Exception('No barcode lookup plugin defined');
 		}
 
-		$path = __DIR__ . "/../data/plugins/$pluginName.php";
+		$path = DATAPATH . "/plugins/$pluginName.php";
 		if (file_exists($path))
 		{
 			require_once $path;

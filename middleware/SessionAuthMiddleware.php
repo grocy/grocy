@@ -19,9 +19,9 @@ class SessionAuthMiddleware extends BaseMiddleware
 		$route = $request->getAttribute('route');
 		$routeName = $route->getName();
 
-		if ($routeName === 'root' || $this->ApplicationService->IsDemoInstallation())
+		if ($routeName === 'root' || $this->ApplicationService->IsDemoInstallation() || $this->ApplicationService->IsEmbeddedInstallation())
 		{
-			define('AUTHENTICATED', $this->ApplicationService->IsDemoInstallation());
+			define('AUTHENTICATED', $this->ApplicationService->IsDemoInstallation() || $this->ApplicationService->IsEmbeddedInstallation());
 			$response = $next($request, $response);
 		}
 		else

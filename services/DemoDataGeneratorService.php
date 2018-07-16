@@ -123,7 +123,7 @@ class DemoDataGeneratorService extends BaseService
 
 	public function RecreateDemo()
 	{
-		unlink(__DIR__ . '/../data/grocy.db');
+		unlink(DATAPATH . '/grocy.db');
 		$this->PopulateDemoData();
 	}
 }

@@ -22,7 +22,7 @@ class ApiKeyAuthMiddleware extends BaseMiddleware
 		$route = $request->getAttribute('route');
 		$routeName = $route->getName();
 
-		if ($this->ApplicationService->IsDemoInstallation())
+		if ($this->ApplicationService->IsDemoInstallation() || $this->ApplicationService->IsEmbeddedInstallation())
 		{
 			$response = $next($request, $response);
 		}
