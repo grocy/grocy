@@ -132,6 +132,15 @@ function Setting(string $name, $value)
 {
 	if (!defined($name))
 	{
-		define($name, $value);
+		// The content of a $name.txt file in /data/settingoverrides can overwrite the given setting (for embedded mode)
+		$settingOverrideFile = DATAPATH . '/settingoverrides/' . $name . '.txt';
+		if (file_exists($settingOverrideFile))
+		{
+			define($name, file_get_contents($settingOverrideFile));
+		}
+		else
+		{
+			define($name, $value);
+		}
 	}
 }

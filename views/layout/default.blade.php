@@ -164,7 +164,7 @@
 			</ul>
 
 			<ul class="navbar-nav ml-auto">
-				@if(AUTHENTICATED === true)
+				@if(AUTHENTICATED === true && $isEmbeddedInstallation === false)
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle discrete-link" href="#" data-toggle="dropdown"><i class="fas fa-user"></i> {{ HTTP_USER }}</a>
 

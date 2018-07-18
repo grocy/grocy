@@ -19,6 +19,7 @@ class BaseController
 		$versionInfo = $applicationService->GetInstalledVersion();
 		$container->view->set('version', $versionInfo->Version);
 		$container->view->set('releaseDate', $versionInfo->ReleaseDate);
+		$container->view->set('isEmbeddedInstallation', $applicationService->IsEmbeddedInstallation());
 
 		$container->view->set('localizationStrings', $localizationService->GetCurrentCultureLocalizations());
 		$container->view->set('L', function($text, ...$placeholderValues) use($localizationService)
