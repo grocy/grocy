@@ -179,3 +179,8 @@ td {
 .tooltip .arrow {
 	display: none;
 }
+
+/* Third party component customizations - Bootstrap Combobox */
+.typeahead .active {
+	background-color: #e5e5e5;
+}
