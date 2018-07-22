@@ -93,7 +93,12 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keyup', function(e)
 	}
 	else if (value.length === 4 && !(Number.parseInt(value) > centuryStart && Number.parseInt(value) < centuryEnd))
 	{
-		Grocy.Components.DateTimePicker.SetValue((new Date()).getFullYear().toString() + value);
+		var date = moment((new Date()).getFullYear().toString() + value);
+		if (date.isBefore(moment()))
+		{
+			date.add(1, "year");
+		}
+		Grocy.Components.DateTimePicker.SetValue(date.format(format));
 		nextInputElement.focus();
 	}
 	else if (value.length === 8 && $.isNumeric(value))
