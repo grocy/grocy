@@ -35,8 +35,11 @@
 
 $('#battery_id').on('change', function(e)
 {
-	var batteryId = $(e.target).val();
+	var input = $('#battery_id_text_input').val().toString();
+	$('#battery_id_text_input').val(input);
+	$('#battery_id').data('combobox').refresh();
 
+	var batteryId = $(e.target).val();
 	if (batteryId)
 	{
 		Grocy.Components.BatteryCard.Refresh(batteryId);

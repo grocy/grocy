@@ -34,8 +34,11 @@
 
 $('#habit_id').on('change', function(e)
 {
-	var habitId = $(e.target).val();
+	var input = $('#habit_id_text_input').val().toString();
+	$('#habit_id_text_input').val(input);
+	$('#habit_id').data('combobox').refresh();
 
+	var habitId = $(e.target).val();
 	if (habitId)
 	{
 		Grocy.Components.HabitCard.Refresh(habitId);
