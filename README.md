@@ -69,6 +69,8 @@ When the file `data/demo.txt` exists, the application will work in a demo mode w
 ### Embedded mode
 When the file `/embedded.txt` exists, it must contain a valid and writable path which will be used as the data directory instead of `data/` and authentication will be disabled (used in [grocy-desktop](https://github.com/berrnd/grocy-desktop)).
 
+In embedded mode, settings can be overridden by text files in `data/settingoverrides`, the file name must be `<SettingName>.txt` (e. g. `BASE_URL.txt`) and the content must be the setting value (normally one single line).
+
 ## Screenshots
 #### Dashboard
 ![Dashboard](https://github.com/berrnd/grocy/raw/master/publication_assets/dashboard.png "Dashboard")
