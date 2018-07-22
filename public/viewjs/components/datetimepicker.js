@@ -79,7 +79,7 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keyup', function(e)
 	var centuryEnd = Number.parseInt(now.getFullYear().toString().substring(0, 2) + '99');
 	var format = Grocy.Components.DateTimePicker.GetInputElement().data('format');
 	var nextInputElement = $(Grocy.Components.DateTimePicker.GetInputElement().data('next-input-selector'));
-
+	
 	//If input is empty and any arrow key is pressed, set date to today
 	if (value.length === 0 && (e.keyCode === 38 || e.keyCode === 40 || e.keyCode === 37 || e.keyCode === 39))
 	{
@@ -99,6 +99,12 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keyup', function(e)
 	else if (value.length === 8 && $.isNumeric(value))
 	{
 		Grocy.Components.DateTimePicker.SetValue(value.replace(/(\d{4})(\d{2})(\d{2})/, '$1-$2-$3'));
+		nextInputElement.focus();
+	}
+	else if (value.length === 7 && $.isNumeric(value.substring(0, 6)) && (value.substring(6, 7).toLowerCase() === "e" || value.substring(6, 7).toLowerCase() === "+"))
+	{
+		var date = moment(value.substring(0, 4) + "-" + value.substring(4, 6) + "-01").endOf("month");
+		Grocy.Components.DateTimePicker.SetValue(date.format(format));
 		nextInputElement.focus();
 	}
 	else
