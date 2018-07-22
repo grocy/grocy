@@ -8,7 +8,7 @@ Public demo of the latest version &rarr; [https://demo.grocy.info](https://demo.
 A household needs to be managed. I did this so far (almost 10 years) with my first self written software (a C# windows forms application) and with a bunch of Excel sheets. The software is a pain to use and Excel is Excel. So I searched for and tried different things for a (very) long time, nothing 100 % fitted, so this is my aim for a "complete houshold management"-thing. ERP your fridge!
 
 ## How to install
-Just unpack the [latest release](https://github.com/berrnd/grocy/releases/latest) on your PHP (SQLite extension required, currently only tested with PHP 7.2) enabled webserver (webservers root should point to the `/public` directory), copy `config-dist.php` to `data/config.php`, edit it to your needs, ensure that the `data` directory is writable and you're ready to go.
+Just unpack the [latest release](https://releases.grocy.info/latest) on your PHP (SQLite extension required, currently only tested with PHP 7.2) enabled webserver (webservers root should point to the `/public` directory), copy `config-dist.php` to `data/config.php`, edit it to your needs, ensure that the `data` directory is writable and you're ready to go.
 
 Default login is user `admin` with password `admin` - see the `data/config.php` file. Alternatively clone this repository and install Composer and Yarn dependencies manually.
 
