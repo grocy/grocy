@@ -82,6 +82,7 @@ $(document).on('click', '.recipe-pos-delete-button', function(e)
 		{
 			if (result === true)
 			{
+				Grocy.Api.Post('edit-object/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(), function() { }, function() { });
 				Grocy.Api.Get('delete-object/recipes_pos/' + objectId,
 					function(result)
 					{
@@ -112,6 +113,7 @@ $(document).on('click', '.recipe-pos-order-missing-button', function(e)
 	Grocy.Api.Post('add-object/shopping_list', jsonData,
 		function(result)
 		{
+			Grocy.Api.Post('edit-object/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(), function () { }, function () { });
 			window.location.href = U('/recipe/' + Grocy.EditObjectId);
 		},
 		function(xhr)
@@ -126,4 +128,34 @@ $(document).on('click', '.recipe-pos-show-note-button', function(e)
 	var note = $(e.currentTarget).attr('data-recipe-pos-note');
 
 	bootbox.alert(note);
+});
+
+$(document).on('click', '.recipe-pos-edit-button', function (e)
+{
+	var recipePosId = $(e.currentTarget).attr('data-recipe-pos-id');
+
+	Grocy.Api.Post('edit-object/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(),
+		function(result)
+		{
+			window.location.href = U('/recipe/' + Grocy.EditObjectId + '/pos/' + recipePosId);
+		},
+		function(xhr)
+		{
+			console.error(xhr);
+		}
+	);
+});
+
+$("#recipe-pos-add-button").on("click", function(e)
+{
+	Grocy.Api.Post('edit-object/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(),
+		function(result)
+		{
+			window.location.href = U('/recipe/' + Grocy.EditObjectId + '/pos/new');
+		},
+		function(xhr)
+		{
+			console.error(xhr);
+		}
+	);
 });
