@@ -70,8 +70,7 @@ a.discrete-link:focus {
 }
 
 .navbar-sidenav {
-	overflow-y: auto;
-	overflow-x: hidden;
+	overflow: hidden;
 	border-top: 2px solid !important;
 }
 
@@ -173,11 +172,6 @@ td {
 /* Third party component customizations - Tempus Dominus */
 .date-only-datetimepicker .bootstrap-datetimepicker-widget.dropdown-menu {
 	width: auto !important;
-}
-
-/* Third party component customizations - Popper.js */
-.tooltip .arrow {
-	display: none;
 }
 
 /* Third party component customizations - Bootstrap Combobox */
