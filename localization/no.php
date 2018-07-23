@@ -172,7 +172,7 @@ return array(
 	
 	//Constants
 	'manually' => 'Manuel',
-	'dynamic-regular' => 'Automatisk (rullering setter under)',
+	'dynamic-regular' => 'Automatisk (rullering settes under)',
 	
 	//Technical component translations
 	'timeago_locale' => 'no',
