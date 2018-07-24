@@ -1,9 +1,5 @@
 <?php
 
-# Login credentials
-Setting('HTTP_USER', 'admin');
-Setting('HTTP_PASSWORD', 'admin');
-
 # Either "production" or "dev"
 Setting('MODE', 'production');
 

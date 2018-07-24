@@ -14,9 +14,9 @@ A household needs to be managed. I did this so far (almost 10 years) with my fir
 >
 > See https://github.com/berrnd/grocy-desktop or directly download the [latest release](https://releases.grocy.info/latest-desktop) - the installation is nothing more than just clicking 2 times "next"...
 
-Just unpack the [latest release](https://releases.grocy.info/latest) on your PHP (SQLite extension required, currently only tested with PHP 7.2) enabled webserver (webservers root should point to the `/public` directory), copy `config-dist.php` to `data/config.php`, edit it to your needs, ensure that the `data` directory is writable and you're ready to go.
+Just unpack the [latest release](https://releases.grocy.info/latest) on your PHP (SQLite extension required, currently only tested with PHP 7.2) enabled webserver (webservers root should point to the `/public` directory), copy `config-dist.php` to `data/config.php`, edit it to your needs, ensure that the `data` directory is writable and you're ready to go. Default login is user `admin` with password `admin`, please change the password immediately (see user menu).
 
-Default login is user `admin` with password `admin` - see the `data/config.php` file. Alternatively clone this repository and install Composer and Yarn dependencies manually.
+Alternatively clone this repository and install Composer and Yarn dependencies manually.
 
 If you use nginx as your webserver, please include `try_files $uri /index.php;` in your location block.
 

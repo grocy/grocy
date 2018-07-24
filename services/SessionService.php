@@ -33,11 +33,12 @@ class SessionService extends BaseService
 	/**
 	 * @return string
 	 */
-	public function CreateSession()
+	public function CreateSession($userId)
 	{
 		$newSessionKey = $this->GenerateSessionKey();
 		
 		$sessionRow = $this->Database->sessions()->createRow(array(
+			'user_id' => $userId,
 			'session_key' => $newSessionKey,
 			'expires' => date('Y-m-d H:i:s', time() + 2592000) // Default is that sessions expire in 30 days
 		));
@@ -49,6 +50,16 @@ class SessionService extends BaseService
 	public function RemoveSession($sessionKey)
 	{
 		$this->Database->sessions()->where('session_key', $sessionKey)->delete();
+	}
+
+	public function GetUserBySessionKey($sessionKey)
+	{
+		$sessionRow = $this->Database->sessions()->where('session_key', $sessionKey)->fetch();
+		if ($sessionRow !== null)
+		{
+			return $this->Database->users($sessionRow->user_id);
+		}
+		return null;
 	}
 
 	private function GenerateSessionKey()

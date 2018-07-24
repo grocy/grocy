@@ -166,10 +166,12 @@
 			<ul class="navbar-nav ml-auto">
 				@if(AUTHENTICATED === true && $isEmbeddedInstallation === false)
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle discrete-link" href="#" data-toggle="dropdown"><i class="fas fa-user"></i> {{ HTTP_USER }}</a>
+					<a class="nav-link dropdown-toggle discrete-link" href="#" data-toggle="dropdown"><i class="fas fa-user"></i> {{ GROCY_USER_USERNAME }}</a>
 
 					<div class="dropdown-menu dropdown-menu-right">
 						<a class="dropdown-item logout-button discrete-link" href="{{ $U('/logout') }}"><i class="fas fa-sign-out-alt"></i>&nbsp;{{ $L('Logout') }}</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item logout-button discrete-link" href="{{ $U('/user/' . GROCY_USER_ID . '?changepw=true') }}"><i class="fas fa-key"></i>&nbsp;{{ $L('Change password') }}</a>
 					</div>
 				</li>
 				@endif
@@ -178,11 +180,13 @@
 					<a class="nav-link dropdown-toggle discrete-link" href="#" data-toggle="dropdown"><i class="fas fa-wrench"></i> <span class="d-inline d-lg-none">{{ $L('Settings') }}</span></a>
 
 					<div class="dropdown-menu dropdown-menu-right">
+						@if($isEmbeddedInstallation === false)
+						<a class="dropdown-item discrete-link" href="{{ $U('/users') }}"><i class="fas fa-users"></i>&nbsp;{{ $L('Manage users') }}</a>
+						<div class="dropdown-divider"></div>
+						@endif
 						<a class="dropdown-item discrete-link" href="{{ $U('/manageapikeys') }}"><i class="fas fa-handshake"></i>&nbsp;{{ $L('Manage API keys') }}</a>
 						<a class="dropdown-item discrete-link" target="_blank" href="{{ $U('/api') }}"><i class="fas fa-book"></i>&nbsp;{{ $L('REST API & data model documentation') }}</a>
-						
 						<div class="dropdown-divider"></div>
-
 						<a class="dropdown-item discrete-link" href="#" data-toggle="modal" data-target="#about-modal"><i class="fas fa-info fa-fw"></i>&nbsp;{{ $L('About grocy') }} (Version {{ $version }})</a>
 					</div>
 				</li>

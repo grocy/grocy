@@ -3,6 +3,7 @@
 namespace Grocy\Middleware;
 
 use \Grocy\Services\SessionService;
+use \Grocy\Services\LocalizationService;
 
 class SessionAuthMiddleware extends BaseMiddleware
 {
@@ -21,7 +22,15 @@ class SessionAuthMiddleware extends BaseMiddleware
 
 		if ($routeName === 'root' || $this->ApplicationService->IsDemoInstallation() || $this->ApplicationService->IsEmbeddedInstallation())
 		{
-			define('AUTHENTICATED', $this->ApplicationService->IsDemoInstallation() || $this->ApplicationService->IsEmbeddedInstallation());
+			if ($this->ApplicationService->IsDemoInstallation() || $this->ApplicationService->IsEmbeddedInstallation())
+			{
+				define('AUTHENTICATED', true);
+				
+				$localizationService = new LocalizationService(CULTURE);
+				define('GROCY_USER_USERNAME', $localizationService->Localize('Demo User'));
+				define('GROCY_USER_ID', -1);
+			}
+
 			$response = $next($request, $response);
 		}
 		else
@@ -34,7 +43,18 @@ class SessionAuthMiddleware extends BaseMiddleware
 			}
 			else
 			{
-				define('AUTHENTICATED', $routeName !== 'login');
+				if ($routeName !== 'login')
+				{
+					$user = $sessionService->GetUserBySessionKey($_COOKIE[$this->SessionCookieName]);
+					define('AUTHENTICATED', true);
+					define('GROCY_USER_USERNAME', $user->username);
+					define('GROCY_USER_ID', $user->id);
+				}
+				else
+				{
+					define('AUTHENTICATED', false);
+				}
+
 				$response = $next($request, $response);
 			}
 		}

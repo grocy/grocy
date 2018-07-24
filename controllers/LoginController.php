@@ -24,10 +24,22 @@ class LoginController extends BaseController
 		$postParams = $request->getParsedBody();
 		if (isset($postParams['username']) && isset($postParams['password']))
 		{
-			if ($postParams['username'] === HTTP_USER && $postParams['password'] === HTTP_PASSWORD)
+			$user = $this->Database->users()->where('username', $postParams['username'])->fetch();
+			$inputPassword = $postParams['password'];
+
+			if ($user !== null && password_verify($inputPassword, $user->password))
 			{
-				$sessionKey = $this->SessionService->CreateSession();
+				$sessionKey = $this->SessionService->CreateSession($user->id);
 				setcookie($this->SessionCookieName, $sessionKey, time() + 31536000); // Cookie expires in 1 year, but session validity is up to SessionService
+				define('GROCY_USER_USERNAME', $user->username);
+				define('GROCY_USER_ID', $user->id);
+
+				if (password_needs_rehash($user->password, PASSWORD_DEFAULT))
+				{
+					$user->update(array(
+						'password' => password_hash($inputPassword, PASSWORD_DEFAULT)
+					));
+				}
 
 				return $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl('/'));
 			}
@@ -67,6 +79,30 @@ class LoginController extends BaseController
 		}
 
 		return $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl('/stockoverview'));
+	}
+
+	public function UsersList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->AppContainer->view->render($response, 'users', [
+			'users' => $this->Database->users()->orderBy('username')
+		]);
+	}
+
+	public function UserEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		if ($args['userId'] == 'new')
+		{
+			return $this->AppContainer->view->render($response, 'userform', [
+				'mode' => 'create'
+			]);
+		}
+		else
+		{
+			return $this->AppContainer->view->render($response, 'userform', [
+				'user' =>  $this->Database->users($args['userId']),
+				'mode' => 'edit'
+			]);
+		}
 	}
 
 	public function GetSessionCookieName()

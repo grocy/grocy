@@ -11,10 +11,12 @@ $app->group('', function()
 	// Base route
 	$this->get('/', 'LoginControllerInstance:Root')->setName('root');
 
-	// Login routes
+	// Login/user routes
 	$this->get('/login', 'LoginControllerInstance:LoginPage')->setName('login');
 	$this->post('/login', 'LoginControllerInstance:ProcessLogin')->setName('login');
 	$this->get('/logout', 'LoginControllerInstance:Logout');
+	$this->get('/users', 'LoginControllerInstance:UsersList');
+	$this->get('/user/{userId}', 'LoginControllerInstance:UserEditForm');
 
 	// Stock routes
 	$this->get('/stockoverview', 'Grocy\Controllers\StockController:Overview');
@@ -68,6 +70,10 @@ $app->group('/api', function()
 	$this->post('/add-object/{entity}', 'Grocy\Controllers\GenericEntityApiController:AddObject');
 	$this->post('/edit-object/{entity}/{objectId}', 'Grocy\Controllers\GenericEntityApiController:EditObject');
 	$this->get('/delete-object/{entity}/{objectId}', 'Grocy\Controllers\GenericEntityApiController:DeleteObject');
+
+	$this->post('/users/create', 'Grocy\Controllers\UsersApiController:CreateUser');
+	$this->post('/users/edit/{userId}', 'Grocy\Controllers\UsersApiController:EditUser');
+	$this->get('/users/delete/{userId}', 'Grocy\Controllers\UsersApiController:DeleteUser');
 
 	$this->get('/stock/add-product/{productId}/{amount}', 'Grocy\Controllers\StockApiController:AddProduct');
 	$this->get('/stock/consume-product/{productId}/{amount}', 'Grocy\Controllers\StockApiController:ConsumeProduct');

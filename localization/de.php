@@ -169,6 +169,17 @@ return array(
 	'Put missing amount on shopping list' => 'Fehlende Menge auf den Einkaufszettel setzen',
 	'Are you sure to put all missing ingredients for recipe "#1" on the shopping list?' => 'Sicher alle fehlenden Zutaten für Rezept "#1" auf die Einkaufsliste zu setzen?',
 	'Added for recipe #1' => 'Hinzugefügt für Rezept #1',
+	'Manage users' => 'Benutzer verwalten',
+	'Users' => 'Benutzer',
+	'Are you sure to delete user "#1"?' => 'Benutzer "#1" wirklich löschen?',
+	'Create user' => 'Benutzer erstellen',
+	'Edit user' => 'Benutzer bearbeiten',
+	'First name' => 'Vorname',
+	'Last name' => 'Nachname',
+	'A username is required' => 'Ein Benutzername ist erforderlich',
+	'Confirm password' => 'Passwort bestätigen',
+	'Passwords do not match' => 'Passwörter stimmen nicht überein',
+	'Change password' => 'Passwort ändern',
 	
 	//Constants
 	'manually' => 'Manuell',
@@ -226,5 +237,6 @@ return array(
 	'German' => 'Deutsch',
 	'Italian' => 'Italienisch',
 	'Demo in different language' => 'Demo in anderer Sprache',
-	'This is the note content of the recipe ingredient' => 'Dies ist der Inhalt der Notiz der Zutat'
+	'This is the note content of the recipe ingredient' => 'Dies ist der Inhalt der Notiz der Zutat',
+	'Demo User' => 'Demo Benutzer'
 );

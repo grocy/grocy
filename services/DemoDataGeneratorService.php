@@ -16,6 +16,8 @@ class DemoDataGeneratorService extends BaseService
 			$loremIpsum = 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.';
 
 			$sql = "
+				INSERT INTO users (id, username, password) VALUES (-1, '{$localizationService->Localize('Demo User')}', 'x');
+
 				INSERT INTO locations (name) VALUES ('{$localizationService->Localize('Pantry')}'); --2
 				INSERT INTO locations (name) VALUES ('{$localizationService->Localize('Candy cupboard')}'); --3
 				INSERT INTO locations (name) VALUES ('{$localizationService->Localize('Tinned food cupboard')}'); --4
