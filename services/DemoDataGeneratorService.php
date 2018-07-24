@@ -8,7 +8,7 @@ class DemoDataGeneratorService extends BaseService
 {
 	public function PopulateDemoData()
 	{
-		$localizationService = new LocalizationService(CULTURE);
+		$localizationService = new LocalizationService(GROCY_CULTURE);
 
 		$rowCount = $this->DatabaseService->ExecuteDbQuery('SELECT COUNT(*) FROM migrations WHERE migration = -1')->fetchColumn();
 		if (intval($rowCount) === 0)
@@ -125,7 +125,7 @@ class DemoDataGeneratorService extends BaseService
 
 	public function RecreateDemo()
 	{
-		unlink(DATAPATH . '/grocy.db');
+		unlink(GROCY_DATAPATH . '/grocy.db');
 		$this->PopulateDemoData();
 	}
 }

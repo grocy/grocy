@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ CULTURE }}">
+<html lang="{{ GROCY_CULTURE }}">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -28,8 +28,8 @@
 	<link href="{{ $U('/css/grocy.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	@stack('pageStyles')
 
-	@if(file_exists(DATAPATH . '/custom_css.html'))
-		@php include DATAPATH . '/custom_css.html' @endphp
+	@if(file_exists(GROCY_DATAPATH . '/custom_css.html'))
+		@php include GROCY_DATAPATH . '/custom_css.html' @endphp
 	@endif
 
 	<script>
@@ -38,7 +38,7 @@
 		Grocy.BaseUrl = '{{ $U('/') }}';
 		Grocy.LocalizationStrings = {!! json_encode($localizationStrings) !!};
 		Grocy.ActiveNav = '@yield('activeNav', '')';
-		Grocy.Culture = '{{ CULTURE }}';
+		Grocy.Culture = '{{ GROCY_CULTURE }}';
 	</script>
 </head>
 
@@ -164,7 +164,7 @@
 			</ul>
 
 			<ul class="navbar-nav ml-auto">
-				@if(AUTHENTICATED === true && $isEmbeddedInstallation === false)
+				@if(GROCY_AUTHENTICATED === true && $isEmbeddedInstallation === false)
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle discrete-link" href="#" data-toggle="dropdown"><i class="fas fa-user"></i> {{ GROCY_USER_USERNAME }}</a>
 
@@ -256,8 +256,8 @@
 	@stack('componentScripts')
 	<script src="{{ $U('/viewjs', true) }}/@yield('viewJsName').js?v={{ $version }}"></script>
 
-	@if(file_exists(DATAPATH . '/custom_js.html'))
-		@php include DATAPATH . '/custom_js.html' @endphp
+	@if(file_exists(GROCY_DATAPATH . '/custom_js.html'))
+		@php include GROCY_DATAPATH . '/custom_js.html' @endphp
 	@endif
 </body>
 

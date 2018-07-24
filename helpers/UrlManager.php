@@ -20,7 +20,7 @@ class UrlManager
 
 	public function ConstructUrl($relativePath, $isResource = false)
 	{
-		if (DISABLE_URL_REWRITING === false || $isResource === true)
+		if (GROCY_DISABLE_URL_REWRITING === false || $isResource === true)
 		{
 			return rtrim($this->BasePath, '/') . $relativePath;
 		}

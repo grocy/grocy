@@ -216,13 +216,13 @@ class StockService extends BaseService
 
 	private function LoadBarcodeLookupPlugin()
 	{
-		$pluginName = defined('STOCK_BARCODE_LOOKUP_PLUGIN') ? STOCK_BARCODE_LOOKUP_PLUGIN : '';
+		$pluginName = defined('GROCY_STOCK_BARCODE_LOOKUP_PLUGIN') ? GROCY_STOCK_BARCODE_LOOKUP_PLUGIN : '';
 		if (empty($pluginName))
 		{
 			throw new \Exception('No barcode lookup plugin defined');
 		}
 
-		$path = DATAPATH . "/plugins/$pluginName.php";
+		$path = GROCY_DATAPATH . "/plugins/$pluginName.php";
 		if (file_exists($path))
 		{
 			require_once $path;

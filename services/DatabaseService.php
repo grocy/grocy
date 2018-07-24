@@ -14,7 +14,7 @@ class DatabaseService
 	{
 		if ($this->DbConnectionRaw == null)
 		{
-			$pdo = new \PDO('sqlite:' . DATAPATH . '/grocy.db');
+			$pdo = new \PDO('sqlite:' . GROCY_DATAPATH . '/grocy.db');
 			$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 			$this->DbConnectionRaw = $pdo;
 		}

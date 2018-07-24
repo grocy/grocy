@@ -30,8 +30,8 @@
 	<script src="{{ $U('/node_modules/swagger-ui-dist/swagger-ui-standalone-preset.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/viewjs', true) }}/openapiui.js?v={{ $version }}"></script>
 
-	@if(file_exists(DATAPATH . '/add_before_end_body.html'))
-		@php include DATAPATH . '/add_before_end_body.html' @endphp
+	@if(file_exists(GROCY_DATAPATH . '/add_before_end_body.html'))
+		@php include GROCY_DATAPATH . '/add_before_end_body.html' @endphp
 	@endif
 </body>
 </html>

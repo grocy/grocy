@@ -130,17 +130,17 @@ function BoolToString(bool $bool)
 
 function Setting(string $name, $value)
 {
-	if (!defined($name))
+	if (!defined('GROCY_' . $name))
 	{
 		// The content of a $name.txt file in /data/settingoverrides can overwrite the given setting (for embedded mode)
-		$settingOverrideFile = DATAPATH . '/settingoverrides/' . $name . '.txt';
+		$settingOverrideFile = GROCY_DATAPATH . '/settingoverrides/' . $name . '.txt';
 		if (file_exists($settingOverrideFile))
 		{
-			define($name, file_get_contents($settingOverrideFile));
+			define('GROCY_' . $name, file_get_contents($settingOverrideFile));
 		}
 		else
 		{
-			define($name, $value);
+			define('GROCY_' . $name, $value);
 		}
 	}
 }

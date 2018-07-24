@@ -8,15 +8,15 @@ use \Grocy\Controllers\LoginController;
 
 if (file_exists(__DIR__ . '/embedded.txt'))
 {
-	define('DATAPATH', file_get_contents(__DIR__ . '/embedded.txt'));
+	define('GROCY_DATAPATH', file_get_contents(__DIR__ . '/embedded.txt'));
 }
 else
 {
-	define('DATAPATH', __DIR__ . '/data');
+	define('GROCY_DATAPATH', __DIR__ . '/data');
 }
 
 require_once __DIR__ . '/vendor/autoload.php';
-require_once DATAPATH . '/config.php';
+require_once GROCY_DATAPATH . '/config.php';
 require_once __DIR__ . '/config-dist.php'; //For not in own config defined values we use the default ones
 
 // Setup base application
@@ -27,7 +27,7 @@ $appContainer = new \Slim\Container([
 	],
 	'view' => function($container)
 	{
-		return new \Slim\Views\Blade(__DIR__ . '/views', DATAPATH . '/viewcache');
+		return new \Slim\Views\Blade(__DIR__ . '/views', GROCY_DATAPATH . '/viewcache');
 	},
 	'LoginControllerInstance' => function($container)
 	{
@@ -35,7 +35,7 @@ $appContainer = new \Slim\Container([
 	},
 	'UrlManager' => function($container)
 	{
-		return new UrlManager(BASE_URL);
+		return new UrlManager(GROCY_BASE_URL);
 	},
 	'ApiKeyHeaderName' => function($container)
 	{

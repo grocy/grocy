@@ -24,9 +24,9 @@ class SessionAuthMiddleware extends BaseMiddleware
 		{
 			if ($this->ApplicationService->IsDemoInstallation() || $this->ApplicationService->IsEmbeddedInstallation())
 			{
-				define('AUTHENTICATED', true);
+				define('GROCY_AUTHENTICATED', true);
 				
-				$localizationService = new LocalizationService(CULTURE);
+				$localizationService = new LocalizationService(GROCY_CULTURE);
 				define('GROCY_USER_USERNAME', $localizationService->Localize('Demo User'));
 				define('GROCY_USER_ID', -1);
 			}
@@ -38,7 +38,7 @@ class SessionAuthMiddleware extends BaseMiddleware
 			$sessionService = new SessionService();
 			if ((!isset($_COOKIE[$this->SessionCookieName]) || !$sessionService->IsValidSession($_COOKIE[$this->SessionCookieName])) && $routeName !== 'login')
 			{
-				define('AUTHENTICATED', false);
+				define('GROCY_AUTHENTICATED', false);
 				$response = $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl('/login'));
 			}
 			else
@@ -46,13 +46,13 @@ class SessionAuthMiddleware extends BaseMiddleware
 				if ($routeName !== 'login')
 				{
 					$user = $sessionService->GetUserBySessionKey($_COOKIE[$this->SessionCookieName]);
-					define('AUTHENTICATED', true);
+					define('GROCY_AUTHENTICATED', true);
 					define('GROCY_USER_USERNAME', $user->username);
 					define('GROCY_USER_ID', $user->id);
 				}
 				else
 				{
-					define('AUTHENTICATED', false);
+					define('GROCY_AUTHENTICATED', false);
 				}
 
 				$response = $next($request, $response);

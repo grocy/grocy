@@ -9,7 +9,7 @@ class ApplicationService extends BaseService
 	 */
 	public function IsDemoInstallation()
 	{
-		return file_exists(DATAPATH . '/demo.txt');
+		return file_exists(GROCY_DATAPATH . '/demo.txt');
 	}
 
 	/**

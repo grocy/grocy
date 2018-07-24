@@ -36,7 +36,7 @@ class LocalizationService
 
 	private function LogMissingLocalization(string $culture, string $text)
 	{
-		$file = DATAPATH . "/missing_translations_$culture.json";
+		$file = GROCY_DATAPATH . "/missing_translations_$culture.json";
 
 		$missingTranslations = array();
 		if (file_exists($file))
@@ -57,7 +57,7 @@ class LocalizationService
 
 	public function Localize(string $text, ...$placeholderValues)
 	{
-		if (MODE === 'dev')
+		if (GROCY_MODE === 'dev')
 		{
 			if (!array_key_exists($text, $this->StringsDefaultCulture))
 			{

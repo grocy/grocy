@@ -12,7 +12,7 @@ class BaseController
 		$databaseService = new DatabaseService();
 		$this->Database = $databaseService->GetDbConnection();
 		
-		$localizationService = new LocalizationService(CULTURE);
+		$localizationService = new LocalizationService(GROCY_CULTURE);
 		$this->LocalizationService = $localizationService;
 
 		$applicationService = new ApplicationService();
