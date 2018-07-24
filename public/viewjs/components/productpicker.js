@@ -1,6 +1,6 @@
 Grocy.Components.ProductPicker = { };
 
-Grocy.Components.ProductPicker.GetPicker = function ()
+Grocy.Components.ProductPicker.GetPicker = function()
 {
 	return $('#product_id');
 }
@@ -43,7 +43,7 @@ Grocy.Components.ProductPicker.HideCustomError = function()
 	$("#custom-productpicker-error").addClass("d-none");
 }
 
-$('.combobox').combobox({
+$('.product-combobox').combobox({
 	appendId: '_text_input',
 	bsVersion: '4'
 });

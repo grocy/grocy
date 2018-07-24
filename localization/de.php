@@ -180,6 +180,7 @@ return array(
 	'Confirm password' => 'Passwort bestätigen',
 	'Passwords do not match' => 'Passwörter stimmen nicht überein',
 	'Change password' => 'Passwort ändern',
+	'Done by' => 'Ausgeführt von',
 	
 	//Constants
 	'manually' => 'Manuell',

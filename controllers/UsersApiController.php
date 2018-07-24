@@ -21,7 +21,7 @@ class UsersApiController extends BaseApiController
 		try
 		{
 			$this->UsersService->CreateUser($requestBody['username'], $requestBody['first_name'], $requestBody['last_name'], $requestBody['password']);
-			return $this->ApiResponse(array('success' => $success));
+			return $this->ApiResponse(array('success' => true));
 		}
 		catch (\Exception $ex)
 		{
@@ -33,7 +33,7 @@ class UsersApiController extends BaseApiController
 	{
 		try
 		{
-			$this->UsersService->DeleteUser($args['userId']);
+			$success = $this->UsersService->DeleteUser($args['userId']);
 			return $this->ApiResponse(array('success' => $success));
 		}
 		catch (\Exception $ex)
@@ -49,7 +49,7 @@ class UsersApiController extends BaseApiController
 		try
 		{
 			$this->UsersService->EditUser($args['userId'], $requestBody['username'], $requestBody['first_name'], $requestBody['last_name'], $requestBody['password']);
-			return $this->ApiResponse(array('success' => $success));
+			return $this->ApiResponse(array('success' => true));
 		}
 		catch (\Exception $ex)
 		{

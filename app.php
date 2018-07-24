@@ -9,6 +9,7 @@ use \Grocy\Controllers\LoginController;
 if (file_exists(__DIR__ . '/embedded.txt'))
 {
 	define('GROCY_DATAPATH', file_get_contents(__DIR__ . '/embedded.txt'));
+	define('GROCY_USER_ID', 1);
 }
 else
 {

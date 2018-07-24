@@ -41,7 +41,7 @@
 						<a class="btn btn-info btn-sm" href="{{ $U('/user/') }}{{ $user->id }}">
 							<i class="fas fa-edit"></i>
 						</a>
-						<a class="btn btn-danger btn-sm user-delete-button @if($user->id === GROCY_USER_ID){{ disabled }}@endif" href="#" data-user-id="{{ $user->id }}" data-user-username="{{ $user->username }}">
+						<a class="btn btn-danger btn-sm user-delete-button @if($user->id == GROCY_USER_ID) disabled @endif" href="#" data-user-id="{{ $user->id }}" data-user-username="{{ $user->username }}">
 							<i class="fas fa-trash"></i>
 						</a>
 					</td>

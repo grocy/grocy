@@ -32,6 +32,13 @@
 				'invalidFeedback' => $L('This can only be before now')
 			))
 
+			@include('components.userpicker', array(
+				'label' => 'Done by',
+				'users' => $users,
+				'nextInputSelector' => '#user_id',
+				'prefillByUserId' => GROCY_USER_ID
+			))
+
 			<button id="save-habittracking-button" type="submit" class="btn btn-success">{{ $L('OK') }}</button>
 
 		</form>

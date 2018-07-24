@@ -144,3 +144,27 @@ function Setting(string $name, $value)
 		}
 	}
 }
+
+function GetUserDisplayName($user)
+{
+	$displayName = '';
+	
+	if (empty($user->first_name) && !empty($user->last_name))
+	{
+		$displayName = $user->last_name;
+	}
+	elseif (empty($user->last_name) && !empty($user->first_name))
+	{
+		$displayName = $user->first_name;
+	}
+	elseif (!empty($user->last_name) && !empty($user->first_name))
+	{
+		$displayName = $user->first_name . ' ' . $user->last_name;
+	}
+	else
+	{
+		$displayName = $user->username;
+	}
+
+	return $displayName;
+}

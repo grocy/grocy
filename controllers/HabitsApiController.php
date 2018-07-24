@@ -22,9 +22,15 @@ class HabitsApiController extends BaseApiController
 			$trackedTime = $request->getQueryParams()['tracked_time'];
 		}
 
+		$doneBy = GROCY_USER_ID;
+		if (isset($request->getQueryParams()['done_by']) && !empty($request->getQueryParams()['done_by']))
+		{
+			$doneBy = $request->getQueryParams()['done_by'];
+		}
+
 		try
 		{
-			$this->HabitsService->TrackHabit($args['habitId'], $trackedTime);
+			$this->HabitsService->TrackHabit($args['habitId'], $trackedTime, $doneBy);
 			return $this->VoidApiActionResponse($response);
 		}
 		catch (\Exception $ex)

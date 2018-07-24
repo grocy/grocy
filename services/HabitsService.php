@@ -52,16 +52,23 @@ class HabitsService extends BaseService
 		);
 	}
 
-	public function TrackHabit(int $habitId, string $trackedTime)
+	public function TrackHabit(int $habitId, string $trackedTime, $doneBy = GROCY_USER_ID)
 	{
 		if (!$this->HabitExists($habitId))
 		{
 			throw new \Exception('Habit does not exist');
 		}
+
+		$userRow = $this->Database->users()->where('id = :1', $doneBy)->fetch();
+		if ($userRow === null)
+		{
+			throw new \Exception('User does not exist');
+		}
 		
 		$logRow = $this->Database->habits_log()->createRow(array(
 			'habit_id' => $habitId,
-			'tracked_time' => $trackedTime
+			'tracked_time' => $trackedTime,
+			'done_by_user_id' => $doneBy
 		));
 		$logRow->save();
 

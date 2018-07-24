@@ -7,7 +7,7 @@
 	Grocy.Api.Get('habits/get-habit-details/' + jsonForm.habit_id,
 		function (habitDetails)
 		{
-			Grocy.Api.Get('habits/track-habit-execution/' + jsonForm.habit_id + '?tracked_time=' + Grocy.Components.DateTimePicker.GetValue(),
+			Grocy.Api.Get('habits/track-habit-execution/' + jsonForm.habit_id + '?tracked_time=' + Grocy.Components.DateTimePicker.GetValue() + "&done_by=" + Grocy.Components.UserPicker.GetValue(),
 				function(result)
 				{
 					toastr.success(L('Tracked execution of habit #1 on #2', habitDetails.habit.name, Grocy.Components.DateTimePicker.GetValue()));

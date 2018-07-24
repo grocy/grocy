@@ -38,7 +38,8 @@ class HabitsController extends BaseController
 	public function TrackHabitExecution(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->AppContainer->view->render($response, 'habittracking', [
-			'habits' => $this->Database->habits()->orderBy('name')
+			'habits' => $this->Database->habits()->orderBy('name'),
+			'users' => $this->Database->users()->orderBy('username')
 		]);
 	}
 

@@ -180,10 +180,8 @@
 					<a class="nav-link dropdown-toggle discrete-link" href="#" data-toggle="dropdown"><i class="fas fa-wrench"></i> <span class="d-inline d-lg-none">{{ $L('Settings') }}</span></a>
 
 					<div class="dropdown-menu dropdown-menu-right">
-						@if($isEmbeddedInstallation === false)
 						<a class="dropdown-item discrete-link" href="{{ $U('/users') }}"><i class="fas fa-users"></i>&nbsp;{{ $L('Manage users') }}</a>
 						<div class="dropdown-divider"></div>
-						@endif
 						<a class="dropdown-item discrete-link" href="{{ $U('/manageapikeys') }}"><i class="fas fa-handshake"></i>&nbsp;{{ $L('Manage API keys') }}</a>
 						<a class="dropdown-item discrete-link" target="_blank" href="{{ $U('/api') }}"><i class="fas fa-book"></i>&nbsp;{{ $L('REST API & data model documentation') }}</a>
 						<div class="dropdown-divider"></div>
