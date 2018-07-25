@@ -35,7 +35,8 @@ class OpenApiController extends BaseApiController
 	public function ApiKeysList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->AppContainer->view->render($response, 'manageapikeys', [
-			'apiKeys' => $this->Database->api_keys()
+			'apiKeys' => $this->Database->api_keys(),
+			'users' => $this->Database->users()
 		]);
 	}
 

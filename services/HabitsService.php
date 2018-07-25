@@ -44,11 +44,20 @@ class HabitsService extends BaseService
 		$habit = $this->Database->habits($habitId);
 		$habitTrackedCount = $this->Database->habits_log()->where('habit_id', $habitId)->count();
 		$habitLastTrackedTime = $this->Database->habits_log()->where('habit_id', $habitId)->max('tracked_time');
+		
+		$doneByUserId =  $this->Database->habits_log()->where('habit_id = :1 AND tracked_time = :2', $habitId, $habitLastTrackedTime)->fetch()->done_by_user_id;
+		if ($doneByUserId !== null && !empty($doneByUserId))
+		{
+			$usersService = new UsersService();
+			$users = $usersService->GetUsersAsDto();
+			$lastDoneByUser = FindObjectInArrayByPropertyValue($users, 'id', $doneByUserId);
+		}
 
 		return array(
 			'habit' => $habit,
 			'last_tracked' => $habitLastTrackedTime,
-			'tracked_count' => $habitTrackedCount
+			'tracked_count' => $habitTrackedCount,
+			'last_done_by' => $lastDoneByUser
 		);
 	}
 

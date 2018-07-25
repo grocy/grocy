@@ -37,7 +37,7 @@
 			</thead>
 			<tbody>
 				@foreach($currentHabits as $curentHabitEntry)
-				<tr class="@if(FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->period_type === \Grocy\Services\HabitsService::HABIT_TYPE_DYNAMIC_REGULAR && $nextHabitTimes[$curentHabitEntry->habit_id] < date('Y-m-d H:i:s')) table-danger @endif">
+				<tr class="@if(FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->period_type === \Grocy\Services\HabitsService::HABIT_TYPE_DYNAMIC_REGULAR && $nextHabitTimes[$curentHabitEntry->habit_id] < date('Y-m-d H:i:s')) table-danger @elseif(FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->period_type === \Grocy\Services\HabitsService::HABIT_TYPE_DYNAMIC_REGULAR && $nextHabitTimes[$curentHabitEntry->habit_id] < date('Y-m-d H:i:s', strtotime('+5 days'))) table-warning @endif">
 					<td class="fit-content">
 						<a class="btn btn-success btn-sm track-habit-button" href="#" title="{{ $L('Track execution of habit #1', FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->name) }}"
 							data-habit-id="{{ $curentHabitEntry->habit_id }}"

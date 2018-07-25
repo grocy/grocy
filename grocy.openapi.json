@@ -370,6 +370,39 @@
 				}
 			}
 		},
+		"/users/get": {
+			"get": {
+				"description": "Returns all users",
+				"tags": [
+					"User management"
+				],
+				"responses": {
+					"200": {
+						"description": "A list of user objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/UserDto"
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/users/create": {
 			"post": {
 				"description": "Creates a new user",
@@ -910,6 +943,15 @@
 						"schema": {
 							"type": "date-time"
 						}
+					},
+					{
+						"in": "query",
+						"name": "done_by",
+						"required": false,
+						"description": "A valid user id of who executed this habit, when omitted, the currently authenticated user will be used",
+						"schema": {
+							"type": "integer"
+						}
 					}
 				],
 				"responses": {
@@ -1273,6 +1315,9 @@
 					"track_count": {
 						"type": "integer",
 						"description": "How often this habit was tracked so far"
+					},
+					"last_done_by": {
+						"$ref": "#/components/schemas/UserDto"
 					}
 				}
 			},
@@ -1332,6 +1377,31 @@
 						"type": "string"
 					},
 					"password": {
+						"type": "string"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"UserDto": {
+				"type": "object",
+				"description": "A user object without the *password* and with an additional *display_name* property",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"username": {
+						"type": "string"
+					},
+					"first_name": {
+						"type": "string"
+					},
+					"last_name": {
+						"type": "string"
+					},
+					"display_name": {
 						"type": "string"
 					},
 					"row_created_timestamp": {

@@ -22,8 +22,9 @@ class ApiKeyAuthMiddleware extends BaseMiddleware
 		$route = $request->getAttribute('route');
 		$routeName = $route->getName();
 
-		if ($this->ApplicationService->IsDemoInstallation() || $this->ApplicationService->IsEmbeddedInstallation())
+		if (GROCY_IS_DEMO_INSTALL || GROCY_IS_EMBEDDED_INSTALL)
 		{
+			define('GROCY_AUTHENTICATED', true);
 			$response = $next($request, $response);
 		}
 		else
@@ -45,10 +46,15 @@ class ApiKeyAuthMiddleware extends BaseMiddleware
 
 			if (!$validSession && !$validApiKey)
 			{
+				define('GROCY_AUTHENTICATED', false);
 				$response = $response->withStatus(401);
 			}
 			else
 			{
+				$user = $apiKeyService->GetUserByApiKey($request->getHeaderLine($this->ApiKeyHeaderName));
+				define('GROCY_AUTHENTICATED', true);
+				define('GROCY_USER_ID', $user->id);
+
 				$response = $next($request, $response);
 			}
 		}

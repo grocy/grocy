@@ -19,23 +19,23 @@ class SessionAuthMiddleware extends BaseMiddleware
 	{
 		$route = $request->getAttribute('route');
 		$routeName = $route->getName();
+		$sessionService = new SessionService();
 
-		if ($routeName === 'root' || $this->ApplicationService->IsDemoInstallation() || $this->ApplicationService->IsEmbeddedInstallation())
+		if ($routeName === 'root')
 		{
-			if ($this->ApplicationService->IsDemoInstallation() || $this->ApplicationService->IsEmbeddedInstallation())
-			{
-				define('GROCY_AUTHENTICATED', true);
-				
-				$localizationService = new LocalizationService(GROCY_CULTURE);
-				define('GROCY_USER_USERNAME', $localizationService->Localize('Demo User'));
-				define('GROCY_USER_ID', -1);
-			}
+			$response = $next($request, $response);
+		}
+		elseif (GROCY_IS_DEMO_INSTALL || GROCY_IS_EMBEDDED_INSTALL)
+		{
+			$user = $sessionService->GetDefaultUser();
+			define('GROCY_AUTHENTICATED', true);
+			define('GROCY_USER_USERNAME', $user->username);
+			define('GROCY_USER_ID', $user->id);
 
 			$response = $next($request, $response);
 		}
 		else
 		{
-			$sessionService = new SessionService();
 			if ((!isset($_COOKIE[$this->SessionCookieName]) || !$sessionService->IsValidSession($_COOKIE[$this->SessionCookieName])) && $routeName !== 'login')
 			{
 				define('GROCY_AUTHENTICATED', false);

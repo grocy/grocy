@@ -164,7 +164,7 @@
 			</ul>
 
 			<ul class="navbar-nav ml-auto">
-				@if(GROCY_AUTHENTICATED === true && $isEmbeddedInstallation === false)
+				@if(GROCY_AUTHENTICATED === true && !GROCY_IS_EMBEDDED_INSTALL)
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle discrete-link" href="#" data-toggle="dropdown"><i class="fas fa-user"></i> {{ GROCY_USER_USERNAME }}</a>
 

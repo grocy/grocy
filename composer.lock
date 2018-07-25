@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "131ab83ecb1ea3d1a431cc70b5092448",
+    "content-hash": "c1bc4c17739e9d0ee8b33628f6d4b9a4",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -158,7 +158,7 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v5.6.27",
+            "version": "v5.6.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
@@ -202,7 +202,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v5.6.27",
+            "version": "v5.6.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -246,7 +246,7 @@
         },
         {
             "name": "illuminate/events",
-            "version": "v5.6.27",
+            "version": "v5.6.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
@@ -291,7 +291,7 @@
         },
         {
             "name": "illuminate/filesystem",
-            "version": "v5.6.27",
+            "version": "v5.6.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/filesystem.git",
@@ -343,7 +343,7 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v5.6.27",
+            "version": "v5.6.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
@@ -401,7 +401,7 @@
         },
         {
             "name": "illuminate/view",
-            "version": "v5.6.27",
+            "version": "v5.6.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/view.git",
@@ -650,55 +650,6 @@
                 "routing"
             ],
             "time": "2018-02-13T20:26:39+00:00"
-        },
-        {
-            "name": "pavlakis/slim-cli",
-            "version": "1.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/pavlakis/slim-cli.git",
-                "reference": "603933a54e391b3c70c573206cce543b75d8b1db"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/pavlakis/slim-cli/zipball/603933a54e391b3c70c573206cce543b75d8b1db",
-                "reference": "603933a54e391b3c70c573206cce543b75d8b1db",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.5|^5.6|^7.0|^7.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.0",
-                "slim/slim": "^3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "pavlakis\\cli\\tests\\": "tests/phpunit",
-                    "pavlakis\\cli\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Antonis Pavlakis",
-                    "email": "adoni@pavlakis.info",
-                    "homepage": "http://pavlakis.info"
-                }
-            ],
-            "description": "Making a mock GET request through the CLI and enabling the same application entry point on CLI scripts.",
-            "homepage": "http://github.com/pavlakis/slim-cli",
-            "keywords": [
-                "cli",
-                "framework",
-                "middleware",
-                "slim"
-            ],
-            "time": "2017-01-30T22:50:06+00:00"
         },
         {
             "name": "philo/laravel-blade",
@@ -1214,16 +1165,16 @@
         },
         {
             "name": "symfony/debug",
-            "version": "v4.1.1",
+            "version": "v4.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "dbe0fad88046a755dcf9379f2964c61a02f5ae3d"
+                "reference": "a1f2118cedb8731c45e945cdd2b808ca82abc4b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/dbe0fad88046a755dcf9379f2964c61a02f5ae3d",
-                "reference": "dbe0fad88046a755dcf9379f2964c61a02f5ae3d",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/a1f2118cedb8731c45e945cdd2b808ca82abc4b5",
+                "reference": "a1f2118cedb8731c45e945cdd2b808ca82abc4b5",
                 "shasum": ""
             },
             "require": {
@@ -1266,11 +1217,11 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2018-06-08T09:39:36+00:00"
+            "time": "2018-07-06T14:52:28+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v4.1.1",
+            "version": "v4.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -1378,16 +1329,16 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v4.1.1",
+            "version": "v4.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "b6d8164085ee0b6debcd1b7a131fd6f63bb04854"
+                "reference": "2dd74d6b2dcbd46a93971e6ce7d245cf3123e957"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/b6d8164085ee0b6debcd1b7a131fd6f63bb04854",
-                "reference": "b6d8164085ee0b6debcd1b7a131fd6f63bb04854",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/2dd74d6b2dcbd46a93971e6ce7d245cf3123e957",
+                "reference": "2dd74d6b2dcbd46a93971e6ce7d245cf3123e957",
                 "shasum": ""
             },
             "require": {
@@ -1443,7 +1394,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2018-06-22T08:59:39+00:00"
+            "time": "2018-07-23T08:20:20+00:00"
         },
         {
             "name": "tuupola/callable-handler",

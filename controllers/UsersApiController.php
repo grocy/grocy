@@ -14,6 +14,18 @@ class UsersApiController extends BaseApiController
 
 	protected $UsersService;
 
+	public function GetUsers(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		try
+		{
+			return $this->ApiResponse($this->UsersService->GetUsersAsDto());
+		}
+		catch (\Exception $ex)
+		{
+			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+		}
+	}
+
 	public function CreateUser(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$requestBody = $request->getParsedBody();
@@ -33,8 +45,8 @@ class UsersApiController extends BaseApiController
 	{
 		try
 		{
-			$success = $this->UsersService->DeleteUser($args['userId']);
-			return $this->ApiResponse(array('success' => $success));
+			$this->UsersService->DeleteUser($args['userId']);
+			return $this->ApiResponse(array('success' => true));
 		}
 		catch (\Exception $ex)
 		{

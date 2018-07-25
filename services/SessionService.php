@@ -62,6 +62,11 @@ class SessionService extends BaseService
 		return null;
 	}
 
+	public function GetDefaultUser()
+	{
+		return $this->Database->users(1);
+	}
+
 	private function GenerateSessionKey()
 	{
 		return RandomString(50);

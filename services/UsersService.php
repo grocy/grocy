@@ -33,10 +33,21 @@ class UsersService extends BaseService
 
 	public function DeleteUser($userId)
 	{
-		$row = $this->Database->users($args['userId']);
+		$row = $this->Database->users($userId);
 		$row->delete();
-		$success = $row->isClean();
-		return $this->ApiResponse(array('success' => $success));
+	}
+
+	public function GetUsersAsDto()
+	{
+		$users = $this->Database->users();
+		$returnUsers = array();
+		foreach ($users as $user)
+		{
+			unset($user->password);
+			$user->display_name = GetUserDisplayName($user);
+			$returnUsers[] = $user;
+		}
+		return $returnUsers;
 	}
 
 	private function UserExists($userId)

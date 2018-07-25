@@ -34,6 +34,7 @@
 				<tr>
 					<th>#</th>
 					<th>{{ $L('API key') }}</th>
+					<th>{{ $L('User') }}</th>
 					<th>{{ $L('Expires') }}</th>
 					<th>{{ $L('Last used') }}</th>
 					<th>{{ $L('Created') }}</th>
@@ -49,6 +50,9 @@
 					</td>
 					<td>
 						{{ $apiKey->api_key }}
+					</td>
+					<td>
+						{{ GetUserDisplayName(FindObjectInArrayByPropertyValue($users, 'id', $apiKey->user_id)) }}
 					</td>
 					<td>
 						{{ $apiKey->expires }}

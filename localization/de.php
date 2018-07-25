@@ -170,6 +170,7 @@ return array(
 	'Are you sure to put all missing ingredients for recipe "#1" on the shopping list?' => 'Sicher alle fehlenden Zutaten für Rezept "#1" auf die Einkaufsliste zu setzen?',
 	'Added for recipe #1' => 'Hinzugefügt für Rezept #1',
 	'Manage users' => 'Benutzer verwalten',
+	'User' => 'Benutzer',
 	'Users' => 'Benutzer',
 	'Are you sure to delete user "#1"?' => 'Benutzer "#1" wirklich löschen?',
 	'Create user' => 'Benutzer erstellen',
@@ -181,6 +182,8 @@ return array(
 	'Passwords do not match' => 'Passwörter stimmen nicht überein',
 	'Change password' => 'Passwort ändern',
 	'Done by' => 'Ausgeführt von',
+	'Last done by' => 'Zuletzt ausgeführt von',
+	'Unknown' => 'Unbekannt',
 	
 	//Constants
 	'manually' => 'Manuell',
