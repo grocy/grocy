@@ -169,6 +169,23 @@ return array(
 	'Put missing amount on shopping list' => 'Legg manglende til handlelisten',
 	'Are you sure to put all missing ingredients for recipe "#1" on the shopping list?' => 'Er du sikker du ønsker å legge alle manglende ingredienser til oppskrift "#1"?',
 	'Added for recipe #1' => 'Lagt til oppskrift #1',
+	'Manage users' => 'Administrer brukere',
+	'User' => 'Bruker',
+	'Users' => 'Brukere',
+	'Are you sure to delete user "#1"?' => 'Er du sikker på du ønsker å slette bruker, "#1"?',
+	'Create user' => 'Legg til bruker',
+	'Edit user' => 'Endre på bruker',
+	'First name' => 'Fornavn',
+	'Last name' => 'Etternavn',
+	'A username is required' => 'Et brukernavn er nødvendig',
+	'Confirm password' => 'Bekreft passord',
+	'Passwords do not match' => 'Passord er ikke like',
+	'Change password' => 'Endre passord',
+	'Done by' => 'Utført av',
+	'Last done by' => 'Sist utført av',
+	'Unknown' => 'Ukjent',
+	'Filter by habit' => 'Filtrér husoppave',
+	'Habits analysis' => 'Statistikk husoppgaver',
 	
 	//Constants
 	'manually' => 'Manuel',
@@ -227,4 +244,5 @@ return array(
 	'Italian' => 'Italiensk',
 	'Demo in different language' => 'Demo i annet språk',
 	'This is the note content of the recipe ingredient' => 'Dette er notisen for ingrediensen i oppskriften'
+	'Demo User' => 'Demo Bruker'
 );
