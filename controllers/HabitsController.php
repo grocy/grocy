@@ -50,6 +50,15 @@ class HabitsController extends BaseController
 		]);
 	}
 
+	public function Analysis(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->AppContainer->view->render($response, 'habitsanalysis', [
+			'habitsLog' => $this->Database->habits_log()->orderBy('tracked_time', 'DESC'),
+			'habits' => $this->Database->habits()->orderBy('name'),
+			'users' => $this->Database->users()->orderBy('username')
+		]);
+	}
+
 	public function HabitEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		if ($args['habitId'] == 'new')

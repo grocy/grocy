@@ -184,6 +184,8 @@ return array(
 	'Done by' => 'Ausgeführt von',
 	'Last done by' => 'Zuletzt ausgeführt von',
 	'Unknown' => 'Unbekannt',
+	'Filter by habit' => 'Nach Gewohnheit filtern',
+	'Habits analysis' => 'Gewohnheiten Analyse',
 	
 	//Constants
 	'manually' => 'Manuell',

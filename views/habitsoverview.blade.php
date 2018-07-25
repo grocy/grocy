@@ -44,6 +44,9 @@
 							data-habit-name="{{ FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->name }}">
 							<i class="fas fa-play"></i>
 						</a>
+						<a class="btn btn-info btn-sm" href="{{ $U('/habitsanalysis?habit=') }}{{ $curentHabitEntry->habit_id }}">
+							<i class="fas fa-chart-line"></i>
+						</a>
 					</td>
 					<td>
 						{{ FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->name }}

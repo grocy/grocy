@@ -41,6 +41,7 @@ $app->group('', function()
 	// Habit routes
 	$this->get('/habitsoverview', '\Grocy\Controllers\HabitsController:Overview');
 	$this->get('/habittracking', '\Grocy\Controllers\HabitsController:TrackHabitExecution');
+	$this->get('/habitsanalysis', '\Grocy\Controllers\HabitsController:Analysis');
 
 	$this->get('/habits', '\Grocy\Controllers\HabitsController:HabitsList');
 	$this->get('/habit/{habitId}', '\Grocy\Controllers\HabitsController:HabitEditForm');
