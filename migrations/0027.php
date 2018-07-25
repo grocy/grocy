@@ -4,12 +4,12 @@
 
 $db = $this->DatabaseService->GetDbConnection();
 
-if (defined('HTTP_USER'))
+if (defined('GROCY_HTTP_USER'))
 {
 	// Migrate old user defined in config file to database
 	$newUserRow = $db->users()->createRow(array(
-		'username' => HTTP_USER,
-		'password' => password_hash(HTTP_PASSWORD, PASSWORD_DEFAULT)
+		'username' => GROCY_HTTP_USER,
+		'password' => password_hash(GROCY_HTTP_PASSWORD, PASSWORD_DEFAULT)
 	));
 	$newUserRow->save();
 }
