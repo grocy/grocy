@@ -188,6 +188,12 @@ return array(
 	'Habits analysis' => 'Gewohnheiten Analyse',
 	'0 means suggestions for the next charge cycle are disabled' => '0 bedeutet dass Vorschläge für den nächsten Ladezyklus deaktiviert sind',
 	'Charge cycle interval (days)' => 'Ladezyklusintervall (Tage)',
+	'Last price' => 'Letzter Preis',
+	'Price history' => 'Preisentwicklung',
+	'No price history available' => 'Keine Preisdaten verfügbar',
+	'Price' => 'Preis',
+	'in #1 per purchase quantity unit' => 'in #1 pro Einkaufsmengeneinheit',
+	'The price cannot be lower than #1' => 'Der Preis darf nicht niedriger als #1 sein',
 	
 	//Constants
 	'manually' => 'Manuell',

@@ -573,6 +573,16 @@
 					},
 					{
 						"in": "query",
+						"name": "price",
+						"required": false,
+						"description": "The price per purchase quantity unit in configured currency",
+						"schema": {
+							"type": "number",
+							"format": "double"
+						}
+					},
+					{
+						"in": "query",
 						"name": "transactiontype",
 						"required": false,
 						"description": "The transaction type for this transaction, when omitted, *purchase* is used",
@@ -757,6 +767,50 @@
 							"application/json": {
 								"schema":{
 									"$ref": "#/components/schemas/ProductDetailsResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object (possible errors are: Not existing product)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/get-product-price-history/{productId}": {
+			"get": {
+				"description": "Returns the price history of the given product",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An array of ProductPriceHistory objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/ProductPriceHistory"
+									}
 								}
 							}
 						}
@@ -1269,6 +1323,19 @@
 					},
 					"stock_amount": {
 						"type": "integer"
+					}
+				}
+			},
+			"ProductPriceHistory": {
+				"type": "object",
+				"properties": {
+					"date": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"price": {
+						"type": "number",
+						"format": "double"
 					}
 				}
 			},

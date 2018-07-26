@@ -7,6 +7,11 @@ Setting('MODE', 'production');
 # one of the other available localization files in the "/localization" directory
 Setting('CULTURE', 'en');
 
+# To keep it simpel, grocy does not handle any currency conversions,
+# this here is used to format all money values,
+# so can be anything (e. g. "USD" OR "$", doesn't matter...)
+Setting('CURRENCY', '$');
+
 # The base url of your installation,
 # should be just "/" when running directly under the root of a (sub)domain
 # or for example "https:/example.com/grocy" when using a subdirectory

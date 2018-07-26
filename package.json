@@ -25,6 +25,7 @@
 		"tagmanager": "https://github.com/max-favilli/tagmanager.git#3.0.2",
 		"tempusdominus-bootstrap-4": "^5.0.1",
 		"timeago": "^1.6.3",
-		"toastr": "^2.1.4"
+		"toastr": "^2.1.4",
+		"chart.js": "^2.7.2"
 	}
 }

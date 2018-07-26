@@ -33,6 +33,7 @@ class StockService extends BaseService
 		$productLastUsed = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->max('used_date');
 		$quPurchase = $this->Database->quantity_units($product->qu_id_purchase);
 		$quStock = $this->Database->quantity_units($product->qu_id_stock);
+		$lastPrice = $this->Database->stock_log()->where('product_id = :1 AND transaction_type = :2', $productId, self::TRANSACTION_TYPE_PURCHASE)->orderBy('row_created_timestamp', 'DESC')->limit(1)->fetch()->price;
 
 		return array(
 			'product' => $product,
@@ -40,11 +41,31 @@ class StockService extends BaseService
 			'last_used' => $productLastUsed,
 			'stock_amount' => $productStockAmount,
 			'quantity_unit_purchase' => $quPurchase,
-			'quantity_unit_stock' => $quStock
+			'quantity_unit_stock' => $quStock,
+			'last_price' => $lastPrice
 		);
 	}
 
-	public function AddProduct(int $productId, int $amount, string $bestBeforeDate, $transactionType)
+	public function GetProductPriceHistory(int $productId)
+	{
+		if (!$this->ProductExists($productId))
+		{
+			throw new \Exception('Product does not exist');
+		}
+
+		$returnData = array();
+		$rows = $this->Database->stock_log()->where('product_id = :1 AND transaction_type = :2', $productId, self::TRANSACTION_TYPE_PURCHASE)->whereNOT('price', null)->orderBy('purchased_date', 'DESC');
+		foreach ($rows as $row)
+		{
+			$returnData[] = array(
+				'date' => $row->purchased_date,
+				'price' => $row->price
+			);
+		}
+		return $returnData;
+	}
+
+	public function AddProduct(int $productId, int $amount, string $bestBeforeDate, $transactionType, $purchasedDate, $price)
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -59,9 +80,10 @@ class StockService extends BaseService
 				'product_id' => $productId,
 				'amount' => $amount,
 				'best_before_date' => $bestBeforeDate,
-				'purchased_date' => date('Y-m-d'),
+				'purchased_date' => $purchasedDate,
 				'stock_id' => $stockId,
-				'transaction_type' => $transactionType
+				'transaction_type' => $transactionType,
+				'price' => $price
 			));
 			$logRow->save();
 
@@ -69,8 +91,9 @@ class StockService extends BaseService
 				'product_id' => $productId,
 				'amount' => $amount,
 				'best_before_date' => $bestBeforeDate,
-				'purchased_date' => date('Y-m-d'),
+				'purchased_date' => $purchasedDate,
 				'stock_id' => $stockId,
+				'price' => $price
 			));
 			$stockRow->save();
 
@@ -116,7 +139,8 @@ class StockService extends BaseService
 						'used_date' => date('Y-m-d'),
 						'spoiled' => $spoiled,
 						'stock_id' => $stockEntry->stock_id,
-						'transaction_type' => $transactionType
+						'transaction_type' => $transactionType,
+						'price' => $stockEntry->price
 					));
 					$logRow->save();
 
@@ -133,7 +157,8 @@ class StockService extends BaseService
 						'used_date' => date('Y-m-d'),
 						'spoiled' => $spoiled,
 						'stock_id' => $stockEntry->stock_id,
-						'transaction_type' => $transactionType
+						'transaction_type' => $transactionType,
+						'price' => $stockEntry->price
 					));
 					$logRow->save();
 
@@ -165,8 +190,9 @@ class StockService extends BaseService
 
 		if ($newAmount > $productStockAmount)
 		{
+			$productDetails = $this->GetProductDetails($productId);
 			$amountToAdd = $newAmount - $productStockAmount;
-			$this->AddProduct($productId, $amountToAdd, $bestBeforeDate, self::TRANSACTION_TYPE_INVENTORY_CORRECTION);
+			$this->AddProduct($productId, $amountToAdd, $bestBeforeDate, self::TRANSACTION_TYPE_INVENTORY_CORRECTION, date('Y-m-d'), $productDetails['last_price']);
 		}
 		else if ($newAmount < $productStockAmount)
 		{

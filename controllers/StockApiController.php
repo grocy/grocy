@@ -26,12 +26,30 @@ class StockApiController extends BaseApiController
 		}
 	}
 
+	public function ProductPriceHistory(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		try
+		{
+			return $this->ApiResponse($this->StockService->GetProductPriceHistory($args['productId']));
+		}
+		catch (\Exception $ex)
+		{
+			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+		}
+	}
+
 	public function AddProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$bestBeforeDate = date('Y-m-d');
 		if (isset($request->getQueryParams()['bestbeforedate']) && !empty($request->getQueryParams()['bestbeforedate']) && IsIsoDate($request->getQueryParams()['bestbeforedate']))
 		{
 			$bestBeforeDate = $request->getQueryParams()['bestbeforedate'];
+		}
+
+		$price = null;
+		if (isset($request->getQueryParams()['price']) && !empty($request->getQueryParams()['price']) && is_numeric($request->getQueryParams()['price']))
+		{
+			$price = $request->getQueryParams()['price'];
 		}
 
 		$transactionType = StockService::TRANSACTION_TYPE_PURCHASE;
@@ -42,7 +60,7 @@ class StockApiController extends BaseApiController
 
 		try
 		{
-			$this->StockService->AddProduct($args['productId'], $args['amount'], $bestBeforeDate, $transactionType);
+			$this->StockService->AddProduct($args['productId'], $args['amount'], $bestBeforeDate, $transactionType, date('Y-m-d'), $price);
 			return $this->VoidApiActionResponse($response);
 		}
 		catch (\Exception $ex)

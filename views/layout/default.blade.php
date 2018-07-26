@@ -39,6 +39,7 @@
 		Grocy.LocalizationStrings = {!! json_encode($localizationStrings) !!};
 		Grocy.ActiveNav = '@yield('activeNav', '')';
 		Grocy.Culture = '{{ GROCY_CULTURE }}';
+		Grocy.Currency = '{{ GROCY_CURRENCY }}';
 	</script>
 </head>
 

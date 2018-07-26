@@ -9,7 +9,13 @@
 		{
 			var amount = jsonForm.amount * productDetails.product.qu_factor_purchase_to_stock;
 
-			Grocy.Api.Get('stock/add-product/' + jsonForm.product_id + '/' + amount + '?bestbeforedate=' + Grocy.Components.DateTimePicker.GetValue(),
+			var price = "";
+			if (!jsonForm.price.toString().isEmpty())
+			{
+				price = parseFloat(jsonForm.price).toFixed(2);
+			}
+
+			Grocy.Api.Get('stock/add-product/' + jsonForm.product_id + '/' + amount + '?bestbeforedate=' + Grocy.Components.DateTimePicker.GetValue() + '&price=' + price,
 				function(result)
 				{
 					var addBarcode = GetUriParam('addbarcodetoselection');
@@ -43,6 +49,7 @@
 					else
 					{
 						$('#amount').val(0);
+						$('#price').val('');
 						Grocy.Components.DateTimePicker.SetValue('');
 						Grocy.Components.ProductPicker.SetValue('');
 						Grocy.Components.ProductPicker.GetInputElement().focus();
@@ -74,6 +81,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 			function(productDetails)
 			{
 				$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name);
+				$('#price').val(productDetails.last_price);
 				
 				if (productDetails.product.default_best_before_days.toString() !== '0')
 				{
