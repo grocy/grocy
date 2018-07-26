@@ -75,12 +75,10 @@ Grocy.Components.ProductCard.ReInitPriceHistoryChart = function()
 		type: "line",
 		data: {
 			labels: [ //Date objects
-				new Date()
 				// Will be populated in Grocy.Components.ProductCard.Refresh
 			],
 			datasets: [{
 				data: [
-					0
 					// Will be populated in Grocy.Components.ProductCard.Refresh
 				],
 				fill: false,
