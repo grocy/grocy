@@ -186,6 +186,8 @@ return array(
 	'Unknown' => 'Unbekannt',
 	'Filter by habit' => 'Nach Gewohnheit filtern',
 	'Habits analysis' => 'Gewohnheiten Analyse',
+	'0 means suggestions for the next charge cycle are disabled' => '0 bedeutet dass Vorschläge für den nächsten Ladezyklus deaktiviert sind',
+	'Charge cycle interval (days)' => 'Ladezyklusintervall (Tage)',
 	
 	//Constants
 	'manually' => 'Manuell',

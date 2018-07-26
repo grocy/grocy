@@ -37,6 +37,12 @@
 				<input type="text" class="form-control" id="used_in" name="used_in" value="@if($mode == 'edit'){{ $battery->used_in }}@endif">
 			</div>
 
+			<div class="form-group">
+				<label for="charge_interval_days">{{ $L('Charge cycle interval (days)') }}<br><span class="small text-muted">{{ $L('0 means suggestions for the next charge cycle are disabled') }}</span></label>
+				<input required min="0" step="1" type="number" class="form-control" id="charge_interval_days" name="charge_interval_days" value="@if($mode == 'edit'){{ $battery->charge_interval_days }}@else{{0}}@endif">
+				<div class="invalid-feedback">{{ $L('This cannot be negative') }}</div>
+			</div>
+
 			<button id="save-battery-button" type="submit" class="btn btn-success">{{ $L('Save') }}</button>
 
 		</form>

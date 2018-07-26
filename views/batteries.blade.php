@@ -32,6 +32,7 @@
 					<th>{{ $L('Name') }}</th>
 					<th>{{ $L('Description') }}</th>
 					<th>{{ $L('Used in') }}</th>
+					<th>{{ $L('Charge cycle interval (days)') }}</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -53,6 +54,9 @@
 					</td>
 					<td>
 						{{ $battery->used_in }}
+					</td>
+					<td>
+						{{ $battery->charge_interval_days }}
 					</td>
 				</tr>
 				@endforeach
