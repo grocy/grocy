@@ -22,9 +22,14 @@
 		<form id="quantityunit-form" novalidate>
 
 			<div class="form-group">
-				<label for="name">{{ $L('Name') }}</label>
+				<label for="name">{{ $L('Name') }} <span class="small text-muted">{{ $L('in singular form') }}</span></label>
 				<input type="text" class="form-control" required id="name" name="name" value="@if($mode == 'edit'){{ $quantityunit->name }}@endif">
 				<div class="invalid-feedback">{{ $L('A name is required') }}</div>
+			</div>
+
+			<div class="form-group">
+				<label for="name_plural">{{ $L('Name') }} <span class="small text-muted">{{ $L('in plural form') }}</span></label>
+				<input type="text" class="form-control" id="name_plural" name="name_plural" value="@if($mode == 'edit'){{ $quantityunit->name_plural }}@endif">
 			</div>
 
 			<div class="form-group">

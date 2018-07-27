@@ -19,6 +19,16 @@ U = function(relativePath)
 	return Grocy.BaseUrl.replace(/\/$/, '') + relativePath;
 }
 
+Pluralize = function(number, singularForm, pluralForm)
+{
+	var text = singularForm;
+	if (number != 1 && pluralForm !== null && !pluralForm.isEmpty())
+	{
+		text = pluralForm;
+	}
+	return text;
+}
+
 if (!Grocy.ActiveNav.isEmpty())
 {
 	var menuItem = $('#sidebarResponsive').find("[data-nav-for-page='" + Grocy.ActiveNav + "']");

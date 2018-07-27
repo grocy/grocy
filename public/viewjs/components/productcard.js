@@ -5,10 +5,11 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 	Grocy.Api.Get('stock/get-product-details/' + productId,
 		function(productDetails)
 		{
+			var stockAmount = productDetails.stock_amount || '0';
 			$('#productcard-product-name').text(productDetails.product.name);
-			$('#productcard-product-stock-amount').text(productDetails.stock_amount || '0');
+			$('#productcard-product-stock-amount').text(stockAmount);
 			$('#productcard-product-stock-qu-name').text(productDetails.quantity_unit_stock.name);
-			$('#productcard-product-stock-qu-name2').text(productDetails.quantity_unit_stock.name);
+			$('#productcard-product-stock-qu-name2').text(Pluralize(stockAmount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural));
 			$('#productcard-product-last-purchased').text((productDetails.last_purchased || L('never')).substring(0, 10));
 			$('#productcard-product-last-purchased-timeago').text($.timeago(productDetails.last_purchased || ''));
 			$('#productcard-product-last-used').text((productDetails.last_used || L('never')).substring(0, 10));

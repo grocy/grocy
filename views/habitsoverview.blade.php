@@ -12,8 +12,8 @@
 <div class="row">
 	<div class="col">
 		<h1>@yield('title')</h1>
-		<p class="btn btn-lg btn-warning no-real-button responsive-button mr-2">{{ $L('#1 habits are due to be done within the next #2 days', $countDueNextXDays, $nextXDays) }}</p>
-		<p class="btn btn-lg btn-danger no-real-button responsive-button">{{ $L('#1 habits are overdue to be done', $countOverdue) }}</p>
+		<p class="btn btn-lg btn-warning no-real-button responsive-button mr-2">{{ Pluralize($countDueNextXDays, $L('#1 habit is due to be done within the next #2 days', $countDueNextXDays, $nextXDays), $L('#1 habits are due to be done within the next #2 days', $countDueNextXDays, $nextXDays)) }}</p>
+		<p class="btn btn-lg btn-danger no-real-button responsive-button">{{ Pluralize($countOverdue, $L('#1 habit is overdue to be done', $countOverdue), $L('#1 habits are overdue to be done', $countOverdue)) }}</p>
 	</div>
 </div>
 

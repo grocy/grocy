@@ -2,7 +2,6 @@
 
 return array(
 	'Stock overview' => 'Dispensa',
-	'#1 products with #2 units in stock' => '#1 prodotti stano per finire(#2 unità)',
 	'#1 products expiring within the next #2 days' => '#1 prodotti scadranno tra #2 giorni',
 	'#1 products are already expired' => '#1 prodotti scaduti',
 	'#1 products are below defined min. stock amount' => '#1 prodotti sotto il limite minimo',

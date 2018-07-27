@@ -2,7 +2,6 @@
 
 return array(
 	'Stock overview' => 'Bestand',
-	'#1 products with #2 units in stock' => '#1 Produkte (#2 Einheiten) vorrätig',
 	'#1 products expiring within the next #2 days' => '#1 Produkte laufen innerhalb der nächsten #2 Tage ab',
 	'#1 products are already expired' => '#1 Produkte sind bereits abgelaufen',
 	'#1 products are below defined min. stock amount' => '#1 Produkte sind unter Mindestbestand',
@@ -194,6 +193,18 @@ return array(
 	'Price' => 'Preis',
 	'in #1 per purchase quantity unit' => 'in #1 pro Einkaufsmengeneinheit',
 	'The price cannot be lower than #1' => 'Der Preis darf nicht niedriger als #1 sein',
+	'#1 product expires within the next #2 days' => '#1 Produkt läuft innerhalb der nächsten #2 Tage ab',
+	'#1 product is already expired' => '#1 Produkt ist bereits abgelaufen',
+	'#1 product is below defined min. stock amount' => '#1 Produkt ist unter Mindestbestand',
+	'Unit' => 'Einheit',
+	'Units' => 'Einheiten',
+	'#1 habit is due to be done within the next #2 days' => '#1 Gewohnheit steht in den nächsten #2 Tagen an',
+	'#1 habit is overdue to be done' => '#1 Gewohnheit ist überfällig',
+	'#1 battery ist due to be charged within the next #2 days' => '#1 Batterie muss in den nächsten #2 Tagen geladen werden',
+	'#1 battery ist overdue to be charged' => '#1 Batterie ist überfällig',
+	'#1 unit was automatically added and will apply in addition to the amount entered here' => '#1 Einheit wurde automatisch hinzugefügt und gilt zusätzlich der hier eingegebenen Menge',
+	'in singular form' => 'in der Einzahl',
+	'in plural form' => 'in der Mehrzahl',
 	
 	//Constants
 	'manually' => 'Manuell',

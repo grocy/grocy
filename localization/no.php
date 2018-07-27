@@ -2,7 +2,6 @@
 
 return array(
 	'Stock overview' => 'Husholdning',
-	'#1 products with #2 units in stock' => '#1 Produkter med #2 i husholdningen',
 	'#1 products expiring within the next #2 days' => '#1 Produkter som går ut på dato innen de neste #2 dagene',
 	'#1 products are already expired' => '#1 Produkt som har gått ut på dato',
 	'#1 products are below defined min. stock amount' => '#1 Produkt under minimum husholdningsnivå',

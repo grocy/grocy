@@ -11,10 +11,10 @@
 @section('content')
 <div class="row">
 	<div class="col">
-		<h1>@yield('title') <small class="text-muted">{{ $L('#1 products with #2 units in stock', count($currentStock), SumArrayValue($currentStock, 'amount')) }}</small></h1>
-		<p class="btn btn-lg btn-warning no-real-button responsive-button mr-2">{{ $L('#1 products expiring within the next #2 days', $countExpiringNextXDays, $nextXDays) }}</p>
-		<p class="btn btn-lg btn-danger no-real-button responsive-button mr-2">{{ $L('#1 products are already expired', $countAlreadyExpired) }}</p>
-		<p class="btn btn-lg btn-info no-real-button responsive-button">{{ $L('#1 products are below defined min. stock amount', count($missingProducts)) }}</p>
+		<h1>@yield('title') <small class="text-muted">{{ count($currentStock) . ' ' . Pluralize(count($currentStock), $L('Product'), $L('Products')) }}, {{ SumArrayValue($currentStock, 'amount') . ' ' . Pluralize(SumArrayValue($currentStock, 'amount'), $L('Unit'), $L('Units')) }}</small></h1>
+		<p class="btn btn-lg btn-warning no-real-button responsive-button mr-2">{{ Pluralize($countExpiringNextXDays, $L('#1 product expires within the next #2 days', $countExpiringNextXDays, $nextXDays), $L('#1 products expiring within the next #2 days', $countExpiringNextXDays, $nextXDays)) }}</p>
+		<p class="btn btn-lg btn-danger no-real-button responsive-button mr-2">{{ Pluralize($countAlreadyExpired, $L('#1 product is already expired', $countAlreadyExpired), $L('#1 products are already expired', $countAlreadyExpired)) }}</p>
+		<p class="btn btn-lg btn-info no-real-button responsive-button">{{ Pluralize(count($missingProducts), $L('#1 product is below defined min. stock amount', count($missingProducts)), $L('#1 products are below defined min. stock amount', count($missingProducts))) }}</p>
 	</div>
 </div>
 
@@ -69,7 +69,7 @@
 						{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}
 					</td>
 					<td>
-						<span id="product-{{ $currentStockEntry->product_id }}-amount">{{ $currentStockEntry->amount }}</span> {{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name }}
+						<span id="product-{{ $currentStockEntry->product_id }}-amount">{{ $currentStockEntry->amount }}</span> {{ Pluralize($currentStockEntry->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name_plural) }}
 					</td>
 					<td>
 						{{ $currentStockEntry->best_before_date }}

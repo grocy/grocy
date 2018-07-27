@@ -168,3 +168,13 @@ function GetUserDisplayName($user)
 
 	return $displayName;
 }
+
+function Pluralize($number, $singularForm, $pluralForm)
+{
+	$text = $singularForm;
+	if ($number != 1 && $pluralForm !== null && !empty($pluralForm))
+	{
+		$text = $pluralForm;
+	}
+	return $text;
+}

@@ -1244,6 +1244,9 @@
 					"name": {
 						"type": "string"
 					},
+					"name_plural": {
+						"type": "string"
+					},
 					"description": {
 						"type": "string"
 					},
