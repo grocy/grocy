@@ -14,7 +14,7 @@ A household needs to be managed. I did this so far (almost 10 years) with my fir
 >
 > See https://github.com/berrnd/grocy-desktop or directly download the [latest release](https://releases.grocy.info/latest-desktop) - the installation is nothing more than just clicking 2 times "next"...
 
-Just unpack the [latest release](https://releases.grocy.info/latest) on your PHP (SQLite extension required, currently only tested with PHP 7.2) enabled webserver (webservers root should point to the `/public` directory), copy `config-dist.php` to `data/config.php`, edit it to your needs, ensure that the `data` directory is writable and you're ready to go. Default login is user `admin` with password `admin`, please change the password immediately (see user menu).
+Just unpack the [latest release](https://releases.grocy.info/latest) on your PHP (SQLite extension required, currently only tested with PHP 7.2) enabled webserver (webservers root should point to the `/public` directory), copy `config-dist.php` to `data/config.php`, edit it to your needs, ensure that the `data` directory is writable and you're ready to go, (to make writable `chown -R www-data:www-data /var/www/html/grocy/data/`). Default login is user `admin` with password `admin`, please change the password immediately (see user menu).
 
 Alternatively clone this repository and install Composer and Yarn dependencies manually.
 
@@ -25,7 +25,7 @@ If, however, your webserver does not support URL rewriting, set `DISABLE_URL_REW
 ## How to update
 Just overwrite everything with the latest release while keeping the `/data` directory, check `config-dist.php` for new configuration options and add them to your `data/config.php` (the default from values `config-dist.php` will be used for not in `data/config.php` defined settings). Just to be sure, please empty `/data/viewcache`.
 
-If you run grocy on Linux, there is also `/update.sh` (beside the basic tools `unzip` is needed) which does exact this and additionally creates a backup (`.tgz` archive) of the current installation in `/data/backups` (backups older than 60 days will be deleted during the update).
+If you run grocy on Linux, there is also `/update.sh` (remember to make the script executable, `chmod +x update.sh`and ensure that you have `unzip` installed) which does exact this and additionally creates a backup (`.tgz` archive) of the current installation in `/data/backups` (backups older than 60 days will be deleted during the update).
 
 ## Localization
 grocy is fully localizable - the default language is English (integrated into code), a German localization is always maintained by me. There is one file per language in the `localization` directory, if you want to create a translation, it's best to copy `localization/de.php` to a new one (e. g. `localization/it.php`) and translating all strings there. (Language can be changed in `data/config.php`, e. g. `Setting('CULTURE', 'it');`)
