@@ -31,7 +31,6 @@ if (file_exists(GROCY_DATAPATH . '/demo.txt'))
 else
 {
 	define('GROCY_IS_DEMO_INSTALL', false);
-	define('GROCY_DATAPATH', __DIR__ . '/data');
 }
 
 // Load composer dependencies
