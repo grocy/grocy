@@ -24,10 +24,7 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO locations (name) VALUES ('{$localizationService->Localize('Pantry')}'); --2
 				INSERT INTO locations (name) VALUES ('{$localizationService->Localize('Candy cupboard')}'); --3
 				INSERT INTO locations (name) VALUES ('{$localizationService->Localize('Tinned food cupboard')}'); --4
-				INSERT INTO locations (name) VALUES ('{$localizationService->Localize('Fridge')}'); --5
 
-				INSERT INTO quantity_units (name) VALUES ('{$localizationService->Localize('Piece')}'); --2
-				INSERT INTO quantity_units (name) VALUES ('{$localizationService->Localize('Pack')}'); --3
 				INSERT INTO quantity_units (name) VALUES ('{$localizationService->Localize('Glass')}'); --4
 				INSERT INTO quantity_units (name) VALUES ('{$localizationService->Localize('Tin')}'); --5
 				INSERT INTO quantity_units (name) VALUES ('{$localizationService->Localize('Can')}'); --6
@@ -38,22 +35,22 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount) VALUES ('{$localizationService->Localize('Chocolate')}', 3, 3, 3, 1, 8); --2
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount) VALUES ('{$localizationService->Localize('Gummy bears')}', 3, 3, 3, 1, 8); --3
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount) VALUES ('{$localizationService->Localize('Crisps')}', 3, 3, 3, 1, 10); --4
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Eggs')}', 5, 3, 2, 10); --5
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Eggs')}', 2, 3, 2, 10); --5
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Noodles')}', 3, 3, 3, 1); --6
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Pickles')}', 4,4, 4, 1); --7
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Gulash soup')}', 4, 5, 5, 1); --8
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Yogurt')}', 5, 6, 6, 1); --9
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Cheese')}', 5, 3, 3, 1); --10
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Cold cuts')}', 5, 3, 3, 1); --11
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Paprika')}', 5, 2, 2, 1); --12
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Cucumber')}', 5, 2, 2, 1); --13
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Radish')}', 5, 7, 7, 1); --14
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Tomato')}', 5, 2, 2, 1); --15
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Yogurt')}', 2, 6, 6, 1); --9
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Cheese')}', 2, 3, 3, 1); --10
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Cold cuts')}', 2, 3, 3, 1); --11
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Paprika')}', 2, 2, 2, 1); --12
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Cucumber')}', 2, 2, 2, 1); --13
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Radish')}', 2, 7, 7, 1); --14
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Tomato')}', 2, 2, 2, 1); --15
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Pizza dough')}', 3, 3, 3, 1); --16
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Sieved tomatoes')}', 4, 5, 5, 1); --17
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Salami')}', 5, 3, 3, 1); --18
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Salami')}', 2, 3, 3, 1); --18
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Toast')}', 4, 5, 5, 1); --19
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Minced meat')}', 5, 3, 3, 1); --20
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Minced meat')}', 2, 3, 3, 1); --20
 
 				INSERT INTO shopping_list (note, amount) VALUES ('{$localizationService->Localize('Some good snacks')}', 1);
 				INSERT INTO shopping_list (product_id, amount) VALUES (20, 1);
