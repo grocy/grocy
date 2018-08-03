@@ -19,6 +19,7 @@
 				<i class="fas fa-cart-plus"></i> {{ $L('Add products that are below defined min. stock amount') }}
 			</a>
 		</h1>
+		<p class="btn btn-lg btn-info no-real-button responsive-button">{{ Pluralize(count($missingProducts), $L('#1 product is below defined min. stock amount', count($missingProducts)), $L('#1 products are below defined min. stock amount', count($missingProducts))) }}</p>
 	</div>
 </div>
 
@@ -37,7 +38,7 @@
 			</thead>
 			<tbody>
 				@foreach($listItems as $listItem)
-				<tr class="@if($listItem->amount_autoadded > 0) table-info @endif">
+				<tr class="@if(FindObjectInArrayByPropertyValue($missingProducts, 'id', $listItem->product_id) !== null) table-info @endif">
 					<td class="fit-content">
 						<a class="btn btn-sm btn-info" href="{{ $U('/shoppinglistitem/') }}{{ $listItem->id }}">
 							<i class="fas fa-edit"></i>
