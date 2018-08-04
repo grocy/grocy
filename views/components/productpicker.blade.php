@@ -4,10 +4,11 @@
 
 @php if(empty($disallowAddProductWorkflows)) { $disallowAddProductWorkflows = false; } @endphp
 @php if(empty($prefillByName)) { $prefillByName = ''; } @endphp
+@php if(!isset($isRequired)) { $isRequired = true; } @endphp
 
 <div class="form-group" data-next-input-selector="{{ $nextInputSelector }}" data-disallow-add-product-workflows="{{ BoolToString($disallowAddProductWorkflows) }}" data-prefill-by-name="{{ $prefillByName }}">
 	<label for="product_id">{{ $L('Product') }} <i class="fas fa-barcode"></i><span id="barcode-lookup-disabled-hint" class="small text-muted d-none"> {{ $L('Barcode lookup is disabled') }}</span></label>
-	<select class="form-control product-combobox" id="product_id" name="product_id" required>
+	<select class="form-control product-combobox" id="product_id" name="product_id" @if($isRequired) required @endif>
 		<option value=""></option>
 		@foreach($products as $product)
 			<option data-additional-searchdata="{{ $product->barcode }}" value="{{ $product->id }}">{{ $product->name }}</option>

@@ -23,7 +23,8 @@
 
 			@include('components.productpicker', array(
 				'products' => $products,
-				'nextInputSelector' => '#amount'
+				'nextInputSelector' => '#amount',
+				'isRequired' => false
 			))
 
 			<div class="form-group">

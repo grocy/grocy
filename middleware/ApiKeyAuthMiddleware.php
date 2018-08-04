@@ -49,9 +49,17 @@ class ApiKeyAuthMiddleware extends BaseMiddleware
 				define('GROCY_AUTHENTICATED', false);
 				$response = $response->withStatus(401);
 			}
-			else
+			elseif ($validApiKey)
 			{
 				$user = $apiKeyService->GetUserByApiKey($request->getHeaderLine($this->ApiKeyHeaderName));
+				define('GROCY_AUTHENTICATED', true);
+				define('GROCY_USER_ID', $user->id);
+
+				$response = $next($request, $response);
+			}
+			elseif ($validSession)
+			{
+				$user = $sessionService->GetUserBySessionKey($_COOKIE[$this->SessionCookieName]);
 				define('GROCY_AUTHENTICATED', true);
 				define('GROCY_USER_ID', $user->id);
 

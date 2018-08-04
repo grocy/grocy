@@ -43,6 +43,7 @@ $('#habit_id').on('change', function(e)
 	{
 		Grocy.Components.HabitCard.Refresh(habitId);
 		Grocy.Components.DateTimePicker.GetInputElement().focus();
+		Grocy.FrontendHelpers.ValidateForm('habittracking-form');
 	}
 });
 

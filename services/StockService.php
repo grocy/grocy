@@ -33,7 +33,13 @@ class StockService extends BaseService
 		$productLastUsed = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->max('used_date');
 		$quPurchase = $this->Database->quantity_units($product->qu_id_purchase);
 		$quStock = $this->Database->quantity_units($product->qu_id_stock);
-		$lastPrice = $this->Database->stock_log()->where('product_id = :1 AND transaction_type = :2', $productId, self::TRANSACTION_TYPE_PURCHASE)->orderBy('row_created_timestamp', 'DESC')->limit(1)->fetch()->price;
+		
+		$lastPrice = null;
+		$lastLogRow = $this->Database->stock_log()->where('product_id = :1 AND transaction_type = :2', $productId, self::TRANSACTION_TYPE_PURCHASE)->orderBy('row_created_timestamp', 'DESC')->limit(1)->fetch();
+		if ($lastLogRow !== null && !empty($lastLogRow))
+		{
+			$lastPrice = $lastLogRow->price;
+		}
 
 		return array(
 			'product' => $product,

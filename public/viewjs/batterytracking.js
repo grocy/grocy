@@ -44,6 +44,7 @@ $('#battery_id').on('change', function(e)
 	{
 		Grocy.Components.BatteryCard.Refresh(batteryId);
 		$('#tracked_time').find('input').focus();
+		Grocy.FrontendHelpers.ValidateForm('batterytracking-form');
 	}
 });
 
