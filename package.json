@@ -7,6 +7,7 @@
 		"TagManager": "https://github.com/max-favilli/tagmanager.git#3.0.2",
 		"bootbox": "https://github.com/makeusabrew/bootbox.git#v5.x",
 		"bootstrap": "^4.1.1",
+		"chart.js": "^2.7.2",
 		"datatables.net": "^1.10.19",
 		"datatables.net-bs4": "^1.10.19",
 		"datatables.net-colreorder": "^1.5.1",
@@ -24,7 +25,6 @@
 		"tagmanager": "https://github.com/max-favilli/tagmanager.git#3.0.2",
 		"tempusdominus-bootstrap-4": "^5.0.1",
 		"timeago": "^1.6.3",
-		"toastr": "^2.1.4",
-		"chart.js": "^2.7.2"
+		"toastr": "^2.1.4"
 	}
 }

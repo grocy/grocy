@@ -10,7 +10,7 @@
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.2.0.tgz#50cd9856774351c56c0b1b0db4efe122d7913e58"
 
-"TagManager@https://github.com/max-favilli/tagmanager.git#3.0.2", "tagmanager@https://github.com/max-favilli/tagmanager.git#3.0.2":
+"TagManager@https://github.com/max-favilli/tagmanager.git#3.0.2":
   version "3.0.1"
   resolved "https://github.com/max-favilli/tagmanager.git#df9eb9935c8585a392dfc00602f890caf233fa94"
   dependencies:
@@ -18,11 +18,7 @@
 
 "bootbox@https://github.com/makeusabrew/bootbox.git#v5.x":
   version "5.0.0"
-  resolved "https://github.com/makeusabrew/bootbox.git#8d843602d6ba7a2367829e01feee399d5f0a3a07"
-
-"bootstrap-side-navbar@https://github.com/samrayner/bootstrap-side-navbar.git#1.0.1":
-  version "0.0.0"
-  resolved "https://github.com/samrayner/bootstrap-side-navbar.git#bda4883fd2b278df3a48db4add7dc4d994477734"
+  resolved "https://github.com/makeusabrew/bootbox.git#5f506b2bffbd190ec42ed589c013dc0a983bb345"
 
 bootstrap@4.0.0:
   version "4.0.0"
@@ -177,8 +173,8 @@ moment@~2.18.0:
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
 
 popper.js@^1.12.9:
-  version "1.14.3"
-  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.3.tgz#1438f98d046acf7b4d78cd502bf418ac64d4f095"
+  version "1.14.4"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.4.tgz#8eec1d8ff02a5a3a152dd43414a15c7b79fd69b6"
 
 startbootstrap-sb-admin@^4.0.0:
   version "4.0.0"
@@ -192,8 +188,8 @@ startbootstrap-sb-admin@^4.0.0:
     jquery.easing "^1.4.1"
 
 swagger-ui-dist@^3.17.3:
-  version "3.17.5"
-  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-3.17.5.tgz#ccab9dc35d16a3d244d26b5975e36a684211665a"
+  version "3.18.0"
+  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-3.18.0.tgz#d6f2ee0cd9da7be44729843f423cc70802cf83ce"
 
 tempusdominus-bootstrap-4@^5.0.1:
   version "5.0.1"
