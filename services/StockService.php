@@ -20,6 +20,12 @@ class StockService extends BaseService
 		return $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
 
+	public function GetExpiringProducts(int $days = 5)
+	{
+		$currentStock = $this->GetCurrentStock();
+		return FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d', strtotime("+$days days")), '<');
+	}
+
 	public function GetProductDetails(int $productId)
 	{
 		if (!$this->ProductExists($productId))

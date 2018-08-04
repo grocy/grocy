@@ -118,6 +118,24 @@ class StockApiController extends BaseApiController
 		return $this->ApiResponse($this->StockService->GetCurrentStock());
 	}
 
+	public function CurrentVolatilStock(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		$nextXDays = 5;
+		if (isset($request->getQueryParams()['expiring_days']) && !empty($request->getQueryParams()['expiring_days']) && is_numeric($request->getQueryParams()['expiring_days']))
+		{
+			$nextXDays = $request->getQueryParams()['expiring_days'];
+		}
+
+		$expiringProducts = $this->StockService->GetExpiringProducts($nextXDays);
+		$expiredProducts = $this->StockService->GetExpiringProducts(-1);
+		$missingProducts = $this->StockService->GetMissingProducts();
+		return $this->ApiResponse(array(
+			 'expiring_products' => $expiringProducts,
+			 'expired_products' => $expiredProducts,
+			 'missing_products' => $missingProducts
+		));
+	}
+
 	public function AddMissingProductsToShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$this->StockService->AddMissingProductsToShoppingList();

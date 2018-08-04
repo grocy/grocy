@@ -11,10 +11,10 @@
 @section('content')
 <div class="row">
 	<div class="col">
-		<h1>@yield('title') <small class="text-muted">{{ count($currentStock) . ' ' . Pluralize(count($currentStock), $L('Product'), $L('Products')) }}, {{ SumArrayValue($currentStock, 'amount') . ' ' . Pluralize(SumArrayValue($currentStock, 'amount'), $L('Unit'), $L('Units')) }}</small></h1>
-		<p class="btn btn-lg btn-warning no-real-button responsive-button mr-2">{{ Pluralize($countExpiringNextXDays, $L('#1 product expires within the next #2 days', $countExpiringNextXDays, $nextXDays), $L('#1 products expiring within the next #2 days', $countExpiringNextXDays, $nextXDays)) }}</p>
-		<p class="btn btn-lg btn-danger no-real-button responsive-button mr-2">{{ Pluralize($countAlreadyExpired, $L('#1 product is already expired', $countAlreadyExpired), $L('#1 products are already expired', $countAlreadyExpired)) }}</p>
-		<p class="btn btn-lg btn-info no-real-button responsive-button">{{ Pluralize(count($missingProducts), $L('#1 product is below defined min. stock amount', count($missingProducts)), $L('#1 products are below defined min. stock amount', count($missingProducts))) }}</p>
+		<h1>@yield('title') <small id="info-current-stock" class="text-muted"></small></h1>
+		<p id="info-expiring-products" data-next-x-days="{{ $nextXDays }}" class="btn btn-lg btn-warning no-real-button responsive-button mr-2"></p>
+		<p id="info-expired-products" class="btn btn-lg btn-danger no-real-button responsive-button mr-2"></p>
+		<p id="info-missing-products" class="btn btn-lg btn-info no-real-button responsive-button"></p>
 	</div>
 </div>
 
@@ -48,7 +48,7 @@
 			</thead>
 			<tbody>
 				@foreach($currentStock as $currentStockEntry) 
-				<tr id="product-{{ $currentStockEntry->product_id }}-row" class="@if($currentStockEntry->best_before_date < date('Y-m-d', strtotime('-1 days'))) table-danger @elseif($currentStockEntry->best_before_date < date('Y-m-d', strtotime('+5 days'))) table-warning @elseif (FindObjectInArrayByPropertyValue($missingProducts, 'id', $currentStockEntry->product_id) !== null) table-info @endif">
+				<tr id="product-{{ $currentStockEntry->product_id }}-row" class="@if($currentStockEntry->best_before_date < date('Y-m-d', strtotime('-1 days'))) table-danger @elseif($currentStockEntry->best_before_date < date('Y-m-d', strtotime("+$nextXDays days"))) table-warning @elseif (FindObjectInArrayByPropertyValue($missingProducts, 'id', $currentStockEntry->product_id) !== null) table-info @endif">
 					<td class="fit-content">
 						<a class="btn btn-success btn-sm product-consume-button" href="#" title="{{ $L('Consume #3 #1 of #2', FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name, 1) }}"
 							data-product-id="{{ $currentStockEntry->product_id }}"

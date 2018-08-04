@@ -851,6 +851,41 @@
 				}
 			}
 		},
+		"/stock/get-current-volatil-stock": {
+			"get": {
+				"description": "Returns all products which are expiring soon, are already expired or currently missing",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "expiring_days",
+						"required": false,
+						"description": "The number of days in which products are considered expiring soon",
+						"schema": {
+							"type": "integer",
+							"default": 5
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A CurrentVolatilStockResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/CurrentVolatilStockResponse"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/stock/add-missing-products-to-shoppinglist": {
 			"get": {
 				"description": "Adds currently missing products (below defined min. stock amount) to the shopping list",
@@ -1707,6 +1742,29 @@
 					"best_before_date": {
 						"type": "date",
 						"description": "The next best before date for this product"
+					}
+				}
+			},
+			"CurrentVolatilStockResponse": {
+				"type": "object",
+				"properties": {
+					"expiring_products": {
+						"type": "array",
+						"items":{
+							"$ref": "#/components/schemas/Product"
+						}
+					},
+					"expired_products": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/Product"
+						}
+					},
+					"missing_products": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/Product"
+						}
 					}
 				}
 			}
