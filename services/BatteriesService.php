@@ -10,28 +10,6 @@ class BatteriesService extends BaseService
 		return $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
 
-	public function GetNextChargeTime(int $batteryId)
-	{
-		if (!$this->BatteryExists($batteryId))
-		{
-			throw new \Exception('Battery does not exist');
-		}
-		
-		$battery = $this->Database->batteries($batteryId);
-		$batteryLastLogRow = $this->DatabaseService->ExecuteDbQuery("SELECT * from batteries_current WHERE battery_id = $batteryId LIMIT 1")->fetch(\PDO::FETCH_OBJ);
-
-		if ($battery->charge_interval_days > 0)
-		{
-			return date('Y-m-d H:i:s', strtotime('+' . $battery->charge_interval_days . ' day', strtotime($batteryLastLogRow->last_tracked_time)));
-		}
-		else
-		{
-			return date('2999-12-31 23:59:59');
-		}
-
-		return null;
-	}
-
 	public function GetBatteryDetails(int $batteryId)
 	{
 		if (!$this->BatteryExists($batteryId))

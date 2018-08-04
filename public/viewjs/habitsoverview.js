@@ -38,6 +38,7 @@ $(document).on('click', '.track-habit-button', function(e)
 			RefreshContextualTimeago();
 
 			toastr.success(L('Tracked execution of habit #1 on #2', habitName, trackedTime));
+			RefreshStatistics();
 		},
 		function(xhr)
 		{
@@ -45,3 +46,37 @@ $(document).on('click', '.track-habit-button', function(e)
 		}
 	);
 });
+
+function RefreshStatistics()
+{
+	var nextXDays = $("#info-due-habits").data("next-x-days");
+	Grocy.Api.Get('habits/get-current',
+		function(result)
+		{
+			var dueCount = 0;
+			var overdueCount = 0;
+			var now = moment();
+			var nextXDaysThreshold = moment().add(nextXDays, "days");
+			result.forEach(element => {
+				var date = moment(element.next_estimated_execution_time);
+				if (date.isBefore(now))
+				{
+					overdueCount++;
+				}
+				else if (date.isBefore(nextXDaysThreshold))
+				{
+					dueCount++;
+				}
+			});
+			
+			$("#info-due-habits").text(Pluralize(dueCount, L('#1 habit is due to be done within the next #2 days', dueCount, nextXDays), L('#1 habits are due to be done within the next #2 days', dueCount, nextXDays)));
+			$("#info-overdue-habits").text(Pluralize(overdueCount, L('#1 habit is overdue to be done', overdueCount), L('#1 habits are overdue to be done', overdueCount)));
+		},
+		function(xhr)
+		{
+			console.error(xhr);
+		}
+	);
+}
+
+RefreshStatistics();

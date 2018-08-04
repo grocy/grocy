@@ -12,8 +12,8 @@
 <div class="row">
 	<div class="col">
 		<h1>@yield('title')</h1>
-		<p class="btn btn-lg btn-warning no-real-button responsive-button mr-2">{{ Pluralize($countDueNextXDays, $L('#1 habit is due to be done within the next #2 days', $countDueNextXDays, $nextXDays), $L('#1 habits are due to be done within the next #2 days', $countDueNextXDays, $nextXDays)) }}</p>
-		<p class="btn btn-lg btn-danger no-real-button responsive-button">{{ Pluralize($countOverdue, $L('#1 habit is overdue to be done', $countOverdue), $L('#1 habits are overdue to be done', $countOverdue)) }}</p>
+		<p id="info-due-habits" data-next-x-days="{{ $nextXDays }}" class="btn btn-lg btn-warning no-real-button responsive-button mr-2"></p>
+		<p id="info-overdue-habits" class="btn btn-lg btn-danger no-real-button responsive-button"></p>
 	</div>
 </div>
 
@@ -37,7 +37,7 @@
 			</thead>
 			<tbody>
 				@foreach($currentHabits as $curentHabitEntry)
-				<tr class="@if(FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->period_type === \Grocy\Services\HabitsService::HABIT_TYPE_DYNAMIC_REGULAR && $nextHabitTimes[$curentHabitEntry->habit_id] < date('Y-m-d H:i:s')) table-danger @elseif(FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->period_type === \Grocy\Services\HabitsService::HABIT_TYPE_DYNAMIC_REGULAR && $nextHabitTimes[$curentHabitEntry->habit_id] < date('Y-m-d H:i:s', strtotime('+5 days'))) table-warning @endif">
+				<tr class="@if(FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->period_type === \Grocy\Services\HabitsService::HABIT_TYPE_DYNAMIC_REGULAR && $curentHabitEntry->next_estimated_execution_time < date('Y-m-d H:i:s')) table-danger @elseif(FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->period_type === \Grocy\Services\HabitsService::HABIT_TYPE_DYNAMIC_REGULAR && $curentHabitEntry->next_estimated_execution_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) table-warning @endif">
 					<td class="fit-content">
 						<a class="btn btn-success btn-sm track-habit-button" href="#" title="{{ $L('Track execution of habit #1', FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->name) }}"
 							data-habit-id="{{ $curentHabitEntry->habit_id }}"
@@ -53,8 +53,8 @@
 					</td>
 					<td>
 						@if(FindObjectInArrayByPropertyValue($habits, 'id', $curentHabitEntry->habit_id)->period_type === \Grocy\Services\HabitsService::HABIT_TYPE_DYNAMIC_REGULAR)
-							{{ $nextHabitTimes[$curentHabitEntry->habit_id] }}
-							<time class="timeago timeago-contextual" datetime="{{ $nextHabitTimes[$curentHabitEntry->habit_id] }}"></time>
+							{{ $curentHabitEntry->next_estimated_execution_time }}
+							<time class="timeago timeago-contextual" datetime="{{ $curentHabitEntry->next_estimated_execution_time }}"></time>
 						@else
 							...
 						@endif

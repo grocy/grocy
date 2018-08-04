@@ -38,6 +38,7 @@ $(document).on('click', '.track-charge-cycle-button', function(e)
 			RefreshContextualTimeago();
 
 			toastr.success(L('Tracked charge cylce of battery #1 on #2', batteryName, trackedTime));
+			RefreshStatistics();
 		},
 		function(xhr)
 		{
@@ -45,3 +46,37 @@ $(document).on('click', '.track-charge-cycle-button', function(e)
 		}
 	);
 });
+
+function RefreshStatistics()
+{
+	var nextXDays = $("#info-due-batteries").data("next-x-days");
+	Grocy.Api.Get('batteries/get-current',
+		function(result)
+		{
+			var dueCount = 0;
+			var overdueCount = 0;
+			var now = moment();
+			var nextXDaysThreshold = moment().add(nextXDays, "days");
+			result.forEach(element => {
+				var date = moment(element.next_estimated_charge_time);
+				if (date.isBefore(now))
+				{
+					overdueCount++;
+				}
+				else if (date.isBefore(nextXDaysThreshold))
+				{
+					dueCount++;
+				}
+			});
+			
+			$("#info-due-batteries").text(Pluralize(dueCount, L('#1 battery is due to be charged within the next #2 days', dueCount, nextXDays), L('#1 batteries are due to be charged within the next #2 days', dueCount, nextXDays)));
+			$("#info-overdue-batteries").text(Pluralize(overdueCount, L('#1 battery is overdue to be charged', overdueCount), L('#1 batteries are overdue to be charged', overdueCount)));
+		},
+		function(xhr)
+		{
+			console.error(xhr);
+		}
+	);
+}
+
+RefreshStatistics();

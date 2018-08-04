@@ -16,22 +16,10 @@ class HabitsController extends BaseController
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$nextHabitTimes = array();
-		foreach($this->Database->habits() as $habit)
-		{
-			$nextHabitTimes[$habit->id] = $this->HabitsService->GetNextHabitTime($habit->id);
-		}
-
-		$nextXDays = 5;
-		$countDueNextXDays = count(FindAllItemsInArrayByValue($nextHabitTimes, date('Y-m-d', strtotime("+$nextXDays days")), '<'));
-		$countOverdue = count(FindAllItemsInArrayByValue($nextHabitTimes, date('Y-m-d', strtotime('-1 days')), '<'));
 		return $this->AppContainer->view->render($response, 'habitsoverview', [
 			'habits' => $this->Database->habits()->orderBy('name'),
-			'currentHabits' => $this->HabitsService->GetCurrentHabits(),
-			'nextHabitTimes' => $nextHabitTimes,
-			'nextXDays' => $nextXDays,
-			'countDueNextXDays' => $countDueNextXDays - $countOverdue,
-			'countOverdue' => $countOverdue
+			'currentHabits' => $this->HabitsService->GetCurrent(),
+			'nextXDays' => 5
 		]);
 	}
 

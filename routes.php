@@ -95,10 +95,12 @@ $app->group('/api', function()
 	// Habits
 	$this->get('/habits/track-habit-execution/{habitId}', '\Grocy\Controllers\HabitsApiController:TrackHabitExecution');
 	$this->get('/habits/get-habit-details/{habitId}', '\Grocy\Controllers\HabitsApiController:HabitDetails');
+	$this->get('/habits/get-current', '\Grocy\Controllers\HabitsApiController:Current');
 	
 	// Batteries
 	$this->get('/batteries/track-charge-cycle/{batteryId}', '\Grocy\Controllers\BatteriesApiController:TrackChargeCycle');
 	$this->get('/batteries/get-battery-details/{batteryId}', '\Grocy\Controllers\BatteriesApiController:BatteryDetails');
+	$this->get('/batteries/get-current', '\Grocy\Controllers\BatteriesApiController:Current');
 })->add(new ApiKeyAuthMiddleware($appContainer, $appContainer->LoginControllerInstance->GetSessionCookieName(), $appContainer->ApiKeyHeaderName))
 ->add(JsonMiddleware::class)
 ->add(new CorsMiddleware([

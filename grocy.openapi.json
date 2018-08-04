@@ -568,7 +568,8 @@
 						"required": false,
 						"description": "The best before date of the product to add, when omitted, the current date is used",
 						"schema": {
-							"type": "date"
+							"type": "string",
+							"format": "date"
 						}
 					},
 					{
@@ -715,7 +716,8 @@
 						"required": false,
 						"description": "The best before date which applies to added products",
 						"schema": {
-							"type": "date"
+							"type": "string",
+							"format": "date"
 						}
 					}
 				],
@@ -842,7 +844,7 @@
 								"schema": {
 									"type": "array",
 									"items": {
-										"$ref": "#/components/schemas/Product"
+										"$ref": "#/components/schemas/CurrentStockResponse"
 									}
 								}
 							}
@@ -1108,6 +1110,29 @@
 				}
 			}
 		},
+		"/habits/get-current": {
+			"get": {
+				"description": "Returns all habits incl. the next estimated execution time per habit",
+				"tags": [
+					"Habits"
+				],
+				"responses": {
+					"200": {
+						"description": "An array of CurrentHabitResponse objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/CurrentHabitResponse"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/batteries/track-charge-cycle/{batteryId}": {
 			"get": {
 				"description": "Tracks a charge cycle of the given battery",
@@ -1130,7 +1155,8 @@
 						"required": false,
 						"description": "The time of when the battery was charged, when omitted, the current time is used",
 						"schema": {
-							"type": "date-time"
+							"type": "string",
+							"format": "date-time"
 						}
 					}
 				],
@@ -1192,6 +1218,29 @@
 							"application/json": {
 								"schema": {
 									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/batteries/get-current": {
+			"get": {
+				"description": "Returns all batteries incl. the next estimated charge time per battery",
+				"tags": [
+					"Batteries"
+				],
+				"responses": {
+					"200": {
+						"description": "An array of CurrentBatteryResponse objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/CurrentBatteryResponse"
+									}
 								}
 							}
 						}
@@ -1740,8 +1789,43 @@
 						"type": "integer"
 					},
 					"best_before_date": {
-						"type": "date",
+						"type": "string",
+						"format": "date",
 						"description": "The next best before date for this product"
+					}
+				}
+			},
+			"CurrentHabitResponse": {
+				"type": "object",
+				"properties": {
+					"habit_id": {
+						"type": "integer"
+					},
+					"last_tracked_time": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"next_estimated_execution_time": {
+						"type": "string",
+						"format": "date-time",
+						"description": "The next estimated execution time of this habit, 2999-12-31 23:59:59 when the given habit has a period_type of manually"
+					}
+				}
+			},
+			"CurrentBatteryResponse": {
+				"type": "object",
+				"properties": {
+					"battery_id": {
+						"type": "integer"
+					},
+					"last_tracked_time": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"next_estimated_charge_time": {
+						"type": "string",
+						"format": "date-time",
+						"description": "The next estimated charge time of this battery, 2999-12-31 23:59:59 when the given battery has no charge_interval_days defined"
 					}
 				}
 			},

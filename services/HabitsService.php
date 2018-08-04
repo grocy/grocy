@@ -7,31 +7,10 @@ class HabitsService extends BaseService
 	const HABIT_TYPE_MANUALLY = 'manually';
 	const HABIT_TYPE_DYNAMIC_REGULAR = 'dynamic-regular';
 
-	public function GetCurrentHabits()
+	public function GetCurrent()
 	{
 		$sql = 'SELECT * from habits_current';
 		return $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
-	}
-
-	public function GetNextHabitTime(int $habitId)
-	{
-		if (!$this->HabitExists($habitId))
-		{
-			throw new \Exception('Habit does not exist');
-		}
-
-		$habit = $this->Database->habits($habitId);
-		$habitLastLogRow = $this->DatabaseService->ExecuteDbQuery("SELECT * from habits_current WHERE habit_id = $habitId LIMIT 1")->fetch(\PDO::FETCH_OBJ);
-
-		switch($habit->period_type)
-		{
-			case self::HABIT_TYPE_MANUALLY:
-				return date('2999-12-31 23:59:59');
-			case self::HABIT_TYPE_DYNAMIC_REGULAR:
-				return date('Y-m-d H:i:s', strtotime('+' . $habit->period_days . ' day', strtotime($habitLastLogRow->last_tracked_time)));
-		}
-
-		return null;
 	}
 
 	public function GetHabitDetails(int $habitId)

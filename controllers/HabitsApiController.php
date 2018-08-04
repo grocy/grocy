@@ -50,4 +50,9 @@ class HabitsApiController extends BaseApiController
 			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
 		}
 	}
+
+	public function Current(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->ApiResponse($this->HabitsService->GetCurrent());
+	}
 }

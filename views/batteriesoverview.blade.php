@@ -12,8 +12,8 @@
 <div class="row">
 	<div class="col">
 		<h1>@yield('title')</h1>
-		<p class="btn btn-lg btn-warning no-real-button responsive-button mr-2">{{ Pluralize($countDueNextXDays, $L('#1 battery is due to be charged within the next #2 days', $countDueNextXDays, $nextXDays), $L('#1 batteries are due to be charged within the next #2 days', $countDueNextXDays, $nextXDays)) }}</p>
-		<p class="btn btn-lg btn-danger no-real-button responsive-button">{{ Pluralize($countOverdue, $L('#1 battery is overdue to be charged', $countOverdue), $L('#1 batteries are overdue to be charged', $countOverdue)) }}</p>
+		<p id="info-due-batteries" data-next-x-days="{{ $nextXDays }}" class="btn btn-lg btn-warning no-real-button responsive-button mr-2"></p>
+		<p id="info-overdue-batteries" class="btn btn-lg btn-danger no-real-button responsive-button"></p>
 	</div>
 </div>
 
@@ -37,7 +37,7 @@
 			</thead>
 			<tbody>
 				@foreach($current as $curentBatteryEntry)
-				<tr class="@if(FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0 && $nextChargeTimes[$curentBatteryEntry->battery_id] < date('Y-m-d H:i:s')) table-danger @elseif(FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0 && $nextChargeTimes[$curentBatteryEntry->battery_id] < date('Y-m-d H:i:s', strtotime('+5 days'))) table-warning @endif">
+				<tr class="@if(FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0 && $curentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s')) table-danger @elseif(FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0 && $curentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) table-warning @endif">
 					<td class="fit-content">
 						<a class="btn btn-success btn-sm track-charge-cycle-button" href="#" title="{{ $L('Track charge cycle of battery #1', FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->name) }}"
 							data-battery-id="{{ $curentBatteryEntry->battery_id }}"
@@ -54,8 +54,8 @@
 					</td>
 					<td>
 						@if(FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0)
-							{{ $nextChargeTimes[$curentBatteryEntry->battery_id] }}
-							<time class="timeago timeago-contextual" datetime="{{ $nextChargeTimes[$curentBatteryEntry->battery_id] }}"></time>
+							{{ $curentBatteryEntry->next_estimated_charge_time }}
+							<time class="timeago timeago-contextual" datetime="{{ $curentBatteryEntry->next_estimated_charge_time }}"></time>
 						@else
 							...
 						@endif
