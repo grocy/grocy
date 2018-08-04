@@ -71,7 +71,12 @@ if (window.localStorage.getItem("sidebar_state") === "collapsed")
 $.timeago.settings.allowFuture = true;
 RefreshContextualTimeago = function()
 {	
-	$('time.timeago').timeago();
+	$("time.timeago").each(function()
+	{
+		var element = $(this);
+		var timestamp = element.attr("datetime");
+		element.timeago("update", timestamp);
+	});
 }
 RefreshContextualTimeago();
 
