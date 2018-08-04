@@ -25,10 +25,10 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO locations (name) VALUES ('{$localizationService->Localize('Candy cupboard')}'); --3
 				INSERT INTO locations (name) VALUES ('{$localizationService->Localize('Tinned food cupboard')}'); --4
 
-				INSERT INTO quantity_units (name) VALUES ('{$localizationService->Localize('Glass')}'); --4
-				INSERT INTO quantity_units (name) VALUES ('{$localizationService->Localize('Tin')}'); --5
-				INSERT INTO quantity_units (name) VALUES ('{$localizationService->Localize('Can')}'); --6
-				INSERT INTO quantity_units (name) VALUES ('{$localizationService->Localize('Bunch')}'); --7
+				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Glass')}', '{$localizationService->Localize('Glasses')}'); --4
+				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Tin')}', '{$localizationService->Localize('Tins')}'); --5
+				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Can')}', '{$localizationService->Localize('Cans')}'); --6
+				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Bunch')}', '{$localizationService->Localize('Bunches')}'); --7
 
 				DELETE FROM sqlite_sequence WHERE name = 'products'; --Just to keep IDs in order as mentioned here...
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount) VALUES ('{$localizationService->Localize('Cookies')}', 3, 3, 3, 1, 8); --1

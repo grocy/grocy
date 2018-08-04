@@ -11,11 +11,13 @@ if ($db->quantity_units()->count() === 0)
 {
 	// Create 2 default quantity units
 	$newRow = $db->quantity_units()->createRow(array(
-		'name' => $localizationService->Localize('Piece')
+		'name' => $localizationService->Localize('Piece'),
+		'name_plural' => $localizationService->Localize('Pieces')
 	));
 	$newRow->save();
 	$newRow = $db->quantity_units()->createRow(array(
-		'name' => $localizationService->Localize('Pack')
+		'name' => $localizationService->Localize('Pack'),
+		'name_plural' => $localizationService->Localize('Packs')
 	));
 	$newRow->save();
 }
