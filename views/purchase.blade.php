@@ -25,7 +25,9 @@
 				'limitStartToNow' => true,
 				'invalidFeedback' => $L('A best before date is required and must be later than today'),
 				'nextInputSelector' => '#amount',
-				'additionalCssClasses' => 'date-only-datetimepicker'
+				'additionalCssClasses' => 'date-only-datetimepicker',
+				'shortcutValue' => '2999-12-31',
+				'shortcutLabel' => 'Never expires'
 			))
 
 			<div class="form-group">

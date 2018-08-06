@@ -85,7 +85,17 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				
 				if (productDetails.product.default_best_before_days.toString() !== '0')
 				{
-					Grocy.Components.DateTimePicker.SetValue(moment().add(productDetails.product.default_best_before_days, 'days').format('YYYY-MM-DD'));
+					if (productDetails.product.default_best_before_days == -1)
+					{
+						if (!$("#datetimepicker-shortcut").is(":checked"))
+						{
+							$("#datetimepicker-shortcut").click();
+						}
+					}
+					else
+					{
+						Grocy.Components.DateTimePicker.SetValue(moment().add(productDetails.product.default_best_before_days, 'days').format('YYYY-MM-DD'));
+					}
 					$('#amount').focus();
 				}
 				else

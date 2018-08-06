@@ -2,7 +2,7 @@ Grocy.Components.DateTimePicker = { };
 
 Grocy.Components.DateTimePicker.GetInputElement = function()
 {
-	return $('.datetimepicker').find('input');
+	return $('.datetimepicker').find('input').not(".form-check-input");
 }
 
 Grocy.Components.DateTimePicker.GetValue = function()
@@ -170,4 +170,21 @@ Grocy.Components.DateTimePicker.GetInputElement().on('input', function(e)
 $('.datetimepicker').on('update.datetimepicker', function(e)
 {
 	Grocy.Components.DateTimePicker.GetInputElement().trigger('input');
+});
+
+$("#datetimepicker-shortcut").on("click", function()
+{
+	if (this.checked)
+	{
+		var value = $("#datetimepicker-shortcut").data("datetimepicker-shortcut-value");
+		Grocy.Components.DateTimePicker.SetValue(value);
+		Grocy.Components.DateTimePicker.GetInputElement().attr("readonly", "");
+		$(Grocy.Components.DateTimePicker.GetInputElement().data('next-input-selector')).focus();
+	}
+	else
+	{
+		Grocy.Components.DateTimePicker.SetValue("");
+		Grocy.Components.DateTimePicker.GetInputElement().removeAttr("readonly");
+		Grocy.Components.DateTimePicker.GetInputElement().focus();
+	}
 });

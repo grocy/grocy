@@ -55,9 +55,9 @@
 			</div>
 
 			<div class="form-group">
-				<label for="default_best_before_days">{{ $L('Default best before days') }}<br><span class="small text-muted">{{ $L('For purchases this amount of days will be added to today for the best before date suggestion') }}</span></label>
-				<input required min="0" type="number" class="form-control" id="default_best_before_days" name="default_best_before_days" value="@if($mode == 'edit'){{ $product->default_best_before_days }}@else{{0}}@endif">
-				<div class="invalid-feedback">{{ $L('This cannot be negative') }}</div>
+				<label for="default_best_before_days">{{ $L('Default best before days') }}<br><span class="small text-muted">{{ $L('For purchases this amount of days will be added to today for the best before date suggestion') }} ({{ $L('-1 means that this product never expires') }})</span></label>
+				<input required min="-1" type="number" class="form-control" id="default_best_before_days" name="default_best_before_days" value="@if($mode == 'edit'){{ $product->default_best_before_days }}@else{{0}}@endif">
+				<div class="invalid-feedback">{{ $L('This cannot be lower than #1', '-1') }}</div>
 			</div>
 
 			<div class="form-group">

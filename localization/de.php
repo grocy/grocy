@@ -205,6 +205,9 @@ return array(
 	'#1 unit was automatically added and will apply in addition to the amount entered here' => '#1 Einheit wurde automatisch hinzugefügt und gilt zusätzlich der hier eingegebenen Menge',
 	'in singular form' => 'in der Einzahl',
 	'in plural form' => 'in der Mehrzahl',
+	'Never expires' => 'Läuft nie ab',
+	'This cannot be lower than #1' => 'Dies darf nicht kleiner als #1 sein',
+	'-1 means that this product never expires' => '-1 bedeuet, dass dieses Produkt niemals abläuft',
 	
 	//Constants
 	'manually' => 'Manuell',
