@@ -23,6 +23,7 @@ class HabitsService extends BaseService
 		$habit = $this->Database->habits($habitId);
 		$habitTrackedCount = $this->Database->habits_log()->where('habit_id', $habitId)->count();
 		$habitLastTrackedTime = $this->Database->habits_log()->where('habit_id', $habitId)->max('tracked_time');
+		$nextExeuctionTime = $this->Database->habits_current()->where('habit_id', $habitId)->min('next_estimated_execution_time');
 		
 		$lastHabitLogRow =  $this->Database->habits_log()->where('habit_id = :1 AND tracked_time = :2', $habitId, $habitLastTrackedTime)->fetch();
 		$lastDoneByUser = null;
@@ -37,7 +38,8 @@ class HabitsService extends BaseService
 			'habit' => $habit,
 			'last_tracked' => $habitLastTrackedTime,
 			'tracked_count' => $habitTrackedCount,
-			'last_done_by' => $lastDoneByUser
+			'last_done_by' => $lastDoneByUser,
+			'next_estimated_execution_time' => $nextExeuctionTime
 		);
 	}
 

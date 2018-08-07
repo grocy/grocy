@@ -28,17 +28,53 @@ $(document).on('click', '.track-habit-button', function(e)
 	var trackedTime = moment().format('YYYY-MM-DD HH:mm:ss');
 
 	Grocy.Api.Get('habits/track-habit-execution/' + habitId + '?tracked_time=' + trackedTime,
-		function(result)
+		function()
 		{
-			$('#habit-' + habitId + '-last-tracked-time').parent().effect('highlight', {}, 500);
-			$('#habit-' + habitId + '-last-tracked-time').fadeOut(500, function () {
-				$(this).text(trackedTime).fadeIn(500);
-			});
-			$('#habit-' + habitId + '-last-tracked-time-timeago').attr('datetime', trackedTime);
-			RefreshContextualTimeago();
+			Grocy.Api.Get('habits/get-habit-details/' + habitId,
+				function(result)
+				{
+					var habitRow = $('#habit-' + habitId + '-row');
+					var nextXDaysThreshold = moment().add($("#info-due-habits").data("next-x-days"), "days");
+					var now = moment();
+					var nextExecutionTime = moment(result.next_estimated_execution_time);
 
-			toastr.success(L('Tracked execution of habit #1 on #2', habitName, trackedTime));
-			RefreshStatistics();
+					habitRow.removeClass("table-warning");
+					habitRow.removeClass("table-danger");
+					if (nextExecutionTime.isBefore(now))
+					{
+						habitRow.addClass("table-danger");
+					}
+					else if (nextExecutionTime.isBefore(nextXDaysThreshold))
+					{
+						habitRow.addClass("table-warning");
+					}
+
+					$('#habit-' + habitId + '-last-tracked-time').parent().effect('highlight', { }, 500);
+					$('#habit-' + habitId + '-last-tracked-time').fadeOut(500, function()
+					{
+						$(this).text(trackedTime).fadeIn(500);
+					});
+					$('#habit-' + habitId + '-last-tracked-time-timeago').attr('datetime', trackedTime);
+
+					if (result.habit.period_type == "dynamic-regular")
+					{
+						$('#habit-' + habitId + '-next-execution-time').parent().effect('highlight', { }, 500);
+						$('#habit-' + habitId + '-next-execution-time').fadeOut(500, function()
+						{
+							$(this).text(result.next_estimated_execution_time).fadeIn(500);
+						});
+						$('#habit-' + habitId + '-next-execution-time-timeago').attr('datetime', result.next_estimated_execution_time);
+					}
+
+					toastr.success(L('Tracked execution of habit #1 on #2', habitName, trackedTime));
+					RefreshContextualTimeago();
+					RefreshStatistics();
+				},
+				function(xhr)
+				{
+					console.error(xhr);
+				}
+			);
 		},
 		function(xhr)
 		{

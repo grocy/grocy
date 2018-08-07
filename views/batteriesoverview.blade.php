@@ -37,7 +37,7 @@
 			</thead>
 			<tbody>
 				@foreach($current as $curentBatteryEntry)
-				<tr class="@if(FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0 && $curentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s')) table-danger @elseif(FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0 && $curentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) table-warning @endif">
+				<tr id="battery-{{ $curentBatteryEntry->battery_id }}-row" class="@if(FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0 && $curentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s')) table-danger @elseif(FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0 && $curentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) table-warning @endif">
 					<td class="fit-content">
 						<a class="btn btn-success btn-sm track-charge-cycle-button" href="#" title="{{ $L('Track charge cycle of battery #1', FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->name) }}"
 							data-battery-id="{{ $curentBatteryEntry->battery_id }}"
@@ -54,8 +54,8 @@
 					</td>
 					<td>
 						@if(FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0)
-							{{ $curentBatteryEntry->next_estimated_charge_time }}
-							<time class="timeago timeago-contextual" datetime="{{ $curentBatteryEntry->next_estimated_charge_time }}"></time>
+							<span id="battery-{{ $curentBatteryEntry->battery_id }}-next-charge-time">{{ $curentBatteryEntry->next_estimated_charge_time }}</span>
+							<time id="battery-{{ $curentBatteryEntry->battery_id }}-next-charge-time-timeago" class="timeago timeago-contextual" datetime="{{ $curentBatteryEntry->next_estimated_charge_time }}"></time>
 						@else
 							...
 						@endif

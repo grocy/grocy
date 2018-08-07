@@ -41,29 +41,62 @@ $(document).on('click', '.product-consume-button', function(e)
 	var consumeAmount = $(e.currentTarget).attr('data-consume-amount');
 
 	Grocy.Api.Get('stock/consume-product/' + productId + '/' + consumeAmount,
-		function(result)
+		function()
 		{
-			var oldAmount = parseInt($('#product-' + productId + '-amount').text());
-			var newAmount = oldAmount - consumeAmount;
-			if (newAmount === 0)
-			{
-				$('#product-' + productId + '-row').fadeOut(500, function()
+			Grocy.Api.Get('stock/get-product-details/' + productId,
+				function(result)
 				{
-					$(this).remove();
-				});
-			}	
-			else
-			{
-				$('#product-' + productId + '-amount').parent().effect('highlight', { }, 500);
-				$('#product-' + productId + '-amount').fadeOut(500, function()
-				{
-					$(this).text(newAmount).fadeIn(500);
-				});
-				$('#product-' + productId + '-consume-all-button').attr('data-consume-amount', newAmount);
-			}	
+					var productRow = $('#product-' + productId + '-row');
+					var expiringThreshold = moment().add("-" + $("#info-expiring-products").data("next-x-days"), "days");
+					var now = moment();
+					var nextBestBeforeDate = moment(result.next_best_before_date);
 
-			toastr.success(L('Removed #1 #2 of #3 from stock', consumeAmount, productQuName, productName));
-			RefreshStatistics();
+					productRow.removeClass("table-warning");
+					productRow.removeClass("table-danger");
+					if (now.isAfter(nextBestBeforeDate))
+					{
+						productRow.addClass("table-danger");
+					}
+					if (expiringThreshold.isAfter(nextBestBeforeDate))
+					{
+						productRow.addClass("table-warning");
+					}
+
+					var oldAmount = parseInt($('#product-' + productId + '-amount').text());
+					var newAmount = oldAmount - consumeAmount;
+					if (newAmount === 0)
+					{
+						$('#product-' + productId + '-row').fadeOut(500, function()
+						{
+							$(this).remove();
+						});
+					}	
+					else
+					{
+						$('#product-' + productId + '-amount').parent().effect('highlight', { }, 500);
+						$('#product-' + productId + '-amount').fadeOut(500, function()
+						{
+							$(this).text(newAmount).fadeIn(500);
+						});
+						$('#product-' + productId + '-consume-all-button').attr('data-consume-amount', newAmount);
+
+						$('#product-' + productId + '-next-best-before-date').parent().effect('highlight', { }, 500);
+						$('#product-' + productId + '-next-best-before-date').fadeOut(500, function()
+						{
+							$(this).text(result.next_best_before_date).fadeIn(500);
+						});
+						$('#product-' + productId + '-next-best-before-date-timeago').attr('datetime', result.next_best_before_date);
+					}	
+
+					toastr.success(L('Removed #1 #2 of #3 from stock', consumeAmount, productQuName, productName));
+					RefreshContextualTimeago();
+					RefreshStatistics();
+				},
+				function(xhr)
+				{
+					console.error(xhr);
+				}
+			);
 		},
 		function(xhr)
 		{

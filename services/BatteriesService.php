@@ -20,11 +20,13 @@ class BatteriesService extends BaseService
 		$battery = $this->Database->batteries($batteryId);
 		$batteryChargeCylcesCount = $this->Database->battery_charge_cycles()->where('battery_id', $batteryId)->count();
 		$batteryLastChargedTime = $this->Database->battery_charge_cycles()->where('battery_id', $batteryId)->max('tracked_time');
+		$nextChargeTime = $this->Database->batteries_current()->where('battery_id', $batteryId)->min('next_estimated_charge_time');
 
 		return array(
 			'battery' => $battery,
 			'last_charged' => $batteryLastChargedTime,
-			'charge_cycles_count' => $batteryChargeCylcesCount
+			'charge_cycles_count' => $batteryChargeCylcesCount,
+			'next_estimated_charge_time' => $nextChargeTime
 		);
 	}
 

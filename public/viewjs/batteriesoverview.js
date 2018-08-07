@@ -28,17 +28,53 @@ $(document).on('click', '.track-charge-cycle-button', function(e)
 	var trackedTime = moment().format('YYYY-MM-DD HH:mm:ss');
 
 	Grocy.Api.Get('batteries/track-charge-cycle/' + batteryId + '?tracked_time=' + trackedTime,
-		function(result)
+		function()
 		{
-			$('#battery-' + batteryId + '-last-tracked-time').parent().effect('highlight', {}, 500);
-			$('#battery-' + batteryId + '-last-tracked-time').fadeOut(500, function () {
-				$(this).text(trackedTime).fadeIn(500);
-			});
-			$('#battery-' + batteryId + '-last-tracked-time-timeago').attr('datetime', trackedTime);
-			RefreshContextualTimeago();
+			Grocy.Api.Get('batteries/get-battery-details/' + batteryId,
+				function(result)
+				{
+					var batteryRow = $('#battery-' + batteryId + '-row');
+					var nextXDaysThreshold = moment().add($("#info-due-batteries").data("next-x-days"), "days");
+					var now = moment();
+					var nextExecutionTime = moment(result.next_estimated_charge_time);
 
-			toastr.success(L('Tracked charge cylce of battery #1 on #2', batteryName, trackedTime));
-			RefreshStatistics();
+					batteryRow.removeClass("table-warning");
+					batteryRow.removeClass("table-danger");
+					if (nextExecutionTime.isBefore(now))
+					{
+						batteryRow.addClass("table-danger");
+					}
+					else if (nextExecutionTime.isBefore(nextXDaysThreshold))
+					{
+						batteryRow.addClass("table-warning");
+					}
+
+					$('#battery-' + batteryId + '-last-tracked-time').parent().effect('highlight', { }, 500);
+					$('#battery-' + batteryId + '-last-tracked-time').fadeOut(500, function()
+					{
+						$(this).text(trackedTime).fadeIn(500);
+					});
+					$('#battery-' + batteryId + '-last-tracked-time-timeago').attr('datetime', trackedTime);
+
+					if (result.battery.charge_interval_days != 0)
+					{
+						$('#battery-' + batteryId + '-next-charge-time').parent().effect('highlight', { }, 500);
+						$('#battery-' + batteryId + '-next-charge-time').fadeOut(500, function()
+						{
+							$(this).text(result.next_estimated_charge_time).fadeIn(500);
+						});
+						$('#battery-' + batteryId + '-next-charge-time-timeago').attr('datetime', result.next_estimated_charge_time);
+					}
+
+					toastr.success(L('Tracked charge cylce of battery #1 on #2', batteryName, trackedTime));
+					RefreshContextualTimeago();
+					RefreshStatistics();
+				},
+				function(xhr)
+				{
+					console.error(xhr);
+				}
+			);
 		},
 		function(xhr)
 		{
