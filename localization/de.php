@@ -208,6 +208,8 @@ return array(
 	'Never expires' => 'Läuft nie ab',
 	'This cannot be lower than #1' => 'Dies darf nicht kleiner als #1 sein',
 	'-1 means that this product never expires' => '-1 bedeuet, dass dieses Produkt niemals abläuft',
+	'Quantity unit' => 'Mengeneinheit',
+    'Only check if a single unit is in stock (a different quantity can then be used above)' => 'Nur prüfen, ob eine einzelne Einheit vorrätig ist (eine abweichende Mengeneinheit kann dann oben verwendet werden)',
 	
 	//Constants
 	'manually' => 'Manuell',
@@ -272,5 +274,10 @@ return array(
 	'Italian' => 'Italienisch',
 	'Demo in different language' => 'Demo in anderer Sprache',
 	'This is the note content of the recipe ingredient' => 'Dies ist der Inhalt der Notiz der Zutat',
-	'Demo User' => 'Demo Benutzer'
+	'Demo User' => 'Demo Benutzer',
+	'Gram' => 'Gramm',
+    'Grams' => 'Gramm',
+    'Flour' => 'Mehl',
+    'Pancackes' => 'Pfannkuchen',
+    'Sugar' => 'Zucker'
 );

@@ -32,10 +32,34 @@
 				'prefillByName' => $prefillByName
 			))
 
-			<div class="form-group">
-				<label for="amount">{{ $L('Amount') }}&nbsp;&nbsp;<span id="amount_qu_unit" class="small text-muted"></span></label>
-				<input type="number" class="form-control" id="amount" name="amount" value="@if($mode == 'edit'){{ $recipePos->amount }}@else{{1}}@endif" min="0" required>
-				<div class="invalid-feedback">{{ $L('This cannot be negative') }}</div>
+			<div class="form-group row">
+				<div class="col">
+					<div class="row">
+						<div class="form-group col-4">
+							<label for="amount">{{ $L('Amount') }}</label>
+							<input type="number" class="form-control" id="amount" name="amount" value="@if($mode == 'edit'){{ $recipePos->amount }}@else{{1}}@endif" min="0" required>
+							<div class="invalid-feedback">{{ $L('This cannot be negative') }}</div>
+						</div>
+						<div class="form-group col-8">
+							<label for="qu_id">{{ $L('Quantity unit') }}</label>
+							<select required @if($mode == 'create' || ($mode == 'edit' && $recipePos->only_check_single_unit_in_stock != 1)) disabled @endif class="form-control" id="qu_id" name="qu_id">
+								@foreach($quantityUnits as $quantityunit)
+									<option @if($mode == 'edit' && $quantityunit->id == $recipePos->qu_id) selected @endif value="{{ $quantityunit->id }}">{{ $quantityunit->name }}</option>
+								@endforeach
+							</select>
+							<div class="invalid-feedback">{{ $L('A quantity unit is required') }}</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="form-check">
+								<input type="hidden" name="only_check_single_unit_in_stock" value="0">
+								<input @if($mode == 'edit' && $recipePos->only_check_single_unit_in_stock == 1) checked @endif class="form-check-input" type="checkbox" id="only_check_single_unit_in_stock" name="only_check_single_unit_in_stock" value="1">
+								<label class="form-check-label" for="only_check_single_unit_in_stock">{{ $L('Only check if a single unit is in stock (a different quantity can then be used above)') }}</label>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<div class="form-group">

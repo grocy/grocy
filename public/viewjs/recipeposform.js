@@ -2,7 +2,7 @@
 {
 	e.preventDefault();
 
-	var jsonData = $('#recipe-pos-form').serializeJSON();
+	var jsonData = $('#recipe-pos-form').serializeJSON({ checkboxUncheckedValue: "0" });
 	jsonData.recipe_id = Grocy.EditObjectParentId;
 	console.log(jsonData);
 	if (Grocy.EditMode === 'create')
@@ -44,7 +44,10 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 		Grocy.Api.Get('stock/get-product-details/' + productId,
 			function (productDetails)
 			{
-				$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name);
+				if (!$("#only_check_single_unit_in_stock").is(":checked"))
+				{
+					$("#qu_id").val(productDetails.quantity_unit_stock.id);
+				}
 				$('#amount').focus();
 				Grocy.FrontendHelpers.ValidateForm('recipe-pos-form');
 			},
@@ -76,12 +79,12 @@ $('#amount').on('focus', function(e)
 	}
 });
 
-$('#recipe-pos-form input').keyup(function (event)
+$('#recipe-pos-form input').keyup(function(event)
 {
 	Grocy.FrontendHelpers.ValidateForm('recipe-pos-form');
 });
 
-$('#recipe-pos-form input').keydown(function (event)
+$('#recipe-pos-form input').keydown(function(event)
 {
 	if (event.keyCode === 13) //Enter
 	{
@@ -94,5 +97,18 @@ $('#recipe-pos-form input').keydown(function (event)
 		{
 			$('#save-recipe-pos-button').click();
 		}
+	}
+});
+
+$("#only_check_single_unit_in_stock").on("click", function()
+{
+	if (this.checked)
+	{
+		$("#qu_id").removeAttr("disabled");
+	}
+	else
+	{
+		$("#qu_id").attr("disabled", "");
+		Grocy.Components.ProductPicker.GetPicker().trigger("change");
 	}
 });

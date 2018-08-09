@@ -76,8 +76,9 @@ class RecipesController extends BaseController
 		{
 			return $this->AppContainer->view->render($response, 'recipeposform', [
 				'mode' => 'create',
-				'recipe' =>  $this->Database->recipes($args['recipeId']),
-				'products' =>  $this->Database->products()->orderBy('name')
+				'recipe' => $this->Database->recipes($args['recipeId']),
+				'products' => $this->Database->products()->orderBy('name'),
+				'quantityUnits' => $this->Database->quantity_units()->orderBy('name')
 			]);
 		}
 		else
@@ -85,8 +86,9 @@ class RecipesController extends BaseController
 			return $this->AppContainer->view->render($response, 'recipeposform', [
 				'mode' => 'edit',
 				'recipe' =>  $this->Database->recipes($args['recipeId']),
-				'recipePos' =>  $this->Database->recipes_pos($args['recipePosId']),
-				'products' =>  $this->Database->products()->orderBy('name')
+				'recipePos' => $this->Database->recipes_pos($args['recipePosId']),
+				'products' => $this->Database->products()->orderBy('name'),
+				'quantityUnits' => $this->Database->quantity_units()->orderBy('name')
 			]);
 		}
 	}

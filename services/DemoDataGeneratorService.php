@@ -21,14 +21,15 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO users (username, password) VALUES ('{$localizationService->Localize('Demo User')} 3', 'x');
 				INSERT INTO users (username, password) VALUES ('{$localizationService->Localize('Demo User')} 4', 'x');
 
-				INSERT INTO locations (name) VALUES ('{$localizationService->Localize('Pantry')}'); --2
-				INSERT INTO locations (name) VALUES ('{$localizationService->Localize('Candy cupboard')}'); --3
-				INSERT INTO locations (name) VALUES ('{$localizationService->Localize('Tinned food cupboard')}'); --4
+				INSERT INTO locations (name) VALUES ('{$localizationService->Localize('Pantry')}'); --3
+				INSERT INTO locations (name) VALUES ('{$localizationService->Localize('Candy cupboard')}'); --4
+				INSERT INTO locations (name) VALUES ('{$localizationService->Localize('Tinned food cupboard')}'); --5
 
 				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Glass')}', '{$localizationService->Localize('Glasses')}'); --4
 				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Tin')}', '{$localizationService->Localize('Tins')}'); --5
 				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Can')}', '{$localizationService->Localize('Cans')}'); --6
 				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Bunch')}', '{$localizationService->Localize('Bunches')}'); --7
+				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Gram')}', '{$localizationService->Localize('Grams')}'); --8
 
 				DELETE FROM sqlite_sequence WHERE name = 'products'; --Just to keep IDs in order as mentioned here...
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount) VALUES ('{$localizationService->Localize('Cookies')}', 3, 3, 3, 1, 8); --1
@@ -51,6 +52,8 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Salami')}', 2, 3, 3, 1); --18
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Toast')}', 4, 5, 5, 1); --19
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Minced meat')}', 2, 3, 3, 1); --20
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Flour')}', 2, 3, 3, 1); --21
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Sugar')}', 3, 3, 3, 1); --22
 
 				INSERT INTO shopping_list (note, amount) VALUES ('{$localizationService->Localize('Some good snacks')}', 1);
 				INSERT INTO shopping_list (product_id, amount) VALUES (20, 1);
@@ -59,6 +62,7 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Pizza')}', '{$loremIpsum}'); --1
 				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Spaghetti bolognese')}', '{$loremIpsum}'); --2
 				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Sandwiches')}', '{$loremIpsum}'); --3
+				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Pancackes')}', '{$loremIpsum}'); --4
 
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (1, 16, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (1, 17, 1);
@@ -70,6 +74,9 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (2, 20, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (3, 10, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (3, 11, 1);
+				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (4, 5, 4);
+				INSERT INTO recipes_pos (recipe_id, product_id, amount, qu_id, only_check_single_unit_in_stock) VALUES (4, 21, 200, 8, 1);
+				INSERT INTO recipes_pos (recipe_id, product_id, amount, qu_id, only_check_single_unit_in_stock) VALUES (4, 22, 200, 8, 1);
 
 				INSERT INTO habits (name, period_type, period_days) VALUES ('{$localizationService->Localize('Changed towels in the bathroom')}', 'manually', 5); --1
 				INSERT INTO habits (name, period_type, period_days) VALUES ('{$localizationService->Localize('Cleaned the kitchen floor')}', 'dynamic-regular', 7); --2
@@ -151,6 +158,10 @@ class DemoDataGeneratorService extends BaseService
 			$stockService->AddProduct(15, 1, date('Y-m-d', strtotime('-2 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-30 days')), $this->RandomPrice());
 			$stockService->AddProduct(15, 1, date('Y-m-d', strtotime('-2 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-40 days')), $this->RandomPrice());
 			$stockService->AddProduct(15, 1, date('Y-m-d', strtotime('-2 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-50 days')), $this->RandomPrice());
+			$stockService->AddProduct(21, 1, date('Y-m-d', strtotime('+200 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-10 days')), $this->RandomPrice());
+			$stockService->AddProduct(21, 1, date('Y-m-d', strtotime('+200 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-20 days')), $this->RandomPrice());
+			$stockService->AddProduct(22, 1, date('Y-m-d', strtotime('+200 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-10 days')), $this->RandomPrice());
+			$stockService->AddProduct(22, 1, date('Y-m-d', strtotime('+200 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-20 days')), $this->RandomPrice());
 			$stockService->AddMissingProductsToShoppingList();
 
 			$habitsService = new HabitsService();
