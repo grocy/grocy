@@ -278,6 +278,6 @@ return array(
 	'Gram' => 'Gramm',
     'Grams' => 'Gramm',
     'Flour' => 'Mehl',
-    'Pancackes' => 'Pfannkuchen',
+    'Pancakes' => 'Pfannkuchen',
     'Sugar' => 'Zucker'
 );

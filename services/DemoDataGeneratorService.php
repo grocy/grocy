@@ -62,7 +62,7 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Pizza')}', '{$loremIpsum}'); --1
 				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Spaghetti bolognese')}', '{$loremIpsum}'); --2
 				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Sandwiches')}', '{$loremIpsum}'); --3
-				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Pancackes')}', '{$loremIpsum}'); --4
+				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Pancakes')}', '{$loremIpsum}'); --4
 
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (1, 16, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (1, 17, 1);
