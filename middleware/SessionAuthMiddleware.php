@@ -30,7 +30,6 @@ class SessionAuthMiddleware extends BaseMiddleware
 			$user = $sessionService->GetDefaultUser();
 			define('GROCY_AUTHENTICATED', true);
 			define('GROCY_USER_USERNAME', $user->username);
-			define('GROCY_USER_ID', $user->id);
 
 			$response = $next($request, $response);
 		}
