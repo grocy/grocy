@@ -159,6 +159,14 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keyup', function(e)
 			element.setCustomValidity("");
 		}
 	}
+
+	// "Click" the shortcut checkbox when the shortcut value was
+	// entered manually and it is currently not set
+	var shortcutValue = $("#datetimepicker-shortcut").data("datetimepicker-shortcut-value");
+	if (value == shortcutValue && !$("#datetimepicker-shortcut").is(":checked"))
+	{
+		$("#datetimepicker-shortcut").click();
+	}
 });
 
 Grocy.Components.DateTimePicker.GetInputElement().on('input', function(e)
