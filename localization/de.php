@@ -209,7 +209,10 @@ return array(
 	'This cannot be lower than #1' => 'Dies darf nicht kleiner als #1 sein',
 	'-1 means that this product never expires' => '-1 bedeuet, dass dieses Produkt niemals abläuft',
 	'Quantity unit' => 'Mengeneinheit',
-    'Only check if a single unit is in stock (a different quantity can then be used above)' => 'Nur prüfen, ob eine einzelne Einheit vorrätig ist (eine abweichende Mengeneinheit kann dann oben verwendet werden)',
+	'Only check if a single unit is in stock (a different quantity can then be used above)' => 'Nur prüfen, ob eine einzelne Einheit vorrätig ist (eine abweichende Mengeneinheit kann dann oben verwendet werden)',
+	'Are you sure to consume all ingredients needed by recipe "#1" (ingredients marked with "check only if a single unit is in stock" will be ignored)?' => 'Sicher, dass alle Zutaten die vom Rezept "#1" benötigt werden aus dem Bestand entfernt werden sollen (Zutaten markiert mit "nur prüfen, ob eine einzelne Einheit vorrätig ist" werden ignoriert)?',
+	'Removed all ingredients of recipe "#1" from stock' => 'Alle Zutaten, die vom Rezept "#1" benötigt werden, wurdem aus dem Bestand entfernt',
+	'Consume all ingredients needed by this recipe' => 'Alle Zutaten, die von diesem Rezept benötigt werden, aus dem Bestand enternen',
 	
 	//Constants
 	'manually' => 'Manuell',

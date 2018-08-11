@@ -19,4 +19,17 @@ class RecipesApiController extends BaseApiController
 		$this->RecipesService->AddNotFulfilledProductsToShoppingList($args['recipeId']);
 		return $this->VoidApiActionResponse($response);
 	}
+
+	public function ConsumeRecipe(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		try
+		{
+			$this->RecipesService->ConsumeRecipe($args['recipeId']);
+			return $this->VoidApiActionResponse($response);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+		}
+	}
 }

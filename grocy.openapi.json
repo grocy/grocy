@@ -1010,6 +1010,37 @@
 				}
 			}
 		},
+		"/recipes/consume-recipe/{recipeId}": {
+			"get": {
+				"description": "Consumes all products of the given recipe",
+				"tags": [
+					"Recipes"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "recipeId",
+						"required": true,
+						"description": "A valid recipe id",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/habits/track-habit-execution/{habitId}": {
 			"get": {
 				"description": "Tracks an execution of the given habit",

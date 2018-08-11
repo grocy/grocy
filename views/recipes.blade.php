@@ -39,9 +39,6 @@
 						<a class="btn btn-sm btn-danger recipe-delete-button" href="#" data-recipe-id="{{ $recipe->id }}" data-recipe-name="{{ $recipe->name }}">
 							<i class="fas fa-trash"></i>
 						</a>
-						<a class="btn btn-sm btn-primary recipe-order-missing-button @if(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1){{ disabled }}@endif" href="#" title="{{ $L('Put missing products on shopping list') }}" data-recipe-id="{{ $recipe->id }}" data-recipe-name="{{ $recipe->name }}">
-							<i class="fas fa-cart-plus"></i>
-						</a>
 					</td>
 					<td>
 						{{ $recipe->name }}
@@ -60,7 +57,13 @@
 	<div class="col-xs-12 col-md-6">
 		<div id="selectedRecipeCard" class="card">
 			<div class="card-header">
-				<i class="fas fa-cocktail"></i> {{ $selectedRecipe->name }}
+				<i class="fas fa-cocktail"></i> {{ $selectedRecipe->name }}&nbsp;&nbsp;
+				<a id="selectedRecipeConsumeButton" class="btn btn-sm btn-outline-success py-0" href="#" title="{{ $L('Consume all ingredients needed by this recipe') }}" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
+					<i class="fas fa-utensils"></i>
+				</a>
+				<a class="btn btn-sm btn-outline-primary py-0 recipe-order-missing-button @if(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $selectedRecipe->id)->need_fulfilled_with_shopping_list == 1){{ disabled }}@endif" href="#" title="{{ $L('Put missing products on shopping list') }}" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
+					<i class="fas fa-cart-plus"></i>
+				</a>
 				<a id="selectedRecipeToggleFullscreenButton" class="btn btn-sm btn-outline-secondary py-0 float-right" href="#" title="{{ $L('Expand to fullscreen') }}">
 					<i class="fas fa-expand-arrows-alt"></i>
 				</a>

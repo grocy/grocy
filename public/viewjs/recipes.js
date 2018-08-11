@@ -104,6 +104,42 @@ $(document).on('click', '.recipe-order-missing-button', function(e)
 	});
 });
 
+$("#selectedRecipeConsumeButton").on('click', function(e)
+{
+	var objectName = $(e.currentTarget).attr('data-recipe-name');
+	var objectId = $(e.currentTarget).attr('data-recipe-id');
+
+	bootbox.confirm({
+		message: L('Are you sure to consume all ingredients needed by recipe "#1" (ingredients marked with "check only if a single unit is in stock" will be ignored)?', objectName),
+		buttons: {
+			confirm: {
+				label: L('Yes'),
+				className: 'btn-success'
+			},
+			cancel: {
+				label: L('No'),
+				className: 'btn-danger'
+			}
+		},
+		callback: function(result)
+		{
+			if (result === true)
+			{
+				Grocy.Api.Get('recipes/consume-recipe/' + objectId,
+					function(result)
+					{
+						toastr.success(L('Removed all ingredients of recipe "#1" from stock', objectName));
+					},
+					function(xhr)
+					{
+						console.error(xhr);
+					}
+				);
+			}
+		}
+	});
+});
+
 recipesTables.on('select', function(e, dt, type, indexes)
 {
 	if (type === 'row')

@@ -91,6 +91,7 @@ $app->group('/api', function()
 
 	// Recipes
 	$this->get('/recipes/add-not-fulfilled-products-to-shopping-list/{recipeId}', '\Grocy\Controllers\RecipesApiController:AddNotFulfilledProductsToShoppingList');
+	$this->get('/recipes/consume-recipe/{recipeId}', '\Grocy\Controllers\RecipesApiController:ConsumeRecipe');
 
 	// Habits
 	$this->get('/habits/track-habit-execution/{habitId}', '\Grocy\Controllers\HabitsApiController:TrackHabitExecution');

@@ -2,8 +2,18 @@
 
 namespace Grocy\Services;
 
+use \Grocy\Services\StockService;
+
 class RecipesService extends BaseService
 {
+	public function __construct()
+	{
+		parent::__construct();
+		$this->StockService = new StockService();
+	}
+
+	protected $StockService;
+
 	public function GetRecipesFulfillment()
 	{
 		$sql = 'SELECT * from recipes_fulfillment';
@@ -37,5 +47,28 @@ class RecipesService extends BaseService
 				}
 			}
 		}
+	}
+
+	public function ConsumeRecipe($recipeId)
+	{
+		if (!$this->RecipeExists($recipeId))
+		{
+			throw new \Exception('Recipe does not exist');
+		}
+
+		$recipePositions = $this->Database->recipes_pos()->where('recipe_id', $recipeId)->fetchAll();
+		foreach ($recipePositions as $recipePosition)
+		{
+			if ($recipePosition->only_check_single_unit_in_stock == 0)
+			{
+				$this->StockService->ConsumeProduct($recipePosition->product_id, $recipePosition->amount, false, StockService::TRANSACTION_TYPE_CONSUME);
+			}
+		}
+	}
+
+	private function RecipeExists($recipeId)
+	{
+		$recipeRow = $this->Database->recipes()->where('id = :1', $recipeId)->fetch();
+		return $recipeRow !== null;
 	}
 }
