@@ -21,10 +21,9 @@
 		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
 
-		<table id="recipes-table" class="table table-sm table-striped dt-responsive">
+		<table id="recipes-table" class="table table-striped dt-responsive">
 			<thead>
 				<tr>
-					<th>#</th>
 					<th>{{ $L('Name') }}</th>
 					<th>{{ $L('Requirements fulfilled') }}</th>
 				</tr>
@@ -32,14 +31,6 @@
 			<tbody>
 				@foreach($recipes as $recipe)
 				<tr data-recipe-id="{{ $recipe->id }}">
-					<td class="fit-content">
-						<a class="btn btn-sm btn-info" href="{{ $U('/recipe/') }}{{ $recipe->id }}">
-							<i class="fas fa-edit"></i>
-						</a>
-						<a class="btn btn-sm btn-danger recipe-delete-button" href="#" data-recipe-id="{{ $recipe->id }}" data-recipe-name="{{ $recipe->name }}">
-							<i class="fas fa-trash"></i>
-						</a>
-					</td>
 					<td>
 						{{ $recipe->name }}
 					</td>
@@ -63,6 +54,12 @@
 				</a>
 				<a class="btn btn-sm btn-outline-primary py-0 recipe-order-missing-button @if(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $selectedRecipe->id)->need_fulfilled_with_shopping_list == 1){{ disabled }}@endif" href="#" data-toggle="tooltip" title="{{ $L('Put missing products on shopping list') }}" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
 					<i class="fas fa-cart-plus"></i>
+				</a>&nbsp;&nbsp;
+				<a id="selectedRecipeEditButton" class="btn btn-sm btn-outline-info py-0" href="{{ $U('/recipe/') }}{{ $selectedRecipe->id }}">
+					<i class="fas fa-edit"></i>
+				</a>
+				<a id="selectedRecipeDeleteButton" class="btn btn-sm btn-outline-danger py-0" href="#" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
+					<i class="fas fa-trash"></i>
 				</a>
 				<a id="selectedRecipeToggleFullscreenButton" class="btn btn-sm btn-outline-secondary py-0 float-right" href="#" data-toggle="tooltip" title="{{ $L('Expand to fullscreen') }}">
 					<i class="fas fa-expand-arrows-alt"></i>

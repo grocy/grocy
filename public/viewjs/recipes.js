@@ -1,9 +1,6 @@
 ﻿var recipesTables = $('#recipes-table').DataTable({
 	'paginate': false,
-	'order': [[1, 'asc']],
-	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 }
-	],
+	'order': [[0, 'asc']],
 	'language': JSON.parse(L('datatables_localization')),
 	'scrollY': false,
 	'colReorder': true,
@@ -32,7 +29,7 @@ $("#search").on("keyup", function()
 	recipesTables.search(value).draw();
 });
 
-$(document).on('click', '.recipe-delete-button', function(e)
+$("#selectedRecipeDeleteButton").on('click', function(e)
 {
 	var objectName = $(e.currentTarget).attr('data-recipe-name');
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
