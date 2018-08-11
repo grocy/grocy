@@ -188,8 +188,8 @@ startbootstrap-sb-admin@^4.0.0:
     jquery.easing "^1.4.1"
 
 swagger-ui-dist@^3.17.3:
-  version "3.18.0"
-  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-3.18.0.tgz#d6f2ee0cd9da7be44729843f423cc70802cf83ce"
+  version "3.18.1"
+  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-3.18.1.tgz#3cd227f9d720aa44b7ef7628d87948a8df03a314"
 
 tempusdominus-bootstrap-4@^5.0.1:
   version "5.0.1"
