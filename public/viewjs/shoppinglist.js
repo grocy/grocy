@@ -75,7 +75,10 @@ $(document).on('click', '#clear-shopping-list', function(e)
 				Grocy.Api.Get('stock/clear-shopping-list',
 					function(result)
 					{
-						window.location.href = U('/shoppinglist');
+						$('#shoppinglist-table tbody tr').fadeOut(500, function()
+						{
+							$(this).remove();
+						});
 					},
 					function(xhr)
 					{
