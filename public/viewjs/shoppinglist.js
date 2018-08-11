@@ -23,10 +23,15 @@ $("#search").on("keyup", function()
 
 $(document).on('click', '.shoppinglist-delete-button', function (e)
 {
-	Grocy.Api.Get('delete-object/shopping_list/' + $(e.currentTarget).attr('data-shoppinglist-id'),
+	var shoppingListItemId = $(e.currentTarget).attr('data-shoppinglist-id');
+
+	Grocy.Api.Get('delete-object/shopping_list/' + shoppingListItemId,
 		function(result)
 		{
-			window.location.href = U('/shoppinglist');
+			$('#shoppinglistitem-' + shoppingListItemId + '-row').fadeOut(500, function()
+			{
+				$(this).remove();
+			});
 		},
 		function(xhr)
 		{

@@ -38,7 +38,7 @@
 			</thead>
 			<tbody>
 				@foreach($listItems as $listItem)
-				<tr class="@if(FindObjectInArrayByPropertyValue($missingProducts, 'id', $listItem->product_id) !== null) table-info @endif">
+				<tr id="shoppinglistitem-{{ $listItem->id }}-row" class="@if(FindObjectInArrayByPropertyValue($missingProducts, 'id', $listItem->product_id) !== null) table-info @endif">
 					<td class="fit-content">
 						<a class="btn btn-sm btn-info" href="{{ $U('/shoppinglistitem/') }}{{ $listItem->id }}">
 							<i class="fas fa-edit"></i>
