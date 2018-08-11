@@ -62,6 +62,11 @@ a.discrete-link:focus {
 	left: 0; 
  }
 
+ .form-check-input.is-valid ~ .form-check-label,
+ .was-validated .form-check-input:valid ~ .form-check-label {
+    color: inherit;
+}
+
 /* Navigation style customizations */
 #mainNav {
 	background-color: #e5e5e5 !important;
