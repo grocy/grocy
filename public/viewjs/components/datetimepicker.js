@@ -14,6 +14,14 @@ Grocy.Components.DateTimePicker.SetValue = function(value)
 {
 	Grocy.Components.DateTimePicker.GetInputElement().val(value);
 	Grocy.Components.DateTimePicker.GetInputElement().trigger('change');
+
+	// "Click" the shortcut checkbox when the desired value is
+	// not the shortcut value and it is currently set
+	var shortcutValue = $("#datetimepicker-shortcut").data("datetimepicker-shortcut-value");
+	if (value != shortcutValue && $("#datetimepicker-shortcut").is(":checked"))
+	{
+		$("#datetimepicker-shortcut").click();
+	}
 }
 
 var startDate = null;
