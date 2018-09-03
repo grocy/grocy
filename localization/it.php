@@ -123,7 +123,7 @@ return array(
 	'Added #1 #2 of #3 to stock' => 'Aggiunti #1 #2 di #3',
 	'Stock amount of #1 is now #2 #3' => 'La quantità in dispensa di #1 è ora #2 #3',
 	'Tracked execution of habit #1 on #2' => 'Esecuzione dell\'abitudine #1 registrata il #2',
-	'Tracked charge cylce of battery #1 on #2' => 'Ricarica della batteria #1 effettuata il #2',
+	'Tracked charge cycle of battery #1 on #2' => 'Ricarica della batteria #1 effettuata il #2',
 	'Consume all #1 which are currently in stock' => 'Consuma tutto #1 in dispensa',
 	'All' => 'Tutto',
 	'Track charge cycle of battery #1' => 'Registra la ricarica della batteria #1',
