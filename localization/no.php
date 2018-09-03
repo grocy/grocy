@@ -123,7 +123,7 @@ return array(
 	'Added #1 #2 of #3 to stock' => '#1 #2 #3 lagt til i husholdningen',
 	'Stock amount of #1 is now #2 #3' => 'Husholdning antall #1 er nå #2 #3',
 	'Tracked execution of habit #1 on #2' => 'Utførte husoppgave "#1" den #2',
-	'Tracked charge cylce of battery #1 on #2' => 'Ladet #1 den #2',
+	'Tracked charge cycle of battery #1 on #2' => 'Ladet #1 den #2',
 	'Consume all #1 which are currently in stock' => 'Konsumér alle #1 som er i husholdningen',
 	'All' => 'Alle',
 	'Track charge cycle of battery #1' => '#1 ladet',
