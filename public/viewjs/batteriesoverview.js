@@ -66,7 +66,7 @@ $(document).on('click', '.track-charge-cycle-button', function(e)
 						$('#battery-' + batteryId + '-next-charge-time-timeago').attr('datetime', result.next_estimated_charge_time);
 					}
 
-					toastr.success(L('Tracked charge cylce of battery #1 on #2', batteryName, trackedTime));
+					toastr.success(L('Tracked charge cycle of battery #1 on #2', batteryName, trackedTime));
 					RefreshContextualTimeago();
 					RefreshStatistics();
 				},
