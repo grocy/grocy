@@ -277,7 +277,7 @@ return array(
 	'Italian' => 'Italiensk',
 	'Demo in different language' => 'Demo i annet språk',
 	'This is the note content of the recipe ingredient' => 'Dette er notisen for ingrediensen i oppskriften',
-	'Demo User' => 'Demo Bruker'
+	'Demo User' => 'Demo Bruker',
 	'Gram' => 'Gram',
     'Grams' => 'Gram',
     'Flour' => 'Mel',
