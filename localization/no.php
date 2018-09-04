@@ -154,7 +154,7 @@ return array(
 	'Are you sure to delete recipe ingredient "#1"?' => 'Er du sikker du ønsker å slette ingrediens "#1" fra oppskriften?',
 	'Are you sure to empty the shopping list?' => 'Er du sikker du ønsker å slette handlelisten?',
 	'Clear list' => 'Tøm liste',
-	'Requirements fulfilled' => 'Krav oppfylt',
+	'Requirements fulfilled' => 'Har jeg alt jeg trenger for denne oppskriften?',
 	'Put missing products on shopping list' => 'Legg manglende produkter til handlelisten',
 	'Not enough in stock, #1 ingredients missing' => 'Ikke nok i husholdningen, #1 ingredienser mangler',
 	'Enough in stock' => 'Nok i husholdningen',
