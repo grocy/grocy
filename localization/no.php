@@ -80,7 +80,7 @@ return array(
 	'Manage master data' => 'Administrer masterdata',
 	'This will apply to added products' => 'Dette vil gjelde for produkt som blir lagt til',
 	'never' => 'aldri',
-	'Add products that are below defined min. stock amount' => 'Legg til produkt som er under definert minimums antall for husholdningen',
+	'Add products that are below defined min. stock amount' => 'Legg til produkt som er under minimumsnivå for husholdningen',
 	'For purchases this amount of days will be added to today for the best before date suggestion' => 'For innkjøp vil dette antallet dager legges til bestfør forslaget',
 	'This means 1 #1 purchased will be converted into #2 #3 in stock' => 'Dette betyr at 1 #1 innkjøp vil bli omgjort til #2 #3 husholdning',
 	'Login' => 'Logg inn',
