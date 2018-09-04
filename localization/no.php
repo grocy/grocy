@@ -167,7 +167,7 @@ return array(
 	'Show notes' => 'Vis notater',
 	'Put missing amount on shopping list' => 'Legg manglende til handlelisten',
 	'Are you sure to put all missing ingredients for recipe "#1" on the shopping list?' => 'Er du sikker du ønsker å legge alle manglende ingredienser til oppskrift "#1"?',
-	'Added for recipe #1' => 'Lagt til fra oppskrift #1',
+	'Added for recipe #1' => 'Lagt til fra oppskrift "#1"',
 	'Manage users' => 'Administrer brukere',
 	'User' => 'Bruker',
 	'Users' => 'Brukere',
