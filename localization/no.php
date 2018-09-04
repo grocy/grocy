@@ -163,7 +163,7 @@ return array(
 	'Ingredients' => 'Ingredienser',
 	'Preparation' => 'Forberedelse / Slik gjør du',
 	'Recipe' => 'Oppskrift',
-	'Not enough in stock, #1 missing, #2 already on shopping list' => 'Ikke nok i husholdningen, mangler #1, #2 i handlisten',
+	'Not enough in stock, #1 missing, #2 already on shopping list' => 'Ikke nok i husholdningen, mangler #1, er #2 på handlelisten',
 	'Show notes' => 'Vis notater',
 	'Put missing amount on shopping list' => 'Legg manglende til handlelisten',
 	'Are you sure to put all missing ingredients for recipe "#1" on the shopping list?' => 'Er du sikker du ønsker å legge alle manglende ingredienser til oppskrift "#1"?',
