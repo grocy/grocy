@@ -158,7 +158,7 @@ return array(
 	'Put missing products on shopping list' => 'Legg manglende produkter til handlelisten',
 	'Not enough in stock, #1 ingredients missing' => 'Ikke nok i husholdningen, #1 ingredienser mangler',
 	'Enough in stock' => 'Nok i husholdningen',
-	'Not enough in stock, #1 ingredients missing but already on the shopping list' => 'Ikke nok i husholdningen, #1 ingrediens mangler, men står allerede på handelisten',
+	'Not enough in stock, #1 ingredients missing but already on the shopping list' => 'Ikke nok i husholdningen, #1 ingrediens mangler, men denne er på handelisten',
 	'Expand to fullscreen' => 'Full skjerm',
 	'Ingredients' => 'Ingredienser',
 	'Preparation' => 'Forberedelse / Slik gjør du',
