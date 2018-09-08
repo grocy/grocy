@@ -94,10 +94,9 @@
 				'min' => 1,
 				'value' => $value,
 				'invalidFeedback' => $L('The amount cannot be lower than #1', '1'),
-				'additionalCssClasses' => 'input-group-qu'
+				'additionalCssClasses' => 'input-group-qu',
+				'additionalHtmlElements' => '<p id="qu-conversion-info" class="form-text text-muted small d-none"></p>'
 			))
-
-			<p id="qu-conversion-info" class="form-text text-muted small d-none"></p>
 
 			<button id="save-product-button" type="submit" class="btn btn-success">{{ $L('Save') }}</button>
 		</form>

@@ -49,10 +49,9 @@
 				'value' => $value,
 				'min' => '0',
 				'additionalCssClasses' => 'input-group-habit-period-type',
-				'invalidFeedback' => $L('This cannot be negative')
+				'invalidFeedback' => $L('This cannot be negative'),
+				'additionalHtmlElements' => '<p id="habit-period-type-info" class="form-text text-muted small d-none"></p>'
 			))
-
-			<p id="habit-period-type-info" class="form-text text-muted small d-none"></p>
 
 			<button id="save-habit-button" type="submit" class="btn btn-success">{{ $L('Save') }}</button>
 

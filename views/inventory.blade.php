@@ -23,9 +23,9 @@
 				'min' => 0,
 				'value' => 1,
 				'invalidFeedback' => $L('The amount cannot be lower than #1', '1'),
-				'additionalAttributes' => ' data-notequal="notequal" not-equal="-1"'
+				'additionalAttributes' => 'data-notequal="notequal" not-equal="-1"',
+				'additionalHtmlElements' => '<div id="inventory-change-info" class="form-text text-muted small d-none"></div>'
 			))
-			<div id="inventory-change-info" class="form-text text-muted small d-none"></div>
 			
 			@include('components.datetimepicker', array(
 				'id' => 'best_before_date',

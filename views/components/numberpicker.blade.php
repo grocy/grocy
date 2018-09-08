@@ -11,6 +11,7 @@
 @php if(empty($additionalCssClasses)) { $additionalCssClasses = ''; } @endphp
 @php if(empty($additionalGroupCssClasses)) { $additionalGroupCssClasses = ''; } @endphp
 @php if(empty($additionalAttributes)) { $additionalAttributes = ''; } @endphp
+@php if(empty($additionalHtmlElements)) { $additionalHtmlElements = ''; } @endphp
 
 <div class="form-group {{ $additionalGroupCssClasses }}">
 	<label for="{{ $id }}">{{ $L($label) }}&nbsp;&nbsp;<span id="{{ $hintId }}" class="small text-muted">{{ $hint }}</span></label>
@@ -24,4 +25,5 @@
 		</div>
 		<div class="invalid-feedback">{{ $invalidFeedback }}</div>
 	</div>
+	{!! $additionalHtmlElements !!}
 </div>
