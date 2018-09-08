@@ -7,7 +7,11 @@
 	'language': JSON.parse(L('datatables_localization')),
 	'scrollY': false,
 	'colReorder': true,
-	'stateSave': true
+	'stateSave': true,
+	'stateSaveParams': function(settings, data)
+	{
+		data.search.search = "";
+	}
 });
 
 $("#search").on("keyup", function()

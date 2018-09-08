@@ -5,6 +5,10 @@
 	'scrollY': false,
 	'colReorder': true,
 	'stateSave': true,
+	'stateSaveParams': function(settings, data)
+	{
+		data.search.search = "";
+	},
 	'select': 'single',
 	'initComplete': function()
 	{
