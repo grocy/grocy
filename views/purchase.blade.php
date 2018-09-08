@@ -45,7 +45,8 @@
 				'step' => 0.01,
 				'value' => '',
 				'hint' => $L('in #1 per purchase quantity unit', GROCY_CURRENCY),
-				'invalidFeedback' => $L('The price cannot be lower than #1', '0')
+				'invalidFeedback' => $L('The price cannot be lower than #1', '0'),
+				'isRequired' => false
 			))
 
 			<button id="save-purchase-button" type="submit" class="btn btn-success">{{ $L('OK') }}</button>
