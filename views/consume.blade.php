@@ -17,11 +17,14 @@
 				'disallowAddProductWorkflows' => true
 			))
 
-			<div class="form-group">
-				<label for="amount">{{ $L('Amount') }}&nbsp;&nbsp;<span id="amount_qu_unit" class="small text-muted"></span></label>
-				<input type="number" class="form-control" id="amount" name="amount" value="1" min="1" required>
-				<div class="invalid-feedback">{{ $L('The amount cannot be lower than #1', '0') }}</div>
-			</div>
+			@include('components.numberpicker', array(
+				'id' => 'amount',
+				'label' => 'Amount',
+				'hintId' => 'amount_qu_unit',
+				'min' => 1,
+				'value' => 1,
+				'invalidFeedback' => $L('The amount cannot be lower than #1', '1')
+			))
 
 			<div class="checkbox">
 				<label for="spoiled">

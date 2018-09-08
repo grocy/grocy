@@ -35,11 +35,17 @@
 			<div class="form-group row">
 				<div class="col">
 					<div class="row">
-						<div class="form-group col-4">
-							<label for="amount">{{ $L('Amount') }}</label>
-							<input type="number" class="form-control" id="amount" name="amount" value="@if($mode == 'edit'){{ $recipePos->amount }}@else{{1}}@endif" min="0" required>
-							<div class="invalid-feedback">{{ $L('This cannot be negative') }}</div>
-						</div>
+
+						@php if($mode == 'edit') { $value = $recipePos->amount; } else { $value = 1; } @endphp
+						@include('components.numberpicker', array(
+							'id' => 'amount',
+							'label' => 'Amount',
+							'min' => 0,
+							'value' => $value,
+							'invalidFeedback' => $L('This cannot be negative'),
+							'additionalGroupCssClasses' => 'col-4'
+						))
+
 						<div class="form-group col-8">
 							<label for="qu_id">{{ $L('Quantity unit') }}</label>
 							<select required @if($mode == 'create' || ($mode == 'edit' && $recipePos->only_check_single_unit_in_stock != 1)) disabled @endif class="form-control" id="qu_id" name="qu_id">

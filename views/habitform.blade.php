@@ -42,11 +42,15 @@
 				<div class="invalid-feedback">{{ $L('A period type is required') }}</div>
 			</div>
 
-			<div class="form-group">
-				<label for="period_days">{{ $L('Period days') }}</label>
-				<input type="number" class="form-control input-group-habit-period-type" id="period_days" name="period_days" min="0" value="@if($mode == 'edit'){{ $habit->period_days }}@endif">
-				<div class="invalid-feedback">{{ $L('This cannot be negative') }}</div>
-			</div>
+			@php if($mode == 'edit') { $value = $habit->period_days; } else { $value = 0; } @endphp
+			@include('components.numberpicker', array(
+				'id' => 'period_days',
+				'label' => 'Period days',
+				'value' => $value,
+				'min' => '0',
+				'additionalCssClasses' => 'input-group-habit-period-type',
+				'invalidFeedback' => $L('This cannot be negative')
+			))
 
 			<p id="habit-period-type-info" class="form-text text-muted small d-none"></p>
 

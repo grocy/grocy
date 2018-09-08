@@ -48,17 +48,24 @@
 				<div class="invalid-feedback">{{ $L('A location is required') }}</div>
 			</div>
 
-			<div class="form-group">
-				<label for="min_stock_amount">{{ $L('Minimum stock amount') }}</label>
-				<input required min="0" type="number" class="form-control" id="min_stock_amount" name="min_stock_amount" value="@if($mode == 'edit'){{ $product->min_stock_amount }}@else{{0}}@endif">
-				<div class="invalid-feedback">{{ $L('The amount cannot be lower than #1', '0') }}</div>
-			</div>
+			@php if($mode == 'edit') { $value = $product->min_stock_amount; } else { $value = 0; } @endphp
+			@include('components.numberpicker', array(
+				'id' => 'min_stock_amount',
+				'label' => 'Minimum stock amount',
+				'min' => 0,
+				'value' => $value,
+				'invalidFeedback' => $L('The amount cannot be lower than #1', '0')
+			))
 
-			<div class="form-group">
-				<label for="default_best_before_days">{{ $L('Default best before days') }}<br><span class="small text-muted">{{ $L('For purchases this amount of days will be added to today for the best before date suggestion') }} ({{ $L('-1 means that this product never expires') }})</span></label>
-				<input required min="-1" type="number" class="form-control" id="default_best_before_days" name="default_best_before_days" value="@if($mode == 'edit'){{ $product->default_best_before_days }}@else{{0}}@endif">
-				<div class="invalid-feedback">{{ $L('This cannot be lower than #1', '-1') }}</div>
-			</div>
+			@php if($mode == 'edit') { $value = $product->default_best_before_days; } else { $value = 0; } @endphp
+			@include('components.numberpicker', array(
+				'id' => 'default_best_before_days',
+				'label' => 'Default best before days',
+				'min' => -1,
+				'value' => $value,
+				'invalidFeedback' => $L('The amount cannot be lower than #1', '-1'),
+				'hint' => $L('For purchases this amount of days will be added to today for the best before date suggestion') . ' (' . $L('-1 means that this product never expires') . ')'
+			))
 
 			<div class="form-group">
 				<label for="qu_id_purchase">{{ $L('Quantity unit purchase') }}</label>
@@ -80,11 +87,15 @@
 				<div class="invalid-feedback">{{ $L('A quantity unit is required') }}</div>
 			</div>
 
-			<div class="form-group">
-				<label for="qu_factor_purchase_to_stock">{{ $L('Factor purchase to stock quantity unit') }}</label>
-				<input required min="1" type="number" class="form-control input-group-qu" id="qu_factor_purchase_to_stock" name="qu_factor_purchase_to_stock" value="@if ($mode == 'edit'){{ $product->qu_factor_purchase_to_stock }}@else{{1}}@endif">
-				<div class="invalid-feedback">{{ $L('The amount cannot be lower than #1', '1') }}</div>
-			</div>
+			@php if($mode == 'edit') { $value = $product->qu_factor_purchase_to_stock; } else { $value = 1; } @endphp
+			@include('components.numberpicker', array(
+				'id' => 'qu_factor_purchase_to_stock',
+				'label' => 'Factor purchase to stock quantity unit',
+				'min' => 1,
+				'value' => $value,
+				'invalidFeedback' => $L('The amount cannot be lower than #1', '1'),
+				'additionalCssClasses' => 'input-group-qu'
+			))
 
 			<p id="qu-conversion-info" class="form-text text-muted small d-none"></p>
 

@@ -16,12 +16,16 @@
 				'nextInputSelector' => '#new_amount'
 			))
 
-			<div class="form-group">
-				<label for="new_amount">{{ $L('New amount') }}&nbsp;&nbsp;<span id="new_amount_qu_unit" class="small text-muted"></span></label>
-				<input type="number" data-notequal="notequal" class="form-control" id="new_amount" name="new_amount" min="0" not-equal="-1" required>
-				<div class="invalid-feedback">{{ $L('The amount cannot be lower than #1', '0') }}</div>
-				<div id="inventory-change-info" class="form-text text-muted small d-none"></div>
-			</div>
+			@include('components.numberpicker', array(
+				'id' => 'new_amount',
+				'label' => 'New amount',
+				'hintId' => 'new_amount_qu_unit',
+				'min' => 0,
+				'value' => 1,
+				'invalidFeedback' => $L('The amount cannot be lower than #1', '1'),
+				'additionalAttributes' => ' data-notequal="notequal" not-equal="-1"'
+			))
+			<div id="inventory-change-info" class="form-text text-muted small d-none"></div>
 			
 			@include('components.datetimepicker', array(
 				'id' => 'best_before_date',

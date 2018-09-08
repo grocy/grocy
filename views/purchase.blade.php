@@ -30,17 +30,23 @@
 				'shortcutLabel' => 'Never expires'
 			))
 
-			<div class="form-group">
-				<label for="amount">{{ $L('Amount') }}&nbsp;&nbsp;<span id="amount_qu_unit" class="small text-muted"></span></label>
-				<input type="number" class="form-control" id="amount" name="amount" value="1" min="1" step="1.00" required>
-				<div class="invalid-feedback">{{ $L('The amount cannot be lower than #1', '1') }}</div>
-			</div>
+			@include('components.numberpicker', array(
+				'id' => 'amount',
+				'label' => 'Amount',
+				'hintId' => 'amount_qu_unit',
+				'min' => 1,
+				'invalidFeedback' => $L('The amount cannot be lower than #1', '1')
+			))
 
-			<div class="form-group">
-				<label for="price">{{ $L('Price') }}&nbsp;&nbsp;<span id="amount_qu_unit" class="small text-muted">{{ $L('in #1 per purchase quantity unit', GROCY_CURRENCY) }}</span></label>
-				<input type="number" class="form-control" id="price" name="price" min="0" step="0.01">
-				<div class="invalid-feedback">{{ $L('The price cannot be lower than #1', '0') }}</div>
-			</div>
+			@include('components.numberpicker', array(
+				'id' => 'price',
+				'label' => 'Price',
+				'min' => 0,
+				'step' => 0.01,
+				'value' => '',
+				'hint' => $L('in #1 per purchase quantity unit', GROCY_CURRENCY),
+				'invalidFeedback' => $L('The price cannot be lower than #1', '0')
+			))
 
 			<button id="save-purchase-button" type="submit" class="btn btn-success">{{ $L('OK') }}</button>
 

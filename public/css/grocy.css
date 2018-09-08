@@ -67,6 +67,15 @@ a.discrete-link:focus {
     color: inherit;
 }
 
+/* Hide the default up/down arrow buttons for number inputs because we use our own buttons in numberpicker */
+input[type='number'] {
+	-moz-appearance: textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+
 /* Navigation style customizations */
 #mainNav {
 	background-color: #e5e5e5 !important;
