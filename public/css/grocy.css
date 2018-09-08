@@ -183,3 +183,8 @@ td {
 .typeahead .active {
 	background-color: #e5e5e5;
 }
+
+/* Third party component customizations - Popper.js */
+.tooltip {
+	pointer-events: auto;
+}
