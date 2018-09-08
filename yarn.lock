@@ -7,8 +7,8 @@
   resolved "https://github.com/pallidus-fintech/bootstrap-combobox.git#0bd1da781b99d390f1c75315b6025e7d8658b263"
 
 "@fortawesome/fontawesome-free@^5.1.0":
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.2.0.tgz#50cd9856774351c56c0b1b0db4efe122d7913e58"
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.3.1.tgz#5466b8f31c1f493a96754c1426c25796d0633dd9"
 
 "TagManager@https://github.com/max-favilli/tagmanager.git#3.0.2":
   version "3.0.1"
@@ -188,8 +188,8 @@ startbootstrap-sb-admin@^4.0.0:
     jquery.easing "^1.4.1"
 
 swagger-ui-dist@^3.17.3:
-  version "3.18.1"
-  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-3.18.1.tgz#3cd227f9d720aa44b7ef7628d87948a8df03a314"
+  version "3.18.2"
+  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-3.18.2.tgz#025f8838a135f9476a839dd37696ba3ebd86ea06"
 
 tempusdominus-bootstrap-4@^5.0.1:
   version "5.0.1"
