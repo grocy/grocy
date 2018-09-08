@@ -16,10 +16,10 @@
 	<label for="{{ $id }}">{{ $L($label) }}&nbsp;&nbsp;<span id="{{ $hintId }}" class="small text-muted">{{ $hint }}</span></label>
 	<div class="input-group">
 		<input {!! $additionalAttributes !!} type="number" class="form-control numberpicker {{ $additionalCssClasses }}" id="{{ $id }}" name="{{ $id }}" value="{{ $value }}" min="{{ $min }}" max="{{ $max }}" step="{{ $step }}" required>
-		<div class="input-group-append"">
+		<div class="input-group-append">
 			<div class="input-group-text numberpicker-up-button"><i class="fas fa-arrow-up"></i></div>
 		</div>
-		<div class="input-group-append"">
+		<div class="input-group-append">
 			<div class="input-group-text numberpicker-down-button"><i class="fas fa-arrow-down"></i></div>
 		</div>
 		<div class="invalid-feedback">{{ $invalidFeedback }}</div>
