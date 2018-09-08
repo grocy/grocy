@@ -215,6 +215,7 @@ return array(
 	'Consume all ingredients needed by this recipe' => 'Alle Zutaten, die von diesem Rezept benötigt werden, aus dem Bestand enternen',
 	'Click to show technical details' => 'Klick um technische Details anzuzeigen',
 	'Error while saving, probably this item already exists' => 'Fehler beim Speichern, möglicherweise existiert das Element bereits',
+	'Error details' => 'Fehlerdetails',
 	
 	//Constants
 	'manually' => 'Manuell',
