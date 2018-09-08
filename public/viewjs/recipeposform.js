@@ -14,7 +14,7 @@
 			},
 			function(xhr)
 			{
-				console.error(xhr);
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 			}
 		);
 	}
@@ -27,7 +27,7 @@
 			},
 			function(xhr)
 			{
-				console.error(xhr);
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 			}
 		);
 	}

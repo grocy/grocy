@@ -168,3 +168,18 @@ Grocy.FrontendHelpers.ValidateForm = function(formId)
 
 	$(form).addClass('was-validated');
 }
+
+Grocy.FrontendHelpers.ShowGenericError = function(message, exception)
+{
+	toastr.error(L(message) + '<br><br>' + L('Click to show technical details'), '', {
+		onclick: function()
+		{
+			bootbox.alert({
+				title: L('Error details'),
+				message: JSON.stringify(exception, null, 4)
+			});
+		}
+	});
+	
+	console.error(exception);
+}

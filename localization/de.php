@@ -213,6 +213,8 @@ return array(
 	'Are you sure to consume all ingredients needed by recipe "#1" (ingredients marked with "check only if a single unit is in stock" will be ignored)?' => 'Sicher, dass alle Zutaten die vom Rezept "#1" benötigt werden aus dem Bestand entfernt werden sollen (Zutaten markiert mit "nur prüfen, ob eine einzelne Einheit vorrätig ist" werden ignoriert)?',
 	'Removed all ingredients of recipe "#1" from stock' => 'Alle Zutaten, die vom Rezept "#1" benötigt werden, wurdem aus dem Bestand entfernt',
 	'Consume all ingredients needed by this recipe' => 'Alle Zutaten, die von diesem Rezept benötigt werden, aus dem Bestand enternen',
+	'Click to show technical details' => 'Klick um technische Details anzuzeigen',
+	'Error while saving, probably this item already exists' => 'Fehler beim Speichern, möglicherweise existiert das Element bereits',
 	
 	//Constants
 	'manually' => 'Manuell',
