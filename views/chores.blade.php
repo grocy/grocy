@@ -1,15 +1,15 @@
 @extends('layout.default')
 
-@section('title', $L('Habits'))
-@section('activeNav', 'habits')
-@section('viewJsName', 'habits')
+@section('title', $L('Chores'))
+@section('activeNav', 'chores')
+@section('viewJsName', 'chores')
 
 @section('content')
 <div class="row">
 	<div class="col">
 		<h1>
 			@yield('title')
-			<a class="btn btn-outline-dark" href="{{ $U('/habit/new') }}">
+			<a class="btn btn-outline-dark" href="{{ $U('/chore/new') }}">
 				<i class="fas fa-plus"></i>&nbsp;{{ $L('Add') }}
 			</a>
 		</h1>
@@ -25,7 +25,7 @@
 
 <div class="row">
 	<div class="col">
-		<table id="habits-table" class="table table-sm table-striped dt-responsive">
+		<table id="chores-table" class="table table-sm table-striped dt-responsive">
 		<thead>
 			<tr>
 				<th>#</th>
@@ -36,27 +36,27 @@
 			</tr>
 		</thead>
 		<tbody>
-			@foreach($habits as $habit)
+			@foreach($chores as $chore)
 			<tr>
 				<td class="fit-content">
-					<a class="btn btn-info btn-sm" href="{{ $U('/habit/') }}{{ $habit->id }}">
+					<a class="btn btn-info btn-sm" href="{{ $U('/chore/') }}{{ $chore->id }}">
 						<i class="fas fa-edit"></i>
 					</a>
-					<a class="btn btn-danger btn-sm habit-delete-button" href="#" data-habit-id="{{ $habit->id }}" data-habit-name="{{ $habit->name }}">
+					<a class="btn btn-danger btn-sm chore-delete-button" href="#" data-chore-id="{{ $chore->id }}" data-chore-name="{{ $chore->name }}">
 						<i class="fas fa-trash"></i>
 					</a>
 				</td>
 				<td>
-					{{ $habit->name }}
+					{{ $chore->name }}
 				</td>
 				<td>
-					{{ $L($habit->period_type) }}
+					{{ $L($chore->period_type) }}
 				</td>
 				<td>
-					{{ $habit->period_days }}
+					{{ $chore->period_days }}
 				</td>
 				<td>
-					{{ $habit->description }}
+					{{ $chore->description }}
 				</td>
 			</tr>
 			@endforeach

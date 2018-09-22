@@ -1,4 +1,4 @@
-﻿var habitsTable  = $('#habits-table').DataTable({
+﻿var choresTable  = $('#chores-table').DataTable({
 	'paginate': false,
 	'order': [[1, 'asc']],
 	'columnDefs': [
@@ -22,16 +22,16 @@ $("#search").on("keyup", function()
 		value = "";
 	}
 	
-	habitsTable.search(value).draw();
+	choresTable.search(value).draw();
 });
 
-$(document).on('click', '.habit-delete-button', function (e)
+$(document).on('click', '.chore-delete-button', function (e)
 {
-	var objectName = $(e.currentTarget).attr('data-habit-name');
-	var objectId = $(e.currentTarget).attr('data-habit-id');
+	var objectName = $(e.currentTarget).attr('data-chore-name');
+	var objectId = $(e.currentTarget).attr('data-chore-id');
 
 	bootbox.confirm({
-		message: L('Are you sure to delete habit "#1"?', objectName),
+		message: L('Are you sure to delete chore "#1"?', objectName),
 		buttons: {
 			confirm: {
 				label: L('Yes'),
@@ -46,10 +46,10 @@ $(document).on('click', '.habit-delete-button', function (e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Get('delete-object/habits/' + objectId,
+				Grocy.Api.Get('delete-object/chores/' + objectId,
 					function(result)
 					{
-						window.location.href = U('/habits');
+						window.location.href = U('/chores');
 					},
 					function(xhr)
 					{

@@ -2,19 +2,19 @@
 
 namespace Grocy\Controllers;
 
-use \Grocy\Services\HabitsService;
+use \Grocy\Services\ChoresService;
 
-class HabitsApiController extends BaseApiController
+class ChoresApiController extends BaseApiController
 {
 	public function __construct(\Slim\Container $container)
 	{
 		parent::__construct($container);
-		$this->HabitsService = new HabitsService();
+		$this->ChoresService = new ChoresService();
 	}
 
-	protected $HabitsService;
+	protected $ChoresService;
 
-	public function TrackHabitExecution(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function TrackChoreExecution(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$trackedTime = date('Y-m-d H:i:s');
 		if (isset($request->getQueryParams()['tracked_time']) && !empty($request->getQueryParams()['tracked_time']) && IsIsoDateTime($request->getQueryParams()['tracked_time']))
@@ -30,7 +30,7 @@ class HabitsApiController extends BaseApiController
 
 		try
 		{
-			$this->HabitsService->TrackHabit($args['habitId'], $trackedTime, $doneBy);
+			$this->ChoresService->TrackChore($args['choreId'], $trackedTime, $doneBy);
 			return $this->VoidApiActionResponse($response);
 		}
 		catch (\Exception $ex)
@@ -39,11 +39,11 @@ class HabitsApiController extends BaseApiController
 		}
 	}
 
-	public function HabitDetails(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function ChoreDetails(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		try
 		{
-			return $this->ApiResponse($this->HabitsService->GetHabitDetails($args['habitId']));
+			return $this->ApiResponse($this->ChoresService->GetChoreDetails($args['choreId']));
 		}
 		catch (\Exception $ex)
 		{
@@ -53,6 +53,6 @@ class HabitsApiController extends BaseApiController
 
 	public function Current(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->ApiResponse($this->HabitsService->GetCurrent());
+		return $this->ApiResponse($this->ChoresService->GetCurrent());
 	}
 }

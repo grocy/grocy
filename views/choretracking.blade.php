@@ -1,25 +1,25 @@
 @extends('layout.default')
 
-@section('title', $L('Habit tracking'))
-@section('activeNav', 'habittracking')
-@section('viewJsName', 'habittracking')
+@section('title', $L('Chore tracking'))
+@section('activeNav', 'choretracking')
+@section('viewJsName', 'choretracking')
 
 @section('content')
 <div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
 		<h1>@yield('title')</h1>
 
-		<form id="habittracking-form" novalidate>
+		<form id="choretracking-form" novalidate>
 
 			<div class="form-group">
-				<label for="habit_id">{{ $L('Habit') }}</label>
-				<select class="form-control combobox" id="habit_id" name="habit_id" required>
+				<label for="chore_id">{{ $L('Chore') }}</label>
+				<select class="form-control combobox" id="chore_id" name="chore_id" required>
 					<option value=""></option>
-					@foreach($habits as $habit)
-						<option value="{{ $habit->id }}">{{ $habit->name }}</option>
+					@foreach($chores as $chore)
+						<option value="{{ $chore->id }}">{{ $chore->name }}</option>
 					@endforeach
 				</select>
-				<div class="invalid-feedback">{{ $L('You have to select a habit') }}</div>
+				<div class="invalid-feedback">{{ $L('You have to select a chore') }}</div>
 			</div>
 
 			@include('components.datetimepicker', array(
@@ -39,13 +39,13 @@
 				'prefillByUserId' => GROCY_USER_ID
 			))
 
-			<button id="save-habittracking-button" type="submit" class="btn btn-success">{{ $L('OK') }}</button>
+			<button id="save-choretracking-button" type="submit" class="btn btn-success">{{ $L('OK') }}</button>
 
 		</form>
 	</div>
 
 	<div class="col-xs-12 col-md-6 col-xl-4">
-		@include('components.habitcard')
+		@include('components.chorecard')
 	</div>
 </div>
 @stop

@@ -54,7 +54,7 @@
 												"$ref": "#/components/schemas/Product"
 											},
 											{
-												"$ref": "#/components/schemas/Habit"
+												"$ref": "#/components/schemas/Chore"
 											},
 											{
 												"$ref": "#/components/schemas/Battery"
@@ -128,7 +128,7 @@
 											"$ref": "#/components/schemas/Product"
 										},
 										{
-											"$ref": "#/components/schemas/Habit"
+											"$ref": "#/components/schemas/Chore"
 										},
 										{
 											"$ref": "#/components/schemas/Battery"
@@ -191,7 +191,7 @@
 										"$ref": "#/components/schemas/Product"
 									},
 									{
-										"$ref": "#/components/schemas/Habit"
+										"$ref": "#/components/schemas/Chore"
 									},
 									{
 										"$ref": "#/components/schemas/Battery"
@@ -274,7 +274,7 @@
 										"$ref": "#/components/schemas/Product"
 									},
 									{
-										"$ref": "#/components/schemas/Habit"
+										"$ref": "#/components/schemas/Chore"
 									},
 									{
 										"$ref": "#/components/schemas/Battery"
@@ -1041,18 +1041,18 @@
 				}
 			}
 		},
-		"/habits/track-habit-execution/{habitId}": {
+		"/chores/track-chore-execution/{choreId}": {
 			"get": {
-				"description": "Tracks an execution of the given habit",
+				"description": "Tracks an execution of the given chore",
 				"tags": [
-					"Habits"
+					"Chores"
 				],
 				"parameters": [
 					{
 						"in": "path",
-						"name": "habitId",
+						"name": "choreId",
 						"required": true,
-						"description": "A valid habit id",
+						"description": "A valid chore id",
 						"schema": {
 							"type": "integer"
 						}
@@ -1061,7 +1061,7 @@
 						"in": "query",
 						"name": "tracked_time",
 						"required": false,
-						"description": "The time of when the habit was executed, when omitted, the current time is used",
+						"description": "The time of when the chore was executed, when omitted, the current time is used",
 						"schema": {
 							"type": "date-time"
 						}
@@ -1070,7 +1070,7 @@
 						"in": "query",
 						"name": "done_by",
 						"required": false,
-						"description": "A valid user id of who executed this habit, when omitted, the currently authenticated user will be used",
+						"description": "A valid user id of who executed this chore, when omitted, the currently authenticated user will be used",
 						"schema": {
 							"type": "integer"
 						}
@@ -1088,7 +1088,7 @@
 						}
 					},
 					"400": {
-						"description": "A VoidApiActionResponse object (possible errors are: Not existing habit)",
+						"description": "A VoidApiActionResponse object (possible errors are: Not existing chore)",
 						"content": {
 							"application/json": {
 								"schema": {
@@ -1100,18 +1100,18 @@
 				}
 			}
 		},
-		"/habits/get-habit-details/{habitId}": {
+		"/chores/get-chore-details/{choreId}": {
 			"get": {
-				"description": "Returns details of the given habit",
+				"description": "Returns details of the given chore",
 				"tags": [
-					"Habits"
+					"Chores"
 				],
 				"parameters": [
 					{
 						"in": "path",
-						"name": "habitId",
+						"name": "choreId",
 						"required": true,
-						"description": "A valid habit id",
+						"description": "A valid chore id",
 						"schema": {
 							"type": "integer"
 						}
@@ -1119,17 +1119,17 @@
 				],
 				"responses": {
 					"200": {
-						"description": "A HabitDetailsResponse object",
+						"description": "A ChoreDetailsResponse object",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/HabitDetailsResponse"
+									"$ref": "#/components/schemas/ChoreDetailsResponse"
 								}
 							}
 						}
 					},
 					"400": {
-						"description": "A VoidApiActionResponse object (possible errors are: Not existing habit)",
+						"description": "A VoidApiActionResponse object (possible errors are: Not existing chore)",
 						"content": {
 							"application/json": {
 								"schema": {
@@ -1141,21 +1141,21 @@
 				}
 			}
 		},
-		"/habits/get-current": {
+		"/chores/get-current": {
 			"get": {
-				"description": "Returns all habits incl. the next estimated execution time per habit",
+				"description": "Returns all chores incl. the next estimated execution time per chore",
 				"tags": [
-					"Habits"
+					"Chores"
 				],
 				"responses": {
 					"200": {
-						"description": "An array of CurrentHabitResponse objects",
+						"description": "An array of CurrentChoreResponse objects",
 						"content": {
 							"application/json": {
 								"schema": {
 									"type": "array",
 									"items": {
-										"$ref": "#/components/schemas/CurrentHabitResponse"
+										"$ref": "#/components/schemas/CurrentChoreResponse"
 									}
 								}
 							}
@@ -1286,7 +1286,7 @@
 				"type": "string",
 				"enum": [
 					"products",
-					"habits",
+					"chores",
 					"batteries",
 					"locations",
 					"quantity_units",
@@ -1494,20 +1494,20 @@
 					}
 				}
 			},
-			"HabitDetailsResponse": {
+			"ChoreDetailsResponse": {
 				"type": "object",
 				"properties": {
-					"habit": {
-						"$ref": "#/components/schemas/Habit"
+					"chore": {
+						"$ref": "#/components/schemas/Chore"
 					},
 					"last_tracked": {
 						"type": "string",
 						"format": "date-time",
-						"description": "When this habit was last tracked"
+						"description": "When this chore was last tracked"
 					},
 					"track_count": {
 						"type": "integer",
-						"description": "How often this habit was tracked so far"
+						"description": "How often this chore was tracked so far"
 					},
 					"last_done_by": {
 						"$ref": "#/components/schemas/UserDto"
@@ -1521,7 +1521,7 @@
 			"BatteryDetailsResponse": {
 				"type": "object",
 				"properties": {
-					"habit": {
+					"chore": {
 						"$ref": "#/components/schemas/Battery"
 					},
 					"last_charged": {
@@ -1709,7 +1709,7 @@
 					}
 				}
 			},
-			"Habit": {
+			"Chore": {
 				"type": "object",
 				"properties": {
 					"id": {
@@ -1737,13 +1737,13 @@
 					}
 				}
 			},
-			"HabitLogEntry": {
+			"ChoreLogEntry": {
 				"type": "object",
 				"properties": {
 					"id": {
 						"type": "integer"
 					},
-					"habit_id": {
+					"chore_id": {
 						"type": "integer"
 					},
 					"tracked_time": {
@@ -1842,10 +1842,10 @@
 					}
 				}
 			},
-			"CurrentHabitResponse": {
+			"CurrentChoreResponse": {
 				"type": "object",
 				"properties": {
-					"habit_id": {
+					"chore_id": {
 						"type": "integer"
 					},
 					"last_tracked_time": {
@@ -1855,7 +1855,7 @@
 					"next_estimated_execution_time": {
 						"type": "string",
 						"format": "date-time",
-						"description": "The next estimated execution time of this habit, 2999-12-31 23:59:59 when the given habit has a period_type of manually"
+						"description": "The next estimated execution time of this chore, 2999-12-31 23:59:59 when the given chore has a period_type of manually"
 					}
 				}
 			},

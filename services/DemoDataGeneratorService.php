@@ -78,9 +78,9 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO recipes_pos (recipe_id, product_id, amount, qu_id, only_check_single_unit_in_stock) VALUES (4, 21, 200, 8, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount, qu_id, only_check_single_unit_in_stock) VALUES (4, 22, 200, 8, 1);
 
-				INSERT INTO habits (name, period_type, period_days) VALUES ('{$localizationService->Localize('Changed towels in the bathroom')}', 'manually', 5); --1
-				INSERT INTO habits (name, period_type, period_days) VALUES ('{$localizationService->Localize('Cleaned the kitchen floor')}', 'dynamic-regular', 7); --2
-				INSERT INTO habits (name, period_type, period_days) VALUES ('{$localizationService->Localize('Lawn mowed in the garden')}', 'dynamic-regular', 21); --3
+				INSERT INTO chores (name, period_type, period_days) VALUES ('{$localizationService->Localize('Changed towels in the bathroom')}', 'manually', 5); --1
+				INSERT INTO chores (name, period_type, period_days) VALUES ('{$localizationService->Localize('Cleaned the kitchen floor')}', 'dynamic-regular', 7); --2
+				INSERT INTO chores (name, period_type, period_days) VALUES ('{$localizationService->Localize('Lawn mowed in the garden')}', 'dynamic-regular', 21); --3
 
 				INSERT INTO batteries (name, description, used_in) VALUES ('{$localizationService->Localize('Battery')}1', '{$localizationService->Localize('Warranty ends')} 2023', '{$localizationService->Localize('TV remote control')}'); --1
 				INSERT INTO batteries (name, description, used_in) VALUES ('{$localizationService->Localize('Battery')}2', '{$localizationService->Localize('Warranty ends')} 2022', '{$localizationService->Localize('Alarm clock')}'); --2
@@ -164,13 +164,13 @@ class DemoDataGeneratorService extends BaseService
 			$stockService->AddProduct(22, 1, date('Y-m-d', strtotime('+200 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-20 days')), $this->RandomPrice());
 			$stockService->AddMissingProductsToShoppingList();
 
-			$habitsService = new HabitsService();
-			$habitsService->TrackHabit(1, date('Y-m-d H:i:s', strtotime('-5 days')));
-			$habitsService->TrackHabit(1, date('Y-m-d H:i:s', strtotime('-10 days')));
-			$habitsService->TrackHabit(1, date('Y-m-d H:i:s', strtotime('-15 days')));
-			$habitsService->TrackHabit(2, date('Y-m-d H:i:s', strtotime('-10 days')));
-			$habitsService->TrackHabit(2, date('Y-m-d H:i:s', strtotime('-20 days')));
-			$habitsService->TrackHabit(3, date('Y-m-d H:i:s', strtotime('-17 days')));
+			$choresService = new ChoresService();
+			$choresService->TrackChore(1, date('Y-m-d H:i:s', strtotime('-5 days')));
+			$choresService->TrackChore(1, date('Y-m-d H:i:s', strtotime('-10 days')));
+			$choresService->TrackChore(1, date('Y-m-d H:i:s', strtotime('-15 days')));
+			$choresService->TrackChore(2, date('Y-m-d H:i:s', strtotime('-10 days')));
+			$choresService->TrackChore(2, date('Y-m-d H:i:s', strtotime('-20 days')));
+			$choresService->TrackChore(3, date('Y-m-d H:i:s', strtotime('-17 days')));
 
 			$batteriesService = new BatteriesService();
 			$batteriesService->TrackChargeCycle(1, date('Y-m-d H:i:s', strtotime('-200 days')));

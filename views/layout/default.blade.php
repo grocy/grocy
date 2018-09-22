@@ -60,10 +60,10 @@
 						<span class="nav-link-text">{{ $L('Stock overview') }}</span>
 					</a>
 				</li>
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Habits overview') }}" data-nav-for-page="habitsoverview">
-					<a class="nav-link discrete-link" href="{{ $U('/habitsoverview') }}">
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Chores overview') }}" data-nav-for-page="choresoverview">
+					<a class="nav-link discrete-link" href="{{ $U('/choresoverview') }}">
 						<i class="fas fa-tachometer-alt"></i>
-						<span class="nav-link-text">{{ $L('Habits overview') }}</span>
+						<span class="nav-link-text">{{ $L('Chores overview') }}</span>
 					</a>
 				</li>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Batteries overview') }}" data-nav-for-page="batteriesoverview">
@@ -103,10 +103,10 @@
 						<span class="nav-link-text">{{ $L('Inventory') }}</span>
 					</a>
 				</li>
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Habit tracking') }}" data-nav-for-page="habittracking">
-					<a class="nav-link discrete-link" href="{{ $U('/habittracking') }}">
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Chore tracking') }}" data-nav-for-page="choretracking">
+					<a class="nav-link discrete-link" href="{{ $U('/choretracking') }}">
 						<i class="fas fa-play"></i>
-						<span class="nav-link-text">{{ $L('Habit tracking') }}</span>
+						<span class="nav-link-text">{{ $L('Chore tracking') }}</span>
 					</a>
 				</li>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Battery tracking') }}" data-nav-for-page="batterytracking">
@@ -140,10 +140,10 @@
 								<span class="nav-link-text">{{ $L('Quantity units') }}</span>
 							</a>
 						</li>
-						<li data-nav-for-page="habits" data-sub-menu-of="#top-nav-manager-master-data">
-							<a class="nav-link discrete-link" href="{{ $U('/habits') }}">
+						<li data-nav-for-page="chores" data-sub-menu-of="#top-nav-manager-master-data">
+							<a class="nav-link discrete-link" href="{{ $U('/chores') }}">
 								<i class="fas fa-sync-alt"></i>
-								<span class="nav-link-text">{{ $L('Habits') }}</span>
+								<span class="nav-link-text">{{ $L('Chores') }}</span>
 							</a>
 						</li>
 						<li data-nav-for-page="batteries" data-sub-menu-of="#top-nav-manager-master-data">

@@ -38,13 +38,13 @@ $app->group('', function()
 	$this->get('/recipe/{recipeId}', '\Grocy\Controllers\RecipesController:RecipeEditForm');
 	$this->get('/recipe/{recipeId}/pos/{recipePosId}', '\Grocy\Controllers\RecipesController:RecipePosEditForm');
 
-	// Habit routes
-	$this->get('/habitsoverview', '\Grocy\Controllers\HabitsController:Overview');
-	$this->get('/habittracking', '\Grocy\Controllers\HabitsController:TrackHabitExecution');
-	$this->get('/habitsanalysis', '\Grocy\Controllers\HabitsController:Analysis');
+	// Chore routes
+	$this->get('/choresoverview', '\Grocy\Controllers\ChoresController:Overview');
+	$this->get('/choretracking', '\Grocy\Controllers\ChoresController:TrackChoreExecution');
+	$this->get('/choresanalysis', '\Grocy\Controllers\ChoresController:Analysis');
 
-	$this->get('/habits', '\Grocy\Controllers\HabitsController:HabitsList');
-	$this->get('/habit/{habitId}', '\Grocy\Controllers\HabitsController:HabitEditForm');
+	$this->get('/chores', '\Grocy\Controllers\ChoresController:ChoresList');
+	$this->get('/chore/{choreId}', '\Grocy\Controllers\ChoresController:ChoreEditForm');
 
 	// Battery routes
 	$this->get('/batteriesoverview', '\Grocy\Controllers\BatteriesController:Overview');
@@ -93,10 +93,10 @@ $app->group('/api', function()
 	$this->get('/recipes/add-not-fulfilled-products-to-shopping-list/{recipeId}', '\Grocy\Controllers\RecipesApiController:AddNotFulfilledProductsToShoppingList');
 	$this->get('/recipes/consume-recipe/{recipeId}', '\Grocy\Controllers\RecipesApiController:ConsumeRecipe');
 
-	// Habits
-	$this->get('/habits/track-habit-execution/{habitId}', '\Grocy\Controllers\HabitsApiController:TrackHabitExecution');
-	$this->get('/habits/get-habit-details/{habitId}', '\Grocy\Controllers\HabitsApiController:HabitDetails');
-	$this->get('/habits/get-current', '\Grocy\Controllers\HabitsApiController:Current');
+	// Chores
+	$this->get('/chores/track-chore-execution/{choreId}', '\Grocy\Controllers\ChoresApiController:TrackChoreExecution');
+	$this->get('/chores/get-chore-details/{choreId}', '\Grocy\Controllers\ChoresApiController:ChoreDetails');
+	$this->get('/chores/get-current', '\Grocy\Controllers\ChoresApiController:Current');
 	
 	// Batteries
 	$this->get('/batteries/track-charge-cycle/{batteryId}', '\Grocy\Controllers\BatteriesApiController:TrackChargeCycle');

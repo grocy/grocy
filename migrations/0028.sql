@@ -1,5 +1,5 @@
 ALTER TABLE habits_log
-ADD done_by_user_id;
+ADD done_by_user_id INTEGER;
 
 DROP TABLE api_keys;
 

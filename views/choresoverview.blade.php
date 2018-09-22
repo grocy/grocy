@@ -1,0 +1,72 @@
+@extends('layout.default')
+
+@section('title', $L('Chores overview'))
+@section('activeNav', 'choresoverview')
+@section('viewJsName', 'choresoverview')
+
+@push('pageScripts')
+	<script src="{{ $U('/node_modules/jquery-ui-dist/jquery-ui.min.js?v=', true) }}{{ $version }}"></script>
+@endpush
+
+@section('content')
+<div class="row">
+	<div class="col">
+		<h1>@yield('title')</h1>
+		<p id="info-due-chores" data-next-x-days="{{ $nextXDays }}" class="btn btn-lg btn-warning no-real-button responsive-button mr-2"></p>
+		<p id="info-overdue-chores" class="btn btn-lg btn-danger no-real-button responsive-button"></p>
+	</div>
+</div>
+
+<div class="row mt-3">
+	<div class="col-xs-12 col-md-6 col-xl-3">
+		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
+		<input type="text" class="form-control" id="search">
+	</div>
+</div>
+
+<div class="row">
+	<div class="col">
+		<table id="chores-overview-table" class="table table-sm table-striped dt-responsive">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>{{ $L('Chore') }}</th>
+					<th>{{ $L('Next estimated tracking') }}</th>
+					<th>{{ $L('Last tracked') }}</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach($currentChores as $curentChoreEntry)
+				<tr id="chore-{{ $curentChoreEntry->chore_id }}-row" class="@if(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type === \Grocy\Services\ChoresService::CHORE_TYPE_DYNAMIC_REGULAR && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s')) table-danger @elseif(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type === \Grocy\Services\ChoresService::CHORE_TYPE_DYNAMIC_REGULAR && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) table-warning @endif">
+					<td class="fit-content">
+						<a class="btn btn-success btn-sm track-chore-button" href="#" data-toggle="tooltip" title="{{ $L('Track execution of chore #1', FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name) }}"
+							data-chore-id="{{ $curentChoreEntry->chore_id }}"
+							data-chore-name="{{ FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name }}">
+							<i class="fas fa-play"></i>
+						</a>
+						<a class="btn btn-info btn-sm" href="{{ $U('/choresanalysis?chore=') }}{{ $curentChoreEntry->chore_id }}">
+							<i class="fas fa-chart-line"></i>
+						</a>
+					</td>
+					<td>
+						{{ FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name }}
+					</td>
+					<td>
+						@if(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type === \Grocy\Services\ChoresService::CHORE_TYPE_DYNAMIC_REGULAR)
+							<span id="chore-{{ $curentChoreEntry->chore_id }}-next-execution-time">{{ $curentChoreEntry->next_estimated_execution_time }}</span>
+							<time id="chore-{{ $curentChoreEntry->chore_id }}-next-execution-time-timeago" class="timeago timeago-contextual" datetime="{{ $curentChoreEntry->next_estimated_execution_time }}"></time>
+						@else
+							...
+						@endif
+					</td>
+					<td>
+						<span id="chore-{{ $curentChoreEntry->chore_id }}-last-tracked-time">{{ $curentChoreEntry->last_tracked_time }}</span>
+						<time id="chore-{{ $curentChoreEntry->chore_id }}-last-tracked-time-timeago" class="timeago timeago-contextual" datetime="{{ $curentChoreEntry->last_tracked_time }}"></time>
+					</td>
+				</tr>
+				@endforeach
+			</tbody>
+		</table>
+	</div>
+</div>
+@stop

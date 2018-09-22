@@ -1,4 +1,4 @@
-﻿var habitsAnalysisTable = $('#habits-analysis-table').DataTable({
+﻿var choresAnalysisTable = $('#chores-analysis-table').DataTable({
 	'paginate': false,
 	'order': [[1, 'desc']],
 	'language': JSON.parse(L('datatables_localization')),
@@ -11,16 +11,16 @@
 	}
 });
 
-$("#habit-filter").on("change", function()
+$("#chore-filter").on("change", function()
 {
 	var value = $(this).val();
-	var text = $("#habit-filter option:selected").text();
+	var text = $("#chore-filter option:selected").text();
 	if (value === "all")
 	{
 		text = "";
 	}
 	
-	habitsAnalysisTable.column(0).search(text).draw();
+	choresAnalysisTable.column(0).search(text).draw();
 });
 
 $("#search").on("keyup", function()
@@ -31,11 +31,11 @@ $("#search").on("keyup", function()
 		value = "";
 	}
 	
-	habitsAnalysisTable.search(value).draw();
+	choresAnalysisTable.search(value).draw();
 });
 
-if (typeof GetUriParam("habit") !== "undefined")
+if (typeof GetUriParam("chore") !== "undefined")
 {
-	$("#habit-filter").val(GetUriParam("habit"));
-	$("#habit-filter").trigger("change");
+	$("#chore-filter").val(GetUriParam("chore"));
+	$("#chore-filter").trigger("change");
 }
