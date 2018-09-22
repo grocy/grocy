@@ -1278,6 +1278,29 @@
 					}
 				}
 			}
+		},
+		"/tasks/get-current": {
+			"get": {
+				"description": "Returns all tasks which are not done yet",
+				"tags": [
+					"Tasks"
+				],
+				"responses": {
+					"200": {
+						"description": "An array of Task objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/Task"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	},
 	"components": {
@@ -1292,7 +1315,8 @@
 					"quantity_units",
 					"shopping_list",
 					"recipes",
-					"recipes_pos"
+					"recipes_pos",
+					"tasks"
 				]
 			},
 			"StockTransactionType": {
@@ -1896,6 +1920,25 @@
 						"items": {
 							"$ref": "#/components/schemas/Product"
 						}
+					}
+				}
+			},
+			"Task": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"name": {
+						"type": "string"
+					},
+					"due": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
 					}
 				}
 			}

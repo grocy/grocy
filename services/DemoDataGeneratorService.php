@@ -87,6 +87,12 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO batteries (name, description, used_in, charge_interval_days) VALUES ('{$localizationService->Localize('Battery')}3', '{$localizationService->Localize('Warranty ends')} 2022', '{$localizationService->Localize('Heat remote control')}', 60); --3
 				INSERT INTO batteries (name, description, used_in, charge_interval_days) VALUES ('{$localizationService->Localize('Battery')}4', '{$localizationService->Localize('Warranty ends')} 2028', '{$localizationService->Localize('Heat remote control')}', 60); --4
 
+				INSERT INTO task_categories (name) VALUES ('{$localizationService->Localize('Home')}'); --1
+				INSERT INTO task_categories (name) VALUES ('{$localizationService->Localize('Life')}'); --2
+				INSERT INTO task_categories (name) VALUES ('{$localizationService->Localize('Projects')}'); --3
+
+				INSERT INTO tasks (name, category_id, due) VALUES ('{$localizationService->Localize('Repair the garage door')}', 1, date(datetime('now', 'localtime'), '+14 day'));
+
 				INSERT INTO migrations (migration) VALUES (-1);
 			";
 

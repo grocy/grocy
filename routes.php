@@ -53,6 +53,10 @@ $app->group('', function()
 	$this->get('/batteries', '\Grocy\Controllers\BatteriesController:BatteriesList');
 	$this->get('/battery/{batteryId}', '\Grocy\Controllers\BatteriesController:BatteryEditForm');
 
+	// Task routes
+	$this->get('/tasks', '\Grocy\Controllers\TasksController:Overview');
+	$this->get('/task/{taskId}', '\Grocy\Controllers\TasksController:TaskEditForm');
+
 	// OpenAPI routes
 	$this->get('/api', '\Grocy\Controllers\OpenApiController:DocumentationUi');
 	$this->get('/manageapikeys', '\Grocy\Controllers\OpenApiController:ApiKeysList');
@@ -102,6 +106,9 @@ $app->group('/api', function()
 	$this->get('/batteries/track-charge-cycle/{batteryId}', '\Grocy\Controllers\BatteriesApiController:TrackChargeCycle');
 	$this->get('/batteries/get-battery-details/{batteryId}', '\Grocy\Controllers\BatteriesApiController:BatteryDetails');
 	$this->get('/batteries/get-current', '\Grocy\Controllers\BatteriesApiController:Current');
+
+	// Tasks
+	$this->get('/tasks/get-current', '\Grocy\Controllers\TasksApiController:Current');
 })->add(new ApiKeyAuthMiddleware($appContainer, $appContainer->LoginControllerInstance->GetSessionCookieName(), $appContainer->ApiKeyHeaderName))
 ->add(JsonMiddleware::class)
 ->add(new CorsMiddleware([
