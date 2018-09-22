@@ -111,7 +111,7 @@ $('#product_id_text_input').on('change', function(e)
 				backdrop: true,
 				buttons: {
 					cancel: {
-						label: 'Cancel',
+						label: L('Cancel'),
 						className: 'btn-default responsive-button',
 						callback: function() { }
 					},
