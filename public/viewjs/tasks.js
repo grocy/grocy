@@ -2,7 +2,8 @@
 	'paginate': false,
 	'order': [[2, 'desc']],
 	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 }
+		{ 'orderable': false, 'targets': 0 },
+		{ 'visible': false, 'targets': 3 }
 	],
 	'language': JSON.parse(L('datatables_localization')),
 	'scrollY': false,
@@ -11,6 +12,9 @@
 	'stateSaveParams': function(settings, data)
 	{
 		data.search.search = "";
+	},
+	'rowGroup': {
+		dataSrc: 3
 	}
 });
 
@@ -28,62 +32,60 @@ $("#search").on("keyup", function()
 $(document).on('click', '.do-task-button', function(e)
 {
 	var taskId = $(e.currentTarget).attr('data-task-id');
+	var taskName = $(e.currentTarget).attr('data-task-name');
 	var doneTime = moment().format('YYYY-MM-DD HH:mm:ss');
 
-	Grocy.Api.Get('tasks/track-task-execution/' + taskId + '?tracked_time=' + trackedTime,
+	Grocy.Api.Get('tasks/mark-task-done/' + taskId + '?tracked_time=' + doneTime,
 		function()
 		{
-			Grocy.Api.Get('tasks/get-task-details/' + taskId,
-				function(result)
-				{
-					var taskRow = $('#task-' + taskId + '-row');
-					var nextXDaysThreshold = moment().add($("#info-due-tasks").data("next-x-days"), "days");
-					var now = moment();
-					var nextExecutionTime = moment(result.next_estimated_execution_time);
-
-					taskRow.removeClass("table-warning");
-					taskRow.removeClass("table-danger");
-					if (nextExecutionTime.isBefore(now))
-					{
-						taskRow.addClass("table-danger");
-					}
-					else if (nextExecutionTime.isBefore(nextXDaysThreshold))
-					{
-						taskRow.addClass("table-warning");
-					}
-
-					$('#task-' + taskId + '-last-tracked-time').parent().effect('highlight', { }, 500);
-					$('#task-' + taskId + '-last-tracked-time').fadeOut(500, function()
-					{
-						$(this).text(trackedTime).fadeIn(500);
-					});
-					$('#task-' + taskId + '-last-tracked-time-timeago').attr('datetime', trackedTime);
-
-					if (result.task.period_type == "dynamic-regular")
-					{
-						$('#task-' + taskId + '-next-execution-time').parent().effect('highlight', { }, 500);
-						$('#task-' + taskId + '-next-execution-time').fadeOut(500, function()
-						{
-							$(this).text(result.next_estimated_execution_time).fadeIn(500);
-						});
-						$('#task-' + taskId + '-next-execution-time-timeago').attr('datetime', result.next_estimated_execution_time);
-					}
-
-					toastr.success(L('Tracked execution of task #1 on #2', taskName, trackedTime));
-					RefreshContextualTimeago();
-					RefreshStatistics();
-				},
-				function(xhr)
-				{
-					console.error(xhr);
-				}
-			);
+			toastr.success(L('Marked task #1 as completed on #2', taskName, doneTime));
+			RefreshContextualTimeago();
+			RefreshStatistics();
 		},
 		function(xhr)
 		{
 			console.error(xhr);
 		}
 	);
+});
+
+$(document).on('click', '.delete-task-button', function (e)
+{
+	var objectName = $(e.currentTarget).attr('data-task-name');
+	var objectId = $(e.currentTarget).attr('data-task-id');
+
+	bootbox.confirm({
+		message: L('Are you sure to delete task "#1"?', objectName),
+		buttons: {
+			confirm: {
+				label: L('Yes'),
+				className: 'btn-success'
+			},
+			cancel: {
+				label: L('No'),
+				className: 'btn-danger'
+			}
+		},
+		callback: function(result)
+		{
+			if (result === true)
+			{
+				Grocy.Api.Get('delete-object/tasks/' + objectId,
+					function(result)
+					{
+						$('#task-' + objectId + '-row').fadeOut(500, function ()
+						{
+							$(this).remove();
+						});
+					},
+					function(xhr)
+					{
+						console.error(xhr);
+					}
+				);
+			}
+		}
+	});
 });
 
 function RefreshStatistics()
@@ -97,7 +99,7 @@ function RefreshStatistics()
 			var now = moment();
 			var nextXDaysThreshold = moment().add(nextXDays, "days");
 			result.forEach(element => {
-				var date = moment(element.due);
+				var date = moment(element.due_date);
 				if (date.isBefore(now))
 				{
 					overdueCount++;

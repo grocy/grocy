@@ -10,7 +10,7 @@
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.3.1.tgz#5466b8f31c1f493a96754c1426c25796d0633dd9"
 
-"TagManager@https://github.com/max-favilli/tagmanager.git#3.0.2":
+"TagManager@https://github.com/max-favilli/tagmanager.git#3.0.2", "tagmanager@https://github.com/max-favilli/tagmanager.git#3.0.2":
   version "3.0.1"
   resolved "https://github.com/max-favilli/tagmanager.git#df9eb9935c8585a392dfc00602f890caf233fa94"
   dependencies:
@@ -103,6 +103,21 @@ datatables.net-responsive-bs4@^2.2.3:
 datatables.net-responsive@2.2.3, datatables.net-responsive@^2.2.3:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/datatables.net-responsive/-/datatables.net-responsive-2.2.3.tgz#50a2b1b4955b16b32f573a3f00f473b0bfbee913"
+  dependencies:
+    datatables.net "^1.10.15"
+    jquery ">=1.7"
+
+datatables.net-rowgroup-bs4@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/datatables.net-rowgroup-bs4/-/datatables.net-rowgroup-bs4-1.0.4.tgz#602f056f9a60bab1b3ac3a36088636f40156b05a"
+  dependencies:
+    datatables.net-bs4 "^1.10.15"
+    datatables.net-rowgroup "1.0.4"
+    jquery ">=1.7"
+
+datatables.net-rowgroup@1.0.4, datatables.net-rowgroup@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/datatables.net-rowgroup/-/datatables.net-rowgroup-1.0.4.tgz#2caf979f28747be7d9ab66725b639b73099d8eb0"
   dependencies:
     datatables.net "^1.10.15"
     jquery ">=1.7"

@@ -32,14 +32,22 @@
 				<textarea class="form-control" rows="2" id="description" name="description">@if($mode == 'edit'){{ $task->description }}@endif</textarea>
 			</div>
 
+			@php
+			$initialDueDate = null;
+			if ($mode == 'edit')
+			{
+				$initialDueDate = date('Y-m-d', strtotime($task->due_date));
+			}
+			@endphp
 			@include('components.datetimepicker', array(
-				'id' => 'due',
+				'id' => 'due_date',
 				'label' => 'Due',
 				'format' => 'YYYY-MM-DD',
 				'initWithNow' => false,
+				'initialValue' => $initialDueDate,
 				'limitEndToNow' => false,
 				'limitStartToNow' => false,
-				'invalidFeedback' => $L('A due dat is required'),
+				'invalidFeedback' => $L('A due date is required'),
 				'nextInputSelector' => '',
 				'additionalCssClasses' => 'date-only-datetimepicker',
 				'isRequired' => false

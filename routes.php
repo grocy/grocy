@@ -56,6 +56,8 @@ $app->group('', function()
 	// Task routes
 	$this->get('/tasks', '\Grocy\Controllers\TasksController:Overview');
 	$this->get('/task/{taskId}', '\Grocy\Controllers\TasksController:TaskEditForm');
+	$this->get('/taskcategories', '\Grocy\Controllers\TasksController:TaskCategoriesList');
+	$this->get('/taskcategory/{categoryId}', '\Grocy\Controllers\TasksController:TaskCategoryEditForm');
 
 	// OpenAPI routes
 	$this->get('/api', '\Grocy\Controllers\OpenApiController:DocumentationUi');

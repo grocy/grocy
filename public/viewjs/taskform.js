@@ -30,12 +30,12 @@
 	}
 });
 
-$('#task-form input').keyup(function (event)
+$('#task-form input').keyup(function(event)
 {
 	Grocy.FrontendHelpers.ValidateForm('task-form');
 });
 
-$('#task-form input').keydown(function (event)
+$('#task-form input').keydown(function(event)
 {
 	if (event.keyCode === 13) //Enter
 	{

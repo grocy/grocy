@@ -158,6 +158,12 @@
 								<span class="nav-link-text">{{ $L('Batteries') }}</span>
 							</a>
 						</li>
+						<li data-nav-for-page="taskcategories" data-sub-menu-of="#top-nav-manager-master-data">
+							<a class="nav-link discrete-link" href="{{ $U('/taskcategories') }}">
+								<i class="fas fa-project-diagram "></i>
+								<span class="nav-link-text">{{ $L('Task categories') }}</span>
+							</a>
+						</li>
 					</ul>
 				</li>
 			</ul>

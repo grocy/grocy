@@ -18,13 +18,14 @@ class TasksController extends BaseController
 	{
 		return $this->AppContainer->view->render($response, 'tasks', [
 			'tasks' => $this->Database->tasks()->orderBy('name'),
-			'nextXDays' => 5
+			'nextXDays' => 5,
+			'taskCategories' => $this->Database->task_categories()->orderBy('name')
 		]);
 	}
 
 	public function TaskEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		if ($args['taskdId'] == 'new')
+		if ($args['taskId'] == 'new')
 		{
 			return $this->AppContainer->view->render($response, 'taskform', [
 				'mode' => 'create',
@@ -37,6 +38,30 @@ class TasksController extends BaseController
 				'task' =>  $this->Database->tasks($args['taskId']),
 				'mode' => 'edit',
 				'taskCategories' => $this->Database->task_categories()->orderBy('name')
+			]);
+		}
+	}
+
+	public function TaskCategoriesList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->AppContainer->view->render($response, 'taskcategories', [
+			'taskCategories' => $this->Database->task_categories()->orderBy('name')
+		]);
+	}
+
+	public function TaskCategoryEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		if ($args['categoryId'] == 'new')
+		{
+			return $this->AppContainer->view->render($response, 'taskcategoryform', [
+				'mode' => 'create'
+			]);
+		}
+		else
+		{
+			return $this->AppContainer->view->render($response, 'taskcategoryform', [
+				'category' =>  $this->Database->task_categories($args['categoryId']),
+				'mode' => 'edit'
 			]);
 		}
 	}
