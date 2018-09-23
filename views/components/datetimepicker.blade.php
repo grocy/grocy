@@ -3,6 +3,7 @@
 @endpush
 
 @php if(!isset($isRequired)) { $isRequired = true; } @endphp
+@php if(!isset($initialValue)) { $initialValue = ''; } @endphp
 
 <div class="form-group">
 	<label for="{{ $id }}">{{ $L($label) }}  <span class="small text-muted"><time id="datetimepicker-timeago" class="timeago timeago-contextual"></time>@if(!empty($hint))<br>{{ $L($hint) }}@endif</span></label>
@@ -11,6 +12,7 @@
 			<input type="text" @if($isRequired) required @endif class="form-control datetimepicker-input"
 				data-target="#{{ $id }}" data-format="{{ $format }}"
 				data-init-with-now="{{ BoolToString($initWithNow) }}"
+				data-init-value="{{ $initialValue }}"
 				data-limit-end-to-now="{{ BoolToString($limitEndToNow) }}"
 				data-limit-start-to-now="{{ BoolToString($limitStartToNow) }}"
 				data-next-input-selector="{{ $nextInputSelector }}" />

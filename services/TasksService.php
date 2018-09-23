@@ -10,6 +10,22 @@ class TasksService extends BaseService
 		return $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
 
+	public function MarkTaskAsCompleted($taskId, $doneTime)
+	{
+		if (!$this->TaskExists($taskId))
+		{
+			throw new \Exception('Task does not exist');
+		}
+
+		$taskRow = $this->Database->tasks()->where('id = :1', $taskId)->fetch();
+		$taskRow->update(array(
+			'done' => 1,
+			'done_timestamp' => $doneTime
+		));
+
+		return true;
+	}
+
 	private function TaskExists($taskId)
 	{
 		$taskRow = $this->Database->tasks()->where('id = :1', $taskId)->fetch();

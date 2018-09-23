@@ -4,8 +4,9 @@ CREATE TABLE tasks (
 	description TEXT,
 	due_date DATETIME,
 	done TINYINT NOT NULL DEFAULT 0 CHECK(done IN (0, 1)),
-	done_date DATETIME,
+	done_timestamp DATETIME,
 	category_id INTEGER,
+	assigned_to_user_id INTEGER,
 	row_created_timestamp DATETIME DEFAULT (datetime('now', 'localtime'))
 );
 
@@ -20,5 +21,4 @@ CREATE VIEW tasks_current
 AS
 SELECT *
 FROM tasks
-WHERE due_date IS NULL
-	OR (due_date IS NOT NULL AND due_date > datetime('now', 'localtime'));
+WHERE done = 0;

@@ -35,9 +35,23 @@ $(document).on('click', '.do-task-button', function(e)
 	var taskName = $(e.currentTarget).attr('data-task-name');
 	var doneTime = moment().format('YYYY-MM-DD HH:mm:ss');
 
-	Grocy.Api.Get('tasks/mark-task-done/' + taskId + '?tracked_time=' + doneTime,
+	Grocy.Api.Get('tasks/mark-task-as-completed/' + taskId + '?done_time=' + doneTime,
 		function()
 		{
+			if (!$("#show-done-tasks").is(":checked"))
+			{
+				$('#task-' + taskId + '-row').fadeOut(500, function ()
+				{
+					$(this).remove();
+				});
+			}
+			else
+			{
+				$('#task-' + taskId + '-row').addClass("text-muted");
+				$('#task-' + taskId + '-name').addClass("text-strike-through");
+				$('.do-task-button[data-task-id="' + taskId + '"]').addClass("disabled");
+			}
+
 			toastr.success(L('Marked task #1 as completed on #2', taskName, doneTime));
 			RefreshContextualTimeago();
 			RefreshStatistics();
@@ -87,6 +101,23 @@ $(document).on('click', '.delete-task-button', function (e)
 		}
 	});
 });
+
+$("#show-done-tasks").change(function()
+{
+	if (this.checked)
+	{
+		window.location.href = U('/tasks?include_done');
+	}
+	else
+	{
+		window.location.href = U('/tasks');
+	}
+});
+
+if (GetUriParam('include_done'))
+{
+	$("#show-done-tasks").prop('checked', true);
+}
 
 function RefreshStatistics()
 {

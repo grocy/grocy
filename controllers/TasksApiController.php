@@ -18,4 +18,23 @@ class TasksApiController extends BaseApiController
 	{
 		return $this->ApiResponse($this->TasksService->GetCurrent());
 	}
+
+	public function MarkTaskAsCompleted(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		$doneTime = date('Y-m-d H:i:s');
+		if (isset($request->getQueryParams()['done_time']) && !empty($request->getQueryParams()['done_time']) && IsIsoDateTime($request->getQueryParams()['done_time']))
+		{
+			$doneTime = $request->getQueryParams()['done_time'];
+		}
+
+		try
+		{
+			$this->TasksService->MarkTaskAsCompleted($args['taskId'], $doneTime);
+			return $this->VoidApiActionResponse($response);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+		}
+	}
 }

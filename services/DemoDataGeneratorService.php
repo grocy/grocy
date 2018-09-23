@@ -91,12 +91,12 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO task_categories (name) VALUES ('{$localizationService->Localize('Life')}'); --2
 				INSERT INTO task_categories (name) VALUES ('{$localizationService->Localize('Projects')}'); --3
 
-				INSERT INTO tasks (name, category_id, due_date) VALUES ('{$localizationService->Localize('Repair the garage door')}', 1, date(datetime('now', 'localtime'), '+14 day'));
-				INSERT INTO tasks (name, category_id, due_date) VALUES ('{$localizationService->Localize('Task2')}', 1, date(datetime('now', 'localtime'), '+14 day'));
-				INSERT INTO tasks (name, category_id, due_date) VALUES ('{$localizationService->Localize('Task3')}', 2, date(datetime('now', 'localtime'), '-1 day'));
-				INSERT INTO tasks (name, category_id, due_date) VALUES ('{$localizationService->Localize('Task4')}', 2, date(datetime('now', 'localtime'), '-1 day'));
-				INSERT INTO tasks (name, due_date) VALUES ('{$localizationService->Localize('Task5')}', date(datetime('now', 'localtime'), '+3 day'));
-				INSERT INTO tasks (name, due_date) VALUES ('{$localizationService->Localize('Task6')}', date(datetime('now', 'localtime'), '+4 day'));
+				INSERT INTO tasks (name, category_id, due_date, assigned_to_user_id) VALUES ('{$localizationService->Localize('Repair the garage door')}', 1, date(datetime('now', 'localtime'), '+14 day'), 1);
+				INSERT INTO tasks (name, category_id, due_date, assigned_to_user_id) VALUES ('{$localizationService->Localize('Fork and improve grocy')}', 3, date(datetime('now', 'localtime'), '+30 day'), 1);
+				INSERT INTO tasks (name, category_id, due_date, assigned_to_user_id) VALUES ('{$localizationService->Localize('Task')}1', 2, date(datetime('now', 'localtime'), '-1 day'), 1);
+				INSERT INTO tasks (name, category_id, due_date, assigned_to_user_id) VALUES ('{$localizationService->Localize('Task')}2', 2, date(datetime('now', 'localtime'), '-1 day'), 1);
+				INSERT INTO tasks (name, due_date, assigned_to_user_id) VALUES ('{$localizationService->Localize('Find a solution for what to do when I forget the door keys')}', date(datetime('now', 'localtime'), '+3 day'), 1);
+				INSERT INTO tasks (name, due_date, assigned_to_user_id) VALUES ('{$localizationService->Localize('Task')}3', date(datetime('now', 'localtime'), '+4 day'), 1);
 
 				INSERT INTO migrations (migration) VALUES (-1);
 			";

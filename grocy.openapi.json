@@ -1301,6 +1301,56 @@
 					}
 				}
 			}
+		},
+		"/tasks/mark-task-as-completed/{taskId}": {
+			"get": {
+				"description": "Marks the given task as completed",
+				"tags": [
+					"Tasks"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "taskId",
+						"required": true,
+						"description": "A valid task id",
+						"schema": {
+							"type": "integer"
+						}
+					},
+					{
+						"in": "query",
+						"name": "done_time",
+						"required": false,
+						"description": "The time of when the task was completed, when omitted, the current time is used",
+						"schema": {
+							"type": "date-time"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object (possible errors are: Not existing task)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	},
 	"components": {
@@ -1933,9 +1983,25 @@
 					"name": {
 						"type": "string"
 					},
-					"due": {
+					"description": {
+						"type": "string"
+					},
+					"due_date": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"done": {
+						"type": "integer"
+					},
+					"done_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"category_id": {
+						"type": "integer"
+					},
+					"assigned_to_user_id": {
+						"type": "integer"
 					},
 					"row_created_timestamp": {
 						"type": "string",

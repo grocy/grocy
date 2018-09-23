@@ -33,6 +33,14 @@
 		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
 	</div>
+	<div class="col-xs-12 col-md-6 col-xl-3 d-flex align-items-end">
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" id="show-done-tasks">
+			<label class="form-check-label" for="show-done-tasks">
+				{{ $L('Show done tasks') }}
+			</label>
+		</div>
+	</div>
 </div>
 
 <div class="row">
@@ -41,16 +49,17 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>{{ $L('Aufgabe') }}</th>
+					<th>{{ $L('Task') }}</th>
 					<th>{{ $L('Due') }}</th>
 					<th class="d-none">Hidden category</th>
+					<th>{{ $L('Assigned to') }}</th>
 				</tr>
 			</thead>
 			<tbody>
 				@foreach($tasks as $task)
-				<tr id="task-{{ $task->id }}-row" class="@if($task->due_date < date('Y-m-d')) table-danger @elseif($task->due_date < date('Y-m-d', strtotime("+$nextXDays days"))) table-warning @endif">
+				<tr id="task-{{ $task->id }}-row" class="@if($task->done == 1) text-muted @endif @if(!empty($task->due_date) && $task->due_date < date('Y-m-d')) table-danger @elseif(!empty($task->due_date) && $task->due_date < date('Y-m-d', strtotime("+$nextXDays days"))) table-warning @endif">
 					<td class="fit-content">
-						<a class="btn btn-success btn-sm do-task-button" href="#" data-toggle="tooltip" title="{{ $L('Mark task "#1" as completed', $task->name) }}"
+						<a class="btn btn-success btn-sm do-task-button @if($task->done == 1) disabled @endif" href="#" data-toggle="tooltip" title="{{ $L('Mark task "#1" as completed', $task->name) }}"
 							data-task-id="{{ $task->id }}"
 							data-task-name="{{ $task->name }}">
 							<i class="fas fa-check"></i>
@@ -64,7 +73,7 @@
 							<i class="fas fa-edit"></i>
 						</a>
 					</td>
-					<td>
+					<td id="task-{{ $task->id }}-name" class="@if($task->done == 1) text-strike-through @endif">
 						{{ $task->name }}
 					</td>
 					<td>
@@ -72,7 +81,10 @@
 						<time class="timeago timeago-contextual" datetime="{{ $task->due_date }}"></time>
 					</td>
 					<td class="d-none">
-						@if($task->category_id !== null) <span>{{ FindObjectInArrayByPropertyValue($taskCategories, 'id', $task->category_id)->name }}</span> @else <span class="font-italic font-weight-light">{{ $L('Uncategorized') }}</span>@endif
+						@if($task->category_id != null) <span>{{ FindObjectInArrayByPropertyValue($taskCategories, 'id', $task->category_id)->name }}</span> @else <span class="font-italic font-weight-light">{{ $L('Uncategorized') }}</span>@endif
+					</td>
+					<td>
+						@if($task->assigned_to_user_id != null) <span>{{ GetUserDisplayName(FindObjectInArrayByPropertyValue($users, 'id', $task->assigned_to_user_id)) }}</span> @endif
 					</td>
 				</tr>
 				@endforeach

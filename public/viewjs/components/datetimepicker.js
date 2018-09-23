@@ -29,6 +29,10 @@ if (Grocy.Components.DateTimePicker.GetInputElement().data('init-with-now') === 
 {
 	startDate = moment().format(Grocy.Components.DateTimePicker.GetInputElement().data('format'));
 }
+if (Grocy.Components.DateTimePicker.GetInputElement().data('init-value').length > 0)
+{
+	startDate = moment(Grocy.Components.DateTimePicker.GetInputElement().data('init-value')).format(Grocy.Components.DateTimePicker.GetInputElement().data('format'));
+}
 
 var limitDate = moment('2999-12-31 23:59:59');
 if (Grocy.Components.DateTimePicker.GetInputElement().data('limit-end-to-now') === true)

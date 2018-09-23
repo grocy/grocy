@@ -48,7 +48,7 @@
 				'limitEndToNow' => false,
 				'limitStartToNow' => false,
 				'invalidFeedback' => $L('A due date is required'),
-				'nextInputSelector' => '',
+				'nextInputSelector' => 'category_id',
 				'additionalCssClasses' => 'date-only-datetimepicker',
 				'isRequired' => false
 			))
@@ -62,6 +62,19 @@
 					@endforeach
 				</select>
 			</div>
+
+			@php
+			$initUserId = GROCY_USER_ID;
+			if ($mode == 'edit')
+			{
+				$initUserId = $task->assigned_to_user_id;
+			}
+			@endphp
+			@include('components.userpicker', array(
+				'label' => 'Assigned to',
+				'users' => $users,
+				'prefillByUserId' => $initUserId
+			))
 
 			<button id="save-task-button" type="submit" class="btn btn-success">{{ $L('Save') }}</button>
 

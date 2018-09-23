@@ -111,6 +111,7 @@ $app->group('/api', function()
 
 	// Tasks
 	$this->get('/tasks/get-current', '\Grocy\Controllers\TasksApiController:Current');
+	$this->get('/tasks/mark-task-as-completed/{taskId}', '\Grocy\Controllers\TasksApiController:MarkTaskAsCompleted');
 })->add(new ApiKeyAuthMiddleware($appContainer, $appContainer->LoginControllerInstance->GetSessionCookieName(), $appContainer->ApiKeyHeaderName))
 ->add(JsonMiddleware::class)
 ->add(new CorsMiddleware([

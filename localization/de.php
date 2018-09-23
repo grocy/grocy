@@ -216,6 +216,25 @@ return array(
 	'Click to show technical details' => 'Klick um technische Details anzuzeigen',
 	'Error while saving, probably this item already exists' => 'Fehler beim Speichern, möglicherweise existiert das Element bereits',
 	'Error details' => 'Fehlerdetails',
+	'Tasks' => 'Aufgaben',
+	'Show done tasks' => 'Erledigte Aufgaben anzeigen',
+	'Task' => 'Aufgabe',
+	'Due' => 'Fällig',
+	'Assigned to' => 'Zugewiesen an',
+	'Mark task "#1" as completed' => 'Aufgabe "#1" als erledigt markieren',
+	'Uncategorized' => 'Nicht kategorisiert',
+	'Task categories' => 'Aufgabenkategorien',
+	'Create task' => 'Aufgabe erstellen',
+	'A due date is required' => 'Ein Fälligkeitsdatum ist erforderlich',
+	'Category' => 'Kategorie',
+	'Edit task' => 'Aufgabe bearbeiten',
+	'Are you sure to delete task "#1"?' => 'Aufgabe "#1" wirklich löschen?',
+	'#1 task is due to be done within the next #2 days' => '#1 Aufgabe steht in den nächsten #2 Tagen an',
+	'#1 tasks are due to be done within the next #2 days' => '#1 Aufgaben stehen in den nächsten #2 Tagen an',
+	'#1 task is overdue to be done' => '#1 Aufgabe ist überfällig',
+	'#1 tasks are overdue to be done' => '#1 Aufgaben sind überfällig',
+	'Edit task category' => 'Aufgabenkategorie bearbeiten',
+	'Create task category' => 'Aufgabenkategorie erstellen',
 	
 	//Constants
 	'manually' => 'Manuell',
@@ -285,5 +304,11 @@ return array(
     'Grams' => 'Gramm',
     'Flour' => 'Mehl',
     'Pancakes' => 'Pfannkuchen',
-    'Sugar' => 'Zucker'
+	'Sugar' => 'Zucker',
+	'Home' => 'Zuhause',
+	'Life' => 'Leben',
+	'Projects' => 'Projekte',
+	'Repair the garage door' => 'Garagentor reparieren',
+	'Fork and improve grocy' => 'grocy forken und verbessern',
+	'Find a solution for what to do when I forget the door keys' => 'Eine Lösung für "Haustürschlüssel vergessen" finden'
 );

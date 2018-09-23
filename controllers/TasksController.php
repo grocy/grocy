@@ -16,10 +16,20 @@ class TasksController extends BaseController
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
+		if (isset($request->getQueryParams()['include_done']))
+		{
+			$tasks = $this->Database->tasks()->orderBy('name');
+		}
+		else
+		{
+			$tasks = $this->TasksService->GetCurrent();
+		}
+
 		return $this->AppContainer->view->render($response, 'tasks', [
-			'tasks' => $this->Database->tasks()->orderBy('name'),
+			'tasks' => $tasks,
 			'nextXDays' => 5,
-			'taskCategories' => $this->Database->task_categories()->orderBy('name')
+			'taskCategories' => $this->Database->task_categories()->orderBy('name'),
+			'users' => $this->Database->users()
 		]);
 	}
 
@@ -29,7 +39,8 @@ class TasksController extends BaseController
 		{
 			return $this->AppContainer->view->render($response, 'taskform', [
 				'mode' => 'create',
-				'taskCategories' => $this->Database->task_categories()->orderBy('name')
+				'taskCategories' => $this->Database->task_categories()->orderBy('name'),
+				'users' => $this->Database->users()->orderBy('username')
 			]);
 		}
 		else
@@ -37,7 +48,8 @@ class TasksController extends BaseController
 			return $this->AppContainer->view->render($response, 'taskform', [
 				'task' =>  $this->Database->tasks($args['taskId']),
 				'mode' => 'edit',
-				'taskCategories' => $this->Database->task_categories()->orderBy('name')
+				'taskCategories' => $this->Database->task_categories()->orderBy('name'),
+				'users' => $this->Database->users()->orderBy('username')
 			]);
 		}
 	}

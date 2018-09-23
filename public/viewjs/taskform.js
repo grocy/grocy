@@ -2,9 +2,14 @@
 {
 	e.preventDefault();
 
+	var jsonData = $('#task-form').serializeJSON();
+	jsonData.assigned_to_user_id = jsonData.user_id;
+	delete jsonData.user_id;
+	jsonData.due_date = Grocy.Components.DateTimePicker.GetValue();
+
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.Api.Post('add-object/tasks', $('#task-form').serializeJSON(),
+		Grocy.Api.Post('add-object/tasks', jsonData,
 			function(result)
 			{
 				window.location.href = U('/tasks');
@@ -17,7 +22,7 @@
 	}
 	else
 	{
-		Grocy.Api.Post('edit-object/tasks/' + Grocy.EditObjectId, $('#task-form').serializeJSON(),
+		Grocy.Api.Post('edit-object/tasks/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				window.location.href = U('/tasks');

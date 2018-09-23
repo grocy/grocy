@@ -4,6 +4,7 @@
 
 @php if(empty($prefillByUsername)) { $prefillByUsername = ''; } @endphp
 @php if(empty($prefillByUserId)) { $prefillByUserId = ''; } @endphp
+@php if(!isset($nextInputSelector)) { $nextInputSelector = ''; } @endphp
 
 <div class="form-group" data-next-input-selector="{{ $nextInputSelector }}" data-prefill-by-username="{{ $prefillByUsername }}" data-prefill-by-user-id="{{ $prefillByUserId }}">
 	<label for="user_id">{{ $L($label) }}</label>

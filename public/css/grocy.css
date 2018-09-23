@@ -67,6 +67,14 @@ a.discrete-link:focus {
     color: inherit;
 }
 
+.text-strike-through {
+	text-decoration: line-through;
+}
+
+button.disabled {
+	pointer-events: none;
+}
+
 /* Hide the default up/down arrow buttons for number inputs because we use our own buttons in numberpicker */
 input[type='number'] {
 	-moz-appearance: textfield;
