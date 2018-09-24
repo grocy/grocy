@@ -27,6 +27,8 @@ $("#search").on("keyup", function()
 
 $(document).on('click', '.track-chore-button', function(e)
 {
+	e.preventDefault();
+	
 	var choreId = $(e.currentTarget).attr('data-chore-id');
 	var choreName = $(e.currentTarget).attr('data-chore-name');
 	var trackedTime = moment().format('YYYY-MM-DD HH:mm:ss');

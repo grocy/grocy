@@ -31,6 +31,8 @@ $("#search").on("keyup", function()
 
 $(document).on('click', '.do-task-button', function(e)
 {
+	e.preventDefault();
+	
 	var taskId = $(e.currentTarget).attr('data-task-id');
 	var taskName = $(e.currentTarget).attr('data-task-name');
 	var doneTime = moment().format('YYYY-MM-DD HH:mm:ss');
@@ -65,6 +67,8 @@ $(document).on('click', '.do-task-button', function(e)
 
 $(document).on('click', '.delete-task-button', function (e)
 {
+	e.preventDefault();
+
 	var objectName = $(e.currentTarget).attr('data-task-name');
 	var objectId = $(e.currentTarget).attr('data-task-id');
 

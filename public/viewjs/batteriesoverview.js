@@ -27,6 +27,8 @@ $("#search").on("keyup", function()
 
 $(document).on('click', '.track-charge-cycle-button', function(e)
 {
+	e.preventDefault();
+	
 	var batteryId = $(e.currentTarget).attr('data-battery-id');
 	var batteryName = $(e.currentTarget).attr('data-battery-name');
 	var trackedTime = moment().format('YYYY-MM-DD HH:mm:ss');

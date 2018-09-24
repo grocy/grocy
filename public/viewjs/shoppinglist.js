@@ -27,6 +27,8 @@ $("#search").on("keyup", function()
 
 $(document).on('click', '.shoppinglist-delete-button', function (e)
 {
+	e.preventDefault();
+	
 	var shoppingListItemId = $(e.currentTarget).attr('data-shoppinglist-id');
 
 	Grocy.Api.Get('delete-object/shopping_list/' + shoppingListItemId,

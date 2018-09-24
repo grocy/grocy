@@ -39,6 +39,8 @@ $("#search").on("keyup", function()
 
 $(document).on('click', '.product-consume-button', function(e)
 {
+	e.preventDefault();
+	
 	var productId = $(e.currentTarget).attr('data-product-id');
 	var productName = $(e.currentTarget).attr('data-product-name');
 	var productQuName = $(e.currentTarget).attr('data-product-qu-name');
