@@ -10,7 +10,7 @@
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.3.1.tgz#5466b8f31c1f493a96754c1426c25796d0633dd9"
 
-"TagManager@https://github.com/max-favilli/tagmanager.git#3.0.2", "tagmanager@https://github.com/max-favilli/tagmanager.git#3.0.2":
+"TagManager@https://github.com/max-favilli/tagmanager.git#3.0.2":
   version "3.0.1"
   resolved "https://github.com/max-favilli/tagmanager.git#df9eb9935c8585a392dfc00602f890caf233fa94"
   dependencies:
@@ -24,7 +24,7 @@ bootstrap@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.0.0.tgz#ceb03842c145fcc1b9b4e15da2a05656ba68469a"
 
-bootstrap@^4.1.1:
+bootstrap@>=4.1.2, bootstrap@^4.1.1:
   version "4.1.3"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.1.3.tgz#0eb371af2c8448e8c210411d0cb824a6409a12be"
 
@@ -60,8 +60,8 @@ color-convert@^0.5.3:
   resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-0.5.3.tgz#bdb6c69ce660fadffe0b0007cc447e1b9f7282bd"
 
 color-name@^1.0.0:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.3.tgz#a7d0558bd89c42f795dd42328f740831ca53bc25"
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.4.tgz#c2a09a87acbde69543de6f63fa3995c826c536a2"
 
 datatables.net-bs4@1.10.16:
   version "1.10.16"
@@ -187,7 +187,7 @@ moment@~2.18.0:
   version "2.18.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
 
-popper.js@^1.12.9:
+popper.js@^1.14.3:
   version "1.14.4"
   resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.4.tgz#8eec1d8ff02a5a3a152dd43414a15c7b79fd69b6"
 
@@ -203,18 +203,18 @@ startbootstrap-sb-admin@^4.0.0:
     jquery.easing "^1.4.1"
 
 swagger-ui-dist@^3.17.3:
-  version "3.18.2"
-  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-3.18.2.tgz#025f8838a135f9476a839dd37696ba3ebd86ea06"
+  version "3.19.0"
+  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-3.19.0.tgz#95942ce1a556e7fe2705d7c92c6004a628d53207"
 
 tempusdominus-bootstrap-4@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/tempusdominus-bootstrap-4/-/tempusdominus-bootstrap-4-5.0.1.tgz#713d5d1547caf7784e510e480e32997ccbe7e511"
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/tempusdominus-bootstrap-4/-/tempusdominus-bootstrap-4-5.1.1.tgz#f1c765be4f17ffd86a56f2cb7fb7d4b19ea029c7"
   dependencies:
-    bootstrap "4.0.0"
+    bootstrap ">=4.1.2"
     jquery "^3.0"
     moment "^2.22.2"
     moment-timezone "^0.5.11"
-    popper.js "^1.12.9"
+    popper.js "^1.14.3"
 
 timeago@^1.6.3:
   version "1.6.3"
