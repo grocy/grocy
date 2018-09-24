@@ -241,6 +241,8 @@ return array(
 	'Edit product group' => 'Produktgruppe bearbeiten',
 	'Product group' => 'Produktgruppe',
 	'Are you sure to delete product group "#1"?' => 'Produktgruppe "#1" wirklich löschen?',
+	'Stay logged in permanently' => 'Dauerhaft angemeldet bleiben',
+	'When not set, you will get logged out at latest after 30 days' => 'Wenn nicht gesetzt, wirst du spätestens nach 30 Tagen automatisch abgemeldet',
 	
 	//Constants
 	'manually' => 'Manuell',

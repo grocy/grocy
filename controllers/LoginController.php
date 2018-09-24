@@ -25,11 +25,12 @@ class LoginController extends BaseController
 		{
 			$user = $this->Database->users()->where('username', $postParams['username'])->fetch();
 			$inputPassword = $postParams['password'];
+			$stayLoggedInPermanently = $postParams['stay_logged_in'] == 'on';
 
 			if ($user !== null && password_verify($inputPassword, $user->password))
 			{
-				$sessionKey = $this->SessionService->CreateSession($user->id);
-				setcookie($this->SessionCookieName, $sessionKey, time() + 31536000); // Cookie expires in 1 year, but session validity is up to SessionService
+				$sessionKey = $this->SessionService->CreateSession($user->id, $stayLoggedInPermanently);
+				setcookie($this->SessionCookieName, $sessionKey, time() + 31220640000); // Cookie expires in 999 years, but session validity is up to SessionService
 
 				if (password_needs_rehash($user->password, PASSWORD_DEFAULT))
 				{

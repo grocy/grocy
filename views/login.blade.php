@@ -22,6 +22,13 @@
 				<div id="login-error" class="form-text text-danger d-none"></div>
 			</div>
 
+			<div class="checkbox">
+				<label for="stay_logged_in">
+					<input type="checkbox" id="stay_logged_in" name="stay_logged_in"> {{ $L('Stay logged in permanently') }}
+					<p id="qu-conversion-info" class="form-text text-muted small my-0">{{ $L('When not set, you will get logged out at latest after 30 days') }}</p>
+				</label>
+			</div>
+
 			<button id="login-button" type="submit" class="btn btn-success">{{ $L('OK') }}</button>
 
 		</form>
