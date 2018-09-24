@@ -24,6 +24,26 @@
 		}
 	],
 	"paths": {
+		"/system/get-db-changed-time": {
+			"get": {
+				"description": "Returns the time when the database was last changed",
+				"tags": [
+					"System"
+				],
+				"responses": {
+					"200": {
+						"description": "An DbChangedTimeResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DbChangedTimeResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/get-objects/{entity}": {
 			"get": {
 				"description": "Returns all objects of the given entity",
@@ -2005,6 +2025,15 @@
 						"type": "integer"
 					},
 					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"DbChangedTimeResponse": {
+				"type": "object",
+				"properties": {
+					"changed_time": {
 						"type": "string",
 						"format": "date-time"
 					}

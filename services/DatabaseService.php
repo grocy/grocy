@@ -63,4 +63,9 @@ class DatabaseService
 
 		return false;
 	}
+
+	public function GetDbChangedTime()
+	{
+		return date('Y-m-d H:i:s', filemtime(GROCY_DATAPATH . '/grocy.db'));
+	}
 }

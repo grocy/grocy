@@ -79,6 +79,9 @@ $app->group('/api', function()
 	$this->post('/edit-object/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:EditObject');
 	$this->get('/delete-object/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:DeleteObject');
 
+	// System
+	$this->get('/system/get-db-changed-time', '\Grocy\Controllers\SystemApiController:GetDbChangedTime');
+
 	// Users
 	$this->get('/users/get', '\Grocy\Controllers\UsersApiController:GetUsers');
 	$this->post('/users/create', '\Grocy\Controllers\UsersApiController:CreateUser');
