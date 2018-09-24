@@ -2,7 +2,7 @@
 	"name": "grocy",
 	"private": true,
 	"dependencies": {
-		"@danielfarrell/bootstrap-combobox": "https://github.com/pallidus-fintech/bootstrap-combobox.git#enhance/boostrap_4",
+		"@danielfarrell/bootstrap-combobox": "https://github.com/berrnd/bootstrap-combobox.git#master",
 		"@fortawesome/fontawesome-free": "^5.1.0",
 		"TagManager": "https://github.com/max-favilli/tagmanager.git#3.0.2",
 		"bootbox": "https://github.com/makeusabrew/bootbox.git#v5.x",

@@ -49,7 +49,8 @@ $('#battery_id').on('change', function(e)
 });
 
 $('.combobox').combobox({
-	appendId: '_text_input'
+	appendId: '_text_input',
+	bsVersion: '4'
 });
 
 $('#battery_id').val('');

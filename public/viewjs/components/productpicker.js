@@ -45,7 +45,8 @@ Grocy.Components.ProductPicker.HideCustomError = function()
 
 $('.product-combobox').combobox({
 	appendId: '_text_input',
-	bsVersion: '4'
+	bsVersion: '4',
+	clearIfNoMatch: false
 });
 
 var prefillProduct = GetUriParam('createdproduct');
@@ -81,7 +82,7 @@ if (addBarcode !== undefined)
 	$('#barcode-lookup-disabled-hint').removeClass('d-none');
 }
 
-$('#product_id').on('change', function(e)
+$('#product_id_text_input').on('blur', function(e)
 {
 	var input = $('#product_id_text_input').val().toString();
 	var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + input + "']").first();
@@ -106,14 +107,20 @@ $('#product_id').on('change', function(e)
 			bootbox.dialog({
 				message: L('"#1" could not be resolved to a product, how do you want to proceed?', input),
 				title: L('Create or assign product'),
-				onEscape: function() { },
+				onEscape: function()
+				{
+					Grocy.Components.ProductPicker.SetValue('');
+				},
 				size: 'large',
 				backdrop: true,
 				buttons: {
 					cancel: {
 						label: L('Cancel'),
 						className: 'btn-default responsive-button',
-						callback: function() { }
+						callback: function()
+						{
+							Grocy.Components.ProductPicker.SetValue('');
+						}
 					},
 					addnewproduct: {
 						label: '<strong>P</strong> ' + L('Add as new product'),
