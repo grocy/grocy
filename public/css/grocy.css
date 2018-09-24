@@ -11,10 +11,6 @@ body {
     white-space: normal;
 }
 
-.no-real-button {
-	pointer-events: none;
-}
-
 .timeago-contextual {
 	font-style: italic;
 	font-size: 0.8em;

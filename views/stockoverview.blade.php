@@ -12,9 +12,9 @@
 <div class="row">
 	<div class="col">
 		<h1>@yield('title') <small id="info-current-stock" class="text-muted"></small></h1>
-		<p id="info-expiring-products" data-next-x-days="{{ $nextXDays }}" class="btn btn-lg btn-warning no-real-button responsive-button mr-2"></p>
-		<p id="info-expired-products" class="btn btn-lg btn-danger no-real-button responsive-button mr-2"></p>
-		<p id="info-missing-products" class="btn btn-lg btn-info no-real-button responsive-button"></p>
+		<p id="info-expiring-products" data-next-x-days="{{ $nextXDays }}" data-status-filter="expiring" class="btn btn-lg btn-warning status-filter-button responsive-button mr-2"></p>
+		<p id="info-expired-products" data-status-filter="expired" class="btn btn-lg btn-danger status-filter-button responsive-button mr-2"></p>
+		<p id="info-missing-products" data-status-filter="belowminstockamount" class="btn btn-lg btn-info status-filter-button responsive-button"></p>
 	</div>
 </div>
 
@@ -26,6 +26,15 @@
 			@foreach($locations as $location)
 				<option value="{{ $location->name }}">{{ $location->name }}</option>
 			@endforeach
+		</select>
+	</div>
+	<div class="col-xs-12 col-md-6 col-xl-3">
+		<label for="status-filter">{{ $L('Filter by status') }}</label> <i class="fas fa-filter"></i>
+		<select class="form-control" id="status-filter">
+			<option class="bg-white" value="all">{{ $L('All') }}</option>
+			<option class="bg-warning" value="expiring">{{ $L('Expiring soon') }}</option>
+			<option class="bg-danger" value="expired">{{ $L('Already expired') }}</option>
+			<option class="bg-info" value="belowminstockamount">{{ $L('Below min. stock amount') }}</option>
 		</select>
 	</div>
 	<div class="col-xs-12 col-md-6 col-xl-3">
@@ -44,6 +53,7 @@
 					<th>{{ $L('Amount') }}</th>
 					<th>{{ $L('Next best before date') }}</th>
 					<th class="d-none">Hidden location</th>
+					<th class="d-none">Hidden status</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -77,6 +87,9 @@
 					</td>
 					<td class="d-none">
 						{{ FindObjectInArrayByPropertyValue($locations, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->location_id)->name }}
+					</td>
+					<td class="d-none">
+						@if($currentStockEntry->best_before_date < date('Y-m-d', strtotime('-1 days'))) expired @elseif($currentStockEntry->best_before_date < date('Y-m-d', strtotime("+$nextXDays days"))) expiring @elseif (FindObjectInArrayByPropertyValue($missingProducts, 'id', $currentStockEntry->product_id) !== null) belowminstockamount @endif
 					</td>
 				</tr>
 				@endforeach

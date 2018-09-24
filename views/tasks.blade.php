@@ -23,12 +23,20 @@
 				<i class="fas fa-plus"></i> {{ $L('Add') }}
 			</a>
 		</h1>
-		<p id="info-due-tasks" data-next-x-days="{{ $nextXDays }}" class="btn btn-lg btn-warning no-real-button responsive-button mr-2"></p>
-		<p id="info-overdue-tasks" class="btn btn-lg btn-danger no-real-button responsive-button"></p>
+		<p id="info-due-tasks" data-status-filter="duesoon" data-next-x-days="{{ $nextXDays }}" class="btn btn-lg btn-warning status-filter-button responsive-button mr-2"></p>
+		<p id="info-overdue-tasks" data-status-filter="overdue" class="btn btn-lg btn-danger status-filter-button responsive-button"></p>
 	</div>
 </div>
 
 <div class="row mt-3">
+	<div class="col-xs-12 col-md-6 col-xl-3">
+		<label for="status-filter">{{ $L('Filter by status') }}</label> <i class="fas fa-filter"></i>
+		<select class="form-control" id="status-filter">
+			<option class="bg-white" value="all">{{ $L('All') }}</option>
+			<option class="bg-warning" value="duesoon">{{ $L('Due soon') }}</option>
+			<option class="bg-danger" value="overdue">{{ $L('Overdue') }}</option>
+		</select>
+	</div>
 	<div class="col-xs-12 col-md-6 col-xl-3">
 		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
@@ -53,6 +61,7 @@
 					<th>{{ $L('Due') }}</th>
 					<th class="d-none">Hidden category</th>
 					<th>{{ $L('Assigned to') }}</th>
+					<th class="d-none">Hidden status</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -85,6 +94,9 @@
 					</td>
 					<td>
 						@if($task->assigned_to_user_id != null) <span>{{ GetUserDisplayName(FindObjectInArrayByPropertyValue($users, 'id', $task->assigned_to_user_id)) }}</span> @endif
+					</td>
+					<td class="d-none">
+						@if($task->done == 1) text-muted @endif @if(!empty($task->due_date) && $task->due_date < date('Y-m-d')) overdue @elseif(!empty($task->due_date) && $task->due_date < date('Y-m-d', strtotime("+$nextXDays days"))) duesoon @endif
 					</td>
 				</tr>
 				@endforeach

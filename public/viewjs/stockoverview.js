@@ -26,6 +26,27 @@ $("#location-filter").on("change", function()
 	stockOverviewTable.column(4).search(value).draw();
 });
 
+$("#status-filter").on("change", function()
+{
+	var value = $(this).val();
+	if (value === "all")
+	{
+		value = "";
+	}
+
+	// Transfer CSS classes of selected element to dropdown element (for background)
+	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
+	
+	stockOverviewTable.column(5).search(value).draw();
+});
+
+$(".status-filter-button").on("click", function()
+{
+	var value = $(this).data("status-filter");
+	$("#status-filter").val(value);
+	$("#status-filter").trigger("change");
+});
+
 $("#search").on("keyup", function()
 {
 	var value = $(this).val();

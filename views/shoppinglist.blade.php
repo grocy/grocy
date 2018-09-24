@@ -29,15 +29,26 @@
 				<i class="fas fa-cart-plus"></i> {{ $L('Add products that are below defined min. stock amount') }}
 			</a>
 		</h1>
-		<p class="btn btn-lg btn-info no-real-button responsive-button">{{ Pluralize(count($missingProducts), $L('#1 product is below defined min. stock amount', count($missingProducts)), $L('#1 products are below defined min. stock amount', count($missingProducts))) }}</p>
+		<p data-status-filter="belowminstockamount" class="btn btn-lg btn-info status-filter-button responsive-button">{{ Pluralize(count($missingProducts), $L('#1 product is below defined min. stock amount', count($missingProducts)), $L('#1 products are below defined min. stock amount', count($missingProducts))) }}</p>
+	</div>
+</div>
+
+<div class="row mt-3">
+	<div class="col-xs-12 col-md-4">
+		<label for="status-filter">{{ $L('Filter by status') }}</label> <i class="fas fa-filter"></i>
+		<select class="form-control" id="status-filter">
+			<option class="bg-white" value="all">{{ $L('All') }}</option>
+			<option class="bg-info" value="belowminstockamount">{{ $L('Below min. stock amount') }}</option>
+		</select>
+	</div>
+	<div class="col-xs-12 col-md-4">
+		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
+		<input type="text" class="form-control" id="search">
 	</div>
 </div>
 
 <div class="row">
 	<div class="col-xs-12 col-md-8 pb-3">
-		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
-		<input type="text" class="form-control" id="search">
-
 		<table id="shoppinglist-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
@@ -45,6 +56,7 @@
 					<th>{{ $L('Product') }} / <em>{{ $L('Note') }}</em></th>
 					<th>{{ $L('Amount') }}</th>
 					<th class="d-none">Hiden product group</th>
+					<th class="d-none">Hidden status</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -66,6 +78,9 @@
 					</td>
 					<td class="d-none">
 						@if(!empty(FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->product_group_id)) {{ FindObjectInArrayByPropertyValue($productGroups, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->product_group_id)->name }} @else <span class="font-italic font-weight-light">{{ $L('Ungrouped') }}</span> @endif
+					</td>
+					<td class="d-none">
+						@if(FindObjectInArrayByPropertyValue($missingProducts, 'id', $listItem->product_id) !== null) belowminstockamount @endif
 					</td>
 				</tr>
 				@endforeach
