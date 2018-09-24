@@ -146,6 +146,12 @@
 								<span class="nav-link-text">{{ $L('Quantity units') }}</span>
 							</a>
 						</li>
+						<li data-nav-for-page="productgroups" data-sub-menu-of="#top-nav-manager-master-data">
+							<a class="nav-link discrete-link" href="{{ $U('/productgroups') }}">
+								<i class="fas fa-object-group"></i>
+								<span class="nav-link-text">{{ $L('Product groups') }}</span>
+							</a>
+						</li>
 						<li data-nav-for-page="chores" data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link" href="{{ $U('/chores') }}">
 								<i class="fas fa-home"></i>

@@ -31,29 +31,36 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Bunch')}', '{$localizationService->Localize('Bunches')}'); --7
 				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Gram')}', '{$localizationService->Localize('Grams')}'); --8
 
+				INSERT INTO product_groups(name) VALUES ('01 {$localizationService->Localize('Sweets')}'); --1
+				INSERT INTO product_groups(name) VALUES ('02 {$localizationService->Localize('Bakery products')}'); --2
+				INSERT INTO product_groups(name) VALUES ('03 {$localizationService->Localize('Tinned food')}'); --3
+				INSERT INTO product_groups(name) VALUES ('04 {$localizationService->Localize('Butchery products')}'); --4
+				INSERT INTO product_groups(name) VALUES ('05 {$localizationService->Localize('Vegetables/Fruits')}'); --5
+				INSERT INTO product_groups(name) VALUES ('06 {$localizationService->Localize('Refrigerated products')}'); --6
+
 				DELETE FROM sqlite_sequence WHERE name = 'products'; --Just to keep IDs in order as mentioned here...
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount) VALUES ('{$localizationService->Localize('Cookies')}', 3, 3, 3, 1, 8); --1
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount) VALUES ('{$localizationService->Localize('Chocolate')}', 3, 3, 3, 1, 8); --2
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount) VALUES ('{$localizationService->Localize('Gummy bears')}', 3, 3, 3, 1, 8); --3
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount) VALUES ('{$localizationService->Localize('Crisps')}', 3, 3, 3, 1, 10); --4
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Eggs')}', 2, 3, 2, 10); --5
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Noodles')}', 3, 3, 3, 1); --6
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Pickles')}', 4,4, 4, 1); --7
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Gulash soup')}', 4, 5, 5, 1); --8
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Yogurt')}', 2, 6, 6, 1); --9
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Cheese')}', 2, 3, 3, 1); --10
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Cold cuts')}', 2, 3, 3, 1); --11
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Paprika')}', 2, 2, 2, 1); --12
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Cucumber')}', 2, 2, 2, 1); --13
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Radish')}', 2, 7, 7, 1); --14
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Tomato')}', 2, 2, 2, 1); --15
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Pizza dough')}', 3, 3, 3, 1); --16
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Sieved tomatoes')}', 4, 5, 5, 1); --17
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Salami')}', 2, 3, 3, 1); --18
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Toast')}', 4, 5, 5, 1); --19
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Minced meat')}', 2, 3, 3, 1); --20
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Flour')}', 2, 3, 3, 1); --21
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Sugar')}', 3, 3, 3, 1); --22
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, product_group_id) VALUES ('{$localizationService->Localize('Cookies')}', 3, 3, 3, 1, 8, 1); --1
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, product_group_id) VALUES ('{$localizationService->Localize('Chocolate')}', 3, 3, 3, 1, 8, 1); --2
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, product_group_id) VALUES ('{$localizationService->Localize('Gummy bears')}', 3, 3, 3, 1, 8, 1); --3
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, product_group_id) VALUES ('{$localizationService->Localize('Crisps')}', 3, 3, 3, 1, 10, 1); --4
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Eggs')}', 2, 3, 2, 10, 5); --5
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Noodles')}', 3, 3, 3, 1, 6); --6
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Pickles')}', 4,4, 4, 1, 3); --7
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Gulash soup')}', 4, 5, 5, 1, 3); --8
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Yogurt')}', 2, 6, 6, 1, 6); --9
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Cheese')}', 2, 3, 3, 1, 6); --10
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Cold cuts')}', 2, 3, 3, 1, 6); --11
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Paprika')}', 2, 2, 2, 1, 5); --12
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Cucumber')}', 2, 2, 2, 1, 5); --13
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Radish')}', 2, 7, 7, 1, 5); --14
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Tomato')}', 2, 2, 2, 1, 5); --15
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Pizza dough')}', 3, 3, 3, 1, 6); --16
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Sieved tomatoes')}', 4, 5, 5, 1, 3); --17
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Salami')}', 2, 3, 3, 1, 6); --18
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Toast')}', 4, 5, 5, 1, 2); --19
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Minced meat')}', 2, 3, 3, 1, 4); --20
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Flour')}', 2, 3, 3, 1, 3); --21
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Sugar')}', 3, 3, 3, 1, 3); --22
 
 				INSERT INTO shopping_list (note, amount) VALUES ('{$localizationService->Localize('Some good snacks')}', 1);
 				INSERT INTO shopping_list (product_id, amount) VALUES (20, 1);

@@ -54,7 +54,8 @@ class StockController extends BaseController
 			'listItems' => $this->Database->shopping_list(),
 			'products' => $this->Database->products()->orderBy('name'),
 			'quantityunits' => $this->Database->quantity_units()->orderBy('name'),
-			'missingProducts' => $this->StockService->GetMissingProducts()
+			'missingProducts' => $this->StockService->GetMissingProducts(),
+			'productGroups' => $this->Database->product_groups()->orderBy('name')
 		]);
 	}
 
@@ -63,7 +64,8 @@ class StockController extends BaseController
 		return $this->AppContainer->view->render($response, 'products', [
 			'products' => $this->Database->products()->orderBy('name'),
 			'locations' => $this->Database->locations()->orderBy('name'),
-			'quantityunits' => $this->Database->quantity_units()->orderBy('name')
+			'quantityunits' => $this->Database->quantity_units()->orderBy('name'),
+			'productGroups' => $this->Database->product_groups()->orderBy('name')
 		]);
 	}
 
@@ -71,6 +73,13 @@ class StockController extends BaseController
 	{
 		return $this->AppContainer->view->render($response, 'locations', [
 			'locations' => $this->Database->locations()->orderBy('name')
+		]);
+	}
+
+	public function ProductGroupsList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->AppContainer->view->render($response, 'productgroups', [
+			'productGroups' => $this->Database->product_groups()->orderBy('name')
 		]);
 	}
 
@@ -88,6 +97,7 @@ class StockController extends BaseController
 			return $this->AppContainer->view->render($response, 'productform', [
 				'locations' =>  $this->Database->locations()->orderBy('name'),
 				'quantityunits' =>  $this->Database->quantity_units()->orderBy('name'),
+				'productgroups' => $this->Database->product_groups()->orderBy('name'),
 				'mode' => 'create'
 			]);
 		}
@@ -97,6 +107,7 @@ class StockController extends BaseController
 				'product' =>  $this->Database->products($args['productId']),
 				'locations' =>  $this->Database->locations()->orderBy('name'),
 				'quantityunits' =>  $this->Database->quantity_units()->orderBy('name'),
+				'productgroups' => $this->Database->product_groups()->orderBy('name'),
 				'mode' => 'edit'
 			]);
 		}
@@ -114,6 +125,23 @@ class StockController extends BaseController
 		{
 			return $this->AppContainer->view->render($response, 'locationform', [
 				'location' =>  $this->Database->locations($args['locationId']),
+				'mode' => 'edit'
+			]);
+		}
+	}
+
+	public function ProductGroupEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		if ($args['productGroupId'] == 'new')
+		{
+			return $this->AppContainer->view->render($response, 'productgroupform', [
+				'mode' => 'create'
+			]);
+		}
+		else
+		{
+			return $this->AppContainer->view->render($response, 'productgroupform', [
+				'group' =>  $this->Database->product_groups($args['productGroupId']),
 				'mode' => 'edit'
 			]);
 		}

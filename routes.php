@@ -30,6 +30,8 @@ $app->group('', function()
 	$this->get('/location/{locationId}', '\Grocy\Controllers\StockController:LocationEditForm');
 	$this->get('/quantityunits', '\Grocy\Controllers\StockController:QuantityUnitsList');
 	$this->get('/quantityunit/{quantityunitId}', '\Grocy\Controllers\StockController:QuantityUnitEditForm');
+	$this->get('/productgroups', '\Grocy\Controllers\StockController:ProductGroupsList');
+	$this->get('/productgroup/{productGroupId}', '\Grocy\Controllers\StockController:ProductGroupEditForm');
 	$this->get('/shoppinglist', '\Grocy\Controllers\StockController:ShoppingList');
 	$this->get('/shoppinglistitem/{itemId}', '\Grocy\Controllers\StockController:ShoppingListItemEditForm');
 

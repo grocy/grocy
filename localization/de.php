@@ -235,6 +235,12 @@ return array(
 	'#1 tasks are overdue to be done' => '#1 Aufgaben sind überfällig',
 	'Edit task category' => 'Aufgabenkategorie bearbeiten',
 	'Create task category' => 'Aufgabenkategorie erstellen',
+	'Product groups' => 'Produktgruppen',
+	'Ungrouped' => 'Ungruppiert',
+	'Create product group' => 'Produktgruppe erstellen',
+	'Edit product group' => 'Produktgruppe bearbeiten',
+	'Product group' => 'Produktgruppe',
+	'Are you sure to delete product group "#1"?' => 'Produktgruppe "#1" wirklich löschen?',
 	
 	//Constants
 	'manually' => 'Manuell',
@@ -310,5 +316,11 @@ return array(
 	'Projects' => 'Projekte',
 	'Repair the garage door' => 'Garagentor reparieren',
 	'Fork and improve grocy' => 'grocy forken und verbessern',
-	'Find a solution for what to do when I forget the door keys' => 'Eine Lösung für "Haustürschlüssel vergessen" finden'
+	'Find a solution for what to do when I forget the door keys' => 'Eine Lösung für "Haustürschlüssel vergessen" finden',
+	'Sweets' => 'Süßigkeiten',
+	'Bakery products' => 'Bäckerei Produkte',
+	'Tinned food' => 'Konservern',
+	'Butchery products' => 'Metzgerei',
+	'Vegetables/Fruits' => 'Obst/Gemüse',
+	'Refrigerated products' => 'Kühlregal'
 );

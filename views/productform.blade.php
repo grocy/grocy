@@ -68,6 +68,16 @@
 			))
 
 			<div class="form-group">
+				<label for="product_group_id">{{ $L('Product group') }}</label>
+				<select class="form-control" id="product_group_id" name="product_group_id">
+					<option></option>
+					@foreach($productgroups as $productgroup)
+						<option @if($mode == 'edit' && $productgroup->id == $product->product_group_id) selected="selected" @endif value="{{ $productgroup->id }}">{{ $productgroup->name }}</option>
+					@endforeach
+				</select>
+			</div>
+
+			<div class="form-group">
 				<label for="qu_id_purchase">{{ $L('Quantity unit purchase') }}</label>
 				<select required class="form-control input-group-qu" id="qu_id_purchase" name="qu_id_purchase">
 					@foreach($quantityunits as $quantityunit)

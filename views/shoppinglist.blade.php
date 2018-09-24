@@ -4,6 +4,16 @@
 @section('activeNav', 'shoppinglist')
 @section('viewJsName', 'shoppinglist')
 
+@push('pageScripts')
+	<script src="{{ $U('/node_modules/jquery-ui-dist/jquery-ui.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/datatables.net-rowgroup/js/dataTables.rowGroup.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/datatables.net-rowgroup-bs4/js/rowGroup.bootstrap4.min.js?v=', true) }}{{ $version }}"></script>
+@endpush
+
+@push('pageStyles')
+	<link href="{{ $U('/node_modules/datatables.net-rowgroup-bs4/css/rowGroup.bootstrap4.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
+@endpush
+
 @section('content')
 <div class="row">
 	<div class="col">
@@ -34,6 +44,7 @@
 					<th>#</th>
 					<th>{{ $L('Product') }} / <em>{{ $L('Note') }}</em></th>
 					<th>{{ $L('Amount') }}</th>
+					<th class="d-none">Hiden product group</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -52,6 +63,9 @@
 					</td>
 					<td>
 						{{ $listItem->amount + $listItem->amount_autoadded }} @if(!empty($listItem->product_id)){{ Pluralize($listItem->amount + $listItem->amount_autoadded, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name_plural) }}@endif
+					</td>
+					<td class="d-none">
+						@if(!empty(FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->product_group_id)) {{ FindObjectInArrayByPropertyValue($productGroups, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->product_group_id)->name }} @else <span class="font-italic font-weight-light">{{ $L('Ungrouped') }}</span> @endif
 					</td>
 				</tr>
 				@endforeach

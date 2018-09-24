@@ -35,7 +35,7 @@
 					<th>{{ $L('QU purchase') }}</th>
 					<th>{{ $L('QU stock') }}</th>
 					<th>{{ $L('QU factor') }}</th>
-					<th>{{ $L('Description') }}</th>
+					<th>{{ $L('Product group') }}</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -68,7 +68,7 @@
 						{{ $product->qu_factor_purchase_to_stock }}
 					</td>
 					<td>
-						{{ $product->description }}
+						@if(!empty($product->product_group_id)) {{ FindObjectInArrayByPropertyValue($productGroups, 'id', $product->product_group_id)->name }} @endif
 					</td>
 				</tr>
 				@endforeach
