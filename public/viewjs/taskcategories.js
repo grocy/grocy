@@ -1,4 +1,4 @@
-﻿var categoriesTable = $('#task-categories-table').DataTable({
+﻿var categoriesTable = $('#taskcategories-table').DataTable({
 	'paginate': false,
 	'order': [[1, 'asc']],
 	'columnDefs': [

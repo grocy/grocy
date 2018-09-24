@@ -56,20 +56,8 @@
 
 				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Stock overview') }}" data-nav-for-page="stockoverview">
 					<a class="nav-link discrete-link" href="{{ $U('/stockoverview') }}">
-						<i class="fas fa-tachometer-alt"></i>
+						<i class="fas fa-box"></i>
 						<span class="nav-link-text">{{ $L('Stock overview') }}</span>
-					</a>
-				</li>
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Chores overview') }}" data-nav-for-page="choresoverview">
-					<a class="nav-link discrete-link" href="{{ $U('/choresoverview') }}">
-						<i class="fas fa-tachometer-alt"></i>
-						<span class="nav-link-text">{{ $L('Chores overview') }}</span>
-					</a>
-				</li>
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Batteries overview') }}" data-nav-for-page="batteriesoverview">
-					<a class="nav-link discrete-link" href="{{ $U('/batteriesoverview') }}">
-						<i class="fas fa-tachometer-alt"></i>
-						<span class="nav-link-text">{{ $L('Batteries overview') }}</span>
 					</a>
 				</li>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Shopping list') }}" data-nav-for-page="shoppinglist">
@@ -84,13 +72,25 @@
 						<span class="nav-link-text">{{ $L('Recipes') }}</span>
 					</a>
 				</li>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Chores overview') }}" data-nav-for-page="choresoverview">
+					<a class="nav-link discrete-link" href="{{ $U('/choresoverview') }}">
+						<i class="fas fa-home"></i>
+						<span class="nav-link-text">{{ $L('Chores overview') }}</span>
+					</a>
+				</li>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Tasks') }}" data-nav-for-page="tasks">
 					<a class="nav-link discrete-link" href="{{ $U('/tasks') }}">
 						<i class="fas fa-tasks"></i>
 						<span class="nav-link-text">{{ $L('Tasks') }}</span>
 					</a>
 				</li>
-
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Batteries overview') }}" data-nav-for-page="batteriesoverview">
+					<a class="nav-link discrete-link" href="{{ $U('/batteriesoverview') }}">
+						<i class="fas fa-battery-half"></i>
+						<span class="nav-link-text">{{ $L('Batteries overview') }}</span>
+					</a>
+				</li>
+				
 				<li class="nav-item mt-4" data-toggle="tooltip" data-placement="right" title="{{ $L('Purchase') }}" data-nav-for-page="purchase">
 					<a class="nav-link discrete-link" href="{{ $U('/purchase') }}">
 						<i class="fas fa-shopping-cart"></i>
@@ -148,13 +148,13 @@
 						</li>
 						<li data-nav-for-page="chores" data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link" href="{{ $U('/chores') }}">
-								<i class="fas fa-sync-alt"></i>
+								<i class="fas fa-home"></i>
 								<span class="nav-link-text">{{ $L('Chores') }}</span>
 							</a>
 						</li>
 						<li data-nav-for-page="batteries" data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link" href="{{ $U('/batteries') }}">
-								<i class="fas fa-battery-three-quarters"></i>
+								<i class="fas fa-battery-half"></i>
 								<span class="nav-link-text">{{ $L('Batteries') }}</span>
 							</a>
 						</li>
