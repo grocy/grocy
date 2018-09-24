@@ -81,7 +81,7 @@ if (addBarcode !== undefined)
 	$('#barcode-lookup-disabled-hint').removeClass('d-none');
 }
 
-$('#product_id_text_input').on('change', function(e)
+$('#product_id').on('change', function(e)
 {
 	var input = $('#product_id_text_input').val().toString();
 	var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + input + "']").first();
