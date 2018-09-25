@@ -1,6 +1,6 @@
 <?php
 
-# Either "production" or "dev"
+# Either "production", "dev" or "prerelease"
 Setting('MODE', 'production');
 
 # Either "en" or "de" or the filename (without extension) of

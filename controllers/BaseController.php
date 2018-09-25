@@ -17,8 +17,17 @@ class BaseController
 
 		$applicationService = new ApplicationService();
 		$versionInfo = $applicationService->GetInstalledVersion();
-		$container->view->set('version', $versionInfo->Version);
 		$container->view->set('releaseDate', $versionInfo->ReleaseDate);
+
+		if (GROCY_MODE === 'prerelease')
+		{
+			$commitHash = trim(exec('git log --pretty="%h" -n1 HEAD'));
+			$container->view->set('version', "pre-release-$commitHash");
+		}
+		else
+		{
+			$container->view->set('version', $versionInfo->Version);
+		}
 
 		$container->view->set('localizationStrings', $localizationService->GetCurrentCultureLocalizations());
 		$container->view->set('L', function($text, ...$placeholderValues) use($localizationService)
