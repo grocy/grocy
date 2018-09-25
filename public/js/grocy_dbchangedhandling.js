@@ -17,7 +17,7 @@ setInterval(function()
 		function(result)
 		{
 			var newDbChangedTime = moment(result.changed_time);
-			if (newDbChangedTime.isSameOrAfter(Grocy.DatabaseChangedTime))
+			if (newDbChangedTime.isAfter(Grocy.DatabaseChangedTime))
 			{
 				if (Grocy.IdleTime >= 50)
 				{
