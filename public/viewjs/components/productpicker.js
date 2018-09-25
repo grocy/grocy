@@ -84,6 +84,11 @@ if (addBarcode !== undefined)
 
 $('#product_id_text_input').on('blur', function(e)
 {
+	if (Grocy.Components.ProductPicker.GetPicker().hasClass("combobox-menu-visible"))
+	{
+		return;	
+	}
+
 	var input = $('#product_id_text_input').val().toString();
 	var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + input + "']").first();
 	
