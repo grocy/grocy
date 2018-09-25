@@ -66,6 +66,10 @@ $("#search").on("keyup", function()
 $(document).on('click', '.product-consume-button', function(e)
 {
 	e.preventDefault();
+
+	// Remove the focus from the current button
+	// to prevent that the tooltip stays until clicked anywhere else
+	document.activeElement.blur();
 	
 	var productId = $(e.currentTarget).attr('data-product-id');
 	var productName = $(e.currentTarget).attr('data-product-name');

@@ -199,5 +199,5 @@ td {
 
 /* Third party component customizations - Popper.js */
 .tooltip {
-	pointer-events: auto;
+	pointer-events: none;
 }

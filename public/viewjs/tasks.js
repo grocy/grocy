@@ -58,6 +58,10 @@ $(".status-filter-button").on("click", function()
 $(document).on('click', '.do-task-button', function(e)
 {
 	e.preventDefault();
+
+	// Remove the focus from the current button
+	// to prevent that the tooltip stays until clicked anywhere else
+	document.activeElement.blur();
 	
 	var taskId = $(e.currentTarget).attr('data-task-id');
 	var taskName = $(e.currentTarget).attr('data-task-name');
