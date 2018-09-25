@@ -15,18 +15,20 @@ class BaseController
 		$localizationService = new LocalizationService(GROCY_CULTURE);
 		$this->LocalizationService = $localizationService;
 
-		$applicationService = new ApplicationService();
-		$versionInfo = $applicationService->GetInstalledVersion();
-		$container->view->set('releaseDate', $versionInfo->ReleaseDate);
-
 		if (GROCY_MODE === 'prerelease')
 		{
 			$commitHash = trim(exec('git log --pretty="%h" -n1 HEAD'));
+			$commitDate = trim(exec('git log --date=iso --pretty="%cd" -n1 HEAD'));
+			
 			$container->view->set('version', "pre-release-$commitHash");
+			$container->view->set('releaseDate', \substr($commitDate, 0, 19));
 		}
 		else
 		{
+			$applicationService = new ApplicationService();
+			$versionInfo = $applicationService->GetInstalledVersion();
 			$container->view->set('version', $versionInfo->Version);
+			$container->view->set('releaseDate', $versionInfo->ReleaseDate);
 		}
 
 		$container->view->set('localizationStrings', $localizationService->GetCurrentCultureLocalizations());
