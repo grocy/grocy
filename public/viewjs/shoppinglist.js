@@ -13,6 +13,11 @@
 	'stateSaveParams': function(settings, data)
 	{
 		data.search.search = "";
+
+		data.columns.forEach(column =>
+		{
+			column.search.search = "";
+		});
 	},
 	'rowGroup': {
 		dataSrc: 3
