@@ -49,7 +49,7 @@ class ChoresController extends BaseController
 
 	public function ChoreEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		if ($args['choredId'] == 'new')
+		if ($args['choreId'] == 'new')
 		{
 			return $this->AppContainer->view->render($response, 'choreform', [
 				'periodTypes' => GetClassConstants('\Grocy\Services\ChoresService'),
