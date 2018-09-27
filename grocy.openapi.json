@@ -390,6 +390,66 @@
 				}
 			}
 		},
+		"/files/upload/{group}": {
+			"post": {
+				"description": "Uploads a single file to /data/storage/{group}/{file_name}",
+				"tags": [
+					"Files"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "group",
+						"required": true,
+						"description": "The file group",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "file_name",
+						"required": true,
+						"description": "The file name (including extension)",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/octet-stream": {
+							"schema": {
+								"type": "string",
+								"format": "binary"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/users/get": {
 			"get": {
 				"description": "Returns all users",

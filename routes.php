@@ -82,6 +82,9 @@ $app->group('/api', function()
 	// System
 	$this->get('/system/get-db-changed-time', '\Grocy\Controllers\SystemApiController:GetDbChangedTime');
 
+	// Files
+	$this->post('/files/upload/{group}', '\Grocy\Controllers\FilesApiController:Upload');
+
 	// Users
 	$this->get('/users/get', '\Grocy\Controllers\UsersApiController:GetUsers');
 	$this->post('/users/create', '\Grocy\Controllers\UsersApiController:CreateUser');

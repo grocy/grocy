@@ -178,3 +178,13 @@ function Pluralize($number, $singularForm, $pluralForm)
 	}
 	return $text;
 }
+
+function IsValidFileName($fileName)
+{
+	if(preg_match('#^[a-z0-9]+\.[a-z]+?$#i', $fileName))
+	{
+		return true;
+	}
+
+	return false;
+}
