@@ -42,7 +42,7 @@
 				'shortcutLabel' => 'Never expires'
 			))
 
-			<button id="save-inventory-button" type="submit" class="btn btn-success">{{ $L('OK') }}</button>
+			<button id="save-inventory-button" class="btn btn-success">{{ $L('OK') }}</button>
 
 		</form>
 	</div>

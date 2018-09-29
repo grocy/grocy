@@ -49,7 +49,7 @@
 				'isRequired' => false
 			))
 
-			<button id="save-purchase-button" type="submit" class="btn btn-success">{{ $L('OK') }}</button>
+			<button id="save-purchase-button" class="btn btn-success">{{ $L('OK') }}</button>
 
 		</form>
 	</div>

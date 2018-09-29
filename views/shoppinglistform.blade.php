@@ -42,7 +42,7 @@
 				<textarea class="form-control" rows="2" id="note" name="note">@if($mode == 'edit'){{ $listItem->note }}@endif</textarea>
 			</div>
 
-			<button id="save-shoppinglist-button" type="submit" class="btn btn-success">{{ $L('Save') }}</button>
+			<button id="save-shoppinglist-button" class="btn btn-success">{{ $L('Save') }}</button>
 
 		</form>
 	</div>

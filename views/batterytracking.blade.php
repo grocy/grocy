@@ -32,7 +32,7 @@
 				'invalidFeedback' => $L('This can only be before now')
 			))
 
-			<button id="save-batterytracking-button" type="submit" class="btn btn-success">{{ $L('OK') }}</button>
+			<button id="save-batterytracking-button" class="btn btn-success">{{ $L('OK') }}</button>
 
 		</form>
 	</div>

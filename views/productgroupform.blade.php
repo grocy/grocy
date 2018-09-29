@@ -32,7 +32,7 @@
 				<textarea class="form-control" rows="2" id="description" name="description">@if($mode == 'edit'){{ $group->description }}@endif</textarea>
 			</div>
 
-			<button id="save-product-group-button" type="submit" class="btn btn-success">{{ $L('Save') }}</button>
+			<button id="save-product-group-button" class="btn btn-success">{{ $L('Save') }}</button>
 
 		</form>
 	</div>

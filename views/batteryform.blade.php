@@ -47,7 +47,7 @@
 				'invalidFeedback' => $L('This cannot be negative')
 			))
 
-			<button id="save-battery-button" type="submit" class="btn btn-success">{{ $L('Save') }}</button>
+			<button id="save-battery-button" class="btn btn-success">{{ $L('Save') }}</button>
 
 		</form>
 	</div>

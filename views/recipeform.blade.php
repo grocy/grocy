@@ -36,7 +36,7 @@
 				<textarea id="description" class="form-control" name="description" rows="25">@if($mode == 'edit'){{ $recipe->description }}@endif</textarea>
 			</div>
 
-			<button id="save-recipe-button" type="submit" class="btn btn-success">{{ $L('Save') }}</button>
+			<button id="save-recipe-button" class="btn btn-success">{{ $L('Save') }}</button>
 
 		</form>
 	</div>

@@ -29,7 +29,7 @@
 				</label>
 			</div>
 
-			<button id="login-button" type="submit" class="btn btn-success">{{ $L('OK') }}</button>
+			<button id="login-button" class="btn btn-success">{{ $L('OK') }}</button>
 
 		</form>
 	</div>

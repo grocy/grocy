@@ -48,7 +48,7 @@
 				<div class="invalid-feedback">{{ $L('Passwords do not match') }}</div>
 			</div>
 
-			<button id="save-user-button" type="submit" class="btn btn-success">{{ $L('Save') }}</button>
+			<button id="save-user-button" class="btn btn-success">{{ $L('Save') }}</button>
 
 		</form>
 	</div>

@@ -39,7 +39,7 @@
 				'prefillByUserId' => GROCY_USER_ID
 			))
 
-			<button id="save-choretracking-button" type="submit" class="btn btn-success">{{ $L('OK') }}</button>
+			<button id="save-choretracking-button" class="btn btn-success">{{ $L('OK') }}</button>
 
 		</form>
 	</div>

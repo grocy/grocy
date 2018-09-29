@@ -32,7 +32,7 @@
 				<textarea class="form-control" rows="2" id="description" name="description">@if($mode == 'edit'){{ $category->description }}@endif</textarea>
 			</div>
 
-			<button id="save-task-category-button" type="submit" class="btn btn-success">{{ $L('Save') }}</button>
+			<button id="save-task-category-button" class="btn btn-success">{{ $L('Save') }}</button>
 
 		</form>
 	</div>

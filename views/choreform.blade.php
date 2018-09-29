@@ -53,7 +53,7 @@
 				'additionalHtmlElements' => '<p id="chore-period-type-info" class="form-text text-muted small d-none"></p>'
 			))
 
-			<button id="save-chore-button" type="submit" class="btn btn-success">{{ $L('Save') }}</button>
+			<button id="save-chore-button" class="btn btn-success">{{ $L('Save') }}</button>
 
 		</form>
 	</div>

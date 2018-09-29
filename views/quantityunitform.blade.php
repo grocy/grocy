@@ -37,7 +37,7 @@
 				<textarea class="form-control" rows="2" id="description" name="description">@if($mode == 'edit'){{ $quantityunit->description }}@endif</textarea>
 			</div>
 
-			<button id="save-quantityunit-button" type="submit" class="btn btn-success">{{ $L('Save') }}</button>
+			<button id="save-quantityunit-button" class="btn btn-success">{{ $L('Save') }}</button>
 
 		</form>
 	</div>

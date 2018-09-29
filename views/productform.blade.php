@@ -108,7 +108,7 @@
 				'additionalHtmlElements' => '<p id="qu-conversion-info" class="form-text text-muted small d-none"></p>'
 			))
 
-			<button id="save-product-button" type="submit" class="btn btn-success">{{ $L('Save') }}</button>
+			<button id="save-product-button" class="btn btn-success">{{ $L('Save') }}</button>
 		</form>
 	</div>
 </div>

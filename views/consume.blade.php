@@ -32,7 +32,7 @@
 				</label>
 			</div>
 
-			<button id="save-consume-button" type="submit" class="btn btn-success">{{ $L('OK') }}</button>
+			<button id="save-consume-button" class="btn btn-success">{{ $L('OK') }}</button>
 
 		</form>
 	</div>

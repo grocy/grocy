@@ -73,7 +73,7 @@
 				<textarea class="form-control" rows="2" id="note" name="note">@if($mode == 'edit'){{ $recipePos->note }}@endif</textarea>
 			</div>
 
-			<button id="save-recipe-pos-button" type="submit" class="btn btn-success">{{ $L('Save') }}</button>
+			<button id="save-recipe-pos-button" class="btn btn-success">{{ $L('Save') }}</button>
 
 		</form>
 	</div>

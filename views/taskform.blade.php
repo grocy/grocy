@@ -76,7 +76,7 @@
 				'prefillByUserId' => $initUserId
 			))
 
-			<button id="save-task-button" type="submit" class="btn btn-success">{{ $L('Save') }}</button>
+			<button id="save-task-button" class="btn btn-success">{{ $L('Save') }}</button>
 
 		</form>
 	</div>
