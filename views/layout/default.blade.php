@@ -26,6 +26,7 @@
 	<link href="{{ $U('/node_modules/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/components_unmanaged/noto-sans-v6-latin/noto-sans-v6-latin.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/css/grocy.css?v=', true) }}{{ $version }}" rel="stylesheet">
+	<link href="{{ $U('/css/grocy_night_mode.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	@stack('pageStyles')
 
 	@if(file_exists(GROCY_DATAPATH . '/custom_css.html'))
@@ -190,6 +191,15 @@
 					<div class="dropdown-menu dropdown-menu-right">
 						<a class="dropdown-item logout-button discrete-link" href="{{ $U('/logout') }}"><i class="fas fa-sign-out-alt"></i>&nbsp;{{ $L('Logout') }}</a>
 						<div class="dropdown-divider"></div>
+						<div class="dropdown-item">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="night-mode-enabled">
+								<label class="form-check-label" for="night-mode-enabled">
+									{{ $L('Enable night mode') }}
+								</label>
+							</div>
+						</div>
+						<div class="dropdown-divider"></div>
 						<a class="dropdown-item logout-button discrete-link" href="{{ $U('/user/' . GROCY_USER_ID . '?changepw=true') }}"><i class="fas fa-key"></i>&nbsp;{{ $L('Change password') }}</a>
 					</div>
 				</li>
@@ -270,6 +280,7 @@
 	<script src="{{ $U('/js/extensions.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy_dbchangedhandling.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/js/grocy_nightmode.js?v=', true) }}{{ $version }}"></script>
 	@stack('pageScripts')
 	@stack('componentScripts')
 	<script src="{{ $U('/viewjs', true) }}/@yield('viewJsName').js?v={{ $version }}"></script>
