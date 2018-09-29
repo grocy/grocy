@@ -1,4 +1,4 @@
-﻿.night-mode body {
+﻿body.night-mode {
 	color: #c1c1c1;
 }
 
@@ -8,28 +8,39 @@
 	background-color: #07373f;
 }
 
+.night-mode .btn,
+.night-mode .nav-link,
+.night-mode #mainNav.navbar-light .navbar-collapse .navbar-nav > .nav-item.dropdown > .nav-link::after,
+.night-mode .dropdown-item {
+	color: #c1c1c1 !important;
+}
+
+.night-mode .btn-outline-dark {
+	border-color: #c1c1c1;
+}
+
 .night-mode .btn-info {
-	color:#c1c1c1;
-	background-color:#07373f;
-	border-color:#07373f;
+	color: #c1c1c1;
+	background-color: #07373f;
+	border-color: #07373f;
 }
 
 .night-mode .btn-warning {
-	color:#c1c1c1;
-	background-color:#473604;
-	border-color:#473604;
+	color: #c1c1c1;
+	background-color: #473604;
+	border-color: #473604;
 }
 
 .night-mode .btn-danger {
-	color:#c1c1c1;
-	background-color:#471116;
-	border-color:#471116;
+	color: #c1c1c1;
+	background-color: #471116;
+	border-color: #471116;
 }
 
 .night-mode .btn-success {
-	color:#c1c1c1;
-	background-color:#0d3a18;
-	border-color:#0d3a18;
+	color: #c1c1c1;
+	background-color: #0d3a18;
+	border-color: #0d3a18;
 }
 
 .night-mode .form-control {
@@ -159,6 +170,7 @@
 .night-mode .navbar-nav .dropdown-item:hover {
 	box-shadow: inset 5px 0 0 #112a3f !important;
 	background-color: #383838 !important;
+	color: #c1c1c1 !important;
 }
 
 .night-mode .navbar-sidenav > li > a:focus,
@@ -166,6 +178,7 @@
 .night-mode .navbar-nav .dropdown-item:focus {
 	box-shadow: inset 5px 0 0 #350a0f !important;
 	background-color: #383838 !important;
+	color: #c1c1c1 !important;
 }
 
 .night-mode .active-page {
@@ -174,11 +187,11 @@
 }
 
 .night-mode .toast-success {
-		background-color: #092810;
+	background-color: #092810;
 }
 
 .night-mode .toast-error {
-background-color: #471015;
+	background-color: #471015;
 }
 
 .night-mode .typeahead .active {
