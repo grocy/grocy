@@ -231,6 +231,12 @@
 								<input type="text" class="form-control my-1 user-setting-control" readonly id="auto-night-mode-time-range-from" placeholder="{{ $L('From') }} ({{ $L('in format') }} HH:mm)" data-setting-key="auto_night_mode_time_range_from">
 								<input type="text" class="form-control user-setting-control" readonly id="auto-night-mode-time-range-to" placeholder="{{ $L('To') }} ({{ $L('in format') }} HH:mm)" data-setting-key="auto_night_mode_time_range_to">
 							</div>
+							<div class="form-check mt-1">
+								<input class="form-check-input user-setting-control" type="checkbox" id="auto-night-mode-time-range-goes-over-midgnight" data-setting-key="auto_night_mode_time_range_goes_over_midnight">
+								<label class="form-check-label" for="auto-night-mode-time-range-goes-over-midgnight">
+									{{ $L('Time range goes over midnight') }}
+								</label>
+							</div>
 						</div>
 					</div>
 				</li>

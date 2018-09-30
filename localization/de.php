@@ -249,6 +249,14 @@ return array(
 	'Already expired' => 'Bereits abgelaufen',
 	'Due soon' => 'Bald fällig',
 	'Overdue' => 'Überfällig',
+	'View settings' => 'xxx',
+	'Auto reload on external changes' => 'Autom. akt. bei externen Änderungen',
+	'Enable night mode' => 'Nachtmodus aktivieren',
+	'Auto enable in time range' => 'Autom. akt. in diesem Zeitraum',
+	'From' => 'Von',
+	'in format' => 'im Format',
+	'To' => 'Bis',
+	'Time range goes over midnight' => 'Zeitraum geht über Mitternacht',
 	
 	//Constants
 	'manually' => 'Manuell',

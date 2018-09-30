@@ -36,6 +36,7 @@ DefaultUserSetting('night_mode_enabled', false); // If night mode is enabled alw
 DefaultUserSetting('auto_night_mode_enabled', false); // If night mode is enabled automatically when inside a given time range (see the two settings below)
 DefaultUserSetting('auto_night_mode_time_range_from', "20:00"); // Format HH:mm
 DefaultUserSetting('auto_night_mode_time_range_to', "07:00"); // Format HH:mm
+DefaultUserSetting('auto_night_mode_time_range_goes_over_midnight', true); // If the time range above goes over midnight
 
 # If the page should be automatically reloaded when there was
 # an external change
