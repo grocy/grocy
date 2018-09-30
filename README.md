@@ -6,7 +6,7 @@ ERP beyond your fridge
 - Public demo of the latest pre-release version (current master branch) &rarr; [https://demo-prerelease.grocy.info](https://demo-prerelease.grocy.info)
 
 ## Motivation
-A household needs to be managed. I did this so far (almost 10 years) with my first self written software (a C# windows forms application) and with a bunch of Excel sheets. The software is a pain to use and Excel is Excel. So I searched for and tried different things for a (very) long time, nothing 100 % fitted, so this is my aim for a "complete houshold management"-thing. ERP your fridge!
+A household needs to be managed. I did this so far (almost 10 years) with my first self written software (a C# windows forms application) and with a bunch of Excel sheets. The software is a pain to use and Excel is Excel. So I searched for and tried different things for a (very) long time, nothing 100 % fitted, so this is my aim for a "complete household management"-thing. ERP your fridge!
 
 ## How to install
 > **NEW**
@@ -22,6 +22,16 @@ Alternatively clone this repository and install Composer and Yarn dependencies m
 If you use nginx as your webserver, please include `try_files $uri /index.php;` in your location block.
 
 If, however, your webserver does not support URL rewriting, set `DISABLE_URL_REWRITING` in `data/config.php` (`Setting('DISABLE_URL_REWRITING', true);`).
+
+## How to run using Docker
+
+The docker images build are based on [Alpine](https://hub.docker.com/_/alpine/), with an extremelly low footprint (less than 10 MB for nginx, and less than 70MB for grocy with php-fm. That number is eventually bumped up to 353MB after all the dependencies are downloaded, however). Anyhow, to run using docker just do the following:
+
+```
+> docker-compose up
+```
+
+And grocy should be accessible via `http(s)://localhost/`. The https option will work. However, since the certificate is self-signed, most browsers will complain.
 
 ## How to update
 Just overwrite everything with the latest release while keeping the `data` directory, check `config-dist.php` for new configuration options and add them to your `data/config.php` (the default from values `config-dist.php` will be used for not in `data/config.php` defined settings). Just to be sure, please empty `data/viewcache`.
