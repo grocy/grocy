@@ -73,7 +73,9 @@ class UsersService extends BaseService
 			$settings[$settingRow->key] = $settingRow->value;
 		}
 
-		return $settings;
+		// Use the configured default values for all missing settings
+		global $GROCY_DEFAULT_USER_SETTINGS;
+		return array_merge($GROCY_DEFAULT_USER_SETTINGS, $settings);
 	}
 
 	public function SetUserSetting($userId, $settingKey, $settingValue)

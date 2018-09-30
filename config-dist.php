@@ -25,3 +25,18 @@ Setting('STOCK_BARCODE_LOOKUP_PLUGIN', 'DemoBarcodeLookupPlugin');
 # If, however, your webserver does not support URL rewriting,
 # set this to true
 Setting('DISABLE_URL_REWRITING', false);
+
+
+# Default user settings
+# These settings can be changed per user, here the defaults
+# are defined which are used when the user has not changed the setting so far
+
+# Night mode related
+DefaultUserSetting('night_mode_enabled', false); // If night mode is enabled always
+DefaultUserSetting('auto_night_mode_enabled', false); // If night mode is enabled automatically when inside a given time range (see the two settings below)
+DefaultUserSetting('auto_night_mode_time_range_from', "20:00"); // Format HH:mm
+DefaultUserSetting('auto_night_mode_time_range_to', "07:00"); // Format HH:mm
+
+# If the page should be automatically reloaded when there was
+# an external change
+DefaultUserSetting('auto_reload_on_db_change', true);

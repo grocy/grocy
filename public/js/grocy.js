@@ -14,7 +14,7 @@
 				},
 				function(xhr)
 				{
-					console.log(xhr)
+					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 				}
 			);
 		}
@@ -215,4 +215,36 @@ $("form").on("keyup paste", "input, textarea", function()
 $("form").on("click", "select", function()
 {
 	$(this).closest("form").addClass("is-dirty");
+});
+
+// Auto saving user setting controls
+$(".user-setting-control").on("change", function()
+{
+	var element = $(this);
+	var inputType = element.attr("type").toLowerCase();
+	var settingKey = element.attr("data-setting-key");
+	
+	if (inputType === "checkbox")
+	{
+		value = element.is(":checked");
+	}
+	else
+	{
+		var value = element.val();
+	}
+	
+	Grocy.UserSettings[settingKey] = value;
+	
+	jsonData = { };
+	jsonData.value = value;
+	Grocy.Api.Post('user/settings/' + settingKey, jsonData,
+		function(result)
+		{
+			// Nothing to do...
+		},
+		function(xhr)
+		{
+			Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+		}
+	);
 });

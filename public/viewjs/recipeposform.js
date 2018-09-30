@@ -4,7 +4,6 @@
 
 	var jsonData = $('#recipe-pos-form').serializeJSON({ checkboxUncheckedValue: "0" });
 	jsonData.recipe_id = Grocy.EditObjectParentId;
-	console.log(jsonData);
 	if (Grocy.EditMode === 'create')
 	{
 		Grocy.Api.Post('add-object/recipes_pos', jsonData,

@@ -22,7 +22,7 @@ setInterval(function()
 			{
 				if (Grocy.IdleTime >= 50)
 				{
-					if (Grocy.AutoReloadOnDatabaseChangeEnabled && $("form.is-dirty").length === 0)
+					if (BoolVal(Grocy.UserSettings.auto_reload_on_db_change) && $("form.is-dirty").length === 0)
 					{
 						window.location.reload();
 					}
@@ -56,27 +56,7 @@ setInterval(function()
 	Grocy.IdleTime += 1;
 }, 1000);
 
-$("#auto-reload-enabled").on("change", function()
-{
-	var value = $(this).is(":checked");
-	
-	Grocy.AutoReloadOnDatabaseChangeEnabled = value;
-
-	jsonData = { };
-	jsonData.value = value;
-	Grocy.Api.Post('user/settings/auto_reload_on_db_change', jsonData,
-		function(result)
-		{
-			// Nothing to do...
-		},
-		function(xhr)
-		{
-			Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-		}
-	);
-});
-
-if (Grocy.AutoReloadOnDatabaseChangeEnabled)
+if (BoolVal(Grocy.UserSettings.auto_reload_on_db_change))
 {
 	$("#auto-reload-enabled").prop("checked", true);
 }

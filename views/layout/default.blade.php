@@ -42,30 +42,11 @@
 		Grocy.ActiveNav = '@yield('activeNav', '')';
 		Grocy.Culture = '{{ GROCY_CULTURE }}';
 		Grocy.Currency = '{{ GROCY_CURRENCY }}';
-
-		@if(array_key_exists('auto_reload_on_db_change', $userSettings))
-			Grocy.AutoReloadOnDatabaseChangeEnabled = {{ BoolToString($userSettings['auto_reload_on_db_change']) }};
-		@else
-			Grocy.AutoReloadOnDatabaseChangeEnabled = true;
-		@endif
-
-		@if(array_key_exists('night_mode_enabled', $userSettings))
-			@php $nightModeEnabled = boolval($userSettings['night_mode_enabled']); @endphp
-			Grocy.NightModeEnabled = {{ BoolToString($userSettings['night_mode_enabled']) }};
-		@else
-			@php $nightModeEnabled = false; @endphp
-			Grocy.NightModeEnabled = false;
-		@endif
-
-		@if(array_key_exists('auto_night_mode_enabled', $userSettings))
-			Grocy.AutoNightModeEnabled = {{ BoolToString($userSettings['auto_night_mode_enabled']) }};
-		@else
-			Grocy.AutoNightModeEnabled = false;
-		@endif
+		Grocy.UserSettings = {!! json_encode($userSettings) !!};
 	</script>
 </head>
 
-<body class="fixed-nav @if($nightModeEnabled == true) night-mode @endif">
+<body class="fixed-nav @if(boolval($userSettings['night_mode_enabled'])) night-mode @endif">
 	<nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
 		<a class="navbar-brand py-0" href="{{ $U('/') }}"><img src="{{ $U('/img/grocy_logo.svg?v=', true) }}{{ $version }}" height="30"></a>
 		
@@ -224,7 +205,7 @@
 					<div class="dropdown-menu dropdown-menu-right">
 						<div class="dropdown-item">
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" id="auto-reload-enabled">
+								<input class="form-check-input user-setting-control" type="checkbox" id="auto-reload-enabled" data-setting-key="auto_reload_on_db_change">
 								<label class="form-check-label" for="auto-reload-enabled">
 									{{ $L('Auto reload on external changes') }}
 								</label>
@@ -233,7 +214,7 @@
 						<div class="dropdown-divider"></div>
 						<div class="dropdown-item">
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" id="night-mode-enabled">
+								<input class="form-check-input user-setting-control" type="checkbox" id="night-mode-enabled" data-setting-key="night_mode_enabled">
 								<label class="form-check-label" for="night-mode-enabled">
 									{{ $L('Enable night mode') }}
 								</label>
@@ -241,14 +222,14 @@
 						</div>
 						<div class="dropdown-item">
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" id="auto-night-mode-enabled">
+								<input class="form-check-input user-setting-control" type="checkbox" id="auto-night-mode-enabled" data-setting-key="auto_night_mode_enabled">
 								<label class="form-check-label" for="auto-night-mode-enabled">
 									{{ $L('Auto enable in time range') }}
 								</label>
 							</div>
 							<div class="form-inline">
-								<input type="text" class="form-control my-1" readonly id="auto-night-mode-time-range-from" placeholder="{{ $L('From') }} ({{ $L('in format') }} HH:mm)">
-								<input type="text" class="form-control" readonly id="auto-night-mode-time-range-to" placeholder="{{ $L('To') }} ({{ $L('in format') }} HH:mm)">
+								<input type="text" class="form-control my-1 user-setting-control" readonly id="auto-night-mode-time-range-from" placeholder="{{ $L('From') }} ({{ $L('in format') }} HH:mm)" data-setting-key="auto_night_mode_time_range_from">
+								<input type="text" class="form-control user-setting-control" readonly id="auto-night-mode-time-range-to" placeholder="{{ $L('To') }} ({{ $L('in format') }} HH:mm)" data-setting-key="auto_night_mode_time_range_to">
 							</div>
 						</div>
 					</div>
