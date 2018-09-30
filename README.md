@@ -23,6 +23,15 @@ If you use nginx as your webserver, please include `try_files $uri /index.php;` 
 
 If, however, your webserver does not support URL rewriting, set `DISABLE_URL_REWRITING` in `data/config.php` (`Setting('DISABLE_URL_REWRITING', true);`).
 
+## How to run using Docker
+
+```
+> docker-compose build
+> docker-compose up
+```
+
+And grocy should be accessible via `http(s)://localhost/`.
+
 ## How to update
 Just overwrite everything with the latest release while keeping the `data` directory, check `config-dist.php` for new configuration options and add them to your `data/config.php` (the default from values `config-dist.php` will be used for not in `data/config.php` defined settings). Just to be sure, please empty `data/viewcache`.
 
