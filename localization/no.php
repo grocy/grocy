@@ -249,7 +249,15 @@ return array(
 	'Already expired' => 'Utgått på dato',
 	'Due soon' => 'Forfaller snart',
 	'Overdue' => 'Forfalt',
-	
+	'View settings' => 'xxx',
+	'Auto reload on external changes' => 'Automatisk fornying ved ekstern endring',
+	'Enable night mode' => 'Aktiver nattmodus',
+	'Auto enable in time range' => 'Automatisk aktivering i tidsrommet',
+	'From' => 'Fra',
+	'in format' => 'format',
+	'To' => 'Til',
+	'Time range goes over midnight' => 'Tidsrommet går over midnatt',
+		
 	//Constants
 	'manually' => 'Manuel',
 	'dynamic-regular' => 'Automatisk',
