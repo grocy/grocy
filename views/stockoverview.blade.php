@@ -58,16 +58,16 @@
 			</thead>
 			<tbody>
 				@foreach($currentStock as $currentStockEntry) 
-				<tr id="product-{{ $currentStockEntry->product_id }}-row" class="@if($currentStockEntry->best_before_date < date('Y-m-d', strtotime('-1 days'))) table-danger @elseif($currentStockEntry->best_before_date < date('Y-m-d', strtotime("+$nextXDays days"))) table-warning @elseif (FindObjectInArrayByPropertyValue($missingProducts, 'id', $currentStockEntry->product_id) !== null) table-info @endif">
+				<tr id="product-{{ $currentStockEntry->product_id }}-row" class="@if($currentStockEntry->best_before_date < date('Y-m-d', strtotime('-1 days')) && $currentStockEntry->amount > 0) table-danger @elseif($currentStockEntry->best_before_date < date('Y-m-d', strtotime("+$nextXDays days")) && $currentStockEntry->amount > 0) table-warning @elseif (FindObjectInArrayByPropertyValue($missingProducts, 'id', $currentStockEntry->product_id) !== null) table-info @endif">
 					<td class="fit-content">
-						<a class="btn btn-success btn-sm product-consume-button" href="#" data-toggle="tooltip" data-placement="left" title="{{ $L('Consume #3 #1 of #2', FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name, 1) }}"
+						<a class="btn btn-success btn-sm product-consume-button @if($currentStockEntry->amount == 0) disabled @endif" href="#" data-toggle="tooltip" data-placement="left" title="{{ $L('Consume #3 #1 of #2', FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name, 1) }}"
 							data-product-id="{{ $currentStockEntry->product_id }}"
 							data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}"
 							data-product-qu-name="{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name }}"
 							data-consume-amount="1">
 							<i class="fas fa-utensils"></i> 1
 						</a>
-						<a id="product-{{ $currentStockEntry->product_id }}-consume-all-button" class="btn btn-danger btn-sm product-consume-button" href="#" data-toggle="tooltip" data-placement="right" title="{{ $L('Consume all #1 which are currently in stock', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name) }}"
+						<a id="product-{{ $currentStockEntry->product_id }}-consume-all-button" class="btn btn-danger btn-sm product-consume-button @if($currentStockEntry->amount == 0) disabled @endif" href="#" data-toggle="tooltip" data-placement="right" title="{{ $L('Consume all #1 which are currently in stock', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name) }}"
 							data-product-id="{{ $currentStockEntry->product_id }}"
 							data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}"
 							data-product-qu-name="{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name }}"
@@ -89,7 +89,7 @@
 						{{ FindObjectInArrayByPropertyValue($locations, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->location_id)->name }}
 					</td>
 					<td class="d-none">
-						@if($currentStockEntry->best_before_date < date('Y-m-d', strtotime('-1 days'))) expired @elseif($currentStockEntry->best_before_date < date('Y-m-d', strtotime("+$nextXDays days"))) expiring @elseif (FindObjectInArrayByPropertyValue($missingProducts, 'id', $currentStockEntry->product_id) !== null) belowminstockamount @endif
+						@if($currentStockEntry->best_before_date < date('Y-m-d', strtotime('-1 days')) && $currentStockEntry->amount > 0) expired @elseif($currentStockEntry->best_before_date < date('Y-m-d', strtotime("+$nextXDays days")) && $currentStockEntry->amount > 0) expiring @elseif (FindObjectInArrayByPropertyValue($missingProducts, 'id', $currentStockEntry->product_id) !== null) belowminstockamount @endif
 					</td>
 				</tr>
 				@endforeach
