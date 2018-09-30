@@ -617,6 +617,97 @@
 				}
 			}
 		},
+		"/user/settings/{settingKey}": {
+			"get": {
+				"description": "Gets the given setting of the currently logged on user",
+				"tags": [
+					"User settings"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "settingKey",
+						"required": true,
+						"description": "The key of the user setting",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A UserSetting object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UserSetting"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"description": "Sets the given setting of the currently logged on user",
+				"tags": [
+					"User settings"
+				],
+				"requestBody": {
+					"description": "A valid UserSetting object",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/UserSetting"
+							}
+						}
+					}
+				},
+				"parameters": [
+					{
+						"in": "path",
+						"name": "settingKey",
+						"required": true,
+						"description": "The key of the user setting",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/stock/add-product/{productId}/{amount}": {
 			"get": {
 				"description": "Adds the the given amount of the given product to stock",
@@ -2096,6 +2187,14 @@
 					"changed_time": {
 						"type": "string",
 						"format": "date-time"
+					}
+				}
+			},
+			"UserSetting": {
+				"type": "object",
+				"properties": {
+					"value": {
+						"type": "string"
 					}
 				}
 			}

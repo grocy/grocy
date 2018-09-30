@@ -91,6 +91,10 @@ $app->group('/api', function()
 	$this->post('/users/edit/{userId}', '\Grocy\Controllers\UsersApiController:EditUser');
 	$this->get('/users/delete/{userId}', '\Grocy\Controllers\UsersApiController:DeleteUser');
 
+	// User
+	$this->get('/user/settings/{settingKey}', '\Grocy\Controllers\UsersApiController:GetUserSetting');
+	$this->post('/user/settings/{settingKey}', '\Grocy\Controllers\UsersApiController:SetUserSetting');
+
 	// Stock
 	$this->get('/stock/add-product/{productId}/{amount}', '\Grocy\Controllers\StockApiController:AddProduct');
 	$this->get('/stock/consume-product/{productId}/{amount}', '\Grocy\Controllers\StockApiController:ConsumeProduct');
