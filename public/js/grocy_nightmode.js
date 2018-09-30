@@ -1,7 +1,20 @@
 ﻿$("#night-mode-enabled").on("change", function()
 {
 	var value = $(this).is(":checked");
-	window.localStorage.setItem("night_mode", value);
+	
+	jsonData = { };
+	jsonData.value = value;
+	console.log(jsonData);
+	Grocy.Api.Post('user/settings/night_mode_enabled', jsonData,
+		function(result)
+		{
+			// Nothing to do...
+		},
+		function(xhr)
+		{
+			Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+		}
+	);
 
 	if (value)
 	{
@@ -13,8 +26,7 @@
 	}
 });
 
-if (window.localStorage.getItem("night_mode") === "true")
+if (Grocy.NightModeEnabled)
 {
-	$("body").addClass("night-mode");
 	$("#night-mode-enabled").prop("checked", true);
 }

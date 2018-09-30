@@ -47,10 +47,18 @@
 		@else
 			Grocy.AutoReloadOnDatabaseChangeEnabled = true;
 		@endif
+
+		@if(array_key_exists('night_mode_enabled', $userSettings))
+			@php $nightModeEnabled = boolval($userSettings['night_mode_enabled']); @endphp
+			Grocy.NightModeEnabled = {{ BoolToString($userSettings['night_mode_enabled']) }};
+		@else
+			@php $nightModeEnabled = false; @endphp
+			Grocy.NightModeEnabled = false;
+		@endif
 	</script>
 </head>
 
-<body class="fixed-nav">
+<body class="fixed-nav @if($nightModeEnabled == true) night-mode @endif">
 	<nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
 		<a class="navbar-brand py-0" href="{{ $U('/') }}"><img src="{{ $U('/img/grocy_logo.svg?v=', true) }}{{ $version }}" height="30"></a>
 		
