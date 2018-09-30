@@ -1,0 +1,32 @@
+FROM php:7.0-fpm-alpine
+MAINTAINER Talmai Oliveira <to@talm.ai>
+
+RUN	apk update && \
+	apk upgrade && \
+	mkdir /www && \
+    # Set environments
+	sed -i "s|;*daemonize\s*=\s*yes|daemonize = no|g" /usr/local/etc/php-fpm.conf && \
+	sed -i "s|;*listen\s*=\s*127.0.0.1:9000|listen = 9000|g" /usr/local/etc/php-fpm.conf && \
+	sed -i "s|;*listen\s*=\s*/||g" /usr/local/etc/php-fpm.conf && \
+#	sed -i "s|;*log_level\s*=\s*notice|log_level = debug|g" /usr/local/etc/php-fpm.conf && \
+	sed -i "s|;*chdir\s*=\s*/var/www|chdir = /www|g" /usr/local/etc/php-fpm.d/www.conf && \
+#	sed -i "s|;*access.log\s*=\s*log/\$pool.access.log|access.log = \$pool.access.log|g" /usr/local/etc/php-fpm.d/www.conf && \
+#	sed -i "s|;*pm.status_path\s*=\s*/status|pm.status_path = /status|g" /usr/local/etc/php-fpm.d/www.conf && \
+#	sed -i "s|;*memory_limit =.*|memory_limit = ${PHP_MEMORY_LIMIT}|i" /usr/local/etc/php.ini && \
+#    sed -i "s|;*upload_max_filesize =.*|upload_max_filesize = ${MAX_UPLOAD}|i" /usr/local/etc/php.ini && \
+#    sed -i "s|;*max_file_uploads =.*|max_file_uploads = ${PHP_MAX_FILE_UPLOAD}|i" /usr/local/etc/php.ini && \
+#    sed -i "s|;*post_max_size =.*|post_max_size = ${PHP_MAX_POST}|i" /usr/local/etc/php.ini && \
+#    sed -i "s|;*cgi.fix_pathinfo=.*|cgi.fix_pathinfo= 0|i" /usr/local/etc/php.ini && \
+    # Cleaning up
+	rm -rf /var/cache/apk/*
+
+COPY info.php /www/
+
+# Set Workdir
+WORKDIR /www
+
+# Expose volumes
+VOLUME ["/www"]
+
+# Expose ports
+EXPOSE 9000
