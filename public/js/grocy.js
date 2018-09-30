@@ -3,6 +3,22 @@
 	var localizedText = Grocy.LocalizationStrings[text];
 	if (localizedText === undefined)
 	{
+		if (Grocy.Mode === 'dev')
+		{
+			jsonData = {};
+			jsonData.text = text;
+			Grocy.Api.Post('system/log-missing-localization', jsonData,
+				function(result)
+				{
+					// Nothing to do...
+				},
+				function(xhr)
+				{
+					console.log(xhr)
+				}
+			);
+		}
+
 		localizedText = text;
 	}
 	

@@ -44,6 +44,47 @@
 				}
 			}
 		},
+		"/system/log-missing-localization": {
+			"post": {
+				"description": "Logs a missing localization string (only when MODE == 'dev', so should only be called then)",
+				"tags": [
+					"System"
+				],
+				"requestBody": {
+					"description": "A valid MissingLocalizationRequest object",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/MissingLocalizationRequest"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/get-objects/{entity}": {
 			"get": {
 				"description": "Returns all objects of the given entity",
@@ -2194,6 +2235,14 @@
 				"type": "object",
 				"properties": {
 					"value": {
+						"type": "string"
+					}
+				}
+			},
+			"MissingLocalizationRequest": {
+				"type": "object",
+				"properties": {
+					"text": {
 						"type": "string"
 					}
 				}

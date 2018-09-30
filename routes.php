@@ -81,6 +81,7 @@ $app->group('/api', function()
 
 	// System
 	$this->get('/system/get-db-changed-time', '\Grocy\Controllers\SystemApiController:GetDbChangedTime');
+	$this->post('/system/log-missing-localization', '\Grocy\Controllers\SystemApiController:LogMissingLocalization');
 
 	// Files
 	$this->post('/files/upload/{group}', '\Grocy\Controllers\FilesApiController:Upload');

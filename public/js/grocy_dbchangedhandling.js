@@ -64,7 +64,6 @@ $("#auto-reload-enabled").on("change", function()
 
 	jsonData = { };
 	jsonData.value = value;
-	console.log(jsonData);
 	Grocy.Api.Post('user/settings/auto_reload_on_db_change', jsonData,
 		function(result)
 		{
