@@ -41,6 +41,12 @@
 		Grocy.ActiveNav = '@yield('activeNav', '')';
 		Grocy.Culture = '{{ GROCY_CULTURE }}';
 		Grocy.Currency = '{{ GROCY_CURRENCY }}';
+
+		@if(array_key_exists('auto_reload_on_db_change', $userSettings))
+			Grocy.AutoReloadOnDatabaseChangeEnabled = {{ BoolToString($userSettings['auto_reload_on_db_change']) }};
+		@else
+			Grocy.AutoReloadOnDatabaseChangeEnabled = true;
+		@endif
 	</script>
 </head>
 
@@ -191,6 +197,14 @@
 					<div class="dropdown-menu dropdown-menu-right">
 						<a class="dropdown-item logout-button discrete-link" href="{{ $U('/logout') }}"><i class="fas fa-sign-out-alt"></i>&nbsp;{{ $L('Logout') }}</a>
 						<div class="dropdown-divider"></div>
+						<div class="dropdown-item">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="auto-reload-enabled">
+								<label class="form-check-label" for="auto-reload-enabled">
+									{{ $L('Auto reload on external changes') }}
+								</label>
+							</div>
+						</div>
 						<div class="dropdown-item">
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" id="night-mode-enabled">

@@ -10,8 +10,8 @@
 );
 
 // Check if the database has changed once a minute
-// If a change is detected, reload the current page, but only if already idling for at least 50 seconds
-// and when there is no unsaved form data
+// If a change is detected, reload the current page, but only if already idling for at least 50 seconds,
+// when there is no unsaved form data and when the user enabled auto reloading
 setInterval(function()
 {
 	Grocy.Api.Get('system/get-db-changed-time',
@@ -22,7 +22,7 @@ setInterval(function()
 			{
 				if (Grocy.IdleTime >= 50)
 				{
-					if ($("form.is-dirty").length === 0)
+					if (Grocy.AutoReloadOnDatabaseChangeEnabled && $("form.is-dirty").length === 0)
 					{
 						window.location.reload();
 					}
@@ -55,3 +55,29 @@ setInterval(function()
 {
 	Grocy.IdleTime += 1;
 }, 1000);
+
+$("#auto-reload-enabled").on("change", function()
+{
+	var value = $(this).is(":checked");
+	
+	Grocy.AutoReloadOnDatabaseChangeEnabled = value;
+
+	jsonData = { };
+	jsonData.value = value;
+	console.log(jsonData);
+	Grocy.Api.Post('user/settings/auto_reload_on_db_change', jsonData,
+		function(result)
+		{
+			// Nothing to do...
+		},
+		function(xhr)
+		{
+			Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+		}
+	);
+});
+
+if (Grocy.AutoReloadOnDatabaseChangeEnabled)
+{
+	$("#auto-reload-enabled").prop("checked", true);
+}
