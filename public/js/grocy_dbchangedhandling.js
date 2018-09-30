@@ -11,6 +11,7 @@
 
 // Check if the database has changed once a minute
 // If a change is detected, reload the current page, but only if already idling for at least 50 seconds
+// and when there is no unsaved form data
 setInterval(function()
 {
 	Grocy.Api.Get('system/get-db-changed-time',
@@ -21,7 +22,10 @@ setInterval(function()
 			{
 				if (Grocy.IdleTime >= 50)
 				{
-					window.location.reload();
+					if ($("form.is-dirty").length === 0)
+					{
+						window.location.reload();
+					}
 				}
 
 				Grocy.DatabaseChangedTime = newDbChangedTime;

@@ -191,3 +191,12 @@ Grocy.FrontendHelpers.ShowGenericError = function(message, exception)
 	
 	console.error(exception);
 }
+
+$("form").on("keyup paste", "input, textarea", function()
+{
+	$(this).closest("form").addClass("is-dirty");
+});
+$("form").on("click", "select", function()
+{
+	$(this).closest("form").addClass("is-dirty");
+});
