@@ -4,13 +4,13 @@
 
 "@danielfarrell/bootstrap-combobox@https://github.com/berrnd/bootstrap-combobox.git#master":
   version "1.1.8"
-  resolved "https://github.com/berrnd/bootstrap-combobox.git#d5a43b011d4d2c86537df26e15d2caa51be6a15f"
+  resolved "https://github.com/berrnd/bootstrap-combobox.git#fcf0110146f4daab94888234c57d198b4ca5f129"
 
 "@fortawesome/fontawesome-free@^5.1.0":
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.3.1.tgz#5466b8f31c1f493a96754c1426c25796d0633dd9"
 
-"TagManager@https://github.com/max-favilli/tagmanager.git#3.0.2", "tagmanager@https://github.com/max-favilli/tagmanager.git#3.0.2":
+"TagManager@https://github.com/max-favilli/tagmanager.git#3.0.2":
   version "3.0.1"
   resolved "https://github.com/max-favilli/tagmanager.git#df9eb9935c8585a392dfc00602f890caf233fa94"
   dependencies:
@@ -203,8 +203,8 @@ startbootstrap-sb-admin@^4.0.0:
     jquery.easing "^1.4.1"
 
 swagger-ui-dist@^3.17.3:
-  version "3.19.0"
-  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-3.19.0.tgz#95942ce1a556e7fe2705d7c92c6004a628d53207"
+  version "3.19.1"
+  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-3.19.1.tgz#ee176cfb070470bb81ba98a686e808035a882cb1"
 
 tempusdominus-bootstrap-4@^5.0.1:
   version "5.1.1"
