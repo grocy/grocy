@@ -45,9 +45,9 @@ $("#auto-night-mode-time-range-goes-over-midgnight").on("change", function()
 	CheckNightMode();
 });
 
-$("#night-mode-enabled").prop("checked", Grocy.NightModeEnabled);
-$("#auto-night-mode-enabled").prop("checked", Grocy.UserSettings.auto_night_mode_enabled);
-$("#auto-night-mode-time-range-goes-over-midgnight").prop("checked", Grocy.UserSettings.auto_night_mode_time_range_goes_over_midnight);
+$("#night-mode-enabled").prop("checked", BoolVal(Grocy.UserSettings.night_mode_enabled));
+$("#auto-night-mode-enabled").prop("checked", BoolVal(Grocy.UserSettings.auto_night_mode_enabled));
+$("#auto-night-mode-time-range-goes-over-midgnight").prop("checked", BoolVal(Grocy.UserSettings.auto_night_mode_time_range_goes_over_midnight));
 $("#auto-night-mode-enabled").trigger("change");
 $("#auto-night-mode-time-range-from").val(Grocy.UserSettings.auto_night_mode_time_range_from);
 $("#auto-night-mode-time-range-from").trigger("keyup");
@@ -77,13 +77,30 @@ function CheckNightMode()
 
 	if (start.isSameOrBefore(now) && end.isSameOrAfter(now)) // We're INSIDE of night mode time range
 	{
-		$("body").addClass("night-mode");
+		if (!$("body").hasClass("night-mode"))
+		{
+			$("body").addClass("night-mode");
+			$("#currently-inside-night-mode-range").prop("checked", true);
+			$("#currently-inside-night-mode-range").trigger("change");
+		}
 	}
 	else // We're OUTSIDE of night mode time range
 	{
-		$("body").removeClass("night-mode");
+		if ($("body").hasClass("night-mode"))
+		{
+			$("body").removeClass("night-mode");
+			$("#currently-inside-night-mode-range").prop("checked", false);
+			$("#currently-inside-night-mode-range").trigger("change");
+		}		
 	}
 }
 CheckNightMode();
-//setInterval(CheckNightMode, 60000);
-setInterval(CheckNightMode, 4000);
+
+if (Grocy.Mode === "production")
+{
+	setInterval(CheckNightMode, 60000);
+}
+else
+{
+	setInterval(CheckNightMode, 4000);
+}

@@ -46,7 +46,7 @@
 	</script>
 </head>
 
-<body class="fixed-nav @if(boolval($userSettings['night_mode_enabled'])) night-mode @endif">
+<body class="fixed-nav @if(boolval($userSettings['night_mode_enabled']) || (boolval($userSettings['auto_night_mode_enabled']) && boolval($userSettings['currently_inside_night_mode_range']))) night-mode @endif">
 	<nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
 		<a class="navbar-brand py-0" href="{{ $U('/') }}"><img src="{{ $U('/img/grocy_logo.svg?v=', true) }}{{ $version }}" height="30"></a>
 		
@@ -237,6 +237,7 @@
 									{{ $L('Time range goes over midnight') }}
 								</label>
 							</div>
+							<input class="form-check-input d-none user-setting-control" type="checkbox" id="currently-inside-night-mode-range" data-setting-key="currently_inside_night_mode_range">
 						</div>
 					</div>
 				</li>

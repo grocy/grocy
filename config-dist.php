@@ -37,6 +37,7 @@ DefaultUserSetting('auto_night_mode_enabled', false); // If night mode is enable
 DefaultUserSetting('auto_night_mode_time_range_from', "20:00"); // Format HH:mm
 DefaultUserSetting('auto_night_mode_time_range_to', "07:00"); // Format HH:mm
 DefaultUserSetting('auto_night_mode_time_range_goes_over_midnight', true); // If the time range above goes over midnight
+DefaultUserSetting('currently_inside_night_mode_range', false); // If we're currently inside of night mode time range (this is not user configurable, but stored as a user setting because it's evaluated client side to be able to use the client time instead of the maybe different server time)
 
 # If the page should be automatically reloaded when there was
 # an external change
