@@ -249,7 +249,7 @@ return array(
 	'Already expired' => 'Bereits abgelaufen',
 	'Due soon' => 'Bald fällig',
 	'Overdue' => 'Überfällig',
-	'View settings' => 'xxx',
+	'View settings' => 'Ansichtseinstellungen',
 	'Auto reload on external changes' => 'Autom. akt. bei externen Änderungen',
 	'Enable night mode' => 'Nachtmodus aktivieren',
 	'Auto enable in time range' => 'Autom. akt. in diesem Zeitraum',
