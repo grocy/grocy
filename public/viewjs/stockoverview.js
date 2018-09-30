@@ -141,6 +141,17 @@ $(document).on('click', '.product-consume-button', function(e)
 	);
 });
 
+$(document).on("click", ".show-product-picture-button", function(e)
+{
+	var pictureUrl = $(e.currentTarget).attr("data-picture-url");
+	var productName = $(e.currentTarget).attr("data-product-name");
+
+	bootbox.alert({
+		title: L("Image of product #1", productName),
+		message: "<img src='" + pictureUrl + "' class='img-fluid'>"
+	});
+});
+
 function RefreshStatistics()
 {
 	Grocy.Api.Get('stock/get-current-stock',

@@ -9,12 +9,34 @@
 		redirectDestination = returnTo + '?createdproduct=' + encodeURIComponent($('#name').val());
 	}
 
+	var jsonData = $('#product-form').serializeJSON();
+	if ($("#product-picture")[0].files.length > 0)
+	{
+		jsonData.picture_file_name = $("#product-picture")[0].files[0].name;
+	}
+
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.Api.Post('add-object/products', $('#product-form').serializeJSON(),
+		Grocy.Api.Post('add-object/products', jsonData,
 			function(result)
 			{
-				window.location.href = redirectDestination;
+				if (jsonData.hasOwnProperty("picture_file_name"))
+				{
+					Grocy.Api.UploadFile($("#product-picture"), 'productpictures',
+						function(result)
+						{
+							window.location.href = redirectDestination;
+						},
+						function(xhr)
+						{
+							Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+						}
+					);
+				}
+				else
+				{
+					window.location.href = redirectDestination;
+				}
 			},
 			function(xhr)
 			{
@@ -24,10 +46,26 @@
 	}
 	else
 	{
-		Grocy.Api.Post('edit-object/products/' + Grocy.EditObjectId, $('#product-form').serializeJSON(),
+		Grocy.Api.Post('edit-object/products/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
-				window.location.href = redirectDestination;
+				if (jsonData.hasOwnProperty("picture_file_name"))
+				{
+					Grocy.Api.UploadFile($("#product-picture"), 'productpictures',
+						function(result)
+						{
+							window.location.href = redirectDestination;
+						},
+						function(xhr)
+						{
+							Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+						}
+					);
+				}
+				else
+				{
+					window.location.href = redirectDestination;
+				}
 			},
 			function(xhr)
 			{

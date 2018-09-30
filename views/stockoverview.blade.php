@@ -74,6 +74,11 @@
 							data-consume-amount="{{ $currentStockEntry->amount }}">
 							<i class="fas fa-utensils"></i> {{ $L('All') }}
 						</a>
+						<a id="product-{{ $currentStockEntry->product_id }}-show-product-picture-button" class="btn btn-info btn-sm show-product-picture-button @if(empty(FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->picture_file_name)) disabled @endif" href="#"
+							data-picture-url="{{ $U('/api/files/get/productpictures?file_name=' . FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->picture_file_name) }}"
+							data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}">
+							<i class="fas fa-image"></i>
+						</a>
 					</td>
 					<td>
 						{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}

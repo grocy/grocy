@@ -177,6 +177,42 @@ Grocy.Api.Post = function(apiFunction, jsonData, success, error)
 	xhr.send(JSON.stringify(jsonData));
 };
 
+Grocy.Api.UploadFile = function(fileInput, group, success, error)
+{
+	if (fileInput[0].files.length === 0)
+	{
+		return;
+	}
+
+	var xhr = new XMLHttpRequest();
+	var url = U('/api/files/upload/' + group + '?file_name=' + encodeURIComponent(fileInput[0].files[0].name));
+
+	xhr.onreadystatechange = function()
+	{
+		if (xhr.readyState === XMLHttpRequest.DONE)
+		{
+			if (xhr.status === 200)
+			{
+				if (success)
+				{
+					success(JSON.parse(xhr.responseText));
+				}
+			}
+			else
+			{
+				if (error)
+				{
+					error(xhr);
+				}
+			}
+		}
+	};
+
+	xhr.open('POST', url, true);
+	xhr.setRequestHeader('Content-type', 'application/octet-stream');
+	xhr.send(fileInput[0].files[0]);
+};
+
 Grocy.FrontendHelpers = { };
 Grocy.FrontendHelpers.ValidateForm = function(formId)
 {

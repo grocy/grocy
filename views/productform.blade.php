@@ -108,6 +108,16 @@
 				'additionalHtmlElements' => '<p id="qu-conversion-info" class="form-text text-muted small d-none"></p>'
 			))
 
+			<div class="form-group">
+				<label for="product-picture">{{ $L('Product picture') }}</label>
+				<input type="file" class="form-control-file" id="product-picture" accept="image/*">
+				
+				@if(!empty($product->picture_file_name))
+					<label class="mt-2">{{ $L('Current picture') }}</label>
+					<img src="{{ $U('/api/files/get/productpictures?file_name=' . $product->picture_file_name) }}" class="img-fluid">
+				@endif
+			</div>
+
 			<button id="save-product-button" class="btn btn-success">{{ $L('Save') }}</button>
 		</form>
 	</div>
