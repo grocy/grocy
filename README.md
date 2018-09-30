@@ -25,7 +25,7 @@ If, however, your webserver does not support URL rewriting, set `DISABLE_URL_REW
 
 ## How to run using Docker
 
-The docker images build are based on [Alpine](https://hub.docker.com/_/alpine/), with an extremelly low footprint (less than 10 MB for nginx, and less than 70MB for grocy with php-fm. That number is eventually bumped up to 150MB after all the dependencies are downloaded, however.). Anyhow, to run using docker just do the following:
+The docker images build are based on [Alpine](https://hub.docker.com/_/alpine/), with an extremelly low footprint (less than 10 MB for nginx, and less than 70MB for grocy with php-fm. That number is eventually bumped up to 353MB after all the dependencies are downloaded, however). Anyhow, to run using docker just do the following:
 
 ```
 > docker-compose up
