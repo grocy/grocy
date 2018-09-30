@@ -56,7 +56,7 @@ $("#auto-night-mode-time-range-to").trigger("keyup");
 
 function CheckNightMode()
 {
-	if (!Grocy.UserSettings.auto_night_mode_enabled)
+	if (!BoolVal(Grocy.UserSettings.auto_night_mode_enabled))
 	{
 		return;
 	}
