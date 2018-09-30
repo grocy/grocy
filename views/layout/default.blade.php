@@ -56,6 +56,12 @@
 			@php $nightModeEnabled = false; @endphp
 			Grocy.NightModeEnabled = false;
 		@endif
+
+		@if(array_key_exists('auto_night_mode_enabled', $userSettings))
+			Grocy.AutoNightModeEnabled = {{ BoolToString($userSettings['auto_night_mode_enabled']) }};
+		@else
+			Grocy.AutoNightModeEnabled = false;
+		@endif
 	</script>
 </head>
 
@@ -206,6 +212,16 @@
 					<div class="dropdown-menu dropdown-menu-right">
 						<a class="dropdown-item logout-button discrete-link" href="{{ $U('/logout') }}"><i class="fas fa-sign-out-alt"></i>&nbsp;{{ $L('Logout') }}</a>
 						<div class="dropdown-divider"></div>
+						<a class="dropdown-item logout-button discrete-link" href="{{ $U('/user/' . GROCY_USER_ID . '?changepw=true') }}"><i class="fas fa-key"></i>&nbsp;{{ $L('Change password') }}</a>
+					</div>
+				</li>
+				@endif
+
+				@if(GROCY_AUTHENTICATED === true)
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle discrete-link" href="#" data-toggle="dropdown"><i class="fas fa-sliders-h"></i> <span class="d-inline d-lg-none">{{ $L('View settings') }}</span></a>
+
+					<div class="dropdown-menu dropdown-menu-right">
 						<div class="dropdown-item">
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" id="auto-reload-enabled">
@@ -214,6 +230,7 @@
 								</label>
 							</div>
 						</div>
+						<div class="dropdown-divider"></div>
 						<div class="dropdown-item">
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" id="night-mode-enabled">
@@ -222,8 +239,18 @@
 								</label>
 							</div>
 						</div>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item logout-button discrete-link" href="{{ $U('/user/' . GROCY_USER_ID . '?changepw=true') }}"><i class="fas fa-key"></i>&nbsp;{{ $L('Change password') }}</a>
+						<div class="dropdown-item">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="auto-night-mode-enabled">
+								<label class="form-check-label" for="auto-night-mode-enabled">
+									{{ $L('Auto enable in time range') }}
+								</label>
+							</div>
+							<div class="form-inline">
+								<input type="text" class="form-control my-1" readonly id="auto-night-mode-time-range-from" placeholder="{{ $L('From') }} ({{ $L('in format') }} HH:mm)">
+								<input type="text" class="form-control" readonly id="auto-night-mode-time-range-to" placeholder="{{ $L('To') }} ({{ $L('in format') }} HH:mm)">
+							</div>
+						</div>
 					</div>
 				</li>
 				@endif
