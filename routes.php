@@ -85,6 +85,7 @@ $app->group('/api', function()
 
 	// Files
 	$this->post('/files/upload/{group}', '\Grocy\Controllers\FilesApiController:Upload');
+	$this->get('/files/get/{group}', '\Grocy\Controllers\FilesApiController:ServeFile');
 
 	// Users
 	$this->get('/users/get', '\Grocy\Controllers\UsersApiController:GetUsers');
