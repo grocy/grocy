@@ -158,4 +158,5 @@ recipesTables.on('select', function(e, dt, type, indexes)
 $("#selectedRecipeToggleFullscreenButton").on('click', function(e)
 {
 	$("#selectedRecipeCard").toggleClass("fullscreen");
+	$("#selectedRecipeCard .card-header").toggleClass("fixed-top");
 });
