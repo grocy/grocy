@@ -84,8 +84,9 @@ $app->group('/api', function()
 	$this->post('/system/log-missing-localization', '\Grocy\Controllers\SystemApiController:LogMissingLocalization');
 
 	// Files
-	$this->post('/files/upload/{group}', '\Grocy\Controllers\FilesApiController:Upload');
-	$this->get('/files/get/{group}', '\Grocy\Controllers\FilesApiController:ServeFile');
+	$this->put('/file/{group}', '\Grocy\Controllers\FilesApiController:UploadFile');
+	$this->get('/file/{group}', '\Grocy\Controllers\FilesApiController:ServeFile');
+	$this->delete('/file/{group}', '\Grocy\Controllers\FilesApiController:DeleteFile');
 
 	// Users
 	$this->get('/users/get', '\Grocy\Controllers\UsersApiController:GetUsers');

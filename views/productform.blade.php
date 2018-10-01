@@ -10,6 +10,7 @@
 
 @section('content')
 <div class="row">
+
 	<div class="col-lg-6 col-xs-12">
 		<h1>@yield('title')</h1>
 
@@ -17,6 +18,10 @@
 
 		@if($mode == 'edit')
 			<script>Grocy.EditObjectId = {{ $product->id }};</script>
+
+			@if(!empty($product->picture_file_name))
+				<script>Grocy.ProductPictureFileName = '{{ $product->picture_file_name }}';</script>
+			@endif
 		@endif
 
 		<form id="product-form" novalidate>
@@ -109,17 +114,27 @@
 			))
 
 			<div class="form-group">
-				<label for="product-picture">{{ $L('Product picture') }}</label>
-				<input type="file" class="form-control-file" id="product-picture" accept="image/*">
-				
-				@if(!empty($product->picture_file_name))
-					<label class="mt-2">{{ $L('Current picture') }}</label>
-					<img src="{{ $U('/api/files/get/productpictures?file_name=' . $product->picture_file_name) }}" class="img-fluid">
-				@endif
+				<label for="product-pictur">{{ $L('Product picture') }}</label>
+				<div class="custom-file">
+					<input type="file" class="custom-file-input" id="product-picture">
+					<label class="custom-file-label" for="product-picture">{{ $L('No file selected') }}</label>
+				</div>
+				<p class="form-text text-muted small">{{ $L('If you don\'t select a file, the current picture will not be altered') }}</p>
 			</div>
 
 			<button id="save-product-button" class="btn btn-success">{{ $L('Save') }}</button>
 		</form>
+	</div>
+
+	<div class="col-lg-6 col-xs-12">
+		<label class="mt-2">{{ $L('Current picture') }}</label>
+		<button id="delete-current-product-picture-button" class="btn btn-sm btn-danger @if(empty($product->picture_file_name)) disabled @endif"><i class="fas fa-trash"></i> {{ $L('Delete') }}</button>
+		@if(!empty($product->picture_file_name))
+			<img id="current-product-picture" src="{{ $U('/api/file/productpictures?file_name=' . $product->picture_file_name) }}" class="img-fluid img-thumbnail mt-2">
+			<p id="delete-current-product-picture-on-save-hint" class="form-text text-muted font-italic d-none">{{ $L('The current picture will be deleted when you save the product') }}</p>
+		@else
+			<p id="no-current-product-picture-hint" class="form-text text-muted font-italic">{{ $L('No picture') }}</p>
+		@endif
 	</div>
 </div>
 @stop

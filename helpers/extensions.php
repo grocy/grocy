@@ -192,7 +192,7 @@ function Pluralize($number, $singularForm, $pluralForm)
 
 function IsValidFileName($fileName)
 {
-	if(preg_match('#^[a-z0-9]+\.[a-z]+?$#i', $fileName))
+	if(preg_match('=^[^/?*;:{}\\\\]+\.[^/?*;:{}\\\\]+$=', $fileName))
 	{
 		return true;
 	}

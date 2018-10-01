@@ -177,15 +177,10 @@ Grocy.Api.Post = function(apiFunction, jsonData, success, error)
 	xhr.send(JSON.stringify(jsonData));
 };
 
-Grocy.Api.UploadFile = function(fileInput, group, success, error)
+Grocy.Api.UploadFile = function(file, group, fileName, success, error)
 {
-	if (fileInput[0].files.length === 0)
-	{
-		return;
-	}
-
 	var xhr = new XMLHttpRequest();
-	var url = U('/api/files/upload/' + group + '?file_name=' + encodeURIComponent(fileInput[0].files[0].name));
+	var url = U('/api/file/' + group + '?file_name=' + encodeURIComponent(fileName));
 
 	xhr.onreadystatechange = function()
 	{
@@ -208,9 +203,40 @@ Grocy.Api.UploadFile = function(fileInput, group, success, error)
 		}
 	};
 
-	xhr.open('POST', url, true);
+	xhr.open('PUT', url, true);
 	xhr.setRequestHeader('Content-type', 'application/octet-stream');
-	xhr.send(fileInput[0].files[0]);
+	xhr.send(file);
+};
+
+Grocy.Api.DeleteFile = function(fileName, group, success, error)
+{
+	var xhr = new XMLHttpRequest();
+	var url = U('/api/file/' + group + '?file_name=' + encodeURIComponent(fileName));
+
+	xhr.onreadystatechange = function()
+	{
+		if (xhr.readyState === XMLHttpRequest.DONE)
+		{
+			if (xhr.status === 200)
+			{
+				if (success)
+				{
+					success(JSON.parse(xhr.responseText));
+				}
+			}
+			else
+			{
+				if (error)
+				{
+					error(xhr);
+				}
+			}
+		}
+	};
+
+	xhr.open('DELETE', url, true);
+	xhr.setRequestHeader('Content-type', 'application/json');
+	xhr.send();
 };
 
 Grocy.FrontendHelpers = { };
@@ -284,3 +310,15 @@ $(".user-setting-control").on("change", function()
 		}
 	);
 });
+
+// Show file name Bootstrap custom file input
+$('input.custom-file-input').on('change', function()
+{
+	$(this).next('.custom-file-label').html(GetFileNameFromPath($(this).val()));
+});
+
+// Translation of "Browse"-button of Bootstrap custom file input
+if ($(".custom-file-label").length > 0)
+{
+	$("<style>").html('.custom-file-label::after { content: "' + L("Select file") + '"; }').appendTo("head");
+}

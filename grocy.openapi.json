@@ -431,9 +431,58 @@
 				}
 			}
 		},
-		"/files/upload/{group}": {
-			"post": {
-				"description": "Uploads a single file to /data/storage/{group}/{file_name}",
+		"/file/{group}": {
+			"get": {
+				"description": "Serves the given file (with proper Content-Type header)",
+				"tags": [
+					"Files"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "group",
+						"required": true,
+						"description": "The file group",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "file_name",
+						"required": true,
+						"description": "The file name (including extension)",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "The binary file contents (Content-Type header is automatically set based on the file type)",
+						"content": {
+							"application/octet-stream": {
+								"schema": {
+									"type": "string",
+									"format": "binary"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			},
+			"put": {
+				"description": "Uploads a single file to /data/storage/{group}/{file_name} (you need to remember the group and file name to get or delete it again)",
 				"tags": [
 					"Files"
 				],
@@ -489,11 +538,9 @@
 						}
 					}
 				}
-			}
-		},
-		"/files/get/{group}": {
-			"get": {
-				"description": "Serves the given file",
+			},
+			"delete": {
+				"description": "Deletes the given file",
 				"tags": [
 					"Files"
 				],
@@ -519,12 +566,11 @@
 				],
 				"responses": {
 					"200": {
-						"description": "The binary file contents (mime type is set based on file extension)",
+						"description": "A VoidApiActionResponse object",
 						"content": {
-							"application/octet-stream": {
+							"application/json": {
 								"schema": {
-									"type": "string",
-									"format": "binary"
+									"$ref": "#/components/schemas/VoidApiActionResponse"
 								}
 							}
 						}
@@ -1682,6 +1728,9 @@
 						"type": "integer",
 						"minimum": 0,
 						"default": 0
+					},
+					"picture_file_name": {
+						"type": "string"
 					},
 					"row_created_timestamp": {
 						"type": "string",

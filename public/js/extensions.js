@@ -54,3 +54,13 @@ BoolVal = function(test)
 		return false;
 	}
 }
+
+GetFileNameFromPath = function(path)
+{
+	return path.split("/").pop().split("\\").pop();
+}
+
+GetFileExtension = function(pathOrFileName)
+{
+	return pathOrFileName.split(".").pop();
+}

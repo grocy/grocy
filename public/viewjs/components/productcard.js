@@ -24,6 +24,18 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 				$('#productcard-product-last-price').text(L('Unknown'));
 			}
 
+			if (productDetails.product.picture_file_name !== null && !productDetails.product.picture_file_name.isEmpty())
+			{
+				$("#productcard-no-product-picture").addClass("d-none");
+				$("#productcard-product-picture").removeClass("d-none");
+				$("#productcard-product-picture").attr("src", U('/api/file/productpictures?file_name=' + productDetails.product.picture_file_name));
+			}
+			else
+			{
+				$("#productcard-no-product-picture").removeClass("d-none");
+				$("#productcard-product-picture").addClass("d-none");
+			}
+
 			EmptyElementWhenMatches('#productcard-product-last-purchased-timeago', L('timeago_nan'));
 			EmptyElementWhenMatches('#productcard-product-last-used-timeago', L('timeago_nan'));
 		},

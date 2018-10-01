@@ -1,4 +1,4 @@
-﻿$('#save-product-button').on('click', function(e)
+﻿$('#save-product-button').on('click', function (e)
 {
 	e.preventDefault();
 
@@ -12,22 +12,28 @@
 	var jsonData = $('#product-form').serializeJSON();
 	if ($("#product-picture")[0].files.length > 0)
 	{
-		jsonData.picture_file_name = $("#product-picture")[0].files[0].name;
+		var someRandomStuff = Math.random().toString(36).substring(2, 100) + Math.random().toString(36).substring(2, 100);
+		jsonData.picture_file_name = someRandomStuff + $("#product-picture")[0].files[0].name;
+	}
+
+	if (Grocy.DeleteProductPictureOnSave)
+	{
+		jsonData.picture_file_name = null;
 	}
 
 	if (Grocy.EditMode === 'create')
 	{
 		Grocy.Api.Post('add-object/products', jsonData,
-			function(result)
+			function (result)
 			{
-				if (jsonData.hasOwnProperty("picture_file_name"))
+				if (jsonData.hasOwnProperty("picture_file_name") && !Grocy.DeleteProductPictureOnSave)
 				{
-					Grocy.Api.UploadFile($("#product-picture"), 'productpictures',
-						function(result)
+					Grocy.Api.UploadFile($("#product-picture")[0].files[0], 'productpictures', jsonData.picture_file_name,
+						function (result)
 						{
 							window.location.href = redirectDestination;
 						},
-						function(xhr)
+						function (xhr)
 						{
 							Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 						}
@@ -38,7 +44,7 @@
 					window.location.href = redirectDestination;
 				}
 			},
-			function(xhr)
+			function (xhr)
 			{
 				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 			}
@@ -46,12 +52,26 @@
 	}
 	else
 	{
+		if (Grocy.DeleteProductPictureOnSave)
+		{
+			Grocy.Api.DeleteFile(Grocy.ProductPictureFileName, 'productpictures',
+				function(result)
+				{
+					// Nothing to do
+				},
+				function(xhr)
+				{
+					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+				}
+			);
+		};
+
 		Grocy.Api.Post('edit-object/products/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
-				if (jsonData.hasOwnProperty("picture_file_name"))
+				if (jsonData.hasOwnProperty("picture_file_name") && !Grocy.DeleteProductPictureOnSave)
 				{
-					Grocy.Api.UploadFile($("#product-picture"), 'productpictures',
+					Grocy.Api.UploadFile($("#product-picture")[0].files[0], 'productpictures', jsonData.picture_file_name,
 						function(result)
 						{
 							window.location.href = redirectDestination;
@@ -148,6 +168,15 @@ $('#product-form input').keydown(function(event)
 			$('#save-product-button').click();
 		}
 	}
+});
+
+Grocy.DeleteProductPictureOnSave = false;
+$('#delete-current-product-picture-button').on('click', function (e)
+{
+	Grocy.DeleteProductPictureOnSave = true;
+	$("#current-product-picture").addClass("d-none");
+	$("#delete-current-product-picture-on-save-hint").removeClass("d-none");
+	$("#delete-current-product-picture-button").addClass("disabled");
 });
 
 $('#name').focus();

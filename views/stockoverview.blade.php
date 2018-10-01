@@ -8,6 +8,14 @@
 	<script src="{{ $U('/node_modules/jquery-ui-dist/jquery-ui.min.js?v=', true) }}{{ $version }}"></script>
 @endpush
 
+@push('pageStyles')
+	<style>
+		.product-name-cell[data-product-has-picture='true'] {
+			cursor: pointer;
+		}
+	</style>
+@endpush
+
 @section('content')
 <div class="row">
 	<div class="col">
@@ -74,14 +82,12 @@
 							data-consume-amount="{{ $currentStockEntry->amount }}">
 							<i class="fas fa-utensils"></i> {{ $L('All') }}
 						</a>
-						<a id="product-{{ $currentStockEntry->product_id }}-show-product-picture-button" class="btn btn-info btn-sm show-product-picture-button @if(empty(FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->picture_file_name)) disabled @endif" href="#"
-							data-picture-url="{{ $U('/api/files/get/productpictures?file_name=' . FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->picture_file_name) }}"
-							data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}">
-							<i class="fas fa-image"></i>
-						</a>
 					</td>
-					<td>
-						{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}
+					<td class="product-name-cell"
+						data-picture-url="{{ $U('/api/file/productpictures?file_name=' . FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->picture_file_name) }}"
+						data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}"
+						data-product-has-picture="{{ BoolToString(!empty(FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->picture_file_name)) }}">
+						{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}@if(!empty(FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->picture_file_name)) <i class="fas fa-image text-muted"></i>@endif
 					</td>
 					<td>
 						<span id="product-{{ $currentStockEntry->product_id }}-amount">{{ $currentStockEntry->amount }}</span> {{ Pluralize($currentStockEntry->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name_plural) }}

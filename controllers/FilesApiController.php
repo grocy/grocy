@@ -14,7 +14,7 @@ class FilesApiController extends BaseApiController
 
 	protected $FilesService;
 
-	public function Upload(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function UploadFile(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		try
 		{
@@ -63,6 +63,33 @@ class FilesApiController extends BaseApiController
 			{
 				return $this->VoidApiActionResponse($response, false, 404, 'File not found');
 			}
+		}
+		catch (\Exception $ex)
+		{
+			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+		}
+	}
+
+	public function DeleteFile(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		try
+		{
+			if (isset($request->getQueryParams()['file_name']) && !empty($request->getQueryParams()['file_name']) && IsValidFileName($request->getQueryParams()['file_name']))
+			{
+				$fileName = $request->getQueryParams()['file_name'];
+			}
+			else
+			{
+				throw new \Exception('file_name query parameter missing or contains an invalid filename');
+			}
+
+			$filePath = $this->FilesService->GetFilePath($args['group'], $fileName);
+			if (file_exists($filePath))
+			{
+				unlink($filePath);
+			}
+
+			return $this->ApiResponse(array('success' => true));
 		}
 		catch (\Exception $ex)
 		{
