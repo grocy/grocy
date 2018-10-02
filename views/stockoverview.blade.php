@@ -85,6 +85,7 @@
 					</td>
 					<td class="product-name-cell"
 						data-picture-url="{{ $U('/api/file/productpictures?file_name=' . FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->picture_file_name) }}"
+						data-product-id="{{ $currentStockEntry->product_id }}"
 						data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}"
 						data-product-has-picture="{{ BoolToString(!empty(FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->picture_file_name)) }}">
 						{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}@if(!empty(FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->picture_file_name)) <i class="fas fa-image text-muted"></i>@endif

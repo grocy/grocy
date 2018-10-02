@@ -39,9 +39,9 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO product_groups(name) VALUES ('06 {$localizationService->Localize('Refrigerated products')}'); --6
 
 				DELETE FROM sqlite_sequence WHERE name = 'products'; --Just to keep IDs in order as mentioned here...
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, product_group_id) VALUES ('{$localizationService->Localize('Cookies')}', 3, 3, 3, 1, 8, 1); --1
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, product_group_id, picture_file_name) VALUES ('{$localizationService->Localize('Cookies')}', 3, 3, 3, 1, 8, 1, 'cookies.jpg'); --1
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, product_group_id) VALUES ('{$localizationService->Localize('Chocolate')}', 3, 3, 3, 1, 8, 1); --2
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, product_group_id) VALUES ('{$localizationService->Localize('Gummy bears')}', 3, 3, 3, 1, 8, 1); --3
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, product_group_id, picture_file_name) VALUES ('{$localizationService->Localize('Gummy bears')}', 3, 3, 3, 1, 8, 1, 'gummybears.jpg'); --3
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, product_group_id) VALUES ('{$localizationService->Localize('Crisps')}', 3, 3, 3, 1, 10, 1); --4
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Eggs')}', 2, 3, 2, 10, 5); --5
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Noodles')}', 3, 3, 3, 1, 6); --6
@@ -50,10 +50,10 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Yogurt')}', 2, 6, 6, 1, 6); --9
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Cheese')}', 2, 3, 3, 1, 6); --10
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Cold cuts')}', 2, 3, 3, 1, 6); --11
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Paprika')}', 2, 2, 2, 1, 5); --12
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Cucumber')}', 2, 2, 2, 1, 5); --13
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, picture_file_name) VALUES ('{$localizationService->Localize('Paprika')}', 2, 2, 2, 1, 5, 'paprika.jpg'); --12
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, picture_file_name) VALUES ('{$localizationService->Localize('Cucumber')}', 2, 2, 2, 1, 5, 'cucumber.jpg'); --13
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Radish')}', 2, 7, 7, 1, 5); --14
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Tomato')}', 2, 2, 2, 1, 5); --15
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, picture_file_name) VALUES ('{$localizationService->Localize('Tomato')}', 2, 2, 2, 1, 5, 'tomato.jpg'); --15
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Pizza dough')}', 3, 3, 3, 1, 6); --16
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Sieved tomatoes')}', 4, 5, 5, 1, 3); --17
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Salami')}', 2, 3, 3, 1, 6); --18
@@ -201,6 +201,22 @@ class DemoDataGeneratorService extends BaseService
 			$batteriesService->TrackChargeCycle(2, date('Y-m-d H:i:s', strtotime('-50 days')));
 			$batteriesService->TrackChargeCycle(3, date('Y-m-d H:i:s', strtotime('-65 days')));
 			$batteriesService->TrackChargeCycle(4, date('Y-m-d H:i:s', strtotime('-56 days')));
+
+			// Download demo product pictures
+			$productPicturesFolder = GROCY_DATAPATH . '/storage/productpictures';
+			mkdir(GROCY_DATAPATH . '/storage');
+			mkdir(GROCY_DATAPATH . '/storage/productpictures');
+			$sslOptions = array(
+				'ssl' => array(
+				'verify_peer' => false,
+				'verify_peer_name' => false,
+				),
+			);
+			file_put_contents("$productPicturesFolder/cookies.jpg", file_get_contents('https://releases.grocy.info/demoresources/cookies.jpg', false, stream_context_create($sslOptions)));
+			file_put_contents("$productPicturesFolder/cucumber.jpg", file_get_contents('https://releases.grocy.info/demoresources/cucumber.jpg', false, stream_context_create($sslOptions)));
+			file_put_contents("$productPicturesFolder/gummybears.jpg", file_get_contents('https://releases.grocy.info/demoresources/gummybears.jpg', false, stream_context_create($sslOptions)));
+			file_put_contents("$productPicturesFolder/paprika.jpg", file_get_contents('https://releases.grocy.info/demoresources/paprika.jpg', false, stream_context_create($sslOptions)));
+			file_put_contents("$productPicturesFolder/tomato.jpg", file_get_contents('https://releases.grocy.info/demoresources/tomato.jpg', false, stream_context_create($sslOptions)));
 		}
 	}
 

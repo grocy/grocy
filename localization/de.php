@@ -257,6 +257,14 @@ return array(
 	'in format' => 'im Format',
 	'To' => 'Bis',
 	'Time range goes over midnight' => 'Zeitraum geht über Mitternacht',
+	'Product picture' => 'Produktbild',
+	'No file selected' => 'Keine Datei ausgewählt',
+	'If you don\'t select a file, the current picture will not be altered' => 'Wenn du keine Datei auswählst, wird das aktuelle Bild nicht verändert',
+	'Current picture' => 'Aktuelles Bild',
+	'Delete' => 'Löschen',
+	'The current picture will be deleted when you save the product' => 'Das aktuelle Bild wird beim Speichern des Produkts gelöscht',
+	'Select file' => 'Datei auswählen',
+	'Image of product #1' => 'Bild des Produkts #1',
 	
 	//Constants
 	'manually' => 'Manuell',

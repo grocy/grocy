@@ -149,10 +149,31 @@ $(document).on("click", ".product-name-cell", function(e)
 	{
 		var pictureUrl = $(e.currentTarget).attr("data-picture-url");
 		var productName = $(e.currentTarget).attr("data-product-name");
+		var productId = $(e.currentTarget).attr("data-product-id");
 
-		bootbox.alert({
+		bootbox.dialog({
 			title: L("Image of product #1", productName),
-			message: "<img src='" + pictureUrl + "' class='img-fluid'>"
+			message: "<img src='" + pictureUrl + "' class='img-fluid img-thumbnail d-flex mx-auto'>",
+			backdrop: false,
+			onEscape: true,
+			buttons: {
+				editproduct: {
+					label: '<i class="fas fa-edit"></i> ' + L('Edit product'),
+					className: 'btn-info responsive-button',
+					callback: function ()
+					{
+						window.location.href = U('/product/' + productId + '?returnto=' + encodeURIComponent(window.location.pathname) + '#product-picture');
+					}
+				},
+				close: {
+					label: L('Close'),
+					className: 'btn-default responsive-button',
+					callback: function()
+					{
+						bootbox.hideAll();
+					}
+				}
+			}
 		});
 	}
 });
