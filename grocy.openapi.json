@@ -1677,7 +1677,8 @@
 					"recipes_pos",
 					"tasks",
 					"task_categories",
-					"product_groups"
+					"product_groups",
+					"equipment"
 				]
 			},
 			"StockTransactionType": {

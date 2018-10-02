@@ -105,6 +105,9 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO tasks (name, due_date, assigned_to_user_id) VALUES ('{$localizationService->Localize('Find a solution for what to do when I forget the door keys')}', date(datetime('now', 'localtime'), '+3 day'), 1);
 				INSERT INTO tasks (name, due_date, assigned_to_user_id) VALUES ('{$localizationService->Localize('Task')}3', date(datetime('now', 'localtime'), '+4 day'), 1);
 
+				INSERT INTO equipment (name, description) VALUES ('{$localizationService->Localize('Coffee machine')}', '{$loremIpsum}'); --1
+				INSERT INTO equipment (name, description) VALUES ('{$localizationService->Localize('Dishwasher')}', '{$loremIpsum}'); --2
+
 				INSERT INTO migrations (migration) VALUES (-1);
 			";
 

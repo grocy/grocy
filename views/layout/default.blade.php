@@ -93,6 +93,12 @@
 						<span class="nav-link-text">{{ $L('Batteries overview') }}</span>
 					</a>
 				</li>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Equipment') }}" data-nav-for-page="equipment">
+					<a class="nav-link discrete-link" href="{{ $U('/equipment') }}">
+						<i class="fas fa-warehouse"></i>
+						<span class="nav-link-text">{{ $L('Equipment') }}</span>
+					</a>
+				</li>
 				
 				<li class="nav-item mt-4" data-toggle="tooltip" data-placement="right" title="{{ $L('Purchase') }}" data-nav-for-page="purchase">
 					<a class="nav-link discrete-link" href="{{ $U('/purchase') }}">

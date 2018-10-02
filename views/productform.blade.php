@@ -114,7 +114,7 @@
 			))
 
 			<div class="form-group">
-				<label for="product-pictur">{{ $L('Product picture') }}</label>
+				<label for="product-picture">{{ $L('Product picture') }}</label>
 				<div class="custom-file">
 					<input type="file" class="custom-file-input" id="product-picture" accept="image/*">
 					<label class="custom-file-label" for="product-picture">{{ $L('No file selected') }}</label>
