@@ -265,6 +265,8 @@ return array(
 	'The current picture will be deleted when you save the product' => 'Das aktuelle Bild wird beim Speichern des Produkts gelöscht',
 	'Select file' => 'Datei auswählen',
 	'Image of product #1' => 'Bild des Produkts #1',
+	'This product cannot be deleted because it is in stock, please remove the stock amount first.' => 'Dieses Produkt kann nicht gelöscht werden, da es auf Lager ist, bitte  zuerst den Bestand entfernen.',
+    'Delete not possible' => 'Löschen nicht möglich',
 	
 	//Constants
 	'manually' => 'Manuell',
