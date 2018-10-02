@@ -116,7 +116,7 @@
 			<div class="form-group">
 				<label for="product-pictur">{{ $L('Product picture') }}</label>
 				<div class="custom-file">
-					<input type="file" class="custom-file-input" id="product-picture">
+					<input type="file" class="custom-file-input" id="product-picture" accept="image/*">
 					<label class="custom-file-label" for="product-picture">{{ $L('No file selected') }}</label>
 				</div>
 				<p class="form-text text-muted small">{{ $L('If you don\'t select a file, the current picture will not be altered') }}</p>
