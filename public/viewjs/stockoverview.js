@@ -153,9 +153,11 @@ $(document).on("click", ".product-name-cell", function(e)
 
 		bootbox.dialog({
 			title: L("Image of product #1", productName),
-			message: "<img src='" + pictureUrl + "' class='img-fluid img-thumbnail d-flex mx-auto'>",
+			message: "<img src='" + pictureUrl + "' class='img-fluid img-thumbnail'>",
 			backdrop: false,
 			onEscape: true,
+			closeButton: false,
+			className: 'centered-dialog',
 			buttons: {
 				editproduct: {
 					label: '<i class="fas fa-edit"></i> ' + L('Edit product'),
