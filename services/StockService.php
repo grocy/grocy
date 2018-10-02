@@ -8,9 +8,14 @@ class StockService extends BaseService
 	const TRANSACTION_TYPE_CONSUME = 'consume';
 	const TRANSACTION_TYPE_INVENTORY_CORRECTION = 'inventory-correction';
 
-	public function GetCurrentStock()
+	public function GetCurrentStock($includeNotInStockButMissingProducts = false)
 	{
 		$sql = 'SELECT * from stock_current';
+		if ($includeNotInStockButMissingProducts)
+		{
+			$sql = 'SELECT * from stock_current WHERE best_before_date IS NOT NULL';
+		}
+		
 		return $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
 
@@ -20,10 +25,17 @@ class StockService extends BaseService
 		return $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
 
-	public function GetExpiringProducts(int $days = 5)
+	public function GetExpiringProducts(int $days = 5, bool $excludeExpired = false)
 	{
-		$currentStock = $this->GetCurrentStock();
-		return FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d', strtotime("+$days days")), '<');
+		$currentStock = $this->GetCurrentStock(true);
+		$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d', strtotime("+$days days")), '<');
+
+		if ($excludeExpired)
+		{
+			$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d', strtotime('now')), '>');
+		}
+
+		return $currentStock;
 	}
 
 	public function GetProductDetails(int $productId)
