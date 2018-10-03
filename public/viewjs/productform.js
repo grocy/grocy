@@ -136,7 +136,21 @@ if (prefillBarcode !== undefined)
 
 $('.input-group-qu').on('change', function(e)
 {
+	var quIdPurchase = $("#qu_id_purchase").val();
+	var quIdStock = $("#qu_id_stock").val();
 	var factor = $('#qu_factor_purchase_to_stock').val();
+
+	if (quIdPurchase != quIdStock)
+	{
+		$('#qu_factor_purchase_to_stock').attr("min", 2);
+		$("#qu_factor_purchase_to_stock").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', '2'));
+	}
+	else
+	{
+		$('#qu_factor_purchase_to_stock').attr("min", 1);
+		$("#qu_factor_purchase_to_stock").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', '1'));
+	}
+
 	if (factor > 1)
 	{
 		$('#qu-conversion-info').text(L('This means 1 #1 purchased will be converted into #2 #3 in stock', $("#qu_id_purchase option:selected").text(), (1 * factor).toString(), $("#qu_id_stock option:selected").text()));
@@ -146,6 +160,8 @@ $('.input-group-qu').on('change', function(e)
 	{
 		$('#qu-conversion-info').addClass('d-none');
 	}
+
+	Grocy.FrontendHelpers.ValidateForm('product-form');
 });
 
 $('#product-form input').keyup(function(event)
