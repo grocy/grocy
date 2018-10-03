@@ -39,7 +39,8 @@ function DisplayEquipment(id)
 	Grocy.Api.Get('get-object/equipment/' + id,
 		function(equipmentItem)
 		{
-			$("#description-tab").html(equipmentItem.description);
+			$(".selected-equipment-name").text(equipmentItem.name);
+			$("#description-tab-content").html(equipmentItem.description);
 
 			if (equipmentItem.instruction_manual_file_name !== null && !equipmentItem.instruction_manual_file_name.isEmpty())
 			{
@@ -110,4 +111,18 @@ $(document).on('click', '.equipment-delete-button', function (e)
 			}
 		}
 	});
+});
+
+$("#selectedEquipmentInstructionManualToggleFullscreenButton").on('click', function(e)
+{
+	$("#selectedEquipmentInstructionManualCard").toggleClass("fullscreen");
+	$("#selectedEquipmentInstructionManualCard .card-header").toggleClass("fixed-top");
+	$("#selectedEquipmentInstructionManualCard .card-body").toggleClass("mt-5");
+});
+
+$("#selectedEquipmentDescriptionToggleFullscreenButton").on('click', function(e)
+{
+	$("#selectedEquipmentDescriptionCard").toggleClass("fullscreen");
+	$("#selectedEquipmentDescriptionCard .card-header").toggleClass("fixed-top");
+	$("#selectedEquipmentDescriptionCard .card-body").toggleClass("mt-5");
 });

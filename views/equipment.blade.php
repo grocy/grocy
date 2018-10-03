@@ -62,13 +62,33 @@
 				<a class="nav-link" data-toggle="tab" href="#description-tab">{{ $L('Notes') }}</a>
 			</li>
 		</ul>
-		<div class="tab-content border-left border-right border-bottom py-2 px-2">
+		<div class="tab-content">
 			<div class="tab-pane fade show active" id="instruction-manual-tab">
-				<p id="selected-equipment-has-no-instruction-manual-hint" class="text-muted font-italic d-none">{{ $L('The selected equipment has no instruction manual') }}</p>
-				<embed id="selected-equipment-instruction-manual" class="embed-responsive embed-responsive-4by3" width="100%" height="800px" src="" type="application/pdf">
+				<div id="selectedEquipmentInstructionManualCard" class="card">
+					<div class="card-header">
+						<i class="fas fa-toolbox"></i> <span class="selected-equipment-name"></span>
+						<a id="selectedEquipmentInstructionManualToggleFullscreenButton" class="btn btn-sm btn-outline-secondary py-0 float-right" href="#" data-toggle="tooltip" title="{{ $L('Expand to fullscreen') }}">
+							<i class="fas fa-expand-arrows-alt"></i>
+						</a>
+					</div>
+					<div class="card-body">
+						<p id="selected-equipment-has-no-instruction-manual-hint" class="text-muted font-italic d-none">{{ $L('The selected equipment has no instruction manual') }}</p>
+						<embed id="selected-equipment-instruction-manual" class="embed-responsive embed-responsive-4by3" width="100%" height="800px" src="" type="application/pdf">
+					</div>
+				</div>
 			</div>
 			<div class="tab-pane fade" id="description-tab">
-				
+				<div id="selectedEquipmentDescriptionCard" class="card">
+					<div class="card-header">
+						<i class="fas fa-toolbox"></i> <span class="selected-equipment-name"></span>
+						<a id="selectedEquipmentDescriptionToggleFullscreenButton" class="btn btn-sm btn-outline-secondary py-0 float-right" href="#" data-toggle="tooltip" title="{{ $L('Expand to fullscreen') }}">
+							<i class="fas fa-expand-arrows-alt"></i>
+						</a>
+					</div>
+					<div class="card-body">
+						<div id="description-tab-content" class="mb-0"></div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
