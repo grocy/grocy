@@ -50,6 +50,7 @@ function DisplayEquipment(id)
 				$("#selected-equipment-has-no-instruction-manual-hint").addClass("d-none");
 
 				$("a[href='#instruction-manual-tab']").tab("show");
+				ResizeResponsiveEmbeds();
 			}
 			else
 			{
@@ -118,6 +119,8 @@ $("#selectedEquipmentInstructionManualToggleFullscreenButton").on('click', funct
 	$("#selectedEquipmentInstructionManualCard").toggleClass("fullscreen");
 	$("#selectedEquipmentInstructionManualCard .card-header").toggleClass("fixed-top");
 	$("#selectedEquipmentInstructionManualCard .card-body").toggleClass("mt-5");
+	$("body").toggleClass("fullscreen-responsive-embed-active");
+	ResizeResponsiveEmbeds(true);
 });
 
 $("#selectedEquipmentDescriptionToggleFullscreenButton").on('click', function(e)

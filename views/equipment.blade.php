@@ -6,26 +6,18 @@
 
 @section('content')
 <div class="row">
-	<div class="col">
+
+	<div class="col-xs-12 col-md-4 pb-3">
 		<h1>
 			@yield('title')
 			<a class="btn btn-outline-dark" href="{{ $U('/equipment/new') }}">
 				<i class="fas fa-plus"></i>&nbsp;{{ $L('Add') }}
 			</a>
 		</h1>
-	</div>
-</div>
 
-<div class="row mt-3">
-	<div class="col-xs-12 col-md-6 col-xl-3">
 		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
-	</div>
-</div>
 
-<div class="row">
-
-	<div class="col-xs-12 col-md-3 pb-3">
 		<table id="equipment-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
@@ -53,7 +45,7 @@
 		</table>
 	</div>
 
-	<div class="col-xs-12 col-md-9">
+	<div class="col-xs-12 col-md-8">
 		<ul class="nav nav-tabs">
 			<li class="nav-item">
 				<a class="nav-link active" data-toggle="tab" href="#instruction-manual-tab">{{ $L('Instruction manual') }}</a>
@@ -73,7 +65,7 @@
 					</div>
 					<div class="card-body py-0 px-0">
 						<p id="selected-equipment-has-no-instruction-manual-hint" class="text-muted font-italic d-none">{{ $L('The selected equipment has no instruction manual') }}</p>
-						<embed id="selected-equipment-instruction-manual" class="embed-responsive embed-responsive-4by3" width="100%" height="800px" src="" type="application/pdf">
+						<embed id="selected-equipment-instruction-manual" class="embed-responsive embed-responsive-4by3" src="" type="application/pdf">
 					</div>
 				</div>
 			</div>

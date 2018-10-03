@@ -124,5 +124,7 @@ $('#description').summernote({
 	lang: L('summernote_locale')
 });
 
+ResizeResponsiveEmbeds();
+
 $('#name').focus();
 Grocy.FrontendHelpers.ValidateForm('equipment-form');

@@ -322,3 +322,22 @@ if ($(".custom-file-label").length > 0)
 {
 	$("<style>").html('.custom-file-label::after { content: "' + L("Select file") + '"; }').appendTo("head");
 }
+
+ResizeResponsiveEmbeds = function(fillEntireViewport = false)
+{
+	if (!fillEntireViewport)
+	{
+		var maxHeight = $("body").height() - $("#mainNav").outerHeight() - 62;
+	}
+	else
+	{
+		var maxHeight = $("body").height();
+	}
+	
+	$(".embed-responsive").attr("height", maxHeight.toString() + "px");
+}
+$(window).on('resize', function()
+{
+	console.log($("body").hasClass("fullscreen-responsive-embed-active"));
+	ResizeResponsiveEmbeds($("body").hasClass("fullscreen-responsive-embed-active"));
+});
