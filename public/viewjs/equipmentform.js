@@ -114,9 +114,14 @@ Grocy.DeleteInstructionManualOnSave = false;
 $('#delete-current-instruction-manual-button').on('click', function (e)
 {
 	Grocy.DeleteInstructionManualOnSave = true;
-	//$("#current-instruction-manual").addClass("d-none");
+	$("#current-equipment-instruction-manual").addClass("d-none");
 	$("#delete-current-instruction-manual-on-save-hint").removeClass("d-none");
 	$("#delete-current-instruction-manual-button").addClass("disabled");
+});
+
+$('#description').summernote({
+	minHeight: '300px',
+	lang: L('summernote_locale')
 });
 
 $('#name').focus();

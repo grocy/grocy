@@ -10,7 +10,7 @@
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.3.1.tgz#5466b8f31c1f493a96754c1426c25796d0633dd9"
 
-"TagManager@https://github.com/max-favilli/tagmanager.git#3.0.2":
+"TagManager@https://github.com/max-favilli/tagmanager.git#3.0.2", "tagmanager@https://github.com/max-favilli/tagmanager.git#3.0.2":
   version "3.0.1"
   resolved "https://github.com/max-favilli/tagmanager.git#df9eb9935c8585a392dfc00602f890caf233fa94"
   dependencies:
@@ -201,6 +201,10 @@ startbootstrap-sb-admin@^4.0.0:
     font-awesome "4.7.0"
     jquery "3.3.1"
     jquery.easing "^1.4.1"
+
+summernote@^0.8.10:
+  version "0.8.10"
+  resolved "https://registry.yarnpkg.com/summernote/-/summernote-0.8.10.tgz#21a5d7f18a3b07500b58b60d5907417a54897520"
 
 swagger-ui-dist@^3.17.3:
   version "3.19.1"

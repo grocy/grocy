@@ -8,6 +8,15 @@
 
 @section('viewJsName', 'equipmentform')
 
+@push('pageScripts')
+	<script src="{{ $U('/node_modules/summernote/dist/summernote-bs4.js?v=', true) }}{{ $version }}"></script>
+	@if(!empty($L('summernote_locale')))<script src="{{ $U('/node_modules', true) }}/summernote/dist/lang/summernote-{{ $L('summernote_locale') }}.js?v={{ $version }}"></script>@endif
+@endpush
+
+@push('pageStyles')
+	<link href="{{ $U('/node_modules/summernote/dist/summernote-bs4.css?v=', true) }}{{ $version }}" rel="stylesheet">
+@endpush
+
 @section('content')
 <div class="row">
 
@@ -42,8 +51,8 @@
 			</div>
 
 			<div class="form-group">
-				<label for="description">{{ $L('Description') }}</label>
-				<textarea class="form-control" rows="25" id="description" name="description">@if($mode == 'edit'){{ $equipment->description }}@endif</textarea>
+				<label for="description">{{ $L('Notes') }}</label>
+				<textarea class="form-control" id="description" name="description">@if($mode == 'edit'){{ $equipment->description }}@endif</textarea>
 			</div>
 
 			<button id="save-equipment-button" class="btn btn-success">{{ $L('Save') }}</button>
@@ -55,10 +64,10 @@
 		<label class="mt-2">{{ $L('Current instruction manual') }}</label>
 		<button id="delete-current-instruction-manual-button" class="btn btn-sm btn-danger @if(empty($equipment->instruction_manual_file_name)) disabled @endif"><i class="fas fa-trash"></i> {{ $L('Delete') }}</button>
 		@if(!empty($equipment->instruction_manual_file_name))
-			<p>TODO: Here the current instruction manual needs to be shown (PDF.js), if any...</p>
+			<embed id="current-equipment-instruction-manual" class="embed-responsive embed-responsive-4by3" width="100%" height="800px" src="{{ $U('/api/file/equipmentmanuals?file_name=' . $equipment->instruction_manual_file_name) }}" type="application/pdf">
 			<p id="delete-current-instruction-manual-on-save-hint" class="form-text text-muted font-italic d-none">{{ $L('The current instruction manual will be deleted when you save the equipment') }}</p>
 		@else
-			<p id="no-current-instruction-manual-hint" class="form-text text-muted font-italic">{{ $L('No instruction manual') }}</p>
+			<p id="no-current-instruction-manual-hint" class="form-text text-muted font-italic">{{ $L('No instruction manual available') }}</p>
 		@endif
 	</div>
 </div>

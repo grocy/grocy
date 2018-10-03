@@ -95,7 +95,7 @@
 				</li>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Equipment') }}" data-nav-for-page="equipment">
 					<a class="nav-link discrete-link" href="{{ $U('/equipment') }}">
-						<i class="fas fa-warehouse"></i>
+						<i class="fas fa-toolbox"></i>
 						<span class="nav-link-text">{{ $L('Equipment') }}</span>
 					</a>
 				</li>

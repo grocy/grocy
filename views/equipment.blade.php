@@ -54,9 +54,23 @@
 	</div>
 
 	<div class="col-xs-12 col-md-9">
-		<h3>{{ $L('Instruction manual') }}</h3>
-		<p id="selected-equipment-has-no-instruction-manual-hint">{{ $L('The selected equipment has no instruction manual') }}</p>
-		<p>TODO: Here the current instruction manual needs to be shown (PDF.js), if any...</p>
+		<ul class="nav nav-tabs">
+			<li class="nav-item">
+				<a class="nav-link active" data-toggle="tab" href="#instruction-manual-tab">{{ $L('Instruction manual') }}</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="tab" href="#description-tab">{{ $L('Notes') }}</a>
+			</li>
+		</ul>
+		<div class="tab-content border-left border-right border-bottom py-2 px-2">
+			<div class="tab-pane fade show active" id="instruction-manual-tab">
+				<p id="selected-equipment-has-no-instruction-manual-hint" class="text-muted font-italic d-none">{{ $L('The selected equipment has no instruction manual') }}</p>
+				<embed id="selected-equipment-instruction-manual" class="embed-responsive embed-responsive-4by3" width="100%" height="800px" src="" type="application/pdf">
+			</div>
+			<div class="tab-pane fade" id="description-tab">
+				
+			</div>
+		</div>
 	</div>
 </div>
 @stop

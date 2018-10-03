@@ -14,6 +14,7 @@ class DemoDataGeneratorService extends BaseService
 		if (intval($rowCount) === 0)
 		{
 			$loremIpsum = 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.';
+			$loremIpsumWithHtmlFormattings = "<h1>Lorem ipsum</h1><p>Lorem ipsum <b>dolor sit</b> amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur <span style=\"background-color: rgb(255, 255, 0);\">sadipscing elitr</span>, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p><ul><li>At vero eos et accusam et justo duo dolores et ea rebum.</li><li>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</li></ul><h1>Lorem ipsum</h1><p>Lorem ipsum <b>dolor sit</b> amet, consetetur \r\nsadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et \r\ndolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et\r\n justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea \r\ntakimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit \r\namet, consetetur <span style=\"background-color: rgb(255, 255, 0);\">sadipscing elitr</span>,\r\n sed diam nonumy eirmod tempor invidunt ut labore et dolore magna \r\naliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo \r\ndolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus \r\nest Lorem ipsum dolor sit amet.</p>";
 
 			$sql = "
 				UPDATE users SET username = '{$localizationService->Localize('Demo User')}' WHERE id = 1;
@@ -105,8 +106,8 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO tasks (name, due_date, assigned_to_user_id) VALUES ('{$localizationService->Localize('Find a solution for what to do when I forget the door keys')}', date(datetime('now', 'localtime'), '+3 day'), 1);
 				INSERT INTO tasks (name, due_date, assigned_to_user_id) VALUES ('{$localizationService->Localize('Task')}3', date(datetime('now', 'localtime'), '+4 day'), 1);
 
-				INSERT INTO equipment (name, description) VALUES ('{$localizationService->Localize('Coffee machine')}', '{$loremIpsum}'); --1
-				INSERT INTO equipment (name, description) VALUES ('{$localizationService->Localize('Dishwasher')}', '{$loremIpsum}'); --2
+				INSERT INTO equipment (name, description, instruction_manual_file_name) VALUES ('{$localizationService->Localize('Coffee machine')}', '{$loremIpsumWithHtmlFormattings}', 'loremipsum.pdf'); --1
+				INSERT INTO equipment (name, description) VALUES ('{$localizationService->Localize('Dishwasher')}', '{$loremIpsumWithHtmlFormattings}'); --2
 
 				INSERT INTO migrations (migration) VALUES (-1);
 			";
@@ -205,10 +206,12 @@ class DemoDataGeneratorService extends BaseService
 			$batteriesService->TrackChargeCycle(3, date('Y-m-d H:i:s', strtotime('-65 days')));
 			$batteriesService->TrackChargeCycle(4, date('Y-m-d H:i:s', strtotime('-56 days')));
 
-			// Download demo product pictures
+			// Download demo storage data
 			$productPicturesFolder = GROCY_DATAPATH . '/storage/productpictures';
+			$equipmentManualsFolder = GROCY_DATAPATH . '/storage/equipmentmanuals';
 			mkdir(GROCY_DATAPATH . '/storage');
 			mkdir(GROCY_DATAPATH . '/storage/productpictures');
+			mkdir(GROCY_DATAPATH . '/storage/equipmentmanuals');
 			$sslOptions = array(
 				'ssl' => array(
 				'verify_peer' => false,
@@ -220,6 +223,7 @@ class DemoDataGeneratorService extends BaseService
 			file_put_contents("$productPicturesFolder/gummybears.jpg", file_get_contents('https://releases.grocy.info/demoresources/gummybears.jpg', false, stream_context_create($sslOptions)));
 			file_put_contents("$productPicturesFolder/paprika.jpg", file_get_contents('https://releases.grocy.info/demoresources/paprika.jpg', false, stream_context_create($sslOptions)));
 			file_put_contents("$productPicturesFolder/tomato.jpg", file_get_contents('https://releases.grocy.info/demoresources/tomato.jpg', false, stream_context_create($sslOptions)));
+			file_put_contents("$equipmentManualsFolder/loremipsum.pdf", file_get_contents('https://releases.grocy.info/demoresources/loremipsum.pdf', false, stream_context_create($sslOptions)));
 		}
 	}
 
