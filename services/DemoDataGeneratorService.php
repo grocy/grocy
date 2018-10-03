@@ -67,10 +67,10 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO shopping_list (product_id, amount) VALUES (20, 1);
 				INSERT INTO shopping_list (product_id, amount) VALUES (17, 1);
 
-				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Pizza')}', '{$loremIpsum}'); --1
-				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Spaghetti bolognese')}', '{$loremIpsum}'); --2
-				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Sandwiches')}', '{$loremIpsum}'); --3
-				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Pancakes')}', '{$loremIpsum}'); --4
+				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Pizza')}', '{$loremIpsumWithHtmlFormattings}'); --1
+				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Spaghetti bolognese')}', '{$loremIpsumWithHtmlFormattings}'); --2
+				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Sandwiches')}', '{$loremIpsumWithHtmlFormattings}'); --3
+				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Pancakes')}', '{$loremIpsumWithHtmlFormattings}'); --4
 
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (1, 16, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (1, 17, 1);

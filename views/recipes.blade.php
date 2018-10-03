@@ -82,7 +82,7 @@
 			</ul>
 			<div class="card-body">
 				<h5>{{ $L('Preparation') }}</h5>
-				{!! nl2br(htmlentities($selectedRecipe->description)) !!}
+				{!! $selectedRecipe->description !!}
 			</div>
 		</div>
 	</div>

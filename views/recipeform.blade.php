@@ -8,6 +8,15 @@
 
 @section('viewJsName', 'recipeform')
 
+@push('pageScripts')
+	<script src="{{ $U('/node_modules/summernote/dist/summernote-bs4.js?v=', true) }}{{ $version }}"></script>
+	@if(!empty($L('summernote_locale')))<script src="{{ $U('/node_modules', true) }}/summernote/dist/lang/summernote-{{ $L('summernote_locale') }}.js?v={{ $version }}"></script>@endif
+@endpush
+
+@push('pageStyles')
+	<link href="{{ $U('/node_modules/summernote/dist/summernote-bs4.css?v=', true) }}{{ $version }}" rel="stylesheet">
+@endpush
+
 @section('content')
 <div class="row">
 	<div class="col">
@@ -33,7 +42,7 @@
 
 			<div class="form-group">
 				<label for="description">{{ $L('Preparation') }}</label>
-				<textarea id="description" class="form-control" name="description" rows="25">@if($mode == 'edit'){{ $recipe->description }}@endif</textarea>
+				<textarea id="description" class="form-control" name="description">@if($mode == 'edit'){{ $recipe->description }}@endif</textarea>
 			</div>
 
 			<button id="save-recipe-button" class="btn btn-success">{{ $L('Save') }}</button>

@@ -159,4 +159,5 @@ $("#selectedRecipeToggleFullscreenButton").on('click', function(e)
 {
 	$("#selectedRecipeCard").toggleClass("fullscreen");
 	$("#selectedRecipeCard .card-header").toggleClass("fixed-top");
+	$("#selectedRecipeCard .card-body").toggleClass("mt-5");
 });
