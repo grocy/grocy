@@ -71,7 +71,7 @@
 							<i class="fas fa-expand-arrows-alt"></i>
 						</a>
 					</div>
-					<div class="card-body">
+					<div class="card-body py-0 px-0">
 						<p id="selected-equipment-has-no-instruction-manual-hint" class="text-muted font-italic d-none">{{ $L('The selected equipment has no instruction manual') }}</p>
 						<embed id="selected-equipment-instruction-manual" class="embed-responsive embed-responsive-4by3" width="100%" height="800px" src="" type="application/pdf">
 					</div>
