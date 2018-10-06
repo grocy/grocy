@@ -277,6 +277,7 @@ return array(
 	'Current instruction manual' => 'Aktuelle Bedienungsanleitung',
 	'No instruction manual available' => 'Keine Bedienungsanleitung vorhanden',
 	'The current instruction manual will be deleted when you save the equipment' => 'Die aktuelle Bedienungsanleitung wird beim Speichern des Geräts gelöscht',
+	'No picture available' => 'Kein Bild vorhanden',
 	
 	//Constants
 	'manually' => 'Manuell',

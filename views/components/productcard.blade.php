@@ -17,7 +17,7 @@
 
 		<h5 class="mt-3">{{ $L('Product picture') }}</h5>
 		<img id="productcard-product-picture" src="" class="img-fluid img-thumbnail d-none">
-		<span id="productcard-no-product-picture" class="font-italic d-none">{{ $L('No picture') }}</span>
+		<span id="productcard-no-product-picture" class="font-italic d-none">{{ $L('No picture available') }}</span>
 
 		<h5 class="mt-3">{{ $L('Price history') }}</h5>
 		<canvas id="productcard-product-price-history-chart" class="w-100 d-none"></canvas>

@@ -277,6 +277,7 @@ return array(
 	'Current instruction manual' => 'Nåværende instruksjonsmanual',
 	'No instruction manual available' => 'Ingen instruksjonsmanual tilgjengelig',
 	'The current instruction manual will be deleted when you save the equipment' => 'Nåværende instruksjonsmanual vil bli slettet når du lagrer utstyret',
+	'No picture available' => 'Ingen bilde tilgjengelig',
 			
 	//Constants
 	'manually' => 'Manuel',
