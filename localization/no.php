@@ -257,7 +257,27 @@ return array(
 	'in format' => 'format',
 	'To' => 'Til',
 	'Time range goes over midnight' => 'Tidsrommet går over midnatt',
-		
+	'Product picture' => 'Produktbilde',
+	'No file selected' => 'Ingen fil merket',
+	'If you don\'t select a file, the current picture will not be altered' => 'Hvis du ikke velger et bilde, vil nåværende bilde ikke bli endret',
+	'Current picture' => 'Nåværende bilde',
+	'Delete' => 'Slett',
+	'The current picture will be deleted when you save the product' => 'Nåværende bilde vil bli slettet når du lagrer produktet',
+	'Select file' => 'Velg fil',
+	'Image of product #1' => 'Bilde av produkt #1',
+	'This product cannot be deleted because it is in stock, please remove the stock amount first.' => 'Dette produktet kan ikke slettes fordi det er gjenværende produkter i husholdningen',
+	'Delete not possible' => 'Ikke mulig å slette',
+	'Equipment' => 'Utstyr',
+	'Instruction manual' => 'Instruksjonsmanual',
+	'The selected equipment has no instruction manual' => 'Merket utstyr har ingen instruksjonsmanual',
+	'Notes' => 'Notater',
+	'Edit equipment' => 'Endre utstyr',
+	'Create equipment' => 'Opprett utstyr',
+	'If you don\'t select a file, the current instruction manual will not be altered' => 'Hvis du ikke velger en instruksjonsmanual, vil nåværende instruksjonsmanual ikke bli endret',
+	'Current instruction manual' => 'Nåværende instruksjonsmanual',
+	'No instruction manual available' => 'Ingen instruksjonsmanual tilgjengelig',
+	'The current instruction manual will be deleted when you save the equipment' => 'Nåværende instruksjonsmanual vil bli slettet når du lagrer utstyret',
+			
 	//Constants
 	'manually' => 'Manuel',
 	'dynamic-regular' => 'Automatisk',
@@ -267,6 +287,7 @@ return array(
 	'timeago_nan' => 'for NaN År',
 	'moment_locale' => 'nb',
 	'datatables_localization' => '{"sEmptyTable":"Det finnes ingen data i tabellen","sInfo":"_START_ fra _END_ til _TOTAL_ skriv","sInfoEmpty":"Ingen data tilgjengelign","sInfoFiltered":"(filtrert fra _MAX_ skriv)","sInfoPostFix":"","sInfoThousands":".","sLengthMenu":"_MENU_ registrer deg","sLoadingRecords":"Laster ..","sProcessing":"Vennligst vent ..","sSearch":"Søk","sZeroRecords":"Ingen oppføringer tilgjengelig","oPaginate":{"sFirst":"Første","sPrevious":"Bakover","sNext":"Neste","sLast":"Siste"},"oAria":{"sSortAscending":": Sortér stigende","sSortDescending":": Sortér synkende"},"select":{"rows":{"0":"klikk på en linje for å velge","1":"1 linje valgt","_":"%d linger valgt"}},"buttons":{"print":"Print","colvis":"Søyle","copy":"Kopi","copyTitle":"Kopier til utklippstavlen","copyKeys":"Trykk <i>ctrl</i> eller <i>⌘</i> + <i>C</i> for å kopiere tabell<br> til utklipptavlen.<br><br>For å avbryte, klikke på meldingen eller trykk på ESC.","copySuccess":{"1":"1 Kolonne kopiert","_":"%d kolonne kopiert"}}}',
+	'summernote_locale' => 'nb-NO',
 	
 	//Demo data
 	'Cookies' => 'Cookies',
@@ -339,4 +360,6 @@ return array(
 	'Butchery products' => 'Produkt fra slakteren',
 	'Vegetables/Fruits' => 'Frukt/ Grønnsaker',
 	'Refrigerated products' => 'Kjølte produkter'
+	'Coffee machine' => 'Kaffetrakter',
+	'Dishwasher' => 'Oppvaskmaskin'
 );
