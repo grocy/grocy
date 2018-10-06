@@ -359,7 +359,7 @@ return array(
 	'Tinned food' => 'Boksemat',
 	'Butchery products' => 'Produkt fra slakteren',
 	'Vegetables/Fruits' => 'Frukt/ Grønnsaker',
-	'Refrigerated products' => 'Kjølte produkter'
+	'Refrigerated products' => 'Kjølte produkter',
 	'Coffee machine' => 'Kaffetrakter',
 	'Dishwasher' => 'Oppvaskmaskin'
 );
