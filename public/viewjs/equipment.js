@@ -1,9 +1,6 @@
 ﻿var equipmentTable = $('#equipment-table').DataTable({
 	'paginate': false,
-	'order': [[1, 'asc']],
-	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 }
-	],
+	'order': [[0, 'asc']],
 	'language': JSON.parse(L('datatables_localization')),
 	'scrollY': false,
 	'colReorder': true,

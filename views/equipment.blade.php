@@ -18,24 +18,15 @@
 		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
 
-		<table id="equipment-table" class="table table-sm table-striped dt-responsive">
+		<table id="equipment-table" class="table table-striped dt-responsive">
 			<thead>
 				<tr>
-					<th>#</th>
 					<th>{{ $L('Name') }}</th>
 				</tr>
 			</thead>
 			<tbody>
 				@foreach($equipment as $equipmentItem)
 				<tr data-equipment-id="{{ $equipmentItem->id }}">
-					<td class="fit-content">
-						<a class="btn btn-info btn-sm" href="{{ $U('/equipment/') }}{{ $equipmentItem->id }}">
-							<i class="fas fa-edit"></i>
-						</a>
-						<a class="btn btn-danger btn-sm equipment-delete-button" href="#" data-equipment-id="{{ $equipmentItem->id }}" data-equipment-name="{{ $equipmentItem->name }}">
-							<i class="fas fa-trash"></i>
-						</a>
-					</td>
 					<td>
 						{{ $equipmentItem->name }}
 					</td>
@@ -58,7 +49,13 @@
 			<div class="tab-pane fade show active" id="instruction-manual-tab">
 				<div id="selectedEquipmentInstructionManualCard" class="card">
 					<div class="card-header">
-						<i class="fas fa-toolbox"></i> <span class="selected-equipment-name"></span>
+						<i class="fas fa-toolbox"></i> <span class="selected-equipment-name"></span>&nbsp;&nbsp;
+						<a class="btn btn-info btn-sm btn-outline-info py-0" href="{{ $U('/equipment/') }}{{ $equipmentItem->id }}">
+							<i class="fas fa-edit"></i>
+						</a>
+						<a class="btn btn-danger btn-sm btn-outline-danger py-0 equipment-delete-button" href="#" data-equipment-id="{{ $equipmentItem->id }}" data-equipment-name="{{ $equipmentItem->name }}">
+							<i class="fas fa-trash"></i>
+						</a>
 						<a id="selectedEquipmentInstructionManualToggleFullscreenButton" class="btn btn-sm btn-outline-secondary py-0 float-right" href="#" data-toggle="tooltip" title="{{ $L('Expand to fullscreen') }}">
 							<i class="fas fa-expand-arrows-alt"></i>
 						</a>
@@ -72,7 +69,13 @@
 			<div class="tab-pane fade" id="description-tab">
 				<div id="selectedEquipmentDescriptionCard" class="card">
 					<div class="card-header">
-						<i class="fas fa-toolbox"></i> <span class="selected-equipment-name"></span>
+						<i class="fas fa-toolbox"></i> <span class="selected-equipment-name"></span>&nbsp;&nbsp;
+						<a class="btn btn-info btn-sm btn-outline-info py-0" href="{{ $U('/equipment/') }}{{ $equipmentItem->id }}">
+							<i class="fas fa-edit"></i>
+						</a>
+						<a class="btn btn-danger btn-sm btn-outline-danger py-0 equipment-delete-button" href="#" data-equipment-id="{{ $equipmentItem->id }}" data-equipment-name="{{ $equipmentItem->name }}">
+							<i class="fas fa-trash"></i>
+						</a>
 						<a id="selectedEquipmentDescriptionToggleFullscreenButton" class="btn btn-sm btn-outline-secondary py-0 float-right" href="#" data-toggle="tooltip" title="{{ $L('Expand to fullscreen') }}">
 							<i class="fas fa-expand-arrows-alt"></i>
 						</a>

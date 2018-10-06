@@ -6,18 +6,15 @@
 
 @section('content')
 <div class="row">
-	<div class="col">
+	
+	<div class="col-xs-12 col-md-6 pb-3">
 		<h1>
 			@yield('title')
 			<a class="btn btn-outline-dark" href="{{ $U('/recipe/new') }}">
 				<i class="fas fa-plus"></i> {{ $L('Add') }}
 			</a>
 		</h1>
-	</div>
-</div>
 
-<div class="row">
-	<div class="col-xs-12 col-md-6 pb-3">
 		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
 
