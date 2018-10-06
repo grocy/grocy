@@ -199,7 +199,7 @@ return array(
 	'Unit' => 'Enhet',
 	'Units' => 'Enheter',
 	'#1 chore is due to be done within the next #2 days' => '#1 husarbeid oppgave skal gjøres inne de #2 neste dagene',
-	'#1 is overdue to be done' => '#1 husarbeid oppgave har gått over fristen for utførelse',
+	'#1 chore is overdue to be done' => '#1 husarbeid oppgave har gått over fristen for utførelse',
 	'#1 battery is due to be charged within the next #2 days' => '#1 Batteri må lades innen #2 dager',
 	'#1 battery is overdue to be charged' => '#1 Batteri har gått over fristen for å lades',
 	'#1 unit was automatically added and will apply in addition to the amount entered here' => '#1 enhet ble automatisk lagt til i tillegg til hva som blir skrevet inn her',
