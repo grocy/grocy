@@ -278,6 +278,7 @@ return array(
 	'No instruction manual available' => 'Keine Bedienungsanleitung vorhanden',
 	'The current instruction manual will be deleted when you save the equipment' => 'Die aktuelle Bedienungsanleitung wird beim Speichern des Geräts gelöscht',
 	'No picture available' => 'Kein Bild vorhanden',
+	'Filter by product group' => 'Nach Produktgruppe filtern',
 	
 	//Constants
 	'manually' => 'Manuell',

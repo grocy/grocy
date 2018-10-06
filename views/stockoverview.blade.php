@@ -37,6 +37,15 @@
 		</select>
 	</div>
 	<div class="col-xs-12 col-md-6 col-xl-3">
+		<label for="location-filter">{{ $L('Filter by product group') }}</label> <i class="fas fa-filter"></i>
+		<select class="form-control" id="product-group-filter">
+			<option value="all">{{ $L('All') }}</option>
+			@foreach($productGroups as $productGroup)
+				<option value="{{ $productGroup->name }}">{{ $productGroup->name }}</option>
+			@endforeach
+		</select>
+	</div>
+	<div class="col-xs-12 col-md-6 col-xl-3">
 		<label for="status-filter">{{ $L('Filter by status') }}</label> <i class="fas fa-filter"></i>
 		<select class="form-control" id="status-filter">
 			<option class="bg-white" value="all">{{ $L('All') }}</option>
@@ -62,6 +71,7 @@
 					<th>{{ $L('Next best before date') }}</th>
 					<th class="d-none">Hidden location</th>
 					<th class="d-none">Hidden status</th>
+					<th class="d-none">Hidden product group</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -102,6 +112,10 @@
 					</td>
 					<td class="d-none">
 						@if($currentStockEntry->best_before_date < date('Y-m-d', strtotime('-1 days')) && $currentStockEntry->amount > 0) expired @elseif($currentStockEntry->best_before_date < date('Y-m-d', strtotime("+$nextXDays days")) && $currentStockEntry->amount > 0) expiring @elseif (FindObjectInArrayByPropertyValue($missingProducts, 'id', $currentStockEntry->product_id) !== null) belowminstockamount @endif
+					</td>
+					@php $productGroup = FindObjectInArrayByPropertyValue($productGroups, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->product_group_id) @endphp
+					<td class="d-none">
+						@if($productGroup !== null){{ $productGroup->name }}@endif
 					</td>
 				</tr>
 				@endforeach

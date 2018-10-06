@@ -23,7 +23,8 @@ class StockController extends BaseController
 			'locations' => $this->Database->locations()->orderBy('name'),
 			'currentStock' => $this->StockService->GetCurrentStock(),
 			'missingProducts' => $this->StockService->GetMissingProducts(),
-			'nextXDays' => 5
+			'nextXDays' => 5,
+			'productGroups' => $this->Database->product_groups()->orderBy('name')
 		]);
 	}
 

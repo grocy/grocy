@@ -31,6 +31,17 @@ $("#location-filter").on("change", function()
 	stockOverviewTable.column(4).search(value).draw();
 });
 
+$("#product-group-filter").on("change", function()
+{
+	var value = $(this).val();
+	if (value === "all")
+	{
+		value = "";
+	}
+	
+	stockOverviewTable.column(6).search(value).draw();
+});
+
 $("#status-filter").on("change", function()
 {
 	var value = $(this).val();
