@@ -116,7 +116,7 @@ $("#selectedEquipmentInstructionManualToggleFullscreenButton").on('click', funct
 	$("#selectedEquipmentInstructionManualCard").toggleClass("fullscreen");
 	$("#selectedEquipmentInstructionManualCard .card-header").toggleClass("fixed-top");
 	$("#selectedEquipmentInstructionManualCard .card-body").toggleClass("mt-5");
-	$("body").toggleClass("fullscreen-responsive-embed-active");
+	$("body").toggleClass("fullscreen-card");
 	ResizeResponsiveEmbeds(true);
 });
 

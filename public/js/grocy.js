@@ -338,6 +338,5 @@ ResizeResponsiveEmbeds = function(fillEntireViewport = false)
 }
 $(window).on('resize', function()
 {
-	console.log($("body").hasClass("fullscreen-responsive-embed-active"));
-	ResizeResponsiveEmbeds($("body").hasClass("fullscreen-responsive-embed-active"));
+	ResizeResponsiveEmbeds($("body").hasClass("fullscreen-card"));
 });

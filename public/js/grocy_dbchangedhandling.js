@@ -22,7 +22,7 @@ setInterval(function()
 			{
 				if (Grocy.IdleTime >= 50)
 				{
-					if (BoolVal(Grocy.UserSettings.auto_reload_on_db_change) && $("form.is-dirty").length === 0)
+					if (BoolVal(Grocy.UserSettings.auto_reload_on_db_change) && $("form.is-dirty").length === 0 && !$("body").hasClass("fullscreen-card"))
 					{
 						window.location.reload();
 					}
