@@ -37,10 +37,10 @@ class SessionService extends BaseService
 	{
 		$newSessionKey = $this->GenerateSessionKey();
 		
-		$expires = date('Y-m-d H:i:s', time() + 2592000); // Default is that sessions expire in 30 days
+		$expires = date('Y-m-d H:i:s', intval(time() + 2592000)); // Default is that sessions expire in 30 days
 		if ($stayLoggedInPermanently === true)
 		{
-			$expires = date('Y-m-d H:i:s', time() + 31220640000); // 999 years aka forever
+			$expires = date('Y-m-d H:i:s', intval(time() + 31220640000)); // 999 years aka forever
 		}
 
 		$sessionRow = $this->Database->sessions()->createRow(array(
