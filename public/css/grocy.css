@@ -95,7 +95,8 @@ input::-webkit-inner-spin-button {
 }
 
 .navbar-sidenav {
-	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: auto;
 	border-top: 2px solid !important;
 }
 
