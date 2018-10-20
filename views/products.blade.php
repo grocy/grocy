@@ -12,6 +12,9 @@
 			<a class="btn btn-outline-dark" href="{{ $U('/product/new') }}">
 				<i class="fas fa-plus"></i>&nbsp;{{ $L('Add') }}
 			</a>
+			<a class="btn btn-outline-secondary" href="{{ $U('/productpresets') }}">
+				<i class="fas fa-sliders-h"></i>&nbsp;{{ $L('Presets for new products') }}
+			</a>
 		</h1>
 	</div>
 </div>

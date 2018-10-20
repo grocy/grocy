@@ -196,6 +196,24 @@ $('#delete-current-product-picture-button').on('click', function (e)
 	$("#delete-current-product-picture-button").addClass("disabled");
 });
 
+if (Grocy.EditMode === 'create')
+{
+	if (Grocy.UserSettings.product_presets_location_id.toString() !== '-1')
+	{
+		$("#location_id").val(Grocy.UserSettings.product_presets_location_id);
+	}
+
+	if (Grocy.UserSettings.product_presets_product_group_id.toString() !== '-1')
+	{
+		$("#product_group_id").val(Grocy.UserSettings.product_presets_product_group_id);
+	}
+
+	if (Grocy.UserSettings.product_presets_qu_id.toString() !== '-1')
+	{
+		$("select.input-group-qu").val(Grocy.UserSettings.product_presets_qu_id);
+	}
+}
+
 $('#name').focus();
 $('.input-group-qu').trigger('change');
 Grocy.FrontendHelpers.ValidateForm('product-form');

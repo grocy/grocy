@@ -283,8 +283,13 @@ $("form").on("click", "select", function()
 $(".user-setting-control").on("change", function()
 {
 	var element = $(this);
-	var inputType = element.attr("type").toLowerCase();
 	var settingKey = element.attr("data-setting-key");
+
+	var inputType = "unknown";
+	if (typeof element.attr("type") !== typeof undefined && element.attr("type") !== false)
+	{
+		inputType = element.attr("type").toLowerCase();
+	}
 	
 	if (inputType === "checkbox")
 	{

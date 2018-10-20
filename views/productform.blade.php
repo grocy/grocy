@@ -46,6 +46,7 @@
 			<div class="form-group">
 				<label for="location_id">{{ $L('Location') }}</label>
 				<select required class="form-control" id="location_id" name="location_id">
+					<option></option>
 					@foreach($locations as $location)
 						<option @if($mode == 'edit' && $location->id == $product->location_id) selected="selected" @endif value="{{ $location->id }}">{{ $location->name }}</option>
 					@endforeach
@@ -85,6 +86,7 @@
 			<div class="form-group">
 				<label for="qu_id_purchase">{{ $L('Quantity unit purchase') }}</label>
 				<select required class="form-control input-group-qu" id="qu_id_purchase" name="qu_id_purchase">
+					<option></option>
 					@foreach($quantityunits as $quantityunit)
 						<option @if($mode == 'edit' && $quantityunit->id == $product->qu_id_purchase) selected="selected" @endif value="{{ $quantityunit->id }}">{{ $quantityunit->name }}</option>
 					@endforeach
@@ -95,6 +97,7 @@
 			<div class="form-group">
 				<label for="qu_id_stock">{{ $L('Quantity unit stock') }}</label>
 				<select required class="form-control input-group-qu" id="qu_id_stock" name="qu_id_stock">
+					<option></option>
 					@foreach($quantityunits as $quantityunit)
 						<option @if($mode == 'edit' && $quantityunit->id == $product->qu_id_stock) selected="selected" @endif value="{{ $quantityunit->id }}">{{ $quantityunit->name }}</option>
 					@endforeach

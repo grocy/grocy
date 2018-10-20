@@ -26,6 +26,7 @@ $app->group('', function()
 	$this->get('/inventory', '\Grocy\Controllers\StockController:Inventory');
 	$this->get('/products', '\Grocy\Controllers\StockController:ProductsList');
 	$this->get('/product/{productId}', '\Grocy\Controllers\StockController:ProductEditForm');
+	$this->get('/productpresets', '\Grocy\Controllers\StockController:ProductDefaults');
 	$this->get('/locations', '\Grocy\Controllers\StockController:LocationsList');
 	$this->get('/location/{locationId}', '\Grocy\Controllers\StockController:LocationEditForm');
 	$this->get('/quantityunits', '\Grocy\Controllers\StockController:QuantityUnitsList');

@@ -38,6 +38,9 @@ DefaultUserSetting('auto_night_mode_time_range_from', "20:00"); // Format HH:mm
 DefaultUserSetting('auto_night_mode_time_range_to', "07:00"); // Format HH:mm
 DefaultUserSetting('auto_night_mode_time_range_goes_over_midnight', true); // If the time range above goes over midnight
 DefaultUserSetting('currently_inside_night_mode_range', false); // If we're currently inside of night mode time range (this is not user configurable, but stored as a user setting because it's evaluated client side to be able to use the client time instead of the maybe different server time)
+DefaultUserSetting('product_presets_location_id', -1); // Default location id for new products (-1 means no location is preset)
+DefaultUserSetting('product_presets_product_group_id', -1); // Default product group id for new products (-1 means no product group is preset)
+DefaultUserSetting('product_presets_qu_id', -1); // Default quantity unit id for new products (-1 means no quantity unit is preset)
 
 # If the page should be automatically reloaded when there was
 # an external change

@@ -70,6 +70,15 @@ class StockController extends BaseController
 		]);
 	}
 
+	public function ProductDefaults(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->AppContainer->view->render($response, 'productpresets', [
+			'locations' => $this->Database->locations()->orderBy('name'),
+			'quantityunits' => $this->Database->quantity_units()->orderBy('name'),
+			'productGroups' => $this->Database->product_groups()->orderBy('name')
+		]);
+	}
+
 	public function LocationsList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->AppContainer->view->render($response, 'locations', [
