@@ -249,6 +249,36 @@ return array(
 	'Already expired' => 'Bereits abgelaufen',
 	'Due soon' => 'Bald fällig',
 	'Overdue' => 'Überfällig',
+	'View settings' => 'Ansichtseinstellungen',
+	'Auto reload on external changes' => 'Autom. akt. bei externen Änderungen',
+	'Enable night mode' => 'Nachtmodus aktivieren',
+	'Auto enable in time range' => 'Autom. akt. in diesem Zeitraum',
+	'From' => 'Von',
+	'in format' => 'im Format',
+	'To' => 'Bis',
+	'Time range goes over midnight' => 'Zeitraum geht über Mitternacht',
+	'Product picture' => 'Produktbild',
+	'No file selected' => 'Keine Datei ausgewählt',
+	'If you don\'t select a file, the current picture will not be altered' => 'Wenn du keine Datei auswählst, wird das aktuelle Bild nicht verändert',
+	'Current picture' => 'Aktuelles Bild',
+	'Delete' => 'Löschen',
+	'The current picture will be deleted when you save the product' => 'Das aktuelle Bild wird beim Speichern des Produkts gelöscht',
+	'Select file' => 'Datei auswählen',
+	'Image of product #1' => 'Bild des Produkts #1',
+	'This product cannot be deleted because it is in stock, please remove the stock amount first.' => 'Dieses Produkt kann nicht gelöscht werden, da es auf Lager ist, bitte  zuerst den Bestand entfernen.',
+	'Delete not possible' => 'Löschen nicht möglich',
+	'Equipment' => 'Ausstattung',
+	'Instruction manual' => 'Bedienungsanleitung',
+	'The selected equipment has no instruction manual' => 'Das ausgewählte Gerät hat keine Bedienungsanleitung',
+	'Notes' => 'Notizen',
+	'Edit equipment' => 'Geräte bearbeiten',
+	'Create equipment' => 'Geräte erstellen',
+	'If you don\'t select a file, the current instruction manual will not be altered' => 'Wenn du keine Datei auswählst, wird die aktuelle Bedienungsanleitung nicht verändert',
+	'Current instruction manual' => 'Aktuelle Bedienungsanleitung',
+	'No instruction manual available' => 'Keine Bedienungsanleitung vorhanden',
+	'The current instruction manual will be deleted when you save the equipment' => 'Die aktuelle Bedienungsanleitung wird beim Speichern des Geräts gelöscht',
+	'No picture available' => 'Kein Bild vorhanden',
+	'Filter by product group' => 'Nach Produktgruppe filtern',
 	
 	//Constants
 	'manually' => 'Manuell',
@@ -259,6 +289,7 @@ return array(
 	'timeago_nan' => 'vor NaN Jahren',
 	'moment_locale' => 'de',
 	'datatables_localization' => '{"sEmptyTable":"Keine Daten in der Tabelle vorhanden","sInfo":"_START_ bis _END_ von _TOTAL_ Einträgen","sInfoEmpty":"Keine Daten vorhanden","sInfoFiltered":"(gefiltert von _MAX_ Einträgen)","sInfoPostFix":"","sInfoThousands":".","sLengthMenu":"_MENU_ Einträge anzeigen","sLoadingRecords":"Wird geladen ..","sProcessing":"Bitte warten ..","sSearch":"Suchen","sZeroRecords":"Keine Einträge vorhanden","oPaginate":{"sFirst":"Erste","sPrevious":"Zurück","sNext":"Nächste","sLast":"Letzte"},"oAria":{"sSortAscending":": aktivieren, um Spalte aufsteigend zu sortieren","sSortDescending":": aktivieren, um Spalte absteigend zu sortieren"},"select":{"rows":{"0":"Zum Auswählen auf eine Zeile klicken","1":"1 Zeile ausgewählt","_":"%d Zeilen ausgewählt"}},"buttons":{"print":"Drucken","colvis":"Spalten","copy":"Kopieren","copyTitle":"In Zwischenablage kopieren","copyKeys":"Taste <i>ctrl</i> oder <i>⌘</i> + <i>C</i> um Tabelle<br>in Zwischenspeicher zu kopieren.<br><br>Um abzubrechen die Nachricht anklicken oder Escape drücken.","copySuccess":{"1":"1 Spalte kopiert","_":"%d Spalten kopiert"}}}',
+	'summernote_locale' => 'de-DE',
 	
 	//Demo data
 	'Cookies' => 'Cookies',
@@ -330,5 +361,7 @@ return array(
 	'Tinned food' => 'Konservern',
 	'Butchery products' => 'Metzgerei',
 	'Vegetables/Fruits' => 'Obst/Gemüse',
-	'Refrigerated products' => 'Kühlregal'
+	'Refrigerated products' => 'Kühlregal',
+	'Coffee machine' => 'Kaffeemaschine',
+	'Dishwasher' => 'Spülmaschine'
 );

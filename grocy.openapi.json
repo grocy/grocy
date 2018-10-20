@@ -44,6 +44,47 @@
 				}
 			}
 		},
+		"/system/log-missing-localization": {
+			"post": {
+				"description": "Logs a missing localization string (only when MODE == 'dev', so should only be called then)",
+				"tags": [
+					"System"
+				],
+				"requestBody": {
+					"description": "A valid MissingLocalizationRequest object",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/MissingLocalizationRequest"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/get-objects/{entity}": {
 			"get": {
 				"description": "Returns all objects of the given entity",
@@ -390,9 +431,58 @@
 				}
 			}
 		},
-		"/files/upload/{group}": {
-			"post": {
-				"description": "Uploads a single file to /data/storage/{group}/{file_name}",
+		"/file/{group}": {
+			"get": {
+				"description": "Serves the given file (with proper Content-Type header)",
+				"tags": [
+					"Files"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "group",
+						"required": true,
+						"description": "The file group",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "file_name",
+						"required": true,
+						"description": "The file name (including extension)",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "The binary file contents (Content-Type header is automatically set based on the file type)",
+						"content": {
+							"application/octet-stream": {
+								"schema": {
+									"type": "string",
+									"format": "binary"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			},
+			"put": {
+				"description": "Uploads a single file to /data/storage/{group}/{file_name} (you need to remember the group and file name to get or delete it again)",
 				"tags": [
 					"Files"
 				],
@@ -426,6 +516,54 @@
 						}
 					}
 				},
+				"responses": {
+					"200": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"description": "Deletes the given file",
+				"tags": [
+					"Files"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "group",
+						"required": true,
+						"description": "The file group",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "file_name",
+						"required": true,
+						"description": "The file name (including extension)",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
 				"responses": {
 					"200": {
 						"description": "A VoidApiActionResponse object",
@@ -590,6 +728,97 @@
 						"description": "A valid user id",
 						"schema": {
 							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/user/settings/{settingKey}": {
+			"get": {
+				"description": "Gets the given setting of the currently logged on user",
+				"tags": [
+					"User settings"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "settingKey",
+						"required": true,
+						"description": "The key of the user setting",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A UserSetting object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UserSetting"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"description": "Sets the given setting of the currently logged on user",
+				"tags": [
+					"User settings"
+				],
+				"requestBody": {
+					"description": "A valid UserSetting object",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/UserSetting"
+							}
+						}
+					}
+				},
+				"parameters": [
+					{
+						"in": "path",
+						"name": "settingKey",
+						"required": true,
+						"description": "The key of the user setting",
+						"schema": {
+							"type": "string"
 						}
 					}
 				],
@@ -1448,7 +1677,8 @@
 					"recipes_pos",
 					"tasks",
 					"task_categories",
-					"product_groups"
+					"product_groups",
+					"equipment"
 				]
 			},
 			"StockTransactionType": {
@@ -1499,6 +1729,9 @@
 						"type": "integer",
 						"minimum": 0,
 						"default": 0
+					},
+					"picture_file_name": {
+						"type": "string"
 					},
 					"row_created_timestamp": {
 						"type": "string",
@@ -2096,6 +2329,22 @@
 					"changed_time": {
 						"type": "string",
 						"format": "date-time"
+					}
+				}
+			},
+			"UserSetting": {
+				"type": "object",
+				"properties": {
+					"value": {
+						"type": "string"
+					}
+				}
+			},
+			"MissingLocalizationRequest": {
+				"type": "object",
+				"properties": {
+					"text": {
+						"type": "string"
 					}
 				}
 			}

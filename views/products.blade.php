@@ -50,7 +50,7 @@
 						</a>
 					</td>
 					<td>
-						{{ $product->name }}
+						{{ $product->name }}@if(!empty($product->picture_file_name)) <i class="fas fa-image text-muted"></i>@endif
 					</td>
 					<td>
 						{{ FindObjectInArrayByPropertyValue($locations, 'id', $product->location_id)->name }}

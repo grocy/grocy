@@ -20,4 +20,22 @@ class SystemApiController extends BaseApiController
 			'changed_time' => $this->DatabaseService->GetDbChangedTime()
 		));
 	}
+
+	public function LogMissingLocalization(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		if (GROCY_MODE === 'dev')
+		{
+			try
+			{
+				$requestBody = $request->getParsedBody();
+
+				$this->LocalizationService->LogMissingLocalization(GROCY_CULTURE, $requestBody['text']);
+				return $this->ApiResponse(array('success' => true));
+			}
+			catch (\Exception $ex)
+			{
+				return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			}
+		}	
+	}
 }

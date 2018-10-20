@@ -8,6 +8,14 @@
 	<script src="{{ $U('/node_modules/jquery-ui-dist/jquery-ui.min.js?v=', true) }}{{ $version }}"></script>
 @endpush
 
+@push('pageStyles')
+	<style>
+		.product-name-cell[data-product-has-picture='true'] {
+			cursor: pointer;
+		}
+	</style>
+@endpush
+
 @section('content')
 <div class="row">
 	<div class="col">
@@ -25,6 +33,15 @@
 			<option value="all">{{ $L('All') }}</option>
 			@foreach($locations as $location)
 				<option value="{{ $location->name }}">{{ $location->name }}</option>
+			@endforeach
+		</select>
+	</div>
+	<div class="col-xs-12 col-md-6 col-xl-3">
+		<label for="location-filter">{{ $L('Filter by product group') }}</label> <i class="fas fa-filter"></i>
+		<select class="form-control" id="product-group-filter">
+			<option value="all">{{ $L('All') }}</option>
+			@foreach($productGroups as $productGroup)
+				<option value="{{ $productGroup->name }}">{{ $productGroup->name }}</option>
 			@endforeach
 		</select>
 	</div>
@@ -54,20 +71,21 @@
 					<th>{{ $L('Next best before date') }}</th>
 					<th class="d-none">Hidden location</th>
 					<th class="d-none">Hidden status</th>
+					<th class="d-none">Hidden product group</th>
 				</tr>
 			</thead>
 			<tbody>
 				@foreach($currentStock as $currentStockEntry) 
-				<tr id="product-{{ $currentStockEntry->product_id }}-row" class="@if($currentStockEntry->best_before_date < date('Y-m-d', strtotime('-1 days'))) table-danger @elseif($currentStockEntry->best_before_date < date('Y-m-d', strtotime("+$nextXDays days"))) table-warning @elseif (FindObjectInArrayByPropertyValue($missingProducts, 'id', $currentStockEntry->product_id) !== null) table-info @endif">
+				<tr id="product-{{ $currentStockEntry->product_id }}-row" class="@if($currentStockEntry->best_before_date < date('Y-m-d', strtotime('-1 days')) && $currentStockEntry->amount > 0) table-danger @elseif($currentStockEntry->best_before_date < date('Y-m-d', strtotime("+$nextXDays days")) && $currentStockEntry->amount > 0) table-warning @elseif (FindObjectInArrayByPropertyValue($missingProducts, 'id', $currentStockEntry->product_id) !== null) table-info @endif">
 					<td class="fit-content">
-						<a class="btn btn-success btn-sm product-consume-button" href="#" data-toggle="tooltip" data-placement="left" title="{{ $L('Consume #3 #1 of #2', FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name, 1) }}"
+						<a class="btn btn-success btn-sm product-consume-button @if($currentStockEntry->amount == 0) disabled @endif" href="#" data-toggle="tooltip" data-placement="left" title="{{ $L('Consume #3 #1 of #2', FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name, 1) }}"
 							data-product-id="{{ $currentStockEntry->product_id }}"
 							data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}"
 							data-product-qu-name="{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name }}"
 							data-consume-amount="1">
 							<i class="fas fa-utensils"></i> 1
 						</a>
-						<a id="product-{{ $currentStockEntry->product_id }}-consume-all-button" class="btn btn-danger btn-sm product-consume-button" href="#" data-toggle="tooltip" data-placement="right" title="{{ $L('Consume all #1 which are currently in stock', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name) }}"
+						<a id="product-{{ $currentStockEntry->product_id }}-consume-all-button" class="btn btn-danger btn-sm product-consume-button @if($currentStockEntry->amount == 0) disabled @endif" href="#" data-toggle="tooltip" data-placement="right" title="{{ $L('Consume all #1 which are currently in stock', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name) }}"
 							data-product-id="{{ $currentStockEntry->product_id }}"
 							data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}"
 							data-product-qu-name="{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name }}"
@@ -75,8 +93,12 @@
 							<i class="fas fa-utensils"></i> {{ $L('All') }}
 						</a>
 					</td>
-					<td>
-						{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}
+					<td class="product-name-cell"
+						data-picture-url="{{ $U('/api/file/productpictures?file_name=' . FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->picture_file_name) }}"
+						data-product-id="{{ $currentStockEntry->product_id }}"
+						data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}"
+						data-product-has-picture="{{ BoolToString(!empty(FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->picture_file_name)) }}">
+						{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}@if(!empty(FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->picture_file_name)) <i class="fas fa-image text-muted"></i>@endif
 					</td>
 					<td>
 						<span id="product-{{ $currentStockEntry->product_id }}-amount">{{ $currentStockEntry->amount }}</span> {{ Pluralize($currentStockEntry->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name_plural) }}
@@ -89,7 +111,11 @@
 						{{ FindObjectInArrayByPropertyValue($locations, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->location_id)->name }}
 					</td>
 					<td class="d-none">
-						@if($currentStockEntry->best_before_date < date('Y-m-d', strtotime('-1 days'))) expired @elseif($currentStockEntry->best_before_date < date('Y-m-d', strtotime("+$nextXDays days"))) expiring @elseif (FindObjectInArrayByPropertyValue($missingProducts, 'id', $currentStockEntry->product_id) !== null) belowminstockamount @endif
+						@if($currentStockEntry->best_before_date < date('Y-m-d', strtotime('-1 days')) && $currentStockEntry->amount > 0) expired @elseif($currentStockEntry->best_before_date < date('Y-m-d', strtotime("+$nextXDays days")) && $currentStockEntry->amount > 0) expiring @elseif (FindObjectInArrayByPropertyValue($missingProducts, 'id', $currentStockEntry->product_id) !== null) belowminstockamount @endif
+					</td>
+					@php $productGroup = FindObjectInArrayByPropertyValue($productGroups, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->product_group_id) @endphp
+					<td class="d-none">
+						@if($productGroup !== null){{ $productGroup->name }}@endif
 					</td>
 				</tr>
 				@endforeach

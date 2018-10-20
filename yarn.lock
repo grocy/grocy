@@ -4,13 +4,13 @@
 
 "@danielfarrell/bootstrap-combobox@https://github.com/berrnd/bootstrap-combobox.git#master":
   version "1.1.8"
-  resolved "https://github.com/berrnd/bootstrap-combobox.git#d5a43b011d4d2c86537df26e15d2caa51be6a15f"
+  resolved "https://github.com/berrnd/bootstrap-combobox.git#fcf0110146f4daab94888234c57d198b4ca5f129"
 
 "@fortawesome/fontawesome-free@^5.1.0":
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.3.1.tgz#5466b8f31c1f493a96754c1426c25796d0633dd9"
 
-"TagManager@https://github.com/max-favilli/tagmanager.git#3.0.2", "tagmanager@https://github.com/max-favilli/tagmanager.git#3.0.2":
+"TagManager@https://github.com/max-favilli/tagmanager.git#3.0.2":
   version "3.0.1"
   resolved "https://github.com/max-favilli/tagmanager.git#df9eb9935c8585a392dfc00602f890caf233fa94"
   dependencies:
@@ -108,16 +108,16 @@ datatables.net-responsive@2.2.3, datatables.net-responsive@^2.2.3:
     jquery ">=1.7"
 
 datatables.net-rowgroup-bs4@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/datatables.net-rowgroup-bs4/-/datatables.net-rowgroup-bs4-1.0.4.tgz#602f056f9a60bab1b3ac3a36088636f40156b05a"
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/datatables.net-rowgroup-bs4/-/datatables.net-rowgroup-bs4-1.1.0.tgz#bcaa9842bc9cf70eeba19e8af6edad190c7b896e"
   dependencies:
     datatables.net-bs4 "^1.10.15"
-    datatables.net-rowgroup "1.0.4"
+    datatables.net-rowgroup "1.1.0"
     jquery ">=1.7"
 
-datatables.net-rowgroup@1.0.4, datatables.net-rowgroup@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/datatables.net-rowgroup/-/datatables.net-rowgroup-1.0.4.tgz#2caf979f28747be7d9ab66725b639b73099d8eb0"
+datatables.net-rowgroup@1.1.0, datatables.net-rowgroup@^1.0.4:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/datatables.net-rowgroup/-/datatables.net-rowgroup-1.1.0.tgz#638efb37a1a15f5b3402b7dbce89b3bcdc286f1a"
   dependencies:
     datatables.net "^1.10.15"
     jquery ">=1.7"
@@ -202,9 +202,13 @@ startbootstrap-sb-admin@^4.0.0:
     jquery "3.3.1"
     jquery.easing "^1.4.1"
 
+summernote@^0.8.10:
+  version "0.8.10"
+  resolved "https://registry.yarnpkg.com/summernote/-/summernote-0.8.10.tgz#21a5d7f18a3b07500b58b60d5907417a54897520"
+
 swagger-ui-dist@^3.17.3:
-  version "3.19.0"
-  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-3.19.0.tgz#95942ce1a556e7fe2705d7c92c6004a628d53207"
+  version "3.19.2"
+  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-3.19.2.tgz#3218f205e7cbc9f0c7c11fabbee07340173ae939"
 
 tempusdominus-bootstrap-4@^5.0.1:
   version "5.1.1"

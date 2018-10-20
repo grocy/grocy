@@ -197,3 +197,25 @@
 .night-mode .typeahead .active {
 	background-color: #333131;
 }
+
+.night-mode .note-editor.note-frame .note-editing-area .note-editable {
+    color: #c1c1c1;
+    background-color: #333131;
+}
+
+.night-mode .bootstrap-datetimepicker-widget table td.day {
+    background-color: #333131;
+}
+
+.night-mode .bootstrap-datetimepicker-widget table td {
+    background-color: #333131;
+}
+
+.night-mode .bootstrap-datetimepicker-widget table td, 
+.night-mode .bootstrap-datetimepicker-widget table th {
+    background-color: #333131;
+}
+
+.night-mode .dropdown-menu {
+    background-color: #333131;
+}

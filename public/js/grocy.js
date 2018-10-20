@@ -3,6 +3,22 @@
 	var localizedText = Grocy.LocalizationStrings[text];
 	if (localizedText === undefined)
 	{
+		if (Grocy.Mode === 'dev')
+		{
+			jsonData = {};
+			jsonData.text = text;
+			Grocy.Api.Post('system/log-missing-localization', jsonData,
+				function(result)
+				{
+					// Nothing to do...
+				},
+				function(xhr)
+				{
+					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+				}
+			);
+		}
+
 		localizedText = text;
 	}
 	
@@ -161,6 +177,68 @@ Grocy.Api.Post = function(apiFunction, jsonData, success, error)
 	xhr.send(JSON.stringify(jsonData));
 };
 
+Grocy.Api.UploadFile = function(file, group, fileName, success, error)
+{
+	var xhr = new XMLHttpRequest();
+	var url = U('/api/file/' + group + '?file_name=' + encodeURIComponent(fileName));
+
+	xhr.onreadystatechange = function()
+	{
+		if (xhr.readyState === XMLHttpRequest.DONE)
+		{
+			if (xhr.status === 200)
+			{
+				if (success)
+				{
+					success(JSON.parse(xhr.responseText));
+				}
+			}
+			else
+			{
+				if (error)
+				{
+					error(xhr);
+				}
+			}
+		}
+	};
+
+	xhr.open('PUT', url, true);
+	xhr.setRequestHeader('Content-type', 'application/octet-stream');
+	xhr.send(file);
+};
+
+Grocy.Api.DeleteFile = function(fileName, group, success, error)
+{
+	var xhr = new XMLHttpRequest();
+	var url = U('/api/file/' + group + '?file_name=' + encodeURIComponent(fileName));
+
+	xhr.onreadystatechange = function()
+	{
+		if (xhr.readyState === XMLHttpRequest.DONE)
+		{
+			if (xhr.status === 200)
+			{
+				if (success)
+				{
+					success(JSON.parse(xhr.responseText));
+				}
+			}
+			else
+			{
+				if (error)
+				{
+					error(xhr);
+				}
+			}
+		}
+	};
+
+	xhr.open('DELETE', url, true);
+	xhr.setRequestHeader('Content-type', 'application/json');
+	xhr.send();
+};
+
 Grocy.FrontendHelpers = { };
 Grocy.FrontendHelpers.ValidateForm = function(formId)
 {
@@ -191,3 +269,74 @@ Grocy.FrontendHelpers.ShowGenericError = function(message, exception)
 	
 	console.error(exception);
 }
+
+$("form").on("keyup paste", "input, textarea", function()
+{
+	$(this).closest("form").addClass("is-dirty");
+});
+$("form").on("click", "select", function()
+{
+	$(this).closest("form").addClass("is-dirty");
+});
+
+// Auto saving user setting controls
+$(".user-setting-control").on("change", function()
+{
+	var element = $(this);
+	var inputType = element.attr("type").toLowerCase();
+	var settingKey = element.attr("data-setting-key");
+	
+	if (inputType === "checkbox")
+	{
+		value = element.is(":checked");
+	}
+	else
+	{
+		var value = element.val();
+	}
+	
+	Grocy.UserSettings[settingKey] = value;
+	
+	jsonData = { };
+	jsonData.value = value;
+	Grocy.Api.Post('user/settings/' + settingKey, jsonData,
+		function(result)
+		{
+			// Nothing to do...
+		},
+		function(xhr)
+		{
+			Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+		}
+	);
+});
+
+// Show file name Bootstrap custom file input
+$('input.custom-file-input').on('change', function()
+{
+	$(this).next('.custom-file-label').html(GetFileNameFromPath($(this).val()));
+});
+
+// Translation of "Browse"-button of Bootstrap custom file input
+if ($(".custom-file-label").length > 0)
+{
+	$("<style>").html('.custom-file-label::after { content: "' + L("Select file") + '"; }').appendTo("head");
+}
+
+ResizeResponsiveEmbeds = function(fillEntireViewport = false)
+{
+	if (!fillEntireViewport)
+	{
+		var maxHeight = $("body").height() - $("#mainNav").outerHeight() - 62;
+	}
+	else
+	{
+		var maxHeight = $("body").height();
+	}
+	
+	$(".embed-responsive").attr("height", maxHeight.toString() + "px");
+}
+$(window).on('resize', function()
+{
+	ResizeResponsiveEmbeds($("body").hasClass("fullscreen-card"));
+});

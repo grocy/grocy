@@ -61,6 +61,10 @@ $app->group('', function()
 	$this->get('/taskcategories', '\Grocy\Controllers\TasksController:TaskCategoriesList');
 	$this->get('/taskcategory/{categoryId}', '\Grocy\Controllers\TasksController:TaskCategoryEditForm');
 
+	// Equipment routes
+	$this->get('/equipment', '\Grocy\Controllers\EquipmentController:Overview');
+	$this->get('/equipment/{equipmentId}', '\Grocy\Controllers\EquipmentController:EditForm');
+
 	// OpenAPI routes
 	$this->get('/api', '\Grocy\Controllers\OpenApiController:DocumentationUi');
 	$this->get('/manageapikeys', '\Grocy\Controllers\OpenApiController:ApiKeysList');
@@ -81,15 +85,22 @@ $app->group('/api', function()
 
 	// System
 	$this->get('/system/get-db-changed-time', '\Grocy\Controllers\SystemApiController:GetDbChangedTime');
+	$this->post('/system/log-missing-localization', '\Grocy\Controllers\SystemApiController:LogMissingLocalization');
 
 	// Files
-	$this->post('/files/upload/{group}', '\Grocy\Controllers\FilesApiController:Upload');
+	$this->put('/file/{group}', '\Grocy\Controllers\FilesApiController:UploadFile');
+	$this->get('/file/{group}', '\Grocy\Controllers\FilesApiController:ServeFile');
+	$this->delete('/file/{group}', '\Grocy\Controllers\FilesApiController:DeleteFile');
 
 	// Users
 	$this->get('/users/get', '\Grocy\Controllers\UsersApiController:GetUsers');
 	$this->post('/users/create', '\Grocy\Controllers\UsersApiController:CreateUser');
 	$this->post('/users/edit/{userId}', '\Grocy\Controllers\UsersApiController:EditUser');
 	$this->get('/users/delete/{userId}', '\Grocy\Controllers\UsersApiController:DeleteUser');
+
+	// User
+	$this->get('/user/settings/{settingKey}', '\Grocy\Controllers\UsersApiController:GetUserSetting');
+	$this->post('/user/settings/{settingKey}', '\Grocy\Controllers\UsersApiController:SetUserSetting');
 
 	// Stock
 	$this->get('/stock/add-product/{productId}/{amount}', '\Grocy\Controllers\StockApiController:AddProduct');

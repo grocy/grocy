@@ -41,3 +41,26 @@ IsTouchInputDevice = function()
 
 	return false;
 }
+
+BoolVal = function(test)
+{
+	var anything = test.toString().toLowerCase();
+	if (anything === true || anything === "true" || anything === "1" || anything === "on")
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+GetFileNameFromPath = function(path)
+{
+	return path.split("/").pop().split("\\").pop();
+}
+
+GetFileExtension = function(pathOrFileName)
+{
+	return pathOrFileName.split(".").pop();
+}
