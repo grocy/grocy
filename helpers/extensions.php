@@ -145,6 +145,17 @@ function Setting(string $name, $value)
 	}
 }
 
+global $GROCY_DEFAULT_USER_SETTINGS;
+$GROCY_DEFAULT_USER_SETTINGS = array();
+function DefaultUserSetting(string $name, $value)
+{
+	global $GROCY_DEFAULT_USER_SETTINGS;
+	if (!array_key_exists($name, $GROCY_DEFAULT_USER_SETTINGS))
+	{
+		$GROCY_DEFAULT_USER_SETTINGS[$name] = $value;
+	}
+}
+
 function GetUserDisplayName($user)
 {
 	$displayName = '';
@@ -181,7 +192,7 @@ function Pluralize($number, $singularForm, $pluralForm)
 
 function IsValidFileName($fileName)
 {
-	if(preg_match('#^[a-z0-9]+\.[a-z]+?$#i', $fileName))
+	if(preg_match('=^[^/?*;:{}\\\\]+\.[^/?*;:{}\\\\]+$=', $fileName))
 	{
 		return true;
 	}

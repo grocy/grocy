@@ -169,3 +169,8 @@ $("#recipe-pos-add-button").on("click", function(e)
 		}
 	);
 });
+
+$('#description').summernote({
+	minHeight: '300px',
+	lang: L('summernote_locale')
+});

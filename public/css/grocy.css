@@ -50,12 +50,13 @@ a.discrete-link:focus {
 }
 
 .fullscreen {
-	z-index: 9999; 
-	width: 100%; 
-	height: 100%; 
-	position: fixed; 
-	top: 0; 
-	left: 0; 
+	z-index: 9999;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	overflow: auto;
  }
 
  .form-check-input.is-valid ~ .form-check-label,
@@ -78,6 +79,12 @@ input[type='number'] {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
+}
+
+.centered-dialog .modal-title,
+.centered-dialog .modal-body {
+	margin-left: auto;
+	margin-right: auto;
 }
 
 /* Navigation style customizations */

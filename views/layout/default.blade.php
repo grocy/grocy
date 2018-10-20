@@ -36,15 +36,17 @@
 	<script>
 		var Grocy = { };
 		Grocy.Components = { };
+		Grocy.Mode = '{{ GROCY_MODE }}';
 		Grocy.BaseUrl = '{{ $U('/') }}';
 		Grocy.LocalizationStrings = {!! json_encode($localizationStrings) !!};
 		Grocy.ActiveNav = '@yield('activeNav', '')';
 		Grocy.Culture = '{{ GROCY_CULTURE }}';
 		Grocy.Currency = '{{ GROCY_CURRENCY }}';
+		Grocy.UserSettings = {!! json_encode($userSettings) !!};
 	</script>
 </head>
 
-<body class="fixed-nav">
+<body class="fixed-nav @if(boolval($userSettings['night_mode_enabled']) || (boolval($userSettings['auto_night_mode_enabled']) && boolval($userSettings['currently_inside_night_mode_range']))) night-mode @endif">
 	<nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
 		<a class="navbar-brand py-0" href="{{ $U('/') }}"><img src="{{ $U('/img/grocy_logo.svg?v=', true) }}{{ $version }}" height="30"></a>
 		
@@ -89,6 +91,12 @@
 					<a class="nav-link discrete-link" href="{{ $U('/batteriesoverview') }}">
 						<i class="fas fa-battery-half"></i>
 						<span class="nav-link-text">{{ $L('Batteries overview') }}</span>
+					</a>
+				</li>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Equipment') }}" data-nav-for-page="equipment">
+					<a class="nav-link discrete-link" href="{{ $U('/equipment') }}">
+						<i class="fas fa-toolbox"></i>
+						<span class="nav-link-text">{{ $L('Equipment') }}</span>
 					</a>
 				</li>
 				
@@ -191,16 +199,52 @@
 					<div class="dropdown-menu dropdown-menu-right">
 						<a class="dropdown-item logout-button discrete-link" href="{{ $U('/logout') }}"><i class="fas fa-sign-out-alt"></i>&nbsp;{{ $L('Logout') }}</a>
 						<div class="dropdown-divider"></div>
+						<a class="dropdown-item logout-button discrete-link" href="{{ $U('/user/' . GROCY_USER_ID . '?changepw=true') }}"><i class="fas fa-key"></i>&nbsp;{{ $L('Change password') }}</a>
+					</div>
+				</li>
+				@endif
+
+				@if(GROCY_AUTHENTICATED === true)
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle discrete-link" href="#" data-toggle="dropdown"><i class="fas fa-sliders-h"></i> <span class="d-inline d-lg-none">{{ $L('View settings') }}</span></a>
+
+					<div class="dropdown-menu dropdown-menu-right">
 						<div class="dropdown-item">
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" id="night-mode-enabled">
+								<input class="form-check-input user-setting-control" type="checkbox" id="auto-reload-enabled" data-setting-key="auto_reload_on_db_change">
+								<label class="form-check-label" for="auto-reload-enabled">
+									{{ $L('Auto reload on external changes') }}
+								</label>
+							</div>
+						</div>
+						<div class="dropdown-divider"></div>
+						<div class="dropdown-item">
+							<div class="form-check">
+								<input class="form-check-input user-setting-control" type="checkbox" id="night-mode-enabled" data-setting-key="night_mode_enabled">
 								<label class="form-check-label" for="night-mode-enabled">
 									{{ $L('Enable night mode') }}
 								</label>
 							</div>
 						</div>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item logout-button discrete-link" href="{{ $U('/user/' . GROCY_USER_ID . '?changepw=true') }}"><i class="fas fa-key"></i>&nbsp;{{ $L('Change password') }}</a>
+						<div class="dropdown-item">
+							<div class="form-check">
+								<input class="form-check-input user-setting-control" type="checkbox" id="auto-night-mode-enabled" data-setting-key="auto_night_mode_enabled">
+								<label class="form-check-label" for="auto-night-mode-enabled">
+									{{ $L('Auto enable in time range') }}
+								</label>
+							</div>
+							<div class="form-inline">
+								<input type="text" class="form-control my-1 user-setting-control" readonly id="auto-night-mode-time-range-from" placeholder="{{ $L('From') }} ({{ $L('in format') }} HH:mm)" data-setting-key="auto_night_mode_time_range_from">
+								<input type="text" class="form-control user-setting-control" readonly id="auto-night-mode-time-range-to" placeholder="{{ $L('To') }} ({{ $L('in format') }} HH:mm)" data-setting-key="auto_night_mode_time_range_to">
+							</div>
+							<div class="form-check mt-1">
+								<input class="form-check-input user-setting-control" type="checkbox" id="auto-night-mode-time-range-goes-over-midgnight" data-setting-key="auto_night_mode_time_range_goes_over_midnight">
+								<label class="form-check-label" for="auto-night-mode-time-range-goes-over-midgnight">
+									{{ $L('Time range goes over midnight') }}
+								</label>
+							</div>
+							<input class="form-check-input d-none user-setting-control" type="checkbox" id="currently-inside-night-mode-range" data-setting-key="currently_inside_night_mode_range">
+						</div>
 					</div>
 				</li>
 				@endif

@@ -31,6 +31,17 @@ $("#location-filter").on("change", function()
 	stockOverviewTable.column(4).search(value).draw();
 });
 
+$("#product-group-filter").on("change", function()
+{
+	var value = $(this).val();
+	if (value === "all")
+	{
+		value = "";
+	}
+	
+	stockOverviewTable.column(6).search(value).draw();
+});
+
 $("#status-filter").on("change", function()
 {
 	var value = $(this).val();
@@ -139,6 +150,45 @@ $(document).on('click', '.product-consume-button', function(e)
 			console.error(xhr);
 		}
 	);
+});
+
+$(document).on("click", ".product-name-cell", function(e)
+{
+	var productHasPicture = BoolVal($(e.currentTarget).attr("data-product-has-picture"));
+
+	if (productHasPicture)
+	{
+		var pictureUrl = $(e.currentTarget).attr("data-picture-url");
+		var productName = $(e.currentTarget).attr("data-product-name");
+		var productId = $(e.currentTarget).attr("data-product-id");
+
+		bootbox.dialog({
+			title: L("Image of product #1", productName),
+			message: "<img src='" + pictureUrl + "' class='img-fluid img-thumbnail'>",
+			backdrop: false,
+			onEscape: true,
+			closeButton: false,
+			className: 'centered-dialog',
+			buttons: {
+				editproduct: {
+					label: '<i class="fas fa-edit"></i> ' + L('Edit product'),
+					className: 'btn-info responsive-button',
+					callback: function ()
+					{
+						window.location.href = U('/product/' + productId + '?returnto=' + encodeURIComponent(window.location.pathname) + '#product-picture');
+					}
+				},
+				close: {
+					label: L('Close'),
+					className: 'btn-default responsive-button',
+					callback: function()
+					{
+						bootbox.hideAll();
+					}
+				}
+			}
+		});
+	}
 });
 
 function RefreshStatistics()

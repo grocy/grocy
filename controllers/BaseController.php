@@ -5,6 +5,7 @@ namespace Grocy\Controllers;
 use \Grocy\Services\DatabaseService;
 use \Grocy\Services\ApplicationService;
 use \Grocy\Services\LocalizationService;
+use \Grocy\Services\UsersService;
 
 class BaseController
 {
@@ -40,6 +41,15 @@ class BaseController
 		{
 			return $container->UrlManager->ConstructUrl($relativePath, $isResource);
 		});
+
+		try {
+			$usersService = new UsersService();
+			$container->view->set('userSettings', $usersService->GetUserSettings(GROCY_USER_ID));
+		}
+		catch (\Exception $ex)
+		{
+			// Happens when database is not initialised or migrated...
+		}
 
 		$this->AppContainer = $container;
 	}

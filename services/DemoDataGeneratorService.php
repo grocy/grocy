@@ -14,6 +14,7 @@ class DemoDataGeneratorService extends BaseService
 		if (intval($rowCount) === 0)
 		{
 			$loremIpsum = 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.';
+			$loremIpsumWithHtmlFormattings = "<h1>Lorem ipsum</h1><p>Lorem ipsum <b>dolor sit</b> amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur <span style=\"background-color: rgb(255, 255, 0);\">sadipscing elitr</span>, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p><ul><li>At vero eos et accusam et justo duo dolores et ea rebum.</li><li>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</li></ul><h1>Lorem ipsum</h1><p>Lorem ipsum <b>dolor sit</b> amet, consetetur \r\nsadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et \r\ndolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et\r\n justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea \r\ntakimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit \r\namet, consetetur <span style=\"background-color: rgb(255, 255, 0);\">sadipscing elitr</span>,\r\n sed diam nonumy eirmod tempor invidunt ut labore et dolore magna \r\naliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo \r\ndolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus \r\nest Lorem ipsum dolor sit amet.</p>";
 
 			$sql = "
 				UPDATE users SET username = '{$localizationService->Localize('Demo User')}' WHERE id = 1;
@@ -39,9 +40,9 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO product_groups(name) VALUES ('06 {$localizationService->Localize('Refrigerated products')}'); --6
 
 				DELETE FROM sqlite_sequence WHERE name = 'products'; --Just to keep IDs in order as mentioned here...
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, product_group_id) VALUES ('{$localizationService->Localize('Cookies')}', 3, 3, 3, 1, 8, 1); --1
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, product_group_id, picture_file_name) VALUES ('{$localizationService->Localize('Cookies')}', 3, 3, 3, 1, 8, 1, 'cookies.jpg'); --1
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, product_group_id) VALUES ('{$localizationService->Localize('Chocolate')}', 3, 3, 3, 1, 8, 1); --2
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, product_group_id) VALUES ('{$localizationService->Localize('Gummy bears')}', 3, 3, 3, 1, 8, 1); --3
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, product_group_id, picture_file_name) VALUES ('{$localizationService->Localize('Gummy bears')}', 3, 3, 3, 1, 8, 1, 'gummybears.jpg'); --3
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, product_group_id) VALUES ('{$localizationService->Localize('Crisps')}', 3, 3, 3, 1, 10, 1); --4
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Eggs')}', 2, 3, 2, 10, 5); --5
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Noodles')}', 3, 3, 3, 1, 6); --6
@@ -50,10 +51,10 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Yogurt')}', 2, 6, 6, 1, 6); --9
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Cheese')}', 2, 3, 3, 1, 6); --10
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Cold cuts')}', 2, 3, 3, 1, 6); --11
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Paprika')}', 2, 2, 2, 1, 5); --12
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Cucumber')}', 2, 2, 2, 1, 5); --13
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, picture_file_name) VALUES ('{$localizationService->Localize('Paprika')}', 2, 2, 2, 1, 5, 'paprika.jpg'); --12
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, picture_file_name) VALUES ('{$localizationService->Localize('Cucumber')}', 2, 2, 2, 1, 5, 'cucumber.jpg'); --13
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Radish')}', 2, 7, 7, 1, 5); --14
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Tomato')}', 2, 2, 2, 1, 5); --15
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, picture_file_name) VALUES ('{$localizationService->Localize('Tomato')}', 2, 2, 2, 1, 5, 'tomato.jpg'); --15
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Pizza dough')}', 3, 3, 3, 1, 6); --16
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Sieved tomatoes')}', 4, 5, 5, 1, 3); --17
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Salami')}', 2, 3, 3, 1, 6); --18
@@ -66,10 +67,10 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO shopping_list (product_id, amount) VALUES (20, 1);
 				INSERT INTO shopping_list (product_id, amount) VALUES (17, 1);
 
-				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Pizza')}', '{$loremIpsum}'); --1
-				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Spaghetti bolognese')}', '{$loremIpsum}'); --2
-				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Sandwiches')}', '{$loremIpsum}'); --3
-				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Pancakes')}', '{$loremIpsum}'); --4
+				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Pizza')}', '{$loremIpsumWithHtmlFormattings}'); --1
+				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Spaghetti bolognese')}', '{$loremIpsumWithHtmlFormattings}'); --2
+				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Sandwiches')}', '{$loremIpsumWithHtmlFormattings}'); --3
+				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Pancakes')}', '{$loremIpsumWithHtmlFormattings}'); --4
 
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (1, 16, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (1, 17, 1);
@@ -104,6 +105,9 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO tasks (name, category_id, due_date, assigned_to_user_id) VALUES ('{$localizationService->Localize('Task')}2', 2, date(datetime('now', 'localtime'), '-1 day'), 1);
 				INSERT INTO tasks (name, due_date, assigned_to_user_id) VALUES ('{$localizationService->Localize('Find a solution for what to do when I forget the door keys')}', date(datetime('now', 'localtime'), '+3 day'), 1);
 				INSERT INTO tasks (name, due_date, assigned_to_user_id) VALUES ('{$localizationService->Localize('Task')}3', date(datetime('now', 'localtime'), '+4 day'), 1);
+
+				INSERT INTO equipment (name, description, instruction_manual_file_name) VALUES ('{$localizationService->Localize('Coffee machine')}', '{$loremIpsumWithHtmlFormattings}', 'loremipsum.pdf'); --1
+				INSERT INTO equipment (name, description) VALUES ('{$localizationService->Localize('Dishwasher')}', '{$loremIpsumWithHtmlFormattings}'); --2
 
 				INSERT INTO migrations (migration) VALUES (-1);
 			";
@@ -201,6 +205,25 @@ class DemoDataGeneratorService extends BaseService
 			$batteriesService->TrackChargeCycle(2, date('Y-m-d H:i:s', strtotime('-50 days')));
 			$batteriesService->TrackChargeCycle(3, date('Y-m-d H:i:s', strtotime('-65 days')));
 			$batteriesService->TrackChargeCycle(4, date('Y-m-d H:i:s', strtotime('-56 days')));
+
+			// Download demo storage data
+			$productPicturesFolder = GROCY_DATAPATH . '/storage/productpictures';
+			$equipmentManualsFolder = GROCY_DATAPATH . '/storage/equipmentmanuals';
+			mkdir(GROCY_DATAPATH . '/storage');
+			mkdir(GROCY_DATAPATH . '/storage/productpictures');
+			mkdir(GROCY_DATAPATH . '/storage/equipmentmanuals');
+			$sslOptions = array(
+				'ssl' => array(
+				'verify_peer' => false,
+				'verify_peer_name' => false,
+				),
+			);
+			file_put_contents("$productPicturesFolder/cookies.jpg", file_get_contents('https://releases.grocy.info/demoresources/cookies.jpg', false, stream_context_create($sslOptions)));
+			file_put_contents("$productPicturesFolder/cucumber.jpg", file_get_contents('https://releases.grocy.info/demoresources/cucumber.jpg', false, stream_context_create($sslOptions)));
+			file_put_contents("$productPicturesFolder/gummybears.jpg", file_get_contents('https://releases.grocy.info/demoresources/gummybears.jpg', false, stream_context_create($sslOptions)));
+			file_put_contents("$productPicturesFolder/paprika.jpg", file_get_contents('https://releases.grocy.info/demoresources/paprika.jpg', false, stream_context_create($sslOptions)));
+			file_put_contents("$productPicturesFolder/tomato.jpg", file_get_contents('https://releases.grocy.info/demoresources/tomato.jpg', false, stream_context_create($sslOptions)));
+			file_put_contents("$equipmentManualsFolder/loremipsum.pdf", file_get_contents('https://releases.grocy.info/demoresources/loremipsum.pdf', false, stream_context_create($sslOptions)));
 		}
 	}
 

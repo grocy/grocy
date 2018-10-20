@@ -34,7 +34,7 @@ class LocalizationService
 		}
 	}
 
-	private function LogMissingLocalization(string $culture, string $text)
+	public function LogMissingLocalization(string $culture, string $text)
 	{
 		$file = GROCY_DATAPATH . "/missing_translations_$culture.json";
 

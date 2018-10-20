@@ -68,4 +68,32 @@ class UsersApiController extends BaseApiController
 			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
 		}
 	}
+
+	public function GetUserSetting(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		try
+		{
+			$value = $this->UsersService->GetUserSetting(GROCY_USER_ID, $args['settingKey']);
+			return $this->ApiResponse(array('value' => $value));
+		}
+		catch (\Exception $ex)
+		{
+			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+		}
+	}
+
+	public function SetUserSetting(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		try
+		{
+			$requestBody = $request->getParsedBody();
+
+			$value = $this->UsersService->SetUserSetting(GROCY_USER_ID, $args['settingKey'], $requestBody['value']);
+			return $this->ApiResponse(array('success' => true));
+		}
+		catch (\Exception $ex)
+		{
+			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+		}
+	}
 }

@@ -126,7 +126,7 @@ class StockApiController extends BaseApiController
 			$nextXDays = $request->getQueryParams()['expiring_days'];
 		}
 
-		$expiringProducts = $this->StockService->GetExpiringProducts($nextXDays);
+		$expiringProducts = $this->StockService->GetExpiringProducts($nextXDays, true);
 		$expiredProducts = $this->StockService->GetExpiringProducts(-1);
 		$missingProducts = $this->StockService->GetMissingProducts();
 		return $this->ApiResponse(array(
