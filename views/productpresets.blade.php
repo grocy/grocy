@@ -23,8 +23,8 @@
 			<label for="product_presets_product_group_id">{{ $L('Product group') }}</label>
 			<select class="form-control user-setting-control" id="product_presets_product_group_id" data-setting-key="product_presets_product_group_id">
 				<option value="-1"></option>
-				@foreach($productgroups as $productgroup)
-					<option value="{{ $productgroup->id }}">{{ $productgroup->name }}</option>
+				@foreach($productGroups as $productGroup)
+					<option value="{{ $productGroup->id }}">{{ $productGroup->name }}</option>
 				@endforeach
 			</select>
 		</div>
