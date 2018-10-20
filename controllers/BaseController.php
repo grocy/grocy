@@ -44,7 +44,9 @@ class BaseController
 
 		try {
 			$usersService = new UsersService();
-			$container->view->set('userSettings', $usersService->GetUserSettings(GROCY_USER_ID));
+			if (defined('GROCY_USER_ID')) {
+				$container->view->set('userSettings', $usersService->GetUserSettings(GROCY_USER_ID));
+			}
 		}
 		catch (\Exception $ex)
 		{
