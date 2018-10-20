@@ -30,7 +30,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="product_presets_qu_id">{{ $L('Quantity unit purchase') }}</label>
+			<label for="product_presets_qu_id">{{ $L('Quantity unit') }}</label>
 			<select class="form-control user-setting-control" id="product_presets_qu_id" data-setting-key="product_presets_qu_id">
 				<option value="-1"></option>
 				@foreach($quantityunits as $quantityunit)
