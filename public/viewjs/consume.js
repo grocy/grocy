@@ -16,7 +16,7 @@
 			Grocy.Api.Get('stock/consume-product/' + jsonForm.product_id + '/' + jsonForm.amount + '?spoiled=' + spoiled,
 				function(result)
 				{
-					toastr.success(L('Removed #1 #2 of #3 from stock', jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.product.name));
+					toastr.success(L('Removed #1 #2 of #3 from stock', jsonForm.amount, Pluralize(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name));
 
 					$('#amount').val(1);
 					Grocy.Components.ProductPicker.SetValue('');
