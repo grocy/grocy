@@ -93,12 +93,8 @@
 							<i class="fas fa-utensils"></i> {{ $L('All') }}
 						</a>
 					</td>
-					<td class="product-name-cell"
-						data-picture-url="{{ $U('/api/file/productpictures?file_name=' . FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->picture_file_name) }}"
-						data-product-id="{{ $currentStockEntry->product_id }}"
-						data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}"
-						data-product-has-picture="{{ BoolToString(!empty(FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->picture_file_name)) }}">
-						{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}@if(!empty(FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->picture_file_name)) <i class="fas fa-image text-muted"></i>@endif
+					<td class="product-name-cell" data-product-id="{{ $currentStockEntry->product_id }}">
+						{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }} <i class="fas fa-info text-muted"></i>
 					</td>
 					<td>
 						<span id="product-{{ $currentStockEntry->product_id }}-amount">{{ $currentStockEntry->amount }}</span> {{ Pluralize($currentStockEntry->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name_plural) }}
@@ -121,6 +117,19 @@
 				@endforeach
 			</tbody>
 		</table>
+	</div>
+</div>
+
+<div class="modal fade" id="stockoverview-productcard-modal" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content text-center">
+			<div class="modal-body">
+				@include('components.productcard')
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">{{ $L('Close') }}</button>
+			</div>
+		</div>
 	</div>
 </div>
 @stop

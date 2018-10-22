@@ -81,12 +81,6 @@ input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 }
 
-.centered-dialog .modal-title,
-.centered-dialog .modal-body {
-	margin-left: auto;
-	margin-right: auto;
-}
-
 /* Navigation style customizations */
 #mainNav {
 	background-color: #e5e5e5 !important;

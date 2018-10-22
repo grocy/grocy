@@ -154,41 +154,8 @@ $(document).on('click', '.product-consume-button', function(e)
 
 $(document).on("click", ".product-name-cell", function(e)
 {
-	var productHasPicture = BoolVal($(e.currentTarget).attr("data-product-has-picture"));
-
-	if (productHasPicture)
-	{
-		var pictureUrl = $(e.currentTarget).attr("data-picture-url");
-		var productName = $(e.currentTarget).attr("data-product-name");
-		var productId = $(e.currentTarget).attr("data-product-id");
-
-		bootbox.dialog({
-			title: L("Image of product #1", productName),
-			message: "<img src='" + pictureUrl + "' class='img-fluid img-thumbnail'>",
-			backdrop: false,
-			onEscape: true,
-			closeButton: false,
-			className: 'centered-dialog',
-			buttons: {
-				editproduct: {
-					label: '<i class="fas fa-edit"></i> ' + L('Edit product'),
-					className: 'btn-info responsive-button',
-					callback: function ()
-					{
-						window.location.href = U('/product/' + productId + '?returnto=' + encodeURIComponent(window.location.pathname) + '#product-picture');
-					}
-				},
-				close: {
-					label: L('Close'),
-					className: 'btn-default responsive-button',
-					callback: function()
-					{
-						bootbox.hideAll();
-					}
-				}
-			}
-		});
-	}
+	Grocy.Components.ProductCard.Refresh($(e.currentTarget).attr("data-product-id"));
+	$("#stockoverview-productcard-modal").modal("show");
 });
 
 function RefreshStatistics()
