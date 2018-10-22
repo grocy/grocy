@@ -4,7 +4,10 @@
 
 <div class="card">
 	<div class="card-header">
-		<i class="fas fa-refresh"></i> {{ $L('Chore overview') }}
+		<i class="fas fa-home"></i> {{ $L('Chore overview') }}
+		<a id="chorecard-chore-edit-button" class="btn btn-sm btn-outline-info py-0 float-right disabled" href="#" data-toggle="tooltip" title="{{ $L('Edit chore') }}">
+			<i class="fas fa-edit"></i>
+		</a>
 	</div>
 	<div class="card-body">
 		<h3><span id="chorecard-chore-name"></span></h3>

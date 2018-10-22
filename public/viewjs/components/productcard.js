@@ -15,6 +15,9 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 			$('#productcard-product-last-used').text((productDetails.last_used || L('never')).substring(0, 10));
 			$('#productcard-product-last-used-timeago').text($.timeago(productDetails.last_used || ''));
 
+			$('#productcard-product-edit-button').attr("href", U("/product/" + productDetails.product.id.toString()));
+			$('#productcard-product-edit-button').removeClass("disabled");
+
 			if (productDetails.last_price !== null)
 			{
 				$('#productcard-product-last-price').text(Number.parseFloat(productDetails.last_price).toLocaleString() + ' ' + Grocy.Currency);

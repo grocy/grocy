@@ -6,6 +6,9 @@
 <div class="card">
 	<div class="card-header">
 		<i class="fab fa-product-hunt"></i> {{ $L('Product overview') }}
+		<a id="productcard-product-edit-button" class="btn btn-sm btn-outline-info py-0 float-right disabled" href="#" data-toggle="tooltip" title="{{ $L('Edit product') }}">
+			<i class="fas fa-edit"></i>
+		</a>
 	</div>
 	<div class="card-body">
 		<h3><span id="productcard-product-name"></span></h3>

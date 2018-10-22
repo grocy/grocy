@@ -5,6 +5,9 @@
 <div class="card">
 	<div class="card-header">
 		<i class="fas fa-battery-three-quarters"></i> {{ $L('Battery overview') }}
+		<a id="batterycard-battery-edit-button" class="btn btn-sm btn-outline-info py-0 float-right disabled" href="#" data-toggle="tooltip" title="{{ $L('Edit battery') }}">
+			<i class="fas fa-edit"></i>
+		</a>
 	</div>
 	<div class="card-body">
 		<h3><span id="batterycard-battery-name"></span></h3>
