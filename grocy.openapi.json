@@ -1675,6 +1675,7 @@
 					"shopping_list",
 					"recipes",
 					"recipes_pos",
+					"recipes_nestings",
 					"tasks",
 					"task_categories",
 					"product_groups",
