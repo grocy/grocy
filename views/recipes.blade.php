@@ -101,7 +101,11 @@
 				<h5 class="mb-0">{{ $L('Ingredients') }}</h5>
 			</div>
 			<ul class="list-group list-group-flush">
+				@php $lastGroup = 'undefined'; @endphp
 				@foreach($selectedRecipePositions as $selectedRecipePosition)
+				@if($lastGroup != $selectedRecipePosition->ingredient_group)
+					<h5 class="mb-2 mt-4 ml-4"><strong>{{ $selectedRecipePosition->ingredient_group }}</strong></h5>
+				@endif
 				<li class="list-group-item">
 					{{ $selectedRecipePosition->amount }} {{ Pluralize($selectedRecipePosition->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', $selectedRecipePosition->qu_id)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', $selectedRecipePosition->qu_id)->name_plural) }} {{ FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id)->name }}
 					<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $selectedRecipePosition->id)->need_fulfilled == 1) {{ $L('Enough in stock') }} @else {{ $L('Not enough in stock, #1 missing, #2 already on shopping list', FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $selectedRecipePosition->id)->missing_amount, FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $selectedRecipePosition->id)->amount_on_shopping_list) }} @endif</span>
@@ -110,6 +114,7 @@
 					<div class="text-muted">{{ $selectedRecipePosition->note }}</div>
 					@endif
 				</li>
+				@php $lastGroup = $selectedRecipePosition->ingredient_group; @endphp
 				@endforeach
 			</ul>
 			@endif

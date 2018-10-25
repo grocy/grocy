@@ -69,6 +69,11 @@
 			</div>
 
 			<div class="form-group">
+				<label for="ingredient_group">{{ $L('Group') }}</label>
+				<input type="text" class="form-control" id="ingredient_group" name="ingredient_group" value="@if($mode == 'edit'){{ $recipePos->ingredient_group }}@endif">
+			</div>
+
+			<div class="form-group">
 				<label for="note">{{ $L('Note') }}</label>
 				<textarea class="form-control" rows="2" id="note" name="note">@if($mode == 'edit'){{ $recipePos->note }}@endif</textarea>
 			</div>

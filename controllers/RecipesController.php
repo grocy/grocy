@@ -30,13 +30,13 @@ class RecipesController extends BaseController
 			foreach ($recipes as $recipe)
 			{
 				$selectedRecipe = $recipe;
-				$selectedRecipePositions = $this->Database->recipes_pos()->where('recipe_id', $recipe->id);
+				$selectedRecipePositions = $this->Database->recipes_pos()->where('recipe_id', $recipe->id)->orderBy('ingredient_group');
 				break;
 			}
 		}
 
 		$selectedRecipeSubRecipes = $this->Database->recipes()->where('id IN (SELECT includes_recipe_id FROM recipes_nestings_resolved WHERE recipe_id = :1 AND includes_recipe_id != :1)', $selectedRecipe->id)->orderBy('name')->fetchAll();
-		$selectedRecipeSubRecipesPositions = $this->Database->recipes_pos()->where('recipe_id IN (SELECT includes_recipe_id FROM recipes_nestings_resolved WHERE recipe_id = :1 AND includes_recipe_id != :1)', $selectedRecipe->id)->fetchAll();
+		$selectedRecipeSubRecipesPositions = $this->Database->recipes_pos()->where('recipe_id IN (SELECT includes_recipe_id FROM recipes_nestings_resolved WHERE recipe_id = :1 AND includes_recipe_id != :1)', $selectedRecipe->id)->orderBy('ingredient_group')->fetchAll();
 
 		return $this->AppContainer->view->render($response, 'recipes', [
 			'recipes' => $recipes,

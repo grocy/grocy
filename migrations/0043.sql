@@ -38,3 +38,6 @@ LEFT JOIN recipes_nestings_resolved rnr
 LEFT JOIN recipes_fulfillment rf
 	ON rnr.includes_recipe_id = rf.recipe_id
 GROUP BY r.id;
+
+ALTER TABLE recipes_pos
+ADD ingredient_group TEXT;
