@@ -31,6 +31,9 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Can')}', '{$localizationService->Localize('Cans')}'); --6
 				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Bunch')}', '{$localizationService->Localize('Bunches')}'); --7
 				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Gram')}', '{$localizationService->Localize('Grams')}'); --8
+				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Liter')}', '{$localizationService->Localize('Liters')}'); --9
+				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Bottle')}', '{$localizationService->Localize('Bottles')}'); --10
+				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Milliliter')}', '{$localizationService->Localize('Milliliters')}'); --11
 
 				INSERT INTO product_groups(name) VALUES ('01 {$localizationService->Localize('Sweets')}'); --1
 				INSERT INTO product_groups(name) VALUES ('02 {$localizationService->Localize('Bakery products')}'); --2
@@ -62,6 +65,7 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Minced meat')}', 2, 3, 3, 1, 4); --20
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Flour')}', 2, 3, 3, 1, 3); --21
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Sugar')}', 3, 3, 3, 1, 3); --22
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Milk')}', 2, 10, 10, 1); --23
 
 				INSERT INTO shopping_list (note, amount) VALUES ('{$localizationService->Localize('Some good snacks')}', 1);
 				INSERT INTO shopping_list (product_id, amount) VALUES (20, 1);
@@ -71,6 +75,8 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Spaghetti bolognese')}', '{$loremIpsumWithHtmlFormattings}'); --2
 				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Sandwiches')}', '{$loremIpsumWithHtmlFormattings}'); --3
 				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Pancakes')}', '{$loremIpsumWithHtmlFormattings}'); --4
+				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Chocolate sauce')}', '{$loremIpsumWithHtmlFormattings}'); --5
+				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Pancakes')} / {$localizationService->Localize('Chocolate sauce')}', '{$loremIpsumWithHtmlFormattings}'); --6
 
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (1, 16, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (1, 17, 1);
@@ -85,6 +91,11 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (4, 5, 4);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount, qu_id, only_check_single_unit_in_stock) VALUES (4, 21, 200, 8, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount, qu_id, only_check_single_unit_in_stock) VALUES (4, 22, 200, 8, 1);
+				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (5, 2, 1);
+				INSERT INTO recipes_pos (recipe_id, product_id, amount, qu_id, only_check_single_unit_in_stock) VALUES (5, 23, 200, 11, 1);
+
+				INSERt INTO recipes_nestings(recipe_id, includes_recipe_id) VALUES (6, 4);
+				INSERt INTO recipes_nestings(recipe_id, includes_recipe_id) VALUES (6, 5);
 
 				INSERT INTO chores (name, period_type, period_days) VALUES ('{$localizationService->Localize('Changed towels in the bathroom')}', 'manually', 5); --1
 				INSERT INTO chores (name, period_type, period_days) VALUES ('{$localizationService->Localize('Cleaned the kitchen floor')}', 'dynamic-regular', 7); --2
@@ -184,6 +195,8 @@ class DemoDataGeneratorService extends BaseService
 			$stockService->AddProduct(21, 1, date('Y-m-d', strtotime('+200 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-20 days')), $this->RandomPrice());
 			$stockService->AddProduct(22, 1, date('Y-m-d', strtotime('+200 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-10 days')), $this->RandomPrice());
 			$stockService->AddProduct(22, 1, date('Y-m-d', strtotime('+200 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-20 days')), $this->RandomPrice());
+			$stockService->AddProduct(23, 1, date('Y-m-d', strtotime('+2 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-40 days')), $this->RandomPrice());
+			$stockService->AddProduct(23, 1, date('Y-m-d', strtotime('+2 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-50 days')), $this->RandomPrice());
 			$stockService->AddMissingProductsToShoppingList();
 
 			$choresService = new ChoresService();

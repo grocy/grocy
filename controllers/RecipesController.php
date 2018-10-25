@@ -35,6 +35,9 @@ class RecipesController extends BaseController
 			}
 		}
 
+		$selectedRecipeSubRecipes = $this->Database->recipes()->where('id IN (SELECT includes_recipe_id FROM recipes_nestings_resolved WHERE recipe_id = :1 AND includes_recipe_id != :1)', $selectedRecipe->id)->orderBy('name')->fetchAll();
+		$selectedRecipeSubRecipesPositions = $this->Database->recipes_pos()->where('recipe_id IN (SELECT includes_recipe_id FROM recipes_nestings_resolved WHERE recipe_id = :1 AND includes_recipe_id != :1)', $selectedRecipe->id)->fetchAll();
+
 		return $this->AppContainer->view->render($response, 'recipes', [
 			'recipes' => $recipes,
 			'recipesFulfillment' => $this->RecipesService->GetRecipesFulfillment(),
@@ -42,7 +45,9 @@ class RecipesController extends BaseController
 			'selectedRecipe' => $selectedRecipe,
 			'selectedRecipePositions' => $selectedRecipePositions,
 			'products' => $this->Database->products(),
-			'quantityunits' => $this->Database->quantity_units()
+			'quantityunits' => $this->Database->quantity_units(),
+			'selectedRecipeSubRecipes' => $selectedRecipeSubRecipes,
+			'selectedRecipeSubRecipesPositions' => $selectedRecipeSubRecipesPositions
 		]);
 	}
 
@@ -67,7 +72,7 @@ class RecipesController extends BaseController
 			'quantityunits' => $this->Database->quantity_units(),
 			'recipesFulfillment' => $this->RecipesService->GetRecipesFulfillment(),
 			'recipesSumFulfillment' => $this->RecipesService->GetRecipesSumFulfillment(),
-			'recipes' =>  $this->Database->recipes(),
+			'recipes' =>  $this->Database->recipes()->orderBy('name'),
 			'recipeNestings' =>  $this->Database->recipes_nestings()->where('recipe_id', $recipeId)
 		]);
 	}
@@ -91,27 +96,6 @@ class RecipesController extends BaseController
 				'recipePos' => $this->Database->recipes_pos($args['recipePosId']),
 				'products' => $this->Database->products()->orderBy('name'),
 				'quantityUnits' => $this->Database->quantity_units()->orderBy('name')
-			]);
-		}
-	}
-
-	public function RecipeIncludeEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
-	{
-		if ($args['recipeIncludeId'] == 'new')
-		{
-			return $this->AppContainer->view->render($response, 'recipeincludeform', [
-				'mode' => 'create',
-				'recipe' => $this->Database->recipes($args['recipeId']),
-				'recipes' =>  $this->Database->recipes()->orderBy('name')
-			]);
-		}
-		else
-		{
-			return $this->AppContainer->view->render($response, 'recipeincludeform', [
-				'mode' => 'edit',
-				'recipe' =>  $this->Database->recipes($args['recipeId']),
-				'recipeInclude' => $this->Database->recipes_nestings($args['recipeIncludeId']),
-				'recipes' =>  $this->Database->recipes()->orderBy('name')
 			]);
 		}
 	}

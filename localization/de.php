@@ -280,6 +280,10 @@ return array(
 	'No picture available' => 'Kein Bild vorhanden',
 	'Filter by product group' => 'Nach Produktgruppe filtern',
 	'Presets for new products' => 'Vorgaben für neue Produkte',
+	'Included recipes' => 'Enthaltene Rezepte',
+    'A recipe is required' => 'Ein Rezept ist erforderlich',
+	'Add included recipe' => 'Enthaltenes Rezept hinzufügen',
+	'Edit included recipe' => 'Enthaltenes Rezept bearbeiten',
 	
 	//Constants
 	'manually' => 'Manuell',
@@ -364,5 +368,13 @@ return array(
 	'Vegetables/Fruits' => 'Obst/Gemüse',
 	'Refrigerated products' => 'Kühlregal',
 	'Coffee machine' => 'Kaffeemaschine',
-	'Dishwasher' => 'Spülmaschine'
+	'Dishwasher' => 'Spülmaschine',
+	'Liter' => 'Liter',
+    'Liters' => 'Liter',
+    'Bottle' => 'Flasche',
+    'Bottles' => 'Flaschen',
+    'Milk' => 'Milch',
+	'Chocolate sauce' => 'Schokoladensoße',
+	'Milliliters' => 'Milliliter',
+	'Milliliter' => 'Milliliter'
 );

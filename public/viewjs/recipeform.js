@@ -118,7 +118,7 @@ $(document).on('click', '.recipe-pos-delete-button', function(e)
 	});
 });
 
-$(document).on('click', '.recipe-inlcude-delete-button', function(e)
+$(document).on('click', '.recipe-include-delete-button', function(e)
 {
 	var objectName = $(e.currentTarget).attr('data-recipe-include-name');
 	var objectId = $(e.currentTarget).attr('data-recipe-include-id');
@@ -206,11 +206,17 @@ $(document).on('click', '.recipe-pos-edit-button', function (e)
 $(document).on('click', '.recipe-include-edit-button', function (e)
 {
 	var id = $(e.currentTarget).attr('data-recipe-include-id');
-
+	var recipeId = $(e.currentTarget).attr('data-recipe-included-recipe-id');
+	console.log(recipeId);
 	Grocy.Api.Post('edit-object/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(),
 		function(result)
 		{
-			window.location.href = U('/recipe/' + Grocy.EditObjectId + '/included_recipe/' + id);
+			$("#recipe-include-editform-title").text(L("Edit included recipe"));
+			$("#recipe-include-form").data("edit-mode", "edit");
+			$("#recipe-include-form").data("recipe-nesting-id", id);
+			$("#includes_recipe_id").val(recipeId);
+			$("#recipe-include-editform-modal").modal("show");
+			Grocy.FrontendHelpers.ValidateForm("recipe-include-form");
 		},
 		function(xhr)
 		{
@@ -238,13 +244,55 @@ $("#recipe-include-add-button").on("click", function(e)
 	Grocy.Api.Post('edit-object/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(),
 		function(result)
 		{
-			window.location.href = U('/recipe/' + Grocy.EditObjectId + '/included_recipe/new');
+			$("#recipe-include-editform-title").text(L("Add included recipe"));
+			$("#recipe-include-form").data("edit-mode", "create");
+			$("#includes_recipe_id").val("");
+			$("#recipe-include-editform-modal").modal("show");
+			Grocy.FrontendHelpers.ValidateForm("recipe-include-form");
 		},
 		function(xhr)
 		{
 			console.error(xhr);
 		}
 	);
+});
+
+$('#save-recipe-include-button').on('click', function(e)
+{
+	e.preventDefault();
+
+	var nestingId = $("#recipe-include-form").data("recipe-nesting-id");
+	var editMode = $("#recipe-include-form").data("edit-mode");
+
+	var jsonData = $('#recipe-include-form').serializeJSON();
+	jsonData.recipe_id = Grocy.EditObjectId;
+
+	if (editMode === 'create')
+	{
+		Grocy.Api.Post('add-object/recipes_nestings', jsonData,
+			function(result)
+			{
+				window.location.href = U('/recipe/' + Grocy.EditObjectId);
+			},
+			function(xhr)
+			{
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+			}
+		);
+	}
+	else
+	{
+		Grocy.Api.Post('edit-object/recipes_nestings/' + nestingId, jsonData,
+			function(result)
+			{
+				window.location.href = U('/recipe/' + Grocy.EditObjectId);
+			},
+			function(xhr)
+			{
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+			}
+		);
+	}
 });
 
 $('#description').summernote({

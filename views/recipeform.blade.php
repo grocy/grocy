@@ -123,21 +123,51 @@
 						@foreach($recipeNestings as $recipeNesting)
 						<tr>
 							<td class="fit-content">
-								<a class="btn btn-sm btn-info recipe-include-edit-button" href="#" data-recipe-include-id="{{ $recipeNesting->id }}">
+								<a class="btn btn-sm btn-info recipe-include-edit-button" href="#" data-recipe-include-id="{{ $recipeNesting->id }}" data-recipe-included-recipe-id="{{ $recipeNesting->includes_recipe_id }}">
 									<i class="fas fa-edit"></i>
 								</a>
-								<a class="btn btn-sm btn-danger recipe-inlcude-delete-button" href="#" data-recipe-include-id="{{ $recipeNesting->id }}" data-recipe-include-name="{{ FindObjectInArrayByPropertyValue($recipes, 'id', $recipeNesting->recipe_id)->name }}">
+								<a class="btn btn-sm btn-danger recipe-include-delete-button" href="#" data-recipe-include-id="{{ $recipeNesting->id }}" data-recipe-include-name="{{ FindObjectInArrayByPropertyValue($recipes, 'id', $recipeNesting->includes_recipe_id)->name }}">
 									<i class="fas fa-trash"></i>
 								</a>
 							</td>
 							<td>
-								{{ FindObjectInArrayByPropertyValue($recipes, 'id', $recipeNesting->recipe_id)->name }}
+								{{ FindObjectInArrayByPropertyValue($recipes, 'id', $recipeNesting->includes_recipe_id)->name }}
 							</td>
 						</tr>
 						@endforeach
 						@endif
 					</tbody>
 				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="recipe-include-editform-modal" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content text-center">
+			<div class="modal-header">
+				<h4 id="recipe-include-editform-title" class="modal-title w-100"></h4>
+			</div>
+			<div class="modal-body">
+				<form id="recipe-include-form" novalidate>
+					<div class="form-group">
+						<label for="includes_recipe_id">{{ $L('Recipe') }}</label>
+						<select required class="form-control" id="includes_recipe_id" name="includes_recipe_id">
+							<option></option>
+							@foreach($recipes as $recipeForList)
+								@if($recipeForList->id !== $recipe->id)
+									<option data-already-included="{{ BoolToString(FindObjectInArrayByPropertyValue($recipeNestings, 'includes_recipe_id', $recipeForList->id) === null) }}" value="{{ $recipeForList->id }}">{{ $recipeForList->name }}</option>
+								@endif
+							@endforeach
+						</select>
+						<div class="invalid-feedback">{{ $L('A recipe is required') }}</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">{{ $L('Cancel') }}</button>
+				<button id="save-recipe-include-button" data-dismiss="modal" class="btn btn-success">{{ $L('Save') }}</button>
 			</div>
 		</div>
 	</div>

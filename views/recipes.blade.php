@@ -62,6 +62,41 @@
 					<i class="fas fa-expand-arrows-alt"></i>
 				</a>
 			</div>
+
+			<!-- Subrecipes first -->
+			@foreach($selectedRecipeSubRecipes as $selectedRecipeSubRecipe)
+				<div class="card-body">
+					<h3 class="mb-0">{{ $selectedRecipeSubRecipe->name }}</h3>
+				</div>
+
+				@php $selectedRecipeSubRecipePositionsFiltered = FindAllObjectsInArrayByPropertyValue($selectedRecipeSubRecipesPositions, 'recipe_id', $selectedRecipeSubRecipe->id); @endphp
+				@if(count($selectedRecipeSubRecipePositionsFiltered) > 0)
+				<div class="card-body">
+					<h5 class="mb-0">{{ $L('Ingredients') }}</h5>
+				</div>
+				<ul class="list-group list-group-flush">
+					@foreach($selectedRecipeSubRecipePositionsFiltered as $selectedRecipePosition)
+					<li class="list-group-item">
+						{{ $selectedRecipePosition->amount }} {{ Pluralize($selectedRecipePosition->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', $selectedRecipePosition->qu_id)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', $selectedRecipePosition->qu_id)->name_plural) }} {{ FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id)->name }}
+						<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $selectedRecipePosition->id)->need_fulfilled == 1) {{ $L('Enough in stock') }} @else {{ $L('Not enough in stock, #1 missing, #2 already on shopping list', FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $selectedRecipePosition->id)->missing_amount, FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $selectedRecipePosition->id)->amount_on_shopping_list) }} @endif</span>
+
+						@if(!empty($selectedRecipePosition->note))
+						<div class="text-muted">{{ $selectedRecipePosition->note }}</div>
+						@endif
+					</li>
+					@endforeach
+				</ul>
+				@endif
+				@if(!empty($selectedRecipeSubRecipe->description))
+				<div class="card-body">
+					<h5>{{ $L('Preparation') }}</h5>
+					{!! $selectedRecipeSubRecipe->description !!}
+				</div>
+				@endif
+			@endforeach
+
+			<!-- Selected recipe -->
+			@if($selectedRecipePositions->count() > 0)
 			<div class="card-body">
 				<h5 class="mb-0">{{ $L('Ingredients') }}</h5>
 			</div>
@@ -72,15 +107,18 @@
 					<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $selectedRecipePosition->id)->need_fulfilled == 1) {{ $L('Enough in stock') }} @else {{ $L('Not enough in stock, #1 missing, #2 already on shopping list', FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $selectedRecipePosition->id)->missing_amount, FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $selectedRecipePosition->id)->amount_on_shopping_list) }} @endif</span>
 
 					@if(!empty($selectedRecipePosition->note))
-					<div class="text-muted">{{ $selectedRecipePosition->note }} </div>
+					<div class="text-muted">{{ $selectedRecipePosition->note }}</div>
 					@endif
 				</li>
 				@endforeach
 			</ul>
+			@endif
+			@if(!empty($selectedRecipe->description))
 			<div class="card-body">
 				<h5>{{ $L('Preparation') }}</h5>
 				{!! $selectedRecipe->description !!}
 			</div>
+			@endif
 		</div>
 	</div>
 	@endif
