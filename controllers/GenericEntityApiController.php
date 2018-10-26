@@ -6,7 +6,7 @@ class GenericEntityApiController extends BaseApiController
 {
 	public function GetObjects(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		if ($this->IsValidEntity($args['entity']))
+		if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithPreventedListing($args['entity']))
 		{
 			return $this->ApiResponse($this->Database->{$args['entity']}());
 		}
@@ -18,7 +18,7 @@ class GenericEntityApiController extends BaseApiController
 
 	public function GetObject(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		if ($this->IsValidEntity($args['entity']))
+		if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithPreventedListing($args['entity']))
 		{
 			return $this->ApiResponse($this->Database->{$args['entity']}($args['objectId']));
 		}
@@ -76,5 +76,10 @@ class GenericEntityApiController extends BaseApiController
 	private function IsValidEntity($entity)
 	{
 		return in_array($entity, $this->OpenApiSpec->components->internalSchemas->ExposedEntity->enum);
+	}
+
+	private function IsEntityWithPreventedListing($entity)
+	{
+		return in_array($entity, $this->OpenApiSpec->components->internalSchemas->ExposedEntitiesPreventListing->enum);
 	}
 }

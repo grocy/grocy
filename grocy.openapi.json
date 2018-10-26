@@ -1679,7 +1679,14 @@
 					"tasks",
 					"task_categories",
 					"product_groups",
-					"equipment"
+					"equipment",
+					"api_keys"
+				]
+			},
+			"ExposedEntitiesPreventListing": {
+				"type": "string",
+				"enum": [
+					"api_keys"
 				]
 			},
 			"StockTransactionType": {
