@@ -305,4 +305,52 @@ class StockService extends BaseService
 
 		return $pluginOutput;
 	}
+
+	public function UndoBooking($stockLogId)
+	{
+		//TODO: This is not possible when the given booking has subsequent bookings
+
+		$logRow = $this->Database->stock_log()->where('id = :1', $stockLogId)->fetch();
+
+		if ($logRow == null)
+		{
+			throw new \Exception('Booking does not exist');
+		}
+
+		if ($logRow->transaction_type === self::TRANSACTION_TYPE_PURCHASE)
+		{
+			// Remove corresponding stock entry
+			$stockRows = $this->Database->stock()->where('stock_id', $logRow->stock_id);
+			$stockRows->delete();
+
+			// Update log entry
+			$logRow->update(array(
+				'undone' => 1,
+				'undone_timestamp' => date('Y-m-d H:i:s')
+			));
+		}
+		elseif ($logRow->transaction_type === self::TRANSACTION_TYPE_CONSUME || $logRow->transaction_type === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
+		{
+			// Add corresponding amount back to stock
+			$stockRow = $this->Database->stock()->createRow(array(
+				'product_id' => $logRow->product_id,
+				'amount' => $logRow->amount * -1,
+				'best_before_date' => $logRow->best_before_date,
+				'purchased_date' => $logRow->purchased_date,
+				'stock_id' => $logRow->stock_id,
+				'price' => $logRow->price
+			));
+			$stockRow->save();
+
+			// Update log entry
+			$logRow->update(array(
+				'undone' => 1,
+				'undone_timestamp' => date('Y-m-d H:i:s')
+			));
+		}
+		else
+		{
+			throw new \Exception('This booking cannot be undone');
+		}
+	}
 }

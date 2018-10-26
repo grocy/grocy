@@ -165,4 +165,17 @@ class StockApiController extends BaseApiController
 			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
 		}
 	}
+
+	public function UndoBooking(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		try
+		{
+			$this->ApiResponse($this->StockService->UndoBooking($args['stockLogId']));
+			return $this->ApiResponse(array('success' => true));
+		}
+		catch (\Exception $ex)
+		{
+			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+		}
+	}
 }

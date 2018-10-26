@@ -1288,6 +1288,47 @@
 				}
 			}
 		},
+		"/stock/undo-booking/{stockLogId}": {
+			"get": {
+				"description": "Undoes a booking",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "stockLogId",
+						"required": true,
+						"description": "A valid stock log id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object (possible errors are: Not existing booking)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/recipes/add-not-fulfilled-products-to-shopping-list/{recipeId}": {
 			"get": {
 				"description": "Adds all missing products for the given recipe to the shopping list",
