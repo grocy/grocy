@@ -50,7 +50,7 @@
 					{
 						$('#amount').val(0);
 						$('#price').val('');
-						Grocy.Components.DateTimePicker.SetValue('');
+						Grocy.Components.DateTimePicker.Clear();
 						Grocy.Components.ProductPicker.SetValue('');
 						Grocy.Components.ProductPicker.GetInputElement().focus();
 						Grocy.FrontendHelpers.ValidateForm('purchase-form');

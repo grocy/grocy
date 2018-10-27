@@ -42,7 +42,7 @@
 					{
 						$('#inventory-change-info').addClass('d-none');
 						$('#new_amount').val('');
-						Grocy.Components.DateTimePicker.SetValue('');
+						Grocy.Components.DateTimePicker.Clear();
 						Grocy.Components.ProductPicker.SetValue('');
 						Grocy.Components.ProductPicker.GetInputElement().focus();
 						Grocy.FrontendHelpers.ValidateForm('inventory-form');
