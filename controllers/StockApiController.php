@@ -170,7 +170,7 @@ class StockApiController extends BaseApiController
 	{
 		try
 		{
-			$this->ApiResponse($this->StockService->UndoBooking($args['stockLogId']));
+			$this->ApiResponse($this->StockService->UndoBooking($args['bookingId']));
 			return $this->ApiResponse(array('success' => true));
 		}
 		catch (\Exception $ex)

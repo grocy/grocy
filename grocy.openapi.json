@@ -1288,7 +1288,7 @@
 				}
 			}
 		},
-		"/stock/undo-booking/{stockLogId}": {
+		"/stock/undo-booking/{bookingId}": {
 			"get": {
 				"description": "Undoes a booking",
 				"tags": [
@@ -1297,9 +1297,9 @@
 				"parameters": [
 					{
 						"in": "path",
-						"name": "stockLogId",
+						"name": "bookingId",
 						"required": true,
-						"description": "A valid stock log id",
+						"description": "A valid stock booking id",
 						"schema": {
 							"type": "integer"
 						}

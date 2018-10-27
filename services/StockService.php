@@ -47,14 +47,14 @@ class StockService extends BaseService
 
 		$product = $this->Database->products($productId);
 		$productStockAmount = $this->Database->stock()->where('product_id', $productId)->sum('amount');
-		$productLastPurchased = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_PURCHASE)->max('purchased_date');
-		$productLastUsed = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->max('used_date');
+		$productLastPurchased = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_PURCHASE)->max('purchased_date')->where('undone', 0);
+		$productLastUsed = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->max('used_date')->where('undone', 0);
 		$nextBestBeforeDate = $this->Database->stock()->where('product_id', $productId)->min('best_before_date');
 		$quPurchase = $this->Database->quantity_units($product->qu_id_purchase);
 		$quStock = $this->Database->quantity_units($product->qu_id_stock);
 		
 		$lastPrice = null;
-		$lastLogRow = $this->Database->stock_log()->where('product_id = :1 AND transaction_type = :2', $productId, self::TRANSACTION_TYPE_PURCHASE)->orderBy('row_created_timestamp', 'DESC')->limit(1)->fetch();
+		$lastLogRow = $this->Database->stock_log()->where('product_id = :1 AND transaction_type = :2 AND undone = 0', $productId, self::TRANSACTION_TYPE_PURCHASE)->orderBy('row_created_timestamp', 'DESC')->limit(1)->fetch();
 		if ($lastLogRow !== null && !empty($lastLogRow))
 		{
 			$lastPrice = $lastLogRow->price;
@@ -80,7 +80,7 @@ class StockService extends BaseService
 		}
 
 		$returnData = array();
-		$rows = $this->Database->stock_log()->where('product_id = :1 AND transaction_type = :2', $productId, self::TRANSACTION_TYPE_PURCHASE)->whereNOT('price', null)->orderBy('purchased_date', 'DESC');
+		$rows = $this->Database->stock_log()->where('product_id = :1 AND transaction_type = :2 AND undone = 0', $productId, self::TRANSACTION_TYPE_PURCHASE)->whereNOT('price', null)->orderBy('purchased_date', 'DESC');
 		foreach ($rows as $row)
 		{
 			$returnData[] = array(
@@ -306,18 +306,21 @@ class StockService extends BaseService
 		return $pluginOutput;
 	}
 
-	public function UndoBooking($stockLogId)
+	public function UndoBooking($bookingId)
 	{
-		//TODO: This is not possible when the given booking has subsequent bookings
-
-		$logRow = $this->Database->stock_log()->where('id = :1', $stockLogId)->fetch();
-
+		$logRow = $this->Database->stock_log()->where('id = :1 AND undone = 0', $bookingId)->fetch();
 		if ($logRow == null)
 		{
-			throw new \Exception('Booking does not exist');
+			throw new \Exception('Booking does not exist or was already undone');
 		}
 
-		if ($logRow->transaction_type === self::TRANSACTION_TYPE_PURCHASE)
+		$hasSubsequentBookings = $this->Database->stock_log()->where('stock_id = :1 AND id != :2 AND id > :2', $logRow->stock_id, $logRow->id)->count() > 0;
+		if ($hasSubsequentBookings)
+		{
+			throw new \Exception('Booking has subsequent dependent bookings, undo not possible');
+		}
+
+		if ($logRow->transaction_type === self::TRANSACTION_TYPE_PURCHASE || ($logRow->transaction_type === self::TRANSACTION_TYPE_INVENTORY_CORRECTION && $logRow->amount > 0))
 		{
 			// Remove corresponding stock entry
 			$stockRows = $this->Database->stock()->where('stock_id', $logRow->stock_id);
@@ -329,7 +332,7 @@ class StockService extends BaseService
 				'undone_timestamp' => date('Y-m-d H:i:s')
 			));
 		}
-		elseif ($logRow->transaction_type === self::TRANSACTION_TYPE_CONSUME || $logRow->transaction_type === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
+		elseif ($logRow->transaction_type === self::TRANSACTION_TYPE_CONSUME || ($logRow->transaction_type === self::TRANSACTION_TYPE_INVENTORY_CORRECTION && $logRow->amount < 0))
 		{
 			// Add corresponding amount back to stock
 			$stockRow = $this->Database->stock()->createRow(array(
