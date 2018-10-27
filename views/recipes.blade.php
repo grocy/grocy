@@ -85,7 +85,7 @@
 						<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $selectedRecipePosition->id)->need_fulfilled == 1) {{ $L('Enough in stock') }} @else {{ $L('Not enough in stock, #1 missing, #2 already on shopping list', FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $selectedRecipePosition->id)->missing_amount, FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $selectedRecipePosition->id)->amount_on_shopping_list) }} @endif</span>
 
 						@if(!empty($selectedRecipePosition->note))
-						<div class="text-muted">{{ $selectedRecipePosition->note }}</div>
+						<div class="text-muted">{!! nl2br($selectedRecipePosition->note) !!}</div>
 						@endif
 					</li>
 					@php $lastGroup = $selectedRecipePosition->ingredient_group; @endphp
@@ -116,7 +116,7 @@
 					<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $selectedRecipePosition->id)->need_fulfilled == 1) {{ $L('Enough in stock') }} @else {{ $L('Not enough in stock, #1 missing, #2 already on shopping list', FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $selectedRecipePosition->id)->missing_amount, FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $selectedRecipePosition->id)->amount_on_shopping_list) }} @endif</span>
 
 					@if(!empty($selectedRecipePosition->note))
-					<div class="text-muted">{{ $selectedRecipePosition->note }}</div>
+					<div class="text-muted">{!! nl2br($selectedRecipePosition->note) !!}</div>
 					@endif
 				</li>
 				@php $lastGroup = $selectedRecipePosition->ingredient_group; @endphp
