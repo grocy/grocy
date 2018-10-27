@@ -124,11 +124,13 @@ $app->group('/api', function()
 	$this->get('/chores/track-chore-execution/{choreId}', '\Grocy\Controllers\ChoresApiController:TrackChoreExecution');
 	$this->get('/chores/get-chore-details/{choreId}', '\Grocy\Controllers\ChoresApiController:ChoreDetails');
 	$this->get('/chores/get-current', '\Grocy\Controllers\ChoresApiController:Current');
+	$this->get('/chores/undo-chore-execution/{executionId}', '\Grocy\Controllers\ChoresApiController:UndoChoreExecution');
 	
 	// Batteries
 	$this->get('/batteries/track-charge-cycle/{batteryId}', '\Grocy\Controllers\BatteriesApiController:TrackChargeCycle');
 	$this->get('/batteries/get-battery-details/{batteryId}', '\Grocy\Controllers\BatteriesApiController:BatteryDetails');
 	$this->get('/batteries/get-current', '\Grocy\Controllers\BatteriesApiController:Current');
+	$this->get('/batteries/undo-charge-cycle/{chargeCycleId}', '\Grocy\Controllers\BatteriesApiController:UndoChargeCycle');
 
 	// Tasks
 	$this->get('/tasks/get-current', '\Grocy\Controllers\TasksApiController:Current');

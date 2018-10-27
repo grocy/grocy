@@ -21,11 +21,11 @@ class ChoresService extends BaseService
 		}
 
 		$chore = $this->Database->chores($choreId);
-		$choreTrackedCount = $this->Database->chores_log()->where('chore_id', $choreId)->count();
-		$choreLastTrackedTime = $this->Database->chores_log()->where('chore_id', $choreId)->max('tracked_time');
+		$choreTrackedCount = $this->Database->chores_log()->where('chore_id = :1 AND undone = 0', $choreId)->count();
+		$choreLastTrackedTime = $this->Database->chores_log()->where('chore_id = :1 AND undone = 0', $choreId)->max('tracked_time');
 		$nextExeuctionTime = $this->Database->chores_current()->where('chore_id', $choreId)->min('next_estimated_execution_time');
 		
-		$lastChoreLogRow =  $this->Database->chores_log()->where('chore_id = :1 AND tracked_time = :2', $choreId, $choreLastTrackedTime)->fetch();
+		$lastChoreLogRow =  $this->Database->chores_log()->where('chore_id = :1 AND tracked_time = :2 AND undone = 0', $choreId, $choreLastTrackedTime)->fetch();
 		$lastDoneByUser = null;
 		if ($lastChoreLogRow !== null && !empty($lastChoreLogRow))
 		{
@@ -70,5 +70,20 @@ class ChoresService extends BaseService
 	{
 		$choreRow = $this->Database->chores()->where('id = :1', $choreId)->fetch();
 		return $choreRow !== null;
+	}
+
+	public function UndoChoreExecution($executionId)
+	{
+		$logRow = $this->Database->chores_log()->where('id = :1 AND undone = 0', $executionId)->fetch();
+		if ($logRow == null)
+		{
+			throw new \Exception('Execution does not exist or was already undone');
+		}
+
+		// Update log entry
+		$logRow->update(array(
+			'undone' => 1,
+			'undone_timestamp' => date('Y-m-d H:i:s')
+		));
 	}
 }

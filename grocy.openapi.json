@@ -1514,6 +1514,47 @@
 				}
 			}
 		},
+		"/chores/undo-chore-execution/{executionId}": {
+			"get": {
+				"description": "Undoes a chore execution",
+				"tags": [
+					"Chores"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "executionId",
+						"required": true,
+						"description": "A valid chore execution id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object (possible errors are: Not existing booking)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/batteries/track-charge-cycle/{batteryId}": {
 			"get": {
 				"description": "Tracks a charge cycle of the given battery",
@@ -1622,6 +1663,47 @@
 									"items": {
 										"$ref": "#/components/schemas/CurrentBatteryResponse"
 									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/batteries/undo-charge-cycle/{chargeCycleId}": {
+			"get": {
+				"description": "Undoes a chore execution",
+				"tags": [
+					"Batteries"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "chargeCycleId",
+						"required": true,
+						"description": "A valid charge cycle id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object (possible errors are: Not existing booking)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
 								}
 							}
 						}

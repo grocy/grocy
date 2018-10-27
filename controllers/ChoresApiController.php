@@ -55,4 +55,17 @@ class ChoresApiController extends BaseApiController
 	{
 		return $this->ApiResponse($this->ChoresService->GetCurrent());
 	}
+
+	public function UndoChoreExecution(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		try
+		{
+			$this->ApiResponse($this->ChoresService->UndoChoreExecution($args['executionId']));
+			return $this->ApiResponse(array('success' => true));
+		}
+		catch (\Exception $ex)
+		{
+			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+		}
+	}
 }
