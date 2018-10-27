@@ -23,7 +23,7 @@ class RecipesController extends BaseController
 		if (isset($request->getQueryParams()['recipe']))
 		{
 			$selectedRecipe = $this->Database->recipes($request->getQueryParams()['recipe']);
-			$selectedRecipePositions = $this->Database->recipes_pos()->where('recipe_id', $request->getQueryParams()['recipe']);
+			$selectedRecipePositions = $this->Database->recipes_pos()->where('recipe_id', $request->getQueryParams()['recipe'])->orderBy('ingredient_group');
 		}
 		else
 		{

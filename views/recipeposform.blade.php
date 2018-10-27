@@ -69,7 +69,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="ingredient_group">{{ $L('Group') }}</label>
+				<label for="ingredient_group">{{ $L('Group') }}&nbsp;&nbsp;<span class="small text-muted">{{ $L('This will be used as a headline to group ingredients together') }}</span></label>
 				<input type="text" class="form-control" id="ingredient_group" name="ingredient_group" value="@if($mode == 'edit'){{ $recipePos->ingredient_group }}@endif">
 			</div>
 

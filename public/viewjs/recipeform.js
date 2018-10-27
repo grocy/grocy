@@ -17,8 +17,10 @@
 var recipesPosTables = $('#recipes-pos-table').DataTable({
 	'paginate': false,
 	'order': [[1, 'asc']],
+	"orderFixed": [[4, 'asc']],
 	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 }
+		{ 'orderable': false, 'targets': 0 },
+		{ 'visible': false, 'targets': 4 }
 	],
 	'language': JSON.parse(L('datatables_localization')),
 	'scrollY': false,
@@ -32,6 +34,9 @@ var recipesPosTables = $('#recipes-pos-table').DataTable({
 		{
 			column.search.search = "";
 		});
+	},
+	'rowGroup': {
+		dataSrc: 4
 	}
 });
 

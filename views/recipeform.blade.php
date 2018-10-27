@@ -11,10 +11,13 @@
 @push('pageScripts')
 	<script src="{{ $U('/node_modules/summernote/dist/summernote-bs4.js?v=', true) }}{{ $version }}"></script>
 	@if(!empty($L('summernote_locale')))<script src="{{ $U('/node_modules', true) }}/summernote/dist/lang/summernote-{{ $L('summernote_locale') }}.js?v={{ $version }}"></script>@endif
+	<script src="{{ $U('/node_modules/datatables.net-rowgroup/js/dataTables.rowGroup.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/datatables.net-rowgroup-bs4/js/rowGroup.bootstrap4.min.js?v=', true) }}{{ $version }}"></script>
 @endpush
 
 @push('pageStyles')
 	<link href="{{ $U('/node_modules/summernote/dist/summernote-bs4.css?v=', true) }}{{ $version }}" rel="stylesheet">
+	<link href="{{ $U('/node_modules/datatables.net-rowgroup-bs4/css/rowGroup.bootstrap4.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -66,6 +69,7 @@
 							<th>{{ $L('Product') }}</th>
 							<th>{{ $L('Amount') }}</th>
 							<th>{{ $L('Note') }}</th>
+							<th class="d-none">Hiden ingredient group</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -94,6 +98,9 @@
 								<a class="btn btn-sm btn-info recipe-pos-show-note-button @if(empty($recipePosition->note)) disabled @endif" href="#" data-toggle="tooltip" data-placement="top" title="{{ $L('Show notes') }}" data-recipe-pos-note="{{ $recipePosition->note }}">
 									<i class="fas fa-eye"></i>
 								</a>
+							</td>
+							<td>
+								{{ $recipePosition->ingredient_group }}
 							</td>
 						</tr>
 						@endforeach

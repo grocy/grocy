@@ -78,10 +78,10 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Chocolate sauce')}', '{$loremIpsumWithHtmlFormattings}'); --5
 				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Pancakes')} / {$localizationService->Localize('Chocolate sauce')}', '{$loremIpsumWithHtmlFormattings}'); --6
 
-				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (1, 16, 1);
-				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (1, 17, 1);
-				INSERT INTO recipes_pos (recipe_id, product_id, amount, note) VALUES (1, 18, 1, '{$localizationService->Localize('This is the note content of the recipe ingredient')}');
-				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (1, 10, 1);
+				INSERT INTO recipes_pos (recipe_id, product_id, amount, ingredient_group) VALUES (1, 16, 1, '{$localizationService->Localize('Bottom')}');
+				INSERT INTO recipes_pos (recipe_id, product_id, amount, ingredient_group) VALUES (1, 17, 1, '{$localizationService->Localize('Topping')}');
+				INSERT INTO recipes_pos (recipe_id, product_id, amount, note, ingredient_group) VALUES (1, 18, 1, '{$localizationService->Localize('This is the note content of the recipe ingredient')}', '{$localizationService->Localize('Topping')}');
+				INSERT INTO recipes_pos (recipe_id, product_id, amount, ingredient_group) VALUES (1, 10, 1, '{$localizationService->Localize('Bottom')}');
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (2, 6, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (2, 10, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount, note) VALUES (2, 17, 1, '{$localizationService->Localize('This is the note content of the recipe ingredient')}');

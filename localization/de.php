@@ -284,6 +284,8 @@ return array(
     'A recipe is required' => 'Ein Rezept ist erforderlich',
 	'Add included recipe' => 'Enthaltenes Rezept hinzufügen',
 	'Edit included recipe' => 'Enthaltenes Rezept bearbeiten',
+	'Group' => 'Gruppe',
+	'This will be used as a headline to group ingredients together' => 'Dies wird als Überschrift verwendet, um  Zutaten zusammenzufassen',
 	
 	//Constants
 	'manually' => 'Manuell',
@@ -376,5 +378,7 @@ return array(
     'Milk' => 'Milch',
 	'Chocolate sauce' => 'Schokoladensoße',
 	'Milliliters' => 'Milliliter',
-	'Milliliter' => 'Milliliter'
+	'Milliliter' => 'Milliliter',
+	'Bottom' => 'Boden',
+	'Topping' => 'Belag'
 );
