@@ -63,7 +63,7 @@ class ChoresService extends BaseService
 		));
 		$logRow->save();
 
-		return true;
+		return $this->Database->lastInsertId();
 	}
 
 	private function ChoreExists($choreId)

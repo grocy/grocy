@@ -184,7 +184,7 @@ return array(
 	'Last done by' => 'Sist utført av',
 	'Unknown' => 'Ukjent',
 	'Filter by chore' => 'Filtrér husarbeid',
-	'Chores analysis' => 'Statistikk husarbeid',
+	'Chores journal' => 'Statistikk husarbeid',
  	'0 means suggestions for the next charge cycle are disabled' => '0 betyr neste ladesyklus er avslått',
  	'Charge cycle interval (days)' => 'Ladesyklysintervall (dager)',
  	'Last price' => 'Siste pris',

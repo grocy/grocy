@@ -11,7 +11,11 @@
 @section('content')
 <div class="row">
 	<div class="col">
-		<h1>@yield('title')</h1>
+		<h1>@yield('title')
+			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/batteriesjournal') }}">
+				<i class="fas fa-file-alt"></i> {{ $L('Journal') }}
+			</a>
+		</h1>
 		<p id="info-due-batteries" data-status-filter="duesoon" data-next-x-days="{{ $nextXDays }}" class="btn btn-lg btn-warning status-filter-button responsive-button mr-2"></p>
 		<p id="info-overdue-batteries" data-status-filter="overdue" class="btn btn-lg btn-danger status-filter-button responsive-button"></p>
 	</div>
@@ -52,6 +56,9 @@
 							data-battery-id="{{ $curentBatteryEntry->battery_id }}"
 							data-battery-name="{{ FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->name }}">
 							<i class="fas fa-fire"></i>
+						</a>
+						<a class="btn btn-info btn-sm" href="{{ $U('/batteriesjournal?battery=') }}{{ $curentBatteryEntry->battery_id }}">
+							<i class="fas fa-file-alt"></i>
 						</a>
 					</td>
 					<td>

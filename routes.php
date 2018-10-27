@@ -35,6 +35,7 @@ $app->group('', function()
 	$this->get('/productgroup/{productGroupId}', '\Grocy\Controllers\StockController:ProductGroupEditForm');
 	$this->get('/shoppinglist', '\Grocy\Controllers\StockController:ShoppingList');
 	$this->get('/shoppinglistitem/{itemId}', '\Grocy\Controllers\StockController:ShoppingListItemEditForm');
+	$this->get('/stockjournal', '\Grocy\Controllers\StockController:Journal');
 
 	// Recipe routes
 	$this->get('/recipes', '\Grocy\Controllers\RecipesController:Overview');
@@ -44,7 +45,7 @@ $app->group('', function()
 	// Chore routes
 	$this->get('/choresoverview', '\Grocy\Controllers\ChoresController:Overview');
 	$this->get('/choretracking', '\Grocy\Controllers\ChoresController:TrackChoreExecution');
-	$this->get('/choresanalysis', '\Grocy\Controllers\ChoresController:Analysis');
+	$this->get('/choresjournal', '\Grocy\Controllers\ChoresController:Journal');
 
 	$this->get('/chores', '\Grocy\Controllers\ChoresController:ChoresList');
 	$this->get('/chore/{choreId}', '\Grocy\Controllers\ChoresController:ChoreEditForm');
@@ -52,6 +53,7 @@ $app->group('', function()
 	// Battery routes
 	$this->get('/batteriesoverview', '\Grocy\Controllers\BatteriesController:Overview');
 	$this->get('/batterytracking', '\Grocy\Controllers\BatteriesController:TrackChargeCycle');
+	$this->get('/batteriesjournal', '\Grocy\Controllers\BatteriesController:Journal');
 
 	$this->get('/batteries', '\Grocy\Controllers\BatteriesController:BatteriesList');
 	$this->get('/battery/{batteryId}', '\Grocy\Controllers\BatteriesController:BatteryEditForm');

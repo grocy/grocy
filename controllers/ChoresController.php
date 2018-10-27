@@ -38,10 +38,10 @@ class ChoresController extends BaseController
 		]);
 	}
 
-	public function Analysis(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function Journal(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'choresanalysis', [
-			'choresLog' => $this->Database->chores_log()->where('undone', 0)->orderBy('tracked_time', 'DESC'),
+		return $this->AppContainer->view->render($response, 'choresjournal', [
+			'choresLog' => $this->Database->chores_log()->orderBy('tracked_time', 'DESC'),
 			'chores' => $this->Database->chores()->orderBy('name'),
 			'users' => $this->Database->users()->orderBy('username')
 		]);

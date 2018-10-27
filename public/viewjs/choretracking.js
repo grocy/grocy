@@ -10,7 +10,7 @@
 			Grocy.Api.Get('chores/track-chore-execution/' + jsonForm.chore_id + '?tracked_time=' + Grocy.Components.DateTimePicker.GetValue() + "&done_by=" + Grocy.Components.UserPicker.GetValue(),
 				function(result)
 				{
-					toastr.success(L('Tracked execution of chore #1 on #2', choreDetails.chore.name, Grocy.Components.DateTimePicker.GetValue()));
+					toastr.success(L('Tracked execution of chore #1 on #2', choreDetails.chore.name, Grocy.Components.DateTimePicker.GetValue()) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoChoreExecution(' + result.chore_execution_id + ')"><i class="fas fa-undo"></i> ' + L("Undo") + '</a>');
 
 					$('#chore_id').val('');
 					$('#chore_id_text_input').focus();
@@ -82,3 +82,17 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keypress', function(e)
 {
 	Grocy.FrontendHelpers.ValidateForm('choretracking-form');
 });
+
+function UndoChoreExecution(executionId)
+{
+	Grocy.Api.Get('chores/undo-chore-execution/' + executionId.toString(),
+		function(result)
+		{
+			toastr.success(L("Chore execution successfully undone"));
+		},
+		function(xhr)
+		{
+			console.error(xhr);
+		}
+	);
+};

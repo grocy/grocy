@@ -1,9 +1,14 @@
 <?php
 
 return array(
-	//Constants
+	//Constants - Chore types
 	'manually' => 'Manually',
 	'dynamic-regular' => 'Dynamic regular',
+
+	//Constants - Stock transaction types
+	'purchase' => 'Purchase',
+	'consume' => 'Consume',
+	'inventory-correction' => 'Inventory correction',
 	
 	//Technical component translations
 	'timeago_locale' => 'en',

@@ -19,7 +19,12 @@
 @section('content')
 <div class="row">
 	<div class="col">
-		<h1>@yield('title') <small id="info-current-stock" class="text-muted"></small></h1>
+		<h1>@yield('title')
+			<small id="info-current-stock" class="text-muted"></small>
+			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/stockjournal') }}">
+				<i class="fas fa-file-alt"></i> {{ $L('Journal') }}
+			</a>
+		</h1>
 		<p id="info-expiring-products" data-next-x-days="{{ $nextXDays }}" data-status-filter="expiring" class="btn btn-lg btn-warning status-filter-button responsive-button mr-2"></p>
 		<p id="info-expired-products" data-status-filter="expired" class="btn btn-lg btn-danger status-filter-button responsive-button mr-2"></p>
 		<p id="info-missing-products" data-status-filter="belowminstockamount" class="btn btn-lg btn-info status-filter-button responsive-button"></p>
@@ -91,6 +96,9 @@
 							data-product-qu-name="{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name }}"
 							data-consume-amount="{{ $currentStockEntry->amount }}">
 							<i class="fas fa-utensils"></i> {{ $L('All') }}
+						</a>
+						<a class="btn btn-info btn-sm" href="{{ $U('/stockjournal?product=') }}{{ $currentStockEntry->product_id }}">
+							<i class="fas fa-file-alt"></i>
 						</a>
 					</td>
 					<td class="product-name-cell" data-product-id="{{ $currentStockEntry->product_id }}">

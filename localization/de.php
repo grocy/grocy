@@ -184,7 +184,7 @@ return array(
 	'Last done by' => 'Zuletzt ausgeführt von',
 	'Unknown' => 'Unbekannt',
 	'Filter by chore' => 'Nach Hausarbeit filtern',
-	'Chores analysis' => 'Hausarbeiten Analyse',
+	'Chores journal' => 'Hausarbeitenjournal',
 	'0 means suggestions for the next charge cycle are disabled' => '0 bedeutet dass Vorschläge für den nächsten Ladezyklus deaktiviert sind',
 	'Charge cycle interval (days)' => 'Ladezyklusintervall (Tage)',
 	'Last price' => 'Letzter Preis',
@@ -286,10 +286,30 @@ return array(
 	'Edit included recipe' => 'Enthaltenes Rezept bearbeiten',
 	'Group' => 'Gruppe',
 	'This will be used as a headline to group ingredients together' => 'Dies wird als Überschrift verwendet, um  Zutaten zusammenzufassen',
+	'Journal' => 'Journal',
+    'Stock journal' => 'Bestandsjournal',
+    'Filter by product' => 'Nach Produkt filtern',
+    'Booking time' => 'Buchungszeit',
+    'Booking type' => 'Buchungsart',
+    'Undo booking' => 'Buchung rückgängig machen',
+    'Undone on' => 'Rückgängig gemacht am',
+    'Batteries journal' => 'Batteriejournal',
+    'Filter by battery' => 'Nach Batterie filtern',
+    'Undo charge cycle' => 'Ladezyklus rückgängig machen',
+    'Undo chore execution' => 'Ausführung rückgängig machen',
+    'Chore execution successfully undone' => 'Ausführung erfolgreich rückgängig gemacht',
+    'Undo' => 'Rückgängig machen',
+    'Booking successfully undone' => 'Buchung erfolgreich rückgängig gemacht',
+    'Charge cycle successfully undone' => 'Ladezyklus erfolgreich rückgängig gemacht',
 	
-	//Constants
+	//Constants - Chore types
 	'manually' => 'Manuell',
 	'dynamic-regular' => 'Dynamisch regelmäßig',
+
+	//Constants - Stock transaction types
+	'purchase' => 'Einkauf',
+	'consume' => 'Verbrauch',
+	'inventory-correction' => 'Inventur-Korrektur',
 	
 	//Technical component translations
 	'timeago_locale' => 'de',

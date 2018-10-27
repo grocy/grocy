@@ -53,4 +53,12 @@ class BatteriesController extends BaseController
 			]);
 		}
 	}
+
+	public function Journal(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->AppContainer->view->render($response, 'batteriesjournal', [
+			'chargeCycles' => $this->Database->battery_charge_cycles()->orderBy('tracked_time', 'DESC'),
+			'batteries' => $this->Database->batteries()->orderBy('name')
+		]);
+	}
 }

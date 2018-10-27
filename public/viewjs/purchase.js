@@ -5,7 +5,7 @@
 	var jsonForm = $('#purchase-form').serializeJSON();
 
 	Grocy.Api.Get('stock/get-product-details/' + jsonForm.product_id,
-		function (productDetails)
+		function(productDetails)
 		{
 			var amount = jsonForm.amount * productDetails.product.qu_factor_purchase_to_stock;
 
@@ -40,7 +40,7 @@
 						);
 					}
 
-					toastr.success(L('Added #1 #2 of #3 to stock', amount, Pluralize(amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name));
+					toastr.success(L('Added #1 #2 of #3 to stock', amount, Pluralize(amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.booking_id + ')"><i class="fas fa-undo"></i> ' + L("Undo") + '</a>');
 
 					if (addBarcode !== undefined)
 					{
@@ -171,3 +171,17 @@ $('#amount').on('change', function (e)
 {
 	Grocy.FrontendHelpers.ValidateForm('purchase-form');
 });
+
+function UndoStockBooking(bookingId)
+{
+	Grocy.Api.Get('stock/undo-booking/' + bookingId.toString(),
+		function(result)
+		{
+			toastr.success(L("Booking successfully undone"));
+		},
+		function(xhr)
+		{
+			console.error(xhr);
+		}
+	);
+};

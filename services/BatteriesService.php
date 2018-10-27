@@ -18,14 +18,14 @@ class BatteriesService extends BaseService
 		}
 
 		$battery = $this->Database->batteries($batteryId);
-		$batteryChargeCylcesCount = $this->Database->battery_charge_cycles()->where('battery_id = :1 AND undone = 0', $batteryId)->count();
+		$batteryChargeCyclesCount = $this->Database->battery_charge_cycles()->where('battery_id = :1 AND undone = 0', $batteryId)->count();
 		$batteryLastChargedTime = $this->Database->battery_charge_cycles()->where('battery_id = :1 AND undone = 0', $batteryId)->max('tracked_time');
 		$nextChargeTime = $this->Database->batteries_current()->where('battery_id', $batteryId)->min('next_estimated_charge_time');
 
 		return array(
 			'battery' => $battery,
 			'last_charged' => $batteryLastChargedTime,
-			'charge_cycles_count' => $batteryChargeCylcesCount,
+			'charge_cycles_count' => $batteryChargeCyclesCount,
 			'next_estimated_charge_time' => $nextChargeTime
 		);
 	}
@@ -43,7 +43,7 @@ class BatteriesService extends BaseService
 		));
 		$logRow->save();
 
-		return true;
+		return $this->Database->lastInsertId();
 	}
 
 	private function BatteryExists($batteryId)

@@ -16,7 +16,7 @@
 			Grocy.Api.Get('stock/consume-product/' + jsonForm.product_id + '/' + jsonForm.amount + '?spoiled=' + spoiled,
 				function(result)
 				{
-					toastr.success(L('Removed #1 #2 of #3 from stock', jsonForm.amount, Pluralize(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name));
+					toastr.success(L('Removed #1 #2 of #3 from stock', jsonForm.amount, Pluralize(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.booking_id + ')"><i class="fas fa-undo"></i> ' + L("Undo") + '</a>');
 
 					$('#amount').val(1);
 					Grocy.Components.ProductPicker.SetValue('');
@@ -102,3 +102,17 @@ $('#consume-form input').keydown(function(event)
 		}
 	}
 });
+
+function UndoStockBooking(bookingId)
+{
+	Grocy.Api.Get('stock/undo-booking/' + bookingId.toString(),
+		function(result)
+		{
+			toastr.success(L("Booking successfully undone"));
+		},
+		function(xhr)
+		{
+			console.error(xhr);
+		}
+	);
+};

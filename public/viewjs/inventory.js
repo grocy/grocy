@@ -32,7 +32,7 @@
 						);
 					}
 
-					toastr.success(L('Stock amount of #1 is now #2 #3', productDetails.product.name, jsonForm.new_amount, Pluralize(jsonForm.new_amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)));
+					toastr.success(L('Stock amount of #1 is now #2 #3', productDetails.product.name, jsonForm.new_amount, Pluralize(jsonForm.new_amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.booking_id + ')"><i class="fas fa-undo"></i> ' + L("Undo") + '</a>');
 
 					if (addBarcode !== undefined)
 					{
@@ -186,3 +186,17 @@ $('#new_amount').on('keyup', function(e)
 		);
 	}
 });
+
+function UndoStockBooking(bookingId)
+{
+	Grocy.Api.Get('stock/undo-booking/' + bookingId.toString(),
+		function(result)
+		{
+			toastr.success(L("Booking successfully undone"));
+		},
+		function(xhr)
+		{
+			console.error(xhr);
+		}
+	);
+};

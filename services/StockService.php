@@ -47,8 +47,8 @@ class StockService extends BaseService
 
 		$product = $this->Database->products($productId);
 		$productStockAmount = $this->Database->stock()->where('product_id', $productId)->sum('amount');
-		$productLastPurchased = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_PURCHASE)->max('purchased_date')->where('undone', 0);
-		$productLastUsed = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->max('used_date')->where('undone', 0);
+		$productLastPurchased = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_PURCHASE)->where('undone', 0)->max('purchased_date');
+		$productLastUsed = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone', 0)->max('used_date');
 		$nextBestBeforeDate = $this->Database->stock()->where('product_id', $productId)->min('best_before_date');
 		$quPurchase = $this->Database->quantity_units($product->qu_id_purchase);
 		$quStock = $this->Database->quantity_units($product->qu_id_stock);
@@ -113,6 +113,8 @@ class StockService extends BaseService
 			));
 			$logRow->save();
 
+			$returnValue = $this->Database->lastInsertId();
+
 			$stockRow = $this->Database->stock()->createRow(array(
 				'product_id' => $productId,
 				'amount' => $amount,
@@ -123,7 +125,7 @@ class StockService extends BaseService
 			));
 			$stockRow->save();
 
-			return true;
+			return $returnValue;
 		}
 		else
 		{
@@ -197,7 +199,7 @@ class StockService extends BaseService
 				}
 			}
 
-			return true;
+			return $this->Database->lastInsertId();
 		}
 		else
 		{
@@ -226,7 +228,7 @@ class StockService extends BaseService
 			$this->ConsumeProduct($productId, $amountToRemove, false, self::TRANSACTION_TYPE_INVENTORY_CORRECTION);
 		}
 
-		return true;
+		return $this->Database->lastInsertId();
 	}
 
 	public function AddMissingProductsToShoppingList()
