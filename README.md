@@ -15,7 +15,7 @@ A household needs to be managed. I did this so far (almost 10 years) with my fir
 >
 > See https://github.com/berrnd/grocy-desktop or directly download the [latest release](https://releases.grocy.info/latest-desktop) - the installation is nothing more than just clicking 2 times "next"...
 
-Just unpack the [latest release](https://releases.grocy.info/latest) on your PHP (SQLite extension required, currently only tested with PHP 7.2) enabled webserver (webservers root should point to the `public` directory), copy `config-dist.php` to `data/config.php`, edit it to your needs, ensure that the `data` directory is writable and you're ready to go, (to make writable `chown -R www-data:www-data data/`). Default login is user `admin` with password `admin`, please change the password immediately (see user menu).
+Just unpack the [latest release](https://releases.grocy.info/latest) on your PHP (SQLite (3.8.3 or higher) extension required, currently only tested with PHP 7.2) enabled webserver (webservers root should point to the `public` directory), copy `config-dist.php` to `data/config.php`, edit it to your needs, ensure that the `data` directory is writable and you're ready to go, (to make writable `chown -R www-data:www-data data/`). Default login is user `admin` with password `admin`, please change the password immediately (see user menu).
 
 Alternatively clone this repository and install Composer and Yarn dependencies manually.
 
