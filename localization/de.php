@@ -300,7 +300,9 @@ return array(
     'Chore execution successfully undone' => 'Ausführung erfolgreich rückgängig gemacht',
     'Undo' => 'Rückgängig machen',
     'Booking successfully undone' => 'Buchung erfolgreich rückgängig gemacht',
-    'Charge cycle successfully undone' => 'Ladezyklus erfolgreich rückgängig gemacht',
+	'Charge cycle successfully undone' => 'Ladezyklus erfolgreich rückgängig gemacht',
+	'This cannot be negative and must be an integral number' => 'Diese darf nicht negativ und muss eine ganze Zahl sein',
+	'Disable stock fulfillment checking for this ingredient' => 'Bestandsprüfung für diese Zutat deaktivieren',
 	
 	//Constants - Chore types
 	'manually' => 'Manuell',

@@ -42,7 +42,7 @@
 							'label' => 'Amount',
 							'min' => 0,
 							'value' => $value,
-							'invalidFeedback' => $L('This cannot be negative'),
+							'invalidFeedback' => $L('This cannot be negative and must be an integral number'),
 							'additionalGroupCssClasses' => 'col-4'
 						))
 
@@ -55,6 +55,7 @@
 							</select>
 							<div class="invalid-feedback">{{ $L('A quantity unit is required') }}</div>
 						</div>
+
 					</div>
 					<div class="row">
 						<div class="col">
@@ -66,6 +67,12 @@
 						</div>
 					</div>
 				</div>
+			</div>
+
+			<div class="form-check mb-3">
+				<input type="hidden" name="not_check_stock_fulfillment" value="0">
+				<input @if($mode == 'edit' && $recipePos->not_check_stock_fulfillment == 1) checked @endif class="form-check-input" type="checkbox" id="not_check_stock_fulfillment" name="not_check_stock_fulfillment" value="1">
+				<label class="form-check-label" for="not_check_stock_fulfillment">{{ $L('Disable stock fulfillment checking for this ingredient') }}</label>
 			</div>
 
 			<div class="form-group">

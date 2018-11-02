@@ -105,10 +105,22 @@ $("#only_check_single_unit_in_stock").on("click", function()
 	if (this.checked)
 	{
 		$("#qu_id").removeAttr("disabled");
+		$("#amount").attr("min", "0.01");
+		$("#amount").attr("step", "0.01");
+		$("#amount").parent().find(".invalid-feedback").text(L("This cannot be negative"));
+		Grocy.FrontendHelpers.ValidateForm("recipe-pos-form");
 	}
 	else
 	{
 		$("#qu_id").attr("disabled", "");
-		Grocy.Components.ProductPicker.GetPicker().trigger("change");
+		$("#amount").attr("min", "0");
+		$("#amount").attr("step", "1");
+		Grocy.Components.ProductPicker.GetPicker().trigger("change"); // Selects the default quantity unit of the selected product
+		$("#amount").parent().find(".invalid-feedback").text(L("This cannot be negative and must be an integral number"));
+		Grocy.FrontendHelpers.ValidateForm("recipe-pos-form");
 	}
 });
+
+// Click twice to trigger on-click but not change the actual checked state
+$("#only_check_single_unit_in_stock").click();
+$("#only_check_single_unit_in_stock").click();

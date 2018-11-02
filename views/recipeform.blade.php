@@ -83,7 +83,7 @@
 								<a class="btn btn-sm btn-danger recipe-pos-delete-button" href="#" data-recipe-pos-id="{{ $recipePosition->id }}" data-recipe-pos-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id)->name }}">
 									<i class="fas fa-trash"></i>
 								</a>
-								<a class="btn btn-sm btn-primary recipe-pos-order-missing-button @if(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->need_fulfilled_with_shopping_list == 1){{ disabled }}@endif" href="#" data-toggle="tooltip" data-placement="right" title="{{ $L('Put missing amount on shopping list') }}" data-recipe-name="{{ $recipe->name }}" data-product-id="{{ $recipePosition->product_id }}" data-product-amount="{{ FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->missing_amount }}" data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id)->name }}">
+								<a class="btn btn-sm btn-primary recipe-pos-order-missing-button @if(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->need_fulfilled_with_shopping_list == 1){{ disabled }}@endif" href="#" data-toggle="tooltip" data-placement="right" title="{{ $L('Put missing amount on shopping list') }}" data-recipe-name="{{ $recipe->name }}" data-product-id="{{ $recipePosition->product_id }}" data-product-amount="{{ round(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->missing_amount) }}" data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id)->name }}">
 									<i class="fas fa-cart-plus"></i>
 								</a>
 							</td>
@@ -91,8 +91,8 @@
 								{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id)->name }}
 							</td>
 							<td>
-								{{ $recipePosition->amount }} {{ Pluralize($recipePosition->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', $recipePosition->qu_id)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', $recipePosition->qu_id)->name_plural) }}
-								<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->need_fulfilled == 1) {{ $L('Enough in stock') }} @else {{ $L('Not enough in stock, #1 missing, #2 already on shopping list', FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->missing_amount, FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->amount_on_shopping_list) }} @endif</span>
+								@if($recipePosition->amount == round($recipePosition->amount)){{ round($recipePosition->amount) }}@else{{ $recipePosition->amount }}@endif {{ Pluralize($recipePosition->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', $recipePosition->qu_id)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', $recipePosition->qu_id)->name_plural) }}
+								<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->need_fulfilled == 1) {{ $L('Enough in stock') }} @else {{ $L('Not enough in stock, #1 missing, #2 already on shopping list', round(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->missing_amount), round(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->amount_on_shopping_list)) }} @endif</span>
 							</td>
 							<td class="fit-content">
 								<a class="btn btn-sm btn-info recipe-pos-show-note-button @if(empty($recipePosition->note)) disabled @endif" href="#" data-toggle="tooltip" data-placement="top" title="{{ $L('Show notes') }}" data-recipe-pos-note="{{ $recipePosition->note }}">
