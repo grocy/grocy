@@ -1,0 +1,37 @@
+[main]
+host = https://www.transifex.com
+
+[grocy.stringsphp]
+file_filter = localization/<lang>/strings.php
+minimum_perc = 0
+source_file = localization/en/strings.php
+source_lang = en
+type = PHP_ARRAY
+
+[grocy.stock_transaction_typesphp]
+file_filter = localization/<lang>/stock_transaction_types.php
+minimum_perc = 0
+source_file = localization/en/stock_transaction_types.php
+source_lang = en
+type = PHP_ARRAY
+
+[grocy.chore_typesphp]
+file_filter = localization/<lang>/chore_types.php
+minimum_perc = 0
+source_file = localization/en/chore_types.php
+source_lang = en
+type = PHP_ARRAY
+
+[grocy.component_translationsphp]
+file_filter = localization/<lang>/component_translations.php
+minimum_perc = 0
+source_file = localization/en/component_translations.php
+source_lang = en
+type = PHP_ARRAY
+
+[grocy.demo_dataphp]
+file_filter = localization/<lang>/demo_data.php
+minimum_perc = 0
+source_file = localization/en/demo_data.php
+source_lang = en
+type = PHP_ARRAY

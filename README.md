@@ -39,7 +39,9 @@ Just overwrite everything with the latest release while keeping the `data` direc
 If you run grocy on Linux, there is also `update.sh` (remember to make the script executable, `chmod +x update.sh` and ensure that you have `unzip` installed) which does exactly this and additionally creates a backup (`.tgz` archive) of the current installation in `data/backups` (backups older than 60 days will be deleted during the update).
 
 ## Localization
-grocy is fully localizable - the default language is English (integrated into code), a German localization is always maintained by me. There is one file per language in the `localization` directory, if you want to create a translation, it's best to copy `localization/de.php` to a new one (e. g. `localization/it.php`) and translating all strings there. (Language can be changed in `data/config.php`, e. g. `Setting('CULTURE', 'it');`)
+grocy is fully localizable - the default language is English (integrated into code), a German localization is always maintained by me.
+You can easily help translating grocy at https://www.transifex.com/grocy/grocy, if your language is incomplete or not available yet.
+(Language can be changed in `data/config.php`, e. g. `Setting('CULTURE', 'it');`)
 
 ### Maintaining your own localization
 As the German translation will always be the most complete one, for maintaining your localization it would be easiest when you compare your localization with the German one with a diff tool of your choice.

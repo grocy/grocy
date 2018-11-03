@@ -10,8 +10,8 @@ class LocalizationService
 	{
 		$this->Culture = $culture;
 
-		$this->StringsDefaultCulture = $this->LoadLocalizationFile(self::DEFAULT_CULTURE);
-		$this->StringsCurrentCulture = $this->LoadLocalizationFile($culture);
+		$this->StringsDefaultCulture = $this->LoadLocalizations(self::DEFAULT_CULTURE);
+		$this->StringsCurrentCulture = $this->LoadLocalizations($culture);
 		$this->StringsMerged = array_merge($this->StringsDefaultCulture, $this->StringsCurrentCulture);
 	}
 
@@ -20,18 +20,30 @@ class LocalizationService
 	protected $StringsCurrentCulture;
 	protected $StringsMerged;
 
-	private function LoadLocalizationFile(string $culture)
+	private function LoadLocalizations(string $culture)
 	{
-		$file = __DIR__ . "/../localization/$culture.php";
+		$folder = __DIR__ . "/../localization/$culture/";
 
-		if (file_exists($file))
+		$localizationFiles = array(
+			'strings.php',
+			'stock_transaction_types.php',
+			'chore_types.php',
+			'component_translations.php',
+			'demo_data.php'
+		);
+
+		$stringsCombined = array();
+		foreach ($localizationFiles as $localizationFile)
 		{
-			return require $file;
+			$file = $folder . $localizationFile;
+			if (file_exists($file))
+			{
+				$currentStrings = require $file;
+				$stringsCombined = array_merge($stringsCombined, $currentStrings);
+			}
 		}
-		else
-		{
-			return array();
-		}
+
+		return $stringsCombined;
 	}
 
 	public function LogMissingLocalization(string $culture, string $text)
