@@ -46,6 +46,10 @@
 					{
 						window.location.href = U('/purchase');
 					}
+					else if (GetUriParam("flow") === "shoppinglistitemtostock")
+					{
+						window.location.href = U('/shoppinglist?flow=shoppinglistitemtostock&listitemid=' + GetUriParam("listitemid"));
+					}
 					else
 					{
 						$('#amount').val(0);
@@ -171,6 +175,12 @@ $('#amount').on('change', function (e)
 {
 	Grocy.FrontendHelpers.ValidateForm('purchase-form');
 });
+
+if (GetUriParam("flow") === "shoppinglistitemtostock")
+{
+	$('#amount').val(GetUriParam("amount"));
+	$('#save-purchase-button').html(L("OK") + " & " + L("Back to shopping list"));
+}
 
 function UndoStockBooking(bookingId)
 {

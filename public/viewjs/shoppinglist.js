@@ -126,3 +126,9 @@ $(document).on('click', '#clear-shopping-list', function(e)
 		}
 	});
 });
+
+if (GetUriParam("flow") === "shoppinglistitemtostock")
+{
+	var listItem = GetUriParam("listitemid");
+	$(".shoppinglist-delete-button[data-shoppinglist-id='" + listItem + "']").click();
+}

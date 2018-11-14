@@ -23,7 +23,7 @@ Grocy.Components.ProductPicker.SetValue = function(value)
 
 Grocy.Components.ProductPicker.InProductAddWorkflow = function()
 {
-	return typeof GetUriParam('createdproduct') !== "undefined";
+	return typeof GetUriParam('createdproduct') !== "undefined" || typeof GetUriParam('product') !== "undefined";
 }
 
 Grocy.Components.ProductPicker.InProductModifyWorkflow = function()
@@ -72,6 +72,17 @@ if (typeof prefillProduct !== "undefined")
 		var nextInputElement = $(Grocy.Components.ProductPicker.GetPicker().parent().data('next-input-selector').toString());
 		nextInputElement.focus();
 	}
+}
+
+var prefillProductId = GetUriParam("product");
+if (typeof prefillProductId !== "undefined")
+{
+	$('#product_id').val(prefillProductId);
+	$('#product_id').data('combobox').refresh();
+	$('#product_id').trigger('change');
+
+	var nextInputElement = $(Grocy.Components.ProductPicker.GetPicker().parent().data('next-input-selector').toString());
+	nextInputElement.focus();
 }
 
 var addBarcode = GetUriParam('addbarcodetoselection');

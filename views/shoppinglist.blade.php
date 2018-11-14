@@ -69,6 +69,9 @@
 						<a class="btn btn-sm btn-danger shoppinglist-delete-button" href="#" data-shoppinglist-id="{{ $listItem->id }}">
 							<i class="fas fa-trash"></i>
 						</a>
+						<a class="btn btn-sm btn-primary" href="{{ $U('/purchase?flow=shoppinglistitemtostock&product=') }}{{ $listItem->product_id }}&amount={{ $listItem->amount + $listItem->amount_autoadded }}&listitemid={{ $listItem->id }}" data-toggle="tooltip" title="{{ $L('Add #3 #1 of #2 to stock', Pluralize($listItem->amount + $listItem->amount_autoadded, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name_plural), FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->name, $listItem->amount + $listItem->amount_autoadded) }}">
+							<i class="fas fa-box"></i>
+						</a>
 					</td>
 					<td>
 						@if(!empty($listItem->product_id)) {{ FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->name }}<br>@endif<em>{!! nl2br($listItem->note) !!}</em>
