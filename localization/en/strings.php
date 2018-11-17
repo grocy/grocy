@@ -316,5 +316,6 @@ return array(
 	'Mark as opened' => 'Mark as opened',
 	'Expires on #1; Bought on #2' => 'Expires on #1; Bought on #2',
 	'Not opened' => 'Not opened',
-	'Opened' => 'Opened'
+	'Opened' => 'Opened',
+	'Mark #3 #1 of #2 as open' => 'Mark #3 #1 of #2 as open'
 );
