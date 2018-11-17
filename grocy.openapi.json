@@ -968,6 +968,15 @@
 						"schema": {
 							"$ref": "#/components/internalSchemas/StockTransactionType"
 						}
+					},
+					{
+						"in": "query",
+						"name": "stock_entry_id",
+						"required": false,
+						"description": "A specific stock entry id to consume, if used, the amount has to be 1",
+						"schema": {
+							"type": "string"
+						}
 					}
 				],
 				"responses": {
@@ -1121,6 +1130,50 @@
 									"type": "array",
 									"items": {
 										"$ref": "#/components/schemas/ProductPriceHistory"
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object (possible errors are: Not existing product)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/get-product-stock-entries/{productId}": {
+			"get": {
+				"description": "Returns all stock entries of the given product in order of next use (first expiring first, then first in first out)",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An array of StockEntry objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/StockEntry"
 									}
 								}
 							}

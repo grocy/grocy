@@ -91,6 +91,13 @@ class StockService extends BaseService
 		return $returnData;
 	}
 
+	public function GetProductStockEntries($productId)
+	{
+		// In order of next use:
+		// First expiring first, then first in first out
+		return $this->Database->stock()->where('product_id', $productId)->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC')->fetchAll();
+	}
+
 	public function AddProduct(int $productId, int $amount, string $bestBeforeDate, $transactionType, $purchasedDate, $price)
 	{
 		if (!$this->ProductExists($productId))
@@ -133,7 +140,7 @@ class StockService extends BaseService
 		}
 	}
 
-	public function ConsumeProduct(int $productId, int $amount, bool $spoiled, $transactionType)
+	public function ConsumeProduct(int $productId, int $amount, bool $spoiled, $transactionType, $specificStockEntryId = 'default')
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -143,11 +150,16 @@ class StockService extends BaseService
 		if ($transactionType === self::TRANSACTION_TYPE_CONSUME || $transactionType === self::TRANSACTION_TYPE_PURCHASE || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
 		{
 			$productStockAmount = $this->Database->stock()->where('product_id', $productId)->sum('amount');
-			$potentialStockEntries = $this->Database->stock()->where('product_id', $productId)->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC')->fetchAll(); //First expiring first, then first in first out
+			$potentialStockEntries = $this->GetProductStockEntries($productId);
 
 			if ($amount > $productStockAmount)
 			{
 				return false;
+			}
+
+			if ($specificStockEntryId !== 'default')
+			{
+				$potentialStockEntries = FindAllObjectsInArrayByPropertyValue($potentialStockEntries, 'stock_id', $specificStockEntryId);
 			}
 
 			foreach ($potentialStockEntries as $stockEntry)

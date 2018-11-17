@@ -305,5 +305,8 @@ return array(
 	'Disable stock fulfillment checking for this ingredient' => 'Disable stock fulfillment checking for this ingredient',
 	'Add all list items to stock' => 'Add all list items to stock',
 	'Add #3 #1 of #2 to stock' => 'Add #3 #1 of #2 to stock',
-	'Adding shopping list item #1 of #2' => 'Adding shopping list item #1 of #2'
+	'Adding shopping list item #1 of #2' => 'Adding shopping list item #1 of #2',
+	'Use a specific stock item' => 'Use a specific stock item',
+	'Expires on #1; bought on #2' => 'Expires on #1; bought on #2',
+	'The first item in this list would be picked by the default rule which is "First expiring first, then first in first out"' => 'The first item in this list would be picked by the default rule which is "First expiring first, then first in first out"'
 );

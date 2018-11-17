@@ -83,9 +83,15 @@ class StockApiController extends BaseApiController
 			$transactionType = $request->getQueryParams()['transactiontype'];
 		}
 
+		$specificStockEntryId = "default";
+		if (isset($request->getQueryParams()['stock_entry_id']) && !empty($request->getQueryParams()['stock_entry_id']))
+		{
+			$specificStockEntryId = $request->getQueryParams()['stock_entry_id'];
+		}
+
 		try
 		{
-			$bookingId = $this->StockService->ConsumeProduct($args['productId'], $args['amount'], $spoiled, $transactionType);
+			$bookingId = $this->StockService->ConsumeProduct($args['productId'], $args['amount'], $spoiled, $transactionType, $specificStockEntryId);
 			return $this->ApiResponse(array('booking_id' => $bookingId));
 		}
 		catch (\Exception $ex)
@@ -177,5 +183,10 @@ class StockApiController extends BaseApiController
 		{
 			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
 		}
+	}
+
+	public function ProductStockEntries(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->ApiResponse($this->StockService->GetProductStockEntries($args['productId']));
 	}
 }

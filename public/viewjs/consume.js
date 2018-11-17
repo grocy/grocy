@@ -4,18 +4,36 @@
 
 	var jsonForm = $('#consume-form').serializeJSON();
 
+	if ($("#use_specific_stock_entry").is(":checked"))
+	{
+		jsonForm.amount = 1;
+	}
+
 	var spoiled = 0;
 	if ($('#spoiled').is(':checked'))
 	{
 		spoiled = 1;
 	}
 
+	var apiUrl = 'stock/consume-product/' + jsonForm.product_id + '/' + jsonForm.amount + '?spoiled=' + spoiled;
+
+	if ($("#use_specific_stock_entry").is(":checked"))
+	{
+		apiUrl += "&stock_entry_id=" + jsonForm.specific_stock_entry;
+	}
+
 	Grocy.Api.Get('stock/get-product-details/' + jsonForm.product_id,
 		function (productDetails)
 		{
-			Grocy.Api.Get('stock/consume-product/' + jsonForm.product_id + '/' + jsonForm.amount + '?spoiled=' + spoiled,
+			Grocy.Api.Get(apiUrl,
 				function(result)
 				{
+					$("#specific_stock_entry").find("option").remove().end().append("<option></option>");
+					if ($("#use_specific_stock_entry").is(":checked"))
+					{
+						$("#use_specific_stock_entry").click();
+					}
+
 					toastr.success(L('Removed #1 #2 of #3 from stock', jsonForm.amount, Pluralize(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.booking_id + ')"><i class="fas fa-undo"></i> ' + L("Undo") + '</a>');
 
 					$('#amount').val(1);
@@ -38,8 +56,14 @@
 
 Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 {
-	var productId = $(e.target).val();
+	$("#specific_stock_entry").find("option").remove().end().append("<option></option>");
+	if ($("#use_specific_stock_entry").is(":checked"))
+	{
+		$("#use_specific_stock_entry").click();
+	}
 
+	var productId = $(e.target).val();
+	
 	if (productId)
 	{
 		Grocy.Components.ProductCard.Refresh(productId);
@@ -69,6 +93,26 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				console.error(xhr);
 			}
 		);
+
+		Grocy.Api.Get("stock/get-product-stock-entries/" + productId,
+			function (stockEntries)
+			{
+				stockEntries.forEach(stockEntry =>
+				{
+					for (i = 0; i < stockEntry.amount; i++)
+					{
+						$("#specific_stock_entry").append($("<option>", {
+							value: stockEntry.stock_id,
+							text: L("Expires on #1; bought on #2", moment(stockEntry.best_before_date).format("YYYY-MM-DD"), moment(stockEntry.purchased_date).format("YYYY-MM-DD"))
+						}));
+					}
+				});
+			},
+			function(xhr)
+			{
+				console.error(xhr);
+			}
+		);
 	}
 });
 
@@ -81,7 +125,12 @@ $('#amount').on('focus', function(e)
 	$(this).select();
 });
 
-$('#consume-form input').keyup(function (event)
+$('#consume-form input').keyup(function(event)
+{
+	Grocy.FrontendHelpers.ValidateForm('consume-form');
+});
+
+$('#consume-form select').change(function(event)
 {
 	Grocy.FrontendHelpers.ValidateForm('consume-form');
 });
@@ -101,6 +150,27 @@ $('#consume-form input').keydown(function(event)
 			$('#save-consume-button').click();
 		}
 	}
+});
+
+$("#use_specific_stock_entry").on("change", function()
+{
+	var value = $(this).is(":checked");
+	if (value)
+	{
+		$("#specific_stock_entry").removeAttr("disabled");
+		$("#amount").attr("disabled", "");
+		$("#amount").removeAttr("required");
+		$("#specific_stock_entry").attr("required", "");
+	}
+	else
+	{
+		$("#specific_stock_entry").attr("disabled", "");
+		$("#amount").removeAttr("disabled");
+		$("#amount").attr("required", "");
+		$("#specific_stock_entry").removeAttr("required");
+	}
+
+	Grocy.FrontendHelpers.ValidateForm("consume-form");
 });
 
 function UndoStockBooking(bookingId)

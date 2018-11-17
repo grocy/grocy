@@ -111,6 +111,7 @@ $app->group('/api', function()
 	$this->get('/stock/inventory-product/{productId}/{newAmount}', '\Grocy\Controllers\StockApiController:InventoryProduct');
 	$this->get('/stock/get-product-details/{productId}', '\Grocy\Controllers\StockApiController:ProductDetails');
 	$this->get('/stock/get-product-price-history/{productId}', '\Grocy\Controllers\StockApiController:ProductPriceHistory');
+	$this->get('/stock/get-product-stock-entries/{productId}', '\Grocy\Controllers\StockApiController:ProductStockEntries');
 	$this->get('/stock/get-current-stock', '\Grocy\Controllers\StockApiController:CurrentStock');
 	$this->get('/stock/get-current-volatil-stock', '\Grocy\Controllers\StockApiController:CurrentVolatilStock');
 	$this->get('/stock/add-missing-products-to-shoppinglist', '\Grocy\Controllers\StockApiController:AddMissingProductsToShoppingList');
