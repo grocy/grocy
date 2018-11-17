@@ -210,7 +210,15 @@ Grocy.Components.DateTimePicker.GetInputElement().on('input', function(e)
 
 $('.datetimepicker').on('update.datetimepicker', function(e)
 {
+	console.log("update");
 	Grocy.Components.DateTimePicker.GetInputElement().trigger('input');
+	Grocy.Components.DateTimePicker.GetInputElement().trigger('change');
+});
+
+$('.datetimepicker').on('hide.datetimepicker', function(e)
+{
+	Grocy.Components.DateTimePicker.GetInputElement().trigger('input');
+	Grocy.Components.DateTimePicker.GetInputElement().trigger('change');
 });
 
 $("#datetimepicker-shortcut").on("click", function()
