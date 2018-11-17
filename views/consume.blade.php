@@ -43,6 +43,7 @@
 			</div>
 
 			<button id="save-consume-button" class="btn btn-success">{{ $L('OK') }}</button>
+			<button id="save-mark-as-open-button" class="btn btn-secondary">{{ $L('Mark as opened') }}</button>
 
 		</form>
 	</div>

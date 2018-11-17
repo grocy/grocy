@@ -119,6 +119,25 @@ class StockApiController extends BaseApiController
 		}
 	}
 
+	public function OpenProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		$specificStockEntryId = "default";
+		if (isset($request->getQueryParams()['stock_entry_id']) && !empty($request->getQueryParams()['stock_entry_id']))
+		{
+			$specificStockEntryId = $request->getQueryParams()['stock_entry_id'];
+		}
+
+		try
+		{
+			$bookingId = $this->StockService->OpenProduct($args['productId'], $args['amount'], $specificStockEntryId);
+			return $this->ApiResponse(array('booking_id' => $bookingId));
+		}
+		catch (\Exception $ex)
+		{
+			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+		}
+	}
+
 	public function CurrentStock(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->ApiResponse($this->StockService->GetCurrentStock());

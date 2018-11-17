@@ -73,6 +73,16 @@
 				'hint' => $L('For purchases this amount of days will be added to today for the best before date suggestion') . ' (' . $L('-1 means that this product never expires') . ')'
 			))
 
+			@php if($mode == 'edit') { $value = $product->default_best_before_days_after_open; } else { $value = 0; } @endphp
+			@include('components.numberpicker', array(
+				'id' => 'default_best_before_days_after_open',
+				'label' => 'Default best before days after opened',
+				'min' => 0,
+				'value' => $value,
+				'invalidFeedback' => $L('The amount cannot be lower than #1', '-1'),
+				'hint' => $L('When a product was marked as opened, the best before date will be replaced by today + this amount of days (a value of 0 disables this)')
+			))
+
 			<div class="form-group">
 				<label for="product_group_id">{{ $L('Product group') }}</label>
 				<select class="form-control" id="product_group_id" name="product_group_id">

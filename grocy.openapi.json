@@ -1003,6 +1003,66 @@
 				}
 			}
 		},
+		"/stock/open-product/{productId}/{amount}": {
+			"get": {
+				"description": "Marks the the given amount of the given product as opened",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					},
+					{
+						"in": "path",
+						"name": "amount",
+						"required": false,
+						"description": "The amount to remove",
+						"schema": {
+							"type": "boolean",
+							"default": false
+						}
+					},
+					{
+						"in": "query",
+						"name": "stock_entry_id",
+						"required": false,
+						"description": "A specific stock entry id to open, if used, the amount has to be 1",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A VoidApiActionResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/VoidApiActionResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A VoidApiActionResponse object (possible errors are: Not existing product)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/stock/inventory-product/{productId}/{newAmount}": {
 			"get": {
 				"description": "Inventories the the given product (adds/removes based on the given new current amount)",

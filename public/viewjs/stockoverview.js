@@ -152,6 +152,64 @@ $(document).on('click', '.product-consume-button', function(e)
 	);
 });
 
+$(document).on('click', '.product-open-button', function(e)
+{
+	e.preventDefault();
+
+	// Remove the focus from the current button
+	// to prevent that the tooltip stays until clicked anywhere else
+	document.activeElement.blur();
+	
+	var productId = $(e.currentTarget).attr('data-product-id');
+	var productName = $(e.currentTarget).attr('data-product-name');
+	var productQuName = $(e.currentTarget).attr('data-product-qu-name');
+
+	Grocy.Api.Get('stock/open-product/' + productId + '/1',
+		function()
+		{
+			Grocy.Api.Get('stock/get-product-details/' + productId,
+				function(result)
+				{
+					var productRow = $('#product-' + productId + '-row');
+					var expiringThreshold = moment().add("-" + $("#info-expiring-products").data("next-x-days"), "days");
+					var now = moment();
+					var nextBestBeforeDate = moment(result.next_best_before_date);
+
+					productRow.removeClass("table-warning");
+					productRow.removeClass("table-danger");
+					if (now.isAfter(nextBestBeforeDate))
+					{
+						productRow.addClass("table-danger");
+					}
+					if (expiringThreshold.isAfter(nextBestBeforeDate))
+					{
+						productRow.addClass("table-warning");
+					}
+
+					$('#product-' + productId + '-next-best-before-date').parent().effect('highlight', {}, 500);
+					$('#product-' + productId + '-next-best-before-date').fadeOut(500, function ()
+					{
+						$(this).text(result.next_best_before_date).fadeIn(500);
+					});
+					$('#product-' + productId + '-next-best-before-date-timeago').attr('datetime', result.next_best_before_date);
+
+					toastr.success(L('Marked #1 #2 of #3 as opened', 1, productQuName, productName));
+					RefreshContextualTimeago();
+					RefreshStatistics();
+				},
+				function(xhr)
+				{
+					console.error(xhr);
+				}
+			);
+		},
+		function(xhr)
+		{
+			console.error(xhr);
+		}
+	);
+});
+
 $(document).on("click", ".product-name-cell", function(e)
 {
 	Grocy.Components.ProductCard.Refresh($(e.currentTarget).attr("data-product-id"));
