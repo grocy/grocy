@@ -42,9 +42,18 @@ class BaseController
 			return $container->UrlManager->ConstructUrl($relativePath, $isResource);
 		});
 
-		try {
+		$embedded = false;
+		if (isset($container->request->getQueryParams()['embedded']))
+		{
+			$embedded = true;
+		}
+		$container->view->set('embedded', $embedded);
+
+		try
+		{
 			$usersService = new UsersService();
-			if (defined('GROCY_USER_ID')) {
+			if (defined('GROCY_USER_ID'))
+			{
 				$container->view->set('userSettings', $usersService->GetUserSettings(GROCY_USER_ID));
 			}
 		}

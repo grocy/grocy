@@ -72,6 +72,16 @@ button.disabled {
 	pointer-events: none;
 }
 
+.embedded .hide-when-embedded {
+	display: none;
+}
+body.embedded.fixed-nav {
+	padding-top: 0;
+}
+.embedded .content-wrapper {
+	margin-left: 0;
+}
+
 /* Hide the default up/down arrow buttons for number inputs because we use our own buttons in numberpicker */
 input[type='number'] {
 	-moz-appearance: textfield;
