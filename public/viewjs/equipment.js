@@ -38,6 +38,7 @@ function DisplayEquipment(id)
 		{
 			$(".selected-equipment-name").text(equipmentItem.name);
 			$("#description-tab-content").html(equipmentItem.description);
+			$(".equipment-edit-button").attr("href", U("/equipment/" + equipmentItem.id.toString()));
 
 			if (equipmentItem.instruction_manual_file_name !== null && !equipmentItem.instruction_manual_file_name.isEmpty())
 			{

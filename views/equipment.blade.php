@@ -50,7 +50,7 @@
 				<div id="selectedEquipmentInstructionManualCard" class="card">
 					<div class="card-header">
 						<i class="fas fa-toolbox"></i> <span class="selected-equipment-name"></span>&nbsp;&nbsp;
-						<a class="btn btn-info btn-sm btn-outline-info py-0" href="{{ $U('/equipment/') }}{{ $equipmentItem->id }}">
+						<a class="btn btn-info btn-sm btn-outline-info py-0 equipment-edit-button" href="#">
 							<i class="fas fa-edit"></i>
 						</a>
 						<a class="btn btn-danger btn-sm btn-outline-danger py-0 equipment-delete-button" href="#" data-equipment-id="{{ $equipmentItem->id }}" data-equipment-name="{{ $equipmentItem->name }}">
@@ -70,7 +70,7 @@
 				<div id="selectedEquipmentDescriptionCard" class="card">
 					<div class="card-header">
 						<i class="fas fa-toolbox"></i> <span class="selected-equipment-name"></span>&nbsp;&nbsp;
-						<a class="btn btn-info btn-sm btn-outline-info py-0" href="{{ $U('/equipment/') }}{{ $equipmentItem->id }}">
+						<a class="btn btn-info btn-sm btn-outline-info py-0 equipment-edit-button" href="#">
 							<i class="fas fa-edit"></i>
 						</a>
 						<a class="btn btn-danger btn-sm btn-outline-danger py-0 equipment-delete-button" href="#" data-equipment-id="{{ $equipmentItem->id }}" data-equipment-name="{{ $equipmentItem->name }}">
