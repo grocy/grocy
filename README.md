@@ -13,7 +13,7 @@ A household needs to be managed. I did this so far (almost 10 years) with my fir
 >
 > There is now grocy-desktop if you want to run grocy without a webserver just like a normal (windows) desktop application.
 >
-> See https://github.com/berrnd/grocy-desktop or directly download the [latest release](https://releases.grocy.info/latest-desktop) - the installation is nothing more than just clicking 2 times "next"...
+> See https://github.com/grocy/grocy-desktop or directly download the [latest release](https://releases.grocy.info/latest-desktop) - the installation is nothing more than just clicking 2 times "next"...
 
 Just unpack the [latest release](https://releases.grocy.info/latest) on your PHP (SQLite (3.8.3 or higher) extension required, currently only tested with PHP 7.2) enabled webserver (webservers root should point to the `public` directory), copy `config-dist.php` to `data/config.php`, edit it to your needs, ensure that the `data` directory is writable and you're ready to go, (to make writable `chown -R www-data:www-data data/`). Default login is user `admin` with password `admin`, please change the password immediately (see user menu).
 
@@ -81,19 +81,19 @@ Database schema migration is automatically done when visiting the root (`/`) rou
 When the file `data/demo.txt` exists, the application will work in a demo mode which means authentication is disabled and some demo data will be generated during the database schema migration.
 
 ### Embedded mode
-When the file `embedded.txt` exists, it must contain a valid and writable path which will be used as the data directory instead of `data` and authentication will be disabled (used in [grocy-desktop](https://github.com/berrnd/grocy-desktop)).
+When the file `embedded.txt` exists, it must contain a valid and writable path which will be used as the data directory instead of `data` and authentication will be disabled (used in [grocy-desktop](https://github.com/grocy/grocy-desktop)).
 
 In embedded mode, settings can be overridden by text files in `data/settingoverrides`, the file name must be `<SettingName>.txt` (e. g. `BASE_URL.txt`) and the content must be the setting value (normally one single line).
 
 ## Screenshots
 #### Dashboard
-![Dashboard](https://github.com/berrnd/grocy/raw/master/publication_assets/dashboard.png "Dashboard")
+![Dashboard](https://github.com/grocy/grocy/raw/master/publication_assets/dashboard.png "Dashboard")
 
 #### Purchase - with barcode scan
-![Purchase - with barcode scan](https://github.com/berrnd/grocy/raw/master/publication_assets/purchase-with-barcode.gif "purchase-with-barcode")
+![Purchase - with barcode scan](https://github.com/grocy/grocy/raw/master/publication_assets/purchase-with-barcode.gif "purchase-with-barcode")
 
 #### Consume - with manual search
-![Consume - with manual search](https://github.com/berrnd/grocy/raw/master/publication_assets/consume.gif "consume")
+![Consume - with manual search](https://github.com/grocy/grocy/raw/master/publication_assets/consume.gif "consume")
 
 ## License
 The MIT License (MIT)

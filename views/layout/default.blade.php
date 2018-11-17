@@ -293,7 +293,7 @@
 					{{ $L('Released on') }} {{ $releaseDate }} <time class="timeago timeago-contextual" datetime="{{ $releaseDate }}"></time><br>
 					<br>
 					Life runs on code<br>
-					<a href="https://github.com/berrnd/grocy" class="discrete-link" target="_blank">
+					<a href="https://github.com/grocy/grocy" class="discrete-link" target="_blank">
 						<i class="fab fa-github"></i>
 					</a>
 				</div>
