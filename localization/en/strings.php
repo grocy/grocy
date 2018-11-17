@@ -302,5 +302,8 @@ return array(
 	'Booking successfully undone' => 'Booking successfully undone',
 	'Charge cycle successfully undone' => 'Charge cycle successfully undone',
 	'This cannot be negative and must be an integral number' => 'This cannot be negative and must be an integral number',
-	'Disable stock fulfillment checking for this ingredient' => 'Disable stock fulfillment checking for this ingredient'
+	'Disable stock fulfillment checking for this ingredient' => 'Disable stock fulfillment checking for this ingredient',
+	'Add all list items to stock' => 'Add all list items to stock',
+	'Add #3 #1 of #2 to stock' => 'Add #3 #1 of #2 to stock',
+	'Adding shopping list item #1 of #2' => 'Adding shopping list item #1 of #2'
 );

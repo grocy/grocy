@@ -345,3 +345,15 @@ $(window).on('resize', function()
 {
 	ResizeResponsiveEmbeds($("body").hasClass("fullscreen-card"));
 });
+$("iframe").on("load", function()
+{
+	ResizeResponsiveEmbeds($("body").hasClass("fullscreen-card"));
+});
+
+function WindowMessageBag(message, payload = null)
+{
+	var obj = { };
+	obj.Message = message;
+	obj.Payload = payload;
+	return obj;
+}

@@ -82,6 +82,10 @@ body.embedded.fixed-nav {
 	margin-left: 0;
 }
 
+iframe {
+	border: 0;
+}
+
 /* Hide the default up/down arrow buttons for number inputs because we use our own buttons in numberpicker */
 input[type='number'] {
 	-moz-appearance: textfield;

@@ -40,18 +40,21 @@
 						);
 					}
 
-					toastr.success(L('Added #1 #2 of #3 to stock', amount, Pluralize(amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.booking_id + ')"><i class="fas fa-undo"></i> ' + L("Undo") + '</a>');
+					var successMessage = L('Added #1 #2 of #3 to stock', amount, Pluralize(amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.booking_id + ')"><i class="fas fa-undo"></i> ' + L("Undo") + '</a>';
 
 					if (addBarcode !== undefined)
 					{
 						window.location.href = U('/purchase');
 					}
-					else if (GetUriParam("flow") === "shoppinglistitemtostock")
+					else if (GetUriParam("flow") === "shoppinglistitemtostock" && typeof GetUriParam("embedded") !== undefined)
 					{
-						window.location.href = U('/shoppinglist?flow=shoppinglistitemtostock&listitemid=' + GetUriParam("listitemid"));
+						window.parent.postMessage(WindowMessageBag("AfterItemAdded", GetUriParam("listitemid")), Grocy.BaseUrl);
+						window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", successMessage), Grocy.BaseUrl);
+						window.parent.postMessage(WindowMessageBag("Ready"), Grocy.BaseUrl);
 					}
 					else
 					{
+						toastr.success(successMessage);
 						$('#amount').val(0);
 						$('#price').val('');
 						Grocy.Components.DateTimePicker.Clear();
@@ -179,7 +182,6 @@ $('#amount').on('change', function (e)
 if (GetUriParam("flow") === "shoppinglistitemtostock")
 {
 	$('#amount').val(GetUriParam("amount"));
-	$('#save-purchase-button').html(L("OK") + " & " + L("Back to shopping list"));
 }
 
 function UndoStockBooking(bookingId)

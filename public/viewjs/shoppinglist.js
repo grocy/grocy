@@ -68,6 +68,7 @@ $(document).on('click', '.shoppinglist-delete-button', function (e)
 			$('#shoppinglistitem-' + shoppingListItemId + '-row').fadeOut(500, function()
 			{
 				$(this).remove();
+				OnListItemRemoved();
 			});
 		},
 		function(xhr)
@@ -115,6 +116,7 @@ $(document).on('click', '#clear-shopping-list', function(e)
 						$('#shoppinglist-table tbody tr').fadeOut(500, function()
 						{
 							$(this).remove();
+							OnListItemRemoved();
 						});
 					},
 					function(xhr)
@@ -127,8 +129,71 @@ $(document).on('click', '#clear-shopping-list', function(e)
 	});
 });
 
-if (GetUriParam("flow") === "shoppinglistitemtostock")
+$(document).on('click', '.shopping-list-stock-add-workflow-list-item-button', function(e)
 {
-	var listItem = GetUriParam("listitemid");
-	$(".shoppinglist-delete-button[data-shoppinglist-id='" + listItem + "']").click();
+	e.preventDefault();
+	
+	var href = $(e.currentTarget).attr('href');
+
+	$("#shopping-list-stock-add-workflow-purchase-form-frame").attr("src", href);
+	$("#shopping-list-stock-add-workflow-modal").modal("show");
+
+	if (Grocy.ShoppingListToStockWorkflowAll)
+	{
+		$("#shopping-list-stock-add-workflow-modal .modal-footer").removeClass("d-none");
+		$("#shopping-list-stock-add-workflow-purchase-item-count").text(L("Adding shopping list item #1 of #2", Grocy.ShoppingListToStockWorkflowCurrent, Grocy.ShoppingListToStockWorkflowCount));
+	}
+});
+
+Grocy.ShoppingListToStockWorkflowAll = false;
+Grocy.ShoppingListToStockWorkflowCount = 0;
+Grocy.ShoppingListToStockWorkflowCurrent = 0;
+$(document).on('click', '#add-all-items-to-stock-button', function(e)
+{
+	Grocy.ShoppingListToStockWorkflowAll = true;
+	Grocy.ShoppingListToStockWorkflowCount = $(".shopping-list-stock-add-workflow-list-item-button").length;
+	Grocy.ShoppingListToStockWorkflowCurrent++;
+	$(".shopping-list-stock-add-workflow-list-item-button").first().click();
+});
+
+$(window).on("message", function(e)
+{
+	var data = e.originalEvent.data;
+	
+	if (data.Message === "AfterItemAdded")
+	{
+		$(".shoppinglist-delete-button[data-shoppinglist-id='" + data.Payload + "']").click();
+	}
+	else if (data.Message === "Ready")
+	{
+		if (!Grocy.ShoppingListToStockWorkflowAll)
+		{
+			$("#shopping-list-stock-add-workflow-modal").modal("hide");
+		}
+		else
+		{
+			Grocy.ShoppingListToStockWorkflowCurrent++;
+			if (Grocy.ShoppingListToStockWorkflowCurrent <= Grocy.ShoppingListToStockWorkflowCount)
+			{
+				$(".shopping-list-stock-add-workflow-list-item-button")[1].click();
+			}
+			else
+			{
+				$("#shopping-list-stock-add-workflow-modal").modal("hide");
+			}
+		}
+	}
+	else if (data.Message === "ShowSuccessMessage")
+	{
+		toastr.success(data.Payload);
+	}
+});
+
+function OnListItemRemoved()
+{
+	if ($(".shopping-list-stock-add-workflow-list-item-button").length === 0)
+	{
+		$("#add-all-items-to-stock-button").addClass("disabled");
+	}
 }
+OnListItemRemoved();

@@ -8,6 +8,7 @@
 	<script src="{{ $U('/node_modules/jquery-ui-dist/jquery-ui.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/datatables.net-rowgroup/js/dataTables.rowGroup.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/datatables.net-rowgroup-bs4/js/rowGroup.bootstrap4.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/viewjs/purchase.js?v=', true) }}{{ $version }}"></script>
 @endpush
 
 @push('pageStyles')
@@ -27,6 +28,9 @@
 			</a>
 			<a id="add-products-below-min-stock-amount" class="btn btn-outline-primary responsive-button" href="#">
 				<i class="fas fa-cart-plus"></i> {{ $L('Add products that are below defined min. stock amount') }}
+			</a>
+			<a id="add-all-items-to-stock-button" class="btn btn-outline-primary responsive-button" href="#">
+				<i class="fas fa-box"></i> {{ $L('Add all list items to stock') }}
 			</a>
 		</h1>
 		<p data-status-filter="belowminstockamount" class="btn btn-lg btn-info status-filter-button responsive-button">{{ Pluralize(count($missingProducts), $L('#1 product is below defined min. stock amount', count($missingProducts)), $L('#1 products are below defined min. stock amount', count($missingProducts))) }}</p>
@@ -69,7 +73,7 @@
 						<a class="btn btn-sm btn-danger shoppinglist-delete-button" href="#" data-shoppinglist-id="{{ $listItem->id }}">
 							<i class="fas fa-trash"></i>
 						</a>
-						<a class="btn btn-sm btn-primary" href="{{ $U('/purchase?flow=shoppinglistitemtostock&product=') }}{{ $listItem->product_id }}&amount={{ $listItem->amount + $listItem->amount_autoadded }}&listitemid={{ $listItem->id }}" data-toggle="tooltip" title="{{ $L('Add #3 #1 of #2 to stock', Pluralize($listItem->amount + $listItem->amount_autoadded, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name_plural), FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->name, $listItem->amount + $listItem->amount_autoadded) }}">
+						<a class="btn btn-sm btn-primary @if(empty($listItem->product_id)) disabled @else shopping-list-stock-add-workflow-list-item-button @endif" href="{{ $U('/purchase?embedded&flow=shoppinglistitemtostock&product=') }}{{ $listItem->product_id }}&amount={{ $listItem->amount + $listItem->amount_autoadded }}&listitemid={{ $listItem->id }}" @if(!empty($listItem->product_id)) data-toggle="tooltip" title="{{ $L('Add #3 #1 of #2 to stock', Pluralize($listItem->amount + $listItem->amount_autoadded, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name_plural), FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->name, $listItem->amount + $listItem->amount_autoadded) }}" @endif>
 							<i class="fas fa-box"></i>
 						</a>
 					</td>
@@ -93,6 +97,19 @@
 
 	<div class="col-xs-12 col-md-4">
 		@include('components.calendarcard')
+	</div>
+</div>
+
+<div class="modal fade" id="shopping-list-stock-add-workflow-modal" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content text-center">
+			<div class="modal-body">
+				<iframe id="shopping-list-stock-add-workflow-purchase-form-frame" class="embed-responsive" src=""></iframe>
+			</div>
+			<div class="modal-footer d-none">
+				<span id="shopping-list-stock-add-workflow-purchase-item-count"></span>
+			</div>
+		</div>
 	</div>
 </div>
 @stop
