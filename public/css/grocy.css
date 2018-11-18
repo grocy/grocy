@@ -203,6 +203,10 @@ td {
 	}
 }
 
+html {
+	min-height: inherit;
+}
+
 /* Third party component customizations - Tempus Dominus */
 .date-only-datetimepicker .bootstrap-datetimepicker-widget.dropdown-menu {
 	width: auto !important;

@@ -95,7 +95,7 @@
 		</table>
 	</div>
 
-	<div class="col-xs-12 col-md-4">
+	<div class="col-xs-12 col-md-4 mt-md-2">
 		@include('components.calendarcard')
 	</div>
 </div>
@@ -106,8 +106,9 @@
 			<div class="modal-body">
 				<iframe id="shopping-list-stock-add-workflow-purchase-form-frame" class="embed-responsive" src=""></iframe>
 			</div>
-			<div class="modal-footer d-none">
-				<span id="shopping-list-stock-add-workflow-purchase-item-count"></span>
+			<div class="modal-footer">
+				<span id="shopping-list-stock-add-workflow-purchase-item-count" class="d-none mr-auto"></span>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">{{ $L('Close') }}</button>
 			</div>
 		</div>
 	</div>

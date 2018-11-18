@@ -140,7 +140,7 @@ $(document).on('click', '.shopping-list-stock-add-workflow-list-item-button', fu
 
 	if (Grocy.ShoppingListToStockWorkflowAll)
 	{
-		$("#shopping-list-stock-add-workflow-modal .modal-footer").removeClass("d-none");
+		$("#shopping-list-stock-add-workflow-purchase-item-count").removeClass("d-none");
 		$("#shopping-list-stock-add-workflow-purchase-item-count").text(L("Adding shopping list item #1 of #2", Grocy.ShoppingListToStockWorkflowCurrent, Grocy.ShoppingListToStockWorkflowCount));
 	}
 });
