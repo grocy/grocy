@@ -119,7 +119,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 		Grocy.Components.ProductCard.Refresh(productId);
 
 		Grocy.Api.Get('stock/get-product-details/' + productId,
-			function (productDetails)
+			function(productDetails)
 			{
 				$('#amount').attr('max', productDetails.stock_amount);
 				$('#amount_qu_unit').text(productDetails.quantity_unit_stock.name);
@@ -136,6 +136,15 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 					Grocy.Components.ProductPicker.HideCustomError();
 					Grocy.FrontendHelpers.ValidateForm('consume-form');
 					$('#amount').focus();
+				}
+
+				if (productDetails.stock_amount == productDetails.stock_amount_opened)
+				{
+					$("#save-mark-as-open-button").addClass("disabled");
+				}
+				else
+				{
+					$("#save-mark-as-open-button").removeClass("disabled");
 				}
 			},
 			function(xhr)

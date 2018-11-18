@@ -97,7 +97,7 @@
 							data-consume-amount="{{ $currentStockEntry->amount }}">
 							<i class="fas fa-utensils"></i> {{ $L('All') }}
 						</a>
-						<a class="btn btn-success btn-sm product-open-button @if($currentStockEntry->amount == 0) disabled @endif" href="#" data-toggle="tooltip" data-placement="left" title="{{ $L('Mark #3 #1 of #2 as open', FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name, 1) }}"
+						<a class="btn btn-success btn-sm product-open-button @if($currentStockEntry->amount == 0 || $currentStockEntry->amount == $currentStockEntry->amount_opened) disabled @endif" href="#" data-toggle="tooltip" data-placement="left" title="{{ $L('Mark #3 #1 of #2 as open', FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name, 1) }}"
 							data-product-id="{{ $currentStockEntry->product_id }}"
 							data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}"
 							data-product-qu-name="{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name }}">

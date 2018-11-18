@@ -133,7 +133,7 @@ $(document).on('click', '.product-consume-button', function(e)
 							$(this).text(result.next_best_before_date).fadeIn(500);
 						});
 						$('#product-' + productId + '-next-best-before-date-timeago').attr('datetime', result.next_best_before_date);
-					}	
+					}
 
 					toastr.success(L('Removed #1 #2 of #3 from stock', consumeAmount, productQuName, productName));
 					RefreshContextualTimeago();
@@ -163,6 +163,7 @@ $(document).on('click', '.product-open-button', function(e)
 	var productId = $(e.currentTarget).attr('data-product-id');
 	var productName = $(e.currentTarget).attr('data-product-name');
 	var productQuName = $(e.currentTarget).attr('data-product-qu-name');
+	var button = $(e.currentTarget);
 
 	Grocy.Api.Get('stock/open-product/' + productId + '/1',
 		function()
@@ -198,6 +199,11 @@ $(document).on('click', '.product-open-button', function(e)
 					{
 						$(this).text(L('#1 opened', result.stock_amount_opened)).fadeIn(500);
 					});
+
+					if (result.stock_amount == result.stock_amount_opened)
+					{
+						button.addClass("disabled");
+					}
 
 					toastr.success(L('Marked #1 #2 of #3 as opened', 1, productQuName, productName));
 					RefreshContextualTimeago();

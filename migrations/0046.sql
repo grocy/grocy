@@ -25,4 +25,14 @@ SELECT
 	MIN(s.best_before_date) AS best_before_date,
 	IFNULL((SELECT SUM(amount) FROM stock WHERE product_id = s.product_id AND open = 1), 0) AS amount_opened
 FROM stock s
-GROUP BY s.product_id;
+GROUP BY s.product_id
+
+UNION
+
+SELECT
+	id,
+	0,
+	null,
+	0
+FROM stock_missing_products
+WHERE is_partly_in_stock = 0;

@@ -265,11 +265,11 @@ class StockService extends BaseService
 			throw new \Exception('Product does not exist');
 		}
 
-		$productStockAmount = $this->Database->stock()->where('product_id', $productId)->sum('amount');
+		$productStockAmountUnopened = $this->Database->stock()->where('product_id = :1 AND open = 0', $productId)->sum('amount');
 		$potentialStockEntries = $this->GetProductStockEntries($productId, true);
 		$product = $this->Database->products($productId);
 
-		if ($amount > $productStockAmount)
+		if ($amount > $productStockAmountUnopened)
 		{
 			return false;
 		}
