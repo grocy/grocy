@@ -307,7 +307,6 @@ return array(
 	'Add #3 #1 of #2 to stock' => 'Add #3 #1 of #2 to stock',
 	'Adding shopping list item #1 of #2' => 'Adding shopping list item #1 of #2',
 	'Use a specific stock item' => 'Use a specific stock item',
-	'Expires on #1; bought on #2' => 'Expires on #1; bought on #2',
 	'The first item in this list would be picked by the default rule which is "First expiring first, then first in first out"' => 'The first item in this list would be picked by the default rule which is "First expiring first, then first in first out"',
 	'Mark #3 #1 of #2 as open' => 'Mark #3 #1 of #2 as open',
 	'When a product was marked as opened, the best before date will be replaced by today + this amount of days (a value of 0 disables this)' => 'When a product was marked as opened, the best before date will be replaced by today + this amount of days (a value of 0 disables this)',
