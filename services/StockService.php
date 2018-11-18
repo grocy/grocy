@@ -114,7 +114,7 @@ class StockService extends BaseService
 			throw new \Exception('Product does not exist');
 		}
 
-		if ($transactionType === self::TRANSACTION_TYPE_CONSUME || $transactionType === self::TRANSACTION_TYPE_PURCHASE || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
+		if ($transactionType === self::TRANSACTION_TYPE_PURCHASE || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
 		{
 			$stockId = uniqid();
 
@@ -156,7 +156,7 @@ class StockService extends BaseService
 			throw new \Exception('Product does not exist');
 		}
 
-		if ($transactionType === self::TRANSACTION_TYPE_CONSUME || $transactionType === self::TRANSACTION_TYPE_PURCHASE || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
+		if ($transactionType === self::TRANSACTION_TYPE_CONSUME || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
 		{
 			$productStockAmount = $this->Database->stock()->where('product_id', $productId)->sum('amount');
 			$potentialStockEntries = $this->GetProductStockEntries($productId);
@@ -178,7 +178,7 @@ class StockService extends BaseService
 					break;
 				}
 
-				if ($amount >= $stockEntry->amount) //Take the whole stock entry
+				if ($amount >= $stockEntry->amount) // Take the whole stock entry
 				{
 					$logRow = $this->Database->stock_log()->createRow(array(
 						'product_id' => $stockEntry->product_id,
@@ -194,11 +194,14 @@ class StockService extends BaseService
 					));
 					$logRow->save();
 
-					$amount -= $stockEntry->amount;
 					$stockEntry->delete();
+
+					$amount -= $stockEntry->amount;
 				}
-				else //Stock entry amount is > than needed amount -> split the stock entry resp. update the amount
+				else // Stock entry amount is > than needed amount -> split the stock entry resp. update the amount
 				{
+					$restStockAmount = $stockEntry->amount - $amount;
+
 					$logRow = $this->Database->stock_log()->createRow(array(
 						'product_id' => $stockEntry->product_id,
 						'amount' => $amount * -1,
@@ -213,12 +216,11 @@ class StockService extends BaseService
 					));
 					$logRow->save();
 
-					$restStockAmount = $stockEntry->amount - $amount;
-					$amount = 0;
-
 					$stockEntry->update(array(
 						'amount' => $restStockAmount
 					));
+
+					$amount = 0;
 				}
 			}
 
@@ -285,10 +287,10 @@ class StockService extends BaseService
 			$newBestBeforeDate = $stockEntry->best_before_date;
 			if ($product->default_best_before_days_after_open > 0)
 			{
-				 $newBestBeforeDate = date("Y-m-d", (strtotime('+' . $product->default_best_before_days_after_open . ' days')));
+				 $newBestBeforeDate = date("Y-m-d", strtotime('+' . $product->default_best_before_days_after_open . ' days'));
 			}
 
-			if ($amount >= $stockEntry->amount) //Take the whole stock entry
+			if ($amount >= $stockEntry->amount) // Mark the whole stock entry as opened
 			{
 				$logRow = $this->Database->stock_log()->createRow(array(
 					'product_id' => $stockEntry->product_id,
@@ -302,16 +304,28 @@ class StockService extends BaseService
 				));
 				$logRow->save();
 
-				$amount -= $stockEntry->amount;
-
 				$stockEntry->update(array(
 					'open' => 1,
 					'opened_date' => date('Y-m-d'),
 					'best_before_date' => $newBestBeforeDate
 				));
+
+				$amount -= $stockEntry->amount;
 			}
-			else //Stock entry amount is > than needed amount -> split the stock entry resp. update the amount
+			else // Stock entry amount is > than needed amount -> split the stock entry
 			{
+				$restStockAmount = $stockEntry->amount - $amount;
+
+				$newStockRow = $this->Database->stock()->createRow(array(
+					'product_id' => $stockEntry->product_id,
+					'amount' => $restStockAmount,
+					'best_before_date' => $stockEntry->best_before_date,
+					'purchased_date' => $stockEntry->purchased_date,
+					'stock_id' => $stockEntry->stock_id,
+					'price' => $stockEntry->price
+				));
+				$newStockRow->save();
+
 				$logRow = $this->Database->stock_log()->createRow(array(
 					'product_id' => $stockEntry->product_id,
 					'amount' => $amount,
@@ -324,15 +338,14 @@ class StockService extends BaseService
 				));
 				$logRow->save();
 
-				$restStockAmount = $stockEntry->amount - $amount;
-				$amount = 0;
-
 				$stockEntry->update(array(
-					'amount' => $restStockAmount,
+					'amount' => $amount,
 					'open' => 1,
 					'opened_date' => date('Y-m-d'),
 					'best_before_date' => $newBestBeforeDate
 				));
+
+				$amount = 0;
 			}
 		}
 
@@ -348,13 +361,13 @@ class StockService extends BaseService
 			$amount = ceil($missingProduct->amount_missing / $product->qu_factor_purchase_to_stock);
 
 			$alreadyExistingEntry = $this->Database->shopping_list()->where('product_id', $missingProduct->id)->fetch();
-			if ($alreadyExistingEntry) //Update
+			if ($alreadyExistingEntry) // Update
 			{
 				$alreadyExistingEntry->update(array(
 					'amount_autoadded' => $amount
 				));
 			}
-			else //Insert
+			else // Insert
 			{
 				$shoppinglistRow = $this->Database->shopping_list()->createRow(array(
 					'product_id' => $missingProduct->id,
@@ -451,7 +464,8 @@ class StockService extends BaseService
 				'best_before_date' => $logRow->best_before_date,
 				'purchased_date' => $logRow->purchased_date,
 				'stock_id' => $logRow->stock_id,
-				'price' => $logRow->price
+				'price' => $logRow->price,
+				'opened_date' => $logRow->opened_date
 			));
 			$stockRow->save();
 
@@ -464,7 +478,7 @@ class StockService extends BaseService
 		elseif ($logRow->transaction_type === self::TRANSACTION_TYPE_PRODUCT_OPENED)
 		{
 			// Remove opened flag from corresponding log entry
-			$stockRows = $this->Database->stock()->where('stock_id = :1 AND amount = :2', $logRow->stock_id, $logRow->amount);
+			$stockRows = $this->Database->stock()->where('stock_id = :1 AND amount = :2 AND purchased_date = :3', $logRow->stock_id, $logRow->amount, $logRow->purchased_date)->limit(1);
 			$stockRows->update(array(
 				'open' => 0,
 				'opened_date' => null
