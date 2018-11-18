@@ -193,6 +193,12 @@ $(document).on('click', '.product-open-button', function(e)
 					});
 					$('#product-' + productId + '-next-best-before-date-timeago').attr('datetime', result.next_best_before_date);
 
+					$('#product-' + productId + '-opened-amount').parent().effect('highlight', {}, 500);
+					$('#product-' + productId + '-opened-amount').fadeOut(500, function ()
+					{
+						$(this).text(L('#1 opened', result.stock_amount_opened)).fadeIn(500);
+					});
+
 					toastr.success(L('Marked #1 #2 of #3 as opened', 1, productQuName, productName));
 					RefreshContextualTimeago();
 					RefreshStatistics();

@@ -2075,6 +2075,9 @@
 					"stock_amount": {
 						"type": "integer"
 					},
+					"stock_amount_opened": {
+						"type": "integer"
+					},
 					"next_best_before_date": {
 						"type": "string",
 						"format": "date-time"

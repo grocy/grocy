@@ -6,6 +6,7 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 		function(productDetails)
 		{
 			var stockAmount = productDetails.stock_amount || '0';
+			var stockAmountOpened = productDetails.stock_amount_opened || '0';
 			$('#productcard-product-name').text(productDetails.product.name);
 			$('#productcard-product-stock-amount').text(stockAmount);
 			$('#productcard-product-stock-qu-name').text(productDetails.quantity_unit_stock.name);
@@ -14,6 +15,15 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 			$('#productcard-product-last-purchased-timeago').text($.timeago(productDetails.last_purchased || ''));
 			$('#productcard-product-last-used').text((productDetails.last_used || L('never')).substring(0, 10));
 			$('#productcard-product-last-used-timeago').text($.timeago(productDetails.last_used || ''));
+
+			if (stockAmountOpened > 0)
+			{
+				$('#productcard-product-stock-opened-amount').text(L('#1 opened', stockAmountOpened));
+			}
+			else
+			{
+				$('#productcard-product-stock-opened-amount').text("");
+			}
 
 			$('#productcard-product-edit-button').attr("href", U("/product/" + productDetails.product.id.toString()));
 			$('#productcard-product-edit-button').removeClass("disabled");

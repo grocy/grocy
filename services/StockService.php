@@ -48,6 +48,7 @@ class StockService extends BaseService
 
 		$product = $this->Database->products($productId);
 		$productStockAmount = $this->Database->stock()->where('product_id', $productId)->sum('amount');
+		$productStockAmountOpened = $this->Database->stock()->where('product_id = :1 AND open = 1', $productId)->sum('amount');
 		$productLastPurchased = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_PURCHASE)->where('undone', 0)->max('purchased_date');
 		$productLastUsed = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone', 0)->max('used_date');
 		$nextBestBeforeDate = $this->Database->stock()->where('product_id', $productId)->min('best_before_date');
@@ -66,6 +67,7 @@ class StockService extends BaseService
 			'last_purchased' => $productLastPurchased,
 			'last_used' => $productLastUsed,
 			'stock_amount' => $productStockAmount,
+			'stock_amount_opened' => $productStockAmountOpened,
 			'quantity_unit_purchase' => $quPurchase,
 			'quantity_unit_stock' => $quStock,
 			'last_price' => $lastPrice,
