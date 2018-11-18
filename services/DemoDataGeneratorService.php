@@ -198,6 +198,9 @@ class DemoDataGeneratorService extends BaseService
 			$stockService->AddProduct(23, 1, date('Y-m-d', strtotime('+2 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-40 days')), $this->RandomPrice());
 			$stockService->AddProduct(23, 1, date('Y-m-d', strtotime('+2 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-50 days')), $this->RandomPrice());
 			$stockService->AddMissingProductsToShoppingList();
+			$stockService->OpenProduct(6, 1);
+			$stockService->OpenProduct(21, 1);
+			$stockService->OpenProduct(22, 1);
 
 			$choresService = new ChoresService();
 			$choresService->TrackChore(1, date('Y-m-d H:i:s', strtotime('-5 days')));
