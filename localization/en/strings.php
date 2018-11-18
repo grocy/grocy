@@ -317,5 +317,6 @@ return array(
 	'Expires on #1; Bought on #2' => 'Expires on #1; Bought on #2',
 	'Not opened' => 'Not opened',
 	'Opened' => 'Opened',
-	'Mark #3 #1 of #2 as open' => 'Mark #3 #1 of #2 as open'
+	'Mark #3 #1 of #2 as open' => 'Mark #3 #1 of #2 as open',
+	'#1 opened' => '#1 opened'
 );
