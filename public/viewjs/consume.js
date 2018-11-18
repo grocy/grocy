@@ -224,6 +224,7 @@ $("#use_specific_stock_entry").on("change", function()
 	{
 		$("#specific_stock_entry").removeAttr("disabled");
 		$("#amount").attr("disabled", "");
+		$("#amount").val(1);
 		$("#amount").removeAttr("required");
 		$("#specific_stock_entry").attr("required", "");
 	}
