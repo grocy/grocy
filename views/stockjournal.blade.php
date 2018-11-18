@@ -48,7 +48,7 @@
 						</a>
 					</td>
 					<td>
-						<span class="@if($stockLogEntry->undone == 1) text-strike-through @endif">{{ FindObjectInArrayByPropertyValue($products, 'id', $stockLogEntry->product_id)->name }}</span>
+						<span class="name-anchor @if($stockLogEntry->undone == 1) text-strike-through @endif">{{ FindObjectInArrayByPropertyValue($products, 'id', $stockLogEntry->product_id)->name }}</span>
 						@if($stockLogEntry->undone == 1)
 						<br>
 						{{ $L('Undone on') . ' ' . $stockLogEntry->undone_timestamp }}

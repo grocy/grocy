@@ -59,7 +59,9 @@ $(document).on('click', '.undo-stock-booking-button', function(e)
 		function(result)
 		{
 			element.closest("tr").addClass("text-muted");
+			element.parent().siblings().find("span.name-anchor").addClass("text-strike-through").after("<br>" + L("Undone on") + " " + moment().format("YYYY-MM-DD HH:mm:ss") + " <time class='timeago timeago-contextual' datetime='" + moment().format("YYYY-MM-DD HH:mm:ss") + "'></time>");
 			element.closest(".undo-stock-booking-button").addClass("disabled");
+			RefreshContextualTimeago();
 			toastr.success(L("Booking successfully undone"));
 		},
 		function(xhr)

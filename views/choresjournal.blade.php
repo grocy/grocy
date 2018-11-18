@@ -47,7 +47,7 @@
 						</a>
 					</td>
 					<td>
-						<span class="@if($choreLogEntry->undone == 1) text-strike-through @endif">{{ FindObjectInArrayByPropertyValue($chores, 'id', $choreLogEntry->chore_id)->name }}</span>
+						<span class="name-anchor @if($choreLogEntry->undone == 1) text-strike-through @endif">{{ FindObjectInArrayByPropertyValue($chores, 'id', $choreLogEntry->chore_id)->name }}</span>
 						@if($choreLogEntry->undone == 1)
 						<br>
 						{{ $L('Undone on') . ' ' . $choreLogEntry->undone_timestamp }}

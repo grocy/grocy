@@ -46,7 +46,7 @@
 						</a>
 					</td>
 					<td>
-						<span class="@if($chargeCycleEntry->undone == 1) text-strike-through @endif">{{ FindObjectInArrayByPropertyValue($batteries, 'id', $chargeCycleEntry->battery_id)->name }}</span>
+						<span class="name-anchor @if($chargeCycleEntry->undone == 1) text-strike-through @endif">{{ FindObjectInArrayByPropertyValue($batteries, 'id', $chargeCycleEntry->battery_id)->name }}</span>
 						@if($chargeCycleEntry->undone == 1)
 						<br>
 						{{ $L('Undone on') . ' ' . $chargeCycleEntry->undone_timestamp }}
