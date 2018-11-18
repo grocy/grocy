@@ -68,6 +68,9 @@ $app->group('', function()
 	$this->get('/equipment', '\Grocy\Controllers\EquipmentController:Overview');
 	$this->get('/equipment/{equipmentId}', '\Grocy\Controllers\EquipmentController:EditForm');
 
+	// Other routes
+	$this->get('/calendar', '\Grocy\Controllers\CalendarController:Overview');
+
 	// OpenAPI routes
 	$this->get('/api', '\Grocy\Controllers\OpenApiController:DocumentationUi');
 	$this->get('/manageapikeys', '\Grocy\Controllers\OpenApiController:ApiKeysList');

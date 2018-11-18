@@ -318,5 +318,9 @@ return array(
 	'Not opened' => 'Not opened',
 	'Opened' => 'Opened',
 	'Mark #3 #1 of #2 as open' => 'Mark #3 #1 of #2 as open',
-	'#1 opened' => '#1 opened'
+	'#1 opened' => '#1 opened',
+	'Product expires' => 'Product expires',
+	'Task due' => 'Task due',
+	'Chore due' => 'Chore due',
+	'Battery charge cycle due' => 'Battery charge cycle due'
 );

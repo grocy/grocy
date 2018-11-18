@@ -11,7 +11,7 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.4.2.tgz#b2d782da69c45ea61954291e2615a8f7741c96b2"
   integrity sha512-lpruVv/4AkKUujyzHCNJ8yOceBf7Na/pFaX52ZI/BFMCYkUEwiQ1P0viZg//+WelrNNEgvMOvCMDEDaOMZ/u1w==
 
-"TagManager@https://github.com/max-favilli/tagmanager.git#3.0.2":
+"TagManager@https://github.com/max-favilli/tagmanager.git#3.0.2", "tagmanager@https://github.com/max-favilli/tagmanager.git#3.0.2":
   version "3.0.1"
   resolved "https://github.com/max-favilli/tagmanager.git#df9eb9935c8585a392dfc00602f890caf233fa94"
   dependencies:
@@ -175,6 +175,14 @@ font-awesome@4.7.0:
   resolved "https://registry.yarnpkg.com/font-awesome/-/font-awesome-4.7.0.tgz#8fa8cf0411a1a31afd07b06d2902bb9fc815a133"
   integrity sha1-j6jPBBGhoxr9B7BtKQK7n8gVoTM=
 
+fullcalendar@^3.9.0:
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/fullcalendar/-/fullcalendar-3.9.0.tgz#b608a9989f3416f0b1d526c6bdfeeaf2ac79eda5"
+  integrity sha512-bbALDK8+SBqluv8SKPDeVNtaSr87NYblte/pRgV5NnDJWCEARpRlQ1qQ/XEakcAXbMZov6rWYIvLOrtKwQo2Bg==
+  dependencies:
+    jquery "2 - 3"
+    moment "^2.20.1"
+
 jquery-serializejson@^2.8.1:
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/jquery-serializejson/-/jquery-serializejson-2.8.1.tgz#fc40dd11e5d9a6fd2a3614fdcba89e4af794f0a8"
@@ -195,7 +203,7 @@ jquery@1:
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-1.12.4.tgz#01e1dfba290fe73deba77ceeacb0f9ba2fec9e0c"
   integrity sha1-AeHfuikP5z3rp3zurLD5ui/sngw=
 
-jquery@3.3.1, jquery@>=1.12.0, jquery@>=1.2.3, jquery@>=1.7, jquery@^3.0, jquery@^3.3.1:
+"jquery@2 - 3", jquery@3.3.1, jquery@>=1.12.0, jquery@>=1.2.3, jquery@>=1.7, jquery@^3.0, jquery@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
   integrity sha512-Ubldcmxp5np52/ENotGxlLe6aGMvmF4R8S6tZjsP6Knsaxd/xp3Zrh50cG93lR6nPXyUFwzN3ZSOQI0wRJNdGg==
@@ -207,7 +215,7 @@ moment-timezone@^0.5.11:
   dependencies:
     moment ">= 2.9.0"
 
-"moment@>= 2.9.0", moment@^2.10.2, moment@^2.22.2:
+"moment@>= 2.9.0", moment@^2.10.2, moment@^2.20.1, moment@^2.22.2:
   version "2.22.2"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
   integrity sha1-PCV/mDn8DpP/UxSWMiOeuQeD/2Y=

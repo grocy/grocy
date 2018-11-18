@@ -131,6 +131,12 @@
 						<span class="nav-link-text">{{ $L('Battery tracking') }}</span>
 					</a>
 				</li>
+				<li class="nav-item mt-4" data-toggle="tooltip" data-placement="right" title="{{ $L('Calendar') }}" data-nav-for-page="calendar">
+					<a class="nav-link discrete-link" href="{{ $U('/calendar') }}">
+						<i class="fas fa-calendar-alt"></i>
+						<span class="nav-link-text">{{ $L('Calendar') }}</span>
+					</a>
+				</li>
 				
 				<li class="nav-item mt-4" data-toggle="tooltip" data-placement="right" title="{{ $L('Manage master data') }}">
 					<a class="nav-link nav-link-collapse collapsed discrete-link" data-toggle="collapse" href="#top-nav-manager-master-data">
