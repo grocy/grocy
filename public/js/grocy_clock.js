@@ -35,3 +35,8 @@ function CheckHeaderClockEnabled()
 	}
 }
 CheckHeaderClockEnabled();
+
+if (BoolVal(Grocy.UserSettings.show_clock_in_header))
+{
+	$("#show-clock-in-header").prop("checked", true);
+}
