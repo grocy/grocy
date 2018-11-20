@@ -156,6 +156,10 @@ input::-webkit-inner-spin-button {
 	background-color: #d6d6d6 !important;
 }
 
+.navbar-brand {
+	margin-right: 0;
+}
+
 /* Third party component customizations - DataTables */
 td {
      vertical-align: middle !important;

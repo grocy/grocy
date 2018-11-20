@@ -45,3 +45,6 @@ DefaultUserSetting('product_presets_qu_id', -1); // Default quantity unit id for
 # If the page should be automatically reloaded when there was
 # an external change
 DefaultUserSetting('auto_reload_on_db_change', true);
+
+# Show a clock in the header next to the logo or not
+DefaultUserSetting('show_clock_in_header', false);

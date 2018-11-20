@@ -50,6 +50,11 @@
 	@if(!($embedded))
 	<nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
 		<a class="navbar-brand py-0" href="{{ $U('/') }}"><img src="{{ $U('/img/grocy_logo.svg?v=', true) }}{{ $version }}" height="30"></a>
+		<span id="clock-container" class="text-muted font-italic d-none">
+			<i class="far fa-clock"></i>
+			<span id="clock-small" class="d-inline d-sm-none"></span>
+			<span id="clock-big" class="d-none d-sm-inline"></span>
+		</span>
 		
 		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#sidebarResponsive">
 			<span class="navbar-toggler-icon"></span>
@@ -224,6 +229,14 @@
 								</label>
 							</div>
 						</div>
+						<div class="dropdown-item">
+							<div class="form-check">
+								<input class="form-check-input user-setting-control" type="checkbox" id="show-clock-in-header" data-setting-key="show_clock_in_header">
+								<label class="form-check-label" for="show-clock-in-header">
+									{{ $L('Show clock in header') }}
+								</label>
+							</div>
+						</div>
 						<div class="dropdown-divider"></div>
 						<div class="dropdown-item">
 							<div class="form-check">
@@ -333,6 +346,7 @@
 	<script src="{{ $U('/js/grocy.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy_dbchangedhandling.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy_nightmode.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/js/grocy_clock.js?v=', true) }}{{ $version }}"></script>
 	@stack('pageScripts')
 	@stack('componentScripts')
 	<script src="{{ $U('/viewjs', true) }}/@yield('viewJsName').js?v={{ $version }}"></script>

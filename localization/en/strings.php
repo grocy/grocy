@@ -321,5 +321,6 @@ return array(
 	'Product expires' => 'Product expires',
 	'Task due' => 'Task due',
 	'Chore due' => 'Chore due',
-	'Battery charge cycle due' => 'Battery charge cycle due'
+	'Battery charge cycle due' => 'Battery charge cycle due',
+	'Show clock in header' => 'Show clock in header'
 );
