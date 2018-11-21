@@ -83,5 +83,5 @@ return array(
 	'Milliliter' => 'Milliliter',
 	'Bottom' => 'Bottom',
 	'Topping' => 'Topping',
-	'French', 'French'
+	'French' => 'French'
 );
