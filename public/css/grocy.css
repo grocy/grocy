@@ -104,7 +104,7 @@ input::-webkit-inner-spin-button {
 
 .navbar-sidenav {
 	overflow-x: hidden;
-	overflow-y: auto;
+	overflow-y: overlay;
 	border-top: 2px solid !important;
 }
 
