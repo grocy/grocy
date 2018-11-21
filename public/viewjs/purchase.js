@@ -108,7 +108,6 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 					Grocy.FrontendHelpers.ValidateForm('purchase-form');
 					if (GetUriParam("flow") === "shoppinglistitemtostock" && BoolVal(Grocy.UserSettings.shopping_list_to_stock_workflow_auto_submit_when_prefilled) && document.getElementById("purchase-form").checkValidity() === true)
 					{
-						console.log("hey");
 						$("#save-purchase-button").click();
 					}
 				}
