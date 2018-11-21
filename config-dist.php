@@ -48,3 +48,8 @@ DefaultUserSetting('auto_reload_on_db_change', true);
 
 # Show a clock in the header next to the logo or not
 DefaultUserSetting('show_clock_in_header', false);
+
+# Shopping list to stock workflow:
+# Automatically do the booking using the last price and the amount
+# of the shopping list item, if the product has "Default best before days" set
+DefaultUserSetting('shopping_list_to_stock_workflow_auto_submit_when_prefilled', false);

@@ -70,9 +70,9 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function ProductDefaults(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function StockSettings(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'productpresets', [
+		return $this->AppContainer->view->render($response, 'stocksettings', [
 			'locations' => $this->Database->locations()->orderBy('name'),
 			'quantityunits' => $this->Database->quantity_units()->orderBy('name'),
 			'productGroups' => $this->Database->product_groups()->orderBy('name')

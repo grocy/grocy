@@ -104,6 +104,13 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 						Grocy.Components.DateTimePicker.SetValue(moment().add(productDetails.product.default_best_before_days, 'days').format('YYYY-MM-DD'));
 					}
 					$('#amount').focus();
+
+					Grocy.FrontendHelpers.ValidateForm('purchase-form');
+					if (GetUriParam("flow") === "shoppinglistitemtostock" && BoolVal(Grocy.UserSettings.shopping_list_to_stock_workflow_auto_submit_when_prefilled) && document.getElementById("purchase-form").checkValidity() === true)
+					{
+						console.log("hey");
+						$("#save-purchase-button").click();
+					}
 				}
 				else
 				{
@@ -174,7 +181,7 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keypress', function(e)
 	Grocy.FrontendHelpers.ValidateForm('purchase-form');
 });
 
-$('#amount').on('change', function (e)
+$('#amount').on('change', function(e)
 {
 	Grocy.FrontendHelpers.ValidateForm('purchase-form');
 });

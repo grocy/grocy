@@ -357,3 +357,9 @@ function WindowMessageBag(message, payload = null)
 	obj.Payload = payload;
 	return obj;
 }
+
+// Add border around anchor link section
+if (window.location.hash)
+{
+	$(window.location.hash).addClass("p-2 border border-info rounded");
+}
