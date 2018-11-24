@@ -7,11 +7,11 @@
   resolved "https://github.com/berrnd/bootstrap-combobox.git#fcf0110146f4daab94888234c57d198b4ca5f129"
 
 "@fortawesome/fontawesome-free@^5.1.0":
-  version "5.4.2"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.4.2.tgz#b2d782da69c45ea61954291e2615a8f7741c96b2"
-  integrity sha512-lpruVv/4AkKUujyzHCNJ8yOceBf7Na/pFaX52ZI/BFMCYkUEwiQ1P0viZg//+WelrNNEgvMOvCMDEDaOMZ/u1w==
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.5.0.tgz#0c6c53823d04457ae669cd19567b8a21dbb4fcfd"
+  integrity sha512-p4lu0jfj5QN013ddArh99r3OXZ/fp9rbovs62LfaO70OMBsAXxtNd0lAq/97fitrscR0fqfd+/a5KNcp6Sh/0A==
 
-"TagManager@https://github.com/max-favilli/tagmanager.git#3.0.2", "tagmanager@https://github.com/max-favilli/tagmanager.git#3.0.2":
+"TagManager@https://github.com/max-favilli/tagmanager.git#3.0.2":
   version "3.0.1"
   resolved "https://github.com/max-favilli/tagmanager.git#df9eb9935c8585a392dfc00602f890caf233fa94"
   dependencies:
@@ -209,9 +209,9 @@ jquery@1:
   integrity sha512-Ubldcmxp5np52/ENotGxlLe6aGMvmF4R8S6tZjsP6Knsaxd/xp3Zrh50cG93lR6nPXyUFwzN3ZSOQI0wRJNdGg==
 
 moment-timezone@^0.5.11:
-  version "0.5.21"
-  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.21.tgz#3cba247d84492174dbf71de2a9848fa13207b845"
-  integrity sha512-j96bAh4otsgj3lKydm3K7kdtA3iKf2m6MY2iSYCzCm5a1zmHo1g+aK3068dDEeocLZQIS9kU8bsdQHLqEvgW0A==
+  version "0.5.23"
+  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.23.tgz#7cbb00db2c14c71b19303cb47b0fb0a6d8651463"
+  integrity sha512-WHFH85DkCfiNMDX5D3X7hpNH3/PUhjTGcD0U1SgfBGZxJ3qUmJh5FdvaFjcClxOvB3rzdfj4oRffbI38jEnC1w==
   dependencies:
     moment ">= 2.9.0"
 
@@ -226,9 +226,9 @@ moment@~2.18.0:
   integrity sha1-w2GT3Tzhwu7SrbfIAtu8d6gbHA8=
 
 popper.js@^1.14.3:
-  version "1.14.4"
-  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.4.tgz#8eec1d8ff02a5a3a152dd43414a15c7b79fd69b6"
-  integrity sha1-juwdj/AqWjoVLdQ0FKFce3n9abY=
+  version "1.14.5"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.5.tgz#98abcce7c7c34c4ee47fcbc6b3da8af2c0a127bc"
+  integrity sha512-fs4Sd8bZLgEzrk8aS7Em1qh+wcawtE87kRUJQhK6+LndyV1HerX7+LURzAylVaTyWIn5NTB/lyjnWqw/AZ6Yrw==
 
 startbootstrap-sb-admin@^4.0.0:
   version "4.0.0"
@@ -243,14 +243,14 @@ startbootstrap-sb-admin@^4.0.0:
     jquery.easing "^1.4.1"
 
 summernote@^0.8.10:
-  version "0.8.10"
-  resolved "https://registry.yarnpkg.com/summernote/-/summernote-0.8.10.tgz#21a5d7f18a3b07500b58b60d5907417a54897520"
-  integrity sha512-1b4ESCiY9HW+12HYXCntjbThVgeYNaYKfKL7pC4Jqjo/WDS4G4mMtd2kPuCw56HxeRT67d+zlehopaE+M4o6aQ==
+  version "0.8.11"
+  resolved "https://registry.yarnpkg.com/summernote/-/summernote-0.8.11.tgz#89bb3472e75758359dbf1d7125cf1889c429f197"
+  integrity sha512-j+YbSK2ox1RZGeD5E/+6k57bvqhQLxiaazSj9zHBXOJnCuc0LZPSIGwyTlMaAGWpo6FlkXfjGS93hEDkV3zVJw==
 
 swagger-ui-dist@^3.17.3:
-  version "3.19.4"
-  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-3.19.4.tgz#18053b1e7fa135c00dce0f2ebfaeb05d186cd5b5"
-  integrity sha512-YxC2mN53oXzF3hobm9cFhR14j9amNe2zUeKQa/tHckDJKItIxLQd+ksfeJgKw+pK04C2yppscOCFlIAvgR+jNQ==
+  version "3.20.1"
+  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-3.20.1.tgz#2e871faf29984bc5f253b8641ba38b244001cfa4"
+  integrity sha512-iqFNNmJWH24leUj/ohS5iZTHLZSPZse8c9F+WSCMi6ZJcRBgYKcT413c8BR5BEdKvU1kkIwvYy7C8DOjTRq9hQ==
 
 tempusdominus-bootstrap-4@^5.1.2:
   version "5.1.2"

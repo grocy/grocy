@@ -18,6 +18,7 @@
 		"datatables.net-rowgroup-bs4": "^1.0.4",
 		"datatables.net-select": "^1.2.7",
 		"datatables.net-select-bs4": "^1.2.7",
+		"fullcalendar": "^3.9.0",
 		"jquery": "^3.3.1",
 		"jquery-serializejson": "^2.8.1",
 		"jquery-ui-dist": "^1.12.1",
@@ -28,7 +29,6 @@
 		"tagmanager": "https://github.com/max-favilli/tagmanager.git#3.0.2",
 		"tempusdominus-bootstrap-4": "^5.1.2",
 		"timeago": "^1.6.3",
-		"toastr": "^2.1.4",
-		"fullcalendar": "^3.9.0"
+		"toastr": "^2.1.4"
 	}
 }
