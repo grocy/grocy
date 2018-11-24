@@ -1,6 +1,9 @@
 ﻿var recipesTables = $('#recipes-table').DataTable({
 	'paginate': false,
 	'order': [[0, 'asc']],
+	'columnDefs': [
+		{ 'orderData': 2, 'targets': 1 }
+	],
 	'language': JSON.parse(L('datatables_localization')),
 	'scrollY': false,
 	'colReorder': true,
