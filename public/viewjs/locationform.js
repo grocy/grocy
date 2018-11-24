@@ -2,15 +2,19 @@
 {
 	e.preventDefault();
 
+	var jsonData = $('#location-form').serializeJSON();
+	Grocy.FrontendHelpers.BeginUiBusy("location-form");
+
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.Api.Post('add-object/locations', $('#location-form').serializeJSON(),
+		Grocy.Api.Post('add-object/locations', jsonData,
 			function(result)
 			{
 				window.location.href = U('/locations');
 			},
 			function(xhr)
 			{
+				Grocy.FrontendHelpers.EndUiBusy("location-form");
 				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 			}
 		);
@@ -24,6 +28,7 @@
 			},
 			function(xhr)
 			{
+				Grocy.FrontendHelpers.EndUiBusy("location-form");
 				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 			}
 		);

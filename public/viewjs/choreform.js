@@ -2,28 +2,33 @@
 {
 	e.preventDefault();
 
+	var jsonData = $('#chore-form').serializeJSON();
+	Grocy.FrontendHelpers.BeginUiBusy("chore-form");
+
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.Api.Post('add-object/chores', $('#chore-form').serializeJSON(),
+		Grocy.Api.Post('add-object/chores', jsonData,
 			function(result)
 			{
 				window.location.href = U('/chores');
 			},
 			function(xhr)
 			{
+				Grocy.FrontendHelpers.EndUiBusy("chore-form");
 				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 			}
 		);
 	}
 	else
 	{
-		Grocy.Api.Post('edit-object/chores/' + Grocy.EditObjectId, $('#chore-form').serializeJSON(),
+		Grocy.Api.Post('edit-object/chores/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				window.location.href = U('/chores');
 			},
 			function(xhr)
 			{
+				Grocy.FrontendHelpers.EndUiBusy("chore-form");
 				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 			}
 		);

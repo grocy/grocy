@@ -39,15 +39,15 @@
 
 <div class="row mt-3">
 	<div class="col-xs-12 col-md-4">
+		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
+		<input type="text" class="form-control" id="search">
+	</div>
+	<div class="col-xs-12 col-md-4">
 		<label for="status-filter">{{ $L('Filter by status') }}</label> <i class="fas fa-filter"></i>
 		<select class="form-control" id="status-filter">
 			<option class="bg-white" value="all">{{ $L('All') }}</option>
 			<option class="bg-info" value="belowminstockamount">{{ $L('Below min. stock amount') }}</option>
 		</select>
-	</div>
-	<div class="col-xs-12 col-md-4">
-		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
-		<input type="text" class="form-control" id="search">
 	</div>
 </div>
 

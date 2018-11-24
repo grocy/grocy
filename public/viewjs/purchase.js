@@ -3,6 +3,7 @@
 	e.preventDefault();
 
 	var jsonForm = $('#purchase-form').serializeJSON();
+	Grocy.FrontendHelpers.BeginUiBusy("purchase-form");
 
 	Grocy.Api.Get('stock/get-product-details/' + jsonForm.product_id,
 		function(productDetails)
@@ -35,6 +36,7 @@
 							function (result) { },
 							function(xhr)
 							{
+								Grocy.FrontendHelpers.EndUiBusy("purchase-form");
 								console.error(xhr);
 							}
 						);
@@ -54,6 +56,7 @@
 					}
 					else
 					{
+						Grocy.FrontendHelpers.EndUiBusy("purchase-form");
 						toastr.success(successMessage);
 						$('#amount').val(0);
 						$('#price').val('');
@@ -65,12 +68,14 @@
 				},
 				function(xhr)
 				{
+					Grocy.FrontendHelpers.EndUiBusy("purchase-form");
 					console.error(xhr);
 				}
 			);
 		},
 		function(xhr)
 		{
+			Grocy.FrontendHelpers.EndUiBusy("purchase-form");
 			console.error(xhr);
 		}
 	);

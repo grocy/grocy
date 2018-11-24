@@ -2,28 +2,33 @@
 {
 	e.preventDefault();
 
+	var jsonData = $('#task-category-form').serializeJSON();
+	Grocy.FrontendHelpers.BeginUiBusy("task-category-form");
+
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.Api.Post('add-object/task_categories', $('#task-category-form').serializeJSON(),
+		Grocy.Api.Post('add-object/task_categories', jsonData,
 			function(result)
 			{
 				window.location.href = U('/taskcategories');
 			},
 			function(xhr)
 			{
+				Grocy.FrontendHelpers.EndUiBusy("task-category-form");
 				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 			}
 		);
 	}
 	else
 	{
-		Grocy.Api.Post('edit-object/task_categories/' + Grocy.EditObjectId, $('#task-category-form').serializeJSON(),
+		Grocy.Api.Post('edit-object/task_categories/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				window.location.href = U('/taskcategories');
 			},
 			function(xhr)
 			{
+				Grocy.FrontendHelpers.EndUiBusy("task-category-form");
 				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 			}
 		);

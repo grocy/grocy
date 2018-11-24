@@ -255,6 +255,26 @@ Grocy.FrontendHelpers.ValidateForm = function(formId)
 	$(form).addClass('was-validated');
 }
 
+Grocy.FrontendHelpers.BeginUiBusy = function(formId = null)
+{
+	$("body").addClass("cursor-busy");
+
+	if (formId !== null)
+	{
+		$("#" + formId + " :input").attr("disabled", true);
+	}
+}
+
+Grocy.FrontendHelpers.EndUiBusy = function(formId = null)
+{
+	$("body").removeClass("cursor-busy");
+
+	if (formId !== null)
+	{
+		$("#" + formId + " :input").attr("disabled", false);
+	}
+}
+
 Grocy.FrontendHelpers.ShowGenericError = function(message, exception)
 {
 	toastr.error(L(message) + '<br><br>' + L('Click to show technical details'), '', {

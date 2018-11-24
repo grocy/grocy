@@ -3,6 +3,7 @@
 	e.preventDefault();
 
 	var jsonForm = $('#batterytracking-form').serializeJSON();
+	Grocy.FrontendHelpers.BeginUiBusy("batterytracking-form");
 
 	Grocy.Api.Get('batteries/get-battery-details/' + jsonForm.battery_id,
 		function (batteryDetails)
@@ -10,6 +11,7 @@
 			Grocy.Api.Get('batteries/track-charge-cycle/' + jsonForm.battery_id + '?tracked_time=' + $('#tracked_time').find('input').val(),
 				function(result)
 				{
+					Grocy.FrontendHelpers.EndUiBusy("batterytracking-form");
 					toastr.success(L('Tracked charge cycle of battery #1 on #2', batteryDetails.battery.name, $('#tracked_time').find('input').val()) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoChargeCycle(' + result.charge_cycle_id + ')"><i class="fas fa-undo"></i> ' + L("Undo") + '</a>');
 
 					$('#battery_id').val('');
@@ -22,12 +24,14 @@
 				},
 				function(xhr)
 				{
+					Grocy.FrontendHelpers.EndUiBusy("batterytracking-form");
 					console.error(xhr);
 				}
 			);
 		},
 		function(xhr)
 		{
+			Grocy.FrontendHelpers.EndUiBusy("batterytracking-form");
 			console.error(xhr);
 		}
 	);

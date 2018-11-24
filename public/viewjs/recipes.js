@@ -95,6 +95,8 @@ $(document).on('click', '.recipe-order-missing-button', function(e)
 		{
 			if (result === true)
 			{
+				Grocy.FrontendHelpers.BeginUiBusy();
+
 				Grocy.Api.Get('recipes/add-not-fulfilled-products-to-shopping-list/' + objectId,
 					function(result)
 					{
@@ -102,6 +104,7 @@ $(document).on('click', '.recipe-order-missing-button', function(e)
 					},
 					function(xhr)
 					{
+						Grocy.FrontendHelpers.EndUiBusy();
 						console.error(xhr);
 					}
 				);
@@ -131,13 +134,17 @@ $("#selectedRecipeConsumeButton").on('click', function(e)
 		{
 			if (result === true)
 			{
+				Grocy.FrontendHelpers.BeginUiBusy();
+
 				Grocy.Api.Get('recipes/consume-recipe/' + objectId,
 					function(result)
 					{
+						Grocy.FrontendHelpers.EndUiBusy();
 						toastr.success(L('Removed all ingredients of recipe "#1" from stock', objectName));
 					},
 					function(xhr)
 					{
+						Grocy.FrontendHelpers.EndUiBusy();
 						console.error(xhr);
 					}
 				);

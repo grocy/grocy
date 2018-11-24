@@ -81,6 +81,8 @@ $(document).on('click', '.product-consume-button', function(e)
 	// Remove the focus from the current button
 	// to prevent that the tooltip stays until clicked anywhere else
 	document.activeElement.blur();
+
+	Grocy.FrontendHelpers.BeginUiBusy();
 	
 	var productId = $(e.currentTarget).attr('data-product-id');
 	var productName = $(e.currentTarget).attr('data-product-name');
@@ -135,18 +137,21 @@ $(document).on('click', '.product-consume-button', function(e)
 						$('#product-' + productId + '-next-best-before-date-timeago').attr('datetime', result.next_best_before_date);
 					}
 
+					Grocy.FrontendHelpers.EndUiBusy();
 					toastr.success(L('Removed #1 #2 of #3 from stock', consumeAmount, productQuName, productName));
 					RefreshContextualTimeago();
 					RefreshStatistics();
 				},
 				function(xhr)
 				{
+					Grocy.FrontendHelpers.EndUiBusy();
 					console.error(xhr);
 				}
 			);
 		},
 		function(xhr)
 		{
+			Grocy.FrontendHelpers.EndUiBusy();
 			console.error(xhr);
 		}
 	);
@@ -159,6 +164,8 @@ $(document).on('click', '.product-open-button', function(e)
 	// Remove the focus from the current button
 	// to prevent that the tooltip stays until clicked anywhere else
 	document.activeElement.blur();
+
+	Grocy.FrontendHelpers.BeginUiBusy();
 	
 	var productId = $(e.currentTarget).attr('data-product-id');
 	var productName = $(e.currentTarget).attr('data-product-name');
@@ -205,18 +212,21 @@ $(document).on('click', '.product-open-button', function(e)
 						button.addClass("disabled");
 					}
 
+					Grocy.FrontendHelpers.EndUiBusy();
 					toastr.success(L('Marked #1 #2 of #3 as opened', 1, productQuName, productName));
 					RefreshContextualTimeago();
 					RefreshStatistics();
 				},
 				function(xhr)
 				{
+					Grocy.FrontendHelpers.EndUiBusy();
 					console.error(xhr);
 				}
 			);
 		},
 		function(xhr)
 		{
+			Grocy.FrontendHelpers.EndUiBusy();
 			console.error(xhr);
 		}
 	);

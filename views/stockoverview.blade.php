@@ -33,6 +33,10 @@
 
 <div class="row mt-3">
 	<div class="col-xs-12 col-md-6 col-xl-3">
+		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
+		<input type="text" class="form-control" id="search">
+	</div>
+	<div class="col-xs-12 col-md-6 col-xl-3">
 		<label for="location-filter">{{ $L('Filter by location') }}</label> <i class="fas fa-filter"></i>
 		<select class="form-control" id="location-filter">
 			<option value="all">{{ $L('All') }}</option>
@@ -58,10 +62,6 @@
 			<option class="bg-danger" value="expired">{{ $L('Already expired') }}</option>
 			<option class="bg-info" value="belowminstockamount">{{ $L('Below min. stock amount') }}</option>
 		</select>
-	</div>
-	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
-		<input type="text" class="form-control" id="search">
 	</div>
 </div>
 
@@ -107,7 +107,7 @@
 							<i class="fas fa-file-alt"></i>
 						</a>
 					</td>
-					<td class="product-name-cell" data-product-id="{{ $currentStockEntry->product_id }}">
+					<td class="product-name-cell cursor-link" data-product-id="{{ $currentStockEntry->product_id }}">
 						{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }} <i class="fas fa-info text-muted"></i>
 					</td>
 					<td>

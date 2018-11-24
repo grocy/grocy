@@ -3,6 +3,7 @@
 	e.preventDefault();
 
 	var jsonForm = $('#consume-form').serializeJSON();
+	Grocy.FrontendHelpers.BeginUiBusy("consume-form");
 
 	if ($("#use_specific_stock_entry").is(":checked"))
 	{
@@ -34,6 +35,7 @@
 						$("#use_specific_stock_entry").click();
 					}
 
+					Grocy.FrontendHelpers.EndUiBusy("consume-form");
 					toastr.success(L('Removed #1 #2 of #3 from stock', jsonForm.amount, Pluralize(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.booking_id + ')"><i class="fas fa-undo"></i> ' + L("Undo") + '</a>');
 
 					$('#amount').val(1);
@@ -43,12 +45,14 @@
 				},
 				function(xhr)
 				{
+					Grocy.FrontendHelpers.EndUiBusy("consume-form");
 					console.error(xhr);
 				}
 			);
 		},
 		function(xhr)
 		{
+			Grocy.FrontendHelpers.EndUiBusy("consume-form");
 			console.error(xhr);
 		}
 	);
@@ -59,6 +63,7 @@ $('#save-mark-as-open-button').on('click', function(e)
 	e.preventDefault();
 
 	var jsonForm = $('#consume-form').serializeJSON();
+	Grocy.FrontendHelpers.BeginUiBusy("consume-form");
 
 	if ($("#use_specific_stock_entry").is(":checked"))
 	{
@@ -84,6 +89,7 @@ $('#save-mark-as-open-button').on('click', function(e)
 						$("#use_specific_stock_entry").click();
 					}
 
+					Grocy.FrontendHelpers.EndUiBusy("consume-form");
 					toastr.success(L('Marked #1 #2 of #3 as opened', jsonForm.amount, Pluralize(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.booking_id + ')"><i class="fas fa-undo"></i> ' + L("Undo") + '</a>');
 
 					$('#amount').val(1);
@@ -93,12 +99,14 @@ $('#save-mark-as-open-button').on('click', function(e)
 				},
 				function(xhr)
 				{
+					Grocy.FrontendHelpers.EndUiBusy("consume-form");
 					console.error(xhr);
 				}
 			);
 		},
 		function(xhr)
 		{
+			Grocy.FrontendHelpers.EndUiBusy("consume-form");
 			console.error(xhr);
 		}
 	);

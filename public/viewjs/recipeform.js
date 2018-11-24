@@ -2,13 +2,17 @@
 {
 	e.preventDefault();
 
-	Grocy.Api.Post('edit-object/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(),
+	var jsonData = $('#recipe-form').serializeJSON();
+	Grocy.FrontendHelpers.BeginUiBusy("recipe-form");
+
+	Grocy.Api.Post('edit-object/recipes/' + Grocy.EditObjectId, jsonData,
 		function(result)
 		{
 			window.location.href = U('/recipes');
 		},
 		function(xhr)
 		{
+			Grocy.FrontendHelpers.EndUiBusy("recipe-form");
 			console.error(xhr);
 		}
 	);

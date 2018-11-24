@@ -58,6 +58,8 @@ $(document).on('click', '.track-chore-button', function(e)
 	// Remove the focus from the current button
 	// to prevent that the tooltip stays until clicked anywhere else
 	document.activeElement.blur();
+
+	Grocy.FrontendHelpers.BeginUiBusy();
 	
 	var choreId = $(e.currentTarget).attr('data-chore-id');
 	var choreName = $(e.currentTarget).attr('data-chore-name');
@@ -102,18 +104,21 @@ $(document).on('click', '.track-chore-button', function(e)
 						$('#chore-' + choreId + '-next-execution-time-timeago').attr('datetime', result.next_estimated_execution_time);
 					}
 
+					Grocy.FrontendHelpers.EndUiBusy();
 					toastr.success(L('Tracked execution of chore #1 on #2', choreName, trackedTime));
 					RefreshContextualTimeago();
 					RefreshStatistics();
 				},
 				function(xhr)
 				{
+					Grocy.FrontendHelpers.EndUiBusy();
 					console.error(xhr);
 				}
 			);
 		},
 		function(xhr)
 		{
+			Grocy.FrontendHelpers.EndUiBusy();
 			console.error(xhr);
 		}
 	);

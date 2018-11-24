@@ -62,6 +62,8 @@ $(document).on('click', '.do-task-button', function(e)
 	// Remove the focus from the current button
 	// to prevent that the tooltip stays until clicked anywhere else
 	document.activeElement.blur();
+
+	Grocy.FrontendHelpers.BeginUiBusy();
 	
 	var taskId = $(e.currentTarget).attr('data-task-id');
 	var taskName = $(e.currentTarget).attr('data-task-name');
@@ -84,12 +86,14 @@ $(document).on('click', '.do-task-button', function(e)
 				$('.do-task-button[data-task-id="' + taskId + '"]').addClass("disabled");
 			}
 
+			Grocy.FrontendHelpers.EndUiBusy();
 			toastr.success(L('Marked task #1 as completed on #2', taskName, doneTime));
 			RefreshContextualTimeago();
 			RefreshStatistics();
 		},
 		function(xhr)
 		{
+			Grocy.FrontendHelpers.EndUiBusy();
 			console.error(xhr);
 		}
 	);

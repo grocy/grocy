@@ -4,6 +4,9 @@
 
 	var jsonData = $('#recipe-pos-form').serializeJSON({ checkboxUncheckedValue: "0" });
 	jsonData.recipe_id = Grocy.EditObjectParentId;
+
+	Grocy.FrontendHelpers.BeginUiBusy("recipe-pos-form");
+
 	if (Grocy.EditMode === 'create')
 	{
 		Grocy.Api.Post('add-object/recipes_pos', jsonData,
@@ -13,6 +16,7 @@
 			},
 			function(xhr)
 			{
+				Grocy.FrontendHelpers.EndUiBusy("recipe-pos-form");
 				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 			}
 		);
@@ -26,6 +30,7 @@
 			},
 			function(xhr)
 			{
+				Grocy.FrontendHelpers.EndUiBusy("recipe-pos-form");
 				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 			}
 		);

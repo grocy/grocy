@@ -3,6 +3,8 @@
 	e.preventDefault();
 
 	var jsonData = $('#equipment-form').serializeJSON();
+	Grocy.FrontendHelpers.BeginUiBusy("equipment-form");
+
 	if ($("#instruction-manual")[0].files.length > 0)
 	{
 		var someRandomStuff = Math.random().toString(36).substring(2, 100) + Math.random().toString(36).substring(2, 100);
@@ -28,6 +30,7 @@
 						},
 						function(xhr)
 						{
+							Grocy.FrontendHelpers.EndUiBusy("equipment-form");
 							Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 						}
 					);
@@ -39,6 +42,7 @@
 			},
 			function(xhr)
 			{
+				Grocy.FrontendHelpers.EndUiBusy("equipment-form");
 				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 			}
 		);
@@ -54,6 +58,7 @@
 				},
 				function(xhr)
 				{
+					Grocy.FrontendHelpers.EndUiBusy("equipment-form");
 					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 				}
 			);
@@ -71,6 +76,7 @@
 						},
 						function(xhr)
 						{
+							Grocy.FrontendHelpers.EndUiBusy("equipment-form");
 							Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 						}
 					);
@@ -82,6 +88,7 @@
 			},
 			function(xhr)
 			{
+				Grocy.FrontendHelpers.EndUiBusy("equipment-form");
 				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 			}
 		);

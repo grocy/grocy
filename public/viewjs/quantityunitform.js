@@ -2,28 +2,33 @@
 {
 	e.preventDefault();
 
+	var jsonData = $('#quantityunit-form').serializeJSON();
+	Grocy.FrontendHelpers.BeginUiBusy("quantityunit-form");
+
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.Api.Post('add-object/quantity_units', $('#quantityunit-form').serializeJSON(),
+		Grocy.Api.Post('add-object/quantity_units', jsonData,
 			function(result)
 			{
 				window.location.href = U('/quantityunits');
 			},
 			function(xhr)
 			{
+				Grocy.FrontendHelpers.EndUiBusy("quantityunit-form");
 				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 			}
 		);
 	}
 	else
 	{
-		Grocy.Api.Post('edit-object/quantity_units/' + Grocy.EditObjectId, $('#quantityunit-form').serializeJSON(),
+		Grocy.Api.Post('edit-object/quantity_units/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				window.location.href = U('/quantityunits');
 			},
 			function(xhr)
 			{
+				Grocy.FrontendHelpers.EndUiBusy("quantityunit-form");
 				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 			}
 		);

@@ -2,28 +2,33 @@
 {
 	e.preventDefault();
 
+	var jsonData = $('#shoppinglist-form').serializeJSON();
+	Grocy.FrontendHelpers.BeginUiBusy("shoppinglist-form");
+
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.Api.Post('add-object/shopping_list', $('#shoppinglist-form').serializeJSON(),
+		Grocy.Api.Post('add-object/shopping_list', jsonData,
 			function(result)
 			{
 				window.location.href = U('/shoppinglist');
 			},
 			function(xhr)
 			{
+				Grocy.FrontendHelpers.EndUiBusy("shoppinglist-form");
 				console.error(xhr);
 			}
 		);
 	}
 	else
 	{
-		Grocy.Api.Post('edit-object/shopping_list/' + Grocy.EditObjectId, $('#shoppinglist-form').serializeJSON(),
+		Grocy.Api.Post('edit-object/shopping_list/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				window.location.href = U('/shoppinglist');
 			},
 			function(xhr)
 			{
+				Grocy.FrontendHelpers.EndUiBusy("shoppinglist-form");
 				console.error(xhr);
 			}
 		);

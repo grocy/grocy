@@ -2,28 +2,33 @@
 {
 	e.preventDefault();
 
+	var jsonData = $('#user-form').serializeJSON();
+	Grocy.FrontendHelpers.BeginUiBusy("user-form");
+
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.Api.Post('users/create', $('#user-form').serializeJSON(),
+		Grocy.Api.Post('users/create', jsonData,
 			function(result)
 			{
 				window.location.href = U('/users');
 			},
 			function(xhr)
 			{
+				Grocy.FrontendHelpers.EndUiBusy("user-form");
 				console.error(xhr);
 			}
 		);
 	}
 	else
 	{
-		Grocy.Api.Post('users/edit/' + Grocy.EditObjectId, $('#user-form').serializeJSON(),
+		Grocy.Api.Post('users/edit/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				window.location.href = U('/users');
 			},
 			function(xhr)
 			{
+				Grocy.FrontendHelpers.EndUiBusy("user-form");
 				console.error(xhr);
 			}
 		);

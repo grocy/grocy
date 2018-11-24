@@ -3,6 +3,7 @@
 	e.preventDefault();
 
 	var jsonForm = $('#choretracking-form').serializeJSON();
+	Grocy.FrontendHelpers.BeginUiBusy("choretracking-form");
 
 	Grocy.Api.Get('chores/get-chore-details/' + jsonForm.chore_id,
 		function (choreDetails)
@@ -10,6 +11,7 @@
 			Grocy.Api.Get('chores/track-chore-execution/' + jsonForm.chore_id + '?tracked_time=' + Grocy.Components.DateTimePicker.GetValue() + "&done_by=" + Grocy.Components.UserPicker.GetValue(),
 				function(result)
 				{
+					Grocy.FrontendHelpers.EndUiBusy("choretracking-form");
 					toastr.success(L('Tracked execution of chore #1 on #2', choreDetails.chore.name, Grocy.Components.DateTimePicker.GetValue()) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoChoreExecution(' + result.chore_execution_id + ')"><i class="fas fa-undo"></i> ' + L("Undo") + '</a>');
 
 					$('#chore_id').val('');
@@ -21,12 +23,14 @@
 				},
 				function(xhr)
 				{
+					Grocy.FrontendHelpers.EndUiBusy("choretracking-form");
 					console.error(xhr);
 				}
 			);
 		},
 		function(xhr)
 		{
+			Grocy.FrontendHelpers.EndUiBusy("choretracking-form");
 			console.error(xhr);
 		}
 	);

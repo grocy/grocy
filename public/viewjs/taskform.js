@@ -7,6 +7,8 @@
 	delete jsonData.user_id;
 	jsonData.due_date = Grocy.Components.DateTimePicker.GetValue();
 
+	Grocy.FrontendHelpers.BeginUiBusy("task-form");
+
 	if (Grocy.EditMode === 'create')
 	{
 		Grocy.Api.Post('add-object/tasks', jsonData,
@@ -16,6 +18,7 @@
 			},
 			function(xhr)
 			{
+				Grocy.FrontendHelpers.EndUiBusy("task-form");
 				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 			}
 		);
@@ -29,6 +32,7 @@
 			},
 			function(xhr)
 			{
+				Grocy.FrontendHelpers.EndUiBusy("task-form");
 				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 			}
 		);

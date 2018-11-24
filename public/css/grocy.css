@@ -160,6 +160,14 @@ input::-webkit-inner-spin-button {
 	margin-right: 0;
 }
 
+.cursor-link {
+	cursor: pointer;
+}
+
+.cursor-busy {
+	cursor: wait;
+}
+
 /* Third party component customizations - DataTables */
 td {
      vertical-align: middle !important;

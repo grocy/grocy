@@ -3,6 +3,7 @@
 	e.preventDefault();
 
 	var jsonForm = $('#inventory-form').serializeJSON();
+	Grocy.FrontendHelpers.BeginUiBusy("inventory-form");
 
 	Grocy.Api.Get('stock/get-product-details/' + jsonForm.product_id,
 		function (productDetails)
@@ -32,6 +33,7 @@
 						);
 					}
 
+					Grocy.FrontendHelpers.EndUiBusy("inventory-form");
 					toastr.success(L('Stock amount of #1 is now #2 #3', productDetails.product.name, jsonForm.new_amount, Pluralize(jsonForm.new_amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.booking_id + ')"><i class="fas fa-undo"></i> ' + L("Undo") + '</a>');
 
 					if (addBarcode !== undefined)
@@ -50,12 +52,14 @@
 				},
 				function(xhr)
 				{
+					Grocy.FrontendHelpers.EndUiBusy("inventory-form");
 					console.error(xhr);
 				}
 			);
 		},
 		function(xhr)
 		{
+			Grocy.FrontendHelpers.EndUiBusy("inventory-form");
 			console.error(xhr);
 		}
 	);

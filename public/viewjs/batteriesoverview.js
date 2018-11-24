@@ -58,6 +58,8 @@ $(document).on('click', '.track-charge-cycle-button', function(e)
 	// Remove the focus from the current button
 	// to prevent that the tooltip stays until clicked anywhere else
 	document.activeElement.blur();
+
+	Grocy.FrontendHelpers.BeginUiBusy();
 	
 	var batteryId = $(e.currentTarget).attr('data-battery-id');
 	var batteryName = $(e.currentTarget).attr('data-battery-name');
@@ -102,18 +104,21 @@ $(document).on('click', '.track-charge-cycle-button', function(e)
 						$('#battery-' + batteryId + '-next-charge-time-timeago').attr('datetime', result.next_estimated_charge_time);
 					}
 
+					Grocy.FrontendHelpers.EndUiBusy();
 					toastr.success(L('Tracked charge cycle of battery #1 on #2', batteryName, trackedTime));
 					RefreshContextualTimeago();
 					RefreshStatistics();
 				},
 				function(xhr)
 				{
+					Grocy.FrontendHelpers.EndUiBusy();
 					console.error(xhr);
 				}
 			);
 		},
 		function(xhr)
 		{
+			Grocy.FrontendHelpers.EndUiBusy();
 			console.error(xhr);
 		}
 	);
