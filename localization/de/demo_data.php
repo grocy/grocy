@@ -82,5 +82,6 @@ return array(
 	'Milliliters' => 'Milliliter',
 	'Milliliter' => 'Milliliter',
 	'Bottom' => 'Boden',
-	'Topping' => 'Belag'
+	'Topping' => 'Belag',
+	'French' => 'Französisch'
 );

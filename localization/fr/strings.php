@@ -322,8 +322,8 @@ return array(
 	'Task due' => 'Tâche à réaliser',
 	'Chore due' => 'Corvée à réaliser',
 	'Battery charge cycle due' => 'Rechargement à réaliser',
-	'Show clock in header' => 'Show clock in header',
-	'Stock settings' => 'Stock settings',
-	'Shopping list to stock workflow' => 'Shopping list to stock workflow',
-	'Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set' => 'Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set'
+	'Show clock in header' => 'Afficher l\'horloge dans l\'en-tête',
+	'Stock settings' => 'Paramètres du stock',
+	'Shopping list to stock workflow' => 'Transition de la liste de courses vers le stock',
+	'Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set' => 'Réaliser automatiquement les achats en utilisant le dernier prix connu et la quantité indiquée dans la liste, si le premier a une date de péremption par défaut renseignée'
 );

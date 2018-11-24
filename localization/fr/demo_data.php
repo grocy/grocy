@@ -4,7 +4,7 @@ return array(
 	'Cookies' => 'Cookies',
 	'Chocolate' => 'Chocolat',
 	'Pantry' => 'Garde-manger',
-	'Candy cupboard' => 'Boîte à bonbons',
+	'Candy cupboard' => 'Boîte de bonbons',
 	'Tinned food cupboard' => 'Conserve de nourriture',
 	'Fridge' => 'Réfrigérateur',
 	'Piece' => 'Pièce',
@@ -78,9 +78,10 @@ return array(
 	'Bottle' => 'Bouteille',
 	'Bottles' => 'Bouteilles',
 	'Milk' => 'Lait',
-	'Chocolate sauce' => 'Sauce au chocolat',
+	'Chocolate sauce' => 'Coulis de chocolat',
 	'Milliliters' => 'Millilitres',
 	'Milliliter' => 'Millilitre',
 	'Bottom' => 'Dessous',
-	'Topping' => 'Garniture'
+	'Topping' => 'Garniture',
+	'French' => 'Français'
 );
