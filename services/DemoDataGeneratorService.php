@@ -17,74 +17,74 @@ class DemoDataGeneratorService extends BaseService
 			$loremIpsumWithHtmlFormattings = "<h1>Lorem ipsum</h1><p>Lorem ipsum <b>dolor sit</b> amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur <span style=\"background-color: rgb(255, 255, 0);\">sadipscing elitr</span>, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p><ul><li>At vero eos et accusam et justo duo dolores et ea rebum.</li><li>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</li></ul><h1>Lorem ipsum</h1><p>Lorem ipsum <b>dolor sit</b> amet, consetetur \r\nsadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et \r\ndolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et\r\n justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea \r\ntakimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit \r\namet, consetetur <span style=\"background-color: rgb(255, 255, 0);\">sadipscing elitr</span>,\r\n sed diam nonumy eirmod tempor invidunt ut labore et dolore magna \r\naliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo \r\ndolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus \r\nest Lorem ipsum dolor sit amet.</p>";
 
 			$sql = "
-				UPDATE users SET username = '{$localizationService->Localize('Demo User')}' WHERE id = 1;
-				INSERT INTO users (username, password) VALUES ('{$localizationService->Localize('Demo User')} 2', 'x');
-				INSERT INTO users (username, password) VALUES ('{$localizationService->Localize('Demo User')} 3', 'x');
-				INSERT INTO users (username, password) VALUES ('{$localizationService->Localize('Demo User')} 4', 'x');
+				UPDATE users SET username = '{$localizationService->LocalizeForSqlString('Demo User')}' WHERE id = 1;
+				INSERT INTO users (username, password) VALUES ('{$localizationService->LocalizeForSqlString('Demo User')} 2', 'x');
+				INSERT INTO users (username, password) VALUES ('{$localizationService->LocalizeForSqlString('Demo User')} 3', 'x');
+				INSERT INTO users (username, password) VALUES ('{$localizationService->LocalizeForSqlString('Demo User')} 4', 'x');
 
-				INSERT INTO locations (name) VALUES ('{$localizationService->Localize('Pantry')}'); --3
-				INSERT INTO locations (name) VALUES ('{$localizationService->Localize('Candy cupboard')}'); --4
-				INSERT INTO locations (name) VALUES ('{$localizationService->Localize('Tinned food cupboard')}'); --5
+				INSERT INTO locations (name) VALUES ('{$localizationService->LocalizeForSqlString('Pantry')}'); --3
+				INSERT INTO locations (name) VALUES ('{$localizationService->LocalizeForSqlString('Candy cupboard')}'); --4
+				INSERT INTO locations (name) VALUES ('{$localizationService->LocalizeForSqlString('Tinned food cupboard')}'); --5
 
-				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Glass')}', '{$localizationService->Localize('Glasses')}'); --4
-				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Tin')}', '{$localizationService->Localize('Tins')}'); --5
-				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Can')}', '{$localizationService->Localize('Cans')}'); --6
-				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Bunch')}', '{$localizationService->Localize('Bunches')}'); --7
-				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Gram')}', '{$localizationService->Localize('Grams')}'); --8
-				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Liter')}', '{$localizationService->Localize('Liters')}'); --9
-				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Bottle')}', '{$localizationService->Localize('Bottles')}'); --10
-				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->Localize('Milliliter')}', '{$localizationService->Localize('Milliliters')}'); --11
+				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->LocalizeForSqlString('Glass')}', '{$localizationService->LocalizeForSqlString('Glasses')}'); --4
+				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->LocalizeForSqlString('Tin')}', '{$localizationService->LocalizeForSqlString('Tins')}'); --5
+				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->LocalizeForSqlString('Can')}', '{$localizationService->LocalizeForSqlString('Cans')}'); --6
+				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->LocalizeForSqlString('Bunch')}', '{$localizationService->LocalizeForSqlString('Bunches')}'); --7
+				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->LocalizeForSqlString('Gram')}', '{$localizationService->LocalizeForSqlString('Grams')}'); --8
+				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->LocalizeForSqlString('Liter')}', '{$localizationService->LocalizeForSqlString('Liters')}'); --9
+				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->LocalizeForSqlString('Bottle')}', '{$localizationService->LocalizeForSqlString('Bottles')}'); --10
+				INSERT INTO quantity_units (name, name_plural) VALUES ('{$localizationService->LocalizeForSqlString('Milliliter')}', '{$localizationService->LocalizeForSqlString('Milliliters')}'); --11
 
-				INSERT INTO product_groups(name) VALUES ('01 {$localizationService->Localize('Sweets')}'); --1
-				INSERT INTO product_groups(name) VALUES ('02 {$localizationService->Localize('Bakery products')}'); --2
-				INSERT INTO product_groups(name) VALUES ('03 {$localizationService->Localize('Tinned food')}'); --3
-				INSERT INTO product_groups(name) VALUES ('04 {$localizationService->Localize('Butchery products')}'); --4
-				INSERT INTO product_groups(name) VALUES ('05 {$localizationService->Localize('Vegetables/Fruits')}'); --5
-				INSERT INTO product_groups(name) VALUES ('06 {$localizationService->Localize('Refrigerated products')}'); --6
+				INSERT INTO product_groups(name) VALUES ('01 {$localizationService->LocalizeForSqlString('Sweets')}'); --1
+				INSERT INTO product_groups(name) VALUES ('02 {$localizationService->LocalizeForSqlString('Bakery products')}'); --2
+				INSERT INTO product_groups(name) VALUES ('03 {$localizationService->LocalizeForSqlString('Tinned food')}'); --3
+				INSERT INTO product_groups(name) VALUES ('04 {$localizationService->LocalizeForSqlString('Butchery products')}'); --4
+				INSERT INTO product_groups(name) VALUES ('05 {$localizationService->LocalizeForSqlString('Vegetables/Fruits')}'); --5
+				INSERT INTO product_groups(name) VALUES ('06 {$localizationService->LocalizeForSqlString('Refrigerated products')}'); --6
 
 				DELETE FROM sqlite_sequence WHERE name = 'products'; --Just to keep IDs in order as mentioned here...
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, product_group_id, picture_file_name) VALUES ('{$localizationService->Localize('Cookies')}', 3, 3, 3, 1, 8, 1, 'cookies.jpg'); --1
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, product_group_id) VALUES ('{$localizationService->Localize('Chocolate')}', 3, 3, 3, 1, 8, 1); --2
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, product_group_id, picture_file_name) VALUES ('{$localizationService->Localize('Gummy bears')}', 3, 3, 3, 1, 8, 1, 'gummybears.jpg'); --3
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, product_group_id) VALUES ('{$localizationService->Localize('Crisps')}', 3, 3, 3, 1, 10, 1); --4
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Eggs')}', 2, 3, 2, 10, 5); --5
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Noodles')}', 3, 3, 3, 1, 6); --6
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Pickles')}', 4,4, 4, 1, 3); --7
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Gulash soup')}', 4, 5, 5, 1, 3); --8
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Yogurt')}', 2, 6, 6, 1, 6); --9
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Cheese')}', 2, 3, 3, 1, 6); --10
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Cold cuts')}', 2, 3, 3, 1, 6); --11
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, picture_file_name, default_best_before_days) VALUES ('{$localizationService->Localize('Paprika')}', 2, 2, 2, 1, 5, 'paprika.jpg', 7); --12
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, picture_file_name, default_best_before_days) VALUES ('{$localizationService->Localize('Cucumber')}', 2, 2, 2, 1, 5, 'cucumber.jpg', 7); --13
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, default_best_before_days) VALUES ('{$localizationService->Localize('Radish')}', 2, 7, 7, 1, 5, 7); --14
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, picture_file_name, default_best_before_days) VALUES ('{$localizationService->Localize('Tomato')}', 2, 2, 2, 1, 5, 'tomato.jpg', 7); --15
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Pizza dough')}', 3, 3, 3, 1, 6); --16
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Sieved tomatoes')}', 4, 5, 5, 1, 3); --17
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Salami')}', 2, 3, 3, 1, 6); --18
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Toast')}', 4, 5, 5, 1, 2); --19
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Minced meat')}', 2, 3, 3, 1, 4); --20
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Flour')}', 2, 3, 3, 1, 3); --21
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->Localize('Sugar')}', 3, 3, 3, 1, 3); --22
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->Localize('Milk')}', 2, 10, 10, 1); --23
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, product_group_id, picture_file_name) VALUES ('{$localizationService->LocalizeForSqlString('Cookies')}', 3, 3, 3, 1, 8, 1, 'cookies.jpg'); --1
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, product_group_id) VALUES ('{$localizationService->LocalizeForSqlString('Chocolate')}', 3, 3, 3, 1, 8, 1); --2
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, product_group_id, picture_file_name) VALUES ('{$localizationService->LocalizeForSqlString('Gummy bears')}', 3, 3, 3, 1, 8, 1, 'gummybears.jpg'); --3
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, product_group_id) VALUES ('{$localizationService->LocalizeForSqlString('Crisps')}', 3, 3, 3, 1, 10, 1); --4
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->LocalizeForSqlString('Eggs')}', 2, 3, 2, 10, 5); --5
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->LocalizeForSqlString('Noodles')}', 3, 3, 3, 1, 6); --6
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->LocalizeForSqlString('Pickles')}', 4,4, 4, 1, 3); --7
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->LocalizeForSqlString('Gulash soup')}', 4, 5, 5, 1, 3); --8
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->LocalizeForSqlString('Yogurt')}', 2, 6, 6, 1, 6); --9
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->LocalizeForSqlString('Cheese')}', 2, 3, 3, 1, 6); --10
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->LocalizeForSqlString('Cold cuts')}', 2, 3, 3, 1, 6); --11
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, picture_file_name, default_best_before_days) VALUES ('{$localizationService->LocalizeForSqlString('Paprika')}', 2, 2, 2, 1, 5, 'paprika.jpg', 7); --12
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, picture_file_name, default_best_before_days) VALUES ('{$localizationService->LocalizeForSqlString('Cucumber')}', 2, 2, 2, 1, 5, 'cucumber.jpg', 7); --13
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, default_best_before_days) VALUES ('{$localizationService->LocalizeForSqlString('Radish')}', 2, 7, 7, 1, 5, 7); --14
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, picture_file_name, default_best_before_days) VALUES ('{$localizationService->LocalizeForSqlString('Tomato')}', 2, 2, 2, 1, 5, 'tomato.jpg', 7); --15
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->LocalizeForSqlString('Pizza dough')}', 3, 3, 3, 1, 6); --16
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->LocalizeForSqlString('Sieved tomatoes')}', 4, 5, 5, 1, 3); --17
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->LocalizeForSqlString('Salami')}', 2, 3, 3, 1, 6); --18
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->LocalizeForSqlString('Toast')}', 4, 5, 5, 1, 2); --19
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->LocalizeForSqlString('Minced meat')}', 2, 3, 3, 1, 4); --20
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->LocalizeForSqlString('Flour')}', 2, 3, 3, 1, 3); --21
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->LocalizeForSqlString('Sugar')}', 3, 3, 3, 1, 3); --22
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock) VALUES ('{$localizationService->LocalizeForSqlString('Milk')}', 2, 10, 10, 1); --23
 
-				INSERT INTO shopping_list (note, amount) VALUES ('{$localizationService->Localize('Some good snacks')}', 1);
+				INSERT INTO shopping_list (note, amount) VALUES ('{$localizationService->LocalizeForSqlString('Some good snacks')}', 1);
 				INSERT INTO shopping_list (product_id, amount) VALUES (20, 1);
 				INSERT INTO shopping_list (product_id, amount) VALUES (17, 1);
 
-				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Pizza')}', '{$loremIpsumWithHtmlFormattings}'); --1
-				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Spaghetti bolognese')}', '{$loremIpsumWithHtmlFormattings}'); --2
-				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Sandwiches')}', '{$loremIpsumWithHtmlFormattings}'); --3
-				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Pancakes')}', '{$loremIpsumWithHtmlFormattings}'); --4
-				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Chocolate sauce')}', '{$loremIpsumWithHtmlFormattings}'); --5
-				INSERT INTO recipes (name, description) VALUES ('{$localizationService->Localize('Pancakes')} / {$localizationService->Localize('Chocolate sauce')}', '{$loremIpsumWithHtmlFormattings}'); --6
+				INSERT INTO recipes (name, description) VALUES ('{$localizationService->LocalizeForSqlString('Pizza')}', '{$loremIpsumWithHtmlFormattings}'); --1
+				INSERT INTO recipes (name, description) VALUES ('{$localizationService->LocalizeForSqlString('Spaghetti bolognese')}', '{$loremIpsumWithHtmlFormattings}'); --2
+				INSERT INTO recipes (name, description) VALUES ('{$localizationService->LocalizeForSqlString('Sandwiches')}', '{$loremIpsumWithHtmlFormattings}'); --3
+				INSERT INTO recipes (name, description) VALUES ('{$localizationService->LocalizeForSqlString('Pancakes')}', '{$loremIpsumWithHtmlFormattings}'); --4
+				INSERT INTO recipes (name, description) VALUES ('{$localizationService->LocalizeForSqlString('Chocolate sauce')}', '{$loremIpsumWithHtmlFormattings}'); --5
+				INSERT INTO recipes (name, description) VALUES ('{$localizationService->LocalizeForSqlString('Pancakes')} / {$localizationService->LocalizeForSqlString('Chocolate sauce')}', '{$loremIpsumWithHtmlFormattings}'); --6
 
-				INSERT INTO recipes_pos (recipe_id, product_id, amount, ingredient_group) VALUES (1, 16, 1, '{$localizationService->Localize('Bottom')}');
-				INSERT INTO recipes_pos (recipe_id, product_id, amount, ingredient_group) VALUES (1, 17, 1, '{$localizationService->Localize('Topping')}');
-				INSERT INTO recipes_pos (recipe_id, product_id, amount, note, ingredient_group) VALUES (1, 18, 1, '{$localizationService->Localize('This is the note content of the recipe ingredient')}', '{$localizationService->Localize('Topping')}');
-				INSERT INTO recipes_pos (recipe_id, product_id, amount, ingredient_group) VALUES (1, 10, 1, '{$localizationService->Localize('Bottom')}');
+				INSERT INTO recipes_pos (recipe_id, product_id, amount, ingredient_group) VALUES (1, 16, 1, '{$localizationService->LocalizeForSqlString('Bottom')}');
+				INSERT INTO recipes_pos (recipe_id, product_id, amount, ingredient_group) VALUES (1, 17, 1, '{$localizationService->LocalizeForSqlString('Topping')}');
+				INSERT INTO recipes_pos (recipe_id, product_id, amount, note, ingredient_group) VALUES (1, 18, 1, '{$localizationService->LocalizeForSqlString('This is the note content of the recipe ingredient')}', '{$localizationService->LocalizeForSqlString('Topping')}');
+				INSERT INTO recipes_pos (recipe_id, product_id, amount, ingredient_group) VALUES (1, 10, 1, '{$localizationService->LocalizeForSqlString('Bottom')}');
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (2, 6, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (2, 10, 1);
-				INSERT INTO recipes_pos (recipe_id, product_id, amount, note) VALUES (2, 17, 1, '{$localizationService->Localize('This is the note content of the recipe ingredient')}');
+				INSERT INTO recipes_pos (recipe_id, product_id, amount, note) VALUES (2, 17, 1, '{$localizationService->LocalizeForSqlString('This is the note content of the recipe ingredient')}');
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (2, 20, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (3, 10, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (3, 11, 1);
@@ -97,28 +97,28 @@ class DemoDataGeneratorService extends BaseService
 				INSERt INTO recipes_nestings(recipe_id, includes_recipe_id) VALUES (6, 4);
 				INSERt INTO recipes_nestings(recipe_id, includes_recipe_id) VALUES (6, 5);
 
-				INSERT INTO chores (name, period_type, period_days) VALUES ('{$localizationService->Localize('Changed towels in the bathroom')}', 'manually', 5); --1
-				INSERT INTO chores (name, period_type, period_days) VALUES ('{$localizationService->Localize('Cleaned the kitchen floor')}', 'dynamic-regular', 7); --2
-				INSERT INTO chores (name, period_type, period_days) VALUES ('{$localizationService->Localize('Lawn mowed in the garden')}', 'dynamic-regular', 21); --3
+				INSERT INTO chores (name, period_type, period_days) VALUES ('{$localizationService->LocalizeForSqlString('Changed towels in the bathroom')}', 'manually', 5); --1
+				INSERT INTO chores (name, period_type, period_days) VALUES ('{$localizationService->LocalizeForSqlString('Cleaned the kitchen floor')}', 'dynamic-regular', 7); --2
+				INSERT INTO chores (name, period_type, period_days) VALUES ('{$localizationService->LocalizeForSqlString('Lawn mowed in the garden')}', 'dynamic-regular', 21); --3
 
-				INSERT INTO batteries (name, description, used_in) VALUES ('{$localizationService->Localize('Battery')}1', '{$localizationService->Localize('Warranty ends')} 2023', '{$localizationService->Localize('TV remote control')}'); --1
-				INSERT INTO batteries (name, description, used_in) VALUES ('{$localizationService->Localize('Battery')}2', '{$localizationService->Localize('Warranty ends')} 2022', '{$localizationService->Localize('Alarm clock')}'); --2
-				INSERT INTO batteries (name, description, used_in, charge_interval_days) VALUES ('{$localizationService->Localize('Battery')}3', '{$localizationService->Localize('Warranty ends')} 2022', '{$localizationService->Localize('Heat remote control')}', 60); --3
-				INSERT INTO batteries (name, description, used_in, charge_interval_days) VALUES ('{$localizationService->Localize('Battery')}4', '{$localizationService->Localize('Warranty ends')} 2028', '{$localizationService->Localize('Heat remote control')}', 60); --4
+				INSERT INTO batteries (name, description, used_in) VALUES ('{$localizationService->LocalizeForSqlString('Battery')}1', '{$localizationService->LocalizeForSqlString('Warranty ends')} 2023', '{$localizationService->LocalizeForSqlString('TV remote control')}'); --1
+				INSERT INTO batteries (name, description, used_in) VALUES ('{$localizationService->LocalizeForSqlString('Battery')}2', '{$localizationService->LocalizeForSqlString('Warranty ends')} 2022', '{$localizationService->LocalizeForSqlString('Alarm clock')}'); --2
+				INSERT INTO batteries (name, description, used_in, charge_interval_days) VALUES ('{$localizationService->LocalizeForSqlString('Battery')}3', '{$localizationService->LocalizeForSqlString('Warranty ends')} 2022', '{$localizationService->LocalizeForSqlString('Heat remote control')}', 60); --3
+				INSERT INTO batteries (name, description, used_in, charge_interval_days) VALUES ('{$localizationService->LocalizeForSqlString('Battery')}4', '{$localizationService->LocalizeForSqlString('Warranty ends')} 2028', '{$localizationService->LocalizeForSqlString('Heat remote control')}', 60); --4
 
-				INSERT INTO task_categories (name) VALUES ('{$localizationService->Localize('Home')}'); --1
-				INSERT INTO task_categories (name) VALUES ('{$localizationService->Localize('Life')}'); --2
-				INSERT INTO task_categories (name) VALUES ('{$localizationService->Localize('Projects')}'); --3
+				INSERT INTO task_categories (name) VALUES ('{$localizationService->LocalizeForSqlString('Home')}'); --1
+				INSERT INTO task_categories (name) VALUES ('{$localizationService->LocalizeForSqlString('Life')}'); --2
+				INSERT INTO task_categories (name) VALUES ('{$localizationService->LocalizeForSqlString('Projects')}'); --3
 
-				INSERT INTO tasks (name, category_id, due_date, assigned_to_user_id) VALUES ('{$localizationService->Localize('Repair the garage door')}', 1, date(datetime('now', 'localtime'), '+14 day'), 1);
-				INSERT INTO tasks (name, category_id, due_date, assigned_to_user_id) VALUES ('{$localizationService->Localize('Fork and improve grocy')}', 3, date(datetime('now', 'localtime'), '+30 day'), 1);
-				INSERT INTO tasks (name, category_id, due_date, assigned_to_user_id) VALUES ('{$localizationService->Localize('Task')}1', 2, date(datetime('now', 'localtime'), '-1 day'), 1);
-				INSERT INTO tasks (name, category_id, due_date, assigned_to_user_id) VALUES ('{$localizationService->Localize('Task')}2', 2, date(datetime('now', 'localtime'), '-1 day'), 1);
-				INSERT INTO tasks (name, due_date, assigned_to_user_id) VALUES ('{$localizationService->Localize('Find a solution for what to do when I forget the door keys')}', date(datetime('now', 'localtime'), '+3 day'), 1);
-				INSERT INTO tasks (name, due_date, assigned_to_user_id) VALUES ('{$localizationService->Localize('Task')}3', date(datetime('now', 'localtime'), '+4 day'), 1);
+				INSERT INTO tasks (name, category_id, due_date, assigned_to_user_id) VALUES ('{$localizationService->LocalizeForSqlString('Repair the garage door')}', 1, date(datetime('now', 'localtime'), '+14 day'), 1);
+				INSERT INTO tasks (name, category_id, due_date, assigned_to_user_id) VALUES ('{$localizationService->LocalizeForSqlString('Fork and improve grocy')}', 3, date(datetime('now', 'localtime'), '+30 day'), 1);
+				INSERT INTO tasks (name, category_id, due_date, assigned_to_user_id) VALUES ('{$localizationService->LocalizeForSqlString('Task')}1', 2, date(datetime('now', 'localtime'), '-1 day'), 1);
+				INSERT INTO tasks (name, category_id, due_date, assigned_to_user_id) VALUES ('{$localizationService->LocalizeForSqlString('Task')}2', 2, date(datetime('now', 'localtime'), '-1 day'), 1);
+				INSERT INTO tasks (name, due_date, assigned_to_user_id) VALUES ('{$localizationService->LocalizeForSqlString('Find a solution for what to do when I forget the door keys')}', date(datetime('now', 'localtime'), '+3 day'), 1);
+				INSERT INTO tasks (name, due_date, assigned_to_user_id) VALUES ('{$localizationService->LocalizeForSqlString('Task')}3', date(datetime('now', 'localtime'), '+4 day'), 1);
 
-				INSERT INTO equipment (name, description, instruction_manual_file_name) VALUES ('{$localizationService->Localize('Coffee machine')}', '{$loremIpsumWithHtmlFormattings}', 'loremipsum.pdf'); --1
-				INSERT INTO equipment (name, description) VALUES ('{$localizationService->Localize('Dishwasher')}', '{$loremIpsumWithHtmlFormattings}'); --2
+				INSERT INTO equipment (name, description, instruction_manual_file_name) VALUES ('{$localizationService->LocalizeForSqlString('Coffee machine')}', '{$loremIpsumWithHtmlFormattings}', 'loremipsum.pdf'); --1
+				INSERT INTO equipment (name, description) VALUES ('{$localizationService->LocalizeForSqlString('Dishwasher')}', '{$loremIpsumWithHtmlFormattings}'); --2
 
 				INSERT INTO migrations (migration) VALUES (-1);
 			";

@@ -96,6 +96,12 @@ class LocalizationService
 		return $localizedText;
 	}
 
+	public function LocalizeForSqlString(string $text, ...$placeholderValues)
+	{
+		$localizedText = $this->Localize($text, $placeholderValues);
+		return str_replace("'", "''", $localizedText);
+	}
+
 	public function GetLocalizations()
 	{
 		return $this->StringsMerged;
