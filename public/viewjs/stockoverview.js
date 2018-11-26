@@ -135,6 +135,20 @@ $(document).on('click', '.product-consume-button', function(e)
 							$(this).text(result.next_best_before_date).fadeIn(500);
 						});
 						$('#product-' + productId + '-next-best-before-date-timeago').attr('datetime', result.next_best_before_date);
+
+						var openedAmount = result.stock_amount_opened || 0;
+						$('#product-' + productId + '-opened-amount').parent().effect('highlight', {}, 500);
+						$('#product-' + productId + '-opened-amount').fadeOut(500, function ()
+						{
+							if (openedAmount > 0)
+							{
+								$(this).text(L('#1 opened', openedAmount)).fadeIn(500);
+							}
+							else
+							{
+								$(this).text("").fadeIn(500);
+							}
+						});
 					}
 
 					Grocy.FrontendHelpers.EndUiBusy();
