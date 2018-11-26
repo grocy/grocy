@@ -21,10 +21,12 @@
 
 		<form id="shoppinglist-form" novalidate>
 
+			@php if($mode == 'edit') { $productId = $listItem->product_id; } else { $productId = ''; } @endphp
 			@include('components.productpicker', array(
 				'products' => $products,
 				'nextInputSelector' => '#amount',
-				'isRequired' => false
+				'isRequired' => false,
+				'prefillById' => $productId
 			))
 
 			@php if($mode == 'edit') { $value = $listItem->amount; } else { $value = 1; } @endphp

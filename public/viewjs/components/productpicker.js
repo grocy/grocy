@@ -75,6 +75,11 @@ if (typeof prefillProduct !== "undefined")
 }
 
 var prefillProductId = GetUriParam("product");
+var prefillProductId2 = Grocy.Components.ProductPicker.GetPicker().parent().data('prefill-by-id').toString();
+if (!prefillProductId2.isEmpty())
+{
+	prefillProductId = prefillProductId2;
+}
 if (typeof prefillProductId !== "undefined")
 {
 	$('#product_id').val(prefillProductId);

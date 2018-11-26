@@ -59,14 +59,11 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 });
 
 Grocy.FrontendHelpers.ValidateForm('shoppinglist-form');
+Grocy.Components.ProductPicker.GetInputElement().focus();
 
-if (Grocy.Components.ProductPicker.InProductAddWorkflow() === false)
+if (Grocy.EditMode === "edit")
 {
-	Grocy.Components.ProductPicker.GetInputElement().focus();
-}
-else
-{
-	Grocy.Components.ProductPicker.GetPicker().trigger('change');
+	Grocy.Components.ProductPicker.GetPicker().trigger('change');	
 }
 
 $('#amount').on('focus', function(e)
