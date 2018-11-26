@@ -326,5 +326,5 @@ return array(
 	'Stock settings' => 'Stock settings',
 	'Shopping list to stock workflow' => 'Shopping list to stock workflow',
 	'Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set' => 'Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set',
-	'Skip' => 'Überspringen'
+	'Skip' => 'Skip'
 );
