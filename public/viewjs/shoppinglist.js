@@ -149,6 +149,11 @@ $(document).on('click', '.shopping-list-stock-add-workflow-list-item-button', fu
 	{
 		$("#shopping-list-stock-add-workflow-purchase-item-count").removeClass("d-none");
 		$("#shopping-list-stock-add-workflow-purchase-item-count").text(L("Adding shopping list item #1 of #2", Grocy.ShoppingListToStockWorkflowCurrent, Grocy.ShoppingListToStockWorkflowCount));
+		$("#shopping-list-stock-add-workflow-skip-button").removeClass("d-none");
+	}
+	else
+	{
+		$("#shopping-list-stock-add-workflow-skip-button").addClass("d-none");
 	}
 });
 
@@ -162,6 +167,13 @@ $(document).on('click', '#add-all-items-to-stock-button', function(e)
 	Grocy.ShoppingListToStockWorkflowCurrent++;
 	$(".shopping-list-stock-add-workflow-list-item-button").first().click();
 });
+
+$("#shopping-list-stock-add-workflow-modal").on("hidden.bs.modal", function(e)
+{
+	Grocy.ShoppingListToStockWorkflowAll = false;
+	Grocy.ShoppingListToStockWorkflowCount = 0;
+	Grocy.ShoppingListToStockWorkflowCurrent = 0;
+})
 
 $(window).on("message", function(e)
 {
@@ -194,6 +206,13 @@ $(window).on("message", function(e)
 	{
 		toastr.success(data.Payload);
 	}
+});
+
+$(document).on('click', '#shopping-list-stock-add-workflow-skip-button', function(e)
+{
+	e.preventDefault();
+	
+	window.postMessage(WindowMessageBag("Ready"), Grocy.BaseUrl);
 });
 
 function OnListItemRemoved()

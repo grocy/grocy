@@ -108,6 +108,7 @@
 			</div>
 			<div class="modal-footer">
 				<span id="shopping-list-stock-add-workflow-purchase-item-count" class="d-none mr-auto"></span>
+				<button id="shopping-list-stock-add-workflow-skip-button" type="button" class="btn btn-primary"><i class="fas fa-angle-double-right"></i> {{ $L('Skip') }}</button>
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">{{ $L('Close') }}</button>
 			</div>
 		</div>
