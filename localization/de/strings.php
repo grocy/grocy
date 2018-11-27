@@ -325,5 +325,6 @@ return array(
 	'Show clock in header' => 'Uhr in der Kopfzeile anzeigen',
 	'Stock settings' => 'Bestandseinstellungen',
 	'Shopping list to stock workflow' => 'Einkaufsliste -> Bestand Workflow',
-	'Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set' => 'Buchung automatisch ausführen, wenn das Produkt "Standard Haltbarkeit in Tagen" hinterlegt hat (als Preis wird der letzte Preis verwendet)'
+	'Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set' => 'Buchung automatisch ausführen, wenn das Produkt "Standard Haltbarkeit in Tagen" hinterlegt hat (als Preis wird der letzte Preis verwendet)',
+	'Skip' => 'Überspringen'
 );

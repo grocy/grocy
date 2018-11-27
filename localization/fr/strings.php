@@ -325,5 +325,6 @@ return array(
 	'Show clock in header' => 'Afficher l\'horloge dans l\'en-tête',
 	'Stock settings' => 'Paramètres du stock',
 	'Shopping list to stock workflow' => 'Transition de la liste de courses vers le stock',
-	'Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set' => 'Réaliser automatiquement les achats en utilisant le dernier prix connu et la quantité indiquée dans la liste, si le premier a une date de péremption par défaut renseignée'
+	'Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set' => 'Réaliser automatiquement les achats en utilisant le dernier prix connu et la quantité indiquée dans la liste, si le premier a une date de péremption par défaut renseignée',
+	'Skip' => 'Passer'
 );

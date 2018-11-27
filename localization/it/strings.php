@@ -325,5 +325,6 @@ return array(
 	'Show clock in header' => 'Show clock in header',
 	'Stock settings' => 'Stock settings',
 	'Shopping list to stock workflow' => 'Shopping list to stock workflow',
-	'Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set' => 'Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set'
+	'Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set' => 'Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set',
+	'Skip' => 'Skip'
 );
