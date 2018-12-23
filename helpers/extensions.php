@@ -138,6 +138,10 @@ function Setting(string $name, $value)
 		{
 			define('GROCY_' . $name, file_get_contents($settingOverrideFile));
 		}
+		elseif (getenv('GROCY_' . $name) !== false) // An environment variable with the same name and prefix GROCY_ overwrites the given setting
+		{
+			define('GROCY_' . $name, getenv('GROCY_' . $name));
+		}
 		else
 		{
 			define('GROCY_' . $name, $value);
