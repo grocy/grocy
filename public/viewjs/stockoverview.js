@@ -2,7 +2,7 @@
 	'paginate': false,
 	'order': [[3, 'asc']],
 	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 },
+		{ 'orderable': false, 'searchable': false, 'visible': false, 'render': null, 'defaultContent': '', 'targets': 0 },
 		{ 'visible': false, 'targets': 4 }
 	],
 	'language': JSON.parse(L('datatables_localization')),
@@ -19,6 +19,7 @@
 		});
 	}
 });
+$('#stock-overview-table tbody').removeClass("d-none");
 
 $("#location-filter").on("change", function()
 {
