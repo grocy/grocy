@@ -32,10 +32,24 @@ class GenericEntityApiController extends BaseApiController
 	{
 		if ($this->IsValidEntity($args['entity']))
 		{
-			$newRow = $this->Database->{$args['entity']}()->createRow($request->getParsedBody());
-			$newRow->save();
-			$success = $newRow->isClean();
-			return $this->ApiResponse(array('success' => $success));
+			$requestBody = $request->getParsedBody();
+
+			try
+			{
+				if ($requestBody === null)
+				{
+					throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
+				}
+
+				$newRow = $this->Database->{$args['entity']}()->createRow($requestBody);
+				$newRow->save();
+				$success = $newRow->isClean();
+				return $this->ApiResponse(array('success' => $success));
+			}
+			catch (\Exception $ex)
+			{
+				return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			}
 		}
 		else
 		{
@@ -47,10 +61,24 @@ class GenericEntityApiController extends BaseApiController
 	{
 		if ($this->IsValidEntity($args['entity']))
 		{
-			$row = $this->Database->{$args['entity']}($args['objectId']);
-			$row->update($request->getParsedBody());
-			$success = $row->isClean();
-			return $this->ApiResponse(array('success' => $success));
+			$requestBody = $request->getParsedBody();
+
+			try
+			{
+				if ($requestBody === null)
+				{
+					throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
+				}
+
+				$row = $this->Database->{$args['entity']}($args['objectId']);
+				$row->update($requestBody);
+				$success = $row->isClean();
+				return $this->ApiResponse(array('success' => $success));
+			}
+			catch (\Exception $ex)
+			{
+				return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			}
 		}
 		else
 		{
