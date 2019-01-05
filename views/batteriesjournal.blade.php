@@ -37,7 +37,7 @@
 					<th>{{ $L('Tracked time') }}</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="d-none">
 				@foreach($chargeCycles as $chargeCycleEntry)
 				<tr class="@if($chargeCycleEntry->undone == 1) text-muted @endif">
 					<td class="fit-content">

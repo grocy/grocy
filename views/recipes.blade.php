@@ -26,7 +26,7 @@
 					<th class="d-none">Hidden status for sorting of "Requirements fulfilled" column</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="d-none">
 				@foreach($recipes as $recipe)
 				<tr data-recipe-id="{{ $recipe->id }}">
 					<td>

@@ -35,7 +35,7 @@
 					<th>{{ $L('Charge cycle interval (days)') }}</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="d-none">
 				@foreach($batteries as $battery)
 				<tr>
 					<td class="fit-content">

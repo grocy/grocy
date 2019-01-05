@@ -23,6 +23,7 @@
 		dataSrc: 3
 	}
 });
+$('#shoppinglist-table tbody').removeClass("d-none");
 
 $("#search").on("keyup", function()
 {

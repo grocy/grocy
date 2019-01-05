@@ -18,6 +18,7 @@
 		});
 	}
 });
+$('#apikeys-table tbody').removeClass("d-none");
 
 var createdApiKeyId = GetUriParam('CreatedApiKeyId');
 if (createdApiKeyId !== undefined)

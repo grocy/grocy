@@ -35,7 +35,7 @@
 				<th>{{ $L('Description') }}</th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody class="d-none">
 			@foreach($chores as $chore)
 			<tr>
 				<td class="fit-content">

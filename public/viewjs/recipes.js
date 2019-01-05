@@ -23,6 +23,7 @@
 		this.api().row({ order: 'current' }, 0).select();
 	}
 });
+$('#recipes-table tbody').removeClass("d-none");
 
 var rowSelect = GetUriParam("row");
 if (typeof rowSelect !== "undefined")

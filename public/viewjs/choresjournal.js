@@ -18,6 +18,7 @@
 		});
 	}
 });
+$('#chores-journal-table tbody').removeClass("d-none");
 
 $("#chore-filter").on("change", function()
 {

@@ -33,7 +33,7 @@
 					<th>{{ $L('Description') }}</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="d-none">
 				@foreach($quantityunits as $quantityunit)
 				<tr>
 					<td class="fit-content">

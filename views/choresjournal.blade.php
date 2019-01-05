@@ -38,7 +38,7 @@
 					<th>{{ $L('Done by') }}</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="d-none">
 				@foreach($choresLog as $choreLogEntry)
 				<tr class="@if($choreLogEntry->undone == 1) text-muted @endif">
 					<td class="fit-content">

@@ -63,7 +63,7 @@
 					<th class="d-none">Hidden status</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="d-none">
 				@foreach($listItems as $listItem)
 				<tr id="shoppinglistitem-{{ $listItem->id }}-row" class="@if(FindObjectInArrayByPropertyValue($missingProducts, 'id', $listItem->product_id) !== null) table-info @endif">
 					<td class="fit-content">

@@ -18,6 +18,7 @@
 		});
 	}
 });
+$('#stock-journal-table tbody').removeClass("d-none");
 
 $("#product-filter").on("change", function()
 {

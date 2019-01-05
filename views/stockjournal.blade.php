@@ -39,7 +39,7 @@
 					<th>{{ $L('Booking type') }}</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="d-none">
 				@foreach($stockLog as $stockLogEntry)
 				<tr class="@if($stockLogEntry->undone == 1) text-muted @endif">
 					<td class="fit-content">

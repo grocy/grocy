@@ -33,7 +33,7 @@
 					<th>{{ $L('Description') }}</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="d-none">
 				@foreach($taskCategories as $taskCategory)
 				<tr>
 					<td class="fit-content">

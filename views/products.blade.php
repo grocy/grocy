@@ -41,7 +41,7 @@
 					<th>{{ $L('Product group') }}</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="d-none">
 				@foreach($products as $product)
 				<tr>
 					<td class="fit-content">

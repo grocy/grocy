@@ -34,7 +34,7 @@
 					<th>{{ $L('Last name') }}</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="d-none">
 				@foreach($users as $user)
 				<tr>
 					<td class="fit-content">

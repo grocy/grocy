@@ -21,6 +21,7 @@
 		DisplayEquipment($('#equipment-table tbody tr:eq(0)').data("equipment-id"));
 	}
 });
+$('#equipment-table tbody').removeClass("d-none");
 
 equipmentTable.on('select', function(e, dt, type, indexes)
 {

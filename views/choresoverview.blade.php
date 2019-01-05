@@ -48,7 +48,7 @@
 					<th class="d-none">Hidden status</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="d-none">
 				@foreach($currentChores as $curentChoreEntry)
 				<tr id="chore-{{ $curentChoreEntry->chore_id }}-row" class="@if(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type === \Grocy\Services\ChoresService::CHORE_TYPE_DYNAMIC_REGULAR && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s')) table-danger @elseif(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type === \Grocy\Services\ChoresService::CHORE_TYPE_DYNAMIC_REGULAR && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) table-warning @endif">
 					<td class="fit-content">

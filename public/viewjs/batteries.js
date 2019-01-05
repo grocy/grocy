@@ -18,6 +18,7 @@
 		});
 	}
 });
+$('#batteries-table tbody').removeClass("d-none");
 
 $("#search").on("keyup", function()
 {

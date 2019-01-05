@@ -24,7 +24,7 @@
 					<th>{{ $L('Name') }}</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="d-none">
 				@foreach($equipment as $equipmentItem)
 				<tr data-equipment-id="{{ $equipmentItem->id }}">
 					<td>

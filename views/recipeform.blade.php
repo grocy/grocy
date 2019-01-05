@@ -72,7 +72,7 @@
 							<th class="d-none">Hiden ingredient group</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody class="d-none">
 						@if($mode == "edit")
 						@foreach($recipePositions as $recipePosition)
 						<tr class="@if(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->need_fulfilled == 1) table-success @elseif(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->need_fulfilled_with_shopping_list == 1) table-warning  @else table-danger @endif">
@@ -125,7 +125,7 @@
 							<th>{{ $L('Recipe') }}</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody class="d-none">
 						@if($mode == "edit")
 						@foreach($recipeNestings as $recipeNesting)
 						<tr>

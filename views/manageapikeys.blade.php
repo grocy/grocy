@@ -40,7 +40,7 @@
 					<th>{{ $L('Created') }}</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="d-none">
 				@foreach($apiKeys as $apiKey)
 				<tr id="apiKeyRow_{{ $apiKey->id }}">
 					<td class="fit-content">
