@@ -51,12 +51,14 @@ SELECT
 	IFNULL(sc.amount, 0) AS stock_amount,
 	1 AS need_fulfilled,
 	0 AS missing_amount,
-	IFNULL(sl.amount, 0) AS amount_on_shopping_list,
+	IFNULL(sl.amount, 0) * p.qu_factor_purchase_to_stock AS amount_on_shopping_list,
 	1 AS need_fulfilled_with_shopping_list,
 	rp.qu_id
 FROM recipes r
 JOIN recipes_pos rp
 	ON r.id = rp.recipe_id
+JOIN products p
+	ON rp.product_id = p.id
 LEFT JOIN (
 	SELECT product_id, SUM(amount + amount_autoadded) AS amount
 	FROM shopping_list
