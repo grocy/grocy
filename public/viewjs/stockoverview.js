@@ -2,8 +2,10 @@
 	'paginate': false,
 	'order': [[3, 'asc']],
 	'columnDefs': [
-		{ 'orderable': false, 'searchable': false, 'visible': false, 'render': null, 'defaultContent': '', 'targets': 0 },
-		{ 'visible': false, 'targets': 4 }
+		{ 'orderable': false, 'targets': 0 },
+		{ 'visible': false, 'targets': 4 },
+		{ 'visible': false, 'targets': 5 },
+		{ 'visible': false, 'targets': 6 }
 	],
 	'language': JSON.parse(L('datatables_localization')),
 	'scrollY': false,
