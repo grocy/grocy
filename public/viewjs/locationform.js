@@ -21,7 +21,7 @@
 	}
 	else
 	{
-		Grocy.Api.Post('edit-object/locations/' + Grocy.EditObjectId, $('#location-form').serializeJSON(),
+		Grocy.Api.Post('edit-object/locations/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				window.location.href = U('/locations');
