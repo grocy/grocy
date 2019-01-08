@@ -80,7 +80,7 @@ $('#recipe-form input').keydown(function (event)
 	if (event.keyCode === 13) //Enter
 	{
 		event.preventDefault();
-		
+
 		if (document.getElementById('recipe-form').checkValidity() === false) //There is at least one validation error
 		{
 			return false;
@@ -114,7 +114,7 @@ $(document).on('click', '.recipe-pos-delete-button', function(e)
 			if (result === true)
 			{
 				Grocy.Api.Post('edit-object/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(), function() { }, function() { });
-				Grocy.Api.Get('delete-object/recipes_pos/' + objectId,
+				Grocy.Api.Delete('delete-object/recipes_pos/' + objectId,
 					function(result)
 					{
 						window.location.href = U('/recipe/' + Grocy.EditObjectId);
@@ -151,7 +151,7 @@ $(document).on('click', '.recipe-include-delete-button', function(e)
 			if (result === true)
 			{
 				Grocy.Api.Post('edit-object/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(), function() { }, function() { });
-				Grocy.Api.Get('delete-object/recipes_nestings/' + objectId,
+				Grocy.Api.Delete('delete-object/recipes_nestings/' + objectId,
 					function(result)
 					{
 						window.location.href = U('/recipe/' + Grocy.EditObjectId);

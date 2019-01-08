@@ -44,8 +44,8 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 	if (productId)
 	{
 		Grocy.Components.ProductCard.Refresh(productId);
-		
-		Grocy.Api.Get('stock/get-product-details/' + productId,
+
+		Grocy.Api.Get('stock/' + productId,
 			function (productDetails)
 			{
 				if (!$("#only_check_single_unit_in_stock").is(":checked"))
@@ -93,7 +93,7 @@ $('#recipe-pos-form input').keydown(function(event)
 	if (event.keyCode === 13) //Enter
 	{
 		event.preventDefault();
-		
+
 		if (document.getElementById('recipe-pos-form').checkValidity() === false) //There is at least one validation error
 		{
 			return false;

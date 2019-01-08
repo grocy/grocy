@@ -27,7 +27,7 @@ $("#search").on("keyup", function()
 	{
 		value = "";
 	}
-	
+
 	batteriesOverviewTable.search(value).draw();
 });
 
@@ -41,7 +41,7 @@ $("#status-filter").on("change", function()
 
 	// Transfer CSS classes of selected element to dropdown element (for background)
 	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
-	
+
 	batteriesOverviewTable.column(4).search(value).draw();
 });
 
@@ -61,15 +61,15 @@ $(document).on('click', '.track-charge-cycle-button', function(e)
 	document.activeElement.blur();
 
 	Grocy.FrontendHelpers.BeginUiBusy();
-	
+
 	var batteryId = $(e.currentTarget).attr('data-battery-id');
 	var batteryName = $(e.currentTarget).attr('data-battery-name');
 	var trackedTime = moment().format('YYYY-MM-DD HH:mm:ss');
 
-	Grocy.Api.Get('batteries/track-charge-cycle/' + batteryId + '?tracked_time=' + trackedTime,
+	Grocy.Api.Post('batteries/' + batteryId + '/charged?tracked_time=' + trackedTime,
 		function()
 		{
-			Grocy.Api.Get('batteries/get-battery-details/' + batteryId,
+			Grocy.Api.Get('batteries/' + batteryId,
 				function(result)
 				{
 					var batteryRow = $('#battery-' + batteryId + '-row');
@@ -128,7 +128,7 @@ $(document).on('click', '.track-charge-cycle-button', function(e)
 function RefreshStatistics()
 {
 	var nextXDays = $("#info-due-batteries").data("next-x-days");
-	Grocy.Api.Get('batteries/get-current',
+	Grocy.Api.Get('batteries',
 		function(result)
 		{
 			var dueCount = 0;
@@ -146,7 +146,7 @@ function RefreshStatistics()
 					dueCount++;
 				}
 			});
-			
+
 			$("#info-due-batteries").text(Pluralize(dueCount, L('#1 battery is due to be charged within the next #2 days', dueCount, nextXDays), L('#1 batteries are due to be charged within the next #2 days', dueCount, nextXDays)));
 			$("#info-overdue-batteries").text(Pluralize(overdueCount, L('#1 battery is overdue to be charged', overdueCount), L('#1 batteries are overdue to be charged', overdueCount)));
 		},

@@ -27,7 +27,7 @@ $("#search").on("keyup", function()
 	{
 		value = "";
 	}
-	
+
 	categoriesTable.search(value).draw();
 });
 
@@ -52,7 +52,7 @@ $(document).on('click', '.task-category-delete-button', function (e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Get('delete-object/task_categories/' + objectId,
+				Grocy.Api.Delete('delete-object/task_categories/' + objectId,
 					function(result)
 					{
 						window.location.href = U('/taskcategories');

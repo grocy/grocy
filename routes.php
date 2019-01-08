@@ -102,7 +102,7 @@ $app->group('/api', function()
 	$this->get('/users/get', '\Grocy\Controllers\UsersApiController:GetUsers');
 	$this->post('/users/create', '\Grocy\Controllers\UsersApiController:CreateUser');
 	$this->post('/users/edit/{userId}', '\Grocy\Controllers\UsersApiController:EditUser');
-	$this->get('/users/delete/{userId}', '\Grocy\Controllers\UsersApiController:DeleteUser');
+	$this->delete('/users/delete/{userId}', '\Grocy\Controllers\UsersApiController:DeleteUser');
 
 	// User
 	$this->get('/user/settings/{settingKey}', '\Grocy\Controllers\UsersApiController:GetUserSetting');

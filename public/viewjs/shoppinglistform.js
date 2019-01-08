@@ -42,8 +42,8 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 	if (productId)
 	{
 		Grocy.Components.ProductCard.Refresh(productId);
-		
-		Grocy.Api.Get('stock/get-product-details/' + productId,
+
+		Grocy.Api.Get('stock/' + productId,
 			function (productDetails)
 			{
 				$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name);
@@ -63,7 +63,7 @@ Grocy.Components.ProductPicker.GetInputElement().focus();
 
 if (Grocy.EditMode === "edit")
 {
-	Grocy.Components.ProductPicker.GetPicker().trigger('change');	
+	Grocy.Components.ProductPicker.GetPicker().trigger('change');
 }
 
 $('#amount').on('focus', function(e)
@@ -88,7 +88,7 @@ $('#shoppinglist-form input').keydown(function (event)
 	if (event.keyCode === 13) //Enter
 	{
 		event.preventDefault();
-		
+
 		if (document.getElementById('shoppinglist-form').checkValidity() === false) //There is at least one validation error
 		{
 			return false;

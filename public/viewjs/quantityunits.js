@@ -27,7 +27,7 @@ $("#search").on("keyup", function()
 	{
 		value = "";
 	}
-	
+
 	quantityUnitsTable.search(value).draw();
 });
 
@@ -52,7 +52,7 @@ $(document).on('click', '.quantityunit-delete-button', function (e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Get('delete-object/quantity_units/' + objectId,
+				Grocy.Api.Delete('delete-object/quantity_units/' + objectId,
 					function(result)
 					{
 						window.location.href = U('/quantityunits');

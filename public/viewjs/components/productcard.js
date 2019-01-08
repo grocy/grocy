@@ -2,7 +2,7 @@ Grocy.Components.ProductCard = { };
 
 Grocy.Components.ProductCard.Refresh = function(productId)
 {
-	Grocy.Api.Get('stock/get-product-details/' + productId,
+	Grocy.Api.Get('stock/' + productId,
 		function(productDetails)
 		{
 			var stockAmount = productDetails.stock_amount || '0';
@@ -58,7 +58,7 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 		}
 	);
 
-	Grocy.Api.Get('stock/get-product-price-history/' + productId,
+	Grocy.Api.Get('stock/' + productId + '/pricehistory',
 		function(priceHistoryDataPoints)
 		{
 			if (priceHistoryDataPoints.length > 0)

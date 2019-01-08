@@ -28,7 +28,7 @@ $("#chore-filter").on("change", function()
 	{
 		text = "";
 	}
-	
+
 	choresJournalTable.column(1).search(text).draw();
 });
 
@@ -39,7 +39,7 @@ $("#search").on("keyup", function()
 	{
 		value = "";
 	}
-	
+
 	choresJournalTable.search(value).draw();
 });
 
@@ -56,7 +56,7 @@ $(document).on('click', '.undo-chore-execution-button', function(e)
 	var element = $(e.currentTarget);
 	var executionId = $(e.currentTarget).attr('data-execution-id');
 
-	Grocy.Api.Get('chores/undo-chore-execution/' + executionId.toString(),
+	Grocy.Api.Post('chores/' + executionId.toString() + '/undo',
 		function(result)
 		{
 			element.closest("tr").addClass("text-muted");

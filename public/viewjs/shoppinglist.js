@@ -32,7 +32,7 @@ $("#search").on("keyup", function()
 	{
 		value = "";
 	}
-	
+
 	shoppingListTable.search(value).draw();
 });
 
@@ -46,7 +46,7 @@ $("#status-filter").on("change", function()
 
 	// Transfer CSS classes of selected element to dropdown element (for background)
 	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
-	
+
 	shoppingListTable.column(4).search(value).draw();
 });
 
@@ -60,11 +60,11 @@ $(".status-filter-button").on("click", function()
 $(document).on('click', '.shoppinglist-delete-button', function (e)
 {
 	e.preventDefault();
-	
+
 	var shoppingListItemId = $(e.currentTarget).attr('data-shoppinglist-id');
 	Grocy.FrontendHelpers.BeginUiBusy();
 
-	Grocy.Api.Get('delete-object/shopping_list/' + shoppingListItemId,
+	Grocy.Api.Delete('delete-object/shopping_list/' + shoppingListItemId,
 		function(result)
 		{
 			$('#shoppinglistitem-' + shoppingListItemId + '-row').fadeOut(500, function()
@@ -84,7 +84,7 @@ $(document).on('click', '.shoppinglist-delete-button', function (e)
 
 $(document).on('click', '#add-products-below-min-stock-amount', function(e)
 {
-	Grocy.Api.Get('stock/add-missing-products-to-shoppinglist',
+	Grocy.Api.Post('stock/shoppinglist',
 		function(result)
 		{
 			window.location.href = U('/shoppinglist');
@@ -116,7 +116,7 @@ $(document).on('click', '#clear-shopping-list', function(e)
 			{
 				Grocy.FrontendHelpers.BeginUiBusy();
 
-				Grocy.Api.Get('stock/clear-shopping-list',
+				Grocy.Api.Post('stock/clearshoppinglist',
 					function(result)
 					{
 						$('#shoppinglist-table tbody tr').fadeOut(500, function()
@@ -140,7 +140,7 @@ $(document).on('click', '#clear-shopping-list', function(e)
 $(document).on('click', '.shopping-list-stock-add-workflow-list-item-button', function(e)
 {
 	e.preventDefault();
-	
+
 	var href = $(e.currentTarget).attr('href');
 
 	$("#shopping-list-stock-add-workflow-purchase-form-frame").attr("src", href);
@@ -179,7 +179,7 @@ $("#shopping-list-stock-add-workflow-modal").on("hidden.bs.modal", function(e)
 $(window).on("message", function(e)
 {
 	var data = e.originalEvent.data;
-	
+
 	if (data.Message === "AfterItemAdded")
 	{
 		$(".shoppinglist-delete-button[data-shoppinglist-id='" + data.Payload + "']").click();
@@ -212,7 +212,7 @@ $(window).on("message", function(e)
 $(document).on('click', '#shopping-list-stock-add-workflow-skip-button', function(e)
 {
 	e.preventDefault();
-	
+
 	window.postMessage(WindowMessageBag("Ready"), Grocy.BaseUrl);
 });
 

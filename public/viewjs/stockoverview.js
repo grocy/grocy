@@ -30,7 +30,7 @@ $("#location-filter").on("change", function()
 	{
 		value = "";
 	}
-	
+
 	stockOverviewTable.column(4).search(value).draw();
 });
 
@@ -41,7 +41,7 @@ $("#product-group-filter").on("change", function()
 	{
 		value = "";
 	}
-	
+
 	stockOverviewTable.column(6).search(value).draw();
 });
 
@@ -55,7 +55,7 @@ $("#status-filter").on("change", function()
 
 	// Transfer CSS classes of selected element to dropdown element (for background)
 	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
-	
+
 	stockOverviewTable.column(5).search(value).draw();
 });
 
@@ -73,7 +73,7 @@ $("#search").on("keyup", function()
 	{
 		value = "";
 	}
-	
+
 	stockOverviewTable.search(value).draw();
 });
 
@@ -86,16 +86,16 @@ $(document).on('click', '.product-consume-button', function(e)
 	document.activeElement.blur();
 
 	Grocy.FrontendHelpers.BeginUiBusy();
-	
+
 	var productId = $(e.currentTarget).attr('data-product-id');
 	var productName = $(e.currentTarget).attr('data-product-name');
 	var productQuName = $(e.currentTarget).attr('data-product-qu-name');
 	var consumeAmount = $(e.currentTarget).attr('data-consume-amount');
 
-	Grocy.Api.Get('stock/consume-product/' + productId + '/' + consumeAmount,
+	Grocy.Api.Post('stock/' + productId + '/consume/' + consumeAmount,
 		function()
 		{
-			Grocy.Api.Get('stock/get-product-details/' + productId,
+			Grocy.Api.Get('stock/' + productId,
 				function(result)
 				{
 					var productRow = $('#product-' + productId + '-row');
@@ -122,7 +122,7 @@ $(document).on('click', '.product-consume-button', function(e)
 						{
 							$(this).remove();
 						});
-					}	
+					}
 					else
 					{
 						$('#product-' + productId + '-amount').parent().effect('highlight', { }, 500);
@@ -183,16 +183,16 @@ $(document).on('click', '.product-open-button', function(e)
 	document.activeElement.blur();
 
 	Grocy.FrontendHelpers.BeginUiBusy();
-	
+
 	var productId = $(e.currentTarget).attr('data-product-id');
 	var productName = $(e.currentTarget).attr('data-product-name');
 	var productQuName = $(e.currentTarget).attr('data-product-qu-name');
 	var button = $(e.currentTarget);
 
-	Grocy.Api.Get('stock/open-product/' + productId + '/1',
+	Grocy.Api.Get('stock/' + productId + 'open/1',
 		function()
 		{
-			Grocy.Api.Get('stock/get-product-details/' + productId,
+			Grocy.Api.Get('stock/' + productId,
 				function(result)
 				{
 					var productRow = $('#product-' + productId + '-row');
@@ -257,7 +257,7 @@ $(document).on("click", ".product-name-cell", function(e)
 
 function RefreshStatistics()
 {
-	Grocy.Api.Get('stock/get-current-stock',
+	Grocy.Api.Get('stock',
 		function(result)
 		{
 			var amountSum = 0;
@@ -273,7 +273,7 @@ function RefreshStatistics()
 	);
 
 	var nextXDays = $("#info-expiring-products").data("next-x-days");
-	Grocy.Api.Get('stock/get-current-volatil-stock?expiring_days=' + nextXDays,
+	Grocy.Api.Get('stock/volatil?expiring_days=' + nextXDays,
 		function(result)
 		{
 			$("#info-expiring-products").text(Pluralize(result.expiring_products.length, L('#1 product expires within the next #2 days', result.expiring_products.length, nextXDays), L('#1 products expiring within the next #2 days', result.expiring_products.length, nextXDays)));

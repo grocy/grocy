@@ -73,7 +73,7 @@ $("#search").on("keyup", function()
 	{
 		value = "";
 	}
-	
+
 	equipmentTable.search(value).draw();
 });
 
@@ -98,7 +98,7 @@ $(document).on('click', '.equipment-delete-button', function (e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Get('delete-object/equipment/' + objectId,
+				Grocy.Api.Delete('delete-object/equipment/' + objectId,
 					function(result)
 					{
 						window.location.href = U('/equipment');

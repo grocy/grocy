@@ -28,7 +28,7 @@ $("#battery-filter").on("change", function()
 	{
 		text = "";
 	}
-	
+
 	batteriesJournalTable.column(1).search(text).draw();
 });
 
@@ -39,7 +39,7 @@ $("#search").on("keyup", function()
 	{
 		value = "";
 	}
-	
+
 	batteriesJournalTable.search(value).draw();
 });
 
@@ -56,7 +56,7 @@ $(document).on('click', '.undo-battery-execution-button', function(e)
 	var element = $(e.currentTarget);
 	var chargeCycleId = $(e.currentTarget).attr('data-charge-cycle-id');
 
-	Grocy.Api.Get('batteries/undo-charge-cycle/' + chargeCycleId.toString(),
+	Grocy.Api.Post('batteries/' + chargeCycleId.toString() + '/undo',
 		function(result)
 		{
 			element.closest("tr").addClass("text-muted");

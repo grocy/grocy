@@ -27,7 +27,7 @@ $("#search").on("keyup", function()
 	{
 		value = "";
 	}
-	
+
 	choresTable.search(value).draw();
 });
 
@@ -52,7 +52,7 @@ $(document).on('click', '.chore-delete-button', function (e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Get('delete-object/chores/' + objectId,
+				Grocy.Api.Delete('delete-object/chores/' + objectId,
 					function(result)
 					{
 						window.location.href = U('/chores');
