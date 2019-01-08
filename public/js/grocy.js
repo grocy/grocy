@@ -208,6 +208,37 @@ Grocy.Api.Put = function(apiFunction, jsonData, success, error)
 	xhr.send(JSON.stringify(jsonData));
 };
 
+Grocy.Api.Delete = function(apiFunction, jsonData, success, error)
+{
+	var xhr = new XMLHttpRequest();
+	var url = U('/api/' + apiFunction);
+
+	xhr.onreadystatechange = function()
+	{
+		if (xhr.readyState === XMLHttpRequest.DONE)
+		{
+			if (xhr.status === 200)
+			{
+				if (success)
+				{
+					success(JSON.parse(xhr.responseText));
+				}
+			}
+			else
+			{
+				if (error)
+				{
+					error(xhr);
+				}
+			}
+		}
+	};
+
+	xhr.open('DELETE', url, true);
+	xhr.setRequestHeader('Content-type', 'application/json');
+	xhr.send(JSON.stringify(jsonData));
+};
+
 Grocy.Api.UploadFile = function(file, group, fileName, success, error)
 {
 	var xhr = new XMLHttpRequest();
