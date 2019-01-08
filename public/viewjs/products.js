@@ -59,7 +59,7 @@ $(document).on('click', '.product-delete-button', function (e)
 					{
 						if (result === true)
 						{
-							Grocy.Api.Delete('delete-object/products/' + objectId,
+							Grocy.Api.Delete('object/products/' + objectId,
 								function (result)
 								{
 									window.location.href = U('/products');

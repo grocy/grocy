@@ -63,7 +63,7 @@ $("#selectedRecipeDeleteButton").on('click', function(e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Delete('delete-object/recipes/' + objectId,
+				Grocy.Api.Delete('object/recipes/' + objectId,
 					function(result)
 					{
 						window.location.href = U('/recipes');

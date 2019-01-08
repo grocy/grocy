@@ -52,7 +52,7 @@ $(document).on('click', '.battery-delete-button', function (e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Delete('delete-object/batteries/' + objectId,
+				Grocy.Api.Delete('object/batteries/' + objectId,
 					function(result)
 					{
 						window.location.href = U('/batteries');

@@ -25,7 +25,7 @@
 
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.Api.Post('add-object/products', jsonData,
+		Grocy.Api.Post('object/products', jsonData,
 			function (result)
 			{
 				if (jsonData.hasOwnProperty("picture_file_name") && !Grocy.DeleteProductPictureOnSave)
@@ -71,7 +71,7 @@
 			);
 		};
 
-		Grocy.Api.Post('edit-object/products/' + Grocy.EditObjectId, jsonData,
+		Grocy.Api.Put('object/products/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				if (jsonData.hasOwnProperty("picture_file_name") && !Grocy.DeleteProductPictureOnSave)
@@ -110,7 +110,7 @@ $('#barcode-taginput').tagsManager({
 
 if (Grocy.EditMode === 'edit')
 {
-	Grocy.Api.Get('get-object/products/' + Grocy.EditObjectId,
+	Grocy.Api.Get('object/products/' + Grocy.EditObjectId,
 		function (product)
 		{
 			if (product.barcode !== null && product.barcode.length > 0)
@@ -182,7 +182,7 @@ $('#product-form input').keydown(function(event)
 	if (event.keyCode === 13) //Enter
 	{
 		event.preventDefault();
-		
+
 		if (document.getElementById('product-form').checkValidity() === false) //There is at least one validation error
 		{
 			return false;

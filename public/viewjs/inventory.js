@@ -24,7 +24,7 @@
 							productDetails.product.barcode += ',' + addBarcode;
 						}
 
-						Grocy.Api.Post('edit-object/products/' + productDetails.product.id, productDetails.product,
+						Grocy.Api.Put('object/products/' + productDetails.product.id, productDetails.product,
 							function (result) { },
 							function(xhr)
 							{

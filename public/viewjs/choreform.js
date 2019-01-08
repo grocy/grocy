@@ -7,7 +7,7 @@
 
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.Api.Post('add-object/chores', jsonData,
+		Grocy.Api.Post('object/chores', jsonData,
 			function(result)
 			{
 				window.location.href = U('/chores');
@@ -21,7 +21,7 @@
 	}
 	else
 	{
-		Grocy.Api.Post('edit-object/chores/' + Grocy.EditObjectId, jsonData,
+		Grocy.Api.Put('object/chores/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				window.location.href = U('/chores');

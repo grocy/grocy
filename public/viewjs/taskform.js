@@ -11,7 +11,7 @@
 
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.Api.Post('add-object/tasks', jsonData,
+		Grocy.Api.Post('object/tasks', jsonData,
 			function(result)
 			{
 				window.location.href = U('/tasks');
@@ -25,7 +25,7 @@
 	}
 	else
 	{
-		Grocy.Api.Post('edit-object/tasks/' + Grocy.EditObjectId, jsonData,
+		Grocy.Api.Put('object/tasks/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				window.location.href = U('/tasks');
@@ -49,7 +49,7 @@ $('#task-form input').keydown(function(event)
 	if (event.keyCode === 13) //Enter
 	{
 		event.preventDefault();
-		
+
 		if (document.getElementById('task-form').checkValidity() === false) //There is at least one validation error
 		{
 			return false;

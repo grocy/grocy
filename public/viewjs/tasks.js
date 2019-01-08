@@ -123,7 +123,7 @@ $(document).on('click', '.delete-task-button', function (e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Delete('delete-object/tasks/' + objectId,
+				Grocy.Api.Delete('object/tasks/' + objectId,
 					function(result)
 					{
 						$('#task-' + objectId + '-row').fadeOut(500, function ()

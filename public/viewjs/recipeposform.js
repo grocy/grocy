@@ -9,7 +9,7 @@
 
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.Api.Post('add-object/recipes_pos', jsonData,
+		Grocy.Api.Post('object/recipes_pos', jsonData,
 			function(result)
 			{
 				window.location.href = U('/recipe/' + Grocy.EditObjectParentId);
@@ -23,7 +23,7 @@
 	}
 	else
 	{
-		Grocy.Api.Post('edit-object/recipes_pos/' + Grocy.EditObjectId, jsonData,
+		Grocy.Api.Put('object/recipes_pos/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				window.location.href = U('/recipe/' + Grocy.EditObjectParentId);

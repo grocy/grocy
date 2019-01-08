@@ -83,11 +83,11 @@ $app->group('/api', function()
 	$this->get('/get-openapi-specification', '\Grocy\Controllers\OpenApiController:DocumentationSpec');
 
 	// Generic entity interaction
-	$this->get('/get-objects/{entity}', '\Grocy\Controllers\GenericEntityApiController:GetObjects');
-	$this->get('/get-object/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:GetObject');
-	$this->post('/add-object/{entity}', '\Grocy\Controllers\GenericEntityApiController:AddObject');
-	$this->put('/edit-object/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:EditObject');
-	$this->delete('/delete-object/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:DeleteObject');
+	$this->get('/object/{entity}', '\Grocy\Controllers\GenericEntityApiController:GetObjects');
+	$this->get('/object/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:GetObject');
+	$this->post('/object/{entity}', '\Grocy\Controllers\GenericEntityApiController:AddObject');
+	$this->put('/object/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:EditObject');
+	$this->delete('/object/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:DeleteObject');
 
 	// System
 	$this->get('/system/get-db-changed-time', '\Grocy\Controllers\SystemApiController:GetDbChangedTime');
@@ -99,10 +99,10 @@ $app->group('/api', function()
 	$this->delete('/file/{group}', '\Grocy\Controllers\FilesApiController:DeleteFile');
 
 	// Users
-	$this->get('/users/get', '\Grocy\Controllers\UsersApiController:GetUsers');
-	$this->post('/users/create', '\Grocy\Controllers\UsersApiController:CreateUser');
-	$this->put('/users/edit/{userId}', '\Grocy\Controllers\UsersApiController:EditUser');
-	$this->delete('/users/delete/{userId}', '\Grocy\Controllers\UsersApiController:DeleteUser');
+	$this->get('/users', '\Grocy\Controllers\UsersApiController:GetUsers');
+	$this->post('/users', '\Grocy\Controllers\UsersApiController:CreateUser');
+	$this->put('/users/{userId}', '\Grocy\Controllers\UsersApiController:EditUser');
+	$this->delete('/users/{userId}', '\Grocy\Controllers\UsersApiController:DeleteUser');
 
 	// User
 	$this->get('/user/settings/{settingKey}', '\Grocy\Controllers\UsersApiController:GetUserSetting');

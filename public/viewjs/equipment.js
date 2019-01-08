@@ -34,7 +34,7 @@ equipmentTable.on('select', function(e, dt, type, indexes)
 
 function DisplayEquipment(id)
 {
-	Grocy.Api.Get('get-object/equipment/' + id,
+	Grocy.Api.Get('object/equipment/' + id,
 		function(equipmentItem)
 		{
 			$(".selected-equipment-name").text(equipmentItem.name);
@@ -98,7 +98,7 @@ $(document).on('click', '.equipment-delete-button', function (e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Delete('delete-object/equipment/' + objectId,
+				Grocy.Api.Delete('object/equipment/' + objectId,
 					function(result)
 					{
 						window.location.href = U('/equipment');

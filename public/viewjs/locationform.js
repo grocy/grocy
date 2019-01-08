@@ -7,7 +7,7 @@
 
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.Api.Post('add-object/locations', jsonData,
+		Grocy.Api.Post('object/locations', jsonData,
 			function(result)
 			{
 				window.location.href = U('/locations');
@@ -21,7 +21,7 @@
 	}
 	else
 	{
-		Grocy.Api.Post('edit-object/locations/' + Grocy.EditObjectId, jsonData,
+		Grocy.Api.Put('object/locations/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				window.location.href = U('/locations');
@@ -45,7 +45,7 @@ $('#location-form input').keydown(function (event)
 	if (event.keyCode === 13) //Enter
 	{
 		event.preventDefault();
-		
+
 		if (document.getElementById('location-form').checkValidity() === false) //There is at least one validation error
 		{
 			return false;

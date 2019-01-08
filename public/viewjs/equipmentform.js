@@ -15,10 +15,10 @@
 	{
 		jsonData.instruction_manual_file_name = null;
 	}
-	
+
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.Api.Post('add-object/equipment', jsonData,
+		Grocy.Api.Post('object/equipment', jsonData,
 			function(result)
 			{
 				if (jsonData.hasOwnProperty("instruction_manual_file_name") && !Grocy.DeleteInstructionManualOnSave)
@@ -64,7 +64,7 @@
 			);
 		};
 
-		Grocy.Api.Post('edit-object/equipment/' + Grocy.EditObjectId, jsonData,
+		Grocy.Api.Put('object/equipment/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				if (jsonData.hasOwnProperty("instruction_manual_file_name") && !Grocy.DeleteInstructionManualOnSave)
@@ -105,7 +105,7 @@ $('#equipment-form input').keydown(function(event)
 	if (event.keyCode === 13) //Enter
 	{
 		event.preventDefault();
-		
+
 		if (document.getElementById('equipment-form').checkValidity() === false) //There is at least one validation error
 		{
 			return false;

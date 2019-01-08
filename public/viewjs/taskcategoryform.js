@@ -7,7 +7,7 @@
 
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.Api.Post('add-object/task_categories', jsonData,
+		Grocy.Api.Post('object/task_categories', jsonData,
 			function(result)
 			{
 				window.location.href = U('/taskcategories');
@@ -21,7 +21,7 @@
 	}
 	else
 	{
-		Grocy.Api.Post('edit-object/task_categories/' + Grocy.EditObjectId, jsonData,
+		Grocy.Api.Put('object/task_categories/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				window.location.href = U('/taskcategories');
@@ -45,7 +45,7 @@ $('#task-category-form input').keydown(function (event)
 	if (event.keyCode === 13) //Enter
 	{
 		event.preventDefault();
-		
+
 		if (document.getElementById('task-category-form').checkValidity() === false) //There is at least one validation error
 		{
 			return false;

@@ -52,7 +52,7 @@ $(document).on('click', '.product-group-delete-button', function(e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Delete('delete-object/product_groups/' + objectId,
+				Grocy.Api.Delete('object/product_groups/' + objectId,
 					function(result)
 					{
 						window.location.href = U('/productgroups');
