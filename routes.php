@@ -86,7 +86,7 @@ $app->group('/api', function()
 	$this->get('/get-objects/{entity}', '\Grocy\Controllers\GenericEntityApiController:GetObjects');
 	$this->get('/get-object/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:GetObject');
 	$this->post('/add-object/{entity}', '\Grocy\Controllers\GenericEntityApiController:AddObject');
-	$this->post('/edit-object/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:EditObject');
+	$this->put('/edit-object/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:EditObject');
 	$this->delete('/delete-object/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:DeleteObject');
 
 	// System
@@ -101,7 +101,7 @@ $app->group('/api', function()
 	// Users
 	$this->get('/users/get', '\Grocy\Controllers\UsersApiController:GetUsers');
 	$this->post('/users/create', '\Grocy\Controllers\UsersApiController:CreateUser');
-	$this->post('/users/edit/{userId}', '\Grocy\Controllers\UsersApiController:EditUser');
+	$this->put('/users/edit/{userId}', '\Grocy\Controllers\UsersApiController:EditUser');
 	$this->delete('/users/delete/{userId}', '\Grocy\Controllers\UsersApiController:DeleteUser');
 
 	// User
@@ -109,34 +109,34 @@ $app->group('/api', function()
 	$this->post('/user/settings/{settingKey}', '\Grocy\Controllers\UsersApiController:SetUserSetting');
 
 	// Stock
+	$this->get('/stock/{productId}', '\Grocy\Controllers\StockApiController:ProductDetails');
+	$this->get('/stock/{productId}/pricehistory', '\Grocy\Controllers\StockApiController:ProductPriceHistory');
+	$this->get('/stock/{productId}/entries', '\Grocy\Controllers\StockApiController:ProductStockEntries');
+	$this->get('/stock', '\Grocy\Controllers\StockApiController:CurrentStock');
+	$this->get('/stock/volatile', '\Grocy\Controllers\StockApiController:CurrentVolatilStock');
 	$this->post('/stock/{productId}/add/{amount}', '\Grocy\Controllers\StockApiController:AddProduct');
 	$this->post('/stock/{productId}/consume/{amount}', '\Grocy\Controllers\StockApiController:ConsumeProduct');
 	$this->post('/stock/{productId}/open/{amount}', '\Grocy\Controllers\StockApiController:OpenProduct');
 	$this->post('/stock/{productId}/inventory/{newAmount}', '\Grocy\Controllers\StockApiController:InventoryProduct');
-	$this->get('/stock/{productId}', '\Grocy\Controllers\StockApiController:ProductDetails');
-	$this->get('/stock/{productId}/pricehistory', '\Grocy\Controllers\StockApiController:ProductPriceHistory');
-	$this->get('/stock/{productId}/entires', '\Grocy\Controllers\StockApiController:ProductStockEntries');
-	$this->get('/stock', '\Grocy\Controllers\StockApiController:CurrentStock');
-	$this->get('/stock/volatil', '\Grocy\Controllers\StockApiController:CurrentVolatilStock');
-	$this->post('/stock/shoppinglist', '\Grocy\Controllers\StockApiController:AddMissingProductsToShoppingList');
+  $this->post('/stock/shoppinglist', '\Grocy\Controllers\StockApiController:AddMissingProductsToShoppingList');
 	$this->post('/stock/clearshoppinglist', '\Grocy\Controllers\StockApiController:ClearShoppingList');
-	$this->get('/barcode/{barcode}', '\Grocy\Controllers\StockApiController:ExternalBarcodeLookup');
-	$this->post('/booking/{bookingId}/undo', '\Grocy\Controllers\StockApiController:UndoBooking');
+  $this->get('/barcode/{barcode}', '\Grocy\Controllers\StockApiController:ExternalBarcodeLookup');
+  $this->post('/booking/{bookingId}/undo', '\Grocy\Controllers\StockApiController:UndoBooking');
 
 	// Recipes
 	$this->post('/recipes/{recipeId}/shoppinglist', '\Grocy\Controllers\RecipesApiController:AddNotFulfilledProductsToShoppingList');
 	$this->post('/recipes/{recipeId}/consume', '\Grocy\Controllers\RecipesApiController:ConsumeRecipe');
 
 	// Chores
-	$this->post('/chores/{choreId}/execute', '\Grocy\Controllers\ChoresApiController:TrackChoreExecution');
 	$this->get('/chores/{choreId}', '\Grocy\Controllers\ChoresApiController:ChoreDetails');
 	$this->get('/chores', '\Grocy\Controllers\ChoresApiController:Current');
-	$this->post('/chores/{executionId}/undo', '\Grocy\Controllers\ChoresApiController:UndoChoreExecution');
+  $this->post('/chores/{executionId}/undo', '\Grocy\Controllers\ChoresApiController:UndoChoreExecution');
+  $this->post('/chores/{choreId}/execute', '\Grocy\Controllers\ChoresApiController:TrackChoreExecution');
 
 	// Batteries
-	$this->post('/batteries/{batteryId}/charge', '\Grocy\Controllers\BatteriesApiController:TrackChargeCycle');
 	$this->get('/batteries/{batteryId}', '\Grocy\Controllers\BatteriesApiController:BatteryDetails');
-	$this->get('/batteries', '\Grocy\Controllers\BatteriesApiController:Current');
+  $this->get('/batteries', '\Grocy\Controllers\BatteriesApiController:Current');
+	$this->post('/batteries/{batteryId}/charge', '\Grocy\Controllers\BatteriesApiController:TrackChargeCycle');
 	$this->post('/batteries/{chargeCycleId}/undo', '\Grocy\Controllers\BatteriesApiController:UndoChargeCycle');
 
 	// Tasks
