@@ -273,7 +273,7 @@ function RefreshStatistics()
 	);
 
 	var nextXDays = $("#info-expiring-products").data("next-x-days");
-	Grocy.Api.Get('stock/volatil?expiring_days=' + nextXDays,
+	Grocy.Api.Get('stock/volatile?expiring_days=' + nextXDays,
 		function(result)
 		{
 			$("#info-expiring-products").text(Pluralize(result.expiring_products.length, L('#1 product expires within the next #2 days', result.expiring_products.length, nextXDays), L('#1 products expiring within the next #2 days', result.expiring_products.length, nextXDays)));

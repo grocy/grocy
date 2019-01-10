@@ -108,12 +108,12 @@ $app->group('/api', function()
 	$this->get('/user/settings/{settingKey}', '\Grocy\Controllers\UsersApiController:GetUserSetting');
 	$this->post('/user/settings/{settingKey}', '\Grocy\Controllers\UsersApiController:SetUserSetting');
 
-	// Stock
+  // Stock
+  $this->get('/stock/volatile', '\Grocy\Controllers\StockApiController:CurrentVolatilStock');
 	$this->get('/stock/{productId}', '\Grocy\Controllers\StockApiController:ProductDetails');
 	$this->get('/stock/{productId}/pricehistory', '\Grocy\Controllers\StockApiController:ProductPriceHistory');
 	$this->get('/stock/{productId}/entries', '\Grocy\Controllers\StockApiController:ProductStockEntries');
 	$this->get('/stock', '\Grocy\Controllers\StockApiController:CurrentStock');
-	$this->get('/stock/volatile', '\Grocy\Controllers\StockApiController:CurrentVolatilStock');
 	$this->post('/stock/{productId}/add/{amount}', '\Grocy\Controllers\StockApiController:AddProduct');
 	$this->post('/stock/{productId}/consume/{amount}', '\Grocy\Controllers\StockApiController:ConsumeProduct');
 	$this->post('/stock/{productId}/open/{amount}', '\Grocy\Controllers\StockApiController:OpenProduct');
