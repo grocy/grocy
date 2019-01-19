@@ -30,11 +30,11 @@ class FilesApiController extends BaseApiController
 			$data = $request->getBody()->getContents();
 			file_put_contents($this->FilesService->GetFilePath($args['group'], $fileName), $data);
 
-			return $this->ApiResponse(array('success' => true));
+			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
 		{
-			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 
@@ -61,12 +61,12 @@ class FilesApiController extends BaseApiController
 			}
 			else
 			{
-				return $this->VoidApiActionResponse($response, false, 404, 'File not found');
+				return $this->GenericErrorResponse($response, 'File not found', 404);
 			}
 		}
 		catch (\Exception $ex)
 		{
-			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 
@@ -89,11 +89,11 @@ class FilesApiController extends BaseApiController
 				unlink($filePath);
 			}
 
-			return $this->ApiResponse(array('success' => true));
+			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
 		{
-			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 }

@@ -7,7 +7,7 @@
 
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.Api.Post('object/product_groups', jsonData,
+		Grocy.Api.Post('objects/product_groups', jsonData,
 			function(result)
 			{
 				window.location.href = U('/productgroups');
@@ -21,7 +21,7 @@
 	}
 	else
 	{
-		Grocy.Api.Put('object/product_groups/' + Grocy.EditObjectId, jsonData,
+		Grocy.Api.Put('objects/product_groups/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				window.location.href = U('/productgroups');

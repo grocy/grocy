@@ -7,7 +7,7 @@
 
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.Api.Post('object/shopping_list', jsonData,
+		Grocy.Api.Post('objects/shopping_list', jsonData,
 			function(result)
 			{
 				window.location.href = U('/shoppinglist');
@@ -21,7 +21,7 @@
 	}
 	else
 	{
-		Grocy.Api.Put('object/shopping_list/' + Grocy.EditObjectId, jsonData,
+		Grocy.Api.Put('objects/shopping_list/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				window.location.href = U('/shoppinglist');
@@ -43,7 +43,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 	{
 		Grocy.Components.ProductCard.Refresh(productId);
 
-		Grocy.Api.Get('stock/' + productId,
+		Grocy.Api.Get('stock/products/' + productId,
 			function (productDetails)
 			{
 				$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name);

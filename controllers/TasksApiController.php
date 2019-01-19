@@ -21,20 +21,22 @@ class TasksApiController extends BaseApiController
 
 	public function MarkTaskAsCompleted(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$doneTime = date('Y-m-d H:i:s');
-		if (isset($request->getQueryParams()['done_time']) && !empty($request->getQueryParams()['done_time']) && IsIsoDateTime($request->getQueryParams()['done_time']))
-		{
-			$doneTime = $request->getQueryParams()['done_time'];
-		}
+		$requestBody = $request->getParsedBody();
 
 		try
 		{
+			$doneTime = date('Y-m-d H:i:s');
+			if (array_key_exists('done_time', $requestBody) && IsIsoDateTime($requestBody['done_time']))
+			{
+				$doneTime = $requestBody['done_time'];
+			}
+
 			$this->TasksService->MarkTaskAsCompleted($args['taskId'], $doneTime);
-			return $this->VoidApiActionResponse($response);
+			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
 		{
-			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 }

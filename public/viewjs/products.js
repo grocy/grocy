@@ -36,7 +36,7 @@ $(document).on('click', '.product-delete-button', function (e)
 	var objectName = $(e.currentTarget).attr('data-product-name');
 	var objectId = $(e.currentTarget).attr('data-product-id');
 
-	Grocy.Api.Get('stock/' + objectId,
+	Grocy.Api.Get('stock/products/' + objectId,
 		function(productDetails)
 		{
 			var stockAmount = productDetails.stock_amount || '0';
@@ -59,7 +59,7 @@ $(document).on('click', '.product-delete-button', function (e)
 					{
 						if (result === true)
 						{
-							Grocy.Api.Delete('object/products/' + objectId,
+							Grocy.Api.Delete('objects/products/' + objectId, {},
 								function (result)
 								{
 									window.location.href = U('/products');

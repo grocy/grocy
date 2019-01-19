@@ -52,7 +52,7 @@ $(document).on('click', '.location-delete-button', function (e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Delete('object/locations/' + objectId,
+				Grocy.Api.Delete('objects/locations/' + objectId, {},
 					function(result)
 					{
 						window.location.href = U('/locations');

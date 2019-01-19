@@ -5,7 +5,7 @@
 	var jsonForm = $('#purchase-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("purchase-form");
 
-	Grocy.Api.Get('stock/' + jsonForm.product_id,
+	Grocy.Api.Get('stock/products/' + jsonForm.product_id,
 		function(productDetails)
 		{
 			var amount = jsonForm.amount * productDetails.product.qu_factor_purchase_to_stock;
@@ -16,7 +16,12 @@
 				price = parseFloat(jsonForm.price).toFixed(2);
 			}
 
-			Grocy.Api.Post('stock/' + jsonForm.product_id + '/add/' + amount + '?bestbeforedate=' + Grocy.Components.DateTimePicker.GetValue() + '&price=' + price,
+			var jsonData = {};
+			jsonData.amount = amount;
+			jsonData.best_before_date = Grocy.Components.DateTimePicker.GetValue();
+			jsonData.price = price;
+
+			Grocy.Api.Post('stock/products/' + jsonForm.product_id + '/add', jsonData,
 				function(result)
 				{
 					var addBarcode = GetUriParam('addbarcodetoselection');
@@ -32,7 +37,7 @@
 							productDetails.product.barcode += ',' + addBarcode;
 						}
 
-						Grocy.Api.Put('object/products/' + productDetails.product.id, productDetails.product,
+						Grocy.Api.Put('objects/products/' + productDetails.product.id, productDetails.product,
 							function (result) { },
 							function(xhr)
 							{
@@ -89,7 +94,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 	{
 		Grocy.Components.ProductCard.Refresh(productId);
 
-		Grocy.Api.Get('stock/' + productId,
+		Grocy.Api.Get('stock/products/' + productId,
 			function(productDetails)
 			{
 				$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name);

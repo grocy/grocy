@@ -18,7 +18,7 @@
 
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.Api.Post('object/equipment', jsonData,
+		Grocy.Api.Post('objects/equipment', jsonData,
 			function(result)
 			{
 				if (jsonData.hasOwnProperty("instruction_manual_file_name") && !Grocy.DeleteInstructionManualOnSave)
@@ -51,7 +51,7 @@
 	{
 		if (Grocy.DeleteInstructionManualOnSave)
 		{
-			Grocy.Api.DeleteFile(Grocy.InstructionManualFileNameName, 'equipmentmanuals',
+			Grocy.Api.DeleteFile(Grocy.InstructionManualFileNameName, 'equipmentmanuals', {},
 				function(result)
 				{
 					// Nothing to do
@@ -64,7 +64,7 @@
 			);
 		};
 
-		Grocy.Api.Put('object/equipment/' + Grocy.EditObjectId, jsonData,
+		Grocy.Api.Put('objects/equipment/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				if (jsonData.hasOwnProperty("instruction_manual_file_name") && !Grocy.DeleteInstructionManualOnSave)

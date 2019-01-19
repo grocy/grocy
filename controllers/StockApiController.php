@@ -22,7 +22,7 @@ class StockApiController extends BaseApiController
 		}
 		catch (\Exception $ex)
 		{
-			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 
@@ -34,107 +34,155 @@ class StockApiController extends BaseApiController
 		}
 		catch (\Exception $ex)
 		{
-			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 
 	public function AddProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$bestBeforeDate = date('Y-m-d');
-		if (isset($request->getQueryParams()['bestbeforedate']) && !empty($request->getQueryParams()['bestbeforedate']) && IsIsoDate($request->getQueryParams()['bestbeforedate']))
-		{
-			$bestBeforeDate = $request->getQueryParams()['bestbeforedate'];
-		}
-
-		$price = null;
-		if (isset($request->getQueryParams()['price']) && !empty($request->getQueryParams()['price']) && is_numeric($request->getQueryParams()['price']))
-		{
-			$price = $request->getQueryParams()['price'];
-		}
-
-		$transactionType = StockService::TRANSACTION_TYPE_PURCHASE;
-		if (isset($request->getQueryParams()['transactiontype']) && !empty($request->getQueryParams()['transactiontype']))
-		{
-			$transactionType = $request->getQueryParams()['transactiontype'];
-		}
+		$requestBody = $request->getParsedBody();
 
 		try
 		{
-			$bookingId = $this->StockService->AddProduct($args['productId'], $args['amount'], $bestBeforeDate, $transactionType, date('Y-m-d'), $price);
+			if ($requestBody === null)
+			{
+				throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
+			}
+
+			if (!array_key_exists('amount', $requestBody))
+			{
+				throw new \Exception('An amount is required');
+			}
+
+			$bestBeforeDate = date('Y-m-d');
+			if (array_key_exists('best_before_date', $requestBody) && IsIsoDate($requestBody['best_before_date']))
+			{
+				$bestBeforeDate = $requestBody['best_before_date'];
+			}
+
+			$price = null;
+			if (array_key_exists('price', $requestBody) && is_numeric($requestBody['price']))
+			{
+				$price = $requestBody['price'];
+			}
+
+			$transactionType = StockService::TRANSACTION_TYPE_PURCHASE;
+			if (array_key_exists('transaction_type', $requestBody)  && !empty($requestBody['transactiontype']))
+			{
+				$transactionType = $requestBody['transactiontype'];
+			}
+
+			$bookingId = $this->StockService->AddProduct($args['productId'], $requestBody['amount'], $bestBeforeDate, $transactionType, date('Y-m-d'), $price);
 			return $this->ApiResponse(array('booking_id' => $bookingId));
 		}
 		catch (\Exception $ex)
 		{
-			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 
 	public function ConsumeProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$spoiled = false;
-		if (isset($request->getQueryParams()['spoiled']) && !empty($request->getQueryParams()['spoiled']) && $request->getQueryParams()['spoiled'] == '1')
-		{
-			$spoiled = true;
-		}
-
-		$transactionType = StockService::TRANSACTION_TYPE_CONSUME;
-		if (isset($request->getQueryParams()['transactiontype']) && !empty($request->getQueryParams()['transactiontype']))
-		{
-			$transactionType = $request->getQueryParams()['transactiontype'];
-		}
-
-		$specificStockEntryId = "default";
-		if (isset($request->getQueryParams()['stock_entry_id']) && !empty($request->getQueryParams()['stock_entry_id']))
-		{
-			$specificStockEntryId = $request->getQueryParams()['stock_entry_id'];
-		}
+		$requestBody = $request->getParsedBody();
 
 		try
 		{
-			$bookingId = $this->StockService->ConsumeProduct($args['productId'], $args['amount'], $spoiled, $transactionType, $specificStockEntryId);
+			if ($requestBody === null)
+			{
+				throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
+			}
+
+			if (!array_key_exists('amount', $requestBody))
+			{
+				throw new \Exception('An amount is required');
+			}
+
+			$spoiled = false;
+			if (array_key_exists('spoiled', $requestBody))
+			{
+				$spoiled = $requestBody['spoiled'];
+			}
+
+			$transactionType = StockService::TRANSACTION_TYPE_CONSUME;
+			if (array_key_exists('transaction_type', $requestBody)  && !empty($requestBody['transactiontype']))
+			{
+				$transactionType = $requestBody['transactiontype'];
+			}
+
+			$specificStockEntryId = 'default';
+			if (array_key_exists('stock_entry_id', $requestBody) && !empty($requestBody['stock_entry_id']))
+			{
+				$specificStockEntryId = $requestBody['stock_entry_id'];
+			}
+
+			$bookingId = $this->StockService->ConsumeProduct($args['productId'], $requestBody['amount'], $spoiled, $transactionType, $specificStockEntryId);
 			return $this->ApiResponse(array('booking_id' => $bookingId));
 		}
 		catch (\Exception $ex)
 		{
-			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 
 	public function InventoryProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$bestBeforeDate = date('Y-m-d');
-		if (isset($request->getQueryParams()['bestbeforedate']) && !empty($request->getQueryParams()['bestbeforedate']) && IsIsoDate($request->getQueryParams()['bestbeforedate']))
-		{
-			$bestBeforeDate = $request->getQueryParams()['bestbeforedate'];
-		}
+		$requestBody = $request->getParsedBody();
 
 		try
 		{
-			$bookingId = $this->StockService->InventoryProduct($args['productId'], $args['newAmount'], $bestBeforeDate);
+			if ($requestBody === null)
+			{
+				throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
+			}
+
+			if (!array_key_exists('new_amount', $requestBody))
+			{
+				throw new \Exception('An new amount is required');
+			}
+
+			$bestBeforeDate = date('Y-m-d');
+			if (array_key_exists('best_before_date', $requestBody) && IsIsoDate($requestBody['best_before_date']))
+			{
+				$bestBeforeDate = $requestBody['best_before_date'];
+			}
+
+			$bookingId = $this->StockService->InventoryProduct($args['productId'], $requestBody['new_amount'], $bestBeforeDate);
 			return $this->ApiResponse(array('booking_id' => $bookingId));
 		}
 		catch (\Exception $ex)
 		{
-			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 
 	public function OpenProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$specificStockEntryId = "default";
-		if (isset($request->getQueryParams()['stock_entry_id']) && !empty($request->getQueryParams()['stock_entry_id']))
-		{
-			$specificStockEntryId = $request->getQueryParams()['stock_entry_id'];
-		}
+		$requestBody = $request->getParsedBody();
 
 		try
 		{
-			$bookingId = $this->StockService->OpenProduct($args['productId'], $args['amount'], $specificStockEntryId);
+			if ($requestBody === null)
+			{
+				throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
+			}
+
+			if (!array_key_exists('amount', $requestBody))
+			{
+				throw new \Exception('An amount is required');
+			}
+
+			$specificStockEntryId = 'default';
+			if (array_key_exists('stock_entry_id', $requestBody) && !empty($requestBody['stock_entry_id']))
+			{
+				$specificStockEntryId = $requestBody['stock_entry_id'];
+			}
+
+			$bookingId = $this->StockService->OpenProduct($args['productId'], $requestBody['amount'], $specificStockEntryId);
 			return $this->ApiResponse(array('booking_id' => $bookingId));
 		}
 		catch (\Exception $ex)
 		{
-			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 
@@ -164,13 +212,13 @@ class StockApiController extends BaseApiController
 	public function AddMissingProductsToShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$this->StockService->AddMissingProductsToShoppingList();
-		return $this->VoidApiActionResponse($response);
+		return $this->EmptyApiResponse($response);
 	}
 
 	public function ClearShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$this->StockService->ClearShoppingList();
-		return $this->VoidApiActionResponse($response);
+		return $this->EmptyApiResponse($response);
 	}
 
 	public function ExternalBarcodeLookup(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
@@ -187,7 +235,7 @@ class StockApiController extends BaseApiController
 		}
 		catch (\Exception $ex)
 		{
-			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 
@@ -196,11 +244,11 @@ class StockApiController extends BaseApiController
 		try
 		{
 			$this->ApiResponse($this->StockService->UndoBooking($args['bookingId']));
-			return $this->ApiResponse(array('success' => true));
+			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
 		{
-			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 

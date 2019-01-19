@@ -18,10 +18,14 @@ class BaseApiController extends BaseController
 		return json_encode($data);
 	}
 
-	protected function VoidApiActionResponse($response, $success = true, $status = 200, $errorMessage = '')
+	protected function EmptyApiResponse($response, $status = 204)
+	{
+		return $response->withStatus($status);
+	}
+
+	protected function GenericErrorResponse($response, $errorMessage, $status = 400)
 	{
 		return $response->withStatus($status)->withJson(array(
-			'success' => $success,
 			'error_message' => $errorMessage
 		));
 	}

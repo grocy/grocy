@@ -22,7 +22,7 @@ class UsersApiController extends BaseApiController
 		}
 		catch (\Exception $ex)
 		{
-			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 
@@ -38,11 +38,11 @@ class UsersApiController extends BaseApiController
 			}
 
 			$this->UsersService->CreateUser($requestBody['username'], $requestBody['first_name'], $requestBody['last_name'], $requestBody['password']);
-			return $this->ApiResponse(array('success' => true));
+			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
 		{
-			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 
@@ -51,11 +51,11 @@ class UsersApiController extends BaseApiController
 		try
 		{
 			$this->UsersService->DeleteUser($args['userId']);
-			return $this->ApiResponse(array('success' => true));
+			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
 		{
-			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 
@@ -66,11 +66,11 @@ class UsersApiController extends BaseApiController
 		try
 		{
 			$this->UsersService->EditUser($args['userId'], $requestBody['username'], $requestBody['first_name'], $requestBody['last_name'], $requestBody['password']);
-			return $this->ApiResponse(array('success' => true));
+			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
 		{
-			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 
@@ -83,7 +83,7 @@ class UsersApiController extends BaseApiController
 		}
 		catch (\Exception $ex)
 		{
-			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 
@@ -94,11 +94,11 @@ class UsersApiController extends BaseApiController
 			$requestBody = $request->getParsedBody();
 
 			$value = $this->UsersService->SetUserSetting(GROCY_USER_ID, $args['settingKey'], $requestBody['value']);
-			return $this->ApiResponse(array('success' => true));
+			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
 		{
-			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 }

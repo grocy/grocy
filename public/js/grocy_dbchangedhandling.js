@@ -1,4 +1,4 @@
-﻿Grocy.Api.Get('system/get-db-changed-time',
+﻿Grocy.Api.Get('system/db-changed-time',
 	function(result)
 	{
 		Grocy.DatabaseChangedTime = moment(result.changed_time);
@@ -14,7 +14,7 @@
 // when there is no unsaved form data and when the user enabled auto reloading
 setInterval(function()
 {
-	Grocy.Api.Get('system/get-db-changed-time',
+	Grocy.Api.Get('system/db-changed-time',
 		function(result)
 		{
 			var newDbChangedTime = moment(result.changed_time);

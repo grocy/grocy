@@ -10,23 +10,21 @@
 		jsonForm.amount = 1;
 	}
 
-	var spoiled = 0;
-	if ($('#spoiled').is(':checked'))
-	{
-		spoiled = 1;
-	}
+	var apiUrl = 'stock/products/' + jsonForm.product_id + '/consume';
 
-	var apiUrl = 'stock/' + jsonForm.product_id + '/consume/' + jsonForm.amount + '?spoiled=' + spoiled;
+	var jsonData = {};
+	jsonData.amount = jsonForm.amount;
+	jsonData.spoiled = $('#spoiled').is(':checked');
 
 	if ($("#use_specific_stock_entry").is(":checked"))
 	{
-		apiUrl += "&stock_entry_id=" + jsonForm.specific_stock_entry;
+		jsonData.stock_entry_id = jsonForm.specific_stock_entry;
 	}
 
-	Grocy.Api.Get('stock/' + jsonForm.product_id,
+	Grocy.Api.Get('stock/products/' + jsonForm.product_id,
 		function(productDetails)
 		{
-			Grocy.Api.Post(apiUrl,
+			Grocy.Api.Post(apiUrl, jsonData,
 				function(result)
 				{
 					$("#specific_stock_entry").find("option").remove().end().append("<option></option>");
@@ -70,17 +68,20 @@ $('#save-mark-as-open-button').on('click', function(e)
 		jsonForm.amount = 1;
 	}
 
-	var apiUrl = 'stock/' + jsonForm.product_id + '/open/' + jsonForm.amount;
+	var apiUrl = 'stock/products/' + jsonForm.product_id + '/open';
+
+	jsonData = { };
+	jsonData.amount = jsonForm.amount;
 
 	if ($("#use_specific_stock_entry").is(":checked"))
 	{
-		apiUrl += "&stock_entry_id=" + jsonForm.specific_stock_entry;
+		jsonData.stock_entry_id = jsonForm.specific_stock_entry;
 	}
 
-	Grocy.Api.Get('stock/' + jsonForm.product_id,
+	Grocy.Api.Get('stock/products/' + jsonForm.product_id,
 		function(productDetails)
 		{
-			Grocy.Api.Post(apiUrl,
+			Grocy.Api.Post(apiUrl, jsonData,
 				function(result)
 				{
 					$("#specific_stock_entry").find("option").remove().end().append("<option></option>");
@@ -126,7 +127,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 	{
 		Grocy.Components.ProductCard.Refresh(productId);
 
-		Grocy.Api.Get('stock/' + productId,
+		Grocy.Api.Get('stock/products/' + productId,
 			function(productDetails)
 			{
 				$('#amount').attr('max', productDetails.stock_amount);
@@ -161,8 +162,8 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 			}
 		);
 
-		Grocy.Api.Get("stock/" + productId,
-			function (stockEntries)
+		Grocy.Api.Get("stock/products/" + productId + '/entries',
+			function(stockEntries)
 			{
 				stockEntries.forEach(stockEntry =>
 				{
@@ -249,7 +250,7 @@ $("#use_specific_stock_entry").on("change", function()
 
 function UndoStockBooking(bookingId)
 {
-	Grocy.Api.Post('booking/' + bookingId.toString() + '/undo',
+	Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', { },
 		function(result)
 		{
 			toastr.success(L("Booking successfully undone"));

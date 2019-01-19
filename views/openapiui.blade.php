@@ -22,7 +22,7 @@
 	<script>
 		var Grocy = { };
 		Grocy.OpenApi = { };
-		Grocy.OpenApi.SpecUrl = '{{ $U('/api/get-openapi-specification') }}';
+		Grocy.OpenApi.SpecUrl = '{{ $U('/api/openapi/specification') }}';
 	</script>
 </head>
 

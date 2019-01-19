@@ -70,7 +70,7 @@ $(document).on('click', '.do-task-button', function(e)
 	var taskName = $(e.currentTarget).attr('data-task-name');
 	var doneTime = moment().format('YYYY-MM-DD HH:mm:ss');
 
-	Grocy.Api.Get('tasks/' + taskId + '/complete?done_time=' + doneTime,
+	Grocy.Api.Post('tasks/' + taskId + '/complete', { 'done_time': doneTime },
 		function()
 		{
 			if (!$("#show-done-tasks").is(":checked"))
@@ -123,7 +123,7 @@ $(document).on('click', '.delete-task-button', function (e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Delete('object/tasks/' + objectId,
+				Grocy.Api.Delete('objects/tasks/' + objectId, {},
 					function(result)
 					{
 						$('#task-' + objectId + '-row').fadeOut(500, function ()

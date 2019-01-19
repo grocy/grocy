@@ -16,26 +16,28 @@ class ChoresApiController extends BaseApiController
 
 	public function TrackChoreExecution(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$trackedTime = date('Y-m-d H:i:s');
-		if (isset($request->getQueryParams()['tracked_time']) && !empty($request->getQueryParams()['tracked_time']) && IsIsoDateTime($request->getQueryParams()['tracked_time']))
-		{
-			$trackedTime = $request->getQueryParams()['tracked_time'];
-		}
-
-		$doneBy = GROCY_USER_ID;
-		if (isset($request->getQueryParams()['done_by']) && !empty($request->getQueryParams()['done_by']))
-		{
-			$doneBy = $request->getQueryParams()['done_by'];
-		}
+		$requestBody = $request->getParsedBody();
 
 		try
 		{
+			$trackedTime = date('Y-m-d H:i:s');
+			if (array_key_exists('tracked_time', $requestBody) && IsIsoDateTime($requestBody['tracked_time']))
+			{
+				$trackedTime = $requestBody['tracked_time'];
+			}
+
+			$doneBy = GROCY_USER_ID;
+			if (array_key_exists('done_by', $requestBody) && !empty($requestBody['done_by']))
+			{
+				$doneBy = $requestBody['done_by'];
+			}
+
 			$choreExecutionId = $this->ChoresService->TrackChore($args['choreId'], $trackedTime, $doneBy);
 			return $this->ApiResponse(array('chore_execution_id' => $choreExecutionId));
 		}
 		catch (\Exception $ex)
 		{
-			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 
@@ -47,7 +49,7 @@ class ChoresApiController extends BaseApiController
 		}
 		catch (\Exception $ex)
 		{
-			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 
@@ -61,11 +63,11 @@ class ChoresApiController extends BaseApiController
 		try
 		{
 			$this->ApiResponse($this->ChoresService->UndoChoreExecution($args['executionId']));
-			return $this->ApiResponse(array('success' => true));
+			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
 		{
-			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 }

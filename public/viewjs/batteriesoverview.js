@@ -66,7 +66,7 @@ $(document).on('click', '.track-charge-cycle-button', function(e)
 	var batteryName = $(e.currentTarget).attr('data-battery-name');
 	var trackedTime = moment().format('YYYY-MM-DD HH:mm:ss');
 
-	Grocy.Api.Post('batteries/' + batteryId + '/charged?tracked_time=' + trackedTime,
+	Grocy.Api.Post('batteries/' + batteryId + '/charge', { 'tracked_time': trackedTime },
 		function()
 		{
 			Grocy.Api.Get('batteries/' + batteryId,

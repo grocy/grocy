@@ -7,7 +7,7 @@
 
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.Api.Post('object/quantity_units', jsonData,
+		Grocy.Api.Post('objects/quantity_units', jsonData,
 			function(result)
 			{
 				window.location.href = U('/quantityunits');
@@ -21,7 +21,7 @@
 	}
 	else
 	{
-		Grocy.Api.Put('object/quantity_units/' + Grocy.EditObjectId, jsonData,
+		Grocy.Api.Put('objects/quantity_units/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				window.location.href = U('/quantityunits');

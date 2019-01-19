@@ -56,7 +56,7 @@ $(document).on('click', '.undo-stock-booking-button', function(e)
 	var element = $(e.currentTarget);
 	var bookingId = $(e.currentTarget).attr('data-booking-id');
 
-	Grocy.Api.Get('booking/' + bookingId.toString() + '/undo',
+	Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', { },
 		function(result)
 		{
 			element.closest("tr").addClass("text-muted");

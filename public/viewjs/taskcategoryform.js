@@ -7,7 +7,7 @@
 
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.Api.Post('object/task_categories', jsonData,
+		Grocy.Api.Post('objects/task_categories', jsonData,
 			function(result)
 			{
 				window.location.href = U('/taskcategories');
@@ -21,7 +21,7 @@
 	}
 	else
 	{
-		Grocy.Api.Put('object/task_categories/' + Grocy.EditObjectId, jsonData,
+		Grocy.Api.Put('objects/task_categories/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				window.location.href = U('/taskcategories');

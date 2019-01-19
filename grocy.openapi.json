@@ -24,7 +24,7 @@
 		}
 	],
 	"paths": {
-		"/system/get-db-changed-time": {
+		"/system/db-changed-time": {
 			"get": {
 				"description": "Returns the time when the database was last changed",
 				"tags": [
@@ -62,22 +62,15 @@
 					}
 				},
 				"responses": {
-					"200": {
-						"description": "A VoidApiActionResponse object",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/VoidApiActionResponse"
-								}
-							}
-						}
+					"204": {
+						"description": "The operation was successful"
 					},
 					"400": {
-						"description": "A VoidApiActionResponse object",
+						"description": "The operation was not successful",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+									"$ref": "#/components/schemas/GenericErrorResponse"
 								}
 							}
 						}
@@ -85,7 +78,7 @@
 				}
 			}
 		},
-		"/get-objects/{entity}": {
+		"/objects/{entity}": {
 			"get": {
 				"description": "Returns all objects of the given entity",
 				"tags": [
@@ -139,11 +132,76 @@
 						}
 					},
 					"400": {
-						"description": "A VoidApiActionResponse object",
+						"description": "The operation was not successful",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"description": "Adds a single object of the given entity",
+				"tags": [
+					"Generic entity interactions"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "entity",
+						"required": true,
+						"description": "A valid entity name",
+						"schema": {
+							"$ref": "#/components/internalSchemas/ExposedEntity"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "A valid entity object of the entity specified in parameter *entity*",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"oneOf": [
+									{
+										"$ref": "#/components/schemas/Product"
+									},
+									{
+										"$ref": "#/components/schemas/Chore"
+									},
+									{
+										"$ref": "#/components/schemas/Battery"
+									},
+									{
+										"$ref": "#/components/schemas/Location"
+									},
+									{
+										"$ref": "#/components/schemas/QuantityUnit"
+									},
+									{
+										"$ref": "#/components/schemas/ShoppingListItem"
+									},
+									{
+										"$ref": "#/components/schemas/StockEntry"
+									}
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
 								}
 							}
 						}
@@ -151,7 +209,7 @@
 				}
 			}
 		},
-		"/get-object/{entity}/{objectId}": {
+		"/objects/{entity}/{objectId}": {
 			"get": {
 				"description": "Returns a single object of the given entity",
 				"tags": [
@@ -212,94 +270,18 @@
 						}
 					},
 					"400": {
-						"description": "A VoidApiActionResponse object",
+						"description": "The operation was not successful",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+									"$ref": "#/components/schemas/GenericErrorResponse"
 								}
 							}
 						}
 					}
 				}
-			}
-		},
-		"/add-object/{entity}": {
-			"post": {
-				"description": "Adds a single object of the given entity",
-				"tags": [
-					"Generic entity interactions"
-				],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "entity",
-						"required": true,
-						"description": "A valid entity name",
-						"schema": {
-							"$ref": "#/components/internalSchemas/ExposedEntity"
-						}
-					}
-				],
-				"requestBody": {
-					"description": "A valid entity object of entity specified in parameter *entity*",
-					"required": true,
-					"content": {
-						"application/json": {
-							"schema": {
-								"oneOf": [
-									{
-										"$ref": "#/components/schemas/Product"
-									},
-									{
-										"$ref": "#/components/schemas/Chore"
-									},
-									{
-										"$ref": "#/components/schemas/Battery"
-									},
-									{
-										"$ref": "#/components/schemas/Location"
-									},
-									{
-										"$ref": "#/components/schemas/QuantityUnit"
-									},
-									{
-										"$ref": "#/components/schemas/ShoppingListItem"
-									},
-									{
-										"$ref": "#/components/schemas/StockEntry"
-									}
-								]
-							}
-						}
-					}
-				},
-				"responses": {
-					"200": {
-						"description": "A VoidApiActionResponse object",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/VoidApiActionResponse"
-								}
-							}
-						}
-					},
-					"400": {
-						"description": "A VoidApiActionResponse object",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
-								}
-							}
-						}
-					}
-				}
-			}
-		},
-		"/edit-object/{entity}/{objectId}": {
-			"post": {
+			},
+			"put": {
 				"description": "Edits the given object of the given entity",
 				"tags": [
 					"Generic entity interactions"
@@ -325,7 +307,7 @@
 					}
 				],
 				"requestBody": {
-					"description": "A valid entity object of entity specified in parameter *entity*",
+					"description": "A valid entity object of the entity specified in parameter *entity*",
 					"required": true,
 					"content": {
 						"application/json": {
@@ -358,31 +340,22 @@
 					}
 				},
 				"responses": {
-					"200": {
-						"description": "A VoidApiActionResponse object",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/VoidApiActionResponse"
-								}
-							}
-						}
+					"204": {
+						"description": "The operation was successful"
 					},
 					"400": {
-						"description": "A VoidApiActionResponse object",
+						"description": "The operation was not successful",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+									"$ref": "#/components/schemas/GenericErrorResponse"
 								}
 							}
 						}
 					}
 				}
-			}
-		},
-		"/delete-object/{entity}/{objectId}": {
-			"get": {
+			},
+			"delete": {
 				"description": "Deletes a single object of the given entity",
 				"tags": [
 					"Generic entity interactions"
@@ -408,22 +381,15 @@
 					}
 				],
 				"responses": {
-					"200": {
-						"description": "A VoidApiActionResponse object",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/VoidApiActionResponse"
-								}
-							}
-						}
+					"204": {
+						"description": "The operation was successful"
 					},
 					"400": {
-						"description": "A VoidApiActionResponse object",
+						"description": "The operation was not successful",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+									"$ref": "#/components/schemas/GenericErrorResponse"
 								}
 							}
 						}
@@ -470,11 +436,11 @@
 						}
 					},
 					"400": {
-						"description": "A VoidApiActionResponse object",
+						"description": "The operation was not successful",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+									"$ref": "#/components/schemas/GenericErrorResponse"
 								}
 							}
 						}
@@ -517,22 +483,15 @@
 					}
 				},
 				"responses": {
-					"200": {
-						"description": "A VoidApiActionResponse object",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/VoidApiActionResponse"
-								}
-							}
-						}
+					"204": {
+						"description": "The operation was successful"
 					},
 					"400": {
-						"description": "A VoidApiActionResponse object",
+						"description": "The operation was not successful",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+									"$ref": "#/components/schemas/GenericErrorResponse"
 								}
 							}
 						}
@@ -565,22 +524,15 @@
 					}
 				],
 				"responses": {
-					"200": {
-						"description": "A VoidApiActionResponse object",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/VoidApiActionResponse"
-								}
-							}
-						}
+					"204": {
+						"description": "The operation was successful"
 					},
 					"400": {
-						"description": "A VoidApiActionResponse object",
+						"description": "The operation was not successful",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+									"$ref": "#/components/schemas/GenericErrorResponse"
 								}
 							}
 						}
@@ -588,7 +540,7 @@
 				}
 			}
 		},
-		"/users/get": {
+		"/users": {
 			"get": {
 				"description": "Returns all users",
 				"tags": [
@@ -609,19 +561,17 @@
 						}
 					},
 					"400": {
-						"description": "A VoidApiActionResponse object",
+						"description": "The operation was not successful",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+									"$ref": "#/components/schemas/GenericErrorResponse"
 								}
 							}
 						}
 					}
 				}
-			}
-		},
-		"/users/create": {
+			},
 			"post": {
 				"description": "Creates a new user",
 				"tags": [
@@ -639,22 +589,15 @@
 					}
 				},
 				"responses": {
-					"200": {
-						"description": "A VoidApiActionResponse object",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/VoidApiActionResponse"
-								}
-							}
-						}
+					"204": {
+						"description": "The operation was successful"
 					},
 					"400": {
-						"description": "A VoidApiActionResponse object",
+						"description": "The operation was not successful",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+									"$ref": "#/components/schemas/GenericErrorResponse"
 								}
 							}
 						}
@@ -662,8 +605,8 @@
 				}
 			}
 		},
-		"/users/edit/{userId}": {
-			"post": {
+		"/users/{userId}": {
+			"put": {
 				"description": "Edits the given user",
 				"tags": [
 					"User management"
@@ -691,31 +634,22 @@
 					}
 				},
 				"responses": {
-					"200": {
-						"description": "A VoidApiActionResponse object",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/VoidApiActionResponse"
-								}
-							}
-						}
+					"204": {
+						"description": "The operation was successful"
 					},
 					"400": {
-						"description": "A VoidApiActionResponse object",
+						"description": "The operation was not successful",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+									"$ref": "#/components/schemas/GenericErrorResponse"
 								}
 							}
 						}
 					}
 				}
-			}
-		},
-		"/users/delete/{userId}": {
-			"get": {
+			},
+			"delete": {
 				"description": "Deletes the given user",
 				"tags": [
 					"User management"
@@ -732,22 +666,15 @@
 					}
 				],
 				"responses": {
-					"200": {
-						"description": "A VoidApiActionResponse object",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/VoidApiActionResponse"
-								}
-							}
-						}
+					"204": {
+						"description": "The operation was successful"
 					},
 					"400": {
-						"description": "A VoidApiActionResponse object",
+						"description": "The operation was not successful",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+									"$ref": "#/components/schemas/GenericErrorResponse"
 								}
 							}
 						}
@@ -757,7 +684,7 @@
 		},
 		"/user/settings/{settingKey}": {
 			"get": {
-				"description": "Gets the given setting of the currently logged on user",
+				"description": "Gets the given setting of the currently logged in user",
 				"tags": [
 					"User settings"
 				],
@@ -784,19 +711,19 @@
 						}
 					},
 					"400": {
-						"description": "A VoidApiActionResponse object",
+						"description": "The operation was not successful",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+									"$ref": "#/components/schemas/GenericErrorResponse"
 								}
 							}
 						}
 					}
 				}
 			},
-			"post": {
-				"description": "Sets the given setting of the currently logged on user",
+			"put": {
+				"description": "Sets the given setting of the currently logged in user",
 				"tags": [
 					"User settings"
 				],
@@ -823,22 +750,15 @@
 					}
 				],
 				"responses": {
-					"200": {
-						"description": "A VoidApiActionResponse object",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/VoidApiActionResponse"
-								}
-							}
-						}
+					"204": {
+						"description": "The operation was successful"
 					},
 					"400": {
-						"description": "A VoidApiActionResponse object",
+						"description": "The operation was not successful",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+									"$ref": "#/components/schemas/GenericErrorResponse"
 								}
 							}
 						}
@@ -846,413 +766,7 @@
 				}
 			}
 		},
-		"/stock/add-product/{productId}/{amount}": {
-			"get": {
-				"description": "Adds the the given amount of the given product to stock",
-				"tags": [
-					"Stock"
-				],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "productId",
-						"required": true,
-						"description": "A valid product id",
-						"schema": {
-							"type": "integer"
-						}
-					},
-					{
-						"in": "path",
-						"name": "amount",
-						"required": true,
-						"description": "The amount to add",
-						"schema": {
-							"type": "integer"
-						}
-					},
-					{
-						"in": "query",
-						"name": "bestbeforedate",
-						"required": false,
-						"description": "The best before date of the product to add, when omitted, the current date is used",
-						"schema": {
-							"type": "string",
-							"format": "date"
-						}
-					},
-					{
-						"in": "query",
-						"name": "price",
-						"required": false,
-						"description": "The price per purchase quantity unit in configured currency",
-						"schema": {
-							"type": "number",
-							"format": "double"
-						}
-					},
-					{
-						"in": "query",
-						"name": "transactiontype",
-						"required": false,
-						"description": "The transaction type for this transaction, when omitted, *purchase* is used",
-						"schema": {
-							"$ref": "#/components/internalSchemas/StockTransactionType"
-						}
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "A VoidApiActionResponse object",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/VoidApiActionResponse"
-								}
-							}
-						}
-					},
-					"400": {
-						"description": "A VoidApiActionResponse object (possible errors are: Not existing product, invalid transaction type)",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
-								}
-							}
-						}
-					}
-				}
-			}
-		},
-		"/stock/consume-product/{productId}/{amount}": {
-			"get": {
-				"description": "Removes the the given amount of the given product from stock",
-				"tags": [
-					"Stock"
-				],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "productId",
-						"required": true,
-						"description": "A valid product id",
-						"schema": {
-							"type": "integer"
-						}
-					},
-					{
-						"in": "path",
-						"name": "amount",
-						"required": false,
-						"description": "The amount to remove",
-						"schema": {
-							"type": "boolean",
-							"default": false
-						}
-					},
-					{
-						"in": "query",
-						"name": "spoiled",
-						"required": true,
-						"description": "True when the given product was spoiled, defaults to false",
-						"schema": {
-							"type": "integer"
-						}
-					},
-					{
-						"in": "query",
-						"name": "transactiontype",
-						"required": false,
-						"description": "The transaction type for this transaction, when omitted, *consume* is used",
-						"schema": {
-							"$ref": "#/components/internalSchemas/StockTransactionType"
-						}
-					},
-					{
-						"in": "query",
-						"name": "stock_entry_id",
-						"required": false,
-						"description": "A specific stock entry id to consume, if used, the amount has to be 1",
-						"schema": {
-							"type": "string"
-						}
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "A VoidApiActionResponse object",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/VoidApiActionResponse"
-								}
-							}
-						}
-					},
-					"400": {
-						"description": "A VoidApiActionResponse object (possible errors are: Not existing product, invalid transaction type)",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
-								}
-							}
-						}
-					}
-				}
-			}
-		},
-		"/stock/open-product/{productId}/{amount}": {
-			"get": {
-				"description": "Marks the the given amount of the given product as opened",
-				"tags": [
-					"Stock"
-				],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "productId",
-						"required": true,
-						"description": "A valid product id",
-						"schema": {
-							"type": "integer"
-						}
-					},
-					{
-						"in": "path",
-						"name": "amount",
-						"required": false,
-						"description": "The amount to remove",
-						"schema": {
-							"type": "boolean",
-							"default": false
-						}
-					},
-					{
-						"in": "query",
-						"name": "stock_entry_id",
-						"required": false,
-						"description": "A specific stock entry id to open, if used, the amount has to be 1",
-						"schema": {
-							"type": "string"
-						}
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "A VoidApiActionResponse object",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/VoidApiActionResponse"
-								}
-							}
-						}
-					},
-					"400": {
-						"description": "A VoidApiActionResponse object (possible errors are: Not existing product)",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
-								}
-							}
-						}
-					}
-				}
-			}
-		},
-		"/stock/inventory-product/{productId}/{newAmount}": {
-			"get": {
-				"description": "Inventories the the given product (adds/removes based on the given new current amount)",
-				"tags": [
-					"Stock"
-				],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "productId",
-						"required": true,
-						"description": "A valid product id",
-						"schema": {
-							"type": "integer"
-						}
-					},
-					{
-						"in": "path",
-						"name": "newAmount",
-						"required": true,
-						"description": "The new current amount for the given product",
-						"schema": {
-							"type": "integer"
-						}
-					},
-					{
-						"in": "query",
-						"name": "bestbeforedate",
-						"required": false,
-						"description": "The best before date which applies to added products",
-						"schema": {
-							"type": "string",
-							"format": "date"
-						}
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "A VoidApiActionResponse object",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/VoidApiActionResponse"
-								}
-							}
-						}
-					},
-					"400": {
-						"description": "A VoidApiActionResponse object (possible errors are: Not existing product)",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
-								}
-							}
-						}
-					}
-				}
-			}
-		},
-		"/stock/get-product-details/{productId}": {
-			"get": {
-				"description": "Returns details of the given product",
-				"tags": [
-					"Stock"
-				],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "productId",
-						"required": true,
-						"description": "A valid product id",
-						"schema": {
-							"type": "integer"
-						}
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "A ProductDetailsResponse object",
-						"content": {
-							"application/json": {
-								"schema":{
-									"$ref": "#/components/schemas/ProductDetailsResponse"
-								}
-							}
-						}
-					},
-					"400": {
-						"description": "A VoidApiActionResponse object (possible errors are: Not existing product)",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
-								}
-							}
-						}
-					}
-				}
-			}
-		},
-		"/stock/get-product-price-history/{productId}": {
-			"get": {
-				"description": "Returns the price history of the given product",
-				"tags": [
-					"Stock"
-				],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "productId",
-						"required": true,
-						"description": "A valid product id",
-						"schema": {
-							"type": "integer"
-						}
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "An array of ProductPriceHistory objects",
-						"content": {
-							"application/json": {
-								"schema": {
-									"type": "array",
-									"items": {
-										"$ref": "#/components/schemas/ProductPriceHistory"
-									}
-								}
-							}
-						}
-					},
-					"400": {
-						"description": "A VoidApiActionResponse object (possible errors are: Not existing product)",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
-								}
-							}
-						}
-					}
-				}
-			}
-		},
-		"/stock/get-product-stock-entries/{productId}": {
-			"get": {
-				"description": "Returns all stock entries of the given product in order of next use (first expiring first, then first in first out)",
-				"tags": [
-					"Stock"
-				],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "productId",
-						"required": true,
-						"description": "A valid product id",
-						"schema": {
-							"type": "integer"
-						}
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "An array of StockEntry objects",
-						"content": {
-							"application/json": {
-								"schema": {
-									"type": "array",
-									"items": {
-										"$ref": "#/components/schemas/StockEntry"
-									}
-								}
-							}
-						}
-					},
-					"400": {
-						"description": "A VoidApiActionResponse object (possible errors are: Not existing product)",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
-								}
-							}
-						}
-					}
-				}
-			}
-		},
-		"/stock/get-current-stock": {
+		"/stock": {
 			"get": {
 				"description": "Returns all products which are currently in stock incl. the next expiring date per product",
 				"tags": [
@@ -1275,7 +789,7 @@
 				}
 			}
 		},
-		"/stock/get-current-volatil-stock": {
+		"/stock/volatile": {
 			"get": {
 				"description": "Returns all products which are expiring soon, are already expired or currently missing",
 				"tags": [
@@ -1310,39 +824,462 @@
 				}
 			}
 		},
-		"/stock/add-missing-products-to-shoppinglist": {
+		"/stock/products/{productId}": {
 			"get": {
+				"description": "Returns details of the given product",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A ProductDetailsResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ProductDetailsResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/products/{productId}/entries": {
+			"get": {
+				"description": "Returns all stock entries of the given product in order of next use (first expiring first, then first in first out)",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An array of StockEntry objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/StockEntry"
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/products/{productId}/price-history": {
+			"get": {
+				"description": "Returns the price history of the given product",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An array of ProductPriceHistory objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/ProductPriceHistory"
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/products/{productId}/add": {
+			"post": {
+				"description": "Adds the given amount of the given product to stock",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"amount": {
+										"type": "integer"
+									},
+									"best_before_date": {
+										"type": "string",
+										"format": "date",
+										"description": "The best before date of the product to add, when omitted, the current date is used"
+									},
+									"transaction_type": {
+										"$ref": "#/components/internalSchemas/StockTransactionType"
+									},
+									"price": {
+										"type": "number",
+										"format": "double",
+										"description": "The price per purchase quantity unit in configured currency"
+									}
+								},
+								"example": {
+									"amount": 1,
+									"best_before_date": "2019-01-19",
+									"transaction_type": "purchase",
+									"price": "1.99"
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/StockBookingResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product, invalid transaction type)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/products/{productId}/consume": {
+			"post": {
+				"description": "Removes the given amount of the given product from stock",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"amount": {
+										"type": "integer",
+										"description": "The amount to remove"
+									},
+									"transaction_type": {
+										"$ref": "#/components/internalSchemas/StockTransactionType"
+									},
+									"spoiled": {
+										"type": "boolean",
+										"description": "True when the given product was spoiled, defaults to false"
+									},
+									"stock_entry_id": {
+										"type": "string",
+										"description": "A specific stock entry id to consume, if used, the amount has to be 1"
+									}
+								},
+								"example": {
+									"amount": 1,
+									"transaction_type": "consume",
+									"spoiled": false
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/StockBookingResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product, invalid transaction type)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/products/{productId}/inventory": {
+			"post": {
+				"description": "Inventories the given product (adds/removes based on the given new amount)",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"new_amount": {
+										"type": "integer",
+										"description": "The new current amount for the given product"
+									},
+									"best_before_date": {
+										"type": "string",
+										"format": "date",
+										"description": "The best before date which applies to added products"
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/StockBookingResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/products/{productId}/open": {
+			"post": {
+				"description": "Marks the given amount of the given product as opened",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"amount": {
+										"type": "integer",
+										"description": "The amount to mark as opened"
+									},
+									"stock_entry_id": {
+										"type": "string",
+										"description": "A specific stock entry id to open, if used, the amount has to be 1"
+									}
+								},
+								"example": {
+									"amount": 1
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/StockBookingResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/shoppinglist/add-missing-products": {
+			"post": {
 				"description": "Adds currently missing products (below defined min. stock amount) to the shopping list",
 				"tags": [
 					"Stock"
 				],
 				"responses": {
-					"200": {
-						"description": "A VoidApiActionResponse object",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/VoidApiActionResponse"
-								}
-							}
-						}
+					"204": {
+						"description": "The operation was successful"
 					}
 				}
 			}
 		},
-		"/stock/clear-shopping-list": {
-			"get": {
+		"/stock/shoppinglist/clear": {
+			"post": {
 				"description": "Removes all items from the shopping list",
 				"tags": [
 					"Stock"
 				],
 				"responses": {
-					"200": {
-						"description": "A VoidApiActionResponse object",
+					"204": {
+						"description": "The operation was successful"
+					}
+				}
+			}
+		},
+		"/stock/bookings/{bookingId}/undo": {
+			"post": {
+				"description": "Undoes a booking",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "bookingId",
+						"required": true,
+						"description": "A valid stock booking id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing booking)",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/VoidApiActionResponse"
+									"$ref": "#/components/schemas/GenericErrorResponse"
 								}
 							}
 						}
@@ -1350,7 +1287,7 @@
 				}
 			}
 		},
-		"/stock/external-barcode-lookup/{barcode}": {
+		"/stock/barcodes/external-lookup": {
 			"get": {
 				"description": "Executes an external barcode lookoup via the configured plugin with the given barcode",
 				"tags": [
@@ -1358,7 +1295,7 @@
 				],
 				"parameters": [
 					{
-						"in": "path",
+						"in": "query",
 						"name": "barcode",
 						"required": true,
 						"description": "The barcode to lookup up",
@@ -1370,7 +1307,7 @@
 						"in": "query",
 						"name": "add",
 						"required": false,
-						"description": "When true, the product is added to the database on a successful lookup and the new product id is in included in output",
+						"description": "When true, the product is added to the database on a successful lookup and the new product id is in included in the response",
 						"schema": {
 							"type": "boolean",
 							"default": false
@@ -1389,11 +1326,11 @@
 						}
 					},
 					"400": {
-						"description": "A VoidApiActionResponse object (possible errors are: Plugin error)",
+						"description": "The operation was not successful (possible errors are: Plugin error)",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+									"$ref": "#/components/schemas/GenericErrorResponse"
 								}
 							}
 						}
@@ -1401,49 +1338,8 @@
 				}
 			}
 		},
-		"/stock/undo-booking/{bookingId}": {
-			"get": {
-				"description": "Undoes a booking",
-				"tags": [
-					"Stock"
-				],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "bookingId",
-						"required": true,
-						"description": "A valid stock booking id",
-						"schema": {
-							"type": "integer"
-						}
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "A VoidApiActionResponse object",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/VoidApiActionResponse"
-								}
-							}
-						}
-					},
-					"400": {
-						"description": "A VoidApiActionResponse object (possible errors are: Not existing booking)",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
-								}
-							}
-						}
-					}
-				}
-			}
-		},
-		"/recipes/add-not-fulfilled-products-to-shopping-list/{recipeId}": {
-			"get": {
+		"/recipes/{recipeId}/add-not-fulfilled-products-to-shoppinglist": {
+			"post": {
 				"description": "Adds all missing products for the given recipe to the shopping list",
 				"tags": [
 					"Recipes"
@@ -1460,21 +1356,14 @@
 					}
 				],
 				"responses": {
-					"200": {
-						"description": "A VoidApiActionResponse object",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/VoidApiActionResponse"
-								}
-							}
-						}
+					"204": {
+						"description": "The operation was successful"
 					}
 				}
 			}
 		},
-		"/recipes/consume-recipe/{recipeId}": {
-			"get": {
+		"/recipes/{recipeId}/consume": {
+			"post": {
 				"description": "Consumes all products of the given recipe",
 				"tags": [
 					"Recipes"
@@ -1491,71 +1380,28 @@
 					}
 				],
 				"responses": {
-					"200": {
-						"description": "A VoidApiActionResponse object",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/VoidApiActionResponse"
-								}
-							}
-						}
+					"204": {
+						"description": "The operation was successful"
 					}
 				}
 			}
 		},
-		"/chores/track-chore-execution/{choreId}": {
+		"/chores": {
 			"get": {
-				"description": "Tracks an execution of the given chore",
+				"description": "Returns all chores incl. the next estimated execution time per chore",
 				"tags": [
 					"Chores"
 				],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "choreId",
-						"required": true,
-						"description": "A valid chore id",
-						"schema": {
-							"type": "integer"
-						}
-					},
-					{
-						"in": "query",
-						"name": "tracked_time",
-						"required": false,
-						"description": "The time of when the chore was executed, when omitted, the current time is used",
-						"schema": {
-							"type": "date-time"
-						}
-					},
-					{
-						"in": "query",
-						"name": "done_by",
-						"required": false,
-						"description": "A valid user id of who executed this chore, when omitted, the currently authenticated user will be used",
-						"schema": {
-							"type": "integer"
-						}
-					}
-				],
 				"responses": {
 					"200": {
-						"description": "A VoidApiActionResponse object",
+						"description": "An array of CurrentChoreResponse objects",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/VoidApiActionResponse"
-								}
-							}
-						}
-					},
-					"400": {
-						"description": "A VoidApiActionResponse object (possible errors are: Not existing chore)",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/CurrentChoreResponse"
+									}
 								}
 							}
 						}
@@ -1563,7 +1409,7 @@
 				}
 			}
 		},
-		"/chores/get-chore-details/{choreId}": {
+		"/chores/{choreId}": {
 			"get": {
 				"description": "Returns details of the given chore",
 				"tags": [
@@ -1592,11 +1438,11 @@
 						}
 					},
 					"400": {
-						"description": "A VoidApiActionResponse object (possible errors are: Not existing chore)",
+						"description": "The operation was not successful (possible errors are: Not existing chore)",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+									"$ref": "#/components/schemas/GenericErrorResponse"
 								}
 							}
 						}
@@ -1604,31 +1450,75 @@
 				}
 			}
 		},
-		"/chores/get-current": {
-			"get": {
-				"description": "Returns all chores incl. the next estimated execution time per chore",
+		"/chores/{choreId}/execute": {
+			"post": {
+				"description": "Tracks an execution of the given chore",
 				"tags": [
 					"Chores"
 				],
-				"responses": {
-					"200": {
-						"description": "An array of CurrentChoreResponse objects",
-						"content": {
-							"application/json": {
-								"schema": {
-									"type": "array",
-									"items": {
-										"$ref": "#/components/schemas/CurrentChoreResponse"
+				"parameters": [
+					{
+						"in": "path",
+						"name": "choreId",
+						"required": true,
+						"description": "A valid chore id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"tracked_time": {
+										"type": "string",
+										"format": "date-time",
+										"description": "The time of when the chore was executed, when omitted, the current time is used"
+									},
+									"done_by": {
+										"type": "integer",
+										"description": "A valid user id of who executed this chore, when omitted, the currently authenticated user will be used"
 									}
 								}
 							}
 						}
 					}
+				},
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"chore_execution_id": {
+											"type": "integer"
+										}
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing chore)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
 				}
 			}
 		},
-		"/chores/undo-chore-execution/{executionId}": {
-			"get": {
+		"/chores/{executionId}/undo": {
+			"post": {
 				"description": "Undoes a chore execution",
 				"tags": [
 					"Chores"
@@ -1645,22 +1535,15 @@
 					}
 				],
 				"responses": {
-					"200": {
-						"description": "A VoidApiActionResponse object",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/VoidApiActionResponse"
-								}
-							}
-						}
+					"204": {
+						"description": "The operation was successful"
 					},
 					"400": {
-						"description": "A VoidApiActionResponse object (possible errors are: Not existing booking)",
+						"description": "The operation was not successful (possible errors are: Not existing booking)",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+									"$ref": "#/components/schemas/GenericErrorResponse"
 								}
 							}
 						}
@@ -1668,50 +1551,22 @@
 				}
 			}
 		},
-		"/batteries/track-charge-cycle/{batteryId}": {
+		"/batteries": {
 			"get": {
-				"description": "Tracks a charge cycle of the given battery",
+				"description": "Returns all batteries incl. the next estimated charge time per battery",
 				"tags": [
 					"Batteries"
 				],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "batteryId",
-						"required": true,
-						"description": "A valid battery id",
-						"schema": {
-							"type": "integer"
-						}
-					},
-					{
-						"in": "query",
-						"name": "tracked_time",
-						"required": false,
-						"description": "The time of when the battery was charged, when omitted, the current time is used",
-						"schema": {
-							"type": "string",
-							"format": "date-time"
-						}
-					}
-				],
 				"responses": {
 					"200": {
-						"description": "A VoidApiActionResponse object",
+						"description": "An array of CurrentBatteryResponse objects",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/VoidApiActionResponse"
-								}
-							}
-						}
-					},
-					"400": {
-						"description": "A VoidApiActionResponse object (possible errors are: Not existing battery)",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/CurrentBatteryResponse"
+									}
 								}
 							}
 						}
@@ -1719,7 +1574,7 @@
 				}
 			}
 		},
-		"/batteries/get-battery-details/{batteryId}": {
+		"/batteries/{batteryId}": {
 			"get": {
 				"description": "Returns details of the given battery",
 				"tags": [
@@ -1748,11 +1603,11 @@
 						}
 					},
 					"400": {
-						"description": "A VoidApiActionResponse object (possible errors are: Not existing battery)",
+						"description": "The operation was not successful (possible errors are: Not existing battery)",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+									"$ref": "#/components/schemas/GenericErrorResponse"
 								}
 							}
 						}
@@ -1760,32 +1615,72 @@
 				}
 			}
 		},
-		"/batteries/get-current": {
-			"get": {
-				"description": "Returns all batteries incl. the next estimated charge time per battery",
+		"/batteries/{batteryId}/charge": {
+			"post": {
+				"description": "Tracks a charge cycle of the given battery",
 				"tags": [
 					"Batteries"
 				],
-				"responses": {
-					"200": {
-						"description": "An array of CurrentBatteryResponse objects",
-						"content": {
-							"application/json": {
-								"schema": {
-									"type": "array",
-									"items": {
-										"$ref": "#/components/schemas/CurrentBatteryResponse"
+				"parameters": [
+					{
+						"in": "path",
+						"name": "batteryId",
+						"required": true,
+						"description": "A valid battery id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"tracked_time": {
+										"type": "string",
+										"format": "date-time",
+										"description": "The time of when the battery was charged, when omitted, the current time is used"
 									}
 								}
 							}
 						}
 					}
+				},
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"charge_cycle_id": {
+											"type": "integer"
+										}
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing battery)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
 				}
 			}
 		},
-		"/batteries/undo-charge-cycle/{chargeCycleId}": {
-			"get": {
-				"description": "Undoes a chore execution",
+		"/batteries/{chargeCycleId}/undo": {
+			"post": {
+				"description": "Undoes a battery charge cycle",
 				"tags": [
 					"Batteries"
 				],
@@ -1801,22 +1696,15 @@
 					}
 				],
 				"responses": {
-					"200": {
-						"description": "A VoidApiActionResponse object",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/VoidApiActionResponse"
-								}
-							}
-						}
+					"204": {
+						"description": "The operation was successful"
 					},
 					"400": {
-						"description": "A VoidApiActionResponse object (possible errors are: Not existing booking)",
+						"description": "The operation was not successful (possible errors are: Not existing booking)",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+									"$ref": "#/components/schemas/GenericErrorResponse"
 								}
 							}
 						}
@@ -1824,7 +1712,7 @@
 				}
 			}
 		},
-		"/tasks/get-current": {
+		"/tasks": {
 			"get": {
 				"description": "Returns all tasks which are not done yet",
 				"tags": [
@@ -1847,8 +1735,8 @@
 				}
 			}
 		},
-		"/tasks/mark-task-as-completed/{taskId}": {
-			"get": {
+		"/tasks/{taskId}/complete": {
+			"post": {
 				"description": "Marks the given task as completed",
 				"tags": [
 					"Tasks"
@@ -1862,34 +1750,35 @@
 						"schema": {
 							"type": "integer"
 						}
-					},
-					{
-						"in": "query",
-						"name": "done_time",
-						"required": false,
-						"description": "The time of when the task was completed, when omitted, the current time is used",
-						"schema": {
-							"type": "date-time"
-						}
 					}
 				],
-				"responses": {
-					"200": {
-						"description": "A VoidApiActionResponse object",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/VoidApiActionResponse"
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"done_time": {
+										"type": "string",
+										"format": "date-time",
+										"description": "The time of when the task was completed, when omitted, the current time is used"
+									}
 								}
 							}
 						}
+					}
+				},
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
 					},
 					"400": {
-						"description": "A VoidApiActionResponse object (possible errors are: Not existing task)",
+						"description": "The operation was not successful (possible errors are: Not existing task)",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/ErrorExampleVoidApiActionResponse"
+									"$ref": "#/components/schemas/GenericErrorResponse"
 								}
 							}
 						}
@@ -1930,7 +1819,8 @@
 				"enum": [
 					"purchase",
 					"consume",
-					"inventory-correction"
+					"inventory-correction",
+					"product-opened"
 				]
 			}
 		},
@@ -2432,34 +2322,23 @@
 					}
 				}
 			},
-			"ErrorExampleVoidApiActionResponse": {
+			"GenericErrorResponse": {
 				"type": "object",
 				"properties": {
-					"success": {
-						"type": "boolean"
-					},
 					"error_message": {
 						"type": "string"
 					}
 				},
 				"example": {
-					"success": false,
 					"error_message": "The error message..."
 				}
 			},
-			"VoidApiActionResponse": {
+			"StockBookingResponse": {
 				"type": "object",
 				"properties": {
-					"success": {
-						"type": "boolean"
-					},
-					"error_message": {
-						"type": "string"
+					"booking_id": {
+						"type": "integer"
 					}
-				},
-				"example": {
-					"success": true,
-					"error_message": ""
 				}
 			},
 			"CurrentStockResponse": {
@@ -2593,14 +2472,6 @@
 					"text": {
 						"type": "string"
 					}
-				}
-			}
-		},
-		"examples": {
-			"ErrorVoidApiActionResponseExample": {
-				"value": {
-					"success": false,
-					"error_message": "The error message..."
 				}
 			}
 		},

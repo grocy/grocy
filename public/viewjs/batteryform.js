@@ -7,7 +7,7 @@
 
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.Api.Post('object/batteries', jsonData,
+		Grocy.Api.Post('objects/batteries', jsonData,
 			function(result)
 			{
 				window.location.href = U('/batteries');
@@ -21,7 +21,7 @@
 	}
 	else
 	{
-		Grocy.Api.Put('object/batteries/' + Grocy.EditObjectId, jsonData,
+		Grocy.Api.Put('objects/batteries/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				window.location.href = U('/batteries');

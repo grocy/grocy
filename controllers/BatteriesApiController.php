@@ -16,20 +16,22 @@ class BatteriesApiController extends BaseApiController
 
 	public function TrackChargeCycle(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$trackedTime = date('Y-m-d H:i:s');
-		if (isset($request->getQueryParams()['tracked_time']) && !empty($request->getQueryParams()['tracked_time']) && IsIsoDateTime($request->getQueryParams()['tracked_time']))
-		{
-			$trackedTime = $request->getQueryParams()['tracked_time'];
-		}
+		$requestBody = $request->getParsedBody();
 
 		try
 		{
+			$trackedTime = date('Y-m-d H:i:s');
+			if (array_key_exists('tracked_time', $requestBody) && IsIsoDateTime($requestBody['tracked_time']))
+			{
+				$trackedTime = $requestBody['tracked_time'];
+			}
+
 			$chargeCycleId = $this->BatteriesService->TrackChargeCycle($args['batteryId'], $trackedTime);
 			return $this->ApiResponse(array('charge_cycle_id' => $chargeCycleId));
 		}
 		catch (\Exception $ex)
 		{
-			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 
@@ -41,7 +43,7 @@ class BatteriesApiController extends BaseApiController
 		}
 		catch (\Exception $ex)
 		{
-			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 
@@ -55,11 +57,11 @@ class BatteriesApiController extends BaseApiController
 		try
 		{
 			$this->ApiResponse($this->BatteriesService->UndoChargeCycle($args['chargeCycleId']));
-			return $this->ApiResponse(array('success' => true));
+			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
 		{
-			return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 }

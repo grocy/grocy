@@ -12,7 +12,7 @@ class GenericEntityApiController extends BaseApiController
 		}
 		else
 		{
-			return $this->VoidApiActionResponse($response, false, 400, 'Entity does not exist or is not exposed');
+			return $this->GenericErrorResponse($response, 'Entity does not exist or is not exposed');
 		}
 	}
 
@@ -24,7 +24,7 @@ class GenericEntityApiController extends BaseApiController
 		}
 		else
 		{
-			return $this->VoidApiActionResponse($response, false, 400, 'Entity does not exist or is not exposed');
+			return $this->GenericErrorResponse($response, 'Entity does not exist or is not exposed');
 		}
 	}
 
@@ -44,16 +44,16 @@ class GenericEntityApiController extends BaseApiController
 				$newRow = $this->Database->{$args['entity']}()->createRow($requestBody);
 				$newRow->save();
 				$success = $newRow->isClean();
-				return $this->ApiResponse(array('success' => $success));
+				return $this->EmptyApiResponse($response);
 			}
 			catch (\Exception $ex)
 			{
-				return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+				return $this->GenericErrorResponse($response, $ex->getMessage());
 			}
 		}
 		else
 		{
-			return $this->VoidApiActionResponse($response, false, 400, 'Entity does not exist or is not exposed');
+			return $this->GenericErrorResponse($response, 'Entity does not exist or is not exposed');
 		}
 	}
 
@@ -73,16 +73,16 @@ class GenericEntityApiController extends BaseApiController
 				$row = $this->Database->{$args['entity']}($args['objectId']);
 				$row->update($requestBody);
 				$success = $row->isClean();
-				return $this->ApiResponse(array('success' => $success));
+				return $this->EmptyApiResponse($response);
 			}
 			catch (\Exception $ex)
 			{
-				return $this->VoidApiActionResponse($response, false, 400, $ex->getMessage());
+				return $this->GenericErrorResponse($response, $ex->getMessage());
 			}
 		}
 		else
 		{
-			return $this->VoidApiActionResponse($response, false, 400, 'Entity does not exist or is not exposed');
+			return $this->GenericErrorResponse($response, 'Entity does not exist or is not exposed');
 		}
 	}
 
@@ -93,11 +93,11 @@ class GenericEntityApiController extends BaseApiController
 			$row = $this->Database->{$args['entity']}($args['objectId']);
 			$row->delete();
 			$success = $row->isClean();
-			return $this->ApiResponse(array('success' => $success));
+			return $this->EmptyApiResponse($response);
 		}
 		else
 		{
-			return $this->VoidApiActionResponse($response, false, 400, 'Entity does not exist or is not exposed');
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
 

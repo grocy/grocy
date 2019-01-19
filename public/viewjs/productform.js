@@ -25,7 +25,7 @@
 
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.Api.Post('object/products', jsonData,
+		Grocy.Api.Post('objects/products', jsonData,
 			function (result)
 			{
 				if (jsonData.hasOwnProperty("picture_file_name") && !Grocy.DeleteProductPictureOnSave)
@@ -58,7 +58,7 @@
 	{
 		if (Grocy.DeleteProductPictureOnSave)
 		{
-			Grocy.Api.DeleteFile(Grocy.ProductPictureFileName, 'productpictures',
+			Grocy.Api.DeleteFile(Grocy.ProductPictureFileName, 'productpictures', {},
 				function(result)
 				{
 					// Nothing to do
@@ -71,7 +71,7 @@
 			);
 		};
 
-		Grocy.Api.Put('object/products/' + Grocy.EditObjectId, jsonData,
+		Grocy.Api.Put('objects/products/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				if (jsonData.hasOwnProperty("picture_file_name") && !Grocy.DeleteProductPictureOnSave)
@@ -110,7 +110,7 @@ $('#barcode-taginput').tagsManager({
 
 if (Grocy.EditMode === 'edit')
 {
-	Grocy.Api.Get('object/products/' + Grocy.EditObjectId,
+	Grocy.Api.Get('objects/products/' + Grocy.EditObjectId,
 		function (product)
 		{
 			if (product.barcode !== null && product.barcode.length > 0)

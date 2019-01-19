@@ -52,7 +52,7 @@ $(document).on('click', '.chore-delete-button', function (e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Delete('object/chores/' + objectId,
+				Grocy.Api.Delete('objects/chores/' + objectId, {},
 					function(result)
 					{
 						window.location.href = U('/chores');

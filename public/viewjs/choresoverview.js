@@ -66,7 +66,7 @@ $(document).on('click', '.track-chore-button', function(e)
 	var choreName = $(e.currentTarget).attr('data-chore-name');
 	var trackedTime = moment().format('YYYY-MM-DD HH:mm:ss');
 
-	Grocy.Api.Post('chores/' + choreId + '/execute?tracked_time=' + trackedTime,
+	Grocy.Api.Post('chores/' + choreId + '/execute', { 'tracked_time': trackedTime },
 		function()
 		{
 			Grocy.Api.Get('chores/' + choreId,

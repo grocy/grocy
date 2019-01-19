@@ -92,10 +92,10 @@ $(document).on('click', '.product-consume-button', function(e)
 	var productQuName = $(e.currentTarget).attr('data-product-qu-name');
 	var consumeAmount = $(e.currentTarget).attr('data-consume-amount');
 
-	Grocy.Api.Post('stock/' + productId + '/consume/' + consumeAmount,
+	Grocy.Api.Post('stock/products/' + productId + '/consume', { 'amount': consumeAmount },
 		function()
 		{
-			Grocy.Api.Get('stock/' + productId,
+			Grocy.Api.Get('stock/products/' + productId,
 				function(result)
 				{
 					var productRow = $('#product-' + productId + '-row');
@@ -189,10 +189,10 @@ $(document).on('click', '.product-open-button', function(e)
 	var productQuName = $(e.currentTarget).attr('data-product-qu-name');
 	var button = $(e.currentTarget);
 
-	Grocy.Api.Get('stock/' + productId + 'open/1',
+	Grocy.Api.Post('stock/products/' + productId + '/open', { 'amount': 1 },
 		function()
 		{
-			Grocy.Api.Get('stock/' + productId,
+			Grocy.Api.Get('stock/products/' + productId,
 				function(result)
 				{
 					var productRow = $('#product-' + productId + '-row');

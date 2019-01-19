@@ -63,7 +63,7 @@ $("#selectedRecipeDeleteButton").on('click', function(e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Delete('object/recipes/' + objectId,
+				Grocy.Api.Delete('objects/recipes/' + objectId, {},
 					function(result)
 					{
 						window.location.href = U('/recipes');
@@ -101,7 +101,7 @@ $(document).on('click', '.recipe-order-missing-button', function(e)
 			{
 				Grocy.FrontendHelpers.BeginUiBusy();
 
-				Grocy.Api.Post('recipes/' + objectId + '/shoppinglist',
+				Grocy.Api.Post('recipes/' + objectId + '/add-not-fulfilled-products-to-shoppinglist', { },
 					function(result)
 					{
 						window.location.href = U('/recipes');
@@ -140,7 +140,7 @@ $("#selectedRecipeConsumeButton").on('click', function(e)
 			{
 				Grocy.FrontendHelpers.BeginUiBusy();
 
-				Grocy.Api.Get('recipes/' + objectId + '/consume',
+				Grocy.Api.Post('recipes/' + objectId + '/consume', { },
 					function(result)
 					{
 						Grocy.FrontendHelpers.EndUiBusy();

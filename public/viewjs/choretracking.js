@@ -8,7 +8,7 @@
 	Grocy.Api.Get('chores/' + jsonForm.chore_id,
 		function (choreDetails)
 		{
-			Grocy.Api.Post('chores/' + jsonForm.chore_id + '/execute?tracked_time=' + Grocy.Components.DateTimePicker.GetValue() + "&done_by=" + Grocy.Components.UserPicker.GetValue(),
+			Grocy.Api.Post('chores/' + jsonForm.chore_id + '/execute', { 'tracked_time': Grocy.Components.DateTimePicker.GetValue(), 'done_by': Grocy.Components.UserPicker.GetValue() },
 				function(result)
 				{
 					Grocy.FrontendHelpers.EndUiBusy("choretracking-form");
@@ -89,7 +89,7 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keypress', function(e)
 
 function UndoChoreExecution(executionId)
 {
-	Grocy.Api.Post('chores/' + executionId.toString() + '/undo',
+	Grocy.Api.Post('chores/' + executionId.toString() + '/undo', { },
 		function(result)
 		{
 			toastr.success(L("Chore execution successfully undone"));

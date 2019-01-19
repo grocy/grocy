@@ -125,11 +125,18 @@ Grocy.Api.Get = function(apiFunction, success, error)
 	{
 		if (xhr.readyState === XMLHttpRequest.DONE)
 		{
-			if (xhr.status === 200)
+			if (xhr.status === 200 || xhr.status === 204)
 			{
 				if (success)
 				{
-					success(JSON.parse(xhr.responseText));
+					if (xhr.status === 200)
+					{
+						success(JSON.parse(xhr.responseText));
+					}
+					else
+					{
+						success({ });
+					}
 				}
 			}
 			else
@@ -155,11 +162,18 @@ Grocy.Api.Post = function(apiFunction, jsonData, success, error)
 	{
 		if (xhr.readyState === XMLHttpRequest.DONE)
 		{
-			if (xhr.status === 200)
+			if (xhr.status === 200 || xhr.status === 204)
 			{
 				if (success)
 				{
-					success(JSON.parse(xhr.responseText));
+					if (xhr.status === 200)
+					{
+						success(JSON.parse(xhr.responseText));
+					}
+					else
+					{
+						success({ });
+					}
 				}
 			}
 			else
@@ -186,11 +200,18 @@ Grocy.Api.Put = function(apiFunction, jsonData, success, error)
 	{
 		if (xhr.readyState === XMLHttpRequest.DONE)
 		{
-			if (xhr.status === 200)
+			if (xhr.status === 200 || xhr.status === 204)
 			{
 				if (success)
 				{
-					success(JSON.parse(xhr.responseText));
+					if (xhr.status === 200)
+					{
+						success(JSON.parse(xhr.responseText));
+					}
+					else
+					{
+						success({ });
+					}
 				}
 			}
 			else
@@ -217,11 +238,18 @@ Grocy.Api.Delete = function(apiFunction, jsonData, success, error)
 	{
 		if (xhr.readyState === XMLHttpRequest.DONE)
 		{
-			if (xhr.status === 200)
+			if (xhr.status === 200 || xhr.status === 204)
 			{
 				if (success)
 				{
-					success(JSON.parse(xhr.responseText));
+					if (xhr.status === 200)
+					{
+						success(JSON.parse(xhr.responseText));
+					}
+					else
+					{
+						success({ });
+					}
 				}
 			}
 			else
@@ -386,7 +414,7 @@ $(".user-setting-control").on("change", function()
 
 	jsonData = { };
 	jsonData.value = value;
-	Grocy.Api.Post('user/settings/' + settingKey, jsonData,
+	Grocy.Api.Put('user/settings/' + settingKey, jsonData,
 		function(result)
 		{
 			// Nothing to do...

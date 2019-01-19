@@ -64,7 +64,7 @@ $(document).on('click', '.shoppinglist-delete-button', function (e)
 	var shoppingListItemId = $(e.currentTarget).attr('data-shoppinglist-id');
 	Grocy.FrontendHelpers.BeginUiBusy();
 
-	Grocy.Api.Delete('object/shopping_list/' + shoppingListItemId,
+	Grocy.Api.Delete('objects/shopping_list/' + shoppingListItemId, {},
 		function(result)
 		{
 			$('#shoppinglistitem-' + shoppingListItemId + '-row').fadeOut(500, function()
@@ -84,7 +84,7 @@ $(document).on('click', '.shoppinglist-delete-button', function (e)
 
 $(document).on('click', '#add-products-below-min-stock-amount', function(e)
 {
-	Grocy.Api.Post('stock/shoppinglist',
+	Grocy.Api.Post('stock/shoppinglist/add-missing-products', { },
 		function(result)
 		{
 			window.location.href = U('/shoppinglist');
@@ -116,7 +116,7 @@ $(document).on('click', '#clear-shopping-list', function(e)
 			{
 				Grocy.FrontendHelpers.BeginUiBusy();
 
-				Grocy.Api.Post('stock/clearshoppinglist',
+				Grocy.Api.Post('stock/shoppinglist/clear', { },
 					function(result)
 					{
 						$('#shoppinglist-table tbody tr').fadeOut(500, function()

@@ -9,7 +9,7 @@
 
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.Api.Post('object/recipes_pos', jsonData,
+		Grocy.Api.Post('objects/recipes_pos', jsonData,
 			function(result)
 			{
 				window.location.href = U('/recipe/' + Grocy.EditObjectParentId);
@@ -23,7 +23,7 @@
 	}
 	else
 	{
-		Grocy.Api.Put('object/recipes_pos/' + Grocy.EditObjectId, jsonData,
+		Grocy.Api.Put('objects/recipes_pos/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				window.location.href = U('/recipe/' + Grocy.EditObjectParentId);
@@ -45,7 +45,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 	{
 		Grocy.Components.ProductCard.Refresh(productId);
 
-		Grocy.Api.Get('stock/' + productId,
+		Grocy.Api.Get('stock/products/' + productId,
 			function (productDetails)
 			{
 				if (!$("#only_check_single_unit_in_stock").is(":checked"))
