@@ -21,12 +21,12 @@
 
 		localizedText = text;
 	}
-	
+
 	for (var i = 0; i < placeholderValues.length; i++)
 	{
 		localizedText = localizedText.replace('#' + (i + 1), placeholderValues[i]);
 	}
-	
+
 	return localizedText;
 }
 
@@ -86,7 +86,7 @@ if (window.localStorage.getItem("sidebar_state") === "collapsed")
 
 $.timeago.settings.allowFuture = true;
 RefreshContextualTimeago = function()
-{	
+{
 	$("time.timeago").each(function()
 	{
 		var element = $(this);
@@ -173,6 +173,68 @@ Grocy.Api.Post = function(apiFunction, jsonData, success, error)
 	};
 
 	xhr.open('POST', url, true);
+	xhr.setRequestHeader('Content-type', 'application/json');
+	xhr.send(JSON.stringify(jsonData));
+};
+
+Grocy.Api.Put = function(apiFunction, jsonData, success, error)
+{
+	var xhr = new XMLHttpRequest();
+	var url = U('/api/' + apiFunction);
+
+	xhr.onreadystatechange = function()
+	{
+		if (xhr.readyState === XMLHttpRequest.DONE)
+		{
+			if (xhr.status === 200)
+			{
+				if (success)
+				{
+					success(JSON.parse(xhr.responseText));
+				}
+			}
+			else
+			{
+				if (error)
+				{
+					error(xhr);
+				}
+			}
+		}
+	};
+
+	xhr.open('PUT', url, true);
+	xhr.setRequestHeader('Content-type', 'application/json');
+	xhr.send(JSON.stringify(jsonData));
+};
+
+Grocy.Api.Delete = function(apiFunction, jsonData, success, error)
+{
+	var xhr = new XMLHttpRequest();
+	var url = U('/api/' + apiFunction);
+
+	xhr.onreadystatechange = function()
+	{
+		if (xhr.readyState === XMLHttpRequest.DONE)
+		{
+			if (xhr.status === 200)
+			{
+				if (success)
+				{
+					success(JSON.parse(xhr.responseText));
+				}
+			}
+			else
+			{
+				if (error)
+				{
+					error(xhr);
+				}
+			}
+		}
+	};
+
+	xhr.open('DELETE', url, true);
 	xhr.setRequestHeader('Content-type', 'application/json');
 	xhr.send(JSON.stringify(jsonData));
 };
@@ -286,7 +348,7 @@ Grocy.FrontendHelpers.ShowGenericError = function(message, exception)
 			});
 		}
 	});
-	
+
 	console.error(exception);
 }
 
@@ -310,7 +372,7 @@ $(".user-setting-control").on("change", function()
 	{
 		inputType = element.attr("type").toLowerCase();
 	}
-	
+
 	if (inputType === "checkbox")
 	{
 		value = element.is(":checked");
@@ -319,9 +381,9 @@ $(".user-setting-control").on("change", function()
 	{
 		var value = element.val();
 	}
-	
+
 	Grocy.UserSettings[settingKey] = value;
-	
+
 	jsonData = { };
 	jsonData.value = value;
 	Grocy.Api.Post('user/settings/' + settingKey, jsonData,
@@ -358,7 +420,7 @@ ResizeResponsiveEmbeds = function(fillEntireViewport = false)
 	{
 		var maxHeight = $("body").height();
 	}
-	
+
 	$(".embed-responsive").attr("height", maxHeight.toString() + "px");
 }
 $(window).on('resize', function()

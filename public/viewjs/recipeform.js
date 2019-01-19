@@ -5,7 +5,7 @@
 	var jsonData = $('#recipe-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("recipe-form");
 
-	Grocy.Api.Post('edit-object/recipes/' + Grocy.EditObjectId, jsonData,
+	Grocy.Api.Put('object/recipes/' + Grocy.EditObjectId, jsonData,
 		function(result)
 		{
 			window.location.href = U('/recipes');
@@ -80,7 +80,7 @@ $('#recipe-form input').keydown(function (event)
 	if (event.keyCode === 13) //Enter
 	{
 		event.preventDefault();
-		
+
 		if (document.getElementById('recipe-form').checkValidity() === false) //There is at least one validation error
 		{
 			return false;
@@ -113,8 +113,8 @@ $(document).on('click', '.recipe-pos-delete-button', function(e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Post('edit-object/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(), function() { }, function() { });
-				Grocy.Api.Get('delete-object/recipes_pos/' + objectId,
+				Grocy.Api.Put('object/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(), function() { }, function() { });
+				Grocy.Api.Delete('object/recipes_pos/' + objectId,
 					function(result)
 					{
 						window.location.href = U('/recipe/' + Grocy.EditObjectId);
@@ -150,8 +150,8 @@ $(document).on('click', '.recipe-include-delete-button', function(e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Post('edit-object/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(), function() { }, function() { });
-				Grocy.Api.Get('delete-object/recipes_nestings/' + objectId,
+				Grocy.Api.Put('object/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(), function() { }, function() { });
+				Grocy.Api.Delete('object/recipes_nestings/' + objectId,
 					function(result)
 					{
 						window.location.href = U('/recipe/' + Grocy.EditObjectId);
@@ -178,10 +178,10 @@ $(document).on('click', '.recipe-pos-order-missing-button', function(e)
 	jsonData.amount = productAmount;
 	jsonData.note = L('Added for recipe #1', recipeName);
 
-	Grocy.Api.Post('add-object/shopping_list', jsonData,
+	Grocy.Api.Post('object/shopping_list', jsonData,
 		function(result)
 		{
-			Grocy.Api.Post('edit-object/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(), function () { }, function () { });
+			Grocy.Api.Put('object/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(), function () { }, function () { });
 			window.location.href = U('/recipe/' + Grocy.EditObjectId);
 		},
 		function(xhr)
@@ -202,7 +202,7 @@ $(document).on('click', '.recipe-pos-edit-button', function (e)
 {
 	var recipePosId = $(e.currentTarget).attr('data-recipe-pos-id');
 
-	Grocy.Api.Post('edit-object/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(),
+	Grocy.Api.Put('object/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(),
 		function(result)
 		{
 			window.location.href = U('/recipe/' + Grocy.EditObjectId + '/pos/' + recipePosId);
@@ -219,7 +219,7 @@ $(document).on('click', '.recipe-include-edit-button', function (e)
 	var id = $(e.currentTarget).attr('data-recipe-include-id');
 	var recipeId = $(e.currentTarget).attr('data-recipe-included-recipe-id');
 	console.log(recipeId);
-	Grocy.Api.Post('edit-object/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(),
+	Grocy.Api.Put('object/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(),
 		function(result)
 		{
 			$("#recipe-include-editform-title").text(L("Edit included recipe"));
@@ -238,7 +238,7 @@ $(document).on('click', '.recipe-include-edit-button', function (e)
 
 $("#recipe-pos-add-button").on("click", function(e)
 {
-	Grocy.Api.Post('edit-object/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(),
+	Grocy.Api.Put('object/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(),
 		function(result)
 		{
 			window.location.href = U('/recipe/' + Grocy.EditObjectId + '/pos/new');
@@ -252,7 +252,7 @@ $("#recipe-pos-add-button").on("click", function(e)
 
 $("#recipe-include-add-button").on("click", function(e)
 {
-	Grocy.Api.Post('edit-object/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(),
+	Grocy.Api.Put('object/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(),
 		function(result)
 		{
 			$("#recipe-include-editform-title").text(L("Add included recipe"));
@@ -280,7 +280,7 @@ $('#save-recipe-include-button').on('click', function(e)
 
 	if (editMode === 'create')
 	{
-		Grocy.Api.Post('add-object/recipes_nestings', jsonData,
+		Grocy.Api.Post('object/recipes_nestings', jsonData,
 			function(result)
 			{
 				window.location.href = U('/recipe/' + Grocy.EditObjectId);
@@ -293,7 +293,7 @@ $('#save-recipe-include-button').on('click', function(e)
 	}
 	else
 	{
-		Grocy.Api.Post('edit-object/recipes_nestings/' + nestingId, jsonData,
+		Grocy.Api.Put('object/recipes_nestings/' + nestingId, jsonData,
 			function(result)
 			{
 				window.location.href = U('/recipe/' + Grocy.EditObjectId);

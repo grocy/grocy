@@ -5,10 +5,10 @@
 	var jsonForm = $('#inventory-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("inventory-form");
 
-	Grocy.Api.Get('stock/get-product-details/' + jsonForm.product_id,
+	Grocy.Api.Get('stock/' + jsonForm.product_id,
 		function (productDetails)
 		{
-			Grocy.Api.Get('stock/inventory-product/' + jsonForm.product_id + '/' + jsonForm.new_amount + '?bestbeforedate=' + Grocy.Components.DateTimePicker.GetValue(),
+			Grocy.Api.Post('stock/' + jsonForm.product_id + '/inventory/' + jsonForm.new_amount + '?bestbeforedate=' + Grocy.Components.DateTimePicker.GetValue(),
 				function(result)
 				{
 					var addBarcode = GetUriParam('addbarcodetoselection');
@@ -24,7 +24,7 @@
 							productDetails.product.barcode += ',' + addBarcode;
 						}
 
-						Grocy.Api.Get('edit-object/products/' + productDetails.product.id, productDetails.product,
+						Grocy.Api.Put('object/products/' + productDetails.product.id, productDetails.product,
 							function (result) { },
 							function(xhr)
 							{
@@ -73,7 +73,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 	{
 		Grocy.Components.ProductCard.Refresh(productId);
 
-		Grocy.Api.Get('stock/get-product-details/' + productId,
+		Grocy.Api.Get('stock/' + productId,
 			function(productDetails)
 			{
 				$('#new_amount').attr('not-equal', productDetails.stock_amount);
@@ -123,7 +123,7 @@ $('#inventory-form input').keydown(function(event)
 	if (event.keyCode === 13) //Enter
 	{
 		event.preventDefault();
-		
+
 		if (document.getElementById('inventory-form').checkValidity() === false) //There is at least one validation error
 		{
 			return false;
@@ -139,7 +139,7 @@ $('#new_amount').on('keypress', function(e)
 {
 	$('#new_amount').trigger('change');
 });
-	
+
 Grocy.Components.DateTimePicker.GetInputElement().on('change', function(e)
 {
 	Grocy.FrontendHelpers.ValidateForm('inventory-form');
@@ -154,14 +154,14 @@ $('#new_amount').on('keyup', function(e)
 {
 	var productId = Grocy.Components.ProductPicker.GetValue();
 	var newAmount = parseInt($('#new_amount').val());
-	
+
 	if (productId)
 	{
-		Grocy.Api.Get('stock/get-product-details/' + productId,
+		Grocy.Api.Get('stock/' + productId,
 			function(productDetails)
 			{
 				var productStockAmount = parseInt(productDetails.stock_amount || '0');
-				
+
 				if (newAmount > productStockAmount)
 				{
 					var amountToAdd = newAmount - productDetails.stock_amount;
@@ -193,7 +193,7 @@ $('#new_amount').on('keyup', function(e)
 
 function UndoStockBooking(bookingId)
 {
-	Grocy.Api.Get('stock/undo-booking/' + bookingId.toString(),
+	Grocy.Api.Get('booking/' + bookingId.toString() + '/undo',
 		function(result)
 		{
 			toastr.success(L("Booking successfully undone"));

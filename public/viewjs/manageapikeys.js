@@ -33,7 +33,7 @@ $("#search").on("keyup", function()
 	{
 		value = "";
 	}
-	
+
 	apiKeysTable.search(value).draw();
 });
 
@@ -58,7 +58,7 @@ $(document).on('click', '.apikey-delete-button', function (e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Get('delete-object/api_keys/' + objectId,
+				Grocy.Api.Delete('object/api_keys/' + objectId,
 					function(result)
 					{
 						window.location.href = U('/manageapikeys');

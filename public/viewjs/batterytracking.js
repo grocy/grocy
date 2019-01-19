@@ -5,10 +5,10 @@
 	var jsonForm = $('#batterytracking-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("batterytracking-form");
 
-	Grocy.Api.Get('batteries/get-battery-details/' + jsonForm.battery_id,
+	Grocy.Api.Get('batteries/' + jsonForm.battery_id,
 		function (batteryDetails)
 		{
-			Grocy.Api.Get('batteries/track-charge-cycle/' + jsonForm.battery_id + '?tracked_time=' + $('#tracked_time').find('input').val(),
+			Grocy.Api.Post('batteries/' + jsonForm.battery_id + '/charge?tracked_time=' + $('#tracked_time').find('input').val(),
 				function(result)
 				{
 					Grocy.FrontendHelpers.EndUiBusy("batterytracking-form");
@@ -73,7 +73,7 @@ $('#batterytracking-form input').keydown(function(event)
 	if (event.keyCode === 13) //Enter
 	{
 		event.preventDefault();
-		
+
 		if (document.getElementById('batterytracking-form').checkValidity() === false) //There is at least one validation error
 		{
 			return false;
@@ -92,7 +92,7 @@ $('#tracked_time').find('input').on('keypress', function (e)
 
 function UndoChargeCycle(chargeCycleId)
 {
-	Grocy.Api.Get('batteries/undo-charge-cycle/' + chargeCycleId.toString(),
+	Grocy.Api.Post('batteries' + chargeCycleId.toString() + '/undo',
 		function(result)
 		{
 			toastr.success(L("Charge cycle successfully undone"));

@@ -16,17 +16,17 @@
 		spoiled = 1;
 	}
 
-	var apiUrl = 'stock/consume-product/' + jsonForm.product_id + '/' + jsonForm.amount + '?spoiled=' + spoiled;
+	var apiUrl = 'stock/' + jsonForm.product_id + '/consume/' + jsonForm.amount + '?spoiled=' + spoiled;
 
 	if ($("#use_specific_stock_entry").is(":checked"))
 	{
 		apiUrl += "&stock_entry_id=" + jsonForm.specific_stock_entry;
 	}
 
-	Grocy.Api.Get('stock/get-product-details/' + jsonForm.product_id,
+	Grocy.Api.Get('stock/' + jsonForm.product_id,
 		function(productDetails)
 		{
-			Grocy.Api.Get(apiUrl,
+			Grocy.Api.Post(apiUrl,
 				function(result)
 				{
 					$("#specific_stock_entry").find("option").remove().end().append("<option></option>");
@@ -70,17 +70,17 @@ $('#save-mark-as-open-button').on('click', function(e)
 		jsonForm.amount = 1;
 	}
 
-	var apiUrl = 'stock/open-product/' + jsonForm.product_id + '/' + jsonForm.amount;
+	var apiUrl = 'stock/' + jsonForm.product_id + '/open/' + jsonForm.amount;
 
 	if ($("#use_specific_stock_entry").is(":checked"))
 	{
 		apiUrl += "&stock_entry_id=" + jsonForm.specific_stock_entry;
 	}
 
-	Grocy.Api.Get('stock/get-product-details/' + jsonForm.product_id,
+	Grocy.Api.Get('stock/' + jsonForm.product_id,
 		function(productDetails)
 		{
-			Grocy.Api.Get(apiUrl,
+			Grocy.Api.Post(apiUrl,
 				function(result)
 				{
 					$("#specific_stock_entry").find("option").remove().end().append("<option></option>");
@@ -121,12 +121,12 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 	}
 
 	var productId = $(e.target).val();
-	
+
 	if (productId)
 	{
 		Grocy.Components.ProductCard.Refresh(productId);
 
-		Grocy.Api.Get('stock/get-product-details/' + productId,
+		Grocy.Api.Get('stock/' + productId,
 			function(productDetails)
 			{
 				$('#amount').attr('max', productDetails.stock_amount);
@@ -161,7 +161,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 			}
 		);
 
-		Grocy.Api.Get("stock/get-product-stock-entries/" + productId,
+		Grocy.Api.Get("stock/" + productId,
 			function (stockEntries)
 			{
 				stockEntries.forEach(stockEntry =>
@@ -213,7 +213,7 @@ $('#consume-form input').keydown(function(event)
 	if (event.keyCode === 13) //Enter
 	{
 		event.preventDefault();
-		
+
 		if (document.getElementById('consume-form').checkValidity() === false) //There is at least one validation error
 		{
 			return false;
@@ -249,7 +249,7 @@ $("#use_specific_stock_entry").on("change", function()
 
 function UndoStockBooking(bookingId)
 {
-	Grocy.Api.Get('stock/undo-booking/' + bookingId.toString(),
+	Grocy.Api.Post('booking/' + bookingId.toString() + '/undo',
 		function(result)
 		{
 			toastr.success(L("Booking successfully undone"));

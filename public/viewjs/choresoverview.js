@@ -27,7 +27,7 @@ $("#search").on("keyup", function()
 	{
 		value = "";
 	}
-	
+
 	choresOverviewTable.search(value).draw();
 });
 
@@ -41,7 +41,7 @@ $("#status-filter").on("change", function()
 
 	// Transfer CSS classes of selected element to dropdown element (for background)
 	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
-	
+
 	choresOverviewTable.column(4).search(value).draw();
 });
 
@@ -61,15 +61,15 @@ $(document).on('click', '.track-chore-button', function(e)
 	document.activeElement.blur();
 
 	Grocy.FrontendHelpers.BeginUiBusy();
-	
+
 	var choreId = $(e.currentTarget).attr('data-chore-id');
 	var choreName = $(e.currentTarget).attr('data-chore-name');
 	var trackedTime = moment().format('YYYY-MM-DD HH:mm:ss');
 
-	Grocy.Api.Get('chores/track-chore-execution/' + choreId + '?tracked_time=' + trackedTime,
+	Grocy.Api.Post('chores/' + choreId + '/execute?tracked_time=' + trackedTime,
 		function()
 		{
-			Grocy.Api.Get('chores/get-chore-details/' + choreId,
+			Grocy.Api.Get('chores/' + choreId,
 				function(result)
 				{
 					var choreRow = $('#chore-' + choreId + '-row');
@@ -128,7 +128,7 @@ $(document).on('click', '.track-chore-button', function(e)
 function RefreshStatistics()
 {
 	var nextXDays = $("#info-due-chores").data("next-x-days");
-	Grocy.Api.Get('chores/get-current',
+	Grocy.Api.Get('chores',
 		function(result)
 		{
 			var dueCount = 0;
@@ -146,7 +146,7 @@ function RefreshStatistics()
 					dueCount++;
 				}
 			});
-			
+
 			$("#info-due-chores").text(Pluralize(dueCount, L('#1 chore is due to be done within the next #2 days', dueCount, nextXDays), L('#1 chores are due to be done within the next #2 days', dueCount, nextXDays)));
 			$("#info-overdue-chores").text(Pluralize(overdueCount, L('#1 chore is overdue to be done', overdueCount), L('#1 chores are overdue to be done', overdueCount)));
 		},

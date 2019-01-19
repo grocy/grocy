@@ -31,7 +31,7 @@ $("#search").on("keyup", function()
 	{
 		value = "";
 	}
-	
+
 	tasksTable.search(value).draw();
 });
 
@@ -45,7 +45,7 @@ $("#status-filter").on("change", function()
 
 	// Transfer CSS classes of selected element to dropdown element (for background)
 	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
-	
+
 	tasksTable.column(5).search(value).draw();
 });
 
@@ -65,12 +65,12 @@ $(document).on('click', '.do-task-button', function(e)
 	document.activeElement.blur();
 
 	Grocy.FrontendHelpers.BeginUiBusy();
-	
+
 	var taskId = $(e.currentTarget).attr('data-task-id');
 	var taskName = $(e.currentTarget).attr('data-task-name');
 	var doneTime = moment().format('YYYY-MM-DD HH:mm:ss');
 
-	Grocy.Api.Get('tasks/mark-task-as-completed/' + taskId + '?done_time=' + doneTime,
+	Grocy.Api.Get('tasks/' + taskId + '/complete?done_time=' + doneTime,
 		function()
 		{
 			if (!$("#show-done-tasks").is(":checked"))
@@ -123,7 +123,7 @@ $(document).on('click', '.delete-task-button', function (e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Get('delete-object/tasks/' + objectId,
+				Grocy.Api.Delete('object/tasks/' + objectId,
 					function(result)
 					{
 						$('#task-' + objectId + '-row').fadeOut(500, function ()
@@ -161,7 +161,7 @@ if (GetUriParam('include_done'))
 function RefreshStatistics()
 {
 	var nextXDays = $("#info-due-tasks").data("next-x-days");
-	Grocy.Api.Get('tasks/get-current',
+	Grocy.Api.Get('tasks',
 		function(result)
 		{
 			var dueCount = 0;
@@ -179,7 +179,7 @@ function RefreshStatistics()
 					dueCount++;
 				}
 			});
-			
+
 			$("#info-due-tasks").text(Pluralize(dueCount, L('#1 task is due to be done within the next #2 days', dueCount, nextXDays), L('#1 tasks are due to be done within the next #2 days', dueCount, nextXDays)));
 			$("#info-overdue-tasks").text(Pluralize(overdueCount, L('#1 task is overdue to be done', overdueCount), L('#1 tasks are overdue to be done', overdueCount)));
 		},

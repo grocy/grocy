@@ -5,7 +5,7 @@
 	var jsonForm = $('#purchase-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("purchase-form");
 
-	Grocy.Api.Get('stock/get-product-details/' + jsonForm.product_id,
+	Grocy.Api.Get('stock/' + jsonForm.product_id,
 		function(productDetails)
 		{
 			var amount = jsonForm.amount * productDetails.product.qu_factor_purchase_to_stock;
@@ -16,7 +16,7 @@
 				price = parseFloat(jsonForm.price).toFixed(2);
 			}
 
-			Grocy.Api.Get('stock/add-product/' + jsonForm.product_id + '/' + amount + '?bestbeforedate=' + Grocy.Components.DateTimePicker.GetValue() + '&price=' + price,
+			Grocy.Api.Post('stock/' + jsonForm.product_id + '/add/' + amount + '?bestbeforedate=' + Grocy.Components.DateTimePicker.GetValue() + '&price=' + price,
 				function(result)
 				{
 					var addBarcode = GetUriParam('addbarcodetoselection');
@@ -32,7 +32,7 @@
 							productDetails.product.barcode += ',' + addBarcode;
 						}
 
-						Grocy.Api.Post('edit-object/products/' + productDetails.product.id, productDetails.product,
+						Grocy.Api.Put('object/products/' + productDetails.product.id, productDetails.product,
 							function (result) { },
 							function(xhr)
 							{
@@ -89,12 +89,12 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 	{
 		Grocy.Components.ProductCard.Refresh(productId);
 
-		Grocy.Api.Get('stock/get-product-details/' + productId,
+		Grocy.Api.Get('stock/' + productId,
 			function(productDetails)
 			{
 				$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name);
 				$('#price').val(productDetails.last_price);
-				
+
 				if (productDetails.product.default_best_before_days.toString() !== '0')
 				{
 					if (productDetails.product.default_best_before_days == -1)
@@ -163,7 +163,7 @@ $('#purchase-form input').keydown(function(event)
 	if (event.keyCode === 13) //Enter
 	{
 		event.preventDefault();
-		
+
 		if (document.getElementById('purchase-form').checkValidity() === false) //There is at least one validation error
 		{
 			return false;
@@ -197,7 +197,7 @@ if (GetUriParam("flow") === "shoppinglistitemtostock")
 
 function UndoStockBooking(bookingId)
 {
-	Grocy.Api.Get('stock/undo-booking/' + bookingId.toString(),
+	Grocy.Api.Get('sbooking/' + bookingId.toString() + '/undo',
 		function(result)
 		{
 			toastr.success(L("Booking successfully undone"));

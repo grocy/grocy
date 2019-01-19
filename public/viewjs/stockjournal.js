@@ -28,7 +28,7 @@ $("#product-filter").on("change", function()
 	{
 		text = "";
 	}
-	
+
 	stockJournalTable.column(1).search(text).draw();
 });
 
@@ -39,7 +39,7 @@ $("#search").on("keyup", function()
 	{
 		value = "";
 	}
-	
+
 	stockJournalTable.search(value).draw();
 });
 
@@ -56,7 +56,7 @@ $(document).on('click', '.undo-stock-booking-button', function(e)
 	var element = $(e.currentTarget);
 	var bookingId = $(e.currentTarget).attr('data-booking-id');
 
-	Grocy.Api.Get('stock/undo-booking/' + bookingId.toString(),
+	Grocy.Api.Get('booking/' + bookingId.toString() + '/undo',
 		function(result)
 		{
 			element.closest("tr").addClass("text-muted");

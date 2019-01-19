@@ -27,7 +27,7 @@ $("#search").on("keyup", function()
 	{
 		value = "";
 	}
-	
+
 	groupsTable.search(value).draw();
 });
 
@@ -52,7 +52,7 @@ $(document).on('click', '.product-group-delete-button', function(e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Get('delete-object/product_groups/' + objectId,
+				Grocy.Api.Delete('object/product_groups/' + objectId,
 					function(result)
 					{
 						window.location.href = U('/productgroups');

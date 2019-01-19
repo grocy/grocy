@@ -7,7 +7,7 @@
 
 	if (Grocy.EditMode === 'create')
 	{
-		Grocy.Api.Post('add-object/quantity_units', jsonData,
+		Grocy.Api.Post('object/quantity_units', jsonData,
 			function(result)
 			{
 				window.location.href = U('/quantityunits');
@@ -21,7 +21,7 @@
 	}
 	else
 	{
-		Grocy.Api.Post('edit-object/quantity_units/' + Grocy.EditObjectId, jsonData,
+		Grocy.Api.Put('object/quantity_units/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				window.location.href = U('/quantityunits');
@@ -45,7 +45,7 @@ $('#quantityunit-form input').keydown(function(event)
 	if (event.keyCode === 13) //Enter
 	{
 		event.preventDefault();
-		
+
 		if (document.getElementById('quantityunit-form').checkValidity() === false) //There is at least one validation error
 		{
 			return false;

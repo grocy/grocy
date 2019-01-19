@@ -27,7 +27,7 @@ $("#search").on("keyup", function()
 	{
 		value = "";
 	}
-	
+
 	usersTable.search(value).draw();
 });
 
@@ -52,7 +52,7 @@ $(document).on('click', '.user-delete-button', function (e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Get('users/delete/' + objectId,
+				Grocy.Api.Delete('users/delete/' + objectId,
 					function(result)
 					{
 						window.location.href = U('/users');

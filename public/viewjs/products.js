@@ -27,7 +27,7 @@ $("#search").on("keyup", function()
 	{
 		value = "";
 	}
-	
+
 	productsTable.search(value).draw();
 });
 
@@ -36,7 +36,7 @@ $(document).on('click', '.product-delete-button', function (e)
 	var objectName = $(e.currentTarget).attr('data-product-name');
 	var objectId = $(e.currentTarget).attr('data-product-id');
 
-	Grocy.Api.Get('stock/get-product-details/' + objectId,
+	Grocy.Api.Get('stock/' + objectId,
 		function(productDetails)
 		{
 			var stockAmount = productDetails.stock_amount || '0';
@@ -59,7 +59,7 @@ $(document).on('click', '.product-delete-button', function (e)
 					{
 						if (result === true)
 						{
-							Grocy.Api.Get('delete-object/products/' + objectId,
+							Grocy.Api.Delete('object/products/' + objectId,
 								function (result)
 								{
 									window.location.href = U('/products');

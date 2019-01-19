@@ -5,10 +5,10 @@
 	var jsonForm = $('#choretracking-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("choretracking-form");
 
-	Grocy.Api.Get('chores/get-chore-details/' + jsonForm.chore_id,
+	Grocy.Api.Get('chores/' + jsonForm.chore_id,
 		function (choreDetails)
 		{
-			Grocy.Api.Get('chores/track-chore-execution/' + jsonForm.chore_id + '?tracked_time=' + Grocy.Components.DateTimePicker.GetValue() + "&done_by=" + Grocy.Components.UserPicker.GetValue(),
+			Grocy.Api.Post('chores/' + jsonForm.chore_id + '/execute?tracked_time=' + Grocy.Components.DateTimePicker.GetValue() + "&done_by=" + Grocy.Components.UserPicker.GetValue(),
 				function(result)
 				{
 					Grocy.FrontendHelpers.EndUiBusy("choretracking-form");
@@ -89,7 +89,7 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keypress', function(e)
 
 function UndoChoreExecution(executionId)
 {
-	Grocy.Api.Get('chores/undo-chore-execution/' + executionId.toString(),
+	Grocy.Api.Post('chores/' + executionId.toString() + '/undo',
 		function(result)
 		{
 			toastr.success(L("Chore execution successfully undone"));
