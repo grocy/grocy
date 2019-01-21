@@ -26,7 +26,7 @@
 	"paths": {
 		"/system/db-changed-time": {
 			"get": {
-				"description": "Returns the time when the database was last changed",
+				"summary": "Returns the time when the database was last changed",
 				"tags": [
 					"System"
 				],
@@ -46,7 +46,8 @@
 		},
 		"/system/log-missing-localization": {
 			"post": {
-				"description": "Logs a missing localization string (only when MODE == 'dev', so should only be called then)",
+				"summary": "Logs a missing localization string",
+				"description": "Only when MODE == 'dev', so should only be called then",
 				"tags": [
 					"System"
 				],
@@ -80,7 +81,7 @@
 		},
 		"/objects/{entity}": {
 			"get": {
-				"description": "Returns all objects of the given entity",
+				"summary": "Returns all objects of the given entity",
 				"tags": [
 					"Generic entity interactions"
 				],
@@ -144,7 +145,7 @@
 				}
 			},
 			"post": {
-				"description": "Adds a single object of the given entity",
+				"summary": "Adds a single object of the given entity",
 				"tags": [
 					"Generic entity interactions"
 				],
@@ -211,7 +212,7 @@
 		},
 		"/objects/{entity}/{objectId}": {
 			"get": {
-				"description": "Returns a single object of the given entity",
+				"summary": "Returns a single object of the given entity",
 				"tags": [
 					"Generic entity interactions"
 				],
@@ -282,7 +283,7 @@
 				}
 			},
 			"put": {
-				"description": "Edits the given object of the given entity",
+				"summary": "Edits the given object of the given entity",
 				"tags": [
 					"Generic entity interactions"
 				],
@@ -356,7 +357,7 @@
 				}
 			},
 			"delete": {
-				"description": "Deletes a single object of the given entity",
+				"summary": "Deletes a single object of the given entity",
 				"tags": [
 					"Generic entity interactions"
 				],
@@ -397,9 +398,10 @@
 				}
 			}
 		},
-		"/file/{group}": {
+		"/files/{group}/{fileName}": {
 			"get": {
-				"description": "Serves the given file (with proper Content-Type header)",
+				"summary": "Serves the given file",
+				"description": "With proper Content-Type header",
 				"tags": [
 					"Files"
 				],
@@ -414,10 +416,10 @@
 						}
 					},
 					{
-						"in": "query",
-						"name": "file_name",
+						"in": "path",
+						"name": "fileName",
 						"required": true,
-						"description": "The file name (including extension)",
+						"description": "The file name (including extension)<br>**BASE64 encoded**",
 						"schema": {
 							"type": "string"
 						}
@@ -448,7 +450,8 @@
 				}
 			},
 			"put": {
-				"description": "Uploads a single file to /data/storage/{group}/{file_name} (you need to remember the group and file name to get or delete it again)",
+				"summary": "Uploads a single file",
+				"description": "The file will be stored at /data/storage/{group}/{file_name} (you need to remember the group and file name to get or delete it again)",
 				"tags": [
 					"Files"
 				],
@@ -463,10 +466,10 @@
 						}
 					},
 					{
-						"in": "query",
-						"name": "file_name",
+						"in": "path",
+						"name": "fileName",
 						"required": true,
-						"description": "The file name (including extension)",
+						"description": "The file name (including extension)<br>**BASE64 encoded**",
 						"schema": {
 							"type": "string"
 						}
@@ -499,7 +502,7 @@
 				}
 			},
 			"delete": {
-				"description": "Deletes the given file",
+				"summary": "Deletes the given file",
 				"tags": [
 					"Files"
 				],
@@ -514,10 +517,10 @@
 						}
 					},
 					{
-						"in": "query",
-						"name": "file_name",
+						"in": "path",
+						"name": "fileName",
 						"required": true,
-						"description": "The file name (including extension)",
+						"description": "The file name (including extension)<br>**BASE64 encoded**",
 						"schema": {
 							"type": "string"
 						}
@@ -542,7 +545,7 @@
 		},
 		"/users": {
 			"get": {
-				"description": "Returns all users",
+				"summary": "Returns all users",
 				"tags": [
 					"User management"
 				],
@@ -573,7 +576,7 @@
 				}
 			},
 			"post": {
-				"description": "Creates a new user",
+				"summary": "Creates a new user",
 				"tags": [
 					"User management"
 				],
@@ -607,7 +610,7 @@
 		},
 		"/users/{userId}": {
 			"put": {
-				"description": "Edits the given user",
+				"summary": "Edits the given user",
 				"tags": [
 					"User management"
 				],
@@ -650,7 +653,7 @@
 				}
 			},
 			"delete": {
-				"description": "Deletes the given user",
+				"summary": "Deletes the given user",
 				"tags": [
 					"User management"
 				],
@@ -684,7 +687,7 @@
 		},
 		"/user/settings/{settingKey}": {
 			"get": {
-				"description": "Gets the given setting of the currently logged in user",
+				"summary": "Gets the given setting of the currently logged in user",
 				"tags": [
 					"User settings"
 				],
@@ -723,7 +726,7 @@
 				}
 			},
 			"put": {
-				"description": "Sets the given setting of the currently logged in user",
+				"summary": "Sets the given setting of the currently logged in user",
 				"tags": [
 					"User settings"
 				],
@@ -768,7 +771,7 @@
 		},
 		"/stock": {
 			"get": {
-				"description": "Returns all products which are currently in stock incl. the next expiring date per product",
+				"summary": "Returns all products which are currently in stock incl. the next expiring date per product",
 				"tags": [
 					"Stock"
 				],
@@ -791,7 +794,7 @@
 		},
 		"/stock/volatile": {
 			"get": {
-				"description": "Returns all products which are expiring soon, are already expired or currently missing",
+				"summary": "Returns all products which are expiring soon, are already expired or currently missing",
 				"tags": [
 					"Stock"
 				],
@@ -826,7 +829,7 @@
 		},
 		"/stock/products/{productId}": {
 			"get": {
-				"description": "Returns details of the given product",
+				"summary": "Returns details of the given product",
 				"tags": [
 					"Stock"
 				],
@@ -867,7 +870,7 @@
 		},
 		"/stock/products/{productId}/entries": {
 			"get": {
-				"description": "Returns all stock entries of the given product in order of next use (first expiring first, then first in first out)",
+				"summary": "Returns all stock entries of the given product in order of next use (first expiring first, then first in first out)",
 				"tags": [
 					"Stock"
 				],
@@ -911,7 +914,7 @@
 		},
 		"/stock/products/{productId}/price-history": {
 			"get": {
-				"description": "Returns the price history of the given product",
+				"summary": "Returns the price history of the given product",
 				"tags": [
 					"Stock"
 				],
@@ -955,7 +958,7 @@
 		},
 		"/stock/products/{productId}/add": {
 			"post": {
-				"description": "Adds the given amount of the given product to stock",
+				"summary": "Adds the given amount of the given product to stock",
 				"tags": [
 					"Stock"
 				],
@@ -1030,7 +1033,7 @@
 		},
 		"/stock/products/{productId}/consume": {
 			"post": {
-				"description": "Removes the given amount of the given product from stock",
+				"summary": "Removes the given amount of the given product from stock",
 				"tags": [
 					"Stock"
 				],
@@ -1103,7 +1106,7 @@
 		},
 		"/stock/products/{productId}/inventory": {
 			"post": {
-				"description": "Inventories the given product (adds/removes based on the given new amount)",
+				"summary": "Inventories the given product (adds/removes based on the given new amount)",
 				"tags": [
 					"Stock"
 				],
@@ -1165,7 +1168,7 @@
 		},
 		"/stock/products/{productId}/open": {
 			"post": {
-				"description": "Marks the given amount of the given product as opened",
+				"summary": "Marks the given amount of the given product as opened",
 				"tags": [
 					"Stock"
 				],
@@ -1229,7 +1232,7 @@
 		},
 		"/stock/shoppinglist/add-missing-products": {
 			"post": {
-				"description": "Adds currently missing products (below defined min. stock amount) to the shopping list",
+				"summary": "Adds currently missing products (below defined min. stock amount) to the shopping list",
 				"tags": [
 					"Stock"
 				],
@@ -1242,7 +1245,7 @@
 		},
 		"/stock/shoppinglist/clear": {
 			"post": {
-				"description": "Removes all items from the shopping list",
+				"summary": "Removes all items from the shopping list",
 				"tags": [
 					"Stock"
 				],
@@ -1255,7 +1258,7 @@
 		},
 		"/stock/bookings/{bookingId}/undo": {
 			"post": {
-				"description": "Undoes a booking",
+				"summary": "Undoes a booking",
 				"tags": [
 					"Stock"
 				],
@@ -1289,7 +1292,7 @@
 		},
 		"/stock/barcodes/external-lookup": {
 			"get": {
-				"description": "Executes an external barcode lookoup via the configured plugin with the given barcode",
+				"summary": "Executes an external barcode lookoup via the configured plugin with the given barcode",
 				"tags": [
 					"Stock"
 				],
@@ -1340,7 +1343,7 @@
 		},
 		"/recipes/{recipeId}/add-not-fulfilled-products-to-shoppinglist": {
 			"post": {
-				"description": "Adds all missing products for the given recipe to the shopping list",
+				"summary": "Adds all missing products for the given recipe to the shopping list",
 				"tags": [
 					"Recipes"
 				],
@@ -1364,7 +1367,7 @@
 		},
 		"/recipes/{recipeId}/consume": {
 			"post": {
-				"description": "Consumes all products of the given recipe",
+				"summary": "Consumes all products of the given recipe",
 				"tags": [
 					"Recipes"
 				],
@@ -1388,7 +1391,7 @@
 		},
 		"/chores": {
 			"get": {
-				"description": "Returns all chores incl. the next estimated execution time per chore",
+				"summary": "Returns all chores incl. the next estimated execution time per chore",
 				"tags": [
 					"Chores"
 				],
@@ -1411,7 +1414,7 @@
 		},
 		"/chores/{choreId}": {
 			"get": {
-				"description": "Returns details of the given chore",
+				"summary": "Returns details of the given chore",
 				"tags": [
 					"Chores"
 				],
@@ -1452,7 +1455,7 @@
 		},
 		"/chores/{choreId}/execute": {
 			"post": {
-				"description": "Tracks an execution of the given chore",
+				"summary": "Tracks an execution of the given chore",
 				"tags": [
 					"Chores"
 				],
@@ -1517,9 +1520,9 @@
 				}
 			}
 		},
-		"/chores/{executionId}/undo": {
+		"/chores/executions/{executionId}/undo": {
 			"post": {
-				"description": "Undoes a chore execution",
+				"summary": "Undoes a chore execution",
 				"tags": [
 					"Chores"
 				],
@@ -1553,7 +1556,7 @@
 		},
 		"/batteries": {
 			"get": {
-				"description": "Returns all batteries incl. the next estimated charge time per battery",
+				"summary": "Returns all batteries incl. the next estimated charge time per battery",
 				"tags": [
 					"Batteries"
 				],
@@ -1576,7 +1579,7 @@
 		},
 		"/batteries/{batteryId}": {
 			"get": {
-				"description": "Returns details of the given battery",
+				"summary": "Returns details of the given battery",
 				"tags": [
 					"Batteries"
 				],
@@ -1617,7 +1620,7 @@
 		},
 		"/batteries/{batteryId}/charge": {
 			"post": {
-				"description": "Tracks a charge cycle of the given battery",
+				"summary": "Tracks a charge cycle of the given battery",
 				"tags": [
 					"Batteries"
 				],
@@ -1678,9 +1681,9 @@
 				}
 			}
 		},
-		"/batteries/{chargeCycleId}/undo": {
+		"/batteries/charge-cycles/{chargeCycleId}/undo": {
 			"post": {
-				"description": "Undoes a battery charge cycle",
+				"summary": "Undoes a battery charge cycle",
 				"tags": [
 					"Batteries"
 				],
@@ -1714,7 +1717,7 @@
 		},
 		"/tasks": {
 			"get": {
-				"description": "Returns all tasks which are not done yet",
+				"summary": "Returns all tasks which are not done yet",
 				"tags": [
 					"Tasks"
 				],
@@ -1737,7 +1740,7 @@
 		},
 		"/tasks/{taskId}/complete": {
 			"post": {
-				"description": "Marks the given task as completed",
+				"summary": "Marks the given task as completed",
 				"tags": [
 					"Tasks"
 				],

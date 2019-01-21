@@ -197,7 +197,7 @@ $('#new_amount').on('keyup', function(e)
 
 function UndoStockBooking(bookingId)
 {
-	Grocy.Api.Get('booking/' + bookingId.toString() + '/undo',
+	Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', { },
 		function(result)
 		{
 			toastr.success(L("Booking successfully undone"));

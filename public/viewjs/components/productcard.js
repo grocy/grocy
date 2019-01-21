@@ -41,7 +41,7 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 			{
 				$("#productcard-no-product-picture").addClass("d-none");
 				$("#productcard-product-picture").removeClass("d-none");
-				$("#productcard-product-picture").attr("src", U('/api/file/productpictures?file_name=' + productDetails.product.picture_file_name));
+				$("#productcard-product-picture").attr("src", U('/api/files/productpictures/' + btoa(productDetails.product.picture_file_name)));
 			}
 			else
 			{

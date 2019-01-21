@@ -202,7 +202,7 @@ if (GetUriParam("flow") === "shoppinglistitemtostock")
 
 function UndoStockBooking(bookingId)
 {
-	Grocy.Api.Get('sbooking/' + bookingId.toString() + '/undo',
+	Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', { },
 		function(result)
 		{
 			toastr.success(L("Booking successfully undone"));

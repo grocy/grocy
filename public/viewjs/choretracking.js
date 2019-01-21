@@ -89,7 +89,7 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keypress', function(e)
 
 function UndoChoreExecution(executionId)
 {
-	Grocy.Api.Post('chores/' + executionId.toString() + '/undo', { },
+	Grocy.Api.Post('chores/executions/' + executionId.toString() + '/undo', { },
 		function(result)
 		{
 			toastr.success(L("Chore execution successfully undone"));

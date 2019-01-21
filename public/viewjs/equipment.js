@@ -43,7 +43,7 @@ function DisplayEquipment(id)
 
 			if (equipmentItem.instruction_manual_file_name !== null && !equipmentItem.instruction_manual_file_name.isEmpty())
 			{
-				var pdfUrl = U('/api/file/equipmentmanuals?file_name=' + equipmentItem.instruction_manual_file_name);
+				var pdfUrl = U('/api/files/equipmentmanuals/' + btoa(equipmentItem.instruction_manual_file_name));
 				$("#selected-equipment-instruction-manual").attr("src", pdfUrl);
 				$("#selected-equipment-instruction-manual").removeClass("d-none");
 				$("#selected-equipment-has-no-instruction-manual-hint").addClass("d-none");

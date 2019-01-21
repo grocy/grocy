@@ -94,9 +94,9 @@ $app->group('/api', function()
 	$this->delete('/objects/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:DeleteObject');
 
 	// Files
-	$this->put('/file/{group}', '\Grocy\Controllers\FilesApiController:UploadFile');
-	$this->get('/file/{group}', '\Grocy\Controllers\FilesApiController:ServeFile');
-	$this->delete('/file/{group}', '\Grocy\Controllers\FilesApiController:DeleteFile');
+	$this->put('/files/{group}/{fileName}', '\Grocy\Controllers\FilesApiController:UploadFile');
+	$this->get('/files/{group}/{fileName}', '\Grocy\Controllers\FilesApiController:ServeFile');
+	$this->delete('/files/{group}/{fileName}', '\Grocy\Controllers\FilesApiController:DeleteFile');
 
 	// Users
 	$this->get('/users', '\Grocy\Controllers\UsersApiController:GetUsers');
@@ -131,13 +131,13 @@ $app->group('/api', function()
 	$this->get('/chores', '\Grocy\Controllers\ChoresApiController:Current');
 	$this->get('/chores/{choreId}', '\Grocy\Controllers\ChoresApiController:ChoreDetails');
 	$this->post('/chores/{choreId}/execute', '\Grocy\Controllers\ChoresApiController:TrackChoreExecution');
-	$this->post('/chores/{executionId}/undo', '\Grocy\Controllers\ChoresApiController:UndoChoreExecution');
+	$this->post('/chores/executions/{executionId}/undo', '\Grocy\Controllers\ChoresApiController:UndoChoreExecution');
 
 	// Batteries
 	$this->get('/batteries', '\Grocy\Controllers\BatteriesApiController:Current');
 	$this->get('/batteries/{batteryId}', '\Grocy\Controllers\BatteriesApiController:BatteryDetails');
 	$this->post('/batteries/{batteryId}/charge', '\Grocy\Controllers\BatteriesApiController:TrackChargeCycle');
-	$this->post('/batteries/{chargeCycleId}/undo', '\Grocy\Controllers\BatteriesApiController:UndoChargeCycle');
+	$this->post('/batteries/charge-cycles/{chargeCycleId}/undo', '\Grocy\Controllers\BatteriesApiController:UndoChargeCycle');
 
 	// Tasks
 	$this->get('/tasks', '\Grocy\Controllers\TasksApiController:Current');

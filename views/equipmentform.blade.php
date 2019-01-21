@@ -64,7 +64,7 @@
 		<label class="mt-2">{{ $L('Current instruction manual') }}</label>
 		<button id="delete-current-instruction-manual-button" class="btn btn-sm btn-danger @if(empty($equipment->instruction_manual_file_name)) disabled @endif"><i class="fas fa-trash"></i> {{ $L('Delete') }}</button>
 		@if(!empty($equipment->instruction_manual_file_name))
-			<embed id="current-equipment-instruction-manual" class="embed-responsive embed-responsive-4by3" src="{{ $U('/api/file/equipmentmanuals?file_name=' . $equipment->instruction_manual_file_name) }}" type="application/pdf">
+			<embed id="current-equipment-instruction-manual" class="embed-responsive embed-responsive-4by3" src="{{ $U('/api/files/equipmentmanuals/' . base64_encode($equipment->instruction_manual_file_name)) }}" type="application/pdf">
 			<p id="delete-current-instruction-manual-on-save-hint" class="form-text text-muted font-italic d-none">{{ $L('The current instruction manual will be deleted when you save the equipment') }}</p>
 		@else
 			<p id="no-current-instruction-manual-hint" class="form-text text-muted font-italic">{{ $L('No instruction manual available') }}</p>

@@ -143,7 +143,7 @@
 		<label class="mt-2">{{ $L('Current picture') }}</label>
 		<button id="delete-current-product-picture-button" class="btn btn-sm btn-danger @if(empty($product->picture_file_name)) disabled @endif"><i class="fas fa-trash"></i> {{ $L('Delete') }}</button>
 		@if(!empty($product->picture_file_name))
-			<p><img id="current-product-picture" src="{{ $U('/api/file/productpictures?file_name=' . $product->picture_file_name) }}" class="img-fluid img-thumbnail mt-2"></p>
+			<p><img id="current-product-picture" src="{{ $U('/api/files/productpictures/' . base64_encode($product->picture_file_name)) }}" class="img-fluid img-thumbnail mt-2"></p>
 			<p id="delete-current-product-picture-on-save-hint" class="form-text text-muted font-italic d-none">{{ $L('The current picture will be deleted when you save the product') }}</p>
 		@else
 			<p id="no-current-product-picture-hint" class="form-text text-muted font-italic">{{ $L('No picture available') }}</p>

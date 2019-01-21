@@ -270,17 +270,24 @@ Grocy.Api.Delete = function(apiFunction, jsonData, success, error)
 Grocy.Api.UploadFile = function(file, group, fileName, success, error)
 {
 	var xhr = new XMLHttpRequest();
-	var url = U('/api/file/' + group + '?file_name=' + encodeURIComponent(fileName));
+	var url = U('/api/files/' + group + '/' + btoa(fileName));
 
 	xhr.onreadystatechange = function()
 	{
 		if (xhr.readyState === XMLHttpRequest.DONE)
 		{
-			if (xhr.status === 200)
+			if (xhr.status === 200 || xhr.status === 204)
 			{
 				if (success)
 				{
-					success(JSON.parse(xhr.responseText));
+					if (xhr.status === 200)
+					{
+						success(JSON.parse(xhr.responseText));
+					}
+					else
+					{
+						success({ });
+					}
 				}
 			}
 			else
@@ -301,17 +308,24 @@ Grocy.Api.UploadFile = function(file, group, fileName, success, error)
 Grocy.Api.DeleteFile = function(fileName, group, success, error)
 {
 	var xhr = new XMLHttpRequest();
-	var url = U('/api/file/' + group + '?file_name=' + encodeURIComponent(fileName));
+	var url = U('/api/files/' + group + '/' + btoa(fileName));
 
 	xhr.onreadystatechange = function()
 	{
 		if (xhr.readyState === XMLHttpRequest.DONE)
 		{
-			if (xhr.status === 200)
+			if (xhr.status === 200 || xhr.status === 204)
 			{
 				if (success)
 				{
-					success(JSON.parse(xhr.responseText));
+					if (xhr.status === 200)
+					{
+						success(JSON.parse(xhr.responseText));
+					}
+					else
+					{
+						success({ });
+					}
 				}
 			}
 			else

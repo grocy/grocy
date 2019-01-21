@@ -92,7 +92,7 @@ $('#tracked_time').find('input').on('keypress', function (e)
 
 function UndoChargeCycle(chargeCycleId)
 {
-	Grocy.Api.Post('batteries/' + chargeCycleId.toString() + '/undo', { },
+	Grocy.Api.Post('batteries/charge-cycles/' + chargeCycleId.toString() + '/undo', { },
 		function(result)
 		{
 			toastr.success(L("Charge cycle successfully undone"));

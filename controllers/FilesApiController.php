@@ -18,13 +18,13 @@ class FilesApiController extends BaseApiController
 	{
 		try
 		{
-			if (isset($request->getQueryParams()['file_name']) && !empty($request->getQueryParams()['file_name']) && IsValidFileName($request->getQueryParams()['file_name']))
+			if (IsValidFileName(base64_decode($args['fileName'])))
 			{
-				$fileName = $request->getQueryParams()['file_name'];
+				$fileName = base64_decode($args['fileName']);
 			}
 			else
 			{
-				throw new \Exception('file_name query parameter missing or contains an invalid filename');
+				throw new \Exception('Invalid filename');
 			}
 
 			$data = $request->getBody()->getContents();
@@ -42,13 +42,13 @@ class FilesApiController extends BaseApiController
 	{
 		try
 		{
-			if (isset($request->getQueryParams()['file_name']) && !empty($request->getQueryParams()['file_name']) && IsValidFileName($request->getQueryParams()['file_name']))
+			if (IsValidFileName(base64_decode($args['fileName'])))
 			{
-				$fileName = $request->getQueryParams()['file_name'];
+				$fileName = base64_decode($args['fileName']);
 			}
 			else
 			{
-				throw new \Exception('file_name query parameter missing or contains an invalid filename');
+				throw new \Exception('Invalid filename');
 			}
 
 			$filePath = $this->FilesService->GetFilePath($args['group'], $fileName);
@@ -74,13 +74,13 @@ class FilesApiController extends BaseApiController
 	{
 		try
 		{
-			if (isset($request->getQueryParams()['file_name']) && !empty($request->getQueryParams()['file_name']) && IsValidFileName($request->getQueryParams()['file_name']))
+			if (IsValidFileName(base64_decode($args['fileName'])))
 			{
-				$fileName = $request->getQueryParams()['file_name'];
+				$fileName = base64_decode($args['fileName']);
 			}
 			else
 			{
-				throw new \Exception('file_name query parameter missing or contains an invalid filename');
+				throw new \Exception('Invalid filename');
 			}
 
 			$filePath = $this->FilesService->GetFilePath($args['group'], $fileName);
