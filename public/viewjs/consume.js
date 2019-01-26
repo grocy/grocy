@@ -133,6 +133,19 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				$('#amount').attr('max', productDetails.stock_amount);
 				$('#amount_qu_unit').text(productDetails.quantity_unit_stock.name);
 
+				if (productDetails.product.allow_partial_units_in_stock == 1)
+				{
+					$("#amount").attr("min", "0.01");
+					$("#amount").attr("step", "0.01");
+					$("#amount").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', 0.01.toLocaleString()));
+				}
+				else
+				{
+					$("#amount").attr("min", "1");
+					$("#amount").attr("step", "1");
+					$("#amount").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', '1'));
+				}
+
 				if ((productDetails.stock_amount || 0) === 0)
 				{
 					Grocy.Components.ProductPicker.SetValue('');

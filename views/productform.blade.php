@@ -127,6 +127,14 @@
 			))
 
 			<div class="form-group">
+				<div class="form-check">
+					<input type="hidden" name="allow_partial_units_in_stock" value="0">
+					<input @if($mode == 'edit' && $product->allow_partial_units_in_stock == 1) checked @endif class="form-check-input" type="checkbox" id="allow_partial_units_in_stock" name="allow_partial_units_in_stock" value="1">
+					<label class="form-check-label" for="allow_partial_units_in_stock">{{ $L('Allow partial units in stock') }}</label>
+				</div>
+			</div>
+
+			<div class="form-group">
 				<label for="product-picture">{{ $L('Product picture') }}</label>
 				<div class="custom-file">
 					<input type="file" class="custom-file-input" id="product-picture" accept="image/*">

@@ -9,7 +9,7 @@
 		redirectDestination = returnTo + '?createdproduct=' + encodeURIComponent($('#name').val());
 	}
 
-	var jsonData = $('#product-form').serializeJSON();
+	var jsonData = $('#product-form').serializeJSON({ checkboxUncheckedValue: "0" });
 	Grocy.FrontendHelpers.BeginUiBusy("product-form");
 
 	if ($("#product-picture")[0].files.length > 0)

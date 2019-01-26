@@ -109,7 +109,7 @@ class StockService extends BaseService
 		}
 	}
 
-	public function AddProduct(int $productId, int $amount, string $bestBeforeDate, $transactionType, $purchasedDate, $price)
+	public function AddProduct(int $productId, float $amount, string $bestBeforeDate, $transactionType, $purchasedDate, $price)
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -151,7 +151,7 @@ class StockService extends BaseService
 		}
 	}
 
-	public function ConsumeProduct(int $productId, int $amount, bool $spoiled, $transactionType, $specificStockEntryId = 'default')
+	public function ConsumeProduct(int $productId, float $amount, bool $spoiled, $transactionType, $specificStockEntryId = 'default')
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -258,7 +258,7 @@ class StockService extends BaseService
 		return $this->Database->lastInsertId();
 	}
 
-	public function OpenProduct(int $productId, int $amount, $specificStockEntryId = 'default')
+	public function OpenProduct(int $productId, float $amount, $specificStockEntryId = 'default')
 	{
 		if (!$this->ProductExists($productId))
 		{

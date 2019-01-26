@@ -52,6 +52,20 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				{
 					$("#qu_id").val(productDetails.quantity_unit_stock.id);
 				}
+
+				if (productDetails.product.allow_partial_units_in_stock == 1)
+				{
+					$("#amount").attr("min", "0.01");
+					$("#amount").attr("step", "0.01");
+					$("#amount").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', 0.01.toLocaleString()));
+				}
+				else
+				{
+					$("#amount").attr("min", "1");
+					$("#amount").attr("step", "1");
+					$("#amount").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', '1'));
+				}
+
 				$('#amount').focus();
 				Grocy.FrontendHelpers.ValidateForm('recipe-pos-form');
 			},
