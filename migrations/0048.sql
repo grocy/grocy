@@ -1,3 +1,5 @@
+PRAGMA legacy_alter_table = ON;
+
 ALTER TABLE shopping_list RENAME TO shopping_list_old;
 
 CREATE TABLE shopping_list (

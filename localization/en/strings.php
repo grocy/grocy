@@ -47,7 +47,6 @@ return array(
 	'Charge cycles count' => 'Charge cycles count',
 	'Create shopping list item' => 'Create shopping list item',
 	'Edit shopping list item' => 'Edit shopping list item',
-	'#1 units were automatically added and will apply in addition to the amount entered here' => '#1 units were automatically added and will apply in addition to the amount entered here',
 	'Save' => 'Save',
 	'Add' => 'Add',
 	'Name' => 'Name',
