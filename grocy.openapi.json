@@ -2181,12 +2181,6 @@
 						"default": 0,
 						"description": "The manual entered amount"
 					},
-					"amount_autoadded": {
-						"type": "integer",
-						"minimum": 0,
-						"default": 0,
-						"description": "The automatically added amount based on defined minimum stock amounts"
-					},
 					"row_created_timestamp": {
 						"type": "string",
 						"format": "date-time"
