@@ -177,6 +177,11 @@ $('#product-form input').keyup(function(event)
 	Grocy.FrontendHelpers.ValidateForm('product-form');
 });
 
+$('#location_id').change(function(event)
+{
+	Grocy.FrontendHelpers.ValidateForm('product-form');
+});
+
 $('#product-form input').keydown(function(event)
 {
 	if (event.keyCode === 13) //Enter
