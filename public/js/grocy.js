@@ -463,7 +463,12 @@ ResizeResponsiveEmbeds = function(fillEntireViewport = false)
 		var maxHeight = $("body").height();
 	}
 
-	$(".embed-responsive").attr("height", maxHeight.toString() + "px");
+	$("embed.embed-responsive").attr("height", maxHeight.toString() + "px");
+
+	$("iframe.embed-responsive").each(function()
+	{
+		$(this).attr("height", $(this)[0].contentWindow.document.body.scrollHeight.toString() + "px");
+	});
 }
 $(window).on('resize', function()
 {
