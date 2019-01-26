@@ -73,6 +73,10 @@
 					<h3 class="mb-0">{{ $selectedRecipeSubRecipe->name }}</h3>
 				</div>
 
+				@if(!empty($selectedRecipeSubRecipe->picture_file_name))
+					<p><img src="{{ $U('/api/files/recipepictures/' . base64_encode($selectedRecipeSubRecipe->picture_file_name)) }}" class="img-fluid"></p>
+				@endif
+
 				@php $selectedRecipeSubRecipePositionsFiltered = FindAllObjectsInArrayByPropertyValue($selectedRecipeSubRecipesPositions, 'recipe_id', $selectedRecipeSubRecipe->id); @endphp
 				@if(count($selectedRecipeSubRecipePositionsFiltered) > 0)
 				<div class="card-body">
@@ -105,6 +109,10 @@
 			@endforeach
 
 			<!-- Selected recipe -->
+			@if(!empty($selectedRecipe->picture_file_name))
+				<p><img src="{{ $U('/api/files/recipepictures/' . base64_encode($selectedRecipe->picture_file_name)) }}" class="img-fluid"></p>
+			@endif
+
 			@if($selectedRecipePositions->count() > 0)
 			<div class="card-body">
 				<h5 class="mb-0">{{ $L('Ingredients') }}</h5>
