@@ -47,7 +47,6 @@ return array(
 	'Charge cycles count' => 'Nombre de charges',
 	'Create shopping list item' => 'Créer une liste de courses',
 	'Edit shopping list item' => 'Modifier une liste de courses',
-	'#1 units were automatically added and will apply in addition to the amount entered here' => '#1 unités seront automatiquement ajoutées en plus de la quantité renseignée ici',
 	'Save' => 'Sauvegarder',
 	'Add' => 'Ajouter',
 	'Name' => 'Nom',

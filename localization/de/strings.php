@@ -47,7 +47,6 @@ return array(
 	'Charge cycles count' => 'Ladezyklen',
 	'Create shopping list item' => 'Einkaufszettel Eintrag erstellen',
 	'Edit shopping list item' => 'Einkaufszettel Eintrag bearbeiten',
-	'#1 units were automatically added and will apply in addition to the amount entered here' => '#1 Einheiten wurden automatisch hinzugefügt und gelten zusätzlich der hier eingegebenen Menge',
 	'Save' => 'Speichern',
 	'Add' => 'Hinzufügen',
 	'Name' => 'Name',

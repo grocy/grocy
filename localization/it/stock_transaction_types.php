@@ -1,8 +1,8 @@
 <?php
 
 return array(
-	'purchase' => 'Purchase',
-	'consume' => 'Consume',
-	'inventory-correction' => 'Inventory correction',
-	'product-opened' => 'Product opened'
+	'purchase' => 'Acquista',
+	'consume' => 'Consumare',
+	'inventory-correction' => 'Correzione dell\'inventario',
+	'product-opened' => 'Prodotto aperto'
 );

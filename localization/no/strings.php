@@ -2,9 +2,9 @@
 
 return array(
 	'Stock overview' => 'Husholdning',
-	'#1 products expiring within the next #2 days' => '#1 Produkt som går ut på dato innen de neste #2 dagene',
-	'#1 products are already expired' => '#1 Produkt som har gått ut på dato',
-	'#1 products are below defined min. stock amount' => '#1 Produkt under minimum husholdningsnivå',
+	'#1 products expiring within the next #2 days' => '#1 produkt går ut på dato innen de neste #2 dagene',
+	'#1 products are already expired' => '#1 produkt har gått ut på dato',
+	'#1 products are below defined min. stock amount' => '#1 produkt under minimum husholdningsnivå',
 	'Product' => 'Produkt',
 	'Amount' => 'Antall',
 	'Next best before date' => 'Kommende best før dato',
@@ -47,7 +47,6 @@ return array(
 	'Charge cycles count' => 'Antall ladesykluser',
 	'Create shopping list item' => 'Opprett handelisteoppføring',
 	'Edit shopping list item' => 'Endre på handlelistoppføring',
-	'#1 units were automatically added and will apply in addition to the amount entered here' => '#1 enheter ble automatisk lagt til i tillegg til hva som blir skrevet inn her',
 	'Save' => 'Lagre',
 	'Add' => 'Legg til',
 	'Name' => 'Navn',
@@ -193,9 +192,9 @@ return array(
 	'Price' => 'Pris',
 	'in #1 per purchase quantity unit' => 'I #1 per kjøpt forpakning ',
 	'The price cannot be lower than #1' => 'Prisen kan ikke være lavere enn #1',
-	'#1 product expires within the next #2 days' => '#1 Produkt går ut på dato innen de #2  neste dagene',
-	'#1 product is already expired' => '#1 Produkt er allerede gått ut på dato',
-	'#1 product is below defined min. stock amount' => '#1 Produkt er under minimums husholdningsnivå',
+	'#1 product expires within the next #2 days' => '#1 produkt går ut på dato innen de #2 neste dagene',
+	'#1 product is already expired' => '#1 produkt er allerede gått ut på dato',
+	'#1 product is below defined min. stock amount' => '#1 produkt er under minimums husholdningsnivå',
 	'Unit' => 'Enhet',
 	'Units' => 'Enheter',
 	'#1 chore is due to be done within the next #2 days' => '#1 husarbeid oppgave skal gjøres inne de #2 neste dagene',
@@ -326,5 +325,5 @@ return array(
 	'Stock settings' => 'Husholdningsinnstillinger',
 	'Shopping list to stock workflow' => 'Arbeidsflyt fra handleliste til husholding',
 	'Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set' => 'Legg produkter automatisk til fra handlelisten. Dette vil bruke sist innkjøpspris og forutsetter at "Standard for antall dager best før" er satt',
-	'Skip' => 'Hopp'
+	'Skip' => 'Hopp over'
 );
