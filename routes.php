@@ -7,8 +7,9 @@ use \Tuupola\Middleware\CorsMiddleware;
 
 $app->group('', function()
 {
-	// Base route
-	$this->get('/', 'LoginControllerInstance:Root')->setName('root');
+	// System routes
+	$this->get('/', '\Grocy\Controllers\SystemController:Root')->setName('root');
+	$this->get('/about', '\Grocy\Controllers\SystemController:About');
 
 	// Login routes
 	$this->get('/login', 'LoginControllerInstance:LoginPage')->setName('login');
@@ -83,7 +84,8 @@ $app->group('/api', function()
 	$this->get('/openapi/specification', '\Grocy\Controllers\OpenApiController:DocumentationSpec');
 
 	// System
-	$this->get('/system/db-changed-time', '\Grocy\Controllers\SystemApiController:GetDbChangedTime');
+	$this->get('/system/info', '\Grocy\Controllers\SystemApiController:GetSystemInfo');
+	$this->get('/system/db-changed-time', '\Grocy\Controllers\SystemApiController:GetDbChangedTime');	
 	$this->post('/system/log-missing-localization', '\Grocy\Controllers\SystemApiController:LogMissingLocalization');
 	
 	// Generic entity interaction

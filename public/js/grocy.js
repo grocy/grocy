@@ -492,3 +492,12 @@ if (window.location.hash)
 {
 	$(window.location.hash).addClass("p-2 border border-info rounded");
 }
+
+$("#about-dialog-link").on("click", function()
+{
+	bootbox.alert({
+		message: '<iframe height="400px" class="embed-responsive" src="' + U("/about?embedded") + '"></iframe>',
+		size: "large",
+		closeButton: false
+	});
+});

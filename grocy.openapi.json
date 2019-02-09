@@ -24,6 +24,46 @@
 		}
 	],
 	"paths": {
+		"/system/info": {
+			"get": {
+				"summary": "Returns information about the installed grocy, PHP and SQLite version",
+				"tags": [
+					"System"
+				],
+				"responses": {
+					"200": {
+						"description": "An DbChangedTimeResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"grocy_version": {
+											"type": "object",
+											"properties": {
+												"Version": {
+													"type": "string"
+												},
+												"ReleaseDate": {
+													"type": "string",
+													"format": "date"
+												}
+											}
+										},
+										"php_version": {
+											"type": "string"
+										},
+										"sqlite_version": {
+											"type": "string"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/system/db-changed-time": {
 			"get": {
 				"summary": "Returns the time when the database was last changed",

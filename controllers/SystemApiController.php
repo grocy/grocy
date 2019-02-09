@@ -3,6 +3,7 @@
 namespace Grocy\Controllers;
 
 use \Grocy\Services\DatabaseService;
+use \Grocy\Services\ApplicationService;
 
 class SystemApiController extends BaseApiController
 {
@@ -10,9 +11,11 @@ class SystemApiController extends BaseApiController
 	{
 		parent::__construct($container);
 		$this->DatabaseService = new DatabaseService();
+		$this->ApplicationService = new ApplicationService();
 	}
 
 	protected $DatabaseService;
+	protected $ApplicationService;
 
 	public function GetDbChangedTime(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
@@ -37,5 +40,10 @@ class SystemApiController extends BaseApiController
 				return $this->GenericErrorResponse($response, $ex->getMessage());
 			}
 		}	
+	}
+
+	public function GetSystemInfo(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->ApiResponse($this->ApplicationService->GetSystemInfo());
 	}
 }

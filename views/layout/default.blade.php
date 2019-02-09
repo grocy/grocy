@@ -279,7 +279,7 @@
 						<a class="dropdown-item discrete-link" href="{{ $U('/manageapikeys') }}"><i class="fas fa-handshake"></i>&nbsp;{{ $L('Manage API keys') }}</a>
 						<a class="dropdown-item discrete-link" target="_blank" href="{{ $U('/api') }}"><i class="fas fa-book"></i>&nbsp;{{ $L('REST API & data model documentation') }}</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item discrete-link" href="#" data-toggle="modal" data-target="#about-modal"><i class="fas fa-info fa-fw"></i>&nbsp;{{ $L('About grocy') }} (Version {{ $version }})</a>
+						<a id="about-dialog-link" class="dropdown-item discrete-link" href="#"><i class="fas fa-info fa-fw"></i>&nbsp;{{ $L('About grocy') }} (Version {{ $version }})</a>
 					</div>
 				</li>
 			</ul>
@@ -292,30 +292,6 @@
 			<div class="row mb-3">
 				<div class="col content-text">
 					@yield('content')
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal fade content-text" id="about-modal" tabindex="-1">
-		<div class="modal-dialog">
-			<div class="modal-content text-center">
-				<div class="modal-header">
-					<h4 class="modal-title w-100">{{ $L('About grocy') }}</h4>
-					<button type="button" class="close" data-dismiss="modal" title="{{ $L('Close') }}">&times;</button>
-				</div>
-				<div class="modal-body">
-					grocy is a project by
-					<a href="https://berrnd.de" class="discrete-link" target="_blank">Bernd Bestel</a><br>
-					Created with passion since 2017<br>
-					<br>
-					Version {{ $version }}<br>
-					{{ $L('Released on') }} {{ $releaseDate }} <time class="timeago timeago-contextual" datetime="{{ $releaseDate }}"></time><br>
-					<br>
-					Life runs on code<br>
-					<a href="https://github.com/grocy/grocy" class="discrete-link" target="_blank">
-						<i class="fab fa-github"></i>
-					</a>
 				</div>
 			</div>
 		</div>
@@ -350,7 +326,7 @@
 	<script src="{{ $U('/js/grocy_clock.js?v=', true) }}{{ $version }}"></script>
 	@stack('pageScripts')
 	@stack('componentScripts')
-	<script src="{{ $U('/viewjs', true) }}/@yield('viewJsName').js?v={{ $version }}"></script>
+	@hasSection('viewJsName')<script src="{{ $U('/viewjs', true) }}/@yield('viewJsName').js?v={{ $version }}"></script>@endif
 
 	@if(file_exists(GROCY_DATAPATH . '/custom_js.html'))
 		@php include GROCY_DATAPATH . '/custom_js.html' @endphp

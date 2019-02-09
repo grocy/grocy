@@ -63,21 +63,6 @@ class LoginController extends BaseController
 		return $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl('/'));
 	}
 
-	public function Root(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
-	{
-		// Schema migration is done here
-		$databaseMigrationService = new DatabaseMigrationService();
-		$databaseMigrationService->MigrateDatabase();
-
-		if (GROCY_IS_DEMO_INSTALL)
-		{
-			$demoDataGeneratorService = new DemoDataGeneratorService();
-			$demoDataGeneratorService->PopulateDemoData();
-		}
-
-		return $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl('/stockoverview'));
-	}
-
 	public function GetSessionCookieName()
 	{
 		return $this->SessionCookieName;
