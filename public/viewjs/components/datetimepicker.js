@@ -39,6 +39,8 @@ Grocy.Components.DateTimePicker.Clear = function()
 	{
 		$("#datetimepicker-shortcut").click();
 	}
+
+	$('#datetimepicker-timeago').text('');
 }
 
 var startDate = null;
