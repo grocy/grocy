@@ -10,6 +10,7 @@
 
 	<meta name="author" content="Bernd Bestel (bernd@berrnd.de)">
 	<link rel="icon" href="{{ $U('/img/grocy_icon.svg?v=', true) }}{{ $version }}">
+	<link rel="apple-touch-icon" href="{{ $U('/img/grocy_icon.svg?v=', true) }}{{ $version }}">
 
 	<title>@yield('title') | grocy</title>
 
