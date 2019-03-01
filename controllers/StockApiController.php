@@ -66,13 +66,19 @@ class StockApiController extends BaseApiController
 				$price = $requestBody['price'];
 			}
 
+			$locationId = null;
+			if (array_key_exists('location_id', $requestBody) && is_numeric($requestBody['location_id']))
+			{
+				$locationId = $requestBody['location_id'];
+			}
+
 			$transactionType = StockService::TRANSACTION_TYPE_PURCHASE;
 			if (array_key_exists('transaction_type', $requestBody)  && !empty($requestBody['transactiontype']))
 			{
 				$transactionType = $requestBody['transactiontype'];
 			}
 
-			$bookingId = $this->StockService->AddProduct($args['productId'], $requestBody['amount'], $bestBeforeDate, $transactionType, date('Y-m-d'), $price);
+			$bookingId = $this->StockService->AddProduct($args['productId'], $requestBody['amount'], $bestBeforeDate, $transactionType, date('Y-m-d'), $price, $locationId);
 			return $this->ApiResponse(array('booking_id' => $bookingId));
 		}
 		catch (\Exception $ex)

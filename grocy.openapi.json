@@ -1021,7 +1021,8 @@
 								"type": "object",
 								"properties": {
 									"amount": {
-										"type": "double"
+										"type": "number",
+										"format": "double"
 									},
 									"best_before_date": {
 										"type": "string",
@@ -1035,6 +1036,11 @@
 										"type": "number",
 										"format": "double",
 										"description": "The price per purchase quantity unit in configured currency"
+									},
+									"location_id": {
+										"type": "number",
+										"format": "integer",
+										"description": "If omitted, the default location of the product is used"
 									}
 								},
 								"example": {

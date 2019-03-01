@@ -20,6 +20,7 @@
 			jsonData.amount = amount;
 			jsonData.best_before_date = Grocy.Components.DateTimePicker.GetValue();
 			jsonData.price = price;
+			jsonData.location_id = jsonForm.location_id;
 
 			Grocy.Api.Post('stock/products/' + jsonForm.product_id + '/add', jsonData,
 				function(result)
@@ -65,6 +66,7 @@
 						toastr.success(successMessage);
 						$('#amount').val(0);
 						$('#price').val('');
+						$('#location_id').val('');
 						Grocy.Components.DateTimePicker.Clear();
 						Grocy.Components.ProductPicker.SetValue('');
 						Grocy.Components.ProductPicker.GetInputElement().focus();
@@ -99,6 +101,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 			{
 				$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name);
 				$('#price').val(productDetails.last_price);
+				$('#location_id').val(productDetails.product.location_id);
 
 				if (productDetails.product.allow_partial_units_in_stock == 1)
 				{

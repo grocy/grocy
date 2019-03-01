@@ -11,18 +11,24 @@ class StockService extends BaseService
 
 	public function GetCurrentStock($includeNotInStockButMissingProducts = false)
 	{
-		$sql = 'SELECT * from stock_current';
+		$sql = 'SELECT * FROM stock_current';
 		if ($includeNotInStockButMissingProducts)
 		{
-			$sql = 'SELECT * from stock_current WHERE best_before_date IS NOT NULL';
+			$sql = 'SELECT * FROM stock_current WHERE best_before_date IS NOT NULL';
 		}
 		
 		return $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
 
+	public function GetCurrentStockLocations()
+	{
+		$sql = 'SELECT * FROM stock_current_locations';
+		return $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
+	}
+
 	public function GetMissingProducts()
 	{
-		$sql = 'SELECT * from stock_missing_products';
+		$sql = 'SELECT * FROM stock_missing_products';
 		return $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
 
@@ -109,7 +115,7 @@ class StockService extends BaseService
 		}
 	}
 
-	public function AddProduct(int $productId, float $amount, string $bestBeforeDate, $transactionType, $purchasedDate, $price)
+	public function AddProduct(int $productId, float $amount, string $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId = null)
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -127,7 +133,8 @@ class StockService extends BaseService
 				'purchased_date' => $purchasedDate,
 				'stock_id' => $stockId,
 				'transaction_type' => $transactionType,
-				'price' => $price
+				'price' => $price,
+				'location_id' => $locationId
 			));
 			$logRow->save();
 
@@ -139,7 +146,8 @@ class StockService extends BaseService
 				'best_before_date' => $bestBeforeDate,
 				'purchased_date' => $purchasedDate,
 				'stock_id' => $stockId,
-				'price' => $price
+				'price' => $price,
+				'location_id' => $locationId
 			));
 			$stockRow->save();
 

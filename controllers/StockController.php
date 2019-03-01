@@ -22,6 +22,7 @@ class StockController extends BaseController
 			'quantityunits' => $this->Database->quantity_units()->orderBy('name'),
 			'locations' => $this->Database->locations()->orderBy('name'),
 			'currentStock' => $this->StockService->GetCurrentStock(),
+			'currentStockLocations' => $this->StockService->GetCurrentStockLocations(),
 			'missingProducts' => $this->StockService->GetMissingProducts(),
 			'nextXDays' => 5,
 			'productGroups' => $this->Database->product_groups()->orderBy('name')
@@ -31,7 +32,8 @@ class StockController extends BaseController
 	public function Purchase(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->AppContainer->view->render($response, 'purchase', [
-			'products' => $this->Database->products()->orderBy('name')
+			'products' => $this->Database->products()->orderBy('name'),
+			'locations' => $this->Database->locations()->orderBy('name')
 		]);
 	}
 
