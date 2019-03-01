@@ -43,6 +43,7 @@
 			</div>
 		</div>
 
+		@if(GROCY_FEATURE_FLAG_SHOPPINGLIST)
 		<h4 class="mt-2">{{ $L('Shopping list to stock workflow') }}</h4>
 		
 		<div class="form-group">
@@ -52,6 +53,7 @@
 				</label>
 			</div>
 		</div>
+		@endif
 
 		<a href="{{ $U('/products') }}" class="btn btn-success">{{ $L('OK') }}</a>
 	</div>

@@ -41,6 +41,8 @@ Setting('STOCK_BARCODE_LOOKUP_PLUGIN', 'DemoBarcodeLookupPlugin');
 Setting('DISABLE_URL_REWRITING', false);
 
 
+
+
 # Default user settings
 # These settings can be changed per user, here the defaults
 # are defined which are used when the user has not changed the setting so far
@@ -67,3 +69,19 @@ DefaultUserSetting('show_clock_in_header', false);
 # Automatically do the booking using the last price and the amount
 # of the shopping list item, if the product has "Default best before days" set
 DefaultUserSetting('shopping_list_to_stock_workflow_auto_submit_when_prefilled', false);
+
+
+
+
+# Feature flags
+# grocy was initially about "stock management for your household", many other things
+# came and still come by, because they are useful - here you can disable the parts
+# which you don't need to have a less cluttered UI
+# (set the setting to "false" to disable the corresponding part, which should be self explanatory)
+Setting('FEATURE_FLAG_SHOPPINGLIST', true);
+Setting('FEATURE_FLAG_RECIPES', true);
+Setting('FEATURE_FLAG_CHORES', true);
+Setting('FEATURE_FLAG_TASKS', true);
+Setting('FEATURE_FLAG_BATTERIES', true);
+Setting('FEATURE_FLAG_EQUIPMENT', true);
+Setting('FEATURE_FLAG_CALENDAR', true);
