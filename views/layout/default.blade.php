@@ -9,8 +9,18 @@
 	<meta name="format-detection" content="telephone=no">
 
 	<meta name="author" content="Bernd Bestel (bernd@berrnd.de)">
-	<link rel="icon" href="{{ $U('/img/grocy_icon.svg?v=', true) }}{{ $version }}">
-	<link rel="apple-touch-icon" href="{{ $U('/img/grocy_icon.svg?v=', true) }}{{ $version }}">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ $U('/img/appicons/apple-touch-icon.png?v=', true) }}{{ $version }}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ $U('/img/appicons/favicon-32x32.png?v=', true) }}{{ $version }}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ $U('/img/appicons/favicon-16x16.png?v=', true) }}{{ $version }}">
+	<link rel="manifest" href="{{ $U('/img/appicons/site.webmanifest?v=', true) }}{{ $version }}">
+	<link rel="mask-icon" href="{{ $U('/img/appicons/safari-pinned-tab.svg?v=', true) }}{{ $version }}" color="#0b024c">
+	<link rel="shortcut icon" href="{{ $U('/img/appicons/favicon.ico?v=', true) }}{{ $version }}">
+	<meta name="apple-mobile-web-app-title" content="grocy">
+	<meta name="application-name" content="grocy">
+	<meta name="msapplication-TileColor" content="#e5e5e5">
+	<meta name="msapplication-config" content="{{ $U('/img/appicons/browserconfig.xml?v=', true) }}{{ $version }}">
+	<meta name="theme-color" content="#ffffff">
 
 	<title>@yield('title') | grocy</title>
 
