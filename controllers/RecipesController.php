@@ -35,8 +35,20 @@ class RecipesController extends BaseController
 			}
 		}
 
+		// Scale ingredients amount based on desired servings
+		foreach ($selectedRecipePositions as $selectedRecipePosition)
+		{
+			$selectedRecipePosition->amount = $selectedRecipePosition->amount * ($selectedRecipe->desired_servings / $selectedRecipe->base_servings);
+		}
+
 		$selectedRecipeSubRecipes = $this->Database->recipes()->where('id IN (SELECT includes_recipe_id FROM recipes_nestings_resolved WHERE recipe_id = :1 AND includes_recipe_id != :1)', $selectedRecipe->id)->orderBy('name')->fetchAll();
 		$selectedRecipeSubRecipesPositions = $this->Database->recipes_pos()->where('recipe_id IN (SELECT includes_recipe_id FROM recipes_nestings_resolved WHERE recipe_id = :1 AND includes_recipe_id != :1)', $selectedRecipe->id)->orderBy('ingredient_group')->fetchAll();
+
+		// Scale ingredients amount based on desired servings
+		foreach ($selectedRecipeSubRecipesPositions as $selectedSubRecipePosition)
+		{
+			$selectedSubRecipePosition->amount = $selectedSubRecipePosition->amount * ($selectedRecipe->desired_servings / $selectedRecipe->base_servings);
+		}
 
 		return $this->AppContainer->view->render($response, 'recipes', [
 			'recipes' => $recipes,

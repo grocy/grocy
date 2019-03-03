@@ -22,6 +22,7 @@
 			<thead>
 				<tr>
 					<th>{{ $L('Name') }}</th>
+					<th class="fit-content text-right">{{ $L('Servings') }}</th>
 					<th>{{ $L('Requirements fulfilled') }}</th>
 					<th class="d-none">Hidden status for sorting of "Requirements fulfilled" column</th>
 				</tr>
@@ -31,6 +32,9 @@
 				<tr data-recipe-id="{{ $recipe->id }}">
 					<td>
 						{{ $recipe->name }}
+					</td>
+					<td class="fit-content text-right">
+						{{ $recipe->desired_servings }}
 					</td>
 					<td>
 						@if(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled == 1)<i class="fas fa-check text-success"></i>@elseif(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1)<i class="fas fa-exclamation text-warning"></i>@else<i class="fas fa-times text-danger"></i>@endif
@@ -65,6 +69,19 @@
 				<a id="selectedRecipeToggleFullscreenButton" class="btn btn-sm btn-outline-secondary py-0 float-right" href="#" data-toggle="tooltip" title="{{ $L('Expand to fullscreen') }}">
 					<i class="fas fa-expand-arrows-alt"></i>
 				</a>
+			</div>
+
+			<div class="card-body">
+				@include('components.numberpicker', array(
+					'id' => 'servings-scale',
+					'label' => 'Servings',
+					'min' => 1,
+					'value' => $selectedRecipe->desired_servings,
+					'invalidFeedback' => $L('This cannot be lower than #1', '1'),
+					'additionalGroupCssClasses' => 'mb-0',
+					'additionalCssClasses' => 'col-2',
+					'additionalAttributes' => 'data-recipe-id="' . $selectedRecipe->id . '"'
+				))
 			</div>
 
 			<!-- Subrecipes first -->

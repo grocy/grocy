@@ -168,8 +168,34 @@ recipesTables.on('select', function(e, dt, type, indexes)
 
 $("#selectedRecipeToggleFullscreenButton").on('click', function(e)
 {
+	e.preventDefault();
+
 	$("#selectedRecipeCard").toggleClass("fullscreen");
 	$("body").toggleClass("fullscreen-card");
 	$("#selectedRecipeCard .card-header").toggleClass("fixed-top");
 	$("#selectedRecipeCard .card-body").toggleClass("mt-5");
+
+	window.location.hash = "fullscreen";
 });
+
+$('#servings-scale').keyup(function(event)
+{
+	var data = { };
+	data.desired_servings = $(this).val();
+
+	Grocy.Api.Put('objects/recipes/' + $(this).data("recipe-id"), data,
+		function(result)
+		{
+			window.location.reload();
+		},
+		function(xhr)
+		{
+			console.error(xhr);
+		}
+	);
+});
+
+if (window.location.hash === "#fullscreen")
+{
+	$("#selectedRecipeToggleFullscreenButton").click();
+}

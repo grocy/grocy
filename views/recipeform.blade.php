@@ -52,6 +52,16 @@
 				<textarea id="description" class="form-control" name="description">@if($mode == 'edit'){{ $recipe->description }}@endif</textarea>
 			</div>
 
+			@php if($mode == 'edit') { $value = $recipe->base_servings; } else { $value = 1; } @endphp
+			@include('components.numberpicker', array(
+				'id' => 'base_servings',
+				'label' => 'Servings',
+				'min' => 1,
+				'value' => $value,
+				'invalidFeedback' => $L('This cannot be lower than #1', '1'),
+				'hint' => $L('The ingredients listed here result in this amount of servings')
+			))
+
 			<div class="form-group">
 				<label for="recipe-picture">{{ $L('Picture') }}</label>
 				<div class="custom-file">
@@ -75,20 +85,21 @@
 						<i class="fas fa-plus"></i> {{ $L('Add') }}
 					</a>
 				</h2>
+				
 				<table id="recipes-pos-table" class="table table-sm table-striped dt-responsive">
 					<thead>
 						<tr>
 							<th>#</th>
 							<th>{{ $L('Product') }}</th>
 							<th>{{ $L('Amount') }}</th>
-							<th>{{ $L('Note') }}</th>
+							<th class="fit-content">{{ $L('Note') }}</th>
 							<th class="d-none">Hiden ingredient group</th>
 						</tr>
 					</thead>
 					<tbody class="d-none">
 						@if($mode == "edit")
 						@foreach($recipePositions as $recipePosition)
-						<tr class="@if(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->need_fulfilled == 1) table-success @elseif(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->need_fulfilled_with_shopping_list == 1) table-warning  @else table-danger @endif">
+						<tr>
 							<td class="fit-content">
 								<a class="btn btn-sm btn-info recipe-pos-edit-button" href="#" data-recipe-pos-id="{{ $recipePosition->id }}">
 									<i class="fas fa-edit"></i>
@@ -96,16 +107,12 @@
 								<a class="btn btn-sm btn-danger recipe-pos-delete-button" href="#" data-recipe-pos-id="{{ $recipePosition->id }}" data-recipe-pos-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id)->name }}">
 									<i class="fas fa-trash"></i>
 								</a>
-								<a class="btn btn-sm btn-primary recipe-pos-order-missing-button @if(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->need_fulfilled_with_shopping_list == 1){{ disabled }}@endif" href="#" data-toggle="tooltip" data-placement="right" title="{{ $L('Put missing amount on shopping list') }}" data-recipe-name="{{ $recipe->name }}" data-product-id="{{ $recipePosition->product_id }}" data-product-amount="{{ round(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->missing_amount) }}" data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id)->name }}">
-									<i class="fas fa-cart-plus"></i>
-								</a>
 							</td>
 							<td>
 								{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id)->name }}
 							</td>
 							<td>
 								@if($recipePosition->amount == round($recipePosition->amount)){{ round($recipePosition->amount) }}@else{{ $recipePosition->amount }}@endif {{ Pluralize($recipePosition->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', $recipePosition->qu_id)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', $recipePosition->qu_id)->name_plural) }}
-								<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->need_fulfilled == 1) {{ $L('Enough in stock') }} @else {{ $L('Not enough in stock, #1 missing, #2 already on shopping list', round(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->missing_amount), round(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $recipePosition->id)->amount_on_shopping_list)) }} @endif</span>
 							</td>
 							<td class="fit-content">
 								<a class="btn btn-sm btn-info recipe-pos-show-note-button @if(empty($recipePosition->note)) disabled @endif" href="#" data-toggle="tooltip" data-placement="top" title="{{ $L('Show notes') }}" data-recipe-pos-note="{{ $recipePosition->note }}">
