@@ -28,7 +28,7 @@ Setting('CURRENCY', '$');
 
 # The base url of your installation,
 # should be just "/" when running directly under the root of a (sub)domain
-# or for example "https:/example.com/grocy" when using a subdirectory
+# or for example "https://example.com/grocy" when using a subdirectory
 Setting('BASE_URL', '/');
 
 # The plugin to use for external barcode lookups,
