@@ -325,5 +325,13 @@ return array(
 	'Stock settings' => 'Stok ayarları',
 	'Shopping list to stock workflow' => 'Alışveriş listesinden stok akışına',
 	'Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set' => 'Eğer ürünün "ön tanımlı son kullanım tarihi" ayarlanmamışsa, otomatik olarak rezervasyonu son fiyatı ve alışveriş listesindeki madde sayısını baz alarak yap',
-	'Skip' => 'Geç'
+	'Skip' => 'Geç',
+	'Servings' => 'Servings',
+	'Costs' => 'Costs',
+	'Based on the prices of the last purchase per product' => 'Based on the prices of the last purchase per product',
+	'The ingredients listed here result in this amount of servings' => 'The ingredients listed here result in this amount of servings',
+	'Do not check against the shopping list when adding missing items to it' => 'Do not check against the shopping list when adding missing items to it',
+	'By default the amount to be added to the shopping list is "needed amount - stock amount - shopping list amount" - when this is enabled, it is only checked against the stock amount, not against what is already on the shopping list' => 'By default the amount to be added to the shopping list is "needed amount - stock amount - shopping list amount" - when this is enabled, it is only checked against the stock amount, not against what is already on the shopping list',
+	'Picture' => 'Picture',
+	'Uncheck ingredients to not put them on the shopping list' => 'Uncheck ingredients to not put them on the shopping list'
 );

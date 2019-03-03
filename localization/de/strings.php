@@ -325,5 +325,13 @@ return array(
 	'Stock settings' => 'Bestandseinstellungen',
 	'Shopping list to stock workflow' => 'Einkaufsliste -> Bestand Workflow',
 	'Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set' => 'Buchung automatisch ausführen, wenn das Produkt "Standard Haltbarkeit in Tagen" hinterlegt hat (als Preis wird der letzte Preis verwendet)',
-	'Skip' => 'Überspringen'
+	'Skip' => 'Überspringen',
+	'Servings' => 'Portionen',
+	'Costs' => 'Kosten',
+	'Based on the prices of the last purchase per product' => 'Basierend auf den Preisen des letzten Kaufs pro Produkt',
+	'The ingredients listed here result in this amount of servings' => 'Die hier aufgeführten Zutaten ergeben diese Menge an Portionen',
+	'Do not check against the shopping list when adding missing items to it' => 'Nicht gegen die bereits auf der Einkaufsliste vorhandene Menge prüfen, wenn fehlende Zutaten auf die Einkaufsliste gesetzt werden',
+	'By default the amount to be added to the shopping list is "needed amount - stock amount - shopping list amount" - when this is enabled, it is only checked against the stock amount, not against what is already on the shopping list' => 'Standardmäßig ist die Menge, die der Einkaufsliste hinzugefügt werden soll, "benötigte Menge - Lagerbestand - Menge bereits auf der Einkaufsliste" - wenn dies aktiviert ist, wird nur gegen den Lagerbestand geprüft, nicht gegen das, was bereits auf der Einkaufsliste steht',
+	'Picture' => 'Bild',
+	'Uncheck ingredients to not put them on the shopping list' => 'Entferne den Haken einer Zutat, um diese nicht auf die Einkaufsliste zu übernehmen'
 );

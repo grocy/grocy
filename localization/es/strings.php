@@ -128,7 +128,7 @@ return array(
 	'Track charge cycle of battery #1' => 'Registrar ciclo de carga de la pila #1',
 	'Track execution of chore #1' => 'Registrar ejecución de tarea del hogar #1',
 	'Filter by location' => 'Filtrar por lugar',
-	'Search' => 'Búscar',
+	'Search' => 'Buscar',
 	'Not logged in' => 'Sesión no iniciada',
 	'You have to select a product' => 'Has de seleccionar un producto',
 	'You have to select a chore' => 'Has de seleccionar una tarea del hogar',
@@ -325,5 +325,13 @@ return array(
 	'Stock settings' => 'Configuración de stock',
 	'Shopping list to stock workflow' => 'Flujo de lista de la compra a stock',
 	'Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set' => 'Hacer automáticamente la reserva utilizando el último precio y cantidad del elemento de la lista de la compra, si el producto tiene valor en "días de consumo por defecto"',
-	'Skip' => 'Pasar'
+	'Skip' => 'Pasar',
+	'Servings' => 'Servings',
+	'Costs' => 'Costs',
+	'Based on the prices of the last purchase per product' => 'Based on the prices of the last purchase per product',
+	'The ingredients listed here result in this amount of servings' => 'The ingredients listed here result in this amount of servings',
+	'Do not check against the shopping list when adding missing items to it' => 'Do not check against the shopping list when adding missing items to it',
+	'By default the amount to be added to the shopping list is "needed amount - stock amount - shopping list amount" - when this is enabled, it is only checked against the stock amount, not against what is already on the shopping list' => 'By default the amount to be added to the shopping list is "needed amount - stock amount - shopping list amount" - when this is enabled, it is only checked against the stock amount, not against what is already on the shopping list',
+	'Picture' => 'Picture',
+	'Uncheck ingredients to not put them on the shopping list' => 'Uncheck ingredients to not put them on the shopping list'
 );

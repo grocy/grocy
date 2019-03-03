@@ -1,18 +1,18 @@
 <?php
 
 return array(
-	'Cookies' => 'Cookies',
-	'Chocolate' => 'Chocolate',
+	'Cookies' => 'Ciastka',
+	'Chocolate' => 'Czekolada',
 	'Pantry' => 'Pantry',
 	'Candy cupboard' => 'Candy cupboard',
 	'Tinned food cupboard' => 'Tinned food cupboard',
-	'Fridge' => 'Fridge',
+	'Fridge' => 'Lodówka',
 	'Piece' => 'Piece',
 	'Pieces' => 'Pieces',
 	'Pack' => 'Pack',
 	'Packs' => 'Packs',
-	'Glass' => 'Glass',
-	'Glasses' => 'Glasses',
+	'Glass' => 'Szklanka',
+	'Glasses' => 'Szklanki',
 	'Tin' => 'Tin',
 	'Tins' => 'Tins',
 	'Can' => 'Can',

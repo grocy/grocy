@@ -84,6 +84,6 @@ return array(
 	'Bottom' => 'Dip',
 	'Topping' => 'Süsleme',
 	'French' => 'Fransızca',
-	'Turkish' => 'Turkish',
-	'Spanish' => 'Spanish'
+	'Turkish' => 'Türkçe',
+	'Spanish' => 'İspanyolca'
 );

@@ -84,7 +84,7 @@ $(document).on('click', '.recipe-order-missing-button', function(e)
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 
 	bootbox.confirm({
-		message: L('Are you sure to put all missing ingredients for recipe "#1" on the shopping list?', objectName) + "<br><br>" + L("Uncheck ingredients to not put them on the shopping list.") + $("#missing-recipe-pos-list")[0].outerHTML.replace("d-none", ""),
+		message: L('Are you sure to put all missing ingredients for recipe "#1" on the shopping list?', objectName) + "<br><br>" + L("Uncheck ingredients to not put them on the shopping list") + ":" + $("#missing-recipe-pos-list")[0].outerHTML.replace("d-none", ""),
 		buttons: {
 			confirm: {
 				label: L('Yes'),
