@@ -501,3 +501,8 @@ $("#about-dialog-link").on("click", function()
 		closeButton: false
 	});
 });
+
+$(".local-number-format[data-format='currency']").each(function ()
+{
+	$(this).text(parseFloat($(this).text()).toLocaleString(undefined, { minimumFractionDigits: 2 }));
+});

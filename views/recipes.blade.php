@@ -71,17 +71,27 @@
 				</a>
 			</div>
 
-			<div class="card-body">
-				@include('components.numberpicker', array(
-					'id' => 'servings-scale',
-					'label' => 'Servings',
-					'min' => 1,
-					'value' => $selectedRecipe->desired_servings,
-					'invalidFeedback' => $L('This cannot be lower than #1', '1'),
-					'additionalGroupCssClasses' => 'mb-0',
-					'additionalCssClasses' => 'col-2',
-					'additionalAttributes' => 'data-recipe-id="' . $selectedRecipe->id . '"'
-				))
+			<div class="card-body mb-0 pb-0">
+				<div class="row">
+					<div class="col-3">
+						@include('components.numberpicker', array(
+							'id' => 'servings-scale',
+							'label' => 'Servings',
+							'min' => 1,
+							'value' => $selectedRecipe->desired_servings,
+							'invalidFeedback' => $L('This cannot be lower than #1', '1'),
+							'additionalAttributes' => 'data-recipe-id="' . $selectedRecipe->id . '"'
+						))
+					</div>
+					<div class="col-9">
+						<label>{{ $L('Costs') }}&nbsp;&nbsp;
+							<span class="small text-muted">{{ $L('Based on the prices of the last purchase per product') }}</span>
+						</label>
+						<p class="font-weight-bold font-italic">
+							<span class="local-number-format" data-format="currency">{{ $totalRecipeCosts }}</span> {{ GROCY_CURRENCY }}
+						</p>
+					</div>
+				</div>
 			</div>
 
 			<!-- Subrecipes first -->

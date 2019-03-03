@@ -35,19 +35,21 @@ class RecipesController extends BaseController
 			}
 		}
 
-		// Scale ingredients amount based on desired servings
-		foreach ($selectedRecipePositions as $selectedRecipePosition)
-		{
-			$selectedRecipePosition->amount = $selectedRecipePosition->amount * ($selectedRecipe->desired_servings / $selectedRecipe->base_servings);
-		}
-
 		$selectedRecipeSubRecipes = $this->Database->recipes()->where('id IN (SELECT includes_recipe_id FROM recipes_nestings_resolved WHERE recipe_id = :1 AND includes_recipe_id != :1)', $selectedRecipe->id)->orderBy('name')->fetchAll();
 		$selectedRecipeSubRecipesPositions = $this->Database->recipes_pos()->where('recipe_id IN (SELECT includes_recipe_id FROM recipes_nestings_resolved WHERE recipe_id = :1 AND includes_recipe_id != :1)', $selectedRecipe->id)->orderBy('ingredient_group')->fetchAll();
 
-		// Scale ingredients amount based on desired servings
+		// Scale ingredients amount based on desired servings & calculate total costs
+		$recipesFulfillment = $this->RecipesService->GetRecipesFulfillment();
+		$totalRecipeCosts = 0;
+		foreach ($selectedRecipePositions as $selectedRecipePosition)
+		{
+			$selectedRecipePosition->amount = $selectedRecipePosition->amount * ($selectedRecipe->desired_servings / $selectedRecipe->base_servings);
+			$totalRecipeCosts += FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $selectedRecipePosition->id)->costs;
+		}
 		foreach ($selectedRecipeSubRecipesPositions as $selectedSubRecipePosition)
 		{
 			$selectedSubRecipePosition->amount = $selectedSubRecipePosition->amount * ($selectedRecipe->desired_servings / $selectedRecipe->base_servings);
+			$totalRecipeCosts += FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $selectedSubRecipePosition->id)->costs;
 		}
 
 		$includedRecipeIdsAbsolute = array();
@@ -59,7 +61,7 @@ class RecipesController extends BaseController
 
 		return $this->AppContainer->view->render($response, 'recipes', [
 			'recipes' => $recipes,
-			'recipesFulfillment' => $this->RecipesService->GetRecipesFulfillment(),
+			'recipesFulfillment' => $recipesFulfillment,
 			'recipesSumFulfillment' => $this->RecipesService->GetRecipesSumFulfillment(),
 			'selectedRecipe' => $selectedRecipe,
 			'selectedRecipePositions' => $selectedRecipePositions,
@@ -67,7 +69,8 @@ class RecipesController extends BaseController
 			'quantityunits' => $this->Database->quantity_units(),
 			'selectedRecipeSubRecipes' => $selectedRecipeSubRecipes,
 			'selectedRecipeSubRecipesPositions' => $selectedRecipeSubRecipesPositions,
-			'includedRecipeIdsAbsolute' => $includedRecipeIdsAbsolute
+			'includedRecipeIdsAbsolute' => $includedRecipeIdsAbsolute,
+			'totalRecipeCosts' => $totalRecipeCosts
 		]);
 	}
 
