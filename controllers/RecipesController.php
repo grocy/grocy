@@ -50,6 +50,13 @@ class RecipesController extends BaseController
 			$selectedSubRecipePosition->amount = $selectedSubRecipePosition->amount * ($selectedRecipe->desired_servings / $selectedRecipe->base_servings);
 		}
 
+		$includedRecipeIdsAbsolute = array();
+		$includedRecipeIdsAbsolute[] = $selectedRecipe->id;
+		foreach($selectedRecipeSubRecipes as $subRecipe)
+		{
+			$includedRecipeIdsAbsolute[] = $subRecipe->id;
+		}
+
 		return $this->AppContainer->view->render($response, 'recipes', [
 			'recipes' => $recipes,
 			'recipesFulfillment' => $this->RecipesService->GetRecipesFulfillment(),
@@ -59,7 +66,8 @@ class RecipesController extends BaseController
 			'products' => $this->Database->products(),
 			'quantityunits' => $this->Database->quantity_units(),
 			'selectedRecipeSubRecipes' => $selectedRecipeSubRecipes,
-			'selectedRecipeSubRecipesPositions' => $selectedRecipeSubRecipesPositions
+			'selectedRecipeSubRecipesPositions' => $selectedRecipeSubRecipesPositions,
+			'includedRecipeIdsAbsolute' => $includedRecipeIdsAbsolute
 		]);
 	}
 

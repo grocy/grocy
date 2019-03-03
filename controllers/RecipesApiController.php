@@ -16,7 +16,15 @@ class RecipesApiController extends BaseApiController
 
 	public function AddNotFulfilledProductsToShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$this->RecipesService->AddNotFulfilledProductsToShoppingList($args['recipeId']);
+		$requestBody = $request->getParsedBody();
+		$excludedProductIds = null;
+
+		if ($requestBody !== null && array_key_exists('excludedProductIds', $requestBody))
+		{
+			$excludedProductIds = $requestBody['excludedProductIds'];
+		}
+		
+		$this->RecipesService->AddNotFulfilledProductsToShoppingList($args['recipeId'], $excludedProductIds);
 		return $this->EmptyApiResponse($response);
 	}
 

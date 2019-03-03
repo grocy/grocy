@@ -26,14 +26,14 @@ class RecipesService extends BaseService
 		return $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
 
-	public function AddNotFulfilledProductsToShoppingList($recipeId)
+	public function AddNotFulfilledProductsToShoppingList($recipeId, $excludedProductIds = null)
 	{
 		$recipe = $this->Database->recipes($recipeId);
 
 		$recipePositions = $this->GetRecipesFulfillment();
 		foreach ($recipePositions as $recipePosition)
 		{
-			if($recipePosition->recipe_id == $recipeId)
+			if($recipePosition->recipe_id == $recipeId && !in_array($recipePosition->product_id, $excludedProductIds))
 			{
 				$product = $this->Database->products($recipePosition->product_id);
 				

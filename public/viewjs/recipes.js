@@ -84,7 +84,7 @@ $(document).on('click', '.recipe-order-missing-button', function(e)
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 
 	bootbox.confirm({
-		message: L('Are you sure to put all missing ingredients for recipe "#1" on the shopping list?', objectName),
+		message: L('Are you sure to put all missing ingredients for recipe "#1" on the shopping list?', objectName) + "<br><br>" + L("Uncheck ingredients to not put them on the shopping list.") + $("#missing-recipe-pos-list")[0].outerHTML.replace("d-none", ""),
 		buttons: {
 			confirm: {
 				label: L('Yes'),
@@ -101,7 +101,13 @@ $(document).on('click', '.recipe-order-missing-button', function(e)
 			{
 				Grocy.FrontendHelpers.BeginUiBusy();
 
-				Grocy.Api.Post('recipes/' + objectId + '/add-not-fulfilled-products-to-shoppinglist', { },
+				var excludedProductIds = new Array();
+				$(".missing-recipe-pos-product-checkbox:checkbox:not(:checked)").each(function()
+				{
+					excludedProductIds.push($(this).data("product-id"));
+				});
+
+				Grocy.Api.Post('recipes/' + objectId + '/add-not-fulfilled-products-to-shoppinglist', { "excludedProductIds": excludedProductIds },
 					function(result)
 					{
 						window.location.href = U('/recipes');
@@ -193,6 +199,16 @@ $('#servings-scale').keyup(function(event)
 			console.error(xhr);
 		}
 	);
+});
+
+$(document).on("click", ".missing-recipe-pos-select-button", function(e)
+{
+	e.preventDefault();
+
+	var checkbox = $(this).find(".form-check-input");
+	checkbox.prop("checked", !checkbox.prop("checked"));
+
+	$(this).toggleClass("list-group-item-primary");
 });
 
 if (window.location.hash === "#fullscreen")

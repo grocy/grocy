@@ -1404,6 +1404,26 @@
 						}
 					}
 				],
+				"requestBody": {
+					"required": false,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"excludedProductIds": {
+										"type": "array",
+										"items":{
+											"type": "number",
+											"format": "integer"
+										},
+										"description": "An optional array of product ids to exclude them from being put on the shopping list"
+									}
+								}
+							}
+						}
+					}
+				},
 				"responses": {
 					"204": {
 						"description": "The operation was successful"

@@ -162,4 +162,17 @@
 	</div>
 	@endif
 </div>
+
+<div id="missing-recipe-pos-list" class="list-group d-none mt-3">
+	@foreach($recipesFulfillment as $recipePos)
+		@if(in_array($recipePos->recipe_id, $includedRecipeIdsAbsolute))
+			<a href="#" class="list-group-item list-group-item-action list-group-item-primary missing-recipe-pos-select-button">
+				<div class="form-check form-check-inline">
+					<input class="form-check-input missing-recipe-pos-product-checkbox" type="checkbox" data-product-id="{{ $recipePos->product_id }}" checked>
+				</div>
+				{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePos->product_id)->name }}
+			</a>
+		@endif
+	@endforeach
+</div>
 @stop
