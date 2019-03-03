@@ -38,6 +38,11 @@ class RecipesService extends BaseService
 				$product = $this->Database->products($recipePosition->product_id);
 				
 				$toOrderAmount = ceil(($recipePosition->missing_amount - $recipePosition->amount_on_shopping_list) / $product->qu_factor_purchase_to_stock);
+				if ($recipe->not_check_shoppinglist == 1)
+				{
+					$toOrderAmount = ceil($recipePosition->missing_amount / $product->qu_factor_purchase_to_stock);
+				}
+				
 				if($toOrderAmount > 0)
 				{
 					$shoppinglistRow = $this->Database->shopping_list()->createRow(array(

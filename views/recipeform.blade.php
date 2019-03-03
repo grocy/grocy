@@ -63,6 +63,16 @@
 			))
 
 			<div class="form-group">
+				<div class="form-check">
+					<input type="hidden" name="not_check_shoppinglist" value="0">
+					<input @if($mode == 'edit' && $recipe->not_check_shoppinglist == 1) checked @endif class="form-check-input" type="checkbox" id="not_check_shoppinglist" name="not_check_shoppinglist" value="1">
+					<label class="form-check-label" for="not_check_shoppinglist">{{ $L('Do not check against the shopping list when adding missing items to it') }}
+						<span class="small text-muted">{{ $L('By default the amount to be added to the shopping list is "needed amount - stock amount - shopping list amount". When this is enabled, it is only checked against the stock amount, not against what is already on the shopping list.') }}</span>
+					</label>
+				</div>
+			</div>
+
+			<div class="form-group">
 				<label for="recipe-picture">{{ $L('Picture') }}</label>
 				<div class="custom-file">
 					<input type="file" class="custom-file-input" id="recipe-picture" accept="image/*">
