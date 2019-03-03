@@ -333,5 +333,7 @@ return array(
 	'Do not check against the shopping list when adding missing items to it' => 'Do not check against the shopping list when adding missing items to it',
 	'By default the amount to be added to the shopping list is "needed amount - stock amount - shopping list amount" - when this is enabled, it is only checked against the stock amount, not against what is already on the shopping list' => 'By default the amount to be added to the shopping list is "needed amount - stock amount - shopping list amount" - when this is enabled, it is only checked against the stock amount, not against what is already on the shopping list',
 	'Picture' => 'Picture',
-	'Uncheck ingredients to not put them on the shopping list' => 'Uncheck ingredients to not put them on the shopping list'
+	'Uncheck ingredients to not put them on the shopping list' => 'Uncheck ingredients to not put them on the shopping list',
+	'This is for statistical purposes only' => 'This is for statistical purposes only',
+	'You have to select a recipe' => 'You have to select a recipe'
 );

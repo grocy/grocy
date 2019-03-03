@@ -1115,6 +1115,11 @@
 									"stock_entry_id": {
 										"type": "string",
 										"description": "A specific stock entry id to consume, if used, the amount has to be 1"
+									},
+									"recipe_id": {
+										"type": "number",
+										"format": "integer",
+										"description": "A valid recipe id for which this product was used (for statistical purposes only)"
 									}
 								},
 								"example": {

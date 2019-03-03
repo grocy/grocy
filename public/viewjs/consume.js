@@ -21,6 +21,11 @@
 		jsonData.stock_entry_id = jsonForm.specific_stock_entry;
 	}
 
+	if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_RECIPES && Grocy.Components.RecipePicker.GetValue().toString().length > 0)
+	{
+		jsonData.recipe_id = Grocy.Components.RecipePicker.GetValue();
+	}
+
 	Grocy.Api.Get('stock/products/' + jsonForm.product_id,
 		function(productDetails)
 		{
@@ -38,6 +43,10 @@
 
 					$('#amount').val(1);
 					Grocy.Components.ProductPicker.SetValue('');
+					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_RECIPES)
+					{
+						Grocy.Components.RecipePicker.SetValue('');
+					}
 					Grocy.Components.ProductPicker.GetInputElement().focus();
 					Grocy.FrontendHelpers.ValidateForm('consume-form');
 				},

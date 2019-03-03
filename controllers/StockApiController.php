@@ -121,7 +121,13 @@ class StockApiController extends BaseApiController
 				$specificStockEntryId = $requestBody['stock_entry_id'];
 			}
 
-			$bookingId = $this->StockService->ConsumeProduct($args['productId'], $requestBody['amount'], $spoiled, $transactionType, $specificStockEntryId);
+			$recipeId = null;
+			if (array_key_exists('recipe_id', $requestBody) && is_numeric($requestBody['recipe_id']))
+			{
+				$recipeId = $requestBody['recipe_id'];
+			}
+
+			$bookingId = $this->StockService->ConsumeProduct($args['productId'], $requestBody['amount'], $spoiled, $transactionType, $specificStockEntryId, $recipeId);
 			return $this->ApiResponse(array('booking_id' => $bookingId));
 		}
 		catch (\Exception $ex)

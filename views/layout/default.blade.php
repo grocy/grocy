@@ -54,6 +54,7 @@
 		Grocy.Culture = '{{ GROCY_CULTURE }}';
 		Grocy.Currency = '{{ GROCY_CURRENCY }}';
 		Grocy.UserSettings = {!! json_encode($userSettings) !!};
+		Grocy.FeatureFlags = {!! json_encode($featureFlags) !!};
 	</script>
 </head>
 

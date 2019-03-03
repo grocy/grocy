@@ -68,7 +68,7 @@ class RecipesService extends BaseService
 		{
 			if ($recipePosition->only_check_single_unit_in_stock == 0)
 			{
-				$this->StockService->ConsumeProduct($recipePosition->product_id, $recipePosition->amount, false, StockService::TRANSACTION_TYPE_CONSUME);
+				$this->StockService->ConsumeProduct($recipePosition->product_id, $recipePosition->amount, false, StockService::TRANSACTION_TYPE_CONSUME, 'default', $recipeId);
 			}
 		}
 	}

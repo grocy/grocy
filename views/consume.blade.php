@@ -42,6 +42,14 @@
 				</label>
 			</div>
 
+			@if (GROCY_FEATURE_FLAG_RECIPES)
+			@include('components.recipepicker', array(
+				'recipes' => $recipes,
+				'isRequired' => false,
+				'hint' => $L('This is for statistical purposes only')
+			))
+			@endif
+
 			<button id="save-consume-button" class="btn btn-success">{{ $L('OK') }}</button>
 			<button id="save-mark-as-open-button" class="btn btn-secondary">{{ $L('Mark as opened') }}</button>
 

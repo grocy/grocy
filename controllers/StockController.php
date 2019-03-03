@@ -40,7 +40,8 @@ class StockController extends BaseController
 	public function Consume(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->AppContainer->view->render($response, 'consume', [
-			'products' => $this->Database->products()->orderBy('name')
+			'products' => $this->Database->products()->orderBy('name'),
+			'recipes' => $this->Database->recipes()->orderBy('name')
 		]);
 	}
 
