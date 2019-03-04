@@ -38,6 +38,7 @@
 					<th>{{ $L('Expires') }}</th>
 					<th>{{ $L('Last used') }}</th>
 					<th>{{ $L('Created') }}</th>
+					<th>{{ $L('Key type') }}</th>
 				</tr>
 			</thead>
 			<tbody class="d-none">
@@ -65,6 +66,9 @@
 					<td>
 						{{ $apiKey->row_created_timestamp }}
 						<time class="timeago timeago-contextual" datetime="{{ $apiKey->row_created_timestamp }}"></time>
+					</td>
+					<td>
+						{{ $apiKey->key_type }}
 					</td>
 				</tr>
 				@endforeach

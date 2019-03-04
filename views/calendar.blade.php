@@ -16,12 +16,17 @@
 @section('content')
 <div class="row">
 	<div class="col">
-		<h1>@yield('title')</h1>
+		<h1>
+			@yield('title')
+			<a id="ical-button" class="btn btn-outline-dark" href="#">
+				<i class="fas fa-calendar-plus"></i>&nbsp;{{ $L('Export as iCal') }}
+			</a>
+		</h1>
 	</div>
 </div>
 
 <script>
-	var fullcalendarEventSources = {!! json_encode($fullcalendarEventSources) !!}
+	var fullcalendarEventSources = {!! json_encode(array($fullcalendarEventSources)) !!}
 </script>
 
 <div class="row">

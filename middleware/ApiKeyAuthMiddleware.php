@@ -44,6 +44,18 @@ class ApiKeyAuthMiddleware extends BaseMiddleware
 				$validApiKey = false;
 			}
 
+			// Handling of special purpose API keys
+			if (!$validApiKey)
+			{
+				if ($routeName === 'calendar-ical')
+				{
+					if ($request->getQueryParam('secret') !== null && $apiKeyService->IsValidApiKey($request->getQueryParam('secret'), ApiKeyService::API_KEY_TYPE_SPECIAL_PURPOSE_CALENDAR_ICAL))
+					{
+						$validApiKey = true;
+					}
+				}
+			}
+
 			if (!$validSession && !$validApiKey)
 			{
 				define('GROCY_AUTHENTICATED', false);

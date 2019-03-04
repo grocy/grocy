@@ -9,3 +9,19 @@
 	"eventLimit": true,
 	"eventSources": fullcalendarEventSources
 });
+
+$("#ical-button").on("click", function(e)
+{
+	e.preventDefault();
+
+	Grocy.Api.Get('calendar/ical/sharing-link',
+		function(result)
+		{
+			location.href = result.url;
+		},
+		function(xhr)
+		{
+			console.error(xhr);
+		}
+	);
+});

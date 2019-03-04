@@ -1859,6 +1859,61 @@
 					}
 				}
 			}
+		},
+		"/calendar/ical": {
+			"get": {
+				"summary": "Returns the calendar in iCal format",
+				"tags": [
+					"Calendar"
+				],
+				"responses": {
+					"200": {
+						"description": "The iCal file contents",
+						"content": {
+							"text/calendar": {
+								"schema": {
+									"type": "string"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/calendar/ical/sharing-link": {
+			"get": {
+				"summary": "Returns a (public) sharing link for the calendar in iCal format",
+				"tags": [
+					"Calendar"
+				],
+				"responses": {
+					"200": {
+						"description": "The (public) sharing link for the calendar in iCal format",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"url": {
+											"type": "string"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	},
 	"components": {

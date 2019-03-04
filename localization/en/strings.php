@@ -333,5 +333,7 @@ return array(
 	'Picture' => 'Picture',
 	'Uncheck ingredients to not put them on the shopping list' => 'Uncheck ingredients to not put them on the shopping list',
 	'This is for statistical purposes only' => 'This is for statistical purposes only',
-	'You have to select a recipe' => 'You have to select a recipe'
+	'You have to select a recipe' => 'You have to select a recipe',
+	'Key type' => 'Key type',
+	'Export as iCal' => 'Export as iCal'
 );

@@ -182,6 +182,13 @@ $app->group('/api', function()
 		$this->get('/tasks', '\Grocy\Controllers\TasksApiController:Current');
 		$this->post('/tasks/{taskId}/complete', '\Grocy\Controllers\TasksApiController:MarkTaskAsCompleted');
 	}
+
+	// Calendar
+	if (GROCY_FEATURE_FLAG_CALENDAR)
+	{
+		$this->get('/calendar/ical', '\Grocy\Controllers\CalendarApiController:Ical')->setName('calendar-ical');
+		$this->get('/calendar/ical/sharing-link', '\Grocy\Controllers\CalendarApiController:IcalSharingLink');
+	}
 })->add(new ApiKeyAuthMiddleware($appContainer, $appContainer->LoginControllerInstance->GetSessionCookieName(), $appContainer->ApiKeyHeaderName))
 ->add(JsonMiddleware::class)
 ->add(new CorsMiddleware([
