@@ -29,11 +29,11 @@
 			<div class="form-group">
 				<label for="use_specific_stock_entry">
 					<input type="checkbox" id="use_specific_stock_entry" name="use_specific_stock_entry"> {{ $L('Use a specific stock item') }}
+					<span class="small text-muted">{{ $L('The first item in this list would be picked by the default rule which is "First expiring first, then first in first out"') }}</span>
 				</label>
 				<select disabled class="form-control" id="specific_stock_entry" name="specific_stock_entry">
 					<option></option>
 				</select>
-				<span class="small text-muted">{{ $L('The first item in this list would be picked by the default rule which is "First expiring first, then first in first out"') }}</span>
 			</div>
 
 			<div class="checkbox">

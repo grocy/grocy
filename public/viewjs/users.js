@@ -19,6 +19,7 @@
 	}
 });
 $('#users-table tbody').removeClass("d-none");
+usersTable.columns.adjust().draw();
 
 $("#search").on("keyup", function()
 {

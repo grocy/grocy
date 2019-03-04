@@ -19,6 +19,7 @@
 	}
 });
 $('#stock-journal-table tbody').removeClass("d-none");
+stockJournalTable.columns.adjust().draw();
 
 $("#product-filter").on("change", function()
 {

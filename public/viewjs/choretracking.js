@@ -58,9 +58,10 @@ $('.combobox').combobox({
 
 $('#chore_id_text_input').focus();
 $('#chore_id_text_input').trigger('change');
+Grocy.Components.DateTimePicker.GetInputElement().trigger('input');
 Grocy.FrontendHelpers.ValidateForm('choretracking-form');
 
-$('#choretracking-form input').keyup(function (event)
+$('#choretracking-form input').keyup(function(event)
 {
 	Grocy.FrontendHelpers.ValidateForm('choretracking-form');
 });

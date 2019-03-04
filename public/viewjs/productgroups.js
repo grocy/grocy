@@ -19,6 +19,7 @@
 	}
 });
 $('#productgroups-table tbody').removeClass("d-none");
+groupsTable.columns.adjust().draw();
 
 $("#search").on("keyup", function()
 {

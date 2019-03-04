@@ -21,6 +21,19 @@ Grocy.Components.UserPicker.SetValue = function(value)
 	Grocy.Components.UserPicker.GetInputElement().trigger('change');
 }
 
+Grocy.Components.UserPicker.SetId = function(value)
+{
+	Grocy.Components.UserPicker.GetPicker().val(value);
+	Grocy.Components.UserPicker.GetPicker().data('combobox').refresh();
+	Grocy.Components.UserPicker.GetInputElement().trigger('change');
+}
+
+Grocy.Components.UserPicker.Clear = function()
+{
+	Grocy.Components.UserPicker.SetValue('');
+	Grocy.Components.UserPicker.SetId(null);
+}
+
 $('.user-combobox').combobox({
 	appendId: '_text_input',
 	bsVersion: '4'

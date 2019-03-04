@@ -23,6 +23,7 @@
 	}
 });
 $('#tasks-table tbody').removeClass("d-none");
+tasksTable.columns.adjust().draw();
 
 $("#search").on("keyup", function()
 {

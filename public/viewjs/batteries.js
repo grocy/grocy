@@ -19,6 +19,7 @@
 	}
 });
 $('#batteries-table tbody').removeClass("d-none");
+batteriesTable.columns.adjust().draw();
 
 $("#search").on("keyup", function()
 {

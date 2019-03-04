@@ -19,6 +19,7 @@
 	}
 });
 $('#batteries-journal-table tbody').removeClass("d-none");
+batteriesJournalTable.columns.adjust().draw();
 
 $("#battery-filter").on("change", function()
 {

@@ -66,6 +66,7 @@ class StockService extends BaseService
 		$nextBestBeforeDate = $this->Database->stock()->where('product_id', $productId)->min('best_before_date');
 		$quPurchase = $this->Database->quantity_units($product->qu_id_purchase);
 		$quStock = $this->Database->quantity_units($product->qu_id_stock);
+		$location = $this->Database->locations($product->location_id);
 		
 		$lastPrice = null;
 		$lastLogRow = $this->Database->stock_log()->where('product_id = :1 AND transaction_type = :2 AND undone = 0', $productId, self::TRANSACTION_TYPE_PURCHASE)->orderBy('row_created_timestamp', 'DESC')->limit(1)->fetch();
@@ -83,7 +84,8 @@ class StockService extends BaseService
 			'quantity_unit_purchase' => $quPurchase,
 			'quantity_unit_stock' => $quStock,
 			'last_price' => $lastPrice,
-			'next_best_before_date' => $nextBestBeforeDate
+			'next_best_before_date' => $nextBestBeforeDate,
+			'location' => $location
 		);
 	}
 

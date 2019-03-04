@@ -24,6 +24,7 @@
 	}
 });
 $('#recipes-table tbody').removeClass("d-none");
+recipesTables.columns.adjust().draw();
 
 var rowSelect = GetUriParam("row");
 if (typeof rowSelect !== "undefined")

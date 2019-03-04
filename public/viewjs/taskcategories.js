@@ -19,6 +19,7 @@
 	}
 });
 $('#taskcategories-table tbody').removeClass("d-none");
+categoriesTable.columns.adjust().draw();
 
 $("#search").on("keyup", function()
 {

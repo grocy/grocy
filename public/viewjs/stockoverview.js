@@ -22,6 +22,7 @@
 	}
 });
 $('#stock-overview-table tbody').removeClass("d-none");
+stockOverviewTable.columns.adjust().draw();
 
 $("#location-filter").on("change", function()
 {

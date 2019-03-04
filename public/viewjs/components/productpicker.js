@@ -21,6 +21,19 @@ Grocy.Components.ProductPicker.SetValue = function(value)
 	Grocy.Components.ProductPicker.GetInputElement().trigger('change');
 }
 
+Grocy.Components.ProductPicker.SetId = function(value)
+{
+	Grocy.Components.ProductPicker.GetPicker().val(value);
+	Grocy.Components.ProductPicker.GetPicker().data('combobox').refresh();
+	Grocy.Components.ProductPicker.GetInputElement().trigger('change');
+}
+
+Grocy.Components.ProductPicker.Clear = function()
+{
+	Grocy.Components.ProductPicker.SetValue('');
+	Grocy.Components.ProductPicker.SetId(null);
+}
+
 Grocy.Components.ProductPicker.InProductAddWorkflow = function()
 {
 	return typeof GetUriParam('createdproduct') !== "undefined" || typeof GetUriParam('product') !== "undefined";

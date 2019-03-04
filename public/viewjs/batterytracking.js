@@ -61,6 +61,7 @@ $('#battery_id').val('');
 $('#battery_id_text_input').focus();
 $('#battery_id_text_input').val('');
 $('#battery_id_text_input').trigger('change');
+Grocy.Components.DateTimePicker.GetInputElement().trigger('input');
 Grocy.FrontendHelpers.ValidateForm('batterytracking-form');
 
 $('#batterytracking-form input').keyup(function (event)

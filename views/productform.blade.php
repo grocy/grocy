@@ -135,12 +135,13 @@
 			</div>
 
 			<div class="form-group">
-				<label for="product-picture">{{ $L('Product picture') }}</label>
+				<label for="product-picture">{{ $L('Product picture') }}
+					<span class="text-muted small">{{ $L('If you don\'t select a file, the current picture will not be altered') }}</span>
+				</label>
 				<div class="custom-file">
 					<input type="file" class="custom-file-input" id="product-picture" accept="image/*">
 					<label class="custom-file-label" for="product-picture">{{ $L('No file selected') }}</label>
 				</div>
-				<p class="form-text text-muted small">{{ $L('If you don\'t select a file, the current picture will not be altered') }}</p>
 			</div>
 
 			<button id="save-product-button" class="btn btn-success">{{ $L('Save') }}</button>
@@ -148,7 +149,7 @@
 	</div>
 
 	<div class="col-lg-6 col-xs-12">
-		<label class="mt-2">{{ $L('Current picture') }}</label>
+		<label class="mt-2">{{ $L('Picture') }}</label>
 		<button id="delete-current-product-picture-button" class="btn btn-sm btn-danger @if(empty($product->picture_file_name)) disabled @endif"><i class="fas fa-trash"></i> {{ $L('Delete') }}</button>
 		@if(!empty($product->picture_file_name))
 			<p><img id="current-product-picture" src="{{ $U('/api/files/productpictures/' . base64_encode($product->picture_file_name)) }}" class="img-fluid img-thumbnail mt-2"></p>

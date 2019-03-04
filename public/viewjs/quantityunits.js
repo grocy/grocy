@@ -19,6 +19,7 @@
 	}
 });
 $('#quantityunits-table tbody').removeClass("d-none");
+quantityUnitsTable.columns.adjust().draw();
 
 $("#search").on("keyup", function()
 {

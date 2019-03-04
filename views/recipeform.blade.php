@@ -73,12 +73,13 @@
 			</div>
 
 			<div class="form-group">
-				<label for="recipe-picture">{{ $L('Picture') }}</label>
+				<label for="recipe-picture">{{ $L('Picture') }}
+					<span class="text-muted small">{{ $L('If you don\'t select a file, the current picture will not be altered') }}</span>
+				</label>
 				<div class="custom-file">
 					<input type="file" class="custom-file-input" id="recipe-picture" accept="image/*">
 					<label class="custom-file-label" for="recipe-picture">{{ $L('No file selected') }}</label>
 				</div>
-				<p class="form-text text-muted small">{{ $L('If you don\'t select a file, the current picture will not be altered') }}</p>
 			</div>
 
 			<button id="save-recipe-button" class="btn btn-success">{{ $L('Save') }}</button>
@@ -180,7 +181,7 @@
 
 		<div class="row mt-5">
 			<div class="col">
-				<label class="mt-2">{{ $L('Current picture') }}</label>
+				<label class="mt-2">{{ $L('Picture') }}</label>
 				<button id="delete-current-recipe-picture-button" class="btn btn-sm btn-danger @if(empty($recipe->picture_file_name)) disabled @endif"><i class="fas fa-trash"></i> {{ $L('Delete') }}</button>
 				@if(!empty($recipe->picture_file_name))
 					<p><img id="current-recipe-picture" src="{{ $U('/api/files/recipepictures/' . base64_encode($recipe->picture_file_name)) }}" class="img-fluid img-thumbnail mt-2"></p>

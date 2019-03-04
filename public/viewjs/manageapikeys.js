@@ -19,6 +19,7 @@
 	}
 });
 $('#apikeys-table tbody').removeClass("d-none");
+apiKeysTable.columns.adjust().draw();
 
 var createdApiKeyId = GetUriParam('CreatedApiKeyId');
 if (createdApiKeyId !== undefined)

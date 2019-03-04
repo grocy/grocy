@@ -50,7 +50,7 @@
 				'min' => '0',
 				'additionalCssClasses' => 'input-group-chore-period-type',
 				'invalidFeedback' => $L('This cannot be negative'),
-				'additionalHtmlElements' => '<p id="chore-period-type-info" class="form-text text-muted small d-none"></p>'
+				'hintId' => 'chore-period-type-info'
 			))
 
 			<button id="save-chore-button" class="btn btn-success">{{ $L('Save') }}</button>

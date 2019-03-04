@@ -19,6 +19,7 @@
 	}
 });
 $('#chores-overview-table tbody').removeClass("d-none");
+choresOverviewTable.columns.adjust().draw();
 
 $("#search").on("keyup", function()
 {

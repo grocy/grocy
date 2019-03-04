@@ -19,6 +19,7 @@
 	}
 });
 $('#locations-table tbody').removeClass("d-none");
+locationsTable.columns.adjust().draw();
 
 $("#search").on("keyup", function()
 {

@@ -2052,6 +2052,9 @@
 					"last_price": {
 						"type": "number",
 						"format": "double"
+					},
+					"location": {
+						"$ref": "#/components/schemas/Location"
 					}
 				}
 			},

@@ -24,6 +24,7 @@
 	}
 });
 $('#shoppinglist-table tbody').removeClass("d-none");
+shoppingListTable.columns.adjust().draw();
 
 $("#search").on("keyup", function()
 {

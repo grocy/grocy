@@ -42,10 +42,10 @@
 					toastr.success(L('Removed #1 #2 of #3 from stock', jsonForm.amount, Pluralize(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.booking_id + ')"><i class="fas fa-undo"></i> ' + L("Undo") + '</a>');
 
 					$('#amount').val(1);
-					Grocy.Components.ProductPicker.SetValue('');
+					Grocy.Components.ProductPicker.Clear();
 					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_RECIPES)
 					{
-						Grocy.Components.RecipePicker.SetValue('');
+						Grocy.Components.RecipePicker.Clear();
 					}
 					Grocy.Components.ProductPicker.GetInputElement().focus();
 					Grocy.FrontendHelpers.ValidateForm('consume-form');
@@ -103,7 +103,7 @@ $('#save-mark-as-open-button').on('click', function(e)
 					toastr.success(L('Marked #1 #2 of #3 as opened', jsonForm.amount, Pluralize(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.booking_id + ')"><i class="fas fa-undo"></i> ' + L("Undo") + '</a>');
 
 					$('#amount').val(1);
-					Grocy.Components.ProductPicker.SetValue('');
+					Grocy.Components.ProductPicker.Clear();
 					Grocy.Components.ProductPicker.GetInputElement().focus();
 					Grocy.FrontendHelpers.ValidateForm('consume-form');
 				},
@@ -157,7 +157,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 
 				if ((productDetails.stock_amount || 0) === 0)
 				{
-					Grocy.Components.ProductPicker.SetValue('');
+					Grocy.Components.ProductPicker.Clear();
 					Grocy.FrontendHelpers.ValidateForm('consume-form');
 					Grocy.Components.ProductPicker.ShowCustomError(L('This product is not in stock'));
 					Grocy.Components.ProductPicker.GetInputElement().focus();

@@ -22,6 +22,7 @@
 	}
 });
 $('#equipment-table tbody').removeClass("d-none");
+equipmentTable.columns.adjust().draw();
 
 equipmentTable.on('select', function(e, dt, type, indexes)
 {

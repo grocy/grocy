@@ -49,16 +49,11 @@
 				'isRequired' => false
 			))
 
-			<div class="form-group">
-				<label for="location_id">{{ $L('Location') }}</label>
-				<select required class="form-control" id="location_id" name="location_id">
-					<option></option>
-					@foreach($locations as $location)
-						<option value="{{ $location->id }}">{{ $location->name }}</option>
-					@endforeach
-				</select>
-				<div class="invalid-feedback">{{ $L('A location is required') }}</div>
-			</div>
+			@include('components.locationpicker', array(
+				'locations' => $locations,
+				'isRequired' => false,
+				'hint' => $L('This is for statistical purposes only')
+			))
 
 			<button id="save-purchase-button" class="btn btn-success">{{ $L('OK') }}</button>
 

@@ -19,6 +19,7 @@
 	}
 });
 $('#chores-journal-table tbody').removeClass("d-none");
+choresJournalTable.columns.adjust().draw();
 
 $("#chore-filter").on("change", function()
 {

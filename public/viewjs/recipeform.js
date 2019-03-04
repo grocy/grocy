@@ -84,6 +84,7 @@ var recipesPosTables = $('#recipes-pos-table').DataTable({
 	}
 });
 $('#recipes-pos-table tbody').removeClass("d-none");
+recipesPosTables.columns.adjust().draw();
 
 var recipesIncludesTables = $('#recipes-includes-table').DataTable({
 	'paginate': false,
@@ -106,6 +107,7 @@ var recipesIncludesTables = $('#recipes-includes-table').DataTable({
 	}
 });
 $('#recipes-includes-table tbody').removeClass("d-none");
+recipesIncludesTables.columns.adjust().draw();
 
 Grocy.FrontendHelpers.ValidateForm('recipe-form');
 $("#name").focus();

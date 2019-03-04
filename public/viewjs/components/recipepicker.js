@@ -21,6 +21,19 @@ Grocy.Components.RecipePicker.SetValue = function(value)
 	Grocy.Components.RecipePicker.GetInputElement().trigger('change');
 }
 
+Grocy.Components.RecipePicker.SetId = function(value)
+{
+	Grocy.Components.RecipePicker.GetPicker().val(value);
+	Grocy.Components.RecipePicker.GetPicker().data('combobox').refresh();
+	Grocy.Components.RecipePicker.GetInputElement().trigger('change');
+}
+
+Grocy.Components.RecipePicker.Clear = function()
+{
+	Grocy.Components.RecipePicker.SetValue('');
+	Grocy.Components.RecipePicker.SetId(null);
+}
+
 $('.recipe-combobox').combobox({
 	appendId: '_text_input',
 	bsVersion: '4',

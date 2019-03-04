@@ -62,4 +62,5 @@ $('#task-form input').keydown(function(event)
 });
 
 $('#name').focus();
+Grocy.Components.DateTimePicker.GetInputElement().trigger('input');
 Grocy.FrontendHelpers.ValidateForm('task-form');

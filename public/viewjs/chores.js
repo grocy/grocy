@@ -1,4 +1,4 @@
-﻿var choresTable  = $('#chores-table').DataTable({
+﻿var choresTable = $('#chores-table').DataTable({
 	'paginate': false,
 	'order': [[1, 'asc']],
 	'columnDefs': [
@@ -19,6 +19,7 @@
 	}
 });
 $('#chores-table tbody').removeClass("d-none");
+choresTable.columns.adjust().draw();
 
 $("#search").on("keyup", function()
 {

@@ -42,12 +42,13 @@
 			</div>
 
 			<div class="form-group">
-				<label for="instruction-manual">{{ $L('Instruction manual') }} (PDF)</label>
+				<label for="instruction-manual">{{ $L('Instruction manual') }} (PDF)
+					<span class="text-muted small">{{ $L('If you don\'t select a file, the current instruction manual will not be altered') }}</span>
+				</label>
 				<div class="custom-file">
 					<input type="file" class="custom-file-input" id="instruction-manual" accept="application/pdf">
 					<label class="custom-file-label" for="instruction-manual">{{ $L('No file selected') }}</label>
 				</div>
-				<p class="form-text text-muted small">{{ $L('If you don\'t select a file, the current instruction manual will not be altered') }}</p>
 			</div>
 
 			<div class="form-group">
@@ -61,8 +62,8 @@
 	</div>
 
 	<div class="col-lg-6 col-xs-12">
-		<label class="mt-2">{{ $L('Current instruction manual') }}</label>
-		<button id="delete-current-instruction-manual-button" class="btn btn-sm btn-danger @if(empty($equipment->instruction_manual_file_name)) disabled @endif"><i class="fas fa-trash"></i> {{ $L('Delete') }}</button>
+		<label class="mt-2">{{ $L('Instruction manual') }}</label>
+		<button id="delete-current-instruction-manual-button" class="btn btn-sm btn-danger mb-1 @if(empty($equipment->instruction_manual_file_name)) disabled @endif"><i class="fas fa-trash"></i> {{ $L('Delete') }}</button>
 		@if(!empty($equipment->instruction_manual_file_name))
 			<embed id="current-equipment-instruction-manual" class="embed-responsive embed-responsive-4by3" src="{{ $U('/api/files/equipmentmanuals/' . base64_encode($equipment->instruction_manual_file_name)) }}" type="application/pdf">
 			<p id="delete-current-instruction-manual-on-save-hint" class="form-text text-muted font-italic d-none">{{ $L('The current instruction manual will be deleted when you save the equipment') }}</p>

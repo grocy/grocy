@@ -60,6 +60,11 @@ $('#chore-form input').keydown(function(event)
 $('#name').focus();
 Grocy.FrontendHelpers.ValidateForm('chore-form');
 
+setTimeout(function()
+{
+	$(".input-group-chore-period-type").trigger("change");
+}, 100);
+
 $('.input-group-chore-period-type').on('change', function(e)
 {
 	var periodType = $('#period_type').val();

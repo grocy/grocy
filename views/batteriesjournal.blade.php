@@ -13,6 +13,10 @@
 
 <div class="row my-3">
 	<div class="col-xs-12 col-md-6 col-xl-3">
+		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
+		<input type="text" class="form-control" id="search">
+	</div>
+	<div class="col-xs-12 col-md-6 col-xl-3">
 		<label for="battery-filter">{{ $L('Filter by battery') }}</label> <i class="fas fa-filter"></i>
 		<select class="form-control" id="battery-filter">
 			<option value="all">{{ $L('All') }}</option>
@@ -20,10 +24,6 @@
 				<option value="{{ $battery->id }}">{{ $battery->name }}</option>
 			@endforeach
 		</select>
-	</div>
-	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
-		<input type="text" class="form-control" id="search">
 	</div>
 </div>
 

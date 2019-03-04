@@ -19,6 +19,7 @@
 	}
 });
 $('#products-table tbody').removeClass("d-none");
+productsTable.columns.adjust().draw();
 
 $("#search").on("keyup", function()
 {
