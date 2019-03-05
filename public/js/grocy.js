@@ -506,3 +506,8 @@ $(".locale-number-format[data-format='currency']").each(function ()
 {
 	$(this).text(parseFloat($(this).text()).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency }));
 });
+
+$(document).on("click", ".easy-link-copy-textbox", function()
+{
+	$(this).select();
+});

@@ -19,7 +19,7 @@
 		<h1>
 			@yield('title')
 			<a id="ical-button" class="btn btn-outline-dark" href="#">
-				<i class="fas fa-calendar-plus"></i>&nbsp;{{ $L('Export as iCal') }}
+				<i class="fas fa-calendar-plus"></i>&nbsp;{{ $L('Share/Integrate calendar (iCal)') }}
 			</a>
 		</h1>
 	</div>
