@@ -26,7 +26,7 @@
 $('#recipes-table tbody').removeClass("d-none");
 recipesTables.columns.adjust().draw();
 
-if ((typeof tab !== "undefined" && tab === "gallery") || window.localStorage.getItem("recipes_last_tab_id") == "gallery-tab")
+if ((typeof GetUriParam("tab") !== "undefined" && GetUriParam("tab") === "gallery") || window.localStorage.getItem("recipes_last_tab_id") == "gallery-tab")
 {
 	$(".nav-tabs a[href='#gallery']").tab("show");
 }
