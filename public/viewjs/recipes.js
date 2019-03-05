@@ -52,12 +52,11 @@ $("a[data-toggle='tab']").on("shown.bs.tab", function(e)
 $("#search").on("keyup", function()
 {
 	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
 
 	recipesTables.search(value).draw();
+
+	$(".recipe-gallery-item-container").removeClass("d-none");
+	$(".recipe-gallery-item-container .card-title:not(:contains_case_insensitive(" + value + "))").parent().parent().parent().parent().addClass("d-none");
 });
 
 $("#selectedRecipeDeleteButton").on('click', function(e)

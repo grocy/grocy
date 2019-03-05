@@ -64,9 +64,9 @@
 			<div class="tab-pane show" id="gallery">
 				<div class="row no-gutters">
 					@foreach($recipes as $recipe)
-					<div class="col-6">
+					<div class="col-6 recipe-gallery-item-container">
 						<a class="discrete-link recipe-gallery-item" data-recipe-id="{{ $recipe->id }}" href="#">
-							<div id="recipe-card-{{ $recipe->id }}" class="card border-white mb-0">
+							<div id="recipe-card-{{ $recipe->id }}" class="card border-white mb-0 recipe-card">
 								@if(!empty($recipe->picture_file_name))
 								<img src="{{ $U('/api/files/recipepictures/' . base64_encode($recipe->picture_file_name)) }}" class="img-fluid">
 								@endif
