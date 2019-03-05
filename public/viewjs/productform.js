@@ -169,6 +169,8 @@ $('.input-group-qu').on('change', function(e)
 		$('#qu-conversion-info').addClass('d-none');
 	}
 
+	$("#tare_weight_qu_info").text($("#qu_id_stock option:selected").text());
+
 	Grocy.FrontendHelpers.ValidateForm('product-form');
 });
 
@@ -197,6 +199,20 @@ $('#product-form input').keydown(function(event)
 			$('#save-product-button').click();
 		}
 	}
+});
+
+$("#enable_tare_weight_handling").on("click", function()
+{
+	if (this.checked)
+	{
+		$("#tare_weight").removeAttr("disabled");
+	}
+	else
+	{
+		$("#tare_weight").attr("disabled", "");
+	}
+
+	Grocy.FrontendHelpers.ValidateForm("product-form");
 });
 
 Grocy.DeleteProductPictureOnSave = false;

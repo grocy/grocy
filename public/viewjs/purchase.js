@@ -48,7 +48,7 @@
 						);
 					}
 
-					var successMessage = L('Added #1 #2 of #3 to stock', amount, Pluralize(amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.booking_id + ')"><i class="fas fa-undo"></i> ' + L("Undo") + '</a>';
+					var successMessage = L('Added #1 #2 of #3 to stock', result.amount, Pluralize(result.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.id + ')"><i class="fas fa-undo"></i> ' + L("Undo") + '</a>';
 
 					if (addBarcode !== undefined)
 					{
@@ -64,8 +64,13 @@
 					{
 						Grocy.FrontendHelpers.EndUiBusy("purchase-form");
 						toastr.success(successMessage);
+
+						$("#amount").attr("min", "1");
+						$("#amount").attr("step", "1");
+						$("#amount").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', '1'));
 						$('#amount').val(0);
 						$('#price').val('');
+						$("#tare-weight-handling-info").addClass("d-none");
 						Grocy.Components.LocationPicker.Clear();
 						Grocy.Components.DateTimePicker.Clear();
 						Grocy.Components.ProductPicker.SetValue('');
@@ -97,7 +102,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 		Grocy.Components.ProductCard.Refresh(productId);
 
 		Grocy.Api.Get('stock/products/' + productId,
-			function(productDetails)
+			function (productDetails)
 			{
 				$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name);
 				$('#price').val(productDetails.last_price);
@@ -114,6 +119,18 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 					$("#amount").attr("min", "1");
 					$("#amount").attr("step", "1");
 					$("#amount").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', '1'));
+				}
+
+				if (productDetails.product.enable_tare_weight_handling == 1)
+				{
+					var minAmount = parseFloat(productDetails.product.tare_weight) + parseFloat(productDetails.stock_amount) + 1;
+					$("#amount").attr("min", minAmount);
+					$("#amount").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', minAmount.toLocaleString()));
+					$("#tare-weight-handling-info").removeClass("d-none");
+				}
+				else
+				{
+					$("#tare-weight-handling-info").addClass("d-none");
 				}
 
 				if (productDetails.product.default_best_before_days.toString() !== '0')

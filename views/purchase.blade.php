@@ -35,7 +35,8 @@
 				'label' => 'Amount',
 				'hintId' => 'amount_qu_unit',
 				'min' => 1,
-				'invalidFeedback' => $L('The amount cannot be lower than #1', '1')
+				'invalidFeedback' => $L('The amount cannot be lower than #1', '1'),
+				'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info" class="text-info font-italic d-none">' . $L('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
 			))
 
 			@include('components.numberpicker', array(

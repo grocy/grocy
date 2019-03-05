@@ -1022,7 +1022,8 @@
 								"properties": {
 									"amount": {
 										"type": "number",
-										"format": "double"
+										"format": "double",
+										"description": "The amount to add - please note that when tare weight handling for the product is enabled, this needs to be the amount including the container weight (gross), the amount to be posted will be automatically calculated based on what is in stock and the defined tare weight"
 									},
 									"best_before_date": {
 										"type": "string",
@@ -1059,7 +1060,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/StockBookingResponse"
+									"$ref": "#/components/schemas/StockLogEntry"
 								}
 							}
 						}
@@ -1103,7 +1104,7 @@
 								"properties": {
 									"amount": {
 										"type": "double",
-										"description": "The amount to remove"
+										"description": "The amount to remove - please note that when tare weight handling for the product is enabled, this needs to be the amount including the container weight (gross), the amount to be posted will be automatically calculated based on what is in stock and the defined tare weight"
 									},
 									"transaction_type": {
 										"$ref": "#/components/internalSchemas/StockTransactionType"
@@ -1137,7 +1138,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/StockBookingResponse"
+									"$ref": "#/components/schemas/StockLogEntry"
 								}
 							}
 						}
@@ -1181,7 +1182,7 @@
 								"properties": {
 									"new_amount": {
 										"type": "integer",
-										"description": "The new current amount for the given product"
+										"description": "The new current amount for the given product - please note that when tare weight handling for the product is enabled, this needs to be the amount including the container weight (gross), the amount to be posted will be automatically calculated based on what is in stock and the defined tare weight"
 									},
 									"best_before_date": {
 										"type": "string",
@@ -1199,7 +1200,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/StockBookingResponse"
+									"$ref": "#/components/schemas/StockLogEntry"
 								}
 							}
 						}
@@ -1263,7 +1264,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/StockBookingResponse"
+									"$ref": "#/components/schemas/StockLogEntry"
 								}
 							}
 						}
@@ -1568,12 +1569,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"type": "object",
-									"properties": {
-										"chore_execution_id": {
-											"type": "integer"
-										}
-									}
+									"$ref": "#/components/schemas/ChoreLogEntry"
 								}
 							}
 						}
@@ -1729,12 +1725,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"type": "object",
-									"properties": {
-										"charge_cycle_id": {
-											"type": "integer"
-										}
-									}
+									"$ref": "#/components/schemas/BatteryChargeCycleEntry"
 								}
 							}
 						}
@@ -2345,7 +2336,7 @@
 					}
 				}
 			},
-			"BatteryChargeCycle": {
+			"BatteryChargeCycleEntry": {
 				"type": "object",
 				"properties": {
 					"id": {
@@ -2460,14 +2451,6 @@
 				},
 				"example": {
 					"error_message": "The error message..."
-				}
-			},
-			"StockBookingResponse": {
-				"type": "object",
-				"properties": {
-					"booking_id": {
-						"type": "integer"
-					}
 				}
 			},
 			"CurrentStockResponse": {

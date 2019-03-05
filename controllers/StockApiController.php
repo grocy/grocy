@@ -79,7 +79,7 @@ class StockApiController extends BaseApiController
 			}
 
 			$bookingId = $this->StockService->AddProduct($args['productId'], $requestBody['amount'], $bestBeforeDate, $transactionType, date('Y-m-d'), $price, $locationId);
-			return $this->ApiResponse(array('booking_id' => $bookingId));
+			return $this->ApiResponse($this->Database->stock_log($bookingId));
 		}
 		catch (\Exception $ex)
 		{
@@ -128,7 +128,7 @@ class StockApiController extends BaseApiController
 			}
 
 			$bookingId = $this->StockService->ConsumeProduct($args['productId'], $requestBody['amount'], $spoiled, $transactionType, $specificStockEntryId, $recipeId);
-			return $this->ApiResponse(array('booking_id' => $bookingId));
+			return $this->ApiResponse($this->Database->stock_log($bookingId));
 		}
 		catch (\Exception $ex)
 		{
@@ -159,7 +159,7 @@ class StockApiController extends BaseApiController
 			}
 
 			$bookingId = $this->StockService->InventoryProduct($args['productId'], $requestBody['new_amount'], $bestBeforeDate);
-			return $this->ApiResponse(array('booking_id' => $bookingId));
+			return $this->ApiResponse($this->Database->stock_log($bookingId));
 		}
 		catch (\Exception $ex)
 		{
@@ -190,7 +190,7 @@ class StockApiController extends BaseApiController
 			}
 
 			$bookingId = $this->StockService->OpenProduct($args['productId'], $requestBody['amount'], $specificStockEntryId);
-			return $this->ApiResponse(array('booking_id' => $bookingId));
+			return $this->ApiResponse($this->Database->stock_log($bookingId));
 		}
 		catch (\Exception $ex)
 		{

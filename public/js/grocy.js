@@ -502,7 +502,7 @@ $("#about-dialog-link").on("click", function()
 	});
 });
 
-$(".local-number-format[data-format='currency']").each(function ()
+$(".locale-number-format[data-format='currency']").each(function ()
 {
-	$(this).text(parseFloat($(this).text()).toLocaleString(undefined, { minimumFractionDigits: 2 }));
+	$(this).text(parseFloat($(this).text()).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency }));
 });

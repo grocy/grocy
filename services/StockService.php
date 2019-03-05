@@ -130,6 +130,20 @@ class StockService extends BaseService
 			throw new \Exception('Product does not exist');
 		}
 
+		// Tare weight handling
+		// The given amount is the new total amount including the container weight (gross)
+		// The amount to be posted needs to be the given amount - stock amount - tare weight
+		$productDetails = (object)$this->GetProductDetails($productId);
+		if ($productDetails->product->enable_tare_weight_handling == 1)
+		{
+			if ($amount <= $productDetails->product->tare_weight + $productDetails->stock_amount)
+			{
+				throw new \Exception('The amount cannot be lower or equal than the defined tare weight + current stock amount');
+			}
+			
+			$amount = $amount - $productDetails->stock_amount - $productDetails->product->tare_weight;
+		}
+
 		if ($transactionType === self::TRANSACTION_TYPE_PURCHASE || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
 		{
 			$stockId = uniqid();
@@ -172,6 +186,20 @@ class StockService extends BaseService
 		if (!$this->ProductExists($productId))
 		{
 			throw new \Exception('Product does not exist');
+		}
+
+		// Tare weight handling
+		// The given amount is the new total amount including the container weight (gross)
+		// The amount to be posted needs to be the absolute value of the given amount - stock amount - tare weight
+		$productDetails = (object)$this->GetProductDetails($productId);
+		if ($productDetails->product->enable_tare_weight_handling == 1)
+		{
+			if ($amount < $productDetails->product->tare_weight)
+			{
+				throw new \Exception('The amount cannot be lower than the defined tare weight');
+			}
+			
+			$amount = abs($amount - $productDetails->stock_amount - $productDetails->product->tare_weight);
 		}
 
 		if ($transactionType === self::TRANSACTION_TYPE_CONSUME || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
@@ -258,19 +286,37 @@ class StockService extends BaseService
 		{
 			throw new \Exception('Product does not exist');
 		}
-		
-		$productStockAmount = $this->Database->stock()->where('product_id', $productId)->sum('amount');
 
-		if ($newAmount > $productStockAmount)
+		$productDetails = (object)$this->GetProductDetails($productId);
+
+		// Tare weight handling
+		// The given amount is the new total amount including the container weight (gross)
+		// So assume that the amount in stock is the amount also including the container weight
+		$containerWeight = 0;
+		if ($productDetails->product->enable_tare_weight_handling == 1)
 		{
-			$productDetails = $this->GetProductDetails($productId);
-			$amountToAdd = $newAmount - $productStockAmount;
-			$this->AddProduct($productId, $amountToAdd, $bestBeforeDate, self::TRANSACTION_TYPE_INVENTORY_CORRECTION, date('Y-m-d'), $productDetails['last_price']);
+			$containerWeight = $productDetails->product->tare_weight;
 		}
-		else if ($newAmount < $productStockAmount)
+		
+		if ($newAmount > $productDetails->stock_amount + $containerWeight)
 		{
-			$amountToRemove = $productStockAmount - $newAmount;
-			$this->ConsumeProduct($productId, $amountToRemove, false, self::TRANSACTION_TYPE_INVENTORY_CORRECTION);
+			$bookingAmount = $newAmount - $productDetails->stock_amount;
+			if ($productDetails->product->enable_tare_weight_handling == 1)
+			{
+				$bookingAmount = $newAmount;
+			}
+			
+			$this->AddProduct($productId, $bookingAmount, $bestBeforeDate, self::TRANSACTION_TYPE_INVENTORY_CORRECTION, date('Y-m-d'), $productDetails->last_price);
+		}
+		else if ($newAmount < $productDetails->stock_amount + $containerWeight)
+		{
+			$bookingAmount = $productDetails->stock_amount - $newAmount;
+			if ($productDetails->product->enable_tare_weight_handling == 1)
+			{
+				$bookingAmount = $newAmount;
+			}
+
+			$this->ConsumeProduct($productId, $bookingAmount, false, self::TRANSACTION_TYPE_INVENTORY_CORRECTION);
 		}
 
 		return $this->Database->lastInsertId();

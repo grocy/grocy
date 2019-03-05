@@ -22,9 +22,10 @@
 				'hintId' => 'new_amount_qu_unit',
 				'min' => 0,
 				'value' => 1,
-				'invalidFeedback' => $L('The amount cannot be lower than #1', '1'),
+				'invalidFeedback' => $L('The amount cannot be lower than #1', '0'),
 				'additionalAttributes' => 'data-notequal="notequal" not-equal="-1"',
-				'additionalHtmlElements' => '<div id="inventory-change-info" class="form-text text-muted small d-none"></div>'
+				'additionalHtmlElements' => '<div id="inventory-change-info" class="form-text text-muted small d-none"></div>',
+				'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info" class="text-small text-info font-italic d-none">' . $L('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
 			))
 			
 			@include('components.datetimepicker', array(

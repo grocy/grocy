@@ -12,10 +12,11 @@
 @php if(empty($additionalGroupCssClasses)) { $additionalGroupCssClasses = ''; } @endphp
 @php if(empty($additionalAttributes)) { $additionalAttributes = ''; } @endphp
 @php if(empty($additionalHtmlElements)) { $additionalHtmlElements = ''; } @endphp
+@php if(empty($additionalHtmlContextHelp)) { $additionalHtmlContextHelp = ''; } @endphp
 @php if(!isset($isRequired)) { $isRequired = true; } @endphp
 
 <div class="form-group {{ $additionalGroupCssClasses }}">
-	<label for="{{ $id }}">{{ $L($label) }}&nbsp;&nbsp;<span id="{{ $hintId }}" class="small text-muted">{{ $hint }}</span></label>
+	<label for="{{ $id }}">{{ $L($label) }}&nbsp;&nbsp;<span id="{{ $hintId }}" class="small text-muted">{{ $hint }}</span>{!! $additionalHtmlContextHelp !!}</label>
 	<div class="input-group">
 		<input {!! $additionalAttributes !!} type="number" class="form-control numberpicker {{ $additionalCssClasses }}" id="{{ $id }}" name="{{ $id }}" value="{{ $value }}" min="{{ $min }}" max="{{ $max }}" step="{{ $step }}" @if($isRequired) required @endif>
 		<div class="input-group-append">

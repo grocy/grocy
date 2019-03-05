@@ -135,6 +135,29 @@
 			</div>
 
 			<div class="form-group">
+				<div class="form-check">
+					<input type="hidden" name="enable_tare_weight_handling" value="0">
+					<input @if($mode == 'edit' && $product->enable_tare_weight_handling == 1) checked @endif class="form-check-input" type="checkbox" id="enable_tare_weight_handling" name="enable_tare_weight_handling" value="1">
+					<label class="form-check-label" for="enable_tare_weight_handling">{{ $L('Enable tare weight handling') }}
+						<span class="text-muted small">{{ $L('This is useful e.g. for flour in jars - on purchase/consume/inventory you always weigh the whole jar, the amount to be posted is then automatically calculated based on what is in stock and the tare weight defined below') }}</span>
+					</label>
+				</div>
+			</div>
+
+			@php if($mode == 'edit') { $value = $product->tare_weight; } else { $value = 0; } @endphp
+			@php if(($mode == 'edit' && $product->enable_tare_weight_handling == 0) || $mode == 'create') { $additionalAttributes = 'disabled'; } else { $additionalAttributes = ''; } @endphp
+			@include('components.numberpicker', array(
+				'id' => 'tare_weight',
+				'label' => 'Tare weight',
+				'min' => 0,
+				'step' => 0.01,
+				'value' => $value,
+				'invalidFeedback' => $L('This cannot be lower than #1', '0'),
+				'additionalAttributes' => $additionalAttributes,
+				'hintId' => 'tare_weight_qu_info'
+			))
+
+			<div class="form-group">
 				<label for="product-picture">{{ $L('Product picture') }}
 					<span class="text-muted small">{{ $L('If you don\'t select a file, the current picture will not be altered') }}</span>
 				</label>

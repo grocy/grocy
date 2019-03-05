@@ -39,9 +39,14 @@
 					}
 
 					Grocy.FrontendHelpers.EndUiBusy("consume-form");
-					toastr.success(L('Removed #1 #2 of #3 from stock', jsonForm.amount, Pluralize(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.booking_id + ')"><i class="fas fa-undo"></i> ' + L("Undo") + '</a>');
+					toastr.success(L('Removed #1 #2 of #3 from stock', Math.abs(result.amount), Pluralize(Math.abs(result.amount), productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.id + ')"><i class="fas fa-undo"></i> ' + L("Undo") + '</a>');
 
+					$("#amount").attr("min", "1");
+					$("#amount").attr("max", "999999");
+					$("#amount").attr("step", "1");
+					$("#amount").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', '1'));
 					$('#amount').val(1);
+					$("#tare-weight-handling-info").addClass("d-none");
 					Grocy.Components.ProductPicker.Clear();
 					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_RECIPES)
 					{
@@ -100,7 +105,7 @@ $('#save-mark-as-open-button').on('click', function(e)
 					}
 
 					Grocy.FrontendHelpers.EndUiBusy("consume-form");
-					toastr.success(L('Marked #1 #2 of #3 as opened', jsonForm.amount, Pluralize(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.booking_id + ')"><i class="fas fa-undo"></i> ' + L("Undo") + '</a>');
+					toastr.success(L('Marked #1 #2 of #3 as opened', jsonForm.amount, Pluralize(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.id + ')"><i class="fas fa-undo"></i> ' + L("Undo") + '</a>');
 
 					$('#amount').val(1);
 					Grocy.Components.ProductPicker.Clear();
@@ -146,13 +151,25 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				{
 					$("#amount").attr("min", "0.01");
 					$("#amount").attr("step", "0.01");
-					$("#amount").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', 0.01.toLocaleString()));
+					$("#amount").parent().find(".invalid-feedback").text(L('The amount must be between #1 and #2', 0.01.toLocaleString(), parseFloat(productDetails.stock_amount).toLocaleString()));
 				}
 				else
 				{
 					$("#amount").attr("min", "1");
 					$("#amount").attr("step", "1");
-					$("#amount").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', '1'));
+					$("#amount").parent().find(".invalid-feedback").text(L('The amount must be between #1 and #2', "1", parseFloat(productDetails.stock_amount).toLocaleString()));
+				}
+
+				if (productDetails.product.enable_tare_weight_handling == 1)
+				{
+					$("#amount").attr("min", productDetails.product.tare_weight);
+					$('#amount').attr('max', parseFloat(productDetails.stock_amount) + parseFloat(productDetails.product.tare_weight));
+					$("#amount").parent().find(".invalid-feedback").text(L('The amount must be between #1 and #2', parseFloat(productDetails.product.tare_weight).toLocaleString(), (parseFloat(productDetails.stock_amount) + parseFloat(productDetails.product.tare_weight)).toLocaleString()));
+					$("#tare-weight-handling-info").removeClass("d-none");
+				}
+				else
+				{
+					$("#tare-weight-handling-info").addClass("d-none");
 				}
 
 				if ((productDetails.stock_amount || 0) === 0)

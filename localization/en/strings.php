@@ -335,5 +335,11 @@ return array(
 	'This is for statistical purposes only' => 'This is for statistical purposes only',
 	'You have to select a recipe' => 'You have to select a recipe',
 	'Key type' => 'Key type',
-	'Export as iCal' => 'Export as iCal'
+	'Export as iCal' => 'Export as iCal',
+	'Allow partial units in stock' => 'Allow partial units in stock',
+	'Enable tare weight handling' => 'Enable tare weight handling',
+	'This is useful e.g. for flour in jars - on purchase/consume/inventory you always weigh the whole jar, the amount to be posted is then automatically calculated based on what is in stock and the tare weight defined below' => 'This is useful e.g. for flour in jars - on purchase/consume/inventory you always weigh the whole jar, the amount to be posted is then automatically calculated based on what is in stock and the tare weight defined below',
+	'Tare weight' => 'Tare weight',
+	'Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated' => 'Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated',
+	'You have to select a location' => 'You have to select a location'
 );

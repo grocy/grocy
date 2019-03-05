@@ -88,7 +88,7 @@
 							<span class="small text-muted">{{ $L('Based on the prices of the last purchase per product') }}</span>
 						</label>
 						<p class="font-weight-bold font-italic">
-							<span class="local-number-format" data-format="currency">{{ $totalRecipeCosts }}</span> {{ GROCY_CURRENCY }}
+							<span class="locale-number-format" data-format="currency">{{ $totalRecipeCosts }}</span> {{ GROCY_CURRENCY }}
 						</p>
 					</div>
 				</div>
