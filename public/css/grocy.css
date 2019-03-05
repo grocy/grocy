@@ -168,9 +168,19 @@ input::-webkit-inner-spin-button {
 	cursor: wait;
 }
 
+/* Third party component customizations - Bootstrap */
+
+/* Hide the form validation feedback icons introduced in Bootstrap 4.2.0 - a colored border is enough */
+.form-control.is-invalid,
+.was-validated .form-control:invalid,
+.form-control.is-valid,
+.was-validated .form-control:valid {
+	background-size: 0 0;
+}
+
 /* Third party component customizations - DataTables */
 td {
-     vertical-align: middle !important;
+	vertical-align: middle !important;
 }
 
 .table td.fit-content,
