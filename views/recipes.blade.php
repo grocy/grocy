@@ -49,11 +49,11 @@
 								{{ $recipe->desired_servings }}
 							</td>
 							<td>
-								@if(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled == 1)<i class="fas fa-check text-success"></i>@elseif(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1)<i class="fas fa-exclamation text-warning"></i>@else<i class="fas fa-times text-danger"></i>@endif
-								<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled == 1){{ $L('Enough in stock') }}@elseif(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1){{ $L('Not enough in stock, #1 ingredients missing but already on the shopping list', FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->missing_products_count) }}@else{{ $L('Not enough in stock, #1 ingredients missing', FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->missing_products_count) }}@endif</span>
+								@if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 1)<i class="fas fa-check text-success"></i>@elseif(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1)<i class="fas fa-exclamation text-warning"></i>@else<i class="fas fa-times text-danger"></i>@endif
+								<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 1){{ $L('Enough in stock') }}@elseif(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1){{ $L('Not enough in stock, #1 ingredients missing but already on the shopping list', FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->missing_products_count) }}@else{{ $L('Not enough in stock, #1 ingredients missing', FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->missing_products_count) }}@endif</span>
 							</td>
 							<td class="d-none">
-								{{ FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->missing_products_count }}
+								{{ FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->missing_products_count }}
 							</td>
 						</tr>
 						@endforeach
@@ -73,8 +73,8 @@
 								<div class="card-body text-center">
 									<h5 class="card-title mb-1">{{ $recipe->name }}</h5>
 									<p class="card-text">
-										@if(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled == 1)<i class="fas fa-check text-success"></i>@elseif(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1)<i class="fas fa-exclamation text-warning"></i>@else<i class="fas fa-times text-danger"></i>@endif
-										<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled == 1){{ $L('Enough in stock') }}@elseif(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1){{ $L('Not enough in stock, #1 ingredients missing but already on the shopping list', FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->missing_products_count) }}@else{{ $L('Not enough in stock, #1 ingredients missing', FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->missing_products_count) }}@endif</span>
+										@if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 1)<i class="fas fa-check text-success"></i>@elseif(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1)<i class="fas fa-exclamation text-warning"></i>@else<i class="fas fa-times text-danger"></i>@endif
+										<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 1){{ $L('Enough in stock') }}@elseif(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1){{ $L('Not enough in stock, #1 ingredients missing but already on the shopping list', FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->missing_products_count) }}@else{{ $L('Not enough in stock, #1 ingredients missing', FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->missing_products_count) }}@endif</span>
 									</p>
 								</div>
 							</div>
@@ -95,7 +95,7 @@
 				<a id="selectedRecipeConsumeButton" class="btn btn-sm btn-outline-success py-0" href="#" data-toggle="tooltip" title="{{ $L('Consume all ingredients needed by this recipe') }}" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
 					<i class="fas fa-utensils"></i>
 				</a>
-				<a class="btn btn-sm btn-outline-primary py-0 recipe-order-missing-button @if(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $selectedRecipe->id)->need_fulfilled_with_shopping_list == 1){{ disabled }}@endif" href="#" data-toggle="tooltip" title="{{ $L('Put missing products on shopping list') }}" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
+				<a class="btn btn-sm btn-outline-primary py-0 recipe-order-missing-button @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->need_fulfilled_with_shopping_list == 1){{ disabled }}@endif" href="#" data-toggle="tooltip" title="{{ $L('Put missing products on shopping list') }}" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
 					<i class="fas fa-cart-plus"></i>
 				</a>&nbsp;&nbsp;
 				<a id="selectedRecipeEditButton" class="btn btn-sm btn-outline-info py-0" href="{{ $U('/recipe/') }}{{ $selectedRecipe->id }}">
@@ -126,7 +126,7 @@
 							<span class="small text-muted">{{ $L('Based on the prices of the last purchase per product') }}</span>
 						</label>
 						<p class="font-weight-bold font-italic">
-							<span class="locale-number-format" data-format="currency">{{ $totalRecipeCosts }}</span>
+							<span class="locale-number-format" data-format="currency">{{ $selectedRecipeTotalCosts }}</span>
 						</p>
 					</div>
 				</div>
@@ -142,7 +142,7 @@
 					<p class="w-75 mx-auto"><img src="{{ $U('/api/files/recipepictures/' . base64_encode($selectedRecipeSubRecipe->picture_file_name)) }}" class="img-fluid img-thumbnail"></p>
 				@endif
 
-				@php $selectedRecipeSubRecipePositionsFiltered = FindAllObjectsInArrayByPropertyValue($selectedRecipeSubRecipesPositions, 'recipe_id', $selectedRecipeSubRecipe->id); @endphp
+				@php $selectedRecipeSubRecipePositionsFiltered = FindAllObjectsInArrayByPropertyValue($selectedRecipeSubRecipesPositions, 'child_recipe_id', $selectedRecipeSubRecipe->id); @endphp
 				@if(count($selectedRecipeSubRecipePositionsFiltered) > 0)
 				<div class="card-body">
 					<h5 class="mb-0">{{ $L('Ingredients') }}</h5>
@@ -154,8 +154,8 @@
 						<h5 class="mb-2 mt-2 ml-4"><strong>{{ $selectedRecipePosition->ingredient_group }}</strong></h5>
 					@endif
 					<li class="list-group-item">
-						@if($selectedRecipePosition->amount == round($selectedRecipePosition->amount)){{ round($selectedRecipePosition->amount) }}@else{{ $selectedRecipePosition->amount }}@endif {{ Pluralize($selectedRecipePosition->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', $selectedRecipePosition->qu_id)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', $selectedRecipePosition->qu_id)->name_plural) }} {{ FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id)->name }}
-						<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $selectedRecipePosition->id)->need_fulfilled == 1) {{ $L('Enough in stock') }} @else {{ $L('Not enough in stock, #1 missing, #2 already on shopping list', FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', round($selectedRecipePosition->id)->missing_amount), round(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $selectedRecipePosition->id)->amount_on_shopping_list)) }} @endif</span>
+						@if($selectedRecipePosition->recipe_amount == round($selectedRecipePosition->recipe_amount)){{ round($selectedRecipePosition->recipe_amount) }}@else{{ $selectedRecipePosition->recipe_amount }}@endif {{ Pluralize($selectedRecipePosition->recipe_amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', $selectedRecipePosition->qu_id)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', $selectedRecipePosition->qu_id)->name_plural) }} {{ FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id)->name }}
+						<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($selectedRecipeSubRecipesPositions, 'recipe_pos_id', $selectedRecipePosition->id)->need_fulfilled == 1) {{ $L('Enough in stock') }} @else {{ $L('Not enough in stock, #1 missing, #2 already on shopping list', round(FindObjectInArrayByPropertyValue($selectedRecipeSubRecipesPositions, 'recipe_pos_id', $selectedRecipePosition->id)->missing_amount), round(FindObjectInArrayByPropertyValue($selectedRecipeSubRecipesPositions, 'recipe_pos_id', $selectedRecipePosition->id)->amount_on_shopping_list)) }} @endif</span>
 
 						@if(!empty($selectedRecipePosition->note))
 						<div class="text-muted">{!! nl2br($selectedRecipePosition->note) !!}</div>
@@ -178,19 +178,19 @@
 				<p class="w-75 mx-auto"><img src="{{ $U('/api/files/recipepictures/' . base64_encode($selectedRecipe->picture_file_name)) }}" class="img-fluid img-thumbnail"></p>
 			@endif
 
-			@if($selectedRecipePositions->count() > 0)
+			@if($selectedRecipePositionsResolved->count() > 0)
 			<div class="card-body">
 				<h5 class="mb-0">{{ $L('Ingredients') }}</h5>
 			</div>
 			<ul class="list-group list-group-flush">
 				@php $lastGroup = 'undefined'; @endphp
-				@foreach($selectedRecipePositions as $selectedRecipePosition)
+				@foreach($selectedRecipePositionsResolved as $selectedRecipePosition)
 				@if($lastGroup != $selectedRecipePosition->ingredient_group)
 					<h5 class="mb-2 mt-2 ml-4"><strong>{{ $selectedRecipePosition->ingredient_group }}</strong></h5>
 				@endif
 				<li class="list-group-item">
-					@if($selectedRecipePosition->amount == round($selectedRecipePosition->amount)){{ round($selectedRecipePosition->amount) }}@else{{ $selectedRecipePosition->amount }}@endif {{ Pluralize($selectedRecipePosition->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', $selectedRecipePosition->qu_id)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', $selectedRecipePosition->qu_id)->name_plural) }} {{ FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id)->name }}
-					<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $selectedRecipePosition->id)->need_fulfilled == 1) {{ $L('Enough in stock') }} @else {{ $L('Not enough in stock, #1 missing, #2 already on shopping list', round(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $selectedRecipePosition->id)->missing_amount), round(FindObjectInArrayByPropertyValue($recipesFulfillment, 'recipe_pos_id', $selectedRecipePosition->id)->amount_on_shopping_list)) }} @endif</span>
+					@if($selectedRecipePosition->recipe_amount == round($selectedRecipePosition->recipe_amount)){{ round($selectedRecipePosition->recipe_amount) }}@else{{ $selectedRecipePosition->recipe_amount }}@endif {{ Pluralize($selectedRecipePosition->recipe_amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', $selectedRecipePosition->qu_id)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', $selectedRecipePosition->qu_id)->name_plural) }} {{ FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id)->name }}
+					<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipePositionsResolved, 'recipe_pos_id', $selectedRecipePosition->id)->need_fulfilled == 1) {{ $L('Enough in stock') }} @else {{ $L('Not enough in stock, #1 missing, #2 already on shopping list', round(FindObjectInArrayByPropertyValue($recipePositionsResolved, 'recipe_pos_id', $selectedRecipePosition->id)->missing_amount), round(FindObjectInArrayByPropertyValue($recipePositionsResolved, 'recipe_pos_id', $selectedRecipePosition->id)->amount_on_shopping_list)) }} @endif</span>
 
 					@if(!empty($selectedRecipePosition->note))
 					<div class="text-muted">{!! nl2br($selectedRecipePosition->note) !!}</div>
@@ -212,7 +212,7 @@
 </div>
 
 <div id="missing-recipe-pos-list" class="list-group d-none mt-3">
-	@foreach($recipesFulfillment as $recipePos)
+	@foreach($recipePositionsResolved as $recipePos)
 		@if(in_array($recipePos->recipe_id, $includedRecipeIdsAbsolute) && $recipePos->missing_amount > 0)
 			<a href="#" class="list-group-item list-group-item-action list-group-item-primary missing-recipe-pos-select-button">
 				<div class="form-check form-check-inline">

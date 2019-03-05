@@ -154,6 +154,7 @@
 						<tr>
 							<th>#</th>
 							<th>{{ $L('Recipe') }}</th>
+							<th>{{ $L('Servings') }}</th>
 						</tr>
 					</thead>
 					<tbody class="d-none">
@@ -161,7 +162,7 @@
 						@foreach($recipeNestings as $recipeNesting)
 						<tr>
 							<td class="fit-content">
-								<a class="btn btn-sm btn-info recipe-include-edit-button" href="#" data-recipe-include-id="{{ $recipeNesting->id }}" data-recipe-included-recipe-id="{{ $recipeNesting->includes_recipe_id }}">
+								<a class="btn btn-sm btn-info recipe-include-edit-button" href="#" data-recipe-include-id="{{ $recipeNesting->id }}" data-recipe-included-recipe-id="{{ $recipeNesting->includes_recipe_id }}" data-recipe-included-recipe-servings="{{ $recipeNesting->servings }}">
 									<i class="fas fa-edit"></i>
 								</a>
 								<a class="btn btn-sm btn-danger recipe-include-delete-button" href="#" data-recipe-include-id="{{ $recipeNesting->id }}" data-recipe-include-name="{{ FindObjectInArrayByPropertyValue($recipes, 'id', $recipeNesting->includes_recipe_id)->name }}">
@@ -170,6 +171,9 @@
 							</td>
 							<td>
 								{{ FindObjectInArrayByPropertyValue($recipes, 'id', $recipeNesting->includes_recipe_id)->name }}
+							</td>
+							<td>
+								{{ $recipeNesting->servings }}
 							</td>
 						</tr>
 						@endforeach
@@ -202,18 +206,20 @@
 			</div>
 			<div class="modal-body">
 				<form id="recipe-include-form" novalidate>
-					<div class="form-group">
-						<label for="includes_recipe_id">{{ $L('Recipe') }}</label>
-						<select required class="form-control" id="includes_recipe_id" name="includes_recipe_id">
-							<option></option>
-							@foreach($recipes as $recipeForList)
-								@if($recipeForList->id !== $recipe->id)
-									<option data-already-included="{{ BoolToString(FindObjectInArrayByPropertyValue($recipeNestings, 'includes_recipe_id', $recipeForList->id) === null) }}" value="{{ $recipeForList->id }}">{{ $recipeForList->name }}</option>
-								@endif
-							@endforeach
-						</select>
-						<div class="invalid-feedback">{{ $L('A recipe is required') }}</div>
-					</div>
+
+					@include('components.recipepicker', array(
+						'recipes' => $recipes,
+						'isRequired' => true
+					))
+
+					@include('components.numberpicker', array(
+						'id' => 'includes_servings',
+						'label' => 'Servings',
+						'min' => 1,
+						'value' => '1',
+						'invalidFeedback' => $L('This cannot be lower than #1', '1')
+					))
+
 				</form>
 			</div>
 			<div class="modal-footer">

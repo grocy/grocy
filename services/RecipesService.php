@@ -14,15 +14,15 @@ class RecipesService extends BaseService
 
 	protected $StockService;
 
-	public function GetRecipesFulfillment()
+	public function GetRecipesPosResolved()
 	{
-		$sql = 'SELECT * from recipes_fulfillment';
+		$sql = 'SELECT * FROM recipes_pos_resolved';
 		return $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
 
-	public function GetRecipesSumFulfillment()
+	public function GetRecipesResolved()
 	{
-		$sql = 'SELECT * from recipes_fulfillment_sum';
+		$sql = 'SELECT * FROM recipes_resolved';
 		return $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
 
@@ -30,7 +30,7 @@ class RecipesService extends BaseService
 	{
 		$recipe = $this->Database->recipes($recipeId);
 
-		$recipePositions = $this->GetRecipesFulfillment();
+		$recipePositions = $this->GetRecipesPosResolved();
 		foreach ($recipePositions as $recipePosition)
 		{
 			if($recipePosition->recipe_id == $recipeId && !in_array($recipePosition->product_id, $excludedProductIds))
