@@ -71,12 +71,12 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO shopping_list (product_id, amount) VALUES (20, 1);
 				INSERT INTO shopping_list (product_id, amount) VALUES (17, 1);
 
-				INSERT INTO recipes (name, description) VALUES ('{$localizationService->LocalizeForSqlString('Pizza')}', '{$loremIpsumWithHtmlFormattings}'); --1
-				INSERT INTO recipes (name, description) VALUES ('{$localizationService->LocalizeForSqlString('Spaghetti bolognese')}', '{$loremIpsumWithHtmlFormattings}'); --2
-				INSERT INTO recipes (name, description) VALUES ('{$localizationService->LocalizeForSqlString('Sandwiches')}', '{$loremIpsumWithHtmlFormattings}'); --3
-				INSERT INTO recipes (name, description) VALUES ('{$localizationService->LocalizeForSqlString('Pancakes')}', '{$loremIpsumWithHtmlFormattings}'); --4
-				INSERT INTO recipes (name, description) VALUES ('{$localizationService->LocalizeForSqlString('Chocolate sauce')}', '{$loremIpsumWithHtmlFormattings}'); --5
-				INSERT INTO recipes (name, description) VALUES ('{$localizationService->LocalizeForSqlString('Pancakes')} / {$localizationService->LocalizeForSqlString('Chocolate sauce')}', '{$loremIpsumWithHtmlFormattings}'); --6
+				INSERT INTO recipes (name, description, picture_file_name) VALUES ('{$localizationService->LocalizeForSqlString('Pizza')}', '{$loremIpsumWithHtmlFormattings}', 'pizza.jpg'); --1
+				INSERT INTO recipes (name, description, picture_file_name) VALUES ('{$localizationService->LocalizeForSqlString('Spaghetti bolognese')}', '{$loremIpsumWithHtmlFormattings}', 'spaghetti.jpg'); --2
+				INSERT INTO recipes (name, description, picture_file_name) VALUES ('{$localizationService->LocalizeForSqlString('Sandwiches')}', '{$loremIpsumWithHtmlFormattings}', 'sandwiches.jpg'); --3
+				INSERT INTO recipes (name, description, picture_file_name) VALUES ('{$localizationService->LocalizeForSqlString('Pancakes')}', '{$loremIpsumWithHtmlFormattings}', 'pancakes.jpg'); --4
+				INSERT INTO recipes (name, description, picture_file_name) VALUES ('{$localizationService->LocalizeForSqlString('Chocolate sauce')}', '{$loremIpsumWithHtmlFormattings}', 'chocolate_sauce.jpg'); --5
+				INSERT INTO recipes (name, description, picture_file_name) VALUES ('{$localizationService->LocalizeForSqlString('Pancakes')} / {$localizationService->LocalizeForSqlString('Chocolate sauce')}', '{$loremIpsumWithHtmlFormattings}', 'pancakes_chocolate_sauce.jpg'); --6
 
 				INSERT INTO recipes_pos (recipe_id, product_id, amount, ingredient_group) VALUES (1, 16, 1, '{$localizationService->LocalizeForSqlString('Bottom')}');
 				INSERT INTO recipes_pos (recipe_id, product_id, amount, ingredient_group) VALUES (1, 17, 1, '{$localizationService->LocalizeForSqlString('Topping')}');
@@ -225,9 +225,11 @@ class DemoDataGeneratorService extends BaseService
 			// Download demo storage data
 			$productPicturesFolder = GROCY_DATAPATH . '/storage/productpictures';
 			$equipmentManualsFolder = GROCY_DATAPATH . '/storage/equipmentmanuals';
+			$recipePicturesFolder = GROCY_DATAPATH . '/storage/recipepictures';
 			mkdir(GROCY_DATAPATH . '/storage');
-			mkdir(GROCY_DATAPATH . '/storage/productpictures');
-			mkdir(GROCY_DATAPATH . '/storage/equipmentmanuals');
+			mkdir($productPicturesFolder);
+			mkdir($equipmentManualsFolder);
+			mkdir($recipePicturesFolder);
 			$sslOptions = array(
 				'ssl' => array(
 				'verify_peer' => false,
@@ -240,6 +242,12 @@ class DemoDataGeneratorService extends BaseService
 			file_put_contents("$productPicturesFolder/paprika.jpg", file_get_contents('https://releases.grocy.info/demoresources/paprika.jpg', false, stream_context_create($sslOptions)));
 			file_put_contents("$productPicturesFolder/tomato.jpg", file_get_contents('https://releases.grocy.info/demoresources/tomato.jpg', false, stream_context_create($sslOptions)));
 			file_put_contents("$equipmentManualsFolder/loremipsum.pdf", file_get_contents('https://releases.grocy.info/demoresources/loremipsum.pdf', false, stream_context_create($sslOptions)));
+			file_put_contents("$recipePicturesFolder/pizza.jpg", file_get_contents('https://releases.grocy.info/demoresources/pizza.jpg', false, stream_context_create($sslOptions)));
+			file_put_contents("$recipePicturesFolder/sandwiches.jpg", file_get_contents('https://releases.grocy.info/demoresources/sandwiches.jpg', false, stream_context_create($sslOptions)));
+			file_put_contents("$recipePicturesFolder/pancakes.jpg", file_get_contents('https://releases.grocy.info/demoresources/pancakes.jpg', false, stream_context_create($sslOptions)));
+			file_put_contents("$recipePicturesFolder/spaghetti.jpg", file_get_contents('https://releases.grocy.info/demoresources/spaghetti.jpg', false, stream_context_create($sslOptions)));
+			file_put_contents("$recipePicturesFolder/chocolate_sauce.jpg", file_get_contents('https://releases.grocy.info/demoresources/chocolate_sauce.jpg', false, stream_context_create($sslOptions)));
+			file_put_contents("$recipePicturesFolder/pancakes_chocolate_sauce.jpg", file_get_contents('https://releases.grocy.info/demoresources/pancakes_chocolate_sauce.jpg', false, stream_context_create($sslOptions)));
 		}
 	}
 

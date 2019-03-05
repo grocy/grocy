@@ -26,11 +26,28 @@
 $('#recipes-table tbody').removeClass("d-none");
 recipesTables.columns.adjust().draw();
 
-var rowSelect = GetUriParam("row");
-if (typeof rowSelect !== "undefined")
+if ((typeof tab !== "undefined" && tab === "gallery") || window.localStorage.getItem("recipes_last_tab_id") == "gallery-tab")
 {
-	recipesTables.row(rowSelect).select();
+	$(".nav-tabs a[href='#gallery']").tab("show");
 }
+
+var recipe = GetUriParam("recipe");
+if (typeof recipe !== "undefined")
+{
+	$("#recipes-table tr").removeClass("selected");
+	var rowId = "#recipe-row-" + recipe;
+	$(rowId).addClass("selected")
+
+	var cardId = "#recipe-card-" + recipe;
+	$(cardId).addClass("bg-primary").addClass("text-white");
+	$(cardId)[0].scrollIntoView();
+}
+
+$("a[data-toggle='tab']").on("shown.bs.tab", function(e)
+{
+	var tabId = $(e.target).attr("id");
+	window.localStorage.setItem("recipes_last_tab_id", tabId);
+});
 
 $("#search").on("keyup", function()
 {
@@ -169,8 +186,15 @@ recipesTables.on('select', function(e, dt, type, indexes)
 	if (type === 'row')
 	{
 		var selectedRecipeId = $(recipesTables.row(indexes[0]).node()).data("recipe-id");
-		window.location.href = U('/recipes?recipe=' + selectedRecipeId.toString() + "&row=" + indexes[0].toString());
+		window.location.href = U('/recipes?recipe=' + selectedRecipeId.toString());
 	}
+});
+
+$(".recipe-gallery-item").on("click", function(e)
+{
+	e.preventDefault();
+
+	window.location.href = U('/recipes?tab=gallery&recipe=' + $(this).data("recipe-id"));
 });
 
 $("#selectedRecipeToggleFullscreenButton").on('click', function(e)

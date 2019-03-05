@@ -18,35 +18,73 @@
 		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
 
-		<table id="recipes-table" class="table table-striped dt-responsive">
-			<thead>
-				<tr>
-					<th>{{ $L('Name') }}</th>
-					<th class="fit-content text-right">{{ $L('Servings') }}</th>
-					<th>{{ $L('Requirements fulfilled') }}</th>
-					<th class="d-none">Hidden status for sorting of "Requirements fulfilled" column</th>
-				</tr>
-			</thead>
-			<tbody class="d-none">
-				@foreach($recipes as $recipe)
-				<tr data-recipe-id="{{ $recipe->id }}">
-					<td>
-						{{ $recipe->name }}
-					</td>
-					<td class="fit-content text-right">
-						{{ $recipe->desired_servings }}
-					</td>
-					<td>
-						@if(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled == 1)<i class="fas fa-check text-success"></i>@elseif(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1)<i class="fas fa-exclamation text-warning"></i>@else<i class="fas fa-times text-danger"></i>@endif
-						<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled == 1){{ $L('Enough in stock') }}@elseif(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1){{ $L('Not enough in stock, #1 ingredients missing but already on the shopping list', FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->missing_products_count) }}@else{{ $L('Not enough in stock, #1 ingredients missing', FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->missing_products_count) }}@endif</span>
-					</td>
-					<td class="d-none">
-						{{ FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->missing_products_count }}
-					</td>
-				</tr>
+		<ul class="nav nav-tabs mt-3">
+			<li class="nav-item">
+				<a class="nav-link active" id="list-tab" data-toggle="tab" href="#list">{{ $L('List') }}</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="gallery-tab" data-toggle="tab" href="#gallery">{{ $L('Gallery') }}</a>
+			</li>
+		</ul>
+
+		<div class="tab-content">
+
+			<div class="tab-pane show active" id="list">
+				<table id="recipes-table" class="table table-striped dt-responsive">
+					<thead>
+						<tr>
+							<th>{{ $L('Name') }}</th>
+							<th class="fit-content text-right">{{ $L('Servings') }}</th>
+							<th>{{ $L('Requirements fulfilled') }}</th>
+							<th class="d-none">Hidden status for sorting of "Requirements fulfilled" column</th>
+						</tr>
+					</thead>
+					<tbody class="d-none">
+						@foreach($recipes as $recipe)
+						<tr id="recipe-row-{{ $recipe->id }}" data-recipe-id="{{ $recipe->id }}">
+							<td>
+								{{ $recipe->name }}
+							</td>
+							<td class="fit-content text-right">
+								{{ $recipe->desired_servings }}
+							</td>
+							<td>
+								@if(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled == 1)<i class="fas fa-check text-success"></i>@elseif(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1)<i class="fas fa-exclamation text-warning"></i>@else<i class="fas fa-times text-danger"></i>@endif
+								<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled == 1){{ $L('Enough in stock') }}@elseif(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1){{ $L('Not enough in stock, #1 ingredients missing but already on the shopping list', FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->missing_products_count) }}@else{{ $L('Not enough in stock, #1 ingredients missing', FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->missing_products_count) }}@endif</span>
+							</td>
+							<td class="d-none">
+								{{ FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->missing_products_count }}
+							</td>
+						</tr>
+						@endforeach
+					</tbody>
+				</table>
+			</div>
+
+			<div class="tab-pane show" id="gallery">
+				<div class="row no-gutters">
+					@foreach($recipes as $recipe)
+					<div class="col-6">
+						<a class="discrete-link recipe-gallery-item" data-recipe-id="{{ $recipe->id }}" href="#">
+							<div id="recipe-card-{{ $recipe->id }}" class="card border-white mb-0">
+								@if(!empty($recipe->picture_file_name))
+								<img src="{{ $U('/api/files/recipepictures/' . base64_encode($recipe->picture_file_name)) }}" class="img-fluid">
+								@endif
+								<div class="card-body text-center">
+									<h5 class="card-title mb-1">{{ $recipe->name }}</h5>
+									<p class="card-text">
+										@if(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled == 1)<i class="fas fa-check text-success"></i>@elseif(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1)<i class="fas fa-exclamation text-warning"></i>@else<i class="fas fa-times text-danger"></i>@endif
+										<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled == 1){{ $L('Enough in stock') }}@elseif(FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1){{ $L('Not enough in stock, #1 ingredients missing but already on the shopping list', FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->missing_products_count) }}@else{{ $L('Not enough in stock, #1 ingredients missing', FindObjectInArrayByPropertyValue($recipesSumFulfillment, 'recipe_id', $recipe->id)->missing_products_count) }}@endif</span>
+									</p>
+								</div>
+							</div>
+						</a>
+					</div>
 				@endforeach
-			</tbody>
-		</table>
+				</div>
+			</div>
+			
+		</div>
 	</div>
 
 	@if($selectedRecipe !== null)
@@ -88,7 +126,7 @@
 							<span class="small text-muted">{{ $L('Based on the prices of the last purchase per product') }}</span>
 						</label>
 						<p class="font-weight-bold font-italic">
-							<span class="locale-number-format" data-format="currency">{{ $totalRecipeCosts }}</span> {{ GROCY_CURRENCY }}
+							<span class="locale-number-format" data-format="currency">{{ $totalRecipeCosts }}</span>
 						</p>
 					</div>
 				</div>
@@ -101,7 +139,7 @@
 				</div>
 
 				@if(!empty($selectedRecipeSubRecipe->picture_file_name))
-					<p><img src="{{ $U('/api/files/recipepictures/' . base64_encode($selectedRecipeSubRecipe->picture_file_name)) }}" class="img-fluid"></p>
+					<p class="w-75 mx-auto"><img src="{{ $U('/api/files/recipepictures/' . base64_encode($selectedRecipeSubRecipe->picture_file_name)) }}" class="img-fluid img-thumbnail"></p>
 				@endif
 
 				@php $selectedRecipeSubRecipePositionsFiltered = FindAllObjectsInArrayByPropertyValue($selectedRecipeSubRecipesPositions, 'recipe_id', $selectedRecipeSubRecipe->id); @endphp
@@ -137,7 +175,7 @@
 
 			<!-- Selected recipe -->
 			@if(!empty($selectedRecipe->picture_file_name))
-				<p><img src="{{ $U('/api/files/recipepictures/' . base64_encode($selectedRecipe->picture_file_name)) }}" class="img-fluid"></p>
+				<p class="w-75 mx-auto"><img src="{{ $U('/api/files/recipepictures/' . base64_encode($selectedRecipe->picture_file_name)) }}" class="img-fluid img-thumbnail"></p>
 			@endif
 
 			@if($selectedRecipePositions->count() > 0)
