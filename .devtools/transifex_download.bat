@@ -1,3 +1,3 @@
 pushd ..
-tx pull --all
+tx pull --all --minimum-perc=90
 popd
