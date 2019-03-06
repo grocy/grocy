@@ -1,4 +1,4 @@
 pushd ..
-composer install
+call composer install
 yarn install
 popd
