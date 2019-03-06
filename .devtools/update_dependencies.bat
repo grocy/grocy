@@ -1,4 +1,4 @@
 pushd ..
-composer update
+call composer update
 yarn upgrade
 popd
