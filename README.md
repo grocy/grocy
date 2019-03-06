@@ -73,6 +73,9 @@ There is no plugin included for any service, see the reference implementation in
 ### Database migrations
 Database schema migration is automatically done when visiting the root (`/`) route (click on the logo in the left upper edge).
 
+### Disable certain features
+If you don't use certain feature sets of grocy (for example if you don't need "Chores"), there are feature flags per major feature set to hide/disable the related UI elements (see `config-dist.php`)
+
 ### Adding your own CSS or JS without to have to modify the application itself
 - When the file `data/custom_js.html` exists, the contents of the file will be added just before `</body>` (end of body) on every page
 - When the file `data/custom_css.html` exists, the contents of the file will be added just before `</head>` (end of head) on every page
