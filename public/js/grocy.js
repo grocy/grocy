@@ -497,7 +497,6 @@ $("#about-dialog-link").on("click", function()
 {
 	bootbox.alert({
 		message: '<iframe height="400px" class="embed-responsive" src="' + U("/about?embedded") + '"></iframe>',
-		size: "large",
 		closeButton: false
 	});
 });
