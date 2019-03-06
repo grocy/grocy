@@ -36,7 +36,7 @@
 				Grocy.Api.UploadFile($("#recipe-picture")[0].files[0], 'recipepictures', jsonData.picture_file_name,
 					function(result)
 					{
-						window.location.href = U('/recipes');
+						window.location.href = U('/recipes?recipe=' + Grocy.EditObjectId);
 					},
 					function (xhr)
 					{
@@ -47,7 +47,7 @@
 			}
 			else
 			{
-				window.location.href = U('/recipes');
+				window.location.href = U('/recipes?recipe=' + Grocy.EditObjectId);
 			}
 		},
 		function(xhr)
