@@ -344,5 +344,6 @@ return array(
 	'Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated' => 'Taragewichtbehandlung aktiviert - bitte den gesamten Behälter wiegen, die zu buchende Menge wird automatisch berechnet',
 	'You have to select a location' => 'Ein Standort muss ausgewählt werden',
 	'List' => 'Liste',
-	'Gallery' => 'Galerie'
+	'Gallery' => 'Galerie',
+	'The current picture will be deleted when you save the recipe' => 'Das aktuelle Bild wird beim Speichern des Rezepts gelöscht '
 );

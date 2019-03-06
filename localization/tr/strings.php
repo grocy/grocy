@@ -344,5 +344,6 @@ return array(
 	'Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated' => 'Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated',
 	'You have to select a location' => 'You have to select a location',
 	'List' => 'List',
-	'Gallery' => 'Gallery'
+	'Gallery' => 'Gallery',
+	'The current picture will be deleted when you save the recipe' => 'The current picture will be deleted when you save the recipe'
 );
