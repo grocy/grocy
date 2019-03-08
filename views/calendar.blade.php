@@ -6,7 +6,7 @@
 
 @push('pageScripts')
 	<script src="{{ $U('/node_modules/fullcalendar/dist/fullcalendar.min.js?v=', true) }}{{ $version }}"></script>
-	@if(!empty($L('fullcalendar_locale')))<script src="{{ $U('/node_modules', true) }}/fullcalendar/dist/locale/{{ $L('fullcalendar_locale') }}.js?v={{ $version }}"></script>@endif
+	@if(!empty($L('fullcalendar_locale') && $L('fullcalendar_locale') != 'x'))<script src="{{ $U('/node_modules', true) }}/fullcalendar/dist/locale/{{ $L('fullcalendar_locale') }}.js?v={{ $version }}"></script>@endif
 @endpush
 
 @push('pageStyles')
