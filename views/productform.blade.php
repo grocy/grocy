@@ -8,6 +8,14 @@
 
 @section('viewJsName', 'productform')
 
+@push('pageScripts')
+	<script src="{{ $U('/node_modules/tagmanager/tagmanager.js?v=', true) }}{{ $version }}"></script>
+@endpush
+
+@push('pageStyles')
+	<link href="{{ $U('/node_modules/tagmanager/tagmanager.css?v=', true) }}{{ $version }}" rel="stylesheet">
+@endpush
+
 @section('content')
 <div class="row">
 

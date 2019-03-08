@@ -11,12 +11,6 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.7.2.tgz#1498c3eb78ee7c78c5488418707de90aaf58d5d7"
   integrity sha512-Ha4HshKdCVKgu4TVCtG8XyPPYdzTzNW4/fvPnn+LT7AosRABryhlRv4cc4+o84dgpvVJN9reN7jo/c+nYujFug==
 
-"TagManager@https://github.com/max-favilli/tagmanager.git#3.0.2":
-  version "3.0.1"
-  resolved "https://github.com/max-favilli/tagmanager.git#df9eb9935c8585a392dfc00602f890caf233fa94"
-  dependencies:
-    jquery "1"
-
 "bootbox@https://github.com/makeusabrew/bootbox.git#v5.x":
   version "5.0.0"
   resolved "https://github.com/makeusabrew/bootbox.git#5f506b2bffbd190ec42ed589c013dc0a983bb345"
@@ -248,6 +242,12 @@ swagger-ui-dist@^3.21.0:
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-3.21.0.tgz#172bdd39d7d2efd4d4998411702ebe562a934631"
   integrity sha512-bAhzzpujhSIXdzpSI9b9RpvahC556lxcOIXxt1OOtTIasYodpy94gDlanQl4j7xavmi4nhaGiZ9iBcoFO+wHlA==
+
+"tagmanager@https://github.com/max-favilli/tagmanager.git#3.0.2":
+  version "3.0.1"
+  resolved "https://github.com/max-favilli/tagmanager.git#df9eb9935c8585a392dfc00602f890caf233fa94"
+  dependencies:
+    jquery "1"
 
 "tempusdominus-bootstrap-4@https://github.com/berrnd/tempusdominus-bootstrap-4.git#master":
   version "5.1.2"
