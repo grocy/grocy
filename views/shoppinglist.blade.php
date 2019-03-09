@@ -56,7 +56,7 @@
 		<table id="shoppinglist-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
-					<th>#</th>
+					<th></th>
 					<th>{{ $L('Product') }} / <em>{{ $L('Note') }}</em></th>
 					<th>{{ $L('Amount') }}</th>
 					<th class="d-none">Hiden product group</th>

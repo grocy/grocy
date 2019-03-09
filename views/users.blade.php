@@ -28,7 +28,7 @@
 		<table id="users-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
-					<th>#</th>
+					<th></th>
 					<th>{{ $L('Username') }}</th>
 					<th>{{ $L('First name') }}</th>
 					<th>{{ $L('Last name') }}</th>

@@ -32,7 +32,7 @@
 		<table id="batteries-journal-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
-					<th>#</th>
+					<th></th>
 					<th>{{ $L('Battery') }}</th>
 					<th>{{ $L('Tracked time') }}</th>
 				</tr>

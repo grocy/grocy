@@ -28,7 +28,7 @@
 		<table id="chores-table" class="table table-sm table-striped dt-responsive">
 		<thead>
 			<tr>
-				<th>#</th>
+				<th></th>
 				<th>{{ $L('Name') }}</th>
 				<th>{{ $L('Period type') }}</th>
 				<th>{{ $L('Period days') }}</th>

@@ -100,7 +100,7 @@
 				<table id="recipes-pos-table" class="table table-sm table-striped dt-responsive">
 					<thead>
 						<tr>
-							<th>#</th>
+							<th></th>
 							<th>{{ $L('Product') }}</th>
 							<th>{{ $L('Amount') }}</th>
 							<th class="fit-content">{{ $L('Note') }}</th>
@@ -152,7 +152,7 @@
 				<table id="recipes-includes-table" class="table table-sm table-striped dt-responsive">
 					<thead>
 						<tr>
-							<th>#</th>
+							<th></th>
 							<th>{{ $L('Recipe') }}</th>
 							<th>{{ $L('Servings') }}</th>
 						</tr>

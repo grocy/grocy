@@ -41,7 +41,7 @@
 		<table id="batteries-overview-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
-					<th>#</th>
+					<th></th>
 					<th>{{ $L('Battery') }}</th>
 					<th>{{ $L('Last charged') }}</th>
 					<th>{{ $L('Next planned charge cycle') }}</th>

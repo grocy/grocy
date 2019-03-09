@@ -32,7 +32,7 @@
 		<table id="chores-journal-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
-					<th>#</th>
+					<th></th>
 					<th>{{ $L('Chore') }}</th>
 					<th>{{ $L('Tracked time') }}</th>
 					<th>{{ $L('Done by') }}</th>

@@ -32,7 +32,7 @@
 		<table id="stock-journal-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
-					<th>#</th>
+					<th></th>
 					<th>{{ $L('Product') }}</th>
 					<th>{{ $L('Amount') }}</th>
 					<th>{{ $L('Booking time') }}</th>

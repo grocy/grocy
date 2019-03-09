@@ -32,7 +32,7 @@
 		<table id="apikeys-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
-					<th>#</th>
+					<th></th>
 					<th>{{ $L('API key') }}</th>
 					<th>{{ $L('User') }}</th>
 					<th>{{ $L('Expires') }}</th>

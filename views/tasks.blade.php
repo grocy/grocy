@@ -56,7 +56,7 @@
 		<table id="tasks-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
-					<th>#</th>
+					<th></th>
 					<th>{{ $L('Task') }}</th>
 					<th>{{ $L('Due') }}</th>
 					<th class="d-none">Hidden category</th>

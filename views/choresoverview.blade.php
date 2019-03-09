@@ -41,7 +41,7 @@
 		<table id="chores-overview-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
-					<th>#</th>
+					<th></th>
 					<th>{{ $L('Chore') }}</th>
 					<th>{{ $L('Next estimated tracking') }}</th>
 					<th>{{ $L('Last tracked') }}</th>

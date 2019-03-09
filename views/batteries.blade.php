@@ -28,7 +28,7 @@
 		<table id="batteries-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
-					<th>#</th>
+					<th></th>
 					<th>{{ $L('Name') }}</th>
 					<th>{{ $L('Description') }}</th>
 					<th>{{ $L('Used in') }}</th>
