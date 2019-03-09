@@ -353,5 +353,6 @@ return array(
 	'Show battery details' => 'Batteriedetails anzeigen',
 	'Journal for this battery' => 'Journal für diese Batterie',
 	'System info' => 'Systeminformationen',
-	'Changelog' => 'Änderungsprotokoll'
+	'Changelog' => 'Änderungsprotokoll',
+	'will be multiplied a factor of #1 to get #2' => 'wird mit dem Faktor #1 multipliziert um #2 zu erhalten'
 );

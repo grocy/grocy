@@ -354,5 +354,6 @@ return array(
 	'Show battery details' => 'Show battery details',
 	'Journal for this battery' => 'Journal for this battery',
 	'System info' => 'System info',
-	'Changelog' => 'Changelog'
+	'Changelog' => 'Changelog',
+	'will be multiplied a factor of #1 to get #2' => 'will be multiplied a factor of #1 to get #2'
 );

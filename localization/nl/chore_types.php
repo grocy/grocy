@@ -2,5 +2,5 @@
 
 return array(
 	'manually' => 'Handmatig',
-	'dynamic-regular' => 'Dynamic regular'
+	'dynamic-regular' => 'Dynamisch regelmatig'
 );
