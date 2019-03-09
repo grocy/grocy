@@ -23,8 +23,9 @@ Setting('CULTURE', 'en');
 
 # To keep it simple: grocy does not handle any currency conversions,
 # this here is used to format all money values,
-# so can be anything (e. g. "USD" OR "$", doesn't matter...)
-Setting('CURRENCY', '$');
+# so doesn't matter really matter, but should be the
+# ISO 4217 code of the currency ("USD", "EUR", "GBP", etc.)
+Setting('CURRENCY', 'USD');
 
 # The base url of your installation,
 # should be just "/" when running directly under the root of a (sub)domain
