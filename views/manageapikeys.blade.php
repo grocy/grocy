@@ -32,7 +32,7 @@
 		<table id="apikeys-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
-					<th></th>
+					<th class="border-right"></th>
 					<th>{{ $L('API key') }}</th>
 					<th>{{ $L('User') }}</th>
 					<th>{{ $L('Expires') }}</th>
@@ -44,7 +44,7 @@
 			<tbody class="d-none">
 				@foreach($apiKeys as $apiKey)
 				<tr id="apiKeyRow_{{ $apiKey->id }}">
-					<td class="fit-content">
+					<td class="fit-content border-right">
 						<a class="btn btn-danger btn-sm apikey-delete-button" href="#" data-apikey-id="{{ $apiKey->id }}" data-apikey-apikey="{{ $apiKey->api_key }}">
 							<i class="fas fa-trash"></i>
 						</a>

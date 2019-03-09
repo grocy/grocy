@@ -56,7 +56,7 @@
 		<table id="tasks-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
-					<th></th>
+					<th class="border-right"></th>
 					<th>{{ $L('Task') }}</th>
 					<th>{{ $L('Due') }}</th>
 					<th class="d-none">Hidden category</th>
@@ -67,7 +67,7 @@
 			<tbody class="d-none">
 				@foreach($tasks as $task)
 				<tr id="task-{{ $task->id }}-row" class="@if($task->done == 1) text-muted @endif @if(!empty($task->due_date) && $task->due_date < date('Y-m-d')) table-danger @elseif(!empty($task->due_date) && $task->due_date < date('Y-m-d', strtotime("+$nextXDays days"))) table-warning @endif">
-					<td class="fit-content">
+					<td class="fit-content border-right">
 						<a class="btn btn-success btn-sm do-task-button @if($task->done == 1) disabled @endif" href="#" data-toggle="tooltip" data-placement="left" title="{{ $L('Mark task "#1" as completed', $task->name) }}"
 							data-task-id="{{ $task->id }}"
 							data-task-name="{{ $task->name }}">

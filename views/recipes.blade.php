@@ -34,7 +34,7 @@
 					<thead>
 						<tr>
 							<th>{{ $L('Name') }}</th>
-							<th class="fit-content text-right">{{ $L('Servings') }}</th>
+							<th>{{ $L('Servings') }}</th>
 							<th>{{ $L('Requirements fulfilled') }}</th>
 							<th class="d-none">Hidden status for sorting of "Requirements fulfilled" column</th>
 						</tr>
@@ -45,7 +45,7 @@
 							<td>
 								{{ $recipe->name }}
 							</td>
-							<td class="fit-content text-right">
+							<td>
 								{{ $recipe->desired_servings }}
 							</td>
 							<td>

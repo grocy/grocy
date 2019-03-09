@@ -32,7 +32,7 @@
 		<table id="batteries-journal-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
-					<th></th>
+					<th class="border-right"></th>
 					<th>{{ $L('Battery') }}</th>
 					<th>{{ $L('Tracked time') }}</th>
 				</tr>
@@ -40,7 +40,7 @@
 			<tbody class="d-none">
 				@foreach($chargeCycles as $chargeCycleEntry)
 				<tr class="@if($chargeCycleEntry->undone == 1) text-muted @endif">
-					<td class="fit-content">
+					<td class="fit-content border-right">
 						<a class="btn btn-secondary btn-sm undo-battery-execution-button @if($chargeCycleEntry->undone == 1) disabled @endif" href="#" data-charge-cycle-id="{{ $chargeCycleEntry->id }}" data-toggle="tooltip" data-placement="left" title="{{ $L('Undo charge cycle') }}">
 							<i class="fas fa-undo"></i>
 						</a>

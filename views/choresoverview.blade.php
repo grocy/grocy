@@ -41,7 +41,7 @@
 		<table id="chores-overview-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
-					<th></th>
+					<th class="border-right"></th>
 					<th>{{ $L('Chore') }}</th>
 					<th>{{ $L('Next estimated tracking') }}</th>
 					<th>{{ $L('Last tracked') }}</th>
@@ -51,7 +51,7 @@
 			<tbody class="d-none">
 				@foreach($currentChores as $curentChoreEntry)
 				<tr id="chore-{{ $curentChoreEntry->chore_id }}-row" class="@if(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type === \Grocy\Services\ChoresService::CHORE_TYPE_DYNAMIC_REGULAR && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s')) table-danger @elseif(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type === \Grocy\Services\ChoresService::CHORE_TYPE_DYNAMIC_REGULAR && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) table-warning @endif">
-					<td class="fit-content">
+					<td class="fit-content border-right">
 						<a class="btn btn-success btn-sm track-chore-button" href="#" data-toggle="tooltip" data-placement="left" title="{{ $L('Track execution of chore #1', FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name) }}"
 							data-chore-id="{{ $curentChoreEntry->chore_id }}"
 							data-chore-name="{{ FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name }}">

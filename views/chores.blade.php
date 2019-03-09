@@ -28,7 +28,7 @@
 		<table id="chores-table" class="table table-sm table-striped dt-responsive">
 		<thead>
 			<tr>
-				<th></th>
+				<th class="border-right"></th>
 				<th>{{ $L('Name') }}</th>
 				<th>{{ $L('Period type') }}</th>
 				<th>{{ $L('Period days') }}</th>
@@ -38,7 +38,7 @@
 		<tbody class="d-none">
 			@foreach($chores as $chore)
 			<tr>
-				<td class="fit-content">
+				<td class="fit-content border-right">
 					<a class="btn btn-info btn-sm" href="{{ $U('/chore/') }}{{ $chore->id }}">
 						<i class="fas fa-edit"></i>
 					</a>

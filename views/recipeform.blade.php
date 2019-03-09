@@ -100,7 +100,7 @@
 				<table id="recipes-pos-table" class="table table-sm table-striped dt-responsive">
 					<thead>
 						<tr>
-							<th></th>
+							<th class="border-right"></th>
 							<th>{{ $L('Product') }}</th>
 							<th>{{ $L('Amount') }}</th>
 							<th class="fit-content">{{ $L('Note') }}</th>
@@ -111,7 +111,7 @@
 						@if($mode == "edit")
 						@foreach($recipePositions as $recipePosition)
 						<tr>
-							<td class="fit-content">
+							<td class="fit-content border-right">
 								<a class="btn btn-sm btn-info recipe-pos-edit-button" href="#" data-recipe-pos-id="{{ $recipePosition->id }}">
 									<i class="fas fa-edit"></i>
 								</a>
@@ -152,7 +152,7 @@
 				<table id="recipes-includes-table" class="table table-sm table-striped dt-responsive">
 					<thead>
 						<tr>
-							<th></th>
+							<th class="border-right"></th>
 							<th>{{ $L('Recipe') }}</th>
 							<th>{{ $L('Servings') }}</th>
 						</tr>
@@ -161,7 +161,7 @@
 						@if($mode == "edit")
 						@foreach($recipeNestings as $recipeNesting)
 						<tr>
-							<td class="fit-content">
+							<td class="fit-content border-right">
 								<a class="btn btn-sm btn-info recipe-include-edit-button" href="#" data-recipe-include-id="{{ $recipeNesting->id }}" data-recipe-included-recipe-id="{{ $recipeNesting->includes_recipe_id }}" data-recipe-included-recipe-servings="{{ $recipeNesting->servings }}">
 									<i class="fas fa-edit"></i>
 								</a>
@@ -223,7 +223,7 @@
 				</form>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">{{ $L('Cancel') }}</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">{{ $L('Cancel') }}</button>
 				<button id="save-recipe-include-button" data-dismiss="modal" class="btn btn-success">{{ $L('Save') }}</button>
 			</div>
 		</div>

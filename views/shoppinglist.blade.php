@@ -56,7 +56,7 @@
 		<table id="shoppinglist-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
-					<th></th>
+					<th class="border-right"></th>
 					<th>{{ $L('Product') }} / <em>{{ $L('Note') }}</em></th>
 					<th>{{ $L('Amount') }}</th>
 					<th class="d-none">Hiden product group</th>
@@ -66,7 +66,7 @@
 			<tbody class="d-none">
 				@foreach($listItems as $listItem)
 				<tr id="shoppinglistitem-{{ $listItem->id }}-row" class="@if(FindObjectInArrayByPropertyValue($missingProducts, 'id', $listItem->product_id) !== null) table-info @endif">
-					<td class="fit-content">
+					<td class="fit-content border-right">
 						<a class="btn btn-sm btn-info" href="{{ $U('/shoppinglistitem/') }}{{ $listItem->id }}">
 							<i class="fas fa-edit"></i>
 						</a>

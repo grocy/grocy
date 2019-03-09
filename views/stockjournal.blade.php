@@ -32,7 +32,7 @@
 		<table id="stock-journal-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
-					<th></th>
+					<th class="border-right"></th>
 					<th>{{ $L('Product') }}</th>
 					<th>{{ $L('Amount') }}</th>
 					<th>{{ $L('Booking time') }}</th>
@@ -42,7 +42,7 @@
 			<tbody class="d-none">
 				@foreach($stockLog as $stockLogEntry)
 				<tr class="@if($stockLogEntry->undone == 1) text-muted @endif">
-					<td class="fit-content">
+					<td class="fit-content border-right">
 						<a class="btn btn-secondary btn-sm undo-stock-booking-button @if($stockLogEntry->undone == 1) disabled @endif" href="#" data-booking-id="{{ $stockLogEntry->id }}" data-toggle="tooltip" data-placement="left" title="{{ $L('Undo booking') }}">
 							<i class="fas fa-undo"></i>
 						</a>

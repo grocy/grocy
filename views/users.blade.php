@@ -28,7 +28,7 @@
 		<table id="users-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
-					<th></th>
+					<th class="border-right"></th>
 					<th>{{ $L('Username') }}</th>
 					<th>{{ $L('First name') }}</th>
 					<th>{{ $L('Last name') }}</th>
@@ -37,7 +37,7 @@
 			<tbody class="d-none">
 				@foreach($users as $user)
 				<tr>
-					<td class="fit-content">
+					<td class="fit-content border-right">
 						<a class="btn btn-info btn-sm" href="{{ $U('/user/') }}{{ $user->id }}">
 							<i class="fas fa-edit"></i>
 						</a>

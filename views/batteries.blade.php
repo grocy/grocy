@@ -28,7 +28,7 @@
 		<table id="batteries-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
-					<th></th>
+					<th class="border-right"></th>
 					<th>{{ $L('Name') }}</th>
 					<th>{{ $L('Description') }}</th>
 					<th>{{ $L('Used in') }}</th>
@@ -38,7 +38,7 @@
 			<tbody class="d-none">
 				@foreach($batteries as $battery)
 				<tr>
-					<td class="fit-content">
+					<td class="fit-content border-right">
 						<a class="btn btn-info btn-sm" href="{{ $U('/battery/') }}{{ $battery->id }}">
 							<i class="fas fa-edit"></i>
 						</a>

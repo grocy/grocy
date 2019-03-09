@@ -28,7 +28,7 @@
 		<table id="quantityunits-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
-					<th></th>
+					<th class="border-right"></th>
 					<th>{{ $L('Name') }}</th>
 					<th>{{ $L('Description') }}</th>
 				</tr>
@@ -36,7 +36,7 @@
 			<tbody class="d-none">
 				@foreach($quantityunits as $quantityunit)
 				<tr>
-					<td class="fit-content">
+					<td class="fit-content border-right">
 						<a class="btn btn-info btn-sm" href="{{ $U('/quantityunit/') }}{{ $quantityunit->id }}">
 							<i class="fas fa-edit"></i>
 						</a>

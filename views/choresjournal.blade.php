@@ -32,7 +32,7 @@
 		<table id="chores-journal-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
-					<th></th>
+					<th class="border-right"></th>
 					<th>{{ $L('Chore') }}</th>
 					<th>{{ $L('Tracked time') }}</th>
 					<th>{{ $L('Done by') }}</th>
@@ -41,7 +41,7 @@
 			<tbody class="d-none">
 				@foreach($choresLog as $choreLogEntry)
 				<tr class="@if($choreLogEntry->undone == 1) text-muted @endif">
-					<td class="fit-content">
+					<td class="fit-content border-right">
 						<a class="btn btn-secondary btn-sm undo-chore-execution-button @if($choreLogEntry->undone == 1) disabled @endif" href="#" data-execution-id="{{ $choreLogEntry->id }}" data-toggle="tooltip" data-placement="left" title="{{ $L('Undo chore execution') }}">
 							<i class="fas fa-undo"></i>
 						</a>

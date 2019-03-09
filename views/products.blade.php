@@ -31,7 +31,7 @@
 		<table id="products-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
-					<th></th>
+					<th class="border-right"></th>
 					<th>{{ $L('Name') }}</th>
 					<th>{{ $L('Location') }}</th>
 					<th>{{ $L('Min. stock amount') }}</th>
@@ -44,7 +44,7 @@
 			<tbody class="d-none">
 				@foreach($products as $product)
 				<tr>
-					<td class="fit-content">
+					<td class="fit-content border-right">
 						<a class="btn btn-info btn-sm" href="{{ $U('/product/') }}{{ $product->id }}">
 							<i class="fas fa-edit"></i>
 						</a>
