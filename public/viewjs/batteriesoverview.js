@@ -126,6 +126,12 @@ $(document).on('click', '.track-charge-cycle-button', function(e)
 	);
 });
 
+$(document).on("click", ".battery-name-cell", function(e)
+{
+	Grocy.Components.BatteryCard.Refresh($(e.currentTarget).attr("data-battery-id"));
+	$("#batteriesoverview-batterycard-modal").modal("show");
+});
+
 function RefreshStatistics()
 {
 	var nextXDays = $("#info-due-batteries").data("next-x-days");

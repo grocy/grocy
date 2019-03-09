@@ -57,11 +57,24 @@
 							data-battery-name="{{ FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->name }}">
 							<i class="fas fa-fire"></i>
 						</a>
-						<a class="btn btn-info btn-sm" href="{{ $U('/batteriesjournal?battery=') }}{{ $curentBatteryEntry->battery_id }}">
-							<i class="fas fa-file-alt"></i>
-						</a>
+						<div class="dropdown d-inline-block">
+							<button class="btn btn-sm btn-light text-secondary" type="button" data-toggle="dropdown">
+								<i class="fas fa-ellipsis-v"></i>
+							</button>
+							<div class="dropdown-menu">
+								<a class="dropdown-item battery-name-cell" data-chore-id="{{ $curentBatteryEntry->battery_id }}" type="button" href="#">
+									<i class="fas fa-info"></i> {{ $L('Show battery details') }}
+								</a>
+								<a class="dropdown-item" type="button" href="{{ $U('/batteriesjournal?battery=') }}{{ $curentBatteryEntry->battery_id }}">
+									<i class="fas fa-file-alt"></i> {{ $L('Journal for this battery') }}
+								</a>
+								<a class="dropdown-item" type="button" href="{{ $U('/battery/') }}{{ $curentBatteryEntry->battery_id }}">
+									<i class="fas fa-edit"></i> {{ $L('Edit battery') }}
+								</a>
+							</div>
+						</div>
 					</td>
-					<td>
+					<td class="battery-name-cell cursor-link" data-battery-id="{{ $curentBatteryEntry->battery_id }}">
 						{{ FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->name }}
 					</td>
 					<td>
@@ -83,6 +96,19 @@
 				@endforeach
 			</tbody>
 		</table>
+	</div>
+</div>
+
+<div class="modal fade" id="batteriesoverview-batterycard-modal" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content text-center">
+			<div class="modal-body">
+				@include('components.batterycard')
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">{{ $L('Close') }}</button>
+			</div>
+		</div>
 	</div>
 </div>
 @stop

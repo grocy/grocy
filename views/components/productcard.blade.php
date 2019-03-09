@@ -19,7 +19,7 @@
 		<strong>{{ $L('Last price') }}:</strong> <span id="productcard-product-last-price"></span>
 
 		<h5 class="mt-3">{{ $L('Product picture') }}</h5>
-		<img id="productcard-product-picture" src="" class="img-fluid img-thumbnail d-none">
+		<p class="w-75 mx-auto"><img id="productcard-product-picture" src="" class="img-fluid img-thumbnail d-none"></p>
 		<span id="productcard-no-product-picture" class="font-italic d-none">{{ $L('No picture available') }}</span>
 
 		<h5 class="mt-3">{{ $L('Price history') }}</h5>

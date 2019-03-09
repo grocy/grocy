@@ -103,12 +103,25 @@
 							data-product-qu-name="{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name }}">
 							<i class="fas fa-box-open"></i> 1
 						</a>
-						<a class="btn btn-info btn-sm" href="{{ $U('/stockjournal?product=') }}{{ $currentStockEntry->product_id }}">
-							<i class="fas fa-file-alt"></i>
-						</a>
+						<div class="dropdown d-inline-block">
+							<button class="btn btn-sm btn-light text-secondary" type="button" data-toggle="dropdown">
+								<i class="fas fa-ellipsis-v"></i>
+							</button>
+							<div class="dropdown-menu">
+								<a class="dropdown-item product-name-cell" data-product-id="{{ $currentStockEntry->product_id }}" type="button" href="#">
+									<i class="fas fa-info"></i> {{ $L('Show product details') }}
+								</a>
+								<a class="dropdown-item" type="button" href="{{ $U('/stockjournal?product=') }}{{ $currentStockEntry->product_id }}">
+									<i class="fas fa-file-alt"></i> {{ $L('Stock journal for this product') }}
+								</a>
+								<a class="dropdown-item" type="button" href="{{ $U('/product/') }}{{ $currentStockEntry->product_id }}">
+									<i class="fas fa-edit"></i> {{ $L('Edit product') }}
+								</a>
+							</div>
+						</div>
 					</td>
 					<td class="product-name-cell cursor-link" data-product-id="{{ $currentStockEntry->product_id }}">
-						{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }} <i class="fas fa-info text-muted"></i>
+						{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}
 					</td>
 					<td>
 						<span id="product-{{ $currentStockEntry->product_id }}-amount">{{ $currentStockEntry->amount }}</span> {{ Pluralize($currentStockEntry->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name_plural) }}

@@ -57,11 +57,24 @@
 							data-chore-name="{{ FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name }}">
 							<i class="fas fa-play"></i>
 						</a>
-						<a class="btn btn-info btn-sm" href="{{ $U('/choresjournal?chore=') }}{{ $curentChoreEntry->chore_id }}">
-							<i class="fas fa-file-alt"></i>
-						</a>
+						<div class="dropdown d-inline-block">
+							<button class="btn btn-sm btn-light text-secondary" type="button" data-toggle="dropdown">
+								<i class="fas fa-ellipsis-v"></i>
+							</button>
+							<div class="dropdown-menu">
+								<a class="dropdown-item chore-name-cell" data-chore-id="{{ $curentChoreEntry->chore_id }}" type="button" href="#">
+									<i class="fas fa-info"></i> {{ $L('Show chore details') }}
+								</a>
+								<a class="dropdown-item" type="button" href="{{ $U('/choresjournal?chore=') }}{{ $curentChoreEntry->chore_id }}">
+									<i class="fas fa-file-alt"></i> {{ $L('Journal for this chore') }}
+								</a>
+								<a class="dropdown-item" type="button" href="{{ $U('/chore/') }}{{ $curentChoreEntry->chore_id }}">
+									<i class="fas fa-edit"></i> {{ $L('Edit chore') }}
+								</a>
+							</div>
+						</div>
 					</td>
-					<td>
+					<td class="chore-name-cell cursor-link" data-chore-id="{{ $curentChoreEntry->chore_id }}">
 						{{ FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name }}
 					</td>
 					<td>
@@ -83,6 +96,19 @@
 				@endforeach
 			</tbody>
 		</table>
+	</div>
+</div>
+
+<div class="modal fade" id="choresoverview-chorecard-modal" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content text-center">
+			<div class="modal-body">
+				@include('components.chorecard')
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">{{ $L('Close') }}</button>
+			</div>
+		</div>
 	</div>
 </div>
 @stop
