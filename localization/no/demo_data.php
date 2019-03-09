@@ -85,5 +85,6 @@ return array(
 	'Topping' => 'Topping',
 	'French' => 'Fransk',
 	'Turkish' => 'Turkish',
-	'Spanish' => 'Spanish'
+	'Spanish' => 'Spanish',
+	'Russian' => 'Russian'
 );

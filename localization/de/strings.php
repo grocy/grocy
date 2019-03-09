@@ -345,5 +345,13 @@ return array(
 	'You have to select a location' => 'Ein Standort muss ausgewählt werden',
 	'List' => 'Liste',
 	'Gallery' => 'Galerie',
-	'The current picture will be deleted when you save the recipe' => 'Das aktuelle Bild wird beim Speichern des Rezepts gelöscht '
+	'The current picture will be deleted when you save the recipe' => 'Das aktuelle Bild wird beim Speichern des Rezepts gelöscht ',
+	'Show product details' => 'Produktdetails anzeigen',
+	'Stock journal for this product' => 'Bestandsjournal für dieses Produkt',
+	'Show chore details' => 'Hausarbeitdetails anzeigen',
+	'Journal for this chore' => 'Journal für dieses Hausarbeit',
+	'Show battery details' => 'Batteriedetails anzeigen',
+	'Journal for this battery' => 'Journal für diese Batterie',
+	'System info' => 'Systeminformationen',
+	'Changelog' => 'Änderungsprotokoll'
 );

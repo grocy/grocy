@@ -85,5 +85,6 @@ return array(
 	'Topping' => 'Guarnizione',
 	'French' => 'Francese',
 	'Turkish' => 'Turkish',
-	'Spanish' => 'Spanish'
+	'Spanish' => 'Spanish',
+	'Russian' => 'Russian'
 );
