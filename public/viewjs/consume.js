@@ -46,6 +46,7 @@
 					$("#amount").attr("step", "1");
 					$("#amount").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', '1'));
 					$('#amount').val(1);
+					$('#amount_qu_unit').text("");
 					$("#tare-weight-handling-info").addClass("d-none");
 					Grocy.Components.ProductPicker.Clear();
 					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_RECIPES)

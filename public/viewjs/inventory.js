@@ -52,6 +52,7 @@
 						$("#new_amount").attr("step", "1");
 						$("#new_amount").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', '0'));
 						$('#new_amount').val('');
+						$('#new_amount_qu_unit').text("");
 						Grocy.Components.DateTimePicker.Clear();
 						Grocy.Components.ProductPicker.SetValue('');
 						Grocy.Components.ProductPicker.GetInputElement().focus();

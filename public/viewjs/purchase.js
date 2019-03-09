@@ -70,6 +70,7 @@
 						$("#amount").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', '1'));
 						$('#amount').val(0);
 						$('#price').val('');
+						$('#amount_qu_unit').text("");
 						$("#tare-weight-handling-info").addClass("d-none");
 						Grocy.Components.LocationPicker.Clear();
 						Grocy.Components.DateTimePicker.Clear();
