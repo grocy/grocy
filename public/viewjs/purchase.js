@@ -114,7 +114,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				}
 				else
 				{
-					$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name + " (" + L("will be multiplied a factor of #1 to get #2", parseInt(productDetails.product.qu_factor_purchase_to_stock).toString(), productDetails.quantity_unit_stock.name) + ")");
+					$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name + " (" + L("will be multiplied a factor of #1 to get #2", parseInt(productDetails.product.qu_factor_purchase_to_stock).toString(), Pluralize(2, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)) + ")");
 				}
 
 				if (productDetails.product.allow_partial_units_in_stock == 1)
