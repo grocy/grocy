@@ -150,7 +150,7 @@ $('#product_id_text_input').on('blur', function(e)
 				buttons: {
 					cancel: {
 						label: L('Cancel'),
-						className: 'btn-default responsive-button',
+						className: 'btn-secondary responsive-button',
 						callback: function()
 						{
 							Grocy.Components.ProductPicker.SetValue('');
