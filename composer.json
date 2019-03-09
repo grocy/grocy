@@ -5,7 +5,8 @@
 		"morris/lessql": "^0.3.4",
 		"rubellum/slim-blade-view": "^0.1.1",
 		"tuupola/cors-middleware": "^0.7.0",
-		"eluceo/ical": "^0.15.0"
+		"eluceo/ical": "^0.15.0",
+		"erusev/parsedown": "^1.7.1"
 	},
 	"autoload": {
 		"psr-4": {

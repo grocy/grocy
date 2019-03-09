@@ -347,9 +347,11 @@ return array(
 	'Gallery' => 'Gallery',
 	'The current picture will be deleted when you save the recipe' => 'The current picture will be deleted when you save the recipe',
 	'Show product details' => 'Show product details',
-    'Stock journal for this product' => 'Stock journal for this product',
-    'Show chore details' => 'Show chore details',
-    'Journal for this chore' => 'Journal for this chore',
-    'Show battery details' => 'Show battery details',
-    'Journal for this battery' => 'Journal for this battery'
+	'Stock journal for this product' => 'Stock journal for this product',
+	'Show chore details' => 'Show chore details',
+	'Journal for this chore' => 'Journal for this chore',
+	'Show battery details' => 'Show battery details',
+	'Journal for this battery' => 'Journal for this battery',
+	'System info' => 'System info',
+	'Changelog' => 'Changelog'
 );

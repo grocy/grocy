@@ -34,7 +34,8 @@ class SystemController extends BaseController
 	public function About(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->AppContainer->view->render($response, 'about', [
-			'system_info' => $this->ApplicationService->GetSystemInfo()
+			'system_info' => $this->ApplicationService->GetSystemInfo(),
+			'changelog' => $this->ApplicationService->GetChangelog()
 		]);
 	}
 }
