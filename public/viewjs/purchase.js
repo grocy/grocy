@@ -105,9 +105,17 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 		Grocy.Api.Get('stock/products/' + productId,
 			function (productDetails)
 			{
-				$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name);
 				$('#price').val(productDetails.last_price);
 				Grocy.Components.LocationPicker.SetId(productDetails.location.id);
+
+				if (productDetails.product.qu_id_purchase === productDetails.product.qu_id_stock)
+				{
+					$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name);
+				}
+				else
+				{
+					$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name + " (" + L("will be multiplied a factor of #1 to get #2", parseInt(productDetails.product.qu_factor_purchase_to_stock).toString(), productDetails.quantity_unit_stock.name) + ")");
+				}
 
 				if (productDetails.product.allow_partial_units_in_stock == 1)
 				{
