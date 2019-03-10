@@ -115,9 +115,9 @@ $(document).on('click', '.product-consume-button', function(e)
 						productRow.addClass("table-warning");
 					}
 
-					var oldAmount = parseInt($('#product-' + productId + '-amount').text());
+					var oldAmount = parseFloat($('#product-' + productId + '-amount').text());
 					var newAmount = oldAmount - consumeAmount;
-					if (newAmount === 0)
+					if (newAmount <= 0) // When "consume all" of an amount < 1, the resulting amount here will be < 0, but the API newer books > current stock amount
 					{
 						$('#product-' + productId + '-row').fadeOut(500, function()
 						{
