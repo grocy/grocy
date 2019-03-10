@@ -40,7 +40,7 @@ class StockService extends BaseService
 
 	public function GetProductIdFromBarcode(string $barcode)
 	{
-		$potentialProduct = $this->Database->products()->where('barcode LIKE :1', '%' . $barcode . '%')->limit(1)->fetch();
+		$potentialProduct = $this->Database->products()->where("','  || barcode || ',' LIKE '%,' || :1 || ',%' AND IFNULL(barcode, '') != ''", $barcode)->limit(1)->fetch();
 
 		if ($potentialProduct === null)
 		{
