@@ -24,6 +24,7 @@
 			<div class="input-group-append" data-target="#{{ $id }}" data-toggle="datetimepicker">
 				<div class="input-group-text"><i class="fas fa-calendar"></i></div>
 			</div>
+			<div class="invalid-feedback">{{ $invalidFeedback }}</div>
 		</div>
 		@if(isset($shortcutValue) && isset($shortcutLabel))
 		<div class="form-check w-100">
@@ -31,6 +32,5 @@
 			<label class="form-check-label" for="datetimepicker-shortcut">{{ $L($shortcutLabel) }}</label>
 		</div>
 		@endif
-		<div class="invalid-feedback">{{ $invalidFeedback }}</div>
 	</div>
 </div>
