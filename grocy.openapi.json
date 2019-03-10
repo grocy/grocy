@@ -1185,7 +1185,7 @@
 						}
 					},
 					"400": {
-						"description": "The operation was not successful (possible errors are: Not existing product, invalid transaction type)",
+						"description": "The operation was not successful (possible errors are: Not existing product, invalid transaction type, given amount > current stock amount)",
 						"content": {
 							"application/json": {
 								"schema": {
@@ -1311,7 +1311,7 @@
 						}
 					},
 					"400": {
-						"description": "The operation was not successful (possible errors are: Not existing product)",
+						"description": "The operation was not successful (possible errors are: Not existing product, given amount > current unopened stock amount)",
 						"content": {
 							"application/json": {
 								"schema": {

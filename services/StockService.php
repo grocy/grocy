@@ -221,7 +221,7 @@ class StockService extends BaseService
 
 			if ($amount > $productStockAmount)
 			{
-				return false;
+				throw new \Exception('Amount to be consumed cannot be > current stock amount');
 			}
 
 			if ($specificStockEntryId !== 'default')
@@ -347,7 +347,7 @@ class StockService extends BaseService
 
 		if ($amount > $productStockAmountUnopened)
 		{
-			return false;
+			throw new \Exception('Amount to be opened cannot be > current unopened stock amount');
 		}
 
 		if ($specificStockEntryId !== 'default')
