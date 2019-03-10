@@ -139,7 +139,7 @@ return array(
 	'This cannot be negative' => 'This cannot be negative',
 	'A quantity unit is required' => 'A quantity unit is required',
 	'A period type is required' => 'A period type is required',
-	'A best before date is required and must be later than today' => 'A best before date is required and must be later than today',
+	'A best before date is required' => 'A best before date is required',
 	'Settings' => 'Settings',
 	'This can only be before now' => 'This can only be before now',
 	'Calendar' => 'Calendar',
@@ -354,5 +354,6 @@ return array(
 	'Journal for this battery' => 'Journal for this battery',
 	'System info' => 'System info',
 	'Changelog' => 'Changelog',
-	'will be multiplied a factor of #1 to get #2' => 'will be multiplied a factor of #1 to get #2'
+	'will be multiplied a factor of #1 to get #2' => 'will be multiplied a factor of #1 to get #2',
+	'The given date is earlier than today, are you sure?' => 'The given date is earlier than today, are you sure?'
 );

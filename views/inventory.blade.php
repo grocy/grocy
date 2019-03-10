@@ -35,12 +35,14 @@
 				'format' => 'YYYY-MM-DD',
 				'initWithNow' => false,
 				'limitEndToNow' => false,
-				'limitStartToNow' => true,
-				'invalidFeedback' => $L('A best before date is required and must be later than today'),
+				'limitStartToNow' => false,
+				'invalidFeedback' => $L('A best before date is required'),
 				'nextInputSelector' => '#best_before_date',
 				'additionalCssClasses' => 'date-only-datetimepicker',
 				'shortcutValue' => '2999-12-31',
-				'shortcutLabel' => 'Never expires'
+				'shortcutLabel' => 'Never expires',
+				'earlierThanInfoLimit' => date('Y-m-d'),
+				'earlierThanInfoText' => $L('The given date is earlier than today, are you sure?')
 			))
 
 			<button id="save-inventory-button" class="btn btn-success">{{ $L('OK') }}</button>

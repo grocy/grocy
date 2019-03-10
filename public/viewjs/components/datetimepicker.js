@@ -193,6 +193,19 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keyup', function(e)
 		{
 			element.setCustomValidity("");
 		}
+
+		var earlierThanLimit = Grocy.Components.DateTimePicker.GetInputElement().data("earlier-than-limit");
+		if (!earlierThanLimit.isEmpty())
+		{
+			if (moment(value).isBefore(moment(earlierThanLimit)))
+			{
+				$("#datetimepicker-earlier-than-info").removeClass("d-none");
+			}
+			else
+			{
+				$("#datetimepicker-earlier-than-info").addClass("d-none");
+			}
+		}
 	}
 
 	// "Click" the shortcut checkbox when the shortcut value was

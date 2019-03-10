@@ -4,6 +4,8 @@
 
 @php if(!isset($isRequired)) { $isRequired = true; } @endphp
 @php if(!isset($initialValue)) { $initialValue = ''; } @endphp
+@php if(empty($earlierThanInfoLimit)) { $earlierThanInfoLimit = ''; } @endphp
+@php if(empty($earlierThanInfoText)) { $earlierThanInfoText = ''; } @endphp
 
 <div class="form-group">
 	<label for="{{ $id }}">{{ $L($label) }}
@@ -20,12 +22,14 @@
 				data-init-value="{{ $initialValue }}"
 				data-limit-end-to-now="{{ BoolToString($limitEndToNow) }}"
 				data-limit-start-to-now="{{ BoolToString($limitStartToNow) }}"
-				data-next-input-selector="{{ $nextInputSelector }}" />
+				data-next-input-selector="{{ $nextInputSelector }}"
+				data-earlier-than-limit="{{ $earlierThanInfoLimit }}" />
 			<div class="input-group-append" data-target="#{{ $id }}" data-toggle="datetimepicker">
 				<div class="input-group-text"><i class="fas fa-calendar"></i></div>
 			</div>
 			<div class="invalid-feedback">{{ $invalidFeedback }}</div>
 		</div>
+		<div id="datetimepicker-earlier-than-info" class="form-text text-info font-italic d-none">{{ $earlierThanInfoText }}</div>
 		@if(isset($shortcutValue) && isset($shortcutLabel))
 		<div class="form-check w-100">
 			<input class="form-check-input" type="checkbox" id="datetimepicker-shortcut" data-datetimepicker-shortcut-value="{{ $shortcutValue }}">
