@@ -26,6 +26,19 @@ class StockApiController extends BaseApiController
 		}
 	}
 
+	public function ProductDetailsByBarcode(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		try
+		{
+			$productId = $this->StockService->GetProductIdFromBarcode($args['barcode']);
+			return $this->ApiResponse($this->StockService->GetProductDetails($productId));
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
+
 	public function ProductPriceHistory(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		try

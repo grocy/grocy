@@ -38,6 +38,24 @@ class StockService extends BaseService
 		return $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
 
+	public function GetProductIdFromBarcode(string $barcode)
+	{
+		$sql = "SELECT id FROM products WHERE (',' || barcode || ',') LIKE '%,' || :barcode || ',%'";
+		$query = $this->DatabaseService->ExecuteDbQuery($sql);
+
+		$query->bindParam("barcode", $barcode);
+
+		$query->execute();
+
+		$productId = $query->fetchColumn(0);
+
+		if ($productId == null)
+		{
+			throw new \Exception("Product with barcode $barcode does not exist");
+		}
+		return $productId;
+	}
+
 	public function GetExpiringProducts(int $days = 5, bool $excludeExpired = false)
 	{
 		$currentStock = $this->GetCurrentStock(true);

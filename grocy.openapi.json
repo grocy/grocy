@@ -908,6 +908,47 @@
 				}
 			}
 		},
+		"/stock/products/by-barcode/{barcode}": {
+			"get": {
+				"summary": "Returns details of the product from its barcode",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "barcode",
+						"required": true,
+						"description": "Barcode",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A ProductDetailsResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ProductDetailsResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Unknown barcode)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/stock/products/{productId}/entries": {
 			"get": {
 				"summary": "Returns all stock entries of the given product in order of next use (first expiring first, then first in first out)",
