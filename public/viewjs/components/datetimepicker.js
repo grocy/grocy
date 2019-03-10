@@ -252,4 +252,8 @@ $("#datetimepicker-shortcut").on("click", function()
 		Grocy.Components.DateTimePicker.GetInputElement().removeAttr("readonly");
 		Grocy.Components.DateTimePicker.GetInputElement().focus();
 	}
+
+	Grocy.Components.DateTimePicker.GetInputElement().trigger('input');
+	Grocy.Components.DateTimePicker.GetInputElement().trigger('change');
+	Grocy.Components.DateTimePicker.GetInputElement().trigger('keypress');
 });
