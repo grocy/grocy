@@ -40,20 +40,14 @@ class StockService extends BaseService
 
 	public function GetProductIdFromBarcode(string $barcode)
 	{
-		$sql = "SELECT id FROM products WHERE (',' || barcode || ',') LIKE '%,' || :barcode || ',%'";
-		$query = $this->DatabaseService->ExecuteDbQuery($sql);
+		$potentialProduct = $this->Database->products()->where('barcode LIKE :1', '%' . $barcode . '%')->limit(1)->fetch();
 
-		$query->bindParam("barcode", $barcode);
-
-		$query->execute();
-
-		$productId = $query->fetchColumn(0);
-
-		if ($productId == null)
+		if ($potentialProduct === null)
 		{
-			throw new \Exception("Product with barcode $barcode does not exist");
+			throw new \Exception("No product with barcode $barcode found");
 		}
-		return $productId;
+
+		return intval($potentialProduct->id);
 	}
 
 	public function GetExpiringProducts(int $days = 5, bool $excludeExpired = false)

@@ -910,7 +910,7 @@
 		},
 		"/stock/products/by-barcode/{barcode}": {
 			"get": {
-				"summary": "Returns details of the product from its barcode",
+				"summary": "Returns details of the given product by its barcode",
 				"tags": [
 					"Stock"
 				],
