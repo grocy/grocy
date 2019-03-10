@@ -139,7 +139,7 @@ return array(
 	'This cannot be negative' => 'Значение не может быть отрицательным',
 	'A quantity unit is required' => 'Необходима единица измерения',
 	'A period type is required' => 'Необходим тип периода',
-	'A best before date is required and must be later than today' => 'Необходим срок годности и он должен быть не раньше сегодня',
+	'A best before date is required' => 'A best before date is required',
 	'Settings' => 'Настройки',
 	'This can only be before now' => 'Данное поле должно быть раньше текущего времени',
 	'Calendar' => 'Календарь',
@@ -355,5 +355,6 @@ return array(
 	'Journal for this battery' => 'Journal for this battery',
 	'System info' => 'System info',
 	'Changelog' => 'Changelog',
-	'will be multiplied a factor of #1 to get #2' => 'will be multiplied a factor of #1 to get #2'
+	'will be multiplied a factor of #1 to get #2' => 'will be multiplied a factor of #1 to get #2',
+	'The given date is earlier than today, are you sure?' => 'The given date is earlier than today, are you sure?'
 );

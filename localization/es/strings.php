@@ -139,7 +139,7 @@ return array(
 	'This cannot be negative' => 'Esto no puede ser negativo',
 	'A quantity unit is required' => 'Es necesaria una unidad',
 	'A period type is required' => 'Es necesario un tipo de periodo',
-	'A best before date is required and must be later than today' => 'Es necesaria una fecha de caducidad y debe ser posterior a hoy',
+	'A best before date is required' => 'A best before date is required',
 	'Settings' => 'Configuración',
 	'This can only be before now' => 'Sólo puede ser antes que ahora',
 	'Calendar' => 'Calendario',
@@ -354,5 +354,6 @@ return array(
 	'Journal for this battery' => 'Journal for this battery',
 	'System info' => 'System info',
 	'Changelog' => 'Changelog',
-	'will be multiplied a factor of #1 to get #2' => 'will be multiplied a factor of #1 to get #2'
+	'will be multiplied a factor of #1 to get #2' => 'will be multiplied a factor of #1 to get #2',
+	'The given date is earlier than today, are you sure?' => 'The given date is earlier than today, are you sure?'
 );

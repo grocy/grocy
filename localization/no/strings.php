@@ -139,7 +139,7 @@ return array(
 	'This cannot be negative' => 'Dette kan ikke være negativt',
 	'A quantity unit is required' => 'Forpakning antall/størrelse kreves',
 	'A period type is required' => 'En periodetype kreves',
-	'A best before date is required and must be later than today' => 'En best før dato kreves, denne må være senere enn i dag',
+	'A best before date is required' => 'A best before date is required',
 	'Settings' => 'Innstillinger',
 	'This can only be before now' => 'Dette kan kun være før nå',
 	'Calendar' => 'Kalender',
@@ -354,5 +354,6 @@ return array(
 	'Journal for this battery' => 'Journal for this battery',
 	'System info' => 'System info',
 	'Changelog' => 'Changelog',
-	'will be multiplied a factor of #1 to get #2' => 'will be multiplied a factor of #1 to get #2'
+	'will be multiplied a factor of #1 to get #2' => 'will be multiplied a factor of #1 to get #2',
+	'The given date is earlier than today, are you sure?' => 'The given date is earlier than today, are you sure?'
 );

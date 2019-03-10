@@ -139,7 +139,7 @@ return array(
 	'This cannot be negative' => 'Dies darf nicht negativ sein',
 	'A quantity unit is required' => 'Eine Mengeneinheit muss ausgewählt werden',
 	'A period type is required' => 'Eine Periodentyp muss ausgewählt werden',
-	'A best before date is required and must be later than today' => 'Ein Mindesthaltbarkeitsdatum ist erforderlich und muss später als heute sein',
+	'A best before date is required' => 'Ein Mindesthaltbarkeitsdatum ist erforderlich',
 	'Settings' => 'Einstellungen',
 	'This can only be before now' => 'Dies kann nur vor jetzt sein',
 	'Calendar' => 'Kalender',
@@ -354,5 +354,6 @@ return array(
 	'Journal for this battery' => 'Journal für diese Batterie',
 	'System info' => 'Systeminformationen',
 	'Changelog' => 'Änderungsprotokoll',
-	'will be multiplied a factor of #1 to get #2' => 'wird mit dem Faktor #1 multipliziert um #2 zu erhalten'
+	'will be multiplied a factor of #1 to get #2' => 'wird mit dem Faktor #1 multipliziert um #2 zu erhalten',
+	'The given date is earlier than today, are you sure?' => 'Das angegebene Datum ist früher als heute, bist du sicher?'
 );
