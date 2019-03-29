@@ -16,7 +16,7 @@ return array(
 	'Inventory' => 'Inventur',
 	'Shopping list' => 'Einkaufszettel',
 	'Chore tracking' => 'Hausarbeiten-Ausführung',
-	'Battery tracking' => 'Batterie-Ladzyklus',
+	'Battery tracking' => 'Batterie-Ladezyklus',
 	'Products' => 'Produkte',
 	'Locations' => 'Standorte',
 	'Quantity units' => 'Mengeneinheiten',
