@@ -45,6 +45,11 @@
 				'earlierThanInfoText' => $L('The given date is earlier than today, are you sure?')
 			))
 
+			@include('components.locationpicker', array(
+				'locations' => $locations,
+				'hint' => 'This will apply to added products'
+			))
+
 			<button id="save-inventory-button" class="btn btn-success">{{ $L('OK') }}</button>
 
 		</form>

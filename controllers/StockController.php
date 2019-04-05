@@ -48,7 +48,8 @@ class StockController extends BaseController
 	public function Inventory(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->AppContainer->view->render($response, 'inventory', [
-			'products' => $this->Database->products()->orderBy('name')
+			'products' => $this->Database->products()->orderBy('name'),
+			'locations' => $this->Database->locations()->orderBy('name')
 		]);
 	}
 

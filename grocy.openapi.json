@@ -1229,6 +1229,11 @@
 										"type": "string",
 										"format": "date",
 										"description": "The best before date which applies to added products"
+									},
+									"location_id": {
+										"type": "number",
+										"format": "integer",
+										"description": "If omitted, the default location of the product is used (only applies to added products)"
 									}
 								}
 							}

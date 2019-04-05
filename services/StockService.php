@@ -292,7 +292,7 @@ class StockService extends BaseService
 		}
 	}
 
-	public function InventoryProduct(int $productId, int $newAmount, string $bestBeforeDate)
+	public function InventoryProduct(int $productId, int $newAmount, string $bestBeforeDate, $locationId = null)
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -318,7 +318,7 @@ class StockService extends BaseService
 				$bookingAmount = $newAmount;
 			}
 			
-			$this->AddProduct($productId, $bookingAmount, $bestBeforeDate, self::TRANSACTION_TYPE_INVENTORY_CORRECTION, date('Y-m-d'), $productDetails->last_price);
+			$this->AddProduct($productId, $bookingAmount, $bestBeforeDate, self::TRANSACTION_TYPE_INVENTORY_CORRECTION, date('Y-m-d'), $productDetails->last_price, $locationId);
 		}
 		else if ($newAmount < $productDetails->stock_amount + $containerWeight)
 		{
