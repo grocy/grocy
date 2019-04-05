@@ -53,11 +53,11 @@ class StockService extends BaseService
 	public function GetExpiringProducts(int $days = 5, bool $excludeExpired = false)
 	{
 		$currentStock = $this->GetCurrentStock(true);
-		$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d', strtotime("+$days days")), '<');
+		$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d 23:59:59', strtotime("+$days days")), '<');
 
 		if ($excludeExpired)
 		{
-			$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d', strtotime('now')), '>');
+			$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d 23:59:59', strtotime('now')), '>');
 		}
 
 		return $currentStock;

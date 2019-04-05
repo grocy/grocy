@@ -511,3 +511,13 @@ $(document).on("click", ".easy-link-copy-textbox", function()
 {
 	$(this).select();
 });
+$('.dropdown-toggle').click(function ()
+{
+	dropDownFixPosition($('button'), $('.dropdown-menu'));
+});
+function dropDownFixPosition(button, dropdown)
+{
+	var dropDownTop = button.offset().top + button.outerHeight();
+	dropdown.css('top', dropDownTop + "px");
+	dropdown.css('left', button.offset().left + "px");
+}
