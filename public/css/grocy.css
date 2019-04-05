@@ -178,6 +178,11 @@ input::-webkit-inner-spin-button {
 	background-size: 0 0;
 }
 
+/* There is a little too much padding on form inputs */
+.form-control {
+	padding-right: 0.75rem !important;
+}
+
 /* Third party component customizations - DataTables */
 td {
 	vertical-align: middle !important;
