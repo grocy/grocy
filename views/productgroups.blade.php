@@ -31,6 +31,7 @@
 					<th class="border-right"></th>
 					<th>{{ $L('Name') }}</th>
 					<th>{{ $L('Description') }}</th>
+					<th>{{ $L('Product count') }}</th>
 				</tr>
 			</thead>
 			<tbody class="d-none">
@@ -49,6 +50,12 @@
 					</td>
 					<td>
 						{{ $productGroup->description }}
+					</td>
+					<td>
+						{{ count(FindAllObjectsInArrayByPropertyValue($products, 'product_group_id', $productGroup->id)) }}
+						<a class="btn btn-link btn-sm text-body" href="{{ $U('/products?product-group=') . $productGroup->id }}">
+						<i class="fas fa-external-link-alt"></i>
+						</a>
 					</td>
 				</tr>
 				@endforeach

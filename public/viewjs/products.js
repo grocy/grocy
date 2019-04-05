@@ -32,6 +32,23 @@ $("#search").on("keyup", function()
 	productsTable.search(value).draw();
 });
 
+$("#product-group-filter").on("change", function()
+{
+	var value = $("#product-group-filter option:selected").text();
+	if (value === L("All"))
+	{
+		value = "";
+	}
+
+	productsTable.column(7).search(value).draw();
+});
+
+if (typeof GetUriParam("product-group") !== "undefined")
+{
+	$("#product-group-filter").val(GetUriParam("product-group"));
+	$("#product-group-filter").trigger("change");
+}
+
 $(document).on('click', '.product-delete-button', function (e)
 {
 	var objectName = $(e.currentTarget).attr('data-product-name');

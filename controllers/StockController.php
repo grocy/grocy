@@ -92,7 +92,8 @@ class StockController extends BaseController
 	public function ProductGroupsList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->AppContainer->view->render($response, 'productgroups', [
-			'productGroups' => $this->Database->product_groups()->orderBy('name')
+			'productGroups' => $this->Database->product_groups()->orderBy('name'),
+			'products' => $this->Database->products()->orderBy('name')
 		]);
 	}
 
