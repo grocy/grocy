@@ -165,6 +165,18 @@
 				'hintId' => 'tare_weight_qu_info'
 			))
 
+			@if(GROCY_FEATURE_FLAG_RECIPES)
+			<div class="form-group">
+				<div class="form-check">
+					<input type="hidden" name="not_check_stock_fulfillment_for_recipes" value="0">
+					<input @if($mode == 'edit' && $product->not_check_stock_fulfillment_for_recipes == 1) checked @endif class="form-check-input" type="checkbox" id="not_check_stock_fulfillment_for_recipes" name="not_check_stock_fulfillment_for_recipes" value="1">
+					<label class="form-check-label" for="not_check_stock_fulfillment_for_recipes">{{ $L('Disable stock fulfillment checking for this ingredient') }}
+						<span class="text-muted small">{{ $L('This will be used as the default setting when adding this product as a recipe ingredient') }}</span>
+					</label>
+				</div>
+			</div>
+			@endif
+
 			<div class="form-group">
 				<label for="product-picture">{{ $L('Product picture') }}
 					<span class="text-muted small">{{ $L('If you don\'t select a file, the current picture will not be altered') }}</span>
