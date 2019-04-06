@@ -17,5 +17,6 @@
 	</select>
 	<div class="invalid-feedback">{{ $L('You have to select a product') }}</div>
 	<div id="custom-productpicker-error" class="form-text text-danger d-none"></div>
+	<div class="form-text text-info small">{{ $L('Type a new product name or barcode and hit TAB to start a workflow') }}</div>
 	<div id="flow-info-addbarcodetoselection" class="form-text text-muted small d-none"><strong><span id="addbarcodetoselection"></span></strong> {{ $L('will be added to the list of barcodes for the selected product on submit') }}</div>
 </div>
