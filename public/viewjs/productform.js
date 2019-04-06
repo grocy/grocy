@@ -215,6 +215,22 @@ $("#enable_tare_weight_handling").on("click", function()
 	Grocy.FrontendHelpers.ValidateForm("product-form");
 });
 
+$("#allow_partial_units_in_stock").on("click", function()
+{
+	if (this.checked)
+	{
+		$("#min_stock_amount").attr("min", "0.00");
+		$("#min_stock_amount").attr("step", "0.01");
+	}
+	else
+	{
+		$("#min_stock_amount").attr("min", "0");
+		$("#min_stock_amount").attr("step", "1");
+	}
+
+	Grocy.FrontendHelpers.ValidateForm("product-form");
+});
+
 Grocy.DeleteProductPictureOnSave = false;
 $('#delete-current-product-picture-button').on('click', function (e)
 {
@@ -245,3 +261,7 @@ if (Grocy.EditMode === 'create')
 $('#name').focus();
 $('.input-group-qu').trigger('change');
 Grocy.FrontendHelpers.ValidateForm('product-form');
+
+// Click twice to trigger on-click but not change the actual checked state
+$("#allow_partial_units_in_stock").click();
+$("#allow_partial_units_in_stock").click();
