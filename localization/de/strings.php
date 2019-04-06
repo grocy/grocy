@@ -16,7 +16,7 @@ return array(
 	'Inventory' => 'Inventur',
 	'Shopping list' => 'Einkaufszettel',
 	'Chore tracking' => 'Hausarbeiten-Ausführung',
-	'Battery tracking' => 'Batterie-Ladzyklus',
+	'Battery tracking' => 'Batterie-Ladezyklus',
 	'Products' => 'Produkte',
 	'Locations' => 'Standorte',
 	'Quantity units' => 'Mengeneinheiten',
@@ -355,5 +355,8 @@ return array(
 	'System info' => 'Systeminformationen',
 	'Changelog' => 'Änderungsprotokoll',
 	'will be multiplied a factor of #1 to get #2' => 'wird mit dem Faktor #1 multipliziert um #2 zu erhalten',
-	'The given date is earlier than today, are you sure?' => 'Das angegebene Datum ist früher als heute, bist du sicher?'
+	'The given date is earlier than today, are you sure?' => 'Das angegebene Datum ist früher als heute, bist du sicher?',
+	'Product count' => 'Produktanzahl',
+	'Type a new product name or barcode and hit TAB to start a workflow' => 'Gib einen neuen Produktnamen oder Barcode ein und drücke TAB um einen Workflow zu starten',
+	'This will be used as the default setting when adding this product as a recipe ingredient' => 'Dies wird als Standardeinstellung verwendet wenn dieses Produkt als Rezeptzutat hinzugefügt wird'
 );

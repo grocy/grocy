@@ -86,5 +86,5 @@ return array(
 	'French' => 'Fransızca',
 	'Turkish' => 'Türkçe',
 	'Spanish' => 'İspanyolca',
-	'Russian' => 'Russian'
+	'Russian' => 'Rusça'
 );

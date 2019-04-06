@@ -84,7 +84,7 @@ return array(
 	'Bottom' => 'Bunn',
 	'Topping' => 'Topping',
 	'French' => 'Fransk',
-	'Turkish' => 'Turkish',
-	'Spanish' => 'Spanish',
-	'Russian' => 'Russian'
+	'Turkish' => 'Tyrkisk',
+	'Spanish' => 'Spansk',
+	'Russian' => 'Russisk'
 );

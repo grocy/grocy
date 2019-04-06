@@ -2,7 +2,7 @@
 
 return array(
 	'purchase' => 'Innkjøp',
-	'consume' => 'Forbruke produkt',
+	'consume' => 'Forbruk produkt',
 	'inventory-correction' => 'Korreksjon av husholdningsantall ',
 	'product-opened' => 'Produkt åpnet'
 );
