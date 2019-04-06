@@ -355,5 +355,8 @@ return array(
 	'System info' => 'System info',
 	'Changelog' => 'Changelog',
 	'will be multiplied a factor of #1 to get #2' => 'will be multiplied a factor of #1 to get #2',
-	'The given date is earlier than today, are you sure?' => 'The given date is earlier than today, are you sure?'
+	'The given date is earlier than today, are you sure?' => 'The given date is earlier than today, are you sure?',
+	'Product count' => 'Product count',
+	'Type a new product name or barcode and hit TAB to start a workflow' => 'Type a new product name or barcode and hit TAB to start a workflow',
+	'This will be used as the default setting when adding this product as a recipe ingredient' => 'This will be used as the default setting when adding this product as a recipe ingredient'
 );
