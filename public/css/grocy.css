@@ -199,6 +199,10 @@ td {
 	display: none;
 }
 
+.dataTables_scrollBody {
+	overflow: visible !important;
+}
+
 /* Third party component customizations - toastr */
 #toast-container > div {
 	opacity: 1;
