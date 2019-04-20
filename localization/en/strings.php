@@ -358,5 +358,14 @@ return array(
 	'The given date is earlier than today, are you sure?' => 'The given date is earlier than today, are you sure?',
 	'Product count' => 'Product count',
 	'Type a new product name or barcode and hit TAB to start a workflow' => 'Type a new product name or barcode and hit TAB to start a workflow',
-	'This will be used as the default setting when adding this product as a recipe ingredient' => 'This will be used as the default setting when adding this product as a recipe ingredient'
+	'This will be used as the default setting when adding this product as a recipe ingredient' => 'This will be used as the default setting when adding this product as a recipe ingredient',
+	'Add item' => 'Add item',
+	'Selected shopping list' => 'Selected shopping list',
+	'New shopping list' => 'New shopping list',
+	'Delete shopping list' => 'Delete shopping list',
+	'Chores settings' => 'Chores settings',
+	'Batteries settings' => 'Batteries settings',
+	'Tasks settings' => 'Tasks settings',
+	'Create shopping list' => 'Create shopping list',
+	'Are you sure to delete shopping list "#1"?' => 'Are you sure to delete shopping list "#1"?',
 );

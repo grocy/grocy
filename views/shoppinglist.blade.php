@@ -37,7 +37,7 @@
 	</div>
 </div>
 
-<div class="row mt-3">
+<div class="row mt-3 border-top border-bottom py-2">
 	<div class="col-xs-12 col-md-4">
 		<label for="selected-shopping-list">{{ $L('Selected shopping list') }}</label>
 		<select class="form-control" id="selected-shopping-list">
