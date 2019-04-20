@@ -3,6 +3,7 @@
 namespace Grocy\Controllers;
 
 use \Grocy\Services\StockService;
+use \Grocy\Services\UsersService;
 
 class StockController extends BaseController
 {
@@ -17,6 +18,9 @@ class StockController extends BaseController
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
+		$usersService = new UsersService();
+		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['stock_expring_soon_days'];
+
 		return $this->AppContainer->view->render($response, 'stockoverview', [
 			'products' => $this->Database->products()->orderBy('name'),
 			'quantityunits' => $this->Database->quantity_units()->orderBy('name'),
@@ -24,7 +28,7 @@ class StockController extends BaseController
 			'currentStock' => $this->StockService->GetCurrentStock(),
 			'currentStockLocations' => $this->StockService->GetCurrentStockLocations(),
 			'missingProducts' => $this->StockService->GetMissingProducts(),
-			'nextXDays' => 5,
+			'nextXDays' => $nextXDays,
 			'productGroups' => $this->Database->product_groups()->orderBy('name')
 		]);
 	}

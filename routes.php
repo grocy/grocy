@@ -59,6 +59,7 @@ $app->group('', function()
 		$this->get('/choresjournal', '\Grocy\Controllers\ChoresController:Journal');
 		$this->get('/chores', '\Grocy\Controllers\ChoresController:ChoresList');
 		$this->get('/chore/{choreId}', '\Grocy\Controllers\ChoresController:ChoreEditForm');
+		$this->get('/choressettings', '\Grocy\Controllers\ChoresController:ChoresSettings');
 	}
 
 	// Battery routes
@@ -69,6 +70,7 @@ $app->group('', function()
 		$this->get('/batteriesjournal', '\Grocy\Controllers\BatteriesController:Journal');
 		$this->get('/batteries', '\Grocy\Controllers\BatteriesController:BatteriesList');
 		$this->get('/battery/{batteryId}', '\Grocy\Controllers\BatteriesController:BatteryEditForm');
+		$this->get('/batteriessettings', '\Grocy\Controllers\BatteriesController:BatteriesSettings');
 	}
 
 	// Task routes
@@ -78,6 +80,7 @@ $app->group('', function()
 		$this->get('/task/{taskId}', '\Grocy\Controllers\TasksController:TaskEditForm');
 		$this->get('/taskcategories', '\Grocy\Controllers\TasksController:TaskCategoriesList');
 		$this->get('/taskcategory/{categoryId}', '\Grocy\Controllers\TasksController:TaskCategoryEditForm');
+		$this->get('/taskssettings', '\Grocy\Controllers\TasksController:TasksSettings');
 	}
 
 	// Equipment routes

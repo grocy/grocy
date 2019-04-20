@@ -3,6 +3,7 @@
 namespace Grocy\Controllers;
 
 use \Grocy\Services\BatteriesService;
+use \Grocy\Services\UsersService;
 
 class BatteriesController extends BaseController
 {
@@ -16,10 +17,13 @@ class BatteriesController extends BaseController
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
+		$usersService = new UsersService();
+		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['batteries_due_soon_days'];
+
 		return $this->AppContainer->view->render($response, 'batteriesoverview', [
 			'batteries' => $this->Database->batteries()->orderBy('name'),
 			'current' => $this->BatteriesService->GetCurrent(),
-			'nextXDays' => 5
+			'nextXDays' => $nextXDays
 		]);
 	}
 
@@ -60,5 +64,10 @@ class BatteriesController extends BaseController
 			'chargeCycles' => $this->Database->battery_charge_cycles()->orderBy('tracked_time', 'DESC'),
 			'batteries' => $this->Database->batteries()->orderBy('name')
 		]);
+	}
+
+	public function BatteriesSettings(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->AppContainer->view->render($response, 'batteriessettings');
 	}
 }

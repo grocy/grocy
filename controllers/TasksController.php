@@ -3,6 +3,7 @@
 namespace Grocy\Controllers;
 
 use \Grocy\Services\TasksService;
+use \Grocy\Services\UsersService;
 
 class TasksController extends BaseController
 {
@@ -25,9 +26,12 @@ class TasksController extends BaseController
 			$tasks = $this->TasksService->GetCurrent();
 		}
 
+		$usersService = new UsersService();
+		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['tasks_due_soon_days'];
+
 		return $this->AppContainer->view->render($response, 'tasks', [
 			'tasks' => $tasks,
-			'nextXDays' => 5,
+			'nextXDays' => $nextXDays,
 			'taskCategories' => $this->Database->task_categories()->orderBy('name'),
 			'users' => $this->Database->users()
 		]);
@@ -76,5 +80,10 @@ class TasksController extends BaseController
 				'mode' => 'edit'
 			]);
 		}
+	}
+
+	public function TasksSettings(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->AppContainer->view->render($response, 'taskssettings');
 	}
 }

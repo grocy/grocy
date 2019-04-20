@@ -43,6 +43,16 @@
 			</div>
 		</div>
 
+		<h4 class="mt-2">{{ $L('Stock overview') }}</h4>
+		@include('components.numberpicker', array(
+			'id' => 'stock_expring_soon_days',
+			'additionalAttributes' => 'data-setting-key="stock_expring_soon_days"',
+			'label' => 'Expiring soon days',
+			'min' => 1,
+			'invalidFeedback' => $L('This cannot be lower than #1', '1'),
+			'additionalCssClasses' => 'user-setting-control'
+		))
+
 		@if(GROCY_FEATURE_FLAG_SHOPPINGLIST)
 		<h4 class="mt-2">{{ $L('Shopping list to stock workflow') }}</h4>
 		
@@ -55,7 +65,7 @@
 		</div>
 		@endif
 
-		<a href="{{ $U('/products') }}" class="btn btn-success">{{ $L('OK') }}</a>
+		<a href="{{ $U('/stockoverview') }}" class="btn btn-success">{{ $L('OK') }}</a>
 	</div>
 </div>
 @stop

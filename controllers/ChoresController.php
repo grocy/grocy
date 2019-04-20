@@ -3,6 +3,7 @@
 namespace Grocy\Controllers;
 
 use \Grocy\Services\ChoresService;
+use \Grocy\Services\UsersService;
 
 class ChoresController extends BaseController
 {
@@ -16,10 +17,13 @@ class ChoresController extends BaseController
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
+		$usersService = new UsersService();
+		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['chores_due_soon_days'];
+
 		return $this->AppContainer->view->render($response, 'choresoverview', [
 			'chores' => $this->Database->chores()->orderBy('name'),
 			'currentChores' => $this->ChoresService->GetCurrent(),
-			'nextXDays' => 5
+			'nextXDays' => $nextXDays
 		]);
 	}
 
@@ -64,5 +68,10 @@ class ChoresController extends BaseController
 				'mode' => 'edit'
 			]);
 		}
+	}
+
+	public function ChoresSettings(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->AppContainer->view->render($response, 'choressettings');
 	}
 }
