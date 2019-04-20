@@ -430,7 +430,7 @@ class StockService extends BaseService
 		return $this->Database->lastInsertId();
 	}
 
-	public function AddMissingProductsToShoppingList()
+	public function AddMissingProductsToShoppingList($listId = 1)
 	{
 		$missingProducts = $this->GetMissingProducts();
 		foreach ($missingProducts as $missingProduct)
@@ -444,7 +444,8 @@ class StockService extends BaseService
 				if ($alreadyExistingEntry->amount < $amountToAdd)
 				{
 					$alreadyExistingEntry->update(array(
-						'amount' => $amountToAdd
+						'amount' => $amountToAdd,
+						'shopping_list_id' => $listId
 					));
 				}
 			}
@@ -452,16 +453,17 @@ class StockService extends BaseService
 			{
 				$shoppinglistRow = $this->Database->shopping_list()->createRow(array(
 					'product_id' => $missingProduct->id,
-					'amount' => $amountToAdd
+					'amount' => $amountToAdd,
+					'shopping_list_id' => $listId
 				));
 				$shoppinglistRow->save();
 			}
 		}
 	}
 
-	public function ClearShoppingList()
+	public function ClearShoppingList($listId = 1)
 	{
-		$this->Database->shopping_list()->delete();
+		$this->Database->shopping_list()->where('shopping_list_id = :1', $listId)->delete();
 	}
 
 	private function ProductExists($productId)

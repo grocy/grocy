@@ -41,6 +41,7 @@ $app->group('', function()
 	{
 		$this->get('/shoppinglist', '\Grocy\Controllers\StockController:ShoppingList');
 		$this->get('/shoppinglistitem/{itemId}', '\Grocy\Controllers\StockController:ShoppingListItemEditForm');
+		$this->get('/shoppinglist/{listId}', '\Grocy\Controllers\StockController:ShoppingListEditForm');
 	}
 
 	// Recipe routes

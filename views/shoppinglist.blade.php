@@ -20,8 +20,8 @@
 	<div class="col">
 		<h1>
 			@yield('title')
-			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/shoppinglistitem/new') }}">
-				<i class="fas fa-plus"></i> {{ $L('Add') }}
+			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/shoppinglistitem/new?list=' . $selectedShoppingListId) }}">
+				<i class="fas fa-plus"></i> {{ $L('Add item') }}
 			</a>
 			<a id="clear-shopping-list" class="btn btn-outline-danger responsive-button @if($listItems->count() == 0) disabled @endif" href="#">
 				<i class="fas fa-trash"></i> {{ $L('Clear list') }}
@@ -34,6 +34,26 @@
 			</a>
 		</h1>
 		<p data-status-filter="belowminstockamount" class="btn btn-lg btn-info status-filter-button responsive-button">{{ Pluralize(count($missingProducts), $L('#1 product is below defined min. stock amount', count($missingProducts)), $L('#1 products are below defined min. stock amount', count($missingProducts))) }}</p>
+	</div>
+</div>
+
+<div class="row mt-3">
+	<div class="col-xs-12 col-md-4">
+		<label for="selected-shopping-list">{{ $L('Selected shopping list') }}</label>
+		<select class="form-control" id="selected-shopping-list">
+			@foreach($shoppingLists as $shoppingList)
+			<option @if($shoppingList->id == $selectedShoppingListId) selected="selected" @endif value="{{ $shoppingList->id }}">{{ $shoppingList->name }}</option>
+			@endforeach
+		</select>
+	</div>
+	<div class="col-xs-12 col-md-4">
+		<label for="selected-shopping-list">&nbsp;</label><br>
+		<a class="btn btn-outline-dark responsive-button" href="{{ $U('/shoppinglist/new') }}">
+			<i class="fas fa-plus"></i> {{ $L('New shopping list') }}
+		</a>
+		<a id="delete-selected-shopping-list" class="btn btn-outline-danger responsive-button @if($selectedShoppingListId == 1) disabled @endif" href="#">
+			<i class="fas fa-trash"></i> {{ $L('Delete shopping list') }}
+		</a>
 	</div>
 </div>
 
@@ -67,7 +87,7 @@
 				@foreach($listItems as $listItem)
 				<tr id="shoppinglistitem-{{ $listItem->id }}-row" class="@if(FindObjectInArrayByPropertyValue($missingProducts, 'id', $listItem->product_id) !== null) table-info @endif">
 					<td class="fit-content border-right">
-						<a class="btn btn-sm btn-info" href="{{ $U('/shoppinglistitem/') }}{{ $listItem->id }}">
+						<a class="btn btn-sm btn-info" href="{{ $U('/shoppinglistitem/') . $listItem->id . '?list=' . $selectedShoppingListId }}">
 							<i class="fas fa-edit"></i>
 						</a>
 						<a class="btn btn-sm btn-danger shoppinglist-delete-button" href="#" data-shoppinglist-id="{{ $listItem->id }}">

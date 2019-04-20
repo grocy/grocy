@@ -51,6 +51,12 @@ $("#status-filter").on("change", function()
 	shoppingListTable.column(4).search(value).draw();
 });
 
+$("#selected-shopping-list").on("change", function()
+{
+	var value = $(this).val();
+	window.location.href = U('/shoppinglist?list=' + value);
+});
+
 $(".status-filter-button").on("click", function()
 {
 	var value = $(this).data("status-filter");
@@ -58,7 +64,43 @@ $(".status-filter-button").on("click", function()
 	$("#status-filter").trigger("change");
 });
 
-$(document).on('click', '.shoppinglist-delete-button', function (e)
+$("#delete-selected-shopping-list").on("click", function()
+{
+	var objectName = $("#selected-shopping-list option:selected").text();
+	var objectId = $("#selected-shopping-list").val();
+
+	bootbox.confirm({
+		message: L('Are you sure to delete shopping list "#1"?', objectName),
+		buttons: {
+			confirm: {
+				label: L('Yes'),
+				className: 'btn-success'
+			},
+			cancel: {
+				label: L('No'),
+				className: 'btn-danger'
+			}
+		},
+		callback: function (result)
+		{
+			if (result === true)
+			{
+				Grocy.Api.Delete('objects/shopping_lists/' + objectId, {},
+					function (result)
+					{
+						window.location.href = U('/shoppinglist');
+					},
+					function (xhr)
+					{
+						console.error(xhr);
+					}
+				);
+			}
+		}
+	});
+});
+
+$(document).on('click', '.shoppinglist-delete-button', function(e)
 {
 	e.preventDefault();
 
@@ -85,10 +127,10 @@ $(document).on('click', '.shoppinglist-delete-button', function (e)
 
 $(document).on('click', '#add-products-below-min-stock-amount', function(e)
 {
-	Grocy.Api.Post('stock/shoppinglist/add-missing-products', { },
+	Grocy.Api.Post('stock/shoppinglist/add-missing-products', { "list_id": $("#selected-shopping-list").val() },
 		function(result)
 		{
-			window.location.href = U('/shoppinglist');
+			window.location.href = U('/shoppinglist?list=' + $("#selected-shopping-list").val());
 		},
 		function(xhr)
 		{
@@ -100,7 +142,7 @@ $(document).on('click', '#add-products-below-min-stock-amount', function(e)
 $(document).on('click', '#clear-shopping-list', function(e)
 {
 	bootbox.confirm({
-		message: L('Are you sure to empty the shopping list?'),
+		message: L('Are you sure to empty shopping list "#1"?', $("#selected-shopping-list option:selected").text()),
 		buttons: {
 			confirm: {
 				label: L('Yes'),
@@ -117,7 +159,7 @@ $(document).on('click', '#clear-shopping-list', function(e)
 			{
 				Grocy.FrontendHelpers.BeginUiBusy();
 
-				Grocy.Api.Post('stock/shoppinglist/clear', { },
+				Grocy.Api.Post('stock/shoppinglist/clear', { "list_id": $("#selected-shopping-list").val() },
 					function(result)
 					{
 						$('#shoppinglist-table tbody tr').fadeOut(500, function()

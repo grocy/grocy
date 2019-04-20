@@ -59,12 +59,20 @@ class StockController extends BaseController
 
 	public function ShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
+		$listId = 1;
+		if (isset($request->getQueryParams()['list']))
+		{
+			$listId = $request->getQueryParams()['list'];
+		}
+
 		return $this->AppContainer->view->render($response, 'shoppinglist', [
-			'listItems' => $this->Database->shopping_list(),
+			'listItems' => $this->Database->shopping_list()->where('shopping_list_id = :1', $listId),
 			'products' => $this->Database->products()->orderBy('name'),
 			'quantityunits' => $this->Database->quantity_units()->orderBy('name'),
 			'missingProducts' => $this->StockService->GetMissingProducts(),
-			'productGroups' => $this->Database->product_groups()->orderBy('name')
+			'productGroups' => $this->Database->product_groups()->orderBy('name'),
+			'shoppingLists' => $this->Database->shopping_lists()->orderBy('name'),
+			'selectedShoppingListId' => $listId
 		]);
 	}
 
@@ -187,16 +195,33 @@ class StockController extends BaseController
 	{
 		if ($args['itemId'] == 'new')
 		{
-			return $this->AppContainer->view->render($response, 'shoppinglistform', [
+			return $this->AppContainer->view->render($response, 'shoppinglistitemform', [
 				'products' =>  $this->Database->products()->orderBy('name'),
 				'mode' => 'create'
 			]);
 		}
 		else
 		{
-			return $this->AppContainer->view->render($response, 'shoppinglistform', [
+			return $this->AppContainer->view->render($response, 'shoppinglistitemform', [
 				'listItem' =>  $this->Database->shopping_list($args['itemId']),
 				'products' =>  $this->Database->products()->orderBy('name'),
+				'mode' => 'edit'
+			]);
+		}
+	}
+
+	public function ShoppingListEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		if ($args['listId'] == 'new')
+		{
+			return $this->AppContainer->view->render($response, 'shoppinglistform', [
+				'mode' => 'create'
+			]);
+		}
+		else
+		{
+			return $this->AppContainer->view->render($response, 'shoppinglistform', [
+				'shoppingList' =>  $this->Database->shopping_lists($args['listId']),
 				'mode' => 'edit'
 			]);
 		}

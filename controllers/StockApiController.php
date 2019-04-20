@@ -242,13 +242,29 @@ class StockApiController extends BaseApiController
 
 	public function AddMissingProductsToShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$this->StockService->AddMissingProductsToShoppingList();
+		$requestBody = $request->getParsedBody();
+
+		$listId = 1;
+		if (array_key_exists('list_id', $requestBody) && !empty($requestBody['list_id']) && is_numeric($requestBody['list_id']))
+		{
+			$listId = intval($requestBody['list_id']);
+		}
+
+		$this->StockService->AddMissingProductsToShoppingList($listId);
 		return $this->EmptyApiResponse($response);
 	}
 
 	public function ClearShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$this->StockService->ClearShoppingList();
+		$requestBody = $request->getParsedBody();
+
+		$listId = 1;
+		if (array_key_exists('list_id', $requestBody) && !empty($requestBody['list_id']) && is_numeric($requestBody['list_id']))
+		{
+			$listId = intval($requestBody['list_id']);
+		}
+
+		$this->StockService->ClearShoppingList($listId);
 		return $this->EmptyApiResponse($response);
 	}
 

@@ -151,7 +151,7 @@ return array(
 	'Edit recipe ingredient' => 'Edit recipe ingredient',
 	'Are you sure to delete recipe "#1"?' => 'Are you sure to delete recipe "#1"?',
 	'Are you sure to delete recipe ingredient "#1"?' => 'Are you sure to delete recipe ingredient "#1"?',
-	'Are you sure to empty the shopping list?' => 'Are you sure to empty the shopping list?',
+	'Are you sure to empty shopping list "#1"?' => 'Are you sure to empty shopping list "#1"?',
 	'Clear list' => 'Clear list',
 	'Requirements fulfilled' => 'Requirements fulfilled',
 	'Put missing products on shopping list' => 'Put missing products on shopping list',

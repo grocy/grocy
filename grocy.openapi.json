@@ -1330,10 +1330,29 @@
 		},
 		"/stock/shoppinglist/add-missing-products": {
 			"post": {
-				"summary": "Adds currently missing products (below defined min. stock amount) to the shopping list",
+				"summary": "Adds currently missing products (below defined min. stock amount) to the given shopping list",
 				"tags": [
 					"Stock"
 				],
+				"requestBody": {
+					"required": false,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"list_id": {
+										"type": "integer",
+										"description": "The shopping list to use, when omitted, the default shopping list (with id 1) is used"
+									}
+								},
+								"example": {
+									"list_id": 2
+								}
+							}
+						}
+					}
+				},
 				"responses": {
 					"204": {
 						"description": "The operation was successful"
@@ -1343,10 +1362,29 @@
 		},
 		"/stock/shoppinglist/clear": {
 			"post": {
-				"summary": "Removes all items from the shopping list",
+				"summary": "Removes all items from the given shopping list",
 				"tags": [
 					"Stock"
 				],
+				"requestBody": {
+					"required": false,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"list_id": {
+										"type": "integer",
+										"description": "The shopping list id to clear, when omitted, the default shopping list (with id 1) is used"
+									}
+								},
+								"example": {
+									"list_id": 2
+								}
+							}
+						}
+					}
+				},
 				"responses": {
 					"204": {
 						"description": "The operation was successful"
@@ -1964,6 +2002,7 @@
 					"locations",
 					"quantity_units",
 					"shopping_list",
+					"shopping_lists",
 					"recipes",
 					"recipes_pos",
 					"recipes_nestings",
