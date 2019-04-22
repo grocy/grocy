@@ -432,6 +432,11 @@ class StockService extends BaseService
 
 	public function AddMissingProductsToShoppingList($listId = 1)
 	{
+		if (!$this->ShoppingListExists($listId))
+		{
+			throw new \Exception('Shopping list does not exist');
+		}
+
 		$missingProducts = $this->GetMissingProducts();
 		foreach ($missingProducts as $missingProduct)
 		{
@@ -463,6 +468,11 @@ class StockService extends BaseService
 
 	public function ClearShoppingList($listId = 1)
 	{
+		if (!$this->ShoppingListExists($listId))
+		{
+			throw new \Exception('Shopping list does not exist');
+		}
+
 		$this->Database->shopping_list()->where('shopping_list_id = :1', $listId)->delete();
 	}
 
@@ -470,6 +480,12 @@ class StockService extends BaseService
 	{
 		$productRow = $this->Database->products()->where('id = :1', $productId)->fetch();
 		return $productRow !== null;
+	}
+
+	private function ShoppingListExists($listId)
+	{
+		$shoppingListRow = $this->Database->shopping_lists()->where('id = :1', $listId)->fetch();
+		return $shoppingListRow !== null;
 	}
 
 	private function LoadBarcodeLookupPlugin()

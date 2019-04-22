@@ -242,30 +242,44 @@ class StockApiController extends BaseApiController
 
 	public function AddMissingProductsToShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$requestBody = $request->getParsedBody();
-
-		$listId = 1;
-		if (array_key_exists('list_id', $requestBody) && !empty($requestBody['list_id']) && is_numeric($requestBody['list_id']))
+		try
 		{
-			$listId = intval($requestBody['list_id']);
-		}
+			$requestBody = $request->getParsedBody();
 
-		$this->StockService->AddMissingProductsToShoppingList($listId);
-		return $this->EmptyApiResponse($response);
+			$listId = 1;
+			if (array_key_exists('list_id', $requestBody) && !empty($requestBody['list_id']) && is_numeric($requestBody['list_id']))
+			{
+				$listId = intval($requestBody['list_id']);
+			}
+
+			$this->StockService->AddMissingProductsToShoppingList($listId);
+			return $this->EmptyApiResponse($response);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
 	}
 
 	public function ClearShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$requestBody = $request->getParsedBody();
-
-		$listId = 1;
-		if (array_key_exists('list_id', $requestBody) && !empty($requestBody['list_id']) && is_numeric($requestBody['list_id']))
+		try
 		{
-			$listId = intval($requestBody['list_id']);
-		}
+			$requestBody = $request->getParsedBody();
 
-		$this->StockService->ClearShoppingList($listId);
-		return $this->EmptyApiResponse($response);
+			$listId = 1;
+			if (array_key_exists('list_id', $requestBody) && !empty($requestBody['list_id']) && is_numeric($requestBody['list_id']))
+			{
+				$listId = intval($requestBody['list_id']);
+			}
+
+			$this->StockService->ClearShoppingList($listId);
+			return $this->EmptyApiResponse($response);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
 	}
 
 	public function ExternalBarcodeLookup(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
