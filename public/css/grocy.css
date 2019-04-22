@@ -168,6 +168,30 @@ input::-webkit-inner-spin-button {
 	cursor: wait;
 }
 
+.expandable-text .collapse, .module .collapsing {
+  height: 2.4rem;
+}
+
+.expandable-text .collapse {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.expandable-text .collapse:before {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.expandable-text .collapse.show {
+  height: auto;
+}
+
+.expandable-text .collapse.show:before {
+  display: none;
+}
+
 /* Third party component customizations - Bootstrap */
 
 /* Hide the form validation feedback icons introduced in Bootstrap 4.2.0 - a colored border is enough */

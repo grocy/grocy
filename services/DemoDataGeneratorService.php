@@ -53,7 +53,7 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->LocalizeForSqlString('Gulash soup')}', 5, 5, 5, 1, 3); --8
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->LocalizeForSqlString('Yogurt')}', 2, 6, 6, 1, 6); --9
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->LocalizeForSqlString('Cheese')}', 2, 3, 3, 1, 6); --10
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$localizationService->LocalizeForSqlString('Cold cuts')}', 2, 3, 3, 1, 6); --11
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, description) VALUES ('{$localizationService->LocalizeForSqlString('Cold cuts')}', 2, 3, 3, 1, 6, '{$loremIpsum}'); --11
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, picture_file_name, default_best_before_days) VALUES ('{$localizationService->LocalizeForSqlString('Paprika')}', 2, 2, 2, 1, 5, 'paprika.jpg', 7); --12
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, picture_file_name, default_best_before_days) VALUES ('{$localizationService->LocalizeForSqlString('Cucumber')}', 2, 2, 2, 1, 5, 'cucumber.jpg', 7); --13
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, default_best_before_days) VALUES ('{$localizationService->LocalizeForSqlString('Radish')}', 2, 7, 7, 1, 5, 7); --14
@@ -201,6 +201,7 @@ class DemoDataGeneratorService extends BaseService
 			$stockService->OpenProduct(3, 1);
 			$stockService->OpenProduct(6, 1);
 			$stockService->OpenProduct(22, 1);
+			$stockService->ConsumeProduct(11, 1, true, StockService::TRANSACTION_TYPE_CONSUME);
 
 			$choresService = new ChoresService();
 			$choresService->TrackChore(1, date('Y-m-d H:i:s', strtotime('-5 days')));

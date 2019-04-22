@@ -368,4 +368,8 @@ return array(
 	'Tasks settings' => 'Tasks settings',
 	'Create shopping list' => 'Create shopping list',
 	'Are you sure to delete shopping list "#1"?' => 'Are you sure to delete shopping list "#1"?',
+	'Average shelf life' => 'Average shelf life',
+	'Spoil rate' => 'Spoil rate',
+	'Show more' => 'Show more',
+	'Show less' => 'Show less'
 );

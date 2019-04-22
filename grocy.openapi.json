@@ -2206,6 +2206,14 @@
 					},
 					"location": {
 						"$ref": "#/components/schemas/Location"
+					},
+					"average_shelf_life_days": {
+						"type": "number",
+						"format": "integer"
+					},
+					"spoil_rate_percent": {
+						"type": "number",
+						"format": "double"
 					}
 				}
 			},

@@ -79,6 +79,7 @@ class StockService extends BaseService
 		$quPurchase = $this->Database->quantity_units($product->qu_id_purchase);
 		$quStock = $this->Database->quantity_units($product->qu_id_stock);
 		$location = $this->Database->locations($product->location_id);
+		$averageShelfLifeDays = intval($this->Database->stock_average_product_shelf_life()->where('id', $productId)->fetch()->average_shelf_life_days);
 		
 		$lastPrice = null;
 		$lastLogRow = $this->Database->stock_log()->where('product_id = :1 AND transaction_type = :2 AND undone = 0', $productId, self::TRANSACTION_TYPE_PURCHASE)->orderBy('row_created_timestamp', 'DESC')->limit(1)->fetch();
@@ -86,6 +87,14 @@ class StockService extends BaseService
 		{
 			$lastPrice = $lastLogRow->price;
 		}
+
+		$consumeCount = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone', 0)->sum('amount') * -1;
+		$consumeCountSpoiled = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone = 0 AND spoiled = 1')->sum('amount') * -1;
+		if ($consumeCount == 0)
+		{
+			$consumeCount = 1;
+		}
+		$spoilRate = ($consumeCountSpoiled * 100) / $consumeCount;
 
 		return array(
 			'product' => $product,
@@ -97,7 +106,9 @@ class StockService extends BaseService
 			'quantity_unit_stock' => $quStock,
 			'last_price' => $lastPrice,
 			'next_best_before_date' => $nextBestBeforeDate,
-			'location' => $location
+			'location' => $location,
+			'average_shelf_life_days' => $averageShelfLifeDays,
+			'spoil_rate_percent' => $spoilRate
 		);
 	}
 

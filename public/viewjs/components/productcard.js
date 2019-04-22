@@ -8,13 +8,33 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 			var stockAmount = productDetails.stock_amount || '0';
 			var stockAmountOpened = productDetails.stock_amount_opened || '0';
 			$('#productcard-product-name').text(productDetails.product.name);
+			$('#productcard-product-description').text(productDetails.product.description);
 			$('#productcard-product-stock-amount').text(stockAmount);
-			$('#productcard-product-stock-qu-name').text(productDetails.quantity_unit_stock.name);
-			$('#productcard-product-stock-qu-name2').text(Pluralize(stockAmount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural));
+			$('#productcard-product-stock-qu-name').text(Pluralize(stockAmount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural));
 			$('#productcard-product-last-purchased').text((productDetails.last_purchased || L('never')).substring(0, 10));
 			$('#productcard-product-last-purchased-timeago').text($.timeago(productDetails.last_purchased || ''));
 			$('#productcard-product-last-used').text((productDetails.last_used || L('never')).substring(0, 10));
 			$('#productcard-product-last-used-timeago').text($.timeago(productDetails.last_used || ''));
+			$('#productcard-product-location').text(productDetails.location.name);
+			$('#productcard-product-spoil-rate').text(parseFloat(productDetails.spoil_rate_percent).toLocaleString(undefined, { style: "percent" }));
+
+			if (productDetails.product.description != null && !productDetails.product.description.isEmpty())
+			{
+				$("#productcard-product-description-wrapper").removeClass("d-none");
+			}
+			else
+			{
+				$("#productcard-product-description-wrapper").addClass("d-none");
+			}
+
+			if (productDetails.average_shelf_life_days == -1)
+			{
+				$('#productcard-product-average-shelf-life').text(L("Unknown"));
+			}
+			else
+			{
+				$('#productcard-product-average-shelf-life').text(moment.duration(productDetails.average_shelf_life_days, "days").humanize());
+			}
 
 			if (stockAmountOpened > 0)
 			{
@@ -142,3 +162,13 @@ Grocy.Components.ProductCard.ReInitPriceHistoryChart = function()
 		}
 	});
 }
+
+$("#productcard-product-description").on("shown.bs.collapse", function()
+{
+	$(".expandable-text").find("a[data-toggle='collapse']").text(L("Show less"));
+})
+
+$("#productcard-product-description").on("hidden.bs.collapse", function()
+{
+	$(".expandable-text").find("a[data-toggle='collapse']").text(L("Show more"));
+})
