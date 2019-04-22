@@ -4,6 +4,7 @@ namespace Grocy\Controllers;
 
 use \Grocy\Services\StockService;
 use \Grocy\Services\UsersService;
+use \Grocy\Services\UserfieldsService;
 
 class StockController extends BaseController
 {
@@ -12,9 +13,11 @@ class StockController extends BaseController
 	{
 		parent::__construct($container);
 		$this->StockService = new StockService();
+		$this->UserfieldsService = new UserfieldsService();
 	}
 
 	protected $StockService;
+	protected $UserfieldsService;
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
@@ -29,7 +32,9 @@ class StockController extends BaseController
 			'currentStockLocations' => $this->StockService->GetCurrentStockLocations(),
 			'missingProducts' => $this->StockService->GetMissingProducts(),
 			'nextXDays' => $nextXDays,
-			'productGroups' => $this->Database->product_groups()->orderBy('name')
+			'productGroups' => $this->Database->product_groups()->orderBy('name'),
+			'userfields' => $this->UserfieldsService->GetFields('products'),
+			'userfieldValues' => $this->UserfieldsService->GetAllValues('products')
 		]);
 	}
 
@@ -82,7 +87,9 @@ class StockController extends BaseController
 			'products' => $this->Database->products()->orderBy('name'),
 			'locations' => $this->Database->locations()->orderBy('name'),
 			'quantityunits' => $this->Database->quantity_units()->orderBy('name'),
-			'productGroups' => $this->Database->product_groups()->orderBy('name')
+			'productGroups' => $this->Database->product_groups()->orderBy('name'),
+			'userfields' => $this->UserfieldsService->GetFields('products'),
+			'userfieldValues' => $this->UserfieldsService->GetAllValues('products')
 		]);
 	}
 
@@ -98,7 +105,9 @@ class StockController extends BaseController
 	public function LocationsList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->AppContainer->view->render($response, 'locations', [
-			'locations' => $this->Database->locations()->orderBy('name')
+			'locations' => $this->Database->locations()->orderBy('name'),
+			'userfields' => $this->UserfieldsService->GetFields('locations'),
+			'userfieldValues' => $this->UserfieldsService->GetAllValues('locations')
 		]);
 	}
 
@@ -106,14 +115,18 @@ class StockController extends BaseController
 	{
 		return $this->AppContainer->view->render($response, 'productgroups', [
 			'productGroups' => $this->Database->product_groups()->orderBy('name'),
-			'products' => $this->Database->products()->orderBy('name')
+			'products' => $this->Database->products()->orderBy('name'),
+			'userfields' => $this->UserfieldsService->GetFields('product_groups'),
+			'userfieldValues' => $this->UserfieldsService->GetAllValues('product_groups')
 		]);
 	}
 
 	public function QuantityUnitsList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->AppContainer->view->render($response, 'quantityunits', [
-			'quantityunits' => $this->Database->quantity_units()->orderBy('name')
+			'quantityunits' => $this->Database->quantity_units()->orderBy('name'),
+			'userfields' => $this->UserfieldsService->GetFields('quantity_units'),
+			'userfieldValues' => $this->UserfieldsService->GetAllValues('quantity_units')
 		]);
 	}
 
@@ -125,6 +138,7 @@ class StockController extends BaseController
 				'locations' =>  $this->Database->locations()->orderBy('name'),
 				'quantityunits' =>  $this->Database->quantity_units()->orderBy('name'),
 				'productgroups' => $this->Database->product_groups()->orderBy('name'),
+				'userfields' => $this->UserfieldsService->GetFields('products'),
 				'mode' => 'create'
 			]);
 		}
@@ -135,6 +149,7 @@ class StockController extends BaseController
 				'locations' =>  $this->Database->locations()->orderBy('name'),
 				'quantityunits' =>  $this->Database->quantity_units()->orderBy('name'),
 				'productgroups' => $this->Database->product_groups()->orderBy('name'),
+				'userfields' => $this->UserfieldsService->GetFields('products'),
 				'mode' => 'edit'
 			]);
 		}
@@ -145,14 +160,16 @@ class StockController extends BaseController
 		if ($args['locationId'] == 'new')
 		{
 			return $this->AppContainer->view->render($response, 'locationform', [
-				'mode' => 'create'
+				'mode' => 'create',
+				'userfields' => $this->UserfieldsService->GetFields('locations')
 			]);
 		}
 		else
 		{
 			return $this->AppContainer->view->render($response, 'locationform', [
 				'location' =>  $this->Database->locations($args['locationId']),
-				'mode' => 'edit'
+				'mode' => 'edit',
+				'userfields' => $this->UserfieldsService->GetFields('locations')
 			]);
 		}
 	}
@@ -162,14 +179,16 @@ class StockController extends BaseController
 		if ($args['productGroupId'] == 'new')
 		{
 			return $this->AppContainer->view->render($response, 'productgroupform', [
-				'mode' => 'create'
+				'mode' => 'create',
+				'userfields' => $this->UserfieldsService->GetFields('product_groups')
 			]);
 		}
 		else
 		{
 			return $this->AppContainer->view->render($response, 'productgroupform', [
 				'group' =>  $this->Database->product_groups($args['productGroupId']),
-				'mode' => 'edit'
+				'mode' => 'edit',
+				'userfields' => $this->UserfieldsService->GetFields('product_groups')
 			]);
 		}
 	}
@@ -179,14 +198,16 @@ class StockController extends BaseController
 		if ($args['quantityunitId'] == 'new')
 		{
 			return $this->AppContainer->view->render($response, 'quantityunitform', [
-				'mode' => 'create'
+				'mode' => 'create',
+				'userfields' => $this->UserfieldsService->GetFields('quantity_units')
 			]);
 		}
 		else
 		{
 			return $this->AppContainer->view->render($response, 'quantityunitform', [
 				'quantityunit' =>  $this->Database->quantity_units($args['quantityunitId']),
-				'mode' => 'edit'
+				'mode' => 'edit',
+				'userfields' => $this->UserfieldsService->GetFields('quantity_units')
 			]);
 		}
 	}

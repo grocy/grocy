@@ -2,8 +2,18 @@
 
 namespace Grocy\Controllers;
 
+use \Grocy\Services\UserfieldsService;
+
 class GenericEntityApiController extends BaseApiController
 {
+	public function __construct(\Slim\Container $container)
+	{
+		parent::__construct($container);
+		$this->UserfieldsService = new UserfieldsService();
+	}
+
+	protected $UserfieldsService;
+
 	public function GetObjects(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithPreventedListing($args['entity']))
@@ -44,7 +54,9 @@ class GenericEntityApiController extends BaseApiController
 				$newRow = $this->Database->{$args['entity']}()->createRow($requestBody);
 				$newRow->save();
 				$success = $newRow->isClean();
-				return $this->EmptyApiResponse($response);
+				return $this->ApiResponse(array(
+					'created_object_id' => $this->Database->lastInsertId()
+				));
 			}
 			catch (\Exception $ex)
 			{
@@ -96,6 +108,38 @@ class GenericEntityApiController extends BaseApiController
 			return $this->EmptyApiResponse($response);
 		}
 		else
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
+
+	public function GetUserfields(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		try
+		{
+			return $this->ApiResponse($this->UserfieldsService->GetValues($args['entity'], $args['objectId']));
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
+
+	public function SetUserfields(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		$requestBody = $request->getParsedBody();
+
+		try
+		{
+			if ($requestBody === null)
+			{
+				throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
+			}
+
+			$this->UserfieldsService->SetValues($args['entity'], $args['objectId'], $requestBody);
+			return $this->EmptyApiResponse($response);
+		}
+		catch (\Exception $ex)
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}

@@ -10,7 +10,11 @@
 		Grocy.Api.Post('objects/chores', jsonData,
 			function(result)
 			{
-				window.location.href = U('/chores');
+				Grocy.EditObjectId = result.created_object_id;
+				Grocy.Components.UserfieldsForm.Save(function()
+				{
+					window.location.href = U('/chores');
+				});
 			},
 			function(xhr)
 			{
@@ -24,7 +28,10 @@
 		Grocy.Api.Put('objects/chores/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
-				window.location.href = U('/chores');
+				Grocy.Components.UserfieldsForm.Save(function()
+				{
+					window.location.href = U('/chores');
+				});
 			},
 			function(xhr)
 			{
@@ -66,6 +73,7 @@ for (var i = 0; i < checkboxValues.length; i++)
 	}
 }
 
+Grocy.Components.UserfieldsForm.Load();
 $('#name').focus();
 Grocy.FrontendHelpers.ValidateForm('chore-form');
 

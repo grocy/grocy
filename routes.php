@@ -16,6 +16,10 @@ $app->group('', function()
 	$this->post('/login', 'LoginControllerInstance:ProcessLogin')->setName('login');
 	$this->get('/logout', 'LoginControllerInstance:Logout');
 
+	// Generic entity interaction
+	$this->get('/userfields', '\Grocy\Controllers\GenericEntityController:UserfieldsList');
+	$this->get('/userfield/{userfieldId}', '\Grocy\Controllers\GenericEntityController:UserfieldEditForm');
+
 	// User routes
 	$this->get('/users', '\Grocy\Controllers\UsersController:UsersList');
 	$this->get('/user/{userId}', '\Grocy\Controllers\UsersController:UserEditForm');
@@ -119,6 +123,8 @@ $app->group('/api', function()
 	$this->post('/objects/{entity}', '\Grocy\Controllers\GenericEntityApiController:AddObject');
 	$this->put('/objects/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:EditObject');
 	$this->delete('/objects/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:DeleteObject');
+	$this->get('/userfields/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:GetUserfields');
+	$this->put('/userfields/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:SetUserfields');
 
 	// Files
 	$this->put('/files/{group}/{fileName}', '\Grocy\Controllers\FilesApiController:UploadFile');

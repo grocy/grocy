@@ -77,6 +77,11 @@
 					<th class="d-none">Hidden location</th>
 					<th class="d-none">Hidden status</th>
 					<th class="d-none">Hidden product group</th>
+
+					@include('components.userfields_thead', array(
+						'userfields' => $userfields
+					))
+					
 				</tr>
 			</thead>
 			<tbody class="d-none">
@@ -143,6 +148,12 @@
 					<td class="d-none">
 						@if($productGroup !== null){{ $productGroup->name }}@endif
 					</td>
+
+					@include('components.userfields_tbody', array(
+						'userfields' => $userfields,
+						'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $currentStockEntry->product_id)
+					))
+
 				</tr>
 				@endforeach
 			</tbody>

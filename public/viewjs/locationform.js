@@ -10,7 +10,11 @@
 		Grocy.Api.Post('objects/locations', jsonData,
 			function(result)
 			{
-				window.location.href = U('/locations');
+				Grocy.EditObjectId = result.created_object_id;
+				Grocy.Components.UserfieldsForm.Save(function()
+				{
+					window.location.href = U('/locations');
+				});
 			},
 			function(xhr)
 			{
@@ -24,7 +28,10 @@
 		Grocy.Api.Put('objects/locations/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
-				window.location.href = U('/locations');
+				Grocy.Components.UserfieldsForm.Save(function()
+				{
+					window.location.href = U('/locations');
+				});
 			},
 			function(xhr)
 			{
@@ -57,5 +64,6 @@ $('#location-form input').keydown(function (event)
 	}
 });
 
+Grocy.Components.UserfieldsForm.Load();
 $('#name').focus();
 Grocy.FrontendHelpers.ValidateForm('location-form');

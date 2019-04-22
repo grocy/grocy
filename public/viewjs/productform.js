@@ -1,4 +1,4 @@
-﻿$('#save-product-button').on('click', function (e)
+﻿$('#save-product-button').on('click', function(e)
 {
 	e.preventDefault();
 
@@ -26,26 +26,30 @@
 	if (Grocy.EditMode === 'create')
 	{
 		Grocy.Api.Post('objects/products', jsonData,
-			function (result)
+			function(result)
 			{
-				if (jsonData.hasOwnProperty("picture_file_name") && !Grocy.DeleteProductPictureOnSave)
+				Grocy.EditObjectId = result.created_object_id;
+				Grocy.Components.UserfieldsForm.Save(function()
 				{
-					Grocy.Api.UploadFile($("#product-picture")[0].files[0], 'productpictures', jsonData.picture_file_name,
-						function (result)
-						{
-							window.location.href = redirectDestination;
-						},
-						function (xhr)
-						{
-							Grocy.FrontendHelpers.EndUiBusy("product-form");
-							Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-						}
-					);
-				}
-				else
-				{
-					window.location.href = redirectDestination;
-				}
+					if (jsonData.hasOwnProperty("picture_file_name") && !Grocy.DeleteProductPictureOnSave)
+					{
+						Grocy.Api.UploadFile($("#product-picture")[0].files[0], 'productpictures', jsonData.picture_file_name,
+							function(result)
+							{
+								window.location.href = redirectDestination;
+							},
+							function (xhr)
+							{
+								Grocy.FrontendHelpers.EndUiBusy("product-form");
+								Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+							}
+						);
+					}
+					else
+					{
+						window.location.href = redirectDestination;
+					}
+				});
 			},
 			function (xhr)
 			{
@@ -74,24 +78,27 @@
 		Grocy.Api.Put('objects/products/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
-				if (jsonData.hasOwnProperty("picture_file_name") && !Grocy.DeleteProductPictureOnSave)
+				Grocy.Components.UserfieldsForm.Save(function()
 				{
-					Grocy.Api.UploadFile($("#product-picture")[0].files[0], 'productpictures', jsonData.picture_file_name,
-						function(result)
-						{
-							window.location.href = redirectDestination;
-						},
-						function(xhr)
-						{
-							Grocy.FrontendHelpers.EndUiBusy("product-form");
-							Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-						}
-					);
-				}
-				else
-				{
-					window.location.href = redirectDestination;
-				}
+					if (jsonData.hasOwnProperty("picture_file_name") && !Grocy.DeleteProductPictureOnSave)
+					{
+						Grocy.Api.UploadFile($("#product-picture")[0].files[0], 'productpictures', jsonData.picture_file_name,
+							function(result)
+							{
+								window.location.href = redirectDestination;
+							},
+							function(xhr)
+							{
+								Grocy.FrontendHelpers.EndUiBusy("product-form");
+								Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+							}
+						);
+					}
+					else
+					{
+						window.location.href = redirectDestination;
+					}
+				});
 			},
 			function(xhr)
 			{
@@ -258,6 +265,7 @@ if (Grocy.EditMode === 'create')
 	}
 }
 
+Grocy.Components.UserfieldsForm.Load();
 $('#name').focus();
 $('.input-group-qu').trigger('change');
 Grocy.FrontendHelpers.ValidateForm('product-form');

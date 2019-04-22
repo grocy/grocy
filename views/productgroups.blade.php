@@ -12,6 +12,9 @@
 			<a class="btn btn-outline-dark" href="{{ $U('/productgroup/new') }}">
 				<i class="fas fa-plus"></i>&nbsp;{{ $L('Add') }}
 			</a>
+			<a class="btn btn-outline-secondary" href="{{ $U('/userfields?entity=product_groups') }}">
+				<i class="fas fa-sliders-h"></i>&nbsp;{{ $L('Configure userfields') }}
+			</a>
 		</h1>
 	</div>
 </div>
@@ -32,6 +35,10 @@
 					<th>{{ $L('Name') }}</th>
 					<th>{{ $L('Description') }}</th>
 					<th>{{ $L('Product count') }}</th>
+
+					@include('components.userfields_thead', array(
+						'userfields' => $userfields
+					))
 				</tr>
 			</thead>
 			<tbody class="d-none">
@@ -57,6 +64,12 @@
 						<i class="fas fa-external-link-alt"></i>
 						</a>
 					</td>
+
+					@include('components.userfields_tbody', array(
+						'userfields' => $userfields,
+						'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $productGroup->id)
+					))
+
 				</tr>
 				@endforeach
 			</tbody>

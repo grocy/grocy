@@ -28,6 +28,7 @@ class LocalizationService
 			'strings.php',
 			'stock_transaction_types.php',
 			'chore_types.php',
+			'userfield_types.php',
 			'component_translations.php',
 			'demo_data.php'
 		);

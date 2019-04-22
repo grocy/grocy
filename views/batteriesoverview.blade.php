@@ -46,6 +46,11 @@
 					<th>{{ $L('Last charged') }}</th>
 					<th>{{ $L('Next planned charge cycle') }}</th>
 					<th class="d-none">Hidden status</th>
+
+					@include('components.userfields_thead', array(
+						'userfields' => $userfields
+					))
+					
 				</tr>
 			</thead>
 			<tbody class="d-none">
@@ -92,6 +97,12 @@
 					<td class="d-none">
 						"@if(FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0 && $curentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s')) overdue @elseif(FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0 && $curentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) duesoon @endif
 					</td>
+
+					@include('components.userfields_tbody', array(
+						'userfields' => $userfields,
+						'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $curentBatteryEntry->battery_id)
+					))
+
 				</tr>
 				@endforeach
 			</tbody>

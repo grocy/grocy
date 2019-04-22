@@ -46,6 +46,11 @@
 					<th>{{ $L('Next estimated tracking') }}</th>
 					<th>{{ $L('Last tracked') }}</th>
 					<th class="d-none">Hidden status</th>
+
+					@include('components.userfields_thead', array(
+						'userfields' => $userfields
+					))
+
 				</tr>
 			</thead>
 			<tbody class="d-none">
@@ -92,6 +97,12 @@
 					<td class="d-none">
 						@if(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_TYPE_MANUALLY && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s')) overdue @elseif(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_TYPE_MANUALLY && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) duesoon @endif
 					</td>
+
+					@include('components.userfields_tbody', array(
+						'userfields' => $userfields,
+						'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $curentChoreEntry->chore_id)
+					))
+
 				</tr>
 				@endforeach
 			</tbody>

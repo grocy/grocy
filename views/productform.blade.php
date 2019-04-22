@@ -187,8 +187,14 @@
 				</div>
 			</div>
 
+			@include('components.userfieldsform', array(
+				'userfields' => $userfields,
+				'entity' => 'products'
+			))
+
 			<button id="save-product-button" class="btn btn-success">{{ $L('Save') }}</button>
 		</form>
+
 	</div>
 
 	<div class="col-lg-6 col-xs-12">

@@ -47,6 +47,11 @@
 				'invalidFeedback' => $L('This cannot be negative')
 			))
 
+			@include('components.userfieldsform', array(
+				'userfields' => $userfields,
+				'entity' => 'batteries'
+			))
+
 			<button id="save-battery-button" class="btn btn-success">{{ $L('Save') }}</button>
 
 		</form>

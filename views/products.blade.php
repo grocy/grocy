@@ -12,6 +12,9 @@
 			<a class="btn btn-outline-dark" href="{{ $U('/product/new') }}">
 				<i class="fas fa-plus"></i>&nbsp;{{ $L('Add') }}
 			</a>
+			<a class="btn btn-outline-secondary" href="{{ $U('/userfields?entity=products') }}">
+				<i class="fas fa-sliders-h"></i>&nbsp;{{ $L('Configure userfields') }}
+			</a>
 			<a class="btn btn-outline-secondary" href="{{ $U('/stocksettings#productpresets') }}">
 				<i class="fas fa-sliders-h"></i>&nbsp;{{ $L('Presets for new products') }}
 			</a>
@@ -48,6 +51,11 @@
 					<th>{{ $L('QU stock') }}</th>
 					<th>{{ $L('QU factor') }}</th>
 					<th>{{ $L('Product group') }}</th>
+
+					@include('components.userfields_thead', array(
+						'userfields' => $userfields
+					))
+
 				</tr>
 			</thead>
 			<tbody class="d-none">
@@ -82,6 +90,12 @@
 					<td>
 						@if(!empty($product->product_group_id)) {{ FindObjectInArrayByPropertyValue($productGroups, 'id', $product->product_group_id)->name }} @endif
 					</td>
+
+					@include('components.userfields_tbody', array(
+						'userfields' => $userfields,
+						'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $product->id)
+					))
+
 				</tr>
 				@endforeach
 			</tbody>

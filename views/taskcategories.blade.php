@@ -12,6 +12,9 @@
 			<a class="btn btn-outline-dark" href="{{ $U('/taskcategory/new') }}">
 				<i class="fas fa-plus"></i>&nbsp;{{ $L('Add') }}
 			</a>
+			<a class="btn btn-outline-secondary" href="{{ $U('/userfields?entity=task_categories') }}">
+				<i class="fas fa-sliders-h"></i>&nbsp;{{ $L('Configure userfields') }}
+			</a>
 		</h1>
 	</div>
 </div>
@@ -31,6 +34,11 @@
 					<th class="border-right"></th>
 					<th>{{ $L('Name') }}</th>
 					<th>{{ $L('Description') }}</th>
+
+					@include('components.userfields_thead', array(
+						'userfields' => $userfields
+					))
+
 				</tr>
 			</thead>
 			<tbody class="d-none">
@@ -50,6 +58,12 @@
 					<td>
 						{{ $taskCategory->description }}
 					</td>
+
+					@include('components.userfields_tbody', array(
+						'userfields' => $userfields,
+						'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $taskCategory->id)
+					))
+
 				</tr>
 				@endforeach
 			</tbody>

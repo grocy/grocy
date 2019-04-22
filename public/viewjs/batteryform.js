@@ -10,7 +10,11 @@
 		Grocy.Api.Post('objects/batteries', jsonData,
 			function(result)
 			{
-				window.location.href = U('/batteries');
+				Grocy.EditObjectId = result.created_object_id;
+				Grocy.Components.UserfieldsForm.Save(function()
+				{
+					window.location.href = U('/batteries');
+				});
 			},
 			function(xhr)
 			{
@@ -24,7 +28,10 @@
 		Grocy.Api.Put('objects/batteries/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
-				window.location.href = U('/batteries');
+				Grocy.Components.UserfieldsForm.Save(function()
+				{
+					window.location.href = U('/batteries');
+				});
 			},
 			function(xhr)
 			{
@@ -57,5 +64,6 @@ $('#battery-form input').keydown(function(event)
 	}
 });
 
+Grocy.Components.UserfieldsForm.Load();
 $('#name').focus();
 Grocy.FrontendHelpers.ValidateForm('battery-form');

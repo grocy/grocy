@@ -32,6 +32,11 @@
 				<textarea class="form-control" rows="2" id="description" name="description">@if($mode == 'edit'){{ $group->description }}@endif</textarea>
 			</div>
 
+			@include('components.userfieldsform', array(
+				'userfields' => $userfields,
+				'entity' => 'product_groups'
+			))
+
 			<button id="save-product-group-button" class="btn btn-success">{{ $L('Save') }}</button>
 
 		</form>

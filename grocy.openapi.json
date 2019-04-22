@@ -234,8 +234,22 @@
 					}
 				},
 				"responses": {
-					"204": {
-						"description": "The operation was successful"
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"created_object_id": {
+											"type": "number",
+											"format": "integer",
+											"description": "The id of the created object"
+										}
+									}
+								}
+							}
+						}
 					},
 					"400": {
 						"description": "The operation was not successful",
@@ -438,6 +452,109 @@
 				}
 			}
 		},
+		"/userfields/{entity}/{objectId}": {
+			"get": {
+				"summary": "Returns all userfields with their values of the given object of the given entity",
+				"tags": [
+					"Generic entity interactions"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "entity",
+						"required": true,
+						"description": "A valid entity name",
+						"schema": {
+							"$ref": "#/components/internalSchemas/ExposedEntity"
+						}
+					},
+					{
+						"in": "path",
+						"name": "objectId",
+						"required": true,
+						"description": "A valid object id of the given entity",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An entity object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"description": "Just key/value pairs of userfields"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			},
+			"put": {
+				"summary": "Edits the given userfields of the given object of the given entity",
+				"tags": [
+					"Generic entity interactions"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "entity",
+						"required": true,
+						"description": "A valid entity name",
+						"schema": {
+							"$ref": "#/components/internalSchemas/ExposedEntity"
+						}
+					},
+					{
+						"in": "path",
+						"name": "objectId",
+						"required": true,
+						"description": "A valid object id of the given entity",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "A valid entity object of the entity specified in parameter *entity*",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"description": "Just key/value pairs of userfields"
+							}
+						}
+					}
+				},
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},		
 		"/files/{group}/{fileName}": {
 			"get": {
 				"summary": "Serves the given file",
@@ -2030,7 +2147,8 @@
 					"task_categories",
 					"product_groups",
 					"equipment",
-					"api_keys"
+					"api_keys",
+					"userfields"
 				]
 			},
 			"ExposedEntitiesPreventListing": {

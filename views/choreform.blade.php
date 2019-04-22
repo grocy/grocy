@@ -87,6 +87,11 @@
 
 			<input type="hidden" id="period_config" name="period_config" value="@if($mode == 'edit'){{ $chore->period_config }}@endif">
 
+			@include('components.userfieldsform', array(
+				'userfields' => $userfields,
+				'entity' => 'chores'
+			))
+
 			<button id="save-chore-button" class="btn btn-success">{{ $L('Save') }}</button>
 
 		</form>

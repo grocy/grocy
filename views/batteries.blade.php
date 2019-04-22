@@ -12,6 +12,9 @@
 			<a class="btn btn-outline-dark" href="{{ $U('/battery/new') }}">
 				<i class="fas fa-plus"></i>&nbsp;{{ $L('Add') }}
 			</a>
+			<a class="btn btn-outline-secondary" href="{{ $U('/userfields?entity=batteries') }}">
+				<i class="fas fa-sliders-h"></i>&nbsp;{{ $L('Configure userfields') }}
+			</a>
 		</h1>
 	</div>
 </div>
@@ -33,6 +36,11 @@
 					<th>{{ $L('Description') }}</th>
 					<th>{{ $L('Used in') }}</th>
 					<th>{{ $L('Charge cycle interval (days)') }}</th>
+
+					@include('components.userfields_thead', array(
+						'userfields' => $userfields
+					))
+
 				</tr>
 			</thead>
 			<tbody class="d-none">
@@ -58,6 +66,12 @@
 					<td>
 						{{ $battery->charge_interval_days }}
 					</td>
+
+					@include('components.userfields_tbody', array(
+						'userfields' => $userfields,
+						'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $battery->id)
+					))
+
 				</tr>
 				@endforeach
 			</tbody>

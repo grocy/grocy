@@ -32,6 +32,11 @@
 				<textarea class="form-control" rows="2" id="description" name="description">@if($mode == 'edit'){{ $category->description }}@endif</textarea>
 			</div>
 
+			@include('components.userfieldsform', array(
+				'userfields' => $userfields,
+				'entity' => 'task_categories'
+			))
+
 			<button id="save-task-category-button" class="btn btn-success">{{ $L('Save') }}</button>
 
 		</form>
