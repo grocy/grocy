@@ -31,7 +31,6 @@
 				<th class="border-right"></th>
 				<th>{{ $L('Name') }}</th>
 				<th>{{ $L('Period type') }}</th>
-				<th>{{ $L('Period days') }}</th>
 				<th>{{ $L('Description') }}</th>
 			</tr>
 		</thead>
@@ -51,9 +50,6 @@
 				</td>
 				<td>
 					{{ $L($chore->period_type) }}
-				</td>
-				<td>
-					{{ $chore->period_days }}
 				</td>
 				<td>
 					{{ $chore->description }}

@@ -50,8 +50,42 @@
 				'min' => '0',
 				'additionalCssClasses' => 'input-group-chore-period-type',
 				'invalidFeedback' => $L('This cannot be negative'),
-				'hintId' => 'chore-period-type-info'
+				'hintId' => 'chore-period-type-info',
+				'additionalGroupCssClasses' => 'period-type-input period-type-dynamic-regular period-type-monthly'
 			))
+
+			<div class="form-group period-type-input period-type-weekly">
+				<div class="form-check form-check-inline">
+					<input class="form-check-input input-group-chore-period-type" type="checkbox" id="monday" value="monday">
+					<label class="form-check-label" for="monday">{{ $L('Monday') }}</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input input-group-chore-period-type" type="checkbox" id="tuesday" value="tuesday">
+					<label class="form-check-label" for="tuesday">{{ $L('Tuesday') }}</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input input-group-chore-period-type" type="checkbox" id="wednesday" value="wednesday">
+					<label class="form-check-label" for="wednesday">{{ $L('Wednesday') }}</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input input-group-chore-period-type" type="checkbox" id="thursday" value="thursday">
+					<label class="form-check-label" for="thursday">{{ $L('Thursday') }}</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input input-group-chore-period-type" type="checkbox" id="friday" value="friday">
+					<label class="form-check-label" for="friday">{{ $L('Friday') }}</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input input-group-chore-period-type" type="checkbox" id="saturday" value="saturday">
+					<label class="form-check-label" for="saturday">{{ $L('Saturday') }}</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input input-group-chore-period-type" type="checkbox" id="sunday" value="sunday">
+					<label class="form-check-label" for="sunday">{{ $L('Sunday') }}</label>
+				</div>
+			</div>
+
+			<input type="hidden" id="period_config" name="period_config" value="@if($mode == 'edit'){{ $chore->period_config }}@endif">
 
 			<button id="save-chore-button" class="btn btn-success">{{ $L('Save') }}</button>
 

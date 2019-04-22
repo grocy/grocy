@@ -100,6 +100,9 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO chores (name, period_type, period_days) VALUES ('{$localizationService->LocalizeForSqlString('Changed towels in the bathroom')}', 'manually', 5); --1
 				INSERT INTO chores (name, period_type, period_days) VALUES ('{$localizationService->LocalizeForSqlString('Cleaned the kitchen floor')}', 'dynamic-regular', 7); --2
 				INSERT INTO chores (name, period_type, period_days) VALUES ('{$localizationService->LocalizeForSqlString('Lawn mowed in the garden')}', 'dynamic-regular', 21); --3
+				INSERT INTO chores (name, period_type, period_days) VALUES ('{$localizationService->LocalizeForSqlString('The thing which happens on the 5th of every month')}', 'monthly', 5); --4
+				INSERT INTO chores (name, period_type) VALUES ('{$localizationService->LocalizeForSqlString('The thing which happens daily')}', 'daily'); --5
+				INSERT INTO chores (name, period_type, period_config) VALUES ('{$localizationService->LocalizeForSqlString('The thing which happens on Mondays and Wednesdays')}', 'weekly', 'monday,wednesday'); --6
 
 				INSERT INTO batteries (name, description, used_in) VALUES ('{$localizationService->LocalizeForSqlString('Battery')}1', '{$localizationService->LocalizeForSqlString('Warranty ends')} 2023', '{$localizationService->LocalizeForSqlString('TV remote control')}'); --1
 				INSERT INTO batteries (name, description, used_in) VALUES ('{$localizationService->LocalizeForSqlString('Battery')}2', '{$localizationService->LocalizeForSqlString('Warranty ends')} 2022', '{$localizationService->LocalizeForSqlString('Alarm clock')}'); --2
@@ -210,6 +213,9 @@ class DemoDataGeneratorService extends BaseService
 			$choresService->TrackChore(2, date('Y-m-d H:i:s', strtotime('-10 days')));
 			$choresService->TrackChore(2, date('Y-m-d H:i:s', strtotime('-20 days')));
 			$choresService->TrackChore(3, date('Y-m-d H:i:s', strtotime('-17 days')));
+			$choresService->TrackChore(4, date('Y-m-d H:i:s', strtotime('-10 days')));
+			$choresService->TrackChore(5, date('Y-m-d H:i:s', strtotime('+0 days')));
+			$choresService->TrackChore(6, date('Y-m-d H:i:s', strtotime('-10 days')));
 
 			$batteriesService = new BatteriesService();
 			$batteriesService->TrackChargeCycle(1, date('Y-m-d H:i:s', strtotime('-200 days')));

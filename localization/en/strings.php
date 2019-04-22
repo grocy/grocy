@@ -371,5 +371,14 @@ return array(
 	'Average shelf life' => 'Average shelf life',
 	'Spoil rate' => 'Spoil rate',
 	'Show more' => 'Show more',
-	'Show less' => 'Show less'
+	'Show less' => 'Show less',
+	'The amount must be between #1 and #2' => 'The amount must be between #1 and #2',
+	'Day of month' => 'Day of month',
+	'Monday' => 'Monday',
+	'Tuesday' => 'Tuesday',
+	'Wednesday' => 'Wednesday',
+	'Thursday' => 'Thursday',
+	'Friday' => 'Friday',
+	'Saturday' => 'Saturday',
+	'Sunday' => 'Sunday'
 );
