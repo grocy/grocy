@@ -3,6 +3,7 @@
 namespace Grocy\Controllers;
 
 use \Grocy\Services\RecipesService;
+use \Grocy\Services\UserfieldsService;
 
 class RecipesController extends BaseController
 {
@@ -10,9 +11,11 @@ class RecipesController extends BaseController
 	{
 		parent::__construct($container);
 		$this->RecipesService = new RecipesService();
+		$this->UserfieldsService = new UserfieldsService();
 	}
 
 	protected $RecipesService;
+	protected $UserfieldsService;
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
@@ -57,7 +60,9 @@ class RecipesController extends BaseController
 			'selectedRecipeSubRecipes' => $selectedRecipeSubRecipes,
 			'selectedRecipeSubRecipesPositions' => $selectedRecipeSubRecipesPositions,
 			'includedRecipeIdsAbsolute' => $includedRecipeIdsAbsolute,
-			'selectedRecipeTotalCosts' => FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->costs
+			'selectedRecipeTotalCosts' => FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->costs,
+			'userfields' => $this->UserfieldsService->GetFields('recipes'),
+			'userfieldValues' => $this->UserfieldsService->GetAllValues('recipes')
 		]);
 	}
 
@@ -83,7 +88,8 @@ class RecipesController extends BaseController
 			'recipePositionsResolved' => $this->RecipesService->GetRecipesPosResolved(),
 			'recipesResolved' => $this->RecipesService->GetRecipesResolved(),
 			'recipes' =>  $this->Database->recipes()->orderBy('name'),
-			'recipeNestings' =>  $this->Database->recipes_nestings()->where('recipe_id', $recipeId)
+			'recipeNestings' =>  $this->Database->recipes_nestings()->where('recipe_id', $recipeId),
+			'userfields' => $this->UserfieldsService->GetFields('recipes')
 		]);
 	}
 

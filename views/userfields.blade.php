@@ -9,7 +9,7 @@
 	<div class="col">
 		<h1>
 			@yield('title')
-			<a class="btn btn-outline-dark" href="{{ $U('/userfield/new') }}">
+			<a id="new-userfield-button" class="btn btn-outline-dark" href="{{ $U('/userfield/new') }}">
 				<i class="fas fa-plus"></i>&nbsp;{{ $L('Add') }}
 			</a>
 		</h1>

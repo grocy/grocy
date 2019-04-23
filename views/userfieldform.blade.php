@@ -34,8 +34,8 @@
 
 			<div class="form-group">
 				<label for="name">{{ $L('Name') }}</label>
-				<input type="text" class="form-control" required id="name" name="name" value="@if($mode == 'edit'){{ $userfield->name }}@endif">
-				<div class="invalid-feedback">{{ $L('A name is required') }}</div>
+				<input type="text" class="form-control" required pattern="^[a-zA-Z0-9]*$" id="name" name="name" value="@if($mode == 'edit'){{ $userfield->name }}@endif">
+				<div class="invalid-feedback">{{ $L('This is required and can only contain letters and numbers') }}</div>
 			</div>
 
 			<div class="form-group">

@@ -31,24 +31,27 @@
 	Grocy.Api.Put('objects/recipes/' + Grocy.EditObjectId, jsonData,
 		function(result)
 		{
-			if (jsonData.hasOwnProperty("picture_file_name") && !Grocy.DeleteRecipePictureOnSave)
+			Grocy.Components.UserfieldsForm.Save(function()
 			{
-				Grocy.Api.UploadFile($("#recipe-picture")[0].files[0], 'recipepictures', jsonData.picture_file_name,
-					function(result)
-					{
-						window.location.href = U('/recipes?recipe=' + Grocy.EditObjectId);
-					},
-					function (xhr)
-					{
-						Grocy.FrontendHelpers.EndUiBusy("recipe-form");
-						Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-					}
-				);
-			}
-			else
-			{
-				window.location.href = U('/recipes?recipe=' + Grocy.EditObjectId);
-			}
+				if (jsonData.hasOwnProperty("picture_file_name") && !Grocy.DeleteRecipePictureOnSave)
+				{
+					Grocy.Api.UploadFile($("#recipe-picture")[0].files[0], 'recipepictures', jsonData.picture_file_name,
+						function (result)
+						{
+							window.location.href = U('/recipes?recipe=' + Grocy.EditObjectId);
+						},
+						function (xhr)
+						{
+							Grocy.FrontendHelpers.EndUiBusy("recipe-form");
+							Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+						}
+					);
+				}
+				else
+				{
+					window.location.href = U('/recipes?recipe=' + Grocy.EditObjectId);
+				}
+			});
 		},
 		function(xhr)
 		{
@@ -345,3 +348,5 @@ $('#description').summernote({
 	minHeight: '300px',
 	lang: L('summernote_locale')
 });
+
+Grocy.Components.UserfieldsForm.Load();

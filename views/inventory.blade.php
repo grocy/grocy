@@ -38,7 +38,7 @@
 				'limitStartToNow' => false,
 				'invalidFeedback' => $L('A best before date is required'),
 				'nextInputSelector' => '#best_before_date',
-				'additionalCssClasses' => 'date-only-datetimepicker',
+				'additionalGroupCssClasses' => 'date-only-datetimepicker',
 				'shortcutValue' => '2999-12-31',
 				'shortcutLabel' => 'Never expires',
 				'earlierThanInfoLimit' => date('Y-m-d'),

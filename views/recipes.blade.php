@@ -37,6 +37,11 @@
 							<th>{{ $L('Servings') }}</th>
 							<th>{{ $L('Requirements fulfilled') }}</th>
 							<th class="d-none">Hidden status for sorting of "Requirements fulfilled" column</th>
+
+							@include('components.userfields_thead', array(
+								'userfields' => $userfields
+							))
+
 						</tr>
 					</thead>
 					<tbody class="d-none">
@@ -55,6 +60,12 @@
 							<td class="d-none">
 								{{ FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->missing_products_count }}
 							</td>
+
+							@include('components.userfields_tbody', array(
+								'userfields' => $userfields,
+								'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $recipe->id)
+							))
+
 						</tr>
 						@endforeach
 					</tbody>

@@ -380,5 +380,18 @@ return array(
 	'Thursday' => 'Thursday',
 	'Friday' => 'Friday',
 	'Saturday' => 'Saturday',
-	'Sunday' => 'Sunday'
+	'Sunday' => 'Sunday',
+	'Configure userfields' => 'Configure userfields',
+	'Userfields' => 'Userfields',
+	'Filter by entity' => 'Filter by entity',
+	'Entity' => 'Entity',
+	'Caption' => 'Caption',
+	'Type' => 'Type',
+	'Create userfield' => 'Create userfield',
+	'A entity is required' => 'A entity is required',
+	'A caption is required' => 'A caption is required',
+	'A type is required' => 'A type is required',
+	'Show as column in tables' => 'Show as column in tables',
+	'This is required and can only contain letters and numbers' => 'This is required and can only contain letters and numbers',
+	'Edit userfield' => 'Edit userfield'
 );

@@ -35,3 +35,10 @@ minimum_perc = 0
 source_file = localization/en/demo_data.php
 source_lang = en
 type = PHP_ARRAY
+
+[grocy.userfield_typesphp]
+file_filter = localization/<lang>/userfield_types.php
+minimum_perc = 0
+source_file = localization/en/userfield_types.php
+source_lang = en
+type = PHP_ARRAY

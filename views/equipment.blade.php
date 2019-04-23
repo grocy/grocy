@@ -22,6 +22,11 @@
 			<thead>
 				<tr>
 					<th>{{ $L('Name') }}</th>
+
+					@include('components.userfields_thead', array(
+						'userfields' => $userfields
+					))
+					
 				</tr>
 			</thead>
 			<tbody class="d-none">
@@ -30,6 +35,12 @@
 					<td>
 						{{ $equipmentItem->name }}
 					</td>
+
+					@include('components.userfields_tbody', array(
+						'userfields' => $userfields,
+						'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $equipmentItem->id)
+					))
+
 				</tr>
 				@endforeach
 			</tbody>

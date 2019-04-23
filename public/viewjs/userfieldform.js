@@ -5,12 +5,18 @@
 	var jsonData = $('#userfield-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("userfield-form");
 
+	var redirectUrl = U("/userfields");
+	if (typeof GetUriParam("entity") !== "undefined" && !GetUriParam("entity").isEmpty())
+	{
+		redirectUrl = U("/userfields?entity=" + GetUriParam("entity"));
+	}
+
 	if (Grocy.EditMode === 'create')
 	{
 		Grocy.Api.Post('objects/userfields', jsonData,
 			function(result)
 			{
-				window.location.href = U('/userfields');
+				window.location.href = redirectUrl;
 			},
 			function(xhr)
 			{
@@ -24,7 +30,7 @@
 		Grocy.Api.Put('objects/userfields/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
-				window.location.href = U('/userfields');
+				window.location.href = redirectUrl;
 			},
 			function(xhr)
 			{
@@ -64,7 +70,7 @@ $('#userfield-form input').keydown(function(event)
 
 $('#entity').focus();
 
-if (typeof GetUriParam("entity") !== "undefined")
+if (typeof GetUriParam("entity") !== "undefined" && !GetUriParam("entity").isEmpty())
 {
 	$("#entity").val(GetUriParam("entity"));
 	$("#entity").trigger("change");

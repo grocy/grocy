@@ -82,6 +82,11 @@
 				</div>
 			</div>
 
+			@include('components.userfieldsform', array(
+				'userfields' => $userfields,
+				'entity' => 'recipes'
+			))
+
 			<button id="save-recipe-button" class="btn btn-success">{{ $L('Save') }}</button>
 
 		</form>

@@ -49,7 +49,7 @@
 				'limitStartToNow' => false,
 				'invalidFeedback' => $L('A due date is required'),
 				'nextInputSelector' => 'category_id',
-				'additionalCssClasses' => 'date-only-datetimepicker',
+				'additionalGroupCssClasses' => 'date-only-datetimepicker',
 				'isRequired' => false
 			))
 
@@ -74,6 +74,11 @@
 				'label' => 'Assigned to',
 				'users' => $users,
 				'prefillByUserId' => $initUserId
+			))
+
+			@include('components.userfieldsform', array(
+				'userfields' => $userfields,
+				'entity' => 'tasks'
 			))
 
 			<button id="save-task-button" class="btn btn-success">{{ $L('Save') }}</button>

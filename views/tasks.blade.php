@@ -62,6 +62,11 @@
 					<th class="d-none">Hidden category</th>
 					<th>{{ $L('Assigned to') }}</th>
 					<th class="d-none">Hidden status</th>
+
+					@include('components.userfields_thead', array(
+						'userfields' => $userfields
+					))
+
 				</tr>
 			</thead>
 			<tbody class="d-none">
@@ -98,6 +103,12 @@
 					<td class="d-none">
 						@if($task->done == 1) text-muted @endif @if(!empty($task->due_date) && $task->due_date < date('Y-m-d')) overdue @elseif(!empty($task->due_date) && $task->due_date < date('Y-m-d', strtotime("+$nextXDays days"))) duesoon @endif
 					</td>
+
+					@include('components.userfields_tbody', array(
+						'userfields' => $userfields,
+						'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $task->id)
+					))
+
 				</tr>
 				@endforeach
 			</tbody>

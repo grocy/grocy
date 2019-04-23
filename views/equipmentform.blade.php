@@ -56,6 +56,11 @@
 				<textarea class="form-control" id="description" name="description">@if($mode == 'edit'){{ $equipment->description }}@endif</textarea>
 			</div>
 
+			@include('components.userfieldsform', array(
+				'userfields' => $userfields,
+				'entity' => 'equipment'
+			))
+
 			<button id="save-equipment-button" class="btn btn-success">{{ $L('Save') }}</button>
 
 		</form>

@@ -7,7 +7,7 @@ Grocy.Components.UserfieldsForm.Save = function(success, error)
 	$("#userfields-form .userfield-input").each(function()
 	{
 		var input = $(this);
-		var fieldName = input.attr("id");
+		var fieldName = input.attr("data-userfield-name");
 		var fieldValue = input.val();
 
 		if (input.attr("type") == "checkbox")
@@ -49,7 +49,7 @@ Grocy.Components.UserfieldsForm.Load = function()
 		{
 			$.each(result, function(key, value)
 			{
-				var input = $("#" + key + ".userfield-input");
+				var input = $(".userfield-input[data-userfield-name='" + key + "']");
 				
 				if (input.attr("type") == "checkbox" && value == 1)
 				{

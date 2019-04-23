@@ -36,7 +36,9 @@ class TasksController extends BaseController
 			'tasks' => $tasks,
 			'nextXDays' => $nextXDays,
 			'taskCategories' => $this->Database->task_categories()->orderBy('name'),
-			'users' => $this->Database->users()
+			'users' => $this->Database->users(),
+			'userfields' => $this->UserfieldsService->GetFields('tasks'),
+			'userfieldValues' => $this->UserfieldsService->GetAllValues('tasks')
 		]);
 	}
 

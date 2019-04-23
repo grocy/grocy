@@ -226,6 +226,12 @@
 							</a>
 						</li>
 						@endif
+						<li data-nav-for-page="userfields" data-sub-menu-of="#top-nav-manager-master-data">
+							<a class="nav-link discrete-link" href="{{ $U('/userfields') }}">
+								<i class="fas fa-bookmark "></i>
+								<span class="nav-link-text">{{ $L('Userfields') }}</span>
+							</a>
+						</li>
 					</ul>
 				</li>
 			</ul>
