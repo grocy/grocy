@@ -86,5 +86,9 @@ return array(
 	'French' => 'Fransızca',
 	'Turkish' => 'Türkçe',
 	'Spanish' => 'İspanyolca',
-	'Russian' => 'Rusça'
+	'Russian' => 'Rusça',
+	'The thing which happens on the 5th of every month' => 'The thing which happens on the 5th of every month',
+	'The thing which happens daily' => 'The thing which happens daily',
+	'The thing which happens on Mondays and Wednesdays' => 'The thing which happens on Mondays and Wednesdays',
+	'Swedish' => 'Swedish'
 );
