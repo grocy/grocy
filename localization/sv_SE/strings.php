@@ -2,7 +2,7 @@
 
 return array(
 	'Stock overview' => 'Lageröversikt',
-	'#1 products expiring within the next #2 days' => '#1 produkter som löper ut inom 2 dagar',
+	'#1 products expiring within the next #2 days' => '#1 produkter som löper ut inom #2 dagar',
 	'#1 products are already expired' => '#1 produkter är redan utgått',
 	'#1 products are below defined min. stock amount' => '#1 produkter är under definierade min. lagerbelopp',
 	'Product' => 'Produkt',
