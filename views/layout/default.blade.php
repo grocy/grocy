@@ -48,6 +48,7 @@
 		Grocy.Components = { };
 		Grocy.Mode = '{{ GROCY_MODE }}';
 		Grocy.BaseUrl = '{{ $U('/') }}';
+		Grocy.CurrentUrlRelative = window.location.pathname.replace(Grocy.BaseUrl, "");
 		Grocy.LocalizationStrings = {!! json_encode($localizationStrings) !!};
 		Grocy.ActiveNav = '@yield('activeNav', '')';
 		Grocy.Culture = '{{ GROCY_CULTURE }}';
