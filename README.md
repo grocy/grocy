@@ -5,6 +5,9 @@ ERP beyond your fridge
 - Public demo of the latest stable version &rarr; [https://demo.grocy.info](https://demo.grocy.info)
 - Public demo of the latest pre-release version (current master branch) &rarr; [https://demo-prerelease.grocy.info](https://demo-prerelease.grocy.info)
 
+## Getting in touch
+There is the [r/grocy subreddit](https://www.reddit.com/r/grocy) to connect with other grocy users. If you've found something that does not work or if you have an idea for an improvement or new things which you would find useful, feel free to open an issue in the [issue tracker](https://github.com/grocy/grocy/issues) here.
+
 ## Motivation
 A household needs to be managed. I did this so far (almost 10 years) with my first self written software (a C# windows forms application) and with a bunch of Excel sheets. The software is a pain to use and Excel is Excel. So I searched for and tried different things for a (very) long time, nothing 100 % fitted, so this is my aim for a "complete household management"-thing. ERP your fridge!
 
