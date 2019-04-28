@@ -2,7 +2,7 @@
 
 return array(
 	'purchase' => 'Zakup',
-	'consume' => 'Konsumpcja',
+	'consume' => 'Spożycie',
 	'inventory-correction' => 'Korekta zapasów',
 	'product-opened' => 'Produkt otwarty'
 );

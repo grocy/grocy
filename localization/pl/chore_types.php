@@ -1,6 +1,9 @@
 <?php
 
 return array(
-	'manually' => 'Manually',
-	'dynamic-regular' => 'Dynamic regular'
+	'manually' => 'Manualny',
+	'dynamic-regular' => 'Dynamiczny regularny',
+	'daily' => 'Codzienny',
+	'weekly' => 'Tygodniowy',
+	'monthly' => 'Miesięczny'
 );

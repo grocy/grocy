@@ -1,10 +1,10 @@
 <?php
 
 return array(
-	'timeago_locale' => 'en',
-	'timeago_nan' => 'NaN years ago',
-	'moment_locale' => 'x',
-	'datatables_localization' => '{"sEmptyTable":"No data available in table","sInfo":"Showing _START_ to _END_ of _TOTAL_ entries","sInfoEmpty":"Showing 0 to 0 of 0 entries","sInfoFiltered":"(filtered from _MAX_ total entries)","sInfoPostFix":"","sInfoThousands":",","sLengthMenu":"Show _MENU_ entries","sLoadingRecords":"Loading...","sProcessing":"Processing...","sSearch":"Search:","sZeroRecords":"No matching records found","oPaginate":{"sFirst":"First","sLast":"Last","sNext":"Next","sPrevious":"Previous"},"oAria":{"sSortAscending":": activate to sort column ascending","sSortDescending":": activate to sort column descending"}}',
-	'summernote_locale' => 'x',
-	'fullcalendar_locale' => 'x'
+	'timeago_locale' => 'pl',
+	'timeago_nan' => 'NaN lat temu',
+	'moment_locale' => 'pl',
+	'datatables_localization' => '{"sEmptyTable":"Brak danych do wyświetlenia","sInfo":"Pokazuję od _START_ do _END_ z _TOTAL_ wpisów","sInfoEmpty":"Pokazuję od 0 do 0 z 0 wpisów","sInfoFiltered":"(przefiltrowane z _MAX_ wszystkich wpisów)","sInfoPostFix":"","sInfoThousands":",","sLengthMenu":"Pokaż _MENU_ wpisów","sLoadingRecords":"Ładowanie...","sProcessing":"Przetwarzanie...","sSearch":"Szukaj:","sZeroRecords":"Nie znaleziono pasujących elementów","oPaginate":{"sFirst":"Pierwsza","sLast":"Ostatnia","sNext":"Następna","sPrevious":"Poprzednia"},"oAria":{"sSortAscending":": aktywuj, aby posortować kolumnę rosnąco","sSortDescending":": aktywuj, aby posortować kolumnę malejąco"}}',
+	'summernote_locale' => 'pl-PL',
+	'fullcalendar_locale' => 'pl'
 );

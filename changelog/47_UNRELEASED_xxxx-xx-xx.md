@@ -14,3 +14,4 @@
   - New recurrence patterns - chores can now also be "scheduled" to repat daily/weekly/monthly
 - New translations: (thanks all the translators)
   - Swedish (demo available at https://demo-sv.grocy.info)
+  - Polish (demo available at https://demo-pl.grocy.info)
