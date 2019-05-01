@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $L('Stock settings'))
+@section('title', $__t('Stock settings'))
 
 @section('viewJsName', 'stocksettings')
 
@@ -10,10 +10,10 @@
 		<h1>@yield('title')</h1>
 
 		<div id="productpresets">
-			<h4>{{ $L('Presets for new products') }}</h4>
+			<h4>{{ $__t('Presets for new products') }}</h4>
 
 			<div class="form-group">
-				<label for="product_presets_location_id">{{ $L('Location') }}</label>
+				<label for="product_presets_location_id">{{ $__t('Location') }}</label>
 				<select class="form-control user-setting-control" id="product_presets_location_id" data-setting-key="product_presets_location_id">
 					<option value="-1"></option>
 					@foreach($locations as $location)
@@ -23,7 +23,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="product_presets_product_group_id">{{ $L('Product group') }}</label>
+				<label for="product_presets_product_group_id">{{ $__t('Product group') }}</label>
 				<select class="form-control user-setting-control" id="product_presets_product_group_id" data-setting-key="product_presets_product_group_id">
 					<option value="-1"></option>
 					@foreach($productGroups as $productGroup)
@@ -33,7 +33,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="product_presets_qu_id">{{ $L('Quantity unit') }}</label>
+				<label for="product_presets_qu_id">{{ $__t('Quantity unit') }}</label>
 				<select class="form-control user-setting-control" id="product_presets_qu_id" data-setting-key="product_presets_qu_id">
 					<option value="-1"></option>
 					@foreach($quantityunits as $quantityunit)
@@ -43,29 +43,29 @@
 			</div>
 		</div>
 
-		<h4 class="mt-2">{{ $L('Stock overview') }}</h4>
+		<h4 class="mt-2">{{ $__t('Stock overview') }}</h4>
 		@include('components.numberpicker', array(
 			'id' => 'stock_expring_soon_days',
 			'additionalAttributes' => 'data-setting-key="stock_expring_soon_days"',
 			'label' => 'Expiring soon days',
 			'min' => 1,
-			'invalidFeedback' => $L('This cannot be lower than #1', '1'),
+			'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
 			'additionalCssClasses' => 'user-setting-control'
 		))
 
 		@if(GROCY_FEATURE_FLAG_SHOPPINGLIST)
-		<h4 class="mt-2">{{ $L('Shopping list to stock workflow') }}</h4>
+		<h4 class="mt-2">{{ $__t('Shopping list to stock workflow') }}</h4>
 		
 		<div class="form-group">
 			<div class="checkbox">
 				<label for="shopping-list-to-stock-workflow-auto-submit-when-prefilled">
-					<input type="checkbox" class="user-setting-control" id="shopping-list-to-stock-workflow-auto-submit-when-prefilled" name="shopping-list-to-stock-workflow-auto-submit-when-prefilled" data-setting-key="shopping_list_to_stock_workflow_auto_submit_when_prefilled"> {{ $L('Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set') }}
+					<input type="checkbox" class="user-setting-control" id="shopping-list-to-stock-workflow-auto-submit-when-prefilled" name="shopping-list-to-stock-workflow-auto-submit-when-prefilled" data-setting-key="shopping_list_to_stock_workflow_auto_submit_when_prefilled"> {{ $__t('Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set') }}
 				</label>
 			</div>
 		</div>
 		@endif
 
-		<a href="{{ $U('/stockoverview') }}" class="btn btn-success">{{ $L('OK') }}</a>
+		<a href="{{ $U('/stockoverview') }}" class="btn btn-success">{{ $__t('OK') }}</a>
 	</div>
 </div>
 @stop

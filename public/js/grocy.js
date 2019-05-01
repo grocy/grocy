@@ -1,48 +1,17 @@
-﻿L = function(text, ...placeholderValues)
+﻿//TODO: Missing translations should be automatically added to the source POT file
+Grocy.Translator = new Translator(Grocy.JsGettextTranslatorStrings);
+__t = function(text, ...placeholderValues)
 {
-	var localizedText = Grocy.LocalizationStrings[text];
-	if (localizedText === undefined)
-	{
-		if (Grocy.Mode === 'dev')
-		{
-			jsonData = {};
-			jsonData.text = text;
-			Grocy.Api.Post('system/log-missing-localization', jsonData,
-				function(result)
-				{
-					// Nothing to do...
-				},
-				function(xhr)
-				{
-					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-				}
-			);
-		}
-
-		localizedText = text;
-	}
-
-	for (var i = 0; i < placeholderValues.length; i++)
-	{
-		localizedText = localizedText.replace('#' + (i + 1), placeholderValues[i]);
-	}
-
-	return localizedText;
+	return Grocy.Translator.__(text, ...placeholderValues)
+}
+__n = function(number, singularForm, pluralForm)
+{
+	return Grocy.Translator.n__(singularForm, pluralForm, number)
 }
 
 U = function(relativePath)
 {
 	return Grocy.BaseUrl.replace(/\/$/, '') + relativePath;
-}
-
-Pluralize = function(number, singularForm, pluralForm)
-{
-	var text = singularForm;
-	if (number != 1 && pluralForm !== null && !pluralForm.isEmpty())
-	{
-		text = pluralForm;
-	}
-	return text;
 }
 
 if (!Grocy.ActiveNav.isEmpty())
@@ -381,11 +350,11 @@ Grocy.FrontendHelpers.EndUiBusy = function(formId = null)
 
 Grocy.FrontendHelpers.ShowGenericError = function(message, exception)
 {
-	toastr.error(L(message) + '<br><br>' + L('Click to show technical details'), '', {
+	toastr.error(__t(message) + '<br><br>' + __t('Click to show technical details'), '', {
 		onclick: function()
 		{
 			bootbox.alert({
-				title: L('Error details'),
+				title: __t('Error details'),
 				message: JSON.stringify(exception, null, 4)
 			});
 		}
@@ -449,7 +418,7 @@ $('input.custom-file-input').on('change', function()
 // Translation of "Browse"-button of Bootstrap custom file input
 if ($(".custom-file-label").length > 0)
 {
-	$("<style>").html('.custom-file-label::after { content: "' + L("Select file") + '"; }').appendTo("head");
+	$("<style>").html('.custom-file-label::after { content: "' + __t("Select file") + '"; }').appendTo("head");
 }
 
 ResizeResponsiveEmbeds = function(fillEntireViewport = false)

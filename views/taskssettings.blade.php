@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $L('Tasks settings'))
+@section('title', $__t('Tasks settings'))
 
 @section('viewJsName', 'taskssettings')
 
@@ -14,11 +14,11 @@
 			'additionalAttributes' => 'data-setting-key="tasks_due_soon_days"',
 			'label' => 'Tasks due soon days',
 			'min' => 1,
-			'invalidFeedback' => $L('This cannot be lower than #1', '1'),
+			'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
 			'additionalCssClasses' => 'user-setting-control'
 		))
 
-		<a href="{{ $U('/tasks') }}" class="btn btn-success">{{ $L('OK') }}</a>
+		<a href="{{ $U('/tasks') }}" class="btn btn-success">{{ $__t('OK') }}</a>
 	</div>
 </div>
 @stop

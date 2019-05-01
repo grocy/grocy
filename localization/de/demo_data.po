@@ -1,0 +1,286 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Translation migration from old PHP array files\n"
+"Language-Team: http://www.transifex.com/grocy/grocy/language/de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01T17:59:17+00:00\n"
+"Language: de\n"
+"X-Domain: grocy/demo_data\n"
+
+msgid "Cookies"
+msgstr "Cookies"
+
+msgid "Chocolate"
+msgstr "Schokolade"
+
+msgid "Pantry"
+msgstr "Vorratskammer"
+
+msgid "Candy cupboard"
+msgstr "Süßigkeitenschrank"
+
+msgid "Tinned food cupboard"
+msgstr "Konservenschrank"
+
+msgid "Fridge"
+msgstr "Kühlschrank"
+
+msgid "Piece"
+msgstr "Stück"
+
+msgid "Pieces"
+msgstr "Stücke"
+
+msgid "Pack"
+msgstr "Packung"
+
+msgid "Packs"
+msgstr "Packungen"
+
+msgid "Glass"
+msgstr "Glas"
+
+msgid "Glasses"
+msgstr "Gläser"
+
+msgid "Tin"
+msgstr "Dose"
+
+msgid "Tins"
+msgstr "Dosen"
+
+msgid "Can"
+msgstr "Becher"
+
+msgid "Cans"
+msgstr "Becher"
+
+msgid "Bunch"
+msgstr "Bund"
+
+msgid "Bunches"
+msgstr "Bunde"
+
+msgid "Gummy bears"
+msgstr "Gummibärchen"
+
+msgid "Crisps"
+msgstr "Chips"
+
+msgid "Eggs"
+msgstr "Eier"
+
+msgid "Noodles"
+msgstr "Nudeln"
+
+msgid "Pickles"
+msgstr "Essiggurken"
+
+msgid "Gulash soup"
+msgstr "Gulaschsuppe"
+
+msgid "Yogurt"
+msgstr "Joghurt"
+
+msgid "Cheese"
+msgstr "Käse"
+
+msgid "Cold cuts"
+msgstr "Aufschnitt"
+
+msgid "Paprika"
+msgstr "Paprika"
+
+msgid "Cucumber"
+msgstr "Gurke"
+
+msgid "Radish"
+msgstr "Radieschen"
+
+msgid "Tomato"
+msgstr "Tomaten"
+
+msgid "Changed towels in the bathroom"
+msgstr "Handtücher im Bad gewechselt"
+
+msgid "Cleaned the kitchen floor"
+msgstr "Küchenboden gewischt"
+
+msgid "Warranty ends"
+msgstr "Garantie endet"
+
+msgid "TV remote control"
+msgstr "TV Fernbedienung"
+
+msgid "Alarm clock"
+msgstr "Wecker"
+
+msgid "Heat remote control"
+msgstr "Fernbedienung Heizung"
+
+msgid "Lawn mowed in the garden"
+msgstr "Rasen im Garten gemäht"
+
+msgid "Some good snacks"
+msgstr "Paar gute Snacks"
+
+msgid "Pizza dough"
+msgstr "Pizzateig"
+
+msgid "Sieved tomatoes"
+msgstr "Passierte Tomaten"
+
+msgid "Salami"
+msgstr "Salami"
+
+msgid "Toast"
+msgstr "Toast"
+
+msgid "Minced meat"
+msgstr "Hackfleisch"
+
+msgid "Pizza"
+msgstr "Pizza"
+
+msgid "Spaghetti bolognese"
+msgstr "Spaghetti Bolognese"
+
+msgid "Sandwiches"
+msgstr "Belegte Toasts"
+
+msgid "English"
+msgstr "Englisch"
+
+msgid "German"
+msgstr "Deutsch"
+
+msgid "Italian"
+msgstr "Italienisch"
+
+msgid "Demo in different language"
+msgstr "Demo in anderer Sprache"
+
+msgid "This is the note content of the recipe ingredient"
+msgstr "Dies ist der Inhalt der Notiz der Zutat"
+
+msgid "Demo User"
+msgstr "Demo Benutzer"
+
+msgid "Gram"
+msgstr "Gramm"
+
+msgid "Grams"
+msgstr "Gramm"
+
+msgid "Flour"
+msgstr "Mehl"
+
+msgid "Pancakes"
+msgstr "Pfannkuchen"
+
+msgid "Sugar"
+msgstr "Zucker"
+
+msgid "Home"
+msgstr "Zuhause"
+
+msgid "Life"
+msgstr "Leben"
+
+msgid "Projects"
+msgstr "Projekte"
+
+msgid "Repair the garage door"
+msgstr "Garagentor reparieren"
+
+msgid "Fork and improve grocy"
+msgstr "grocy forken und verbessern"
+
+msgid "Find a solution for what to do when I forget the door keys"
+msgstr "Eine Lösung für \"Haustürschlüssel vergessen\" finden"
+
+msgid "Sweets"
+msgstr "Süßigkeiten"
+
+msgid "Bakery products"
+msgstr "Bäckerei Produkte"
+
+msgid "Tinned food"
+msgstr "Konservern"
+
+msgid "Butchery products"
+msgstr "Metzgerei"
+
+msgid "Vegetables/Fruits"
+msgstr "Obst/Gemüse"
+
+msgid "Refrigerated products"
+msgstr "Kühlregal"
+
+msgid "Coffee machine"
+msgstr "Kaffeemaschine"
+
+msgid "Dishwasher"
+msgstr "Spülmaschine"
+
+msgid "Liter"
+msgstr "Liter"
+
+msgid "Liters"
+msgstr "Liter"
+
+msgid "Bottle"
+msgstr "Flasche"
+
+msgid "Bottles"
+msgstr "Flaschen"
+
+msgid "Milk"
+msgstr "Milch"
+
+msgid "Chocolate sauce"
+msgstr "Schokoladensoße"
+
+msgid "Milliliters"
+msgstr "Milliliter"
+
+msgid "Milliliter"
+msgstr "Milliliter"
+
+msgid "Bottom"
+msgstr "Boden"
+
+msgid "Topping"
+msgstr "Belag"
+
+msgid "French"
+msgstr "Französisch"
+
+msgid "Turkish"
+msgstr "Türkisch"
+
+msgid "Spanish"
+msgstr "Spanisch"
+
+msgid "Russian"
+msgstr "Russisch"
+
+msgid "The thing which happens on the 5th of every month"
+msgstr "Das, was am 5. jedes Monats zu tun ist"
+
+msgid "The thing which happens daily"
+msgstr "Das, was täglich zu tun ist"
+
+msgid "The thing which happens on Mondays and Wednesdays"
+msgstr "Das, was Montags und Mittwochs zu tun ist"
+
+msgid "Swedish"
+msgstr "Schwedisch"
+
+msgid "Polish"
+msgstr ""

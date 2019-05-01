@@ -1,0 +1,286 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Translation migration from old PHP array files\n"
+"Language-Team: http://www.transifex.com/grocy/grocy/language/ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01T17:59:17+00:00\n"
+"Language: ru\n"
+"X-Domain: grocy/demo_data\n"
+
+msgid "Cookies"
+msgstr "Печенье"
+
+msgid "Chocolate"
+msgstr "Шоколад"
+
+msgid "Pantry"
+msgstr ""
+
+msgid "Candy cupboard"
+msgstr ""
+
+msgid "Tinned food cupboard"
+msgstr ""
+
+msgid "Fridge"
+msgstr "Холодильник"
+
+msgid "Piece"
+msgstr "Штука"
+
+msgid "Pieces"
+msgstr "Штук(и)"
+
+msgid "Pack"
+msgstr "Упаковка"
+
+msgid "Packs"
+msgstr "Упаков(ки/ок)"
+
+msgid "Glass"
+msgstr "Стакан"
+
+msgid "Glasses"
+msgstr "Стакан(а/ов)"
+
+msgid "Tin"
+msgstr ""
+
+msgid "Tins"
+msgstr ""
+
+msgid "Can"
+msgstr ""
+
+msgid "Cans"
+msgstr ""
+
+msgid "Bunch"
+msgstr ""
+
+msgid "Bunches"
+msgstr ""
+
+msgid "Gummy bears"
+msgstr ""
+
+msgid "Crisps"
+msgstr ""
+
+msgid "Eggs"
+msgstr "Яйца"
+
+msgid "Noodles"
+msgstr "Макароны"
+
+msgid "Pickles"
+msgstr "Огурцы"
+
+msgid "Gulash soup"
+msgstr ""
+
+msgid "Yogurt"
+msgstr "Йогурт"
+
+msgid "Cheese"
+msgstr "Сыр"
+
+msgid "Cold cuts"
+msgstr ""
+
+msgid "Paprika"
+msgstr ""
+
+msgid "Cucumber"
+msgstr ""
+
+msgid "Radish"
+msgstr ""
+
+msgid "Tomato"
+msgstr "Помидор"
+
+msgid "Changed towels in the bathroom"
+msgstr ""
+
+msgid "Cleaned the kitchen floor"
+msgstr ""
+
+msgid "Warranty ends"
+msgstr "Гарантия заканчивается"
+
+msgid "TV remote control"
+msgstr "Пульт ДУ"
+
+msgid "Alarm clock"
+msgstr "Часы с будильником"
+
+msgid "Heat remote control"
+msgstr ""
+
+msgid "Lawn mowed in the garden"
+msgstr ""
+
+msgid "Some good snacks"
+msgstr ""
+
+msgid "Pizza dough"
+msgstr ""
+
+msgid "Sieved tomatoes"
+msgstr ""
+
+msgid "Salami"
+msgstr ""
+
+msgid "Toast"
+msgstr ""
+
+msgid "Minced meat"
+msgstr ""
+
+msgid "Pizza"
+msgstr ""
+
+msgid "Spaghetti bolognese"
+msgstr ""
+
+msgid "Sandwiches"
+msgstr ""
+
+msgid "English"
+msgstr ""
+
+msgid "German"
+msgstr ""
+
+msgid "Italian"
+msgstr ""
+
+msgid "Demo in different language"
+msgstr ""
+
+msgid "This is the note content of the recipe ingredient"
+msgstr ""
+
+msgid "Demo User"
+msgstr ""
+
+msgid "Gram"
+msgstr ""
+
+msgid "Grams"
+msgstr ""
+
+msgid "Flour"
+msgstr ""
+
+msgid "Pancakes"
+msgstr ""
+
+msgid "Sugar"
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "Life"
+msgstr ""
+
+msgid "Projects"
+msgstr ""
+
+msgid "Repair the garage door"
+msgstr ""
+
+msgid "Fork and improve grocy"
+msgstr ""
+
+msgid "Find a solution for what to do when I forget the door keys"
+msgstr ""
+
+msgid "Sweets"
+msgstr ""
+
+msgid "Bakery products"
+msgstr ""
+
+msgid "Tinned food"
+msgstr ""
+
+msgid "Butchery products"
+msgstr ""
+
+msgid "Vegetables/Fruits"
+msgstr ""
+
+msgid "Refrigerated products"
+msgstr ""
+
+msgid "Coffee machine"
+msgstr ""
+
+msgid "Dishwasher"
+msgstr ""
+
+msgid "Liter"
+msgstr ""
+
+msgid "Liters"
+msgstr ""
+
+msgid "Bottle"
+msgstr ""
+
+msgid "Bottles"
+msgstr ""
+
+msgid "Milk"
+msgstr ""
+
+msgid "Chocolate sauce"
+msgstr ""
+
+msgid "Milliliters"
+msgstr ""
+
+msgid "Milliliter"
+msgstr ""
+
+msgid "Bottom"
+msgstr ""
+
+msgid "Topping"
+msgstr ""
+
+msgid "French"
+msgstr "Французский"
+
+msgid "Turkish"
+msgstr "Турецкий"
+
+msgid "Spanish"
+msgstr "Испанский"
+
+msgid "Russian"
+msgstr ""
+
+msgid "The thing which happens on the 5th of every month"
+msgstr ""
+
+msgid "The thing which happens daily"
+msgstr ""
+
+msgid "The thing which happens on Mondays and Wednesdays"
+msgstr ""
+
+msgid "Swedish"
+msgstr ""
+
+msgid "Polish"
+msgstr ""

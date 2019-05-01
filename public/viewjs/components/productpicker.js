@@ -139,8 +139,8 @@ $('#product_id_text_input').on('blur', function(e)
 			}
 
 			bootbox.dialog({
-				message: L('"#1" could not be resolved to a product, how do you want to proceed?', input),
-				title: L('Create or assign product'),
+				message: __t('"%s" could not be resolved to a product, how do you want to proceed?', input),
+				title: __t('Create or assign product'),
 				onEscape: function()
 				{
 					Grocy.Components.ProductPicker.SetValue('');
@@ -149,7 +149,7 @@ $('#product_id_text_input').on('blur', function(e)
 				backdrop: true,
 				buttons: {
 					cancel: {
-						label: L('Cancel'),
+						label: __t('Cancel'),
 						className: 'btn-secondary responsive-button',
 						callback: function()
 						{
@@ -157,7 +157,7 @@ $('#product_id_text_input').on('blur', function(e)
 						}
 					},
 					addnewproduct: {
-						label: '<strong>P</strong> ' + L('Add as new product'),
+						label: '<strong>P</strong> ' + __t('Add as new product'),
 						className: 'btn-success add-new-product-dialog-button responsive-button ' + addProductWorkflowsAdditionalCssClasses,
 						callback: function()
 						{
@@ -165,7 +165,7 @@ $('#product_id_text_input').on('blur', function(e)
 						}
 					},
 					addbarcode: {
-						label: '<strong>B</strong> ' + L('Add as barcode to existing product'),
+						label: '<strong>B</strong> ' + __t('Add as barcode to existing product'),
 						className: 'btn-info add-new-barcode-dialog-button responsive-button',
 						callback: function()
 						{
@@ -173,7 +173,7 @@ $('#product_id_text_input').on('blur', function(e)
 						}
 					},
 					addnewproductwithbarcode: {
-						label: '<strong>A</strong> ' + L('Add as new product and prefill barcode'),
+						label: '<strong>A</strong> ' + __t('Add as new product and prefill barcode'),
 						className: 'btn-warning add-new-product-with-barcode-dialog-button responsive-button ' + addProductWorkflowsAdditionalCssClasses,
 						callback: function()
 						{

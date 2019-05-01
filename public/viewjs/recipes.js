@@ -4,7 +4,7 @@
 	'columnDefs': [
 		{ 'orderData': 2, 'targets': 1 }
 	],
-	'language': JSON.parse(L('datatables_localization')),
+	'language': JSON.parse(__t('datatables_localization')),
 	'scrollY': false,
 	'colReorder': true,
 	'stateSave': true,
@@ -65,14 +65,14 @@ $("#selectedRecipeDeleteButton").on('click', function(e)
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 
 	bootbox.confirm({
-		message: L('Are you sure to delete recipe "#1"?', objectName),
+		message: __t('Are you sure to delete recipe "%s"?', objectName),
 		buttons: {
 			confirm: {
-				label: L('Yes'),
+				label: __t('Yes'),
 				className: 'btn-success'
 			},
 			cancel: {
-				label: L('No'),
+				label: __t('No'),
 				className: 'btn-danger'
 			}
 		},
@@ -101,14 +101,14 @@ $(document).on('click', '.recipe-order-missing-button', function(e)
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 
 	bootbox.confirm({
-		message: L('Are you sure to put all missing ingredients for recipe "#1" on the shopping list?', objectName) + "<br><br>" + L("Uncheck ingredients to not put them on the shopping list") + ":" + $("#missing-recipe-pos-list")[0].outerHTML.replace("d-none", ""),
+		message: __t('Are you sure to put all missing ingredients for recipe "%s" on the shopping list?', objectName) + "<br><br>" + __t("Uncheck ingredients to not put them on the shopping list") + ":" + $("#missing-recipe-pos-list")[0].outerHTML.replace("d-none", ""),
 		buttons: {
 			confirm: {
-				label: L('Yes'),
+				label: __t('Yes'),
 				className: 'btn-success'
 			},
 			cancel: {
-				label: L('No'),
+				label: __t('No'),
 				className: 'btn-danger'
 			}
 		},
@@ -146,14 +146,14 @@ $("#selectedRecipeConsumeButton").on('click', function(e)
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 
 	bootbox.confirm({
-		message: L('Are you sure to consume all ingredients needed by recipe "#1" (ingredients marked with "check only if a single unit is in stock" will be ignored)?', objectName),
+		message: __t('Are you sure to consume all ingredients needed by recipe "%s" (ingredients marked with "check only if a single unit is in stock" will be ignored)?', objectName),
 		buttons: {
 			confirm: {
-				label: L('Yes'),
+				label: __t('Yes'),
 				className: 'btn-success'
 			},
 			cancel: {
-				label: L('No'),
+				label: __t('No'),
 				className: 'btn-danger'
 			}
 		},
@@ -167,7 +167,7 @@ $("#selectedRecipeConsumeButton").on('click', function(e)
 					function(result)
 					{
 						Grocy.FrontendHelpers.EndUiBusy();
-						toastr.success(L('Removed all ingredients of recipe "#1" from stock', objectName));
+						toastr.success(__t('Removed all ingredients of recipe "%s" from stock', objectName));
 					},
 					function(xhr)
 					{

@@ -1,0 +1,31 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Translation migration from old PHP array files\n"
+"Language-Team: http://www.transifex.com/grocy/grocy/language/tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-05-01T17:59:18+00:00\n"
+"PO-Revision-Date: 2019-05-01T17:59:18+00:00\n"
+"Language: tr\n"
+"X-Domain: grocy/component_translations\n"
+
+msgid "timeago_locale"
+msgstr "tr"
+
+msgid "timeago_nan"
+msgstr "NaN yıl önce"
+
+msgid "moment_locale"
+msgstr "tr"
+
+msgid "datatables_localization"
+msgstr "{\"sEmptyTable\":\"Tablo içerisinde uygun veri yok\",\"sInfo\":\"_TOTAL_ girdiden _START_ - _END_ aralığı gösteriliyor\",\"sInfoEmpty\":\"0 girdiden 0 - 0 aralığı gösteriliyor\",\"sInfoFiltered\":\"(_MAX_ toplam girdiden filtrelendi)\",\"sInfoPostFix\":\"\",\"sInfoThousands\":\",\",\"sLengthMenu\":\"_MENU_ girdilerini göster\",\"sLoadingRecords\":\"Yükleniyor...\",\"sProcessing\":\"İşleniyor...\",\"sSearch\":\"Ara:\",\"sZeroRecords\":\"Eşleşen kayıt bulunamadı\",\"oPaginate\":{\"sFirst\":\"İlk\",\"sLast\":\"Son\",\"sNext\":\"Sonraki\",\"sPrevious\":\"Önceki\"},\"oAria\":{\"sSortAscending\":\": sütunu artan sıraya göre sıralamak için aktif edin\",\"sSortDescending\":\": sütunu azalan sıraya göre sıralamak için aktif edin\"}}"
+
+msgid "summernote_locale"
+msgstr "tr-TR"
+
+msgid "fullcalendar_locale"
+msgstr "tr"

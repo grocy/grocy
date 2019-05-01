@@ -1,0 +1,31 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Translation migration from old PHP array files\n"
+"Language-Team: http://www.transifex.com/grocy/grocy/language/it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01T17:59:17+00:00\n"
+"Language: it\n"
+"X-Domain: grocy/component_translations\n"
+
+msgid "timeago_locale"
+msgstr "it"
+
+msgid "timeago_nan"
+msgstr "NaN anni fa"
+
+msgid "moment_locale"
+msgstr "it"
+
+msgid "datatables_localization"
+msgstr "{\"sEmptyTable\":\"Nessun dato disponibile\",\"sInfo\":\"Mostrando da _START_ a _END_ di _TOTAL_ voci\",\"sInfoEmpty\":\"Mostrando da 0 a 0 di 0 voci\",\"sInfoFiltered\":\"(Filtrato da _MAX_ voci totali)\",\"sInfoPostFix\":\"\",\"sInfoThousands\":\",\",\"sLengthMenu\":\"Mostra _MENU_ voci\",\"sLoadingRecords\":\"Caricando...\",\"sProcessing\":\"Calcolando...\",\"sSearch\":\"Cerca:\",\"sZeroRecords\":\"Nessun risultato trovato\",\"oPaginate\":{\"sFirst\":\"Prima\",\"sLast\":\"Ultima\",\"sNext\":\"Prossima\",\"sPrevious\":\"Precedente\"},\"oAria\":{\"sSortAscending\":\": ordine crescente\",\"sSortDescending\":\": ordine decrescente\"}}"
+
+msgid "summernote_locale"
+msgstr "it-IT"
+
+msgid "fullcalendar_locale"
+msgstr "fr"

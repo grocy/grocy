@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $L('Purchase'))
+@section('title', $__t('Purchase'))
 @section('activeNav', 'purchase')
 @section('viewJsName', 'purchase')
 
@@ -23,13 +23,13 @@
 				'initWithNow' => false,
 				'limitEndToNow' => false,
 				'limitStartToNow' => false,
-				'invalidFeedback' => $L('A best before date is required'),
+				'invalidFeedback' => $__t('A best before date is required'),
 				'nextInputSelector' => '#amount',
 				'additionalCssClasses' => 'date-only-datetimepicker',
 				'shortcutValue' => '2999-12-31',
 				'shortcutLabel' => 'Never expires',
 				'earlierThanInfoLimit' => date('Y-m-d'),
-				'earlierThanInfoText' => $L('The given date is earlier than today, are you sure?')
+				'earlierThanInfoText' => $__t('The given date is earlier than today, are you sure?')
 			))
 
 			@include('components.numberpicker', array(
@@ -37,8 +37,8 @@
 				'label' => 'Amount',
 				'hintId' => 'amount_qu_unit',
 				'min' => 1,
-				'invalidFeedback' => $L('The amount cannot be lower than #1', '1'),
-				'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info" class="text-info font-italic d-none">' . $L('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
+				'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
+				'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info" class="text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
 			))
 
 			@include('components.numberpicker', array(
@@ -47,8 +47,8 @@
 				'min' => 0,
 				'step' => 0.01,
 				'value' => '',
-				'hint' => $L('in #1 per purchase quantity unit', GROCY_CURRENCY),
-				'invalidFeedback' => $L('The price cannot be lower than #1', '0'),
+				'hint' => $__t('in %s per purchase quantity unit', GROCY_CURRENCY),
+				'invalidFeedback' => $__t('The price cannot be lower than %s', '0'),
 				'isRequired' => false
 			))
 
@@ -57,7 +57,7 @@
 				'isRequired' => false
 			))
 
-			<button id="save-purchase-button" class="btn btn-success">{{ $L('OK') }}</button>
+			<button id="save-purchase-button" class="btn btn-success">{{ $__t('OK') }}</button>
 
 		</form>
 	</div>

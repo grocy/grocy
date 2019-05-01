@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $L('Products'))
+@section('title', $__t('Products'))
 @section('activeNav', 'products')
 @section('viewJsName', 'products')
 
@@ -10,13 +10,13 @@
 		<h1>
 			@yield('title')
 			<a class="btn btn-outline-dark" href="{{ $U('/product/new') }}">
-				<i class="fas fa-plus"></i>&nbsp;{{ $L('Add') }}
+				<i class="fas fa-plus"></i>&nbsp;{{ $__t('Add') }}
 			</a>
 			<a class="btn btn-outline-secondary" href="{{ $U('/userfields?entity=products') }}">
-				<i class="fas fa-sliders-h"></i>&nbsp;{{ $L('Configure userfields') }}
+				<i class="fas fa-sliders-h"></i>&nbsp;{{ $__t('Configure userfields') }}
 			</a>
 			<a class="btn btn-outline-secondary" href="{{ $U('/stocksettings#productpresets') }}">
-				<i class="fas fa-sliders-h"></i>&nbsp;{{ $L('Presets for new products') }}
+				<i class="fas fa-sliders-h"></i>&nbsp;{{ $__t('Presets for new products') }}
 			</a>
 		</h1>
 	</div>
@@ -24,13 +24,13 @@
 
 <div class="row mt-3">
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
+		<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
 	</div>
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="location-filter">{{ $L('Filter by product group') }}</label> <i class="fas fa-filter"></i>
+		<label for="location-filter">{{ $__t('Filter by product group') }}</label> <i class="fas fa-filter"></i>
 		<select class="form-control" id="product-group-filter">
-			<option value="all">{{ $L('All') }}</option>
+			<option value="all">{{ $__t('All') }}</option>
 			@foreach($productGroups as $productGroup)
 				<option value="{{ $productGroup->id }}">{{ $productGroup->name }}</option>
 			@endforeach
@@ -44,13 +44,13 @@
 			<thead>
 				<tr>
 					<th class="border-right"></th>
-					<th>{{ $L('Name') }}</th>
-					<th>{{ $L('Location') }}</th>
-					<th>{{ $L('Min. stock amount') }}</th>
-					<th>{{ $L('QU purchase') }}</th>
-					<th>{{ $L('QU stock') }}</th>
-					<th>{{ $L('QU factor') }}</th>
-					<th>{{ $L('Product group') }}</th>
+					<th>{{ $__t('Name') }}</th>
+					<th>{{ $__t('Location') }}</th>
+					<th>{{ $__t('Min. stock amount') }}</th>
+					<th>{{ $__t('QU purchase') }}</th>
+					<th>{{ $__t('QU stock') }}</th>
+					<th>{{ $__t('QU factor') }}</th>
+					<th>{{ $__t('Product group') }}</th>
 
 					@include('components.userfields_thead', array(
 						'userfields' => $userfields

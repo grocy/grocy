@@ -1,9 +1,9 @@
 @extends('layout.default')
 
 @if($mode == 'edit')
-	@section('title', $L('Edit battery'))
+	@section('title', $__t('Edit battery'))
 @else
-	@section('title', $L('Create battery'))
+	@section('title', $__t('Create battery'))
 @endif
 
 @section('viewJsName', 'batteryform')
@@ -22,18 +22,18 @@
 		<form id="battery-form" novalidate>
 
 			<div class="form-group">
-				<label for="name">{{ $L('Name') }}</label>
+				<label for="name">{{ $__t('Name') }}</label>
 				<input type="text" class="form-control" required id="name" name="name" value="@if($mode == 'edit'){{ $battery->name }}@endif">
-				<div class="invalid-feedback">{{ $L('A name is required') }}</div>
+				<div class="invalid-feedback">{{ $__t('A name is required') }}</div>
 			</div>
 
 			<div class="form-group">
-				<label for="description">{{ $L('Description') }}</label>
+				<label for="description">{{ $__t('Description') }}</label>
 				<input type="text" class="form-control" id="description" name="description" value="@if($mode == 'edit'){{ $battery->description }}@endif">
 			</div>
 
 			<div class="form-group">
-				<label for="name">{{ $L('Used in') }}</label>
+				<label for="name">{{ $__t('Used in') }}</label>
 				<input type="text" class="form-control" id="used_in" name="used_in" value="@if($mode == 'edit'){{ $battery->used_in }}@endif">
 			</div>
 
@@ -43,8 +43,8 @@
 				'label' => 'Charge cycle interval (days)',
 				'value' => $value,
 				'min' => '0',
-				'hint' => $L('0 means suggestions for the next charge cycle are disabled'),
-				'invalidFeedback' => $L('This cannot be negative')
+				'hint' => $__t('0 means suggestions for the next charge cycle are disabled'),
+				'invalidFeedback' => $__t('This cannot be negative')
 			))
 
 			@include('components.userfieldsform', array(
@@ -52,7 +52,7 @@
 				'entity' => 'batteries'
 			))
 
-			<button id="save-battery-button" class="btn btn-success">{{ $L('Save') }}</button>
+			<button id="save-battery-button" class="btn btn-success">{{ $__t('Save') }}</button>
 
 		</form>
 	</div>

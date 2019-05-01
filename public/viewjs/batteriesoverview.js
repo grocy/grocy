@@ -4,7 +4,7 @@
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 }
 	],
-	'language': JSON.parse(L('datatables_localization')),
+	'language': JSON.parse(__t('datatables_localization')),
 	'scrollY': false,
 	'colReorder': true,
 	'stateSave': true,
@@ -107,7 +107,7 @@ $(document).on('click', '.track-charge-cycle-button', function(e)
 					}
 
 					Grocy.FrontendHelpers.EndUiBusy();
-					toastr.success(L('Tracked charge cycle of battery #1 on #2', batteryName, trackedTime));
+					toastr.success(__t('Tracked charge cycle of battery %s on %s', batteryName, trackedTime));
 					RefreshContextualTimeago();
 					RefreshStatistics();
 				},
@@ -154,8 +154,8 @@ function RefreshStatistics()
 				}
 			});
 
-			$("#info-due-batteries").text(Pluralize(dueCount, L('#1 battery is due to be charged within the next #2 days', dueCount, nextXDays), L('#1 batteries are due to be charged within the next #2 days', dueCount, nextXDays)));
-			$("#info-overdue-batteries").text(Pluralize(overdueCount, L('#1 battery is overdue to be charged', overdueCount), L('#1 batteries are overdue to be charged', overdueCount)));
+			$("#info-due-batteries").text(__n(dueCount, __t('%s battery is due to be charged within the next %s days', dueCount, nextXDays), __t('%s batteries are due to be charged within the next %s days', dueCount, nextXDays)));
+			$("#info-overdue-batteries").text(__n(overdueCount, __t('%s battery is overdue to be charged', overdueCount), __t('%s batteries are overdue to be charged', overdueCount)));
 		},
 		function(xhr)
 		{

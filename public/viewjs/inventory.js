@@ -39,7 +39,7 @@
 					}
 
 					Grocy.FrontendHelpers.EndUiBusy("inventory-form");
-					toastr.success(L('Stock amount of #1 is now #2 #3', productDetails.product.name, productDetails.stock_amount, Pluralize(productDetails.stock_amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.id + ')"><i class="fas fa-undo"></i> ' + L("Undo") + '</a>');
+					toastr.success(__t('Stock amount of %s is now %s %s', productDetails.product.name, productDetails.stock_amount, __n(productDetails.stock_amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
 
 					if (addBarcode !== undefined)
 					{
@@ -51,7 +51,7 @@
 						$("#tare-weight-handling-info").addClass("d-none");
 						$("#new_amount").attr("min", "0");
 						$("#new_amount").attr("step", "1");
-						$("#new_amount").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', '0'));
+						$("#new_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '0'));
 						$('#new_amount').val('');
 						$('#new_amount_qu_unit').text("");
 						Grocy.Components.DateTimePicker.Clear();
@@ -93,19 +93,19 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				{
 					$("#new_amount").attr("min", "0.01");
 					$("#new_amount").attr("step", "0.01");
-					$("#new_amount").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', 0.01.toLocaleString()));
+					$("#new_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', 0.01.toLocaleString()));
 				}
 				else
 				{
 					$("#new_amount").attr("min", "0");
 					$("#new_amount").attr("step", "1");
-					$("#new_amount").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', '0'));
+					$("#new_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '0'));
 				}
 
 				if (productDetails.product.enable_tare_weight_handling == 1)
 				{
 					$("#new_amount").attr("min", productDetails.product.tare_weight);
-					$("#new_amount").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', parseFloat(productDetails.product.tare_weight).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 2 })));
+					$("#new_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', parseFloat(productDetails.product.tare_weight).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 2 })));
 					$("#tare-weight-handling-info").removeClass("d-none");
 				}
 				else
@@ -212,13 +212,13 @@ $('#new_amount').on('keyup', function(e)
 				}
 				else if (newAmount > productStockAmount + containerWeight)
 				{
-					$('#inventory-change-info').text(L('This means #1 will be added to stock', estimatedBookingAmount.toLocaleString() + ' ' + Pluralize(estimatedBookingAmount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)));
+					$('#inventory-change-info').text(__t('This means %s will be added to stock', estimatedBookingAmount.toLocaleString() + ' ' + __n(estimatedBookingAmount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)));
 					Grocy.Components.DateTimePicker.GetInputElement().attr('required', '');
 					Grocy.Components.LocationPicker.GetInputElement().attr('required', '');
 				}
 				else if (newAmount < productStockAmount + containerWeight)
 				{
-					$('#inventory-change-info').text(L('This means #1 will be removed from stock', estimatedBookingAmount.toLocaleString() + ' ' + Pluralize(estimatedBookingAmount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)));
+					$('#inventory-change-info').text(__t('This means %s will be removed from stock', estimatedBookingAmount.toLocaleString() + ' ' + __n(estimatedBookingAmount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)));
 					Grocy.Components.DateTimePicker.GetInputElement().removeAttr('required');
 					Grocy.Components.LocationPicker.GetInputElement().removeAttr('required');
 				}
@@ -238,7 +238,7 @@ function UndoStockBooking(bookingId)
 	Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', { },
 		function(result)
 		{
-			toastr.success(L("Booking successfully undone"));
+			toastr.success(__t("Booking successfully undone"));
 		},
 		function(xhr)
 		{

@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $L('Userfields'))
+@section('title', $__t('Userfields'))
 @section('activeNav', 'userfields')
 @section('viewJsName', 'userfields')
 
@@ -10,7 +10,7 @@
 		<h1>
 			@yield('title')
 			<a id="new-userfield-button" class="btn btn-outline-dark" href="{{ $U('/userfield/new') }}">
-				<i class="fas fa-plus"></i>&nbsp;{{ $L('Add') }}
+				<i class="fas fa-plus"></i>&nbsp;{{ $__t('Add') }}
 			</a>
 		</h1>
 	</div>
@@ -18,13 +18,13 @@
 
 <div class="row mt-3">
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
+		<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
 	</div>
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="entity-filter">{{ $L('Filter by entity') }}</label> <i class="fas fa-filter"></i>
+		<label for="entity-filter">{{ $__t('Filter by entity') }}</label> <i class="fas fa-filter"></i>
 		<select class="form-control" id="entity-filter">
-			<option value="all">{{ $L('All') }}</option>
+			<option value="all">{{ $__t('All') }}</option>
 			@foreach($entities as $entity)
 				<option value="{{ $entity }}">{{ $entity }}</option>
 			@endforeach
@@ -38,10 +38,10 @@
 			<thead>
 				<tr>
 					<th class="border-right"></th>
-					<th>{{ $L('Entity') }}</th>
-					<th>{{ $L('Name') }}</th>
-					<th>{{ $L('Caption') }}</th>
-					<th>{{ $L('Type') }}</th>
+					<th>{{ $__t('Entity') }}</th>
+					<th>{{ $__t('Name') }}</th>
+					<th>{{ $__t('Caption') }}</th>
+					<th>{{ $__t('Type') }}</th>
 				</tr>
 			</thead>
 			<tbody class="d-none">
@@ -65,7 +65,7 @@
 						{{ $userfield->caption }}
 					</td>
 					<td>
-						{{ $L($userfield->type) }}
+						{{ $__t$userfield->type) }}
 					</td>
 				</tr>
 				@endforeach

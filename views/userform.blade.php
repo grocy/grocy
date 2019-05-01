@@ -1,9 +1,9 @@
 @extends('layout.default')
 
 @if($mode == 'edit')
-	@section('title', $L('Edit user'))
+	@section('title', $__t('Edit user'))
 @else
-	@section('title', $L('Create user'))
+	@section('title', $__t('Create user'))
 @endif
 
 @section('viewJsName', 'userform')
@@ -22,33 +22,33 @@
 		<form id="user-form" novalidate>
 
 			<div class="form-group">
-				<label for="username">{{ $L('Username') }}</label>
+				<label for="username">{{ $__t('Username') }}</label>
 				<input type="text" class="form-control" required id="username" name="username" value="@if($mode == 'edit'){{ $user->username }}@endif">
-				<div class="invalid-feedback">{{ $L('A username is required') }}</div>
+				<div class="invalid-feedback">{{ $__t('A username is required') }}</div>
 			</div>
 
 			<div class="form-group">
-				<label for="first_name">{{ $L('First name') }}</label>
+				<label for="first_name">{{ $__t('First name') }}</label>
 				<input type="text" class="form-control" id="first_name" name="first_name" value="@if($mode == 'edit'){{ $user->first_name }}@endif">
 			</div>
 
 			<div class="form-group">
-				<label for="last_name">{{ $L('Last name') }}</label>
+				<label for="last_name">{{ $__t('Last name') }}</label>
 				<input type="text" class="form-control" id="last_name" name="last_name" value="@if($mode == 'edit'){{ $user->last_name }}@endif">
 			</div>
 
 			<div class="form-group">
-				<label for="password">{{ $L('Password') }}</label>
+				<label for="password">{{ $__t('Password') }}</label>
 				<input type="password" class="form-control" required id="password" name="password">
 			</div>
 
 			<div class="form-group">
-				<label for="password_confirm">{{ $L('Confirm password') }}</label>
+				<label for="password_confirm">{{ $__t('Confirm password') }}</label>
 				<input type="password" class="form-control" required id="password_confirm" name="password_confirm">
-				<div class="invalid-feedback">{{ $L('Passwords do not match') }}</div>
+				<div class="invalid-feedback">{{ $__t('Passwords do not match') }}</div>
 			</div>
 
-			<button id="save-user-button" class="btn btn-success">{{ $L('Save') }}</button>
+			<button id="save-user-button" class="btn btn-success">{{ $__t('Save') }}</button>
 
 		</form>
 	</div>

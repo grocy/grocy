@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $L('Login'))
+@section('title', $__t('Login'))
 @section('viewJsName', 'login')
 
 @section('content')
@@ -11,25 +11,25 @@
 		<form method="post" action="{{ $U('/login') }}" id="login-form" novalidate>
 
 			<div class="form-group">
-				<label for="name">{{ $L('Username') }}</label>
+				<label for="name">{{ $__t('Username') }}</label>
 				<input type="text" class="form-control" required id="username" name="username">
 				<div class="invalid-feedback"></div>
 			</div>
 
 			<div class="form-group">
-				<label for="name">{{ $L('Password') }}</label>
+				<label for="name">{{ $__t('Password') }}</label>
 				<input type="password" class="form-control" required id="password" name="password">
 				<div id="login-error" class="form-text text-danger d-none"></div>
 			</div>
 
 			<div class="checkbox">
 				<label for="stay_logged_in">
-					<input type="checkbox" id="stay_logged_in" name="stay_logged_in"> {{ $L('Stay logged in permanently') }}
-					<p id="qu-conversion-info" class="form-text text-muted small my-0">{{ $L('When not set, you will get logged out at latest after 30 days') }}</p>
+					<input type="checkbox" id="stay_logged_in" name="stay_logged_in"> {{ $__t('Stay logged in permanently') }}
+					<p id="qu-conversion-info" class="form-text text-muted small my-0">{{ $__t('When not set, you will get logged out at latest after 30 days') }}</p>
 				</label>
 			</div>
 
-			<button id="login-button" class="btn btn-success">{{ $L('OK') }}</button>
+			<button id="login-button" class="btn btn-success">{{ $__t('OK') }}</button>
 
 		</form>
 	</div>

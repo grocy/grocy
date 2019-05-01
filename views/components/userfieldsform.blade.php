@@ -5,7 +5,7 @@
 @if(count($userfields) > 0)
 
 <div id="userfields-form" data-entity="{{ $entity }}" class="border border-info p-2 mb-2" novalidate>
-	<h2 class="small">{{ $L('Userfields') }}</h2>
+	<h2 class="small">{{ $__t('Userfields') }}</h2>
 
 	@foreach($userfields as $userfield)
 

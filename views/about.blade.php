@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $L('About grocy'))
+@section('title', $__t('About grocy'))
 @section('viewJsName', 'about')
 
 @section('content')
@@ -10,10 +10,10 @@
 
 		<ul class="nav nav-tabs justify-content-center mt-3">
 			<li class="nav-item">
-				<a class="nav-link active" id="system-info-tab" data-toggle="tab" href="#system-info">{{ $L('System info') }}</a>
+				<a class="nav-link active" id="system-info-tab" data-toggle="tab" href="#system-info">{{ $__t('System info') }}</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" id="changelog-tab" data-toggle="tab" href="#changelog">{{ $L('Changelog') }}</a>
+				<a class="nav-link" id="changelog-tab" data-toggle="tab" href="#changelog">{{ $__t('Changelog') }}</a>
 			</li>
 		</ul>
 
@@ -22,7 +22,7 @@
 			<div class="tab-pane show active" id="system-info">
 				<p>
 					Version <code>{{ $version }}</code><br>
-					{{ $L('Released on') }} <code>{{ $releaseDate }}</code> <time class="timeago timeago-contextual" datetime="{{ $releaseDate }}"></time>
+					{{ $__t('Released on') }} <code>{{ $releaseDate }}</code> <time class="timeago timeago-contextual" datetime="{{ $releaseDate }}"></time>
 				</p>
 
 				<p>
@@ -38,7 +38,7 @@
 					<div class="card-header">
 						<a class="discrete-link" data-toggle="collapse-next" href="#">
 							Version <span class="font-weight-bold">{{ $changelogItem['version'] }}</span><br>
-							{{ $L('Released on') }} <span class="font-weight-bold">{{ $changelogItem['release_date'] }}</span>
+							{{ $__t('Released on') }} <span class="font-weight-bold">{{ $changelogItem['release_date'] }}</span>
 							<time class="timeago timeago-contextual" datetime="{{ $changelogItem['release_date'] }}"></time>
 						</a>
 					</div>

@@ -57,13 +57,13 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				{
 					$("#amount").attr("min", "0.01");
 					$("#amount").attr("step", "0.01");
-					$("#amount").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', 0.01.toLocaleString()));
+					$("#amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', 0.01.toLocaleString()));
 				}
 				else
 				{
 					$("#amount").attr("min", "1");
 					$("#amount").attr("step", "1");
-					$("#amount").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', '1'));
+					$("#amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '1'));
 				}
 
 				$("#not_check_stock_fulfillment").prop("checked", productDetails.product.not_check_stock_fulfillment_for_recipes == 1);
@@ -128,7 +128,7 @@ $("#only_check_single_unit_in_stock").on("click", function()
 		$("#qu_id").removeAttr("disabled");
 		$("#amount").attr("min", "0.01");
 		$("#amount").attr("step", "0.01");
-		$("#amount").parent().find(".invalid-feedback").text(L("This cannot be negative"));
+		$("#amount").parent().find(".invalid-feedback").text(__t("This cannot be negative"));
 		Grocy.FrontendHelpers.ValidateForm("recipe-pos-form");
 	}
 	else
@@ -137,7 +137,7 @@ $("#only_check_single_unit_in_stock").on("click", function()
 		$("#amount").attr("min", "0");
 		$("#amount").attr("step", "1");
 		Grocy.Components.ProductPicker.GetPicker().trigger("change"); // Selects the default quantity unit of the selected product
-		$("#amount").parent().find(".invalid-feedback").text(L("This cannot be negative and must be an integral number"));
+		$("#amount").parent().find(".invalid-feedback").text(__t("This cannot be negative and must be an integral number"));
 		Grocy.FrontendHelpers.ValidateForm("recipe-pos-form");
 	}
 });

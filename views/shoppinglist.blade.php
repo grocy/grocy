@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $L('Shopping list'))
+@section('title', $__t('Shopping list'))
 @section('activeNav', 'shoppinglist')
 @section('viewJsName', 'shoppinglist')
 
@@ -21,25 +21,25 @@
 		<h1>
 			@yield('title')
 			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/shoppinglistitem/new?list=' . $selectedShoppingListId) }}">
-				<i class="fas fa-plus"></i> {{ $L('Add item') }}
+				<i class="fas fa-plus"></i> {{ $__t('Add item') }}
 			</a>
 			<a id="clear-shopping-list" class="btn btn-outline-danger responsive-button @if($listItems->count() == 0) disabled @endif" href="#">
-				<i class="fas fa-trash"></i> {{ $L('Clear list') }}
+				<i class="fas fa-trash"></i> {{ $__t('Clear list') }}
 			</a>
 			<a id="add-products-below-min-stock-amount" class="btn btn-outline-primary responsive-button" href="#">
-				<i class="fas fa-cart-plus"></i> {{ $L('Add products that are below defined min. stock amount') }}
+				<i class="fas fa-cart-plus"></i> {{ $__t('Add products that are below defined min. stock amount') }}
 			</a>
 			<a id="add-all-items-to-stock-button" class="btn btn-outline-primary responsive-button" href="#">
-				<i class="fas fa-box"></i> {{ $L('Add all list items to stock') }}
+				<i class="fas fa-box"></i> {{ $__t('Add all list items to stock') }}
 			</a>
 		</h1>
-		<p data-status-filter="belowminstockamount" class="btn btn-lg btn-info status-filter-button responsive-button">{{ Pluralize(count($missingProducts), $L('#1 product is below defined min. stock amount', count($missingProducts)), $L('#1 products are below defined min. stock amount', count($missingProducts))) }}</p>
+		<p data-status-filter="belowminstockamount" class="btn btn-lg btn-info status-filter-button responsive-button">{{ Pluralize(count($missingProducts), $__t('%s product is below defined min. stock amount', count($missingProducts)), $__t('%s products are below defined min. stock amount', count($missingProducts))) }}</p>
 	</div>
 </div>
 
 <div class="row mt-3 border-top border-bottom py-2">
 	<div class="col-xs-12 col-md-4">
-		<label for="selected-shopping-list">{{ $L('Selected shopping list') }}</label>
+		<label for="selected-shopping-list">{{ $__t('Selected shopping list') }}</label>
 		<select class="form-control" id="selected-shopping-list">
 			@foreach($shoppingLists as $shoppingList)
 			<option @if($shoppingList->id == $selectedShoppingListId) selected="selected" @endif value="{{ $shoppingList->id }}">{{ $shoppingList->name }}</option>
@@ -49,24 +49,24 @@
 	<div class="col-xs-12 col-md-4">
 		<label for="selected-shopping-list">&nbsp;</label><br>
 		<a class="btn btn-outline-dark responsive-button" href="{{ $U('/shoppinglist/new') }}">
-			<i class="fas fa-plus"></i> {{ $L('New shopping list') }}
+			<i class="fas fa-plus"></i> {{ $__t('New shopping list') }}
 		</a>
 		<a id="delete-selected-shopping-list" class="btn btn-outline-danger responsive-button @if($selectedShoppingListId == 1) disabled @endif" href="#">
-			<i class="fas fa-trash"></i> {{ $L('Delete shopping list') }}
+			<i class="fas fa-trash"></i> {{ $__t('Delete shopping list') }}
 		</a>
 	</div>
 </div>
 
 <div class="row mt-3">
 	<div class="col-xs-12 col-md-4">
-		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
+		<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
 	</div>
 	<div class="col-xs-12 col-md-4">
-		<label for="status-filter">{{ $L('Filter by status') }}</label> <i class="fas fa-filter"></i>
+		<label for="status-filter">{{ $__t('Filter by status') }}</label> <i class="fas fa-filter"></i>
 		<select class="form-control" id="status-filter">
-			<option class="bg-white" value="all">{{ $L('All') }}</option>
-			<option class="bg-info" value="belowminstockamount">{{ $L('Below min. stock amount') }}</option>
+			<option class="bg-white" value="all">{{ $__t('All') }}</option>
+			<option class="bg-info" value="belowminstockamount">{{ $__t('Below min. stock amount') }}</option>
 		</select>
 	</div>
 </div>
@@ -77,8 +77,8 @@
 			<thead>
 				<tr>
 					<th class="border-right"></th>
-					<th>{{ $L('Product') }} / <em>{{ $L('Note') }}</em></th>
-					<th>{{ $L('Amount') }}</th>
+					<th>{{ $__t('Product') }} / <em>{{ $__t('Note') }}</em></th>
+					<th>{{ $__t('Amount') }}</th>
 					<th class="d-none">Hiden product group</th>
 					<th class="d-none">Hidden status</th>
 				</tr>
@@ -93,7 +93,7 @@
 						<a class="btn btn-sm btn-danger shoppinglist-delete-button" href="#" data-shoppinglist-id="{{ $listItem->id }}">
 							<i class="fas fa-trash"></i>
 						</a>
-						<a class="btn btn-sm btn-primary @if(empty($listItem->product_id)) disabled @else shopping-list-stock-add-workflow-list-item-button @endif" href="{{ $U('/purchase?embedded&flow=shoppinglistitemtostock&product=') }}{{ $listItem->product_id }}&amount={{ $listItem->amount }}&listitemid={{ $listItem->id }}" @if(!empty($listItem->product_id)) data-toggle="tooltip" title="{{ $L('Add #3 #1 of #2 to stock', Pluralize($listItem->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name_plural), FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->name, $listItem->amount) }}" @endif>
+						<a class="btn btn-sm btn-primary @if(empty($listItem->product_id)) disabled @else shopping-list-stock-add-workflow-list-item-button @endif" href="{{ $U('/purchase?embedded&flow=shoppinglistitemtostock&product=') }}{{ $listItem->product_id }}&amount={{ $listItem->amount }}&listitemid={{ $listItem->id }}" @if(!empty($listItem->product_id)) data-toggle="tooltip" title="{{ $__t('Add %s %s of %s to stock', Pluralize($listItem->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name_plural), FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->name, $listItem->amount) }}" @endif>
 							<i class="fas fa-box"></i>
 						</a>
 					</td>
@@ -104,7 +104,7 @@
 						{{ $listItem->amount }} @if(!empty($listItem->product_id)){{ Pluralize($listItem->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name_plural) }}@endif
 					</td>
 					<td class="d-none">
-						@if(!empty(FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->product_group_id)) {{ FindObjectInArrayByPropertyValue($productGroups, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->product_group_id)->name }} @else <span class="font-italic font-weight-light">{{ $L('Ungrouped') }}</span> @endif
+						@if(!empty(FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->product_group_id)) {{ FindObjectInArrayByPropertyValue($productGroups, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->product_group_id)->name }} @else <span class="font-italic font-weight-light">{{ $__t('Ungrouped') }}</span> @endif
 					</td>
 					<td class="d-none">
 						@if(FindObjectInArrayByPropertyValue($missingProducts, 'id', $listItem->product_id) !== null) belowminstockamount @endif
@@ -128,8 +128,8 @@
 			</div>
 			<div class="modal-footer">
 				<span id="shopping-list-stock-add-workflow-purchase-item-count" class="d-none mr-auto"></span>
-				<button id="shopping-list-stock-add-workflow-skip-button" type="button" class="btn btn-primary"><i class="fas fa-angle-double-right"></i> {{ $L('Skip') }}</button>
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">{{ $L('Close') }}</button>
+				<button id="shopping-list-stock-add-workflow-skip-button" type="button" class="btn btn-primary"><i class="fas fa-angle-double-right"></i> {{ $__t('Skip') }}</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">{{ $__t('Close') }}</button>
 			</div>
 		</div>
 	</div>

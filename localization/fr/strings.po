@@ -1,0 +1,1189 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Translation migration from old PHP array files\n"
+"Language-Team: http://www.transifex.com/grocy/grocy/language/fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01T17:59:17+00:00\n"
+"Language: fr\n"
+"X-Domain: grocy/strings\n"
+
+msgid "Stock overview"
+msgstr "Aperçu du stock"
+
+msgid "%s products expiring within the next %s days"
+msgstr "%s produits se périment dans les %s jours"
+
+msgid "%s products are already expired"
+msgstr "%s produits sont périmés"
+
+msgid "%s products are below defined min. stock amount"
+msgstr "%s produits sont sous le seuil de stock minimum"
+
+msgid "Product"
+msgstr "Produit"
+
+msgid "Amount"
+msgstr "Quantité"
+
+msgid "Next best before date"
+msgstr "Prochaine date de péremption"
+
+msgid "Logout"
+msgstr "Se déconnecter"
+
+msgid "Chores overview"
+msgstr "Aperçu des corvées"
+
+msgid "Batteries overview"
+msgstr "Batteries"
+
+msgid "Purchase"
+msgstr "Achat"
+
+msgid "Consume"
+msgstr "Consommation"
+
+msgid "Inventory"
+msgstr "Inventaire"
+
+msgid "Shopping list"
+msgstr "Liste de courses"
+
+msgid "Chore tracking"
+msgstr "Suivi des corvées"
+
+msgid "Battery tracking"
+msgstr "Suivi des batteries"
+
+msgid "Products"
+msgstr "Produits"
+
+msgid "Locations"
+msgstr "Emplacements"
+
+msgid "Quantity units"
+msgstr "Formats"
+
+msgid "Chores"
+msgstr "Corvées"
+
+msgid "Batteries"
+msgstr "Batteries"
+
+msgid "Chore"
+msgstr "Corvée"
+
+msgid "Next estimated tracking"
+msgstr "Prochaine occurrence estimée"
+
+msgid "Last tracked"
+msgstr "Dernière réalisation"
+
+msgid "Battery"
+msgstr "Batterie"
+
+msgid "Last charged"
+msgstr "Dernier chargement"
+
+msgid "Next planned charge cycle"
+msgstr "Prochaine charge planifiée"
+
+msgid "Best before"
+msgstr "Date d'expiration"
+
+msgid "OK"
+msgstr "Ok"
+
+msgid "Product overview"
+msgstr "Aperçu du produit"
+
+msgid "Stock quantity unit"
+msgstr "Format de stockage"
+
+msgid "Stock amount"
+msgstr "Quantité en stock"
+
+msgid "Last purchased"
+msgstr "Dernier achat"
+
+msgid "Last used"
+msgstr "Dernière utilisation"
+
+msgid "Spoiled"
+msgstr "Périmé"
+
+msgid "Barcode lookup is disabled"
+msgstr "La recherche par code barres est désactivée"
+
+msgid "will be added to the list of barcodes for the selected product on submit"
+msgstr "sera ajouté à la liste des codes barres du produit sélectionné à l'envoi"
+
+msgid "New amount"
+msgstr "Nouvelle quantité"
+
+msgid "Note"
+msgstr "Note"
+
+msgid "Tracked time"
+msgstr "Réalisé le"
+
+msgid "Chore overview"
+msgstr "Aperçu de la corvée"
+
+msgid "Tracked count"
+msgstr "Nombre de réalisations"
+
+msgid "Battery overview"
+msgstr "Aperçu des batteries"
+
+msgid "Charge cycles count"
+msgstr "Nombre de charges"
+
+msgid "Create shopping list item"
+msgstr "Créer une liste de courses"
+
+msgid "Edit shopping list item"
+msgstr "Modifier une liste de courses"
+
+msgid "Save"
+msgstr "Sauvegarder"
+
+msgid "Add"
+msgstr "Ajouter"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "Location"
+msgstr "Emplacement"
+
+msgid "Min. stock amount"
+msgstr "Quantité minimum en stock"
+
+msgid "QU purchase"
+msgstr "Format achat"
+
+msgid "QU stock"
+msgstr "Format stock"
+
+msgid "QU factor"
+msgstr "Facteur format"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Create product"
+msgstr "Créer un produit"
+
+msgid "Barcode(s)"
+msgstr "Code(s) barres"
+
+msgid "Minimum stock amount"
+msgstr "Quantité minimum en stock"
+
+msgid "Default best before days"
+msgstr "Jours avant péremption par défaut"
+
+msgid "Quantity unit purchase"
+msgstr "Format à l'achat"
+
+msgid "Quantity unit stock"
+msgstr "Format au stockage"
+
+msgid "Factor purchase to stock quantity unit"
+msgstr "Facteur entre la quantité à l'achat et la quantité en stock"
+
+msgid "Create location"
+msgstr "Créer un emplacement"
+
+msgid "Create quantity unit"
+msgstr "Créer un format"
+
+msgid "Period type"
+msgstr "Type de période"
+
+msgid "Period days"
+msgstr "Jours dans la période"
+
+msgid "Create chore"
+msgstr "Créer une corvée"
+
+msgid "Used in"
+msgstr "Utilisé dans"
+
+msgid "Create battery"
+msgstr "Créer une batterie"
+
+msgid "Edit battery"
+msgstr "Modifier une batterie"
+
+msgid "Edit chore"
+msgstr "Modifier une corvée"
+
+msgid "Edit quantity unit"
+msgstr "Modifier le format"
+
+msgid "Edit product"
+msgstr "Modifier le produit"
+
+msgid "Edit location"
+msgstr "Modifier l'emplacement"
+
+msgid "Record data"
+msgstr "Enregistrer les données"
+
+msgid "Manage master data"
+msgstr "Gérer les données"
+
+msgid "This will apply to added products"
+msgstr "Sera appliqué aux produits ajoutés"
+
+msgid "never"
+msgstr "jamais"
+
+msgid "Add products that are below defined min. stock amount"
+msgstr "Ajouter les produits qui sont en dessous du seuil de stock minimum"
+
+msgid "For purchases this amount of days will be added to today for the best before date suggestion"
+msgstr "A l'achat, ce nombre de jours sera ajouté à la date de péremption suggérée"
+
+msgid "This means 1 %s purchased will be converted into %s %s in stock"
+msgstr "1 %s acheté sera converti en %s %s dans le stock"
+
+msgid "Login"
+msgstr "Se connecter"
+
+msgid "Username"
+msgstr "Identifiant"
+
+msgid "Password"
+msgstr "Mot de passe"
+
+msgid "Invalid credentials, please try again"
+msgstr "Identifiants invalides, merci de réessayer"
+
+msgid "Are you sure to delete battery \"%s\"?"
+msgstr "Êtes vous sûr de vouloir supprimer la batterie \"%s\" ?"
+
+msgid "Yes"
+msgstr "Oui"
+
+msgid "No"
+msgstr "Non"
+
+msgid "Are you sure to delete chore \"%s\"?"
+msgstr "Voulez-vous vraiment supprimer la corvée \"%s\" ?"
+
+msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
+msgstr "\"%s\" n'a pas été retrouvé en tant que produit, comment voulez-vous procéder ?"
+
+msgid "Create or assign product"
+msgstr "Créer ou assigner à un produit"
+
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "Add as new product"
+msgstr "Ajouter un nouveau produit"
+
+msgid "Add as barcode to existing product"
+msgstr "Ajouter en tant que code-barres à un produit existant"
+
+msgid "Add as new product and prefill barcode"
+msgstr "Ajouter un nouveau produit et pré-renseigner le code-barres"
+
+msgid "Are you sure to delete quantity unit \"%s\"?"
+msgstr "Voulez-vous vraiment supprimer le format \"%s\" ?"
+
+msgid "Are you sure to delete product \"%s\"?"
+msgstr "Voulez-vous vraiment supprimer le produit \"%s\" ?"
+
+msgid "Are you sure to delete location \"%s\"?"
+msgstr "Voulez-vous vraiment supprimer l'emplacement \"%s\" ?"
+
+msgid "Manage API keys"
+msgstr "Gérer les clefs API"
+
+msgid "REST API & data model documentation"
+msgstr "Documentation sur l'API REST & le modèle des données"
+
+msgid "API keys"
+msgstr "Clefs API"
+
+msgid "Create new API key"
+msgstr "Créer une nouvelle clef API"
+
+msgid "API key"
+msgstr "Clef API"
+
+msgid "Expires"
+msgstr "Valide jusqu'à"
+
+msgid "Created"
+msgstr "Créée"
+
+msgid "This product is not in stock"
+msgstr "Ce produit n'est pas en stock"
+
+msgid "This means %s will be added to stock"
+msgstr "%s sera ajouté au stock"
+
+msgid "This means %s will be removed from stock"
+msgstr "%s sera supprimé du stock"
+
+msgid "This means it is estimated that a new execution of this chore is tracked %s days after the last was tracked"
+msgstr "La prochaine exécution de cette corvée sera programmée %s jours après sa dernière exécution"
+
+msgid "Removed %s %s of %s from stock"
+msgstr "%s %s de %s supprimés du stock"
+
+msgid "About grocy"
+msgstr "À propos de grocy"
+
+msgid "Close"
+msgstr "Fermer"
+
+msgid "%s batteries are due to be charged within the next %s days"
+msgstr "%s batteries doivent être rechargées dans les %s prochains jours"
+
+msgid "%s batteries are overdue to be charged"
+msgstr "%s batteries n'ont pas été rechargées à temps"
+
+msgid "%s chores are due to be done within the next %s days"
+msgstr "%s corvées doivent être réalisées dans les %s prochains jours"
+
+msgid "%s chores are overdue to be done"
+msgstr "%s corvées n'ont pas été réalisées à temps"
+
+msgid "Released on"
+msgstr "Date de sortie"
+
+msgid "Consume %s %s of %s"
+msgstr "Consommer %s %s de %s"
+
+msgid "Added %s %s of %s to stock"
+msgstr "%s %s de %s ajoutés au stock"
+
+msgid "Stock amount of %s is now %s %s"
+msgstr "La quantité en stock de %s est maintenant de %s %s"
+
+msgid "Tracked execution of chore %s on %s"
+msgstr "La corvée \"%s\" a été réalisée le %s"
+
+msgid "Tracked charge cycle of battery %s on %s"
+msgstr "La batterie \"%s\" a été rechargée le %s"
+
+msgid "Consume all %s which are currently in stock"
+msgstr "Consommer tous les %s actuellement en stock"
+
+msgid "All"
+msgstr "Tout"
+
+msgid "Track charge cycle of battery %s"
+msgstr "Indiquer le rechargement de la batterie %s"
+
+msgid "Track execution of chore %s"
+msgstr "Indiquer la réalisation de la corvée %s"
+
+msgid "Filter by location"
+msgstr "Filtrer par emplacement"
+
+msgid "Search"
+msgstr "Recherche"
+
+msgid "Not logged in"
+msgstr "Non connecté"
+
+msgid "You have to select a product"
+msgstr "Vous devez sélectionner un produit"
+
+msgid "You have to select a chore"
+msgstr "Vous devez sélectionner une corvée"
+
+msgid "You have to select a battery"
+msgstr "Vous devez sélectionner une batterie"
+
+msgid "A name is required"
+msgstr "Un nom est requis"
+
+msgid "A location is required"
+msgstr "Un emplacement est requis"
+
+msgid "The amount cannot be lower than %s"
+msgstr "La quantité ne peut être inférieure à %s"
+
+msgid "This cannot be negative"
+msgstr "Ne peut être négatif"
+
+msgid "A quantity unit is required"
+msgstr "Un format est requis"
+
+msgid "A period type is required"
+msgstr "Un type de période est requis"
+
+msgid "A best before date is required"
+msgstr ""
+
+msgid "Settings"
+msgstr "Paramètres"
+
+msgid "This can only be before now"
+msgstr "Ne peut être qu'antérieur à maintenant"
+
+msgid "Calendar"
+msgstr "Calendrier"
+
+msgid "Recipes"
+msgstr "Recettes"
+
+msgid "Edit recipe"
+msgstr "Modifier une recette"
+
+msgid "New recipe"
+msgstr "Nouvelle recette"
+
+msgid "Ingredients list"
+msgstr "Liste des ingrédients"
+
+msgid "Add recipe ingredient"
+msgstr "Ajouter un ingrédient dans la recette"
+
+msgid "Edit recipe ingredient"
+msgstr "Modifier un ingrédient dans la recette"
+
+msgid "Are you sure to delete recipe \"%s\"?"
+msgstr "Voulez-vous vraiment supprimer la recette \"%s\" ?"
+
+msgid "Are you sure to delete recipe ingredient \"%s\"?"
+msgstr "Voulez-vous vraiment supprimer l'ingrédient \"%s\" de la recette ?"
+
+msgid "Are you sure to empty shopping list \"%s\"?"
+msgstr ""
+
+msgid "Clear list"
+msgstr "Vider la liste"
+
+msgid "Requirements fulfilled"
+msgstr "Prérequis remplis"
+
+msgid "Put missing products on shopping list"
+msgstr "Ajouter les produits manquants dans la liste de courses"
+
+msgid "Not enough in stock, %s ingredients missing"
+msgstr "Pas assez en stock, %s ingrédients manquants"
+
+msgid "Enough in stock"
+msgstr "Il y en a assez en stock"
+
+msgid "Not enough in stock, %s ingredients missing but already on the shopping list"
+msgstr "Pas assez en stock, %s ingrédients manquants mais déjà dans la liste de courses"
+
+msgid "Expand to fullscreen"
+msgstr "Mettre en plein écran"
+
+msgid "Ingredients"
+msgstr "Ingrédients"
+
+msgid "Preparation"
+msgstr "Préparation"
+
+msgid "Recipe"
+msgstr "Recette"
+
+msgid "Not enough in stock, %s missing, %s already on shopping list"
+msgstr "Pas assez en stock, %s manquant et %s déjà dans la liste de courses"
+
+msgid "Show notes"
+msgstr "Afficher les notes"
+
+msgid "Put missing amount on shopping list"
+msgstr "Ajouter la quantité manquante dans la liste de courses"
+
+msgid "Are you sure to put all missing ingredients for recipe \"%s\" on the shopping list?"
+msgstr "Voulez-vous vraiment ajouter tous les ingrédients manquants de la recette \"%s\" dans la liste de courses ?"
+
+msgid "Added for recipe %s"
+msgstr "Ajoutés pour la recette %s"
+
+msgid "Manage users"
+msgstr "Gérer les utilisateurs"
+
+msgid "User"
+msgstr "Utilisateur"
+
+msgid "Users"
+msgstr "Utilisateurs"
+
+msgid "Are you sure to delete user \"%s\"?"
+msgstr "Voulez-vous vraiment supprimer l'utilisateur \"%s\" ?"
+
+msgid "Create user"
+msgstr "Créer un utilisateur"
+
+msgid "Edit user"
+msgstr "Modifier un utilisateur"
+
+msgid "First name"
+msgstr "Prénom"
+
+msgid "Last name"
+msgstr "Nom"
+
+msgid "A username is required"
+msgstr "Un nom d'utilisateur est requis"
+
+msgid "Confirm password"
+msgstr "Confirmation du mot de passe"
+
+msgid "Passwords do not match"
+msgstr "Les mots de passe ne sont pas identiques"
+
+msgid "Change password"
+msgstr "Changer le mot de passe"
+
+msgid "Done by"
+msgstr "Fait par"
+
+msgid "Last done by"
+msgstr "Dernière réalisation par"
+
+msgid "Unknown"
+msgstr "Inconnu"
+
+msgid "Filter by chore"
+msgstr "Filtrer par corvée"
+
+msgid "Chores journal"
+msgstr "Journal des corvées"
+
+msgid "0 means suggestions for the next charge cycle are disabled"
+msgstr "0 implique que les suggestions du prochain cycle de charge seront désactivées"
+
+msgid "Charge cycle interval (days)"
+msgstr "Intervalle du cycle de charge (jours)"
+
+msgid "Last price"
+msgstr "Dernier prix"
+
+msgid "Price history"
+msgstr "Historique des prix"
+
+msgid "No price history available"
+msgstr "Aucun historique disponible"
+
+msgid "Price"
+msgstr "Prix"
+
+msgid "in %s per purchase quantity unit"
+msgstr "en %s par quantité achetée (au format d'achat)"
+
+msgid "The price cannot be lower than %s"
+msgstr "Le prix ne peut être inférieur à %s"
+
+msgid "%s product expires within the next %s days"
+msgstr "%s produit se périme dans les %s prochains jours"
+
+msgid "%s product is already expired"
+msgstr "%s produit est périmé"
+
+msgid "%s product is below defined min. stock amount"
+msgstr "%s produit est sous le seuil de stock minimum"
+
+msgid "Unit"
+msgstr "Unité"
+
+msgid "Units"
+msgstr "Unités"
+
+msgid "%s chore is due to be done within the next %s days"
+msgstr "%s corvée doit être réalisée dans les %s prochains jours"
+
+msgid "%s chore is overdue to be done"
+msgstr "%s corvée n'a pas été réalisée à temps"
+
+msgid "%s battery is due to be charged within the next %s days"
+msgstr "%s batterie doit être rechargée dans les %s prochains jours"
+
+msgid "%s battery is overdue to be charged"
+msgstr "%s batterie n'a pas été rechargée à temps"
+
+msgid "%s unit was automatically added and will apply in addition to the amount entered here"
+msgstr "%s unité a automatiquement été ajoutée et sera appliquée en plus à la quantité entrée ici"
+
+msgid "in singular form"
+msgstr "Au singulier"
+
+msgid "in plural form"
+msgstr "Au pluriel"
+
+msgid "Never expires"
+msgstr "Ne périme jamais"
+
+msgid "This cannot be lower than %s"
+msgstr "Ne peut être inférieur à %s"
+
+msgid "-1 means that this product never expires"
+msgstr "-1 implique que ce produit ne périme jamais"
+
+msgid "Quantity unit"
+msgstr "Format"
+
+msgid "Only check if a single unit is in stock (a different quantity can then be used above)"
+msgstr "Vérifier uniquement si une unité est en stock (une quantité différente peut alors être utilisée au dessus)"
+
+msgid "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients marked with \"check only if a single unit is in stock\" will be ignored)?"
+msgstr "Voulez-vous vraiment consommer tous les ingrédients requis par la recette \"%s\" (les ingrédients avec l'option \"Vérifier uniquement si une unité est en stock\" seront ignorés) ?"
+
+msgid "Removed all ingredients of recipe \"%s\" from stock"
+msgstr "Enlever tous les ingrédients de la recette \"%s\" du stock"
+
+msgid "Consume all ingredients needed by this recipe"
+msgstr "Consommer tous les ingrédients requis par cette recette"
+
+msgid "Click to show technical details"
+msgstr "Cliquer pour afficher les détails techniques"
+
+msgid "Error while saving, probably this item already exists"
+msgstr "Erreur à l'enregistrement, cet objet existe déjà"
+
+msgid "Error details"
+msgstr "Détails sur l'erreur"
+
+msgid "Tasks"
+msgstr "Tâches"
+
+msgid "Show done tasks"
+msgstr "Afficher les tâches terminées"
+
+msgid "Task"
+msgstr "Tâche"
+
+msgid "Due"
+msgstr "À faire"
+
+msgid "Assigned to"
+msgstr "Assigné à"
+
+msgid "Mark task \"%s\" as completed"
+msgstr "Indiquer la tâche \"%s\" comme terminée"
+
+msgid "Uncategorized"
+msgstr "Sans catégorie"
+
+msgid "Task categories"
+msgstr "Catégories de tâche"
+
+msgid "Create task"
+msgstr "Créer une tâche"
+
+msgid "A due date is required"
+msgstr "Une date de réalisation est requise"
+
+msgid "Category"
+msgstr "Catégorie"
+
+msgid "Edit task"
+msgstr "Modifier la tâche"
+
+msgid "Are you sure to delete task \"%s\"?"
+msgstr "Voulez-vous vraiment supprimer la tâche \"%s\" ?"
+
+msgid "%s task is due to be done within the next %s days"
+msgstr "%s tâche doit être réalisée dans les %s prochains jours"
+
+msgid "%s tasks are due to be done within the next %s days"
+msgstr "%s tâches doivent être réalisées dans les %s prochains jours"
+
+msgid "%s task is overdue to be done"
+msgstr "%s tâche n'a pas été réalisée à temps"
+
+msgid "%s tasks are overdue to be done"
+msgstr "%s tâches n'ont pas été réalisées à temps"
+
+msgid "Edit task category"
+msgstr "Modifier la catégorie de tâche"
+
+msgid "Create task category"
+msgstr "Créer une catégorie de tâche"
+
+msgid "Product groups"
+msgstr "Groupes de produit"
+
+msgid "Ungrouped"
+msgstr "Sans groupe"
+
+msgid "Create product group"
+msgstr "Créer un groupe de produit"
+
+msgid "Edit product group"
+msgstr "Modifier le groupe de produit"
+
+msgid "Product group"
+msgstr "Groupe de produit"
+
+msgid "Are you sure to delete product group \"%s\"?"
+msgstr "Voulez-vous vraiment supprimer le groupe de produit \"%s\" ?"
+
+msgid "Stay logged in permanently"
+msgstr "Rester connecté de manière permanente"
+
+msgid "When not set, you will get logged out at latest after 30 days"
+msgstr "Si non défini, vous serez déconnecté après au moins 30 jours"
+
+msgid "Filter by status"
+msgstr "Filtrer par statut"
+
+msgid "Below min. stock amount"
+msgstr "En dessous du seuil de stock minimum"
+
+msgid "Expiring soon"
+msgstr "Expire bientôt"
+
+msgid "Already expired"
+msgstr "Déjà périmé"
+
+msgid "Due soon"
+msgstr "À réaliser bientôt"
+
+msgid "Overdue"
+msgstr "En retard"
+
+msgid "View settings"
+msgstr "Voir les paramètres"
+
+msgid "Auto reload on external changes"
+msgstr "Mettre à jour automatiquement lors d'un changement externe"
+
+msgid "Enable night mode"
+msgstr "Activer le mode nuit"
+
+msgid "Auto enable in time range"
+msgstr "Activer automatiquement pendant la période"
+
+msgid "From"
+msgstr "De"
+
+msgid "in format"
+msgstr "Au format"
+
+msgid "To"
+msgstr "à"
+
+msgid "Time range goes over midnight"
+msgstr "La période inclus minuit"
+
+msgid "Product picture"
+msgstr "Photo du produit"
+
+msgid "No file selected"
+msgstr "Aucun fichier sélectionné"
+
+msgid "If you don't select a file, the current picture will not be altered"
+msgstr "Si vous ne sélectionnez pas de photo, l'actuelle sera conservée"
+
+msgid "Delete"
+msgstr "Supprimer"
+
+msgid "The current picture will be deleted when you save the product"
+msgstr "La photo actuelle va être supprimée lors de la sauvegarde du produit"
+
+msgid "Select file"
+msgstr "Sélectionner un fichier"
+
+msgid "Image of product %s"
+msgstr "Photo du produit %s"
+
+msgid "This product cannot be deleted because it is in stock, please remove the stock amount first."
+msgstr "Ce produit ne peut être supprimé puisqu'il est en stock. Merci d'enlever la quantité en stock avant."
+
+msgid "Delete not possible"
+msgstr "Impossible de supprimer"
+
+msgid "Equipment"
+msgstr "Équipement"
+
+msgid "Instruction manual"
+msgstr "Manuel d'utilisation"
+
+msgid "The selected equipment has no instruction manual"
+msgstr "L'équipement sélectionné n'a pas de manuel d'utilisation"
+
+msgid "Notes"
+msgstr "Notes"
+
+msgid "Edit equipment"
+msgstr "Modifier un équipement"
+
+msgid "Create equipment"
+msgstr "Créer un équipement"
+
+msgid "If you don't select a file, the current instruction manual will not be altered"
+msgstr "Si vous ne sélectionnez pas de fichier, le manuel actuel ne sera pas modifié"
+
+msgid "No instruction manual available"
+msgstr "Aucun manuel d'utilisation disponible"
+
+msgid "The current instruction manual will be deleted when you save the equipment"
+msgstr "Le manuel d'utilisation actuel sera supprimé lors de la sauvegarde de cet équipement"
+
+msgid "No picture available"
+msgstr "Aucune photo disponible"
+
+msgid "Filter by product group"
+msgstr "Filtrer par groupe de produits"
+
+msgid "Presets for new products"
+msgstr "Modèle pour les nouveaux produits"
+
+msgid "Included recipes"
+msgstr "Recettes incluses"
+
+msgid "A recipe is required"
+msgstr "Une recette est requise"
+
+msgid "Add included recipe"
+msgstr "Ajouter une recette incluse"
+
+msgid "Edit included recipe"
+msgstr "Supprimer une recette incluse"
+
+msgid "Group"
+msgstr "Groupe"
+
+msgid "This will be used as a headline to group ingredients together"
+msgstr "Cela sera utilisé comme titre pour regrouper les ingrédients ensemble"
+
+msgid "Journal"
+msgstr "Journal"
+
+msgid "Stock journal"
+msgstr "Journal du stock"
+
+msgid "Filter by product"
+msgstr "Filtrer par produit"
+
+msgid "Booking time"
+msgstr "Temps de réservation"
+
+msgid "Booking type"
+msgstr "Type de réservation"
+
+msgid "Undo booking"
+msgstr "Annuler la réservation"
+
+msgid "Undone on"
+msgstr "Annulé le"
+
+msgid "Batteries journal"
+msgstr "Journal des batteries"
+
+msgid "Filter by battery"
+msgstr "Filtrer par batterie"
+
+msgid "Undo charge cycle"
+msgstr "Annuler le cycle de charge"
+
+msgid "Undo chore execution"
+msgstr "Annuler la réalisation de la corvée"
+
+msgid "Chore execution successfully undone"
+msgstr "La réalisation de la corvée a bien été annulée"
+
+msgid "Undo"
+msgstr "Annuler"
+
+msgid "Booking successfully undone"
+msgstr "Réservation annulée"
+
+msgid "Charge cycle successfully undone"
+msgstr "Le cycle de charge a bien été annulé"
+
+msgid "This cannot be negative and must be an integral number"
+msgstr "Ne peut être négatif et doit être un nombre entier"
+
+msgid "Disable stock fulfillment checking for this ingredient"
+msgstr "Désactiver la vérification du stock pour cet ingrédient"
+
+msgid "Add all list items to stock"
+msgstr "Ajouter toute la liste dans le stock"
+
+msgid "Add %s %s of %s to stock"
+msgstr "Ajouter %s %s de %s au stock"
+
+msgid "Adding shopping list item %s of %s"
+msgstr "Ajout du produit %s sur %s de la liste de courses"
+
+msgid "Use a specific stock item"
+msgstr "Utiliser un objet spécifique du stock"
+
+msgid "The first item in this list would be picked by the default rule which is \"First expiring first, then first in first out\""
+msgstr "Le premier élément de cette liste sera sélectionné par la règle par défaut qui est \"Le premier arrivant à péremption en premier, puis premier entré premier sorti\""
+
+msgid "Mark %s %s of %s as open"
+msgstr "Indiquer %s %s de %s comme ouvert"
+
+msgid "When a product was marked as opened, the best before date will be replaced by today + this amount of days (a value of 0 disables this)"
+msgstr "Quand un produit est marqué comme ouvert, la date de péremption sera remplacée par la date du jour + ce nombre de jours (une valeur de 0 désactive ce changement)"
+
+msgid "Default best before days after opened"
+msgstr "Date de péremption en jours par défaut après ouverture"
+
+msgid "Marked %s %s of %s as opened"
+msgstr "%s %s de %s indiqués comme ouverts"
+
+msgid "Mark as opened"
+msgstr "Indiquer comme ouvert"
+
+msgid "Expires on %s; Bought on %s"
+msgstr "Périme le %s; Acheté le %s"
+
+msgid "Not opened"
+msgstr "Non ouvert"
+
+msgid "Opened"
+msgstr "Ouvert"
+
+msgid "%s opened"
+msgstr "%s ouvert"
+
+msgid "Product expires"
+msgstr "Expiration du produit"
+
+msgid "Task due"
+msgstr "Tâche à réaliser"
+
+msgid "Chore due"
+msgstr "Corvée à réaliser"
+
+msgid "Battery charge cycle due"
+msgstr "Rechargement à réaliser"
+
+msgid "Show clock in header"
+msgstr "Afficher l'horloge dans l'en-tête"
+
+msgid "Stock settings"
+msgstr "Paramètres du stock"
+
+msgid "Shopping list to stock workflow"
+msgstr "Transition de la liste de courses vers le stock"
+
+msgid "Automatically do the booking using the last price and the amount of the shopping list item, if the product has \"Default best before days\" set"
+msgstr "Réaliser automatiquement les achats en utilisant le dernier prix connu et la quantité indiquée dans la liste, si le premier a une date de péremption par défaut renseignée"
+
+msgid "Skip"
+msgstr "Passer"
+
+msgid "Servings"
+msgstr ""
+
+msgid "Costs"
+msgstr ""
+
+msgid "Based on the prices of the last purchase per product"
+msgstr ""
+
+msgid "The ingredients listed here result in this amount of servings"
+msgstr ""
+
+msgid "Do not check against the shopping list when adding missing items to it"
+msgstr ""
+
+msgid "By default the amount to be added to the shopping list is \"needed amount - stock amount - shopping list amount\" - when this is enabled, it is only checked against the stock amount, not against what is already on the shopping list"
+msgstr ""
+
+msgid "Picture"
+msgstr ""
+
+msgid "Uncheck ingredients to not put them on the shopping list"
+msgstr ""
+
+msgid "This is for statistical purposes only"
+msgstr ""
+
+msgid "You have to select a recipe"
+msgstr ""
+
+msgid "Key type"
+msgstr ""
+
+msgid "Share/Integrate calendar (iCal)"
+msgstr ""
+
+msgid "Use the following (public) URL to share or integrate the calendar in iCal format"
+msgstr ""
+
+msgid "Allow partial units in stock"
+msgstr ""
+
+msgid "Enable tare weight handling"
+msgstr ""
+
+msgid "This is useful e.g. for flour in jars - on purchase/consume/inventory you always weigh the whole jar, the amount to be posted is then automatically calculated based on what is in stock and the tare weight defined below"
+msgstr ""
+
+msgid "Tare weight"
+msgstr ""
+
+msgid "Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated"
+msgstr ""
+
+msgid "You have to select a location"
+msgstr ""
+
+msgid "List"
+msgstr ""
+
+msgid "Gallery"
+msgstr ""
+
+msgid "The current picture will be deleted when you save the recipe"
+msgstr ""
+
+msgid "Show product details"
+msgstr ""
+
+msgid "Stock journal for this product"
+msgstr ""
+
+msgid "Show chore details"
+msgstr ""
+
+msgid "Journal for this chore"
+msgstr ""
+
+msgid "Show battery details"
+msgstr ""
+
+msgid "Journal for this battery"
+msgstr ""
+
+msgid "System info"
+msgstr ""
+
+msgid "Changelog"
+msgstr ""
+
+msgid "will be multiplied a factor of %s to get %s"
+msgstr ""
+
+msgid "The given date is earlier than today, are you sure?"
+msgstr ""
+
+msgid "Product count"
+msgstr ""
+
+msgid "Type a new product name or barcode and hit TAB to start a workflow"
+msgstr ""
+
+msgid "This will be used as the default setting when adding this product as a recipe ingredient"
+msgstr ""
+
+msgid "Add item"
+msgstr ""
+
+msgid "Selected shopping list"
+msgstr ""
+
+msgid "New shopping list"
+msgstr ""
+
+msgid "Delete shopping list"
+msgstr ""
+
+msgid "Chores settings"
+msgstr ""
+
+msgid "Batteries settings"
+msgstr ""
+
+msgid "Tasks settings"
+msgstr ""
+
+msgid "Create shopping list"
+msgstr ""
+
+msgid "Are you sure to delete shopping list \"%s\"?"
+msgstr ""
+
+msgid "Average shelf life"
+msgstr ""
+
+msgid "Spoil rate"
+msgstr ""
+
+msgid "Show more"
+msgstr ""
+
+msgid "Show less"
+msgstr ""
+
+msgid "The amount must be between %s and %s"
+msgstr ""
+
+msgid "Day of month"
+msgstr ""
+
+msgid "Monday"
+msgstr ""
+
+msgid "Tuesday"
+msgstr ""
+
+msgid "Wednesday"
+msgstr ""
+
+msgid "Thursday"
+msgstr ""
+
+msgid "Friday"
+msgstr ""
+
+msgid "Saturday"
+msgstr ""
+
+msgid "Sunday"
+msgstr ""
+
+msgid "Configure userfields"
+msgstr ""
+
+msgid "Userfields"
+msgstr ""
+
+msgid "Filter by entity"
+msgstr ""
+
+msgid "Entity"
+msgstr ""
+
+msgid "Caption"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Create userfield"
+msgstr ""
+
+msgid "A entity is required"
+msgstr ""
+
+msgid "A caption is required"
+msgstr ""
+
+msgid "A type is required"
+msgstr ""
+
+msgid "Show as column in tables"
+msgstr ""
+
+msgid "This is required and can only contain letters and numbers"
+msgstr ""
+
+msgid "Edit userfield"
+msgstr ""

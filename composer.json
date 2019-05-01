@@ -6,7 +6,8 @@
 		"rubellum/slim-blade-view": "^0.1.1",
 		"tuupola/cors-middleware": "^0.7.0",
 		"eluceo/ical": "^0.15.0",
-		"erusev/parsedown": "^1.7.1"
+		"erusev/parsedown": "^1.7.1",
+		"gettext/gettext": "^4.6"
 	},
 	"autoload": {
 		"psr-4": {

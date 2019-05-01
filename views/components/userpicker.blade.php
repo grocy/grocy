@@ -7,7 +7,7 @@
 @php if(!isset($nextInputSelector)) { $nextInputSelector = ''; } @endphp
 
 <div class="form-group" data-next-input-selector="{{ $nextInputSelector }}" data-prefill-by-username="{{ $prefillByUsername }}" data-prefill-by-user-id="{{ $prefillByUserId }}">
-	<label for="user_id">{{ $L($label) }}</label>
+	<label for="user_id">{{ $__t$label) }}</label>
 	<select class="form-control user-combobox" id="user_id" name="user_id">
 		<option value=""></option>
 		@foreach($users as $user)

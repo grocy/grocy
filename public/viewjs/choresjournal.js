@@ -4,7 +4,7 @@
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 }
 	],
-	'language': JSON.parse(L('datatables_localization')),
+	'language': JSON.parse(__t('datatables_localization')),
 	'scrollY': false,
 	'colReorder': true,
 	'stateSave': true,
@@ -61,10 +61,10 @@ $(document).on('click', '.undo-chore-execution-button', function(e)
 		function(result)
 		{
 			element.closest("tr").addClass("text-muted");
-			element.parent().siblings().find("span.name-anchor").addClass("text-strike-through").after("<br>" + L("Undone on") + " " + moment().format("YYYY-MM-DD HH:mm:ss") + " <time class='timeago timeago-contextual' datetime='" + moment().format("YYYY-MM-DD HH:mm:ss") + "'></time>");
+			element.parent().siblings().find("span.name-anchor").addClass("text-strike-through").after("<br>" + __t("Undone on") + " " + moment().format("YYYY-MM-DD HH:mm:ss") + " <time class='timeago timeago-contextual' datetime='" + moment().format("YYYY-MM-DD HH:mm:ss") + "'></time>");
 			element.closest(".undo-stock-booking-button").addClass("disabled");
 			RefreshContextualTimeago();
-			toastr.success(L("Chore execution successfully undone"));
+			toastr.success(__t("Chore execution successfully undone"));
 		},
 		function(xhr)
 		{

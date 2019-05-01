@@ -4,7 +4,7 @@
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 }
 	],
-	'language': JSON.parse(L('datatables_localization')),
+	'language': JSON.parse(__t('datatables_localization')),
 	'scrollY': false,
 	'colReorder': true,
 	'stateSave': true,
@@ -35,7 +35,7 @@ $("#search").on("keyup", function()
 $("#entity-filter").on("change", function()
 {
 	var value = $("#entity-filter option:selected").text();
-	if (value === L("All"))
+	if (value === __t("All"))
 	{
 		value = "";
 	}
@@ -50,14 +50,14 @@ $(document).on('click', '.userfield-delete-button', function (e)
 	var objectId = $(e.currentTarget).attr('data-userfield-id');
 
 	bootbox.confirm({
-		message: L('Are you sure to delete user field "#1"?', objectName),
+		message: __t('Are you sure to delete user field "%s"?', objectName),
 		buttons: {
 			confirm: {
-				label: L('Yes'),
+				label: __t('Yes'),
 				className: 'btn-success'
 			},
 			cancel: {
-				label: L('No'),
+				label: __t('No'),
 				className: 'btn-danger'
 			}
 		},

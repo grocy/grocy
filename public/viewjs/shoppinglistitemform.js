@@ -53,13 +53,13 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				{
 					$("#amount").attr("min", "0.01");
 					$("#amount").attr("step", "0.01");
-					$("#amount").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', 0.01.toLocaleString()));
+					$("#amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', 0.01.toLocaleString()));
 				}
 				else
 				{
 					$("#amount").attr("min", "1");
 					$("#amount").attr("step", "1");
-					$("#amount").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', '1'));
+					$("#amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '1'));
 				}
 				
 				$('#amount').focus();

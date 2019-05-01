@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $L('Quantity units'))
+@section('title', $__t('Quantity units'))
 @section('activeNav', 'quantityunits')
 @section('viewJsName', 'quantityunits')
 
@@ -10,10 +10,10 @@
 		<h1>
 			@yield('title')
 			<a class="btn btn-outline-dark" href="{{ $U('/quantityunit/new') }}">
-				<i class="fas fa-plus"></i>&nbsp;{{ $L('Add') }}
+				<i class="fas fa-plus"></i>&nbsp;{{ $__t('Add') }}
 			</a>
 			<a class="btn btn-outline-secondary" href="{{ $U('/userfields?entity=quantity_units') }}">
-				<i class="fas fa-sliders-h"></i>&nbsp;{{ $L('Configure userfields') }}
+				<i class="fas fa-sliders-h"></i>&nbsp;{{ $__t('Configure userfields') }}
 			</a>
 		</h1>
 	</div>
@@ -21,7 +21,7 @@
 
 <div class="row mt-3">
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
+		<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
 	</div>
 </div>
@@ -32,8 +32,8 @@
 			<thead>
 				<tr>
 					<th class="border-right"></th>
-					<th>{{ $L('Name') }}</th>
-					<th>{{ $L('Description') }}</th>
+					<th>{{ $__t('Name') }}</th>
+					<th>{{ $__t('Description') }}</th>
 
 					@include('components.userfields_thead', array(
 						'userfields' => $userfields

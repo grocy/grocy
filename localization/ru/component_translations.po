@@ -1,0 +1,31 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Translation migration from old PHP array files\n"
+"Language-Team: http://www.transifex.com/grocy/grocy/language/ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01T17:59:17+00:00\n"
+"Language: ru\n"
+"X-Domain: grocy/component_translations\n"
+
+msgid "timeago_locale"
+msgstr "ru"
+
+msgid "timeago_nan"
+msgstr "NaN год"
+
+msgid "moment_locale"
+msgstr "ru"
+
+msgid "datatables_localization"
+msgstr "{}"
+
+msgid "summernote_locale"
+msgstr "ru-RU"
+
+msgid "fullcalendar_locale"
+msgstr "ru"

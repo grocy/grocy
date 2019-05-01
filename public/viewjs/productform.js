@@ -158,17 +158,17 @@ $('.input-group-qu').on('change', function(e)
 	if (quIdPurchase != quIdStock)
 	{
 		$('#qu_factor_purchase_to_stock').attr("min", 2);
-		$("#qu_factor_purchase_to_stock").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', '2'));
+		$("#qu_factor_purchase_to_stock").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '2'));
 	}
 	else
 	{
 		$('#qu_factor_purchase_to_stock').attr("min", 1);
-		$("#qu_factor_purchase_to_stock").parent().find(".invalid-feedback").text(L('The amount cannot be lower than #1', '1'));
+		$("#qu_factor_purchase_to_stock").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '1'));
 	}
 
 	if (factor > 1)
 	{
-		$('#qu-conversion-info').text(L('This means 1 #1 purchased will be converted into #2 #3 in stock', $("#qu_id_purchase option:selected").text(), (1 * factor).toString(), $("#qu_id_stock option:selected").text()));
+		$('#qu-conversion-info').text(__t('This means 1 %s purchased will be converted into %s %s in stock', $("#qu_id_purchase option:selected").text(), (1 * factor).toString(), $("#qu_id_stock option:selected").text()));
 		$('#qu-conversion-info').removeClass('d-none');
 	}
 	else

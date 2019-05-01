@@ -7,7 +7,7 @@
 		{ 'visible': false, 'targets': 5 },
 		{ 'visible': false, 'targets': 6 }
 	],
-	'language': JSON.parse(L('datatables_localization')),
+	'language': JSON.parse(__t('datatables_localization')),
 	'scrollY': false,
 	'colReorder': true,
 	'stateSave': true,
@@ -146,7 +146,7 @@ $(document).on('click', '.product-consume-button', function(e)
 						{
 							if (openedAmount > 0)
 							{
-								$(this).text(L('#1 opened', openedAmount)).fadeIn(500);
+								$(this).text(__t('%s opened', openedAmount)).fadeIn(500);
 							}
 							else
 							{
@@ -156,7 +156,7 @@ $(document).on('click', '.product-consume-button', function(e)
 					}
 
 					Grocy.FrontendHelpers.EndUiBusy();
-					toastr.success(L('Removed #1 #2 of #3 from stock', consumeAmount, productQuName, productName));
+					toastr.success(__t('Removed %s %s of %s from stock', consumeAmount, productQuName, productName));
 					RefreshContextualTimeago();
 					RefreshStatistics();
 				},
@@ -222,7 +222,7 @@ $(document).on('click', '.product-open-button', function(e)
 					$('#product-' + productId + '-opened-amount').parent().effect('highlight', {}, 500);
 					$('#product-' + productId + '-opened-amount').fadeOut(500, function ()
 					{
-						$(this).text(L('#1 opened', result.stock_amount_opened)).fadeIn(500);
+						$(this).text(__t('%s opened', result.stock_amount_opened)).fadeIn(500);
 					});
 
 					if (result.stock_amount == result.stock_amount_opened)
@@ -231,7 +231,7 @@ $(document).on('click', '.product-open-button', function(e)
 					}
 
 					Grocy.FrontendHelpers.EndUiBusy();
-					toastr.success(L('Marked #1 #2 of #3 as opened', 1, productQuName, productName));
+					toastr.success(__t('Marked %s %s of %s as opened', 1, productQuName, productName));
 					RefreshContextualTimeago();
 					RefreshStatistics();
 				},
@@ -265,7 +265,7 @@ function RefreshStatistics()
 			result.forEach(element => {
 				amountSum += parseInt(element.amount);
 			});
-			$("#info-current-stock").text(result.length + " " + Pluralize(result.length, L('Product'), L('Products')) + ", " + amountSum.toString() + " " + Pluralize(amountSum, L('Unit'), L('Units')));
+			$("#info-current-stock").text(result.length + " " + __n(result.length, __t('Product'), __t('Products')) + ", " + amountSum.toString() + " " + __n(amountSum, __t('Unit'), __t('Units')));
 		},
 		function(xhr)
 		{
@@ -277,9 +277,9 @@ function RefreshStatistics()
 	Grocy.Api.Get('stock/volatile?expiring_days=' + nextXDays,
 		function(result)
 		{
-			$("#info-expiring-products").text(Pluralize(result.expiring_products.length, L('#1 product expires within the next #2 days', result.expiring_products.length, nextXDays), L('#1 products expiring within the next #2 days', result.expiring_products.length, nextXDays)));
-			$("#info-expired-products").text(Pluralize(result.expired_products.length, L('#1 product is already expired', result.expired_products.length), L('#1 products are already expired', result.expired_products.length)));
-			$("#info-missing-products").text(Pluralize(result.missing_products.length, L('#1 product is below defined min. stock amount', result.missing_products.length), L('#1 products are below defined min. stock amount', result.missing_products.length)));
+			$("#info-expiring-products").text(__n(result.expiring_products.length, __t('%s product expires within the next %s days', result.expiring_products.length, nextXDays), __t('%s products expiring within the next %s days', result.expiring_products.length, nextXDays)));
+			$("#info-expired-products").text(__n(result.expired_products.length, __t('%s product is already expired', result.expired_products.length), __t('%s products are already expired', result.expired_products.length)));
+			$("#info-missing-products").text(__n(result.missing_products.length, __t('%s product is below defined min. stock amount', result.missing_products.length), __t('%s products are below defined min. stock amount', result.missing_products.length)));
 		},
 		function(xhr)
 		{

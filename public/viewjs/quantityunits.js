@@ -4,7 +4,7 @@
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 }
 	],
-	'language': JSON.parse(L('datatables_localization')),
+	'language': JSON.parse(__t('datatables_localization')),
 	'scrollY': false,
 	'colReorder': true,
 	'stateSave': true,
@@ -38,7 +38,7 @@ $(document).on('click', '.quantityunit-delete-button', function (e)
 	var objectId = $(e.currentTarget).attr('data-quantityunit-id');
 
 	bootbox.confirm({
-		message: L('Are you sure to delete quantity unit "#1"?', objectName),
+		message: __t('Are you sure to delete quantity unit "%s"?', objectName),
 		buttons: {
 			confirm: {
 				label: 'Yes',

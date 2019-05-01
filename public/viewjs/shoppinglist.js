@@ -6,7 +6,7 @@
 		{ 'orderable': false, 'targets': 0 },
 		{ 'visible': false, 'targets': 3 }
 	],
-	'language': JSON.parse(L('datatables_localization')),
+	'language': JSON.parse(__t('datatables_localization')),
 	'scrollY': false,
 	'colReorder': true,
 	'stateSave': true,
@@ -70,14 +70,14 @@ $("#delete-selected-shopping-list").on("click", function()
 	var objectId = $("#selected-shopping-list").val();
 
 	bootbox.confirm({
-		message: L('Are you sure to delete shopping list "#1"?', objectName),
+		message: __t('Are you sure to delete shopping list "%s"?', objectName),
 		buttons: {
 			confirm: {
-				label: L('Yes'),
+				label: __t('Yes'),
 				className: 'btn-success'
 			},
 			cancel: {
-				label: L('No'),
+				label: __t('No'),
 				className: 'btn-danger'
 			}
 		},
@@ -142,14 +142,14 @@ $(document).on('click', '#add-products-below-min-stock-amount', function(e)
 $(document).on('click', '#clear-shopping-list', function(e)
 {
 	bootbox.confirm({
-		message: L('Are you sure to empty shopping list "#1"?', $("#selected-shopping-list option:selected").text()),
+		message: __t('Are you sure to empty shopping list "%s"?', $("#selected-shopping-list option:selected").text()),
 		buttons: {
 			confirm: {
-				label: L('Yes'),
+				label: __t('Yes'),
 				className: 'btn-success'
 			},
 			cancel: {
-				label: L('No'),
+				label: __t('No'),
 				className: 'btn-danger'
 			}
 		},
@@ -192,7 +192,7 @@ $(document).on('click', '.shopping-list-stock-add-workflow-list-item-button', fu
 	if (Grocy.ShoppingListToStockWorkflowAll)
 	{
 		$("#shopping-list-stock-add-workflow-purchase-item-count").removeClass("d-none");
-		$("#shopping-list-stock-add-workflow-purchase-item-count").text(L("Adding shopping list item #1 of #2", Grocy.ShoppingListToStockWorkflowCurrent, Grocy.ShoppingListToStockWorkflowCount));
+		$("#shopping-list-stock-add-workflow-purchase-item-count").text(__t("Adding shopping list item %s of %s", Grocy.ShoppingListToStockWorkflowCurrent, Grocy.ShoppingListToStockWorkflowCount));
 		$("#shopping-list-stock-add-workflow-skip-button").removeClass("d-none");
 	}
 	else

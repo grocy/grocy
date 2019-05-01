@@ -1,9 +1,9 @@
 @extends('layout.default')
 
 @if($mode == 'edit')
-	@section('title', $L('Edit task category'))
+	@section('title', $__t('Edit task category'))
 @else
-	@section('title', $L('Create task category'))
+	@section('title', $__t('Create task category'))
 @endif
 
 @section('viewJsName', 'taskcategoryform')
@@ -22,13 +22,13 @@
 		<form id="task-category-form" novalidate>
 
 			<div class="form-group">
-				<label for="name">{{ $L('Name') }}</label>
+				<label for="name">{{ $__t('Name') }}</label>
 				<input type="text" class="form-control" required id="name" name="name" value="@if($mode == 'edit'){{ $category->name }}@endif">
-				<div class="invalid-feedback">{{ $L('A name is required') }}</div>
+				<div class="invalid-feedback">{{ $__t('A name is required') }}</div>
 			</div>
 
 			<div class="form-group">
-				<label for="description">{{ $L('Description') }}</label>
+				<label for="description">{{ $__t('Description') }}</label>
 				<textarea class="form-control" rows="2" id="description" name="description">@if($mode == 'edit'){{ $category->description }}@endif</textarea>
 			</div>
 
@@ -37,7 +37,7 @@
 				'entity' => 'task_categories'
 			))
 
-			<button id="save-task-category-button" class="btn btn-success">{{ $L('Save') }}</button>
+			<button id="save-task-category-button" class="btn btn-success">{{ $__t('Save') }}</button>
 
 		</form>
 	</div>

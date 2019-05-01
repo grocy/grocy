@@ -98,11 +98,11 @@ $('.input-group-chore-period-type').on('change', function(e)
 	}
 	else if (periodType === 'dynamic-regular')
 	{
-		$("label[for='period_days']").text(L("Period days"));
+		$("label[for='period_days']").text(__t("Period days"));
 		$("#period_days").attr("min", "0");
 		$("#period_days").attr("max", "9999");
-		$("#period_days").parent().find(".invalid-feedback").text(L('This cannot be negative'));
-		$('#chore-period-type-info').text(L('This means it is estimated that a new execution of this chore is tracked #1 days after the last was tracked', periodDays.toString()));
+		$("#period_days").parent().find(".invalid-feedback").text(__t('This cannot be negative'));
+		$('#chore-period-type-info').text(__t('This means it is estimated that a new execution of this chore is tracked %s days after the last was tracked', periodDays.toString()));
 	}
 	else if (periodType === 'daily')
 	{
@@ -114,9 +114,9 @@ $('.input-group-chore-period-type').on('change', function(e)
 	}
 	else if (periodType === 'monthly')
 	{
-		$("label[for='period_days']").text(L("Day of month"));
+		$("label[for='period_days']").text(__t("Day of month"));
 		$("#period_days").attr("min", "1");
 		$("#period_days").attr("max", "31");
-		$("#period_days").parent().find(".invalid-feedback").text(L('The amount must be between #1 and #2', "0", "31"));
+		$("#period_days").parent().find(".invalid-feedback").text(__t('The amount must be between %s and %s', "0", "31"));
 	}
 });

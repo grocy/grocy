@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $L('Users'))
+@section('title', $__t('Users'))
 @section('activeNav', '')
 @section('viewJsName', 'users')
 
@@ -10,7 +10,7 @@
 		<h1>
 			@yield('title')
 			<a class="btn btn-outline-dark" href="{{ $U('/user/new') }}">
-				<i class="fas fa-plus"></i>&nbsp;{{ $L('Add') }}
+				<i class="fas fa-plus"></i>&nbsp;{{ $__t('Add') }}
 			</a>
 		</h1>
 	</div>
@@ -18,7 +18,7 @@
 
 <div class="row mt-3">
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
+		<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
 	</div>
 </div>
@@ -29,9 +29,9 @@
 			<thead>
 				<tr>
 					<th class="border-right"></th>
-					<th>{{ $L('Username') }}</th>
-					<th>{{ $L('First name') }}</th>
-					<th>{{ $L('Last name') }}</th>
+					<th>{{ $__t('Username') }}</th>
+					<th>{{ $__t('First name') }}</th>
+					<th>{{ $__t('Last name') }}</th>
 				</tr>
 			</thead>
 			<tbody class="d-none">

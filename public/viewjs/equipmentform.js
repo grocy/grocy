@@ -135,7 +135,7 @@ $('#delete-current-instruction-manual-button').on('click', function (e)
 
 $('#description').summernote({
 	minHeight: '300px',
-	lang: L('summernote_locale')
+	lang: __t('summernote_locale')
 });
 
 ResizeResponsiveEmbeds();

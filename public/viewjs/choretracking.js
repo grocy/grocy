@@ -12,7 +12,7 @@
 				function(result)
 				{
 					Grocy.FrontendHelpers.EndUiBusy("choretracking-form");
-					toastr.success(L('Tracked execution of chore #1 on #2', choreDetails.chore.name, Grocy.Components.DateTimePicker.GetValue()) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoChoreExecution(' + result.id + ')"><i class="fas fa-undo"></i> ' + L("Undo") + '</a>');
+					toastr.success(__t('Tracked execution of chore %s on %s', choreDetails.chore.name, Grocy.Components.DateTimePicker.GetValue()) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoChoreExecution(' + result.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
 
 					$('#chore_id').val('');
 					$('#chore_id_text_input').focus();
@@ -93,7 +93,7 @@ function UndoChoreExecution(executionId)
 	Grocy.Api.Post('chores/executions/' + executionId.toString() + '/undo', { },
 		function(result)
 		{
-			toastr.success(L("Chore execution successfully undone"));
+			toastr.success(__t("Chore execution successfully undone"));
 		},
 		function(xhr)
 		{

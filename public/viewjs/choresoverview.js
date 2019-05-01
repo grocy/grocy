@@ -4,7 +4,7 @@
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 }
 	],
-	'language': JSON.parse(L('datatables_localization')),
+	'language': JSON.parse(__t('datatables_localization')),
 	'scrollY': false,
 	'colReorder': true,
 	'stateSave': true,
@@ -107,7 +107,7 @@ $(document).on('click', '.track-chore-button', function(e)
 					}
 
 					Grocy.FrontendHelpers.EndUiBusy();
-					toastr.success(L('Tracked execution of chore #1 on #2', choreName, trackedTime));
+					toastr.success(__t('Tracked execution of chore %s on %s', choreName, trackedTime));
 					RefreshContextualTimeago();
 					RefreshStatistics();
 				},
@@ -154,8 +154,8 @@ function RefreshStatistics()
 				}
 			});
 
-			$("#info-due-chores").text(Pluralize(dueCount, L('#1 chore is due to be done within the next #2 days', dueCount, nextXDays), L('#1 chores are due to be done within the next #2 days', dueCount, nextXDays)));
-			$("#info-overdue-chores").text(Pluralize(overdueCount, L('#1 chore is overdue to be done', overdueCount), L('#1 chores are overdue to be done', overdueCount)));
+			$("#info-due-chores").text(__n(dueCount, __t('%s chore is due to be done within the next %s days', dueCount, nextXDays), __t('%s chores are due to be done within the next %s days', dueCount, nextXDays)));
+			$("#info-overdue-chores").text(__n(overdueCount, __t('%s chore is overdue to be done', overdueCount), __t('%s chores are overdue to be done', overdueCount)));
 		},
 		function(xhr)
 		{

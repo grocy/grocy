@@ -1,44 +1,38 @@
 [main]
 host = https://www.transifex.com
 
-[grocy.stringsphp]
-file_filter = localization/<lang>/strings.php
-minimum_perc = 0
-source_file = localization/en/strings.php
+[grocy.chore_types]
+file_filter = localization/<lang>/chore_types.po
+source_file = localization/chore_types.pot
 source_lang = en
-type = PHP_ARRAY
+type = PO
 
-[grocy.stock_transaction_typesphp]
-file_filter = localization/<lang>/stock_transaction_types.php
-minimum_perc = 0
-source_file = localization/en/stock_transaction_types.php
+[grocy.component_translations]
+file_filter = localization/<lang>/component_translations.po
+source_file = localization/component_translations.pot
 source_lang = en
-type = PHP_ARRAY
+type = PO
 
-[grocy.chore_typesphp]
-file_filter = localization/<lang>/chore_types.php
-minimum_perc = 0
-source_file = localization/en/chore_types.php
+[grocy.demo_data]
+file_filter = localization/<lang>/demo_data.po
+source_file = localization/demo_data.pot
 source_lang = en
-type = PHP_ARRAY
+type = PO
 
-[grocy.component_translationsphp]
-file_filter = localization/<lang>/component_translations.php
-minimum_perc = 0
-source_file = localization/en/component_translations.php
+[grocy.stock_transaction_types]
+file_filter = localization/<lang>/stock_transaction_types.po
+source_file = localization/stock_transaction_types.pot
 source_lang = en
-type = PHP_ARRAY
+type = PO
 
-[grocy.demo_dataphp]
-file_filter = localization/<lang>/demo_data.php
-minimum_perc = 0
-source_file = localization/en/demo_data.php
+[grocy.strings]
+file_filter = localization/<lang>/strings.po
+source_file = localization/strings.pot
 source_lang = en
-type = PHP_ARRAY
+type = PO
 
-[grocy.userfield_typesphp]
-file_filter = localization/<lang>/userfield_types.php
-minimum_perc = 0
-source_file = localization/en/userfield_types.php
+[grocy.userfield_types]
+file_filter = localization/<lang>/userfield_types.po
+source_file = localization/userfield_types.pot
 source_lang = en
-type = PHP_ARRAY
+type = PO

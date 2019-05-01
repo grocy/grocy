@@ -1,0 +1,31 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Translation migration from old PHP array files\n"
+"Language-Team: http://www.transifex.com/grocy/grocy/language/en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01T17:59:17+00:00\n"
+"Language: en\n"
+"X-Domain: grocy/component_translations\n"
+
+msgid "timeago_locale"
+msgstr "en"
+
+msgid "timeago_nan"
+msgstr "NaN years ago"
+
+msgid "moment_locale"
+msgstr "x"
+
+msgid "datatables_localization"
+msgstr "{\"sEmptyTable\":\"No data available in table\",\"sInfo\":\"Showing _START_ to _END_ of _TOTAL_ entries\",\"sInfoEmpty\":\"Showing 0 to 0 of 0 entries\",\"sInfoFiltered\":\"(filtered from _MAX_ total entries)\",\"sInfoPostFix\":\"\",\"sInfoThousands\":\",\",\"sLengthMenu\":\"Show _MENU_ entries\",\"sLoadingRecords\":\"Loading...\",\"sProcessing\":\"Processing...\",\"sSearch\":\"Search:\",\"sZeroRecords\":\"No matching records found\",\"oPaginate\":{\"sFirst\":\"First\",\"sLast\":\"Last\",\"sNext\":\"Next\",\"sPrevious\":\"Previous\"},\"oAria\":{\"sSortAscending\":\": activate to sort column ascending\",\"sSortDescending\":\": activate to sort column descending\"}}"
+
+msgid "summernote_locale"
+msgstr "x"
+
+msgid "fullcalendar_locale"
+msgstr "x"

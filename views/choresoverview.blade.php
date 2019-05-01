@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $L('Chores overview'))
+@section('title', $__t('Chores overview'))
 @section('activeNav', 'choresoverview')
 @section('viewJsName', 'choresoverview')
 
@@ -13,7 +13,7 @@
 	<div class="col">
 		<h1>@yield('title')
 			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/choresjournal') }}">
-				<i class="fas fa-file-alt"></i> {{ $L('Journal') }}
+				<i class="fas fa-file-alt"></i> {{ $__t('Journal') }}
 			</a>
 		</h1>
 		<p id="info-due-chores" data-status-filter="duesoon" data-next-x-days="{{ $nextXDays }}" class="btn btn-lg btn-warning status-filter-button responsive-button mr-2"></p>
@@ -23,15 +23,15 @@
 
 <div class="row mt-3">
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
+		<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
 	</div>
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="status-filter">{{ $L('Filter by status') }}</label> <i class="fas fa-filter"></i>
+		<label for="status-filter">{{ $__t('Filter by status') }}</label> <i class="fas fa-filter"></i>
 		<select class="form-control" id="status-filter">
-			<option class="bg-white" value="all">{{ $L('All') }}</option>
-			<option class="bg-warning" value="duesoon">{{ $L('Due soon') }}</option>
-			<option class="bg-danger" value="overdue">{{ $L('Overdue') }}</option>
+			<option class="bg-white" value="all">{{ $__t('All') }}</option>
+			<option class="bg-warning" value="duesoon">{{ $__t('Due soon') }}</option>
+			<option class="bg-danger" value="overdue">{{ $__t('Overdue') }}</option>
 		</select>
 	</div>
 </div>
@@ -42,9 +42,9 @@
 			<thead>
 				<tr>
 					<th class="border-right"></th>
-					<th>{{ $L('Chore') }}</th>
-					<th>{{ $L('Next estimated tracking') }}</th>
-					<th>{{ $L('Last tracked') }}</th>
+					<th>{{ $__t('Chore') }}</th>
+					<th>{{ $__t('Next estimated tracking') }}</th>
+					<th>{{ $__t('Last tracked') }}</th>
 					<th class="d-none">Hidden status</th>
 
 					@include('components.userfields_thead', array(
@@ -57,7 +57,7 @@
 				@foreach($currentChores as $curentChoreEntry)
 				<tr id="chore-{{ $curentChoreEntry->chore_id }}-row" class="@if(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_TYPE_MANUALLY && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s')) table-danger @elseif(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_TYPE_MANUALLY && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) table-warning @endif">
 					<td class="fit-content border-right">
-						<a class="btn btn-success btn-sm track-chore-button" href="#" data-toggle="tooltip" data-placement="left" title="{{ $L('Track execution of chore #1', FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name) }}"
+						<a class="btn btn-success btn-sm track-chore-button" href="#" data-toggle="tooltip" data-placement="left" title="{{ $__t('Track execution of chore %s', FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name) }}"
 							data-chore-id="{{ $curentChoreEntry->chore_id }}"
 							data-chore-name="{{ FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name }}">
 							<i class="fas fa-play"></i>
@@ -68,13 +68,13 @@
 							</button>
 							<div class="dropdown-menu">
 								<a class="dropdown-item chore-name-cell" data-chore-id="{{ $curentChoreEntry->chore_id }}" type="button" href="#">
-									<i class="fas fa-info"></i> {{ $L('Show chore details') }}
+									<i class="fas fa-info"></i> {{ $__t('Show chore details') }}
 								</a>
 								<a class="dropdown-item" type="button" href="{{ $U('/choresjournal?chore=') }}{{ $curentChoreEntry->chore_id }}">
-									<i class="fas fa-file-alt"></i> {{ $L('Journal for this chore') }}
+									<i class="fas fa-file-alt"></i> {{ $__t('Journal for this chore') }}
 								</a>
 								<a class="dropdown-item" type="button" href="{{ $U('/chore/') }}{{ $curentChoreEntry->chore_id }}">
-									<i class="fas fa-edit"></i> {{ $L('Edit chore') }}
+									<i class="fas fa-edit"></i> {{ $__t('Edit chore') }}
 								</a>
 							</div>
 						</div>
@@ -117,7 +117,7 @@
 				@include('components.chorecard')
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">{{ $L('Close') }}</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">{{ $__t('Close') }}</button>
 			</div>
 		</div>
 	</div>

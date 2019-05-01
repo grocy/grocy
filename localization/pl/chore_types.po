@@ -1,0 +1,28 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Translation migration from old PHP array files\n"
+"Language-Team: http://www.transifex.com/grocy/grocy/language/pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01T17:59:17+00:00\n"
+"Language: pl\n"
+"X-Domain: grocy/chore_types\n"
+
+msgid "manually"
+msgstr "Manualny"
+
+msgid "dynamic-regular"
+msgstr "Dynamiczny regularny"
+
+msgid "daily"
+msgstr "Codzienny"
+
+msgid "weekly"
+msgstr "Tygodniowy"
+
+msgid "monthly"
+msgstr "Miesięczny"

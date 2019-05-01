@@ -32,11 +32,16 @@ class BaseController
 			$container->view->set('releaseDate', $versionInfo->ReleaseDate);
 		}
 
-		$container->view->set('localizationStrings', $localizationService->GetCurrentCultureLocalizations());
-		$container->view->set('L', function($text, ...$placeholderValues) use($localizationService)
+		$container->view->set('__t', function(string $text, ...$placeholderValues) use($localizationService)
 		{
-			return $localizationService->Localize($text, ...$placeholderValues);
+			return $localizationService->__t($text, $placeholderValues);
 		});
+		$container->view->set('__n', function($number, $singularForm, $pluralForm) use($localizationService)
+		{
+			return $localizationService->__n($number, $singularForm, $pluralForm);
+		});
+		$container->view->set('jsGettextTranslatorStrings', $localizationService->GetTranslationsForJavaScriptTranslator());
+
 		$container->view->set('U', function($relativePath, $isResource = false) use($container)
 		{
 			return $container->UrlManager->ConstructUrl($relativePath, $isResource);

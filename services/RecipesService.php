@@ -48,7 +48,7 @@ class RecipesService extends BaseService
 					$shoppinglistRow = $this->Database->shopping_list()->createRow(array(
 						'product_id' => $recipePosition->product_id,
 						'amount' => $toOrderAmount,
-						'note' => $this->LocalizationService->Localize('Added for recipe #1', $recipe->name)
+						'note' => $this->LocalizationService-Translator->__t('Added for recipe %s', $recipe->name)
 					));
 					$shoppinglistRow->save();
 				}

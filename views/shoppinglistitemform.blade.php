@@ -1,9 +1,9 @@
 @extends('layout.default')
 
 @if($mode == 'edit')
-	@section('title', $L('Edit shopping list item'))
+	@section('title', $__t('Edit shopping list item'))
 @else
-	@section('title', $L('Create shopping list item'))
+	@section('title', $__t('Create shopping list item'))
 @endif
 
 @section('viewJsName', 'shoppinglistitemform')
@@ -36,15 +36,15 @@
 				'hintId' => 'amount_qu_unit',
 				'min' => 0,
 				'value' => $value,
-				'invalidFeedback' => $L('The amount cannot be lower than #1', '1')
+				'invalidFeedback' => $__t('The amount cannot be lower than %s', '1')
 			))
 
 			<div class="form-group">
-				<label for="note">{{ $L('Note') }}</label>
+				<label for="note">{{ $__t('Note') }}</label>
 				<textarea class="form-control" rows="2" id="note" name="note">@if($mode == 'edit'){{ $listItem->note }}@endif</textarea>
 			</div>
 
-			<button id="save-shoppinglist-button" class="btn btn-success">{{ $L('Save') }}</button>
+			<button id="save-shoppinglist-button" class="btn btn-success">{{ $__t('Save') }}</button>
 
 		</form>
 	</div>

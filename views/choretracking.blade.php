@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $L('Chore tracking'))
+@section('title', $__t('Chore tracking'))
 @section('activeNav', 'choretracking')
 @section('viewJsName', 'choretracking')
 
@@ -12,14 +12,14 @@
 		<form id="choretracking-form" novalidate>
 
 			<div class="form-group">
-				<label for="chore_id">{{ $L('Chore') }}</label>
+				<label for="chore_id">{{ $__t('Chore') }}</label>
 				<select class="form-control combobox" id="chore_id" name="chore_id" required>
 					<option value=""></option>
 					@foreach($chores as $chore)
 						<option value="{{ $chore->id }}">{{ $chore->name }}</option>
 					@endforeach
 				</select>
-				<div class="invalid-feedback">{{ $L('You have to select a chore') }}</div>
+				<div class="invalid-feedback">{{ $__t('You have to select a chore') }}</div>
 			</div>
 
 			@include('components.datetimepicker', array(
@@ -29,7 +29,7 @@
 				'initWithNow' => true,
 				'limitEndToNow' => true,
 				'limitStartToNow' => false,
-				'invalidFeedback' => $L('This can only be before now')
+				'invalidFeedback' => $__t('This can only be before now')
 			))
 
 			@include('components.userpicker', array(
@@ -39,7 +39,7 @@
 				'prefillByUserId' => GROCY_USER_ID
 			))
 
-			<button id="save-choretracking-button" class="btn btn-success">{{ $L('OK') }}</button>
+			<button id="save-choretracking-button" class="btn btn-success">{{ $__t('OK') }}</button>
 
 		</form>
 	</div>

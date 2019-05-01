@@ -1,9 +1,9 @@
 @extends('layout.default')
 
 @if($mode == 'edit')
-	@section('title', $L('Edit shopping list'))
+	@section('title', $__t('Edit shopping list'))
 @else
-	@section('title', $L('Create shopping list'))
+	@section('title', $__t('Create shopping list'))
 @endif
 
 @section('viewJsName', 'shoppinglistform')
@@ -22,17 +22,17 @@
 		<form id="shopping-list-form" novalidate>
 
 			<div class="form-group">
-				<label for="name">{{ $L('Name') }}</label>
+				<label for="name">{{ $__t('Name') }}</label>
 				<input type="text" class="form-control" required id="name" name="name" value="@if($mode == 'edit'){{ $shoppingList->name }}@endif">
-				<div class="invalid-feedback">{{ $L('A name is required') }}</div>
+				<div class="invalid-feedback">{{ $__t('A name is required') }}</div>
 			</div>
 
 			<div class="form-group">
-				<label for="description">{{ $L('Description') }}</label>
+				<label for="description">{{ $__t('Description') }}</label>
 				<textarea class="form-control" rows="2" id="description" name="description">@if($mode == 'edit'){{ $shoppingList->description }}@endif</textarea>
 			</div>
 
-			<button id="save-shopping-list-button" class="btn btn-success">{{ $L('Save') }}</button>
+			<button id="save-shopping-list-button" class="btn btn-success">{{ $__t('Save') }}</button>
 
 		</form>
 	</div>

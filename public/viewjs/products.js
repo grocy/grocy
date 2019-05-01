@@ -4,7 +4,7 @@
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 }
 	],
-	'language': JSON.parse(L('datatables_localization')),
+	'language': JSON.parse(__t('datatables_localization')),
 	'scrollY': false,
 	'colReorder': true,
 	'stateSave': true,
@@ -35,7 +35,7 @@ $("#search").on("keyup", function()
 $("#product-group-filter").on("change", function()
 {
 	var value = $("#product-group-filter option:selected").text();
-	if (value === L("All"))
+	if (value === __t("All"))
 	{
 		value = "";
 	}
@@ -62,14 +62,14 @@ $(document).on('click', '.product-delete-button', function (e)
 			if (stockAmount.toString() == "0")
 			{
 				bootbox.confirm({
-					message: L('Are you sure to delete product "#1"?', objectName),
+					message: __t('Are you sure to delete product "%s"?', objectName),
 					buttons: {
 						confirm: {
-							label: L('Yes'),
+							label: __t('Yes'),
 							className: 'btn-success'
 						},
 						cancel: {
-							label: L('No'),
+							label: __t('No'),
 							className: 'btn-danger'
 						}
 					},
@@ -94,8 +94,8 @@ $(document).on('click', '.product-delete-button', function (e)
 			else
 			{
 				bootbox.alert({
-					title: L('Delete not possible'),
-					message: L('This product cannot be deleted because it is in stock, please remove the stock amount first.') + '<br><br>' + L('Stock amount') + ': ' + stockAmount + ' ' + Pluralize(stockAmount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)
+					title: __t('Delete not possible'),
+					message: __t('This product cannot be deleted because it is in stock, please remove the stock amount first.') + '<br><br>' + __t('Stock amount') + ': ' + stockAmount + ' ' + __n(stockAmount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)
 				});
 			}
 		},

@@ -4,7 +4,7 @@
 	"dependencies": {
 		"@danielfarrell/bootstrap-combobox": "https://github.com/berrnd/bootstrap-combobox.git#master",
 		"@fortawesome/fontawesome-free": "^5.7.2",
-		"TagManager": "https://github.com/max-favilli/tagmanager.git#3.0.2",
+		"TagManager": "https://github.com/max-favilli/tagmanager.git#master",
 		"bootbox": "https://github.com/makeusabrew/bootbox.git#v5.x",
 		"bootstrap": "^4.3.1",
 		"chart.js": "^2.7.3",
@@ -28,6 +28,8 @@
 		"swagger-ui-dist": "^3.21.0",
 		"tempusdominus-bootstrap-4": "https://github.com/berrnd/tempusdominus-bootstrap-4.git#master",
 		"timeago": "^1.6.5",
-		"toastr": "^2.1.4"
+		"toastr": "^2.1.4",
+		"gettext-translator": "^2.1.0",
+		"sprintf-js": "^1.1.2"
 	}
 }
