@@ -111,6 +111,7 @@ if (addBarcode !== undefined)
 	$('#barcode-lookup-disabled-hint').removeClass('d-none');
 }
 
+Grocy.Components.ProductPicker.PopupOpen = false;
 $('#product_id_text_input').on('blur', function(e)
 {
 	if (Grocy.Components.ProductPicker.GetPicker().hasClass("combobox-menu-visible"))
@@ -129,6 +130,11 @@ $('#product_id_text_input').on('blur', function(e)
 	}
 	else
 	{
+		if (Grocy.Components.ProductPicker.PopupOpen === true)
+		{
+			return;
+		}
+
 		var optionElement = $("#product_id option:contains('" + input + "')").first();
 		if (input.length > 0 && optionElement.length === 0 && typeof GetUriParam('addbarcodetoselection') === "undefined")
 		{
@@ -138,11 +144,13 @@ $('#product_id_text_input').on('blur', function(e)
 				addProductWorkflowsAdditionalCssClasses = "d-none";
 			}
 
+			Grocy.Components.ProductPicker.PopupOpen = true;
 			bootbox.dialog({
 				message: __t('"%s" could not be resolved to a product, how do you want to proceed?', input),
 				title: __t('Create or assign product'),
 				onEscape: function()
 				{
+					Grocy.Components.ProductPicker.PopupOpen = false;
 					Grocy.Components.ProductPicker.SetValue('');
 				},
 				size: 'large',
@@ -153,6 +161,7 @@ $('#product_id_text_input').on('blur', function(e)
 						className: 'btn-secondary responsive-button',
 						callback: function()
 						{
+							Grocy.Components.ProductPicker.PopupOpen = false;
 							Grocy.Components.ProductPicker.SetValue('');
 						}
 					},
@@ -161,6 +170,7 @@ $('#product_id_text_input').on('blur', function(e)
 						className: 'btn-success add-new-product-dialog-button responsive-button ' + addProductWorkflowsAdditionalCssClasses,
 						callback: function()
 						{
+							Grocy.Components.ProductPicker.PopupOpen = false;
 							window.location.href = U('/product/new?prefillname=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative));
 						}
 					},
@@ -169,6 +179,7 @@ $('#product_id_text_input').on('blur', function(e)
 						className: 'btn-info add-new-barcode-dialog-button responsive-button',
 						callback: function()
 						{
+							Grocy.Components.ProductPicker.PopupOpen = false;
 							window.location.href = U(Grocy.CurrentUrlRelative + '?addbarcodetoselection=' + encodeURIComponent(input));
 						}
 					},
@@ -177,6 +188,7 @@ $('#product_id_text_input').on('blur', function(e)
 						className: 'btn-warning add-new-product-with-barcode-dialog-button responsive-button ' + addProductWorkflowsAdditionalCssClasses,
 						callback: function()
 						{
+							Grocy.Components.ProductPicker.PopupOpen = false;
 							window.location.href = U('/product/new?prefillbarcode=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative));
 						}
 					}
