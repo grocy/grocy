@@ -35,40 +35,34 @@ msgid "Fridge"
 msgstr "Buzdolabı"
 
 msgid "Piece"
-msgstr "Tane"
-
-msgid "Pieces"
-msgstr "Tane"
+msgid_plural "Pieces"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Pack"
-msgstr "Paket"
-
-msgid "Packs"
-msgstr "Paket"
+msgid_plural "Packs"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Glass"
-msgstr "Bardak"
-
-msgid "Glasses"
-msgstr "Bardak"
+msgid_plural "Glasses"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Tin"
-msgstr "Teneke"
-
-msgid "Tins"
-msgstr "Teneke"
+msgid_plural "Tins"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Can"
-msgstr "Konserve"
-
-msgid "Cans"
-msgstr "Konserve"
+msgid_plural "Cans"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Bunch"
-msgstr "Demet"
-
-msgid "Bunches"
-msgstr "Demet"
+msgid_plural "Bunches"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Gummy bears"
 msgstr "Jelibon ayı"
@@ -176,10 +170,9 @@ msgid "Demo User"
 msgstr "Demo Kullanıcısı"
 
 msgid "Gram"
-msgstr "Gram"
-
-msgid "Grams"
-msgstr "Gram"
+msgid_plural "Grams"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Flour"
 msgstr "Un"

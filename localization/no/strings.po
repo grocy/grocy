@@ -20,17 +20,33 @@ msgstr ""
 msgid "Stock overview"
 msgstr "Husholdning"
 
-msgid "%s products expiring within the next %s days"
-msgstr "%s produkt går ut på dato innen de neste %s dagene"
+msgid "%s product expires"
+msgid_plural "%s products expiring"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "%s products are already expired"
-msgstr "%s produkt har gått ut på dato"
+msgid "within the next day"
+msgid_plural "within the next %s days"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "%s products are below defined min. stock amount"
-msgstr "%s produkt under minimum husholdningsnivå"
+msgid "%s product is already expired"
+msgid_plural "%s products are already expired"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s product is below defined min. stock amount"
+msgid_plural "%s products are below defined min. stock amount"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Product"
 msgstr "Produkt"
+
+msgid "%s Product"
+msgid_plural "%s Products"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Amount"
 msgstr "Antall"
@@ -64,9 +80,6 @@ msgstr "Logge husarbeid"
 
 msgid "Battery tracking"
 msgstr "Batteri ladesyklus"
-
-msgid "Products"
-msgstr "Produkter"
 
 msgid "Locations"
 msgstr "Lokasjoner"
@@ -360,18 +373,6 @@ msgstr "Om Grocy"
 msgid "Close"
 msgstr "Lukk"
 
-msgid "%s batteries are due to be charged within the next %s days"
-msgstr "%s batteri må lades innen de %s neste dagene"
-
-msgid "%s batteries are overdue to be charged"
-msgstr "%s batteri har gått over fristen for å bli ladet opp"
-
-msgid "%s chores are due to be done within the next %s days"
-msgstr "%s husarbeids oppgaver skal gjøres inne de %s neste dagene"
-
-msgid "%s chores are overdue to be done"
-msgstr "%s husarbeids oppgaver har gått over fristen for utførelse"
-
 msgid "Released on"
 msgstr "Utgitt"
 
@@ -486,17 +487,15 @@ msgstr "Har jeg alt jeg trenger for denne oppskriften?"
 msgid "Put missing products on shopping list"
 msgstr "Legg manglende produkter til handlelisten"
 
-msgid "Not enough in stock, %s ingredients missing"
-msgstr "Ikke nok i husholdningen, %s ingrediens(er) mangler"
-
 msgid "Enough in stock"
 msgstr "Nok i husholdningen"
 
 msgid ""
+"Not enough in stock, %s ingredient missing but already on the shopping list"
+msgid_plural ""
 "Not enough in stock, %s ingredients missing but already on the shopping list"
-msgstr ""
-"Ikke nok i husholdningen, %s ingrediens(er) mangler, men denne/disse er på "
-"handlelisten"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Expand to fullscreen"
 msgstr "Full skjerm"
@@ -604,44 +603,36 @@ msgstr "I %s per kjøpt forpakning "
 msgid "The price cannot be lower than %s"
 msgstr "Prisen kan ikke være lavere enn %s"
 
-msgid "%s product expires within the next %s days"
-msgstr "%s produkt går ut på dato innen de %s neste dagene"
-
-msgid "%s product is already expired"
-msgstr "%s produkt er allerede gått ut på dato"
-
-msgid "%s product is below defined min. stock amount"
-msgstr "%s produkt er under minimums husholdningsnivå"
-
 msgid "Unit"
 msgstr "Enhet"
 
-msgid "Units"
-msgstr "Enheter"
+msgid "%s Unit"
+msgid_plural "%s Units"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "%s chore is due to be done within the next %s days"
-msgstr "%s husarbeid oppgave skal gjøres inne de %s neste dagene"
+msgid "%s chore is due to be done"
+msgid_plural "%s chores are due to be done"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "%s chore is overdue to be done"
-msgstr "%s husarbeid oppgave har gått over fristen for utførelse"
+msgid_plural "%s chores are overdue to be done"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "%s battery is due to be charged within the next %s days"
-msgstr "%s Batteri må lades innen %s dager"
+msgid "%s battery is due to be charged"
+msgid_plural "%s batteries are due to be charged"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "%s battery is overdue to be charged"
-msgstr "%s Batteri har gått over fristen for å lades"
-
-msgid ""
-"%s unit was automatically added and will apply in addition to the amount "
-"entered here"
-msgstr ""
-"%s enhet ble automatisk lagt til i tillegg til hva som blir skrevet inn her"
+msgid_plural "%s batteries are overdue to be charged"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "in singular form"
 msgstr "I entall"
-
-msgid "in plural form"
-msgstr "I flertall"
 
 msgid "Never expires"
 msgstr "Går ikke ut på dato"
@@ -722,17 +713,15 @@ msgstr "Endre oppgave"
 msgid "Are you sure to delete task \"%s\"?"
 msgstr "Er du sikker du ønsker slette oppgave \"%s\"?"
 
-msgid "%s task is due to be done within the next %s days"
-msgstr "%s oppgave har utførelse forfall innen de neste %s dagene"
-
-msgid "%s tasks are due to be done within the next %s days"
-msgstr "%s oppgaver har utførelse forfall innen de neste %s dagene"
+msgid "%s task is due to be done"
+msgid_plural "%s tasks are due to be done"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "%s task is overdue to be done"
-msgstr "%s oppgave har forfalt utførelse dato"
-
-msgid "%s tasks are overdue to be done"
-msgstr "%s oppgaver har forfalt utførelse dato"
+msgid_plural "%s tasks are overdue to be done"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Edit task category"
 msgstr "Endre oppgave kategori"
@@ -968,8 +957,8 @@ msgstr ""
 "Første produkt på listen vil bli konsumert først i henhold til standard "
 "regelen. \"Går ut på dato først. Deretter først inn, først ut\"."
 
-msgid "Mark %s %s of %s as open"
-msgstr "Merk %s %s av %s som åpnet"
+msgid "Mark %s of %s as open"
+msgstr ""
 
 msgid ""
 "When a product was marked as opened, the best before date will be replaced "
@@ -1267,4 +1256,27 @@ msgid "This is required and can only contain letters and numbers"
 msgstr ""
 
 msgid "Edit userfield"
+msgstr ""
+
+msgid "Plural forms"
+msgstr ""
+
+msgid "One plural form per line, the current language requires"
+msgstr ""
+
+msgid "Plural count"
+msgstr ""
+
+msgid "Plural rule"
+msgstr ""
+
+msgid "in plural form"
+msgstr "I flertall"
+
+msgid "Not enough in stock, %s ingredient missing"
+msgid_plural "Not enough in stock, %s ingredients missing"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Consume %s of %s"
 msgstr ""

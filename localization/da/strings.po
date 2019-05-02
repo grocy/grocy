@@ -1,31 +1,52 @@
+# Translators:
+# dark159123 <r.j.hansen@protonmail.com>, 2019
+# Bernd Bestel <bernd@berrnd.de>, 2019
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Translation migration from old PHP array files\n"
-"Language-Team: http://www.transifex.com/grocy/grocy/language/da\n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2019\n"
+"Language-Team: Danish (https://www.transifex.com/grocy/teams/93189/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-05-01T17:59:16+00:00\n"
-"PO-Revision-Date: 2019-05-01T17:59:16+00:00\n"
 "Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Domain: grocy/strings\n"
 
 msgid "Stock overview"
 msgstr "Beholdnings oversigt"
 
-msgid "%s products expiring within the next %s days"
-msgstr "%s produkter der udløber inden for de næste %s dage"
+msgid "%s product expires"
+msgid_plural "%s products expiring"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "%s products are already expired"
-msgstr "%s produkter er allerede udløbede"
+msgid "within the next day"
+msgid_plural "within the next %s days"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "%s products are below defined min. stock amount"
-msgstr "Beholdningen af %s produkter er under minimums antallet"
+msgid "%s product is already expired"
+msgid_plural "%s products are already expired"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s product is below defined min. stock amount"
+msgid_plural "%s products are below defined min. stock amount"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Product"
 msgstr "Produkt"
+
+msgid "%s Product"
+msgid_plural "%s Products"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Amount"
 msgstr "Mængde"
@@ -59,9 +80,6 @@ msgstr "Pligt overvågning"
 
 msgid "Battery tracking"
 msgstr "Batteri overvågning"
-
-msgid "Products"
-msgstr "Produkter"
 
 msgid "Locations"
 msgstr "Steder"
@@ -120,8 +138,10 @@ msgstr "Udløbet"
 msgid "Barcode lookup is disabled"
 msgstr "Stregkode opslag er slået fra"
 
-msgid "will be added to the list of barcodes for the selected product on submit"
-msgstr "Bliver tilføjet til stregkodelisten for det valgte produkt når du sender"
+msgid ""
+"will be added to the list of barcodes for the selected product on submit"
+msgstr ""
+"Bliver tilføjet til stregkodelisten for det valgte produkt når du sender"
 
 msgid "New amount"
 msgstr "Ny mængde"
@@ -249,7 +269,9 @@ msgstr "aldrig"
 msgid "Add products that are below defined min. stock amount"
 msgstr "Tilføj produkter der er under minimumsantallet"
 
-msgid "For purchases this amount of days will be added to today for the best before date suggestion"
+msgid ""
+"For purchases this amount of days will be added to today for the best before"
+" date suggestion"
 msgstr ""
 
 msgid "This means 1 %s purchased will be converted into %s %s in stock"
@@ -336,7 +358,9 @@ msgstr "Dette betyder %s bliver tilføjet til beholdningen"
 msgid "This means %s will be removed from stock"
 msgstr "Dette betyder at %s bliver fjernet fra beholdningen"
 
-msgid "This means it is estimated that a new execution of this chore is tracked %s days after the last was tracked"
+msgid ""
+"This means it is estimated that a new execution of this chore is tracked %s "
+"days after the last was tracked"
 msgstr ""
 
 msgid "Removed %s %s of %s from stock"
@@ -347,18 +371,6 @@ msgstr "Omkring Grocy"
 
 msgid "Close"
 msgstr "Luk"
-
-msgid "%s batteries are due to be charged within the next %s days"
-msgstr "%s batterier skal oplades indenfor de næste %s dage"
-
-msgid "%s batteries are overdue to be charged"
-msgstr "%s batterier trænger til at blive opladt"
-
-msgid "%s chores are due to be done within the next %s days"
-msgstr "%s pligter skal udfyldes indenfor de næste %s dage"
-
-msgid "%s chores are overdue to be done"
-msgstr "%s pligter skulle have været gjort"
 
 msgid "Released on"
 msgstr ""
@@ -474,14 +486,15 @@ msgstr "Skal udfyldes"
 msgid "Put missing products on shopping list"
 msgstr "Sæt manglende produkter på en indkøbsliste"
 
-msgid "Not enough in stock, %s ingredients missing"
-msgstr "Der er ikke nok i beholdningen. Der mangler %s ingredienser. "
-
 msgid "Enough in stock"
 msgstr "Der er nok i beholdningen"
 
-msgid "Not enough in stock, %s ingredients missing but already on the shopping list"
-msgstr "Der er ikke nok i beholdningen.  Der mangler %s ingredienser som allerede er på indkøbslisten"
+msgid ""
+"Not enough in stock, %s ingredient missing but already on the shopping list"
+msgid_plural ""
+"Not enough in stock, %s ingredients missing but already on the shopping list"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Expand to fullscreen"
 msgstr "Udvid til fuldskærm"
@@ -496,7 +509,9 @@ msgid "Recipe"
 msgstr "Opskrift"
 
 msgid "Not enough in stock, %s missing, %s already on shopping list"
-msgstr "Der er ikke nok i beholdningen. Der mangler %s, %s er allerede i beholdningen"
+msgstr ""
+"Der er ikke nok i beholdningen. Der mangler %s, %s er allerede i "
+"beholdningen"
 
 msgid "Show notes"
 msgstr "Vis noter"
@@ -504,8 +519,12 @@ msgstr "Vis noter"
 msgid "Put missing amount on shopping list"
 msgstr "Put manglende mængde på indkøbsliste"
 
-msgid "Are you sure to put all missing ingredients for recipe \"%s\" on the shopping list?"
-msgstr "Er du sikker på du vil sætte alle manglende ingredienser til \"%s\" på indkøbslisten?"
+msgid ""
+"Are you sure to put all missing ingredients for recipe \"%s\" on the "
+"shopping list?"
+msgstr ""
+"Er du sikker på du vil sætte alle manglende ingredienser til \"%s\" på "
+"indkøbslisten?"
 
 msgid "Added for recipe %s"
 msgstr "Tilføjet til opskriften %s"
@@ -585,40 +604,35 @@ msgstr ""
 msgid "The price cannot be lower than %s"
 msgstr ""
 
-msgid "%s product expires within the next %s days"
-msgstr ""
-
-msgid "%s product is already expired"
-msgstr ""
-
-msgid "%s product is below defined min. stock amount"
-msgstr ""
-
 msgid "Unit"
 msgstr ""
 
-msgid "Units"
-msgstr ""
+msgid "%s Unit"
+msgid_plural "%s Units"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "%s chore is due to be done within the next %s days"
-msgstr ""
+msgid "%s chore is due to be done"
+msgid_plural "%s chores are due to be done"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "%s chore is overdue to be done"
-msgstr ""
+msgid_plural "%s chores are overdue to be done"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "%s battery is due to be charged within the next %s days"
-msgstr ""
+msgid "%s battery is due to be charged"
+msgid_plural "%s batteries are due to be charged"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "%s battery is overdue to be charged"
-msgstr ""
-
-msgid "%s unit was automatically added and will apply in addition to the amount entered here"
-msgstr ""
+msgid_plural "%s batteries are overdue to be charged"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "in singular form"
-msgstr ""
-
-msgid "in plural form"
 msgstr ""
 
 msgid "Never expires"
@@ -633,10 +647,14 @@ msgstr ""
 msgid "Quantity unit"
 msgstr ""
 
-msgid "Only check if a single unit is in stock (a different quantity can then be used above)"
+msgid ""
+"Only check if a single unit is in stock (a different quantity can then be "
+"used above)"
 msgstr ""
 
-msgid "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients marked with \"check only if a single unit is in stock\" will be ignored)?"
+msgid ""
+"Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
+" marked with \"check only if a single unit is in stock\" will be ignored)?"
 msgstr ""
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
@@ -693,17 +711,15 @@ msgstr ""
 msgid "Are you sure to delete task \"%s\"?"
 msgstr ""
 
-msgid "%s task is due to be done within the next %s days"
-msgstr ""
-
-msgid "%s tasks are due to be done within the next %s days"
-msgstr ""
+msgid "%s task is due to be done"
+msgid_plural "%s tasks are due to be done"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "%s task is overdue to be done"
-msgstr ""
-
-msgid "%s tasks are overdue to be done"
-msgstr ""
+msgid_plural "%s tasks are overdue to be done"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Edit task category"
 msgstr ""
@@ -798,7 +814,9 @@ msgstr ""
 msgid "Image of product %s"
 msgstr ""
 
-msgid "This product cannot be deleted because it is in stock, please remove the stock amount first."
+msgid ""
+"This product cannot be deleted because it is in stock, please remove the "
+"stock amount first."
 msgstr ""
 
 msgid "Delete not possible"
@@ -822,13 +840,16 @@ msgstr ""
 msgid "Create equipment"
 msgstr ""
 
-msgid "If you don't select a file, the current instruction manual will not be altered"
+msgid ""
+"If you don't select a file, the current instruction manual will not be "
+"altered"
 msgstr ""
 
 msgid "No instruction manual available"
 msgstr ""
 
-msgid "The current instruction manual will be deleted when you save the equipment"
+msgid ""
+"The current instruction manual will be deleted when you save the equipment"
 msgstr ""
 
 msgid "No picture available"
@@ -921,13 +942,17 @@ msgstr ""
 msgid "Use a specific stock item"
 msgstr ""
 
-msgid "The first item in this list would be picked by the default rule which is \"First expiring first, then first in first out\""
+msgid ""
+"The first item in this list would be picked by the default rule which is "
+"\"First expiring first, then first in first out\""
 msgstr ""
 
-msgid "Mark %s %s of %s as open"
+msgid "Mark %s of %s as open"
 msgstr ""
 
-msgid "When a product was marked as opened, the best before date will be replaced by today + this amount of days (a value of 0 disables this)"
+msgid ""
+"When a product was marked as opened, the best before date will be replaced "
+"by today + this amount of days (a value of 0 disables this)"
 msgstr ""
 
 msgid "Default best before days after opened"
@@ -972,7 +997,9 @@ msgstr ""
 msgid "Shopping list to stock workflow"
 msgstr ""
 
-msgid "Automatically do the booking using the last price and the amount of the shopping list item, if the product has \"Default best before days\" set"
+msgid ""
+"Automatically do the booking using the last price and the amount of the "
+"shopping list item, if the product has \"Default best before days\" set"
 msgstr ""
 
 msgid "Skip"
@@ -993,7 +1020,11 @@ msgstr ""
 msgid "Do not check against the shopping list when adding missing items to it"
 msgstr ""
 
-msgid "By default the amount to be added to the shopping list is \"needed amount - stock amount - shopping list amount\" - when this is enabled, it is only checked against the stock amount, not against what is already on the shopping list"
+msgid ""
+"By default the amount to be added to the shopping list is \"needed amount - "
+"stock amount - shopping list amount\" - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
 msgstr ""
 
 msgid "Picture"
@@ -1014,7 +1045,9 @@ msgstr ""
 msgid "Share/Integrate calendar (iCal)"
 msgstr ""
 
-msgid "Use the following (public) URL to share or integrate the calendar in iCal format"
+msgid ""
+"Use the following (public) URL to share or integrate the calendar in iCal "
+"format"
 msgstr ""
 
 msgid "Allow partial units in stock"
@@ -1023,13 +1056,18 @@ msgstr ""
 msgid "Enable tare weight handling"
 msgstr ""
 
-msgid "This is useful e.g. for flour in jars - on purchase/consume/inventory you always weigh the whole jar, the amount to be posted is then automatically calculated based on what is in stock and the tare weight defined below"
+msgid ""
+"This is useful e.g. for flour in jars - on purchase/consume/inventory you "
+"always weigh the whole jar, the amount to be posted is then automatically "
+"calculated based on what is in stock and the tare weight defined below"
 msgstr ""
 
 msgid "Tare weight"
 msgstr ""
 
-msgid "Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated"
+msgid ""
+"Tare weight handling enabled - please weigh the whole container, the amount "
+"to be posted will be automatically calculcated"
 msgstr ""
 
 msgid "You have to select a location"
@@ -1080,7 +1118,9 @@ msgstr ""
 msgid "Type a new product name or barcode and hit TAB to start a workflow"
 msgstr ""
 
-msgid "This will be used as the default setting when adding this product as a recipe ingredient"
+msgid ""
+"This will be used as the default setting when adding this product as a "
+"recipe ingredient"
 msgstr ""
 
 msgid "Add item"
@@ -1186,4 +1226,27 @@ msgid "This is required and can only contain letters and numbers"
 msgstr ""
 
 msgid "Edit userfield"
+msgstr ""
+
+msgid "Plural forms"
+msgstr ""
+
+msgid "One plural form per line, the current language requires"
+msgstr ""
+
+msgid "Plural count"
+msgstr ""
+
+msgid "Plural rule"
+msgstr ""
+
+msgid "in plural form"
+msgstr ""
+
+msgid "Not enough in stock, %s ingredient missing"
+msgid_plural "Not enough in stock, %s ingredients missing"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Consume %s of %s"
 msgstr ""

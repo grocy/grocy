@@ -199,7 +199,9 @@ class StockController extends BaseController
 		{
 			return $this->AppContainer->view->render($response, 'quantityunitform', [
 				'mode' => 'create',
-				'userfields' => $this->UserfieldsService->GetFields('quantity_units')
+				'userfields' => $this->UserfieldsService->GetFields('quantity_units'),
+				'pluralCount' => $this->LocalizationService->GetPluralCount(),
+				'pluralRule' => $this->LocalizationService->GetPluralDefinition()
 			]);
 		}
 		else
@@ -207,7 +209,9 @@ class StockController extends BaseController
 			return $this->AppContainer->view->render($response, 'quantityunitform', [
 				'quantityunit' =>  $this->Database->quantity_units($args['quantityunitId']),
 				'mode' => 'edit',
-				'userfields' => $this->UserfieldsService->GetFields('quantity_units')
+				'userfields' => $this->UserfieldsService->GetFields('quantity_units'),
+				'pluralCount' => $this->LocalizationService->GetPluralCount(),
+				'pluralRule' => $this->LocalizationService->GetPluralDefinition()
 			]);
 		}
 	}

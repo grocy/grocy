@@ -32,7 +32,7 @@ class SystemApiController extends BaseApiController
 			{
 				$requestBody = $request->getParsedBody();
 
-				$this->LocalizationService->LogMissingLocalization(GROCY_CULTURE, $requestBody['text']);
+				$this->LocalizationService->CheckAndAddMissingTranslationToPot($requestBody['text']);
 				return $this->EmptyApiResponse($response);
 			}
 			catch (\Exception $ex)

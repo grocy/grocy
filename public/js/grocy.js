@@ -1,12 +1,23 @@
-﻿//TODO: Missing translations should be automatically added to the source POT file
-Grocy.Translator = new Translator(Grocy.JsGettextTranslatorStrings);
+﻿Grocy.Translator = new Translator(Grocy.GettextPo);
 __t = function(text, ...placeholderValues)
 {
+	if (Grocy.Mode === "dev")
+	{
+		var text2 = text;
+		Grocy.Api.Post('system/log-missing-localization', { "text": text2 });
+	}
+	
 	return Grocy.Translator.__(text, ...placeholderValues)
 }
 __n = function(number, singularForm, pluralForm)
 {
-	return Grocy.Translator.n__(singularForm, pluralForm, number)
+	if (Grocy.Mode === "dev")
+	{
+		var singularForm2 = singularForm;
+		Grocy.Api.Post('system/log-missing-localization', { "text": singularForm2 });
+	}
+
+	return Grocy.Translator.n__(singularForm, pluralForm, number, number)
 }
 
 U = function(relativePath)

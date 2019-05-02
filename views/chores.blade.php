@@ -57,7 +57,7 @@
 					{{ $chore->name }}
 				</td>
 				<td>
-					{{ $__t$chore->period_type) }}
+					{{ $__t($chore->period_type) }}
 				</td>
 				<td>
 					{{ $chore->description }}

@@ -15,17 +15,33 @@ msgstr ""
 msgid "Stock overview"
 msgstr ""
 
-msgid "%s products expiring within the next %s days"
-msgstr ""
+msgid "%s product expires"
+msgid_plural "%s products expiring"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "%s products are already expired"
-msgstr ""
+msgid "within the next day"
+msgid_plural "within the next %s days"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "%s products are below defined min. stock amount"
-msgstr ""
+msgid "%s product is already expired"
+msgid_plural "%s products are already expired"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s product is below defined min. stock amount"
+msgid_plural "%s products are below defined min. stock amount"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Product"
 msgstr ""
+
+msgid "%s Product"
+msgid_plural "%s Products"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Amount"
 msgstr ""
@@ -58,9 +74,6 @@ msgid "Chore tracking"
 msgstr ""
 
 msgid "Battery tracking"
-msgstr ""
-
-msgid "Products"
 msgstr ""
 
 msgid "Locations"
@@ -348,18 +361,6 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-msgid "%s batteries are due to be charged within the next %s days"
-msgstr ""
-
-msgid "%s batteries are overdue to be charged"
-msgstr ""
-
-msgid "%s chores are due to be done within the next %s days"
-msgstr ""
-
-msgid "%s chores are overdue to be done"
-msgstr ""
-
 msgid "Released on"
 msgstr ""
 
@@ -474,14 +475,13 @@ msgstr ""
 msgid "Put missing products on shopping list"
 msgstr ""
 
-msgid "Not enough in stock, %s ingredients missing"
-msgstr ""
-
 msgid "Enough in stock"
 msgstr ""
 
-msgid "Not enough in stock, %s ingredients missing but already on the shopping list"
-msgstr ""
+msgid "Not enough in stock, %s ingredient missing but already on the shopping list"
+msgid_plural "Not enough in stock, %s ingredients missing but already on the shopping list"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Expand to fullscreen"
 msgstr ""
@@ -585,40 +585,35 @@ msgstr ""
 msgid "The price cannot be lower than %s"
 msgstr ""
 
-msgid "%s product expires within the next %s days"
-msgstr ""
-
-msgid "%s product is already expired"
-msgstr ""
-
-msgid "%s product is below defined min. stock amount"
-msgstr ""
-
 msgid "Unit"
 msgstr ""
 
-msgid "Units"
-msgstr ""
+msgid "%s Unit"
+msgid_plural "%s Units"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "%s chore is due to be done within the next %s days"
-msgstr ""
+msgid "%s chore is due to be done"
+msgid_plural "%s chores are due to be done"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "%s chore is overdue to be done"
-msgstr ""
+msgid_plural "%s chores are overdue to be done"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "%s battery is due to be charged within the next %s days"
-msgstr ""
+msgid "%s battery is due to be charged"
+msgid_plural "%s batteries are due to be charged"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "%s battery is overdue to be charged"
-msgstr ""
-
-msgid "%s unit was automatically added and will apply in addition to the amount entered here"
-msgstr ""
+msgid_plural "%s batteries are overdue to be charged"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "in singular form"
-msgstr ""
-
-msgid "in plural form"
 msgstr ""
 
 msgid "Never expires"
@@ -693,17 +688,15 @@ msgstr ""
 msgid "Are you sure to delete task \"%s\"?"
 msgstr ""
 
-msgid "%s task is due to be done within the next %s days"
-msgstr ""
-
-msgid "%s tasks are due to be done within the next %s days"
-msgstr ""
+msgid "%s task is due to be done"
+msgid_plural "%s tasks are due to be done"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "%s task is overdue to be done"
-msgstr ""
-
-msgid "%s tasks are overdue to be done"
-msgstr ""
+msgid_plural "%s tasks are overdue to be done"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Edit task category"
 msgstr ""
@@ -924,7 +917,7 @@ msgstr ""
 msgid "The first item in this list would be picked by the default rule which is \"First expiring first, then first in first out\""
 msgstr ""
 
-msgid "Mark %s %s of %s as open"
+msgid "Mark %s of %s as open"
 msgstr ""
 
 msgid "When a product was marked as opened, the best before date will be replaced by today + this amount of days (a value of 0 disables this)"
@@ -1186,4 +1179,36 @@ msgid "This is required and can only contain letters and numbers"
 msgstr ""
 
 msgid "Edit userfield"
+msgstr ""
+
+msgid "Plural forms"
+msgstr ""
+
+msgid "One plural form per line, the current language requires"
+msgstr ""
+
+msgid "Plural count"
+msgstr ""
+
+msgid "Plural rule"
+msgstr ""
+
+msgid "in plural form"
+msgstr ""
+
+msgid "Not enough in stock, %s ingredient missing"
+msgid_plural "Not enough in stock, %s ingredients missing"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Consume %s of %s"
+msgstr ""
+
+msgid "Pieces"
+msgstr ""
+
+msgid "Packs"
+msgstr ""
+
+msgid "Products"
 msgstr ""

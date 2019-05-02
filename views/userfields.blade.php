@@ -65,7 +65,7 @@
 						{{ $userfield->caption }}
 					</td>
 					<td>
-						{{ $__t$userfield->type) }}
+						{{ $__t($userfield->type) }}
 					</td>
 				</tr>
 				@endforeach

@@ -1,15 +1,22 @@
+# Translators:
+# Llewy <carlvanoene@gmail.com>, 2019
+# Adriaan Peeters <apeeters@lashout.net>, 2019
+# Grocy NL, 2019
+# Seppe <van.winkel.seppe@me.com>, 2019
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Translation migration from old PHP array files\n"
-"Language-Team: http://www.transifex.com/grocy/grocy/language/nl\n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Seppe <van.winkel.seppe@me.com>, 2019\n"
+"Language-Team: Dutch (https://www.transifex.com/grocy/teams/93189/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
-"PO-Revision-Date: 2019-05-01T17:59:17+00:00\n"
 "Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Domain: grocy/demo_data\n"
 
 msgid "Cookies"
@@ -31,40 +38,34 @@ msgid "Fridge"
 msgstr "Koelkast"
 
 msgid "Piece"
-msgstr "Stuk"
-
-msgid "Pieces"
-msgstr "Stukken"
+msgid_plural "Pieces"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Pack"
-msgstr "Pak"
-
-msgid "Packs"
-msgstr "Pakken"
+msgid_plural "Packs"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Glass"
-msgstr "Glas"
-
-msgid "Glasses"
-msgstr "Glazen"
+msgid_plural "Glasses"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Tin"
-msgstr "Blik"
-
-msgid "Tins"
-msgstr "Blikken"
+msgid_plural "Tins"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Can"
-msgstr "Blik"
-
-msgid "Cans"
-msgstr "Blikken"
+msgid_plural "Cans"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Bunch"
-msgstr "Bundel"
-
-msgid "Bunches"
-msgstr "Bundels"
+msgid_plural "Bunches"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Gummy bears"
 msgstr "Gombeertjes"
@@ -172,10 +173,9 @@ msgid "Demo User"
 msgstr "Demo Gebruiker"
 
 msgid "Gram"
-msgstr "Gram"
-
-msgid "Grams"
-msgstr "Gram"
+msgid_plural "Grams"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Flour"
 msgstr "Bloem"

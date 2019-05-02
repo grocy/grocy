@@ -52,7 +52,7 @@
 		Grocy.ActiveNav = '@yield('activeNav', '')';
 		Grocy.Culture = '{{ GROCY_CULTURE }}';
 		Grocy.Currency = '{{ GROCY_CURRENCY }}';
-		Grocy.JsGettextTranslatorStrings = {!! $jsGettextTranslatorStrings !!};
+		Grocy.GettextPo = {!! $GettextPo !!};
 		Grocy.UserSettings = {!! json_encode($userSettings) !!};
 		Grocy.FeatureFlags = {!! json_encode($featureFlags) !!};
 	</script>

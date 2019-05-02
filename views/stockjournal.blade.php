@@ -56,14 +56,14 @@
 						@endif
 					</td>
 					<td>
-						{{ $stockLogEntry->amount }} {{ Pluralize($stockLogEntry->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockLogEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockLogEntry->product_id)->qu_id_stock)->name_plural) }}
+						{{ $stockLogEntry->amount }} {{ $__n($stockLogEntry->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockLogEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockLogEntry->product_id)->qu_id_stock)->name_plural) }}
 					</td>
 					<td>
 						{{ $stockLogEntry->row_created_timestamp }}
 						<time class="timeago timeago-contextual" datetime="{{ $stockLogEntry->row_created_timestamp }}"></time>
 					</td>
 					<td>
-						{{ $__t$stockLogEntry->transaction_type) }}
+						{{ $__t($stockLogEntry->transaction_type) }}
 					</td>
 				</tr>
 				@endforeach

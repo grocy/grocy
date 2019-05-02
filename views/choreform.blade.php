@@ -36,7 +36,7 @@
 				<label for="period_type">{{ $__t('Period type') }}</label>
 				<select required class="form-control input-group-chore-period-type" id="period_type" name="period_type">
 					@foreach($periodTypes as $periodType)
-						<option @if($mode == 'edit' && $periodType == $chore->period_type) selected="selected" @endif value="{{ $periodType }}">{{ $__t$periodType) }}</option>
+						<option @if($mode == 'edit' && $periodType == $chore->period_type) selected="selected" @endif value="{{ $periodType }}">{{ $__t($periodType) }}</option>
 					@endforeach
 				</select>
 				<div class="invalid-feedback">{{ $__t('A period type is required') }}</div>

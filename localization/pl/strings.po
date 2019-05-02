@@ -23,17 +23,43 @@ msgstr ""
 msgid "Stock overview"
 msgstr "Przegląd zapasów"
 
-msgid "%s products expiring within the next %s days"
-msgstr "Ilość produktów, które będą przeterminowane w ciągu %s dni: %s"
+msgid "%s product expires"
+msgid_plural "%s products expiring"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
-msgid "%s products are already expired"
-msgstr "Przeterminowane produkty: %s"
+msgid "within the next day"
+msgid_plural "within the next %s days"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
-msgid "%s products are below defined min. stock amount"
-msgstr "%s produktów są poniżej zdefiniowanej minimalnej ilości"
+msgid "%s product is already expired"
+msgid_plural "%s products are already expired"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "%s product is below defined min. stock amount"
+msgid_plural "%s products are below defined min. stock amount"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 msgid "Product"
 msgstr "Produkt"
+
+msgid "%s Product"
+msgid_plural "%s Products"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 msgid "Amount"
 msgstr "Ilość"
@@ -67,9 +93,6 @@ msgstr "Wykonanie obowiązku"
 
 msgid "Battery tracking"
 msgstr "Sprawdzenie stanu baterii"
-
-msgid "Products"
-msgstr "Produkty"
 
 msgid "Locations"
 msgstr "Miejsca"
@@ -365,18 +388,6 @@ msgstr "O grocy"
 msgid "Close"
 msgstr "Zamknij"
 
-msgid "%s batteries are due to be charged within the next %s days"
-msgstr "Ilość baterii do naładowania w ciągu %s dni: %s"
-
-msgid "%s batteries are overdue to be charged"
-msgstr "Baterie po terminie ładowania: %s"
-
-msgid "%s chores are due to be done within the next %s days"
-msgstr "Ilość obowiązków do wykonania w ciągu %s dni: %s"
-
-msgid "%s chores are overdue to be done"
-msgstr "Obowiązki niewykonane w terminie: %s"
-
 msgid "Released on"
 msgstr "Wydano dnia"
 
@@ -491,17 +502,17 @@ msgstr "Wymagania spełnione"
 msgid "Put missing products on shopping list"
 msgstr "Dodaj brakujące produkty do listy zakupów"
 
-msgid "Not enough in stock, %s ingredients missing"
-msgstr "Za mało zapasów, brakuje %s składników"
-
 msgid "Enough in stock"
 msgstr "Dość na stanie"
 
 msgid ""
+"Not enough in stock, %s ingredient missing but already on the shopping list"
+msgid_plural ""
 "Not enough in stock, %s ingredients missing but already on the shopping list"
-msgstr ""
-"Za mało zapasów. Brakujące składniki, które znajdują się już na liście "
-"zakupów: %s"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 msgid "Expand to fullscreen"
 msgstr "Pokaż w pełnym ekranie"
@@ -609,43 +620,46 @@ msgstr "w %s za zakup jednostki ilości"
 msgid "The price cannot be lower than %s"
 msgstr "Cena nie może być mniejsza niż %s"
 
-msgid "%s product expires within the next %s days"
-msgstr "Ilość produktów, które będą przeterminowane w ciągu %s dni: %s"
-
-msgid "%s product is already expired"
-msgstr "Przeterminowane produkty: %s"
-
-msgid "%s product is below defined min. stock amount"
-msgstr ""
-
 msgid "Unit"
 msgstr "Jednostka"
 
-msgid "Units"
-msgstr "Jednostki"
+msgid "%s Unit"
+msgid_plural "%s Units"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
-msgid "%s chore is due to be done within the next %s days"
-msgstr "Ilość obowiązków do wykonania w ciągu %s dni: %s"
+msgid "%s chore is due to be done"
+msgid_plural "%s chores are due to be done"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 msgid "%s chore is overdue to be done"
-msgstr "Obowiązki niewykonane w terminie: %s"
+msgid_plural "%s chores are overdue to be done"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
-msgid "%s battery is due to be charged within the next %s days"
-msgstr "Ilość baterii do naładowania za %s dni: %s"
+msgid "%s battery is due to be charged"
+msgid_plural "%s batteries are due to be charged"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 msgid "%s battery is overdue to be charged"
-msgstr "Baterie po terminie ładowania: %s"
-
-msgid ""
-"%s unit was automatically added and will apply in addition to the amount "
-"entered here"
-msgstr ""
+msgid_plural "%s batteries are overdue to be charged"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 msgid "in singular form"
 msgstr "w liczbie pojedynczej"
-
-msgid "in plural form"
-msgstr "w liczbie mnogiej"
 
 msgid "Never expires"
 msgstr "Brak terminu ważności"
@@ -728,17 +742,19 @@ msgstr "Edytuj zadanie"
 msgid "Are you sure to delete task \"%s\"?"
 msgstr "Czy jesteś pewien, że chcesz usunąć zadanie \"%s\"?"
 
-msgid "%s task is due to be done within the next %s days"
-msgstr "Ilość zadań do wykonania w ciągu %s dni: %s"
-
-msgid "%s tasks are due to be done within the next %s days"
-msgstr "Ilość zadań do wykonania w ciągu %s dni: %s"
+msgid "%s task is due to be done"
+msgid_plural "%s tasks are due to be done"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 msgid "%s task is overdue to be done"
-msgstr "Zadania niewykonane w terminie: %s"
-
-msgid "%s tasks are overdue to be done"
-msgstr "Zadania niewykonane w terminie: %s"
+msgid_plural "%s tasks are overdue to be done"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 msgid "Edit task category"
 msgstr "Edytuj kategorię zadania"
@@ -968,8 +984,8 @@ msgid ""
 "\"First expiring first, then first in first out\""
 msgstr ""
 
-msgid "Mark %s %s of %s as open"
-msgstr "%s - oznacz %s %s jako otwarte"
+msgid "Mark %s of %s as open"
+msgstr ""
 
 msgid ""
 "When a product was marked as opened, the best before date will be replaced "
@@ -1263,3 +1279,28 @@ msgstr "Pole jest wymagane i może zawierać jedynie litery i cyfry"
 
 msgid "Edit userfield"
 msgstr "Edytuj pole użytkownika"
+
+msgid "Plural forms"
+msgstr ""
+
+msgid "One plural form per line, the current language requires"
+msgstr ""
+
+msgid "Plural count"
+msgstr ""
+
+msgid "Plural rule"
+msgstr ""
+
+msgid "in plural form"
+msgstr "w liczbie mnogiej"
+
+msgid "Not enough in stock, %s ingredient missing"
+msgid_plural "Not enough in stock, %s ingredients missing"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "Consume %s of %s"
+msgstr ""

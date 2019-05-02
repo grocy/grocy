@@ -265,7 +265,7 @@ function RefreshStatistics()
 			result.forEach(element => {
 				amountSum += parseInt(element.amount);
 			});
-			$("#info-current-stock").text(result.length + " " + __n(result.length, __t('Product'), __t('Products')) + ", " + amountSum.toString() + " " + __n(amountSum, __t('Unit'), __t('Units')));
+			$("#info-current-stock").text(__n(result.length, '%s Product', '%s Products') + ", " + __n(amountSum, '%s Unit', '%s Units'));
 		},
 		function(xhr)
 		{
@@ -277,9 +277,9 @@ function RefreshStatistics()
 	Grocy.Api.Get('stock/volatile?expiring_days=' + nextXDays,
 		function(result)
 		{
-			$("#info-expiring-products").text(__n(result.expiring_products.length, __t('%s product expires within the next %s days', result.expiring_products.length, nextXDays), __t('%s products expiring within the next %s days', result.expiring_products.length, nextXDays)));
-			$("#info-expired-products").text(__n(result.expired_products.length, __t('%s product is already expired', result.expired_products.length), __t('%s products are already expired', result.expired_products.length)));
-			$("#info-missing-products").text(__n(result.missing_products.length, __t('%s product is below defined min. stock amount', result.missing_products.length), __t('%s products are below defined min. stock amount', result.missing_products.length)));
+			$("#info-expiring-products").text(__n(result.expiring_products.length, '%s product expires', '%s products expiring') + ' ' + __n(nextXDays, 'within the next day', 'within the next %s days'));
+			$("#info-expired-products").text(__n(result.expired_products.length, '%s product is already expired', '%s products are already expired'));
+			$("#info-missing-products").text(__n(result.missing_products.length, '%s product is below defined min. stock amount', '%s products are below defined min. stock amount'));
 		},
 		function(xhr)
 		{

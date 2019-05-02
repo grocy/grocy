@@ -49,7 +49,7 @@
 				<select required class="form-control" id="type" name="type">
 					<option></option>
 					@foreach($userfieldTypes as $userfieldType)
-						<option @if($mode == 'edit' && $userfield->type == $userfieldType) selected="selected" @endif value="{{ $userfieldType }}">{{ $__t$userfieldType) }}</option>
+						<option @if($mode == 'edit' && $userfield->type == $userfieldType) selected="selected" @endif value="{{ $userfieldType }}">{{ $__t($userfieldType) }}</option>
 					@endforeach
 				</select>
 				<div class="invalid-feedback">{{ $__t('A type is required') }}</div>

@@ -33,6 +33,18 @@
 			</div>
 
 			<div class="form-group">
+				<label for="plural_forms">
+					{{ $__t('Plural forms') }}<br>
+					<span class="small text-muted">
+						{{ $__t('One plural form per line, the current language requires') }}:<br>
+						{{ $__t('Plural count') }}: {{ $pluralCount }}<br>
+						{{ $__t('Plural rule') }}: {{ $pluralRule }}
+					</span>
+				</label>
+				<textarea class="form-control" rows="3" id="plural_forms" name="plural_forms">@if($mode == 'edit'){{ $quantityunit->plural_forms }}@endif</textarea>
+			</div>
+
+			<div class="form-group">
 				<label for="description">{{ $__t('Description') }}</label>
 				<textarea class="form-control" rows="2" id="description" name="description">@if($mode == 'edit'){{ $quantityunit->description }}@endif</textarea>
 			</div>

@@ -15,3 +15,8 @@
 - New translations: (thanks all the translators)
   - Swedish (demo available at https://demo-sv.grocy.info)
   - Polish (demo available at https://demo-pl.grocy.info)
+- Internal improvement: Localizations are now handled via gettext, both on server and client side
+  - Mainly to properly handle languages with more than 2 plural forms
+  - This involved some string changes which results in a needed (re)translation of about 20 strings (excluding demo data)
+  - Also applies to quantity units, n-plural forms can be entered on the quantity unit edit page
+  - It's not required to install the PHP gettext extension, on both, server and client, managed implementations of gettext are used ([oscarotero/Gettext](https://github.com/oscarotero/Gettext) & [oscarotero/gettext-translator](https://github.com/oscarotero/gettext-translator))

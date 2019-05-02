@@ -9,5 +9,5 @@ $db = $this->DatabaseService->GetDbConnection();
 
 $defaultShoppingList = $this->Database->shopping_lists()->where('id = 1')->fetch();
 $defaultShoppingList->update(array(
-	'name' => $localizationService->Localize('Shopping list')
+	'name' => $localizationService->__t('Shopping list')
 ));

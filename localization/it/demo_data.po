@@ -36,40 +36,34 @@ msgid "Fridge"
 msgstr "Kühlschrank"
 
 msgid "Piece"
-msgstr "Pezzo"
-
-msgid "Pieces"
-msgstr "Pezzi"
+msgid_plural "Pieces"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Pack"
-msgstr "Pacco"
-
-msgid "Packs"
-msgstr "Pacchi"
+msgid_plural "Packs"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Glass"
-msgstr "Bicchiere"
-
-msgid "Glasses"
-msgstr "Bicchieri"
+msgid_plural "Glasses"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Tin"
-msgstr "Scatola"
-
-msgid "Tins"
-msgstr "Scatole"
+msgid_plural "Tins"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Can"
-msgstr "Lattina"
-
-msgid "Cans"
-msgstr "Lattine"
+msgid_plural "Cans"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Bunch"
-msgstr "Cespo"
-
-msgid "Bunches"
-msgstr "Cespi"
+msgid_plural "Bunches"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Gummy bears"
 msgstr "Caramelle"
@@ -177,10 +171,9 @@ msgid "Demo User"
 msgstr "Utente Demo"
 
 msgid "Gram"
-msgstr "Grammo"
-
-msgid "Grams"
-msgstr "Grammi"
+msgid_plural "Grams"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Flour"
 msgstr "Farina"

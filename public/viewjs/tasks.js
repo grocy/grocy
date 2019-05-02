@@ -181,8 +181,8 @@ function RefreshStatistics()
 				}
 			});
 
-			$("#info-due-tasks").text(__n(dueCount, __t('%s task is due to be done within the next %s days', dueCount, nextXDays), __t('%s tasks are due to be done within the next %s days', dueCount, nextXDays)));
-			$("#info-overdue-tasks").text(__n(overdueCount, __t('%s task is overdue to be done', overdueCount), __t('%s tasks are overdue to be done', overdueCount)));
+			$("#info-due-tasks").text(__n(dueCount, '%s task is due to be done', '%s tasks are due to be done') + ' ' + __n(nextXDays, 'within the next day', 'within the next %s days'));
+			$("#info-overdue-tasks").text(__n(overdueCount, '%s task is overdue to be done', '%s tasks are overdue to be done'));
 		},
 		function(xhr)
 		{

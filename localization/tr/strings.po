@@ -20,17 +20,33 @@ msgstr ""
 msgid "Stock overview"
 msgstr "Stoklara genel bakış"
 
-msgid "%s products expiring within the next %s days"
-msgstr "%s ürünün son kullanma tarihi %s gün içerisinde dolacak"
+msgid "%s product expires"
+msgid_plural "%s products expiring"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "%s products are already expired"
-msgstr "%s ürünün son kullanma tarihi geçti"
+msgid "within the next day"
+msgid_plural "within the next %s days"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "%s products are below defined min. stock amount"
-msgstr "%s ürün belirlenen minimum stok miktarının altında"
+msgid "%s product is already expired"
+msgid_plural "%s products are already expired"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s product is below defined min. stock amount"
+msgid_plural "%s products are below defined min. stock amount"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Product"
 msgstr "Ürün"
+
+msgid "%s Product"
+msgid_plural "%s Products"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Amount"
 msgstr "Miktar"
@@ -64,9 +80,6 @@ msgstr "Ev işleri takibi"
 
 msgid "Battery tracking"
 msgstr "Pil takibi"
-
-msgid "Products"
-msgstr "Ürünler"
 
 msgid "Locations"
 msgstr "Lokasyonlar"
@@ -363,18 +376,6 @@ msgstr "grocy hakkında"
 msgid "Close"
 msgstr "Kapat"
 
-msgid "%s batteries are due to be charged within the next %s days"
-msgstr "%s pilin önümüzdeki %s gün içerisinde şarj olması bekleniyor"
-
-msgid "%s batteries are overdue to be charged"
-msgstr "%s pilin şarj etme zamanı geçti"
-
-msgid "%s chores are due to be done within the next %s days"
-msgstr "%s ev işi önümüzdeki %s gün içerisinde yapılacak"
-
-msgid "%s chores are overdue to be done"
-msgstr "%s ev işinin yapılma zamanı geçti"
-
 msgid "Released on"
 msgstr "Yayınlanma tarihi"
 
@@ -489,15 +490,15 @@ msgstr "Gereklilikler sağlandı"
 msgid "Put missing products on shopping list"
 msgstr "Eksik malzemeleri alışveriş listesine ekle"
 
-msgid "Not enough in stock, %s ingredients missing"
-msgstr "Stokta yeterince %s malzemesi yok"
-
 msgid "Enough in stock"
 msgstr "Stokta yeteri kadar var"
 
 msgid ""
+"Not enough in stock, %s ingredient missing but already on the shopping list"
+msgid_plural ""
 "Not enough in stock, %s ingredients missing but already on the shopping list"
-msgstr "Stokta %s yok ancak alışveriş listesine eklenmiş"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Expand to fullscreen"
 msgstr "Tam ekran yap"
@@ -605,45 +606,36 @@ msgstr "%s için her miktar birimini satın al"
 msgid "The price cannot be lower than %s"
 msgstr "Fiyat %s'den az olamaz"
 
-msgid "%s product expires within the next %s days"
-msgstr "%s ürünün son kullanma tarihi %s gün içerisinde dolacak"
-
-msgid "%s product is already expired"
-msgstr "%s ürünün son kullanma tarihi geçti"
-
-msgid "%s product is below defined min. stock amount"
-msgstr "%s ürün belirlenen min. stok miktarının altında"
-
 msgid "Unit"
 msgstr "Birim"
 
-msgid "Units"
-msgstr "Birimler"
+msgid "%s Unit"
+msgid_plural "%s Units"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "%s chore is due to be done within the next %s days"
-msgstr "%s ev işi önümüzdeki %s gün içerisinde yapılacak"
+msgid "%s chore is due to be done"
+msgid_plural "%s chores are due to be done"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "%s chore is overdue to be done"
-msgstr "%s ev işinin yapılma zamanı geçti"
+msgid_plural "%s chores are overdue to be done"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "%s battery is due to be charged within the next %s days"
-msgstr "%s pilin önümüzdeki %s gün içerisinde şarj olması bekleniyor"
+msgid "%s battery is due to be charged"
+msgid_plural "%s batteries are due to be charged"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "%s battery is overdue to be charged"
-msgstr "%s pilin şarj etme zamanı geçti"
-
-msgid ""
-"%s unit was automatically added and will apply in addition to the amount "
-"entered here"
-msgstr ""
-"%s birim otomatik olarak eklendi ve buraya girilen miktar haricinde "
-"uygulanacak"
+msgid_plural "%s batteries are overdue to be charged"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "in singular form"
 msgstr "tekil formda"
-
-msgid "in plural form"
-msgstr "çoğul formda"
 
 msgid "Never expires"
 msgstr "Son kullanma tarihi asla dolmuyor"
@@ -725,17 +717,15 @@ msgstr "Görevi düzenle"
 msgid "Are you sure to delete task \"%s\"?"
 msgstr "Görev \"%s\"'i silmek istediğine emin misin?"
 
-msgid "%s task is due to be done within the next %s days"
-msgstr "%s görev önümüzdeki %s gün içerisinde yapılacak"
-
-msgid "%s tasks are due to be done within the next %s days"
-msgstr "%s görev önümüzdeki %s gün içerisinde yapılacak"
+msgid "%s task is due to be done"
+msgid_plural "%s tasks are due to be done"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "%s task is overdue to be done"
-msgstr "%s görevin yapılma zamanı geçti"
-
-msgid "%s tasks are overdue to be done"
-msgstr "%s görevin yapılma zamanı geçti"
+msgid_plural "%s tasks are overdue to be done"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Edit task category"
 msgstr "Görev kategorisini düzenle"
@@ -969,8 +959,8 @@ msgstr ""
 "Bu listedeki ilk madde ön tanımlı olarak \"Süresi ilk dolan ilk, ondan sonra"
 " ilk giren ilk çıkar\" mantığıyla seçilecektir"
 
-msgid "Mark %s %s of %s as open"
-msgstr "%s'ün %s/%s'sini açık olarak işaretle"
+msgid "Mark %s of %s as open"
+msgstr ""
 
 msgid ""
 "When a product was marked as opened, the best before date will be replaced "
@@ -1269,4 +1259,27 @@ msgid "This is required and can only contain letters and numbers"
 msgstr ""
 
 msgid "Edit userfield"
+msgstr ""
+
+msgid "Plural forms"
+msgstr ""
+
+msgid "One plural form per line, the current language requires"
+msgstr ""
+
+msgid "Plural count"
+msgstr ""
+
+msgid "Plural rule"
+msgstr ""
+
+msgid "in plural form"
+msgstr "çoğul formda"
+
+msgid "Not enough in stock, %s ingredient missing"
+msgid_plural "Not enough in stock, %s ingredients missing"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Consume %s of %s"
 msgstr ""

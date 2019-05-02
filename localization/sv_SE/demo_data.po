@@ -1,6 +1,6 @@
 # Translators:
-# Mathias Fröjd <info@mcfrojd.com>, 2019
 # Bernd Bestel <bernd@berrnd.de>, 2019
+# Mathias Fröjd <info@mcfrojd.com>, 2019
 # 
 msgid ""
 msgstr ""
@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2019\n"
+"Last-Translator: Mathias Fröjd <info@mcfrojd.com>, 2019\n"
 "Language-Team: Swedish (Sweden) (https://www.transifex.com/grocy/teams/93189/sv_SE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,40 +36,34 @@ msgid "Fridge"
 msgstr "Kylskåp"
 
 msgid "Piece"
-msgstr "Bit"
-
-msgid "Pieces"
-msgstr "Bitar"
+msgid_plural "Pieces"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Pack"
-msgstr "Förpackning"
-
-msgid "Packs"
-msgstr "Förpackningar"
+msgid_plural "Packs"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Glass"
-msgstr "Glas"
-
-msgid "Glasses"
-msgstr "Glasögon"
+msgid_plural "Glasses"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Tin"
-msgstr "Burk"
-
-msgid "Tins"
-msgstr "Burkar"
+msgid_plural "Tins"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Can"
-msgstr "Dos"
-
-msgid "Cans"
-msgstr "Dos"
+msgid_plural "Cans"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Bunch"
-msgstr "Knippa"
-
-msgid "Bunches"
-msgstr "Klasar"
+msgid_plural "Bunches"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Gummy bears"
 msgstr "Gummibjörnar"
@@ -177,10 +171,9 @@ msgid "Demo User"
 msgstr "Demo-användare"
 
 msgid "Gram"
-msgstr "Gram"
-
-msgid "Grams"
-msgstr "Gram"
+msgid_plural "Grams"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Flour"
 msgstr "Mjöl"
@@ -288,4 +281,4 @@ msgid "Swedish"
 msgstr "Swedish"
 
 msgid "Polish"
-msgstr ""
+msgstr "Polermedel"

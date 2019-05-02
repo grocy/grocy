@@ -36,40 +36,34 @@ msgid "Fridge"
 msgstr "Nevera"
 
 msgid "Piece"
-msgstr "Pieza"
-
-msgid "Pieces"
-msgstr "Piezas"
+msgid_plural "Pieces"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Pack"
-msgstr "Pack"
-
-msgid "Packs"
-msgstr "Packs"
+msgid_plural "Packs"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Glass"
-msgstr "Vaso"
-
-msgid "Glasses"
-msgstr "Vasos"
+msgid_plural "Glasses"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Tin"
-msgstr "Envase"
-
-msgid "Tins"
-msgstr "Envases"
+msgid_plural "Tins"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Can"
-msgstr "Lata"
-
-msgid "Cans"
-msgstr "Latas"
+msgid_plural "Cans"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Bunch"
-msgstr "Puñado"
-
-msgid "Bunches"
-msgstr "Puñados"
+msgid_plural "Bunches"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Gummy bears"
 msgstr "Ositos"
@@ -177,10 +171,9 @@ msgid "Demo User"
 msgstr "Usuario de demostración"
 
 msgid "Gram"
-msgstr "Gramo"
-
-msgid "Grams"
-msgstr "Gramos"
+msgid_plural "Grams"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Flour"
 msgstr "Harina"

@@ -15,9 +15,9 @@
 @php if(empty($additionalAttributes)) { $additionalAttributes = ''; } @endphp
 
 <div class="form-group">
-	<label for="{{ $id }}">{{ $__t$label) }}
+	<label for="{{ $id }}">{{ $__t($label) }}
 		<span class="small text-muted">
-			@if(!empty($hint)){{ $__t$hint) }}@endif
+			@if(!empty($hint)){{ $__t($hint) }}@endif
 			<time id="datetimepicker-timeago" class="timeago timeago-contextual"></time>
 		</span>
 	</label>
@@ -40,7 +40,7 @@
 		@if(isset($shortcutValue) && isset($shortcutLabel))
 		<div class="form-check w-100">
 			<input class="form-check-input" type="checkbox" id="datetimepicker-shortcut" data-datetimepicker-shortcut-value="{{ $shortcutValue }}">
-			<label class="form-check-label" for="datetimepicker-shortcut">{{ $__t$shortcutLabel) }}</label>
+			<label class="form-check-label" for="datetimepicker-shortcut">{{ $__t($shortcutLabel) }}</label>
 		</div>
 		@endif
 	</div>

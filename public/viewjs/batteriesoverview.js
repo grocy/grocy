@@ -154,8 +154,8 @@ function RefreshStatistics()
 				}
 			});
 
-			$("#info-due-batteries").text(__n(dueCount, __t('%s battery is due to be charged within the next %s days', dueCount, nextXDays), __t('%s batteries are due to be charged within the next %s days', dueCount, nextXDays)));
-			$("#info-overdue-batteries").text(__n(overdueCount, __t('%s battery is overdue to be charged', overdueCount), __t('%s batteries are overdue to be charged', overdueCount)));
+			$("#info-due-batteries").text(__n(dueCount, '%s battery is due to be charged', '%s batteries are due to be charged') + ' ' + __n(nextXDays, 'within the next day', 'within the next %s days'));
+			$("#info-overdue-batteries").text(__n(overdueCount, '%s battery is overdue to be charged', '%s batteries are overdue to be charged'));
 		},
 		function(xhr)
 		{

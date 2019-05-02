@@ -20,17 +20,33 @@ msgstr ""
 msgid "Stock overview"
 msgstr "Resumen de stock"
 
-msgid "%s products expiring within the next %s days"
-msgstr "%s productos caducan en los próximos %s días"
+msgid "%s product expires"
+msgid_plural "%s products expiring"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "%s products are already expired"
-msgstr "%s productos ya han caducado"
+msgid "within the next day"
+msgid_plural "within the next %s days"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "%s products are below defined min. stock amount"
-msgstr "%s productos están por debajo del mínimo de stock definido"
+msgid "%s product is already expired"
+msgid_plural "%s products are already expired"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s product is below defined min. stock amount"
+msgid_plural "%s products are below defined min. stock amount"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Product"
 msgstr "Producto"
+
+msgid "%s Product"
+msgid_plural "%s Products"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Amount"
 msgstr "Cantidad"
@@ -64,9 +80,6 @@ msgstr "Seguimiento de tareas del hogar"
 
 msgid "Battery tracking"
 msgstr "Seguimiento de pilas"
-
-msgid "Products"
-msgstr "Productos"
 
 msgid "Locations"
 msgstr "Lugares"
@@ -364,19 +377,6 @@ msgstr "Sobre grocy"
 msgid "Close"
 msgstr "Cerrar"
 
-msgid "%s batteries are due to be charged within the next %s days"
-msgstr "%s pilas están pendientes de carga en los siguientes %s días"
-
-msgid "%s batteries are overdue to be charged"
-msgstr "%s pilas han pasado su fecha de carga prevista"
-
-msgid "%s chores are due to be done within the next %s days"
-msgstr ""
-"%s tareas del hogar están pendientes de suceder en los siguientes %s días"
-
-msgid "%s chores are overdue to be done"
-msgstr "%s tareas del hogar están vencidas"
-
 msgid "Released on"
 msgstr "Publicado el"
 
@@ -491,17 +491,15 @@ msgstr "Requerimientos completos"
 msgid "Put missing products on shopping list"
 msgstr "Añadir productos faltantes a la lista de la compra"
 
-msgid "Not enough in stock, %s ingredients missing"
-msgstr "No hay suficiente stock, faltan %s ingredientes"
-
 msgid "Enough in stock"
 msgstr "Suficiente stock"
 
 msgid ""
+"Not enough in stock, %s ingredient missing but already on the shopping list"
+msgid_plural ""
 "Not enough in stock, %s ingredients missing but already on the shopping list"
-msgstr ""
-"No hay suficiente stock, faltan %s ingredientes, pero están en la lista de "
-"la compra"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Expand to fullscreen"
 msgstr "Pantalla completa"
@@ -612,45 +610,36 @@ msgstr "en %s por unidad de compra"
 msgid "The price cannot be lower than %s"
 msgstr "El precio no puede ser menor que %s"
 
-msgid "%s product expires within the next %s days"
-msgstr "%s producto caduca en los próximos %s días"
-
-msgid "%s product is already expired"
-msgstr "%s producto está ya caducado"
-
-msgid "%s product is below defined min. stock amount"
-msgstr "%s producto está por debajo de la min. cantidad de stock"
-
 msgid "Unit"
 msgstr "Unidad"
 
-msgid "Units"
-msgstr "Unidades"
+msgid "%s Unit"
+msgid_plural "%s Units"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "%s chore is due to be done within the next %s days"
-msgstr "%s tarea del hogar vence en los próximos %s días"
+msgid "%s chore is due to be done"
+msgid_plural "%s chores are due to be done"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "%s chore is overdue to be done"
-msgstr "%s tarea del hogar está vencida"
+msgid_plural "%s chores are overdue to be done"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "%s battery is due to be charged within the next %s days"
-msgstr "%s pila debe ser cargada en los próximos %s días"
+msgid "%s battery is due to be charged"
+msgid_plural "%s batteries are due to be charged"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "%s battery is overdue to be charged"
-msgstr "%s pila ha vencido para ser cargada"
-
-msgid ""
-"%s unit was automatically added and will apply in addition to the amount "
-"entered here"
-msgstr ""
-"%s unidad se ha añadido automáticamente y se aplicará además de la cantidad "
-"indicada aquí"
+msgid_plural "%s batteries are overdue to be charged"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "in singular form"
 msgstr "en singular"
-
-msgid "in plural form"
-msgstr "en plural"
 
 msgid "Never expires"
 msgstr "Nunca caduca"
@@ -733,17 +722,15 @@ msgstr "Editar tarea"
 msgid "Are you sure to delete task \"%s\"?"
 msgstr "¿Estás seguro de borrar la tarea \"%s\"?"
 
-msgid "%s task is due to be done within the next %s days"
-msgstr "%s tarea vence en los próximos %s días"
-
-msgid "%s tasks are due to be done within the next %s days"
-msgstr "%s tareas vencen en los próximos %s días"
+msgid "%s task is due to be done"
+msgid_plural "%s tasks are due to be done"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "%s task is overdue to be done"
-msgstr "%s tarea está vencida"
-
-msgid "%s tasks are overdue to be done"
-msgstr "%s tareas están vencidas"
+msgid_plural "%s tasks are overdue to be done"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Edit task category"
 msgstr "Editar categoría de tarea"
@@ -976,8 +963,8 @@ msgstr ""
 "El primer elemento de esta lista sería elegido por la regla \"primero lo "
 "primero a caducar, luego primero en llegar, primero en salir\""
 
-msgid "Mark %s %s of %s as open"
-msgstr "Marcar %s %s de %s como abierto"
+msgid "Mark %s of %s as open"
+msgstr ""
 
 msgid ""
 "When a product was marked as opened, the best before date will be replaced "
@@ -1277,3 +1264,26 @@ msgstr "Es necesario y sólo puede contener letras y números"
 
 msgid "Edit userfield"
 msgstr "Editar campo de usuario"
+
+msgid "Plural forms"
+msgstr ""
+
+msgid "One plural form per line, the current language requires"
+msgstr ""
+
+msgid "Plural count"
+msgstr ""
+
+msgid "Plural rule"
+msgstr ""
+
+msgid "in plural form"
+msgstr "en plural"
+
+msgid "Not enough in stock, %s ingredient missing"
+msgid_plural "Not enough in stock, %s ingredients missing"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Consume %s of %s"
+msgstr ""

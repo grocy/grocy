@@ -72,7 +72,7 @@ class RecipesController extends BaseController
 		if ($recipeId  == 'new')
 		{
 			$newRecipe = $this->Database->recipes()->createRow(array(
-				'name' => $this->LocalizationService-Translator->__t('New recipe')
+				'name' => $this->LocalizationService->__t('New recipe')
 			));
 			$newRecipe->save();
 

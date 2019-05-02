@@ -11,9 +11,9 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.8.1.tgz#cbafbfe8894c4e3e3c3a9da6774e249ac1f2da8b"
   integrity sha512-GJtx6e55qLEOy2gPOsok2lohjpdWNGrYGtQx0FFT/++K4SYx+Z8LlPHdQBaFzKEwH5IbBB4fNgb//uyZjgYXoA==
 
-"TagManager@https://github.com/max-favilli/tagmanager.git#3.0.2":
+"TagManager@https://github.com/max-favilli/tagmanager.git#master":
   version "3.0.1"
-  resolved "https://github.com/max-favilli/tagmanager.git#df9eb9935c8585a392dfc00602f890caf233fa94"
+  resolved "https://github.com/max-favilli/tagmanager.git#b43646ef2f2373facaf21c7acc5e3eea61188d76"
   dependencies:
     jquery "1"
 
@@ -195,6 +195,13 @@ fullcalendar@^3.10.0:
   resolved "https://registry.yarnpkg.com/fullcalendar/-/fullcalendar-3.10.0.tgz#cc5e87d518fd6550e142816a31dd191664847919"
   integrity sha512-0OtsHhmdYhtFmQwXzyo8VqHzYgamg+zVOoytv5N13gI+iF6CGjevpCi/yBaQs0O4wY3OAp8I688IxdNYe0iAvw==
 
+gettext-translator@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/gettext-translator/-/gettext-translator-2.1.0.tgz#946047649b7df4ef00522787bb78792667e4de2f"
+  integrity sha512-RD9HifZKtlRtFScA0VWESzLKQxxRmaRU0IFg6cFZgMP0MMgzfHpWO7MipUyRbMxDFm8adbQqCcFLBV47tjT6Ug==
+  dependencies:
+    sprintf-js "^1.0.3"
+
 jquery-serializejson@^2.9.0:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/jquery-serializejson/-/jquery-serializejson-2.9.0.tgz#03e3764e3a4b42c1c5aae9f93d7f19320c5f35a6"
@@ -241,6 +248,11 @@ popper.js@^1.14.3:
   version "1.15.0"
   resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.15.0.tgz#5560b99bbad7647e9faa475c6b8056621f5a4ff2"
   integrity sha512-w010cY1oCUmI+9KwwlWki+r5jxKfTFDVoadl7MSrIujHU5MJ5OR6HTDj6Xo8aoR/QsA56x8jKjA59qGH4ELtrA==
+
+sprintf-js@^1.0.3, sprintf-js@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.1.2.tgz#da1765262bf8c0f571749f2ad6c26300207ae673"
+  integrity sha512-VE0SOVEHCk7Qc8ulkWw3ntAzXuqf7S2lvwQaDLRnUeIEaKNQJzV6BwmLKhOqT61aGhfUMrXeaBk+oDGCzvhcug==
 
 startbootstrap-sb-admin@^4.0.0:
   version "4.0.0"

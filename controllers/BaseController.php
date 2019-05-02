@@ -40,7 +40,7 @@ class BaseController
 		{
 			return $localizationService->__n($number, $singularForm, $pluralForm);
 		});
-		$container->view->set('jsGettextTranslatorStrings', $localizationService->GetTranslationsForJavaScriptTranslator());
+		$container->view->set('GettextPo', $localizationService->GetPoAsJsonString());
 
 		$container->view->set('U', function($relativePath, $isResource = false) use($container)
 		{
