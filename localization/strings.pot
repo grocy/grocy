@@ -1203,12 +1203,3 @@ msgstr[1] ""
 
 msgid "Consume %s of %s"
 msgstr ""
-
-msgid "Pieces"
-msgstr ""
-
-msgid "Packs"
-msgstr ""
-
-msgid "Products"
-msgstr ""
