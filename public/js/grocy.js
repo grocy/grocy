@@ -487,6 +487,11 @@ $(".locale-number-format[data-format='currency']").each(function ()
 	$(this).text(parseFloat($(this).text()).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency }));
 });
 
+$(".locale-number-format[data-format='quantity-amount']").each(function ()
+{
+	$(this).text(parseFloat($(this).text()).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 3 }));
+});
+
 $(document).on("click", ".easy-link-copy-textbox", function()
 {
 	$(this).select();
