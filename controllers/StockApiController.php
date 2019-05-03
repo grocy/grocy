@@ -177,7 +177,13 @@ class StockApiController extends BaseApiController
 				$locationId = $requestBody['location_id'];
 			}
 
-			$bookingId = $this->StockService->InventoryProduct($args['productId'], $requestBody['new_amount'], $bestBeforeDate, $locationId);
+			$price = null;
+			if (array_key_exists('price', $requestBody) && is_numeric($requestBody['price']))
+			{
+				$price = $requestBody['price'];
+			}
+
+			$bookingId = $this->StockService->InventoryProduct($args['productId'], $requestBody['new_amount'], $bestBeforeDate, $locationId, $price);
 			return $this->ApiResponse($this->Database->stock_log($bookingId));
 		}
 		catch (\Exception $ex)

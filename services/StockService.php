@@ -303,7 +303,7 @@ class StockService extends BaseService
 		}
 	}
 
-	public function InventoryProduct(int $productId, int $newAmount, string $bestBeforeDate, $locationId = null)
+	public function InventoryProduct(int $productId, int $newAmount, string $bestBeforeDate, $locationId = null, $price = null)
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -311,6 +311,11 @@ class StockService extends BaseService
 		}
 
 		$productDetails = (object)$this->GetProductDetails($productId);
+
+		if ($price === null)
+		{
+			$price = $productDetails->last_price;
+		}
 
 		// Tare weight handling
 		// The given amount is the new total amount including the container weight (gross)
@@ -333,7 +338,7 @@ class StockService extends BaseService
 				$bookingAmount = $newAmount;
 			}
 			
-			$this->AddProduct($productId, $bookingAmount, $bestBeforeDate, self::TRANSACTION_TYPE_INVENTORY_CORRECTION, date('Y-m-d'), $productDetails->last_price, $locationId);
+			$this->AddProduct($productId, $bookingAmount, $bestBeforeDate, self::TRANSACTION_TYPE_INVENTORY_CORRECTION, date('Y-m-d'), $price, $locationId);
 		}
 		else if ($newAmount < $productDetails->stock_amount + $containerWeight)
 		{

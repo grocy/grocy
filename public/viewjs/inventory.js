@@ -8,10 +8,17 @@
 	Grocy.Api.Get('stock/products/' + jsonForm.product_id,
 		function(productDetails)
 		{
+			var price = "";
+			if (!jsonForm.price.toString().isEmpty())
+			{
+				price = parseFloat(jsonForm.price).toFixed(2);
+			}
+
 			var jsonData = { };
 			jsonData.new_amount = jsonForm.new_amount;
 			jsonData.best_before_date = Grocy.Components.DateTimePicker.GetValue();
 			jsonData.location_id = Grocy.Components.LocationPicker.GetValue();
+			jsonData.price = price;
 
 			Grocy.Api.Post('stock/products/' + jsonForm.product_id + '/inventory', jsonData,
 				function(result)
@@ -53,6 +60,7 @@
 					$("#new_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '0'));
 					$('#new_amount').val('');
 					$('#new_amount_qu_unit').text("");
+					$('#price').val('');
 					Grocy.Components.DateTimePicker.Clear();
 					Grocy.Components.ProductPicker.SetValue('');
 					Grocy.Components.ProductPicker.GetInputElement().focus();
@@ -111,6 +119,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 					$("#tare-weight-handling-info").addClass("d-none");
 				}
 
+				$('#price').val(productDetails.last_price);
 				Grocy.Components.LocationPicker.SetId(productDetails.location.id);
 				$('#new_amount').focus();
 			},

@@ -45,6 +45,18 @@
 				'earlierThanInfoText' => $__t('The given date is earlier than today, are you sure?')
 			))
 
+			@include('components.numberpicker', array(
+				'id' => 'price',
+				'label' => 'Price',
+				'min' => 0,
+				'step' => 0.01,
+				'value' => '',
+				'hint' => $__t('in %s per purchase quantity unit', GROCY_CURRENCY),
+				'additionalHtmlContextHelp' => '<br><span class="small text-muted">' . $__t('This will apply to added products') . '</span>',
+				'invalidFeedback' => $__t('The price cannot be lower than %s', '0'),
+				'isRequired' => false
+			))
+
 			@include('components.locationpicker', array(
 				'locations' => $locations,
 				'hint' => 'This will apply to added products'

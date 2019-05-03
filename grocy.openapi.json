@@ -1351,6 +1351,11 @@
 										"type": "number",
 										"format": "integer",
 										"description": "If omitted, the default location of the product is used (only applies to added products)"
+									},
+									"price": {
+										"type": "number",
+										"format": "double",
+										"description": "If omitted, the last price of the product is used (only applies to added products)"
 									}
 								}
 							}
