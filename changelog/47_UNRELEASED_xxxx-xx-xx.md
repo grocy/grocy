@@ -10,6 +10,7 @@
   - It's now possible to have multiple / named shopping lists
     - Automations still use the default shopping list and also the default shopping list cannot be deleted
   - More information on the product card like "Spoil rate" or "Average shelf life"
+  - It's now possible to set a price for added products during inventory
 - Chores improvements
   - New recurrence patterns - chores can now also be "scheduled" to repat daily/weekly/monthly
 - New translations: (thanks all the translators)
