@@ -321,7 +321,11 @@ class StockService extends BaseService
 			$containerWeight = $productDetails->product->tare_weight;
 		}
 		
-		if ($newAmount > $productDetails->stock_amount + $containerWeight)
+		if ($newAmount == $productDetails->stock_amount + $containerWeight)
+		{
+			throw new \Exception('The new amount cannot equal the current stock amount');
+		}
+		else if ($newAmount > $productDetails->stock_amount + $containerWeight)
 		{
 			$bookingAmount = $newAmount - $productDetails->stock_amount;
 			if ($productDetails->product->enable_tare_weight_handling == 1)
