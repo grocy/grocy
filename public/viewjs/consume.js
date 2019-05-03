@@ -32,6 +32,33 @@
 			Grocy.Api.Post(apiUrl, jsonData,
 				function(result)
 				{
+					var addBarcode = GetUriParam('addbarcodetoselection');
+					if (addBarcode !== undefined)
+					{
+						var existingBarcodes = productDetails.product.barcode || '';
+						if (existingBarcodes.length === 0)
+						{
+							productDetails.product.barcode = addBarcode;
+						}
+						else
+						{
+							productDetails.product.barcode += ',' + addBarcode;
+						}
+
+						Grocy.Api.Put('objects/products/' + productDetails.product.id, productDetails.product,
+							function(result)
+							{
+								$("#flow-info-addbarcodetoselection").addClass("d-none");
+								$('#barcode-lookup-disabled-hint').addClass('d-none');
+								window.history.replaceState({ }, document.title, U("/consume"));
+							},
+							function(xhr)
+							{
+								console.error(xhr);
+							}
+						);
+					}
+
 					$("#specific_stock_entry").find("option").remove().end().append("<option></option>");
 					if ($("#use_specific_stock_entry").is(":checked"))
 					{

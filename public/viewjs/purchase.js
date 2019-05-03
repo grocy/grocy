@@ -39,7 +39,12 @@
 						}
 
 						Grocy.Api.Put('objects/products/' + productDetails.product.id, productDetails.product,
-							function (result) { },
+							function(result)
+							{
+								$("#flow-info-addbarcodetoselection").addClass("d-none");
+								$('#barcode-lookup-disabled-hint').addClass('d-none');
+								window.history.replaceState({ }, document.title, U("/purchase"));
+							},
 							function(xhr)
 							{
 								Grocy.FrontendHelpers.EndUiBusy("purchase-form");
@@ -50,11 +55,7 @@
 
 					var successMessage = __t('Added %s %s of %s to stock', result.amount, __n(result.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
 
-					if (addBarcode !== undefined)
-					{
-						window.location.href = U('/purchase');
-					}
-					else if (GetUriParam("flow") === "shoppinglistitemtostock" && typeof GetUriParam("embedded") !== undefined)
+					if (GetUriParam("flow") === "shoppinglistitemtostock" && typeof GetUriParam("embedded") !== undefined)
 					{
 						window.parent.postMessage(WindowMessageBag("AfterItemAdded", GetUriParam("listitemid")), Grocy.BaseUrl);
 						window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", successMessage), Grocy.BaseUrl);

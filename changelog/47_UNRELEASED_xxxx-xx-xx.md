@@ -20,3 +20,5 @@
   - This involved some string changes which results in a needed (re)translation of about 20 strings (excluding demo data)
   - Also applies to quantity units, n-plural forms can be entered on the quantity unit edit page
   - It's not required to install the PHP gettext extension, on both, server and client, managed implementations of gettext are used ([oscarotero/Gettext](https://github.com/oscarotero/Gettext) & [oscarotero/gettext-translator](https://github.com/oscarotero/gettext-translator))
+- Some other small fixes
+  - The "Add as barcode to existing product" productpicker workflow failed to add the barcode to the given product
