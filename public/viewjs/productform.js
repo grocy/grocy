@@ -6,7 +6,7 @@
 	var returnTo = GetUriParam('returnto');
 	if (returnTo !== undefined)
 	{
-		redirectDestination = returnTo + '?createdproduct=' + encodeURIComponent($('#name').val());
+		redirectDestination = U(returnTo) + '?createdproduct=' + encodeURIComponent($('#name').val());
 	}
 
 	var jsonData = $('#product-form').serializeJSON({ checkboxUncheckedValue: "0" });
