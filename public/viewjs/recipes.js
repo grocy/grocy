@@ -59,6 +59,21 @@ $("#search").on("keyup", function()
 	$(".recipe-gallery-item-container .card-title:not(:contains_case_insensitive(" + value + "))").parent().parent().parent().parent().addClass("d-none");
 });
 
+$("#status-filter").on("change", function()
+{
+	var value = $(this).val();
+	if (value === "all")
+	{
+		value = "";
+	}
+
+	// Transfer CSS classes of selected element to dropdown element (for background)
+	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
+
+	recipesTables.column(4).search(value).draw();
+});
+
+
 $("#selectedRecipeDeleteButton").on('click', function(e)
 {
 	var objectName = $(e.currentTarget).attr('data-recipe-name');

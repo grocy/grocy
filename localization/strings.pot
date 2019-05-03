@@ -1206,3 +1206,9 @@ msgstr ""
 
 msgid "The amount cannot be lower than %s or equal %s"
 msgstr ""
+
+msgid "Not enough in stock, but already on the shopping list"
+msgstr ""
+
+msgid "Not enough in stock"
+msgstr ""

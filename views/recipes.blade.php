@@ -15,8 +15,22 @@
 			</a>
 		</h1>
 
-		<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
-		<input type="text" class="form-control" id="search">
+		<div class="row">
+			<div class="col-6">
+				<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
+				<input type="text" class="form-control" id="search">
+			</div>
+
+			<div class="col-6">
+				<label for="status-filter">{{ $__t('Filter by status') }}</label> <i class="fas fa-filter"></i>
+				<select class="form-control" id="status-filter">
+					<option class="bg-white" value="all">{{ $__t('All') }}</option>
+					<option class="bg-success" value="enoughtinstock">{{ $__t('Enough in stock') }}</option>
+					<option class="bg-warning" value="enoughinstockwithshoppinglist">{{ $__t('Not enough in stock, but already on the shopping list') }}</option>
+					<option class="bg-danger" value="notenoughinstock">{{ $__t('Not enough in stock') }}</option>
+				</select>
+			</div>
+		</div>
 
 		<ul class="nav nav-tabs mt-3">
 			<li class="nav-item">
@@ -37,6 +51,7 @@
 							<th>{{ $__t('Servings') }}</th>
 							<th>{{ $__t('Requirements fulfilled') }}</th>
 							<th class="d-none">Hidden status for sorting of "Requirements fulfilled" column</th>
+							<th class="d-none">Hidden status for filtering by status</th>
 
 							@include('components.userfields_thead', array(
 								'userfields' => $userfields
@@ -59,6 +74,9 @@
 							</td>
 							<td class="d-none">
 								{{ FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->missing_products_count }}
+							</td>
+							<td class="d-none">
+								@if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 1) enoughtinstock @elseif(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) enoughinstockwithshoppinglist @else notenoughinstock @endif
 							</td>
 
 							@include('components.userfields_tbody', array(
