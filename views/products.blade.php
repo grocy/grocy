@@ -51,6 +51,7 @@
 					<th>{{ $__t('QU stock') }}</th>
 					<th>{{ $__t('QU factor') }}</th>
 					<th>{{ $__t('Product group') }}</th>
+					<th>{{ $__t('Barcode(s)') }}</th>
 
 					@include('components.userfields_thead', array(
 						'userfields' => $userfields
@@ -89,6 +90,9 @@
 					</td>
 					<td>
 						@if(!empty($product->product_group_id)) {{ FindObjectInArrayByPropertyValue($productGroups, 'id', $product->product_group_id)->name }} @endif
+					</td>
+					<td>
+						{{ $product->barcode }}
 					</td>
 
 					@include('components.userfields_tbody', array(
