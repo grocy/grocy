@@ -44,7 +44,7 @@
 					}
 
 					Grocy.FrontendHelpers.EndUiBusy("inventory-form");
-					toastr.success(__t('Stock amount of %s is now %s %s', productDetails.product.name, productDetails.stock_amount, __n(productDetails.stock_amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
+					toastr.success(__t('Stock amount of %s is now %s %s', productDetails.product.name, jsonForm.new_amount, __n(jsonForm.new_amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
 
 					$('#inventory-change-info').addClass('d-none');
 					$("#tare-weight-handling-info").addClass("d-none");
