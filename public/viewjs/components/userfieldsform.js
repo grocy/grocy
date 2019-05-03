@@ -2,6 +2,16 @@ Grocy.Components.UserfieldsForm = { };
 
 Grocy.Components.UserfieldsForm.Save = function(success, error)
 {
+	if (!$("#userfields-form").length)
+	{
+		if (success)
+		{
+			success();
+		}
+
+		return;
+	}
+
 	var jsonData = { };
 
 	$("#userfields-form .userfield-input").each(function()
@@ -44,6 +54,16 @@ Grocy.Components.UserfieldsForm.Save = function(success, error)
 
 Grocy.Components.UserfieldsForm.Load = function()
 {
+	if (!$("#userfields-form").length)
+	{
+		if (success)
+		{
+			success();
+		}
+
+		return;
+	}
+
 	Grocy.Api.Get('userfields/' + $("#userfields-form").data("entity") + '/' + Grocy.EditObjectId,
 		function(result)
 		{
