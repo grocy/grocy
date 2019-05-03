@@ -91,6 +91,7 @@ DefaultUserSetting('shopping_list_to_stock_workflow_auto_submit_when_prefilled',
 # came and still come by, because they are useful - here you can disable the parts
 # which you don't need to have a less cluttered UI
 # (set the setting to "false" to disable the corresponding part, which should be self explanatory)
+Setting('FEATURE_FLAG_STOCK', true);
 Setting('FEATURE_FLAG_SHOPPINGLIST', true);
 Setting('FEATURE_FLAG_RECIPES', true);
 Setting('FEATURE_FLAG_CHORES', true);

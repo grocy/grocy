@@ -75,12 +75,14 @@
 		<div id="sidebarResponsive" class="collapse navbar-collapse">
 			<ul class="navbar-nav navbar-sidenav pt-2">
 
+				@if(GROCY_FEATURE_FLAG_STOCK)
 				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Stock overview') }}" data-nav-for-page="stockoverview">
 					<a class="nav-link discrete-link" href="{{ $U('/stockoverview') }}">
 						<i class="fas fa-box"></i>
 						<span class="nav-link-text">{{ $__t('Stock overview') }}</span>
 					</a>
 				</li>
+				@endif
 				@if(GROCY_FEATURE_FLAG_SHOPPINGLIST)
 				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Shopping list') }}" data-nav-for-page="shoppinglist">
 					<a class="nav-link discrete-link" href="{{ $U('/shoppinglist') }}">
@@ -130,6 +132,7 @@
 				</li>
 				@endif
 				
+				@if(GROCY_FEATURE_FLAG_STOCK)
 				<li class="nav-item mt-4" data-toggle="tooltip" data-placement="right" title="{{ $__t('Purchase') }}" data-nav-for-page="purchase">
 					<a class="nav-link discrete-link" href="{{ $U('/purchase') }}">
 						<i class="fas fa-shopping-cart"></i>
@@ -148,6 +151,7 @@
 						<span class="nav-link-text">{{ $__t('Inventory') }}</span>
 					</a>
 				</li>
+				@endif
 				@if(GROCY_FEATURE_FLAG_CHORES)
 				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Chore tracking') }}" data-nav-for-page="choretracking">
 					<a class="nav-link discrete-link" href="{{ $U('/choretracking') }}">
@@ -179,6 +183,7 @@
 						<span class="nav-link-text">{{ $__t('Manage master data') }}</span>
 					</a>
 					<ul id="top-nav-manager-master-data" class="sidenav-second-level collapse">
+						@if(GROCY_FEATURE_FLAG_STOCK)
 						<li data-nav-for-page="products" data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link" href="{{ $U('/products') }}">
 								<i class="fab fa-product-hunt"></i>
@@ -203,6 +208,7 @@
 								<span class="nav-link-text">{{ $__t('Product groups') }}</span>
 							</a>
 						</li>
+						@endif
 						@if(GROCY_FEATURE_FLAG_CHORES)
 						<li data-nav-for-page="chores" data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link" href="{{ $U('/chores') }}">

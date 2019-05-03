@@ -23,3 +23,4 @@
 - Some other small fixes and improvements
   - The "Add as barcode to existing product" productpicker workflow failed to add the barcode to the given product
   - Recipes can now be filter by stock availability
+  - Added a feature flag (`config.php` setting) to also be able to hide all stock related UI elements and routes
