@@ -1203,3 +1203,6 @@ msgstr[1] ""
 
 msgid "Consume %s of %s"
 msgstr ""
+
+msgid "The amount cannot be lower than %s or equal %s"
+msgstr ""

@@ -84,26 +84,26 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 		Grocy.Api.Get('stock/products/' + productId,
 			function(productDetails)
 			{
-				$('#new_amount').attr('not-equal', productDetails.stock_amount);
+				$('#new_amount').attr('data-not-equal', productDetails.stock_amount);
 				$('#new_amount_qu_unit').text(productDetails.quantity_unit_stock.name);
 
 				if (productDetails.product.allow_partial_units_in_stock == 1)
 				{
 					$("#new_amount").attr("min", "0.01");
 					$("#new_amount").attr("step", "0.01");
-					$("#new_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', 0.01.toLocaleString()));
+					$("#new_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s or equal %s', 0.01.toLocaleString(), productDetails.stock_amount.toLocaleString()));
 				}
 				else
 				{
 					$("#new_amount").attr("min", "0");
 					$("#new_amount").attr("step", "1");
-					$("#new_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '0'));
+					$("#new_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s or equal %s', '0', productDetails.stock_amount.toLocaleString()));
 				}
 
 				if (productDetails.product.enable_tare_weight_handling == 1)
 				{
 					$("#new_amount").attr("min", productDetails.product.tare_weight);
-					$("#new_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', parseFloat(productDetails.product.tare_weight).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 2 })));
+					$("#new_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s or equal %s', parseFloat(productDetails.product.tare_weight).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 2 }), productDetails.stock_amount.toLocaleString()));
 					$("#tare-weight-handling-info").removeClass("d-none");
 				}
 				else
