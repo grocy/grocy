@@ -53,7 +53,7 @@ $(document).on('click', '.user-delete-button', function (e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Delete('users/delete/' + objectId, {},
+				Grocy.Api.Delete('users/' + objectId, {},
 					function(result)
 					{
 						window.location.href = U('/users');
