@@ -113,7 +113,14 @@ class LocalizationService
 	{
 		$this->CheckAndAddMissingTranslationToPot($text);
 
-		return vsprintf($this->Translator->gettext($text), ...$placeholderValues);
+		if (func_num_args() === 1)
+		{
+			return $this->Translator->gettext($text);
+		}
+		else
+		{
+			return vsprintf($this->Translator->gettext($text), ...$placeholderValues);
+		}
 	}
 
 	public function __n($number, string $singularForm, string $pluralForm)
