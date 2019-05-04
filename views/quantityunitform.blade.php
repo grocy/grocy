@@ -32,6 +32,7 @@
 				<input type="text" class="form-control" id="name_plural" name="name_plural" value="@if($mode == 'edit'){{ $quantityunit->name_plural }}@endif">
 			</div>
 
+			@if($pluralCount > 2)
 			<div class="form-group">
 				<label for="plural_forms">
 					{{ $__t('Plural forms') }}<br>
@@ -43,6 +44,7 @@
 				</label>
 				<textarea class="form-control" rows="3" id="plural_forms" name="plural_forms">@if($mode == 'edit'){{ $quantityunit->plural_forms }}@endif</textarea>
 			</div>
+			@endif
 
 			<div class="form-group">
 				<label for="description">{{ $__t('Description') }}</label>
