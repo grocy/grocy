@@ -117,6 +117,6 @@ $('.input-group-chore-period-type').on('change', function(e)
 		$("label[for='period_days']").text(__t("Day of month"));
 		$("#period_days").attr("min", "1");
 		$("#period_days").attr("max", "31");
-		$("#period_days").parent().find(".invalid-feedback").text(__t('The amount must be between %s and %s', "0", "31"));
+		$("#period_days").parent().find(".invalid-feedback").text(__t('The amount must be between %s and %s', "1", "31"));
 	}
 });

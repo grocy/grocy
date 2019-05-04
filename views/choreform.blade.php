@@ -50,7 +50,7 @@
 				'min' => '0',
 				'additionalCssClasses' => 'input-group-chore-period-type',
 				'invalidFeedback' => $__t('This cannot be negative'),
-				'hintId' => 'chore-period-type-info',
+				'additionalHtmlElements' => '<span id="chore-period-type-info" class="small text-muted"></span>',
 				'additionalGroupCssClasses' => 'period-type-input period-type-dynamic-regular period-type-monthly'
 			))
 
