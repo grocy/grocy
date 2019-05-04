@@ -61,6 +61,8 @@ DefaultUserSetting('product_presets_location_id', -1); // Default location id fo
 DefaultUserSetting('product_presets_product_group_id', -1); // Default product group id for new products (-1 means no product group is preset)
 DefaultUserSetting('product_presets_qu_id', -1); // Default quantity unit id for new products (-1 means no quantity unit is preset)
 DefaultUserSetting('stock_expring_soon_days', 5);
+DefaultUserSetting('stock_default_purchase_amount', 0);
+DefaultUserSetting('stock_default_consume_amount', 1);
 
 # Chores settings
 DefaultUserSetting('chores_due_soon_days', 5);

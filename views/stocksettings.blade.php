@@ -53,6 +53,26 @@
 			'additionalCssClasses' => 'user-setting-control'
 		))
 
+		<h4 class="mt-2">{{ $__t('Purchase') }}</h4>
+		@include('components.numberpicker', array(
+			'id' => 'stock_default_purchase_amount',
+			'additionalAttributes' => 'data-setting-key="stock_default_purchase_amount"',
+			'label' => 'Default amount for purchase',
+			'min' => 0,
+			'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
+			'additionalCssClasses' => 'user-setting-control'
+		))
+
+		<h4 class="mt-2">{{ $__t('Consume') }}</h4>
+		@include('components.numberpicker', array(
+			'id' => 'stock_default_consume_amount',
+			'additionalAttributes' => 'data-setting-key="stock_default_consume_amount"',
+			'label' => 'Default amount for consume',
+			'min' => 1,
+			'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
+			'additionalCssClasses' => 'user-setting-control'
+		))
+
 		@if(GROCY_FEATURE_FLAG_SHOPPINGLIST)
 		<h4 class="mt-2">{{ $__t('Shopping list to stock workflow') }}</h4>
 		

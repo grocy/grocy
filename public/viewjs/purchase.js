@@ -69,7 +69,7 @@
 						$("#amount").attr("min", "1");
 						$("#amount").attr("step", "1");
 						$("#amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '1'));
-						$('#amount').val(0);
+						$('#amount').val(Grocy.UserSettings.stock_default_purchase_amount);
 						$('#price').val('');
 						$('#amount_qu_unit').text("");
 						$("#tare-weight-handling-info").addClass("d-none");
@@ -177,7 +177,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 	}
 });
 
-$('#amount').val(0);
+$('#amount').val(Grocy.UserSettings.stock_default_purchase_amount);
 Grocy.FrontendHelpers.ValidateForm('purchase-form');
 
 if (Grocy.Components.ProductPicker.InProductAddWorkflow() === false)

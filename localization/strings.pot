@@ -1212,3 +1212,12 @@ msgstr ""
 
 msgid "Not enough in stock"
 msgstr ""
+
+msgid "Expiring soon days"
+msgstr ""
+
+msgid "Default amount for purchase"
+msgstr ""
+
+msgid "Default amount for consume"
+msgstr ""
