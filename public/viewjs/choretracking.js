@@ -45,6 +45,26 @@ $('#chore_id').on('change', function(e)
 	var choreId = $(e.target).val();
 	if (choreId)
 	{
+		Grocy.Api.Get('objects/chores/' + choreId,
+			function(chore)
+			{
+				if (chore.track_date_only == 1)
+				{
+					Grocy.Components.DateTimePicker.ChangeFormat("YYYY-MM-DD");
+					Grocy.Components.DateTimePicker.SetValue(moment().format("YYYY-MM-DD"));
+				}
+				else
+				{
+					Grocy.Components.DateTimePicker.ChangeFormat("YYYY-MM-DD HH:mm:ss");
+					Grocy.Components.DateTimePicker.SetValue(moment().format("YYYY-MM-DD HH:mm:ss"));
+				}
+			},
+			function(xhr)
+			{
+				console.error(xhr);
+			}
+		);
+
 		Grocy.Components.ChoreCard.Refresh(choreId);
 		Grocy.Components.DateTimePicker.GetInputElement().focus();
 		Grocy.FrontendHelpers.ValidateForm('choretracking-form');

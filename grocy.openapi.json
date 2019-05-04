@@ -2780,6 +2780,9 @@
 					"period_days": {
 						"type": "integer"
 					},
+					"track_date_only": {
+						"type": "boolean"
+					},
 					"row_created_timestamp": {
 						"type": "string",
 						"format": "date-time"

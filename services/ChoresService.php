@@ -58,6 +58,12 @@ class ChoresService extends BaseService
 		{
 			throw new \Exception('User does not exist');
 		}
+
+		$chore = $this->Database->chores($choreId);
+		if ($chore->track_date_only == 1)
+		{
+			$trackedTime = substr($trackedTime, 0, 10) . ' 00:00:00';
+		}
 		
 		$logRow = $this->Database->chores_log()->createRow(array(
 			'chore_id' => $choreId,

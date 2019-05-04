@@ -87,6 +87,16 @@
 
 			<input type="hidden" id="period_config" name="period_config" value="@if($mode == 'edit'){{ $chore->period_config }}@endif">
 
+			<div class="form-group">
+				<div class="form-check">
+					<input type="hidden" name="track_date_only" value="0">
+					<input @if($mode == 'edit' && $chore->track_date_only == 1) checked @endif class="form-check-input" type="checkbox" id="track_date_only" name="track_date_only" value="1">
+					<label class="form-check-label" for="track_date_only">{{ $__t('Track date only') }}
+						<span class="text-muted small">{{ $__t('When enabled only the day of an execution is tracked, not the time') }}</span>
+					</label>
+				</div>
+			</div>
+
 			@include('components.userfieldsform', array(
 				'userfields' => $userfields,
 				'entity' => 'chores'

@@ -1227,3 +1227,9 @@ msgstr ""
 
 msgid "When this is not empty, it will be shown instead of the amount entered above while the amount there will still be used for stock fulfillment checking"
 msgstr ""
+
+msgid "Track date only"
+msgstr ""
+
+msgid "When enabled only the day of an execution is tracked, not the time"
+msgstr ""

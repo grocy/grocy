@@ -65,51 +65,66 @@ $(document).on('click', '.track-chore-button', function(e)
 
 	var choreId = $(e.currentTarget).attr('data-chore-id');
 	var choreName = $(e.currentTarget).attr('data-chore-name');
-	var trackedTime = moment().format('YYYY-MM-DD HH:mm:ss');
 
-	Grocy.Api.Post('chores/' + choreId + '/execute', { 'tracked_time': trackedTime },
-		function()
+	Grocy.Api.Get('objects/chores/' + choreId,
+		function(chore)
 		{
-			Grocy.Api.Get('chores/' + choreId,
-				function(result)
+			var trackedTime = moment().format('YYYY-MM-DD HH:mm:ss');
+			if (chore.track_date_only == 1)
+			{
+				trackedTime = moment().format('YYYY-MM-DD');
+			}
+
+			Grocy.Api.Post('chores/' + choreId + '/execute', { 'tracked_time': trackedTime },
+				function()
 				{
-					var choreRow = $('#chore-' + choreId + '-row');
-					var nextXDaysThreshold = moment().add($("#info-due-chores").data("next-x-days"), "days");
-					var now = moment();
-					var nextExecutionTime = moment(result.next_estimated_execution_time);
-
-					choreRow.removeClass("table-warning");
-					choreRow.removeClass("table-danger");
-					if (nextExecutionTime.isBefore(now))
-					{
-						choreRow.addClass("table-danger");
-					}
-					else if (nextExecutionTime.isBefore(nextXDaysThreshold))
-					{
-						choreRow.addClass("table-warning");
-					}
-
-					$('#chore-' + choreId + '-last-tracked-time').parent().effect('highlight', { }, 500);
-					$('#chore-' + choreId + '-last-tracked-time').fadeOut(500, function()
-					{
-						$(this).text(trackedTime).fadeIn(500);
-					});
-					$('#chore-' + choreId + '-last-tracked-time-timeago').attr('datetime', trackedTime);
-
-					if (result.chore.period_type == "dynamic-regular")
-					{
-						$('#chore-' + choreId + '-next-execution-time').parent().effect('highlight', { }, 500);
-						$('#chore-' + choreId + '-next-execution-time').fadeOut(500, function()
+					Grocy.Api.Get('chores/' + choreId,
+						function(result)
 						{
-							$(this).text(result.next_estimated_execution_time).fadeIn(500);
-						});
-						$('#chore-' + choreId + '-next-execution-time-timeago').attr('datetime', result.next_estimated_execution_time);
-					}
+							var choreRow = $('#chore-' + choreId + '-row');
+							var nextXDaysThreshold = moment().add($("#info-due-chores").data("next-x-days"), "days");
+							var now = moment();
+							var nextExecutionTime = moment(result.next_estimated_execution_time);
 
-					Grocy.FrontendHelpers.EndUiBusy();
-					toastr.success(__t('Tracked execution of chore %s on %s', choreName, trackedTime));
-					RefreshContextualTimeago();
-					RefreshStatistics();
+							choreRow.removeClass("table-warning");
+							choreRow.removeClass("table-danger");
+							if (nextExecutionTime.isBefore(now))
+							{
+								choreRow.addClass("table-danger");
+							}
+							else if (nextExecutionTime.isBefore(nextXDaysThreshold))
+							{
+								choreRow.addClass("table-warning");
+							}
+
+							$('#chore-' + choreId + '-last-tracked-time').parent().effect('highlight', { }, 500);
+							$('#chore-' + choreId + '-last-tracked-time').fadeOut(500, function()
+							{
+								$(this).text(trackedTime).fadeIn(500);
+							});
+							$('#chore-' + choreId + '-last-tracked-time-timeago').attr('datetime', trackedTime);
+
+							if (result.chore.period_type == "dynamic-regular")
+							{
+								$('#chore-' + choreId + '-next-execution-time').parent().effect('highlight', { }, 500);
+								$('#chore-' + choreId + '-next-execution-time').fadeOut(500, function()
+								{
+									$(this).text(result.next_estimated_execution_time).fadeIn(500);
+								});
+								$('#chore-' + choreId + '-next-execution-time-timeago').attr('datetime', result.next_estimated_execution_time);
+							}
+
+							Grocy.FrontendHelpers.EndUiBusy();
+							toastr.success(__t('Tracked execution of chore %s on %s', choreName, trackedTime));
+							RefreshContextualTimeago();
+							RefreshStatistics();
+						},
+						function(xhr)
+						{
+							Grocy.FrontendHelpers.EndUiBusy();
+							console.error(xhr);
+						}
+					);
 				},
 				function(xhr)
 				{
@@ -120,7 +135,7 @@ $(document).on('click', '.track-chore-button', function(e)
 		},
 		function(xhr)
 		{
-			Grocy.FrontendHelpers.EndUiBusy();
+			Grocy.FrontendHelpers.EndUiBusy("choretracking-form");
 			console.error(xhr);
 		}
 	);

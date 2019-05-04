@@ -43,6 +43,13 @@ Grocy.Components.DateTimePicker.Clear = function()
 	$('#datetimepicker-timeago').text('');
 }
 
+Grocy.Components.DateTimePicker.ChangeFormat = function(format)
+{
+	$(".datetimepicker").datetimepicker("destroy");
+	Grocy.Components.DateTimePicker.GetInputElement().data("format", format);
+	Grocy.Components.DateTimePicker.Init();
+}
+
 var startDate = null;
 if (Grocy.Components.DateTimePicker.GetInputElement().data('init-with-now') === true)
 {

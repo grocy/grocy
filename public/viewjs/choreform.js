@@ -2,7 +2,7 @@
 {
 	e.preventDefault();
 
-	var jsonData = $('#chore-form').serializeJSON();
+	var jsonData = $('#chore-form').serializeJSON({ checkboxUncheckedValue: "0" });
 	Grocy.FrontendHelpers.BeginUiBusy("chore-form");
 
 	if (Grocy.EditMode === 'create')
