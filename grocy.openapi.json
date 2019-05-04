@@ -2194,7 +2194,20 @@
 					"qu_id_stock": {
 						"type": "integer"
 					},
+					"enable_tare_weight_handling": {
+						"type": "integer"
+					},
+					"not_check_stock_fulfillment_for_recipes": {
+						"type": "integer"
+					},
+					"product_group_id": {
+						"type": "integer"
+					},
 					"qu_factor_purchase_to_stock": {
+						"type": "number",
+						"format": "double"
+					},
+					"tare_weight": {
 						"type": "number",
 						"format": "double"
 					},
@@ -2212,6 +2225,11 @@
 						"minimum": 0,
 						"default": 0
 					},
+					"default_best_before_days_after_open": {
+						"type": "integer",
+						"minimum": 0,
+						"default": 0
+					},
 					"picture_file_name": {
 						"type": "string"
 					},
@@ -2222,6 +2240,26 @@
 						"type": "string",
 						"format": "date-time"
 					}
+				},
+				"example": {
+					"id": "1",
+					"name": "Cookies",
+					"description": null,
+					"location_id": "4",
+					"qu_id_purchase": "3",
+					"qu_id_stock": "3",
+					"qu_factor_purchase_to_stock": "1.0",
+					"barcode": "cok1",
+					"min_stock_amount": "8",
+					"default_best_before_days": "0",
+					"row_created_timestamp": "2019-05-02 20:12:26",
+					"product_group_id": "1",
+					"picture_file_name": "cookies.jpg",
+					"default_best_before_days_after_open": "0",
+					"allow_partial_units_in_stock": "0",
+					"enable_tare_weight_handling": "0",
+					"tare_weight": "0.0",
+					"not_check_stock_fulfillment_for_recipes": "0"
 				}
 			},
 			"QuantityUnit": {
@@ -2242,7 +2280,18 @@
 					"row_created_timestamp": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"plural_forms": {
+						"type": "string"
 					}
+				},
+				"example": {
+					"id": "2",
+					"name": "Piece",
+					"description": null,
+					"row_created_timestamp": "2019-05-02 20:12:25",
+					"name_plural": "Pieces",
+					"plural_forms": null
 				}
 			},
 			"Location": {
@@ -2261,6 +2310,12 @@
 						"type": "string",
 						"format": "date-time"
 					}
+				},
+				"example": {
+					"id": "2",
+					"name": "0",
+					"description": null,
+					"row_created_timestamp": "2019-05-02 20:12:25"
 				}
 			},
 			"StockEntry": {
@@ -2270,6 +2325,9 @@
 						"type": "integer"
 					},
 					"product_id": {
+						"type": "integer"
+					},
+					"location_id": {
 						"type": "integer"
 					},
 					"amount": {
@@ -2287,10 +2345,33 @@
 						"type": "string",
 						"description": "A unique id which references this stock entry during its lifetime"
 					},
+					"price": {
+						"type": "double"
+					},
+					"open": {
+						"type": "integer"
+					},
+					"opened_date": {
+						"type": "string",
+						"format": "date"
+					},
 					"row_created_timestamp": {
 						"type": "string",
 						"format": "date-time"
 					}
+				},
+				"example": {
+					"id": "77",
+					"product_id": "1",
+					"amount": "2",
+					"best_before_date": "2019-07-07",
+					"purchased_date": "2019-05-03",
+					"stock_id": "5ccc6b2421979",
+					"price": null,
+					"open": "0",
+					"opened_date": null,
+					"row_created_timestamp": "2019-05-03 18:24:04",
+					"location_id": "4"
 				}
 			},
 			"ProductDetailsResponse": {
@@ -2338,6 +2419,58 @@
 						"type": "number",
 						"format": "double"
 					}
+				},
+				"example": {
+					"product": {
+						"id": "1",
+						"name": "Cookies",
+						"description": null,
+						"location_id": "4",
+						"qu_id_purchase": "3",
+						"qu_id_stock": "3",
+						"qu_factor_purchase_to_stock": "1.0",
+						"barcode": "cok1",
+						"min_stock_amount": "8",
+						"default_best_before_days": "0",
+						"row_created_timestamp": "2019-05-02 20:12:26",
+						"product_group_id": "1",
+						"picture_file_name": "cookies.jpg",
+						"default_best_before_days_after_open": "0",
+						"allow_partial_units_in_stock": "0",
+						"enable_tare_weight_handling": "0",
+						"tare_weight": "0.0",
+						"not_check_stock_fulfillment_for_recipes": "0"
+					},
+					"last_purchased": null,
+					"last_used": null,
+					"stock_amount": "2",
+					"stock_amount_opened": null,
+					"quantity_unit_purchase": {
+						"id": "3",
+						"name": "Pack",
+						"description": null,
+						"row_created_timestamp": "2019-05-02 20:12:25",
+						"name_plural": "Packs",
+						"plural_forms": null
+					},
+					"quantity_unit_stock": {
+						"id": "3",
+						"name": "Pack",
+						"description": null,
+						"row_created_timestamp": "2019-05-02 20:12:25",
+						"name_plural": "Packs",
+						"plural_forms": null
+					},
+					"last_price": null,
+					"next_best_before_date": "2019-07-07",
+					"location": {
+						"id": "4",
+						"name": "Candy cupboard",
+						"description": null,
+						"row_created_timestamp": "2019-05-02 20:12:25"
+					},
+					"average_shelf_life_days": -1,
+					"spoil_rate_percent": 0
 				}
 			},
 			"ProductPriceHistory": {
@@ -2404,6 +2537,27 @@
 						"type": "string",
 						"format": "date-time"
 					}
+				},
+				"example": {
+					"chore": {
+						"id": 0,
+						"name": "string",
+						"description": "string",
+						"period_type": "manually",
+						"period_days": 0,
+						"row_created_timestamp": "2019-05-04T11:31:04.563Z"
+					},
+					"last_tracked": "2019-05-04T11:31:04.563Z",
+					"track_count": 0,
+					"last_done_by": {
+						"id": 0,
+						"username": "string",
+						"first_name": "string",
+						"last_name": "string",
+						"display_name": "string",
+						"row_created_timestamp": "2019-05-04T11:31:04.564Z"
+					},
+					"next_estimated_execution_time": "2019-05-04T11:31:04.564Z"
 				}
 			},
 			"BatteryDetailsResponse": {
@@ -2425,6 +2579,19 @@
 						"type": "string",
 						"format": "date-time"
 					}
+				},
+				"example": {
+					"battery": {
+						"id": "1",
+						"name": "Battery1",
+						"description": "Warranty ends 2023",
+						"used_in": "TV remote control",
+						"charge_interval_days": "0",
+						"row_created_timestamp": "2019-05-02 20:12:26"
+					},
+					"last_charged": "2019-03-13 18:12:28",
+					"charge_cycles_count": 4,
+					"next_estimated_charge_time": "2999-12-31 23:59:59"
 				}
 			},
 			"Session": {
