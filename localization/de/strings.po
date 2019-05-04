@@ -1301,3 +1301,21 @@ msgstr[1] "Nicht ausreichend im Bestand, %s Zutaten fehlen"
 
 msgid "Consume %s of %s"
 msgstr "Verbrauche %s %s"
+
+msgid "The amount cannot be lower than %s or equal %s"
+msgstr "Die Menge darf nicht kleiner als %s und nicht gleich %s sein"
+
+msgid "Not enough in stock, but already on the shopping list"
+msgstr "Bestand nicht ausreichend, steht aber bereits auf dem Einkaufszettel"
+
+msgid "Not enough in stock"
+msgstr "Nicht ausreichend im Bestand"
+
+msgid "Expiring soon days"
+msgstr "\"Bald ablaufend\"-Tage"
+
+msgid "Default amount for purchase"
+msgstr "Standardmenge für Einkauf"
+
+msgid "Default amount for consume"
+msgstr "Standardmenge für Verbrauch"
