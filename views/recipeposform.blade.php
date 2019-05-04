@@ -69,6 +69,11 @@
 				</div>
 			</div>
 
+			<div class="form-group">
+				<label for="variable_amount">{{ $__t('Variable amount') }}&nbsp;&nbsp;<span class="small text-muted">{{ $__t('When this is not empty, it will be shown instead of the amount entered above while the amount there will still be used for stock fulfillment checking') }}</span></label>
+				<input type="text" class="form-control" id="variable_amount" name="variable_amount" value="@if($mode == 'edit'){{ $recipePos->variable_amount }}@endif">
+			</div>
+
 			<div class="form-check mb-3">
 				<input type="hidden" name="not_check_stock_fulfillment" value="0">
 				<input @if($mode == 'edit' && ($recipePos->not_check_stock_fulfillment == 1 || FindObjectInArrayByPropertyValue($products, 'id', $recipePos->product_id)->not_check_stock_fulfillment_for_recipes == 1)) checked @endif class="form-check-input" type="checkbox" id="not_check_stock_fulfillment" name="not_check_stock_fulfillment" value="1">

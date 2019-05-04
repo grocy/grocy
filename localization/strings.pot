@@ -1221,3 +1221,9 @@ msgstr ""
 
 msgid "Default amount for consume"
 msgstr ""
+
+msgid "Variable amount"
+msgstr ""
+
+msgid "When this is not empty, it will be shown instead of the amount entered above while the amount there will still be used for stock fulfillment checking"
+msgstr ""

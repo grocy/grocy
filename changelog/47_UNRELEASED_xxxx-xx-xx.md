@@ -14,6 +14,8 @@
   - It's now possible to customize the default amount for purchase/consume (see stock settings under the settings icon on the top right)
 - Chores improvements
   - New recurrence patterns - chores can now also be "scheduled" to repat daily/weekly/monthly
+- Recipe improvements
+  - It's now possible to enter a "variable amount" (e. g. if a recipe needs "1 - 2 cups"), the original amount is still used for stock fulfillment checking (if enabled for that recipe ingredient)
 - New translations: (thanks all the translators)
   - Swedish (demo available at https://demo-sv.grocy.info)
   - Polish (demo available at https://demo-pl.grocy.info)
