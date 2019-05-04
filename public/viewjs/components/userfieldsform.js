@@ -56,11 +56,6 @@ Grocy.Components.UserfieldsForm.Load = function()
 {
 	if (!$("#userfields-form").length)
 	{
-		if (success)
-		{
-			success();
-		}
-
 		return;
 	}
 
