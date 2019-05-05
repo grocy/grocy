@@ -352,7 +352,7 @@ msgstr ""
 msgid "This means it is estimated that a new execution of this chore is tracked %s days after the last was tracked"
 msgstr ""
 
-msgid "Removed %1$s %2$s of %3$s from stock"
+msgid "Removed %1$s of %2$s from stock"
 msgstr ""
 
 msgid "About grocy"
@@ -364,10 +364,10 @@ msgstr ""
 msgid "Released on"
 msgstr ""
 
-msgid "Added %1$s %2$s of %3$s to stock"
+msgid "Added %1$s of %2$s to stock"
 msgstr ""
 
-msgid "Stock amount of %1$s is now %2$s %3$s"
+msgid "Stock amount of %1$s is now %2$s"
 msgstr ""
 
 msgid "Tracked execution of chore %1$s on %2$s"
