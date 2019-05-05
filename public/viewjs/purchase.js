@@ -53,7 +53,7 @@
 						);
 					}
 
-					var successMessage = __t('Added %s %s of %s to stock', result.amount, __n(result.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
+					var successMessage = __t('Added %1$s %2$s of %3$s to stock', result.amount, __n(result.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
 
 					if (GetUriParam("flow") === "shoppinglistitemtostock" && typeof GetUriParam("embedded") !== undefined)
 					{
@@ -115,7 +115,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				}
 				else
 				{
-					$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name + " (" + __t("will be multiplied a factor of %s to get %s", parseInt(productDetails.product.qu_factor_purchase_to_stock).toString(), __n(2, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)) + ")");
+					$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name + " (" + __t("will be multiplied a factor of %1$s to get %2$s", parseInt(productDetails.product.qu_factor_purchase_to_stock).toString(), __n(2, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)) + ")");
 				}
 
 				if (productDetails.product.allow_partial_units_in_stock == 1)

@@ -192,7 +192,7 @@ $(document).on('click', '.shopping-list-stock-add-workflow-list-item-button', fu
 	if (Grocy.ShoppingListToStockWorkflowAll)
 	{
 		$("#shopping-list-stock-add-workflow-purchase-item-count").removeClass("d-none");
-		$("#shopping-list-stock-add-workflow-purchase-item-count").text(__t("Adding shopping list item %s of %s", Grocy.ShoppingListToStockWorkflowCurrent, Grocy.ShoppingListToStockWorkflowCount));
+		$("#shopping-list-stock-add-workflow-purchase-item-count").text(__t("Adding shopping list item %1$s of %2$s", Grocy.ShoppingListToStockWorkflowCurrent, Grocy.ShoppingListToStockWorkflowCount));
 		$("#shopping-list-stock-add-workflow-skip-button").removeClass("d-none");
 	}
 	else

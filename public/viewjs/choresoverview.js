@@ -115,7 +115,7 @@ $(document).on('click', '.track-chore-button', function(e)
 							}
 
 							Grocy.FrontendHelpers.EndUiBusy();
-							toastr.success(__t('Tracked execution of chore %s on %s', choreName, trackedTime));
+							toastr.success(__t('Tracked execution of chore %1$s on %2$s', choreName, trackedTime));
 							RefreshContextualTimeago();
 							RefreshStatistics();
 						},

@@ -265,7 +265,7 @@ msgstr ""
 msgid "For purchases this amount of days will be added to today for the best before date suggestion"
 msgstr ""
 
-msgid "This means 1 %s purchased will be converted into %s %s in stock"
+msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
 msgstr ""
 
 msgid "Login"
@@ -352,7 +352,7 @@ msgstr ""
 msgid "This means it is estimated that a new execution of this chore is tracked %s days after the last was tracked"
 msgstr ""
 
-msgid "Removed %s %s of %s from stock"
+msgid "Removed %1$s %2$s of %3$s from stock"
 msgstr ""
 
 msgid "About grocy"
@@ -364,19 +364,16 @@ msgstr ""
 msgid "Released on"
 msgstr ""
 
-msgid "Consume %s %s of %s"
+msgid "Added %1$s %2$s of %3$s to stock"
 msgstr ""
 
-msgid "Added %s %s of %s to stock"
+msgid "Stock amount of %1$s is now %2$s %3$s"
 msgstr ""
 
-msgid "Stock amount of %s is now %s %s"
+msgid "Tracked execution of chore %1$s on %2$s"
 msgstr ""
 
-msgid "Tracked execution of chore %s on %s"
-msgstr ""
-
-msgid "Tracked charge cycle of battery %s on %s"
+msgid "Tracked charge cycle of battery %1$s on %2$s"
 msgstr ""
 
 msgid "Consume all %s which are currently in stock"
@@ -495,7 +492,7 @@ msgstr ""
 msgid "Recipe"
 msgstr ""
 
-msgid "Not enough in stock, %s missing, %s already on shopping list"
+msgid "Not enough in stock, %1$s missing, %2$s already on shopping list"
 msgstr ""
 
 msgid "Show notes"
@@ -905,10 +902,10 @@ msgstr ""
 msgid "Add all list items to stock"
 msgstr ""
 
-msgid "Add %s %s of %s to stock"
+msgid "Add %1$s of %2$s to stock"
 msgstr ""
 
-msgid "Adding shopping list item %s of %s"
+msgid "Adding shopping list item %1$s of %2$s"
 msgstr ""
 
 msgid "Use a specific stock item"
@@ -917,7 +914,7 @@ msgstr ""
 msgid "The first item in this list would be picked by the default rule which is \"First expiring first, then first in first out\""
 msgstr ""
 
-msgid "Mark %s of %s as open"
+msgid "Mark %1$s of %2$s as open"
 msgstr ""
 
 msgid "When a product was marked as opened, the best before date will be replaced by today + this amount of days (a value of 0 disables this)"
@@ -926,13 +923,13 @@ msgstr ""
 msgid "Default best before days after opened"
 msgstr ""
 
-msgid "Marked %s %s of %s as opened"
+msgid "Marked %1$s of %2$s as opened"
 msgstr ""
 
 msgid "Mark as opened"
 msgstr ""
 
-msgid "Expires on %s; Bought on %s"
+msgid "Expires on %1$s; Bought on %2$s"
 msgstr ""
 
 msgid "Not opened"
@@ -1061,7 +1058,7 @@ msgstr ""
 msgid "Changelog"
 msgstr ""
 
-msgid "will be multiplied a factor of %s to get %s"
+msgid "will be multiplied a factor of %1$s to get %2$s"
 msgstr ""
 
 msgid "The given date is earlier than today, are you sure?"
@@ -1115,7 +1112,7 @@ msgstr ""
 msgid "Show less"
 msgstr ""
 
-msgid "The amount must be between %s and %s"
+msgid "The amount must be between %1$s and %2$s"
 msgstr ""
 
 msgid "Day of month"
@@ -1201,10 +1198,7 @@ msgid_plural "Not enough in stock, %s ingredients missing"
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "Consume %s of %s"
-msgstr ""
-
-msgid "The amount cannot be lower than %s or equal %s"
+msgid "The amount cannot be lower than %1$s or equal %2$s"
 msgstr ""
 
 msgid "Not enough in stock, but already on the shopping list"
@@ -1232,4 +1226,7 @@ msgid "Track date only"
 msgstr ""
 
 msgid "When enabled only the day of an execution is tracked, not the time"
+msgstr ""
+
+msgid "Consume %1$s of %2$s"
 msgstr ""

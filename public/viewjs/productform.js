@@ -168,7 +168,7 @@ $('.input-group-qu').on('change', function(e)
 
 	if (factor > 1)
 	{
-		$('#qu-conversion-info').text(__t('This means 1 %s purchased will be converted into %s %s in stock', $("#qu_id_purchase option:selected").text(), (1 * factor).toString(), $("#qu_id_stock option:selected").text()));
+		$('#qu-conversion-info').text(__t('This means 1 %1$s purchased will be converted into %2$s %3$s in stock', $("#qu_id_purchase option:selected").text(), (1 * factor).toString(), $("#qu_id_stock option:selected").text()));
 		$('#qu-conversion-info').removeClass('d-none');
 	}
 	else

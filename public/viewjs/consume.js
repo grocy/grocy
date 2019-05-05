@@ -66,7 +66,7 @@
 					}
 
 					Grocy.FrontendHelpers.EndUiBusy("consume-form");
-					toastr.success(__t('Removed %s %s of %s from stock', Math.abs(result.amount), __n(Math.abs(result.amount), productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
+					toastr.success(__t('Removed %1$s %2$s of %3$s from stock', Math.abs(result.amount), __n(Math.abs(result.amount), productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
 
 					$("#amount").attr("min", "1");
 					$("#amount").attr("max", "999999");
@@ -133,7 +133,7 @@ $('#save-mark-as-open-button').on('click', function(e)
 					}
 
 					Grocy.FrontendHelpers.EndUiBusy("consume-form");
-					toastr.success(__t('Marked %s %s of %s as opened', jsonForm.amount, __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
+					toastr.success(__t('Marked %1$s of %2$s as opened', jsonForm.amount + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
 
 					$('#amount').val(Grocy.UserSettings.stock_default_consume_amount);
 					Grocy.Components.ProductPicker.Clear();
@@ -179,20 +179,20 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				{
 					$("#amount").attr("min", "0.01");
 					$("#amount").attr("step", "0.01");
-					$("#amount").parent().find(".invalid-feedback").text(__t('The amount must be between %s and %s', 0.01.toLocaleString(), parseFloat(productDetails.stock_amount).toLocaleString()));
+					$("#amount").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', 0.01.toLocaleString(), parseFloat(productDetails.stock_amount).toLocaleString()));
 				}
 				else
 				{
 					$("#amount").attr("min", "1");
 					$("#amount").attr("step", "1");
-					$("#amount").parent().find(".invalid-feedback").text(__t('The amount must be between %s and %s', "1", parseFloat(productDetails.stock_amount).toLocaleString()));
+					$("#amount").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', "1", parseFloat(productDetails.stock_amount).toLocaleString()));
 				}
 
 				if (productDetails.product.enable_tare_weight_handling == 1)
 				{
 					$("#amount").attr("min", productDetails.product.tare_weight);
 					$('#amount').attr('max', parseFloat(productDetails.stock_amount) + parseFloat(productDetails.product.tare_weight));
-					$("#amount").parent().find(".invalid-feedback").text(__t('The amount must be between %s and %s', parseFloat(productDetails.product.tare_weight).toLocaleString(), (parseFloat(productDetails.stock_amount) + parseFloat(productDetails.product.tare_weight)).toLocaleString()));
+					$("#amount").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', parseFloat(productDetails.product.tare_weight).toLocaleString(), (parseFloat(productDetails.stock_amount) + parseFloat(productDetails.product.tare_weight)).toLocaleString()));
 					$("#tare-weight-handling-info").removeClass("d-none");
 				}
 				else
@@ -244,7 +244,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 					{
 						$("#specific_stock_entry").append($("<option>", {
 							value: stockEntry.stock_id,
-							text: __t("Expires on %s; Bought on %s", moment(stockEntry.best_before_date).format("YYYY-MM-DD"), moment(stockEntry.purchased_date).format("YYYY-MM-DD")) + "; " + openTxt
+							text: __t("Expires on %1$s; Bought on %2$s", moment(stockEntry.best_before_date).format("YYYY-MM-DD"), moment(stockEntry.purchased_date).format("YYYY-MM-DD")) + "; " + openTxt
 						}));
 					}
 				});

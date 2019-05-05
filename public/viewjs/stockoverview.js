@@ -156,7 +156,7 @@ $(document).on('click', '.product-consume-button', function(e)
 					}
 
 					Grocy.FrontendHelpers.EndUiBusy();
-					toastr.success(__t('Removed %s %s of %s from stock', consumeAmount, productQuName, productName));
+					toastr.success(__t('Removed %1$s %2$s of %3$s from stock', consumeAmount, productQuName, productName));
 					RefreshContextualTimeago();
 					RefreshStatistics();
 				},
@@ -231,7 +231,7 @@ $(document).on('click', '.product-open-button', function(e)
 					}
 
 					Grocy.FrontendHelpers.EndUiBusy();
-					toastr.success(__t('Marked %s %s of %s as opened', 1, productQuName, productName));
+					toastr.success(__t('Marked %1$s of %2$s as opened', 1 + " " + productQuName, productName));
 					RefreshContextualTimeago();
 					RefreshStatistics();
 				},

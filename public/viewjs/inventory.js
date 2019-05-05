@@ -51,7 +51,7 @@
 					}
 
 					Grocy.FrontendHelpers.EndUiBusy("inventory-form");
-					toastr.success(__t('Stock amount of %s is now %s %s', productDetails.product.name, jsonForm.new_amount, __n(jsonForm.new_amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
+					toastr.success(__t('Stock amount of %1$s is now %2$s %3$s', productDetails.product.name, jsonForm.new_amount, __n(jsonForm.new_amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
 
 					$('#inventory-change-info').addClass('d-none');
 					$("#tare-weight-handling-info").addClass("d-none");
@@ -99,19 +99,19 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				{
 					$("#new_amount").attr("min", "0.01");
 					$("#new_amount").attr("step", "0.01");
-					$("#new_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s or equal %s', 0.01.toLocaleString(), productDetails.stock_amount.toLocaleString()));
+					$("#new_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %1$s or equal %2$s', 0.01.toLocaleString(), productDetails.stock_amount.toLocaleString()));
 				}
 				else
 				{
 					$("#new_amount").attr("min", "0");
 					$("#new_amount").attr("step", "1");
-					$("#new_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s or equal %s', '0', productDetails.stock_amount.toLocaleString()));
+					$("#new_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %1$s or equal %2$s', '0', productDetails.stock_amount.toLocaleString()));
 				}
 
 				if (productDetails.product.enable_tare_weight_handling == 1)
 				{
 					$("#new_amount").attr("min", productDetails.product.tare_weight);
-					$("#new_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s or equal %s', parseFloat(productDetails.product.tare_weight).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 2 }), productDetails.stock_amount.toLocaleString()));
+					$("#new_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %1$s or equal %2$s', parseFloat(productDetails.product.tare_weight).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 2 }), productDetails.stock_amount.toLocaleString()));
 					$("#tare-weight-handling-info").removeClass("d-none");
 				}
 				else
