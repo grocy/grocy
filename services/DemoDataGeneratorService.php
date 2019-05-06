@@ -22,6 +22,14 @@ class DemoDataGeneratorService extends BaseService
 			$loremIpsum = 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.';
 			$loremIpsumWithHtmlFormattings = "<h1>Lorem ipsum</h1><p>Lorem ipsum <b>dolor sit</b> amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur <span style=\"background-color: rgb(255, 255, 0);\">sadipscing elitr</span>, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p><ul><li>At vero eos et accusam et justo duo dolores et ea rebum.</li><li>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</li></ul><h1>Lorem ipsum</h1><p>Lorem ipsum <b>dolor sit</b> amet, consetetur \r\nsadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et \r\ndolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et\r\n justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea \r\ntakimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit \r\namet, consetetur <span style=\"background-color: rgb(255, 255, 0);\">sadipscing elitr</span>,\r\n sed diam nonumy eirmod tempor invidunt ut labore et dolore magna \r\naliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo \r\ndolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus \r\nest Lorem ipsum dolor sit amet.</p>";
 
+			$mondayThisWeek = date('Y-m-d', strtotime('monday this week'));
+			$tuesdayThisWeek = date('Y-m-d', strtotime('tuesday this week'));
+			$wednesdayThisWeek = date('Y-m-d', strtotime('wednesday this week'));
+			$thursdayThisWeek = date('Y-m-d', strtotime('thursday this week'));
+			$fridayThisWeek = date('Y-m-d', strtotime('friday this week'));
+			$saturdayThisWeek = date('Y-m-d', strtotime('saturday this week'));
+			$sundayThisWeek = date('Y-m-d', strtotime('sunday this week'));
+
 			$sql = "
 				UPDATE users SET username = '{$this->__t_sql('Demo User')}' WHERE id = 1;
 				INSERT INTO users (username, password) VALUES ('{$this->__t_sql('Demo User')} 2', 'x');
@@ -102,6 +110,14 @@ class DemoDataGeneratorService extends BaseService
 
 				INSERt INTO recipes_nestings(recipe_id, includes_recipe_id) VALUES (6, 4);
 				INSERt INTO recipes_nestings(recipe_id, includes_recipe_id) VALUES (6, 5);
+
+				INSERt INTO meal_plan(day, recipe_id) VALUES ('{$mondayThisWeek}', 1);
+				INSERt INTO meal_plan(day, recipe_id) VALUES ('{$tuesdayThisWeek}', 2);
+				INSERt INTO meal_plan(day, recipe_id) VALUES ('{$wednesdayThisWeek}', 3);
+				INSERt INTO meal_plan(day, recipe_id) VALUES ('{$thursdayThisWeek}', 4);
+				INSERt INTO meal_plan(day, recipe_id) VALUES ('{$fridayThisWeek}', 1);
+				INSERt INTO meal_plan(day, recipe_id) VALUES ('{$saturdayThisWeek}', 2);
+				INSERt INTO meal_plan(day, recipe_id) VALUES ('{$sundayThisWeek}', 4);
 
 				INSERT INTO chores (name, period_type, period_days) VALUES ('{$this->__t_sql('Changed towels in the bathroom')}', 'manually', 5); --1
 				INSERT INTO chores (name, period_type, period_days) VALUES ('{$this->__t_sql('Cleaned the kitchen floor')}', 'dynamic-regular', 7); --2

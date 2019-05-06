@@ -57,6 +57,7 @@ $app->group('', function()
 		$this->get('/recipes', '\Grocy\Controllers\RecipesController:Overview');
 		$this->get('/recipe/{recipeId}', '\Grocy\Controllers\RecipesController:RecipeEditForm');
 		$this->get('/recipe/{recipeId}/pos/{recipePosId}', '\Grocy\Controllers\RecipesController:RecipePosEditForm');
+		$this->get('/mealplan', '\Grocy\Controllers\RecipesController:MealPlan');
 	}
 
 	// Chore routes

@@ -175,6 +175,12 @@
 						<span class="nav-link-text">{{ $__t('Calendar') }}</span>
 					</a>
 				</li>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Meal plan') }}" data-nav-for-page="mealplan">
+					<a class="nav-link discrete-link" href="{{ $U('/mealplan') }}">
+						<i class="fas fa-paper-plane"></i>
+						<span class="nav-link-text">{{ $__t('Meal plan') }}</span>
+					</a>
+				</li>
 				@endif
 				
 				<li class="nav-item mt-4" data-toggle="tooltip" data-placement="right" title="{{ $__t('Manage master data') }}">

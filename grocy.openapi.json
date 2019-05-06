@@ -2153,7 +2153,8 @@
 					"product_groups",
 					"equipment",
 					"api_keys",
-					"userfields"
+					"userfields",
+					"meal_plan"
 				]
 			},
 			"ExposedEntitiesPreventListing": {

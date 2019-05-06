@@ -1230,3 +1230,9 @@ msgstr ""
 
 msgid "Consume %1$s of %2$s"
 msgstr ""
+
+msgid "Meal plan"
+msgstr ""
+
+msgid "Add recipe to %s"
+msgstr ""

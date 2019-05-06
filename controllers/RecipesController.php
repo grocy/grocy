@@ -115,4 +115,27 @@ class RecipesController extends BaseController
 			]);
 		}
 	}
+
+	public function MealPlan(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		$recipes = $this->Database->recipes()->fetchAll();
+
+		$events = array();
+		foreach($this->Database->meal_plan() as $mealPlanEntry)
+		{
+			$events[] = array(
+				'id' => $mealPlanEntry['id'],
+				'title' => FindObjectInArrayByPropertyValue($recipes, 'id', $mealPlanEntry['recipe_id'])->name,
+				'start' => $mealPlanEntry['day'],
+				'date_format' => 'date',
+				'recipe' => json_encode(FindObjectInArrayByPropertyValue($recipes, 'id', $mealPlanEntry['recipe_id'])),
+				'mealPlanEntry' => json_encode($mealPlanEntry)
+			);
+		}
+
+		return $this->AppContainer->view->render($response, 'mealplan', [
+			'fullcalendarEventSources' => $events,
+			'recipes' => $recipes
+		]);
+	}
 }

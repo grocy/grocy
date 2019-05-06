@@ -3,6 +3,8 @@
   - Userfields can have types (Text, Number, Date, etc.)
   - Will be shown / can be filled on the edit page of the corresponding entity and will also optionally show in the corresponding tables (inclcudes overview pages)
   - => Can be configured under Master data / Userfields
+- New feature: Meal planning
+  - Simple approach for the beginning (more to come): A week view where you can add recipes for each day (new menu entry in the sidebar, below calendar)
 - General improvements
   - The "expires soon" or "due soon" days (yelllow bar at the top of each overview page) can now be configured
     - => New settings page for each area under the settings icon at the top right
