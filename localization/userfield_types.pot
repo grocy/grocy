@@ -32,3 +32,6 @@ msgstr ""
 
 msgid "checkbox"
 msgstr ""
+
+msgid "preset-list"
+msgstr ""

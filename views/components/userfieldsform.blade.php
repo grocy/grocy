@@ -74,6 +74,16 @@
 			<label class="form-check-label" for="{{ $userfield->name }}">{{ $userfield->caption }}</label>
 		</div>
 	</div>
+	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_PRESET_LIST)
+	<div class="form-group">
+		<label for="{{ $userfield->name }}">{{ $__t('Product group') }}</label>
+		<select class="form-control userfield-input" data-userfield-name="{{ $userfield->name }}">
+			<option></option>
+			@foreach(preg_split('/\r\n|\r|\n/', $userfield->config) as $option)
+				<option value="{{ $option }}">{{ $option }}</option>
+			@endforeach
+		</select>
+	</div>
 	@endif
 
 	@endforeach

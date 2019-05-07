@@ -68,6 +68,22 @@ $('#userfield-form input').keydown(function(event)
 	}
 });
 
+$("#type").on("change", function(e)
+{
+	var value = $(this).val();
+
+	if (value === "preset-list")
+	{
+		$("#config").parent().removeClass("d-none");
+		$("#config-hint").text(__t("A predefined list of values, one per line"));
+	}
+	else
+	{
+		$("#config").parent().addClass("d-none");
+		$("#config-hint").text("");
+	}
+});
+
 $('#entity').focus();
 
 if (typeof GetUriParam("entity") !== "undefined" && !GetUriParam("entity").isEmpty())
@@ -77,4 +93,5 @@ if (typeof GetUriParam("entity") !== "undefined" && !GetUriParam("entity").isEmp
 	$('#name').focus();
 }
 
+$("#type").trigger("change");
 Grocy.FrontendHelpers.ValidateForm('userfield-form');

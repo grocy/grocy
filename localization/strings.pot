@@ -1244,3 +1244,9 @@ msgstr[1] ""
 
 msgid "Week costs"
 msgstr ""
+
+msgid "Configuration"
+msgstr ""
+
+msgid "A predefined list of values, one per line"
+msgstr ""

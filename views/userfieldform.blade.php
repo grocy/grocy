@@ -45,7 +45,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="entity">{{ $__t('Type') }}</label>
+				<label for="type">{{ $__t('Type') }}</label>
 				<select required class="form-control" id="type" name="type">
 					<option></option>
 					@foreach($userfieldTypes as $userfieldType)
@@ -53,6 +53,11 @@
 					@endforeach
 				</select>
 				<div class="invalid-feedback">{{ $__t('A type is required') }}</div>
+			</div>
+
+			<div class="form-group d-none">
+				<label for="config">{{ $__t('Configuration') }} <span id="config-hint" class="small text-muted"></span></label>
+				<textarea class="form-control" rows="10" id="config" name="config">@if($mode == 'edit'){{ $userfield->config }}@endif</textarea>
 			</div>
 
 			<div class="form-group">
