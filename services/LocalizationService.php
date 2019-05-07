@@ -127,7 +127,7 @@ class LocalizationService
 	{
 		$this->CheckAndAddMissingTranslationToPot($singularForm);
 
-		return $this->Translator->ngettext($singularForm, $pluralForm, $number);
+		return sprintf($this->Translator->ngettext($singularForm, $pluralForm, $number), $number);
 	}
 
 	public function CheckAndAddMissingTranslationToPot(string $text)
