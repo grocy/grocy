@@ -6,6 +6,10 @@ use \Grocy\Services\StockService;
 
 class RecipesService extends BaseService
 {
+	const RECIPE_TYPE_NORMAL = 'normal';
+	const RECIPE_TYPE_MEALPLAN_DAY = 'mealplan-day';
+	const RECIPE_TYPE_MEALPLAN_WEEK = 'mealplan-week';
+
 	public function __construct()
 	{
 		parent::__construct();

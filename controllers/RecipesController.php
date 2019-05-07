@@ -19,7 +19,14 @@ class RecipesController extends BaseController
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$recipes = $this->Database->recipes()->orderBy('name');
+		if (isset($request->getQueryParams()['include-internal']))
+		{
+			$recipes = $this->Database->recipes()->orderBy('name');
+		}
+		else
+		{
+			$recipes = $this->Database->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name');
+		}
 		$recipesResolved = $this->RecipesService->GetRecipesResolved();
 
 		$selectedRecipe = null;
@@ -71,7 +78,7 @@ class RecipesController extends BaseController
 		$recipeId = $args['recipeId'];
 		if ($recipeId  == 'new')
 		{
-			$newRecipe = $this->Database->recipes()->createRow(array(
+			$newRecipe = $this->Database->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->createRow(array(
 				'name' => $this->LocalizationService->__t('New recipe')
 			));
 			$newRecipe->save();
@@ -87,7 +94,7 @@ class RecipesController extends BaseController
 			'quantityunits' => $this->Database->quantity_units(),
 			'recipePositionsResolved' => $this->RecipesService->GetRecipesPosResolved(),
 			'recipesResolved' => $this->RecipesService->GetRecipesResolved(),
-			'recipes' =>  $this->Database->recipes()->orderBy('name'),
+			'recipes' =>  $this->Database->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name'),
 			'recipeNestings' =>  $this->Database->recipes_nestings()->where('recipe_id', $recipeId),
 			'userfields' => $this->UserfieldsService->GetFields('recipes')
 		]);
@@ -118,7 +125,7 @@ class RecipesController extends BaseController
 
 	public function MealPlan(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$recipes = $this->Database->recipes()->fetchAll();
+		$recipes = $this->Database->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll();
 
 		$events = array();
 		foreach($this->Database->meal_plan() as $mealPlanEntry)
@@ -135,7 +142,9 @@ class RecipesController extends BaseController
 
 		return $this->AppContainer->view->render($response, 'mealplan', [
 			'fullcalendarEventSources' => $events,
-			'recipes' => $recipes
+			'recipes' => $recipes,
+			'internalRecipes' => $this->Database->recipes()->whereNot('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll(),
+			'recipesResolved' => $this->RecipesService->GetRecipesResolved()
 		]);
 	}
 }

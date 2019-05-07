@@ -5,6 +5,7 @@
   - => Can be configured under Master data / Userfields
 - New feature: Meal planning
   - Simple approach for the beginning (more to come): A week view where you can add recipes for each day (new menu entry in the sidebar, below calendar)
+  - Of course it's also possible to put missing things directly on the shopping list from there, also for a complete week at once
 - General improvements
   - The "expires soon" or "due soon" days (yelllow bar at the top of each overview page) can now be configured
     - => New settings page for each area under the settings icon at the top right

@@ -482,15 +482,19 @@ $("#about-dialog-link").on("click", function()
 	});
 });
 
-$(".locale-number-format[data-format='currency']").each(function ()
+function RefreshLocaleNumberDisplay()
 {
-	$(this).text(parseFloat($(this).text()).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency }));
-});
+	$(".locale-number-format[data-format='currency']").each(function()
+	{
+		$(this).text(parseFloat($(this).text()).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency }));
+	});
 
-$(".locale-number-format[data-format='quantity-amount']").each(function ()
-{
-	$(this).text(parseFloat($(this).text()).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 3 }));
-});
+	$(".locale-number-format[data-format='quantity-amount']").each(function()
+	{
+		$(this).text(parseFloat($(this).text()).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 3 }));
+	});
+}
+RefreshLocaleNumberDisplay();
 
 $(document).on("click", ".easy-link-copy-textbox", function()
 {

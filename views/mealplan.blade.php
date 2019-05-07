@@ -16,6 +16,8 @@
 @section('content')
 <script>
 	var fullcalendarEventSources = {!! json_encode(array($fullcalendarEventSources)) !!}
+	var internalRecipes = {!! json_encode($internalRecipes) !!}
+	var recipesResolved = {!! json_encode($recipesResolved) !!}
 </script>
 
 <div class="row">
@@ -43,7 +45,16 @@
 
 					@include('components.recipepicker', array(
 						'recipes' => $recipes,
-						'isRequired' => true
+						'isRequired' => true,
+						'nextInputSelector' => '#servings'
+					))
+
+					@include('components.numberpicker', array(
+						'id' => 'servings',
+						'label' => 'Servings',
+						'min' => 1,
+						'value' => '1',
+						'invalidFeedback' => $__t('This cannot be lower than %s', '1')
 					))
 
 					<input type="hidden" id="day" name="day" value="">

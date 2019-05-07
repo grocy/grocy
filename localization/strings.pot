@@ -1236,3 +1236,11 @@ msgstr ""
 
 msgid "Add recipe to %s"
 msgstr ""
+
+msgid "%s serving"
+msgid_plural "%s servings"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Week costs"
+msgstr ""
