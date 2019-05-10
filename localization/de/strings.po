@@ -1363,3 +1363,6 @@ msgstr "Batterien \"müssen bald geladen werden\" Tage"
 
 msgid "Tasks due soon days"
 msgstr "Aufgaben \"bald fällig\" Tage"
+
+msgid "Products"
+msgstr "Produkte"

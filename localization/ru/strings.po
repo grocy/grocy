@@ -1388,3 +1388,6 @@ msgstr ""
 
 msgid "Tasks due soon days"
 msgstr ""
+
+msgid "Products"
+msgstr "Продукты"
