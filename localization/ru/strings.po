@@ -1,6 +1,6 @@
 # Translators:
-# Pavel Pletenev <cpp.create@gmail.com>, 2019
 # Bernd Bestel <bernd@berrnd.de>, 2019
+# Pavel Pletenev <cpp.create@gmail.com>, 2019
 # 
 msgid ""
 msgstr ""
@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2019\n"
+"Last-Translator: Pavel Pletenev <cpp.create@gmail.com>, 2019\n"
 "Language-Team: Russian (https://www.transifex.com/grocy/teams/93189/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,41 +22,41 @@ msgstr "Обзор склада"
 
 msgid "%s product expires"
 msgid_plural "%s products expiring"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%s продукт испортится"
+msgstr[1] "%s продукта испортятся"
+msgstr[2] "%s продуктов испортятся"
+msgstr[3] "%s продуктов испортятся"
 
 msgid "within the next day"
 msgid_plural "within the next %s days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "в течение завтра"
+msgstr[1] "в течение %s дней"
+msgstr[2] "в течение %s дней"
+msgstr[3] "в течение %s дней"
 
 msgid "%s product is already expired"
 msgid_plural "%s products are already expired"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%s продукт уже испортился"
+msgstr[1] "%sпродукта уже испортились"
+msgstr[2] "%s продуктов уже испортились"
+msgstr[3] "%s продуктов уже испортились"
 
 msgid "%s product is below defined min. stock amount"
 msgid_plural "%s products are below defined min. stock amount"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%s продукт меньше мин. заданного кол-ва"
+msgstr[1] "%s продукта меньше мин. заданного кол-ва"
+msgstr[2] "%s продуктов меньше мин. заданного кол-ва"
+msgstr[3] "%s продуктов меньше мин. заданного кол-ва"
 
 msgid "Product"
 msgstr "Продукт"
 
 msgid "%s Product"
 msgid_plural "%s Products"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%s Продукт"
+msgstr[1] "%s Продукта"
+msgstr[2] "%s Продуктов"
+msgstr[3] "%s Продуктов"
 
 msgid "Amount"
 msgstr "Количество"
@@ -217,7 +217,7 @@ msgid "Minimum stock amount"
 msgstr "Минимальное количество в запасе"
 
 msgid "Default best before days"
-msgstr "Срок годности по умолчанию"
+msgstr "Срок годности по умолчанию в днях"
 
 msgid "Quantity unit purchase"
 msgstr "Единица измерения про покупке"
@@ -286,8 +286,9 @@ msgstr ""
 "Данное количество дней будет добавлено к предлагаемому сроку годности при "
 "покупке"
 
-msgid "This means 1 %s purchased will be converted into %s %s in stock"
-msgstr "Означает, что 1 купленный %s будет пересчитан в %s %s в запасе"
+msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
+msgstr ""
+"Означает, что при покупке 1 %1$s  будет пересчитан в %2$s %3$s в запасе"
 
 msgid "Login"
 msgstr "Вход"
@@ -379,8 +380,8 @@ msgstr ""
 "Это означает, что следующее выполнение данной работы по дому будет назначено"
 " спустя %s дней после самого недавнего выполнения"
 
-msgid "Removed %s %s of %s from stock"
-msgstr "Убрано %s %s из %s из запаса"
+msgid "Removed %1$s of %2$s from stock"
+msgstr "Убрано %1$s из %2$s из запаса"
 
 msgid "About grocy"
 msgstr "О grocy"
@@ -391,20 +392,17 @@ msgstr "Закрыть"
 msgid "Released on"
 msgstr "Выпуск от"
 
-msgid "Consume %s %s of %s"
-msgstr "Употреблено %s %s из %s"
+msgid "Added %1$s of %2$s to stock"
+msgstr "Добавлено %1$s из %2$s в запас"
 
-msgid "Added %s %s of %s to stock"
-msgstr "Добавлено %s %s из %s в запас"
+msgid "Stock amount of %1$s is now %2$s"
+msgstr "%1$s в запасе в количестве %2$s"
 
-msgid "Stock amount of %s is now %s %s"
-msgstr "%s в запасе теперь %s %s"
+msgid "Tracked execution of chore %1$s on %2$s"
+msgstr "Записано выполнение работы по дому %1$s в %2$s"
 
-msgid "Tracked execution of chore %s on %s"
-msgstr "Отмечено выполнения работы по дому %s в %s"
-
-msgid "Tracked charge cycle of battery %s on %s"
-msgstr "Отмечен цикл заряд батареи %s в %s"
+msgid "Tracked charge cycle of battery %1$s on %2$s"
+msgstr "Отмечен цикл заряд батареи %1$s в %2$s"
 
 msgid "Consume all %s which are currently in stock"
 msgstr "Употребить все %s, что находятся в запасе"
@@ -510,9 +508,17 @@ msgid ""
 msgid_plural ""
 "Not enough in stock, %s ingredients missing but already on the shopping list"
 msgstr[0] ""
+"Запасов не достаточно, %s ингредиент отсутствуют, но уже добавлены в список "
+"покупок"
 msgstr[1] ""
+"Запасов не достаточно, %s ингредиента отсутствуют, но уже добавлены в список"
+" покупок"
 msgstr[2] ""
+"Запасов не достаточно, %s ингредиентов отсутствуют, но уже добавлены в "
+"список покупок"
 msgstr[3] ""
+"Запасов не достаточно, %s ингредиентов отсутствуют, но уже добавлены в "
+"список покупок"
 
 msgid "Expand to fullscreen"
 msgstr "Раскрыть на весь экран"
@@ -526,9 +532,10 @@ msgstr "Приготовление"
 msgid "Recipe"
 msgstr "Рецепт"
 
-msgid "Not enough in stock, %s missing, %s already on shopping list"
+msgid "Not enough in stock, %1$s missing, %2$s already on shopping list"
 msgstr ""
-"Запаса недостаточно, %s ингредиентов нет, %s уже добавлены в список покупок"
+"Запаса недостаточно, %1$s ингредиентов нет, %2$s уже добавлены в список "
+"покупок"
 
 msgid "Show notes"
 msgstr "Показать заметки"
@@ -626,38 +633,38 @@ msgstr "Ед.изм."
 
 msgid "%s Unit"
 msgid_plural "%s Units"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%s Единица Измерения"
+msgstr[1] "%s Единицы Измерения"
+msgstr[2] "%s Единиц Измерения"
+msgstr[3] "%s Единиц Измерения"
 
 msgid "%s chore is due to be done"
 msgid_plural "%s chores are due to be done"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Подходит срок %s работы по дому"
+msgstr[1] "Подходит срок %s работ по дому"
+msgstr[2] "Подходит срок %s работ по дому"
+msgstr[3] "Подходит срок %s работ по дому"
 
 msgid "%s chore is overdue to be done"
 msgid_plural "%s chores are overdue to be done"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Прошёл срок %s работы по дому"
+msgstr[1] "Прошёл срок %s работ по дому"
+msgstr[2] "Прошёл срок %s работ по дому"
+msgstr[3] "Прошёл срок %s работ по дому"
 
 msgid "%s battery is due to be charged"
 msgid_plural "%s batteries are due to be charged"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Подходит срок заряда %s батареи"
+msgstr[1] "Подходит срок заряда %s батарей "
+msgstr[2] "Подходит срок заряда %s батарей  "
+msgstr[3] "Подходит срок заряда %s батарей "
 
 msgid "%s battery is overdue to be charged"
 msgid_plural "%s batteries are overdue to be charged"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Вышел срок заряда у %s батареи"
+msgstr[1] "Вышел срок заряда у %s батарей"
+msgstr[2] "Вышел срок заряда у %s батарей"
+msgstr[3] "Вышел срок заряда у %s батарей"
 
 msgid "in singular form"
 msgstr "в единственном числе"
@@ -678,11 +685,16 @@ msgid ""
 "Only check if a single unit is in stock (a different quantity can then be "
 "used above)"
 msgstr ""
+"Проверять только, имеется ли хотя бы одна единица изменения в запасе (другое"
+" количество, указанное выше, никак не влияет на расчёт)"
 
 msgid ""
 "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
 " marked with \"check only if a single unit is in stock\" will be ignored)?"
 msgstr ""
+"Вы уверены, что нужно употребить все ингредиенты, необходимые для рецепта "
+"\"%s\" (все ингредиенты, помеченные как \"проверять только, имеется ли хотя "
+"бы одна единица измерения в запасе\" будут проигнорированы)? "
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
 msgstr "Все ингредиенты рецепта \"%s\" убраны из запаса"
@@ -740,17 +752,17 @@ msgstr "Вы уверены, что нужно удалить задачу \"%s\
 
 msgid "%s task is due to be done"
 msgid_plural "%s tasks are due to be done"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Подходит срок %s задачи"
+msgstr[1] "Подходит срок %s задач"
+msgstr[2] "Подходит срок %s задач"
+msgstr[3] "Подходит срок %s задач"
 
 msgid "%s task is overdue to be done"
 msgid_plural "%s tasks are overdue to be done"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Вышел срок %s задачи"
+msgstr[1] "Вышел срок %s задач"
+msgstr[2] "Вышел срок %s задач"
+msgstr[3] "Вышел срок %s задач"
 
 msgid "Edit task category"
 msgstr "Изменить категорию задач"
@@ -910,7 +922,7 @@ msgid "Group"
 msgstr "Группа"
 
 msgid "This will be used as a headline to group ingredients together"
-msgstr ""
+msgstr "Будет использовано как заголовок для группировки ингредиентов"
 
 msgid "Journal"
 msgstr "Журнал"
@@ -922,13 +934,13 @@ msgid "Filter by product"
 msgstr "Отфильтровать по продукту"
 
 msgid "Booking time"
-msgstr ""
+msgstr "Время совершения действия"
 
 msgid "Booking type"
-msgstr ""
+msgstr "Тип действия"
 
 msgid "Undo booking"
-msgstr ""
+msgstr "Отменить действие"
 
 msgid "Undone on"
 msgstr "Отменено"
@@ -952,25 +964,25 @@ msgid "Undo"
 msgstr "Отменить"
 
 msgid "Booking successfully undone"
-msgstr ""
+msgstr "Действие успешно отменено"
 
 msgid "Charge cycle successfully undone"
-msgstr ""
+msgstr "Цикл заряда успешно отменён"
 
 msgid "This cannot be negative and must be an integral number"
-msgstr ""
+msgstr "Данное значение должно быть положительным целым числом"
 
 msgid "Disable stock fulfillment checking for this ingredient"
-msgstr ""
+msgstr "Отключить проверки наличия в запасе для данного ингредиента"
 
 msgid "Add all list items to stock"
 msgstr "Добавить всё в списке в запас"
 
-msgid "Add %s %s of %s to stock"
-msgstr "Добавить %s %s %s в запас"
+msgid "Add %1$s of %2$s to stock"
+msgstr "Добавить %1$s из %2$s в запас"
 
-msgid "Adding shopping list item %s of %s"
-msgstr "Добавляется элемент списка покупок %s из %s"
+msgid "Adding shopping list item %1$s of %2$s"
+msgstr "Добавляется элемент списка покупок %1$s %2$s"
 
 msgid "Use a specific stock item"
 msgstr "Использовать конкретный элемент из запаса"
@@ -982,25 +994,27 @@ msgstr ""
 "Первый элемент этого списка будет выбран по правилу \"Сначала с меньшим "
 "сроком годности, затем по дате поступления\""
 
-msgid "Mark %s of %s as open"
-msgstr ""
+msgid "Mark %1$s of %2$s as open"
+msgstr "Открыть %1$s %2$s "
 
 msgid ""
 "When a product was marked as opened, the best before date will be replaced "
 "by today + this amount of days (a value of 0 disables this)"
 msgstr ""
+"Когда продукт помечается как открытый, срок годности заменится по формуле: "
+"сегодня + это количество дней (значение 0 отключает этот функционал)"
 
 msgid "Default best before days after opened"
-msgstr ""
+msgstr "Срок годности по умолчанию после открытия в днях"
 
-msgid "Marked %s %s of %s as opened"
-msgstr "%s %s %s помечена открытой"
+msgid "Marked %1$s of %2$s as opened"
+msgstr "%2$s %1$s помечено открытым"
 
 msgid "Mark as opened"
 msgstr "Пометить как открытые"
 
-msgid "Expires on %s; Bought on %s"
-msgstr "Срок годности: %s; Приобретено: %s"
+msgid "Expires on %1$s; Bought on %2$s"
+msgstr "Срок годности: %1$s; Куплено: %2$s"
 
 msgid "Not opened"
 msgstr "Не открыто"
@@ -1021,7 +1035,7 @@ msgid "Chore due"
 msgstr "Срок выполнения работы по дому"
 
 msgid "Battery charge cycle due"
-msgstr ""
+msgstr "Срок заряда батареи"
 
 msgid "Show clock in header"
 msgstr "Показывать часы в заголовке"
@@ -1030,12 +1044,15 @@ msgid "Stock settings"
 msgstr "Настройки запаса"
 
 msgid "Shopping list to stock workflow"
-msgstr ""
+msgstr "Способ передачи продуктов из списка покупок в запас"
 
 msgid ""
 "Automatically do the booking using the last price and the amount of the "
 "shopping list item, if the product has \"Default best before days\" set"
 msgstr ""
+"Автоматически добавлять в запас, используя последнюю указанную цену и "
+"количество, указанное в списке покупок, если у продукта указан \"Срок "
+"годности по умолчанию в днях\""
 
 msgid "Skip"
 msgstr "Пропустить"
@@ -1051,9 +1068,13 @@ msgstr "На основании цен на недавние покупки пр
 
 msgid "The ingredients listed here result in this amount of servings"
 msgstr ""
+"После приготовления ингредиентов, указанных здесь, получится данное "
+"количество порций"
 
 msgid "Do not check against the shopping list when adding missing items to it"
 msgstr ""
+"Не проверять количество в списке покупок при добавлении в него отсутствующих"
+" элементов"
 
 msgid ""
 "By default the amount to be added to the shopping list is \"needed amount - "
@@ -1061,6 +1082,10 @@ msgid ""
 "checked against the stock amount, not against what is already on the "
 "shopping list"
 msgstr ""
+"По умолчанию количество, добавляемое в список покупок вычисляется так: "
+"\"необходимое количество - количество в запасе - количество в списке "
+"покупок\". Когда включается данная опция, новое количество высчитывается "
+"только на основании запаса, а не вычитая количество в списке."
 
 msgid "Picture"
 msgstr "Изображение"
@@ -1075,15 +1100,17 @@ msgid "You have to select a recipe"
 msgstr "Вам нужно выбрать рецепт"
 
 msgid "Key type"
-msgstr ""
+msgstr "Тип ключа"
 
 msgid "Share/Integrate calendar (iCal)"
-msgstr ""
+msgstr "Поделиться/Интегрировать календать (iCal)"
 
 msgid ""
 "Use the following (public) URL to share or integrate the calendar in iCal "
 "format"
 msgstr ""
+"Используйте данную (публичную) ссылку (URL), чтобы поделиться или "
+"интегрировать календарь в формате iCal"
 
 msgid "Allow partial units in stock"
 msgstr "Разрешить дробные количества в запасе"
@@ -1124,172 +1151,240 @@ msgid "The current picture will be deleted when you save the recipe"
 msgstr "Текущее изображение будет удалено при сохранении рецепта"
 
 msgid "Show product details"
-msgstr ""
+msgstr "Показать подробности о продукте"
 
 msgid "Stock journal for this product"
-msgstr ""
+msgstr "Журнал запаса для данного продукта"
 
 msgid "Show chore details"
-msgstr ""
+msgstr "Показать подробности о работе по дому"
 
 msgid "Journal for this chore"
-msgstr ""
+msgstr "Журнал для данной работы по дому"
 
 msgid "Show battery details"
-msgstr ""
+msgstr "Показать подробности о батарее"
 
 msgid "Journal for this battery"
-msgstr ""
+msgstr "Журнал для данной батареи"
 
 msgid "System info"
-msgstr ""
+msgstr "Системная информация"
 
 msgid "Changelog"
-msgstr ""
+msgstr "Список изменений"
 
-msgid "will be multiplied a factor of %s to get %s"
-msgstr ""
+msgid "will be multiplied a factor of %1$s to get %2$s"
+msgstr "будет умножено на коэфф. %1$s, т.е. %2$s"
 
 msgid "The given date is earlier than today, are you sure?"
-msgstr ""
+msgstr "Введённая дата в прошлом, вы уверены?"
 
 msgid "Product count"
-msgstr ""
+msgstr "Количество продукта"
 
 msgid "Type a new product name or barcode and hit TAB to start a workflow"
-msgstr ""
+msgstr "Введите имя продукта или штрих-код и нажмите ТАБ, чтобы начать работу"
 
 msgid ""
 "This will be used as the default setting when adding this product as a "
 "recipe ingredient"
 msgstr ""
+"Это будет использоваться в качестве настройки по умолчанию при добавлении "
+"данного продукта как ингредиента в рецепт"
 
 msgid "Add item"
-msgstr ""
+msgstr "Добавить элемент"
 
 msgid "Selected shopping list"
-msgstr ""
+msgstr "Выбранный список покупок"
 
 msgid "New shopping list"
-msgstr ""
+msgstr "Новый список покупок"
 
 msgid "Delete shopping list"
-msgstr ""
+msgstr "Удалить список покупок"
 
 msgid "Chores settings"
-msgstr ""
+msgstr "Настройки работ по дому"
 
 msgid "Batteries settings"
-msgstr ""
+msgstr "Настройки батарей"
 
 msgid "Tasks settings"
-msgstr ""
+msgstr "Настройки задач"
 
 msgid "Create shopping list"
-msgstr ""
+msgstr "Создать список покупок"
 
 msgid "Are you sure to delete shopping list \"%s\"?"
-msgstr ""
+msgstr "Вы уверены, что нужно удалить список покупок \"%s\"? "
 
 msgid "Average shelf life"
-msgstr ""
+msgstr "Среднее время жизни на полке"
 
 msgid "Spoil rate"
-msgstr ""
+msgstr "Скорость порчи"
 
 msgid "Show more"
-msgstr ""
+msgstr "Показать больше"
 
 msgid "Show less"
-msgstr ""
+msgstr "Показать меньше"
 
-msgid "The amount must be between %s and %s"
-msgstr ""
+msgid "The amount must be between %1$s and %2$s"
+msgstr "Значение должно быть в диапазоне от %1$s до %2$s"
 
 msgid "Day of month"
-msgstr ""
+msgstr "День месяца"
 
 msgid "Monday"
-msgstr ""
+msgstr "Понедельник"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "Вторник"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "Среда"
 
 msgid "Thursday"
-msgstr ""
+msgstr "Четверг"
 
 msgid "Friday"
-msgstr ""
+msgstr "Пятница"
 
 msgid "Saturday"
-msgstr ""
+msgstr "Суббота"
 
 msgid "Sunday"
-msgstr ""
+msgstr "Воскресенье"
 
 msgid "Configure userfields"
-msgstr ""
+msgstr "Настроить поля пользователя"
 
 msgid "Userfields"
-msgstr ""
+msgstr "Поля пользователя"
 
 msgid "Filter by entity"
-msgstr ""
+msgstr "Отфильтровать по сущности"
 
 msgid "Entity"
-msgstr ""
+msgstr "Сущность"
 
 msgid "Caption"
-msgstr ""
+msgstr "Название"
 
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 msgid "Create userfield"
-msgstr ""
+msgstr "Создать поле пользователя"
 
 msgid "A entity is required"
-msgstr ""
+msgstr "Необходима сущность"
 
 msgid "A caption is required"
-msgstr ""
+msgstr "Необходимо название"
 
 msgid "A type is required"
-msgstr ""
+msgstr "Необходим тип"
 
 msgid "Show as column in tables"
-msgstr ""
+msgstr "Показывать как колонку в таблицах"
 
 msgid "This is required and can only contain letters and numbers"
-msgstr ""
+msgstr "Это обязательно и может содержать только латинские буквы и цифры"
 
 msgid "Edit userfield"
-msgstr ""
+msgstr "Изменить поле пользователя"
 
 msgid "Plural forms"
-msgstr ""
+msgstr "Множественные числа"
 
 msgid "One plural form per line, the current language requires"
-msgstr ""
+msgstr "Одно множественное число на строчку, текущему языку нужно "
 
 msgid "Plural count"
-msgstr ""
+msgstr "Число форм множественного числа"
 
 msgid "Plural rule"
-msgstr ""
+msgstr "Правило формирование множественного числа"
 
 msgid "in plural form"
 msgstr "в множественном числе"
 
 msgid "Not enough in stock, %s ingredient missing"
 msgid_plural "Not enough in stock, %s ingredients missing"
+msgstr[0] "Недостаточно в запасе, %s ингредиент отсутствует"
+msgstr[1] "Недостаточно в запасе, %s ингредиента отсутствуют"
+msgstr[2] "Недостаточно в запасе, %s ингредиентов отсутствуют"
+msgstr[3] "Недостаточно в запасе, %s ингредиентов отсутствуют"
+
+msgid "The amount cannot be lower than %1$s or equal %2$s"
+msgstr "Значение не может быть меньше %1$s или равняться %2$s"
+
+msgid "Not enough in stock, but already on the shopping list"
+msgstr "Не достаточно в запасе, но уже добавлено в список покупок"
+
+msgid "Not enough in stock"
+msgstr "Не достаточно в запасе"
+
+msgid "Expiring soon days"
+msgstr "Дней до окончания срока годности"
+
+msgid "Default amount for purchase"
+msgstr "Количество покупки по умолчанию"
+
+msgid "Default amount for consume"
+msgstr "Количество потребления по умолчанию"
+
+msgid "Variable amount"
+msgstr "Переменное количество"
+
+msgid ""
+"When this is not empty, it will be shown instead of the amount entered above"
+" while the amount there will still be used for stock fulfillment checking"
+msgstr ""
+"Если введено, то это количество будет показываться вместо количества, "
+"введённого выше, но введённое выше будет использоваться для расчёта запаса "
+"продуктов"
+
+msgid "Track date only"
+msgstr "Отслеживать только дату"
+
+msgid "When enabled only the day of an execution is tracked, not the time"
+msgstr "Когда включено, только день выполнение будет записан, но не время"
+
+msgid "Consume %1$s of %2$s"
+msgstr "Употребить %1$s %2$s"
+
+msgid "Meal plan"
+msgstr "План питания"
+
+msgid "Add recipe to %s"
+msgstr "Добавить рецепт в %s"
+
+msgid "%s serving"
+msgid_plural "%s servings"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-msgid "Consume %s of %s"
+msgid "Week costs"
+msgstr ""
+
+msgid "Configuration"
+msgstr ""
+
+msgid "A predefined list of values, one per line"
+msgstr ""
+
+msgid "Chores due soon days"
+msgstr ""
+
+msgid "Batteries due to be charged soon days"
+msgstr ""
+
+msgid "Tasks due soon days"
 msgstr ""

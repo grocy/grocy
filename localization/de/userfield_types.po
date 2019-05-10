@@ -36,3 +36,6 @@ msgstr "Datum & Zeit"
 
 msgid "checkbox"
 msgstr "Kontrollkästchen"
+
+msgid "preset-list"
+msgstr "Auswahlliste (feste Werte)"

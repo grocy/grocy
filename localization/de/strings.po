@@ -274,8 +274,8 @@ msgid ""
 " date suggestion"
 msgstr "Bei Einkäufen wird hierauf basierend das MHD vorausgefüllt"
 
-msgid "This means 1 %s purchased will be converted into %s %s in stock"
-msgstr "Das bedeutet 1 %s im Einkauf entsprechen %s %s im Bestand"
+msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
+msgstr "Das bedeutet 1 %1$s im Einkauf entsprechen %2$s %3$s im Bestand"
 
 msgid "Login"
 msgstr "Anmelden"
@@ -367,8 +367,8 @@ msgstr ""
 "Das bedeutet, dass eine erneute Ausführung der Hausarbeit %s Tage nach der "
 "letzten Ausführung geplant wird"
 
-msgid "Removed %s %s of %s from stock"
-msgstr "%s %s %s aus dem Bestand entfernt"
+msgid "Removed %1$s of %2$s from stock"
+msgstr "%1$s %2$s aus dem Bestand entfernt"
 
 msgid "About grocy"
 msgstr "Über grocy"
@@ -379,20 +379,17 @@ msgstr "Schließen"
 msgid "Released on"
 msgstr "Veröffentlicht am"
 
-msgid "Consume %s %s of %s"
-msgstr "Verbrauche %s %s %s"
+msgid "Added %1$s of %2$s to stock"
+msgstr "%1$s %2$s dem Bestand hinzugefügt"
 
-msgid "Added %s %s of %s to stock"
-msgstr "%s %s %s dem Bestand hinzugefügt"
+msgid "Stock amount of %1$s is now %2$s"
+msgstr "Es sind nun %1$s %2$s im Bestand"
 
-msgid "Stock amount of %s is now %s %s"
-msgstr "Es sind nun %s %s %s im Bestand"
+msgid "Tracked execution of chore %1$s on %2$s"
+msgstr "Ausführung von %1$s am %2$s erfasst"
 
-msgid "Tracked execution of chore %s on %s"
-msgstr "Ausführung von %s am %s erfasst"
-
-msgid "Tracked charge cycle of battery %s on %s"
-msgstr "Ladezyklus für Batterie %s am %s erfasst"
+msgid "Tracked charge cycle of battery %1$s on %2$s"
+msgstr "Ladezyklus für Batterie %1$s am %2$s erfasst"
 
 msgid "Consume all %s which are currently in stock"
 msgstr "Verbrauche den kompletten Bestand von %s"
@@ -516,9 +513,9 @@ msgstr "Zubereitung"
 msgid "Recipe"
 msgstr "Rezept"
 
-msgid "Not enough in stock, %s missing, %s already on shopping list"
+msgid "Not enough in stock, %1$s missing, %2$s already on shopping list"
 msgstr ""
-"Nicht ausreichend im Bestand, %s fehlen, %s stehen bereits auf dem "
+"Nicht ausreichend im Bestand, %1$s fehlen, %2$s stehen bereits auf dem "
 "Einkaufszettel"
 
 msgid "Show notes"
@@ -957,11 +954,11 @@ msgstr "Bestandsprüfung für diese Zutat deaktivieren"
 msgid "Add all list items to stock"
 msgstr "Alle Einträge zum Bestand hinzufügen"
 
-msgid "Add %s %s of %s to stock"
-msgstr "Füge %s %s of %s dem Bestand hinzu"
+msgid "Add %1$s of %2$s to stock"
+msgstr "Füge %1$s %2$s dem Bestand hinzu"
 
-msgid "Adding shopping list item %s of %s"
-msgstr "Bearbeite Einkausfzettel-Eintrag %s von %s"
+msgid "Adding shopping list item %1$s of %2$s"
+msgstr "Bearbeite Einkausfzettel-Eintrag %1$s von %2$s"
 
 msgid "Use a specific stock item"
 msgstr "Einen bestimmten Bestandseintrag verwenden"
@@ -973,8 +970,8 @@ msgstr ""
 "Der erste Eintrag in dieser Liste würde von der Standardregel \"Zuerst "
 "ablaufende zuerst, dann First In - First Out\" ausgewählt werden"
 
-msgid "Mark %s of %s as open"
-msgstr "%s %s als geöffnet markieren"
+msgid "Mark %1$s of %2$s as open"
+msgstr "%1$s %2$s als geöffnet markieren"
 
 msgid ""
 "When a product was marked as opened, the best before date will be replaced "
@@ -987,14 +984,14 @@ msgstr ""
 msgid "Default best before days after opened"
 msgstr "Standard Haltbarkeit in Tagen nach dem Öffnen"
 
-msgid "Marked %s %s of %s as opened"
-msgstr "%s %s von %s als geöffnet markiert"
+msgid "Marked %1$s of %2$s as opened"
+msgstr "%1$s %2$s als geöffnet markiert"
 
 msgid "Mark as opened"
 msgstr "Als geöffnet markieren"
 
-msgid "Expires on %s; Bought on %s"
-msgstr "Läuft ab am %s; Gekauft am %s"
+msgid "Expires on %1$s; Bought on %2$s"
+msgstr "Läuft ab am %1$s; Gekauft am %2$s"
 
 msgid "Not opened"
 msgstr "Nicht geöffnet"
@@ -1153,8 +1150,8 @@ msgstr "Systeminformationen"
 msgid "Changelog"
 msgstr "Änderungsprotokoll"
 
-msgid "will be multiplied a factor of %s to get %s"
-msgstr "wird mit dem Faktor %s multipliziert um %s zu erhalten"
+msgid "will be multiplied a factor of %1$s to get %2$s"
+msgstr "wird mit dem Faktor %1$s multipliziert um %2$s zu erhalten"
 
 msgid "The given date is earlier than today, are you sure?"
 msgstr "Das angegebene Datum ist früher als heute, bist du sicher?"
@@ -1213,8 +1210,8 @@ msgstr "Mehr anzeigen"
 msgid "Show less"
 msgstr "Weniger anzeigen"
 
-msgid "The amount must be between %s and %s"
-msgstr "Die Menge muss zwischen %s und %s liegen"
+msgid "The amount must be between %1$s and %2$s"
+msgstr "Die Menge muss zwischen %1$s und %2$s liegen"
 
 msgid "Day of month"
 msgstr "Tag des Monats"
@@ -1299,11 +1296,8 @@ msgid_plural "Not enough in stock, %s ingredients missing"
 msgstr[0] "Nicht ausreichend im Bestand, %s Zutat fehlt"
 msgstr[1] "Nicht ausreichend im Bestand, %s Zutaten fehlen"
 
-msgid "Consume %s of %s"
-msgstr "Verbrauche %s %s"
-
-msgid "The amount cannot be lower than %s or equal %s"
-msgstr "Die Menge darf nicht kleiner als %s und nicht gleich %s sein"
+msgid "The amount cannot be lower than %1$s or equal %2$s"
+msgstr "Die Menge darf nicht kleiner als %1$s und nicht gleich %2$s sein"
 
 msgid "Not enough in stock, but already on the shopping list"
 msgstr "Bestand nicht ausreichend, steht aber bereits auf dem Einkaufszettel"
@@ -1319,3 +1313,53 @@ msgstr "Standardmenge für Einkauf"
 
 msgid "Default amount for consume"
 msgstr "Standardmenge für Verbrauch"
+
+msgid "Variable amount"
+msgstr "Variable Menge"
+
+msgid ""
+"When this is not empty, it will be shown instead of the amount entered above"
+" while the amount there will still be used for stock fulfillment checking"
+msgstr ""
+"Wenn dies nicht leer ist, wird dies anstelle der Menge oben angezeigt, für "
+"die Bestandsprüfung wird trotzdem diese Menge verwendet"
+
+msgid "Track date only"
+msgstr "Nur Datum der Ausführung speichern"
+
+msgid "When enabled only the day of an execution is tracked, not the time"
+msgstr ""
+"Wenn gewählt, wird nur der Tag einer Ausführung aufgezeichnet, nicht die "
+"Zeit"
+
+msgid "Consume %1$s of %2$s"
+msgstr "Verbrauche %1$s %2$s"
+
+msgid "Meal plan"
+msgstr "Speiseplan"
+
+msgid "Add recipe to %s"
+msgstr "Rezept zu %s hinzufügen"
+
+msgid "%s serving"
+msgid_plural "%s servings"
+msgstr[0] "%s Portion"
+msgstr[1] "%s Portionen"
+
+msgid "Week costs"
+msgstr "Wochenkosten"
+
+msgid "Configuration"
+msgstr "Konfiguration"
+
+msgid "A predefined list of values, one per line"
+msgstr "Eine vordefinierte Liste von Werten (einer pro Zeile)"
+
+msgid "Chores due soon days"
+msgstr "Hausarbeiten \"bald fällig\" Tage"
+
+msgid "Batteries due to be charged soon days"
+msgstr "Batterien \"müssen bald geladen werden\" Tage"
+
+msgid "Tasks due soon days"
+msgstr "Aufgaben \"bald fällig\" Tage"
