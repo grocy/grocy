@@ -1250,3 +1250,12 @@ msgstr ""
 
 msgid "A predefined list of values, one per line"
 msgstr ""
+
+msgid "Chores due soon days"
+msgstr ""
+
+msgid "Batteries due to be charged soon days"
+msgstr ""
+
+msgid "Tasks due soon days"
+msgstr ""
