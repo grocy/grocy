@@ -123,7 +123,7 @@ class LocalizationService
 		}
 	}
 
-	public function __n($number, string $singularForm, string $pluralForm)
+	public function __n($number, string $singularForm, ?string $pluralForm)
 	{
 		$this->CheckAndAddMissingTranslationToPot($singularForm);
 
