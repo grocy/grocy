@@ -1366,28 +1366,28 @@ msgstr "Добавить рецепт в %s"
 
 msgid "%s serving"
 msgid_plural "%s servings"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%s порция"
+msgstr[1] "%s порции"
+msgstr[2] "%s порций"
+msgstr[3] "%s порций"
 
 msgid "Week costs"
-msgstr ""
+msgstr "Затраты на неделю"
 
 msgid "Configuration"
-msgstr ""
+msgstr "Конфигурация"
 
 msgid "A predefined list of values, one per line"
-msgstr ""
+msgstr "Предопределённый список значений, по одному на строку"
 
 msgid "Chores due soon days"
-msgstr ""
+msgstr "Критерий для \"подходит срок работы по дому\" в днях"
 
 msgid "Batteries due to be charged soon days"
-msgstr ""
+msgstr "Критерий для \"подходит срок заряда батарей\" в днях"
 
 msgid "Tasks due soon days"
-msgstr ""
+msgstr "Критерий для \"подходит срок задач\" в днях"
 
 msgid "Products"
 msgstr "Продукты"

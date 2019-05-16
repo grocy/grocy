@@ -2,8 +2,8 @@
 # Agata Prymuszewska <a.prymuszewska@gmail.com>, 2019
 # Marcin Redlica <marcin.redlica@gmail.com>, 2019
 # Bernd Bestel <bernd@berrnd.de>, 2019
-# Maczuga <maczugapl@gmail.com>, 2019
 # Zbigniew Żołnierowicz <zbigniew.zolnierowicz@gmail.com>, 2019
+# Maczuga <maczugapl@gmail.com>, 2019
 # 
 msgid ""
 msgstr ""
@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Zbigniew Żołnierowicz <zbigniew.zolnierowicz@gmail.com>, 2019\n"
+"Last-Translator: Maczuga <maczugapl@gmail.com>, 2019\n"
 "Language-Team: Polish (https://www.transifex.com/grocy/teams/93189/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1377,13 +1377,13 @@ msgid "A predefined list of values, one per line"
 msgstr "Lista predefiniowanych wartości, jedna na linię"
 
 msgid "Chores due soon days"
-msgstr ""
+msgstr "Dni \"blisko terminu wykonania obowiązku\""
 
 msgid "Batteries due to be charged soon days"
-msgstr ""
+msgstr "Dni \"blisko terminu ładowania baterii\""
 
 msgid "Tasks due soon days"
-msgstr ""
+msgstr "Dni \"blisko terminu wykonania zadania\""
 
 msgid "Products"
 msgstr "Produkty"

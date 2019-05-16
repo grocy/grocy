@@ -23,64 +23,64 @@ msgid "Chocolate"
 msgstr "Шоколад"
 
 msgid "Pantry"
-msgstr ""
+msgstr "Кладовая"
 
 msgid "Candy cupboard"
-msgstr ""
+msgstr "Шкаф для конфет"
 
 msgid "Tinned food cupboard"
-msgstr ""
+msgstr "Шкаф для консервов"
 
 msgid "Fridge"
 msgstr "Холодильник"
 
 msgid "Piece"
 msgid_plural "Pieces"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Штука"
+msgstr[1] "Штуки"
+msgstr[2] "Штук"
+msgstr[3] "Штук"
 
 msgid "Pack"
 msgid_plural "Packs"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Упаковка"
+msgstr[1] "Упаковки"
+msgstr[2] "Упаковок"
+msgstr[3] "Упаковок"
 
 msgid "Glass"
 msgid_plural "Glasses"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Стакан"
+msgstr[1] "Стакана"
+msgstr[2] "Стаканов"
+msgstr[3] "Стаканов"
 
 msgid "Tin"
 msgid_plural "Tins"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Консервная Банка"
+msgstr[1] "Консервных Банки"
+msgstr[2] "Консервных Банок"
+msgstr[3] "Консервных Банок"
 
 msgid "Can"
 msgid_plural "Cans"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Банка"
+msgstr[1] "Банки"
+msgstr[2] "Банок"
+msgstr[3] "Банок"
 
 msgid "Bunch"
 msgid_plural "Bunches"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Пучок"
+msgstr[1] "Пучка"
+msgstr[2] "Пучков"
+msgstr[3] "Пучков"
 
 msgid "Gummy bears"
-msgstr ""
+msgstr "Мармеладные мишки"
 
 msgid "Crisps"
-msgstr ""
+msgstr "Чипсы"
 
 msgid "Eggs"
 msgstr "Яйца"
@@ -92,7 +92,7 @@ msgid "Pickles"
 msgstr "Огурцы"
 
 msgid "Gulash soup"
-msgstr ""
+msgstr "Суп-гуляш"
 
 msgid "Yogurt"
 msgstr "Йогурт"
@@ -101,25 +101,25 @@ msgid "Cheese"
 msgstr "Сыр"
 
 msgid "Cold cuts"
-msgstr ""
+msgstr "Вырезка"
 
 msgid "Paprika"
-msgstr ""
+msgstr "Паприка"
 
 msgid "Cucumber"
-msgstr ""
+msgstr "Огурец"
 
 msgid "Radish"
-msgstr ""
+msgstr "Редиска"
 
 msgid "Tomato"
 msgstr "Помидор"
 
 msgid "Changed towels in the bathroom"
-msgstr ""
+msgstr "Сменены полотенца в ванной"
 
 msgid "Cleaned the kitchen floor"
-msgstr ""
+msgstr "Очищен пол на кухне"
 
 msgid "Warranty ends"
 msgstr "Гарантия заканчивается"
@@ -131,143 +131,143 @@ msgid "Alarm clock"
 msgstr "Часы с будильником"
 
 msgid "Heat remote control"
-msgstr ""
+msgstr "Пульт ДУ для печки"
 
 msgid "Lawn mowed in the garden"
-msgstr ""
+msgstr "Пострижен газон в саду"
 
 msgid "Some good snacks"
-msgstr ""
+msgstr "Немного хорошего перекуса"
 
 msgid "Pizza dough"
-msgstr ""
+msgstr "Тесто для пиццы"
 
 msgid "Sieved tomatoes"
-msgstr ""
+msgstr "Отборные помидоры"
 
 msgid "Salami"
-msgstr ""
+msgstr "Салями"
 
 msgid "Toast"
-msgstr ""
+msgstr "Тост"
 
 msgid "Minced meat"
-msgstr ""
+msgstr "Фарш"
 
 msgid "Pizza"
-msgstr ""
+msgstr "Пицца"
 
 msgid "Spaghetti bolognese"
-msgstr ""
+msgstr "Спагетти болоньезе"
 
 msgid "Sandwiches"
-msgstr ""
+msgstr "Сендвичи"
 
 msgid "English"
-msgstr ""
+msgstr "Английски"
 
 msgid "German"
-msgstr ""
+msgstr "Немецкий"
 
 msgid "Italian"
-msgstr ""
+msgstr "Итальянский"
 
 msgid "Demo in different language"
-msgstr ""
+msgstr "Демо на другом языке"
 
 msgid "This is the note content of the recipe ingredient"
-msgstr ""
+msgstr "Это тело заметки по игредиенту рецепта"
 
 msgid "Demo User"
-msgstr ""
+msgstr "Пользователь Демо"
 
 msgid "Gram"
 msgid_plural "Grams"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Грамм"
+msgstr[1] "Грамма"
+msgstr[2] "Грамм"
+msgstr[3] "Грамм"
 
 msgid "Flour"
-msgstr ""
+msgstr "Мука"
 
 msgid "Pancakes"
-msgstr ""
+msgstr "Блины"
 
 msgid "Sugar"
-msgstr ""
+msgstr "Сахар"
 
 msgid "Home"
-msgstr ""
+msgstr "Дом"
 
 msgid "Life"
-msgstr ""
+msgstr "Жизнь"
 
 msgid "Projects"
-msgstr ""
+msgstr "Проект"
 
 msgid "Repair the garage door"
-msgstr ""
+msgstr "Починить дверь гаража"
 
 msgid "Fork and improve grocy"
-msgstr ""
+msgstr "Отфоркнуть и улучшить grocy"
 
 msgid "Find a solution for what to do when I forget the door keys"
-msgstr ""
+msgstr "Найти решение, что делать, когда я забываю ключи от двери"
 
 msgid "Sweets"
-msgstr ""
+msgstr "Конфеты"
 
 msgid "Bakery products"
-msgstr ""
+msgstr "Хлебобулочные изделия"
 
 msgid "Tinned food"
-msgstr ""
+msgstr "Консервы"
 
 msgid "Butchery products"
-msgstr ""
+msgstr "Мясные изделия"
 
 msgid "Vegetables/Fruits"
-msgstr ""
+msgstr "Фрукт/овощи"
 
 msgid "Refrigerated products"
-msgstr ""
+msgstr "Замороженные продукты"
 
 msgid "Coffee machine"
-msgstr ""
+msgstr "Кофемашина"
 
 msgid "Dishwasher"
-msgstr ""
+msgstr "Посудомоечная машина"
 
 msgid "Liter"
-msgstr ""
+msgstr "Литр"
 
 msgid "Liters"
-msgstr ""
+msgstr "Литры"
 
 msgid "Bottle"
-msgstr ""
+msgstr "Бутылка"
 
 msgid "Bottles"
-msgstr ""
+msgstr "Бутылки"
 
 msgid "Milk"
-msgstr ""
+msgstr "Молоко"
 
 msgid "Chocolate sauce"
-msgstr ""
+msgstr "Шоколадный соус"
 
 msgid "Milliliters"
-msgstr ""
+msgstr "Милилитры"
 
 msgid "Milliliter"
-msgstr ""
+msgstr "Милилитр"
 
 msgid "Bottom"
-msgstr ""
+msgstr "Низ"
 
 msgid "Topping"
-msgstr ""
+msgstr "Топпинг"
 
 msgid "French"
 msgstr "Французский"
@@ -279,19 +279,19 @@ msgid "Spanish"
 msgstr "Испанский"
 
 msgid "Russian"
-msgstr ""
+msgstr "Русский"
 
 msgid "The thing which happens on the 5th of every month"
-msgstr ""
+msgstr "Штука, которая происходит каждое 5 число каждого месяца"
 
 msgid "The thing which happens daily"
-msgstr ""
+msgstr "Штука, происходящая едедневно"
 
 msgid "The thing which happens on Mondays and Wednesdays"
-msgstr ""
+msgstr "Штука, которая происходит по понедельникам и средам"
 
 msgid "Swedish"
-msgstr ""
+msgstr "Шведский"
 
 msgid "Polish"
-msgstr ""
+msgstr "Польский"
