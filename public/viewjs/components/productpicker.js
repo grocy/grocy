@@ -70,7 +70,7 @@ if (!prefillProduct2.isEmpty())
 }
 if (typeof prefillProduct !== "undefined")
 {
-	var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + prefillProduct + "']").first();
+	var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + prefillProduct.replace("'", "\\'") + "']").first();
 	if (possibleOptionElement.length === 0)
 	{
 		possibleOptionElement = $("#product_id option:contains('" + prefillProduct + "')").first();
@@ -120,7 +120,7 @@ $('#product_id_text_input').on('blur', function(e)
 	}
 
 	var input = $('#product_id_text_input').val().toString();
-	var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + input + "']").first();
+	var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + input.replace("'", "\\'") + "']").first();
 	
 	if (GetUriParam('addbarcodetoselection') === undefined && possibleOptionElement.length > 0)
 	{
