@@ -5,7 +5,12 @@
 .night-mode .table-info,
 .night-mode .table-info > td,
 .night-mode .table-info > th {
-	background-color: #07373f;
+        background-color: #07373f;
+        color: #6c757d;
+}
+
+.night-mode .table {
+        color: #6c757d;
 }
 
 .night-mode .btn,
