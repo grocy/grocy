@@ -69,6 +69,7 @@ $(document).on('click', '.undo-stock-booking-button', function(e)
 		function(xhr)
 		{
 			console.error(xhr);
+			toastr.error(__t(JSON.parse(xhr.response).error_message));
 		}
 	);
 });

@@ -1265,3 +1265,6 @@ msgstr ""
 
 msgid "Marked task %s as completed on %s"
 msgstr ""
+
+msgid "Booking has subsequent dependent bookings, undo not possible"
+msgstr ""
