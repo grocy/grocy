@@ -71,6 +71,10 @@ class BaseController
 			{
 				$container->view->set('userSettings', $usersService->GetUserSettings(GROCY_USER_ID));
 			}
+			else
+			{
+				$container->view->set('userSettings', null);
+			}
 		}
 		catch (\Exception $ex)
 		{
