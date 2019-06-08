@@ -109,7 +109,7 @@ class LocalizationService
 		}
 	}
 
-	public function __t(string $text, ...$placeholderValues)
+	public function __t($text, ...$placeholderValues)
 	{
 		$this->CheckAndAddMissingTranslationToPot($text);
 
@@ -123,14 +123,14 @@ class LocalizationService
 		}
 	}
 
-	public function __n($number, string $singularForm, ?string $pluralForm)
+	public function __n($number, $singularForm, $pluralForm)
 	{
 		$this->CheckAndAddMissingTranslationToPot($singularForm);
 
 		return sprintf($this->Translator->ngettext($singularForm, $pluralForm, $number), $number);
 	}
 
-	public function CheckAndAddMissingTranslationToPot(string $text)
+	public function CheckAndAddMissingTranslationToPot($text)
 	{
 		if (GROCY_MODE === 'dev')
 		{
