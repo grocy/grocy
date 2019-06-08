@@ -1262,3 +1262,6 @@ msgstr ""
 
 msgid "Products"
 msgstr ""
+
+msgid "Marked task %s as completed on %s"
+msgstr ""

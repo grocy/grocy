@@ -121,6 +121,7 @@ $(document).on('click', '.product-consume-button', function(e)
 					{
 						$('#product-' + productId + '-row').fadeOut(500, function()
 						{
+							$(this).tooltip("hide");
 							$(this).remove();
 						});
 					}

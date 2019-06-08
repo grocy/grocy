@@ -78,6 +78,7 @@ $(document).on('click', '.do-task-button', function(e)
 			{
 				$('#task-' + taskId + '-row').fadeOut(500, function ()
 				{
+					$(this).tooltip("hide");
 					$(this).remove();
 				});
 			}
@@ -129,6 +130,7 @@ $(document).on('click', '.delete-task-button', function (e)
 					{
 						$('#task-' + objectId + '-row').fadeOut(500, function ()
 						{
+							$(this).tooltip("hide");
 							$(this).remove();
 						});
 					},
