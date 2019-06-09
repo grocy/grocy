@@ -1366,3 +1366,11 @@ msgstr "Aufgaben \"bald fällig\" Tage"
 
 msgid "Products"
 msgstr "Produkte"
+
+msgid "Marked task %s as completed on %s"
+msgstr "Aufgabe %s als erledigt markiert am %s"
+
+msgid "Booking has subsequent dependent bookings, undo not possible"
+msgstr ""
+"Die Buchung hat nachfolgende abhängige Buchungen, rückgängig machen nicht "
+"möglich"
