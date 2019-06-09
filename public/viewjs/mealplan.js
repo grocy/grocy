@@ -98,7 +98,7 @@ $("#add-recipe-modal").on("shown.bs.modal", function(e)
 
 $(document).on("click", ".remove-recipe-button", function(e)
 {
-	var mealPlanEntry = JSON.parse($(this).closest(".fc-h-event").attr("data-meal-plan-entry"));
+	var mealPlanEntry = JSON.parse($(this).parents(".fc-h-event:first").attr("data-meal-plan-entry"));
 
 	Grocy.Api.Delete('objects/meal_plan/' + mealPlanEntry.id.toString(), { },
 		function(result)
