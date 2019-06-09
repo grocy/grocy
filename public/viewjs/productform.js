@@ -149,6 +149,11 @@ if (prefillBarcode !== undefined)
 	$('#name').focus();
 }
 
+$("#barcode-taginput").on("blur", function(e)
+{
+	$("#barcode-taginput").tagsManager("pushTag", $("#barcode-taginput").val());
+});
+
 $('.input-group-qu').on('change', function(e)
 {
 	var quIdPurchase = $("#qu_id_purchase").val();
