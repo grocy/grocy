@@ -43,7 +43,7 @@ $('.recipe-combobox').combobox({
 var prefillByName = Grocy.Components.RecipePicker.GetPicker().parent().data('prefill-by-name').toString();
 if (typeof prefillByName !== "undefined")
 {
-	possibleOptionElement = $("#recipe_id option:contains('" + prefillByName + "')").first();
+	possibleOptionElement = $("#recipe_id option:contains(\"" + prefillByName + "\")").first();
 
 	if (possibleOptionElement.length > 0)
 	{

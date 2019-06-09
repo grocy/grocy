@@ -42,10 +42,10 @@ $('.user-combobox').combobox({
 var prefillUser = Grocy.Components.UserPicker.GetPicker().parent().data('prefill-by-username').toString();
 if (typeof prefillUser !== "undefined")
 {
-	var possibleOptionElement = $("#user_id option[data-additional-searchdata*='" + prefillUser.replace("'", "\\'") + "']").first();
+	var possibleOptionElement = $("#user_id option[data-additional-searchdata*=\"" + prefillUser + "\"]").first();
 	if (possibleOptionElement.length === 0)
 	{
-		possibleOptionElement = $("#user_id option:contains('" + prefillUser + "')").first();
+		possibleOptionElement = $("#user_id option:contains(\"" + prefillUser + "\")").first();
 	}
 
 	if (possibleOptionElement.length > 0)

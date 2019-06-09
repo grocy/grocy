@@ -70,10 +70,10 @@ if (!prefillProduct2.isEmpty())
 }
 if (typeof prefillProduct !== "undefined")
 {
-	var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + prefillProduct.replace("'", "\\'") + "']").first();
+	var possibleOptionElement = $("#product_id option[data-additional-searchdata*=\"" + prefillProduct + "\"]").first();
 	if (possibleOptionElement.length === 0)
 	{
-		possibleOptionElement = $("#product_id option:contains('" + prefillProduct + "')").first();
+		possibleOptionElement = $("#product_id option:contains(\"" + prefillProduct + "\")").first();
 	}
 
 	if (possibleOptionElement.length > 0)
@@ -120,7 +120,7 @@ $('#product_id_text_input').on('blur', function(e)
 	}
 
 	var input = $('#product_id_text_input').val().toString();
-	var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + input.replace("'", "\\'") + "']").first();
+	var possibleOptionElement = $("#product_id option[data-additional-searchdata*=\"" + input + "\"]").first();
 	
 	if (GetUriParam('addbarcodetoselection') === undefined && possibleOptionElement.length > 0)
 	{
@@ -135,7 +135,7 @@ $('#product_id_text_input').on('blur', function(e)
 			return;
 		}
 
-		var optionElement = $("#product_id option:contains('" + input + "')").first();
+		var optionElement = $("#product_id option:contains(\"" + input + "\")").first();
 		if (input.length > 0 && optionElement.length === 0 && typeof GetUriParam('addbarcodetoselection') === "undefined")
 		{
 			var addProductWorkflowsAdditionalCssClasses = "";

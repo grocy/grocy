@@ -43,7 +43,7 @@ $('.location-combobox').combobox({
 var prefillByName = Grocy.Components.LocationPicker.GetPicker().parent().data('prefill-by-name').toString();
 if (typeof prefillByName !== "undefined")
 {
-	possibleOptionElement = $("#location_id option:contains('" + prefillByName + "')").first();
+	possibleOptionElement = $("#location_id option:contains(\"" + prefillByName + "\")").first();
 
 	if (possibleOptionElement.length > 0)
 	{
