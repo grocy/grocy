@@ -4,7 +4,7 @@
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 }
 	],
-	'language': JSON.parse(L('datatables_localization')),
+	'language': JSON.parse(__t('datatables_localization')),
 	'scrollY': false,
 	'colReorder': true,
 	'stateSave': true,
@@ -38,14 +38,14 @@ $(document).on('click', '.battery-delete-button', function (e)
 	var objectId = $(e.currentTarget).attr('data-battery-id');
 
 	bootbox.confirm({
-		message: L('Are you sure to delete battery "#1"?', objectName),
+		message: __t('Are you sure to delete battery "%s"?', objectName),
 		buttons: {
 			confirm: {
-				label: L('Yes'),
+				label: __t('Yes'),
 				className: 'btn-success'
 			},
 			cancel: {
-				label: L('No'),
+				label: __t('No'),
 				className: 'btn-danger'
 			}
 		},

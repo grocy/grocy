@@ -10,7 +10,11 @@
 		Grocy.Api.Post('objects/quantity_units', jsonData,
 			function(result)
 			{
-				window.location.href = U('/quantityunits');
+				Grocy.EditObjectId = result.created_object_id;
+				Grocy.Components.UserfieldsForm.Save(function()
+				{
+					window.location.href = U('/quantityunits');
+				});
 			},
 			function(xhr)
 			{
@@ -24,7 +28,10 @@
 		Grocy.Api.Put('objects/quantity_units/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
-				window.location.href = U('/quantityunits');
+				Grocy.Components.UserfieldsForm.Save(function()
+				{
+					window.location.href = U('/quantityunits');
+				});
 			},
 			function(xhr)
 			{
@@ -57,5 +64,6 @@ $('#quantityunit-form input').keydown(function(event)
 	}
 });
 
+Grocy.Components.UserfieldsForm.Load();
 $('#name').focus();
 Grocy.FrontendHelpers.ValidateForm('quantityunit-form');

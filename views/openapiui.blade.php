@@ -11,7 +11,7 @@
 	<meta name="author" content="Bernd Bestel (bernd@berrnd.de)">
 	<link rel="icon" href="{{ $U('/img/grocy_icon.svg?v=', true) }}{{ $version }}">
 
-	<title>{{ $L('REST API & data model documentation') }} | grocy</title>
+	<title>{{ $__t('REST API & data model documentation') }} | grocy</title>
 
 	<link href="{{ $U('/node_modules/swagger-ui-dist/swagger-ui.css?v=', true) }}{{ $version }}" rel="stylesheet">
 

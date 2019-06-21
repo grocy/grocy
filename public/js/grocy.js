@@ -1,48 +1,28 @@
-﻿L = function(text, ...placeholderValues)
+﻿Grocy.Translator = new Translator(Grocy.GettextPo);
+__t = function(text, ...placeholderValues)
 {
-	var localizedText = Grocy.LocalizationStrings[text];
-	if (localizedText === undefined)
+	if (Grocy.Mode === "dev")
 	{
-		if (Grocy.Mode === 'dev')
-		{
-			jsonData = {};
-			jsonData.text = text;
-			Grocy.Api.Post('system/log-missing-localization', jsonData,
-				function(result)
-				{
-					// Nothing to do...
-				},
-				function(xhr)
-				{
-					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-				}
-			);
-		}
-
-		localizedText = text;
+		var text2 = text;
+		Grocy.Api.Post('system/log-missing-localization', { "text": text2 });
+	}
+	
+	return Grocy.Translator.__(text, ...placeholderValues)
+}
+__n = function(number, singularForm, pluralForm)
+{
+	if (Grocy.Mode === "dev")
+	{
+		var singularForm2 = singularForm;
+		Grocy.Api.Post('system/log-missing-localization', { "text": singularForm2 });
 	}
 
-	for (var i = 0; i < placeholderValues.length; i++)
-	{
-		localizedText = localizedText.replace('#' + (i + 1), placeholderValues[i]);
-	}
-
-	return localizedText;
+	return Grocy.Translator.n__(singularForm, pluralForm, number, number)
 }
 
 U = function(relativePath)
 {
 	return Grocy.BaseUrl.replace(/\/$/, '') + relativePath;
-}
-
-Pluralize = function(number, singularForm, pluralForm)
-{
-	var text = singularForm;
-	if (number != 1 && pluralForm !== null && !pluralForm.isEmpty())
-	{
-		text = pluralForm;
-	}
-	return text;
 }
 
 if (!Grocy.ActiveNav.isEmpty())
@@ -381,11 +361,11 @@ Grocy.FrontendHelpers.EndUiBusy = function(formId = null)
 
 Grocy.FrontendHelpers.ShowGenericError = function(message, exception)
 {
-	toastr.error(L(message) + '<br><br>' + L('Click to show technical details'), '', {
+	toastr.error(__t(message) + '<br><br>' + __t('Click to show technical details'), '', {
 		onclick: function()
 		{
 			bootbox.alert({
-				title: L('Error details'),
+				title: __t('Error details'),
 				message: JSON.stringify(exception, null, 4)
 			});
 		}
@@ -394,11 +374,11 @@ Grocy.FrontendHelpers.ShowGenericError = function(message, exception)
 	console.error(exception);
 }
 
-$("form").on("keyup paste", "input, textarea", function()
+$(document).on("keyup paste change", "input, textarea", function()
 {
 	$(this).closest("form").addClass("is-dirty");
 });
-$("form").on("click", "select", function()
+$(document).on("click", "select", function()
 {
 	$(this).closest("form").addClass("is-dirty");
 });
@@ -449,7 +429,7 @@ $('input.custom-file-input').on('change', function()
 // Translation of "Browse"-button of Bootstrap custom file input
 if ($(".custom-file-label").length > 0)
 {
-	$("<style>").html('.custom-file-label::after { content: "' + L("Select file") + '"; }').appendTo("head");
+	$("<style>").html('.custom-file-label::after { content: "' + __t("Select file") + '"; }').appendTo("head");
 }
 
 ResizeResponsiveEmbeds = function(fillEntireViewport = false)
@@ -502,10 +482,19 @@ $("#about-dialog-link").on("click", function()
 	});
 });
 
-$(".locale-number-format[data-format='currency']").each(function ()
+function RefreshLocaleNumberDisplay()
 {
-	$(this).text(parseFloat($(this).text()).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency }));
-});
+	$(".locale-number-format[data-format='currency']").each(function()
+	{
+		$(this).text(parseFloat($(this).text()).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency }));
+	});
+
+	$(".locale-number-format[data-format='quantity-amount']").each(function()
+	{
+		$(this).text(parseFloat($(this).text()).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 3 }));
+	});
+}
+RefreshLocaleNumberDisplay();
 
 $(document).on("click", ".easy-link-copy-textbox", function()
 {

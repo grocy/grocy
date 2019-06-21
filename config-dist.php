@@ -55,9 +55,23 @@ DefaultUserSetting('auto_night_mode_time_range_from', "20:00"); // Format HH:mm
 DefaultUserSetting('auto_night_mode_time_range_to', "07:00"); // Format HH:mm
 DefaultUserSetting('auto_night_mode_time_range_goes_over_midnight', true); // If the time range above goes over midnight
 DefaultUserSetting('currently_inside_night_mode_range', false); // If we're currently inside of night mode time range (this is not user configurable, but stored as a user setting because it's evaluated client side to be able to use the client time instead of the maybe different server time)
+
+# Stock settings
 DefaultUserSetting('product_presets_location_id', -1); // Default location id for new products (-1 means no location is preset)
 DefaultUserSetting('product_presets_product_group_id', -1); // Default product group id for new products (-1 means no product group is preset)
 DefaultUserSetting('product_presets_qu_id', -1); // Default quantity unit id for new products (-1 means no quantity unit is preset)
+DefaultUserSetting('stock_expring_soon_days', 5);
+DefaultUserSetting('stock_default_purchase_amount', 0);
+DefaultUserSetting('stock_default_consume_amount', 1);
+
+# Chores settings
+DefaultUserSetting('chores_due_soon_days', 5);
+
+# Batteries settings
+DefaultUserSetting('batteries_due_soon_days', 5);
+
+# Tasks settings
+DefaultUserSetting('tasks_due_soon_days', 5);
 
 # If the page should be automatically reloaded when there was
 # an external change
@@ -79,6 +93,7 @@ DefaultUserSetting('shopping_list_to_stock_workflow_auto_submit_when_prefilled',
 # came and still come by, because they are useful - here you can disable the parts
 # which you don't need to have a less cluttered UI
 # (set the setting to "false" to disable the corresponding part, which should be self explanatory)
+Setting('FEATURE_FLAG_STOCK', true);
 Setting('FEATURE_FLAG_SHOPPINGLIST', true);
 Setting('FEATURE_FLAG_RECIPES', true);
 Setting('FEATURE_FLAG_CHORES', true);

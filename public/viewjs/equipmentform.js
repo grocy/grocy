@@ -21,24 +21,28 @@
 		Grocy.Api.Post('objects/equipment', jsonData,
 			function(result)
 			{
-				if (jsonData.hasOwnProperty("instruction_manual_file_name") && !Grocy.DeleteInstructionManualOnSave)
+				Grocy.EditObjectId = result.created_object_id;
+				Grocy.Components.UserfieldsForm.Save(function()
 				{
-					Grocy.Api.UploadFile($("#instruction-manual")[0].files[0], 'equipmentmanuals', jsonData.instruction_manual_file_name,
-						function(result)
-						{
-							window.location.href = U('/equipment');
-						},
-						function(xhr)
-						{
-							Grocy.FrontendHelpers.EndUiBusy("equipment-form");
-							Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-						}
-					);
-				}
-				else
-				{
-					window.location.href = U('/equipment');
-				}
+					if (jsonData.hasOwnProperty("instruction_manual_file_name") && !Grocy.DeleteInstructionManualOnSave)
+					{
+						Grocy.Api.UploadFile($("#instruction-manual")[0].files[0], 'equipmentmanuals', jsonData.instruction_manual_file_name,
+							function (result)
+							{
+								window.location.href = U('/equipment');
+							},
+							function (xhr)
+							{
+								Grocy.FrontendHelpers.EndUiBusy("equipment-form");
+								Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+							}
+						);
+					}
+					else
+					{
+						window.location.href = U('/equipment');
+					}
+				});
 			},
 			function(xhr)
 			{
@@ -67,24 +71,27 @@
 		Grocy.Api.Put('objects/equipment/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
-				if (jsonData.hasOwnProperty("instruction_manual_file_name") && !Grocy.DeleteInstructionManualOnSave)
+				Grocy.Components.UserfieldsForm.Save(function()
 				{
-					Grocy.Api.UploadFile($("#instruction-manual")[0].files[0], 'equipmentmanuals', jsonData.instruction_manual_file_name,
-						function(result)
-						{
-							window.location.href = U('/equipment');;
-						},
-						function(xhr)
-						{
-							Grocy.FrontendHelpers.EndUiBusy("equipment-form");
-							Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-						}
-					);
-				}
-				else
-				{
-					window.location.href = U('/equipment');;
-				}
+					if (jsonData.hasOwnProperty("instruction_manual_file_name") && !Grocy.DeleteInstructionManualOnSave)
+					{
+						Grocy.Api.UploadFile($("#instruction-manual")[0].files[0], 'equipmentmanuals', jsonData.instruction_manual_file_name,
+							function(result)
+							{
+								window.location.href = U('/equipment');;
+							},
+							function(xhr)
+							{
+								Grocy.FrontendHelpers.EndUiBusy("equipment-form");
+								Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+							}
+						);
+					}
+					else
+					{
+						window.location.href = U('/equipment');;
+					}
+				});
 			},
 			function(xhr)
 			{
@@ -128,10 +135,11 @@ $('#delete-current-instruction-manual-button').on('click', function (e)
 
 $('#description').summernote({
 	minHeight: '300px',
-	lang: L('summernote_locale')
+	lang: __t('summernote_locale')
 });
 
 ResizeResponsiveEmbeds();
 
+Grocy.Components.UserfieldsForm.Load();
 $('#name').focus();
 Grocy.FrontendHelpers.ValidateForm('equipment-form');

@@ -168,6 +168,30 @@ input::-webkit-inner-spin-button {
 	cursor: wait;
 }
 
+.expandable-text .collapse, .module .collapsing {
+  height: 2.4rem;
+}
+
+.expandable-text .collapse {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.expandable-text .collapse:before {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.expandable-text .collapse.show {
+  height: auto;
+}
+
+.expandable-text .collapse.show:before {
+  display: none;
+}
+
 /* Third party component customizations - Bootstrap */
 
 /* Hide the form validation feedback icons introduced in Bootstrap 4.2.0 - a colored border is enough */
@@ -178,8 +202,20 @@ input::-webkit-inner-spin-button {
 	background-size: 0 0;
 }
 
+/* There is a little too much padding on form inputs */
+.form-control {
+	padding-right: 0.75rem !important;
+}
+
+.btn-group-xs > .btn, .btn-xs {
+	padding : 0.25rem 0.4rem;
+	font-size : 0.875rem;
+	line-height : 0.5;
+	border-radius: 0.2rem;
+}
+
 /* Third party component customizations - DataTables */
-td {
+.dataTable td {
 	vertical-align: middle !important;
 }
 
@@ -192,6 +228,10 @@ td {
 .dataTables_filter,
 .dataTables_info {
 	display: none;
+}
+
+.dataTables_scrollBody {
+	overflow: visible !important;
 }
 
 /* Third party component customizations - toastr */

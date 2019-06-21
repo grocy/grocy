@@ -10,7 +10,11 @@
 		Grocy.Api.Post('objects/product_groups', jsonData,
 			function(result)
 			{
-				window.location.href = U('/productgroups');
+				Grocy.EditObjectId = result.created_object_id;
+				Grocy.Components.UserfieldsForm.Save(function()
+				{
+					window.location.href = U('/productgroups');
+				});
 			},
 			function(xhr)
 			{
@@ -24,7 +28,10 @@
 		Grocy.Api.Put('objects/product_groups/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
-				window.location.href = U('/productgroups');
+				Grocy.Components.UserfieldsForm.Save(function()
+				{
+					window.location.href = U('/productgroups');
+				});
 			},
 			function(xhr)
 			{
@@ -57,5 +64,6 @@ $('#product-group-form input').keydown(function (event)
 	}
 });
 
+Grocy.Components.UserfieldsForm.Load();
 $('#name').focus();
 Grocy.FrontendHelpers.ValidateForm('product-group-form');

@@ -48,10 +48,11 @@
 		Grocy.Components = { };
 		Grocy.Mode = '{{ GROCY_MODE }}';
 		Grocy.BaseUrl = '{{ $U('/') }}';
-		Grocy.LocalizationStrings = {!! json_encode($localizationStrings) !!};
+		Grocy.CurrentUrlRelative = "/" + window.location.toString().replace(Grocy.BaseUrl, "");
 		Grocy.ActiveNav = '@yield('activeNav', '')';
 		Grocy.Culture = '{{ GROCY_CULTURE }}';
 		Grocy.Currency = '{{ GROCY_CURRENCY }}';
+		Grocy.GettextPo = {!! $GettextPo !!};
 		Grocy.UserSettings = {!! json_encode($userSettings) !!};
 		Grocy.FeatureFlags = {!! json_encode($featureFlags) !!};
 	</script>
@@ -74,139 +75,151 @@
 		<div id="sidebarResponsive" class="collapse navbar-collapse">
 			<ul class="navbar-nav navbar-sidenav pt-2">
 
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Stock overview') }}" data-nav-for-page="stockoverview">
+				@if(GROCY_FEATURE_FLAG_STOCK)
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Stock overview') }}" data-nav-for-page="stockoverview">
 					<a class="nav-link discrete-link" href="{{ $U('/stockoverview') }}">
 						<i class="fas fa-box"></i>
-						<span class="nav-link-text">{{ $L('Stock overview') }}</span>
+						<span class="nav-link-text">{{ $__t('Stock overview') }}</span>
 					</a>
 				</li>
+				@endif
 				@if(GROCY_FEATURE_FLAG_SHOPPINGLIST)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Shopping list') }}" data-nav-for-page="shoppinglist">
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Shopping list') }}" data-nav-for-page="shoppinglist">
 					<a class="nav-link discrete-link" href="{{ $U('/shoppinglist') }}">
 						<i class="fas fa-shopping-cart"></i>
-						<span class="nav-link-text">{{ $L('Shopping list') }}</span>
+						<span class="nav-link-text">{{ $__t('Shopping list') }}</span>
 					</a>
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_RECIPES)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Recipes') }}" data-nav-for-page="recipes">
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Recipes') }}" data-nav-for-page="recipes">
 					<a class="nav-link discrete-link" href="{{ $U('/recipes') }}">
 						<i class="fas fa-cocktail"></i>
-						<span class="nav-link-text">{{ $L('Recipes') }}</span>
+						<span class="nav-link-text">{{ $__t('Recipes') }}</span>
 					</a>
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_CHORES)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Chores overview') }}" data-nav-for-page="choresoverview">
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Chores overview') }}" data-nav-for-page="choresoverview">
 					<a class="nav-link discrete-link" href="{{ $U('/choresoverview') }}">
 						<i class="fas fa-home"></i>
-						<span class="nav-link-text">{{ $L('Chores overview') }}</span>
+						<span class="nav-link-text">{{ $__t('Chores overview') }}</span>
 					</a>
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_TASKS)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Tasks') }}" data-nav-for-page="tasks">
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Tasks') }}" data-nav-for-page="tasks">
 					<a class="nav-link discrete-link" href="{{ $U('/tasks') }}">
 						<i class="fas fa-tasks"></i>
-						<span class="nav-link-text">{{ $L('Tasks') }}</span>
+						<span class="nav-link-text">{{ $__t('Tasks') }}</span>
 					</a>
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_BATTERIES)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Batteries overview') }}" data-nav-for-page="batteriesoverview">
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Batteries overview') }}" data-nav-for-page="batteriesoverview">
 					<a class="nav-link discrete-link" href="{{ $U('/batteriesoverview') }}">
 						<i class="fas fa-battery-half"></i>
-						<span class="nav-link-text">{{ $L('Batteries overview') }}</span>
+						<span class="nav-link-text">{{ $__t('Batteries overview') }}</span>
 					</a>
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_EQUIPMENT)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Equipment') }}" data-nav-for-page="equipment">
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Equipment') }}" data-nav-for-page="equipment">
 					<a class="nav-link discrete-link" href="{{ $U('/equipment') }}">
 						<i class="fas fa-toolbox"></i>
-						<span class="nav-link-text">{{ $L('Equipment') }}</span>
+						<span class="nav-link-text">{{ $__t('Equipment') }}</span>
 					</a>
 				</li>
 				@endif
 				
-				<li class="nav-item mt-4" data-toggle="tooltip" data-placement="right" title="{{ $L('Purchase') }}" data-nav-for-page="purchase">
+				@if(GROCY_FEATURE_FLAG_STOCK)
+				<li class="nav-item mt-4" data-toggle="tooltip" data-placement="right" title="{{ $__t('Purchase') }}" data-nav-for-page="purchase">
 					<a class="nav-link discrete-link" href="{{ $U('/purchase') }}">
 						<i class="fas fa-shopping-cart"></i>
-						<span class="nav-link-text">{{ $L('Purchase') }}</span>
+						<span class="nav-link-text">{{ $__t('Purchase') }}</span>
 					</a>
 				</li>
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Consume') }}" data-nav-for-page="consume">
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Consume') }}" data-nav-for-page="consume">
 					<a class="nav-link discrete-link" href="{{ $U('/consume') }}">
 						<i class="fas fa-utensils"></i>
-						<span class="nav-link-text">{{ $L('Consume') }}</span>
+						<span class="nav-link-text">{{ $__t('Consume') }}</span>
 					</a>
 				</li>
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Inventory') }}" data-nav-for-page="inventory">
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Inventory') }}" data-nav-for-page="inventory">
 					<a class="nav-link discrete-link" href="{{ $U('/inventory') }}">
 						<i class="fas fa-list"></i>
-						<span class="nav-link-text">{{ $L('Inventory') }}</span>
+						<span class="nav-link-text">{{ $__t('Inventory') }}</span>
 					</a>
 				</li>
+				@endif
 				@if(GROCY_FEATURE_FLAG_CHORES)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Chore tracking') }}" data-nav-for-page="choretracking">
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Chore tracking') }}" data-nav-for-page="choretracking">
 					<a class="nav-link discrete-link" href="{{ $U('/choretracking') }}">
 						<i class="fas fa-play"></i>
-						<span class="nav-link-text">{{ $L('Chore tracking') }}</span>
+						<span class="nav-link-text">{{ $__t('Chore tracking') }}</span>
 					</a>
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_BATTERIES)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $L('Battery tracking') }}" data-nav-for-page="batterytracking">
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Battery tracking') }}" data-nav-for-page="batterytracking">
 					<a class="nav-link discrete-link" href="{{ $U('/batterytracking') }}">
 						<i class="fas fa-fire"></i>
-						<span class="nav-link-text">{{ $L('Battery tracking') }}</span>
+						<span class="nav-link-text">{{ $__t('Battery tracking') }}</span>
 					</a>
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_CALENDAR)
-				<li class="nav-item mt-4" data-toggle="tooltip" data-placement="right" title="{{ $L('Calendar') }}" data-nav-for-page="calendar">
+				<li class="nav-item mt-4" data-toggle="tooltip" data-placement="right" title="{{ $__t('Calendar') }}" data-nav-for-page="calendar">
 					<a class="nav-link discrete-link" href="{{ $U('/calendar') }}">
 						<i class="fas fa-calendar-alt"></i>
-						<span class="nav-link-text">{{ $L('Calendar') }}</span>
+						<span class="nav-link-text">{{ $__t('Calendar') }}</span>
+					</a>
+				</li>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Meal plan') }}" data-nav-for-page="mealplan">
+					<a class="nav-link discrete-link" href="{{ $U('/mealplan') }}">
+						<i class="fas fa-paper-plane"></i>
+						<span class="nav-link-text">{{ $__t('Meal plan') }}</span>
 					</a>
 				</li>
 				@endif
 				
-				<li class="nav-item mt-4" data-toggle="tooltip" data-placement="right" title="{{ $L('Manage master data') }}">
+				<li class="nav-item mt-4" data-toggle="tooltip" data-placement="right" title="{{ $__t('Manage master data') }}">
 					<a class="nav-link nav-link-collapse collapsed discrete-link" data-toggle="collapse" href="#top-nav-manager-master-data">
 						<i class="fas fa-table"></i>
-						<span class="nav-link-text">{{ $L('Manage master data') }}</span>
+						<span class="nav-link-text">{{ $__t('Manage master data') }}</span>
 					</a>
 					<ul id="top-nav-manager-master-data" class="sidenav-second-level collapse">
+						@if(GROCY_FEATURE_FLAG_STOCK)
 						<li data-nav-for-page="products" data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link" href="{{ $U('/products') }}">
 								<i class="fab fa-product-hunt"></i>
-								<span class="nav-link-text">{{ $L('Products') }}</span>
+								<span class="nav-link-text">{{ $__t('Products') }}</span>
 							</a>
 						</li>
 						<li data-nav-for-page="locations" data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link" href="{{ $U('/locations') }}">
 								<i class="fas fa-map-marker-alt"></i>
-								<span class="nav-link-text">{{ $L('Locations') }}</span>
+								<span class="nav-link-text">{{ $__t('Locations') }}</span>
 							</a>
 						</li>
 						<li data-nav-for-page="quantityunits" data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link" href="{{ $U('/quantityunits') }}">
 								<i class="fas fa-balance-scale"></i>
-								<span class="nav-link-text">{{ $L('Quantity units') }}</span>
+								<span class="nav-link-text">{{ $__t('Quantity units') }}</span>
 							</a>
 						</li>
 						<li data-nav-for-page="productgroups" data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link" href="{{ $U('/productgroups') }}">
 								<i class="fas fa-object-group"></i>
-								<span class="nav-link-text">{{ $L('Product groups') }}</span>
+								<span class="nav-link-text">{{ $__t('Product groups') }}</span>
 							</a>
 						</li>
+						@endif
 						@if(GROCY_FEATURE_FLAG_CHORES)
 						<li data-nav-for-page="chores" data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link" href="{{ $U('/chores') }}">
 								<i class="fas fa-home"></i>
-								<span class="nav-link-text">{{ $L('Chores') }}</span>
+								<span class="nav-link-text">{{ $__t('Chores') }}</span>
 							</a>
 						</li>
 						@endif
@@ -214,7 +227,7 @@
 						<li data-nav-for-page="batteries" data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link" href="{{ $U('/batteries') }}">
 								<i class="fas fa-battery-half"></i>
-								<span class="nav-link-text">{{ $L('Batteries') }}</span>
+								<span class="nav-link-text">{{ $__t('Batteries') }}</span>
 							</a>
 						</li>
 						@endif
@@ -222,10 +235,16 @@
 						<li data-nav-for-page="taskcategories" data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link" href="{{ $U('/taskcategories') }}">
 								<i class="fas fa-project-diagram "></i>
-								<span class="nav-link-text">{{ $L('Task categories') }}</span>
+								<span class="nav-link-text">{{ $__t('Task categories') }}</span>
 							</a>
 						</li>
 						@endif
+						<li data-nav-for-page="userfields" data-sub-menu-of="#top-nav-manager-master-data">
+							<a class="nav-link discrete-link" href="{{ $U('/userfields') }}">
+								<i class="fas fa-bookmark "></i>
+								<span class="nav-link-text">{{ $__t('Userfields') }}</span>
+							</a>
+						</li>
 					</ul>
 				</li>
 			</ul>
@@ -244,23 +263,23 @@
 					<a class="nav-link dropdown-toggle discrete-link" href="#" data-toggle="dropdown"><i class="fas fa-user"></i> {{ GROCY_USER_USERNAME }}</a>
 
 					<div class="dropdown-menu dropdown-menu-right">
-						<a class="dropdown-item logout-button discrete-link" href="{{ $U('/logout') }}"><i class="fas fa-sign-out-alt"></i>&nbsp;{{ $L('Logout') }}</a>
+						<a class="dropdown-item logout-button discrete-link" href="{{ $U('/logout') }}"><i class="fas fa-sign-out-alt"></i>&nbsp;{{ $__t('Logout') }}</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item logout-button discrete-link" href="{{ $U('/user/' . GROCY_USER_ID . '?changepw=true') }}"><i class="fas fa-key"></i>&nbsp;{{ $L('Change password') }}</a>
+						<a class="dropdown-item logout-button discrete-link" href="{{ $U('/user/' . GROCY_USER_ID . '?changepw=true') }}"><i class="fas fa-key"></i>&nbsp;{{ $__t('Change password') }}</a>
 					</div>
 				</li>
 				@endif
 
 				@if(GROCY_AUTHENTICATED === true)
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle discrete-link" href="#" data-toggle="dropdown"><i class="fas fa-sliders-h"></i> <span class="d-inline d-lg-none">{{ $L('View settings') }}</span></a>
+					<a class="nav-link dropdown-toggle discrete-link" href="#" data-toggle="dropdown"><i class="fas fa-sliders-h"></i> <span class="d-inline d-lg-none">{{ $__t('View settings') }}</span></a>
 
 					<div class="dropdown-menu dropdown-menu-right">
 						<div class="dropdown-item">
 							<div class="form-check">
 								<input class="form-check-input user-setting-control" type="checkbox" id="auto-reload-enabled" data-setting-key="auto_reload_on_db_change">
 								<label class="form-check-label" for="auto-reload-enabled">
-									{{ $L('Auto reload on external changes') }}
+									{{ $__t('Auto reload on external changes') }}
 								</label>
 							</div>
 						</div>
@@ -268,7 +287,7 @@
 							<div class="form-check">
 								<input class="form-check-input user-setting-control" type="checkbox" id="show-clock-in-header" data-setting-key="show_clock_in_header">
 								<label class="form-check-label" for="show-clock-in-header">
-									{{ $L('Show clock in header') }}
+									{{ $__t('Show clock in header') }}
 								</label>
 							</div>
 						</div>
@@ -277,7 +296,7 @@
 							<div class="form-check">
 								<input class="form-check-input user-setting-control" type="checkbox" id="night-mode-enabled" data-setting-key="night_mode_enabled">
 								<label class="form-check-label" for="night-mode-enabled">
-									{{ $L('Enable night mode') }}
+									{{ $__t('Enable night mode') }}
 								</label>
 							</div>
 						</div>
@@ -285,17 +304,17 @@
 							<div class="form-check">
 								<input class="form-check-input user-setting-control" type="checkbox" id="auto-night-mode-enabled" data-setting-key="auto_night_mode_enabled">
 								<label class="form-check-label" for="auto-night-mode-enabled">
-									{{ $L('Auto enable in time range') }}
+									{{ $__t('Auto enable in time range') }}
 								</label>
 							</div>
 							<div class="form-inline">
-								<input type="text" class="form-control my-1 user-setting-control" readonly id="auto-night-mode-time-range-from" placeholder="{{ $L('From') }} ({{ $L('in format') }} HH:mm)" data-setting-key="auto_night_mode_time_range_from">
-								<input type="text" class="form-control user-setting-control" readonly id="auto-night-mode-time-range-to" placeholder="{{ $L('To') }} ({{ $L('in format') }} HH:mm)" data-setting-key="auto_night_mode_time_range_to">
+								<input type="text" class="form-control my-1 user-setting-control" readonly id="auto-night-mode-time-range-from" placeholder="{{ $__t('From') }} ({{ $__t('in format') }} HH:mm)" data-setting-key="auto_night_mode_time_range_from">
+								<input type="text" class="form-control user-setting-control" readonly id="auto-night-mode-time-range-to" placeholder="{{ $__t('To') }} ({{ $__t('in format') }} HH:mm)" data-setting-key="auto_night_mode_time_range_to">
 							</div>
 							<div class="form-check mt-1">
 								<input class="form-check-input user-setting-control" type="checkbox" id="auto-night-mode-time-range-goes-over-midgnight" data-setting-key="auto_night_mode_time_range_goes_over_midnight">
 								<label class="form-check-label" for="auto-night-mode-time-range-goes-over-midgnight">
-									{{ $L('Time range goes over midnight') }}
+									{{ $__t('Time range goes over midnight') }}
 								</label>
 							</div>
 							<input class="form-check-input d-none user-setting-control" type="checkbox" id="currently-inside-night-mode-range" data-setting-key="currently_inside_night_mode_range">
@@ -305,16 +324,25 @@
 				@endif
 
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle discrete-link" href="#" data-toggle="dropdown"><i class="fas fa-wrench"></i> <span class="d-inline d-lg-none">{{ $L('Settings') }}</span></a>
+					<a class="nav-link dropdown-toggle discrete-link" href="#" data-toggle="dropdown"><i class="fas fa-wrench"></i> <span class="d-inline d-lg-none">{{ $__t('Settings') }}</span></a>
 
 					<div class="dropdown-menu dropdown-menu-right">
-						<a class="dropdown-item discrete-link" href="{{ $U('/users') }}"><i class="fas fa-users"></i>&nbsp;{{ $L('Manage users') }}</a>
-						<a class="dropdown-item discrete-link" href="{{ $U('/stocksettings') }}"><i class="fas fa-box"></i>&nbsp;{{ $L('Stock settings') }}</a>
+						<a class="dropdown-item discrete-link" href="{{ $U('/stocksettings') }}"><i class="fas fa-box"></i>&nbsp;{{ $__t('Stock settings') }}</a>
+						@if(GROCY_FEATURE_FLAG_CHORES)
+						<a class="dropdown-item discrete-link" href="{{ $U('/choressettings') }}"><i class="fas fa-home"></i>&nbsp;{{ $__t('Chores settings') }}</a>
+						@endif
+						@if(GROCY_FEATURE_FLAG_BATTERIES)
+						<a class="dropdown-item discrete-link" href="{{ $U('/batteriessettings') }}"><i class="fas fa-battery-half"></i>&nbsp;{{ $__t('Batteries settings') }}</a>
+						@endif
+						@if(GROCY_FEATURE_FLAG_TASKS)
+						<a class="dropdown-item discrete-link" href="{{ $U('/taskssettings') }}"><i class="fas fa-tasks"></i>&nbsp;{{ $__t('Tasks settings') }}</a>
+						@endif
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item discrete-link" href="{{ $U('/manageapikeys') }}"><i class="fas fa-handshake"></i>&nbsp;{{ $L('Manage API keys') }}</a>
-						<a class="dropdown-item discrete-link" target="_blank" href="{{ $U('/api') }}"><i class="fas fa-book"></i>&nbsp;{{ $L('REST API & data model documentation') }}</a>
+						<a class="dropdown-item discrete-link" href="{{ $U('/users') }}"><i class="fas fa-users"></i>&nbsp;{{ $__t('Manage users') }}</a>
+						<a class="dropdown-item discrete-link" href="{{ $U('/manageapikeys') }}"><i class="fas fa-handshake"></i>&nbsp;{{ $__t('Manage API keys') }}</a>
+						<a class="dropdown-item discrete-link" target="_blank" href="{{ $U('/api') }}"><i class="fas fa-book"></i>&nbsp;{{ $__t('REST API & data model documentation') }}</a>
 						<div class="dropdown-divider"></div>
-						<a id="about-dialog-link" class="dropdown-item discrete-link" href="#"><i class="fas fa-info fa-fw"></i>&nbsp;{{ $L('About grocy') }} (Version {{ $version }})</a>
+						<a id="about-dialog-link" class="dropdown-item discrete-link" href="#"><i class="fas fa-info fa-fw"></i>&nbsp;{{ $__t('About grocy') }} (Version {{ $version }})</a>
 					</div>
 				</li>
 			</ul>
@@ -338,7 +366,7 @@
 	<script src="{{ $U('/node_modules/bootbox/dist/bootbox.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/jquery-serializejson/jquery.serializejson.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/moment/min/moment.min.js?v=', true) }}{{ $version }}"></script>
-	@if(!empty($L('moment_locale') && $L('moment_locale') != 'x'))<script src="{{ $U('/node_modules', true) }}/moment/locale/{{ $L('moment_locale') }}.js?v={{ $version }}"></script>@endif
+	@if(!empty($__t('moment_locale') && $__t('moment_locale') != 'x'))<script src="{{ $U('/node_modules', true) }}/moment/locale/{{ $__t('moment_locale') }}.js?v={{ $version }}"></script>@endif
 	<script src="{{ $U('/node_modules/@danielfarrell/bootstrap-combobox/js/bootstrap-combobox.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/datatables.net/js/jquery.dataTables.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js?v=', true) }}{{ $version }}"></script>
@@ -349,9 +377,11 @@
 	<script src="{{ $U('/node_modules/datatables.net-select/js/dataTables.select.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/datatables.net-select-bs4/js/select.bootstrap4.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/timeago/jquery.timeago.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules', true) }}/timeago/locales/jquery.timeago.{{ $L('timeago_locale') }}.js?v={{ $version }}"></script>
+	<script src="{{ $U('/node_modules', true) }}/timeago/locales/jquery.timeago.{{ $__t('timeago_locale') }}.js?v={{ $version }}"></script>
 	<script src="{{ $U('/node_modules/toastr/build/toastr.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/sprintf-js/dist/sprintf.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/gettext-translator/src/translator.js?v=', true) }}{{ $version }}"></script>
 
 	<script src="{{ $U('/js/extensions.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy.js?v=', true) }}{{ $version }}"></script>

@@ -43,6 +43,13 @@ Grocy.Components.DateTimePicker.Clear = function()
 	$('#datetimepicker-timeago').text('');
 }
 
+Grocy.Components.DateTimePicker.ChangeFormat = function(format)
+{
+	$(".datetimepicker").datetimepicker("destroy");
+	Grocy.Components.DateTimePicker.GetInputElement().data("format", format);
+	Grocy.Components.DateTimePicker.Init();
+}
+
 var startDate = null;
 if (Grocy.Components.DateTimePicker.GetInputElement().data('init-with-now') === true)
 {
@@ -220,7 +227,7 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keyup', function(e)
 Grocy.Components.DateTimePicker.GetInputElement().on('input', function(e)
 {
 	$('#datetimepicker-timeago').text($.timeago(Grocy.Components.DateTimePicker.GetValue()));
-	EmptyElementWhenMatches('#datetimepicker-timeago', L('timeago_nan'));
+	EmptyElementWhenMatches('#datetimepicker-timeago', __t('timeago_nan'));
 });
 
 $('.datetimepicker').on('update.datetimepicker', function(e)

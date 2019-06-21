@@ -1,0 +1,29 @@
+# Translators:
+# Bernd Bestel <bernd@berrnd.de>, 2019
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2019\n"
+"Language-Team: Swedish (Sweden) (https://www.transifex.com/grocy/teams/93189/sv_SE/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sv_SE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/stock_transaction_types\n"
+
+msgid "purchase"
+msgstr "Inköp"
+
+msgid "consume"
+msgstr "Konsumera"
+
+msgid "inventory-correction"
+msgstr "Korrigera lager"
+
+msgid "product-opened"
+msgstr "Produkt öppnad"

@@ -16,31 +16,39 @@ $app->group('', function()
 	$this->post('/login', 'LoginControllerInstance:ProcessLogin')->setName('login');
 	$this->get('/logout', 'LoginControllerInstance:Logout');
 
+	// Generic entity interaction
+	$this->get('/userfields', '\Grocy\Controllers\GenericEntityController:UserfieldsList');
+	$this->get('/userfield/{userfieldId}', '\Grocy\Controllers\GenericEntityController:UserfieldEditForm');
+
 	// User routes
 	$this->get('/users', '\Grocy\Controllers\UsersController:UsersList');
 	$this->get('/user/{userId}', '\Grocy\Controllers\UsersController:UserEditForm');
 
 	// Stock routes
-	$this->get('/stockoverview', '\Grocy\Controllers\StockController:Overview');
-	$this->get('/purchase', '\Grocy\Controllers\StockController:Purchase');
-	$this->get('/consume', '\Grocy\Controllers\StockController:Consume');
-	$this->get('/inventory', '\Grocy\Controllers\StockController:Inventory');
-	$this->get('/products', '\Grocy\Controllers\StockController:ProductsList');
-	$this->get('/product/{productId}', '\Grocy\Controllers\StockController:ProductEditForm');
-	$this->get('/stocksettings', '\Grocy\Controllers\StockController:StockSettings');
-	$this->get('/locations', '\Grocy\Controllers\StockController:LocationsList');
-	$this->get('/location/{locationId}', '\Grocy\Controllers\StockController:LocationEditForm');
-	$this->get('/quantityunits', '\Grocy\Controllers\StockController:QuantityUnitsList');
-	$this->get('/quantityunit/{quantityunitId}', '\Grocy\Controllers\StockController:QuantityUnitEditForm');
-	$this->get('/productgroups', '\Grocy\Controllers\StockController:ProductGroupsList');
-	$this->get('/productgroup/{productGroupId}', '\Grocy\Controllers\StockController:ProductGroupEditForm');
-	$this->get('/stockjournal', '\Grocy\Controllers\StockController:Journal');
+	if (GROCY_FEATURE_FLAG_STOCK)
+	{
+		$this->get('/stockoverview', '\Grocy\Controllers\StockController:Overview');
+		$this->get('/purchase', '\Grocy\Controllers\StockController:Purchase');
+		$this->get('/consume', '\Grocy\Controllers\StockController:Consume');
+		$this->get('/inventory', '\Grocy\Controllers\StockController:Inventory');
+		$this->get('/products', '\Grocy\Controllers\StockController:ProductsList');
+		$this->get('/product/{productId}', '\Grocy\Controllers\StockController:ProductEditForm');
+		$this->get('/stocksettings', '\Grocy\Controllers\StockController:StockSettings');
+		$this->get('/locations', '\Grocy\Controllers\StockController:LocationsList');
+		$this->get('/location/{locationId}', '\Grocy\Controllers\StockController:LocationEditForm');
+		$this->get('/quantityunits', '\Grocy\Controllers\StockController:QuantityUnitsList');
+		$this->get('/quantityunit/{quantityunitId}', '\Grocy\Controllers\StockController:QuantityUnitEditForm');
+		$this->get('/productgroups', '\Grocy\Controllers\StockController:ProductGroupsList');
+		$this->get('/productgroup/{productGroupId}', '\Grocy\Controllers\StockController:ProductGroupEditForm');
+		$this->get('/stockjournal', '\Grocy\Controllers\StockController:Journal');
+	}
 
 	// Shopping list routes
 	if (GROCY_FEATURE_FLAG_SHOPPINGLIST)
 	{
 		$this->get('/shoppinglist', '\Grocy\Controllers\StockController:ShoppingList');
 		$this->get('/shoppinglistitem/{itemId}', '\Grocy\Controllers\StockController:ShoppingListItemEditForm');
+		$this->get('/shoppinglist/{listId}', '\Grocy\Controllers\StockController:ShoppingListEditForm');
 	}
 
 	// Recipe routes
@@ -49,6 +57,7 @@ $app->group('', function()
 		$this->get('/recipes', '\Grocy\Controllers\RecipesController:Overview');
 		$this->get('/recipe/{recipeId}', '\Grocy\Controllers\RecipesController:RecipeEditForm');
 		$this->get('/recipe/{recipeId}/pos/{recipePosId}', '\Grocy\Controllers\RecipesController:RecipePosEditForm');
+		$this->get('/mealplan', '\Grocy\Controllers\RecipesController:MealPlan');
 	}
 
 	// Chore routes
@@ -59,6 +68,7 @@ $app->group('', function()
 		$this->get('/choresjournal', '\Grocy\Controllers\ChoresController:Journal');
 		$this->get('/chores', '\Grocy\Controllers\ChoresController:ChoresList');
 		$this->get('/chore/{choreId}', '\Grocy\Controllers\ChoresController:ChoreEditForm');
+		$this->get('/choressettings', '\Grocy\Controllers\ChoresController:ChoresSettings');
 	}
 
 	// Battery routes
@@ -69,6 +79,7 @@ $app->group('', function()
 		$this->get('/batteriesjournal', '\Grocy\Controllers\BatteriesController:Journal');
 		$this->get('/batteries', '\Grocy\Controllers\BatteriesController:BatteriesList');
 		$this->get('/battery/{batteryId}', '\Grocy\Controllers\BatteriesController:BatteryEditForm');
+		$this->get('/batteriessettings', '\Grocy\Controllers\BatteriesController:BatteriesSettings');
 	}
 
 	// Task routes
@@ -78,6 +89,7 @@ $app->group('', function()
 		$this->get('/task/{taskId}', '\Grocy\Controllers\TasksController:TaskEditForm');
 		$this->get('/taskcategories', '\Grocy\Controllers\TasksController:TaskCategoriesList');
 		$this->get('/taskcategory/{categoryId}', '\Grocy\Controllers\TasksController:TaskCategoryEditForm');
+		$this->get('/taskssettings', '\Grocy\Controllers\TasksController:TasksSettings');
 	}
 
 	// Equipment routes
@@ -115,6 +127,8 @@ $app->group('/api', function()
 	$this->post('/objects/{entity}', '\Grocy\Controllers\GenericEntityApiController:AddObject');
 	$this->put('/objects/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:EditObject');
 	$this->delete('/objects/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:DeleteObject');
+	$this->get('/userfields/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:GetUserfields');
+	$this->put('/userfields/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:SetUserfields');
 
 	// Files
 	$this->put('/files/{group}/{fileName}', '\Grocy\Controllers\FilesApiController:UploadFile');
@@ -132,18 +146,21 @@ $app->group('/api', function()
 	$this->put('/user/settings/{settingKey}', '\Grocy\Controllers\UsersApiController:SetUserSetting');
 
 	// Stock
-	$this->get('/stock', '\Grocy\Controllers\StockApiController:CurrentStock');
-	$this->get('/stock/volatile', '\Grocy\Controllers\StockApiController:CurrentVolatilStock');
-	$this->get('/stock/products/{productId}', '\Grocy\Controllers\StockApiController:ProductDetails');
-	$this->get('/stock/products/by-barcode/{barcode}', '\Grocy\Controllers\StockApiController:ProductDetailsByBarcode');
-	$this->get('/stock/products/{productId}/entries', '\Grocy\Controllers\StockApiController:ProductStockEntries');
-	$this->get('/stock/products/{productId}/price-history', '\Grocy\Controllers\StockApiController:ProductPriceHistory');
-	$this->post('/stock/products/{productId}/add', '\Grocy\Controllers\StockApiController:AddProduct');
-	$this->post('/stock/products/{productId}/consume', '\Grocy\Controllers\StockApiController:ConsumeProduct');
-	$this->post('/stock/products/{productId}/inventory', '\Grocy\Controllers\StockApiController:InventoryProduct');
-	$this->post('/stock/products/{productId}/open', '\Grocy\Controllers\StockApiController:OpenProduct');
-	$this->post('/stock/bookings/{bookingId}/undo', '\Grocy\Controllers\StockApiController:UndoBooking');
-	$this->get('/stock/barcodes/external-lookup', '\Grocy\Controllers\StockApiController:ExternalBarcodeLookup');
+	if (GROCY_FEATURE_FLAG_STOCK)
+	{
+		$this->get('/stock', '\Grocy\Controllers\StockApiController:CurrentStock');
+		$this->get('/stock/volatile', '\Grocy\Controllers\StockApiController:CurrentVolatilStock');
+		$this->get('/stock/products/{productId}', '\Grocy\Controllers\StockApiController:ProductDetails');
+		$this->get('/stock/products/by-barcode/{barcode}', '\Grocy\Controllers\StockApiController:ProductDetailsByBarcode');
+		$this->get('/stock/products/{productId}/entries', '\Grocy\Controllers\StockApiController:ProductStockEntries');
+		$this->get('/stock/products/{productId}/price-history', '\Grocy\Controllers\StockApiController:ProductPriceHistory');
+		$this->post('/stock/products/{productId}/add', '\Grocy\Controllers\StockApiController:AddProduct');
+		$this->post('/stock/products/{productId}/consume', '\Grocy\Controllers\StockApiController:ConsumeProduct');
+		$this->post('/stock/products/{productId}/inventory', '\Grocy\Controllers\StockApiController:InventoryProduct');
+		$this->post('/stock/products/{productId}/open', '\Grocy\Controllers\StockApiController:OpenProduct');
+		$this->post('/stock/bookings/{bookingId}/undo', '\Grocy\Controllers\StockApiController:UndoBooking');
+		$this->get('/stock/barcodes/external-lookup', '\Grocy\Controllers\StockApiController:ExternalBarcodeLookup');
+	}
 
 	// Shopping list
 	if (GROCY_FEATURE_FLAG_SHOPPINGLIST)

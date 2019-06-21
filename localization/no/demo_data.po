@@ -1,0 +1,284 @@
+# Translators:
+# Bernd Bestel <bernd@berrnd.de>, 2019
+# Marius Borø <blizzwave@gmail.com>, 2019
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Marius Borø <blizzwave@gmail.com>, 2019\n"
+"Language-Team: Norwegian (https://www.transifex.com/grocy/teams/93189/no/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: no\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/demo_data\n"
+
+msgid "Cookies"
+msgstr "Cookies"
+
+msgid "Chocolate"
+msgstr "Sjokolade"
+
+msgid "Pantry"
+msgstr "Spiskammers"
+
+msgid "Candy cupboard"
+msgstr "Godteriskapet"
+
+msgid "Tinned food cupboard"
+msgstr "Boksematskapet"
+
+msgid "Fridge"
+msgstr "Kjøleskapet"
+
+msgid "Piece"
+msgid_plural "Pieces"
+msgstr[0] "Del"
+msgstr[1] "Deler"
+
+msgid "Pack"
+msgid_plural "Packs"
+msgstr[0] "Pakke"
+msgstr[1] "Pakker"
+
+msgid "Glass"
+msgid_plural "Glasses"
+msgstr[0] "Glass"
+msgstr[1] "Glass"
+
+msgid "Tin"
+msgid_plural "Tins"
+msgstr[0] "Boks"
+msgstr[1] "Bokser"
+
+msgid "Can"
+msgid_plural "Cans"
+msgstr[0] "Boks"
+msgstr[1] "Bokser"
+
+msgid "Bunch"
+msgid_plural "Bunches"
+msgstr[0] "Bunt"
+msgstr[1] "Bunter"
+
+msgid "Gummy bears"
+msgstr "Vingummibjørner"
+
+msgid "Crisps"
+msgstr "Chips"
+
+msgid "Eggs"
+msgstr "Egg"
+
+msgid "Noodles"
+msgstr "Nuddler"
+
+msgid "Pickles"
+msgstr "Sur agurk"
+
+msgid "Gulash soup"
+msgstr "Gulasj suppe"
+
+msgid "Yogurt"
+msgstr "Yoghurt"
+
+msgid "Cheese"
+msgstr "Ost"
+
+msgid "Cold cuts"
+msgstr "Kjøttpålegg"
+
+msgid "Paprika"
+msgstr "Paprika"
+
+msgid "Cucumber"
+msgstr "Agurk"
+
+msgid "Radish"
+msgstr "Reddik"
+
+msgid "Tomato"
+msgstr "Tomat"
+
+msgid "Changed towels in the bathroom"
+msgstr "Bytt handklær på badet"
+
+msgid "Cleaned the kitchen floor"
+msgstr "Vasket kjøkkengulvet"
+
+msgid "Warranty ends"
+msgstr "Garanti utgår"
+
+msgid "TV remote control"
+msgstr "Fjernkontroll for TV"
+
+msgid "Alarm clock"
+msgstr "Alarmklokke"
+
+msgid "Heat remote control"
+msgstr "Fjernkontroll for termostat"
+
+msgid "Lawn mowed in the garden"
+msgstr "Kuttet gresset i hagen"
+
+msgid "Some good snacks"
+msgstr "Noen gode snacks"
+
+msgid "Pizza dough"
+msgstr "Pizzadeig"
+
+msgid "Sieved tomatoes"
+msgstr "Tomatpuré"
+
+msgid "Salami"
+msgstr "Salami"
+
+msgid "Toast"
+msgstr "Ristet brød"
+
+msgid "Minced meat"
+msgstr "Kjøttdeig"
+
+msgid "Pizza"
+msgstr "Pizza"
+
+msgid "Spaghetti bolognese"
+msgstr "Spaghetti Bolognese"
+
+msgid "Sandwiches"
+msgstr "Smørbrød"
+
+msgid "English"
+msgstr "Engelsk"
+
+msgid "German"
+msgstr "Tysk"
+
+msgid "Italian"
+msgstr "Italiensk"
+
+msgid "Demo in different language"
+msgstr "Demo i annet språk"
+
+msgid "This is the note content of the recipe ingredient"
+msgstr "Dette er notisen for ingrediensen i oppskriften"
+
+msgid "Demo User"
+msgstr "Demo Bruker"
+
+msgid "Gram"
+msgid_plural "Grams"
+msgstr[0] "Gram"
+msgstr[1] "Gram"
+
+msgid "Flour"
+msgstr "Mel"
+
+msgid "Pancakes"
+msgstr "Pannekaker"
+
+msgid "Sugar"
+msgstr "Sukker"
+
+msgid "Home"
+msgstr "Hus"
+
+msgid "Life"
+msgstr "Livstil"
+
+msgid "Projects"
+msgstr "Projekter"
+
+msgid "Repair the garage door"
+msgstr "Reparere garasjedøren"
+
+msgid "Fork and improve grocy"
+msgstr "Fork og forbedre grocy"
+
+msgid "Find a solution for what to do when I forget the door keys"
+msgstr "Finne på løsning for hva jeg skal gjøre når jeg mister dørnøklene"
+
+msgid "Sweets"
+msgstr "Godteri"
+
+msgid "Bakery products"
+msgstr "Bakevarer"
+
+msgid "Tinned food"
+msgstr "Boksemat"
+
+msgid "Butchery products"
+msgstr "Kjøtt/ Ferskvare"
+
+msgid "Vegetables/Fruits"
+msgstr "Frukt/ Grønnsaker"
+
+msgid "Refrigerated products"
+msgstr "Frysedisk"
+
+msgid "Coffee machine"
+msgstr "Kaffetrakter"
+
+msgid "Dishwasher"
+msgstr "Oppvaskmaskin"
+
+msgid "Liter"
+msgstr "Liter"
+
+msgid "Liters"
+msgstr "Liter"
+
+msgid "Bottle"
+msgstr "Flaske"
+
+msgid "Bottles"
+msgstr "Flasker"
+
+msgid "Milk"
+msgstr "Melk"
+
+msgid "Chocolate sauce"
+msgstr "Sjokoladesaus"
+
+msgid "Milliliters"
+msgstr "Milliliter"
+
+msgid "Milliliter"
+msgstr "Milliliter"
+
+msgid "Bottom"
+msgstr "Bunn"
+
+msgid "Topping"
+msgstr "Topping"
+
+msgid "French"
+msgstr "Fransk"
+
+msgid "Turkish"
+msgstr "Tyrkisk"
+
+msgid "Spanish"
+msgstr "Spansk"
+
+msgid "Russian"
+msgstr "Russisk"
+
+msgid "The thing which happens on the 5th of every month"
+msgstr "Husarbeid som skjer den 5 hver måneden"
+
+msgid "The thing which happens daily"
+msgstr "Husarbeid som skjer daglig"
+
+msgid "The thing which happens on Mondays and Wednesdays"
+msgstr "Husarbeid som skjer på mandager og onsdager"
+
+msgid "Swedish"
+msgstr "Svensk"
+
+msgid "Polish"
+msgstr "Polsk"

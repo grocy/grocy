@@ -5,6 +5,9 @@ ERP beyond your fridge
 - Public demo of the latest stable version &rarr; [https://demo.grocy.info](https://demo.grocy.info)
 - Public demo of the latest pre-release version (current master branch) &rarr; [https://demo-prerelease.grocy.info](https://demo-prerelease.grocy.info)
 
+## Getting in touch
+There is the [r/grocy subreddit](https://www.reddit.com/r/grocy) to connect with other grocy users. If you've found something that does not work or if you have an idea for an improvement or new things which you would find useful, feel free to open an issue in the [issue tracker](https://github.com/grocy/grocy/issues) here.
+
 ## Motivation
 A household needs to be managed. I did this so far (almost 10 years) with my first self written software (a C# windows forms application) and with a bunch of Excel sheets. The software is a pain to use and Excel is Excel. So I searched for and tried different things for a (very) long time, nothing 100 % fitted, so this is my aim for a "complete household management"-thing. ERP your fridge!
 
@@ -87,6 +90,11 @@ When the file `data/demo.txt` exists, the application will work in a demo mode w
 When the file `embedded.txt` exists, it must contain a valid and writable path which will be used as the data directory instead of `data` and authentication will be disabled (used in [grocy-desktop](https://github.com/grocy/grocy-desktop)).
 
 In embedded mode, settings can be overridden by text files in `data/settingoverrides`, the file name must be `<SettingName>.txt` (e. g. `BASE_URL.txt`) and the content must be the setting value (normally one single line).
+
+## Contributing
+Any help is more than appreciated. Feel free to pick any open unassigned issue and submit a pull request, but please leave a short comment or assign the issue yourself, to avoid working on the same thing.
+
+New ideas are also very welcome, feel free to open an issue to discuss them.
 
 ## Screenshots
 #### Dashboard

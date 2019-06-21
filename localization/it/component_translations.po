@@ -1,0 +1,44 @@
+# Translators:
+# Bernd Bestel <bernd@berrnd.de>, 2019
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2019\n"
+"Language-Team: Italian (https://www.transifex.com/grocy/teams/93189/it/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/component_translations\n"
+
+msgid "timeago_locale"
+msgstr "it"
+
+msgid "timeago_nan"
+msgstr "NaN anni fa"
+
+msgid "moment_locale"
+msgstr "it"
+
+msgid "datatables_localization"
+msgstr ""
+"{\"sEmptyTable\":\"Nessun dato disponibile\",\"sInfo\":\"Mostrando da "
+"_START_ a _END_ di _TOTAL_ voci\",\"sInfoEmpty\":\"Mostrando da 0 a 0 di 0 "
+"voci\",\"sInfoFiltered\":\"(Filtrato da _MAX_ voci "
+"totali)\",\"sInfoPostFix\":\"\",\"sInfoThousands\":\",\",\"sLengthMenu\":\"Mostra"
+" _MENU_ "
+"voci\",\"sLoadingRecords\":\"Caricando...\",\"sProcessing\":\"Calcolando...\",\"sSearch\":\"Cerca:\",\"sZeroRecords\":\"Nessun"
+" risultato "
+"trovato\",\"oPaginate\":{\"sFirst\":\"Prima\",\"sLast\":\"Ultima\",\"sNext\":\"Prossima\",\"sPrevious\":\"Precedente\"},\"oAria\":{\"sSortAscending\":\":"
+" ordine crescente\",\"sSortDescending\":\": ordine decrescente\"}}"
+
+msgid "summernote_locale"
+msgstr "it-IT"
+
+msgid "fullcalendar_locale"
+msgstr "fr"

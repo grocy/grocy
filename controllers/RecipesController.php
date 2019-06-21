@@ -3,6 +3,7 @@
 namespace Grocy\Controllers;
 
 use \Grocy\Services\RecipesService;
+use \Grocy\Services\UserfieldsService;
 
 class RecipesController extends BaseController
 {
@@ -10,13 +11,22 @@ class RecipesController extends BaseController
 	{
 		parent::__construct($container);
 		$this->RecipesService = new RecipesService();
+		$this->UserfieldsService = new UserfieldsService();
 	}
 
 	protected $RecipesService;
+	protected $UserfieldsService;
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$recipes = $this->Database->recipes()->orderBy('name');
+		if (isset($request->getQueryParams()['include-internal']))
+		{
+			$recipes = $this->Database->recipes()->orderBy('name');
+		}
+		else
+		{
+			$recipes = $this->Database->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name');
+		}
 		$recipesResolved = $this->RecipesService->GetRecipesResolved();
 
 		$selectedRecipe = null;
@@ -57,7 +67,9 @@ class RecipesController extends BaseController
 			'selectedRecipeSubRecipes' => $selectedRecipeSubRecipes,
 			'selectedRecipeSubRecipesPositions' => $selectedRecipeSubRecipesPositions,
 			'includedRecipeIdsAbsolute' => $includedRecipeIdsAbsolute,
-			'selectedRecipeTotalCosts' => FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->costs
+			'selectedRecipeTotalCosts' => FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->costs,
+			'userfields' => $this->UserfieldsService->GetFields('recipes'),
+			'userfieldValues' => $this->UserfieldsService->GetAllValues('recipes')
 		]);
 	}
 
@@ -66,8 +78,8 @@ class RecipesController extends BaseController
 		$recipeId = $args['recipeId'];
 		if ($recipeId  == 'new')
 		{
-			$newRecipe = $this->Database->recipes()->createRow(array(
-				'name' => $this->LocalizationService->Localize('New recipe')
+			$newRecipe = $this->Database->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->createRow(array(
+				'name' => $this->LocalizationService->__t('New recipe')
 			));
 			$newRecipe->save();
 
@@ -82,8 +94,9 @@ class RecipesController extends BaseController
 			'quantityunits' => $this->Database->quantity_units(),
 			'recipePositionsResolved' => $this->RecipesService->GetRecipesPosResolved(),
 			'recipesResolved' => $this->RecipesService->GetRecipesResolved(),
-			'recipes' =>  $this->Database->recipes()->orderBy('name'),
-			'recipeNestings' =>  $this->Database->recipes_nestings()->where('recipe_id', $recipeId)
+			'recipes' =>  $this->Database->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name'),
+			'recipeNestings' =>  $this->Database->recipes_nestings()->where('recipe_id', $recipeId),
+			'userfields' => $this->UserfieldsService->GetFields('recipes')
 		]);
 	}
 
@@ -108,5 +121,30 @@ class RecipesController extends BaseController
 				'quantityUnits' => $this->Database->quantity_units()->orderBy('name')
 			]);
 		}
+	}
+
+	public function MealPlan(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		$recipes = $this->Database->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll();
+
+		$events = array();
+		foreach($this->Database->meal_plan() as $mealPlanEntry)
+		{
+			$events[] = array(
+				'id' => $mealPlanEntry['id'],
+				'title' => FindObjectInArrayByPropertyValue($recipes, 'id', $mealPlanEntry['recipe_id'])->name,
+				'start' => $mealPlanEntry['day'],
+				'date_format' => 'date',
+				'recipe' => json_encode(FindObjectInArrayByPropertyValue($recipes, 'id', $mealPlanEntry['recipe_id'])),
+				'mealPlanEntry' => json_encode($mealPlanEntry)
+			);
+		}
+
+		return $this->AppContainer->view->render($response, 'mealplan', [
+			'fullcalendarEventSources' => $events,
+			'recipes' => $recipes,
+			'internalRecipes' => $this->Database->recipes()->whereNot('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll(),
+			'recipesResolved' => $this->RecipesService->GetRecipesResolved()
+		]);
 	}
 }

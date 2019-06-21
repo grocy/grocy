@@ -32,11 +32,16 @@ class BaseController
 			$container->view->set('releaseDate', $versionInfo->ReleaseDate);
 		}
 
-		$container->view->set('localizationStrings', $localizationService->GetCurrentCultureLocalizations());
-		$container->view->set('L', function($text, ...$placeholderValues) use($localizationService)
+		$container->view->set('__t', function(string $text, ...$placeholderValues) use($localizationService)
 		{
-			return $localizationService->Localize($text, ...$placeholderValues);
+			return $localizationService->__t($text, $placeholderValues);
 		});
+		$container->view->set('__n', function($number, $singularForm, $pluralForm) use($localizationService)
+		{
+			return $localizationService->__n($number, $singularForm, $pluralForm);
+		});
+		$container->view->set('GettextPo', $localizationService->GetPoAsJsonString());
+
 		$container->view->set('U', function($relativePath, $isResource = false) use($container)
 		{
 			return $container->UrlManager->ConstructUrl($relativePath, $isResource);
@@ -65,6 +70,10 @@ class BaseController
 			if (defined('GROCY_USER_ID'))
 			{
 				$container->view->set('userSettings', $usersService->GetUserSettings(GROCY_USER_ID));
+			}
+			else
+			{
+				$container->view->set('userSettings', null);
 			}
 		}
 		catch (\Exception $ex)

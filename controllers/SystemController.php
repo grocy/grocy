@@ -28,7 +28,7 @@ class SystemController extends BaseController
 			$demoDataGeneratorService->PopulateDemoData();
 		}
 
-		return $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl('/stockoverview'));
+		return $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl($this->GetEntryPageRelative()));
 	}
 
 	public function About(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
@@ -37,5 +37,25 @@ class SystemController extends BaseController
 			'system_info' => $this->ApplicationService->GetSystemInfo(),
 			'changelog' => $this->ApplicationService->GetChangelog()
 		]);
+	}
+
+	private function GetEntryPageRelative()
+	{
+		$entryPage = '/stockoverview';
+
+		if (!GROCY_FEATURE_FLAG_STOCK)
+		{
+			$entryPage = '/choresoverview';
+		}
+		if (!GROCY_FEATURE_FLAG_CHORES)
+		{
+			$entryPage = '/batteriesoverview';
+		}
+		if (!GROCY_FEATURE_FLAG_BATTERIES)
+		{
+			$entryPage = '/equipment';
+		}
+
+		return $entryPage;
 	}
 }

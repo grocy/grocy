@@ -1,1669 +1,1693 @@
 {
-  "openapi": "3.0.0",
-  "info": {
-    "title": "grocy REST API",
-    "description": "Authentication is done via API keys (header *GROCY-API-KEY*), which you can manage [here](PlaceHolderManageApiKeysUrl).<br>Additionally requests from within the frontend are also valid (via session cookie).",
-    "version": "xxx",
-    "contact": {
-      "email": "bernd@berrnd.de"
-    },
-    "license": {
-      "name": "grocy.info",
-      "url": "https://grocy.info"
-    }
-  },
-  "servers": [
-    {
-      "url": "xxx"
-    }
-  ],
-  "tags": [
-    {
-      "name": "Generic entity interactions",
-      "description": "A limited set of entities are directly exposed for convenience"
-    }
-  ],
-  "paths": {
-    "/system/info": {
-      "get": {
-        "summary": "Returns information about the installed grocy, PHP and SQLite version",
-        "tags": [
-          "System"
-        ],
-        "responses": {
-          "200": {
-            "description": "An DbChangedTimeResponse object",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "grocy_version": {
-                      "type": "object",
-                      "properties": {
-                        "Version": {
-                          "type": "string"
-                        },
-                        "ReleaseDate": {
-                          "type": "string",
-                          "format": "date"
-                        }
-                      }
-                    },
-                    "php_version": {
-                      "type": "string"
-                    },
-                    "sqlite_version": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/system/db-changed-time": {
-      "get": {
-        "summary": "Returns the time when the database was last changed",
-        "tags": [
-          "System"
-        ],
-        "responses": {
-          "200": {
-            "description": "An DbChangedTimeResponse object",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DbChangedTimeResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/system/log-missing-localization": {
-      "post": {
-        "summary": "Logs a missing localization string",
-        "description": "Only when MODE == 'dev', so should only be called then",
-        "tags": [
-          "System"
-        ],
-        "requestBody": {
-          "description": "A valid MissingLocalizationRequest object",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/MissingLocalizationRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "The operation was successful"
-          },
-          "400": {
-            "description": "The operation was not successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/objects/{entity}": {
-      "get": {
-        "summary": "Returns all objects of the given entity",
-        "tags": [
-          "Generic entity interactions"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "entity",
-            "required": true,
-            "description": "A valid entity name",
-            "schema": {
-              "$ref": "#/components/internalSchemas/ExposedEntity"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "An entity object",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "oneOf": [
-                      {
-                        "$ref": "#/components/schemas/Product"
-                      },
-                      {
-                        "$ref": "#/components/schemas/Chore"
-                      },
-                      {
-                        "$ref": "#/components/schemas/Battery"
-                      },
-                      {
-                        "$ref": "#/components/schemas/Location"
-                      },
-                      {
-                        "$ref": "#/components/schemas/QuantityUnit"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ShoppingListItem"
-                      },
-                      {
-                        "$ref": "#/components/schemas/StockEntry"
-                      }
-                    ]	
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The operation was not successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "summary": "Adds a single object of the given entity",
-        "tags": [
-          "Generic entity interactions"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "entity",
-            "required": true,
-            "description": "A valid entity name",
-            "schema": {
-              "$ref": "#/components/internalSchemas/ExposedEntity"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "A valid entity object of the entity specified in parameter *entity*",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/Product"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Chore"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Battery"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Location"
-                  },
-                  {
-                    "$ref": "#/components/schemas/QuantityUnit"
-                  },
-                  {
-                    "$ref": "#/components/schemas/ShoppingListItem"
-                  },
-                  {
-                    "$ref": "#/components/schemas/StockEntry"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The operation was successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "created_object_id": {
-                      "type": "number",
-                      "format": "integer",
-                      "description": "The id of the created object"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The operation was not successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/objects/{entity}/{objectId}": {
-      "get": {
-        "summary": "Returns a single object of the given entity",
-        "tags": [
-          "Generic entity interactions"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "entity",
-            "required": true,
-            "description": "A valid entity name",
-            "schema": {
-              "$ref": "#/components/internalSchemas/ExposedEntity"
-            }
-          },
-          {
-            "in": "path",
-            "name": "objectId",
-            "required": true,
-            "description": "A valid object id of the given entity",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "An entity object",
-            "content": {
-              "application/json": {
-                "schema":{
-                  "type": "object",
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/Product"
-                    },
-                    {
-                      "$ref": "#/components/schemas/Chore"
-                    },
-                    {
-                      "$ref": "#/components/schemas/Battery"
-                    },
-                    {
-                      "$ref": "#/components/schemas/Location"
-                    },
-                    {
-                      "$ref": "#/components/schemas/QuantityUnit"
-                    },
-                    {
-                      "$ref": "#/components/schemas/ShoppingListItem"
-                    },
-                    {
-                      "$ref": "#/components/schemas/StockEntry"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The operation was not successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "summary": "Edits the given object of the given entity",
-        "tags": [
-          "Generic entity interactions"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "entity",
-            "required": true,
-            "description": "A valid entity name",
-            "schema": {
-              "$ref": "#/components/internalSchemas/ExposedEntity"
-            }
-          },
-          {
-            "in": "path",
-            "name": "objectId",
-            "required": true,
-            "description": "A valid object id of the given entity",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "A valid entity object of the entity specified in parameter *entity*",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/Product"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Chore"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Battery"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Location"
-                  },
-                  {
-                    "$ref": "#/components/schemas/QuantityUnit"
-                  },
-                  {
-                    "$ref": "#/components/schemas/ShoppingListItem"
-                  },
-                  {
-                    "$ref": "#/components/schemas/StockEntry"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "The operation was successful"
-          },
-          "400": {
-            "description": "The operation was not successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "summary": "Deletes a single object of the given entity",
-        "tags": [
-          "Generic entity interactions"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "entity",
-            "required": true,
-            "description": "A valid entity name",
-            "schema": {
-              "$ref": "#/components/internalSchemas/ExposedEntity"
-            }
-          },
-          {
-            "in": "path",
-            "name": "objectId",
-            "required": true,
-            "description": "A valid object id of the given entity",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "The operation was successful"
-          },
-          "400": {
-            "description": "The operation was not successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/userfields/{entity}/{objectId}": {
-      "get": {
-        "summary": "Returns all userfields with their values of the given object of the given entity",
-        "tags": [
-          "Generic entity interactions"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "entity",
-            "required": true,
-            "description": "A valid entity name",
-            "schema": {
-              "$ref": "#/components/internalSchemas/ExposedEntity"
-            }
-          },
-          {
-            "in": "path",
-            "name": "objectId",
-            "required": true,
-            "description": "A valid object id of the given entity",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "An entity object",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Just key/value pairs of userfields"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The operation was not successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "summary": "Edits the given userfields of the given object of the given entity",
-        "tags": [
-          "Generic entity interactions"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "entity",
-            "required": true,
-            "description": "A valid entity name",
-            "schema": {
-              "$ref": "#/components/internalSchemas/ExposedEntity"
-            }
-          },
-          {
-            "in": "path",
-            "name": "objectId",
-            "required": true,
-            "description": "A valid object id of the given entity",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "A valid entity object of the entity specified in parameter *entity*",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "description": "Just key/value pairs of userfields"
-              }
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "The operation was successful"
-          },
-          "400": {
-            "description": "The operation was not successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },		
-    "/files/{group}/{fileName}": {
-      "get": {
-        "summary": "Serves the given file",
-        "description": "With proper Content-Type header",
-        "tags": [
-          "Files"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "group",
-            "required": true,
-            "description": "The file group",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "fileName",
-            "required": true,
-            "description": "The file name (including extension)<br>**BASE64 encoded**",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The binary file contents (Content-Type header is automatically set based on the file type)",
-            "content": {
-              "application/octet-stream": {
-                "schema": {
-                  "type": "string",
-                  "format": "binary"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The operation was not successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "summary": "Uploads a single file",
-        "description": "The file will be stored at /data/storage/{group}/{file_name} (you need to remember the group and file name to get or delete it again)",
-        "tags": [
-          "Files"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "group",
-            "required": true,
-            "description": "The file group",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "fileName",
-            "required": true,
-            "description": "The file name (including extension)<br>**BASE64 encoded**",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/octet-stream": {
-              "schema": {
-                "type": "string",
-                "format": "binary"
-              }
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "The operation was successful"
-          },
-          "400": {
-            "description": "The operation was not successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "summary": "Deletes the given file",
-        "tags": [
-          "Files"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "group",
-            "required": true,
-            "description": "The file group",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "fileName",
-            "required": true,
-            "description": "The file name (including extension)<br>**BASE64 encoded**",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "The operation was successful"
-          },
-          "400": {
-            "description": "The operation was not successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/users": {
-      "get": {
-        "summary": "Returns all users",
-        "tags": [
-          "User management"
-        ],
-        "responses": {
-          "200": {
-            "description": "A list of user objects",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/UserDto"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The operation was not successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "summary": "Creates a new user",
-        "tags": [
-          "User management"
-        ],
-        "requestBody": {
-          "description": "A valid user object",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "The operation was successful"
-          },
-          "400": {
-            "description": "The operation was not successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/users/{userId}": {
-      "put": {
-        "summary": "Edits the given user",
-        "tags": [
-          "User management"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "description": "A valid user id",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "A valid user object",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "The operation was successful"
-          },
-          "400": {
-            "description": "The operation was not successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "summary": "Deletes the given user",
-        "tags": [
-          "User management"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "description": "A valid user id",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "The operation was successful"
-          },
-          "400": {
-            "description": "The operation was not successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/user/settings/{settingKey}": {
-      "get": {
-        "summary": "Gets the given setting of the currently logged in user",
-        "tags": [
-          "User settings"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "settingKey",
-            "required": true,
-            "description": "The key of the user setting",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A UserSetting object",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserSetting"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The operation was not successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "summary": "Sets the given setting of the currently logged in user",
-        "tags": [
-          "User settings"
-        ],
-        "requestBody": {
-          "description": "A valid UserSetting object",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserSetting"
-              }
-            }
-          }
-        },
-        "parameters": [
-          {
-            "in": "path",
-            "name": "settingKey",
-            "required": true,
-            "description": "The key of the user setting",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "The operation was successful"
-          },
-          "400": {
-            "description": "The operation was not successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/stock": {
-      "get": {
-        "summary": "Returns all products which are currently in stock incl. the next expiring date per product",
-        "tags": [
-          "Stock"
-        ],
-        "responses": {
-          "200": {
-            "description": "An array of CurrentStockResponse objects",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/CurrentStockResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/stock/volatile": {
-      "get": {
-        "summary": "Returns all products which are expiring soon, are already expired or currently missing",
-        "tags": [
-          "Stock"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "expiring_days",
-            "required": false,
-            "description": "The number of days in which products are considered expiring soon",
-            "schema": {
-              "type": "integer",
-              "default": 5
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A CurrentVolatilStockResponse object",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/CurrentVolatilStockResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/stock/products/{productId}": {
-      "get": {
-        "summary": "Returns details of the given product",
-        "tags": [
-          "Stock"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "productId",
-            "required": true,
-            "description": "A valid product id",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A ProductDetailsResponse object",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductDetailsResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The operation was not successful (possible errors are: Not existing product)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/stock/products/by-barcode/{barcode}": {
-      "get": {
-        "summary": "Returns details of the given product by its barcode",
-        "tags": [
-          "Stock"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "barcode",
-            "required": true,
-            "description": "Barcode",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A ProductDetailsResponse object",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductDetailsResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The operation was not successful (possible errors are: Unknown barcode)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/stock/products/{productId}/entries": {
-      "get": {
-        "summary": "Returns all stock entries of the given product in order of next use (first expiring first, then first in first out)",
-        "tags": [
-          "Stock"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "productId",
-            "required": true,
-            "description": "A valid product id",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "An array of StockEntry objects",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/StockEntry"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The operation was not successful (possible errors are: Not existing product)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/stock/products/{productId}/price-history": {
-      "get": {
-        "summary": "Returns the price history of the given product",
-        "tags": [
-          "Stock"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "productId",
-            "required": true,
-            "description": "A valid product id",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "An array of ProductPriceHistory objects",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ProductPriceHistory"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The operation was not successful (possible errors are: Not existing product)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/stock/products/{productId}/add": {
-      "post": {
-        "summary": "Adds the given amount of the given product to stock",
-        "tags": [
-          "Stock"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "productId",
-            "required": true,
-            "description": "A valid product id",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "amount": {
-                    "type": "number",
-                    "format": "double",
-                    "description": "The amount to add - please note that when tare weight handling for the product is enabled, this needs to be the amount including the container weight (gross), the amount to be posted will be automatically calculated based on what is in stock and the defined tare weight"
-                  },
-                  "best_before_date": {
-                    "type": "string",
-                    "format": "date",
-                    "description": "The best before date of the product to add, when omitted, the current date is used"
-                  },
-                  "transaction_type": {
-                    "$ref": "#/components/internalSchemas/StockTransactionType"
-                  },
-                  "price": {
-                    "type": "number",
-                    "format": "double",
-                    "description": "The price per purchase quantity unit in configured currency"
-                  },
-                  "location_id": {
-                    "type": "number",
-                    "format": "integer",
-                    "description": "If omitted, the default location of the product is used"
-                  }
-                },
-                "example": {
-                  "amount": 1,
-                  "best_before_date": "2019-01-19",
-                  "transaction_type": "purchase",
-                  "price": "1.99"
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The operation was successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StockLogEntry"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The operation was not successful (possible errors are: Not existing product, invalid transaction type)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/stock/products/{productId}/consume": {
-      "post": {
-        "summary": "Removes the given amount of the given product from stock",
-        "tags": [
-          "Stock"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "productId",
-            "required": true,
-            "description": "A valid product id",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "amount": {
-                    "type": "double",
-                    "description": "The amount to remove - please note that when tare weight handling for the product is enabled, this needs to be the amount including the container weight (gross), the amount to be posted will be automatically calculated based on what is in stock and the defined tare weight"
-                  },
-                  "transaction_type": {
-                    "$ref": "#/components/internalSchemas/StockTransactionType"
-                  },
-                  "spoiled": {
-                    "type": "boolean",
-                    "description": "True when the given product was spoiled, defaults to false"
-                  },
-                  "stock_entry_id": {
-                    "type": "string",
-                    "description": "A specific stock entry id to consume, if used, the amount has to be 1"
-                  },
-                  "recipe_id": {
-                    "type": "number",
-                    "format": "integer",
-                    "description": "A valid recipe id for which this product was used (for statistical purposes only)"
-                  }
-                },
-                "example": {
-                  "amount": 1,
-                  "transaction_type": "consume",
-                  "spoiled": false
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The operation was successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StockLogEntry"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The operation was not successful (possible errors are: Not existing product, invalid transaction type, given amount > current stock amount)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/stock/products/{productId}/inventory": {
-      "post": {
-        "summary": "Inventories the given product (adds/removes based on the given new amount)",
-        "tags": [
-          "Stock"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "productId",
-            "required": true,
-            "description": "A valid product id",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "new_amount": {
-                    "type": "integer",
-                    "description": "The new current amount for the given product - please note that when tare weight handling for the product is enabled, this needs to be the amount including the container weight (gross), the amount to be posted will be automatically calculated based on what is in stock and the defined tare weight"
-                  },
-                  "best_before_date": {
-                    "type": "string",
-                    "format": "date",
-                    "description": "The best before date which applies to added products"
-                  },
-                  "location_id": {
-                    "type": "number",
-                    "format": "integer",
-                    "description": "If omitted, the default location of the product is used (only applies to added products)"
-                  },
-                  "price": {
-                    "type": "number",
-                    "format": "double",
-                    "description": "If omitted, the last price of the product is used (only applies to added products)"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The operation was successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StockLogEntry"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The operation was not successful (possible errors are: Not existing product)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/stock/products/{productId}/open": {
-      "post": {
-        "summary": "Marks the given amount of the given product as opened",
-        "tags": [
-          "Stock"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "productId",
-            "required": true,
-            "description": "A valid product id",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "amount": {
-                    "type": "double",
-                    "description": "The amount to mark as opened"
-                  },
-                  "stock_entry_id": {
-                    "type": "string",
-                    "description": "A specific stock entry id to open, if used, the amount has to be 1"
-                  }
-                },
-                "example": {
-                  "amount": 1
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The operation was successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StockLogEntry"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The operation was not successful (possible errors are: Not existing product, given amount > current unopened stock amount)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/stock/shoppinglist/add-missing-products": {
-      "post": {
-        "summary": "Adds currently missing products (below defined min. stock amount) to the given shopping list",
-        "tags": [
-          "Stock"
-        ],
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "list_id": {
-                    "type": "integer",
-                    "description": "The shopping list to use, when omitted, the default shopping list (with id 1) is used"
-                  }
-                },
-                "example": {
-                  "list_id": 2
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "The operation was successful"
-          },
-          "400": {
-            "description": "The operation was not successful (possible errors are: Not existing shopping list)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/stock/shoppinglist/clear": {
-      "post": {
-        "summary": "Removes all items from the given shopping list",
-        "tags": [
-          "Stock"
-        ],
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "list_id": {
-                    "type": "integer",
-                    "description": "The shopping list id to clear, when omitted, the default shopping list (with id 1) is used"
-                  }
-                },
-                "example": {
-                  "list_id": 2
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "The operation was successful"
-          },
-          "400": {
-            "description": "The operation was not successful (possible errors are: Not existing shopping list)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/stock/bookings/{bookingId}/undo": {
-      "post": {
-        "summary": "Undoes a booking",
-        "tags": [
-          "Stock"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "bookingId",
-            "required": true,
-            "description": "A valid stock booking id",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "The operation was successful"
-          },
-          "400": {
-            "description": "The operation was not successful (possible errors are: Not existing booking)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/stock/barcodes/external-lookup": {
-      "get": {
-        "summary": "Executes an external barcode lookoup via the configured plugin with the given barcode",
-        "tags": [
-          "Stock"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "barcode",
-            "required": true,
-            "description": "The barcode to lookup up",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "add",
-            "required": false,
-            "description": "When true, the product is added to the database on a successful lookup and the new product id is in included in the response",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "An ExternalBarcodeLookupResponse object or null, when nothing was found for the given barcode",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ExternalBarcodeLookupResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The operation was not successful (possible errors are: Plugin error)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/recipes/{recipeId}/add-not-fulfilled-products-to-shoppinglist": {
-      "post": {
-        "summary": "Adds all missing products for the given recipe to the shopping list",
-        "tags": [
-          "Recipes"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "recipeId",
-            "required": true,
-            "description": "A valid recipe id",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "excludedProductIds": {
-                    "type": "array",
-                    "items":{
-                      "type": "number",
-                      "format": "integer"
-                    },
-                    "description": "An optional array of product ids to exclude them from being put on the shopping list"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "The operation was successful"
-          }
-        }
-      }
-    },
-    "/recipes/{recipeId}/requirements": {
+	"openapi": "3.0.0",
+	"info": {
+		"title": "grocy REST API",
+		"description": "Authentication is done via API keys (header *GROCY-API-KEY*), which you can manage [here](PlaceHolderManageApiKeysUrl).<br>Additionally requests from within the frontend are also valid (via session cookie).",
+		"version": "xxx",
+		"contact": {
+			"email": "bernd@berrnd.de"
+		},
+		"license": {
+			"name": "grocy.info",
+			"url": "https://grocy.info"
+		}
+	},
+	"servers": [
+		{
+			"url": "xxx"
+		}
+	],
+	"tags": [
+		{
+			"name": "Generic entity interactions",
+			"description": "A limited set of entities are directly exposed for convenience"
+		}
+	],
+	"paths": {
+		"/system/info": {
+			"get": {
+				"summary": "Returns information about the installed grocy, PHP and SQLite version",
+				"tags": [
+					"System"
+				],
+				"responses": {
+					"200": {
+						"description": "An DbChangedTimeResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"grocy_version": {
+											"type": "object",
+											"properties": {
+												"Version": {
+													"type": "string"
+												},
+												"ReleaseDate": {
+													"type": "string",
+													"format": "date"
+												}
+											}
+										},
+										"php_version": {
+											"type": "string"
+										},
+										"sqlite_version": {
+											"type": "string"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/system/db-changed-time": {
+			"get": {
+				"summary": "Returns the time when the database was last changed",
+				"tags": [
+					"System"
+				],
+				"responses": {
+					"200": {
+						"description": "An DbChangedTimeResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DbChangedTimeResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/system/log-missing-localization": {
+			"post": {
+				"summary": "Logs a missing localization string",
+				"description": "Only when MODE == 'dev', so should only be called then",
+				"tags": [
+					"System"
+				],
+				"requestBody": {
+					"description": "A valid MissingLocalizationRequest object",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/MissingLocalizationRequest"
+							}
+						}
+					}
+				},
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/objects/{entity}": {
+			"get": {
+				"summary": "Returns all objects of the given entity",
+				"tags": [
+					"Generic entity interactions"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "entity",
+						"required": true,
+						"description": "A valid entity name",
+						"schema": {
+							"$ref": "#/components/internalSchemas/ExposedEntity"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An entity object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"oneOf": [
+											{
+												"$ref": "#/components/schemas/Product"
+											},
+											{
+												"$ref": "#/components/schemas/Chore"
+											},
+											{
+												"$ref": "#/components/schemas/Battery"
+											},
+											{
+												"$ref": "#/components/schemas/Location"
+											},
+											{
+												"$ref": "#/components/schemas/QuantityUnit"
+											},
+											{
+												"$ref": "#/components/schemas/ShoppingListItem"
+											},
+											{
+												"$ref": "#/components/schemas/StockEntry"
+											}
+										]	
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"summary": "Adds a single object of the given entity",
+				"tags": [
+					"Generic entity interactions"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "entity",
+						"required": true,
+						"description": "A valid entity name",
+						"schema": {
+							"$ref": "#/components/internalSchemas/ExposedEntity"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "A valid entity object of the entity specified in parameter *entity*",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"oneOf": [
+									{
+										"$ref": "#/components/schemas/Product"
+									},
+									{
+										"$ref": "#/components/schemas/Chore"
+									},
+									{
+										"$ref": "#/components/schemas/Battery"
+									},
+									{
+										"$ref": "#/components/schemas/Location"
+									},
+									{
+										"$ref": "#/components/schemas/QuantityUnit"
+									},
+									{
+										"$ref": "#/components/schemas/ShoppingListItem"
+									},
+									{
+										"$ref": "#/components/schemas/StockEntry"
+									}
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"created_object_id": {
+											"type": "number",
+											"format": "integer",
+											"description": "The id of the created object"
+										}
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/objects/{entity}/{objectId}": {
+			"get": {
+				"summary": "Returns a single object of the given entity",
+				"tags": [
+					"Generic entity interactions"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "entity",
+						"required": true,
+						"description": "A valid entity name",
+						"schema": {
+							"$ref": "#/components/internalSchemas/ExposedEntity"
+						}
+					},
+					{
+						"in": "path",
+						"name": "objectId",
+						"required": true,
+						"description": "A valid object id of the given entity",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An entity object",
+						"content": {
+							"application/json": {
+								"schema":{
+									"type": "object",
+									"oneOf": [
+										{
+											"$ref": "#/components/schemas/Product"
+										},
+										{
+											"$ref": "#/components/schemas/Chore"
+										},
+										{
+											"$ref": "#/components/schemas/Battery"
+										},
+										{
+											"$ref": "#/components/schemas/Location"
+										},
+										{
+											"$ref": "#/components/schemas/QuantityUnit"
+										},
+										{
+											"$ref": "#/components/schemas/ShoppingListItem"
+										},
+										{
+											"$ref": "#/components/schemas/StockEntry"
+										}
+									]
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			},
+			"put": {
+				"summary": "Edits the given object of the given entity",
+				"tags": [
+					"Generic entity interactions"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "entity",
+						"required": true,
+						"description": "A valid entity name",
+						"schema": {
+							"$ref": "#/components/internalSchemas/ExposedEntity"
+						}
+					},
+					{
+						"in": "path",
+						"name": "objectId",
+						"required": true,
+						"description": "A valid object id of the given entity",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "A valid entity object of the entity specified in parameter *entity*",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"oneOf": [
+									{
+										"$ref": "#/components/schemas/Product"
+									},
+									{
+										"$ref": "#/components/schemas/Chore"
+									},
+									{
+										"$ref": "#/components/schemas/Battery"
+									},
+									{
+										"$ref": "#/components/schemas/Location"
+									},
+									{
+										"$ref": "#/components/schemas/QuantityUnit"
+									},
+									{
+										"$ref": "#/components/schemas/ShoppingListItem"
+									},
+									{
+										"$ref": "#/components/schemas/StockEntry"
+									}
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"summary": "Deletes a single object of the given entity",
+				"tags": [
+					"Generic entity interactions"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "entity",
+						"required": true,
+						"description": "A valid entity name",
+						"schema": {
+							"$ref": "#/components/internalSchemas/ExposedEntity"
+						}
+					},
+					{
+						"in": "path",
+						"name": "objectId",
+						"required": true,
+						"description": "A valid object id of the given entity",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/userfields/{entity}/{objectId}": {
+			"get": {
+				"summary": "Returns all userfields with their values of the given object of the given entity",
+				"tags": [
+					"Generic entity interactions"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "entity",
+						"required": true,
+						"description": "A valid entity name",
+						"schema": {
+							"$ref": "#/components/internalSchemas/ExposedEntity"
+						}
+					},
+					{
+						"in": "path",
+						"name": "objectId",
+						"required": true,
+						"description": "A valid object id of the given entity",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An entity object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"description": "Just key/value pairs of userfields"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			},
+			"put": {
+				"summary": "Edits the given userfields of the given object of the given entity",
+				"tags": [
+					"Generic entity interactions"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "entity",
+						"required": true,
+						"description": "A valid entity name",
+						"schema": {
+							"$ref": "#/components/internalSchemas/ExposedEntity"
+						}
+					},
+					{
+						"in": "path",
+						"name": "objectId",
+						"required": true,
+						"description": "A valid object id of the given entity",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "A valid entity object of the entity specified in parameter *entity*",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"description": "Just key/value pairs of userfields"
+							}
+						}
+					}
+				},
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},		
+		"/files/{group}/{fileName}": {
+			"get": {
+				"summary": "Serves the given file",
+				"description": "With proper Content-Type header",
+				"tags": [
+					"Files"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "group",
+						"required": true,
+						"description": "The file group",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "fileName",
+						"required": true,
+						"description": "The file name (including extension)<br>**BASE64 encoded**",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "The binary file contents (Content-Type header is automatically set based on the file type)",
+						"content": {
+							"application/octet-stream": {
+								"schema": {
+									"type": "string",
+									"format": "binary"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			},
+			"put": {
+				"summary": "Uploads a single file",
+				"description": "The file will be stored at /data/storage/{group}/{file_name} (you need to remember the group and file name to get or delete it again)",
+				"tags": [
+					"Files"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "group",
+						"required": true,
+						"description": "The file group",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "fileName",
+						"required": true,
+						"description": "The file name (including extension)<br>**BASE64 encoded**",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/octet-stream": {
+							"schema": {
+								"type": "string",
+								"format": "binary"
+							}
+						}
+					}
+				},
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"summary": "Deletes the given file",
+				"tags": [
+					"Files"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "group",
+						"required": true,
+						"description": "The file group",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "fileName",
+						"required": true,
+						"description": "The file name (including extension)<br>**BASE64 encoded**",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/users": {
+			"get": {
+				"summary": "Returns all users",
+				"tags": [
+					"User management"
+				],
+				"responses": {
+					"200": {
+						"description": "A list of user objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/UserDto"
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"summary": "Creates a new user",
+				"tags": [
+					"User management"
+				],
+				"requestBody": {
+					"description": "A valid user object",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/User"
+							}
+						}
+					}
+				},
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/users/{userId}": {
+			"put": {
+				"summary": "Edits the given user",
+				"tags": [
+					"User management"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "userId",
+						"required": true,
+						"description": "A valid user id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "A valid user object",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/User"
+							}
+						}
+					}
+				},
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"summary": "Deletes the given user",
+				"tags": [
+					"User management"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "userId",
+						"required": true,
+						"description": "A valid user id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/user/settings/{settingKey}": {
+			"get": {
+				"summary": "Gets the given setting of the currently logged in user",
+				"tags": [
+					"User settings"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "settingKey",
+						"required": true,
+						"description": "The key of the user setting",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A UserSetting object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UserSetting"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			},
+			"put": {
+				"summary": "Sets the given setting of the currently logged in user",
+				"tags": [
+					"User settings"
+				],
+				"requestBody": {
+					"description": "A valid UserSetting object",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/UserSetting"
+							}
+						}
+					}
+				},
+				"parameters": [
+					{
+						"in": "path",
+						"name": "settingKey",
+						"required": true,
+						"description": "The key of the user setting",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock": {
+			"get": {
+				"summary": "Returns all products which are currently in stock incl. the next expiring date per product",
+				"tags": [
+					"Stock"
+				],
+				"responses": {
+					"200": {
+						"description": "An array of CurrentStockResponse objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/CurrentStockResponse"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/volatile": {
+			"get": {
+				"summary": "Returns all products which are expiring soon, are already expired or currently missing",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "expiring_days",
+						"required": false,
+						"description": "The number of days in which products are considered expiring soon",
+						"schema": {
+							"type": "integer",
+							"default": 5
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A CurrentVolatilStockResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/CurrentVolatilStockResponse"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/products/{productId}": {
+			"get": {
+				"summary": "Returns details of the given product",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A ProductDetailsResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ProductDetailsResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/products/by-barcode/{barcode}": {
+			"get": {
+				"summary": "Returns details of the given product by its barcode",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "barcode",
+						"required": true,
+						"description": "Barcode",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A ProductDetailsResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ProductDetailsResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Unknown barcode)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/products/{productId}/entries": {
+			"get": {
+				"summary": "Returns all stock entries of the given product in order of next use (first expiring first, then first in first out)",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An array of StockEntry objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/StockEntry"
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/products/{productId}/price-history": {
+			"get": {
+				"summary": "Returns the price history of the given product",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An array of ProductPriceHistory objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/ProductPriceHistory"
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/products/{productId}/add": {
+			"post": {
+				"summary": "Adds the given amount of the given product to stock",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"amount": {
+										"type": "number",
+										"format": "double",
+										"description": "The amount to add - please note that when tare weight handling for the product is enabled, this needs to be the amount including the container weight (gross), the amount to be posted will be automatically calculated based on what is in stock and the defined tare weight"
+									},
+									"best_before_date": {
+										"type": "string",
+										"format": "date",
+										"description": "The best before date of the product to add, when omitted, the current date is used"
+									},
+									"transaction_type": {
+										"$ref": "#/components/internalSchemas/StockTransactionType"
+									},
+									"price": {
+										"type": "number",
+										"format": "double",
+										"description": "The price per purchase quantity unit in configured currency"
+									},
+									"location_id": {
+										"type": "number",
+										"format": "integer",
+										"description": "If omitted, the default location of the product is used"
+									}
+								},
+								"example": {
+									"amount": 1,
+									"best_before_date": "2019-01-19",
+									"transaction_type": "purchase",
+									"price": "1.99"
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/StockLogEntry"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product, invalid transaction type)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/products/{productId}/consume": {
+			"post": {
+				"summary": "Removes the given amount of the given product from stock",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"amount": {
+										"type": "double",
+										"description": "The amount to remove - please note that when tare weight handling for the product is enabled, this needs to be the amount including the container weight (gross), the amount to be posted will be automatically calculated based on what is in stock and the defined tare weight"
+									},
+									"transaction_type": {
+										"$ref": "#/components/internalSchemas/StockTransactionType"
+									},
+									"spoiled": {
+										"type": "boolean",
+										"description": "True when the given product was spoiled, defaults to false"
+									},
+									"stock_entry_id": {
+										"type": "string",
+										"description": "A specific stock entry id to consume, if used, the amount has to be 1"
+									},
+									"recipe_id": {
+										"type": "number",
+										"format": "integer",
+										"description": "A valid recipe id for which this product was used (for statistical purposes only)"
+									}
+								},
+								"example": {
+									"amount": 1,
+									"transaction_type": "consume",
+									"spoiled": false
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/StockLogEntry"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product, invalid transaction type, given amount > current stock amount)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/products/{productId}/inventory": {
+			"post": {
+				"summary": "Inventories the given product (adds/removes based on the given new amount)",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"new_amount": {
+										"type": "integer",
+										"description": "The new current amount for the given product - please note that when tare weight handling for the product is enabled, this needs to be the amount including the container weight (gross), the amount to be posted will be automatically calculated based on what is in stock and the defined tare weight"
+									},
+									"best_before_date": {
+										"type": "string",
+										"format": "date",
+										"description": "The best before date which applies to added products"
+									},
+									"location_id": {
+										"type": "number",
+										"format": "integer",
+										"description": "If omitted, the default location of the product is used (only applies to added products)"
+									},
+									"price": {
+										"type": "number",
+										"format": "double",
+										"description": "If omitted, the last price of the product is used (only applies to added products)"
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/StockLogEntry"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/products/{productId}/open": {
+			"post": {
+				"summary": "Marks the given amount of the given product as opened",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"amount": {
+										"type": "double",
+										"description": "The amount to mark as opened"
+									},
+									"stock_entry_id": {
+										"type": "string",
+										"description": "A specific stock entry id to open, if used, the amount has to be 1"
+									}
+								},
+								"example": {
+									"amount": 1
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/StockLogEntry"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product, given amount > current unopened stock amount)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/shoppinglist/add-missing-products": {
+			"post": {
+				"summary": "Adds currently missing products (below defined min. stock amount) to the given shopping list",
+				"tags": [
+					"Stock"
+				],
+				"requestBody": {
+					"required": false,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"list_id": {
+										"type": "integer",
+										"description": "The shopping list to use, when omitted, the default shopping list (with id 1) is used"
+									}
+								},
+								"example": {
+									"list_id": 2
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing shopping list)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/shoppinglist/clear": {
+			"post": {
+				"summary": "Removes all items from the given shopping list",
+				"tags": [
+					"Stock"
+				],
+				"requestBody": {
+					"required": false,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"list_id": {
+										"type": "integer",
+										"description": "The shopping list id to clear, when omitted, the default shopping list (with id 1) is used"
+									}
+								},
+								"example": {
+									"list_id": 2
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing shopping list)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/bookings/{bookingId}/undo": {
+			"post": {
+				"summary": "Undoes a booking",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "bookingId",
+						"required": true,
+						"description": "A valid stock booking id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing booking)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/barcodes/external-lookup": {
+			"get": {
+				"summary": "Executes an external barcode lookoup via the configured plugin with the given barcode",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "barcode",
+						"required": true,
+						"description": "The barcode to lookup up",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "add",
+						"required": false,
+						"description": "When true, the product is added to the database on a successful lookup and the new product id is in included in the response",
+						"schema": {
+							"type": "boolean",
+							"default": false
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An ExternalBarcodeLookupResponse object or null, when nothing was found for the given barcode",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ExternalBarcodeLookupResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Plugin error)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/recipes/{recipeId}/add-not-fulfilled-products-to-shoppinglist": {
+			"post": {
+				"summary": "Adds all missing products for the given recipe to the shopping list",
+				"tags": [
+					"Recipes"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "recipeId",
+						"required": true,
+						"description": "A valid recipe id",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": false,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"excludedProductIds": {
+										"type": "array",
+										"items":{
+											"type": "number",
+											"format": "integer"
+										},
+										"description": "An optional array of product ids to exclude them from being put on the shopping list"
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					}
+				}
+			}
+		},
+		"/recipes/{recipeId}/consume": {
+			"post": {
+				"summary": "Consumes all products of the given recipe",
+				"tags": [
+					"Recipes"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "recipeId",
+						"required": true,
+						"description": "A valid recipe id",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					}
+				}
+			}
+		},
+        "/recipes/{recipeId}/requirements": {
       "get": {
         "summary": "Get requirements for recipe",
         "tags": [
@@ -1741,719 +1765,695 @@
         }
       }
     },
-    "/recipes/{recipeId}/consume": {
-      "post": {
-        "summary": "Consumes all products of the given recipe",
-        "tags": [
-          "Recipes"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "recipeId",
-            "required": true,
-            "description": "A valid recipe id",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "The operation was successful"
-          }
-        }
-      }
-    },
-    "/chores": {
-      "get": {
-        "summary": "Returns all chores incl. the next estimated execution time per chore",
-        "tags": [
-          "Chores"
-        ],
-        "responses": {
-          "200": {
-            "description": "An array of CurrentChoreResponse objects",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/CurrentChoreResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/chores/{choreId}": {
-      "get": {
-        "summary": "Returns details of the given chore",
-        "tags": [
-          "Chores"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "choreId",
-            "required": true,
-            "description": "A valid chore id",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A ChoreDetailsResponse object",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChoreDetailsResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The operation was not successful (possible errors are: Not existing chore)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/chores/{choreId}/execute": {
-      "post": {
-        "summary": "Tracks an execution of the given chore",
-        "tags": [
-          "Chores"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "choreId",
-            "required": true,
-            "description": "A valid chore id",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "tracked_time": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "The time of when the chore was executed, when omitted, the current time is used"
-                  },
-                  "done_by": {
-                    "type": "integer",
-                    "description": "A valid user id of who executed this chore, when omitted, the currently authenticated user will be used"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The operation was successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChoreLogEntry"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The operation was not successful (possible errors are: Not existing chore)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/chores/executions/{executionId}/undo": {
-      "post": {
-        "summary": "Undoes a chore execution",
-        "tags": [
-          "Chores"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "executionId",
-            "required": true,
-            "description": "A valid chore execution id",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "The operation was successful"
-          },
-          "400": {
-            "description": "The operation was not successful (possible errors are: Not existing booking)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/batteries": {
-      "get": {
-        "summary": "Returns all batteries incl. the next estimated charge time per battery",
-        "tags": [
-          "Batteries"
-        ],
-        "responses": {
-          "200": {
-            "description": "An array of CurrentBatteryResponse objects",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/CurrentBatteryResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/batteries/{batteryId}": {
-      "get": {
-        "summary": "Returns details of the given battery",
-        "tags": [
-          "Batteries"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "batteryId",
-            "required": true,
-            "description": "A valid battery id",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A BatteryDetailsResponse object",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BatteryDetailsResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The operation was not successful (possible errors are: Not existing battery)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/batteries/{batteryId}/charge": {
-      "post": {
-        "summary": "Tracks a charge cycle of the given battery",
-        "tags": [
-          "Batteries"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "batteryId",
-            "required": true,
-            "description": "A valid battery id",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "tracked_time": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "The time of when the battery was charged, when omitted, the current time is used"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The operation was successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BatteryChargeCycleEntry"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The operation was not successful (possible errors are: Not existing battery)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/batteries/charge-cycles/{chargeCycleId}/undo": {
-      "post": {
-        "summary": "Undoes a battery charge cycle",
-        "tags": [
-          "Batteries"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "chargeCycleId",
-            "required": true,
-            "description": "A valid charge cycle id",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "The operation was successful"
-          },
-          "400": {
-            "description": "The operation was not successful (possible errors are: Not existing booking)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/tasks": {
-      "get": {
-        "summary": "Returns all tasks which are not done yet",
-        "tags": [
-          "Tasks"
-        ],
-        "responses": {
-          "200": {
-            "description": "An array of Task objects",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Task"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/tasks/{taskId}/complete": {
-      "post": {
-        "summary": "Marks the given task as completed",
-        "tags": [
-          "Tasks"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "taskId",
-            "required": true,
-            "description": "A valid task id",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "done_time": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "The time of when the task was completed, when omitted, the current time is used"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "The operation was successful"
-          },
-          "400": {
-            "description": "The operation was not successful (possible errors are: Not existing task)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/calendar/ical": {
-      "get": {
-        "summary": "Returns the calendar in iCal format",
-        "tags": [
-          "Calendar"
-        ],
-        "responses": {
-          "200": {
-            "description": "The iCal file contents",
-            "content": {
-              "text/calendar": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The operation was not successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/calendar/ical/sharing-link": {
-      "get": {
-        "summary": "Returns a (public) sharing link for the calendar in iCal format",
-        "tags": [
-          "Calendar"
-        ],
-        "responses": {
-          "200": {
-            "description": "The (public) sharing link for the calendar in iCal format",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "url": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "components": {
-    "internalSchemas": {
-      "ExposedEntity": {
-        "type": "string",
-        "enum": [
-          "products",
-          "chores",
-          "batteries",
-          "locations",
-          "quantity_units",
-          "shopping_list",
-          "shopping_lists",
-          "recipes",
-          "recipes_pos",
-          "recipes_nestings",
-          "tasks",
-          "task_categories",
-          "product_groups",
-          "equipment",
-          "api_keys",
-          "userfields",
-          "meal_plan"
-        ]
-      },
-      "ExposedEntitiesPreventListing": {
-        "type": "string",
-        "enum": [
-          "api_keys"
-        ]
-      },
-      "StockTransactionType": {
-        "type": "string",
-        "enum": [
-          "purchase",
-          "consume",
-          "inventory-correction",
-          "product-opened"
-        ]
-      }
-    },
-    "schemas": {
-      "Product": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "location_id": {
-            "type": "integer"
-          },
-          "qu_id_purchase": {
-            "type": "integer"
-          },
-          "qu_id_stock": {
-            "type": "integer"
-          },
-          "enable_tare_weight_handling": {
-            "type": "integer"
-          },
-          "not_check_stock_fulfillment_for_recipes": {
-            "type": "integer"
-          },
-          "product_group_id": {
-            "type": "integer"
-          },
-          "qu_factor_purchase_to_stock": {
-            "type": "number",
-            "format": "double"
-          },
-          "tare_weight": {
-            "type": "number",
-            "format": "double"
-          },
-          "barcode": {
-            "type": "string",
-            "description": "Can contain multiple barcodes separated by comma"
-          },
-          "min_stock_amount": {
-            "type": "integer",
-            "minimum": 0,
-            "default": 0
-          },
-          "default_best_before_days": {
-            "type": "integer",
-            "minimum": 0,
-            "default": 0
-          },
-          "default_best_before_days_after_open": {
-            "type": "integer",
-            "minimum": 0,
-            "default": 0
-          },
-          "picture_file_name": {
-            "type": "string"
-          },
-          "allow_partial_units_in_stock": {
-            "type": "boolean"
-          },
-          "row_created_timestamp": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "example": {
-          "id": "1",
-          "name": "Cookies",
-          "description": null,
-          "location_id": "4",
-          "qu_id_purchase": "3",
-          "qu_id_stock": "3",
-          "qu_factor_purchase_to_stock": "1.0",
-          "barcode": "cok1",
-          "min_stock_amount": "8",
-          "default_best_before_days": "0",
-          "row_created_timestamp": "2019-05-02 20:12:26",
-          "product_group_id": "1",
-          "picture_file_name": "cookies.jpg",
-          "default_best_before_days_after_open": "0",
-          "allow_partial_units_in_stock": "0",
-          "enable_tare_weight_handling": "0",
-          "tare_weight": "0.0",
-          "not_check_stock_fulfillment_for_recipes": "0"
-        }
-      },
-      "QuantityUnit": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "name": {
-            "type": "string"
-          },
-          "name_plural": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "row_created_timestamp": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "plural_forms": {
-            "type": "string"
-          }
-        },
-        "example": {
-          "id": "2",
-          "name": "Piece",
-          "description": null,
-          "row_created_timestamp": "2019-05-02 20:12:25",
-          "name_plural": "Pieces",
-          "plural_forms": null
-        }
-      },
-      "Location": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "row_created_timestamp": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "example": {
-          "id": "2",
-          "name": "0",
-          "description": null,
-          "row_created_timestamp": "2019-05-02 20:12:25"
-        }
-      },
-      "StockEntry": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "product_id": {
-            "type": "integer"
-          },
-          "location_id": {
-            "type": "integer"
-          },
-          "amount": {
-            "type": "double"
-          },
-          "best_before_date": {
-            "type": "string",
-            "format": "date"
-          },
-          "purchased_date": {
-            "type": "string",
-            "format": "date"
-          },
-          "stock_id": {
-            "type": "string",
-            "description": "A unique id which references this stock entry during its lifetime"
-          },
-          "price": {
-            "type": "double"
-          },
-          "open": {
-            "type": "integer"
-          },
-          "opened_date": {
-            "type": "string",
-            "format": "date"
-          },
-          "row_created_timestamp": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "example": {
-          "id": "77",
-          "product_id": "1",
-          "amount": "2",
-          "best_before_date": "2019-07-07",
-          "purchased_date": "2019-05-03",
-          "stock_id": "5ccc6b2421979",
-          "price": null,
-          "open": "0",
-          "opened_date": null,
-          "row_created_timestamp": "2019-05-03 18:24:04",
-          "location_id": "4"
-        }
-      },
-      "RecipeRequirements": {
+		"/chores": {
+			"get": {
+				"summary": "Returns all chores incl. the next estimated execution time per chore",
+				"tags": [
+					"Chores"
+				],
+				"responses": {
+					"200": {
+						"description": "An array of CurrentChoreResponse objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/CurrentChoreResponse"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/chores/{choreId}": {
+			"get": {
+				"summary": "Returns details of the given chore",
+				"tags": [
+					"Chores"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "choreId",
+						"required": true,
+						"description": "A valid chore id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A ChoreDetailsResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ChoreDetailsResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing chore)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/chores/{choreId}/execute": {
+			"post": {
+				"summary": "Tracks an execution of the given chore",
+				"tags": [
+					"Chores"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "choreId",
+						"required": true,
+						"description": "A valid chore id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"tracked_time": {
+										"type": "string",
+										"format": "date-time",
+										"description": "The time of when the chore was executed, when omitted, the current time is used"
+									},
+									"done_by": {
+										"type": "integer",
+										"description": "A valid user id of who executed this chore, when omitted, the currently authenticated user will be used"
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ChoreLogEntry"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing chore)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/chores/executions/{executionId}/undo": {
+			"post": {
+				"summary": "Undoes a chore execution",
+				"tags": [
+					"Chores"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "executionId",
+						"required": true,
+						"description": "A valid chore execution id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing booking)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/batteries": {
+			"get": {
+				"summary": "Returns all batteries incl. the next estimated charge time per battery",
+				"tags": [
+					"Batteries"
+				],
+				"responses": {
+					"200": {
+						"description": "An array of CurrentBatteryResponse objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/CurrentBatteryResponse"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/batteries/{batteryId}": {
+			"get": {
+				"summary": "Returns details of the given battery",
+				"tags": [
+					"Batteries"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "batteryId",
+						"required": true,
+						"description": "A valid battery id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A BatteryDetailsResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/BatteryDetailsResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing battery)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/batteries/{batteryId}/charge": {
+			"post": {
+				"summary": "Tracks a charge cycle of the given battery",
+				"tags": [
+					"Batteries"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "batteryId",
+						"required": true,
+						"description": "A valid battery id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"tracked_time": {
+										"type": "string",
+										"format": "date-time",
+										"description": "The time of when the battery was charged, when omitted, the current time is used"
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/BatteryChargeCycleEntry"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing battery)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/batteries/charge-cycles/{chargeCycleId}/undo": {
+			"post": {
+				"summary": "Undoes a battery charge cycle",
+				"tags": [
+					"Batteries"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "chargeCycleId",
+						"required": true,
+						"description": "A valid charge cycle id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing booking)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/tasks": {
+			"get": {
+				"summary": "Returns all tasks which are not done yet",
+				"tags": [
+					"Tasks"
+				],
+				"responses": {
+					"200": {
+						"description": "An array of Task objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/Task"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/tasks/{taskId}/complete": {
+			"post": {
+				"summary": "Marks the given task as completed",
+				"tags": [
+					"Tasks"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "taskId",
+						"required": true,
+						"description": "A valid task id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"done_time": {
+										"type": "string",
+										"format": "date-time",
+										"description": "The time of when the task was completed, when omitted, the current time is used"
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing task)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/calendar/ical": {
+			"get": {
+				"summary": "Returns the calendar in iCal format",
+				"tags": [
+					"Calendar"
+				],
+				"responses": {
+					"200": {
+						"description": "The iCal file contents",
+						"content": {
+							"text/calendar": {
+								"schema": {
+									"type": "string"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/calendar/ical/sharing-link": {
+			"get": {
+				"summary": "Returns a (public) sharing link for the calendar in iCal format",
+				"tags": [
+					"Calendar"
+				],
+				"responses": {
+					"200": {
+						"description": "The (public) sharing link for the calendar in iCal format",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"url": {
+											"type": "string"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"internalSchemas": {
+			"ExposedEntity": {
+				"type": "string",
+				"enum": [
+					"products",
+					"chores",
+					"batteries",
+					"locations",
+					"quantity_units",
+					"shopping_list",
+					"shopping_lists",
+					"recipes",
+					"recipes_pos",
+					"recipes_nestings",
+					"tasks",
+					"task_categories",
+					"product_groups",
+					"equipment",
+					"api_keys",
+					"userfields",
+					"meal_plan"
+				]
+			},
+			"ExposedEntitiesPreventListing": {
+				"type": "string",
+				"enum": [
+					"api_keys"
+				]
+			},
+			"StockTransactionType": {
+				"type": "string",
+				"enum": [
+					"purchase",
+					"consume",
+					"inventory-correction",
+					"product-opened"
+				]
+			}
+		},
+		"schemas": {
+			"Product": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"name": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"location_id": {
+						"type": "integer"
+					},
+					"qu_id_purchase": {
+						"type": "integer"
+					},
+					"qu_id_stock": {
+						"type": "integer"
+					},
+					"enable_tare_weight_handling": {
+						"type": "integer"
+					},
+					"not_check_stock_fulfillment_for_recipes": {
+						"type": "integer"
+					},
+					"product_group_id": {
+						"type": "integer"
+					},
+					"qu_factor_purchase_to_stock": {
+						"type": "number",
+						"format": "double"
+					},
+					"tare_weight": {
+						"type": "number",
+						"format": "double"
+					},
+					"barcode": {
+						"type": "string",
+						"description": "Can contain multiple barcodes separated by comma"
+					},
+					"min_stock_amount": {
+						"type": "integer",
+						"minimum": 0,
+						"default": 0
+					},
+					"default_best_before_days": {
+						"type": "integer",
+						"minimum": 0,
+						"default": 0
+					},
+					"default_best_before_days_after_open": {
+						"type": "integer",
+						"minimum": 0,
+						"default": 0
+					},
+					"picture_file_name": {
+						"type": "string"
+					},
+					"allow_partial_units_in_stock": {
+						"type": "boolean"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"example": {
+					"id": "1",
+					"name": "Cookies",
+					"description": null,
+					"location_id": "4",
+					"qu_id_purchase": "3",
+					"qu_id_stock": "3",
+					"qu_factor_purchase_to_stock": "1.0",
+					"barcode": "cok1",
+					"min_stock_amount": "8",
+					"default_best_before_days": "0",
+					"row_created_timestamp": "2019-05-02 20:12:26",
+					"product_group_id": "1",
+					"picture_file_name": "cookies.jpg",
+					"default_best_before_days_after_open": "0",
+					"allow_partial_units_in_stock": "0",
+					"enable_tare_weight_handling": "0",
+					"tare_weight": "0.0",
+					"not_check_stock_fulfillment_for_recipes": "0"
+				}
+			},
+			"QuantityUnit": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"name": {
+						"type": "string"
+					},
+					"name_plural": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"plural_forms": {
+						"type": "string"
+					}
+				},
+				"example": {
+					"id": "2",
+					"name": "Piece",
+					"description": null,
+					"row_created_timestamp": "2019-05-02 20:12:25",
+					"name_plural": "Pieces",
+					"plural_forms": null
+				}
+			},
+			"Location": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"name": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"example": {
+					"id": "2",
+					"name": "0",
+					"description": null,
+					"row_created_timestamp": "2019-05-02 20:12:25"
+				}
+			},
+			"StockEntry": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"product_id": {
+						"type": "integer"
+					},
+					"location_id": {
+						"type": "integer"
+					},
+					"amount": {
+						"type": "double"
+					},
+					"best_before_date": {
+						"type": "string",
+						"format": "date"
+					},
+					"purchased_date": {
+						"type": "string",
+						"format": "date"
+					},
+					"stock_id": {
+						"type": "string",
+						"description": "A unique id which references this stock entry during its lifetime"
+					},
+					"price": {
+						"type": "double"
+					},
+					"open": {
+						"type": "integer"
+					},
+					"opened_date": {
+						"type": "string",
+						"format": "date"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"example": {
+					"id": "77",
+					"product_id": "1",
+					"amount": "2",
+					"best_before_date": "2019-07-07",
+					"purchased_date": "2019-05-03",
+					"stock_id": "5ccc6b2421979",
+					"price": null,
+					"open": "0",
+					"opened_date": null,
+					"row_created_timestamp": "2019-05-03 18:24:04",
+					"location_id": "4"
+				}
+			},
+       "RecipeRequirements": {
         "type": "object",
         "properties": {
           "recipe_id": {
@@ -2481,636 +2481,636 @@
           "costs": "17.74"
         }
       },
-      "ProductDetailsResponse": {
-        "type": "object",
-        "properties": {
-          "product": {
-            "$ref": "#/components/schemas/Product"
-          },
-          "quantity_unit_purchase": {
-            "$ref": "#/components/schemas/QuantityUnit"
-          },
-          "quantity_unit_stock": {
-            "$ref": "#/components/schemas/QuantityUnit"
-          },
-          "last_purchased": {
-            "type": "string",
-            "format": "date"
-          },
-          "last_used": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "stock_amount": {
-            "type": "integer"
-          },
-          "stock_amount_opened": {
-            "type": "integer"
-          },
-          "next_best_before_date": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "last_price": {
-            "type": "number",
-            "format": "double"
-          },
-          "location": {
-            "$ref": "#/components/schemas/Location"
-          },
-          "average_shelf_life_days": {
-            "type": "number",
-            "format": "integer"
-          },
-          "spoil_rate_percent": {
-            "type": "number",
-            "format": "double"
-          }
-        },
-        "example": {
-          "product": {
-            "id": "1",
-            "name": "Cookies",
-            "description": null,
-            "location_id": "4",
-            "qu_id_purchase": "3",
-            "qu_id_stock": "3",
-            "qu_factor_purchase_to_stock": "1.0",
-            "barcode": "cok1",
-            "min_stock_amount": "8",
-            "default_best_before_days": "0",
-            "row_created_timestamp": "2019-05-02 20:12:26",
-            "product_group_id": "1",
-            "picture_file_name": "cookies.jpg",
-            "default_best_before_days_after_open": "0",
-            "allow_partial_units_in_stock": "0",
-            "enable_tare_weight_handling": "0",
-            "tare_weight": "0.0",
-            "not_check_stock_fulfillment_for_recipes": "0"
-          },
-          "last_purchased": null,
-          "last_used": null,
-          "stock_amount": "2",
-          "stock_amount_opened": null,
-          "quantity_unit_purchase": {
-            "id": "3",
-            "name": "Pack",
-            "description": null,
-            "row_created_timestamp": "2019-05-02 20:12:25",
-            "name_plural": "Packs",
-            "plural_forms": null
-          },
-          "quantity_unit_stock": {
-            "id": "3",
-            "name": "Pack",
-            "description": null,
-            "row_created_timestamp": "2019-05-02 20:12:25",
-            "name_plural": "Packs",
-            "plural_forms": null
-          },
-          "last_price": null,
-          "next_best_before_date": "2019-07-07",
-          "location": {
-            "id": "4",
-            "name": "Candy cupboard",
-            "description": null,
-            "row_created_timestamp": "2019-05-02 20:12:25"
-          },
-          "average_shelf_life_days": -1,
-          "spoil_rate_percent": 0
-        }
-      },
-      "ProductPriceHistory": {
-        "type": "object",
-        "properties": {
-          "date": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "price": {
-            "type": "number",
-            "format": "double"
-          }
-        }
-      },
-      "ExternalBarcodeLookupResponse": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "location_id": {
-            "type": "integer"
-          },
-          "qu_id_purchase": {
-            "type": "integer"
-          },
-          "qu_id_stock": {
-            "type": "integer"
-          },
-          "qu_factor_purchase_to_stock": {
-            "type": "number",
-            "format": "double"
-          },
-          "barcode": {
-            "type": "string",
-            "description": "Can contain multiple barcodes separated by comma"
-          },
-          "id": {
-            "type": "integer",
-            "description": "The id of the added product, only included when the producted was added to the database"
-          }
-        }
-      },
-      "ChoreDetailsResponse": {
-        "type": "object",
-        "properties": {
-          "chore": {
-            "$ref": "#/components/schemas/Chore"
-          },
-          "last_tracked": {
-            "type": "string",
-            "format": "date-time",
-            "description": "When this chore was last tracked"
-          },
-          "track_count": {
-            "type": "integer",
-            "description": "How often this chore was tracked so far"
-          },
-          "last_done_by": {
-            "$ref": "#/components/schemas/UserDto"
-          },
-          "next_estimated_execution_time": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "example": {
-          "chore": {
-            "id": 0,
-            "name": "string",
-            "description": "string",
-            "period_type": "manually",
-            "period_days": 0,
-            "row_created_timestamp": "2019-05-04T11:31:04.563Z"
-          },
-          "last_tracked": "2019-05-04T11:31:04.563Z",
-          "track_count": 0,
-          "last_done_by": {
-            "id": 0,
-            "username": "string",
-            "first_name": "string",
-            "last_name": "string",
-            "display_name": "string",
-            "row_created_timestamp": "2019-05-04T11:31:04.564Z"
-          },
-          "next_estimated_execution_time": "2019-05-04T11:31:04.564Z"
-        }
-      },
-      "BatteryDetailsResponse": {
-        "type": "object",
-        "properties": {
-          "chore": {
-            "$ref": "#/components/schemas/Battery"
-          },
-          "last_charged": {
-            "type": "string",
-            "format": "date-time",
-            "description": "When this battery was last charged"
-          },
-          "charge_cycles_count": {
-            "type": "integer",
-            "description": "How often this battery was charged so far"
-          },
-          "next_estimated_charge_time": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "example": {
-          "battery": {
-            "id": "1",
-            "name": "Battery1",
-            "description": "Warranty ends 2023",
-            "used_in": "TV remote control",
-            "charge_interval_days": "0",
-            "row_created_timestamp": "2019-05-02 20:12:26"
-          },
-          "last_charged": "2019-03-13 18:12:28",
-          "charge_cycles_count": 4,
-          "next_estimated_charge_time": "2999-12-31 23:59:59"
-        }
-      },
-      "Session": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "session_key": {
-            "type": "string"
-          },
-          "expires": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "last_used": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "row_created_timestamp": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "User": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "username": {
-            "type": "string"
-          },
-          "first_name": {
-            "type": "string"
-          },
-          "last_name": {
-            "type": "string"
-          },
-          "password": {
-            "type": "string"
-          },
-          "row_created_timestamp": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "UserDto": {
-        "type": "object",
-        "description": "A user object without the *password* and with an additional *display_name* property",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "username": {
-            "type": "string"
-          },
-          "first_name": {
-            "type": "string"
-          },
-          "last_name": {
-            "type": "string"
-          },
-          "display_name": {
-            "type": "string"
-          },
-          "row_created_timestamp": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "ApiKey": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "api_key": {
-            "type": "string"
-          },
-          "expires": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "last_used": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "row_created_timestamp": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "ShoppingListItem": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "product_id": {
-            "type": "integer"
-          },
-          "note": {
-            "type": "string"
-          },
-          "amount": {
-            "type": "double",
-            "minimum": 0,
-            "default": 0,
-            "description": "The manual entered amount"
-          },
-          "row_created_timestamp": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "Battery": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "used_in": {
-            "type": "string"
-          },
-          "charge_interval_days": {
-            "type": "integer",
-            "minimum": 0,
-            "default": 0
-          },
-          "row_created_timestamp": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "BatteryChargeCycleEntry": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "battery_id": {
-            "type": "integer"
-          },
-          "tracked_time": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "row_created_timestamp": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "Chore": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "period_type": {
-            "type": "string",
-            "enum": [
-              "manually",
-              "dynamic-regular"
-            ]
-          },
-          "period_days": {
-            "type": "integer"
-          },
-          "track_date_only": {
-            "type": "boolean"
-          },
-          "row_created_timestamp": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "ChoreLogEntry": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "chore_id": {
-            "type": "integer"
-          },
-          "tracked_time": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "row_created_timestamp": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "StockLogEntry": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "product_id": {
-            "type": "integer"
-          },
-          "amount": {
-            "type": "double"
-          },
-          "best_before_date": {
-            "type": "string",
-            "format": "date"
-          },
-          "purchased_date": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "used_date": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "spoiled": {
-            "type": "boolean",
-            "default": false
-          },
-          "stock_id": {
-            "type": "string"
-          },
-          "transaction_type": {
-            "$ref": "#/components/internalSchemas/StockTransactionType"
-          },
-          "row_created_timestamp": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "GenericErrorResponse": {
-        "type": "object",
-        "properties": {
-          "error_message": {
-            "type": "string"
-          }
-        },
-        "example": {
-          "error_message": "The error message..."
-        }
-      },
-      "CurrentStockResponse": {
-        "type": "object",
-        "properties": {
-          "product_id": {
-            "type": "integer"
-          },
-          "amount": {
-            "type": "double"
-          },
-          "best_before_date": {
-            "type": "string",
-            "format": "date",
-            "description": "The next best before date for this product"
-          }
-        }
-      },
-      "CurrentChoreResponse": {
-        "type": "object",
-        "properties": {
-          "chore_id": {
-            "type": "integer"
-          },
-          "last_tracked_time": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "next_estimated_execution_time": {
-            "type": "string",
-            "format": "date-time",
-            "description": "The next estimated execution time of this chore, 2999-12-31 23:59:59 when the given chore has a period_type of manually"
-          }
-        }
-      },
-      "CurrentBatteryResponse": {
-        "type": "object",
-        "properties": {
-          "battery_id": {
-            "type": "integer"
-          },
-          "last_tracked_time": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "next_estimated_charge_time": {
-            "type": "string",
-            "format": "date-time",
-            "description": "The next estimated charge time of this battery, 2999-12-31 23:59:59 when the given battery has no charge_interval_days defined"
-          }
-        }
-      },
-      "CurrentVolatilStockResponse": {
-        "type": "object",
-        "properties": {
-          "expiring_products": {
-            "type": "array",
-            "items":{
-              "$ref": "#/components/schemas/Product"
-            }
-          },
-          "expired_products": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Product"
-            }
-          },
-          "missing_products": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Product"
-            }
-          }
-        }
-      },
-      "Task": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "due_date": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "done": {
-            "type": "integer"
-          },
-          "done_timestamp": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "category_id": {
-            "type": "integer"
-          },
-          "assigned_to_user_id": {
-            "type": "integer"
-          },
-          "row_created_timestamp": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "DbChangedTimeResponse": {
-        "type": "object",
-        "properties": {
-          "changed_time": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "UserSetting": {
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string"
-          }
-        }
-      },
-      "MissingLocalizationRequest": {
-        "type": "object",
-        "properties": {
-          "text": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "securitySchemes": {
-      "ApiKeyAuth": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "GROCY-API-KEY"
-      }
-    }
-  },
-  "security": [
-    {
-      "ApiKeyAuth": [ ]
-    }
-  ]
+			"ProductDetailsResponse": {
+				"type": "object",
+				"properties": {
+					"product": {
+						"$ref": "#/components/schemas/Product"
+					},
+					"quantity_unit_purchase": {
+						"$ref": "#/components/schemas/QuantityUnit"
+					},
+					"quantity_unit_stock": {
+						"$ref": "#/components/schemas/QuantityUnit"
+					},
+					"last_purchased": {
+						"type": "string",
+						"format": "date"
+					},
+					"last_used": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"stock_amount": {
+						"type": "integer"
+					},
+					"stock_amount_opened": {
+						"type": "integer"
+					},
+					"next_best_before_date": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"last_price": {
+						"type": "number",
+						"format": "double"
+					},
+					"location": {
+						"$ref": "#/components/schemas/Location"
+					},
+					"average_shelf_life_days": {
+						"type": "number",
+						"format": "integer"
+					},
+					"spoil_rate_percent": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"example": {
+					"product": {
+						"id": "1",
+						"name": "Cookies",
+						"description": null,
+						"location_id": "4",
+						"qu_id_purchase": "3",
+						"qu_id_stock": "3",
+						"qu_factor_purchase_to_stock": "1.0",
+						"barcode": "cok1",
+						"min_stock_amount": "8",
+						"default_best_before_days": "0",
+						"row_created_timestamp": "2019-05-02 20:12:26",
+						"product_group_id": "1",
+						"picture_file_name": "cookies.jpg",
+						"default_best_before_days_after_open": "0",
+						"allow_partial_units_in_stock": "0",
+						"enable_tare_weight_handling": "0",
+						"tare_weight": "0.0",
+						"not_check_stock_fulfillment_for_recipes": "0"
+					},
+					"last_purchased": null,
+					"last_used": null,
+					"stock_amount": "2",
+					"stock_amount_opened": null,
+					"quantity_unit_purchase": {
+						"id": "3",
+						"name": "Pack",
+						"description": null,
+						"row_created_timestamp": "2019-05-02 20:12:25",
+						"name_plural": "Packs",
+						"plural_forms": null
+					},
+					"quantity_unit_stock": {
+						"id": "3",
+						"name": "Pack",
+						"description": null,
+						"row_created_timestamp": "2019-05-02 20:12:25",
+						"name_plural": "Packs",
+						"plural_forms": null
+					},
+					"last_price": null,
+					"next_best_before_date": "2019-07-07",
+					"location": {
+						"id": "4",
+						"name": "Candy cupboard",
+						"description": null,
+						"row_created_timestamp": "2019-05-02 20:12:25"
+					},
+					"average_shelf_life_days": -1,
+					"spoil_rate_percent": 0
+				}
+			},
+			"ProductPriceHistory": {
+				"type": "object",
+				"properties": {
+					"date": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"price": {
+						"type": "number",
+						"format": "double"
+					}
+				}
+			},
+			"ExternalBarcodeLookupResponse": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"location_id": {
+						"type": "integer"
+					},
+					"qu_id_purchase": {
+						"type": "integer"
+					},
+					"qu_id_stock": {
+						"type": "integer"
+					},
+					"qu_factor_purchase_to_stock": {
+						"type": "number",
+						"format": "double"
+					},
+					"barcode": {
+						"type": "string",
+						"description": "Can contain multiple barcodes separated by comma"
+					},
+					"id": {
+						"type": "integer",
+						"description": "The id of the added product, only included when the producted was added to the database"
+					}
+				}
+			},
+			"ChoreDetailsResponse": {
+				"type": "object",
+				"properties": {
+					"chore": {
+						"$ref": "#/components/schemas/Chore"
+					},
+					"last_tracked": {
+						"type": "string",
+						"format": "date-time",
+						"description": "When this chore was last tracked"
+					},
+					"track_count": {
+						"type": "integer",
+						"description": "How often this chore was tracked so far"
+					},
+					"last_done_by": {
+						"$ref": "#/components/schemas/UserDto"
+					},
+					"next_estimated_execution_time": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"example": {
+					"chore": {
+						"id": 0,
+						"name": "string",
+						"description": "string",
+						"period_type": "manually",
+						"period_days": 0,
+						"row_created_timestamp": "2019-05-04T11:31:04.563Z"
+					},
+					"last_tracked": "2019-05-04T11:31:04.563Z",
+					"track_count": 0,
+					"last_done_by": {
+						"id": 0,
+						"username": "string",
+						"first_name": "string",
+						"last_name": "string",
+						"display_name": "string",
+						"row_created_timestamp": "2019-05-04T11:31:04.564Z"
+					},
+					"next_estimated_execution_time": "2019-05-04T11:31:04.564Z"
+				}
+			},
+			"BatteryDetailsResponse": {
+				"type": "object",
+				"properties": {
+					"chore": {
+						"$ref": "#/components/schemas/Battery"
+					},
+					"last_charged": {
+						"type": "string",
+						"format": "date-time",
+						"description": "When this battery was last charged"
+					},
+					"charge_cycles_count": {
+						"type": "integer",
+						"description": "How often this battery was charged so far"
+					},
+					"next_estimated_charge_time": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"example": {
+					"battery": {
+						"id": "1",
+						"name": "Battery1",
+						"description": "Warranty ends 2023",
+						"used_in": "TV remote control",
+						"charge_interval_days": "0",
+						"row_created_timestamp": "2019-05-02 20:12:26"
+					},
+					"last_charged": "2019-03-13 18:12:28",
+					"charge_cycles_count": 4,
+					"next_estimated_charge_time": "2999-12-31 23:59:59"
+				}
+			},
+			"Session": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"session_key": {
+						"type": "string"
+					},
+					"expires": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"last_used": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"User": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"username": {
+						"type": "string"
+					},
+					"first_name": {
+						"type": "string"
+					},
+					"last_name": {
+						"type": "string"
+					},
+					"password": {
+						"type": "string"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"UserDto": {
+				"type": "object",
+				"description": "A user object without the *password* and with an additional *display_name* property",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"username": {
+						"type": "string"
+					},
+					"first_name": {
+						"type": "string"
+					},
+					"last_name": {
+						"type": "string"
+					},
+					"display_name": {
+						"type": "string"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"ApiKey": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"api_key": {
+						"type": "string"
+					},
+					"expires": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"last_used": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"ShoppingListItem": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"product_id": {
+						"type": "integer"
+					},
+					"note": {
+						"type": "string"
+					},
+					"amount": {
+						"type": "double",
+						"minimum": 0,
+						"default": 0,
+						"description": "The manual entered amount"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"Battery": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"name": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"used_in": {
+						"type": "string"
+					},
+					"charge_interval_days": {
+						"type": "integer",
+						"minimum": 0,
+						"default": 0
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"BatteryChargeCycleEntry": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"battery_id": {
+						"type": "integer"
+					},
+					"tracked_time": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"Chore": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"name": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"period_type": {
+						"type": "string",
+						"enum": [
+							"manually",
+							"dynamic-regular"
+						]
+					},
+					"period_days": {
+						"type": "integer"
+					},
+					"track_date_only": {
+						"type": "boolean"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"ChoreLogEntry": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"chore_id": {
+						"type": "integer"
+					},
+					"tracked_time": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"StockLogEntry": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"product_id": {
+						"type": "integer"
+					},
+					"amount": {
+						"type": "double"
+					},
+					"best_before_date": {
+						"type": "string",
+						"format": "date"
+					},
+					"purchased_date": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"used_date": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"spoiled": {
+						"type": "boolean",
+						"default": false
+					},
+					"stock_id": {
+						"type": "string"
+					},
+					"transaction_type": {
+						"$ref": "#/components/internalSchemas/StockTransactionType"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"GenericErrorResponse": {
+				"type": "object",
+				"properties": {
+					"error_message": {
+						"type": "string"
+					}
+				},
+				"example": {
+					"error_message": "The error message..."
+				}
+			},
+			"CurrentStockResponse": {
+				"type": "object",
+				"properties": {
+					"product_id": {
+						"type": "integer"
+					},
+					"amount": {
+						"type": "double"
+					},
+					"best_before_date": {
+						"type": "string",
+						"format": "date",
+						"description": "The next best before date for this product"
+					}
+				}
+			},
+			"CurrentChoreResponse": {
+				"type": "object",
+				"properties": {
+					"chore_id": {
+						"type": "integer"
+					},
+					"last_tracked_time": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"next_estimated_execution_time": {
+						"type": "string",
+						"format": "date-time",
+						"description": "The next estimated execution time of this chore, 2999-12-31 23:59:59 when the given chore has a period_type of manually"
+					}
+				}
+			},
+			"CurrentBatteryResponse": {
+				"type": "object",
+				"properties": {
+					"battery_id": {
+						"type": "integer"
+					},
+					"last_tracked_time": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"next_estimated_charge_time": {
+						"type": "string",
+						"format": "date-time",
+						"description": "The next estimated charge time of this battery, 2999-12-31 23:59:59 when the given battery has no charge_interval_days defined"
+					}
+				}
+			},
+			"CurrentVolatilStockResponse": {
+				"type": "object",
+				"properties": {
+					"expiring_products": {
+						"type": "array",
+						"items":{
+							"$ref": "#/components/schemas/Product"
+						}
+					},
+					"expired_products": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/Product"
+						}
+					},
+					"missing_products": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/Product"
+						}
+					}
+				}
+			},
+			"Task": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"name": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"due_date": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"done": {
+						"type": "integer"
+					},
+					"done_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"category_id": {
+						"type": "integer"
+					},
+					"assigned_to_user_id": {
+						"type": "integer"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"DbChangedTimeResponse": {
+				"type": "object",
+				"properties": {
+					"changed_time": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"UserSetting": {
+				"type": "object",
+				"properties": {
+					"value": {
+						"type": "string"
+					}
+				}
+			},
+			"MissingLocalizationRequest": {
+				"type": "object",
+				"properties": {
+					"text": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"securitySchemes": {
+			"ApiKeyAuth": {
+				"type": "apiKey",
+				"in": "header",
+				"name": "GROCY-API-KEY"
+			}
+		}
+	},
+	"security": [
+		{
+			"ApiKeyAuth": [ ]
+		}
+	]
 }

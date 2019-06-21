@@ -14,7 +14,11 @@
 		Grocy.Api.Post('objects/tasks', jsonData,
 			function(result)
 			{
-				window.location.href = U('/tasks');
+				Grocy.EditObjectId = result.created_object_id;
+				Grocy.Components.UserfieldsForm.Save(function()
+				{
+					window.location.href = U('/tasks');
+				});
 			},
 			function(xhr)
 			{
@@ -28,7 +32,10 @@
 		Grocy.Api.Put('objects/tasks/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
-				window.location.href = U('/tasks');
+				Grocy.Components.UserfieldsForm.Save(function()
+				{
+					window.location.href = U('/tasks');
+				});
 			},
 			function(xhr)
 			{
@@ -61,6 +68,7 @@ $('#task-form input').keydown(function(event)
 	}
 });
 
+Grocy.Components.UserfieldsForm.Load();
 $('#name').focus();
 Grocy.Components.DateTimePicker.GetInputElement().trigger('input');
 Grocy.FrontendHelpers.ValidateForm('task-form');

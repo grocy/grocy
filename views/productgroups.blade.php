@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $L('Product groups'))
+@section('title', $__t('Product groups'))
 @section('activeNav', 'productgroups')
 @section('viewJsName', 'productgroups')
 
@@ -10,7 +10,10 @@
 		<h1>
 			@yield('title')
 			<a class="btn btn-outline-dark" href="{{ $U('/productgroup/new') }}">
-				<i class="fas fa-plus"></i>&nbsp;{{ $L('Add') }}
+				<i class="fas fa-plus"></i>&nbsp;{{ $__t('Add') }}
+			</a>
+			<a class="btn btn-outline-secondary" href="{{ $U('/userfields?entity=product_groups') }}">
+				<i class="fas fa-sliders-h"></i>&nbsp;{{ $__t('Configure userfields') }}
 			</a>
 		</h1>
 	</div>
@@ -18,7 +21,7 @@
 
 <div class="row mt-3">
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
+		<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
 	</div>
 </div>
@@ -29,8 +32,13 @@
 			<thead>
 				<tr>
 					<th class="border-right"></th>
-					<th>{{ $L('Name') }}</th>
-					<th>{{ $L('Description') }}</th>
+					<th>{{ $__t('Name') }}</th>
+					<th>{{ $__t('Description') }}</th>
+					<th>{{ $__t('Product count') }}</th>
+
+					@include('components.userfields_thead', array(
+						'userfields' => $userfields
+					))
 				</tr>
 			</thead>
 			<tbody class="d-none">
@@ -50,6 +58,18 @@
 					<td>
 						{{ $productGroup->description }}
 					</td>
+					<td>
+						{{ count(FindAllObjectsInArrayByPropertyValue($products, 'product_group_id', $productGroup->id)) }}
+						<a class="btn btn-link btn-sm text-body" href="{{ $U('/products?product-group=') . $productGroup->id }}">
+						<i class="fas fa-external-link-alt"></i>
+						</a>
+					</td>
+
+					@include('components.userfields_tbody', array(
+						'userfields' => $userfields,
+						'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $productGroup->id)
+					))
+
 				</tr>
 				@endforeach
 			</tbody>

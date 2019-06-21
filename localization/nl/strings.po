@@ -1,0 +1,1270 @@
+# Translators:
+# Llewy <carlvanoene@gmail.com>, 2019
+# Tarik Faik <filoor1@gmail.com>, 2019
+# Adriaan Peeters <apeeters@lashout.net>, 2019
+# Grocy NL, 2019
+# Seppe <van.winkel.seppe@me.com>, 2019
+# Bernd Bestel <bernd@berrnd.de>, 2019
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2019\n"
+"Language-Team: Dutch (https://www.transifex.com/grocy/teams/93189/nl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/strings\n"
+
+msgid "Stock overview"
+msgstr "Voorraadoverzicht"
+
+msgid "%s product expires"
+msgid_plural "%s products expiring"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "within the next day"
+msgid_plural "within the next %s days"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s product is already expired"
+msgid_plural "%s products are already expired"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s product is below defined min. stock amount"
+msgid_plural "%s products are below defined min. stock amount"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Product"
+msgstr "Product"
+
+msgid "%s Product"
+msgid_plural "%s Products"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Amount"
+msgstr "Aantal"
+
+msgid "Next best before date"
+msgstr "De eerstvolgende houdbaarheidsdatum"
+
+msgid "Logout"
+msgstr "Uitloggen"
+
+msgid "Chores overview"
+msgstr "Overzicht klusjes"
+
+msgid "Batteries overview"
+msgstr "Batterijen overzicht"
+
+msgid "Purchase"
+msgstr "Aankoop"
+
+msgid "Consume"
+msgstr "Consumeren"
+
+msgid "Inventory"
+msgstr "Voorraad"
+
+msgid "Shopping list"
+msgstr "Boodschappenlijst"
+
+msgid "Chore tracking"
+msgstr "Klusjes volgen"
+
+msgid "Battery tracking"
+msgstr "Batterij volgen"
+
+msgid "Locations"
+msgstr "Locaties"
+
+msgid "Quantity units"
+msgstr "Aantal eenheden"
+
+msgid "Chores"
+msgstr "Klusjes"
+
+msgid "Batteries"
+msgstr "Batterijen"
+
+msgid "Chore"
+msgstr "Klus"
+
+msgid "Next estimated tracking"
+msgstr ""
+
+msgid "Last tracked"
+msgstr "Laatst gevolgd"
+
+msgid "Battery"
+msgstr "Batterij"
+
+msgid "Last charged"
+msgstr "Laatst opgeladen"
+
+msgid "Next planned charge cycle"
+msgstr "Volgende geplande laadcyclus"
+
+msgid "Best before"
+msgstr "Houdbaar tot"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Product overview"
+msgstr "Productoverzicht"
+
+msgid "Stock quantity unit"
+msgstr "Voorraadhoeveelheidseenheid"
+
+msgid "Stock amount"
+msgstr "Voorraadhoeveelheid"
+
+msgid "Last purchased"
+msgstr "Laatst gekocht"
+
+msgid "Last used"
+msgstr "Laatst gebruikt"
+
+msgid "Spoiled"
+msgstr "Verspild"
+
+msgid "Barcode lookup is disabled"
+msgstr "Opzoeken op streepjescode is uitgeschakeld"
+
+msgid ""
+"will be added to the list of barcodes for the selected product on submit"
+msgstr ""
+"wordt toegevoegd aan de lijst van streepjescodes voor het geselecteerde "
+"product"
+
+msgid "New amount"
+msgstr "Nieuwe aantal"
+
+msgid "Note"
+msgstr "Notitie"
+
+msgid "Tracked time"
+msgstr "Bijgehouden tijd"
+
+msgid "Chore overview"
+msgstr "Overzicht klus"
+
+msgid "Tracked count"
+msgstr "Bijgehouden aantal"
+
+msgid "Battery overview"
+msgstr "Batterijoverzicht"
+
+msgid "Charge cycles count"
+msgstr "Aantal laadcycli"
+
+msgid "Create shopping list item"
+msgstr "Maak een item in de boodschappenlijst"
+
+msgid "Edit shopping list item"
+msgstr "Bewerk item in de boodschappenlijst"
+
+msgid "Save"
+msgstr "Opslaan"
+
+msgid "Add"
+msgstr "Toevoegen"
+
+msgid "Name"
+msgstr "Naam"
+
+msgid "Location"
+msgstr "Locatie"
+
+msgid "Min. stock amount"
+msgstr "Min. voorraadhoeveelheid"
+
+msgid "QU purchase"
+msgstr "QU aankoop"
+
+msgid "QU stock"
+msgstr "QU Stock"
+
+msgid "QU factor"
+msgstr "QU factor"
+
+msgid "Description"
+msgstr "Omschrijving"
+
+msgid "Create product"
+msgstr "Maak een product"
+
+msgid "Barcode(s)"
+msgstr "Barcode(s)"
+
+msgid "Minimum stock amount"
+msgstr "Minimale voorraadhoeveelheid"
+
+msgid "Default best before days"
+msgstr "Standaard houdbaarheidsdatum"
+
+msgid "Quantity unit purchase"
+msgstr "Aankoop aantal eenheden "
+
+msgid "Quantity unit stock"
+msgstr "Voorraad aantal eenheden"
+
+msgid "Factor purchase to stock quantity unit"
+msgstr ""
+
+msgid "Create location"
+msgstr "Maak een locatie"
+
+msgid "Create quantity unit"
+msgstr "Maak eenheidseenheid"
+
+msgid "Period type"
+msgstr "Periode type"
+
+msgid "Period days"
+msgstr "Periode dagen"
+
+msgid "Create chore"
+msgstr "Maak klus"
+
+msgid "Used in"
+msgstr "Gebruikt in"
+
+msgid "Create battery"
+msgstr "Maak een batterij"
+
+msgid "Edit battery"
+msgstr "Bewerk batterij"
+
+msgid "Edit chore"
+msgstr "Bewerk klus"
+
+msgid "Edit quantity unit"
+msgstr "Bewerk hoeveelheidseenheid"
+
+msgid "Edit product"
+msgstr "Bewerk product"
+
+msgid "Edit location"
+msgstr "Wijzig locatie"
+
+msgid "Record data"
+msgstr "Gegevens opslaan"
+
+msgid "Manage master data"
+msgstr "Beheer master data"
+
+msgid "This will apply to added products"
+msgstr "Dit zal toegepast worden op toegevoegde producten"
+
+msgid "never"
+msgstr "nooit"
+
+msgid "Add products that are below defined min. stock amount"
+msgstr "Voeg producten toe die onder het gedefinieerde min. voorraad zijn"
+
+msgid ""
+"For purchases this amount of days will be added to today for the best before"
+" date suggestion"
+msgstr ""
+"Voor aankopen wordt dit aantal dagen toegevoegd aan vandaag voor de "
+"houdbaarheidsdatum suggestie"
+
+msgid "This means 1 %s purchased will be converted into %s %s in stock"
+msgstr ""
+"Dit betekent dat 1 %s aankoop geconverteerd zal worden in %s en %s voorraad"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+msgid "Password"
+msgstr "Wachtwoord"
+
+msgid "Invalid credentials, please try again"
+msgstr "Ongeldige aanmeldgegevens"
+
+msgid "Are you sure to delete battery \"%s\"?"
+msgstr "Klaar om batterij \"%s\" te verwijderen?"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "No"
+msgstr "Nee"
+
+msgid "Are you sure to delete chore \"%s\"?"
+msgstr "Ben je zeker dat je taak \"%s\" wilt verwijderen?"
+
+msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
+msgstr "\"%s\" kon niet aan een product gelinkt worden, hoe wil je verder gaan?"
+
+msgid "Create or assign product"
+msgstr "Maak of assigneer product"
+
+msgid "Cancel"
+msgstr "Annuleer"
+
+msgid "Add as new product"
+msgstr "Voeg toe als nieuw product"
+
+msgid "Add as barcode to existing product"
+msgstr "Voeg toe als streepjescode bij bestaand product"
+
+msgid "Add as new product and prefill barcode"
+msgstr "Voeg toe als nieuw product en vul streepjescode in"
+
+msgid "Are you sure to delete quantity unit \"%s\"?"
+msgstr "Weet u zeker dat u hoeveelheidseenheid \"%s\" wilt verwijderen?"
+
+msgid "Are you sure to delete product \"%s\"?"
+msgstr "Weet u zeker dat u product \"%s\" wilt verwijderen?"
+
+msgid "Are you sure to delete location \"%s\"?"
+msgstr "Weet u zeker dat u locatie \"%s\" wilt verwijderen?"
+
+msgid "Manage API keys"
+msgstr "Beheer API sleutels"
+
+msgid "REST API & data model documentation"
+msgstr "REST API & data model documentatie"
+
+msgid "API keys"
+msgstr "API sleutels"
+
+msgid "Create new API key"
+msgstr "Maak nieuwe API sleutel"
+
+msgid "API key"
+msgstr "API sleutel"
+
+msgid "Expires"
+msgstr "Vervalt"
+
+msgid "Created"
+msgstr "Aangemaakt"
+
+msgid "This product is not in stock"
+msgstr "Dit product is niet in voorraad"
+
+msgid "This means %s will be added to stock"
+msgstr "%s zal worden toegevoegd aan de voorraad"
+
+msgid "This means %s will be removed from stock"
+msgstr "%s zal worden verwijderd uit de voorraad"
+
+msgid ""
+"This means it is estimated that a new execution of this chore is tracked %s "
+"days after the last was tracked"
+msgstr ""
+
+msgid "Removed %s %s of %s from stock"
+msgstr "%s %s van %s verwijderd uit de voorraad"
+
+msgid "About grocy"
+msgstr "Over grocy"
+
+msgid "Close"
+msgstr "Sluit"
+
+msgid "Released on"
+msgstr "Vrijgegeven op"
+
+msgid "Consume %s %s of %s"
+msgstr "Consumeer %s %s van %s"
+
+msgid "Added %s %s of %s to stock"
+msgstr "Voeg %s %s van %s toe aan voorraad"
+
+msgid "Stock amount of %s is now %s %s"
+msgstr "Vooraad van %s is nu %s %s"
+
+msgid "Tracked execution of chore %s on %s"
+msgstr ""
+
+msgid "Tracked charge cycle of battery %s on %s"
+msgstr ""
+
+msgid "Consume all %s which are currently in stock"
+msgstr ""
+
+msgid "All"
+msgstr "Alle"
+
+msgid "Track charge cycle of battery %s"
+msgstr ""
+
+msgid "Track execution of chore %s"
+msgstr ""
+
+msgid "Filter by location"
+msgstr "Filteren op locatie"
+
+msgid "Search"
+msgstr "Zoek"
+
+msgid "Not logged in"
+msgstr "Niet ingelogd"
+
+msgid "You have to select a product"
+msgstr "Je moet een product selecteren"
+
+msgid "You have to select a chore"
+msgstr "Je moet een klusje selecteren"
+
+msgid "You have to select a battery"
+msgstr "Je moet een batterij selecteren"
+
+msgid "A name is required"
+msgstr "Een naam is verplicht"
+
+msgid "A location is required"
+msgstr "Een locatie is verplicht"
+
+msgid "The amount cannot be lower than %s"
+msgstr "De hoeveelheid kan niet lager zijn dan %s"
+
+msgid "This cannot be negative"
+msgstr "Dit kan niet negatief zijn"
+
+msgid "A quantity unit is required"
+msgstr "Een hoeveelheidseenheid is verplicht"
+
+msgid "A period type is required"
+msgstr "Een periode type is verplicht"
+
+msgid "A best before date is required"
+msgstr "Een THT is verplicht"
+
+msgid "Settings"
+msgstr "Instellingen"
+
+msgid "This can only be before now"
+msgstr "Dit kan een voor nu zijn"
+
+msgid "Calendar"
+msgstr "Kalender"
+
+msgid "Recipes"
+msgstr "Recepten"
+
+msgid "Edit recipe"
+msgstr "Bewerk recept"
+
+msgid "New recipe"
+msgstr "Nieuw recept"
+
+msgid "Ingredients list"
+msgstr "Ingrediëntenlijst"
+
+msgid "Add recipe ingredient"
+msgstr "Voeg ingrediënt toe aan recept"
+
+msgid "Edit recipe ingredient"
+msgstr "Bewerk ingrediënt"
+
+msgid "Are you sure to delete recipe \"%s\"?"
+msgstr "Ben je zeker dat je recept \"%s\" wil verwijderen?"
+
+msgid "Are you sure to delete recipe ingredient \"%s\"?"
+msgstr "Ben je zeker dat je ingrediënt \"%s\" wil verwijderen?"
+
+msgid "Are you sure to empty shopping list \"%s\"?"
+msgstr "Weet je zeker dat je boodschappenlijst %s leeg wilt maken?"
+
+msgid "Clear list"
+msgstr "Maak lijst leeg"
+
+msgid "Requirements fulfilled"
+msgstr "Vereisten volbracht"
+
+msgid "Put missing products on shopping list"
+msgstr "Voeg ontbrekende producten toe aan boodschappenlijst"
+
+msgid "Enough in stock"
+msgstr "Genoeg in voorraad"
+
+msgid ""
+"Not enough in stock, %s ingredient missing but already on the shopping list"
+msgid_plural ""
+"Not enough in stock, %s ingredients missing but already on the shopping list"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Expand to fullscreen"
+msgstr "Fullscreen"
+
+msgid "Ingredients"
+msgstr "Ingrediënten"
+
+msgid "Preparation"
+msgstr "Voorbereiding"
+
+msgid "Recipe"
+msgstr "Recept"
+
+msgid "Not enough in stock, %s missing, %s already on shopping list"
+msgstr "Niet genoeg op voorraad, %s ontbreekt, %s al op de boodschappenlijst"
+
+msgid "Show notes"
+msgstr "Toon notities"
+
+msgid "Put missing amount on shopping list"
+msgstr "Zet ontbrekende hoeveelheid op boodschappenlijst"
+
+msgid ""
+"Are you sure to put all missing ingredients for recipe \"%s\" on the "
+"shopping list?"
+msgstr ""
+"Ben je zeker dat je alle ontbrekende ingrediënten voor recept \"%s\" op de "
+"boodschappenlijst wilt zetten?"
+
+msgid "Added for recipe %s"
+msgstr "Toegevoegd voor recept %s"
+
+msgid "Manage users"
+msgstr "Beheer gebruikers"
+
+msgid "User"
+msgstr "Gebruiker"
+
+msgid "Users"
+msgstr "Gebruikers"
+
+msgid "Are you sure to delete user \"%s\"?"
+msgstr "Ben je zeker dat je gebruiker \"%s\" wilt verwijderen?"
+
+msgid "Create user"
+msgstr "Maak gebruiker"
+
+msgid "Edit user"
+msgstr "Bewerk gebruiker"
+
+msgid "First name"
+msgstr "Voornaam"
+
+msgid "Last name"
+msgstr "Achternaam"
+
+msgid "A username is required"
+msgstr "een gebruikersnaam is verplicht"
+
+msgid "Confirm password"
+msgstr "Bevestig wachtwoord"
+
+msgid "Passwords do not match"
+msgstr "Wachtwoorden komen niet overeen"
+
+msgid "Change password"
+msgstr "Wachtwoord wijzigen"
+
+msgid "Done by"
+msgstr "Gedaan door"
+
+msgid "Last done by"
+msgstr "Laatst gedaan door"
+
+msgid "Unknown"
+msgstr "Onbekend"
+
+msgid "Filter by chore"
+msgstr "Filteren op klus"
+
+msgid "Chores journal"
+msgstr "Klusjesdagboek"
+
+msgid "0 means suggestions for the next charge cycle are disabled"
+msgstr ""
+"0 betekent dat suggesties voor de volgende laadcyclus zijn uitgeschakeld"
+
+msgid "Charge cycle interval (days)"
+msgstr "Laadcyclusinterval (dagen)"
+
+msgid "Last price"
+msgstr "Laatste prijs"
+
+msgid "Price history"
+msgstr "Prijs geschiedenis"
+
+msgid "No price history available"
+msgstr "Geen prijsgeschiedenis beschikbaar"
+
+msgid "Price"
+msgstr "Prijs"
+
+msgid "in %s per purchase quantity unit"
+msgstr "in %s per aankoophoeveelheid"
+
+msgid "The price cannot be lower than %s"
+msgstr "Prijs kan niet lager zijn dan %s"
+
+msgid "Unit"
+msgstr "Eenheid"
+
+msgid "%s Unit"
+msgid_plural "%s Units"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s chore is due to be done"
+msgid_plural "%s chores are due to be done"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s chore is overdue to be done"
+msgid_plural "%s chores are overdue to be done"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s battery is due to be charged"
+msgid_plural "%s batteries are due to be charged"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s battery is overdue to be charged"
+msgid_plural "%s batteries are overdue to be charged"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "in singular form"
+msgstr "In enkelvoud"
+
+msgid "Never expires"
+msgstr "Vervalt nooit"
+
+msgid "This cannot be lower than %s"
+msgstr "Dit kan niet lager zijn dan %s"
+
+msgid "-1 means that this product never expires"
+msgstr "-1 wilt zeggen dat het product noot vervalt"
+
+msgid "Quantity unit"
+msgstr "Hoeveelheidseenheid"
+
+msgid ""
+"Only check if a single unit is in stock (a different quantity can then be "
+"used above)"
+msgstr ""
+
+msgid ""
+"Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
+" marked with \"check only if a single unit is in stock\" will be ignored)?"
+msgstr ""
+
+msgid "Removed all ingredients of recipe \"%s\" from stock"
+msgstr "Alle ingrediënten van recept \"%s\" uit voorraad verwijderd"
+
+msgid "Consume all ingredients needed by this recipe"
+msgstr "Consumeer alle ingrediënten die voor dit recept nodig zijn"
+
+msgid "Click to show technical details"
+msgstr "Klik op technische details te tonen"
+
+msgid "Error while saving, probably this item already exists"
+msgstr "Error bij opslaan, waarschijnlijk bestaat dit item al"
+
+msgid "Error details"
+msgstr "Error details"
+
+msgid "Tasks"
+msgstr "Klusjes"
+
+msgid "Show done tasks"
+msgstr "Toon afgewerkte klusjes"
+
+msgid "Task"
+msgstr "Klus"
+
+msgid "Due"
+msgstr "Verwacht"
+
+msgid "Assigned to"
+msgstr "Toegewezen aan"
+
+msgid "Mark task \"%s\" as completed"
+msgstr "Klusje \"%s\" als afgewerkt aanduiden"
+
+msgid "Uncategorized"
+msgstr "Ongecategoriseerd"
+
+msgid "Task categories"
+msgstr "Klusjescategorieën"
+
+msgid "Create task"
+msgstr "Maak klus"
+
+msgid "A due date is required"
+msgstr ""
+
+msgid "Category"
+msgstr "Categorie"
+
+msgid "Edit task"
+msgstr "Bewerk taak"
+
+msgid "Are you sure to delete task \"%s\"?"
+msgstr ""
+
+msgid "%s task is due to be done"
+msgid_plural "%s tasks are due to be done"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s task is overdue to be done"
+msgid_plural "%s tasks are overdue to be done"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Edit task category"
+msgstr "Bewerk kluscategorie"
+
+msgid "Create task category"
+msgstr "Maak kluscategorie"
+
+msgid "Product groups"
+msgstr "Productcategorieën"
+
+msgid "Ungrouped"
+msgstr "Geen categorie"
+
+msgid "Create product group"
+msgstr "Maak productcategorie"
+
+msgid "Edit product group"
+msgstr "Bewerk productcategorie"
+
+msgid "Product group"
+msgstr "Productcategorie"
+
+msgid "Are you sure to delete product group \"%s\"?"
+msgstr "Weet je zeker dat je productcategorie \"%s\" wilt verwijderen?"
+
+msgid "Stay logged in permanently"
+msgstr "Permanent aangemeld blijven"
+
+msgid "When not set, you will get logged out at latest after 30 days"
+msgstr "Wanneer niet aangevinkt zal je na maximum 30 dagen afgemeld worden"
+
+msgid "Filter by status"
+msgstr "Filteren op status"
+
+msgid "Below min. stock amount"
+msgstr "Onder min. stock hoeveelheid"
+
+msgid "Expiring soon"
+msgstr "Vervalt binnenkort"
+
+msgid "Already expired"
+msgstr "Al vervallen"
+
+msgid "Due soon"
+msgstr "Bij over tijd"
+
+msgid "Overdue"
+msgstr "Over tijd"
+
+msgid "View settings"
+msgstr "Beeld instellingen"
+
+msgid "Auto reload on external changes"
+msgstr "Auto-vernieuwen bij externe wijzigingen"
+
+msgid "Enable night mode"
+msgstr "Zet nachtmodus aan"
+
+msgid "Auto enable in time range"
+msgstr "Automatisch aanzetten in tijdsspanne"
+
+msgid "From"
+msgstr "Van"
+
+msgid "in format"
+msgstr "in formaat"
+
+msgid "To"
+msgstr "Tot"
+
+msgid "Time range goes over midnight"
+msgstr "Tijdsspanne gaat voorbij middernacht"
+
+msgid "Product picture"
+msgstr "Productafbeelding"
+
+msgid "No file selected"
+msgstr "Geen bestand geslecteerd"
+
+msgid "If you don't select a file, the current picture will not be altered"
+msgstr ""
+"De huidige afbeelding wordt niet gewijzigd als je geen bestand selecteerd"
+
+msgid "Delete"
+msgstr "Verwijder"
+
+msgid "The current picture will be deleted when you save the product"
+msgstr "De huidige afbeelding wordt gewist wanneer je het product opslaat"
+
+msgid "Select file"
+msgstr "Selecteer bestand"
+
+msgid "Image of product %s"
+msgstr "Afbeelding van product %s"
+
+msgid ""
+"This product cannot be deleted because it is in stock, please remove the "
+"stock amount first."
+msgstr ""
+"Dit product kan niet worden verwijdert want het is in voorraad, verwijder "
+"dit eerst uit je voorraad."
+
+msgid "Delete not possible"
+msgstr "Verwijderen niet mogelijk"
+
+msgid "Equipment"
+msgstr "Toestellen"
+
+msgid "Instruction manual"
+msgstr "Gebruikshandleiding"
+
+msgid "The selected equipment has no instruction manual"
+msgstr "Het geselecteerde toestel heeft gaan gebruikshandleiding"
+
+msgid "Notes"
+msgstr "Notities"
+
+msgid "Edit equipment"
+msgstr "Bewerk toestel"
+
+msgid "Create equipment"
+msgstr "Maak toestel"
+
+msgid ""
+"If you don't select a file, the current instruction manual will not be "
+"altered"
+msgstr ""
+"Wanneer je geen bestand kiest zal de huidige gebruikshandleiding niet "
+"gewijzigd worden"
+
+msgid "No instruction manual available"
+msgstr "Geen gebruikshandleiding beschikbaar"
+
+msgid ""
+"The current instruction manual will be deleted when you save the equipment"
+msgstr ""
+"De huidige gebruikshandleiding zal verwijderd worden wanneer je het toestel "
+"opslaat"
+
+msgid "No picture available"
+msgstr "Geen afbeelding beschikbaar"
+
+msgid "Filter by product group"
+msgstr "Filteren op productcategorie"
+
+msgid "Presets for new products"
+msgstr "Vooraf ingesteld voor nieuwe producten"
+
+msgid "Included recipes"
+msgstr "Bijgevoegde recepten"
+
+msgid "A recipe is required"
+msgstr "Een recept is vereist"
+
+msgid "Add included recipe"
+msgstr "Voeg bijgevoegd recept toe"
+
+msgid "Edit included recipe"
+msgstr "Bewerk bijgevoegd recept"
+
+msgid "Group"
+msgstr "Groep"
+
+msgid "This will be used as a headline to group ingredients together"
+msgstr "Dit is een hoofding om ingrediënten te groeperen"
+
+msgid "Journal"
+msgstr "Dagboek"
+
+msgid "Stock journal"
+msgstr "Voorraad dagboek"
+
+msgid "Filter by product"
+msgstr "Filteren op product"
+
+msgid "Booking time"
+msgstr ""
+
+msgid "Booking type"
+msgstr ""
+
+msgid "Undo booking"
+msgstr ""
+
+msgid "Undone on"
+msgstr ""
+
+msgid "Batteries journal"
+msgstr ""
+
+msgid "Filter by battery"
+msgstr "Filteren op batterij"
+
+msgid "Undo charge cycle"
+msgstr ""
+
+msgid "Undo chore execution"
+msgstr ""
+
+msgid "Chore execution successfully undone"
+msgstr ""
+
+msgid "Undo"
+msgstr "Ongedaan maken"
+
+msgid "Booking successfully undone"
+msgstr ""
+
+msgid "Charge cycle successfully undone"
+msgstr ""
+
+msgid "This cannot be negative and must be an integral number"
+msgstr "Dit kan niet negatief zijn en moet een integraal getal zijn"
+
+msgid "Disable stock fulfillment checking for this ingredient"
+msgstr ""
+
+msgid "Add all list items to stock"
+msgstr "Voeg alle lijst items toe aan voorraad"
+
+msgid "Add %s %s of %s to stock"
+msgstr "Voeg %s %s van %s toe aan voorraad"
+
+msgid "Adding shopping list item %s of %s"
+msgstr ""
+
+msgid "Use a specific stock item"
+msgstr "Gebruik een specifiek voorraad item"
+
+msgid ""
+"The first item in this list would be picked by the default rule which is "
+"\"First expiring first, then first in first out\""
+msgstr ""
+
+msgid "Mark %s of %s as open"
+msgstr ""
+
+msgid ""
+"When a product was marked as opened, the best before date will be replaced "
+"by today + this amount of days (a value of 0 disables this)"
+msgstr ""
+
+msgid "Default best before days after opened"
+msgstr "Standaard houdbaar tot na geopend"
+
+msgid "Marked %s %s of %s as opened"
+msgstr "Markeer %s %s van %s als geopend"
+
+msgid "Mark as opened"
+msgstr "Markeer als geopend"
+
+msgid "Expires on %s; Bought on %s"
+msgstr "Vervalt op %s; Aangekocht op %s"
+
+msgid "Not opened"
+msgstr "Niet geopend"
+
+msgid "Opened"
+msgstr "Geopend"
+
+msgid "%s opened"
+msgstr "%s geopend"
+
+msgid "Product expires"
+msgstr "Product vervalt"
+
+msgid "Task due"
+msgstr ""
+
+msgid "Chore due"
+msgstr "Klusje tegen"
+
+msgid "Battery charge cycle due"
+msgstr "Batterij oplaadcyclus nabij"
+
+msgid "Show clock in header"
+msgstr "Toon klok in koptekst"
+
+msgid "Stock settings"
+msgstr "Voorraadinstellingen"
+
+msgid "Shopping list to stock workflow"
+msgstr ""
+
+msgid ""
+"Automatically do the booking using the last price and the amount of the "
+"shopping list item, if the product has \"Default best before days\" set"
+msgstr ""
+
+msgid "Skip"
+msgstr "Overslaan"
+
+msgid "Servings"
+msgstr "Porties"
+
+msgid "Costs"
+msgstr "Kosten"
+
+msgid "Based on the prices of the last purchase per product"
+msgstr "Gebaseerd op de prijs van de laatste aankoop per product"
+
+msgid "The ingredients listed here result in this amount of servings"
+msgstr ""
+
+msgid "Do not check against the shopping list when adding missing items to it"
+msgstr ""
+
+msgid ""
+"By default the amount to be added to the shopping list is \"needed amount - "
+"stock amount - shopping list amount\" - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+msgstr ""
+
+msgid "Picture"
+msgstr "Afbeelding"
+
+msgid "Uncheck ingredients to not put them on the shopping list"
+msgstr ""
+"Zet het vinkje uit om ingrediënten niet op de boodschappenlijst te zetten"
+
+msgid "This is for statistical purposes only"
+msgstr "Dit dient enkel voor statistische doeleinden"
+
+msgid "You have to select a recipe"
+msgstr "Je moet een recept selecteren"
+
+msgid "Key type"
+msgstr "Sleutel type"
+
+msgid "Share/Integrate calendar (iCal)"
+msgstr "Deel/Integreer agenda (iCal)"
+
+msgid ""
+"Use the following (public) URL to share or integrate the calendar in iCal "
+"format"
+msgstr ""
+"Gebruik de volgende (publieke) URL om de agenda te delen of integreren in "
+"iCal formaat"
+
+msgid "Allow partial units in stock"
+msgstr "Sta gedeeltelijke eenheden in voorraad toe"
+
+msgid "Enable tare weight handling"
+msgstr ""
+
+msgid ""
+"This is useful e.g. for flour in jars - on purchase/consume/inventory you "
+"always weigh the whole jar, the amount to be posted is then automatically "
+"calculated based on what is in stock and the tare weight defined below"
+msgstr ""
+
+msgid "Tare weight"
+msgstr "Tarra gewicht"
+
+msgid ""
+"Tare weight handling enabled - please weigh the whole container, the amount "
+"to be posted will be automatically calculcated"
+msgstr ""
+
+msgid "You have to select a location"
+msgstr "Je moet een locatie selecteren"
+
+msgid "List"
+msgstr "Lijst"
+
+msgid "Gallery"
+msgstr "Gallerij"
+
+msgid "The current picture will be deleted when you save the recipe"
+msgstr ""
+"De huidige afbeelding zal worden verwijderd wanneer je het recept opslaat."
+
+msgid "Show product details"
+msgstr "Toon product details"
+
+msgid "Stock journal for this product"
+msgstr "Toon dagboek voor dit product"
+
+msgid "Show chore details"
+msgstr "Toon klus details"
+
+msgid "Journal for this chore"
+msgstr "Dagboek voor deze klus"
+
+msgid "Show battery details"
+msgstr "Toon batterij details"
+
+msgid "Journal for this battery"
+msgstr "Dagboek voor deze batterij"
+
+msgid "System info"
+msgstr "Systeeminfo"
+
+msgid "Changelog"
+msgstr "Changelog"
+
+msgid "will be multiplied a factor of %s to get %s"
+msgstr "wordt vermenigvuldigt met %s om %s te krijgen"
+
+msgid "The given date is earlier than today, are you sure?"
+msgstr "De opgegeven datum is eerder dan vandaag, bent u zeker?"
+
+msgid "Product count"
+msgstr "Productenteller"
+
+msgid "Type a new product name or barcode and hit TAB to start a workflow"
+msgstr ""
+
+msgid ""
+"This will be used as the default setting when adding this product as a "
+"recipe ingredient"
+msgstr ""
+
+msgid "Add item"
+msgstr "Voeg item toe"
+
+msgid "Selected shopping list"
+msgstr "Selecteer boodschappenlijst"
+
+msgid "New shopping list"
+msgstr "Nieuwe boodschappenlijst"
+
+msgid "Delete shopping list"
+msgstr "Verwijder boodschappenlijst"
+
+msgid "Chores settings"
+msgstr ""
+
+msgid "Batteries settings"
+msgstr ""
+
+msgid "Tasks settings"
+msgstr "Taken instellingen"
+
+msgid "Create shopping list"
+msgstr "Maak boodschappenlijst"
+
+msgid "Are you sure to delete shopping list \"%s\"?"
+msgstr "Weet je zeker dat je boodschappenlijst %s wilt verwijderen?"
+
+msgid "Average shelf life"
+msgstr ""
+
+msgid "Spoil rate"
+msgstr "Verspillings gemiddelde"
+
+msgid "Show more"
+msgstr "Laat meer zien"
+
+msgid "Show less"
+msgstr "Laat minder zien"
+
+msgid "The amount must be between %s and %s"
+msgstr "De hoeveelheid moet liggen tussen %s en %s"
+
+msgid "Day of month"
+msgstr "Dag van de maand"
+
+msgid "Monday"
+msgstr "Maandag"
+
+msgid "Tuesday"
+msgstr "Dinsdag"
+
+msgid "Wednesday"
+msgstr "Woensdag"
+
+msgid "Thursday"
+msgstr "Donderdag"
+
+msgid "Friday"
+msgstr "rijdag"
+
+msgid "Saturday"
+msgstr "Zaterdag"
+
+msgid "Sunday"
+msgstr "ondag"
+
+msgid "Configure userfields"
+msgstr "Configureer gebruikersvelden"
+
+msgid "Userfields"
+msgstr "Gebruikersvelden"
+
+msgid "Filter by entity"
+msgstr "Entiteit filteren"
+
+msgid "Entity"
+msgstr "Entiteit"
+
+msgid "Caption"
+msgstr ""
+
+msgid "Type"
+msgstr "Type"
+
+msgid "Create userfield"
+msgstr "Maak gebruikersveld aan"
+
+msgid "A entity is required"
+msgstr "Een entiteit is verplicht"
+
+msgid "A caption is required"
+msgstr ""
+
+msgid "A type is required"
+msgstr "Een type is verplicht"
+
+msgid "Show as column in tables"
+msgstr "Laat als kolom zien in tabellen"
+
+msgid "This is required and can only contain letters and numbers"
+msgstr "Dit is verplicht en kan alleen cijfers en letters bevatten"
+
+msgid "Edit userfield"
+msgstr "Wijzig gebruikersveld"
+
+msgid "Plural forms"
+msgstr ""
+
+msgid "One plural form per line, the current language requires"
+msgstr ""
+
+msgid "Plural count"
+msgstr ""
+
+msgid "Plural rule"
+msgstr ""
+
+msgid "in plural form"
+msgstr "In meervoud"
+
+msgid "Not enough in stock, %s ingredient missing"
+msgid_plural "Not enough in stock, %s ingredients missing"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Consume %s of %s"
+msgstr ""

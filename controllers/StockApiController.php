@@ -171,7 +171,19 @@ class StockApiController extends BaseApiController
 				$bestBeforeDate = $requestBody['best_before_date'];
 			}
 
-			$bookingId = $this->StockService->InventoryProduct($args['productId'], $requestBody['new_amount'], $bestBeforeDate);
+			$locationId = null;
+			if (array_key_exists('location_id', $requestBody) && is_numeric($requestBody['location_id']))
+			{
+				$locationId = $requestBody['location_id'];
+			}
+
+			$price = null;
+			if (array_key_exists('price', $requestBody) && is_numeric($requestBody['price']))
+			{
+				$price = $requestBody['price'];
+			}
+
+			$bookingId = $this->StockService->InventoryProduct($args['productId'], $requestBody['new_amount'], $bestBeforeDate, $locationId, $price);
 			return $this->ApiResponse($this->Database->stock_log($bookingId));
 		}
 		catch (\Exception $ex)
@@ -236,14 +248,44 @@ class StockApiController extends BaseApiController
 
 	public function AddMissingProductsToShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$this->StockService->AddMissingProductsToShoppingList();
-		return $this->EmptyApiResponse($response);
+		try
+		{
+			$requestBody = $request->getParsedBody();
+
+			$listId = 1;
+			if (array_key_exists('list_id', $requestBody) && !empty($requestBody['list_id']) && is_numeric($requestBody['list_id']))
+			{
+				$listId = intval($requestBody['list_id']);
+			}
+
+			$this->StockService->AddMissingProductsToShoppingList($listId);
+			return $this->EmptyApiResponse($response);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
 	}
 
 	public function ClearShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$this->StockService->ClearShoppingList();
-		return $this->EmptyApiResponse($response);
+		try
+		{
+			$requestBody = $request->getParsedBody();
+
+			$listId = 1;
+			if (array_key_exists('list_id', $requestBody) && !empty($requestBody['list_id']) && is_numeric($requestBody['list_id']))
+			{
+				$listId = intval($requestBody['list_id']);
+			}
+
+			$this->StockService->ClearShoppingList($listId);
+			return $this->EmptyApiResponse($response);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
 	}
 
 	public function ExternalBarcodeLookup(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)

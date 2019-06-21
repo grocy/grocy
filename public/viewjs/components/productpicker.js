@@ -70,10 +70,10 @@ if (!prefillProduct2.isEmpty())
 }
 if (typeof prefillProduct !== "undefined")
 {
-	var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + prefillProduct + "']").first();
+	var possibleOptionElement = $("#product_id option[data-additional-searchdata*=\"" + prefillProduct + "\"]").first();
 	if (possibleOptionElement.length === 0)
 	{
-		possibleOptionElement = $("#product_id option:contains('" + prefillProduct + "')").first();
+		possibleOptionElement = $("#product_id option:contains(\"" + prefillProduct + "\")").first();
 	}
 
 	if (possibleOptionElement.length > 0)
@@ -111,6 +111,7 @@ if (addBarcode !== undefined)
 	$('#barcode-lookup-disabled-hint').removeClass('d-none');
 }
 
+Grocy.Components.ProductPicker.PopupOpen = false;
 $('#product_id_text_input').on('blur', function(e)
 {
 	if (Grocy.Components.ProductPicker.GetPicker().hasClass("combobox-menu-visible"))
@@ -119,7 +120,7 @@ $('#product_id_text_input').on('blur', function(e)
 	}
 
 	var input = $('#product_id_text_input').val().toString();
-	var possibleOptionElement = $("#product_id option[data-additional-searchdata*='" + input + "']").first();
+	var possibleOptionElement = $("#product_id option[data-additional-searchdata*=\"" + input + "\"]").first();
 	
 	if (GetUriParam('addbarcodetoselection') === undefined && possibleOptionElement.length > 0)
 	{
@@ -129,7 +130,12 @@ $('#product_id_text_input').on('blur', function(e)
 	}
 	else
 	{
-		var optionElement = $("#product_id option:contains('" + input + "')").first();
+		if (Grocy.Components.ProductPicker.PopupOpen === true)
+		{
+			return;
+		}
+
+		var optionElement = $("#product_id option:contains(\"" + input + "\")").first();
 		if (input.length > 0 && optionElement.length === 0 && typeof GetUriParam('addbarcodetoselection') === "undefined")
 		{
 			var addProductWorkflowsAdditionalCssClasses = "";
@@ -138,46 +144,52 @@ $('#product_id_text_input').on('blur', function(e)
 				addProductWorkflowsAdditionalCssClasses = "d-none";
 			}
 
+			Grocy.Components.ProductPicker.PopupOpen = true;
 			bootbox.dialog({
-				message: L('"#1" could not be resolved to a product, how do you want to proceed?', input),
-				title: L('Create or assign product'),
+				message: __t('"%s" could not be resolved to a product, how do you want to proceed?', input),
+				title: __t('Create or assign product'),
 				onEscape: function()
 				{
+					Grocy.Components.ProductPicker.PopupOpen = false;
 					Grocy.Components.ProductPicker.SetValue('');
 				},
 				size: 'large',
 				backdrop: true,
 				buttons: {
 					cancel: {
-						label: L('Cancel'),
+						label: __t('Cancel'),
 						className: 'btn-secondary responsive-button',
 						callback: function()
 						{
+							Grocy.Components.ProductPicker.PopupOpen = false;
 							Grocy.Components.ProductPicker.SetValue('');
 						}
 					},
 					addnewproduct: {
-						label: '<strong>P</strong> ' + L('Add as new product'),
+						label: '<strong>P</strong> ' + __t('Add as new product'),
 						className: 'btn-success add-new-product-dialog-button responsive-button ' + addProductWorkflowsAdditionalCssClasses,
 						callback: function()
 						{
-							window.location.href = U('/product/new?prefillname=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(window.location.pathname));
+							Grocy.Components.ProductPicker.PopupOpen = false;
+							window.location.href = U('/product/new?prefillname=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative));
 						}
 					},
 					addbarcode: {
-						label: '<strong>B</strong> ' + L('Add as barcode to existing product'),
+						label: '<strong>B</strong> ' + __t('Add as barcode to existing product'),
 						className: 'btn-info add-new-barcode-dialog-button responsive-button',
 						callback: function()
 						{
-							window.location.href = U(window.location.pathname + '?addbarcodetoselection=' + encodeURIComponent(input));
+							Grocy.Components.ProductPicker.PopupOpen = false;
+							window.location.href = U(Grocy.CurrentUrlRelative + '?addbarcodetoselection=' + encodeURIComponent(input));
 						}
 					},
 					addnewproductwithbarcode: {
-						label: '<strong>A</strong> ' + L('Add as new product and prefill barcode'),
+						label: '<strong>A</strong> ' + __t('Add as new product and prefill barcode'),
 						className: 'btn-warning add-new-product-with-barcode-dialog-button responsive-button ' + addProductWorkflowsAdditionalCssClasses,
 						callback: function()
 						{
-							window.location.href = U('/product/new?prefillbarcode=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(window.location.pathname));
+							Grocy.Components.ProductPicker.PopupOpen = false;
+							window.location.href = U('/product/new?prefillbarcode=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative));
 						}
 					}
 				}

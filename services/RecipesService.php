@@ -6,6 +6,10 @@ use \Grocy\Services\StockService;
 
 class RecipesService extends BaseService
 {
+	const RECIPE_TYPE_NORMAL = 'normal';
+	const RECIPE_TYPE_MEALPLAN_DAY = 'mealplan-day';
+	const RECIPE_TYPE_MEALPLAN_WEEK = 'mealplan-week';
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -48,7 +52,7 @@ class RecipesService extends BaseService
 					$shoppinglistRow = $this->Database->shopping_list()->createRow(array(
 						'product_id' => $recipePosition->product_id,
 						'amount' => $toOrderAmount,
-						'note' => $this->LocalizationService->Localize('Added for recipe #1', $recipe->name)
+						'note' => $this->LocalizationService->__t('Added for recipe %s', $recipe->name)
 					));
 					$shoppinglistRow->save();
 				}

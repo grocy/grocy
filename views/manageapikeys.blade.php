@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $L('API keys'))
+@section('title', $__t('API keys'))
 @section('activeNav', '')
 @section('viewJsName', 'manageapikeys')
 
@@ -14,7 +14,7 @@
 		<h1>
 			@yield('title')
 			<a class="btn btn-outline-dark" href="{{ $U('/manageapikeys/new') }}">
-				<i class="fas fa-plus"></i>&nbsp;{{ $L('Add') }}
+				<i class="fas fa-plus"></i>&nbsp;{{ $__t('Add') }}
 			</a>
 		</h1>
 	</div>
@@ -22,7 +22,7 @@
 
 <div class="row mt-3">
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
+		<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
 	</div>
 </div>
@@ -33,12 +33,12 @@
 			<thead>
 				<tr>
 					<th class="border-right"></th>
-					<th>{{ $L('API key') }}</th>
-					<th>{{ $L('User') }}</th>
-					<th>{{ $L('Expires') }}</th>
-					<th>{{ $L('Last used') }}</th>
-					<th>{{ $L('Created') }}</th>
-					<th>{{ $L('Key type') }}</th>
+					<th>{{ $__t('API key') }}</th>
+					<th>{{ $__t('User') }}</th>
+					<th>{{ $__t('Expires') }}</th>
+					<th>{{ $__t('Last used') }}</th>
+					<th>{{ $__t('Created') }}</th>
+					<th>{{ $__t('Key type') }}</th>
 				</tr>
 			</thead>
 			<tbody class="d-none">
@@ -60,7 +60,7 @@
 						<time class="timeago timeago-contextual" datetime="{{ $apiKey->expires }}"></time>
 					</td>
 					<td>
-						@if(empty($apiKey->last_used)){{ $L('never') }}@else{{ $apiKey->last_used }}@endif
+						@if(empty($apiKey->last_used)){{ $__t('never') }}@else{{ $apiKey->last_used }}@endif
 						<time class="timeago timeago-contextual" datetime="{{ $apiKey->last_used }}"></time>
 					</td>
 					<td>

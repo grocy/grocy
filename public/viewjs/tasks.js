@@ -5,7 +5,7 @@
 		{ 'orderable': false, 'targets': 0 },
 		{ 'visible': false, 'targets': 3 }
 	],
-	'language': JSON.parse(L('datatables_localization')),
+	'language': JSON.parse(__t('datatables_localization')),
 	'scrollY': false,
 	'colReorder': true,
 	'stateSave': true,
@@ -78,6 +78,7 @@ $(document).on('click', '.do-task-button', function(e)
 			{
 				$('#task-' + taskId + '-row').fadeOut(500, function ()
 				{
+					$(this).tooltip("hide");
 					$(this).remove();
 				});
 			}
@@ -89,7 +90,7 @@ $(document).on('click', '.do-task-button', function(e)
 			}
 
 			Grocy.FrontendHelpers.EndUiBusy();
-			toastr.success(L('Marked task #1 as completed on #2', taskName, doneTime));
+			toastr.success(__t('Marked task %s as completed on %s', taskName, doneTime));
 			RefreshContextualTimeago();
 			RefreshStatistics();
 		},
@@ -109,14 +110,14 @@ $(document).on('click', '.delete-task-button', function (e)
 	var objectId = $(e.currentTarget).attr('data-task-id');
 
 	bootbox.confirm({
-		message: L('Are you sure to delete task "#1"?', objectName),
+		message: __t('Are you sure to delete task "%s"?', objectName),
 		buttons: {
 			confirm: {
-				label: L('Yes'),
+				label: __t('Yes'),
 				className: 'btn-success'
 			},
 			cancel: {
-				label: L('No'),
+				label: __t('No'),
 				className: 'btn-danger'
 			}
 		},
@@ -129,6 +130,7 @@ $(document).on('click', '.delete-task-button', function (e)
 					{
 						$('#task-' + objectId + '-row').fadeOut(500, function ()
 						{
+							$(this).tooltip("hide");
 							$(this).remove();
 						});
 					},
@@ -181,8 +183,8 @@ function RefreshStatistics()
 				}
 			});
 
-			$("#info-due-tasks").text(Pluralize(dueCount, L('#1 task is due to be done within the next #2 days', dueCount, nextXDays), L('#1 tasks are due to be done within the next #2 days', dueCount, nextXDays)));
-			$("#info-overdue-tasks").text(Pluralize(overdueCount, L('#1 task is overdue to be done', overdueCount), L('#1 tasks are overdue to be done', overdueCount)));
+			$("#info-due-tasks").text(__n(dueCount, '%s task is due to be done', '%s tasks are due to be done') + ' ' + __n(nextXDays, 'within the next day', 'within the next %s days'));
+			$("#info-overdue-tasks").text(__n(overdueCount, '%s task is overdue to be done', '%s tasks are overdue to be done'));
 		},
 		function(xhr)
 		{

@@ -40,7 +40,7 @@ class SessionService extends BaseService
 		$expires = date('Y-m-d H:i:s', intval(time() + 2592000)); // Default is that sessions expire in 30 days
 		if ($stayLoggedInPermanently === true)
 		{
-			$expires = date('Y-m-d H:i:s', intval(time() + 31220640000)); // 999 years aka forever
+			$expires = date('Y-m-d H:i:s', PHP_INT_SIZE == 4 ? PHP_INT_MAX : PHP_INT_MAX>>32); // Never
 		}
 
 		$sessionRow = $this->Database->sessions()->createRow(array(

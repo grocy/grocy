@@ -16,6 +16,11 @@ String.prototype.isEmpty = function()
 	return (this.length === 0 || !this.trim());
 };
 
+String.prototype.replaceAll = function(search, replacement)
+{
+	return this.replace(new RegExp(search, "g"), replacement);
+};
+
 GetUriParam = function(key)
 {
 	var currentUri = decodeURIComponent(window.location.search.substring(1));
@@ -72,3 +77,16 @@ $.extend($.expr[":"],
 		return (elem.textContent || elem.innerText || "").toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
 	}
 });
+
+FindObjectInArrayByPropertyValue = function(array, propertyName, propertyValue)
+{
+	for (var i = 0; i < array.length; i++)
+	{
+		if (array[i][propertyName] == propertyValue)
+		{
+            return array[i];
+        }
+	}
+	
+    return null;
+}

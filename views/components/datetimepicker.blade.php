@@ -6,17 +6,24 @@
 @php if(!isset($initialValue)) { $initialValue = ''; } @endphp
 @php if(empty($earlierThanInfoLimit)) { $earlierThanInfoLimit = ''; } @endphp
 @php if(empty($earlierThanInfoText)) { $earlierThanInfoText = ''; } @endphp
+@php if(empty($additionalCssClasses)) { $additionalCssClasses = ''; } @endphp
+@php if(empty($additionalGroupCssClasses)) { $additionalGroupCssClasses = ''; } @endphp
+@php if(empty($invalidFeedback)) { $invalidFeedback = ''; } @endphp
+@php if(!isset($isRequired)) { $isRequired = true; } @endphp
+@php if(!isset($noNameAttribute)) { $noNameAttribute = false; } @endphp
+@php if(!isset($nextInputSelector)) { $nextInputSelector = false; } @endphp
+@php if(empty($additionalAttributes)) { $additionalAttributes = ''; } @endphp
 
 <div class="form-group">
-	<label for="{{ $id }}">{{ $L($label) }}
+	<label for="{{ $id }}">{{ $__t($label) }}
 		<span class="small text-muted">
-			@if(!empty($hint)){{ $L($hint) }}@endif
+			@if(!empty($hint)){{ $__t($hint) }}@endif
 			<time id="datetimepicker-timeago" class="timeago timeago-contextual"></time>
 		</span>
 	</label>
 	<div class="input-group">
-		<div class="input-group date datetimepicker @if(!empty($additionalCssClasses)){{ $additionalCssClasses }}@endif" id="{{ $id }}" data-target-input="nearest">
-			<input type="text" @if($isRequired) required @endif class="form-control datetimepicker-input"
+		<div class="input-group date datetimepicker @if(!empty($additionalGroupCssClasses)){{ $additionalGroupCssClasses }}@endif" id="{{ $id }}" @if(!$noNameAttribute) name="{{ $id }}" @endif data-target-input="nearest">
+			<input {!! $additionalAttributes !!} type="text" @if($isRequired) @if($isRequired) required @endif @endif class="form-control datetimepicker-input @if(!empty($additionalCssClasses)){{ $additionalCssClasses }}@endif"
 				data-target="#{{ $id }}" data-format="{{ $format }}"
 				data-init-with-now="{{ BoolToString($initWithNow) }}"
 				data-init-value="{{ $initialValue }}"
@@ -33,7 +40,7 @@
 		@if(isset($shortcutValue) && isset($shortcutLabel))
 		<div class="form-check w-100">
 			<input class="form-check-input" type="checkbox" id="datetimepicker-shortcut" data-datetimepicker-shortcut-value="{{ $shortcutValue }}">
-			<label class="form-check-label" for="datetimepicker-shortcut">{{ $L($shortcutLabel) }}</label>
+			<label class="form-check-label" for="datetimepicker-shortcut">{{ $__t($shortcutLabel) }}</label>
 		</div>
 		@endif
 	</div>

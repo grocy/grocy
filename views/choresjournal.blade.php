@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $L('Chores journal'))
+@section('title', $__t('Chores journal'))
 @section('activeNav', 'choresjournal')
 @section('viewJsName', 'choresjournal')
 
@@ -13,13 +13,13 @@
 
 <div class="row my-3">
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
+		<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
 	</div>
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="chore-filter">{{ $L('Filter by chore') }}</label> <i class="fas fa-filter"></i>
+		<label for="chore-filter">{{ $__t('Filter by chore') }}</label> <i class="fas fa-filter"></i>
 		<select class="form-control" id="chore-filter">
-			<option value="all">{{ $L('All') }}</option>
+			<option value="all">{{ $__t('All') }}</option>
 			@foreach($chores as $chore)
 				<option value="{{ $chore->id }}">{{ $chore->name }}</option>
 			@endforeach
@@ -33,16 +33,16 @@
 			<thead>
 				<tr>
 					<th class="border-right"></th>
-					<th>{{ $L('Chore') }}</th>
-					<th>{{ $L('Tracked time') }}</th>
-					<th>{{ $L('Done by') }}</th>
+					<th>{{ $__t('Chore') }}</th>
+					<th>{{ $__t('Tracked time') }}</th>
+					<th>{{ $__t('Done by') }}</th>
 				</tr>
 			</thead>
 			<tbody class="d-none">
 				@foreach($choresLog as $choreLogEntry)
 				<tr class="@if($choreLogEntry->undone == 1) text-muted @endif">
 					<td class="fit-content border-right">
-						<a class="btn btn-secondary btn-sm undo-chore-execution-button @if($choreLogEntry->undone == 1) disabled @endif" href="#" data-execution-id="{{ $choreLogEntry->id }}" data-toggle="tooltip" data-placement="left" title="{{ $L('Undo chore execution') }}">
+						<a class="btn btn-secondary btn-sm undo-chore-execution-button @if($choreLogEntry->undone == 1) disabled @endif" href="#" data-execution-id="{{ $choreLogEntry->id }}" data-toggle="tooltip" data-placement="left" title="{{ $__t('Undo chore execution') }}">
 							<i class="fas fa-undo"></i>
 						</a>
 					</td>
@@ -50,7 +50,7 @@
 						<span class="name-anchor @if($choreLogEntry->undone == 1) text-strike-through @endif">{{ FindObjectInArrayByPropertyValue($chores, 'id', $choreLogEntry->chore_id)->name }}</span>
 						@if($choreLogEntry->undone == 1)
 						<br>
-						{{ $L('Undone on') . ' ' . $choreLogEntry->undone_timestamp }}
+						{{ $__t('Undone on') . ' ' . $choreLogEntry->undone_timestamp }}
 						<time class="timeago timeago-contextual" datetime="{{ $choreLogEntry->undone_timestamp }}"></time>
 						@endif
 					</td>
@@ -62,7 +62,7 @@
 						@if ($choreLogEntry->done_by_user_id !== null && !empty($choreLogEntry->done_by_user_id))
 						{{ GetUserDisplayName(FindObjectInArrayByPropertyValue($users, 'id', $choreLogEntry->done_by_user_id)) }}
 						@else
-						{{ $L('Unknown') }}
+						{{ $__t('Unknown') }}
 						@endif
 					</td>
 				</tr>

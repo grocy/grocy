@@ -6,6 +6,9 @@ class ChoresService extends BaseService
 {
 	const CHORE_TYPE_MANUALLY = 'manually';
 	const CHORE_TYPE_DYNAMIC_REGULAR = 'dynamic-regular';
+	const CHORE_TYPE_DAILY = 'daily';
+	const CHORE_TYPE_weekly = 'weekly';
+	const CHORE_TYPE_monthly = 'monthly';
 
 	public function GetCurrent()
 	{
@@ -54,6 +57,12 @@ class ChoresService extends BaseService
 		if ($userRow === null)
 		{
 			throw new \Exception('User does not exist');
+		}
+
+		$chore = $this->Database->chores($choreId);
+		if ($chore->track_date_only == 1)
+		{
+			$trackedTime = substr($trackedTime, 0, 10) . ' 00:00:00';
 		}
 		
 		$logRow = $this->Database->chores_log()->createRow(array(

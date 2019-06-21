@@ -8,17 +8,37 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 			var stockAmount = productDetails.stock_amount || '0';
 			var stockAmountOpened = productDetails.stock_amount_opened || '0';
 			$('#productcard-product-name').text(productDetails.product.name);
+			$('#productcard-product-description').text(productDetails.product.description);
 			$('#productcard-product-stock-amount').text(stockAmount);
-			$('#productcard-product-stock-qu-name').text(productDetails.quantity_unit_stock.name);
-			$('#productcard-product-stock-qu-name2').text(Pluralize(stockAmount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural));
-			$('#productcard-product-last-purchased').text((productDetails.last_purchased || L('never')).substring(0, 10));
+			$('#productcard-product-stock-qu-name').text(__n(stockAmount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural));
+			$('#productcard-product-last-purchased').text((productDetails.last_purchased || __t('never')).substring(0, 10));
 			$('#productcard-product-last-purchased-timeago').text($.timeago(productDetails.last_purchased || ''));
-			$('#productcard-product-last-used').text((productDetails.last_used || L('never')).substring(0, 10));
+			$('#productcard-product-last-used').text((productDetails.last_used || __t('never')).substring(0, 10));
 			$('#productcard-product-last-used-timeago').text($.timeago(productDetails.last_used || ''));
+			$('#productcard-product-location').text(productDetails.location.name);
+			$('#productcard-product-spoil-rate').text(parseFloat(productDetails.spoil_rate_percent).toLocaleString(undefined, { style: "percent" }));
+
+			if (productDetails.product.description != null && !productDetails.product.description.isEmpty())
+			{
+				$("#productcard-product-description-wrapper").removeClass("d-none");
+			}
+			else
+			{
+				$("#productcard-product-description-wrapper").addClass("d-none");
+			}
+
+			if (productDetails.average_shelf_life_days == -1)
+			{
+				$('#productcard-product-average-shelf-life').text(__t("Unknown"));
+			}
+			else
+			{
+				$('#productcard-product-average-shelf-life').text(moment.duration(productDetails.average_shelf_life_days, "days").humanize());
+			}
 
 			if (stockAmountOpened > 0)
 			{
-				$('#productcard-product-stock-opened-amount').text(L('#1 opened', stockAmountOpened));
+				$('#productcard-product-stock-opened-amount').text(__t('%s opened', stockAmountOpened));
 			}
 			else
 			{
@@ -34,7 +54,7 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 			}
 			else
 			{
-				$('#productcard-product-last-price').text(L('Unknown'));
+				$('#productcard-product-last-price').text(__t('Unknown'));
 			}
 
 			if (productDetails.product.picture_file_name !== null && !productDetails.product.picture_file_name.isEmpty())
@@ -49,8 +69,8 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 				$("#productcard-product-picture").addClass("d-none");
 			}
 
-			EmptyElementWhenMatches('#productcard-product-last-purchased-timeago', L('timeago_nan'));
-			EmptyElementWhenMatches('#productcard-product-last-used-timeago', L('timeago_nan'));
+			EmptyElementWhenMatches('#productcard-product-last-purchased-timeago', __t('timeago_nan'));
+			EmptyElementWhenMatches('#productcard-product-last-used-timeago', __t('timeago_nan'));
 		},
 		function(xhr)
 		{
@@ -108,7 +128,7 @@ Grocy.Components.ProductCard.ReInitPriceHistoryChart = function()
 					// Will be populated in Grocy.Components.ProductCard.Refresh
 				],
 				fill: false,
-				borderColor: '#17a2b8'
+				borderColor: '%s7a2b8'
 			}]
 		},
 		options: {
@@ -142,3 +162,13 @@ Grocy.Components.ProductCard.ReInitPriceHistoryChart = function()
 		}
 	});
 }
+
+$("#productcard-product-description").on("shown.bs.collapse", function()
+{
+	$(".expandable-text").find("a[data-toggle='collapse']").text(__t("Show less"));
+})
+
+$("#productcard-product-description").on("hidden.bs.collapse", function()
+{
+	$(".expandable-text").find("a[data-toggle='collapse']").text(__t("Show more"));
+})

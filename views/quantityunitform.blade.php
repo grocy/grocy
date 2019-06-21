@@ -1,9 +1,9 @@
 @extends('layout.default')
 
 @if($mode == 'edit')
-	@section('title', $L('Edit quantity unit'))
+	@section('title', $__t('Edit quantity unit'))
 @else
-	@section('title', $L('Create quantity unit'))
+	@section('title', $__t('Create quantity unit'))
 @endif
 
 @section('viewJsName', 'quantityunitform')
@@ -22,22 +22,41 @@
 		<form id="quantityunit-form" novalidate>
 
 			<div class="form-group">
-				<label for="name">{{ $L('Name') }} <span class="small text-muted">{{ $L('in singular form') }}</span></label>
+				<label for="name">{{ $__t('Name') }} <span class="small text-muted">{{ $__t('in singular form') }}</span></label>
 				<input type="text" class="form-control" required id="name" name="name" value="@if($mode == 'edit'){{ $quantityunit->name }}@endif">
-				<div class="invalid-feedback">{{ $L('A name is required') }}</div>
+				<div class="invalid-feedback">{{ $__t('A name is required') }}</div>
 			</div>
 
 			<div class="form-group">
-				<label for="name_plural">{{ $L('Name') }} <span class="small text-muted">{{ $L('in plural form') }}</span></label>
+				<label for="name_plural">{{ $__t('Name') }} <span class="small text-muted">{{ $__t('in plural form') }}</span></label>
 				<input type="text" class="form-control" id="name_plural" name="name_plural" value="@if($mode == 'edit'){{ $quantityunit->name_plural }}@endif">
 			</div>
 
+			@if($pluralCount > 2)
 			<div class="form-group">
-				<label for="description">{{ $L('Description') }}</label>
+				<label for="plural_forms">
+					{{ $__t('Plural forms') }}<br>
+					<span class="small text-muted">
+						{{ $__t('One plural form per line, the current language requires') }}:<br>
+						{{ $__t('Plural count') }}: {{ $pluralCount }}<br>
+						{{ $__t('Plural rule') }}: {{ $pluralRule }}
+					</span>
+				</label>
+				<textarea class="form-control" rows="3" id="plural_forms" name="plural_forms">@if($mode == 'edit'){{ $quantityunit->plural_forms }}@endif</textarea>
+			</div>
+			@endif
+
+			<div class="form-group">
+				<label for="description">{{ $__t('Description') }}</label>
 				<textarea class="form-control" rows="2" id="description" name="description">@if($mode == 'edit'){{ $quantityunit->description }}@endif</textarea>
 			</div>
 
-			<button id="save-quantityunit-button" class="btn btn-success">{{ $L('Save') }}</button>
+			@include('components.userfieldsform', array(
+				'userfields' => $userfields,
+				'entity' => 'quantity_units'
+			))
+
+			<button id="save-quantityunit-button" class="btn btn-success">{{ $__t('Save') }}</button>
 
 		</form>
 	</div>

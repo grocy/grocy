@@ -1,0 +1,49 @@
+# Translators:
+# Bernd Bestel <bernd@berrnd.de>, 2019
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2019\n"
+"Language-Team: French (https://www.transifex.com/grocy/teams/93189/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Domain: grocy/component_translations\n"
+
+msgid "timeago_locale"
+msgstr "fr"
+
+msgid "timeago_nan"
+msgstr "Il y a NaN années"
+
+msgid "moment_locale"
+msgstr "fr"
+
+msgid "datatables_localization"
+msgstr ""
+"{\"sProcessing\":\"Traitement en "
+"cours...\",\"sSearch\":\"Rechercher&nbsp;:\",\"sLengthMenu\":\"Afficher "
+"_MENU_ &eacute;l&eacute;ments\",\"sInfo\":\"Affichage de "
+"l'&eacute;l&eacute;ment _START_ &agrave; _END_ sur _TOTAL_ "
+"&eacute;l&eacute;ments\",\"sInfoEmpty\":\"Affichage de "
+"l'&eacute;l&eacute;ment 0 &agrave; 0 sur 0 "
+"&eacute;l&eacute;ment\",\"sInfoFiltered\":\"(filtr&eacute; de _MAX_ "
+"&eacute;l&eacute;ments au "
+"total)\",\"sInfoPostFix\":\"\",\"sLoadingRecords\":\"Chargement en "
+"cours...\",\"sZeroRecords\":\"Aucun &eacute;l&eacute;ment &agrave; "
+"afficher\",\"sEmptyTable\":\"Aucune donn&eacute;e disponible dans le "
+"tableau\",\"oPaginate\":{\"sFirst\":\"Premier\",\"sPrevious\":\"Pr&eacute;c&eacute;dent\",\"sNext\":\"Suivant\",\"sLast\":\"Dernier\"},\"oAria\":{\"sSortAscending\":\":"
+" activer pour trier la colonne par ordre croissant\",\"sSortDescending\":\":"
+" activer pour trier la colonne par ordre d&eacute;croissant\"}}"
+
+msgid "summernote_locale"
+msgstr "fr-FR"
+
+msgid "fullcalendar_locale"
+msgstr "fr"

@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $L('Chores'))
+@section('title', $__t('Chores'))
 @section('activeNav', 'chores')
 @section('viewJsName', 'chores')
 
@@ -10,7 +10,10 @@
 		<h1>
 			@yield('title')
 			<a class="btn btn-outline-dark" href="{{ $U('/chore/new') }}">
-				<i class="fas fa-plus"></i>&nbsp;{{ $L('Add') }}
+				<i class="fas fa-plus"></i>&nbsp;{{ $__t('Add') }}
+			</a>
+			<a class="btn btn-outline-secondary" href="{{ $U('/userfields?entity=chores') }}">
+				<i class="fas fa-sliders-h"></i>&nbsp;{{ $__t('Configure userfields') }}
 			</a>
 		</h1>
 	</div>
@@ -18,7 +21,7 @@
 
 <div class="row mt-3">
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
+		<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
 	</div>
 </div>
@@ -29,10 +32,14 @@
 		<thead>
 			<tr>
 				<th class="border-right"></th>
-				<th>{{ $L('Name') }}</th>
-				<th>{{ $L('Period type') }}</th>
-				<th>{{ $L('Period days') }}</th>
-				<th>{{ $L('Description') }}</th>
+				<th>{{ $__t('Name') }}</th>
+				<th>{{ $__t('Period type') }}</th>
+				<th>{{ $__t('Description') }}</th>
+
+				@include('components.userfields_thead', array(
+					'userfields' => $userfields
+				))
+
 			</tr>
 		</thead>
 		<tbody class="d-none">
@@ -50,14 +57,17 @@
 					{{ $chore->name }}
 				</td>
 				<td>
-					{{ $L($chore->period_type) }}
-				</td>
-				<td>
-					{{ $chore->period_days }}
+					{{ $__t($chore->period_type) }}
 				</td>
 				<td>
 					{{ $chore->description }}
 				</td>
+
+				@include('components.userfields_tbody', array(
+					'userfields' => $userfields,
+					'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $chore->id)
+				))
+
 			</tr>
 			@endforeach
 		</tbody>

@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $L('Consume'))
+@section('title', $__t('Consume'))
 @section('activeNav', 'consume')
 @section('viewJsName', 'consume')
 
@@ -23,14 +23,14 @@
 				'hintId' => 'amount_qu_unit',
 				'min' => 1,
 				'value' => 1,
-				'invalidFeedback' => $L('The amount cannot be lower than #1', '1'),
-				'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info" class="text-info font-italic d-none">' . $L('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
+				'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
+				'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info" class="text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
 			))
 
 			<div class="form-group">
 				<label for="use_specific_stock_entry">
-					<input type="checkbox" id="use_specific_stock_entry" name="use_specific_stock_entry"> {{ $L('Use a specific stock item') }}
-					<span class="small text-muted">{{ $L('The first item in this list would be picked by the default rule which is "First expiring first, then first in first out"') }}</span>
+					<input type="checkbox" id="use_specific_stock_entry" name="use_specific_stock_entry"> {{ $__t('Use a specific stock item') }}
+					<span class="small text-muted">{{ $__t('The first item in this list would be picked by the default rule which is "First expiring first, then first in first out"') }}</span>
 				</label>
 				<select disabled class="form-control" id="specific_stock_entry" name="specific_stock_entry">
 					<option></option>
@@ -39,7 +39,7 @@
 
 			<div class="checkbox">
 				<label for="spoiled">
-					<input type="checkbox" id="spoiled" name="spoiled"> {{ $L('Spoiled') }}
+					<input type="checkbox" id="spoiled" name="spoiled"> {{ $__t('Spoiled') }}
 				</label>
 			</div>
 
@@ -47,12 +47,12 @@
 			@include('components.recipepicker', array(
 				'recipes' => $recipes,
 				'isRequired' => false,
-				'hint' => $L('This is for statistical purposes only')
+				'hint' => $__t('This is for statistical purposes only')
 			))
 			@endif
 
-			<button id="save-consume-button" class="btn btn-success">{{ $L('OK') }}</button>
-			<button id="save-mark-as-open-button" class="btn btn-secondary">{{ $L('Mark as opened') }}</button>
+			<button id="save-consume-button" class="btn btn-success">{{ $__t('OK') }}</button>
+			<button id="save-mark-as-open-button" class="btn btn-secondary">{{ $__t('Mark as opened') }}</button>
 
 		</form>
 	</div>

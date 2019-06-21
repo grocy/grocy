@@ -31,24 +31,27 @@
 	Grocy.Api.Put('objects/recipes/' + Grocy.EditObjectId, jsonData,
 		function(result)
 		{
-			if (jsonData.hasOwnProperty("picture_file_name") && !Grocy.DeleteRecipePictureOnSave)
+			Grocy.Components.UserfieldsForm.Save(function()
 			{
-				Grocy.Api.UploadFile($("#recipe-picture")[0].files[0], 'recipepictures', jsonData.picture_file_name,
-					function(result)
-					{
-						window.location.href = U('/recipes?recipe=' + Grocy.EditObjectId);
-					},
-					function (xhr)
-					{
-						Grocy.FrontendHelpers.EndUiBusy("recipe-form");
-						Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-					}
-				);
-			}
-			else
-			{
-				window.location.href = U('/recipes?recipe=' + Grocy.EditObjectId);
-			}
+				if (jsonData.hasOwnProperty("picture_file_name") && !Grocy.DeleteRecipePictureOnSave)
+				{
+					Grocy.Api.UploadFile($("#recipe-picture")[0].files[0], 'recipepictures', jsonData.picture_file_name,
+						function (result)
+						{
+							window.location.href = U('/recipes?recipe=' + Grocy.EditObjectId);
+						},
+						function (xhr)
+						{
+							Grocy.FrontendHelpers.EndUiBusy("recipe-form");
+							Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+						}
+					);
+				}
+				else
+				{
+					window.location.href = U('/recipes?recipe=' + Grocy.EditObjectId);
+				}
+			});
 		},
 		function(xhr)
 		{
@@ -66,7 +69,7 @@ var recipesPosTables = $('#recipes-pos-table').DataTable({
 		{ 'orderable': false, 'targets': 0 },
 		{ 'visible': false, 'targets': 4 }
 	],
-	'language': JSON.parse(L('datatables_localization')),
+	'language': JSON.parse(__t('datatables_localization')),
 	'scrollY': false,
 	'colReorder': true,
 	'stateSave': true,
@@ -92,7 +95,7 @@ var recipesIncludesTables = $('#recipes-includes-table').DataTable({
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 }
 	],
-	'language': JSON.parse(L('datatables_localization')),
+	'language': JSON.parse(__t('datatables_localization')),
 	'scrollY': false,
 	'colReorder': true,
 	'stateSave': true,
@@ -140,14 +143,14 @@ $(document).on('click', '.recipe-pos-delete-button', function(e)
 	var objectId = $(e.currentTarget).attr('data-recipe-pos-id');
 
 	bootbox.confirm({
-		message: L('Are you sure to delete recipe ingredient "#1"?', objectName),
+		message: __t('Are you sure to delete recipe ingredient "%s"?', objectName),
 		buttons: {
 			confirm: {
-				label: L('Yes'),
+				label: __t('Yes'),
 				className: 'btn-success'
 			},
 			cancel: {
-				label: L('No'),
+				label: __t('No'),
 				className: 'btn-danger'
 			}
 		},
@@ -177,14 +180,14 @@ $(document).on('click', '.recipe-include-delete-button', function(e)
 	var objectId = $(e.currentTarget).attr('data-recipe-include-id');
 
 	bootbox.confirm({
-		message: L('Are you sure to remove included recipe "#1"?', objectName),
+		message: __t('Are you sure to remove included recipe "%s"?', objectName),
 		buttons: {
 			confirm: {
-				label: L('Yes'),
+				label: __t('Yes'),
 				className: 'btn-success'
 			},
 			cancel: {
-				label: L('No'),
+				label: __t('No'),
 				className: 'btn-danger'
 			}
 		},
@@ -240,7 +243,7 @@ $(document).on('click', '.recipe-include-edit-button', function (e)
 	Grocy.Api.Put('objects/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(),
 		function(result)
 		{
-			$("#recipe-include-editform-title").text(L("Edit included recipe"));
+			$("#recipe-include-editform-title").text(__t("Edit included recipe"));
 			$("#recipe-include-form").data("edit-mode", "edit");
 			$("#recipe-include-form").data("recipe-nesting-id", id);
 			Grocy.Components.RecipePicker.SetId(recipeId);
@@ -274,7 +277,7 @@ $("#recipe-include-add-button").on("click", function(e)
 	Grocy.Api.Put('objects/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(),
 		function(result)
 		{
-			$("#recipe-include-editform-title").text(L("Add included recipe"));
+			$("#recipe-include-editform-title").text(__t("Add included recipe"));
 			$("#recipe-include-form").data("edit-mode", "create");
 			Grocy.Components.RecipePicker.Clear();
 			$("#recipe-include-editform-modal").modal("show");
@@ -343,5 +346,7 @@ $('#delete-current-recipe-picture-button').on('click', function (e)
 
 $('#description').summernote({
 	minHeight: '300px',
-	lang: L('summernote_locale')
+	lang: __t('summernote_locale')
 });
+
+Grocy.Components.UserfieldsForm.Load();

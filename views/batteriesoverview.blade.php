@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $L('Batteries overview'))
+@section('title', $__t('Batteries overview'))
 @section('activeNav', 'batteriesoverview')
 @section('viewJsName', 'batteriesoverview')
 
@@ -13,7 +13,7 @@
 	<div class="col">
 		<h1>@yield('title')
 			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/batteriesjournal') }}">
-				<i class="fas fa-file-alt"></i> {{ $L('Journal') }}
+				<i class="fas fa-file-alt"></i> {{ $__t('Journal') }}
 			</a>
 		</h1>
 		<p id="info-due-batteries" data-status-filter="duesoon" data-next-x-days="{{ $nextXDays }}" class="btn btn-lg btn-warning status-filter-button responsive-button mr-2"></p>
@@ -23,15 +23,15 @@
 
 <div class="row mt-3">
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
+		<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
 	</div>
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="status-filter">{{ $L('Filter by status') }}</label> <i class="fas fa-filter"></i>
+		<label for="status-filter">{{ $__t('Filter by status') }}</label> <i class="fas fa-filter"></i>
 		<select class="form-control" id="status-filter">
-			<option class="bg-white" value="all">{{ $L('All') }}</option>
-			<option class="bg-warning" value="duesoon">{{ $L('Due soon') }}</option>
-			<option class="bg-danger" value="overdue">{{ $L('Overdue') }}</option>
+			<option class="bg-white" value="all">{{ $__t('All') }}</option>
+			<option class="bg-warning" value="duesoon">{{ $__t('Due soon') }}</option>
+			<option class="bg-danger" value="overdue">{{ $__t('Overdue') }}</option>
 		</select>
 	</div>
 </div>
@@ -42,17 +42,22 @@
 			<thead>
 				<tr>
 					<th class="border-right"></th>
-					<th>{{ $L('Battery') }}</th>
-					<th>{{ $L('Last charged') }}</th>
-					<th>{{ $L('Next planned charge cycle') }}</th>
+					<th>{{ $__t('Battery') }}</th>
+					<th>{{ $__t('Last charged') }}</th>
+					<th>{{ $__t('Next planned charge cycle') }}</th>
 					<th class="d-none">Hidden status</th>
+
+					@include('components.userfields_thead', array(
+						'userfields' => $userfields
+					))
+					
 				</tr>
 			</thead>
 			<tbody class="d-none">
 				@foreach($current as $curentBatteryEntry)
 				<tr id="battery-{{ $curentBatteryEntry->battery_id }}-row" class="@if(FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0 && $curentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s')) table-danger @elseif(FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0 && $curentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) table-warning @endif">
 					<td class="fit-content border-right">
-						<a class="btn btn-success btn-sm track-charge-cycle-button" href="#" data-toggle="tooltip" data-placement="left" title="{{ $L('Track charge cycle of battery #1', FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->name) }}"
+						<a class="btn btn-success btn-sm track-charge-cycle-button" href="#" data-toggle="tooltip" data-placement="left" title="{{ $__t('Track charge cycle of battery %s', FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->name) }}"
 							data-battery-id="{{ $curentBatteryEntry->battery_id }}"
 							data-battery-name="{{ FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->name }}">
 							<i class="fas fa-fire"></i>
@@ -63,13 +68,13 @@
 							</button>
 							<div class="dropdown-menu">
 								<a class="dropdown-item battery-name-cell" data-chore-id="{{ $curentBatteryEntry->battery_id }}" type="button" href="#">
-									<i class="fas fa-info"></i> {{ $L('Show battery details') }}
+									<i class="fas fa-info"></i> {{ $__t('Show battery details') }}
 								</a>
 								<a class="dropdown-item" type="button" href="{{ $U('/batteriesjournal?battery=') }}{{ $curentBatteryEntry->battery_id }}">
-									<i class="fas fa-file-alt"></i> {{ $L('Journal for this battery') }}
+									<i class="fas fa-file-alt"></i> {{ $__t('Journal for this battery') }}
 								</a>
 								<a class="dropdown-item" type="button" href="{{ $U('/battery/') }}{{ $curentBatteryEntry->battery_id }}">
-									<i class="fas fa-edit"></i> {{ $L('Edit battery') }}
+									<i class="fas fa-edit"></i> {{ $__t('Edit battery') }}
 								</a>
 							</div>
 						</div>
@@ -92,6 +97,12 @@
 					<td class="d-none">
 						"@if(FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0 && $curentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s')) overdue @elseif(FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0 && $curentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) duesoon @endif
 					</td>
+
+					@include('components.userfields_tbody', array(
+						'userfields' => $userfields,
+						'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $curentBatteryEntry->battery_id)
+					))
+
 				</tr>
 				@endforeach
 			</tbody>
@@ -106,7 +117,7 @@
 				@include('components.batterycard')
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">{{ $L('Close') }}</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">{{ $__t('Close') }}</button>
 			</div>
 		</div>
 	</div>

@@ -1,56 +1,40 @@
 @extends('layout.default')
 
 @if($mode == 'edit')
-	@section('title', $L('Edit shopping list item'))
+	@section('title', $__t('Edit shopping list'))
 @else
-	@section('title', $L('Create shopping list item'))
+	@section('title', $__t('Create shopping list'))
 @endif
 
 @section('viewJsName', 'shoppinglistform')
 
 @section('content')
 <div class="row">
-	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
+	<div class="col-lg-6 col-xs-12">
 		<h1>@yield('title')</h1>
 
 		<script>Grocy.EditMode = '{{ $mode }}';</script>
 
 		@if($mode == 'edit')
-			<script>Grocy.EditObjectId = {{ $listItem->id }};</script>
+			<script>Grocy.EditObjectId = {{ $shoppingList->id }};</script>
 		@endif
 
-		<form id="shoppinglist-form" novalidate>
-
-			@php if($mode == 'edit') { $productId = $listItem->product_id; } else { $productId = ''; } @endphp
-			@include('components.productpicker', array(
-				'products' => $products,
-				'nextInputSelector' => '#amount',
-				'isRequired' => false,
-				'prefillById' => $productId
-			))
-
-			@php if($mode == 'edit') { $value = $listItem->amount; } else { $value = 1; } @endphp
-			@include('components.numberpicker', array(
-				'id' => 'amount',
-				'label' => 'Amount',
-				'hintId' => 'amount_qu_unit',
-				'min' => 0,
-				'value' => $value,
-				'invalidFeedback' => $L('The amount cannot be lower than #1', '1')
-			))
+		<form id="shopping-list-form" novalidate>
 
 			<div class="form-group">
-				<label for="note">{{ $L('Note') }}</label>
-				<textarea class="form-control" rows="2" id="note" name="note">@if($mode == 'edit'){{ $listItem->note }}@endif</textarea>
+				<label for="name">{{ $__t('Name') }}</label>
+				<input type="text" class="form-control" required id="name" name="name" value="@if($mode == 'edit'){{ $shoppingList->name }}@endif">
+				<div class="invalid-feedback">{{ $__t('A name is required') }}</div>
 			</div>
 
-			<button id="save-shoppinglist-button" class="btn btn-success">{{ $L('Save') }}</button>
+			<div class="form-group">
+				<label for="description">{{ $__t('Description') }}</label>
+				<textarea class="form-control" rows="2" id="description" name="description">@if($mode == 'edit'){{ $shoppingList->description }}@endif</textarea>
+			</div>
+
+			<button id="save-shopping-list-button" class="btn btn-success">{{ $__t('Save') }}</button>
 
 		</form>
-	</div>
-
-	<div class="col-xs-12 col-md-6 col-xl-4">
-		@include('components.productcard')
 	</div>
 </div>
 @stop

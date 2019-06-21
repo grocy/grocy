@@ -1,16 +1,16 @@
 @extends('layout.default')
 
 @if($mode == 'edit')
-	@section('title', $L('Edit recipe'))
+	@section('title', $__t('Edit recipe'))
 @else
-	@section('title', $L('Create recipe'))
+	@section('title', $__t('Create recipe'))
 @endif
 
 @section('viewJsName', 'recipeform')
 
 @push('pageScripts')
 	<script src="{{ $U('/node_modules/summernote/dist/summernote-bs4.js?v=', true) }}{{ $version }}"></script>
-	@if(!empty($L('summernote_locale') && $L('summernote_locale') != 'x'))<script src="{{ $U('/node_modules', true) }}/summernote/dist/lang/summernote-{{ $L('summernote_locale') }}.js?v={{ $version }}"></script>@endif
+	@if(!empty($__t('summernote_locale') && $__t('summernote_locale') != 'x'))<script src="{{ $U('/node_modules', true) }}/summernote/dist/lang/summernote-{{ $__t('summernote_locale') }}.js?v={{ $version }}"></script>@endif
 	<script src="{{ $U('/node_modules/datatables.net-rowgroup/js/dataTables.rowGroup.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/datatables.net-rowgroup-bs4/js/rowGroup.bootstrap4.min.js?v=', true) }}{{ $version }}"></script>
 @endpush
@@ -42,13 +42,13 @@
 		<form id="recipe-form" novalidate>
 
 			<div class="form-group">
-				<label for="name">{{ $L('Name') }}</label>
+				<label for="name">{{ $__t('Name') }}</label>
 				<input type="text" class="form-control" required id="name" name="name" value="@if($mode == 'edit'){{ $recipe->name }}@endif">
-				<div class="invalid-feedback">{{ $L('A name is required') }}</div>
+				<div class="invalid-feedback">{{ $__t('A name is required') }}</div>
 			</div>
 
 			<div class="form-group">
-				<label for="description">{{ $L('Preparation') }}</label>
+				<label for="description">{{ $__t('Preparation') }}</label>
 				<textarea id="description" class="form-control" name="description">@if($mode == 'edit'){{ $recipe->description }}@endif</textarea>
 			</div>
 
@@ -58,31 +58,36 @@
 				'label' => 'Servings',
 				'min' => 1,
 				'value' => $value,
-				'invalidFeedback' => $L('This cannot be lower than #1', '1'),
-				'hint' => $L('The ingredients listed here result in this amount of servings')
+				'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
+				'hint' => $__t('The ingredients listed here result in this amount of servings')
 			))
 
 			<div class="form-group">
 				<div class="form-check">
 					<input type="hidden" name="not_check_shoppinglist" value="0">
 					<input @if($mode == 'edit' && $recipe->not_check_shoppinglist == 1) checked @endif class="form-check-input" type="checkbox" id="not_check_shoppinglist" name="not_check_shoppinglist" value="1">
-					<label class="form-check-label" for="not_check_shoppinglist">{{ $L('Do not check against the shopping list when adding missing items to it') }}&nbsp;&nbsp;
-						<span class="small text-muted">{{ $L('By default the amount to be added to the shopping list is "needed amount - stock amount - shopping list amount" - when this is enabled, it is only checked against the stock amount, not against what is already on the shopping list') }}</span>
+					<label class="form-check-label" for="not_check_shoppinglist">{{ $__t('Do not check against the shopping list when adding missing items to it') }}&nbsp;&nbsp;
+						<span class="small text-muted">{{ $__t('By default the amount to be added to the shopping list is "needed amount - stock amount - shopping list amount" - when this is enabled, it is only checked against the stock amount, not against what is already on the shopping list') }}</span>
 					</label>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="recipe-picture">{{ $L('Picture') }}
-					<span class="text-muted small">{{ $L('If you don\'t select a file, the current picture will not be altered') }}</span>
+				<label for="recipe-picture">{{ $__t('Picture') }}
+					<span class="text-muted small">{{ $__t('If you don\'t select a file, the current picture will not be altered') }}</span>
 				</label>
 				<div class="custom-file">
 					<input type="file" class="custom-file-input" id="recipe-picture" accept="image/*">
-					<label class="custom-file-label" for="recipe-picture">{{ $L('No file selected') }}</label>
+					<label class="custom-file-label" for="recipe-picture">{{ $__t('No file selected') }}</label>
 				</div>
 			</div>
 
-			<button id="save-recipe-button" class="btn btn-success">{{ $L('Save') }}</button>
+			@include('components.userfieldsform', array(
+				'userfields' => $userfields,
+				'entity' => 'recipes'
+			))
+
+			<button id="save-recipe-button" class="btn btn-success">{{ $__t('Save') }}</button>
 
 		</form>
 	</div>
@@ -91,9 +96,9 @@
 		<div class="row">
 			<div class="col">
 				<h2>
-					{{ $L('Ingredients list') }}
+					{{ $__t('Ingredients list') }}
 					<a id="recipe-pos-add-button" class="btn btn-outline-dark" href="#">
-						<i class="fas fa-plus"></i> {{ $L('Add') }}
+						<i class="fas fa-plus"></i> {{ $__t('Add') }}
 					</a>
 				</h2>
 				
@@ -101,9 +106,9 @@
 					<thead>
 						<tr>
 							<th class="border-right"></th>
-							<th>{{ $L('Product') }}</th>
-							<th>{{ $L('Amount') }}</th>
-							<th class="fit-content">{{ $L('Note') }}</th>
+							<th>{{ $__t('Product') }}</th>
+							<th>{{ $__t('Amount') }}</th>
+							<th class="fit-content">{{ $__t('Note') }}</th>
 							<th class="d-none">Hiden ingredient group</th>
 						</tr>
 					</thead>
@@ -123,10 +128,15 @@
 								{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id)->name }}
 							</td>
 							<td>
-								@if($recipePosition->amount == round($recipePosition->amount)){{ round($recipePosition->amount) }}@else{{ $recipePosition->amount }}@endif {{ Pluralize($recipePosition->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', $recipePosition->qu_id)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', $recipePosition->qu_id)->name_plural) }}
+								@if(!empty($recipePosition->variable_amount))
+									{{ $recipePosition->variable_amount }}
+								@else
+									@if($recipePosition->amount == round($recipePosition->amount)){{ round($recipePosition->amount) }}@else{{ $recipePosition->amount }}@endif
+								@endif
+								{{ $__n($recipePosition->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', $recipePosition->qu_id)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', $recipePosition->qu_id)->name_plural) }}
 							</td>
 							<td class="fit-content">
-								<a class="btn btn-sm btn-info recipe-pos-show-note-button @if(empty($recipePosition->note)) disabled @endif" href="#" data-toggle="tooltip" data-placement="top" title="{{ $L('Show notes') }}" data-recipe-pos-note="{{ $recipePosition->note }}">
+								<a class="btn btn-sm btn-info recipe-pos-show-note-button @if(empty($recipePosition->note)) disabled @endif" href="#" data-toggle="tooltip" data-placement="top" title="{{ $__t('Show notes') }}" data-recipe-pos-note="{{ $recipePosition->note }}">
 									<i class="fas fa-eye"></i>
 								</a>
 							</td>
@@ -144,17 +154,17 @@
 		<div class="row mt-5">
 			<div class="col">
 				<h2>
-					{{ $L('Included recipes') }}
+					{{ $__t('Included recipes') }}
 					<a id="recipe-include-add-button" class="btn btn-outline-dark" href="#">
-						<i class="fas fa-plus"></i> {{ $L('Add') }}
+						<i class="fas fa-plus"></i> {{ $__t('Add') }}
 					</a>
 				</h2>
 				<table id="recipes-includes-table" class="table table-sm table-striped dt-responsive">
 					<thead>
 						<tr>
 							<th class="border-right"></th>
-							<th>{{ $L('Recipe') }}</th>
-							<th>{{ $L('Servings') }}</th>
+							<th>{{ $__t('Recipe') }}</th>
+							<th>{{ $__t('Servings') }}</th>
 						</tr>
 					</thead>
 					<tbody class="d-none">
@@ -185,13 +195,13 @@
 
 		<div class="row mt-5">
 			<div class="col">
-				<label class="mt-2">{{ $L('Picture') }}</label>
-				<button id="delete-current-recipe-picture-button" class="btn btn-sm btn-danger @if(empty($recipe->picture_file_name)) disabled @endif"><i class="fas fa-trash"></i> {{ $L('Delete') }}</button>
+				<label class="mt-2">{{ $__t('Picture') }}</label>
+				<button id="delete-current-recipe-picture-button" class="btn btn-sm btn-danger @if(empty($recipe->picture_file_name)) disabled @endif"><i class="fas fa-trash"></i> {{ $__t('Delete') }}</button>
 				@if(!empty($recipe->picture_file_name))
 					<p><img id="current-recipe-picture" src="{{ $U('/api/files/recipepictures/' . base64_encode($recipe->picture_file_name)) }}" class="img-fluid img-thumbnail mt-2"></p>
-					<p id="delete-current-recipe-picture-on-save-hint" class="form-text text-muted font-italic d-none">{{ $L('The current picture will be deleted when you save the recipe') }}</p>
+					<p id="delete-current-recipe-picture-on-save-hint" class="form-text text-muted font-italic d-none">{{ $__t('The current picture will be deleted when you save the recipe') }}</p>
 				@else
-					<p id="no-current-recipe-picture-hint" class="form-text text-muted font-italic">{{ $L('No picture available') }}</p>
+					<p id="no-current-recipe-picture-hint" class="form-text text-muted font-italic">{{ $__t('No picture available') }}</p>
 				@endif
 			</div>
 		</div>
@@ -217,14 +227,14 @@
 						'label' => 'Servings',
 						'min' => 1,
 						'value' => '1',
-						'invalidFeedback' => $L('This cannot be lower than #1', '1')
+						'invalidFeedback' => $__t('This cannot be lower than %s', '1')
 					))
 
 				</form>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">{{ $L('Cancel') }}</button>
-				<button id="save-recipe-include-button" data-dismiss="modal" class="btn btn-success">{{ $L('Save') }}</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">{{ $__t('Cancel') }}</button>
+				<button id="save-recipe-include-button" data-dismiss="modal" class="btn btn-success">{{ $__t('Save') }}</button>
 			</div>
 		</div>
 	</div>

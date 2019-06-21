@@ -2,118 +2,144 @@
 
 namespace Grocy\Services;
 
+use \Grocy\Services\DatabaseService;
+use \Gettext\Translation;
+use \Gettext\Translations;
+use \Gettext\Translator;
+
 class LocalizationService
 {
-	const DEFAULT_CULTURE = 'en';
-
 	public function __construct(string $culture)
 	{
 		$this->Culture = $culture;
+		$this->DatabaseService = new DatabaseService();
+		$this->Database = $this->DatabaseService->GetDbConnection();
 
-		$this->StringsDefaultCulture = $this->LoadLocalizations(self::DEFAULT_CULTURE);
-		$this->StringsCurrentCulture = $this->LoadLocalizations($culture);
-		$this->StringsMerged = array_merge($this->StringsDefaultCulture, $this->StringsCurrentCulture);
+		$this->LoadLocalizations($culture);
 	}
 
-	protected $Culture;
-	protected $StringsDefaultCulture;
-	protected $StringsCurrentCulture;
-	protected $StringsMerged;
+	protected $DatabaseService;
+	protected $Database;
+	protected $Pot;
+	protected $PotMain;
+	protected $Po;
+	protected $PoUserStrings;
+	protected $Translator;
 
-	private function LoadLocalizations(string $culture)
+	private function LoadLocalizations()
 	{
-		$folder = __DIR__ . "/../localization/$culture/";
+		$culture = $this->Culture;
 
-		$localizationFiles = array(
-			'strings.php',
-			'stock_transaction_types.php',
-			'chore_types.php',
-			'component_translations.php',
-			'demo_data.php'
-		);
-
-		$stringsCombined = array();
-		foreach ($localizationFiles as $localizationFile)
+		if (GROCY_MODE === 'dev')
 		{
-			$file = $folder . $localizationFile;
-			if (file_exists($file))
+			$this->PotMain = Translations::fromPoFile(__DIR__ . '/../localization/strings.pot');
+
+			$this->Pot = Translations::fromPoFile(__DIR__ . '/../localization/chore_types.pot');
+			$this->Pot = $this->Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/component_translations.pot'));
+			$this->Pot = $this->Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/demo_data.pot'));
+			$this->Pot = $this->Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/stock_transaction_types.pot'));
+			$this->Pot = $this->Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/strings.pot'));
+			$this->Pot = $this->Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/userfield_types.pot'));
+		}
+
+		$this->PoUserStrings = new Translations();
+		$this->PoUserStrings->setDomain('grocy/userstrings');
+
+		$this->Po = Translations::fromPoFile(__DIR__ . "/../localization/$culture/chore_types.po");
+		$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/component_translations.po"));
+		$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/demo_data.po"));
+		$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/stock_transaction_types.po"));
+		$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/strings.po"));
+		$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/userfield_types.po"));
+
+		$quantityUnits = null;
+		try
+		{
+			$quantityUnits = $this->Database->quantity_units()->fetchAll();
+		}
+		catch (\Exception $ex)
+		{
+			// Happens when database is not initialised or migrated...
+		}
+
+		if ($quantityUnits !== null)
+		{
+			foreach ($quantityUnits as $quantityUnit)
 			{
-				$currentStrings = require $file;
-				$stringsCombined = array_merge($stringsCombined, $currentStrings);
+				$translation = new Translation('', $quantityUnit['name']);
+				$translation->setTranslation($quantityUnit['name']);
+				$translation->setPlural($quantityUnit['name_plural']);
+				$translation->setPluralTranslations(preg_split('/\r\n|\r|\n/', $quantityUnit['plural_forms']));
+
+				$this->PoUserStrings[] = $translation;
 			}
+			$this->Po = $this->Po->mergeWith($this->PoUserStrings);
 		}
 
-		return $stringsCombined;
+		$this->Translator = new Translator();
+		$this->Translator->loadTranslations($this->Po);
 	}
 
-	public function LogMissingLocalization(string $culture, string $text)
+	public function GetPoAsJsonString()
 	{
-		$file = GROCY_DATAPATH . "/missing_translations_$culture.json";
+		return $this->Po->toJsonString();
+	}
 
-		$missingTranslations = array();
-		if (file_exists($file))
+	public function GetPluralCount()
+	{
+		if ($this->Po->getHeader(Translations::HEADER_PLURAL) !== null)
 		{
-			$missingTranslations = json_decode(file_get_contents($file), true);
+			return $this->Po->getPluralForms()[0];
 		}
-
-		if (!array_key_exists($text, $missingTranslations))
+		else
 		{
-			$missingTranslations[$text] = '#TranslationMissing#';
-		}
-
-		if (count($missingTranslations) > 0)
-		{
-			file_put_contents($file, json_encode($missingTranslations, JSON_PRETTY_PRINT));
+			return 2;
 		}
 	}
 
-	public function Localize(string $text, ...$placeholderValues)
+	public function GetPluralDefinition()
+	{
+		if ($this->Po->getHeader(Translations::HEADER_PLURAL) !== null)
+		{
+			return $this->Po->getPluralForms()[1];
+		}
+		else
+		{
+			return '(n != 1)';
+		}
+	}
+
+	public function __t($text, ...$placeholderValues)
+	{
+		$this->CheckAndAddMissingTranslationToPot($text);
+
+		if (func_num_args() === 1)
+		{
+			return $this->Translator->gettext($text);
+		}
+		else
+		{
+			return vsprintf($this->Translator->gettext($text), ...$placeholderValues);
+		}
+	}
+
+	public function __n($number, $singularForm, $pluralForm)
+	{
+		$this->CheckAndAddMissingTranslationToPot($singularForm);
+
+		return sprintf($this->Translator->ngettext($singularForm, $pluralForm, $number), $number);
+	}
+
+	public function CheckAndAddMissingTranslationToPot($text)
 	{
 		if (GROCY_MODE === 'dev')
 		{
-			if (!array_key_exists($text, $this->StringsDefaultCulture))
+			if ($this->Pot->find('', $text) === false && $this->PoUserStrings->find('', $text) === false)
 			{
-				$this->LogMissingLocalization(self::DEFAULT_CULTURE, $text);
-			}
-
-			if (!array_key_exists($text, $this->StringsCurrentCulture))
-			{
-				$this->LogMissingLocalization($this->Culture, $text);
+				$translation = new Translation('', $text);
+				$this->PotMain[] = $translation;
+				$this->PotMain->toPoFile(__DIR__ . '/../localization/strings.pot');
 			}
 		}
-
-		$localizedText = $text;
-		if (array_key_exists($text, $this->StringsMerged))
-		{
-			$localizedText = $this->StringsMerged[$text];
-		}
-
-		for ($i = 0; $i < count($placeholderValues); $i++)
-		{
-			$localizedText = str_replace('#' . ($i + 1), $placeholderValues[$i], $localizedText);
-		}
-
-		return $localizedText;
-	}
-
-	public function LocalizeForSqlString(string $text, ...$placeholderValues)
-	{
-		$localizedText = $this->Localize($text, $placeholderValues);
-		return str_replace("'", "''", $localizedText);
-	}
-
-	public function GetLocalizations()
-	{
-		return $this->StringsMerged;
-	}
-
-	public function GetDefaultCultureLocalizations()
-	{
-		return $this->StringsDefaultCulture;
-	}
-
-	public function GetCurrentCultureLocalizations()
-	{
-		return $this->StringsCurrentCulture;
 	}
 }

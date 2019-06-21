@@ -2,7 +2,7 @@
 {
 	e.preventDefault();
 
-	var jsonData = $('#chore-form').serializeJSON();
+	var jsonData = $('#chore-form').serializeJSON({ checkboxUncheckedValue: "0" });
 	Grocy.FrontendHelpers.BeginUiBusy("chore-form");
 
 	if (Grocy.EditMode === 'create')
@@ -10,7 +10,11 @@
 		Grocy.Api.Post('objects/chores', jsonData,
 			function(result)
 			{
-				window.location.href = U('/chores');
+				Grocy.EditObjectId = result.created_object_id;
+				Grocy.Components.UserfieldsForm.Save(function()
+				{
+					window.location.href = U('/chores');
+				});
 			},
 			function(xhr)
 			{
@@ -24,7 +28,10 @@
 		Grocy.Api.Put('objects/chores/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
-				window.location.href = U('/chores');
+				Grocy.Components.UserfieldsForm.Save(function()
+				{
+					window.location.href = U('/chores');
+				});
 			},
 			function(xhr)
 			{
@@ -57,6 +64,16 @@ $('#chore-form input').keydown(function(event)
 	}
 });
 
+var checkboxValues = $("#period_config").val().split(",");
+for (var i = 0; i < checkboxValues.length; i++)
+{
+	if (!checkboxValues[i].isEmpty())
+	{
+		$("#" + checkboxValues[i]).prop('checked', true);
+	}
+}
+
+Grocy.Components.UserfieldsForm.Load();
 $('#name').focus();
 Grocy.FrontendHelpers.ValidateForm('chore-form');
 
@@ -70,13 +87,36 @@ $('.input-group-chore-period-type').on('change', function(e)
 	var periodType = $('#period_type').val();
 	var periodDays = $('#period_days').val();
 
-	if (periodType === 'dynamic-regular')
+	$(".period-type-input").addClass("d-none");
+	$(".period-type-" + periodType).removeClass("d-none");
+	$('#chore-period-type-info').text("");
+	$("#period_config").val("");
+
+	if (periodType === 'manually')
 	{
-		$('#chore-period-type-info').text(L('This means it is estimated that a new execution of this chore is tracked #1 days after the last was tracked', periodDays.toString()));
-		$('#chore-period-type-info').removeClass('d-none');
+		//
 	}
-	else
+	else if (periodType === 'dynamic-regular')
 	{
-		$('#chore-period-type-info').addClass('d-none');
+		$("label[for='period_days']").text(__t("Period days"));
+		$("#period_days").attr("min", "0");
+		$("#period_days").attr("max", "9999");
+		$("#period_days").parent().find(".invalid-feedback").text(__t('This cannot be negative'));
+		$('#chore-period-type-info').text(__t('This means it is estimated that a new execution of this chore is tracked %s days after the last was tracked', periodDays.toString()));
+	}
+	else if (periodType === 'daily')
+	{
+		//
+	}
+	else if (periodType === 'weekly')
+	{
+		$("#period_config").val($(".period-type-weekly input:checkbox:checked").map(function () { return this.value; }).get().join(","));
+	}
+	else if (periodType === 'monthly')
+	{
+		$("label[for='period_days']").text(__t("Day of month"));
+		$("#period_days").attr("min", "1");
+		$("#period_days").attr("max", "31");
+		$("#period_days").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', "1", "31"));
 	}
 });

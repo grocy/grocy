@@ -26,7 +26,7 @@ class CalendarService extends BaseService
 	public function GetEvents()
 	{
 		$products = $this->Database->products();
-		$titlePrefix = $this->LocalizationService->Localize('Product expires') . ': ';
+		$titlePrefix = $this->LocalizationService->__t('Product expires') . ': ';
 		$stockEvents = array();
 		foreach($this->StockService->GetCurrentStock() as $currentStockEntry)
 		{
@@ -40,7 +40,7 @@ class CalendarService extends BaseService
 			}
 		}
 
-		$titlePrefix = $this->LocalizationService->Localize('Task due') . ': ';
+		$titlePrefix = $this->LocalizationService->__t('Task due') . ': ';
 		$taskEvents = array();
 		foreach($this->TasksService->GetCurrent() as $currentTaskEntry)
 		{
@@ -52,7 +52,7 @@ class CalendarService extends BaseService
 		}
 
 		$chores = $this->Database->chores();
-		$titlePrefix = $this->LocalizationService->Localize('Chore due') . ': ';
+		$titlePrefix = $this->LocalizationService->__t('Chore due') . ': ';
 		$choreEvents = array();
 		foreach($this->ChoresService->GetCurrent() as $currentChoreEntry)
 		{
@@ -64,7 +64,7 @@ class CalendarService extends BaseService
 		}
 
 		$batteries = $this->Database->batteries();
-		$titlePrefix = $this->LocalizationService->Localize('Battery charge cycle due') . ': ';
+		$titlePrefix = $this->LocalizationService->__t('Battery charge cycle due') . ': ';
 		$batteryEvents = array();
 		foreach($this->BatteriesService->GetCurrent() as $currentBatteryEntry)
 		{

@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $L('Equipment'))
+@section('title', $__t('Equipment'))
 @section('activeNav', 'equipment')
 @section('viewJsName', 'equipment')
 
@@ -11,17 +11,22 @@
 		<h1>
 			@yield('title')
 			<a class="btn btn-outline-dark" href="{{ $U('/equipment/new') }}">
-				<i class="fas fa-plus"></i>&nbsp;{{ $L('Add') }}
+				<i class="fas fa-plus"></i>&nbsp;{{ $__t('Add') }}
 			</a>
 		</h1>
 
-		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
+		<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
 
 		<table id="equipment-table" class="table table-striped dt-responsive">
 			<thead>
 				<tr>
-					<th>{{ $L('Name') }}</th>
+					<th>{{ $__t('Name') }}</th>
+
+					@include('components.userfields_thead', array(
+						'userfields' => $userfields
+					))
+					
 				</tr>
 			</thead>
 			<tbody class="d-none">
@@ -30,6 +35,12 @@
 					<td>
 						{{ $equipmentItem->name }}
 					</td>
+
+					@include('components.userfields_tbody', array(
+						'userfields' => $userfields,
+						'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $equipmentItem->id)
+					))
+
 				</tr>
 				@endforeach
 			</tbody>
@@ -39,10 +50,10 @@
 	<div class="col-xs-12 col-md-8">
 		<ul class="nav nav-tabs">
 			<li class="nav-item">
-				<a class="nav-link active" data-toggle="tab" href="#instruction-manual-tab">{{ $L('Instruction manual') }}</a>
+				<a class="nav-link active" data-toggle="tab" href="#instruction-manual-tab">{{ $__t('Instruction manual') }}</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" data-toggle="tab" href="#description-tab">{{ $L('Notes') }}</a>
+				<a class="nav-link" data-toggle="tab" href="#description-tab">{{ $__t('Notes') }}</a>
 			</li>
 		</ul>
 		<div class="tab-content">
@@ -56,12 +67,12 @@
 						<a class="btn btn-sm btn-outline-danger py-0 equipment-delete-button" href="#" data-equipment-id="{{ $equipmentItem->id }}" data-equipment-name="{{ $equipmentItem->name }}">
 							<i class="fas fa-trash"></i>
 						</a>
-						<a id="selectedEquipmentInstructionManualToggleFullscreenButton" class="btn btn-sm btn-outline-secondary py-0 float-right" href="#" data-toggle="tooltip" title="{{ $L('Expand to fullscreen') }}">
+						<a id="selectedEquipmentInstructionManualToggleFullscreenButton" class="btn btn-sm btn-outline-secondary py-0 float-right" href="#" data-toggle="tooltip" title="{{ $__t('Expand to fullscreen') }}">
 							<i class="fas fa-expand-arrows-alt"></i>
 						</a>
 					</div>
 					<div class="card-body py-0 px-0">
-						<p id="selected-equipment-has-no-instruction-manual-hint" class="text-muted font-italic d-none">{{ $L('The selected equipment has no instruction manual') }}</p>
+						<p id="selected-equipment-has-no-instruction-manual-hint" class="text-muted font-italic d-none">{{ $__t('The selected equipment has no instruction manual') }}</p>
 						<embed id="selected-equipment-instruction-manual" class="embed-responsive embed-responsive-4by3" src="" type="application/pdf">
 					</div>
 				</div>
@@ -76,7 +87,7 @@
 						<a class="btn btn-sm btn-outline-danger py-0 equipment-delete-button" href="#" data-equipment-id="{{ $equipmentItem->id }}" data-equipment-name="{{ $equipmentItem->name }}">
 							<i class="fas fa-trash"></i>
 						</a>
-						<a id="selectedEquipmentDescriptionToggleFullscreenButton" class="btn btn-sm btn-outline-secondary py-0 float-right" href="#" data-toggle="tooltip" title="{{ $L('Expand to fullscreen') }}">
+						<a id="selectedEquipmentDescriptionToggleFullscreenButton" class="btn btn-sm btn-outline-secondary py-0 float-right" href="#" data-toggle="tooltip" title="{{ $__t('Expand to fullscreen') }}">
 							<i class="fas fa-expand-arrows-alt"></i>
 						</a>
 					</div>

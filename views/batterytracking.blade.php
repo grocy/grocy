@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $L('Battery tracking'))
+@section('title', $__t('Battery tracking'))
 @section('activeNav', 'batterytracking')
 @section('viewJsName', 'batterytracking')
 
@@ -12,14 +12,14 @@
 		<form id="batterytracking-form" novalidate>
 
 			<div class="form-group">
-				<label for="battery_id">{{ $L('Battery') }}</label>
+				<label for="battery_id">{{ $__t('Battery') }}</label>
 				<select class="form-control combobox" id="battery_id" name="battery_id" required>
 					<option value=""></option>
 					@foreach($batteries as $battery)
 						<option value="{{ $battery->id }}">{{ $battery->name }}</option>
 					@endforeach
 				</select>
-				<div class="invalid-feedback">{{ $L('You have to select a battery') }}</div>
+				<div class="invalid-feedback">{{ $__t('You have to select a battery') }}</div>
 			</div>
 
 			@include('components.datetimepicker', array(
@@ -29,10 +29,10 @@
 				'initWithNow' => true,
 				'limitEndToNow' => true,
 				'limitStartToNow' => false,
-				'invalidFeedback' => $L('This can only be before now')
+				'invalidFeedback' => $__t('This can only be before now')
 			))
 
-			<button id="save-batterytracking-button" class="btn btn-success">{{ $L('OK') }}</button>
+			<button id="save-batterytracking-button" class="btn btn-success">{{ $__t('OK') }}</button>
 
 		</form>
 	</div>

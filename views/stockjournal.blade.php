@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $L('Stock journal'))
+@section('title', $__t('Stock journal'))
 @section('activeNav', 'stockjournal')
 @section('viewJsName', 'stockjournal')
 
@@ -13,13 +13,13 @@
 
 <div class="row my-3">
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="search">{{ $L('Search') }}</label> <i class="fas fa-search"></i>
+		<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
 	</div>
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="product-filter">{{ $L('Filter by product') }}</label> <i class="fas fa-filter"></i>
+		<label for="product-filter">{{ $__t('Filter by product') }}</label> <i class="fas fa-filter"></i>
 		<select class="form-control" id="product-filter">
-			<option value="all">{{ $L('All') }}</option>
+			<option value="all">{{ $__t('All') }}</option>
 			@foreach($products as $product)
 				<option value="{{ $product->id }}">{{ $product->name }}</option>
 			@endforeach
@@ -33,17 +33,17 @@
 			<thead>
 				<tr>
 					<th class="border-right"></th>
-					<th>{{ $L('Product') }}</th>
-					<th>{{ $L('Amount') }}</th>
-					<th>{{ $L('Booking time') }}</th>
-					<th>{{ $L('Booking type') }}</th>
+					<th>{{ $__t('Product') }}</th>
+					<th>{{ $__t('Amount') }}</th>
+					<th>{{ $__t('Booking time') }}</th>
+					<th>{{ $__t('Booking type') }}</th>
 				</tr>
 			</thead>
 			<tbody class="d-none">
 				@foreach($stockLog as $stockLogEntry)
 				<tr class="@if($stockLogEntry->undone == 1) text-muted @endif">
 					<td class="fit-content border-right">
-						<a class="btn btn-secondary btn-sm undo-stock-booking-button @if($stockLogEntry->undone == 1) disabled @endif" href="#" data-booking-id="{{ $stockLogEntry->id }}" data-toggle="tooltip" data-placement="left" title="{{ $L('Undo booking') }}">
+						<a class="btn btn-secondary btn-sm undo-stock-booking-button @if($stockLogEntry->undone == 1) disabled @endif" href="#" data-booking-id="{{ $stockLogEntry->id }}" data-toggle="tooltip" data-placement="left" title="{{ $__t('Undo booking') }}">
 							<i class="fas fa-undo"></i>
 						</a>
 					</td>
@@ -51,19 +51,19 @@
 						<span class="name-anchor @if($stockLogEntry->undone == 1) text-strike-through @endif">{{ FindObjectInArrayByPropertyValue($products, 'id', $stockLogEntry->product_id)->name }}</span>
 						@if($stockLogEntry->undone == 1)
 						<br>
-						{{ $L('Undone on') . ' ' . $stockLogEntry->undone_timestamp }}
+						{{ $__t('Undone on') . ' ' . $stockLogEntry->undone_timestamp }}
 						<time class="timeago timeago-contextual" datetime="{{ $stockLogEntry->undone_timestamp }}"></time>
 						@endif
 					</td>
 					<td>
-						{{ $stockLogEntry->amount }} {{ Pluralize($stockLogEntry->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockLogEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockLogEntry->product_id)->qu_id_stock)->name_plural) }}
+						{{ $stockLogEntry->amount }} {{ $__n($stockLogEntry->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockLogEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockLogEntry->product_id)->qu_id_stock)->name_plural) }}
 					</td>
 					<td>
 						{{ $stockLogEntry->row_created_timestamp }}
 						<time class="timeago timeago-contextual" datetime="{{ $stockLogEntry->row_created_timestamp }}"></time>
 					</td>
 					<td>
-						{{ $L($stockLogEntry->transaction_type) }}
+						{{ $__t($stockLogEntry->transaction_type) }}
 					</td>
 				</tr>
 				@endforeach

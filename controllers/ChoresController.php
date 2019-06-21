@@ -3,6 +3,8 @@
 namespace Grocy\Controllers;
 
 use \Grocy\Services\ChoresService;
+use \Grocy\Services\UsersService;
+use \Grocy\Services\UserfieldsService;
 
 class ChoresController extends BaseController
 {
@@ -10,16 +12,23 @@ class ChoresController extends BaseController
 	{
 		parent::__construct($container);
 		$this->ChoresService = new ChoresService();
+		$this->UserfieldsService = new UserfieldsService();
 	}
 
 	protected $ChoresService;
+	protected $UserfieldsService;
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
+		$usersService = new UsersService();
+		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['chores_due_soon_days'];
+
 		return $this->AppContainer->view->render($response, 'choresoverview', [
 			'chores' => $this->Database->chores()->orderBy('name'),
 			'currentChores' => $this->ChoresService->GetCurrent(),
-			'nextXDays' => 5
+			'nextXDays' => $nextXDays,
+			'userfields' => $this->UserfieldsService->GetFields('chores'),
+			'userfieldValues' => $this->UserfieldsService->GetAllValues('chores')
 		]);
 	}
 
@@ -34,7 +43,9 @@ class ChoresController extends BaseController
 	public function ChoresList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->AppContainer->view->render($response, 'chores', [
-			'chores' => $this->Database->chores()->orderBy('name')
+			'chores' => $this->Database->chores()->orderBy('name'),
+			'userfields' => $this->UserfieldsService->GetFields('chores'),
+			'userfieldValues' => $this->UserfieldsService->GetAllValues('chores')
 		]);
 	}
 
@@ -53,7 +64,8 @@ class ChoresController extends BaseController
 		{
 			return $this->AppContainer->view->render($response, 'choreform', [
 				'periodTypes' => GetClassConstants('\Grocy\Services\ChoresService'),
-				'mode' => 'create'
+				'mode' => 'create',
+				'userfields' => $this->UserfieldsService->GetFields('chores')
 			]);
 		}
 		else
@@ -61,8 +73,14 @@ class ChoresController extends BaseController
 			return $this->AppContainer->view->render($response, 'choreform', [
 				'chore' =>  $this->Database->chores($args['choreId']),
 				'periodTypes' => GetClassConstants('\Grocy\Services\ChoresService'),
-				'mode' => 'edit'
+				'mode' => 'edit',
+				'userfields' => $this->UserfieldsService->GetFields('chores')
 			]);
 		}
+	}
+
+	public function ChoresSettings(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->AppContainer->view->render($response, 'choressettings');
 	}
 }
