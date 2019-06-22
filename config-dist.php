@@ -41,8 +41,9 @@ Setting('STOCK_BARCODE_LOOKUP_PLUGIN', 'DemoBarcodeLookupPlugin');
 # set this to true
 Setting('DISABLE_URL_REWRITING', false);
 
-
-
+# By default the homepage will be set to the stock overview.
+# You can set this to any overview you want. Example: Use recipes to set the homepage to the recipes overview.
+Setting('ENTRY_PAGE', 'stock');
 
 # Default user settings
 # These settings can be changed per user, here the defaults

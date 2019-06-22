@@ -41,21 +41,24 @@ class SystemController extends BaseController
 
 	private function GetEntryPageRelative()
 	{
-		$entryPage = '/stockoverview';
-
-		if (!GROCY_FEATURE_FLAG_STOCK)
-		{
-			$entryPage = '/choresoverview';
+		switch (GROCY_ENTRY_PAGE) {
+			default:
+			case 'stock':
+				return '/stockoverview';
+			case 'shoppinglist':
+				return '/shoppinglist';
+			case 'recipes':
+				return '/recipes';
+			case 'chores':
+				return '/choresoverview';
+			case 'tasks':
+				return '/tasks';
+			case 'batteries':
+				return '/batteriesoverview';
+			case 'equipment':
+				return '/equipment';
+			case 'calendar':
+				return '/calendar';
 		}
-		if (!GROCY_FEATURE_FLAG_CHORES)
-		{
-			$entryPage = '/batteriesoverview';
-		}
-		if (!GROCY_FEATURE_FLAG_BATTERIES)
-		{
-			$entryPage = '/equipment';
-		}
-
-		return $entryPage;
 	}
 }
