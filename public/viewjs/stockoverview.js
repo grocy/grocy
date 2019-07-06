@@ -90,8 +90,9 @@ $(document).on('click', '.product-consume-button', function(e)
 
 	var productId = $(e.currentTarget).attr('data-product-id');
 	var consumeAmount = $(e.currentTarget).attr('data-consume-amount');
+	var wasSpoiled = $(e.currentTarget).hasClass("product-consume-button-spoiled");
 
-	Grocy.Api.Post('stock/products/' + productId + '/consume', { 'amount': consumeAmount },
+	Grocy.Api.Post('stock/products/' + productId + '/consume', { 'amount': consumeAmount, 'spoiled': wasSpoiled },
 		function()
 		{
 			Grocy.Api.Get('stock/products/' + productId,
@@ -155,8 +156,14 @@ $(document).on('click', '.product-consume-button', function(e)
 						});
 					}
 
+					var toastMessage = __t('Removed %1$s of %2$s from stock', consumeAmount.toString() + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural), result.product.name);
+					if (wasSpoiled)
+					{
+						toastMessage += " (" + __t("Spoiled") + ")";
+					}
+
 					Grocy.FrontendHelpers.EndUiBusy();
-					toastr.success(__t('Removed %1$s of %2$s from stock', consumeAmount.toString() + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural), result.product.name));
+					toastr.success(toastMessage);
 					RefreshContextualTimeago();
 					RefreshStatistics();
 				},

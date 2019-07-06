@@ -1277,3 +1277,6 @@ msgstr ""
 
 msgid "Today"
 msgstr ""
+
+msgid "Consume %1$s of %2$s as spoiled"
+msgstr ""
