@@ -1268,3 +1268,6 @@ msgstr ""
 
 msgid "Booking has subsequent dependent bookings, undo not possible"
 msgstr ""
+
+msgid "per serving"
+msgstr ""

@@ -1,4 +1,6 @@
-﻿var calendar = $("#calendar").fullCalendar({
+﻿var firstRender = true;
+
+var calendar = $("#calendar").fullCalendar({
 	"themeSystem": "bootstrap4",
 	"header": {
 		"left": "title",
@@ -11,6 +13,15 @@
 	"defaultView": "basicWeek",
 	"viewRender": function(view)
 	{
+		if (firstRender)
+		{
+			firstRender = false
+		}
+		else
+		{
+			UpdateUriParam("week", view.start.format("YYYY-MM-DD"));
+		}
+		
 		$(".fc-day-header").append('<a class="ml-1 btn btn-outline-dark btn-xs my-1 add-recipe-button" href="#"><i class="fas fa-plus"></i></a>');
 
 		var weekRecipeName = view.start.year().toString() + "-" + (view.start.week() - 1).toString();
@@ -62,7 +73,7 @@
 				<h5>' + recipe.name + '<h5> \
 				<h5 class="small">' + __n(mealPlanEntry.servings, "%s serving", "%s servings") + '</h5> \
 				<h5 class="small timeago-contextual">' + fulfillmentIconHtml + " " + fulfillmentInfoHtml + '</h5> \
-				<h5 class="small locale-number-format" data-format="currency">' + resolvedRecipe.costs + '<h5> \
+				<h5 class="small"><span class="locale-number-format" data-format="currency">' + resolvedRecipe.costs + '</span> ' + __t('per serving') + '<h5> \
 				<h5> \
 					<a class="ml-1 btn btn-outline-danger btn-xs remove-recipe-button" href="#"><i class="fas fa-trash"></i></a> \
 					<a class="ml-1 btn btn-outline-primary btn-xs recipe-order-missing-button ' + recipeOrderMissingButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Put missing products on shopping list") + '" data-recipe-id="' + recipe.id.toString() + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-cart-plus"></i></a> \
@@ -77,6 +88,11 @@
 	"eventAfterAllRender": function(view)
 	{
 		RefreshLocaleNumberDisplay();
+
+		if (GetUriParam("week") !== undefined)
+		{
+			$("#calendar").fullCalendar("gotoDate", GetUriParam("week"));
+		}
 	},
 });
 
