@@ -103,7 +103,7 @@ $(document).on("click", ".remove-recipe-button", function(e)
 	Grocy.Api.Delete('objects/meal_plan/' + mealPlanEntry.id.toString(), { },
 		function(result)
 		{
-			calendar.fullCalendar('removeEvents', [mealPlanEntry.id]);
+			window.location.reload();
 		},
 		function(xhr)
 		{
