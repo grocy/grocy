@@ -1391,3 +1391,27 @@ msgstr "Критерий для \"подходит срок задач\" в дн
 
 msgid "Products"
 msgstr "Продукты"
+
+msgid "Marked task %s as completed on %s"
+msgstr "Пометить задачу \"%s\" как выполненную %s"
+
+msgid "Booking has subsequent dependent bookings, undo not possible"
+msgstr "У данного действия есть зависимые действия, отмена невозможна"
+
+msgid "per serving"
+msgstr "на порцию"
+
+msgid "Never"
+msgstr "Никогда"
+
+msgid "Today"
+msgstr "Сегодня"
+
+msgid "Consume %1$s of %2$s as spoiled"
+msgstr "Употребить %1$s %2$s как испорченное"
+
+msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
+msgstr "Не все ингредиенты рецепта \"%s\" есть в запасе, ничего не изъято"
+
+msgid "Undo task \"%s\""
+msgstr ""

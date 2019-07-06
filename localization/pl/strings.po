@@ -1387,3 +1387,27 @@ msgstr "Dni \"blisko terminu wykonania zadania\""
 
 msgid "Products"
 msgstr "Produkty"
+
+msgid "Marked task %s as completed on %s"
+msgstr "Oznaczono zadanie %s jako wykonane dnia %s  "
+
+msgid "Booking has subsequent dependent bookings, undo not possible"
+msgstr "Rezerwacja ma kolejne zależne rezerwacje, nie można jej cofnąć"
+
+msgid "per serving"
+msgstr ""
+
+msgid "Never"
+msgstr ""
+
+msgid "Today"
+msgstr ""
+
+msgid "Consume %1$s of %2$s as spoiled"
+msgstr ""
+
+msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
+msgstr ""
+
+msgid "Undo task \"%s\""
+msgstr ""
