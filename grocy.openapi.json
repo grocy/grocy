@@ -1663,6 +1663,47 @@
 				}
 			}
 		},
+		"/recipes/{recipeId}/fulfillment": {
+			"get": {
+				"summary": "Get stock fulfillment information for the given recipe",
+				"tags": [
+					"Recipes"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "recipeId",
+						"required": true,
+						"description": "A valid recipe id",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A RecipeFulfillmentResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/RecipeFulfillmentResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/recipes/{recipeId}/consume": {
 			"post": {
 				"summary": "Consumes all products of the given recipe",
@@ -1687,84 +1728,39 @@
 				}
 			}
 		},
-        "/recipes/{recipeId}/requirements": {
-      "get": {
-        "summary": "Get requirements for recipe",
-        "tags": [
-          "Recipes"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "recipeId",
-            "required": true,
-            "description": "A valid recipe id",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A requirements recipe object",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RecipeRequirements"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The operation was not successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/recipes/requirements": {
-      "get": {
-        "summary": "Get all requirements for recipes",
-        "tags": [
-          "Recipes"
-        ],
-        "responses": {
-          "200": {
-            "description": "An array of requirements recipe objects",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "oneOf": [
-                      {
-                        "$ref": "#/components/schemas/RecipeRequirements"
-                      }
-                    ]	
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The operation was not successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
+		"/recipes/fulfillment": {
+			"get": {
+				"summary": "Get stock fulfillment information for all recipe",
+				"tags": [
+					"Recipes"
+				],
+				"responses": {
+					"200": {
+						"description": "An array of RecipeFulfillmentResponse objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/RecipeFulfillmentResponse"
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/chores": {
 			"get": {
 				"summary": "Returns all chores incl. the next estimated execution time per chore",
@@ -2453,34 +2449,34 @@
 					"location_id": "4"
 				}
 			},
-       "RecipeRequirements": {
-        "type": "object",
-        "properties": {
-          "recipe_id": {
-            "type": "integer"
-          },
-          "need_fulfilled": {
-            "type": "boolean"
-          },
-          "need_fulfilled_with_shopping_list": {
-            "type": "boolean"
-          },
-          "missing_products_count": {
-            "type": "integer"
-          },
-          "costs": {
-            "type": "number",
-            "format": "double"
-          }
-        },
-        "example": {
-          "recipe_id": "1",
-          "need_fulfilled": "0",
-          "need_fulfilled_with_shopping_list": "0",
-          "missing_products_count": "2",
-          "costs": "17.74"
-        }
-      },
+			"RecipeFulfillmentResponse": {
+				"type": "object",
+				"properties": {
+					"recipe_id": {
+						"type": "integer"
+					},
+					"need_fulfilled": {
+						"type": "boolean"
+					},
+					"need_fulfilled_with_shopping_list": {
+						"type": "boolean"
+					},
+					"missing_products_count": {
+						"type": "integer"
+					},
+					"costs": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"example": {
+					"recipe_id": "1",
+					"need_fulfilled": "0",
+					"need_fulfilled_with_shopping_list": "0",
+					"missing_products_count": "2",
+					"costs": "17.74"
+				}
+			},
 			"ProductDetailsResponse": {
 				"type": "object",
 				"properties": {

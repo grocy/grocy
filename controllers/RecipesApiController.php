@@ -41,23 +41,28 @@ class RecipesApiController extends BaseApiController
 		}
 	}
 
-  public function GetRecipeRequirements(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
-  {
-    try { 
-      if(!$args['recipeId']){
-        return $this->ApiResponse($this->RecipesService->GetRecipesResolved());
-      }
-      $recipeResolved = FindObjectInArrayByPropertyValue($this->RecipesService->GetRecipesResolved(), 'recipe_id', $args['recipeId']);
-      if(!$recipeResolved) {
-        $errorMsg ='Recipe requirments do not exist for recipe_id ' . $args['recipe_id'];
-        $GenericError = $this->GenericErrorResponse($response, $errorMsg);
-        return $GenericError;
-      }
-      return $this->ApiResponse($recipeResolved);
-    } 
-    catch (\Exception $ex)
-    {
+	public function GetRecipeFulfillment(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		try
+		{ 
+			if(!isset($args['recipeId']))
+			{
+				return $this->ApiResponse($this->RecipesService->GetRecipesResolved());
+			}
+
+			$recipeResolved = FindObjectInArrayByPropertyValue($this->RecipesService->GetRecipesResolved(), 'recipe_id', $args['recipeId']);
+			if(!$recipeResolved)
+			{
+				throw new \Exception('Recipe does not exist');
+			}
+			else
+			{
+				return $this->ApiResponse($recipeResolved);
+			}
+		} 
+		catch (\Exception $ex)
+		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
-    }
-  }
+		}
+	}
 }

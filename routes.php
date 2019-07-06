@@ -173,9 +173,9 @@ $app->group('/api', function()
 	if (GROCY_FEATURE_FLAG_RECIPES)
 	{
 		$this->post('/recipes/{recipeId}/add-not-fulfilled-products-to-shoppinglist', '\Grocy\Controllers\RecipesApiController:AddNotFulfilledProductsToShoppingList');
-		$this->get('/recipes/{recipeId}/requirements', '\Grocy\Controllers\RecipesApiController:GetRecipeRequirements');
-		$this->get('/recipes/requirements', '\Grocy\Controllers\RecipesApiController:GetRecipeRequirements');
+		$this->get('/recipes/{recipeId}/fulfillment', '\Grocy\Controllers\RecipesApiController:GetRecipeFulfillment');
 		$this->post('/recipes/{recipeId}/consume', '\Grocy\Controllers\RecipesApiController:ConsumeRecipe');
+		$this->get('/recipes/fulfillment', '\Grocy\Controllers\RecipesApiController:GetRecipeFulfillment');
 	}
 
 	// Chores
