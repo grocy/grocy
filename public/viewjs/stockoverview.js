@@ -89,8 +89,6 @@ $(document).on('click', '.product-consume-button', function(e)
 	Grocy.FrontendHelpers.BeginUiBusy();
 
 	var productId = $(e.currentTarget).attr('data-product-id');
-	var productName = $(e.currentTarget).attr('data-product-name');
-	var productQuName = $(e.currentTarget).attr('data-product-qu-name');
 	var consumeAmount = $(e.currentTarget).attr('data-consume-amount');
 
 	Grocy.Api.Post('stock/products/' + productId + '/consume', { 'amount': consumeAmount },
@@ -127,8 +125,9 @@ $(document).on('click', '.product-consume-button', function(e)
 					}
 					else
 					{
+						$('#product-' + productId + '-qu-name').text(__n(newAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural));
 						$('#product-' + productId + '-amount').parent().effect('highlight', { }, 500);
-						$('#product-' + productId + '-amount').fadeOut(500, function()
+						$('#product-' + productId + '-amount').fadeOut(500, function ()
 						{
 							$(this).text(newAmount).fadeIn(500);
 						});
@@ -157,7 +156,7 @@ $(document).on('click', '.product-consume-button', function(e)
 					}
 
 					Grocy.FrontendHelpers.EndUiBusy();
-					toastr.success(__t('Removed %1$s of %2$s from stock', consumeAmount, productQuName, productName));
+					toastr.success(__t('Removed %1$s of %2$s from stock', consumeAmount.toString() + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural), result.product.name));
 					RefreshContextualTimeago();
 					RefreshStatistics();
 				},
