@@ -48,6 +48,15 @@ Grocy.Components.DateTimePicker.ChangeFormat = function(format)
 	$(".datetimepicker").datetimepicker("destroy");
 	Grocy.Components.DateTimePicker.GetInputElement().data("format", format);
 	Grocy.Components.DateTimePicker.Init();
+
+	if (format == "YYYY-MM-DD")
+	{
+		Grocy.Components.DateTimePicker.GetInputElement().addClass("date-only-datetimepicker");
+	}
+	else
+	{
+		Grocy.Components.DateTimePicker.GetInputElement().removeClass("date-only-datetimepicker");
+	}
 }
 
 var startDate = null;
