@@ -2151,6 +2151,40 @@
 				}
 			}
 		},
+		"/tasks/{taskId}/undo": {
+			"post": {
+				"summary": "Marks the given task as not completed",
+				"tags": [
+					"Tasks"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "taskId",
+						"required": true,
+						"description": "A valid task id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing task)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/calendar/ical": {
 			"get": {
 				"summary": "Returns the calendar in iCal format",

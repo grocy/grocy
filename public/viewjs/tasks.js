@@ -102,6 +102,32 @@ $(document).on('click', '.do-task-button', function(e)
 	);
 });
 
+$(document).on('click', '.undo-task-button', function(e)
+{
+	e.preventDefault();
+
+	// Remove the focus from the current button
+	// to prevent that the tooltip stays until clicked anywhere else
+	document.activeElement.blur();
+
+	Grocy.FrontendHelpers.BeginUiBusy();
+
+	var taskId = $(e.currentTarget).attr('data-task-id');
+	var taskName = $(e.currentTarget).attr('data-task-name');
+
+	Grocy.Api.Post('tasks/' + taskId + '/undo', { },
+		function()
+		{
+			window.location.reload();
+		},
+		function(xhr)
+		{
+			Grocy.FrontendHelpers.EndUiBusy();
+			console.error(xhr);
+		}
+	);
+});
+
 $(document).on('click', '.delete-task-button', function (e)
 {
 	e.preventDefault();

@@ -73,11 +73,19 @@
 				@foreach($tasks as $task)
 				<tr id="task-{{ $task->id }}-row" class="@if($task->done == 1) text-muted @endif @if(!empty($task->due_date) && $task->due_date < date('Y-m-d')) table-danger @elseif(!empty($task->due_date) && $task->due_date < date('Y-m-d', strtotime("+$nextXDays days"))) table-warning @endif">
 					<td class="fit-content border-right">
-						<a class="btn btn-success btn-sm do-task-button @if($task->done == 1) disabled @endif" href="#" data-toggle="tooltip" data-placement="left" title="{{ $__t('Mark task "%s" as completed', $task->name) }}"
+						@if($task->done == 0)
+						<a class="btn btn-success btn-sm do-task-button" href="#" data-toggle="tooltip" data-placement="left" title="{{ $__t('Mark task "%s" as completed', $task->name) }}"
 							data-task-id="{{ $task->id }}"
 							data-task-name="{{ $task->name }}">
 							<i class="fas fa-check"></i>
 						</a>
+						@else
+						<a class="btn btn-secondary btn-sm undo-task-button" href="#" data-toggle="tooltip" data-placement="left" title="{{ $__t('Undo task "%s"', $task->name) }}"
+							data-task-id="{{ $task->id }}"
+							data-task-name="{{ $task->name }}">
+							<i class="fas fa-undo"></i>
+						</a>
+						@endif
 						<a class="btn btn-sm btn-danger delete-task-button" href="#"
 							data-task-id="{{ $task->id }}"
 							data-task-name="{{ $task->name }}">

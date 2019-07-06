@@ -201,6 +201,7 @@ $app->group('/api', function()
 	{
 		$this->get('/tasks', '\Grocy\Controllers\TasksApiController:Current');
 		$this->post('/tasks/{taskId}/complete', '\Grocy\Controllers\TasksApiController:MarkTaskAsCompleted');
+		$this->post('/tasks/{taskId}/undo', '\Grocy\Controllers\TasksApiController:UndoTask');
 	}
 
 	// Calendar
