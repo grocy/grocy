@@ -7,7 +7,7 @@ Grocy.Components.ChoreCard.Refresh = function(choreId)
 		{
 			$('#chorecard-chore-name').text(choreDetails.chore.name);
 			$('#chorecard-chore-last-tracked').text((choreDetails.last_tracked || __t('never')));
-			$('#chorecard-chore-last-tracked-timeago').text($.timeago(choreDetails.last_tracked || ''));
+			$('#chorecard-chore-last-tracked-timeago').attr("datetime", choreDetails.last_tracked || '');
 			$('#chorecard-chore-tracked-count').text((choreDetails.tracked_count || '0'));
 			$('#chorecard-chore-last-done-by').text((choreDetails.last_done_by.display_name || __t('Unknown')));
 
@@ -15,6 +15,7 @@ Grocy.Components.ChoreCard.Refresh = function(choreId)
 			$('#chorecard-chore-edit-button').removeClass("disabled");
 
 			EmptyElementWhenMatches('#chorecard-chore-last-tracked-timeago', __t('timeago_nan'));
+			RefreshContextualTimeago();
 		},
 		function(xhr)
 		{
