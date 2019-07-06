@@ -40,6 +40,15 @@ require_once __DIR__ . '/vendor/autoload.php';
 require_once GROCY_DATAPATH . '/config.php';
 require_once __DIR__ . '/config-dist.php'; //For not in own config defined values we use the default ones
 
+// Definitions for disabled authentication mode
+if (GROCY_DISABLE_AUTH === true)
+{
+	if (!defined('GROCY_USER_ID'))
+	{
+		define('GROCY_USER_ID', 1);
+	}
+}
+
 // Setup base application
 $appContainer = new \Slim\Container([
 	'settings' => [

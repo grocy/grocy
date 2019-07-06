@@ -41,6 +41,10 @@ Setting('STOCK_BARCODE_LOOKUP_PLUGIN', 'DemoBarcodeLookupPlugin');
 # set this to true
 Setting('DISABLE_URL_REWRITING', false);
 
+# Set this to true if you want to disable authentication / the login screen,
+# places where user context is needed will then use the default (first existing) user
+Setting('DISABLE_AUTH', false);
+
 
 
 
