@@ -52,6 +52,7 @@
 		Grocy.ActiveNav = '@yield('activeNav', '')';
 		Grocy.Culture = '{{ GROCY_CULTURE }}';
 		Grocy.Currency = '{{ GROCY_CURRENCY }}';
+		Grocy.CalendarFirstDayOfWeek = '{{ GROCY_CALENDAR_FIRST_DAY_OF_WEEK }}';
 		Grocy.GettextPo = {!! $GettextPo !!};
 		Grocy.UserSettings = {!! json_encode($userSettings) !!};
 		Grocy.FeatureFlags = {!! json_encode($featureFlags) !!};

@@ -1,5 +1,11 @@
 ﻿var firstRender = true;
 
+var firstDay = null;
+if (!Grocy.CalendarFirstDayOfWeek.isEmpty())
+{
+	firstDay = parseInt(Grocy.CalendarFirstDayOfWeek);
+}
+
 var calendar = $("#calendar").fullCalendar({
 	"themeSystem": "bootstrap4",
 	"header": {
@@ -11,6 +17,7 @@ var calendar = $("#calendar").fullCalendar({
 	"eventLimit": true,
 	"eventSources": fullcalendarEventSources,
 	"defaultView": "basicWeek",
+	"firstDay": firstDay,
 	"viewRender": function(view)
 	{
 		if (firstRender)

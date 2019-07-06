@@ -1,4 +1,10 @@
-﻿$("#calendar").fullCalendar({
+﻿var firstDay = null;
+if (!Grocy.CalendarFirstDayOfWeek.isEmpty())
+{
+	firstDay = parseInt(Grocy.CalendarFirstDayOfWeek);
+}
+
+$("#calendar").fullCalendar({
 	"themeSystem": "bootstrap4",
 	"header": {
 		"left": "month,basicWeek,listWeek",
@@ -6,6 +12,7 @@
 		"right": "prev,next"
 	},
 	"weekNumbers": true,
+	"firstDay": firstDay,
 	"eventLimit": true,
 	"eventSources": fullcalendarEventSources
 });

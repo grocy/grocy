@@ -21,6 +21,11 @@ Setting('MODE', 'production');
 # one of the other available localization files in the "/localization" directory
 Setting('CULTURE', 'en');
 
+# This is used to define the first day of a week for calendar views in the frontend,
+# leave empty to use the locale default
+# Needs to be a number where Sunday = 0, Monday = 1 and so forth
+Setting('CALENDAR_FIRST_DAY_OF_WEEK', '');
+
 # To keep it simple: grocy does not handle any currency conversions,
 # this here is used to format all money values,
 # so doesn't matter really matter, but should be the
