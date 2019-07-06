@@ -1,101 +1,4 @@
-﻿Grocy.Translator = new Translator(Grocy.GettextPo);
-__t = function(text, ...placeholderValues)
-{
-	if (Grocy.Mode === "dev")
-	{
-		var text2 = text;
-		Grocy.Api.Post('system/log-missing-localization', { "text": text2 });
-	}
-	
-	return Grocy.Translator.__(text, ...placeholderValues)
-}
-__n = function(number, singularForm, pluralForm)
-{
-	if (Grocy.Mode === "dev")
-	{
-		var singularForm2 = singularForm;
-		Grocy.Api.Post('system/log-missing-localization', { "text": singularForm2 });
-	}
-
-	return Grocy.Translator.n__(singularForm, pluralForm, number, number)
-}
-
-U = function(relativePath)
-{
-	return Grocy.BaseUrl.replace(/\/$/, '') + relativePath;
-}
-
-if (!Grocy.ActiveNav.isEmpty())
-{
-	var menuItem = $('#sidebarResponsive').find("[data-nav-for-page='" + Grocy.ActiveNav + "']");
-	menuItem.addClass('active-page');
-
-	var parentMenuSelector = menuItem.data("sub-menu-of");
-	if (typeof parentMenuSelector !== "undefined")
-	{
-		$(parentMenuSelector).collapse("show");
-		$(parentMenuSelector).prev(".nav-link-collapse").addClass("active-page");
-	}
-}
-
-var observer = new MutationObserver(function(mutations)
-{
-	mutations.forEach(function(mutation)
-	{
-		if (mutation.attributeName === "class")
-		{
-			var attributeValue = $(mutation.target).prop(mutation.attributeName);
-			if (attributeValue.contains("sidenav-toggled"))
-			{
-				window.localStorage.setItem("sidebar_state", "collapsed");
-			}
-			else
-			{
-				window.localStorage.setItem("sidebar_state", "expanded");
-			}
-		}
-	});
-});
-observer.observe(document.body, {
-	attributes: true
-});
-if (window.localStorage.getItem("sidebar_state") === "collapsed")
-{
-	$("#sidenavToggler").click();
-}
-
-$.timeago.settings.allowFuture = true;
-RefreshContextualTimeago = function()
-{
-	$("time.timeago").each(function()
-	{
-		var element = $(this);
-		var timestamp = element.attr("datetime");
-		element.timeago("update", timestamp);
-	});
-}
-RefreshContextualTimeago();
-
-toastr.options = {
-	toastClass: 'alert',
-	closeButton: true,
-	timeOut: 20000,
-	extendedTimeOut: 5000
-};
-
-window.FontAwesomeConfig = {
-	searchPseudoElements: true
-}
-
-// Don't show tooltips on touch input devices
-if (IsTouchInputDevice())
-{
-	var css = document.createElement("style");
-	css.innerHTML = ".tooltip { display: none; }";
-	document.body.appendChild(css);
-}
-
-Grocy.Api = { };
+﻿Grocy.Api = { };
 Grocy.Api.Get = function(apiFunction, success, error)
 {
 	var xhr = new XMLHttpRequest();
@@ -322,6 +225,111 @@ Grocy.Api.DeleteFile = function(fileName, group, success, error)
 	xhr.setRequestHeader('Content-type', 'application/json');
 	xhr.send();
 };
+
+Grocy.Translator = new Translator(Grocy.GettextPo);
+__t = function(text, ...placeholderValues)
+{
+	if (Grocy.Mode === "dev")
+	{
+		var text2 = text;
+		Grocy.Api.Post('system/log-missing-localization', { "text": text2 });
+	}
+	
+	return Grocy.Translator.__(text, ...placeholderValues)
+}
+__n = function(number, singularForm, pluralForm)
+{
+	if (Grocy.Mode === "dev")
+	{
+		var singularForm2 = singularForm;
+		Grocy.Api.Post('system/log-missing-localization', { "text": singularForm2 });
+	}
+
+	return Grocy.Translator.n__(singularForm, pluralForm, number, number)
+}
+
+U = function(relativePath)
+{
+	return Grocy.BaseUrl.replace(/\/$/, '') + relativePath;
+}
+
+if (!Grocy.ActiveNav.isEmpty())
+{
+	var menuItem = $('#sidebarResponsive').find("[data-nav-for-page='" + Grocy.ActiveNav + "']");
+	menuItem.addClass('active-page');
+
+	var parentMenuSelector = menuItem.data("sub-menu-of");
+	if (typeof parentMenuSelector !== "undefined")
+	{
+		$(parentMenuSelector).collapse("show");
+		$(parentMenuSelector).prev(".nav-link-collapse").addClass("active-page");
+	}
+}
+
+var observer = new MutationObserver(function(mutations)
+{
+	mutations.forEach(function(mutation)
+	{
+		if (mutation.attributeName === "class")
+		{
+			var attributeValue = $(mutation.target).prop(mutation.attributeName);
+			if (attributeValue.contains("sidenav-toggled"))
+			{
+				window.localStorage.setItem("sidebar_state", "collapsed");
+			}
+			else
+			{
+				window.localStorage.setItem("sidebar_state", "expanded");
+			}
+		}
+	});
+});
+observer.observe(document.body, {
+	attributes: true
+});
+if (window.localStorage.getItem("sidebar_state") === "collapsed")
+{
+	$("#sidenavToggler").click();
+}
+
+$.timeago.settings.allowFuture = true;
+RefreshContextualTimeago = function()
+{
+	$("time.timeago").each(function()
+	{
+		var element = $(this);
+		var timestamp = element.attr("datetime");
+		var isNever = timestamp && timestamp.substring(0, 10) == "2999-12-31";
+		if (isNever)
+		{
+			element.prev().text(__t("Never"));
+		}
+		else
+		{
+			element.timeago("update", timestamp);
+		}
+	});
+}
+RefreshContextualTimeago();
+
+toastr.options = {
+	toastClass: 'alert',
+	closeButton: true,
+	timeOut: 20000,
+	extendedTimeOut: 5000
+};
+
+window.FontAwesomeConfig = {
+	searchPseudoElements: true
+}
+
+// Don't show tooltips on touch input devices
+if (IsTouchInputDevice())
+{
+	var css = document.createElement("style");
+	css.innerHTML = ".tooltip { display: none; }";
+	document.body.appendChild(css);
+}
 
 Grocy.FrontendHelpers = { };
 Grocy.FrontendHelpers.ValidateForm = function(formId)

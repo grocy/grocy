@@ -1271,3 +1271,6 @@ msgstr ""
 
 msgid "per serving"
 msgstr ""
+
+msgid "Never"
+msgstr ""
