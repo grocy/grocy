@@ -121,10 +121,10 @@
 		<div id="selectedRecipeCard" class="card">
 			<div class="card-header">
 				<i class="fas fa-cocktail"></i> {{ $selectedRecipe->name }}&nbsp;&nbsp;
-				<a id="selectedRecipeConsumeButton" class="btn btn-sm btn-outline-success py-0" href="#" data-toggle="tooltip" title="{{ $__t('Consume all ingredients needed by this recipe') }}" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
+				<a id="selectedRecipeConsumeButton" class="btn btn-sm btn-outline-success py-0 @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->need_fulfilled == 0) disabled @endif" href="#" data-toggle="tooltip" title="{{ $__t('Consume all ingredients needed by this recipe') }}" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
 					<i class="fas fa-utensils"></i>
 				</a>
-				<a class="btn btn-sm btn-outline-primary py-0 recipe-order-missing-button @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->need_fulfilled_with_shopping_list == 1){{ disabled }}@endif" href="#" data-toggle="tooltip" title="{{ $__t('Put missing products on shopping list') }}" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
+				<a class="btn btn-sm btn-outline-primary py-0 recipe-order-missing-button @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif" href="#" data-toggle="tooltip" title="{{ $__t('Put missing products on shopping list') }}" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
 					<i class="fas fa-cart-plus"></i>
 				</a>&nbsp;&nbsp;
 				<a id="selectedRecipeEditButton" class="btn btn-sm btn-outline-info py-0" href="{{ $U('/recipe/') }}{{ $selectedRecipe->id }}">

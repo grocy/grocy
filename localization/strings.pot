@@ -1280,3 +1280,6 @@ msgstr ""
 
 msgid "Consume %1$s of %2$s as spoiled"
 msgstr ""
+
+msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
+msgstr ""

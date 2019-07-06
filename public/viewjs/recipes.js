@@ -187,6 +187,7 @@ $("#selectedRecipeConsumeButton").on('click', function(e)
 					function(xhr)
 					{
 						Grocy.FrontendHelpers.EndUiBusy();
+						toastr.warning(__t('Not all ingredients of recipe "%s" are in stock, nothing removed', objectName));
 						console.error(xhr);
 					}
 				);
