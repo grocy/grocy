@@ -59,7 +59,7 @@
 
 			@include('components.locationpicker', array(
 				'locations' => $locations,
-				'hint' => 'This will apply to added products'
+				'hint' => $__t('This will apply to added products')
 			))
 
 			<button id="save-inventory-button" class="btn btn-success">{{ $__t('OK') }}</button>
