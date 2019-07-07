@@ -55,8 +55,8 @@
 						@endif
 					</td>
 					<td>
-						{{ $choreLogEntry->tracked_time }}
-						<time class="timeago timeago-contextual" datetime="{{ $choreLogEntry->tracked_time }}"></time>
+						<span>{{ $choreLogEntry->tracked_time }}</span>
+						<time class="timeago timeago-contextual @if(FindObjectInArrayByPropertyValue($chores, 'id', $choreLogEntry->chore_id)->track_date_only == 1) timeago-date-only @endif" datetime="{{ $choreLogEntry->tracked_time }}"></time>
 					</td>
 					<td>
 						@if ($choreLogEntry->done_by_user_id !== null && !empty($choreLogEntry->done_by_user_id))

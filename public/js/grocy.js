@@ -302,6 +302,7 @@ RefreshContextualTimeago = function()
 
 		var isNever = timestamp && timestamp.substring(0, 10) == "2999-12-31";
 		var isToday = timestamp && timestamp.length == 10 && timestamp.substring(0, 10) == moment().format("YYYY-MM-DD");
+		var isDateWithoutTime = element.hasClass("timeago-date-only");
 
 		if (isNever)
 		{
@@ -314,6 +315,11 @@ RefreshContextualTimeago = function()
 		else
 		{
 			element.timeago("update", timestamp);
+		}
+
+		if (isDateWithoutTime)
+		{
+			element.prev().text(element.prev().text().substring(0, 10));
 		}
 	});
 }

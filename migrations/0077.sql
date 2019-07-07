@@ -19,7 +19,8 @@ SELECT
 				WHEN period_config LIKE '%saturday%' THEN DATETIME(IFNULL(MAX(l.tracked_time), DATETIME('now', 'localtime')), '1 days', 'weekday 6')
 			END
 		WHEN 'monthly' THEN DATETIME(IFNULL(MAX(l.tracked_time), DATETIME('now', 'localtime')), '+1 month', 'start of month', '+' || CAST(h.period_days - 1 AS TEXT) || ' day')
-	END AS next_estimated_execution_time
+	END AS next_estimated_execution_time,
+	h.track_date_only
 FROM chores h
 LEFT JOIN chores_log l
 	ON h.id = l.chore_id
