@@ -24,4 +24,5 @@ SELECT
 FROM chores h
 LEFT JOIN chores_log l
 	ON h.id = l.chore_id
+	AND l.undone = 0
 GROUP BY h.id, h.period_days;
