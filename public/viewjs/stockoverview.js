@@ -164,8 +164,13 @@ $(document).on('click', '.product-consume-button', function(e)
 
 					Grocy.FrontendHelpers.EndUiBusy();
 					toastr.success(toastMessage);
-					RefreshContextualTimeago();
 					RefreshStatistics();
+
+					// Needs to be delayed because of the animation above the date-text would be wrong if fired immediately...
+					setTimeout(function ()
+					{
+						RefreshContextualTimeago();
+					}, 520);
 				},
 				function(xhr)
 				{
@@ -220,14 +225,14 @@ $(document).on('click', '.product-open-button', function(e)
 					}
 
 					$('#product-' + productId + '-next-best-before-date').parent().effect('highlight', {}, 500);
-					$('#product-' + productId + '-next-best-before-date').fadeOut(500, function ()
+					$('#product-' + productId + '-next-best-before-date').fadeOut(500, function()
 					{
 						$(this).text(result.next_best_before_date).fadeIn(500);
 					});
 					$('#product-' + productId + '-next-best-before-date-timeago').attr('datetime', result.next_best_before_date);
 
 					$('#product-' + productId + '-opened-amount').parent().effect('highlight', {}, 500);
-					$('#product-' + productId + '-opened-amount').fadeOut(500, function ()
+					$('#product-' + productId + '-opened-amount').fadeOut(500, function()
 					{
 						$(this).text(__t('%s opened', result.stock_amount_opened)).fadeIn(500);
 					});
@@ -239,8 +244,13 @@ $(document).on('click', '.product-open-button', function(e)
 
 					Grocy.FrontendHelpers.EndUiBusy();
 					toastr.success(__t('Marked %1$s of %2$s as opened', 1 + " " + productQuName, productName));
-					RefreshContextualTimeago();
 					RefreshStatistics();
+
+					// Needs to be delayed because of the animation above the date-text would be wrong if fired immediately...
+					setTimeout(function()
+					{
+						RefreshContextualTimeago();
+					}, 600);
 				},
 				function(xhr)
 				{
