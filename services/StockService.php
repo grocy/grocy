@@ -82,7 +82,7 @@ class StockService extends BaseService
 		$averageShelfLifeDays = intval($this->Database->stock_average_product_shelf_life()->where('id', $productId)->fetch()->average_shelf_life_days);
 		
 		$lastPrice = null;
-		$lastLogRow = $this->Database->stock_log()->where('product_id = :1 AND transaction_type = :2 AND undone = 0', $productId, self::TRANSACTION_TYPE_PURCHASE)->orderBy('row_created_timestamp', 'DESC')->limit(1)->fetch();
+		$lastLogRow = $this->Database->stock_log()->where('product_id = :1 AND transaction_type IN (:2, :3) AND undone = 0', $productId, self::TRANSACTION_TYPE_PURCHASE, self::TRANSACTION_TYPE_INVENTORY_CORRECTION)->orderBy('row_created_timestamp', 'DESC')->limit(1)->fetch();
 		if ($lastLogRow !== null && !empty($lastLogRow))
 		{
 			$lastPrice = $lastLogRow->price;
@@ -120,7 +120,7 @@ class StockService extends BaseService
 		}
 
 		$returnData = array();
-		$rows = $this->Database->stock_log()->where('product_id = :1 AND transaction_type = :2 AND undone = 0', $productId, self::TRANSACTION_TYPE_PURCHASE)->whereNOT('price', null)->orderBy('purchased_date', 'DESC');
+		$rows = $this->Database->stock_log()->where('product_id = :1 AND transaction_type IN (:2, :3) AND undone = 0', $productId, self::TRANSACTION_TYPE_PURCHASE, self::TRANSACTION_TYPE_INVENTORY_CORRECTION)->whereNOT('price', null)->orderBy('purchased_date', 'DESC');
 		foreach ($rows as $row)
 		{
 			$returnData[] = array(
