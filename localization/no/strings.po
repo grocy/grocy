@@ -1357,3 +1357,21 @@ msgstr ""
 
 msgid "Booking has subsequent dependent bookings, undo not possible"
 msgstr ""
+
+msgid "per serving"
+msgstr ""
+
+msgid "Never"
+msgstr ""
+
+msgid "Today"
+msgstr ""
+
+msgid "Consume %1$s of %2$s as spoiled"
+msgstr ""
+
+msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
+msgstr ""
+
+msgid "Undo task \"%s\""
+msgstr ""

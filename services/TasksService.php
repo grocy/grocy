@@ -26,6 +26,22 @@ class TasksService extends BaseService
 		return true;
 	}
 
+	public function UndoTask($taskId)
+	{
+		if (!$this->TaskExists($taskId))
+		{
+			throw new \Exception('Task does not exist');
+		}
+
+		$taskRow = $this->Database->tasks()->where('id = :1', $taskId)->fetch();
+		$taskRow->update(array(
+			'done' => 0,
+			'done_timestamp' => null
+		));
+
+		return true;
+	}
+
 	private function TaskExists($taskId)
 	{
 		$taskRow = $this->Database->tasks()->where('id = :1', $taskId)->fetch();

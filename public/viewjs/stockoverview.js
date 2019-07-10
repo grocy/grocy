@@ -89,11 +89,10 @@ $(document).on('click', '.product-consume-button', function(e)
 	Grocy.FrontendHelpers.BeginUiBusy();
 
 	var productId = $(e.currentTarget).attr('data-product-id');
-	var productName = $(e.currentTarget).attr('data-product-name');
-	var productQuName = $(e.currentTarget).attr('data-product-qu-name');
 	var consumeAmount = $(e.currentTarget).attr('data-consume-amount');
+	var wasSpoiled = $(e.currentTarget).hasClass("product-consume-button-spoiled");
 
-	Grocy.Api.Post('stock/products/' + productId + '/consume', { 'amount': consumeAmount },
+	Grocy.Api.Post('stock/products/' + productId + '/consume', { 'amount': consumeAmount, 'spoiled': wasSpoiled },
 		function()
 		{
 			Grocy.Api.Get('stock/products/' + productId,
@@ -127,8 +126,9 @@ $(document).on('click', '.product-consume-button', function(e)
 					}
 					else
 					{
+						$('#product-' + productId + '-qu-name').text(__n(newAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural));
 						$('#product-' + productId + '-amount').parent().effect('highlight', { }, 500);
-						$('#product-' + productId + '-amount').fadeOut(500, function()
+						$('#product-' + productId + '-amount').fadeOut(500, function ()
 						{
 							$(this).text(newAmount).fadeIn(500);
 						});
@@ -156,10 +156,21 @@ $(document).on('click', '.product-consume-button', function(e)
 						});
 					}
 
+					var toastMessage = __t('Removed %1$s of %2$s from stock', consumeAmount.toString() + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural), result.product.name);
+					if (wasSpoiled)
+					{
+						toastMessage += " (" + __t("Spoiled") + ")";
+					}
+
 					Grocy.FrontendHelpers.EndUiBusy();
-					toastr.success(__t('Removed %1$s of %2$s from stock', consumeAmount, productQuName, productName));
-					RefreshContextualTimeago();
+					toastr.success(toastMessage);
 					RefreshStatistics();
+
+					// Needs to be delayed because of the animation above the date-text would be wrong if fired immediately...
+					setTimeout(function ()
+					{
+						RefreshContextualTimeago();
+					}, 520);
 				},
 				function(xhr)
 				{
@@ -214,14 +225,14 @@ $(document).on('click', '.product-open-button', function(e)
 					}
 
 					$('#product-' + productId + '-next-best-before-date').parent().effect('highlight', {}, 500);
-					$('#product-' + productId + '-next-best-before-date').fadeOut(500, function ()
+					$('#product-' + productId + '-next-best-before-date').fadeOut(500, function()
 					{
 						$(this).text(result.next_best_before_date).fadeIn(500);
 					});
 					$('#product-' + productId + '-next-best-before-date-timeago').attr('datetime', result.next_best_before_date);
 
 					$('#product-' + productId + '-opened-amount').parent().effect('highlight', {}, 500);
-					$('#product-' + productId + '-opened-amount').fadeOut(500, function ()
+					$('#product-' + productId + '-opened-amount').fadeOut(500, function()
 					{
 						$(this).text(__t('%s opened', result.stock_amount_opened)).fadeIn(500);
 					});
@@ -233,8 +244,13 @@ $(document).on('click', '.product-open-button', function(e)
 
 					Grocy.FrontendHelpers.EndUiBusy();
 					toastr.success(__t('Marked %1$s of %2$s as opened', 1 + " " + productQuName, productName));
-					RefreshContextualTimeago();
 					RefreshStatistics();
+
+					// Needs to be delayed because of the animation above the date-text would be wrong if fired immediately...
+					setTimeout(function()
+					{
+						RefreshContextualTimeago();
+					}, 600);
 				},
 				function(xhr)
 				{

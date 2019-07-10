@@ -40,4 +40,29 @@ class RecipesApiController extends BaseApiController
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
+
+	public function GetRecipeFulfillment(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		try
+		{ 
+			if(!isset($args['recipeId']))
+			{
+				return $this->ApiResponse($this->RecipesService->GetRecipesResolved());
+			}
+
+			$recipeResolved = FindObjectInArrayByPropertyValue($this->RecipesService->GetRecipesResolved(), 'recipe_id', $args['recipeId']);
+			if(!$recipeResolved)
+			{
+				throw new \Exception('Recipe does not exist');
+			}
+			else
+			{
+				return $this->ApiResponse($recipeResolved);
+			}
+		} 
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
 }

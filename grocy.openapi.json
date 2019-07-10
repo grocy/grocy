@@ -1663,6 +1663,47 @@
 				}
 			}
 		},
+		"/recipes/{recipeId}/fulfillment": {
+			"get": {
+				"summary": "Get stock fulfillment information for the given recipe",
+				"tags": [
+					"Recipes"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "recipeId",
+						"required": true,
+						"description": "A valid recipe id",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A RecipeFulfillmentResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/RecipeFulfillmentResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/recipes/{recipeId}/consume": {
 			"post": {
 				"summary": "Consumes all products of the given recipe",
@@ -1683,6 +1724,39 @@
 				"responses": {
 					"204": {
 						"description": "The operation was successful"
+					}
+				}
+			}
+		},
+		"/recipes/fulfillment": {
+			"get": {
+				"summary": "Get stock fulfillment information for all recipe",
+				"tags": [
+					"Recipes"
+				],
+				"responses": {
+					"200": {
+						"description": "An array of RecipeFulfillmentResponse objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/RecipeFulfillmentResponse"
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
 					}
 				}
 			}
@@ -2077,6 +2151,40 @@
 				}
 			}
 		},
+		"/tasks/{taskId}/undo": {
+			"post": {
+				"summary": "Marks the given task as not completed",
+				"tags": [
+					"Tasks"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "taskId",
+						"required": true,
+						"description": "A valid task id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing task)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/calendar/ical": {
 			"get": {
 				"summary": "Returns the calendar in iCal format",
@@ -2373,6 +2481,34 @@
 					"opened_date": null,
 					"row_created_timestamp": "2019-05-03 18:24:04",
 					"location_id": "4"
+				}
+			},
+			"RecipeFulfillmentResponse": {
+				"type": "object",
+				"properties": {
+					"recipe_id": {
+						"type": "integer"
+					},
+					"need_fulfilled": {
+						"type": "boolean"
+					},
+					"need_fulfilled_with_shopping_list": {
+						"type": "boolean"
+					},
+					"missing_products_count": {
+						"type": "integer"
+					},
+					"costs": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"example": {
+					"recipe_id": "1",
+					"need_fulfilled": "0",
+					"need_fulfilled_with_shopping_list": "0",
+					"missing_products_count": "2",
+					"costs": "17.74"
 				}
 			},
 			"ProductDetailsResponse": {

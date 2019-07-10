@@ -3,7 +3,6 @@
 	e.preventDefault();
 
 	var jsonData = $('#shoppinglist-form').serializeJSON();
-	jsonData.shopping_list_id = GetUriParam("list");
 	Grocy.FrontendHelpers.BeginUiBusy("shoppinglist-form");
 
 	if (Grocy.EditMode === 'create')
@@ -11,7 +10,7 @@
 		Grocy.Api.Post('objects/shopping_list', jsonData,
 			function(result)
 			{
-				window.location.href = U('/shoppinglist?list=' + GetUriParam("list"));
+				window.location.href = U('/shoppinglist?list=' + $("#shopping_list_id").val().toString());
 			},
 			function(xhr)
 			{
@@ -25,7 +24,7 @@
 		Grocy.Api.Put('objects/shopping_list/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
-				window.location.href = U('/shoppinglist?list=' + GetUriParam("list"));
+				window.location.href = U('/shoppinglist?list=' + $("#shopping_list_id").val().toString());
 			},
 			function(xhr)
 			{
@@ -93,12 +92,12 @@ $('#amount').on('focus', function(e)
 	}
 });
 
-$('#shoppinglist-form input').keyup(function (event)
+$('#shoppinglist-form input').keyup(function(event)
 {
 	Grocy.FrontendHelpers.ValidateForm('shoppinglist-form');
 });
 
-$('#shoppinglist-form input').keydown(function (event)
+$('#shoppinglist-form input').keydown(function(event)
 {
 	if (event.keyCode === 13) //Enter
 	{
@@ -114,3 +113,8 @@ $('#shoppinglist-form input').keydown(function (event)
 		}
 	}
 });
+
+if (GetUriParam("list") !== undefined)
+{
+	$("#shopping_list_id").val(GetUriParam("list"));
+}

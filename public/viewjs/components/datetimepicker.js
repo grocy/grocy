@@ -48,6 +48,15 @@ Grocy.Components.DateTimePicker.ChangeFormat = function(format)
 	$(".datetimepicker").datetimepicker("destroy");
 	Grocy.Components.DateTimePicker.GetInputElement().data("format", format);
 	Grocy.Components.DateTimePicker.Init();
+
+	if (format == "YYYY-MM-DD")
+	{
+		Grocy.Components.DateTimePicker.GetInputElement().addClass("date-only-datetimepicker");
+	}
+	else
+	{
+		Grocy.Components.DateTimePicker.GetInputElement().removeClass("date-only-datetimepicker");
+	}
 }
 
 var startDate = null;
@@ -226,8 +235,9 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keyup', function(e)
 
 Grocy.Components.DateTimePicker.GetInputElement().on('input', function(e)
 {
-	$('#datetimepicker-timeago').text($.timeago(Grocy.Components.DateTimePicker.GetValue()));
+	$('#datetimepicker-timeago').attr("datetime", Grocy.Components.DateTimePicker.GetValue());
 	EmptyElementWhenMatches('#datetimepicker-timeago', __t('timeago_nan'));
+	RefreshContextualTimeago();
 });
 
 $('.datetimepicker').on('update.datetimepicker', function(e)

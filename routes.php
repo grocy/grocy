@@ -173,7 +173,9 @@ $app->group('/api', function()
 	if (GROCY_FEATURE_FLAG_RECIPES)
 	{
 		$this->post('/recipes/{recipeId}/add-not-fulfilled-products-to-shoppinglist', '\Grocy\Controllers\RecipesApiController:AddNotFulfilledProductsToShoppingList');
+		$this->get('/recipes/{recipeId}/fulfillment', '\Grocy\Controllers\RecipesApiController:GetRecipeFulfillment');
 		$this->post('/recipes/{recipeId}/consume', '\Grocy\Controllers\RecipesApiController:ConsumeRecipe');
+		$this->get('/recipes/fulfillment', '\Grocy\Controllers\RecipesApiController:GetRecipeFulfillment');
 	}
 
 	// Chores
@@ -199,6 +201,7 @@ $app->group('/api', function()
 	{
 		$this->get('/tasks', '\Grocy\Controllers\TasksApiController:Current');
 		$this->post('/tasks/{taskId}/complete', '\Grocy\Controllers\TasksApiController:MarkTaskAsCompleted');
+		$this->post('/tasks/{taskId}/undo', '\Grocy\Controllers\TasksApiController:UndoTask');
 	}
 
 	// Calendar

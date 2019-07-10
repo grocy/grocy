@@ -222,6 +222,7 @@ class StockController extends BaseController
 		{
 			return $this->AppContainer->view->render($response, 'shoppinglistitemform', [
 				'products' =>  $this->Database->products()->orderBy('name'),
+				'shoppingLists' => $this->Database->shopping_lists()->orderBy('name'),
 				'mode' => 'create'
 			]);
 		}
@@ -230,6 +231,7 @@ class StockController extends BaseController
 			return $this->AppContainer->view->render($response, 'shoppinglistitemform', [
 				'listItem' =>  $this->Database->shopping_list($args['itemId']),
 				'products' =>  $this->Database->products()->orderBy('name'),
+				'shoppingLists' => $this->Database->shopping_lists()->orderBy('name'),
 				'mode' => 'edit'
 			]);
 		}

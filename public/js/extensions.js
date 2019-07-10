@@ -37,6 +37,13 @@ GetUriParam = function(key)
 	}
 };
 
+UpdateUriParam = function(key, value)
+{
+	var queryParameters = new URLSearchParams(location.search);
+	queryParameters.set(key, value);
+	window.history.replaceState({ }, "", decodeURIComponent(`${location.pathname}?${queryParameters}`));
+};
+
 IsTouchInputDevice = function()
 {
 	if (("ontouchstart" in window) || window.DocumentTouch && document instanceof DocumentTouch)

@@ -270,7 +270,7 @@ html {
 }
 
 /* Third party component customizations - Tempus Dominus */
-.date-only-datetimepicker .bootstrap-datetimepicker-widget.dropdown-menu {
+.bootstrap-datetimepicker-widget.dropdown-menu {
 	width: auto !important;
 }
 

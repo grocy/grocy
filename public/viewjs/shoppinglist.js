@@ -259,6 +259,46 @@ $(document).on('click', '#shopping-list-stock-add-workflow-skip-button', functio
 	window.postMessage(WindowMessageBag("Ready"), Grocy.BaseUrl);
 });
 
+$(document).on('click', '.order-listitem-button', function(e)
+{
+	e.preventDefault();
+
+	Grocy.FrontendHelpers.BeginUiBusy();
+
+	var listItemId = $(e.currentTarget).attr('data-item-id');
+	
+	var done = 1;
+	if ($(e.currentTarget).attr('data-item-done') == 1)
+	{
+		done = 0;
+	}
+
+	$(e.currentTarget).attr('data-item-done', done);
+
+	Grocy.Api.Put('objects/shopping_list/' + listItemId, { 'done': done },
+		function()
+		{
+			if (done == 1)
+			{
+				$('#shoppinglistitem-' + listItemId + '-row').addClass("text-muted");
+				$('#shoppinglistitem-' + listItemId + '-row').addClass("text-strike-through");
+			}
+			else
+			{
+				$('#shoppinglistitem-' + listItemId + '-row').removeClass("text-muted");
+				$('#shoppinglistitem-' + listItemId + '-row').removeClass("text-strike-through");
+			}
+
+			Grocy.FrontendHelpers.EndUiBusy();
+		},
+		function(xhr)
+		{
+			Grocy.FrontendHelpers.EndUiBusy();
+			console.error(xhr);
+		}
+	);
+});
+
 function OnListItemRemoved()
 {
 	if ($(".shopping-list-stock-add-workflow-list-item-button").length === 0)

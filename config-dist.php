@@ -21,6 +21,11 @@ Setting('MODE', 'production');
 # one of the other available localization files in the "/localization" directory
 Setting('CULTURE', 'en');
 
+# This is used to define the first day of a week for calendar views in the frontend,
+# leave empty to use the locale default
+# Needs to be a number where Sunday = 0, Monday = 1 and so forth
+Setting('CALENDAR_FIRST_DAY_OF_WEEK', '');
+
 # To keep it simple: grocy does not handle any currency conversions,
 # this here is used to format all money values,
 # so doesn't matter really matter, but should be the
@@ -44,6 +49,10 @@ Setting('DISABLE_URL_REWRITING', false);
 # By default the homepage will be set to the stock overview.
 # You can set this to any overview you want. Example: Use recipes to set the homepage to the recipes overview.
 Setting('ENTRY_PAGE', 'stock');
+
+# Set this to true if you want to disable authentication / the login screen,
+# places where user context is needed will then use the default (first existing) user
+Setting('DISABLE_AUTH', false);
 
 # Default user settings
 # These settings can be changed per user, here the defaults

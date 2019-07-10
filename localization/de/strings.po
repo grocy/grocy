@@ -670,7 +670,7 @@ msgstr ""
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
 msgstr ""
-"Alle Zutaten, die vom Rezept \"%s\" benötigt werden, wurdem aus dem Bestand "
+"Alle Zutaten, die vom Rezept \"%s\" benötigt werden, wurden aus dem Bestand "
 "entfernt"
 
 msgid "Consume all ingredients needed by this recipe"
@@ -1374,3 +1374,23 @@ msgid "Booking has subsequent dependent bookings, undo not possible"
 msgstr ""
 "Die Buchung hat nachfolgende abhängige Buchungen, rückgängig machen nicht "
 "möglich"
+
+msgid "per serving"
+msgstr "pro Portion"
+
+msgid "Never"
+msgstr "Nie"
+
+msgid "Today"
+msgstr "Heute"
+
+msgid "Consume %1$s of %2$s as spoiled"
+msgstr "Verbrauche %1$s %2$s als verdorben"
+
+msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
+msgstr ""
+"Nicht alle Zutaten, die vom Rezept \"%s\" benötigt werden, sind vorrätig, es"
+" wurde nichts aus dem Bestand entfernt"
+
+msgid "Undo task \"%s\""
+msgstr "Aufgabe \"%s\" rückgängig machen"

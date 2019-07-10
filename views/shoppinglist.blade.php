@@ -85,8 +85,13 @@
 			</thead>
 			<tbody class="d-none">
 				@foreach($listItems as $listItem)
-				<tr id="shoppinglistitem-{{ $listItem->id }}-row" class="@if(FindObjectInArrayByPropertyValue($missingProducts, 'id', $listItem->product_id) !== null) table-info @endif">
+				<tr id="shoppinglistitem-{{ $listItem->id }}-row" class="@if(FindObjectInArrayByPropertyValue($missingProducts, 'id', $listItem->product_id) !== null) table-info @endif @if($listItem->done == 1) text-muted text-strike-through @endif">
 					<td class="fit-content border-right">
+						<a class="btn btn-success btn-sm order-listitem-button" href="#"
+							data-item-id="{{ $listItem->id }}"
+							data-item-done="{{ $listItem->done }}">
+							<i class="fas fa-check"></i>
+						</a>
 						<a class="btn btn-sm btn-info" href="{{ $U('/shoppinglistitem/') . $listItem->id . '?list=' . $selectedShoppingListId }}">
 							<i class="fas fa-edit"></i>
 						</a>
