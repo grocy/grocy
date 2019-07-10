@@ -46,12 +46,14 @@ Setting('STOCK_BARCODE_LOOKUP_PLUGIN', 'DemoBarcodeLookupPlugin');
 # set this to true
 Setting('DISABLE_URL_REWRITING', false);
 
+# Specify an custom homepage if desired. By default the homepage will be set to the stock overview.
+# You can chosen one of the following values:
+# stock, shoppinglist, recipes, chores, tasks, batteries, equipment, calendar
+Setting('ENTRY_PAGE', 'stock');
+
 # Set this to true if you want to disable authentication / the login screen,
 # places where user context is needed will then use the default (first existing) user
 Setting('DISABLE_AUTH', false);
-
-
-
 
 # Default user settings
 # These settings can be changed per user, here the defaults
