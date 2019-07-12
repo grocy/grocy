@@ -12,9 +12,7 @@ There is the [r/grocy subreddit](https://www.reddit.com/r/grocy) to connect with
 A household needs to be managed. I did this so far (almost 10 years) with my first self written software (a C# windows forms application) and with a bunch of Excel sheets. The software is a pain to use and Excel is Excel. So I searched for and tried different things for a (very) long time, nothing 100 % fitted, so this is my aim for a "complete household management"-thing. ERP your fridge!
 
 ## How to install
-> **NEW**
->
-> There is now grocy-desktop if you want to run grocy without a webserver just like a normal (windows) desktop application.
+> Checkout grocy-desktop, if you want to run grocy without a webserver just like a normal (windows) desktop application.
 >
 > See https://github.com/grocy/grocy-desktop or directly download the [latest release](https://releases.grocy.info/latest-desktop) - the installation is nothing more than just clicking 2 times "next"...
 
