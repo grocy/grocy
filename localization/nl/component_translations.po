@@ -1,6 +1,5 @@
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2019
-# Giel Janssens <gieljnssns@me.com>, 2019
 # 
 msgid ""
 msgstr ""
@@ -8,7 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Giel Janssens <gieljnssns@me.com>, 2019\n"
+"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2019\n"
 "Language-Team: Dutch (https://www.transifex.com/grocy/teams/93189/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +26,19 @@ msgid "moment_locale"
 msgstr "nl"
 
 msgid "datatables_localization"
-msgstr "nl-NL"
+msgstr ""
+"{\"sProcessing\":\"Bezig...\",\"sLengthMenu\":\"_MENU_ resultaten "
+"weergeven\",\"sZeroRecords\":\"Geen resultaten "
+"gevonden\",\"sInfo\":\"_START_ tot _END_ van _TOTAL_ "
+"resultaten\",\"sInfoEmpty\":\"Geen resultaten om weer te "
+"geven\",\"sInfoFiltered\":\" (gefilterd uit _MAX_ "
+"resultaten)\",\"sInfoPostFix\":\"\",\"sSearch\":\"Zoeken:\",\"sEmptyTable\":\"Geen"
+" resultaten aanwezig in de "
+"tabel\",\"sInfoThousands\":\".\",\"sLoadingRecords\":\"Een moment geduld aub"
+" - bezig met "
+"laden...\",\"oPaginate\":{\"sFirst\":\"Eerste\",\"sLast\":\"Laatste\",\"sNext\":\"Volgende\",\"sPrevious\":\"Vorige\"},\"oAria\":{\"sSortAscending\":\":"
+" activeer om kolom oplopend te sorteren\",\"sSortDescending\":\": activeer "
+"om kolom aflopend te sorteren\"}}"
 
 msgid "summernote_locale"
 msgstr "nl-NL"
