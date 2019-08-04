@@ -1534,6 +1534,58 @@
 				}
 			}
 		},
+		"/stock/shoppinglist/remove-from-list": {
+			"post": {
+				"summary": "Removes a product from the shoppinglist, if it is on it",
+				"tags": [
+					"Stock"
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"product_id": {
+										"type": "integer",
+										"description": "The product id from the item on the shopping list"
+									},
+									"list_id": {
+										"type": "integer",
+										"description": "The shopping list id to use, when omitted, the default shopping list (with id 1) is used"
+									},
+									"product_amount": {
+										"type": "integer",
+										"description": "The amount of prodcut units to remove, when omitted, the default amount of 1 is used"
+									}
+								},
+								"example": {
+									"product_id": 3,
+									"list_id": 2,
+									"product_amount": 5,
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing shopping list, No product id supplied)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/stock/bookings/{bookingId}/undo": {
 			"post": {
 				"summary": "Undoes a booking",

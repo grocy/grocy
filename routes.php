@@ -167,6 +167,7 @@ $app->group('/api', function()
 	{
 		$this->post('/stock/shoppinglist/add-missing-products', '\Grocy\Controllers\StockApiController:AddMissingProductsToShoppingList');
 		$this->post('/stock/shoppinglist/clear', '\Grocy\Controllers\StockApiController:ClearShoppingList');
+		$this->post('/stock/shoppinglist/remove-from-list', '\Grocy\Controllers\StockApiController:RemoveFromShoppingList');
 	}
 
 	// Recipes

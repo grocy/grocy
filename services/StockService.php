@@ -496,6 +496,28 @@ class StockService extends BaseService
 		$this->Database->shopping_list()->where('shopping_list_id = :1', $listId)->delete();
 	}
 
+
+	public function RemoveProductFromShoppingList($productId, $amount = 1, $listId = 1)
+	{
+		if (!$this->ShoppingListExists($listId))
+		{
+			throw new \Exception('Shopping list does not exist');
+		}
+		$productRow = $this->Database->shopping_list()->where('product_id = :1', $productId)->fetch();
+		//If no entry was found with for this product, we return gracefully
+		if ($productRow != null && !empty($productRow))
+		{
+			$newAmount = $productRow->amount - $amount;
+			if ($newAmount < 1)
+			{
+				$productRow->delete();
+			} else {
+				$productRow->update(array('amount' => $newAmount));
+			}
+			
+		}
+	}
+
 	private function ProductExists($productId)
 	{
 		$productRow = $this->Database->products()->where('id = :1', $productId)->fetch();
