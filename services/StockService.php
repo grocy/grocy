@@ -166,6 +166,16 @@ class StockService extends BaseService
 			
 			$amount = $amount - $productDetails->stock_amount - $productDetails->product->tare_weight;
 		}
+		
+		//Sets the default best before date, if none is supplied
+		if ($bestBeforeDate == null)
+		{
+			if ($productDetails->product->default_best_before_days == -1) {
+				$bestBeforeDate = date('2999-12-31');	
+			} else {
+        			$bestBeforeDate = date('Y-m-d', strtotime(date('Y-m-d') . ' + '.$productDetails->product->default_best_before_days.' days'));	
+			}
+		}
 
 		if ($transactionType === self::TRANSACTION_TYPE_PURCHASE || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
 		{

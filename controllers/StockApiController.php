@@ -67,7 +67,7 @@ class StockApiController extends BaseApiController
 				throw new \Exception('An amount is required');
 			}
 
-			$bestBeforeDate = date('Y-m-d');
+			$bestBeforeDate = null;
 			if (array_key_exists('best_before_date', $requestBody) && IsIsoDate($requestBody['best_before_date']))
 			{
 				$bestBeforeDate = $requestBody['best_before_date'];
