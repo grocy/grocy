@@ -2,7 +2,7 @@
 	"openapi": "3.0.0",
 	"info": {
 		"title": "grocy REST API",
-		"description": "Authentication is done via API keys (header *GROCY-API-KEY*), which you can manage [here](PlaceHolderManageApiKeysUrl).<br>Additionally requests from within the frontend are also valid (via session cookie).",
+		"description": "Authentication is done via API keys (header *GROCY-API-KEY* or same named query parameter), which you can manage [here](PlaceHolderManageApiKeysUrl).<br>Additionally requests from within the frontend are also valid (via session cookie).",
 		"version": "xxx",
 		"contact": {
 			"email": "bernd@berrnd.de"

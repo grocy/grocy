@@ -31,6 +31,7 @@ class ApiKeyAuthMiddleware extends BaseMiddleware
 		{
 			$validSession = true;
 			$validApiKey = true;
+			$usedApiKey = null;
 			
 			$sessionService = new SessionService();
 			if (!isset($_COOKIE[$this->SessionCookieName]) || !$sessionService->IsValidSession($_COOKIE[$this->SessionCookieName]))
@@ -39,9 +40,22 @@ class ApiKeyAuthMiddleware extends BaseMiddleware
 			}
 
 			$apiKeyService = new ApiKeyService();
+
+			// First check of the API key in the configured header
 			if (!$request->hasHeader($this->ApiKeyHeaderName) || !$apiKeyService->IsValidApiKey($request->getHeaderLine($this->ApiKeyHeaderName)))
 			{
 				$validApiKey = false;
+			}
+			else
+			{
+				$usedApiKey = $request->getHeaderLine($this->ApiKeyHeaderName);
+			}
+
+			// Not recommended, but it's also possible to provide the API key via a query parameter (same name as the configured header)
+			if (!$validApiKey && !empty($request->getQueryParam($this->ApiKeyHeaderName)) && $apiKeyService->IsValidApiKey($request->getQueryParam($this->ApiKeyHeaderName)))
+			{
+				$validApiKey = true;
+				$usedApiKey = $request->getQueryParam($this->ApiKeyHeaderName);
 			}
 
 			// Handling of special purpose API keys
@@ -63,7 +77,7 @@ class ApiKeyAuthMiddleware extends BaseMiddleware
 			}
 			elseif ($validApiKey)
 			{
-				$user = $apiKeyService->GetUserByApiKey($request->getHeaderLine($this->ApiKeyHeaderName));
+				$user = $apiKeyService->GetUserByApiKey($usedApiKey);
 				define('GROCY_AUTHENTICATED', true);
 				define('GROCY_USER_ID', $user->id);
 
