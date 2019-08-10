@@ -165,7 +165,7 @@ class StockApiController extends BaseApiController
 				throw new \Exception('An new amount is required');
 			}
 
-			$bestBeforeDate = date('Y-m-d');
+			$bestBeforeDate = null;
 			if (array_key_exists('best_before_date', $requestBody) && IsIsoDate($requestBody['best_before_date']))
 			{
 				$bestBeforeDate = $requestBody['best_before_date'];
@@ -290,7 +290,7 @@ class StockApiController extends BaseApiController
 
 
 
-	public function RemoveFromShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function RemoveItemFromShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		try
 		{

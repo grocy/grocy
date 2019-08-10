@@ -1534,9 +1534,9 @@
 				}
 			}
 		},
-		"/stock/shoppinglist/remove-from-list": {
+		"/stock/shoppinglist/remove-product": {
 			"post": {
-				"summary": "Removes a product from the shoppinglist, if it is on it",
+				"summary": "Removes the given product from the given shopping list, if it is on it",
 				"tags": [
 					"Stock"
 				],
@@ -1549,21 +1549,21 @@
 								"properties": {
 									"product_id": {
 										"type": "integer",
-										"description": "The product id from the item on the shopping list"
+										"description": "A valid product id of the item on the shopping list"
 									},
 									"list_id": {
 										"type": "integer",
-										"description": "The shopping list id to use, when omitted, the default shopping list (with id 1) is used"
+										"description": "A valid shopping list id, when omitted, the default shopping list (with id 1) is used"
 									},
 									"product_amount": {
 										"type": "integer",
-										"description": "The amount of prodcut units to remove, when omitted, the default amount of 1 is used"
+										"description": "The amount of product units to remove, when omitted, the default amount of 1 is used"
 									}
 								},
 								"example": {
 									"product_id": 3,
 									"list_id": 2,
-									"product_amount": 5,
+									"product_amount": 5
 								}
 							}
 						}
@@ -1574,7 +1574,7 @@
 						"description": "The operation was successful"
 					},
 					"400": {
-						"description": "The operation was not successful (possible errors are: Not existing shopping list, No product id supplied)",
+						"description": "The operation was not successful (possible errors are: Not existing shopping list, Invalid product id supplied)",
 						"content": {
 							"application/json": {
 								"schema": {
