@@ -124,6 +124,7 @@ $app->group('/api', function()
 	// Generic entity interaction
 	$this->get('/objects/{entity}', '\Grocy\Controllers\GenericEntityApiController:GetObjects');
 	$this->get('/objects/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:GetObject');
+	$this->get('/objects/{entity}/search/{searchString}', '\Grocy\Controllers\GenericEntityApiController:SearchObjects');
 	$this->post('/objects/{entity}', '\Grocy\Controllers\GenericEntityApiController:AddObject');
 	$this->put('/objects/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:EditObject');
 	$this->delete('/objects/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:DeleteObject');

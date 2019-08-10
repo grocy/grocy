@@ -113,6 +113,25 @@ class GenericEntityApiController extends BaseApiController
 		}
 	}
 
+	public function SearchObjects(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithPreventedListing($args['entity']))
+		{
+			try
+			{
+				return $this->ApiResponse($this->Database->{$args['entity']}()->where('name LIKE ?', '%' . $args['searchString'] . '%'));
+			}
+			catch (\PDOException $ex)
+			{
+				return $this->GenericErrorResponse($response, 'The given entity has no field "name"');
+			}
+		}
+		else
+		{
+			return $this->GenericErrorResponse($response, 'Entity does not exist or is not exposed');
+		}
+	}
+
 	public function GetUserfields(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		try
