@@ -20,6 +20,12 @@ class StockService extends BaseService
 		return $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
 
+	public function GetCurrentStockLocationContent()
+	{
+		$sql = 'SELECT * FROM stock_current_location_content';
+		return $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
+	}
+
 	public function GetCurrentStockLocations()
 	{
 		$sql = 'SELECT * FROM stock_current_locations';

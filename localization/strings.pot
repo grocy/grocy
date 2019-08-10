@@ -1292,3 +1292,9 @@ msgstr ""
 
 msgid "When enabled the chore can never be overdue, the due date will shift forward each day when due"
 msgstr ""
+
+msgid "Print"
+msgstr ""
+
+msgid "Location Content Sheet"
+msgstr ""

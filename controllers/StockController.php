@@ -262,4 +262,14 @@ class StockController extends BaseController
 			'quantityunits' => $this->Database->quantity_units()->orderBy('name')
 		]);
 	}
+
+	public function LocationContentSheet(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->AppContainer->view->render($response, 'locationcontentsheet', [
+			'products' => $this->Database->products()->orderBy('name'),
+			'quantityunits' => $this->Database->quantity_units()->orderBy('name'),
+			'locations' => $this->Database->locations()->orderBy('name'),
+			'currentStockLocationContent' => $this->StockService->GetCurrentStockLocationContent()
+		]);
+	}
 }
