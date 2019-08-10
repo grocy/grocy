@@ -1,0 +1,6 @@
+- General improvements/fixes
+  - Improved the handling which entry page to use with disabled feature flags (thanks @nielstholenaar)
+  - The Userfield type "Preset list" had always the caption "Product group" (thanks @oncleben31)
+- API improvements
+  - New endpoint `/stock/shoppinglist/remove-product` to remove an product from a shopping lsit (thanks @Forceu)
+  - When adding a product through (`stock/product/{productId}/add` or `stock/product/{productId}/inventory`) with omitted best before date and if the given product has "Default best before days" set, the best before date is calculated based on that (so far always today was used which is still the case when no date is supplied and also the product has no "Default best before days set) (thanks @Forceu)
