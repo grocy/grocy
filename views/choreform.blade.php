@@ -97,6 +97,16 @@
 				</div>
 			</div>
 
+			<div class="form-group">
+				<div class="form-check">
+					<input type="hidden" name="rollover" value="0">
+					<input @if($mode == 'edit' && $chore->rollover == 1) checked @endif class="form-check-input" type="checkbox" id="rollover" name="rollover" value="1">
+					<label class="form-check-label" for="rollover">{{ $__t('Due date rollover') }}
+						<span class="text-muted small">{{ $__t('When enabled the chore can never be overdue, the due date will shift forward each day when due') }}</span>
+					</label>
+				</div>
+			</div>
+
 			@include('components.userfieldsform', array(
 				'userfields' => $userfields,
 				'entity' => 'chores'

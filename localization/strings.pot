@@ -1286,3 +1286,9 @@ msgstr ""
 
 msgid "Undo task \"%s\""
 msgstr ""
+
+msgid "Due date rollover"
+msgstr ""
+
+msgid "When enabled the chore can never be overdue, the due date will shift forward each day when due"
+msgstr ""
