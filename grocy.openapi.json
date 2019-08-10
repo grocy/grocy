@@ -454,7 +454,7 @@
 		},
 		"/objects/{entity}/search/{searchString}": {
 			"get": {
-				"summary": "Returns all objects of the given entity where the field \"name\" contains the search string (so only works for entities which have that field",
+				"summary": "Returns all objects of the given entity where the field \"name\" contains the search string (so only works for entities which have that field)",
 				"tags": [
 					"Generic entity interactions"
 				],
