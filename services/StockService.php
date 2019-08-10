@@ -166,6 +166,16 @@ class StockService extends BaseService
 			
 			$amount = $amount - $productDetails->stock_amount - $productDetails->product->tare_weight;
 		}
+		
+		//Sets the default best before date, if none is supplied
+		if ($bestBeforeDate == null)
+		{
+			if ($productDetails->product->default_best_before_days == -1) {
+				$bestBeforeDate = date('2999-12-31');	
+			} else {
+        			$bestBeforeDate = date('Y-m-d', strtotime(date('Y-m-d') . ' + '.$productDetails->product->default_best_before_days.' days'));	
+			}
+		}
 
 		if ($transactionType === self::TRANSACTION_TYPE_PURCHASE || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
 		{
@@ -494,6 +504,28 @@ class StockService extends BaseService
 		}
 
 		$this->Database->shopping_list()->where('shopping_list_id = :1', $listId)->delete();
+	}
+
+
+	public function RemoveProductFromShoppingList($productId, $amount = 1, $listId = 1)
+	{
+		if (!$this->ShoppingListExists($listId))
+		{
+			throw new \Exception('Shopping list does not exist');
+		}
+		$productRow = $this->Database->shopping_list()->where('product_id = :1', $productId)->fetch();
+		//If no entry was found with for this product, we return gracefully
+		if ($productRow != null && !empty($productRow))
+		{
+			$newAmount = $productRow->amount - $amount;
+			if ($newAmount < 1)
+			{
+				$productRow->delete();
+			} else {
+				$productRow->update(array('amount' => $newAmount));
+			}
+			
+		}
 	}
 
 	private function ProductExists($productId)
