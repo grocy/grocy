@@ -1293,8 +1293,23 @@ msgstr ""
 msgid "When enabled the chore can never be overdue, the due date will shift forward each day when due"
 msgstr ""
 
+msgid "Location Content Sheet"
+msgstr ""
+
 msgid "Print"
 msgstr ""
 
-msgid "Location Content Sheet"
+msgid "all locations"
+msgstr ""
+
+msgid "Here you can print a page per location with the current stock, maybe to hang it there and note the consumed things on it."
+msgstr ""
+
+msgid "this location"
+msgstr ""
+
+msgid "Consumend amount"
+msgstr ""
+
+msgid "Time of printing"
 msgstr ""

@@ -24,6 +24,9 @@
 			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/stockjournal') }}">
 				<i class="fas fa-file-alt"></i> {{ $__t('Journal') }}
 			</a>
+			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/locationcontentsheet') }}">
+				<i class="fas fa-print"></i> {{ $__t('Location Content Sheet') }}
+			</a>
 		</h1>
 		<p id="info-expiring-products" data-next-x-days="{{ $nextXDays }}" data-status-filter="expiring" class="btn btn-lg btn-warning status-filter-button responsive-button mr-2"></p>
 		<p id="info-expired-products" data-status-filter="expired" class="btn btn-lg btn-danger status-filter-button responsive-button mr-2"></p>
