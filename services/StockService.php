@@ -78,6 +78,10 @@ class StockService extends BaseService
 
 		$product = $this->Database->products($productId);
 		$productStockAmount = $this->Database->stock()->where('product_id', $productId)->sum('amount');
+		if ($productStockAmount == null)
+		{
+			$productStockAmount = 0;
+		}
 		$productStockAmountOpened = $this->Database->stock()->where('product_id = :1 AND open = 1', $productId)->sum('amount');
 		$productLastPurchased = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_PURCHASE)->where('undone', 0)->max('purchased_date');
 		$productLastUsed = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone', 0)->max('used_date');
