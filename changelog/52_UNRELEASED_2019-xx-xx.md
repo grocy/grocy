@@ -1,5 +1,6 @@
 - Stock improvements
   - You can now print a "Location Content Sheet" with the current stock per location - new button at the top of the stock overview page
+  - The product description now can have formattings (HTML/WYSIWYG editor like for recipes)
 - Chores improvements
   - New option "Due date rollover" per chore which means the chore can never be overdue, the due date will shift forward each day when due
 - Equipment improvements/fixes
