@@ -1313,3 +1313,6 @@ msgstr ""
 
 msgid "Time of printing"
 msgstr ""
+
+msgid "Are you sure to delete equipment \"%s\"?"
+msgstr ""
