@@ -132,12 +132,6 @@ $('#delete-current-instruction-manual-button').on('click', function (e)
 	$("#delete-current-instruction-manual-on-save-hint").removeClass("d-none");
 	$("#delete-current-instruction-manual-button").addClass("disabled");
 });
-
-$('#description').summernote({
-	minHeight: '300px',
-	lang: __t('summernote_locale')
-});
-
 ResizeResponsiveEmbeds();
 
 Grocy.Components.UserfieldsForm.Load();

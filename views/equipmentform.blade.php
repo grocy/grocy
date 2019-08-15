@@ -8,15 +8,6 @@
 
 @section('viewJsName', 'equipmentform')
 
-@push('pageScripts')
-	<script src="{{ $U('/node_modules/summernote/dist/summernote-bs4.js?v=', true) }}{{ $version }}"></script>
-	@if(!empty($__t('summernote_locale') && $__t('summernote_locale') != 'x'))<script src="{{ $U('/node_modules', true) }}/summernote/dist/lang/summernote-{{ $__t('summernote_locale') }}.js?v={{ $version }}"></script>@endif
-@endpush
-
-@push('pageStyles')
-	<link href="{{ $U('/node_modules/summernote/dist/summernote-bs4.css?v=', true) }}{{ $version }}" rel="stylesheet">
-@endpush
-
 @section('content')
 <div class="row">
 
@@ -53,7 +44,7 @@
 
 			<div class="form-group">
 				<label for="description">{{ $__t('Notes') }}</label>
-				<textarea class="form-control" id="description" name="description">@if($mode == 'edit'){{ $equipment->description }}@endif</textarea>
+				<textarea class="form-control wysiwyg-editor" id="description" name="description">@if($mode == 'edit'){{ $equipment->description }}@endif</textarea>
 			</div>
 
 			@include('components.userfieldsform', array(

@@ -344,9 +344,4 @@ $('#delete-current-recipe-picture-button').on('click', function (e)
 	$("#delete-current-recipe-picture-button").addClass("disabled");
 });
 
-$('#description').summernote({
-	minHeight: '300px',
-	lang: __t('summernote_locale')
-});
-
 Grocy.Components.UserfieldsForm.Load();

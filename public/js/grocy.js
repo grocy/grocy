@@ -521,3 +521,8 @@ $(document).on("click", ".easy-link-copy-textbox", function()
 {
 	$(this).select();
 });
+
+$("textarea.wysiwyg-editor").summernote({
+	minHeight: "300px",
+	lang: __t("summernote_locale")
+});

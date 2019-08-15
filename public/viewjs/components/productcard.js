@@ -8,7 +8,7 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 			var stockAmount = productDetails.stock_amount || '0';
 			var stockAmountOpened = productDetails.stock_amount_opened || '0';
 			$('#productcard-product-name').text(productDetails.product.name);
-			$('#productcard-product-description').text(productDetails.product.description);
+			$('#productcard-product-description').html(productDetails.product.description);
 			$('#productcard-product-stock-amount').text(stockAmount);
 			$('#productcard-product-stock-qu-name').text(__n(stockAmount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural));
 			$('#productcard-product-last-purchased').text((productDetails.last_purchased || __t('never')).substring(0, 10));

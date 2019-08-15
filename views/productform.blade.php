@@ -42,7 +42,7 @@
 
 			<div class="form-group">
 				<label for="description">{{ $__t('Description') }}</label>
-				<textarea class="form-control" rows="2" id="description" name="description">@if($mode == 'edit'){{ $product->description }}@endif</textarea>
+				<textarea class="form-control wysiwyg-editor" id="description" name="description">@if($mode == 'edit'){{ $product->description }}@endif</textarea>
 			</div>
 
 			<div class="form-group tm-group">

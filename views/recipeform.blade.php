@@ -9,14 +9,11 @@
 @section('viewJsName', 'recipeform')
 
 @push('pageScripts')
-	<script src="{{ $U('/node_modules/summernote/dist/summernote-bs4.js?v=', true) }}{{ $version }}"></script>
-	@if(!empty($__t('summernote_locale') && $__t('summernote_locale') != 'x'))<script src="{{ $U('/node_modules', true) }}/summernote/dist/lang/summernote-{{ $__t('summernote_locale') }}.js?v={{ $version }}"></script>@endif
 	<script src="{{ $U('/node_modules/datatables.net-rowgroup/js/dataTables.rowGroup.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/datatables.net-rowgroup-bs4/js/rowGroup.bootstrap4.min.js?v=', true) }}{{ $version }}"></script>
 @endpush
 
 @push('pageStyles')
-	<link href="{{ $U('/node_modules/summernote/dist/summernote-bs4.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/node_modules/datatables.net-rowgroup-bs4/css/rowGroup.bootstrap4.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
 @endpush
 
@@ -49,7 +46,7 @@
 
 			<div class="form-group">
 				<label for="description">{{ $__t('Preparation') }}</label>
-				<textarea id="description" class="form-control" name="description">@if($mode == 'edit'){{ $recipe->description }}@endif</textarea>
+				<textarea id="description" class="form-control wysiwyg-editor" name="description">@if($mode == 'edit'){{ $recipe->description }}@endif</textarea>
 			</div>
 
 			@php if($mode == 'edit') { $value = $recipe->base_servings; } else { $value = 1; } @endphp
