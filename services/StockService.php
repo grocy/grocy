@@ -549,6 +549,32 @@ class StockService extends BaseService
 		}
 	}
 
+	public function AddProductToShoppingList($productId, $amount = 1, $listId = 1)
+	{
+		if (!$this->ShoppingListExists($listId))
+		{
+			throw new \Exception('Shopping list does not exist');
+		}
+
+		$alreadyExistingEntry = $this->Database->shopping_list()->where('product_id', $productId->id)->fetch();
+			if ($alreadyExistingEntry) // Update
+			{
+				$alreadyExistingEntry->update(array(
+					'amount' => ($alreadyExistingEntry->amount + $amount),
+					'shopping_list_id' => $listId
+				));
+			}
+			else // Insert
+			{
+				$shoppinglistRow = $this->Database->shopping_list()->createRow(array(
+					'product_id' => $productId->id,
+					'amount' => $amount,
+					'shopping_list_id' => $listId
+				));
+				$shoppinglistRow->save();
+			}
+	}
+
 	private function ProductExists($productId)
 	{
 		$productRow = $this->Database->products()->where('id = :1', $productId)->fetch();
