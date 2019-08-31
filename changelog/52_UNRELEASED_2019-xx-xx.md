@@ -10,6 +10,7 @@
   - Fixed that the Userfield type "Preset list" had always the caption "Product group" instead of the configured one (thanks @oncleben31)
   - Userfields of type "checkbox" are rendered as a checkmark in tables when checked (instead of "1" as till now)
 - API improvements
+    - New endpoint `/stock/shoppinglist/add-product` to add a product to a shopping list (thanks @Forceu)
   - New endpoint `/stock/shoppinglist/remove-product` to remove a product from a shopping list (thanks @Forceu)
   - When adding a product (through `stock/product/{productId}/add` or `stock/product/{productId}/inventory`) with omitted best before date and if the given product has "Default best before days" set, the best before date is calculated based on that (so far always today was used which is still the case when no date is supplied and also the product has no "Default best before days set) (thanks @Forceu)
   - Field `stock_amount` of endpoint `/stock/products/{productId}´ now returns `0` instead of `null` when the given product is not in stock (thanks @Forceu)

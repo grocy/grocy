@@ -556,23 +556,28 @@ class StockService extends BaseService
 			throw new \Exception('Shopping list does not exist');
 		}
 
-		$alreadyExistingEntry = $this->Database->shopping_list()->where('product_id', $productId->id)->fetch();
-			if ($alreadyExistingEntry) // Update
-			{
-				$alreadyExistingEntry->update(array(
-					'amount' => ($alreadyExistingEntry->amount + $amount),
-					'shopping_list_id' => $listId
-				));
-			}
-			else // Insert
-			{
-				$shoppinglistRow = $this->Database->shopping_list()->createRow(array(
-					'product_id' => $productId->id,
-					'amount' => $amount,
-					'shopping_list_id' => $listId
-				));
-				$shoppinglistRow->save();
-			}
+		if (!$this->ProductExists($productId))
+		{
+			throw new \Exception('Product does not exist');
+		}
+
+		$alreadyExistingEntry = $this->Database->shopping_list()->where('product_id = :1 AND shopping_list_id = :2', $productId, $listId)->fetch();
+		if ($alreadyExistingEntry) // Update
+		{
+			$alreadyExistingEntry->update(array(
+				'amount' => ($alreadyExistingEntry->amount + $amount),
+				'shopping_list_id' => $listId
+			));
+		}
+		else // Insert
+		{
+			$shoppinglistRow = $this->Database->shopping_list()->createRow(array(
+				'product_id' => $productId->id,
+				'amount' => $amount,
+				'shopping_list_id' => $listId
+			));
+			$shoppinglistRow->save();
+		}
 	}
 
 	private function ProductExists($productId)
