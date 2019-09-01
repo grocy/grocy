@@ -81,6 +81,25 @@ class StockController extends BaseController
 		]);
 	}
 
+	public function OfflineShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		$listId = 1;
+		if (isset($request->getQueryParams()['list']))
+		{
+			$listId = $request->getQueryParams()['list'];
+		}
+
+		return $this->AppContainer->view->render($response, 'offlineshoppinglist', [
+			'listItems' => $this->Database->shopping_list()->where('shopping_list_id = :1', $listId),
+			'products' => $this->Database->products()->orderBy('name'),
+			'quantityunits' => $this->Database->quantity_units()->orderBy('name'),
+			'missingProducts' => $this->StockService->GetMissingProducts(),
+			'productGroups' => $this->Database->product_groups()->orderBy('name'),
+			'shoppingLists' => $this->Database->shopping_lists()->orderBy('name'),
+			'selectedShoppingListId' => $listId
+		]);
+	}
+
 	public function ProductsList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->AppContainer->view->render($response, 'products', [

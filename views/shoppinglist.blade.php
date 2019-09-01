@@ -23,6 +23,9 @@
 			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/shoppinglistitem/new?list=' . $selectedShoppingListId) }}">
 				<i class="fas fa-plus"></i> {{ $__t('Add item') }}
 			</a>
+			<a class="btn btn-outline-dark responsive-button @if($listItems->count() == 0) disabled @endif" href="{{ $U('/offlineshoppinglist?list=' . $selectedShoppingListId) }}">
+				<i class="fas fa-clipboard-check"></i> Offline {{ $__t('Shopping list') }}
+			</a>
 			<a id="clear-shopping-list" class="btn btn-outline-danger responsive-button @if($listItems->count() == 0) disabled @endif" href="#">
 				<i class="fas fa-trash"></i> {{ $__t('Clear list') }}
 			</a>

@@ -50,6 +50,7 @@ $app->group('', function()
 		$this->get('/shoppinglist', '\Grocy\Controllers\StockController:ShoppingList');
 		$this->get('/shoppinglistitem/{itemId}', '\Grocy\Controllers\StockController:ShoppingListItemEditForm');
 		$this->get('/shoppinglist/{listId}', '\Grocy\Controllers\StockController:ShoppingListEditForm');
+		$this->get('/offlineshoppinglist', '\Grocy\Controllers\StockController:OfflineShoppingList');
 	}
 
 	// Recipe routes
@@ -99,7 +100,7 @@ $app->group('', function()
 		$this->get('/equipment', '\Grocy\Controllers\EquipmentController:Overview');
 		$this->get('/equipment/{equipmentId}', '\Grocy\Controllers\EquipmentController:EditForm');
 	}
-	
+
 	// Calendar routes
 	if (GROCY_FEATURE_FLAG_CALENDAR)
 	{
@@ -119,9 +120,9 @@ $app->group('/api', function()
 
 	// System
 	$this->get('/system/info', '\Grocy\Controllers\SystemApiController:GetSystemInfo');
-	$this->get('/system/db-changed-time', '\Grocy\Controllers\SystemApiController:GetDbChangedTime');	
+	$this->get('/system/db-changed-time', '\Grocy\Controllers\SystemApiController:GetDbChangedTime');
 	$this->post('/system/log-missing-localization', '\Grocy\Controllers\SystemApiController:LogMissingLocalization');
-	
+
 	// Generic entity interaction
 	$this->get('/objects/{entity}', '\Grocy\Controllers\GenericEntityApiController:GetObjects');
 	$this->get('/objects/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:GetObject');
