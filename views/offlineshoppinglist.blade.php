@@ -26,7 +26,7 @@
 
 @section('content')
 	<h2>Offline {{$__t('Shopping list')}}</h2>
-<table id="shoppinglist-table" class="table table-sm table-striped">
+<table id="shoppinglist-table" class="table table-striped">
 	<thead>
 	<tr>
 		<th class="border-right d-none"></th>
