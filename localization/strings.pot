@@ -1316,3 +1316,9 @@ msgstr ""
 
 msgid "Are you sure to delete equipment \"%s\"?"
 msgstr ""
+
+msgid "Parent product"
+msgstr ""
+
+msgid "Not possible because this product is already used as a parent product in another product"
+msgstr ""

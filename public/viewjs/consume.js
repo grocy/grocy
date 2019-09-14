@@ -200,7 +200,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 					$("#tare-weight-handling-info").addClass("d-none");
 				}
 
-				if ((productDetails.stock_amount || 0) === 0)
+				if ((parseFloat(productDetails.stock_amount) || 0) === 0)
 				{
 					Grocy.Components.ProductPicker.Clear();
 					Grocy.FrontendHelpers.ValidateForm('consume-form');

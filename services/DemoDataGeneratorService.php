@@ -80,6 +80,8 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, enable_tare_weight_handling, tare_weight) VALUES ('{$this->__t_sql('Flour')}', 3, 8, 8, 1, 3, 1, 500); --21
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$this->__t_sql('Sugar')}', 3, 3, 3, 1, 3); --22
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$this->__t_sql('Milk')}', 2, 10, 10, 1, 6); --23
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, parent_product_id) VALUES ('{$this->__t_sql('Milk Chocolate')}', 4, 3, 3, 1, 1, 2); --24
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, parent_product_id) VALUES ('{$this->__t_sql('Dark Chocolate')}', 4, 3, 3, 1, 1, 2); --25
 
 				INSERT INTO shopping_list (note, amount) VALUES ('{$this->__t_sql('Some good snacks')}', 1);
 				INSERT INTO shopping_list (product_id, amount) VALUES (20, 1);
@@ -222,6 +224,9 @@ class DemoDataGeneratorService extends BaseService
 			$stockService->AddProduct(22, 1, date('Y-m-d', strtotime('+200 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-20 days')), $this->RandomPrice());
 			$stockService->AddProduct(23, 1, date('Y-m-d', strtotime('+2 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-40 days')), $this->RandomPrice());
 			$stockService->AddProduct(23, 1, date('Y-m-d', strtotime('+2 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-50 days')), $this->RandomPrice());
+			$stockService->AddProduct(24, 2, date('Y-m-d', strtotime('+180 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-10 days')), $this->RandomPrice());
+			$stockService->AddProduct(25, 2, date('Y-m-d', strtotime('+180 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-10 days')), $this->RandomPrice());
+			$stockService->AddProduct(2, 1, date('Y-m-d', strtotime('+180 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-10 days')), $this->RandomPrice());
 			$stockService->AddMissingProductsToShoppingList();
 			$stockService->OpenProduct(3, 1);
 			$stockService->OpenProduct(6, 1);

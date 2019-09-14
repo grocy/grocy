@@ -136,7 +136,7 @@ $('#product_id_text_input').on('blur', function(e)
 		}
 
 		var optionElement = $("#product_id option:contains(\"" + input + "\")").first();
-		if (input.length > 0 && optionElement.length === 0 && typeof GetUriParam('addbarcodetoselection') === "undefined")
+		if (input.length > 0 && optionElement.length === 0 && typeof GetUriParam('addbarcodetoselection') === "undefined" && Grocy.Components.ProductPicker.GetPicker().parent().data('disallow-all-product-workflows').toString() === "false")
 		{
 			var addProductWorkflowsAdditionalCssClasses = "";
 			if (Grocy.Components.ProductPicker.GetPicker().parent().data('disallow-add-product-workflows').toString() === "true")

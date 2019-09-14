@@ -11,10 +11,10 @@ class StockService extends BaseService
 
 	public function GetCurrentStock($includeNotInStockButMissingProducts = false)
 	{
-		$sql = 'SELECT * FROM stock_current';
+		$sql = 'SELECT * FROM stock_current UNION SELECT id, 0, 0, null, 0, 0, 0 FROM stock_missing_products WHERE id NOT IN (SELECT product_id FROM stock_current)';
 		if ($includeNotInStockButMissingProducts)
 		{
-			$sql = 'SELECT * FROM stock_current WHERE best_before_date IS NOT NULL';
+			$sql = 'SELECT * FROM stock_current WHERE best_before_date IS NOT NULL UNION SELECT id, 0, 0, null, 0, 0, 0 FROM stock_missing_products WHERE id NOT IN (SELECT product_id FROM stock_current)';
 		}
 		
 		return $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
@@ -76,13 +76,9 @@ class StockService extends BaseService
 			throw new \Exception('Product does not exist');
 		}
 
+		$stockCurrentRow = FindObjectinArrayByPropertyValue($this->GetCurrentStock(), 'product_id', $productId);
+
 		$product = $this->Database->products($productId);
-		$productStockAmount = $this->Database->stock()->where('product_id', $productId)->sum('amount');
-		if ($productStockAmount == null)
-		{
-			$productStockAmount = 0;
-		}
-		$productStockAmountOpened = $this->Database->stock()->where('product_id = :1 AND open = 1', $productId)->sum('amount');
 		$productLastPurchased = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_PURCHASE)->where('undone', 0)->max('purchased_date');
 		$productLastUsed = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone', 0)->max('used_date');
 		$nextBestBeforeDate = $this->Database->stock()->where('product_id', $productId)->min('best_before_date');
@@ -110,15 +106,18 @@ class StockService extends BaseService
 			'product' => $product,
 			'last_purchased' => $productLastPurchased,
 			'last_used' => $productLastUsed,
-			'stock_amount' => $productStockAmount,
-			'stock_amount_opened' => $productStockAmountOpened,
+			'stock_amount' => $stockCurrentRow->amount,
+			'stock_amount_opened' => $stockCurrentRow->amount_opened,
+			'stock_amount_aggregated' => $stockCurrentRow->amount_aggregated,
+			'stock_amount_opened_aggregated' => $stockCurrentRow->amount_opened_aggregated,
 			'quantity_unit_purchase' => $quPurchase,
 			'quantity_unit_stock' => $quStock,
 			'last_price' => $lastPrice,
 			'next_best_before_date' => $nextBestBeforeDate,
 			'location' => $location,
 			'average_shelf_life_days' => $averageShelfLifeDays,
-			'spoil_rate_percent' => $spoilRate
+			'spoil_rate_percent' => $spoilRate,
+			'is_aggregated_amount' => $stockCurrentRow->is_aggregated_amount
 		);
 	}
 

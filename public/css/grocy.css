@@ -252,6 +252,12 @@ input::-webkit-inner-spin-button {
 	box-shadow: none;
 }
 
+/* Third party component customizations - Font Awesome */
+.fa-custom-sigma-sign:before {
+	content: "\03a3";
+	font-family: sans-serif;
+}
+
 /* Third party component customizations - SB Admin 2 */
 #mainNav .navbar-collapse .navbar-nav > .nav-item.dropdown > .nav-link:after,
 #mainNav .navbar-collapse .navbar-sidenav .nav-link-collapse:after {

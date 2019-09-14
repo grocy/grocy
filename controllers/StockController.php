@@ -139,17 +139,23 @@ class StockController extends BaseController
 				'quantityunits' =>  $this->Database->quantity_units()->orderBy('name'),
 				'productgroups' => $this->Database->product_groups()->orderBy('name'),
 				'userfields' => $this->UserfieldsService->GetFields('products'),
+				'products' => $this->Database->products()->where('parent_product_id IS NULL')->orderBy('name'),
+				'isSubProductOfOthers' => false,
 				'mode' => 'create'
 			]);
 		}
 		else
 		{
+			$product = $this->Database->products($args['productId']);
+
 			return $this->AppContainer->view->render($response, 'productform', [
-				'product' =>  $this->Database->products($args['productId']),
+				'product' =>  $product,
 				'locations' =>  $this->Database->locations()->orderBy('name'),
 				'quantityunits' =>  $this->Database->quantity_units()->orderBy('name'),
 				'productgroups' => $this->Database->product_groups()->orderBy('name'),
 				'userfields' => $this->UserfieldsService->GetFields('products'),
+				'products' => $this->Database->products()->where('id != :1 AND parent_product_id IS NULL', $product->id)->orderBy('name'),
+				'isSubProductOfOthers' => $this->Database->products()->where('parent_product_id = :1', $product->id)->count() !== 0,
 				'mode' => 'edit'
 			]);
 		}

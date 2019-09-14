@@ -40,6 +40,25 @@
 				<div class="invalid-feedback">{{ $__t('A name is required') }}</div>
 			</div>
 
+			@php $prefillById = ''; if($mode=='edit') { $prefillById = $product->parent_product_id; } @endphp
+			@php
+				$hint = '';
+				if ($isSubProductOfOthers)
+				{
+					$hint = $__t('Not possible because this product is already used as a parent product in another product');
+				}
+			@endphp
+			@include('components.productpicker', array(
+				'products' => $products,
+				'nextInputSelector' => '#barcode-taginput',
+				'prefillById' => $prefillById,
+				'disallowAllProductWorkflows' => true,
+				'isRequired' => false,
+				'label' => 'Parent product',
+				'disabled' => $isSubProductOfOthers,
+				'hint' => $hint
+			))
+
 			<div class="form-group">
 				<label for="description">{{ $__t('Description') }}</label>
 				<textarea class="form-control wysiwyg-editor" id="description" name="description">@if($mode == 'edit'){{ $product->description }}@endif</textarea>

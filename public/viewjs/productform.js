@@ -10,7 +10,15 @@
 	}
 
 	var jsonData = $('#product-form').serializeJSON({ checkboxUncheckedValue: "0" });
+	var parentProductId = jsonData.product_id;
+	delete jsonData.product_id;
+	jsonData.parent_product_id = parentProductId;
 	Grocy.FrontendHelpers.BeginUiBusy("product-form");
+
+	if (jsonData.parent_product_id.toString().isEmpty())
+	{
+		jsonData.parent_product_id = null;
+	}
 
 	if ($("#product-picture")[0].files.length > 0)
 	{

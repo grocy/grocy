@@ -1,5 +1,11 @@
 - Stock improvements
-  - You can now print a "Location Content Sheet" with the current stock per location - new button at the top of the stock overview page
+  - Products can now have variations
+    - Define the parent product for a product on the product edit page (only one level is possible, means a product which is used as a parent product in another product, cannot have a parent product itself)
+    - Parent and sub products can have stock (both are regular products, no difference from that side)
+    - On the stock overview page the aggregated amount is displayed next to the amount (sigma sign)
+    - When a recipe needs a parent product, the need is also fulfilled when enough sub product(s) are in stock
+    - API change (no breaking change): `​/stock​/products​/{productId}` returns additional fields for the aggregated up amount(s): `stock_amount_aggregated` and `stock_amount_opened_aggregated` - contains the same for "normal" products, `is_aggregated_amount` indicates if aggregation has happened
+  - It's now possible to print a "Location Content Sheet" with the current stock per location - new button at the top of the stock overview page
   - The product description now can have formattings (HTML/WYSIWYG editor like for recipes)
 - Chores improvements
   - New option "Due date rollover" per chore which means the chore can never be overdue, the due date will shift forward each day when due
