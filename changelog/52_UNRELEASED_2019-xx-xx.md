@@ -4,7 +4,7 @@
     - Parent and sub products can have stock (both are regular products, no difference from that side)
     - On the stock overview page the aggregated amount is displayed next to the amount (sigma sign)
     - When a recipe needs a parent product, the need is also fulfilled when enough sub product(s) are in stock
-    - API change (no breaking change): `​/stock​/products​/{productId}` returns additional fields for the aggregated up amount(s): `stock_amount_aggregated` and `stock_amount_opened_aggregated` - contains the same for "normal" products, `is_aggregated_amount` indicates if aggregation has happened
+    - API change (no breaking change): `​/stock​/products​/{productId}` returns additional fields for the aggregated amount(s): `stock_amount_aggregated` and `stock_amount_opened_aggregated` - contains the same for "normal" products, `is_aggregated_amount` indicates if aggregation has happened
   - It's now possible to print a "Location Content Sheet" with the current stock per location - new button at the top of the stock overview page
   - The product description now can have formattings (HTML/WYSIWYG editor like for recipes)
 - Chores improvements
