@@ -14,6 +14,15 @@ Grocy.Components.ChoreCard.Refresh = function(choreId)
 			$('#chorecard-chore-edit-button').attr("href", U("/chore/" + choreDetails.chore.id.toString()));
 			$('#chorecard-chore-edit-button').removeClass("disabled");
 
+			if (choreDetails.chore.track_date_only == 1)
+			{
+				$("#chorecard-chore-last-tracked-timeago").addClass("timeago-date-only");
+			}
+			else
+			{
+				$("#chorecard-chore-last-tracked-timeago").removeClass("timeago-date-only");
+			}
+
 			EmptyElementWhenMatches('#chorecard-chore-last-tracked-timeago', __t('timeago_nan'));
 			RefreshContextualTimeago();
 		},
