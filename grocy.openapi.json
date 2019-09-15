@@ -2430,6 +2430,7 @@
 					"batteries",
 					"locations",
 					"quantity_units",
+					"quantity_unit_conversions",
 					"shopping_list",
 					"shopping_lists",
 					"recipes",

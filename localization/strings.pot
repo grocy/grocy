@@ -1322,3 +1322,51 @@ msgstr ""
 
 msgid "Not possible because this product is already used as a parent product in another product"
 msgstr ""
+
+msgid "Create QU conversion"
+msgstr ""
+
+msgid "Quantity unit from"
+msgstr ""
+
+msgid "Quantity unit to"
+msgstr ""
+
+msgid "The amount cannot be lower than %s and must be a valid number"
+msgstr ""
+
+msgid "Factor"
+msgstr ""
+
+msgid "This cannot be equal to %s"
+msgstr ""
+
+msgid "This means 1 %1$s is the same as %2$s %3$s"
+msgstr ""
+
+msgid "Edit QU conversion"
+msgstr ""
+
+msgid "For product"
+msgstr ""
+
+msgid "Default for QU unit"
+msgstr ""
+
+msgid "Override for product"
+msgstr ""
+
+msgid "Default conversions"
+msgstr ""
+
+msgid "1 %s is the same as..."
+msgstr ""
+
+msgid "Are you sure to remove this conversion?"
+msgstr ""
+
+msgid "QU conversions"
+msgstr ""
+
+msgid "Product overrides"
+msgstr ""

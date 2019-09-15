@@ -156,7 +156,8 @@ class StockController extends BaseController
 				'userfields' => $this->UserfieldsService->GetFields('products'),
 				'products' => $this->Database->products()->where('id != :1 AND parent_product_id IS NULL', $product->id)->orderBy('name'),
 				'isSubProductOfOthers' => $this->Database->products()->where('parent_product_id = :1', $product->id)->count() !== 0,
-				'mode' => 'edit'
+				'mode' => 'edit',
+				'quConversions' => $this->Database->quantity_unit_conversions()
 			]);
 		}
 	}
@@ -212,12 +213,16 @@ class StockController extends BaseController
 		}
 		else
 		{
+			$quantityUnit = $this->Database->quantity_units($args['quantityunitId']);
+
 			return $this->AppContainer->view->render($response, 'quantityunitform', [
-				'quantityunit' =>  $this->Database->quantity_units($args['quantityunitId']),
+				'quantityUnit' =>  $quantityUnit,
 				'mode' => 'edit',
 				'userfields' => $this->UserfieldsService->GetFields('quantity_units'),
 				'pluralCount' => $this->LocalizationService->GetPluralCount(),
-				'pluralRule' => $this->LocalizationService->GetPluralDefinition()
+				'pluralRule' => $this->LocalizationService->GetPluralDefinition(),
+				'defaultQuConversions' => $this->Database->quantity_unit_conversions()->where('from_qu_id = :1 AND product_id IS NULL', $quantityUnit->id),
+				'quantityUnits' => $this->Database->quantity_units()
 			]);
 		}
 	}
@@ -277,5 +282,42 @@ class StockController extends BaseController
 			'locations' => $this->Database->locations()->orderBy('name'),
 			'currentStockLocationContent' => $this->StockService->GetCurrentStockLocationContent()
 		]);
+	}
+
+	public function QuantityUnitConversionEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		$product = null;
+		if (isset($request->getQueryParams()['product']))
+		{
+			$product = $this->Database->products($request->getQueryParams()['product']);
+		}
+
+		$defaultQuUnit = null;
+		if (isset($request->getQueryParams()['qu-unit']))
+		{
+			$defaultQuUnit = $this->Database->quantity_units($request->getQueryParams()['qu-unit']);
+		}
+
+		if ($args['quConversionId'] == 'new')
+		{
+			return $this->AppContainer->view->render($response, 'quantityunitconversionform', [
+				'mode' => 'create',
+				'userfields' => $this->UserfieldsService->GetFields('quantity_unit_conversions'),
+				'quantityunits' => $this->Database->quantity_units()->orderBy('name'),
+				'product' => $product,
+				'defaultQuUnit' => $defaultQuUnit
+			]);
+		}
+		else
+		{
+			return $this->AppContainer->view->render($response, 'quantityunitconversionform', [
+				'quConversion' =>  $this->Database->quantity_unit_conversions($args['quConversionId']),
+				'mode' => 'edit',
+				'userfields' => $this->UserfieldsService->GetFields('quantity_unit_conversions'),
+				'quantityunits' => $this->Database->quantity_units()->orderBy('name'),
+				'product' => $product,
+				'defaultQuUnit' => $defaultQuUnit
+			]);
+		}
 	}
 }

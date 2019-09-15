@@ -38,6 +38,7 @@ $app->group('', function()
 		$this->get('/location/{locationId}', '\Grocy\Controllers\StockController:LocationEditForm');
 		$this->get('/quantityunits', '\Grocy\Controllers\StockController:QuantityUnitsList');
 		$this->get('/quantityunit/{quantityunitId}', '\Grocy\Controllers\StockController:QuantityUnitEditForm');
+		$this->get('/quantityunitconversion/{quConversionId}', '\Grocy\Controllers\StockController:QuantityUnitConversionEditForm');
 		$this->get('/productgroups', '\Grocy\Controllers\StockController:ProductGroupsList');
 		$this->get('/productgroup/{productGroupId}', '\Grocy\Controllers\StockController:ProductGroupEditForm');
 		$this->get('/stockjournal', '\Grocy\Controllers\StockController:Journal');

@@ -10,10 +10,13 @@
 
 @push('pageScripts')
 	<script src="{{ $U('/node_modules/TagManager/tagmanager.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/datatables.net-rowgroup/js/dataTables.rowGroup.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/datatables.net-rowgroup-bs4/js/rowGroup.bootstrap4.min.js?v=', true) }}{{ $version }}"></script>
 @endpush
 
 @push('pageStyles')
 	<link href="{{ $U('/node_modules/TagManager/tagmanager.css?v=', true) }}{{ $version }}" rel="stylesheet">
+	<link href="{{ $U('/node_modules/datatables.net-rowgroup-bs4/css/rowGroup.bootstrap4.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -217,14 +220,67 @@
 	</div>
 
 	<div class="col-lg-6 col-xs-12">
-		<label class="mt-2">{{ $__t('Picture') }}</label>
-		<button id="delete-current-product-picture-button" class="btn btn-sm btn-danger @if(empty($product->picture_file_name)) disabled @endif"><i class="fas fa-trash"></i> {{ $__t('Delete') }}</button>
-		@if(!empty($product->picture_file_name))
-			<p><img id="current-product-picture" src="{{ $U('/api/files/productpictures/' . base64_encode($product->picture_file_name)) }}" class="img-fluid img-thumbnail mt-2"></p>
-			<p id="delete-current-product-picture-on-save-hint" class="form-text text-muted font-italic d-none">{{ $__t('The current picture will be deleted when you save the product') }}</p>
-		@else
-			<p id="no-current-product-picture-hint" class="form-text text-muted font-italic">{{ $__t('No picture available') }}</p>
-		@endif
+		<h2>
+			{{ $__t('QU conversions') }}
+			<a id="qu-conversion-add-button" class="btn btn-outline-dark" href="#">
+				<i class="fas fa-plus"></i> {{ $__t('Add') }}
+			</a>
+		</h2>
+		<h5 id="qu-conversion-headline-info" class="text-muted font-italic"></h5>
+		<table id="qu-conversions-table" class="table table-sm table-striped dt-responsive">
+			<thead>
+				<tr>
+					<th class="border-right"></th>
+					<th>{{ $__t('Factor') }}</th>
+					<th>{{ $__t('Unit') }}</th>
+					<th class="d-none">Hidden group</th>
+					<th class="d-none">Hidden from_qu_id</th>
+				</tr>
+			</thead>
+			<tbody class="d-none">
+				@if($mode == "edit")
+				@foreach($quConversions as $quConversion)
+				<tr>
+					<td class="fit-content border-right">
+						<a class="btn btn-sm btn-info qu-conversion-edit-button" href="#" data-qu-conversion-id="{{ $quConversion->id }}">
+							<i class="fas fa-edit"></i>
+						</a>
+						<a class="btn btn-sm btn-danger qu-conversion-delete-button" href="#" data-qu-conversion-id="{{ $quConversion->id }}">
+							<i class="fas fa-trash"></i>
+						</a>
+					</td>
+					<td>
+						{{ $quConversion->factor }}
+					</td>
+					<td>
+						{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', $quConversion->to_qu_id)->name }}
+					</td>
+					<td class="d-none">
+						@if($quConversion->product_id != null)
+						{{ $__t('Product overrides') }}
+						@else
+						{{ $__t('Default conversions') }}
+						@endif
+					</td>
+					<td class="d-none">
+						from_qu_id xx{{ $quConversion->from_qu_id }}xx
+					</td>
+				</tr>
+				@endforeach
+				@endif
+			</tbody>
+		</table>
+
+		<div class="pt-5">
+			<label class="mt-2">{{ $__t('Picture') }}</label>
+			<button id="delete-current-product-picture-button" class="btn btn-sm btn-danger @if(empty($product->picture_file_name)) disabled @endif"><i class="fas fa-trash"></i> {{ $__t('Delete') }}</button>
+			@if(!empty($product->picture_file_name))
+				<p><img id="current-product-picture" src="{{ $U('/api/files/productpictures/' . base64_encode($product->picture_file_name)) }}" class="img-fluid img-thumbnail mt-2"></p>
+				<p id="delete-current-product-picture-on-save-hint" class="form-text text-muted font-italic d-none">{{ $__t('The current picture will be deleted when you save the product') }}</p>
+			@else
+				<p id="no-current-product-picture-hint" class="form-text text-muted font-italic">{{ $__t('No picture available') }}</p>
+			@endif
+		</div>
 	</div>
 </div>
 @stop

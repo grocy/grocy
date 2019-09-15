@@ -9,6 +9,11 @@
 		redirectDestination = U(returnTo) + '?createdproduct=' + encodeURIComponent($('#name').val());
 	}
 
+	if (Grocy.ProductEditFormRedirectUri !== undefined)
+	{
+		redirectDestination = Grocy.ProductEditFormRedirectUri;
+	}
+
 	var jsonData = $('#product-form').serializeJSON({ checkboxUncheckedValue: "0" });
 	var parentProductId = jsonData.product_id;
 	delete jsonData.product_id;
@@ -44,7 +49,14 @@
 						Grocy.Api.UploadFile($("#product-picture")[0].files[0], 'productpictures', jsonData.picture_file_name,
 							function(result)
 							{
-								window.location.href = redirectDestination;
+								if (redirectDestination == "reload")
+								{
+									window.location.reload();
+								}
+								else
+								{
+									window.location.href = redirectDestination;
+								}
 							},
 							function (xhr)
 							{
@@ -55,7 +67,14 @@
 					}
 					else
 					{
-						window.location.href = redirectDestination;
+						if (redirectDestination == "reload")
+						{
+							window.location.reload();
+						}
+						else
+						{
+							window.location.href = redirectDestination;
+						}
 					}
 				});
 			},
@@ -93,7 +112,14 @@
 						Grocy.Api.UploadFile($("#product-picture")[0].files[0], 'productpictures', jsonData.picture_file_name,
 							function(result)
 							{
-								window.location.href = redirectDestination;
+								if (redirectDestination == "reload")
+								{
+									window.location.reload();
+								}
+								else
+								{
+									window.location.href = redirectDestination;
+								}
 							},
 							function(xhr)
 							{
@@ -104,7 +130,14 @@
 					}
 					else
 					{
-						window.location.href = redirectDestination;
+						if (redirectDestination == "reload")
+						{
+							window.location.reload();
+						}
+						else
+						{
+							window.location.href = redirectDestination;
+						}
 					}
 				});
 			},
@@ -188,6 +221,9 @@ $('.input-group-qu').on('change', function(e)
 	{
 		$('#qu-conversion-info').addClass('d-none');
 	}
+
+	$("#qu-conversion-headline-info").text(__t('1 %s is the same as...', $("#qu_id_stock option:selected").text()));
+	quConversionsTable.column(4).search("from_qu_id xx" + $("#qu_id_stock").val().toString() + "xx").draw();
 
 	$("#tare_weight_qu_info").text($("#qu_id_stock option:selected").text());
 
@@ -278,6 +314,34 @@ if (Grocy.EditMode === 'create')
 	}
 }
 
+var quConversionsTable = $('#qu-conversions-table').DataTable({
+	'paginate': false,
+	'order': [[1, 'asc']],
+	"orderFixed": [[3, 'asc']],
+	'columnDefs': [
+		{ 'orderable': false, 'targets': 0 },
+		{ 'visible': false, 'targets': 3 }
+	],
+	'language': JSON.parse(__t('datatables_localization')),
+	'scrollY': false,
+	'colReorder': true,
+	'stateSave': true,
+	'stateSaveParams': function(settings, data)
+	{
+		data.search.search = "";
+
+		data.columns.forEach(column =>
+		{
+			column.search.search = "";
+		});
+	},
+	'rowGroup': {
+		dataSrc: 3
+	}
+});
+$('#qu-conversions-table tbody').removeClass("d-none");
+quConversionsTable.columns.adjust().draw();
+
 Grocy.Components.UserfieldsForm.Load();
 $('#name').focus();
 $('.input-group-qu').trigger('change');
@@ -286,3 +350,52 @@ Grocy.FrontendHelpers.ValidateForm('product-form');
 // Click twice to trigger on-click but not change the actual checked state
 $("#allow_partial_units_in_stock").click();
 $("#allow_partial_units_in_stock").click();
+
+$(document).on('click', '.qu-conversion-delete-button', function(e)
+{
+	var objectId = $(e.currentTarget).attr('data-qu-conversion-id');
+
+	bootbox.confirm({
+		message: __t('Are you sure to remove this conversion?'),
+		buttons: {
+			confirm: {
+				label: __t('Yes'),
+				className: 'btn-success'
+			},
+			cancel: {
+				label: __t('No'),
+				className: 'btn-danger'
+			}
+		},
+		callback: function(result)
+		{
+			if (result === true)
+			{
+				Grocy.Api.Delete('objects/quantity_unit_conversions/' + objectId, { },
+					function(result)
+					{
+						Grocy.ProductEditFormRedirectUri = "reload";
+						$('#save-product-button').click();
+					},
+					function(xhr)
+					{
+						console.error(xhr);
+					}
+				);
+			}
+		}
+	});
+});
+
+$(document).on('click', '.qu-conversion-edit-button', function (e)
+{
+	var id = $(e.currentTarget).attr('data-qu-conversion-id');
+	Grocy.ProductEditFormRedirectUri = U("/quantityunitconversion/" + id.toString() + "?product=" + Grocy.EditObjectId.toString());
+	$('#save-product-button').click();
+});
+
+$("#qu-conversion-add-button").on("click", function(e)
+{
+	Grocy.ProductEditFormRedirectUri = U("/quantityunitconversion/new?product=" + Grocy.EditObjectId.toString());
+	$('#save-product-button').click();
+});
