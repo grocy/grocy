@@ -58,7 +58,7 @@
 				'id' => 'factor',
 				'label' => 'Factor',
 				'min' => 0,
-				'step' => 0.01,
+				'step' => 0.001,
 				'value' => $value,
 				'invalidFeedback' => $__t('The amount cannot be lower than %s and must be a valid number', '0'),
 				'additionalHtmlElements' => '<p id="qu-conversion-info" class="form-text text-info d-none"></p>',

@@ -35,6 +35,7 @@ SELECT CASE WHEN((
 	WHERE from_qu_id = NEW.from_qu_id
 		AND to_qu_id = NEW.to_qu_id
 		AND IFNULL(product_id, 0) = IFNULL(NEW.product_id, 0)
+		AND id != NEW.id
 	UNION
 	SELECT 1
 	FROM products
