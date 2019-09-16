@@ -16,7 +16,7 @@
 		@if($product != null)
 		<h3 class="text-muted">{{ $__t('Override for product') }} <strong>{{ $product->name }}</strong></h3>
 		@else
-		<h3 class="text-muted">{{ $__t('Default for QU unit') }} <strong>{{ $defaultQuUnit->name }}</strong></h3>
+		<h3 class="text-muted">{{ $__t('Default for QU') }} <strong>{{ $defaultQuUnit->name }}</strong></h3>
 		@endif
 
 		<script>Grocy.EditMode = '{{ $mode }}';</script>

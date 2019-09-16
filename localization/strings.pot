@@ -1335,7 +1335,7 @@ msgstr ""
 msgid "Create QU conversion"
 msgstr ""
 
-msgid "Default for QU unit"
+msgid "Default for QU"
 msgstr ""
 
 msgid "Quantity unit from"
@@ -1363,4 +1363,7 @@ msgid "Override for product"
 msgstr ""
 
 msgid "This equals %1$s %2$s in stock"
+msgstr ""
+
+msgid "Edit QU conversion"
 msgstr ""
