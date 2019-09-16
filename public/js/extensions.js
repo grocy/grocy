@@ -97,3 +97,18 @@ FindObjectInArrayByPropertyValue = function(array, propertyName, propertyValue)
 	
     return null;
 }
+
+FindAllObjectsInArrayByPropertyValue = function(array, propertyName, propertyValue)
+{
+	var returnArray = [];
+	
+	for (var i = 0; i < array.length; i++)
+	{
+		if (array[i][propertyName] == propertyValue)
+		{
+			returnArray.push(array[i]);
+        }
+	}
+	
+	return returnArray;
+}

@@ -55,7 +55,7 @@
 								}
 								else
 								{
-									window.location.href = redirectDestination;
+									window.location.href = redirectDestination.replace("editobjectid", Grocy.EditObjectId);;
 								}
 							},
 							function (xhr)
@@ -73,7 +73,7 @@
 						}
 						else
 						{
-							window.location.href = redirectDestination;
+							window.location.href = redirectDestination.replace("editobjectid", Grocy.EditObjectId);;
 						}
 					}
 				});
@@ -118,7 +118,7 @@
 								}
 								else
 								{
-									window.location.href = redirectDestination;
+									window.location.href = redirectDestination.replace("editobjectid", Grocy.EditObjectId);;
 								}
 							},
 							function(xhr)
@@ -136,7 +136,7 @@
 						}
 						else
 						{
-							window.location.href = redirectDestination;
+							window.location.href = redirectDestination.replace("editobjectid", Grocy.EditObjectId);;
 						}
 					}
 				});
@@ -233,6 +233,29 @@ $('.input-group-qu').on('change', function(e)
 $('#product-form input').keyup(function(event)
 {
 	Grocy.FrontendHelpers.ValidateForm('product-form');
+
+	if (document.getElementById('product-form').checkValidity() === false) //There is at least one validation error
+	{
+		$("#qu-conversion-add-button").addClass("disabled");
+	}
+	else
+	{
+		$("#qu-conversion-add-button").removeClass("disabled");
+	}
+});
+
+$('#product-form select').change(function(event)
+{
+	Grocy.FrontendHelpers.ValidateForm('product-form');
+
+	if (document.getElementById('product-form').checkValidity() === false) //There is at least one validation error
+	{
+		$("#qu-conversion-add-button").addClass("disabled");
+	}
+	else
+	{
+		$("#qu-conversion-add-button").removeClass("disabled");
+	}
 });
 
 $('#location_id').change(function(event)
@@ -343,6 +366,7 @@ $('#qu-conversions-table tbody').removeClass("d-none");
 quConversionsTable.columns.adjust().draw();
 
 Grocy.Components.UserfieldsForm.Load();
+$("#name").trigger("keyup");
 $('#name').focus();
 $('.input-group-qu').trigger('change');
 Grocy.FrontendHelpers.ValidateForm('product-form');
@@ -390,12 +414,12 @@ $(document).on('click', '.qu-conversion-delete-button', function(e)
 $(document).on('click', '.qu-conversion-edit-button', function (e)
 {
 	var id = $(e.currentTarget).attr('data-qu-conversion-id');
-	Grocy.ProductEditFormRedirectUri = U("/quantityunitconversion/" + id.toString() + "?product=" + Grocy.EditObjectId.toString());
+	Grocy.ProductEditFormRedirectUri = U("/quantityunitconversion/" + id.toString() + "?product=editobjectid");
 	$('#save-product-button').click();
 });
 
 $("#qu-conversion-add-button").on("click", function(e)
 {
-	Grocy.ProductEditFormRedirectUri = U("/quantityunitconversion/new?product=" + Grocy.EditObjectId.toString());
+	Grocy.ProductEditFormRedirectUri = U("/quantityunitconversion/new?product=editobjectid");
 	$('#save-product-button').click();
 });

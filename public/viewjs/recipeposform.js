@@ -1,9 +1,12 @@
-﻿$('#save-recipe-pos-button').on('click', function(e)
+﻿Grocy.RecipePosFormProductChangeCount = 0;
+
+$('#save-recipe-pos-button').on('click', function (e)
 {
 	e.preventDefault();
 
 	var jsonData = $('#recipe-pos-form').serializeJSON({ checkboxUncheckedValue: "0" });
 	jsonData.recipe_id = Grocy.EditObjectParentId;
+	delete jsonData.display_amount;
 
 	Grocy.FrontendHelpers.BeginUiBusy("recipe-pos-form");
 
@@ -44,31 +47,37 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 	if (productId)
 	{
 		Grocy.Components.ProductCard.Refresh(productId);
-
+		
 		Grocy.Api.Get('stock/products/' + productId,
 			function(productDetails)
 			{
-				if (!$("#only_check_single_unit_in_stock").is(":checked"))
+				Grocy.RecipePosFormProductChangeCount++;
+				console.log(Grocy.RecipePosFormProductChangeCount);
+				if (Grocy.RecipePosFormProductChangeCount < 3) // This triggers twice on inital page load, however
 				{
-					$("#qu_id").val(productDetails.quantity_unit_stock.id);
+					Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id, true);
+				}
+				else
+				{
+					Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
 				}
 
 				if (productDetails.product.allow_partial_units_in_stock == 1)
 				{
-					$("#amount").attr("min", "0.01");
-					$("#amount").attr("step", "0.01");
-					$("#amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', 0.01.toLocaleString()));
+					$("#display_amount").attr("min", "0.01");
+					$("#display_amount").attr("step", "0.01");
+					$("#display_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', 0.01.toLocaleString()));
 				}
 				else
 				{
-					$("#amount").attr("min", "1");
-					$("#amount").attr("step", "1");
-					$("#amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '1'));
+					$("#display_amount").attr("min", "1");
+					$("#display_amount").attr("step", "1");
+					$("#display_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '1'));
 				}
 
 				$("#not_check_stock_fulfillment").prop("checked", productDetails.product.not_check_stock_fulfillment_for_recipes == 1);
 
-				$('#amount').focus();
+				$('#display_amount').focus();
 				Grocy.FrontendHelpers.ValidateForm('recipe-pos-form');
 			},
 			function(xhr)
@@ -87,7 +96,7 @@ if (Grocy.Components.ProductPicker.InProductAddWorkflow() === false)
 }
 Grocy.Components.ProductPicker.GetPicker().trigger('change');
 
-$('#amount').on('focus', function(e)
+$('#display_amount').on('focus', function(e)
 {
 	if (Grocy.Components.ProductPicker.GetValue().length === 0)
 	{
@@ -125,19 +134,19 @@ $("#only_check_single_unit_in_stock").on("click", function()
 {
 	if (this.checked)
 	{
-		$("#qu_id").removeAttr("disabled");
-		$("#amount").attr("min", "0.01");
-		$("#amount").attr("step", "0.01");
-		$("#amount").parent().find(".invalid-feedback").text(__t("This cannot be negative"));
+		$("#display_amount").attr("min", "0.01");
+		$("#display_amount").attr("step", "0.01");
+		$("#display_amount").parent().find(".invalid-feedback").text(__t("This cannot be negative"));
+		Grocy.Components.ProductAmountPicker.AllowAnyQu();
 		Grocy.FrontendHelpers.ValidateForm("recipe-pos-form");
 	}
 	else
 	{
-		$("#qu_id").attr("disabled", "");
-		$("#amount").attr("min", "0");
-		$("#amount").attr("step", "1");
+		$("#display_amount").attr("min", "0");
+		$("#display_amount").attr("step", "1");
 		Grocy.Components.ProductPicker.GetPicker().trigger("change"); // Selects the default quantity unit of the selected product
-		$("#amount").parent().find(".invalid-feedback").text(__t("This cannot be negative and must be an integral number"));
+		$("#display_amount").parent().find(".invalid-feedback").text(__t("This cannot be negative and must be an integral number"));
+		Grocy.Components.ProductAmountPicker.AllowAnyQuEnabled = false;
 		Grocy.FrontendHelpers.ValidateForm("recipe-pos-form");
 	}
 });

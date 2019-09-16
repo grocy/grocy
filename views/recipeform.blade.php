@@ -22,7 +22,11 @@
 	<div class="col">
 		<h1>@yield('title')</h1>
 
-		<script>Grocy.EditMode = '{{ $mode }}';</script>
+		<script>
+			Grocy.EditMode = '{{ $mode }}';
+			Grocy.QuantityUnits = {!! json_encode($quantityUnits) !!};
+			Grocy.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
+		</script>
 
 		@if($mode == 'edit')
 			<script>Grocy.EditObjectId = {{ $recipe->id }};</script>
@@ -125,6 +129,16 @@
 								{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id)->name }}
 							</td>
 							<td>
+								@php
+									$product = FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id);
+									$productQuConversions = FindAllObjectsInArrayByPropertyValue($quantityUnitConversionsResolved, 'product_id', $product->id);
+									$productQuConversions = FindAllObjectsInArrayByPropertyValue($productQuConversions, 'from_qu_id', $product->qu_id_stock);
+									$productQuConversion = FindObjectInArrayByPropertyValue($productQuConversions, 'to_qu_id', $recipePosition->qu_id);
+									if ($productQuConversion)
+									{
+										$recipePosition->amount = $recipePosition->amount * $productQuConversion->factor;
+									}
+								@endphp
 								@if(!empty($recipePosition->variable_amount))
 									{{ $recipePosition->variable_amount }}
 								@else

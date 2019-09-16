@@ -68,7 +68,7 @@
 				<i class="fas fa-plus"></i> {{ $__t('Add') }}
 			</a>
 		</h2>
-		<h5 class="text-muted font-italic">{{ $__t('1 %s is the same as...', $quantityUnit->name) }}</h5>
+		<h5 id="qu-conversion-headline-info" class="text-muted font-italic"></h5>
 		<table id="qu-conversions-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>

@@ -60,7 +60,7 @@
 				'min' => 0,
 				'step' => 0.001,
 				'value' => $value,
-				'invalidFeedback' => $__t('The amount cannot be lower than %s and must be a valid number', '0'),
+				'invalidFeedback' => $__t('This cannot be lower than %1$s and must be a valid number with max. %2$s decimal places', '0', '3'),
 				'additionalHtmlElements' => '<p id="qu-conversion-info" class="form-text text-info d-none"></p>',
 				'additionalCssClasses' => 'input-group-qu'
 			))

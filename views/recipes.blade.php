@@ -5,6 +5,11 @@
 @section('viewJsName', 'recipes')
 
 @section('content')
+<script>
+	Grocy.QuantityUnits = {!! json_encode($quantityUnits) !!};
+	Grocy.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
+</script>
+
 <div class="row">
 	
 	<div class="col-xs-12 col-md-6 pb-3">
@@ -183,6 +188,16 @@
 						<h5 class="mb-2 mt-2 ml-4"><strong>{{ $selectedRecipePosition->ingredient_group }}</strong></h5>
 					@endif
 					<li class="list-group-item">
+						@php
+							$product = FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id);
+							$productQuConversions = FindAllObjectsInArrayByPropertyValue($quantityUnitConversionsResolved, 'product_id', $product->id);
+							$productQuConversions = FindAllObjectsInArrayByPropertyValue($productQuConversions, 'from_qu_id', $product->qu_id_stock);
+							$productQuConversion = FindObjectInArrayByPropertyValue($productQuConversions, 'to_qu_id', $selectedRecipePosition->qu_id);
+							if ($productQuConversion)
+							{
+								$selectedRecipePosition->recipe_amount = $selectedRecipePosition->recipe_amount * $productQuConversion->factor;
+							}
+						@endphp
 						@if(!empty($selectedRecipePosition->recipe_variable_amount))
 							{{ $selectedRecipePosition->recipe_variable_amount }}
 						@else
@@ -224,6 +239,16 @@
 					<h5 class="mb-2 mt-2 ml-4"><strong>{{ $selectedRecipePosition->ingredient_group }}</strong></h5>
 				@endif
 				<li class="list-group-item">
+					@php
+						$product = FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id);
+						$productQuConversions = FindAllObjectsInArrayByPropertyValue($quantityUnitConversionsResolved, 'product_id', $product->id);
+						$productQuConversions = FindAllObjectsInArrayByPropertyValue($productQuConversions, 'from_qu_id', $product->qu_id_stock);
+						$productQuConversion = FindObjectInArrayByPropertyValue($productQuConversions, 'to_qu_id', $selectedRecipePosition->qu_id);
+						if ($productQuConversion)
+						{
+							$selectedRecipePosition->recipe_amount = $selectedRecipePosition->recipe_amount * $productQuConversion->factor;
+						}
+					@endphp
 					@if(!empty($selectedRecipePosition->recipe_variable_amount))
 						{{ $selectedRecipePosition->recipe_variable_amount }}
 					@else

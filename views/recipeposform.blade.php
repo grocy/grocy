@@ -17,6 +17,9 @@
 		<script>
 			Grocy.EditMode = '{{ $mode }}';
 			Grocy.EditObjectParentId = {{ $recipe->id }};
+			Grocy.EditObject = {!! json_encode($recipePos) !!};
+			Grocy.QuantityUnits = {!! json_encode($quantityUnits) !!};
+			Grocy.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
 		</script>
 
 		@if($mode == 'edit')
@@ -32,39 +35,20 @@
 				'prefillByName' => $prefillByName
 			))
 
-			<div class="form-group row">
+			@php if($mode == 'edit') { $value = $recipePos->amount; } else { $value = 1; } @endphp
+			@php if($mode == 'edit') { $initialQuId = $recipePos->qu_id; } else { $initialQuId = ''; } @endphp
+			@include('components.productamountpicker', array(
+				'value' => $value,
+				'initialQuId' => $initialQuId,
+				'additionalGroupCssClasses' => 'mb-0'
+			))
+
+			<div class="row">
 				<div class="col">
-					<div class="row">
-
-						@php if($mode == 'edit') { $value = $recipePos->amount; } else { $value = 1; } @endphp
-						@include('components.numberpicker', array(
-							'id' => 'amount',
-							'label' => 'Amount',
-							'min' => 0,
-							'value' => $value,
-							'invalidFeedback' => $__t('This cannot be negative and must be an integral number'),
-							'additionalGroupCssClasses' => 'col-4'
-						))
-
-						<div class="form-group col-8">
-							<label for="qu_id">{{ $__t('Quantity unit') }}</label>
-							<select required @if($mode == 'create' || ($mode == 'edit' && $recipePos->only_check_single_unit_in_stock != 1)) disabled @endif class="form-control" id="qu_id" name="qu_id">
-								@foreach($quantityUnits as $quantityunit)
-									<option @if($mode == 'edit' && $quantityunit->id == $recipePos->qu_id) selected @endif value="{{ $quantityunit->id }}">{{ $quantityunit->name }}</option>
-								@endforeach
-							</select>
-							<div class="invalid-feedback">{{ $__t('A quantity unit is required') }}</div>
-						</div>
-
-					</div>
-					<div class="row">
-						<div class="col">
-							<div class="form-check">
-								<input type="hidden" name="only_check_single_unit_in_stock" value="0">
-								<input @if($mode == 'edit' && $recipePos->only_check_single_unit_in_stock == 1) checked @endif class="form-check-input" type="checkbox" id="only_check_single_unit_in_stock" name="only_check_single_unit_in_stock" value="1">
-								<label class="form-check-label" for="only_check_single_unit_in_stock">{{ $__t('Only check if a single unit is in stock (a different quantity can then be used above)') }}</label>
-							</div>
-						</div>
+					<div class="form-check form-group">
+						<input type="hidden" name="only_check_single_unit_in_stock" value="0">
+						<input @if($mode == 'edit' && $recipePos->only_check_single_unit_in_stock == 1) checked @endif class="form-check-input" type="checkbox" id="only_check_single_unit_in_stock" name="only_check_single_unit_in_stock" value="1">
+						<label class="form-check-label" for="only_check_single_unit_in_stock">{{ $__t('Only check if a single unit is in stock (a different quantity can then be used above)') }}</label>
 					</div>
 				</div>
 			</div>

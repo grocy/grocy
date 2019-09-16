@@ -242,10 +242,10 @@
 				@foreach($quConversions as $quConversion)
 				<tr>
 					<td class="fit-content border-right">
-						<a class="btn btn-sm btn-info qu-conversion-edit-button" href="#" data-qu-conversion-id="{{ $quConversion->id }}">
+						<a class="btn btn-sm btn-info qu-conversion-edit-button @if($quConversion->product_id == null) disabled @endif" href="#" data-qu-conversion-id="{{ $quConversion->id }}">
 							<i class="fas fa-edit"></i>
 						</a>
-						<a class="btn btn-sm btn-danger qu-conversion-delete-button" href="#" data-qu-conversion-id="{{ $quConversion->id }}">
+						<a class="btn btn-sm btn-danger qu-conversion-delete-button @if($quConversion->product_id == null) disabled @endif" href="#" data-qu-conversion-id="{{ $quConversion->id }}">
 							<i class="fas fa-trash"></i>
 						</a>
 					</td>

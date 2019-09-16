@@ -283,3 +283,8 @@ msgstr ""
 
 msgid "Dark Chocolate"
 msgstr ""
+
+msgid "Slice"
+msgid_plural "Slices"
+msgstr[0] ""
+msgstr[1] ""

@@ -48,6 +48,7 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO quantity_units (name, name_plural) VALUES ('{$this->__n_sql(1, 'Liter', 'Liters')}', '{$this->__n_sql(2, 'Liter', 'Liters')}'); --9
 				INSERT INTO quantity_units (name, name_plural) VALUES ('{$this->__n_sql(1, 'Bottle', 'Bottles')}', '{$this->__n_sql(2, 'Bottle', 'Bottles')}'); --10
 				INSERT INTO quantity_units (name, name_plural) VALUES ('{$this->__n_sql(1, 'Milliliter', 'Milliliters')}', '{$this->__n_sql(2, 'Milliliter', 'Milliliters')}'); --11
+				INSERT INTO quantity_units (name, name_plural) VALUES ('{$this->__n_sql(1, 'Slice', 'Slices')}', '{$this->__n_sql(2, 'Slice', 'Slices')}'); --12
 
 				INSERT INTO product_groups(name) VALUES ('01 {$this->__t_sql('Sweets')}'); --1
 				INSERT INTO product_groups(name) VALUES ('02 {$this->__t_sql('Bakery products')}'); --2
@@ -83,6 +84,8 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, parent_product_id) VALUES ('{$this->__t_sql('Milk Chocolate')}', 4, 3, 3, 1, 1, 2); --24
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, parent_product_id) VALUES ('{$this->__t_sql('Dark Chocolate')}', 4, 3, 3, 1, 1, 2); --25
 
+				INSERT INTO quantity_unit_conversions (from_qu_id, to_qu_id, factor, product_id) VALUES (3, 12, 10, 10);
+
 				INSERT INTO shopping_list (note, amount) VALUES ('{$this->__t_sql('Some good snacks')}', 1);
 				INSERT INTO shopping_list (product_id, amount) VALUES (20, 1);
 				INSERT INTO shopping_list (product_id, amount) VALUES (17, 1);
@@ -102,7 +105,7 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (2, 10, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount, note) VALUES (2, 17, 1, '{$this->__t_sql('This is the note content of the recipe ingredient')}');
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (2, 20, 1);
-				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (3, 10, 1);
+				INSERT INTO recipes_pos (recipe_id, product_id, amount, qu_id) VALUES (3, 10, 0.2, 12);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (3, 11, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (4, 5, 4);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount, qu_id, only_check_single_unit_in_stock) VALUES (4, 21, 200, 8, 1);

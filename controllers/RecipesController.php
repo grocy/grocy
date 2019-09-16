@@ -69,7 +69,8 @@ class RecipesController extends BaseController
 			'includedRecipeIdsAbsolute' => $includedRecipeIdsAbsolute,
 			'selectedRecipeTotalCosts' => FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->costs,
 			'userfields' => $this->UserfieldsService->GetFields('recipes'),
-			'userfieldValues' => $this->UserfieldsService->GetAllValues('recipes')
+			'userfieldValues' => $this->UserfieldsService->GetAllValues('recipes'),
+			'quantityUnitConversionsResolved' => $this->Database->quantity_unit_conversions_resolved()
 		]);
 	}
 
@@ -96,7 +97,8 @@ class RecipesController extends BaseController
 			'recipesResolved' => $this->RecipesService->GetRecipesResolved(),
 			'recipes' =>  $this->Database->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name'),
 			'recipeNestings' =>  $this->Database->recipes_nestings()->where('recipe_id', $recipeId),
-			'userfields' => $this->UserfieldsService->GetFields('recipes')
+			'userfields' => $this->UserfieldsService->GetFields('recipes'),
+			'quantityUnitConversionsResolved' => $this->Database->quantity_unit_conversions_resolved()
 		]);
 	}
 
@@ -108,7 +110,8 @@ class RecipesController extends BaseController
 				'mode' => 'create',
 				'recipe' => $this->Database->recipes($args['recipeId']),
 				'products' => $this->Database->products()->orderBy('name'),
-				'quantityUnits' => $this->Database->quantity_units()->orderBy('name')
+				'quantityUnits' => $this->Database->quantity_units()->orderBy('name'),
+				'quantityUnitConversionsResolved' => $this->Database->quantity_unit_conversions_resolved()
 			]);
 		}
 		else
@@ -118,7 +121,8 @@ class RecipesController extends BaseController
 				'recipe' =>  $this->Database->recipes($args['recipeId']),
 				'recipePos' => $this->Database->recipes_pos($args['recipePosId']),
 				'products' => $this->Database->products()->orderBy('name'),
-				'quantityUnits' => $this->Database->quantity_units()->orderBy('name')
+				'quantityUnits' => $this->Database->quantity_units()->orderBy('name'),
+				'quantityUnitConversionsResolved' => $this->Database->quantity_unit_conversions_resolved()
 			]);
 		}
 	}
