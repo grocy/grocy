@@ -77,7 +77,9 @@ class StockController extends BaseController
 			'missingProducts' => $this->StockService->GetMissingProducts(),
 			'productGroups' => $this->Database->product_groups()->orderBy('name'),
 			'shoppingLists' => $this->Database->shopping_lists()->orderBy('name'),
-			'selectedShoppingListId' => $listId
+			'selectedShoppingListId' => $listId,
+			'userfields' => $this->UserfieldsService->GetFields('products'),
+			'userfieldValues' => $this->UserfieldsService->GetAllValues('products')
 		]);
 	}
 

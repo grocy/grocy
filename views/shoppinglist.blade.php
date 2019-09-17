@@ -81,6 +81,11 @@
 					<th>{{ $__t('Amount') }}</th>
 					<th class="d-none">Hiden product group</th>
 					<th class="d-none">Hidden status</th>
+
+					@include('components.userfields_thead', array(
+						'userfields' => $userfields
+					))
+
 				</tr>
 			</thead>
 			<tbody class="d-none">
@@ -114,6 +119,12 @@
 					<td class="d-none">
 						@if(FindObjectInArrayByPropertyValue($missingProducts, 'id', $listItem->product_id) !== null) belowminstockamount @endif
 					</td>
+
+					@include('components.userfields_tbody', array(
+						'userfields' => $userfields,
+						'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $listItem->product_id)
+					))
+
 				</tr>
 				@endforeach
 			</tbody>
