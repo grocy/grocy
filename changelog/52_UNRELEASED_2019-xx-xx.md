@@ -7,15 +7,16 @@
   - Quantity units can now be linked (related measurements / unit conversion)
     - On the quantity unit edit page default conversion can be defined for each unit
     - Products "inherit" the default conversion and additionally can have their own / override the default ones
-  - It's now possible to print a "Location Content Sheet" with the current stock per location - new button at the top of the stock overview page
+  - It's now possible to print a "Location Content Sheet" with the current stock per location - new button at the top of the stock overview page (thought to hang it at the location, note used amounts on paper and track it in grocy later)
   - The product description now can have formattings (HTML/WYSIWYG editor like for recipes)
 - Recipe improvements
   - Based on the new linked quantity units, recipe ingredients can now use any product related unit, the amount is calculated according to the cnoversion factor of the unit relation
 - Chores improvements
   - Chores can now be assigned to users
     - Option per chore, different "assignment types" like "Random", "Who least did first", etc.
-    - On the chores overview page the list can be filterd to only show chores assigned to the currently logged in user
+    - On the chores overview page the list can be filterd to only show chores assigned to the currently logged in user (or to any other user)
   - New option "Due date rollover" per chore which means the chore can never be overdue, the due date will shift forward each day when due
+  - When tracking an execution from the chores overview page, filter are re-applied afterwards (means when have filtered the page to only show overdue chores and after the execution the chore is not overdue anymore, it will now immediately hide id)
 - Equipment improvements/fixes
   - Fixed that the delete button not always deleted the currently selected equipment item
 - General improvements/fixes
@@ -25,8 +26,9 @@
 - API improvements & non-breaking changes
   - New endpoint `/stock/shoppinglist/add-product` to add a product to a shopping list (thanks @Forceu)
   - New endpoint `/stock/shoppinglist/remove-product` to remove a product from a shopping list (thanks @Forceu)
+  - New endpoint `/chores/executions/calculate-next-assignments` to (re)calculate next user assignments for a single or all chores
+  - New endpoint `/objects/{entity}/search/{searchString}` search for objects by name (contains search)
   - When adding a product (through `stock/product/{productId}/add` or `stock/product/{productId}/inventory`) with omitted best before date and if the given product has "Default best before days" set, the best before date is calculated based on that (so far always today was used which is still the case when no date is supplied and also the product has no "Default best before days set) (thanks @Forceu)
   - Field `stock_amount` of endpoint `/stock/products/{productId}´ now returns `0` instead of `null` when the given product is not in stock (thanks @Forceu)
-  - New endpoint `/objects/{entity}/search/{searchString}` search for objects by name (contains search)
-  - It's now also possible to provide the API key via a query parameter (same name as the header, so `GROCY-API-KEY`)
   - `​/stock​/products​/{productId}` returns additional fields for the aggregated amount(s): `stock_amount_aggregated` and `stock_amount_opened_aggregated` - contains the same for "normal" products, `is_aggregated_amount` indicates if aggregation has happened
+  - It's now also possible to provide the API key via a query parameter (same name as the header, so `GROCY-API-KEY`)
