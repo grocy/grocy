@@ -84,6 +84,15 @@
 			@endforeach
 		</select>
 	</div>
+	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_PRESET_CHECKLIST)
+	<div class="form-group">
+		<label for="{{ $userfield->name }}">{{ $userfield->caption }}</label>
+		<select multiple class="form-control userfield-input selectpicker" data-userfield-name="{{ $userfield->name }}" data-actions-Box="true" data-live-search="true">
+			@foreach(preg_split('/\r\n|\r|\n/', $userfield->config) as $option)
+				<option value="{{ $option }}">{{ $option }}</option>
+			@endforeach
+		</select>
+	</div>
 	@endif
 
 	@endforeach

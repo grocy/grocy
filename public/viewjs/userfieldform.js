@@ -72,7 +72,7 @@ $("#type").on("change", function(e)
 {
 	var value = $(this).val();
 
-	if (value === "preset-list")
+	if (value === "preset-list" || value === "preset-checklist")
 	{
 		$("#config").parent().removeClass("d-none");
 		$("#config-hint").text(__t("A predefined list of values, one per line"));

@@ -7,9 +7,11 @@
 	<td>
 	@if($userfieldObject !== null)
 		@if($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_CHECKBOX)
-		@if($userfieldObject->value == 1)<i class="fas fa-check"></i>@endif
+			@if($userfieldObject->value == 1)<i class="fas fa-check"></i>@endif
+		@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_PRESET_CHECKLIST)
+			{!! str_replace(',', '<br>', $userfieldObject->value) !!}
 		@else
-		{{ $userfieldObject->value }}
+			{{ $userfieldObject->value }}
 		@endif
 	@endif
 	</td>

@@ -8,15 +8,6 @@
 
 @section('viewJsName', 'choreform')
 
-@push('pageScripts')
-	<script src="{{ $U('/node_modules/bootstrap-select/dist/js/bootstrap-select.min.js?v=', true) }}{{ $version }}"></script>
-	@if(!empty($__t('bootstrap-select_locale') && $__t('bootstrap-select_locale') != 'x'))<script src="{{ $U('/node_modules', true) }}/bootstrap-select/dist/js/i18n/defaults-{{ $__t('bootstrap-select_locale') }}.js?v={{ $version }}"></script>@endif
-@endpush
-
-@push('pageStyles')
-	<link href="{{ $U('/node_modules/bootstrap-select/dist/css/bootstrap-select.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
-@endpush
-
 @section('content')
 <div class="row">
 	<div class="col-lg-6 col-xs-12">

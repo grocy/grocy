@@ -12,6 +12,7 @@ class UserfieldsService extends BaseService
 	const USERFIELD_TYPE_DATETIME = 'datetime';
 	const USERFIELD_TYPE_CHECKBOX = 'checkbox';
 	const USERFIELD_TYPE_PRESET_LIST = 'preset-list';
+	const USERFIELD_TYPE_PRESET_CHECKLIST = 'preset-checklist';
 
 	public function __construct()
 	{

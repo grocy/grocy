@@ -14,7 +14,7 @@ Grocy.Components.UserfieldsForm.Save = function(success, error)
 
 	var jsonData = { };
 
-	$("#userfields-form .userfield-input").each(function()
+	$("#userfields-form .userfield-input").not("div").each(function()
 	{
 		var input = $(this);
 		var fieldName = input.attr("data-userfield-name");
@@ -27,6 +27,10 @@ Grocy.Components.UserfieldsForm.Save = function(success, error)
 			{
 				jsonData[fieldName] = "1";
 			}
+		}
+		else if ($(this).hasAttr("multiple"))
+		{
+			jsonData[fieldName] = $(this).val().join(",");
 		}
 		else
 		{
@@ -69,6 +73,11 @@ Grocy.Components.UserfieldsForm.Load = function()
 				if (input.attr("type") == "checkbox" && value == 1)
 				{
 					input.prop("checked", true);
+				}
+				else if (input.hasAttr("multiple"))
+				{
+					input.val(value.split(","));
+					$(".selectpicker").selectpicker("render");
 				}
 				else
 				{

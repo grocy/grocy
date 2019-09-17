@@ -112,3 +112,8 @@ FindAllObjectsInArrayByPropertyValue = function(array, propertyName, propertyVal
 	
 	return returnArray;
 }
+
+$.fn.hasAttr = function(name)
+{
+	return this.attr(name) !== undefined;
+};
