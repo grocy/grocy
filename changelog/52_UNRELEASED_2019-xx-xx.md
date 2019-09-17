@@ -23,7 +23,7 @@
   - New Userfield type "Select list" for a list of predefined values where a single or also multiple values can then be selected on the entity object
   - New Userfield type "Link" - a single-line-textbox where the content will be rendered as a clickable link
   - Userfields of type "checkbox" are rendered as a checkmark in tables when checked (instead of "1" as till now)
-  - Product Userfields are now also renderd on the shopping list (for items which have a product referenced)
+  - Product Userfields are now also rendered on the shopping list (for items which have a product referenced)
   - Fixed that the Userfield type "Preset list" had always the caption "Product group" instead of the configured one (thanks @oncleben31)
 - General improvements/fixes
   - Improved the handling which entry page to use with disabled feature flags (thanks @nielstholenaar)
