@@ -1414,3 +1414,6 @@ msgstr ""
 
 msgid "assigned to %s"
 msgstr ""
+
+msgid "Filter by assignment"
+msgstr ""

@@ -18,7 +18,7 @@
 		</h1>
 		<p id="info-due-chores" data-status-filter="duesoon" data-next-x-days="{{ $nextXDays }}" class="btn btn-lg btn-warning status-filter-button responsive-button mr-2"></p>
 		<p id="info-overdue-chores" data-status-filter="overdue" class="btn btn-lg btn-danger status-filter-button responsive-button mr-2"></p>
-		<p id="info-assigned-to-me-chores" data-status-filter="assigned-to-me" class="btn btn-lg btn-secondary status-filter-button responsive-button"></p>
+		<p id="info-assigned-to-me-chores" data-user-display-name-filter="{{ GetUserDisplayName(FindObjectInArrayByPropertyValue($users, 'id', GROCY_USER_ID)) }}" class="btn btn-lg btn-secondary user-filter-button responsive-button"></p>
 	</div>
 </div>
 
@@ -33,7 +33,15 @@
 			<option class="bg-white" value="all">{{ $__t('All') }}</option>
 			<option class="bg-warning" value="duesoon">{{ $__t('Due soon') }}</option>
 			<option class="bg-danger" value="overdue">{{ $__t('Overdue') }}</option>
-			<option class="bg-secondary text-white" value="assigned-to-me">{{ $__t('Assigned to me') }}</option>
+		</select>
+	</div>
+	<div class="col-xs-12 col-md-6 col-xl-3">
+		<label for="user-filter">{{ $__t('Filter by assignment') }}</label> <i class="fas fa-filter"></i>
+		<select class="form-control" id="user-filter">
+			<option></option>
+			@foreach($users as $user)
+		<option class="@if($user->id == GROCY_USER_ID) bg-secondary text-white @endif" data-user-id="{{ $user->id }}" value="xx{{ $user->id }}xx">{{ $user->display_name }}</option>
+			@endforeach
 		</select>
 	</div>
 </div>
@@ -49,6 +57,7 @@
 					<th>{{ $__t('Last tracked') }}</th>
 					<th>{{ $__t('Assigned to') }}</th>
 					<th class="d-none">Hidden status</th>
+					<th class="d-none">Hidden assigned to user id</th>
 
 					@include('components.userfields_thead', array(
 						'userfields' => $userfields
@@ -109,6 +118,11 @@
 					<td class="d-none">
 						@if(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_PERIOD_TYPE_MANUALLY && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s')) overdue @elseif(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_PERIOD_TYPE_MANUALLY && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) duesoon @endif
 						@if($curentChoreEntry->next_execution_assigned_to_user_id == GROCY_USER_ID) assigned-to-me @endif
+					</td>
+					<td class="d-none">
+						@if(!empty($curentChoreEntry->next_execution_assigned_to_user_id))
+							xx{{ $curentChoreEntry->next_execution_assigned_to_user_id }}xx
+						@endif
 					</td>
 
 					@include('components.userfields_tbody', array(

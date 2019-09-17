@@ -46,11 +46,37 @@ $("#status-filter").on("change", function()
 	choresOverviewTable.column(5).search(value).draw();
 });
 
+$("#user-filter").on("change", function()
+{
+	var value = $(this).val();
+	if (value === "all")
+	{
+		value = "";
+	}
+
+	// Transfer CSS classes of selected element to dropdown element (for background)
+	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
+
+	choresOverviewTable.column(6).search(value).draw();
+
+	if (!value.isEmpty())
+	{
+		UpdateUriParam("user", $("#user-filter option:selected").data("user-id"));
+	}
+});
+
 $(".status-filter-button").on("click", function()
 {
 	var value = $(this).data("status-filter");
 	$("#status-filter").val(value);
 	$("#status-filter").trigger("change");
+});
+
+$(".user-filter-button").on("click", function()
+{
+	var value = $(this).data("user-display-name-filter");
+	$("#user-filter").val(value);
+	$("#user-filter").trigger("change");
 });
 
 $(document).on('click', '.track-chore-button', function(e)
@@ -198,6 +224,12 @@ function RefreshStatistics()
 			console.error(xhr);
 		}
 	);
+}
+
+if (GetUriParam("user") !== undefined)
+{
+	$("#user-filter").val("xx" + GetUriParam("user") + "xx");
+	$("#user-filter").trigger("change");
 }
 
 RefreshStatistics();
