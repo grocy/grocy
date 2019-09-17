@@ -8,6 +8,15 @@
 
 @section('viewJsName', 'choreform')
 
+@push('pageScripts')
+	<script src="{{ $U('/node_modules/bootstrap-select/dist/js/bootstrap-select.min.js?v=', true) }}{{ $version }}"></script>
+	@if(!empty($__t('bootstrap-select_locale') && $__t('bootstrap-select_locale') != 'x'))<script src="{{ $U('/node_modules', true) }}/bootstrap-select/dist/js/i18n/defaults-{{ $__t('bootstrap-select_locale') }}.js?v={{ $version }}"></script>@endif
+@endpush
+
+@push('pageStyles')
+	<link href="{{ $U('/node_modules/bootstrap-select/dist/css/bootstrap-select.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
+@endpush
+
 @section('content')
 <div class="row">
 	<div class="col-lg-6 col-xs-12">
@@ -33,7 +42,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="period_type">{{ $__t('Period type') }}</label>
+				<label for="period_type">{{ $__t('Period type') }} <span id="chore-period-type-info" class="small text-muted"></span></label>
 				<select required class="form-control input-group-chore-period-type" id="period_type" name="period_type">
 					@foreach($periodTypes as $periodType)
 						<option @if($mode == 'edit' && $periodType == $chore->period_type) selected="selected" @endif value="{{ $periodType }}">{{ $__t($periodType) }}</option>
@@ -50,7 +59,6 @@
 				'min' => '0',
 				'additionalCssClasses' => 'input-group-chore-period-type',
 				'invalidFeedback' => $__t('This cannot be negative'),
-				'additionalHtmlElements' => '<span id="chore-period-type-info" class="small text-muted"></span>',
 				'additionalGroupCssClasses' => 'period-type-input period-type-dynamic-regular period-type-monthly'
 			))
 
@@ -86,6 +94,26 @@
 			</div>
 
 			<input type="hidden" id="period_config" name="period_config" value="@if($mode == 'edit'){{ $chore->period_config }}@endif">
+
+			<div class="form-group">
+				<label for="assignment_type">{{ $__t('Assignment type') }} <span id="chore-assignment-type-info" class="small text-muted"></span></label>
+				<select required class="form-control input-group-chore-assignment-type" id="assignment_type" name="assignment_type">
+					@foreach($assignmentTypes as $assignmentType)
+						<option @if($mode == 'edit' && $assignmentType == $chore->assignment_type) selected="selected" @endif value="{{ $assignmentType }}">{{ $__t($assignmentType) }}</option>
+					@endforeach
+				</select>
+				<div class="invalid-feedback">{{ $__t('An assignment type is required') }}</div>
+			</div>
+
+			<div class="form-group">
+				<label for="assignment_config">{{ $__t('Assign to') }}</label>
+				<select required multiple class="form-control input-group-chore-assignment-type selectpicker" id="assignment_config" name="assignment_config" data-actions-Box="true" data-live-search="true">
+					@foreach($users as $user)
+						<option @if($mode == 'edit' && in_array($user->id, explode(',', $chore->assignment_config))) selected="selected" @endif value="{{ $user->id }}">{{ $user->display_name }}</option>
+					@endforeach
+				</select>
+				<div class="invalid-feedback">{{ $__t('This assignment type requires that at least one is assigned') }}</div>
+			</div>
 
 			<div class="form-group">
 				<div class="form-check">

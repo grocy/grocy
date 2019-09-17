@@ -67,7 +67,7 @@ UNION
 
 -- Second: Product specific overrides
 SELECT
-p.id AS id, -- Dummy, LessQL needs an id column
+	p.id AS id, -- Dummy, LessQL needs an id column
 	p.id AS product_id,
 	quc.from_qu_id AS from_qu_id,
 	qu_from.name AS from_qu_name,
@@ -87,7 +87,7 @@ UNION
 
 -- Third: Default quantity unit conversion factors
 SELECT
-p.id AS id, -- Dummy, LessQL needs an id column
+	p.id AS id, -- Dummy, LessQL needs an id column
 	p.id AS product_id,
 	p.qu_id_stock AS from_qu_id,
 	qu_from.name AS from_qu_name,

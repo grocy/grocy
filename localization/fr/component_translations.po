@@ -47,3 +47,6 @@ msgstr "fr-FR"
 
 msgid "fullcalendar_locale"
 msgstr "fr"
+
+msgid "bootstrap-select_locale"
+msgstr "fr_FR"

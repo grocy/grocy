@@ -125,8 +125,8 @@ class DemoDataGeneratorService extends BaseService
 				INSERt INTO meal_plan(day, recipe_id) VALUES ('{$sundayThisWeek}', 4);
 
 				INSERT INTO chores (name, period_type, period_days) VALUES ('{$this->__t_sql('Changed towels in the bathroom')}', 'manually', 5); --1
-				INSERT INTO chores (name, period_type, period_days) VALUES ('{$this->__t_sql('Cleaned the kitchen floor')}', 'dynamic-regular', 7); --2
-				INSERT INTO chores (name, period_type, period_days) VALUES ('{$this->__t_sql('Lawn mowed in the garden')}', 'dynamic-regular', 21); --3
+				INSERT INTO chores (name, period_type, period_days, assignment_type, assignment_config, next_execution_assigned_to_user_id) VALUES ('{$this->__t_sql('Cleaned the kitchen floor')}', 'dynamic-regular', 7, 'random', '1,2,3,4', 1); --2
+				INSERT INTO chores (name, period_type, period_days, assignment_type, assignment_config, next_execution_assigned_to_user_id) VALUES ('{$this->__t_sql('Lawn mowed in the garden')}', 'dynamic-regular', 21, 'random', '1,2,3,4', 1); --3
 				INSERT INTO chores (name, period_type, period_days) VALUES ('{$this->__t_sql('The thing which happens on the 5th of every month')}', 'monthly', 5); --4
 				INSERT INTO chores (name, period_type) VALUES ('{$this->__t_sql('The thing which happens daily')}', 'daily'); --5
 				INSERT INTO chores (name, period_type, period_config) VALUES ('{$this->__t_sql('The thing which happens on Mondays and Wednesdays')}', 'weekly', 'monday,wednesday'); --6

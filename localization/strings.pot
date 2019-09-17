@@ -349,7 +349,7 @@ msgstr ""
 msgid "This means %s will be removed from stock"
 msgstr ""
 
-msgid "This means it is estimated that a new execution of this chore is tracked %s days after the last was tracked"
+msgid "This means the next execution of this chore is scheduled %s days after the last execution"
 msgstr ""
 
 msgid "Removed %1$s of %2$s from stock"
@@ -1366,4 +1366,48 @@ msgid "This equals %1$s %2$s in stock"
 msgstr ""
 
 msgid "Edit QU conversion"
+msgstr ""
+
+msgid "An assignment type is required"
+msgstr ""
+
+msgid "Assignment type"
+msgstr ""
+
+msgid "This means the next execution of this chore is scheduled 1 day after the last execution"
+msgstr ""
+
+msgid "This means the next execution of this chore is scheduled 1 day after the last execution, but only for the weekdays selected below"
+msgstr ""
+
+msgid "This means the next execution of this chore is not scheduled"
+msgstr ""
+
+msgid "This means the next execution of this chore is scheduled on the below selected day of each month"
+msgstr ""
+
+msgid "This means the next execution of this chore will not be assigned to anyone"
+msgstr ""
+
+msgid "This means the next execution of this chore will be assigned to the one who executed it least"
+msgstr ""
+
+msgid "This means the next execution of this chore will be assigned randomly"
+msgstr ""
+
+msgid "This means the next execution of this chore will be assigned to the next one in alphabetical order"
+msgstr ""
+
+msgid "Assign to"
+msgstr ""
+
+msgid "This assignment type requires that at least one is assigned"
+msgstr ""
+
+msgid "%s chore is assigned to me"
+msgid_plural "%s chores are assigned to me"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Assigned to me"
 msgstr ""

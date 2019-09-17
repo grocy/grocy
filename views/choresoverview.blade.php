@@ -17,7 +17,8 @@
 			</a>
 		</h1>
 		<p id="info-due-chores" data-status-filter="duesoon" data-next-x-days="{{ $nextXDays }}" class="btn btn-lg btn-warning status-filter-button responsive-button mr-2"></p>
-		<p id="info-overdue-chores" data-status-filter="overdue" class="btn btn-lg btn-danger status-filter-button responsive-button"></p>
+		<p id="info-overdue-chores" data-status-filter="overdue" class="btn btn-lg btn-danger status-filter-button responsive-button mr-2"></p>
+		<p id="info-assigned-to-me-chores" data-status-filter="assigned-to-me" class="btn btn-lg btn-secondary status-filter-button responsive-button"></p>
 	</div>
 </div>
 
@@ -32,6 +33,7 @@
 			<option class="bg-white" value="all">{{ $__t('All') }}</option>
 			<option class="bg-warning" value="duesoon">{{ $__t('Due soon') }}</option>
 			<option class="bg-danger" value="overdue">{{ $__t('Overdue') }}</option>
+			<option class="bg-secondary text-white" value="assigned-to-me">{{ $__t('Assigned to me') }}</option>
 		</select>
 	</div>
 </div>
@@ -45,6 +47,7 @@
 					<th>{{ $__t('Chore') }}</th>
 					<th>{{ $__t('Next estimated tracking') }}</th>
 					<th>{{ $__t('Last tracked') }}</th>
+					<th>{{ $__t('Assigned to') }}</th>
 					<th class="d-none">Hidden status</th>
 
 					@include('components.userfields_thead', array(
@@ -55,7 +58,7 @@
 			</thead>
 			<tbody class="d-none">
 				@foreach($currentChores as $curentChoreEntry)
-				<tr id="chore-{{ $curentChoreEntry->chore_id }}-row" class="@if(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_TYPE_MANUALLY && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s')) table-danger @elseif(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_TYPE_MANUALLY && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) table-warning @endif">
+				<tr id="chore-{{ $curentChoreEntry->chore_id }}-row" class="@if(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_PERIOD_TYPE_MANUALLY && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s')) table-danger @elseif(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_PERIOD_TYPE_MANUALLY && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) table-warning @endif">
 					<td class="fit-content border-right">
 						<a class="btn btn-success btn-sm track-chore-button" href="#" data-toggle="tooltip" data-placement="left" title="{{ $__t('Track execution of chore %s', FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name) }}"
 							data-chore-id="{{ $curentChoreEntry->chore_id }}"
@@ -83,7 +86,7 @@
 						{{ FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name }}
 					</td>
 					<td>
-						@if(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_TYPE_MANUALLY)
+						@if(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_PERIOD_TYPE_MANUALLY)
 							<span id="chore-{{ $curentChoreEntry->chore_id }}-next-execution-time">{{ $curentChoreEntry->next_estimated_execution_time }}</span>
 							<time id="chore-{{ $curentChoreEntry->chore_id }}-next-execution-time-timeago" class="timeago timeago-contextual @if($curentChoreEntry->track_date_only == 1) timeago-date-only @endif" datetime="{{ $curentChoreEntry->next_estimated_execution_time }}"></time>
 						@else
@@ -94,8 +97,18 @@
 						<span id="chore-{{ $curentChoreEntry->chore_id }}-last-tracked-time">{{ $curentChoreEntry->last_tracked_time }}</span>
 						<time id="chore-{{ $curentChoreEntry->chore_id }}-last-tracked-time-timeago" class="timeago timeago-contextual @if($curentChoreEntry->track_date_only == 1) timeago-date-only @endif" datetime="{{ $curentChoreEntry->last_tracked_time }}"></time>
 					</td>
+					<td>
+						<span id="chore-{{ $curentChoreEntry->chore_id }}-next-execution-assigned-user">
+						@if(!empty($curentChoreEntry->next_execution_assigned_to_user_id))
+							{{ FindObjectInArrayByPropertyValue($users, 'id', $curentChoreEntry->next_execution_assigned_to_user_id)->display_name }}
+						@else
+							...
+						@endif
+						</span>
+					</td>
 					<td class="d-none">
-						@if(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_TYPE_MANUALLY && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s')) overdue @elseif(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_TYPE_MANUALLY && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) duesoon @endif
+						@if(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_PERIOD_TYPE_MANUALLY && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s')) overdue @elseif(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_PERIOD_TYPE_MANUALLY && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) duesoon @endif
+						@if($curentChoreEntry->next_execution_assigned_to_user_id == GROCY_USER_ID) assigned-to-me @endif
 					</td>
 
 					@include('components.userfields_tbody', array(

@@ -1,4 +1,5 @@
 # Translators:
+# Antonino Ursino <ninus_@libero.it>, 2019
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # 
 msgid ""
@@ -17,28 +18,22 @@ msgstr ""
 "X-Domain: grocy/component_translations\n"
 
 msgid "timeago_locale"
-msgstr "it"
+msgstr "tempofa_locale"
 
 msgid "timeago_nan"
-msgstr "NaN anni fa"
+msgstr "tempofa_nan"
 
 msgid "moment_locale"
-msgstr "it"
+msgstr "istante_locale"
 
 msgid "datatables_localization"
-msgstr ""
-"{\"sEmptyTable\":\"Nessun dato disponibile\",\"sInfo\":\"Mostrando da "
-"_START_ a _END_ di _TOTAL_ voci\",\"sInfoEmpty\":\"Mostrando da 0 a 0 di 0 "
-"voci\",\"sInfoFiltered\":\"(Filtrato da _MAX_ voci "
-"totali)\",\"sInfoPostFix\":\"\",\"sInfoThousands\":\",\",\"sLengthMenu\":\"Mostra"
-" _MENU_ "
-"voci\",\"sLoadingRecords\":\"Caricando...\",\"sProcessing\":\"Calcolando...\",\"sSearch\":\"Cerca:\",\"sZeroRecords\":\"Nessun"
-" risultato "
-"trovato\",\"oPaginate\":{\"sFirst\":\"Prima\",\"sLast\":\"Ultima\",\"sNext\":\"Prossima\",\"sPrevious\":\"Precedente\"},\"oAria\":{\"sSortAscending\":\":"
-" ordine crescente\",\"sSortDescending\":\": ordine decrescente\"}}"
+msgstr "datitabelle_localizzazione"
 
 msgid "summernote_locale"
-msgstr "it-IT"
+msgstr "summernote_locale"
 
 msgid "fullcalendar_locale"
-msgstr "fr"
+msgstr "calendariocompleto_locale"
+
+msgid "bootstrap-select_locale"
+msgstr "it_IT"

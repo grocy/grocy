@@ -43,3 +43,6 @@ msgstr "pl-PL"
 
 msgid "fullcalendar_locale"
 msgstr "pl"
+
+msgid "bootstrap-select_locale"
+msgstr "pl_PL"

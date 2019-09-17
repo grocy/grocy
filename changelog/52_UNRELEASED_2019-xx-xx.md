@@ -12,6 +12,9 @@
 - Recipe improvements
   - Based on the new linked quantity units, recipe ingredients can now use any product related unit, the amount is calculated according to the cnoversion factor of the unit relation
 - Chores improvements
+  - Chores can now be assigned to users
+    - Option per chore, different "assignment types" like "Random", "Who least did first", etc.
+    - On the chores overview page the list can be filterd to only show chores assigned to the currently logged in user
   - New option "Due date rollover" per chore which means the chore can never be overdue, the due date will shift forward each day when due
 - Equipment improvements/fixes
   - Fixed that the delete button not always deleted the currently selected equipment item

@@ -1,9 +1,15 @@
 [main]
 host = https://www.transifex.com
 
-[grocy.chore_types]
-file_filter = localization/<lang>/chore_types.po
-source_file = localization/chore_types.pot
+[grocy.chore_period_types]
+file_filter = localization/<lang>/chore_period_types.po
+source_file = localization/chore_period_types.pot
+source_lang = en
+type = PO
+
+[grocy.chore_assignment_types]
+file_filter = localization/<lang>/chore_assignment_types.po
+source_file = localization/chore_assignment_types.pot
 source_lang = en
 type = PO
 

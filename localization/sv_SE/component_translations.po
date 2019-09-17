@@ -43,3 +43,6 @@ msgstr "sv-SE"
 
 msgid "fullcalendar_locale"
 msgstr "sv"
+
+msgid "bootstrap-select_locale"
+msgstr "sv_SE"

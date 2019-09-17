@@ -48,3 +48,6 @@ msgstr "nb-NO"
 
 msgid "fullcalendar_locale"
 msgstr "nb"
+
+msgid "bootstrap-select_locale"
+msgstr "nb_NO"

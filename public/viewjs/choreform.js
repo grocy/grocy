@@ -3,6 +3,7 @@
 	e.preventDefault();
 
 	var jsonData = $('#chore-form').serializeJSON({ checkboxUncheckedValue: "0" });
+	jsonData.assignment_config = $("#assignment_config").val().join(",");
 	Grocy.FrontendHelpers.BeginUiBusy("chore-form");
 
 	if (Grocy.EditMode === 'create')
@@ -13,7 +14,17 @@
 				Grocy.EditObjectId = result.created_object_id;
 				Grocy.Components.UserfieldsForm.Save(function()
 				{
-					window.location.href = U('/chores');
+					Grocy.Api.Post('chores/executions/calculate-next-assignments', { "chore_id": Grocy.EditObjectId },
+						function (result)
+						{
+							window.location.href = U('/chores');
+						},
+						function (xhr)
+						{
+							Grocy.FrontendHelpers.EndUiBusy();
+							console.error(xhr);
+						}
+					);
 				});
 			},
 			function(xhr)
@@ -30,7 +41,17 @@
 			{
 				Grocy.Components.UserfieldsForm.Save(function()
 				{
-					window.location.href = U('/chores');
+					Grocy.Api.Post('chores/executions/calculate-next-assignments', { "chore_id": Grocy.EditObjectId },
+						function (result)
+						{
+							window.location.href = U('/chores');
+						},
+						function (xhr)
+						{
+							Grocy.FrontendHelpers.EndUiBusy();
+							console.error(xhr);
+						}
+					);
 				});
 			},
 			function(xhr)
@@ -80,6 +101,7 @@ Grocy.FrontendHelpers.ValidateForm('chore-form');
 setTimeout(function()
 {
 	$(".input-group-chore-period-type").trigger("change");
+	$(".input-group-chore-assignment-type").trigger("change");
 }, 100);
 
 $('.input-group-chore-period-type').on('change', function(e)
@@ -94,7 +116,7 @@ $('.input-group-chore-period-type').on('change', function(e)
 
 	if (periodType === 'manually')
 	{
-		//
+		$('#chore-period-type-info').text(__t('This means the next execution of this chore is not scheduled'));
 	}
 	else if (periodType === 'dynamic-regular')
 	{
@@ -102,21 +124,59 @@ $('.input-group-chore-period-type').on('change', function(e)
 		$("#period_days").attr("min", "0");
 		$("#period_days").attr("max", "9999");
 		$("#period_days").parent().find(".invalid-feedback").text(__t('This cannot be negative'));
-		$('#chore-period-type-info').text(__t('This means it is estimated that a new execution of this chore is tracked %s days after the last was tracked', periodDays.toString()));
+		$('#chore-period-type-info').text(__t('This means the next execution of this chore is scheduled %s days after the last execution', periodDays.toString()));
 	}
 	else if (periodType === 'daily')
 	{
-		//
+		$('#chore-period-type-info').text(__t('This means the next execution of this chore is scheduled 1 day after the last execution'));
 	}
 	else if (periodType === 'weekly')
 	{
+		$('#chore-period-type-info').text(__t('This means the next execution of this chore is scheduled 1 day after the last execution, but only for the weekdays selected below'));
 		$("#period_config").val($(".period-type-weekly input:checkbox:checked").map(function () { return this.value; }).get().join(","));
 	}
 	else if (periodType === 'monthly')
 	{
+		$('#chore-period-type-info').text(__t('This means the next execution of this chore is scheduled on the below selected day of each month'));
 		$("label[for='period_days']").text(__t("Day of month"));
 		$("#period_days").attr("min", "1");
 		$("#period_days").attr("max", "31");
 		$("#period_days").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', "1", "31"));
 	}
+
+	Grocy.FrontendHelpers.ValidateForm('chore-form');
+});
+
+$('.input-group-chore-assignment-type').on('change', function(e)
+{
+	var assignmentType = $('#assignment_type').val();
+
+	$('#chore-period-assignment-info').text("");
+	$("#assignment_config").removeAttr("required");
+	$("#assignment_config").attr("disabled", "");
+
+	if (assignmentType === 'no-assignment')
+	{
+		$('#chore-assignment-type-info').text(__t('This means the next execution of this chore will not be assigned to anyone'));
+	}
+	else if (assignmentType === 'who-least-did-first')
+	{
+		$('#chore-assignment-type-info').text(__t('This means the next execution of this chore will be assigned to the one who executed it least'));
+		$("#assignment_config").attr("required", "");
+		$("#assignment_config").removeAttr("disabled");
+	}
+	else if (assignmentType === 'random')
+	{
+		$('#chore-assignment-type-info').text(__t('This means the next execution of this chore will be assigned randomly'));
+		$("#assignment_config").attr("required", "");
+		$("#assignment_config").removeAttr("disabled");
+	}
+	else if (assignmentType === 'in-alphabetical-order')
+	{
+		$('#chore-assignment-type-info').text(__t('This means the next execution of this chore will be assigned to the next one in alphabetical order'));
+		$("#assignment_config").attr("required", "");
+		$("#assignment_config").removeAttr("disabled");
+	}
+
+	Grocy.FrontendHelpers.ValidateForm('chore-form');
 });

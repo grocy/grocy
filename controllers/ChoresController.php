@@ -28,7 +28,8 @@ class ChoresController extends BaseController
 			'currentChores' => $this->ChoresService->GetCurrent(),
 			'nextXDays' => $nextXDays,
 			'userfields' => $this->UserfieldsService->GetFields('chores'),
-			'userfieldValues' => $this->UserfieldsService->GetAllValues('chores')
+			'userfieldValues' => $this->UserfieldsService->GetAllValues('chores'),
+			'users' => $usersService->GetUsersAsDto()
 		]);
 	}
 
@@ -60,21 +61,28 @@ class ChoresController extends BaseController
 
 	public function ChoreEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
+		$usersService = new UsersService();
+		$users = $usersService->GetUsersAsDto();
+
 		if ($args['choreId'] == 'new')
 		{
 			return $this->AppContainer->view->render($response, 'choreform', [
-				'periodTypes' => GetClassConstants('\Grocy\Services\ChoresService'),
+				'periodTypes' => GetClassConstants('\Grocy\Services\ChoresService', 'CHORE_PERIOD_TYPE_'),
 				'mode' => 'create',
-				'userfields' => $this->UserfieldsService->GetFields('chores')
+				'userfields' => $this->UserfieldsService->GetFields('chores'),
+				'assignmentTypes' => GetClassConstants('\Grocy\Services\ChoresService', 'CHORE_ASSIGNMENT_TYPE_'),
+				'users' => $users
 			]);
 		}
 		else
 		{
 			return $this->AppContainer->view->render($response, 'choreform', [
 				'chore' =>  $this->Database->chores($args['choreId']),
-				'periodTypes' => GetClassConstants('\Grocy\Services\ChoresService'),
+				'periodTypes' => GetClassConstants('\Grocy\Services\ChoresService', 'CHORE_PERIOD_TYPE_'),
 				'mode' => 'edit',
-				'userfields' => $this->UserfieldsService->GetFields('chores')
+				'userfields' => $this->UserfieldsService->GetFields('chores'),
+				'assignmentTypes' => GetClassConstants('\Grocy\Services\ChoresService', 'CHORE_ASSIGNMENT_TYPE_'),
+				'users' => $users
 			]);
 		}
 	}

@@ -52,3 +52,6 @@ msgstr "de-DE"
 
 msgid "fullcalendar_locale"
 msgstr "de"
+
+msgid "bootstrap-select_locale"
+msgstr "de_DE"

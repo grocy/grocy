@@ -70,4 +70,37 @@ class ChoresApiController extends BaseApiController
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
+
+	public function CalculateNextExecutionAssignments(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		try
+		{
+			$requestBody = $request->getParsedBody();
+
+			$choreId = null;
+			if (array_key_exists('chore_id', $requestBody) && !empty($requestBody['chore_id']) && is_numeric($requestBody['chore_id']))
+			{
+				$choreId = intval($requestBody['chore_id']);
+			}
+
+			if ($choreId === null)
+			{
+				$chores = $this->Database->chores();
+				foreach ($chores as $chore)
+				{
+					$this->ChoresService->CalculateNextExecutionAssignment($chore->id);
+				}
+			}
+			else
+			{
+				$this->ChoresService->CalculateNextExecutionAssignment($choreId);
+			}
+
+			return $this->EmptyApiResponse($response);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
 }

@@ -43,3 +43,6 @@ msgstr "es-ES"
 
 msgid "fullcalendar_locale"
 msgstr "es"
+
+msgid "bootstrap-select_locale"
+msgstr "es_ES"

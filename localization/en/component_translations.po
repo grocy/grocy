@@ -29,3 +29,6 @@ msgstr "x"
 
 msgid "fullcalendar_locale"
 msgstr "x"
+
+msgid "bootstrap-select_locale"
+msgstr "x"

@@ -88,10 +88,20 @@ function SumArrayValue($array, $propertyName)
 	return $sum;
 }
 
-function GetClassConstants($className)
+function GetClassConstants($className, $prefix = null)
 {
 	$r = new ReflectionClass($className);
-	return $r->getConstants();
+	$constants = $r->getConstants();
+
+	if ($prefix === null)
+	{
+		return $constants;
+	}
+	else
+	{
+		$matchingKeys = preg_grep('!^' . $prefix . '!', array_keys($constants));
+		return array_intersect_key($constants, array_flip($matchingKeys));
+	}
 }
 
 function RandomString($length, $allowedChars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')

@@ -4,11 +4,16 @@ namespace Grocy\Services;
 
 class ChoresService extends BaseService
 {
-	const CHORE_TYPE_MANUALLY = 'manually';
-	const CHORE_TYPE_DYNAMIC_REGULAR = 'dynamic-regular';
-	const CHORE_TYPE_DAILY = 'daily';
-	const CHORE_TYPE_weekly = 'weekly';
-	const CHORE_TYPE_monthly = 'monthly';
+	const CHORE_PERIOD_TYPE_MANUALLY = 'manually';
+	const CHORE_PERIOD_TYPE_DYNAMIC_REGULAR = 'dynamic-regular';
+	const CHORE_PERIOD_TYPE_DAILY = 'daily';
+	const CHORE_PERIOD_TYPE_WEEKLY = 'weekly';
+	const CHORE_PERIOD_TYPE_MONTHLY = 'monthly';
+
+	const CHORE_ASSIGNMENT_TYPE_NO_ASSIGNMENT = 'no-assignment';
+	const CHORE_ASSIGNMENT_TYPE_WHO_LEAST_DID_FIRST = 'who-least-did-first';
+	const CHORE_ASSIGNMENT_TYPE_RANDOM = 'random';
+	const CHORE_ASSIGNMENT_TYPE_IN_ALPHABETICAL_ORDER = 'in-alphabetical-order';
 
 	public function GetCurrent()
 	{
@@ -23,18 +28,25 @@ class ChoresService extends BaseService
 			throw new \Exception('Chore does not exist');
 		}
 
+		$usersService = new UsersService();
+			$users = $usersService->GetUsersAsDto();
+
 		$chore = $this->Database->chores($choreId);
 		$choreTrackedCount = $this->Database->chores_log()->where('chore_id = :1 AND undone = 0', $choreId)->count();
 		$choreLastTrackedTime = $this->Database->chores_log()->where('chore_id = :1 AND undone = 0', $choreId)->max('tracked_time');
-		$nextExeuctionTime = $this->Database->chores_current()->where('chore_id', $choreId)->min('next_estimated_execution_time');
+		$nextExecutionTime = $this->Database->chores_current()->where('chore_id', $choreId)->min('next_estimated_execution_time');
 		
 		$lastChoreLogRow =  $this->Database->chores_log()->where('chore_id = :1 AND tracked_time = :2 AND undone = 0', $choreId, $choreLastTrackedTime)->fetch();
 		$lastDoneByUser = null;
 		if ($lastChoreLogRow !== null && !empty($lastChoreLogRow))
 		{
-			$usersService = new UsersService();
-			$users = $usersService->GetUsersAsDto();
 			$lastDoneByUser = FindObjectInArrayByPropertyValue($users, 'id', $lastChoreLogRow->done_by_user_id);
+		}
+
+		$nextExecutionAssignedUser = null;
+		if (!empty($chore->next_execution_assigned_to_user_id))
+		{
+			$nextExecutionAssignedUser = FindObjectInArrayByPropertyValue($users, 'id', $chore->next_execution_assigned_to_user_id);
 		}
 
 		return array(
@@ -42,7 +54,8 @@ class ChoresService extends BaseService
 			'last_tracked' => $choreLastTrackedTime,
 			'tracked_count' => $choreTrackedCount,
 			'last_done_by' => $lastDoneByUser,
-			'next_estimated_execution_time' => $nextExeuctionTime
+			'next_estimated_execution_time' => $nextExecutionTime,
+			'next_execution_assigned_user' => $nextExecutionAssignedUser
 		);
 	}
 
@@ -72,7 +85,9 @@ class ChoresService extends BaseService
 		));
 		$logRow->save();
 
-		return $this->Database->lastInsertId();
+		$lastInsertId = $this->Database->lastInsertId();
+		$this->CalculateNextExecutionAssignment($choreId);
+		return $lastInsertId;
 	}
 
 	private function ChoreExists($choreId)
@@ -93,6 +108,88 @@ class ChoresService extends BaseService
 		$logRow->update(array(
 			'undone' => 1,
 			'undone_timestamp' => date('Y-m-d H:i:s')
+		));
+	}
+
+	public function CalculateNextExecutionAssignment($choreId)
+	{
+		if (!$this->ChoreExists($choreId))
+		{
+			throw new \Exception('Chore does not exist');
+		}
+
+		$chore = $this->Database->chores($choreId);
+		$choreLastTrackedTime = $this->Database->chores_log()->where('chore_id = :1 AND undone = 0', $choreId)->max('tracked_time');
+		$lastChoreLogRow =  $this->Database->chores_log()->where('chore_id = :1 AND tracked_time = :2 AND undone = 0', $choreId, $choreLastTrackedTime)->fetch();
+		$lastDoneByUserId = $lastChoreLogRow->done_by_user_id;
+		
+		$usersService = new UsersService();
+		$users = $usersService->GetUsersAsDto();
+		$assignedUsers = array();
+		foreach ($users as $user)
+		{
+			if (in_array($user->id, explode(',', $chore->assignment_config)))
+			{
+				$assignedUsers[] = $user;
+			}
+		}
+
+		$nextExecutionUserId = null;
+		if ($chore->assignment_type == self::CHORE_ASSIGNMENT_TYPE_RANDOM)
+		{
+			// Random assignment and only 1 user in the group? Well, ok - will be hard to guess the next one...
+			if (count($assignedUsers) == 1)
+			{
+				$nextExecutionUserId = array_shift($assignedUsers)->id;
+			}
+			else
+			{
+				// Randomness in small groups will likely often result in the same user, so try it as long as this is the case
+				while ($nextExecutionUserId == null || $nextExecutionUserId == $lastDoneByUserId)
+				{
+					$nextExecutionUserId = $assignedUsers[array_rand($assignedUsers)]->id;
+				}
+			}
+		}
+		else if ($chore->assignment_type == self::CHORE_ASSIGNMENT_TYPE_IN_ALPHABETICAL_ORDER)
+		{
+			usort($assignedUsers, function($a, $b)
+			{
+				return strcmp($a->display_name, $b->display_name);
+			});
+
+			$nextRoundMatches = false;
+			foreach ($assignedUsers as $user)
+			{
+				if ($nextRoundMatches)
+				{
+					$nextExecutionUserId = $user->id;
+					break;
+				}
+
+				if ($user->id == $lastDoneByUserId)
+				{
+					$nextRoundMatches = true;
+				}
+			}
+
+			// If nothing has matched, probably it was the last user in the sorted list -> the first one is the next one
+			if ($nextExecutionUserId == null)
+			{
+				$nextExecutionUserId = array_shift($assignedUsers)->id;
+			}
+		}
+		else if ($chore->assignment_type == self::CHORE_ASSIGNMENT_TYPE_WHO_LEAST_DID_FIRST)
+		{
+			$row = $this->Database->chores_execution_users_statistics()->where('chore_id = :1', $choreId)->orderBy('execution_count')->limit(1)->fetch();
+			if ($row != null)
+			{
+				$nextExecutionUserId = $row->user_id;
+			}
+		}
+
+		$chore->update(array(
+			'next_execution_assigned_to_user_id' => $nextExecutionUserId
 		));
 	}
 }

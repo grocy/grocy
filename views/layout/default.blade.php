@@ -57,6 +57,7 @@
 		Grocy.GettextPo = {!! $GettextPo !!};
 		Grocy.UserSettings = {!! json_encode($userSettings) !!};
 		Grocy.FeatureFlags = {!! json_encode($featureFlags) !!};
+		Grocy.UserId = {{ GROCY_USER_ID }};
 	</script>
 </head>
 

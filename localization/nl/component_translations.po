@@ -45,3 +45,6 @@ msgstr "nl-NL"
 
 msgid "fullcalendar_locale"
 msgstr "nl"
+
+msgid "bootstrap-select_locale"
+msgstr "nl_NL"

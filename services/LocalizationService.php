@@ -34,7 +34,8 @@ class LocalizationService
 		{
 			$this->PotMain = Translations::fromPoFile(__DIR__ . '/../localization/strings.pot');
 
-			$this->Pot = Translations::fromPoFile(__DIR__ . '/../localization/chore_types.pot');
+			$this->Pot = Translations::fromPoFile(__DIR__ . '/../localization/chore_period_types.pot');
+			$this->Pot = $this->Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/chore_assignment_types.pot'));
 			$this->Pot = $this->Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/component_translations.pot'));
 			$this->Pot = $this->Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/demo_data.pot'));
 			$this->Pot = $this->Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/stock_transaction_types.pot'));
@@ -45,7 +46,8 @@ class LocalizationService
 		$this->PoUserStrings = new Translations();
 		$this->PoUserStrings->setDomain('grocy/userstrings');
 
-		$this->Po = Translations::fromPoFile(__DIR__ . "/../localization/$culture/chore_types.po");
+		$this->Po = Translations::fromPoFile(__DIR__ . "/../localization/$culture/chore_period_types.po");
+		$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/chore_assignment_types.po"));
 		$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/component_translations.po"));
 		$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/demo_data.po"));
 		$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/stock_transaction_types.po"));

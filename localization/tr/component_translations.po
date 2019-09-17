@@ -44,3 +44,6 @@ msgstr "tr-TR"
 
 msgid "fullcalendar_locale"
 msgstr "tr"
+
+msgid "bootstrap-select_locale"
+msgstr "tr_TR"

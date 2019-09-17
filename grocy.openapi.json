@@ -2100,6 +2100,48 @@
 				}
 			}
 		},
+		"/chores/executions/calculate-next-assignments": {
+			"post": {
+				"summary": "(Re)calculates all next user assignments of all chores",
+				"tags": [
+					"Chores"
+				],
+				"requestBody": {
+					"required": false,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"chore_id": {
+										"type": "integer",
+										"description": "The chore id of the chore which next user assignment should be (re)calculated, when omitted, the next user assignments of all chores will (re)caluclated"
+									}
+								},
+								"example": {
+									"chore_id": 1
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/batteries": {
 			"get": {
 				"summary": "Returns all batteries incl. the next estimated charge time per battery",
@@ -2853,6 +2895,9 @@
 					"next_estimated_execution_time": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"next_execution_assigned_user": {
+						"$ref": "#/components/schemas/UserDto"
 					}
 				},
 				"example": {
@@ -3091,14 +3136,38 @@
 						"type": "string",
 						"enum": [
 							"manually",
-							"dynamic-regular"
+							"dynamic-regular",
+							"daily",
+							"weekly",
+							"monthly"
 						]
+					},
+					"period_config": {
+						"type": "string"
 					},
 					"period_days": {
 						"type": "integer"
 					},
 					"track_date_only": {
 						"type": "boolean"
+					},
+					"rollover": {
+						"type": "boolean"
+					},
+					"assignment_type": {
+						"type": "string",
+						"enum": [
+							"no-assignment",
+							"who-least-did-first",
+							"random",
+							"in-alphabetical-order"
+						]
+					},
+					"assignment_config": {
+						"type": "string"
+					},
+					"next_execution_assigned_to_user_id": {
+						"type": "integer"
 					},
 					"row_created_timestamp": {
 						"type": "string",

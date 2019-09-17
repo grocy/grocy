@@ -30,6 +30,7 @@
 		"swagger-ui-dist": "^3.22.1",
 		"tempusdominus-bootstrap-4": "https://github.com/berrnd/tempusdominus-bootstrap-4.git#master",
 		"timeago": "^1.6.7",
-		"toastr": "^2.1.4"
+		"toastr": "^2.1.4",
+		"bootstrap-select": "^1.13.10"
 	}
 }

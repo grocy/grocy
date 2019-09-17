@@ -10,19 +10,16 @@ msgstr ""
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01T17:59:17+00:00\n"
 "Language: en\n"
-"X-Domain: grocy/chore_types\n"
+"X-Domain: grocy/chore_assignment_types\n"
 
-msgid "manually"
-msgstr "Manually"
+msgid "no-assignment"
+msgstr "No assignment"
 
-msgid "dynamic-regular"
-msgstr "Dynamic regular"
+msgid "who-least-did-first"
+msgstr "Who least did first"
 
-msgid "daily"
-msgstr "Daily"
+msgid "random"
+msgstr "Random"
 
-msgid "weekly"
-msgstr "Weekly"
-
-msgid "monthly"
-msgstr "Monthly"
+msgid "in-alphabetical-order"
+msgstr "In alphabetical order"

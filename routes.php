@@ -190,6 +190,7 @@ $app->group('/api', function()
 		$this->get('/chores/{choreId}', '\Grocy\Controllers\ChoresApiController:ChoreDetails');
 		$this->post('/chores/{choreId}/execute', '\Grocy\Controllers\ChoresApiController:TrackChoreExecution');
 		$this->post('/chores/executions/{executionId}/undo', '\Grocy\Controllers\ChoresApiController:UndoChoreExecution');
+		$this->post('/chores/executions/calculate-next-assignments', '\Grocy\Controllers\ChoresApiController:CalculateNextExecutionAssignments');
 	}
 
 	// Batteries
