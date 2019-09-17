@@ -201,18 +201,7 @@ $('.input-group-qu').on('change', function(e)
 	var quIdStock = $("#qu_id_stock").val();
 	var factor = $('#qu_factor_purchase_to_stock').val();
 
-	if (quIdPurchase != quIdStock)
-	{
-		$('#qu_factor_purchase_to_stock').attr("min", 2);
-		$("#qu_factor_purchase_to_stock").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '2'));
-	}
-	else
-	{
-		$('#qu_factor_purchase_to_stock').attr("min", 1);
-		$("#qu_factor_purchase_to_stock").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '1'));
-	}
-
-	if (factor > 1)
+	if (factor > 1 || quIdPurchase != quIdStock)
 	{
 		$('#qu-conversion-info').text(__t('This means 1 %1$s purchased will be converted into %2$s %3$s in stock', $("#qu_id_purchase option:selected").text(), (1 * factor).toString(), $("#qu_id_stock option:selected").text()));
 		$('#qu-conversion-info').removeClass('d-none');
@@ -298,13 +287,19 @@ $("#allow_partial_units_in_stock").on("click", function()
 {
 	if (this.checked)
 	{
-		$("#min_stock_amount").attr("min", "0.00");
-		$("#min_stock_amount").attr("step", "0.01");
+		$("#min_stock_amount").attr("min", "0.0000");
+		$("#min_stock_amount").attr("step", "0.0001");
+		$("#qu_factor_purchase_to_stock").attr("min", "0.0001");
+		$("#qu_factor_purchase_to_stock").attr("step", "0.0001");
+		$("#qu_factor_purchase_to_stock").parent().find(".invalid-feedback").text(__t('This cannot be lower than %1$s and must be a valid number with max. %2$s decimal places', 0.0001.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 4 }), '4'));
 	}
 	else
 	{
 		$("#min_stock_amount").attr("min", "0");
 		$("#min_stock_amount").attr("step", "1");
+		$("#qu_factor_purchase_to_stock").attr("min", "1");
+		$("#qu_factor_purchase_to_stock").attr("step", "1");
+		$("#qu_factor_purchase_to_stock").parent().find(".invalid-feedback").text(__t('This cannot be lower than %1$s and must be a valid number with max. %2$s decimal places', '1', '0'));
 	}
 
 	Grocy.FrontendHelpers.ValidateForm("product-form");

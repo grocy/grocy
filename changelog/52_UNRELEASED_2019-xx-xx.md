@@ -9,6 +9,7 @@
     - Products "inherit" the default conversion and additionally can have their own / override the default ones
   - It's now possible to print a "Location Content Sheet" with the current stock per location - new button at the top of the stock overview page (thought to hang it at the location, note used amounts on paper and track it in grocy later)
   - The product description now can have formattings (HTML/WYSIWYG editor like for recipes)
+  - "Factor purchase to stock quantity unit" (product option) can now also be a decimal number when "Allow partial units in stock" is enabled
 - Recipe improvements
   - Based on the new linked quantity units, recipe ingredients can now use any product related unit, the amount is calculated according to the cnoversion factor of the unit relation
 - Chores improvements
@@ -16,7 +17,7 @@
     - Option per chore, different "assignment types" like "Random", "Who least did first", etc.
     - On the chores overview page the list can be filterd to only show chores assigned to the currently logged in user (or to any other user)
   - New option "Due date rollover" per chore which means the chore can never be overdue, the due date will shift forward each day when due
-  - When tracking an execution from the chores overview page, filter are re-applied afterwards (means when have filtered the page to only show overdue chores and after the execution the chore is not overdue anymore, it will now immediately hide id)
+  - When tracking an execution from the chores overview page, filters are re-applied afterwards (means when have filtered the page to only show overdue chores and after the execution the chore is not overdue anymore, it will now immediately hide id)
 - Equipment improvements/fixes
   - Fixed that the delete button not always deleted the currently selected equipment item
 - Userfield improvements/fixes
