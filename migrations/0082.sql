@@ -102,3 +102,12 @@ JOIN quantity_units qu_from
 	ON quc.from_qu_id = qu_from.id
 JOIN quantity_units qu_to
 	ON quc.to_qu_id = qu_to.id;
+
+DROP TRIGGER cascade_change_qu_id_stock;
+CREATE TRIGGER cascade_change_qu_id_stock AFTER UPDATE ON products
+BEGIN
+	UPDATE recipes_pos
+	SET qu_id = NEW.qu_id_stock
+	WHERE product_id = NEW.id
+		AND qu_id = OLD.qu_id_stock;
+END;

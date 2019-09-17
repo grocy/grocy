@@ -52,7 +52,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 			function(productDetails)
 			{
 				Grocy.RecipePosFormProductChangeCount++;
-				console.log(Grocy.RecipePosFormProductChangeCount);
+				
 				if (Grocy.RecipePosFormProductChangeCount < 3) // This triggers twice on inital page load, however
 				{
 					Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id, true);
