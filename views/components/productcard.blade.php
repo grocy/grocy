@@ -18,7 +18,8 @@
 			<a class="collapsed" data-toggle="collapse" href="#productcard-product-description">{{ $__t('Show more') }}</a>
 		</div>
 
-		<strong>{{ $__t('Stock amount') . ' / ' . $__t('Quantity unit') }}:</strong> <span id="productcard-product-stock-amount"></span> <span id="productcard-product-stock-qu-name"></span> <span id="productcard-product-stock-opened-amount" class="small font-italic"></span><br>
+		<strong>{{ $__t('Stock amount') . ' / ' . $__t('Quantity unit') }}:</strong> <span id="productcard-product-stock-amount"></span> <span id="productcard-product-stock-qu-name"></span> <span id="productcard-product-stock-opened-amount" class="small font-italic"></span>
+		<span id="productcard-aggregated-amounts" class="pl-2 text-secondary d-none"><i class="fas fa-custom-sigma-sign"></i> <span id="productcard-product-stock-amount-aggregated"></span> <span id="productcard-product-stock-qu-name-aggregated"></span> <span id="productcard-product-stock-opened-amount-aggregated" class="small font-italic"></span></span><br>
 		<strong>{{ $__t('Location') }}:</strong> <span id="productcard-product-location"></span><br>
 		<strong>{{ $__t('Last purchased') }}:</strong> <span id="productcard-product-last-purchased"></span> <time id="productcard-product-last-purchased-timeago" class="timeago timeago-contextual"></time><br>
 		<strong>{{ $__t('Last used') }}:</strong> <span id="productcard-product-last-used"></span> <time id="productcard-product-last-used-timeago" class="timeago timeago-contextual"></time><br>

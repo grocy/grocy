@@ -18,6 +18,27 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 			$('#productcard-product-location').text(productDetails.location.name);
 			$('#productcard-product-spoil-rate').text(parseFloat(productDetails.spoil_rate_percent).toLocaleString(undefined, { style: "percent" }));
 
+			if (productDetails.is_aggregated_amount == 1)
+			{
+				$('#productcard-product-stock-amount-aggregated').text(productDetails.stock_amount_aggregated);
+				$('#productcard-product-stock-qu-name-aggregated').text(__n(productDetails.stock_amount_aggregated, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural));
+
+				if (productDetails.stock_amount_opened_aggregated > 0)
+				{
+					$('#productcard-product-stock-opened-amount-aggregated').text(__t('%s opened', productDetails.stock_amount_opened_aggregated));
+				}
+				else
+				{
+					$('#productcard-product-stock-opened-amount-aggregated').text("");
+				}
+
+				$("#productcard-aggregated-amounts").removeClass("d-none");
+			}
+			else
+			{
+				$("#productcard-aggregated-amounts").addClass("d-none");
+			}
+
 			if (productDetails.product.description != null && !productDetails.product.description.isEmpty())
 			{
 				$("#productcard-product-description-wrapper").removeClass("d-none");
