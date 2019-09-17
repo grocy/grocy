@@ -19,12 +19,13 @@
   - When tracking an execution from the chores overview page, filter are re-applied afterwards (means when have filtered the page to only show overdue chores and after the execution the chore is not overdue anymore, it will now immediately hide id)
 - Equipment improvements/fixes
   - Fixed that the delete button not always deleted the currently selected equipment item
-- Userfield improvements
+- Userfield improvements/fixes
   - New userfield type "Select list" for a list of predefined values where a single or also multiple values can then be selected on the entity object
-- General improvements/fixes
-  - Improved the handling which entry page to use with disabled feature flags (thanks @nielstholenaar)
   - Fixed that the Userfield type "Preset list" had always the caption "Product group" instead of the configured one (thanks @oncleben31)
   - Userfields of type "checkbox" are rendered as a checkmark in tables when checked (instead of "1" as till now)
+- General improvements/fixes
+  - Improved the handling which entry page to use with disabled feature flags (thanks @nielstholenaar)
+  - Boolean settings provided via environment variables (so the strings `true` and `false`) are now parsed correctly (thanks @mduret)
 - API improvements & non-breaking changes
   - New endpoint `/stock/shoppinglist/add-product` to add a product to a shopping list (thanks @Forceu)
   - New endpoint `/stock/shoppinglist/remove-product` to remove a product from a shopping list (thanks @Forceu)
