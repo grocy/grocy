@@ -1411,3 +1411,6 @@ msgstr[1] ""
 
 msgid "Assigned to me"
 msgstr ""
+
+msgid "assigned to %s"
+msgstr ""

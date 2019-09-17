@@ -6,6 +6,7 @@ use \Grocy\Services\StockService;
 use \Grocy\Services\TasksService;
 use \Grocy\Services\ChoresService;
 use \Grocy\Services\BatteriesService;
+use \Grocy\Services\UsersService;
 
 class CalendarService extends BaseService
 {
@@ -51,13 +52,24 @@ class CalendarService extends BaseService
 			);
 		}
 
+		$usersService = new UsersService();
+		$users = $usersService->GetUsersAsDto();
+
 		$chores = $this->Database->chores();
 		$titlePrefix = $this->LocalizationService->__t('Chore due') . ': ';
 		$choreEvents = array();
 		foreach($this->ChoresService->GetCurrent() as $currentChoreEntry)
 		{
+			$chore = FindObjectInArrayByPropertyValue($chores, 'id', $currentChoreEntry->chore_id);
+
+			$assignedToText = '';
+			if (!empty($currentChoreEntry->next_execution_assigned_to_user_id))
+			{
+				$assignedToText = ' (' . $this->LocalizationService->__t('assigned to %s', FindObjectInArrayByPropertyValue($users, 'id', $currentChoreEntry->next_execution_assigned_to_user_id)->display_name) . ')';
+			}
+
 			$choreEvents[] = array(
-				'title' => $titlePrefix . FindObjectInArrayByPropertyValue($chores, 'id', $currentChoreEntry->chore_id)->name,
+				'title' => $titlePrefix . $chore->name . $assignedToText,
 				'start' => $currentChoreEntry->next_estimated_execution_time,
 				'date_format' => 'datetime'
 			);
