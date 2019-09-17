@@ -25,11 +25,11 @@
 <div class="row mt-3">
 	<div class="col-xs-12 col-md-6 col-xl-3">
 		<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
-		<input type="text" class="form-control" id="search">
+		<input type="text" class="form-control input-group-filter" id="search">
 	</div>
 	<div class="col-xs-12 col-md-6 col-xl-3">
 		<label for="status-filter">{{ $__t('Filter by status') }}</label> <i class="fas fa-filter"></i>
-		<select class="form-control" id="status-filter">
+		<select class="form-control input-group-filter" id="status-filter">
 			<option class="bg-white" value="all">{{ $__t('All') }}</option>
 			<option class="bg-warning" value="duesoon">{{ $__t('Due soon') }}</option>
 			<option class="bg-danger" value="overdue">{{ $__t('Overdue') }}</option>
@@ -37,7 +37,7 @@
 	</div>
 	<div class="col-xs-12 col-md-6 col-xl-3">
 		<label for="user-filter">{{ $__t('Filter by assignment') }}</label> <i class="fas fa-filter"></i>
-		<select class="form-control" id="user-filter">
+		<select class="form-control input-group-filter" id="user-filter">
 			<option></option>
 			@foreach($users as $user)
 		<option class="@if($user->id == GROCY_USER_ID) bg-secondary text-white @endif" data-user-id="{{ $user->id }}" value="xx{{ $user->id }}xx">{{ $user->display_name }}</option>
@@ -115,9 +115,8 @@
 						@endif
 						</span>
 					</td>
-					<td class="d-none">
+					<td id="chore-{{ $curentChoreEntry->chore_id }}-due-filter-column" class="d-none">
 						@if(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_PERIOD_TYPE_MANUALLY && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s')) overdue @elseif(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_PERIOD_TYPE_MANUALLY && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) duesoon @endif
-						@if($curentChoreEntry->next_execution_assigned_to_user_id == GROCY_USER_ID) assigned-to-me @endif
 					</td>
 					<td class="d-none">
 						@if(!empty($curentChoreEntry->next_execution_assigned_to_user_id))

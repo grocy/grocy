@@ -114,13 +114,16 @@ $(document).on('click', '.track-chore-button', function(e)
 
 							choreRow.removeClass("table-warning");
 							choreRow.removeClass("table-danger");
+							$('#chore-' + choreId + '-due-filter-column').html("");
 							if (nextExecutionTime.isBefore(now))
 							{
 								choreRow.addClass("table-danger");
+								$('#chore-' + choreId + '-due-filter-column').html("overdue");
 							}
 							else if (nextExecutionTime.isBefore(nextXDaysThreshold))
 							{
 								choreRow.addClass("table-warning");
+								$('#chore-' + choreId + '-due-filter-column').html("duesoon");
 							}
 
 							$('#chore-' + choreId + '-last-tracked-time').parent().effect('highlight', { }, 500);
@@ -157,6 +160,10 @@ $(document).on('click', '.track-chore-button', function(e)
 							setTimeout(function()
 							{
 								RefreshContextualTimeago();
+
+								// Refresh the DataTable to re-apply filters
+								choresOverviewTable.rows().invalidate().draw(false);
+								$(".input-group-filter").trigger("change");
 							}, 550);
 						},
 						function(xhr)
