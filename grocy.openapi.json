@@ -1032,7 +1032,7 @@
 				],
 				"parameters": [
 					{
-						"in": "path",
+						"in": "query",
 						"name": "expiring_days",
 						"required": false,
 						"description": "The number of days in which products are considered expiring soon",
@@ -1255,7 +1255,7 @@
 								"properties": {
 									"amount": {
 										"type": "number",
-										"format": "double",
+										"format": "number",
 										"description": "The amount to add - please note that when tare weight handling for the product is enabled, this needs to be the amount including the container weight (gross), the amount to be posted will be automatically calculated based on what is in stock and the defined tare weight"
 									},
 									"best_before_date": {
@@ -1268,7 +1268,7 @@
 									},
 									"price": {
 										"type": "number",
-										"format": "double",
+										"format": "number",
 										"description": "The price per purchase quantity unit in configured currency"
 									},
 									"location_id": {
@@ -1336,7 +1336,7 @@
 								"type": "object",
 								"properties": {
 									"amount": {
-										"type": "double",
+										"type": "number",
 										"description": "The amount to remove - please note that when tare weight handling for the product is enabled, this needs to be the amount including the container weight (gross), the amount to be posted will be automatically calculated based on what is in stock and the defined tare weight"
 									},
 									"transaction_type": {
@@ -1429,7 +1429,7 @@
 									},
 									"price": {
 										"type": "number",
-										"format": "double",
+										"format": "number",
 										"description": "If omitted, the last price of the product is used (only applies to added products)"
 									}
 								}
@@ -1486,7 +1486,7 @@
 								"type": "object",
 								"properties": {
 									"amount": {
-										"type": "double",
+										"type": "number",
 										"description": "The amount to mark as opened"
 									},
 									"stock_entry_id": {
@@ -2536,11 +2536,11 @@
 					},
 					"qu_factor_purchase_to_stock": {
 						"type": "number",
-						"format": "double"
+						"format": "number"
 					},
 					"tare_weight": {
 						"type": "number",
-						"format": "double"
+						"format": "number"
 					},
 					"barcode": {
 						"type": "string",
@@ -2662,7 +2662,7 @@
 						"type": "integer"
 					},
 					"amount": {
-						"type": "double"
+						"type": "number"
 					},
 					"best_before_date": {
 						"type": "string",
@@ -2677,7 +2677,7 @@
 						"description": "A unique id which references this stock entry during its lifetime"
 					},
 					"price": {
-						"type": "double"
+						"type": "number"
 					},
 					"open": {
 						"type": "integer"
@@ -2722,7 +2722,7 @@
 					},
 					"costs": {
 						"type": "number",
-						"format": "double"
+						"format": "number"
 					}
 				},
 				"example": {
@@ -2765,7 +2765,7 @@
 					},
 					"last_price": {
 						"type": "number",
-						"format": "double"
+						"format": "number"
 					},
 					"location": {
 						"$ref": "#/components/schemas/Location"
@@ -2776,7 +2776,7 @@
 					},
 					"spoil_rate_percent": {
 						"type": "number",
-						"format": "double"
+						"format": "number"
 					}
 				},
 				"example": {
@@ -2841,7 +2841,7 @@
 					},
 					"price": {
 						"type": "number",
-						"format": "double"
+						"format": "number"
 					}
 				}
 			},
@@ -2862,7 +2862,7 @@
 					},
 					"qu_factor_purchase_to_stock": {
 						"type": "number",
-						"format": "double"
+						"format": "number"
 					},
 					"barcode": {
 						"type": "string",
@@ -3064,7 +3064,7 @@
 						"type": "string"
 					},
 					"amount": {
-						"type": "double",
+						"type": "number",
 						"minimum": 0,
 						"default": 0,
 						"description": "The manual entered amount"
@@ -3204,7 +3204,7 @@
 						"type": "integer"
 					},
 					"amount": {
-						"type": "double"
+						"type": "number"
 					},
 					"best_before_date": {
 						"type": "string",
@@ -3252,12 +3252,25 @@
 						"type": "integer"
 					},
 					"amount": {
-						"type": "double"
+						"type": "number"
+					},
+					"amount_aggregated": {
+						"type": "number"
+					},
+					"amount_opened": {
+						"type": "number"
+					},
+					"amount_opened_aggregated": {
+						"type": "number"
 					},
 					"best_before_date": {
 						"type": "string",
 						"format": "date",
 						"description": "The next best before date for this product"
+					},
+					"is_aggregated_amount": {
+						"type": "boolean",
+						"description": "Indicates wheter this product has sub-products or not / if the fields `amount_aggregated` and `amount_opened_aggregated` are filled"
 					}
 				}
 			},
@@ -3301,19 +3314,19 @@
 					"expiring_products": {
 						"type": "array",
 						"items":{
-							"$ref": "#/components/schemas/Product"
+							"$ref": "#/components/schemas/CurrentStockResponse"
 						}
 					},
 					"expired_products": {
 						"type": "array",
 						"items": {
-							"$ref": "#/components/schemas/Product"
+							"$ref": "#/components/schemas/CurrentStockResponse"
 						}
 					},
 					"missing_products": {
 						"type": "array",
 						"items": {
-							"$ref": "#/components/schemas/Product"
+							"$ref": "#/components/schemas/CurrentStockResponse"
 						}
 					}
 				}
