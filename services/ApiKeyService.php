@@ -21,7 +21,7 @@ class ApiKeyService extends BaseService
 			$apiKeyRow = $this->Database->api_keys()->where('api_key = :1 AND expires > :2 AND key_type = :3', $apiKey, date('Y-m-d H:i:s', time()), $keyType)->fetch();
 			if ($apiKeyRow !== null)
 			{
-				// This should not change the database file modification time at this is used
+				// This should not change the database file modification time as this is used
 				// to determine if REALLY something has changed
 				$dbModTime = $this->DatabaseService->GetDbChangedTime();
 				$apiKeyRow->update(array(
