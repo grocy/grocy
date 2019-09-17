@@ -150,7 +150,18 @@ function Setting(string $name, $value)
 		}
 		elseif (getenv('GROCY_' . $name) !== false) // An environment variable with the same name and prefix GROCY_ overwrites the given setting
 		{
-			define('GROCY_' . $name, getenv('GROCY_' . $name));
+			if (strtolower(getenv('GROCY_' . $name)) === "true")
+			{
+				define('GROCY_' . $name, true);
+			}
+			elseif (strtolower(getenv('GROCY_' . $name)) === "false")
+			{
+				define('GROCY_' . $name, false);
+			}
+			else
+			{
+				define('GROCY_' . $name, getenv('GROCY_' . $name));
+			}
 		}
 		else
 		{
@@ -173,7 +184,7 @@ function DefaultUserSetting(string $name, $value)
 function GetUserDisplayName($user)
 {
 	$displayName = '';
-	
+
 	if (empty($user->first_name) && !empty($user->last_name))
 	{
 		$displayName = $user->last_name;
