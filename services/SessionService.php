@@ -18,9 +18,14 @@ class SessionService extends BaseService
 			$sessionRow = $this->Database->sessions()->where('session_key = :1 AND expires > :2', $sessionKey, date('Y-m-d H:i:s', time()))->fetch();
 			if ($sessionRow !== null)
 			{
+				// This should not change the database file modification time at this is used
+				// to determine if REALLY something has changed
+				$dbModTime = $this->DatabaseService->GetDbChangedTime();
 				$sessionRow->update(array(
 					'last_used' => date('Y-m-d H:i:s', time())
 				));
+				$this->DatabaseService->SetDbChangedTime($dbModTime);
+
 				return true;
 			}
 			else

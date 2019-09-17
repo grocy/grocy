@@ -68,4 +68,9 @@ class DatabaseService
 	{
 		return date('Y-m-d H:i:s', filemtime(GROCY_DATAPATH . '/grocy.db'));
 	}
+
+	public function SetDbChangedTime($dateTime)
+	{
+		touch(GROCY_DATAPATH . '/grocy.db', strtotime($dateTime));
+	}
 }
