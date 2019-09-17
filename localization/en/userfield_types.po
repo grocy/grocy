@@ -38,3 +38,6 @@ msgstr "Select list (a single item can be selected)"
 
 msgid "preset-checklist"
 msgstr "Select list (multiple items can be selected)"
+
+msgid "link"
+msgstr "Link"

@@ -20,9 +20,10 @@
 - Equipment improvements/fixes
   - Fixed that the delete button not always deleted the currently selected equipment item
 - Userfield improvements/fixes
-  - New userfield type "Select list" for a list of predefined values where a single or also multiple values can then be selected on the entity object
-  - Fixed that the Userfield type "Preset list" had always the caption "Product group" instead of the configured one (thanks @oncleben31)
+  - New Userfield type "Select list" for a list of predefined values where a single or also multiple values can then be selected on the entity object
+  - New Userfield type "Link" - a single-line-textbox where the content will be rendered as a clickable link
   - Userfields of type "checkbox" are rendered as a checkmark in tables when checked (instead of "1" as till now)
+  - Fixed that the Userfield type "Preset list" had always the caption "Product group" instead of the configured one (thanks @oncleben31)
 - General improvements/fixes
   - Improved the handling which entry page to use with disabled feature flags (thanks @nielstholenaar)
   - Boolean settings provided via environment variables (so the strings `true` and `false`) are now parsed correctly (thanks @mduret)
