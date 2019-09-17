@@ -18,7 +18,7 @@
 		</h1>
 		<p id="info-due-chores" data-status-filter="duesoon" data-next-x-days="{{ $nextXDays }}" class="btn btn-lg btn-warning status-filter-button responsive-button mr-2"></p>
 		<p id="info-overdue-chores" data-status-filter="overdue" class="btn btn-lg btn-danger status-filter-button responsive-button mr-2"></p>
-		<p id="info-assigned-to-me-chores" data-user-display-name-filter="{{ GetUserDisplayName(FindObjectInArrayByPropertyValue($users, 'id', GROCY_USER_ID)) }}" class="btn btn-lg btn-secondary user-filter-button responsive-button"></p>
+		<p id="info-assigned-to-me-chores" data-user-filter="xx{{ GROCY_USER_ID }}xx" class="btn btn-lg btn-secondary user-filter-button responsive-button"></p>
 	</div>
 </div>
 

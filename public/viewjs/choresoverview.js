@@ -74,7 +74,7 @@ $(".status-filter-button").on("click", function()
 
 $(".user-filter-button").on("click", function()
 {
-	var value = $(this).data("user-display-name-filter");
+	var value = $(this).data("user-filter");
 	$("#user-filter").val(value);
 	$("#user-filter").trigger("change");
 });
