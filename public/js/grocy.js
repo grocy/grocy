@@ -535,3 +535,12 @@ function LoadImagesLazy()
 	});
 }
 LoadImagesLazy();
+
+if (!Grocy.CalendarFirstDayOfWeek.isEmpty())
+{
+	moment.updateLocale(moment.locale(), {
+		week: {
+			dow: Grocy.CalendarFirstDayOfWeek
+		}
+	});
+}
