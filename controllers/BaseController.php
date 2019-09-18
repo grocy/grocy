@@ -16,21 +16,10 @@ class BaseController
 		$localizationService = new LocalizationService(GROCY_CULTURE);
 		$this->LocalizationService = $localizationService;
 
-		if (GROCY_MODE === 'prerelease')
-		{
-			$commitHash = trim(exec('git log --pretty="%h" -n1 HEAD'));
-			$commitDate = trim(exec('git log --date=iso --pretty="%cd" -n1 HEAD'));
-			
-			$container->view->set('version', "pre-release-$commitHash");
-			$container->view->set('releaseDate', \substr($commitDate, 0, 19));
-		}
-		else
-		{
-			$applicationService = new ApplicationService();
-			$versionInfo = $applicationService->GetInstalledVersion();
-			$container->view->set('version', $versionInfo->Version);
-			$container->view->set('releaseDate', $versionInfo->ReleaseDate);
-		}
+		$applicationService = new ApplicationService();
+		$versionInfo = $applicationService->GetInstalledVersion();
+		$container->view->set('version', $versionInfo->Version);
+		$container->view->set('releaseDate', $versionInfo->ReleaseDate);
 
 		$container->view->set('__t', function(string $text, ...$placeholderValues) use($localizationService)
 		{
@@ -63,6 +52,8 @@ class BaseController
 			}
 		}
 		$container->view->set('featureFlags', $constants);
+
+		$container->view->set('userentitiesForSidebar', $this->Database->userentities()->where('show_in_sidebar_menu = 1')->orderBy('name'));
 
 		try
 		{

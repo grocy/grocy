@@ -150,6 +150,19 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO equipment (name, description, instruction_manual_file_name) VALUES ('{$this->__t_sql('Coffee machine')}', '{$loremIpsumWithHtmlFormattings}', 'loremipsum.pdf'); --1
 				INSERT INTO equipment (name, description) VALUES ('{$this->__t_sql('Dishwasher')}', '{$loremIpsumWithHtmlFormattings}'); --2
 
+				INSERT INTO userentities (name, caption, description, show_in_sidebar_menu, icon_css_class) VALUES ('exampleuserentity', '{$this->__t_sql('Example userentity')}', '{$this->__t_sql('This is an example user entity...')}', 1, 'fas fa-smile'); --1
+
+				INSERT INTO userfields (entity, name, caption, type, show_as_column_in_tables) VALUES ('userentity-exampleuserentity', 'customfield1', '{$this->__t_sql('Custom field')} 1', 'text-single-line', 1); --1
+				INSERT INTO userfields (entity, name, caption, type, show_as_column_in_tables) VALUES ('userentity-exampleuserentity', 'customfield2', '{$this->__t_sql('Custom field')} 2', 'text-single-line', 1); --2
+
+				INSERT INTO userobjects (userentity_id) VALUES (1); --1
+				INSERT INTO userobjects (userentity_id) VALUES (1); --2
+
+				INSERT INTO userfield_values (field_id, object_id, value) VALUES (1, 1, '{$this->__t_sql('Example field value...')}');
+				INSERT INTO userfield_values (field_id, object_id, value) VALUES (2, 1, '{$this->__t_sql('Example field value...')}');
+				INSERT INTO userfield_values (field_id, object_id, value) VALUES (1, 2, '{$this->__t_sql('Example field value...')}');
+				INSERT INTO userfield_values (field_id, object_id, value) VALUES (2, 2, '{$this->__t_sql('Example field value...')}');
+
 				INSERT INTO migrations (migration) VALUES (-1);
 			";
 

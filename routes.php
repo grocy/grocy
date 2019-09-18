@@ -19,6 +19,10 @@ $app->group('', function()
 	// Generic entity interaction
 	$this->get('/userfields', '\Grocy\Controllers\GenericEntityController:UserfieldsList');
 	$this->get('/userfield/{userfieldId}', '\Grocy\Controllers\GenericEntityController:UserfieldEditForm');
+	$this->get('/userentities', '\Grocy\Controllers\GenericEntityController:UserentitiesList');
+	$this->get('/userentity/{userentityId}', '\Grocy\Controllers\GenericEntityController:UserentityEditForm');
+	$this->get('/userobjects/{userentityName}', '\Grocy\Controllers\GenericEntityController:UserobjectsList');
+	$this->get('/userobject/{userentityName}/{userobjectId}', '\Grocy\Controllers\GenericEntityController:UserobjectEditForm');
 
 	// User routes
 	$this->get('/users', '\Grocy\Controllers\UsersController:UsersList');

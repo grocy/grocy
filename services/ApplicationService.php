@@ -9,7 +9,20 @@ class ApplicationService extends BaseService
 	{
 		if ($this->InstalledVersion == null)
 		{
-			$this->InstalledVersion = json_decode(file_get_contents(__DIR__ . '/../version.json'));
+			if (GROCY_MODE === 'prerelease')
+			{
+				$commitHash = trim(exec('git log --pretty="%h" -n1 HEAD'));
+				$commitDate = trim(exec('git log --date=iso --pretty="%cd" -n1 HEAD'));
+				
+				$this->InstalledVersion = array(
+					'Version' => "pre-release-$commitHash",
+					'ReleaseDate' => substr($commitDate, 0, 19)
+				);
+			}
+			else
+			{
+				$this->InstalledVersion = json_decode(file_get_contents(__DIR__ . '/../version.json'));
+			}
 		}
 
 		return $this->InstalledVersion;

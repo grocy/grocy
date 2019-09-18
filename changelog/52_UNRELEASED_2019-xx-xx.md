@@ -1,3 +1,8 @@
+### New feature: Custom entities / objects
+- Custom entities are based on Userfields and can be used to add any custom lists you want to have in grocy
+- They can have an own menu entry in the sidebar
+- => See "Manage master data" -> Userentities or try it on the demo: https://demo.grocy.info/userobjects/exampleuserentity
+
 ### Stock improvements
 - Products can now have variations (nested products)
   - Define the parent product for a product on the product edit page (only one level is possible, means a product which is used as a parent product in another product, cannot have a parent product itself)

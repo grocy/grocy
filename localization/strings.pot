@@ -1420,3 +1420,33 @@ msgstr ""
 
 msgid "Consume product on chore execution"
 msgstr ""
+
+msgid "Are you sure to delete user field \"%s\"?"
+msgstr ""
+
+msgid "Userentities"
+msgstr ""
+
+msgid "Create userentity"
+msgstr ""
+
+msgid "Show in sidebar menu"
+msgstr ""
+
+msgid "Edit userentity"
+msgstr ""
+
+msgid "Edit %s"
+msgstr ""
+
+msgid "Create %s"
+msgstr ""
+
+msgid "Are you sure to delete this userobject?"
+msgstr ""
+
+msgid "Icon CSS class"
+msgstr ""
+
+msgid "For example"
+msgstr ""

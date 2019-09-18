@@ -288,3 +288,15 @@ msgid "Slice"
 msgid_plural "Slices"
 msgstr[0] ""
 msgstr[1] ""
+
+msgid "Example userentity"
+msgstr ""
+
+msgid "This is an example user entity..."
+msgstr ""
+
+msgid "Custom field"
+msgstr ""
+
+msgid "Example field value..."
+msgstr ""
