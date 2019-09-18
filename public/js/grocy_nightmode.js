@@ -4,6 +4,10 @@
 	if (value)
 	{
 		$("body").addClass("night-mode");
+
+		// Force disable auto night mode when night mode is enabled
+		$("#auto-night-mode-enabled").prop("checked", false);
+		$("#auto-night-mode-enabled").trigger("change");
 	}
 	else
 	{
@@ -20,6 +24,13 @@ $("#auto-night-mode-enabled").on("change", function()
 	if (!value && !BoolVal(Grocy.UserSettings.night_mode_enabled))
 	{
 		$("body").removeClass("night-mode");
+	}
+
+	// Force disable night mode when auto night mode is enabled
+	if (value)
+	{
+		$("#night-mode-enabled").prop("checked", false);
+		$("#night-mode-enabled").trigger("change");
 	}
 });
 
