@@ -38,6 +38,7 @@
 - Fixed that the Userfield type "Preset list" had always the caption "Product group" instead of the configured one (thanks @oncleben31)
 
 ### General improvements/fixes
+- Added a new `config.php` setting `CALENDAR_SHOW_WEEK_OF_YEAR` to configure if calendars should show week numbers (defaults to `true`)
 - Improved the handling which entry page to use with disabled feature flags (thanks @nielstholenaar)
 - Boolean settings provided via environment variables (so the strings `true` and `false`) are now parsed correctly (thanks @mduret)
 - All uploaded pictures (currently for products and recipes) are now automatically downscaled to the appropriate size when serving them to improve page load times

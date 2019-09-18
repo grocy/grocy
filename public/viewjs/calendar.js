@@ -11,7 +11,7 @@ $("#calendar").fullCalendar({
 		"center": "title",
 		"right": "prev,next"
 	},
-	"weekNumbers": true,
+	"weekNumbers": Grocy.CalendarShowWeekNumbers,
 	"firstDay": firstDay,
 	"eventLimit": true,
 	"eventSources": fullcalendarEventSources

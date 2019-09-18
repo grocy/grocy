@@ -26,6 +26,9 @@ Setting('CULTURE', 'en');
 # Needs to be a number where Sunday = 0, Monday = 1 and so forth
 Setting('CALENDAR_FIRST_DAY_OF_WEEK', '');
 
+# If calendars should show week numbers
+Setting('CALENDAR_SHOW_WEEK_OF_YEAR', true);
+
 # To keep it simple: grocy does not handle any currency conversions,
 # this here is used to format all money values,
 # so doesn't matter really matter, but should be the

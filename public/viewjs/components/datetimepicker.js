@@ -84,7 +84,7 @@ Grocy.Components.DateTimePicker.Init = function()
 			showToday: true,
 			showClose: true
 		},
-		calendarWeeks: true,
+		calendarWeeks: Grocy.CalendarShowWeekNumbers,
 		maxDate: limitDate,
 		locale: moment.locale(),
 		defaultDate: startDate,
