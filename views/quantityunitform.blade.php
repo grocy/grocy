@@ -57,6 +57,7 @@
 			))
 
 			<button id="save-quantityunit-button" class="btn btn-success">{{ $__t('Save') }}</button>
+			<button id="test-quantityunit-plural-forms-button" class="btn btn-secondary">{{ $__t('Test plural forms') }}</button>
 
 		</form>
 	</div>

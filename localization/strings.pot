@@ -1453,3 +1453,12 @@ msgstr ""
 
 msgid "Configure fields"
 msgstr ""
+
+msgid "Quantity unit plural form testing"
+msgstr ""
+
+msgid "Result"
+msgstr ""
+
+msgid "Test plural forms"
+msgstr ""

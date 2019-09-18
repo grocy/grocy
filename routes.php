@@ -47,6 +47,7 @@ $app->group('', function()
 		$this->get('/productgroup/{productGroupId}', '\Grocy\Controllers\StockController:ProductGroupEditForm');
 		$this->get('/stockjournal', '\Grocy\Controllers\StockController:Journal');
 		$this->get('/locationcontentsheet', '\Grocy\Controllers\StockController:LocationContentSheet');
+		$this->get('/quantityunitpluraltesting', '\Grocy\Controllers\StockController:QuantityUnitPluralFormTesting');
 	}
 
 	// Shopping list routes

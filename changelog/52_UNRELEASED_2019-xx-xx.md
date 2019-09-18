@@ -37,12 +37,13 @@
 - Product Userfields are now also rendered on the shopping list (for items which have a product referenced)
 - Fixed that the Userfield type "Preset list" had always the caption "Product group" instead of the configured one (thanks @oncleben31)
 
-### General improvements/fixes
+### General & other improvements/fixes
 - Added a new `config.php` setting `CALENDAR_SHOW_WEEK_OF_YEAR` to configure if calendars should show week numbers (defaults to `true`)
 - Fixed that datetimepickers not considered the `config.php` setting `CALENDAR_FIRST_DAY_OF_WEEK`
 - Improved the handling which entry page to use with disabled feature flags (thanks @nielstholenaar)
 - Boolean settings provided via environment variables (so the strings `true` and `false`) are now parsed correctly (thanks @mduret)
 - All uploaded pictures (currently for products and recipes) are now automatically downscaled to the appropriate size when serving them to improve page load times
+- It's now possible to test plural forms of quantity units (button on the quantity unit edit page)
 
 ### API improvements & non-breaking changes
   - New endpoint `/stock/shoppinglist/add-product` to add a product to a shopping list (thanks @Forceu)

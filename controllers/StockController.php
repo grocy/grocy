@@ -322,4 +322,11 @@ class StockController extends BaseController
 			]);
 		}
 	}
+
+	public function QuantityUnitPluralFormTesting(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->AppContainer->view->render($response, 'quantityunitpluraltesting', [
+			'quantityUnits' => $this->Database->quantity_units()->orderBy('name')
+		]);
+	}
 }
