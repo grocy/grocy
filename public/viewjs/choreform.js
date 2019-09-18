@@ -106,6 +106,8 @@ setTimeout(function()
 	// Click twice to trigger on-click but not change the actual checked state
 	$("#consume_product_on_execution").click();
 	$("#consume_product_on_execution").click();
+
+	Grocy.Components.ProductPicker.GetPicker().trigger('change');
 }, 100);
 
 $('.input-group-chore-period-type').on('change', function(e)
@@ -199,4 +201,23 @@ $("#consume_product_on_execution").on("click", function()
 	}
 
 	Grocy.FrontendHelpers.ValidateForm("chore-form");
+});
+
+Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
+{
+	var productId = $(e.target).val();
+
+	if (productId)
+	{
+		Grocy.Api.Get('stock/products/' + productId,
+			function(productDetails)
+			{
+				$('#amount_qu_unit').text(productDetails.quantity_unit_stock.name);
+			},
+			function(xhr)
+			{
+				console.error(xhr);
+			}
+		);
+	}
 });
