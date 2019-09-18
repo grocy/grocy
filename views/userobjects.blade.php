@@ -13,7 +13,7 @@
 				<i class="fas fa-plus"></i>&nbsp;{{ $__t('Add') }}
 			</a>
 			<a class="btn btn-outline-secondary" href="{{ $U('/userfields?entity=' . 'userentity-' . $userentity->name) }}">
-				<i class="fas fa-sliders-h"></i>&nbsp;{{ $__t('Configure userfields') }}
+				<i class="fas fa-sliders-h"></i>&nbsp;{{ $__t('Configure fields') }}
 			</a>
 		</h1>
 		<h5 class="text-muted">{{ $userentity->description }}</h5>

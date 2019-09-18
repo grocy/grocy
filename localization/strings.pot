@@ -1450,3 +1450,6 @@ msgstr ""
 
 msgid "For example"
 msgstr ""
+
+msgid "Configure fields"
+msgstr ""

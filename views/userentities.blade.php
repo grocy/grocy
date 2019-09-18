@@ -44,7 +44,7 @@
 							<i class="fas fa-trash"></i>
 						</a>
 						<a class="btn btn-secondary btn-sm" href="{{ $U('/userfields?entity=userentity-') }}{{ $userentity->name }}">
-							<i class="fas fa-th-list"></i> {{ $__t('Configure userfields') }}
+							<i class="fas fa-th-list"></i> {{ $__t('Configure fields') }}
 						</a>
 					</td>
 					<td>
