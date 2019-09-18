@@ -28,7 +28,7 @@
 		<strong>{{ $__t('Spoil rate') }}:</strong> <span id="productcard-product-spoil-rate"></span>
 
 		<h5 class="mt-3">{{ $__t('Product picture') }}</h5>
-		<p class="w-75 mx-auto"><img id="productcard-product-picture" src="" class="img-fluid img-thumbnail d-none"></p>
+		<p class="w-75 mx-auto"><img id="productcard-product-picture" data-src="" class="img-fluid img-thumbnail d-none lazy"></p>
 		<span id="productcard-no-product-picture" class="font-italic d-none">{{ $__t('No picture available') }}</span>
 
 		<h5 class="mt-3">{{ $__t('Price history') }}</h5>

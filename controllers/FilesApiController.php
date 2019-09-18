@@ -59,13 +59,13 @@ class FilesApiController extends BaseApiController
 
 			if ($forceServeAs == FilesService::FILE_SERVE_TYPE_PICTURE)
 			{
-				$bestFitHeight = 999999;
+				$bestFitHeight = null;
 				if (isset($request->getQueryParams()['best_fit_height']) && !empty($request->getQueryParams()['best_fit_height']) && is_numeric($request->getQueryParams()['best_fit_height']))
 				{
 					$bestFitHeight = $request->getQueryParams()['best_fit_height'];
 				}
 
-				$bestFitWidth = 999999;
+				$bestFitWidth = null;
 				if (isset($request->getQueryParams()['best_fit_width']) && !empty($request->getQueryParams()['best_fit_width']) && is_numeric($request->getQueryParams()['best_fit_width']))
 				{
 					$bestFitWidth = $request->getQueryParams()['best_fit_width'];

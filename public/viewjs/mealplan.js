@@ -103,12 +103,13 @@ var calendar = $("#calendar").fullCalendar({
 		
 		if (recipe.picture_file_name && !recipe.picture_file_name.isEmpty())
 		{
-			element.html(element.html() + '<img src="' + U("/api/files/recipepictures/") + btoa(recipe.picture_file_name) + '?force_serve_as=picture&best_fit_height=400&best_fit_width=400" class="img-fluid">')
+			element.html(element.html() + '<img data-src="' + U("/api/files/recipepictures/") + btoa(recipe.picture_file_name) + '?force_serve_as=picture&best_fit_width=400" class="img-fluid lazy">')
 		}
 	},
 	"eventAfterAllRender": function(view)
 	{
 		RefreshLocaleNumberDisplay();
+		LoadImagesLazy();
 
 		if (GetUriParam("week") !== undefined)
 		{

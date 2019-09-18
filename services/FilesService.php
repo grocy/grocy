@@ -33,13 +33,13 @@ class FilesService extends BaseService
 		return  $groupFolderPath . '/' . $fileName;
 	}
 
-	public function DownscaleImage($group, $fileName, $bestFitHeight, $bestFitWidth)
+	public function DownscaleImage($group, $fileName, $bestFitHeight = null, $bestFitWidth = null)
 	{
 		$filePath = $this->GetFilePath($group, $fileName);
 		$fileNameWithoutExtension = pathinfo($filePath, PATHINFO_FILENAME);
 		$fileExtension = pathinfo($filePath, PATHINFO_EXTENSION);
 
-		$fileNameDownscaled = $fileNameWithoutExtension . '__downscaledto' . $bestFitHeight . 'x' . $bestFitWidth . '.' . $fileExtension;
+		$fileNameDownscaled = $fileNameWithoutExtension . '__downscaledto' . ($bestFitHeight ? $bestFitHeight : 'auto') . 'x' . ($bestFitWidth ? $bestFitWidth : 'auto') . '.' . $fileExtension;
 		$filePathDownscaled = $this->GetFilePath($group, $fileNameDownscaled);
 
 		try
@@ -47,7 +47,18 @@ class FilesService extends BaseService
 			if (!file_exists($filePathDownscaled))
 			{
 				$image = new ImageResize($filePath);
-				$image->resizeToBestFit($bestFitHeight, $bestFitWidth);
+				if ($bestFitHeight !== null && $bestFitHeight !== null)
+				{
+					$image->resizeToBestFit($bestFitWidth, $bestFitHeight);
+				}
+				else if ($bestFitHeight !== null)
+				{
+					$image->resizeToHeight($bestFitHeight);
+				}
+				else if ($bestFitWidth !== null)
+				{
+					$image->resizeToWidth($bestFitWidth);
+				}
 				$image->save($filePathDownscaled);
 			}
 		}

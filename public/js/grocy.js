@@ -526,3 +526,12 @@ $("textarea.wysiwyg-editor").summernote({
 	minHeight: "300px",
 	lang: __t("summernote_locale")
 });
+
+function LoadImagesLazy()
+{
+	$(".lazy").Lazy({
+		enableThrottle: true,
+		throttle: 500
+	});
+}
+LoadImagesLazy();

@@ -63,7 +63,7 @@ class RecipesController extends BaseController
 			'selectedRecipe' => $selectedRecipe,
 			'selectedRecipePositionsResolved' => $selectedRecipePositionsResolved,
 			'products' => $this->Database->products(),
-			'quantityunits' => $this->Database->quantity_units(),
+			'quantityUnits' => $this->Database->quantity_units(),
 			'selectedRecipeSubRecipes' => $selectedRecipeSubRecipes,
 			'selectedRecipeSubRecipesPositions' => $selectedRecipeSubRecipesPositions,
 			'includedRecipeIdsAbsolute' => $includedRecipeIdsAbsolute,

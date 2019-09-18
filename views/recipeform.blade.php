@@ -209,7 +209,7 @@
 				<label class="mt-2">{{ $__t('Picture') }}</label>
 				<button id="delete-current-recipe-picture-button" class="btn btn-sm btn-danger @if(empty($recipe->picture_file_name)) disabled @endif"><i class="fas fa-trash"></i> {{ $__t('Delete') }}</button>
 				@if(!empty($recipe->picture_file_name))
-					<p><img id="current-recipe-picture" src="{{ $U('/api/files/recipepictures/' . base64_encode($recipe->picture_file_name) . '?force_serve_as=picture&best_fit_height=400&best_fit_width=400') }}" class="img-fluid img-thumbnail mt-2"></p>
+					<p><img id="current-recipe-picture" data-src="{{ $U('/api/files/recipepictures/' . base64_encode($recipe->picture_file_name) . '?force_serve_as=picture&best_fit_width=400') }}" class="img-fluid img-thumbnail mt-2 lazy"></p>
 					<p id="delete-current-recipe-picture-on-save-hint" class="form-text text-muted font-italic d-none">{{ $__t('The current picture will be deleted when you save the recipe') }}</p>
 				@else
 					<p id="no-current-recipe-picture-hint" class="form-text text-muted font-italic">{{ $__t('No picture available') }}</p>
