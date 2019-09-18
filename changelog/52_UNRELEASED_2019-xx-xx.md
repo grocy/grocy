@@ -35,12 +35,14 @@
 ### General improvements/fixes
 - Improved the handling which entry page to use with disabled feature flags (thanks @nielstholenaar)
 - Boolean settings provided via environment variables (so the strings `true` and `false`) are now parsed correctly (thanks @mduret)
+- All uploaded pictures (currently for products and recipes) are now automatically downscaled to the appropriate size when serving them to improve page load times
 
 ### API improvements & non-breaking changes
   - New endpoint `/stock/shoppinglist/add-product` to add a product to a shopping list (thanks @Forceu)
   - New endpoint `/stock/shoppinglist/remove-product` to remove a product from a shopping list (thanks @Forceu)
   - New endpoint `/chores/executions/calculate-next-assignments` to (re)calculate next user assignments for a single or all chores
   - New endpoint `/objects/{entity}/search/{searchString}` search for objects by name (contains search)
+  - Endpoint `GET /files/{group}/{fileName}` can now also downscale pictures (see API documentation on [/api](https://demo-en.grocy.info/api))
   - When adding a product (through `stock/product/{productId}/add` or `stock/product/{productId}/inventory`) with omitted best before date and if the given product has "Default best before days" set, the best before date is calculated based on that (so far always today was used which is still the case when no date is supplied and also the product has no "Default best before days set) (thanks @Forceu)
   - Field `stock_amount` of endpoint `/stock/products/{productId}´ now returns `0` instead of `null` when the given product is not in stock (thanks @Forceu)
   - Fixed that `/system/db-changed-time` always returned the current time (more or less) due to that that time is the database file modification time and the database is effectively changed on each request because of session information tracking - which now explicitly does not change the database file modification time, so this should work again to determine if any data changes happened

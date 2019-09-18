@@ -51,7 +51,32 @@ class FilesApiController extends BaseApiController
 				throw new \Exception('Invalid filename');
 			}
 
-			$filePath = $this->FilesService->GetFilePath($args['group'], $fileName);
+			$forceServeAs = null;
+			if (isset($request->getQueryParams()['force_serve_as']) && !empty($request->getQueryParams()['force_serve_as']))
+			{
+				$forceServeAs = $request->getQueryParams()['force_serve_as'];
+			}
+
+			if ($forceServeAs == FilesService::FILE_SERVE_TYPE_PICTURE)
+			{
+				$bestFitHeight = 999999;
+				if (isset($request->getQueryParams()['best_fit_height']) && !empty($request->getQueryParams()['best_fit_height']) && is_numeric($request->getQueryParams()['best_fit_height']))
+				{
+					$bestFitHeight = $request->getQueryParams()['best_fit_height'];
+				}
+
+				$bestFitWidth = 999999;
+				if (isset($request->getQueryParams()['best_fit_width']) && !empty($request->getQueryParams()['best_fit_width']) && is_numeric($request->getQueryParams()['best_fit_width']))
+				{
+					$bestFitWidth = $request->getQueryParams()['best_fit_width'];
+				}
+
+				$filePath = $this->FilesService->DownscaleImage($args['group'], $fileName, $bestFitHeight, $bestFitWidth);
+			}
+			else
+			{
+				$filePath = $this->FilesService->GetFilePath($args['group'], $fileName);
+			}
 
 			if (file_exists($filePath))
 			{

@@ -7,7 +7,8 @@
 		"tuupola/cors-middleware": "^0.9.4",
 		"eluceo/ical": "^0.15.0",
 		"erusev/parsedown": "^1.7.3",
-		"gettext/gettext": "^4.6.2"
+		"gettext/gettext": "^4.6.2",
+		"gumlet/php-image-resize": "^1.9.2"
 	},
 	"autoload": {
 		"psr-4": {

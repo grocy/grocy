@@ -655,6 +655,37 @@
 						"schema": {
 							"type": "string"
 						}
+					},
+					{
+						"in": "query",
+						"name": "force_serve_as",
+						"required": false,
+						"description": "Force the file to be served as the given type",
+						"schema": {
+							"type": "string",
+							"enum": [
+								"picture"
+							]
+						}
+					},
+					{
+						"in": "query",
+						"name": "best_fit_height",
+						"required": false,
+						"description": "Only when using `force_serve_as` = `picture`: Downscale the picture to the given height while maintaining the aspect ratio",
+						"schema": {
+							"type": "integer"
+						}
+					}
+					,
+					{
+						"in": "query",
+						"name": "best_fit_width",
+						"required": false,
+						"description": "Only when using `force_serve_as` = `picture`: Downscale the picture to the given width while maintaining the aspect ratio",
+						"schema": {
+							"type": "integer"
+						}
 					}
 				],
 				"responses": {

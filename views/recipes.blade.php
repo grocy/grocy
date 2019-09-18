@@ -102,7 +102,7 @@
 						<a class="discrete-link recipe-gallery-item" data-recipe-id="{{ $recipe->id }}" href="#">
 							<div id="recipe-card-{{ $recipe->id }}" class="card border-white mb-0 recipe-card">
 								@if(!empty($recipe->picture_file_name))
-								<img src="{{ $U('/api/files/recipepictures/' . base64_encode($recipe->picture_file_name)) }}" class="img-fluid">
+								<img src="{{ $U('/api/files/recipepictures/' . base64_encode($recipe->picture_file_name) . '?force_serve_as=picture&best_fit_height=400&best_fit_width=400') }}" class="img-fluid">
 								@endif
 								<div class="card-body text-center">
 									<h5 class="card-title mb-1">{{ $recipe->name }}</h5>
@@ -173,7 +173,7 @@
 				</div>
 
 				@if(!empty($selectedRecipeSubRecipe->picture_file_name))
-					<p class="w-75 mx-auto"><img src="{{ $U('/api/files/recipepictures/' . base64_encode($selectedRecipeSubRecipe->picture_file_name)) }}" class="img-fluid img-thumbnail"></p>
+					<p class="w-75 mx-auto txt-center"><img src="{{ $U('/api/files/recipepictures/' . base64_encode($selectedRecipeSubRecipe->picture_file_name) . '?force_serve_as=picture&best_fit_height=400&best_fit_width=400') }}" class="img-fluid img-thumbnail"></p>
 				@endif
 
 				@php $selectedRecipeSubRecipePositionsFiltered = FindAllObjectsInArrayByPropertyValue($selectedRecipeSubRecipesPositions, 'child_recipe_id', $selectedRecipeSubRecipe->id); @endphp
@@ -225,7 +225,7 @@
 
 			<!-- Selected recipe -->
 			@if(!empty($selectedRecipe->picture_file_name))
-				<p class="w-75 mx-auto"><img src="{{ $U('/api/files/recipepictures/' . base64_encode($selectedRecipe->picture_file_name)) }}" class="img-fluid img-thumbnail"></p>
+				<p class="w-75 mx-auto text-center"><img src="{{ $U('/api/files/recipepictures/' . base64_encode($selectedRecipe->picture_file_name) . '?force_serve_as=picture&best_fit_height=400&best_fit_width=400') }}" class="img-fluid img-thumbnail"></p>
 			@endif
 
 			@if($selectedRecipePositionsResolved->count() > 0)
