@@ -36,3 +36,5 @@ if (GetUriParam("qu") !== undefined)
 	$("#qu_id").val(GetUriParam("qu"));
 	$("#qu_id").trigger("change");
 }
+
+$("#amount").focus();

@@ -28,7 +28,7 @@
 			@include('components.numberpicker', array(
 				'id' => 'amount',
 				'label' => 'Amount',
-				'min' => 0.0001,
+				'min' => 0,
 				'step' => 1,
 				'isRequired' => false,
 				'value' => 1
