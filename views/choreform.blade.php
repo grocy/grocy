@@ -126,6 +126,37 @@
 				</div>
 			</div>
 
+			@if(GROCY_FEATURE_FLAG_STOCK)
+			<div class="form-group mt-4 mb-1">
+				<div class="form-check">
+					<input type="hidden" name="consume_product_on_execution" value="0">
+					<input @if($mode == 'edit' && $chore->consume_product_on_execution == 1) checked @endif class="form-check-input" type="checkbox" id="consume_product_on_execution" name="consume_product_on_execution" value="1">
+					<label class="form-check-label" for="consume_product_on_execution">{{ $__t('Consume product on chore execution') }}</label>
+				</div>
+			</div>
+
+			@php $prefillById = ''; if($mode=='edit' && !empty($chore->product_id)) { $prefillById = $chore->product_id; } @endphp
+			@include('components.productpicker', array(
+				'products' => $products,
+				'nextInputSelector' => '#product_amount',
+				'isRequired' => false,
+				'disallowAllProductWorkflows' => true,
+				'prefillById' => $prefillById
+			))
+
+			@php if($mode == 'edit') { $value = $chore->product_amount; } else { $value = ''; } @endphp
+			@include('components.numberpicker', array(
+				'id' => 'product_amount',
+				'label' => 'Amount',
+				'hintId' => 'amount_qu_unit',
+				'min' => 0.0001,
+				'step' => 0.0001,
+				'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
+				'isRequired' => false,
+				'value' => $value
+			))
+			@endif
+
 			@include('components.userfieldsform', array(
 				'userfields' => $userfields,
 				'entity' => 'chores'

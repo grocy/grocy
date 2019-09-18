@@ -1417,3 +1417,6 @@ msgstr ""
 
 msgid "Filter by assignment"
 msgstr ""
+
+msgid "Consume product on chore execution"
+msgstr ""

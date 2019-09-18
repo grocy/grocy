@@ -71,7 +71,8 @@ class ChoresController extends BaseController
 				'mode' => 'create',
 				'userfields' => $this->UserfieldsService->GetFields('chores'),
 				'assignmentTypes' => GetClassConstants('\Grocy\Services\ChoresService', 'CHORE_ASSIGNMENT_TYPE_'),
-				'users' => $users
+				'users' => $users,
+				'products' => $this->Database->products()->orderBy('name')
 			]);
 		}
 		else
@@ -82,7 +83,8 @@ class ChoresController extends BaseController
 				'mode' => 'edit',
 				'userfields' => $this->UserfieldsService->GetFields('chores'),
 				'assignmentTypes' => GetClassConstants('\Grocy\Services\ChoresService', 'CHORE_ASSIGNMENT_TYPE_'),
-				'users' => $users
+				'users' => $users,
+				'products' => $this->Database->products()->orderBy('name')
 			]);
 		}
 	}

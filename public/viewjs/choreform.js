@@ -102,6 +102,10 @@ setTimeout(function()
 {
 	$(".input-group-chore-period-type").trigger("change");
 	$(".input-group-chore-assignment-type").trigger("change");
+
+	// Click twice to trigger on-click but not change the actual checked state
+	$("#consume_product_on_execution").click();
+	$("#consume_product_on_execution").click();
 }, 100);
 
 $('.input-group-chore-period-type').on('change', function(e)
@@ -179,4 +183,20 @@ $('.input-group-chore-assignment-type').on('change', function(e)
 	}
 
 	Grocy.FrontendHelpers.ValidateForm('chore-form');
+});
+
+$("#consume_product_on_execution").on("click", function()
+{
+	if (this.checked)
+	{
+		Grocy.Components.ProductPicker.GetInputElement().removeAttr("disabled");
+		$("#product_amount").removeAttr("disabled");
+	}
+	else
+	{
+		Grocy.Components.ProductPicker.GetInputElement().attr("disabled", "");
+		$("#product_amount").attr("disabled", "");
+	}
+
+	Grocy.FrontendHelpers.ValidateForm("chore-form");
 });

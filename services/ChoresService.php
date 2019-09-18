@@ -2,6 +2,8 @@
 
 namespace Grocy\Services;
 
+use \Grocy\Services\StockService;
+
 class ChoresService extends BaseService
 {
 	const CHORE_PERIOD_TYPE_MANUALLY = 'manually';
@@ -14,6 +16,14 @@ class ChoresService extends BaseService
 	const CHORE_ASSIGNMENT_TYPE_WHO_LEAST_DID_FIRST = 'who-least-did-first';
 	const CHORE_ASSIGNMENT_TYPE_RANDOM = 'random';
 	const CHORE_ASSIGNMENT_TYPE_IN_ALPHABETICAL_ORDER = 'in-alphabetical-order';
+
+	public function __construct()
+	{
+		parent::__construct();
+		$this->StockService = new StockService();
+	}
+
+	protected $StockService;
 
 	public function GetCurrent()
 	{
@@ -84,9 +94,15 @@ class ChoresService extends BaseService
 			'done_by_user_id' => $doneBy
 		));
 		$logRow->save();
-
 		$lastInsertId = $this->Database->lastInsertId();
+
 		$this->CalculateNextExecutionAssignment($choreId);
+
+		if ($chore->consume_product_on_execution == 1 && !empty($chore->product_id))
+		{
+			$this->StockService->ConsumeProduct($chore->product_id, $chore->product_amount, false, StockService::TRANSACTION_TYPE_CONSUME);
+		}
+
 		return $lastInsertId;
 	}
 
