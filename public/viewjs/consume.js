@@ -26,12 +26,16 @@
 		jsonData.recipe_id = Grocy.Components.RecipePicker.GetValue();
 	}
 
+	var bookingResponse = null;
+
 	Grocy.Api.Get('stock/products/' + jsonForm.product_id,
 		function(productDetails)
 		{
 			Grocy.Api.Post(apiUrl, jsonData,
 				function(result)
 				{
+					bookingResponse = result;
+
 					var addBarcode = GetUriParam('addbarcodetoselection');
 					if (addBarcode !== undefined)
 					{
@@ -66,7 +70,14 @@
 					}
 
 					Grocy.FrontendHelpers.EndUiBusy("consume-form");
-					toastr.success(__t('Removed %1$s of %2$s from stock', jsonForm.amount + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + result.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
+					if (productDetails.product.enable_tare_weight_handling == 1)
+					{
+						toastr.success(__t('Removed %1$s of %2$s from stock', Math.abs(jsonForm.amount - parseFloat(productDetails.product.tare_weight)) + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + bookingResponse.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
+					}
+					else
+					{
+						toastr.success(__t('Removed %1$s of %2$s from stock', Math.abs(jsonForm.amount) + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + bookingResponse.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
+					}
 
 					$("#amount").attr("min", "1");
 					$("#amount").attr("max", "999999");
@@ -242,6 +253,12 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 
 					for (i = 0; i < stockEntry.amount; i++)
 					{
+						// Do this only for the first 50 entries to prevent a very long loop (is more anytime needed)?
+						if (i > 50)
+						{
+							break;
+						}
+
 						$("#specific_stock_entry").append($("<option>", {
 							value: stockEntry.stock_id,
 							text: __t("Expires on %1$s; Bought on %2$s", moment(stockEntry.best_before_date).format("YYYY-MM-DD"), moment(stockEntry.purchased_date).format("YYYY-MM-DD")) + "; " + openTxt

@@ -9,7 +9,7 @@
 - Please note due to browser security restrictions, this only works when serving grocy via a secure connection (`https://`)
 - There is also a `config.php` setting `DISABLE_BROWSER_BARCODE_CAMERA_SCANNING` to disable this, if you don't need it at all (defaults to `false`)
 
-### Stock improvements
+### Stock improvements/fixes
 - Products can now have variations (nested products)
   - Define the parent product for a product on the product edit page (only one level is possible, means a product which is used as a parent product in another product, cannot have a parent product itself)
   - Parent and sub products can have stock (both are regular products, no difference from that side)
@@ -27,6 +27,7 @@
   - `FEATURE_FLAG_STOCK_LOCATION_TRACKING` to disable product location tracking
   - `FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING` to disable product best before date tracking
   - `FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING` to disable product opened tracking
+- Fixed/refined some things regarding purchase/consume/inventory of products with enabled tare weight handling (nothing was broken, but the success popups may not displayed the correct amount that was posted)
 
 ### Recipe improvements
 - Based on the new linked quantity units, recipe ingredients can now use any product related unit, the amount is calculated according to the cnoversion factor of the unit relation

@@ -189,12 +189,12 @@ class StockService extends BaseService
 		$productDetails = (object)$this->GetProductDetails($productId);
 		if ($productDetails->product->enable_tare_weight_handling == 1)
 		{
-			if ($amount <= $productDetails->product->tare_weight + $productDetails->stock_amount)
+			if ($amount <= floatval($productDetails->product->tare_weight) + floatval($productDetails->stock_amount))
 			{
 				throw new \Exception('The amount cannot be lower or equal than the defined tare weight + current stock amount');
 			}
 			
-			$amount = $amount - $productDetails->stock_amount - $productDetails->product->tare_weight;
+			$amount = $amount - floatval($productDetails->stock_amount) - floatval($productDetails->product->tare_weight);
 		}
 		
 		//Sets the default best before date, if none is supplied
@@ -264,12 +264,12 @@ class StockService extends BaseService
 		$productDetails = (object)$this->GetProductDetails($productId);
 		if ($productDetails->product->enable_tare_weight_handling == 1)
 		{
-			if ($amount < $productDetails->product->tare_weight)
+			if ($amount < floatval($productDetails->product->tare_weight))
 			{
 				throw new \Exception('The amount cannot be lower than the defined tare weight');
 			}
 			
-			$amount = abs($amount - $productDetails->stock_amount - $productDetails->product->tare_weight);
+			$amount = abs($amount - floatval($productDetails->stock_amount) - floatval($productDetails->product->tare_weight));
 		}
 
 		if ($transactionType === self::TRANSACTION_TYPE_CONSUME || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
@@ -370,22 +370,22 @@ class StockService extends BaseService
 		$containerWeight = 0;
 		if ($productDetails->product->enable_tare_weight_handling == 1)
 		{
-			$containerWeight = $productDetails->product->tare_weight;
+			$containerWeight = floatval($productDetails->product->tare_weight);
 		}
 		
-		if ($newAmount == $productDetails->stock_amount + $containerWeight)
+		if ($newAmount == floatval($productDetails->stock_amount) + $containerWeight)
 		{
 			throw new \Exception('The new amount cannot equal the current stock amount');
 		}
-		else if ($newAmount > $productDetails->stock_amount + $containerWeight)
+		else if ($newAmount > floatval($productDetails->stock_amount) + $containerWeight)
 		{
-			$bookingAmount = $newAmount - $productDetails->stock_amount;
+			$bookingAmount = $newAmount - floatval($productDetails->stock_amount);
 			if ($productDetails->product->enable_tare_weight_handling == 1)
 			{
 				$bookingAmount = $newAmount;
 			}
 			
-			$this->AddProduct($productId, $bookingAmount, $bestBeforeDate, self::TRANSACTION_TYPE_INVENTORY_CORRECTION, date('Y-m-d'), $price, $locationId);
+			return $this->AddProduct($productId, $bookingAmount, $bestBeforeDate, self::TRANSACTION_TYPE_INVENTORY_CORRECTION, date('Y-m-d'), $price, $locationId);
 		}
 		else if ($newAmount < $productDetails->stock_amount + $containerWeight)
 		{
@@ -395,10 +395,10 @@ class StockService extends BaseService
 				$bookingAmount = $newAmount;
 			}
 
-			$this->ConsumeProduct($productId, $bookingAmount, false, self::TRANSACTION_TYPE_INVENTORY_CORRECTION);
+			return $this->ConsumeProduct($productId, $bookingAmount, false, self::TRANSACTION_TYPE_INVENTORY_CORRECTION);
 		}
 
-		return $this->Database->lastInsertId();
+		return null;
 	}
 
 	public function OpenProduct(int $productId, float $amount, $specificStockEntryId = 'default')
