@@ -100,6 +100,57 @@ class StockApiController extends BaseApiController
 		}
 	}
 
+	public function AddProductByBarcode(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		$requestBody = $request->getParsedBody();
+
+		try
+		{
+			if ($requestBody === null)
+			{
+				throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
+			}
+
+			if (!array_key_exists('amount', $requestBody))
+			{
+				throw new \Exception('An amount is required');
+			}
+
+			$bestBeforeDate = null;
+			if (array_key_exists('best_before_date', $requestBody) && IsIsoDate($requestBody['best_before_date']))
+			{
+				$bestBeforeDate = $requestBody['best_before_date'];
+			}
+
+			$price = null;
+			if (array_key_exists('price', $requestBody) && is_numeric($requestBody['price']))
+			{
+				$price = $requestBody['price'];
+			}
+
+			$locationId = null;
+			if (array_key_exists('location_id', $requestBody) && is_numeric($requestBody['location_id']))
+			{
+				$locationId = $requestBody['location_id'];
+			}
+
+			$transactionType = StockService::TRANSACTION_TYPE_PURCHASE;
+			if (array_key_exists('transaction_type', $requestBody)  && !empty($requestBody['transactiontype']))
+			{
+				$transactionType = $requestBody['transactiontype'];
+			}
+
+			$productId = $this->StockService->GetProductIdFromBarcode($args['barcode']);
+
+			$bookingId = $this->StockService->AddProduct($productId, $requestBody['amount'], $bestBeforeDate, $transactionType, date('Y-m-d'), $price, $locationId);
+			return $this->ApiResponse($this->Database->stock_log($bookingId));
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
+
 	public function ConsumeProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$requestBody = $request->getParsedBody();
@@ -141,6 +192,57 @@ class StockApiController extends BaseApiController
 			}
 
 			$bookingId = $this->StockService->ConsumeProduct($args['productId'], $requestBody['amount'], $spoiled, $transactionType, $specificStockEntryId, $recipeId);
+			return $this->ApiResponse($this->Database->stock_log($bookingId));
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
+
+	public function ConsumeProductByBarcode(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		$requestBody = $request->getParsedBody();
+
+		try
+		{
+			if ($requestBody === null)
+			{
+				throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
+			}
+
+			if (!array_key_exists('amount', $requestBody))
+			{
+				throw new \Exception('An amount is required');
+			}
+
+			$spoiled = false;
+			if (array_key_exists('spoiled', $requestBody))
+			{
+				$spoiled = $requestBody['spoiled'];
+			}
+
+			$transactionType = StockService::TRANSACTION_TYPE_CONSUME;
+			if (array_key_exists('transaction_type', $requestBody)  && !empty($requestBody['transactiontype']))
+			{
+				$transactionType = $requestBody['transactiontype'];
+			}
+
+			$specificStockEntryId = 'default';
+			if (array_key_exists('stock_entry_id', $requestBody) && !empty($requestBody['stock_entry_id']))
+			{
+				$specificStockEntryId = $requestBody['stock_entry_id'];
+			}
+
+			$recipeId = null;
+			if (array_key_exists('recipe_id', $requestBody) && is_numeric($requestBody['recipe_id']))
+			{
+				$recipeId = $requestBody['recipe_id'];
+			}
+
+			$productId = $this->StockService->GetProductIdFromBarcode($args['barcode']);
+
+			$bookingId = $this->StockService->ConsumeProduct($productId, $requestBody['amount'], $spoiled, $transactionType, $specificStockEntryId, $recipeId);
 			return $this->ApiResponse($this->Database->stock_log($bookingId));
 		}
 		catch (\Exception $ex)

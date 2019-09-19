@@ -61,6 +61,8 @@
   - New endpoint `/stock/shoppinglist/add-product` to add a product to a shopping list (thanks @Forceu)
   - New endpoint `/stock/shoppinglist/remove-product` to remove a product from a shopping list (thanks @Forceu)
   - New endpoint `/chores/executions/calculate-next-assignments` to (re)calculate next user assignments for a single or all chores
+  - New endpoint `/stock/products/by-barcode/{barcode}/add` to add a product to stock by its barcode
+  - New endpoint `/stock/products/by-barcode/{barcode}/consume` to remove a product to stock by its barcode
   - New endpoint `/objects/{entity}/search/{searchString}` search for objects by name (contains search)
   - Endpoint `GET /files/{group}/{fileName}` can now also downscale pictures (see API documentation on [/api](https://demo-en.grocy.info/api))
   - When adding a product (through `stock/product/{productId}/add` or `stock/product/{productId}/inventory`) with omitted best before date and if the given product has "Default best before days" set, the best before date is calculated based on that (so far always today was used which is still the case when no date is supplied and also the product has no "Default best before days set) (thanks @Forceu)
