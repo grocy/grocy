@@ -7,7 +7,7 @@
 - Available on any barcode-enabled field (so currently only for picking products) - a new camera button at the right of side the text field
 - Implemented using [QuaggaJS](https://github.com/serratus/quaggaJS) - camera stream processing happens totally offline / client-side
 - Please note due to browser security restrictions, this only works when serving grocy via a secure connection (`https://`)
-- There is also a `config.php` setting `DISABLE_BROWSER_BARCODE_CAMERA_SCANNING` to disable this, if you don't need it at all
+- There is also a `config.php` setting `DISABLE_BROWSER_BARCODE_CAMERA_SCANNING` to disable this, if you don't need it at all (defaults to `false`)
 
 ### Stock improvements
 - Products can now have variations (nested products)
@@ -21,6 +21,11 @@
 - It's now possible to print a "Location Content Sheet" with the current stock per location - new button at the top of the stock overview page (thought to hang it at the location, note used amounts on paper and track it in grocy later)
 - The product description now can have formattings (HTML/WYSIWYG editor like for recipes)
 - "Factor purchase to stock quantity unit" (product option) can now also be a decimal number when "Allow partial units in stock" is enabled
+- New "Sub feature flags" in `config.php` to disable some sub-features (hide the corresponding UI elements) if you don't need them (all new feature flags default to `true`, so no changed behaviour when not configured)
+  - `FEATURE_FLAG_STOCK_PRICE_TRACKING` to disable product price tracking
+  - `FEATURE_FLAG_STOCK_LOCATION_TRACKING` to disable product location tracking
+  - `FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING` to disable product best before date tracking
+  - `FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING` to disable product opened tracking
 
 ### Recipe improvements
 - Based on the new linked quantity units, recipe ingredients can now use any product related unit, the amount is calculated according to the cnoversion factor of the unit relation

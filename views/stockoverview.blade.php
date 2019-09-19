@@ -24,12 +24,16 @@
 			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/stockjournal') }}">
 				<i class="fas fa-file-alt"></i> {{ $__t('Journal') }}
 			</a>
+			@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/locationcontentsheet') }}">
 				<i class="fas fa-print"></i> {{ $__t('Location Content Sheet') }}
 			</a>
+			@endif
 		</h1>
+		@if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 		<p id="info-expiring-products" data-next-x-days="{{ $nextXDays }}" data-status-filter="expiring" class="btn btn-lg btn-warning status-filter-button responsive-button mr-2"></p>
 		<p id="info-expired-products" data-status-filter="expired" class="btn btn-lg btn-danger status-filter-button responsive-button mr-2"></p>
+		@endif
 		<p id="info-missing-products" data-status-filter="belowminstockamount" class="btn btn-lg btn-info status-filter-button responsive-button"></p>
 	</div>
 </div>
@@ -39,6 +43,7 @@
 		<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
 	</div>
+	@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 	<div class="col-xs-12 col-md-6 col-xl-3">
 		<label for="location-filter">{{ $__t('Filter by location') }}</label> <i class="fas fa-filter"></i>
 		<select class="form-control" id="location-filter">
@@ -48,6 +53,7 @@
 			@endforeach
 		</select>
 	</div>
+	@endif
 	<div class="col-xs-12 col-md-6 col-xl-3">
 		<label for="location-filter">{{ $__t('Filter by product group') }}</label> <i class="fas fa-filter"></i>
 		<select class="form-control" id="product-group-filter">
@@ -61,8 +67,10 @@
 		<label for="status-filter">{{ $__t('Filter by status') }}</label> <i class="fas fa-filter"></i>
 		<select class="form-control" id="status-filter">
 			<option class="bg-white" value="all">{{ $__t('All') }}</option>
+			@if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 			<option class="bg-warning" value="expiring">{{ $__t('Expiring soon') }}</option>
 			<option class="bg-danger" value="expired">{{ $__t('Already expired') }}</option>
+			@endif
 			<option class="bg-info" value="belowminstockamount">{{ $__t('Below min. stock amount') }}</option>
 		</select>
 	</div>
@@ -89,7 +97,7 @@
 			</thead>
 			<tbody class="d-none">
 				@foreach($currentStock as $currentStockEntry) 
-				<tr id="product-{{ $currentStockEntry->product_id }}-row" class="@if($currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('-1 days')) && $currentStockEntry->amount > 0) table-danger @elseif($currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime("+$nextXDays days")) && $currentStockEntry->amount > 0) table-warning @elseif (FindObjectInArrayByPropertyValue($missingProducts, 'id', $currentStockEntry->product_id) !== null) table-info @endif">
+				<tr id="product-{{ $currentStockEntry->product_id }}-row" class="@if(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('-1 days')) && $currentStockEntry->amount > 0) table-danger @elseif(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime("+$nextXDays days")) && $currentStockEntry->amount > 0) table-warning @elseif (FindObjectInArrayByPropertyValue($missingProducts, 'id', $currentStockEntry->product_id) !== null) table-info @endif">
 					<td class="fit-content border-right">
 						<a class="btn btn-success btn-sm product-consume-button @if($currentStockEntry->amount < 1) disabled @endif" href="#" data-toggle="tooltip" data-placement="left" title="{{ $__t('Consume %1$s of %2$s', '1 ' . FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name) }}"
 							data-product-id="{{ $currentStockEntry->product_id }}"
@@ -105,12 +113,14 @@
 							data-consume-amount="{{ $currentStockEntry->amount }}">
 							<i class="fas fa-utensils"></i> {{ $__t('All') }}
 						</a>
+						@if(GROCY_FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING)
 						<a class="btn btn-success btn-sm product-open-button @if($currentStockEntry->amount < 1 || $currentStockEntry->amount == $currentStockEntry->amount_opened) disabled @endif" href="#" data-toggle="tooltip" data-placement="left" title="{{ $__t('Mark %1$s of %2$s as open', '1 ' . FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name) }}"
 							data-product-id="{{ $currentStockEntry->product_id }}"
 							data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}"
 							data-product-qu-name="{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name }}">
 							<i class="fas fa-box-open"></i> 1
 						</a>
+						@endif
 						<div class="dropdown d-inline-block">
 							<button class="btn btn-sm btn-light text-secondary" type="button" data-toggle="dropdown">
 								<i class="fas fa-ellipsis-v"></i>

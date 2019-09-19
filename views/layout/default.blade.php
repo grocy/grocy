@@ -212,12 +212,14 @@
 								<span class="nav-link-text">{{ $__t('Products') }}</span>
 							</a>
 						</li>
+						@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 						<li data-nav-for-page="locations" data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link" href="{{ $U('/locations') }}">
 								<i class="fas fa-map-marker-alt"></i>
 								<span class="nav-link-text">{{ $__t('Locations') }}</span>
 							</a>
 						</li>
+						@endif
 						<li data-nav-for-page="quantityunits" data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link" href="{{ $U('/quantityunits') }}">
 								<i class="fas fa-balance-scale"></i>

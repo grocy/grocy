@@ -13,8 +13,9 @@
 @php if(!isset($noNameAttribute)) { $noNameAttribute = false; } @endphp
 @php if(!isset($nextInputSelector)) { $nextInputSelector = false; } @endphp
 @php if(empty($additionalAttributes)) { $additionalAttributes = ''; } @endphp
+@php if(empty($additionalGroupCssClasses)) { $additionalGroupCssClasses = ''; } @endphp
 
-<div class="form-group">
+<div class="form-group {{ $additionalGroupCssClasses }}">
 	<label for="{{ $id }}">{{ $__t($label) }}
 		<span class="small text-muted">
 			@if(!empty($hint)){{ $__t($hint) }}@endif

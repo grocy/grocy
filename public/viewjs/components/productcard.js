@@ -100,35 +100,38 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 		}
 	);
 
-	Grocy.Api.Get('stock/products/' + productId + '/price-history',
-		function(priceHistoryDataPoints)
-		{
-			if (priceHistoryDataPoints.length > 0)
+	if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+	{
+		Grocy.Api.Get('stock/products/' + productId + '/price-history',
+			function(priceHistoryDataPoints)
 			{
-				$("#productcard-product-price-history-chart").removeClass("d-none");
-				$("#productcard-no-price-data-hint").addClass("d-none");
-
-				Grocy.Components.ProductCard.ReInitPriceHistoryChart();
-				priceHistoryDataPoints.forEach((dataPoint) =>
+				if (priceHistoryDataPoints.length > 0)
 				{
-					Grocy.Components.ProductCard.PriceHistoryChart.data.labels.push(moment(dataPoint.date).toDate());
+					$("#productcard-product-price-history-chart").removeClass("d-none");
+					$("#productcard-no-price-data-hint").addClass("d-none");
 
-					var dataset = Grocy.Components.ProductCard.PriceHistoryChart.data.datasets[0];
-					dataset.data.push(dataPoint.price);
-				});
-				Grocy.Components.ProductCard.PriceHistoryChart.update();
-			}
-			else
+					Grocy.Components.ProductCard.ReInitPriceHistoryChart();
+					priceHistoryDataPoints.forEach((dataPoint) =>
+					{
+						Grocy.Components.ProductCard.PriceHistoryChart.data.labels.push(moment(dataPoint.date).toDate());
+
+						var dataset = Grocy.Components.ProductCard.PriceHistoryChart.data.datasets[0];
+						dataset.data.push(dataPoint.price);
+					});
+					Grocy.Components.ProductCard.PriceHistoryChart.update();
+				}
+				else
+				{
+					$("#productcard-product-price-history-chart").addClass("d-none");
+					$("#productcard-no-price-data-hint").removeClass("d-none");
+				}
+			},
+			function(xhr)
 			{
-				$("#productcard-product-price-history-chart").addClass("d-none");
-				$("#productcard-no-price-data-hint").removeClass("d-none");
+				console.error(xhr);
 			}
-		},
-		function(xhr)
-		{
-			console.error(xhr);
-		}
-	);
+		);
+	}
 };
 
 Grocy.Components.ProductCard.ReInitPriceHistoryChart = function()

@@ -45,7 +45,7 @@
 				<tr>
 					<th class="border-right"></th>
 					<th>{{ $__t('Name') }}</th>
-					<th>{{ $__t('Location') }}</th>
+					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif">{{ $__t('Location') }}</th>
 					<th>{{ $__t('Min. stock amount') }}</th>
 					<th>{{ $__t('QU purchase') }}</th>
 					<th>{{ $__t('QU stock') }}</th>
@@ -73,7 +73,7 @@
 					<td>
 						{{ $product->name }}@if(!empty($product->picture_file_name)) <i class="fas fa-image text-muted"></i>@endif
 					</td>
-					<td>
+					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif">
 						{{ FindObjectInArrayByPropertyValue($locations, 'id', $product->location_id)->name }}
 					</td>
 					<td>

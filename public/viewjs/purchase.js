@@ -20,7 +20,14 @@
 			jsonData.amount = amount;
 			jsonData.best_before_date = Grocy.Components.DateTimePicker.GetValue();
 			jsonData.price = price;
-			jsonData.location_id = Grocy.Components.LocationPicker.GetValue();
+			if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
+			{
+				jsonData.location_id = Grocy.Components.LocationPicker.GetValue();
+			}
+			else
+			{
+				jsonData.location_id = 1;
+			}
 
 			Grocy.Api.Post('stock/products/' + jsonForm.product_id + '/add', jsonData,
 				function(result)
@@ -73,7 +80,10 @@
 						$('#price').val('');
 						$('#amount_qu_unit').text("");
 						$("#tare-weight-handling-info").addClass("d-none");
-						Grocy.Components.LocationPicker.Clear();
+						if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
+						{
+							Grocy.Components.LocationPicker.Clear();
+						}
 						Grocy.Components.DateTimePicker.Clear();
 						Grocy.Components.ProductPicker.SetValue('');
 						Grocy.Components.ProductPicker.GetInputElement().focus();
@@ -107,7 +117,10 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 			function (productDetails)
 			{
 				$('#price').val(productDetails.last_price);
-				Grocy.Components.LocationPicker.SetId(productDetails.location.id);
+				if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
+				{
+					Grocy.Components.LocationPicker.SetId(productDetails.location.id);
+				}
 
 				if (productDetails.product.qu_id_purchase === productDetails.product.qu_id_stock)
 				{
@@ -166,7 +179,15 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				}
 				else
 				{
-					Grocy.Components.DateTimePicker.GetInputElement().focus();
+					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
+					{
+						Grocy.Components.DateTimePicker.GetInputElement().focus();
+					}
+					else
+					{
+						Grocy.Components.DateTimePicker.SetValue(moment().format('YYYY-MM-DD'));
+						$('#amount').focus();
+					}
 				}
 			},
 			function(xhr)

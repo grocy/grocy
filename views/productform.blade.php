@@ -73,6 +73,7 @@
 				<div id="barcode-taginput-container"></div>
 			</div>
 
+			@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 			<div class="form-group">
 				<label for="location_id">{{ $__t('Location') }}</label>
 				<select required class="form-control" id="location_id" name="location_id">
@@ -83,6 +84,9 @@
 				</select>
 				<div class="invalid-feedback">{{ $__t('A location is required') }}</div>
 			</div>
+			@else
+			<input type="hidden" name="location_id" id="location_id" value="1">
+			@endif
 
 			@php if($mode == 'edit') { $value = $product->min_stock_amount; } else { $value = 0; } @endphp
 			@include('components.numberpicker', array(
