@@ -1,7 +1,13 @@
-### New feature: Custom entities / objects
+### New feature: Custom entities / objects / lists
 - Custom entities are based on Userfields and can be used to add any custom lists you want to have in grocy
 - They can have an own menu entry in the sidebar
-- => See "Manage master data" -> Userentities or try it on the demo: https://demo.grocy.info/userobjects/exampleuserentity
+- => See "Manage master data" -> "Userentities" or try it on the demo: https://demo.grocy.info/userobjects/exampleuserentity
+
+### New feature: Use the device camera for barcode scanning
+- Available on any barcode-enabled field (so currently only for picking products) - a new camera button at the right of side the text field
+- Implemented using [QuaggaJS](https://github.com/serratus/quaggaJS) - camera stream processing happens totally offline / client-side
+- Please note due to browser security restrictions, this only works when serving grocy via a secure connection (`https://`)
+- There is also a `config.php` setting `DISABLE_BROWSER_BARCODE_CAMERA_SCANNING` to disable this, if you don't need it at all
 
 ### Stock improvements
 - Products can now have variations (nested products)

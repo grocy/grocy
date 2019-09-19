@@ -32,6 +32,7 @@
 		"timeago": "^1.6.7",
 		"toastr": "^2.1.4",
 		"bootstrap-select": "^1.13.10",
-		"jquery-lazy": "^1.7.10"
+		"jquery-lazy": "^1.7.10",
+		"quagga": "^0.12.1"
 	}
 }

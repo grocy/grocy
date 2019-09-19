@@ -58,6 +58,9 @@ Setting('ENTRY_PAGE', 'stock');
 # places where user context is needed will then use the default (first existing) user
 Setting('DISABLE_AUTH', false);
 
+# Set this to true if you want to disable the ability to scan a barcode via the device camera (Browser API)
+Setting('DISABLE_BROWSER_BARCODE_CAMERA_SCANNING', false);
+
 # Default user settings
 # These settings can be changed per user, here the defaults
 # are defined which are used when the user has not changed the setting so far

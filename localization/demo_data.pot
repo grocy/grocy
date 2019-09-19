@@ -300,3 +300,6 @@ msgstr ""
 
 msgid "Example field value..."
 msgstr ""
+
+msgid "Waffle rolls"
+msgstr ""

@@ -78,6 +78,16 @@ class StockService extends BaseService
 
 		$stockCurrentRow = FindObjectinArrayByPropertyValue($this->GetCurrentStock(), 'product_id', $productId);
 
+		if ($stockCurrentRow == null)
+		{
+			$stockCurrentRow = new \stdClass();
+			$stockCurrentRow->amount = 0;
+			$stockCurrentRow->amount_opened = 0;
+			$stockCurrentRow->amount_aggregated = 0;
+			$stockCurrentRow->amount_opened_aggregated = 0;
+			$stockCurrentRow->is_aggregated_amount = 0;
+		}
+
 		$product = $this->Database->products($productId);
 		$productLastPurchased = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_PURCHASE)->where('undone', 0)->max('purchased_date');
 		$productLastUsed = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone', 0)->max('used_date');

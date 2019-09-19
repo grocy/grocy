@@ -56,6 +56,20 @@ Grocy.Components.ProductPicker.HideCustomError = function()
 	$("#custom-productpicker-error").addClass("d-none");
 }
 
+Grocy.Components.ProductPicker.Disable = function()
+{
+	Grocy.Components.ProductPicker.GetInputElement().attr("disabled", "");
+	$("#barcodescanner-start-button").attr("disabled", "");
+	$("#barcodescanner-start-button").addClass("disabled");
+}
+
+Grocy.Components.ProductPicker.Enable = function()
+{
+	Grocy.Components.ProductPicker.GetInputElement().removeAttr("disabled");
+	$("#barcodescanner-start-button").removeAttr("disabled");
+	$("#barcodescanner-start-button").removeClass("disabled");
+}
+
 $('.product-combobox').combobox({
 	appendId: '_text_input',
 	bsVersion: '4',
@@ -210,4 +224,22 @@ $('#product_id_text_input').on('blur', function(e)
 			});
 		}
 	}
+});
+
+$(document).on("Grocy.BarcodeScanned", function(e, barcode)
+{
+	// Don't know why the blur event does not fire immediately ... this works...
+
+	Grocy.Components.ProductPicker.GetInputElement().focusout();
+	Grocy.Components.ProductPicker.GetInputElement().focus();
+	Grocy.Components.ProductPicker.GetInputElement().blur();
+
+	Grocy.Components.ProductPicker.GetInputElement().val(barcode);
+	
+	setTimeout(function()
+	{
+		Grocy.Components.ProductPicker.GetInputElement().focusout();
+		Grocy.Components.ProductPicker.GetInputElement().focus();
+		Grocy.Components.ProductPicker.GetInputElement().blur();
+	}, 200);
 });

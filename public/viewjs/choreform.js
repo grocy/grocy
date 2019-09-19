@@ -191,12 +191,12 @@ $("#consume_product_on_execution").on("click", function()
 {
 	if (this.checked)
 	{
-		Grocy.Components.ProductPicker.GetInputElement().removeAttr("disabled");
+		Grocy.Components.ProductPicker.Enable();
 		$("#product_amount").removeAttr("disabled");
 	}
 	else
 	{
-		Grocy.Components.ProductPicker.GetInputElement().attr("disabled", "");
+		Grocy.Components.ProductPicker.Disable();
 		$("#product_amount").attr("disabled", "");
 	}
 

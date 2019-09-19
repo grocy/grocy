@@ -1462,3 +1462,9 @@ msgstr ""
 
 msgid "Test plural forms"
 msgstr ""
+
+msgid "Scan a barcode"
+msgstr ""
+
+msgid "Error while initializing the barcode scanning library"
+msgstr ""
