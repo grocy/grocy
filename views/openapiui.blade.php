@@ -24,6 +24,28 @@
 		Grocy.OpenApi = { };
 		Grocy.OpenApi.SpecUrl = '{{ $U('/api/openapi/specification') }}';
 	</script>
+
+	<style>
+		.servers-title,
+		.servers,
+		.url {
+			display: none !important;
+		}
+
+		.swagger-ui .info {
+			margin-bottom: 0 !important;
+		}
+
+		.scheme-container {
+			padding-top: 0 !important;
+		}
+
+		.swagger-ui .scheme-container {
+			box-shadow: none !important;
+			-webkit-box-shadow: none !important;
+			border-bottom: 1px solid rgba(59, 65, 81, 0.3) !important;
+		}
+	</style>
 </head>
 
 <body>

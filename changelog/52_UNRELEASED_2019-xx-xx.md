@@ -37,7 +37,7 @@
   - On the chores overview page the list can be filterd to only show chores assigned to the currently logged in user (or to any other user)
 - New option "Due date rollover" per chore which means the chore can never be overdue, the due date will shift forward each day when due
 - New option "Consume product on chore execution" per chore to automatically consume a product when a chore execution is tracked
-- When tracking an execution from the chores overview page, filters are re-applied afterwards (means when have filtered the page to only show overdue chores and after the execution the chore is not overdue anymore, it will now immediately hide id)
+- When tracking an execution from the chores overview page, filters are re-applied afterwards (means when you have filtered the page to only show overdue chores and after the execution the chore is not overdue anymore, it will now be immediately hidden)
 
 ### Equipment improvements/fixes
 - Fixed that the delete button not always deleted the currently selected equipment item
@@ -51,7 +51,7 @@
 
 ### General & other improvements/fixes
 - Added a new `config.php` setting `CALENDAR_SHOW_WEEK_OF_YEAR` to configure if calendars should show week numbers (defaults to `true`)
-- Fixed that datetimepickers not considered the `config.php` setting `CALENDAR_FIRST_DAY_OF_WEEK`
+- Fixed that date/time pickers not considered the `config.php` setting `CALENDAR_FIRST_DAY_OF_WEEK`
 - Improved the handling which entry page to use with disabled feature flags (thanks @nielstholenaar)
 - Boolean settings provided via environment variables (so the strings `true` and `false`) are now parsed correctly (thanks @mduret)
 - All uploaded pictures (currently for products and recipes) are now automatically downscaled to the appropriate size when serving them to improve page load times
@@ -63,9 +63,9 @@
   - New endpoint `/chores/executions/calculate-next-assignments` to (re)calculate next user assignments for a single or all chores
   - New endpoint `/stock/products/by-barcode/{barcode}/add` to add a product to stock by its barcode
   - New endpoint `/stock/products/by-barcode/{barcode}/consume` to remove a product to stock by its barcode
-  - New endpoint `/objects/{entity}/search/{searchString}` search for objects by name (contains search)
+  - New endpoint `/objects/{entity}/search/{searchString}` to search for objects by name (contains search)
   - Endpoint `GET /files/{group}/{fileName}` can now also downscale pictures (see API documentation on [/api](https://demo-en.grocy.info/api))
   - When adding a product (through `stock/product/{productId}/add` or `stock/product/{productId}/inventory`) with omitted best before date and if the given product has "Default best before days" set, the best before date is calculated based on that (so far always today was used which is still the case when no date is supplied and also the product has no "Default best before days set) (thanks @Forceu)
-  - Field `stock_amount` of endpoint `/stock/products/{productId}´ now returns `0` instead of `null` when the given product is not in stock (thanks @Forceu)
+  - Field `stock_amount` of endpoint `/stock/products/{productId}` now returns `0` instead of `null` when the given product is not in stock (thanks @Forceu)
   - Fixed that `/system/db-changed-time` always returned the current time (more or less) due to that that time is the database file modification time and the database is effectively changed on each request because of session information tracking - which now explicitly does not change the database file modification time, so this should work again to determine if any data changes happened
   - It's now also possible to provide the API key via a query parameter (same name as the header, so `GROCY-API-KEY`)
