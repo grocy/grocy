@@ -117,8 +117,13 @@ Setting('FEATURE_FLAG_BATTERIES', true);
 Setting('FEATURE_FLAG_EQUIPMENT', true);
 Setting('FEATURE_FLAG_CALENDAR', true);
 
+
 # Sub feature flags
 Setting('FEATURE_FLAG_STOCK_PRICE_TRACKING', true);
 Setting('FEATURE_FLAG_STOCK_LOCATION_TRACKING', true);
 Setting('FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING', true);
 Setting('FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING', true);
+
+
+# Feature settings
+Setting('FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT', true); // When set to false, opened products will not be considered for minimum stock amounts

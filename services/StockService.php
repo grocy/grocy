@@ -11,10 +11,16 @@ class StockService extends BaseService
 
 	public function GetCurrentStock($includeNotInStockButMissingProducts = false)
 	{
-		$sql = 'SELECT * FROM stock_current UNION SELECT id, 0, 0, null, 0, 0, 0 FROM stock_missing_products WHERE id NOT IN (SELECT product_id FROM stock_current)';
+		$missingProductsView = 'stock_missing_products_including_opened';
+		if (!GROCY_FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT)
+		{
+			$missingProductsView = 'stock_missing_products';
+		}
+
+		$sql = 'SELECT * FROM stock_current UNION SELECT id, 0, 0, null, 0, 0, 0 FROM ' . $missingProductsView . ' WHERE id NOT IN (SELECT product_id FROM stock_current)';
 		if ($includeNotInStockButMissingProducts)
 		{
-			$sql = 'SELECT * FROM stock_current WHERE best_before_date IS NOT NULL UNION SELECT id, 0, 0, null, 0, 0, 0 FROM stock_missing_products WHERE id NOT IN (SELECT product_id FROM stock_current)';
+			$sql = 'SELECT * FROM stock_current WHERE best_before_date IS NOT NULL UNION SELECT id, 0, 0, null, 0, 0, 0 FROM ' . $missingProductsView . ' WHERE id NOT IN (SELECT product_id FROM stock_current)';
 		}
 		
 		return $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
@@ -40,7 +46,12 @@ class StockService extends BaseService
 
 	public function GetMissingProducts()
 	{
-		$sql = 'SELECT * FROM stock_missing_products';
+		$sql = 'SELECT * FROM stock_missing_products_including_opened';
+		if (!GROCY_FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT)
+		{
+			$sql = 'SELECT * FROM stock_missing_products';
+		}
+
 		return $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
 

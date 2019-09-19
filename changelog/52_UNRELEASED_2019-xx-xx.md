@@ -19,6 +19,7 @@
   - On the quantity unit edit page default conversion can be defined for each unit
   - Products "inherit" the default conversion and additionally can have their own / override the default ones
 - It's now possible to print a "Location Content Sheet" with the current stock per location - new button at the top of the stock overview page (thought to hang it at the location, note used amounts on paper and track it in grocy later)
+- New `config.php` setting `FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT` to configure if opened products should be considered for minimum stock amounts (defaults to `true`, so opened products will now be considered missing by default - please change this setting if you want the old behaviour)
 - The product description now can have formattings (HTML/WYSIWYG editor like for recipes)
 - "Factor purchase to stock quantity unit" (product option) can now also be a decimal number when "Allow partial units in stock" is enabled
 - New "Sub feature flags" in `config.php` to disable some sub-features (hide the corresponding UI elements) if you don't need them (all new feature flags default to `true`, so no changed behaviour when not configured)
