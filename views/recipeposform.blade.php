@@ -88,7 +88,7 @@
 				'value' => $value
 			))
 			@else
-			<input type="hidden" name="price" id="price" value="0">
+			<input type="hidden" name="price_factor" id="price" value="1">
 			@endif
 
 			<button id="save-recipe-pos-button" class="btn btn-success">{{ $__t('Save') }}</button>
