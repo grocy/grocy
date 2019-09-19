@@ -31,6 +31,8 @@
 
 ### Recipe improvements
 - Based on the new linked quantity units, recipe ingredients can now use any product related unit, the amount is calculated according to the cnoversion factor of the unit relation
+- New option "price factor" per recipe ingredient (defaults to `1`) - the resulting costs of the recipe ingredient will be multiplied by that factor
+  - Use this for example for spices in combination with "Only check if a single unit is in stock" to not take the full price of a pack of pepper into account for a recipe
 
 ### Chores improvements
 - Chores can now be assigned to users

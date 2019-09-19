@@ -74,6 +74,23 @@
 				<textarea class="form-control" rows="2" id="note" name="note">@if($mode == 'edit'){{ $recipePos->note }}@endif</textarea>
 			</div>
 
+			@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+			@php if($mode == 'edit') { $value = $recipePos->price_factor; } else { $value = 1; } @endphp
+			@include('components.numberpicker', array(
+				'id' => 'price_factor',
+				'label' => 'Price factor',
+				'min' => 0,
+				'step' => 0.0001,
+				'value' => '',
+				'hint' => $__t('The resulting price of this ingredient will be multiplied by this factor'),
+				'invalidFeedback' => $__t('This cannot be lower than %s', '0'),
+				'isRequired' => true,
+				'value' => $value
+			))
+			@else
+			<input type="hidden" name="price" id="price" value="0">
+			@endif
+
 			<button id="save-recipe-pos-button" class="btn btn-success">{{ $__t('Save') }}</button>
 
 		</form>

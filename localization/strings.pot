@@ -1468,3 +1468,9 @@ msgstr ""
 
 msgid "Error while initializing the barcode scanning library"
 msgstr ""
+
+msgid "The resulting price of this ingredient will be multiplied by this factor"
+msgstr ""
+
+msgid "Price factor"
+msgstr ""
