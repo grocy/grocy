@@ -8,6 +8,7 @@
 - Implemented using [QuaggaJS](https://github.com/serratus/quaggaJS) - camera stream processing happens totally offline / client-side
 - Please note due to browser security restrictions, this only works when serving grocy via a secure connection (`https://`)
 - There is also a `config.php` setting `DISABLE_BROWSER_BARCODE_CAMERA_SCANNING` to disable this, if you don't need it at all (defaults to `false`)
+- => Quick video demo: https://www.youtube.com/watch?v=Y5YH6IJFnfc
 
 ### Stock improvements/fixes
 - Products can now have variations (nested products)
