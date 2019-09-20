@@ -27,9 +27,7 @@
 		@if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)<strong>{{ $__t('Average shelf life') }}:</strong> <span id="productcard-product-average-shelf-life"></span><br>@endif
 		<strong>{{ $__t('Spoil rate') }}:</strong> <span id="productcard-product-spoil-rate"></span>
 
-		<h5 class="mt-3">{{ $__t('Product picture') }}</h5>
-		<p class="w-75 mx-auto"><img id="productcard-product-picture" data-src="" class="img-fluid img-thumbnail d-none lazy"></p>
-		<span id="productcard-no-product-picture" class="font-italic d-none">{{ $__t('No picture available') }}</span>
+		<p class="w-75 mt-3 mx-auto"><img id="productcard-product-picture" data-src="" class="img-fluid img-thumbnail d-none lazy"></p>
 
 		@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 		<h5 class="mt-3">{{ $__t('Price history') }}</h5>
