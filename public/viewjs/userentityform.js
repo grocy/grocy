@@ -64,5 +64,21 @@ $('#userentity-form input').keydown(function(event)
 	}
 });
 
+$("#show_in_sidebar_menu").on("click", function()
+{
+	if (this.checked)
+	{
+		$("#icon_css_class").removeAttr("disabled");
+	}
+	else
+	{
+		$("#icon_css_class").attr("disabled", "");
+	}
+});
+
 $('#name').focus();
 Grocy.FrontendHelpers.ValidateForm('userentity-form');
+
+// Click twice to trigger on-click but not change the actual checked state
+$("#show_in_sidebar_menu").click();
+$("#show_in_sidebar_menu").click();

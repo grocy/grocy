@@ -73,3 +73,6 @@
   - Field `stock_amount` of endpoint `/stock/products/{productId}` now returns `0` instead of `null` when the given product is not in stock (thanks @Forceu)
   - Fixed that `/system/db-changed-time` always returned the current time (more or less) due to that that time is the database file modification time and the database is effectively changed on each request because of session information tracking - which now explicitly does not change the database file modification time, so this should work again to determine if any data changes happened
   - It's now also possible to provide the API key via a query parameter (same name as the header, so `GROCY-API-KEY`)
+
+#### Say thanks
+Because there were some questions about that in the past: If grocy is useful for you, [say thanks}(https://grocy.info/#say-thanks)!
