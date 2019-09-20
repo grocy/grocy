@@ -151,7 +151,7 @@
 
 			<div class="card-body mb-0 pb-0">
 				<div class="row">
-					<div class="col-5">
+					<div class="col-4">
 						@include('components.numberpicker', array(
 							'id' => 'servings-scale',
 							'label' => 'Servings',
@@ -161,8 +161,14 @@
 							'additionalAttributes' => 'data-recipe-id="' . $selectedRecipe->id . '"'
 						))
 					</div>
+					<div class="col-2">
+						<label>{{ $__t('Energy (kcal)') }}</label>
+						<p class="font-weight-bold font-italic">
+							<span class="locale-number-format" data-format="generic">{{ $selectedRecipeTotalCalories }}</span>
+						</p>
+					</div>
 					@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
-					<div class="col-7">
+					<div class="col-6">
 						<label>{{ $__t('Costs') }}&nbsp;&nbsp;
 							<span class="small text-muted">{{ $__t('Based on the prices of the last purchase per product') }}</span>
 						</label>

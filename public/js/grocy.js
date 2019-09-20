@@ -519,6 +519,11 @@ function RefreshLocaleNumberDisplay()
 	{
 		$(this).text(parseFloat($(this).text()).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 3 }));
 	});
+
+	$(".locale-number-format[data-format='generic']").each(function ()
+	{
+		$(this).text(parseFloat($(this).text()).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 2 }));
+	});
 }
 RefreshLocaleNumberDisplay();
 

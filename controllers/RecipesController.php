@@ -68,6 +68,7 @@ class RecipesController extends BaseController
 			'selectedRecipeSubRecipesPositions' => $selectedRecipeSubRecipesPositions,
 			'includedRecipeIdsAbsolute' => $includedRecipeIdsAbsolute,
 			'selectedRecipeTotalCosts' => FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->costs,
+			'selectedRecipeTotalCalories' => FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->calories,
 			'userfields' => $this->UserfieldsService->GetFields('recipes'),
 			'userfieldValues' => $this->UserfieldsService->GetAllValues('recipes'),
 			'quantityUnitConversionsResolved' => $this->Database->quantity_unit_conversions_resolved()

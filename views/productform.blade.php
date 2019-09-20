@@ -201,6 +201,17 @@
 					</label>
 				</div>
 			</div>
+
+			@php if($mode == 'edit') { $value = $product->calories; } else { $value = ''; } @endphp
+			@include('components.numberpicker', array(
+				'id' => 'calories',
+				'label' => 'Energy (kcal)',
+				'min' => 0,
+				'step' => 1,
+				'value' => $value,
+				'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
+				'hint' => $__t('Per stock quantity unit') 
+			))
 			@endif
 
 			<div class="form-group">

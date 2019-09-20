@@ -28,6 +28,7 @@
   - Improved that on any stock changes the corresponding product table row is properly refreshed
 - New `config.php` setting `FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT` to configure if opened products should be considered for minimum stock amounts (defaults to `true`, so opened products will now be considered missing by default - please change this setting if you want the old behaviour)
 - The product description now can have formattings (HTML/WYSIWYG editor like for recipes)
+- Products now have a new field for calories (kcal, per stock quantity unit)
 - "Factor purchase to stock quantity unit" (product option) can now also be a decimal number when "Allow partial units in stock" is enabled
 - New "Sub feature flags" in `config.php` to disable some sub-features (hide the corresponding UI elements) if you don't need them (all new feature flags default to `true`, so no changed behaviour when not configured)
   - `FEATURE_FLAG_STOCK_PRICE_TRACKING` to disable product price tracking
@@ -42,6 +43,7 @@
 
 ### Recipe improvements
 - Based on the new linked quantity units, recipe ingredients can now use any product related unit, the amount is calculated according to the cnoversion factor of the unit relation
+- Based on the new calories field per product, the calories per recipe are now shown based on the selected servings (in the header, next to the costs)
 - New option "price factor" per recipe ingredient (defaults to `1`) - the resulting costs of the recipe ingredient will be multiplied by that factor
   - Use this for example for spices in combination with "Only check if a single unit is in stock" to not take the full price of a pack of pepper into account for a recipe
 - The search field on the recipe overview page now also searches for product names of recipe ingredients (means it's possible to search an recipe by a product name)

@@ -1492,3 +1492,9 @@ msgstr ""
 
 msgid "Output"
 msgstr ""
+
+msgid "Energy (kcal)"
+msgstr ""
+
+msgid "Per stock quantity unit"
+msgstr ""
