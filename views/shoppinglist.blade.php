@@ -16,7 +16,7 @@
 @endpush
 
 @section('content')
-<div class="row">
+<div class="row d-print-none">
 	<div class="col">
 		<h1>
 			@yield('title')
@@ -37,7 +37,7 @@
 	</div>
 </div>
 
-<div class="row mt-3 border-top border-bottom py-2">
+<div class="row mt-3 border-top border-bottom py-2 d-print-none">
 	<div class="col-xs-12 col-md-4">
 		<label for="selected-shopping-list">{{ $__t('Selected shopping list') }}</label>
 		<select class="form-control" id="selected-shopping-list">
@@ -46,7 +46,7 @@
 			@endforeach
 		</select>
 	</div>
-	<div class="col-xs-12 col-md-4">
+	<div class="col-xs-12 col-md-8">
 		<label for="selected-shopping-list">&nbsp;</label><br>
 		<a class="btn btn-outline-dark responsive-button" href="{{ $U('/shoppinglist/new') }}">
 			<i class="fas fa-plus"></i> {{ $__t('New shopping list') }}
@@ -54,10 +54,16 @@
 		<a id="delete-selected-shopping-list" class="btn btn-outline-danger responsive-button @if($selectedShoppingListId == 1) disabled @endif" href="#">
 			<i class="fas fa-trash"></i> {{ $__t('Delete shopping list') }}
 		</a>
+		<div class="dropdown d-inline-block">
+			<button class="btn btn-outline-dark responsive-button dropdown-toggle" data-toggle="dropdown"><i class="fas fa-file-export"></i> {{ $__t('Output') }}</button>
+			<div class="dropdown-menu">
+				<a id="print-shopping-list-button" class="dropdown-item" href="#"><i class="fas fa-print"></i> {{ $__t('Print') }}</a>
+			</div>
+		</div>
 	</div>
 </div>
 
-<div class="row mt-3">
+<div class="row mt-3 d-print-none">
 	<div class="col-xs-12 col-md-4">
 		<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
@@ -71,7 +77,7 @@
 	</div>
 </div>
 
-<div class="row">
+<div class="row d-print-none">
 	<div class="col-xs-12 col-md-8 pb-3">
 		<table id="shoppinglist-table" class="table table-sm table-striped dt-responsive">
 			<thead>
@@ -131,7 +137,7 @@
 		</table>
 	</div>
 
-	<div class="col-xs-12 col-md-4 mt-md-2">
+	<div class="col-xs-12 col-md-4 mt-md-2 d-print-none">
 		@include('components.calendarcard')
 	</div>
 </div>
@@ -147,6 +153,46 @@
 				<button id="shopping-list-stock-add-workflow-skip-button" type="button" class="btn btn-primary"><i class="fas fa-angle-double-right"></i> {{ $__t('Skip') }}</button>
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">{{ $__t('Close') }}</button>
 			</div>
+		</div>
+	</div>
+</div>
+
+<div class="d-none d-print-block">
+	<h1 class="text-center">
+		<img src="{{ $U('/img/grocy_logo.svg?v=', true) }}{{ $version }}" height="30" class="d-print-flex mx-auto">
+		{{ $__t("Shopping list") }}
+	</h1>
+	@if (FindObjectInArrayByPropertyValue($shoppingLists, 'id', $selectedShoppingListId)->name != $__t("Shopping list"))
+	<h3 class="text-center">
+		{{ FindObjectInArrayByPropertyValue($shoppingLists, 'id', $selectedShoppingListId)->name }}
+	</h3>
+	@endif
+	<h6 class="text-center mb-4">
+		{{ $__t('Time of printing') }}:
+		<span class="d-inline print-timestamp"></span>
+	</h6>
+	<div class="row w-75">
+		<div class="col">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>{{ $__t('Product') }} / <em>{{ $__t('Note') }}</em></th>
+						<th>{{ $__t('Amount') }}</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach($listItems as $listItem)
+					<tr>
+						<td>
+							@if(!empty($listItem->product_id)) {{ FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->name }}<br>@endif<em>{!! nl2br($listItem->note) !!}</em>
+						</td>
+						<td>
+							{{ $listItem->amount }} @if(!empty($listItem->product_id)){{ $__n($listItem->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name_plural) }}@endif
+						</td>
+					</tr>
+					@endforeach
+				</tbody>
+			</table>
 		</div>
 	</div>
 </div>

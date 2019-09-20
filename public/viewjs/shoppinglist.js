@@ -303,3 +303,9 @@ function OnListItemRemoved()
 	}
 }
 OnListItemRemoved();
+
+$(document).on("click", "#print-shopping-list-button", function(e)
+{
+	$(".print-timestamp").text(moment().format("l LT"));
+	window.print();
+});
