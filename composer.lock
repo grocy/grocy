@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "17eb560bc9d67d2f79118929ae59ca34",
+    "content-hash": "eff0f8f394573d15e26d8abd3788ed72",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -1811,16 +1811,16 @@
         },
         {
             "name": "tuupola/cors-middleware",
-            "version": "0.9.4",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tuupola/cors-middleware.git",
-                "reference": "1b6d9927d7a643659cd0eb7ebeb8675b26df0a05"
+                "reference": "f8bee9b47729a36892c680c457ff824c04cfae70"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tuupola/cors-middleware/zipball/1b6d9927d7a643659cd0eb7ebeb8675b26df0a05",
-                "reference": "1b6d9927d7a643659cd0eb7ebeb8675b26df0a05",
+                "url": "https://api.github.com/repos/tuupola/cors-middleware/zipball/f8bee9b47729a36892c680c457ff824c04cfae70",
+                "reference": "f8bee9b47729a36892c680c457ff824c04cfae70",
                 "shasum": ""
             },
             "require": {
@@ -1828,8 +1828,8 @@
                 "php": "^7.1",
                 "psr/http-message": "^1.0.1",
                 "psr/http-server-middleware": "^1.0",
-                "tuupola/callable-handler": "^0.3.0|^0.4.0|^1.0",
-                "tuupola/http-factory": "^0.4.0|^1.0"
+                "tuupola/callable-handler": "^1.0",
+                "tuupola/http-factory": "^1.0"
             },
             "require-dev": {
                 "codedungeon/phpunit-result-printer": "^0.23.2",
@@ -1866,7 +1866,7 @@
                 "psr-15",
                 "psr-7"
             ],
-            "time": "2019-03-24T08:53:13+00:00"
+            "time": "2019-06-04T06:54:19+00:00"
         },
         {
             "name": "tuupola/http-factory",
