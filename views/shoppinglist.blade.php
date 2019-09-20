@@ -54,12 +54,15 @@
 		<a id="delete-selected-shopping-list" class="btn btn-outline-danger responsive-button @if($selectedShoppingListId == 1) disabled @endif" href="#">
 			<i class="fas fa-trash"></i> {{ $__t('Delete shopping list') }}
 		</a>
-		<div class="dropdown d-inline-block">
+		<a id="print-shopping-list-button" class="btn btn-outline-dark responsive-button" href="#">
+			<i class="fas fa-print"></i> {{ $__t('Print') }}
+		</a>
+		<!--<div class="dropdown d-inline-block">
 			<button class="btn btn-outline-dark responsive-button dropdown-toggle" data-toggle="dropdown"><i class="fas fa-file-export"></i> {{ $__t('Output') }}</button>
 			<div class="dropdown-menu">
 				<a id="print-shopping-list-button" class="dropdown-item" href="#"><i class="fas fa-print"></i> {{ $__t('Print') }}</a>
 			</div>
-		</div>
+		</div>-->
 	</div>
 </div>
 

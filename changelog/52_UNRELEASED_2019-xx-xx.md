@@ -36,6 +36,10 @@
   - `FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING` to disable product opened tracking
 - Fixed/refined some things regarding purchase/consume/inventory of products with enabled tare weight handling (nothing was broken, but the success popups may not displayed the correct amount that was posted)
 
+### Shopping lists improvements
+- Shopping lists now have a notes field (HTML/WYSIWYG editor, just to save some notes per shopping list)
+- Shopping lists can now be printed (new button next to the add/delete shopping list button)
+
 ### Recipe improvements
 - Based on the new linked quantity units, recipe ingredients can now use any product related unit, the amount is calculated according to the cnoversion factor of the unit relation
 - New option "price factor" per recipe ingredient (defaults to `1`) - the resulting costs of the recipe ingredient will be multiplied by that factor
