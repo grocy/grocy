@@ -1480,3 +1480,12 @@ msgstr ""
 
 msgid "Say thanks"
 msgstr ""
+
+msgid "Search for recipes containing this product"
+msgstr ""
+
+msgid "Add to shopping list"
+msgstr ""
+
+msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
+msgstr ""

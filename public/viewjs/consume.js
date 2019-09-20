@@ -69,30 +69,42 @@
 						$("#use_specific_stock_entry").click();
 					}
 
-					Grocy.FrontendHelpers.EndUiBusy("consume-form");
 					if (productDetails.product.enable_tare_weight_handling == 1)
 					{
-						toastr.success(__t('Removed %1$s of %2$s from stock', Math.abs(jsonForm.amount - parseFloat(productDetails.product.tare_weight)) + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + bookingResponse.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
+						var successMessage = __t('Removed %1$s of %2$s from stock', Math.abs(jsonForm.amount - parseFloat(productDetails.product.tare_weight)) + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + bookingResponse.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
 					}
 					else
 					{
-						toastr.success(__t('Removed %1$s of %2$s from stock', Math.abs(jsonForm.amount) + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + bookingResponse.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
+						var successMessage =__t('Removed %1$s of %2$s from stock', Math.abs(jsonForm.amount) + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + bookingResponse.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
 					}
 
-					$("#amount").attr("min", "1");
-					$("#amount").attr("max", "999999");
-					$("#amount").attr("step", "1");
-					$("#amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '1'));
-					$('#amount').val(Grocy.UserSettings.stock_default_consume_amount);
-					$('#amount_qu_unit').text("");
-					$("#tare-weight-handling-info").addClass("d-none");
-					Grocy.Components.ProductPicker.Clear();
-					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_RECIPES)
+					if (GetUriParam("embedded") !== undefined)
 					{
-						Grocy.Components.RecipePicker.Clear();
+						window.parent.postMessage(WindowMessageBag("ProductChanged", jsonForm.product_id), Grocy.BaseUrl);
+						window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", successMessage), Grocy.BaseUrl);
+						window.parent.postMessage(WindowMessageBag("CloseAllModals"), Grocy.BaseUrl);
 					}
-					Grocy.Components.ProductPicker.GetInputElement().focus();
-					Grocy.FrontendHelpers.ValidateForm('consume-form');
+					else
+					{
+
+						Grocy.FrontendHelpers.EndUiBusy("consume-form");
+						toastr.success(successMessage);
+
+						$("#amount").attr("min", "1");
+						$("#amount").attr("max", "999999");
+						$("#amount").attr("step", "1");
+						$("#amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '1'));
+						$('#amount').val(Grocy.UserSettings.stock_default_consume_amount);
+						$('#amount_qu_unit').text("");
+						$("#tare-weight-handling-info").addClass("d-none");
+						Grocy.Components.ProductPicker.Clear();
+						if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_RECIPES)
+						{
+							Grocy.Components.RecipePicker.Clear();
+						}
+						Grocy.Components.ProductPicker.GetInputElement().focus();
+						Grocy.FrontendHelpers.ValidateForm('consume-form');
+					}
 				},
 				function(xhr)
 				{
@@ -275,6 +287,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 });
 
 $('#amount').val(Grocy.UserSettings.stock_default_consume_amount);
+Grocy.Components.ProductPicker.GetPicker().trigger('change');
 Grocy.Components.ProductPicker.GetInputElement().focus();
 Grocy.FrontendHelpers.ValidateForm('consume-form');
 

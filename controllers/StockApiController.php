@@ -448,4 +448,23 @@ class StockApiController extends BaseApiController
 	{
 		return $this->ApiResponse($this->StockService->GetProductStockEntries($args['productId']));
 	}
+
+	public function StockBooking(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		try
+		{
+			$stockLogRow = $this->Database->stock_log($args['bookingId']);
+
+			if ($stockLogRow === null)
+			{
+				throw new \Exception('Stock booking does not exist');
+			}
+			
+			return $this->ApiResponse($stockLogRow);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
 }

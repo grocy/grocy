@@ -57,6 +57,7 @@
 							<th>{{ $__t('Requirements fulfilled') }}</th>
 							<th class="d-none">Hidden status for sorting of "Requirements fulfilled" column</th>
 							<th class="d-none">Hidden status for filtering by status</th>
+							<th class="d-none">Hidden recipe ingredient product names</th>
 
 							@include('components.userfields_thead', array(
 								'userfields' => $userfields
@@ -82,6 +83,11 @@
 							</td>
 							<td class="d-none">
 								@if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 1) enoughtinstock @elseif(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) enoughinstockwithshoppinglist @else notenoughinstock @endif
+							</td>
+							<td class="d-none">
+								@foreach(FindAllObjectsInArrayByPropertyValue($recipePositionsResolved, 'recipe_id', $recipe->id) as $recipePos)
+									{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePos->product_id)->name . ' ' }}
+								@endforeach
 							</td>
 
 							@include('components.userfields_tbody', array(

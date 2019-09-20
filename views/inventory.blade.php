@@ -84,7 +84,7 @@
 		</form>
 	</div>
 
-	<div class="col-xs-12 col-md-6 col-xl-4">
+	<div class="col-xs-12 col-md-6 col-xl-4 hide-when-embedded">
 		@include('components.productcard')
 	</div>
 </div>

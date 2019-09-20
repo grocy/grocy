@@ -93,70 +93,12 @@ $(document).on('click', '.product-consume-button', function(e)
 	var wasSpoiled = $(e.currentTarget).hasClass("product-consume-button-spoiled");
 
 	Grocy.Api.Post('stock/products/' + productId + '/consume', { 'amount': consumeAmount, 'spoiled': wasSpoiled },
-		function()
+		function(bookingResponse)
 		{
 			Grocy.Api.Get('stock/products/' + productId,
 				function(result)
 				{
-					var productRow = $('#product-' + productId + '-row');
-					var expiringThreshold = moment().add("-" + $("#info-expiring-products").data("next-x-days"), "days");
-					var now = moment();
-					var nextBestBeforeDate = moment(result.next_best_before_date);
-
-					productRow.removeClass("table-warning");
-					productRow.removeClass("table-danger");
-					if (now.isAfter(nextBestBeforeDate))
-					{
-						productRow.addClass("table-danger");
-					}
-					if (expiringThreshold.isAfter(nextBestBeforeDate))
-					{
-						productRow.addClass("table-warning");
-					}
-
-					var oldAmount = parseFloat($('#product-' + productId + '-amount').text());
-					var newAmount = oldAmount - consumeAmount;
-					if (newAmount <= 0) // When "consume all" of an amount < 1, the resulting amount here will be < 0, but the API newer books > current stock amount
-					{
-						$('#product-' + productId + '-row').fadeOut(500, function()
-						{
-							$(this).tooltip("hide");
-							$(this).remove();
-						});
-					}
-					else
-					{
-						$('#product-' + productId + '-qu-name').text(__n(newAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural));
-						$('#product-' + productId + '-amount').parent().effect('highlight', { }, 500);
-						$('#product-' + productId + '-amount').fadeOut(500, function ()
-						{
-							$(this).text(newAmount).fadeIn(500);
-						});
-						$('#product-' + productId + '-consume-all-button').attr('data-consume-amount', newAmount);
-
-						$('#product-' + productId + '-next-best-before-date').parent().effect('highlight', { }, 500);
-						$('#product-' + productId + '-next-best-before-date').fadeOut(500, function()
-						{
-							$(this).text(result.next_best_before_date).fadeIn(500);
-						});
-						$('#product-' + productId + '-next-best-before-date-timeago').attr('datetime', result.next_best_before_date);
-
-						var openedAmount = result.stock_amount_opened || 0;
-						$('#product-' + productId + '-opened-amount').parent().effect('highlight', {}, 500);
-						$('#product-' + productId + '-opened-amount').fadeOut(500, function ()
-						{
-							if (openedAmount > 0)
-							{
-								$(this).text(__t('%s opened', openedAmount)).fadeIn(500);
-							}
-							else
-							{
-								$(this).text("").fadeIn(500);
-							}
-						});
-					}
-
-					var toastMessage = __t('Removed %1$s of %2$s from stock', consumeAmount.toString() + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural), result.product.name);
+					var toastMessage = __t('Removed %1$s of %2$s from stock', consumeAmount.toString() + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural), result.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + bookingResponse.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
 					if (wasSpoiled)
 					{
 						toastMessage += " (" + __t("Spoiled") + ")";
@@ -165,12 +107,7 @@ $(document).on('click', '.product-consume-button', function(e)
 					Grocy.FrontendHelpers.EndUiBusy();
 					toastr.success(toastMessage);
 					RefreshStatistics();
-
-					// Needs to be delayed because of the animation above the date-text would be wrong if fired immediately...
-					setTimeout(function ()
-					{
-						RefreshContextualTimeago();
-					}, 520);
+					RefreshProductRow(productId);
 				},
 				function(xhr)
 				{
@@ -203,54 +140,20 @@ $(document).on('click', '.product-open-button', function(e)
 	var button = $(e.currentTarget);
 
 	Grocy.Api.Post('stock/products/' + productId + '/open', { 'amount': 1 },
-		function()
+		function(bookingResponse)
 		{
 			Grocy.Api.Get('stock/products/' + productId,
 				function(result)
 				{
-					var productRow = $('#product-' + productId + '-row');
-					var expiringThreshold = moment().add("-" + $("#info-expiring-products").data("next-x-days"), "days");
-					var now = moment();
-					var nextBestBeforeDate = moment(result.next_best_before_date);
-
-					productRow.removeClass("table-warning");
-					productRow.removeClass("table-danger");
-					if (now.isAfter(nextBestBeforeDate))
-					{
-						productRow.addClass("table-danger");
-					}
-					if (expiringThreshold.isAfter(nextBestBeforeDate))
-					{
-						productRow.addClass("table-warning");
-					}
-
-					$('#product-' + productId + '-next-best-before-date').parent().effect('highlight', {}, 500);
-					$('#product-' + productId + '-next-best-before-date').fadeOut(500, function()
-					{
-						$(this).text(result.next_best_before_date).fadeIn(500);
-					});
-					$('#product-' + productId + '-next-best-before-date-timeago').attr('datetime', result.next_best_before_date);
-
-					$('#product-' + productId + '-opened-amount').parent().effect('highlight', {}, 500);
-					$('#product-' + productId + '-opened-amount').fadeOut(500, function()
-					{
-						$(this).text(__t('%s opened', result.stock_amount_opened)).fadeIn(500);
-					});
-
 					if (result.stock_amount == result.stock_amount_opened)
 					{
 						button.addClass("disabled");
 					}
 
 					Grocy.FrontendHelpers.EndUiBusy();
-					toastr.success(__t('Marked %1$s of %2$s as opened', 1 + " " + productQuName, productName));
+					toastr.success(__t('Marked %1$s of %2$s as opened', 1 + " " + productQuName, productName) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + bookingResponse.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
 					RefreshStatistics();
-
-					// Needs to be delayed because of the animation above the date-text would be wrong if fired immediately...
-					setTimeout(function()
-					{
-						RefreshContextualTimeago();
-					}, 600);
+					RefreshProductRow(productId);
 				},
 				function(xhr)
 				{
@@ -304,5 +207,208 @@ function RefreshStatistics()
 		}
 	);
 }
-
 RefreshStatistics();
+
+$(document).on("click", ".product-purchase-button", function(e)
+{
+	e.preventDefault();
+
+	var productId = $(e.currentTarget).attr("data-product-id");
+	
+	bootbox.dialog({
+		message: '<iframe height="650px" class="embed-responsive" src="' + U("/purchase?embedded&product=") + productId.toString() + '"></iframe>',
+		size: 'large',
+		backdrop: true,
+		closeButton: false,
+		buttons: {
+			cancel: {
+				label: __t('Cancel'),
+				className: 'btn-secondary responsive-button',
+				callback: function()
+				{
+					bootbox.hideAll();
+				}
+			}
+		}
+	});
+});
+
+$(document).on("click", ".product-consume-custom-amount-button", function(e)
+{
+	e.preventDefault();
+
+	var productId = $(e.currentTarget).attr("data-product-id");
+
+	bootbox.dialog({
+		message: '<iframe height="650px" class="embed-responsive" src="' + U("/consume?embedded&product=") + productId.toString() + '"></iframe>',
+		size: 'large',
+		backdrop: true,
+		closeButton: false,
+		buttons: {
+			cancel: {
+				label: __t('Cancel'),
+				className: 'btn-secondary responsive-button',
+				callback: function()
+				{
+					bootbox.hideAll();
+				}
+			}
+		}
+	});
+});
+
+$(document).on("click", ".product-inventory-button", function(e)
+{
+	e.preventDefault();
+
+	var productId = $(e.currentTarget).attr("data-product-id");
+	
+	bootbox.dialog({
+		message: '<iframe height="650px" class="embed-responsive" src="' + U("/inventory?embedded&product=") + productId.toString() + '"></iframe>',
+		size: 'large',
+		backdrop: true,
+		closeButton: false,
+		buttons: {
+			cancel: {
+				label: __t('Cancel'),
+				className: 'btn-secondary responsive-button',
+				callback: function()
+				{
+					bootbox.hideAll();
+				}
+			}
+		}
+	});
+});
+
+$(document).on("click", ".product-add-to-shopping-list-button", function(e)
+{
+	e.preventDefault();
+
+	var productId = $(e.currentTarget).attr("data-product-id");
+	
+	bootbox.dialog({
+		message: '<iframe height="650px" class="embed-responsive" src="' + U("/shoppinglistitem/new?embedded&product=") + productId.toString() + '"></iframe>',
+		size: 'large',
+		backdrop: true,
+		closeButton: false,
+		buttons: {
+			cancel: {
+				label: __t('Cancel'),
+				className: 'btn-secondary responsive-button',
+				callback: function()
+				{
+					bootbox.hideAll();
+				}
+			}
+		}
+	});
+});
+
+function RefreshProductRow(productId)
+{
+	productId = productId.toString();
+
+	Grocy.Api.Get('stock/products/' + productId,
+		function(result)
+		{
+			var productRow = $('#product-' + productId + '-row');
+			var expiringThreshold = moment().add("-" + $("#info-expiring-products").data("next-x-days"), "days");
+			var now = moment();
+			var nextBestBeforeDate = moment(result.next_best_before_date);
+			
+			productRow.removeClass("table-warning");
+			productRow.removeClass("table-danger");
+			if (now.isAfter(nextBestBeforeDate))
+			{
+				productRow.addClass("table-danger");
+			}
+			else if (nextBestBeforeDate.isAfter(expiringThreshold))
+			{
+				productRow.addClass("table-warning");
+			}
+
+			if (result.stock_amount <= 0)
+			{
+				$('#product-' + productId + '-row').fadeOut(500, function()
+				{
+					$(this).tooltip("hide");
+					$(this).remove();
+				});
+			}
+			else
+			{
+				$('#product-' + productId + '-qu-name').text(__n(result.stock_amount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural));
+				$('#product-' + productId + '-amount').parent().effect('highlight', { }, 500);
+				$('#product-' + productId + '-amount').fadeOut(500, function ()
+				{
+					$(this).text(result.stock_amount).fadeIn(500);
+				});
+				$('#product-' + productId + '-consume-all-button').attr('data-consume-amount', result.stock_amount);
+
+				$('#product-' + productId + '-next-best-before-date').parent().effect('highlight', { }, 500);
+				$('#product-' + productId + '-next-best-before-date').fadeOut(500, function()
+				{
+					$(this).text(result.next_best_before_date).fadeIn(500);
+				});
+				$('#product-' + productId + '-next-best-before-date-timeago').attr('datetime', result.next_best_before_date);
+
+				var openedAmount = result.stock_amount_opened || 0;
+				$('#product-' + productId + '-opened-amount').parent().effect('highlight', {}, 500);
+				$('#product-' + productId + '-opened-amount').fadeOut(500, function ()
+				{
+					if (openedAmount > 0)
+					{
+						$(this).text(__t('%s opened', openedAmount)).fadeIn(500);
+					}
+					else
+					{
+						$(this).text("").fadeIn(500);
+					}
+				});
+			}
+
+			$('#product-' + productId + '-next-best-before-date').parent().effect('highlight', {}, 500);
+			$('#product-' + productId + '-next-best-before-date').fadeOut(500, function()
+			{
+				$(this).text(result.next_best_before_date).fadeIn(500);
+			});
+			$('#product-' + productId + '-next-best-before-date-timeago').attr('datetime', result.next_best_before_date);
+
+			if (result.stock_amount_opened > 0)
+			{
+				$('#product-' + productId + '-opened-amount').parent().effect('highlight', {}, 500);
+				$('#product-' + productId + '-opened-amount').fadeOut(500, function()
+				{
+					$(this).text(__t('%s opened', result.stock_amount_opened)).fadeIn(500);
+				});
+			}
+			else
+			{
+				$('#product-' + productId + '-opened-amount').text("");
+			}
+
+			// Needs to be delayed because of the animation above the date-text would be wrong if fired immediately...
+			setTimeout(function()
+			{
+				RefreshContextualTimeago();
+			}, 600);
+		},
+		function(xhr)
+		{
+			Grocy.FrontendHelpers.EndUiBusy();
+			console.error(xhr);
+		}
+	);
+}
+
+$(window).on("message", function(e)
+{
+	var data = e.originalEvent.data;
+
+	if (data.Message === "ProductChanged")
+	{
+		RefreshProductRow(data.Payload);
+		RefreshStatistics();
+	}
+});

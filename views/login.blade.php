@@ -13,7 +13,6 @@
 			<div class="form-group">
 				<label for="name">{{ $__t('Username') }}</label>
 				<input type="text" class="form-control" required id="username" name="username">
-				<div class="invalid-feedback"></div>
 			</div>
 
 			<div class="form-group">
@@ -25,7 +24,7 @@
 			<div class="checkbox">
 				<label for="stay_logged_in">
 					<input type="checkbox" id="stay_logged_in" name="stay_logged_in"> {{ $__t('Stay logged in permanently') }}
-					<p id="qu-conversion-info" class="form-text text-muted small my-0">{{ $__t('When not set, you will get logged out at latest after 30 days') }}</p>
+					<p class="form-text text-muted small my-0">{{ $__t('When not set, you will get logged out at latest after 30 days') }}</p>
 				</label>
 			</div>
 

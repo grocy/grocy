@@ -64,21 +64,32 @@
 					Grocy.Api.Get('stock/products/' + jsonForm.product_id,
 						function(result)
 						{
-							Grocy.FrontendHelpers.EndUiBusy("inventory-form");
-							toastr.success(__t('Stock amount of %1$s is now %2$s', result.product.name, result.stock_amount + " " + __n(result.stock_amount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural)) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + bookingResponse.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
+							var successMessage = __t('Stock amount of %1$s is now %2$s', result.product.name, result.stock_amount + " " + __n(result.stock_amount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural)) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + bookingResponse.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
+							
+							if (GetUriParam("embedded") !== undefined)
+							{
+								window.parent.postMessage(WindowMessageBag("ProductChanged", jsonForm.product_id), Grocy.BaseUrl);
+								window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", successMessage), Grocy.BaseUrl);
+								window.parent.postMessage(WindowMessageBag("CloseAllModals"), Grocy.BaseUrl);
+							}
+							else
+							{
+								Grocy.FrontendHelpers.EndUiBusy("inventory-form");
+								toastr.success(successMessage);
 
-							$('#inventory-change-info').addClass('d-none');
-							$("#tare-weight-handling-info").addClass("d-none");
-							$("#new_amount").attr("min", "0");
-							$("#new_amount").attr("step", "1");
-							$("#new_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '0'));
-							$('#new_amount').val('');
-							$('#new_amount_qu_unit').text("");
-							$('#price').val('');
-							Grocy.Components.DateTimePicker.Clear();
-							Grocy.Components.ProductPicker.SetValue('');
-							Grocy.Components.ProductPicker.GetInputElement().focus();
-							Grocy.FrontendHelpers.ValidateForm('inventory-form');
+								$('#inventory-change-info').addClass('d-none');
+								$("#tare-weight-handling-info").addClass("d-none");
+								$("#new_amount").attr("min", "0");
+								$("#new_amount").attr("step", "1");
+								$("#new_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '0'));
+								$('#new_amount').val('');
+								$('#new_amount_qu_unit').text("");
+								$('#price').val('');
+								Grocy.Components.DateTimePicker.Clear();
+								Grocy.Components.ProductPicker.SetValue('');
+								Grocy.Components.ProductPicker.GetInputElement().focus();
+								Grocy.FrontendHelpers.ValidateForm('inventory-form');
+							}
 						},
 						function(xhr)
 						{

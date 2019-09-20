@@ -43,6 +43,15 @@ if (typeof recipe !== "undefined")
 	$(cardId)[0].scrollIntoView();
 }
 
+if (GetUriParam("search") !== undefined)
+{
+	$("#search").val(GetUriParam("search"));
+	setTimeout(function ()
+	{
+		$("#search").keyup();
+	}, 50);
+}
+
 $("a[data-toggle='tab']").on("shown.bs.tab", function(e)
 {
 	var tabId = $(e.target).attr("id");

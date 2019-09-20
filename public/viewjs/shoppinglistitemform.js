@@ -10,7 +10,24 @@
 		Grocy.Api.Post('objects/shopping_list', jsonData,
 			function(result)
 			{
-				window.location.href = U('/shoppinglist?list=' + $("#shopping_list_id").val().toString());
+				if (GetUriParam("embedded") !== undefined)
+				{
+					Grocy.Api.Get('stock/products/' + jsonData.product_id,
+						function (productDetails)
+						{
+							window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", __t("Added %1$s of %2$s to the shopping list \"%3$s\"", jsonData.amount + " " + __n(jsonData.amount, productDetails.quantity_unit_purchase.name, productDetails.quantity_unit_purchase.name_plural), productDetails.product.name, $("#shopping_list_id option:selected").text())), Grocy.BaseUrl);
+							window.parent.postMessage(WindowMessageBag("CloseAllModals"), Grocy.BaseUrl);
+						},
+						function (xhr)
+						{
+							console.error(xhr);
+						}
+					);
+				}
+				else
+				{
+					window.location.href = U('/shoppinglist?list=' + $("#shopping_list_id").val().toString());
+				}
 			},
 			function(xhr)
 			{
@@ -24,7 +41,24 @@
 		Grocy.Api.Put('objects/shopping_list/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
-				window.location.href = U('/shoppinglist?list=' + $("#shopping_list_id").val().toString());
+				if (GetUriParam("embedded") !== undefined)
+				{
+					Grocy.Api.Get('stock/products/' + jsonData.product_id,
+						function (productDetails)
+						{
+							window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", __t("Added %1$s of %2$s to the shopping list \"%3$s\"", jsonData.amount + " " + __n(jsonData.amount, productDetails.quantity_unit_purchase.name, productDetails.quantity_unit_purchase.name_plural), productDetails.product.name, $("#shopping_list_id option:selected").text())), Grocy.BaseUrl);
+							window.parent.postMessage(WindowMessageBag("CloseAllModals"), Grocy.BaseUrl);
+						},
+						function (xhr)
+						{
+							console.error(xhr);
+						}
+					);
+				}
+				else
+				{
+					window.location.href = U('/shoppinglist?list=' + $("#shopping_list_id").val().toString());
+				}
 			},
 			function(xhr)
 			{
@@ -74,6 +108,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 
 Grocy.FrontendHelpers.ValidateForm('shoppinglist-form');
 Grocy.Components.ProductPicker.GetInputElement().focus();
+Grocy.Components.ProductPicker.GetPicker().trigger('change');
 
 if (Grocy.EditMode === "edit")
 {

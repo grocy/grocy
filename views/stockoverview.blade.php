@@ -6,6 +6,7 @@
 
 @push('pageScripts')
 	<script src="{{ $U('/node_modules/jquery-ui-dist/jquery-ui.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/viewjs/purchase.js?v=', true) }}{{ $version }}"></script>
 @endpush
 
 @push('pageStyles')
@@ -126,6 +127,24 @@
 								<i class="fas fa-ellipsis-v"></i>
 							</button>
 							<div class="dropdown-menu">
+								<a class="dropdown-item product-add-to-shopping-list-button" type="button" href="#"
+									data-product-id="{{ $currentStockEntry->product_id }}">
+									<i class="fas fa-shopping-cart"></i> {{ $__t('Add to shopping list') }}
+								</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item product-purchase-button" type="button" href="#"
+									data-product-id="{{ $currentStockEntry->product_id }}">
+									<i class="fas fa-shopping-cart"></i> {{ $__t('Purchase') }}
+								</a>
+								<a class="dropdown-item product-consume-custom-amount-button @if($currentStockEntry->amount < 1) disabled @endif" type="button" href="#"
+									data-product-id="{{ $currentStockEntry->product_id }}">
+									<i class="fas fa-utensils"></i> {{ $__t('Consume') }}
+								</a>
+								<a class="dropdown-item product-inventory-button @if($currentStockEntry->amount < 1) disabled @endif" type="button" href="#"
+									data-product-id="{{ $currentStockEntry->product_id }}">
+									<i class="fas fa-list"></i> {{ $__t('Inventory') }}
+								</a>
+								<div class="dropdown-divider"></div>
 								<a class="dropdown-item product-name-cell" data-product-id="{{ $currentStockEntry->product_id }}" type="button" href="#">
 									<i class="fas fa-info"></i> {{ $__t('Show product details') }}
 								</a>
@@ -142,6 +161,9 @@
 									data-product-qu-name="{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name }}"
 									data-consume-amount="1">
 									<i class="fas fa-utensils"></i> {{ $__t('Consume %1$s of %2$s as spoiled', '1 ' . FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name) }}
+								</a>
+								<a class="dropdown-item" type="button" href="{{ $U('/recipes?search=') }}{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}">
+									<i class="fas fa-cocktail"></i> {{ $__t('Search for recipes containing this product') }}
 								</a>
 							</div>
 						</div>

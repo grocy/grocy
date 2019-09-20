@@ -20,6 +20,12 @@
   - On the quantity unit edit page default conversion can be defined for each unit
   - Products "inherit" the default conversion and additionally can have their own / override the default ones
 - It's now possible to print a "Location Content Sheet" with the current stock per location - new button at the top of the stock overview page (thought to hang it at the location, note used amounts on paper and track it in grocy later)
+- Stock overview page improvements
+  - Options in the more/context-menu to directly open the purchase/consume/inventory pages prefilled with the current product in an popup/dialog
+  - Option in the more/context-menu to add the current product directly to a shopping list
+  - Option in the more/context-menu to search for recipes containing the current product
+  - It's now possible to undo stock bookings ("Undo"-button in the success message, like it was already possible on the purchase/consume/inventory pages)
+  - Improved that on any stock changes the corresponding product table row is properly refreshed
 - New `config.php` setting `FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT` to configure if opened products should be considered for minimum stock amounts (defaults to `true`, so opened products will now be considered missing by default - please change this setting if you want the old behaviour)
 - The product description now can have formattings (HTML/WYSIWYG editor like for recipes)
 - "Factor purchase to stock quantity unit" (product option) can now also be a decimal number when "Allow partial units in stock" is enabled
@@ -34,6 +40,7 @@
 - Based on the new linked quantity units, recipe ingredients can now use any product related unit, the amount is calculated according to the cnoversion factor of the unit relation
 - New option "price factor" per recipe ingredient (defaults to `1`) - the resulting costs of the recipe ingredient will be multiplied by that factor
   - Use this for example for spices in combination with "Only check if a single unit is in stock" to not take the full price of a pack of pepper into account for a recipe
+- The search field on the recipe overview page now also searches for product names of recipe ingredients (means it's possible to search an recipe by a product name)
 
 ### Chores improvements
 - Chores can now be assigned to users
@@ -70,6 +77,7 @@
 - New endpoint `/stock/products/by-barcode/{barcode}/consume` to remove a product to stock by its barcode
 - New endpoint `/stock/products/by-barcode/{barcode}/inventory` to inventory a product by its barcode
 - New endpoint `/stock/products/by-barcode/{barcode}/open` to mark a product as opened by its barcode
+- New endpoint `/stock/bookings/{bookingId}` to retrieve a single stock booking
 - Endpoint `GET /files/{group}/{fileName}` can now also downscale pictures (see API documentation on [/api](https://demo-en.grocy.info/api))
 - When adding a product (through `stock/product/{productId}/add` or `stock/product/{productId}/inventory`) with omitted best before date and if the given product has "Default best before days" set, the best before date is calculated based on that (so far always today was used which is still the case when no date is supplied and also the product has no "Default best before days set) (thanks @Forceu)
 - Field `stock_amount` of endpoint `/stock/products/{productId}` now returns `0` instead of `null` when the given product is not in stock (thanks @Forceu)

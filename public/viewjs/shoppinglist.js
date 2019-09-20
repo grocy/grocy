@@ -246,10 +246,6 @@ $(window).on("message", function(e)
 			}
 		}
 	}
-	else if (data.Message === "ShowSuccessMessage")
-	{
-		toastr.success(data.Payload);
-	}
 });
 
 $(document).on('click', '#shopping-list-stock-add-workflow-skip-button', function(e)

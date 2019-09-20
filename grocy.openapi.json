@@ -2037,6 +2037,47 @@
 				}
 			}
 		},
+		"/stock/bookings/{bookingId}": {
+			"get": {
+				"summary": "Returns the given stock booking",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "bookingId",
+						"required": true,
+						"description": "A valid stock booking id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A StockLogEntry object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/StockLogEntry"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Invalid stock booking id)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/stock/bookings/{bookingId}/undo": {
 			"post": {
 				"summary": "Undoes a booking",

@@ -348,6 +348,11 @@ Grocy.FrontendHelpers = { };
 Grocy.FrontendHelpers.ValidateForm = function(formId)
 {
 	var form = document.getElementById(formId);
+	if (form === null || form === undefined)
+	{
+		return;
+	}
+
 	if (form.checkValidity() === true)
 	{
 		$(form).find(':submit').removeClass('disabled');
@@ -544,3 +549,17 @@ if (!Grocy.CalendarFirstDayOfWeek.isEmpty())
 		}
 	});
 }
+
+$(window).on("message", function(e)
+{
+	var data = e.originalEvent.data;
+
+	if (data.Message === "ShowSuccessMessage")
+	{
+		toastr.success(data.Payload);
+	}
+	else if (data.Message === "CloseAllModals")
+	{
+		bootbox.hideAll();
+	}
+});

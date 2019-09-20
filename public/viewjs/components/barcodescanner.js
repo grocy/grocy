@@ -66,6 +66,10 @@ Grocy.Components.BarcodeScanner.StartScanning = function()
 		if (error)
 		{
 			Grocy.FrontendHelpers.ShowGenericError("Error while initializing the barcode scanning library", error.message);
+			setTimeout(function()
+			{
+				bootbox.hideAll();
+			}, 500);
 			return;
 		}
 		Quagga.start();
@@ -136,8 +140,7 @@ $(document).on("click", "#barcodescanner-start-button", function(e)
 				{
 					Grocy.Components.BarcodeScanner.StopScanning();
 				}
-			},
-			
+			}
 		}
 	});
 
