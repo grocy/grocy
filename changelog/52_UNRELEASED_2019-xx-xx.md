@@ -62,17 +62,19 @@
 - It's now possible to test plural forms of quantity units (button on the quantity unit edit page, only visible if the current language requires more than 2 plural forms)
 
 ### API improvements & non-breaking changes
-  - New endpoint `/stock/shoppinglist/add-product` to add a product to a shopping list (thanks @Forceu)
-  - New endpoint `/stock/shoppinglist/remove-product` to remove a product from a shopping list (thanks @Forceu)
-  - New endpoint `/chores/executions/calculate-next-assignments` to (re)calculate next user assignments for a single or all chores
-  - New endpoint `/stock/products/by-barcode/{barcode}/add` to add a product to stock by its barcode
-  - New endpoint `/stock/products/by-barcode/{barcode}/consume` to remove a product to stock by its barcode
-  - New endpoint `/objects/{entity}/search/{searchString}` to search for objects by name (contains search)
-  - Endpoint `GET /files/{group}/{fileName}` can now also downscale pictures (see API documentation on [/api](https://demo-en.grocy.info/api))
-  - When adding a product (through `stock/product/{productId}/add` or `stock/product/{productId}/inventory`) with omitted best before date and if the given product has "Default best before days" set, the best before date is calculated based on that (so far always today was used which is still the case when no date is supplied and also the product has no "Default best before days set) (thanks @Forceu)
-  - Field `stock_amount` of endpoint `/stock/products/{productId}` now returns `0` instead of `null` when the given product is not in stock (thanks @Forceu)
-  - Fixed that `/system/db-changed-time` always returned the current time (more or less) due to that that time is the database file modification time and the database is effectively changed on each request because of session information tracking - which now explicitly does not change the database file modification time, so this should work again to determine if any data changes happened
-  - It's now also possible to provide the API key via a query parameter (same name as the header, so `GROCY-API-KEY`)
+- New endpoint `/objects/{entity}/search/{searchString}` to search for objects by name (contains search)
+- New endpoint `/stock/shoppinglist/add-product` to add a product to a shopping list (thanks @Forceu)
+- New endpoint `/stock/shoppinglist/remove-product` to remove a product from a shopping list (thanks @Forceu)
+- New endpoint `/chores/executions/calculate-next-assignments` to (re)calculate next user assignments for a single or all chores
+- New endpoint `/stock/products/by-barcode/{barcode}/add` to add a product to stock by its barcode
+- New endpoint `/stock/products/by-barcode/{barcode}/consume` to remove a product to stock by its barcode
+- New endpoint `/stock/products/by-barcode/{barcode}/inventory` to inventory a product by its barcode
+- New endpoint `/stock/products/by-barcode/{barcode}/open` to mark a product as opened by its barcode
+- Endpoint `GET /files/{group}/{fileName}` can now also downscale pictures (see API documentation on [/api](https://demo-en.grocy.info/api))
+- When adding a product (through `stock/product/{productId}/add` or `stock/product/{productId}/inventory`) with omitted best before date and if the given product has "Default best before days" set, the best before date is calculated based on that (so far always today was used which is still the case when no date is supplied and also the product has no "Default best before days set) (thanks @Forceu)
+- Field `stock_amount` of endpoint `/stock/products/{productId}` now returns `0` instead of `null` when the given product is not in stock (thanks @Forceu)
+- Fixed that `/system/db-changed-time` always returned the current time (more or less) due to that that time is the database file modification time and the database is effectively changed on each request because of session information tracking - which now explicitly does not change the database file modification time, so this should work again to determine if any data changes happened
+- It's now also possible to provide the API key via a query parameter (same name as the header, so `GROCY-API-KEY`)
 
 #### Say thanks
 Because there were some questions about that in the past: If grocy is useful for you, [say thanks](https://grocy.info/#say-thanks)!

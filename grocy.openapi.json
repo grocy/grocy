@@ -1555,7 +1555,7 @@
 		},
 		"/stock/products/by-barcode/{barcode}/add": {
 			"post": {
-				"summary": "Adds the given amount of the given product by its barcode to stock",
+				"summary": "Adds the given amount of the by its barcode given product to stock",
 				"tags": [
 					"Stock"
 				],
@@ -1637,7 +1637,7 @@
 		},
 		"/stock/products/by-barcode/{barcode}/consume": {
 			"post": {
-				"summary": "Removes the given amount of the given product by its barcode from stock",
+				"summary": "Removes the given amount of the by its barcode given product from stock",
 				"tags": [
 					"Stock"
 				],
@@ -1702,6 +1702,142 @@
 					},
 					"400": {
 						"description": "The operation was not successful (possible errors are: Not existing product, invalid transaction type, given amount > current stock amount)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/products/by-barcode/{barcode}/inventory": {
+			"post": {
+				"summary": "Inventories the by its barcode given product (adds/removes based on the given new amount)",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "barcode",
+						"required": true,
+						"description": "Barcode",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"new_amount": {
+										"type": "integer",
+										"description": "The new current amount for the given product - please note that when tare weight handling for the product is enabled, this needs to be the amount including the container weight (gross), the amount to be posted will be automatically calculated based on what is in stock and the defined tare weight"
+									},
+									"best_before_date": {
+										"type": "string",
+										"format": "date",
+										"description": "The best before date which applies to added products"
+									},
+									"location_id": {
+										"type": "number",
+										"format": "integer",
+										"description": "If omitted, the default location of the product is used (only applies to added products)"
+									},
+									"price": {
+										"type": "number",
+										"format": "number",
+										"description": "If omitted, the last price of the product is used (only applies to added products)"
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/StockLogEntry"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/products/by-barcode/{barcode}/open": {
+			"post": {
+				"summary": "Marks the given amount of the by its barcode given product as opened",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "barcode",
+						"required": true,
+						"description": "Barcode",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"amount": {
+										"type": "number",
+										"description": "The amount to mark as opened"
+									},
+									"stock_entry_id": {
+										"type": "string",
+										"description": "A specific stock entry id to open, if used, the amount has to be 1"
+									}
+								},
+								"example": {
+									"amount": 1
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/StockLogEntry"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product, given amount > current unopened stock amount)",
 						"content": {
 							"application/json": {
 								"schema": {
