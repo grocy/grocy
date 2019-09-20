@@ -38,4 +38,10 @@ msgid "checkbox"
 msgstr "Kontrollkästchen"
 
 msgid "preset-list"
-msgstr "Auswahlliste (feste Werte)"
+msgstr "Auswahlliste (feste Werte, einzelner Wert kann ausgewählt werden)"
+
+msgid "preset-checklist"
+msgstr "Auswahlliste (feste Werte, mehrere Werte können ausgewählt werden)"
+
+msgid "link"
+msgstr "Link"

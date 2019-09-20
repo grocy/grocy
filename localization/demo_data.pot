@@ -303,3 +303,10 @@ msgstr ""
 
 msgid "Waffle rolls"
 msgstr ""
+
+msgid "Danish"
+msgstr ""
+
+msgid "Dutch"
+msgstr ""
+

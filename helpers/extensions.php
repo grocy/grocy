@@ -214,3 +214,9 @@ function IsValidFileName($fileName)
 
 	return false;
 }
+
+function IsJsonString($text)
+{
+	json_decode($text);
+	return (json_last_error() == JSON_ERROR_NONE);
+}

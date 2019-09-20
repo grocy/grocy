@@ -296,3 +296,31 @@ msgstr "Szwedzki"
 
 msgid "Polish"
 msgstr "Polski"
+
+msgid "Milk Chocolate"
+msgstr ""
+
+msgid "Dark Chocolate"
+msgstr ""
+
+msgid "Slice"
+msgid_plural "Slices"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "Example userentity"
+msgstr ""
+
+msgid "This is an example user entity..."
+msgstr ""
+
+msgid "Custom field"
+msgstr ""
+
+msgid "Example field value..."
+msgstr ""
+
+msgid "Waffle rolls"
+msgstr ""

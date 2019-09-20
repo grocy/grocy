@@ -40,3 +40,9 @@ msgstr "Флажок"
 
 msgid "preset-list"
 msgstr "предопределённый-список"
+
+msgid "preset-checklist"
+msgstr "предопределённый-список-галочек"
+
+msgid "link"
+msgstr "ссылка"

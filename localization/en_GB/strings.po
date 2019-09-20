@@ -354,8 +354,8 @@ msgid "This means %s will be removed from stock"
 msgstr ""
 
 msgid ""
-"This means it is estimated that a new execution of this chore is tracked %s "
-"days after the last was tracked"
+"This means the next execution of this chore is scheduled %s days after the "
+"last execution"
 msgstr ""
 
 msgid "Removed %1$s of %2$s from stock"
@@ -1325,4 +1325,227 @@ msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
 msgstr ""
 
 msgid "Undo task \"%s\""
+msgstr ""
+
+msgid "Due date rollover"
+msgstr ""
+
+msgid ""
+"When enabled the chore can never be overdue, the due date will shift forward"
+" each day when due"
+msgstr ""
+
+msgid "Location Content Sheet"
+msgstr ""
+
+msgid "Print"
+msgstr ""
+
+msgid "all locations"
+msgstr ""
+
+msgid ""
+"Here you can print a page per location with the current stock, maybe to hang"
+" it there and note the consumed things on it."
+msgstr ""
+
+msgid "this location"
+msgstr ""
+
+msgid "Consumend amount"
+msgstr ""
+
+msgid "Time of printing"
+msgstr ""
+
+msgid "Are you sure to delete equipment \"%s\"?"
+msgstr ""
+
+msgid "Parent product"
+msgstr ""
+
+msgid ""
+"Not possible because this product is already used as a parent product in "
+"another product"
+msgstr ""
+
+msgid "Default conversions"
+msgstr ""
+
+msgid "Factor"
+msgstr ""
+
+msgid "1 %s is the same as..."
+msgstr ""
+
+msgid "Create QU conversion"
+msgstr ""
+
+msgid "Default for QU"
+msgstr ""
+
+msgid "Quantity unit from"
+msgstr ""
+
+msgid "Quantity unit to"
+msgstr ""
+
+msgid ""
+"This cannot be lower than %1$s and must be a valid number with max. %2$s "
+"decimal places"
+msgstr ""
+
+msgid "This cannot be equal to %s"
+msgstr ""
+
+msgid "This means 1 %1$s is the same as %2$s %3$s"
+msgstr ""
+
+msgid "QU conversions"
+msgstr ""
+
+msgid "Product overrides"
+msgstr ""
+
+msgid "Override for product"
+msgstr ""
+
+msgid "This equals %1$s %2$s in stock"
+msgstr ""
+
+msgid "Edit QU conversion"
+msgstr ""
+
+msgid "An assignment type is required"
+msgstr ""
+
+msgid "Assignment type"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 day after the "
+"last execution"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 day after the "
+"last execution, but only for the weekdays selected below"
+msgstr ""
+
+msgid "This means the next execution of this chore is not scheduled"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore is scheduled on the below "
+"selected day of each month"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore will not be assigned to anyone"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore will be assigned to the one who "
+"executed it least"
+msgstr ""
+
+msgid "This means the next execution of this chore will be assigned randomly"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore will be assigned to the next one"
+" in alphabetical order"
+msgstr ""
+
+msgid "Assign to"
+msgstr ""
+
+msgid "This assignment type requires that at least one is assigned"
+msgstr ""
+
+msgid "%s chore is assigned to me"
+msgid_plural "%s chores are assigned to me"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Assigned to me"
+msgstr ""
+
+msgid "assigned to %s"
+msgstr ""
+
+msgid "Filter by assignment"
+msgstr ""
+
+msgid "Consume product on chore execution"
+msgstr ""
+
+msgid "Are you sure to delete user field \"%s\"?"
+msgstr ""
+
+msgid "Userentities"
+msgstr ""
+
+msgid "Create userentity"
+msgstr ""
+
+msgid "Show in sidebar menu"
+msgstr ""
+
+msgid "Edit userentity"
+msgstr ""
+
+msgid "Edit %s"
+msgstr ""
+
+msgid "Create %s"
+msgstr ""
+
+msgid "Are you sure to delete this userobject?"
+msgstr ""
+
+msgid "Icon CSS class"
+msgstr ""
+
+msgid "For example"
+msgstr ""
+
+msgid "Configure fields"
+msgstr ""
+
+msgid "Quantity unit plural form testing"
+msgstr ""
+
+msgid "Result"
+msgstr ""
+
+msgid "Test plural forms"
+msgstr ""
+
+msgid "Scan a barcode"
+msgstr ""
+
+msgid "Error while initializing the barcode scanning library"
+msgstr ""
+
+msgid ""
+"The resulting price of this ingredient will be multiplied by this factor"
+msgstr ""
+
+msgid "Price factor"
+msgstr ""
+
+msgid "Do you find grocy useful?"
+msgstr ""
+
+msgid "Say thanks"
+msgstr ""
+
+msgid "Search for recipes containing this product"
+msgstr ""
+
+msgid "Add to shopping list"
+msgstr ""
+
+msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
 msgstr ""

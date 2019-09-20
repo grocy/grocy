@@ -1,6 +1,7 @@
 # Translators:
-# Bernd Bestel <bernd@berrnd.de>, 2019
 # Mathias Fröjd <info@mcfrojd.com>, 2019
+# Bernd Bestel <bernd@berrnd.de>, 2019
+# Fredrik Hendeberg <fredrik@hendeberg.com>, 2019
 # 
 msgid ""
 msgstr ""
@@ -8,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Mathias Fröjd <info@mcfrojd.com>, 2019\n"
+"Last-Translator: Fredrik Hendeberg <fredrik@hendeberg.com>, 2019\n"
 "Language-Team: Swedish (Sweden) (https://www.transifex.com/grocy/teams/93189/sv_SE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,33 +38,33 @@ msgstr "Kylskåp"
 
 msgid "Piece"
 msgid_plural "Pieces"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Bit"
+msgstr[1] "Bitar"
 
 msgid "Pack"
 msgid_plural "Packs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Förpackning"
+msgstr[1] "Förpackningar"
 
 msgid "Glass"
 msgid_plural "Glasses"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Glas"
+msgstr[1] "Glas"
 
 msgid "Tin"
 msgid_plural "Tins"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Burk"
+msgstr[1] "Burkar"
 
 msgid "Can"
 msgid_plural "Cans"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Burk"
+msgstr[1] "Burkar"
 
 msgid "Bunch"
 msgid_plural "Bunches"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Knippa"
+msgstr[1] "Knippor"
 
 msgid "Gummy bears"
 msgstr "Gummibjörnar"
@@ -172,8 +173,8 @@ msgstr "Demo-användare"
 
 msgid "Gram"
 msgid_plural "Grams"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gram"
+msgstr[1] "Gram"
 
 msgid "Flour"
 msgstr "Mjöl"
@@ -263,22 +264,48 @@ msgid "Turkish"
 msgstr "Turkiska"
 
 msgid "Spanish"
-msgstr "Spansk"
+msgstr "Spanska"
 
 msgid "Russian"
 msgstr "Ryska"
 
 msgid "The thing which happens on the 5th of every month"
-msgstr "Det som händer den 5: e varje månad"
+msgstr "Saken som händer den 5:e varje månad"
 
 msgid "The thing which happens daily"
-msgstr "Saker som händer dagligen"
+msgstr "Saken som händer dagligen"
 
 msgid "The thing which happens on Mondays and Wednesdays"
-msgstr "Saker som händer på måndagar och onsdagar"
+msgstr "Saken som händer på måndagar och onsdagar"
 
 msgid "Swedish"
-msgstr "Swedish"
+msgstr "Svenska"
 
 msgid "Polish"
-msgstr "Polermedel"
+msgstr "Polska"
+
+msgid "Milk Chocolate"
+msgstr ""
+
+msgid "Dark Chocolate"
+msgstr ""
+
+msgid "Slice"
+msgid_plural "Slices"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Example userentity"
+msgstr ""
+
+msgid "This is an example user entity..."
+msgstr ""
+
+msgid "Custom field"
+msgstr ""
+
+msgid "Example field value..."
+msgstr ""
+
+msgid "Waffle rolls"
+msgstr ""

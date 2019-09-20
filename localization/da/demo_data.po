@@ -1,5 +1,6 @@
 # Translators:
 # dark159123 <r.j.hansen@protonmail.com>, 2019
+# Troels Siggaard <troels@siggaard.com>, 2019
 # 
 msgid ""
 msgstr ""
@@ -7,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: dark159123 <r.j.hansen@protonmail.com>, 2019\n"
+"Last-Translator: Troels Siggaard <troels@siggaard.com>, 2019\n"
 "Language-Team: Danish (https://www.transifex.com/grocy/teams/93189/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,13 +21,13 @@ msgid "Cookies"
 msgstr "Småkager"
 
 msgid "Chocolate"
-msgstr "chokolade"
+msgstr "Chokolade"
 
 msgid "Pantry"
 msgstr "Spisekammer"
 
 msgid "Candy cupboard"
-msgstr "Slik skuffe"
+msgstr "Slikskuffe"
 
 msgid "Tinned food cupboard"
 msgstr "Dåsemadsskab"
@@ -36,36 +37,36 @@ msgstr "Køleskab"
 
 msgid "Piece"
 msgid_plural "Pieces"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Styk"
+msgstr[1] "Stykker"
 
 msgid "Pack"
 msgid_plural "Packs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Pakke"
+msgstr[1] "Pakker"
 
 msgid "Glass"
 msgid_plural "Glasses"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Glas"
+msgstr[1] "Glas"
 
 msgid "Tin"
 msgid_plural "Tins"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Dåse"
+msgstr[1] "Dåser"
 
 msgid "Can"
 msgid_plural "Cans"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Dåse"
+msgstr[1] "Dåser"
 
 msgid "Bunch"
 msgid_plural "Bunches"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Klase"
+msgstr[1] "Klaser"
 
 msgid "Gummy bears"
-msgstr "Vingummi bamser"
+msgstr "Vingummibamser"
 
 msgid "Crisps"
 msgstr "Chips"
@@ -113,22 +114,22 @@ msgid "Warranty ends"
 msgstr "Reklamationsret udløber"
 
 msgid "TV remote control"
-msgstr "Fjernbetjening"
+msgstr "Fjernbetjening til TV'et"
 
 msgid "Alarm clock"
-msgstr "Vægge ur"
+msgstr "Væggeur"
 
 msgid "Heat remote control"
-msgstr "Varmefjernbetjening"
+msgstr "Fjernbetjening til varme"
 
 msgid "Lawn mowed in the garden"
-msgstr "Græs slået"
+msgstr "Græsset blev slået i haven"
 
 msgid "Some good snacks"
 msgstr "Nogle gode snacks"
 
 msgid "Pizza dough"
-msgstr "Pizza dej"
+msgstr "Pizzadej"
 
 msgid "Sieved tomatoes"
 msgstr "Sigtede tomater"
@@ -149,7 +150,7 @@ msgid "Spaghetti bolognese"
 msgstr "Spaghetti bolognese"
 
 msgid "Sandwiches"
-msgstr "Sandwiches"
+msgstr "Sandwich"
 
 msgid "English"
 msgstr "Engelsk"
@@ -158,21 +159,21 @@ msgid "German"
 msgstr "Tysk"
 
 msgid "Italian"
-msgstr "Italiænsk"
+msgstr "Italiensk"
 
 msgid "Demo in different language"
-msgstr "Demo i et andet sprog"
+msgstr "Demo på et andet sprog"
 
 msgid "This is the note content of the recipe ingredient"
-msgstr "Dette er indholdet af opskrift ingrediensens notefelt"
+msgstr "Dette er indholdet af opskrift-ingrediensens notefeltet"
 
 msgid "Demo User"
 msgstr "Demo Bruger"
 
 msgid "Gram"
 msgid_plural "Grams"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gram"
+msgstr[1] "Gram"
 
 msgid "Flour"
 msgstr "Mel"
@@ -187,25 +188,25 @@ msgid "Home"
 msgstr "Hjem"
 
 msgid "Life"
-msgstr "Liv"
+msgstr "Livet"
 
 msgid "Projects"
 msgstr "Projekter"
 
 msgid "Repair the garage door"
-msgstr "Reparér garagedøren"
+msgstr "Reparer garagedøren"
 
 msgid "Fork and improve grocy"
 msgstr "Fork og forbedre grocy"
 
 msgid "Find a solution for what to do when I forget the door keys"
-msgstr "Find en løsning for når jeg glemmer husnøglen"
+msgstr "Find en løsning på hvad jeg gør, når jeg glemmer nøglen til huset"
 
 msgid "Sweets"
 msgstr "Slik"
 
 msgid "Bakery products"
-msgstr "Bageriprodukter"
+msgstr "Bagværk"
 
 msgid "Tinned food"
 msgstr "Dåsemad"
@@ -217,13 +218,13 @@ msgid "Vegetables/Fruits"
 msgstr "Frugt og grønt"
 
 msgid "Refrigerated products"
-msgstr "Nedkølede produkter"
+msgstr "Køleskabsprodukter"
 
 msgid "Coffee machine"
 msgstr "Kaffemaskine"
 
 msgid "Dishwasher"
-msgstr "Opvasker"
+msgstr "Opvaskemaskine"
 
 msgid "Liter"
 msgstr "Liter"
@@ -259,25 +260,51 @@ msgid "French"
 msgstr "Fransk"
 
 msgid "Turkish"
-msgstr ""
+msgstr "Tyrkisk"
 
 msgid "Spanish"
-msgstr ""
+msgstr "Spansk"
 
 msgid "Russian"
-msgstr ""
+msgstr "Russisk"
 
 msgid "The thing which happens on the 5th of every month"
-msgstr ""
+msgstr "Det der sker hver den 5. i måneden"
 
 msgid "The thing which happens daily"
-msgstr ""
+msgstr "Det der sker dagligt"
 
 msgid "The thing which happens on Mondays and Wednesdays"
-msgstr ""
+msgstr "Det der sker på mandage og onsdage"
 
 msgid "Swedish"
-msgstr ""
+msgstr "Svensk"
 
 msgid "Polish"
+msgstr "Polsk"
+
+msgid "Milk Chocolate"
+msgstr ""
+
+msgid "Dark Chocolate"
+msgstr ""
+
+msgid "Slice"
+msgid_plural "Slices"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Example userentity"
+msgstr ""
+
+msgid "This is an example user entity..."
+msgstr ""
+
+msgid "Custom field"
+msgstr ""
+
+msgid "Example field value..."
+msgstr ""
+
+msgid "Waffle rolls"
 msgstr ""

@@ -1,5 +1,4 @@
 # Translators:
-# Antonino Ursino <ninus_@libero.it>, 2019
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # 
 msgid ""
@@ -18,22 +17,51 @@ msgstr ""
 "X-Domain: grocy/component_translations\n"
 
 msgid "timeago_locale"
-msgstr "tempofa_locale"
+msgstr "it"
 
 msgid "timeago_nan"
-msgstr "tempofa_nan"
+msgstr "NaN anni"
 
 msgid "moment_locale"
-msgstr "istante_locale"
+msgstr "it"
 
 msgid "datatables_localization"
-msgstr "datitabelle_localizzazione"
+msgstr ""
+"{\n"
+"\"sProcessing\": \"Traitement en cours...\",\n"
+"\"sSearch\": \"Rechercher&nbsp;:\",\n"
+"\"sLengthMenu\": \"Afficher _MENU_ &eacute;l&eacute;ments\",\n"
+"\"sInfo\": \"Affichage de l'&eacute;l&eacute;ment _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments\",\n"
+"\"sInfoEmpty\": \"Affichage de l'&eacute;l&eacute;ment 0 &agrave; 0 sur 0 &eacute;l&eacute;ment\",\n"
+"\"sInfoFiltered\": \"(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)\",\n"
+"\"sInfoPostFix\": \"\",\n"
+"\"sLoadingRecords\": \"Chargement en cours...\",\n"
+"\"sZeroRecords\": \"Aucun &eacute;l&eacute;ment &agrave; afficher\",\n"
+"\"sEmptyTable\": \"Aucune donn&eacute;e disponible dans le tableau\",\n"
+"\"oPaginate\": {\n"
+"\"sFirst\": \"Premier\",\n"
+"\"sPrevious\": \"Pr&eacute;c&eacute;dent\",\n"
+"\"sNext\": \"Suivant\",\n"
+"\"sLast\": \"Dernier\"\n"
+"},\n"
+"\"oAria\": {\n"
+"\"sSortAscending\": \": activer pour trier la colonne par ordre croissant\",\n"
+"\"sSortDescending\": \": activer pour trier la colonne par ordre d&eacute;croissant\"\n"
+"},\n"
+"\"select\": {\n"
+"\"rows\": {\n"
+"_: \"%d lignes séléctionnées\",\n"
+"0: \"Aucune ligne séléctionnée\",\n"
+"1: \"1 ligne séléctionnée\"\n"
+"} \n"
+"}\n"
+"}"
 
 msgid "summernote_locale"
-msgstr "summernote_locale"
+msgstr "it-IT"
 
 msgid "fullcalendar_locale"
-msgstr "calendariocompleto_locale"
+msgstr "it"
 
 msgid "bootstrap-select_locale"
 msgstr "it_IT"

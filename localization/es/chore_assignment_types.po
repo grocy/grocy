@@ -1,3 +1,5 @@
+# Translators:
+# Fernando Sánchez <fernando.l.sanchez@gmail.com>, 2019
 # 
 msgid ""
 msgstr ""
@@ -5,6 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-09-17 10:45+0000\n"
+"Last-Translator: Fernando Sánchez <fernando.l.sanchez@gmail.com>, 2019\n"
 "Language-Team: Spanish (https://www.transifex.com/grocy/teams/93189/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,13 +17,13 @@ msgstr ""
 "X-Domain: grocy/chore_assignment_types\n"
 
 msgid "no-assignment"
-msgstr ""
+msgstr "sin-asignar"
 
 msgid "who-least-did-first"
-msgstr ""
+msgstr "quien-menos-primero"
 
 msgid "random"
-msgstr ""
+msgstr "al-azar"
 
 msgid "in-alphabetical-order"
-msgstr ""
+msgstr "orden-alfabético"

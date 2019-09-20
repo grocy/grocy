@@ -36,3 +36,9 @@ msgstr ""
 
 msgid "preset-list"
 msgstr ""
+
+msgid "preset-checklist"
+msgstr ""
+
+msgid "link"
+msgstr ""

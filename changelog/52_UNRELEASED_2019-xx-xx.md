@@ -67,6 +67,9 @@
 - Boolean settings provided via environment variables (so the strings `true` and `false`) are now parsed correctly (thanks @mduret)
 - All uploaded pictures (currently for products and recipes) are now automatically downscaled to the appropriate size when serving them to improve page load times
 - It's now possible to test plural forms of quantity units (button on the quantity unit edit page, only visible if the current language requires more than 2 plural forms)
+- New translations: (thanks all the translators)
+  - Danish (demo available at https://demo-da.grocy.info)
+  - Dutch (demo available at https://demo-nl.grocy.info)
 
 ### API improvements & non-breaking changes
 - New endpoint `/objects/{entity}/search/{searchString}` to search for objects by name (contains search)

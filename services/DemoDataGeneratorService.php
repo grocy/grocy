@@ -40,15 +40,24 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO locations (name) VALUES ('{$this->__t_sql('Candy cupboard')}'); --4
 				INSERT INTO locations (name) VALUES ('{$this->__t_sql('Tinned food cupboard')}'); --5
 
-				INSERT INTO quantity_units (name, name_plural) VALUES ('{$this->__n_sql(1, 'Glass', 'Glasses')}', '{$this->__n_sql(2, 'Glass', 'Glasses')}'); --4
-				INSERT INTO quantity_units (name, name_plural) VALUES ('{$this->__n_sql(1, 'Tin', 'Tins')}', '{$this->__n_sql(2, 'Tin', 'Tins')}'); --5
-				INSERT INTO quantity_units (name, name_plural) VALUES ('{$this->__n_sql(1, 'Can', 'Cans')}', '{$this->__n_sql(2, 'Can', 'Cans')}'); --6
-				INSERT INTO quantity_units (name, name_plural) VALUES ('{$this->__n_sql(1, 'Bunch', 'Bunches')}', '{$this->__n_sql(2, 'Bunch', 'Bunches')}'); --7
-				INSERT INTO quantity_units (name, name_plural) VALUES ('{$this->__n_sql(1, 'Gram', 'Grams')}', '{$this->__n_sql(2, 'Gram', 'Grams')}'); --8
-				INSERT INTO quantity_units (name, name_plural) VALUES ('{$this->__n_sql(1, 'Liter', 'Liters')}', '{$this->__n_sql(2, 'Liter', 'Liters')}'); --9
-				INSERT INTO quantity_units (name, name_plural) VALUES ('{$this->__n_sql(1, 'Bottle', 'Bottles')}', '{$this->__n_sql(2, 'Bottle', 'Bottles')}'); --10
-				INSERT INTO quantity_units (name, name_plural) VALUES ('{$this->__n_sql(1, 'Milliliter', 'Milliliters')}', '{$this->__n_sql(2, 'Milliliter', 'Milliliters')}'); --11
-				INSERT INTO quantity_units (name, name_plural) VALUES ('{$this->__n_sql(1, 'Slice', 'Slices')}', '{$this->__n_sql(2, 'Slice', 'Slices')}'); --12
+				DELETE FROM quantity_units WHERE name = '{$this->__t_sql('Glass')}';
+				INSERT INTO quantity_units (id, name, name_plural) VALUES (4, '{$this->__n_sql(1, 'Glass', 'Glasses')}', '{$this->__n_sql(2, 'Glass', 'Glasses')}'); --4
+				DELETE FROM quantity_units WHERE name = '{$this->__t_sql('Tin')}';
+				INSERT INTO quantity_units (id, name, name_plural) VALUES (5, '{$this->__n_sql(1, 'Tin', 'Tins')}', '{$this->__n_sql(2, 'Tin', 'Tins')}'); --5
+				DELETE FROM quantity_units WHERE name = '{$this->__t_sql('Can')}';
+				INSERT INTO quantity_units (id, name, name_plural) VALUES (6, '{$this->__n_sql(1, 'Can', 'Cans')}', '{$this->__n_sql(2, 'Can', 'Cans')}'); --6
+				DELETE FROM quantity_units WHERE name = '{$this->__t_sql('Bunch')}';
+				INSERT INTO quantity_units (id, name, name_plural) VALUES (7, '{$this->__n_sql(1, 'Bunch', 'Bunches')}', '{$this->__n_sql(2, 'Bunch', 'Bunches')}'); --7
+				DELETE FROM quantity_units WHERE name = '{$this->__t_sql('Gram')}';
+				INSERT INTO quantity_units (id, name, name_plural) VALUES (8, '{$this->__n_sql(1, 'Gram', 'Grams')}', '{$this->__n_sql(2, 'Gram', 'Grams')}'); --8
+				DELETE FROM quantity_units WHERE name = '{$this->__t_sql('Liter')}';
+				INSERT INTO quantity_units (id, name, name_plural) VALUES (9, '{$this->__n_sql(1, 'Liter', 'Liters')}', '{$this->__n_sql(2, 'Liter', 'Liters')}'); --9
+				DELETE FROM quantity_units WHERE name = '{$this->__t_sql('Bottle')}';
+				INSERT INTO quantity_units (id, name, name_plural) VALUES (10, '{$this->__n_sql(1, 'Bottle', 'Bottles')}', '{$this->__n_sql(2, 'Bottle', 'Bottles')}'); --10
+				DELETE FROM quantity_units WHERE name = '{$this->__t_sql('Milliliter')}';
+				INSERT INTO quantity_units (id, name, name_plural) VALUES (11, '{$this->__n_sql(1, 'Milliliter', 'Milliliters')}', '{$this->__n_sql(2, 'Milliliter', 'Milliliters')}'); --11
+				DELETE FROM quantity_units WHERE name = '{$this->__t_sql('Slice')}';
+				INSERT INTO quantity_units (id, name, name_plural) VALUES (12, '{$this->__n_sql(1, 'Slice', 'Slices')}', '{$this->__n_sql(2, 'Slice', 'Slices')}'); --12
 
 				INSERT INTO product_groups(name) VALUES ('01 {$this->__t_sql('Sweets')}'); --1
 				INSERT INTO product_groups(name) VALUES ('02 {$this->__t_sql('Bakery products')}'); --2
@@ -84,6 +93,10 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, parent_product_id) VALUES ('{$this->__t_sql('Milk Chocolate')}', 4, 3, 3, 1, 1, 2); --24
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, parent_product_id) VALUES ('{$this->__t_sql('Dark Chocolate')}', 4, 3, 3, 1, 1, 2); --25
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, parent_product_id, barcode) VALUES ('{$this->__t_sql('Waffle rolls')}', 4, 3, 3, 1, 1, 2, '22111289'); --26
+
+				/* Prevent invalid quantity unit assignments */
+				UPDATE products SET qu_id_stock = (SELECT MIN(id) FROM quantity_units) WHERE id IN (SELECT id FROM products WHERE qu_id_stock NOT IN (SELECT id FROM quantity_units));
+				UPDATE products SET qu_id_purchase = (SELECT MIN(id) FROM quantity_units) WHERE id IN (SELECT id FROM products WHERE qu_id_purchase NOT IN (SELECT id FROM quantity_units));
 
 				INSERT INTO quantity_unit_conversions (from_qu_id, to_qu_id, factor, product_id) VALUES (3, 12, 10, 10);
 

@@ -295,3 +295,37 @@ msgstr "Шведский"
 
 msgid "Polish"
 msgstr "Польский"
+
+msgid "Milk Chocolate"
+msgstr "Молочный шоколад"
+
+msgid "Dark Chocolate"
+msgstr "Тёмный шоколад"
+
+msgid "Slice"
+msgid_plural "Slices"
+msgstr[0] "Срез (Slice)"
+msgstr[1] "Среза (Slices)"
+msgstr[2] "Срезы (Slices)"
+msgstr[3] "Срезы (Slices)"
+
+msgid "Example userentity"
+msgstr "Пример пользовательской сущности"
+
+msgid "This is an example user entity..."
+msgstr "Это пример пользовательской сущности..."
+
+msgid "Custom field"
+msgstr "Пользовательское поле"
+
+msgid "Example field value..."
+msgstr "Пример значения поля..."
+
+msgid "Waffle rolls"
+msgstr "Сладкие трубочки"
+
+msgid "Danish"
+msgstr ""
+
+msgid "Dutch"
+msgstr ""

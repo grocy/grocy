@@ -1,5 +1,4 @@
 # Translators:
-# Troels Siggaard <troels@siggaard.com>, 2019
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # 
 msgid ""
@@ -18,22 +17,39 @@ msgstr ""
 "X-Domain: grocy/component_translations\n"
 
 msgid "timeago_locale"
-msgstr "timdsiden_lokal"
+msgstr "da"
 
 msgid "timeago_nan"
-msgstr "tidsiden_ien"
+msgstr "for NaN år"
 
 msgid "moment_locale"
-msgstr "tidspunkt_lokal"
+msgstr "da"
 
 msgid "datatables_localization"
-msgstr "datatabeller_lokalisering"
+msgstr ""
+"{\n"
+"\"sProcessing\": \"Henter...\",\n"
+"\"sLengthMenu\": \"Vis _MENU_ linjer\",\n"
+"\"sZeroRecords\": \"Ingen linjer matcher s&oslash;gningen\",\n"
+"\"sInfo\": \"Viser _START_ til _END_ af _TOTAL_ linjer\",\n"
+"\"sInfoEmpty\": \"Viser 0 til 0 af 0 linjer\",\n"
+"\"sInfoFiltered\": \"(filtreret fra _MAX_ linjer)\",\n"
+"\"sInfoPostFix\": \"\",\n"
+"\"sSearch\": \"S&oslash;g:\",\n"
+"\"sUrl\": \"\",\n"
+"\"oPaginate\": {\n"
+"\"sFirst\": \"F&oslash;rste\",\n"
+"\"sPrevious\": \"Forrige\",\n"
+"\"sNext\": \"N&aelig;ste\",\n"
+"\"sLast\": \"Sidste\"\n"
+"}\n"
+"}"
 
 msgid "summernote_locale"
-msgstr "summernote_lokal"
+msgstr "da-DK"
 
 msgid "fullcalendar_locale"
-msgstr "fuldkalender_lokal"
+msgstr "da"
 
 msgid "bootstrap-select_locale"
 msgstr "da_DK"

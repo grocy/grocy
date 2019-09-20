@@ -1489,3 +1489,12 @@ msgstr ""
 
 msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
 msgstr ""
+
+msgid "datatables_loc"
+msgstr ""
+
+msgid "{}"
+msgstr ""
+
+msgid "{}}"
+msgstr ""

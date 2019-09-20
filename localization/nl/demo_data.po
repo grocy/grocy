@@ -3,6 +3,9 @@
 # Adriaan Peeters <apeeters@lashout.net>, 2019
 # Grocy NL, 2019
 # Seppe <van.winkel.seppe@me.com>, 2019
+# Engelbert Mercelis <engelbertmercelis@gmail.com>, 2019
+# Niels Tholenaar <info@123quality.nl>, 2019
+# Frank Klaassen <frank@frankklaassen.nl>, 2019
 # 
 msgid ""
 msgstr ""
@@ -10,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Seppe <van.winkel.seppe@me.com>, 2019\n"
+"Last-Translator: Frank Klaassen <frank@frankklaassen.nl>, 2019\n"
 "Language-Team: Dutch (https://www.transifex.com/grocy/teams/93189/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,33 +42,33 @@ msgstr "Koelkast"
 
 msgid "Piece"
 msgid_plural "Pieces"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Stuk"
+msgstr[1] "Stuks"
 
 msgid "Pack"
 msgid_plural "Packs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "pak"
+msgstr[1] "pakken"
 
 msgid "Glass"
 msgid_plural "Glasses"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Glas"
+msgstr[1] "Glazen"
 
 msgid "Tin"
 msgid_plural "Tins"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Blikje"
+msgstr[1] "Blikjes"
 
 msgid "Can"
 msgid_plural "Cans"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Blik"
+msgstr[1] "Blikken"
 
 msgid "Bunch"
 msgid_plural "Bunches"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Bos"
+msgstr[1] "Bossen"
 
 msgid "Gummy bears"
 msgstr "Gombeertjes"
@@ -110,37 +113,37 @@ msgid "Changed towels in the bathroom"
 msgstr "Handdoeken verwisseld in badkamer"
 
 msgid "Cleaned the kitchen floor"
-msgstr ""
+msgstr "De keukenvloer schoongemaakt"
 
 msgid "Warranty ends"
 msgstr "Garantie eindigt"
 
 msgid "TV remote control"
-msgstr ""
+msgstr "Afstandsbediening"
 
 msgid "Alarm clock"
-msgstr ""
+msgstr "Wekker"
 
 msgid "Heat remote control"
-msgstr ""
+msgstr "Afstandsbediening verwarming"
 
 msgid "Lawn mowed in the garden"
-msgstr ""
+msgstr "Gazon gemaaid in de tuin"
 
 msgid "Some good snacks"
-msgstr ""
+msgstr "Enkele goede hapjes"
 
 msgid "Pizza dough"
 msgstr "Pizzadeeg"
 
 msgid "Sieved tomatoes"
-msgstr ""
+msgstr "Gezeefde tomaten"
 
 msgid "Salami"
 msgstr "Salami"
 
 msgid "Toast"
-msgstr ""
+msgstr "Geroosterd brood"
 
 msgid "Minced meat"
 msgstr "Gehakt"
@@ -167,15 +170,15 @@ msgid "Demo in different language"
 msgstr "Demo in een andere taal"
 
 msgid "This is the note content of the recipe ingredient"
-msgstr ""
+msgstr "Dit is de inhoud van de opmerking van het recept-ingrediënt"
 
 msgid "Demo User"
 msgstr "Demo Gebruiker"
 
 msgid "Gram"
 msgid_plural "Grams"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gram"
+msgstr[1] "Grams"
 
 msgid "Flour"
 msgstr "Bloem"
@@ -187,40 +190,40 @@ msgid "Sugar"
 msgstr "Suiker"
 
 msgid "Home"
-msgstr ""
+msgstr "Thuis"
 
 msgid "Life"
-msgstr ""
+msgstr "Leven"
 
 msgid "Projects"
-msgstr ""
+msgstr "Projecten"
 
 msgid "Repair the garage door"
 msgstr "Herstel de garagepoort"
 
 msgid "Fork and improve grocy"
-msgstr ""
+msgstr "Fork en verbeter grocy"
 
 msgid "Find a solution for what to do when I forget the door keys"
-msgstr ""
+msgstr "Zoek een oplossing voor wat te doen als ik de deursleutels vergeet"
 
 msgid "Sweets"
 msgstr "Snoep"
 
 msgid "Bakery products"
-msgstr ""
+msgstr "Bakkerijproducten"
 
 msgid "Tinned food"
-msgstr ""
+msgstr "Ingeblikt voedsel"
 
 msgid "Butchery products"
-msgstr ""
+msgstr "Slagerij producten"
 
 msgid "Vegetables/Fruits"
 msgstr "Groenten/Fruit"
 
 msgid "Refrigerated products"
-msgstr ""
+msgstr "Gekoelde producten"
 
 msgid "Coffee machine"
 msgstr "Koffiemachine"
@@ -232,7 +235,7 @@ msgid "Liter"
 msgstr "Liter"
 
 msgid "Liters"
-msgstr ""
+msgstr "Liters"
 
 msgid "Bottle"
 msgstr "Fles"
@@ -253,10 +256,10 @@ msgid "Milliliter"
 msgstr "Milliliter"
 
 msgid "Bottom"
-msgstr ""
+msgstr "Onderkant"
 
 msgid "Topping"
-msgstr ""
+msgstr "Beleg"
 
 msgid "French"
 msgstr "Frans"
@@ -268,19 +271,45 @@ msgid "Spanish"
 msgstr "Spaans"
 
 msgid "Russian"
-msgstr ""
+msgstr "Russisch"
 
 msgid "The thing which happens on the 5th of every month"
-msgstr ""
+msgstr "Het ding dat op de 5e van elke maand gebeurt"
 
 msgid "The thing which happens daily"
-msgstr ""
+msgstr "Het ding dat dagelijks gebeurt"
 
 msgid "The thing which happens on Mondays and Wednesdays"
-msgstr ""
+msgstr "Het ding dat op maandag en woensdag gebeurt"
 
 msgid "Swedish"
-msgstr ""
+msgstr "Zweeds"
 
 msgid "Polish"
+msgstr "Pools"
+
+msgid "Milk Chocolate"
+msgstr ""
+
+msgid "Dark Chocolate"
+msgstr ""
+
+msgid "Slice"
+msgid_plural "Slices"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Example userentity"
+msgstr ""
+
+msgid "This is an example user entity..."
+msgstr ""
+
+msgid "Custom field"
+msgstr ""
+
+msgid "Example field value..."
+msgstr ""
+
+msgid "Waffle rolls"
 msgstr ""

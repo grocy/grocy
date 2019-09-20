@@ -361,8 +361,8 @@ msgid "This means %s will be removed from stock"
 msgstr "Das bedeutet %s wird aus dem Bestand entfernt"
 
 msgid ""
-"This means it is estimated that a new execution of this chore is tracked %s "
-"days after the last was tracked"
+"This means the next execution of this chore is scheduled %s days after the "
+"last execution"
 msgstr ""
 "Das bedeutet, dass eine erneute Ausführung der Hausarbeit %s Tage nach der "
 "letzten Ausführung geplant wird"
@@ -1394,3 +1394,252 @@ msgstr ""
 
 msgid "Undo task \"%s\""
 msgstr "Aufgabe \"%s\" rückgängig machen"
+
+msgid "Due date rollover"
+msgstr "Fälligkeit hinausschieben"
+
+msgid ""
+"When enabled the chore can never be overdue, the due date will shift forward"
+" each day when due"
+msgstr ""
+"Wenn gewählt, kann die Hausarbeit nie überfällig werden - das "
+"Fälligkeitsdatum wird jeden Tag ab Fälligkeit einen Tag vorgeschoben"
+
+msgid "Location Content Sheet"
+msgstr "Standort-Inhaltsblatt"
+
+msgid "Print"
+msgstr "Drucken"
+
+msgid "all locations"
+msgstr "alle Standorte"
+
+msgid ""
+"Here you can print a page per location with the current stock, maybe to hang"
+" it there and note the consumed things on it."
+msgstr ""
+"Hier kannst du eine Seite pro Standort mit dem aktuellen Bestand drucken, "
+"gedacht um diese am entsprechenden Platz aufzuhängen, damit die verbauchten "
+"Dinge darauf vermerkt werden können."
+
+msgid "this location"
+msgstr "diesen Standort"
+
+msgid "Consumend amount"
+msgstr "Verbrauchte Menge"
+
+msgid "Time of printing"
+msgstr "Druckzeitpunkt"
+
+msgid "Are you sure to delete equipment \"%s\"?"
+msgstr "Ausstattung \"%s\" wirklich löschen?"
+
+msgid "Parent product"
+msgstr "Übergeordnetes Produkt"
+
+msgid ""
+"Not possible because this product is already used as a parent product in "
+"another product"
+msgstr ""
+"Nicht möglich, da dieses Produkt bereits als übergeordnetes Produkt eines "
+"anderen Produkts verwendet wird"
+
+msgid "Default conversions"
+msgstr "Standardumrechnungen"
+
+msgid "Factor"
+msgstr "Faktor"
+
+msgid "1 %s is the same as..."
+msgstr "1 %s ist identisch mit..."
+
+msgid "Create QU conversion"
+msgstr "ME-Umrechnung erstellen"
+
+msgid "Default for QU"
+msgstr "Standard für ME"
+
+msgid "Quantity unit from"
+msgstr "ME von"
+
+msgid "Quantity unit to"
+msgstr "ME nach"
+
+msgid ""
+"This cannot be lower than %1$s and must be a valid number with max. %2$s "
+"decimal places"
+msgstr ""
+"Diese darf nicht niedriger sein als %1$s und muss eine gültige Zahl mit max."
+" %2$s Nachkommastellen sein"
+
+msgid "This cannot be equal to %s"
+msgstr "Dies darf nicht gleich sein wie %s"
+
+msgid "This means 1 %1$s is the same as %2$s %3$s"
+msgstr "Das bedeutet 1 %1$s entsprechen %2$s %3$s"
+
+msgid "QU conversions"
+msgstr "ME-Umrechnungen"
+
+msgid "Product overrides"
+msgstr "Produktübersteuerung"
+
+msgid "Override for product"
+msgstr "Übersteuerung für Produkt"
+
+msgid "This equals %1$s %2$s in stock"
+msgstr "Dies entspricht %1$s %2$s im Bestand"
+
+msgid "Edit QU conversion"
+msgstr "ME-Umrechnung bearbeiten"
+
+msgid "An assignment type is required"
+msgstr "Ein Zuweisungstyp ist erforderlich"
+
+msgid "Assignment type"
+msgstr "Zuweisungstyp"
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 day after the "
+"last execution"
+msgstr ""
+"Das bedeutet, dass eine erneute Ausführung der Hausarbeit 1 Tage nach der "
+"letzten Ausführung geplant wird"
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 day after the "
+"last execution, but only for the weekdays selected below"
+msgstr ""
+"Das bedeutet, dass eine erneute Ausführung der Hausarbeit 1 Tage nach der "
+"letzten Ausführung geplant wird, aber nur für unten ausgewählten Wochentage"
+
+msgid "This means the next execution of this chore is not scheduled"
+msgstr ""
+"Das bedeutet, dass eine erneute Ausführung der Hausarbeit nicht geplant wird"
+
+msgid ""
+"This means the next execution of this chore is scheduled on the below "
+"selected day of each month"
+msgstr ""
+"Das bedeutet, dass eine erneute Ausführung der Hausarbeit jeden Monat an dem"
+" unten ausgewählt Tag geplant wird"
+
+msgid ""
+"This means the next execution of this chore will not be assigned to anyone"
+msgstr ""
+"Das bedeutet, dass die nächste Ausführung der Hausarbeit niemandem "
+"zugewiesen wird"
+
+msgid ""
+"This means the next execution of this chore will be assigned to the one who "
+"executed it least"
+msgstr ""
+"Das bedeutet, dass die nächste Ausführung der Hausarbeit demjenigen "
+"zugewiesen wird, der diese am wenigsten häufig ausgeführt hat"
+
+msgid "This means the next execution of this chore will be assigned randomly"
+msgstr ""
+"Das bedeutet, dass die nächste Ausführung der Hausarbeit zufällig jemanden "
+"zugewiesen wird"
+
+msgid ""
+"This means the next execution of this chore will be assigned to the next one"
+" in alphabetical order"
+msgstr ""
+"Das bedeutet, dass die nächste Ausführung der Hausarbeit dem nächsten in "
+"alphabetischer Reihenfolge zugewiesen wird"
+
+msgid "Assign to"
+msgstr "Zuweisen an"
+
+msgid "This assignment type requires that at least one is assigned"
+msgstr ""
+"Diese Zuordnungsart setzt voraus, dass mindestens eine Person zugeordnet ist"
+
+msgid "%s chore is assigned to me"
+msgid_plural "%s chores are assigned to me"
+msgstr[0] "%s ist mir zugewiesen"
+msgstr[1] "%s Hausarbeiten sind mir zugewiesen"
+
+msgid "Assigned to me"
+msgstr "Mir zugewiesen"
+
+msgid "assigned to %s"
+msgstr "zugewiesen an %s"
+
+msgid "Filter by assignment"
+msgstr "Nach Zuweisung filtern"
+
+msgid "Consume product on chore execution"
+msgstr "Ein Produkt bei Hausarbeit-Ausführung verbrauchen"
+
+msgid "Are you sure to delete user field \"%s\"?"
+msgstr "Benutzerfeld \"%s\" wirklich löschen?"
+
+msgid "Userentities"
+msgstr "Benutzerentitäten"
+
+msgid "Create userentity"
+msgstr "Benutzerentität erstellen"
+
+msgid "Show in sidebar menu"
+msgstr "Im Seitenleisten-Menü anzeigen"
+
+msgid "Edit userentity"
+msgstr "Benutzerentität bearbeiten"
+
+msgid "Edit %s"
+msgstr "%s bearbeiten"
+
+msgid "Create %s"
+msgstr "%s erstellen"
+
+msgid "Are you sure to delete this userobject?"
+msgstr "Dieses Benutzerobject wirklich löschen?"
+
+msgid "Icon CSS class"
+msgstr "Icon CSS-Klasse"
+
+msgid "For example"
+msgstr "Zum Beispiel"
+
+msgid "Configure fields"
+msgstr "Felder konfigurieren"
+
+msgid "Quantity unit plural form testing"
+msgstr "ME Pluralformen testen"
+
+msgid "Result"
+msgstr "Ergebnis"
+
+msgid "Test plural forms"
+msgstr "Pluralformen testen"
+
+msgid "Scan a barcode"
+msgstr "Scanne einen Barcode"
+
+msgid "Error while initializing the barcode scanning library"
+msgstr "Fehler beim Initialisieren der Barcode-Scan-Komponenten"
+
+msgid ""
+"The resulting price of this ingredient will be multiplied by this factor"
+msgstr ""
+"Der resultierende Preis dieser Zutat wird mit diesem Faktor multipliziert"
+
+msgid "Price factor"
+msgstr "Preisfaktor"
+
+msgid "Do you find grocy useful?"
+msgstr "Findest du grocy nützlich?"
+
+msgid "Say thanks"
+msgstr "Sag Danke"
+
+msgid "Search for recipes containing this product"
+msgstr "Suche nach Rezepten, die dieses Produkt enthalten"
+
+msgid "Add to shopping list"
+msgstr "Zum Einkaufszettel hinzufügen"
+
+msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
+msgstr "%1$s %2$s dem Einkauszettel \"%3$s\" hinzugefügt"

@@ -1,7 +1,7 @@
 ﻿var equipmentTable = $('#equipment-table').DataTable({
 	'paginate': false,
 	'order': [[0, 'asc']],
-	'language': JSON.parse(__t('datatables_localization')),
+	'language': IsJsonString(__t('datatables_localization')) ? JSON.parse(__t('datatables_localization')) : { },
 	'scrollY': false,
 	'colReorder': true,
 	'stateSave': true,

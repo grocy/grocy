@@ -117,3 +117,15 @@ $.fn.hasAttr = function(name)
 {
 	return this.attr(name) !== undefined;
 };
+
+function IsJsonString(text)
+{
+	try
+	{
+		JSON.parse(text);
+	} catch(e)
+	{
+		return false;
+	}
+	return true;
+}
