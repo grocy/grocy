@@ -29,6 +29,11 @@
 					PHP Version <code>{{ $system_info['php_version'] }}</code><br>
 					SQLite Version <code>{{ $system_info['sqlite_version'] }}</code>
 				</p>
+
+				<p>
+					{{ $__t('Do you find grocy useful?') }}<br>
+					<a class="btn btn-sm btn-primary text-white mt-1" href="https://grocy.info/#say-thanks" target = "_blank">{{ $__t('Say thanks') }} <i class="fas fa-heart"></i></a>
+				</p>
 			</div>
 
 			<div class="tab-pane show" id="changelog">

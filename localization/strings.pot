@@ -1474,3 +1474,9 @@ msgstr ""
 
 msgid "Price factor"
 msgstr ""
+
+msgid "Do you find grocy useful?"
+msgstr ""
+
+msgid "Say thanks"
+msgstr ""
