@@ -59,7 +59,7 @@
 - Improved the handling which entry page to use with disabled feature flags (thanks @nielstholenaar)
 - Boolean settings provided via environment variables (so the strings `true` and `false`) are now parsed correctly (thanks @mduret)
 - All uploaded pictures (currently for products and recipes) are now automatically downscaled to the appropriate size when serving them to improve page load times
-- It's now possible to test plural forms of quantity units (button on the quantity unit edit page)
+- It's now possible to test plural forms of quantity units (button on the quantity unit edit page, only visible if the current language requires more than 2 plural forms)
 
 ### API improvements & non-breaking changes
   - New endpoint `/stock/shoppinglist/add-product` to add a product to a shopping list (thanks @Forceu)
