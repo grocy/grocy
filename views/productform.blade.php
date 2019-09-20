@@ -143,7 +143,7 @@
 				<select required class="form-control input-group-qu" id="qu_id_stock" name="qu_id_stock">
 					<option></option>
 					@foreach($quantityunits as $quantityunit)
-						<option @if($mode == 'edit' && $quantityunit->id == $product->qu_id_stock) selected="selected" @endif value="{{ $quantityunit->id }}">{{ $quantityunit->name }}</option>
+						<option @if($mode == 'edit' && $quantityunit->id == $product->qu_id_stock) selected="selected" @endif value="{{ $quantityunit->id }}" data-plural-form="{{ $quantityunit->name_plural }}">{{ $quantityunit->name }}</option>
 					@endforeach
 				</select>
 				<div class="invalid-feedback">{{ $__t('A quantity unit is required') }}</div>

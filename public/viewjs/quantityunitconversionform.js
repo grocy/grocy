@@ -98,7 +98,7 @@ $('.input-group-qu').on('change', function(e)
 
 	if (fromQuId && toQuId)
 	{
-		$('#qu-conversion-info').text(__t('This means 1 %1$s is the same as %2$s %3$s', $("#from_qu_id option:selected").text(), (1 * factor).toString(), $("#to_qu_id option:selected").text()));
+		$('#qu-conversion-info').text(__t('This means 1 %1$s is the same as %2$s %3$s', $("#from_qu_id option:selected").text(), (1 * factor).toString(), __n((1 * factor).toString(), $("#to_qu_id option:selected").text(), $("#to_qu_id option:selected").data("plural-form"))));
 		$('#qu-conversion-info').removeClass('d-none');
 	}
 	else

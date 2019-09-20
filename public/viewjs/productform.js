@@ -203,7 +203,7 @@ $('.input-group-qu').on('change', function(e)
 
 	if (factor > 1 || quIdPurchase != quIdStock)
 	{
-		$('#qu-conversion-info').text(__t('This means 1 %1$s purchased will be converted into %2$s %3$s in stock', $("#qu_id_purchase option:selected").text(), (1 * factor).toString(), $("#qu_id_stock option:selected").text()));
+		$('#qu-conversion-info').text(__t('This means 1 %1$s purchased will be converted into %2$s %3$s in stock', $("#qu_id_purchase option:selected").text(), (1 * factor).toString(), __n((1 * factor).toString(), $("#qu_id_stock option:selected").text(), $("#qu_id_stock option:selected").data("plural-form"))));
 		$('#qu-conversion-info').removeClass('d-none');
 	}
 	else
