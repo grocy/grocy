@@ -27,11 +27,6 @@
 				<div class="invalid-feedback">{{ $__t('A name is required') }}</div>
 			</div>
 
-			<div class="form-group">
-				<label for="description">{{ $__t('Description') }}</label>
-				<textarea class="form-control" rows="2" id="description" name="description">@if($mode == 'edit'){{ $shoppingList->description }}@endif</textarea>
-			</div>
-
 			<button id="save-shopping-list-button" class="btn btn-success">{{ $__t('Save') }}</button>
 
 		</form>

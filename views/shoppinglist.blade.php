@@ -142,6 +142,16 @@
 	</div>
 </div>
 
+<div class="row mt-3 d-print-none">
+	<div class="col-xs-12 col-md-8">
+		<div class="form-group">
+			<label for="notes">{{ $__t('Notes') }}</label>
+			<a id="save-description-button" class="btn btn-success btn-sm ml-1 mb-2 disabled" href="#">{{ $__t('Save') }}</a>
+			<textarea class="form-control wysiwyg-editor" id="description" name="description">{{ FindObjectInArrayByPropertyValue($shoppingLists, 'id', $selectedShoppingListId)->description }}</textarea>
+		</div>
+	</div>
+</div>
+
 <div class="modal fade" id="shopping-list-stock-add-workflow-modal" tabindex="-1">
 	<div class="modal-dialog">
 		<div class="modal-content text-center">
@@ -193,6 +203,12 @@
 					@endforeach
 				</tbody>
 			</table>
+		</div>
+	</div>
+	<div class="row w-75">
+		<div class="col">
+			<h5>{{ $__t('Notes') }}</h5>
+			<p id="description-for-print"></p>
 		</div>
 	</div>
 </div>

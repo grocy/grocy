@@ -307,5 +307,28 @@ OnListItemRemoved();
 $(document).on("click", "#print-shopping-list-button", function(e)
 {
 	$(".print-timestamp").text(moment().format("l LT"));
+	$("#description-for-print").html($("#description").val());
 	window.print();
+});
+
+$("#description").on("summernote.change", function()
+{
+	$("#save-description-button").removeClass("disabled");
+});
+
+$(document).on("click", "#save-description-button", function(e)
+{
+	e.preventDefault();
+	document.activeElement.blur();
+
+	Grocy.Api.Put('objects/shopping_lists/' + $("#selected-shopping-list").val(), { description: $("#description").val() },
+		function(result)
+		{
+			$("#save-description-button").addClass("disabled");
+		},
+		function(xhr)
+		{
+			console.log(xhr);
+		}
+	);
 });
