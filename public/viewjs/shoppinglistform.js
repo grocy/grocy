@@ -10,7 +10,7 @@
 		Grocy.Api.Post('objects/shopping_lists', jsonData,
 			function(result)
 			{
-				window.location.href = U('/shoppinglist');
+				window.location.href = U('/shoppinglist?list=' + result.created_object_id);
 			},
 			function(xhr)
 			{

@@ -16,28 +16,7 @@
 @endpush
 
 @section('content')
-<div class="row d-print-none">
-	<div class="col">
-		<h1>
-			@yield('title')
-			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/shoppinglistitem/new?list=' . $selectedShoppingListId) }}">
-				<i class="fas fa-plus"></i> {{ $__t('Add item') }}
-			</a>
-			<a id="clear-shopping-list" class="btn btn-outline-danger responsive-button @if($listItems->count() == 0) disabled @endif" href="#">
-				<i class="fas fa-trash"></i> {{ $__t('Clear list') }}
-			</a>
-			<a id="add-products-below-min-stock-amount" class="btn btn-outline-primary responsive-button" href="#">
-				<i class="fas fa-cart-plus"></i> {{ $__t('Add products that are below defined min. stock amount') }}
-			</a>
-			<a id="add-all-items-to-stock-button" class="btn btn-outline-primary responsive-button" href="#">
-				<i class="fas fa-box"></i> {{ $__t('Add all list items to stock') }}
-			</a>
-		</h1>
-		<p data-status-filter="belowminstockamount" class="btn btn-lg btn-info status-filter-button responsive-button">{{ $__n(count($missingProducts), '%s product is below defined min. stock amount', '%s products are below defined min. stock amount') }}</p>
-	</div>
-</div>
-
-<div class="row mt-3 border-top border-bottom py-2 d-print-none">
+<div class="row border-bottom pb-2 mb-2 d-print-none">
 	<div class="col-xs-12 col-md-4">
 		<label for="selected-shopping-list">{{ $__t('Selected shopping list') }}</label>
 		<select class="form-control" id="selected-shopping-list">
@@ -63,6 +42,27 @@
 				<a id="print-shopping-list-button" class="dropdown-item" href="#"><i class="fas fa-print"></i> {{ $__t('Print') }}</a>
 			</div>
 		</div>-->
+	</div>
+</div>
+
+<div class="row d-print-none">
+	<div class="col">
+		<h1>
+			@yield('title')
+			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/shoppinglistitem/new?list=' . $selectedShoppingListId) }}">
+				<i class="fas fa-plus"></i> {{ $__t('Add item') }}
+			</a>
+			<a id="clear-shopping-list" class="btn btn-outline-danger responsive-button @if($listItems->count() == 0) disabled @endif" href="#">
+				<i class="fas fa-trash"></i> {{ $__t('Clear list') }}
+			</a>
+			<a id="add-products-below-min-stock-amount" class="btn btn-outline-primary responsive-button" href="#">
+				<i class="fas fa-cart-plus"></i> {{ $__t('Add products that are below defined min. stock amount') }}
+			</a>
+			<a id="add-all-items-to-stock-button" class="btn btn-outline-primary responsive-button" href="#">
+				<i class="fas fa-box"></i> {{ $__t('Add all list items to stock') }}
+			</a>
+		</h1>
+		<p data-status-filter="belowminstockamount" class="btn btn-lg btn-info status-filter-button responsive-button">{{ $__n(count($missingProducts), '%s product is below defined min. stock amount', '%s products are below defined min. stock amount') }}</p>
 	</div>
 </div>
 
