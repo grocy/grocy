@@ -190,6 +190,7 @@
 				'additionalAttributes' => $additionalAttributes,
 				'hintId' => 'tare_weight_qu_info'
 			))
+			@php $additionalAttributes = '' @endphp
 
 			@if(GROCY_FEATURE_FLAG_RECIPES)
 			<div class="form-group">
