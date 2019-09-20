@@ -75,4 +75,4 @@
   - It's now also possible to provide the API key via a query parameter (same name as the header, so `GROCY-API-KEY`)
 
 #### Say thanks
-Because there were some questions about that in the past: If grocy is useful for you, [say thanks}(https://grocy.info/#say-thanks)!
+Because there were some questions about that in the past: If grocy is useful for you, [say thanks](https://grocy.info/#say-thanks)!
