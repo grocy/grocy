@@ -211,7 +211,8 @@
 				'step' => 1,
 				'value' => $value,
 				'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
-				'hint' => $__t('Per stock quantity unit') 
+				'hint' => $__t('Per stock quantity unit'),
+				'isRequired' => false
 			))
 			@endif
 
