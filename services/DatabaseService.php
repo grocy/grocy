@@ -6,6 +6,16 @@ use \Grocy\Services\ApplicationService;
 
 class DatabaseService
 {
+	private function GetDbFilePath()
+	{
+		if (GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease')
+		{
+			return GROCY_DATAPATH . '/grocy_' . GROCY_CULTURE . '.db';
+		}
+
+		return GROCY_DATAPATH . '/grocy.db';
+	}
+
 	private $DbConnectionRaw;
 	/**
 	 * @return \PDO
@@ -14,7 +24,7 @@ class DatabaseService
 	{
 		if ($this->DbConnectionRaw == null)
 		{
-			$pdo = new \PDO('sqlite:' . GROCY_DATAPATH . '/grocy.db');
+			$pdo = new \PDO('sqlite:' . $this->GetDbFilePath());
 			$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 			$this->DbConnectionRaw = $pdo;
 		}
@@ -66,11 +76,11 @@ class DatabaseService
 
 	public function GetDbChangedTime()
 	{
-		return date('Y-m-d H:i:s', filemtime(GROCY_DATAPATH . '/grocy.db'));
+		return date('Y-m-d H:i:s', filemtime($this->GetDbFilePath()));
 	}
 
 	public function SetDbChangedTime($dateTime)
 	{
-		touch(GROCY_DATAPATH . '/grocy.db', strtotime($dateTime));
+		touch($this->GetDbFilePath(), strtotime($dateTime));
 	}
 }

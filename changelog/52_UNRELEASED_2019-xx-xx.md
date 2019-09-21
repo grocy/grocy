@@ -77,8 +77,12 @@
 - It's now possible to test plural forms of quantity units (button on the quantity unit edit page, only visible if the current language requires more than 2 plural forms)
 - On the login page no menus and the sidebar is now hidden
 - New translations: (thanks all the translators)
-  - Danish (demo available at https://demo-da.grocy.info)
-  - Dutch (demo available at https://demo-nl.grocy.info)
+  - Danish (demo available at https://da.demo.grocy.info)
+  - Dutch (demo available at https://nl.demo.grocy.info)
+- Internal change for how the localizations for the demo instances are handled
+  - Also for the pre-release demo now all currently supported languages are available
+  - The URLs have changed, I'll try to keep all existing URLs redirecting properly for a long time
+    - If you want to link to the demo, please only use https://demo.grocy.info (stable demo) or https://demo-prerelease.grocy.info (current master branch demo)
 
 ### API improvements & non-breaking changes
 - New endpoint `/objects/{entity}/search/{searchString}` to search for objects by name (contains search)
@@ -90,7 +94,7 @@
 - New endpoint `/stock/products/by-barcode/{barcode}/inventory` to inventory a product by its barcode
 - New endpoint `/stock/products/by-barcode/{barcode}/open` to mark a product as opened by its barcode
 - New endpoint `/stock/bookings/{bookingId}` to retrieve a single stock booking
-- Endpoint `GET /files/{group}/{fileName}` can now also downscale pictures (see API documentation on [/api](https://demo-en.grocy.info/api))
+- Endpoint `GET /files/{group}/{fileName}` can now also downscale pictures (see API documentation on [/api](https://demo.grocy.info/api))
 - When adding a product (through `stock/product/{productId}/add` or `stock/product/{productId}/inventory`) with omitted best before date and if the given product has "Default best before days" set, the best before date is calculated based on that (so far always today was used which is still the case when no date is supplied and also the product has no "Default best before days set) (thanks @Forceu)
 - Field `stock_amount` of endpoint `/stock/products/{productId}` now returns `0` instead of `null` when the given product is not in stock (thanks @Forceu)
 - Fixed that `/system/db-changed-time` always returned the current time (more or less) due to that that time is the database file modification time and the database is effectively changed on each request because of session information tracking - which now explicitly does not change the database file modification time, so this should work again to determine if any data changes happened

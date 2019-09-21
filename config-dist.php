@@ -14,7 +14,8 @@
 # The settings defined here below
 
 
-# Either "production", "dev" or "prerelease"
+# Either "production", "dev", "demo" or "prerelease"
+# ("demo" and "prerelease" is reserved to be used only on the offical demo instances)
 Setting('MODE', 'production');
 
 # Either "en" or "de" or the directory name of

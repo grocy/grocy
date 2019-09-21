@@ -220,3 +220,19 @@ function IsJsonString($text)
 	json_decode($text);
 	return (json_last_error() == JSON_ERROR_NONE);
 }
+
+function string_starts_with($haystack, $needle)
+{
+	return (substr($haystack, 0, strlen($needle)) === $needle);
+}
+
+function string_ends_with($haystack, $needle)
+{
+	$length = strlen($needle);
+	if ($length == 0)
+	{
+		return true;
+	}
+
+	return (substr($haystack, -$length) === $needle);
+}

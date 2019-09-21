@@ -47,7 +47,7 @@ As the German translation will always be the most complete one, for maintaining 
 ## Things worth to know
 
 ### REST API & data model documentation
-See the integrated Swagger UI instance on [/api](https://demo-en.grocy.info/api).
+See the integrated Swagger UI instance on [/api](https://demo.grocy.info/api).
 
 ### Barcode readers
 Some fields also allow to select a value by scanning a barcode. It works best when your barcode reader prefixes every barcode with a letter which is normally not part of a item name (I use a `$`) and sends a `TAB` after a scan.
