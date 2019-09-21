@@ -150,5 +150,5 @@ $(document).on("click", "#barcodescanner-start-button", function(e)
 
 setTimeout(function()
 {
-	$(".barcodescanner-input:visible").after('<a id="barcodescanner-start-button" class="btn btn-sm btn-primary text-white" style="position: absolute; right: 0; margin-top: 4px; margin-right: 36px; z-index: 1000;"><i class="fas fa-camera"></i></a>');
+	$(".barcodescanner-input:visible").after('<a id="barcodescanner-start-button" class="btn btn-sm btn-primary text-white"><i class="fas fa-camera"></i></a>');
 }, 50);

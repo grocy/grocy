@@ -96,4 +96,9 @@ class SystemController extends BaseController
 			'changelog' => $this->ApplicationService->GetChangelog()
 		]);
 	}
+
+	public function BarcodeScannerTesting(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->AppContainer->view->render($response, 'barcodescannertesting');
+	}
 }

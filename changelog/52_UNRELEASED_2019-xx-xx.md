@@ -80,7 +80,8 @@
   - Danish (demo available at https://da.demo.grocy.info)
   - Dutch (demo available at https://nl.demo.grocy.info)
 - Internal change for how the localizations for the demo instances are handled
-  - Also for the pre-release demo now all currently supported languages are available
+  - For the pre-release demo now all currently supported languages are available (was already the case for the stable demo)
+    - Additionally all language files which reached the completion limit of 80 % will now be automatically pulled from Transifex 10 minutes past every hour (to have a kind of instant preview of changed tranlsations)
   - The URLs have changed, I'll try to keep all existing URLs redirecting properly for a long time
     - If you want to link to the demo, please only use https://demo.grocy.info (stable demo) or https://demo-prerelease.grocy.info (current master branch demo)
 

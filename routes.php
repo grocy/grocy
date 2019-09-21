@@ -10,6 +10,7 @@ $app->group('', function()
 	// System routes
 	$this->get('/', '\Grocy\Controllers\SystemController:Root')->setName('root');
 	$this->get('/about', '\Grocy\Controllers\SystemController:About');
+	$this->get('/barcodescannertesting', '\Grocy\Controllers\SystemController:BarcodeScannerTesting');
 
 	// Login routes
 	$this->get('/login', 'LoginControllerInstance:LoginPage')->setName('login');

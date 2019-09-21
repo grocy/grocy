@@ -1498,3 +1498,21 @@ msgstr ""
 
 msgid "Per stock quantity unit"
 msgstr ""
+
+msgid "Barcode scanner testing"
+msgstr ""
+
+msgid "Expected barcode"
+msgstr ""
+
+msgid "Scan field"
+msgstr ""
+
+msgid "Scanned codes"
+msgstr ""
+
+msgid "Hit"
+msgstr ""
+
+msgid "Miss"
+msgstr ""
