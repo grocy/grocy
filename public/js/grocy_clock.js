@@ -12,6 +12,11 @@ function RefreshHeaderClock()
 Grocy.HeaderClockInterval = null;
 function CheckHeaderClockEnabled()
 {
+	if (Grocy.UserId === -1)
+	{
+		return;
+	}
+
 	// Refresh the clock in the header every second when enabled
 	if (BoolVal(Grocy.UserSettings.show_clock_in_header))
 	{
@@ -36,7 +41,7 @@ function CheckHeaderClockEnabled()
 }
 CheckHeaderClockEnabled();
 
-if (BoolVal(Grocy.UserSettings.show_clock_in_header))
+if (Grocy.UserId !== -1 && BoolVal(Grocy.UserSettings.show_clock_in_header))
 {
 	$("#show-clock-in-header").prop("checked", true);
 }

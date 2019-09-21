@@ -1,13 +1,16 @@
-﻿Grocy.Api.Get('system/db-changed-time',
-	function(result)
-	{
-		Grocy.DatabaseChangedTime = moment(result.changed_time);
-	},
-	function(xhr)
-	{
-		console.error(xhr);
-	}
-);
+﻿if (Grocy.UserId !== -1)
+{
+	Grocy.Api.Get('system/db-changed-time',
+		function(result)
+		{
+			Grocy.DatabaseChangedTime = moment(result.changed_time);
+		},
+		function(xhr)
+		{
+			console.error(xhr);
+		}
+	);
+}
 
 // Check if the database has changed once a minute
 // If a change is detected, reload the current page, but only if already idling for at least 50 seconds,
@@ -56,7 +59,7 @@ setInterval(function()
 	Grocy.IdleTime += 1;
 }, 1000);
 
-if (BoolVal(Grocy.UserSettings.auto_reload_on_db_change))
+if (Grocy.UserId !== -1 && BoolVal(Grocy.UserSettings.auto_reload_on_db_change))
 {
 	$("#auto-reload-enabled").prop("checked", true);
 }

@@ -57,9 +57,15 @@
 		Grocy.CalendarFirstDayOfWeek = '{{ GROCY_CALENDAR_FIRST_DAY_OF_WEEK }}';
 		Grocy.CalendarShowWeekNumbers = {{ BoolToString(GROCY_CALENDAR_SHOW_WEEK_OF_YEAR) }};
 		Grocy.GettextPo = {!! $GettextPo !!};
-		Grocy.UserSettings = {!! json_encode($userSettings) !!};
 		Grocy.FeatureFlags = {!! json_encode($featureFlags) !!};
+
+		@if (GROCY_AUTHENTICATED)
+		Grocy.UserSettings = {!! json_encode($userSettings) !!};
 		Grocy.UserId = {{ GROCY_USER_ID }};
+		@else
+		Grocy.UserSettings = { };
+		Grocy.UserId = -1;
+		@endif
 	</script>
 </head>
 
