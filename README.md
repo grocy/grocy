@@ -19,7 +19,7 @@ A household needs to be managed. I did this so far (almost 10 years) with my fir
 >
 > See https://github.com/grocy/grocy-desktop or directly download the [latest release](https://releases.grocy.info/latest-desktop) - the installation is nothing more than just clicking 2 times "next"...
 
-Just unpack the [latest release](https://releases.grocy.info/latest) on your PHP (SQLite (3.8.3 or higher) extension required, currently only tested with PHP 7.2) enabled webserver (webservers root should point to the `public` directory), copy `config-dist.php` to `data/config.php`, edit it to your needs, ensure that the `data` directory is writable and you're ready to go, (to make writable `chown -R www-data:www-data data/`). Default login is user `admin` with password `admin`, please change the password immediately (see user menu).
+Just unpack the [latest release](https://releases.grocy.info/latest) on your PHP (SQLite (3.8.3 or higher) extension required, currently only tested with PHP 7.3) enabled webserver (webservers root should point to the `public` directory), copy `config-dist.php` to `data/config.php`, edit it to your needs, ensure that the `data` directory is writable and you're ready to go, (to make it writable, maybe use `chown -R www-data:www-data data/`). Default login is user `admin` with password `admin`, please change the password immediately (see user menu).
 
 Alternatively clone this repository and install Composer and Yarn dependencies manually.
 
@@ -27,30 +27,33 @@ If you use nginx as your webserver, please include `try_files $uri /index.php;` 
 
 If, however, your webserver does not support URL rewriting, set `DISABLE_URL_REWRITING` in `data/config.php` (`Setting('DISABLE_URL_REWRITING', true);`).
 
+See the website for further installation guides and troubleshooting help: https://grocy.info/links
+
 ## How to run using Docker
 
 See [grocy/grocy-docker](https://github.com/grocy/grocy-docker) for instructions.
 
 ## How to update
-Just overwrite everything with the latest release while keeping the `data` directory, check `config-dist.php` for new configuration options and add them to your `data/config.php` (the default from values `config-dist.php` will be used for not in `data/config.php` defined settings). Just to be sure, please empty `data/viewcache`.
+Just overwrite everything with the latest release while keeping the `data` directory, check `config-dist.php` for new configuration options and add them to your `data/config.php` where appropriate (the default values from `config-dist.php` will be used for not in `data/config.php` defined settings). Just to be sure, please empty `data/viewcache`.
 
-If you run grocy on Linux, there is also `update.sh` (remember to make the script executable, `chmod +x update.sh` and ensure that you have `unzip` installed) which does exactly this and additionally creates a backup (`.tgz` archive) of the current installation in `data/backups` (backups older than 60 days will be deleted during the update).
+If you run grocy on Linux, there is also `update.sh` (remember to make the script executable (`chmod +x update.sh`) and ensure that you have `unzip` installed) which does exactly this and additionally creates a backup (`.tgz` archive) of the current installation in `data/backups` (backups older than 60 days will be deleted during the update).
 
 ## Localization
 grocy is fully localizable - the default language is English (integrated into code), a German localization is always maintained by me.
 You can easily help translating grocy at https://www.transifex.com/grocy/grocy, if your language is incomplete or not available yet.
 (Language can be changed in `data/config.php`, e. g. `Setting('CULTURE', 'it');`)
 
-### Maintaining your own localization
-As the German translation will always be the most complete one, for maintaining your localization it would be easiest when you compare your localization with the German one with a diff tool of your choice.
+The [pre-release demo](https://demo-prerelease.grocy.info) is available for any translation which is at least 80 % complete and will pull the translations from Transifex 10 minutes past every hour, so you can have a kind of instant preview of your contributed translations. Thank you!
 
 ## Things worth to know
 
 ### REST API & data model documentation
 See the integrated Swagger UI instance on [/api](https://demo.grocy.info/api).
 
-### Barcode readers
+### Barcode readers & camera scanning
 Some fields also allow to select a value by scanning a barcode. It works best when your barcode reader prefixes every barcode with a letter which is normally not part of a item name (I use a `$`) and sends a `TAB` after a scan.
+
+Additionally it's also possible to use your device camera to scan a barcode by using the camera button on the right side of the corresponding field (powered by [QuaggaJS](https://github.com/serratus/quaggaJS), totally offline / client-side camera stream processing). Quick video demo: https://www.youtube.com/watch?v=Y5YH6IJFnfc
 
 ### Input shorthands for date fields
 For (productivity) reasons all date (and time) input fields use the ISO-8601 format regardless of localization.
@@ -92,10 +95,10 @@ When the file `embedded.txt` exists, it must contain a valid and writable path w
 
 In embedded mode, settings can be overridden by text files in `data/settingoverrides`, the file name must be `<SettingName>.txt` (e. g. `BASE_URL.txt`) and the content must be the setting value (normally one single line).
 
-## Contributing
+## Contributing / Say thanks
 Any help is more than appreciated. Feel free to pick any open unassigned issue and submit a pull request, but please leave a short comment or assign the issue yourself, to avoid working on the same thing.
 
-New ideas are also very welcome, feel free to open an issue to discuss them.
+See https://grocy.info/#say-thanks for more ideas if you just want say thanks.
 
 ## Screenshots
 #### Dashboard
