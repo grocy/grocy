@@ -83,6 +83,7 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
+		@if(GROCY_AUTHENTICATED)
 		<div id="sidebarResponsive" class="collapse navbar-collapse">
 			<ul class="navbar-nav navbar-sidenav pt-2">
 
@@ -376,7 +377,7 @@
 					</div>
 				</li>
 			</ul>
-		</div>
+		</div>@endif
 	</nav>
 	@endif
 
