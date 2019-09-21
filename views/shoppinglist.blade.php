@@ -148,7 +148,7 @@
 <div class="row mt-3 d-print-none">
 	<div class="col-xs-12 col-md-8">
 		<div class="form-group">
-			<label for="notes">{{ $__t('Notes') }}</label>
+			<label class="text-larger font-weight-bold" for="notes">{{ $__t('Notes') }}</label>
 			<a id="save-description-button" class="btn btn-success btn-sm ml-1 mb-2 disabled" href="#">{{ $__t('Save') }}</a>
 			<textarea class="form-control wysiwyg-editor" id="description" name="description">{{ FindObjectInArrayByPropertyValue($shoppingLists, 'id', $selectedShoppingListId)->description }}</textarea>
 		</div>

@@ -163,8 +163,8 @@
 					</div>
 					<div class="col-2">
 						<label>{{ $__t('Energy (kcal)') }}</label>
-						<p class="font-weight-bold font-italic">
-							<span class="locale-number-format" data-format="generic">{{ $selectedRecipeTotalCalories }}</span>
+						<p class="mb-0">
+							<h3 class="locale-number-format pt-0" data-format="generic">{{ $selectedRecipeTotalCalories }}</h3>
 						</p>
 					</div>
 					@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
@@ -172,8 +172,8 @@
 						<label>{{ $__t('Costs') }}&nbsp;&nbsp;
 							<span class="small text-muted">{{ $__t('Based on the prices of the last purchase per product') }}</span>
 						</label>
-						<p class="font-weight-bold font-italic">
-							<span class="locale-number-format" data-format="currency">{{ $selectedRecipeTotalCosts }}</span>
+						<p class="mb-0">
+							<h3 class="locale-number-format pt-0" data-format="currency">{{ $selectedRecipeTotalCosts }}</h3>
 						</p>
 					</div>
 					@endif

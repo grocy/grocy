@@ -214,6 +214,10 @@ input::-webkit-inner-spin-button {
 	border-radius: 0.2rem;
 }
 
+.text-larger {
+	font-size: 125%;
+}
+
 /* Third party component customizations - DataTables */
 .dataTable td {
 	vertical-align: middle !important;
