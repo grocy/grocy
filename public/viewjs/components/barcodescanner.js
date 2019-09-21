@@ -2,6 +2,9 @@ Grocy.Components.BarcodeScanner = { };
 
 Grocy.Components.BarcodeScanner.StartScanning = function()
 {
+	Grocy.Components.BarcodeScanner.DecodedCodesCount = 0;
+	Grocy.Components.BarcodeScanner.DecodedCodesErrorCount = 0;
+
 	Quagga.init({
 		inputStream: {
 			name: "Live",
@@ -35,15 +38,9 @@ Grocy.Components.BarcodeScanner.StartScanning = function()
 		frequency: 10,
 		decoder: {
 			readers: [
-				"code_128_reader",
 				"ean_reader",
 				"ean_8_reader",
-				"code_39_reader",
-				"code_39_vin_reader",
-				"codabar_reader",
-				"upc_reader",
-				"upc_e_reader",
-				"i2of5_reader"
+				"code_128_reader"
 			],
 			debug: {
 				showCanvas: true,
@@ -79,13 +76,29 @@ Grocy.Components.BarcodeScanner.StartScanning = function()
 Grocy.Components.BarcodeScanner.StopScanning = function()
 {
 	Quagga.stop();
+	
+	Grocy.Components.BarcodeScanner.DecodedCodesCount = 0;
+	Grocy.Components.BarcodeScanner.DecodedCodesErrorCount = 0;
+
 	bootbox.hideAll();
 }
 
 Quagga.onDetected(function(result)
 {
-	Grocy.Components.BarcodeScanner.StopScanning();
-	$(document).trigger("Grocy.BarcodeScanned", [result.codeResult.code]);
+	$.each(result.codeResult.decodedCodes, function(id, error)
+	{
+		if (error.error != undefined)
+		{
+			Grocy.Components.BarcodeScanner.DecodedCodesCount++;
+			Grocy.Components.BarcodeScanner.DecodedCodesErrorCount += parseFloat(error.error);
+		}
+	});
+
+	if (Grocy.Components.BarcodeScanner.DecodedCodesErrorCount / Grocy.Components.BarcodeScanner.DecodedCodesCount < 0.15)
+	{
+		Grocy.Components.BarcodeScanner.StopScanning();
+		$(document).trigger("Grocy.BarcodeScanned", [result.codeResult.code]);
+	}
 });
 
 Quagga.onProcessed(function(result)
@@ -103,13 +116,13 @@ Quagga.onProcessed(function(result)
 				return box !== result.box;
 			}).forEach(function(box)
 			{
-				Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, { color: "green", lineWidth: 4 });
+				Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, { color: "yellow", lineWidth: 4 });
 			});
 		}
 
 		if (result.box)
 		{
-			Quagga.ImageDebug.drawPath(result.box, { x: 0, y: 1 }, drawingCtx, { color: "yellow", lineWidth: 4 });
+			Quagga.ImageDebug.drawPath(result.box, { x: 0, y: 1 }, drawingCtx, { color: "green", lineWidth: 4 });
 		}
 
 		if (result.codeResult && result.codeResult.code)
