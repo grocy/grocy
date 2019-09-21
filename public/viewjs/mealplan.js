@@ -59,6 +59,11 @@ var calendar = $("#calendar").fullCalendar({
 	"eventRender": function(event, element)
 	{
 		var recipe = JSON.parse(event.recipe);
+		if (recipe === null || recipe === undefined)
+		{
+			return false;
+		}
+
 		var mealPlanEntry = JSON.parse(event.mealPlanEntry);
 		var resolvedRecipe = FindObjectInArrayByPropertyValue(recipesResolved, "recipe_id", recipe.id);
 

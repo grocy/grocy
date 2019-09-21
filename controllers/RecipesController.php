@@ -135,12 +135,19 @@ class RecipesController extends BaseController
 		$events = array();
 		foreach($this->Database->meal_plan() as $mealPlanEntry)
 		{
+			$recipe = FindObjectInArrayByPropertyValue($recipes, 'id', $mealPlanEntry['recipe_id']);
+			$title = '';
+			if ($recipe !== null)
+			{
+				$title = $recipe->name;
+			}
+
 			$events[] = array(
 				'id' => $mealPlanEntry['id'],
-				'title' => FindObjectInArrayByPropertyValue($recipes, 'id', $mealPlanEntry['recipe_id'])->name,
+				'title' => $title,
 				'start' => $mealPlanEntry['day'],
 				'date_format' => 'date',
-				'recipe' => json_encode(FindObjectInArrayByPropertyValue($recipes, 'id', $mealPlanEntry['recipe_id'])),
+				'recipe' => json_encode($recipe),
 				'mealPlanEntry' => json_encode($mealPlanEntry)
 			);
 		}
