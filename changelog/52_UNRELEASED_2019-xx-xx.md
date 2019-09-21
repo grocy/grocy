@@ -36,6 +36,7 @@
   - `FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING` to disable product best before date tracking
   - `FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING` to disable product opened tracking
 - Fixed/refined some things regarding purchase/consume/inventory of products with enabled tare weight handling (nothing was broken, but the success popups may not displayed the correct amount that was posted)
+- Fixed that "Spoil rate" and "Average shelf life" on the product card was wrong in most cases
 
 ### Shopping list improvements
 - Shopping lists now have a notes field (HTML/WYSIWYG editor, just to save some notes per shopping list)

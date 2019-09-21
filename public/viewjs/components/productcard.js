@@ -16,7 +16,7 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 			$('#productcard-product-last-used').text((productDetails.last_used || __t('never')).substring(0, 10));
 			$('#productcard-product-last-used-timeago').attr("datetime", productDetails.last_used || '');
 			$('#productcard-product-location').text(productDetails.location.name);
-			$('#productcard-product-spoil-rate').text(parseFloat(productDetails.spoil_rate_percent).toLocaleString(undefined, { style: "percent" }));
+			$('#productcard-product-spoil-rate').text((parseFloat(productDetails.spoil_rate_percent) / 100).toLocaleString(undefined, { style: "percent" }));
 
 			if (productDetails.is_aggregated_amount == 1)
 			{

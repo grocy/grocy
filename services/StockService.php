@@ -115,7 +115,7 @@ class StockService extends BaseService
 			$lastPrice = $lastLogRow->price;
 		}
 
-		$consumeCount = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone', 0)->sum('amount') * -1;
+		$consumeCount = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone = 0 AND spoiled = 0')->sum('amount') * -1;
 		$consumeCountSpoiled = $this->Database->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone = 0 AND spoiled = 1')->sum('amount') * -1;
 		if ($consumeCount == 0)
 		{
