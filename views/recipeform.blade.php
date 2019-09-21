@@ -24,7 +24,7 @@
 
 		<script>
 			Grocy.EditMode = '{{ $mode }}';
-			Grocy.QuantityUnits = {!! json_encode($quantityUnits) !!};
+			Grocy.QuantityUnits = {!! json_encode($quantityunits) !!};
 			Grocy.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
 		</script>
 

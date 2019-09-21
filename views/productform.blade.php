@@ -203,7 +203,7 @@
 				</div>
 			</div>
 
-			@php if($mode == 'edit') { $value = $product->calories; } else { $value = ''; } @endphp
+			@php if($mode == 'edit') { $value = $product->calories; } else { $value = 0; } @endphp
 			@include('components.numberpicker', array(
 				'id' => 'calories',
 				'label' => 'Energy (kcal)',

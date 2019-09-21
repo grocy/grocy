@@ -3,9 +3,10 @@ Grocy.Components.ProductAmountPicker.AllowAnyQuEnabled = false;
 
 Grocy.Components.ProductAmountPicker.Reload = function(productId, destinationQuId, forceInitialDisplayQu = false)
 {
+	var conversionsForProduct = FindAllObjectsInArrayByPropertyValue(Grocy.QuantityUnitConversionsResolved, 'product_id', productId);
+
 	if (!Grocy.Components.ProductAmountPicker.AllowAnyQuEnabled)
 	{
-		var conversionsForProduct = FindAllObjectsInArrayByPropertyValue(Grocy.QuantityUnitConversionsResolved, 'product_id', productId);
 		$("#qu_id").find("option").remove().end();
 		$("#qu_id").attr("data-destination-qu-name", FindObjectInArrayByPropertyValue(Grocy.QuantityUnits, 'id', destinationQuId).name);
 		conversionsForProduct.forEach(conversion =>
@@ -25,6 +26,11 @@ Grocy.Components.ProductAmountPicker.Reload = function(productId, destinationQuI
 		$("#display_amount").val(convertedAmount);
 
 		Grocy.Components.ProductAmountPicker.InitalValueSet = true;
+	}
+
+	if (conversionsForProduct.length === 1)
+	{
+		$("#qu_id").val($("#qu_id option:first").val());
 	}
 
 	$(".input-group-productamountpicker").trigger("change");

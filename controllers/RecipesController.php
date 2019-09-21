@@ -110,6 +110,7 @@ class RecipesController extends BaseController
 			return $this->AppContainer->view->render($response, 'recipeposform', [
 				'mode' => 'create',
 				'recipe' => $this->Database->recipes($args['recipeId']),
+				'recipePos' => new \stdClass(),
 				'products' => $this->Database->products()->orderBy('name'),
 				'quantityUnits' => $this->Database->quantity_units()->orderBy('name'),
 				'quantityUnitConversionsResolved' => $this->Database->quantity_unit_conversions_resolved()

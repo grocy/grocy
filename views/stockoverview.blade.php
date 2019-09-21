@@ -162,9 +162,11 @@
 									data-consume-amount="1">
 									<i class="fas fa-utensils"></i> {{ $__t('Consume %1$s of %2$s as spoiled', '1 ' . FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name) }}
 								</a>
+								@if(GROCY_FEATURE_FLAG_RECIPES)
 								<a class="dropdown-item" type="button" href="{{ $U('/recipes?search=') }}{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}">
 									<i class="fas fa-cocktail"></i> {{ $__t('Search for recipes containing this product') }}
 								</a>
+								@endif
 							</div>
 						</div>
 					</td>

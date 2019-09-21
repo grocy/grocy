@@ -10,6 +10,7 @@
 @php if(!isset($label)) { $label = 'Product'; } @endphp
 @php if(!isset($disabled)) { $disabled = false; } @endphp
 @php if(empty($hint)) { $hint = ''; } @endphp
+@php if(empty($nextInputSelector)) { $nextInputSelector = ''; } @endphp
 
 <div class="form-group" data-next-input-selector="{{ $nextInputSelector }}" data-disallow-add-product-workflows="{{ BoolToString($disallowAddProductWorkflows) }}" data-disallow-all-product-workflows="{{ BoolToString($disallowAllProductWorkflows) }}" data-prefill-by-name="{{ $prefillByName }}" data-prefill-by-id="{{ $prefillById }}">
 	<label for="product_id">{{ $__t($label) }} <i class="fas fa-barcode"></i><span id="barcode-lookup-disabled-hint" class="small text-muted d-none"> {{ $__t('Barcode lookup is disabled') }}</span>&nbsp;&nbsp;<span class="small text-muted">{{ $hint }}</span></label>

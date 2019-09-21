@@ -161,12 +161,14 @@
 							'additionalAttributes' => 'data-recipe-id="' . $selectedRecipe->id . '"'
 						))
 					</div>
+					@if(!empty($selectedRecipeTotalCalories) && intval($selectedRecipeTotalCalories) > 0)
 					<div class="col-2">
 						<label>{{ $__t('Energy (kcal)') }}</label>
 						<p class="mb-0">
 							<h3 class="locale-number-format pt-0" data-format="generic">{{ $selectedRecipeTotalCalories }}</h3>
 						</p>
 					</div>
+					@endif
 					@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 					<div class="col-6">
 						<label>{{ $__t('Costs') }}&nbsp;&nbsp;
