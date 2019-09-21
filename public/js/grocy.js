@@ -307,6 +307,7 @@ RefreshContextualTimeago = function()
 		if (isNever)
 		{
 			element.prev().text(__t("Never"));
+			element.text("");
 		}
 		else if (isToday)
 		{
