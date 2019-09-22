@@ -1643,3 +1643,30 @@ msgstr "Zum Einkaufszettel hinzufügen"
 
 msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
 msgstr "%1$s %2$s dem Einkauszettel \"%3$s\" hinzugefügt"
+
+msgid "Output"
+msgstr "Ausgabe"
+
+msgid "Energy (kcal)"
+msgstr "Energie (kcal)"
+
+msgid "Per stock quantity unit"
+msgstr "Pro Bestandsmengeneinheit"
+
+msgid "Barcode scanner testing"
+msgstr "Barcodescanner testen"
+
+msgid "Expected barcode"
+msgstr "Erwarteter Barcode"
+
+msgid "Scan field"
+msgstr "Scanfeld"
+
+msgid "Scanned barcodes"
+msgstr "Gescannte Barcodes"
+
+msgid "Hit"
+msgstr "Erfolgreich"
+
+msgid "Miss"
+msgstr "Fehler"
