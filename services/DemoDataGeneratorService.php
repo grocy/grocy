@@ -295,24 +295,18 @@ class DemoDataGeneratorService extends BaseService
 			mkdir($productPicturesFolder);
 			mkdir($equipmentManualsFolder);
 			mkdir($recipePicturesFolder);
-			$sslOptions = array(
-				'ssl' => array(
-				'verify_peer' => false,
-				'verify_peer_name' => false,
-				),
-			);
-			file_put_contents("$productPicturesFolder/cookies.jpg", file_get_contents('https://releases.grocy.info/demoresources/cookies.jpg', false, stream_context_create($sslOptions)));
-			file_put_contents("$productPicturesFolder/cucumber.jpg", file_get_contents('https://releases.grocy.info/demoresources/cucumber.jpg', false, stream_context_create($sslOptions)));
-			file_put_contents("$productPicturesFolder/gummybears.jpg", file_get_contents('https://releases.grocy.info/demoresources/gummybears.jpg', false, stream_context_create($sslOptions)));
-			file_put_contents("$productPicturesFolder/paprika.jpg", file_get_contents('https://releases.grocy.info/demoresources/paprika.jpg', false, stream_context_create($sslOptions)));
-			file_put_contents("$productPicturesFolder/tomato.jpg", file_get_contents('https://releases.grocy.info/demoresources/tomato.jpg', false, stream_context_create($sslOptions)));
-			file_put_contents("$equipmentManualsFolder/loremipsum.pdf", file_get_contents('https://releases.grocy.info/demoresources/loremipsum.pdf', false, stream_context_create($sslOptions)));
-			file_put_contents("$recipePicturesFolder/pizza.jpg", file_get_contents('https://releases.grocy.info/demoresources/pizza.jpg', false, stream_context_create($sslOptions)));
-			file_put_contents("$recipePicturesFolder/sandwiches.jpg", file_get_contents('https://releases.grocy.info/demoresources/sandwiches.jpg', false, stream_context_create($sslOptions)));
-			file_put_contents("$recipePicturesFolder/pancakes.jpg", file_get_contents('https://releases.grocy.info/demoresources/pancakes.jpg', false, stream_context_create($sslOptions)));
-			file_put_contents("$recipePicturesFolder/spaghetti.jpg", file_get_contents('https://releases.grocy.info/demoresources/spaghetti.jpg', false, stream_context_create($sslOptions)));
-			file_put_contents("$recipePicturesFolder/chocolate_sauce.jpg", file_get_contents('https://releases.grocy.info/demoresources/chocolate_sauce.jpg', false, stream_context_create($sslOptions)));
-			file_put_contents("$recipePicturesFolder/pancakes_chocolate_sauce.jpg", file_get_contents('https://releases.grocy.info/demoresources/pancakes_chocolate_sauce.jpg', false, stream_context_create($sslOptions)));
+			$this->DownloadFileIfNotAlreadyExists('https://releases.grocy.info/demoresources/cookies.jpg', "$productPicturesFolder/cookies.jpg");
+			$this->DownloadFileIfNotAlreadyExists('https://releases.grocy.info/demoresources/cucumber.jpg', "$productPicturesFolder/cucumber.jpg");
+			$this->DownloadFileIfNotAlreadyExists('https://releases.grocy.info/demoresources/gummybears.jpg', "$productPicturesFolder/gummybears.jpg");
+			$this->DownloadFileIfNotAlreadyExists('https://releases.grocy.info/demoresources/paprika.jpg', "$productPicturesFolder/paprika.jpg");
+			$this->DownloadFileIfNotAlreadyExists('https://releases.grocy.info/demoresources/tomato.jpg', "$productPicturesFolder/tomato.jpg");
+			$this->DownloadFileIfNotAlreadyExists('https://releases.grocy.info/demoresources/loremipsum.pdf', "$equipmentManualsFolder/loremipsum.pdf");
+			$this->DownloadFileIfNotAlreadyExists('https://releases.grocy.info/demoresources/pizza.jpg', "$recipePicturesFolder/pizza.jpg");
+			$this->DownloadFileIfNotAlreadyExists('https://releases.grocy.info/demoresources/sandwiches.jpg', "$recipePicturesFolder/sandwiches.jpg");
+			$this->DownloadFileIfNotAlreadyExists('https://releases.grocy.info/demoresources/pancakes.jpg', "$recipePicturesFolder/pancakes.jpg");
+			$this->DownloadFileIfNotAlreadyExists('https://releases.grocy.info/demoresources/spaghetti.jpg', "$recipePicturesFolder/spaghetti.jpg");
+			$this->DownloadFileIfNotAlreadyExists('https://releases.grocy.info/demoresources/chocolate_sauce.jpg', "$recipePicturesFolder/chocolate_sauce.jpg");
+			$this->DownloadFileIfNotAlreadyExists('https://releases.grocy.info/demoresources/pancakes_chocolate_sauce.jpg', "$recipePicturesFolder/pancakes_chocolate_sauce.jpg");
 		}
 	}
 
@@ -331,5 +325,18 @@ class DemoDataGeneratorService extends BaseService
 	{
 		$localizedText = $this->LocalizationService->__n($number, $singularForm, $pluralForm);
 		return str_replace("'", "''", $localizedText);
+	}
+
+	private function DownloadFileIfNotAlreadyExists($sourceUrl, $destinationPath)
+	{
+		if (!file_exists($destinationPath))
+		{
+			file_put_contents($destinationPath, file_get_contents($sourceUrl, false, stream_context_create(array(
+				'ssl' => array(
+				'verify_peer' => false,
+				'verify_peer_name' => false,
+				),
+			))));
+		}
 	}
 }

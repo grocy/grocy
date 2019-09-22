@@ -36,18 +36,6 @@ else
 // Load composer dependencies
 require_once __DIR__ . '/vendor/autoload.php';
 
-// Definitions for the official demo instances
-// running on "<localization>.demo.grocy.info" and "<localization>.demo-prerelease.grocy.info
-// The language should automatically be determined by the subdomain
-if (string_ends_with(strtolower($_SERVER['HTTP_HOST']), 'grocy.info'))
-{
-	$cultureBySubdomain = explode('.', $_SERVER['HTTP_HOST'])[0];
-	if (file_exists(__DIR__ . "/localization/$cultureBySubdomain") && is_dir(__DIR__ . "/localization/$cultureBySubdomain"))
-	{
-		define('GROCY_CULTURE', $cultureBySubdomain);
-	}
-}
-
 // Load config files
 require_once GROCY_DATAPATH . '/config.php';
 require_once __DIR__ . '/config-dist.php'; // For not in own config defined values we use the default ones
