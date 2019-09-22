@@ -31,7 +31,7 @@ See the website for further installation guides and troubleshooting help: https:
 
 ## How to run using Docker
 
-See [grocy/grocy-docker](https://github.com/grocy/grocy-docker) for instructions.
+See [grocy/grocy-docker](https://github.com/grocy/grocy-docker) or [linuxserver/docker-grocy](https://github.com/linuxserver/docker-grocy) for instructions.
 
 ## How to update
 Just overwrite everything with the latest release while keeping the `data` directory, check `config-dist.php` for new configuration options and add them to your `data/config.php` where appropriate (the default values from `config-dist.php` will be used for not in `data/config.php` defined settings). Just to be sure, please empty `data/viewcache`.
