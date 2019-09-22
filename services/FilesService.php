@@ -42,6 +42,11 @@ class FilesService extends BaseService
 		$fileNameDownscaled = $fileNameWithoutExtension . '__downscaledto' . ($bestFitHeight ? $bestFitHeight : 'auto') . 'x' . ($bestFitWidth ? $bestFitWidth : 'auto') . '.' . $fileExtension;
 		$filePathDownscaled = $this->GetFilePath($group, $fileNameDownscaled);
 
+		if (!extension_loaded('gd'))
+		{
+			return $filePath;
+		}
+
 		try
 		{
 			if (!file_exists($filePathDownscaled))
