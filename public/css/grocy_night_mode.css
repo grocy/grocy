@@ -5,12 +5,18 @@
 .night-mode .table-info,
 .night-mode .table-info > td,
 .night-mode .table-info > th {
-        background-color: #07373f;
-        color: #6c757d;
+	background-color: #07373f;
+	color: #6c757d;
 }
 
 .night-mode .table {
-        color: #6c757d;
+	color: #6c757d;
+}
+
+.night-mode table.dataTable tr.dtrg-group td,
+.nav-tabs .nav-link.active {
+	background-color: #2f3031;
+	color: #c1c1c1;
 }
 
 .night-mode .btn,
@@ -46,6 +52,12 @@
 	color: #c1c1c1;
 	background-color: #0d3a18;
 	border-color: #0d3a18;
+}
+
+.night-mode .btn-light {
+	color: #c1c1c1;
+	background-color: #292b2a;
+	border-color: #292b2a;
 }
 
 .night-mode .form-control {
