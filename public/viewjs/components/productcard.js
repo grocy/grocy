@@ -66,7 +66,7 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 				$('#productcard-product-stock-opened-amount').text("");
 			}
 
-			$('#productcard-product-edit-button').attr("href", U("/product/" + productDetails.product.id.toString()));
+			$('#productcard-product-edit-button').attr("href", U("/product/" + productDetails.product.id.toString() + '?' + 'returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative)));
 			$('#productcard-product-edit-button').removeClass("disabled");
 
 			if (productDetails.last_price !== null)

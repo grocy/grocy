@@ -151,7 +151,7 @@
 								<a class="dropdown-item" type="button" href="{{ $U('/stockjournal?product=') }}{{ $currentStockEntry->product_id }}">
 									<i class="fas fa-file-alt"></i> {{ $__t('Stock journal for this product') }}
 								</a>
-								<a class="dropdown-item" type="button" href="{{ $U('/product/') }}{{ $currentStockEntry->product_id }}">
+								<a class="dropdown-item" type="button" href="{{ $U('/product/') }}{{ $currentStockEntry->product_id . '?returnto=%2Fstockoverview' }}">
 									<i class="fas fa-edit"></i> {{ $__t('Edit product') }}
 								</a>
 								<div class="dropdown-divider"></div>

@@ -37,6 +37,7 @@
   - `FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING` to disable product opened tracking
 - Fixed/refined some things regarding purchase/consume/inventory of products with enabled tare weight handling (nothing was broken, but the success popups may not displayed the correct amount that was posted)
 - Fixed that "Spoil rate" and "Average shelf life" on the product card was wrong in most cases
+- When going to the product edit page, after saving the product, it will now return to the page you were coming from
 
 ### Shopping list improvements
 - Shopping lists now have a notes field (HTML/WYSIWYG editor, just to save some notes per shopping list)
