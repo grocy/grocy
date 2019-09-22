@@ -14,7 +14,7 @@
 }
 
 .night-mode table.dataTable tr.dtrg-group td,
-.nav-tabs .nav-link.active {
+.night-mode .nav-tabs .nav-link.active {
 	background-color: #2f3031;
 	color: #c1c1c1;
 }
