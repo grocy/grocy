@@ -22,6 +22,8 @@ Grocy.Components.DateTimePicker.SetValue = function(value)
 	{
 		$("#datetimepicker-shortcut").click();
 	}
+
+	Grocy.Components.DateTimePicker.GetInputElement().keyup();
 }
 
 Grocy.Components.DateTimePicker.Clear = function()
