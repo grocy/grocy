@@ -28,12 +28,12 @@ var calendar = $("#calendar").fullCalendar({
 		{
 			UpdateUriParam("week", view.start.format("YYYY-MM-DD"));
 		}
-		
+
 		$(".fc-day-header").append('<a class="ml-1 btn btn-outline-dark btn-xs my-1 add-recipe-button" href="#"><i class="fas fa-plus"></i></a>');
 
 		var weekRecipeName = view.start.year().toString() + "-" + (view.start.week() - 1).toString();
 		var weekRecipe = FindObjectInArrayByPropertyValue(internalRecipes, "name", weekRecipeName);
-		
+
 		var weekCosts = 0;
 		var weekRecipeOrderMissingButtonHtml = "";
 		var weekRecipeConsumeButtonHtml = "";
@@ -103,9 +103,10 @@ var calendar = $("#calendar").fullCalendar({
 					<a class="ml-1 btn btn-outline-danger btn-xs remove-recipe-button" href="#"><i class="fas fa-trash"></i></a> \
 					<a class="ml-1 btn btn-outline-primary btn-xs recipe-order-missing-button ' + recipeOrderMissingButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Put missing products on shopping list") + '" data-recipe-id="' + recipe.id.toString() + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-cart-plus"></i></a> \
 					<a class="ml-1 btn btn-outline-success btn-xs recipe-consume-button ' + recipeConsumeButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Consume all ingredients needed by this recipe") + '" data-recipe-id="' + recipe.id.toString() + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-utensils"></i></a> \
+					<a class="ml-1 btn btn-outline-primary btn-xs recipe-popup-button" href="#" data-toggle="tooltip" title="' + __t("Popup Recipe") + '" data-recipe-id="' + recipe.id.toString() + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-expand-arrows-alt"></i></a> \
 				</h5> \
 			</div>');
-		
+
 		if (recipe.picture_file_name && !recipe.picture_file_name.isEmpty())
 		{
 			element.html(element.html() + '<img data-src="' + U("/api/files/recipepictures/") + btoa(recipe.picture_file_name) + '?force_serve_as=picture&best_fit_width=400" class="img-fluid lazy">')
@@ -262,7 +263,7 @@ $(document).on('click', '.recipe-consume-button', function(e)
 {
 	var objectName = $(e.currentTarget).attr('data-recipe-name');
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
-	
+
 	bootbox.confirm({
 		message: __t('Are you sure to consume all ingredients needed by recipe "%s" (ingredients marked with "check only if a single unit is in stock" will be ignored)?', objectName),
 		buttons: {
@@ -294,6 +295,28 @@ $(document).on('click', '.recipe-consume-button', function(e)
 						console.error(xhr);
 					}
 				);
+			}
+		}
+	});
+});
+
+$(document).on("click", ".recipe-popup-button", function(e)
+{
+	var objectId = $(e.currentTarget).attr('data-recipe-id');
+
+	bootbox.dialog({
+		message: '<iframe height="650px" class="embed-responsive" src="' + U("/recipes?recipe=") + objectId + '#fullscreen"></iframe>',
+		size: 'large',
+		backdrop: true,
+		closeButton: false,
+		buttons: {
+			cancel: {
+				label: __t('Cancel'),
+				className: 'btn-secondary responsive-button',
+				callback: function()
+				{
+					bootbox.hideAll();
+				}
 			}
 		}
 	});
