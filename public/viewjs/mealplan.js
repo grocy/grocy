@@ -120,6 +120,9 @@ var calendar = $("#calendar").fullCalendar({
 		{
 			$("#calendar").fullCalendar("gotoDate", GetUriParam("week"));
 		}
+		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+			$('#calendar').fullCalendar('changeView', 'agendaDay');
+		} //IF MOBILE CHANGE VIEW TO AGENDA DAY
 	},
 });
 
