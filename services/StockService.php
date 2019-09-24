@@ -592,7 +592,7 @@ class StockService extends BaseService
 		else // Insert
 		{
 			$shoppinglistRow = $this->Database->shopping_list()->createRow(array(
-				'product_id' => $productId->id,
+				'product_id' => $productId,
 				'amount' => $amount,
 				'shopping_list_id' => $listId
 			));
