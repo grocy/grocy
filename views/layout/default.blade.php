@@ -370,8 +370,10 @@
 						@endif
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item discrete-link" href="{{ $U('/users') }}"><i class="fas fa-users"></i>&nbsp;{{ $__t('Manage users') }}</a>
+						<div class="dropdown-divider"></div>
 						<a class="dropdown-item discrete-link" href="{{ $U('/manageapikeys') }}"><i class="fas fa-handshake"></i>&nbsp;{{ $__t('Manage API keys') }}</a>
 						<a class="dropdown-item discrete-link" target="_blank" href="{{ $U('/api') }}"><i class="fas fa-book"></i>&nbsp;{{ $__t('REST API & data model documentation') }}</a>
+						<a class="dropdown-item discrete-link" href="{{ $U('/barcodescannertesting') }}"><i class="fas fa-barcode"></i>&nbsp;{{ $__t('Barcode scanner testing') }}</a>
 						<div class="dropdown-divider"></div>
 						<a id="about-dialog-link" class="dropdown-item discrete-link" href="#"><i class="fas fa-info fa-fw"></i>&nbsp;{{ $__t('About grocy') }} (Version {{ $version }})</a>
 					</div>
