@@ -1,2 +1,3 @@
 - It's now possible to display a recipe directly from the meal plan (new "eye button") (thanks @kriddles)
+- Improved the responsiveness of the meal plan and calendar page by automatically switching to a day calendar view on smaller screens (thanks for the idea @kriddles)
 - Some style/CSS detail-refinements

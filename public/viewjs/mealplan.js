@@ -16,7 +16,7 @@ var calendar = $("#calendar").fullCalendar({
 	"weekNumbers": false,
 	"eventLimit": true,
 	"eventSources": fullcalendarEventSources,
-	"defaultView": "basicWeek",
+	"defaultView": ($(window).width() < 768) ? "basicDay" : "basicWeek",
 	"firstDay": firstDay,
 	"viewRender": function(view)
 	{
@@ -94,11 +94,11 @@ var calendar = $("#calendar").fullCalendar({
 		}
 
 		element.html(' \
-			<div class="text-truncate"> \
-				<h5>' + recipe.name + '<h5> \
-				<h5 class="small">' + __n(mealPlanEntry.servings, "%s serving", "%s servings") + '</h5> \
-				<h5 class="small timeago-contextual">' + fulfillmentIconHtml + " " + fulfillmentInfoHtml + '</h5> \
-				<h5 class="small"><span class="locale-number-format" data-format="currency">' + resolvedRecipe.costs + '</span> ' + __t('per serving') + '<h5> \
+			<div> \
+				<h5 class="text-truncate">' + recipe.name + '<h5> \
+				<h5 class="small text-truncate">' + __n(mealPlanEntry.servings, "%s serving", "%s servings") + '</h5> \
+				<h5 class="small timeago-contextual text-truncate">' + fulfillmentIconHtml + " " + fulfillmentInfoHtml + '</h5> \
+				<h5 class="small text-truncate"><span class="locale-number-format" data-format="currency">' + resolvedRecipe.costs + '</span> ' + __t('per serving') + '<h5> \
 				<h5> \
 					<a class="ml-1 btn btn-outline-danger btn-xs remove-recipe-button" href="#"><i class="fas fa-trash"></i></a> \
 					<a class="ml-1 btn btn-outline-primary btn-xs recipe-order-missing-button ' + recipeOrderMissingButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Put missing products on shopping list") + '" data-recipe-id="' + recipe.id.toString() + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-cart-plus"></i></a> \
@@ -109,7 +109,7 @@ var calendar = $("#calendar").fullCalendar({
 
 		if (recipe.picture_file_name && !recipe.picture_file_name.isEmpty())
 		{
-			element.html(element.html() + '<img data-src="' + U("/api/files/recipepictures/") + btoa(recipe.picture_file_name) + '?force_serve_as=picture&best_fit_width=400" class="img-fluid lazy">')
+			element.html(element.html() + '<div class="mx-auto"><img data-src="' + U("/api/files/recipepictures/") + btoa(recipe.picture_file_name) + '?force_serve_as=picture&best_fit_width=400" class="img-fluid lazy"></div>')
 		}
 	},
 	"eventAfterAllRender": function(view)
@@ -320,4 +320,18 @@ $(document).on("click", ".recipe-popup-button", function(e)
 			}
 		}
 	});
+});
+
+$(window).on("resize", function()
+{
+	// Automatically switch the calendar to "basicDay" view on small screens
+	// and to "basicWeek" otherwise
+	if ($(window).width() < 768)
+	{
+		calendar.fullCalendar("changeView", "basicDay");
+	}
+	else
+	{
+		calendar.fullCalendar("changeView", "basicWeek");
+	}
 });
