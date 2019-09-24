@@ -103,7 +103,7 @@ var calendar = $("#calendar").fullCalendar({
 					<a class="ml-1 btn btn-outline-danger btn-xs remove-recipe-button" href="#"><i class="fas fa-trash"></i></a> \
 					<a class="ml-1 btn btn-outline-primary btn-xs recipe-order-missing-button ' + recipeOrderMissingButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Put missing products on shopping list") + '" data-recipe-id="' + recipe.id.toString() + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-cart-plus"></i></a> \
 					<a class="ml-1 btn btn-outline-success btn-xs recipe-consume-button ' + recipeConsumeButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Consume all ingredients needed by this recipe") + '" data-recipe-id="' + recipe.id.toString() + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-utensils"></i></a> \
-					<a class="ml-1 btn btn-outline-primary btn-xs recipe-popup-button" href="#" data-toggle="tooltip" title="' + __t("Popup Recipe") + '" data-recipe-id="' + recipe.id.toString() + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-expand-arrows-alt"></i></a> \
+					<a class="ml-1 btn btn-outline-secondary btn-xs recipe-popup-button" href="#" data-toggle="tooltip" title="' + __t("Display recipe") + '" data-recipe-id="' + recipe.id.toString() + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-eye"></i></a> \
 				</h5> \
 			</div>');
 
@@ -305,13 +305,13 @@ $(document).on("click", ".recipe-popup-button", function(e)
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 
 	bootbox.dialog({
-		message: '<iframe height="650px" class="embed-responsive" src="' + U("/recipes?recipe=") + objectId + '#fullscreen"></iframe>',
-		size: 'large',
+		message: '<iframe height="650px" class="embed-responsive" src="' + U("/recipes?embedded&recipe=") + objectId + '#fullscreen"></iframe>',
+		size: 'extra-large',
 		backdrop: true,
 		closeButton: false,
 		buttons: {
 			cancel: {
-				label: __t('Cancel'),
+				label: __t('Close'),
 				className: 'btn-secondary responsive-button',
 				callback: function()
 				{

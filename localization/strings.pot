@@ -1516,3 +1516,6 @@ msgstr ""
 
 msgid "Miss"
 msgstr ""
+
+msgid "Display recipe"
+msgstr ""

@@ -1,0 +1,2 @@
+- It's now possible to display a recipe directly from the meal plan (new "eye button") (thanks @kriddles)
+- Some style/CSS detail-refinements
