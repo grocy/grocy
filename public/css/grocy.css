@@ -63,6 +63,10 @@ a.discrete-link:focus {
 	 overflow: hidden;
  }
 
+ .fullscreen-card .hide-on-fullscreen-card {
+	display: none;
+}
+
  .form-check-input.is-valid ~ .form-check-label,
  .was-validated .form-check-input:valid ~ .form-check-label {
     color: inherit;
