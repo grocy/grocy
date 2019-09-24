@@ -1,3 +1,4 @@
+- Fixed that barcode lookups now compare the whole barcode, not parts of it (e. g. when you have two products with the barcodes "$1" and "$10" and scan "$1" maybe the product of "$10" was found till now)
 - It's now possible to display a recipe directly from the meal plan (new "eye button") (thanks @kriddles)
 - Improved the responsiveness of the meal plan and calendar page by automatically switching to a day calendar view on smaller screens (thanks for the idea @kriddles)
 - The calendar now also contains all planned recipes from the meal plan on the corresponding day
