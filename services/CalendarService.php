@@ -87,6 +87,23 @@ class CalendarService extends BaseService
 			);
 		}
 
-		return array_merge($stockEvents, $taskEvents, $choreEvents, $batteryEvents);
+		$recipes = $this->Database->recipes();
+		$mealPlanDayRecipes = $this->Database->recipes()->where('type', 'mealplan-day');
+		$titlePrefix = $this->LocalizationService->__t('Meal plan') . ': ';
+		$mealPlanRecipeEvents = array();
+		foreach($mealPlanDayRecipes as $mealPlanDayRecipe)
+		{
+			$recipesOfCurrentDay = $this->Database->recipes_nestings_resolved()->where('recipe_id = :1 AND includes_recipe_id != :1', $mealPlanDayRecipe->id);
+			foreach ($recipesOfCurrentDay as $recipeOfCurrentDay)
+			{
+				$mealPlanRecipeEvents[] = array(
+					'title' => $titlePrefix . FindObjectInArrayByPropertyValue($recipes, 'id', $recipeOfCurrentDay->includes_recipe_id)->name,
+					'start' => FindObjectInArrayByPropertyValue($recipes, 'id', $recipeOfCurrentDay->recipe_id)->name,
+					'date_format' => 'date'
+				);
+			}
+		}
+
+		return array_merge($stockEvents, $taskEvents, $choreEvents, $batteryEvents, $mealPlanRecipeEvents);
 	}
 }
