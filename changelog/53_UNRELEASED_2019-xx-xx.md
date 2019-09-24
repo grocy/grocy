@@ -3,4 +3,5 @@
 - Improved the responsiveness of the meal plan and calendar page by automatically switching to a day calendar view on smaller screens (thanks for the idea @kriddles)
 - The calendar now also contains all planned recipes from the meal plan on the corresponding day
 - The API Endpoint `GET /files/{group}/{fileName}` now also returns a `Cache-Control` header (defaults fixed to 30 days) to further increase page load times
+- Fixed that the API endpoint `/stock/shoppinglist/add-product` failed when a product should be added which was not already on the shopping list (thanks @Forceu)
 - Some style/CSS detail-refinements
