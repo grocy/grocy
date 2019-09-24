@@ -288,7 +288,7 @@ $(document).on("click", ".product-add-to-shopping-list-button", function(e)
 	var productId = $(e.currentTarget).attr("data-product-id");
 	
 	bootbox.dialog({
-		message: '<iframe height="650px" class="embed-responsive" src="' + U("/shoppinglistitem/new?embedded&product=") + productId.toString() + '"></iframe>',
+		message: '<iframe height="650px" class="embed-responsive" src="' + U("/shoppinglistitem/new?embedded&updateexistingproduct&product=") + productId.toString() + '"></iframe>',
 		size: 'large',
 		backdrop: true,
 		closeButton: false,

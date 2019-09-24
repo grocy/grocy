@@ -5,6 +5,41 @@
 	var jsonData = $('#shoppinglist-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("shoppinglist-form");
 
+	if (GetUriParam("updateexistingproduct") !== undefined)
+	{
+		jsonData.product_amount = jsonData.amount;
+		delete jsonData.amount;
+
+		Grocy.Api.Post('stock/shoppinglist/add-product', jsonData,
+			function(result)
+			{
+				if (GetUriParam("embedded") !== undefined)
+				{
+					Grocy.Api.Get('stock/products/' + jsonData.product_id,
+						function (productDetails)
+						{
+							window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", __t("Added %1$s of %2$s to the shopping list \"%3$s\"", jsonData.product_amount + " " + __n(jsonData.product_amount, productDetails.quantity_unit_purchase.name, productDetails.quantity_unit_purchase.name_plural), productDetails.product.name, $("#shopping_list_id option:selected").text())), Grocy.BaseUrl);
+							window.parent.postMessage(WindowMessageBag("CloseAllModals"), Grocy.BaseUrl);
+						},
+						function (xhr)
+						{
+							console.error(xhr);
+						}
+					);
+				}
+				else
+				{
+					window.location.href = U('/shoppinglist?list=' + $("#shopping_list_id").val().toString());
+				}
+			},
+			function(xhr)
+			{
+				Grocy.FrontendHelpers.EndUiBusy("shoppinglist-form");
+				console.error(xhr);
+			}
+		);
+	}
+
 	if (Grocy.EditMode === 'create')
 	{
 		Grocy.Api.Post('objects/shopping_list', jsonData,

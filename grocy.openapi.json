@@ -1935,7 +1935,8 @@
 		},
 		"/stock/shoppinglist/add-product": {
 			"post": {
-				"summary": "Adds the given product to the given shopping list",
+				"summary": "Adds the given amount of the given product to the given shopping list",
+				"description": "If the product is already on the shopping list, the given amount will increase the amount of the already existing item, otherwise a new item will be added",
 				"tags": [
 					"Stock"
 				],
@@ -1957,12 +1958,17 @@
 									"product_amount": {
 										"type": "integer",
 										"description": "The amount of product units to add, when omitted, the default amount of 1 is used"
+									},
+									"note": {
+										"type": "string",
+										"description": "The note of the shopping list item"
 									}
 								},
 								"example": {
 									"product_id": 3,
 									"list_id": 2,
-									"product_amount": 5
+									"product_amount": 5,
+									"note": "This is the note of the shopping list item..."
 								}
 							}
 						}
@@ -1987,7 +1993,8 @@
 		},
 		"/stock/shoppinglist/remove-product": {
 			"post": {
-				"summary": "Removes the given product from the given shopping list, if it is on it",
+				"summary": "Removes the given amount of the given product from the given shopping list, if it is on it",
+				"description": "If the resulting amount is <= 0, the item will be completely removed from the given list, otherwise the given amount will reduce the amount of the existing item",
 				"tags": [
 					"Stock"
 				],

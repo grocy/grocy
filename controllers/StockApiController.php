@@ -341,7 +341,7 @@ class StockApiController extends BaseApiController
 	}
 
 
-	public function AddItemToShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function AddProductToShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		try
 		{
@@ -350,6 +350,7 @@ class StockApiController extends BaseApiController
 			$listId = 1;
 			$amount = 1;
 			$productId = null;
+			$note = null;
 			if (array_key_exists('list_id', $requestBody) && !empty($requestBody['list_id']) && is_numeric($requestBody['list_id']))
 			{
 				$listId = intval($requestBody['list_id']);
@@ -362,13 +363,17 @@ class StockApiController extends BaseApiController
 			{
 				$productId = intval($requestBody['product_id']);
 			}
+			if (array_key_exists('note', $requestBody) && !empty($requestBody['note']))
+			{
+				$note = $requestBody['note'];
+			}
 
 			if ($productId == null)
 			{
 				throw new \Exception("No product id was supplied");
 			}
 
-			$this->StockService->AddProductToShoppingList($productId, $amount, $listId);
+			$this->StockService->AddProductToShoppingList($productId, $amount, $note, $listId);
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
@@ -377,7 +382,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function RemoveItemFromShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function RemoveProductFromShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		try
 		{

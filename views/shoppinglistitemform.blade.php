@@ -22,7 +22,7 @@
 		<form id="shoppinglist-form" novalidate>
 
 			<div class="form-group">
-				<label for="product_group_id">{{ $__t('Shopping list') }}</label>
+				<label for="shopping_list_id">{{ $__t('Shopping list') }}</label>
 				<select class="form-control" id="shopping_list_id" name="shopping_list_id">
 					@foreach($shoppingLists as $shoppingList)
 						<option @if($mode == 'edit' && $shoppingList->id == $listItem->shopping_list_id) selected="selected" @endif value="{{ $shoppingList->id }}">{{ $shoppingList->name }}</option>
