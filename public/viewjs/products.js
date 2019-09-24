@@ -63,6 +63,7 @@ $(document).on('click', '.product-delete-button', function (e)
 			{
 				bootbox.confirm({
 					message: __t('Are you sure to delete product "%s"?', objectName),
+					closeButton: false,
 					buttons: {
 						confirm: {
 							label: __t('Yes'),
@@ -95,7 +96,8 @@ $(document).on('click', '.product-delete-button', function (e)
 			{
 				bootbox.alert({
 					title: __t('Delete not possible'),
-					message: __t('This product cannot be deleted because it is in stock, please remove the stock amount first.') + '<br><br>' + __t('Stock amount') + ': ' + stockAmount + ' ' + __n(stockAmount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)
+					message: __t('This product cannot be deleted because it is in stock, please remove the stock amount first.') + '<br><br>' + __t('Stock amount') + ': ' + stockAmount + ' ' + __n(stockAmount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural),
+					closeButton: false
 				});
 			}
 		},

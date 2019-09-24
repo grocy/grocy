@@ -145,6 +145,7 @@ $(document).on("click", "#barcodescanner-start-button", function(e)
 		},
 		size: 'big',
 		backdrop: true,
+		closeButton: false,
 		buttons: {
 			cancel: {
 				label: __t('Cancel'),

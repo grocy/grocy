@@ -137,6 +137,7 @@ $(document).on('click', '.delete-task-button', function (e)
 
 	bootbox.confirm({
 		message: __t('Are you sure to delete task "%s"?', objectName),
+		closeButton: false,
 		buttons: {
 			confirm: {
 				label: __t('Yes'),

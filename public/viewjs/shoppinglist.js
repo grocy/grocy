@@ -71,6 +71,7 @@ $("#delete-selected-shopping-list").on("click", function()
 
 	bootbox.confirm({
 		message: __t('Are you sure to delete shopping list "%s"?', objectName),
+		closeButton: false,
 		buttons: {
 			confirm: {
 				label: __t('Yes'),
@@ -143,6 +144,7 @@ $(document).on('click', '#clear-shopping-list', function(e)
 {
 	bootbox.confirm({
 		message: __t('Are you sure to empty shopping list "%s"?', $("#selected-shopping-list option:selected").text()),
+		closeButton: false,
 		buttons: {
 			confirm: {
 				label: __t('Yes'),

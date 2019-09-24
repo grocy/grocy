@@ -39,6 +39,7 @@ $(document).on('click', '.task-category-delete-button', function (e)
 
 	bootbox.confirm({
 		message: __t('Are you sure to delete task category "%s"?', objectName),
+		closeButton: false,
 		buttons: {
 			confirm: {
 				label: __t('Yes'),

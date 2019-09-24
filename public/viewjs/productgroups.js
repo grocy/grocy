@@ -39,6 +39,7 @@ $(document).on('click', '.product-group-delete-button', function(e)
 
 	bootbox.confirm({
 		message: __t('Are you sure to delete product group "%s"?', objectName),
+		closeButton: false,
 		buttons: {
 			confirm: {
 				label: __t('Yes'),

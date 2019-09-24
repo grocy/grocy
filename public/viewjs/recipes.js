@@ -90,6 +90,7 @@ $("#selectedRecipeDeleteButton").on('click', function(e)
 
 	bootbox.confirm({
 		message: __t('Are you sure to delete recipe "%s"?', objectName),
+		closeButton: false,
 		buttons: {
 			confirm: {
 				label: __t('Yes'),
@@ -126,6 +127,7 @@ $(document).on('click', '.recipe-order-missing-button', function(e)
 
 	bootbox.confirm({
 		message: __t('Are you sure to put all missing ingredients for recipe "%s" on the shopping list?', objectName) + "<br><br>" + __t("Uncheck ingredients to not put them on the shopping list") + ":" + $("#missing-recipe-pos-list")[0].outerHTML.replace("d-none", ""),
+		closeButton: false,
 		buttons: {
 			confirm: {
 				label: __t('Yes'),
@@ -171,6 +173,7 @@ $("#selectedRecipeConsumeButton").on('click', function(e)
 
 	bootbox.confirm({
 		message: __t('Are you sure to consume all ingredients needed by recipe "%s" (ingredients marked with "check only if a single unit is in stock" will be ignored)?', objectName),
+		closeButton: false,
 		buttons: {
 			confirm: {
 				label: __t('Yes'),

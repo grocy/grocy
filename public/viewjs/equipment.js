@@ -87,6 +87,7 @@ $(document).on('click', '.equipment-delete-button', function (e)
 
 	bootbox.confirm({
 		message: __t('Are you sure to delete equipment "%s"?', objectName),
+		closeButton: false,
 		buttons: {
 			confirm: {
 				label: __t('Yes'),

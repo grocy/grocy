@@ -393,7 +393,8 @@ Grocy.FrontendHelpers.ShowGenericError = function(message, exception)
 		{
 			bootbox.alert({
 				title: __t('Error details'),
-				message: JSON.stringify(exception, null, 4)
+				message: JSON.stringify(exception, null, 4),
+				closeButton: false
 			});
 		}
 	});

@@ -144,6 +144,7 @@ $(document).on('click', '.recipe-pos-delete-button', function(e)
 
 	bootbox.confirm({
 		message: __t('Are you sure to delete recipe ingredient "%s"?', objectName),
+		closeButton: false,
 		buttons: {
 			confirm: {
 				label: __t('Yes'),
@@ -181,6 +182,7 @@ $(document).on('click', '.recipe-include-delete-button', function(e)
 
 	bootbox.confirm({
 		message: __t('Are you sure to remove included recipe "%s"?', objectName),
+		closeButton: false,
 		buttons: {
 			confirm: {
 				label: __t('Yes'),

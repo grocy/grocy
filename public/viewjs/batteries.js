@@ -49,6 +49,7 @@ $(document).on('click', '.battery-delete-button', function (e)
 				className: 'btn-danger'
 			}
 		},
+		closeButton: false,
 		callback: function(result)
 		{
 			if (result === true)

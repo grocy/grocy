@@ -169,6 +169,7 @@ $('#product_id_text_input').on('blur', function(e)
 				},
 				size: 'large',
 				backdrop: true,
+				closeButton: false,
 				buttons: {
 					cancel: {
 						label: __t('Cancel'),

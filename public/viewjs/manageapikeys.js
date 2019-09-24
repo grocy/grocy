@@ -45,6 +45,7 @@ $(document).on('click', '.apikey-delete-button', function (e)
 
 	bootbox.confirm({
 		message: __t('Are you sure to delete API key "%s"?', objectName),
+		closeButton: false,
 		buttons: {
 			confirm: {
 				label: __t('Yes'),

@@ -51,6 +51,7 @@ $(document).on('click', '.userfield-delete-button', function (e)
 
 	bootbox.confirm({
 		message: __t('Are you sure to delete user field "%s"?', objectName),
+		closeButton: false,
 		buttons: {
 			confirm: {
 				label: __t('Yes'),

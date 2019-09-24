@@ -39,6 +39,7 @@ $(document).on('click', '.location-delete-button', function (e)
 
 	bootbox.confirm({
 		message: __t('Are you sure to delete location "%s"?', objectName),
+		closeButton: false,
 		buttons: {
 			confirm: {
 				label: __t('Yes'),
