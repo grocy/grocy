@@ -15,8 +15,8 @@
 			right: 0;
 			margin-top: 4px;
 			margin-right: 5px;
-		        z-index: 1000;
-                        cursor: pointer;
+		    z-index: 1000;
+			cursor: pointer;
 		}
 
 		.combobox-container #barcodescanner-start-button {
