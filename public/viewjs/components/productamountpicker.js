@@ -11,7 +11,13 @@ Grocy.Components.ProductAmountPicker.Reload = function(productId, destinationQuI
 		$("#qu_id").attr("data-destination-qu-name", FindObjectInArrayByPropertyValue(Grocy.QuantityUnits, 'id', destinationQuId).name);
 		conversionsForProduct.forEach(conversion =>
 		{
-			$("#qu_id").append('<option value="' + conversion.to_qu_id + '" data-qu-factor="' + conversion.factor + '">' + conversion.to_qu_name + '</option>');
+			var factor = conversion.factor;
+			if (conversion.to_qu_id == destinationQuId)
+			{
+				factor = 1;
+			}
+
+			$("#qu_id").append('<option value="' + conversion.to_qu_id + '" data-qu-factor="' + factor + '">' + conversion.to_qu_name + '</option>');
 		});
 	}
 
