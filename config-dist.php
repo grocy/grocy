@@ -51,7 +51,7 @@ Setting('DISABLE_URL_REWRITING', false);
 
 # Specify an custom homepage if desired - by default the homepage will be set to the stock overview,
 # this needs to be one of the following values:
-# stock, shoppinglist, recipes, chores, tasks, batteries, equipment, calendar
+# stock, shoppinglist, recipes, chores, tasks, batteries, equipment, calendar, mealplan
 Setting('ENTRY_PAGE', 'stock');
 
 # Set this to true if you want to disable authentication / the login screen,
