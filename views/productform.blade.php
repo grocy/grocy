@@ -94,8 +94,19 @@
 				'label' => 'Minimum stock amount',
 				'min' => 0,
 				'value' => $value,
-				'invalidFeedback' => $__t('The amount cannot be lower than %s', '0')
+				'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
+				'additionalGroupCssClasses' => 'mb-1'
 			))
+
+			<div class="form-group">
+				<div class="form-check">
+					<input type="hidden" name="cumulate_min_stock_amount_of_subproducts" value="0">
+					<input @if($mode == 'edit' && $product->cumulate_min_stock_amount_of_subproducts == 1) checked @endif class="form-check-input" type="checkbox" id="cumulate_min_stock_amount_of_subproducts" name="cumulate_min_stock_amount_of_subproducts" value="1">
+					<label class="form-check-label" for="cumulate_min_stock_amount_of_subproducts">{{ $__t('Accumulate sub products min. stock amount') }}
+						<span class="text-muted small">{{ $__t('If enabled, the min. stock amount of sub products will be accumulated into this product, means the sub product will never be "missing", only this product') }}</span>
+					</label>
+				</div>
+			</div>
 
 			@php if($mode == 'edit') { $value = $product->default_best_before_days; } else { $value = 0; } @endphp
 			@include('components.numberpicker', array(
