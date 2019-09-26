@@ -4,7 +4,8 @@
 
 .night-mode .table-info,
 .night-mode .table-info > td,
-.night-mode .table-info > th {
+.night-mode .table-info > th,
+.night-mode .alert-info {
 	background-color: #07373f;
 	color: #6c757d;
 }
@@ -54,14 +55,17 @@
 	border-color: #0d3a18;
 }
 
-.night-mode .btn-light {
+.night-mode .btn-light,
+.night-mode .input-group-text,
+.night-mode .note-editor.note-frame .note-statusbar,
+.night-mode .img-thumbnail {
 	color: #c1c1c1;
 	background-color: #292b2a;
 	border-color: #292b2a;
 }
 
 .night-mode .form-control {
-	color: #495057;
+	color: #ced4da;
 	background-color: #333131;
 	border: 1px solid #ced4da;
 }
@@ -100,7 +104,7 @@
 }
 
 .night-mode .form-control:focus {
-	color: #495057;
+	color: #ced4da;
 	background-color: #333131;
 	border-color: #80bdff;
 }
