@@ -179,7 +179,7 @@
 				</div>
 			</div>
 
-			<div class="form-group">
+			<div class="form-group mb-1">
 				<div class="form-check">
 					<input type="hidden" name="enable_tare_weight_handling" value="0">
 					<input @if($mode == 'edit' && $product->enable_tare_weight_handling == 1) checked @endif class="form-check-input" type="checkbox" id="enable_tare_weight_handling" name="enable_tare_weight_handling" value="1">

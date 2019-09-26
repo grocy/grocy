@@ -116,6 +116,7 @@ var calendar = $("#calendar").fullCalendar({
 	{
 		RefreshLocaleNumberDisplay();
 		LoadImagesLazy();
+		$('[data-toggle="tooltip"]').tooltip();
 
 		if (GetUriParam("week") !== undefined)
 		{
@@ -213,6 +214,10 @@ $(document).on("keyodwn", "#servings", function(e)
 
 $(document).on('click', '.recipe-order-missing-button', function(e)
 {
+	// Remove the focus from the current button
+	// to prevent that the tooltip stays until clicked anywhere else
+	document.activeElement.blur();
+	
 	var objectName = $(e.currentTarget).attr('data-recipe-name');
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 	var button = $(this);
@@ -262,6 +267,10 @@ $(document).on('click', '.recipe-order-missing-button', function(e)
 
 $(document).on('click', '.recipe-consume-button', function(e)
 {
+	// Remove the focus from the current button
+	// to prevent that the tooltip stays until clicked anywhere else
+	document.activeElement.blur();
+
 	var objectName = $(e.currentTarget).attr('data-recipe-name');
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 
@@ -304,6 +313,10 @@ $(document).on('click', '.recipe-consume-button', function(e)
 
 $(document).on("click", ".recipe-popup-button", function(e)
 {
+	// Remove the focus from the current button
+	// to prevent that the tooltip stays until clicked anywhere else
+	document.activeElement.blur();
+
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 
 	bootbox.dialog({
