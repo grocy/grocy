@@ -298,7 +298,20 @@ RefreshContextualTimeago = function()
 	$("time.timeago").each(function()
 	{
 		var element = $(this);
+
+		if (!element.hasAttr("datetime"))
+		{
+			element.text("")
+			return
+		}
+
 		var timestamp = element.attr("datetime");
+
+		if (timestamp.isEmpty())
+		{
+			element.text("")
+			return
+		}
 
 		var isNever = timestamp && timestamp.substring(0, 10) == "2999-12-31";
 		var isToday = timestamp && timestamp.substring(0, 10) == moment().format("YYYY-MM-DD");
