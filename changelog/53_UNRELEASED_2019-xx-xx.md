@@ -9,6 +9,9 @@
 - It's now possible to display a recipe directly from the meal plan (new "eye button") (thanks @kriddles)
 - Improved the responsiveness of the meal plan and calendar page by automatically switching to a day calendar view on smaller screens (thanks for the idea @kriddles)
 
+### Chores improvements
+- There is now a new sub feature flag `FEATURE_FLAG_CHORES_ASSIGNMENTS` to disable chore assignments if you don't need them (defaults to `true`, so no changed behavior when not configured)
+
 ### Calendar improvements
 - The calendar now also contains all planned recipes from the meal plan on the corresponding day
 - Improved that dates in the iCal calendar export now include the server timezone

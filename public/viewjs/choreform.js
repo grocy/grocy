@@ -3,7 +3,11 @@
 	e.preventDefault();
 
 	var jsonData = $('#chore-form').serializeJSON({ checkboxUncheckedValue: "0" });
-	jsonData.assignment_config = $("#assignment_config").val().join(",");
+	if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
+	{
+		jsonData.assignment_config = $("#assignment_config").val().join(",");
+	}
+	
 	Grocy.FrontendHelpers.BeginUiBusy("chore-form");
 
 	if (Grocy.EditMode === 'create')

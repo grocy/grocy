@@ -32,12 +32,16 @@
 				'invalidFeedback' => $__t('This can only be before now')
 			))
 
+			@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 			@include('components.userpicker', array(
 				'label' => 'Done by',
 				'users' => $users,
 				'nextInputSelector' => '#user_id',
 				'prefillByUserId' => GROCY_USER_ID
 			))
+			@else
+			<input type="hidden" id="user_id" name="user_id" value="{{ GROCY_USER_ID }}">
+			@endif
 
 			<button id="save-choretracking-button" class="btn btn-success">{{ $__t('OK') }}</button>
 

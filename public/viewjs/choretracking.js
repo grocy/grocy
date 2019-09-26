@@ -8,7 +8,7 @@
 	Grocy.Api.Get('chores/' + jsonForm.chore_id,
 		function (choreDetails)
 		{
-			Grocy.Api.Post('chores/' + jsonForm.chore_id + '/execute', { 'tracked_time': Grocy.Components.DateTimePicker.GetValue(), 'done_by': Grocy.Components.UserPicker.GetValue() },
+			Grocy.Api.Post('chores/' + jsonForm.chore_id + '/execute', { 'tracked_time': Grocy.Components.DateTimePicker.GetValue(), 'done_by': $("#user_id").val() },
 				function(result)
 				{
 					Grocy.FrontendHelpers.EndUiBusy("choretracking-form");
