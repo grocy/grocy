@@ -1,33 +1,40 @@
 ALTER TABLE products
 ADD cumulate_min_stock_amount_of_sub_products TINYINT DEFAULT 0;
 
+CREATE VIEW products_view
+AS
+SELECT *, CASE WHEN (SELECT 1 FROM products WHERE parent_product_id = p.id) NOTNULL THEN 1 ELSE 0 END AS has_sub_products
+FROM products p;
+
 DROP VIEW stock_missing_products;
 CREATE VIEW stock_missing_products
 AS
 
--- Parent products where the amount of the sub products SHOULD NOT be cumulated
+-- Products WITHOUT sub products where the amount of the sub products SHOULD NOT be cumulated
 SELECT
 	p.id,
 	MAX(p.name) AS name,
 	p.min_stock_amount - IFNULL(SUM(s.amount), 0) AS amount_missing,
 	CASE WHEN IFNULL(SUM(s.amount), 0) > 0 THEN 1 ELSE 0 END AS is_partly_in_stock
-FROM products p
+FROM products_view p
 LEFT JOIN stock_current s
 	ON p.id = s.product_id
 WHERE p.min_stock_amount != 0
 	AND p.cumulate_min_stock_amount_of_sub_products = 0
+	AND p.has_sub_products = 0
+	AND p.parent_product_id IS NULL
 GROUP BY p.id
 HAVING IFNULL(SUM(s.amount), 0) < p.min_stock_amount
 
 UNION
 
--- Parent products where the amount of the sub products SHOULD be cumulated
+-- Parent products WITH sub products where the amount of the sub products SHOULD be cumulated
 SELECT
 	p.id,
 	MAX(p.name) AS name,
 	SUM(sub_p.min_stock_amount) - IFNULL(SUM(s.amount), 0) AS amount_missing,
 	CASE WHEN IFNULL(SUM(s.amount), 0) > 0 THEN 1 ELSE 0 END AS is_partly_in_stock
-FROM products p
+FROM products_view p
 JOIN products_resolved pr
 	ON p.id = pr.parent_product_id
 JOIN products sub_p
@@ -65,29 +72,31 @@ AS
 
 /* This is basically the same view as stock_missing_products, but the column "amount_missing" includes opened amounts */
 
--- Parent products where the amount of the sub products SHOULD NOT be cumulated
+-- Products WITHOUT sub products where the amount of the sub products SHOULD NOT be cumulated
 SELECT
 	p.id,
 	MAX(p.name) AS name,
 	p.min_stock_amount - (IFNULL(SUM(s.amount), 0) - IFNULL(SUM(s.amount_opened), 0)) AS amount_missing,
 	CASE WHEN IFNULL(SUM(s.amount), 0) > 0 THEN 1 ELSE 0 END AS is_partly_in_stock
-FROM products p
+FROM products_view p
 LEFT JOIN stock_current s
 	ON p.id = s.product_id
 WHERE p.min_stock_amount != 0
 	AND p.cumulate_min_stock_amount_of_sub_products = 0
+	AND p.has_sub_products = 0
+	AND p.parent_product_id IS NULL
 GROUP BY p.id
 HAVING IFNULL(SUM(s.amount), 0) < p.min_stock_amount
 
 UNION
 
--- Parent products where the amount of the sub products SHOULD be cumulated
+-- Parent products WITH sub products where the amount of the sub products SHOULD be cumulated
 SELECT
 	p.id,
 	MAX(p.name) AS name,
 	SUM(sub_p.min_stock_amount) - (IFNULL(SUM(s.amount), 0) - IFNULL(SUM(s.amount_opened), 0)) AS amount_missing,
 	CASE WHEN IFNULL(SUM(s.amount), 0) > 0 THEN 1 ELSE 0 END AS is_partly_in_stock
-FROM products p
+FROM products_view p
 JOIN products_resolved pr
 	ON p.id = pr.parent_product_id
 JOIN products sub_p
