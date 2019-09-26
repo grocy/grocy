@@ -1,5 +1,5 @@
 ALTER TABLE products
-ADD cumulate_min_stock_amount_of_subproducts TINYINT DEFAULT 0;
+ADD cumulate_min_stock_amount_of_sub_products TINYINT DEFAULT 0;
 
 DROP VIEW stock_missing_products;
 CREATE VIEW stock_missing_products
@@ -15,7 +15,7 @@ FROM products p
 LEFT JOIN stock_current s
 	ON p.id = s.product_id
 WHERE p.min_stock_amount != 0
-	AND p.cumulate_min_stock_amount_of_subproducts = 0
+	AND p.cumulate_min_stock_amount_of_sub_products = 0
 GROUP BY p.id
 HAVING IFNULL(SUM(s.amount), 0) < p.min_stock_amount
 
@@ -35,7 +35,7 @@ JOIN products sub_p
 LEFT JOIN stock_current s
 	ON pr.sub_product_id = s.product_id
 WHERE sub_p.min_stock_amount != 0
-	AND p.cumulate_min_stock_amount_of_subproducts = 1
+	AND p.cumulate_min_stock_amount_of_sub_products = 1
 GROUP BY p.id
 HAVING IFNULL(SUM(s.amount), 0) < SUM(sub_p.min_stock_amount)
 
@@ -55,7 +55,7 @@ JOIN products sub_p
 LEFT JOIN stock_current s
 	ON pr.sub_product_id = s.product_id
 WHERE sub_p.min_stock_amount != 0
-	AND p.cumulate_min_stock_amount_of_subproducts = 0
+	AND p.cumulate_min_stock_amount_of_sub_products = 0
 GROUP BY sub_p.id
 HAVING IFNULL(SUM(s.amount), 0) < sub_p.min_stock_amount;
 
@@ -75,7 +75,7 @@ FROM products p
 LEFT JOIN stock_current s
 	ON p.id = s.product_id
 WHERE p.min_stock_amount != 0
-	AND p.cumulate_min_stock_amount_of_subproducts = 0
+	AND p.cumulate_min_stock_amount_of_sub_products = 0
 GROUP BY p.id
 HAVING IFNULL(SUM(s.amount), 0) < p.min_stock_amount
 
@@ -95,7 +95,7 @@ JOIN products sub_p
 LEFT JOIN stock_current s
 	ON pr.sub_product_id = s.product_id
 WHERE sub_p.min_stock_amount != 0
-	AND p.cumulate_min_stock_amount_of_subproducts = 1
+	AND p.cumulate_min_stock_amount_of_sub_products = 1
 GROUP BY p.id
 HAVING IFNULL(SUM(s.amount), 0) < SUM(sub_p.min_stock_amount)
 
@@ -115,6 +115,6 @@ JOIN products sub_p
 LEFT JOIN stock_current s
 	ON pr.sub_product_id = s.product_id
 WHERE sub_p.min_stock_amount != 0
-	AND p.cumulate_min_stock_amount_of_subproducts = 0
+	AND p.cumulate_min_stock_amount_of_sub_products = 0
 GROUP BY sub_p.id
 HAVING IFNULL(SUM(s.amount), 0) < sub_p.min_stock_amount;
