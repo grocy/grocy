@@ -32,7 +32,7 @@ UNION
 SELECT
 	p.id,
 	MAX(p.name) AS name,
-	SUM(sub_p.min_stock_amount) - IFNULL(SUM(s.amount), 0) AS amount_missing,
+	SUM(sub_p.min_stock_amount) - IFNULL(SUM(s.amount_aggregated), 0) AS amount_missing,
 	CASE WHEN IFNULL(SUM(s.amount), 0) > 0 THEN 1 ELSE 0 END AS is_partly_in_stock
 FROM products_view p
 JOIN products_resolved pr
@@ -44,7 +44,7 @@ LEFT JOIN stock_current s
 WHERE sub_p.min_stock_amount != 0
 	AND p.cumulate_min_stock_amount_of_sub_products = 1
 GROUP BY p.id
-HAVING IFNULL(SUM(s.amount), 0) < SUM(sub_p.min_stock_amount)
+HAVING IFNULL(SUM(s.amount_aggregated), 0) < SUM(sub_p.min_stock_amount)
 
 UNION
 
@@ -94,7 +94,7 @@ UNION
 SELECT
 	p.id,
 	MAX(p.name) AS name,
-	SUM(sub_p.min_stock_amount) - (IFNULL(SUM(s.amount), 0) - IFNULL(SUM(s.amount_opened), 0)) AS amount_missing,
+	SUM(sub_p.min_stock_amount) - (IFNULL(SUM(s.amount_aggregated), 0) - IFNULL(SUM(s.amount_opened), 0)) AS amount_missing,
 	CASE WHEN IFNULL(SUM(s.amount), 0) > 0 THEN 1 ELSE 0 END AS is_partly_in_stock
 FROM products_view p
 JOIN products_resolved pr
@@ -106,7 +106,7 @@ LEFT JOIN stock_current s
 WHERE sub_p.min_stock_amount != 0
 	AND p.cumulate_min_stock_amount_of_sub_products = 1
 GROUP BY p.id
-HAVING IFNULL(SUM(s.amount), 0) < SUM(sub_p.min_stock_amount)
+HAVING IFNULL(SUM(s.amount_aggregated), 0) < SUM(sub_p.min_stock_amount)
 
 UNION
 
