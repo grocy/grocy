@@ -12,7 +12,7 @@
 	<div class="card-body">
 		<h3><span id="batterycard-battery-name"></span></h3>
 		<strong>{{ $__t('Used in') }}:</strong> <span id="batterycard-battery-used_in"></span><br>
-		<strong>{{ $__t('Charge cycles count') }}:</strong> <span id="batterycard-battery-charge-cycles-count"></span><br>
+		<strong>{{ $__t('Charge cycles count') }}:</strong> <span id="batterycard-battery-charge-cycles-count" class="locale-number locale-number-generic"></span><br>
 		<strong>{{ $__t('Last charged') }}:</strong> <span id="batterycard-battery-last-charged"></span> <time id="batterycard-battery-last-charged-timeago" class="timeago timeago-contextual"></time><br>
 	</div>
 </div>

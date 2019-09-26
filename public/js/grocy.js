@@ -528,18 +528,33 @@ $("#about-dialog-link").on("click", function()
 
 function RefreshLocaleNumberDisplay()
 {
-	$(".locale-number-format[data-format='currency']").each(function()
+	$(".locale-number.locale-number-currency").each(function()
 	{
+		if (isNaN(parseFloat($(this).text())))
+		{
+			return;
+		}
+
 		$(this).text(parseFloat($(this).text()).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency }));
 	});
 
-	$(".locale-number-format[data-format='quantity-amount']").each(function()
+	$(".locale-number.locale-number-quantity-amount").each(function()
 	{
+		if (isNaN(parseFloat($(this).text())))
+		{
+			return;
+		}
+
 		$(this).text(parseFloat($(this).text()).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 3 }));
 	});
 
-	$(".locale-number-format[data-format='generic']").each(function ()
+	$(".locale-number.locale-number-generic").each(function ()
 	{
+		if (isNaN(parseFloat($(this).text())))
+		{
+			return;
+		}
+		
 		$(this).text(parseFloat($(this).text()).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 2 }));
 	});
 }

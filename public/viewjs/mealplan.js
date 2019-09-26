@@ -54,7 +54,7 @@ var calendar = $("#calendar").fullCalendar({
 			weekRecipeOrderMissingButtonHtml = '<a class="ml-1 btn btn-outline-primary btn-xs recipe-order-missing-button ' + weekRecipeOrderMissingButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Put missing products on shopping list") + '" data-recipe-id="' + weekRecipe.id.toString() + '" data-recipe-name="' + weekRecipe.name + '" data-recipe-type="' + weekRecipe.type + '"><i class="fas fa-cart-plus"></i></a>'
 			weekRecipeConsumeButtonHtml = '<a class="ml-1 btn btn-outline-success btn-xs recipe-consume-button ' + weekRecipeConsumeButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Consume all ingredients needed by this recipe") + '" data-recipe-id="' + weekRecipe.id.toString() + '" data-recipe-name="' + weekRecipe.name + '" data-recipe-type="' + weekRecipe.type + '"><i class="fas fa-utensils"></i></a>'
 		}
-		$(".fc-header-toolbar .fc-center").html("<h4>" + __t("Week costs") + ': <span class="locale-number-format" data-format="currency">' + weekCosts.toString() + "</span> " + weekRecipeOrderMissingButtonHtml + weekRecipeConsumeButtonHtml + "</h4>");
+		$(".fc-header-toolbar .fc-center").html("<h4>" + __t("Week costs") + ': <span class="locale-number locale-number-currency">' + weekCosts.toString() + "</span> " + weekRecipeOrderMissingButtonHtml + weekRecipeConsumeButtonHtml + "</h4>");
 	},
 	"eventRender": function(event, element)
 	{
@@ -98,7 +98,7 @@ var calendar = $("#calendar").fullCalendar({
 				<h5 class="text-truncate">' + recipe.name + '<h5> \
 				<h5 class="small text-truncate">' + __n(mealPlanEntry.servings, "%s serving", "%s servings") + '</h5> \
 				<h5 class="small timeago-contextual text-truncate">' + fulfillmentIconHtml + " " + fulfillmentInfoHtml + '</h5> \
-				<h5 class="small text-truncate"><span class="locale-number-format" data-format="currency">' + resolvedRecipe.costs + '</span> ' + __t('per serving') + '<h5> \
+				<h5 class="small text-truncate"><span class="locale-number locale-number-currency">' + resolvedRecipe.costs + '</span> ' + __t('per serving') + '<h5> \
 				<h5> \
 					<a class="ml-1 btn btn-outline-danger btn-xs remove-recipe-button" href="#"><i class="fas fa-trash"></i></a> \
 					<a class="ml-1 btn btn-outline-primary btn-xs recipe-order-missing-button ' + recipeOrderMissingButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Put missing products on shopping list") + '" data-recipe-id="' + recipe.id.toString() + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-cart-plus"></i></a> \

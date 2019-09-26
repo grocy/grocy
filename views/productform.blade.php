@@ -278,7 +278,7 @@
 						</a>
 					</td>
 					<td>
-						{{ $quConversion->factor }}
+						<span class="locale-number locale-number-quantity-amount">{{ $quConversion->factor }}</span>
 					</td>
 					<td>
 						{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', $quConversion->to_qu_id)->name }}
