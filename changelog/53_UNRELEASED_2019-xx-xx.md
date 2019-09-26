@@ -3,6 +3,10 @@
 - Improved the responsiveness of the meal plan and calendar page by automatically switching to a day calendar view on smaller screens (thanks for the idea @kriddles)
 - The calendar now also contains all planned recipes from the meal plan on the corresponding day
 - When adding a product to the shopping list from the new context/more menu from the stock overview page and if the product is already on the shopping list, the amount of that entry will be updated acccordingly instead of adding a new (double) shopping list item
+- Fixed that the browser barcode scanner button was not clickable on iOS Safari (thanks @DeeeeLAN)
+- Fixed a problem regarding quantity unit conversion handling for recipe ingredients of products with no unit relations, but only a different purchase/stock quantity unit
+- Improved that dates in the iCal calendar export now includes the server timezone
+- It's now also possible to set the meal plan page as the default/entry page (`config.php` setting `ENTRY_PAGE`) (thanks @lwis)
 - The API Endpoint `GET /files/{group}/{fileName}` now also returns a `Cache-Control` header (defaults fixed to 30 days) to further increase page load times
 - Fixed that the API endpoint `/stock/shoppinglist/add-product` failed when a product should be added which was not already on the shopping list (thanks @Forceu)
 - Some style/CSS detail-refinements

@@ -26,12 +26,20 @@ class CalendarApiController extends BaseApiController
 			$events = $this->CalendarService->GetEvents();
 			foreach($events as $event)
 			{
+				$date = new \DateTime($event['start']);
+				$date->setTimezone(date_default_timezone_get());
+				
+				if ($event['date_format'] === 'date')
+				{
+					$date->setTime(23, 59, 59);
+				}
+
 				$vEvent = new \Eluceo\iCal\Component\Event();
-				$vEvent->setDtStart(new \DateTime($event['start']))
-					->setDtEnd(new \DateTime($event['start']))
+				$vEvent->setDtStart($date)
+					->setDtEnd($date)
 					->setSummary($event['title'])
 					->setNoTime($event['date_format'] === 'date')
-					->setUseUtc(false);
+					->setUseTimezone(true);
 				
 				$vCalendar->addComponent($vEvent);
 			}
