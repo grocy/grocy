@@ -317,3 +317,8 @@ canvas.drawingBuffer {
 	left: 0;
 	top: 0;
 }
+
+/* Third party component customizations - Bootstrap list-group */
+.list-group {
+	flex-shrink: 0;
+}
