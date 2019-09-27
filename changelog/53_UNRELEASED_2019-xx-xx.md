@@ -18,6 +18,9 @@
 - The calendar now also contains all planned recipes from the meal plan on the corresponding day
 - Improved that dates in the iCal calendar export now include the server timezone
 
+### Custom lists/fields improvements
+- Optimized the custom lists page that it can be printed properly (search field etc. is hidden when printing the page)
+
 ### General & other improvements/fixes
 - Fixed that the browser barcode scanner button was not clickable on iOS Safari & other small styles fixes/improvements for iOS Safari (thanks @DeeeeLAN)
 - It's now also possible to set the meal plan page as the default/entry page (`config.php` setting `ENTRY_PAGE`) (thanks @lwis)
