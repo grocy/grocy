@@ -1,6 +1,7 @@
 ### Stock improvements/fixes
 - Fixed that barcode lookups now compare the whole barcode, not parts of it (e. g. when you have two products with the barcodes `$1` and `$10` and scan `$1` maybe the product of `$10` was found till now)
 - Fixed that the "X products are already expired" count on the stock overview page was wrong
+- Fixed that after product actions (consume/purchase/etc.) on the stock overview page the highlighting of the row was maybe wrong
 - It's now possible to accumulate min. stock amounts on parent product level (new option per product, means the sub product will never be "missing" then, only the parent product)
 - When adding a product to the shopping list from the new context/more menu from the stock overview page and if the product is already on the shopping list, the amount of that entry will be updated acccordingly instead of adding a new (double) shopping list item
 

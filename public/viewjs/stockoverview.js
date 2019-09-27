@@ -313,7 +313,7 @@ function RefreshProductRow(productId)
 		function(result)
 		{
 			var productRow = $('#product-' + productId + '-row');
-			var expiringThreshold = moment().add("-" + $("#info-expiring-products").data("next-x-days"), "days");
+			var expiringThreshold = moment().add($("#info-expiring-products").data("next-x-days"), "days");
 			var now = moment();
 			var nextBestBeforeDate = moment(result.next_best_before_date);
 			
@@ -326,7 +326,7 @@ function RefreshProductRow(productId)
 			{
 				productRow.addClass("table-danger");
 			}
-			else if (nextBestBeforeDate.isAfter(expiringThreshold))
+			else if (nextBestBeforeDate.isBefore(expiringThreshold))
 			{
 				productRow.addClass("table-warning");
 			}
