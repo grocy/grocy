@@ -87,7 +87,7 @@ Grocy.Components.UserfieldsForm.Load = function()
 		},
 		function(xhr)
 		{
-			console.log(xhr);
+			console.error(xhr);
 		}
 	);
 }

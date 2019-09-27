@@ -4,7 +4,7 @@
 
 	var jsonData = {};
 	jsonData.userentity_id = Grocy.EditObjectParentId;
-	console.log(jsonData);
+	
 	Grocy.FrontendHelpers.BeginUiBusy("userobject-form");
 
 	if (Grocy.EditMode === 'create')

@@ -330,7 +330,7 @@ $(document).on("click", "#save-description-button", function(e)
 		},
 		function(xhr)
 		{
-			console.log(xhr);
+			console.error(xhr);
 		}
 	);
 });
