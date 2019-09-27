@@ -19,7 +19,7 @@
 - Improved that dates in the iCal calendar export now include the server timezone
 
 ### General & other improvements/fixes
-- Fixed that the browser barcode scanner button was not clickable on iOS Safari (thanks @DeeeeLAN)
+- Fixed that the browser barcode scanner button was not clickable on iOS Safari & other small styles fixes/improvements for iOS Safari (thanks @DeeeeLAN)
 - It's now also possible to set the meal plan page as the default/entry page (`config.php` setting `ENTRY_PAGE`) (thanks @lwis)
 - Some UI detail-refinements
 
