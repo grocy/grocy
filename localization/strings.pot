@@ -1537,3 +1537,6 @@ msgstr ""
 
 msgid "in %s and based on the purchase quantity unit"
 msgstr ""
+
+msgid "Unlimited"
+msgstr ""

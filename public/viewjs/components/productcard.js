@@ -52,6 +52,10 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 			{
 				$('#productcard-product-average-shelf-life').text(__t("Unknown"));
 			}
+			else if (parseInt(productDetails.average_shelf_life_days) > 73000) // > 200 years aka forever
+			{
+				$('#productcard-product-average-shelf-life').text(__t("Unlimited"));
+			}
 			else
 			{
 				$('#productcard-product-average-shelf-life').text(moment.duration(productDetails.average_shelf_life_days, "days").humanize());
