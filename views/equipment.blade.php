@@ -61,10 +61,10 @@
 				<div id="selectedEquipmentInstructionManualCard" class="card">
 					<div class="card-header">
 						<i class="fas fa-toolbox"></i> <span class="selected-equipment-name"></span>&nbsp;&nbsp;
-						<a class="btn btn-sm btn-outline-info py-0 equipment-edit-button" href="#">
+						<a class="btn btn-sm btn-outline-info py-0 equipment-edit-button hide-on-fullscreen-card" href="#">
 							<i class="fas fa-edit"></i>
 						</a>
-						<a class="btn btn-sm btn-outline-danger py-0 equipment-delete-button" href="#" data-equipment-id="{{ $equipmentItem->id }}" data-equipment-name="{{ $equipmentItem->name }}">
+						<a class="btn btn-sm btn-outline-danger py-0 equipment-delete-button hide-on-fullscreen-card" href="#" data-equipment-id="{{ $equipmentItem->id }}" data-equipment-name="{{ $equipmentItem->name }}">
 							<i class="fas fa-trash"></i>
 						</a>
 						<a id="selectedEquipmentInstructionManualToggleFullscreenButton" class="btn btn-sm btn-outline-secondary py-0 float-right" href="#" data-toggle="tooltip" title="{{ $__t('Expand to fullscreen') }}">
@@ -72,7 +72,7 @@
 						</a>
 					</div>
 					<div class="card-body py-0 px-0">
-						<p id="selected-equipment-has-no-instruction-manual-hint" class="text-muted font-italic d-none">{{ $__t('The selected equipment has no instruction manual') }}</p>
+						<p id="selected-equipment-has-no-instruction-manual-hint" class="text-muted font-italic d-none pt-3 pl-3">{{ $__t('The selected equipment has no instruction manual') }}</p>
 						<embed id="selected-equipment-instruction-manual" class="embed-responsive embed-responsive-4by3" src="" type="application/pdf">
 					</div>
 				</div>
@@ -81,10 +81,10 @@
 				<div id="selectedEquipmentDescriptionCard" class="card">
 					<div class="card-header">
 						<i class="fas fa-toolbox"></i> <span class="selected-equipment-name"></span>&nbsp;&nbsp;
-						<a class="btn btn-sm btn-outline-info py-0 equipment-edit-button" href="#">
+						<a class="btn btn-sm btn-outline-info py-0 equipment-edit-button hide-on-fullscreen-card" href="#">
 							<i class="fas fa-edit"></i>
 						</a>
-						<a class="btn btn-sm btn-outline-danger py-0 equipment-delete-button" href="#" data-equipment-id="{{ $equipmentItem->id }}" data-equipment-name="{{ $equipmentItem->name }}">
+						<a class="btn btn-sm btn-outline-danger py-0 equipment-delete-button hide-on-fullscreen-card" href="#" data-equipment-id="{{ $equipmentItem->id }}" data-equipment-name="{{ $equipmentItem->name }}">
 							<i class="fas fa-trash"></i>
 						</a>
 						<a id="selectedEquipmentDescriptionToggleFullscreenButton" class="btn btn-sm btn-outline-secondary py-0 float-right" href="#" data-toggle="tooltip" title="{{ $__t('Expand to fullscreen') }}">

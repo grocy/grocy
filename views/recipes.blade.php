@@ -164,7 +164,7 @@
 					<div class="col-2">
 						<label>{{ $__t('Energy (kcal)') }}</label>
 						<p class="mb-0">
-							<h3 class="locale-number-format pt-0" data-format="generic">{{ $selectedRecipeTotalCalories }}</h3>
+							<h3 class="locale-number locale-number-generic pt-0">{{ $selectedRecipeTotalCalories }}</h3>
 						</p>
 					</div>
 					@endif
@@ -174,7 +174,7 @@
 							<span class="small text-muted">{{ $__t('Based on the prices of the last purchase per product') }}</span>
 						</label>
 						<p class="mb-0">
-							<h3 class="locale-number-format pt-0" data-format="currency">{{ $selectedRecipeTotalCosts }}</h3>
+							<h3 class="locale-number locale-number-currency pt-0">{{ $selectedRecipeTotalCosts }}</h3>
 						</p>
 					</div>
 					@endif
@@ -216,7 +216,7 @@
 						@if(!empty($selectedRecipePosition->recipe_variable_amount))
 							{{ $selectedRecipePosition->recipe_variable_amount }}
 						@else
-							<span class="locale-number-format" data-format="quantity-amount">@if($selectedRecipePosition->recipe_amount == round($selectedRecipePosition->recipe_amount, 2)){{ round($selectedRecipePosition->recipe_amount, 2) }}@else{{ $selectedRecipePosition->recipe_amount }}@endif</span>
+							<span class="llocale-number locale-number-quantity-amount">@if($selectedRecipePosition->recipe_amount == round($selectedRecipePosition->recipe_amount, 2)){{ round($selectedRecipePosition->recipe_amount, 2) }}@else{{ $selectedRecipePosition->recipe_amount }}@endif</span>
 						@endif
 						{{ $__n($selectedRecipePosition->recipe_amount, FindObjectInArrayByPropertyValue($quantityUnits, 'id', $selectedRecipePosition->qu_id)->name, FindObjectInArrayByPropertyValue($quantityUnits, 'id', $selectedRecipePosition->qu_id)->name_plural) }} {{ FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id)->name }}
 						@if($selectedRecipePosition->need_fulfilled == 1)<i class="fas fa-check text-success"></i>@elseif($selectedRecipePosition->need_fulfilled_with_shopping_list == 1)<i class="fas fa-exclamation text-warning"></i>@else<i class="fas fa-times text-danger"></i>@endif
@@ -267,7 +267,7 @@
 					@if(!empty($selectedRecipePosition->recipe_variable_amount))
 						{{ $selectedRecipePosition->recipe_variable_amount }}
 					@else
-						<span class="locale-number-format" data-format="quantity-amount">@if($selectedRecipePosition->recipe_amount == round($selectedRecipePosition->recipe_amount, 2)){{ round($selectedRecipePosition->recipe_amount, 2) }}@else{{ $selectedRecipePosition->recipe_amount }}@endif</span>
+						<span class="locale-number locale-number-quantity-amount">@if($selectedRecipePosition->recipe_amount == round($selectedRecipePosition->recipe_amount, 2)){{ round($selectedRecipePosition->recipe_amount, 2) }}@else{{ $selectedRecipePosition->recipe_amount }}@endif</span>
 					@endif
 					{{ $__n($selectedRecipePosition->recipe_amount, FindObjectInArrayByPropertyValue($quantityUnits, 'id', $selectedRecipePosition->qu_id)->name, FindObjectInArrayByPropertyValue($quantityUnits, 'id', $selectedRecipePosition->qu_id)->name_plural) }} {{ FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id)->name }}
 					@if($selectedRecipePosition->need_fulfilled == 1)<i class="fas fa-check text-success"></i>@elseif($selectedRecipePosition->need_fulfilled_with_shopping_list == 1)<i class="fas fa-exclamation text-warning"></i>@else<i class="fas fa-times text-danger"></i>@endif

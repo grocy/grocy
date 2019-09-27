@@ -222,6 +222,7 @@ $('.input-group-qu').on('change', function(e)
 $('#product-form input').keyup(function(event)
 {
 	Grocy.FrontendHelpers.ValidateForm('product-form');
+	$(".input-group-qu").trigger("change");
 
 	if (document.getElementById('product-form').checkValidity() === false) //There is at least one validation error
 	{

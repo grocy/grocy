@@ -319,6 +319,9 @@ function RefreshProductRow(productId)
 			
 			productRow.removeClass("table-warning");
 			productRow.removeClass("table-danger");
+			productRow.removeClass("table-info");
+			productRow.removeClass("d-none");
+			productRow.removeAttr("style");
 			if (now.isAfter(nextBestBeforeDate))
 			{
 				productRow.addClass("table-danger");
@@ -328,12 +331,12 @@ function RefreshProductRow(productId)
 				productRow.addClass("table-warning");
 			}
 
-			if (result.stock_amount <= 0)
+			if (result.stock_amount == 0 && result.product.min_stock_amount == 0)
 			{
 				$('#product-' + productId + '-row').fadeOut(500, function()
 				{
 					$(this).tooltip("hide");
-					$(this).remove();
+					$(this).addClass("d-none");
 				});
 			}
 			else
@@ -366,6 +369,11 @@ function RefreshProductRow(productId)
 						$(this).text("").fadeIn(500);
 					}
 				});
+
+				if (result.stock_amount == 0 && result.product.min_stock_amount > 0)
+				{
+					productRow.addClass("table-info");
+				}
 			}
 
 			$('#product-' + productId + '-next-best-before-date').parent().effect('highlight', {}, 500);

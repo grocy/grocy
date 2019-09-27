@@ -30,8 +30,8 @@
 			<div class="form-group">
 				<label for="scanned_codes">{{ $__t('Scanned barcodes') }}</label>
 				<div class="float-right font-weight-bold">
-					<span class="text-success">{{ $__t('Hit') }}: <span id="hit-count" class="locale-number-format" data-format="generic">0</span></span> //
-					<span class="text-danger">{{ $__t('Miss') }}: <span id="miss-count" class="locale-number-format" data-format="generic">0</span></span>
+					<span class="text-success">{{ $__t('Hit') }}: <span id="hit-count" class="locale-number locale-number-generic">0</span></span> //
+					<span class="text-danger">{{ $__t('Miss') }}: <span id="miss-count" class="locale-number locale-number-generic">0</span></span>
 				</div>
 				<select class="form-control" id="scanned_codes" name="scanned_codes" multiple size="30"></select>
 			</div>

@@ -131,4 +131,5 @@ $("#selectedEquipmentDescriptionToggleFullscreenButton").on('click', function(e)
 	$("#selectedEquipmentDescriptionCard").toggleClass("fullscreen");
 	$("#selectedEquipmentDescriptionCard .card-header").toggleClass("fixed-top");
 	$("#selectedEquipmentDescriptionCard .card-body").toggleClass("mt-5");
+	$("body").toggleClass("fullscreen-card");
 });

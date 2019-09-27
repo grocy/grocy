@@ -18,7 +18,9 @@
 		</h1>
 		<p id="info-due-chores" data-status-filter="duesoon" data-next-x-days="{{ $nextXDays }}" class="btn btn-lg btn-warning status-filter-button responsive-button mr-2"></p>
 		<p id="info-overdue-chores" data-status-filter="overdue" class="btn btn-lg btn-danger status-filter-button responsive-button mr-2"></p>
+		@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 		<p id="info-assigned-to-me-chores" data-user-filter="xx{{ GROCY_USER_ID }}xx" class="btn btn-lg btn-secondary user-filter-button responsive-button"></p>
+		@endif
 	</div>
 </div>
 
@@ -35,15 +37,17 @@
 			<option class="bg-danger" value="overdue">{{ $__t('Overdue') }}</option>
 		</select>
 	</div>
+	@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 	<div class="col-xs-12 col-md-6 col-xl-3">
 		<label for="user-filter">{{ $__t('Filter by assignment') }}</label> <i class="fas fa-filter"></i>
 		<select class="form-control input-group-filter" id="user-filter">
 			<option></option>
 			@foreach($users as $user)
-		<option class="@if($user->id == GROCY_USER_ID) bg-secondary text-white @endif" data-user-id="{{ $user->id }}" value="xx{{ $user->id }}xx">{{ $user->display_name }}</option>
+			<option class="@if($user->id == GROCY_USER_ID) bg-secondary text-white @endif" data-user-id="{{ $user->id }}" value="xx{{ $user->id }}xx">{{ $user->display_name }}</option>
 			@endforeach
 		</select>
 	</div>
+	@endif
 </div>
 
 <div class="row">
@@ -55,9 +59,13 @@
 					<th>{{ $__t('Chore') }}</th>
 					<th>{{ $__t('Next estimated tracking') }}</th>
 					<th>{{ $__t('Last tracked') }}</th>
+					@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 					<th>{{ $__t('Assigned to') }}</th>
+					@endif
 					<th class="d-none">Hidden status</th>
+					@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 					<th class="d-none">Hidden assigned to user id</th>
+					@endif
 
 					@include('components.userfields_thead', array(
 						'userfields' => $userfields
@@ -106,6 +114,7 @@
 						<span id="chore-{{ $curentChoreEntry->chore_id }}-last-tracked-time">{{ $curentChoreEntry->last_tracked_time }}</span>
 						<time id="chore-{{ $curentChoreEntry->chore_id }}-last-tracked-time-timeago" class="timeago timeago-contextual @if($curentChoreEntry->track_date_only == 1) timeago-date-only @endif" datetime="{{ $curentChoreEntry->last_tracked_time }}"></time>
 					</td>
+					@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 					<td>
 						<span id="chore-{{ $curentChoreEntry->chore_id }}-next-execution-assigned-user">
 						@if(!empty($curentChoreEntry->next_execution_assigned_to_user_id))
@@ -115,14 +124,17 @@
 						@endif
 						</span>
 					</td>
+					@endif
 					<td id="chore-{{ $curentChoreEntry->chore_id }}-due-filter-column" class="d-none">
 						@if(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_PERIOD_TYPE_MANUALLY && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s')) overdue @elseif(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_PERIOD_TYPE_MANUALLY && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) duesoon @endif
 					</td>
+					@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 					<td class="d-none">
 						@if(!empty($curentChoreEntry->next_execution_assigned_to_user_id))
 							xx{{ $curentChoreEntry->next_execution_assigned_to_user_id }}xx
 						@endif
 					</td>
+					@endif
 
 					@include('components.userfields_tbody', array(
 						'userfields' => $userfields,

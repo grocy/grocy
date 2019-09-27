@@ -11,15 +11,15 @@ class StockService extends BaseService
 
 	public function GetCurrentStock($includeNotInStockButMissingProducts = false)
 	{
-		$missingProductsView = 'stock_missing_products_including_opened';
-		if (!GROCY_FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT)
-		{
-			$missingProductsView = 'stock_missing_products';
-		}
-
-		$sql = 'SELECT * FROM stock_current UNION SELECT id, 0, 0, null, 0, 0, 0 FROM ' . $missingProductsView . ' WHERE id NOT IN (SELECT product_id FROM stock_current)';
+		$sql = 'SELECT * FROM stock_current';
 		if ($includeNotInStockButMissingProducts)
 		{
+			$missingProductsView = 'stock_missing_products_including_opened';
+			if (!GROCY_FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT)
+			{
+				$missingProductsView = 'stock_missing_products';
+			}
+
 			$sql = 'SELECT * FROM stock_current WHERE best_before_date IS NOT NULL UNION SELECT id, 0, 0, null, 0, 0, 0 FROM ' . $missingProductsView . ' WHERE id NOT IN (SELECT product_id FROM stock_current)';
 		}
 		
@@ -69,7 +69,7 @@ class StockService extends BaseService
 
 	public function GetExpiringProducts(int $days = 5, bool $excludeExpired = false)
 	{
-		$currentStock = $this->GetCurrentStock(true);
+		$currentStock = $this->GetCurrentStock(false);
 		$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d 23:59:59', strtotime("+$days days")), '<');
 
 		if ($excludeExpired)
