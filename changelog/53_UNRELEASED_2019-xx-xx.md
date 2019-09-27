@@ -27,6 +27,7 @@
 - Fixed that the browser barcode scanner button was not clickable on iOS Safari & other small styles fixes/improvements for iOS Safari (thanks @DeeeeLAN)
 - It's now also possible to set the meal plan page as the default/entry page (`config.php` setting `ENTRY_PAGE`) (thanks @lwis)
 - Some UI detail-refinements
+- In the header of the product-/chore-/battery-card there is now also a button to directly jump to the journal of the current product/chore/battery
 
 ### API improvements/fixes
 - The API Endpoint `GET /files/{group}/{fileName}` now also returns a `Cache-Control` header (defaults fixed to 30 days) to further increase page load times

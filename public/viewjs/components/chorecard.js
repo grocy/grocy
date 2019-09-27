@@ -12,7 +12,9 @@ Grocy.Components.ChoreCard.Refresh = function(choreId)
 			$('#chorecard-chore-last-done-by').text((choreDetails.last_done_by.display_name || __t('Unknown')));
 
 			$('#chorecard-chore-edit-button').attr("href", U("/chore/" + choreDetails.chore.id.toString()));
+			$('#chorecard-chore-journal-button').attr("href", U("/choresjournal?chore=" + choreDetails.chore.id.toString()));
 			$('#chorecard-chore-edit-button').removeClass("disabled");
+			$('#chorecard-chore-journal-button').removeClass("disabled");
 
 			if (choreDetails.chore.track_date_only == 1)
 			{
