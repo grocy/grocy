@@ -601,3 +601,27 @@ $(window).on("message", function(e)
 		bootbox.hideAll();
 	}
 });
+
+$(document).on("click", ".show-as-dialog-link", function(e)
+{
+	e.preventDefault();
+
+	var link = $(e.currentTarget).attr("href");
+	
+	bootbox.dialog({
+		message: '<iframe height="650px" class="embed-responsive" src="' + link + '"></iframe>',
+		size: 'large',
+		backdrop: true,
+		closeButton: false,
+		buttons: {
+			ok: {
+				label: __t('OK'),
+				className: 'btn-success responsive-button',
+				callback: function()
+				{
+					bootbox.hideAll();
+				}
+			}
+		}
+	});
+});

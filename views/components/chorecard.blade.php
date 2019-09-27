@@ -8,7 +8,7 @@
 		<a id="chorecard-chore-edit-button" class="btn btn-sm btn-outline-info py-0 float-right disabled" href="#" data-toggle="tooltip" title="{{ $__t('Edit chore') }}">
 			<i class="fas fa-edit"></i>
 		</a>
-		<a id="chorecard-chore-journal-button" class="btn btn-sm btn-outline-secondary py-0 mr-2 float-right disabled" href="#" data-toggle="tooltip" title="{{ $__t('Journal for this chore') }}">
+		<a id="chorecard-chore-journal-button" class="btn btn-sm btn-outline-secondary py-0 mr-2 float-right disabled show-as-dialog-link" href="#" data-toggle="tooltip" title="{{ $__t('Journal for this chore') }}">
 			<i class="fas fa-file-alt"></i>
 		</a>
 	</div>

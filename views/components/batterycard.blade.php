@@ -8,7 +8,7 @@
 		<a id="batterycard-battery-edit-button" class="btn btn-sm btn-outline-info py-0 float-right disabled" href="#" data-toggle="tooltip" title="{{ $__t('Edit battery') }}">
 			<i class="fas fa-edit"></i>
 		</a>
-		<a id="batterycard-battery-journal-button" class="btn btn-sm btn-outline-secondary py-0 mr-2 float-right disabled" href="#" data-toggle="tooltip" title="{{ $__t('Journal for this battery') }}">
+		<a id="batterycard-battery-journal-button" class="btn btn-sm btn-outline-secondary py-0 mr-2 float-right disabled show-as-dialog-link" href="#" data-toggle="tooltip" title="{{ $__t('Journal for this battery') }}">
 			<i class="fas fa-file-alt"></i>
 		</a>
 	</div>

@@ -12,7 +12,7 @@ Grocy.Components.BatteryCard.Refresh = function(batteryId)
 			$('#batterycard-battery-charge-cycles-count').text((batteryDetails.charge_cycles_count || '0'));
 
 			$('#batterycard-battery-edit-button').attr("href", U("/battery/" + batteryDetails.battery.id.toString()));
-			$('#batterycard-battery-journal-button').attr("href", U("/batteriesjournal?battery=" + batteryDetails.battery.id.toString()));
+			$('#batterycard-battery-journal-button').attr("href", U("/batteriesjournal?embedded&battery=" + batteryDetails.battery.id.toString()));
 			$('#batterycard-battery-edit-button').removeClass("disabled");
 			$('#batterycard-battery-journal-button').removeClass("disabled");
 
