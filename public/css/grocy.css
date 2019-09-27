@@ -50,7 +50,7 @@ a.discrete-link:focus {
 }
 
 .fullscreen {
-	z-index: 9999;
+	z-index: 8888;
 	width: 100%;
 	height: 100%;
 	position: fixed;
@@ -58,6 +58,19 @@ a.discrete-link:focus {
 	left: 0;
 	overflow: auto;
  }
+
+ /* Fixes smooth scrolling on iOS */
+#sidebarResponsive, .fullscreen {
+    -webkit-overflow-scrolling: touch;
+}
+
+.fullscreen-card .card-header {
+    z-index: 9999;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
  
  body.fullscreen-card {
 	 overflow: hidden;
