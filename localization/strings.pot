@@ -1528,3 +1528,12 @@ msgstr ""
 
 msgid "Are you sure to remove this conversion?"
 msgstr ""
+
+msgid "Unit price"
+msgstr ""
+
+msgid "Total price"
+msgstr ""
+
+msgid "in %s and based on the purchase quantity unit"
+msgstr ""

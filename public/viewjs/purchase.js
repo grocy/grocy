@@ -14,6 +14,16 @@
 			if (!jsonForm.price.toString().isEmpty())
 			{
 				price = parseFloat(jsonForm.price).toFixed(2);
+
+				if ($("input[name='price-type']:checked").val() == "total-price")
+				{
+					price = price / amount;
+				}
+			}
+
+			if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+			{
+				price = 0;
 			}
 
 			var jsonData = {};

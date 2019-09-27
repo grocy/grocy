@@ -5,6 +5,7 @@
 - After product actions (consume/purchase/etc.) on the stock overview page on a sub product, now also the parent product (row) is refreshed
 - It's now possible to accumulate min. stock amounts on parent product level (new option per product, means the sub product will never be "missing" then, only the parent product)
 - When adding a product to the shopping list from the new context/more menu from the stock overview page and if the product is already on the shopping list, the amount of that entry will be updated acccordingly instead of adding a new (double) shopping list item
+- On the purchase page there is now an option to select that the price is the total price (for the whole amount) - below the price field, defaults to "Unit price" (as it was until now), when set to "Total price", the entered price will be divided by the amount before posting
 
 ### Recipe improvements/fixes
 - Fixed a problem regarding quantity unit conversion handling for recipe ingredients of products with no unit relations, but only a different purchase/stock quantity unit
