@@ -129,26 +129,25 @@
 
 	@if($selectedRecipe !== null)
 	<div class="col-xs-12 col-md-6">
+		<div class="card-header">
+			<i class="fas fa-cocktail"></i> {{ $selectedRecipe->name }}&nbsp;&nbsp;
+			<a id="selectedRecipeConsumeButton" class="btn btn-sm btn-outline-success py-0 hide-when-embedded hide-on-fullscreen-card @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->need_fulfilled == 0) disabled @endif" href="#" data-toggle="tooltip" title="{{ $__t('Consume all ingredients needed by this recipe') }}" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
+				<i class="fas fa-utensils"></i>
+			</a>
+			<a class="btn btn-sm btn-outline-primary py-0 recipe-order-missing-button hide-when-embedded hide-on-fullscreen-card @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif" href="#" data-toggle="tooltip" title="{{ $__t('Put missing products on shopping list') }}" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
+				<i class="fas fa-cart-plus"></i>
+			</a>&nbsp;&nbsp;
+			<a id="selectedRecipeEditButton" class="btn btn-sm btn-outline-info hide-when-embedded hide-on-fullscreen-card py-0" href="{{ $U('/recipe/') }}{{ $selectedRecipe->id }}">
+				<i class="fas fa-edit"></i>
+			</a>
+			<a id="selectedRecipeDeleteButton" class="btn btn-sm btn-outline-danger hide-when-embedded hide-on-fullscreen-card py-0" href="#" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
+				<i class="fas fa-trash"></i>
+			</a>
+			<a id="selectedRecipeToggleFullscreenButton" class="btn btn-sm btn-outline-secondary py-0 hide-when-embedded float-right" href="#" data-toggle="tooltip" title="{{ $__t('Expand to fullscreen') }}">
+				<i class="fas fa-expand-arrows-alt"></i>
+			</a>
+		</div>
 		<div id="selectedRecipeCard" class="card">
-			<div class="card-header">
-				<i class="fas fa-cocktail"></i> {{ $selectedRecipe->name }}&nbsp;&nbsp;
-				<a id="selectedRecipeConsumeButton" class="btn btn-sm btn-outline-success py-0 hide-when-embedded hide-on-fullscreen-card @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->need_fulfilled == 0) disabled @endif" href="#" data-toggle="tooltip" title="{{ $__t('Consume all ingredients needed by this recipe') }}" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
-					<i class="fas fa-utensils"></i>
-				</a>
-				<a class="btn btn-sm btn-outline-primary py-0 recipe-order-missing-button hide-when-embedded hide-on-fullscreen-card @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif" href="#" data-toggle="tooltip" title="{{ $__t('Put missing products on shopping list') }}" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
-					<i class="fas fa-cart-plus"></i>
-				</a>&nbsp;&nbsp;
-				<a id="selectedRecipeEditButton" class="btn btn-sm btn-outline-info hide-when-embedded hide-on-fullscreen-card py-0" href="{{ $U('/recipe/') }}{{ $selectedRecipe->id }}">
-					<i class="fas fa-edit"></i>
-				</a>
-				<a id="selectedRecipeDeleteButton" class="btn btn-sm btn-outline-danger hide-when-embedded hide-on-fullscreen-card py-0" href="#" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
-					<i class="fas fa-trash"></i>
-				</a>
-				<a id="selectedRecipeToggleFullscreenButton" class="btn btn-sm btn-outline-secondary py-0 hide-when-embedded float-right" href="#" data-toggle="tooltip" title="{{ $__t('Expand to fullscreen') }}">
-					<i class="fas fa-expand-arrows-alt"></i>
-				</a>
-			</div>
-
 			<div class="card-body mb-0 pb-0">
 				<div class="row">
 					<div class="col-4">
