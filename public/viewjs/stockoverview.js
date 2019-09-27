@@ -312,6 +312,12 @@ function RefreshProductRow(productId)
 	Grocy.Api.Get('stock/products/' + productId,
 		function(result)
 		{
+			// Also refresh the parent product, if any
+			if (result.product.parent_product_id !== null && !result.product.parent_product_id.toString().isEmpty())
+			{
+				RefreshProductRow(result.product.parent_product_id);
+			}
+
 			var productRow = $('#product-' + productId + '-row');
 			var expiringThreshold = moment().add($("#info-expiring-products").data("next-x-days"), "days");
 			var now = moment();
@@ -396,10 +402,32 @@ function RefreshProductRow(productId)
 				$('#product-' + productId + '-opened-amount').text("");
 			}
 
+			if (parseInt(result.is_aggregated_amount) === 1)
+			{
+				$('#product-' + productId + '-amount-aggregated').fadeOut(500, function()
+				{
+					$(this).text(result.stock_amount_aggregated).fadeIn(500);
+				});
+
+				if (result.stock_amount_opened_aggregated > 0)
+				{
+					$('#product-' + productId + '-opened-amount-aggregated').parent().effect('highlight', {}, 500);
+					$('#product-' + productId + '-opened-amount-aggregated').fadeOut(500, function ()
+					{
+						$(this).text(__t('%s opened', result.stock_amount_opened_aggregated)).fadeIn(500);
+					});
+				}
+				else
+				{
+					$('#product-' + productId + '-opened-amount-aggregated').text("");
+				}
+			}
+
 			// Needs to be delayed because of the animation above the date-text would be wrong if fired immediately...
 			setTimeout(function()
 			{
 				RefreshContextualTimeago();
+				RefreshLocaleNumberDisplay();
 			}, 600);
 		},
 		function(xhr)
