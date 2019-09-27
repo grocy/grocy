@@ -239,6 +239,10 @@ input::-webkit-inner-spin-button {
 	font-size: 125%;
 }
 
+.input-group > .form-control:focus {
+	z-index: inherit;
+}
+
 /* Third party component customizations - DataTables */
 .dataTable td {
 	vertical-align: middle !important;
