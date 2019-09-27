@@ -136,6 +136,14 @@ $(document).on("click", "#barcodescanner-start-button", function(e)
 {
 	e.preventDefault();
 
+	var inputElement = $(e.currentTarget).prev();
+	if (inputElement.hasAttr("disabled"))
+	{
+		// Do nothing and disable the barcode scanner start button
+		$(e.currentTarget).addClass("disabled");
+		return;
+	}
+
 	bootbox.dialog({
 		message: '<div id="barcodescanner-container" class="col"><div id="barcodescanner-livestream"></div></div>',
 		title: __t('Scan a barcode'),
@@ -164,5 +172,15 @@ $(document).on("click", "#barcodescanner-start-button", function(e)
 
 setTimeout(function()
 {
-	$(".barcodescanner-input:visible").after('<a id="barcodescanner-start-button" class="btn btn-sm btn-primary text-white"><i class="fas fa-camera"></i></a>');
+	$(".barcodescanner-input:visible").each(function()
+	{
+		if ($(this).hasAttr("disabled"))
+		{
+			$(this).after('<a id="barcodescanner-start-button" class="btn btn-sm btn-primary text-white disabled"><i class="fas fa-camera"></i></a>');
+		}
+		else
+		{
+			$(this).after('<a id="barcodescanner-start-button" class="btn btn-sm btn-primary text-white"><i class="fas fa-camera"></i></a>');
+		}
+	});
 }, 50);
