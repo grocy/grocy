@@ -136,7 +136,7 @@ $('#product_id_text_input').on('blur', function(e)
 	var input = $('#product_id_text_input').val().toString();
 	var possibleOptionElement = $("#product_id option[data-additional-searchdata*=\"" + input + ",\"]").first();
 	
-	if (GetUriParam('addbarcodetoselection') === undefined && possibleOptionElement.length > 0)
+	if (GetUriParam('addbarcodetoselection') === undefined && input.length > 0 && possibleOptionElement.length > 0)
 	{
 		$('#product_id').val(possibleOptionElement.val());
 		$('#product_id').data('combobox').refresh();
