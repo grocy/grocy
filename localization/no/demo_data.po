@@ -161,9 +161,6 @@ msgstr "Tysk"
 msgid "Italian"
 msgstr "Italiensk"
 
-msgid "Demo in different language"
-msgstr "Demo i annet språk"
-
 msgid "This is the note content of the recipe ingredient"
 msgstr "Dette er notisen for ingrediensen i oppskriften"
 
@@ -284,27 +281,51 @@ msgid "Polish"
 msgstr "Polsk"
 
 msgid "Milk Chocolate"
-msgstr ""
+msgstr "Melkesjokolade"
 
 msgid "Dark Chocolate"
-msgstr ""
+msgstr "Mørk sjokolade"
 
 msgid "Slice"
 msgid_plural "Slices"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Skrive"
+msgstr[1] "Skriver"
 
 msgid "Example userentity"
-msgstr ""
+msgstr "Example userentity"
 
 msgid "This is an example user entity..."
-msgstr ""
+msgstr "This is an example user entity..."
 
 msgid "Custom field"
-msgstr ""
+msgstr "Custom field"
 
 msgid "Example field value..."
-msgstr ""
+msgstr "Example field value..."
 
 msgid "Waffle rolls"
-msgstr ""
+msgstr "Vaffelrull"
+
+msgid "Danish"
+msgstr "Dansk"
+
+msgid "Dutch"
+msgstr "Nederlandsk"
+
+msgid "Norwegian"
+msgstr "Norsk"
+
+msgid "Demo"
+msgstr "Demo"
+
+msgid "Stable version"
+msgstr "Stabil versjon"
+
+msgid "Preview version"
+msgstr "Under utvikling versjon"
+
+msgid "current release"
+msgstr "Nåværende versjon"
+
+msgid "not yet released"
+msgstr "enda ikke gitt ut"

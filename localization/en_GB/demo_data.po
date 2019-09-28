@@ -157,9 +157,6 @@ msgstr ""
 msgid "Italian"
 msgstr ""
 
-msgid "Demo in different language"
-msgstr ""
-
 msgid "This is the note content of the recipe ingredient"
 msgstr ""
 
@@ -309,4 +306,22 @@ msgid "Danish"
 msgstr ""
 
 msgid "Dutch"
+msgstr ""
+
+msgid "Norwegian"
+msgstr ""
+
+msgid "Demo"
+msgstr ""
+
+msgid "Stable version"
+msgstr ""
+
+msgid "Preview version"
+msgstr ""
+
+msgid "current release"
+msgstr ""
+
+msgid "not yet released"
 msgstr ""

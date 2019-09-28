@@ -162,9 +162,6 @@ msgstr "Tedesco"
 msgid "Italian"
 msgstr "Italiano"
 
-msgid "Demo in different language"
-msgstr "Demo in lingua diversa"
-
 msgid "This is the note content of the recipe ingredient"
 msgstr "Questo è il contenuto della nota dell'ingrediente della ricetta"
 
@@ -316,3 +313,21 @@ msgstr "Danese"
 
 msgid "Dutch"
 msgstr "Olandese"
+
+msgid "Norwegian"
+msgstr "Norvegese"
+
+msgid "Demo"
+msgstr "Dimostrazione"
+
+msgid "Stable version"
+msgstr "Versione stabile"
+
+msgid "Preview version"
+msgstr "Versione di anteprima"
+
+msgid "current release"
+msgstr "versione attuale"
+
+msgid "not yet released"
+msgstr "non ancora pubblicata"

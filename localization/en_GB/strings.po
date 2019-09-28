@@ -1576,3 +1576,33 @@ msgstr ""
 
 msgid "Miss"
 msgstr ""
+
+msgid "Display recipe"
+msgstr ""
+
+msgid "Accumulate sub products min. stock amount"
+msgstr ""
+
+msgid ""
+"If enabled, the min. stock amount of sub products will be accumulated into "
+"this product, means the sub product will never be \"missing\", only this "
+"product"
+msgstr ""
+
+msgid "Are you sure to remove this conversion?"
+msgstr ""
+
+msgid "Unit price"
+msgstr ""
+
+msgid "Total price"
+msgstr ""
+
+msgid "in %s and based on the purchase quantity unit"
+msgstr ""
+
+msgid "Unlimited"
+msgstr ""
+
+msgid "Clear"
+msgstr ""

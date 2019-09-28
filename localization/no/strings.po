@@ -363,6 +363,8 @@ msgid ""
 "This means the next execution of this chore is scheduled %s days after the "
 "last execution"
 msgstr ""
+"Dette betyr at neste utførelse av denne husarbeidsoppgaven er planlagt %s "
+"dager etter siste utførelse"
 
 msgid "Removed %1$s of %2$s from stock"
 msgstr "Fjernet %1$s %2$s fra beholdningen"
@@ -1387,7 +1389,7 @@ msgstr ""
 "hver dag husoppgaven ikke utføres"
 
 msgid "Location Content Sheet"
-msgstr "Lokasjonsinnholdsark"
+msgstr "Se produkt per lokasjon"
 
 msgid "Print"
 msgstr "Skriv ut"
@@ -1399,11 +1401,11 @@ msgid ""
 "Here you can print a page per location with the current stock, maybe to hang"
 " it there and note the consumed things on it."
 msgstr ""
-"Her kan du printe en side per lokasjon med nåværende beholding, for eksempel"
-" for å henge opp og notere forbruk av diverse produkt"
+"Her kan du printe en side per lokasjon med nåværende beholding.\n"
+"F.eks for å henge opp og notere forbruk av diverse produkt eller for å ta en varetelling."
 
 msgid "this location"
-msgstr "denne lokasjonen"
+msgstr "kun denne lokasjonen"
 
 msgid "Consumend amount"
 msgstr "Forbrukt mengde"
@@ -1467,62 +1469,77 @@ msgid "Override for product"
 msgstr "Overstyr for product"
 
 msgid "This equals %1$s %2$s in stock"
-msgstr ""
+msgstr "Dette er lik %1$s%2$s i beholdningen"
 
 msgid "Edit QU conversion"
-msgstr ""
+msgstr "Endre forpakningskonvertering"
 
 msgid "An assignment type is required"
-msgstr ""
+msgstr "En tildelingstype kreves"
 
 msgid "Assignment type"
-msgstr ""
+msgstr "Tildelingstype"
 
 msgid ""
 "This means the next execution of this chore is scheduled 1 day after the "
 "last execution"
 msgstr ""
+"Dette betyr at neste utførelse av denne husarbeidsoppgaven er planlagt 1 dag"
+" etter siste utførelse"
 
 msgid ""
 "This means the next execution of this chore is scheduled 1 day after the "
 "last execution, but only for the weekdays selected below"
 msgstr ""
+"Dette betyr at neste utførelse av denne husarbeidsoppgaven er planlagt 1 dag"
+" etter siste utførelse, men kun for helgene valgt under"
 
 msgid "This means the next execution of this chore is not scheduled"
 msgstr ""
+"Dette betyr at neste utførelse av denne husarbeidsoppgaven ikke er planlagt"
 
 msgid ""
 "This means the next execution of this chore is scheduled on the below "
 "selected day of each month"
 msgstr ""
+"Dette betyr at neste utførelse av denne husarbeidsoppgaven er planlagt samme"
+" dag hver måned fra dag valgt under"
 
 msgid ""
 "This means the next execution of this chore will not be assigned to anyone"
 msgstr ""
+"Dette betyr at neste utførelse av denne husarbeidsoppgaven ikke vil bli "
+"tildelt noen"
 
 msgid ""
 "This means the next execution of this chore will be assigned to the one who "
 "executed it least"
 msgstr ""
+"Dette betyr at neste utførelse av denne husarbeidsoppgaven vil bli tildelt "
+"den som har utført den minst"
 
 msgid "This means the next execution of this chore will be assigned randomly"
 msgstr ""
+"Dette betyr at neste utførelse av denne husarbeidsoppgaven vil bli tildelt "
+"tilfeldig"
 
 msgid ""
 "This means the next execution of this chore will be assigned to the next one"
 " in alphabetical order"
 msgstr ""
+"Dette betyr at neste utførelse av denne husarbeidsoppgaven vil bli tildelt "
+"neste person i alfabetisk rekkefølge"
 
 msgid "Assign to"
-msgstr ""
+msgstr "Tildelt til"
 
 msgid "This assignment type requires that at least one is assigned"
-msgstr ""
+msgstr "Denne tildelningstypen krever at minst en er tildelt"
 
 msgid "%s chore is assigned to me"
 msgid_plural "%s chores are assigned to me"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%shusarbeidsoppgave tildelt meg"
+msgstr[1] "%s husarbeidsoppgaver tildelt meg"
 
 msgid "Assigned to me"
 msgstr "Tildelt meg"
@@ -1534,22 +1551,22 @@ msgid "Filter by assignment"
 msgstr "Filtrér etter oppgave"
 
 msgid "Consume product on chore execution"
-msgstr ""
+msgstr "Konsumer produkt når husarbeid blir utført"
 
 msgid "Are you sure to delete user field \"%s\"?"
-msgstr ""
+msgstr "Er du sikker du ønsker å slette brukerfelt \"%s\"?"
 
 msgid "Userentities"
-msgstr ""
+msgstr "Egendefinerte linjer"
 
 msgid "Create userentity"
-msgstr ""
+msgstr "Opprett egendefinerte linjer"
 
 msgid "Show in sidebar menu"
-msgstr ""
+msgstr "Vis sidemeny"
 
 msgid "Edit userentity"
-msgstr ""
+msgstr "Endre egendefinerte linjer"
 
 msgid "Edit %s"
 msgstr "Endre %s"
@@ -1567,10 +1584,10 @@ msgid "For example"
 msgstr "For eksempel"
 
 msgid "Configure fields"
-msgstr ""
+msgstr "Konfigurer felt"
 
 msgid "Quantity unit plural form testing"
-msgstr ""
+msgstr "Forpakningstype flertalls testing"
 
 msgid "Result"
 msgstr "Resultat"
@@ -1586,49 +1603,79 @@ msgstr "Feil under oppstart av strekkodeleser "
 
 msgid ""
 "The resulting price of this ingredient will be multiplied by this factor"
-msgstr ""
+msgstr "Pris for denne ingrediensen vil bli ganget med dette tallet"
 
 msgid "Price factor"
-msgstr ""
+msgstr "Pris faktor"
 
 msgid "Do you find grocy useful?"
-msgstr ""
+msgstr "Syns du grocy er nyttig?"
 
 msgid "Say thanks"
-msgstr ""
+msgstr "Si takk"
 
 msgid "Search for recipes containing this product"
-msgstr ""
+msgstr "Søk etter oppskrift som inneholder dette produktet"
 
 msgid "Add to shopping list"
-msgstr ""
+msgstr "Legg til i handlelisten"
 
 msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
-msgstr ""
+msgstr "Legg til %1$s%2$s i handlelisten \"%3$s\" "
 
 msgid "Output"
-msgstr ""
+msgstr "Resultat"
 
 msgid "Energy (kcal)"
-msgstr ""
+msgstr "Energi (kcal)"
 
 msgid "Per stock quantity unit"
-msgstr ""
+msgstr "Beholdnings forpakningstype"
 
 msgid "Barcode scanner testing"
-msgstr ""
+msgstr "Strekkode scanner testing"
 
 msgid "Expected barcode"
-msgstr ""
+msgstr "Forventet strekkode"
 
 msgid "Scan field"
-msgstr ""
+msgstr "Scannefelt"
 
 msgid "Scanned barcodes"
-msgstr ""
+msgstr "Skannede strekkoder"
 
 msgid "Hit"
-msgstr ""
+msgstr "Treff"
 
 msgid "Miss"
+msgstr "Bom"
+
+msgid "Display recipe"
+msgstr ""
+
+msgid "Accumulate sub products min. stock amount"
+msgstr ""
+
+msgid ""
+"If enabled, the min. stock amount of sub products will be accumulated into "
+"this product, means the sub product will never be \"missing\", only this "
+"product"
+msgstr ""
+
+msgid "Are you sure to remove this conversion?"
+msgstr ""
+
+msgid "Unit price"
+msgstr ""
+
+msgid "Total price"
+msgstr ""
+
+msgid "in %s and based on the purchase quantity unit"
+msgstr ""
+
+msgid "Unlimited"
+msgstr ""
+
+msgid "Clear"
 msgstr ""

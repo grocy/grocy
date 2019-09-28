@@ -1652,28 +1652,61 @@ msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
 msgstr "Aggiunti %1$s di %2$s alla lista della spesa \"%3$s\""
 
 msgid "Output"
-msgstr ""
+msgstr "Uscita"
 
 msgid "Energy (kcal)"
-msgstr ""
+msgstr "Energia (kcal)"
 
 msgid "Per stock quantity unit"
-msgstr ""
+msgstr "Unità quantitativa per dispensa"
 
 msgid "Barcode scanner testing"
-msgstr ""
+msgstr "Test dello scanner di codici a barre"
 
 msgid "Expected barcode"
-msgstr ""
+msgstr "Atteso Codice a barre"
 
 msgid "Scan field"
-msgstr ""
+msgstr "Campo di scansione"
 
 msgid "Scanned barcodes"
-msgstr ""
+msgstr "Codici a barre scansionati"
 
 msgid "Hit"
-msgstr ""
+msgstr "Scansionato"
 
 msgid "Miss"
+msgstr "Non scansionato"
+
+msgid "Display recipe"
+msgstr "Mostra la ricetta"
+
+msgid "Accumulate sub products min. stock amount"
+msgstr "Quantità in dispensa minima di sottoprodotti accumulati"
+
+msgid ""
+"If enabled, the min. stock amount of sub products will be accumulated into "
+"this product, means the sub product will never be \"missing\", only this "
+"product"
+msgstr ""
+"Se abilitato,. la quantità  min. di sottoprodotti sarà accumulata in questo "
+"prodotto, il che significa che il sottoprodotto non sarà mai \"mancante\", "
+"solo questo prodotto"
+
+msgid "Are you sure to remove this conversion?"
+msgstr "Sei sicuro di rimuovere questa conversione?"
+
+msgid "Unit price"
+msgstr ""
+
+msgid "Total price"
+msgstr ""
+
+msgid "in %s and based on the purchase quantity unit"
+msgstr ""
+
+msgid "Unlimited"
+msgstr ""
+
+msgid "Clear"
 msgstr ""

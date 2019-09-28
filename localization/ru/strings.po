@@ -1,6 +1,7 @@
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # Pavel Pletenev <cpp.create@gmail.com>, 2019
+# cool guy <eut53770@bcaoo.com>, 2019
 # 
 msgid ""
 msgstr ""
@@ -8,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Pavel Pletenev <cpp.create@gmail.com>, 2019\n"
+"Last-Translator: cool guy <eut53770@bcaoo.com>, 2019\n"
 "Language-Team: Russian (https://www.transifex.com/grocy/teams/93189/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -89,10 +90,10 @@ msgid "Chore tracking"
 msgstr "Выполнить работу по дому"
 
 msgid "Battery tracking"
-msgstr "Отслеживание батарей"
+msgstr "Отслеживание аккумуляторов"
 
 msgid "Locations"
-msgstr "Места хранения"
+msgstr "Места"
 
 msgid "Quantity units"
 msgstr "Единицы измерения"
@@ -157,7 +158,7 @@ msgid "New amount"
 msgstr "Новое количество"
 
 msgid "Note"
-msgstr "Заметки"
+msgstr "Заметка"
 
 msgid "Tracked time"
 msgstr "Время выполнения"
@@ -338,7 +339,7 @@ msgid "Are you sure to delete quantity unit \"%s\"?"
 msgstr "Вы уверены, что нужно удалить единицу измерения \"%s\"?"
 
 msgid "Are you sure to delete product \"%s\"?"
-msgstr "Вы уверены, что нужно удалить продукт \"%s\"?"
+msgstr "Вы уверены, что хотите удалить продукт %s?"
 
 msgid "Are you sure to delete location \"%s\"?"
 msgstr "Вы уверены, что нужно удалить место хранения \"%s\"?"
@@ -377,6 +378,8 @@ msgid ""
 "This means the next execution of this chore is scheduled %s days after the "
 "last execution"
 msgstr ""
+"Это означает, что следующее выполнение этой работы будет назначено через %s "
+"дней от последнего выполнения"
 
 msgid "Removed %1$s of %2$s from stock"
 msgstr "Убрано %1$s из %2$s из запаса"
@@ -421,7 +424,7 @@ msgid "Search"
 msgstr "Поиск"
 
 msgid "Not logged in"
-msgstr "Нет входа в систему"
+msgstr "Вы не авторизованы"
 
 msgid "You have to select a product"
 msgstr "Вам нужно выбрать продукт"
@@ -609,7 +612,7 @@ msgid "Charge cycle interval (days)"
 msgstr "Цикл работы от 1 заряда (дней)"
 
 msgid "Last price"
-msgstr "Последняя цена покупки"
+msgstr "Последняя цена"
 
 msgid "Price history"
 msgstr "История цен"
@@ -698,7 +701,7 @@ msgid "Removed all ingredients of recipe \"%s\" from stock"
 msgstr "Все ингредиенты рецепта \"%s\" убраны из запаса"
 
 msgid "Consume all ingredients needed by this recipe"
-msgstr "Употребить все ингредиенты, необходимые данному рецепту"
+msgstr "Употребить все ингредиенты из этого рецепта"
 
 msgid "Click to show technical details"
 msgstr "Нажмите, чтобы посмотреть технические детали"
@@ -713,7 +716,7 @@ msgid "Tasks"
 msgstr "Задачи"
 
 msgid "Show done tasks"
-msgstr "Показать законченные задачи"
+msgstr "Показать завершённые задачи"
 
 msgid "Task"
 msgstr "Задача"
@@ -1003,7 +1006,7 @@ msgstr ""
 "сегодня + это количество дней (значение 0 отключает этот функционал)"
 
 msgid "Default best before days after opened"
-msgstr "Срок годности по умолчанию после открытия в днях"
+msgstr "Срок годности в днях по умолчанию после открытия"
 
 msgid "Marked %1$s of %2$s as opened"
 msgstr "%2$s %1$s помечено открытым"
@@ -1488,9 +1491,11 @@ msgid ""
 "This cannot be lower than %1$s and must be a valid number with max. %2$s "
 "decimal places"
 msgstr ""
+"Не может быть ниже %1$s и должно быть числом с максимально %2$sзнаками после"
+" запятой"
 
 msgid "This cannot be equal to %s"
-msgstr ""
+msgstr "Не может быть равно %s"
 
 msgid "This means 1 %1$s is the same as %2$s %3$s"
 msgstr "Означает, что 1 %1$s - это то же, что %2$s%3$s"
@@ -1499,70 +1504,82 @@ msgid "QU conversions"
 msgstr "Преобразование ЕИ"
 
 msgid "Product overrides"
-msgstr ""
+msgstr "Переопределения продукта"
 
 msgid "Override for product"
-msgstr ""
+msgstr "Переопределить продукт"
 
 msgid "This equals %1$s %2$s in stock"
-msgstr ""
+msgstr "Равно %1$s%2$s в запасе"
 
 msgid "Edit QU conversion"
-msgstr ""
+msgstr "Изменить преобразование ЕИ"
 
 msgid "An assignment type is required"
-msgstr ""
+msgstr "Назначение необходимо"
 
 msgid "Assignment type"
-msgstr ""
+msgstr "Типы назначения"
 
 msgid ""
 "This means the next execution of this chore is scheduled 1 day after the "
 "last execution"
 msgstr ""
+"Это означает, что следующее выполнение этой работы будет назначено через "
+"день от последнего выполнения "
 
 msgid ""
 "This means the next execution of this chore is scheduled 1 day after the "
 "last execution, but only for the weekdays selected below"
 msgstr ""
+"Это означает, что следующее выполнение этой работы будет назначено через "
+"день от последнего выполнения, но только по дням недели, выбранным ниже"
 
 msgid "This means the next execution of this chore is not scheduled"
-msgstr ""
+msgstr "Это означает, что следующее выполнение этой работы не будет назначено"
 
 msgid ""
 "This means the next execution of this chore is scheduled on the below "
 "selected day of each month"
 msgstr ""
+"Это означает, что следующее выполнение этой работы будет назначено на "
+"выбранный ниже день каждого месяца"
 
 msgid ""
 "This means the next execution of this chore will not be assigned to anyone"
 msgstr ""
+"Это означает, что следующее выполнение этой работы не будет назначено никому"
 
 msgid ""
 "This means the next execution of this chore will be assigned to the one who "
 "executed it least"
 msgstr ""
+"Это означает, что следующее выполнение этой работы будет назначено тому, что"
+" выполнял её меньше"
 
 msgid "This means the next execution of this chore will be assigned randomly"
 msgstr ""
+"Это означает, что следующее выполнение этой работы будет назначено случайно"
 
 msgid ""
 "This means the next execution of this chore will be assigned to the next one"
 " in alphabetical order"
 msgstr ""
+"Это означает, что следующее исполнение этой работы будет назначено в "
+"алфавитном порядке"
 
 msgid "Assign to"
-msgstr ""
+msgstr "Назначить"
 
 msgid "This assignment type requires that at least one is assigned"
-msgstr ""
+msgstr "Для этого типа назначения необходим как минимум один назначенный"
 
 msgid "%s chore is assigned to me"
 msgid_plural "%s chores are assigned to me"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%s работа назначена мне"
+msgstr[1] "%s работы назначены мне"
+msgstr[2] "%sработ назначены мне"
+msgstr[3] "%s работ назначены мне"
 
 msgid "Assigned to me"
 msgstr "Назначено мне"
@@ -1571,46 +1588,46 @@ msgid "assigned to %s"
 msgstr "назначено %s"
 
 msgid "Filter by assignment"
-msgstr ""
+msgstr "Отфильтровать по назначению"
 
 msgid "Consume product on chore execution"
-msgstr ""
+msgstr "Употребить продукт по исполнению работы"
 
 msgid "Are you sure to delete user field \"%s\"?"
-msgstr ""
+msgstr "Вы уверены, что нужно удалить пользовательское поле \"%s\"?"
 
 msgid "Userentities"
-msgstr ""
+msgstr "Пользовательские сущности"
 
 msgid "Create userentity"
-msgstr ""
+msgstr "Создать пользовательскую сущность"
 
 msgid "Show in sidebar menu"
-msgstr ""
+msgstr "Показывать в меню слева"
 
 msgid "Edit userentity"
-msgstr ""
+msgstr "Изменить пользовательскую сущность"
 
 msgid "Edit %s"
-msgstr ""
+msgstr "Изменить %s"
 
 msgid "Create %s"
-msgstr ""
+msgstr "Создать %s"
 
 msgid "Are you sure to delete this userobject?"
-msgstr ""
+msgstr "Вы уверены, что нужно удалить эту пользовательский объект?"
 
 msgid "Icon CSS class"
-msgstr ""
+msgstr "CSS класс иконок"
 
 msgid "For example"
-msgstr ""
+msgstr "Например"
 
 msgid "Configure fields"
-msgstr ""
+msgstr "Настроить пользовательские поля"
 
 msgid "Quantity unit plural form testing"
-msgstr ""
+msgstr "Проверка множественных форм"
 
 msgid "Result"
 msgstr "Результат"
@@ -1619,29 +1636,89 @@ msgid "Test plural forms"
 msgstr "Проба форм множественного числа"
 
 msgid "Scan a barcode"
-msgstr ""
+msgstr "Отсканировать штрихкод"
 
 msgid "Error while initializing the barcode scanning library"
-msgstr ""
+msgstr "Ошибка инициализации библиотеки сканирования штрихкодов"
 
 msgid ""
 "The resulting price of this ingredient will be multiplied by this factor"
-msgstr ""
+msgstr "Полная цена этого ингредиента будет умножена на этот коэффициент"
 
 msgid "Price factor"
-msgstr ""
+msgstr "Коэффициент цены"
 
 msgid "Do you find grocy useful?"
-msgstr ""
+msgstr "Вы находите grocy полезным?"
 
 msgid "Say thanks"
-msgstr ""
+msgstr "Сказать спасибо"
 
 msgid "Search for recipes containing this product"
-msgstr ""
+msgstr "Искать рецепты, содержащие данный продукт"
 
 msgid "Add to shopping list"
-msgstr ""
+msgstr "Добавить в список покупок"
 
 msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
+msgstr "Добавлено %1$s из %2$s в список покупок \"%3$s\""
+
+msgid "Output"
+msgstr "Вывод"
+
+msgid "Energy (kcal)"
+msgstr "Энергия (ккал)"
+
+msgid "Per stock quantity unit"
+msgstr "На единицу измерения в запасе"
+
+msgid "Barcode scanner testing"
+msgstr "Проверка сканера штрихкодов"
+
+msgid "Expected barcode"
+msgstr "Ожидаемый штрихкод"
+
+msgid "Scan field"
+msgstr "Сканировать поле"
+
+msgid "Scanned barcodes"
+msgstr "Отсканированные штрихкоды"
+
+msgid "Hit"
+msgstr "Правильно"
+
+msgid "Miss"
+msgstr "Неправильно"
+
+msgid "Display recipe"
+msgstr "Отобразить рецепт"
+
+msgid "Accumulate sub products min. stock amount"
+msgstr "Собирать мин. заданные количества подпродуктов"
+
+msgid ""
+"If enabled, the min. stock amount of sub products will be accumulated into "
+"this product, means the sub product will never be \"missing\", only this "
+"product"
+msgstr ""
+"Если включено, то мин. заданные кол-ва подпродуктов будут соединятся и "
+"отслеживаться в этом продукте. Это означает, что подпродукты никогда не "
+"будут \"отсутсвующими\", только этот продукт будет"
+
+msgid "Are you sure to remove this conversion?"
+msgstr "Вы уверены, что нужно удалить это преобразование?"
+
+msgid "Unit price"
+msgstr ""
+
+msgid "Total price"
+msgstr ""
+
+msgid "in %s and based on the purchase quantity unit"
+msgstr ""
+
+msgid "Unlimited"
+msgstr ""
+
+msgid "Clear"
 msgstr ""
