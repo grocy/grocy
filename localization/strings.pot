@@ -1540,3 +1540,6 @@ msgstr ""
 
 msgid "Unlimited"
 msgstr ""
+
+msgid "Clear"
+msgstr ""

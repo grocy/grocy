@@ -316,6 +316,15 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 $("#description").on("summernote.change", function()
 {
 	$("#save-description-button").removeClass("disabled");
+
+	if ($("#description").summernote("isEmpty"))
+	{
+		$("#clear-description-button").addClass("disabled");
+	}
+	else
+	{
+		$("#clear-description-button").removeClass("disabled");
+	}
 });
 
 $(document).on("click", "#save-description-button", function(e)
@@ -334,3 +343,15 @@ $(document).on("click", "#save-description-button", function(e)
 		}
 	);
 });
+
+$(document).on("click", "#clear-description-button", function(e)
+{
+	e.preventDefault();
+	document.activeElement.blur();
+
+	$("#description").summernote("reset");
+	$("#save-description-button").click();
+});
+
+$("#description").trigger("summernote.change");
+$("#save-description-button").addClass("disabled");
