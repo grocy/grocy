@@ -185,7 +185,11 @@ function RefreshStatistics()
 			result.forEach(element => {
 				amountSum += parseInt(element.amount);
 			});
-			$("#info-current-stock").text(__n(result.length, '%s Product', '%s Products') + ", " + __n(amountSum, '%s Unit', '%s Units'));
+			var valueSum = 0;
+			result.forEach(element => {
+				valueSum += parseInt(element.value);
+			});
+			$("#info-current-stock").text(__n(result.length, '%s Product', '%s Products') + ", " + __n(amountSum, '%s Unit', '%s Units') + ", " + __n(valueSum, '%s Value', '%s Value'));
 		},
 		function(xhr)
 		{
