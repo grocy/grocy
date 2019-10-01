@@ -57,6 +57,7 @@
 				<thead>
 					<tr>
 						<th>{{ $__t('Product') }}</th>
+						<th>{{ $__t('Value') }}</th>
 						<th>{{ $__t('Amount') }}</th>
 						<th>{{ $__t('Consumend amount') . ' / ' . $__t('Notes') }}</th>
 					</tr>
@@ -67,6 +68,9 @@
 					<tr>
 						<td>
 							{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}
+						</td>
+						<td>
+							<span class="locale-number locale-number-currency">{{ $currentStockEntry->value }}</span>
 						</td>
 						<td>
 							<span class="locale-number locale-number-quantity-amount">{{ $currentStockEntry->amount }}</span> <span id="product-{{ $currentStockEntry->product_id }}-qu-name">{{ $__n($currentStockEntry->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name_plural) }}</span>
