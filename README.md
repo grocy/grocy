@@ -65,8 +65,10 @@ The following shorthands are available:
 - `YYYYMMe` or `YYYYMM+` gets expanded to the end of the given month in the given year in proper notation
   - Example: `201807e` will be converted to `2018-07-31`
 - `x` gets expanded to `2999-12-31` (which I use for products which never expire)
-- Down/up arrow keys will increase/decrease the date by one day
+- Down/up arrow keys will increase/decrease the date by 1 day
 - Right/left arrow keys will increase/decrease the date by 1 week
+- Shift + down/up arrow keys will increase/decrease the date by 1 month
+- Shift + right/left arrow keys will increase/decrease the date by 1 year
 
 ### Keyboard shorthands for buttons
 Wherever a button contains a bold highlighted letter, this is a shortcut key.

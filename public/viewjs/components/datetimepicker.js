@@ -170,21 +170,47 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keyup', function(e)
 		var dateObj = moment(value, format, true);
 		if (dateObj.isValid())
 		{
-			if (e.keyCode === 38) //Up
+			if (e.shiftKey)
 			{
-				Grocy.Components.DateTimePicker.SetValue(dateObj.add(-1, 'days').format(format));
+				// WITH shift modifier key
+
+				if (e.keyCode === 38) // Up
+				{
+					Grocy.Components.DateTimePicker.SetValue(dateObj.add(-1, 'months').format(format));
+				}
+				else if (e.keyCode === 40) // Down
+				{
+					Grocy.Components.DateTimePicker.SetValue(dateObj.add(1, 'months').format(format));
+				}
+				else if (e.keyCode === 37) // Left
+				{
+					Grocy.Components.DateTimePicker.SetValue(dateObj.add(-1, 'years').format(format));
+				}
+				else if (e.keyCode === 39) // Right
+				{
+					Grocy.Components.DateTimePicker.SetValue(dateObj.add(1, 'years').format(format));
+				}
 			}
-			else if (e.keyCode === 40) //Down
+			else
 			{
-				Grocy.Components.DateTimePicker.SetValue(dateObj.add(1, 'days').format(format));
-			}
-			else if (e.keyCode === 37) //Left
-			{
-				Grocy.Components.DateTimePicker.SetValue(dateObj.add(-1, 'weeks').format(format));
-			}
-			else if (e.keyCode === 39) //Right
-			{
-				Grocy.Components.DateTimePicker.SetValue(dateObj.add(1, 'weeks').format(format));
+				// WITHOUT shift modifier key
+
+				if (e.keyCode === 38) // Up
+				{
+					Grocy.Components.DateTimePicker.SetValue(dateObj.add(-1, 'days').format(format));
+				}
+				else if (e.keyCode === 40) // Down
+				{
+					Grocy.Components.DateTimePicker.SetValue(dateObj.add(1, 'days').format(format));
+				}
+				else if (e.keyCode === 37) // Left
+				{
+					Grocy.Components.DateTimePicker.SetValue(dateObj.add(-1, 'weeks').format(format));
+				}
+				else if (e.keyCode === 39) // Right
+				{
+					Grocy.Components.DateTimePicker.SetValue(dateObj.add(1, 'weeks').format(format));
+				}
 			}
 		}
 	}
