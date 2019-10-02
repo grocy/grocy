@@ -268,32 +268,34 @@
 			<tbody class="d-none">
 				@if($mode == "edit")
 				@foreach($quConversions as $quConversion)
-				<tr>
-					<td class="fit-content border-right">
-						<a class="btn btn-sm btn-info qu-conversion-edit-button @if($quConversion->product_id == null) disabled @endif" href="#" data-qu-conversion-id="{{ $quConversion->id }}">
-							<i class="fas fa-edit"></i>
-						</a>
-						<a class="btn btn-sm btn-danger qu-conversion-delete-button @if($quConversion->product_id == null) disabled @endif" href="#" data-qu-conversion-id="{{ $quConversion->id }}">
-							<i class="fas fa-trash"></i>
-						</a>
-					</td>
-					<td>
-						<span class="locale-number locale-number-quantity-amount">{{ $quConversion->factor }}</span>
-					</td>
-					<td>
-						{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', $quConversion->to_qu_id)->name }}
-					</td>
-					<td class="d-none">
-						@if($quConversion->product_id != null)
-						{{ $__t('Product overrides') }}
-						@else
-						{{ $__t('Default conversions') }}
-						@endif
-					</td>
-					<td class="d-none">
-						from_qu_id xx{{ $quConversion->from_qu_id }}xx
-					</td>
-				</tr>
+					@if($quConversion->product_id == $product->id || $quConversion->product_id == null)
+					<tr>
+						<td class="fit-content border-right">
+							<a class="btn btn-sm btn-info qu-conversion-edit-button @if($quConversion->product_id == null) disabled @endif" href="#" data-qu-conversion-id="{{ $quConversion->id }}">
+								<i class="fas fa-edit"></i>
+							</a>
+							<a class="btn btn-sm btn-danger qu-conversion-delete-button @if($quConversion->product_id == null) disabled @endif" href="#" data-qu-conversion-id="{{ $quConversion->id }}">
+								<i class="fas fa-trash"></i>
+							</a>
+						</td>
+						<td>
+							<span class="locale-number locale-number-quantity-amount">{{ $quConversion->factor }}</span>
+						</td>
+						<td>
+							{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', $quConversion->to_qu_id)->name }}
+						</td>
+						<td class="d-none">
+							@if($quConversion->product_id != null)
+							{{ $__t('Product overrides') }}
+							@else
+							{{ $__t('Default conversions') }}
+							@endif
+						</td>
+						<td class="d-none">
+							from_qu_id xx{{ $quConversion->from_qu_id }}xx
+						</td>
+					</tr>
+					@endif
 				@endforeach
 				@endif
 			</tbody>
