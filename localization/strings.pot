@@ -1543,3 +1543,6 @@ msgstr ""
 
 msgid "Clear"
 msgstr ""
+
+msgid "Are you sure to remove the included recipe \"%s\"?"
+msgstr ""

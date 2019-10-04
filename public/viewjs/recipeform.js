@@ -181,7 +181,7 @@ $(document).on('click', '.recipe-include-delete-button', function(e)
 	var objectId = $(e.currentTarget).attr('data-recipe-include-id');
 
 	bootbox.confirm({
-		message: __t('Are you sure to remove included recipe "%s"?', objectName),
+		message: __t('Are you sure to remove the included recipe "%s"?', objectName),
 		closeButton: false,
 		buttons: {
 			confirm: {
