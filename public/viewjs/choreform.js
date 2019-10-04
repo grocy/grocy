@@ -118,6 +118,7 @@ $('.input-group-chore-period-type').on('change', function(e)
 {
 	var periodType = $('#period_type').val();
 	var periodDays = $('#period_days').val();
+	var periodInterval = $('#period_interval').val();
 
 	$(".period-type-input").addClass("d-none");
 	$(".period-type-" + periodType).removeClass("d-none");
@@ -139,11 +140,13 @@ $('.input-group-chore-period-type').on('change', function(e)
 	else if (periodType === 'daily')
 	{
 		$('#chore-period-type-info').text(__t('This means the next execution of this chore is scheduled 1 day after the last execution'));
+		$('#chore-period-interval-info').text(__t('This means the next execution of this chore should only be scheduled every %s days', periodInterval.toString()));
 	}
 	else if (periodType === 'weekly')
 	{
 		$('#chore-period-type-info').text(__t('This means the next execution of this chore is scheduled 1 day after the last execution, but only for the weekdays selected below'));
 		$("#period_config").val($(".period-type-weekly input:checkbox:checked").map(function () { return this.value; }).get().join(","));
+		$('#chore-period-interval-info').text(__t('This means the next execution of this chore should only be scheduled every %s weeks', periodInterval.toString()));
 	}
 	else if (periodType === 'monthly')
 	{
@@ -152,6 +155,7 @@ $('.input-group-chore-period-type').on('change', function(e)
 		$("#period_days").attr("min", "1");
 		$("#period_days").attr("max", "31");
 		$("#period_days").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', "1", "31"));
+		$('#chore-period-interval-info').text(__t('This means the next execution of this chore should only be scheduled every %s months', periodInterval.toString()));
 	}
 
 	Grocy.FrontendHelpers.ValidateForm('chore-form');

@@ -86,6 +86,18 @@
 
 			<input type="hidden" id="period_config" name="period_config" value="@if($mode == 'edit'){{ $chore->period_config }}@endif">
 
+			@php if($mode == 'edit') { $value = $chore->period_interval; } else { $value = 1; } @endphp
+			@include('components.numberpicker', array(
+				'id' => 'period_interval',
+				'label' => 'Period interval',
+				'value' => $value,
+				'min' => '1',
+				'additionalCssClasses' => 'input-group-chore-period-type',
+				'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
+				'additionalGroupCssClasses' => 'period-type-input period-type-daily period-type-weekly period-type-monthly',
+				'hintId' => 'chore-period-interval-info'
+			))
+
 			@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 			<div class="form-group">
 				<label for="assignment_type">{{ $__t('Assignment type') }} <span id="chore-assignment-type-info" class="small text-muted"></span></label>

@@ -1546,3 +1546,15 @@ msgstr ""
 
 msgid "Are you sure to remove the included recipe \"%s\"?"
 msgstr ""
+
+msgid "Period interval"
+msgstr ""
+
+msgid "This means the next execution of this chore should only be scheduled every %s days"
+msgstr ""
+
+msgid "This means the next execution of this chore should only be scheduled every %s weeks"
+msgstr ""
+
+msgid "This means the next execution of this chore should only be scheduled every %s months"
+msgstr ""
