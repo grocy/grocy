@@ -157,6 +157,11 @@ $('.input-group-chore-period-type').on('change', function(e)
 		$("#period_days").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', "1", "31"));
 		$('#chore-period-interval-info').text(__t('This means the next execution of this chore should only be scheduled every %s months', periodInterval.toString()));
 	}
+	else if (periodType === 'yearly')
+	{
+		$('#chore-period-type-info').text(__t('This means the next execution of this chore is scheduled 1 year after the last execution'));
+		$('#chore-period-interval-info').text(__t('This means the next execution of this chore should only be scheduled every %s years', periodInterval.toString()));
+	}
 
 	Grocy.FrontendHelpers.ValidateForm('chore-form');
 });

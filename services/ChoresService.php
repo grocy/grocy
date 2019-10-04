@@ -11,6 +11,7 @@ class ChoresService extends BaseService
 	const CHORE_PERIOD_TYPE_DAILY = 'daily';
 	const CHORE_PERIOD_TYPE_WEEKLY = 'weekly';
 	const CHORE_PERIOD_TYPE_MONTHLY = 'monthly';
+	const CHORE_PERIOD_TYPE_YEARLY = 'yearly';
 
 	const CHORE_ASSIGNMENT_TYPE_NO_ASSIGNMENT = 'no-assignment';
 	const CHORE_ASSIGNMENT_TYPE_WHO_LEAST_DID_FIRST = 'who-least-did-first';

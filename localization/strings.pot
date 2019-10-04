@@ -1558,3 +1558,9 @@ msgstr ""
 
 msgid "This means the next execution of this chore should only be scheduled every %s months"
 msgstr ""
+
+msgid "This means the next execution of this chore is scheduled 1 year after the last execution"
+msgstr ""
+
+msgid "This means the next execution of this chore should only be scheduled every %s years"
+msgstr ""

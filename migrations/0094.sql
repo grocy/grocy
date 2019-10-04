@@ -34,6 +34,7 @@ SELECT
 				WHEN period_config LIKE '%saturday%' THEN DATETIME(IFNULL(MAX(l.tracked_time), DATETIME('now', 'localtime')), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 6')
 			END
 		WHEN 'monthly' THEN DATETIME(IFNULL(MAX(l.tracked_time), DATETIME('now', 'localtime')), '+' || CAST(h.period_interval AS TEXT) || ' month', 'start of month', '+' || CAST(h.period_days - 1 AS TEXT) || ' day')
+		WHEN 'yearly' THEN DATETIME(IFNULL(MAX(l.tracked_time), DATETIME('now', 'localtime')), '+' || CAST(h.period_interval AS TEXT) || ' years')
 	END AS next_estimated_execution_time,
 	h.track_date_only,
 	h.rollover,

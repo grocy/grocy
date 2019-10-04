@@ -26,3 +26,6 @@ msgstr ""
 
 msgid "monthly"
 msgstr ""
+
+msgid "yearly"
+msgstr ""

@@ -94,7 +94,7 @@
 				'min' => '1',
 				'additionalCssClasses' => 'input-group-chore-period-type',
 				'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
-				'additionalGroupCssClasses' => 'period-type-input period-type-daily period-type-weekly period-type-monthly',
+				'additionalGroupCssClasses' => 'period-type-input period-type-daily period-type-weekly period-type-monthly period-type-yearly',
 				'hintId' => 'chore-period-interval-info'
 			))
 
