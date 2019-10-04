@@ -27,3 +27,6 @@ msgstr "Weekly"
 
 msgid "monthly"
 msgstr "Monthly"
+
+msgid "yearly"
+msgstr "Yearly"
