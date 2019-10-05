@@ -21,7 +21,7 @@ msgstr ""
 "X-Domain: grocy/strings\n"
 
 msgid "Stock overview"
-msgstr "Panoramica della dispensa"
+msgstr "Riepilogo della dispensa"
 
 msgid "%s product expires"
 msgid_plural "%s products expiring"
@@ -1697,16 +1697,57 @@ msgid "Are you sure to remove this conversion?"
 msgstr "Sei sicuro di rimuovere questa conversione?"
 
 msgid "Unit price"
-msgstr ""
+msgstr "Prezzo unitario"
 
 msgid "Total price"
-msgstr ""
+msgstr "Prezzo totale"
 
 msgid "in %s and based on the purchase quantity unit"
-msgstr ""
+msgstr "in %se basato sull'unità quantitativa di acquisto"
 
 msgid "Unlimited"
-msgstr ""
+msgstr "Illimitato"
 
 msgid "Clear"
+msgstr "Liberato"
+
+msgid "Are you sure to remove the included recipe \"%s\"?"
+msgstr "Rimuovere la ricetta inclusa \"%s\"?"
+
+msgid "Period interval"
+msgstr "Intervallo di tempo"
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s days"
 msgstr ""
+"Questo significa che la prossima esecuzione di questa faccenda dovrebbe "
+"essere programmata solo ogni %s giorni"
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s weeks"
+msgstr ""
+"Questo significa che la prossima esecuzione di questa faccenda dovrebbe "
+"essere programmata solo ogni %s settimane"
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s months"
+msgstr ""
+"Questo significa che la prossima esecuzione di questa faccenda dovrebbe "
+"essere programmata solo ogni %s mesi"
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 year after the "
+"last execution"
+msgstr ""
+"Questo significa che la prossima esecuzione di questa faccenda è prevista 1 "
+"anno dopo l'ultima esecuzione"
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s years"
+msgstr ""
+"Questo significa che la prossima esecuzione di questa faccenda dovrebbe "
+"essere programmata solo ogni %s anni"

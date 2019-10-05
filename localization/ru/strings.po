@@ -2,6 +2,7 @@
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # Pavel Pletenev <cpp.create@gmail.com>, 2019
 # cool guy <eut53770@bcaoo.com>, 2019
+# First Name Second Name <greentail@protonmail.ch>, 2019
 # 
 msgid ""
 msgstr ""
@@ -9,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: cool guy <eut53770@bcaoo.com>, 2019\n"
+"Last-Translator: First Name Second Name <greentail@protonmail.ch>, 2019\n"
 "Language-Team: Russian (https://www.transifex.com/grocy/teams/93189/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 "X-Domain: grocy/strings\n"
 
 msgid "Stock overview"
-msgstr "Обзор склада"
+msgstr "Обзор запасов"
 
 msgid "%s product expires"
 msgid_plural "%s products expiring"
@@ -30,17 +31,17 @@ msgstr[3] "%s продуктов испортятся"
 
 msgid "within the next day"
 msgid_plural "within the next %s days"
-msgstr[0] "в течение завтра"
+msgstr[0] "в течение следующего дня"
 msgstr[1] "в течение %s дней"
 msgstr[2] "в течение %s дней"
 msgstr[3] "в течение %s дней"
 
 msgid "%s product is already expired"
 msgid_plural "%s products are already expired"
-msgstr[0] "%s продукт уже испортился"
-msgstr[1] "%sпродукта уже испортились"
-msgstr[2] "%s продуктов уже испортились"
-msgstr[3] "%s продуктов уже испортились"
+msgstr[0] "%s продукт испортился"
+msgstr[1] "%s продукта испортилось"
+msgstr[2] "%s продуктов испортилось"
+msgstr[3] "%s продуктов испортилось"
 
 msgid "%s product is below defined min. stock amount"
 msgid_plural "%s products are below defined min. stock amount"
@@ -54,10 +55,10 @@ msgstr "Продукт"
 
 msgid "%s Product"
 msgid_plural "%s Products"
-msgstr[0] "%s Продукт"
-msgstr[1] "%s Продукта"
-msgstr[2] "%s Продуктов"
-msgstr[3] "%s Продуктов"
+msgstr[0] "%s продукт"
+msgstr[1] "%s продукта"
+msgstr[2] "%s продуктов"
+msgstr[3] "%s продуктов"
 
 msgid "Amount"
 msgstr "Количество"
@@ -69,16 +70,16 @@ msgid "Logout"
 msgstr "Выйти"
 
 msgid "Chores overview"
-msgstr "Обзор работ по дому"
+msgstr "Обзор работ"
 
 msgid "Batteries overview"
-msgstr "Обзор батарей"
+msgstr "Обзор батареек"
 
 msgid "Purchase"
-msgstr "Покупка"
+msgstr "Купить"
 
 msgid "Consume"
-msgstr "Потребление"
+msgstr "Употребить"
 
 msgid "Inventory"
 msgstr "Инвентарь"
@@ -87,10 +88,10 @@ msgid "Shopping list"
 msgstr "Список покупок"
 
 msgid "Chore tracking"
-msgstr "Выполнить работу по дому"
+msgstr "Выполнить работу"
 
 msgid "Battery tracking"
-msgstr "Отслеживание аккумуляторов"
+msgstr "Отслеживание батареек"
 
 msgid "Locations"
 msgstr "Места"
@@ -99,13 +100,13 @@ msgid "Quantity units"
 msgstr "Единицы измерения"
 
 msgid "Chores"
-msgstr "Работы по дому"
+msgstr "Работы"
 
 msgid "Batteries"
-msgstr "Батареи"
+msgstr "Батарейки"
 
 msgid "Chore"
-msgstr "Работа по дому"
+msgstr "Работа"
 
 msgid "Next estimated tracking"
 msgstr "Следующий период отслеживания"
@@ -114,7 +115,7 @@ msgid "Last tracked"
 msgstr "Последнее время отслеживания"
 
 msgid "Battery"
-msgstr "Батарея"
+msgstr "Батарейка"
 
 msgid "Last charged"
 msgstr "Последний раз заряжалась"
@@ -1721,4 +1722,35 @@ msgid "Unlimited"
 msgstr ""
 
 msgid "Clear"
+msgstr ""
+
+msgid "Are you sure to remove the included recipe \"%s\"?"
+msgstr ""
+
+msgid "Period interval"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s days"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s weeks"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s months"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 year after the "
+"last execution"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s years"
 msgstr ""

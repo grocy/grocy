@@ -75,7 +75,7 @@ msgid "Shopping list"
 msgstr "Einkaufszettel"
 
 msgid "Chore tracking"
-msgstr "Hausarbeiten-Ausführung"
+msgstr "Hausarbeit-Ausführung"
 
 msgid "Battery tracking"
 msgstr "Batterie-Ladezyklus"
@@ -1704,3 +1704,44 @@ msgstr "Unbegrenzt"
 
 msgid "Clear"
 msgstr "Löschen"
+
+msgid "Are you sure to remove the included recipe \"%s\"?"
+msgstr "Das enthaltene Rezept \"%s\" wirklich löschen?"
+
+msgid "Period interval"
+msgstr "Periodenintervall"
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s days"
+msgstr ""
+"Das bedeutet, dass eine erneute Ausführung der Hausarbeit nur alle %s Tage "
+"geplant wird"
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s weeks"
+msgstr ""
+"Das bedeutet, dass eine erneute Ausführung der Hausarbeit nur alle %s Wochen"
+" geplant wird"
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s months"
+msgstr ""
+"Das bedeutet, dass eine erneute Ausführung der Hausarbeit nur alle %s Monate"
+" geplant wird"
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 year after the "
+"last execution"
+msgstr ""
+"Das bedeutet, dass eine erneute Ausführung der Hausarbeit 1 Jahr nach der "
+"letzten Ausführung geplant wird"
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s years"
+msgstr ""
+"Das bedeutet, dass eine erneute Ausführung der Hausarbeit nur alle %s Jahre "
+"geplant wird"
