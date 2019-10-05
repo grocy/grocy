@@ -21,6 +21,7 @@
 
 		<form id="shoppinglist-form" novalidate>
 
+			@if(GROCY_FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS)
 			<div class="form-group">
 				<label for="shopping_list_id">{{ $__t('Shopping list') }}</label>
 				<select class="form-control" id="shopping_list_id" name="shopping_list_id">
@@ -29,6 +30,9 @@
 					@endforeach
 				</select>
 			</div>
+			@else
+			<input type="hidden" id="shopping_list_id" name="shopping_list_id" value="1">
+			@endif
 
 			@php if($mode == 'edit') { $productId = $listItem->product_id; } else { $productId = ''; } @endphp
 			@include('components.productpicker', array(

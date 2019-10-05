@@ -16,6 +16,7 @@
 @endpush
 
 @section('content')
+@if(GROCY_FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS)
 <div class="row border-bottom pb-2 mb-2 d-print-none">
 	<div class="col-xs-12 col-md-4">
 		<label for="selected-shopping-list">{{ $__t('Selected shopping list') }}</label>
@@ -44,6 +45,7 @@
 		</div>-->
 	</div>
 </div>
+@endif
 
 <div class="row d-print-none">
 	<div class="col">
