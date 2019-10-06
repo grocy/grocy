@@ -53,7 +53,7 @@ See the integrated Swagger UI instance on [/api](https://demo.grocy.info/api).
 ### Barcode readers & camera scanning
 Some fields also allow to select a value by scanning a barcode. It works best when your barcode reader prefixes every barcode with a letter which is normally not part of a item name (I use a `$`) and sends a `TAB` after a scan.
 
-Additionally it's also possible to use your device camera to scan a barcode by using the camera button on the right side of the corresponding field (powered by [QuaggaJS](https://github.com/serratus/quaggaJS), totally offline / client-side camera stream processing). Quick video demo: https://www.youtube.com/watch?v=Y5YH6IJFnfc
+Additionally it's also possible to use your device camera to scan a barcode by using the camera button on the right side of the corresponding field (powered by [QuaggaJS](https://github.com/serratus/quaggaJS), totally offline / client-side camera stream processing, please note due to browser security restrictions, this only works when serving grocy via a secure connection (`https://`)). Quick video demo: https://www.youtube.com/watch?v=Y5YH6IJFnfc
 
 ### Input shorthands for date fields
 For (productivity) reasons all date (and time) input fields use the ISO-8601 format regardless of localization.
