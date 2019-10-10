@@ -85,9 +85,9 @@ class SystemController extends BaseController
 		if ($entryPage === 'calendar' && constant('GROCY_FEATURE_FLAG_CALENDAR')) {
 			return '/calendar';
 		}
-		
+
 		// Meal Plan
-		if ($entryPage === 'mealplan' && constant('GROCY_FEATURE_FLAG_RECIPES')) {
+		if ($entryPage === 'mealplan' && constant('GROCY_FEATURE_FLAG_RECIPES') && constant('GROCY_FEATURE_FLAG_CALENDAR')) {
 			return '/mealplan';
 		}
 
