@@ -85,6 +85,7 @@
 					<th class="border-right"></th>
 					<th>{{ $__t('Product') }}</th>
 					<th>{{ $__t('Amount') }}</th>
+                                        <th>{{ $__t('Purchase Factor') }}</th>
 					<th>{{ $__t('Next best before date') }}</th>
 					<th class="d-none">Hidden location</th>
 					<th class="d-none">Hidden status</th>
@@ -182,6 +183,9 @@
 							@if($currentStockEntry->amount_opened_aggregated > 0)<span id="product-{{ $currentStockEntry->product_id }}-opened-amount-aggregated" class="small font-italic">{{ $__t('%s opened', $currentStockEntry->amount_opened_aggregated) }}</span>@endif
 						</span>
 						@endif
+					</td>
+					<td>
+						<span id="product-{{ $currentStockEntry->product_id }}-factor_purchase_amount" class="locale-number locale-number-quantity-amount">{{ $currentStockEntry->factor_purchase_amount }}</span> <span id="product-{{ $currentStockEntry->product_id }}-qu-name">{{ $__n($currentStockEntry->factor_purchase_amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_purchase)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_purchase)->name_plural) }}</span>
 					</td>
 					<td>
 						<span id="product-{{ $currentStockEntry->product_id }}-next-best-before-date">{{ $currentStockEntry->best_before_date }}</span>
