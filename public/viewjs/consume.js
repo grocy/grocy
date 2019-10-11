@@ -257,25 +257,10 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 			{
 				stockEntries.forEach(stockEntry =>
 				{
-					var openTxt = __t("Not opened");
-					if (stockEntry.open == 1)
-					{
-						openTxt = __t("Opened");
-					}
-
-					for (i = 0; i < stockEntry.amount; i++)
-					{
-						// Do this only for the first 50 entries to prevent a very long loop (is more anytime needed)?
-						if (i > 50)
-						{
-							break;
-						}
-
-						$("#specific_stock_entry").append($("<option>", {
-							value: stockEntry.stock_id,
-							text: __t("Expires on %1$s; Bought on %2$s", moment(stockEntry.best_before_date).format("YYYY-MM-DD"), moment(stockEntry.purchased_date).format("YYYY-MM-DD")) + "; " + openTxt
-						}));
-					}
+					$("#specific_stock_entry").append($("<option>", {
+						value: stockEntry.stock_id,
+						text: __t("Amount remaining: %1$s Location:%2$s", stockEntry.amount, stockEntry.location_id)
+					}));
 				});
 			},
 			function(xhr)
