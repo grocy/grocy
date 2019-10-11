@@ -22,7 +22,7 @@
 				'label' => 'Amount',
 				'hintId' => 'amount_qu_unit',
 				'min' => 1,
-				'value' => 1,
+				'value' => 0,
 				'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
 				'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info" class="text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
 			))
