@@ -128,6 +128,7 @@
 					<th>{{ $__t('Product') }}</th>
 					<th>{{ $__t('Product group') }}</th>
 					<th>{{ $__t('Amount') }}</th>
+					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Value') }}</th>
 					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING) d-none @endif">{{ $__t('Next best before date') }}</th>
 					<th class="d-none">Hidden location</th>
 					<th class="d-none">Hidden status</th>
@@ -309,6 +310,9 @@
 						</span>
 						@endif
 						@endif
+					</td>
+					<td>
+						<span id="product-{{ $currentStockEntry->product_id }}-value" class="locale-number locale-number-currency">{{ $currentStockEntry->value }}</span>
 					</td>
 					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING) d-none @endif">
 						<span id="product-{{ $currentStockEntry->product_id }}-next-best-before-date">{{ $currentStockEntry->best_before_date }}</span>
