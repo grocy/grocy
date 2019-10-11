@@ -333,6 +333,11 @@ $('#consume-form input').keydown(function(event)
 	}
 });
 
+$("#specific_stock_entry").on("change", function()
+{
+	//TODO set amount max attribute based on the stock entry selected
+});
+
 $("#use_specific_stock_entry").on("change", function()
 {
 	var value = $(this).is(":checked");
