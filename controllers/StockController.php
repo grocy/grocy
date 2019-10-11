@@ -50,7 +50,8 @@ class StockController extends BaseController
 	{
 		return $this->AppContainer->view->render($response, 'consume', [
 			'products' => $this->Database->products()->orderBy('name'),
-			'recipes' => $this->Database->recipes()->orderBy('name')
+			'recipes' => $this->Database->recipes()->orderBy('name'),
+			'locations' => $this->Database->locations()->orderBy('name')
 		]);
 	}
 

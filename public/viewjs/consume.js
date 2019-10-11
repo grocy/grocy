@@ -21,6 +21,15 @@
 		jsonData.stock_entry_id = jsonForm.specific_stock_entry;
 	}
 
+	if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
+	{
+		jsonData.location_id = Grocy.Components.LocationPicker.GetValue();
+	}
+	else
+	{
+		jsonData.location_id = 1;
+	}
+
 	if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_RECIPES && Grocy.Components.RecipePicker.GetValue().toString().length > 0)
 	{
 		jsonData.recipe_id = Grocy.Components.RecipePicker.GetValue();
@@ -101,6 +110,10 @@
 						if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_RECIPES)
 						{
 							Grocy.Components.RecipePicker.Clear();
+						}
+						if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
+						{
+							Grocy.Components.LocationPicker.Clear();
 						}
 						Grocy.Components.ProductPicker.GetInputElement().focus();
 						Grocy.FrontendHelpers.ValidateForm('consume-form');
@@ -197,6 +210,10 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 			{
 				$('#amount').attr('max', productDetails.stock_amount);
 				$('#amount_qu_unit').text(productDetails.quantity_unit_stock.name);
+				if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
+				{
+					Grocy.Components.LocationPicker.SetId(productDetails.location.id);
+				}
 
 				if (productDetails.product.allow_partial_units_in_stock == 1)
 				{

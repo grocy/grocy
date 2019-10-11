@@ -27,6 +27,15 @@
 				'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info" class="text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
 			))
 
+			@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
+			@include('components.locationpicker', array(
+				'locations' => $locations,
+				'isRequired' => false
+			))
+			@else
+			<input type="hidden" name="location_id" id="location_id" value="1">
+			@endif
+
 			<div class="form-group">
 				<label for="use_specific_stock_entry">
 					<input type="checkbox" id="use_specific_stock_entry" name="use_specific_stock_entry"> {{ $__t('Use a specific stock item') }}
