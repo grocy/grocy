@@ -93,6 +93,7 @@ class StockService extends BaseService
 		{
 			$stockCurrentRow = new \stdClass();
 			$stockCurrentRow->amount = 0;
+			$stockCurrentRow->value = 0;
 			$stockCurrentRow->amount_opened = 0;
 			$stockCurrentRow->amount_aggregated = 0;
 			$stockCurrentRow->amount_opened_aggregated = 0;
@@ -128,6 +129,7 @@ class StockService extends BaseService
 			'last_purchased' => $productLastPurchased,
 			'last_used' => $productLastUsed,
 			'stock_amount' => $stockCurrentRow->amount,
+			'stock_value' => $stockCurrentRow->value,
 			'stock_amount_opened' => $stockCurrentRow->amount_opened,
 			'stock_amount_aggregated' => $stockCurrentRow->amount_aggregated,
 			'stock_amount_opened_aggregated' => $stockCurrentRow->amount_opened_aggregated,
