@@ -159,9 +159,6 @@ msgstr "Add"
 msgid "Name"
 msgstr "Name"
 
-msgid "Default location"
-msgstr "Default location"
-
 msgid "Location"
 msgstr "Location"
 
