@@ -1210,6 +1210,9 @@ msgstr ""
 msgid "Expiring soon days"
 msgstr ""
 
+msgid "Default location"
+msgstr ""
+
 msgid "Default amount for purchase"
 msgstr ""
 

@@ -75,7 +75,7 @@
 
 			@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 			<div class="form-group">
-				<label for="location_id">{{ $__t('Location') }}</label>
+				<label for="location_id">{{ $__t('Default location') }}</label>
 				<select required class="form-control" id="location_id" name="location_id">
 					<option></option>
 					@foreach($locations as $location)
