@@ -38,6 +38,7 @@ class CalendarApiController extends BaseApiController
 				$vEvent->setDtStart($date)
 					->setDtEnd($date)
 					->setSummary($event['title'])
+					->setDescription($event['description'])
 					->setNoTime($event['date_format'] === 'date')
 					->setUseTimezone(true);
 				

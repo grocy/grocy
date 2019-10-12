@@ -99,7 +99,8 @@ class CalendarService extends BaseService
 				$mealPlanRecipeEvents[] = array(
 					'title' => $titlePrefix . FindObjectInArrayByPropertyValue($recipes, 'id', $recipeOfCurrentDay->includes_recipe_id)->name,
 					'start' => FindObjectInArrayByPropertyValue($recipes, 'id', $recipeOfCurrentDay->recipe_id)->name,
-					'date_format' => 'date'
+					'date_format' => 'date',
+					'description' => GROCY_BASE_URL . '/mealplan' . '?week=' . FindObjectInArrayByPropertyValue($recipes, 'id', $recipeOfCurrentDay->recipe_id)->name
 				);
 			}
 		}
