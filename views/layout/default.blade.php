@@ -187,6 +187,8 @@
 						<span class="nav-link-text">{{ $__t('Calendar') }}</span>
 					</a>
 				</li>
+				@endif
+				@if(GROCY_FEATURE_FLAG_RECIPES)
 				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Meal plan') }}" data-nav-for-page="mealplan">
 					<a class="nav-link discrete-link" href="{{ $U('/mealplan') }}">
 						<i class="fas fa-paper-plane"></i>
