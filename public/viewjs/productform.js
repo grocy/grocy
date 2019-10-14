@@ -67,7 +67,11 @@
 					}
 					else
 					{
-						if (redirectDestination == "reload")
+						if (window.location.href.includes("closeAfterCreation"))
+                                                {
+                                                        window.close();
+                                                }
+                                                else if (redirectDestination == "reload")
 						{
 							window.location.reload();
 						}
