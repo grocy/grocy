@@ -6,6 +6,8 @@ class StockService extends BaseService
 {
 	const TRANSACTION_TYPE_PURCHASE = 'purchase';
 	const TRANSACTION_TYPE_CONSUME = 'consume';
+	const TRANSACTION_TYPE_TRANSFER_FROM = 'transfer_from';
+	const TRANSACTION_TYPE_TRANSFER_TO = 'transfer_to';
 	const TRANSACTION_TYPE_INVENTORY_CORRECTION = 'inventory-correction';
 	const TRANSACTION_TYPE_PRODUCT_OPENED = 'product-opened';
 
@@ -176,7 +178,12 @@ class StockService extends BaseService
 		}
 	}
 
-	public function GetProductStockEntriesByLocation($productId, $locationId, $excludeOpened = false)
+	public function GetProductStockLocations($productId)
+	{
+		return $this->Database->stock_current_locations()->where('product_id', $productId)->fetchAll();
+	}
+
+	public function GetProductStockEntriesByLocation($productId, $locationId, $checkNullLocation = false, $excludeOpened = false)
 	{
 		// In order of next use:
 		// First expiring first, then first in first out
@@ -185,9 +192,11 @@ class StockService extends BaseService
 		{
 			return $this->Database->stock()->where('product_id = :1 AND location_id = :2 AND open = 0', $productId, $locationId)->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC')->fetchAll();
 		}
-		else
+		else if ($checkNullLocation)
 		{
-			return $this->Database->stock()->where('product_id = :1 AND location_id = :2', $productId, $locationId)->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC')->fetchAll();
+			return $this->Database->stock()->where('product_id = :1 AND (location_id = :2 OR location_id is null)', $productId, $locationId)->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC')->fetchAll();
+		} else {
+                        return $this->Database->stock()->where('product_id = :1 AND location_id = :2', $productId, $locationId)->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC')->fetchAll();
 		}
 	}
 
@@ -229,7 +238,7 @@ class StockService extends BaseService
 			}
 		}
 
-		if ($transactionType === self::TRANSACTION_TYPE_PURCHASE || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
+		if ($transactionType === self::TRANSACTION_TYPE_PURCHASE || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION || $transactionType === self::TRANSACTION_TYPE_TRANSFER_TO)
 		{
 			//Check to see if this is already in stock at this location
 	                $stockRows = $this->Database->stock()->where('product_id = :1 AND best_before_date = :2 AND purchased_date = :3 AND price = :4', $productId, $bestBeforeDate, $purchasedDate, $price)->fetchAll();
@@ -324,6 +333,98 @@ class StockService extends BaseService
 		else
 		{
 			throw new \Exception("Transaction type $transactionType is not valid (StockService.AddProduct)");
+		}
+	}
+
+	public function TransferProduct(int $productId, float $amount, int $locationId, int $locationFromId, $specificStockEntryId = 'default')
+	{
+		if (!$this->ProductExists($productId))
+		{
+			throw new \Exception('Product does not exist');
+		}
+		if (!$this->LocationExists($locationId))
+		{
+			throw new \Exception('Transfer location does not exist');
+		}
+
+		// Tare weight handling
+		// The given amount is the new total amount including the container weight (gross)
+		// The amount to be posted needs to be the absolute value of the given amount - stock amount - tare weight
+		$productDetails = (object)$this->GetProductDetails($productId);
+		if ($productDetails->product->enable_tare_weight_handling == 1)
+		{
+			if ($amount < floatval($productDetails->product->tare_weight))
+			{
+				throw new \Exception('The amount cannot be lower than the defined tare weight');
+			}
+			
+			$amount = abs($amount - floatval($productDetails->stock_amount) - floatval($productDetails->product->tare_weight));
+		}
+
+		$checkNullLocation = $productDetails->product->location_id == $locationFromId;
+		$potentialStockEntries = $this->GetProductStockEntriesByLocation($productId, $locationFromId, $checkNullLocation);
+
+		if ($specificStockEntryId !== 'default')
+		{
+			$potentialStockEntries = FindAllObjectsInArrayByPropertyValue($potentialStockEntries, 'stock_id', $specificStockEntryId);
+		}
+
+		if ($checkNullLocation)
+		{
+			$productStockAmountByLocation = $this->Database->stock()->where('product_id = :1 AND (location_id = :2 OR location_id is null)', $productId, $locationFromId)->sum('amount');
+		} else {
+			$productStockAmountByLocation = $this->Database->stock()->where('product_id = :1 AND location_id = :2', $productId, $locationFromId)->sum('amount');
+		}
+		if ($amount > $productStockAmountByLocation)
+		{
+			throw new \Exception('Amount to be transfered cannot be > current stock amount');
+		}
+
+		foreach ($potentialStockEntries as $stockEntry)
+		{
+			if ($amount == 0)
+			{
+				break;
+			}
+			if ($amount >= $stockEntry->amount)
+			{
+				$logRow = $this->Database->stock_log()->createRow(array(
+					'product_id' => $productId,
+					'amount' => $stockEntry->amount * -1,
+					'best_before_date' => $stockEntry->best_before_date,
+					'purchased_date' => $stockEntry->purchased_date,
+					'stock_id' => $stockEntry->stock_id,
+					'transaction_type' => self::TRANSACTION_TYPE_TRANSFER_FROM,
+					'price' => $stockEntry->price,
+					'location_id' => $stockEntry->location_id
+				));
+		                $logRow->save();
+				//Add the amount into the new location
+				$this->AddProduct($productId, $stockEntry->amount, $stockEntry->best_before_date, self::TRANSACTION_TYPE_TRANSFER_TO, $stockEntry->purchased_date, $stockEntry->price, $locationId);
+
+				$amount -= $stockEntry->amount;
+				$stockEntry->delete();
+			} else {
+				$logRow = $this->Database->stock_log()->createRow(array(
+					'product_id' => $productId,
+					'amount' => $amount * -1,
+					'best_before_date' => $stockEntry->best_before_date,
+					'purchased_date' => $stockEntry->purchased_date,
+					'stock_id' => $stockEntry->stock_id,
+					'transaction_type' => self::TRANSACTION_TYPE_TRANSFER_FROM,
+					'price' => $stockEntry->price,
+					'location_id' => $stockEntry->location_id
+				));
+				$logRow->save();
+
+				//Add the amount into the new location
+				$this->AddProduct($productId, $amount, $stockEntry->best_before_date, self::TRANSACTION_TYPE_TRANSFER_TO, $stockEntry->purchased_date, $stockEntry->price, $locationId);
+
+				$stockEntry->update(array(
+					'amount' => $stockEntry->amount - $amount
+				));
+				$amount = 0;
+			}
 		}
 	}
 
@@ -772,7 +873,7 @@ class StockService extends BaseService
 				'undone_timestamp' => date('Y-m-d H:i:s')
 			));
 		}
-		elseif ($logRow->transaction_type === self::TRANSACTION_TYPE_CONSUME || ($logRow->transaction_type === self::TRANSACTION_TYPE_INVENTORY_CORRECTION && $logRow->amount < 0))
+		else if ($logRow->transaction_type === self::TRANSACTION_TYPE_CONSUME || ($logRow->transaction_type === self::TRANSACTION_TYPE_INVENTORY_CORRECTION && $logRow->amount < 0))
 		{
                         // Add corresponding amount back to stock
 			if ($stockRow == null) {
@@ -799,7 +900,7 @@ class StockService extends BaseService
 				'undone_timestamp' => date('Y-m-d H:i:s')
 			));
 		}
-		elseif ($logRow->transaction_type === self::TRANSACTION_TYPE_PRODUCT_OPENED)
+		else if ($logRow->transaction_type === self::TRANSACTION_TYPE_PRODUCT_OPENED)
 		{
 			// Remove opened flag from corresponding log entry
 			$stockRows = $this->Database->stock()->where('stock_id = :1 AND amount = :2 AND purchased_date = :3', $logRow->stock_id, $logRow->amount, $logRow->purchased_date)->limit(1);

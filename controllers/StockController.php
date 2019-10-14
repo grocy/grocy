@@ -55,6 +55,15 @@ class StockController extends BaseController
 		]);
 	}
 
+	public function Transfer(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->AppContainer->view->render($response, 'transfer', [
+			'products' => $this->Database->products()->orderBy('name'),
+			'recipes' => $this->Database->recipes()->orderBy('name'),
+			'locations' => $this->Database->locations()->orderBy('name')
+		]);
+	}
+
 	public function Inventory(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->AppContainer->view->render($response, 'inventory', [
@@ -272,6 +281,7 @@ class StockController extends BaseController
 	{
 		return $this->AppContainer->view->render($response, 'stockjournal', [
 			'stockLog' => $this->Database->stock_log()->orderBy('row_created_timestamp', 'DESC'),
+			'locations' => $this->Database->locations()->orderBy('name'),
 			'products' => $this->Database->products()->orderBy('name'),
 			'quantityunits' => $this->Database->quantity_units()->orderBy('name')
 		]);

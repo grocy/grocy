@@ -1128,6 +1128,50 @@
 				}
 			}
 		},
+		"/stock/products/{productId}/locations": {
+			"get": {
+				"summary": "Returns all locations with current stock",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An array of StockLocation objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/StockLocation"
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/stock/products/{productId}/entries": {
 			"get": {
 				"summary": "Returns all stock entries of the given product in order of next use (first expiring first, then first in first out)",
@@ -1347,6 +1391,86 @@
 									"amount": 1,
 									"transaction_type": "consume",
 									"spoiled": false
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/StockLogEntry"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product, invalid transaction type, given amount > current stock amount)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/products/{productId}/transfer": {
+			"post": {
+				"summary": "Transfer the given amount of the given product from stock from one location to another",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"amount": {
+										"type": "number",
+										"description": "The amount to remove - please note that when tare weight handling for the product is enabled, this needs to be the amount including the container weight (gross), the amount to be posted will be automatically calculated based on what is in stock and the defined tare weight"
+									},
+									"transaction_type": {
+										"$ref": "#/components/internalSchemas/StockTransactionType"
+									},
+									"location_from_id": {
+										"type": "number",
+										"format": "integer",
+										"description": "Location the stock is transfering from"
+									},
+									"location_to_id": {
+										"type": "number",
+										"format": "integer",
+										"description": "Location the stock is transfering to"
+									},
+									"stock_entry_id": {
+										"type": "string",
+										"description": "A specific stock entry id to consume, if used, the amount has to be 1"
+									}
+								},
+								"example": {
+									"amount": 1,
+									"transaction_type": "transfer",
+									"location_from_id": 1,
+									"location_to_id": 2
 								}
 							}
 						}
@@ -3021,6 +3145,29 @@
 					"name": "0",
 					"description": null,
 					"row_created_timestamp": "2019-05-02 20:12:25"
+				}
+			},
+			"StockLocation": {
+				"type": "object",
+				"properties": {
+					"id": {
+                                                "type": "integer"
+                                        },
+					"product_id": {
+						"type": "integer"
+					},
+					"location_id": {
+						"type": "integer"
+					},
+					"name": {
+						"type": "string"
+					}
+				},
+				"example": {
+					"id": "1",
+					"product_id": "3",
+					"location_id": "1",
+					"name": "Fridge"
 				}
 			},
 			"StockEntry": {

@@ -219,6 +219,30 @@ $(document).on("click", ".product-purchase-button", function(e)
 	});
 });
 
+$(document).on("click", ".product-transfer-custom-amount-button", function(e)
+{
+	e.preventDefault();
+
+	var productId = $(e.currentTarget).attr("data-product-id");
+
+	bootbox.dialog({
+		message: '<iframe height="650px" class="embed-responsive" src="' + U("/transfer?embedded&product=") + productId.toString() + '"></iframe>',
+		size: 'large',
+		backdrop: true,
+		closeButton: false,
+		buttons: {
+			cancel: {
+				label: __t('Cancel'),
+				className: 'btn-secondary responsive-button',
+				callback: function()
+				{
+					bootbox.hideAll();
+				}
+			}
+		}
+	});
+});
+
 $(document).on("click", ".product-consume-custom-amount-button", function(e)
 {
 	e.preventDefault();

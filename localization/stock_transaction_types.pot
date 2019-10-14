@@ -15,6 +15,12 @@ msgstr ""
 msgid "purchase"
 msgstr ""
 
+msgid "transfer_from"
+msgstr ""
+
+msgid "transfer_to"
+msgstr ""
+
 msgid "consume"
 msgstr ""
 

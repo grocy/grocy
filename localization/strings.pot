@@ -1567,3 +1567,15 @@ msgstr ""
 
 msgid "This means the next execution of this chore should only be scheduled every %s years"
 msgstr ""
+
+msgid "Transfer"
+msgstr ""
+
+msgid "From location"
+msgstr ""
+
+msgid "To location"
+msgstr ""
+
+msgid "There are no units available at this location"
+msgstr ""

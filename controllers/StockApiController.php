@@ -113,6 +113,60 @@ class StockApiController extends BaseApiController
 		}
 	}
 
+	public function TransferProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		$requestBody = $request->getParsedBody();
+
+		try
+		{
+			if ($requestBody === null)
+			{
+				throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
+			}
+
+			if (!array_key_exists('amount', $requestBody))
+			{
+				throw new \Exception('An amount is required');
+			}
+
+			if (!array_key_exists('location_id_from', $requestBody))
+			{
+				throw new \Exception('A transfer from location is required');
+			}
+
+			if (!array_key_exists('location_id_to', $requestBody))
+			{
+				throw new \Exception('A transfer to location is required');
+			}
+
+			$specificStockEntryId = 'default';
+			if (array_key_exists('stock_entry_id', $requestBody) && !empty($requestBody['stock_entry_id']))
+			{
+				$specificStockEntryId = $requestBody['stock_entry_id'];
+			}
+
+			$bookingId = $this->StockService->TransferProduct($args['productId'], $requestBody['amount'], $requestBody['location_id_to'], $requestBody['location_id_from'], $specificStockEntryId);
+			return $this->ApiResponse($this->Database->stock_log($bookingId));
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
+
+	public function TransferProductByBarcode(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		try
+		{
+			$args['productId'] = $this->StockService->GetProductIdFromBarcode($args['barcode']);
+			return $this->TransferProduct($request, $response, $args);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
+
 	public function ConsumeProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$requestBody = $request->getParsedBody();
@@ -452,6 +506,11 @@ class StockApiController extends BaseApiController
 	public function ProductStockEntries(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->ApiResponse($this->StockService->GetProductStockEntries($args['productId']));
+	}
+
+	public function ProductStockLocations(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->ApiResponse($this->StockService->GetProductStockLocations($args['productId']));
 	}
 
 	public function StockBooking(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
