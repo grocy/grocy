@@ -681,6 +681,8 @@ class StockService extends BaseService
 	public function UndoBooking($bookingId)
 	{
 		$logRow = $this->Database->stock_log()->where('id = :1 AND undone = 0', $bookingId)->fetch();
+		$stockRow = $this->Database->stock()->where('stock_id = :1 ', $logRow->stock_id)->fetch();
+
 		if ($logRow == null)
 		{
 			throw new \Exception('Booking does not exist or was already undone');
@@ -694,9 +696,14 @@ class StockService extends BaseService
 
 		if ($logRow->transaction_type === self::TRANSACTION_TYPE_PURCHASE || ($logRow->transaction_type === self::TRANSACTION_TYPE_INVENTORY_CORRECTION && $logRow->amount > 0))
 		{
-			// Remove corresponding stock entry
-			$stockRows = $this->Database->stock()->where('stock_id', $logRow->stock_id);
-			$stockRows->delete();
+			if ($logRow->amount == $stockRow->amount)
+			{
+	                        $stockRow->delete();
+			} else {
+				$stockRow->update(array(
+					'amount' => $stockRow->amount - $logRow->amount
+				));
+			}
 
 			// Update log entry
 			$logRow->update(array(
@@ -706,17 +713,24 @@ class StockService extends BaseService
 		}
 		elseif ($logRow->transaction_type === self::TRANSACTION_TYPE_CONSUME || ($logRow->transaction_type === self::TRANSACTION_TYPE_INVENTORY_CORRECTION && $logRow->amount < 0))
 		{
-			// Add corresponding amount back to stock
-			$stockRow = $this->Database->stock()->createRow(array(
-				'product_id' => $logRow->product_id,
-				'amount' => $logRow->amount * -1,
-				'best_before_date' => $logRow->best_before_date,
-				'purchased_date' => $logRow->purchased_date,
-				'stock_id' => $logRow->stock_id,
-				'price' => $logRow->price,
-				'opened_date' => $logRow->opened_date
-			));
-			$stockRow->save();
+                        // Add corresponding amount back to stock
+			if ($stockRow == null) {
+				$stockRow = $this->Database->stock()->createRow(array(
+					'product_id' => $logRow->product_id,
+					'amount' => $logRow->amount * -1,
+					'best_before_date' => $logRow->best_before_date,
+					'purchased_date' => $logRow->purchased_date,
+					'stock_id' => $logRow->stock_id,
+					'price' => $logRow->price,
+					'opened_date' => $logRow->opened_date,
+					'location_id' => $logRow->location_id
+				));
+				$stockRow->save();
+			} else {
+                                $stockRow->update(array(
+                                        'amount' => $stockRow->amount + $logRow->amount
+                                ));
+			}
 
 			// Update log entry
 			$logRow->update(array(
