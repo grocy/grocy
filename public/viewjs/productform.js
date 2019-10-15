@@ -70,7 +70,7 @@
 						/* If the GET parameter "closeAfterCreation" was passed to the form, it will
                                                    automatically close after creating the product. This only works if the window
                                                    was opened with javascript */
-						if (window.location.href.includes("closeAfterCreation"))
+						if (window.location.href.toLowerCase().includes("closeaftercreation"))
                                                 {
                                                         window.close();
                                                 }
