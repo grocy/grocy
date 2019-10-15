@@ -176,6 +176,21 @@ class StockService extends BaseService
 		}
 	}
 
+	public function GetProductStockEntriesByLocation($productId, $locationId, $excludeOpened = false)
+	{
+		// In order of next use:
+		// First expiring first, then first in first out
+
+		if ($excludeOpened)
+		{
+			return $this->Database->stock()->where('product_id = :1 AND location_id = :2 AND open = 0', $productId, $locationId)->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC')->fetchAll();
+		}
+		else
+		{
+			return $this->Database->stock()->where('product_id = :1 AND location_id = :2', $productId, $locationId)->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC')->fetchAll();
+		}
+	}
+
 	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId = null)
 	{
 		if (!$this->ProductExists($productId))
