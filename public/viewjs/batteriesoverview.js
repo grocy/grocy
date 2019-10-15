@@ -7,7 +7,7 @@
 $('#batteries-overview-table tbody').removeClass("d-none");
 batteriesOverviewTable.columns.adjust().draw();
 
-$("#search").on("keyup", function()
+$("#search").on("keyup", Delay(function()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -16,7 +16,7 @@ $("#search").on("keyup", function()
 	}
 
 	batteriesOverviewTable.search(value).draw();
-});
+}, 200));
 
 $("#status-filter").on("change", function()
 {

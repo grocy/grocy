@@ -12,7 +12,7 @@
 $('#shoppinglist-table tbody').removeClass("d-none");
 shoppingListTable.columns.adjust().draw();
 
-$("#search").on("keyup", function()
+$("#search").on("keyup", Delay(function()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -21,7 +21,7 @@ $("#search").on("keyup", function()
 	}
 
 	shoppingListTable.search(value).draw();
-});
+}, 200));
 
 $("#status-filter").on("change", function()
 {

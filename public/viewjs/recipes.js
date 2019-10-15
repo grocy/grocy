@@ -44,7 +44,7 @@ $("a[data-toggle='tab']").on("shown.bs.tab", function(e)
 	window.localStorage.setItem("recipes_last_tab_id", tabId);
 });
 
-$("#search").on("keyup", function()
+$("#search").on("keyup", Delay(function()
 {
 	var value = $(this).val();
 
@@ -52,7 +52,7 @@ $("#search").on("keyup", function()
 
 	$(".recipe-gallery-item-container").removeClass("d-none");
 	$(".recipe-gallery-item-container .card-title:not(:contains_case_insensitive(" + value + "))").parent().parent().parent().parent().addClass("d-none");
-});
+}, 200));
 
 $("#status-filter").on("change", function()
 {

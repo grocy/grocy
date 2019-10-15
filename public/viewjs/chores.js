@@ -7,7 +7,7 @@
 $('#chores-table tbody').removeClass("d-none");
 choresTable.columns.adjust().draw();
 
-$("#search").on("keyup", function()
+$("#search").on("keyup", Delay(function()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -16,7 +16,7 @@ $("#search").on("keyup", function()
 	}
 
 	choresTable.search(value).draw();
-});
+}, 200));
 
 $(document).on('click', '.chore-delete-button', function (e)
 {

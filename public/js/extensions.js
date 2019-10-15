@@ -129,3 +129,19 @@ function IsJsonString(text)
 	}
 	return true;
 }
+
+function Delay(callable, delayMilliseconds)
+{
+	var timer = 0;
+	return function()
+	{
+		var context = this;
+		var args = arguments;
+		
+		clearTimeout(timer);
+		timer = setTimeout(function()
+		{
+			callable.apply(context, args);
+		}, delayMilliseconds || 0);
+	};
+}

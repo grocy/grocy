@@ -7,7 +7,7 @@
 $('#userfields-table tbody').removeClass("d-none");
 userfieldsTable.columns.adjust().draw();
 
-$("#search").on("keyup", function()
+$("#search").on("keyup", Delay(function()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -16,7 +16,7 @@ $("#search").on("keyup", function()
 	}
 
 	userfieldsTable.search(value).draw();
-});
+}, 200));
 
 $("#entity-filter").on("change", function()
 {

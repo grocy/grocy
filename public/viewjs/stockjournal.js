@@ -20,7 +20,7 @@ $("#product-filter").on("change", function()
 	stockJournalTable.column(1).search(text).draw();
 });
 
-$("#search").on("keyup", function()
+$("#search").on("keyup", Delay(function()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -29,7 +29,7 @@ $("#search").on("keyup", function()
 	}
 
 	stockJournalTable.search(value).draw();
-});
+}, 200));
 
 if (typeof GetUriParam("product") !== "undefined")
 {

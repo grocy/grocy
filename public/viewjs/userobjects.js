@@ -7,7 +7,7 @@
 $('#userobjects-table tbody').removeClass("d-none");
 userobjectsTable.columns.adjust().draw();
 
-$("#search").on("keyup", function()
+$("#search").on("keyup", Delay(function()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -16,7 +16,7 @@ $("#search").on("keyup", function()
 	}
 
 	userobjectsTable.search(value).draw();
-});
+}, 200));
 
 $(document).on('click', '.userobject-delete-button', function (e)
 {

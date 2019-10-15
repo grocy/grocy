@@ -13,7 +13,7 @@ if (createdApiKeyId !== undefined)
 	$('#apiKeyRow_' + createdApiKeyId).effect('highlight', {}, 3000);
 }
 
-$("#search").on("keyup", function()
+$("#search").on("keyup", Delay(function()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -22,7 +22,7 @@ $("#search").on("keyup", function()
 	}
 
 	apiKeysTable.search(value).draw();
-});
+}, 200));
 
 $(document).on('click', '.apikey-delete-button', function (e)
 {

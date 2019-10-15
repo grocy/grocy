@@ -7,7 +7,7 @@
 $('#quantityunits-table tbody').removeClass("d-none");
 quantityUnitsTable.columns.adjust().draw();
 
-$("#search").on("keyup", function()
+$("#search").on("keyup", Delay(function()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -16,7 +16,7 @@ $("#search").on("keyup", function()
 	}
 
 	quantityUnitsTable.search(value).draw();
-});
+}, 200));
 
 $(document).on('click', '.quantityunit-delete-button', function (e)
 {

@@ -7,7 +7,7 @@
 $('#batteries-table tbody').removeClass("d-none");
 batteriesTable.columns.adjust().draw();
 
-$("#search").on("keyup", function()
+$("#search").on("keyup", Delay(function()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -16,7 +16,7 @@ $("#search").on("keyup", function()
 	}
 
 	batteriesTable.search(value).draw();
-});
+}, 200));
 
 $(document).on('click', '.battery-delete-button', function (e)
 {

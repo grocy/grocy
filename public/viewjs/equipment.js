@@ -55,7 +55,7 @@ function DisplayEquipment(id)
 	);
 }
 
-$("#search").on("keyup", function()
+$("#search").on("keyup", Delay(function()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -64,7 +64,7 @@ $("#search").on("keyup", function()
 	}
 
 	equipmentTable.search(value).draw();
-});
+}, 200));
 
 $(document).on('click', '.equipment-delete-button', function (e)
 {

@@ -20,7 +20,7 @@ $("#chore-filter").on("change", function()
 	choresJournalTable.column(1).search(text).draw();
 });
 
-$("#search").on("keyup", function()
+$("#search").on("keyup", Delay(function()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -29,7 +29,7 @@ $("#search").on("keyup", function()
 	}
 
 	choresJournalTable.search(value).draw();
-});
+}, 200));
 
 if (typeof GetUriParam("chore") !== "undefined")
 {

@@ -7,7 +7,7 @@
 $('#taskcategories-table tbody').removeClass("d-none");
 categoriesTable.columns.adjust().draw();
 
-$("#search").on("keyup", function()
+$("#search").on("keyup", Delay(function()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -16,7 +16,7 @@ $("#search").on("keyup", function()
 	}
 
 	categoriesTable.search(value).draw();
-});
+}, 200));
 
 $(document).on('click', '.task-category-delete-button', function (e)
 {

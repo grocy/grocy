@@ -53,7 +53,7 @@ $(".status-filter-button").on("click", function()
 	$("#status-filter").trigger("change");
 });
 
-$("#search").on("keyup", function()
+$("#search").on("keyup", Delay(function()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -62,7 +62,7 @@ $("#search").on("keyup", function()
 	}
 
 	stockOverviewTable.search(value).draw();
-});
+}, 200));
 
 $(document).on('click', '.product-consume-button', function(e)
 {

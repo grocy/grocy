@@ -7,7 +7,7 @@
 $('#users-table tbody').removeClass("d-none");
 usersTable.columns.adjust().draw();
 
-$("#search").on("keyup", function()
+$("#search").on("keyup", Delay(function()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -16,7 +16,7 @@ $("#search").on("keyup", function()
 	}
 
 	usersTable.search(value).draw();
-});
+}, 200));
 
 $(document).on('click', '.user-delete-button', function (e)
 {

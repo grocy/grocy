@@ -7,7 +7,7 @@
 $('#chores-overview-table tbody').removeClass("d-none");
 choresOverviewTable.columns.adjust().draw();
 
-$("#search").on("keyup", function()
+$("#search").on("keyup", Delay(function()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -16,7 +16,7 @@ $("#search").on("keyup", function()
 	}
 
 	choresOverviewTable.search(value).draw();
-});
+}, 200));
 
 $("#status-filter").on("change", function()
 {

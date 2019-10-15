@@ -11,7 +11,7 @@
 $('#tasks-table tbody').removeClass("d-none");
 tasksTable.columns.adjust().draw();
 
-$("#search").on("keyup", function()
+$("#search").on("keyup", Delay(function()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -20,7 +20,7 @@ $("#search").on("keyup", function()
 	}
 
 	tasksTable.search(value).draw();
-});
+}, 200));
 
 $("#status-filter").on("change", function()
 {

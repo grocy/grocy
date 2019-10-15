@@ -7,7 +7,7 @@
 $('#products-table tbody').removeClass("d-none");
 productsTable.columns.adjust().draw();
 
-$("#search").on("keyup", function()
+$("#search").on("keyup", Delay(function()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -16,7 +16,7 @@ $("#search").on("keyup", function()
 	}
 
 	productsTable.search(value).draw();
-});
+}, 200));
 
 $("#product-group-filter").on("change", function()
 {

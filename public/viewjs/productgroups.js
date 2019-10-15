@@ -7,7 +7,7 @@
 $('#productgroups-table tbody').removeClass("d-none");
 groupsTable.columns.adjust().draw();
 
-$("#search").on("keyup", function()
+$("#search").on("keyup", Delay(function()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -16,7 +16,7 @@ $("#search").on("keyup", function()
 	}
 
 	groupsTable.search(value).draw();
-});
+}, 200));
 
 $(document).on('click', '.product-group-delete-button', function(e)
 {
