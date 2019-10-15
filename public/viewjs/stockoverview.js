@@ -1,5 +1,7 @@
 ﻿var stockOverviewTable = $('#stock-overview-table').DataTable({
 	'paginate': false,
+	'deferRender': true,
+	'searchDelay': 200,
 	'order': [[3, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
