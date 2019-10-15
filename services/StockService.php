@@ -626,6 +626,12 @@ class StockService extends BaseService
 		return $productRow !== null;
 	}
 
+	private function LocationExists($locationId)
+	{
+		$locationRow = $this->Database->locations()->where('id = :1', $locationId)->fetch();
+		return $locationRow !== null;
+	}
+
 	private function ShoppingListExists($listId)
 	{
 		$shoppingListRow = $this->Database->shopping_lists()->where('id = :1', $listId)->fetch();
