@@ -322,7 +322,8 @@ class StockService extends BaseService
 						'transaction_type' => $transactionType,
 						'price' => $stockEntry->price,
 						'opened_date' => $stockEntry->opened_date,
-						'recipe_id' => $recipeId
+						'recipe_id' => $recipeId,
+						'location_id' => $stockEntry->location_id
 					));
 					$logRow->save();
 
@@ -345,7 +346,8 @@ class StockService extends BaseService
 						'transaction_type' => $transactionType,
 						'price' => $stockEntry->price,
 						'opened_date' => $stockEntry->opened_date,
-						'recipe_id' => $recipeId
+						'recipe_id' => $recipeId,
+						'location_id' => $stockEntry->location_id
 					));
 					$logRow->save();
 
@@ -460,7 +462,8 @@ class StockService extends BaseService
 					'stock_id' => $stockEntry->stock_id,
 					'transaction_type' => self::TRANSACTION_TYPE_PRODUCT_OPENED,
 					'price' => $stockEntry->price,
-					'opened_date' => date('Y-m-d')
+					'opened_date' => date('Y-m-d'),
+					'location_id' => $stockEntry->location_id
 				));
 				$logRow->save();
 
