@@ -231,34 +231,95 @@ class StockService extends BaseService
 
 		if ($transactionType === self::TRANSACTION_TYPE_PURCHASE || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
 		{
-			$stockId = uniqid();
+			//Check to see if this is already in stock at this location
+	                $stockRows = $this->Database->stock()->where('product_id = :1 AND best_before_date = :2 AND purchased_date = :3 AND price = :4', $productId, $bestBeforeDate, $purchasedDate, $price)->fetchAll();
+			$stockRow = FindObjectinArrayByPropertyValue($stockRows, 'location_id', $locationId);
 
-			$logRow = $this->Database->stock_log()->createRow(array(
-				'product_id' => $productId,
-				'amount' => $amount,
-				'best_before_date' => $bestBeforeDate,
-				'purchased_date' => $purchasedDate,
-				'stock_id' => $stockId,
-				'transaction_type' => $transactionType,
-				'price' => $price,
-				'location_id' => $locationId
-			));
-			$logRow->save();
+			// Create a new stock_id
+			if (empty($stockRows))
+			{
+				$stockId = uniqid();
 
-			$returnValue = $this->Database->lastInsertId();
+				$logRow = $this->Database->stock_log()->createRow(array(
+					'product_id' => $productId,
+					'amount' => $amount,
+					'best_before_date' => $bestBeforeDate,
+					'purchased_date' => $purchasedDate,
+					'stock_id' => $stockId,
+					'transaction_type' => $transactionType,
+					'price' => $price,
+					'location_id' => $locationId
+				));
+				$logRow->save();
 
-			$stockRow = $this->Database->stock()->createRow(array(
-				'product_id' => $productId,
-				'amount' => $amount,
-				'best_before_date' => $bestBeforeDate,
-				'purchased_date' => $purchasedDate,
-				'stock_id' => $stockId,
-				'price' => $price,
-				'location_id' => $locationId
-			));
-			$stockRow->save();
+				$returnValue = $this->Database->lastInsertId();
 
-			return $returnValue;
+				$newStockRow = $this->Database->stock()->createRow(array(
+					'product_id' => $productId,
+					'amount' => $amount,
+					'best_before_date' => $bestBeforeDate,
+					'purchased_date' => $purchasedDate,
+					'stock_id' => $stockId,
+					'price' => $price,
+					'location_id' => $locationId
+				));
+				$newStockRow->save();
+
+				return $returnValue;
+			} else if ($stockRow === null)
+			//There is no stock found at this location for the stock_id
+			{
+				$stockId = $this->Database->stock()->where('product_id = :1 AND best_before_date = :2 AND purchased_date = :3 AND price = :4 group by stock_id', $productId, $bestBeforeDate, $purchasedDate, $price)->fetch();
+
+				$logRow = $this->Database->stock_log()->createRow(array(
+					'product_id' => $productId,
+					'amount' => $amount,
+					'best_before_date' => $bestBeforeDate,
+					'purchased_date' => $purchasedDate,
+					'stock_id' => $stockId->stock_id,
+					'transaction_type' => $transactionType,
+					'price' => $price,
+					'location_id' => $locationId
+				));
+				$logRow->save();
+
+				$returnValue = $this->Database->lastInsertId();
+
+				$newStockRow = $this->Database->stock()->createRow(array(
+					'product_id' => $productId,
+					'amount' => $amount,
+					'best_before_date' => $bestBeforeDate,
+					'purchased_date' => $purchasedDate,
+					'stock_id' => $stockId->stock_id,
+					'price' => $price,
+					'location_id' => $locationId
+				));
+				$newStockRow->save();
+
+				return $returnValue;
+			} else
+			//There is already stock at this location which should be adjusted
+			{
+                                $logRow = $this->Database->stock_log()->createRow(array(
+                                        'product_id' => $productId,
+                                        'amount' => $amount,
+                                        'best_before_date' => $bestBeforeDate,
+                                        'purchased_date' => $purchasedDate,
+                                        'stock_id' => $stockRow->stock_id,
+                                        'transaction_type' => $transactionType,
+                                        'price' => $price,
+                                        'location_id' => $locationId
+                                ));
+                                $logRow->save();
+
+                                $returnValue = $this->Database->lastInsertId();
+
+				$stockRow->update(array(
+                                        'amount' => $stockRow->amount + $amount
+                                ));
+
+                                return $returnValue;
+			}
 		}
 		else
 		{
