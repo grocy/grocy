@@ -1,22 +1,8 @@
 ﻿var batteriesOverviewTable = $('#batteries-overview-table').DataTable({
-	'paginate': false,
 	'order': [[2, 'desc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 }
-	],
-	'language': IsJsonString(__t('datatables_localization')) ? JSON.parse(__t('datatables_localization')) : { },
-	'scrollY': false,
-	'colReorder': true,
-	'stateSave': true,
-	'stateSaveParams': function(settings, data)
-	{
-		data.search.search = "";
-
-		data.columns.forEach(column =>
-		{
-			column.search.search = "";
-		});
-	}
+	]
 });
 $('#batteries-overview-table tbody').removeClass("d-none");
 batteriesOverviewTable.columns.adjust().draw();

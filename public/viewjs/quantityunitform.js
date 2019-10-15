@@ -114,24 +114,10 @@ $('#quantityunit-form input').keydown(function(event)
 });
 
 var quConversionsTable = $('#qu-conversions-table').DataTable({
-	'paginate': false,
 	'order': [[1, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 }
-	],
-	'language': IsJsonString(__t('datatables_localization')) ? JSON.parse(__t('datatables_localization')) : { },
-	'scrollY': false,
-	'colReorder': true,
-	'stateSave': true,
-	'stateSaveParams': function(settings, data)
-	{
-		data.search.search = "";
-
-		data.columns.forEach(column =>
-		{
-			column.search.search = "";
-		});
-	}
+	]
 });
 $('#qu-conversions-table tbody').removeClass("d-none");
 quConversionsTable.columns.adjust().draw();

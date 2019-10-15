@@ -3,3 +3,4 @@
 
 ### General & other fixes
 - Fixed that the meal plan menu entry (sidebar) was not visible when the calendar was disabled (`FEATURE_FLAG_CALENDAR`) (thanks @lwis)
+- Slightly optimized table loading performance (thanks @lwis)

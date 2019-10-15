@@ -1,24 +1,10 @@
 ﻿var shoppingListTable = $('#shoppinglist-table').DataTable({
-	'paginate': false,
 	'order': [[1, 'asc']],
 	"orderFixed": [[3, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'visible': false, 'targets': 3 }
 	],
-	'language': IsJsonString(__t('datatables_localization')) ? JSON.parse(__t('datatables_localization')) : { },
-	'scrollY': false,
-	'colReorder': true,
-	'stateSave': true,
-	'stateSaveParams': function(settings, data)
-	{
-		data.search.search = "";
-
-		data.columns.forEach(column =>
-		{
-			column.search.search = "";
-		});
-	},
 	'rowGroup': {
 		dataSrc: 3
 	}

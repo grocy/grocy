@@ -1,22 +1,8 @@
 ﻿var recipesTables = $('#recipes-table').DataTable({
-	'paginate': false,
 	'order': [[0, 'asc']],
 	'columnDefs': [
 		{ 'orderData': 2, 'targets': 1 }
 	],
-	'language': IsJsonString(__t('datatables_localization')) ? JSON.parse(__t('datatables_localization')) : { },
-	'scrollY': false,
-	'colReorder': true,
-	'stateSave': true,
-	'stateSaveParams': function(settings, data)
-	{
-		data.search.search = "";
-
-		data.columns.forEach(column =>
-		{
-			column.search.search = "";
-		});
-	},
 	'select': 'single',
 	'initComplete': function()
 	{

@@ -1,7 +1,4 @@
 ﻿var stockOverviewTable = $('#stock-overview-table').DataTable({
-	'paginate': false,
-	'deferRender': true,
-	'searchDelay': 200,
 	'order': [[3, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
@@ -9,19 +6,6 @@
 		{ 'visible': false, 'targets': 5 },
 		{ 'visible': false, 'targets': 6 }
 	],
-	'language': IsJsonString(__t('datatables_localization')) ? JSON.parse(__t('datatables_localization')) : { },
-	'scrollY': false,
-	'colReorder': true,
-	'stateSave': true,
-	'stateSaveParams': function(settings, data)
-	{
-		data.search.search = "";
-
-		data.columns.forEach(column =>
-		{
-			column.search.search = "";
-		});
-	}
 });
 $('#stock-overview-table tbody').removeClass("d-none");
 stockOverviewTable.columns.adjust().draw();

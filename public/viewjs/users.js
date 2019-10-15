@@ -1,22 +1,8 @@
 ﻿var usersTable = $('#users-table').DataTable({
-	'paginate': false,
 	'order': [[1, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 }
-	],
-	'language': IsJsonString(__t('datatables_localization')) ? JSON.parse(__t('datatables_localization')) : { },
-	'scrollY': false,
-	'colReorder': true,
-	'stateSave': true,
-	'stateSaveParams': function(settings, data)
-	{
-		data.search.search = "";
-
-		data.columns.forEach(column =>
-		{
-			column.search.search = "";
-		});
-	}
+	]
 });
 $('#users-table tbody').removeClass("d-none");
 usersTable.columns.adjust().draw();

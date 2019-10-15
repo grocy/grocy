@@ -62,26 +62,12 @@
 });
 
 var recipesPosTables = $('#recipes-pos-table').DataTable({
-	'paginate': false,
 	'order': [[1, 'asc']],
 	"orderFixed": [[4, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'visible': false, 'targets': 4 }
 	],
-	'language': IsJsonString(__t('datatables_localization')) ? JSON.parse(__t('datatables_localization')) : { },
-	'scrollY': false,
-	'colReorder': true,
-	'stateSave': true,
-	'stateSaveParams': function(settings, data)
-	{
-		data.search.search = "";
-
-		data.columns.forEach(column =>
-		{
-			column.search.search = "";
-		});
-	},
 	'rowGroup': {
 		dataSrc: 4
 	}
@@ -90,24 +76,10 @@ $('#recipes-pos-table tbody').removeClass("d-none");
 recipesPosTables.columns.adjust().draw();
 
 var recipesIncludesTables = $('#recipes-includes-table').DataTable({
-	'paginate': false,
 	'order': [[1, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 }
-	],
-	'language': IsJsonString(__t('datatables_localization')) ? JSON.parse(__t('datatables_localization')) : { },
-	'scrollY': false,
-	'colReorder': true,
-	'stateSave': true,
-	'stateSaveParams': function (settings, data)
-	{
-		data.search.search = "";
-
-		data.columns.forEach(column =>
-		{
-			column.search.search = "";
-		});
-	}
+	]
 });
 $('#recipes-includes-table tbody').removeClass("d-none");
 recipesIncludesTables.columns.adjust().draw();
