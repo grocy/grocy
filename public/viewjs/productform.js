@@ -49,7 +49,11 @@
 						Grocy.Api.UploadFile($("#product-picture")[0].files[0], 'productpictures', jsonData.picture_file_name,
 							function(result)
 							{
-								if (redirectDestination == "reload")
+								if (GetUriParam("closeAfterCreation") !== undefined)
+								{
+									window.close();
+								}
+								else if (redirectDestination == "reload")
 								{
 									window.location.reload();
 								}
@@ -67,14 +71,11 @@
 					}
 					else
 					{
-						/* If the GET parameter "closeAfterCreation" was passed to the form, it will
-                                                   automatically close after creating the product. This only works if the window
-                                                   was opened with javascript */
-						if (window.location.href.toLowerCase().includes("closeaftercreation"))
-                                                {
-                                                        window.close();
-                                                }
-                                                if (redirectDestination == "reload")
+						if (GetUriParam("closeAfterCreation") !== undefined)
+						{
+							window.close();
+						}
+						else if (redirectDestination == "reload")
 						{
 							window.location.reload();
 						}
@@ -119,7 +120,11 @@
 						Grocy.Api.UploadFile($("#product-picture")[0].files[0], 'productpictures', jsonData.picture_file_name,
 							function(result)
 							{
-								if (redirectDestination == "reload")
+								if (GetUriParam("closeAfterCreation") !== undefined)
+								{
+									window.close();
+								}
+								else if (redirectDestination == "reload")
 								{
 									window.location.reload();
 								}
@@ -137,7 +142,11 @@
 					}
 					else
 					{
-						if (redirectDestination == "reload")
+						if (GetUriParam("closeAfterCreation") !== undefined)
+						{
+							window.close();
+						}
+						else if (redirectDestination == "reload")
 						{
 							window.location.reload();
 						}
