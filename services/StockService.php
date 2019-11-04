@@ -399,6 +399,9 @@ class StockService extends BaseService
 		$productDetails = (object)$this->GetProductDetails($productId);
 		if ($productDetails->product->enable_tare_weight_handling == 1)
 		{
+			// Hard fail for now, as we not yet support transfering tare weight enabled products
+			throw new \Exception('Transfering tare weight enabled products is not yet possible');
+
 			if ($amount < floatval($productDetails->product->tare_weight))
 			{
 				throw new \Exception('The amount cannot be lower than the defined tare weight');
