@@ -189,7 +189,7 @@ class StockService extends BaseService
 		return FindAllObjectsInArrayByPropertyValue($stockEntries, 'location_id', $locationId);
 	}
 
-	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId = null)
+	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId = null, &$transactionId = null)
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -229,6 +229,11 @@ class StockService extends BaseService
 
 		if ($transactionType === self::TRANSACTION_TYPE_PURCHASE || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
 		{
+			if ($transactionId === null)
+			{
+				$transactionId = uniqid();
+			}
+			
 			$stockId = uniqid();
 
 			$logRow = $this->Database->stock_log()->createRow(array(
@@ -264,7 +269,7 @@ class StockService extends BaseService
 		}
 	}
 
-	public function ConsumeProduct(int $productId, float $amount, bool $spoiled, $transactionType, $specificStockEntryId = 'default', $recipeId = null, $locationId = null)
+	public function ConsumeProduct(int $productId, float $amount, bool $spoiled, $transactionType, $specificStockEntryId = 'default', $recipeId = null, $locationId = null, &$transactionId = null)
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -313,6 +318,11 @@ class StockService extends BaseService
 				$potentialStockEntries = FindAllObjectsInArrayByPropertyValue($potentialStockEntries, 'stock_id', $specificStockEntryId);
 			}
 
+			if ($transactionId === null)
+			{
+				$transactionId = uniqid();
+			}
+
 			foreach ($potentialStockEntries as $stockEntry)
 			{
 				if ($amount == 0)
@@ -333,7 +343,8 @@ class StockService extends BaseService
 						'transaction_type' => $transactionType,
 						'price' => $stockEntry->price,
 						'opened_date' => $stockEntry->opened_date,
-						'recipe_id' => $recipeId
+						'recipe_id' => $recipeId,
+						'transaction_id' => $transactionId
 					));
 					$logRow->save();
 
@@ -356,7 +367,8 @@ class StockService extends BaseService
 						'transaction_type' => $transactionType,
 						'price' => $stockEntry->price,
 						'opened_date' => $stockEntry->opened_date,
-						'recipe_id' => $recipeId
+						'recipe_id' => $recipeId,
+						'transaction_id' => $transactionId
 					));
 					$logRow->save();
 
@@ -376,7 +388,7 @@ class StockService extends BaseService
 		}
 	}
 
-	public function TransferProduct(int $productId, float $amount, int $locationIdFrom, int $locationIdTo, $specificStockEntryId = 'default')
+	public function TransferProduct(int $productId, float $amount, int $locationIdFrom, int $locationIdTo, $specificStockEntryId = 'default', &$transactionId = null)
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -423,6 +435,11 @@ class StockService extends BaseService
 			$potentialStockEntriesAtFromLocation = FindAllObjectsInArrayByPropertyValue($potentialStockEntriesAtFromLocation, 'stock_id', $specificStockEntryId);
 		}
 
+		if ($transactionId === null)
+		{
+			$transactionId = uniqid();
+		}
+
 		foreach ($potentialStockEntriesAtFromLocation as $stockEntry)
 		{
 			if ($amount == 0)
@@ -430,6 +447,7 @@ class StockService extends BaseService
 				break;
 			}
 
+			$correlationId = uniqid();
 			if ($amount >= $stockEntry->amount) // Take the whole stock entry
 			{
 				$logRowForLocationFrom = $this->Database->stock_log()->createRow(array(
@@ -441,7 +459,9 @@ class StockService extends BaseService
 					'transaction_type' => self::TRANSACTION_TYPE_TRANSFER_FROM,
 					'price' => $stockEntry->price,
 					'opened_date' => $stockEntry->opened_date,
-					'location_id' => $stockEntry->location_id
+					'location_id' => $stockEntry->location_id,
+					'correlation_id' => $correlationId,
+					'transaction_Id' => $transactionId
 				));
 				$logRowForLocationFrom->save();
 
@@ -454,7 +474,9 @@ class StockService extends BaseService
 					'transaction_type' => self::TRANSACTION_TYPE_TRANSFER_TO,
 					'price' => $stockEntry->price,
 					'opened_date' => $stockEntry->opened_date,
-					'location_id' => $locationIdTo
+					'location_id' => $locationIdTo,
+					'correlation_id' => $correlationId,
+					'transaction_Id' => $transactionId
 				));
 				$logRowForLocationTo->save();
 
@@ -477,7 +499,9 @@ class StockService extends BaseService
 					'transaction_type' => self::TRANSACTION_TYPE_TRANSFER_FROM,
 					'price' => $stockEntry->price,
 					'opened_date' => $stockEntry->opened_date,
-					'location_id' => $stockEntry->location_id
+					'location_id' => $stockEntry->location_id,
+					'correlation_id' => $correlationId,
+					'transaction_Id' => $transactionId
 				));
 				$logRowForLocationFrom->save();
 
@@ -490,7 +514,9 @@ class StockService extends BaseService
 					'transaction_type' => self::TRANSACTION_TYPE_TRANSFER_TO,
 					'price' => $stockEntry->price,
 					'opened_date' => $stockEntry->opened_date,
-					'location_id' => $locationIdTo
+					'location_id' => $locationIdTo,
+					'correlation_id' => $correlationId,
+					'transaction_Id' => $transactionId
 				));
 				$logRowForLocationTo->save();
 

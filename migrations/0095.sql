@@ -14,6 +14,12 @@ BEGIN
 		AND location_id IS NULL;
 END;
 
+ALTER TABLE stock_log
+ADD correlation_id TEXT;
+
+ALTER TABLE stock_log
+ADD transaction_id TEXT;
+
 DROP VIEW stock_current_locations;
 CREATE VIEW stock_current_locations
 AS
