@@ -145,7 +145,7 @@ class StockApiController extends BaseApiController
 				$specificStockEntryId = $requestBody['stock_entry_id'];
 			}
 
-			$bookingId = $this->StockService->TransferProduct($args['productId'], $requestBody['amount'], $requestBody['location_id_to'], $requestBody['location_id_from'], $specificStockEntryId);
+			$bookingId = $this->StockService->TransferProduct($args['productId'], $requestBody['amount'], $requestBody['location_id_from'], $requestBody['location_id_to'], $specificStockEntryId);
 			return $this->ApiResponse($this->Database->stock_log($bookingId));
 		}
 		catch (\Exception $ex)
