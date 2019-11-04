@@ -264,11 +264,16 @@ class StockService extends BaseService
 		}
 	}
 
-	public function ConsumeProduct(int $productId, float $amount, bool $spoiled, $transactionType, $specificStockEntryId = 'default', $recipeId = null)
+	public function ConsumeProduct(int $productId, float $amount, bool $spoiled, $transactionType, $specificStockEntryId = 'default', $recipeId = null, $locationId = null)
 	{
 		if (!$this->ProductExists($productId))
 		{
 			throw new \Exception('Product does not exist');
+		}
+
+		if ($locationId !== null & !$this->LocationExists($locationId))
+		{
+			throw new \Exception('Location does not exist');
 		}
 
 		// Tare weight handling
@@ -287,12 +292,20 @@ class StockService extends BaseService
 
 		if ($transactionType === self::TRANSACTION_TYPE_CONSUME || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
 		{
-			$productStockAmount = $this->Database->stock()->where('product_id', $productId)->sum('amount');
-			$potentialStockEntries = $this->GetProductStockEntries($productId);
+			if ($locationId === null) // Consume from any location
+			{
+				$productStockAmount = $this->Database->stock()->where('product_id', $productId)->sum('amount');
+				$potentialStockEntries = $this->GetProductStockEntries($productId);
+			}
+			else // Consume only from the supplied location
+			{
+				$productStockAmount = $this->Database->stock()->where('product_id = :1 AND location_id = :2', $productId, $locationId)->sum('amount');
+				$potentialStockEntries = $this->GetProductStockEntriesForLocation($productId, $locationId);
+			}
 
 			if ($amount > $productStockAmount)
 			{
-				throw new \Exception('Amount to be consumed cannot be > current stock amount');
+				throw new \Exception('Amount to be consumed cannot be > current stock amount (if supplied, at the desired location)');
 			}
 
 			if ($specificStockEntryId !== 'default')

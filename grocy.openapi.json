@@ -1385,6 +1385,11 @@
 										"type": "number",
 										"format": "integer",
 										"description": "A valid recipe id for which this product was used (for statistical purposes only)"
+									},
+									"location_id": {
+										"type": "number",
+										"format": "integer",
+										"description": "A valid location id (if supplied, only stock at the given location is considered, if ommitted, stock of any location is considered)"
 									}
 								},
 								"example": {
@@ -1802,6 +1807,11 @@
 										"type": "number",
 										"format": "integer",
 										"description": "A valid recipe id for which this product was used (for statistical purposes only)"
+									},
+									"location_id": {
+										"type": "number",
+										"format": "integer",
+										"description": "A valid location id (if supplied, only stock at the given location is considered, if ommitted, stock of any location is considered)"
 									}
 								},
 								"example": {
