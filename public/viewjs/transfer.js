@@ -52,11 +52,11 @@
 
 					if (productDetails.product.enable_tare_weight_handling == 1)
 					{
-						var successMessage = __t('Transfered %1$s of %2$s stock from %3$s to %4$s', Math.abs(jsonForm.amount - parseFloat(productDetails.product.tare_weight)) + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name,$('option:selected', "#location_id_from").text(), $('option:selected', "#location_id_to").text()); 
+						var successMessage = __t('Transfered %1$s of %2$s from %3$s to %4$s', Math.abs(jsonForm.amount - parseFloat(productDetails.product.tare_weight)) + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name,$('option:selected', "#location_id_from").text(), $('option:selected', "#location_id_to").text()); 
 					}
 					else
 					{
-						var successMessage =__t('Transfered %1$s of %2$s stock from %3$s to %4$s', Math.abs(jsonForm.amount) + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name, $('option:selected', "#location_id_from").text(), $('option:selected', "#location_id_to").text());
+						var successMessage =__t('Transfered %1$s of %2$s from %3$s to %4$s', Math.abs(jsonForm.amount) + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name, $('option:selected', "#location_id_from").text(), $('option:selected', "#location_id_to").text());
 					}
 
 					if (GetUriParam("embedded") !== undefined)
@@ -145,8 +145,8 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 							if (productDetails.location.id == stockLocation.location_id)
 							{
 								$("#location_id_from").append($("<option>", {
-										value: stockLocation.location_id,
-										text: __t("%1$s (default location)", stockLocation.location_name)
+									value: stockLocation.location_id,
+									text: stockLocation.location_name + " (" + __t("Default location") + ")"
 								}));
 								$("#location_id_from").val(productDetails.location.id);
 								$("#location_id_from").trigger('change');
@@ -156,7 +156,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 							{
 								$("#location_id_from").append($("<option>", {
 									value: stockLocation.location_id,
-									text: __t("%1$s", stockLocation.location_name)
+									text: stockLocation.location_name
 								}));
 							}
 
@@ -257,7 +257,7 @@ $("#location_id_from").on('change', function(e)
 						$("#specific_stock_entry").append($("<option>", {
 							value: stockEntry.stock_id,
 							amount: stockEntry.amount,
-							text: __t("Amount: %1$s; Expires on %2$s; Bought on %3$s; Price: %4$s", stockEntry.amount, moment(stockEntry.best_before_date).format("YYYY-MM-DD"), moment(stockEntry.purchased_date).format("YYYY-MM-DD")) + "; " + openTxt
+							text: __t("Amount: %1$s; Expires on %2$s; Bought on %3$s", stockEntry.amount, moment(stockEntry.best_before_date).format("YYYY-MM-DD"), moment(stockEntry.purchased_date).format("YYYY-MM-DD")) + "; " + openTxt
 						}));
 						sumValue = sumValue + parseFloat(stockEntry.amount);
 					}

@@ -261,7 +261,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 							if (productDetails.location.id  == stockLocation.location_id) {
 								$("#location_id").append($("<option>", {
 									value: stockLocation.location_id,
-									text: __t("%1$s (default location)", stockLocation.location_name)
+									text: stockLocation.location_name + " (" + __t("Default location") + ")"
 								}));
 								$("#location_id").val(productDetails.location.id);
 								$("#location_id").trigger('change');
@@ -271,7 +271,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 							{
 								$("#location_id").append($("<option>", {
 									value: stockLocation.location_id,
-									text: __t("%1$s", stockLocation.location_name)
+									text: stockLocation.location_name
 								}));
 							}
 

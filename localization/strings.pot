@@ -929,9 +929,6 @@ msgstr ""
 msgid "Mark as opened"
 msgstr ""
 
-msgid "Expires on %1$s; Bought on %2$s"
-msgstr ""
-
 msgid "Not opened"
 msgstr ""
 
@@ -1578,4 +1575,10 @@ msgid "To location"
 msgstr ""
 
 msgid "There are no units available at this location"
+msgstr ""
+
+msgid "Amount: %1$s; Expires on %2$s; Bought on %3$s"
+msgstr ""
+
+msgid "Transfered %1$s of %2$s from %3$s to %4$s"
 msgstr ""
