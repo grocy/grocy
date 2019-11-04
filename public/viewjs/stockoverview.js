@@ -219,7 +219,7 @@ $(document).on("click", ".product-purchase-button", function(e)
 	});
 });
 
-$(document).on("click", ".product-transfer-custom-amount-button", function(e)
+$(document).on("click", ".product-transfer-button", function(e)
 {
 	e.preventDefault();
 

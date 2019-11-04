@@ -1130,7 +1130,7 @@
 		},
 		"/stock/products/{productId}/locations": {
 			"get": {
-				"summary": "Returns all locations with current stock",
+				"summary": "Returns all locations where the given product currently has stock",
 				"tags": [
 					"Stock"
 				],
@@ -1427,7 +1427,7 @@
 		},
 		"/stock/products/{productId}/transfer": {
 			"post": {
-				"summary": "Transfer the given amount of the given product from stock from one location to another",
+				"summary": "Transfers the given amount of the given product from one location to another (this is currently not supported for tare weight handling enabled products)",
 				"tags": [
 					"Stock"
 				],
@@ -1451,31 +1451,27 @@
 								"properties": {
 									"amount": {
 										"type": "number",
-										"description": "The amount to remove - please note that when tare weight handling for the product is enabled, this needs to be the amount including the container weight (gross), the amount to be posted will be automatically calculated based on what is in stock and the defined tare weight"
+										"description": "The amount to transfer - please note that when tare weight handling for the product is enabled, this needs to be the amount including the container weight (gross), the amount to be posted will be automatically calculated based on what is in stock and the defined tare weight"
 									},
-									"transaction_type": {
-										"$ref": "#/components/internalSchemas/StockTransactionType"
-									},
-									"location_from_id": {
+									"location_id_from": {
 										"type": "number",
 										"format": "integer",
-										"description": "Location the stock is transfering from"
+										"description": "A valid location id, the location from where the product should be transfered"
 									},
-									"location_to_id": {
+									"location_id_to": {
 										"type": "number",
 										"format": "integer",
-										"description": "Location the stock is transfering to"
+										"description": "A valid location id, the location to where the product should be transfered"
 									},
 									"stock_entry_id": {
 										"type": "string",
-										"description": "A specific stock entry id to consume, if used, the amount has to be 1"
+										"description": "A specific stock entry id to transfer, if used, the amount has to be 1"
 									}
 								},
 								"example": {
 									"amount": 1,
-									"transaction_type": "transfer",
-									"location_from_id": 1,
-									"location_to_id": 2
+									"location_id_from": 1,
+									"location_id_to": 2
 								}
 							}
 						}
@@ -1493,7 +1489,7 @@
 						}
 					},
 					"400": {
-						"description": "The operation was not successful (possible errors are: Not existing product, invalid transaction type, given amount > current stock amount)",
+						"description": "The operation was not successful (possible errors are: Not existing product, no existing from or to location, given amount > current stock amount at the source location)",
 						"content": {
 							"application/json": {
 								"schema": {
@@ -1836,6 +1832,82 @@
 					},
 					"400": {
 						"description": "The operation was not successful (possible errors are: Not existing product, invalid transaction type, given amount > current stock amount)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/products/by-barcode/{barcode}/transfer": {
+			"post": {
+				"summary": "Transfers the given amount of the by its barcode given product from one location to another (this is currently not supported for tare weight handling enabled products)",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "barcode",
+						"required": true,
+						"description": "Barcode",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"amount": {
+										"type": "number",
+										"description": "The amount to transfer - please note that when tare weight handling for the product is enabled, this needs to be the amount including the container weight (gross), the amount to be posted will be automatically calculated based on what is in stock and the defined tare weight"
+									},
+									"location_id_from": {
+										"type": "number",
+										"format": "integer",
+										"description": "A valid location id, the location from where the product should be transfered"
+									},
+									"location_id_to": {
+										"type": "number",
+										"format": "integer",
+										"description": "A valid location id, the location to where the product should be transfered"
+									},
+									"stock_entry_id": {
+										"type": "string",
+										"description": "A specific stock entry id to transfer, if used, the amount has to be 1"
+									}
+								},
+								"example": {
+									"amount": 1,
+									"location_id_from": 1,
+									"location_id_to": 2
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/StockLogEntry"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product, no existing from or to location, given amount > current stock amount at the source location)",
 						"content": {
 							"application/json": {
 								"schema": {

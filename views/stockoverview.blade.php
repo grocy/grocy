@@ -141,7 +141,7 @@
 									<i class="fas fa-utensils"></i> {{ $__t('Consume') }}
 								</a>
 								@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
-								<a class="dropdown-item product-transfer-custom-amount-button @if($currentStockEntry->amount < 1) disabled @endif" type="button" href="#"
+								<a class="dropdown-item product-transfer-button @if($currentStockEntry->amount < 1) disabled @endif" type="button" href="#"
 									data-product-id="{{ $currentStockEntry->product_id }}">
 									<i class="fas fa-exchange-alt"></i> {{ $__t('Transfer') }}
 								</a>

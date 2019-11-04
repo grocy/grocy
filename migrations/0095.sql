@@ -15,13 +15,14 @@ BEGIN
 END;
 
 DROP VIEW stock_current_locations;
-CREATE VIEW stock_current_locations AS
-SELECT 
-	s.id,
+CREATE VIEW stock_current_locations
+AS
+SELECT
+	1 AS id, -- Dummy, LessQL needs an id column
 	s.product_id,
-	IFNULL(s.location_id, p.location_id) AS location_id,
-	l.name AS name
-	FROM stock s
-	JOIN products p ON s.product_id = p.id
-	JOIN locations l on IFNULL(s.location_id, p.location_id) = l.id
-GROUP BY s.product_id, IFNULL(s.location_id, p.location_id);
+	s.location_id AS location_id,
+	l.name AS location_name
+FROM stock s
+JOIN locations l
+	ON s.location_id = l.id
+GROUP BY s.product_id, s.location_id, l.name;

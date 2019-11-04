@@ -139,24 +139,29 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				Grocy.Api.Get("stock/products/" + productId + '/locations',
 					function(stockLocations)
 					{
-					var setDefault = 0;
+						var setDefault = 0;
 						stockLocations.forEach(stockLocation =>
 						{
-							if (productDetails.location.id 	== stockLocation.location_id) {
+							if (productDetails.location.id == stockLocation.location_id)
+							{
 								$("#location_id_from").append($("<option>", {
-                                                                        value: stockLocation.location_id,
-                                                                        text: __t("%1$s (default location)", stockLocation.name)
-                                                                }));
+										value: stockLocation.location_id,
+										text: __t("%1$s (default location)", stockLocation.location_name)
+								}));
 								$("#location_id_from").val(productDetails.location.id);
 								$("#location_id_from").trigger('change');
 								setDefault = 1;
-							} else {
+							}
+							else
+							{
 								$("#location_id_from").append($("<option>", {
 									value: stockLocation.location_id,
-									text: __t("%1$s", stockLocation.name)
+									text: __t("%1$s", stockLocation.location_name)
 								}));
 							}
-							if (setDefault == 0) {
+
+							if (setDefault == 0)
+							{
 								$("#location_id_from").val(stockLocation.location_id);
 								$("#location_id_from").trigger('change');
 							}
@@ -256,22 +261,14 @@ $("#location_id_from").on('change', function(e)
 						}));
 						sumValue = sumValue + parseFloat(stockEntry.amount);
 					}
-
-					if (stockEntry.location_id === null)
-					{
-						$("#specific_stock_entry").append($("<option>", {
-                                                        value: stockEntry.stock_id,
-                                                        amount: stockEntry.amount,
-														text: __t("Amount: %1$s; Expires on %2$s; Bought on %3$s", stockEntry.amount, moment(stockEntry.best_before_date).format("YYYY-MM-DD"), moment(stockEntry.purchased_date).format("YYYY-MM-DD")) + "; " + openTxt
-                                                }));
-                                                sumValue = sumValue + parseFloat(stockEntry.amount);
-					}
 				});
 				$("#amount").attr("max", sumValue);
 				if (sumValue == 0)
 				{
 					$("#amount").parent().find(".invalid-feedback").text(__t('There are no units available at this location'));
-				} else {
+				}
+				else
+				{
 					$("#amount").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', "1", sumValue));
 				}
 			},
@@ -345,7 +342,9 @@ $("#specific_stock_entry").on("change", function(e)
 				if (sumValue == 0)
 				{
 					$("#amount").parent().find(".invalid-feedback").text(__t('There are no units available at this location'));
-				} else {
+				}
+				else
+				{
 					$("#amount").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', "1", sumValue));
 				}
 			},
@@ -354,7 +353,9 @@ $("#specific_stock_entry").on("change", function(e)
 				console.error(xhr);
 			}
 		);
-	} else {
+	}
+	else
+	{
 		$("#amount").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', "1", $('option:selected', this).attr('amount')));
 		$("#amount").attr("max", $('option:selected', this).attr('amount'));
 	}
