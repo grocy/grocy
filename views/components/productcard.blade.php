@@ -23,7 +23,7 @@
 
 		<strong>{{ $__t('Stock amount') . ' / ' . $__t('Quantity unit') }}:</strong> <span id="productcard-product-stock-amount" class="locale-number locale-number-quantity-amount"></span> <span id="productcard-product-stock-qu-name"></span> <span id="productcard-product-stock-opened-amount" class="small font-italic locale-number locale-number-quantity-amount"></span>
 		<span id="productcard-aggregated-amounts" class="pl-2 text-secondary d-none"><i class="fas fa-custom-sigma-sign"></i> <span id="productcard-product-stock-amount-aggregated" class="locale-number locale-number-quantity-amount"></span> <span id="productcard-product-stock-qu-name-aggregated"></span> <span id="productcard-product-stock-opened-amount-aggregated locale-number locale-number-quantity-amount" class="small font-italic"></span></span><br>
-		@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)<strong>{{ $__t('Location') }}:</strong> <span id="productcard-product-location"></span><br>@endif
+		@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)<strong>{{ $__t('Default Location') }}:</strong> <span id="productcard-product-location"></span><br>@endif
 		<strong>{{ $__t('Last purchased') }}:</strong> <span id="productcard-product-last-purchased"></span> <time id="productcard-product-last-purchased-timeago" class="timeago timeago-contextual"></time><br>
 		<strong>{{ $__t('Last used') }}:</strong> <span id="productcard-product-last-used"></span> <time id="productcard-product-last-used-timeago" class="timeago timeago-contextual"></time><br>
 		@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)<strong>{{ $__t('Last price') }}:</strong> <span id="productcard-product-last-price"></span><br>@endif
