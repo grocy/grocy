@@ -1,4 +1,24 @@
-﻿$('#save-consume-button').on('click', function(e)
+﻿$(document).ready(function() {
+
+	if (GetUriParam("embedded") !== undefined)
+	{
+		var locationId = GetUriParam('locationId');
+
+		if (typeof locationId === 'undefined')
+		{
+			Grocy.Components.ProductPicker.GetPicker().trigger('change');
+			Grocy.Components.ProductPicker.GetInputElement().focus();
+		} else {
+
+			$("#location_id").val(locationId);
+			$("#location_id").trigger('change');
+			$("#use_specific_stock_entry").click();
+			$("#use_specific_stock_entry").trigger('change');
+		}
+	}
+});
+
+$('#save-consume-button').on('click', function(e)
 {
 	e.preventDefault();
 
@@ -184,10 +204,17 @@ $("#location_id").on('change', function(e)
 {
 	var locationId = $(e.target).val();
 	var sumValue = 0;
+	var stockId = null;
+
 	$("#specific_stock_entry").find("option").remove().end().append("<option></option>");
 	if ($("#use_specific_stock_entry").is(":checked"))
 	{
 			$("#use_specific_stock_entry").click();
+	}
+
+	if (GetUriParam("embedded") !== undefined)
+	{
+		 stockId = GetUriParam('stockId');
 	}
 
 	if (locationId)
@@ -211,6 +238,11 @@ $("#location_id").on('change', function(e)
 								text: __t("Amount: %1$s; Expires on %2$s; Bought on %3$s", stockEntry.amount, moment(stockEntry.best_before_date).format("YYYY-MM-DD"), moment(stockEntry.purchased_date).format("YYYY-MM-DD")) + "; " + openTxt
 							}));
 							sumValue = sumValue + parseFloat(stockEntry.amount);
+
+							if (stockEntry.stock_id == stockId)
+							{
+								 $("#specific_stock_entry").val(stockId);
+							}
 						}
 					});
 					$("#amount").attr("max", sumValue);
@@ -345,8 +377,6 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 });
 
 $('#amount').val(Grocy.UserSettings.stock_default_consume_amount);
-Grocy.Components.ProductPicker.GetPicker().trigger('change');
-Grocy.Components.ProductPicker.GetInputElement().focus();
 Grocy.FrontendHelpers.ValidateForm('consume-form');
 
 $('#amount').on('focus', function(e)
@@ -430,9 +460,10 @@ $("#use_specific_stock_entry").on("change", function()
 	}
 	else
 	{
-		$("#specific_stock_entry").find("option").remove().end().append("<option></option>");
 		$("#specific_stock_entry").attr("disabled", "");
 		$("#specific_stock_entry").removeAttr("required");
+		$("#specific_stock_entry").val("");
+		$("#location_id").trigger('change');
 	}
 
 	Grocy.FrontendHelpers.ValidateForm("consume-form");

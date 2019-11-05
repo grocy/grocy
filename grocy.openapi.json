@@ -1050,6 +1050,78 @@
 						}
 					}
 				}
+			},
+			"put": {
+				"summary": "Edits the stock entry",
+				"tags": [
+					"Stock"
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"stock_row_id": {
+										"type": "number",
+										"format": "number",
+										"description": "The Stock Row Id"
+									},
+									"amount": {
+										"type": "number",
+										"format": "number",
+										"description": "The amount to add - please note that when tare weight handling for the product is enabled, this needs to be the amount including the container weight (gross), the amount to be posted will be automatically calculated based on what is in stock and the defined tare weight"
+									},
+									"best_before_date": {
+										"type": "string",
+										"format": "date",
+										"description": "The best before date of the product to add, when omitted, the current date is used"
+									},
+									"location_id": {
+										"type": "number",
+										"format": "integer",
+										"description": "If omitted, the default location of the product is used"
+									},
+									"price": {
+										"type": "number",
+										"format": "number",
+										"description": "The price per purchase quantity unit in configured currency"
+									}
+								},
+								"example": {
+									"stock_row_id":	2,
+									"amount": 1,
+									"best_before_date": "2019-01-19",
+									"location_id": 2,
+									"price": "1.99"
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/StockLogEntry"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product, invalid transaction type)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
 			}
 		},
 		"/stock/volatile": {
@@ -3131,6 +3203,7 @@
 					"quantity_unit_conversions",
 					"shopping_list",
 					"shopping_lists",
+					"stock",
 					"recipes",
 					"recipes_pos",
 					"recipes_nestings",

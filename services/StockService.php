@@ -9,6 +9,8 @@ class StockService extends BaseService
 	const TRANSACTION_TYPE_TRANSFER_FROM = 'transfer_from';
 	const TRANSACTION_TYPE_TRANSFER_TO = 'transfer_to';
 	const TRANSACTION_TYPE_INVENTORY_CORRECTION = 'inventory-correction';
+	const TRANSACTION_TYPE_STOCK_EDIT_NEW = 'stock-edit-new';
+	const TRANSACTION_TYPE_STOCK_EDIT_OLD = 'stock-edit-old';
 	const TRANSACTION_TYPE_PRODUCT_OPENED = 'product-opened';
 
 	public function GetCurrentStock($includeNotInStockButMissingProducts = false)
@@ -547,6 +549,61 @@ class StockService extends BaseService
 		return $this->Database->lastInsertId();
 	}
 
+	public function EditStock(int $stockRowId, int $amount, $bestBeforeDate, $locationId, $price)
+	{
+
+		$stockRow = $this->Database->stock()->where('id = :1', $stockRowId)->fetch();
+
+		if ($stockRow === null)
+		{
+			throw new \Exception('Stock does not exist');
+		}
+
+                $correlationId = uniqid();
+                $transactionId = uniqid();
+		$logOldRowForStockUpdate = $this->Database->stock_log()->createRow(array(
+			'product_id' => $stockRow->product_id,
+			'amount' => $stockRow->amount,
+			'best_before_date' => $stockRow->best_before_date,
+			'purchased_date' => $stockRow->purchased_date,
+			'stock_id' => $stockRow->stock_id,
+			'transaction_type' => self::TRANSACTION_TYPE_STOCK_EDIT_OLD,
+			'price' => $stockRow->price,
+			'opened_date' => $stockRow->opened_date,
+			'location_id' => $stockRow->location_id,
+			'correlation_id' => $correlationId,
+			'transaction_id' => $transactionId,
+			'stock_row_id' => $stockRow->id
+		));
+		$logOldRowForStockUpdate->save();
+
+		$stockRow->update(array(
+			'amount' => $amount,
+			'price' => $price,
+			'best_before_date' => $bestBeforeDate,
+			'location_id' => $locationId
+		));
+
+		$logNewRowForStockUpdate = $this->Database->stock_log()->createRow(array(
+			'product_id' => $stockRow->product_id,
+			'amount' => $amount,
+			'best_before_date' => $bestBeforeDate,
+			'purchased_date' => $stockRow->purchased_date,
+			'stock_id' => $stockRow->stock_id,
+			'transaction_type' => self::TRANSACTION_TYPE_STOCK_EDIT_NEW,
+			'price' => $price,
+			'opened_date' => $stockRow->opened_date,
+			'location_id' => $locationId,
+			'correlation_id' => $correlationId,
+			'transaction_id' => $transactionId,
+			'stock_row_id' => $stockRow->id
+		));
+		$logNewRowForStockUpdate->save();
+
+		$returnValue = $this->Database->lastInsertId();
+
+		return $returnValue;
+	}
 	public function InventoryProduct(int $productId, int $newAmount, $bestBeforeDate, $locationId = null, $price = null)
 	{
 		if (!$this->ProductExists($productId))
@@ -875,7 +932,7 @@ class StockService extends BaseService
 			}
 		}
 
-		$hasSubsequentBookings = $this->Database->stock_log()->where('stock_id = :1 AND id != :2 AND correlation_id != :3 AND id > :2', $logRow->stock_id, $logRow->id, $logRow->correlation_id)->count() > 0;
+		$hasSubsequentBookings = $this->Database->stock_log()->where('stock_id = :1 AND id != :2 AND (correlation_id is not null OR correlation_id != :3) AND id > :2 AND undone = 0', $logRow->stock_id, $logRow->id, $logRow->correlation_id)->count() > 0;
 		if ($hasSubsequentBookings)
 		{
 			throw new \Exception('Booking has subsequent dependent bookings, undo not possible');
@@ -920,6 +977,37 @@ class StockService extends BaseService
 			$stockRows->update(array(
 				'open' => 0,
 				'opened_date' => null
+			));
+
+			// Update log entry
+			$logRow->update(array(
+				'undone' => 1,
+				'undone_timestamp' => date('Y-m-d H:i:s')
+			));
+		}
+		elseif ($logRow->transaction_type === self::TRANSACTION_TYPE_STOCK_EDIT_NEW)
+		{
+			// Update log entry, no action needed
+			$logRow->update(array(
+				'undone' => 1,
+				'undone_timestamp' => date('Y-m-d H:i:s')
+			));
+		}
+		elseif ($logRow->transaction_type === self::TRANSACTION_TYPE_STOCK_EDIT_OLD)
+		{
+			// Make sure there is a stock row still
+			$stockRow = $this->Database->stock()->where('id = :1', $logRow->stock_row_id)->fetch();
+			if ($stockRow == null)
+			{
+				throw new \Exception('Booking does not exist or was already undone');
+			}
+
+			$stockRow->update(array(
+				'amount' => $logRow->amount,
+				'best_before_date' => $logRow->best_before_date,
+				'purchased_date' => $logRow->purchased_date,
+				'price' => $logRow->price,
+				'location_id' => $logRow->location_id
 			));
 
 			// Update log entry

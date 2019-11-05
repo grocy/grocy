@@ -33,10 +33,12 @@ $app->group('', function()
 	if (GROCY_FEATURE_FLAG_STOCK)
 	{
 		$this->get('/stockoverview', '\Grocy\Controllers\StockController:Overview');
+		$this->get('/stockdetail', '\Grocy\Controllers\StockController:Detail');
 		$this->get('/purchase', '\Grocy\Controllers\StockController:Purchase');
 		$this->get('/consume', '\Grocy\Controllers\StockController:Consume');
 		$this->get('/transfer', '\Grocy\Controllers\StockController:Transfer');
 		$this->get('/inventory', '\Grocy\Controllers\StockController:Inventory');
+		$this->get('/stockedit', '\Grocy\Controllers\StockController:StockEdit');
 		$this->get('/products', '\Grocy\Controllers\StockController:ProductsList');
 		$this->get('/product/{productId}', '\Grocy\Controllers\StockController:ProductEditForm');
 		$this->get('/stocksettings', '\Grocy\Controllers\StockController:StockSettings');
@@ -159,6 +161,7 @@ $app->group('/api', function()
 	if (GROCY_FEATURE_FLAG_STOCK)
 	{
 		$this->get('/stock', '\Grocy\Controllers\StockApiController:CurrentStock');
+		$this->put('/stock', '\Grocy\Controllers\StockApiController:EditStock');
 		$this->get('/stock/volatile', '\Grocy\Controllers\StockApiController:CurrentVolatilStock');
 		$this->get('/stock/products/{productId}', '\Grocy\Controllers\StockApiController:ProductDetails');
 		$this->get('/stock/products/{productId}/entries', '\Grocy\Controllers\StockApiController:ProductStockEntries');

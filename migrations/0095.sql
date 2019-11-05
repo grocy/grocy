@@ -20,6 +20,9 @@ ADD correlation_id TEXT;
 ALTER TABLE stock_log
 ADD transaction_id TEXT;
 
+ALTER TABLE stock_log
+ADD stock_row_id INTEGER;
+
 DROP VIEW stock_current_locations;
 CREATE VIEW stock_current_locations
 AS
