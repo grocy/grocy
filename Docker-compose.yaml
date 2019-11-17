@@ -1,0 +1,37 @@
+# Usage:
+# docker-compose build && docker-compose up
+version: '2'
+
+services:
+  grocy-nginx:
+    image: grocy/grocy-docker:nginx
+#    build:
+#      context: .
+#      dockerfile: Dockerfile-grocy-nginx
+    depends_on:
+      - grocy
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes_from:
+      - grocy
+    container_name: grocy-nginx
+
+  grocy:
+    image: grocy/grocy-docker:grocy
+    build:
+      context: .
+      dockerfile: Dockerfile
+    expose:
+      - 9000
+    volumes:
+      - ./data_store:/www/data
+    environment:
+      PHP_MEMORY_LIMIT:    512M
+      MAX_UPLOAD:          50M
+      PHP_MAX_FILE_UPLOAD: 200
+      PHP_MAX_POST:        100M
+      GROCY_CULTURE: en
+    container_name: grocy
+#volumes:
+#  database:

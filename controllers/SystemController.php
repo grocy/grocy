@@ -13,7 +13,7 @@ class SystemController extends BaseController
 	public function __construct(\Slim\Container $container)
 	{
 		parent::__construct($container);
-		$this->ApplicationService = new ApplicationService();
+		$this->ApplicationService = ApplicationService::getInstance();
 	}
 
 	public function Root(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
@@ -85,7 +85,7 @@ class SystemController extends BaseController
 		if ($entryPage === 'calendar' && constant('GROCY_FEATURE_FLAG_CALENDAR')) {
 			return '/calendar';
 		}
-		
+
 		// Meal Plan
 		if ($entryPage === 'mealplan' && constant('GROCY_FEATURE_FLAG_RECIPES')) {
 			return '/mealplan';

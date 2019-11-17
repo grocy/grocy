@@ -12,7 +12,7 @@ class LocalizationService
 	public function __construct(string $culture)
 	{
 		$this->Culture = $culture;
-		$this->DatabaseService = new DatabaseService();
+		$this->DatabaseService = DatabaseService::getInstance();
 		$this->Database = $this->DatabaseService->GetDbConnection();
 
 		$this->LoadLocalizations($culture);

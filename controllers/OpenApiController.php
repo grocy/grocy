@@ -22,7 +22,7 @@ class OpenApiController extends BaseApiController
 
 	public function DocumentationSpec(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$applicationService = new ApplicationService();
+		$applicationService = ApplicationService::getInstance();
 
 		$versionInfo = $applicationService->GetInstalledVersion();
 		$this->OpenApiSpec->info->version = $versionInfo->Version;

@@ -117,6 +117,12 @@ class StockApiController extends BaseApiController
 	{
 		$requestBody = $request->getParsedBody();
 
+		$result = null;
+
+		$fp = fopen('/www/data/sql.log', 'a');
+        fwrite($fp, "???executing api consume product");
+        $time_start = microtime(true);
+
 		try
 		{
 			if ($requestBody === null)
@@ -154,12 +160,15 @@ class StockApiController extends BaseApiController
 			}
 
 			$bookingId = $this->StockService->ConsumeProduct($args['productId'], $requestBody['amount'], $spoiled, $transactionType, $specificStockEntryId, $recipeId);
-			return $this->ApiResponse($this->Database->stock_log($bookingId));
+			$result = $this->ApiResponse($this->Database->stock_log($bookingId));
 		}
 		catch (\Exception $ex)
 		{
-			return $this->GenericErrorResponse($response, $ex->getMessage());
+			$result = $this->GenericErrorResponse($response, $ex->getMessage());
 		}
+		fwrite($fp, "???API Consume product - Total execution time in seconds: " . round((microtime(true) - $time_start),6) . "\n");
+        fclose($fp);
+		return $result;
 	}
 
 	public function ConsumeProductByBarcode(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)

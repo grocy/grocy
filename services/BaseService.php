@@ -8,7 +8,7 @@ use \Grocy\Services\LocalizationService;
 class BaseService
 {
 	public function __construct() {
-		$this->DatabaseService = new DatabaseService();
+		$this->DatabaseService = DatabaseService::getInstance();
 		$this->Database = $this->DatabaseService->GetDbConnection();
 
 		$localizationService = new LocalizationService(GROCY_CULTURE);

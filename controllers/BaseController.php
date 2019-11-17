@@ -10,13 +10,13 @@ use \Grocy\Services\UsersService;
 class BaseController
 {
 	public function __construct(\Slim\Container $container) {
-		$databaseService = new DatabaseService();
+		$databaseService = DatabaseService::getInstance();
 		$this->Database = $databaseService->GetDbConnection();
-		
+
 		$localizationService = new LocalizationService(GROCY_CULTURE);
 		$this->LocalizationService = $localizationService;
 
-		$applicationService = new ApplicationService();
+		$applicationService = ApplicationService::getInstance();
 		$versionInfo = $applicationService->GetInstalledVersion();
 		$container->view->set('version', $versionInfo->Version);
 		$container->view->set('releaseDate', $versionInfo->ReleaseDate);

@@ -10,8 +10,8 @@ class SystemApiController extends BaseApiController
 	public function __construct(\Slim\Container $container)
 	{
 		parent::__construct($container);
-		$this->DatabaseService = new DatabaseService();
-		$this->ApplicationService = new ApplicationService();
+		$this->DatabaseService = DatabaseService::getInstance();
+		$this->ApplicationService = ApplicationService::getInstance();
 	}
 
 	protected $DatabaseService;
@@ -39,7 +39,7 @@ class SystemApiController extends BaseApiController
 			{
 				return $this->GenericErrorResponse($response, $ex->getMessage());
 			}
-		}	
+		}
 	}
 
 	public function GetSystemInfo(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)

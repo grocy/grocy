@@ -74,6 +74,14 @@ $appContainer = new \Slim\Container([
 ]);
 $app = new \Slim\App($appContainer);
 
+$fp = fopen('/www/data/sql.log', 'a');
+fwrite($fp, "!!!Starting up loading app\n");
+fwrite($fp, "!!!".print_r(ini_get_all(),True)."\n");
+#fwrite($fp, "!!!".print_r(opcache_get_status(),True)."\n");
+fclose($fp);
+
+phpinfo();
+
 // Load routes from separate file
 require_once __DIR__ . '/routes.php';
 
