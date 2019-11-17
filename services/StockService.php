@@ -244,7 +244,8 @@ class StockService extends BaseService
 				'stock_id' => $stockId,
 				'transaction_type' => $transactionType,
 				'price' => $price,
-				'location_id' => $locationId
+				'location_id' => $locationId,
+				'transaction_id' => $transactionId
 			));
 			$logRow->save();
 
@@ -930,6 +931,21 @@ class StockService extends BaseService
 		else
 		{
 			throw new \Exception('This booking cannot be undone');
+		}
+	}
+
+	public function UndoTransaction($transactionId)
+	{
+		$transactionBookings = $this->Database->stock_log()->where('undone = 0 AND transaction_id = :1', $transactionId)->orderBy('id', 'DESC')->fetchAll();
+
+		if (count($transactionBookings) === 0)
+		{
+			throw new \Exception('This transaction was not found or already undone');
+		}
+
+		foreach ($transactionBookings as $transactionBooking)
+		{
+			$this->UndoBooking($transactionBooking->id, true);
 		}
 	}
 }

@@ -509,6 +509,19 @@ class StockApiController extends BaseApiController
 		}
 	}
 
+	public function UndoTransaction(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		try
+		{
+			$this->ApiResponse($this->StockService->UndoTransaction($args['transactionId']));
+			return $this->EmptyApiResponse($response);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
+
 	public function ProductStockEntries(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->ApiResponse($this->StockService->GetProductStockEntries($args['productId']));
@@ -531,6 +544,25 @@ class StockApiController extends BaseApiController
 			}
 			
 			return $this->ApiResponse($stockLogRow);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
+
+	public function StockTransactions(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		try
+		{
+			$transactionRows = $this->Database->stock_log()->where('transaction_id = :1', $args['transactionId'])->fetchAll();
+
+			if (count($transactionRows) === 0)
+			{
+				throw new \Exception('No transaction was found by the given transaction id');
+			}
+			
+			return $this->ApiResponse($transactionRows);
 		}
 		catch (\Exception $ex)
 		{

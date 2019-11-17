@@ -177,6 +177,8 @@ $app->group('/api', function()
 		$this->post('/stock/products/by-barcode/{barcode}/open', '\Grocy\Controllers\StockApiController:OpenProductByBarcode');
 		$this->get('/stock/bookings/{bookingId}', '\Grocy\Controllers\StockApiController:StockBooking');
 		$this->post('/stock/bookings/{bookingId}/undo', '\Grocy\Controllers\StockApiController:UndoBooking');
+		$this->get('/stock/transactions/{transactionId}', '\Grocy\Controllers\StockApiController:StockTransactions');
+		$this->post('/stock/transactions/{transactionId}/undo', '\Grocy\Controllers\StockApiController:UndoTransaction');
 		$this->get('/stock/barcodes/external-lookup/{barcode}', '\Grocy\Controllers\StockApiController:ExternalBarcodeLookup');
 	}
 
