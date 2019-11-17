@@ -856,7 +856,7 @@ class StockService extends BaseService
 		return $pluginOutput;
 	}
 
-	public function UndoBooking($bookingId)
+	public function UndoBooking($bookingId, $skipCorrelatedBookings = false)
 	{
 		$logRow = $this->Database->stock_log()->where('id = :1 AND undone = 0', $bookingId)->fetch();
 		if ($logRow == null)
@@ -864,7 +864,17 @@ class StockService extends BaseService
 			throw new \Exception('Booking does not exist or was already undone');
 		}
 
-		$hasSubsequentBookings = $this->Database->stock_log()->where('stock_id = :1 AND id != :2 AND id > :2', $logRow->stock_id, $logRow->id)->count() > 0;
+		// Undo all correlated bookings first, in order from newest first to the oldest
+		if (!$skipCorrelatedBookings && !empty($logRow->correlation_id))
+		{
+			$correlatedBookings = $this->Database->stock_log()->where('undone = 0 AND correlation_id = :1', $logRow->correlation_id)->orderBy('id', 'DESC')->fetchAll();
+			foreach ($correlatedBookings as $correlatedBooking)
+			{
+				$this->UndoBooking($correlatedBooking->id, true);
+			}
+		}
+
+		$hasSubsequentBookings = $this->Database->stock_log()->where('stock_id = :1 AND id != :2 AND correlation_id != :3 AND id > :2', $logRow->stock_id, $logRow->id, $logRow->correlation_id)->count() > 0;
 		if ($hasSubsequentBookings)
 		{
 			throw new \Exception('Booking has subsequent dependent bookings, undo not possible');
