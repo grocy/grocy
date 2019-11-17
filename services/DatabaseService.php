@@ -21,9 +21,9 @@ class PDOWrap
 	public function __call($name,$pars){
 		$result = null;
 
-		$fp = fopen('/www/data/sql.log', 'a');
-		fwrite($fp, "PDO::".$name." called with arguments:- ".implode( ", ", $pars)."\n");
-		$time_start = microtime(true);
+		#$fp = fopen('/www/data/sql.log', 'a');
+		#fwrite($fp, "PDO::".$name." called with arguments:- ".implode( ", ", $pars)."\n");
+		#$time_start = microtime(true);
 		if(in_array($name, array("exec","query")))
 		{
 			fwrite($fp, array_values($pars)[0] . "\n");
@@ -31,8 +31,8 @@ class PDOWrap
 		}else{
 			$result = call_user_func_array([$this->instance,$name],$pars);
 		}
-		fwrite($fp, "Total execution time in seconds: " . round((microtime(true) - $time_start),6) . "\n");
-		fclose($fp);
+		#fwrite($fp, "Total execution time in seconds: " . round((microtime(true) - $time_start),6) . "\n");
+		#fclose($fp);
 		return $result;
 	}
 }
@@ -77,16 +77,16 @@ class DatabaseService
 		if (self::$DbConnectionRaw == null)
 		#if ($this->DbConnectionRaw == null)
 		{
-			$fp = fopen('/www/data/sql.log', 'a');
-			fwrite($fp, "+++Creating new PDO object\n");
-			$time_start = microtime(true);
+			#$fp = fopen('/www/data/sql.log', 'a');
+			#fwrite($fp, "+++Creating new PDO object\n");
+			#$time_start = microtime(true);
 			$pdo = new PDOWrap('sqlite:' . $this->GetDbFilePath());
 			$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 			self::$DbConnectionRaw = $pdo;
 			#$this->DbConnectionRaw = $pdo;
-			fwrite($fp, "+++Total execution time in seconds: " . round((microtime(true) - $time_start),6) . "\n");
-			fwrite($fp, "+++object created\n");
-			fclose($fp);
+			#fwrite($fp, "+++Total execution time in seconds: " . round((microtime(true) - $time_start),6) . "\n");
+			#fwrite($fp, "+++object created\n");
+			#fclose($fp);
 		}
 
 		return self::$DbConnectionRaw;
@@ -103,14 +103,14 @@ class DatabaseService
 		if (self::$DbConnection == null)
 		#if ($this->DbConnection == null)
 		{
-			$fp = fopen('/www/data/sql.log', 'a');
-			fwrite($fp, "---creating new LessQL::Database object\n");
-			$time_start = microtime(true);
+			#$fp = fopen('/www/data/sql.log', 'a');
+			#fwrite($fp, "---creating new LessQL::Database object\n");
+			#$time_start = microtime(true);
 			self::$DbConnection = new \LessQL\Database($this->GetDbConnectionRaw());
 			#$this->DbConnection = new \LessQL\Database($this->GetDbConnectionRaw());
-			fwrite($fp, "---Total execution time in seconds: " . round((microtime(true) - $time_start),6) . "\n");
-			fwrite($fp, "---object created\n");
-			fclose($fp);
+			#fwrite($fp, "---Total execution time in seconds: " . round((microtime(true) - $time_start),6) . "\n");
+			#fwrite($fp, "---object created\n");
+			#fclose($fp);
 		}
 
 		return self::$DbConnection;

@@ -11,9 +11,9 @@ class StockController extends BaseController
 
 	public function __construct(\Slim\Container $container)
 	{
-		$fp = fopen('/www/data/sql.log', 'a');
-		fwrite($fp, "!!!constructing StockController\n");
-		fclose($fp);
+		#$fp = fopen('/www/data/sql.log', 'a');
+		#fwrite($fp, "!!!constructing StockController\n");
+		#fclose($fp);
 		parent::__construct($container);
 		$this->StockService = new StockService();
 		$this->UserfieldsService = new UserfieldsService();

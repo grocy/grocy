@@ -119,9 +119,9 @@ class StockApiController extends BaseApiController
 
 		$result = null;
 
-		$fp = fopen('/www/data/sql.log', 'a');
-        fwrite($fp, "???executing api consume product");
-        $time_start = microtime(true);
+		#$fp = fopen('/www/data/sql.log', 'a');
+        #fwrite($fp, "???executing api consume product");
+        #$time_start = microtime(true);
 
 		try
 		{
@@ -166,8 +166,8 @@ class StockApiController extends BaseApiController
 		{
 			$result = $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-		fwrite($fp, "???API Consume product - Total execution time in seconds: " . round((microtime(true) - $time_start),6) . "\n");
-        fclose($fp);
+		#fwrite($fp, "???API Consume product - Total execution time in seconds: " . round((microtime(true) - $time_start),6) . "\n");
+        #fclose($fp);
 		return $result;
 	}
 
