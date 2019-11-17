@@ -9,6 +9,9 @@ use \Gettext\Translator;
 
 class LocalizationService
 {
+
+	private static $instanceMap = array();
+
 	public function __construct(string $culture)
 	{
 		$this->Culture = $culture;
@@ -16,6 +19,16 @@ class LocalizationService
 		$this->Database = $this->DatabaseService->GetDbConnection();
 
 		$this->LoadLocalizations($culture);
+	}
+
+    public static function getInstance(string $culture)
+	{
+		if (!in_array($culture, self::$instanceMap))
+		{
+			self::$instanceMap[$culture] = new self($culture);
+		}
+
+		return self::$instanceMap[$culture];
 	}
 
 	protected $DatabaseService;

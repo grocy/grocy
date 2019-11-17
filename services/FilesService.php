@@ -11,9 +11,9 @@ class FilesService extends BaseService
 	public function __construct()
 	{
 		parent::__construct();
-		
+
 		$this->StoragePath = GROCY_DATAPATH . '/storage';
-		
+
 		if (!file_exists($this->StoragePath))
 		{
 			mkdir($this->StoragePath);

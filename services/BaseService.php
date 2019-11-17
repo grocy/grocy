@@ -11,7 +11,7 @@ class BaseService
 		$this->DatabaseService = DatabaseService::getInstance();
 		$this->Database = $this->DatabaseService->GetDbConnection();
 
-		$localizationService = new LocalizationService(GROCY_CULTURE);
+		$localizationService = LocalizationService::getInstance(GROCY_CULTURE);
 		$this->LocalizationService = $localizationService;
 	}
 

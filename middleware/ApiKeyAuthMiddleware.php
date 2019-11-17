@@ -32,7 +32,7 @@ class ApiKeyAuthMiddleware extends BaseMiddleware
 			$validSession = true;
 			$validApiKey = true;
 			$usedApiKey = null;
-			
+
 			$sessionService = new SessionService();
 			if (!isset($_COOKIE[$this->SessionCookieName]) || !$sessionService->IsValidSession($_COOKIE[$this->SessionCookieName]))
 			{

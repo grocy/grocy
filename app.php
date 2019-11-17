@@ -74,11 +74,11 @@ $appContainer = new \Slim\Container([
 ]);
 $app = new \Slim\App($appContainer);
 
-$fp = fopen('/www/data/sql.log', 'a');
-fwrite($fp, "!!!Starting up loading app\n");
-fwrite($fp, "!!!".print_r(ini_get_all(),True)."\n");
+#$fp = fopen('/www/data/sql.log', 'a');
+#fwrite($fp, "!!!Starting up loading app\n");
+#fwrite($fp, "!!!".print_r(ini_get_all(),True)."\n");
 #fwrite($fp, "!!!".print_r(opcache_get_status(),True)."\n");
-fclose($fp);
+#fclose($fp);
 
 phpinfo();
 

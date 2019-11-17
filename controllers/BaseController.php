@@ -13,7 +13,7 @@ class BaseController
 		$databaseService = DatabaseService::getInstance();
 		$this->Database = $databaseService->GetDbConnection();
 
-		$localizationService = new LocalizationService(GROCY_CULTURE);
+		$localizationService = LocalizationService::getInstance(GROCY_CULTURE);
 		$this->LocalizationService = $localizationService;
 
 		$applicationService = ApplicationService::getInstance();
