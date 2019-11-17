@@ -26,7 +26,7 @@ class PDOWrap
 		#$time_start = microtime(true);
 		if(in_array($name, array("exec","query")))
 		{
-			fwrite($fp, array_values($pars)[0] . "\n");
+			#fwrite($fp, array_values($pars)[0] . "\n");
 			$result = call_user_func_array([$this->instance,$name],$pars);
 		}else{
 			$result = call_user_func_array([$this->instance,$name],$pars);
