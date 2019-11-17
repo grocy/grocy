@@ -16,10 +16,10 @@ class ApplicationService extends BaseService
 		return self::$instance;
 	}
 
-    private function __construct()
-	{
-		parent::__construct();
-	}
+    #private function __construct()
+	#{
+	#	parent::__construct();
+	#}
 
 	public function GetInstalledVersion()
 	{

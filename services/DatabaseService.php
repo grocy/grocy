@@ -51,10 +51,10 @@ class DatabaseService
 		return self::$instance;
 	}
 
-	private static function __construct()
-	{
-		parent::__construct();
-	}
+	#private static function __construct()
+	#{
+	#	parent::__construct();
+	#}
 
 
 	private function GetDbFilePath()
