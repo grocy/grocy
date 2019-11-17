@@ -80,7 +80,7 @@ $app = new \Slim\App($appContainer);
 #fwrite($fp, "!!!".print_r(opcache_get_status(),True)."\n");
 #fclose($fp);
 
-phpinfo();
+#phpinfo();
 
 // Load routes from separate file
 require_once __DIR__ . '/routes.php';
