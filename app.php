@@ -49,8 +49,8 @@ if (GROCY_DISABLE_AUTH === true)
 	}
 }
 
-if (!apcu_exists("grocy_app"))
-{
+#if (!apcu_exists("grocy_app"))
+#{
 
 	// Setup base application
 	$appContainer = new \Slim\Container([
@@ -60,25 +60,42 @@ if (!apcu_exists("grocy_app"))
 		],
 		'view' => function($container)
 		{
-			return new \Slim\Views\Blade(__DIR__ . '/views', GROCY_DATAPATH . '/viewcache');
+			if (!apcu_exists("views"))
+			{
+				apcu_store("views", new \Slim\Views\Blade(__DIR__ . '/views', GROCY_DATAPATH . '/viewcache'));
+			}
+
+			return apcu_fetch("views");
 		},
 		'LoginControllerInstance' => function($container)
 		{
-			return new LoginController($container, 'grocy_session');
+			#if (!apcu_exists("login_controller"))
+			#{
+			#	apcu_store("login_controller", new LoginController($container, 'grocy_session'));
+			#}
+
+			#return apcu_fetch("login_controller");
+            return new LoginController($container, 'grocy_session');
 		},
 		'UrlManager' => function($container)
 		{
-			return new UrlManager(GROCY_BASE_URL);
+			if (!apcu_exists("UrlManager"))
+			{
+				apcu_store("UrlManager", new UrlManager(GROCY_BASE_URL));
+			}
+
+			return apcu_fetch("UrlManager");
 		},
 		'ApiKeyHeaderName' => function($container)
 		{
 			return 'GROCY-API-KEY';
 		}
 	]);
-	apcu_store("grocy_app", new \Slim\App($appContainer));
-}
+#	apcu_store("grocy_app", new \Slim\App($appContainer));
+#}
 
-$app = apcu_fetch("grocy_app");
+#$app = apcu_fetch("grocy_app");
+$app = new \Slim\App($appContainer);
 
 #$fp = fopen('/www/data/sql.log', 'a');
 #fwrite($fp, "!!!Starting up loading app\n");
