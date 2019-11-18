@@ -11,7 +11,7 @@ class LoginController extends BaseController
 	public function __construct(\Slim\Container $container, string $sessionCookieName)
 	{
 		parent::__construct($container);
-		$this->SessionService = new SessionService();
+		$this->SessionService = SessionService::getInstance();
 		$this->SessionCookieName = $sessionCookieName;
 	}
 

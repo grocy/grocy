@@ -4,6 +4,18 @@ namespace Grocy\Services;
 
 class SessionService extends BaseService
 {
+	private static $instance = null;
+
+	public function getInstance()
+	{
+		if (self::$instance == null)
+		{
+			self::$instance = new self();
+		}
+
+		return self::$instance;
+	}
+
 	/**
 	 * @return boolean
 	 */
