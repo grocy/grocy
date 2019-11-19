@@ -19,9 +19,19 @@ class SystemApiController extends BaseApiController
 
 	public function GetDbChangedTime(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->ApiResponse(array(
-			'changed_time' => $this->DatabaseService->GetDbChangedTime()
-		));
+		$fp = fopen('/config/data/sql.log', 'a');
+		fwrite($fp, "---- getting db changed time ----\n");
+		$time_start = microtime(true);
+        $response = $this->ApiResponse(array(
+            'changed_time' => $this->DatabaseService->GetDbChangedTime()
+        ));
+		fwrite($fp, "----Total execution time in seconds: " . round((microtime(true) - $time_start),4) . "\n");
+		fwrite($fp, "---- time obtained ----\n");
+		fclose($fp);
+        return $response;
+		#return $this->ApiResponse(array(
+		#	'changed_time' => $this->DatabaseService->GetDbChangedTime()
+		#));
 	}
 
 	public function LogMissingLocalization(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
