@@ -63,6 +63,7 @@ if (GROCY_DISABLE_AUTH === true)
 		],
 		'view' => function($container)
 		{
+			return new \Slim\Views\Blade(__DIR__ . '/views', GROCY_DATAPATH . '/viewcache');
 			if (!apcu_exists("views"))
 			{
 				apcu_store("views", new \Slim\Views\Blade(__DIR__ . '/views', GROCY_DATAPATH . '/viewcache'));

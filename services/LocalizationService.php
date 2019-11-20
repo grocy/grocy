@@ -10,7 +10,7 @@ use \Gettext\Translator;
 class LocalizationService
 {
 
-	private static $instanceMap = array();
+	#private static $instanceMap = array();
 
 	public function __construct(string $culture)
 	{
@@ -23,12 +23,17 @@ class LocalizationService
 
     public static function getInstance(string $culture)
 	{
-		if (!in_array($culture, self::$instanceMap))
+		#if (!in_array($culture, self::$instanceMap))
+		#{
+		#	self::$instanceMap[$culture] = new self($culture);
+		#}
+        if (!apcu_exists("grocy_LocalizationService_".$culture))
 		{
-			self::$instanceMap[$culture] = new self($culture);
+			apcu_store("grocy_LocalizationService_".$culture, new self($culture));
 		}
+		return apcu_fetch("grocy_LocalizationService_".$culture);
 
-		return self::$instanceMap[$culture];
+		#return self::$instanceMap[$culture];
 	}
 
 	protected $DatabaseService;
