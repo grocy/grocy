@@ -23,17 +23,17 @@ class LocalizationService
 
     public static function getInstance(string $culture)
 	{
-		#if (!in_array($culture, self::$instanceMap))
-		#{
-		#	self::$instanceMap[$culture] = new self($culture);
-		#}
-        if (!apcu_exists("grocy_LocalizationService_".$culture))
+		if (!in_array($culture, self::$instanceMap))
 		{
-			apcu_store("grocy_LocalizationService_".$culture, new self($culture));
+			self::$instanceMap[$culture] = new self($culture);
 		}
-		return apcu_fetch("grocy_LocalizationService_".$culture);
+        #if (!apcu_exists("grocy_LocalizationService_".$culture))
+		#{
+		#	apcu_store("grocy_LocalizationService_".$culture, new self($culture));
+		#}
+		#return apcu_fetch("grocy_LocalizationService_".$culture);
 
-		#return self::$instanceMap[$culture];
+		return self::$instanceMap[$culture];
 	}
 
 	protected $DatabaseService;
@@ -48,29 +48,36 @@ class LocalizationService
 	{
 		$culture = $this->Culture;
 
+		if (!(apcu_exists("grocy_LocalizationService_".$culture."_Pot") &&
+			apcu_exists("grocy_LocalizationService_".$culture."_Po") &&
+			apcu_exists("grocy_LocalizationService_".$culture."_PoUserStrings") &&
+			apcu_exists("grocy_LocalizationService_".$culture."_PotMain") &&
+		))
+		{
+
 		if (GROCY_MODE === 'dev')
 		{
-			$this->PotMain = Translations::fromPoFile(__DIR__ . '/../localization/strings.pot');
+			$PotMain = Translations::fromPoFile(__DIR__ . '/../localization/strings.pot');
 
-			$this->Pot = Translations::fromPoFile(__DIR__ . '/../localization/chore_period_types.pot');
-			$this->Pot = $this->Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/chore_assignment_types.pot'));
-			$this->Pot = $this->Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/component_translations.pot'));
-			$this->Pot = $this->Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/demo_data.pot'));
-			$this->Pot = $this->Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/stock_transaction_types.pot'));
-			$this->Pot = $this->Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/strings.pot'));
-			$this->Pot = $this->Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/userfield_types.pot'));
+			$Pot = Translations::fromPoFile(__DIR__ . '/../localization/chore_period_types.pot');
+			$Pot = $Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/chore_assignment_types.pot'));
+			$Pot = $Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/component_translations.pot'));
+			$Pot = $Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/demo_data.pot'));
+			$Pot = $Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/stock_transaction_types.pot'));
+			$Pot = $Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/strings.pot'));
+			$Pot = $Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/userfield_types.pot'));
 		}
 
-		$this->PoUserStrings = new Translations();
-		$this->PoUserStrings->setDomain('grocy/userstrings');
+		$PoUserStrings = new Translations();
+		$PoUserStrings->setDomain('grocy/userstrings');
 
-		$this->Po = Translations::fromPoFile(__DIR__ . "/../localization/$culture/chore_period_types.po");
-		$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/chore_assignment_types.po"));
-		$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/component_translations.po"));
-		$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/demo_data.po"));
-		$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/stock_transaction_types.po"));
-		$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/strings.po"));
-		$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/userfield_types.po"));
+		$Po = Translations::fromPoFile(__DIR__ . "/../localization/$culture/chore_period_types.po");
+		$Po = $Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/chore_assignment_types.po"));
+		$Po = $Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/component_translations.po"));
+		$Po = $Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/demo_data.po"));
+		$Po = $Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/stock_transaction_types.po"));
+		$Po = $Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/strings.po"));
+		$Po = $Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/userfield_types.po"));
 
 		$quantityUnits = null;
 		try
@@ -91,13 +98,23 @@ class LocalizationService
 				$translation->setPlural($quantityUnit['name_plural']);
 				$translation->setPluralTranslations(preg_split('/\r\n|\r|\n/', $quantityUnit['plural_forms']));
 
-				$this->PoUserStrings[] = $translation;
+				$PoUserStrings[] = $translation;
 			}
-			$this->Po = $this->Po->mergeWith($this->PoUserStrings);
+			$Po = $Po->mergeWith($PoUserStrings);
+		}
+			apcu_store("grocy_LocalizationService_".$culture."_Po", $Po);
+			apcu_store("grocy_LocalizationService_".$culture."_Pot", $Pot);
+			apcu_store("grocy_LocalizationService_".$culture."_PoUserStrings", $PoUserStrings);
+			apcu_store("grocy_LocalizationService_".$culture."_PotMain", $PotMain);
 		}
 
+		$this->Pot = apcu_fetch("grocy_LocalizationService_".$culture."_Pot");
+		$this->PotMain = apcu_fetch("grocy_LocalizationService_".$culture."_PotMain");
+		$this->Po = apcu_fetch("grocy_LocalizationService_".$culture."_Po");
+		$this->PoUserStrings = apcu_fetch("grocy_LocalizationService_".$culture."_PoUserStrings");
+
 		$this->Translator = new Translator();
-		$this->Translator->loadTranslations($this->Po);
+		$this->Translator->loadTranslations($Po);
 	}
 
 	public function GetPoAsJsonString()
