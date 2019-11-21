@@ -51,7 +51,7 @@ class LocalizationService
 		if (!(apcu_exists("grocy_LocalizationService_".$culture."_Pot") &&
 			apcu_exists("grocy_LocalizationService_".$culture."_Po") &&
 			apcu_exists("grocy_LocalizationService_".$culture."_PoUserStrings") &&
-			apcu_exists("grocy_LocalizationService_".$culture."_PotMain") &&
+			apcu_exists("grocy_LocalizationService_".$culture."_PotMain")
 		))
 		{
 
