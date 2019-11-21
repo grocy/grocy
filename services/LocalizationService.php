@@ -10,7 +10,7 @@ use \Gettext\Translator;
 class LocalizationService
 {
 
-	#private static $instanceMap = array();
+	private static $instanceMap = array();
 
 	public function __construct(string $culture)
 	{
