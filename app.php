@@ -53,6 +53,7 @@ if (GROCY_DISABLE_AUTH === true)
 }
 fwrite($fp, "!!!App - dep load time : " . round((microtime(true) - $time_start),6) . "\n");
 
+$app_time_start = microtime(true);
 
 // Setup base application
 $appContainer = new \Slim\Container([
@@ -64,14 +65,16 @@ $appContainer = new \Slim\Container([
 	{
 		$view_time_start = microtime(true);
 		#$view = new \Slim\Views\Blade(__DIR__ . '/views', GROCY_DATAPATH . '/viewcache');
-        fwrite($fp, "!!!App - view load time : " . round((microtime(true) - $view_time_start),6) . "\n");
 		if (!apcu_exists("views"))
 		{
 			apcu_store("views", new \Slim\Views\Blade(__DIR__ . '/views', GROCY_DATAPATH . '/viewcache'));
 		}
 
 		$view = apcu_fetch("views");
+
+		$fp = fopen('/config/data/sql.log', 'a');
         fwrite($fp, "!!!App - view load time : " . round((microtime(true) - $view_time_start),6) . "\n");
+		fclose($fp);
         return $view;
 	},
 	'LoginControllerInstance' => function($container)
@@ -105,6 +108,7 @@ $app = new \Slim\App($appContainer);
 
 // Load routes from separate file
 require_once __DIR__ . '/routes.php';
+fwrite($fp, "!!!App - App build time in seconds: " . round((microtime(true) - $app_time_start),6) . "\n");
 
 #$fp = fopen('/config/data/sql.log', 'a');
 fwrite($fp, "!!!App starting run\n");
