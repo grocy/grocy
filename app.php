@@ -95,8 +95,11 @@ $appContainer = new \Slim\Container([
 		return 'GROCY-API-KEY';
 	}
 ]);
+fwrite($fp, "!!!App - Container build time in seconds: " . round((microtime(true) - $app_time_start),6) . "\n");
+$app_build_time_start = microtime(true);
 
 $app = new \Slim\App($appContainer);
+fwrite($fp, "!!!App - App object build time in seconds: " . round((microtime(true) - $app_time_start),6) . "\n");
 
 #$fp = fopen('/www/data/sql.log', 'a');
 #fwrite($fp, "!!!Starting up loading app\n");
