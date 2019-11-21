@@ -55,6 +55,8 @@ class LocalizationService
 		))
 		{
 
+			$Pot = null;
+
 			if (GROCY_MODE === 'dev')
 			{
 				$PotMain = Translations::fromPoFile(__DIR__ . '/../localization/strings.pot');
