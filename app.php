@@ -106,7 +106,7 @@ $app = new \Slim\App($appContainer);
 // Load routes from separate file
 require_once __DIR__ . '/routes.php';
 
-$fp = fopen('/config/data/sql.log', 'a');
+#$fp = fopen('/config/data/sql.log', 'a');
 fwrite($fp, "!!!App starting run\n");
 $run_time_start = microtime(true);
 $app->run();
