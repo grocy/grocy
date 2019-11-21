@@ -109,8 +109,10 @@ fwrite($fp, "!!!App - App object build time in seconds: " . round((microtime(tru
 
 #phpinfo();
 
+$route_load_time_start = microtime(true);
 // Load routes from separate file
 require_once __DIR__ . '/routes.php';
+fwrite($fp, "!!!App - Route load time in seconds: " . round((microtime(true) - $route_load_time_start),6) . "\n");
 fwrite($fp, "!!!App - App build time in seconds: " . round((microtime(true) - $app_time_start),6) . "\n");
 
 #$fp = fopen('/config/data/sql.log', 'a');
