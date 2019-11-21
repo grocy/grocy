@@ -55,53 +55,53 @@ class LocalizationService
 		))
 		{
 
-		if (GROCY_MODE === 'dev')
-		{
-			$PotMain = Translations::fromPoFile(__DIR__ . '/../localization/strings.pot');
-
-			$Pot = Translations::fromPoFile(__DIR__ . '/../localization/chore_period_types.pot');
-			$Pot = $Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/chore_assignment_types.pot'));
-			$Pot = $Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/component_translations.pot'));
-			$Pot = $Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/demo_data.pot'));
-			$Pot = $Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/stock_transaction_types.pot'));
-			$Pot = $Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/strings.pot'));
-			$Pot = $Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/userfield_types.pot'));
-		}
-
-		$PoUserStrings = new Translations();
-		$PoUserStrings->setDomain('grocy/userstrings');
-
-		$Po = Translations::fromPoFile(__DIR__ . "/../localization/$culture/chore_period_types.po");
-		$Po = $Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/chore_assignment_types.po"));
-		$Po = $Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/component_translations.po"));
-		$Po = $Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/demo_data.po"));
-		$Po = $Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/stock_transaction_types.po"));
-		$Po = $Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/strings.po"));
-		$Po = $Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/userfield_types.po"));
-
-		$quantityUnits = null;
-		try
-		{
-			$quantityUnits = $this->Database->quantity_units()->fetchAll();
-		}
-		catch (\Exception $ex)
-		{
-			// Happens when database is not initialised or migrated...
-		}
-
-		if ($quantityUnits !== null)
-		{
-			foreach ($quantityUnits as $quantityUnit)
+			if (GROCY_MODE === 'dev')
 			{
-				$translation = new Translation('', $quantityUnit['name']);
-				$translation->setTranslation($quantityUnit['name']);
-				$translation->setPlural($quantityUnit['name_plural']);
-				$translation->setPluralTranslations(preg_split('/\r\n|\r|\n/', $quantityUnit['plural_forms']));
+				$PotMain = Translations::fromPoFile(__DIR__ . '/../localization/strings.pot');
 
-				$PoUserStrings[] = $translation;
+				$Pot = Translations::fromPoFile(__DIR__ . '/../localization/chore_period_types.pot');
+				$Pot = $Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/chore_assignment_types.pot'));
+				$Pot = $Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/component_translations.pot'));
+				$Pot = $Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/demo_data.pot'));
+				$Pot = $Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/stock_transaction_types.pot'));
+				$Pot = $Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/strings.pot'));
+				$Pot = $Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/userfield_types.pot'));
 			}
-			$Po = $Po->mergeWith($PoUserStrings);
-		}
+
+			$PoUserStrings = new Translations();
+			$PoUserStrings->setDomain('grocy/userstrings');
+
+			$Po = Translations::fromPoFile(__DIR__ . "/../localization/$culture/chore_period_types.po");
+			$Po = $Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/chore_assignment_types.po"));
+			$Po = $Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/component_translations.po"));
+			$Po = $Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/demo_data.po"));
+			$Po = $Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/stock_transaction_types.po"));
+			$Po = $Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/strings.po"));
+			$Po = $Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/userfield_types.po"));
+
+			$quantityUnits = null;
+			try
+			{
+				$quantityUnits = $this->Database->quantity_units()->fetchAll();
+			}
+			catch (\Exception $ex)
+			{
+				// Happens when database is not initialised or migrated...
+			}
+
+			if ($quantityUnits !== null)
+			{
+				foreach ($quantityUnits as $quantityUnit)
+				{
+					$translation = new Translation('', $quantityUnit['name']);
+					$translation->setTranslation($quantityUnit['name']);
+					$translation->setPlural($quantityUnit['name_plural']);
+					$translation->setPluralTranslations(preg_split('/\r\n|\r|\n/', $quantityUnit['plural_forms']));
+
+					$PoUserStrings[] = $translation;
+				}
+				$Po = $Po->mergeWith($PoUserStrings);
+			}
 			apcu_store("grocy_LocalizationService_".$culture."_Po", $Po);
 			apcu_store("grocy_LocalizationService_".$culture."_Pot", $Pot);
 			apcu_store("grocy_LocalizationService_".$culture."_PoUserStrings", $PoUserStrings);
@@ -114,7 +114,7 @@ class LocalizationService
 		$this->PoUserStrings = apcu_fetch("grocy_LocalizationService_".$culture."_PoUserStrings");
 
 		$this->Translator = new Translator();
-		$this->Translator->loadTranslations($Po);
+		$this->Translator->loadTranslations($this->Po);
 	}
 
 	public function GetPoAsJsonString()
