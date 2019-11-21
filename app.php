@@ -51,54 +51,47 @@ if (GROCY_DISABLE_AUTH === true)
 		define('GROCY_USER_ID', 1);
 	}
 }
+fwrite($fp, "!!!App - dep load time : " . round((microtime(true) - $time_start),6) . "\n");
 
-#if (!apcu_exists("grocy_app"))
-#{
 
-	// Setup base application
-	$appContainer = new \Slim\Container([
-		'settings' => [
-			'displayErrorDetails' => true,
-			'determineRouteBeforeAppMiddleware' => true
-		],
-		'view' => function($container)
+// Setup base application
+$appContainer = new \Slim\Container([
+	'settings' => [
+		'displayErrorDetails' => true,
+		'determineRouteBeforeAppMiddleware' => true
+	],
+	'view' => function($container)
+	{
+		$view_time_start = microtime(true);
+		$view = new \Slim\Views\Blade(__DIR__ . '/views', GROCY_DATAPATH . '/viewcache');
+        fwrite($fp, "!!!App - view load time : " . round((microtime(true) - $view_time_start),6) . "\n");
+        return $view;
+		if (!apcu_exists("views"))
 		{
-			return new \Slim\Views\Blade(__DIR__ . '/views', GROCY_DATAPATH . '/viewcache');
-			if (!apcu_exists("views"))
-			{
-				apcu_store("views", new \Slim\Views\Blade(__DIR__ . '/views', GROCY_DATAPATH . '/viewcache'));
-			}
-
-			return apcu_fetch("views");
-		},
-		'LoginControllerInstance' => function($container)
-		{
-			#if (!apcu_exists("login_controller"))
-			#{
-			#	apcu_store("login_controller", new LoginController($container, 'grocy_session'));
-			#}
-
-			#return apcu_fetch("login_controller");
-            return new LoginController($container, 'grocy_session');
-		},
-		'UrlManager' => function($container)
-		{
-			if (!apcu_exists("UrlManager"))
-			{
-				apcu_store("UrlManager", new UrlManager(GROCY_BASE_URL));
-			}
-
-			return apcu_fetch("UrlManager");
-		},
-		'ApiKeyHeaderName' => function($container)
-		{
-			return 'GROCY-API-KEY';
+			apcu_store("views", new \Slim\Views\Blade(__DIR__ . '/views', GROCY_DATAPATH . '/viewcache'));
 		}
-	]);
-#	apcu_store("grocy_app", new \Slim\App($appContainer));
-#}
 
-#$app = apcu_fetch("grocy_app");
+		return apcu_fetch("views");
+	},
+	'LoginControllerInstance' => function($container)
+	{
+		return new LoginController($container, 'grocy_session');
+	},
+	'UrlManager' => function($container)
+	{
+		if (!apcu_exists("UrlManager"))
+		{
+			apcu_store("UrlManager", new UrlManager(GROCY_BASE_URL));
+		}
+
+		return apcu_fetch("UrlManager");
+	},
+	'ApiKeyHeaderName' => function($container)
+	{
+		return 'GROCY-API-KEY';
+	}
+]);
+
 $app = new \Slim\App($appContainer);
 
 #$fp = fopen('/www/data/sql.log', 'a');
