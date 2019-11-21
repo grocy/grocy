@@ -63,15 +63,16 @@ $appContainer = new \Slim\Container([
 	'view' => function($container)
 	{
 		$view_time_start = microtime(true);
-		$view = new \Slim\Views\Blade(__DIR__ . '/views', GROCY_DATAPATH . '/viewcache');
+		#$view = new \Slim\Views\Blade(__DIR__ . '/views', GROCY_DATAPATH . '/viewcache');
         fwrite($fp, "!!!App - view load time : " . round((microtime(true) - $view_time_start),6) . "\n");
-        return $view;
 		if (!apcu_exists("views"))
 		{
 			apcu_store("views", new \Slim\Views\Blade(__DIR__ . '/views', GROCY_DATAPATH . '/viewcache'));
 		}
 
-		return apcu_fetch("views");
+		$view = apcu_fetch("views");
+        fwrite($fp, "!!!App - view load time : " . round((microtime(true) - $view_time_start),6) . "\n");
+        return $view;
 	},
 	'LoginControllerInstance' => function($container)
 	{
