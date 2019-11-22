@@ -10,7 +10,10 @@ use \Tuupola\Middleware\CorsMiddleware;
 fwrite($fp, "*** routing - dep load time : " . round((microtime(true) - $route_time_start),6) . "\n");
 $main_route_time_start = microtime(true);
 
-$session_auth_middelware = new SessionAuthMiddleware($appContainer, $appContainer->LoginControllerInstance->GetSessionCookieName());
+$session_cookie_name = $appContainer->LoginControllerInstance->GetSessionCookieName();
+fwrite($fp, "*** routing - get session cookie name time : " . round((microtime(true) - $main_route_time_start),6) . "\n");
+
+$session_auth_middelware = new SessionAuthMiddleware($appContainer, $session_cookie_name);
 fwrite($fp, "*** routing - create session auth middleware time : " . round((microtime(true) - $main_route_time_start),6) . "\n");
 
 $app->group('', function()
