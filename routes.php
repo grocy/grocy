@@ -36,7 +36,8 @@ $app->group('', function()
 	// User routes
 	$this->get('/users', '\Grocy\Controllers\UsersController:UsersList');
 	$this->get('/user/{userId}', '\Grocy\Controllers\UsersController:UserEditForm');
-	fwrite($fp, "*** routing - main route add base routes load time : " . round((microtime(true) - $main_route_time_start),6) . "\n");
+
+	fwrite($fp, "*** routing - main route add base routes load time : " . round((microtime(true) - $time_start),6) . "\n");
 	$stock_time_start = microtime(true);
 
 	// Stock routes
@@ -144,7 +145,7 @@ $app->group('', function()
 	$this->get('/manageapikeys', '\Grocy\Controllers\OpenApiController:ApiKeysList');
 	$this->get('/manageapikeys/new', '\Grocy\Controllers\OpenApiController:CreateNewApiKey');
 	fwrite($fp, "*** routing - main route add open api routes load time : " . round((microtime(true) - $openapi_time_start),6) . "\n");
-	fwrite($fp, "*** routing - main route add all routes load time : " . round((microtime(true) - $main_route_time_start),6) . "\n");
+	fwrite($fp, "*** routing - main route add all routes load time : " . round((microtime(true) - $time_start),6) . "\n");
 	fclose($fp);
 
 })->add(new SessionAuthMiddleware($appContainer, $appContainer->LoginControllerInstance->GetSessionCookieName()));
