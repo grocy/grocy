@@ -1,9 +1,15 @@
 <?php
+$fp = fopen('/config/data/sql.log', 'a');
+fwrite($fp, "*** routing starting up loading\n");
+$time_start = microtime(true);
 
 use \Grocy\Middleware\JsonMiddleware;
 use \Grocy\Middleware\SessionAuthMiddleware;
 use \Grocy\Middleware\ApiKeyAuthMiddleware;
 use \Tuupola\Middleware\CorsMiddleware;
+
+fwrite($fp, "*** routing - dep load time : " . round((microtime(true) - $time_start),6) . "\n");
+$main_route_time_start = microtime(true);
 
 $app->group('', function()
 {
@@ -106,7 +112,7 @@ $app->group('', function()
 		$this->get('/equipment', '\Grocy\Controllers\EquipmentController:Overview');
 		$this->get('/equipment/{equipmentId}', '\Grocy\Controllers\EquipmentController:EditForm');
 	}
-	
+
 	// Calendar routes
 	if (GROCY_FEATURE_FLAG_CALENDAR)
 	{
@@ -119,6 +125,9 @@ $app->group('', function()
 	$this->get('/manageapikeys/new', '\Grocy\Controllers\OpenApiController:CreateNewApiKey');
 })->add(new SessionAuthMiddleware($appContainer, $appContainer->LoginControllerInstance->GetSessionCookieName()));
 
+fwrite($fp, "*** routing - main route load time : " . round((microtime(true) - $main_route_time_start),6) . "\n");
+$api_route_time_start = microtime(true);
+
 $app->group('/api', function()
 {
 	// OpenAPI
@@ -126,9 +135,9 @@ $app->group('/api', function()
 
 	// System
 	$this->get('/system/info', '\Grocy\Controllers\SystemApiController:GetSystemInfo');
-	$this->get('/system/db-changed-time', '\Grocy\Controllers\SystemApiController:GetDbChangedTime');	
+	$this->get('/system/db-changed-time', '\Grocy\Controllers\SystemApiController:GetDbChangedTime');
 	$this->post('/system/log-missing-localization', '\Grocy\Controllers\SystemApiController:LogMissingLocalization');
-	
+
 	// Generic entity interaction
 	$this->get('/objects/{entity}', '\Grocy\Controllers\GenericEntityApiController:GetObjects');
 	$this->get('/objects/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:GetObject');
@@ -237,3 +246,6 @@ $app->group('/api', function()
 	'credentials' => false,
 	'cache' => 0,
 ]));
+fwrite($fp, "*** routing - api route load time : " . round((microtime(true) - $api_route_time_start),6) . "\n");
+
+fwrite($fp, "*** routing - total load time : " . round((microtime(true) - $time_start),6) . "\n");
