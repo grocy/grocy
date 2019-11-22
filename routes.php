@@ -1,14 +1,17 @@
 <?php
 $fp = fopen('/config/data/sql.log', 'a');
-$time_start = microtime(true);
+$route_time_start = microtime(true);
 
 use \Grocy\Middleware\JsonMiddleware;
 use \Grocy\Middleware\SessionAuthMiddleware;
 use \Grocy\Middleware\ApiKeyAuthMiddleware;
 use \Tuupola\Middleware\CorsMiddleware;
 
-fwrite($fp, "*** routing - dep load time : " . round((microtime(true) - $time_start),6) . "\n");
+fwrite($fp, "*** routing - dep load time : " . round((microtime(true) - $route_time_start),6) . "\n");
 $main_route_time_start = microtime(true);
+
+$session_auth_middelware = new SessionAuthMiddleware($appContainer, $appContainer->LoginControllerInstance->GetSessionCookieName());
+fwrite($fp, "*** routing - create session auth middleware time : " . round((microtime(true) - $main_route_time_start),6) . "\n");
 
 $app->group('', function()
 {
@@ -148,7 +151,7 @@ $app->group('', function()
 	fwrite($fp, "*** routing - main route add all routes load time : " . round((microtime(true) - $time_start),6) . "\n");
 	fclose($fp);
 
-})->add(new SessionAuthMiddleware($appContainer, $appContainer->LoginControllerInstance->GetSessionCookieName()));
+})->add($session_auth_middelware);
 
 fwrite($fp, "*** routing - main route load time : " . round((microtime(true) - $main_route_time_start),6) . "\n");
 $api_route_time_start = microtime(true);
@@ -273,5 +276,5 @@ $app->group('/api', function()
 ]));
 fwrite($fp, "*** routing - api route load time : " . round((microtime(true) - $api_route_time_start),6) . "\n");
 
-fwrite($fp, "*** routing - total load time : " . round((microtime(true) - $time_start),6) . "\n");
+fwrite($fp, "*** routing - total load time : " . round((microtime(true) - $route_time_start),6) . "\n");
 fclose($fp);
