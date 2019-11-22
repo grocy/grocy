@@ -10,16 +10,21 @@ use \Grocy\Services\UsersService;
 class BaseController
 {
 	public function __construct(\Slim\Container $container) {
+		$fp = fopen('/config/data/sql.log', 'a');
+        $time_start = microtime(true);
 		$databaseService = DatabaseService::getInstance();
 		$this->Database = $databaseService->GetDbConnection();
+		fwrite($fp, "%%% Login controller - parent construstor database time : " . round((microtime(true) - $time_start),6) . "\n");
 
 		$localizationService = LocalizationService::getInstance(GROCY_CULTURE);
 		$this->LocalizationService = $localizationService;
+		fwrite($fp, "%%% Login controller - parent construstor localisation time : " . round((microtime(true) - $time_start),6) . "\n");
 
 		$applicationService = ApplicationService::getInstance();
 		$versionInfo = $applicationService->GetInstalledVersion();
 		$container->view->set('version', $versionInfo->Version);
 		$container->view->set('releaseDate', $versionInfo->ReleaseDate);
+		fwrite($fp, "%%% Login controller - parent construstor application service time : " . round((microtime(true) - $time_start),6) . "\n");
 
 		$container->view->set('__t', function(string $text, ...$placeholderValues) use($localizationService)
 		{
@@ -54,6 +59,7 @@ class BaseController
 		$container->view->set('featureFlags', $constants);
 
 		$container->view->set('userentitiesForSidebar', $this->Database->userentities()->where('show_in_sidebar_menu = 1')->orderBy('name'));
+		fwrite($fp, "%%% Login controller - parent construstor view time : " . round((microtime(true) - $time_start),6) . "\n");
 
 		try
 		{
@@ -73,6 +79,8 @@ class BaseController
 		}
 
 		$this->AppContainer = $container;
+		fwrite($fp, "%%% Login controller - parent construstor total time : " . round((microtime(true) - $time_start),6) . "\n");
+		fclose($fp);
 	}
 
 	protected $AppContainer;

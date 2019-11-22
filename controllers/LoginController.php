@@ -14,15 +14,24 @@ class LoginController extends BaseController
         $time_start = microtime(true);
 		parent::__construct($container);
         fwrite($fp, "£££ Login controller - parent construstor time : " . round((microtime(true) - $time_start),6) . "\n");
-		$this->SessionService = SessionService::getInstance();
-        fwrite($fp, "£££ Login controller - got session service instance : " . round((microtime(true) - $time_start),6) . "\n");
+		#$this->SessionService = SessionService::getInstance();
+        #fwrite($fp, "£££ Login controller - got session service instance : " . round((microtime(true) - $time_start),6) . "\n");
 		$this->SessionCookieName = $sessionCookieName;
         fwrite($fp, "£££ Login controller - construction time : " . round((microtime(true) - $time_start),6) . "\n");
         fclose($fp);
 	}
 
-	protected $SessionService;
+	protected $SessionService = null;
 	protected $SessionCookieName;
+
+    private function getSessionService()
+	{
+		if($this->SessionsService == null)
+		{
+			$this->SessionService = SessionService::getInstance();
+		}
+		return $this->SessionService;
+	}
 
 	public function ProcessLogin(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
@@ -38,7 +47,7 @@ class LoginController extends BaseController
 
 			if ($user !== null && password_verify($inputPassword, $user->password))
 			{
-				$sessionKey = $this->SessionService->CreateSession($user->id, $stayLoggedInPermanently);
+				$sessionKey = $this->getSessionService()->CreateSession($user->id, $stayLoggedInPermanently);
 				setcookie($this->SessionCookieName, $sessionKey, PHP_INT_SIZE == 4 ? PHP_INT_MAX : PHP_INT_MAX>>32); // Cookie expires never, but session validity is up to SessionService
 
 				if (password_needs_rehash($user->password, PASSWORD_DEFAULT))
@@ -68,7 +77,7 @@ class LoginController extends BaseController
 
 	public function Logout(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$this->SessionService->RemoveSession($_COOKIE[$this->SessionCookieName]);
+		$this->getSessionService()->RemoveSession($_COOKIE[$this->SessionCookieName]);
 		return $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl('/'));
 	}
 
