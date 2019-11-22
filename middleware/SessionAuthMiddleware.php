@@ -9,8 +9,12 @@ class SessionAuthMiddleware extends BaseMiddleware
 {
 	public function __construct(\Slim\Container $container, string $sessionCookieName)
 	{
+        $fp = fopen('/config/data/sql.log', 'a');
+		$time_start = microtime(true);
 		parent::__construct($container);
 		$this->SessionCookieName = $sessionCookieName;
+		fwrite($fp, "£££ SessionAuthMiddleware - construction time : " . round((microtime(true) - $time_start),6) . "\n");
+		fclose($fp);
 	}
 
 	protected $SessionCookieName;

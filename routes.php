@@ -1,6 +1,5 @@
 <?php
 $fp = fopen('/config/data/sql.log', 'a');
-fwrite($fp, "*** routing starting up loading\n");
 $time_start = microtime(true);
 
 use \Grocy\Middleware\JsonMiddleware;
@@ -13,6 +12,9 @@ $main_route_time_start = microtime(true);
 
 $app->group('', function()
 {
+	$fp = fopen('/config/data/sql.log', 'a');
+	$time_start = microtime(true);
+
 	// System routes
 	$this->get('/', '\Grocy\Controllers\SystemController:Root')->setName('root');
 	$this->get('/about', '\Grocy\Controllers\SystemController:About');
@@ -34,6 +36,8 @@ $app->group('', function()
 	// User routes
 	$this->get('/users', '\Grocy\Controllers\UsersController:UsersList');
 	$this->get('/user/{userId}', '\Grocy\Controllers\UsersController:UserEditForm');
+	fwrite($fp, "*** routing - main route add base routes load time : " . round((microtime(true) - $main_route_time_start),6) . "\n");
+	$stock_time_start = microtime(true);
 
 	// Stock routes
 	if (GROCY_FEATURE_FLAG_STOCK)
@@ -56,6 +60,8 @@ $app->group('', function()
 		$this->get('/locationcontentsheet', '\Grocy\Controllers\StockController:LocationContentSheet');
 		$this->get('/quantityunitpluraltesting', '\Grocy\Controllers\StockController:QuantityUnitPluralFormTesting');
 	}
+	fwrite($fp, "*** routing - main route add stock routes load time : " . round((microtime(true) - $stock_time_start),6) . "\n");
+	$shopping_time_start = microtime(true);
 
 	// Shopping list routes
 	if (GROCY_FEATURE_FLAG_SHOPPINGLIST)
@@ -64,6 +70,8 @@ $app->group('', function()
 		$this->get('/shoppinglistitem/{itemId}', '\Grocy\Controllers\StockController:ShoppingListItemEditForm');
 		$this->get('/shoppinglist/{listId}', '\Grocy\Controllers\StockController:ShoppingListEditForm');
 	}
+	fwrite($fp, "*** routing - main route add shopping routes load time : " . round((microtime(true) - $shopping_time_start),6) . "\n");
+	$recipies_time_start = microtime(true);
 
 	// Recipe routes
 	if (GROCY_FEATURE_FLAG_RECIPES)
@@ -73,6 +81,8 @@ $app->group('', function()
 		$this->get('/recipe/{recipeId}/pos/{recipePosId}', '\Grocy\Controllers\RecipesController:RecipePosEditForm');
 		$this->get('/mealplan', '\Grocy\Controllers\RecipesController:MealPlan');
 	}
+	fwrite($fp, "*** routing - main route add recipies routes load time : " . round((microtime(true) - $recipies_time_start),6) . "\n");
+	$chores_time_start = microtime(true);
 
 	// Chore routes
 	if (GROCY_FEATURE_FLAG_CHORES)
@@ -84,6 +94,8 @@ $app->group('', function()
 		$this->get('/chore/{choreId}', '\Grocy\Controllers\ChoresController:ChoreEditForm');
 		$this->get('/choressettings', '\Grocy\Controllers\ChoresController:ChoresSettings');
 	}
+	fwrite($fp, "*** routing - main route add chores routes load time : " . round((microtime(true) - $chores_time_start),6) . "\n");
+	$batteries_time_start = microtime(true);
 
 	// Battery routes
 	if (GROCY_FEATURE_FLAG_BATTERIES)
@@ -95,6 +107,8 @@ $app->group('', function()
 		$this->get('/battery/{batteryId}', '\Grocy\Controllers\BatteriesController:BatteryEditForm');
 		$this->get('/batteriessettings', '\Grocy\Controllers\BatteriesController:BatteriesSettings');
 	}
+	fwrite($fp, "*** routing - main route add batteries routes load time : " . round((microtime(true) - $batteries_time_start),6) . "\n");
+	$tasks_time_start = microtime(true);
 
 	// Task routes
 	if (GROCY_FEATURE_FLAG_TASKS)
@@ -105,6 +119,8 @@ $app->group('', function()
 		$this->get('/taskcategory/{categoryId}', '\Grocy\Controllers\TasksController:TaskCategoryEditForm');
 		$this->get('/taskssettings', '\Grocy\Controllers\TasksController:TasksSettings');
 	}
+	fwrite($fp, "*** routing - main route add tasks routes load time : " . round((microtime(true) - $tasks_time_start),6) . "\n");
+	$equipment_time_start = microtime(true);
 
 	// Equipment routes
 	if (GROCY_FEATURE_FLAG_EQUIPMENT)
@@ -112,17 +128,25 @@ $app->group('', function()
 		$this->get('/equipment', '\Grocy\Controllers\EquipmentController:Overview');
 		$this->get('/equipment/{equipmentId}', '\Grocy\Controllers\EquipmentController:EditForm');
 	}
+	fwrite($fp, "*** routing - main route add equipment routes load time : " . round((microtime(true) - $equipment_time_start),6) . "\n");
+	$calendar_time_start = microtime(true);
 
 	// Calendar routes
 	if (GROCY_FEATURE_FLAG_CALENDAR)
 	{
 		$this->get('/calendar', '\Grocy\Controllers\CalendarController:Overview');
 	}
+	fwrite($fp, "*** routing - main route add calendar routes load time : " . round((microtime(true) - $calendar_time_start),6) . "\n");
+	$openapi_time_start = microtime(true);
 
 	// OpenAPI routes
 	$this->get('/api', '\Grocy\Controllers\OpenApiController:DocumentationUi');
 	$this->get('/manageapikeys', '\Grocy\Controllers\OpenApiController:ApiKeysList');
 	$this->get('/manageapikeys/new', '\Grocy\Controllers\OpenApiController:CreateNewApiKey');
+	fwrite($fp, "*** routing - main route add open api routes load time : " . round((microtime(true) - $openapi_time_start),6) . "\n");
+	fwrite($fp, "*** routing - main route add all routes load time : " . round((microtime(true) - $main_route_time_start),6) . "\n");
+	fclose($fp);
+
 })->add(new SessionAuthMiddleware($appContainer, $appContainer->LoginControllerInstance->GetSessionCookieName()));
 
 fwrite($fp, "*** routing - main route load time : " . round((microtime(true) - $main_route_time_start),6) . "\n");
@@ -249,3 +273,4 @@ $app->group('/api', function()
 fwrite($fp, "*** routing - api route load time : " . round((microtime(true) - $api_route_time_start),6) . "\n");
 
 fwrite($fp, "*** routing - total load time : " . round((microtime(true) - $time_start),6) . "\n");
+fclose($fp);
