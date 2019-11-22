@@ -13,7 +13,9 @@ class LoginController extends BaseController
         $fp = fopen('/config/data/sql.log', 'a');
         $time_start = microtime(true);
 		parent::__construct($container);
+        fwrite($fp, "£££ Login controller - parent construstor time : " . round((microtime(true) - $time_start),6) . "\n");
 		$this->SessionService = SessionService::getInstance();
+        fwrite($fp, "£££ Login controller - got session service instance : " . round((microtime(true) - $time_start),6) . "\n");
 		$this->SessionCookieName = $sessionCookieName;
         fwrite($fp, "£££ Login controller - construction time : " . round((microtime(true) - $time_start),6) . "\n");
         fclose($fp);
