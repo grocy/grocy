@@ -11,6 +11,7 @@ fwrite($fp, "*** routing - dep load time : " . round((microtime(true) - $route_t
 $main_route_time_start = microtime(true);
 
 $session_cookie_name = $appContainer->LoginControllerInstance->GetSessionCookieName();
+fwrite($fp, "*** routing - session cookie name time : " . $session_cookie_name . "\n");
 fwrite($fp, "*** routing - get session cookie name time : " . round((microtime(true) - $main_route_time_start),6) . "\n");
 
 $session_auth_middelware = new SessionAuthMiddleware($appContainer, $session_cookie_name);

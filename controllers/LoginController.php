@@ -10,9 +10,13 @@ class LoginController extends BaseController
 {
 	public function __construct(\Slim\Container $container, string $sessionCookieName)
 	{
+        $fp = fopen('/config/data/sql.log', 'a');
+        $time_start = microtime(true);
 		parent::__construct($container);
 		$this->SessionService = SessionService::getInstance();
 		$this->SessionCookieName = $sessionCookieName;
+        fwrite($fp, "£££ Login controller - construction time : " . round((microtime(true) - $time_start),6) . "\n");
+        fclose($fp);
 	}
 
 	protected $SessionService;
@@ -20,6 +24,9 @@ class LoginController extends BaseController
 
 	public function ProcessLogin(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
+        $fp = fopen('/config/data/sql.log', 'a');
+        fwrite($fp, "£££ Login controller - ProcessLogin called\n");
+        fclose($fp);
 		$postParams = $request->getParsedBody();
 		if (isset($postParams['username']) && isset($postParams['password']))
 		{
