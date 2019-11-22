@@ -9,20 +9,20 @@ class SessionAuthMiddleware extends BaseMiddleware
 {
 	public function __construct(\Slim\Container $container, string $sessionCookieName)
 	{
-        $fp = fopen('/config/data/sql.log', 'a');
-		$time_start = microtime(true);
+        #$fp = fopen('/config/data/sql.log', 'a');
+		#$time_start = microtime(true);
 		parent::__construct($container);
 		$this->SessionCookieName = $sessionCookieName;
-		fwrite($fp, "£££ SessionAuthMiddleware - construction time : " . round((microtime(true) - $time_start),6) . "\n");
-		fclose($fp);
+		#fwrite($fp, "£££ SessionAuthMiddleware - construction time : " . round((microtime(true) - $time_start),6) . "\n");
+		#fclose($fp);
 	}
 
 	protected $SessionCookieName;
 
 	public function __invoke(\Slim\Http\Request $request, \Slim\Http\Response $response, callable $next)
 	{
-        $fp = fopen('/config/data/sql.log', 'a');
-		$time_start = microtime(true);
+        #$fp = fopen('/config/data/sql.log', 'a');
+		#$time_start = microtime(true);
 		$route = $request->getAttribute('route');
 		$routeName = $route->getName();
 		$sessionService = SessionService::getInstance();
@@ -63,8 +63,8 @@ class SessionAuthMiddleware extends BaseMiddleware
 				$response = $next($request, $response);
 			}
 		}
-		fwrite($fp, "£££ SessionAuthMiddleware - invocation time : " . round((microtime(true) - $time_start),6) . "\n");
-		fclose($fp);
+		#fwrite($fp, "£££ SessionAuthMiddleware - invocation time : " . round((microtime(true) - $time_start),6) . "\n");
+		#fclose($fp);
 
 		return $response;
 	}

@@ -1,7 +1,7 @@
 <?php
-$fp = fopen('/config/data/sql.log', 'a');
-fwrite($fp, "!!!App starting up loading\n");
-$time_start = microtime(true);
+#$fp = fopen('/config/data/sql.log', 'a');
+#fwrite($fp, "!!!App starting up loading\n");
+#$time_start = microtime(true);
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
@@ -51,9 +51,9 @@ if (GROCY_DISABLE_AUTH === true)
 		define('GROCY_USER_ID', 1);
 	}
 }
-fwrite($fp, "!!!App - dep load time : " . round((microtime(true) - $time_start),6) . "\n");
+#fwrite($fp, "!!!App - dep load time : " . round((microtime(true) - $time_start),6) . "\n");
 
-$app_time_start = microtime(true);
+#$app_time_start = microtime(true);
 
 // Setup base application
 $appContainer = new \Slim\Container([
@@ -63,7 +63,7 @@ $appContainer = new \Slim\Container([
 	],
 	'view' => function($container)
 	{
-		$view_time_start = microtime(true);
+		#$view_time_start = microtime(true);
 		#$view = new \Slim\Views\Blade(__DIR__ . '/views', GROCY_DATAPATH . '/viewcache');
 		if (!apcu_exists("views"))
 		{
@@ -72,9 +72,9 @@ $appContainer = new \Slim\Container([
 
 		$view = apcu_fetch("views");
 
-		$fp = fopen('/config/data/sql.log', 'a');
-        fwrite($fp, "!!!App - view load time : " . round((microtime(true) - $view_time_start),6) . "\n");
-		fclose($fp);
+		#$fp = fopen('/config/data/sql.log', 'a');
+        #fwrite($fp, "!!!App - view load time : " . round((microtime(true) - $view_time_start),6) . "\n");
+		#fclose($fp);
         return $view;
 	},
 	'LoginControllerInstance' => function($container)
@@ -95,11 +95,11 @@ $appContainer = new \Slim\Container([
 		return 'GROCY-API-KEY';
 	}
 ]);
-fwrite($fp, "!!!App - Container build time in seconds: " . round((microtime(true) - $app_time_start),6) . "\n");
-$app_build_time_start = microtime(true);
+#fwrite($fp, "!!!App - Container build time in seconds: " . round((microtime(true) - $app_time_start),6) . "\n");
+#$app_build_time_start = microtime(true);
 
 $app = new \Slim\App($appContainer);
-fwrite($fp, "!!!App - App object build time in seconds: " . round((microtime(true) - $app_time_start),6) . "\n");
+#fwrite($fp, "!!!App - App object build time in seconds: " . round((microtime(true) - $app_time_start),6) . "\n");
 
 #$fp = fopen('/www/data/sql.log', 'a');
 #fwrite($fp, "!!!Starting up loading app\n");
@@ -109,19 +109,19 @@ fwrite($fp, "!!!App - App object build time in seconds: " . round((microtime(tru
 
 #phpinfo();
 
-$route_load_time_start = microtime(true);
+#$route_load_time_start = microtime(true);
 // Load routes from separate file
 require_once __DIR__ . '/routes.php';
-fwrite($fp, "!!!App - Route load time in seconds: " . round((microtime(true) - $route_load_time_start),6) . "\n");
-fwrite($fp, "!!!App - App build time in seconds: " . round((microtime(true) - $app_time_start),6) . "\n");
+#fwrite($fp, "!!!App - Route load time in seconds: " . round((microtime(true) - $route_load_time_start),6) . "\n");
+#fwrite($fp, "!!!App - App build time in seconds: " . round((microtime(true) - $app_time_start),6) . "\n");
 
 #$fp = fopen('/config/data/sql.log', 'a');
-fwrite($fp, "!!!App starting run\n");
-$run_time_start = microtime(true);
+#fwrite($fp, "!!!App starting run\n");
+#$run_time_start = microtime(true);
 $app->run();
-fwrite($fp, "!!!App - Total run time in seconds: " . round((microtime(true) - $run_time_start),6) . "\n");
-fwrite($fp, "!!!App - Total execution time in seconds: " . round((microtime(true) - $time_start),6) . "\n");
+#fwrite($fp, "!!!App - Total run time in seconds: " . round((microtime(true) - $run_time_start),6) . "\n");
+#fwrite($fp, "!!!App - Total execution time in seconds: " . round((microtime(true) - $time_start),6) . "\n");
 #fwrite($fp, "!!!APP - ini: ".print_r(ini_get_all(),TRUE)."\n");
 #fwrite($fp, "!!!APP - opcache status: ".print_r(opcache_get_status(),TRUE)."\n");
 #fwrite($fp, "!!!APP - opcache config: ".print_r(opcache_get_configuration(),TRUE)."\n");
-fclose($fp);
+#fclose($fp);
