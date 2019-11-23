@@ -9,11 +9,18 @@ class BatteriesController extends BaseController
 	public function __construct(\Slim\Container $container)
 	{
 		parent::__construct($container);
-		$this->BatteriesService = new BatteriesService();
 	}
 
-	protected $BatteriesService;
-	protected $UserfieldsService;
+	protected $BatteriesService = null;
+
+	protected function getBatteriesService()
+	{
+		if($this->BatteriesService == null)
+		{
+			$this->BatteriesService = new BatteriesService();
+		}
+		return $this->BatteriesService;
+	}
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
@@ -22,7 +29,7 @@ class BatteriesController extends BaseController
 
 		return $this->renderPage($response, 'batteriesoverview', [
 			'batteries' => $this->getDatabase()->batteries()->orderBy('name'),
-			'current' => $this->BatteriesService->GetCurrent(),
+			'current' => $this->getBatteriesService()->GetCurrent(),
 			'nextXDays' => $nextXDays,
 			'userfields' => $this->getUserfieldsService()->GetFields('batteries'),
 			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('batteries')
