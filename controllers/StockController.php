@@ -3,7 +3,6 @@
 namespace Grocy\Controllers;
 
 use \Grocy\Services\StockService;
-use \Grocy\Services\UsersService;
 use \Grocy\Services\UserfieldsService;
 
 class StockController extends BaseController
@@ -31,7 +30,7 @@ class StockController extends BaseController
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$usersService = new UsersService();
+		$usersService = getUsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['stock_expring_soon_days'];
 
 		return $this->renderPage($response, 'stockoverview', [
