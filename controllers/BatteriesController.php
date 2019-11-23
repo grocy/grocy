@@ -3,8 +3,6 @@
 namespace Grocy\Controllers;
 
 use \Grocy\Services\BatteriesService;
-use \Grocy\Services\UsersService;
-use \Grocy\Services\UserfieldsService;
 
 class BatteriesController extends BaseController
 {
@@ -12,7 +10,6 @@ class BatteriesController extends BaseController
 	{
 		parent::__construct($container);
 		$this->BatteriesService = new BatteriesService();
-		#$this->UserfieldsService = new UserfieldsService();
 	}
 
 	protected $BatteriesService;
@@ -20,7 +17,7 @@ class BatteriesController extends BaseController
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$usersService = new UsersService();
+		$usersService = $this->getUsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['batteries_due_soon_days'];
 
 		return $this->renderPage($response, 'batteriesoverview', [

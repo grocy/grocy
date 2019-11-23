@@ -72,7 +72,7 @@ class BaseController
 		$container->view->set('userentitiesForSidebar', $this->getDatabase()->userentities()->where('show_in_sidebar_menu = 1')->orderBy('name'));
 		try
 		{
-			$usersService = new UsersService();
+			$usersService = $this->getUsersService();
 			if (defined('GROCY_USER_ID'))
 			{
 				$container->view->set('userSettings', $usersService->GetUserSettings(GROCY_USER_ID));
@@ -120,6 +120,17 @@ class BaseController
 			$this->userfieldsService = new UserfieldsService();
 		}
 		return $this->userfieldsService;
+	}
+
+	private $usersService = null;
+
+	protected function getUsersService()
+	{
+		if($this->usersService == null)
+		{
+			$this->usersService = new UsersService();
+		}
+		return $this->usersService;
 	}
 
 	protected $AppContainer;
