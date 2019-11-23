@@ -27,15 +27,16 @@ class BaseController
 		$container->view->set('releaseDate', $versionInfo->ReleaseDate);
 		#fwrite($fp, "%%% Login controller - parent construstor application service time : " . round((microtime(true) - $time_start),6) . "\n");
 
-		$container->view->set('__t', function(string $text, ...$placeholderValues) use($this->getLocalizationService())
+        $localizationService = $this->getLocalizationService();
+		$container->view->set('__t', function(string $text, ...$placeholderValues) use($localizationService)
 		{
-			return $this->getLocalizationService()->__t($text, $placeholderValues);
+			return $localizationService->__t($text, $placeholderValues);
 		});
-		$container->view->set('__n', function($number, $singularForm, $pluralForm) use($this->getLocalizationService())
+		$container->view->set('__n', function($number, $singularForm, $pluralForm) use($localizationService)
 		{
-			return $this->getLocalizationService()->__n($number, $singularForm, $pluralForm);
+			return $localizationService->__n($number, $singularForm, $pluralForm);
 		});
-		$container->view->set('GettextPo', $this->getLocalizationService()->GetPoAsJsonString());
+		$container->view->set('GettextPo', $localizationService->GetPoAsJsonString());
 
 		$container->view->set('U', function($relativePath, $isResource = false) use($container)
 		{
