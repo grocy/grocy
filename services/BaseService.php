@@ -17,7 +17,7 @@ class BaseService
 
 	protected function getdatabase()
 	{
-		return $this->DatabaseService->GetDbConnection();
+		return $this->getDatabaseService()->GetDbConnection();
 	}
 
 	protected  function getLocalizationService()
