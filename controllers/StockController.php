@@ -30,7 +30,7 @@ class StockController extends BaseController
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$usersService = getUsersService();
+		$usersService = $this->getUsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['stock_expring_soon_days'];
 
 		return $this->renderPage($response, 'stockoverview', [
