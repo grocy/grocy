@@ -18,7 +18,7 @@ class GenericEntityApiController extends BaseApiController
 	{
 		if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithPreventedListing($args['entity']))
 		{
-			return $this->ApiResponse($this->Database->{$args['entity']}());
+			return $this->ApiResponse($this->getDatabase()->{$args['entity']}());
 		}
 		else
 		{
@@ -30,7 +30,7 @@ class GenericEntityApiController extends BaseApiController
 	{
 		if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithPreventedListing($args['entity']))
 		{
-			return $this->ApiResponse($this->Database->{$args['entity']}($args['objectId']));
+			return $this->ApiResponse($this->getDatabase()->{$args['entity']}($args['objectId']));
 		}
 		else
 		{
@@ -51,11 +51,11 @@ class GenericEntityApiController extends BaseApiController
 					throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
 				}
 
-				$newRow = $this->Database->{$args['entity']}()->createRow($requestBody);
+				$newRow = $this->getDatabase()->{$args['entity']}()->createRow($requestBody);
 				$newRow->save();
 				$success = $newRow->isClean();
 				return $this->ApiResponse(array(
-					'created_object_id' => $this->Database->lastInsertId()
+					'created_object_id' => $this->getDatabase()->lastInsertId()
 				));
 			}
 			catch (\Exception $ex)
@@ -82,7 +82,7 @@ class GenericEntityApiController extends BaseApiController
 					throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
 				}
 
-				$row = $this->Database->{$args['entity']}($args['objectId']);
+				$row = $this->getDatabase()->{$args['entity']}($args['objectId']);
 				$row->update($requestBody);
 				$success = $row->isClean();
 				return $this->EmptyApiResponse($response);
@@ -102,7 +102,7 @@ class GenericEntityApiController extends BaseApiController
 	{
 		if ($this->IsValidEntity($args['entity']))
 		{
-			$row = $this->Database->{$args['entity']}($args['objectId']);
+			$row = $this->getDatabase()->{$args['entity']}($args['objectId']);
 			$row->delete();
 			$success = $row->isClean();
 			return $this->EmptyApiResponse($response);
@@ -119,7 +119,7 @@ class GenericEntityApiController extends BaseApiController
 		{
 			try
 			{
-				return $this->ApiResponse($this->Database->{$args['entity']}()->where('name LIKE ?', '%' . $args['searchString'] . '%'));
+				return $this->ApiResponse($this->getDatabase()->{$args['entity']}()->where('name LIKE ?', '%' . $args['searchString'] . '%'));
 			}
 			catch (\PDOException $ex)
 			{

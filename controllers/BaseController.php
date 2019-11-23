@@ -12,29 +12,30 @@ class BaseController
 	public function __construct(\Slim\Container $container) {
 		#$fp = fopen('/config/data/sql.log', 'a');
         #$time_start = microtime(true);
-		$databaseService = DatabaseService::getInstance();
-		$this->Database = $databaseService->GetDbConnection();
-		#fwrite($fp, "%%% Login controller - parent construstor database time : " . round((microtime(true) - $time_start),6) . "\n");
 
-		$localizationService = LocalizationService::getInstance(GROCY_CULTURE);
-		$this->LocalizationService = $localizationService;
-		#fwrite($fp, "%%% Login controller - parent construstor localisation time : " . round((microtime(true) - $time_start),6) . "\n");
+		$this->AppContainer = $container;
+		#fwrite($fp, "%%% Login controller - parent construstor total time : " . round((microtime(true) - $time_start),6) . "\n");
+		#fclose($fp);
+	}
 
-		$applicationService = ApplicationService::getInstance();
-		$versionInfo = $applicationService->GetInstalledVersion();
+	private function render($response, $page, $data = [])
+	{
+		$container = $this->AppContainer;
+
+		$versionInfo = $this->getApplicationService()->GetInstalledVersion();
 		$container->view->set('version', $versionInfo->Version);
 		$container->view->set('releaseDate', $versionInfo->ReleaseDate);
 		#fwrite($fp, "%%% Login controller - parent construstor application service time : " . round((microtime(true) - $time_start),6) . "\n");
 
-		$container->view->set('__t', function(string $text, ...$placeholderValues) use($localizationService)
+		$container->view->set('__t', function(string $text, ...$placeholderValues) use($this->getLocalizationService())
 		{
-			return $localizationService->__t($text, $placeholderValues);
+			return $this->getLocalizationService()->__t($text, $placeholderValues);
 		});
-		$container->view->set('__n', function($number, $singularForm, $pluralForm) use($localizationService)
+		$container->view->set('__n', function($number, $singularForm, $pluralForm) use($this->getLocalizationService())
 		{
-			return $localizationService->__n($number, $singularForm, $pluralForm);
+			return $this->getLocalizationService()->__n($number, $singularForm, $pluralForm);
 		});
-		$container->view->set('GettextPo', $localizationService->GetPoAsJsonString());
+		$container->view->set('GettextPo', $this->getLocalizationService()->GetPoAsJsonString());
 
 		$container->view->set('U', function($relativePath, $isResource = false) use($container)
 		{
@@ -58,9 +59,15 @@ class BaseController
 		}
 		$container->view->set('featureFlags', $constants);
 
-		$container->view->set('userentitiesForSidebar', $this->Database->userentities()->where('show_in_sidebar_menu = 1')->orderBy('name'));
-		#fwrite($fp, "%%% Login controller - parent construstor view time : " . round((microtime(true) - $time_start),6) . "\n");
+		$this->AppContainer = $container;
 
+		return $this->AppContainer->view->render($response, $page, $data);
+	}
+
+	private function renderPage($response, $page, $data = [])
+	{
+		$container = $this->AppContainer;
+		$container->view->set('userentitiesForSidebar', $this->getDatabase()->userentities()->where('show_in_sidebar_menu = 1')->orderBy('name'));
 		try
 		{
 			$usersService = new UsersService();
@@ -79,11 +86,39 @@ class BaseController
 		}
 
 		$this->AppContainer = $container;
-		#fwrite($fp, "%%% Login controller - parent construstor total time : " . round((microtime(true) - $time_start),6) . "\n");
-		#fclose($fp);
+		return $this->render($response, $page, $data);
+	}
+
+    private function getDatabaseService()
+	{
+		return DatabaseService::getInstance();
+	}
+
+    private function getDatabase()
+	{
+		return $this->getDatabaseService()->GetDbConnection();
+	}
+
+	private function getLocalizationService()
+	{
+		return LocalizationService::getInstance(GROCY_CULTURE);
+	}
+
+	private function getApplicationservice()
+	{
+		return ApplicationService::getInstance();
+	}
+
+	private $userfieldsService = null;
+
+	private function getUserfieldsService()
+	{
+		if($this->userfieldsService == null)
+		{
+			$this->userfieldsService = new UserfieldsService();
+		}
+		return $this->userfieldsService;
 	}
 
 	protected $AppContainer;
-	protected $Database;
-	protected $LocalizationService;
 }

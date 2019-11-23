@@ -16,8 +16,8 @@ class EquipmentController extends BaseController
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'equipment', [
-			'equipment' => $this->Database->equipment()->orderBy('name'),
+		return $this->renderPage($response, 'equipment', [
+			'equipment' => $this->getDatabase()->equipment()->orderBy('name'),
 			'userfields' => $this->UserfieldsService->GetFields('equipment'),
 			'userfieldValues' => $this->UserfieldsService->GetAllValues('equipment')
 		]);
@@ -27,15 +27,15 @@ class EquipmentController extends BaseController
 	{
 		if ($args['equipmentId'] == 'new')
 		{
-			return $this->AppContainer->view->render($response, 'equipmentform', [
+			return $this->renderPage($response, 'equipmentform', [
 				'mode' => 'create',
 				'userfields' => $this->UserfieldsService->GetFields('equipment')
 			]);
 		}
 		else
 		{
-			return $this->AppContainer->view->render($response, 'equipmentform', [
-				'equipment' =>  $this->Database->equipment($args['equipmentId']),
+			return $this->renderPage($response, 'equipmentform', [
+				'equipment' =>  $this->getDatabase()->equipment($args['equipmentId']),
 				'mode' => 'edit',
 				'userfields' => $this->UserfieldsService->GetFields('equipment')
 			]);

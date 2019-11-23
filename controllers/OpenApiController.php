@@ -2,7 +2,7 @@
 
 namespace Grocy\Controllers;
 
-use \Grocy\Services\ApplicationService;
+#use \Grocy\Services\ApplicationService;
 use \Grocy\Services\ApiKeyService;
 
 class OpenApiController extends BaseApiController
@@ -17,12 +17,12 @@ class OpenApiController extends BaseApiController
 
 	public function DocumentationUi(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'openapiui');
+		return $this->render($response, 'openapiui');
 	}
 
 	public function DocumentationSpec(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$applicationService = ApplicationService::getInstance();
+		$applicationService = $this->getApplicationService;
 
 		$versionInfo = $applicationService->GetInstalledVersion();
 		$this->OpenApiSpec->info->version = $versionInfo->Version;
@@ -34,9 +34,9 @@ class OpenApiController extends BaseApiController
 
 	public function ApiKeysList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'manageapikeys', [
-			'apiKeys' => $this->Database->api_keys(),
-			'users' => $this->Database->users()
+		return $this->renderPage($response, 'manageapikeys', [
+			'apiKeys' => $this->getDatabase()->api_keys(),
+			'users' => $this->getDatabase()->users()
 		]);
 	}
 

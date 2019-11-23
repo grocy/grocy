@@ -23,8 +23,8 @@ class ChoresController extends BaseController
 		$usersService = new UsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['chores_due_soon_days'];
 
-		return $this->AppContainer->view->render($response, 'choresoverview', [
-			'chores' => $this->Database->chores()->orderBy('name'),
+		return $this->renderPage($response, 'choresoverview', [
+			'chores' => $this->getDatabase()->chores()->orderBy('name'),
 			'currentChores' => $this->ChoresService->GetCurrent(),
 			'nextXDays' => $nextXDays,
 			'userfields' => $this->UserfieldsService->GetFields('chores'),
@@ -35,16 +35,16 @@ class ChoresController extends BaseController
 
 	public function TrackChoreExecution(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'choretracking', [
-			'chores' => $this->Database->chores()->orderBy('name'),
-			'users' => $this->Database->users()->orderBy('username')
+		return $this->renderPage($response, 'choretracking', [
+			'chores' => $this->getDatabase()->chores()->orderBy('name'),
+			'users' => $this->getDatabase()->users()->orderBy('username')
 		]);
 	}
 
 	public function ChoresList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'chores', [
-			'chores' => $this->Database->chores()->orderBy('name'),
+		return $this->renderPage($response, 'chores', [
+			'chores' => $this->getDatabase()->chores()->orderBy('name'),
 			'userfields' => $this->UserfieldsService->GetFields('chores'),
 			'userfieldValues' => $this->UserfieldsService->GetAllValues('chores')
 		]);
@@ -52,10 +52,10 @@ class ChoresController extends BaseController
 
 	public function Journal(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'choresjournal', [
-			'choresLog' => $this->Database->chores_log()->orderBy('tracked_time', 'DESC'),
-			'chores' => $this->Database->chores()->orderBy('name'),
-			'users' => $this->Database->users()->orderBy('username')
+		return $this->renderPage($response, 'choresjournal', [
+			'choresLog' => $this->getDatabase()->chores_log()->orderBy('tracked_time', 'DESC'),
+			'chores' => $this->getDatabase()->chores()->orderBy('name'),
+			'users' => $this->getDatabase()->users()->orderBy('username')
 		]);
 	}
 
@@ -66,31 +66,31 @@ class ChoresController extends BaseController
 
 		if ($args['choreId'] == 'new')
 		{
-			return $this->AppContainer->view->render($response, 'choreform', [
+			return $this->renderPage($response, 'choreform', [
 				'periodTypes' => GetClassConstants('\Grocy\Services\ChoresService', 'CHORE_PERIOD_TYPE_'),
 				'mode' => 'create',
 				'userfields' => $this->UserfieldsService->GetFields('chores'),
 				'assignmentTypes' => GetClassConstants('\Grocy\Services\ChoresService', 'CHORE_ASSIGNMENT_TYPE_'),
 				'users' => $users,
-				'products' => $this->Database->products()->orderBy('name')
+				'products' => $this->getDatabase()->products()->orderBy('name')
 			]);
 		}
 		else
 		{
-			return $this->AppContainer->view->render($response, 'choreform', [
-				'chore' =>  $this->Database->chores($args['choreId']),
+			return $this->renderPage($response, 'choreform', [
+				'chore' =>  $this->getDatabase()->chores($args['choreId']),
 				'periodTypes' => GetClassConstants('\Grocy\Services\ChoresService', 'CHORE_PERIOD_TYPE_'),
 				'mode' => 'edit',
 				'userfields' => $this->UserfieldsService->GetFields('chores'),
 				'assignmentTypes' => GetClassConstants('\Grocy\Services\ChoresService', 'CHORE_ASSIGNMENT_TYPE_'),
 				'users' => $users,
-				'products' => $this->Database->products()->orderBy('name')
+				'products' => $this->getDatabase()->products()->orderBy('name')
 			]);
 		}
 	}
 
 	public function ChoresSettings(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'choressettings');
+		return $this->renderPage($response, 'choressettings');
 	}
 }

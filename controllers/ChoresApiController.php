@@ -33,7 +33,7 @@ class ChoresApiController extends BaseApiController
 			}
 
 			$choreExecutionId = $this->ChoresService->TrackChore($args['choreId'], $trackedTime, $doneBy);
-			return $this->ApiResponse($this->Database->chores_log($choreExecutionId));
+			return $this->ApiResponse($this->getDatabase()->chores_log($choreExecutionId));
 		}
 		catch (\Exception $ex)
 		{
@@ -85,7 +85,7 @@ class ChoresApiController extends BaseApiController
 
 			if ($choreId === null)
 			{
-				$chores = $this->Database->chores();
+				$chores = $this->getDatabase()->chores();
 				foreach ($chores as $chore)
 				{
 					$this->ChoresService->CalculateNextExecutionAssignment($chore->id);

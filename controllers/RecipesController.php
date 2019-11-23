@@ -21,11 +21,11 @@ class RecipesController extends BaseController
 	{
 		if (isset($request->getQueryParams()['include-internal']))
 		{
-			$recipes = $this->Database->recipes()->orderBy('name');
+			$recipes = $this->getDatabase()->recipes()->orderBy('name');
 		}
 		else
 		{
-			$recipes = $this->Database->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name');
+			$recipes = $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name');
 		}
 		$recipesResolved = $this->RecipesService->GetRecipesResolved();
 
@@ -33,21 +33,21 @@ class RecipesController extends BaseController
 		$selectedRecipePositionsResolved = null;
 		if (isset($request->getQueryParams()['recipe']))
 		{
-			$selectedRecipe = $this->Database->recipes($request->getQueryParams()['recipe']);
-			$selectedRecipePositionsResolved = $this->Database->recipes_pos_resolved()->where('recipe_id', $request->getQueryParams()['recipe'])->orderBy('ingredient_group');
+			$selectedRecipe = $this->getDatabase()->recipes($request->getQueryParams()['recipe']);
+			$selectedRecipePositionsResolved = $this->getDatabase()->recipes_pos_resolved()->where('recipe_id', $request->getQueryParams()['recipe'])->orderBy('ingredient_group');
 		}
 		else
 		{
 			foreach ($recipes as $recipe)
 			{
 				$selectedRecipe = $recipe;
-				$selectedRecipePositionsResolved = $this->Database->recipes_pos_resolved()->where('recipe_id', $recipe->id)->orderBy('ingredient_group');
+				$selectedRecipePositionsResolved = $this->getDatabase()->recipes_pos_resolved()->where('recipe_id', $recipe->id)->orderBy('ingredient_group');
 				break;
 			}
 		}
 
-		$selectedRecipeSubRecipes = $this->Database->recipes()->where('id IN (SELECT includes_recipe_id FROM recipes_nestings_resolved WHERE recipe_id = :1 AND includes_recipe_id != :1)', $selectedRecipe->id)->orderBy('name')->fetchAll();
-		$selectedRecipeSubRecipesPositions = $this->Database->recipes_pos_resolved()->where('recipe_id = :1', $selectedRecipe->id)->orderBy('ingredient_group')->fetchAll();
+		$selectedRecipeSubRecipes = $this->getDatabase()->recipes()->where('id IN (SELECT includes_recipe_id FROM recipes_nestings_resolved WHERE recipe_id = :1 AND includes_recipe_id != :1)', $selectedRecipe->id)->orderBy('name')->fetchAll();
+		$selectedRecipeSubRecipesPositions = $this->getDatabase()->recipes_pos_resolved()->where('recipe_id = :1', $selectedRecipe->id)->orderBy('ingredient_group')->fetchAll();
 
 		$includedRecipeIdsAbsolute = array();
 		$includedRecipeIdsAbsolute[] = $selectedRecipe->id;
@@ -56,14 +56,14 @@ class RecipesController extends BaseController
 			$includedRecipeIdsAbsolute[] = $subRecipe->id;
 		}
 
-		return $this->AppContainer->view->render($response, 'recipes', [
+		return $this->renderPage($response, 'recipes', [
 			'recipes' => $recipes,
 			'recipesResolved' => $recipesResolved,
-			'recipePositionsResolved' => $this->Database->recipes_pos_resolved(),
+			'recipePositionsResolved' => $this->getDatabase()->recipes_pos_resolved(),
 			'selectedRecipe' => $selectedRecipe,
 			'selectedRecipePositionsResolved' => $selectedRecipePositionsResolved,
-			'products' => $this->Database->products(),
-			'quantityUnits' => $this->Database->quantity_units(),
+			'products' => $this->getDatabase()->products(),
+			'quantityUnits' => $this->getDatabase()->quantity_units(),
 			'selectedRecipeSubRecipes' => $selectedRecipeSubRecipes,
 			'selectedRecipeSubRecipesPositions' => $selectedRecipeSubRecipesPositions,
 			'includedRecipeIdsAbsolute' => $includedRecipeIdsAbsolute,
@@ -71,7 +71,7 @@ class RecipesController extends BaseController
 			'selectedRecipeTotalCalories' => FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->calories,
 			'userfields' => $this->UserfieldsService->GetFields('recipes'),
 			'userfieldValues' => $this->UserfieldsService->GetAllValues('recipes'),
-			'quantityUnitConversionsResolved' => $this->Database->quantity_unit_conversions_resolved()
+			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
 		]);
 	}
 
@@ -80,26 +80,26 @@ class RecipesController extends BaseController
 		$recipeId = $args['recipeId'];
 		if ($recipeId  == 'new')
 		{
-			$newRecipe = $this->Database->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->createRow(array(
-				'name' => $this->LocalizationService->__t('New recipe')
+			$newRecipe = $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->createRow(array(
+				'name' => $this->getLocalizationService()->__t('New recipe')
 			));
 			$newRecipe->save();
 
-			$recipeId = $this->Database->lastInsertId();
+			$recipeId = $this->getDatabase()->lastInsertId();
 		}
-		
-		return $this->AppContainer->view->render($response, 'recipeform', [
-			'recipe' =>  $this->Database->recipes($recipeId),
-			'recipePositions' =>  $this->Database->recipes_pos()->where('recipe_id', $recipeId),
+
+		return $this->renderPage($response, 'recipeform', [
+			'recipe' =>  $this->getDatabase()->recipes($recipeId),
+			'recipePositions' =>  $this->getDatabase()->recipes_pos()->where('recipe_id', $recipeId),
 			'mode' => 'edit',
-			'products' => $this->Database->products(),
-			'quantityunits' => $this->Database->quantity_units(),
+			'products' => $this->getDatabase()->products(),
+			'quantityunits' => $this->getDatabase()->quantity_units(),
 			'recipePositionsResolved' => $this->RecipesService->GetRecipesPosResolved(),
 			'recipesResolved' => $this->RecipesService->GetRecipesResolved(),
-			'recipes' =>  $this->Database->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name'),
-			'recipeNestings' =>  $this->Database->recipes_nestings()->where('recipe_id', $recipeId),
+			'recipes' =>  $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name'),
+			'recipeNestings' =>  $this->getDatabase()->recipes_nestings()->where('recipe_id', $recipeId),
 			'userfields' => $this->UserfieldsService->GetFields('recipes'),
-			'quantityUnitConversionsResolved' => $this->Database->quantity_unit_conversions_resolved()
+			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
 		]);
 	}
 
@@ -107,34 +107,34 @@ class RecipesController extends BaseController
 	{
 		if ($args['recipePosId'] == 'new')
 		{
-			return $this->AppContainer->view->render($response, 'recipeposform', [
+			return $this->renderPage($response, 'recipeposform', [
 				'mode' => 'create',
-				'recipe' => $this->Database->recipes($args['recipeId']),
+				'recipe' => $this->getDatabase()->recipes($args['recipeId']),
 				'recipePos' => new \stdClass(),
-				'products' => $this->Database->products()->orderBy('name'),
-				'quantityUnits' => $this->Database->quantity_units()->orderBy('name'),
-				'quantityUnitConversionsResolved' => $this->Database->quantity_unit_conversions_resolved()
+				'products' => $this->getDatabase()->products()->orderBy('name'),
+				'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name'),
+				'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
 			]);
 		}
 		else
 		{
-			return $this->AppContainer->view->render($response, 'recipeposform', [
+			return $this->renderPage($response, 'recipeposform', [
 				'mode' => 'edit',
-				'recipe' =>  $this->Database->recipes($args['recipeId']),
-				'recipePos' => $this->Database->recipes_pos($args['recipePosId']),
-				'products' => $this->Database->products()->orderBy('name'),
-				'quantityUnits' => $this->Database->quantity_units()->orderBy('name'),
-				'quantityUnitConversionsResolved' => $this->Database->quantity_unit_conversions_resolved()
+				'recipe' =>  $this->getDatabase()->recipes($args['recipeId']),
+				'recipePos' => $this->getDatabase()->recipes_pos($args['recipePosId']),
+				'products' => $this->getDatabase()->products()->orderBy('name'),
+				'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name'),
+				'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
 			]);
 		}
 	}
 
 	public function MealPlan(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$recipes = $this->Database->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll();
+		$recipes = $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll();
 
 		$events = array();
-		foreach($this->Database->meal_plan() as $mealPlanEntry)
+		foreach($this->getDatabase()->meal_plan() as $mealPlanEntry)
 		{
 			$recipe = FindObjectInArrayByPropertyValue($recipes, 'id', $mealPlanEntry['recipe_id']);
 			$title = '';
@@ -153,10 +153,10 @@ class RecipesController extends BaseController
 			);
 		}
 
-		return $this->AppContainer->view->render($response, 'mealplan', [
+		return $this->renderPage($response, 'mealplan', [
 			'fullcalendarEventSources' => $events,
 			'recipes' => $recipes,
-			'internalRecipes' => $this->Database->recipes()->whereNot('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll(),
+			'internalRecipes' => $this->getDatabase()->recipes()->whereNot('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll(),
 			'recipesResolved' => $this->RecipesService->GetRecipesResolved()
 		]);
 	}

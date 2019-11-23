@@ -41,7 +41,7 @@ class LoginController extends BaseController
 		$postParams = $request->getParsedBody();
 		if (isset($postParams['username']) && isset($postParams['password']))
 		{
-			$user = $this->Database->users()->where('username', $postParams['username'])->fetch();
+			$user = $this->getDatabase()->users()->where('username', $postParams['username'])->fetch();
 			$inputPassword = $postParams['password'];
 			$stayLoggedInPermanently = $postParams['stay_logged_in'] == 'on';
 
@@ -72,7 +72,7 @@ class LoginController extends BaseController
 
 	public function LoginPage(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'login');
+		return $this->renderPage($response, 'login');
 	}
 
 	public function Logout(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)

@@ -16,7 +16,7 @@ class CalendarController extends BaseController
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'calendar', [
+		return $this->renderPage($response, 'calendar', [
 			'fullcalendarEventSources' => $this->CalendarService->GetEvents()
 		]);
 	}

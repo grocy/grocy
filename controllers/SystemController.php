@@ -2,18 +2,18 @@
 
 namespace Grocy\Controllers;
 
-use \Grocy\Services\ApplicationService;
+#use \Grocy\Services\ApplicationService;
 use \Grocy\Services\DatabaseMigrationService;
 use \Grocy\Services\DemoDataGeneratorService;
 
 class SystemController extends BaseController
 {
-	protected $ApplicationService;
+	#protected $ApplicationService;
 
 	public function __construct(\Slim\Container $container)
 	{
 		parent::__construct($container);
-		$this->ApplicationService = ApplicationService::getInstance();
+		#$this->ApplicationService = ApplicationService::getInstance();
 	}
 
 	public function Root(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
@@ -96,14 +96,14 @@ class SystemController extends BaseController
 
 	public function About(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'about', [
-			'system_info' => $this->ApplicationService->GetSystemInfo(),
-			'changelog' => $this->ApplicationService->GetChangelog()
+		return $this->renderPage($response, 'about', [
+			'system_info' => $this->getApplicationService()->GetSystemInfo(),
+			'changelog' => $this->getApplicationService()->GetChangelog()
 		]);
 	}
 
 	public function BarcodeScannerTesting(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'barcodescannertesting');
+		return $this->renderPage($response, 'barcodescannertesting');
 	}
 }

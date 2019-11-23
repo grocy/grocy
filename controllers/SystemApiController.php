@@ -2,20 +2,19 @@
 
 namespace Grocy\Controllers;
 
-use \Grocy\Services\DatabaseService;
-use \Grocy\Services\ApplicationService;
+#use \Grocy\Services\DatabaseService;
+#use \Grocy\Services\ApplicationService;
 
 class SystemApiController extends BaseApiController
 {
 	public function __construct(\Slim\Container $container)
 	{
 		parent::__construct($container);
-		$this->DatabaseService = DatabaseService::getInstance();
-		$this->ApplicationService = ApplicationService::getInstance();
+		#$this->ApplicationService = ApplicationService::getInstance();
 	}
 
-	protected $DatabaseService;
-	protected $ApplicationService;
+	#protected $DatabaseService;
+	#protected $ApplicationService;
 
 	public function GetDbChangedTime(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
@@ -23,14 +22,14 @@ class SystemApiController extends BaseApiController
 		#fwrite($fp, "---- getting db changed time ----\n");
 		#$time_start = microtime(true);
         $response = $this->ApiResponse(array(
-            'changed_time' => $this->DatabaseService->GetDbChangedTime()
+            'changed_time' => $this->getDatabaseService()->GetDbChangedTime()
         ));
 		#fwrite($fp, "----Total execution time in seconds: " . round((microtime(true) - $time_start),4) . "\n");
 		#fwrite($fp, "---- time obtained ----\n");
 		#fclose($fp);
         return $response;
 		#return $this->ApiResponse(array(
-		#	'changed_time' => $this->DatabaseService->GetDbChangedTime()
+		#	'changed_time' => $this->getDatabaseService()->GetDbChangedTime()
 		#));
 	}
 
@@ -42,7 +41,7 @@ class SystemApiController extends BaseApiController
 			{
 				$requestBody = $request->getParsedBody();
 
-				$this->LocalizationService->CheckAndAddMissingTranslationToPot($requestBody['text']);
+				$this->getLocalizationService()->CheckAndAddMissingTranslationToPot($requestBody['text']);
 				return $this->EmptyApiResponse($response);
 			}
 			catch (\Exception $ex)
@@ -54,6 +53,6 @@ class SystemApiController extends BaseApiController
 
 	public function GetSystemInfo(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->ApiResponse($this->ApplicationService->GetSystemInfo());
+		return $this->ApiResponse($this->getApplicationService()->GetSystemInfo());
 	}
 }

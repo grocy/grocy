@@ -6,8 +6,8 @@ class UsersController extends BaseController
 {
 	public function UsersList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'users', [
-			'users' => $this->Database->users()->orderBy('username')
+		return $this->renderPage($response, 'users', [
+			'users' => $this->getDatabase()->users()->orderBy('username')
 		]);
 	}
 
@@ -15,14 +15,14 @@ class UsersController extends BaseController
 	{
 		if ($args['userId'] == 'new')
 		{
-			return $this->AppContainer->view->render($response, 'userform', [
+			return $this->renderPage($response, 'userform', [
 				'mode' => 'create'
 			]);
 		}
 		else
 		{
-			return $this->AppContainer->view->render($response, 'userform', [
-				'user' =>  $this->Database->users($args['userId']),
+			return $this->renderPage($response, 'userform', [
+				'user' =>  $this->getDatabase()->users($args['userId']),
 				'mode' => 'edit'
 			]);
 		}
