@@ -29,8 +29,8 @@ class CalendarService extends BaseService
 
 	public function GetEvents()
 	{
-		$products = $this->Database->products();
-		$titlePrefix = $this->LocalizationService->__t('Product expires') . ': ';
+		$products = $this->getDatabase()->products();
+		$titlePrefix = $this->getLocalizationService()->__t('Product expires') . ': ';
 		$stockEvents = array();
 		foreach($this->StockService->GetCurrentStock() as $currentStockEntry)
 		{
@@ -44,7 +44,7 @@ class CalendarService extends BaseService
 			}
 		}
 
-		$titlePrefix = $this->LocalizationService->__t('Task due') . ': ';
+		$titlePrefix = $this->getLocalizationService()->__t('Task due') . ': ';
 		$taskEvents = array();
 		foreach($this->TasksService->GetCurrent() as $currentTaskEntry)
 		{
@@ -58,8 +58,8 @@ class CalendarService extends BaseService
 		$usersService = new UsersService();
 		$users = $usersService->GetUsersAsDto();
 
-		$chores = $this->Database->chores();
-		$titlePrefix = $this->LocalizationService->__t('Chore due') . ': ';
+		$chores = $this->getDatabase()->chores();
+		$titlePrefix = $this->getLocalizationService()->__t('Chore due') . ': ';
 		$choreEvents = array();
 		foreach($this->ChoresService->GetCurrent() as $currentChoreEntry)
 		{
@@ -68,7 +68,7 @@ class CalendarService extends BaseService
 			$assignedToText = '';
 			if (!empty($currentChoreEntry->next_execution_assigned_to_user_id))
 			{
-				$assignedToText = ' (' . $this->LocalizationService->__t('assigned to %s', FindObjectInArrayByPropertyValue($users, 'id', $currentChoreEntry->next_execution_assigned_to_user_id)->display_name) . ')';
+				$assignedToText = ' (' . $this->getLocalizationService()->__t('assigned to %s', FindObjectInArrayByPropertyValue($users, 'id', $currentChoreEntry->next_execution_assigned_to_user_id)->display_name) . ')';
 			}
 
 			$choreEvents[] = array(
@@ -78,8 +78,8 @@ class CalendarService extends BaseService
 			);
 		}
 
-		$batteries = $this->Database->batteries();
-		$titlePrefix = $this->LocalizationService->__t('Battery charge cycle due') . ': ';
+		$batteries = $this->getDatabase()->batteries();
+		$titlePrefix = $this->getLocalizationService()->__t('Battery charge cycle due') . ': ';
 		$batteryEvents = array();
 		foreach($this->BatteriesService->GetCurrent() as $currentBatteryEntry)
 		{
@@ -90,13 +90,13 @@ class CalendarService extends BaseService
 			);
 		}
 
-		$recipes = $this->Database->recipes();
-		$mealPlanDayRecipes = $this->Database->recipes()->where('type', 'mealplan-day');
-		$titlePrefix = $this->LocalizationService->__t('Meal plan') . ': ';
+		$recipes = $this->getDatabase()->recipes();
+		$mealPlanDayRecipes = $this->getDatabase()->recipes()->where('type', 'mealplan-day');
+		$titlePrefix = $this->getLocalizationService()->__t('Meal plan') . ': ';
 		$mealPlanRecipeEvents = array();
 		foreach($mealPlanDayRecipes as $mealPlanDayRecipe)
 		{
-			$recipesOfCurrentDay = $this->Database->recipes_nestings_resolved()->where('recipe_id = :1 AND includes_recipe_id != :1', $mealPlanDayRecipe->id);
+			$recipesOfCurrentDay = $this->getDatabase()->recipes_nestings_resolved()->where('recipe_id = :1 AND includes_recipe_id != :1', $mealPlanDayRecipe->id);
 			foreach ($recipesOfCurrentDay as $recipeOfCurrentDay)
 			{
 				$mealPlanRecipeEvents[] = array(
