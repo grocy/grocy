@@ -56,6 +56,7 @@ class LocalizationService
 		{
 
 			$Pot = null;
+			$PotMain = null;
 
 			if (GROCY_MODE === 'dev')
 			{
