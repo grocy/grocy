@@ -15,10 +15,19 @@ class StockController extends BaseController
 		#fwrite($fp, "!!!constructing StockController\n");
 		#fclose($fp);
 		parent::__construct($container);
-		$this->StockService = new StockService();
+		#$this->StockService = new StockService();
 	}
 
-	protected $StockService;
+	protected $StockService = null;
+
+    protected function getStockService()
+	{
+		if($this->StockService == null)
+		{
+			$this->StockService = new StockService();
+		}
+		return $this->StockService;
+	}
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
@@ -29,9 +38,9 @@ class StockController extends BaseController
 			'products' => $this->getDatabase()->products()->orderBy('name'),
 			'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name'),
-			'currentStock' => $this->StockService->GetCurrentStock(true),
-			'currentStockLocations' => $this->StockService->GetCurrentStockLocations(),
-			'missingProducts' => $this->StockService->GetMissingProducts(),
+			'currentStock' => $this->getStockService()->GetCurrentStock(true),
+			'currentStockLocations' => $this->getStockService()->GetCurrentStockLocations(),
+			'missingProducts' => $this->getStockService()->GetMissingProducts(),
 			'nextXDays' => $nextXDays,
 			'productGroups' => $this->getDatabase()->product_groups()->orderBy('name'),
 			'userfields' => $this->getUserfieldsService()->GetFields('products'),
@@ -81,7 +90,7 @@ class StockController extends BaseController
 			'listItems' => $this->getDatabase()->shopping_list()->where('shopping_list_id = :1', $listId),
 			'products' => $this->getDatabase()->products()->orderBy('name'),
 			'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name'),
-			'missingProducts' => $this->StockService->GetMissingProducts(),
+			'missingProducts' => $this->getStockService()->GetMissingProducts(),
 			'productGroups' => $this->getDatabase()->product_groups()->orderBy('name'),
 			'shoppingLists' => $this->getDatabase()->shopping_lists()->orderBy('name'),
 			'selectedShoppingListId' => $listId,
@@ -289,7 +298,7 @@ class StockController extends BaseController
 			'products' => $this->getDatabase()->products()->orderBy('name'),
 			'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name'),
-			'currentStockLocationContent' => $this->StockService->GetCurrentStockLocationContent()
+			'currentStockLocationContent' => $this->getStockService()->GetCurrentStockLocationContent()
 		]);
 	}
 

@@ -166,11 +166,11 @@ class GenericEntityApiController extends BaseApiController
 
 	private function IsValidEntity($entity)
 	{
-		return in_array($entity, $this->OpenApiSpec->components->internalSchemas->ExposedEntity->enum);
+		return in_array($entity, $this->getOpenApiSpec()->components->internalSchemas->ExposedEntity->enum);
 	}
 
 	private function IsEntityWithPreventedListing($entity)
 	{
-		return in_array($entity, $this->OpenApiSpec->components->internalSchemas->ExposedEntitiesPreventListing->enum);
+		return in_array($entity, $this->getOpenApiSpec()->components->internalSchemas->ExposedEntitiesPreventListing->enum);
 	}
 }

@@ -18,11 +18,19 @@ class UserfieldsService extends BaseService
 	public function __construct()
 	{
 		parent::__construct();
-		$this->OpenApiSpec = json_decode(file_get_contents(__DIR__ . '/../grocy.openapi.json'));
 	}
 
-	protected $OpenApiSpec;
-	
+	protected $OpenApiSpec = null;
+
+	protected function getOpenApispec()
+    {
+        if($this->OpenApiSpec == null)
+        {
+            $this->OpenApiSpec = json_decode(file_get_contents(__DIR__ . '/../grocy.openapi.json'));
+        }
+        return $this->OpenApiSpec;
+    }
+
 	public function GetFields($entity)
 	{
 		if (!$this->IsValidEntity($entity))
@@ -109,7 +117,7 @@ class UserfieldsService extends BaseService
 
 	public function GetEntities()
 	{
-		$exposedDefaultEntities = $this->OpenApiSpec->components->internalSchemas->ExposedEntity->enum;
+		$exposedDefaultEntities = $this->getOpenApiSpec()->components->internalSchemas->ExposedEntity->enum;
 		
 		$userentities = array();
 		foreach ($this->Database->userentities()->orderBy('name') as $userentity)

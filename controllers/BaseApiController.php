@@ -8,10 +8,18 @@ class BaseApiController extends BaseController
 	public function __construct(\Slim\Container $container)
 	{
 		parent::__construct($container);
-		$this->OpenApiSpec = json_decode(file_get_contents(__DIR__ . '/../grocy.openapi.json'));
 	}
 
-	protected $OpenApiSpec;
+	protected $OpenApiSpec = null;
+
+	protected function getOpenApispec()
+	{
+		if($this->OpenApiSpec == null)
+		{
+			$this->OpenApiSpec = json_decode(file_get_contents(__DIR__ . '/../grocy.openapi.json'));
+		}
+		return $this->OpenApiSpec;
+	}
 
 	protected function ApiResponse($data)
 	{

@@ -25,11 +25,11 @@ class OpenApiController extends BaseApiController
 		$applicationService = $this->getApplicationService;
 
 		$versionInfo = $applicationService->GetInstalledVersion();
-		$this->OpenApiSpec->info->version = $versionInfo->Version;
-		$this->OpenApiSpec->info->description = str_replace('PlaceHolderManageApiKeysUrl', $this->AppContainer->UrlManager->ConstructUrl('/manageapikeys'), $this->OpenApiSpec->info->description);
-		$this->OpenApiSpec->servers[0]->url = $this->AppContainer->UrlManager->ConstructUrl('/api');
+		$this->getOpenApiSpec()->info->version = $versionInfo->Version;
+		$this->getOpenApiSpec()->info->description = str_replace('PlaceHolderManageApiKeysUrl', $this->AppContainer->UrlManager->ConstructUrl('/manageapikeys'), $this->getOpenApiSpec()->info->description);
+		$this->getOpenApiSpec()->servers[0]->url = $this->AppContainer->UrlManager->ConstructUrl('/api');
 
-		return $this->ApiResponse($this->OpenApiSpec);
+		return $this->ApiResponse($this->getOpenApiSpec());
 	}
 
 	public function ApiKeysList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
