@@ -18,7 +18,7 @@ class BaseController
 		#fclose($fp);
 	}
 
-	private function render($response, $page, $data = [])
+	protected function render($response, $page, $data = [])
 	{
 		$container = $this->AppContainer;
 
@@ -65,7 +65,7 @@ class BaseController
 		return $this->AppContainer->view->render($response, $page, $data);
 	}
 
-	private function renderPage($response, $page, $data = [])
+	protected function renderPage($response, $page, $data = [])
 	{
 		$container = $this->AppContainer;
 		$container->view->set('userentitiesForSidebar', $this->getDatabase()->userentities()->where('show_in_sidebar_menu = 1')->orderBy('name'));
@@ -90,29 +90,29 @@ class BaseController
 		return $this->render($response, $page, $data);
 	}
 
-    private function getDatabaseService()
+    protected function getDatabaseService()
 	{
 		return DatabaseService::getInstance();
 	}
 
-    private function getDatabase()
+    protected function getDatabase()
 	{
 		return $this->getDatabaseService()->GetDbConnection();
 	}
 
-	private function getLocalizationService()
+	protected function getLocalizationService()
 	{
 		return LocalizationService::getInstance(GROCY_CULTURE);
 	}
 
-	private function getApplicationservice()
+	protected function getApplicationservice()
 	{
 		return ApplicationService::getInstance();
 	}
 
 	private $userfieldsService = null;
 
-	private function getUserfieldsService()
+	protected function getUserfieldsService()
 	{
 		if($this->userfieldsService == null)
 		{
