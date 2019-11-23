@@ -3,8 +3,6 @@
 namespace Grocy\Controllers;
 
 use \Grocy\Services\ChoresService;
-use \Grocy\Services\UsersService;
-use \Grocy\Services\UserfieldsService;
 
 class ChoresController extends BaseController
 {
@@ -12,23 +10,21 @@ class ChoresController extends BaseController
 	{
 		parent::__construct($container);
 		$this->ChoresService = new ChoresService();
-		$this->UserfieldsService = new UserfieldsService();
 	}
 
 	protected $ChoresService;
-	protected $UserfieldsService;
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$usersService = new UsersService();
+		$usersService = $this->getUsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['chores_due_soon_days'];
 
 		return $this->renderPage($response, 'choresoverview', [
 			'chores' => $this->getDatabase()->chores()->orderBy('name'),
 			'currentChores' => $this->ChoresService->GetCurrent(),
 			'nextXDays' => $nextXDays,
-			'userfields' => $this->UserfieldsService->GetFields('chores'),
-			'userfieldValues' => $this->UserfieldsService->GetAllValues('chores'),
+			'userfields' => $this->getUserfieldsService()->GetFields('chores'),
+			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('chores'),
 			'users' => $usersService->GetUsersAsDto()
 		]);
 	}
@@ -45,8 +41,8 @@ class ChoresController extends BaseController
 	{
 		return $this->renderPage($response, 'chores', [
 			'chores' => $this->getDatabase()->chores()->orderBy('name'),
-			'userfields' => $this->UserfieldsService->GetFields('chores'),
-			'userfieldValues' => $this->UserfieldsService->GetAllValues('chores')
+			'userfields' => $this->getUserfieldsService()->GetFields('chores'),
+			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('chores')
 		]);
 	}
 
@@ -61,7 +57,7 @@ class ChoresController extends BaseController
 
 	public function ChoreEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$usersService = new UsersService();
+		$usersService = getUsersService();
 		$users = $usersService->GetUsersAsDto();
 
 		if ($args['choreId'] == 'new')
@@ -69,7 +65,7 @@ class ChoresController extends BaseController
 			return $this->renderPage($response, 'choreform', [
 				'periodTypes' => GetClassConstants('\Grocy\Services\ChoresService', 'CHORE_PERIOD_TYPE_'),
 				'mode' => 'create',
-				'userfields' => $this->UserfieldsService->GetFields('chores'),
+				'userfields' => $this->getUserfieldsService()->GetFields('chores'),
 				'assignmentTypes' => GetClassConstants('\Grocy\Services\ChoresService', 'CHORE_ASSIGNMENT_TYPE_'),
 				'users' => $users,
 				'products' => $this->getDatabase()->products()->orderBy('name')
@@ -81,7 +77,7 @@ class ChoresController extends BaseController
 				'chore' =>  $this->getDatabase()->chores($args['choreId']),
 				'periodTypes' => GetClassConstants('\Grocy\Services\ChoresService', 'CHORE_PERIOD_TYPE_'),
 				'mode' => 'edit',
-				'userfields' => $this->UserfieldsService->GetFields('chores'),
+				'userfields' => $this->getUserfieldsService()->GetFields('chores'),
 				'assignmentTypes' => GetClassConstants('\Grocy\Services\ChoresService', 'CHORE_ASSIGNMENT_TYPE_'),
 				'users' => $users,
 				'products' => $this->getDatabase()->products()->orderBy('name')

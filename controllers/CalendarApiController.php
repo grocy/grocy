@@ -28,7 +28,7 @@ class CalendarApiController extends BaseApiController
 			{
 				$date = new \DateTime($event['start']);
 				$date->setTimezone(date_default_timezone_get());
-				
+
 				if ($event['date_format'] === 'date')
 				{
 					$date->setTime(23, 59, 59);
@@ -41,7 +41,7 @@ class CalendarApiController extends BaseApiController
 					->setDescription($event['description'])
 					->setNoTime($event['date_format'] === 'date')
 					->setUseTimezone(true);
-				
+
 				$vCalendar->addComponent($vEvent);
 			}
 

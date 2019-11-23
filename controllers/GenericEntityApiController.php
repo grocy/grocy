@@ -2,17 +2,12 @@
 
 namespace Grocy\Controllers;
 
-use \Grocy\Services\UserfieldsService;
-
 class GenericEntityApiController extends BaseApiController
 {
 	public function __construct(\Slim\Container $container)
 	{
 		parent::__construct($container);
-		$this->UserfieldsService = new UserfieldsService();
 	}
-
-	protected $UserfieldsService;
 
 	public function GetObjects(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
@@ -136,7 +131,7 @@ class GenericEntityApiController extends BaseApiController
 	{
 		try
 		{
-			return $this->ApiResponse($this->UserfieldsService->GetValues($args['entity'], $args['objectId']));
+			return $this->ApiResponse($this->getUserfieldsService()->GetValues($args['entity'], $args['objectId']));
 		}
 		catch (\Exception $ex)
 		{
@@ -155,7 +150,7 @@ class GenericEntityApiController extends BaseApiController
 				throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
 			}
 
-			$this->UserfieldsService->SetValues($args['entity'], $args['objectId'], $requestBody);
+			$this->getUserfieldsService()->SetValues($args['entity'], $args['objectId'], $requestBody);
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)

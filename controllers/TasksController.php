@@ -3,8 +3,6 @@
 namespace Grocy\Controllers;
 
 use \Grocy\Services\TasksService;
-use \Grocy\Services\UsersService;
-use \Grocy\Services\UserfieldsService;
 
 class TasksController extends BaseController
 {
@@ -12,11 +10,9 @@ class TasksController extends BaseController
 	{
 		parent::__construct($container);
 		$this->TasksService = new TasksService();
-		$this->UserfieldsService = new UserfieldsService();
 	}
 
 	protected $TasksService;
-	protected $UserfieldsService;
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
@@ -29,7 +25,7 @@ class TasksController extends BaseController
 			$tasks = $this->TasksService->GetCurrent();
 		}
 
-		$usersService = new UsersService();
+		$usersService = $this->getUsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['tasks_due_soon_days'];
 
 		return $this->renderPage($response, 'tasks', [
@@ -37,8 +33,8 @@ class TasksController extends BaseController
 			'nextXDays' => $nextXDays,
 			'taskCategories' => $this->getDatabase()->task_categories()->orderBy('name'),
 			'users' => $this->getDatabase()->users(),
-			'userfields' => $this->UserfieldsService->GetFields('tasks'),
-			'userfieldValues' => $this->UserfieldsService->GetAllValues('tasks')
+			'userfields' => $this->getUserfieldsService()->GetFields('tasks'),
+			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('tasks')
 		]);
 	}
 
@@ -50,7 +46,7 @@ class TasksController extends BaseController
 				'mode' => 'create',
 				'taskCategories' => $this->getDatabase()->task_categories()->orderBy('name'),
 				'users' => $this->getDatabase()->users()->orderBy('username'),
-				'userfields' => $this->UserfieldsService->GetFields('tasks')
+				'userfields' => $this->getUserfieldsService()->GetFields('tasks')
 			]);
 		}
 		else
@@ -60,7 +56,7 @@ class TasksController extends BaseController
 				'mode' => 'edit',
 				'taskCategories' => $this->getDatabase()->task_categories()->orderBy('name'),
 				'users' => $this->getDatabase()->users()->orderBy('username'),
-				'userfields' => $this->UserfieldsService->GetFields('tasks')
+				'userfields' => $this->getUserfieldsService()->GetFields('tasks')
 			]);
 		}
 	}
@@ -69,8 +65,8 @@ class TasksController extends BaseController
 	{
 		return $this->renderPage($response, 'taskcategories', [
 			'taskCategories' => $this->getDatabase()->task_categories()->orderBy('name'),
-			'userfields' => $this->UserfieldsService->GetFields('task_categories'),
-			'userfieldValues' => $this->UserfieldsService->GetAllValues('task_categories')
+			'userfields' => $this->getUserfieldsService()->GetFields('task_categories'),
+			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('task_categories')
 		]);
 	}
 
@@ -80,7 +76,7 @@ class TasksController extends BaseController
 		{
 			return $this->renderPage($response, 'taskcategoryform', [
 				'mode' => 'create',
-				'userfields' => $this->UserfieldsService->GetFields('task_categories')
+				'userfields' => $this->getUserfieldsService()->GetFields('task_categories')
 			]);
 		}
 		else
@@ -88,7 +84,7 @@ class TasksController extends BaseController
 			return $this->renderPage($response, 'taskcategoryform', [
 				'category' =>  $this->getDatabase()->task_categories($args['categoryId']),
 				'mode' => 'edit',
-				'userfields' => $this->UserfieldsService->GetFields('task_categories')
+				'userfields' => $this->getUserfieldsService()->GetFields('task_categories')
 			]);
 		}
 	}

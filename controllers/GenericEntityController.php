@@ -2,23 +2,18 @@
 
 namespace Grocy\Controllers;
 
-use \Grocy\Services\UserfieldsService;
-
 class GenericEntityController extends BaseController
 {
 	public function __construct(\Slim\Container $container)
 	{
 		parent::__construct($container);
-		$this->UserfieldsService = new UserfieldsService();
 	}
-
-	protected $UserfieldsService;
 
 	public function UserfieldsList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->renderPage($response, 'userfields', [
-			'userfields' => $this->UserfieldsService->GetAllFields(),
-			'entities' => $this->UserfieldsService->GetEntities()
+			'userfields' => $this->getUserfieldsService()->GetAllFields(),
+			'entities' => $this->getUserfieldsService()->GetEntities()
 		]);
 	}
 
@@ -36,8 +31,8 @@ class GenericEntityController extends BaseController
 		return $this->renderPage($response, 'userobjects', [
 			'userentity' => $userentity,
 			'userobjects' => $this->getDatabase()->userobjects()->where('userentity_id = :1', $userentity->id),
-			'userfields' => $this->UserfieldsService->GetFields('userentity-' . $args['userentityName']),
-			'userfieldValues' => $this->UserfieldsService->GetAllValues('userentity-' . $args['userentityName'])
+			'userfields' => $this->getUserfieldsService()->GetFields('userentity-' . $args['userentityName']),
+			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('userentity-' . $args['userentityName'])
 		]);
 	}
 
@@ -47,17 +42,17 @@ class GenericEntityController extends BaseController
 		{
 			return $this->renderPage($response, 'userfieldform', [
 				'mode' => 'create',
-				'userfieldTypes' => $this->UserfieldsService->GetFieldTypes(),
-				'entities' => $this->UserfieldsService->GetEntities()
+				'userfieldTypes' => $this->getUserfieldsService()->GetFieldTypes(),
+				'entities' => $this->getUserfieldsService()->GetEntities()
 			]);
 		}
 		else
 		{
 			return $this->renderPage($response, 'userfieldform', [
 				'mode' => 'edit',
-				'userfield' =>  $this->UserfieldsService->GetField($args['userfieldId']),
-				'userfieldTypes' => $this->UserfieldsService->GetFieldTypes(),
-				'entities' => $this->UserfieldsService->GetEntities()
+				'userfield' =>  $this->getUserfieldsService()->GetField($args['userfieldId']),
+				'userfieldTypes' => $this->getUserfieldsService()->GetFieldTypes(),
+				'entities' => $this->getUserfieldsService()->GetEntities()
 			]);
 		}
 	}
@@ -88,7 +83,7 @@ class GenericEntityController extends BaseController
 			return $this->renderPage($response, 'userobjectform', [
 				'userentity' => $userentity,
 				'mode' => 'create',
-				'userfields' => $this->UserfieldsService->GetFields('userentity-' . $args['userentityName'])
+				'userfields' => $this->getUserfieldsService()->GetFields('userentity-' . $args['userentityName'])
 			]);
 		}
 		else
@@ -97,7 +92,7 @@ class GenericEntityController extends BaseController
 				'userentity' => $userentity,
 				'mode' => 'edit',
 				'userobject' =>  $this->getDatabase()->userobjects($args['userobjectId']),
-				'userfields' => $this->UserfieldsService->GetFields('userentity-' . $args['userentityName'])
+				'userfields' => $this->getUserfieldsService()->GetFields('userentity-' . $args['userentityName'])
 			]);
 		}
 	}

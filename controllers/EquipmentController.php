@@ -2,14 +2,11 @@
 
 namespace Grocy\Controllers;
 
-use \Grocy\Services\UserfieldsService;
-
 class EquipmentController extends BaseController
 {
 	public function __construct(\Slim\Container $container)
 	{
 		parent::__construct($container);
-		$this->UserfieldsService = new UserfieldsService();
 	}
 
 	protected $UserfieldsService;
@@ -18,8 +15,8 @@ class EquipmentController extends BaseController
 	{
 		return $this->renderPage($response, 'equipment', [
 			'equipment' => $this->getDatabase()->equipment()->orderBy('name'),
-			'userfields' => $this->UserfieldsService->GetFields('equipment'),
-			'userfieldValues' => $this->UserfieldsService->GetAllValues('equipment')
+			'userfields' => $this->getUserfieldsService()->GetFields('equipment'),
+			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('equipment')
 		]);
 	}
 
@@ -29,7 +26,7 @@ class EquipmentController extends BaseController
 		{
 			return $this->renderPage($response, 'equipmentform', [
 				'mode' => 'create',
-				'userfields' => $this->UserfieldsService->GetFields('equipment')
+				'userfields' => $this->getUserfieldsService()->GetFields('equipment')
 			]);
 		}
 		else
@@ -37,7 +34,7 @@ class EquipmentController extends BaseController
 			return $this->renderPage($response, 'equipmentform', [
 				'equipment' =>  $this->getDatabase()->equipment($args['equipmentId']),
 				'mode' => 'edit',
-				'userfields' => $this->UserfieldsService->GetFields('equipment')
+				'userfields' => $this->getUserfieldsService()->GetFields('equipment')
 			]);
 		}
 	}
