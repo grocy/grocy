@@ -27,16 +27,16 @@ class SessionService extends BaseService
 		}
 		else
 		{
-			$sessionRow = $this->Database->sessions()->where('session_key = :1 AND expires > :2', $sessionKey, date('Y-m-d H:i:s', time()))->fetch();
+			$sessionRow = $this->getDatabase()->sessions()->where('session_key = :1 AND expires > :2', $sessionKey, date('Y-m-d H:i:s', time()))->fetch();
 			if ($sessionRow !== null)
 			{
 				// This should not change the database file modification time as this is used
 				// to determine if REALLY something has changed
-				$dbModTime = $this->DatabaseService->GetDbChangedTime();
+				$dbModTime = $this->getDatabaseService()->GetDbChangedTime();
 				$sessionRow->update(array(
 					'last_used' => date('Y-m-d H:i:s', time())
 				));
-				$this->DatabaseService->SetDbChangedTime($dbModTime);
+				$this->getDatabaseService()->SetDbChangedTime($dbModTime);
 
 				return true;
 			}
@@ -60,7 +60,7 @@ class SessionService extends BaseService
 			$expires = date('Y-m-d H:i:s', PHP_INT_SIZE == 4 ? PHP_INT_MAX : PHP_INT_MAX>>32); // Never
 		}
 
-		$sessionRow = $this->Database->sessions()->createRow(array(
+		$sessionRow = $this->getDatabase()->sessions()->createRow(array(
 			'user_id' => $userId,
 			'session_key' => $newSessionKey,
 			'expires' => $expires
@@ -72,22 +72,22 @@ class SessionService extends BaseService
 
 	public function RemoveSession($sessionKey)
 	{
-		$this->Database->sessions()->where('session_key', $sessionKey)->delete();
+		$this->getDatabase()->sessions()->where('session_key', $sessionKey)->delete();
 	}
 
 	public function GetUserBySessionKey($sessionKey)
 	{
-		$sessionRow = $this->Database->sessions()->where('session_key', $sessionKey)->fetch();
+		$sessionRow = $this->getDatabase()->sessions()->where('session_key', $sessionKey)->fetch();
 		if ($sessionRow !== null)
 		{
-			return $this->Database->users($sessionRow->user_id);
+			return $this->getDatabase()->users($sessionRow->user_id);
 		}
 		return null;
 	}
 
 	public function GetDefaultUser()
 	{
-		return $this->Database->users(1);
+		return $this->getDatabase()->users(1);
 	}
 
 	private function GenerateSessionKey()

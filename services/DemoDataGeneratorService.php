@@ -9,14 +9,14 @@ class DemoDataGeneratorService extends BaseService
 	public function __construct()
 	{
 		parent::__construct();
-		$this->LocalizationService = new LocalizationService(GROCY_CULTURE);
+		$this->getLocalizationService() = new LocalizationService(GROCY_CULTURE);
 	}
 
 	protected $LocalizationService;
 
 	public function PopulateDemoData()
 	{
-		$rowCount = $this->DatabaseService->ExecuteDbQuery('SELECT COUNT(*) FROM migrations WHERE migration = -1')->fetchColumn();
+		$rowCount = $this->getDatabaseService()->ExecuteDbQuery('SELECT COUNT(*) FROM migrations WHERE migration = -1')->fetchColumn();
 		if (intval($rowCount) === 0)
 		{
 			$loremIpsum = 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.';
@@ -181,7 +181,7 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO migrations (migration) VALUES (-1);
 			";
 
-			$this->DatabaseService->ExecuteDbStatement($sql);
+			$this->getDatabaseService()->ExecuteDbStatement($sql);
 
 			$stockService = new StockService();
 			$stockService->AddProduct(3, 1, date('Y-m-d', strtotime('+180 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-10 days')), $this->RandomPrice());
@@ -317,13 +317,13 @@ class DemoDataGeneratorService extends BaseService
 
 	private function __t_sql(string $text)
 	{
-		$localizedText = $this->LocalizationService->__t($text, null);
+		$localizedText = $this->getLocalizationService()->__t($text, null);
 		return str_replace("'", "''", $localizedText);
 	}
 
 	private function __n_sql($number, string $singularForm, string $pluralForm)
 	{
-		$localizedText = $this->LocalizationService->__n($number, $singularForm, $pluralForm);
+		$localizedText = $this->getLocalizationService()->__n($number, $singularForm, $pluralForm);
 		return str_replace("'", "''", $localizedText);
 	}
 

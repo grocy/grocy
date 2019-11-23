@@ -8,14 +8,20 @@ use \Grocy\Services\LocalizationService;
 class BaseService
 {
 	public function __construct() {
-		$this->DatabaseService = DatabaseService::getInstance();
-		$this->Database = $this->DatabaseService->GetDbConnection();
-
-		$localizationService = LocalizationService::getInstance(GROCY_CULTURE);
-		$this->LocalizationService = $localizationService;
 	}
 
-	protected $DatabaseService;
-	protected $Database;
-	protected $LocalizationService;
+    protected function getDatabaseService()
+	{
+		return DatabaseService::getInstance();
+	}
+
+	protected function getdatabase()
+	{
+		return $this->DatabaseService->GetDbConnection();
+	}
+
+	protected  function getLocalizationService()
+	{
+		return LocalizationService::getInstance(GROCY_CULTURE);
+	}
 }

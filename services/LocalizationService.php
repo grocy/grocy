@@ -15,11 +15,20 @@ class LocalizationService
 	public function __construct(string $culture)
 	{
 		$this->Culture = $culture;
-		$this->DatabaseService = DatabaseService::getInstance();
-		$this->Database = $this->DatabaseService->GetDbConnection();
 
 		$this->LoadLocalizations($culture);
 	}
+
+
+	protected function getDatabaseService()
+    {
+        return DatabaseService::getInstance();
+    }
+
+    protected function getdatabase()
+    {
+        return $this->getDatabaseService()->GetDbConnection();
+    }
 
     public static function getInstance(string $culture)
 	{
@@ -27,17 +36,10 @@ class LocalizationService
 		{
 			self::$instanceMap[$culture] = new self($culture);
 		}
-        #if (!apcu_exists("grocy_LocalizationService_".$culture))
-		#{
-		#	apcu_store("grocy_LocalizationService_".$culture, new self($culture));
-		#}
-		#return apcu_fetch("grocy_LocalizationService_".$culture);
 
 		return self::$instanceMap[$culture];
 	}
 
-	protected $DatabaseService;
-	protected $Database;
 	protected $Pot;
 	protected $PotMain;
 	protected $Po;
@@ -85,7 +87,7 @@ class LocalizationService
 			$quantityUnits = null;
 			try
 			{
-				$quantityUnits = $this->Database->quantity_units()->fetchAll();
+				$quantityUnits = $this->getDatabase()->quantity_units()->fetchAll();
 			}
 			catch (\Exception $ex)
 			{
