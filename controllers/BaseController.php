@@ -6,6 +6,7 @@ use \Grocy\Services\DatabaseService;
 use \Grocy\Services\ApplicationService;
 use \Grocy\Services\LocalizationService;
 use \Grocy\Services\UsersService;
+use \Grocy\Services\UserfieldsService;
 
 class BaseController
 {
