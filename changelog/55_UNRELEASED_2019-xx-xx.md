@@ -7,4 +7,4 @@
 - For integration: If a `GET` parameter `closeAfterCreation` is passed to the product edit page, the window will be closed on save (due to Browser restrictions, this only works when the window was opened from JavaScript) (thanks @Forceu)
 - The `update.sh` file had wrong line endings (DOS instead of Unix)
 - New translations: (thanks all the translators)
-  - Portuguese (demo available at https://pt.demo.grocy.info)
+  - Portuguese (Brazil) (demo available at https://pt-br.demo.grocy.info)
