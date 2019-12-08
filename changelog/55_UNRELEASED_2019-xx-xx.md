@@ -1,6 +1,9 @@
 ### Calendar improvements
 - Improved that meal plan events in the iCal calendar export now contain a link to the appropriate meal plan week in the body of the event (thanks @kriddles)
 
+### API fixes
+- Fixed that the route `/stock/barcodes/external-lookup/{barcode}` did not work, because the `barcode` argument was expected as a route argument but the route was missing it (thanks @Mikhail5555 and @beetle442002)
+
 ### General & other improvements/fixes
 - Fixed that the meal plan menu entry (sidebar) was not visible when the calendar was disabled (`FEATURE_FLAG_CALENDAR`) (thanks @lwis)
 - Slightly optimized table loading & search performance (thanks @lwis)
