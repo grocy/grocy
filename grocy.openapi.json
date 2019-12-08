@@ -2119,7 +2119,7 @@
 				}
 			}
 		},
-		"/stock/barcodes/external-lookup": {
+		"/stock/barcodes/external-lookup/{barcode}": {
 			"get": {
 				"summary": "Executes an external barcode lookoup via the configured plugin with the given barcode",
 				"tags": [
@@ -2127,7 +2127,7 @@
 				],
 				"parameters": [
 					{
-						"in": "query",
+						"in": "path",
 						"name": "barcode",
 						"required": true,
 						"description": "The barcode to lookup up",
