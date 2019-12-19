@@ -1598,9 +1598,6 @@ msgstr ""
 msgid "Consume all %s for this stock entry"
 msgstr ""
 
-msgid "Stock edit"
-msgstr ""
-
 msgid "The amount cannot be lower than %1$s"
 msgstr ""
 
