@@ -285,6 +285,19 @@ if (GetUriParam("flow") === "shoppinglistitemtostock")
 	$('#amount').val(GetUriParam("amount"));
 }
 
+Grocy.Components.LocationPicker.GetPicker().on('change', function(e)
+{
+	if ($('option:selected', this).data('freezer') == 1)
+	{
+		$("#datetimepicker-shortcut").click();
+	} else {
+		if ($("#datetimepicker-shortcut").is(":checked"))
+		{
+			$("#datetimepicker-shortcut").click();
+			Grocy.Components.ProductPicker.GetPicker().trigger('change');
+		}
+	}
+});
 function UndoStockBooking(bookingId)
 {
 	Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', { },
