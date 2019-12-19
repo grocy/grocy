@@ -15,6 +15,12 @@ msgstr ""
 msgid "purchase"
 msgstr ""
 
+msgid "transfer_from"
+msgstr ""
+
+msgid "transfer_to"
+msgstr ""
+
 msgid "consume"
 msgstr ""
 
@@ -22,4 +28,10 @@ msgid "inventory-correction"
 msgstr ""
 
 msgid "product-opened"
+msgstr ""
+
+msgid "stock-edit-old"
+msgstr ""
+
+msgid "stock-edit-new"
 msgstr ""

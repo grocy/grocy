@@ -6,7 +6,11 @@ class StockService extends BaseService
 {
 	const TRANSACTION_TYPE_PURCHASE = 'purchase';
 	const TRANSACTION_TYPE_CONSUME = 'consume';
+	const TRANSACTION_TYPE_TRANSFER_FROM = 'transfer_from';
+	const TRANSACTION_TYPE_TRANSFER_TO = 'transfer_to';
 	const TRANSACTION_TYPE_INVENTORY_CORRECTION = 'inventory-correction';
+	const TRANSACTION_TYPE_STOCK_EDIT_NEW = 'stock-edit-new';
+	const TRANSACTION_TYPE_STOCK_EDIT_OLD = 'stock-edit-old';
 	const TRANSACTION_TYPE_PRODUCT_OPENED = 'product-opened';
 
 	public function GetCurrentStock($includeNotInStockButMissingProducts = false)
@@ -53,6 +57,11 @@ class StockService extends BaseService
 		}
 
 		return $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
+	}
+
+	public function GetProductStockLocations($productId)
+	{
+		return $this->Database->stock_current_locations()->where('product_id', $productId)->fetchAll();
 	}
 
 	public function GetProductIdFromBarcode(string $barcode)
@@ -176,7 +185,13 @@ class StockService extends BaseService
 		}
 	}
 
-	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId = null)
+	public function GetProductStockEntriesForLocation($productId, $locationId, $excludeOpened = false)
+	{
+		$stockEntries = $this->GetProductStockEntries($productId, $excludeOpened);
+		return FindAllObjectsInArrayByPropertyValue($stockEntries, 'location_id', $locationId);
+	}
+
+	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId = null, &$transactionId = null)
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -216,6 +231,11 @@ class StockService extends BaseService
 
 		if ($transactionType === self::TRANSACTION_TYPE_PURCHASE || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
 		{
+			if ($transactionId === null)
+			{
+				$transactionId = uniqid();
+			}
+			
 			$stockId = uniqid();
 
 			$logRow = $this->Database->stock_log()->createRow(array(
@@ -226,7 +246,8 @@ class StockService extends BaseService
 				'stock_id' => $stockId,
 				'transaction_type' => $transactionType,
 				'price' => $price,
-				'location_id' => $locationId
+				'location_id' => $locationId,
+				'transaction_id' => $transactionId
 			));
 			$logRow->save();
 
@@ -251,11 +272,16 @@ class StockService extends BaseService
 		}
 	}
 
-	public function ConsumeProduct(int $productId, float $amount, bool $spoiled, $transactionType, $specificStockEntryId = 'default', $recipeId = null)
+	public function ConsumeProduct(int $productId, float $amount, bool $spoiled, $transactionType, $specificStockEntryId = 'default', $recipeId = null, $locationId = null, &$transactionId = null)
 	{
 		if (!$this->ProductExists($productId))
 		{
 			throw new \Exception('Product does not exist');
+		}
+
+		if ($locationId !== null & !$this->LocationExists($locationId))
+		{
+			throw new \Exception('Location does not exist');
 		}
 
 		// Tare weight handling
@@ -274,17 +300,30 @@ class StockService extends BaseService
 
 		if ($transactionType === self::TRANSACTION_TYPE_CONSUME || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
 		{
-			$productStockAmount = $this->Database->stock()->where('product_id', $productId)->sum('amount');
-			$potentialStockEntries = $this->GetProductStockEntries($productId);
+			if ($locationId === null) // Consume from any location
+			{
+				$productStockAmount = $this->Database->stock()->where('product_id', $productId)->sum('amount');
+				$potentialStockEntries = $this->GetProductStockEntries($productId);
+			}
+			else // Consume only from the supplied location
+			{
+				$productStockAmount = $this->Database->stock()->where('product_id = :1 AND location_id = :2', $productId, $locationId)->sum('amount');
+				$potentialStockEntries = $this->GetProductStockEntriesForLocation($productId, $locationId);
+			}
 
 			if ($amount > $productStockAmount)
 			{
-				throw new \Exception('Amount to be consumed cannot be > current stock amount');
+				throw new \Exception('Amount to be consumed cannot be > current stock amount (if supplied, at the desired location)');
 			}
 
 			if ($specificStockEntryId !== 'default')
 			{
 				$potentialStockEntries = FindAllObjectsInArrayByPropertyValue($potentialStockEntries, 'stock_id', $specificStockEntryId);
+			}
+
+			if ($transactionId === null)
+			{
+				$transactionId = uniqid();
 			}
 
 			foreach ($potentialStockEntries as $stockEntry)
@@ -307,7 +346,8 @@ class StockService extends BaseService
 						'transaction_type' => $transactionType,
 						'price' => $stockEntry->price,
 						'opened_date' => $stockEntry->opened_date,
-						'recipe_id' => $recipeId
+						'recipe_id' => $recipeId,
+						'transaction_id' => $transactionId
 					));
 					$logRow->save();
 
@@ -330,7 +370,8 @@ class StockService extends BaseService
 						'transaction_type' => $transactionType,
 						'price' => $stockEntry->price,
 						'opened_date' => $stockEntry->opened_date,
-						'recipe_id' => $recipeId
+						'recipe_id' => $recipeId,
+						'transaction_id' => $transactionId
 					));
 					$logRow->save();
 
@@ -350,6 +391,219 @@ class StockService extends BaseService
 		}
 	}
 
+	public function TransferProduct(int $productId, float $amount, int $locationIdFrom, int $locationIdTo, $specificStockEntryId = 'default', &$transactionId = null)
+	{
+		if (!$this->ProductExists($productId))
+		{
+			throw new \Exception('Product does not exist');
+		}
+
+		if (!$this->LocationExists($locationIdFrom))
+		{
+			throw new \Exception('Source location does not exist');
+		}
+
+		if (!$this->LocationExists($locationIdTo))
+		{
+			throw new \Exception('Destination location does not exist');
+		}
+
+		// Tare weight handling
+		// The given amount is the new total amount including the container weight (gross)
+		// The amount to be posted needs to be the absolute value of the given amount - stock amount - tare weight
+		$productDetails = (object)$this->GetProductDetails($productId);
+		if ($productDetails->product->enable_tare_weight_handling == 1)
+		{
+			// Hard fail for now, as we not yet support transfering tare weight enabled products
+			throw new \Exception('Transfering tare weight enabled products is not yet possible');
+
+			if ($amount < floatval($productDetails->product->tare_weight))
+			{
+				throw new \Exception('The amount cannot be lower than the defined tare weight');
+			}
+			
+			$amount = abs($amount - floatval($productDetails->stock_amount) - floatval($productDetails->product->tare_weight));
+		}
+
+		$productStockAmountAtFromLocation = $this->Database->stock()->where('product_id = :1 AND location_id = :2', $productId, $locationIdFrom)->sum('amount');
+		$potentialStockEntriesAtFromLocation = $this->GetProductStockEntriesForLocation($productId, $locationIdFrom);
+
+		if ($amount > $productStockAmountAtFromLocation)
+		{
+			throw new \Exception('Amount to be transfered cannot be > current stock amount at the source location');
+		}
+
+		if ($specificStockEntryId !== 'default')
+		{
+			$potentialStockEntriesAtFromLocation = FindAllObjectsInArrayByPropertyValue($potentialStockEntriesAtFromLocation, 'stock_id', $specificStockEntryId);
+		}
+
+		if ($transactionId === null)
+		{
+			$transactionId = uniqid();
+		}
+
+		foreach ($potentialStockEntriesAtFromLocation as $stockEntry)
+		{
+			if ($amount == 0)
+			{
+				break;
+			}
+
+			$correlationId = uniqid();
+			if ($amount >= $stockEntry->amount) // Take the whole stock entry
+			{
+				$logRowForLocationFrom = $this->Database->stock_log()->createRow(array(
+					'product_id' => $stockEntry->product_id,
+					'amount' => $stockEntry->amount * -1,
+					'best_before_date' => $stockEntry->best_before_date,
+					'purchased_date' => $stockEntry->purchased_date,
+					'stock_id' => $stockEntry->stock_id,
+					'transaction_type' => self::TRANSACTION_TYPE_TRANSFER_FROM,
+					'price' => $stockEntry->price,
+					'opened_date' => $stockEntry->opened_date,
+					'location_id' => $stockEntry->location_id,
+					'correlation_id' => $correlationId,
+					'transaction_Id' => $transactionId
+				));
+				$logRowForLocationFrom->save();
+
+				$logRowForLocationTo = $this->Database->stock_log()->createRow(array(
+					'product_id' => $stockEntry->product_id,
+					'amount' => $stockEntry->amount,
+					'best_before_date' => $stockEntry->best_before_date,
+					'purchased_date' => $stockEntry->purchased_date,
+					'stock_id' => $stockEntry->stock_id,
+					'transaction_type' => self::TRANSACTION_TYPE_TRANSFER_TO,
+					'price' => $stockEntry->price,
+					'opened_date' => $stockEntry->opened_date,
+					'location_id' => $locationIdTo,
+					'correlation_id' => $correlationId,
+					'transaction_Id' => $transactionId
+				));
+				$logRowForLocationTo->save();
+
+				$stockEntry->update(array(
+					'location_id' => $locationIdTo
+				));
+
+				$amount -= $stockEntry->amount;
+			}
+			else // Stock entry amount is > than needed amount -> split the stock entry resp. update the amount
+			{
+				$restStockAmount = $stockEntry->amount - $amount;
+
+				$logRowForLocationFrom = $this->Database->stock_log()->createRow(array(
+					'product_id' => $stockEntry->product_id,
+					'amount' => $amount * -1,
+					'best_before_date' => $stockEntry->best_before_date,
+					'purchased_date' => $stockEntry->purchased_date,
+					'stock_id' => $stockEntry->stock_id,
+					'transaction_type' => self::TRANSACTION_TYPE_TRANSFER_FROM,
+					'price' => $stockEntry->price,
+					'opened_date' => $stockEntry->opened_date,
+					'location_id' => $stockEntry->location_id,
+					'correlation_id' => $correlationId,
+					'transaction_Id' => $transactionId
+				));
+				$logRowForLocationFrom->save();
+
+				$logRowForLocationTo = $this->Database->stock_log()->createRow(array(
+					'product_id' => $stockEntry->product_id,
+					'amount' => $amount,
+					'best_before_date' => $stockEntry->best_before_date,
+					'purchased_date' => $stockEntry->purchased_date,
+					'stock_id' => $stockEntry->stock_id,
+					'transaction_type' => self::TRANSACTION_TYPE_TRANSFER_TO,
+					'price' => $stockEntry->price,
+					'opened_date' => $stockEntry->opened_date,
+					'location_id' => $locationIdTo,
+					'correlation_id' => $correlationId,
+					'transaction_Id' => $transactionId
+				));
+				$logRowForLocationTo->save();
+
+				// This is the existing stock entry -> remains at the source location with the rest amount
+				$stockEntry->update(array(
+					'amount' => $restStockAmount
+				));
+
+				// The transfered amount gets into a new stock entry
+				$stockEntryNew = $this->Database->stock()->createRow(array(
+					'product_id' => $stockEntry->product_id,
+					'amount' => $amount,
+					'best_before_date' => $stockEntry->best_before_date,
+					'purchased_date' => $stockEntry->purchased_date,
+					'stock_id' => $stockEntry->stock_id,
+					'price' => $stockEntry->price,
+					'location_id' => $locationIdTo,
+					'open' => $stockEntry->open,
+					'opened_date' => $stockEntry->opened_date
+				));
+				$stockEntryNew->save();
+
+				$amount = 0;
+			}
+		}
+
+		return $this->Database->lastInsertId();
+	}
+
+	public function EditStock(int $stockRowId, int $amount, $bestBeforeDate, $locationId, $price)
+	{
+
+		$stockRow = $this->Database->stock()->where('id = :1', $stockRowId)->fetch();
+
+		if ($stockRow === null)
+		{
+			throw new \Exception('Stock does not exist');
+		}
+
+                $correlationId = uniqid();
+                $transactionId = uniqid();
+		$logOldRowForStockUpdate = $this->Database->stock_log()->createRow(array(
+			'product_id' => $stockRow->product_id,
+			'amount' => $stockRow->amount,
+			'best_before_date' => $stockRow->best_before_date,
+			'purchased_date' => $stockRow->purchased_date,
+			'stock_id' => $stockRow->stock_id,
+			'transaction_type' => self::TRANSACTION_TYPE_STOCK_EDIT_OLD,
+			'price' => $stockRow->price,
+			'opened_date' => $stockRow->opened_date,
+			'location_id' => $stockRow->location_id,
+			'correlation_id' => $correlationId,
+			'transaction_id' => $transactionId,
+			'stock_row_id' => $stockRow->id
+		));
+		$logOldRowForStockUpdate->save();
+
+		$stockRow->update(array(
+			'amount' => $amount,
+			'price' => $price,
+			'best_before_date' => $bestBeforeDate,
+			'location_id' => $locationId
+		));
+
+		$logNewRowForStockUpdate = $this->Database->stock_log()->createRow(array(
+			'product_id' => $stockRow->product_id,
+			'amount' => $amount,
+			'best_before_date' => $bestBeforeDate,
+			'purchased_date' => $stockRow->purchased_date,
+			'stock_id' => $stockRow->stock_id,
+			'transaction_type' => self::TRANSACTION_TYPE_STOCK_EDIT_NEW,
+			'price' => $price,
+			'opened_date' => $stockRow->opened_date,
+			'location_id' => $locationId,
+			'correlation_id' => $correlationId,
+			'transaction_id' => $transactionId,
+			'stock_row_id' => $stockRow->id
+		));
+		$logNewRowForStockUpdate->save();
+
+		$returnValue = $this->Database->lastInsertId();
+
+		return $returnValue;
+	}
 	public function InventoryProduct(int $productId, int $newAmount, $bestBeforeDate, $locationId = null, $price = null)
 	{
 		if (!$this->ProductExists($productId))
@@ -608,6 +862,12 @@ class StockService extends BaseService
 		return $productRow !== null;
 	}
 
+	private function LocationExists($locationId)
+	{
+		$locationRow = $this->Database->locations()->where('id = :1', $locationId)->fetch();
+		return $locationRow !== null;
+	}
+
 	private function ShoppingListExists($listId)
 	{
 		$shoppingListRow = $this->Database->shopping_lists()->where('id = :1', $listId)->fetch();
@@ -654,7 +914,7 @@ class StockService extends BaseService
 		return $pluginOutput;
 	}
 
-	public function UndoBooking($bookingId)
+	public function UndoBooking($bookingId, $skipCorrelatedBookings = false)
 	{
 		$logRow = $this->Database->stock_log()->where('id = :1 AND undone = 0', $bookingId)->fetch();
 		if ($logRow == null)
@@ -662,7 +922,18 @@ class StockService extends BaseService
 			throw new \Exception('Booking does not exist or was already undone');
 		}
 
-		$hasSubsequentBookings = $this->Database->stock_log()->where('stock_id = :1 AND id != :2 AND id > :2', $logRow->stock_id, $logRow->id)->count() > 0;
+		// Undo all correlated bookings first, in order from newest first to the oldest
+		if (!$skipCorrelatedBookings && !empty($logRow->correlation_id))
+		{
+			$correlatedBookings = $this->Database->stock_log()->where('undone = 0 AND correlation_id = :1', $logRow->correlation_id)->orderBy('id', 'DESC')->fetchAll();
+			foreach ($correlatedBookings as $correlatedBooking)
+			{
+				$this->UndoBooking($correlatedBooking->id, true);
+			}
+			return;
+		}
+
+		$hasSubsequentBookings = $this->Database->stock_log()->where('stock_id = :1 AND id != :2 AND (correlation_id is not null OR correlation_id != :3) AND id > :2 AND undone = 0', $logRow->stock_id, $logRow->id, $logRow->correlation_id)->count() > 0;
 		if ($hasSubsequentBookings)
 		{
 			throw new \Exception('Booking has subsequent dependent bookings, undo not possible');
@@ -700,6 +971,60 @@ class StockService extends BaseService
 				'undone_timestamp' => date('Y-m-d H:i:s')
 			));
 		}
+		elseif ($logRow->transaction_type === self::TRANSACTION_TYPE_TRANSFER_TO)
+		{
+			$stockRow = $this->Database->stock()->where('stock_id = :1 AND location_id = :2', $logRow->stock_id, $logRow->location_id)->fetch();
+			if ($stockRow === null)
+			{
+				throw new \Exception('Booking does not exist or was already undone');
+			}
+			$newAmount = $stockRow->amount - $logRow->amount;
+
+			if ($newAmount == 0)
+			{
+				$stockRow->delete();
+			} else {
+			// Remove corresponding amount back to stock
+				$stockRow->update(array(
+					'amount' => $newAmount
+				));
+			}
+
+			// Update log entry
+			$logRow->update(array(
+				'undone' => 1,
+				'undone_timestamp' => date('Y-m-d H:i:s')
+			));
+		}
+		elseif ($logRow->transaction_type === self::TRANSACTION_TYPE_TRANSFER_FROM)
+		{
+			// Add corresponding amount back to stock or
+			// create a row if missing
+			$stockRow = $this->Database->stock()->where('stock_id = :1 AND location_id = :2', $logRow->stock_id, $logRow->location_id)->fetch();
+			if ($stockRow === null)
+			{
+				$stockRow = $this->Database->stock()->createRow(array(
+					'product_id' => $logRow->product_id,
+					'amount' => $logRow->amount * -1,
+					'best_before_date' => $logRow->best_before_date,
+					'purchased_date' => $logRow->purchased_date,
+					'stock_id' => $logRow->stock_id,
+					'price' => $logRow->price,
+					'opened_date' => $logRow->opened_date
+				));
+				$stockRow->save();
+			} else {
+				$stockRow->update(array(
+					'amount' => $stockRow->amount -	$logRow->amount
+				));
+			}
+
+			// Update log entry
+			$logRow->update(array(
+				'undone' => 1,
+				'undone_timestamp' => date('Y-m-d H:i:s')
+			));
+		}
 		elseif ($logRow->transaction_type === self::TRANSACTION_TYPE_PRODUCT_OPENED)
 		{
 			// Remove opened flag from corresponding log entry
@@ -715,9 +1040,55 @@ class StockService extends BaseService
 				'undone_timestamp' => date('Y-m-d H:i:s')
 			));
 		}
+		elseif ($logRow->transaction_type === self::TRANSACTION_TYPE_STOCK_EDIT_NEW)
+		{
+			// Update log entry, no action needed
+			$logRow->update(array(
+				'undone' => 1,
+				'undone_timestamp' => date('Y-m-d H:i:s')
+			));
+		}
+		elseif ($logRow->transaction_type === self::TRANSACTION_TYPE_STOCK_EDIT_OLD)
+		{
+			// Make sure there is a stock row still
+			$stockRow = $this->Database->stock()->where('id = :1', $logRow->stock_row_id)->fetch();
+			if ($stockRow == null)
+			{
+				throw new \Exception('Booking does not exist or was already undone');
+			}
+
+			$stockRow->update(array(
+				'amount' => $logRow->amount,
+				'best_before_date' => $logRow->best_before_date,
+				'purchased_date' => $logRow->purchased_date,
+				'price' => $logRow->price,
+				'location_id' => $logRow->location_id
+			));
+
+			// Update log entry
+			$logRow->update(array(
+				'undone' => 1,
+				'undone_timestamp' => date('Y-m-d H:i:s')
+			));
+		}
 		else
 		{
 			throw new \Exception('This booking cannot be undone');
+		}
+	}
+
+	public function UndoTransaction($transactionId)
+	{
+		$transactionBookings = $this->Database->stock_log()->where('undone = 0 AND transaction_id = :1', $transactionId)->orderBy('id', 'DESC')->fetchAll();
+
+		if (count($transactionBookings) === 0)
+		{
+			throw new \Exception('This transaction was not found or already undone');
+		}
+
+		foreach ($transactionBookings as $transactionBooking)
+		{
+			$this->UndoBooking($transactionBooking->id, true);
 		}
 	}
 }

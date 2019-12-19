@@ -157,6 +157,14 @@
 						<span class="nav-link-text">{{ $__t('Consume') }}</span>
 					</a>
 				</li>
+                                @if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Transfer') }}" data-nav-for-page="transfer">
+					<a class="nav-link discrete-link" href="{{ $U('/transfer') }}">
+						<i class="fas fa-exchange-alt"></i>
+						<span class="nav-link-text">{{ $__t('Transfer') }}</span>
+					</a>
+				</li>
+				@endif
 				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Inventory') }}" data-nav-for-page="inventory">
 					<a class="nav-link discrete-link" href="{{ $U('/inventory') }}">
 						<i class="fas fa-list"></i>

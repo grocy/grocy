@@ -1,30 +1,31 @@
 @extends('layout.default')
 
-@section('title', $__t('Inventory'))
-@section('activeNav', 'inventory')
-@section('viewJsName', 'inventory')
+@section('title', $__t('Stock edit'))
+@section('activeNav', 'stockedit')
+@section('viewJsName', 'stockedit')
 
 @section('content')
 <div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
 		<h1>@yield('title')</h1>
 
-		<form id="inventory-form" novalidate>
+		<form id="stockedit-form" novalidate>
 
-			@include('components.productpicker', array(
-				'products' => $products,
-				'nextInputSelector' => '#new_amount'
+			@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
+			@include('components.locationpicker', array(
+				'locations' => $locations
 			))
+			@else
+			<input type="hidden" name="location_id" id="location_id" value="1">
+			@endif
 
 			@include('components.numberpicker', array(
-				'id' => 'new_amount',
-				'label' => 'New amount',
-				'hintId' => 'new_amount_qu_unit',
-				'min' => 0,
-				'value' => 1,
+				'id' => 'amount',
+				'label' => 'Amount',
+				'hintId' => 'amount_qu_unit',
 				'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
 				'additionalAttributes' => 'data-not-equal="-1"',
-				'additionalHtmlElements' => '<div id="inventory-change-info" class="form-text text-muted small d-none"></div>',
+				'additionalHtmlElements' => '<div id="stockedit-change-info" class="form-text text-muted small d-none"></div>',
 				'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info" class="text-small text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
 			))
 			
@@ -38,7 +39,6 @@
 			@include('components.datetimepicker', array(
 				'id' => 'best_before_date',
 				'label' => 'Best before',
-				'hint' => 'This will apply to added products',
 				'format' => 'YYYY-MM-DD',
 				'initWithNow' => false,
 				'limitEndToNow' => false,
@@ -62,7 +62,6 @@
 				'step' => 0.01,
 				'value' => '',
 				'hint' => $__t('in %s per purchase quantity unit', GROCY_CURRENCY),
-				'additionalHtmlContextHelp' => '<br><span class="small text-muted">' . $__t('This will apply to added products') . '</span>',
 				'invalidFeedback' => $__t('The price cannot be lower than %s', '0'),
 				'isRequired' => false
 			))
@@ -70,16 +69,7 @@
 			<input type="hidden" name="price" id="price" value="0">
 			@endif
 
-			@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
-			@include('components.locationpicker', array(
-				'locations' => $locations,
-				'hint' => $__t('This will apply to added products')
-			))
-			@else
-			<input type="hidden" name="location_id" id="location_id" value="1">
-			@endif
-
-			<button id="save-inventory-button" class="btn btn-success">{{ $__t('OK') }}</button>
+			<button id="save-stockedit-button" class="btn btn-success">{{ $__t('OK') }}</button>
 
 		</form>
 	</div>

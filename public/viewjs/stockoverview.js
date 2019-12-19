@@ -84,7 +84,7 @@ $(document).on('click', '.product-consume-button', function(e)
 			Grocy.Api.Get('stock/products/' + productId,
 				function(result)
 				{
-					var toastMessage = __t('Removed %1$s of %2$s from stock', consumeAmount.toString() + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural), result.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + bookingResponse.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
+					var toastMessage = __t('Removed %1$s of %2$s from stock', consumeAmount.toString() + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural), result.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse.transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
 					if (wasSpoiled)
 					{
 						toastMessage += " (" + __t("Spoiled") + ")";
@@ -137,7 +137,7 @@ $(document).on('click', '.product-open-button', function(e)
 					}
 
 					Grocy.FrontendHelpers.EndUiBusy();
-					toastr.success(__t('Marked %1$s of %2$s as opened', 1 + " " + productQuName, productName) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + bookingResponse.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
+					toastr.success(__t('Marked %1$s of %2$s as opened', 1 + " " + productQuName, productName) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse.transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
 					RefreshStatistics();
 					RefreshProductRow(productId);
 				},
@@ -203,6 +203,30 @@ $(document).on("click", ".product-purchase-button", function(e)
 	
 	bootbox.dialog({
 		message: '<iframe height="650px" class="embed-responsive" src="' + U("/purchase?embedded&product=") + productId.toString() + '"></iframe>',
+		size: 'large',
+		backdrop: true,
+		closeButton: false,
+		buttons: {
+			cancel: {
+				label: __t('Cancel'),
+				className: 'btn-secondary responsive-button',
+				callback: function()
+				{
+					bootbox.hideAll();
+				}
+			}
+		}
+	});
+});
+
+$(document).on("click", ".product-transfer-button", function(e)
+{
+	e.preventDefault();
+
+	var productId = $(e.currentTarget).attr("data-product-id");
+
+	bootbox.dialog({
+		message: '<iframe height="650px" class="embed-responsive" src="' + U("/transfer?embedded&product=") + productId.toString() + '"></iframe>',
 		size: 'large',
 		backdrop: true,
 		closeButton: false,

@@ -64,7 +64,7 @@
 					Grocy.Api.Get('stock/products/' + jsonForm.product_id,
 						function(result)
 						{
-							var successMessage = __t('Stock amount of %1$s is now %2$s', result.product.name, result.stock_amount + " " + __n(result.stock_amount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural)) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + bookingResponse.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
+							var successMessage = __t('Stock amount of %1$s is now %2$s', result.product.name, result.stock_amount + " " + __n(result.stock_amount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural)) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse.transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
 							
 							if (GetUriParam("embedded") !== undefined)
 							{
@@ -294,6 +294,20 @@ function UndoStockBooking(bookingId)
 			toastr.success(__t("Booking successfully undone"));
 		},
 		function(xhr)
+		{
+			console.error(xhr);
+		}
+	);
+};
+
+function UndoStockTransaction(transactionId)
+{
+	Grocy.Api.Post('stock/transactions/' + transactionId.toString() + '/undo', { },
+		function (result)
+		{
+			toastr.success(__t("Transaction successfully undone"));
+		},
+		function (xhr)
 		{
 			console.error(xhr);
 		}
