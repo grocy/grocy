@@ -1582,3 +1582,27 @@ msgstr ""
 
 msgid "Transfered %1$s of %2$s from %3$s to %4$s"
 msgstr ""
+
+msgid "Show stock entries"
+msgstr ""
+
+msgid "Stock entry"
+msgstr ""
+
+msgid "Best before date"
+msgstr ""
+
+msgid "Purchased date"
+msgstr ""
+
+msgid "Consume all %s for this stock entry"
+msgstr ""
+
+msgid "Stock edit"
+msgstr ""
+
+msgid "The amount cannot be lower than %1$s"
+msgstr ""
+
+msgid "Stock entry successfully updated"
+msgstr ""

@@ -29,3 +29,9 @@ msgstr ""
 
 msgid "product-opened"
 msgstr ""
+
+msgid "stock-edit-old"
+msgstr ""
+
+msgid "stock-edit-new"
+msgstr ""

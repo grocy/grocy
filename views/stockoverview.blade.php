@@ -156,7 +156,7 @@
 								</a>
 								<a class="dropdown-item" type="button" href="{{ $U('/stockdetail?product=') }}{{ $currentStockEntry->product_id }}"
 									data-product-id="{{ $currentStockEntry->product_id }}">
-									<i class="fas fa-boxes"></i> {{ $__t('Show stock details') }}
+									<i class="fas fa-boxes"></i> {{ $__t('Show stock entries') }}
 								</a>
 								<a class="dropdown-item" type="button" href="{{ $U('/stockjournal?product=') }}{{ $currentStockEntry->product_id }}">
 									<i class="fas fa-file-alt"></i> {{ $__t('Stock journal for this product') }}

@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $__t('Stock Edit'))
+@section('title', $__t('Stock edit'))
 @section('activeNav', 'stockedit')
 @section('viewJsName', 'stockedit')
 

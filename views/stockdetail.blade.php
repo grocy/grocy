@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $__t('Stock detail'))
+@section('title', $__t('Stock entry'))
 @section('activeNav', 'stockdetail')
 @section('viewJsName', 'stockdetail')
 
@@ -39,7 +39,7 @@
 					<th>{{ $__t('Best before date') }}</th>
 					@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)<th>{{ $__t('Location') }}</th>@endif
 					@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)<th>{{ $__t('Price') }}</th>@endif
-					<th>{{ $__t('Purchased Date') }}</th>
+					<th>{{ $__t('Purchased date') }}</th>
 
 					@include('components.userfields_thead', array(
 						'userfields' => $userfields
@@ -60,7 +60,7 @@
 							data-consume-amount="1">
 							<i class="fas fa-utensils"></i> 1
 						</a>
-						<a id="stock-{{ $currentStockEntry->id }}-consume-all-button" class="btn btn-danger btn-sm stock-consume-button @if($currentStockEntry->amount == 0) disabled @endif" href="#" data-toggle="tooltip" data-placement="right" title="{{ $__t('Consume all %s for this stock detail', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name) }}"
+						<a id="stock-{{ $currentStockEntry->id }}-consume-all-button" class="btn btn-danger btn-sm stock-consume-button @if($currentStockEntry->amount == 0) disabled @endif" href="#" data-toggle="tooltip" data-placement="right" title="{{ $__t('Consume all %s for this stock entry', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name) }}"
 							data-product-id="{{ $currentStockEntry->product_id }}"
 							data-stock-id="{{ $currentStockEntry->stock_id }}"
 							data-stockrow-id="{{ $currentStockEntry->id }}"
@@ -114,7 +114,7 @@
 									data-product-id="{{ $currentStockEntry->product_id }}"
 									data-location-id="{{ $currentStockEntry->location_id }}"
 									data-id="{{ $currentStockEntry->id }}">
-									<i class="fas fa-boxes"></i> {{ $__t('Stock Edit') }}
+									<i class="fas fa-boxes"></i> {{ $__t('Stock edit') }}
 								</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item product-name-cell" data-product-id="{{ $currentStockEntry->product_id }}" type="button" href="#">

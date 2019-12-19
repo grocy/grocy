@@ -29,3 +29,9 @@ msgstr "Inventory correction"
 
 msgid "product-opened"
 msgstr "Product opened"
+
+msgid "stock-edit-old"
+msgstr "Stock entry edited (old values)"
+
+msgid "stock-edit-new"
+msgstr "Stock entry edited (new values)"
