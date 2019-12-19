@@ -3368,6 +3368,9 @@
 					"description": {
 						"type": "string"
 					},
+					"freezer": {
+						"type": "integer"
+					},
 					"row_created_timestamp": {
 						"type": "string",
 						"format": "date-time"
@@ -3377,6 +3380,7 @@
 					"id": "2",
 					"name": "0",
 					"description": null,
+					"freezer": "0",
 					"row_created_timestamp": "2019-05-02 20:12:25"
 				}
 			},
@@ -3579,6 +3583,7 @@
 					"location": {
 						"id": "4",
 						"name": "Candy cupboard",
+						"freezer": "0",
 						"description": null,
 						"row_created_timestamp": "2019-05-02 20:12:25"
 					},

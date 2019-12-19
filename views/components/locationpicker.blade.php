@@ -12,7 +12,7 @@
 	<select class="form-control location-combobox" id="location_id" name="location_id" @if($isRequired) required @endif>
 		<option value=""></option>
 		@foreach($locations as $location)
-			<option value="{{ $location->id }}">{{ $location->name }}</option>
+			<option value="{{ $location->id }}" data-freezer="{{ $location->freezer }}">{{ $location->name }}</option>
 		@endforeach
 	</select>
 	<div class="invalid-feedback">{{ $__t('You have to select a location') }}</div>

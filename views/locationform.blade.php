@@ -28,6 +28,14 @@
 			</div>
 
 			<div class="form-group">
+				<div class="form-check">
+					<input type="hidden" name="freezer" value="0">
+					<input @if($mode == 'edit' && $location->freezer == 1) checked @endif class="form-check-input" type="checkbox" id="freezer" name="freezer" value="1">
+					<label class="form-check-label" for="freezer">{{ $__t('Freezer') }}</label>
+				</div>
+			</div>
+
+			<div class="form-group">
 				<label for="description">{{ $__t('Description') }}</label>
 				<textarea class="form-control" rows="2" id="description" name="description">@if($mode == 'edit'){{ $location->description }}@endif</textarea>
 			</div>

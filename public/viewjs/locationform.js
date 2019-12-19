@@ -4,6 +4,7 @@
 
 	var jsonData = $('#location-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("location-form");
+	jsonData.freezer = $('#freezer').is(':checked');
 
 	if (Grocy.EditMode === 'create')
 	{

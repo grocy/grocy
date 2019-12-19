@@ -33,6 +33,7 @@
 				<tr>
 					<th class="border-right"></th>
 					<th>{{ $__t('Name') }}</th>
+					<th>{{ $__t('Freezer') }}</th>
 					<th>{{ $__t('Description') }}</th>
 
 					@include('components.userfields_thead', array(
@@ -54,6 +55,9 @@
 					</td>
 					<td>
 						{{ $location->name }}
+					</td>
+					<td>
+						{{ $location->freezer }}
 					</td>
 					<td>
 						{{ $location->description }}
