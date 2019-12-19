@@ -930,6 +930,7 @@ class StockService extends BaseService
 			{
 				$this->UndoBooking($correlatedBooking->id, true);
 			}
+			return;
 		}
 
 		$hasSubsequentBookings = $this->Database->stock_log()->where('stock_id = :1 AND id != :2 AND (correlation_id is not null OR correlation_id != :3) AND id > :2 AND undone = 0', $logRow->stock_id, $logRow->id, $logRow->correlation_id)->count() > 0;
@@ -963,6 +964,60 @@ class StockService extends BaseService
 				'opened_date' => $logRow->opened_date
 			));
 			$stockRow->save();
+
+			// Update log entry
+			$logRow->update(array(
+				'undone' => 1,
+				'undone_timestamp' => date('Y-m-d H:i:s')
+			));
+		}
+		elseif ($logRow->transaction_type === self::TRANSACTION_TYPE_TRANSFER_TO)
+		{
+			$stockRow = $this->Database->stock()->where('stock_id = :1 AND location_id = :2', $logRow->stock_id, $logRow->location_id)->fetch();
+			if ($stockRow === null)
+			{
+				throw new \Exception('Booking does not exist or was already undone');
+			}
+			$newAmount = $stockRow->amount - $logRow->amount;
+
+			if ($newAmount == 0)
+			{
+				$stockRow->delete();
+			} else {
+			// Remove corresponding amount back to stock
+				$stockRow->update(array(
+					'amount' => $newAmount
+				));
+			}
+
+			// Update log entry
+			$logRow->update(array(
+				'undone' => 1,
+				'undone_timestamp' => date('Y-m-d H:i:s')
+			));
+		}
+		elseif ($logRow->transaction_type === self::TRANSACTION_TYPE_TRANSFER_FROM)
+		{
+			// Add corresponding amount back to stock or
+			// create a row if missing
+			$stockRow = $this->Database->stock()->where('stock_id = :1 AND location_id = :2', $logRow->stock_id, $logRow->location_id)->fetch();
+			if ($stockRow === null)
+			{
+				$stockRow = $this->Database->stock()->createRow(array(
+					'product_id' => $logRow->product_id,
+					'amount' => $logRow->amount * -1,
+					'best_before_date' => $logRow->best_before_date,
+					'purchased_date' => $logRow->purchased_date,
+					'stock_id' => $logRow->stock_id,
+					'price' => $logRow->price,
+					'opened_date' => $logRow->opened_date
+				));
+				$stockRow->save();
+			} else {
+				$stockRow->update(array(
+					'amount' => $stockRow->amount -	$logRow->amount
+				));
+			}
 
 			// Update log entry
 			$logRow->update(array(

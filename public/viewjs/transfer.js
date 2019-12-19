@@ -36,6 +36,8 @@ $('#save-transfer-button').on('click', function(e)
 		jsonData.stock_entry_id = jsonForm.specific_stock_entry;
 	}
 
+	var bookingResponse = null;
+
 	Grocy.Api.Get('stock/products/' + jsonForm.product_id,
 		function(productDetails)
 		{
@@ -43,6 +45,8 @@ $('#save-transfer-button').on('click', function(e)
 				function(result)
 				{
 					var addBarcode = GetUriParam('addbarcodetoselection');
+					bookingResponse = result;
+
 					if (addBarcode !== undefined)
 					{
 						var existingBarcodes = productDetails.product.barcode || '';
@@ -71,11 +75,11 @@ $('#save-transfer-button').on('click', function(e)
 
 					if (productDetails.product.enable_tare_weight_handling == 1)
 					{
-						var successMessage = __t('Transfered %1$s of %2$s from %3$s to %4$s', Math.abs(jsonForm.amount - parseFloat(productDetails.product.tare_weight)) + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name,$('option:selected', "#location_id_from").text(), $('option:selected', "#location_id_to").text()); 
+						var successMessage = __t('Transfered %1$s of %2$s from %3$s to %4$s', Math.abs(jsonForm.amount - parseFloat(productDetails.product.tare_weight)) + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name,$('option:selected', "#location_id_from").text(), $('option:selected', "#location_id_to").text()) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse.transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
 					}
 					else
 					{
-						var successMessage =__t('Transfered %1$s of %2$s from %3$s to %4$s', Math.abs(jsonForm.amount) + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name, $('option:selected', "#location_id_from").text(), $('option:selected', "#location_id_to").text());
+						var successMessage =__t('Transfered %1$s of %2$s from %3$s to %4$s', Math.abs(jsonForm.amount) + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name, $('option:selected', "#location_id_from").text(), $('option:selected', "#location_id_to").text()) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse.transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
 					}
 
 					if (GetUriParam("embedded") !== undefined)
@@ -407,3 +411,31 @@ $("#use_specific_stock_entry").on("change", function()
 
 	Grocy.FrontendHelpers.ValidateForm("transfer-form");
 });
+
+function UndoStockBooking(bookingId)
+{
+	Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', { },
+		function(result)
+		{
+			toastr.success(__t("Booking successfully undone"));
+		},
+		function(xhr)
+		{
+			console.error(xhr);
+		}
+	);
+};
+
+function UndoStockTransaction(transactionId)
+{
+	Grocy.Api.Post('stock/transactions/' + transactionId.toString() + '/undo', { },
+		function (result)
+		{
+			toastr.success(__t("Transaction successfully undone"));
+		},
+		function (xhr)
+		{
+			console.error(xhr);
+		}
+	);
+};
