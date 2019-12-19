@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $__t('Stock entry'))
+@section('title', $__t('Stock entries'))
 @section('activeNav', 'stockdetail')
 @section('viewJsName', 'stockdetail')
 
@@ -114,7 +114,7 @@
 									data-product-id="{{ $currentStockEntry->product_id }}"
 									data-location-id="{{ $currentStockEntry->location_id }}"
 									data-id="{{ $currentStockEntry->id }}">
-									<i class="fas fa-boxes"></i> {{ $__t('Stock edit') }}
+									<i class="fas fa-boxes"></i> {{ $__t('Edit stock entry') }}
 								</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item product-name-cell" data-product-id="{{ $currentStockEntry->product_id }}" type="button" href="#">

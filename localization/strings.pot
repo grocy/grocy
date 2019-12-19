@@ -1586,7 +1586,7 @@ msgstr ""
 msgid "Show stock entries"
 msgstr ""
 
-msgid "Stock entry"
+msgid "Stock entries"
 msgstr ""
 
 msgid "Best before date"
@@ -1605,4 +1605,7 @@ msgid "The amount cannot be lower than %1$s"
 msgstr ""
 
 msgid "Stock entry successfully updated"
+msgstr ""
+
+msgid "Edit stock entry"
 msgstr ""
