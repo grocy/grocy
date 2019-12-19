@@ -35,3 +35,6 @@ FROM stock s
 JOIN locations l
 	ON s.location_id = l.id
 GROUP BY s.product_id, s.location_id, l.name;
+
+ALTER TABLE locations
+ADD freezer TINYINT DEFAULT 0;
