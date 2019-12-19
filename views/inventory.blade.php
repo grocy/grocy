@@ -59,7 +59,7 @@
 				'id' => 'price',
 				'label' => 'Price',
 				'min' => 0,
-				'step' => 0.0001,
+				'step' => 0.01,
 				'value' => '',
 				'hint' => $__t('in %s per purchase quantity unit', GROCY_CURRENCY),
 				'additionalHtmlContextHelp' => '<br><span class="small text-muted">' . $__t('This will apply to added products') . '</span>',
