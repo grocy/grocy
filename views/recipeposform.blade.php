@@ -28,11 +28,9 @@
 
 		<form id="recipe-pos-form" novalidate>
 
-			@php $prefillByName = ''; if($mode=='edit') { $prefillByName = FindObjectInArrayByPropertyValue($products, 'id', $recipePos->product_id)->name; } @endphp
 			@include('components.productpicker', array(
 				'products' => $products,
-				'nextInputSelector' => '#amount',
-				'prefillByName' => $prefillByName
+				'nextInputSelector' => '#amount'
 			))
 
 			@php if($mode == 'edit') { $value = $recipePos->amount; } else { $value = 1; } @endphp
