@@ -336,3 +336,14 @@ $('#delete-current-recipe-picture-button').on('click', function (e)
 });
 
 Grocy.Components.UserfieldsForm.Load();
+
+$(window).on("message", function(e)
+{
+	var data = e.originalEvent.data;
+
+	if (data.Message === "IngredientsChanged")
+	{
+		window.location.reload(true);
+	}
+
+});
