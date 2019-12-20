@@ -15,7 +15,8 @@ $('#save-recipe-pos-button').on('click', function (e)
 		Grocy.Api.Post('objects/recipes_pos', jsonData,
 			function(result)
 			{
-				window.location.href = U('/recipe/' + Grocy.EditObjectParentId);
+				window.parent.postMessage(WindowMessageBag("IngredientsChanged"), Grocy.BaseUrl);
+				window.parent.postMessage(WindowMessageBag("CloseAllModals"), Grocy.BaseUrl);
 			},
 			function(xhr)
 			{
@@ -29,7 +30,8 @@ $('#save-recipe-pos-button').on('click', function (e)
 		Grocy.Api.Put('objects/recipes_pos/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
-				window.location.href = U('/recipe/' + Grocy.EditObjectParentId);
+				window.parent.postMessage(WindowMessageBag("IngredientsChanged"), Grocy.BaseUrl);
+				window.parent.postMessage(WindowMessageBag("CloseAllModals"), Grocy.BaseUrl);
 			},
 			function(xhr)
 			{
