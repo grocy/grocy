@@ -243,16 +243,24 @@ $(document).on('click', '.recipe-include-edit-button', function (e)
 
 $("#recipe-pos-add-button").on("click", function(e)
 {
-	Grocy.Api.Put('objects/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(),
-		function(result)
-		{
-			window.location.href = U('/recipe/' + Grocy.EditObjectId + '/pos/new');
-		},
-		function(xhr)
-		{
-			console.error(xhr);
+	e.preventDefault();
+
+	bootbox.dialog({
+		message: '<iframe height="650px" class="embed-responsive" src="' + U("/recipe/") + Grocy.EditObjectId + '/pos/new?embedded"></iframe>',
+		size: 'large',
+		backdrop: true,
+		closeButton: false,
+		buttons: {
+			cancel: {
+				label: __t('Cancel'),
+				className: 'btn-secondary responsive-button',
+				callback: function()
+				{
+					bootbox.hideAll();
+				}
+			}
 		}
-	);
+	});
 });
 
 $("#recipe-include-add-button").on("click", function(e)
