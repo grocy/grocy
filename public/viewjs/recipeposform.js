@@ -152,5 +152,5 @@ $("#only_check_single_unit_in_stock").on("click", function()
 });
 
 // Click twice to trigger on-click but not change the actual checked state
-$("#only_check_single_unit_in_stock").click();
-$("#only_check_single_unit_in_stock").click();
+//$("#only_check_single_unit_in_stock").click();
+//$("#only_check_single_unit_in_stock").click();
