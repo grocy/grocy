@@ -98,7 +98,7 @@
 			<div class="col">
 				<h2>
 					{{ $__t('Ingredients list') }}
-					<a id="recipe-pos-add-button" class="btn btn-outline-dark" href="#">
+					<a id="recipe-pos-add-button" class="btn btn-outline-dark recipe-pos-add-button" type="button" href="#">
 						<i class="fas fa-plus"></i> {{ $__t('Add') }}
 					</a>
 				</h2>
@@ -118,7 +118,7 @@
 						@foreach($recipePositions as $recipePosition)
 						<tr>
 							<td class="fit-content border-right">
-								<a class="btn btn-sm btn-info recipe-pos-edit-button" href="#" data-recipe-pos-id="{{ $recipePosition->id }}">
+								<a class="btn btn-sm btn-info recipe-pos-edit-button" type="button" href="#" data-recipe-pos-id="{{ $recipePosition->id }}" data-product-id="{{ $recipePosition->product_id }}">
 									<i class="fas fa-edit"></i>
 								</a>
 								<a class="btn btn-sm btn-danger recipe-pos-delete-button" href="#" data-recipe-pos-id="{{ $recipePosition->id }}" data-recipe-pos-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id)->name }}">

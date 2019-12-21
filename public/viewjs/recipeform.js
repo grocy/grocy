@@ -192,20 +192,29 @@ $(document).on('click', '.recipe-pos-show-note-button', function(e)
 	bootbox.alert(note);
 });
 
-$(document).on('click', '.recipe-pos-edit-button', function (e)
+$(document).on('click', '.recipe-pos-edit-button', function(e)
 {
-	var recipePosId = $(e.currentTarget).attr('data-recipe-pos-id');
+	e.preventDefault();
 
-	Grocy.Api.Put('objects/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(),
-		function(result)
-		{
-			window.location.href = U('/recipe/' + Grocy.EditObjectId + '/pos/' + recipePosId);
-		},
-		function(xhr)
-		{
-			console.error(xhr);
+	var productId = $(e.currentTarget).attr("data-product-id");
+	var recipePosId = $(e.currentTarget).attr('data-recipe-pos-id');
+	
+	bootbox.dialog({
+		message: '<iframe height="650px" class="embed-responsive" src="' + U("/recipe/") + Grocy.EditObjectId.toString() + '/pos/' + recipePosId.toString()  + '?embedded&product=' + productId.toString() + '"></iframe>',
+		size: 'large',
+		backdrop: true,
+		closeButton: false,
+		buttons: {
+			cancel: {
+				label: __t('Cancel'),
+				className: 'btn-secondary responsive-button',
+				callback: function()
+				{
+					bootbox.hideAll();
+				}
+			}
 		}
-	);
+	});
 });
 
 $(document).on('click', '.recipe-include-edit-button', function (e)
@@ -234,16 +243,24 @@ $(document).on('click', '.recipe-include-edit-button', function (e)
 
 $("#recipe-pos-add-button").on("click", function(e)
 {
-	Grocy.Api.Put('objects/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(),
-		function(result)
-		{
-			window.location.href = U('/recipe/' + Grocy.EditObjectId + '/pos/new');
-		},
-		function(xhr)
-		{
-			console.error(xhr);
+	e.preventDefault();
+
+	bootbox.dialog({
+		message: '<iframe height="650px" class="embed-responsive" src="' + U("/recipe/") + Grocy.EditObjectId + '/pos/new?embedded"></iframe>',
+		size: 'large',
+		backdrop: true,
+		closeButton: false,
+		buttons: {
+			cancel: {
+				label: __t('Cancel'),
+				className: 'btn-secondary responsive-button',
+				callback: function()
+				{
+					bootbox.hideAll();
+				}
+			}
 		}
-	);
+	});
 });
 
 $("#recipe-include-add-button").on("click", function(e)
@@ -319,3 +336,14 @@ $('#delete-current-recipe-picture-button').on('click', function (e)
 });
 
 Grocy.Components.UserfieldsForm.Load();
+
+$(window).on("message", function(e)
+{
+	var data = e.originalEvent.data;
+
+	if (data.Message === "IngredientsChanged")
+	{
+		window.location.href = U('/recipe/' + Grocy.EditObjectId);
+	}
+
+});
