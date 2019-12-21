@@ -343,7 +343,7 @@ $(window).on("message", function(e)
 
 	if (data.Message === "IngredientsChanged")
 	{
-		window.location.reload(true);
+		window.location.href = U('/recipe/' + Grocy.EditObjectId);
 	}
 
 });
