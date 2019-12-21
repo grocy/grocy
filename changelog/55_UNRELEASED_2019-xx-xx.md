@@ -1,8 +1,11 @@
 ### New feature: Transfer products between locations and edit stock entries
 - New menu entry in the sidebar to transfer products (or as a shortcut in the more/context menu per line on the stock overview page)
-- New menu entry in the more/context menu of stock overview page lines to show the detail stock entries behind the corresponding product product
+- New menu entry in the more/context menu of stock overview page lines to show the detail stock entries behind the corresponding product
   - From there you can also edit the stock entries
 - A huge THANK YOU goes to @kriddles for the work on this feature
+
+## Recipe improvements
+- When adding or editing a recipe ingredient, a dialog is now used instead of switching between pages (thanks @kriddles)
 
 ### Meal plan fixes
 - Fixed that when `FEATURE_FLAG_STOCK_PRICE_TRACKING` was set to `false`, prices were still shown (thanks @kriddles)
