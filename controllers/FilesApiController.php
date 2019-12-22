@@ -17,7 +17,7 @@ class FilesApiController extends BaseApiController
 	{
 		if($this->FilesService == null)
 		{
-			$this->FilesService = new FilesService();
+			$this->FilesService = FilesService::getInstance();
 		}
 		return $this->FilesService;
 	}

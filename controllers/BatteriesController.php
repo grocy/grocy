@@ -17,7 +17,7 @@ class BatteriesController extends BaseController
 	{
 		if($this->BatteriesService == null)
 		{
-			$this->BatteriesService = new BatteriesService();
+			$this->BatteriesService = BatteriesService::getInstance();
 		}
 		return $this->BatteriesService;
 	}

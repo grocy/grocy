@@ -14,25 +14,40 @@ class CalendarService extends BaseService
 	public function __construct()
 	{
 		parent::__construct();
-		$this->StockService = new StockService();
-		$this->TasksService = new TasksService();
-		$this->ChoresService = new ChoresService();
-		$this->BatteriesService = new BatteriesService();
 		$this->UrlManager = new UrlManager(GROCY_BASE_URL);
 	}
 
-	protected $StockService;
-	protected $TasksService;
-	protected $ChoresService;
-	protected $BatteriesService;
-	protected $UrlManager;
+	protected function getStockservice()
+	{
+		return StockService::getInstance();
+	}
+
+	protected function getTasksService()
+	{
+		return TasksService::getInstance();
+	}
+
+	protected function getChoresService()
+	{
+		return ChoresService::getInstance();
+	}
+
+	protected function getBatteriesService()
+	{
+		return BatteriesService::getInstance();
+	}
+
+	protected function getUsersService()
+	{
+		return UsersService::getInstance();
+	}
 
 	public function GetEvents()
 	{
 		$products = $this->getDatabase()->products();
 		$titlePrefix = $this->getLocalizationService()->__t('Product expires') . ': ';
 		$stockEvents = array();
-		foreach($this->StockService->GetCurrentStock() as $currentStockEntry)
+		foreach($this->getStockService()->GetCurrentStock() as $currentStockEntry)
 		{
 			if ($currentStockEntry->amount > 0)
 			{
@@ -46,7 +61,7 @@ class CalendarService extends BaseService
 
 		$titlePrefix = $this->getLocalizationService()->__t('Task due') . ': ';
 		$taskEvents = array();
-		foreach($this->TasksService->GetCurrent() as $currentTaskEntry)
+		foreach($this->getTasksService()->GetCurrent() as $currentTaskEntry)
 		{
 			$taskEvents[] = array(
 				'title' => $titlePrefix . $currentTaskEntry->name,
@@ -55,8 +70,7 @@ class CalendarService extends BaseService
 			);
 		}
 
-		$usersService = new UsersService();
-		$users = $usersService->GetUsersAsDto();
+		$users = $this->getUsersService()->GetUsersAsDto();
 
 		$chores = $this->getDatabase()->chores();
 		$titlePrefix = $this->getLocalizationService()->__t('Chore due') . ': ';
@@ -81,7 +95,7 @@ class CalendarService extends BaseService
 		$batteries = $this->getDatabase()->batteries();
 		$titlePrefix = $this->getLocalizationService()->__t('Battery charge cycle due') . ': ';
 		$batteryEvents = array();
-		foreach($this->BatteriesService->GetCurrent() as $currentBatteryEntry)
+		foreach($this->getBatteriesService()->GetCurrent() as $currentBatteryEntry)
 		{
 			$batteryEvents[] = array(
 				'title' => $titlePrefix . FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->name,

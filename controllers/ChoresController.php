@@ -17,7 +17,7 @@ class ChoresController extends BaseController
 	{
 		if($this->ChoresService == null)
 		{
-			$this->ChoresService = new ChoresService();
+			$this->ChoresService = ChoresService::getInstance();
 		}
 		return $this->ChoresService;
 	}

@@ -17,7 +17,7 @@ class RecipesApiController extends BaseApiController
 	{
 		if($this->RecipesService == null)
 		{
-			$this->RecipesService = new RecipesService();
+			$this->RecipesService = RecipesService::getInstance();
 		}
 		return $this->RecipesService;
 	}

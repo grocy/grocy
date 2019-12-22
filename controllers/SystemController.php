@@ -16,12 +16,12 @@ class SystemController extends BaseController
 	public function Root(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		// Schema migration is done here
-		$databaseMigrationService = new DatabaseMigrationService();
+		$databaseMigrationService = DatabaseMigrationService::getInstance();
 		$databaseMigrationService->MigrateDatabase();
 
 		if (GROCY_IS_DEMO_INSTALL)
 		{
-			$demoDataGeneratorService = new DemoDataGeneratorService();
+			$demoDataGeneratorService = DemoDataGeneratorService::getInstance();
 			$demoDataGeneratorService->PopulateDemoData();
 		}
 

@@ -17,7 +17,7 @@ class CalendarController extends BaseController
 	{
 		if($this->CalendarService == null)
 		{
-			$this->CalendarService = new CalendarService();
+			$this->CalendarService = CalendarService::getInstance();
 		}
 		return $this->CalendarService;
 	}

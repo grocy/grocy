@@ -19,7 +19,7 @@ class StockController extends BaseController
 	{
 		if($this->StockService == null)
 		{
-			$this->StockService = new StockService();
+			$this->StockService = StockService::getInstance();
 		}
 		return $this->StockService;
 	}

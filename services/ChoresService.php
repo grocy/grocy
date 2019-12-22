@@ -21,10 +21,17 @@ class ChoresService extends BaseService
 	public function __construct()
 	{
 		parent::__construct();
-		$this->StockService = new StockService();
 	}
 
-	protected $StockService;
+	protected function getStockService()
+	{
+		return StockService::getInstance();
+	}
+
+	protected function getUsersService()
+	{
+		return UsersService::getInstance();
+	}
 
 	public function GetCurrent()
 	{
@@ -38,9 +45,8 @@ class ChoresService extends BaseService
 		{
 			throw new \Exception('Chore does not exist');
 		}
-
-		$usersService = new UsersService();
-			$users = $usersService->GetUsersAsDto();
+		
+			$users = $this->getUsersService()->GetUsersAsDto();
 
 		$chore = $this->getDatabase()->chores($choreId);
 		$choreTrackedCount = $this->getDatabase()->chores_log()->where('chore_id = :1 AND undone = 0', $choreId)->count();
@@ -101,7 +107,7 @@ class ChoresService extends BaseService
 
 		if ($chore->consume_product_on_execution == 1 && !empty($chore->product_id))
 		{
-			$this->StockService->ConsumeProduct($chore->product_id, $chore->product_amount, false, StockService::TRANSACTION_TYPE_CONSUME);
+			$this->getStockService()->ConsumeProduct($chore->product_id, $chore->product_amount, false, StockService::TRANSACTION_TYPE_CONSUME);
 		}
 
 		return $lastInsertId;
@@ -140,8 +146,7 @@ class ChoresService extends BaseService
 		$lastChoreLogRow =  $this->getDatabase()->chores_log()->where('chore_id = :1 AND tracked_time = :2 AND undone = 0', $choreId, $choreLastTrackedTime)->fetch();
 		$lastDoneByUserId = $lastChoreLogRow->done_by_user_id;
 
-		$usersService = new UsersService();
-		$users = $usersService->GetUsersAsDto();
+		$users = $this->getUsersService()->GetUsersAsDto();
 		$assignedUsers = array();
 		foreach ($users as $user)
 		{

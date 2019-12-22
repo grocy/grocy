@@ -17,7 +17,7 @@ class BatteriesApiController extends BaseApiController
     {
         if($this->BatteriesService == null)
         {
-            $this->BatteriesService = new BatteriesService();
+            $this->BatteriesService = BatteriesService::getInstance();
         }
         return $this->BatteriesService;
     }

@@ -13,10 +13,12 @@ class RecipesService extends BaseService
 	public function __construct()
 	{
 		parent::__construct();
-		$this->StockService = new StockService();
 	}
 
-	protected $StockService;
+	protected function getStockService()
+	{
+		return StockService::getInstance();
+	}
 
 	public function GetRecipesPosResolved()
 	{
@@ -72,7 +74,7 @@ class RecipesService extends BaseService
 		{
 			if ($recipePosition->only_check_single_unit_in_stock == 0)
 			{
-				$this->StockService->ConsumeProduct($recipePosition->product_id, $recipePosition->recipe_amount, false, StockService::TRANSACTION_TYPE_CONSUME, 'default', $recipeId);
+				$this->getStockService()->ConsumeProduct($recipePosition->product_id, $recipePosition->recipe_amount, false, StockService::TRANSACTION_TYPE_CONSUME, 'default', $recipeId);
 			}
 		}
 	}

@@ -17,7 +17,7 @@ class TasksApiController extends BaseApiController
 	{
 		if($this->TasksService == null)
 		{
-			$this->TasksService = new TasksService();
+			$this->TasksService = TasksService::getInstance();
 		}
 		return $this->TasksService;
 	}

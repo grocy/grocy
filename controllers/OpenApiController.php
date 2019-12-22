@@ -18,7 +18,7 @@ class OpenApiController extends BaseApiController
 	{
 		if($this->ApiKeyService == null)
 		{
-			$this->ApiKeyService = new ApiKeyService();
+			$this->ApiKeyService = ApiKeyService::getInstance();
 		}
 		return $this->ApiKeyService;
 	}

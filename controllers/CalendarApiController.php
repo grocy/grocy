@@ -18,7 +18,7 @@ class CalendarApiController extends BaseApiController
 	{
 		if($this->CalendarService == null)
 		{
-			$this->CalendarService = new CalendarService();
+			$this->CalendarService = CalendarService::getInstance();
 		}
 		return $this->CalendarService;
 	}
@@ -29,7 +29,7 @@ class CalendarApiController extends BaseApiController
 	{
 		if($this->ApiKeyService == null)
 		{
-			$this->ApiKeyService = new ApiKeyService();
+			$this->ApiKeyService = ApiKeyService::getInstance();
 		}
 		return $this->ApiKeyService;
 	}

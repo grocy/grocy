@@ -17,7 +17,7 @@ class UsersApiController extends BaseApiController
 	{
 		if($this->UsersService == null)
 		{
-			$this->UsersService = new UsersService();
+			$this->UsersService = UsersService::getInstance();
 		}
 		return $this->UsersService;
 	}
