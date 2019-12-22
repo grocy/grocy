@@ -9,10 +9,18 @@ class ChoresController extends BaseController
 	public function __construct(\Slim\Container $container)
 	{
 		parent::__construct($container);
-		$this->ChoresService = new ChoresService();
 	}
 
-	protected $ChoresService;
+	protected $ChoresService = null;
+
+	protected function getChoresService()
+	{
+		if($this->ChoresService == null)
+		{
+			$this->ChoresService = new ChoresService();
+		}
+		return $this->ChoresService;
+	}
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
@@ -21,7 +29,7 @@ class ChoresController extends BaseController
 
 		return $this->renderPage($response, 'choresoverview', [
 			'chores' => $this->getDatabase()->chores()->orderBy('name'),
-			'currentChores' => $this->ChoresService->GetCurrent(),
+			'currentChores' => $this->getChoresService()->GetCurrent(),
 			'nextXDays' => $nextXDays,
 			'userfields' => $this->getUserfieldsService()->GetFields('chores'),
 			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('chores'),

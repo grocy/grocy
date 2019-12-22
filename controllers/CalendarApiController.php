@@ -10,12 +10,29 @@ class CalendarApiController extends BaseApiController
 	public function __construct(\Slim\Container $container)
 	{
 		parent::__construct($container);
-		$this->CalendarService = new CalendarService();
-		$this->ApiKeyService = new ApiKeyService();
 	}
 
-	protected $CalendarService;
-	protected $ApiKeyService;
+	protected $CalendarService = null;
+
+	protected function getCalendarService()
+	{
+		if($this->CalendarService == null)
+		{
+			$this->CalendarService = new CalendarService();
+		}
+		return $this->CalendarService;
+	}
+
+	protected $ApiKeyService = null;
+
+	protected function getApiKeyService()
+	{
+		if($this->ApiKeyService == null)
+		{
+			$this->ApiKeyService = new ApiKeyService();
+		}
+		return $this->ApiKeyService;
+	}
 
 	public function Ical(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
@@ -23,7 +40,7 @@ class CalendarApiController extends BaseApiController
 		{
 			$vCalendar = new \Eluceo\iCal\Component\Calendar('grocy');
 
-			$events = $this->CalendarService->GetEvents();
+			$events = $this->getCalendarService()->GetEvents();
 			foreach($events as $event)
 			{
 				$date = new \DateTime($event['start']);
@@ -60,7 +77,7 @@ class CalendarApiController extends BaseApiController
 		try
 		{
 			return $this->ApiResponse(array(
-				'url' => $this->AppContainer->UrlManager->ConstructUrl('/api/calendar/ical?secret=' . $this->ApiKeyService->GetOrCreateApiKey(ApiKeyService::API_KEY_TYPE_SPECIAL_PURPOSE_CALENDAR_ICAL))
+				'url' => $this->AppContainer->UrlManager->ConstructUrl('/api/calendar/ical?secret=' . $this->getApiKeyService()->GetOrCreateApiKey(ApiKeyService::API_KEY_TYPE_SPECIAL_PURPOSE_CALENDAR_ICAL))
 			));
 		}
 		catch (\Exception $ex)

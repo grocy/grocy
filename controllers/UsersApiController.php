@@ -9,16 +9,24 @@ class UsersApiController extends BaseApiController
 	public function __construct(\Slim\Container $container)
 	{
 		parent::__construct($container);
-		$this->UsersService = new UsersService();
 	}
 
-	protected $UsersService;
+	protected $UsersService = null;
+
+    protected function getUsersService()
+	{
+		if($this->UsersService == null)
+		{
+			$this->UsersService = new UsersService();
+		}
+		return $this->UsersService;
+	}
 
 	public function GetUsers(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		try
 		{
-			return $this->ApiResponse($this->UsersService->GetUsersAsDto());
+			return $this->ApiResponse($this->getUsersService()->GetUsersAsDto());
 		}
 		catch (\Exception $ex)
 		{
@@ -37,7 +45,7 @@ class UsersApiController extends BaseApiController
 				throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
 			}
 
-			$this->UsersService->CreateUser($requestBody['username'], $requestBody['first_name'], $requestBody['last_name'], $requestBody['password']);
+			$this->getUsersService()->CreateUser($requestBody['username'], $requestBody['first_name'], $requestBody['last_name'], $requestBody['password']);
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
@@ -50,7 +58,7 @@ class UsersApiController extends BaseApiController
 	{
 		try
 		{
-			$this->UsersService->DeleteUser($args['userId']);
+			$this->getUsersService()->DeleteUser($args['userId']);
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
@@ -65,7 +73,7 @@ class UsersApiController extends BaseApiController
 
 		try
 		{
-			$this->UsersService->EditUser($args['userId'], $requestBody['username'], $requestBody['first_name'], $requestBody['last_name'], $requestBody['password']);
+			$this->getUsersService()->EditUser($args['userId'], $requestBody['username'], $requestBody['first_name'], $requestBody['last_name'], $requestBody['password']);
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
@@ -78,7 +86,7 @@ class UsersApiController extends BaseApiController
 	{
 		try
 		{
-			$value = $this->UsersService->GetUserSetting(GROCY_USER_ID, $args['settingKey']);
+			$value = $this->getUsersService()->GetUserSetting(GROCY_USER_ID, $args['settingKey']);
 			return $this->ApiResponse(array('value' => $value));
 		}
 		catch (\Exception $ex)
@@ -93,7 +101,7 @@ class UsersApiController extends BaseApiController
 		{
 			$requestBody = $request->getParsedBody();
 
-			$value = $this->UsersService->SetUserSetting(GROCY_USER_ID, $args['settingKey'], $requestBody['value']);
+			$value = $this->getUsersService()->SetUserSetting(GROCY_USER_ID, $args['settingKey'], $requestBody['value']);
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)

@@ -2,18 +2,15 @@
 
 namespace Grocy\Controllers;
 
-#use \Grocy\Services\ApplicationService;
 use \Grocy\Services\DatabaseMigrationService;
 use \Grocy\Services\DemoDataGeneratorService;
 
 class SystemController extends BaseController
 {
-	#protected $ApplicationService;
 
 	public function __construct(\Slim\Container $container)
 	{
 		parent::__construct($container);
-		#$this->ApplicationService = ApplicationService::getInstance();
 	}
 
 	public function Root(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)

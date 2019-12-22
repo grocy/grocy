@@ -9,14 +9,22 @@ class TasksApiController extends BaseApiController
 	public function __construct(\Slim\Container $container)
 	{
 		parent::__construct($container);
-		$this->TasksService = new TasksService();
 	}
 
-	protected $TasksService;
+	protected $TasksService = null;
+
+    protected function getTasksService()
+	{
+		if($this->TasksService == null)
+		{
+			$this->TasksService = new TasksService();
+		}
+		return $this->TasksService;
+	}
 
 	public function Current(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->ApiResponse($this->TasksService->GetCurrent());
+		return $this->ApiResponse($this->getTasksService()->GetCurrent());
 	}
 
 	public function MarkTaskAsCompleted(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
@@ -31,7 +39,7 @@ class TasksApiController extends BaseApiController
 				$doneTime = $requestBody['done_time'];
 			}
 
-			$this->TasksService->MarkTaskAsCompleted($args['taskId'], $doneTime);
+			$this->getTasksService()->MarkTaskAsCompleted($args['taskId'], $doneTime);
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
@@ -44,7 +52,7 @@ class TasksApiController extends BaseApiController
 	{
 		try
 		{
-			$this->TasksService->UndoTask($args['taskId']);
+			$this->getTasksService()->UndoTask($args['taskId']);
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)

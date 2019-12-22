@@ -10,10 +10,18 @@ class OpenApiController extends BaseApiController
 	public function __construct(\Slim\Container $container)
 	{
 		parent::__construct($container);
-		$this->ApiKeyService = new ApiKeyService();
 	}
 
-	protected $ApiKeyService;
+	protected $ApiKeyService = null;
+
+	protected function getApiKeyService()
+	{
+		if($this->ApiKeyService == null)
+		{
+			$this->ApiKeyService = new ApiKeyService();
+		}
+		return $this->ApiKeyService;
+	}
 
 	public function DocumentationUi(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
@@ -42,8 +50,8 @@ class OpenApiController extends BaseApiController
 
 	public function CreateNewApiKey(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$newApiKey = $this->ApiKeyService->CreateApiKey();
-		$newApiKeyId = $this->ApiKeyService->GetApiKeyId($newApiKey);
+		$newApiKey = $this->getApiKeyService()->CreateApiKey();
+		$newApiKeyId = $this->getApiKeyService()->GetApiKeyId($newApiKey);
 		return $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl("/manageapikeys?CreatedApiKeyId=$newApiKeyId"));
 	}
 }

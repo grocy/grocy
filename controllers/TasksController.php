@@ -9,10 +9,18 @@ class TasksController extends BaseController
 	public function __construct(\Slim\Container $container)
 	{
 		parent::__construct($container);
-		$this->TasksService = new TasksService();
 	}
 
-	protected $TasksService;
+	protected $TasksService = null;
+
+    protected function getTasksService()
+	{
+		if($this->TasksService == null)
+		{
+			$this->TasksService = new TasksService();
+		}
+		return $this->TasksService;
+	}
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
@@ -22,7 +30,7 @@ class TasksController extends BaseController
 		}
 		else
 		{
-			$tasks = $this->TasksService->GetCurrent();
+			$tasks = $this->getTasksService()->GetCurrent();
 		}
 
 		$usersService = $this->getUsersService();

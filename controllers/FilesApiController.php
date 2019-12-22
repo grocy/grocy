@@ -9,10 +9,18 @@ class FilesApiController extends BaseApiController
 	public function __construct(\Slim\Container $container)
 	{
 		parent::__construct($container);
-		$this->FilesService = new FilesService();
 	}
 
-	protected $FilesService;
+	protected $FilesService = null;
+
+	protected function getFilesService()
+	{
+		if($this->FilesService == null)
+		{
+			$this->FilesService = new FilesService();
+		}
+		return $this->FilesService;
+	}
 
 	public function UploadFile(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
@@ -28,7 +36,7 @@ class FilesApiController extends BaseApiController
 			}
 
 			$data = $request->getBody()->getContents();
-			file_put_contents($this->FilesService->GetFilePath($args['group'], $fileName), $data);
+			file_put_contents($this->getFilesService()->GetFilePath($args['group'], $fileName), $data);
 
 			return $this->EmptyApiResponse($response);
 		}
@@ -71,11 +79,11 @@ class FilesApiController extends BaseApiController
 					$bestFitWidth = $request->getQueryParams()['best_fit_width'];
 				}
 
-				$filePath = $this->FilesService->DownscaleImage($args['group'], $fileName, $bestFitHeight, $bestFitWidth);
+				$filePath = $this->getFilesService()->DownscaleImage($args['group'], $fileName, $bestFitHeight, $bestFitWidth);
 			}
 			else
 			{
-				$filePath = $this->FilesService->GetFilePath($args['group'], $fileName);
+				$filePath = $this->getFilesService()->GetFilePath($args['group'], $fileName);
 			}
 
 			if (file_exists($filePath))
@@ -109,7 +117,7 @@ class FilesApiController extends BaseApiController
 				throw new \Exception('Invalid filename');
 			}
 
-			$filePath = $this->FilesService->GetFilePath($args['group'], $fileName);
+			$filePath = $this->getFilesService->GetFilePath($args['group'], $fileName);
 			if (file_exists($filePath))
 			{
 				unlink($filePath);

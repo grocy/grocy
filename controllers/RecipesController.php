@@ -10,12 +10,18 @@ class RecipesController extends BaseController
 	public function __construct(\Slim\Container $container)
 	{
 		parent::__construct($container);
-		$this->RecipesService = new RecipesService();
-		$this->UserfieldsService = new UserfieldsService();
 	}
 
-	protected $RecipesService;
-	protected $UserfieldsService;
+	protected $RecipesService = null;
+
+	protected function getRecipesService()
+	{
+		if($this->RecipesService == null)
+		{
+			$this->RecipesService = new RecipesService();
+		}
+		return $this->RecipesService;
+	}
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
@@ -27,7 +33,7 @@ class RecipesController extends BaseController
 		{
 			$recipes = $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name');
 		}
-		$recipesResolved = $this->RecipesService->GetRecipesResolved();
+		$recipesResolved = $this->getRecipesService()->GetRecipesResolved();
 
 		$selectedRecipe = null;
 		$selectedRecipePositionsResolved = null;
@@ -69,8 +75,8 @@ class RecipesController extends BaseController
 			'includedRecipeIdsAbsolute' => $includedRecipeIdsAbsolute,
 			'selectedRecipeTotalCosts' => FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->costs,
 			'selectedRecipeTotalCalories' => FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->calories,
-			'userfields' => $this->UserfieldsService->GetFields('recipes'),
-			'userfieldValues' => $this->UserfieldsService->GetAllValues('recipes'),
+			'userfields' => $this->getUserfieldsService()->GetFields('recipes'),
+			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('recipes'),
 			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
 		]);
 	}
@@ -94,11 +100,11 @@ class RecipesController extends BaseController
 			'mode' => 'edit',
 			'products' => $this->getDatabase()->products(),
 			'quantityunits' => $this->getDatabase()->quantity_units(),
-			'recipePositionsResolved' => $this->RecipesService->GetRecipesPosResolved(),
-			'recipesResolved' => $this->RecipesService->GetRecipesResolved(),
+			'recipePositionsResolved' => $this->getRecipesService()->GetRecipesPosResolved(),
+			'recipesResolved' => $this->getRecipesService()->GetRecipesResolved(),
 			'recipes' =>  $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name'),
 			'recipeNestings' =>  $this->getDatabase()->recipes_nestings()->where('recipe_id', $recipeId),
-			'userfields' => $this->UserfieldsService->GetFields('recipes'),
+			'userfields' => $this->getUserfieldsService()->GetFields('recipes'),
 			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
 		]);
 	}
@@ -157,7 +163,7 @@ class RecipesController extends BaseController
 			'fullcalendarEventSources' => $events,
 			'recipes' => $recipes,
 			'internalRecipes' => $this->getDatabase()->recipes()->whereNot('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll(),
-			'recipesResolved' => $this->RecipesService->GetRecipesResolved()
+			'recipesResolved' => $this->getRecipesService()->GetRecipesResolved()
 		]);
 	}
 }

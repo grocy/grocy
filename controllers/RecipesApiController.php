@@ -9,10 +9,18 @@ class RecipesApiController extends BaseApiController
 	public function __construct(\Slim\Container $container)
 	{
 		parent::__construct($container);
-		$this->RecipesService = new RecipesService();
 	}
 
-	protected $RecipesService;
+	protected $RecipesService = null;
+
+	protected function getRecipesService()
+	{
+		if($this->RecipesService == null)
+		{
+			$this->RecipesService = new RecipesService();
+		}
+		return $this->RecipesService;
+	}
 
 	public function AddNotFulfilledProductsToShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
@@ -24,7 +32,7 @@ class RecipesApiController extends BaseApiController
 			$excludedProductIds = $requestBody['excludedProductIds'];
 		}
 
-		$this->RecipesService->AddNotFulfilledProductsToShoppingList($args['recipeId'], $excludedProductIds);
+		$this->getRecipesService()->AddNotFulfilledProductsToShoppingList($args['recipeId'], $excludedProductIds);
 		return $this->EmptyApiResponse($response);
 	}
 
@@ -32,7 +40,7 @@ class RecipesApiController extends BaseApiController
 	{
 		try
 		{
-			$this->RecipesService->ConsumeRecipe($args['recipeId']);
+			$this->getRecipesService()->ConsumeRecipe($args['recipeId']);
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
@@ -47,10 +55,10 @@ class RecipesApiController extends BaseApiController
 		{
 			if(!isset($args['recipeId']))
 			{
-				return $this->ApiResponse($this->RecipesService->GetRecipesResolved());
+				return $this->ApiResponse($this->getRecipesService()->GetRecipesResolved());
 			}
 
-			$recipeResolved = FindObjectInArrayByPropertyValue($this->RecipesService->GetRecipesResolved(), 'recipe_id', $args['recipeId']);
+			$recipeResolved = FindObjectInArrayByPropertyValue($this->getRecipesService()->GetRecipesResolved(), 'recipe_id', $args['recipeId']);
 			if(!$recipeResolved)
 			{
 				throw new \Exception('Recipe does not exist');

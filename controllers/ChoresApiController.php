@@ -9,10 +9,18 @@ class ChoresApiController extends BaseApiController
 	public function __construct(\Slim\Container $container)
 	{
 		parent::__construct($container);
-		$this->ChoresService = new ChoresService();
 	}
 
-	protected $ChoresService;
+	protected $ChoresService = null;
+
+	protected function getChoresService()
+	{
+		if($this->ChoresService == null)
+		{
+			$this->ChoresService = new ChoresService();
+		}
+		return $this->ChoresService;
+	}
 
 	public function TrackChoreExecution(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
@@ -32,7 +40,7 @@ class ChoresApiController extends BaseApiController
 				$doneBy = $requestBody['done_by'];
 			}
 
-			$choreExecutionId = $this->ChoresService->TrackChore($args['choreId'], $trackedTime, $doneBy);
+			$choreExecutionId = $this->getChoresService()->TrackChore($args['choreId'], $trackedTime, $doneBy);
 			return $this->ApiResponse($this->getDatabase()->chores_log($choreExecutionId));
 		}
 		catch (\Exception $ex)
@@ -45,7 +53,7 @@ class ChoresApiController extends BaseApiController
 	{
 		try
 		{
-			return $this->ApiResponse($this->ChoresService->GetChoreDetails($args['choreId']));
+			return $this->ApiResponse($this->getChoresService()->GetChoreDetails($args['choreId']));
 		}
 		catch (\Exception $ex)
 		{
@@ -55,14 +63,14 @@ class ChoresApiController extends BaseApiController
 
 	public function Current(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->ApiResponse($this->ChoresService->GetCurrent());
+		return $this->ApiResponse($this->getChoresService()->GetCurrent());
 	}
 
 	public function UndoChoreExecution(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		try
 		{
-			$this->ApiResponse($this->ChoresService->UndoChoreExecution($args['executionId']));
+			$this->ApiResponse($this->getChoresService()->UndoChoreExecution($args['executionId']));
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
@@ -88,12 +96,12 @@ class ChoresApiController extends BaseApiController
 				$chores = $this->getDatabase()->chores();
 				foreach ($chores as $chore)
 				{
-					$this->ChoresService->CalculateNextExecutionAssignment($chore->id);
+					$this->getChoresService()->CalculateNextExecutionAssignment($chore->id);
 				}
 			}
 			else
 			{
-				$this->ChoresService->CalculateNextExecutionAssignment($choreId);
+				$this->getChoresService()->CalculateNextExecutionAssignment($choreId);
 			}
 
 			return $this->EmptyApiResponse($response);
