@@ -325,5 +325,5 @@ msgstr ""
 msgid "not yet released"
 msgstr ""
 
-msgid "Portuguese"
+msgid "Portuguese (Brazil)"
 msgstr ""

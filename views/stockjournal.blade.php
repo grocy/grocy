@@ -37,6 +37,7 @@
 					<th>{{ $__t('Amount') }}</th>
 					<th>{{ $__t('Booking time') }}</th>
 					<th>{{ $__t('Booking type') }}</th>
+					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif">{{ $__t('Location') }}</th>
 				</tr>
 			</thead>
 			<tbody class="d-none">
@@ -64,6 +65,9 @@
 					</td>
 					<td>
 						{{ $__t($stockLogEntry->transaction_type) }}
+					</td>
+					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif">
+						{{ FindObjectInArrayByPropertyValue($locations, 'id', $stockLogEntry->location_id)->name }}
 					</td>
 				</tr>
 				@endforeach

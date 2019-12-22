@@ -929,9 +929,6 @@ msgstr ""
 msgid "Mark as opened"
 msgstr ""
 
-msgid "Expires on %1$s; Bought on %2$s"
-msgstr ""
-
 msgid "Not opened"
 msgstr ""
 
@@ -1566,4 +1563,46 @@ msgid "This means the next execution of this chore is scheduled 1 year after the
 msgstr ""
 
 msgid "This means the next execution of this chore should only be scheduled every %s years"
+msgstr ""
+
+msgid "Transfer"
+msgstr ""
+
+msgid "From location"
+msgstr ""
+
+msgid "To location"
+msgstr ""
+
+msgid "There are no units available at this location"
+msgstr ""
+
+msgid "Amount: %1$s; Expires on %2$s; Bought on %3$s"
+msgstr ""
+
+msgid "Transfered %1$s of %2$s from %3$s to %4$s"
+msgstr ""
+
+msgid "Show stock entries"
+msgstr ""
+
+msgid "Stock entries"
+msgstr ""
+
+msgid "Best before date"
+msgstr ""
+
+msgid "Purchased date"
+msgstr ""
+
+msgid "Consume all %s for this stock entry"
+msgstr ""
+
+msgid "The amount cannot be lower than %1$s"
+msgstr ""
+
+msgid "Stock entry successfully updated"
+msgstr ""
+
+msgid "Edit stock entry"
 msgstr ""

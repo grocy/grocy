@@ -43,6 +43,25 @@ class StockController extends BaseController
 		]);
 	}
 
+	public function Detail(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		$usersService = new UsersService();
+		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['stock_expring_soon_days'];
+
+		return $this->AppContainer->view->render($response, 'stockdetail', [
+			'products' => $this->Database->products()->orderBy('name'),
+			'quantityunits' => $this->Database->quantity_units()->orderBy('name'),
+			'locations' => $this->Database->locations()->orderBy('name'),
+			'currentStockDetail' => $this->Database->stock()->orderBy('product_id'),
+			'currentStockLocations' => $this->StockService->GetCurrentStockLocations(),
+			'missingProducts' => $this->StockService->GetMissingProducts(),
+			'nextXDays' => $nextXDays,
+			'productGroups' => $this->Database->product_groups()->orderBy('name'),
+			'userfields' => $this->UserfieldsService->GetFields('products'),
+			'userfieldValues' => $this->UserfieldsService->GetAllValues('products')
+		]);
+	}
+
 	public function Purchase(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->renderPage($response, 'purchase', [
@@ -53,11 +72,20 @@ class StockController extends BaseController
 
 	public function Consume(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		$result = $this->renderPage($response, 'consume', [
+		return $this->renderPage($response, 'consume', [
 			'products' => $this->getDatabase()->products()->orderBy('name'),
 			'recipes' => $this->getDatabase()->recipes()->orderBy('name')
+			'locations' => $this->getDatabase()->locations()->orderBy('name')
 		]);
-        return $result;
+	}
+
+	public function Transfer(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->AppContainer->view->render($response, 'transfer', [
+			'products' => $this->getDatabase()->products()->orderBy('name'),
+			'recipes' => $this->getDatabase()->recipes()->orderBy('name'),
+			'locations' => $this->getDatabase()->locations()->orderBy('name')
+		]);
 	}
 
 	public function Inventory(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
@@ -65,6 +93,14 @@ class StockController extends BaseController
 		return $this->renderPage($response, 'inventory', [
 			'products' => $this->getDatabase()->products()->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name')
+		]);
+	}
+
+	public function StockEdit(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->AppContainer->view->render($response, 'stockedit', [
+			'products' => $this->Database->products()->orderBy('name'),
+			'locations' => $this->Database->locations()->orderBy('name')
 		]);
 	}
 
@@ -277,6 +313,7 @@ class StockController extends BaseController
 	{
 		return $this->renderPage($response, 'stockjournal', [
 			'stockLog' => $this->getDatabase()->stock_log()->orderBy('row_created_timestamp', 'DESC'),
+			'locations' => $this->getDatabase()->locations()->orderBy('name'),
 			'products' => $this->getDatabase()->products()->orderBy('name'),
 			'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name')
 		]);

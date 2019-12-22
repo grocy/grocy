@@ -28,11 +28,9 @@
 
 		<form id="recipe-pos-form" novalidate>
 
-			@php $prefillByName = ''; if($mode=='edit') { $prefillByName = FindObjectInArrayByPropertyValue($products, 'id', $recipePos->product_id)->name; } @endphp
 			@include('components.productpicker', array(
 				'products' => $products,
-				'nextInputSelector' => '#amount',
-				'prefillByName' => $prefillByName
+				'nextInputSelector' => '#amount'
 			))
 
 			@php if($mode == 'edit') { $value = $recipePos->amount; } else { $value = 1; } @endphp
@@ -80,7 +78,7 @@
 				'id' => 'price_factor',
 				'label' => 'Price factor',
 				'min' => 0,
-				'step' => 0.0001,
+				'step' => 0.01,
 				'value' => '',
 				'hint' => $__t('The resulting price of this ingredient will be multiplied by this factor'),
 				'invalidFeedback' => $__t('This cannot be lower than %s', '0'),
@@ -96,7 +94,7 @@
 		</form>
 	</div>
 
-	<div class="col-xs-12 col-md-6 col-xl-4">
+	<div class="col-xs-12 col-md-6 col-xl-4 hide-when-embedded">
 		@include('components.productcard')
 	</div>
 </div>

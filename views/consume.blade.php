@@ -22,10 +22,32 @@
 				'label' => 'Amount',
 				'hintId' => 'amount_qu_unit',
 				'min' => 1,
-				'value' => 1,
+				'value' => 0,
 				'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
 				'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info" class="text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
 			))
+
+			@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
+                        @php /*@include('components.locationpicker', array(
+                                'id' => 'location_id',
+                                'locations' => $locations,
+                                'isRequired' => true,
+                                'label' => 'Location'
+                        ))*/ @endphp
+
+                        <div class="form-group">
+                                <label for="location_id">{{ $__t('Location') }}</label>
+                                <select required class="form-control location-combobox" id="location_id" name="location_id">
+                                        <option></option>
+                                        @foreach($locations as $location)
+                                                <option value="{{ $location->id }}">{{ $location->name }}</option>
+                                        @endforeach
+                                </select>
+                                <div class="invalid-feedback">{{ $__t('A location is required') }}</div>
+                        </div>
+			@else
+			<input type="hidden" name="location_id" id="location_id" value="1">
+			@endif
 
 			<div class="form-group">
 				<label for="use_specific_stock_entry">

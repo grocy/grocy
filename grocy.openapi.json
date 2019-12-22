@@ -1050,6 +1050,78 @@
 						}
 					}
 				}
+			},
+			"put": {
+				"summary": "Edits the stock entry",
+				"tags": [
+					"Stock"
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"stock_row_id": {
+										"type": "number",
+										"format": "number",
+										"description": "The Stock Row Id"
+									},
+									"amount": {
+										"type": "number",
+										"format": "number",
+										"description": "The amount to add - please note that when tare weight handling for the product is enabled, this needs to be the amount including the container weight (gross), the amount to be posted will be automatically calculated based on what is in stock and the defined tare weight"
+									},
+									"best_before_date": {
+										"type": "string",
+										"format": "date",
+										"description": "The best before date of the product to add, when omitted, the current date is used"
+									},
+									"location_id": {
+										"type": "number",
+										"format": "integer",
+										"description": "If omitted, the default location of the product is used"
+									},
+									"price": {
+										"type": "number",
+										"format": "number",
+										"description": "The price per purchase quantity unit in configured currency"
+									}
+								},
+								"example": {
+									"stock_row_id":	2,
+									"amount": 1,
+									"best_before_date": "2019-01-19",
+									"location_id": 2,
+									"price": "1.99"
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/StockLogEntry"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product, invalid transaction type)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
 			}
 		},
 		"/stock/volatile": {
@@ -1111,6 +1183,50 @@
 							"application/json": {
 								"schema": {
 									"$ref": "#/components/schemas/ProductDetailsResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/products/{productId}/locations": {
+			"get": {
+				"summary": "Returns all locations where the given product currently has stock",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An array of StockLocation objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/StockLocation"
+									}
 								}
 							}
 						}
@@ -1341,6 +1457,11 @@
 										"type": "number",
 										"format": "integer",
 										"description": "A valid recipe id for which this product was used (for statistical purposes only)"
+									},
+									"location_id": {
+										"type": "number",
+										"format": "integer",
+										"description": "A valid location id (if supplied, only stock at the given location is considered, if ommitted, stock of any location is considered)"
 									}
 								},
 								"example": {
@@ -1365,6 +1486,82 @@
 					},
 					"400": {
 						"description": "The operation was not successful (possible errors are: Not existing product, invalid transaction type, given amount > current stock amount)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/products/{productId}/transfer": {
+			"post": {
+				"summary": "Transfers the given amount of the given product from one location to another (this is currently not supported for tare weight handling enabled products)",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"amount": {
+										"type": "number",
+										"description": "The amount to transfer - please note that when tare weight handling for the product is enabled, this needs to be the amount including the container weight (gross), the amount to be posted will be automatically calculated based on what is in stock and the defined tare weight"
+									},
+									"location_id_from": {
+										"type": "number",
+										"format": "integer",
+										"description": "A valid location id, the location from where the product should be transfered"
+									},
+									"location_id_to": {
+										"type": "number",
+										"format": "integer",
+										"description": "A valid location id, the location to where the product should be transfered"
+									},
+									"stock_entry_id": {
+										"type": "string",
+										"description": "A specific stock entry id to transfer, if used, the amount has to be 1"
+									}
+								},
+								"example": {
+									"amount": 1,
+									"location_id_from": 1,
+									"location_id_to": 2
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/StockLogEntry"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product, no existing from or to location, given amount > current stock amount at the source location)",
 						"content": {
 							"application/json": {
 								"schema": {
@@ -1678,6 +1875,11 @@
 										"type": "number",
 										"format": "integer",
 										"description": "A valid recipe id for which this product was used (for statistical purposes only)"
+									},
+									"location_id": {
+										"type": "number",
+										"format": "integer",
+										"description": "A valid location id (if supplied, only stock at the given location is considered, if ommitted, stock of any location is considered)"
 									}
 								},
 								"example": {
@@ -1702,6 +1904,82 @@
 					},
 					"400": {
 						"description": "The operation was not successful (possible errors are: Not existing product, invalid transaction type, given amount > current stock amount)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/products/by-barcode/{barcode}/transfer": {
+			"post": {
+				"summary": "Transfers the given amount of the by its barcode given product from one location to another (this is currently not supported for tare weight handling enabled products)",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "barcode",
+						"required": true,
+						"description": "Barcode",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"amount": {
+										"type": "number",
+										"description": "The amount to transfer - please note that when tare weight handling for the product is enabled, this needs to be the amount including the container weight (gross), the amount to be posted will be automatically calculated based on what is in stock and the defined tare weight"
+									},
+									"location_id_from": {
+										"type": "number",
+										"format": "integer",
+										"description": "A valid location id, the location from where the product should be transfered"
+									},
+									"location_id_to": {
+										"type": "number",
+										"format": "integer",
+										"description": "A valid location id, the location to where the product should be transfered"
+									},
+									"stock_entry_id": {
+										"type": "string",
+										"description": "A specific stock entry id to transfer, if used, the amount has to be 1"
+									}
+								},
+								"example": {
+									"amount": 1,
+									"location_id_from": 1,
+									"location_id_to": 2
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/StockLogEntry"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product, no existing from or to location, given amount > current stock amount at the source location)",
 						"content": {
 							"application/json": {
 								"schema": {
@@ -2119,7 +2397,85 @@
 				}
 			}
 		},
-		"/stock/barcodes/external-lookup": {
+		"/stock/transactions/{transactionId}": {
+			"get": {
+				"summary": "Returns all stock bookings of the given transaction id",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "transactionId",
+						"required": true,
+						"description": "A valid stock transaction id",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An array of StockLogEntry objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/StockLogEntry"
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing transaction)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/transactions/{transactionId}/undo": {
+			"post": {
+				"summary": "Undoes a transaction",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "transactionId",
+						"required": true,
+						"description": "A valid stock transaction id",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing transaction)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/barcodes/external-lookup/{barcode}": {
 			"get": {
 				"summary": "Executes an external barcode lookoup via the configured plugin with the given barcode",
 				"tags": [
@@ -2127,7 +2483,7 @@
 				],
 				"parameters": [
 					{
-						"in": "query",
+						"in": "path",
 						"name": "barcode",
 						"required": true,
 						"description": "The barcode to lookup up",
@@ -2847,6 +3203,7 @@
 					"quantity_unit_conversions",
 					"shopping_list",
 					"shopping_lists",
+					"stock",
 					"recipes",
 					"recipes_pos",
 					"recipes_nestings",
@@ -3021,6 +3378,29 @@
 					"name": "0",
 					"description": null,
 					"row_created_timestamp": "2019-05-02 20:12:25"
+				}
+			},
+			"StockLocation": {
+				"type": "object",
+				"properties": {
+					"id": {
+                                                "type": "integer"
+                                        },
+					"product_id": {
+						"type": "integer"
+					},
+					"location_id": {
+						"type": "integer"
+					},
+					"name": {
+						"type": "string"
+					}
+				},
+				"example": {
+					"id": "1",
+					"product_id": "3",
+					"location_id": "1",
+					"name": "Fridge"
 				}
 			},
 			"StockEntry": {

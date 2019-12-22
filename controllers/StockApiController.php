@@ -121,6 +121,108 @@ class StockApiController extends BaseApiController
 		}
 	}
 
+	public function EditStock(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		$requestBody = $request->getParsedBody();
+
+		try
+		{
+			if ($requestBody === null)
+			{
+				throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
+			}
+
+			if (!array_key_exists('stock_row_id', $requestBody))
+			{
+				throw new \Exception('A stock row id is required');
+			}
+
+			if (!array_key_exists('amount', $requestBody))
+			{
+				throw new \Exception('An amount is required');
+			}
+
+			$bestBeforeDate = null;
+			if (array_key_exists('best_before_date', $requestBody) && IsIsoDate($requestBody['best_before_date']))
+			{
+				$bestBeforeDate = $requestBody['best_before_date'];
+			}
+
+			$price = null;
+			if (array_key_exists('price', $requestBody) && is_numeric($requestBody['price']))
+			{
+				$price = $requestBody['price'];
+			}
+
+			$locationId = null;
+			if (array_key_exists('location_id', $requestBody) && is_numeric($requestBody['location_id']))
+			{
+				$locationId = $requestBody['location_id'];
+			}
+
+			$bookingId = $this->StockService->EditStock($requestBody['stock_row_id'], $requestBody['amount'], $bestBeforeDate, $locationId, $price);
+			return $this->ApiResponse($this->Database->stock_log($bookingId));
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
+
+	public function TransferProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		$requestBody = $request->getParsedBody();
+
+		try
+		{
+			if ($requestBody === null)
+			{
+				throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
+			}
+
+			if (!array_key_exists('amount', $requestBody))
+			{
+				throw new \Exception('An amount is required');
+			}
+
+			if (!array_key_exists('location_id_from', $requestBody))
+			{
+				throw new \Exception('A transfer from location is required');
+			}
+
+			if (!array_key_exists('location_id_to', $requestBody))
+			{
+				throw new \Exception('A transfer to location is required');
+			}
+
+			$specificStockEntryId = 'default';
+			if (array_key_exists('stock_entry_id', $requestBody) && !empty($requestBody['stock_entry_id']))
+			{
+				$specificStockEntryId = $requestBody['stock_entry_id'];
+			}
+
+			$bookingId = $this->StockService->TransferProduct($args['productId'], $requestBody['amount'], $requestBody['location_id_from'], $requestBody['location_id_to'], $specificStockEntryId);
+			return $this->ApiResponse($this->Database->stock_log($bookingId));
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
+
+	public function TransferProductByBarcode(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		try
+		{
+			$args['productId'] = $this->StockService->GetProductIdFromBarcode($args['barcode']);
+			return $this->TransferProduct($request, $response, $args);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
+
 	public function ConsumeProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$requestBody = $request->getParsedBody();
@@ -157,14 +259,20 @@ class StockApiController extends BaseApiController
 				$specificStockEntryId = $requestBody['stock_entry_id'];
 			}
 
+			$locationId = null;
+			if (array_key_exists('location_id', $requestBody) && !empty($requestBody['location_id']) && is_numeric($requestBody['location_id']))
+			{
+				$locationId = $requestBody['location_id'];
+			}
+
 			$recipeId = null;
 			if (array_key_exists('recipe_id', $requestBody) && is_numeric($requestBody['recipe_id']))
 			{
 				$recipeId = $requestBody['recipe_id'];
 			}
 
-			$bookingId = $this->getStockService()->ConsumeProduct($args['productId'], $requestBody['amount'], $spoiled, $transactionType, $specificStockEntryId, $recipeId);
-			$result = $this->ApiResponse($this->getDatabase()->stock_log($bookingId));
+			$bookingId = $this->getStockService()->ConsumeProduct($args['productId'], $requestBody['amount'], $spoiled, $transactionType, $specificStockEntryId, $recipeId, $locationId);
+			return $this->ApiResponse($this->getDatabase()->stock_log($bookingId));
 		}
 		catch (\Exception $ex)
 		{
@@ -460,9 +568,27 @@ class StockApiController extends BaseApiController
 		}
 	}
 
+	public function UndoTransaction(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		try
+		{
+			$this->ApiResponse($this->StockService->UndoTransaction($args['transactionId']));
+			return $this->EmptyApiResponse($response);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
+
 	public function ProductStockEntries(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->ApiResponse($this->getStockService()->GetProductStockEntries($args['productId']));
+	}
+
+	public function ProductStockLocations(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->ApiResponse($this->StockService->GetProductStockLocations($args['productId']));
 	}
 
 	public function StockBooking(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
@@ -477,6 +603,25 @@ class StockApiController extends BaseApiController
 			}
 			
 			return $this->ApiResponse($stockLogRow);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
+
+	public function StockTransactions(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		try
+		{
+			$transactionRows = $this->Database->stock_log()->where('transaction_id = :1', $args['transactionId'])->fetchAll();
+
+			if (count($transactionRows) === 0)
+			{
+				throw new \Exception('No transaction was found by the given transaction id');
+			}
+			
+			return $this->ApiResponse($transactionRows);
 		}
 		catch (\Exception $ex)
 		{
