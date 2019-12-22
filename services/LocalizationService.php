@@ -50,11 +50,6 @@ class LocalizationService
 	{
 		$culture = $this->Culture;
 
-		
-
-		$Pot = null;
-		$PotMain = null;
-
 		if (GROCY_MODE === 'dev')
 		{
 			$this->PotMain = Translations::fromPoFile(__DIR__ . '/../localization/strings.pot');
@@ -98,15 +93,10 @@ class LocalizationService
 				$translation->setPlural($quantityUnit['name_plural']);
 				$translation->setPluralTranslations(preg_split('/\r\n|\r|\n/', $quantityUnit['plural_forms']));
 
-				$PoUserStrings[] = $translation;
+				$this->PoUserStrings[] = $translation;
 			}
-			$this->Po = $this->Po->mergeWith($PoUserStrings);
+			$this->Po = $this->Po->mergeWith($this->PoUserStrings);
 		}
-
-		$this->Pot = apcu_fetch("grocy_LocalizationService_".$culture."_Pot");
-		$this->PotMain = apcu_fetch("grocy_LocalizationService_".$culture."_PotMain");
-		$this->Po = apcu_fetch("grocy_LocalizationService_".$culture."_Po");
-		$this->PoUserStrings = apcu_fetch("grocy_LocalizationService_".$culture."_PoUserStrings");
 
 		$this->Translator = new Translator();
 		$this->Translator->loadTranslations($this->Po);
