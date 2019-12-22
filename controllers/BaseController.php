@@ -11,12 +11,8 @@ use \Grocy\Services\UserfieldsService;
 class BaseController
 {
 	public function __construct(\Slim\Container $container) {
-		#$fp = fopen('/config/data/sql.log', 'a');
-        #$time_start = microtime(true);
 
 		$this->AppContainer = $container;
-		#fwrite($fp, "%%% Login controller - parent construstor total time : " . round((microtime(true) - $time_start),6) . "\n");
-		#fclose($fp);
 	}
 
 	protected function render($response, $page, $data = [])
@@ -26,7 +22,6 @@ class BaseController
 		$versionInfo = $this->getApplicationService()->GetInstalledVersion();
 		$container->view->set('version', $versionInfo->Version);
 		$container->view->set('releaseDate', $versionInfo->ReleaseDate);
-		#fwrite($fp, "%%% Login controller - parent construstor application service time : " . round((microtime(true) - $time_start),6) . "\n");
 
         $localizationService = $this->getLocalizationService();
 		$container->view->set('__t', function(string $text, ...$placeholderValues) use($localizationService)
