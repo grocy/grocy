@@ -72,8 +72,8 @@ $appContainer = new \Slim\Container([
 		return 'GROCY-API-KEY';
 	}
 ]);
-
 $app = new \Slim\App($appContainer);
+
 // Load routes from separate file
 require_once __DIR__ . '/routes.php';
 
