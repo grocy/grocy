@@ -74,7 +74,7 @@ class StockController extends BaseController
 	{
 		return $this->renderPage($response, 'consume', [
 			'products' => $this->getDatabase()->products()->orderBy('name'),
-			'recipes' => $this->getDatabase()->recipes()->orderBy('name')
+			'recipes' => $this->getDatabase()->recipes()->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name')
 		]);
 	}

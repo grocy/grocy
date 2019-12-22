@@ -12,8 +12,6 @@ class DemoDataGeneratorService extends BaseService
 		$this->getLocalizationService() = new LocalizationService(GROCY_CULTURE);
 	}
 
-	protected $LocalizationService;
-
 	public function PopulateDemoData()
 	{
 		$rowCount = $this->getDatabaseService()->ExecuteDbQuery('SELECT COUNT(*) FROM migrations WHERE migration = -1')->fetchColumn();
