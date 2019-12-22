@@ -9,8 +9,10 @@ class DemoDataGeneratorService extends BaseService
 	public function __construct()
 	{
 		parent::__construct();
-		$this->getLocalizationService() = new LocalizationService(GROCY_CULTURE);
+		$this->LocalizationService = new LocalizationService(GROCY_CULTURE);
 	}
+
+    protected $LocalizationService;
 
 	public function PopulateDemoData()
 	{

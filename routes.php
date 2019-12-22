@@ -5,12 +5,6 @@ use \Grocy\Middleware\SessionAuthMiddleware;
 use \Grocy\Middleware\ApiKeyAuthMiddleware;
 use \Tuupola\Middleware\CorsMiddleware;
 
-$main_route_time_start = microtime(true);
-
-$session_cookie_name = $appContainer->LoginControllerInstance->GetSessionCookieName();
-
-$session_auth_middelware = new SessionAuthMiddleware($appContainer, $session_cookie_name);
-
 $app->group('', function()
 {
 
@@ -127,9 +121,7 @@ $app->group('', function()
 	$this->get('/api', '\Grocy\Controllers\OpenApiController:DocumentationUi');
 	$this->get('/manageapikeys', '\Grocy\Controllers\OpenApiController:ApiKeysList');
 	$this->get('/manageapikeys/new', '\Grocy\Controllers\OpenApiController:CreateNewApiKey');
-
-})->add($session_auth_middelware);
-
+})->add(new SessionAuthMiddleware($appContainer, $appContainer->LoginControllerInstance->GetSessionCookieName()));
 
 $app->group('/api', function()
 {

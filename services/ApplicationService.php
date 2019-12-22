@@ -6,11 +6,6 @@ class ApplicationService extends BaseService
 {
 	private $InstalledVersion;
 
-    #private function __construct()
-	#{
-	#	parent::__construct();
-	#}
-
 	public function GetInstalledVersion()
 	{
 		if ($this->InstalledVersion == null)
