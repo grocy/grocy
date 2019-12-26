@@ -3,11 +3,11 @@
 // This is executed inside DatabaseMigrationService class/context
 
 use \Grocy\Services\LocalizationService;
-$localizationService = new LocalizationService(GROCY_CULTURE);
+$localizationService = $this->getLocalizationService();
 
-$db = $this->DatabaseService->GetDbConnection();
+$db = $this->getDatabaseService()->GetDbConnection();
 
-$defaultShoppingList = $this->Database->shopping_lists()->where('id = 1')->fetch();
+$defaultShoppingList = $db->shopping_lists()->where('id = 1')->fetch();
 $defaultShoppingList->update(array(
 	'name' => $localizationService->__t('Shopping list')
 ));

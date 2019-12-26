@@ -2,7 +2,7 @@
 
 // This is executed inside DatabaseMigrationService class/context
 
-$db = $this->DatabaseService->GetDbConnection();
+$db = $this->getDatabaseService()->GetDbConnection();
 
 if (defined('GROCY_HTTP_USER'))
 {

@@ -10,16 +10,17 @@ class BaseService
 	public function __construct() {
 	}
 
-	private static $instance = null;
+	private static $instances = array();
 
 	public static function getInstance()
 	{
-		if (self::$instance == null)
+		$className = get_called_class();
+		if(!isset(self::$instances[$className])) 
 		{
-			self::$instance = new self();
+			self::$instances[$className] = new $className();
 		}
 
-		return self::$instance;
+		return self::$instances[$className];
 	}
 
     protected function getDatabaseService()
