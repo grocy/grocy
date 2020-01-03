@@ -28,6 +28,7 @@
 - New endpoints for the stock transfer & stock entry edit capabilities mentioned above
 
 ### General & other improvements/fixes
+- Fixed that also the first column (where in most tables only buttons/menus are displayed) in tables was searched when using the general search field
 - Fixed that the meal plan menu entry (sidebar) was not visible when the calendar was disabled (`FEATURE_FLAG_CALENDAR`) (thanks @lwis)
 - Slightly optimized table loading & search performance (thanks @lwis)
 - For integration: If a `GET` parameter `closeAfterCreation` is passed to the product edit page, the window will be closed on save (due to Browser restrictions, this only works when the window was opened from JavaScript) (thanks @Forceu)

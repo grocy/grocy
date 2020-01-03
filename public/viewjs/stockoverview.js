@@ -2,6 +2,7 @@
 	'order': [[3, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
+		{ 'searchable': false, "targets": 0 },
 		{ 'visible': false, 'targets': 4 },
 		{ 'visible': false, 'targets': 5 },
 		{ 'visible': false, 'targets': 6 }

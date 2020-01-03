@@ -1,7 +1,8 @@
 ﻿var batteriesOverviewTable = $('#batteries-overview-table').DataTable({
 	'order': [[2, 'desc']],
 	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 }
+		{ 'orderable': false, 'targets': 0 },
+		{ 'searchable': false, "targets": 0 }
 	]
 });
 $('#batteries-overview-table tbody').removeClass("d-none");

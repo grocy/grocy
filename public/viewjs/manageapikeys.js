@@ -1,7 +1,8 @@
 ﻿var apiKeysTable = $('#apikeys-table').DataTable({
 	'order': [[4, 'desc']],
 	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 }
+		{ 'orderable': false, 'targets': 0 },
+		{ 'searchable': false, "targets": 0 }
 	]
 });
 $('#apikeys-table tbody').removeClass("d-none");

@@ -66,6 +66,7 @@ var recipesPosTables = $('#recipes-pos-table').DataTable({
 	"orderFixed": [[4, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
+		{ 'searchable': false, "targets": 0 },
 		{ 'visible': false, 'targets': 4 }
 	],
 	'rowGroup': {
@@ -78,7 +79,8 @@ recipesPosTables.columns.adjust().draw();
 var recipesIncludesTables = $('#recipes-includes-table').DataTable({
 	'order': [[1, 'asc']],
 	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 }
+		{ 'orderable': false, 'targets': 0 },
+		{ 'searchable': false, "targets": 0 }
 	]
 });
 $('#recipes-includes-table tbody').removeClass("d-none");

@@ -2,6 +2,7 @@
 	'order': [[2, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
+		{ 'searchable': false, "targets": 0 }
 	],
 });
 $('#stock-detail-table tbody').removeClass("d-none");

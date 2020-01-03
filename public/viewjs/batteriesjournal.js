@@ -2,7 +2,8 @@
 	'paginate': true,
 	'order': [[1, 'desc']],
 	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 }
+		{ 'orderable': false, 'targets': 0 },
+		{ 'searchable': false, "targets": 0 }
 	]
 });
 $('#batteries-journal-table tbody').removeClass("d-none");
