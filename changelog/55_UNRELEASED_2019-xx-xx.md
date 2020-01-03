@@ -4,7 +4,10 @@
   - From there you can also edit the stock entries
 - A huge THANK YOU goes to @kriddles for the work on this feature
 
-## Recipe improvements
+### Shopping list fixes
+- Fixed that when `FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS` was set to `false`, the shopping list appeared empty after some actions
+
+### Recipe improvements
 - When adding or editing a recipe ingredient, a dialog is now used instead of switching between pages (thanks @kriddles)
 
 ### Meal plan fixes

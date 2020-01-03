@@ -45,6 +45,8 @@
 		</div>-->
 	</div>
 </div>
+@else
+<input type="hidden" name="selected-shopping-list" id="selected-shopping-list" value="1">
 @endif
 
 <div class="row d-print-none">
