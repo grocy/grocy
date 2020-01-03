@@ -25,6 +25,7 @@
 
 ### API improvements/fixes
 - Fixed that the route `/stock/barcodes/external-lookup/{barcode}` did not work, because the `barcode` argument was expected as a route argument but the route was missing it (thanks @Mikhail5555 and @beetle442002)
+- Fixed the response type description of the `/stock/volatile` endpoint
 - New endpoints for the stock transfer & stock entry edit capabilities mentioned above
 
 ### General & other improvements/fixes

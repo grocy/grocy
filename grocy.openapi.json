@@ -4080,7 +4080,20 @@
 					"missing_products": {
 						"type": "array",
 						"items": {
-							"$ref": "#/components/schemas/CurrentStockResponse"
+							"properties": {
+								"id": {
+									"type": "integer"
+								},
+								"name": {
+									"type": "string"
+								},
+								"amount_missing": {
+									"type": "number"
+								},
+								"is_partly_in_stock": {
+									"type": "integer"
+								}
+							}
 						}
 					}
 				}
