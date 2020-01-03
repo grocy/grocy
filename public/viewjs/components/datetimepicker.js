@@ -221,7 +221,10 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keyup', function(e)
 	var element = Grocy.Components.DateTimePicker.GetInputElement()[0];
 	if (!dateObj.isValid())
 	{
-		element.setCustomValidity("error");
+		if ($(element).hasAttr("required"))
+		{
+			element.setCustomValidity("error");
+		}		
 	}
 	else
 	{
