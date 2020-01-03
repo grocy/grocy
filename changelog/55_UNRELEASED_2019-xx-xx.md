@@ -4,6 +4,9 @@
   - From there you can also edit the stock entries
 - A huge THANK YOU goes to @kriddles for the work on this feature
 
+### Stock fixes
+- Fixed that entering partial amounts was not possible on the inventory page (only applies if the product option "Allow partial units in stock" is enabled)
+
 ### Shopping list fixes
 - Fixed that when `FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS` was set to `false`, the shopping list appeared empty after some actions
 

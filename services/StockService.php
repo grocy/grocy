@@ -604,7 +604,7 @@ class StockService extends BaseService
 
 		return $returnValue;
 	}
-	public function InventoryProduct(int $productId, int $newAmount, $bestBeforeDate, $locationId = null, $price = null)
+	public function InventoryProduct(int $productId, float $newAmount, $bestBeforeDate, $locationId = null, $price = null)
 	{
 		if (!$this->ProductExists($productId))
 		{
