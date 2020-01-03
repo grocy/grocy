@@ -160,8 +160,9 @@ if (Grocy.Components.ProductPicker !== undefined)
 
 					if (productDetails.product.enable_tare_weight_handling == 1)
 					{
-						var minAmount = parseFloat(productDetails.product.tare_weight) + parseFloat(productDetails.stock_amount) + 1;
+						var minAmount = parseFloat(productDetails.product.tare_weight) / productDetails.product.qu_factor_purchase_to_stock + parseFloat(productDetails.stock_amount);
 						$("#amount").attr("min", minAmount);
+						$("#amount").attr("step", "0.0001");
 						$("#amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', minAmount.toLocaleString()));
 						$("#tare-weight-handling-info").removeClass("d-none");
 					}
