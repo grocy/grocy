@@ -15,7 +15,8 @@
 
 
 # Either "production", "dev", "demo" or "prerelease"
-# ("demo" and "prerelease" is reserved to be used only on the offical demo instances)
+# When not "production", authentication will be disabled and
+# demo data will be populated during database migrations
 Setting('MODE', 'production');
 
 # Either "en" or "de" or the directory name of

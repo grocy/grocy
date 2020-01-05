@@ -22,7 +22,7 @@ class ApiKeyAuthMiddleware extends BaseMiddleware
 		$route = $request->getAttribute('route');
 		$routeName = $route->getName();
 
-		if (GROCY_IS_DEMO_INSTALL || GROCY_IS_EMBEDDED_INSTALL || GROCY_DISABLE_AUTH)
+		if (GROCY_MODE === 'dev' || GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease' || GROCY_IS_EMBEDDED_INSTALL || GROCY_DISABLE_AUTH)
 		{
 			define('GROCY_AUTHENTICATED', true);
 			$response = $next($request, $response);

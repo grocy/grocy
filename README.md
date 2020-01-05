@@ -90,7 +90,7 @@ If you don't use certain feature sets of grocy (for example if you don't need "C
 - When the file `data/custom_css.html` exists, the contents of the file will be added just before `</head>` (end of head) on every page
 
 ### Demo mode
-When the file `data/demo.txt` exists, the application will work in a demo mode which means authentication is disabled and some demo data will be generated during the database schema migration.
+When the `MODE` setting is set to `dev`, `demo` or `prerelease`, the application will work in a demo mode which means authentication is disabled and some demo data will be generated during the database schema migration.
 
 ### Embedded mode
 When the file `embedded.txt` exists, it must contain a valid and writable path which will be used as the data directory instead of `data` and authentication will be disabled (used in [grocy-desktop](https://github.com/grocy/grocy-desktop)).

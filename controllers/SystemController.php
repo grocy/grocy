@@ -22,7 +22,7 @@ class SystemController extends BaseController
 		$databaseMigrationService = new DatabaseMigrationService();
 		$databaseMigrationService->MigrateDatabase();
 
-		if (GROCY_IS_DEMO_INSTALL)
+		if (GROCY_MODE === 'dev' || GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease')
 		{
 			$demoDataGeneratorService = new DemoDataGeneratorService();
 			$demoDataGeneratorService->PopulateDemoData();

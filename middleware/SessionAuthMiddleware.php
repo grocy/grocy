@@ -25,7 +25,7 @@ class SessionAuthMiddleware extends BaseMiddleware
 		{
 			$response = $next($request, $response);
 		}
-		elseif (GROCY_IS_DEMO_INSTALL || GROCY_IS_EMBEDDED_INSTALL || GROCY_DISABLE_AUTH)
+		elseif (GROCY_MODE === 'dev' || GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease' || GROCY_IS_EMBEDDED_INSTALL || GROCY_DISABLE_AUTH)
 		{
 			$user = $sessionService->GetDefaultUser();
 			define('GROCY_AUTHENTICATED', true);

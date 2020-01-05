@@ -33,6 +33,7 @@
 - Fixed that the meal plan menu entry (sidebar) was not visible when the calendar was disabled (`FEATURE_FLAG_CALENDAR`) (thanks @lwis)
 - Slightly optimized table loading & search performance (thanks @lwis)
 - For integration: If a `GET` parameter `closeAfterCreation` is passed to the product edit page, the window will be closed on save (due to Browser restrictions, this only works when the window was opened from JavaScript) (thanks @Forceu)
-- The `update.sh` file had wrong line endings (DOS instead of Unix)
+- Fixed that the `update.sh` file had wrong line endings (DOS instead of Unix)
+- Internal change: Demo mode is now handled via the setting `MODE` instead of checking the existence of the file `data/demo.txt`
 - New translations: (thanks all the translators)
   - Portuguese (Brazil) (demo available at https://pt-br.demo.grocy.info)
