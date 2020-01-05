@@ -29,6 +29,8 @@
 - New endpoints for the stock transfer & stock entry edit capabilities mentioned above
 
 ### General & other improvements/fixes
+- It's now possible to keep the screen on always or when a "fullscreen-card" (e. g. used for recipes) is displayed
+  - New user options in the display settings menu in the top right corner (default is disabled)
 - Fixed that also the first column (where in most tables only buttons/menus are displayed) in tables was searched when using the general search field
 - Fixed that the meal plan menu entry (sidebar) was not visible when the calendar was disabled (`FEATURE_FLAG_CALENDAR`) (thanks @lwis)
 - Slightly optimized table loading & search performance (thanks @lwis)

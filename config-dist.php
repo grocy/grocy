@@ -75,6 +75,10 @@ DefaultUserSetting('auto_night_mode_time_range_to', "07:00"); // Format HH:mm
 DefaultUserSetting('auto_night_mode_time_range_goes_over_midnight', true); // If the time range above goes over midnight
 DefaultUserSetting('currently_inside_night_mode_range', false); // If we're currently inside of night mode time range (this is not user configurable, but stored as a user setting because it's evaluated client side to be able to use the client time instead of the maybe different server time)
 
+# Keep screen on settings
+DefaultUserSetting('keep_screen_on', false); // Keep the screen always on
+DefaultUserSetting('keep_screen_on_when_fullscreen_card', false); // Keep the screen on when a "fullscreen-card" is displayed
+
 # Stock settings
 DefaultUserSetting('product_presets_location_id', -1); // Default location id for new products (-1 means no location is preset)
 DefaultUserSetting('product_presets_product_group_id', -1); // Default product group id for new products (-1 means no product group is preset)

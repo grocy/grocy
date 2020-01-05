@@ -26,6 +26,7 @@
 		"jquery-serializejson": "^2.9.0",
 		"jquery-ui-dist": "^1.12.1",
 		"moment": "^2.24.0",
+		"nosleep.js": "^0.9.0",
 		"quagga": "^0.12.1",
 		"sprintf-js": "^1.1.2",
 		"startbootstrap-sb-admin": "^4.0.0",

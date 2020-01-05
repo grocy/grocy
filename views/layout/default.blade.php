@@ -360,6 +360,23 @@
 							</div>
 							<input class="form-check-input d-none user-setting-control" type="checkbox" id="currently-inside-night-mode-range" data-setting-key="currently_inside_night_mode_range">
 						</div>
+						<div class="dropdown-divider"></div>
+						<div class="dropdown-item">
+							<div class="form-check">
+								<input class="form-check-input user-setting-control" type="checkbox" id="keep_screen_on" data-setting-key="keep_screen_on">
+								<label class="form-check-label" for="keep_screen_on">
+									{{ $__t('Keep screen on') }}
+								</label>
+							</div>
+						</div>
+						<div class="dropdown-item">
+							<div class="form-check">
+								<input class="form-check-input user-setting-control" type="checkbox" id="keep_screen_on_when_fullscreen_card" data-setting-key="keep_screen_on_when_fullscreen_card">
+								<label class="form-check-label" for="keep_screen_on_when_fullscreen_card">
+									{{ $__t('Keep screen on while displaying a "fullscreen-card"') }}
+								</label>
+							</div>
+						</div>
 					</div>
 				</li>
 				@endif
@@ -430,10 +447,12 @@
 	<script src="{{ $U('/node_modules/bootstrap-select/dist/js/bootstrap-select.min.js?v=', true) }}{{ $version }}"></script>
 	@if(!empty($__t('bootstrap-select_locale') && $__t('bootstrap-select_locale') != 'x'))<script src="{{ $U('/node_modules', true) }}/bootstrap-select/dist/js/i18n/defaults-{{ $__t('bootstrap-select_locale') }}.js?v={{ $version }}"></script>@endif
 	<script src="{{ $U('/node_modules/jquery-lazy/jquery.lazy.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/nosleep.js/dist/NoSleep.min.js?v=', true) }}{{ $version }}"></script>
 
 	<script src="{{ $U('/js/extensions.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy_dbchangedhandling.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/js/grocy_wakelockhandling.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy_nightmode.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy_clock.js?v=', true) }}{{ $version }}"></script>
 	@stack('pageScripts')
