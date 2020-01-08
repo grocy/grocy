@@ -388,7 +388,7 @@ class StockApiController extends BaseApiController
 		return $this->ApiResponse($this->StockService->GetCurrentStock());
 	}
 
-	public function CurrentVolatilStock(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function CurrentVolatileStock(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$nextXDays = 5;
 		if (isset($request->getQueryParams()['expiring_days']) && !empty($request->getQueryParams()['expiring_days']) && is_numeric($request->getQueryParams()['expiring_days']))
