@@ -580,6 +580,11 @@ class StockApiController extends BaseApiController
 		return $this->ApiResponse($this->StockService->GetProductStockLocations($args['productId']));
 	}
 
+	public function StockEntry(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->ApiResponse($this->StockService->GetStockEntry($args['entryId']));
+	}
+
 	public function StockBooking(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		try

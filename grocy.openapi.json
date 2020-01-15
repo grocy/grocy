@@ -1124,6 +1124,47 @@
 				}
 			}
 		},
+		"/stock/{entryId}/entry": {
+			"get": {
+				"summary": "Returns details of the given stock",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "entryId",
+						"required": true,
+						"description": "A valid stock row id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A StockEntry Response object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/StockEntry"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/stock/volatile": {
 			"get": {
 				"summary": "Returns all products which are expiring soon, are already expired or currently missing",
@@ -3203,7 +3244,6 @@
 					"quantity_unit_conversions",
 					"shopping_list",
 					"shopping_lists",
-					"stock",
 					"recipes",
 					"recipes_pos",
 					"recipes_nestings",

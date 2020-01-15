@@ -1,6 +1,6 @@
 ﻿$(document).ready(function() {
 	var stockRowId = GetUriParam('stockRowId');
-	Grocy.Api.Get("objects/stock/" + stockRowId,
+	Grocy.Api.Get("stock/" + stockRowId + "/entry",
 		function(stockEntry)
 		{
 			Grocy.Components.LocationPicker.SetId(stockEntry.location_id);

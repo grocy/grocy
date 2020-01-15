@@ -170,6 +170,11 @@ class StockService extends BaseService
 		return $returnData;
 	}
 
+	public function GetStockEntry($entryId)
+	{
+		return $this->Database->stock()->where('id', $entryId)->fetch();
+	}
+
 	public function GetProductStockEntries($productId, $excludeOpened = false)
 	{
 		// In order of next use:

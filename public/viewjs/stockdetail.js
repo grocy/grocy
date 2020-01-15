@@ -215,7 +215,7 @@ $(document).on("click", ".product-add-to-shopping-list-button", function(e)
 
 function RefreshStockDetailRow(stockRowId)
 {
-	Grocy.Api.Get("objects/stock/" + stockRowId,
+	Grocy.Api.Get("stock/" + stockRowId + "/entry",
 		function(result)
 		{
 			var stockRow = $('#stock-' + stockRowId + '-row');
