@@ -249,11 +249,20 @@ function RefreshStockDetailRow(stockRowId)
 					$(this).text(result.best_before_date).fadeIn(500);
 				});
 
+				var locationName = "";
+				Grocy.Api.Get("objects/locations/" + result.location_id,
+					function(locationResult)
+					{
+						locationName = locationResult.name;
+					},
+					function(xhr)
+					{
+						console.error(xhr);
+					});
 				$('#stock-' + stockRowId + '-location').parent().effect('highlight', { }, 500);
 				$('#stock-' + stockRowId + '-location').fadeOut(500, function()
 				{
-				//TODO grab location name instead of id
-					$(this).text(result.location_id).fadeIn(500);
+					$(this).text(locationName).fadeIn(500);
 				});
 
 				$('#stock-' + stockRowId + '-price').parent().effect('highlight', { }, 500);
