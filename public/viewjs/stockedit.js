@@ -79,7 +79,7 @@ $('#save-stockedit-button').on('click', function(e)
 	var bookingResponse = null;
 
 	var stockRowId = GetUriParam('stockRowId');
-	jsonData.stock_row_id = stockRowId;
+	jsonData.id = stockRowId;
 
 	Grocy.Api.Put("stock", jsonData,
 		function(result)

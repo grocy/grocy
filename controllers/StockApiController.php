@@ -124,7 +124,7 @@ class StockApiController extends BaseApiController
 				throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
 			}
 
-			if (!array_key_exists('stock_row_id', $requestBody))
+			if (!array_key_exists('id', $requestBody))
 			{
 				throw new \Exception('A stock row id is required');
 			}
@@ -152,7 +152,7 @@ class StockApiController extends BaseApiController
 				$locationId = $requestBody['location_id'];
 			}
 
-			$bookingId = $this->StockService->EditStock($requestBody['stock_row_id'], $requestBody['amount'], $bestBeforeDate, $locationId, $price);
+			$bookingId = $this->StockService->EditStock($requestBody['id'], $requestBody['amount'], $bestBeforeDate, $locationId, $price);
 			return $this->ApiResponse($this->Database->stock_log($bookingId));
 		}
 		catch (\Exception $ex)

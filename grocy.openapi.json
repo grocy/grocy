@@ -1063,10 +1063,10 @@
 							"schema": {
 								"type": "object",
 								"properties": {
-									"stock_row_id": {
+									"id": {
 										"type": "number",
 										"format": "number",
-										"description": "The Stock Row Id"
+										"description": "The stock table id"
 									},
 									"amount": {
 										"type": "number",
@@ -1090,7 +1090,7 @@
 									}
 								},
 								"example": {
-									"stock_row_id":	2,
+									"id":	2,
 									"amount": 1,
 									"best_before_date": "2019-01-19",
 									"location_id": 2,
