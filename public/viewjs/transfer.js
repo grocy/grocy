@@ -114,6 +114,7 @@ $('#save-transfer-button').on('click', function(e)
 						$("#location_id_to").val("");
 						$("#location_id_from").val("");
 						Grocy.Components.ProductPicker.GetInputElement().focus();
+						Grocy.Components.ProductCard.Refresh(jsonForm.product_id);
 						Grocy.FrontendHelpers.ValidateForm('transfer-form');
 					}
 				},
