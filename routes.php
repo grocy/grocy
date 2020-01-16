@@ -109,7 +109,7 @@ $app->group('', function()
 		$this->get('/equipment', '\Grocy\Controllers\EquipmentController:Overview');
 		$this->get('/equipment/{equipmentId}', '\Grocy\Controllers\EquipmentController:EditForm');
 	}
-	
+
 	// Calendar routes
 	if (GROCY_FEATURE_FLAG_CALENDAR)
 	{
@@ -129,9 +129,9 @@ $app->group('/api', function()
 
 	// System
 	$this->get('/system/info', '\Grocy\Controllers\SystemApiController:GetSystemInfo');
-	$this->get('/system/db-changed-time', '\Grocy\Controllers\SystemApiController:GetDbChangedTime');	
+	$this->get('/system/db-changed-time', '\Grocy\Controllers\SystemApiController:GetDbChangedTime');
 	$this->post('/system/log-missing-localization', '\Grocy\Controllers\SystemApiController:LogMissingLocalization');
-	
+
 	// Generic entity interaction
 	$this->get('/objects/{entity}', '\Grocy\Controllers\GenericEntityApiController:GetObjects');
 	$this->get('/objects/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:GetObject');
@@ -162,6 +162,7 @@ $app->group('/api', function()
 	{
 		$this->get('/stock', '\Grocy\Controllers\StockApiController:CurrentStock');
 		$this->put('/stock', '\Grocy\Controllers\StockApiController:EditStock');
+		$this->get('/stock/full', '\Grocy\Controllers\StockApiController:CurrentStockFull');
 		$this->get('/stock/volatile', '\Grocy\Controllers\StockApiController:CurrentVolatilStock');
 		$this->get('/stock/products/{productId}', '\Grocy\Controllers\StockApiController:ProductDetails');
 		$this->get('/stock/products/{productId}/entries', '\Grocy\Controllers\StockApiController:ProductStockEntries');

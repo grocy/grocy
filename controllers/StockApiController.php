@@ -388,6 +388,11 @@ class StockApiController extends BaseApiController
 		return $this->ApiResponse($this->StockService->GetCurrentStock());
 	}
 
+	public function CurrentStockFull(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->ApiResponse($this->StockService->GetCurrentStockFull());
+	}
+
 	public function CurrentVolatilStock(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$nextXDays = 5;
@@ -535,7 +540,7 @@ class StockApiController extends BaseApiController
 			{
 				$addFoundProduct = true;
 			}
-			
+
 			return $this->ApiResponse($this->StockService->ExternalBarcodeLookup($args['barcode'], $addFoundProduct));
 		}
 		catch (\Exception $ex)
@@ -590,7 +595,7 @@ class StockApiController extends BaseApiController
 			{
 				throw new \Exception('Stock booking does not exist');
 			}
-			
+
 			return $this->ApiResponse($stockLogRow);
 		}
 		catch (\Exception $ex)
@@ -609,7 +614,7 @@ class StockApiController extends BaseApiController
 			{
 				throw new \Exception('No transaction was found by the given transaction id');
 			}
-			
+
 			return $this->ApiResponse($transactionRows);
 		}
 		catch (\Exception $ex)
