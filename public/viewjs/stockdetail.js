@@ -68,7 +68,7 @@ $(document).on('click', '.stock-consume-button', function(e)
 	var stockRowId = $(e.currentTarget).attr('data-stockrow-id');
 	var consumeAmount = $(e.currentTarget).attr('data-consume-amount');
 
-	var wasSpoiled = $(e.currentTarget).hasClass("product-consume-button-spoiled");
+	var wasSpoiled = $(e.currentTarget).hasClass("stock-consume-button-spoiled");
 
 	Grocy.Api.Post('stock/products/' + productId + '/consume', { 'amount': consumeAmount, 'spoiled': wasSpoiled, 'location_id': locationId, 'stock_entry_id': specificStockEntryId},
 		function(bookingResponse)
