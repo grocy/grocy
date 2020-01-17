@@ -4,7 +4,8 @@
   - From there you can also edit the stock entries
 - A huge THANK YOU goes to @kriddles for the work on this feature
 
-### Stock fixes
+### Stock improvements/fixes
+- The productcard gets now also refreshed after a transaction was posted (purchase/consume/etc.) (thanks @kriddles)
 - Fixed that entering partial amounts was not possible on the inventory page (only applies if the product option "Allow partial units in stock" is enabled)
 - Fixed that on purchase a wrong minimum amount was enforced for products with enabled tare weight handling in combination with different purchase/stock quantity units
 - Fixed that the productcard did not load correctly when `FEATURE_FLAG_STOCK_LOCATION_TRACKING` was set to `false` (thanks @kriddles)
