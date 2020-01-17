@@ -130,6 +130,7 @@ $('#save-consume-button').on('click', function(e)
 							$("#location_id").find("option").remove().end().append("<option></option>");
 						}
 						Grocy.Components.ProductPicker.GetInputElement().focus();
+						Grocy.Components.ProductCard.Refresh(jsonForm.product_id);
 						Grocy.FrontendHelpers.ValidateForm('consume-form');
 					}
 				},

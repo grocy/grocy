@@ -88,6 +88,7 @@
 								Grocy.Components.DateTimePicker.Clear();
 								Grocy.Components.ProductPicker.SetValue('');
 								Grocy.Components.ProductPicker.GetInputElement().focus();
+								Grocy.Components.ProductCard.Refresh(jsonForm.product_id);
 								Grocy.FrontendHelpers.ValidateForm('inventory-form');
 							}
 						},
