@@ -7,6 +7,7 @@
 ### Stock fixes
 - Fixed that entering partial amounts was not possible on the inventory page (only applies if the product option "Allow partial units in stock" is enabled)
 - Fixed that on purchase a wrong minimum amount was enforced for products with enabled tare weight handling in combination with different purchase/stock quantity units
+- Fixed that the productcard did not load correctly when `FEATURE_FLAG_STOCK_LOCATION_TRACKING` was set to `false` (thanks @kriddles)
 
 ### Shopping list fixes
 - Fixed that when `FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS` was set to `false`, the shopping list appeared empty after some actions
