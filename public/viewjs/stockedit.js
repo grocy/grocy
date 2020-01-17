@@ -1,6 +1,6 @@
 ﻿$(document).ready(function() {
 	var stockRowId = GetUriParam('stockRowId');
-	Grocy.Api.Get("objects/stock/" + stockRowId,
+	Grocy.Api.Get("stock/" + stockRowId + "/entry",
 		function(stockEntry)
 		{
 			Grocy.Components.LocationPicker.SetId(stockEntry.location_id);
@@ -79,12 +79,12 @@ $('#save-stockedit-button').on('click', function(e)
 	var bookingResponse = null;
 
 	var stockRowId = GetUriParam('stockRowId');
-	jsonData.stock_row_id = stockRowId;
+	jsonData.id = stockRowId;
 
 	Grocy.Api.Put("stock", jsonData,
 		function(result)
 		{
-			var successMessage = __t('Stock entry successfully updated') + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(\'' + result.id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
+			var successMessage = __t('Stock entry successfully updated') + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBookingEntry(\'' + result.id + '\',\'' + stockRowId + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
 
 			window.parent.postMessage(WindowMessageBag("StockDetailChanged", stockRowId), Grocy.BaseUrl);
 			window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", successMessage), Grocy.BaseUrl);
@@ -135,17 +135,3 @@ if (Grocy.Components.DateTimePicker)
 		Grocy.FrontendHelpers.ValidateForm('stockedit-form');
 	});
 }
-
-function UndoStockBooking(bookingId)
-{
-	Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', { },
-		function(result)
-		{
-			toastr.success(__t("Booking successfully undone"));
-		},
-		function(xhr)
-		{
-			console.error(xhr);
-		}
-	);
-};

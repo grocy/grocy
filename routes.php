@@ -161,8 +161,9 @@ $app->group('/api', function()
 	if (GROCY_FEATURE_FLAG_STOCK)
 	{
 		$this->get('/stock', '\Grocy\Controllers\StockApiController:CurrentStock');
+		$this->get('/stock/{entryId}/entry', '\Grocy\Controllers\StockApiController:StockEntry');
 		$this->put('/stock', '\Grocy\Controllers\StockApiController:EditStock');
-		$this->get('/stock/volatile', '\Grocy\Controllers\StockApiController:CurrentVolatilStock');
+		$this->get('/stock/volatile', '\Grocy\Controllers\StockApiController:CurrentVolatileStock');
 		$this->get('/stock/products/{productId}', '\Grocy\Controllers\StockApiController:ProductDetails');
 		$this->get('/stock/products/{productId}/entries', '\Grocy\Controllers\StockApiController:ProductStockEntries');
 		$this->get('/stock/products/{productId}/locations', '\Grocy\Controllers\StockApiController:ProductStockLocations');
