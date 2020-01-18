@@ -388,11 +388,6 @@ class StockApiController extends BaseApiController
 		return $this->ApiResponse($this->StockService->GetCurrentStock());
 	}
 
-	public function CurrentStockFull(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
-	{
-		return $this->ApiResponse($this->StockService->GetCurrentStockFull());
-	}
-
 	public function CurrentVolatilStock(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$nextXDays = 5;

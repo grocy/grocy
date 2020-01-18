@@ -1124,29 +1124,6 @@
 				}
 			}
 		},
-		"/stock/full": {
-			"get": {
-				"summary": "Returns all products which are currently in stock incl. product details",
-				"tags": [
-					"Stock"
-				],
-				"responses": {
-					"200": {
-						"description": "An array of CurrentStockResponse objects with product details",
-						"content": {
-							"application/json": {
-								"schema": {
-									"type": "array",
-									"items": {
-										"$ref": "#/components/schemas/CurrentStockResponseFull"
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		},
 		"/stock/volatile": {
 			"get": {
 				"summary": "Returns all products which are expiring soon, are already expired or currently missing",
@@ -4048,99 +4025,9 @@
 					"is_aggregated_amount": {
 						"type": "boolean",
 						"description": "Indicates wheter this product has sub-products or not / if the fields `amount_aggregated` and `amount_opened_aggregated` are filled"
-					}
-				}
-			},
-			"CurrentStockResponseFull": {
-				"type": "object",
-				"properties": {
-					"product_id": {
-						"type": "integer"
 					},
-					"amount": {
-						"type": "number"
-					},
-					"amount_aggregated": {
-						"type": "number"
-					},
-					"amount_opened": {
-						"type": "number"
-					},
-					"amount_opened_aggregated": {
-						"type": "number"
-					},
-					"best_before_date": {
-						"type": "string",
-						"format": "date",
-						"description": "The next best before date for this product"
-					},
-					"is_aggregated_amount": {
-						"type": "boolean",
-						"description": "Indicates wheter this product has sub-products or not / if the fields `amount_aggregated` and `amount_opened_aggregated` are filled"
-					},
-					"id": {
-						"type": "integer"
-					},
-					"name": {
-						"type": "string"
-					},
-					"description": {
-						"type": "string"
-					},
-					"location_id": {
-						"type": "integer"
-					},
-					"qu_id_purchase": {
-						"type": "integer"
-					},
-					"qu_id_stock": {
-						"type": "integer"
-					},
-					"enable_tare_weight_handling": {
-						"type": "integer"
-					},
-					"not_check_stock_fulfillment_for_recipes": {
-						"type": "integer"
-					},
-					"product_group_id": {
-						"type": "integer"
-					},
-					"qu_factor_purchase_to_stock": {
-						"type": "number",
-						"format": "number"
-					},
-					"tare_weight": {
-						"type": "number",
-						"format": "number"
-					},
-					"barcode": {
-						"type": "string",
-						"description": "Can contain multiple barcodes separated by comma"
-					},
-					"min_stock_amount": {
-						"type": "integer",
-						"minimum": 0,
-						"default": 0
-					},
-					"default_best_before_days": {
-						"type": "integer",
-						"minimum": 0,
-						"default": 0
-					},
-					"default_best_before_days_after_open": {
-						"type": "integer",
-						"minimum": 0,
-						"default": 0
-					},
-					"picture_file_name": {
-						"type": "string"
-					},
-					"allow_partial_units_in_stock": {
-						"type": "boolean"
-					},
-					"row_created_timestamp": {
-						"type": "string",
-						"format": "date-time"
+					"product": {
+						"$ref": "#/components/schemas/Product"
 					}
 				}
 			},
