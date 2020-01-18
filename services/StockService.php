@@ -26,8 +26,25 @@ class StockService extends BaseService
 
 			$sql = 'SELECT * FROM stock_current WHERE best_before_date IS NOT NULL UNION SELECT id, 0, 0, null, 0, 0, 0 FROM ' . $missingProductsView . ' WHERE id NOT IN (SELECT product_id FROM stock_current)';
 		}
-		
-		return $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
+
+		$current_stock = $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
+		$stock_array = [];
+
+		foreach ($current_stock as $cur) {
+			$stock_array[$cur->product_id] = $cur;
+		}
+
+		$list_of_product_ids = implode(",", array_keys($stock_array));
+
+		$sql = 'SELECT * FROM products WHERE id in (' . $list_of_product_ids . ')';
+
+		$products = $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
+
+		foreach ($products as $product) {
+			$stock_array[$product->id]->product = $product;
+		}
+
+		return $stock_array;
 	}
 
 	public function GetCurrentStockLocationContent()
@@ -116,7 +133,7 @@ class StockService extends BaseService
 		$quStock = $this->Database->quantity_units($product->qu_id_stock);
 		$location = $this->Database->locations($product->location_id);
 		$averageShelfLifeDays = intval($this->Database->stock_average_product_shelf_life()->where('id', $productId)->fetch()->average_shelf_life_days);
-		
+
 		$lastPrice = null;
 		$lastLogRow = $this->Database->stock_log()->where('product_id = :1 AND transaction_type IN (:2, :3) AND undone = 0', $productId, self::TRANSACTION_TYPE_PURCHASE, self::TRANSACTION_TYPE_INVENTORY_CORRECTION)->orderBy('row_created_timestamp', 'DESC')->limit(1)->fetch();
 		if ($lastLogRow !== null && !empty($lastLogRow))
@@ -213,20 +230,20 @@ class StockService extends BaseService
 			{
 				throw new \Exception('The amount cannot be lower or equal than the defined tare weight + current stock amount');
 			}
-			
+
 			$amount = $amount - floatval($productDetails->stock_amount) - floatval($productDetails->product->tare_weight);
 		}
-		
+
 		//Sets the default best before date, if none is supplied
 		if ($bestBeforeDate == null)
 		{
 			if (intval($productDetails->product->default_best_before_days) == -1)
 			{
-				$bestBeforeDate = date('2999-12-31');	
+				$bestBeforeDate = date('2999-12-31');
 			}
 			else if (intval($productDetails->product->default_best_before_days) > 0)
 			{
-				$bestBeforeDate = date('Y-m-d', strtotime(date('Y-m-d') . ' + '.$productDetails->product->default_best_before_days.' days'));	
+				$bestBeforeDate = date('Y-m-d', strtotime(date('Y-m-d') . ' + '.$productDetails->product->default_best_before_days.' days'));
 			}
 			else
 			{
@@ -240,7 +257,7 @@ class StockService extends BaseService
 			{
 				$transactionId = uniqid();
 			}
-			
+
 			$stockId = uniqid();
 
 			$logRow = $this->Database->stock_log()->createRow(array(
@@ -299,7 +316,7 @@ class StockService extends BaseService
 			{
 				throw new \Exception('The amount cannot be lower than the defined tare weight');
 			}
-			
+
 			$amount = abs($amount - floatval($productDetails->stock_amount) - floatval($productDetails->product->tare_weight));
 		}
 
@@ -426,7 +443,7 @@ class StockService extends BaseService
 			{
 				throw new \Exception('The amount cannot be lower than the defined tare weight');
 			}
-			
+
 			$amount = abs($amount - floatval($productDetails->stock_amount) - floatval($productDetails->product->tare_weight));
 		}
 
@@ -631,7 +648,7 @@ class StockService extends BaseService
 		{
 			$containerWeight = floatval($productDetails->product->tare_weight);
 		}
-		
+
 		if ($newAmount == floatval($productDetails->stock_amount) + $containerWeight)
 		{
 			throw new \Exception('The new amount cannot equal the current stock amount');
@@ -643,7 +660,7 @@ class StockService extends BaseService
 			{
 				$bookingAmount = $newAmount;
 			}
-			
+
 			return $this->AddProduct($productId, $bookingAmount, $bestBeforeDate, self::TRANSACTION_TYPE_INVENTORY_CORRECTION, date('Y-m-d'), $price, $locationId);
 		}
 		else if ($newAmount < $productDetails->stock_amount + $containerWeight)
@@ -824,7 +841,7 @@ class StockService extends BaseService
 			{
 				$productRow->update(array('amount' => $newAmount));
 			}
-			
+
 		}
 	}
 
