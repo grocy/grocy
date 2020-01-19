@@ -163,7 +163,7 @@
 											{
 												"$ref": "#/components/schemas/StockEntry"
 											}
-										]	
+										]
 									}
 								}
 							}
@@ -626,7 +626,7 @@
 					}
 				}
 			}
-		},		
+		},
 		"/files/{group}/{fileName}": {
 			"get": {
 				"summary": "Serves the given file",
@@ -4065,6 +4065,9 @@
 					"is_aggregated_amount": {
 						"type": "boolean",
 						"description": "Indicates wheter this product has sub-products or not / if the fields `amount_aggregated` and `amount_opened_aggregated` are filled"
+					},
+					"product": {
+						"$ref": "#/components/schemas/Product"
 					}
 				}
 			},
