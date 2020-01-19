@@ -26,25 +26,16 @@ class StockService extends BaseService
 
 			$sql = 'SELECT * FROM stock_current WHERE best_before_date IS NOT NULL UNION SELECT id, 0, 0, null, 0, 0, 0 FROM ' . $missingProductsView . ' WHERE id NOT IN (SELECT product_id FROM stock_current)';
 		}
-
-		$current_stock = $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
-		$stock_array = [];
-
-		foreach ($current_stock as $cur) {
-			$stock_array[$cur->product_id] = $cur;
+		$currentStockMapped = $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_GROUP|\PDO::FETCH_OBJ);
+		
+		$relevantProducts = $this->Database->products()->where('id IN (SELECT product_id FROM (' . $sql . ') x)');
+		foreach ($relevantProducts as $product)
+		{
+			$currentStockMapped[$product->id][0]->product_id = $product->id;
+			$currentStockMapped[$product->id][0]->product = $product;
 		}
 
-		$list_of_product_ids = implode(",", array_keys($stock_array));
-
-		$sql = 'SELECT * FROM products WHERE id in (' . $list_of_product_ids . ')';
-
-		$products = $this->DatabaseService->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
-
-		foreach ($products as $product) {
-			$stock_array[$product->id]->product = $product;
-		}
-
-		return $stock_array;
+		return array_column($currentStockMapped, 0);
 	}
 
 	public function GetCurrentStockLocationContent()
