@@ -26,6 +26,7 @@
 - Fixed that a due date was required when editing an existing task
 
 ### API improvements/fixes
+- The endpoint `/stock` now includes also the product object itself (new field/property `product`) (thanks @gsacre)
 - Fixed that the route `/stock/barcodes/external-lookup/{barcode}` did not work, because the `barcode` argument was expected as a route argument but the route was missing it (thanks @Mikhail5555 and @beetle442002)
 - Fixed the response type description of the `/stock/volatile` endpoint
 - New endpoints for the stock transfer & stock entry edit capabilities mentioned above
