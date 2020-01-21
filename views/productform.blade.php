@@ -219,7 +219,7 @@
 				'id' => 'calories',
 				'label' => 'Energy (kcal)',
 				'min' => 0,
-				'step' => 1,
+				'step' => 0.01,
 				'value' => $value,
 				'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
 				'hint' => $__t('Per stock quantity unit'),
