@@ -23,6 +23,8 @@
 	}
 	jsonData.price = price;
 
+	jsonData.open = $("#open").is(":checked");
+
 	var stockRowId = GetUriParam('stockRowId');
 	jsonData.id = stockRowId;
 
@@ -88,6 +90,7 @@ Grocy.Api.Get("stock/" + stockRowId + "/entry",
 		Grocy.Components.LocationPicker.SetId(stockEntry.location_id);
 		$('#amount').val(stockEntry.amount);
 		$('#price').val(stockEntry.price);
+		$("#open").prop('checked', BoolVal(stockEntry.open));
 		Grocy.Components.DateTimePicker.SetValue(stockEntry.best_before_date);
 
 		Grocy.Api.Get('stock/products/' + stockEntry.product_id,

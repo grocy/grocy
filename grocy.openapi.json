@@ -1087,6 +1087,10 @@
 										"type": "number",
 										"format": "number",
 										"description": "The price per purchase quantity unit in configured currency"
+									},
+									"open": {
+										"type": "boolean",
+										"description": "If the stock entry was already opened or not"
 									}
 								},
 								"example": {
@@ -1094,7 +1098,8 @@
 									"amount": 1,
 									"best_before_date": "2019-01-19",
 									"location_id": 2,
-									"price": "1.99"
+									"price": "1.99",
+									"open": false
 								}
 							}
 						}

@@ -562,7 +562,7 @@ class StockService extends BaseService
 		return $this->Database->lastInsertId();
 	}
 
-	public function EditStock(int $stockRowId, int $amount, $bestBeforeDate, $locationId, $price)
+	public function EditStockEntry(int $stockRowId, int $amount, $bestBeforeDate, $locationId, $price, $open)
 	{
 
 		$stockRow = $this->Database->stock()->where('id = :1', $stockRowId)->fetch();
@@ -572,8 +572,8 @@ class StockService extends BaseService
 			throw new \Exception('Stock does not exist');
 		}
 
-                $correlationId = uniqid();
-                $transactionId = uniqid();
+		$correlationId = uniqid();
+		$transactionId = uniqid();
 		$logOldRowForStockUpdate = $this->Database->stock_log()->createRow(array(
 			'product_id' => $stockRow->product_id,
 			'amount' => $stockRow->amount,
@@ -594,7 +594,8 @@ class StockService extends BaseService
 			'amount' => $amount,
 			'price' => $price,
 			'best_before_date' => $bestBeforeDate,
-			'location_id' => $locationId
+			'location_id' => $locationId,
+			'open' => $open
 		));
 
 		$logNewRowForStockUpdate = $this->Database->stock_log()->createRow(array(
@@ -613,10 +614,9 @@ class StockService extends BaseService
 		));
 		$logNewRowForStockUpdate->save();
 
-		$returnValue = $this->Database->lastInsertId();
-
-		return $returnValue;
+		return $this->Database->lastInsertId();
 	}
+
 	public function InventoryProduct(int $productId, float $newAmount, $bestBeforeDate, $locationId = null, $price = null)
 	{
 		if (!$this->ProductExists($productId))

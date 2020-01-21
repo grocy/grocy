@@ -113,7 +113,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function EditStock(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function EditStockEntry(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$requestBody = $request->getParsedBody();
 
@@ -152,7 +152,7 @@ class StockApiController extends BaseApiController
 				$locationId = $requestBody['location_id'];
 			}
 
-			$bookingId = $this->StockService->EditStock($requestBody['id'], $requestBody['amount'], $bestBeforeDate, $locationId, $price);
+			$bookingId = $this->StockService->EditStockEntry($requestBody['id'], $requestBody['amount'], $bestBeforeDate, $locationId, $price, $requestBody['open']);
 			return $this->ApiResponse($this->Database->stock_log($bookingId));
 		}
 		catch (\Exception $ex)

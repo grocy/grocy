@@ -162,7 +162,7 @@ $app->group('/api', function()
 	{
 		$this->get('/stock', '\Grocy\Controllers\StockApiController:CurrentStock');
 		$this->get('/stock/{entryId}/entry', '\Grocy\Controllers\StockApiController:StockEntry');
-		$this->put('/stock', '\Grocy\Controllers\StockApiController:EditStock');
+		$this->put('/stock', '\Grocy\Controllers\StockApiController:EditStockEntry');
 		$this->get('/stock/volatile', '\Grocy\Controllers\StockApiController:CurrentVolatileStock');
 		$this->get('/stock/products/{productId}', '\Grocy\Controllers\StockApiController:ProductDetails');
 		$this->get('/stock/products/{productId}/entries', '\Grocy\Controllers\StockApiController:ProductStockEntries');
