@@ -63,6 +63,12 @@
 				'hint' => $__t('The ingredients listed here result in this amount of servings')
 			))
 
+			@include('components.productpicker', array(
+				'products' => $products,
+				'isRequired' => false,
+				'label' => 'Creates Product'
+			))
+
 			<div class="form-group">
 				<div class="form-check">
 					<input type="hidden" name="not_check_shoppinglist" value="0">
@@ -216,7 +222,13 @@
 				@endif
 			</div>
 		</div>
+		<div class="row mt-5">
+			<div class="col">
+				@include('components.productcard')
+			</div>
+		</div>
 	</div>
+
 </div>
 
 <div class="modal fade" id="recipe-include-editform-modal" tabindex="-1">
