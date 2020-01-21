@@ -29,7 +29,7 @@ var calendar = $("#calendar").fullCalendar({
 			UpdateUriParam("week", view.start.format("YYYY-MM-DD"));
 		}
 
-		$(".fc-day-header").append('<a class="ml-1 btn btn-outline-dark btn-xs my-1 add-recipe-button" href="#"><i class="fas fa-plus"></i></a>');
+		$(".fc-day-header").prepend('<a class="mr-1 btn btn-outline-dark btn-xs my-1 add-recipe-button" href="#"><i class="fas fa-plus"></i></a>');
 
 		var weekRecipeName = view.start.year().toString() + "-" + ((view.start.week() - 1).toString().padStart(2, "0")).toString();
 		var weekRecipe = FindObjectInArrayByPropertyValue(internalRecipes, "name", weekRecipeName);
@@ -97,14 +97,14 @@ var calendar = $("#calendar").fullCalendar({
 			fulfillmentInfoHtml = __t('Not enough in stock');
 			var fulfillmentIconHtml = '<i class="fas fa-times text-danger"></i>';
 		}
-		var costAndCaloriesPerServing = ""
+		var costsAndCaloriesPerServing = ""
 		if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 		{
-			costAndCaloriesPerServing = '<h5 class="small text-truncate"><span class="locale-number locale-number-currency">' + resolvedRecipe.costs + '</span> / <span class="locale-number locale-number-generic">' + resolvedRecipe.calories + '</span> kcal ' + __t('per serving') + '<h5>';
+			costsAndCaloriesPerServing = '<h5 class="small text-truncate"><span class="locale-number locale-number-currency">' + resolvedRecipe.costs + '</span> / <span class="locale-number locale-number-generic">' + resolvedRecipe.calories + '</span> kcal ' + __t('per serving') + '<h5>';
 		}
 		else
 		{
-			costAndCaloriesPerServing = '<h5 class="small text-truncate"><span class="locale-number locale-number-generic">' + resolvedRecipe.calories + '</span> kcal ' + __t('per serving') + '<h5>';
+			costsAndCaloriesPerServing = '<h5 class="small text-truncate"><span class="locale-number locale-number-generic">' + resolvedRecipe.calories + '</span> kcal ' + __t('per serving') + '<h5>';
 		}
 
 		element.html(' \
@@ -112,7 +112,7 @@ var calendar = $("#calendar").fullCalendar({
 				<h5 class="text-truncate">' + recipe.name + '<h5> \
 				<h5 class="small text-truncate">' + __n(mealPlanEntry.servings, "%s serving", "%s servings") + '</h5> \
 				<h5 class="small timeago-contextual text-truncate">' + fulfillmentIconHtml + " " + fulfillmentInfoHtml + '</h5> \
-				' + costAndCaloriesPerServing + ' \
+				' + costsAndCaloriesPerServing + ' \
 				<h5> \
 					<a class="ml-1 btn btn-outline-danger btn-xs remove-recipe-button" href="#"><i class="fas fa-trash"></i></a> \
 					<a class="ml-1 btn btn-outline-primary btn-xs recipe-order-missing-button ' + recipeOrderMissingButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Put missing products on shopping list") + '" data-recipe-id="' + recipe.id.toString() + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-cart-plus"></i></a> \
@@ -124,6 +124,27 @@ var calendar = $("#calendar").fullCalendar({
 		if (recipe.picture_file_name && !recipe.picture_file_name.isEmpty())
 		{
 			element.html(element.html() + '<div class="mx-auto"><img data-src="' + U("/api/files/recipepictures/") + btoa(recipe.picture_file_name) + '?force_serve_as=picture&best_fit_width=400" class="img-fluid lazy"></div>')
+		}
+
+		var dayRecipeName = event.start.format("YYYY-MM-DD");
+		if (!$("#day-summary-" + dayRecipeName).length) // This runs for every event/recipe, so maybe multiple times per day, so only add the day summary once
+		{	
+			var dayRecipe = FindObjectInArrayByPropertyValue(internalRecipes, "name", dayRecipeName);
+			if (dayRecipe != null)
+			{
+				var dayRecipeResolved = FindObjectInArrayByPropertyValue(recipesResolved, "recipe_id", dayRecipe.id);
+
+				var costsAndCaloriesPerDay = ""
+				if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+				{
+					costsAndCaloriesPerDay = '<h5 class="small text-truncate"><span class="locale-number locale-number-currency">' + dayRecipeResolved.costs + '</span> / <span class="locale-number locale-number-generic">' + dayRecipeResolved.calories + '</span> kcal ' + '<h5>';
+				}
+				else
+				{
+					costsAndCaloriesPerDay = '<h5 class="small text-truncate"><span class="locale-number locale-number-generic">' + dayRecipeResolved.calories + '</span> kcal ' + '<h5>';
+				}
+				$(".fc-day-header[data-date='" + dayRecipeName + "']").append('<h5 id="day-summary-' + dayRecipeName + '" class="small text-truncate border-top pt-1 pb-0">' + costsAndCaloriesPerDay + '</h5>');
+			}
 		}
 	},
 	"eventAfterAllRender": function(view)

@@ -23,8 +23,9 @@
 ### Recipe improvements
 - When adding or editing a recipe ingredient, a dialog is now used instead of switching between pages (thanks @kriddles)
 
-### Meal plan fixes
+### Meal plan improvements/fixes
 - Added that the calories per serving are now also shown
+- Added that the total costs and calories per day are displayed in the header of each day column
 - Fixed that when `FEATURE_FLAG_STOCK_PRICE_TRACKING` was set to `false`, prices were still shown (thanks @kriddles)
 - Fixed that the week costs were missing for the weeks 1 - 9 of a year
 
