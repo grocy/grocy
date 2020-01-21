@@ -69,13 +69,27 @@
 			<input type="hidden" name="price" id="price" value="0">
 			@endif
 
+			@php /*@include('components.datetimepicker', array(
+				'id' => 'purchase_date',
+				'label' => 'Purchased date',
+				'format' => 'YYYY-MM-DD',
+				'initWithNow' => false,
+				'limitEndToNow' => false,
+				'limitStartToNow' => false,
+				'invalidFeedback' => $__t('A purchased date is required'),
+				'nextInputSelector' => '#save-stockedit-button',
+				'additionalGroupCssClasses' => 'date-only-datetimepicker'
+			))*/ @endphp
+
+			<div class="checkbox">
+				<label for="open">
+					<input type="checkbox" id="open" name="open"> {{ $__t('Opened') }}
+				</label>
+			</div>
+
 			<button id="save-stockedit-button" class="btn btn-success">{{ $__t('OK') }}</button>
 
 		</form>
-	</div>
-
-	<div class="col-xs-12 col-md-6 col-xl-4 hide-when-embedded">
-		@include('components.productcard')
 	</div>
 </div>
 @stop

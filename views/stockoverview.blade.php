@@ -9,14 +9,6 @@
 	<script src="{{ $U('/viewjs/purchase.js?v=', true) }}{{ $version }}"></script>
 @endpush
 
-@push('pageStyles')
-	<style>
-		.product-name-cell[data-product-has-picture='true'] {
-			cursor: pointer;
-		}
-	</style>
-@endpush
-
 @section('content')
 <div class="row">
 	<div class="col">
@@ -24,6 +16,9 @@
 			<small id="info-current-stock" class="text-muted"></small>
 			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/stockjournal') }}">
 				<i class="fas fa-file-alt"></i> {{ $__t('Journal') }}
+			</a>
+			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/stockdetail') }}">
+				<i class="fas fa-boxes"></i> {{ $__t('Stock entries') }}
 			</a>
 			@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/locationcontentsheet') }}">
@@ -127,27 +122,22 @@
 								<i class="fas fa-ellipsis-v"></i>
 							</button>
 							<div class="dropdown-menu">
-								<a class="dropdown-item product-add-to-shopping-list-button" type="button" href="#"
-									data-product-id="{{ $currentStockEntry->product_id }}">
+								<a class="dropdown-item show-as-dialog-link" type="button" href="{{ $U('/shoppinglistitem/new?embedded&updateexistingproduct&product=' . $currentStockEntry->product_id ) }}">
 									<i class="fas fa-shopping-cart"></i> {{ $__t('Add to shopping list') }}
 								</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item product-purchase-button" type="button" href="#"
-									data-product-id="{{ $currentStockEntry->product_id }}">
+								<a class="dropdown-item show-as-dialog-link" type="button" href="{{ $U('/purchase?embedded&product=' . $currentStockEntry->product_id ) }}">
 									<i class="fas fa-shopping-cart"></i> {{ $__t('Purchase') }}
 								</a>
-								<a class="dropdown-item product-consume-custom-amount-button @if($currentStockEntry->amount < 1) disabled @endif" type="button" href="#"
-									data-product-id="{{ $currentStockEntry->product_id }}">
+								<a class="dropdown-item show-as-dialog-link" type="button" href="{{ $U('/consume?embedded&product=' . $currentStockEntry->product_id ) }}">
 									<i class="fas fa-utensils"></i> {{ $__t('Consume') }}
 								</a>
 								@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
-								<a class="dropdown-item product-transfer-button @if($currentStockEntry->amount < 1) disabled @endif" type="button" href="#"
-									data-product-id="{{ $currentStockEntry->product_id }}">
+								<a class="dropdown-item show-as-dialog-link @if($currentStockEntry->amount < 1) disabled @endif" type="button" href="{{ $U('/transfer?embedded&product=' . $currentStockEntry->product_id) }}">
 									<i class="fas fa-exchange-alt"></i> {{ $__t('Transfer') }}
 								</a>
 								@endif
-								<a class="dropdown-item product-inventory-button" type="button" href="#"
-									data-product-id="{{ $currentStockEntry->product_id }}">
+								<a class="dropdown-item show-as-dialog-link" type="button" href="{{ $U('/inventory?embedded&product=' . $currentStockEntry->product_id ) }}">
 									<i class="fas fa-list"></i> {{ $__t('Inventory') }}
 								</a>
 								<div class="dropdown-divider"></div>

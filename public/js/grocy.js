@@ -614,10 +614,10 @@ $(document).on("click", ".show-as-dialog-link", function(e)
 		backdrop: true,
 		closeButton: false,
 		buttons: {
-			ok: {
-				label: __t('OK'),
-				className: 'btn-success responsive-button',
-				callback: function()
+			cancel: {
+				label: __t('Cancel'),
+				className: 'btn-secondary responsive-button',
+				callback: function ()
 				{
 					bootbox.hideAll();
 				}

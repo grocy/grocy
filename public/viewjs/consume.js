@@ -1,24 +1,4 @@
-﻿$(document).ready(function() {
-
-	if (GetUriParam("embedded") !== undefined)
-	{
-		var locationId = GetUriParam('locationId');
-
-		if (typeof locationId === 'undefined')
-		{
-			Grocy.Components.ProductPicker.GetPicker().trigger('change');
-			Grocy.Components.ProductPicker.GetInputElement().focus();
-		} else {
-
-			$("#location_id").val(locationId);
-			$("#location_id").trigger('change');
-			$("#use_specific_stock_entry").click();
-			$("#use_specific_stock_entry").trigger('change');
-		}
-	}
-});
-
-$('#save-consume-button').on('click', function(e)
+﻿$('#save-consume-button').on('click', function(e)
 {
 	e.preventDefault();
 
@@ -497,3 +477,21 @@ function UndoStockTransaction(transactionId)
 		}
 	);
 };
+
+if (GetUriParam("embedded") !== undefined)
+{
+	var locationId = GetUriParam('locationId');
+
+	if (typeof locationId === 'undefined')
+	{
+		Grocy.Components.ProductPicker.GetPicker().trigger('change');
+		Grocy.Components.ProductPicker.GetInputElement().focus();
+	}
+	else
+	{
+		$("#location_id").val(locationId);
+		$("#location_id").trigger('change');
+		$("#use_specific_stock_entry").click();
+		$("#use_specific_stock_entry").trigger('change');
+	}
+}

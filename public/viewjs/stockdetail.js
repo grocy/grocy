@@ -7,45 +7,19 @@
 });
 $('#stock-detail-table tbody').removeClass("d-none");
 
-function bootBoxModal(message) {
-	bootbox.dialog({
-		message: message,
-		size: 'large',
-		backdrop: true,
-		closeButton: false,
-		buttons: {
-			cancel: {
-				label: __t('Cancel'),
-				className: 'btn-secondary responsive-button',
-				callback: function()
-				{
-					bootbox.hideAll();
-				}
-			}
-		}
-	});
-}
+$.fn.dataTable.ext.search.push(function(settings, data, dataIndex)
+{
+	var productId = Grocy.Components.ProductPicker.GetValue();
 
+	if ((isNaN(productId) || productId == "" || productId == data[1]))
+	{
+		return true;
+	}
+	
+	return false;
+});
 
-
-$.fn.dataTable.ext.search.push(
-    function( settings, data, dataIndex ) {
-        var productId = Grocy.Components.ProductPicker.GetValue();
- 
-        if ( ( isNaN( productId ) ||
-		productId == "" ||
-		//assume productId is in the first column
-		productId == data[1] ) )
-        {
-            return true;
-        }
-        return false;
-    }
-);
-
-$(document).ready(function() {
-	Grocy.Components.ProductPicker.GetPicker().trigger('change');
-} );
+Grocy.Components.ProductPicker.GetPicker().trigger('change');
 
 Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 {
@@ -114,29 +88,17 @@ $(document).on('click', '.product-open-button', function(e)
 	var productId = $(e.currentTarget).attr('data-product-id');
 	var productName = $(e.currentTarget).attr('data-product-name');
 	var productQuName = $(e.currentTarget).attr('data-product-qu-name');
+	var specificStockEntryId = $(e.currentTarget).attr('data-stock-id');
+	var stockRowId = $(e.currentTarget).attr('data-stockrow-id');
 	var button = $(e.currentTarget);
-
-	Grocy.Api.Post('stock/products/' + productId + '/open', { 'amount': 1 },
+	
+	Grocy.Api.Post('stock/products/' + productId + '/open', { 'amount': 1, 'stock_entry_id': specificStockEntryId },
 		function(bookingResponse)
 		{
-			Grocy.Api.Get('stock/products/' + productId,
-				function(result)
-				{
-					if (result.stock_amount == result.stock_amount_opened)
-					{
-						button.addClass("disabled");
-					}
-
-					Grocy.FrontendHelpers.EndUiBusy();
-					toastr.success(__t('Marked %1$s of %2$s as opened', 1 + " " + productQuName, productName) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBooking(' + bookingResponse.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
-					RefreshProductRow(productId);
-				},
-				function(xhr)
-				{
-					Grocy.FrontendHelpers.EndUiBusy();
-					console.error(xhr);
-				}
-			);
+			button.addClass("disabled");
+			Grocy.FrontendHelpers.EndUiBusy();
+			toastr.success(__t('Marked %1$s of %2$s as opened', 1 + " " + productQuName, productName) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBookingEntry(' + bookingResponse.id + ',' + stockRowId + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
+			RefreshStockDetailRow(stockRowId);
 		},
 		function(xhr)
 		{
@@ -152,91 +114,40 @@ $(document).on("click", ".stock-name-cell", function(e)
 	$("#stockdetail-productcard-modal").modal("show");
 });
 
-$(document).on("click", ".product-purchase-button", function(e)
-{
-	e.preventDefault();
-
-	var productId = $(e.currentTarget).attr("data-product-id");
-
-	bootBoxModal('<iframe height="650px" class="embed-responsive" src="' + U("/purchase?embedded&product=") + productId.toString() + '"></iframe>');
-});
-
-$(document).on("click", ".product-transfer-button", function(e)
-{
-
-	e.preventDefault();
-
-	var productId = $(e.currentTarget).attr("data-product-id");
-	var locationId = $(e.currentTarget).attr('data-location-id');
-	var specificStockEntryId = $(e.currentTarget).attr('data-stock-id');
-	bootBoxModal('<iframe height="650px" class="embed-responsive" src="' + U("/transfer?embedded&product=") + productId.toString() + '&locationId=' + locationId.toString() + '&stockId=' + specificStockEntryId.toString() + '"></iframe>');
-
-});
-
-$(document).on("click", ".product-consume-custom-amount-button", function(e)
-{
-	e.preventDefault();
-
-	var productId = $(e.currentTarget).attr("data-product-id");
-	var locationId = $(e.currentTarget).attr('data-location-id');
-	var specificStockEntryId = $(e.currentTarget).attr('data-stock-id');
-
-	bootBoxModal('<iframe height="650px" class="embed-responsive" src="' + U("/consume?embedded&product=") + productId.toString() + '&locationId=' + locationId.toString() + '&stockId=' + specificStockEntryId.toString() + '"></iframe>');
-
-});
-
-$(document).on("click", ".product-inventory-button", function(e)
-{
-	e.preventDefault();
-
-	var productId = $(e.currentTarget).attr("data-product-id");
-
-	bootBoxModal('<iframe height="650px" class="embed-responsive" src="' + U("/inventory?embedded&product=") + productId.toString() + '"></iframe>');
-});
-
-$(document).on("click", ".product-stockedit-button", function(e)
-{
-	e.preventDefault();
-
-	var productId = $(e.currentTarget).attr("data-product-id");
-	var stockRowId = $(e.currentTarget).attr("data-id");
-
-	bootBoxModal('<iframe height="650px" class="embed-responsive" src="' + U("/stockedit?embedded&product=") + productId.toString() + '&stockRowId=' + stockRowId.toString() + '"></iframe>');
-});
-
-$(document).on("click", ".product-add-to-shopping-list-button", function(e)
-{
-	e.preventDefault();
-
-	var productId = $(e.currentTarget).attr("data-product-id");
-
-	bootBoxModal('<iframe height="650px" class="embed-responsive" src="' + U("/shoppinglistitem/new?embedded&updateexistingproduct&product=") + productId.toString() + '"></iframe>');
-});
-
 function RefreshStockDetailRow(stockRowId)
 {
 	Grocy.Api.Get("stock/" + stockRowId + "/entry",
 		function(result)
 		{
 			var stockRow = $('#stock-' + stockRowId + '-row');
-			var now = moment();
-
-			stockRow.removeClass("table-warning");
-			stockRow.removeClass("table-danger");
-			stockRow.removeClass("table-info");
-			stockRow.removeClass("d-none");
-			stockRow.removeAttr("style");
-
+			
 			if (result == null || result.amount == 0)
 			{
 				stockRow.fadeOut(500, function()
 				{
-					//$(this).tooltip("hide");
 					$(this).addClass("d-none");
 				});
 			}
 			else
 			{
+				var expiringThreshold = moment().add(Grocy.UserSettings.stock_expring_soon_days, "days");
+				var now = moment();
+				var bestBeforeDate = moment(result.best_before_date);
+
+				stockRow.removeClass("table-warning");
+				stockRow.removeClass("table-danger");
+				stockRow.removeClass("table-info");
+				stockRow.removeClass("d-none");
+				stockRow.removeAttr("style");
+				if (now.isAfter(bestBeforeDate))
+				{
+					stockRow.addClass("table-danger");
+				}
+				else if (bestBeforeDate.isBefore(expiringThreshold))
+				{
+					stockRow.addClass("table-warning");
+				}
+
 				$('#stock-' + stockRowId + '-amount').parent().effect('highlight', { }, 500);
 				$('#stock-' + stockRowId + '-amount').fadeOut(500, function ()
 				{
@@ -248,6 +159,7 @@ function RefreshStockDetailRow(stockRowId)
 				{
 					$(this).text(result.best_before_date).fadeIn(500);
 				});
+				$('#stock-' + stockRowId + '-best-before-date-timeago').attr('datetime', result.best_before_date + ' 23:59:59');
 
 				var locationName = "";
 				Grocy.Api.Get("objects/locations/" + result.location_id,
@@ -258,7 +170,8 @@ function RefreshStockDetailRow(stockRowId)
 					function(xhr)
 					{
 						console.error(xhr);
-					});
+					}
+				);
 				$('#stock-' + stockRowId + '-location').parent().effect('highlight', { }, 500);
 				$('#stock-' + stockRowId + '-location').fadeOut(500, function()
 				{
@@ -276,8 +189,24 @@ function RefreshStockDetailRow(stockRowId)
 				{
 					$(this).text(result.purchased_date).fadeIn(500);
 				});
+				$('#stock-' + stockRowId + '-purchased-date-timeago').attr('datetime', result.purchased_date + ' 23:59:59');
+
+				$('#stock-' + stockRowId + '-opened-amount').parent().effect('highlight', {}, 500);
+				$('#stock-' + stockRowId + '-opened-amount').fadeOut(500, function ()
+				{
+					if (result.open == 1)
+					{
+						$(this).text(__t('Opened')).fadeIn(500);
+					}
+					else
+					{
+						$(this).text("").fadeIn(500);
+						$(".product-open-button[data-stockrow-id='" + stockRowId + "']").removeClass("disabled");
+					}
+				});
 			}
 
+			// Needs to be delayed because of the animation above the date-text would be wrong if fired immediately...
 			setTimeout(function()
 			{
 				RefreshContextualTimeago();
@@ -316,3 +245,9 @@ function UndoStockBookingEntry(bookingId, stockRowId)
 		}
 	);
 };
+
+$(document).on("click", ".product-name-cell", function(e)
+{
+	Grocy.Components.ProductCard.Refresh($(e.currentTarget).attr("data-product-id"));
+	$("#productcard-modal").modal("show");
+});

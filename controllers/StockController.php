@@ -49,9 +49,7 @@ class StockController extends BaseController
 			'locations' => $this->Database->locations()->orderBy('name'),
 			'currentStockDetail' => $this->Database->stock()->orderBy('product_id'),
 			'currentStockLocations' => $this->StockService->GetCurrentStockLocations(),
-			'missingProducts' => $this->StockService->GetMissingProducts(),
 			'nextXDays' => $nextXDays,
-			'productGroups' => $this->Database->product_groups()->orderBy('name'),
 			'userfields' => $this->UserfieldsService->GetFields('products'),
 			'userfieldValues' => $this->UserfieldsService->GetAllValues('products')
 		]);

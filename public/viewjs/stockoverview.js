@@ -196,126 +196,6 @@ function RefreshStatistics()
 }
 RefreshStatistics();
 
-$(document).on("click", ".product-purchase-button", function(e)
-{
-	e.preventDefault();
-
-	var productId = $(e.currentTarget).attr("data-product-id");
-	
-	bootbox.dialog({
-		message: '<iframe height="650px" class="embed-responsive" src="' + U("/purchase?embedded&product=") + productId.toString() + '"></iframe>',
-		size: 'large',
-		backdrop: true,
-		closeButton: false,
-		buttons: {
-			cancel: {
-				label: __t('Cancel'),
-				className: 'btn-secondary responsive-button',
-				callback: function()
-				{
-					bootbox.hideAll();
-				}
-			}
-		}
-	});
-});
-
-$(document).on("click", ".product-transfer-button", function(e)
-{
-	e.preventDefault();
-
-	var productId = $(e.currentTarget).attr("data-product-id");
-
-	bootbox.dialog({
-		message: '<iframe height="650px" class="embed-responsive" src="' + U("/transfer?embedded&product=") + productId.toString() + '"></iframe>',
-		size: 'large',
-		backdrop: true,
-		closeButton: false,
-		buttons: {
-			cancel: {
-				label: __t('Cancel'),
-				className: 'btn-secondary responsive-button',
-				callback: function()
-				{
-					bootbox.hideAll();
-				}
-			}
-		}
-	});
-});
-
-$(document).on("click", ".product-consume-custom-amount-button", function(e)
-{
-	e.preventDefault();
-
-	var productId = $(e.currentTarget).attr("data-product-id");
-
-	bootbox.dialog({
-		message: '<iframe height="650px" class="embed-responsive" src="' + U("/consume?embedded&product=") + productId.toString() + '"></iframe>',
-		size: 'large',
-		backdrop: true,
-		closeButton: false,
-		buttons: {
-			cancel: {
-				label: __t('Cancel'),
-				className: 'btn-secondary responsive-button',
-				callback: function()
-				{
-					bootbox.hideAll();
-				}
-			}
-		}
-	});
-});
-
-$(document).on("click", ".product-inventory-button", function(e)
-{
-	e.preventDefault();
-
-	var productId = $(e.currentTarget).attr("data-product-id");
-	
-	bootbox.dialog({
-		message: '<iframe height="650px" class="embed-responsive" src="' + U("/inventory?embedded&product=") + productId.toString() + '"></iframe>',
-		size: 'large',
-		backdrop: true,
-		closeButton: false,
-		buttons: {
-			cancel: {
-				label: __t('Cancel'),
-				className: 'btn-secondary responsive-button',
-				callback: function()
-				{
-					bootbox.hideAll();
-				}
-			}
-		}
-	});
-});
-
-$(document).on("click", ".product-add-to-shopping-list-button", function(e)
-{
-	e.preventDefault();
-
-	var productId = $(e.currentTarget).attr("data-product-id");
-	
-	bootbox.dialog({
-		message: '<iframe height="650px" class="embed-responsive" src="' + U("/shoppinglistitem/new?embedded&updateexistingproduct&product=") + productId.toString() + '"></iframe>',
-		size: 'large',
-		backdrop: true,
-		closeButton: false,
-		buttons: {
-			cancel: {
-				label: __t('Cancel'),
-				className: 'btn-secondary responsive-button',
-				callback: function()
-				{
-					bootbox.hideAll();
-				}
-			}
-		}
-	});
-});
-
 function RefreshProductRow(productId)
 {
 	productId = productId.toString();
@@ -398,7 +278,7 @@ function RefreshProductRow(productId)
 			{
 				$(this).text(result.next_best_before_date).fadeIn(500);
 			});
-			$('#product-' + productId + '-next-best-before-date-timeago').attr('datetime', result.next_best_before_date);
+			$('#product-' + productId + '-next-best-before-date-timeago').attr('datetime', result.next_best_before_date + ' 23:59:59');
 
 			if (result.stock_amount_opened > 0)
 			{

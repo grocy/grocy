@@ -1615,3 +1615,6 @@ msgstr ""
 
 msgid "Keep screen on while displaying a \"fullscreen-card\""
 msgstr ""
+
+msgid "A purchased date is required"
+msgstr ""
