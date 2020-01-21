@@ -67,15 +67,6 @@ class RecipesService extends BaseService
 			throw new \Exception('Recipe does not exist');
 		}
 
-		$recipeRow = $this->Database->recipes()->where('id = :1', $recipeId)->fetch();
-		if ($recipeRow->product_id != null)
-		{
-			$recipeResolvedRow = $this->Database->recipes_resolved()->where('recipe_id = :1', $recipeId)->fetch();
-			$price = number_format($recipeResolvedRow->costs, 2);
-			$bookingAmount = floatval($recipeRow->desired_servings);
-			$this->StockService->AddProduct($recipeRow->product_id, $bookingAmount, null, StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d'), $price);
-		}
-
 		$recipePositions = $this->Database->recipes_pos_resolved()->where('recipe_id', $recipeId)->fetchAll();
 		foreach ($recipePositions as $recipePosition)
 		{
@@ -83,6 +74,13 @@ class RecipesService extends BaseService
 			{
 				$this->StockService->ConsumeProduct($recipePosition->product_id, $recipePosition->recipe_amount, false, StockService::TRANSACTION_TYPE_CONSUME, 'default', $recipeId);
 			}
+		}
+
+		$recipeRow = $this->Database->recipes()->where('id = :1', $recipeId)->fetch();
+		if (!empty($recipeRow->product_id))
+		{
+			$recipeResolvedRow = $this->Database->recipes_resolved()->where('recipe_id = :1', $recipeId)->fetch();
+			$this->StockService->AddProduct($recipeRow->product_id, floatval($recipeRow->desired_servings), null, StockService::TRANSACTION_TYPE_SELF_PRODUCTION, date('Y-m-d'), floatval($recipeResolvedRow->costs));
 		}
 	}
 

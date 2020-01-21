@@ -20,6 +20,22 @@ ADD correlation_id TEXT;
 ALTER TABLE stock_log
 ADD transaction_id TEXT;
 
+ALTER TABLE stock_log
+ADD stock_row_id INTEGER;
+
+DROP VIEW stock_current_locations;
+CREATE VIEW stock_current_locations
+AS
+SELECT
+	1 AS id, -- Dummy, LessQL needs an id column
+	s.product_id,
+	s.location_id AS location_id,
+	l.name AS location_name
+FROM stock s
+JOIN locations l
+	ON s.location_id = l.id
+GROUP BY s.product_id, s.location_id, l.name;
+
 ALTER TABLE recipes
 ADD product_id INTEGER;
 
@@ -38,19 +54,3 @@ FROM recipes r
 LEFT JOIN recipes_pos_resolved rpr
 	ON r.id = rpr.recipe_id
 GROUP BY r.id;
-
-ALTER TABLE stock_log
-ADD stock_row_id INTEGER;
-
-DROP VIEW stock_current_locations;
-CREATE VIEW stock_current_locations
-AS
-SELECT
-	1 AS id, -- Dummy, LessQL needs an id column
-	s.product_id,
-	s.location_id AS location_id,
-	l.name AS location_name
-FROM stock s
-JOIN locations l
-	ON s.location_id = l.id
-GROUP BY s.product_id, s.location_id, l.name;

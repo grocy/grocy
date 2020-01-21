@@ -1,8 +1,4 @@
-﻿$(document).ready(function() {
-	Grocy.Components.ProductPicker.GetPicker().trigger('change');
-} );
-
-$('#save-recipe-button').on('click', function(e)
+﻿$('#save-recipe-button').on('click', function(e)
 {
 	e.preventDefault();
 
@@ -350,16 +346,5 @@ $(window).on("message", function(e)
 	if (data.Message === "IngredientsChanged")
 	{
 		window.location.href = U('/recipe/' + Grocy.EditObjectId);
-	}
-
-});
-
-Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
-{
-	var productId = $(e.target).val();
-
-	if (productId)
-	{
-		Grocy.Components.ProductCard.Refresh(productId);
 	}
 });

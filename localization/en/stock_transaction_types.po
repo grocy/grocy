@@ -35,3 +35,6 @@ msgstr "Stock entry edited (old values)"
 
 msgid "stock-edit-new"
 msgstr "Stock entry edited (new values)"
+
+msgid "self-production"
+msgstr "Self-production"

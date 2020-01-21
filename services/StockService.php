@@ -12,6 +12,7 @@ class StockService extends BaseService
 	const TRANSACTION_TYPE_STOCK_EDIT_NEW = 'stock-edit-new';
 	const TRANSACTION_TYPE_STOCK_EDIT_OLD = 'stock-edit-old';
 	const TRANSACTION_TYPE_PRODUCT_OPENED = 'product-opened';
+	const TRANSACTION_TYPE_SELF_PRODUCTION = 'self-production';
 
 	public function GetCurrentStock($includeNotInStockButMissingProducts = false)
 	{
@@ -242,7 +243,7 @@ class StockService extends BaseService
 			}
 		}
 
-		if ($transactionType === self::TRANSACTION_TYPE_PURCHASE || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
+		if ($transactionType === self::TRANSACTION_TYPE_PURCHASE || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION || $transactionType == self::TRANSACTION_TYPE_SELF_PRODUCTION)
 		{
 			if ($transactionId === null)
 			{
