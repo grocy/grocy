@@ -31,9 +31,9 @@ var calendar = $("#calendar").fullCalendar({
 
 		$(".fc-day-header").append('<a class="ml-1 btn btn-outline-dark btn-xs my-1 add-recipe-button" href="#"><i class="fas fa-plus"></i></a>');
 
-		var weekRecipeName = view.start.year().toString() + "-" + (view.start.week() - 1).toString();
+		var weekRecipeName = view.start.year().toString() + "-" + ((view.start.week() - 1).toString().padStart(2, "0")).toString();
 		var weekRecipe = FindObjectInArrayByPropertyValue(internalRecipes, "name", weekRecipeName);
-
+		
 		var weekCosts = 0;
 		var weekRecipeOrderMissingButtonHtml = "";
 		var weekRecipeConsumeButtonHtml = "";

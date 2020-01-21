@@ -25,6 +25,7 @@
 
 ### Meal plan fixes
 - Fixed that when `FEATURE_FLAG_STOCK_PRICE_TRACKING` was set to `false`, prices were still shown (thanks @kriddles)
+- Fixed that the week costs were missing for the weeks 1 - 9 of a year
 
 ### Calendar improvements
 - Improved that meal plan events in the iCal calendar export now contain a link to the appropriate meal plan week in the body of the event (thanks @kriddles)
