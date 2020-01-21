@@ -4,6 +4,12 @@
   - From there you can also edit the stock entries
 - A huge THANK YOU goes to @kriddles for the work on this feature
 
+### New feature: Self produced products
+- To a recipe a product can be attached
+  - This products needs a "Default best before date"
+- On using "Consume all ingredients needed by this recipe" and when it has a product attached, one unit of that product (per serving in purchase quantity unit) will be added to stock (with the proper price based on the recipe ingredients)
+- (Thanks @kriddles for the intial work on this)
+
 ### Stock improvements/fixes
 - The productcard gets now also refreshed after a transaction was posted (purchase/consume/etc.) (thanks @kriddles)
 - Fixed that entering partial amounts was not possible on the inventory page (only applies if the product option "Allow partial units in stock" is enabled)
