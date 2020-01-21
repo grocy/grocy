@@ -348,3 +348,23 @@ $(window).on("message", function(e)
 		window.location.href = U('/recipe/' + Grocy.EditObjectId);
 	}
 });
+
+Grocy.Components.RecipePicker.GetPicker().on('change', function (e)
+{
+	var value = Grocy.Components.RecipePicker.GetValue();
+	if (value.toString().isEmpty())
+	{
+		return;
+	}
+
+	Grocy.Api.Get('objects/recipes/' + value,
+		function(recipe)
+		{
+			$("#includes_servings").val(recipe.servings);
+		},
+		function(xhr)
+		{
+			console.error(xhr);
+		}
+	);
+});
