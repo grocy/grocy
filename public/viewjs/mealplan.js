@@ -97,10 +97,14 @@ var calendar = $("#calendar").fullCalendar({
 			fulfillmentInfoHtml = __t('Not enough in stock');
 			var fulfillmentIconHtml = '<i class="fas fa-times text-danger"></i>';
 		}
-		var costPerServing = ""
+		var costAndCaloriesPerServing = ""
 		if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 		{
-			costPerServing = '<h5 class="small text-truncate"><span class="locale-number locale-number-currency">' + resolvedRecipe.costs + '</span> ' + __t('per serving') + '<h5>';
+			costAndCaloriesPerServing = '<h5 class="small text-truncate"><span class="locale-number locale-number-currency">' + resolvedRecipe.costs + '</span> / <span class="locale-number locale-number-generic">' + resolvedRecipe.calories + '</span> kcal ' + __t('per serving') + '<h5>';
+		}
+		else
+		{
+			costAndCaloriesPerServing = '<h5 class="small text-truncate"><span class="locale-number locale-number-generic">' + resolvedRecipe.calories + '</span> kcal ' + __t('per serving') + '<h5>';
 		}
 
 		element.html(' \
@@ -108,7 +112,7 @@ var calendar = $("#calendar").fullCalendar({
 				<h5 class="text-truncate">' + recipe.name + '<h5> \
 				<h5 class="small text-truncate">' + __n(mealPlanEntry.servings, "%s serving", "%s servings") + '</h5> \
 				<h5 class="small timeago-contextual text-truncate">' + fulfillmentIconHtml + " " + fulfillmentInfoHtml + '</h5> \
-				' + costPerServing + ' \
+				' + costAndCaloriesPerServing + ' \
 				<h5> \
 					<a class="ml-1 btn btn-outline-danger btn-xs remove-recipe-button" href="#"><i class="fas fa-trash"></i></a> \
 					<a class="ml-1 btn btn-outline-primary btn-xs recipe-order-missing-button ' + recipeOrderMissingButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Put missing products on shopping list") + '" data-recipe-id="' + recipe.id.toString() + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-cart-plus"></i></a> \
