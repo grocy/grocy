@@ -592,7 +592,7 @@ class StockService extends BaseService
 		$logOldRowForStockUpdate->save();
 
 		$openedDate = $stockRow->opened_date;
-		if ($open && $openDate == null)
+		if ($open && $openedDate == null)
 		{
 			$openedDate = date('Y-m-d');
 		}
@@ -1082,9 +1082,10 @@ class StockService extends BaseService
 				throw new \Exception('Booking does not exist or was already undone');
 			}
 
-			$openDate = $logRow->opened_date;
+			$openedDate = $logRow->opened_date;
 			$open = true;
-			if ($openDate == null) {
+			if ($openedDate == null)
+			{
 				$open = false;
 			}
 
