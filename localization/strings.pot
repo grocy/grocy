@@ -1627,3 +1627,6 @@ msgstr ""
 
 msgid "This booking cannot be undone"
 msgstr ""
+
+msgid "Booking does not exist or was already undone"
+msgstr ""
