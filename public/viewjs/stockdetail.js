@@ -19,7 +19,6 @@ $.fn.dataTable.ext.search.push(function(settings, data, dataIndex)
 	return false;
 });
 
-Grocy.Components.ProductPicker.GetPicker().trigger('change');
 
 Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 {
@@ -116,7 +115,7 @@ $(document).on("click", ".stock-name-cell", function(e)
 
 function RefreshStockDetailRow(stockRowId)
 {
-	Grocy.Api.Get("stock/" + stockRowId + "/entry",
+	Grocy.Api.Get("stock/entry/" + stockRowId,
 		function(result)
 		{
 			var stockRow = $('#stock-' + stockRowId + '-row');
@@ -161,6 +160,8 @@ function RefreshStockDetailRow(stockRowId)
 				});
 				$('#stock-' + stockRowId + '-best-before-date-timeago').attr('datetime', result.best_before_date + ' 23:59:59');
 
+				$(".stock-consume-button").attr('data-location-id',result.location_id);
+
 				var locationName = "";
 				Grocy.Api.Get("objects/locations/" + result.location_id,
 					function(locationResult)
@@ -175,6 +176,7 @@ function RefreshStockDetailRow(stockRowId)
 				$('#stock-' + stockRowId + '-location').parent().effect('highlight', { }, 500);
 				$('#stock-' + stockRowId + '-location').fadeOut(500, function()
 				{
+					$(this).attr('data-location-id',result.location_id);
 					$(this).text(locationName).fadeIn(500);
 				});
 
@@ -230,6 +232,8 @@ $(window).on("message", function(e)
 		RefreshStockDetailRow(data.Payload);
 	}
 });
+
+Grocy.Components.ProductPicker.GetPicker().trigger('change');
 
 function UndoStockBookingEntry(bookingId, stockRowId)
 {

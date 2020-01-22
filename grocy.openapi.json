@@ -1050,86 +1050,9 @@
 						}
 					}
 				}
-			},
-			"put": {
-				"summary": "Edits the stock entry",
-				"tags": [
-					"Stock"
-				],
-				"requestBody": {
-					"required": true,
-					"content": {
-						"application/json": {
-							"schema": {
-								"type": "object",
-								"properties": {
-									"id": {
-										"type": "number",
-										"format": "number",
-										"description": "The stock table id"
-									},
-									"amount": {
-										"type": "number",
-										"format": "number",
-										"description": "The amount to add - please note that when tare weight handling for the product is enabled, this needs to be the amount including the container weight (gross), the amount to be posted will be automatically calculated based on what is in stock and the defined tare weight"
-									},
-									"best_before_date": {
-										"type": "string",
-										"format": "date",
-										"description": "The best before date of the product to add, when omitted, the current date is used"
-									},
-									"location_id": {
-										"type": "number",
-										"format": "integer",
-										"description": "If omitted, the default location of the product is used"
-									},
-									"price": {
-										"type": "number",
-										"format": "number",
-										"description": "The price per purchase quantity unit in configured currency"
-									},
-									"open": {
-										"type": "boolean",
-										"description": "If the stock entry was already opened or not"
-									}
-								},
-								"example": {
-									"id":	2,
-									"amount": 1,
-									"best_before_date": "2019-01-19",
-									"location_id": 2,
-									"price": "1.99",
-									"open": false
-								}
-							}
-						}
-					}
-				},
-				"responses": {
-					"200": {
-						"description": "The operation was successful",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/StockLogEntry"
-								}
-							}
-						}
-					},
-					"400": {
-						"description": "The operation was not successful (possible errors are: Not existing product, invalid transaction type)",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
-								}
-							}
-						}
-					}
-				}
 			}
 		},
-		"/stock/{entryId}/entry": {
+		"/stock/entry/{entryId}": {
 			"get": {
 				"summary": "Returns details of the given stock",
 				"tags": [
@@ -1159,6 +1082,90 @@
 					},
 					"400": {
 						"description": "The operation was not successful (possible errors are: Not existing product)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			},
+			"put": {
+				"summary": "Edits the stock entry",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "entryId",
+						"required": true,
+						"description": "A valid stock row id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"amount": {
+										"type": "number",
+										"format": "number",
+										"description": "The amount to add - please note that when tare weight handling for the product is enabled, this needs to be the amount including the container weight (gross), the amount to be posted will be automatically calculated based on what is in stock and the defined tare weight"
+									},
+									"best_before_date": {
+										"type": "string",
+										"format": "date",
+										"description": "The best before date of the product to add, when omitted, the current date is used"
+									},
+									"price": {
+										"type": "number",
+										"format": "number",
+										"description": "The price per purchase quantity unit in configured currency"
+									},
+									"open": {
+										"type": "boolean",
+										"description": "If the stock entry was already opened or not"
+									},
+									"location_id": {
+										"type": "number",
+										"format": "integer",
+										"description": "If omitted, the default location of the product is used"
+									}
+								},
+								"example": {
+									"id": "2",
+									"amount": "1",
+									"best_before_date": "2021-07-19",
+									"purchased_date": "2020-01-01",
+									"price": "22.03",
+									"open": false,
+									"location_id": "4"
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/StockEntry"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product, invalid transaction type)",
 						"content": {
 							"application/json": {
 								"schema": {

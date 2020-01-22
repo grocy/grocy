@@ -88,7 +88,6 @@
 				'isRequired' => false,
 				'label' => 'Produces product',
 				'prefillById' => $recipe->product_id,
-				'disallowAllProductWorkflows' => true,
 				'hint' => $__t('When a product is selected, one unit (per serving in purchase quantity unit) will be added to stock on consuming this recipe')
 			))
 
