@@ -591,11 +591,14 @@ class StockService extends BaseService
 		));
 		$logOldRowForStockUpdate->save();
 
-		$openDate = $stockRow->opened_date;
-		if ($open && $openDate == null) {
-			$openDate = date('Y-m-d');
-		} else if (!$open) {
-			$openDate = null;
+		$openedDate = $stockRow->opened_date;
+		if ($open && $openDate == null)
+		{
+			$openedDate = date('Y-m-d');
+		}
+		else if (!$open)
+		{
+			$openedDate = null;
 		}
 
 		$stockRow->update(array(
@@ -603,7 +606,7 @@ class StockService extends BaseService
 			'price' => $price,
 			'best_before_date' => $bestBeforeDate,
 			'location_id' => $locationId,
-			'opened_date' => $openDate,
+			'opened_date' => $openedDate,
 			'open' => $open
 		));
 
