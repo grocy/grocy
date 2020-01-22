@@ -1096,7 +1096,7 @@ class StockService extends BaseService
 				'price' => $logRow->price,
 				'location_id' => $logRow->location_id,
 				'open' => $open,
-				'opened_date' => $openDate
+				'opened_date' => $openedDate
 			));
 
 			// Update log entry
