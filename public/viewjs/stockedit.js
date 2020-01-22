@@ -26,9 +26,8 @@
 	jsonData.open = $("#open").is(":checked");
 
 	var stockRowId = GetUriParam('stockRowId');
-	jsonData.id = stockRowId;
 
-	Grocy.Api.Put("stock", jsonData,
+	Grocy.Api.Put("stock/entry/" + stockRowId, jsonData,
 		function(result)
 		{
 			var successMessage = __t('Stock entry successfully updated') + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBookingEntry(\'' + result.id + '\',\'' + stockRowId + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
@@ -84,7 +83,7 @@ if (Grocy.Components.DateTimePicker)
 }
 
 var stockRowId = GetUriParam('stockRowId');
-Grocy.Api.Get("stock/" + stockRowId + "/entry",
+Grocy.Api.Get("stock/entry/" + stockRowId,
 	function (stockEntry)
 	{
 		Grocy.Components.LocationPicker.SetId(stockEntry.location_id);

@@ -64,10 +64,10 @@
 							data-stockrow-id="{{ $currentStockEntry->id }}">
 							<i class="fas fa-box-open"></i>
 						</a>
+						@endif
 						<a class="btn btn-info btn-sm show-as-dialog-link" href="{{ $U('/stockedit?embedded&product=' . $currentStockEntry->product_id . '&stockRowId=' . $currentStockEntry->id) }}" data-toggle="tooltip" data-placement="left" title="{{ $__t('Edit stock entry') }}">
 							<i class="fas fa-edit"></i>
 						</a>
-						@endif
 						<div class="dropdown d-inline-block">
 							<button class="btn btn-sm btn-light text-secondary" type="button" data-toggle="dropdown">
 								<i class="fas fa-ellipsis-v"></i>

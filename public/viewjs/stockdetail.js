@@ -116,7 +116,7 @@ $(document).on("click", ".stock-name-cell", function(e)
 
 function RefreshStockDetailRow(stockRowId)
 {
-	Grocy.Api.Get("stock/" + stockRowId + "/entry",
+	Grocy.Api.Get("stock/entry/" + stockRowId,
 		function(result)
 		{
 			var stockRow = $('#stock-' + stockRowId + '-row');
