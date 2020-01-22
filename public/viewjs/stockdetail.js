@@ -160,6 +160,8 @@ function RefreshStockDetailRow(stockRowId)
 				});
 				$('#stock-' + stockRowId + '-best-before-date-timeago').attr('datetime', result.best_before_date + ' 23:59:59');
 
+				$(".stock-consume-button").attr('data-location-id',result.location_id);
+
 				var locationName = "";
 				Grocy.Api.Get("objects/locations/" + result.location_id,
 					function(locationResult)
@@ -174,6 +176,7 @@ function RefreshStockDetailRow(stockRowId)
 				$('#stock-' + stockRowId + '-location').parent().effect('highlight', { }, 500);
 				$('#stock-' + stockRowId + '-location').fadeOut(500, function()
 				{
+					$(this).attr('data-location-id',result.location_id);
 					$(this).text(locationName).fadeIn(500);
 				});
 
