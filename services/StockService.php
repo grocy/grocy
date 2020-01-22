@@ -591,11 +591,19 @@ class StockService extends BaseService
 		));
 		$logOldRowForStockUpdate->save();
 
+		$openDate = $stockRow->opened_date;
+		if ($open && $openDate == null) {
+			$openDate = date('Y-m-d');
+		} else if (!$open) {
+			$openDate = null;
+		}
+
 		$stockRow->update(array(
 			'amount' => $amount,
 			'price' => $price,
 			'best_before_date' => $bestBeforeDate,
 			'location_id' => $locationId,
+			'opened_date' => $openDate,
 			'open' => $open
 		));
 
@@ -1071,12 +1079,20 @@ class StockService extends BaseService
 				throw new \Exception('Booking does not exist or was already undone');
 			}
 
+			$openDate = $logRow->opened_date;
+			$open = true;
+			if ($openDate == null) {
+				$open = false;
+			}
+
 			$stockRow->update(array(
 				'amount' => $logRow->amount,
 				'best_before_date' => $logRow->best_before_date,
 				'purchased_date' => $logRow->purchased_date,
 				'price' => $logRow->price,
-				'location_id' => $logRow->location_id
+				'location_id' => $logRow->location_id,
+				'open' => $open,
+				'opened_date' => $openDate
 			));
 
 			// Update log entry
