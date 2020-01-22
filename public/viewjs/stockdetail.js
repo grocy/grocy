@@ -19,7 +19,6 @@ $.fn.dataTable.ext.search.push(function(settings, data, dataIndex)
 	return false;
 });
 
-Grocy.Components.ProductPicker.GetPicker().trigger('change');
 
 Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 {
@@ -230,6 +229,8 @@ $(window).on("message", function(e)
 		RefreshStockDetailRow(data.Payload);
 	}
 });
+
+Grocy.Components.ProductPicker.GetPicker().trigger('change');
 
 function UndoStockBookingEntry(bookingId, stockRowId)
 {
