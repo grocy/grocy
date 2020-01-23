@@ -1630,3 +1630,6 @@ msgstr ""
 
 msgid "Booking does not exist or was already undone"
 msgstr ""
+
+msgid "Are you sure to delete API key \"%s\"?"
+msgstr ""
