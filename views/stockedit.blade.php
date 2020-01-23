@@ -69,7 +69,7 @@
 			<input type="hidden" name="price" id="price" value="0">
 			@endif
 
-			@php /*@include('components.datetimepicker', array(
+			@include('components.datetimepicker2', array(
 				'id' => 'purchase_date',
 				'label' => 'Purchased date',
 				'format' => 'YYYY-MM-DD',
@@ -79,7 +79,7 @@
 				'invalidFeedback' => $__t('A purchased date is required'),
 				'nextInputSelector' => '#save-stockedit-button',
 				'additionalGroupCssClasses' => 'date-only-datetimepicker'
-			))*/ @endphp
+			))
 
 			<div class="checkbox">
 				<label for="open">

@@ -13,6 +13,7 @@
 	var jsonData = { };
 	jsonData.amount = jsonForm.amount;
 	jsonData.best_before_date = Grocy.Components.DateTimePicker.GetValue();
+	jsonData.purchased_date = Grocy.Components.DateTimePicker2.GetValue();
 	if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 	{
 		jsonData.location_id = Grocy.Components.LocationPicker.GetValue();
@@ -69,18 +70,25 @@ $('#stockedit-form input').keydown(function(event)
 	}
 });
 
-if (Grocy.Components.DateTimePicker)
+Grocy.Components.DateTimePicker.GetInputElement().on('change', function(e)
 {
-	Grocy.Components.DateTimePicker.GetInputElement().on('change', function(e)
-	{
-		Grocy.FrontendHelpers.ValidateForm('stockedit-form');
-	});
+	Grocy.FrontendHelpers.ValidateForm('stockedit-form');
+});
 
-	Grocy.Components.DateTimePicker.GetInputElement().on('keypress', function(e)
-	{
-		Grocy.FrontendHelpers.ValidateForm('stockedit-form');
-	});
-}
+Grocy.Components.DateTimePicker.GetInputElement().on('keypress', function(e)
+{
+	Grocy.FrontendHelpers.ValidateForm('stockedit-form');
+});
+
+Grocy.Components.DateTimePicker2.GetInputElement().on('change', function(e)
+{
+	Grocy.FrontendHelpers.ValidateForm('stockedit-form');
+});
+
+Grocy.Components.DateTimePicker2.GetInputElement().on('keypress', function(e)
+{
+	Grocy.FrontendHelpers.ValidateForm('stockedit-form');
+});
 
 var stockRowId = GetUriParam('stockRowId');
 Grocy.Api.Get("stock/entry/" + stockRowId,
@@ -91,6 +99,7 @@ Grocy.Api.Get("stock/entry/" + stockRowId,
 		$('#price').val(stockEntry.price);
 		$("#open").prop('checked', BoolVal(stockEntry.open));
 		Grocy.Components.DateTimePicker.SetValue(stockEntry.best_before_date);
+		Grocy.Components.DateTimePicker2.SetValue(stockEntry.purchased_date);
 
 		Grocy.Api.Get('stock/products/' + stockEntry.product_id,
 			function (productDetails)

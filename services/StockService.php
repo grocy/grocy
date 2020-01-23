@@ -563,7 +563,7 @@ class StockService extends BaseService
 		return $this->Database->lastInsertId();
 	}
 
-	public function EditStockEntry(int $stockRowId, int $amount, $bestBeforeDate, $locationId, $price, $open)
+	public function EditStockEntry(int $stockRowId, int $amount, $bestBeforeDate, $locationId, $price, $open, $purchasedDate)
 	{
 
 		$stockRow = $this->Database->stock()->where('id = :1', $stockRowId)->fetch();
@@ -607,7 +607,8 @@ class StockService extends BaseService
 			'best_before_date' => $bestBeforeDate,
 			'location_id' => $locationId,
 			'opened_date' => $openedDate,
-			'open' => $open
+			'open' => $open,
+			'purchased_date' => $purchasedDate
 		));
 
 		$logNewRowForStockUpdate = $this->Database->stock_log()->createRow(array(

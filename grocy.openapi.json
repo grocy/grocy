@@ -1138,6 +1138,11 @@
 										"type": "number",
 										"format": "integer",
 										"description": "If omitted, the default location of the product is used"
+									},
+									"purchased_date": {
+										"type": "string",
+										"format": "date",
+										"description": "The date when this stock entry was purchased"
 									}
 								},
 								"example": {
