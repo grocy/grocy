@@ -171,6 +171,6 @@ class GenericEntityApiController extends BaseApiController
 
 	private function IsEntityWithPreventedListing($entity)
 	{
-		return in_array($entity, $this->OpenApiSpec->components->internalSchemas->ExposedEntitiesPreventListing->enum);
+		return !in_array($entity, $this->OpenApiSpec->components->internalSchemas->ExposedEntityButNoListing->enum);
 	}
 }

@@ -129,7 +129,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/ExposedEntity"
+							"$ref": "#/components/internalSchemas/ExposedEntityButNoListing"
 						}
 					}
 				],
@@ -274,7 +274,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/ExposedEntity"
+							"$ref": "#/components/internalSchemas/ExposedEntityButNoListing"
 						}
 					},
 					{
@@ -3275,10 +3275,28 @@
 					"meal_plan"
 				]
 			},
-			"ExposedEntitiesPreventListing": {
+			"ExposedEntityButNoListing": {
 				"type": "string",
 				"enum": [
-					"api_keys"
+					"products",
+					"chores",
+					"batteries",
+					"locations",
+					"quantity_units",
+					"quantity_unit_conversions",
+					"shopping_list",
+					"shopping_lists",
+					"recipes",
+					"recipes_pos",
+					"recipes_nestings",
+					"tasks",
+					"task_categories",
+					"product_groups",
+					"equipment",
+					"userfields",
+					"userentities",
+					"userobjects",
+					"meal_plan"
 				]
 			},
 			"StockTransactionType": {
