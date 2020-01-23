@@ -25,6 +25,7 @@
 - When adding or editing a recipe ingredient, a dialog is now used instead of switching between pages (thanks @kriddles)
 
 ### Meal plan improvements/fixes
+- It's now possible to add notes per day (in the dropdown of the add button in the header of each day column)
 - Added that the calories per serving are now also shown
 - Added that the total costs and calories per day are displayed in the header of each day column
 - Fixed that when `FEATURE_FLAG_STOCK_PRICE_TRACKING` was set to `false`, prices were still shown (thanks @kriddles)

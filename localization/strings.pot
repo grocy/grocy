@@ -1633,3 +1633,12 @@ msgstr ""
 
 msgid "Are you sure to delete API key \"%s\"?"
 msgstr ""
+
+msgid "Add note"
+msgstr ""
+
+msgid "Add note to %s"
+msgstr ""
+
+msgid "per day"
+msgstr ""
