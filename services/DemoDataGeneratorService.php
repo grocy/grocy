@@ -128,16 +128,17 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (5, 2, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount, qu_id, only_check_single_unit_in_stock) VALUES (5, 23, 200, 11, 1);
 
-				INSERt INTO recipes_nestings(recipe_id, includes_recipe_id) VALUES (6, 4);
-				INSERt INTO recipes_nestings(recipe_id, includes_recipe_id) VALUES (6, 5);
+				INSERT INTO recipes_nestings(recipe_id, includes_recipe_id) VALUES (6, 4);
+				INSERT INTO recipes_nestings(recipe_id, includes_recipe_id) VALUES (6, 5);
 
-				INSERt INTO meal_plan(day, recipe_id) VALUES ('{$mondayThisWeek}', 1);
-				INSERt INTO meal_plan(day, recipe_id) VALUES ('{$tuesdayThisWeek}', 2);
-				INSERt INTO meal_plan(day, recipe_id) VALUES ('{$wednesdayThisWeek}', 3);
-				INSERt INTO meal_plan(day, recipe_id) VALUES ('{$thursdayThisWeek}', 4);
-				INSERt INTO meal_plan(day, recipe_id) VALUES ('{$fridayThisWeek}', 1);
-				INSERt INTO meal_plan(day, recipe_id) VALUES ('{$saturdayThisWeek}', 2);
-				INSERt INTO meal_plan(day, recipe_id) VALUES ('{$sundayThisWeek}', 4);
+				INSERT INTO meal_plan(day, recipe_id) VALUES ('{$mondayThisWeek}', 1);
+				INSERT INTO meal_plan(day, recipe_id) VALUES ('{$tuesdayThisWeek}', 2);
+				INSERT INTO meal_plan(day, recipe_id) VALUES ('{$wednesdayThisWeek}', 3);
+				INSERT INTO meal_plan(day, recipe_id) VALUES ('{$thursdayThisWeek}', 4);
+				INSERT INTO meal_plan(day, recipe_id) VALUES ('{$fridayThisWeek}', 1);
+				INSERT INTO meal_plan(day, recipe_id) VALUES ('{$saturdayThisWeek}', 2);
+				INSERT INTO meal_plan(day, recipe_id) VALUES ('{$sundayThisWeek}', 4);
+				INSERT INTO meal_plan(day, type, note) VALUES ('{$tuesdayThisWeek}', 'note', '{$this->__t_sql('This is a note')}');
 
 				INSERT INTO chores (name, period_type, period_days) VALUES ('{$this->__t_sql('Changed towels in the bathroom')}', 'manually', 5); --1
 				INSERT INTO chores (name, period_type, period_days, assignment_type, assignment_config, next_execution_assigned_to_user_id) VALUES ('{$this->__t_sql('Cleaned the kitchen floor')}', 'dynamic-regular', 7, 'random', '1,2,3,4', 1); --2

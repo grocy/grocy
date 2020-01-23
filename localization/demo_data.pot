@@ -327,3 +327,6 @@ msgstr ""
 
 msgid "Portuguese (Brazil)"
 msgstr ""
+
+msgid "This is a note"
+msgstr ""

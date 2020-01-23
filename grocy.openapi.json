@@ -3272,8 +3272,7 @@
 					"userfields",
 					"userentities",
 					"userobjects",
-					"meal_plan",
-					"meal_plan_notes"
+					"meal_plan"
 				]
 			},
 			"ExposedEntityButNoListing": {

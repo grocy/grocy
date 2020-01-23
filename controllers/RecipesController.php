@@ -132,20 +132,8 @@ class RecipesController extends BaseController
 	public function MealPlan(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$recipes = $this->Database->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll();
+		
 		$events = array();
-
-		foreach($this->Database->meal_plan_notes() as $mealPlanNote)
-		{
-			$events[] = array(
-				'id' => intval($mealPlanNote['id']) * -1,
-				'title' => '',
-				'start' => $mealPlanNote['day'],
-				'date_format' => 'date',
-				'note' => json_encode($mealPlanNote),
-				'type' => 'note'
-			);
-		}
-
 		foreach($this->Database->meal_plan() as $mealPlanEntry)
 		{
 			$recipe = FindObjectInArrayByPropertyValue($recipes, 'id', $mealPlanEntry['recipe_id']);
@@ -162,7 +150,7 @@ class RecipesController extends BaseController
 				'date_format' => 'date',
 				'recipe' => json_encode($recipe),
 				'mealPlanEntry' => json_encode($mealPlanEntry),
-				'type' => 'recipe'
+				'type' => $mealPlanEntry['type']
 			);
 		}
 

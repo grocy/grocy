@@ -46,11 +46,11 @@
 					@include('components.recipepicker', array(
 						'recipes' => $recipes,
 						'isRequired' => true,
-						'nextInputSelector' => '#servings'
+						'nextInputSelector' => '#recipe_servings'
 					))
 
 					@include('components.numberpicker', array(
-						'id' => 'servings',
+						'id' => 'recipe_servings',
 						'label' => 'Servings',
 						'min' => 1,
 						'value' => '1',
@@ -58,6 +58,7 @@
 					))
 
 					<input type="hidden" id="day" name="day" value="">
+					<input type="hidden" name="type" value="recipe">
 
 				</form>
 			</div>
@@ -82,6 +83,8 @@
 						<label for="note">{{ $__t('Note') }}</label>
 						<textarea class="form-control" rows="2" id="note" name="note"></textarea>
 					</div>
+
+					<input type="hidden" name="type" value="note">
 
 				</form>
 			</div>

@@ -72,6 +72,9 @@ var calendar = $("#calendar").fullCalendar({
 	{
 		element.removeClass("fc-event");
 		element.addClass("text-center");
+		element.attr("data-meal-plan-entry", event.mealPlanEntry);
+
+		var mealPlanEntry = JSON.parse(event.mealPlanEntry);
 
 		if (event.type == "recipe")
 		{
@@ -81,11 +84,9 @@ var calendar = $("#calendar").fullCalendar({
 				return false;
 			}
 
-			var mealPlanEntry = JSON.parse(event.mealPlanEntry);
 			var resolvedRecipe = FindObjectInArrayByPropertyValue(recipesResolved, "recipe_id", recipe.id);
 
 			element.attr("data-recipe", event.recipe);
-			element.attr("data-meal-plan-entry", event.mealPlanEntry);
 
 			var recipeOrderMissingButtonDisabledClasses = "";
 			if (resolvedRecipe.need_fulfilled_with_shopping_list == 1)
@@ -119,7 +120,7 @@ var calendar = $("#calendar").fullCalendar({
 			element.html('\
 				<div> \
 					<h5 class="text-truncate">' + recipe.name + '<h5> \
-					<h5 class="small text-truncate">' + __n(mealPlanEntry.servings, "%s serving", "%s servings") + '</h5> \
+					<h5 class="small text-truncate">' + __n(mealPlanEntry.recipe_servings, "%s serving", "%s servings") + '</h5> \
 					<h5 class="small timeago-contextual text-truncate">' + fulfillmentIconHtml + " " + fulfillmentInfoHtml + '</h5> \
 					' + costsAndCaloriesPerServing + ' \
 					<h5> \
@@ -158,13 +159,9 @@ var calendar = $("#calendar").fullCalendar({
 		}
 		else if (event.type == "note")
 		{
-			var note = JSON.parse(event.note);
-
-			element.attr("data-note", event.note);
-
 			element.html('\
 				<div> \
-					<h5 class="text-truncate">' + note.note + '<h5> \
+					<h5 class="text-truncate">' + mealPlanEntry.note + '<h5> \
 					<h5> \
 						<a class="ml-1 btn btn-outline-danger btn-xs remove-note-button" href="#"><i class="fas fa-trash"></i></a> \
 					</h5> \
@@ -234,9 +231,9 @@ $(document).on("click", ".remove-recipe-button", function(e)
 
 $(document).on("click", ".remove-note-button", function(e)
 {
-	var note = JSON.parse($(this).parents(".fc-h-event:first").attr("data-note"));
+	var mealPlanEntry = JSON.parse($(this).parents(".fc-h-event:first").attr("data-meal-plan-entry"));
 
-	Grocy.Api.Delete('objects/meal_plan_notes/' + note.id.toString(), { },
+	Grocy.Api.Delete('objects/meal_plan/' + mealPlanEntry.id.toString(), { },
 		function(result)
 		{
 			window.location.reload();
@@ -280,7 +277,7 @@ $('#save-add-note-button').on('click', function(e)
 
 	var jsonData = $('#add-note-form').serializeJSON();
 	jsonData.day = $("#day").val();
-	Grocy.Api.Post('objects/meal_plan_notes', jsonData,
+	Grocy.Api.Post('objects/meal_plan', jsonData,
 		function(result)
 		{
 			window.location.reload();
