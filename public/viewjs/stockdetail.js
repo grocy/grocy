@@ -119,6 +119,12 @@ function RefreshStockDetailRow(stockRowId)
 		function(result)
 		{
 			var stockRow = $('#stock-' + stockRowId + '-row');
+
+			// If the stock row not exists / is invisible (happens after consume/undo because the undone new stock row has different id), just reload the page for now
+			if (!stockRow.length || stockRow.hasClass("d-none"))
+			{
+				window.location.reload();
+			}
 			
 			if (result == null || result.amount == 0)
 			{
