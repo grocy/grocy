@@ -57,6 +57,7 @@ a.discrete-link:focus {
 	top: 0;
 	left: 0;
 	overflow: auto;
+	background-color: #ffffff;
  }
 
  /* Fixes smooth scrolling on iOS */
@@ -65,7 +66,7 @@ a.discrete-link:focus {
 	-webkit-overflow-scrolling: touch;
 }
 
-.fullscreen-card .card-header {
+.fullscreen-card .card-header-fullscreen {
 	z-index: 9999;
 	width: 100%;
 	position: fixed;

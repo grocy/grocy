@@ -219,7 +219,14 @@ $("#selectedRecipeToggleFullscreenButton").on('click', function(e)
 	$("#selectedRecipeCard .card-header").toggleClass("fixed-top");
 	$("#selectedRecipeCard .card-body").toggleClass("mt-5");
 
-	window.location.hash = "fullscreen";
+	if ($("body").hasClass("fullscreen-card"))
+	{
+		window.location.hash = "#fullscreen";
+	}
+	else
+	{
+		window.history.replaceState(null, null, " ");
+	}
 });
 
 $('#servings-scale').keyup(function(event)

@@ -129,7 +129,7 @@
 
 	@if($selectedRecipe !== null)
 	<div class="col-xs-12 col-md-6">
-		<div class="card-header">
+		<div class="card-header card-header-fullscreen">
 			<i class="fas fa-cocktail"></i> {{ $selectedRecipe->name }}&nbsp;&nbsp;
 			<a id="selectedRecipeConsumeButton" class="btn btn-sm btn-outline-success py-0 hide-when-embedded hide-on-fullscreen-card @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->need_fulfilled == 0) disabled @endif" href="#" data-toggle="tooltip" title="{{ $__t('Consume all ingredients needed by this recipe') }}" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
 				<i class="fas fa-utensils"></i>

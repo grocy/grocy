@@ -340,5 +340,35 @@ $(document).on("click", "#clear-description-button", function(e)
 	$("#save-description-button").click();
 });
 
+$(".fullscreen-shopping-list-button").on('click', function(e)
+{
+	e.preventDefault();
+
+	$("#shoppinglist-main").toggleClass("fullscreen");
+	$("body").toggleClass("fullscreen-card");
+	$("#shopping-list-normal-view-button").toggleClass("d-none");
+	$("#mainNav").toggleClass("d-none");
+
+	if ($("body").hasClass("fullscreen-card"))
+	{
+		window.location.hash = "#fullscreen";	
+	}
+	else
+	{
+		window.history.replaceState(null, null, " ");
+	}
+});
+
 $("#description").trigger("summernote.change");
 $("#save-description-button").addClass("disabled");
+
+if (window.location.hash === "#fullscreen")
+{
+	$("#shopping-list-compact-view-button").click();
+}
+
+// Auto switch to compact view on mobile
+if ($(window).width() < 768)
+{
+	$("#shopping-list-compact-view-button").click();
+}

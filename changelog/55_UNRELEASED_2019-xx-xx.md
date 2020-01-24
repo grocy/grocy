@@ -18,7 +18,8 @@
 - Fixed that the productcard did not load correctly when `FEATURE_FLAG_STOCK_LOCATION_TRACKING` was set to `false` (thanks @kriddles)
 - Fixed that the "Add as barcode to existing product" workflow did not work twice when not switching the page inbetween
 
-### Shopping list fixes
+### Shopping list improvements/fixes
+- Added a compact view to have better shopping list for shopping trips (new button "Compact view" in the header, additionally this is automatically enabled on mobile devices / when screen width is < 768 px)
 - Fixed that when `FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS` was set to `false`, the shopping list appeared empty after some actions
 
 ### Recipe improvements

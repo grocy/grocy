@@ -1642,3 +1642,9 @@ msgstr ""
 
 msgid "per day"
 msgstr ""
+
+msgid "Compact view"
+msgstr ""
+
+msgid "Normal view"
+msgstr ""

@@ -17,7 +17,7 @@
 
 @section('content')
 @if(GROCY_FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS)
-<div class="row border-bottom pb-2 mb-2 d-print-none">
+<div class="row border-bottom pb-2 mb-2 d-print-none hide-on-fullscreen-card">
 	<div class="col-xs-12 col-md-4">
 		<label for="selected-shopping-list">{{ $__t('Selected shopping list') }}</label>
 		<select class="form-control" id="selected-shopping-list">
@@ -37,6 +37,9 @@
 		<a id="print-shopping-list-button" class="btn btn-outline-dark responsive-button" href="#">
 			<i class="fas fa-print"></i> {{ $__t('Print') }}
 		</a>
+		<a id="shopping-list-compact-view-button" class="btn btn-outline-dark responsive-button float-right fullscreen-shopping-list-button" href="#">
+			<i class="fas fa-compress-arrows-alt"></i> {{ $__t('Compact view') }}
+		</a>
 		<!--<div class="dropdown d-inline-block">
 			<button class="btn btn-outline-dark responsive-button dropdown-toggle" data-toggle="dropdown"><i class="fas fa-file-export"></i> {{ $__t('Output') }}</button>
 			<div class="dropdown-menu">
@@ -49,7 +52,7 @@
 <input type="hidden" name="selected-shopping-list" id="selected-shopping-list" value="1">
 @endif
 
-<div class="row d-print-none">
+<div class="row d-print-none hide-on-fullscreen-card">
 	<div class="col">
 		<h1>
 			@yield('title')
@@ -70,7 +73,7 @@
 	</div>
 </div>
 
-<div class="row mt-3 d-print-none">
+<div class="row mt-3 d-print-none hide-on-fullscreen-card">
 	<div class="col-xs-12 col-md-4">
 		<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
@@ -84,8 +87,11 @@
 	</div>
 </div>
 
-<div class="row d-print-none">
+<div id="shoppinglist-main" class="row d-print-none">
 	<div class="col-xs-12 col-md-8 pb-3">
+		<a id="shopping-list-normal-view-button" class="btn btn-outline-dark btn-block fullscreen-shopping-list-button d-none" href="#">
+			<i class="fas fa-expand-arrows-alt"></i> {{ $__t('Normal view') }}
+		</a>
 		<table id="shoppinglist-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
@@ -149,7 +155,7 @@
 	</div>
 </div>
 
-<div class="row mt-3 d-print-none">
+<div class="row mt-3 d-print-none hide-on-fullscreen-card">
 	<div class="col-xs-12 col-md-8">
 		<div class="form-group">
 			<label class="text-larger font-weight-bold" for="notes">{{ $__t('Notes') }}</label>
