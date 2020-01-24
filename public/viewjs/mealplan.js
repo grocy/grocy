@@ -306,7 +306,7 @@ Grocy.Components.RecipePicker.GetInputElement().keydown(function(event)
 	}
 });
 
-$(document).on("keyodwn", "#servings", function(e)
+$(document).on("keydown", "#servings", function(e)
 {
 	if (event.keyCode === 13) //Enter
 	{
