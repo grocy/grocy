@@ -282,6 +282,20 @@ $(document).on('click', '.order-listitem-button', function(e)
 			console.error(xhr);
 		}
 	);
+
+	
+	var statusInfoCell = $("#shoppinglistitem-" + listItemId + "-status-info");
+	if (done == 1)
+	{
+		statusInfoCell.text(statusInfoCell.text().replace("xxUNDONExx", ""));
+	}
+	else
+	{
+		statusInfoCell.text(statusInfoCell.text() + " xxUNDONExx");
+	}
+	shoppingListTable.rows().invalidate().draw(false);
+
+	$("#status-filter").trigger("change");
 });
 
 function OnListItemRemoved()

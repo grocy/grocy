@@ -83,6 +83,7 @@
 		<select class="form-control" id="status-filter">
 			<option class="bg-white" value="all">{{ $__t('All') }}</option>
 			<option class="bg-info" value="belowminstockamount">{{ $__t('Below min. stock amount') }}</option>
+			<option class="bg-white" value="xxUNDONExx">{{ $__t('Only undone items') }}</option>
 		</select>
 	</div>
 </div>
@@ -135,8 +136,9 @@
 					<td class="d-none">
 						@if(!empty(FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->product_group_id)) {{ FindObjectInArrayByPropertyValue($productGroups, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->product_group_id)->name }} @else <span class="font-italic font-weight-light">{{ $__t('Ungrouped') }}</span> @endif
 					</td>
-					<td class="d-none">
+					<td id="shoppinglistitem-{{ $listItem->id }}-status-info" class="d-none">
 						@if(FindObjectInArrayByPropertyValue($missingProducts, 'id', $listItem->product_id) !== null) belowminstockamount @endif
+						@if($listItem->done != 1) xxUNDONExx @endif
 					</td>
 
 					@include('components.userfields_tbody', array(

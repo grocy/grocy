@@ -20,6 +20,7 @@
 
 ### Shopping list improvements/fixes
 - Added a compact view to have better shopping list for shopping trips (new button "Compact view" in the header, additionally this is automatically enabled on mobile devices / when screen width is < 768 px)
+- It's now possible to filter for only undone (not striked through) items (new option in the "Filter by status" dropdown)
 - Fixed that when `FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS` was set to `false`, the shopping list appeared empty after some actions
 
 ### Recipe improvements

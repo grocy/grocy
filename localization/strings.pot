@@ -1648,3 +1648,6 @@ msgstr ""
 
 msgid "Normal view"
 msgstr ""
+
+msgid "Only undone items"
+msgstr ""
