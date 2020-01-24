@@ -132,6 +132,7 @@ class RecipesController extends BaseController
 	public function MealPlan(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$recipes = $this->Database->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll();
+		$products = $this->Database->products()->orderBy('name');
 		
 		$events = array();
 		foreach($this->Database->meal_plan() as $mealPlanEntry)
@@ -141,22 +142,39 @@ class RecipesController extends BaseController
 			if ($recipe !== null)
 			{
 				$title = $recipe->name;
+
+				$events[] = array(
+					'id' => $mealPlanEntry['id'],
+					'title' => $title,
+					'start' => $mealPlanEntry['day'],
+					'date_format' => 'date',
+					'recipe' => json_encode($recipe),
+					'mealPlanEntry' => json_encode($mealPlanEntry),
+					'type' => $mealPlanEntry['type']
+				);
 			}
 
-			$events[] = array(
-				'id' => $mealPlanEntry['id'],
-				'title' => $title,
-				'start' => $mealPlanEntry['day'],
-				'date_format' => 'date',
-				'recipe' => json_encode($recipe),
-				'mealPlanEntry' => json_encode($mealPlanEntry),
-				'type' => $mealPlanEntry['type']
-			);
+                        $product = FindObjectInArrayByPropertyValue($products, 'id', $mealPlanEntry['product_id']);
+                        if ($product !== null)
+                        {
+                                $title = $product->name;
+
+                                $events[] = array(
+                                        'id' => $mealPlanEntry['id'],
+                                        'title' => $title,
+                                        'start' => $mealPlanEntry['day'],
+                                        'date_format' => 'date',
+                                        'product' => json_encode($product),
+                                        'mealPlanEntry' => json_encode($mealPlanEntry),
+                                        'type' => $mealPlanEntry['type']
+                                );
+                        }
 		}
 
 		return $this->AppContainer->view->render($response, 'mealplan', [
 			'fullcalendarEventSources' => $events,
 			'recipes' => $recipes,
+			'products' => $products,
 			'internalRecipes' => $this->Database->recipes()->whereNot('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll(),
 			'recipesResolved' => $this->RecipesService->GetRecipesResolved()
 		]);

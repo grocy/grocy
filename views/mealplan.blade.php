@@ -45,7 +45,14 @@
 
 					@include('components.recipepicker', array(
 						'recipes' => $recipes,
-						'isRequired' => true,
+						'isRequired' => false,
+						'nextInputSelector' => '#recipe_servings'
+					))
+
+					@include('components.productpicker', array(
+						'products' => $products,
+						'isRequired' => false,
+						'disallowAllProductWorkflows' => true,
 						'nextInputSelector' => '#recipe_servings'
 					))
 
@@ -58,7 +65,6 @@
 					))
 
 					<input type="hidden" id="day" name="day" value="">
-					<input type="hidden" name="type" value="recipe">
 
 				</form>
 			</div>

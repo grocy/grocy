@@ -157,6 +157,33 @@ var calendar = $("#calendar").fullCalendar({
 				}
 			}
 		}
+		if (event.type == "product")
+		{
+			var product = JSON.parse(event.product);
+			if (product === null || product === undefined)
+			{
+				return false;
+			}
+
+
+			element.attr("data-product", event.product);
+
+			var productConsumeButtonDisabledClasses = "";
+			element.html('\
+				<div> \
+					<h5 class="text-truncate">' + product.name + '<h5> \
+					<h5 class="small text-truncate">' + __n(mealPlanEntry.recipe_servings, "%s serving", "%s servings") + '</h5> \
+					<h5> \
+						<a class="ml-1 btn btn-outline-danger btn-xs remove-recipe-button" href="#"><i class="fas fa-trash"></i></a> \
+						<a class="ml-1 btn btn-outline-success btn-xs product-consume-button ' + productConsumeButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Consume product") + '" data-product-id="' + product.id.toString() + '" data-product-name="' + product.name + '" data-servings-amount="' + mealPlanEntry.recipe_servings + '"><i class="fas fa-utensils"></i></a> \
+					</h5> \
+				</div>');
+
+			if (product.picture_file_name && !product.picture_file_name.isEmpty())
+			{
+				element.html(element.html() + '<div class="mx-auto"><img data-src="' + U("/api/files/productpictures/") + btoa(product.picture_file_name) + '?force_serve_as=picture&best_fit_width=400" class="img-fluid lazy"></div>')
+			}
+		}
 		else if (event.type == "note")
 		{
 			element.html('\
@@ -254,7 +281,18 @@ $('#save-add-recipe-button').on('click', function(e)
 		return false;
 	}
 
-	Grocy.Api.Post('objects/meal_plan', $('#add-recipe-form').serializeJSON(),
+	var jsonData = $('#add-recipe-form').serializeJSON();
+
+	if (Grocy.Components.RecipePicker.GetValue() != "")
+	{
+                jsonData.type = "recipe";
+	}
+	else if (Grocy.Components.ProductPicker.GetValue() != "")
+	{
+		jsonData.type = "product";
+	}
+
+	Grocy.Api.Post('objects/meal_plan', jsonData,
 		function(result)
 		{
 			window.location.reload();
@@ -376,6 +414,45 @@ $(document).on('click', '.recipe-order-missing-button', function(e)
 	});
 });
 
+$(document).on('click', '.product-consume-button', function(e)
+{
+	e.preventDefault();
+
+	// Remove the focus from the current button
+	// to prevent that the tooltip stays until clicked anywhere else
+	document.activeElement.blur();
+
+	Grocy.FrontendHelpers.BeginUiBusy();
+
+	var productId = $(e.currentTarget).attr('data-product-id');
+	var consumeAmount = $(e.currentTarget).attr('data-servings-amount');
+
+	Grocy.Api.Post('stock/products/' + productId + '/consume', { 'amount': consumeAmount, 'spoiled': false  },
+		function(bookingResponse)
+		{
+			Grocy.Api.Get('stock/products/' + productId,
+				function(result)
+				{
+					var toastMessage = __t('Removed %1$s of %2$s from stock', consumeAmount.toString() + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural), result.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse.transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
+
+					Grocy.FrontendHelpers.EndUiBusy();
+					toastr.success(toastMessage);
+				},
+				function(xhr)
+				{
+					Grocy.FrontendHelpers.EndUiBusy();
+					console.error(xhr);
+				}
+			);
+		},
+		function(xhr)
+		{
+			Grocy.FrontendHelpers.EndUiBusy();
+			console.error(xhr);
+		}
+	);
+});
+
 $(document).on('click', '.recipe-consume-button', function(e)
 {
 	// Remove the focus from the current button
@@ -461,3 +538,16 @@ $(window).on("resize", function()
 		calendar.fullCalendar("changeView", "basicWeek");
 	}
 });
+function UndoStockTransaction(transactionId)
+{
+	Grocy.Api.Post('stock/transactions/' + transactionId.toString() + '/undo', { },
+		function (result)
+		{
+			toastr.success(__t("Transaction successfully undone"));
+		},
+		function (xhr)
+		{
+			console.error(xhr);
+		}
+	);
+};

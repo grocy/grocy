@@ -6,6 +6,7 @@ CREATE TABLE meal_plan (
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
 	day DATE NOT NULL,
 	type TEXT DEFAULT 'recipe',
+	product_id INTEGER,
 	recipe_id INTEGER,
 	recipe_servings INTEGER DEFAULT 1,
 	note TEXT,
