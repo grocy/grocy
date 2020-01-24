@@ -215,6 +215,7 @@ $(document).on("click", ".add-recipe-button", function(e)
 	$("#add-recipe-modal-title").text(__t("Add recipe to %s", day.toString()));
 	$("#day").val(day.toString());
 	Grocy.Components.RecipePicker.Clear();
+	Grocy.Components.ProductPicker.Clear();
 	$("#add-recipe-modal").modal("show");
 	Grocy.FrontendHelpers.ValidateForm("add-recipe-form");
 });
@@ -538,6 +539,27 @@ $(window).on("resize", function()
 		calendar.fullCalendar("changeView", "basicWeek");
 	}
 });
+
+Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
+{
+	var productId = $(e.target).val();
+
+	if (productId)
+	{
+		Grocy.Components.RecipePicker.SetValue('');
+	}
+});
+
+Grocy.Components.RecipePicker.GetPicker().on('change', function(e)
+{
+        var recipeId = $(e.target).val();
+
+        if (recipeId)
+        {
+                Grocy.Components.ProductPicker.SetValue('');
+        }
+});
+
 function UndoStockTransaction(transactionId)
 {
 	Grocy.Api.Post('stock/transactions/' + transactionId.toString() + '/undo', { },
