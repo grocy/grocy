@@ -5,6 +5,10 @@ if (!Grocy.CalendarFirstDayOfWeek.isEmpty())
 {
 	firstDay = parseInt(Grocy.CalendarFirstDayOfWeek);
 }
+if (!Grocy.MealPlanFirstDayOfWeek.isEmpty())
+{
+	firstDay = parseInt(Grocy.MealPlanFirstDayOfWeek);
+}
 
 var calendar = $("#calendar").fullCalendar({
 	"themeSystem": "bootstrap4",

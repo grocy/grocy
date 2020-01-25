@@ -33,7 +33,7 @@ Setting('CALENDAR_SHOW_WEEK_OF_YEAR', true);
 
 # To keep it simple: grocy does not handle any currency conversions,
 # this here is used to format all money values,
-# so doesn't matter really matter, but should be the
+# so doesn't really matter, but should be the
 # ISO 4217 code of the currency ("USD", "EUR", "GBP", etc.)
 Setting('CURRENCY', 'USD');
 
@@ -61,6 +61,11 @@ Setting('DISABLE_AUTH', false);
 
 # Set this to true if you want to disable the ability to scan a barcode via the device camera (Browser API)
 Setting('DISABLE_BROWSER_BARCODE_CAMERA_SCANNING', false);
+
+# Set this if you want to have a different start day for the weekly meal plan view,
+# leave empty to use CALENDAR_FIRST_DAY_OF_WEEK (see above)
+# Needs to be a number where Sunday = 0, Monday = 1 and so forth
+Setting('MEAL_PLAN_FIRST_DAY_OF_WEEK', '');
 
 
 # Default user settings
