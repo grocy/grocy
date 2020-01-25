@@ -37,7 +37,7 @@
 		<a id="print-shopping-list-button" class="btn btn-outline-dark responsive-button" href="#">
 			<i class="fas fa-print"></i> {{ $__t('Print') }}
 		</a>
-		<a id="shopping-list-compact-view-button" class="btn btn-outline-dark responsive-button float-right fullscreen-shopping-list-button" href="#">
+		<a id="shopping-list-compact-view-button" class="btn btn-outline-dark responsive-button float-right switch-view-mode-button" href="#">
 			<i class="fas fa-compress-arrows-alt"></i> {{ $__t('Compact view') }}
 		</a>
 		<!--<div class="dropdown d-inline-block">
@@ -90,7 +90,7 @@
 
 <div id="shoppinglist-main" class="row d-print-none">
 	<div class="col-xs-12 col-md-8 pb-3">
-		<a id="shopping-list-normal-view-button" class="btn btn-outline-dark btn-block fullscreen-shopping-list-button d-none" href="#">
+		<a id="shopping-list-normal-view-button" class="btn btn-outline-dark btn-block switch-view-mode-button d-none" href="#">
 			<i class="fas fa-expand-arrows-alt"></i> {{ $__t('Normal view') }}
 		</a>
 		<table id="shoppinglist-table" class="table table-sm table-striped dt-responsive">

@@ -354,7 +354,7 @@ $(document).on("click", "#clear-description-button", function(e)
 	$("#save-description-button").click();
 });
 
-$(".fullscreen-shopping-list-button").on('click', function(e)
+$(".switch-view-mode-button").on('click', function(e)
 {
 	e.preventDefault();
 
@@ -365,7 +365,7 @@ $(".fullscreen-shopping-list-button").on('click', function(e)
 
 	if ($("body").hasClass("fullscreen-card"))
 	{
-		window.location.hash = "#fullscreen";	
+		window.location.hash = "#compact";	
 	}
 	else
 	{
@@ -376,13 +376,13 @@ $(".fullscreen-shopping-list-button").on('click', function(e)
 $("#description").trigger("summernote.change");
 $("#save-description-button").addClass("disabled");
 
-if (window.location.hash === "#fullscreen")
+if (window.location.hash === "#compact")
 {
 	$("#shopping-list-compact-view-button").click();
 }
 
 // Auto switch to compact view on mobile
-if ($(window).width() < 768)
+if ($(window).width() < 768 & window.location.hash !== "#compact")
 {
 	$("#shopping-list-compact-view-button").click();
 }
