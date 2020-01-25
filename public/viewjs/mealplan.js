@@ -206,13 +206,13 @@ var calendar = $("#calendar").fullCalendar({
 			element.html('\
 				<div> \
 					<h5 class="text-truncate">' + productDetails.product.name + '<h5> \
-					<h5 class="small text-truncate"><span class="locale-number locale-number-quantity"' + jsonData.product_amount + "</span>" + __n(mealPlanEntry.product_amount, productDetails.quantity_unit_purchase.name, productDetails.quantity_unit_purchase.name_plural) + '</h5> \
+					<h5 class="small text-truncate"><span class="locale-number locale-number-quantity"</span>' + mealPlanEntry.product_amount + " " + __n(mealPlanEntry.product_amount, productDetails.quantity_unit_purchase.name, productDetails.quantity_unit_purchase.name_plural) + '</h5> \
 					<h5 class="small timeago-contextual text-truncate">' + fulfillmentIconHtml + " " + fulfillmentInfoHtml + '</h5> \
 					' + costsAndCaloriesPerServing + ' \
 					<h5> \
 						<a class="ml-1 btn btn-outline-danger btn-xs remove-product-button" href="#"><i class="fas fa-trash"></i></a> \
+						<a class="ml-1 btn btn-outline-success btn-xs product-consume-button ' + productConsumeButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Consume product amounts") + '" data-product-id="' + productDetails.product.id.toString() + '" data-product-name="' + productDetails.product.name + '" data-product-amount="' + mealPlanEntry.product_amount + '"><i class="fas fa-utensils"></i></a> \
 						<!--TODO<a class="ml-1 btn btn-outline-primary btn-xs product-order-missing-button ' + productOrderMissingButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Put missing products on shopping list") + '" data-product-id="' + productDetails.product.id.toString() + '" data-product-name="' + productDetails.product.name + '" data-product-amount="' + mealPlanEntry.product_amount + '"><i class="fas fa-cart-plus"></i></a> \
-						<a class="ml-1 btn btn-outline-success btn-xs product-consume-button ' + productConsumeButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Consume all ingredients needed by this recipe") + '" data-product-id="' + productDetails.product.id.toString() + '" data-product-name="' + productDetails.product.name + '" data-product-amount="' + mealPlanEntry.product_amount + '"><i class="fas fa-utensils"></i></a> \
 					--></h5> \
 				</div>');
 
@@ -419,7 +419,7 @@ Grocy.Components.RecipePicker.GetInputElement().keydown(function(event)
 	}
 });
 
-$(document).on("keyodwn", "#servings", function(e)
+$(document).on("keydown", "#servings", function(e)
 {
 	if (event.keyCode === 13) //Enter
 	{
@@ -487,6 +487,45 @@ $(document).on('click', '.recipe-order-missing-button', function(e)
 			}
 		}
 	});
+});
+
+$(document).on('click', '.product-consume-button', function(e)
+{
+	e.preventDefault();
+
+	// Remove the focus from the current button
+	// to prevent that the tooltip stays until clicked anywhere else
+	document.activeElement.blur();
+
+	Grocy.FrontendHelpers.BeginUiBusy();
+
+	var productId = $(e.currentTarget).attr('data-product-id');
+	var consumeAmount = $(e.currentTarget).attr('data-product-amount');
+
+	Grocy.Api.Post('stock/products/' + productId + '/consume', { 'amount': consumeAmount, 'spoiled': false  },
+		function(bookingResponse)
+		{
+			Grocy.Api.Get('stock/products/' + productId,
+				function(result)
+				{
+					var toastMessage = __t('Removed %1$s of %2$s from stock', consumeAmount.toString() + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural), result.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse.transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
+
+					Grocy.FrontendHelpers.EndUiBusy();
+					toastr.success(toastMessage);
+				},
+				function(xhr)
+				{
+					Grocy.FrontendHelpers.EndUiBusy();
+					console.error(xhr);
+				}
+			);
+		},
+		function(xhr)
+		{
+			Grocy.FrontendHelpers.EndUiBusy();
+			console.error(xhr);
+		}
+	);
 });
 
 $(document).on('click', '.recipe-consume-button', function(e)
@@ -598,3 +637,17 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 		);
 	}
 });
+
+function UndoStockTransaction(transactionId)
+{
+	Grocy.Api.Post('stock/transactions/' + transactionId.toString() + '/undo', { },
+		function (result)
+		{
+			toastr.success(__t("Transaction successfully undone"));
+		},
+		function (xhr)
+		{
+			console.error(xhr);
+		}
+	);
+};
