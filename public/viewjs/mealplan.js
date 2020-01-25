@@ -172,25 +172,26 @@ var calendar = $("#calendar").fullCalendar({
 			}
 
 			element.attr("data-product-details", event.productDetails);
-
+			console.log(productDetails);
+			console.log(mealPlanEntry);
 			var productOrderMissingButtonDisabledClasses = "disabled";
-			if (productDetails.stock_amount_aggregated < mealPlanEntry.product_amount)
+			if (parseFloat(productDetails.stock_amount_aggregated) < parseFloat(mealPlanEntry.product_amount))
 			{
 				productOrderMissingButtonDisabledClasses = "";
 			}
 
 			var productConsumeButtonDisabledClasses = "disabled";
-			if (productDetails.stock_amount_aggregated >= mealPlanEntry.product_amount)
+			if (parseFloat(productDetails.stock_amount_aggregated) >= parseFloat(mealPlanEntry.product_amount))
 			{
 				productConsumeButtonDisabledClasses = "";
 			}
 
-			var fulfillmentInfoHtml = __t('Enough in stock');
-			var fulfillmentIconHtml = '<i class="fas fa-check text-success"></i>';
-			if (productDetails.stock_amount_aggregated < mealPlanEntry.product_amount)
+			fulfillmentInfoHtml = __t('Not enough in stock');
+			var fulfillmentIconHtml = '<i class="fas fa-times text-danger"></i>';
+			if (parseFloat(productDetails.stock_amount_aggregated) >= parseFloat(mealPlanEntry.product_amount))
 			{
-				fulfillmentInfoHtml = __t('Not enough in stock');
-				var fulfillmentIconHtml = '<i class="fas fa-times text-danger"></i>';
+				var fulfillmentInfoHtml = __t('Enough in stock');
+				var fulfillmentIconHtml = '<i class="fas fa-check text-success"></i>';
 			}
 
 			var costsAndCaloriesPerServing = ""
@@ -206,14 +207,14 @@ var calendar = $("#calendar").fullCalendar({
 			element.html('\
 				<div> \
 					<h5 class="text-truncate">' + productDetails.product.name + '<h5> \
-					<h5 class="small text-truncate"><span class="locale-number locale-number-quantity"</span>' + mealPlanEntry.product_amount + " " + __n(mealPlanEntry.product_amount, productDetails.quantity_unit_purchase.name, productDetails.quantity_unit_purchase.name_plural) + '</h5> \
+					<h5 class="small text-truncate"><span class="locale-number locale-number-quantity-amount">' + mealPlanEntry.product_amount + "</span> " + __n(mealPlanEntry.product_amount, productDetails.quantity_unit_purchase.name, productDetails.quantity_unit_purchase.name_plural) + '</h5> \
 					<h5 class="small timeago-contextual text-truncate">' + fulfillmentIconHtml + " " + fulfillmentInfoHtml + '</h5> \
 					' + costsAndCaloriesPerServing + ' \
 					<h5> \
 						<a class="ml-1 btn btn-outline-danger btn-xs remove-product-button" href="#"><i class="fas fa-trash"></i></a> \
-						<a class="ml-1 btn btn-outline-success btn-xs product-consume-button ' + productConsumeButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Consume product amounts") + '" data-product-id="' + productDetails.product.id.toString() + '" data-product-name="' + productDetails.product.name + '" data-product-amount="' + mealPlanEntry.product_amount + '"><i class="fas fa-utensils"></i></a> \
-						<!--TODO<a class="ml-1 btn btn-outline-primary btn-xs product-order-missing-button ' + productOrderMissingButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Put missing products on shopping list") + '" data-product-id="' + productDetails.product.id.toString() + '" data-product-name="' + productDetails.product.name + '" data-product-amount="' + mealPlanEntry.product_amount + '"><i class="fas fa-cart-plus"></i></a> \
-					--></h5> \
+						<a class="ml-1 btn btn-outline-success btn-xs product-consume-button ' + productConsumeButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Consume %1$s of %2$s", parseFloat(mealPlanEntry.product_amount).toLocaleString() + ' ' + __n(mealPlanEntry.product_amount, productDetails.quantity_unit_purchase.name, productDetails.quantity_unit_purchase.name_plural), productDetails.product.name) + '" data-product-id="' + productDetails.product.id.toString() + '" data-product-name="' + productDetails.product.name + '" data-product-amount="' + mealPlanEntry.product_amount + '"><i class="fas fa-utensils"></i></a> \
+						<a class="ml-1 btn btn-outline-primary btn-xs show-as-dialog-link ' + productOrderMissingButtonDisabledClasses + '" href="' + U("/shoppinglistitem/new?embedded&updateexistingproduct&product=") + mealPlanEntry.product_id + '&amount="' + mealPlanEntry.product_amount + 'data-toggle="tooltip" title="' + __t("Add to shopping list") + '" data-product-id="' + productDetails.product.id.toString() + '" data-product-name="' + productDetails.product.name + '" data-product-amount="' + mealPlanEntry.product_amount + '"><i class="fas fa-cart-plus"></i></a> \
+					</h5> \
 				</div>');
 
 			if (productDetails.product.picture_file_name && !productDetails.product.picture_file_name.isEmpty())
@@ -500,18 +501,19 @@ $(document).on('click', '.product-consume-button', function(e)
 	Grocy.FrontendHelpers.BeginUiBusy();
 
 	var productId = $(e.currentTarget).attr('data-product-id');
-	var consumeAmount = $(e.currentTarget).attr('data-product-amount');
+	var consumeAmount = parseFloat($(e.currentTarget).attr('data-product-amount'));
 
 	Grocy.Api.Post('stock/products/' + productId + '/consume', { 'amount': consumeAmount, 'spoiled': false  },
 		function(bookingResponse)
 		{
 			Grocy.Api.Get('stock/products/' + productId,
-				function(result)
+				function (result)
 				{
 					var toastMessage = __t('Removed %1$s of %2$s from stock', consumeAmount.toString() + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural), result.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse.transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
 
 					Grocy.FrontendHelpers.EndUiBusy();
 					toastr.success(toastMessage);
+					window.location.reload();
 				},
 				function(xhr)
 				{
