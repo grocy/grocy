@@ -188,3 +188,9 @@ if (GetUriParam("list") !== undefined)
 {
 	$("#shopping_list_id").val(GetUriParam("list"));
 }
+
+if (GetUriParam("amount") !== undefined)
+{
+	$("#amount").val(GetUriParam("amount"));
+	Grocy.FrontendHelpers.ValidateForm('shoppinglist-form');
+}
