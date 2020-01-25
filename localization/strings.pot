@@ -1651,3 +1651,9 @@ msgstr ""
 
 msgid "Only undone items"
 msgstr ""
+
+msgid "Add product"
+msgstr ""
+
+msgid "Add product to %s"
+msgstr ""

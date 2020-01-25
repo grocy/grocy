@@ -9,6 +9,9 @@ CREATE TABLE meal_plan (
 	recipe_id INTEGER,
 	recipe_servings INTEGER DEFAULT 1,
 	note TEXT,
+	product_id INTEGER,
+	product_amount REAL DEFAULT 0,
+	product_qu_id INTEGER,
 	row_created_timestamp DATETIME DEFAULT (datetime('now', 'localtime'))
 );
 
@@ -67,6 +70,26 @@ BEGIN
 		AND type = 'recipe'
 		AND recipe_id IS NOT NULL
 	GROUP BY recipe_id;
+
+	-- Add all products for this day as ingredients in the day-recipe
+	INSERT INTO recipes_pos
+		(recipe_id, product_id, amount, qu_id)
+	SELECT (SELECT id FROM recipes WHERE name = NEW.day AND type = 'mealplan-day'), product_id, SUM(product_amount), product_qu_id
+	FROM meal_plan
+	WHERE day = NEW.day
+		AND type = 'product'
+		AND product_id IS NOT NULL
+	GROUP BY product_id, product_qu_id;
+
+	-- Add all products for this week as ingredients recipes in the week-recipe
+	INSERT INTO recipes_pos
+		(recipe_id, product_id, amount, qu_id)
+	SELECT (SELECT id FROM recipes WHERE name = LTRIM(STRFTIME('%Y-%W', NEW.day), '0') AND type = 'mealplan-week'), product_id, SUM(product_amount), product_qu_id
+	FROM meal_plan
+	WHERE STRFTIME('%Y-%W', day) = STRFTIME('%Y-%W', NEW.day)
+		AND type = 'product'
+		AND product_id IS NOT NULL
+	GROUP BY product_id, product_qu_id;
 END;
 
 CREATE TRIGGER remove_internal_recipe AFTER DELETE ON meal_plan
@@ -117,4 +140,24 @@ BEGIN
 		AND type = 'recipe'
 		AND recipe_id IS NOT NULL
 	GROUP BY recipe_id;
+
+	-- Add all products for this day as ingredients in the day-recipe
+	INSERT INTO recipes_pos
+		(recipe_id, product_id, amount, qu_id)
+	SELECT (SELECT id FROM recipes WHERE name = OLD.day AND type = 'mealplan-day'), product_id, SUM(product_amount), product_qu_id
+	FROM meal_plan
+	WHERE day = OLD.day
+		AND type = 'product'
+		AND product_id IS NOT NULL
+	GROUP BY product_id, product_qu_id;
+
+	-- Add all products for this week as ingredients recipes in the week-recipe
+	INSERT INTO recipes_pos
+		(recipe_id, product_id, amount, qu_id)
+	SELECT (SELECT id FROM recipes WHERE name = LTRIM(STRFTIME('%Y-%W', OLD.day), '0') AND type = 'mealplan-week'), product_id, SUM(product_amount), product_qu_id
+	FROM meal_plan
+	WHERE STRFTIME('%Y-%W', day) = STRFTIME('%Y-%W', OLD.day)
+		AND type = 'product'
+		AND product_id IS NOT NULL
+	GROUP BY product_id, product_qu_id;
 END;

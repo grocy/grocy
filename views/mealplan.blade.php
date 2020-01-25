@@ -18,6 +18,9 @@
 	var fullcalendarEventSources = {!! json_encode(array($fullcalendarEventSources)) !!}
 	var internalRecipes = {!! json_encode($internalRecipes) !!}
 	var recipesResolved = {!! json_encode($recipesResolved) !!}
+	
+	Grocy.QuantityUnits = {!! json_encode($quantityUnits) !!};
+	Grocy.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
 </script>
 
 <div class="row">
@@ -91,6 +94,37 @@
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">{{ $__t('Cancel') }}</button>
 				<button id="save-add-note-button" data-dismiss="modal" class="btn btn-success">{{ $__t('Save') }}</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="add-product-modal" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 id="add-product-modal-title" class="modal-title w-100"></h4>
+			</div>
+			<div class="modal-body">
+				<form id="add-product-form" novalidate>
+
+					@include('components.productpicker', array(
+						'products' => $products,
+						'nextInputSelector' => '#amount'
+					))
+
+					@include('components.productamountpicker', array(
+						'value' => 1,
+						'additionalGroupCssClasses' => 'mb-0'
+					))
+
+					<input type="hidden" name="type" value="product">
+
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">{{ $__t('Cancel') }}</button>
+				<button id="save-add-product-button" data-dismiss="modal" class="btn btn-success">{{ $__t('Save') }}</button>
 			</div>
 		</div>
 	</div>

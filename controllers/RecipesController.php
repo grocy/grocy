@@ -3,6 +3,7 @@
 namespace Grocy\Controllers;
 
 use \Grocy\Services\RecipesService;
+use \Grocy\Services\StockService;
 use \Grocy\Services\UserfieldsService;
 
 class RecipesController extends BaseController
@@ -11,10 +12,12 @@ class RecipesController extends BaseController
 	{
 		parent::__construct($container);
 		$this->RecipesService = new RecipesService();
+		$this->StockService = new StockService();
 		$this->UserfieldsService = new UserfieldsService();
 	}
 
 	protected $RecipesService;
+	protected $StockService;
 	protected $UserfieldsService;
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
@@ -143,6 +146,12 @@ class RecipesController extends BaseController
 				$title = $recipe->name;
 			}
 
+			$productDetails = null;
+			if ($mealPlanEntry['product_id'] !== null)
+			{
+				$productDetails = $this->StockService->GetProductDetails($mealPlanEntry['product_id']);
+			}
+
 			$events[] = array(
 				'id' => $mealPlanEntry['id'],
 				'title' => $title,
@@ -150,7 +159,8 @@ class RecipesController extends BaseController
 				'date_format' => 'date',
 				'recipe' => json_encode($recipe),
 				'mealPlanEntry' => json_encode($mealPlanEntry),
-				'type' => $mealPlanEntry['type']
+				'type' => $mealPlanEntry['type'],
+				'productDetails' => json_encode($productDetails)
 			);
 		}
 
@@ -158,7 +168,10 @@ class RecipesController extends BaseController
 			'fullcalendarEventSources' => $events,
 			'recipes' => $recipes,
 			'internalRecipes' => $this->Database->recipes()->whereNot('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll(),
-			'recipesResolved' => $this->RecipesService->GetRecipesResolved()
+			'recipesResolved' => $this->RecipesService->GetRecipesResolved(),
+			'products' => $this->Database->products()->orderBy('name'),
+			'quantityUnits' => $this->Database->quantity_units()->orderBy('name'),
+			'quantityUnitConversionsResolved' => $this->Database->quantity_unit_conversions_resolved()
 		]);
 	}
 }
