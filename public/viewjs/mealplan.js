@@ -64,7 +64,8 @@ var calendar = $("#calendar").fullCalendar({
 				weekRecipeOrderMissingButtonDisabledClasses = "disabled";
 			}
 			var weekRecipeConsumeButtonDisabledClasses = "";
-			if (FindObjectInArrayByPropertyValue(recipesResolved, "recipe_id", weekRecipe.id).need_fulfilled == 0)
+			console.log(weekCosts);
+			if (FindObjectInArrayByPropertyValue(recipesResolved, "recipe_id", weekRecipe.id).need_fulfilled == 0 || weekCosts == 0)
 			{
 				weekRecipeConsumeButtonDisabledClasses = "disabled";
 			}
