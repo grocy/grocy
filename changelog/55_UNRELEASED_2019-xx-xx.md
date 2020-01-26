@@ -26,6 +26,9 @@
 - => When moving a product from/to a freezer location, the best before date is changed accordingly
 - There is also a new sub feature flag `FEATURE_FLAG_STOCK_PRODUCT_FREEZING` to disable this if you don't need it (defaults to `true`)
 
+### Other new things to note
+- There is now a RSS feed for this changelog, use it to get notified about new releases: https://grocy.info/changelog/feed
+
 ### Stock improvements/fixes
 - The productcard gets now also refreshed after a transaction was posted (purchase/consume/etc.) (thanks @kriddles)
 - The product field calories (kcal) now also allows decimal numbers
