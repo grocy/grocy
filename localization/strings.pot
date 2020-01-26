@@ -917,7 +917,7 @@ msgstr ""
 msgid "Mark %1$s of %2$s as open"
 msgstr ""
 
-msgid "When a product was marked as opened, the best before date will be replaced by today + this amount of days (a value of 0 disables this)"
+msgid "When this product was marked as opened, the best before date will be replaced by today + this amount of days (a value of 0 disables this)"
 msgstr ""
 
 msgid "Default best before days after opened"
@@ -1688,13 +1688,13 @@ msgstr ""
 msgid "When moving products from/to a freezer location, the products best before date is automatically adjusted according to the product settings"
 msgstr ""
 
-msgid "On moving this product to a freezer location, the best before date will be replaced by today + this amount of days"
+msgid "On moving this product to a freezer location (so when freezing it), the best before date will be replaced by today + this amount of days"
 msgstr ""
 
 msgid "Default best before days after freezing"
 msgstr ""
 
-msgid "On moving this product from a freezer location, the best before date will be replaced by today + this amount of days"
+msgid "On moving this product from a freezer location (so when thawing it), the best before date will be replaced by today + this amount of days"
 msgstr ""
 
 msgid "Default best before days after thawing"
