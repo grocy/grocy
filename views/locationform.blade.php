@@ -32,6 +32,20 @@
 				<textarea class="form-control" rows="2" id="description" name="description">@if($mode == 'edit'){{ $location->description }}@endif</textarea>
 			</div>
 
+			@if(GROCY_FEATURE_FLAG_STOCK_PRODUCT_FREEZING)
+			<div class="form-group">
+				<div class="form-check">
+					<input type="hidden" name="is_freezer" value="0">
+					<input @if($mode == 'edit' && $location->is_freezer == 1) checked @endif class="form-check-input" type="checkbox" id="is_freezer" name="is_freezer" value="1">
+					<label class="form-check-label" for="is_freezer">{{ $__t('Is freezer') }}
+						<span class="text-muted small">{{ $__t('When moving products from/to a freezer location, the products best before date is automatically adjusted according to the product settings') }}</span>
+					</label>
+				</div>
+			</div>
+			@else
+			<input type="hidden" name="is_freezer" value="0">
+			@endif
+
 			@include('components.userfieldsform', array(
 				'userfields' => $userfields,
 				'entity' => 'locations'

@@ -20,6 +20,12 @@
 - On using "Consume all ingredients needed by this recipe" and when it has a product attached, one unit of that product (per serving in purchase quantity unit) will be added to stock (with the proper price based on the recipe ingredients)
 - (Thanks @kriddles for the intial work on this)
 
+### New feature: Freeze/Thaw products
+- New product options "Default best before days after freezing/thawing" to set how the best before date should be changed on freezing/thawing
+- New location option "Is freezer" to indicate if the location is a freezer
+- => When moving a product from/to a freezer location, the best before date is changed accordingly
+- There is also a new sub feature flag `FEATURE_FLAG_STOCK_PRODUCT_FREEZING` to disable this if you don't need it (defaults to `true`)
+
 ### Stock improvements/fixes
 - The productcard gets now also refreshed after a transaction was posted (purchase/consume/etc.) (thanks @kriddles)
 - The product field calories (kcal) now also allows decimal numbers

@@ -1,4 +1,4 @@
-﻿$('#save-transfer-button').on('click', function(e)
+﻿$('#save-transfer-button').on('click', function (e)
 {
 	e.preventDefault();
 
@@ -71,9 +71,17 @@
 					}
 					else
 					{
-
 						Grocy.FrontendHelpers.EndUiBusy("transfer-form");
 						toastr.success(successMessage);
+
+						if (parseInt($("#location_id_from option:selected").attr("data-is-freezer")) === 0 && parseInt($("#location_id_to option:selected").attr("data-is-freezer")) === 1) // Frozen
+						{
+							toastr.info('<span>' + __t("Frozen") + "</span> <i class='fas fa-snowflake'></i>");
+						}
+						if (parseInt($("#location_id_from option:selected").attr("data-is-freezer")) === 1 && parseInt($("#location_id_to option:selected").attr("data-is-freezer")) === 0) // Thawed
+						{
+							toastr.info('<span>' + __t("Thawed") + "</span> <i class='fas fa-fire-alt'></i>");
+						}
 
 						$("#specific_stock_entry").find("option").remove().end().append("<option></option>");
 						$("#specific_stock_entry").attr("disabled", "");
@@ -151,7 +159,8 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 							{
 								$("#location_id_from").append($("<option>", {
 									value: stockLocation.location_id,
-									text: stockLocation.location_name + " (" + __t("Default location") + ")"
+									text: stockLocation.location_name + " (" + __t("Default location") + ")",
+									"data-is-freezer": stockLocation.location_is_freezer
 								}));
 								$("#location_id_from").val(productDetails.location.id);
 								$("#location_id_from").trigger('change');
@@ -161,7 +170,8 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 							{
 								$("#location_id_from").append($("<option>", {
 									value: stockLocation.location_id,
-									text: stockLocation.location_name
+									text: stockLocation.location_name,
+									"data-is-freezer": stockLocation.location_is_freezer
 								}));
 							}
 

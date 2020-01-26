@@ -227,6 +227,31 @@
 			))
 			@endif
 
+			@if(GROCY_FEATURE_FLAG_STOCK_PRODUCT_FREEZING)
+			@php if($mode == 'edit') { $value = $product->default_best_before_days_after_freezing; } else { $value = 0; } @endphp
+			@include('components.numberpicker', array(
+				'id' => 'default_best_before_days_after_freezing',
+				'label' => 'Default best before days after freezing',
+				'min' => -1,
+				'value' => $value,
+				'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
+				'hint' => $__t('On moving this product to a freezer location, the best before date will be replaced by today + this amount of days')
+			))
+
+			@php if($mode == 'edit') { $value = $product->default_best_before_days_after_thawing; } else { $value = 0; } @endphp
+			@include('components.numberpicker', array(
+				'id' => 'default_best_before_days_after_thawing',
+				'label' => 'Default best before days after thawing',
+				'min' => -1,
+				'value' => $value,
+				'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
+				'hint' => $__t('On moving this product from a freezer location, the best before date will be replaced by today + this amount of days')
+			))
+			@else
+			<input type="hidden" name="default_best_before_days_after_freezing" value="0">
+			<input type="hidden" name="default_best_before_days_after_thawing" value="0">
+			@endif
+
 			<div class="form-group">
 				<label for="product-picture">{{ $__t('Product picture') }}
 					<span class="text-muted small">{{ $__t('If you don\'t select a file, the current picture will not be altered') }}</span>

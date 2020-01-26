@@ -330,3 +330,6 @@ msgstr ""
 
 msgid "This is a note"
 msgstr ""
+
+msgid "Freezer"
+msgstr ""

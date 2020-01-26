@@ -1681,3 +1681,30 @@ msgstr ""
 
 msgid "Scan mode is on but not all required fields could be populated automatically"
 msgstr ""
+
+msgid "Is freezer"
+msgstr ""
+
+msgid "When moving products from/to a freezer location, the products best before date is automatically adjusted according to the product settings"
+msgstr ""
+
+msgid "On moving this product to a freezer location, the best before date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default best before days after freezing"
+msgstr ""
+
+msgid "On moving this product from a freezer location, the best before date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default best before days after thawing"
+msgstr ""
+
+msgid "This cannot be the same as the \"From\" location"
+msgstr ""
+
+msgid "Thawed"
+msgstr ""
+
+msgid "Frozen"
+msgstr ""

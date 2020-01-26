@@ -464,6 +464,26 @@ class StockService extends BaseService
 				break;
 			}
 
+			$newBestBeforeDate = $stockEntry->best_before_date;
+
+			if (GROCY_FEATURE_FLAG_STOCK_PRODUCT_FREEZING)
+			{
+				$locationFrom = $this->Database->locations()->where('id', $locationIdFrom)->fetch();
+				$locationTo = $this->Database->locations()->where('id', $locationIdTo)->fetch();
+
+				// Product was moved from a non-freezer to freezer location -> freeze
+				if (intval($locationFrom->is_freezer) === 0 && intval($locationTo->is_freezer) === 1 && $productDetails->product->default_best_before_days_after_freezing > 0)
+				{
+					$newBestBeforeDate = date("Y-m-d", strtotime('+' . $productDetails->product->default_best_before_days_after_freezing . ' days'));
+				}
+
+				// Product was moved from a freezer to non-freezer location -> thaw
+				if (intval($locationFrom->is_freezer) === 1 && intval($locationTo->is_freezer) === 0 && $productDetails->product->default_best_before_days_after_thawing > 0)
+				{
+					$newBestBeforeDate = date("Y-m-d", strtotime('+' . $productDetails->product->default_best_before_days_after_thawing . ' days'));
+				}
+			}
+
 			$correlationId = uniqid();
 			if ($amount >= $stockEntry->amount) // Take the whole stock entry
 			{
@@ -485,7 +505,7 @@ class StockService extends BaseService
 				$logRowForLocationTo = $this->Database->stock_log()->createRow(array(
 					'product_id' => $stockEntry->product_id,
 					'amount' => $stockEntry->amount,
-					'best_before_date' => $stockEntry->best_before_date,
+					'best_before_date' => $newBestBeforeDate,
 					'purchased_date' => $stockEntry->purchased_date,
 					'stock_id' => $stockEntry->stock_id,
 					'transaction_type' => self::TRANSACTION_TYPE_TRANSFER_TO,
@@ -498,7 +518,8 @@ class StockService extends BaseService
 				$logRowForLocationTo->save();
 
 				$stockEntry->update(array(
-					'location_id' => $locationIdTo
+					'location_id' => $locationIdTo,
+					'best_before_date' => $newBestBeforeDate
 				));
 
 				$amount -= $stockEntry->amount;
@@ -525,7 +546,7 @@ class StockService extends BaseService
 				$logRowForLocationTo = $this->Database->stock_log()->createRow(array(
 					'product_id' => $stockEntry->product_id,
 					'amount' => $amount,
-					'best_before_date' => $stockEntry->best_before_date,
+					'best_before_date' => $newBestBeforeDate,
 					'purchased_date' => $stockEntry->purchased_date,
 					'stock_id' => $stockEntry->stock_id,
 					'transaction_type' => self::TRANSACTION_TYPE_TRANSFER_TO,
@@ -546,7 +567,7 @@ class StockService extends BaseService
 				$stockEntryNew = $this->Database->stock()->createRow(array(
 					'product_id' => $stockEntry->product_id,
 					'amount' => $amount,
-					'best_before_date' => $stockEntry->best_before_date,
+					'best_before_date' => $newBestBeforeDate,
 					'purchased_date' => $stockEntry->purchased_date,
 					'stock_id' => $stockEntry->stock_id,
 					'price' => $stockEntry->price,

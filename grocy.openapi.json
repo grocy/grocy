@@ -3467,8 +3467,11 @@
 					"location_id": {
 						"type": "integer"
 					},
-					"name": {
+					"location_name": {
 						"type": "string"
+					},
+					"location_is_freezer": {
+						"type": "integer"
 					}
 				},
 				"example": {
