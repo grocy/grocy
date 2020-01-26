@@ -172,7 +172,7 @@ function RefreshStatistics()
 			result.forEach(element => {
 				amountSum += parseInt(element.amount);
 			});
-			$("#info-current-stock").text(__n(result.length, '%s Product', '%s Products') + ", " + __n(amountSum, '%s Unit', '%s Units'));
+			$("#info-current-stock").text(__n(result.length, '%s Product', '%s Products'));
 		},
 		function(xhr)
 		{
