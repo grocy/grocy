@@ -251,7 +251,7 @@ var calendar = $("#calendar").fullCalendar({
 		{
 			element.html('\
 				<div> \
-					<h5 class="text-wrap text-break">' + mealPlanEntry.note + '<div> \
+					<h5 class="text-wrap text-break">' + mealPlanEntry.note + '<h5> \
 					<h5> \
 						<a class="ml-1 btn btn-outline-danger btn-xs remove-note-button" href="#"><i class="fas fa-trash"></i></a> \
 					</h5> \
