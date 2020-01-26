@@ -92,7 +92,7 @@ class CalendarService extends BaseService
 
 		$recipes = $this->Database->recipes();
 		$mealPlanDayRecipes = $this->Database->recipes()->where('type', 'mealplan-day');
-		$titlePrefix = $this->LocalizationService->__t('Meal plan') . ': ';
+		$titlePrefix = $this->LocalizationService->__t('Meal plan recipe') . ': ';
 		$mealPlanRecipeEvents = array();
 		foreach($mealPlanDayRecipes as $mealPlanDayRecipe)
 		{
@@ -108,6 +108,31 @@ class CalendarService extends BaseService
 			}
 		}
 
-		return array_merge($stockEvents, $taskEvents, $choreEvents, $batteryEvents, $mealPlanRecipeEvents);
+		$mealPlanDayNotes = $this->Database->meal_plan()->where('type', 'note');
+		$titlePrefix = $this->LocalizationService->__t('Meal plan note') . ': ';
+		$mealPlanNotesEvents = array();
+		foreach($mealPlanDayNotes as $mealPlanDayNote)
+		{
+			$mealPlanNotesEvents[] = array(
+				'title' => $titlePrefix . $mealPlanDayNote->note,
+				'start' => $mealPlanDayNote->day,
+				'date_format' => 'date'
+			);
+		}
+
+		$products = $this->Database->products();
+		$mealPlanDayProducts = $this->Database->meal_plan()->where('type', 'product');
+		$titlePrefix = $this->LocalizationService->__t('Meal plan product') . ': ';
+		$mealPlanProductEvents = array();
+		foreach($mealPlanDayProducts as $mealPlanDayProduct)
+		{
+			$mealPlanProductEvents[] = array(
+				'title' => $titlePrefix . FindObjectInArrayByPropertyValue($products, 'id', $mealPlanDayProduct->product_id)->name,
+				'start' => $mealPlanDayProduct->day,
+				'date_format' => 'date'
+			);
+		}
+
+		return array_merge($stockEvents, $taskEvents, $choreEvents, $batteryEvents, $mealPlanRecipeEvents, $mealPlanNotesEvents, $mealPlanProductEvents);
 	}
 }
