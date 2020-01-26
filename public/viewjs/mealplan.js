@@ -49,9 +49,9 @@ var calendar = $("#calendar").fullCalendar({
 		var weekCosts = 0;
 		var weekRecipeOrderMissingButtonHtml = "";
 		var weekRecipeConsumeButtonHtml = "";
+		var weekCostsHtml = "";
 		if (weekRecipe !== null)
 		{
-			var weekCostsHtml = "";
 			if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 			{
 				weekCosts = FindObjectInArrayByPropertyValue(recipesResolved, "recipe_id", weekRecipe.id).costs;
