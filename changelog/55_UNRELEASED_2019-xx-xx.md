@@ -5,12 +5,14 @@
 - A huge THANK YOU goes to @kriddles for the work on this feature
 
 ### New feature: Scan mode
+- Just scan one product after another, no manual input required and audio feedback is provided
 - New switch-button on the purchase and consume page
 - When enabled
   - The amount will always be filled with `1` after changing/scanning a product
   - If all fields could be automatically populated (means for purchase the product has a default best before date set), the transaction is automatically submitted
     - If not, a warning is displayed and you can fill in the missing information
   - Audio feedback is provided after scanning and on success/error of the transaction
+- => Quick video demo: https://www.youtube.com/watch?v=83dm9iD718k
 
 ### New feature: Self produced products
 - To a recipe a product can be attached
