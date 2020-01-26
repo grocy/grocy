@@ -440,3 +440,6 @@ if (GetUriParam("embedded") !== undefined)
 		$("#use_specific_stock_entry").trigger('change');
 	}
 }
+
+// Default input field
+Grocy.Components.ProductPicker.GetInputElement().focus();

@@ -425,7 +425,7 @@ $(document).on("click", "select", function()
 });
 
 // Auto saving user setting controls
-$(".user-setting-control").on("change", function()
+$(document).on("change", ".user-setting-control", function()
 {
 	var element = $(this);
 	var settingKey = element.attr("data-setting-key");

@@ -38,6 +38,11 @@
 			Grocy.Api.Post(apiUrl, jsonData,
 				function(result)
 				{
+					if (BoolVal(Grocy.UserSettings.scan_mode_consume_enabled))
+					{
+						Grocy.UISound.Success();
+					}
+
 					bookingResponse = result;
 
 					var addBarcode = GetUriParam('addbarcodetoselection');
@@ -246,6 +251,11 @@ $("#location_id").on('change', function(e)
 
 Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 {
+	if (BoolVal(Grocy.UserSettings.scan_mode_consume_enabled))
+	{
+		Grocy.UISound.BarcodeScannerBeep();
+	}
+
 	$("#specific_stock_entry").find("option").remove().end().append("<option></option>");
 	if ($("#use_specific_stock_entry").is(":checked"))
 	{
@@ -265,13 +275,14 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				$('#amount_qu_unit').text(productDetails.quantity_unit_stock.name);
 
 				$("#location_id").find("option").remove().end().append("<option></option>");
-					Grocy.Api.Get("stock/products/" + productId + '/locations',
+				Grocy.Api.Get("stock/products/" + productId + '/locations',
 					function(stockLocations)
 					{
 						var setDefault = 0;
 						stockLocations.forEach(stockLocation =>
 						{
-							if (productDetails.location.id  == stockLocation.location_id) {
+							if (productDetails.location.id == stockLocation.location_id)
+							{
 								$("#location_id").append($("<option>", {
 									value: stockLocation.location_id,
 									text: stockLocation.location_name + " (" + __t("Default location") + ")"
@@ -294,6 +305,21 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 								$("#location_id").trigger('change');
 							}
 						});
+
+						if (BoolVal(Grocy.UserSettings.scan_mode_consume_enabled))
+						{
+							$("#amount").val(1);
+							Grocy.FrontendHelpers.ValidateForm("consume-form");
+							if (document.getElementById("consume-form").checkValidity() === true)
+							{
+								$('#save-consume-button').click();
+							}
+							else
+							{
+								toastr.warning(__t("Scan mode is on but not all required fields could be populated automatically"));
+								Grocy.UISound.Error();
+							}
+						}
 					},
 					function(xhr)
 					{
@@ -495,3 +521,18 @@ if (GetUriParam("embedded") !== undefined)
 		$("#use_specific_stock_entry").trigger('change');
 	}
 }
+
+// Default input field
+Grocy.Components.ProductPicker.GetInputElement().focus();
+
+// Can only be set via JS however...
+$("#scan-mode").addClass("user-setting-control");
+$("#scan-mode").attr("data-setting-key", "scan_mode_consume_enabled");
+
+$(document).on("change", "#scan-mode", function(e)
+{
+	if ($(this).prop("checked"))
+	{
+		Grocy.UISound.AskForPermission();
+	}
+});

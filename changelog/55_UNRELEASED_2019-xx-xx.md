@@ -4,6 +4,14 @@
   - From there you can also edit the stock entries
 - A huge THANK YOU goes to @kriddles for the work on this feature
 
+### New feature: Scan mode
+- New switch-button on the purchase and consume page
+- When enabled
+  - The amount will always be filled with `1` after changing/scanning a product
+  - If all fields could be automatically populated (means for purchase the product has a default best before date set), the transaction is automatically submitted
+    - If not, a warning is displayed and you can fill in the missing information
+  - Audio feedback is provided after scanning and on success/error of the transaction
+
 ### New feature: Self produced products
 - To a recipe a product can be attached
   - This products needs a "Default best before date"

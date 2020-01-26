@@ -91,6 +91,8 @@ DefaultUserSetting('product_presets_qu_id', -1); // Default quantity unit id for
 DefaultUserSetting('stock_expring_soon_days', 5);
 DefaultUserSetting('stock_default_purchase_amount', 0);
 DefaultUserSetting('stock_default_consume_amount', 1);
+DefaultUserSetting('scan_mode_consume_enabled', false);
+DefaultUserSetting('scan_mode_purchase_enabled', false);
 
 # Chores settings
 DefaultUserSetting('chores_due_soon_days', 5);

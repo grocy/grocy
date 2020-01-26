@@ -17,6 +17,11 @@
   dependencies:
     jquery "1"
 
+add@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/add/-/add-2.0.6.tgz#248f0a9f6e5a528ef2295dbeec30532130ae2235"
+  integrity sha1-JI8Kn25aUo7yKV2+7DBTITCuIjU=
+
 ajv@^6.5.5:
   version "6.10.2"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.10.2.tgz#d3cea04d6b017b2894ad69040fec8b623eb4bd52"
@@ -74,6 +79,10 @@ bootstrap-select@^1.13.10:
   version "1.13.11"
   resolved "https://registry.yarnpkg.com/bootstrap-select/-/bootstrap-select-1.13.11.tgz#d364ccc67cd6c1f9158689087f1d2d029df82c29"
   integrity sha512-WPpx2DYL9jVilNoqy4Pjcfa/Q0LOq8V0+xws/pmnRDn/deS7OYjo1njvD1Cv0s9/1ZUXt77UypxuloimEnkYsA==
+
+"bootstrap-switch-button@https://github.com/walidbagh/bootstrap-switch-button#Fix-module-export":
+  version "1.0.0"
+  resolved "https://github.com/walidbagh/bootstrap-switch-button#551ccd361cc9e291cd04c2278357b1db76318f1e"
 
 bootstrap@4.0.0:
   version "4.0.0"
@@ -779,3 +788,8 @@ verror@1.10.0:
     assert-plus "^1.0.0"
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
+
+yarn@^1.21.1:
+  version "1.21.1"
+  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.21.1.tgz#1d5da01a9a03492dc4a5957befc1fd12da83d89c"
+  integrity sha512-dQgmJv676X/NQczpbiDtc2hsE/pppGDJAzwlRiADMTvFzYbdxPj2WO4PcNyriSt2c4jsCMpt8UFRKHUozt21GQ==

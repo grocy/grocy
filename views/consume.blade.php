@@ -4,10 +4,22 @@
 @section('activeNav', 'consume')
 @section('viewJsName', 'consume')
 
+@push('pageStyles')
+	<link href="{{ $U('/node_modules/bootstrap-switch-button/css/bootstrap-switch-button.css?v=', true) }}{{ $version }}" rel="stylesheet">
+@endpush
+
+@push('pageScripts')
+	<script src="{{ $U('/node_modules/bootstrap-switch-button/js/bootstrap-switch-button.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/js/grocy_uisound.js?v=', true) }}{{ $version }}"></script>
+@endpush
+
 @section('content')
 <div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
-		<h1>@yield('title')</h1>
+		<h1>
+			@yield('title')
+			<input @if(boolval($userSettings['scan_mode_consume_enabled'])) checked @endif id="scan-mode" type="checkbox" data-setting-key="scan_mode_consume_enabled" data-toggle="switchbutton" data-onlabel="{{ $__t('Scan mode') }} {{ $__t('on') }}" data-offlabel="{{ $__t('Scan mode') }} {{ $__t('off') }}" data-onstyle="success" data-offstyle="primary" data-style="ml-2" data-width="160">
+		</h1>
 
 		<form id="consume-form" novalidate>
 
@@ -28,23 +40,23 @@
 			))
 
 			@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
-                        @php /*@include('components.locationpicker', array(
-                                'id' => 'location_id',
-                                'locations' => $locations,
-                                'isRequired' => true,
-                                'label' => 'Location'
-                        ))*/ @endphp
+			@php /*@include('components.locationpicker', array(
+				'id' => 'location_id',
+				'locations' => $locations,
+				'isRequired' => true,
+				'label' => 'Location'
+			))*/ @endphp
 
-                        <div class="form-group">
-                                <label for="location_id">{{ $__t('Location') }}</label>
-                                <select required class="form-control location-combobox" id="location_id" name="location_id">
-                                        <option></option>
-                                        @foreach($locations as $location)
-                                                <option value="{{ $location->id }}">{{ $location->name }}</option>
-                                        @endforeach
-                                </select>
-                                <div class="invalid-feedback">{{ $__t('A location is required') }}</div>
-                        </div>
+			<div class="form-group">
+				<label for="location_id">{{ $__t('Location') }}</label>
+				<select required class="form-control location-combobox" id="location_id" name="location_id">
+					<option></option>
+					@foreach($locations as $location)
+						<option value="{{ $location->id }}">{{ $location->name }}</option>
+					@endforeach
+				</select>
+				<div class="invalid-feedback">{{ $__t('A location is required') }}</div>
+			</div>
 			@else
 			<input type="hidden" name="location_id" id="location_id" value="1">
 			@endif

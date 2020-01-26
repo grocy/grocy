@@ -1669,3 +1669,15 @@ msgstr ""
 
 msgid "Meal plan product"
 msgstr ""
+
+msgid "Scan mode"
+msgstr ""
+
+msgid "on"
+msgstr ""
+
+msgid "off"
+msgstr ""
+
+msgid "Scan mode is on but not all required fields could be populated automatically"
+msgstr ""

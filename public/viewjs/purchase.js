@@ -42,6 +42,11 @@
 			Grocy.Api.Post('stock/products/' + jsonForm.product_id + '/add', jsonData,
 				function(result)
 				{
+					if (BoolVal(Grocy.UserSettings.scan_mode_purchase_enabled))
+					{
+						Grocy.UISound.Success();
+					}
+
 					var addBarcode = GetUriParam('addbarcodetoselection');
 					if (addBarcode !== undefined)
 					{
@@ -122,6 +127,11 @@ if (Grocy.Components.ProductPicker !== undefined)
 {
 	Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 	{
+		if (BoolVal(Grocy.UserSettings.scan_mode_purchase_enabled))
+		{
+			Grocy.UISound.BarcodeScannerBeep();
+		}
+
 		var productId = $(e.target).val();
 
 		if (productId)
@@ -129,7 +139,7 @@ if (Grocy.Components.ProductPicker !== undefined)
 			Grocy.Components.ProductCard.Refresh(productId);
 
 			Grocy.Api.Get('stock/products/' + productId,
-				function (productDetails)
+				function(productDetails)
 				{
 					$('#price').val(productDetails.last_price);
 					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
@@ -203,6 +213,21 @@ if (Grocy.Components.ProductPicker !== undefined)
 						{
 							Grocy.Components.DateTimePicker.SetValue(moment().format('YYYY-MM-DD'));
 							$('#amount').focus();
+						}
+					}
+
+					if (BoolVal(Grocy.UserSettings.scan_mode_purchase_enabled))
+					{
+						$("#amount").val(1);
+						Grocy.FrontendHelpers.ValidateForm("purchase-form");
+						if (document.getElementById("purchase-form").checkValidity() === true)
+						{
+							$('#save-purchase-button').click();
+						}
+						else
+						{
+							toastr.warning(__t("Scan mode is on but not all required fields could be populated automatically"));
+							Grocy.UISound.Error();
 						}
 					}
 				},
@@ -336,3 +361,15 @@ function UndoStockTransaction(transactionId)
 		}
 	);
 };
+
+// Can only be set via JS however...
+$("#scan-mode").addClass("user-setting-control");
+$("#scan-mode").attr("data-setting-key", "scan_mode_purchase_enabled");
+
+$(document).on("change", "#scan-mode", function(e)
+{
+	if ($(this).prop("checked"))
+	{
+		Grocy.UISound.AskForPermission();
+	}
+});

@@ -4,10 +4,22 @@
 @section('activeNav', 'purchase')
 @section('viewJsName', 'purchase')
 
+@push('pageStyles')
+	<link href="{{ $U('/node_modules/bootstrap-switch-button/css/bootstrap-switch-button.css?v=', true) }}{{ $version }}" rel="stylesheet">
+@endpush
+
+@push('pageScripts')
+	<script src="{{ $U('/node_modules/bootstrap-switch-button/js/bootstrap-switch-button.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/js/grocy_uisound.js?v=', true) }}{{ $version }}"></script>
+@endpush
+
 @section('content')
 <div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
-		<h1>@yield('title')</h1>
+		<h1>
+			@yield('title')
+			<input @if(boolval($userSettings['scan_mode_purchase_enabled'])) checked @endif id="scan-mode" type="checkbox" data-setting-key="scan_mode_purchase_enabled" data-toggle="switchbutton" data-onlabel="{{ $__t('Scan mode') }} {{ $__t('on') }}" data-offlabel="{{ $__t('Scan mode') }} {{ $__t('off') }}" data-onstyle="success" data-offstyle="primary" data-style="ml-2" data-width="160">
+		</h1>
 
 		<form id="purchase-form" novalidate>
 
