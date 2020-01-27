@@ -195,13 +195,13 @@ class StockService extends BaseService
 			$sqlWhereProductId = '(product_id IN (SELECT sub_product_id FROM products_resolved WHERE parent_product_id = :1) OR product_id = :1)';
 		}
 
-		$sqlOpenAndWhere = 'AND open IN (0, 1)';
+		$sqlWhereAndOpen = 'AND open IN (0, 1)';
 		if ($excludeOpened)
 		{
-			$sqlOpenAndWhere = 'AND open = 0';
+			$sqlWhereAndOpen = 'AND open = 0';
 		}
 
-		return $this->Database->stock()->where($sqlWhereProductId . ' ' . $sqlOpenAndWhere, $productId)->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC')->fetchAll();
+		return $this->Database->stock()->where($sqlWhereProductId . ' ' . $sqlWhereAndOpen, $productId)->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC')->fetchAll();
 	}
 
 	public function GetProductStockEntriesForLocation($productId, $locationId, $excludeOpened = false, $allowSubproductSubstitution = false)
