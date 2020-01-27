@@ -45,18 +45,20 @@ You can easily help translating grocy at https://www.transifex.com/grocy/grocy, 
 
 The [pre-release demo](https://demo-prerelease.grocy.info) is available for any translation which is at least 80 % complete and will pull the translations from Transifex 10 minutes past every hour, so you can have a kind of instant preview of your contributed translations. Thank you!
 
+Translation which reach a completion level of 90 % will be included in releases.
+
 ## Things worth to know
 
 ### REST API & data model documentation
 See the integrated Swagger UI instance on [/api](https://demo.grocy.info/api).
 
 ### Barcode readers & camera scanning
-Some fields also allow to select a value by scanning a barcode. It works best when your barcode reader prefixes every barcode with a letter which is normally not part of a item name (I use a `$`) and sends a `TAB` after a scan.
+Some fields (with a barcode icon above) also allow to select a value by scanning a barcode. It works best when your barcode reader prefixes every barcode with a letter which is normally not part of a item name (I use a `$`) and sends a `TAB` after a scan.
 
 Additionally it's also possible to use your device camera to scan a barcode by using the camera button on the right side of the corresponding field (powered by [QuaggaJS](https://github.com/serratus/quaggaJS), totally offline / client-side camera stream processing, please note due to browser security restrictions, this only works when serving grocy via a secure connection (`https://`)). Quick video demo: https://www.youtube.com/watch?v=Y5YH6IJFnfc
 
 ### Input shorthands for date fields
-For (productivity) reasons all date (and time) input fields use the ISO-8601 format regardless of localization.
+For (productivity) reasons all date (and time) input (and display) fields use the ISO-8601 format regardless of localization.
 The following shorthands are available:
 - `MMDD` gets expanded to the given day on the current year, if > today, or to the given day next year, if < today, in proper notation
   - Example: `0517` will be converted to `2018-05-17`
