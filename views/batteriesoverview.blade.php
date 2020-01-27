@@ -67,7 +67,7 @@
 								<i class="fas fa-ellipsis-v"></i>
 							</button>
 							<div class="dropdown-menu">
-								<a class="dropdown-item battery-name-cell" data-chore-id="{{ $curentBatteryEntry->battery_id }}" type="button" href="#">
+								<a class="dropdown-item battery-name-cell" data-battery-id="{{ $curentBatteryEntry->battery_id }}" type="button" href="#">
 									<i class="fas fa-info"></i> {{ $__t('Show battery details') }}
 								</a>
 								<a class="dropdown-item" type="button" href="{{ $U('/batteriesjournal?battery=') }}{{ $curentBatteryEntry->battery_id }}">
