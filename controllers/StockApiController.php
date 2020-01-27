@@ -568,7 +568,7 @@ class StockApiController extends BaseApiController
 	public function ProductStockEntries(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$allowSubproductSubstitution = false;
-		if (isset($request->getQueryParams()['include_sub_products']) && boolval($request->getQueryParams()['include_sub_products']))
+		if (isset($request->getQueryParams()['include_sub_products']) && filter_var($request->getQueryParams()['include_sub_products'], FILTER_VALIDATE_BOOLEAN))
 		{
 			$allowSubproductSubstitution = true;
 		}
