@@ -1,11 +1,11 @@
-﻿var stockDetailTable = $('#stock-detail-table').DataTable({
+﻿var stockEntriesTable = $('#stockentries-table').DataTable({
 	'order': [[2, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 }
 	],
 });
-$('#stock-detail-table tbody').removeClass("d-none");
+$('#stockentries-table tbody').removeClass("d-none");
 
 $.fn.dataTable.ext.search.push(function(settings, data, dataIndex)
 {
@@ -22,7 +22,7 @@ $.fn.dataTable.ext.search.push(function(settings, data, dataIndex)
 
 Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 {
-	stockDetailTable.draw();
+	stockEntriesTable.draw();
 });
 
 $(document).on('click', '.stock-consume-button', function(e)
@@ -56,7 +56,7 @@ $(document).on('click', '.stock-consume-button', function(e)
 					}
 
 					Grocy.FrontendHelpers.EndUiBusy();
-					RefreshStockDetailRow(stockRowId);
+					RefreshStockEntryRow(stockRowId);
 					toastr.success(toastMessage);
 				},
 				function(xhr)
@@ -97,7 +97,7 @@ $(document).on('click', '.product-open-button', function(e)
 			button.addClass("disabled");
 			Grocy.FrontendHelpers.EndUiBusy();
 			toastr.success(__t('Marked %1$s of %2$s as opened', 1 + " " + productQuName, productName) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBookingEntry(' + bookingResponse.id + ',' + stockRowId + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
-			RefreshStockDetailRow(stockRowId);
+			RefreshStockEntryRow(stockRowId);
 		},
 		function(xhr)
 		{
@@ -110,10 +110,10 @@ $(document).on('click', '.product-open-button', function(e)
 $(document).on("click", ".stock-name-cell", function(e)
 {
 	Grocy.Components.ProductCard.Refresh($(e.currentTarget).attr("data-stock-id"));
-	$("#stockdetail-productcard-modal").modal("show");
+	$("#stockentry-productcard-modal").modal("show");
 });
 
-function RefreshStockDetailRow(stockRowId)
+function RefreshStockEntryRow(stockRowId)
 {
 	Grocy.Api.Get("stock/entry/" + stockRowId,
 		function(result)
@@ -233,9 +233,9 @@ $(window).on("message", function(e)
 {
 	var data = e.originalEvent.data;
 
-	if (data.Message === "StockDetailChanged")
+	if (data.Message === "StockEntryChanged")
 	{
-		RefreshStockDetailRow(data.Payload);
+		RefreshStockEntryRow(data.Payload);
 	}
 });
 
@@ -246,7 +246,7 @@ function UndoStockBookingEntry(bookingId, stockRowId)
 	Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', { },
 		function(result)
 		{
-			window.postMessage(WindowMessageBag("StockDetailChanged", stockRowId), Grocy.BaseUrl);
+			window.postMessage(WindowMessageBag("StockEntryChanged", stockRowId), Grocy.BaseUrl);
 			toastr.success(__t("Booking successfully undone"));
 		},
 		function(xhr)

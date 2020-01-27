@@ -38,16 +38,16 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function Detail(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function Stockentries(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		$usersService = new UsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['stock_expring_soon_days'];
 
-		return $this->AppContainer->view->render($response, 'stockdetail', [
+		return $this->AppContainer->view->render($response, 'stockentries', [
 			'products' => $this->Database->products()->orderBy('name'),
 			'quantityunits' => $this->Database->quantity_units()->orderBy('name'),
 			'locations' => $this->Database->locations()->orderBy('name'),
-			'currentStockDetail' => $this->Database->stock()->orderBy('product_id'),
+			'stockEntries' => $this->Database->stock()->orderBy('product_id'),
 			'currentStockLocations' => $this->StockService->GetCurrentStockLocations(),
 			'nextXDays' => $nextXDays,
 			'userfields' => $this->UserfieldsService->GetFields('products'),
@@ -89,9 +89,9 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function StockEdit(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function StockEntryEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'stockedit', [
+		return $this->AppContainer->view->render($response, 'stockentryform', [
 			'stockEntry' => $this->Database->stock()->where('id', $args['entryId'])->fetch(),
 			'products' => $this->Database->products()->orderBy('name'),
 			'locations' => $this->Database->locations()->orderBy('name')

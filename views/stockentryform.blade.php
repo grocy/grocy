@@ -1,8 +1,7 @@
 @extends('layout.default')
 
 @section('title', $__t('Edit stock entry'))
-@section('activeNav', 'stockedit')
-@section('viewJsName', 'stockedit')
+@section('viewJsName', 'stockentryform')
 
 @section('content')
 <script>
@@ -14,7 +13,7 @@
 	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
 		<h1>@yield('title')</h1>
 
-		<form id="stockedit-form" novalidate>
+		<form id="stockentry-form" novalidate>
 			@php
 			$product = FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id);
 			@endphp
@@ -52,7 +51,6 @@
 				'hintId' => 'amount_qu_unit',
 				'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
 				'additionalAttributes' => 'data-not-equal="-1"',
-				'additionalHtmlElements' => '<div id="stockedit-change-info" class="form-text text-muted small d-none"></div>',
 				'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info" class="text-small text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
 			))
 
@@ -89,7 +87,7 @@
 				'limitEndToNow' => false,
 				'limitStartToNow' => false,
 				'invalidFeedback' => $__t('A purchased date is required'),
-				'nextInputSelector' => '#save-stockedit-button',
+				'nextInputSelector' => '#save-stockentry-button',
 				'additionalGroupCssClasses' => 'date-only-datetimepicker'
 			))
 
@@ -99,7 +97,7 @@
 				</label>
 			</div>
 
-			<button id="save-stockedit-button" class="btn btn-success">{{ $__t('OK') }}</button>
+			<button id="save-stockentry-button" class="btn btn-success">{{ $__t('OK') }}</button>
 
 		</form>
 	</div>

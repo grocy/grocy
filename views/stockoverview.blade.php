@@ -17,7 +17,7 @@
 			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/stockjournal') }}">
 				<i class="fas fa-file-alt"></i> {{ $__t('Journal') }}
 			</a>
-			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/stockdetail') }}">
+			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/stockentries') }}">
 				<i class="fas fa-boxes"></i> {{ $__t('Stock entries') }}
 			</a>
 			@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
@@ -144,7 +144,7 @@
 								<a class="dropdown-item product-name-cell" data-product-id="{{ $currentStockEntry->product_id }}" type="button" href="#">
 									<i class="fas fa-info"></i> {{ $__t('Show product details') }}
 								</a>
-								<a class="dropdown-item" type="button" href="{{ $U('/stockdetail?product=') }}{{ $currentStockEntry->product_id }}"
+								<a class="dropdown-item" type="button" href="{{ $U('/stockentries?product=') }}{{ $currentStockEntry->product_id }}"
 									data-product-id="{{ $currentStockEntry->product_id }}">
 									<i class="fas fa-boxes"></i> {{ $__t('Show stock entries') }}
 								</a>

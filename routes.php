@@ -33,12 +33,12 @@ $app->group('', function()
 	if (GROCY_FEATURE_FLAG_STOCK)
 	{
 		$this->get('/stockoverview', '\Grocy\Controllers\StockController:Overview');
-		$this->get('/stockdetail', '\Grocy\Controllers\StockController:Detail');
+		$this->get('/stockentries', '\Grocy\Controllers\StockController:Stockentries');
 		$this->get('/purchase', '\Grocy\Controllers\StockController:Purchase');
 		$this->get('/consume', '\Grocy\Controllers\StockController:Consume');
 		$this->get('/transfer', '\Grocy\Controllers\StockController:Transfer');
 		$this->get('/inventory', '\Grocy\Controllers\StockController:Inventory');
-		$this->get('/stockedit/{entryId}', '\Grocy\Controllers\StockController:StockEdit');
+		$this->get('/stockentry/{entryId}', '\Grocy\Controllers\StockController:StockEntryEditForm');
 		$this->get('/products', '\Grocy\Controllers\StockController:ProductsList');
 		$this->get('/product/{productId}', '\Grocy\Controllers\StockController:ProductEditForm');
 		$this->get('/stocksettings', '\Grocy\Controllers\StockController:StockSettings');
