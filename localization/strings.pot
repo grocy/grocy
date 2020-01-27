@@ -1708,3 +1708,6 @@ msgstr ""
 
 msgid "Frozen"
 msgstr ""
+
+msgid "Are you sure to delete userentity \"%s\"?"
+msgstr ""
