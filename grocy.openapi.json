@@ -707,8 +707,7 @@
 						"schema": {
 							"type": "integer"
 						}
-					}
-					,
+					},
 					{
 						"in": "query",
 						"name": "best_fit_width",
@@ -1350,6 +1349,15 @@
 						"description": "A valid product id",
 						"schema": {
 							"type": "integer"
+						}
+					},
+					{
+						"in": "query",
+						"name": "include_sub_products",
+						"required": false,
+						"description": "If sub products should be included (if the given product is a parent product and in addition to the ones of the given product)",
+						"schema": {
+							"type": "boolean"
 						}
 					}
 				],

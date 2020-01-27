@@ -82,7 +82,7 @@ function SumArrayValue($array, $propertyName)
 	$sum = 0;
 	foreach($array as $object)
 	{
-		$sum += $object->{$propertyName};
+		$sum += floatval($object->{$propertyName});
 	}
 
 	return $sum;

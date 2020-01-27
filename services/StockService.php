@@ -184,24 +184,29 @@ class StockService extends BaseService
 		return $this->Database->stock()->where('id', $entryId)->fetch();
 	}
 
-	public function GetProductStockEntries($productId, $excludeOpened = false)
+	public function GetProductStockEntries($productId, $excludeOpened = false, $allowSubproductSubstitution = false)
 	{
 		// In order of next use:
 		// First expiring first, then first in first out
 
+		$sqlWhereProductId = 'product_id = :1';
+		if ($allowSubproductSubstitution)
+		{
+			$sqlWhereProductId = '(product_id IN (SELECT sub_product_id FROM products_resolved WHERE parent_product_id = :1) OR product_id = :1)';
+		}
+
+		$sqlOpenAndWhere = 'AND open IN (0, 1)';
 		if ($excludeOpened)
 		{
-			return $this->Database->stock()->where('product_id = :1 AND open = 0', $productId)->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC')->fetchAll();
+			$sqlOpenAndWhere = 'AND open = 0';
 		}
-		else
-		{
-			return $this->Database->stock()->where('product_id', $productId)->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC')->fetchAll();
-		}
+
+		return $this->Database->stock()->where($sqlWhereProductId . ' ' . $sqlOpenAndWhere, $productId)->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC')->fetchAll();
 	}
 
-	public function GetProductStockEntriesForLocation($productId, $locationId, $excludeOpened = false)
+	public function GetProductStockEntriesForLocation($productId, $locationId, $excludeOpened = false, $allowSubproductSubstitution = false)
 	{
-		$stockEntries = $this->GetProductStockEntries($productId, $excludeOpened);
+		$stockEntries = $this->GetProductStockEntries($productId, $excludeOpened, $allowSubproductSubstitution);
 		return FindAllObjectsInArrayByPropertyValue($stockEntries, 'location_id', $locationId);
 	}
 
@@ -286,14 +291,14 @@ class StockService extends BaseService
 		}
 	}
 
-	public function ConsumeProduct(int $productId, float $amount, bool $spoiled, $transactionType, $specificStockEntryId = 'default', $recipeId = null, $locationId = null, &$transactionId = null)
+	public function ConsumeProduct(int $productId, float $amount, bool $spoiled, $transactionType, $specificStockEntryId = 'default', $recipeId = null, $locationId = null, &$transactionId = null, $allowSubproductSubstitution = false)
 	{
 		if (!$this->ProductExists($productId))
 		{
 			throw new \Exception('Product does not exist');
 		}
 
-		if ($locationId !== null & !$this->LocationExists($locationId))
+		if ($locationId !== null && !$this->LocationExists($locationId))
 		{
 			throw new \Exception('Location does not exist');
 		}
@@ -316,15 +321,14 @@ class StockService extends BaseService
 		{
 			if ($locationId === null) // Consume from any location
 			{
-				$productStockAmount = $this->Database->stock()->where('product_id', $productId)->sum('amount');
-				$potentialStockEntries = $this->GetProductStockEntries($productId);
+				$potentialStockEntries = $this->GetProductStockEntries($productId, false, $allowSubproductSubstitution);
 			}
 			else // Consume only from the supplied location
 			{
-				$productStockAmount = $this->Database->stock()->where('product_id = :1 AND location_id = :2', $productId, $locationId)->sum('amount');
-				$potentialStockEntries = $this->GetProductStockEntriesForLocation($productId, $locationId);
+				$potentialStockEntries = $this->GetProductStockEntriesForLocation($productId, $locationId, false, $allowSubproductSubstitution);
 			}
 
+			$productStockAmount = SumArrayValue($potentialStockEntries, 'amount');
 			if ($amount > $productStockAmount)
 			{
 				throw new \Exception('Amount to be consumed cannot be > current stock amount (if supplied, at the desired location)');

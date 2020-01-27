@@ -67,12 +67,13 @@ class RecipesService extends BaseService
 			throw new \Exception('Recipe does not exist');
 		}
 
+		$transactionId = uniqid();
 		$recipePositions = $this->Database->recipes_pos_resolved()->where('recipe_id', $recipeId)->fetchAll();
 		foreach ($recipePositions as $recipePosition)
 		{
 			if ($recipePosition->only_check_single_unit_in_stock == 0)
 			{
-				$this->StockService->ConsumeProduct($recipePosition->product_id, $recipePosition->recipe_amount, false, StockService::TRANSACTION_TYPE_CONSUME, 'default', $recipeId);
+				$this->StockService->ConsumeProduct($recipePosition->product_id, $recipePosition->recipe_amount, false, StockService::TRANSACTION_TYPE_CONSUME, 'default', $recipeId, null, $transactionId, true);
 			}
 		}
 
