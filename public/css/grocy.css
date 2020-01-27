@@ -319,6 +319,10 @@ html {
 	padding-right: 1.25em !important;
 }
 
+#sidebarResponsive .nav-item-sidebar {
+	line-height: 1;
+}
+
 /* Third party component customizations - Tempus Dominus */
 .bootstrap-datetimepicker-widget.dropdown-menu {
 	width: auto !important;

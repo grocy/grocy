@@ -88,7 +88,7 @@
 			<ul class="navbar-nav navbar-sidenav">
 
 				@if(GROCY_FEATURE_FLAG_STOCK)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Stock overview') }}" data-nav-for-page="stockoverview">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Stock overview') }}" data-nav-for-page="stockoverview">
 					<a class="nav-link discrete-link" href="{{ $U('/stockoverview') }}">
 						<i class="fas fa-box"></i>
 						<span class="nav-link-text">{{ $__t('Stock overview') }}</span>
@@ -96,7 +96,7 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_SHOPPINGLIST)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Shopping list') }}" data-nav-for-page="shoppinglist">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Shopping list') }}" data-nav-for-page="shoppinglist">
 					<a class="nav-link discrete-link" href="{{ $U('/shoppinglist') }}">
 						<i class="fas fa-shopping-cart"></i>
 						<span class="nav-link-text">{{ $__t('Shopping list') }}</span>
@@ -105,13 +105,13 @@
 				@endif
 				@if(GROCY_FEATURE_FLAG_RECIPES)
 				<div class="nav-item-divider"></div>
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Recipes') }}" data-nav-for-page="recipes">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Recipes') }}" data-nav-for-page="recipes">
 					<a class="nav-link discrete-link" href="{{ $U('/recipes') }}">
 						<i class="fas fa-cocktail"></i>
 						<span class="nav-link-text">{{ $__t('Recipes') }}</span>
 					</a>
 				</li>
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Meal plan') }}" data-nav-for-page="mealplan">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Meal plan') }}" data-nav-for-page="mealplan">
 					<a class="nav-link discrete-link" href="{{ $U('/mealplan') }}">
 						<i class="fas fa-paper-plane"></i>
 						<span class="nav-link-text">{{ $__t('Meal plan') }}</span>
@@ -120,7 +120,7 @@
 				@endif
 				@if(GROCY_FEATURE_FLAG_CHORES)
 				<div class="nav-item-divider"></div>
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Chores overview') }}" data-nav-for-page="choresoverview">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Chores overview') }}" data-nav-for-page="choresoverview">
 					<a class="nav-link discrete-link" href="{{ $U('/choresoverview') }}">
 						<i class="fas fa-home"></i>
 						<span class="nav-link-text">{{ $__t('Chores overview') }}</span>
@@ -128,7 +128,7 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_TASKS)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Tasks') }}" data-nav-for-page="tasks">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Tasks') }}" data-nav-for-page="tasks">
 					<a class="nav-link discrete-link" href="{{ $U('/tasks') }}">
 						<i class="fas fa-tasks"></i>
 						<span class="nav-link-text">{{ $__t('Tasks') }}</span>
@@ -136,7 +136,7 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_BATTERIES)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Batteries overview') }}" data-nav-for-page="batteriesoverview">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Batteries overview') }}" data-nav-for-page="batteriesoverview">
 					<a class="nav-link discrete-link" href="{{ $U('/batteriesoverview') }}">
 						<i class="fas fa-battery-half"></i>
 						<span class="nav-link-text">{{ $__t('Batteries overview') }}</span>
@@ -144,7 +144,7 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_EQUIPMENT)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Equipment') }}" data-nav-for-page="equipment">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Equipment') }}" data-nav-for-page="equipment">
 					<a class="nav-link discrete-link" href="{{ $U('/equipment') }}">
 						<i class="fas fa-toolbox"></i>
 						<span class="nav-link-text">{{ $__t('Equipment') }}</span>
@@ -153,7 +153,7 @@
 				@endif
 				@if(GROCY_FEATURE_FLAG_CALENDAR)
 				<div class="nav-item-divider"></div>
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Calendar') }}" data-nav-for-page="calendar">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Calendar') }}" data-nav-for-page="calendar">
 					<a class="nav-link discrete-link" href="{{ $U('/calendar') }}">
 						<i class="fas fa-calendar-alt"></i>
 						<span class="nav-link-text">{{ $__t('Calendar') }}</span>
@@ -163,27 +163,27 @@
 				
 				@if(GROCY_FEATURE_FLAG_STOCK)
 				<div class="nav-item-divider"></div>
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Purchase') }}" data-nav-for-page="purchase">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Purchase') }}" data-nav-for-page="purchase">
 					<a class="nav-link discrete-link" href="{{ $U('/purchase') }}">
 						<i class="fas fa-shopping-cart"></i>
 						<span class="nav-link-text">{{ $__t('Purchase') }}</span>
 					</a>
 				</li>
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Consume') }}" data-nav-for-page="consume">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Consume') }}" data-nav-for-page="consume">
 					<a class="nav-link discrete-link" href="{{ $U('/consume') }}">
 						<i class="fas fa-utensils"></i>
 						<span class="nav-link-text">{{ $__t('Consume') }}</span>
 					</a>
 				</li>
 				@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Transfer') }}" data-nav-for-page="transfer">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Transfer') }}" data-nav-for-page="transfer">
 					<a class="nav-link discrete-link" href="{{ $U('/transfer') }}">
 						<i class="fas fa-exchange-alt"></i>
 						<span class="nav-link-text">{{ $__t('Transfer') }}</span>
 					</a>
 				</li>
 				@endif
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Inventory') }}" data-nav-for-page="inventory">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Inventory') }}" data-nav-for-page="inventory">
 					<a class="nav-link discrete-link" href="{{ $U('/inventory') }}">
 						<i class="fas fa-list"></i>
 						<span class="nav-link-text">{{ $__t('Inventory') }}</span>
@@ -191,7 +191,7 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_CHORES)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Chore tracking') }}" data-nav-for-page="choretracking">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Chore tracking') }}" data-nav-for-page="choretracking">
 					<a class="nav-link discrete-link" href="{{ $U('/choretracking') }}">
 						<i class="fas fa-play"></i>
 						<span class="nav-link-text">{{ $__t('Chore tracking') }}</span>
@@ -199,7 +199,7 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_BATTERIES)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Battery tracking') }}" data-nav-for-page="batterytracking">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Battery tracking') }}" data-nav-for-page="batterytracking">
 					<a class="nav-link discrete-link" href="{{ $U('/batterytracking') }}">
 						<i class="fas fa-fire"></i>
 						<span class="nav-link-text">{{ $__t('Battery tracking') }}</span>
@@ -212,7 +212,7 @@
 				@if($firstUserentity)
 				<div class="nav-item-divider"></div>
 				@endif
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $userentity->caption }}" data-nav-for-page="userentity-{{ $userentity->name }}">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $userentity->caption }}" data-nav-for-page="userentity-{{ $userentity->name }}">
 					<a class="nav-link discrete-link" href="{{ $U('/userobjects/' . $userentity->name) }}">
 						<i class="{{ $userentity->icon_css_class }}"></i>
 						<span class="nav-link-text">{{ $userentity->caption }}</span>
@@ -222,7 +222,7 @@
 				@endforeach
 				
 				<div class="nav-item-divider"></div>
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Manage master data') }}">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Manage master data') }}">
 					<a class="nav-link nav-link-collapse collapsed discrete-link" data-toggle="collapse" href="#top-nav-manager-master-data">
 						<i class="fas fa-table"></i>
 						<span class="nav-link-text">{{ $__t('Manage master data') }}</span>
