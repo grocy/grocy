@@ -99,7 +99,7 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 
 			EmptyElementWhenMatches('#productcard-product-last-purchased-timeago', __t('timeago_nan'));
 			EmptyElementWhenMatches('#productcard-product-last-used-timeago', __t('timeago_nan'));
-			RefreshContextualTimeago();
+			RefreshContextualTimeago(".productcard");
 		},
 		function(xhr)
 		{

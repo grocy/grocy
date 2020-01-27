@@ -85,7 +85,7 @@
 
 		@if(GROCY_AUTHENTICATED)
 		<div id="sidebarResponsive" class="collapse navbar-collapse">
-			<ul class="navbar-nav navbar-sidenav pt-2">
+			<ul class="navbar-nav navbar-sidenav">
 
 				@if(GROCY_FEATURE_FLAG_STOCK)
 				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Stock overview') }}" data-nav-for-page="stockoverview">
@@ -104,14 +104,22 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_RECIPES)
+				<div class="nav-item-divider"></div>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Recipes') }}" data-nav-for-page="recipes">
 					<a class="nav-link discrete-link" href="{{ $U('/recipes') }}">
 						<i class="fas fa-cocktail"></i>
 						<span class="nav-link-text">{{ $__t('Recipes') }}</span>
 					</a>
 				</li>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Meal plan') }}" data-nav-for-page="mealplan">
+					<a class="nav-link discrete-link" href="{{ $U('/mealplan') }}">
+						<i class="fas fa-paper-plane"></i>
+						<span class="nav-link-text">{{ $__t('Meal plan') }}</span>
+					</a>
+				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_CHORES)
+				<div class="nav-item-divider"></div>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Chores overview') }}" data-nav-for-page="choresoverview">
 					<a class="nav-link discrete-link" href="{{ $U('/choresoverview') }}">
 						<i class="fas fa-home"></i>
@@ -143,9 +151,19 @@
 					</a>
 				</li>
 				@endif
+				@if(GROCY_FEATURE_FLAG_CALENDAR)
+				<div class="nav-item-divider"></div>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Calendar') }}" data-nav-for-page="calendar">
+					<a class="nav-link discrete-link" href="{{ $U('/calendar') }}">
+						<i class="fas fa-calendar-alt"></i>
+						<span class="nav-link-text">{{ $__t('Calendar') }}</span>
+					</a>
+				</li>
+				@endif
 				
 				@if(GROCY_FEATURE_FLAG_STOCK)
-				<li class="nav-item mt-4" data-toggle="tooltip" data-placement="right" title="{{ $__t('Purchase') }}" data-nav-for-page="purchase">
+				<div class="nav-item-divider"></div>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Purchase') }}" data-nav-for-page="purchase">
 					<a class="nav-link discrete-link" href="{{ $U('/purchase') }}">
 						<i class="fas fa-shopping-cart"></i>
 						<span class="nav-link-text">{{ $__t('Purchase') }}</span>
@@ -157,7 +175,7 @@
 						<span class="nav-link-text">{{ $__t('Consume') }}</span>
 					</a>
 				</li>
-                                @if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
+				@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Transfer') }}" data-nav-for-page="transfer">
 					<a class="nav-link discrete-link" href="{{ $U('/transfer') }}">
 						<i class="fas fa-exchange-alt"></i>
@@ -188,22 +206,6 @@
 					</a>
 				</li>
 				@endif
-				@if(GROCY_FEATURE_FLAG_CALENDAR)
-				<li class="nav-item mt-4" data-toggle="tooltip" data-placement="right" title="{{ $__t('Calendar') }}" data-nav-for-page="calendar">
-					<a class="nav-link discrete-link" href="{{ $U('/calendar') }}">
-						<i class="fas fa-calendar-alt"></i>
-						<span class="nav-link-text">{{ $__t('Calendar') }}</span>
-					</a>
-				</li>
-				@endif
-				@if(GROCY_FEATURE_FLAG_RECIPES)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Meal plan') }}" data-nav-for-page="mealplan">
-					<a class="nav-link discrete-link" href="{{ $U('/mealplan') }}">
-						<i class="fas fa-paper-plane"></i>
-						<span class="nav-link-text">{{ $__t('Meal plan') }}</span>
-					</a>
-				</li>
-				@endif
 
 				@php $firstUserentity = true; @endphp
 				@foreach($userentitiesForSidebar as $userentity)
@@ -216,7 +218,8 @@
 				@php if ($firstUserentity) { $firstUserentity = false; } @endphp
 				@endforeach
 				
-				<li class="nav-item mt-4" data-toggle="tooltip" data-placement="right" title="{{ $__t('Manage master data') }}">
+				<div class="nav-item-divider"></div>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Manage master data') }}">
 					<a class="nav-link nav-link-collapse collapsed discrete-link" data-toggle="collapse" href="#top-nav-manager-master-data">
 						<i class="fas fa-table"></i>
 						<span class="nav-link-text">{{ $__t('Manage master data') }}</span>

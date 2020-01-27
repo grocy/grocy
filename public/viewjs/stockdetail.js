@@ -217,8 +217,8 @@ function RefreshStockDetailRow(stockRowId)
 			// Needs to be delayed because of the animation above the date-text would be wrong if fired immediately...
 			setTimeout(function()
 			{
-				RefreshContextualTimeago();
-				RefreshLocaleNumberDisplay();
+				RefreshContextualTimeago("#stock-" + stockRowId + "-row");
+				RefreshLocaleNumberDisplay("#stock-" + stockRowId + "-row");
 			}, 600);
 		},
 		function(xhr)

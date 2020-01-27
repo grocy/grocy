@@ -146,7 +146,7 @@ $(document).on('click', '.track-chore-button', function(e)
 							// Delay due to delayed/animated set of new timestamps above
 							setTimeout(function()
 							{
-								RefreshContextualTimeago();
+								RefreshContextualTimeago("#chore-" + choreId + "-row");
 
 								// Refresh the DataTable to re-apply filters
 								choresOverviewTable.rows().invalidate().draw(false);

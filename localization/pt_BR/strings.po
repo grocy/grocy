@@ -3,6 +3,7 @@
 # Armando Neto <armando.muassab@gmail.com>, 2019
 # Danilo Vieira <cebikyn@gmail.com>, 2019
 # Jefferson Brito Passos dos Santos <jeffersantoss@gmail.com>, 2019
+# Arthur Vieira <skytakes.arthur@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -10,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Jefferson Brito Passos dos Santos <jeffersantoss@gmail.com>, 2019\n"
+"Last-Translator: Arthur Vieira <skytakes.arthur@gmail.com>, 2020\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/grocy/teams/93189/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -972,11 +973,9 @@ msgid "Mark %1$s of %2$s as open"
 msgstr "Marcar %1$s de %2$s como aberto"
 
 msgid ""
-"When a product was marked as opened, the best before date will be replaced "
-"by today + this amount of days (a value of 0 disables this)"
+"When this product was marked as opened, the best before date will be "
+"replaced by today + this amount of days (a value of 0 disables this)"
 msgstr ""
-"Quando um produto for marcado como aberto, a validade será substituída por "
-"hoje + esta quantidade de dias (o valor 0 desabilita)"
 
 msgid "Default best before days after opened"
 msgstr "Validade padão após aberto"
@@ -986,9 +985,6 @@ msgstr "%1$s de %2$s marcado como aberto"
 
 msgid "Mark as opened"
 msgstr "Marcar como aberto"
-
-msgid "Expires on %1$s; Bought on %2$s"
-msgstr "Vence em %1$s; Comprado em %2$s"
 
 msgid "Not opened"
 msgstr "Não aberto"
@@ -1739,3 +1735,161 @@ msgid ""
 msgstr ""
 "Isto significa que a próxima execução desta tarefa doméstica deverá somente "
 "ser agendada a cada %sanos"
+
+msgid "Transfer"
+msgstr "Transferir"
+
+msgid "From location"
+msgstr "De"
+
+msgid "To location"
+msgstr "Para"
+
+msgid "There are no units available at this location"
+msgstr "Não há nenhuma unidade disponivel neste local"
+
+msgid "Amount: %1$s; Expires on %2$s; Bought on %3$s"
+msgstr "Quantidade: 1%1s; Vence em 2%2s; Comprado em 3%3s"
+
+msgid "Transfered %1$s of %2$s from %3$s to %4$s"
+msgstr "Transferido%1$s de %2$s de %3$s para %4$s"
+
+msgid "Show stock entries"
+msgstr "Mostrar os itens no estoque"
+
+msgid "Stock entries"
+msgstr "Itens no estoque"
+
+msgid "Best before date"
+msgstr "Consumir antes de"
+
+msgid "Purchased date"
+msgstr "Data de compra"
+
+msgid "Consume all %s for this stock entry"
+msgstr "Consumir todos os %s para esse item no estoque"
+
+msgid "The amount cannot be lower than %1$s"
+msgstr "A quantidade não pode ser menor que %1$s"
+
+msgid "Stock entry successfully updated"
+msgstr "Estoque atualizado com sucesso"
+
+msgid "Edit stock entry"
+msgstr "Editar item no estoque"
+
+msgid ""
+"Camera access is on only possible when supported and allowed by your browser"
+" and when grocy is served via a secure (https://) connection"
+msgstr ""
+"Acesso a Camera só é possivel caso seja suportado e permitido pelo navegador"
+" e quando Grocy for acessado por conexão segura (https://)"
+
+msgid "Keep screen on"
+msgstr "Mantenha a tela ligada"
+
+msgid "Keep screen on while displaying a \"fullscreen-card\""
+msgstr ""
+"Mantenha a tela ligada quando estiver mostrando um \"Cartão de tela-cheia\""
+
+msgid "A purchased date is required"
+msgstr ""
+
+msgid ""
+"When a product is selected, one unit (per serving in purchase quantity unit)"
+" will be added to stock on consuming this recipe"
+msgstr ""
+
+msgid "Produces product"
+msgstr ""
+
+msgid "This booking cannot be undone"
+msgstr ""
+
+msgid "Booking does not exist or was already undone"
+msgstr ""
+
+msgid "Are you sure to delete API key \"%s\"?"
+msgstr ""
+
+msgid "Add note"
+msgstr ""
+
+msgid "Add note to %s"
+msgstr ""
+
+msgid "per day"
+msgstr ""
+
+msgid "Compact view"
+msgstr ""
+
+msgid "Normal view"
+msgstr ""
+
+msgid "Only undone items"
+msgstr ""
+
+msgid "Add product"
+msgstr ""
+
+msgid "Add product to %s"
+msgstr ""
+
+msgid "Consume all ingredients needed by this weeks recipes or products"
+msgstr ""
+
+msgid "Meal plan recipe"
+msgstr ""
+
+msgid "Meal plan note"
+msgstr ""
+
+msgid "Meal plan product"
+msgstr ""
+
+msgid "Scan mode"
+msgstr ""
+
+msgid "on"
+msgstr ""
+
+msgid "off"
+msgstr ""
+
+msgid ""
+"Scan mode is on but not all required fields could be populated automatically"
+msgstr ""
+
+msgid "Is freezer"
+msgstr ""
+
+msgid ""
+"When moving products from/to a freezer location, the products best before "
+"date is automatically adjusted according to the product settings"
+msgstr ""
+
+msgid ""
+"On moving this product to a freezer location (so when freezing it), the best"
+" before date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default best before days after freezing"
+msgstr ""
+
+msgid ""
+"On moving this product from a freezer location (so when thawing it), the "
+"best before date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default best before days after thawing"
+msgstr ""
+
+msgid "This cannot be the same as the \"From\" location"
+msgstr ""
+
+msgid "Thawed"
+msgstr ""
+
+msgid "Frozen"
+msgstr ""

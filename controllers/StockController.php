@@ -92,6 +92,7 @@ class StockController extends BaseController
 	public function StockEdit(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->AppContainer->view->render($response, 'stockedit', [
+			'stockEntry' => $this->Database->stock()->where('id', $args['entryId'])->fetch(),
 			'products' => $this->Database->products()->orderBy('name'),
 			'locations' => $this->Database->locations()->orderBy('name')
 		]);

@@ -268,7 +268,7 @@ Grocy.Components.DateTimePicker.GetInputElement().on('input', function(e)
 {
 	$('#datetimepicker-timeago').attr("datetime", Grocy.Components.DateTimePicker.GetValue());
 	EmptyElementWhenMatches('#datetimepicker-timeago', __t('timeago_nan'));
-	RefreshContextualTimeago();
+	RefreshContextualTimeago(".datetimepicker");
 });
 
 $('.datetimepicker').on('update.datetimepicker', function(e)

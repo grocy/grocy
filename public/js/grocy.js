@@ -258,11 +258,29 @@ if (!Grocy.ActiveNav.isEmpty())
 	var menuItem = $('#sidebarResponsive').find("[data-nav-for-page='" + Grocy.ActiveNav + "']");
 	menuItem.addClass('active-page');
 
-	var parentMenuSelector = menuItem.data("sub-menu-of");
-	if (typeof parentMenuSelector !== "undefined")
+	if (menuItem.length)
 	{
-		$(parentMenuSelector).collapse("show");
-		$(parentMenuSelector).prev(".nav-link-collapse").addClass("active-page");
+		var parentMenuSelector = menuItem.data("sub-menu-of");
+		if (typeof parentMenuSelector !== "undefined")
+		{
+			$(parentMenuSelector).collapse("show");
+			$(parentMenuSelector).prev(".nav-link-collapse").addClass("active-page");
+
+			$(parentMenuSelector).on("shown.bs.collapse", function (e)
+			{
+				if (!menuItem.isVisibleInViewport(75))
+				{
+					menuItem[0].scrollIntoView();
+				}
+			})
+		}
+		else
+		{
+			if (!menuItem.isVisibleInViewport(75))
+			{
+				menuItem[0].scrollIntoView();
+			}
+		}
 	}
 }
 
@@ -293,9 +311,9 @@ if (window.localStorage.getItem("sidebar_state") === "collapsed")
 }
 
 $.timeago.settings.allowFuture = true;
-RefreshContextualTimeago = function()
+RefreshContextualTimeago = function(rootSelector = "#page-content")
 {
-	$("time.timeago").each(function()
+	$(rootSelector + " time.timeago").each(function()
 	{
 		var element = $(this);
 
@@ -526,9 +544,9 @@ $("#about-dialog-link").on("click", function()
 	});
 });
 
-function RefreshLocaleNumberDisplay()
+function RefreshLocaleNumberDisplay(rootSelector = "#page-content")
 {
-	$(".locale-number.locale-number-currency").each(function()
+	$(rootSelector + " .locale-number.locale-number-currency").each(function()
 	{
 		if (isNaN(parseFloat($(this).text())))
 		{
@@ -538,7 +556,7 @@ function RefreshLocaleNumberDisplay()
 		$(this).text(parseFloat($(this).text()).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency }));
 	});
 
-	$(".locale-number.locale-number-quantity-amount").each(function()
+	$(rootSelector + " .locale-number.locale-number-quantity-amount").each(function()
 	{
 		if (isNaN(parseFloat($(this).text())))
 		{
@@ -548,7 +566,7 @@ function RefreshLocaleNumberDisplay()
 		$(this).text(parseFloat($(this).text()).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 3 }));
 	});
 
-	$(".locale-number.locale-number-generic").each(function ()
+	$(rootSelector + " .locale-number.locale-number-generic").each(function ()
 	{
 		if (isNaN(parseFloat($(this).text())))
 		{

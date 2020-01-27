@@ -1,3 +1,5 @@
+# Translators:
+# Brian Moos Lindberg <brian@blueeel.dk>, 2019
 # 
 msgid ""
 msgstr ""
@@ -5,6 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:43+0000\n"
+"Last-Translator: Brian Moos Lindberg <brian@blueeel.dk>, 2019\n"
 "Language-Team: Danish (https://www.transifex.com/grocy/teams/93189/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,22 +17,31 @@ msgstr ""
 "X-Domain: grocy/userfield_types\n"
 
 msgid "text-single-line"
-msgstr ""
+msgstr "tekst-enkelt-linje"
 
 msgid "text-multi-line"
-msgstr ""
+msgstr "tekst-flere-linjer"
 
 msgid "number-integral"
-msgstr ""
+msgstr "tal-heltal"
 
 msgid "number-decimal"
-msgstr ""
+msgstr "tal-decimal"
 
 msgid "date"
-msgstr ""
+msgstr "dato"
 
 msgid "datetime"
-msgstr ""
+msgstr "datotid"
 
 msgid "checkbox"
-msgstr ""
+msgstr "afkrydsningsfelt"
+
+msgid "preset-list"
+msgstr "forudindstillet-liste"
+
+msgid "preset-checklist"
+msgstr "forudindstillet-tjekliste"
+
+msgid "link"
+msgstr "link"

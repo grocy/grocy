@@ -79,7 +79,7 @@ if (Grocy.Components.DateTimePicker2.GetInputElement().data('limit-end-to-now') 
 
 Grocy.Components.DateTimePicker2.Init = function()
 {
-	$('.datetimepicker').datetimepicker(
+	$('.datetimepicker2').datetimepicker(
 	{
 		format: Grocy.Components.DateTimePicker2.GetInputElement().data('format'),
 		buttons: {
@@ -124,7 +124,7 @@ Grocy.Components.DateTimePicker2.Init();
 
 Grocy.Components.DateTimePicker2.GetInputElement().on('keyup', function(e)
 {
-	$('.datetimepicker').datetimepicker('hide');
+	$('.datetimepicker2').datetimepicker('hide');
 
 	var value = Grocy.Components.DateTimePicker2.GetValue();
 	var now = new Date();
@@ -268,17 +268,17 @@ Grocy.Components.DateTimePicker2.GetInputElement().on('input', function(e)
 {
 	$('#datetimepicker-timeago').attr("datetime", Grocy.Components.DateTimePicker2.GetValue());
 	EmptyElementWhenMatches('#datetimepicker-timeago', __t('timeago_nan'));
-	RefreshContextualTimeago();
+	RefreshContextualTimeago(".datetimepicker2");
 });
 
-$('.datetimepicker').on('update.datetimepicker', function(e)
+$('.datetimepicker2').on('update.datetimepicker', function(e)
 {
 	Grocy.Components.DateTimePicker2.GetInputElement().trigger('input');
 	Grocy.Components.DateTimePicker2.GetInputElement().trigger('change');
 	Grocy.Components.DateTimePicker2.GetInputElement().trigger('keypress');
 });
 
-$('.datetimepicker').on('hide.datetimepicker', function(e)
+$('.datetimepicker2').on('hide.datetimepicker', function(e)
 {
 	Grocy.Components.DateTimePicker2.GetInputElement().trigger('input');
 	Grocy.Components.DateTimePicker2.GetInputElement().trigger('change');

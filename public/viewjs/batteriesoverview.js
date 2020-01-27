@@ -95,7 +95,7 @@ $(document).on('click', '.track-charge-cycle-button', function(e)
 
 					Grocy.FrontendHelpers.EndUiBusy();
 					toastr.success(__t('Tracked charge cycle of battery %1$s on %2$s', batteryName, trackedTime));
-					RefreshContextualTimeago();
+					RefreshContextualTimeago("#battery-" + batteryId + "-row");
 					RefreshStatistics();
 				},
 				function(xhr)

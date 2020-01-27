@@ -1,4 +1,4 @@
 pushd ..
 call composer update
-yarn upgrade
+yarn upgrade --latest
 popd

@@ -65,7 +65,7 @@
 							<i class="fas fa-box-open"></i>
 						</a>
 						@endif
-						<a class="btn btn-info btn-sm show-as-dialog-link" href="{{ $U('/stockedit?embedded&product=' . $currentStockEntry->product_id . '&stockRowId=' . $currentStockEntry->id) }}" data-toggle="tooltip" data-placement="left" title="{{ $__t('Edit stock entry') }}">
+						<a class="btn btn-info btn-sm show-as-dialog-link" href="{{ $U('/stockedit/' . $currentStockEntry->id . '?embedded') }}" data-toggle="tooltip" data-placement="left" title="{{ $__t('Edit stock entry') }}">
 							<i class="fas fa-edit"></i>
 						</a>
 						<div class="dropdown d-inline-block">

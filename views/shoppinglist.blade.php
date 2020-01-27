@@ -37,7 +37,7 @@
 		<a id="print-shopping-list-button" class="btn btn-outline-dark responsive-button" href="#">
 			<i class="fas fa-print"></i> {{ $__t('Print') }}
 		</a>
-		<a id="shopping-list-compact-view-button" class="btn btn-outline-dark responsive-button float-right switch-view-mode-button" href="#">
+		<a id="shopping-list-compact-view-button" class="btn btn-outline-dark responsive-button switch-view-mode-button" href="#">
 			<i class="fas fa-compress-arrows-alt"></i> {{ $__t('Compact view') }}
 		</a>
 		<!--<div class="dropdown d-inline-block">
@@ -68,6 +68,11 @@
 			<a id="add-all-items-to-stock-button" class="btn btn-outline-primary responsive-button" href="#">
 				<i class="fas fa-box"></i> {{ $__t('Add all list items to stock') }}
 			</a>
+			@if(!GROCY_FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS)
+			<a id="shopping-list-compact-view-button" class="btn btn-outline-dark responsive-button switch-view-mode-button" href="#">
+				<i class="fas fa-compress-arrows-alt"></i> {{ $__t('Compact view') }}
+			</a>
+			@endif
 		</h1>
 		<p data-status-filter="belowminstockamount" class="btn btn-lg btn-info status-filter-button responsive-button">{{ $__n(count($missingProducts), '%s product is below defined min. stock amount', '%s products are below defined min. stock amount') }}</p>
 	</div>

@@ -5,7 +5,13 @@
 # Cedric Octave <transifex@octvcdrc.fr>, 2019
 # Hydreliox Hydreliox <hydreliox@gmail.com>, 2019
 # Matthieu K, 2019
+# Jérémy Tisserand <jeremy.tisserand@gmail.com>, 2019
 # Mathieu Fortin <mathieugfortin@gmail.com>, 2019
+# Pierre-Emmanuel Colas <transiflex@atnock.fr>, 2019
+# Antonin DESFONTAINES <antonin.desfontaines@outlook.com>, 2019
+# Adrien Guillement <adrien.guillement@gmail.com>, 2019
+# Matthias Baumgartner <dersoistargate@gmail.com>, 2019
+# Guillaume RICHARD <giz.richard@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -13,7 +19,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Mathieu Fortin <mathieugfortin@gmail.com>, 2019\n"
+"Last-Translator: Guillaume RICHARD <giz.richard@gmail.com>, 2020\n"
 "Language-Team: French (https://www.transifex.com/grocy/teams/93189/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -66,7 +72,7 @@ msgid "Chores overview"
 msgstr "Aperçu des corvées"
 
 msgid "Batteries overview"
-msgstr "Piles"
+msgstr "Aperçu des piles"
 
 msgid "Purchase"
 msgstr "Achat"
@@ -87,7 +93,7 @@ msgid "Battery tracking"
 msgstr "Suivi des piles"
 
 msgid "Locations"
-msgstr "Emplacements"
+msgstr "Il n'y a pas d'unités disponibles à cet endroit."
 
 msgid "Quantity units"
 msgstr "Formats"
@@ -96,7 +102,7 @@ msgid "Chores"
 msgstr "Corvées"
 
 msgid "Batteries"
-msgstr "Batteries"
+msgstr "Piles"
 
 msgid "Chore"
 msgstr "Corvée"
@@ -165,7 +171,7 @@ msgid "Tracked count"
 msgstr "Nombre de réalisations"
 
 msgid "Battery overview"
-msgstr "Aperçu des batteries"
+msgstr "Aperçu des piles"
 
 msgid "Charge cycles count"
 msgstr "Nombre de charges"
@@ -243,10 +249,10 @@ msgid "Used in"
 msgstr "Utilisé dans"
 
 msgid "Create battery"
-msgstr "Créer une batterie"
+msgstr "Créer une pile"
 
 msgid "Edit battery"
-msgstr "Modifier une batterie"
+msgstr "Modifier une pile"
 
 msgid "Edit chore"
 msgstr "Modifier une corvée"
@@ -368,14 +374,14 @@ msgid "This means %s will be removed from stock"
 msgstr "%s sera supprimé du stock"
 
 msgid ""
-"This means it is estimated that a new execution of this chore is tracked %s "
-"days after the last was tracked"
+"This means the next execution of this chore is scheduled %s days after the "
+"last execution"
 msgstr ""
-"La prochaine exécution de cette corvée sera programmée %s jours après sa "
+"La prochaine exécution de cette corvée sera programmée %s jours après la "
 "dernière exécution"
 
 msgid "Removed %1$s of %2$s from stock"
-msgstr "%1$senlevé du stock de%2$s "
+msgstr "%1$s enlevée du stock de%2$s "
 
 msgid "About grocy"
 msgstr "À propos de grocy"
@@ -426,7 +432,7 @@ msgid "You have to select a chore"
 msgstr "Vous devez sélectionner une corvée"
 
 msgid "You have to select a battery"
-msgstr "Vous devez sélectionner une batterie"
+msgstr "Vous devez sélectionner une pile"
 
 msgid "A name is required"
 msgstr "Un nom est requis"
@@ -790,7 +796,7 @@ msgid "View settings"
 msgstr "Voir les paramètres"
 
 msgid "Auto reload on external changes"
-msgstr "Mettre à jour automatiquement lors d'un changement externe"
+msgstr "MàJ automatique lors de changements externe"
 
 msgid "Enable night mode"
 msgstr "Activer le mode nuit"
@@ -926,7 +932,7 @@ msgid "Batteries journal"
 msgstr "Journal des batteries"
 
 msgid "Filter by battery"
-msgstr "Filtrer par batterie"
+msgstr "Filtrer par pile"
 
 msgid "Undo charge cycle"
 msgstr "Annuler le cycle de charge"
@@ -976,12 +982,9 @@ msgid "Mark %1$s of %2$s as open"
 msgstr "Indiquer%1$s de %2$s comme ouvert"
 
 msgid ""
-"When a product was marked as opened, the best before date will be replaced "
-"by today + this amount of days (a value of 0 disables this)"
+"When this product was marked as opened, the best before date will be "
+"replaced by today + this amount of days (a value of 0 disables this)"
 msgstr ""
-"Quand un produit est marqué comme ouvert, la date de péremption sera "
-"remplacée par la date du jour + ce nombre de jours (une valeur de 0 "
-"désactive ce changement)"
 
 msgid "Default best before days after opened"
 msgstr "Date de péremption en jours par défaut après ouverture"
@@ -991,9 +994,6 @@ msgstr "Indiqué%1$s de %2$s comme ouvert"
 
 msgid "Mark as opened"
 msgstr "Indiquer comme ouvert"
-
-msgid "Expires on %1$s; Bought on %2$s"
-msgstr "Se périmera le%1$s; Acheté le %2$s"
 
 msgid "Not opened"
 msgstr "Non ouvert"
@@ -1139,10 +1139,10 @@ msgid "Journal for this chore"
 msgstr "Journal de la corvée"
 
 msgid "Show battery details"
-msgstr "Voir les détails"
+msgstr "Voir les détails de la pile"
 
 msgid "Journal for this battery"
-msgstr "Journal individuel"
+msgstr "Journal de cette pile"
 
 msgid "System info"
 msgstr "Informations système"
@@ -1238,7 +1238,7 @@ msgid "Sunday"
 msgstr "Dimanche"
 
 msgid "Configure userfields"
-msgstr "Configurer les attributs personalisés"
+msgstr "Configurer les attributs personnalisés"
 
 msgid "Userfields"
 msgstr "Attributs personalisés"
@@ -1308,6 +1308,9 @@ msgstr "Pas assez en stock"
 msgid "Expiring soon days"
 msgstr "Jours avant péremption"
 
+msgid "Default location"
+msgstr "Emplacement par défaut"
+
 msgid "Default amount for purchase"
 msgstr "Quantité ajoutée par défaut lors d'un achat"
 
@@ -1367,25 +1370,529 @@ msgid "Products"
 msgstr "Produits"
 
 msgid "Marked task %s as completed on %s"
-msgstr ""
+msgstr "%s tâche marquée complétée sur %s"
 
 msgid "Booking has subsequent dependent bookings, undo not possible"
 msgstr "La réservation a des dépendances, impossible de revenir en arrière"
 
 msgid "per serving"
-msgstr ""
+msgstr "par portion"
 
 msgid "Never"
-msgstr ""
+msgstr "Jamais"
 
 msgid "Today"
-msgstr ""
+msgstr "Aujourd'hui"
 
 msgid "Consume %1$s of %2$s as spoiled"
-msgstr ""
+msgstr "Consommer %1$s de %2$s comme périmée"
 
 msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
 msgstr ""
+"Des ingrédients de la recette \"%s\" sont manquants,\n"
+"rien n'est retiré"
 
 msgid "Undo task \"%s\""
+msgstr "Annuler tâche \"%s\""
+
+msgid "Due date rollover"
+msgstr "Report de la date d'échéance"
+
+msgid ""
+"When enabled the chore can never be overdue, the due date will shift forward"
+" each day when due"
+msgstr ""
+"Si activé la corvée ne sera jamais due, la date d'échéance sera avancée "
+"quand atteinte."
+
+msgid "Location Content Sheet"
+msgstr "Emplacement du stock"
+
+msgid "Print"
+msgstr "Imprimer"
+
+msgid "all locations"
+msgstr "Tous les emplacements"
+
+msgid ""
+"Here you can print a page per location with the current stock, maybe to hang"
+" it there and note the consumed things on it."
+msgstr ""
+"Ici vous pouvez imprimer une fiche du stock actuel classé par emplacement, "
+"vous pouvez par exemple l'accrocher et noter les produits qui ont été "
+"consommés dessus."
+
+msgid "this location"
+msgstr "Cet emplacement"
+
+msgid "Consumend amount"
+msgstr "Quantité consommé"
+
+msgid "Time of printing"
+msgstr "Temps d'impression"
+
+msgid "Are you sure to delete equipment \"%s\"?"
+msgstr "Êtes-vous certain de vouloir effacer l'équipement \"%s\"?"
+
+msgid "Parent product"
+msgstr "Produit parent"
+
+msgid ""
+"Not possible because this product is already used as a parent product in "
+"another product"
+msgstr ""
+"Impossible, ce produit est déjà assigné comme parent sur un autre produit"
+
+msgid "Default conversions"
+msgstr "Conversions par défaut"
+
+msgid "Factor"
+msgstr "Facteur"
+
+msgid "1 %s is the same as..."
+msgstr "1 %s corresponds aussi à..."
+
+msgid "Create QU conversion"
+msgstr "Créer une conversion d'UQ"
+
+msgid "Default for QU"
+msgstr "Défaut pour l'unité de quantité"
+
+msgid "Quantity unit from"
+msgstr "De l'unité de quantité"
+
+msgid "Quantity unit to"
+msgstr "À l'unité de quantité"
+
+msgid ""
+"This cannot be lower than %1$s and must be a valid number with max. %2$s "
+"decimal places"
+msgstr ""
+"Cela ne peut être inférieur à  %1$s et doit être un nombre valide avec "
+"maximum. %2$s décimales."
+
+msgid "This cannot be equal to %s"
+msgstr "Ne peut être égale à %s"
+
+msgid "This means 1 %1$s is the same as %2$s %3$s"
+msgstr "Signifie que  1 %1$s corresponds aussi à %2$s %3$s"
+
+msgid "QU conversions"
+msgstr "Conversions d'UQ"
+
+msgid "Product overrides"
+msgstr "Règles du produit"
+
+msgid "Override for product"
+msgstr "Règle pour le produit"
+
+msgid "This equals %1$s %2$s in stock"
+msgstr "Égal à %1$s%2$s en stock"
+
+msgid "Edit QU conversion"
+msgstr "Éditer la conversion d'UQ"
+
+msgid "An assignment type is required"
+msgstr "Un type de tâche est requis"
+
+msgid "Assignment type"
+msgstr "Type de tâche"
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 day after the "
+"last execution"
+msgstr ""
+"La prochaine exécution de cette corvée sera programmé 1 jour après la "
+"dernière exécution"
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 day after the "
+"last execution, but only for the weekdays selected below"
+msgstr ""
+"Signifie que la prochaine exécution de cette corvée est programmé 1 jour "
+"après la dernière exécution, mais uniquement pour les jours sélectionnés ci-"
+"dessous"
+
+msgid "This means the next execution of this chore is not scheduled"
+msgstr "Cette corvée n'a pas d'exécution de programmée. "
+
+msgid ""
+"This means the next execution of this chore is scheduled on the below "
+"selected day of each month"
+msgstr ""
+"Signifie que la prochaine exécution de cette corvée sera programmé à la date"
+" sélectionnée ci-dessous chaque mois"
+
+msgid ""
+"This means the next execution of this chore will not be assigned to anyone"
+msgstr ""
+"Signifie que la prochaine exécution de cette corvée ne sera assigné à "
+"personne"
+
+msgid ""
+"This means the next execution of this chore will be assigned to the one who "
+"executed it least"
+msgstr ""
+"Signifie que la prochaine exécution de cette corvée sera assignée à celui "
+"qui l'a effectué en dernier"
+
+msgid "This means the next execution of this chore will be assigned randomly"
+msgstr ""
+"Signifie que la prochaine exécution de cette corvée sera assignée "
+"aléatoirement"
+
+msgid ""
+"This means the next execution of this chore will be assigned to the next one"
+" in alphabetical order"
+msgstr ""
+"Signifie que la prochaine exécution de cette corvée sera assigné au prochain"
+" par ordre alphabétique"
+
+msgid "Assign to"
+msgstr "Assigné à"
+
+msgid "This assignment type requires that at least one is assigned"
+msgstr "Ce type de tâche nécessite au moins une personne assignée"
+
+msgid "%s chore is assigned to me"
+msgid_plural "%s chores are assigned to me"
+msgstr[0] "%s corvée m'est assignée"
+msgstr[1] "%s corvées me sont assignées"
+
+msgid "Assigned to me"
+msgstr "Assigné à moi"
+
+msgid "assigned to %s"
+msgstr "assigné à %s"
+
+msgid "Filter by assignment"
+msgstr "Filtrer par tâche"
+
+msgid "Consume product on chore execution"
+msgstr "Consommer un produit lors de l'exécution de la corvée"
+
+msgid "Are you sure to delete user field \"%s\"?"
+msgstr "Êtes-vous sûr de vouloir supprimer le champ utilisateur \"%s\" ?"
+
+msgid "Userentities"
+msgstr "Entités utilisateur"
+
+msgid "Create userentity"
+msgstr "Créer une entité utilisateur"
+
+msgid "Show in sidebar menu"
+msgstr "Afficher dans le menu latérale"
+
+msgid "Edit userentity"
+msgstr "Éditer l'entité utilisateur"
+
+msgid "Edit %s"
+msgstr "Éditer %s"
+
+msgid "Create %s"
+msgstr "Créer %s"
+
+msgid "Are you sure to delete this userobject?"
+msgstr "Êtes-vous sûr de vouloir supprimer cet objet utilisateur ?"
+
+msgid "Icon CSS class"
+msgstr "Classe CSS de l'icône"
+
+msgid "For example"
+msgstr "Par exemple"
+
+msgid "Configure fields"
+msgstr "Configurer les champs"
+
+msgid "Quantity unit plural form testing"
+msgstr "Test de la forme pluriel de l'unité de quantité"
+
+msgid "Result"
+msgstr "Résultat"
+
+msgid "Test plural forms"
+msgstr "Tester les formes pluriel"
+
+msgid "Scan a barcode"
+msgstr "Scanner un code barre"
+
+msgid "Error while initializing the barcode scanning library"
+msgstr "Erreur lors de l'initialisation de la librairie de scan de code barre"
+
+msgid ""
+"The resulting price of this ingredient will be multiplied by this factor"
+msgstr "Le prix final de cet ingrédient sera multiplié par ce facteur"
+
+msgid "Price factor"
+msgstr "Facteur de prix"
+
+msgid "Do you find grocy useful?"
+msgstr "Vous trouvez grocy utile ?"
+
+msgid "Say thanks"
+msgstr "Remercier"
+
+msgid "Search for recipes containing this product"
+msgstr "Chercher des recettes contenant ce produit"
+
+msgid "Add to shopping list"
+msgstr "Ajouter à la liste de courses"
+
+msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
+msgstr "%1$s de %2$s ajouté à la liste de course \"%3$s\""
+
+msgid "Output"
+msgstr "Sortie"
+
+msgid "Energy (kcal)"
+msgstr "Énergie (kcal)"
+
+msgid "Per stock quantity unit"
+msgstr "Unité de quantité par stock"
+
+msgid "Barcode scanner testing"
+msgstr "Test du scanner de code barre"
+
+msgid "Expected barcode"
+msgstr "Code barre attendu"
+
+msgid "Scan field"
+msgstr "Champ du scan"
+
+msgid "Scanned barcodes"
+msgstr "Codes barre scanné"
+
+msgid "Hit"
+msgstr "Touché"
+
+msgid "Miss"
+msgstr "Raté"
+
+msgid "Display recipe"
+msgstr "Afficher la recette"
+
+msgid "Accumulate sub products min. stock amount"
+msgstr "Accumuler le stock minimal des sous produits"
+
+msgid ""
+"If enabled, the min. stock amount of sub products will be accumulated into "
+"this product, means the sub product will never be \"missing\", only this "
+"product"
+msgstr ""
+"Si activé, la somme du stock minimal des sous produits sera accumulé sur ce "
+"produit, signifiant que le sous produit ne sera jamais \"en manque\", "
+"seulement ce produit"
+
+msgid "Are you sure to remove this conversion?"
+msgstr "Êtes-vous sûr de vouloir supprimer cette conversion ?"
+
+msgid "Unit price"
+msgstr "Prix unitaire"
+
+msgid "Total price"
+msgstr "Prix total"
+
+msgid "in %s and based on the purchase quantity unit"
+msgstr "dans %s et basé sur la quantité unitaire d'achat"
+
+msgid "Unlimited"
+msgstr "Illimité"
+
+msgid "Clear"
+msgstr "Vider"
+
+msgid "Are you sure to remove the included recipe \"%s\"?"
+msgstr "Êtes-vous sûr de vouloir supprimer la recette incluse \"%s\"?"
+
+msgid "Period interval"
+msgstr "Intervalle de temps"
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s days"
+msgstr ""
+"La prochaine exécution de cette corvée ne doit être uniquement programmée "
+"que tous les %s jours"
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s weeks"
+msgstr ""
+"La prochaine exécution de cette corvée ne doit être uniquement programmée "
+"que toutes les %s semaines"
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s months"
+msgstr ""
+"La prochaine exécution de cette corvée ne doit être uniquement programmée "
+"que tous les %s mois"
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 year after the "
+"last execution"
+msgstr ""
+"La prochaine exécution de cette corvée sera programmé 1 an après la dernière"
+" exécution"
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s years"
+msgstr ""
+"Signifie que la prochaine exécution de cette corvée ne doit uniquement être "
+"programmé que tous les %s ans"
+
+msgid "Transfer"
+msgstr "Transfert"
+
+msgid "From location"
+msgstr "De"
+
+msgid "To location"
+msgstr "A"
+
+msgid "There are no units available at this location"
+msgstr "Il n'y a pas d'unité disponible à cet endroit."
+
+msgid "Amount: %1$s; Expires on %2$s; Bought on %3$s"
+msgstr "Quantité : %1$s; Expire le %2$s; Acheté le %3$s"
+
+msgid "Transfered %1$s of %2$s from %3$s to %4$s"
+msgstr "A transferé%1$sde %2$svenant de %3$s à %4$s"
+
+msgid "Show stock entries"
+msgstr ""
+
+msgid "Stock entries"
+msgstr ""
+
+msgid "Best before date"
+msgstr "A consommer de préférence avant le"
+
+msgid "Purchased date"
+msgstr "Date d'achat"
+
+msgid "Consume all %s for this stock entry"
+msgstr ""
+
+msgid "The amount cannot be lower than %1$s"
+msgstr "La quantité ne peut être inférieure à %s"
+
+msgid "Stock entry successfully updated"
+msgstr ""
+
+msgid "Edit stock entry"
+msgstr ""
+
+msgid ""
+"Camera access is on only possible when supported and allowed by your browser"
+" and when grocy is served via a secure (https://) connection"
+msgstr ""
+
+msgid "Keep screen on"
+msgstr "Garder l'écran allumé"
+
+msgid "Keep screen on while displaying a \"fullscreen-card\""
+msgstr ""
+
+msgid "A purchased date is required"
+msgstr ""
+
+msgid ""
+"When a product is selected, one unit (per serving in purchase quantity unit)"
+" will be added to stock on consuming this recipe"
+msgstr ""
+
+msgid "Produces product"
+msgstr ""
+
+msgid "This booking cannot be undone"
+msgstr ""
+
+msgid "Booking does not exist or was already undone"
+msgstr ""
+
+msgid "Are you sure to delete API key \"%s\"?"
+msgstr ""
+
+msgid "Add note"
+msgstr ""
+
+msgid "Add note to %s"
+msgstr ""
+
+msgid "per day"
+msgstr ""
+
+msgid "Compact view"
+msgstr ""
+
+msgid "Normal view"
+msgstr ""
+
+msgid "Only undone items"
+msgstr ""
+
+msgid "Add product"
+msgstr ""
+
+msgid "Add product to %s"
+msgstr ""
+
+msgid "Consume all ingredients needed by this weeks recipes or products"
+msgstr ""
+
+msgid "Meal plan recipe"
+msgstr ""
+
+msgid "Meal plan note"
+msgstr ""
+
+msgid "Meal plan product"
+msgstr ""
+
+msgid "Scan mode"
+msgstr ""
+
+msgid "on"
+msgstr ""
+
+msgid "off"
+msgstr ""
+
+msgid ""
+"Scan mode is on but not all required fields could be populated automatically"
+msgstr ""
+
+msgid "Is freezer"
+msgstr ""
+
+msgid ""
+"When moving products from/to a freezer location, the products best before "
+"date is automatically adjusted according to the product settings"
+msgstr ""
+
+msgid ""
+"On moving this product to a freezer location (so when freezing it), the best"
+" before date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default best before days after freezing"
+msgstr ""
+
+msgid ""
+"On moving this product from a freezer location (so when thawing it), the "
+"best before date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default best before days after thawing"
+msgstr ""
+
+msgid "This cannot be the same as the \"From\" location"
+msgstr ""
+
+msgid "Thawed"
+msgstr ""
+
+msgid "Frozen"
 msgstr ""

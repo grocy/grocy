@@ -145,3 +145,11 @@ function Delay(callable, delayMilliseconds)
 		}, delayMilliseconds || 0);
 	};
 }
+
+$.fn.isVisibleInViewport = function(extraHeightPadding = 0)
+{
+	var elementTop = $(this).offset().top;
+	var viewportTop = $(window).scrollTop() - extraHeightPadding;
+	
+	return elementTop + $(this).outerHeight() > viewportTop && elementTop < viewportTop + $(window).height();
+};

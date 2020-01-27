@@ -18,6 +18,40 @@
 		{
 			"name": "Generic entity interactions",
 			"description": "A limited set of entities are directly exposed for convenience"
+		},
+		{
+			"name": "System"
+		},
+		{
+			"name": "User management"
+		},
+		{
+			"name": "User settings"
+		},
+		{
+			"name": "Stock"
+		},
+		{
+			"name": "Stock \"by-barcode\"",
+			"description": "Some of the *Stock* routes, but access them by the products barcode instead of its id"
+		},
+		{
+			"name": "Recipes"
+		},
+		{
+			"name": "Chores"
+		},
+		{
+			"name": "Batteries"
+		},
+		{
+			"name": "Tasks"
+		},
+		{
+			"name": "Calendar"
+		},
+		{
+			"name": "Files"
 		}
 	],
 	"paths": {
@@ -1771,7 +1805,7 @@
 			"get": {
 				"summary": "Returns details of the given product by its barcode",
 				"tags": [
-					"Stock"
+					"Stock \"by-barcode\""
 				],
 				"parameters": [
 					{
@@ -1812,7 +1846,7 @@
 			"post": {
 				"summary": "Adds the given amount of the by its barcode given product to stock",
 				"tags": [
-					"Stock"
+					"Stock \"by-barcode\""
 				],
 				"parameters": [
 					{
@@ -1894,7 +1928,7 @@
 			"post": {
 				"summary": "Removes the given amount of the by its barcode given product from stock",
 				"tags": [
-					"Stock"
+					"Stock \"by-barcode\""
 				],
 				"parameters": [
 					{
@@ -1977,7 +2011,7 @@
 			"post": {
 				"summary": "Transfers the given amount of the by its barcode given product from one location to another (this is currently not supported for tare weight handling enabled products)",
 				"tags": [
-					"Stock"
+					"Stock \"by-barcode\""
 				],
 				"parameters": [
 					{
@@ -2053,7 +2087,7 @@
 			"post": {
 				"summary": "Inventories the by its barcode given product (adds/removes based on the given new amount)",
 				"tags": [
-					"Stock"
+					"Stock \"by-barcode\""
 				],
 				"parameters": [
 					{
@@ -2125,7 +2159,7 @@
 			"post": {
 				"summary": "Marks the given amount of the by its barcode given product as opened",
 				"tags": [
-					"Stock"
+					"Stock \"by-barcode\""
 				],
 				"parameters": [
 					{

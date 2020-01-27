@@ -345,3 +345,12 @@ msgstr "текущий релиз"
 
 msgid "not yet released"
 msgstr "Пока не выпущено"
+
+msgid "Portuguese (Brazil)"
+msgstr ""
+
+msgid "This is a note"
+msgstr ""
+
+msgid "Freezer"
+msgstr ""

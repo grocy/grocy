@@ -78,7 +78,7 @@ $(document).on('click', '.do-task-button', function(e)
 
 			Grocy.FrontendHelpers.EndUiBusy();
 			toastr.success(__t('Marked task %s as completed on %s', taskName, doneTime));
-			RefreshContextualTimeago();
+			RefreshContextualTimeago("#task-" + taskId + "-row");
 			RefreshStatistics();
 		},
 		function(xhr)

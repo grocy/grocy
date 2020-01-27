@@ -144,7 +144,8 @@ input::-webkit-inner-spin-button {
 	border-radius: 0;
 }
 
-.navbar-nav .dropdown-divider {
+.navbar-nav .dropdown-divider,
+.nav-item-divider {
 	border-top: 2px solid !important;
 	border-color: #d6d6d6 !important;
 }

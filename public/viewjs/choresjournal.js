@@ -51,7 +51,7 @@ $(document).on('click', '.undo-chore-execution-button', function(e)
 			element.closest("tr").addClass("text-muted");
 			element.parent().siblings().find("span.name-anchor").addClass("text-strike-through").after("<br>" + __t("Undone on") + " " + moment().format("YYYY-MM-DD HH:mm:ss") + " <time class='timeago timeago-contextual' datetime='" + moment().format("YYYY-MM-DD HH:mm:ss") + "'></time>");
 			element.closest(".undo-stock-booking-button").addClass("disabled");
-			RefreshContextualTimeago();
+			RefreshContextualTimeago("#chore-execution-" + executionId + "-row");
 			toastr.success(__t("Chore execution successfully undone"));
 		},
 		function(xhr)

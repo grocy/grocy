@@ -157,7 +157,10 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				{
 					Grocy.Components.LocationPicker.SetId(productDetails.location.id);
 				}
+
+				$('#new_amount').val(productDetails.stock_amount);
 				$('#new_amount').focus();
+				$('#new_amount').trigger('keyup');
 			},
 			function(xhr)
 			{

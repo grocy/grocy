@@ -38,7 +38,7 @@ $app->group('', function()
 		$this->get('/consume', '\Grocy\Controllers\StockController:Consume');
 		$this->get('/transfer', '\Grocy\Controllers\StockController:Transfer');
 		$this->get('/inventory', '\Grocy\Controllers\StockController:Inventory');
-		$this->get('/stockedit', '\Grocy\Controllers\StockController:StockEdit');
+		$this->get('/stockedit/{entryId}', '\Grocy\Controllers\StockController:StockEdit');
 		$this->get('/products', '\Grocy\Controllers\StockController:ProductsList');
 		$this->get('/product/{productId}', '\Grocy\Controllers\StockController:ProductEditForm');
 		$this->get('/stocksettings', '\Grocy\Controllers\StockController:StockSettings');

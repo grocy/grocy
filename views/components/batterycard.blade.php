@@ -2,7 +2,7 @@
 	<script src="{{ $U('/viewjs/components/batterycard.js', true) }}?v={{ $version }}"></script>
 @endpush
 
-<div class="card">
+<div class="card batterycard">
 	<div class="card-header">
 		<i class="fas fa-battery-three-quarters"></i> {{ $__t('Battery overview') }}
 		<a id="batterycard-battery-edit-button" class="btn btn-sm btn-outline-info py-0 float-right disabled" href="#" data-toggle="tooltip" title="{{ $__t('Edit battery') }}">

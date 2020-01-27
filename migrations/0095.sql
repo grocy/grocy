@@ -6,6 +6,10 @@ BEGIN
 		AND location_id IS NULL;
 END;
 
+UPDATE stock
+SET location_id = (SELECT location_id FROM products where id = product_id)
+WHERE location_id IS NULL;
+
 CREATE TRIGGER set_products_default_location_if_empty_stock_log AFTER INSERT ON stock_log
 BEGIN
 	UPDATE stock_log
@@ -13,6 +17,10 @@ BEGIN
 	WHERE id = NEW.id
 		AND location_id IS NULL;
 END;
+
+UPDATE stock_log
+SET location_id = (SELECT location_id FROM products where id = product_id)
+WHERE location_id IS NULL;
 
 ALTER TABLE stock_log
 ADD correlation_id TEXT;

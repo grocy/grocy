@@ -317,8 +317,8 @@ function RefreshProductRow(productId)
 			// Needs to be delayed because of the animation above the date-text would be wrong if fired immediately...
 			setTimeout(function()
 			{
-				RefreshContextualTimeago();
-				RefreshLocaleNumberDisplay();
+				RefreshContextualTimeago("#product-" + productId + "-row");
+				RefreshLocaleNumberDisplay("#product-" + productId + "-row");
 			}, 600);
 		},
 		function(xhr)

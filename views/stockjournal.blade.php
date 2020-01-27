@@ -42,7 +42,7 @@
 			</thead>
 			<tbody class="d-none">
 				@foreach($stockLog as $stockLogEntry)
-				<tr class="@if($stockLogEntry->undone == 1) text-muted @endif">
+				<tr id="stock-booking-{{ $stockLogEntry->id }}-row" class="@if($stockLogEntry->undone == 1) text-muted @endif stock-booking-correlation-{{ $stockLogEntry->correlation_id }}" data-correlation-id="{{ $stockLogEntry->correlation_id }}">
 					<td class="fit-content border-right">
 						<a class="btn btn-secondary btn-sm undo-stock-booking-button @if($stockLogEntry->undone == 1) disabled @endif" href="#" data-booking-id="{{ $stockLogEntry->id }}" data-toggle="tooltip" data-placement="left" title="{{ $__t('Undo booking') }}">
 							<i class="fas fa-undo"></i>
