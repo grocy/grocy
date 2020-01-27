@@ -209,7 +209,10 @@
 
 				@php $firstUserentity = true; @endphp
 				@foreach($userentitiesForSidebar as $userentity)
-				<li class="nav-item @if($firstUserentity) mt-4 @endif" data-toggle="tooltip" data-placement="right" title="{{ $userentity->caption }}" data-nav-for-page="userentity-{{ $userentity->name }}">
+				@if($firstUserentity)
+				<div class="nav-item-divider"></div>
+				@endif
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $userentity->caption }}" data-nav-for-page="userentity-{{ $userentity->name }}">
 					<a class="nav-link discrete-link" href="{{ $U('/userobjects/' . $userentity->name) }}">
 						<i class="{{ $userentity->icon_css_class }}"></i>
 						<span class="nav-link-text">{{ $userentity->caption }}</span>
