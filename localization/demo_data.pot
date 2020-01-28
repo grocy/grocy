@@ -333,3 +333,6 @@ msgstr ""
 
 msgid "Freezer"
 msgstr ""
+
+msgid "Hungarian"
+msgstr ""
