@@ -133,11 +133,10 @@ $(document).on('click', '.recipe-pos-delete-button', function(e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Put('objects/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(), function() { }, function() { });
 				Grocy.Api.Delete('objects/recipes_pos/' + objectId, {},
 					function(result)
 					{
-						window.location.href = U('/recipe/' + Grocy.EditObjectId);
+						window.postMessage(WindowMessageBag("IngredientsChanged"), Grocy.BaseUrl);
 					},
 					function(xhr)
 					{
@@ -171,11 +170,10 @@ $(document).on('click', '.recipe-include-delete-button', function(e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Put('objects/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(), function() { }, function() { });
 				Grocy.Api.Delete('objects/recipes_nestings/' + objectId, {},
 					function(result)
 					{
-						window.location.href = U('/recipe/' + Grocy.EditObjectId);
+						window.postMessage(WindowMessageBag("IngredientsChanged"), Grocy.BaseUrl);
 					},
 					function(xhr)
 					{
@@ -305,7 +303,7 @@ $('#save-recipe-include-button').on('click', function(e)
 		Grocy.Api.Post('objects/recipes_nestings', jsonData,
 			function(result)
 			{
-				window.location.href = U('/recipe/' + Grocy.EditObjectId);
+				window.postMessage(WindowMessageBag("IngredientsChanged"), Grocy.BaseUrl);
 			},
 			function(xhr)
 			{
@@ -318,7 +316,7 @@ $('#save-recipe-include-button').on('click', function(e)
 		Grocy.Api.Put('objects/recipes_nestings/' + nestingId, jsonData,
 			function(result)
 			{
-				window.location.href = U('/recipe/' + Grocy.EditObjectId);
+				window.postMessage(WindowMessageBag("IngredientsChanged"), Grocy.BaseUrl);
 			},
 			function(xhr)
 			{
@@ -345,7 +343,16 @@ $(window).on("message", function(e)
 
 	if (data.Message === "IngredientsChanged")
 	{
-		window.location.href = U('/recipe/' + Grocy.EditObjectId);
+		Grocy.Api.Put('objects/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(),
+			function(result)
+			{
+				window.location.href = U('/recipe/' + Grocy.EditObjectId);
+			},
+			function(xhr)
+			{
+				console.error(xhr);
+			}
+		);
 	}
 });
 
