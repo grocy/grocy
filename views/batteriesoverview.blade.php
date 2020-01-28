@@ -54,12 +54,12 @@
 				</tr>
 			</thead>
 			<tbody class="d-none">
-				@foreach($current as $curentBatteryEntry)
-				<tr id="battery-{{ $curentBatteryEntry->battery_id }}-row" class="@if(FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0 && $curentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s')) table-danger @elseif(FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0 && $curentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) table-warning @endif">
+				@foreach($current as $currentBatteryEntry)
+				<tr id="battery-{{ $currentBatteryEntry->battery_id }}-row" class="@if(FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->charge_interval_days > 0 && $currentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s')) table-danger @elseif(FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->charge_interval_days > 0 && $currentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) table-warning @endif">
 					<td class="fit-content border-right">
-						<a class="btn btn-success btn-sm track-charge-cycle-button" href="#" data-toggle="tooltip" data-placement="left" title="{{ $__t('Track charge cycle of battery %s', FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->name) }}"
-							data-battery-id="{{ $curentBatteryEntry->battery_id }}"
-							data-battery-name="{{ FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->name }}">
+						<a class="btn btn-success btn-sm track-charge-cycle-button" href="#" data-toggle="tooltip" data-placement="left" title="{{ $__t('Track charge cycle of battery %s', FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->name) }}"
+							data-battery-id="{{ $currentBatteryEntry->battery_id }}"
+							data-battery-name="{{ FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->name }}">
 							<i class="fas fa-fire"></i>
 						</a>
 						<div class="dropdown d-inline-block">
@@ -67,40 +67,40 @@
 								<i class="fas fa-ellipsis-v"></i>
 							</button>
 							<div class="dropdown-menu">
-								<a class="dropdown-item battery-name-cell" data-chore-id="{{ $curentBatteryEntry->battery_id }}" type="button" href="#">
+								<a class="dropdown-item battery-name-cell" data-battery-id="{{ $currentBatteryEntry->battery_id }}" type="button" href="#">
 									<i class="fas fa-info"></i> {{ $__t('Show battery details') }}
 								</a>
-								<a class="dropdown-item" type="button" href="{{ $U('/batteriesjournal?battery=') }}{{ $curentBatteryEntry->battery_id }}">
+								<a class="dropdown-item" type="button" href="{{ $U('/batteriesjournal?battery=') }}{{ $currentBatteryEntry->battery_id }}">
 									<i class="fas fa-file-alt"></i> {{ $__t('Journal for this battery') }}
 								</a>
-								<a class="dropdown-item" type="button" href="{{ $U('/battery/') }}{{ $curentBatteryEntry->battery_id }}">
+								<a class="dropdown-item" type="button" href="{{ $U('/battery/') }}{{ $currentBatteryEntry->battery_id }}">
 									<i class="fas fa-edit"></i> {{ $__t('Edit battery') }}
 								</a>
 							</div>
 						</div>
 					</td>
-					<td class="battery-name-cell cursor-link" data-battery-id="{{ $curentBatteryEntry->battery_id }}">
-						{{ FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->name }}
+					<td class="battery-name-cell cursor-link" data-battery-id="{{ $currentBatteryEntry->battery_id }}">
+						{{ FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->name }}
 					</td>
 					<td>
-						<span id="battery-{{ $curentBatteryEntry->battery_id }}-last-tracked-time">{{ $curentBatteryEntry->last_tracked_time }}</span>
-						<time id="battery-{{ $curentBatteryEntry->battery_id }}-last-tracked-time-timeago" class="timeago timeago-contextual" datetime="{{ $curentBatteryEntry->last_tracked_time }}"></time>
+						<span id="battery-{{ $currentBatteryEntry->battery_id }}-last-tracked-time">{{ $currentBatteryEntry->last_tracked_time }}</span>
+						<time id="battery-{{ $currentBatteryEntry->battery_id }}-last-tracked-time-timeago" class="timeago timeago-contextual" datetime="{{ $currentBatteryEntry->last_tracked_time }}"></time>
 					</td>
 					<td>
-						@if(FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0)
-							<span id="battery-{{ $curentBatteryEntry->battery_id }}-next-charge-time">{{ $curentBatteryEntry->next_estimated_charge_time }}</span>
-							<time id="battery-{{ $curentBatteryEntry->battery_id }}-next-charge-time-timeago" class="timeago timeago-contextual" datetime="{{ $curentBatteryEntry->next_estimated_charge_time }}"></time>
+						@if(FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->charge_interval_days > 0)
+							<span id="battery-{{ $currentBatteryEntry->battery_id }}-next-charge-time">{{ $currentBatteryEntry->next_estimated_charge_time }}</span>
+							<time id="battery-{{ $currentBatteryEntry->battery_id }}-next-charge-time-timeago" class="timeago timeago-contextual" datetime="{{ $currentBatteryEntry->next_estimated_charge_time }}"></time>
 						@else
 							...
 						@endif
 					</td>
 					<td class="d-none">
-						"@if(FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0 && $curentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s')) overdue @elseif(FindObjectInArrayByPropertyValue($batteries, 'id', $curentBatteryEntry->battery_id)->charge_interval_days > 0 && $curentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) duesoon @endif
+						"@if(FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->charge_interval_days > 0 && $currentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s')) overdue @elseif(FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->charge_interval_days > 0 && $currentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) duesoon @endif
 					</td>
 
 					@include('components.userfields_tbody', array(
 						'userfields' => $userfields,
-						'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $curentBatteryEntry->battery_id)
+						'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $currentBatteryEntry->battery_id)
 					))
 
 				</tr>
