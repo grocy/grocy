@@ -5,7 +5,7 @@
 @section('viewJsName', 'barcodescannertesting')
 
 @push('pageScripts')
-	<script src="{{ $U('/node_modules/jquery-ui-dist/jquery-ui.min.js?v=', true) }}{{ $version }}"></script>
+	<link href="{{ $U('/node_modules/animate.css/animate.min.css?v', true) }}{{ $version }}" rel="stylesheet">
 @endpush
 
 @section('content')

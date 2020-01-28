@@ -11,7 +11,7 @@ apiKeysTable.columns.adjust().draw();
 var createdApiKeyId = GetUriParam('CreatedApiKeyId');
 if (createdApiKeyId !== undefined)
 {
-	$('#apiKeyRow_' + createdApiKeyId).effect('highlight', {}, 3000);
+	animateCSS("#apiKeyRow_" + createdApiKeyId, "pulse");
 }
 
 $("#search").on("keyup", Delay(function()

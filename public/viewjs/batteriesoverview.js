@@ -76,20 +76,13 @@ $(document).on('click', '.track-charge-cycle-button', function(e)
 						batteryRow.addClass("table-warning");
 					}
 
-					$('#battery-' + batteryId + '-last-tracked-time').parent().effect('highlight', { }, 500);
-					$('#battery-' + batteryId + '-last-tracked-time').fadeOut(500, function()
-					{
-						$(this).text(trackedTime).fadeIn(500);
-					});
-					$('#battery-' + batteryId + '-last-tracked-time-timeago').attr('datetime', trackedTime);
+					animateCSS("#battery-" + batteryId + "-row td:not(:first)", "shake");
 
+					$('#battery-' + batteryId + '-last-tracked-time').text(trackedTime);
+					$('#battery-' + batteryId + '-last-tracked-time-timeago').attr('datetime', trackedTime);
 					if (result.battery.charge_interval_days != 0)
 					{
-						$('#battery-' + batteryId + '-next-charge-time').parent().effect('highlight', { }, 500);
-						$('#battery-' + batteryId + '-next-charge-time').fadeOut(500, function()
-						{
-							$(this).text(result.next_estimated_charge_time).fadeIn(500);
-						});
+						$('#battery-' + batteryId + '-next-charge-time').text(result.next_estimated_charge_time);
 						$('#battery-' + batteryId + '-next-charge-time-timeago').attr('datetime', result.next_estimated_charge_time);
 					}
 

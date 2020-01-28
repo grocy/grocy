@@ -98,10 +98,10 @@ $(document).on('click', '.shoppinglist-delete-button', function(e)
 	Grocy.Api.Delete('objects/shopping_list/' + shoppingListItemId, {},
 		function(result)
 		{
-			$('#shoppinglistitem-' + shoppingListItemId + '-row').fadeOut(500, function()
+			animateCSS("#shoppinglistitem-" + shoppingListItemId + "-row", "fadeOut", function()
 			{
 				Grocy.FrontendHelpers.EndUiBusy();
-				$(this).remove();
+				$("#shoppinglistitem-" + shoppingListItemId + "-row").remove();
 				OnListItemRemoved();
 			});
 		},
@@ -151,10 +151,10 @@ $(document).on('click', '#clear-shopping-list', function(e)
 				Grocy.Api.Post('stock/shoppinglist/clear', { "list_id": $("#selected-shopping-list").val() },
 					function(result)
 					{
-						$('#shoppinglist-table tbody tr').fadeOut(500, function()
+						animateCSS("#shoppinglist-table tbody tr", "fadeOut", function()
 						{
 							Grocy.FrontendHelpers.EndUiBusy();
-							$(this).remove();
+							$("#shoppinglist-table tbody tr").remove();
 							OnListItemRemoved();
 						});
 					},

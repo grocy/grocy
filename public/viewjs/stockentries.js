@@ -128,9 +128,9 @@ function RefreshStockEntryRow(stockRowId)
 			
 			if (result == null || result.amount == 0)
 			{
-				stockRow.fadeOut(500, function()
+				animateCSS("#stock-" + stockRowId + "-row", "fadeOut", function()
 				{
-					$(this).addClass("d-none");
+					$("#stock-" + stockRowId + "-row").addClass("d-none");
 				});
 			}
 			else
@@ -153,20 +153,13 @@ function RefreshStockEntryRow(stockRowId)
 					stockRow.addClass("table-warning");
 				}
 
-				$('#stock-' + stockRowId + '-amount').parent().effect('highlight', { }, 500);
-				$('#stock-' + stockRowId + '-amount').fadeOut(500, function ()
-				{
-					$(this).text(result.amount).fadeIn(500);
-				});
+				animateCSS("#stock-" + stockRowId + "-row td:not(:first)", "shake");
 
-				$('#stock-' + stockRowId + '-best-before-date').parent().effect('highlight', { }, 500);
-				$('#stock-' + stockRowId + '-best-before-date').fadeOut(500, function()
-				{
-					$(this).text(result.best_before_date).fadeIn(500);
-				});
+				$('#stock-' + stockRowId + '-amount').text(result.amount);
+				$('#stock-' + stockRowId + '-best-before-date').text(result.best_before_date);
 				$('#stock-' + stockRowId + '-best-before-date-timeago').attr('datetime', result.best_before_date + ' 23:59:59');
 
-				$(".stock-consume-button").attr('data-location-id',result.location_id);
+				$(".stock-consume-button").attr('data-location-id', result.location_id);
 
 				var locationName = "";
 				Grocy.Api.Get("objects/locations/" + result.location_id,
@@ -179,39 +172,21 @@ function RefreshStockEntryRow(stockRowId)
 						console.error(xhr);
 					}
 				);
-				$('#stock-' + stockRowId + '-location').parent().effect('highlight', { }, 500);
-				$('#stock-' + stockRowId + '-location').fadeOut(500, function()
-				{
-					$(this).attr('data-location-id',result.location_id);
-					$(this).text(locationName).fadeIn(500);
-				});
-
-				$('#stock-' + stockRowId + '-price').parent().effect('highlight', { }, 500);
-				$('#stock-' + stockRowId + '-price').fadeOut(500, function()
-				{
-					$(this).text(result.price).fadeIn(500);
-				});
-
-				$('#stock-' + stockRowId + '-purchased-date').parent().effect('highlight', { }, 500);
-				$('#stock-' + stockRowId + '-purchased-date').fadeOut(500, function()
-				{
-					$(this).text(result.purchased_date).fadeIn(500);
-				});
+				$('#stock-' + stockRowId + '-location').attr('data-location-id', result.location_id);
+				$('#stock-' + stockRowId + '-location').text(locationName);
+				$('#stock-' + stockRowId + '-price').text(result.price);
+				$('#stock-' + stockRowId + '-purchased-date').text(result.purchased_date);
 				$('#stock-' + stockRowId + '-purchased-date-timeago').attr('datetime', result.purchased_date + ' 23:59:59');
 
-				$('#stock-' + stockRowId + '-opened-amount').parent().effect('highlight', {}, 500);
-				$('#stock-' + stockRowId + '-opened-amount').fadeOut(500, function ()
+				if (result.open == 1)
 				{
-					if (result.open == 1)
-					{
-						$(this).text(__t('Opened')).fadeIn(500);
-					}
-					else
-					{
-						$(this).text("").fadeIn(500);
-						$(".product-open-button[data-stockrow-id='" + stockRowId + "']").removeClass("disabled");
-					}
-				});
+					$('#stock-' + stockRowId + '-opened-amount').text(__t('Opened'));
+				}
+				else
+				{
+					$('#stock-' + stockRowId + '-opened-amount').text("");
+					$(".product-open-button[data-stockrow-id='" + stockRowId + "']").removeClass("disabled");
+				}
 			}
 
 			// Needs to be delayed because of the animation above the date-text would be wrong if fired immediately...

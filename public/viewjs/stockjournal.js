@@ -42,7 +42,6 @@ $(document).on('click', '.undo-stock-booking-button', function(e)
 {
 	e.preventDefault();
 
-	var element = $(e.currentTarget);
 	var bookingId = $(e.currentTarget).attr('data-booking-id');
 	var correlationId = $("#stock-booking-" + bookingId + "-row").attr("data-correlation-id");
 

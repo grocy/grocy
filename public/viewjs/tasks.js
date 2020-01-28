@@ -63,10 +63,10 @@ $(document).on('click', '.do-task-button', function(e)
 		{
 			if (!$("#show-done-tasks").is(":checked"))
 			{
-				$('#task-' + taskId + '-row').fadeOut(500, function ()
+				animateCSS("#task-" + taskId + "-row", "fadeOut", function()
 				{
-					$(this).tooltip("hide");
-					$(this).remove();
+					$("#task-" + taskId + "-row").tooltip("hide");
+					$("#task-" + taskId + "-row").remove();
 				});
 			}
 			else
@@ -142,10 +142,10 @@ $(document).on('click', '.delete-task-button', function (e)
 				Grocy.Api.Delete('objects/tasks/' + objectId, {},
 					function(result)
 					{
-						$('#task-' + objectId + '-row').fadeOut(500, function ()
+						animateCSS("#task-" + objectId + "-row", "fadeOut", function()
 						{
-							$(this).tooltip("hide");
-							$(this).remove();
+							$("#task-" + objectId + "-row").tooltip("hide");
+							$("#task-" + objectId + "-row").remove();
 						});
 					},
 					function(xhr)

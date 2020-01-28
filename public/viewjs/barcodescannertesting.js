@@ -61,20 +61,16 @@ function OnBarcodeScanned(barcode)
 		Grocy.BarCodeScannerTestingMissCount++;
 		bgClass = "bg-danger";
 
-		$("#miss-count").fadeOut(200, function ()
-		{
-			$(this).text(Grocy.BarCodeScannerTestingMissCount).fadeIn(200);
-		});
+		$("#miss-count").text(Grocy.BarCodeScannerTestingMissCount);
+		animateCSS("#miss-count", "pulse");
 	}
 	else
 	{
 		Grocy.BarCodeScannerTestingHitCount++;
 		bgClass = "bg-success";
 
-		$("#hit-count").fadeOut(200, function ()
-		{
-			$(this).text(Grocy.BarCodeScannerTestingHitCount).fadeIn(200);
-		});
+		$("#hit-count").text(Grocy.BarCodeScannerTestingHitCount);
+		animateCSS("#hit-count", "pulse");
 	}
 
 	$("#scanned_codes").prepend("<option class='" + bgClass + "'>" + barcode + "</option>");

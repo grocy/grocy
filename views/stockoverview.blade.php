@@ -4,8 +4,11 @@
 @section('activeNav', 'stockoverview')
 @section('viewJsName', 'stockoverview')
 
+@push('pageStyles')
+	<link href="{{ $U('/node_modules/animate.css/animate.min.css?v', true) }}{{ $version }}" rel="stylesheet">
+@endpush
+
 @push('pageScripts')
-	<script src="{{ $U('/node_modules/jquery-ui-dist/jquery-ui.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/viewjs/purchase.js?v=', true) }}{{ $version }}"></script>
 @endpush
 

@@ -230,42 +230,32 @@ function RefreshProductRow(productId)
 
 			if (result.stock_amount == 0 && result.product.min_stock_amount == 0)
 			{
-				$('#product-' + productId + '-row').fadeOut(500, function()
+				animateCSS("#product-" + productId + "-row", "fadeOut", function()
 				{
-					$(this).tooltip("hide");
-					$(this).addClass("d-none");
+					$("#product-" + productId + "-row").tooltip("hide");
+					$("#product-" + productId + "-row").addClass("d-none");
 				});
 			}
 			else
 			{
+				animateCSS("#product-" + productId + "-row td:not(:first)", "shake");
+
 				$('#product-' + productId + '-qu-name').text(__n(result.stock_amount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural));
-				$('#product-' + productId + '-amount').parent().effect('highlight', { }, 500);
-				$('#product-' + productId + '-amount').fadeOut(500, function ()
-				{
-					$(this).text(result.stock_amount).fadeIn(500);
-				});
+				$('#product-' + productId + '-amount').text(result.stock_amount);
 				$('#product-' + productId + '-consume-all-button').attr('data-consume-amount', result.stock_amount);
 
-				$('#product-' + productId + '-next-best-before-date').parent().effect('highlight', { }, 500);
-				$('#product-' + productId + '-next-best-before-date').fadeOut(500, function()
-				{
-					$(this).text(result.next_best_before_date).fadeIn(500);
-				});
+				$('#product-' + productId + '-next-best-before-date').text(result.next_best_before_date);
 				$('#product-' + productId + '-next-best-before-date-timeago').attr('datetime', result.next_best_before_date);
 
 				var openedAmount = result.stock_amount_opened || 0;
-				$('#product-' + productId + '-opened-amount').parent().effect('highlight', {}, 500);
-				$('#product-' + productId + '-opened-amount').fadeOut(500, function ()
+				if (openedAmount > 0)
 				{
-					if (openedAmount > 0)
-					{
-						$(this).text(__t('%s opened', openedAmount)).fadeIn(500);
-					}
-					else
-					{
-						$(this).text("").fadeIn(500);
-					}
-				});
+					$('#product-' + productId + '-opened-amount').text(__t('%s opened', openedAmount));
+				}
+				else
+				{
+					$('#product-' + productId + '-opened-amount').text("");
+				}
 
 				if (result.stock_amount == 0 && result.product.min_stock_amount > 0)
 				{
@@ -273,20 +263,12 @@ function RefreshProductRow(productId)
 				}
 			}
 
-			$('#product-' + productId + '-next-best-before-date').parent().effect('highlight', {}, 500);
-			$('#product-' + productId + '-next-best-before-date').fadeOut(500, function()
-			{
-				$(this).text(result.next_best_before_date).fadeIn(500);
-			});
+			$('#product-' + productId + '-next-best-before-date').text(result.next_best_before_date);
 			$('#product-' + productId + '-next-best-before-date-timeago').attr('datetime', result.next_best_before_date + ' 23:59:59');
 
 			if (result.stock_amount_opened > 0)
 			{
-				$('#product-' + productId + '-opened-amount').parent().effect('highlight', {}, 500);
-				$('#product-' + productId + '-opened-amount').fadeOut(500, function()
-				{
-					$(this).text(__t('%s opened', result.stock_amount_opened)).fadeIn(500);
-				});
+				$('#product-' + productId + '-opened-amount').text(__t('%s opened', result.stock_amount_opened));
 			}
 			else
 			{
@@ -295,18 +277,11 @@ function RefreshProductRow(productId)
 
 			if (parseInt(result.is_aggregated_amount) === 1)
 			{
-				$('#product-' + productId + '-amount-aggregated').fadeOut(500, function()
-				{
-					$(this).text(result.stock_amount_aggregated).fadeIn(500);
-				});
+				$('#product-' + productId + '-amount-aggregated').text(result.stock_amount_aggregated);
 
 				if (result.stock_amount_opened_aggregated > 0)
 				{
-					$('#product-' + productId + '-opened-amount-aggregated').parent().effect('highlight', {}, 500);
-					$('#product-' + productId + '-opened-amount-aggregated').fadeOut(500, function ()
-					{
-						$(this).text(__t('%s opened', result.stock_amount_opened_aggregated)).fadeIn(500);
-					});
+					$('#product-' + productId + '-opened-amount-aggregated').text(__t('%s opened', result.stock_amount_opened_aggregated));
 				}
 				else
 				{
