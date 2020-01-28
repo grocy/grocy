@@ -95,7 +95,7 @@ class RecipesController extends BaseController
 			'recipe' =>  $this->Database->recipes($recipeId),
 			'recipePositions' =>  $this->Database->recipes_pos()->where('recipe_id', $recipeId),
 			'mode' => 'edit',
-			'products' => $this->Database->products(),
+			'products' => $this->Database->products()->orderBy('name'),
 			'quantityunits' => $this->Database->quantity_units(),
 			'recipePositionsResolved' => $this->RecipesService->GetRecipesPosResolved(),
 			'recipesResolved' => $this->RecipesService->GetRecipesResolved(),
