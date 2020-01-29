@@ -236,3 +236,62 @@ function string_ends_with($haystack, $needle)
 
 	return (substr($haystack, -$length) === $needle);
 }
+
+function FractionToDecimal($fraction)
+{
+	// Split fraction into whole number and fraction components
+	preg_match('/^(?P<whole>\d+)?\s?((?P<numerator>\d+)\/(?P<denominator>\d+))?$/', $fraction, $components);
+
+	// Extract whole number, numerator, and denominator components
+	$whole = $components['whole'] ?: 0;
+	$numerator = $components['numerator'] ?: 0;
+	$denominator = $components['denominator'] ?: 0;
+
+	// Create decimal value
+	$decimal = $whole;
+	$numerator && $denominator && $decimal += ($numerator/$denominator);
+
+	return $decimal;
+}
+
+function DecimalToFraction($decimal)
+{
+	// Determine decimal precision and extrapolate multiplier required to convert to integer
+	$precision = strpos(strrev($decimal), '.') ?: 0;
+	$multiplier = pow(10, $precision);
+
+	// Calculate initial numerator and denominator
+	$numerator = $decimal * $multiplier;
+	$denominator = 1 * $multiplier;
+
+	// Extract whole number from numerator
+	$whole = floor($numerator / $denominator);
+	$decimal = $decimal - $whole;
+
+	//round to manage 1/3
+	$tolerance = 1.e-4;
+
+	$h2 = 0;
+	$numerator = 1;
+	$denominator = 0;
+	$k2 = 1;
+	$b = 1 / $decimal;
+	do {
+		$b = 1 / $b;
+		$a = floor($b);
+		$aux = $numerator;
+		$numerator = $a * $numerator + $h2;
+		$h2 = $aux;
+		$aux = $denominator;
+		$denominator = $a * $denominator + $k2;
+		$k2 = $aux;
+		$b = $b - $a;
+	} while (abs($decimal - $numerator / $denominator) > $decimal * $tolerance);
+
+	// Create fraction value
+	$fraction = [];
+	$whole && $fraction[] = $whole;
+	$numerator && $fraction[] = "{$numerator}/{$denominator}";
+
+	return implode(' ', $fraction);
+}
