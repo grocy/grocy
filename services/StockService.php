@@ -377,27 +377,53 @@ class StockService extends BaseService
 				{
 					$restStockAmount = $stockEntry->amount - $amount;
 
-					$logRow = $this->Database->stock_log()->createRow(array(
-						'product_id' => $stockEntry->product_id,
-						'amount' => $amount * -1,
-						'best_before_date' => $stockEntry->best_before_date,
-						'purchased_date' => $stockEntry->purchased_date,
-						'used_date' => date('Y-m-d'),
-						'spoiled' => $spoiled,
-						'stock_id' => $stockEntry->stock_id,
-						'transaction_type' => $transactionType,
-						'price' => $stockEntry->price,
-						'opened_date' => $stockEntry->opened_date,
-						'recipe_id' => $recipeId,
-						'transaction_id' => $transactionId
-					));
-					$logRow->save();
+					if ($restStockAmount < 0.001) {
+						//Take the full amount if stock is less than .01
 
-					$stockEntry->update(array(
-						'amount' => $restStockAmount
-					));
+						$logRow = $this->Database->stock_log()->createRow(array(
+							'product_id' => $stockEntry->product_id,
+							'amount' => $stockEntry->amount * -1,
+							'best_before_date' => $stockEntry->best_before_date,
+							'purchased_date' => $stockEntry->purchased_date,
+							'used_date' => date('Y-m-d'),
+							'spoiled' => $spoiled,
+							'stock_id' => $stockEntry->stock_id,
+							'transaction_type' => $transactionType,
+							'price' => $stockEntry->price,
+							'opened_date' => $stockEntry->opened_date,
+							'recipe_id' => $recipeId,
+							'transaction_id' => $transactionId
+	                                        ));
+						$logRow->save();
 
-					$amount = 0;
+						$stockEntry->delete();
+
+						$amount = 0;
+					}
+					else
+					{
+						$logRow = $this->Database->stock_log()->createRow(array(
+							'product_id' => $stockEntry->product_id,
+							'amount' => $amount * -1,
+							'best_before_date' => $stockEntry->best_before_date,
+							'purchased_date' => $stockEntry->purchased_date,
+							'used_date' => date('Y-m-d'),
+							'spoiled' => $spoiled,
+							'stock_id' => $stockEntry->stock_id,
+							'transaction_type' => $transactionType,
+							'price' => $stockEntry->price,
+							'opened_date' => $stockEntry->opened_date,
+							'recipe_id' => $recipeId,
+							'transaction_id' => $transactionId
+						));
+						$logRow->save();
+
+						$stockEntry->update(array(
+							'amount' => $restStockAmount
+						));
+
+						$amount = 0;
+					}
 				}
 			}
 
