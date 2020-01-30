@@ -253,6 +253,16 @@
 			@endif
 
 			<div class="form-group">
+				<div class="form-check">
+					<input type="hidden" name="include_in_mealplan" value="0">
+					<input @if($mode == 'edit' && $product->include_in_mealplan == 1) checked @endif class="form-check-input" type="checkbox" id="include_in_mealplan" name="include_in_mealplan" value="1">
+					<label class="form-check-label" for="include_in_mealplan">{{ $__t('Include in Mealplan') }}
+						<span class="text-muted small">{{ $__t('When checked, this product is available to be added to a mealplan.') }}</span>
+					</label>
+				</div>
+			</div>
+
+			<div class="form-group">
 				<label for="product-picture">{{ $__t('Product picture') }}
 					<span class="text-muted small">{{ $__t('If you don\'t select a file, the current picture will not be altered') }}</span>
 				</label>

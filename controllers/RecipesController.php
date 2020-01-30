@@ -169,7 +169,7 @@ class RecipesController extends BaseController
 			'recipes' => $recipes,
 			'internalRecipes' => $this->Database->recipes()->whereNot('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll(),
 			'recipesResolved' => $this->RecipesService->GetRecipesResolved(),
-			'products' => $this->Database->products()->orderBy('name'),
+			'products' => $this->Database->products()->where('include_in_mealplan', '1')->orderBy('name'),
 			'quantityUnits' => $this->Database->quantity_units()->orderBy('name'),
 			'quantityUnitConversionsResolved' => $this->Database->quantity_unit_conversions_resolved()
 		]);

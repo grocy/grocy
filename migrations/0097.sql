@@ -1,4 +1,7 @@
 ALTER TABLE products
+ADD include_in_mealplan TINYINT NOT NULL DEFAULT 0;
+
+ALTER TABLE products
 ADD default_best_before_days_after_freezing INTEGER NOT NULL DEFAULT 0;
 
 UPDATE products
