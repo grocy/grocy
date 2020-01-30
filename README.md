@@ -45,7 +45,7 @@ You can easily help translating grocy at https://www.transifex.com/grocy/grocy, 
 
 The [pre-release demo](https://demo-prerelease.grocy.info) is available for any translation which is at least 80 % complete and will pull the translations from Transifex 10 minutes past every hour, so you can have a kind of instant preview of your contributed translations. Thank you!
 
-Translation which reach a completion level of 90 % will be included in releases.
+Also any translation which reached a completion level of 80 % will be included in releases.
 
 ## Things worth to know
 
