@@ -21,10 +21,7 @@
 			{
 				jsonData.location_id = Grocy.Components.LocationPicker.GetValue();
 			}
-			else
-			{
-				jsonData.location_id = 1;
-			}
+			
 			jsonData.price = price;
 
 			var bookingResponse = null;

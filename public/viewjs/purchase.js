@@ -34,10 +34,6 @@
 			{
 				jsonData.location_id = Grocy.Components.LocationPicker.GetValue();
 			}
-			else
-			{
-				jsonData.location_id = 1;
-			}
 
 			Grocy.Api.Post('stock/products/' + jsonForm.product_id + '/add', jsonData,
 				function(result)

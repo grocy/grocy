@@ -20,10 +20,6 @@
 	{
 		jsonData.location_id = $("#location_id").val();
 	}
-	else
-	{
-		jsonData.location_id = 1;
-	}
 
 	if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_RECIPES && Grocy.Components.RecipePicker.GetValue().toString().length > 0)
 	{

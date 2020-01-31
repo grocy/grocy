@@ -57,8 +57,6 @@
 				</select>
 				<div class="invalid-feedback">{{ $__t('A location is required') }}</div>
 			</div>
-			@else
-			<input type="hidden" name="location_id" id="location_id" value="1">
 			@endif
 
 			<div class="form-group">

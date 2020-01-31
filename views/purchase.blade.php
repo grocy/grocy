@@ -91,11 +91,9 @@
 				'locations' => $locations,
 				'isRequired' => false
 			))
-			@else
-			<input type="hidden" name="location_id" id="location_id" value="1">
 			@endif
 
-			<button id="save-purchase-button" class="btn btn-success">{{ $__t('OK') }}</button>
+			<button id="save-purchase-button" class="btn btn-success d-block">{{ $__t('OK') }}</button>
 
 		</form>
 	</div>
