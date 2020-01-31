@@ -160,10 +160,8 @@
 	<div class="col-xs-12 col-md-4 mt-md-2 d-print-none">
 		@include('components.calendarcard')
 	</div>
-</div>
 
-<div class="row mt-3 d-print-none hide-on-fullscreen-card">
-	<div class="col-xs-12 col-md-8">
+	<div class="col-xs-12 col-md-8 d-print-none px-0 pt-2">
 		<div class="form-group">
 			<label class="text-larger font-weight-bold" for="notes">{{ $__t('Notes') }}</label>
 			<a id="save-description-button" class="btn btn-success btn-sm ml-1 mb-2" href="#">{{ $__t('Save') }}</a>
