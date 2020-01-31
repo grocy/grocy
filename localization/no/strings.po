@@ -964,6 +964,8 @@ msgid ""
 "When this product was marked as opened, the best before date will be "
 "replaced by today + this amount of days (a value of 0 disables this)"
 msgstr ""
+"Når dette produktet merkes som åpnet vil best før datoen endres fra dagens "
+"dato + antall dager under"
 
 msgid "Default best before days after opened"
 msgstr "Standard best før dager etter åpnet"
@@ -1783,97 +1785,110 @@ msgid ""
 "When a product is selected, one unit (per serving in purchase quantity unit)"
 " will be added to stock on consuming this recipe"
 msgstr ""
+"Når du konsumere denne oppskriften vil den produsere en enhet av produktet "
+"du har valgt under. (Per forbruk enhet)"
 
 msgid "Produces product"
-msgstr ""
+msgstr "Lager produkt"
 
 msgid "This booking cannot be undone"
-msgstr ""
+msgstr "Denne registreringen kan ikke angres"
 
 msgid "Booking does not exist or was already undone"
-msgstr ""
+msgstr "Registeringen eksistere ikke eller har allerede blitt angret"
 
 msgid "Are you sure to delete API key \"%s\"?"
-msgstr ""
+msgstr "Er du sikker du ønsker slette API key \"%s\"?"
 
 msgid "Add note"
-msgstr ""
+msgstr "Legg til notat"
 
 msgid "Add note to %s"
-msgstr ""
+msgstr "Legg notat til %s"
 
 msgid "per day"
-msgstr ""
+msgstr "per dag"
 
 msgid "Compact view"
-msgstr ""
+msgstr "Kompakt visning"
 
 msgid "Normal view"
-msgstr ""
+msgstr "Vanlig visning"
 
 msgid "Only undone items"
-msgstr ""
+msgstr "Kun angrede enheter"
 
 msgid "Add product"
-msgstr ""
+msgstr "Legg til produkt"
 
 msgid "Add product to %s"
-msgstr ""
+msgstr "Legg produkt til %s"
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
 msgstr ""
+"Forbruk alle ingredienser nødvendig for denne ukens oppskrifter eller "
+"produkter"
 
 msgid "Meal plan recipe"
-msgstr ""
+msgstr "Middagsplan-oppskrift"
 
 msgid "Meal plan note"
-msgstr ""
+msgstr "Middagsplan-notat"
 
 msgid "Meal plan product"
-msgstr ""
+msgstr "Middagsplan-produkt"
 
 msgid "Scan mode"
-msgstr ""
+msgstr "Scanne modus"
 
 msgid "on"
-msgstr ""
+msgstr "på"
 
 msgid "off"
-msgstr ""
+msgstr "av"
 
 msgid ""
 "Scan mode is on but not all required fields could be populated automatically"
-msgstr ""
+msgstr "Scannemodus er på, men ikke alle felt kan fylles ut automatisk"
 
 msgid "Is freezer"
-msgstr ""
+msgstr "Er fryser"
 
 msgid ""
 "When moving products from/to a freezer location, the products best before "
 "date is automatically adjusted according to the product settings"
 msgstr ""
+"Når produkter blir flyttet til/fra en fryskerlokasjon, endres best før "
+"datoen automatisk i forhold til produktinnstillingen"
 
 msgid ""
 "On moving this product to a freezer location (so when freezing it), the best"
 " before date will be replaced by today + this amount of days"
 msgstr ""
+"Når dette produktet blir flyttet til en fryskerlokasjon (produkt skal "
+"fryses), endres best før datoen fra i dag + antall dager under"
 
 msgid "Default best before days after freezing"
-msgstr ""
+msgstr "Standard best før dager etter frysing"
 
 msgid ""
 "On moving this product from a freezer location (so when thawing it), the "
 "best before date will be replaced by today + this amount of days"
 msgstr ""
+"Når dette produktet blir flyttet fra en fryskerlokasjon (produkt skal "
+"tines), endres best før datoen fra i dag + antall dager under"
 
 msgid "Default best before days after thawing"
-msgstr ""
+msgstr "Standard best før dager etter tining"
 
 msgid "This cannot be the same as the \"From\" location"
-msgstr ""
+msgstr "Dette kan ikke være det som \"Fra\" lokasjonen"
 
 msgid "Thawed"
-msgstr ""
+msgstr "Tint"
 
 msgid "Frozen"
-msgstr ""
+msgstr "Fryst"
+
+msgid "Are you sure to delete userentity \"%s\"?"
+msgstr "Er du sikker på at du ønsker slette userentity \"%s\"?"

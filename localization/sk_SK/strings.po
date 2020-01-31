@@ -1338,6 +1338,8 @@ msgstr "Zaznamenávať iba dátum"
 
 msgid "When enabled only the day of an execution is tracked, not the time"
 msgstr ""
+"Ak je zapnuté, bude sa zaznamenávať iba dátum vykonanie, bez časového "
+"razítka"
 
 msgid "Consume %1$s of %2$s"
 msgstr "Spotrebovať %1$s %2$s"
@@ -1408,6 +1410,8 @@ msgid ""
 "When enabled the chore can never be overdue, the due date will shift forward"
 " each day when due"
 msgstr ""
+"Ak je zapnuté, povinnosť nikdy nebude meškať, termín sa pri oneskorení "
+"automaticky posunie dopredu"
 
 msgid "Location Content Sheet"
 msgstr "Hárok s obsahom umiestnenia"
@@ -1802,7 +1806,7 @@ msgid "Keep screen on"
 msgstr "Nevypínať obrazovku"
 
 msgid "Keep screen on while displaying a \"fullscreen-card\""
-msgstr "Nechať obrazovku zapnutú počas zobrazenie \"karty na celú obrazovku\""
+msgstr "Nechať obrazovku zapnutú počas zobrazenia \"karty na celú obrazovku\""
 
 msgid "A purchased date is required"
 msgstr "Vyžaduje sa zadanie dátumu kúpy"
@@ -1899,10 +1903,10 @@ msgid ""
 msgstr ""
 
 msgid "Default best before days after thawing"
-msgstr ""
+msgstr "Predvolený dátum spotreby po rozmrazení"
 
 msgid "This cannot be the same as the \"From\" location"
-msgstr ""
+msgstr "Toto nemôže byť rovnaké ako umiestnenie \"Od\""
 
 msgid "Thawed"
 msgstr "Rozmrazené"

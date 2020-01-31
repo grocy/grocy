@@ -356,3 +356,6 @@ msgstr "Mraznička"
 
 msgid "Hungarian"
 msgstr "Maďarčina"
+
+msgid "Slovak"
+msgstr "Slovenčina"

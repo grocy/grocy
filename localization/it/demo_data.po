@@ -340,3 +340,9 @@ msgstr "Questa è una nota"
 
 msgid "Freezer"
 msgstr "Congelatore"
+
+msgid "Hungarian"
+msgstr ""
+
+msgid "Slovak"
+msgstr ""

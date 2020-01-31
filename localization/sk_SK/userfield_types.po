@@ -23,7 +23,7 @@ msgid "text-multi-line"
 msgstr "text-viac-riadkov"
 
 msgid "number-integral"
-msgstr ""
+msgstr "číslo-celé"
 
 msgid "number-decimal"
 msgstr "číslo-desatinné"

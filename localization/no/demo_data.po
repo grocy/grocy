@@ -334,7 +334,13 @@ msgid "Portuguese (Brazil)"
 msgstr "Portugisisk (Brasil)"
 
 msgid "This is a note"
-msgstr ""
+msgstr "Dette er et notat"
 
 msgid "Freezer"
-msgstr ""
+msgstr "Fryser"
+
+msgid "Hungarian"
+msgstr "Ungarsk"
+
+msgid "Slovak"
+msgstr "Slovakisk"

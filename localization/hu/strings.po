@@ -1409,7 +1409,7 @@ msgid "Factor"
 msgstr "Szorzó"
 
 msgid "1 %s is the same as..."
-msgstr ""
+msgstr "1 %s ugyanaz mint..."
 
 msgid "Create QU conversion"
 msgstr "Mennyiségi egység átváltás létrehozása"
@@ -1514,7 +1514,7 @@ msgid "Consume product on chore execution"
 msgstr ""
 
 msgid "Are you sure to delete user field \"%s\"?"
-msgstr ""
+msgstr "Biztosan törölni szeretnéd a következő egyéni mezőt: \"%s\"?"
 
 msgid "Userentities"
 msgstr "Felhasználóentitások"

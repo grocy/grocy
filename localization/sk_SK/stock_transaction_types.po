@@ -29,16 +29,16 @@ msgid "consume"
 msgstr "spotrebovať"
 
 msgid "inventory-correction"
-msgstr ""
+msgstr "inventár-oprava"
 
 msgid "product-opened"
 msgstr "výrobok-otvorený"
 
 msgid "stock-edit-old"
-msgstr ""
+msgstr "zásoby-úpravy-starý"
 
 msgid "stock-edit-new"
-msgstr ""
+msgstr "zásoby-úpravy-nový"
 
 msgid "self-production"
 msgstr "samoprodukcia"

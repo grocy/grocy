@@ -340,3 +340,9 @@ msgstr ""
 
 msgid "Freezer"
 msgstr ""
+
+msgid "Hungarian"
+msgstr ""
+
+msgid "Slovak"
+msgstr ""
