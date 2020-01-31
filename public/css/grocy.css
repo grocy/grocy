@@ -58,7 +58,14 @@ a.discrete-link:focus {
 	left: 0;
 	overflow: auto;
 	background-color: #ffffff;
- }
+}
+
+.fullscreen-no-gutters {
+	 margin-left: 0 !important;
+	 margin-right: 0 !important;
+	 padding-left: 0 !important;
+	 padding-right: 0 !important;
+}
 
  /* Fixes smooth scrolling on iOS */
 #sidebarResponsive,

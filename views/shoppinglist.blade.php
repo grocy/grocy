@@ -93,8 +93,8 @@
 	</div>
 </div>
 
-<div id="shoppinglist-main" class="row d-print-none">
-	<div class="col-xs-12 col-md-8 pb-3">
+<div id="shoppinglist-main" class="row d-print-none fullscreen-no-gutters">
+	<div class="col-xs-12 col-md-8 pb-3 fullscreen-no-gutters">
 		<a id="shopping-list-normal-view-button" class="btn btn-outline-dark btn-block switch-view-mode-button d-none" href="#">
 			<i class="fas fa-expand-arrows-alt"></i> {{ $__t('Normal view') }}
 		</a>
