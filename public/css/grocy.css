@@ -60,13 +60,6 @@ a.discrete-link:focus {
 	background-color: #ffffff;
 }
 
-.fullscreen-card .fullscreen-no-gutters {
-	 margin-left: 0 !important;
-	 margin-right: 0 !important;
-	 padding-left: 0 !important;
-	 padding-right: 0 !important;
-}
-
  /* Fixes smooth scrolling on iOS */
 #sidebarResponsive,
 .fullscreen {

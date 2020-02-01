@@ -359,6 +359,10 @@ $(".switch-view-mode-button").on('click', function(e)
 	e.preventDefault();
 
 	$("#shoppinglist-main").toggleClass("fullscreen");
+	$("#shoppinglist-main").toggleClass("px-0 mx-0");
+	$("#shoppinglist-main").children(":first").toggleClass("px-0 mx-0");
+	$(".dataTables_scrollHeadInner").width(""); // Remove absolute width on element set by DataTables
+	$(".dataTables_scrollHeadInner table").width(""); // Remove absolute width on element set by DataTables
 	$("body").toggleClass("fullscreen-card");
 	$("#shopping-list-normal-view-button").toggleClass("d-none");
 	$("#mainNav").toggleClass("d-none");
