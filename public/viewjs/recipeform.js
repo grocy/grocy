@@ -381,3 +381,10 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 	// Just save the current recipe on every change of the product picker as a workflow could be started which leaves the page...
 	Grocy.Api.Put('objects/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(), function () { }, function () { });
 });
+
+// As the /recipe/new route immediately creates a new recipe on load,
+// always replace the current location by the created recipes edit page location
+if (window.location.pathname.toLowerCase() === "/recipe/new")
+{
+	window.history.replaceState(null, null, U("/recipe/" + Grocy.EditObjectId));
+}
