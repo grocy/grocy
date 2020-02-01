@@ -1711,3 +1711,9 @@ msgstr ""
 
 msgid "Are you sure to delete userentity \"%s\"?"
 msgstr ""
+
+msgid "Shopping list settings"
+msgstr ""
+
+msgid "Show a month-view calendar"
+msgstr ""

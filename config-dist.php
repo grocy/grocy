@@ -94,6 +94,10 @@ DefaultUserSetting('stock_default_consume_amount', 1);
 DefaultUserSetting('scan_mode_consume_enabled', false);
 DefaultUserSetting('scan_mode_purchase_enabled', false);
 
+# Shopping list settings
+DefaultUserSetting('shopping_list_to_stock_workflow_auto_submit_when_prefilled', false); // Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set
+DefaultUserSetting('shopping_list_show_calendar', false);
+
 # Chores settings
 DefaultUserSetting('chores_due_soon_days', 5);
 
@@ -109,11 +113,6 @@ DefaultUserSetting('auto_reload_on_db_change', true);
 
 # Show a clock in the header next to the logo or not
 DefaultUserSetting('show_clock_in_header', false);
-
-# Shopping list to stock workflow:
-# Automatically do the booking using the last price and the amount
-# of the shopping list item, if the product has "Default best before days" set
-DefaultUserSetting('shopping_list_to_stock_workflow_auto_submit_when_prefilled', false);
 
 
 # Feature flags

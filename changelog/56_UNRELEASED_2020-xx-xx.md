@@ -1,7 +1,8 @@
 ### Stock fixes
 - Fixed purchase/consume/inventory problems when `FEATURE_FLAG_STOCK_LOCATION_TRACKING` was set to `false`
 
-### Shopping list fixes
+### Shopping list improvements/fixes
+- Added an option to hide the month-calendar (in the shopping list settings / top right corner settings menu) (defaults to disabled, so please enable this option if you still want to have the month-calendar on the shopping list)
 - Optimized the new compact view (there was a little too much white space at the sides of the page)
 
 ### Recipe improvements/fixes

@@ -75,18 +75,6 @@
 			'additionalCssClasses' => 'user-setting-control'
 		))
 
-		@if(GROCY_FEATURE_FLAG_SHOPPINGLIST)
-		<h4 class="mt-2">{{ $__t('Shopping list to stock workflow') }}</h4>
-		
-		<div class="form-group">
-			<div class="checkbox">
-				<label for="shopping-list-to-stock-workflow-auto-submit-when-prefilled">
-					<input type="checkbox" class="user-setting-control" id="shopping-list-to-stock-workflow-auto-submit-when-prefilled" name="shopping-list-to-stock-workflow-auto-submit-when-prefilled" data-setting-key="shopping_list_to_stock_workflow_auto_submit_when_prefilled"> {{ $__t('Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set') }}
-				</label>
-			</div>
-		</div>
-		@endif
-
 		<a href="{{ $U('/stockoverview') }}" class="btn btn-success">{{ $__t('OK') }}</a>
 	</div>
 </div>

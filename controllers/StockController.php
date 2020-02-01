@@ -303,6 +303,11 @@ class StockController extends BaseController
 		}
 	}
 
+	public function ShoppingListSettings(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->AppContainer->view->render($response, 'shoppinglistsettings');
+	}
+
 	public function Journal(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
 		return $this->AppContainer->view->render($response, 'stockjournal', [

@@ -392,6 +392,9 @@
 
 					<div class="dropdown-menu dropdown-menu-right">
 						<a class="dropdown-item discrete-link" href="{{ $U('/stocksettings') }}"><i class="fas fa-box"></i>&nbsp;{{ $__t('Stock settings') }}</a>
+						@if(GROCY_FEATURE_FLAG_SHOPPINGLIST)
+						<a class="dropdown-item discrete-link" href="{{ $U('/shoppinglistsettings') }}"><i class="fas fa-shopping-cart"></i>&nbsp;{{ $__t('Shopping list settings') }}</a>
+						@endif
 						@if(GROCY_FEATURE_FLAG_CHORES)
 						<a class="dropdown-item discrete-link" href="{{ $U('/choressettings') }}"><i class="fas fa-home"></i>&nbsp;{{ $__t('Chores settings') }}</a>
 						@endif
