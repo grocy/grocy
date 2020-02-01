@@ -33,6 +33,16 @@
 				'nextInputSelector' => '#amount'
 			))
 
+			<div class="row">
+				<div class="col">
+					<div class="form-check form-group mb-1">
+						<input type="hidden" name="only_check_single_unit_in_stock" value="0">
+						<input @if($mode == 'edit' && $recipePos->only_check_single_unit_in_stock == 1) checked @endif class="form-check-input" type="checkbox" id="only_check_single_unit_in_stock" name="only_check_single_unit_in_stock" value="1">
+						<label class="form-check-label" for="only_check_single_unit_in_stock">{{ $__t('Only check if a single unit is in stock (a different quantity can then be used above)') }}</label>
+					</div>
+				</div>
+			</div>
+
 			@php if($mode == 'edit') { $value = $recipePos->amount; } else { $value = 1; } @endphp
 			@php if($mode == 'edit') { $initialQuId = $recipePos->qu_id; } else { $initialQuId = ''; } @endphp
 			@include('components.productamountpicker', array(
@@ -40,16 +50,6 @@
 				'initialQuId' => $initialQuId,
 				'additionalGroupCssClasses' => 'mb-0'
 			))
-
-			<div class="row">
-				<div class="col">
-					<div class="form-check form-group">
-						<input type="hidden" name="only_check_single_unit_in_stock" value="0">
-						<input @if($mode == 'edit' && $recipePos->only_check_single_unit_in_stock == 1) checked @endif class="form-check-input" type="checkbox" id="only_check_single_unit_in_stock" name="only_check_single_unit_in_stock" value="1">
-						<label class="form-check-label" for="only_check_single_unit_in_stock">{{ $__t('Only check if a single unit is in stock (a different quantity can then be used above)') }}</label>
-					</div>
-				</div>
-			</div>
 
 			<div class="form-group">
 				<label for="variable_amount">{{ $__t('Variable amount') }}&nbsp;&nbsp;<span class="small text-muted">{{ $__t('When this is not empty, it will be shown instead of the amount entered above while the amount there will still be used for stock fulfillment checking') }}</span></label>
