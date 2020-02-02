@@ -14,3 +14,4 @@
 
 ### General & other improvements/fixes
 - Optimized the top navbar height to waste less space
+- Fixed that the "contextual time ago" of date/time pickers was not displayed

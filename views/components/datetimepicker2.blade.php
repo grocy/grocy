@@ -15,7 +15,7 @@
 @php if(empty($additionalAttributes)) { $additionalAttributes = ''; } @endphp
 @php if(empty($additionalGroupCssClasses)) { $additionalGroupCssClasses = ''; } @endphp
 
-<div class="form-group {{ $additionalGroupCssClasses }}">
+<div id="datetimepicker2-wrapper" class="form-group {{ $additionalGroupCssClasses }}">
 	<label for="{{ $id }}">{{ $__t($label) }}
 		<span class="small text-muted">
 			@if(!empty($hint)){{ $__t($hint) }}@endif
