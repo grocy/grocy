@@ -51,7 +51,6 @@ a.discrete-link:focus {
 
 .fullscreen {
 	z-index: 8888;
-	width: 100%;
 	height: 100%;
 	position: fixed;
 	top: 0;
