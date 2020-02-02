@@ -56,7 +56,6 @@ a.discrete-link:focus {
 	position: fixed;
 	top: 0;
 	left: 0;
-	overflow: auto;
 	background-color: #ffffff;
 }
 
@@ -73,7 +72,7 @@ a.discrete-link:focus {
 	top: 0;
 	left: 0;
 }
- 
+
  body.fullscreen-card {
 	 overflow: hidden;
  }
