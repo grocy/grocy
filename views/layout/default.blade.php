@@ -419,7 +419,7 @@
 	</nav>
 	@endif
 
-	<div class="content-wrapper">
+	<div class="content-wrapper pt-0">
 		<div class="container-fluid">
 			<div class="row mb-3">
 				<div id="page-content" class="col content-text">

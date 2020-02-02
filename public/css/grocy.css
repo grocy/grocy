@@ -120,9 +120,15 @@ input::-webkit-inner-spin-button {
 
 /* Navigation style customizations */
 #mainNav {
+	line-height: 1;
 	background-color: #e5e5e5 !important;
 	border-bottom: 2px solid !important;
 	border-color: #d6d6d6 !important;
+	padding-bottom: 0.3rem;
+}
+
+#mainNav .dropdown-menu {
+	line-height: 1.5;
 }
 
 .navbar-sidenav {
@@ -304,6 +310,20 @@ input::-webkit-inner-spin-button {
 @media (max-width:992px) {
 	#mainNav .navbar-collapse .navbar-sidenav > .nav-item > .nav-link {
 		padding: 0.8em;
+	}
+}
+
+@media (min-width:992px) {
+	#mainNav .navbar-collapse .navbar-sidenav {
+		margin-top: 46px;
+	}
+
+	#mainNav.fixed-top .navbar-sidenav {
+		height: calc(100vh - 94px)
+	}
+
+	#mainNav.fixed-top .sidenav-toggler {
+		margin-top:calc(100vh - 48px)
 	}
 }
 
