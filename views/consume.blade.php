@@ -18,7 +18,13 @@
 	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
 		<h1>
 			@yield('title')
+			@if(!$embedded)
 			<input @if(boolval($userSettings['scan_mode_consume_enabled'])) checked @endif id="scan-mode" type="checkbox" data-setting-key="scan_mode_consume_enabled" data-toggle="switchbutton" data-onlabel="{{ $__t('Scan mode') }} {{ $__t('on') }}" data-offlabel="{{ $__t('Scan mode') }} {{ $__t('off') }}" data-onstyle="success" data-offstyle="primary" data-style="ml-2" data-width="180">
+			@else
+			<script>
+				Grocy.UserSettings.scan_mode_consume_enabled = false;
+			</script>
+			@endif
 		</h1>
 
 		<form id="consume-form" novalidate>
