@@ -21,20 +21,20 @@ Grocy.Components.ProductAmountPicker.Reload = function(productId, destinationQuI
 		});
 	}
 
-	if (!Grocy.Components.ProductAmountPicker.InitalValueSet || forceInitialDisplayQu)
+	if (!Grocy.Components.ProductAmountPicker.InitialValueSet || forceInitialDisplayQu)
 	{
-		$("#qu_id").val($("#qu_id").attr("data-inital-qu-id"));
+		$("#qu_id").val($("#qu_id").attr("data-initial-qu-id"));
 	}
 
-	if (!Grocy.Components.ProductAmountPicker.InitalValueSet)
+	if (!Grocy.Components.ProductAmountPicker.InitialValueSet)
 	{
 		var convertedAmount = $("#display_amount").val() * $("#qu_id option:selected").attr("data-qu-factor");
 		$("#display_amount").val(convertedAmount);
 
-		Grocy.Components.ProductAmountPicker.InitalValueSet = true;
+		Grocy.Components.ProductAmountPicker.InitialValueSet = true;
 	}
 
-	if (conversionsForProduct.length === 1)
+	if (conversionsForProduct.length === 1 && !forceInitialDisplayQu)
 	{
 		$("#qu_id").val($("#qu_id option:first").val());
 	}
@@ -42,12 +42,12 @@ Grocy.Components.ProductAmountPicker.Reload = function(productId, destinationQuI
 	$(".input-group-productamountpicker").trigger("change");
 }
 
-Grocy.Components.ProductAmountPicker.SetQuantityUnit = function()
+Grocy.Components.ProductAmountPicker.SetQuantityUnit = function(quId)
 {
 	$("#qu_id").val(quId);
 }
 
-Grocy.Components.ProductAmountPicker.AllowAnyQu = function(quId)
+Grocy.Components.ProductAmountPicker.AllowAnyQu = function(keepInitialQu = false)
 {
 	Grocy.Components.ProductAmountPicker.AllowAnyQuEnabled = true;
 	
@@ -56,6 +56,11 @@ Grocy.Components.ProductAmountPicker.AllowAnyQu = function(quId)
 	{
 		$("#qu_id").append('<option value="' + qu.id + '" data-qu-factor="1">' + qu.name + '</option>');
 	});
+
+	if (keepInitialQu)
+	{
+		Grocy.Components.ProductAmountPicker.SetQuantityUnit($("#qu_id").attr("data-initial-qu-id"));
+	}
 
 	$(".input-group-productamountpicker").trigger("change");
 }
