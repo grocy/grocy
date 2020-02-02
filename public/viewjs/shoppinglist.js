@@ -95,7 +95,7 @@ $(document).on('click', '.shoppinglist-delete-button', function(e)
 	var shoppingListItemId = $(e.currentTarget).attr('data-shoppinglist-id');
 	Grocy.FrontendHelpers.BeginUiBusy();
 
-	Grocy.Api.Delete('objects/shopping_list/' + shoppingListItemId, {},
+	Grocy.Api.Delete('objects/shopping_list/' + shoppingListItemId, { },
 		function(result)
 		{
 			animateCSS("#shoppinglistitem-" + shoppingListItemId + "-row", "fadeOut", function()

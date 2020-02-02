@@ -163,7 +163,7 @@ function animateCSS(selector, animationName, callback, speed = "faster")
 	{
 		nodes.removeClass('animated').removeClass(speed).removeClass(animationName);
 		nodes.unbind('animationend', handleAnimationEnd);
-
+		
 		if (typeof callback === 'function')
 		{
 			callback();

@@ -10,7 +10,7 @@
 @endpush
 
 @push('pageStyles')
-	<link href="{{ $U('/node_modules/animate.css/animate.min.css?v', true) }}{{ $version }}" rel="stylesheet">
+	<link href="{{ $U('/node_modules/animate.css/animate.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/node_modules/datatables.net-rowgroup-bs4/css/rowGroup.bootstrap4.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
 @endpush
 

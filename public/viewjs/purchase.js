@@ -178,6 +178,11 @@ if (Grocy.Components.ProductPicker !== undefined)
 						$("#tare-weight-handling-info").addClass("d-none");
 					}
 
+					if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
+					{
+						Grocy.Components.DateTimePicker.SetValue(moment().format('YYYY-MM-DD'));
+					}
+
 					if (productDetails.product.default_best_before_days.toString() !== '0')
 					{
 						if (productDetails.product.default_best_before_days == -1)
@@ -192,12 +197,6 @@ if (Grocy.Components.ProductPicker !== undefined)
 							Grocy.Components.DateTimePicker.SetValue(moment().add(productDetails.product.default_best_before_days, 'days').format('YYYY-MM-DD'));
 						}
 						$('#amount').focus();
-
-						Grocy.FrontendHelpers.ValidateForm('purchase-form');
-						if (GetUriParam("flow") === "shoppinglistitemtostock" && BoolVal(Grocy.UserSettings.shopping_list_to_stock_workflow_auto_submit_when_prefilled) && document.getElementById("purchase-form").checkValidity() === true)
-						{
-							$("#save-purchase-button").click();
-						}
 					}
 					else
 					{
@@ -207,9 +206,14 @@ if (Grocy.Components.ProductPicker !== undefined)
 						}
 						else
 						{
-							Grocy.Components.DateTimePicker.SetValue(moment().format('YYYY-MM-DD'));
 							$('#amount').focus();
 						}
+					}
+
+					Grocy.FrontendHelpers.ValidateForm('purchase-form');
+					if (GetUriParam("flow") === "shoppinglistitemtostock" && BoolVal(Grocy.UserSettings.shopping_list_to_stock_workflow_auto_submit_when_prefilled) && document.getElementById("purchase-form").checkValidity() === true)
+					{
+						$("#save-purchase-button").click();
 					}
 
 					if (BoolVal(Grocy.UserSettings.scan_mode_purchase_enabled))

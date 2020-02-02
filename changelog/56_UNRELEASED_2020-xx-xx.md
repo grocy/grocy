@@ -4,6 +4,7 @@
 ### Shopping list improvements/fixes
 - Added an option to hide the month-calendar (in the shopping list settings / top right corner settings menu) (defaults to disabled, so please enable this option if you still want to have the month-calendar on the shopping list)
 - Optimized the new compact view (there was a little too much white space at the sides of the page)
+- Fixed that the "Shopping list to stock workflow" did not work when `FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING` was set to `false`
 
 ### Recipe improvements/fixes
 - Optimized the ordering of the inputs on the recipe ingredient edit page (moved "Only check if a single unit is in stock" before the amount)

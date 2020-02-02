@@ -5,7 +5,7 @@
 @section('viewJsName', 'manageapikeys')
 
 @push('pageStyles')
-	<link href="{{ $U('/node_modules/animate.css/animate.min.css?v', true) }}{{ $version }}" rel="stylesheet">
+	<link href="{{ $U('/node_modules/animate.css/animate.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
 @endpush
 
 @section('content')
