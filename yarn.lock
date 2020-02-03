@@ -80,10 +80,6 @@ bootstrap-select@^1.13.10:
   resolved "https://registry.yarnpkg.com/bootstrap-select/-/bootstrap-select-1.13.12.tgz#81b9f1394cb8d7151aea16fb9030c112330dbf98"
   integrity sha512-epsPt6WpgmL9Q9Y22JFntajdhhqvCwV/JKiBZF3YFvMHK9YzzDPQft/Cjqvsgq0bhF32BlvG03Qs3qA/pVRAqQ==
 
-"bootstrap-switch-button@https://github.com/walidbagh/bootstrap-switch-button#Fix-module-export":
-  version "1.0.0"
-  resolved "https://github.com/walidbagh/bootstrap-switch-button#551ccd361cc9e291cd04c2278357b1db76318f1e"
-
 bootstrap@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.0.0.tgz#ceb03842c145fcc1b9b4e15da2a05656ba68469a"

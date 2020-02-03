@@ -4,12 +4,7 @@
 @section('activeNav', 'consume')
 @section('viewJsName', 'consume')
 
-@push('pageStyles')
-	<link href="{{ $U('/node_modules/bootstrap-switch-button/css/bootstrap-switch-button.css?v=', true) }}{{ $version }}" rel="stylesheet">
-@endpush
-
 @push('pageScripts')
-	<script src="{{ $U('/node_modules/bootstrap-switch-button/js/bootstrap-switch-button.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy_uisound.js?v=', true) }}{{ $version }}"></script>
 @endpush
 
@@ -19,7 +14,8 @@
 		<h1>
 			@yield('title')
 			@if(!$embedded)
-			<input @if(boolval($userSettings['scan_mode_consume_enabled'])) checked @endif id="scan-mode" type="checkbox" data-setting-key="scan_mode_consume_enabled" data-toggle="switchbutton" data-onlabel="{{ $__t('Scan mode') }} {{ $__t('on') }}" data-offlabel="{{ $__t('Scan mode') }} {{ $__t('off') }}" data-onstyle="success" data-offstyle="primary" data-style="ml-2" data-width="180">
+			<button id="scan-mode-button" class="btn @if(boolval($userSettings['scan_mode_consume_enabled'])) btn-success @else btn-danger @endif" type="checkbox">{{ $__t('Scan mode') }} <span id="scan-mode-status">@if(boolval($userSettings['scan_mode_consume_enabled'])) {{ $__t('on') }} @else {{ $__t('off') }} @endif</span></button>
+			<input id="scan-mode" type="checkbox" class="d-none user-setting-control" data-setting-key="scan_mode_consume_enabled" @if(boolval($userSettings['scan_mode_consume_enabled'])) checked @endif>
 			@else
 			<script>
 				Grocy.UserSettings.scan_mode_consume_enabled = false;

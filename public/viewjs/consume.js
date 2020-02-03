@@ -521,14 +521,25 @@ if (GetUriParam("embedded") !== undefined)
 // Default input field
 Grocy.Components.ProductPicker.GetInputElement().focus();
 
-// Can only be set via JS however...
-$("#scan-mode").addClass("user-setting-control");
-$("#scan-mode").attr("data-setting-key", "scan_mode_consume_enabled");
-
 $(document).on("change", "#scan-mode", function(e)
 {
 	if ($(this).prop("checked"))
 	{
 		Grocy.UISound.AskForPermission();
+	}
+});
+
+$("#scan-mode-button").on("click", function(e)
+{
+	document.activeElement.blur();
+	$("#scan-mode").click();
+	$("#scan-mode-button").toggleClass("btn-success").toggleClass("btn-danger");
+	if ($("#scan-mode").prop("checked"))
+	{
+		$("#scan-mode-status").text(__t("on"));
+	}
+	else
+	{
+		$("#scan-mode-status").text(__t("off"));
 	}
 });
