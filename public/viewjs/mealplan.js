@@ -277,6 +277,7 @@ $(document).on("click", ".add-recipe-button", function(e)
 
 	$("#add-recipe-modal-title").text(__t("Add recipe to %s", day.toString()));
 	$("#day").val(day.toString());
+	$("#recipe_servings").val(1);
 	Grocy.Components.RecipePicker.Clear();
 	$("#add-recipe-modal").modal("show");
 	Grocy.FrontendHelpers.ValidateForm("add-recipe-form");
@@ -407,7 +408,7 @@ $('#save-add-product-button').on('click', function(e)
 	);
 });
 
-Grocy.Components.RecipePicker.GetInputElement().keydown(function(event)
+$('#add-recipe-form input').keydown(function (event)
 {
 	if (event.keyCode === 13) //Enter
 	{
@@ -420,6 +421,23 @@ Grocy.Components.RecipePicker.GetInputElement().keydown(function(event)
 		else
 		{
 			$("#save-add-recipe-button").click();
+		}
+	}
+});
+
+$('#add-product-form input').keydown(function (event)
+{
+	if (event.keyCode === 13) //Enter
+	{
+		event.preventDefault();
+
+		if (document.getElementById("add-product-form").checkValidity() === false) //There is at least one validation error
+		{
+			return false;
+		}
+		else
+		{
+			$("#save-add-product-button").click();
 		}
 	}
 });
@@ -629,10 +647,11 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 		Grocy.Api.Get('stock/products/' + productId,
 			function(productDetails)
 			{
-				Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id, true);
+				Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
 
 				$('#display_amount').val(1);
 				$('#display_amount').focus();
+				$('#display_amount').select();
 				$(".input-group-productamountpicker").trigger("change");
 				Grocy.FrontendHelpers.ValidateForm('add-product-form');
 			},
@@ -657,3 +676,18 @@ function UndoStockTransaction(transactionId)
 		}
 	);
 };
+
+Grocy.Components.RecipePicker.GetPicker().on('change', function(e)
+{
+	var recipeId = $(e.target).val();
+
+	if (recipeId)
+	{
+		// Does not work (clears the RecipePicker) when done immediately, don't know why...
+		setTimeout(function()
+		{
+			$("#recipe_servings").focus();
+			$("#recipe_servings").select();
+		}, 200);
+	}
+});
