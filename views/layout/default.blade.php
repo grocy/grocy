@@ -420,7 +420,7 @@
 	@endif
 
 	<div class="content-wrapper pt-0">
-		<div class="container-fluid">
+		<div class="container-fluid pr-1 pl-md-3 pl-1">
 			<div class="row mb-3">
 				<div id="page-content" class="col content-text">
 					@yield('content')

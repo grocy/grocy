@@ -322,8 +322,16 @@ input::-webkit-inner-spin-button {
 	}
 
 	#mainNav.fixed-top .sidenav-toggler {
-		margin-top:calc(100vh - 48px)
+		margin-top:calc(100vh - 48px);
 	}
+
+	.content-wrapper {
+		margin-left: 245px;
+	}
+}
+
+body.fixed-nav {
+	padding-top: 54px;
 }
 
 html {
