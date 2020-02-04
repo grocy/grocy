@@ -129,26 +129,28 @@
 
 	@if($selectedRecipe !== null)
 	<div class="col-xs-12 col-md-6">
-		<div class="card-header card-header-fullscreen">
-			<i class="fas fa-cocktail"></i> {{ $selectedRecipe->name }}&nbsp;&nbsp;
-			<a id="selectedRecipeConsumeButton" class="btn btn-sm btn-outline-success py-0 hide-when-embedded hide-on-fullscreen-card @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->need_fulfilled == 0) disabled @endif" href="#" data-toggle="tooltip" title="{{ $__t('Consume all ingredients needed by this recipe') }}" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
-				<i class="fas fa-utensils"></i>
-			</a>
-			<a class="btn btn-sm btn-outline-primary py-0 recipe-order-missing-button hide-when-embedded hide-on-fullscreen-card @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif" href="#" data-toggle="tooltip" title="{{ $__t('Put missing products on shopping list') }}" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
-				<i class="fas fa-cart-plus"></i>
-			</a>&nbsp;&nbsp;
-			<a id="selectedRecipeEditButton" class="btn btn-sm btn-outline-info hide-when-embedded hide-on-fullscreen-card py-0" href="{{ $U('/recipe/') }}{{ $selectedRecipe->id }}">
-				<i class="fas fa-edit"></i>
-			</a>
-			<a id="selectedRecipeDeleteButton" class="btn btn-sm btn-outline-danger hide-when-embedded hide-on-fullscreen-card py-0" href="#" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
-				<i class="fas fa-trash"></i>
-			</a>
-			<a id="selectedRecipeToggleFullscreenButton" class="btn btn-sm btn-outline-secondary py-0 hide-when-embedded float-right" href="#" data-toggle="tooltip" title="{{ $__t('Expand to fullscreen') }}">
-				<i class="fas fa-expand-arrows-alt"></i>
-			</a>
-		</div>
 		<div id="selectedRecipeCard" class="card">
+			<div class="card-header card-header-fullscreen">
+				<i class="fas fa-cocktail"></i> {{ $selectedRecipe->name }}&nbsp;&nbsp;
+				<a id="selectedRecipeConsumeButton" class="btn btn-sm btn-outline-success py-0 hide-when-embedded hide-on-fullscreen-card @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->need_fulfilled == 0) disabled @endif" href="#" data-toggle="tooltip" title="{{ $__t('Consume all ingredients needed by this recipe') }}" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
+					<i class="fas fa-utensils"></i>
+				</a>
+				<a class="btn btn-sm btn-outline-primary py-0 recipe-order-missing-button hide-when-embedded hide-on-fullscreen-card @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif" href="#" data-toggle="tooltip" title="{{ $__t('Put missing products on shopping list') }}" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
+					<i class="fas fa-cart-plus"></i>
+				</a>&nbsp;&nbsp;
+				<a id="selectedRecipeEditButton" class="btn btn-sm btn-outline-info hide-when-embedded hide-on-fullscreen-card py-0" href="{{ $U('/recipe/') }}{{ $selectedRecipe->id }}">
+					<i class="fas fa-edit"></i>
+				</a>
+				<a id="selectedRecipeDeleteButton" class="btn btn-sm btn-outline-danger hide-when-embedded hide-on-fullscreen-card py-0" href="#" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
+					<i class="fas fa-trash"></i>
+				</a>
+				<a id="selectedRecipeToggleFullscreenButton" class="btn btn-sm btn-outline-secondary py-0 hide-when-embedded float-right" href="#" data-toggle="tooltip" title="{{ $__t('Expand to fullscreen') }}">
+					<i class="fas fa-expand-arrows-alt"></i>
+				</a>
+			</div>
+
 			<div class="card-body mb-0 pb-0">
+
 				<div class="row">
 					<div class="col-4">
 						@include('components.numberpicker', array(
@@ -179,30 +181,77 @@
 					</div>
 					@endif
 				</div>
-			</div>
 
-			<!-- Subrecipes first -->
-			@foreach($selectedRecipeSubRecipes as $selectedRecipeSubRecipe)
-				<div class="card-body">
-					<h3 class="mb-0">{{ $selectedRecipeSubRecipe->name }}</h3>
-				</div>
+				<!-- Subrecipes first -->
+				@foreach($selectedRecipeSubRecipes as $selectedRecipeSubRecipe)
+					<h3 class="mb-2">{{ $selectedRecipeSubRecipe->name }}</h3>
 
-				@if(!empty($selectedRecipeSubRecipe->picture_file_name))
-					<p class="w-75 mx-auto txt-center"><img src="{{ $U('/api/files/recipepictures/' . base64_encode($selectedRecipeSubRecipe->picture_file_name) . '?force_serve_as=picture&best_fit_width=400') }}" class="img-fluid img-thumbnail lazy"></p>
+					@if(!empty($selectedRecipeSubRecipe->picture_file_name))
+					<p class="w-75 mx-auto text-center"><img src="{{ $U('/api/files/recipepictures/' . base64_encode($selectedRecipeSubRecipe->picture_file_name) . '?force_serve_as=picture&best_fit_width=400') }}" class="img-fluid img-thumbnail lazy"></p>
+					@endif
+
+					@php $selectedRecipeSubRecipePositionsFiltered = FindAllObjectsInArrayByPropertyValue($selectedRecipeSubRecipesPositions, 'child_recipe_id', $selectedRecipeSubRecipe->id); @endphp
+					@if(count($selectedRecipeSubRecipePositionsFiltered) > 0)
+					<h5 class="mb-0">{{ $__t('Ingredients') }}</h5>
+					<ul class="list-group list-group-flush">
+						@php $lastGroup = 'undefined'; @endphp
+						@foreach($selectedRecipeSubRecipePositionsFiltered as $selectedRecipePosition)
+						@if($lastGroup != $selectedRecipePosition->ingredient_group)
+							<h5 class="mb-2 mt-2 ml-4"><strong>{{ $selectedRecipePosition->ingredient_group }}</strong></h5>
+						@endif
+						<li class="list-group-item px-0">
+							@php
+								$product = FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id);
+								$productQuConversions = FindAllObjectsInArrayByPropertyValue($quantityUnitConversionsResolved, 'product_id', $product->id);
+								$productQuConversions = FindAllObjectsInArrayByPropertyValue($productQuConversions, 'from_qu_id', $product->qu_id_stock);
+								$productQuConversion = FindObjectInArrayByPropertyValue($productQuConversions, 'to_qu_id', $selectedRecipePosition->qu_id);
+								if ($productQuConversion)
+								{
+									$selectedRecipePosition->recipe_amount = $selectedRecipePosition->recipe_amount * $productQuConversion->factor;
+								}
+							@endphp
+							@if(!empty($selectedRecipePosition->recipe_variable_amount))
+								{{ $selectedRecipePosition->recipe_variable_amount }}
+							@else
+								<span class="locale-number locale-number-quantity-amount">@if($selectedRecipePosition->recipe_amount == round($selectedRecipePosition->recipe_amount, 2)){{ round($selectedRecipePosition->recipe_amount, 2) }}@else{{ $selectedRecipePosition->recipe_amount }}@endif</span>
+							@endif
+							{{ $__n($selectedRecipePosition->recipe_amount, FindObjectInArrayByPropertyValue($quantityUnits, 'id', $selectedRecipePosition->qu_id)->name, FindObjectInArrayByPropertyValue($quantityUnits, 'id', $selectedRecipePosition->qu_id)->name_plural) }} {{ FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id)->name }}
+							@if($selectedRecipePosition->need_fulfilled == 1)<i class="fas fa-check text-success"></i>@elseif($selectedRecipePosition->need_fulfilled_with_shopping_list == 1)<i class="fas fa-exclamation text-warning"></i>@else<i class="fas fa-times text-danger"></i>@endif
+							<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($selectedRecipeSubRecipesPositions, 'recipe_pos_id', $selectedRecipePosition->id)->need_fulfilled == 1) {{ $__t('Enough in stock') }} @else {{ $__t('Not enough in stock, %1$s missing, %2$s already on shopping list', round(FindObjectInArrayByPropertyValue($selectedRecipeSubRecipesPositions, 'recipe_pos_id', $selectedRecipePosition->id)->missing_amount, 2), round(FindObjectInArrayByPropertyValue($selectedRecipeSubRecipesPositions, 'recipe_pos_id', $selectedRecipePosition->id)->amount_on_shopping_list, 2)) }} @endif</span>
+
+							@if(!empty($selectedRecipePosition->recipe_variable_amount))
+								<div class="small text-muted font-italic">{{ $__t('Variable amount') }}</div>
+							@endif
+
+							@if(!empty($selectedRecipePosition->note))
+							<div class="text-muted">{!! nl2br($selectedRecipePosition->note) !!}</div>
+							@endif
+						</li>
+						@php $lastGroup = $selectedRecipePosition->ingredient_group; @endphp
+						@endforeach
+					</ul>
+					@endif
+
+					@if(!empty($selectedRecipeSubRecipe->description))
+					<h5 class="mt-4">{{ $__t('Preparation') }}</h5>
+					{!! $selectedRecipeSubRecipe->description !!}
+					@endif
+				@endforeach
+
+				<!-- Selected recipe -->
+				@if(!empty($selectedRecipe->picture_file_name))
+				<p class="w-75 mx-auto text-center"><img src="{{ $U('/api/files/recipepictures/' . base64_encode($selectedRecipe->picture_file_name) . '?force_serve_as=picture&best_fit_width=400') }}" class="img-fluid img-thumbnail lazy"></p>
 				@endif
 
-				@php $selectedRecipeSubRecipePositionsFiltered = FindAllObjectsInArrayByPropertyValue($selectedRecipeSubRecipesPositions, 'child_recipe_id', $selectedRecipeSubRecipe->id); @endphp
-				@if(count($selectedRecipeSubRecipePositionsFiltered) > 0)
-				<div class="card-body">
-					<h5 class="mb-0">{{ $__t('Ingredients') }}</h5>
-				</div>
+				@if($selectedRecipePositionsResolved->count() > 0)
+				<h5 class="mb-0">{{ $__t('Ingredients') }}</h5>
 				<ul class="list-group list-group-flush">
 					@php $lastGroup = 'undefined'; @endphp
-					@foreach($selectedRecipeSubRecipePositionsFiltered as $selectedRecipePosition)
+					@foreach($selectedRecipePositionsResolved as $selectedRecipePosition)
 					@if($lastGroup != $selectedRecipePosition->ingredient_group)
 						<h5 class="mb-2 mt-2 ml-4"><strong>{{ $selectedRecipePosition->ingredient_group }}</strong></h5>
 					@endif
-					<li class="list-group-item">
+					<li class="list-group-item px-0">
 						@php
 							$product = FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id);
 							$productQuConversions = FindAllObjectsInArrayByPropertyValue($quantityUnitConversionsResolved, 'product_id', $product->id);
@@ -220,7 +269,7 @@
 						@endif
 						{{ $__n($selectedRecipePosition->recipe_amount, FindObjectInArrayByPropertyValue($quantityUnits, 'id', $selectedRecipePosition->qu_id)->name, FindObjectInArrayByPropertyValue($quantityUnits, 'id', $selectedRecipePosition->qu_id)->name_plural) }} {{ FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id)->name }}
 						@if($selectedRecipePosition->need_fulfilled == 1)<i class="fas fa-check text-success"></i>@elseif($selectedRecipePosition->need_fulfilled_with_shopping_list == 1)<i class="fas fa-exclamation text-warning"></i>@else<i class="fas fa-times text-danger"></i>@endif
-						<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($selectedRecipeSubRecipesPositions, 'recipe_pos_id', $selectedRecipePosition->id)->need_fulfilled == 1) {{ $__t('Enough in stock') }} @else {{ $__t('Not enough in stock, %1$s missing, %2$s already on shopping list', round(FindObjectInArrayByPropertyValue($selectedRecipeSubRecipesPositions, 'recipe_pos_id', $selectedRecipePosition->id)->missing_amount, 2), round(FindObjectInArrayByPropertyValue($selectedRecipeSubRecipesPositions, 'recipe_pos_id', $selectedRecipePosition->id)->amount_on_shopping_list, 2)) }} @endif</span>
+						<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipePositionsResolved, 'recipe_pos_id', $selectedRecipePosition->id)->need_fulfilled == 1) {{ $__t('Enough in stock') }} @else {{ $__t('Not enough in stock, %1$s missing, %2$s already on shopping list', round(FindObjectInArrayByPropertyValue($recipePositionsResolved, 'recipe_pos_id', $selectedRecipePosition->id)->missing_amount, 2), round(FindObjectInArrayByPropertyValue($recipePositionsResolved, 'recipe_pos_id', $selectedRecipePosition->id)->amount_on_shopping_list, 2)) }} @endif</span>
 
 						@if(!empty($selectedRecipePosition->recipe_variable_amount))
 							<div class="small text-muted font-italic">{{ $__t('Variable amount') }}</div>
@@ -234,67 +283,12 @@
 					@endforeach
 				</ul>
 				@endif
-				@if(!empty($selectedRecipeSubRecipe->description))
-				<div class="card-body">
-					<h5>{{ $__t('Preparation') }}</h5>
-					{!! $selectedRecipeSubRecipe->description !!}
-				</div>
-				@endif
-			@endforeach
 
-			<!-- Selected recipe -->
-			@if(!empty($selectedRecipe->picture_file_name))
-				<p class="w-75 mx-auto text-center"><img src="{{ $U('/api/files/recipepictures/' . base64_encode($selectedRecipe->picture_file_name) . '?force_serve_as=picture&best_fit_width=400') }}" class="img-fluid img-thumbnail lazy"></p>
-			@endif
-
-			@if($selectedRecipePositionsResolved->count() > 0)
-			<div class="card-body">
-				<h5 class="mb-0">{{ $__t('Ingredients') }}</h5>
-			</div>
-			<ul class="list-group list-group-flush">
-				@php $lastGroup = 'undefined'; @endphp
-				@foreach($selectedRecipePositionsResolved as $selectedRecipePosition)
-				@if($lastGroup != $selectedRecipePosition->ingredient_group)
-					<h5 class="mb-2 mt-2 ml-4"><strong>{{ $selectedRecipePosition->ingredient_group }}</strong></h5>
-				@endif
-				<li class="list-group-item">
-					@php
-						$product = FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id);
-						$productQuConversions = FindAllObjectsInArrayByPropertyValue($quantityUnitConversionsResolved, 'product_id', $product->id);
-						$productQuConversions = FindAllObjectsInArrayByPropertyValue($productQuConversions, 'from_qu_id', $product->qu_id_stock);
-						$productQuConversion = FindObjectInArrayByPropertyValue($productQuConversions, 'to_qu_id', $selectedRecipePosition->qu_id);
-						if ($productQuConversion)
-						{
-							$selectedRecipePosition->recipe_amount = $selectedRecipePosition->recipe_amount * $productQuConversion->factor;
-						}
-					@endphp
-					@if(!empty($selectedRecipePosition->recipe_variable_amount))
-						{{ $selectedRecipePosition->recipe_variable_amount }}
-					@else
-						<span class="locale-number locale-number-quantity-amount">@if($selectedRecipePosition->recipe_amount == round($selectedRecipePosition->recipe_amount, 2)){{ round($selectedRecipePosition->recipe_amount, 2) }}@else{{ $selectedRecipePosition->recipe_amount }}@endif</span>
-					@endif
-					{{ $__n($selectedRecipePosition->recipe_amount, FindObjectInArrayByPropertyValue($quantityUnits, 'id', $selectedRecipePosition->qu_id)->name, FindObjectInArrayByPropertyValue($quantityUnits, 'id', $selectedRecipePosition->qu_id)->name_plural) }} {{ FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id)->name }}
-					@if($selectedRecipePosition->need_fulfilled == 1)<i class="fas fa-check text-success"></i>@elseif($selectedRecipePosition->need_fulfilled_with_shopping_list == 1)<i class="fas fa-exclamation text-warning"></i>@else<i class="fas fa-times text-danger"></i>@endif
-					<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipePositionsResolved, 'recipe_pos_id', $selectedRecipePosition->id)->need_fulfilled == 1) {{ $__t('Enough in stock') }} @else {{ $__t('Not enough in stock, %1$s missing, %2$s already on shopping list', round(FindObjectInArrayByPropertyValue($recipePositionsResolved, 'recipe_pos_id', $selectedRecipePosition->id)->missing_amount, 2), round(FindObjectInArrayByPropertyValue($recipePositionsResolved, 'recipe_pos_id', $selectedRecipePosition->id)->amount_on_shopping_list, 2)) }} @endif</span>
-
-					@if(!empty($selectedRecipePosition->recipe_variable_amount))
-						<div class="small text-muted font-italic">{{ $__t('Variable amount') }}</div>
-					@endif
-
-					@if(!empty($selectedRecipePosition->note))
-					<div class="text-muted">{!! nl2br($selectedRecipePosition->note) !!}</div>
-					@endif
-				</li>
-				@php $lastGroup = $selectedRecipePosition->ingredient_group; @endphp
-				@endforeach
-			</ul>
-			@endif
-			@if(!empty($selectedRecipe->description))
-			<div class="card-body">
-				<h5>{{ $__t('Preparation') }}</h5>
+				@if(!empty($selectedRecipe->description))
+				<h5 class="mt-4">{{ $__t('Preparation') }}</h5>
 				{!! $selectedRecipe->description !!}
+				@endif
 			</div>
-			@endif
 		</div>
 	</div>
 	@endif
