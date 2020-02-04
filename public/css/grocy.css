@@ -41,6 +41,10 @@ a.discrete-link:focus {
 	background-color: #e5e5e5;
 }
 
+.card-header:first-child {
+	border-radius: 0;
+}
+
 .card-body {
 	flex-grow: 0;
 }
