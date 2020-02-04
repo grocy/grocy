@@ -11,6 +11,8 @@
 - Variable ingredient amounts are now marked accordingly on the renedered recipe
 - Fixed that when editing a recipe ingredient which had "Only check if a single unit is in stock" set, not any quantity unit could be picked and the amount stayed empty
 - Fixed that when reloading the "new recipe"-page (or when it gets auto-reloaded due to "Auto reload on external changes" is enabled), for each reload a new recipe was created
+- Fixed that the recipe "fullscreen card" was not correctly displayed
+- Fixed that nested recipes showed all ingredients of the nested recipes twice
 
 ### Meal plan improvements
 - Improved that all add-dialogs can be submitted by using `ENTER` and that the next input is automatically selected after selecting a recipe/product
