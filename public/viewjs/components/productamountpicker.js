@@ -73,7 +73,7 @@ $(".input-group-productamountpicker").on("change", function()
 	var amount = $("#display_amount").val();
 	var destinationAmount = amount / quFactor;
 
-	if (destinationQuName == selectedQuName || Grocy.Components.ProductAmountPicker.AllowAnyQuEnabled)
+	if (destinationQuName == selectedQuName || Grocy.Components.ProductAmountPicker.AllowAnyQuEnabled || amount.toString().isEmpty() || selectedQuName.toString().isEmpty())
 	{
 		$("#qu-conversion-info").addClass("d-none");
 	}
