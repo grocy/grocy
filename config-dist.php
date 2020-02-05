@@ -101,6 +101,7 @@ DefaultUserSetting('shopping_list_disable_auto_compact_view_on_mobile', false);
 
 # Recipe settings
 DefaultUserSetting('recipe_ingredients_group_by_product_group', false); // Group recipe ingredients by their product group
+DefaultUserSetting('recipe_ingredient_display_as_fractions', false); // Display the ingredient amounts as fractions
 
 # Chores settings
 DefaultUserSetting('chores_due_soon_days', 5);

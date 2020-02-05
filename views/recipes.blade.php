@@ -224,7 +224,11 @@
 							@if(!empty($selectedRecipePosition->recipe_variable_amount))
 								{{ $selectedRecipePosition->recipe_variable_amount }}
 							@else
-								<span class="locale-number locale-number-quantity-amount">@if($selectedRecipePosition->recipe_amount == round($selectedRecipePosition->recipe_amount, 2)){{ round($selectedRecipePosition->recipe_amount, 2) }}@else{{ $selectedRecipePosition->recipe_amount }}@endif</span>
+								@if(boolval($userSettings['recipe_ingredient_display_as_fractions']))
+									{{ DecimalToFraction($selectedRecipePosition->recipe_amount) }}
+								@else
+									<span class="locale-number locale-number-quantity-amount">@if($selectedRecipePosition->recipe_amount == round($selectedRecipePosition->recipe_amount)){{ round($selectedRecipePosition->recipe_amount) }}@else{{ $selectedRecipePosition->recipe_amount }}@endif</span>
+								@endif
 							@endif
 							{{ $__n($selectedRecipePosition->recipe_amount, FindObjectInArrayByPropertyValue($quantityUnits, 'id', $selectedRecipePosition->qu_id)->name, FindObjectInArrayByPropertyValue($quantityUnits, 'id', $selectedRecipePosition->qu_id)->name_plural) }} {{ FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id)->name }}
 							@if($selectedRecipePosition->need_fulfilled == 1)<i class="fas fa-check text-success"></i>@elseif($selectedRecipePosition->need_fulfilled_with_shopping_list == 1)<i class="fas fa-exclamation text-warning"></i>@else<i class="fas fa-times text-danger"></i>@endif
@@ -287,7 +291,11 @@
 						@if(!empty($selectedRecipePosition->recipe_variable_amount))
 							{{ $selectedRecipePosition->recipe_variable_amount }}
 						@else
-							<span class="locale-number locale-number-quantity-amount">@if($selectedRecipePosition->recipe_amount == round($selectedRecipePosition->recipe_amount, 2)){{ round($selectedRecipePosition->recipe_amount, 2) }}@else{{ $selectedRecipePosition->recipe_amount }}@endif</span>
+							@if(boolval($userSettings['recipe_ingredient_display_as_fractions']))
+								{{ DecimalToFraction($selectedRecipePosition->recipe_amount) }}
+							@else
+								<span class="locale-number locale-number-quantity-amount">@if($selectedRecipePosition->recipe_amount == round($selectedRecipePosition->recipe_amount)){{ round($selectedRecipePosition->recipe_amount) }}@else{{ $selectedRecipePosition->recipe_amount }}@endif</span>
+							@endif
 						@endif
 						{{ $__n($selectedRecipePosition->recipe_amount, FindObjectInArrayByPropertyValue($quantityUnits, 'id', $selectedRecipePosition->qu_id)->name, FindObjectInArrayByPropertyValue($quantityUnits, 'id', $selectedRecipePosition->qu_id)->name_plural) }} {{ FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id)->name }}
 						@if($selectedRecipePosition->need_fulfilled == 1)<i class="fas fa-check text-success"></i>@elseif($selectedRecipePosition->need_fulfilled_with_shopping_list == 1)<i class="fas fa-exclamation text-warning"></i>@else<i class="fas fa-times text-danger"></i>@endif

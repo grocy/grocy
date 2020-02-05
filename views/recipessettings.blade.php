@@ -18,6 +18,14 @@
 			</div>
 		</div>
 
+		<div class="form-group">
+			<div class="checkbox">
+				<label for="recipe_ingredient_display_as_fractions">
+					<input type="checkbox" class="user-setting-control" id="recipe_ingredient_display_as_fractions" name="recipe_ingredient_display_as_fractions" data-setting-key="recipe_ingredient_display_as_fractions"> {{ $__t('Display as fractions.') }}
+				</label>
+			</div>
+		</div>
+
 		<a href="{{ $U('/recipes') }}" class="btn btn-success">{{ $__t('OK') }}</a>
 	</div>
 </div>
