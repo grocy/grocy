@@ -62,7 +62,7 @@ class RecipesController extends BaseController
 		return $this->AppContainer->view->render($response, 'recipes', [
 			'recipes' => $recipes,
 			'recipesResolved' => $recipesResolved,
-			'recipePositionsResolved' => $this->Database->recipes_pos_resolved(),
+			'recipePositionsResolved' => $this->Database->recipes_pos_resolved()->where('recipe_type', RecipesService::RECIPE_TYPE_NORMAL),
 			'selectedRecipe' => $selectedRecipe,
 			'selectedRecipePositionsResolved' => $selectedRecipePositionsResolved,
 			'products' => $this->Database->products(),
