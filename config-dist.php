@@ -97,7 +97,7 @@ DefaultUserSetting('scan_mode_purchase_enabled', false);
 # Shopping list settings
 DefaultUserSetting('shopping_list_to_stock_workflow_auto_submit_when_prefilled', false); // Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set
 DefaultUserSetting('shopping_list_show_calendar', false);
-DefaultUserSetting('shopping_list_disable_auto_compact_view', false);
+DefaultUserSetting('shopping_list_disable_auto_compact_view_on_mobile', false);
 
 # Chores settings
 DefaultUserSetting('chores_due_soon_days', 5);

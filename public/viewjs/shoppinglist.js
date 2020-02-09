@@ -383,8 +383,8 @@ if (window.location.hash === "#compact")
 	$("#shopping-list-compact-view-button").click();
 }
 
-// Auto switch to compact view on mobile
-if ($(window).width() < 768 & window.location.hash !== "#compact" && !BoolVal(Grocy.UserSettings.shopping_list_disable_auto_compact_view))
+// Auto switch to compact view on mobile when enabled
+if ($(window).width() < 768 & window.location.hash !== "#compact" && !BoolVal(Grocy.UserSettings.shopping_list_disable_auto_compact_view_on_mobile))
 {
 	$("#shopping-list-compact-view-button").click();
 }

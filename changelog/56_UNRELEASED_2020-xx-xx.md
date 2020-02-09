@@ -4,6 +4,7 @@
 ### Shopping list improvements/fixes
 - Added an option to hide the month-calendar (in the shopping list settings / top right corner settings menu) (defaults to disabled, so please enable this option if you still want to have the month-calendar on the shopping list)
 - Optimized the new compact view (there was a little too much white space at the sides of the page)
+- Added an option to not switch to the new compact view on mobile devices automatically (in the shopping list settings / top right corner settings menu) (defaults to `false`, so no changed behavior when not configured) (thanks @Forceu)
 - Fixed that the "Shopping list to stock workflow" did not work when `FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING` was set to `false`
 
 ### Recipe improvements/fixes

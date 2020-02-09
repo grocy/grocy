@@ -17,6 +17,13 @@
 				</label>
 			</div>
 		</div>
+		<div class="form-group">
+			<div class="checkbox">
+				<label for="shopping-list-disable-auto-compact-view-on-mobile">
+					<input type="checkbox" class="user-setting-control" id="shopping-list-disable-auto-compact-view-on-mobile" name="shopping-list-disable-auto-compact-view-on-mobile" data-setting-key="shopping_list_disable_auto_compact_view_on_mobile"> {{ $__t('Don\'t automatically switch to the compact view on mobile devices') }}
+				</label>
+			</div>
+		</div>
 
 		<h4 class="mt-2">{{ $__t('Shopping list to stock workflow') }}</h4>
 		<div class="form-group">
