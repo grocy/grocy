@@ -281,7 +281,7 @@ $(document).on("click", ".add-recipe-button", function(e)
 {
 	var day = $(this).parent().parent().data("date");
 
-	$("#add-recipe-modal-title").text(__t("Add recipe to %s", day.toString()));
+	$("#add-recipe-modal-title").text(__t("Add recipe on %s", day.toString()));
 	$("#day").val(day.toString());
 	Grocy.Components.RecipePicker.Clear();
 	$("#add-recipe-modal").modal("show");
@@ -293,7 +293,7 @@ $(document).on("click", ".add-note-button", function(e)
 {
 	var day = $(this).parent().parent().parent().data("date");
 
-	$("#add-note-modal-title").text(__t("Add note to %s", day.toString()));
+	$("#add-note-modal-title").text(__t("Add note on %s", day.toString()));
 	$("#day").val(day.toString());
 	$("#note").val("");
 	$("#add-note-modal").modal("show");
@@ -305,7 +305,7 @@ $(document).on("click", ".add-product-button", function(e)
 {
 	var day = $(this).parent().parent().parent().data("date");
 
-	$("#add-product-modal-title").text(__t("Add product to %s", day.toString()));
+	$("#add-product-modal-title").text(__t("Add product on %s", day.toString()));
 	$("#day").val(day.toString());
 	Grocy.Components.ProductPicker.Clear();
 	$("#add-product-modal").modal("show");

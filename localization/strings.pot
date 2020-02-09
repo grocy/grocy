@@ -1234,7 +1234,7 @@ msgstr ""
 msgid "Meal plan"
 msgstr ""
 
-msgid "Add recipe to %s"
+msgid "Add recipe on %s"
 msgstr ""
 
 msgid "%s serving"
@@ -1637,7 +1637,7 @@ msgstr ""
 msgid "Add note"
 msgstr ""
 
-msgid "Add note to %s"
+msgid "Add note on %s"
 msgstr ""
 
 msgid "per day"
@@ -1655,7 +1655,7 @@ msgstr ""
 msgid "Add product"
 msgstr ""
 
-msgid "Add product to %s"
+msgid "Add product on %s"
 msgstr ""
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
