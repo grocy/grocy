@@ -135,9 +135,9 @@ var calendar = $("#calendar").fullCalendar({
 					<h5> \
 						<a class="ml-1 btn btn-outline-danger btn-xs remove-recipe-button" href="#"><i class="fas fa-trash"></i></a> \
 						<a class="ml-1 btn btn-outline-info btn-xs edit-meal-plan-entry-button" href="#"><i class="fas fa-edit"></i></a> \
-						<a class="ml-1 btn btn-outline-primary btn-xs recipe-order-missing-button ' + recipeOrderMissingButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Put missing products on shopping list") + '" data-recipe-id="' + recipe.id.toString() + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-cart-plus"></i></a> \
-						<a class="ml-1 btn btn-outline-success btn-xs recipe-consume-button ' + recipeConsumeButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Consume all ingredients needed by this recipe") + '" data-recipe-id="' + recipe.id.toString() + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-utensils"></i></a> \
-						<a class="ml-1 btn btn-outline-secondary btn-xs recipe-popup-button" href="#" data-toggle="tooltip" title="' + __t("Display recipe") + '" data-recipe-id="' + recipe.id.toString() + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-eye"></i></a> \
+						<a class="ml-1 btn btn-outline-primary btn-xs recipe-order-missing-button ' + recipeOrderMissingButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Put missing products on shopping list") + '" data-recipe-id="' + recipe.id.toString() + '" data-mealplan-servings="' + mealPlanEntry.recipe_servings + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-cart-plus"></i></a> \
+						<a class="ml-1 btn btn-outline-success btn-xs recipe-consume-button ' + recipeConsumeButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Consume all ingredients needed by this recipe") + '" data-recipe-id="' + recipe.id.toString() + '" data-mealplan-servings="' + mealPlanEntry.recipe_servings + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-utensils"></i></a> \
+						<a class="ml-1 btn btn-outline-secondary btn-xs recipe-popup-button" href="#" data-toggle="tooltip" title="' + __t("Display recipe") + '" data-recipe-id="' + recipe.id.toString() + '" data-recipe-name="' + recipe.name + '" data-mealplan-servings="' + mealPlanEntry.recipe_servings + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-eye"></i></a> \
 					</h5> \
 				</div>');
 
@@ -561,6 +561,7 @@ $(document).on('click', '.recipe-order-missing-button', function(e)
 	var objectName = $(e.currentTarget).attr('data-recipe-name');
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 	var button = $(this);
+	var servings = $(e.currentTarget).attr('data-mealplan-servings');
 
 	bootbox.confirm({
 		message: __t('Are you sure to put all missing ingredients for recipe "%s" on the shopping list?', objectName),
@@ -580,6 +581,21 @@ $(document).on('click', '.recipe-order-missing-button', function(e)
 			if (result === true)
 			{
 				Grocy.FrontendHelpers.BeginUiBusy();
+
+				//set the recipes desired_servings so that the views resolve correctly
+				//based on the meal plan servings
+				var data = { };
+				data.desired_servings = servings;
+
+				Grocy.Api.Put('objects/recipes/' + objectId, data,
+					function(result)
+					{
+					},
+					function(xhr)
+					{
+						console.error(xhr);
+					}
+				);
 
 				Grocy.Api.Post('recipes/' + objectId + '/add-not-fulfilled-products-to-shoppinglist', { },
 					function(result)
@@ -653,6 +669,7 @@ $(document).on('click', '.recipe-consume-button', function(e)
 
 	var objectName = $(e.currentTarget).attr('data-recipe-name');
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
+	var servings = $(e.currentTarget).attr('data-mealplan-servings');
 
 	bootbox.confirm({
 		message: __t('Are you sure to consume all ingredients needed by recipe "%s" (ingredients marked with "check only if a single unit is in stock" will be ignored)?', objectName),
@@ -672,6 +689,21 @@ $(document).on('click', '.recipe-consume-button', function(e)
 			if (result === true)
 			{
 				Grocy.FrontendHelpers.BeginUiBusy();
+
+				//set the recipes desired_servings so that the views resolve correctly
+				//based on the meal plan servings
+				var data = { };
+				data.desired_servings = servings;
+
+				Grocy.Api.Put('objects/recipes/' + objectId, data,
+					function(result)
+					{
+					},
+					function(xhr)
+					{
+						console.error(xhr);
+					}
+				);
 
 				Grocy.Api.Post('recipes/' + objectId + '/consume', { },
 					function(result)
@@ -698,6 +730,22 @@ $(document).on("click", ".recipe-popup-button", function(e)
 	document.activeElement.blur();
 
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
+	var servings = $(e.currentTarget).attr('data-mealplan-servings');
+
+	//set the recipes desired_servings so that the views resolve correctly
+	//based on the meal plan servings
+	var data = { };
+	data.desired_servings = servings;
+
+	Grocy.Api.Put('objects/recipes/' + objectId, data,
+		function(result)
+		{
+		},
+		function(xhr)
+		{
+			console.error(xhr);
+		}
+	);
 
 	bootbox.dialog({
 		message: '<iframe height="650px" class="embed-responsive" src="' + U("/recipes?embedded&recipe=") + objectId + '#fullscreen"></iframe>',
