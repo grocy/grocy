@@ -384,7 +384,7 @@ if (window.location.hash === "#compact")
 }
 
 // Auto switch to compact view on mobile
-if ($(window).width() < 768 & window.location.hash !== "#compact")
+if ($(window).width() < 768 & window.location.hash !== "#compact" && !BoolVal(Grocy.UserSettings.shopping_list_disable_auto_compact_view))
 {
 	$("#shopping-list-compact-view-button").click();
 }
