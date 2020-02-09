@@ -19,6 +19,7 @@
 ### Meal plan improvements
 - Improved that all add-dialogs can be submitted by using `ENTER` and that the next input is automatically selected after selecting a recipe/product
 - Added an edit button to all types of meal plan entries
+- When adding a recipe, the serving amount is now prefilled with the one of the selected recipe (thanks @kriddles)
 - Fixed that the meal plan not used the full height on mobile devices
 
 ### Calendar fixes

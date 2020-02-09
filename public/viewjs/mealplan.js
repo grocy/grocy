@@ -283,7 +283,6 @@ $(document).on("click", ".add-recipe-button", function(e)
 
 	$("#add-recipe-modal-title").text(__t("Add recipe to %s", day.toString()));
 	$("#day").val(day.toString());
-	$("#recipe_servings").val(1);
 	Grocy.Components.RecipePicker.Clear();
 	$("#add-recipe-modal").modal("show");
 	Grocy.FrontendHelpers.ValidateForm("add-recipe-form");
@@ -777,17 +776,12 @@ Grocy.Components.RecipePicker.GetPicker().on('change', function(e)
 
 	if (recipeId)
 	{
-		// Does not work (clears the RecipePicker) when done immediately, don't know why...
-		setTimeout(function()
-		{
-			$("#recipe_servings").focus();
-			$("#recipe_servings").select();
-		}, 200);
-
 		Grocy.Api.Get('objects/recipes/' + recipeId,
 			function(recipe)
 			{
 				$("#recipe_servings").val(recipe.base_servings);
+				$("#recipe_servings").focus();
+				$("#recipe_servings").select();
 			},
 			function(xhr)
 			{
