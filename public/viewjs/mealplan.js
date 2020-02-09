@@ -1,4 +1,6 @@
 ﻿var firstRender = true;
+Grocy.IsMealPlanEntryEditAction = false;
+Grocy.MealPlanEntryEditObjectId = -1;
 
 var firstDay = null;
 if (!Grocy.CalendarFirstDayOfWeek.isEmpty())
@@ -132,6 +134,7 @@ var calendar = $("#calendar").fullCalendar({
 					' + costsAndCaloriesPerServing + ' \
 					<h5> \
 						<a class="ml-1 btn btn-outline-danger btn-xs remove-recipe-button" href="#"><i class="fas fa-trash"></i></a> \
+						<a class="ml-1 btn btn-outline-info btn-xs edit-meal-plan-entry-button" href="#"><i class="fas fa-edit"></i></a> \
 						<a class="ml-1 btn btn-outline-primary btn-xs recipe-order-missing-button ' + recipeOrderMissingButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Put missing products on shopping list") + '" data-recipe-id="' + recipe.id.toString() + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-cart-plus"></i></a> \
 						<a class="ml-1 btn btn-outline-success btn-xs recipe-consume-button ' + recipeConsumeButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Consume all ingredients needed by this recipe") + '" data-recipe-id="' + recipe.id.toString() + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-utensils"></i></a> \
 						<a class="ml-1 btn btn-outline-secondary btn-xs recipe-popup-button" href="#" data-toggle="tooltip" title="' + __t("Display recipe") + '" data-recipe-id="' + recipe.id.toString() + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-eye"></i></a> \
@@ -217,6 +220,7 @@ var calendar = $("#calendar").fullCalendar({
 					' + costsAndCaloriesPerServing + ' \
 					<h5> \
 						<a class="ml-1 btn btn-outline-danger btn-xs remove-product-button" href="#"><i class="fas fa-trash"></i></a> \
+						<a class="ml-1 btn btn-outline-info btn-xs edit-meal-plan-entry-button" href="#"><i class="fas fa-edit"></i></a> \
 						<a class="ml-1 btn btn-outline-success btn-xs product-consume-button ' + productConsumeButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Consume %1$s of %2$s", parseFloat(mealPlanEntry.product_amount).toLocaleString() + ' ' + __n(mealPlanEntry.product_amount, productDetails.quantity_unit_purchase.name, productDetails.quantity_unit_purchase.name_plural), productDetails.product.name) + '" data-product-id="' + productDetails.product.id.toString() + '" data-product-name="' + productDetails.product.name + '" data-product-amount="' + mealPlanEntry.product_amount + '"><i class="fas fa-utensils"></i></a> \
 						<a class="ml-1 btn btn-outline-primary btn-xs show-as-dialog-link ' + productOrderMissingButtonDisabledClasses + '" href="' + U("/shoppinglistitem/new?embedded&updateexistingproduct&product=") + mealPlanEntry.product_id + '&amount=' + mealPlanEntry.product_amount + '" data-toggle="tooltip" title="' + __t("Add to shopping list") + '" data-product-id="' + productDetails.product.id.toString() + '" data-product-name="' + productDetails.product.name + '" data-product-amount="' + mealPlanEntry.product_amount + '"><i class="fas fa-cart-plus"></i></a> \
 					</h5> \
@@ -255,6 +259,7 @@ var calendar = $("#calendar").fullCalendar({
 					<h5 class="text-wrap text-break">' + mealPlanEntry.note + '<h5> \
 					<h5> \
 						<a class="ml-1 btn btn-outline-danger btn-xs remove-note-button" href="#"><i class="fas fa-trash"></i></a> \
+						<a class="ml-1 btn btn-outline-info btn-xs edit-meal-plan-entry-button" href="#"><i class="fas fa-edit"></i></a> \
 					</h5> \
 				</div>');
 		}
@@ -282,6 +287,7 @@ $(document).on("click", ".add-recipe-button", function(e)
 	Grocy.Components.RecipePicker.Clear();
 	$("#add-recipe-modal").modal("show");
 	Grocy.FrontendHelpers.ValidateForm("add-recipe-form");
+	Grocy.IsMealPlanEntryEditAction = false;
 });
 
 $(document).on("click", ".add-note-button", function(e)
@@ -293,6 +299,7 @@ $(document).on("click", ".add-note-button", function(e)
 	$("#note").val("");
 	$("#add-note-modal").modal("show");
 	Grocy.FrontendHelpers.ValidateForm("add-note-form");
+	Grocy.IsMealPlanEntryEditAction = false;
 });
 
 $(document).on("click", ".add-product-button", function(e)
@@ -304,6 +311,41 @@ $(document).on("click", ".add-product-button", function(e)
 	Grocy.Components.ProductPicker.Clear();
 	$("#add-product-modal").modal("show");
 	Grocy.FrontendHelpers.ValidateForm("add-product-form");
+	Grocy.IsMealPlanEntryEditAction = false;
+});
+
+$(document).on("click", ".edit-meal-plan-entry-button", function (e)
+{
+	var mealPlanEntry = JSON.parse($(this).parents(".fc-h-event:first").attr("data-meal-plan-entry"));
+
+	if (mealPlanEntry.type == "recipe")
+	{
+		$("#add-recipe-modal-title").text(__t("Edit recipe on %s", mealPlanEntry.day.toString()));
+		$("#day").val(mealPlanEntry.day.toString());
+		$("#recipe_servings").val(mealPlanEntry.recipe_servings);
+		Grocy.Components.RecipePicker.SetId(mealPlanEntry.recipe_id);
+		$("#add-recipe-modal").modal("show");
+		Grocy.FrontendHelpers.ValidateForm("add-recipe-form");
+	}
+	else if (mealPlanEntry.type == "product")
+	{
+		$("#add-product-modal-title").text(__t("Edit product on %s", mealPlanEntry.day.toString()));
+		$("#day").val(mealPlanEntry.day.toString());
+		Grocy.Components.ProductPicker.SetId(mealPlanEntry.product_id);
+		$("#add-product-modal").modal("show");
+		Grocy.FrontendHelpers.ValidateForm("add-product-form");
+		Grocy.Components.ProductPicker.GetPicker().trigger("change");
+	}
+	else if (mealPlanEntry.type == "note")
+	{
+		$("#add-note-modal-title").text(__t("Edit note on %s", mealPlanEntry.day.toString()));
+		$("#day").val(mealPlanEntry.day.toString());
+		$("#note").val(mealPlanEntry.note);
+		$("#add-note-modal").modal("show");
+		Grocy.FrontendHelpers.ValidateForm("add-note-form");
+	}
+	Grocy.IsMealPlanEntryEditAction = true;
+	Grocy.MealPlanEntryEditObjectId = mealPlanEntry.id;
 });
 
 $("#add-recipe-modal").on("shown.bs.modal", function(e)
@@ -346,16 +388,32 @@ $('#save-add-recipe-button').on('click', function(e)
 		return false;
 	}
 
-	Grocy.Api.Post('objects/meal_plan', $('#add-recipe-form').serializeJSON(),
-		function(result)
-		{
-			window.location.reload();
-		},
-		function(xhr)
-		{
-			Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-		}
-	);
+	if (Grocy.IsMealPlanEntryEditAction)
+	{
+		Grocy.Api.Put('objects/meal_plan/' + Grocy.MealPlanEntryEditObjectId.toString(), $('#add-recipe-form').serializeJSON(),
+			function(result)
+			{
+				window.location.reload();
+			},
+			function(xhr)
+			{
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+			}
+		);
+	}
+	else
+	{
+		Grocy.Api.Post('objects/meal_plan', $('#add-recipe-form').serializeJSON(),
+			function(result)
+			{
+				window.location.reload();
+			},
+			function(xhr)
+			{
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+			}
+		);
+	}
 });
 
 $('#save-add-note-button').on('click', function(e)
@@ -369,16 +427,34 @@ $('#save-add-note-button').on('click', function(e)
 
 	var jsonData = $('#add-note-form').serializeJSON();
 	jsonData.day = $("#day").val();
-	Grocy.Api.Post('objects/meal_plan', jsonData,
-		function(result)
-		{
-			window.location.reload();
-		},
-		function(xhr)
-		{
-			Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-		}
-	);
+
+	if (Grocy.IsMealPlanEntryEditAction)
+	{
+		Grocy.Api.Put('objects/meal_plan/' + Grocy.MealPlanEntryEditObjectId.toString(), jsonData,
+			function(result)
+			{
+				window.location.reload();
+			},
+			function(xhr)
+			{
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+			}
+		);
+	}
+	else
+	{
+		Grocy.Api.Post('objects/meal_plan', jsonData,
+			function(result)
+			{
+				window.location.reload();
+			},
+			function(xhr)
+			{
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+			}
+		);
+	}
+	
 });
 
 $('#save-add-product-button').on('click', function(e)
@@ -397,16 +473,33 @@ $('#save-add-product-button').on('click', function(e)
 	delete jsonData.amount;
 	jsonData.product_qu_id = jsonData.qu_id;
 	delete jsonData.qu_id;
-	Grocy.Api.Post('objects/meal_plan', jsonData,
-		function(result)
-		{
-			window.location.reload();
-		},
-		function(xhr)
-		{
-			Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-		}
-	);
+
+	if (Grocy.IsMealPlanEntryEditAction)
+	{
+		Grocy.Api.Put('objects/meal_plan/' + Grocy.MealPlanEntryEditObjectId.toString(), jsonData,
+			function (result)
+			{
+				window.location.reload();
+			},
+			function (xhr)
+			{
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+			}
+		);
+	}
+	else
+	{
+		Grocy.Api.Post('objects/meal_plan', jsonData,
+			function(result)
+			{
+				window.location.reload();
+			},
+			function(xhr)
+			{
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+			}
+		);
+	}
 });
 
 $('#add-recipe-form input').keydown(function (event)

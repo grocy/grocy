@@ -1720,3 +1720,12 @@ msgstr ""
 
 msgid "Don't automatically switch to the compact view on mobile devices"
 msgstr ""
+
+msgid "Edit note on %s"
+msgstr ""
+
+msgid "Edit product on %s"
+msgstr ""
+
+msgid "Edit recipe on %s"
+msgstr ""
