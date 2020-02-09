@@ -108,6 +108,9 @@ DefaultUserSetting('batteries_due_soon_days', 5);
 # Tasks settings
 DefaultUserSetting('tasks_due_soon_days', 5);
 
+# Recipe settings
+DefaultUserSetting('recipe_ingredient_display_product_group', false); // Display the product group information in the ingredient list
+
 # If the page should be automatically reloaded when there was
 # an external change
 DefaultUserSetting('auto_reload_on_db_change', true);
