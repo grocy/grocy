@@ -582,37 +582,32 @@ $(document).on('click', '.recipe-order-missing-button', function(e)
 			{
 				Grocy.FrontendHelpers.BeginUiBusy();
 
-				//set the recipes desired_servings so that the views resolve correctly
-				//based on the meal plan servings
-				var data = { };
-				data.desired_servings = servings;
-
-				Grocy.Api.Put('objects/recipes/' + objectId, data,
+				// Set the recipes desired_servings so that the "recipes resolved"-views resolve correctly based on the meal plan entry servings
+				Grocy.Api.Put('objects/recipes/' + objectId, { "desired_servings" : servings},
 					function(result)
 					{
+						Grocy.Api.Post('recipes/' + objectId + '/add-not-fulfilled-products-to-shoppinglist', { },
+							function(result)
+							{
+								if (button.attr("data-recipe-type") == "normal")
+								{
+									button.addClass("disabled");
+									Grocy.FrontendHelpers.EndUiBusy();
+								}
+								else
+								{
+									window.location.reload();
+								}
+							},
+							function(xhr)
+							{
+								Grocy.FrontendHelpers.EndUiBusy();
+								console.error(xhr);
+							}
+						);
 					},
 					function(xhr)
 					{
-						console.error(xhr);
-					}
-				);
-
-				Grocy.Api.Post('recipes/' + objectId + '/add-not-fulfilled-products-to-shoppinglist', { },
-					function(result)
-					{
-						if (button.attr("data-recipe-type") == "normal")
-						{
-							button.addClass("disabled");
-							Grocy.FrontendHelpers.EndUiBusy();
-						}
-						else
-						{
-							window.location.reload();
-						}
-					},
-					function(xhr)
-					{
-						Grocy.FrontendHelpers.EndUiBusy();
 						console.error(xhr);
 					}
 				);
@@ -690,31 +685,26 @@ $(document).on('click', '.recipe-consume-button', function(e)
 			{
 				Grocy.FrontendHelpers.BeginUiBusy();
 
-				//set the recipes desired_servings so that the views resolve correctly
-				//based on the meal plan servings
-				var data = { };
-				data.desired_servings = servings;
-
-				Grocy.Api.Put('objects/recipes/' + objectId, data,
+				// Set the recipes desired_servings so that the "recipes resolved"-views resolve correctly based on the meal plan entry servings
+				Grocy.Api.Put('objects/recipes/' + objectId, { "desired_servings": servings },
 					function(result)
 					{
+						Grocy.Api.Post('recipes/' + objectId + '/consume', {},
+							function(result)
+							{
+								Grocy.FrontendHelpers.EndUiBusy();
+								toastr.success(__t('Removed all ingredients of recipe "%s" from stock', objectName));
+							},
+							function(xhr)
+							{
+								toastr.warning(__t('Not all ingredients of recipe "%s" are in stock, nothing removed', objectName));
+								Grocy.FrontendHelpers.EndUiBusy();
+								console.error(xhr);
+							}
+						);
 					},
 					function(xhr)
 					{
-						console.error(xhr);
-					}
-				);
-
-				Grocy.Api.Post('recipes/' + objectId + '/consume', { },
-					function(result)
-					{
-						Grocy.FrontendHelpers.EndUiBusy();
-						toastr.success(__t('Removed all ingredients of recipe "%s" from stock', objectName));
-					},
-					function(xhr)
-					{
-						toastr.warning(__t('Not all ingredients of recipe "%s" are in stock, nothing removed', objectName));
-						Grocy.FrontendHelpers.EndUiBusy();
 						console.error(xhr);
 					}
 				);
@@ -732,37 +722,32 @@ $(document).on("click", ".recipe-popup-button", function(e)
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 	var servings = $(e.currentTarget).attr('data-mealplan-servings');
 
-	//set the recipes desired_servings so that the views resolve correctly
-	//based on the meal plan servings
-	var data = { };
-	data.desired_servings = servings;
-
-	Grocy.Api.Put('objects/recipes/' + objectId, data,
+	// Set the recipes desired_servings so that the "recipes resolved"-views resolve correctly based on the meal plan entry servings
+	Grocy.Api.Put('objects/recipes/' + objectId, { "desired_servings": servings },
 		function(result)
 		{
+			bootbox.dialog({
+				message: '<iframe height="650px" class="embed-responsive" src="' + U("/recipes?embedded&recipe=") + objectId + '#fullscreen"></iframe>',
+				size: 'extra-large',
+				backdrop: true,
+				closeButton: false,
+				buttons: {
+					cancel: {
+						label: __t('Close'),
+						className: 'btn-secondary responsive-button',
+						callback: function ()
+						{
+							bootbox.hideAll();
+						}
+					}
+				}
+			});
 		},
 		function(xhr)
 		{
 			console.error(xhr);
 		}
 	);
-
-	bootbox.dialog({
-		message: '<iframe height="650px" class="embed-responsive" src="' + U("/recipes?embedded&recipe=") + objectId + '#fullscreen"></iframe>',
-		size: 'extra-large',
-		backdrop: true,
-		closeButton: false,
-		buttons: {
-			cancel: {
-				label: __t('Close'),
-				className: 'btn-secondary responsive-button',
-				callback: function()
-				{
-					bootbox.hideAll();
-				}
-			}
-		}
-	});
 });
 
 $(window).on("resize", function()

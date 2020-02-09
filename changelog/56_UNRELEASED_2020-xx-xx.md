@@ -16,6 +16,7 @@
 - Fixed that when reloading the "new recipe"-page (or when it gets auto-reloaded due to "Auto reload on external changes" is enabled), for each reload a new recipe was created
 - Fixed that the recipe "fullscreen card" was not correctly displayed
 - Fixed that nested recipes showed all ingredients of the nested recipes twice
+- Fixed that when displaying or consuming a recipe from the meal plan the serving amount was maybe wrong (was the one from the recipe instead the one from the meal plan entry) (thanks @kriddles)
 
 ### Meal plan improvements
 - Improved that all add-dialogs can be submitted by using `ENTER` and that the next input is automatically selected after selecting a recipe/product
