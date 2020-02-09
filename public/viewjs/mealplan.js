@@ -783,5 +783,16 @@ Grocy.Components.RecipePicker.GetPicker().on('change', function(e)
 			$("#recipe_servings").focus();
 			$("#recipe_servings").select();
 		}, 200);
+
+		Grocy.Api.Get('objects/recipes/' + recipeId,
+			function(recipe)
+			{
+				$("#recipe_servings").val(recipe.base_servings);
+			},
+			function(xhr)
+			{
+				console.error(xhr);
+			}
+		);
 	}
 });
