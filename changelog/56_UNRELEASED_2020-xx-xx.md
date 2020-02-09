@@ -19,7 +19,11 @@
 ### Meal plan improvements
 - Improved that all add-dialogs can be submitted by using `ENTER` and that the next input is automatically selected after selecting a recipe/product
 - Added an edit button to all types of meal plan entries
-- Fixed that the meal plan not used the full height on mobile devices (also applies/fixes the same for the calendar)
+- Fixed that the meal plan not used the full height on mobile devices
+
+### Calendar fixes
+- Fixed to only include events when the corresponding feature flag is enabled (e. g. don't show expiring products when `FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING` is set to `false`) (thanks @kriddles)
+- Fixed that the calendar not used the full height on mobile devices
 
 ### General & other improvements/fixes
 - Optimized the top navbar height and overall spacing to waste less space
