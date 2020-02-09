@@ -53,7 +53,7 @@
 					<thead>
 						<tr>
 							<th>{{ $__t('Name') }}</th>
-							<th>{{ $__t('Servings') }}</th>
+							<th>{{ $__t('Desired Servings') }}</th>
 							<th>{{ $__t('Requirements fulfilled') }}</th>
 							<th class="d-none">Hidden status for sorting of "Requirements fulfilled" column</th>
 							<th class="d-none">Hidden status for filtering by status</th>
@@ -155,11 +155,12 @@
 					<div class="col-4">
 						@include('components.numberpicker', array(
 							'id' => 'servings-scale',
-							'label' => 'Servings',
+							'label' => 'Desired Servings',
 							'min' => 1,
 							'value' => $selectedRecipe->desired_servings,
 							'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
-							'additionalAttributes' => 'data-recipe-id="' . $selectedRecipe->id . '"'
+							'additionalAttributes' => 'data-recipe-id="' . $selectedRecipe->id . '"',
+							'hint' => $__t('Initial Base Servings:%s', $selectedRecipe->base_servings)
 						))
 					</div>
 					@if(!empty($selectedRecipeTotalCalories) && intval($selectedRecipeTotalCalories) > 0)
