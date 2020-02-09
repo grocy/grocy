@@ -103,7 +103,7 @@ class CalendarService extends BaseService
 		}
 
 		$mealPlanRecipeEvents = array();
-		if (FEATURE_FLAG_RECIPES)
+		if (GROCY_FEATURE_FLAG_RECIPES)
 		{
 			$recipes = $this->Database->recipes();
 			$mealPlanDayRecipes = $this->Database->recipes()->where('type', 'mealplan-day');
