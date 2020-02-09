@@ -18,10 +18,11 @@ var calendar = $("#calendar").fullCalendar({
 		"right": "prev,today,next"
 	},
 	"weekNumbers": false,
-	"eventLimit": true,
+	"eventLimit": false,
 	"eventSources": fullcalendarEventSources,
 	"defaultView": ($(window).width() < 768) ? "basicDay" : "basicWeek",
 	"firstDay": firstDay,
+	"height": "auto",
 	"viewRender": function(view)
 	{
 		if (firstRender)
