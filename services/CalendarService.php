@@ -29,65 +29,77 @@ class CalendarService extends BaseService
 
 	public function GetEvents()
 	{
-		$products = $this->Database->products();
-		$titlePrefix = $this->LocalizationService->__t('Product expires') . ': ';
 		$stockEvents = array();
-		foreach($this->StockService->GetCurrentStock() as $currentStockEntry)
+		if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 		{
-			if ($currentStockEntry->amount > 0)
+			$products = $this->Database->products();
+			$titlePrefix = $this->LocalizationService->__t('Product expires') . ': ';
+			foreach($this->StockService->GetCurrentStock() as $currentStockEntry)
 			{
-				$stockEvents[] = array(
-					'title' => $titlePrefix . FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name,
-					'start' => $currentStockEntry->best_before_date,
+				if ($currentStockEntry->amount > 0)
+				{
+					$stockEvents[] = array(
+						'title' => $titlePrefix . FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name,
+						'start' => $currentStockEntry->best_before_date,
+						'date_format' => 'date'
+					);
+				}
+			}
+		}
+
+		$taskEvents = array();
+		if (GROCY_FEATURE_FLAG_TASKS)
+		{
+			$titlePrefix = $this->LocalizationService->__t('Task due') . ': ';
+			foreach($this->TasksService->GetCurrent() as $currentTaskEntry)
+			{
+				$taskEvents[] = array(
+					'title' => $titlePrefix . $currentTaskEntry->name,
+					'start' => $currentTaskEntry->due_date,
 					'date_format' => 'date'
 				);
 			}
 		}
 
-		$titlePrefix = $this->LocalizationService->__t('Task due') . ': ';
-		$taskEvents = array();
-		foreach($this->TasksService->GetCurrent() as $currentTaskEntry)
-		{
-			$taskEvents[] = array(
-				'title' => $titlePrefix . $currentTaskEntry->name,
-				'start' => $currentTaskEntry->due_date,
-				'date_format' => 'date'
-			);
-		}
-
-		$usersService = new UsersService();
-		$users = $usersService->GetUsersAsDto();
-
-		$chores = $this->Database->chores();
-		$titlePrefix = $this->LocalizationService->__t('Chore due') . ': ';
 		$choreEvents = array();
-		foreach($this->ChoresService->GetCurrent() as $currentChoreEntry)
+		if (GROCY_FEATURE_FLAG_CHORES)
 		{
-			$chore = FindObjectInArrayByPropertyValue($chores, 'id', $currentChoreEntry->chore_id);
+			$usersService = new UsersService();
+			$users = $usersService->GetUsersAsDto();
 
-			$assignedToText = '';
-			if (!empty($currentChoreEntry->next_execution_assigned_to_user_id))
+			$chores = $this->Database->chores();
+			$titlePrefix = $this->LocalizationService->__t('Chore due') . ': ';
+			foreach($this->ChoresService->GetCurrent() as $currentChoreEntry)
 			{
-				$assignedToText = ' (' . $this->LocalizationService->__t('assigned to %s', FindObjectInArrayByPropertyValue($users, 'id', $currentChoreEntry->next_execution_assigned_to_user_id)->display_name) . ')';
-			}
+				$chore = FindObjectInArrayByPropertyValue($chores, 'id', $currentChoreEntry->chore_id);
 
-			$choreEvents[] = array(
-				'title' => $titlePrefix . $chore->name . $assignedToText,
-				'start' => $currentChoreEntry->next_estimated_execution_time,
-				'date_format' => 'datetime'
-			);
+				$assignedToText = '';
+				if (!empty($currentChoreEntry->next_execution_assigned_to_user_id))
+				{
+					$assignedToText = ' (' . $this->LocalizationService->__t('assigned to %s', FindObjectInArrayByPropertyValue($users, 'id', $currentChoreEntry->next_execution_assigned_to_user_id)->display_name) . ')';
+				}
+
+				$choreEvents[] = array(
+					'title' => $titlePrefix . $chore->name . $assignedToText,
+					'start' => $currentChoreEntry->next_estimated_execution_time,
+					'date_format' => 'datetime'
+				);
+			}
 		}
 
-		$batteries = $this->Database->batteries();
-		$titlePrefix = $this->LocalizationService->__t('Battery charge cycle due') . ': ';
 		$batteryEvents = array();
-		foreach($this->BatteriesService->GetCurrent() as $currentBatteryEntry)
+		if (GROCY_FEATURE_FLAG_BATTERIES)
 		{
-			$batteryEvents[] = array(
-				'title' => $titlePrefix . FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->name,
-				'start' => $currentBatteryEntry->next_estimated_charge_time,
-				'date_format' => 'datetime'
-			);
+			$batteries = $this->Database->batteries();
+			$titlePrefix = $this->LocalizationService->__t('Battery charge cycle due') . ': ';
+			foreach($this->BatteriesService->GetCurrent() as $currentBatteryEntry)
+			{
+				$batteryEvents[] = array(
+					'title' => $titlePrefix . FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->name,
+					'start' => $currentBatteryEntry->next_estimated_charge_time,
+					'date_format' => 'datetime'
+				);
+			}
 		}
 
 		$recipes = $this->Database->recipes();
