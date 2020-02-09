@@ -11,6 +11,7 @@
 - Optimized the ordering of the inputs on the recipe ingredient edit page (moved "Only check if a single unit is in stock" before the amount)
 - Variable ingredient amounts are now marked accordingly on the renedered recipe
 - After selecting a recipe on mobile devices, the page now automatically scrolls to the recipe card
+- Added the recipes base servings to be displayed on the recipe card and properly named the servings column in the recipes list/table (thanks @kriddles)
 - Fixed that when editing a recipe ingredient which had "Only check if a single unit is in stock" set, not any quantity unit could be picked and the amount stayed empty
 - Fixed that when reloading the "new recipe"-page (or when it gets auto-reloaded due to "Auto reload on external changes" is enabled), for each reload a new recipe was created
 - Fixed that the recipe "fullscreen card" was not correctly displayed

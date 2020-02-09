@@ -1729,3 +1729,9 @@ msgstr ""
 
 msgid "Edit recipe on %s"
 msgstr ""
+
+msgid "Desired servings"
+msgstr ""
+
+msgid "Base: %s"
+msgstr ""
