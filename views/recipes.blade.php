@@ -35,6 +35,12 @@
 					<option class="bg-danger" value="notenoughinstock">{{ $__t('Not enough in stock') }}</option>
 				</select>
 			</div>
+
+			<div class="col-6">
+			@include('components.recipecatagorypicker', array(
+					'recipeCatagories' => $recipeCatagory
+				))
+			</div>
 		</div>
 
 		<ul class="nav nav-tabs mt-3">
@@ -58,6 +64,7 @@
 							<th class="d-none">Hidden status for sorting of "Requirements fulfilled" column</th>
 							<th class="d-none">Hidden status for filtering by status</th>
 							<th class="d-none">Hidden recipe ingredient product names</th>
+							<th class="d-none">Hidden recipe catagory names</th>
 
 							@include('components.userfields_thead', array(
 								'userfields' => $userfields
@@ -88,6 +95,9 @@
 								@foreach(FindAllObjectsInArrayByPropertyValue($recipePositionsResolved, 'recipe_id', $recipe->id) as $recipePos)
 									{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePos->product_id)->name . ' ' }}
 								@endforeach
+							</td>
+							<td>
+								{{ FindObjectInArrayByPropertyValue($recipeCatagories, 'id', $recipe->recipy_catagory_id)->name }}
 							</td>
 
 							@include('components.userfields_tbody', array(

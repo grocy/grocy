@@ -61,7 +61,11 @@
 				'value' => $value,
 				'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
 				'hint' => $__t('The ingredients listed here result in this amount of servings')
-			))			
+			))
+
+			@include('components.recipecatagorypicker', array(
+					'recipecatagories' => $recipecatagory
+				))
 
 			<div class="form-group">
 				<div class="form-check">

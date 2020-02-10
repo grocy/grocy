@@ -235,6 +235,14 @@
 								<span class="nav-link-text">{{ $__t('Products') }}</span>
 							</a>
 						</li>
+						@if(GROCY_FEATURE_FLAG_RECIPES)
+						<li data-nav-for-page="recipecatagories" data-sub-menu-of="#top-nav-manager-master-data">
+							<a class="nav-link discrete-link" href="{{ $U('/recipecatagories') }}">
+								<i class="fas fa-map-marker-alt"></i>
+								<span class="nav-link-text">{{ $__t('Recipe catagories') }}</span>
+							</a>
+						</li>
+						@endif
 						@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 						<li data-nav-for-page="locations" data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link" href="{{ $U('/locations') }}">

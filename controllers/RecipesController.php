@@ -63,6 +63,7 @@ class RecipesController extends BaseController
 			'recipes' => $recipes,
 			'recipesResolved' => $recipesResolved,
 			'recipePositionsResolved' => $this->Database->recipes_pos_resolved(),
+			'recipeCatagories' => $this->Database->recipe_catagories()->orderBy('name'),
 			'selectedRecipe' => $selectedRecipe,
 			'selectedRecipePositionsResolved' => $selectedRecipePositionsResolved,
 			'products' => $this->Database->products(),
@@ -94,6 +95,7 @@ class RecipesController extends BaseController
 		return $this->AppContainer->view->render($response, 'recipeform', [
 			'recipe' =>  $this->Database->recipes($recipeId),
 			'recipePositions' =>  $this->Database->recipes_pos()->where('recipe_id', $recipeId),
+			'recipeCatagories' => $this->Database->recipe_catagories()->orderBy('name'),
 			'mode' => 'edit',
 			'products' => $this->Database->products()->orderBy('name'),
 			'quantityunits' => $this->Database->quantity_units(),
@@ -128,6 +130,30 @@ class RecipesController extends BaseController
 				'products' => $this->Database->products()->orderBy('name'),
 				'quantityUnits' => $this->Database->quantity_units()->orderBy('name'),
 				'quantityUnitConversionsResolved' => $this->Database->quantity_unit_conversions_resolved()
+			]);
+		}
+	}
+
+	public function RecipeCatagoriesList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->AppContainer->view->render($response, 'recipecatagories', [
+			'recipeCatagories' => $this->Database->recipe_catagories()->orderBy('name')
+		]);
+	}
+
+	public function RecipeCatagoryEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		if ($args['recipeCatagoryId'] == 'new')
+		{
+			return $this->AppContainer->view->render($response, 'recipecatagoryform', [
+				'mode' => 'create'
+			]);
+		}
+		else
+		{
+			return $this->AppContainer->view->render($response, 'recipecatagoryform', [
+				'recipeCatagory' =>  $this->Database->recipe_catagories($args['recipeCatagoryId']),
+				'mode' => 'edit'
 			]);
 		}
 	}
