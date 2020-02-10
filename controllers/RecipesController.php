@@ -30,20 +30,20 @@ class RecipesController extends BaseController
 		if (isset($request->getQueryParams()['recipe']))
 		{
 			$selectedRecipe = $this->Database->recipes($request->getQueryParams()['recipe']);
-			$selectedRecipePositionsResolved = $this->Database->recipes_pos_resolved()->where('recipe_id = :1 AND is_nested_recipe_pos = 0', $request->getQueryParams()['recipe'])->orderBy('ingredient_group');
+			$selectedRecipePositionsResolved = $this->Database->recipes_pos_resolved()->where('recipe_id = :1 AND is_nested_recipe_pos = 0', $request->getQueryParams()['recipe'])->orderBy('ingredient_group', 'ASC', 'product_group', 'ASC');
 		}
 		else
 		{
 			foreach ($recipes as $recipe)
 			{
 				$selectedRecipe = $recipe;
-				$selectedRecipePositionsResolved = $this->Database->recipes_pos_resolved()->where('recipe_id = :1 AND is_nested_recipe_pos = 0', $recipe->id)->orderBy('ingredient_group');
+				$selectedRecipePositionsResolved = $this->Database->recipes_pos_resolved()->where('recipe_id = :1 AND is_nested_recipe_pos = 0', $recipe->id)->orderBy('ingredient_group', 'ASC', 'product_group', 'ASC');
 				break;
 			}
 		}
 
 		$selectedRecipeSubRecipes = $this->Database->recipes()->where('id IN (SELECT includes_recipe_id FROM recipes_nestings_resolved WHERE recipe_id = :1 AND includes_recipe_id != :1)', $selectedRecipe->id)->orderBy('name')->fetchAll();
-		$selectedRecipeSubRecipesPositions = $this->Database->recipes_pos_resolved()->where('recipe_id = :1', $selectedRecipe->id)->orderBy('ingredient_group')->fetchAll();
+		$selectedRecipeSubRecipesPositions = $this->Database->recipes_pos_resolved()->where('recipe_id = :1', $selectedRecipe->id)->orderBy('ingredient_group', 'ASC', 'product_group', 'ASC')->fetchAll();
 
 		$includedRecipeIdsAbsolute = array();
 		$includedRecipeIdsAbsolute[] = $selectedRecipe->id;
@@ -123,6 +123,11 @@ class RecipesController extends BaseController
 				'quantityUnitConversionsResolved' => $this->Database->quantity_unit_conversions_resolved()
 			]);
 		}
+	}
+
+	public function RecipesSettings(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	{
+		return $this->AppContainer->view->render($response, 'recipessettings');
 	}
 
 	public function MealPlan(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)

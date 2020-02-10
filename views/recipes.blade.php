@@ -195,12 +195,16 @@
 					@if(count($selectedRecipeSubRecipePositionsFiltered) > 0)
 					<h5 class="mb-0">{{ $__t('Ingredients') }}</h5>
 					<ul class="list-group list-group-flush">
-						@php $lastGroup = 'undefined'; @endphp
+						@php $lastIngredientGroup = 'undefined'; @endphp
+						@php $lastProductGroup = 'undefined'; @endphp
 						@foreach($selectedRecipeSubRecipePositionsFiltered as $selectedRecipePosition)
-						@if($lastGroup != $selectedRecipePosition->ingredient_group)
-							<h5 class="mb-2 mt-2 ml-4"><strong>{{ $selectedRecipePosition->ingredient_group }}</strong></h5>
+						@if($lastIngredientGroup != $selectedRecipePosition->ingredient_group)
+							<h5 class="mb-2 mt-2 ml-2"><strong>{{ $selectedRecipePosition->ingredient_group }}</strong></h5>
 						@endif
-						<li class="list-group-item px-0">
+						@if(boolval($userSettings['recipe_ingredient_display_product_group']) && $lastProductGroup != $selectedRecipePosition->product_group)
+							<h6 class="mb-2 mt-2 ml-4"><strong>{{ $selectedRecipePosition->product_group }}</strong></h6>
+						@endif
+						<li class="list-group-item px-0 ml-5">
 							@php
 								$product = FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id);
 								$productQuConversions = FindAllObjectsInArrayByPropertyValue($quantityUnitConversionsResolved, 'product_id', $product->id);
@@ -228,7 +232,8 @@
 							<div class="text-muted">{!! nl2br($selectedRecipePosition->note) !!}</div>
 							@endif
 						</li>
-						@php $lastGroup = $selectedRecipePosition->ingredient_group; @endphp
+						@php $lastProductGroup = $selectedRecipePosition->product_group; @endphp
+						@php $lastIngredientGroup = $selectedRecipePosition->ingredient_group; @endphp
 						@endforeach
 					</ul>
 					@endif
@@ -247,12 +252,16 @@
 				@if($selectedRecipePositionsResolved->count() > 0)
 				<h5 class="mb-0">{{ $__t('Ingredients') }}</h5>
 				<ul class="list-group list-group-flush">
-					@php $lastGroup = 'undefined'; @endphp
+					@php $lastIngredientGroup = 'undefined'; @endphp
+					@php $lastProductGroup = 'undefined'; @endphp
 					@foreach($selectedRecipePositionsResolved as $selectedRecipePosition)
-					@if($lastGroup != $selectedRecipePosition->ingredient_group)
-						<h5 class="mb-2 mt-2 ml-4"><strong>{{ $selectedRecipePosition->ingredient_group }}</strong></h5>
+					@if($lastIngredientGroup != $selectedRecipePosition->ingredient_group)
+						<h5 class="mb-2 mt-2 ml-2"><strong>{{ $selectedRecipePosition->ingredient_group }}</strong></h5>
 					@endif
-					<li class="list-group-item px-0">
+					@if(boolval($userSettings['recipe_ingredient_display_product_group']) && $lastProductGroup != $selectedRecipePosition->product_group)
+						<h6 class="mb-2 mt-2 ml-4"><strong>{{ $selectedRecipePosition->product_group }}</strong></h6>
+					@endif
+					<li class="list-group-item px-0 ml-5">
 						@php
 							$product = FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id);
 							$productQuConversions = FindAllObjectsInArrayByPropertyValue($quantityUnitConversionsResolved, 'product_id', $product->id);
@@ -280,7 +289,8 @@
 						<div class="text-muted">{!! nl2br($selectedRecipePosition->note) !!}</div>
 						@endif
 					</li>
-					@php $lastGroup = $selectedRecipePosition->ingredient_group; @endphp
+					@php $lastProductGroup = $selectedRecipePosition->product_group; @endphp
+					@php $lastIngredientGroup = $selectedRecipePosition->ingredient_group; @endphp
 					@endforeach
 				</ul>
 				@endif
