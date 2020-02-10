@@ -22,14 +22,7 @@ class RecipesController extends BaseController
 
 	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
 	{
-		if (isset($request->getQueryParams()['include-internal']))
-		{
-			$recipes = $this->Database->recipes()->orderBy('name');
-		}
-		else
-		{
-			$recipes = $this->Database->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name');
-		}
+		$recipes = $this->Database->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name');
 		$recipesResolved = $this->RecipesService->GetRecipesResolved();
 
 		$selectedRecipe = null;

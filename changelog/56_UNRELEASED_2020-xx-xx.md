@@ -17,6 +17,7 @@
 - Fixed that the recipe "fullscreen card" was not correctly displayed
 - Fixed that nested recipes showed all ingredients of the nested recipes twice
 - Fixed that when displaying or consuming a recipe from the meal plan the serving amount was maybe wrong (was the one from the recipe instead the one from the meal plan entry) (thanks @kriddles)
+- Fixed that the stock fulfillment counts on the recipe card were maybe wrong if that recipe was also added to the meal plan (thanks @kriddles)
 
 ### Meal plan improvements
 - Improved that all add-dialogs can be submitted by using `ENTER` and that the next input is automatically selected after selecting a recipe/product

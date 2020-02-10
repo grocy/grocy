@@ -1,4 +1,3 @@
-
 DROP VIEW recipes_pos_resolved;
 CREATE VIEW recipes_pos_resolved
 AS
