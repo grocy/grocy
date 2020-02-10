@@ -468,6 +468,33 @@
 	<script src="{{ $U('/js/grocy_nightmode.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy_clock.js?v=', true) }}{{ $version }}"></script>
 	@stack('pageScripts')
+	
+	@php
+	// @stack('componentScripts') maybe contains the components JS file reference multiple times
+	// if the component was included more than once in the view
+	//
+	// So this is a ugly hack to keep only unique JS file references there
+
+	// The property is normally protected, so change that
+	$reflection = new \ReflectionClass($__env);
+	$property = $reflection->getProperty('pushes');
+	$property->setAccessible(true);
+
+	// Take every line into a new array, one element per line
+	$filteredStack = array_map(function($value)
+	{
+		return explode("#SEP#", str_replace(array("\n", "\r", "\t"), '#SEP#', trim($value)));
+	}, $property->getValue($__env)['componentScripts']);
+
+	// Flatten the array into a single one, only keep unique lines, remove empty lines
+	$filteredStack = array_filter(array_unique(array_merge(...$filteredStack)));
+
+	// Write it back
+	$env = $property->getValue($__env);
+	$env['componentScripts'] = $filteredStack;
+	$property->setValue($__env, $env);
+	@endphp
+
 	@stack('componentScripts')
 	@hasSection('viewJsName')<script src="{{ $U('/viewjs', true) }}/@yield('viewJsName').js?v={{ $version }}"></script>@endif
 
