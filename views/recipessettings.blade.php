@@ -9,11 +9,11 @@
 	<div class="col-lg-6 col-xs-12">
 		<h1>@yield('title')</h1>
 
-		<h4 class="mt-2">{{ $__t('Recipe card ingredients') }}</h4>
+		<h4 class="mt-2">{{ $__t('Recipe card') }}</h4>
 		<div class="form-group">
 			<div class="checkbox">
-				<label for="recipe_ingredient_display_product_group">
-					<input type="checkbox" class="user-setting-control" id="recipe_ingredient_display_product_group" name="recipe_ingredient_display_product_group" data-setting-key="recipe_ingredient_display_product_group"> {{ $__t('In the recipe card ingredients, display product groups') }}
+				<label for="recipe_ingredients_group_by_product_group">
+					<input type="checkbox" class="user-setting-control" id="recipe_ingredients_group_by_product_group" data-setting-key="recipe_ingredients_group_by_product_group"> {{ $__t('Group ingredients by their product group') }}
 				</label>
 			</div>
 		</div>

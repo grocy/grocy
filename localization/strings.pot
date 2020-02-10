@@ -1735,3 +1735,12 @@ msgstr ""
 
 msgid "Base: %s"
 msgstr ""
+
+msgid "Recipes settings"
+msgstr ""
+
+msgid "Recipe card"
+msgstr ""
+
+msgid "Group ingredients by their product group"
+msgstr ""

@@ -99,6 +99,9 @@ DefaultUserSetting('shopping_list_to_stock_workflow_auto_submit_when_prefilled',
 DefaultUserSetting('shopping_list_show_calendar', false);
 DefaultUserSetting('shopping_list_disable_auto_compact_view_on_mobile', false);
 
+# Recipe settings
+DefaultUserSetting('recipe_ingredients_group_by_product_group', false); // Group recipe ingredients by their product group
+
 # Chores settings
 DefaultUserSetting('chores_due_soon_days', 5);
 
@@ -107,9 +110,6 @@ DefaultUserSetting('batteries_due_soon_days', 5);
 
 # Tasks settings
 DefaultUserSetting('tasks_due_soon_days', 5);
-
-# Recipe settings
-DefaultUserSetting('recipe_ingredient_display_product_group', false); // Display the product group information in the ingredient list
 
 # If the page should be automatically reloaded when there was
 # an external change

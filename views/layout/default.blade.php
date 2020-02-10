@@ -395,6 +395,9 @@
 						@if(GROCY_FEATURE_FLAG_SHOPPINGLIST)
 						<a class="dropdown-item discrete-link" href="{{ $U('/shoppinglistsettings') }}"><i class="fas fa-shopping-cart"></i>&nbsp;{{ $__t('Shopping list settings') }}</a>
 						@endif
+						@if(GROCY_FEATURE_FLAG_RECIPES)
+						<a class="dropdown-item discrete-link" href="{{ $U('/recipessettings') }}"><i class="fas fa-cocktail"></i>&nbsp;{{ $__t('Recipes settings') }}</a>
+						@endif
 						@if(GROCY_FEATURE_FLAG_CHORES)
 						<a class="dropdown-item discrete-link" href="{{ $U('/choressettings') }}"><i class="fas fa-home"></i>&nbsp;{{ $__t('Chores settings') }}</a>
 						@endif
@@ -403,9 +406,6 @@
 						@endif
 						@if(GROCY_FEATURE_FLAG_TASKS)
 						<a class="dropdown-item discrete-link" href="{{ $U('/taskssettings') }}"><i class="fas fa-tasks"></i>&nbsp;{{ $__t('Tasks settings') }}</a>
-						@endif
-						@if(GROCY_FEATURE_FLAG_RECIPES)
-						<a class="dropdown-item discrete-link" href="{{ $U('/recipessettings') }}"><i class="fas fa-cocktail"></i>&nbsp;{{ $__t('Recipes settings') }}</a>
 						@endif
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item discrete-link" href="{{ $U('/users') }}"><i class="fas fa-users"></i>&nbsp;{{ $__t('Manage users') }}</a>

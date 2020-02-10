@@ -201,7 +201,7 @@
 						@if($lastIngredientGroup != $selectedRecipePosition->ingredient_group)
 							<h5 class="mb-2 mt-2 ml-2"><strong>{{ $selectedRecipePosition->ingredient_group }}</strong></h5>
 						@endif
-						@if(boolval($userSettings['recipe_ingredient_display_product_group']) && $lastProductGroup != $selectedRecipePosition->product_group)
+						@if(boolval($userSettings['recipe_ingredients_group_by_product_group']) && $lastProductGroup != $selectedRecipePosition->product_group)
 							<h6 class="mb-2 mt-2 ml-4"><strong>{{ $selectedRecipePosition->product_group }}</strong></h6>
 						@endif
 						<li class="list-group-item px-0 ml-5">
@@ -258,7 +258,7 @@
 					@if($lastIngredientGroup != $selectedRecipePosition->ingredient_group)
 						<h5 class="mb-2 mt-2 ml-2"><strong>{{ $selectedRecipePosition->ingredient_group }}</strong></h5>
 					@endif
-					@if(boolval($userSettings['recipe_ingredient_display_product_group']) && $lastProductGroup != $selectedRecipePosition->product_group)
+					@if(boolval($userSettings['recipe_ingredients_group_by_product_group']) && $lastProductGroup != $selectedRecipePosition->product_group)
 						<h6 class="mb-2 mt-2 ml-4"><strong>{{ $selectedRecipePosition->product_group }}</strong></h6>
 					@endif
 					<li class="list-group-item px-0 ml-5">

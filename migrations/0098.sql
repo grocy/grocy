@@ -18,6 +18,7 @@ SELECT
 	(CASE WHEN rp.only_check_single_unit_in_stock = 1 THEN 1 ELSE rp.amount * (r.desired_servings*1.0 / r.base_servings*1.0) * (rnr.includes_servings*1.0 / CASE WHEN rnr.recipe_id != rnr.includes_recipe_id THEN rnrr.base_servings*1.0 ELSE 1 END) END / p.qu_factor_purchase_to_stock) * pcp.last_price * rp.price_factor AS costs,
 	CASE WHEN rnr.recipe_id = rnr.includes_recipe_id THEN 0 ELSE 1 END AS is_nested_recipe_pos,
 	rp.ingredient_group,
+	pg.name as product_group,
 	rp.id, -- Just a dummy id column
 	r.type as recipe_type,
 	rnr.includes_recipe_id as child_recipe_id,
@@ -34,6 +35,8 @@ JOIN recipes_pos rp
 	ON rnr.includes_recipe_id = rp.recipe_id
 JOIN products p
 	ON rp.product_id = p.id
+LEFT JOIN product_groups pg
+	ON p.product_group_id = pg.id
 LEFT JOIN (
 	SELECT product_id, SUM(amount) AS amount
 	FROM shopping_list
@@ -63,6 +66,7 @@ SELECT
 	(CASE WHEN rp.only_check_single_unit_in_stock = 1 THEN 1 ELSE rp.amount * (r.desired_servings*1.0 / r.base_servings*1.0) * (rnr.includes_servings*1.0 / CASE WHEN rnr.recipe_id != rnr.includes_recipe_id THEN rnrr.base_servings*1.0 ELSE 1 END) END / p.qu_factor_purchase_to_stock) * pcp.last_price * rp.price_factor AS costs,
 	CASE WHEN rnr.recipe_id = rnr.includes_recipe_id THEN 0 ELSE 1 END AS is_nested_recipe_pos,
 	rp.ingredient_group,
+	pg.name as product_group,
 	rp.id, -- Just a dummy id column
 	r.type as recipe_type,
 	rnr.includes_recipe_id as child_recipe_id,
@@ -79,6 +83,8 @@ JOIN recipes_pos rp
 	ON rnr.includes_recipe_id = rp.recipe_id
 JOIN products p
 	ON rp.product_id = p.id
+LEFT JOIN product_groups pg
+	ON p.product_group_id = pg.id
 LEFT JOIN (
 	SELECT product_id, SUM(amount) AS amount
 	FROM shopping_list
