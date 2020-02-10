@@ -195,16 +195,22 @@
 					@if(count($selectedRecipeSubRecipePositionsFiltered) > 0)
 					<h5 class="mb-0">{{ $__t('Ingredients') }}</h5>
 					<ul class="list-group list-group-flush">
-						@php $lastIngredientGroup = 'undefined'; @endphp
-						@php $lastProductGroup = 'undefined'; @endphp
+						@php
+							$lastIngredientGroup = 'undefined';
+							$lastProductGroup = 'undefined';
+							$hasIngredientGroups = false;
+							$hasProductGroups = false;
+						@endphp
 						@foreach($selectedRecipeSubRecipePositionsFiltered as $selectedRecipePosition)
-						@if($lastIngredientGroup != $selectedRecipePosition->ingredient_group)
-							<h5 class="mb-2 mt-2 ml-2"><strong>{{ $selectedRecipePosition->ingredient_group }}</strong></h5>
+						@if($lastIngredientGroup != $selectedRecipePosition->ingredient_group && !empty($selectedRecipePosition->ingredient_group))
+							@php $hasIngredientGroups = true; @endphp
+							<h5 class="mb-2 mt-2 ml-1"><strong>{{ $selectedRecipePosition->ingredient_group }}</strong></h5>
 						@endif
-						@if(boolval($userSettings['recipe_ingredients_group_by_product_group']) && $lastProductGroup != $selectedRecipePosition->product_group)
-							<h6 class="mb-2 mt-2 ml-4"><strong>{{ $selectedRecipePosition->product_group }}</strong></h6>
+						@if(boolval($userSettings['recipe_ingredients_group_by_product_group']) && $lastProductGroup != $selectedRecipePosition->product_group && !empty($selectedRecipePosition->product_group))
+							@php $hasProductGroups = true; @endphp
+							<h6 class="mb-2 mt-2 @if($hasIngredientGroups) ml-3 @else ml-1 @endif"><strong>{{ $selectedRecipePosition->product_group }}</strong></h6>
 						@endif
-						<li class="list-group-item px-0 ml-5">
+						<li class="list-group-item px-0 @if($hasIngredientGroups && $hasProductGroups) ml-4 @elseif($hasIngredientGroups || $hasProductGroups) ml-2 @else ml-0 @endif">
 							@php
 								$product = FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id);
 								$productQuConversions = FindAllObjectsInArrayByPropertyValue($quantityUnitConversionsResolved, 'product_id', $product->id);
@@ -252,16 +258,22 @@
 				@if($selectedRecipePositionsResolved->count() > 0)
 				<h5 class="mb-0">{{ $__t('Ingredients') }}</h5>
 				<ul class="list-group list-group-flush">
-					@php $lastIngredientGroup = 'undefined'; @endphp
-					@php $lastProductGroup = 'undefined'; @endphp
+					@php
+						$lastIngredientGroup = 'undefined';
+						$lastProductGroup = 'undefined';
+						$hasIngredientGroups = false;
+						$hasProductGroups = false;
+					@endphp
 					@foreach($selectedRecipePositionsResolved as $selectedRecipePosition)
-					@if($lastIngredientGroup != $selectedRecipePosition->ingredient_group)
-						<h5 class="mb-2 mt-2 ml-2"><strong>{{ $selectedRecipePosition->ingredient_group }}</strong></h5>
+					@if($lastIngredientGroup != $selectedRecipePosition->ingredient_group && !empty($selectedRecipePosition->ingredient_group))
+						@php $hasIngredientGroups = true; @endphp
+						<h5 class="mb-2 mt-2 ml-1"><strong>{{ $selectedRecipePosition->ingredient_group }}</strong></h5>
 					@endif
-					@if(boolval($userSettings['recipe_ingredients_group_by_product_group']) && $lastProductGroup != $selectedRecipePosition->product_group)
-						<h6 class="mb-2 mt-2 ml-4"><strong>{{ $selectedRecipePosition->product_group }}</strong></h6>
+					@if(boolval($userSettings['recipe_ingredients_group_by_product_group']) && $lastProductGroup != $selectedRecipePosition->product_group && !empty($selectedRecipePosition->product_group))
+						@php $hasProductGroups = true; @endphp
+						<h6 class="mb-2 mt-2 @if($hasIngredientGroups) ml-3 @else ml-1 @endif"><strong>{{ $selectedRecipePosition->product_group }}</strong></h6>
 					@endif
-					<li class="list-group-item px-0 ml-5">
+					<li class="list-group-item px-0 @if($hasIngredientGroups && $hasProductGroups) ml-4 @elseif($hasIngredientGroups || $hasProductGroups) ml-2 @else ml-0 @endif">
 						@php
 							$product = FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id);
 							$productQuConversions = FindAllObjectsInArrayByPropertyValue($quantityUnitConversionsResolved, 'product_id', $product->id);
