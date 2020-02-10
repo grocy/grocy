@@ -479,20 +479,23 @@
 	$reflection = new \ReflectionClass($__env);
 	$property = $reflection->getProperty('pushes');
 	$property->setAccessible(true);
-
-	// Take every line into a new array, one element per line
-	$filteredStack = array_map(function($value)
-	{
-		return explode("#SEP#", str_replace(array("\n", "\r", "\t"), '#SEP#', trim($value)));
-	}, $property->getValue($__env)['componentScripts']);
-
-	// Flatten the array into a single one, only keep unique lines, remove empty lines
-	$filteredStack = array_filter(array_unique(array_merge(...$filteredStack)));
-
-	// Write it back
 	$env = $property->getValue($__env);
-	$env['componentScripts'] = $filteredStack;
-	$property->setValue($__env, $env);
+
+	if (array_key_exists('componentScripts', $env))
+	{
+		// Take every line into a new array, one element per line
+		$filteredStack = array_map(function($value)
+		{
+			return explode("#SEP#", str_replace(array("\n", "\r", "\t"), '#SEP#', trim($value)));
+		}, $env['componentScripts']);
+
+		// Flatten the array into a single one, only keep unique lines, remove empty lines, add a defined new line
+		$filteredStack = preg_filter('/$/', "\n", array_filter(array_unique(array_merge(...$filteredStack))));
+
+		// Write it back
+		$env['componentScripts'] = $filteredStack;
+		$property->setValue($__env, $env);
+	}
 	@endphp
 
 	@stack('componentScripts')
