@@ -694,6 +694,7 @@ $(document).on('click', '.recipe-consume-button', function(e)
 							{
 								Grocy.FrontendHelpers.EndUiBusy();
 								toastr.success(__t('Removed all ingredients of recipe "%s" from stock', objectName));
+								window.location.reload();
 							},
 							function(xhr)
 							{
