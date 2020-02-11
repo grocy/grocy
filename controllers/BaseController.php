@@ -77,12 +77,7 @@ class BaseController
 
 		$this->AppContainer = $container;
 	}
-
-	public function Root(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
-	{
-		return $response;
-	}
-
+	
 	protected $AppContainer;
 	protected $Database;
 	protected $LocalizationService;
