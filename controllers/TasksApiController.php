@@ -6,7 +6,7 @@ use \Grocy\Services\TasksService;
 
 class TasksApiController extends BaseApiController
 {
-	public function __construct(\Slim\Container $container)
+	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 		$this->TasksService = new TasksService();
@@ -14,12 +14,12 @@ class TasksApiController extends BaseApiController
 
 	protected $TasksService;
 
-	public function Current(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function Current(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->ApiResponse($this->TasksService->GetCurrent());
+		return $this->ApiResponse($response, $this->TasksService->GetCurrent());
 	}
 
-	public function MarkTaskAsCompleted(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function MarkTaskAsCompleted(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$requestBody = $request->getParsedBody();
 
@@ -40,7 +40,7 @@ class TasksApiController extends BaseApiController
 		}
 	}
 
-	public function UndoTask(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function UndoTask(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{

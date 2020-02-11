@@ -10,13 +10,13 @@ class SystemController extends BaseController
 {
 	protected $ApplicationService;
 
-	public function __construct(\Slim\Container $container)
+	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 		$this->ApplicationService = new ApplicationService();
 	}
 
-	public function Root(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function Root(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		// Schema migration is done here
 		$databaseMigrationService = new DatabaseMigrationService();
@@ -28,7 +28,7 @@ class SystemController extends BaseController
 			$demoDataGeneratorService->PopulateDemoData();
 		}
 
-		return $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl($this->GetEntryPageRelative()));
+		return $response->withRedirect($this->AppContainer->get('UrlManager')->ConstructUrl($this->GetEntryPageRelative()));
 	}
 
 	/**
@@ -94,16 +94,16 @@ class SystemController extends BaseController
 		return '/about';
 	}
 
-	public function About(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function About(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'about', [
+		return $this->View->render($response, 'about', [
 			'system_info' => $this->ApplicationService->GetSystemInfo(),
 			'changelog' => $this->ApplicationService->GetChangelog()
 		]);
 	}
 
-	public function BarcodeScannerTesting(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function BarcodeScannerTesting(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'barcodescannertesting');
+		return $this->View->render($response, 'barcodescannertesting');
 	}
 }

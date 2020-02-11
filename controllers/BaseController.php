@@ -9,7 +9,7 @@ use \Grocy\Services\UsersService;
 
 class BaseController
 {
-	public function __construct(\Slim\Container $container) {
+	public function __construct(\DI\Container $container) {
 		$databaseService = new DatabaseService();
 		$this->Database = $databaseService->GetDbConnection();
 		
@@ -18,30 +18,33 @@ class BaseController
 
 		$applicationService = new ApplicationService();
 		$versionInfo = $applicationService->GetInstalledVersion();
-		$container->view->set('version', $versionInfo->Version);
-		$container->view->set('releaseDate', $versionInfo->ReleaseDate);
 
-		$container->view->set('__t', function(string $text, ...$placeholderValues) use($localizationService)
+		$view = $container->get('view');
+		$this->View = $view;
+
+		$view->set('version', $versionInfo->Version);
+		$view->set('releaseDate', $versionInfo->ReleaseDate);
+		$view->set('__t', function(string $text, ...$placeholderValues) use($localizationService)
 		{
 			return $localizationService->__t($text, $placeholderValues);
 		});
-		$container->view->set('__n', function($number, $singularForm, $pluralForm) use($localizationService)
+		$view->set('__n', function($number, $singularForm, $pluralForm) use($localizationService)
 		{
 			return $localizationService->__n($number, $singularForm, $pluralForm);
 		});
-		$container->view->set('GettextPo', $localizationService->GetPoAsJsonString());
+		$view->set('GettextPo', $localizationService->GetPoAsJsonString());
 
-		$container->view->set('U', function($relativePath, $isResource = false) use($container)
+		$view->set('U', function($relativePath, $isResource = false) use($container)
 		{
-			return $container->UrlManager->ConstructUrl($relativePath, $isResource);
+			return $container->get('UrlManager')->ConstructUrl($relativePath, $isResource);
 		});
 
 		$embedded = false;
-		if (isset($container->request->getQueryParams()['embedded']))
+		if (isset($_GET['embedded']))
 		{
 			$embedded = true;
 		}
-		$container->view->set('embedded', $embedded);
+		$view->set('embedded', $embedded);
 
 		$constants = get_defined_constants();
 		foreach ($constants as $constant => $value)
@@ -51,20 +54,20 @@ class BaseController
 				unset($constants[$constant]);
 			}
 		}
-		$container->view->set('featureFlags', $constants);
+		$view->set('featureFlags', $constants);
 
-		$container->view->set('userentitiesForSidebar', $this->Database->userentities()->where('show_in_sidebar_menu = 1')->orderBy('name'));
+		$view->set('userentitiesForSidebar', $this->Database->userentities()->where('show_in_sidebar_menu = 1')->orderBy('name'));
 
 		try
 		{
 			$usersService = new UsersService();
 			if (defined('GROCY_USER_ID'))
 			{
-				$container->view->set('userSettings', $usersService->GetUserSettings(GROCY_USER_ID));
+				$view->set('userSettings', $usersService->GetUserSettings(GROCY_USER_ID));
 			}
 			else
 			{
-				$container->view->set('userSettings', null);
+				$view->set('userSettings', null);
 			}
 		}
 		catch (\Exception $ex)
@@ -75,7 +78,13 @@ class BaseController
 		$this->AppContainer = $container;
 	}
 
+	public function Root(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		return $response;
+	}
+
 	protected $AppContainer;
 	protected $Database;
 	protected $LocalizationService;
+	protected $View;
 }

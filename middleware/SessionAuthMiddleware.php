@@ -2,12 +2,17 @@
 
 namespace Grocy\Middleware;
 
-use \Grocy\Services\SessionService;
-use \Grocy\Services\LocalizationService;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
+use Psr\Http\Message\ResponseInterface as Response;
+use Slim\Routing\RouteContext;
+
+use Grocy\Services\SessionService;
+use Grocy\Services\LocalizationService;
 
 class SessionAuthMiddleware extends BaseMiddleware
 {
-	public function __construct(\Slim\Container $container, string $sessionCookieName)
+	public function __construct(\DI\Container $container, string $sessionCookieName)
 	{
 		parent::__construct($container);
 		$this->SessionCookieName = $sessionCookieName;
@@ -15,15 +20,16 @@ class SessionAuthMiddleware extends BaseMiddleware
 
 	protected $SessionCookieName;
 
-	public function __invoke(\Slim\Http\Request $request, \Slim\Http\Response $response, callable $next)
+	public function __invoke(Request $request, RequestHandler $handler): Response
 	{
-		$route = $request->getAttribute('route');
+		$routeContext = RouteContext::fromRequest($request);
+		$route = $routeContext->getRoute();
 		$routeName = $route->getName();
 		$sessionService = new SessionService();
 
 		if ($routeName === 'root')
 		{
-			$response = $next($request, $response);
+			$response = $handler->handle($request);
 		}
 		elseif (GROCY_MODE === 'dev' || GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease' || GROCY_IS_EMBEDDED_INSTALL || GROCY_DISABLE_AUTH)
 		{
@@ -31,14 +37,15 @@ class SessionAuthMiddleware extends BaseMiddleware
 			define('GROCY_AUTHENTICATED', true);
 			define('GROCY_USER_USERNAME', $user->username);
 
-			$response = $next($request, $response);
+			$response = $handler->handle($request);
 		}
 		else
 		{
 			if ((!isset($_COOKIE[$this->SessionCookieName]) || !$sessionService->IsValidSession($_COOKIE[$this->SessionCookieName])) && $routeName !== 'login')
 			{
 				define('GROCY_AUTHENTICATED', false);
-				$response = $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl('/login'));
+				$response = $handler->handle($request);
+				$response = $response->withHeader('Location', $this->AppContainer->get('UrlManager')->ConstructUrl('/login'));
 			}
 			else
 			{
@@ -54,7 +61,7 @@ class SessionAuthMiddleware extends BaseMiddleware
 					define('GROCY_AUTHENTICATED', false);
 				}
 
-				$response = $next($request, $response);
+				$response = $handler->handle($request);
 			}
 		}
 

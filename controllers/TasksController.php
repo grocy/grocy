@@ -8,7 +8,7 @@ use \Grocy\Services\UserfieldsService;
 
 class TasksController extends BaseController
 {
-	public function __construct(\Slim\Container $container)
+	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 		$this->TasksService = new TasksService();
@@ -18,7 +18,7 @@ class TasksController extends BaseController
 	protected $TasksService;
 	protected $UserfieldsService;
 
-	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if (isset($request->getQueryParams()['include_done']))
 		{
@@ -32,7 +32,7 @@ class TasksController extends BaseController
 		$usersService = new UsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['tasks_due_soon_days'];
 
-		return $this->AppContainer->view->render($response, 'tasks', [
+		return $this->View->render($response, 'tasks', [
 			'tasks' => $tasks,
 			'nextXDays' => $nextXDays,
 			'taskCategories' => $this->Database->task_categories()->orderBy('name'),
@@ -42,11 +42,11 @@ class TasksController extends BaseController
 		]);
 	}
 
-	public function TaskEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function TaskEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($args['taskId'] == 'new')
 		{
-			return $this->AppContainer->view->render($response, 'taskform', [
+			return $this->View->render($response, 'taskform', [
 				'mode' => 'create',
 				'taskCategories' => $this->Database->task_categories()->orderBy('name'),
 				'users' => $this->Database->users()->orderBy('username'),
@@ -55,7 +55,7 @@ class TasksController extends BaseController
 		}
 		else
 		{
-			return $this->AppContainer->view->render($response, 'taskform', [
+			return $this->View->render($response, 'taskform', [
 				'task' =>  $this->Database->tasks($args['taskId']),
 				'mode' => 'edit',
 				'taskCategories' => $this->Database->task_categories()->orderBy('name'),
@@ -65,27 +65,27 @@ class TasksController extends BaseController
 		}
 	}
 
-	public function TaskCategoriesList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function TaskCategoriesList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'taskcategories', [
+		return $this->View->render($response, 'taskcategories', [
 			'taskCategories' => $this->Database->task_categories()->orderBy('name'),
 			'userfields' => $this->UserfieldsService->GetFields('task_categories'),
 			'userfieldValues' => $this->UserfieldsService->GetAllValues('task_categories')
 		]);
 	}
 
-	public function TaskCategoryEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function TaskCategoryEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($args['categoryId'] == 'new')
 		{
-			return $this->AppContainer->view->render($response, 'taskcategoryform', [
+			return $this->View->render($response, 'taskcategoryform', [
 				'mode' => 'create',
 				'userfields' => $this->UserfieldsService->GetFields('task_categories')
 			]);
 		}
 		else
 		{
-			return $this->AppContainer->view->render($response, 'taskcategoryform', [
+			return $this->View->render($response, 'taskcategoryform', [
 				'category' =>  $this->Database->task_categories($args['categoryId']),
 				'mode' => 'edit',
 				'userfields' => $this->UserfieldsService->GetFields('task_categories')
@@ -93,8 +93,8 @@ class TasksController extends BaseController
 		}
 	}
 
-	public function TasksSettings(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function TasksSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'taskssettings');
+		return $this->View->render($response, 'taskssettings');
 	}
 }

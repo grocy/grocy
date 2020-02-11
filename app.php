@@ -1,10 +1,12 @@
 <?php
 
-use \Psr\Http\Message\ServerRequestInterface as Request;
-use \Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Container\ContainerInterface as Container;
+use Slim\Factory\AppFactory;
 
-use \Grocy\Helpers\UrlManager;
-use \Grocy\Controllers\LoginController;
+use Grocy\Helpers\UrlManager;
+use Grocy\Controllers\LoginController;
 
 // Definitions for embedded mode
 if (file_exists(__DIR__ . '/embedded.txt'))
@@ -42,31 +44,32 @@ if (GROCY_DISABLE_AUTH === true)
 }
 
 // Setup base application
-$appContainer = new \Slim\Container([
-	'settings' => [
-		'displayErrorDetails' => true,
-		'determineRouteBeforeAppMiddleware' => true
-	],
-	'view' => function($container)
-	{
-		return new \Slim\Views\Blade(__DIR__ . '/views', GROCY_DATAPATH . '/viewcache');
-	},
-	'LoginControllerInstance' => function($container)
-	{
-		return new LoginController($container, 'grocy_session');
-	},
-	'UrlManager' => function($container)
-	{
-		return new UrlManager(GROCY_BASE_URL);
-	},
-	'ApiKeyHeaderName' => function($container)
-	{
-		return 'GROCY-API-KEY';
-	}
-]);
-$app = new \Slim\App($appContainer);
+AppFactory::setContainer(new DI\Container());
+$app = AppFactory::create();
+
+$container = $app->getContainer();
+$container->set('view', function(Container $container)
+{
+	return new Slim\Views\Blade(__DIR__ . '/views', GROCY_DATAPATH . '/viewcache');
+});
+$container->set('LoginControllerInstance', function(Container $container)
+{
+	return new LoginController($container, 'grocy_session');
+});
+$container->set('UrlManager', function(Container $container)
+{
+	return new UrlManager(GROCY_BASE_URL);
+});
+$container->set('ApiKeyHeaderName', function(Container $container)
+{
+	return 'GROCY-API-KEY';
+});
 
 // Load routes from separate file
 require_once __DIR__ . '/routes.php';
+
+// Add default middleware
+$app->addRoutingMiddleware();
+$app->addErrorMiddleware(true, false, false);
 
 $app->run();

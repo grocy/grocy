@@ -6,7 +6,7 @@ use \Grocy\Services\RecipesService;
 
 class RecipesApiController extends BaseApiController
 {
-	public function __construct(\Slim\Container $container)
+	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 		$this->RecipesService = new RecipesService();
@@ -14,7 +14,7 @@ class RecipesApiController extends BaseApiController
 
 	protected $RecipesService;
 
-	public function AddNotFulfilledProductsToShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function AddNotFulfilledProductsToShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$requestBody = $request->getParsedBody();
 		$excludedProductIds = null;
@@ -28,7 +28,7 @@ class RecipesApiController extends BaseApiController
 		return $this->EmptyApiResponse($response);
 	}
 
-	public function ConsumeRecipe(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function ConsumeRecipe(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -41,13 +41,13 @@ class RecipesApiController extends BaseApiController
 		}
 	}
 
-	public function GetRecipeFulfillment(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function GetRecipeFulfillment(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{ 
 			if(!isset($args['recipeId']))
 			{
-				return $this->ApiResponse($this->RecipesService->GetRecipesResolved());
+				return $this->ApiResponse($response, $this->RecipesService->GetRecipesResolved());
 			}
 
 			$recipeResolved = FindObjectInArrayByPropertyValue($this->RecipesService->GetRecipesResolved(), 'recipe_id', $args['recipeId']);
@@ -57,7 +57,7 @@ class RecipesApiController extends BaseApiController
 			}
 			else
 			{
-				return $this->ApiResponse($recipeResolved);
+				return $this->ApiResponse($response, $recipeResolved);
 			}
 		} 
 		catch (\Exception $ex)

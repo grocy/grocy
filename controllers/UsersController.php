@@ -4,24 +4,24 @@ namespace Grocy\Controllers;
 
 class UsersController extends BaseController
 {
-	public function UsersList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function UsersList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'users', [
+		return $this->View->render($response, 'users', [
 			'users' => $this->Database->users()->orderBy('username')
 		]);
 	}
 
-	public function UserEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function UserEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($args['userId'] == 'new')
 		{
-			return $this->AppContainer->view->render($response, 'userform', [
+			return $this->View->render($response, 'userform', [
 				'mode' => 'create'
 			]);
 		}
 		else
 		{
-			return $this->AppContainer->view->render($response, 'userform', [
+			return $this->View->render($response, 'userform', [
 				'user' =>  $this->Database->users($args['userId']),
 				'mode' => 'edit'
 			]);

@@ -8,7 +8,7 @@ use \Grocy\Services\UserfieldsService;
 
 class RecipesController extends BaseController
 {
-	public function __construct(\Slim\Container $container)
+	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 		$this->RecipesService = new RecipesService();
@@ -20,7 +20,7 @@ class RecipesController extends BaseController
 	protected $StockService;
 	protected $UserfieldsService;
 
-	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$recipes = $this->Database->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name');
 		$recipesResolved = $this->RecipesService->GetRecipesResolved();
@@ -52,7 +52,7 @@ class RecipesController extends BaseController
 			$includedRecipeIdsAbsolute[] = $subRecipe->id;
 		}
 
-		return $this->AppContainer->view->render($response, 'recipes', [
+		return $this->View->render($response, 'recipes', [
 			'recipes' => $recipes,
 			'recipesResolved' => $recipesResolved,
 			'recipePositionsResolved' => $this->Database->recipes_pos_resolved()->where('recipe_type', RecipesService::RECIPE_TYPE_NORMAL),
@@ -71,7 +71,7 @@ class RecipesController extends BaseController
 		]);
 	}
 
-	public function RecipeEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function RecipeEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$recipeId = $args['recipeId'];
 		if ($recipeId  == 'new')
@@ -84,7 +84,7 @@ class RecipesController extends BaseController
 			$recipeId = $this->Database->lastInsertId();
 		}
 		
-		return $this->AppContainer->view->render($response, 'recipeform', [
+		return $this->View->render($response, 'recipeform', [
 			'recipe' =>  $this->Database->recipes($recipeId),
 			'recipePositions' =>  $this->Database->recipes_pos()->where('recipe_id', $recipeId),
 			'mode' => 'edit',
@@ -99,11 +99,11 @@ class RecipesController extends BaseController
 		]);
 	}
 
-	public function RecipePosEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function RecipePosEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($args['recipePosId'] == 'new')
 		{
-			return $this->AppContainer->view->render($response, 'recipeposform', [
+			return $this->View->render($response, 'recipeposform', [
 				'mode' => 'create',
 				'recipe' => $this->Database->recipes($args['recipeId']),
 				'recipePos' => new \stdClass(),
@@ -114,7 +114,7 @@ class RecipesController extends BaseController
 		}
 		else
 		{
-			return $this->AppContainer->view->render($response, 'recipeposform', [
+			return $this->View->render($response, 'recipeposform', [
 				'mode' => 'edit',
 				'recipe' =>  $this->Database->recipes($args['recipeId']),
 				'recipePos' => $this->Database->recipes_pos($args['recipePosId']),
@@ -125,12 +125,12 @@ class RecipesController extends BaseController
 		}
 	}
 
-	public function RecipesSettings(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function RecipesSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'recipessettings');
+		return $this->View->render($response, 'recipessettings');
 	}
 
-	public function MealPlan(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function MealPlan(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$recipes = $this->Database->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll();
 		
@@ -162,7 +162,7 @@ class RecipesController extends BaseController
 			);
 		}
 
-		return $this->AppContainer->view->render($response, 'mealplan', [
+		return $this->View->render($response, 'mealplan', [
 			'fullcalendarEventSources' => $events,
 			'recipes' => $recipes,
 			'internalRecipes' => $this->Database->recipes()->whereNot('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll(),

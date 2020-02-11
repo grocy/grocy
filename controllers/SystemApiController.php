@@ -7,7 +7,7 @@ use \Grocy\Services\ApplicationService;
 
 class SystemApiController extends BaseApiController
 {
-	public function __construct(\Slim\Container $container)
+	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 		$this->DatabaseService = new DatabaseService();
@@ -17,14 +17,14 @@ class SystemApiController extends BaseApiController
 	protected $DatabaseService;
 	protected $ApplicationService;
 
-	public function GetDbChangedTime(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function GetDbChangedTime(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->ApiResponse(array(
+		return $this->ApiResponse($response, array(
 			'changed_time' => $this->DatabaseService->GetDbChangedTime()
 		));
 	}
 
-	public function LogMissingLocalization(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function LogMissingLocalization(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if (GROCY_MODE === 'dev')
 		{
@@ -42,8 +42,8 @@ class SystemApiController extends BaseApiController
 		}	
 	}
 
-	public function GetSystemInfo(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function GetSystemInfo(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->ApiResponse($this->ApplicationService->GetSystemInfo());
+		return $this->ApiResponse($response, $this->ApplicationService->GetSystemInfo());
 	}
 }

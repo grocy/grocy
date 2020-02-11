@@ -6,7 +6,7 @@ use \Grocy\Services\UserfieldsService;
 
 class GenericEntityController extends BaseController
 {
-	public function __construct(\Slim\Container $container)
+	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 		$this->UserfieldsService = new UserfieldsService();
@@ -14,26 +14,26 @@ class GenericEntityController extends BaseController
 
 	protected $UserfieldsService;
 
-	public function UserfieldsList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function UserfieldsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'userfields', [
+		return $this->View->render($response, 'userfields', [
 			'userfields' => $this->UserfieldsService->GetAllFields(),
 			'entities' => $this->UserfieldsService->GetEntities()
 		]);
 	}
 
-	public function UserentitiesList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function UserentitiesList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'userentities', [
+		return $this->View->render($response, 'userentities', [
 			'userentities' => $this->Database->userentities()->orderBy('name')
 		]);
 	}
 
-	public function UserobjectsList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function UserobjectsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$userentity = $this->Database->userentities()->where('name = :1', $args['userentityName'])->fetch();
 
-		return $this->AppContainer->view->render($response, 'userobjects', [
+		return $this->View->render($response, 'userobjects', [
 			'userentity' => $userentity,
 			'userobjects' => $this->Database->userobjects()->where('userentity_id = :1', $userentity->id),
 			'userfields' => $this->UserfieldsService->GetFields('userentity-' . $args['userentityName']),
@@ -41,11 +41,11 @@ class GenericEntityController extends BaseController
 		]);
 	}
 
-	public function UserfieldEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function UserfieldEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($args['userfieldId'] == 'new')
 		{
-			return $this->AppContainer->view->render($response, 'userfieldform', [
+			return $this->View->render($response, 'userfieldform', [
 				'mode' => 'create',
 				'userfieldTypes' => $this->UserfieldsService->GetFieldTypes(),
 				'entities' => $this->UserfieldsService->GetEntities()
@@ -53,7 +53,7 @@ class GenericEntityController extends BaseController
 		}
 		else
 		{
-			return $this->AppContainer->view->render($response, 'userfieldform', [
+			return $this->View->render($response, 'userfieldform', [
 				'mode' => 'edit',
 				'userfield' =>  $this->UserfieldsService->GetField($args['userfieldId']),
 				'userfieldTypes' => $this->UserfieldsService->GetFieldTypes(),
@@ -62,30 +62,30 @@ class GenericEntityController extends BaseController
 		}
 	}
 
-	public function UserentityEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function UserentityEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($args['userentityId'] == 'new')
 		{
-			return $this->AppContainer->view->render($response, 'userentityform', [
+			return $this->View->render($response, 'userentityform', [
 				'mode' => 'create'
 			]);
 		}
 		else
 		{
-			return $this->AppContainer->view->render($response, 'userentityform', [
+			return $this->View->render($response, 'userentityform', [
 				'mode' => 'edit',
 				'userentity' =>  $this->Database->userentities($args['userentityId'])
 			]);
 		}
 	}
 
-	public function UserobjectEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function UserobjectEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$userentity = $this->Database->userentities()->where('name = :1', $args['userentityName'])->fetch();
 
 		if ($args['userobjectId'] == 'new')
 		{
-			return $this->AppContainer->view->render($response, 'userobjectform', [
+			return $this->View->render($response, 'userobjectform', [
 				'userentity' => $userentity,
 				'mode' => 'create',
 				'userfields' => $this->UserfieldsService->GetFields('userentity-' . $args['userentityName'])
@@ -93,7 +93,7 @@ class GenericEntityController extends BaseController
 		}
 		else
 		{
-			return $this->AppContainer->view->render($response, 'userobjectform', [
+			return $this->View->render($response, 'userobjectform', [
 				'userentity' => $userentity,
 				'mode' => 'edit',
 				'userobject' =>  $this->Database->userobjects($args['userobjectId']),

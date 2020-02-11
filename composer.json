@@ -1,14 +1,17 @@
 {
 	"require": {
 		"php": ">=7.2",
-		"slim/slim": "^3.12.2",
-		"morris/lessql": "^0.4.1",
+		"slim/slim": "^4.0",
+		"slim/psr7": "^1.0",
+		"slim/http": "^1.0",
+		"php-di/php-di": "^6.0",
 		"rubellum/slim-blade-view": "^0.1.1",
-		"tuupola/cors-middleware": "^1.0.0",
-		"eluceo/ical": "^0.15.1",
-		"erusev/parsedown": "^1.7.3",
-		"gettext/gettext": "^4.6.3",
-		"gumlet/php-image-resize": "^1.9.2"
+		"tuupola/cors-middleware": "^1.1",
+		"morris/lessql": "^0.4.1",
+		"gettext/gettext": "^4.8",
+		"eluceo/ical": "^0.16.0",
+		"erusev/parsedown": "^1.7",
+		"gumlet/php-image-resize": "^1.9"
 	},
 	"autoload": {
 		"psr-4": {

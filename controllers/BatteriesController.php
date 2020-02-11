@@ -8,7 +8,7 @@ use \Grocy\Services\UserfieldsService;
 
 class BatteriesController extends BaseController
 {
-	public function __construct(\Slim\Container $container)
+	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 		$this->BatteriesService = new BatteriesService();
@@ -18,12 +18,12 @@ class BatteriesController extends BaseController
 	protected $BatteriesService;
 	protected $UserfieldsService;
 
-	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$usersService = new UsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['batteries_due_soon_days'];
 
-		return $this->AppContainer->view->render($response, 'batteriesoverview', [
+		return $this->View->render($response, 'batteriesoverview', [
 			'batteries' => $this->Database->batteries()->orderBy('name'),
 			'current' => $this->BatteriesService->GetCurrent(),
 			'nextXDays' => $nextXDays,
@@ -32,34 +32,34 @@ class BatteriesController extends BaseController
 		]);
 	}
 
-	public function TrackChargeCycle(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function TrackChargeCycle(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'batterytracking', [
+		return $this->View->render($response, 'batterytracking', [
 			'batteries' =>  $this->Database->batteries()->orderBy('name')
 		]);
 	}
 
-	public function BatteriesList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function BatteriesList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'batteries', [
+		return $this->View->render($response, 'batteries', [
 			'batteries' => $this->Database->batteries()->orderBy('name'),
 			'userfields' => $this->UserfieldsService->GetFields('batteries'),
 			'userfieldValues' => $this->UserfieldsService->GetAllValues('batteries')
 		]);
 	}
 
-	public function BatteryEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function BatteryEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($args['batteryId'] == 'new')
 		{
-			return $this->AppContainer->view->render($response, 'batteryform', [
+			return $this->View->render($response, 'batteryform', [
 				'mode' => 'create',
 				'userfields' => $this->UserfieldsService->GetFields('batteries')
 			]);
 		}
 		else
 		{
-			return $this->AppContainer->view->render($response, 'batteryform', [
+			return $this->View->render($response, 'batteryform', [
 				'battery' =>  $this->Database->batteries($args['batteryId']),
 				'mode' => 'edit',
 				'userfields' => $this->UserfieldsService->GetFields('batteries')
@@ -67,16 +67,16 @@ class BatteriesController extends BaseController
 		}
 	}
 
-	public function Journal(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function Journal(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'batteriesjournal', [
+		return $this->View->render($response, 'batteriesjournal', [
 			'chargeCycles' => $this->Database->battery_charge_cycles()->orderBy('tracked_time', 'DESC'),
 			'batteries' => $this->Database->batteries()->orderBy('name')
 		]);
 	}
 
-	public function BatteriesSettings(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function BatteriesSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'batteriessettings');
+		return $this->View->render($response, 'batteriessettings');
 	}
 }
