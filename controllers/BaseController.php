@@ -145,22 +145,7 @@ class BaseController
 
 	protected function getUserfieldsService()
 	{
-		if($this->userfieldsService == null)
-		{
-			$this->userfieldsService = new UserfieldsService();
-		}
-		return $this->userfieldsService;
-	}
-
-	private $usersService = null;
-
-	protected function getUsersService()
-	{
-		if($this->usersService == null)
-		{
-			$this->usersService = new UsersService();
-		}
-		return $this->usersService;
+		return UserfieldsService::getInstance();
 	}
 	
 	protected $AppContainer;
