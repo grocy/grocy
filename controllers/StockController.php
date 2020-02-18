@@ -43,7 +43,7 @@ class StockController extends BaseController
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['stock_expring_soon_days'];
 
 		return $this->AppContainer->view($response, 'stockentries', [
-			'products' => $this->getDatabase(()->products()->orderBy('name'),
+			'products' => $this->getDatabase()->products()->orderBy('name'),
 			'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name'),
 			'stockEntries' => $this->getDatabase()->stock()->orderBy('product_id'),
@@ -73,7 +73,7 @@ class StockController extends BaseController
 
 	public function Transfer(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'transfer', [
+		return $this->View->render($response, 'transfer', [
 			'products' => $this->getDatabase()->products()->orderBy('name'),
 			'recipes' => $this->getDatabase()->recipes()->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name')
@@ -90,7 +90,7 @@ class StockController extends BaseController
 
 	public function StockEntryEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'stockentryform', [
+		return $this->View->render($response, 'stockentryform', [
 			'stockEntry' => $this->getDatabase()->stock()->where('id', $args['entryId'])->fetch(),
 			'products' => $this->getDatabase()->products()->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name')

@@ -89,7 +89,7 @@ class StockApiController extends BaseApiController
 			}
 
 			$bookingId = $this->getStockService()->AddProduct($args['productId'], $requestBody['amount'], $bestBeforeDate, $transactionType, date('Y-m-d'), $price, $locationId);
-			return $this->ApiResponse($response $this->getDatabase()->stock_log($bookingId));
+			return $this->ApiResponse($response, $this->getDatabase()->stock_log($bookingId));
 		}
 		catch (\Exception $ex)
 		{

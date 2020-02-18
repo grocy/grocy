@@ -13,6 +13,7 @@ class BaseController
 	public function __construct(\DI\Container $container) {
 
 		$this->AppContainer = $container;
+		$this->View = $container->get('view');
 	}
 
 	protected function render($response, $page, $data = [])
@@ -20,21 +21,21 @@ class BaseController
 		$container = $this->AppContainer;
 
 		$versionInfo = $this->getApplicationService()->GetInstalledVersion();
-		$container->view->set('version', $versionInfo->Version);
-		$container->view->set('releaseDate', $versionInfo->ReleaseDate);
+		$this->View->set('version', $versionInfo->Version);
+		$this->View->set('releaseDate', $versionInfo->ReleaseDate);
 
         $localizationService = $this->getLocalizationService();
-		$container->view->set('__t', function(string $text, ...$placeholderValues) use($localizationService)
+		$this->View->set('__t', function(string $text, ...$placeholderValues) use($localizationService)
 		{
 			return $localizationService->__t($text, $placeholderValues);
 		});
-		$container->view->set('__n', function($number, $singularForm, $pluralForm) use($localizationService)
+		$this->View->set('__n', function($number, $singularForm, $pluralForm) use($localizationService)
 		{
 			return $localizationService->__n($number, $singularForm, $pluralForm);
 		});
-		$container->view->set('GettextPo', $localizationService->GetPoAsJsonString());
+		$this->View->set('GettextPo', $localizationService->GetPoAsJsonString());
 
-		$container->view->set('U', function($relativePath, $isResource = false) use($container)
+		$this->View->set('U', function($relativePath, $isResource = false) use($container)
 		{
 			return $container->get('UrlManager')->ConstructUrl($relativePath, $isResource);
 		});
@@ -44,7 +45,7 @@ class BaseController
 		{
 			$embedded = true;
 		}
-		$container->view->set('embedded', $embedded);
+		$this->View->set('embedded', $embedded);
 
 		$constants = get_defined_constants();
 		foreach ($constants as $constant => $value)
@@ -54,27 +55,24 @@ class BaseController
 				unset($constants[$constant]);
 			}
 		}
-		$container->view->set('featureFlags', $constants);
+		$this->View->set('featureFlags', $constants);
 
-        $this->AppContainer = $container;
-
-		return $this->AppContainer->view->render($response, $page, $data);
+		return $this->View->render($response, $page, $data);
 	}
 
 	protected function renderPage($response, $page, $data = [])
 	{
-		$container = $this->AppContainer;
-		$container->view->set('userentitiesForSidebar', $this->getDatabase()->userentities()->where('show_in_sidebar_menu = 1')->orderBy('name'));
+		$this->View->set('userentitiesForSidebar', $this->getDatabase()->userentities()->where('show_in_sidebar_menu = 1')->orderBy('name'));
 		try
 		{
 			$usersService = $this->getUsersService();
 			if (defined('GROCY_USER_ID'))
 			{
-				$container->view->set('userSettings', $usersService->GetUserSettings(GROCY_USER_ID));
+				$this->View->set('userSettings', $usersService->GetUserSettings(GROCY_USER_ID));
 			}
 			else
 			{
-				$container->view->set('userSettings', null);
+				$this->View->set('userSettings', null);
 			}
 		}
 		catch (\Exception $ex)
@@ -82,7 +80,6 @@ class BaseController
 			// Happens when database is not initialised or migrated...
 		}
 
-		$this->AppContainer = $container;
 		return $this->render($response, $page, $data);
 	}
 
