@@ -8,23 +8,17 @@ use \Grocy\Services\UserfieldsService;
 class StockController extends BaseController
 {
 
-	public function __construct(\Slim\Container $container)
+	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 	}
 
-	protected $StockService = null;
-
     protected function getStockService()
 	{
-		if($this->StockService == null)
-		{
-			$this->StockService = StockService::getInstance();
-		}
-		return $this->StockService;
+		return StockService::getInstance();
 	}
 
-	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$usersService = $this->getUsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['stock_expring_soon_days'];
@@ -43,26 +37,24 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function Detail(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function Stockentries(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$usersService = new UsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['stock_expring_soon_days'];
 
-		return $this->AppContainer->view->render($response, 'stockdetail', [
-			'products' => $this->Database->products()->orderBy('name'),
-			'quantityunits' => $this->Database->quantity_units()->orderBy('name'),
-			'locations' => $this->Database->locations()->orderBy('name'),
-			'currentStockDetail' => $this->Database->stock()->orderBy('product_id'),
-			'currentStockLocations' => $this->StockService->GetCurrentStockLocations(),
-			'missingProducts' => $this->StockService->GetMissingProducts(),
+		return $this->AppContainer->view($response, 'stockentries', [
+			'products' => $this->getDatabase(()->products()->orderBy('name'),
+			'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name'),
+			'locations' => $this->getDatabase()->locations()->orderBy('name'),
+			'stockEntries' => $this->getDatabase()->stock()->orderBy('product_id'),
+			'currentStockLocations' => $this->getStockService()->GetCurrentStockLocations(),
 			'nextXDays' => $nextXDays,
-			'productGroups' => $this->Database->product_groups()->orderBy('name'),
-			'userfields' => $this->UserfieldsService->GetFields('products'),
-			'userfieldValues' => $this->UserfieldsService->GetAllValues('products')
+			'userfields' => $this->getUserfieldsService()->GetFields('products'),
+			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('products')
 		]);
 	}
 
-	public function Purchase(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function Purchase(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'purchase', [
 			'products' => $this->getDatabase()->products()->orderBy('name'),
@@ -70,7 +62,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function Consume(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function Consume(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'consume', [
 			'products' => $this->getDatabase()->products()->orderBy('name'),
@@ -79,7 +71,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function Transfer(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function Transfer(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->AppContainer->view->render($response, 'transfer', [
 			'products' => $this->getDatabase()->products()->orderBy('name'),
@@ -88,7 +80,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function Inventory(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function Inventory(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'inventory', [
 			'products' => $this->getDatabase()->products()->orderBy('name'),
@@ -96,15 +88,16 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function StockEdit(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function StockEntryEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->AppContainer->view->render($response, 'stockedit', [
-			'products' => $this->Database->products()->orderBy('name'),
-			'locations' => $this->Database->locations()->orderBy('name')
+		return $this->AppContainer->view->render($response, 'stockentryform', [
+			'stockEntry' => $this->getDatabase()->stock()->where('id', $args['entryId'])->fetch(),
+			'products' => $this->getDatabase()->products()->orderBy('name'),
+			'locations' => $this->getDatabase()->locations()->orderBy('name')
 		]);
 	}
 
-	public function ShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function ShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$listId = 1;
 		if (isset($request->getQueryParams()['list']))
@@ -125,7 +118,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function ProductsList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function ProductsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'products', [
 			'products' => $this->getDatabase()->products()->orderBy('name'),
@@ -137,7 +130,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function StockSettings(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function StockSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'stocksettings', [
 			'locations' => $this->getDatabase()->locations()->orderBy('name'),
@@ -146,7 +139,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function LocationsList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function LocationsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'locations', [
 			'locations' => $this->getDatabase()->locations()->orderBy('name'),
@@ -155,7 +148,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function ProductGroupsList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function ProductGroupsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'productgroups', [
 			'productGroups' => $this->getDatabase()->product_groups()->orderBy('name'),
@@ -165,7 +158,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function QuantityUnitsList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function QuantityUnitsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'quantityunits', [
 			'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name'),
@@ -174,7 +167,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function ProductEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function ProductEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($args['productId'] == 'new')
 		{
@@ -206,7 +199,7 @@ class StockController extends BaseController
 		}
 	}
 
-	public function LocationEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function LocationEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($args['locationId'] == 'new')
 		{
@@ -225,7 +218,7 @@ class StockController extends BaseController
 		}
 	}
 
-	public function ProductGroupEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function ProductGroupEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($args['productGroupId'] == 'new')
 		{
@@ -244,7 +237,7 @@ class StockController extends BaseController
 		}
 	}
 
-	public function QuantityUnitEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function QuantityUnitEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($args['quantityunitId'] == 'new')
 		{
@@ -271,7 +264,7 @@ class StockController extends BaseController
 		}
 	}
 
-	public function ShoppingListItemEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function ShoppingListItemEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($args['itemId'] == 'new')
 		{
@@ -292,7 +285,7 @@ class StockController extends BaseController
 		}
 	}
 
-	public function ShoppingListEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function ShoppingListEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($args['listId'] == 'new')
 		{
@@ -309,7 +302,12 @@ class StockController extends BaseController
 		}
 	}
 
-	public function Journal(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function ShoppingListSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		return $this->View->render($response, 'shoppinglistsettings');
+	}
+
+	public function Journal(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'stockjournal', [
 			'stockLog' => $this->getDatabase()->stock_log()->orderBy('row_created_timestamp', 'DESC'),
@@ -319,7 +317,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function LocationContentSheet(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function LocationContentSheet(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'locationcontentsheet', [
 			'products' => $this->getDatabase()->products()->orderBy('name'),
@@ -329,7 +327,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function QuantityUnitConversionEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function QuantityUnitConversionEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$product = null;
 		if (isset($request->getQueryParams()['product']))
@@ -366,7 +364,7 @@ class StockController extends BaseController
 		}
 	}
 
-	public function QuantityUnitPluralFormTesting(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function QuantityUnitPluralFormTesting(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'quantityunitpluraltesting', [
 			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name')

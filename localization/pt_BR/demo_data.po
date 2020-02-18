@@ -51,8 +51,8 @@ msgstr[1] "Vidros"
 
 msgid "Tin"
 msgid_plural "Tins"
-msgstr[0] "Lata"
-msgstr[1] "Latas"
+msgstr[0] "Enlatado"
+msgstr[1] "Enlatados"
 
 msgid "Can"
 msgid_plural "Cans"
@@ -284,7 +284,7 @@ msgid "Milk Chocolate"
 msgstr "Chocolate Branco"
 
 msgid "Dark Chocolate"
-msgstr "Chocolate"
+msgstr "Chocolate Amargo"
 
 msgid "Slice"
 msgid_plural "Slices"
@@ -329,3 +329,18 @@ msgstr "versão atual"
 
 msgid "not yet released"
 msgstr "ainda não lançado"
+
+msgid "Portuguese (Brazil)"
+msgstr "Português (Brasil)"
+
+msgid "This is a note"
+msgstr ""
+
+msgid "Freezer"
+msgstr ""
+
+msgid "Hungarian"
+msgstr ""
+
+msgid "Slovak"
+msgstr ""

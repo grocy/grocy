@@ -6,23 +6,12 @@ use \Grocy\Services\CalendarService;
 
 class CalendarController extends BaseController
 {
-	public function __construct(\Slim\Container $container)
+	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 	}
 
-	protected $CalendarService = null;
-
-	protected function getCalendarService()
-	{
-		if($this->CalendarService == null)
-		{
-			$this->CalendarService = CalendarService::getInstance();
-		}
-		return $this->CalendarService;
-	}
-
-	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'calendar', [
 			'fullcalendarEventSources' => $this->getCalendarService()->GetEvents()

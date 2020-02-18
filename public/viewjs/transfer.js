@@ -1,23 +1,4 @@
-﻿$(document).ready(function() {
-	if (GetUriParam("embedded") !== undefined)
-	{
-		var locationId = GetUriParam('locationId');
-
-		if (typeof locationId === 'undefined')
-		{
-			Grocy.Components.ProductPicker.GetPicker().trigger('change');
-			Grocy.Components.ProductPicker.GetInputElement().focus();
-		} else {
-
-			$("#location_id_from").val(locationId);
-			$("#location_id_from").trigger('change');
-			$("#use_specific_stock_entry").click();
-			$("#use_specific_stock_entry").trigger('change');
-		}
-	}
-});
-
-$('#save-transfer-button').on('click', function(e)
+﻿$('#save-transfer-button').on('click', function (e)
 {
 	e.preventDefault();
 
@@ -90,9 +71,17 @@ $('#save-transfer-button').on('click', function(e)
 					}
 					else
 					{
-
 						Grocy.FrontendHelpers.EndUiBusy("transfer-form");
 						toastr.success(successMessage);
+
+						if (parseInt($("#location_id_from option:selected").attr("data-is-freezer")) === 0 && parseInt($("#location_id_to option:selected").attr("data-is-freezer")) === 1) // Frozen
+						{
+							toastr.info('<span>' + __t("Frozen") + "</span> <i class='fas fa-snowflake'></i>");
+						}
+						if (parseInt($("#location_id_from option:selected").attr("data-is-freezer")) === 1 && parseInt($("#location_id_to option:selected").attr("data-is-freezer")) === 0) // Thawed
+						{
+							toastr.info('<span>' + __t("Thawed") + "</span> <i class='fas fa-fire-alt'></i>");
+						}
 
 						$("#specific_stock_entry").find("option").remove().end().append("<option></option>");
 						$("#specific_stock_entry").attr("disabled", "");
@@ -114,6 +103,7 @@ $('#save-transfer-button').on('click', function(e)
 						$("#location_id_to").val("");
 						$("#location_id_from").val("");
 						Grocy.Components.ProductPicker.GetInputElement().focus();
+						Grocy.Components.ProductCard.Refresh(jsonForm.product_id);
 						Grocy.FrontendHelpers.ValidateForm('transfer-form');
 					}
 				},
@@ -169,7 +159,8 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 							{
 								$("#location_id_from").append($("<option>", {
 									value: stockLocation.location_id,
-									text: stockLocation.location_name + " (" + __t("Default location") + ")"
+									text: stockLocation.location_name + " (" + __t("Default location") + ")",
+									"data-is-freezer": stockLocation.location_is_freezer
 								}));
 								$("#location_id_from").val(productDetails.location.id);
 								$("#location_id_from").trigger('change');
@@ -179,7 +170,8 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 							{
 								$("#location_id_from").append($("<option>", {
 									value: stockLocation.location_id,
-									text: stockLocation.location_name
+									text: stockLocation.location_name,
+									"data-is-freezer": stockLocation.location_is_freezer
 								}));
 							}
 
@@ -439,3 +431,25 @@ function UndoStockTransaction(transactionId)
 		}
 	);
 };
+
+if (GetUriParam("embedded") !== undefined)
+{
+	var locationId = GetUriParam('locationId');
+
+	if (typeof locationId === 'undefined')
+	{
+		Grocy.Components.ProductPicker.GetPicker().trigger('change');
+		Grocy.Components.ProductPicker.GetInputElement().focus();
+	}
+	else
+	{
+
+		$("#location_id_from").val(locationId);
+		$("#location_id_from").trigger('change');
+		$("#use_specific_stock_entry").click();
+		$("#use_specific_stock_entry").trigger('change');
+	}
+}
+
+// Default input field
+Grocy.Components.ProductPicker.GetInputElement().focus();

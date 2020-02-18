@@ -4,14 +4,14 @@ namespace Grocy\Controllers;
 
 class EquipmentController extends BaseController
 {
-	public function __construct(\Slim\Container $container)
+	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 	}
 
 	protected $UserfieldsService;
 
-	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'equipment', [
 			'equipment' => $this->getDatabase()->equipment()->orderBy('name'),
@@ -20,7 +20,7 @@ class EquipmentController extends BaseController
 		]);
 	}
 
-	public function EditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function EditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($args['equipmentId'] == 'new')
 		{

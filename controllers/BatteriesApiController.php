@@ -6,23 +6,12 @@ use \Grocy\Services\BatteriesService;
 
 class BatteriesApiController extends BaseApiController
 {
-	public function __construct(\Slim\Container $container)
+	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 	}
 
-	protected $BatteriesService = null;
-
-    protected function getBatteriesService()
-    {
-        if($this->BatteriesService == null)
-        {
-            $this->BatteriesService = BatteriesService::getInstance();
-        }
-        return $this->BatteriesService;
-    }
-
-	public function TrackChargeCycle(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function TrackChargeCycle(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$requestBody = $request->getParsedBody();
 
@@ -35,7 +24,7 @@ class BatteriesApiController extends BaseApiController
 			}
 
 			$chargeCycleId = $this->getBatteriesService()->TrackChargeCycle($args['batteryId'], $trackedTime);
-			return $this->ApiResponse($this->getDatabase()->battery_charge_cycles($chargeCycleId));
+			return $this->ApiResponse($response, $this->getDatabase()->battery_charge_cycles($chargeCycleId));
 		}
 		catch (\Exception $ex)
 		{
@@ -43,11 +32,11 @@ class BatteriesApiController extends BaseApiController
 		}
 	}
 
-	public function BatteryDetails(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function BatteryDetails(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
-			return $this->ApiResponse($this->getBatteriesService()->GetBatteryDetails($args['batteryId']));
+			return $this->ApiResponse($response, $this->getBatteriesService()->GetBatteryDetails($args['batteryId']));
 		}
 		catch (\Exception $ex)
 		{
@@ -55,16 +44,16 @@ class BatteriesApiController extends BaseApiController
 		}
 	}
 
-	public function Current(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function Current(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->ApiResponse($this->getBatteriesService()->GetCurrent());
+		return $this->ApiResponse($response, $this->getBatteriesService()->GetCurrent());
 	}
 
-	public function UndoChargeCycle(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function UndoChargeCycle(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
-			$this->ApiResponse($this->getBatteriesService()->UndoChargeCycle($args['chargeCycleId']));
+			$this->ApiResponse($response, $this->getBatteriesService()->UndoChargeCycle($args['chargeCycleId']));
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)

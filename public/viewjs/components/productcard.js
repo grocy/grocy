@@ -15,7 +15,10 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 			$('#productcard-product-last-purchased-timeago').attr("datetime", productDetails.last_purchased || '2999-12-31');
 			$('#productcard-product-last-used').text((productDetails.last_used || '2999-12-31').substring(0, 10));
 			$('#productcard-product-last-used-timeago').attr("datetime", productDetails.last_used || '2999-12-31');
-			$('#productcard-product-location').text(productDetails.location.name);
+			if (productDetails.location != null)
+			{
+				$('#productcard-product-location').text(productDetails.location.name);
+			}
 			$('#productcard-product-spoil-rate').text((parseFloat(productDetails.spoil_rate_percent) / 100).toLocaleString(undefined, { style: "percent" }));
 
 			if (productDetails.is_aggregated_amount == 1)
@@ -96,7 +99,7 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 
 			EmptyElementWhenMatches('#productcard-product-last-purchased-timeago', __t('timeago_nan'));
 			EmptyElementWhenMatches('#productcard-product-last-used-timeago', __t('timeago_nan'));
-			RefreshContextualTimeago();
+			RefreshContextualTimeago(".productcard");
 		},
 		function(xhr)
 		{

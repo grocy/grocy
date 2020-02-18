@@ -6,23 +6,12 @@ use \Grocy\Services\ChoresService;
 
 class ChoresApiController extends BaseApiController
 {
-	public function __construct(\Slim\Container $container)
+	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 	}
 
-	protected $ChoresService = null;
-
-	protected function getChoresService()
-	{
-		if($this->ChoresService == null)
-		{
-			$this->ChoresService = ChoresService::getInstance();
-		}
-		return $this->ChoresService;
-	}
-
-	public function TrackChoreExecution(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function TrackChoreExecution(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$requestBody = $request->getParsedBody();
 
@@ -41,7 +30,7 @@ class ChoresApiController extends BaseApiController
 			}
 
 			$choreExecutionId = $this->getChoresService()->TrackChore($args['choreId'], $trackedTime, $doneBy);
-			return $this->ApiResponse($this->getDatabase()->chores_log($choreExecutionId));
+			return $this->ApiResponse($response, $this->getDatabase()->chores_log($choreExecutionId));
 		}
 		catch (\Exception $ex)
 		{
@@ -49,11 +38,11 @@ class ChoresApiController extends BaseApiController
 		}
 	}
 
-	public function ChoreDetails(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function ChoreDetails(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
-			return $this->ApiResponse($this->getChoresService()->GetChoreDetails($args['choreId']));
+			return $this->ApiResponse($response, $this->getChoresService()->GetChoreDetails($args['choreId']));
 		}
 		catch (\Exception $ex)
 		{
@@ -61,16 +50,16 @@ class ChoresApiController extends BaseApiController
 		}
 	}
 
-	public function Current(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function Current(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->ApiResponse($this->getChoresService()->GetCurrent());
+		return $this->ApiResponse($response, $this->getChoresService()->GetCurrent());
 	}
 
-	public function UndoChoreExecution(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function UndoChoreExecution(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
-			$this->ApiResponse($this->getChoresService()->UndoChoreExecution($args['executionId']));
+			$this->ApiResponse($response, $this->getChoresService()->UndoChoreExecution($args['executionId']));
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
@@ -79,7 +68,7 @@ class ChoresApiController extends BaseApiController
 		}
 	}
 
-	public function CalculateNextExecutionAssignments(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function CalculateNextExecutionAssignments(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{

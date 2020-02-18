@@ -1,7 +1,8 @@
 ﻿var apiKeysTable = $('#apikeys-table').DataTable({
 	'order': [[4, 'desc']],
 	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 }
+		{ 'orderable': false, 'targets': 0 },
+		{ 'searchable': false, "targets": 0 }
 	]
 });
 $('#apikeys-table tbody').removeClass("d-none");
@@ -10,7 +11,7 @@ apiKeysTable.columns.adjust().draw();
 var createdApiKeyId = GetUriParam('CreatedApiKeyId');
 if (createdApiKeyId !== undefined)
 {
-	$('#apiKeyRow_' + createdApiKeyId).effect('highlight', {}, 3000);
+	animateCSS("#apiKeyRow_" + createdApiKeyId, "pulse");
 }
 
 $("#search").on("keyup", Delay(function()

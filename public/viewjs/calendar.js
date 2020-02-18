@@ -14,7 +14,8 @@ var calendar = $("#calendar").fullCalendar({
 	"weekNumbers": Grocy.CalendarShowWeekNumbers,
 	"defaultView": ($(window).width() < 768) ? "agendaDay" : "month",
 	"firstDay": firstDay,
-	"eventLimit": true,
+	"eventLimit": false,
+	"height": "auto",
 	"eventSources": fullcalendarEventSources
 });
 

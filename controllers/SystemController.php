@@ -8,24 +8,24 @@ use \Grocy\Services\DemoDataGeneratorService;
 class SystemController extends BaseController
 {
 
-	public function __construct(\Slim\Container $container)
+	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 	}
 
-	public function Root(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function Root(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		// Schema migration is done here
 		$databaseMigrationService = DatabaseMigrationService::getInstance();
 		$databaseMigrationService->MigrateDatabase();
 
-		if (GROCY_IS_DEMO_INSTALL)
+		if (GROCY_MODE === 'dev' || GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease')
 		{
 			$demoDataGeneratorService = DemoDataGeneratorService::getInstance();
 			$demoDataGeneratorService->PopulateDemoData();
 		}
 
-		return $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl($this->GetEntryPageRelative()));
+		return $response->withRedirect($this->AppContainer->get('UrlManager')->ConstructUrl($this->GetEntryPageRelative()));
 	}
 
 	/**
@@ -91,7 +91,7 @@ class SystemController extends BaseController
 		return '/about';
 	}
 
-	public function About(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function About(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'about', [
 			'system_info' => $this->getApplicationService()->GetSystemInfo(),
@@ -99,7 +99,7 @@ class SystemController extends BaseController
 		]);
 	}
 
-	public function BarcodeScannerTesting(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function BarcodeScannerTesting(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'barcodescannertesting');
 	}

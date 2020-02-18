@@ -1,3 +1,5 @@
+# Translators:
+# Jonathan Adams <jonathan@connockadams.uk>, 2020
 # 
 msgid ""
 msgstr ""
@@ -5,6 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Jonathan Adams <jonathan@connockadams.uk>, 2020\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/grocy/teams/93189/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,314 +17,329 @@ msgstr ""
 "X-Domain: grocy/demo_data\n"
 
 msgid "Cookies"
-msgstr ""
+msgstr "Cookies"
 
 msgid "Chocolate"
-msgstr ""
+msgstr "Chocolate"
 
 msgid "Pantry"
-msgstr ""
+msgstr "Pantry"
 
 msgid "Candy cupboard"
-msgstr ""
+msgstr "Candy cupboard"
 
 msgid "Tinned food cupboard"
-msgstr ""
+msgstr "Tinned food cupboard"
 
 msgid "Fridge"
-msgstr ""
+msgstr "Fridge"
 
 msgid "Piece"
 msgid_plural "Pieces"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Piece"
+msgstr[1] "Pieces"
 
 msgid "Pack"
 msgid_plural "Packs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Pack"
+msgstr[1] "Packs"
 
 msgid "Glass"
 msgid_plural "Glasses"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Glass"
+msgstr[1] "Glasses"
 
 msgid "Tin"
 msgid_plural "Tins"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tin"
+msgstr[1] "Tins"
 
 msgid "Can"
 msgid_plural "Cans"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Can"
+msgstr[1] "Cans"
 
 msgid "Bunch"
 msgid_plural "Bunches"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Bunch"
+msgstr[1] "Bunches"
 
 msgid "Gummy bears"
-msgstr ""
+msgstr "Gummy bears"
 
 msgid "Crisps"
-msgstr ""
+msgstr "Crisps"
 
 msgid "Eggs"
-msgstr ""
+msgstr "Eggs"
 
 msgid "Noodles"
-msgstr ""
+msgstr "Noodles"
 
 msgid "Pickles"
-msgstr ""
+msgstr "Pickles"
 
 msgid "Gulash soup"
-msgstr ""
+msgstr "Gulash soup"
 
 msgid "Yogurt"
-msgstr ""
+msgstr "Yogurt"
 
 msgid "Cheese"
-msgstr ""
+msgstr "Cheese"
 
 msgid "Cold cuts"
-msgstr ""
+msgstr "Cold cuts"
 
 msgid "Paprika"
-msgstr ""
+msgstr "Paprika"
 
 msgid "Cucumber"
-msgstr ""
+msgstr "Cucumber"
 
 msgid "Radish"
-msgstr ""
+msgstr "Radish"
 
 msgid "Tomato"
-msgstr ""
+msgstr "Tomato"
 
 msgid "Changed towels in the bathroom"
-msgstr ""
+msgstr "Changed towels in the bathroom"
 
 msgid "Cleaned the kitchen floor"
-msgstr ""
+msgstr "Cleaned the kitchen floor"
 
 msgid "Warranty ends"
-msgstr ""
+msgstr "Warranty ends"
 
 msgid "TV remote control"
-msgstr ""
+msgstr "TV remote control"
 
 msgid "Alarm clock"
-msgstr ""
+msgstr "Alarm clock"
 
 msgid "Heat remote control"
-msgstr ""
+msgstr "Heat remote control"
 
 msgid "Lawn mowed in the garden"
-msgstr ""
+msgstr "Lawn mowed in the garden"
 
 msgid "Some good snacks"
-msgstr ""
+msgstr "Some good snacks"
 
 msgid "Pizza dough"
-msgstr ""
+msgstr "Pizza dough"
 
 msgid "Sieved tomatoes"
-msgstr ""
+msgstr "Sieved tomatoes"
 
 msgid "Salami"
-msgstr ""
+msgstr "Salami"
 
 msgid "Toast"
-msgstr ""
+msgstr "Toast"
 
 msgid "Minced meat"
-msgstr ""
+msgstr "Minced meat"
 
 msgid "Pizza"
-msgstr ""
+msgstr "Pizza"
 
 msgid "Spaghetti bolognese"
-msgstr ""
+msgstr "Spaghetti bolognese"
 
 msgid "Sandwiches"
-msgstr ""
+msgstr "Sandwiches"
 
 msgid "English"
-msgstr ""
+msgstr "English"
 
 msgid "German"
-msgstr ""
+msgstr "German"
 
 msgid "Italian"
-msgstr ""
+msgstr "Italian"
 
 msgid "This is the note content of the recipe ingredient"
-msgstr ""
+msgstr "This is the note content of the recipe ingredient"
 
 msgid "Demo User"
-msgstr ""
+msgstr "Demo User"
 
 msgid "Gram"
 msgid_plural "Grams"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gram"
+msgstr[1] "Grams"
 
 msgid "Flour"
-msgstr ""
+msgstr "Flour"
 
 msgid "Pancakes"
-msgstr ""
+msgstr "Pancakes"
 
 msgid "Sugar"
-msgstr ""
+msgstr "Sugar"
 
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 msgid "Life"
-msgstr ""
+msgstr "Life"
 
 msgid "Projects"
-msgstr ""
+msgstr "Projects"
 
 msgid "Repair the garage door"
-msgstr ""
+msgstr "Repair the garage door"
 
 msgid "Fork and improve grocy"
-msgstr ""
+msgstr "Fork and improve grocy"
 
 msgid "Find a solution for what to do when I forget the door keys"
-msgstr ""
+msgstr "Find a solution for what to do when I forget the door keys"
 
 msgid "Sweets"
-msgstr ""
+msgstr "Sweets"
 
 msgid "Bakery products"
-msgstr ""
+msgstr "Bakery products"
 
 msgid "Tinned food"
-msgstr ""
+msgstr "Tinned food"
 
 msgid "Butchery products"
-msgstr ""
+msgstr "Butchery products"
 
 msgid "Vegetables/Fruits"
-msgstr ""
+msgstr "Vegetables/Fruits"
 
 msgid "Refrigerated products"
-msgstr ""
+msgstr "Refrigerated products"
 
 msgid "Coffee machine"
-msgstr ""
+msgstr "Coffee machine"
 
 msgid "Dishwasher"
-msgstr ""
+msgstr "Dishwasher"
 
 msgid "Liter"
-msgstr ""
+msgstr "Liter"
 
 msgid "Liters"
-msgstr ""
+msgstr "Liters"
 
 msgid "Bottle"
-msgstr ""
+msgstr "Bottle"
 
 msgid "Bottles"
-msgstr ""
+msgstr "Bottles"
 
 msgid "Milk"
-msgstr ""
+msgstr "Milk"
 
 msgid "Chocolate sauce"
-msgstr ""
+msgstr "Chocolate sauce"
 
 msgid "Milliliters"
-msgstr ""
+msgstr "Milliliters"
 
 msgid "Milliliter"
-msgstr ""
+msgstr "Milliliter"
 
 msgid "Bottom"
-msgstr ""
+msgstr "Bottom"
 
 msgid "Topping"
-msgstr ""
+msgstr "Topping"
 
 msgid "French"
-msgstr ""
+msgstr "French"
 
 msgid "Turkish"
-msgstr ""
+msgstr "Turkish"
 
 msgid "Spanish"
-msgstr ""
+msgstr "Spanish"
 
 msgid "Russian"
-msgstr ""
+msgstr "Russian"
 
 msgid "The thing which happens on the 5th of every month"
-msgstr ""
+msgstr "The thing which happens on the 5th of every month"
 
 msgid "The thing which happens daily"
-msgstr ""
+msgstr "The thing which happens daily"
 
 msgid "The thing which happens on Mondays and Wednesdays"
-msgstr ""
+msgstr "The thing which happens on Mondays and Wednesdays"
 
 msgid "Swedish"
-msgstr ""
+msgstr "Swedish"
 
 msgid "Polish"
-msgstr ""
+msgstr "Polish"
 
 msgid "Milk Chocolate"
-msgstr ""
+msgstr "Milk Chocolate"
 
 msgid "Dark Chocolate"
-msgstr ""
+msgstr "Dark Chocolate"
 
 msgid "Slice"
 msgid_plural "Slices"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Slice"
+msgstr[1] "Slices"
 
 msgid "Example userentity"
-msgstr ""
+msgstr "Example userentity"
 
 msgid "This is an example user entity..."
-msgstr ""
+msgstr "This is an example user entity..."
 
 msgid "Custom field"
-msgstr ""
+msgstr "Custom field"
 
 msgid "Example field value..."
-msgstr ""
+msgstr "Example field value..."
 
 msgid "Waffle rolls"
-msgstr ""
+msgstr "Waffle rolls"
 
 msgid "Danish"
-msgstr ""
+msgstr "Danish"
 
 msgid "Dutch"
-msgstr ""
+msgstr "Dutch"
 
 msgid "Norwegian"
-msgstr ""
+msgstr "Norwegian"
 
 msgid "Demo"
-msgstr ""
+msgstr "Demo"
 
 msgid "Stable version"
-msgstr ""
+msgstr "Stable version"
 
 msgid "Preview version"
-msgstr ""
+msgstr "Preview version"
 
 msgid "current release"
-msgstr ""
+msgstr "current release"
 
 msgid "not yet released"
+msgstr "not yet released"
+
+msgid "Portuguese (Brazil)"
+msgstr "Portuguese (Brazil)"
+
+msgid "This is a note"
+msgstr ""
+
+msgid "Freezer"
+msgstr ""
+
+msgid "Hungarian"
+msgstr ""
+
+msgid "Slovak"
 msgstr ""

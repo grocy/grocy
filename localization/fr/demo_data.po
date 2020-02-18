@@ -2,6 +2,8 @@
 # Cedric Octave <transifex@octvcdrc.fr>, 2019
 # bigoudo, 2019
 # Matthieu K, 2019
+# Antonin DESFONTAINES <antonin.desfontaines@outlook.com>, 2019
+# Zkryvix <angelo.frangione@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -9,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Matthieu K, 2019\n"
+"Last-Translator: Zkryvix <angelo.frangione@gmail.com>, 2020\n"
 "Language-Team: French (https://www.transifex.com/grocy/teams/93189/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -145,7 +147,7 @@ msgid "Minced meat"
 msgstr "Viande hachée"
 
 msgid "Pizza"
-msgstr "PIzza"
+msgstr "Pizza"
 
 msgid "Spaghetti bolognese"
 msgstr "Spaghetti bolognaise"
@@ -161,9 +163,6 @@ msgstr "Allemand"
 
 msgid "Italian"
 msgstr "Italien"
-
-msgid "Demo in different language"
-msgstr "Démo dans une langue différente"
 
 msgid "This is the note content of the recipe ingredient"
 msgstr "Ceci est le contenu de la note concernant l'ingrédient de la recette"
@@ -224,7 +223,7 @@ msgid "Refrigerated products"
 msgstr "Produits réfrigérés"
 
 msgid "Coffee machine"
-msgstr "Machie à café"
+msgstr "Machine à café"
 
 msgid "Dishwasher"
 msgstr "Lave-vaisselle"
@@ -287,27 +286,66 @@ msgid "Polish"
 msgstr "Polonais"
 
 msgid "Milk Chocolate"
-msgstr ""
+msgstr "Chocolat au lait"
 
 msgid "Dark Chocolate"
-msgstr ""
+msgstr "Chocolat noir"
 
 msgid "Slice"
 msgid_plural "Slices"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tranche"
+msgstr[1] "Tranches"
 
 msgid "Example userentity"
-msgstr ""
+msgstr "Exemple entité utilisateur"
 
 msgid "This is an example user entity..."
-msgstr ""
+msgstr "Ceci est un exemple d'entité utilisateur"
 
 msgid "Custom field"
-msgstr ""
+msgstr "Champ personnalisé"
 
 msgid "Example field value..."
-msgstr ""
+msgstr "Exemple de valeur de champ..."
 
 msgid "Waffle rolls"
+msgstr "Gaufrettes roulées"
+
+msgid "Danish"
+msgstr "Danois"
+
+msgid "Dutch"
+msgstr "Néerlandais"
+
+msgid "Norwegian"
+msgstr "Norvégien"
+
+msgid "Demo"
+msgstr "Démo"
+
+msgid "Stable version"
+msgstr "Version stable"
+
+msgid "Preview version"
+msgstr "Version d'aperçu"
+
+msgid "current release"
+msgstr "Version actuelle"
+
+msgid "not yet released"
+msgstr "pas encore publiée"
+
+msgid "Portuguese (Brazil)"
+msgstr "Portugais (Brésil)"
+
+msgid "This is a note"
+msgstr ""
+
+msgid "Freezer"
+msgstr "Congélateur"
+
+msgid "Hungarian"
+msgstr ""
+
+msgid "Slovak"
 msgstr ""

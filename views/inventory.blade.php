@@ -75,8 +75,6 @@
 				'locations' => $locations,
 				'hint' => $__t('This will apply to added products')
 			))
-			@else
-			<input type="hidden" name="location_id" id="location_id" value="1">
 			@endif
 
 			<button id="save-inventory-button" class="btn btn-success">{{ $__t('OK') }}</button>

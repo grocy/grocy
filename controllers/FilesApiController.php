@@ -6,23 +6,12 @@ use \Grocy\Services\FilesService;
 
 class FilesApiController extends BaseApiController
 {
-	public function __construct(\Slim\Container $container)
+	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 	}
 
-	protected $FilesService = null;
-
-	protected function getFilesService()
-	{
-		if($this->FilesService == null)
-		{
-			$this->FilesService = FilesService::getInstance();
-		}
-		return $this->FilesService;
-	}
-
-	public function UploadFile(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function UploadFile(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -46,7 +35,7 @@ class FilesApiController extends BaseApiController
 		}
 	}
 
-	public function ServeFile(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function ServeFile(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -104,7 +93,7 @@ class FilesApiController extends BaseApiController
 		}
 	}
 
-	public function DeleteFile(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function DeleteFile(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -117,7 +106,7 @@ class FilesApiController extends BaseApiController
 				throw new \Exception('Invalid filename');
 			}
 
-			$filePath = $this->getFilesService->GetFilePath($args['group'], $fileName);
+			$filePath = $this->getFilesService()->GetFilePath($args['group'], $fileName);
 			if (file_exists($filePath))
 			{
 				unlink($filePath);

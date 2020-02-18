@@ -1,3 +1,5 @@
+# Translators:
+# Jonathan Adams <jonathan@connockadams.uk>, 2020
 # 
 msgid ""
 msgstr ""
@@ -5,6 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:43+0000\n"
+"Last-Translator: Jonathan Adams <jonathan@connockadams.uk>, 2020\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/grocy/teams/93189/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,31 +17,31 @@ msgstr ""
 "X-Domain: grocy/userfield_types\n"
 
 msgid "text-single-line"
-msgstr ""
+msgstr "text-single-line"
 
 msgid "text-multi-line"
-msgstr ""
+msgstr "text-multi-line"
 
 msgid "number-integral"
-msgstr ""
+msgstr "number-integral"
 
 msgid "number-decimal"
-msgstr ""
+msgstr "number-decimal"
 
 msgid "date"
-msgstr ""
+msgstr "date"
 
 msgid "datetime"
-msgstr ""
+msgstr "datetime"
 
 msgid "checkbox"
-msgstr ""
+msgstr "checkbox"
 
 msgid "preset-list"
-msgstr ""
+msgstr "preset-list"
 
 msgid "preset-checklist"
-msgstr ""
+msgstr "preset-checklist"
 
 msgid "link"
-msgstr ""
+msgstr "link"

@@ -4,10 +4,24 @@
 @section('activeNav', 'purchase')
 @section('viewJsName', 'purchase')
 
+@push('pageScripts')
+	<script src="{{ $U('/js/grocy_uisound.js?v=', true) }}{{ $version }}"></script>
+@endpush
+
 @section('content')
 <div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
-		<h1>@yield('title')</h1>
+		<h1>
+			@yield('title')
+			@if(!$embedded)
+			<button id="scan-mode-button" class="btn @if(boolval($userSettings['scan_mode_purchase_enabled'])) btn-success @else btn-danger @endif" type="checkbox">{{ $__t('Scan mode') }} <span id="scan-mode-status">@if(boolval($userSettings['scan_mode_purchase_enabled'])) {{ $__t('on') }} @else {{ $__t('off') }} @endif</span></button>
+			<input id="scan-mode" type="checkbox" class="d-none user-setting-control" data-setting-key="scan_mode_purchase_enabled" @if(boolval($userSettings['scan_mode_purchase_enabled'])) checked @endif>
+			@else
+			<script>
+				Grocy.UserSettings.scan_mode_purchase_enabled = false;
+			</script>
+			@endif
+		</h1>
 
 		<form id="purchase-form" novalidate>
 
@@ -79,11 +93,9 @@
 				'locations' => $locations,
 				'isRequired' => false
 			))
-			@else
-			<input type="hidden" name="location_id" id="location_id" value="1">
 			@endif
 
-			<button id="save-purchase-button" class="btn btn-success">{{ $__t('OK') }}</button>
+			<button id="save-purchase-button" class="btn btn-success d-block">{{ $__t('OK') }}</button>
 
 		</form>
 	</div>

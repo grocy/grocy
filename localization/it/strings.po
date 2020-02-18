@@ -3,7 +3,7 @@
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # Matteo Piotto <matteo.piotto@welaika.com>, 2019
 # Matteo Parolin <matteoparolin99@gmail.com>, 2019
-# Antonino Ursino <ninus_@libero.it>, 2019
+# Antonino Ursino <ninus_@libero.it>, 2020
 # 
 msgid ""
 msgstr ""
@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Antonino Ursino <ninus_@libero.it>, 2019\n"
+"Last-Translator: Antonino Ursino <ninus_@libero.it>, 2020\n"
 "Language-Team: Italian (https://www.transifex.com/grocy/teams/93189/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +41,8 @@ msgstr[1] "%s prodotti sono già scaduti"
 msgid "%s product is below defined min. stock amount"
 msgid_plural "%s products are below defined min. stock amount"
 msgstr[0] "%s prodotto sotto la quantità minima di dispensa definita"
-msgstr[1] "%s prodotti sono sotto la quantità minima di dispensa definita"
+msgstr[1] ""
+"%s prodotti sono al di sotto della quantità minima di dispensa definita"
 
 msgid "Product"
 msgstr "Prodotto"
@@ -978,12 +979,12 @@ msgid "Mark %1$s of %2$s as open"
 msgstr "Segna %1$s di %2$s come aperti"
 
 msgid ""
-"When a product was marked as opened, the best before date will be replaced "
-"by today + this amount of days (a value of 0 disables this)"
+"When this product was marked as opened, the best before date will be "
+"replaced by today + this amount of days (a value of 0 disables this)"
 msgstr ""
-"Quando un prodotto è stato contrassegnato come aperto, la data di scadenza "
-"verrà sostituita con oggi + questo numero di giorni (un valore di 0 lo "
-"disabilita)"
+"Quando questo prodotto è stato contrassegnato come aperto, la data di "
+"scadenza verrà sostituita con: \"oggi\" + \"questo numero di giorni\" (il "
+"valore 0 disabilita)"
 
 msgid "Default best before days after opened"
 msgstr "Giorni di scadenza predefiniti dopo l'apertura"
@@ -993,9 +994,6 @@ msgstr "Segnato %1$s di %2$s come aperti"
 
 msgid "Mark as opened"
 msgstr "Segna come aperto"
-
-msgid "Expires on %1$s; Bought on %2$s"
-msgstr "Scade il %1$s; Comprato il %2$s"
 
 msgid "Not opened"
 msgstr "Non aperto"
@@ -1311,6 +1309,9 @@ msgstr "Non abbastanza in dispensa"
 
 msgid "Expiring soon days"
 msgstr "In scadenza  tra pochi giorni"
+
+msgid "Default location"
+msgstr "Posizione predefinita"
 
 msgid "Default amount for purchase"
 msgstr "Quantità predefinita per l'acquisto"
@@ -1751,3 +1752,177 @@ msgid ""
 msgstr ""
 "Questo significa che la prossima esecuzione di questa faccenda dovrebbe "
 "essere programmata solo ogni %s anni"
+
+msgid "Transfer"
+msgstr "Trasferire"
+
+msgid "From location"
+msgstr "Dalla posizione"
+
+msgid "To location"
+msgstr "Alla posizione"
+
+msgid "There are no units available at this location"
+msgstr "Non ci sono unità disponibili in questa posizione"
+
+msgid "Amount: %1$s; Expires on %2$s; Bought on %3$s"
+msgstr "Quantità: %1$s; Scade il: %2$s; Comprato il: %3$s"
+
+msgid "Transfered %1$s of %2$s from %3$s to %4$s"
+msgstr "Trasferiti %1$s di %2$s da %3$s a %4$s"
+
+msgid "Show stock entries"
+msgstr "Mostra voci di dispensa"
+
+msgid "Stock entries"
+msgstr "Voci di dispensa"
+
+msgid "Best before date"
+msgstr "Data di scadenza"
+
+msgid "Purchased date"
+msgstr "Data di acquisto"
+
+msgid "Consume all %s for this stock entry"
+msgstr "Consuma tutte le %s per questa voce di dispensa"
+
+msgid "The amount cannot be lower than %1$s"
+msgstr "La quantità non può essere inferiore a %1$s"
+
+msgid "Stock entry successfully updated"
+msgstr "Voce di dispensa aggiornata correttamente"
+
+msgid "Edit stock entry"
+msgstr "Modifica voce di dispensa"
+
+msgid ""
+"Camera access is on only possible when supported and allowed by your browser"
+" and when grocy is served via a secure (https://) connection"
+msgstr ""
+"L'accesso alla videocamera è possibile solo se supportato e consentito dal "
+"browser e quando grocy è connesso tramite una connessione sicura (https://)"
+
+msgid "Keep screen on"
+msgstr "Mantieni lo schermo acceso"
+
+msgid "Keep screen on while displaying a \"fullscreen-card\""
+msgstr ""
+"Mantieni lo schermo acceso mentre visualizzi una \"scheda a schermo intero\""
+
+msgid "A purchased date is required"
+msgstr "È richiesta la data di acquisto"
+
+msgid ""
+"When a product is selected, one unit (per serving in purchase quantity unit)"
+" will be added to stock on consuming this recipe"
+msgstr ""
+"Quando viene selezionato un prodotto, un'unità (per porzione nell'unità di "
+"quantità di acquisto) verrà aggiunta alla dispensa consumando questa ricetta"
+" "
+
+msgid "Produces product"
+msgstr "Produce prodotto"
+
+msgid "This booking cannot be undone"
+msgstr "Questa prenotazione non può essere annullata"
+
+msgid "Booking does not exist or was already undone"
+msgstr "La prenotazione non esiste o è stata già annullata"
+
+msgid "Are you sure to delete API key \"%s\"?"
+msgstr "Eliminare la chiave API \"%s\"?"
+
+msgid "Add note"
+msgstr "Aggiungi nota"
+
+msgid "Add note to %s"
+msgstr "Aggiungi nota a %s"
+
+msgid "per day"
+msgstr "al giorno"
+
+msgid "Compact view"
+msgstr "Vista compatta"
+
+msgid "Normal view"
+msgstr "Vista normale"
+
+msgid "Only undone items"
+msgstr "Solo oggetti annullati"
+
+msgid "Add product"
+msgstr "Aggiungi prodotto"
+
+msgid "Add product to %s"
+msgstr "Aggiungi prodotto a %s"
+
+msgid "Consume all ingredients needed by this weeks recipes or products"
+msgstr ""
+"Consuma tutti gli ingredienti necessari per ricette o prodotti di questa "
+"settimana"
+
+msgid "Meal plan recipe"
+msgstr "Ricetta del Piano dei pasti"
+
+msgid "Meal plan note"
+msgstr "Nota del Piano dei pasti"
+
+msgid "Meal plan product"
+msgstr "Prodotto del Piano dei pasti"
+
+msgid "Scan mode"
+msgstr "Modalità di scansione"
+
+msgid "on"
+msgstr "accesa"
+
+msgid "off"
+msgstr "spenta"
+
+msgid ""
+"Scan mode is on but not all required fields could be populated automatically"
+msgstr ""
+"La modalità di scansione è attiva ma non è possibile compilare "
+"automaticamente tutti i campi richiesti"
+
+msgid "Is freezer"
+msgstr "È congelato"
+
+msgid ""
+"When moving products from/to a freezer location, the products best before "
+"date is automatically adjusted according to the product settings"
+msgstr ""
+"Quando si spostano i prodotti da/verso un congelatore, la data di scadenza "
+"dei prodotti viene regolata automaticamente in base alle impostazioni del "
+"prodotto"
+
+msgid ""
+"On moving this product to a freezer location (so when freezing it), the best"
+" before date will be replaced by today + this amount of days"
+msgstr ""
+"Spostando questo prodotto in una posizione di congelatore (quindi quando lo "
+"si congela), la data di scadenza verrà sostituita con: \"oggi\" + \"questa "
+"quantità di giorni\""
+
+msgid "Default best before days after freezing"
+msgstr "Data di scadenza predefinita dopo il congelamento"
+
+msgid ""
+"On moving this product from a freezer location (so when thawing it), the "
+"best before date will be replaced by today + this amount of days"
+msgstr ""
+"Quando si sposta questo prodotto da una posizione del congelatore (quindi "
+"quando lo si scongela), la data di scadenza verrà sostituita con: \"oggi\" +"
+" \"questa quantità di giorni\""
+
+msgid "Default best before days after thawing"
+msgstr "Data di scadenza predefinita dopo lo scongelamento"
+
+msgid "This cannot be the same as the \"From\" location"
+msgstr "Non può essere uguale alla posizione \"Da\""
+
+msgid "Thawed"
+msgstr "Scongelato"
+
+msgid "Frozen"
+msgstr "Congelato"

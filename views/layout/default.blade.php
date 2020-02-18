@@ -50,7 +50,7 @@
 		Grocy.Components = { };
 		Grocy.Mode = '{{ GROCY_MODE }}';
 		Grocy.BaseUrl = '{{ $U('/') }}';
-		Grocy.CurrentUrlRelative = "/" + window.location.toString().replace(Grocy.BaseUrl, "");
+		Grocy.CurrentUrlRelative = "/" + window.location.href.split('?')[0].replace(Grocy.BaseUrl, "");
 		Grocy.ActiveNav = '@yield('activeNav', '')';
 		Grocy.Culture = '{{ GROCY_CULTURE }}';
 		Grocy.Currency = '{{ GROCY_CURRENCY }}';
@@ -85,10 +85,10 @@
 
 		@if(GROCY_AUTHENTICATED)
 		<div id="sidebarResponsive" class="collapse navbar-collapse">
-			<ul class="navbar-nav navbar-sidenav pt-2">
+			<ul class="navbar-nav navbar-sidenav">
 
 				@if(GROCY_FEATURE_FLAG_STOCK)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Stock overview') }}" data-nav-for-page="stockoverview">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Stock overview') }}" data-nav-for-page="stockoverview">
 					<a class="nav-link discrete-link" href="{{ $U('/stockoverview') }}">
 						<i class="fas fa-box"></i>
 						<span class="nav-link-text">{{ $__t('Stock overview') }}</span>
@@ -96,7 +96,7 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_SHOPPINGLIST)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Shopping list') }}" data-nav-for-page="shoppinglist">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Shopping list') }}" data-nav-for-page="shoppinglist">
 					<a class="nav-link discrete-link" href="{{ $U('/shoppinglist') }}">
 						<i class="fas fa-shopping-cart"></i>
 						<span class="nav-link-text">{{ $__t('Shopping list') }}</span>
@@ -104,15 +104,23 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_RECIPES)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Recipes') }}" data-nav-for-page="recipes">
+				<div class="nav-item-divider"></div>
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Recipes') }}" data-nav-for-page="recipes">
 					<a class="nav-link discrete-link" href="{{ $U('/recipes') }}">
 						<i class="fas fa-cocktail"></i>
 						<span class="nav-link-text">{{ $__t('Recipes') }}</span>
 					</a>
 				</li>
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Meal plan') }}" data-nav-for-page="mealplan">
+					<a class="nav-link discrete-link" href="{{ $U('/mealplan') }}">
+						<i class="fas fa-paper-plane"></i>
+						<span class="nav-link-text">{{ $__t('Meal plan') }}</span>
+					</a>
+				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_CHORES)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Chores overview') }}" data-nav-for-page="choresoverview">
+				<div class="nav-item-divider"></div>
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Chores overview') }}" data-nav-for-page="choresoverview">
 					<a class="nav-link discrete-link" href="{{ $U('/choresoverview') }}">
 						<i class="fas fa-home"></i>
 						<span class="nav-link-text">{{ $__t('Chores overview') }}</span>
@@ -120,7 +128,7 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_TASKS)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Tasks') }}" data-nav-for-page="tasks">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Tasks') }}" data-nav-for-page="tasks">
 					<a class="nav-link discrete-link" href="{{ $U('/tasks') }}">
 						<i class="fas fa-tasks"></i>
 						<span class="nav-link-text">{{ $__t('Tasks') }}</span>
@@ -128,7 +136,7 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_BATTERIES)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Batteries overview') }}" data-nav-for-page="batteriesoverview">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Batteries overview') }}" data-nav-for-page="batteriesoverview">
 					<a class="nav-link discrete-link" href="{{ $U('/batteriesoverview') }}">
 						<i class="fas fa-battery-half"></i>
 						<span class="nav-link-text">{{ $__t('Batteries overview') }}</span>
@@ -136,36 +144,46 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_EQUIPMENT)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Equipment') }}" data-nav-for-page="equipment">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Equipment') }}" data-nav-for-page="equipment">
 					<a class="nav-link discrete-link" href="{{ $U('/equipment') }}">
 						<i class="fas fa-toolbox"></i>
 						<span class="nav-link-text">{{ $__t('Equipment') }}</span>
 					</a>
 				</li>
 				@endif
+				@if(GROCY_FEATURE_FLAG_CALENDAR)
+				<div class="nav-item-divider"></div>
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Calendar') }}" data-nav-for-page="calendar">
+					<a class="nav-link discrete-link" href="{{ $U('/calendar') }}">
+						<i class="fas fa-calendar-alt"></i>
+						<span class="nav-link-text">{{ $__t('Calendar') }}</span>
+					</a>
+				</li>
+				@endif
 				
 				@if(GROCY_FEATURE_FLAG_STOCK)
-				<li class="nav-item mt-4" data-toggle="tooltip" data-placement="right" title="{{ $__t('Purchase') }}" data-nav-for-page="purchase">
+				<div class="nav-item-divider"></div>
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Purchase') }}" data-nav-for-page="purchase">
 					<a class="nav-link discrete-link" href="{{ $U('/purchase') }}">
 						<i class="fas fa-shopping-cart"></i>
 						<span class="nav-link-text">{{ $__t('Purchase') }}</span>
 					</a>
 				</li>
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Consume') }}" data-nav-for-page="consume">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Consume') }}" data-nav-for-page="consume">
 					<a class="nav-link discrete-link" href="{{ $U('/consume') }}">
 						<i class="fas fa-utensils"></i>
 						<span class="nav-link-text">{{ $__t('Consume') }}</span>
 					</a>
 				</li>
-                                @if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Transfer') }}" data-nav-for-page="transfer">
+				@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Transfer') }}" data-nav-for-page="transfer">
 					<a class="nav-link discrete-link" href="{{ $U('/transfer') }}">
 						<i class="fas fa-exchange-alt"></i>
 						<span class="nav-link-text">{{ $__t('Transfer') }}</span>
 					</a>
 				</li>
 				@endif
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Inventory') }}" data-nav-for-page="inventory">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Inventory') }}" data-nav-for-page="inventory">
 					<a class="nav-link discrete-link" href="{{ $U('/inventory') }}">
 						<i class="fas fa-list"></i>
 						<span class="nav-link-text">{{ $__t('Inventory') }}</span>
@@ -173,7 +191,7 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_CHORES)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Chore tracking') }}" data-nav-for-page="choretracking">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Chore tracking') }}" data-nav-for-page="choretracking">
 					<a class="nav-link discrete-link" href="{{ $U('/choretracking') }}">
 						<i class="fas fa-play"></i>
 						<span class="nav-link-text">{{ $__t('Chore tracking') }}</span>
@@ -181,33 +199,20 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_BATTERIES)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Battery tracking') }}" data-nav-for-page="batterytracking">
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Battery tracking') }}" data-nav-for-page="batterytracking">
 					<a class="nav-link discrete-link" href="{{ $U('/batterytracking') }}">
 						<i class="fas fa-fire"></i>
 						<span class="nav-link-text">{{ $__t('Battery tracking') }}</span>
 					</a>
 				</li>
 				@endif
-				@if(GROCY_FEATURE_FLAG_CALENDAR)
-				<li class="nav-item mt-4" data-toggle="tooltip" data-placement="right" title="{{ $__t('Calendar') }}" data-nav-for-page="calendar">
-					<a class="nav-link discrete-link" href="{{ $U('/calendar') }}">
-						<i class="fas fa-calendar-alt"></i>
-						<span class="nav-link-text">{{ $__t('Calendar') }}</span>
-					</a>
-				</li>
-				@endif
-				@if(GROCY_FEATURE_FLAG_RECIPES)
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{ $__t('Meal plan') }}" data-nav-for-page="mealplan">
-					<a class="nav-link discrete-link" href="{{ $U('/mealplan') }}">
-						<i class="fas fa-paper-plane"></i>
-						<span class="nav-link-text">{{ $__t('Meal plan') }}</span>
-					</a>
-				</li>
-				@endif
 
 				@php $firstUserentity = true; @endphp
 				@foreach($userentitiesForSidebar as $userentity)
-				<li class="nav-item @if($firstUserentity) mt-4 @endif" data-toggle="tooltip" data-placement="right" title="{{ $userentity->caption }}" data-nav-for-page="userentity-{{ $userentity->name }}">
+				@if($firstUserentity)
+				<div class="nav-item-divider"></div>
+				@endif
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $userentity->caption }}" data-nav-for-page="userentity-{{ $userentity->name }}">
 					<a class="nav-link discrete-link" href="{{ $U('/userobjects/' . $userentity->name) }}">
 						<i class="{{ $userentity->icon_css_class }}"></i>
 						<span class="nav-link-text">{{ $userentity->caption }}</span>
@@ -216,7 +221,8 @@
 				@php if ($firstUserentity) { $firstUserentity = false; } @endphp
 				@endforeach
 				
-				<li class="nav-item mt-4" data-toggle="tooltip" data-placement="right" title="{{ $__t('Manage master data') }}">
+				<div class="nav-item-divider"></div>
+				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Manage master data') }}">
 					<a class="nav-link nav-link-collapse collapsed discrete-link" data-toggle="collapse" href="#top-nav-manager-master-data">
 						<i class="fas fa-table"></i>
 						<span class="nav-link-text">{{ $__t('Manage master data') }}</span>
@@ -360,6 +366,23 @@
 							</div>
 							<input class="form-check-input d-none user-setting-control" type="checkbox" id="currently-inside-night-mode-range" data-setting-key="currently_inside_night_mode_range">
 						</div>
+						<div class="dropdown-divider"></div>
+						<div class="dropdown-item">
+							<div class="form-check">
+								<input class="form-check-input user-setting-control" type="checkbox" id="keep_screen_on" data-setting-key="keep_screen_on">
+								<label class="form-check-label" for="keep_screen_on">
+									{{ $__t('Keep screen on') }}
+								</label>
+							</div>
+						</div>
+						<div class="dropdown-item">
+							<div class="form-check">
+								<input class="form-check-input user-setting-control" type="checkbox" id="keep_screen_on_when_fullscreen_card" data-setting-key="keep_screen_on_when_fullscreen_card">
+								<label class="form-check-label" for="keep_screen_on_when_fullscreen_card">
+									{{ $__t('Keep screen on while displaying a "fullscreen-card"') }}
+								</label>
+							</div>
+						</div>
 					</div>
 				</li>
 				@endif
@@ -369,6 +392,12 @@
 
 					<div class="dropdown-menu dropdown-menu-right">
 						<a class="dropdown-item discrete-link" href="{{ $U('/stocksettings') }}"><i class="fas fa-box"></i>&nbsp;{{ $__t('Stock settings') }}</a>
+						@if(GROCY_FEATURE_FLAG_SHOPPINGLIST)
+						<a class="dropdown-item discrete-link" href="{{ $U('/shoppinglistsettings') }}"><i class="fas fa-shopping-cart"></i>&nbsp;{{ $__t('Shopping list settings') }}</a>
+						@endif
+						@if(GROCY_FEATURE_FLAG_RECIPES)
+						<a class="dropdown-item discrete-link" href="{{ $U('/recipessettings') }}"><i class="fas fa-cocktail"></i>&nbsp;{{ $__t('Recipes settings') }}</a>
+						@endif
 						@if(GROCY_FEATURE_FLAG_CHORES)
 						<a class="dropdown-item discrete-link" href="{{ $U('/choressettings') }}"><i class="fas fa-home"></i>&nbsp;{{ $__t('Chores settings') }}</a>
 						@endif
@@ -393,8 +422,8 @@
 	</nav>
 	@endif
 
-	<div class="content-wrapper">
-		<div class="container-fluid">
+	<div class="content-wrapper pt-0">
+		<div class="container-fluid pr-1 pl-md-3 pl-1">
 			<div class="row mb-3">
 				<div id="page-content" class="col content-text">
 					@yield('content')
@@ -430,13 +459,45 @@
 	<script src="{{ $U('/node_modules/bootstrap-select/dist/js/bootstrap-select.min.js?v=', true) }}{{ $version }}"></script>
 	@if(!empty($__t('bootstrap-select_locale') && $__t('bootstrap-select_locale') != 'x'))<script src="{{ $U('/node_modules', true) }}/bootstrap-select/dist/js/i18n/defaults-{{ $__t('bootstrap-select_locale') }}.js?v={{ $version }}"></script>@endif
 	<script src="{{ $U('/node_modules/jquery-lazy/jquery.lazy.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/nosleep.js/dist/NoSleep.min.js?v=', true) }}{{ $version }}"></script>
 
 	<script src="{{ $U('/js/extensions.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy_dbchangedhandling.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/js/grocy_wakelockhandling.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy_nightmode.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy_clock.js?v=', true) }}{{ $version }}"></script>
 	@stack('pageScripts')
+	
+	@php
+	// @stack('componentScripts') maybe contains the components JS file reference multiple times
+	// if the component was included more than once in the view
+	//
+	// So this is a ugly hack to keep only unique JS file references there
+
+	// The property is normally protected, so change that
+	$reflection = new \ReflectionClass($__env);
+	$property = $reflection->getProperty('pushes');
+	$property->setAccessible(true);
+	$env = $property->getValue($__env);
+
+	if (array_key_exists('componentScripts', $env))
+	{
+		// Take every line into a new array, one element per line
+		$filteredStack = array_map(function($value)
+		{
+			return explode("#SEP#", str_replace(array("\n", "\r", "\t"), '#SEP#', trim($value)));
+		}, $env['componentScripts']);
+
+		// Flatten the array into a single one, only keep unique lines, remove empty lines, add a defined new line
+		$filteredStack = preg_filter('/$/', "\n", array_filter(array_unique(array_merge(...$filteredStack))));
+
+		// Write it back
+		$env['componentScripts'] = $filteredStack;
+		$property->setValue($__env, $env);
+	}
+	@endphp
+
 	@stack('componentScripts')
 	@hasSection('viewJsName')<script src="{{ $U('/viewjs', true) }}/@yield('viewJsName').js?v={{ $version }}"></script>@endif
 

@@ -17,111 +17,127 @@ class CalendarService extends BaseService
 		$this->UrlManager = new UrlManager(GROCY_BASE_URL);
 	}
 
-	protected function getStockservice()
-	{
-		return StockService::getInstance();
-	}
-
-	protected function getTasksService()
-	{
-		return TasksService::getInstance();
-	}
-
-	protected function getChoresService()
-	{
-		return ChoresService::getInstance();
-	}
-
-	protected function getBatteriesService()
-	{
-		return BatteriesService::getInstance();
-	}
-
-	protected function getUsersService()
-	{
-		return UsersService::getInstance();
-	}
-
 	public function GetEvents()
 	{
-		$products = $this->getDatabase()->products();
-		$titlePrefix = $this->getLocalizationService()->__t('Product expires') . ': ';
 		$stockEvents = array();
-		foreach($this->getStockService()->GetCurrentStock() as $currentStockEntry)
+		if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 		{
-			if ($currentStockEntry->amount > 0)
+			$products = $this->getDatabase()->products();
+			$titlePrefix = $this->getLocalizationService()->__t('Product expires') . ': ';
+			foreach($this->getStockService()->GetCurrentStock() as $currentStockEntry)
 			{
-				$stockEvents[] = array(
-					'title' => $titlePrefix . FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name,
-					'start' => $currentStockEntry->best_before_date,
+				if ($currentStockEntry->amount > 0)
+				{
+					$stockEvents[] = array(
+						'title' => $titlePrefix . FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name,
+						'start' => $currentStockEntry->best_before_date,
+						'date_format' => 'date'
+					);
+				}
+			}
+		}
+
+		$taskEvents = array();
+		if (GROCY_FEATURE_FLAG_TASKS)
+		{
+			$titlePrefix = $this->getLocalizationService()->__t('Task due') . ': ';
+			foreach($this->getTasksService()->GetCurrent() as $currentTaskEntry)
+			{
+				$taskEvents[] = array(
+					'title' => $titlePrefix . $currentTaskEntry->name,
+					'start' => $currentTaskEntry->due_date,
 					'date_format' => 'date'
 				);
 			}
 		}
 
-		$titlePrefix = $this->getLocalizationService()->__t('Task due') . ': ';
-		$taskEvents = array();
-		foreach($this->getTasksService()->GetCurrent() as $currentTaskEntry)
-		{
-			$taskEvents[] = array(
-				'title' => $titlePrefix . $currentTaskEntry->name,
-				'start' => $currentTaskEntry->due_date,
-				'date_format' => 'date'
-			);
-		}
-
-		$users = $this->getUsersService()->GetUsersAsDto();
-
-		$chores = $this->getDatabase()->chores();
-		$titlePrefix = $this->getLocalizationService()->__t('Chore due') . ': ';
 		$choreEvents = array();
-		foreach($this->ChoresService->GetCurrent() as $currentChoreEntry)
+		if (GROCY_FEATURE_FLAG_CHORES)
 		{
-			$chore = FindObjectInArrayByPropertyValue($chores, 'id', $currentChoreEntry->chore_id);
+			$users = $this->getUsersService()->GetUsersAsDto();
 
-			$assignedToText = '';
-			if (!empty($currentChoreEntry->next_execution_assigned_to_user_id))
+			$chores = $this->getDatabase()->chores();
+			$titlePrefix = $this->getLocalizationService()->__t('Chore due') . ': ';
+			foreach($this->getChoresService()->GetCurrent() as $currentChoreEntry)
 			{
-				$assignedToText = ' (' . $this->getLocalizationService()->__t('assigned to %s', FindObjectInArrayByPropertyValue($users, 'id', $currentChoreEntry->next_execution_assigned_to_user_id)->display_name) . ')';
-			}
+				$chore = FindObjectInArrayByPropertyValue($chores, 'id', $currentChoreEntry->chore_id);
 
-			$choreEvents[] = array(
-				'title' => $titlePrefix . $chore->name . $assignedToText,
-				'start' => $currentChoreEntry->next_estimated_execution_time,
-				'date_format' => 'datetime'
-			);
-		}
+				$assignedToText = '';
+				if (!empty($currentChoreEntry->next_execution_assigned_to_user_id))
+				{
+					$assignedToText = ' (' . $this->getLocalizationService()->__t('assigned to %s', FindObjectInArrayByPropertyValue($users, 'id', $currentChoreEntry->next_execution_assigned_to_user_id)->display_name) . ')';
+				}
 
-		$batteries = $this->getDatabase()->batteries();
-		$titlePrefix = $this->getLocalizationService()->__t('Battery charge cycle due') . ': ';
-		$batteryEvents = array();
-		foreach($this->getBatteriesService()->GetCurrent() as $currentBatteryEntry)
-		{
-			$batteryEvents[] = array(
-				'title' => $titlePrefix . FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->name,
-				'start' => $currentBatteryEntry->next_estimated_charge_time,
-				'date_format' => 'datetime'
-			);
-		}
-
-		$recipes = $this->getDatabase()->recipes();
-		$mealPlanDayRecipes = $this->getDatabase()->recipes()->where('type', 'mealplan-day');
-		$titlePrefix = $this->getLocalizationService()->__t('Meal plan') . ': ';
-		$mealPlanRecipeEvents = array();
-		foreach($mealPlanDayRecipes as $mealPlanDayRecipe)
-		{
-			$recipesOfCurrentDay = $this->getDatabase()->recipes_nestings_resolved()->where('recipe_id = :1 AND includes_recipe_id != :1', $mealPlanDayRecipe->id);
-			foreach ($recipesOfCurrentDay as $recipeOfCurrentDay)
-			{
-				$mealPlanRecipeEvents[] = array(
-					'title' => $titlePrefix . FindObjectInArrayByPropertyValue($recipes, 'id', $recipeOfCurrentDay->includes_recipe_id)->name,
-					'start' => FindObjectInArrayByPropertyValue($recipes, 'id', $recipeOfCurrentDay->recipe_id)->name,
-					'date_format' => 'date',
-					'description' => $this->UrlManager->ConstructUrl('/mealplan' . '?week=' . FindObjectInArrayByPropertyValue($recipes, 'id', $recipeOfCurrentDay->recipe_id)->name)
+				$choreEvents[] = array(
+					'title' => $titlePrefix . $chore->name . $assignedToText,
+					'start' => $currentChoreEntry->next_estimated_execution_time,
+					'date_format' => 'datetime'
 				);
 			}
 		}
 
-		return array_merge($stockEvents, $taskEvents, $choreEvents, $batteryEvents, $mealPlanRecipeEvents);
+		$batteryEvents = array();
+		if (GROCY_FEATURE_FLAG_BATTERIES)
+		{
+			$batteries = $this->getDatabase()->batteries();
+			$titlePrefix = $this->getLocalizationService()->__t('Battery charge cycle due') . ': ';
+			foreach($this->getBatteriesService()->GetCurrent() as $currentBatteryEntry)
+			{
+				$batteryEvents[] = array(
+					'title' => $titlePrefix . FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->name,
+					'start' => $currentBatteryEntry->next_estimated_charge_time,
+					'date_format' => 'datetime'
+				);
+			}
+		}
+
+		$mealPlanRecipeEvents = array();
+		if (GROCY_FEATURE_FLAG_RECIPES)
+		{
+			$recipes = $this->getDatabase()->recipes();
+			$mealPlanDayRecipes = $this->getDatabase()->recipes()->where('type', 'mealplan-day');
+			$titlePrefix = $this->getLocalizationService()->__t('Meal plan recipe') . ': ';
+
+			foreach($mealPlanDayRecipes as $mealPlanDayRecipe)
+			{
+				$recipesOfCurrentDay = $this->getDatabase()->recipes_nestings_resolved()->where('recipe_id = :1 AND includes_recipe_id != :1', $mealPlanDayRecipe->id);
+				foreach ($recipesOfCurrentDay as $recipeOfCurrentDay)
+				{
+					$mealPlanRecipeEvents[] = array(
+						'title' => $titlePrefix . FindObjectInArrayByPropertyValue($recipes, 'id', $recipeOfCurrentDay->includes_recipe_id)->name,
+						'start' => FindObjectInArrayByPropertyValue($recipes, 'id', $recipeOfCurrentDay->recipe_id)->name,
+						'date_format' => 'date',
+						'description' => $this->getUrlManager()->ConstructUrl('/mealplan' . '?week=' . FindObjectInArrayByPropertyValue($recipes, 'id', $recipeOfCurrentDay->recipe_id)->name)
+					);
+				}
+			}
+
+			$mealPlanDayNotes = $this->getDatabase()->meal_plan()->where('type', 'note');
+			$titlePrefix = $this->getLocalizationService()->__t('Meal plan note') . ': ';
+			$mealPlanNotesEvents = array();
+			foreach($mealPlanDayNotes as $mealPlanDayNote)
+			{
+				$mealPlanNotesEvents[] = array(
+					'title' => $titlePrefix . $mealPlanDayNote->note,
+					'start' => $mealPlanDayNote->day,
+					'date_format' => 'date'
+				);
+			}
+
+			$products = $this->getDatabase()->products();
+			$mealPlanDayProducts = $this->getDatabase()->meal_plan()->where('type', 'product');
+			$titlePrefix = $this->getLocalizationService()->__t('Meal plan product') . ': ';
+			$mealPlanProductEvents = array();
+			foreach($mealPlanDayProducts as $mealPlanDayProduct)
+			{
+				$mealPlanProductEvents[] = array(
+					'title' => $titlePrefix . FindObjectInArrayByPropertyValue($products, 'id', $mealPlanDayProduct->product_id)->name,
+					'start' => $mealPlanDayProduct->day,
+					'date_format' => 'date'
+				);
+			}
+		}
+
+		return array_merge($stockEvents, $taskEvents, $choreEvents, $batteryEvents, $mealPlanRecipeEvents, $mealPlanNotesEvents, $mealPlanProductEvents);
 	}
 }

@@ -26,7 +26,16 @@ if (typeof recipe !== "undefined")
 
 	var cardId = "#recipe-card-" + recipe;
 	$(cardId).addClass("bg-primary").addClass("text-white");
-	$(cardId)[0].scrollIntoView();
+
+	if ($(window).width() < 768)
+	{
+		// Scroll to recipe card on mobile
+		$("#selectedRecipeCard")[0].scrollIntoView();
+	}
+	else
+	{
+		$(cardId)[0].scrollIntoView();
+	}
 }
 
 if (GetUriParam("search") !== undefined)
@@ -219,7 +228,14 @@ $("#selectedRecipeToggleFullscreenButton").on('click', function(e)
 	$("#selectedRecipeCard .card-header").toggleClass("fixed-top");
 	$("#selectedRecipeCard .card-body").toggleClass("mt-5");
 
-	window.location.hash = "fullscreen";
+	if ($("body").hasClass("fullscreen-card"))
+	{
+		window.location.hash = "#fullscreen";
+	}
+	else
+	{
+		window.history.replaceState(null, null, " ");
+	}
 });
 
 $('#servings-scale').keyup(function(event)

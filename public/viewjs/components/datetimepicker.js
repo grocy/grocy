@@ -221,7 +221,10 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keyup', function(e)
 	var element = Grocy.Components.DateTimePicker.GetInputElement()[0];
 	if (!dateObj.isValid())
 	{
-		element.setCustomValidity("error");
+		if ($(element).hasAttr("required"))
+		{
+			element.setCustomValidity("error");
+		}		
 	}
 	else
 	{
@@ -265,7 +268,7 @@ Grocy.Components.DateTimePicker.GetInputElement().on('input', function(e)
 {
 	$('#datetimepicker-timeago').attr("datetime", Grocy.Components.DateTimePicker.GetValue());
 	EmptyElementWhenMatches('#datetimepicker-timeago', __t('timeago_nan'));
-	RefreshContextualTimeago();
+	RefreshContextualTimeago("#datetimepicker-wrapper");
 });
 
 $('.datetimepicker').on('update.datetimepicker', function(e)

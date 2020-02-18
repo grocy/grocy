@@ -8,25 +8,14 @@ use \Grocy\Services\DemoDataGeneratorService;
 
 class LoginController extends BaseController
 {
-	public function __construct(\Slim\Container $container, string $sessionCookieName)
+	public function __construct(\DI\Container $container, string $sessionCookieName)
 	{
 		parent::__construct($container);
 		$this->SessionCookieName = $sessionCookieName;
 	}
-
-	protected $SessionService = null;
 	protected $SessionCookieName;
 
-    private function getSessionService()
-	{
-		if($this->SessionsService == null)
-		{
-			$this->SessionService = SessionService::getInstance();
-		}
-		return $this->SessionService;
-	}
-
-	public function ProcessLogin(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function ProcessLogin(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$postParams = $request->getParsedBody();
 		if (isset($postParams['username']) && isset($postParams['password']))
@@ -47,28 +36,28 @@ class LoginController extends BaseController
 					));
 				}
 
-				return $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl('/'));
+				return $response->withRedirect($this->AppContainer->get('UrlManager')->ConstructUrl('/'));
 			}
 			else
 			{
-				return $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl('/login?invalid=true'));
+				return $response->withRedirect($this->AppContainer->get('UrlManager')->ConstructUrl('/login?invalid=true'));
 			}
 		}
 		else
 		{
-			return $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl('/login?invalid=true'));
+			return $response->withRedirect($this->AppContainer->get('UrlManager')->ConstructUrl('/login?invalid=true'));
 		}
 	}
 
-	public function LoginPage(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function LoginPage(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'login');
 	}
 
-	public function Logout(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function Logout(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$this->getSessionService()->RemoveSession($_COOKIE[$this->SessionCookieName]);
-		return $response->withRedirect($this->AppContainer->UrlManager->ConstructUrl('/'));
+		return $response->withRedirect($this->AppContainer->get('UrlManager')->ConstructUrl('/'));
 	}
 
 	public function GetSessionCookieName()

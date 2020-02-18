@@ -6,27 +6,16 @@ use \Grocy\Services\StockService;
 
 class StockApiController extends BaseApiController
 {
-	public function __construct(\Slim\Container $container)
+	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 	}
 
-	protected $StockService = null;
-
-	protected function getStockService()
-	{
-		if($this->StockService == null)
-		{
-			$this->StockService = StockService::getInstance();
-		}
-		return $this->StockService;
-	}
-
-	public function ProductDetails(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function ProductDetails(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
-			return $this->ApiResponse($this->getStockService()->GetProductDetails($args['productId']));
+			return $this->ApiResponse($response, $this->getStockService()->GetProductDetails($args['productId']));
 		}
 		catch (\Exception $ex)
 		{
@@ -34,12 +23,12 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function ProductDetailsByBarcode(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function ProductDetailsByBarcode(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
 			$productId = $this->getStockService()->GetProductIdFromBarcode($args['barcode']);
-			return $this->ApiResponse($this->getStockService()->GetProductDetails($productId));
+			return $this->ApiResponse($response, $this->getStockService()->GetProductDetails($productId));
 		}
 		catch (\Exception $ex)
 		{
@@ -47,11 +36,11 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function ProductPriceHistory(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function ProductPriceHistory(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
-			return $this->ApiResponse($this->getStockService()->GetProductPriceHistory($args['productId']));
+			return $this->ApiResponse($response, $this->getStockService()->GetProductPriceHistory($args['productId']));
 		}
 		catch (\Exception $ex)
 		{
@@ -59,7 +48,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function AddProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function AddProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$requestBody = $request->getParsedBody();
 
@@ -100,7 +89,7 @@ class StockApiController extends BaseApiController
 			}
 
 			$bookingId = $this->getStockService()->AddProduct($args['productId'], $requestBody['amount'], $bestBeforeDate, $transactionType, date('Y-m-d'), $price, $locationId);
-			return $this->ApiResponse($this->getDatabase()->stock_log($bookingId));
+			return $this->ApiResponse($response $this->getDatabase()->stock_log($bookingId));
 		}
 		catch (\Exception $ex)
 		{
@@ -108,7 +97,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function AddProductByBarcode(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function AddProductByBarcode(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -121,7 +110,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function EditStock(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function EditStockEntry(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$requestBody = $request->getParsedBody();
 
@@ -130,11 +119,6 @@ class StockApiController extends BaseApiController
 			if ($requestBody === null)
 			{
 				throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
-			}
-
-			if (!array_key_exists('stock_row_id', $requestBody))
-			{
-				throw new \Exception('A stock row id is required');
 			}
 
 			if (!array_key_exists('amount', $requestBody))
@@ -160,8 +144,8 @@ class StockApiController extends BaseApiController
 				$locationId = $requestBody['location_id'];
 			}
 
-			$bookingId = $this->StockService->EditStock($requestBody['stock_row_id'], $requestBody['amount'], $bestBeforeDate, $locationId, $price);
-			return $this->ApiResponse($this->Database->stock_log($bookingId));
+			$bookingId = $this->getStockService()->EditStockEntry($args['entryId'], $requestBody['amount'], $bestBeforeDate, $locationId, $price, $requestBody['open'], $requestBody['purchased_date']);
+			return $this->ApiResponse($response, $this->getDatabase()->stock_log($bookingId));
 		}
 		catch (\Exception $ex)
 		{
@@ -169,7 +153,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function TransferProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function TransferProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$requestBody = $request->getParsedBody();
 
@@ -201,8 +185,8 @@ class StockApiController extends BaseApiController
 				$specificStockEntryId = $requestBody['stock_entry_id'];
 			}
 
-			$bookingId = $this->StockService->TransferProduct($args['productId'], $requestBody['amount'], $requestBody['location_id_from'], $requestBody['location_id_to'], $specificStockEntryId);
-			return $this->ApiResponse($this->Database->stock_log($bookingId));
+			$bookingId = $this->getStockService()->TransferProduct($args['productId'], $requestBody['amount'], $requestBody['location_id_from'], $requestBody['location_id_to'], $specificStockEntryId);
+			return $this->ApiResponse($response, $this->getDatabase()->stock_log($bookingId));
 		}
 		catch (\Exception $ex)
 		{
@@ -210,11 +194,11 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function TransferProductByBarcode(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function TransferProductByBarcode(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
-			$args['productId'] = $this->StockService->GetProductIdFromBarcode($args['barcode']);
+			$args['productId'] = $this->getStockService()->GetProductIdFromBarcode($args['barcode']);
 			return $this->TransferProduct($request, $response, $args);
 		}
 		catch (\Exception $ex)
@@ -223,7 +207,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function ConsumeProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function ConsumeProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$requestBody = $request->getParsedBody();
 
@@ -272,7 +256,7 @@ class StockApiController extends BaseApiController
 			}
 
 			$bookingId = $this->getStockService()->ConsumeProduct($args['productId'], $requestBody['amount'], $spoiled, $transactionType, $specificStockEntryId, $recipeId, $locationId);
-			return $this->ApiResponse($this->getDatabase()->stock_log($bookingId));
+			return $this->ApiResponse($response, $this->getDatabase()->stock_log($bookingId));
 		}
 		catch (\Exception $ex)
 		{
@@ -281,7 +265,7 @@ class StockApiController extends BaseApiController
 		return $result;
 	}
 
-	public function ConsumeProductByBarcode(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function ConsumeProductByBarcode(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -294,7 +278,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function InventoryProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function InventoryProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$requestBody = $request->getParsedBody();
 
@@ -329,7 +313,7 @@ class StockApiController extends BaseApiController
 			}
 
 			$bookingId = $this->getStockService()->InventoryProduct($args['productId'], $requestBody['new_amount'], $bestBeforeDate, $locationId, $price);
-			return $this->ApiResponse($this->getDatabase()->stock_log($bookingId));
+			return $this->ApiResponse($response, $this->getDatabase()->stock_log($bookingId));
 		}
 		catch (\Exception $ex)
 		{
@@ -337,7 +321,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function InventoryProductByBarcode(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function InventoryProductByBarcode(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -350,7 +334,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function OpenProduct(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function OpenProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$requestBody = $request->getParsedBody();
 
@@ -373,7 +357,7 @@ class StockApiController extends BaseApiController
 			}
 
 			$bookingId = $this->getStockService()->OpenProduct($args['productId'], $requestBody['amount'], $specificStockEntryId);
-			return $this->ApiResponse($this->getDatabase()->stock_log($bookingId));
+			return $this->ApiResponse($response, $this->getDatabase()->stock_log($bookingId));
 		}
 		catch (\Exception $ex)
 		{
@@ -381,7 +365,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function OpenProductByBarcode(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function OpenProductByBarcode(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -394,12 +378,12 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function CurrentStock(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function CurrentStock(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->ApiResponse($this->getStockService()->GetCurrentStock());
+		return $this->ApiResponse($response, $this->getStockService()->GetCurrentStock());
 	}
 
-	public function CurrentVolatilStock(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function CurrentVolatileStock(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$nextXDays = 5;
 		if (isset($request->getQueryParams()['expiring_days']) && !empty($request->getQueryParams()['expiring_days']) && is_numeric($request->getQueryParams()['expiring_days']))
@@ -410,14 +394,14 @@ class StockApiController extends BaseApiController
 		$expiringProducts = $this->getStockService()->GetExpiringProducts($nextXDays, true);
 		$expiredProducts = $this->getStockService()->GetExpiringProducts(-1);
 		$missingProducts = $this->getStockService()->GetMissingProducts();
-		return $this->ApiResponse(array(
+		return $this->ApiResponse($response, array(
 			 'expiring_products' => $expiringProducts,
 			 'expired_products' => $expiredProducts,
 			 'missing_products' => $missingProducts
 		));
 	}
 
-	public function AddMissingProductsToShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function AddMissingProductsToShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -438,7 +422,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function ClearShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function ClearShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -460,7 +444,7 @@ class StockApiController extends BaseApiController
 	}
 
 
-	public function AddProductToShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function AddProductToShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -501,7 +485,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function RemoveProductFromShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function RemoveProductFromShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -537,7 +521,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function ExternalBarcodeLookup(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function ExternalBarcodeLookup(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -547,7 +531,7 @@ class StockApiController extends BaseApiController
 				$addFoundProduct = true;
 			}
 			
-			return $this->ApiResponse($this->getStockService()->ExternalBarcodeLookup($args['barcode'], $addFoundProduct));
+			return $this->ApiResponse($response, $this->getStockService()->ExternalBarcodeLookup($args['barcode'], $addFoundProduct));
 		}
 		catch (\Exception $ex)
 		{
@@ -555,11 +539,11 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function UndoBooking(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function UndoBooking(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
-			$this->ApiResponse($this->StockService->UndoBooking($args['bookingId']));
+			$this->ApiResponse($response, $this->StockService->UndoBooking($args['bookingId']));
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
@@ -568,11 +552,11 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function UndoTransaction(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function UndoTransaction(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
-			$this->ApiResponse($this->StockService->UndoTransaction($args['transactionId']));
+			$this->ApiResponse($response, $this->StockService->UndoTransaction($args['transactionId']));
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
@@ -581,17 +565,28 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function ProductStockEntries(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function ProductStockEntries(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->ApiResponse($this->getStockService()->GetProductStockEntries($args['productId']));
+		$allowSubproductSubstitution = false;
+		if (isset($request->getQueryParams()['include_sub_products']) && filter_var($request->getQueryParams()['include_sub_products'], FILTER_VALIDATE_BOOLEAN))
+		{
+			$allowSubproductSubstitution = true;
+		}
+
+		return $this->ApiResponse($response, $this->StockService->GetProductStockEntries($args['productId'], false, $allowSubproductSubstitution));
 	}
 
-	public function ProductStockLocations(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function ProductStockLocations(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->ApiResponse($this->StockService->GetProductStockLocations($args['productId']));
+		return $this->ApiResponse($response, $this->getStockService()->GetProductStockEntries($args['productId']));
 	}
 
-	public function StockBooking(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function StockEntry(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		return $this->ApiResponse($response, $this->StockService->GetStockEntry($args['entryId']));
+	}
+
+	public function StockBooking(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -602,7 +597,7 @@ class StockApiController extends BaseApiController
 				throw new \Exception('Stock booking does not exist');
 			}
 			
-			return $this->ApiResponse($stockLogRow);
+			return $this->ApiResponse($response, $stockLogRow);
 		}
 		catch (\Exception $ex)
 		{
@@ -610,18 +605,18 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function StockTransactions(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function StockTransactions(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
-			$transactionRows = $this->Database->stock_log()->where('transaction_id = :1', $args['transactionId'])->fetchAll();
+			$transactionRows = $this->getDatabase()->stock_log()->where('transaction_id = :1', $args['transactionId'])->fetchAll();
 
 			if (count($transactionRows) === 0)
 			{
 				throw new \Exception('No transaction was found by the given transaction id');
 			}
 			
-			return $this->ApiResponse($transactionRows);
+			return $this->ApiResponse($response, $transactionRows);
 		}
 		catch (\Exception $ex)
 		{

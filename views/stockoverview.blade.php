@@ -4,17 +4,12 @@
 @section('activeNav', 'stockoverview')
 @section('viewJsName', 'stockoverview')
 
-@push('pageScripts')
-	<script src="{{ $U('/node_modules/jquery-ui-dist/jquery-ui.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/viewjs/purchase.js?v=', true) }}{{ $version }}"></script>
+@push('pageStyles')
+	<link href="{{ $U('/node_modules/animate.css/animate.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
 @endpush
 
-@push('pageStyles')
-	<style>
-		.product-name-cell[data-product-has-picture='true'] {
-			cursor: pointer;
-		}
-	</style>
+@push('pageScripts')
+	<script src="{{ $U('/viewjs/purchase.js?v=', true) }}{{ $version }}"></script>
 @endpush
 
 @section('content')
@@ -24,6 +19,9 @@
 			<small id="info-current-stock" class="text-muted"></small>
 			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/stockjournal') }}">
 				<i class="fas fa-file-alt"></i> {{ $__t('Journal') }}
+			</a>
+			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/stockentries') }}">
+				<i class="fas fa-boxes"></i> {{ $__t('Stock entries') }}
 			</a>
 			@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/locationcontentsheet') }}">
@@ -127,34 +125,29 @@
 								<i class="fas fa-ellipsis-v"></i>
 							</button>
 							<div class="dropdown-menu">
-								<a class="dropdown-item product-add-to-shopping-list-button" type="button" href="#"
-									data-product-id="{{ $currentStockEntry->product_id }}">
+								<a class="dropdown-item show-as-dialog-link" type="button" href="{{ $U('/shoppinglistitem/new?embedded&updateexistingproduct&product=' . $currentStockEntry->product_id ) }}">
 									<i class="fas fa-shopping-cart"></i> {{ $__t('Add to shopping list') }}
 								</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item product-purchase-button" type="button" href="#"
-									data-product-id="{{ $currentStockEntry->product_id }}">
+								<a class="dropdown-item show-as-dialog-link" type="button" href="{{ $U('/purchase?embedded&product=' . $currentStockEntry->product_id ) }}">
 									<i class="fas fa-shopping-cart"></i> {{ $__t('Purchase') }}
 								</a>
-								<a class="dropdown-item product-consume-custom-amount-button @if($currentStockEntry->amount < 1) disabled @endif" type="button" href="#"
-									data-product-id="{{ $currentStockEntry->product_id }}">
+								<a class="dropdown-item show-as-dialog-link" type="button" href="{{ $U('/consume?embedded&product=' . $currentStockEntry->product_id ) }}">
 									<i class="fas fa-utensils"></i> {{ $__t('Consume') }}
 								</a>
 								@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
-								<a class="dropdown-item product-transfer-button @if($currentStockEntry->amount < 1) disabled @endif" type="button" href="#"
-									data-product-id="{{ $currentStockEntry->product_id }}">
+								<a class="dropdown-item show-as-dialog-link @if($currentStockEntry->amount < 1) disabled @endif" type="button" href="{{ $U('/transfer?embedded&product=' . $currentStockEntry->product_id) }}">
 									<i class="fas fa-exchange-alt"></i> {{ $__t('Transfer') }}
 								</a>
 								@endif
-								<a class="dropdown-item product-inventory-button" type="button" href="#"
-									data-product-id="{{ $currentStockEntry->product_id }}">
+								<a class="dropdown-item show-as-dialog-link" type="button" href="{{ $U('/inventory?embedded&product=' . $currentStockEntry->product_id ) }}">
 									<i class="fas fa-list"></i> {{ $__t('Inventory') }}
 								</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item product-name-cell" data-product-id="{{ $currentStockEntry->product_id }}" type="button" href="#">
 									<i class="fas fa-info"></i> {{ $__t('Show product details') }}
 								</a>
-								<a class="dropdown-item" type="button" href="{{ $U('/stockdetail?product=') }}{{ $currentStockEntry->product_id }}"
+								<a class="dropdown-item" type="button" href="{{ $U('/stockentries?product=') }}{{ $currentStockEntry->product_id }}"
 									data-product-id="{{ $currentStockEntry->product_id }}">
 									<i class="fas fa-boxes"></i> {{ $__t('Show stock entries') }}
 								</a>

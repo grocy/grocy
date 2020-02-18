@@ -1,3 +1,5 @@
+# Translators:
+# Jonathan Adams <jonathan@connockadams.uk>, 2020
 # 
 msgid ""
 msgstr ""
@@ -5,6 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Jonathan Adams <jonathan@connockadams.uk>, 2020\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/grocy/teams/93189/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,999 +17,1019 @@ msgstr ""
 "X-Domain: grocy/strings\n"
 
 msgid "Stock overview"
-msgstr ""
+msgstr "Stock overview"
 
 msgid "%s product expires"
 msgid_plural "%s products expiring"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s product expires"
+msgstr[1] "%s products expiring"
 
 msgid "within the next day"
 msgid_plural "within the next %s days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "within the next day"
+msgstr[1] "within the next %s days"
 
 msgid "%s product is already expired"
 msgid_plural "%s products are already expired"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s product is already expired"
+msgstr[1] "%s products are already expired"
 
 msgid "%s product is below defined min. stock amount"
 msgid_plural "%s products are below defined min. stock amount"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s product is below defined min. stock amount"
+msgstr[1] "%s products are below defined min. stock amount"
 
 msgid "Product"
-msgstr ""
+msgstr "Product"
 
 msgid "%s Product"
 msgid_plural "%s Products"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s Product"
+msgstr[1] "%s Products"
 
 msgid "Amount"
-msgstr ""
+msgstr "Amount"
 
 msgid "Next best before date"
-msgstr ""
+msgstr "Next best before date"
 
 msgid "Logout"
-msgstr ""
+msgstr "Logout"
 
 msgid "Chores overview"
-msgstr ""
+msgstr "Chores overview"
 
 msgid "Batteries overview"
-msgstr ""
+msgstr "Batteries overview"
 
 msgid "Purchase"
-msgstr ""
+msgstr "Purchase"
 
 msgid "Consume"
-msgstr ""
+msgstr "Consume"
 
 msgid "Inventory"
-msgstr ""
+msgstr "Inventory"
 
 msgid "Shopping list"
-msgstr ""
+msgstr "Shopping list"
 
 msgid "Chore tracking"
-msgstr ""
+msgstr "Chore tracking"
 
 msgid "Battery tracking"
-msgstr ""
+msgstr "Battery tracking"
 
 msgid "Locations"
-msgstr ""
+msgstr "Locations"
 
 msgid "Quantity units"
-msgstr ""
+msgstr "Quantity units"
 
 msgid "Chores"
-msgstr ""
+msgstr "Chores"
 
 msgid "Batteries"
-msgstr ""
+msgstr "Batteries"
 
 msgid "Chore"
-msgstr ""
+msgstr "Chore"
 
 msgid "Next estimated tracking"
-msgstr ""
+msgstr "Next estimated tracking"
 
 msgid "Last tracked"
-msgstr ""
+msgstr "Last tracked"
 
 msgid "Battery"
-msgstr ""
+msgstr "Battery"
 
 msgid "Last charged"
-msgstr ""
+msgstr "Last charged"
 
 msgid "Next planned charge cycle"
-msgstr ""
+msgstr "Next planned charge cycle"
 
 msgid "Best before"
-msgstr ""
+msgstr "Best before"
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid "Product overview"
-msgstr ""
+msgstr "Product overview"
 
 msgid "Stock quantity unit"
-msgstr ""
+msgstr "Stock quantity unit"
 
 msgid "Stock amount"
-msgstr ""
+msgstr "Stock amount"
 
 msgid "Last purchased"
-msgstr ""
+msgstr "Last purchased"
 
 msgid "Last used"
-msgstr ""
+msgstr "Last used"
 
 msgid "Spoiled"
-msgstr ""
+msgstr "Spoiled"
 
 msgid "Barcode lookup is disabled"
-msgstr ""
+msgstr "Barcode lookup is disabled"
 
 msgid ""
 "will be added to the list of barcodes for the selected product on submit"
 msgstr ""
+"will be added to the list of barcodes for the selected product on submit"
 
 msgid "New amount"
-msgstr ""
+msgstr "New amount"
 
 msgid "Note"
-msgstr ""
+msgstr "Note"
 
 msgid "Tracked time"
-msgstr ""
+msgstr "Tracked time"
 
 msgid "Chore overview"
-msgstr ""
+msgstr "Chore overview"
 
 msgid "Tracked count"
-msgstr ""
+msgstr "Tracked count"
 
 msgid "Battery overview"
-msgstr ""
+msgstr "Battery overview"
 
 msgid "Charge cycles count"
-msgstr ""
+msgstr "Charge cycles count"
 
 msgid "Create shopping list item"
-msgstr ""
+msgstr "Create shopping list item"
 
 msgid "Edit shopping list item"
-msgstr ""
+msgstr "Edit shopping list item"
 
 msgid "Save"
-msgstr ""
+msgstr "Save"
 
 msgid "Add"
-msgstr ""
+msgstr "Add"
 
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 msgid "Location"
-msgstr ""
+msgstr "Location"
 
 msgid "Min. stock amount"
-msgstr ""
+msgstr "Min. stock amount"
 
 msgid "QU purchase"
-msgstr ""
+msgstr "QU purchase"
 
 msgid "QU stock"
-msgstr ""
+msgstr "QU stock"
 
 msgid "QU factor"
-msgstr ""
+msgstr "QU factor"
 
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 msgid "Create product"
-msgstr ""
+msgstr "Create product"
 
 msgid "Barcode(s)"
-msgstr ""
+msgstr "Barcode(s)"
 
 msgid "Minimum stock amount"
-msgstr ""
+msgstr "Minimum stock amount"
 
 msgid "Default best before days"
-msgstr ""
+msgstr "Default best before days"
 
 msgid "Quantity unit purchase"
-msgstr ""
+msgstr "Quantity unit purchase"
 
 msgid "Quantity unit stock"
-msgstr ""
+msgstr "Quantity unit stock"
 
 msgid "Factor purchase to stock quantity unit"
-msgstr ""
+msgstr "Factor purchase to stock quantity unit"
 
 msgid "Create location"
-msgstr ""
+msgstr "Create location"
 
 msgid "Create quantity unit"
-msgstr ""
+msgstr "Create quantity unit"
 
 msgid "Period type"
-msgstr ""
+msgstr "Period type"
 
 msgid "Period days"
-msgstr ""
+msgstr "Period days"
 
 msgid "Create chore"
-msgstr ""
+msgstr "Create chore"
 
 msgid "Used in"
-msgstr ""
+msgstr "Used in"
 
 msgid "Create battery"
-msgstr ""
+msgstr "Create battery"
 
 msgid "Edit battery"
-msgstr ""
+msgstr "Edit battery"
 
 msgid "Edit chore"
-msgstr ""
+msgstr "Edit chore"
 
 msgid "Edit quantity unit"
-msgstr ""
+msgstr "Edit quantity unit"
 
 msgid "Edit product"
-msgstr ""
+msgstr "Edit product"
 
 msgid "Edit location"
-msgstr ""
+msgstr "Edit location"
 
 msgid "Record data"
-msgstr ""
+msgstr "Record data"
 
 msgid "Manage master data"
-msgstr ""
+msgstr "Manage master data"
 
 msgid "This will apply to added products"
-msgstr ""
+msgstr "This will apply to added products"
 
 msgid "never"
-msgstr ""
+msgstr "never"
 
 msgid "Add products that are below defined min. stock amount"
-msgstr ""
+msgstr "Add products that are below defined min. stock amount"
 
 msgid ""
 "For purchases this amount of days will be added to today for the best before"
 " date suggestion"
 msgstr ""
+"For purchases this amount of days will be added to today for the best before"
+" date suggestion"
 
 msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
-msgstr ""
+msgstr "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
 
 msgid "Login"
-msgstr ""
+msgstr "Login"
 
 msgid "Username"
-msgstr ""
+msgstr "Username"
 
 msgid "Password"
-msgstr ""
+msgstr "Password"
 
 msgid "Invalid credentials, please try again"
-msgstr ""
+msgstr "Invalid credentials, please try again"
 
 msgid "Are you sure to delete battery \"%s\"?"
-msgstr ""
+msgstr "Are you sure to delete battery \"%s\"?"
 
 msgid "Yes"
-msgstr ""
+msgstr "Yes"
 
 msgid "No"
-msgstr ""
+msgstr "No"
 
 msgid "Are you sure to delete chore \"%s\"?"
-msgstr ""
+msgstr "Are you sure to delete chore \"%s\"?"
 
 msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
-msgstr ""
+msgstr "\"%s\" could not be resolved to a product, how do you want to proceed?"
 
 msgid "Create or assign product"
-msgstr ""
+msgstr "Create or assign product"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Cancel"
 
 msgid "Add as new product"
-msgstr ""
+msgstr "Add as new product"
 
 msgid "Add as barcode to existing product"
-msgstr ""
+msgstr "Add as barcode to existing product"
 
 msgid "Add as new product and prefill barcode"
-msgstr ""
+msgstr "Add as new product and prefill barcode"
 
 msgid "Are you sure to delete quantity unit \"%s\"?"
-msgstr ""
+msgstr "Are you sure to delete quantity unit \"%s\"?"
 
 msgid "Are you sure to delete product \"%s\"?"
-msgstr ""
+msgstr "Are you sure to delete product \"%s\"?"
 
 msgid "Are you sure to delete location \"%s\"?"
-msgstr ""
+msgstr "Are you sure to delete location \"%s\"?"
 
 msgid "Manage API keys"
-msgstr ""
+msgstr "Manage API keys"
 
 msgid "REST API & data model documentation"
-msgstr ""
+msgstr "REST API & data model documentation"
 
 msgid "API keys"
-msgstr ""
+msgstr "API keys"
 
 msgid "Create new API key"
-msgstr ""
+msgstr "Create new API key"
 
 msgid "API key"
-msgstr ""
+msgstr "API key"
 
 msgid "Expires"
-msgstr ""
+msgstr "Expires"
 
 msgid "Created"
-msgstr ""
+msgstr "Created"
 
 msgid "This product is not in stock"
-msgstr ""
+msgstr "This product is not in stock"
 
 msgid "This means %s will be added to stock"
-msgstr ""
+msgstr "This means %s will be added to stock"
 
 msgid "This means %s will be removed from stock"
-msgstr ""
+msgstr "This means %s will be removed from stock"
 
 msgid ""
 "This means the next execution of this chore is scheduled %s days after the "
 "last execution"
 msgstr ""
+"This means the next execution of this chore is scheduled %s days after the "
+"last execution"
 
 msgid "Removed %1$s of %2$s from stock"
-msgstr ""
+msgstr "Removed %1$s of %2$s from stock"
 
 msgid "About grocy"
-msgstr ""
+msgstr "About grocy"
 
 msgid "Close"
-msgstr ""
+msgstr "Close"
 
 msgid "Released on"
-msgstr ""
+msgstr "Released on"
 
 msgid "Added %1$s of %2$s to stock"
-msgstr ""
+msgstr "Added %1$s of %2$s to stock"
 
 msgid "Stock amount of %1$s is now %2$s"
-msgstr ""
+msgstr "Stock amount of %1$s is now %2$s"
 
 msgid "Tracked execution of chore %1$s on %2$s"
-msgstr ""
+msgstr "Tracked execution of chore %1$s on %2$s"
 
 msgid "Tracked charge cycle of battery %1$s on %2$s"
-msgstr ""
+msgstr "Tracked charge cycle of battery %1$s on %2$s"
 
 msgid "Consume all %s which are currently in stock"
-msgstr ""
+msgstr "Consume all %s which are currently in stock"
 
 msgid "All"
-msgstr ""
+msgstr "All"
 
 msgid "Track charge cycle of battery %s"
-msgstr ""
+msgstr "Track charge cycle of battery %s"
 
 msgid "Track execution of chore %s"
-msgstr ""
+msgstr "Track execution of chore %s"
 
 msgid "Filter by location"
-msgstr ""
+msgstr "Filter by location"
 
 msgid "Search"
-msgstr ""
+msgstr "Search"
 
 msgid "Not logged in"
-msgstr ""
+msgstr "Not logged in"
 
 msgid "You have to select a product"
-msgstr ""
+msgstr "You have to select a product"
 
 msgid "You have to select a chore"
-msgstr ""
+msgstr "You have to select a chore"
 
 msgid "You have to select a battery"
-msgstr ""
+msgstr "You have to select a battery"
 
 msgid "A name is required"
-msgstr ""
+msgstr "A name is required"
 
 msgid "A location is required"
-msgstr ""
+msgstr "A location is required"
 
 msgid "The amount cannot be lower than %s"
-msgstr ""
+msgstr "The amount cannot be lower than %s"
 
 msgid "This cannot be negative"
-msgstr ""
+msgstr "This cannot be negative"
 
 msgid "A quantity unit is required"
-msgstr ""
+msgstr "A quantity unit is required"
 
 msgid "A period type is required"
-msgstr ""
+msgstr "A period type is required"
 
 msgid "A best before date is required"
-msgstr ""
+msgstr "A best before date is required"
 
 msgid "Settings"
-msgstr ""
+msgstr "Settings"
 
 msgid "This can only be before now"
-msgstr ""
+msgstr "This can only be before now"
 
 msgid "Calendar"
-msgstr ""
+msgstr "Calendar"
 
 msgid "Recipes"
-msgstr ""
+msgstr "Recipes"
 
 msgid "Edit recipe"
-msgstr ""
+msgstr "Edit recipe"
 
 msgid "New recipe"
-msgstr ""
+msgstr "New recipe"
 
 msgid "Ingredients list"
-msgstr ""
+msgstr "Ingredients list"
 
 msgid "Add recipe ingredient"
-msgstr ""
+msgstr "Add recipe ingredient"
 
 msgid "Edit recipe ingredient"
-msgstr ""
+msgstr "Edit recipe ingredient"
 
 msgid "Are you sure to delete recipe \"%s\"?"
-msgstr ""
+msgstr "Are you sure to delete recipe \"%s\"?"
 
 msgid "Are you sure to delete recipe ingredient \"%s\"?"
-msgstr ""
+msgstr "Are you sure to delete recipe ingredient \"%s\"?"
 
 msgid "Are you sure to empty shopping list \"%s\"?"
-msgstr ""
+msgstr "Are you sure to empty shopping list \"%s\"?"
 
 msgid "Clear list"
-msgstr ""
+msgstr "Clear list"
 
 msgid "Requirements fulfilled"
-msgstr ""
+msgstr "Requirements fulfilled"
 
 msgid "Put missing products on shopping list"
-msgstr ""
+msgstr "Put missing products on shopping list"
 
 msgid "Enough in stock"
-msgstr ""
+msgstr "Enough in stock"
 
 msgid ""
 "Not enough in stock, %s ingredient missing but already on the shopping list"
 msgid_plural ""
 "Not enough in stock, %s ingredients missing but already on the shopping list"
 msgstr[0] ""
+"Not enough in stock, %s ingredient missing but already on the shopping list"
 msgstr[1] ""
+"Not enough in stock, %s ingredients missing but already on the shopping list"
 
 msgid "Expand to fullscreen"
-msgstr ""
+msgstr "Expand to fullscreen"
 
 msgid "Ingredients"
-msgstr ""
+msgstr "Ingredients"
 
 msgid "Preparation"
-msgstr ""
+msgstr "Preparation"
 
 msgid "Recipe"
-msgstr ""
+msgstr "Recipe"
 
 msgid "Not enough in stock, %1$s missing, %2$s already on shopping list"
-msgstr ""
+msgstr "Not enough in stock, %1$s missing, %2$s already on shopping list"
 
 msgid "Show notes"
-msgstr ""
+msgstr "Show notes"
 
 msgid "Put missing amount on shopping list"
-msgstr ""
+msgstr "Put missing amount on shopping list"
 
 msgid ""
 "Are you sure to put all missing ingredients for recipe \"%s\" on the "
 "shopping list?"
 msgstr ""
+"Are you sure to put all missing ingredients for recipe \"%s\" on the "
+"shopping list?"
 
 msgid "Added for recipe %s"
-msgstr ""
+msgstr "Added for recipe %s"
 
 msgid "Manage users"
-msgstr ""
+msgstr "Manage users"
 
 msgid "User"
-msgstr ""
+msgstr "User"
 
 msgid "Users"
-msgstr ""
+msgstr "Users"
 
 msgid "Are you sure to delete user \"%s\"?"
-msgstr ""
+msgstr "Are you sure to delete user \"%s\"?"
 
 msgid "Create user"
-msgstr ""
+msgstr "Create user"
 
 msgid "Edit user"
-msgstr ""
+msgstr "Edit user"
 
 msgid "First name"
-msgstr ""
+msgstr "First name"
 
 msgid "Last name"
-msgstr ""
+msgstr "Last name"
 
 msgid "A username is required"
-msgstr ""
+msgstr "A username is required"
 
 msgid "Confirm password"
-msgstr ""
+msgstr "Confirm password"
 
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Passwords do not match"
 
 msgid "Change password"
-msgstr ""
+msgstr "Change password"
 
 msgid "Done by"
-msgstr ""
+msgstr "Done by"
 
 msgid "Last done by"
-msgstr ""
+msgstr "Last done by"
 
 msgid "Unknown"
-msgstr ""
+msgstr "Unknown"
 
 msgid "Filter by chore"
-msgstr ""
+msgstr "Filter by chore"
 
 msgid "Chores journal"
-msgstr ""
+msgstr "Chores journal"
 
 msgid "0 means suggestions for the next charge cycle are disabled"
-msgstr ""
+msgstr "0 means suggestions for the next charge cycle are disabled"
 
 msgid "Charge cycle interval (days)"
-msgstr ""
+msgstr "Charge cycle interval (days)"
 
 msgid "Last price"
-msgstr ""
+msgstr "Last price"
 
 msgid "Price history"
-msgstr ""
+msgstr "Price history"
 
 msgid "No price history available"
-msgstr ""
+msgstr "No price history available"
 
 msgid "Price"
-msgstr ""
+msgstr "Price"
 
 msgid "in %s per purchase quantity unit"
-msgstr ""
+msgstr "in %s per purchase quantity unit"
 
 msgid "The price cannot be lower than %s"
-msgstr ""
+msgstr "The price cannot be lower than %s"
 
 msgid "Unit"
-msgstr ""
+msgstr "Unit"
 
 msgid "%s Unit"
 msgid_plural "%s Units"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s Unit"
+msgstr[1] "%s Units"
 
 msgid "%s chore is due to be done"
 msgid_plural "%s chores are due to be done"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s chore is due to be done"
+msgstr[1] "%s chores are due to be done"
 
 msgid "%s chore is overdue to be done"
 msgid_plural "%s chores are overdue to be done"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s chore is overdue to be done"
+msgstr[1] "%s chores are overdue to be done"
 
 msgid "%s battery is due to be charged"
 msgid_plural "%s batteries are due to be charged"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s battery is due to be charged"
+msgstr[1] "%s batteries are due to be charged"
 
 msgid "%s battery is overdue to be charged"
 msgid_plural "%s batteries are overdue to be charged"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s battery is overdue to be charged"
+msgstr[1] "%s batteries are overdue to be charged"
 
 msgid "in singular form"
-msgstr ""
+msgstr "in singular form"
 
 msgid "Never expires"
-msgstr ""
+msgstr "Never expires"
 
 msgid "This cannot be lower than %s"
-msgstr ""
+msgstr "This cannot be lower than %s"
 
 msgid "-1 means that this product never expires"
-msgstr ""
+msgstr "-1 means that this product never expires"
 
 msgid "Quantity unit"
-msgstr ""
+msgstr "Quantity unit"
 
 msgid ""
 "Only check if a single unit is in stock (a different quantity can then be "
 "used above)"
 msgstr ""
+"Only check if a single unit is in stock (a different quantity can then be "
+"used above)"
 
 msgid ""
 "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
 " marked with \"check only if a single unit is in stock\" will be ignored)?"
 msgstr ""
+"Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
+" marked with \"check only if a single unit is in stock\" will be ignored)?"
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
-msgstr ""
+msgstr "Removed all ingredients of recipe \"%s\" from stock"
 
 msgid "Consume all ingredients needed by this recipe"
-msgstr ""
+msgstr "Consume all ingredients needed by this recipe"
 
 msgid "Click to show technical details"
-msgstr ""
+msgstr "Click to show technical details"
 
 msgid "Error while saving, probably this item already exists"
-msgstr ""
+msgstr "Error while saving, probably this item already exists"
 
 msgid "Error details"
-msgstr ""
+msgstr "Error details"
 
 msgid "Tasks"
-msgstr ""
+msgstr "Tasks"
 
 msgid "Show done tasks"
-msgstr ""
+msgstr "Show done tasks"
 
 msgid "Task"
-msgstr ""
+msgstr "Task"
 
 msgid "Due"
-msgstr ""
+msgstr "Due"
 
 msgid "Assigned to"
-msgstr ""
+msgstr "Assigned to"
 
 msgid "Mark task \"%s\" as completed"
-msgstr ""
+msgstr "Mark task \"%s\" as completed"
 
 msgid "Uncategorized"
-msgstr ""
+msgstr "Uncategorized"
 
 msgid "Task categories"
-msgstr ""
+msgstr "Task categories"
 
 msgid "Create task"
-msgstr ""
+msgstr "Create task"
 
 msgid "A due date is required"
-msgstr ""
+msgstr "A due date is required"
 
 msgid "Category"
-msgstr ""
+msgstr "Category"
 
 msgid "Edit task"
-msgstr ""
+msgstr "Edit task"
 
 msgid "Are you sure to delete task \"%s\"?"
-msgstr ""
+msgstr "Are you sure to delete task \"%s\"?"
 
 msgid "%s task is due to be done"
 msgid_plural "%s tasks are due to be done"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s task is due to be done"
+msgstr[1] "%s tasks are due to be done"
 
 msgid "%s task is overdue to be done"
 msgid_plural "%s tasks are overdue to be done"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s task is overdue to be done"
+msgstr[1] "%s tasks are overdue to be done"
 
 msgid "Edit task category"
-msgstr ""
+msgstr "Edit task category"
 
 msgid "Create task category"
-msgstr ""
+msgstr "Create task category"
 
 msgid "Product groups"
-msgstr ""
+msgstr "Product groups"
 
 msgid "Ungrouped"
-msgstr ""
+msgstr "Ungrouped"
 
 msgid "Create product group"
-msgstr ""
+msgstr "Create product group"
 
 msgid "Edit product group"
-msgstr ""
+msgstr "Edit product group"
 
 msgid "Product group"
-msgstr ""
+msgstr "Product group"
 
 msgid "Are you sure to delete product group \"%s\"?"
-msgstr ""
+msgstr "Are you sure to delete product group \"%s\"?"
 
 msgid "Stay logged in permanently"
-msgstr ""
+msgstr "Stay logged in permanently"
 
 msgid "When not set, you will get logged out at latest after 30 days"
-msgstr ""
+msgstr "When not set, you will get logged out at latest after 30 days"
 
 msgid "Filter by status"
-msgstr ""
+msgstr "Filter by status"
 
 msgid "Below min. stock amount"
-msgstr ""
+msgstr "Below min. stock amount"
 
 msgid "Expiring soon"
-msgstr ""
+msgstr "Expiring soon"
 
 msgid "Already expired"
-msgstr ""
+msgstr "Already expired"
 
 msgid "Due soon"
-msgstr ""
+msgstr "Due soon"
 
 msgid "Overdue"
-msgstr ""
+msgstr "Overdue"
 
 msgid "View settings"
-msgstr ""
+msgstr "View settings"
 
 msgid "Auto reload on external changes"
-msgstr ""
+msgstr "Auto reload on external changes"
 
 msgid "Enable night mode"
-msgstr ""
+msgstr "Enable night mode"
 
 msgid "Auto enable in time range"
-msgstr ""
+msgstr "Auto enable in time range"
 
 msgid "From"
-msgstr ""
+msgstr "From"
 
 msgid "in format"
-msgstr ""
+msgstr "in format"
 
 msgid "To"
-msgstr ""
+msgstr "To"
 
 msgid "Time range goes over midnight"
-msgstr ""
+msgstr "Time range goes over midnight"
 
 msgid "Product picture"
-msgstr ""
+msgstr "Product picture"
 
 msgid "No file selected"
-msgstr ""
+msgstr "No file selected"
 
 msgid "If you don't select a file, the current picture will not be altered"
-msgstr ""
+msgstr "If you don't select a file, the current picture will not be altered"
 
 msgid "Delete"
-msgstr ""
+msgstr "Delete"
 
 msgid "The current picture will be deleted when you save the product"
-msgstr ""
+msgstr "The current picture will be deleted when you save the product"
 
 msgid "Select file"
-msgstr ""
+msgstr "Select file"
 
 msgid "Image of product %s"
-msgstr ""
+msgstr "Image of product %s"
 
 msgid ""
 "This product cannot be deleted because it is in stock, please remove the "
 "stock amount first."
 msgstr ""
+"This product cannot be deleted because it is in stock, please remove the "
+"stock amount first."
 
 msgid "Delete not possible"
-msgstr ""
+msgstr "Delete not possible"
 
 msgid "Equipment"
-msgstr ""
+msgstr "Equipment"
 
 msgid "Instruction manual"
-msgstr ""
+msgstr "Instruction manual"
 
 msgid "The selected equipment has no instruction manual"
-msgstr ""
+msgstr "The selected equipment has no instruction manual"
 
 msgid "Notes"
-msgstr ""
+msgstr "Notes"
 
 msgid "Edit equipment"
-msgstr ""
+msgstr "Edit equipment"
 
 msgid "Create equipment"
-msgstr ""
+msgstr "Create equipment"
 
 msgid ""
 "If you don't select a file, the current instruction manual will not be "
 "altered"
 msgstr ""
+"If you don't select a file, the current instruction manual will not be "
+"altered"
 
 msgid "No instruction manual available"
-msgstr ""
+msgstr "No instruction manual available"
 
 msgid ""
 "The current instruction manual will be deleted when you save the equipment"
 msgstr ""
+"The current instruction manual will be deleted when you save the equipment"
 
 msgid "No picture available"
-msgstr ""
+msgstr "No picture available"
 
 msgid "Filter by product group"
-msgstr ""
+msgstr "Filter by product group"
 
 msgid "Presets for new products"
-msgstr ""
+msgstr "Presets for new products"
 
 msgid "Included recipes"
-msgstr ""
+msgstr "Included recipes"
 
 msgid "A recipe is required"
-msgstr ""
+msgstr "A recipe is required"
 
 msgid "Add included recipe"
-msgstr ""
+msgstr "Add included recipe"
 
 msgid "Edit included recipe"
-msgstr ""
+msgstr "Edit included recipe"
 
 msgid "Group"
-msgstr ""
+msgstr "Group"
 
 msgid "This will be used as a headline to group ingredients together"
-msgstr ""
+msgstr "This will be used as a headline to group ingredients together"
 
 msgid "Journal"
-msgstr ""
+msgstr "Journal"
 
 msgid "Stock journal"
-msgstr ""
+msgstr "Stock journal"
 
 msgid "Filter by product"
-msgstr ""
+msgstr "Filter by product"
 
 msgid "Booking time"
-msgstr ""
+msgstr "Booking time"
 
 msgid "Booking type"
-msgstr ""
+msgstr "Booking type"
 
 msgid "Undo booking"
-msgstr ""
+msgstr "Undo booking"
 
 msgid "Undone on"
-msgstr ""
+msgstr "Undone on"
 
 msgid "Batteries journal"
-msgstr ""
+msgstr "Batteries journal"
 
 msgid "Filter by battery"
-msgstr ""
+msgstr "Filter by battery"
 
 msgid "Undo charge cycle"
-msgstr ""
+msgstr "Undo charge cycle"
 
 msgid "Undo chore execution"
-msgstr ""
+msgstr "Undo chore execution"
 
 msgid "Chore execution successfully undone"
-msgstr ""
+msgstr "Chore execution successfully undone"
 
 msgid "Undo"
-msgstr ""
+msgstr "Undo"
 
 msgid "Booking successfully undone"
-msgstr ""
+msgstr "Booking successfully undone"
 
 msgid "Charge cycle successfully undone"
-msgstr ""
+msgstr "Charge cycle successfully undone"
 
 msgid "This cannot be negative and must be an integral number"
-msgstr ""
+msgstr "This cannot be negative and must be an integral number"
 
 msgid "Disable stock fulfillment checking for this ingredient"
-msgstr ""
+msgstr "Disable stock fulfillment checking for this ingredient"
 
 msgid "Add all list items to stock"
-msgstr ""
+msgstr "Add all list items to stock"
 
 msgid "Add %1$s of %2$s to stock"
-msgstr ""
+msgstr "Add %1$s of %2$s to stock"
 
 msgid "Adding shopping list item %1$s of %2$s"
-msgstr ""
+msgstr "Adding shopping list item %1$s of %2$s"
 
 msgid "Use a specific stock item"
-msgstr ""
+msgstr "Use a specific stock item"
 
 msgid ""
 "The first item in this list would be picked by the default rule which is "
 "\"First expiring first, then first in first out\""
 msgstr ""
+"The first item in this list would be picked by the default rule which is "
+"\"First expiring first, then first in first out\""
 
 msgid "Mark %1$s of %2$s as open"
-msgstr ""
+msgstr "Mark %1$s of %2$s as open"
 
 msgid ""
-"When a product was marked as opened, the best before date will be replaced "
-"by today + this amount of days (a value of 0 disables this)"
+"When this product was marked as opened, the best before date will be "
+"replaced by today + this amount of days (a value of 0 disables this)"
 msgstr ""
 
 msgid "Default best before days after opened"
-msgstr ""
+msgstr "Default best before days after opened"
 
 msgid "Marked %1$s of %2$s as opened"
-msgstr ""
+msgstr "Marked %1$s of %2$s as opened"
 
 msgid "Mark as opened"
-msgstr ""
-
-msgid "Expires on %1$s; Bought on %2$s"
-msgstr ""
+msgstr "Mark as opened"
 
 msgid "Not opened"
-msgstr ""
+msgstr "Not opened"
 
 msgid "Opened"
-msgstr ""
+msgstr "Opened"
 
 msgid "%s opened"
-msgstr ""
+msgstr "%s opened"
 
 msgid "Product expires"
-msgstr ""
+msgstr "Product expires"
 
 msgid "Task due"
-msgstr ""
+msgstr "Task due"
 
 msgid "Chore due"
-msgstr ""
+msgstr "Chore due"
 
 msgid "Battery charge cycle due"
-msgstr ""
+msgstr "Battery charge cycle due"
 
 msgid "Show clock in header"
-msgstr ""
+msgstr "Show clock in header"
 
 msgid "Stock settings"
-msgstr ""
+msgstr "Stock settings"
 
 msgid "Shopping list to stock workflow"
-msgstr ""
+msgstr "Shopping list to stock workflow"
 
 msgid ""
 "Automatically do the booking using the last price and the amount of the "
 "shopping list item, if the product has \"Default best before days\" set"
 msgstr ""
+"Automatically do the booking using the last price and the amount of the "
+"shopping list item, if the product has \"Default best before days\" set"
 
 msgid "Skip"
-msgstr ""
+msgstr "Skip"
 
 msgid "Servings"
-msgstr ""
+msgstr "Servings"
 
 msgid "Costs"
-msgstr ""
+msgstr "Costs"
 
 msgid "Based on the prices of the last purchase per product"
-msgstr ""
+msgstr "Based on the prices of the last purchase per product"
 
 msgid "The ingredients listed here result in this amount of servings"
-msgstr ""
+msgstr "The ingredients listed here result in this amount of servings"
 
 msgid "Do not check against the shopping list when adding missing items to it"
 msgstr ""
+"Do not check against the shopping list when adding missing items to it"
 
 msgid ""
 "By default the amount to be added to the shopping list is \"needed amount - "
@@ -1014,626 +1037,834 @@ msgid ""
 "checked against the stock amount, not against what is already on the "
 "shopping list"
 msgstr ""
+"By default the amount to be added to the shopping list is \"needed amount - "
+"stock amount - shopping list amount\" - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
 
 msgid "Picture"
-msgstr ""
+msgstr "Picture"
 
 msgid "Uncheck ingredients to not put them on the shopping list"
-msgstr ""
+msgstr "Uncheck ingredients to not put them on the shopping list"
 
 msgid "This is for statistical purposes only"
-msgstr ""
+msgstr "This is for statistical purposes only"
 
 msgid "You have to select a recipe"
-msgstr ""
+msgstr "You have to select a recipe"
 
 msgid "Key type"
-msgstr ""
+msgstr "Key type"
 
 msgid "Share/Integrate calendar (iCal)"
-msgstr ""
+msgstr "Share/Integrate calendar (iCal)"
 
 msgid ""
 "Use the following (public) URL to share or integrate the calendar in iCal "
 "format"
 msgstr ""
+"Use the following (public) URL to share or integrate the calendar in iCal "
+"format"
 
 msgid "Allow partial units in stock"
-msgstr ""
+msgstr "Allow partial units in stock"
 
 msgid "Enable tare weight handling"
-msgstr ""
+msgstr "Enable tare weight handling"
 
 msgid ""
 "This is useful e.g. for flour in jars - on purchase/consume/inventory you "
 "always weigh the whole jar, the amount to be posted is then automatically "
 "calculated based on what is in stock and the tare weight defined below"
 msgstr ""
+"This is useful e.g. for flour in jars - on purchase/consume/inventory you "
+"always weigh the whole jar, the amount to be posted is then automatically "
+"calculated based on what is in stock and the tare weight defined below"
 
 msgid "Tare weight"
-msgstr ""
+msgstr "Tare weight"
 
 msgid ""
 "Tare weight handling enabled - please weigh the whole container, the amount "
 "to be posted will be automatically calculcated"
 msgstr ""
+"Tare weight handling enabled - please weigh the whole container, the amount "
+"to be posted will be automatically calculcated"
 
 msgid "You have to select a location"
-msgstr ""
+msgstr "You have to select a location"
 
 msgid "List"
-msgstr ""
+msgstr "List"
 
 msgid "Gallery"
-msgstr ""
+msgstr "Gallery"
 
 msgid "The current picture will be deleted when you save the recipe"
-msgstr ""
+msgstr "The current picture will be deleted when you save the recipe"
 
 msgid "Show product details"
-msgstr ""
+msgstr "Show product details"
 
 msgid "Stock journal for this product"
-msgstr ""
+msgstr "Stock journal for this product"
 
 msgid "Show chore details"
-msgstr ""
+msgstr "Show chore details"
 
 msgid "Journal for this chore"
-msgstr ""
+msgstr "Journal for this chore"
 
 msgid "Show battery details"
-msgstr ""
+msgstr "Show battery details"
 
 msgid "Journal for this battery"
-msgstr ""
+msgstr "Journal for this battery"
 
 msgid "System info"
-msgstr ""
+msgstr "System info"
 
 msgid "Changelog"
-msgstr ""
+msgstr "Changelog"
 
 msgid "will be multiplied a factor of %1$s to get %2$s"
-msgstr ""
+msgstr "will be multiplied a factor of %1$s to get %2$s"
 
 msgid "The given date is earlier than today, are you sure?"
-msgstr ""
+msgstr "The given date is earlier than today, are you sure?"
 
 msgid "Product count"
-msgstr ""
+msgstr "Product count"
 
 msgid "Type a new product name or barcode and hit TAB to start a workflow"
-msgstr ""
+msgstr "Type a new product name or barcode and hit TAB to start a workflow"
 
 msgid ""
 "This will be used as the default setting when adding this product as a "
 "recipe ingredient"
 msgstr ""
+"This will be used as the default setting when adding this product as a "
+"recipe ingredient"
 
 msgid "Add item"
-msgstr ""
+msgstr "Add item"
 
 msgid "Selected shopping list"
-msgstr ""
+msgstr "Selected shopping list"
 
 msgid "New shopping list"
-msgstr ""
+msgstr "New shopping list"
 
 msgid "Delete shopping list"
-msgstr ""
+msgstr "Delete shopping list"
 
 msgid "Chores settings"
-msgstr ""
+msgstr "Chores settings"
 
 msgid "Batteries settings"
-msgstr ""
+msgstr "Batteries settings"
 
 msgid "Tasks settings"
-msgstr ""
+msgstr "Tasks settings"
 
 msgid "Create shopping list"
-msgstr ""
+msgstr "Create shopping list"
 
 msgid "Are you sure to delete shopping list \"%s\"?"
-msgstr ""
+msgstr "Are you sure to delete shopping list \"%s\"?"
 
 msgid "Average shelf life"
-msgstr ""
+msgstr "Average shelf life"
 
 msgid "Spoil rate"
-msgstr ""
+msgstr "Spoil rate"
 
 msgid "Show more"
-msgstr ""
+msgstr "Show more"
 
 msgid "Show less"
-msgstr ""
+msgstr "Show less"
 
 msgid "The amount must be between %1$s and %2$s"
-msgstr ""
+msgstr "The amount must be between %1$s and %2$s"
 
 msgid "Day of month"
-msgstr ""
+msgstr "Day of month"
 
 msgid "Monday"
-msgstr ""
+msgstr "Monday"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "Tuesday"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "Wednesday"
 
 msgid "Thursday"
-msgstr ""
+msgstr "Thursday"
 
 msgid "Friday"
-msgstr ""
+msgstr "Friday"
 
 msgid "Saturday"
-msgstr ""
+msgstr "Saturday"
 
 msgid "Sunday"
-msgstr ""
+msgstr "Sunday"
 
 msgid "Configure userfields"
-msgstr ""
+msgstr "Configure userfields"
 
 msgid "Userfields"
-msgstr ""
+msgstr "Userfields"
 
 msgid "Filter by entity"
-msgstr ""
+msgstr "Filter by entity"
 
 msgid "Entity"
-msgstr ""
+msgstr "Entity"
 
 msgid "Caption"
-msgstr ""
+msgstr "Caption"
 
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 msgid "Create userfield"
-msgstr ""
+msgstr "Create userfield"
 
 msgid "A entity is required"
-msgstr ""
+msgstr "A entity is required"
 
 msgid "A caption is required"
-msgstr ""
+msgstr "A caption is required"
 
 msgid "A type is required"
-msgstr ""
+msgstr "A type is required"
 
 msgid "Show as column in tables"
-msgstr ""
+msgstr "Show as column in tables"
 
 msgid "This is required and can only contain letters and numbers"
-msgstr ""
+msgstr "This is required and can only contain letters and numbers"
 
 msgid "Edit userfield"
-msgstr ""
+msgstr "Edit userfield"
 
 msgid "Plural forms"
-msgstr ""
+msgstr "Plural forms"
 
 msgid "One plural form per line, the current language requires"
-msgstr ""
+msgstr "One plural form per line, the current language requires"
 
 msgid "Plural count"
-msgstr ""
+msgstr "Plural count"
 
 msgid "Plural rule"
-msgstr ""
+msgstr "Plural rule"
 
 msgid "in plural form"
-msgstr ""
+msgstr "in plural form"
 
 msgid "Not enough in stock, %s ingredient missing"
 msgid_plural "Not enough in stock, %s ingredients missing"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Not enough in stock, %s ingredient missing"
+msgstr[1] "Not enough in stock, %s ingredients missing"
 
 msgid "The amount cannot be lower than %1$s or equal %2$s"
-msgstr ""
+msgstr "The amount cannot be lower than %1$s or equal %2$s"
 
 msgid "Not enough in stock, but already on the shopping list"
-msgstr ""
+msgstr "Not enough in stock, but already on the shopping list"
 
 msgid "Not enough in stock"
-msgstr ""
+msgstr "Not enough in stock"
 
 msgid "Expiring soon days"
-msgstr ""
+msgstr "Expiring soon days"
+
+msgid "Default location"
+msgstr "Default location"
 
 msgid "Default amount for purchase"
-msgstr ""
+msgstr "Default amount for purchase"
 
 msgid "Default amount for consume"
-msgstr ""
+msgstr "Default amount for consume"
 
 msgid "Variable amount"
-msgstr ""
+msgstr "Variable amount"
 
 msgid ""
 "When this is not empty, it will be shown instead of the amount entered above"
 " while the amount there will still be used for stock fulfillment checking"
 msgstr ""
+"When this is not empty, it will be shown instead of the amount entered above"
+" while the amount there will still be used for stock fulfillment checking"
 
 msgid "Track date only"
-msgstr ""
+msgstr "Track date only"
 
 msgid "When enabled only the day of an execution is tracked, not the time"
-msgstr ""
+msgstr "When enabled only the day of an execution is tracked, not the time"
 
 msgid "Consume %1$s of %2$s"
-msgstr ""
+msgstr "Consume %1$s of %2$s"
 
 msgid "Meal plan"
-msgstr ""
+msgstr "Meal plan"
 
 msgid "Add recipe to %s"
-msgstr ""
+msgstr "Add recipe to %s"
 
 msgid "%s serving"
 msgid_plural "%s servings"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s serving"
+msgstr[1] "%s servings"
 
 msgid "Week costs"
-msgstr ""
+msgstr "Week costs"
 
 msgid "Configuration"
-msgstr ""
+msgstr "Configuration"
 
 msgid "A predefined list of values, one per line"
-msgstr ""
+msgstr "A predefined list of values, one per line"
 
 msgid "Chores due soon days"
-msgstr ""
+msgstr "Chores due soon days"
 
 msgid "Batteries due to be charged soon days"
-msgstr ""
+msgstr "Batteries due to be charged soon days"
 
 msgid "Tasks due soon days"
-msgstr ""
+msgstr "Tasks due soon days"
 
 msgid "Products"
-msgstr ""
+msgstr "Products"
 
 msgid "Marked task %s as completed on %s"
-msgstr ""
+msgstr "Marked task %s as completed on %s"
 
 msgid "Booking has subsequent dependent bookings, undo not possible"
-msgstr ""
+msgstr "Booking has subsequent dependent bookings, undo not possible"
 
 msgid "per serving"
-msgstr ""
+msgstr "per serving"
 
 msgid "Never"
-msgstr ""
+msgstr "Never"
 
 msgid "Today"
-msgstr ""
+msgstr "Today"
 
 msgid "Consume %1$s of %2$s as spoiled"
-msgstr ""
+msgstr "Consume %1$s of %2$s as spoiled"
 
 msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr ""
+msgstr "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
 
 msgid "Undo task \"%s\""
-msgstr ""
+msgstr "Undo task \"%s\""
 
 msgid "Due date rollover"
-msgstr ""
+msgstr "Due date rollover"
 
 msgid ""
 "When enabled the chore can never be overdue, the due date will shift forward"
 " each day when due"
 msgstr ""
+"When enabled the chore can never be overdue, the due date will shift forward"
+" each day when due"
 
 msgid "Location Content Sheet"
-msgstr ""
+msgstr "Location Content Sheet"
 
 msgid "Print"
-msgstr ""
+msgstr "Print"
 
 msgid "all locations"
-msgstr ""
+msgstr "all locations"
 
 msgid ""
 "Here you can print a page per location with the current stock, maybe to hang"
 " it there and note the consumed things on it."
 msgstr ""
+"Here you can print a page per location with the current stock, maybe to hang"
+" it there and note the consumed things on it."
 
 msgid "this location"
-msgstr ""
+msgstr "this location"
 
 msgid "Consumend amount"
-msgstr ""
+msgstr "Consumend amount"
 
 msgid "Time of printing"
-msgstr ""
+msgstr "Time of printing"
 
 msgid "Are you sure to delete equipment \"%s\"?"
-msgstr ""
+msgstr "Are you sure to delete equipment \"%s\"?"
 
 msgid "Parent product"
-msgstr ""
+msgstr "Parent product"
 
 msgid ""
 "Not possible because this product is already used as a parent product in "
 "another product"
 msgstr ""
+"Not possible because this product is already used as a parent product in "
+"another product"
 
 msgid "Default conversions"
-msgstr ""
+msgstr "Default conversions"
 
 msgid "Factor"
-msgstr ""
+msgstr "Factor"
 
 msgid "1 %s is the same as..."
-msgstr ""
+msgstr "1 %s is the same as..."
 
 msgid "Create QU conversion"
-msgstr ""
+msgstr "Create QU conversion"
 
 msgid "Default for QU"
-msgstr ""
+msgstr "Default for QU"
 
 msgid "Quantity unit from"
-msgstr ""
+msgstr "Quantity unit from"
 
 msgid "Quantity unit to"
-msgstr ""
+msgstr "Quantity unit to"
 
 msgid ""
 "This cannot be lower than %1$s and must be a valid number with max. %2$s "
 "decimal places"
 msgstr ""
+"This cannot be lower than %1$s and must be a valid number with max. %2$s "
+"decimal places"
 
 msgid "This cannot be equal to %s"
-msgstr ""
+msgstr "This cannot be equal to %s"
 
 msgid "This means 1 %1$s is the same as %2$s %3$s"
-msgstr ""
+msgstr "This means 1 %1$s is the same as %2$s %3$s"
 
 msgid "QU conversions"
-msgstr ""
+msgstr "QU conversions"
 
 msgid "Product overrides"
-msgstr ""
+msgstr "Product overrides"
 
 msgid "Override for product"
-msgstr ""
+msgstr "Override for product"
 
 msgid "This equals %1$s %2$s in stock"
-msgstr ""
+msgstr "This equals %1$s %2$s in stock"
 
 msgid "Edit QU conversion"
-msgstr ""
+msgstr "Edit QU conversion"
 
 msgid "An assignment type is required"
-msgstr ""
+msgstr "An assignment type is required"
 
 msgid "Assignment type"
-msgstr ""
+msgstr "Assignment type"
 
 msgid ""
 "This means the next execution of this chore is scheduled 1 day after the "
 "last execution"
 msgstr ""
+"This means the next execution of this chore is scheduled 1 day after the "
+"last execution"
 
 msgid ""
 "This means the next execution of this chore is scheduled 1 day after the "
 "last execution, but only for the weekdays selected below"
 msgstr ""
+"This means the next execution of this chore is scheduled 1 day after the "
+"last execution, but only for the weekdays selected below"
 
 msgid "This means the next execution of this chore is not scheduled"
-msgstr ""
+msgstr "This means the next execution of this chore is not scheduled"
 
 msgid ""
 "This means the next execution of this chore is scheduled on the below "
 "selected day of each month"
 msgstr ""
+"This means the next execution of this chore is scheduled on the below "
+"selected day of each month"
 
 msgid ""
 "This means the next execution of this chore will not be assigned to anyone"
 msgstr ""
+"This means the next execution of this chore will not be assigned to anyone"
 
 msgid ""
 "This means the next execution of this chore will be assigned to the one who "
 "executed it least"
 msgstr ""
+"This means the next execution of this chore will be assigned to the one who "
+"executed it least"
 
 msgid "This means the next execution of this chore will be assigned randomly"
-msgstr ""
+msgstr "This means the next execution of this chore will be assigned randomly"
 
 msgid ""
 "This means the next execution of this chore will be assigned to the next one"
 " in alphabetical order"
 msgstr ""
+"This means the next execution of this chore will be assigned to the next one"
+" in alphabetical order"
 
 msgid "Assign to"
-msgstr ""
+msgstr "Assign to"
 
 msgid "This assignment type requires that at least one is assigned"
-msgstr ""
+msgstr "This assignment type requires that at least one is assigned"
 
 msgid "%s chore is assigned to me"
 msgid_plural "%s chores are assigned to me"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s chore is assigned to me"
+msgstr[1] "%s chores are assigned to me"
 
 msgid "Assigned to me"
-msgstr ""
+msgstr "Assigned to me"
 
 msgid "assigned to %s"
-msgstr ""
+msgstr "assigned to %s"
 
 msgid "Filter by assignment"
-msgstr ""
+msgstr "Filter by assignment"
 
 msgid "Consume product on chore execution"
-msgstr ""
+msgstr "Consume product on chore execution"
 
 msgid "Are you sure to delete user field \"%s\"?"
-msgstr ""
+msgstr "Are you sure to delete user field \"%s\"?"
 
 msgid "Userentities"
-msgstr ""
+msgstr "Userentities"
 
 msgid "Create userentity"
-msgstr ""
+msgstr "Create userentity"
 
 msgid "Show in sidebar menu"
-msgstr ""
+msgstr "Show in sidebar menu"
 
 msgid "Edit userentity"
-msgstr ""
+msgstr "Edit userentity"
 
 msgid "Edit %s"
-msgstr ""
+msgstr "Edit %s"
 
 msgid "Create %s"
-msgstr ""
+msgstr "Create %s"
 
 msgid "Are you sure to delete this userobject?"
-msgstr ""
+msgstr "Are you sure to delete this userobject?"
 
 msgid "Icon CSS class"
-msgstr ""
+msgstr "Icon CSS class"
 
 msgid "For example"
-msgstr ""
+msgstr "For example"
 
 msgid "Configure fields"
-msgstr ""
+msgstr "Configure fields"
 
 msgid "Quantity unit plural form testing"
-msgstr ""
+msgstr "Quantity unit plural form testing"
 
 msgid "Result"
-msgstr ""
+msgstr "Result"
 
 msgid "Test plural forms"
-msgstr ""
+msgstr "Test plural forms"
 
 msgid "Scan a barcode"
-msgstr ""
+msgstr "Scan a barcode"
 
 msgid "Error while initializing the barcode scanning library"
-msgstr ""
+msgstr "Error while initializing the barcode scanning library"
 
 msgid ""
 "The resulting price of this ingredient will be multiplied by this factor"
 msgstr ""
+"The resulting price of this ingredient will be multiplied by this factor"
 
 msgid "Price factor"
-msgstr ""
+msgstr "Price factor"
 
 msgid "Do you find grocy useful?"
-msgstr ""
+msgstr "Do you find grocy useful?"
 
 msgid "Say thanks"
-msgstr ""
+msgstr "Say thanks"
 
 msgid "Search for recipes containing this product"
-msgstr ""
+msgstr "Search for recipes containing this product"
 
 msgid "Add to shopping list"
-msgstr ""
+msgstr "Add to shopping list"
 
 msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
-msgstr ""
+msgstr "Added %1$s of %2$s to the shopping list \"%3$s\""
 
 msgid "Output"
-msgstr ""
+msgstr "Output"
 
 msgid "Energy (kcal)"
-msgstr ""
+msgstr "Energy (kcal)"
 
 msgid "Per stock quantity unit"
-msgstr ""
+msgstr "Per stock quantity unit"
 
 msgid "Barcode scanner testing"
-msgstr ""
+msgstr "Barcode scanner testing"
 
 msgid "Expected barcode"
-msgstr ""
+msgstr "Expected barcode"
 
 msgid "Scan field"
-msgstr ""
+msgstr "Scan field"
 
 msgid "Scanned barcodes"
-msgstr ""
+msgstr "Scanned barcodes"
 
 msgid "Hit"
-msgstr ""
+msgstr "Hit"
 
 msgid "Miss"
-msgstr ""
+msgstr "Miss"
 
 msgid "Display recipe"
-msgstr ""
+msgstr "Display recipe"
 
 msgid "Accumulate sub products min. stock amount"
-msgstr ""
+msgstr "Accumulate sub products min. stock amount"
 
 msgid ""
 "If enabled, the min. stock amount of sub products will be accumulated into "
 "this product, means the sub product will never be \"missing\", only this "
 "product"
 msgstr ""
+"If enabled, the min. stock amount of sub products will be accumulated into "
+"this product, means the sub product will never be \"missing\", only this "
+"product"
 
 msgid "Are you sure to remove this conversion?"
-msgstr ""
+msgstr "Are you sure to remove this conversion?"
 
 msgid "Unit price"
-msgstr ""
+msgstr "Unit price"
 
 msgid "Total price"
-msgstr ""
+msgstr "Total price"
 
 msgid "in %s and based on the purchase quantity unit"
-msgstr ""
+msgstr "in %s and based on the purchase quantity unit"
 
 msgid "Unlimited"
-msgstr ""
+msgstr "Unlimited"
 
 msgid "Clear"
-msgstr ""
+msgstr "Clear"
 
 msgid "Are you sure to remove the included recipe \"%s\"?"
-msgstr ""
+msgstr "Are you sure to remove the included recipe \"%s\"?"
 
 msgid "Period interval"
-msgstr ""
+msgstr "Period interval"
 
 msgid ""
 "This means the next execution of this chore should only be scheduled every "
 "%s days"
 msgstr ""
+"This means the next execution of this chore should only be scheduled every "
+"%s days"
 
 msgid ""
 "This means the next execution of this chore should only be scheduled every "
 "%s weeks"
 msgstr ""
+"This means the next execution of this chore should only be scheduled every "
+"%s weeks"
 
 msgid ""
 "This means the next execution of this chore should only be scheduled every "
 "%s months"
 msgstr ""
+"This means the next execution of this chore should only be scheduled every "
+"%s months"
 
 msgid ""
 "This means the next execution of this chore is scheduled 1 year after the "
 "last execution"
 msgstr ""
+"This means the next execution of this chore is scheduled 1 year after the "
+"last execution"
 
 msgid ""
 "This means the next execution of this chore should only be scheduled every "
 "%s years"
+msgstr ""
+"This means the next execution of this chore should only be scheduled every "
+"%s years"
+
+msgid "Transfer"
+msgstr "Transfer"
+
+msgid "From location"
+msgstr "From location"
+
+msgid "To location"
+msgstr "To location"
+
+msgid "There are no units available at this location"
+msgstr "There are no units available at this location"
+
+msgid "Amount: %1$s; Expires on %2$s; Bought on %3$s"
+msgstr "Amount: %1$s; Expires on %2$s; Bought on %3$s"
+
+msgid "Transfered %1$s of %2$s from %3$s to %4$s"
+msgstr "Transfered %1$s of %2$s from %3$s to %4$s"
+
+msgid "Show stock entries"
+msgstr "Show stock entries"
+
+msgid "Stock entries"
+msgstr "Stock entries"
+
+msgid "Best before date"
+msgstr "Best before date"
+
+msgid "Purchased date"
+msgstr "Purchased date"
+
+msgid "Consume all %s for this stock entry"
+msgstr "Consume all %s for this stock entry"
+
+msgid "The amount cannot be lower than %1$s"
+msgstr "The amount cannot be lower than %1$s"
+
+msgid "Stock entry successfully updated"
+msgstr "Stock entry successfully updated"
+
+msgid "Edit stock entry"
+msgstr "Edit stock entry"
+
+msgid ""
+"Camera access is on only possible when supported and allowed by your browser"
+" and when grocy is served via a secure (https://) connection"
+msgstr ""
+"Camera access is on only possible when supported and allowed by your browser"
+" and when grocy is served via a secure (https://) connection"
+
+msgid "Keep screen on"
+msgstr "Keep screen on"
+
+msgid "Keep screen on while displaying a \"fullscreen-card\""
+msgstr "Keep screen on while displaying a \"fullscreen-card\""
+
+msgid "A purchased date is required"
+msgstr ""
+
+msgid ""
+"When a product is selected, one unit (per serving in purchase quantity unit)"
+" will be added to stock on consuming this recipe"
+msgstr ""
+
+msgid "Produces product"
+msgstr ""
+
+msgid "This booking cannot be undone"
+msgstr ""
+
+msgid "Booking does not exist or was already undone"
+msgstr ""
+
+msgid "Are you sure to delete API key \"%s\"?"
+msgstr ""
+
+msgid "Add note"
+msgstr ""
+
+msgid "Add note to %s"
+msgstr ""
+
+msgid "per day"
+msgstr ""
+
+msgid "Compact view"
+msgstr ""
+
+msgid "Normal view"
+msgstr ""
+
+msgid "Only undone items"
+msgstr ""
+
+msgid "Add product"
+msgstr ""
+
+msgid "Add product to %s"
+msgstr ""
+
+msgid "Consume all ingredients needed by this weeks recipes or products"
+msgstr ""
+
+msgid "Meal plan recipe"
+msgstr ""
+
+msgid "Meal plan note"
+msgstr ""
+
+msgid "Meal plan product"
+msgstr ""
+
+msgid "Scan mode"
+msgstr ""
+
+msgid "on"
+msgstr ""
+
+msgid "off"
+msgstr ""
+
+msgid ""
+"Scan mode is on but not all required fields could be populated automatically"
+msgstr ""
+
+msgid "Is freezer"
+msgstr ""
+
+msgid ""
+"When moving products from/to a freezer location, the products best before "
+"date is automatically adjusted according to the product settings"
+msgstr ""
+
+msgid ""
+"On moving this product to a freezer location (so when freezing it), the best"
+" before date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default best before days after freezing"
+msgstr ""
+
+msgid ""
+"On moving this product from a freezer location (so when thawing it), the "
+"best before date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default best before days after thawing"
+msgstr ""
+
+msgid "This cannot be the same as the \"From\" location"
+msgstr ""
+
+msgid "Thawed"
+msgstr ""
+
+msgid "Frozen"
 msgstr ""

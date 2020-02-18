@@ -3,12 +3,12 @@
 	RefreshQuPluralTestingResult();
 });
 
-$("#amount").keyup(function (event)
+$("#amount").keyup(function(event)
 {
 	RefreshQuPluralTestingResult();
 });
 
-$("#amount").change(function (event)
+$("#amount").change(function(event)
 {
 	RefreshQuPluralTestingResult();
 });
@@ -24,11 +24,8 @@ function RefreshQuPluralTestingResult()
 		return;
 	}
 
-	$("#result").parent().effect("highlight", {}, 100);
-	$("#result").fadeOut(100, function ()
-	{
-		$(this).text(__n(amount, singularForm, pluralForm)).fadeIn(100);
-	});
+	animateCSS("h2", "shake");
+	$("#result").text(__n(amount, singularForm, pluralForm));
 }
 
 if (GetUriParam("qu") !== undefined)

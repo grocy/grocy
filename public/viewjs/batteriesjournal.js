@@ -2,7 +2,8 @@
 	'paginate': true,
 	'order': [[1, 'desc']],
 	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 }
+		{ 'orderable': false, 'targets': 0 },
+		{ 'searchable': false, "targets": 0 }
 	]
 });
 $('#batteries-journal-table tbody').removeClass("d-none");
@@ -49,8 +50,8 @@ $(document).on('click', '.undo-battery-execution-button', function(e)
 		{
 			element.closest("tr").addClass("text-muted");
 			element.parent().siblings().find("span.name-anchor").addClass("text-strike-through").after("<br>" + __t("Undone on") + " " + moment().format("YYYY-MM-DD HH:mm:ss") + " <time class='timeago timeago-contextual' datetime='" + moment().format("YYYY-MM-DD HH:mm:ss") + "'></time>");
-			element.closest(".undo-stock-booking-button").addClass("disabled");
-			RefreshContextualTimeago();
+			element.closest(".undo-battery-execution-button").addClass("disabled");
+			RefreshContextualTimeago("#charge-cycle-" + chargeCycleId + "-row");
 			toastr.success(__t("Charge cycle successfully undone"));
 		},
 		function(xhr)

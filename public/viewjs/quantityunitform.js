@@ -116,7 +116,8 @@ $('#quantityunit-form input').keydown(function(event)
 var quConversionsTable = $('#qu-conversions-table').DataTable({
 	'order': [[1, 'asc']],
 	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 }
+		{ 'orderable': false, 'targets': 0 },
+		{ 'searchable': false, "targets": 0 }
 	]
 });
 $('#qu-conversions-table tbody').removeClass("d-none");

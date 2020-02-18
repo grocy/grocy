@@ -3,6 +3,7 @@
 	"orderFixed": [[3, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
+		{ 'searchable': false, "targets": 0 },
 		{ 'visible': false, 'targets': 3 }
 	],
 	'rowGroup': {
@@ -94,13 +95,13 @@ $(document).on('click', '.shoppinglist-delete-button', function(e)
 	var shoppingListItemId = $(e.currentTarget).attr('data-shoppinglist-id');
 	Grocy.FrontendHelpers.BeginUiBusy();
 
-	Grocy.Api.Delete('objects/shopping_list/' + shoppingListItemId, {},
+	Grocy.Api.Delete('objects/shopping_list/' + shoppingListItemId, { },
 		function(result)
 		{
-			$('#shoppinglistitem-' + shoppingListItemId + '-row').fadeOut(500, function()
+			animateCSS("#shoppinglistitem-" + shoppingListItemId + "-row", "fadeOut", function()
 			{
 				Grocy.FrontendHelpers.EndUiBusy();
-				$(this).remove();
+				$("#shoppinglistitem-" + shoppingListItemId + "-row").remove();
 				OnListItemRemoved();
 			});
 		},
@@ -150,10 +151,10 @@ $(document).on('click', '#clear-shopping-list', function(e)
 				Grocy.Api.Post('stock/shoppinglist/clear', { "list_id": $("#selected-shopping-list").val() },
 					function(result)
 					{
-						$('#shoppinglist-table tbody tr').fadeOut(500, function()
+						animateCSS("#shoppinglist-table tbody tr", "fadeOut", function()
 						{
 							Grocy.FrontendHelpers.EndUiBusy();
-							$(this).remove();
+							$("#shoppinglist-table tbody tr").remove();
 							OnListItemRemoved();
 						});
 					},
@@ -281,6 +282,20 @@ $(document).on('click', '.order-listitem-button', function(e)
 			console.error(xhr);
 		}
 	);
+
+	
+	var statusInfoCell = $("#shoppinglistitem-" + listItemId + "-status-info");
+	if (done == 1)
+	{
+		statusInfoCell.text(statusInfoCell.text().replace("xxUNDONExx", ""));
+	}
+	else
+	{
+		statusInfoCell.text(statusInfoCell.text() + " xxUNDONExx");
+	}
+	shoppingListTable.rows().invalidate().draw(false);
+
+	$("#status-filter").trigger("change");
 });
 
 function OnListItemRemoved()
@@ -339,5 +354,37 @@ $(document).on("click", "#clear-description-button", function(e)
 	$("#save-description-button").click();
 });
 
+$(".switch-view-mode-button").on('click', function(e)
+{
+	e.preventDefault();
+
+	$("#shoppinglist-main").toggleClass("fullscreen");
+	$(".dataTables_scrollHeadInner").width(""); // Remove absolute width on element set by DataTables
+	$(".dataTables_scrollHeadInner table").width(""); // Remove absolute width on element set by DataTables
+	$("body").toggleClass("fullscreen-card");
+	$("#shopping-list-normal-view-button").toggleClass("d-none");
+	$("#mainNav").toggleClass("d-none");
+
+	if ($("body").hasClass("fullscreen-card"))
+	{
+		window.location.hash = "#compact";	
+	}
+	else
+	{
+		window.history.replaceState(null, null, " ");
+	}
+});
+
 $("#description").trigger("summernote.change");
 $("#save-description-button").addClass("disabled");
+
+if (window.location.hash === "#compact")
+{
+	$("#shopping-list-compact-view-button").click();
+}
+
+// Auto switch to compact view on mobile when enabled
+if ($(window).width() < 768 & window.location.hash !== "#compact" && !BoolVal(Grocy.UserSettings.shopping_list_disable_auto_compact_view_on_mobile))
+{
+	$("#shopping-list-compact-view-button").click();
+}

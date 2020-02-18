@@ -20,7 +20,7 @@
 
 			<div class="form-group col-8 mb-1">
 				<label for="qu_id">{{ $__t('Quantity unit') }}</label>
-				<select required class="form-control input-group-productamountpicker" id="qu_id" name="qu_id" data-inital-qu-id="{{ $initialQuId }}">
+				<select required class="form-control input-group-productamountpicker" id="qu_id" name="qu_id" data-initial-qu-id="{{ $initialQuId }}">
 					<option></option>
 				</select>
 				<div class="invalid-feedback">{{ $__t('A quantity unit is required') }}</div>

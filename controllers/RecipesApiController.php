@@ -6,23 +6,12 @@ use \Grocy\Services\RecipesService;
 
 class RecipesApiController extends BaseApiController
 {
-	public function __construct(\Slim\Container $container)
+	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 	}
 
-	protected $RecipesService = null;
-
-	protected function getRecipesService()
-	{
-		if($this->RecipesService == null)
-		{
-			$this->RecipesService = RecipesService::getInstance();
-		}
-		return $this->RecipesService;
-	}
-
-	public function AddNotFulfilledProductsToShoppingList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function AddNotFulfilledProductsToShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$requestBody = $request->getParsedBody();
 		$excludedProductIds = null;
@@ -36,7 +25,7 @@ class RecipesApiController extends BaseApiController
 		return $this->EmptyApiResponse($response);
 	}
 
-	public function ConsumeRecipe(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function ConsumeRecipe(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -49,13 +38,13 @@ class RecipesApiController extends BaseApiController
 		}
 	}
 
-	public function GetRecipeFulfillment(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function GetRecipeFulfillment(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
 			if(!isset($args['recipeId']))
 			{
-				return $this->ApiResponse($this->getRecipesService()->GetRecipesResolved());
+				return $this->ApiResponse($response, $this->getRecipesService()->GetRecipesResolved());
 			}
 
 			$recipeResolved = FindObjectInArrayByPropertyValue($this->getRecipesService()->GetRecipesResolved(), 'recipe_id', $args['recipeId']);
@@ -65,7 +54,7 @@ class RecipesApiController extends BaseApiController
 			}
 			else
 			{
-				return $this->ApiResponse($recipeResolved);
+				return $this->ApiResponse($response, $recipeResolved);
 			}
 		}
 		catch (\Exception $ex)

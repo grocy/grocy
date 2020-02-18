@@ -40,3 +40,9 @@ msgstr "Pole wyboru"
 
 msgid "preset-list"
 msgstr "Lista opcji"
+
+msgid "preset-checklist"
+msgstr ""
+
+msgid "link"
+msgstr ""

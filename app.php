@@ -1,10 +1,13 @@
 <?php
 
-use \Psr\Http\Message\ServerRequestInterface as Request;
-use \Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Container\ContainerInterface as Container;
+use Slim\Factory\AppFactory;
+use Selective\BasePath\BasePathMiddleware;
 
-use \Grocy\Helpers\UrlManager;
-use \Grocy\Controllers\LoginController;
+use Grocy\Helpers\UrlManager;
+use Grocy\Controllers\LoginController;
 
 // Definitions for embedded mode
 if (file_exists(__DIR__ . '/embedded.txt'))
@@ -19,26 +22,18 @@ else
 	define('GROCY_DATAPATH', __DIR__ . '/data');
 }
 
-// Definitions for demo mode
-if (file_exists(GROCY_DATAPATH . '/demo.txt'))
-{
-	define('GROCY_IS_DEMO_INSTALL', true);
-	if (!defined('GROCY_USER_ID'))
-	{
-		define('GROCY_USER_ID', 1);
-	}
-}
-else
-{
-	define('GROCY_IS_DEMO_INSTALL', false);
-}
-
 // Load composer dependencies
 require_once __DIR__ . '/vendor/autoload.php';
 
 // Load config files
 require_once GROCY_DATAPATH . '/config.php';
 require_once __DIR__ . '/config-dist.php'; // For not in own config defined values we use the default ones
+
+// Definitions for dev/demo/prerelease mode
+if (GROCY_MODE === 'dev' || GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease')
+{
+	define('GROCY_USER_ID', 1);
+}
 
 // Definitions for disabled authentication mode
 if (GROCY_DISABLE_AUTH === true)
@@ -50,31 +45,33 @@ if (GROCY_DISABLE_AUTH === true)
 }
 
 // Setup base application
-$appContainer = new \Slim\Container([
-	'settings' => [
-		'displayErrorDetails' => true,
-		'determineRouteBeforeAppMiddleware' => true
-	],
-	'view' => function($container)
-	{
-		return new \Slim\Views\Blade(__DIR__ . '/views', GROCY_DATAPATH . '/viewcache');
-	},
-	'LoginControllerInstance' => function($container)
-	{
-		return new LoginController($container, 'grocy_session');
-	},
-	'UrlManager' => function($container)
-	{
-		return new UrlManager(GROCY_BASE_URL);
-	},
-	'ApiKeyHeaderName' => function($container)
-	{
-		return 'GROCY-API-KEY';
-	}
-]);
-$app = new \Slim\App($appContainer);
+AppFactory::setContainer(new DI\Container());
+$app = AppFactory::create();
+
+$container = $app->getContainer();
+$container->set('view', function(Container $container)
+{
+	return new Slim\Views\Blade(__DIR__ . '/views', GROCY_DATAPATH . '/viewcache');
+});
+$container->set('LoginControllerInstance', function(Container $container)
+{
+	return new LoginController($container, 'grocy_session');
+});
+$container->set('UrlManager', function(Container $container)
+{
+	return new UrlManager(GROCY_BASE_URL);
+});
+$container->set('ApiKeyHeaderName', function(Container $container)
+{
+	return 'GROCY-API-KEY';
+});
 
 // Load routes from separate file
 require_once __DIR__ . '/routes.php';
+
+// Add default middleware
+$app->addRoutingMiddleware();
+$app->add(new BasePathMiddleware($app));
+$app->addErrorMiddleware(true, false, false);
 
 $app->run();

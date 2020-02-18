@@ -42,7 +42,7 @@
 			</thead>
 			<tbody class="d-none">
 				@foreach($choresLog as $choreLogEntry)
-				<tr class="@if($choreLogEntry->undone == 1) text-muted @endif">
+				<tr id="chore-execution-{{ $choreLogEntry->id }}-row" class="@if($choreLogEntry->undone == 1) text-muted @endif">
 					<td class="fit-content border-right">
 						<a class="btn btn-secondary btn-sm undo-chore-execution-button @if($choreLogEntry->undone == 1) disabled @endif" href="#" data-execution-id="{{ $choreLogEntry->id }}" data-toggle="tooltip" data-placement="left" title="{{ $__t('Undo chore execution') }}">
 							<i class="fas fa-undo"></i>

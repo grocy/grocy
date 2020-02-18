@@ -1,7 +1,8 @@
 ﻿var choresOverviewTable = $('#chores-overview-table').DataTable({
 	'order': [[2, 'desc']],
 	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 }
+		{ 'orderable': false, 'targets': 0 },
+		{ 'searchable': false, "targets": 0 }
 	]
 });
 $('#chores-overview-table tbody').removeClass("d-none");
@@ -112,30 +113,20 @@ $(document).on('click', '.track-chore-button', function(e)
 								$('#chore-' + choreId + '-due-filter-column').html("duesoon");
 							}
 
-							$('#chore-' + choreId + '-last-tracked-time').parent().effect('highlight', { }, 500);
-							$('#chore-' + choreId + '-last-tracked-time').fadeOut(500, function()
-							{
-								$(this).text(trackedTime).fadeIn(500);
-							});
+							animateCSS("#chore-" + choreId + "-row td:not(:first)", "shake");
+
+							$('#chore-' + choreId + '-last-tracked-time').text(trackedTime);
 							$('#chore-' + choreId + '-last-tracked-time-timeago').attr('datetime', trackedTime);
 
 							if (result.chore.period_type == "dynamic-regular")
 							{
-								$('#chore-' + choreId + '-next-execution-time').parent().effect('highlight', { }, 500);
-								$('#chore-' + choreId + '-next-execution-time').fadeOut(500, function()
-								{
-									$(this).text(result.next_estimated_execution_time).fadeIn(500);
-								});
+								$('#chore-' + choreId + '-next-execution-time').text(result.next_estimated_execution_time);
 								$('#chore-' + choreId + '-next-execution-time-timeago').attr('datetime', result.next_estimated_execution_time);
 							}
 
 							if (result.chore.next_execution_assigned_to_user_id != null)
 							{
-								$('#chore-' + choreId + '-next-execution-assigned-user').parent().effect('highlight', {}, 500);
-								$('#chore-' + choreId + '-next-execution-assigned-user').fadeOut(500, function ()
-								{
-									$(this).text(result.next_execution_assigned_user.display_name).fadeIn(500);
-								});
+								$('#chore-' + choreId + '-next-execution-assigned-user').text(result.next_execution_assigned_user.display_name);
 							}
 
 							Grocy.FrontendHelpers.EndUiBusy();
@@ -145,7 +136,7 @@ $(document).on('click', '.track-chore-button', function(e)
 							// Delay due to delayed/animated set of new timestamps above
 							setTimeout(function()
 							{
-								RefreshContextualTimeago();
+								RefreshContextualTimeago("#chore-" + choreId + "-row");
 
 								// Refresh the DataTable to re-apply filters
 								choresOverviewTable.rows().invalidate().draw(false);

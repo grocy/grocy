@@ -35,3 +35,6 @@ msgstr ""
 
 msgid "stock-edit-new"
 msgstr ""
+
+msgid "self-production"
+msgstr ""

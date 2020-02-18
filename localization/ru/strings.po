@@ -1000,11 +1000,9 @@ msgid "Mark %1$s of %2$s as open"
 msgstr "Открыть %1$s %2$s "
 
 msgid ""
-"When a product was marked as opened, the best before date will be replaced "
-"by today + this amount of days (a value of 0 disables this)"
+"When this product was marked as opened, the best before date will be "
+"replaced by today + this amount of days (a value of 0 disables this)"
 msgstr ""
-"Когда продукт помечается как открытый, срок годности заменится по формуле: "
-"сегодня + это количество дней (значение 0 отключает этот функционал)"
 
 msgid "Default best before days after opened"
 msgstr "Срок годности в днях по умолчанию после открытия"
@@ -1014,9 +1012,6 @@ msgstr "%2$s %1$s помечено открытым"
 
 msgid "Mark as opened"
 msgstr "Пометить как открытые"
-
-msgid "Expires on %1$s; Bought on %2$s"
-msgstr "Срок годности: %1$s; Куплено: %2$s"
 
 msgid "Not opened"
 msgstr "Не открыто"
@@ -1333,6 +1328,9 @@ msgstr "Не достаточно в запасе"
 
 msgid "Expiring soon days"
 msgstr "Дней до окончания срока годности"
+
+msgid "Default location"
+msgstr ""
 
 msgid "Default amount for purchase"
 msgstr "Количество покупки по умолчанию"
@@ -1753,4 +1751,162 @@ msgstr ""
 msgid ""
 "This means the next execution of this chore should only be scheduled every "
 "%s years"
+msgstr ""
+
+msgid "Transfer"
+msgstr ""
+
+msgid "From location"
+msgstr ""
+
+msgid "To location"
+msgstr ""
+
+msgid "There are no units available at this location"
+msgstr ""
+
+msgid "Amount: %1$s; Expires on %2$s; Bought on %3$s"
+msgstr ""
+
+msgid "Transfered %1$s of %2$s from %3$s to %4$s"
+msgstr ""
+
+msgid "Show stock entries"
+msgstr ""
+
+msgid "Stock entries"
+msgstr ""
+
+msgid "Best before date"
+msgstr ""
+
+msgid "Purchased date"
+msgstr ""
+
+msgid "Consume all %s for this stock entry"
+msgstr ""
+
+msgid "The amount cannot be lower than %1$s"
+msgstr ""
+
+msgid "Stock entry successfully updated"
+msgstr ""
+
+msgid "Edit stock entry"
+msgstr ""
+
+msgid ""
+"Camera access is on only possible when supported and allowed by your browser"
+" and when grocy is served via a secure (https://) connection"
+msgstr ""
+
+msgid "Keep screen on"
+msgstr ""
+
+msgid "Keep screen on while displaying a \"fullscreen-card\""
+msgstr ""
+
+msgid "A purchased date is required"
+msgstr ""
+
+msgid ""
+"When a product is selected, one unit (per serving in purchase quantity unit)"
+" will be added to stock on consuming this recipe"
+msgstr ""
+
+msgid "Produces product"
+msgstr ""
+
+msgid "This booking cannot be undone"
+msgstr ""
+
+msgid "Booking does not exist or was already undone"
+msgstr ""
+
+msgid "Are you sure to delete API key \"%s\"?"
+msgstr ""
+
+msgid "Add note"
+msgstr ""
+
+msgid "Add note to %s"
+msgstr ""
+
+msgid "per day"
+msgstr ""
+
+msgid "Compact view"
+msgstr ""
+
+msgid "Normal view"
+msgstr ""
+
+msgid "Only undone items"
+msgstr ""
+
+msgid "Add product"
+msgstr ""
+
+msgid "Add product to %s"
+msgstr ""
+
+msgid "Consume all ingredients needed by this weeks recipes or products"
+msgstr ""
+
+msgid "Meal plan recipe"
+msgstr ""
+
+msgid "Meal plan note"
+msgstr ""
+
+msgid "Meal plan product"
+msgstr ""
+
+msgid "Scan mode"
+msgstr ""
+
+msgid "on"
+msgstr ""
+
+msgid "off"
+msgstr ""
+
+msgid ""
+"Scan mode is on but not all required fields could be populated automatically"
+msgstr ""
+
+msgid "Is freezer"
+msgstr ""
+
+msgid ""
+"When moving products from/to a freezer location, the products best before "
+"date is automatically adjusted according to the product settings"
+msgstr ""
+
+msgid ""
+"On moving this product to a freezer location (so when freezing it), the best"
+" before date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default best before days after freezing"
+msgstr ""
+
+msgid ""
+"On moving this product from a freezer location (so when thawing it), the "
+"best before date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default best before days after thawing"
+msgstr ""
+
+msgid "This cannot be the same as the \"From\" location"
+msgstr ""
+
+msgid "Thawed"
+msgstr ""
+
+msgid "Frozen"
+msgstr ""
+
+msgid "Are you sure to delete userentity \"%s\"?"
 msgstr ""

@@ -1,7 +1,8 @@
 ﻿var quantityUnitsTable = $('#quantityunits-table').DataTable({
 	'order': [[1, 'asc']],
 	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 }
+		{ 'orderable': false, 'targets': 0 },
+		{ 'searchable': false, "targets": 0 }
 	]
 });
 $('#quantityunits-table tbody').removeClass("d-none");

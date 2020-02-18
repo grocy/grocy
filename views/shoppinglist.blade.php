@@ -5,19 +5,19 @@
 @section('viewJsName', 'shoppinglist')
 
 @push('pageScripts')
-	<script src="{{ $U('/node_modules/jquery-ui-dist/jquery-ui.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/datatables.net-rowgroup/js/dataTables.rowGroup.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/datatables.net-rowgroup-bs4/js/rowGroup.bootstrap4.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/viewjs/purchase.js?v=', true) }}{{ $version }}"></script>
 @endpush
 
 @push('pageStyles')
+	<link href="{{ $U('/node_modules/animate.css/animate.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/node_modules/datatables.net-rowgroup-bs4/css/rowGroup.bootstrap4.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
 @endpush
 
 @section('content')
 @if(GROCY_FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS)
-<div class="row border-bottom pb-2 mb-2 d-print-none">
+<div class="row border-bottom pb-2 mb-2 d-print-none hide-on-fullscreen-card">
 	<div class="col-xs-12 col-md-4">
 		<label for="selected-shopping-list">{{ $__t('Selected shopping list') }}</label>
 		<select class="form-control" id="selected-shopping-list">
@@ -37,6 +37,9 @@
 		<a id="print-shopping-list-button" class="btn btn-outline-dark responsive-button" href="#">
 			<i class="fas fa-print"></i> {{ $__t('Print') }}
 		</a>
+		<a id="shopping-list-compact-view-button" class="btn btn-outline-dark responsive-button switch-view-mode-button" href="#">
+			<i class="fas fa-compress-arrows-alt"></i> {{ $__t('Compact view') }}
+		</a>
 		<!--<div class="dropdown d-inline-block">
 			<button class="btn btn-outline-dark responsive-button dropdown-toggle" data-toggle="dropdown"><i class="fas fa-file-export"></i> {{ $__t('Output') }}</button>
 			<div class="dropdown-menu">
@@ -45,9 +48,11 @@
 		</div>-->
 	</div>
 </div>
+@else
+<input type="hidden" name="selected-shopping-list" id="selected-shopping-list" value="1">
 @endif
 
-<div class="row d-print-none">
+<div class="row d-print-none hide-on-fullscreen-card">
 	<div class="col">
 		<h1>
 			@yield('title')
@@ -63,12 +68,17 @@
 			<a id="add-all-items-to-stock-button" class="btn btn-outline-primary responsive-button" href="#">
 				<i class="fas fa-box"></i> {{ $__t('Add all list items to stock') }}
 			</a>
+			@if(!GROCY_FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS)
+			<a id="shopping-list-compact-view-button" class="btn btn-outline-dark responsive-button switch-view-mode-button" href="#">
+				<i class="fas fa-compress-arrows-alt"></i> {{ $__t('Compact view') }}
+			</a>
+			@endif
 		</h1>
 		<p data-status-filter="belowminstockamount" class="btn btn-lg btn-info status-filter-button responsive-button">{{ $__n(count($missingProducts), '%s product is below defined min. stock amount', '%s products are below defined min. stock amount') }}</p>
 	</div>
 </div>
 
-<div class="row mt-3 d-print-none">
+<div class="row mt-3 d-print-none hide-on-fullscreen-card">
 	<div class="col-xs-12 col-md-4">
 		<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
 		<input type="text" class="form-control" id="search">
@@ -78,12 +88,16 @@
 		<select class="form-control" id="status-filter">
 			<option class="bg-white" value="all">{{ $__t('All') }}</option>
 			<option class="bg-info" value="belowminstockamount">{{ $__t('Below min. stock amount') }}</option>
+			<option class="bg-white" value="xxUNDONExx">{{ $__t('Only undone items') }}</option>
 		</select>
 	</div>
 </div>
 
-<div class="row d-print-none">
-	<div class="col-xs-12 col-md-8 pb-3">
+<div id="shoppinglist-main" class="row d-print-none">
+	<div class="@if(boolval($userSettings['shopping_list_show_calendar'])) col-xs-12 col-md-8 @else col-12 @endif pb-3">
+		<a id="shopping-list-normal-view-button" class="btn btn-outline-dark btn-block switch-view-mode-button d-none" href="#">
+			<i class="fas fa-expand-arrows-alt"></i> {{ $__t('Normal view') }}
+		</a>
 		<table id="shoppinglist-table" class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
@@ -127,8 +141,9 @@
 					<td class="d-none">
 						@if(!empty(FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->product_group_id)) {{ FindObjectInArrayByPropertyValue($productGroups, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->product_group_id)->name }} @else <span class="font-italic font-weight-light">{{ $__t('Ungrouped') }}</span> @endif
 					</td>
-					<td class="d-none">
+					<td id="shoppinglistitem-{{ $listItem->id }}-status-info" class="d-none">
 						@if(FindObjectInArrayByPropertyValue($missingProducts, 'id', $listItem->product_id) !== null) belowminstockamount @endif
+						@if($listItem->done != 1) xxUNDONExx @endif
 					</td>
 
 					@include('components.userfields_tbody', array(
@@ -142,13 +157,13 @@
 		</table>
 	</div>
 
+	@if(boolval($userSettings['shopping_list_show_calendar']))
 	<div class="col-xs-12 col-md-4 mt-md-2 d-print-none">
 		@include('components.calendarcard')
 	</div>
-</div>
+	@endif
 
-<div class="row mt-3 d-print-none">
-	<div class="col-xs-12 col-md-8">
+	<div class="@if(boolval($userSettings['shopping_list_show_calendar'])) col-xs-12 col-md-8 @else col-12 @endif d-print-none pt-2">
 		<div class="form-group">
 			<label class="text-larger font-weight-bold" for="notes">{{ $__t('Notes') }}</label>
 			<a id="save-description-button" class="btn btn-success btn-sm ml-1 mb-2" href="#">{{ $__t('Save') }}</a>

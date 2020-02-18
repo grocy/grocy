@@ -1,7 +1,7 @@
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # Andreas Henden <chairman2s.ah@gmail.com>, 2019
-# Marius Borø <blizzwave@gmail.com>, 2019
+# Marius Borø <blizzwave@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Marius Borø <blizzwave@gmail.com>, 2019\n"
+"Last-Translator: Marius Borø <blizzwave@gmail.com>, 2020\n"
 "Language-Team: Norwegian (https://www.transifex.com/grocy/teams/93189/no/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -125,7 +125,7 @@ msgid "Stock quantity unit"
 msgstr "Forpakningstype i beholdningen"
 
 msgid "Stock amount"
-msgstr "Standardmengde"
+msgstr "Beholdningsantall"
 
 msgid "Last purchased"
 msgstr "Sist kjøpt"
@@ -830,7 +830,7 @@ msgid "Delete not possible"
 msgstr "Ikke mulig å slette"
 
 msgid "Equipment"
-msgstr "Instruksjonmanualer"
+msgstr "Instruksjonsmanualer"
 
 msgid "Instruction manual"
 msgstr "Instruksjonsmanual"
@@ -842,17 +842,16 @@ msgid "Notes"
 msgstr "Notater"
 
 msgid "Edit equipment"
-msgstr "Endre instruksjonmanualer for utstyr"
+msgstr "Endre instruksjonsmanual"
 
 msgid "Create equipment"
-msgstr "Opprett instruksjonmanualer for utstyr"
+msgstr "Opprett instruksjonmanualer for et utstyr"
 
 msgid ""
 "If you don't select a file, the current instruction manual will not be "
 "altered"
 msgstr ""
-"Hvis du ikke velger en instruksjonsmanual, vil nåværende instruksjonsmanual "
-"ikke bli endret"
+"Om ingen ny instruksjonsmanual blir lastet opp vil nåværende bli værende"
 
 msgid "No instruction manual available"
 msgstr "Ingen instruksjonsmanual tilgjengelig"
@@ -955,18 +954,18 @@ msgid ""
 "The first item in this list would be picked by the default rule which is "
 "\"First expiring first, then first in first out\""
 msgstr ""
-"Første produkt på listen vil bli konsumert først i henhold til regel: \"Går "
-"ut på dato først. Deretter først inn, først ut\"."
+"Første produkt på listen vil bli konsumert først i henhold til denne "
+"regelen: \"Går ut på dato først, deretter først inn, først ut\"."
 
 msgid "Mark %1$s of %2$s as open"
 msgstr "Merk %1$s av %2$s som åpen"
 
 msgid ""
-"When a product was marked as opened, the best before date will be replaced "
-"by today + this amount of days (a value of 0 disables this)"
+"When this product was marked as opened, the best before date will be "
+"replaced by today + this amount of days (a value of 0 disables this)"
 msgstr ""
-"Når et produkt blir merket som åpnet endres best før datoen fra i dag + "
-"dette antallet av dager. (Et 0 vil deaktivere dette)"
+"Når dette produktet merkes som åpnet vil best før datoen endres fra dagens "
+"dato + antall dager under"
 
 msgid "Default best before days after opened"
 msgstr "Standard best før dager etter åpnet"
@@ -976,9 +975,6 @@ msgstr "Merket %1$s av %2$s som åpnet"
 
 msgid "Mark as opened"
 msgstr "Merk som åpnet"
-
-msgid "Expires on %1$s; Bought on %2$s"
-msgstr "Går ut på dato %1$s, Kjøpt %2$s"
 
 msgid "Not opened"
 msgstr "Ikke åpnet"
@@ -1005,7 +1001,7 @@ msgid "Show clock in header"
 msgstr "Vis klokken på toppen av siden"
 
 msgid "Stock settings"
-msgstr "Beholdningsinnstillinger"
+msgstr "Beholdning - innstillinger"
 
 msgid "Shopping list to stock workflow"
 msgstr "Arbeidsflyt fra handleliste til beholding"
@@ -1148,8 +1144,8 @@ msgstr "Produkttelling"
 
 msgid "Type a new product name or barcode and hit TAB to start a workflow"
 msgstr ""
-"Skriv inn et nytt produkt eller strekkode, trykk så TAB for å starte "
-"prosessen"
+"Skriv inn et nytt produkt eller scan en strekkode, trykk så TAB for å starte"
+" innkjøps/ forbruksprosess"
 
 msgid ""
 "This will be used as the default setting when adding this product as a "
@@ -1189,7 +1185,7 @@ msgid "Average shelf life"
 msgstr "Gjennomsnittlig holdbarhetstid"
 
 msgid "Spoil rate"
-msgstr "\"Utgått på dato\" rate"
+msgstr "Prosenttall for hvor mye som har utgått på dato "
 
 msgid "Show more"
 msgstr "Vis mer"
@@ -1294,6 +1290,9 @@ msgstr "Ikke nok i beholdningen"
 
 msgid "Expiring soon days"
 msgstr "Går ut på dato snart dager"
+
+msgid "Default location"
+msgstr "Standard lokasjon"
 
 msgid "Default amount for purchase"
 msgstr "Standard mengde for innkjøp"
@@ -1651,62 +1650,245 @@ msgid "Miss"
 msgstr "Bom"
 
 msgid "Display recipe"
-msgstr ""
+msgstr "Vis oppskrift"
 
 msgid "Accumulate sub products min. stock amount"
-msgstr ""
+msgstr "Akkumulert underprodukter minimum beholdningsnivå"
 
 msgid ""
 "If enabled, the min. stock amount of sub products will be accumulated into "
 "this product, means the sub product will never be \"missing\", only this "
 "product"
 msgstr ""
+"Hvis aktivert vil minimum beholdningsnivå av under produkter bli akkumulert "
+"inn i dette produktet. Dette betyr at under produktet aldri vil \"mangle\", "
+"kunne dette produktet."
 
 msgid "Are you sure to remove this conversion?"
-msgstr ""
+msgstr "Er du sikker på at du ønsker å fjerne denne konverteringen?"
 
 msgid "Unit price"
-msgstr ""
+msgstr "Enhetspris"
 
 msgid "Total price"
-msgstr ""
+msgstr "Totalpris"
 
 msgid "in %s and based on the purchase quantity unit"
-msgstr ""
+msgstr "I %s og basert på innkjøpsforpakningen"
 
 msgid "Unlimited"
-msgstr ""
+msgstr "Evig"
 
 msgid "Clear"
-msgstr ""
+msgstr "Tøm"
 
 msgid "Are you sure to remove the included recipe \"%s\"?"
-msgstr ""
+msgstr "Er du sikker du ønsker å slette den inkluderte oppskriften \"%s\"?"
 
 msgid "Period interval"
-msgstr ""
+msgstr "Periodiskinterval"
 
 msgid ""
 "This means the next execution of this chore should only be scheduled every "
 "%s days"
 msgstr ""
+"Dette betyr at neste gjennomføring av denne husarbeidsoppgaven skal kun "
+"planlegges for hver %s dager"
 
 msgid ""
 "This means the next execution of this chore should only be scheduled every "
 "%s weeks"
 msgstr ""
+"Dette betyr at neste gjennomføring av denne husarbeidsoppgaven skal kun "
+"planlegges for hver %s uker"
 
 msgid ""
 "This means the next execution of this chore should only be scheduled every "
 "%s months"
 msgstr ""
+"Dette betyr at neste gjennomføring av denne husarbeidsoppgaven skal kun "
+"planlegges for hver %s måneder"
 
 msgid ""
 "This means the next execution of this chore is scheduled 1 year after the "
 "last execution"
 msgstr ""
+"Dette betyr at neste gjennomføring av denne husarbeidsoppgaven skal være 1  "
+"år etter forrige gjennomføring"
 
 msgid ""
 "This means the next execution of this chore should only be scheduled every "
 "%s years"
 msgstr ""
+"Dette betyr at neste gjennomføring av denne husarbeidsoppgaven skal kun "
+"planlegges for hver %s år"
+
+msgid "Transfer"
+msgstr "Flytte produkt"
+
+msgid "From location"
+msgstr "Fra lokasjon"
+
+msgid "To location"
+msgstr "Til lokasjon"
+
+msgid "There are no units available at this location"
+msgstr "Det er ingen enheter tilgjengelig på denne lokasjonen"
+
+msgid "Amount: %1$s; Expires on %2$s; Bought on %3$s"
+msgstr "Mengde: %1$s; Best før %2$s; Kjøpt %3$s"
+
+msgid "Transfered %1$s of %2$s from %3$s to %4$s"
+msgstr "Flyttet %1$s %2$s fra %3$s til %4$s"
+
+msgid "Show stock entries"
+msgstr "Vis beholdningsoppføringer"
+
+msgid "Stock entries"
+msgstr "Beholdningsoppføringer"
+
+msgid "Best before date"
+msgstr "Best før dato"
+
+msgid "Purchased date"
+msgstr "Innkjøpsdato"
+
+msgid "Consume all %s for this stock entry"
+msgstr "Forbruk alle %s for denne beholdningsoppføringen"
+
+msgid "The amount cannot be lower than %1$s"
+msgstr "Mengden kan ikke være lavere enn %1$s"
+
+msgid "Stock entry successfully updated"
+msgstr "Beholdningsoppføring oppdatert"
+
+msgid "Edit stock entry"
+msgstr "Endre beholdningsoppføring"
+
+msgid ""
+"Camera access is on only possible when supported and allowed by your browser"
+" and when grocy is served via a secure (https://) connection"
+msgstr ""
+"Tilgang til kamera må støttes av din nettleser og grocy må serves via en "
+"sikker tilkobling (https://)"
+
+msgid "Keep screen on"
+msgstr "Skjerm alltid på"
+
+msgid "Keep screen on while displaying a \"fullscreen-card\""
+msgstr "Hold skjerm på når du bruker fullskjermsoversikt"
+
+msgid "A purchased date is required"
+msgstr "En innkjøpsdato kreves"
+
+msgid ""
+"When a product is selected, one unit (per serving in purchase quantity unit)"
+" will be added to stock on consuming this recipe"
+msgstr ""
+"Når du konsumere denne oppskriften vil den produsere en enhet av produktet "
+"du har valgt under. (Per forbruk enhet)"
+
+msgid "Produces product"
+msgstr "Lager produkt"
+
+msgid "This booking cannot be undone"
+msgstr "Denne registreringen kan ikke angres"
+
+msgid "Booking does not exist or was already undone"
+msgstr "Registeringen eksistere ikke eller har allerede blitt angret"
+
+msgid "Are you sure to delete API key \"%s\"?"
+msgstr "Er du sikker du ønsker slette API key \"%s\"?"
+
+msgid "Add note"
+msgstr "Legg til notat"
+
+msgid "Add note to %s"
+msgstr "Legg notat til %s"
+
+msgid "per day"
+msgstr "per dag"
+
+msgid "Compact view"
+msgstr "Kompakt visning"
+
+msgid "Normal view"
+msgstr "Vanlig visning"
+
+msgid "Only undone items"
+msgstr "Kun angrede enheter"
+
+msgid "Add product"
+msgstr "Legg til produkt"
+
+msgid "Add product to %s"
+msgstr "Legg produkt til %s"
+
+msgid "Consume all ingredients needed by this weeks recipes or products"
+msgstr ""
+"Forbruk alle ingredienser nødvendig for denne ukens oppskrifter eller "
+"produkter"
+
+msgid "Meal plan recipe"
+msgstr "Middagsplan-oppskrift"
+
+msgid "Meal plan note"
+msgstr "Middagsplan-notat"
+
+msgid "Meal plan product"
+msgstr "Middagsplan-produkt"
+
+msgid "Scan mode"
+msgstr "Scanne modus"
+
+msgid "on"
+msgstr "på"
+
+msgid "off"
+msgstr "av"
+
+msgid ""
+"Scan mode is on but not all required fields could be populated automatically"
+msgstr "Scannemodus er på, men ikke alle felt kan fylles ut automatisk"
+
+msgid "Is freezer"
+msgstr "Er fryser"
+
+msgid ""
+"When moving products from/to a freezer location, the products best before "
+"date is automatically adjusted according to the product settings"
+msgstr ""
+"Når produkter blir flyttet til/fra en fryskerlokasjon, endres best før "
+"datoen automatisk i forhold til produktinnstillingen"
+
+msgid ""
+"On moving this product to a freezer location (so when freezing it), the best"
+" before date will be replaced by today + this amount of days"
+msgstr ""
+"Når dette produktet blir flyttet til en fryskerlokasjon (produkt skal "
+"fryses), endres best før datoen fra i dag + antall dager under"
+
+msgid "Default best before days after freezing"
+msgstr "Standard best før dager etter frysing"
+
+msgid ""
+"On moving this product from a freezer location (so when thawing it), the "
+"best before date will be replaced by today + this amount of days"
+msgstr ""
+"Når dette produktet blir flyttet fra en fryskerlokasjon (produkt skal "
+"tines), endres best før datoen fra i dag + antall dager under"
+
+msgid "Default best before days after thawing"
+msgstr "Standard best før dager etter tining"
+
+msgid "This cannot be the same as the \"From\" location"
+msgstr "Dette kan ikke være det som \"Fra\" lokasjonen"
+
+msgid "Thawed"
+msgstr "Tint"
+
+msgid "Frozen"
+msgstr "Fryst"
+
+msgid "Are you sure to delete userentity \"%s\"?"
+msgstr "Er du sikker på at du ønsker slette userentity \"%s\"?"

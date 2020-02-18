@@ -12,6 +12,7 @@ class StockService extends BaseService
 	const TRANSACTION_TYPE_STOCK_EDIT_NEW = 'stock-edit-new';
 	const TRANSACTION_TYPE_STOCK_EDIT_OLD = 'stock-edit-old';
 	const TRANSACTION_TYPE_PRODUCT_OPENED = 'product-opened';
+	const TRANSACTION_TYPE_SELF_PRODUCTION = 'self-production';
 
 	public function GetCurrentStock($includeNotInStockButMissingProducts = false)
 	{
@@ -26,8 +27,16 @@ class StockService extends BaseService
 
 			$sql = 'SELECT * FROM stock_current WHERE best_before_date IS NOT NULL UNION SELECT id, 0, 0, null, 0, 0, 0 FROM ' . $missingProductsView . ' WHERE id NOT IN (SELECT product_id FROM stock_current)';
 		}
+		$currentStockMapped = $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_GROUP|\PDO::FETCH_OBJ);
+		
+		$relevantProducts = $this->getDatabase()->products()->where('id IN (SELECT product_id FROM (' . $sql . ') x)');
+		foreach ($relevantProducts as $product)
+		{
+			$currentStockMapped[$product->id][0]->product_id = $product->id;
+			$currentStockMapped[$product->id][0]->product = $product;
+		}
 
-		return $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
+		return array_column($currentStockMapped, 0);
 	}
 
 	public function GetCurrentStockLocationContent()
@@ -61,7 +70,7 @@ class StockService extends BaseService
 
 	public function GetProductStockLocations($productId)
 	{
-		return $this->Database->stock_current_locations()->where('product_id', $productId)->fetchAll();
+		return $this->getDatabase()->stock_current_locations()->where('product_id', $productId)->fetchAll();
 	}
 
 	public function GetProductIdFromBarcode(string $barcode)
@@ -170,24 +179,34 @@ class StockService extends BaseService
 		return $returnData;
 	}
 
-	public function GetProductStockEntries($productId, $excludeOpened = false)
+	public function GetStockEntry($entryId)
+	{
+		return $this->getDatabase()->stock()->where('id', $entryId)->fetch();
+	}
+
+	public function GetProductStockEntries($productId, $excludeOpened = false, $allowSubproductSubstitution = false)
 	{
 		// In order of next use:
 		// First expiring first, then first in first out
 
+		$sqlWhereProductId = 'product_id = :1';
+		if ($allowSubproductSubstitution)
+		{
+			$sqlWhereProductId = '(product_id IN (SELECT sub_product_id FROM products_resolved WHERE parent_product_id = :1) OR product_id = :1)';
+		}
+
+		$sqlWhereAndOpen = 'AND open IN (0, 1)';
 		if ($excludeOpened)
 		{
-			return $this->getDatabase()->stock()->where('product_id = :1 AND open = 0', $productId)->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC')->fetchAll();
+			$sqlWhereAndOpen = 'AND open = 0';
 		}
-		else
-		{
-			return $this->getDatabase()->stock()->where('product_id', $productId)->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC')->fetchAll();
-		}
+
+		return $this->getDatabase()->stock()->where($sqlWhereProductId . ' ' . $sqlWhereAndOpen, $productId)->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC')->fetchAll();
 	}
 
-	public function GetProductStockEntriesForLocation($productId, $locationId, $excludeOpened = false)
+	public function GetProductStockEntriesForLocation($productId, $locationId, $excludeOpened = false, $allowSubproductSubstitution = false)
 	{
-		$stockEntries = $this->GetProductStockEntries($productId, $excludeOpened);
+		$stockEntries = $this->GetProductStockEntries($productId, $excludeOpened, $allowSubproductSubstitution);
 		return FindAllObjectsInArrayByPropertyValue($stockEntries, 'location_id', $locationId);
 	}
 
@@ -208,20 +227,20 @@ class StockService extends BaseService
 			{
 				throw new \Exception('The amount cannot be lower or equal than the defined tare weight + current stock amount');
 			}
-			
+
 			$amount = $amount - floatval($productDetails->stock_amount) - floatval($productDetails->product->tare_weight);
 		}
-		
+
 		//Sets the default best before date, if none is supplied
 		if ($bestBeforeDate == null)
 		{
 			if (intval($productDetails->product->default_best_before_days) == -1)
 			{
-				$bestBeforeDate = date('2999-12-31');	
+				$bestBeforeDate = date('2999-12-31');
 			}
 			else if (intval($productDetails->product->default_best_before_days) > 0)
 			{
-				$bestBeforeDate = date('Y-m-d', strtotime(date('Y-m-d') . ' + '.$productDetails->product->default_best_before_days.' days'));	
+				$bestBeforeDate = date('Y-m-d', strtotime(date('Y-m-d') . ' + '.$productDetails->product->default_best_before_days.' days'));
 			}
 			else
 			{
@@ -229,13 +248,13 @@ class StockService extends BaseService
 			}
 		}
 
-		if ($transactionType === self::TRANSACTION_TYPE_PURCHASE || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
+		if ($transactionType === self::TRANSACTION_TYPE_PURCHASE || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION || $transactionType == self::TRANSACTION_TYPE_SELF_PRODUCTION)
 		{
 			if ($transactionId === null)
 			{
 				$transactionId = uniqid();
 			}
-			
+
 			$stockId = uniqid();
 
 			$logRow = $this->getDatabase()->stock_log()->createRow(array(
@@ -272,14 +291,14 @@ class StockService extends BaseService
 		}
 	}
 
-	public function ConsumeProduct(int $productId, float $amount, bool $spoiled, $transactionType, $specificStockEntryId = 'default', $recipeId = null, $locationId = null, &$transactionId = null)
+	public function ConsumeProduct(int $productId, float $amount, bool $spoiled, $transactionType, $specificStockEntryId = 'default', $recipeId = null, $locationId = null, &$transactionId = null, $allowSubproductSubstitution = false)
 	{
 		if (!$this->ProductExists($productId))
 		{
 			throw new \Exception('Product does not exist');
 		}
 
-		if ($locationId !== null & !$this->LocationExists($locationId))
+		if ($locationId !== null && !$this->LocationExists($locationId))
 		{
 			throw new \Exception('Location does not exist');
 		}
@@ -294,7 +313,7 @@ class StockService extends BaseService
 			{
 				throw new \Exception('The amount cannot be lower than the defined tare weight');
 			}
-			
+
 			$amount = abs($amount - floatval($productDetails->stock_amount) - floatval($productDetails->product->tare_weight));
 		}
 
@@ -303,15 +322,14 @@ class StockService extends BaseService
 
 			if ($locationId === null) // Consume from any location
 			{
-				$productStockAmount = $this->getDatabase()->stock()->where('product_id', $productId)->sum('amount');
-				$potentialStockEntries = $this->GetProductStockEntries($productId);
+				$potentialStockEntries = $this->GetProductStockEntries($productId, false, $allowSubproductSubstitution);
 			}
 			else // Consume only from the supplied location
 			{
-				$productStockAmount = $this->getDatabase()->stock()->where('product_id = :1 AND location_id = :2', $productId, $locationId)->sum('amount');
-				$potentialStockEntries = $this->GetProductStockEntriesForLocation($productId, $locationId);
+				$potentialStockEntries = $this->GetProductStockEntriesForLocation($productId, $locationId, false, $allowSubproductSubstitution);
 			}
 
+			$productStockAmount = SumArrayValue($potentialStockEntries, 'amount');
 			if ($amount > $productStockAmount)
 			{
 				throw new \Exception('Amount to be consumed cannot be > current stock amount (if supplied, at the desired location)');
@@ -422,11 +440,11 @@ class StockService extends BaseService
 			{
 				throw new \Exception('The amount cannot be lower than the defined tare weight');
 			}
-			
+
 			$amount = abs($amount - floatval($productDetails->stock_amount) - floatval($productDetails->product->tare_weight));
 		}
 
-		$productStockAmountAtFromLocation = $this->Database->stock()->where('product_id = :1 AND location_id = :2', $productId, $locationIdFrom)->sum('amount');
+		$productStockAmountAtFromLocation = $this->getDatabase()->stock()->where('product_id = :1 AND location_id = :2', $productId, $locationIdFrom)->sum('amount');
 		$potentialStockEntriesAtFromLocation = $this->GetProductStockEntriesForLocation($productId, $locationIdFrom);
 
 		if ($amount > $productStockAmountAtFromLocation)
@@ -451,10 +469,30 @@ class StockService extends BaseService
 				break;
 			}
 
+			$newBestBeforeDate = $stockEntry->best_before_date;
+
+			if (GROCY_FEATURE_FLAG_STOCK_PRODUCT_FREEZING)
+			{
+				$locationFrom = $this->getDatabase()->locations()->where('id', $locationIdFrom)->fetch();
+				$locationTo = $this->getDatabase()->locations()->where('id', $locationIdTo)->fetch();
+
+				// Product was moved from a non-freezer to freezer location -> freeze
+				if (intval($locationFrom->is_freezer) === 0 && intval($locationTo->is_freezer) === 1 && $productDetails->product->default_best_before_days_after_freezing > 0)
+				{
+					$newBestBeforeDate = date("Y-m-d", strtotime('+' . $productDetails->product->default_best_before_days_after_freezing . ' days'));
+				}
+
+				// Product was moved from a freezer to non-freezer location -> thaw
+				if (intval($locationFrom->is_freezer) === 1 && intval($locationTo->is_freezer) === 0 && $productDetails->product->default_best_before_days_after_thawing > 0)
+				{
+					$newBestBeforeDate = date("Y-m-d", strtotime('+' . $productDetails->product->default_best_before_days_after_thawing . ' days'));
+				}
+			}
+
 			$correlationId = uniqid();
 			if ($amount >= $stockEntry->amount) // Take the whole stock entry
 			{
-				$logRowForLocationFrom = $this->Database->stock_log()->createRow(array(
+				$logRowForLocationFrom = $this->getDatabase()->stock_log()->createRow(array(
 					'product_id' => $stockEntry->product_id,
 					'amount' => $stockEntry->amount * -1,
 					'best_before_date' => $stockEntry->best_before_date,
@@ -469,10 +507,10 @@ class StockService extends BaseService
 				));
 				$logRowForLocationFrom->save();
 
-				$logRowForLocationTo = $this->Database->stock_log()->createRow(array(
+				$logRowForLocationTo = $this->getDatabase()->stock_log()->createRow(array(
 					'product_id' => $stockEntry->product_id,
 					'amount' => $stockEntry->amount,
-					'best_before_date' => $stockEntry->best_before_date,
+					'best_before_date' => $newBestBeforeDate,
 					'purchased_date' => $stockEntry->purchased_date,
 					'stock_id' => $stockEntry->stock_id,
 					'transaction_type' => self::TRANSACTION_TYPE_TRANSFER_TO,
@@ -485,7 +523,8 @@ class StockService extends BaseService
 				$logRowForLocationTo->save();
 
 				$stockEntry->update(array(
-					'location_id' => $locationIdTo
+					'location_id' => $locationIdTo,
+					'best_before_date' => $newBestBeforeDate
 				));
 
 				$amount -= $stockEntry->amount;
@@ -494,7 +533,7 @@ class StockService extends BaseService
 			{
 				$restStockAmount = $stockEntry->amount - $amount;
 
-				$logRowForLocationFrom = $this->Database->stock_log()->createRow(array(
+				$logRowForLocationFrom = $this->getDatabase()->stock_log()->createRow(array(
 					'product_id' => $stockEntry->product_id,
 					'amount' => $amount * -1,
 					'best_before_date' => $stockEntry->best_before_date,
@@ -509,10 +548,10 @@ class StockService extends BaseService
 				));
 				$logRowForLocationFrom->save();
 
-				$logRowForLocationTo = $this->Database->stock_log()->createRow(array(
+				$logRowForLocationTo = $this->getDatabase()->stock_log()->createRow(array(
 					'product_id' => $stockEntry->product_id,
 					'amount' => $amount,
-					'best_before_date' => $stockEntry->best_before_date,
+					'best_before_date' => $newBestBeforeDate,
 					'purchased_date' => $stockEntry->purchased_date,
 					'stock_id' => $stockEntry->stock_id,
 					'transaction_type' => self::TRANSACTION_TYPE_TRANSFER_TO,
@@ -530,10 +569,10 @@ class StockService extends BaseService
 				));
 
 				// The transfered amount gets into a new stock entry
-				$stockEntryNew = $this->Database->stock()->createRow(array(
+				$stockEntryNew = $this->getDatabase()->stock()->createRow(array(
 					'product_id' => $stockEntry->product_id,
 					'amount' => $amount,
-					'best_before_date' => $stockEntry->best_before_date,
+					'best_before_date' => $newBestBeforeDate,
 					'purchased_date' => $stockEntry->purchased_date,
 					'stock_id' => $stockEntry->stock_id,
 					'price' => $stockEntry->price,
@@ -547,22 +586,22 @@ class StockService extends BaseService
 			}
 		}
 
-		return $this->Database->lastInsertId();
+		return $this->getDatabase()->lastInsertId();
 	}
 
-	public function EditStock(int $stockRowId, int $amount, $bestBeforeDate, $locationId, $price)
+	public function EditStockEntry(int $stockRowId, int $amount, $bestBeforeDate, $locationId, $price, $open, $purchasedDate)
 	{
 
-		$stockRow = $this->Database->stock()->where('id = :1', $stockRowId)->fetch();
+		$stockRow = $this->getDatabase()->stock()->where('id = :1', $stockRowId)->fetch();
 
 		if ($stockRow === null)
 		{
 			throw new \Exception('Stock does not exist');
 		}
 
-                $correlationId = uniqid();
-                $transactionId = uniqid();
-		$logOldRowForStockUpdate = $this->Database->stock_log()->createRow(array(
+		$correlationId = uniqid();
+		$transactionId = uniqid();
+		$logOldRowForStockUpdate = $this->getDatabase()->stock_log()->createRow(array(
 			'product_id' => $stockRow->product_id,
 			'amount' => $stockRow->amount,
 			'best_before_date' => $stockRow->best_before_date,
@@ -578,14 +617,27 @@ class StockService extends BaseService
 		));
 		$logOldRowForStockUpdate->save();
 
+		$openedDate = $stockRow->opened_date;
+		if ($open && $openedDate == null)
+		{
+			$openedDate = date('Y-m-d');
+		}
+		else if (!$open)
+		{
+			$openedDate = null;
+		}
+
 		$stockRow->update(array(
 			'amount' => $amount,
 			'price' => $price,
 			'best_before_date' => $bestBeforeDate,
-			'location_id' => $locationId
+			'location_id' => $locationId,
+			'opened_date' => $openedDate,
+			'open' => $open,
+			'purchased_date' => $purchasedDate
 		));
 
-		$logNewRowForStockUpdate = $this->Database->stock_log()->createRow(array(
+		$logNewRowForStockUpdate = $this->getDatabase()->stock_log()->createRow(array(
 			'product_id' => $stockRow->product_id,
 			'amount' => $amount,
 			'best_before_date' => $bestBeforeDate,
@@ -601,11 +653,10 @@ class StockService extends BaseService
 		));
 		$logNewRowForStockUpdate->save();
 
-		$returnValue = $this->Database->lastInsertId();
-
-		return $returnValue;
+		return $this->getDatabase()->lastInsertId();
 	}
-	public function InventoryProduct(int $productId, int $newAmount, $bestBeforeDate, $locationId = null, $price = null)
+
+	public function InventoryProduct(int $productId, float $newAmount, $bestBeforeDate, $locationId = null, $price = null)
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -627,7 +678,7 @@ class StockService extends BaseService
 		{
 			$containerWeight = floatval($productDetails->product->tare_weight);
 		}
-		
+
 		if ($newAmount == floatval($productDetails->stock_amount) + $containerWeight)
 		{
 			throw new \Exception('The new amount cannot equal the current stock amount');
@@ -639,7 +690,7 @@ class StockService extends BaseService
 			{
 				$bookingAmount = $newAmount;
 			}
-			
+
 			return $this->AddProduct($productId, $bookingAmount, $bestBeforeDate, self::TRANSACTION_TYPE_INVENTORY_CORRECTION, date('Y-m-d'), $price, $locationId);
 		}
 		else if ($newAmount < $productDetails->stock_amount + $containerWeight)
@@ -820,7 +871,7 @@ class StockService extends BaseService
 			{
 				$productRow->update(array('amount' => $newAmount));
 			}
-			
+
 		}
 	}
 
@@ -974,7 +1025,7 @@ class StockService extends BaseService
 		}
 		elseif ($logRow->transaction_type === self::TRANSACTION_TYPE_TRANSFER_TO)
 		{
-			$stockRow = $this->Database->stock()->where('stock_id = :1 AND location_id = :2', $logRow->stock_id, $logRow->location_id)->fetch();
+			$stockRow = $this->getDatabase()->stock()->where('stock_id = :1 AND location_id = :2', $logRow->stock_id, $logRow->location_id)->fetch();
 			if ($stockRow === null)
 			{
 				throw new \Exception('Booking does not exist or was already undone');
@@ -1001,10 +1052,10 @@ class StockService extends BaseService
 		{
 			// Add corresponding amount back to stock or
 			// create a row if missing
-			$stockRow = $this->Database->stock()->where('stock_id = :1 AND location_id = :2', $logRow->stock_id, $logRow->location_id)->fetch();
+			$stockRow = $this->getDatabase()->stock()->where('stock_id = :1 AND location_id = :2', $logRow->stock_id, $logRow->location_id)->fetch();
 			if ($stockRow === null)
 			{
-				$stockRow = $this->Database->stock()->createRow(array(
+				$stockRow = $this->getDatabase()->stock()->createRow(array(
 					'product_id' => $logRow->product_id,
 					'amount' => $logRow->amount * -1,
 					'best_before_date' => $logRow->best_before_date,
@@ -1052,10 +1103,17 @@ class StockService extends BaseService
 		elseif ($logRow->transaction_type === self::TRANSACTION_TYPE_STOCK_EDIT_OLD)
 		{
 			// Make sure there is a stock row still
-			$stockRow = $this->Database->stock()->where('id = :1', $logRow->stock_row_id)->fetch();
+			$stockRow = $this->getDatabase()->stock()->where('id = :1', $logRow->stock_row_id)->fetch();
 			if ($stockRow == null)
 			{
 				throw new \Exception('Booking does not exist or was already undone');
+			}
+
+			$openedDate = $logRow->opened_date;
+			$open = true;
+			if ($openedDate == null)
+			{
+				$open = false;
 			}
 
 			$stockRow->update(array(
@@ -1063,7 +1121,9 @@ class StockService extends BaseService
 				'best_before_date' => $logRow->best_before_date,
 				'purchased_date' => $logRow->purchased_date,
 				'price' => $logRow->price,
-				'location_id' => $logRow->location_id
+				'location_id' => $logRow->location_id,
+				'open' => $open,
+				'opened_date' => $openedDate
 			));
 
 			// Update log entry
@@ -1080,7 +1140,7 @@ class StockService extends BaseService
 
 	public function UndoTransaction($transactionId)
 	{
-		$transactionBookings = $this->Database->stock_log()->where('undone = 0 AND transaction_id = :1', $transactionId)->orderBy('id', 'DESC')->fetchAll();
+		$transactionBookings = $this->getDatabase()->stock_log()->where('undone = 0 AND transaction_id = :1', $transactionId)->orderBy('id', 'DESC')->fetchAll();
 
 		if (count($transactionBookings) === 0)
 		{

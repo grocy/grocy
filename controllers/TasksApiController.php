@@ -6,28 +6,17 @@ use \Grocy\Services\TasksService;
 
 class TasksApiController extends BaseApiController
 {
-	public function __construct(\Slim\Container $container)
+	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 	}
 
-	protected $TasksService = null;
-
-    protected function getTasksService()
+	public function Current(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		if($this->TasksService == null)
-		{
-			$this->TasksService = TasksService::getInstance();
-		}
-		return $this->TasksService;
+		return $this->ApiResponse($response, $this->getTasksService()->GetCurrent());
 	}
 
-	public function Current(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
-	{
-		return $this->ApiResponse($this->getTasksService()->GetCurrent());
-	}
-
-	public function MarkTaskAsCompleted(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function MarkTaskAsCompleted(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$requestBody = $request->getParsedBody();
 
@@ -48,7 +37,7 @@ class TasksApiController extends BaseApiController
 		}
 	}
 
-	public function UndoTask(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function UndoTask(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{

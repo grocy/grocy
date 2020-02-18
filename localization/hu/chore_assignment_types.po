@@ -1,0 +1,30 @@
+# Translators:
+# Márk Kökény <oregapamgroup@gmail.com>, 2019
+# Ádám Kovács <kovacsadam07@outlook.hu>, 2019
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-09-17 10:45+0000\n"
+"Last-Translator: Ádám Kovács <kovacsadam07@outlook.hu>, 2019\n"
+"Language-Team: Hungarian (https://www.transifex.com/grocy/teams/93189/hu/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/chore_assignment_types\n"
+
+msgid "no-assignment"
+msgstr "nincs-hozzárendelés"
+
+msgid "who-least-did-first"
+msgstr "ki-legkevésbé-csinálta-először"
+
+msgid "random"
+msgstr "véletlen"
+
+msgid "in-alphabetical-order"
+msgstr "ABC sorrendben"

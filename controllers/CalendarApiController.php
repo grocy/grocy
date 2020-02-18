@@ -7,34 +7,12 @@ use \Grocy\Services\ApiKeyService;
 
 class CalendarApiController extends BaseApiController
 {
-	public function __construct(\Slim\Container $container)
+	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 	}
 
-	protected $CalendarService = null;
-
-	protected function getCalendarService()
-	{
-		if($this->CalendarService == null)
-		{
-			$this->CalendarService = CalendarService::getInstance();
-		}
-		return $this->CalendarService;
-	}
-
-	protected $ApiKeyService = null;
-
-	protected function getApiKeyService()
-	{
-		if($this->ApiKeyService == null)
-		{
-			$this->ApiKeyService = ApiKeyService::getInstance();
-		}
-		return $this->ApiKeyService;
-	}
-
-	public function Ical(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function Ical(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -72,12 +50,12 @@ class CalendarApiController extends BaseApiController
 		}
 	}
 
-	public function IcalSharingLink(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function IcalSharingLink(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
-			return $this->ApiResponse(array(
-				'url' => $this->AppContainer->UrlManager->ConstructUrl('/api/calendar/ical?secret=' . $this->getApiKeyService()->GetOrCreateApiKey(ApiKeyService::API_KEY_TYPE_SPECIAL_PURPOSE_CALENDAR_ICAL))
+			return $this->ApiResponse($response, array(
+				'url' => $this->AppContainer->get('UrlManager')->ConstructUrl('/api/calendar/ical?secret=' . $this->getApiKeyService()->GetOrCreateApiKey(ApiKeyService::API_KEY_TYPE_SPECIAL_PURPOSE_CALENDAR_ICAL))
 			));
 		}
 		catch (\Exception $ex)

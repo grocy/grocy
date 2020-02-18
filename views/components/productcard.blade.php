@@ -3,7 +3,7 @@
 	<script src="{{ $U('/viewjs/components/productcard.js', true) }}?v={{ $version }}"></script>
 @endpush
 
-<div class="card">
+<div class="card productcard">
 	<div class="card-header">
 		<i class="fab fa-product-hunt"></i> {{ $__t('Product overview') }}
 		<a id="productcard-product-edit-button" class="btn btn-sm btn-outline-info py-0 float-right disabled" href="#" data-toggle="tooltip" title="{{ $__t('Edit product') }}">

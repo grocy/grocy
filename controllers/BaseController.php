@@ -10,7 +10,7 @@ use \Grocy\Services\UserfieldsService;
 
 class BaseController
 {
-	public function __construct(\Slim\Container $container) {
+	public function __construct(\DI\Container $container) {
 
 		$this->AppContainer = $container;
 	}
@@ -36,11 +36,11 @@ class BaseController
 
 		$container->view->set('U', function($relativePath, $isResource = false) use($container)
 		{
-			return $container->UrlManager->ConstructUrl($relativePath, $isResource);
+			return $container->get('UrlManager')->ConstructUrl($relativePath, $isResource);
 		});
 
 		$embedded = false;
-		if (isset($container->request->getQueryParams()['embedded']))
+		if (isset($_GET['embedded']))
 		{
 			$embedded = true;
 		}
@@ -56,7 +56,7 @@ class BaseController
 		}
 		$container->view->set('featureFlags', $constants);
 
-		$this->AppContainer = $container;
+        $this->AppContainer = $container;
 
 		return $this->AppContainer->view->render($response, $page, $data);
 	}
@@ -106,6 +106,41 @@ class BaseController
 		return ApplicationService::getInstance();
 	}
 
+	protected function getBatteriesService()
+	{
+		return BatteriesService::getInstance();
+	}
+
+	protected function getCalendarService()
+	{
+		return CalendarService::getInstance();
+	}
+
+    private function getSessionService()
+	{
+		return SessionService::getInstance();
+	}
+
+	protected function getRecipesService()
+	{
+		return RecipesService::getInstance();
+	}
+
+	protected function getStockService()
+	{
+		return StockService::getInstance();
+	}
+
+    protected function getTasksService()
+	{
+		return TasksService::getInstance();
+	}
+
+    protected function getUsersService()
+	{
+		return UsersService::getInstance();
+	}
+
 	private $userfieldsService = null;
 
 	protected function getUserfieldsService()
@@ -127,6 +162,6 @@ class BaseController
 		}
 		return $this->usersService;
 	}
-
+	
 	protected $AppContainer;
 }

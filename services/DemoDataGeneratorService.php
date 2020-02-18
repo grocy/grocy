@@ -39,6 +39,7 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO locations (name) VALUES ('{$this->__t_sql('Pantry')}'); --3
 				INSERT INTO locations (name) VALUES ('{$this->__t_sql('Candy cupboard')}'); --4
 				INSERT INTO locations (name) VALUES ('{$this->__t_sql('Tinned food cupboard')}'); --5
+				INSERT INTO locations (name, is_freezer) VALUES ('{$this->__t_sql('Freezer')}', 1); --6
 
 				DELETE FROM quantity_units WHERE name = '{$this->__t_sql('Glass')}';
 				INSERT INTO quantity_units (id, name, name_plural) VALUES (4, '{$this->__n_sql(1, 'Glass', 'Glasses')}', '{$this->__n_sql(2, 'Glass', 'Glasses')}'); --4
@@ -86,7 +87,7 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$this->__t_sql('Sieved tomatoes')}', 5, 5, 5, 1, 3); --17
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$this->__t_sql('Salami')}', 2, 3, 3, 1, 6); --18
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$this->__t_sql('Toast')}', 3, 5, 5, 1, 2); --19
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$this->__t_sql('Minced meat')}', 2, 3, 3, 1, 4); --20
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, default_best_before_days_after_freezing, default_best_before_days_after_thawing) VALUES ('{$this->__t_sql('Minced meat')}', 2, 3, 3, 1, 4, 180, 2); --20
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, enable_tare_weight_handling, tare_weight, calories) VALUES ('{$this->__t_sql('Flour')}', 3, 8, 8, 1, 3, 1, 500, 2); --21
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, calories) VALUES ('{$this->__t_sql('Sugar')}', 3, 3, 3, 1, 3, 4); --22
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, calories) VALUES ('{$this->__t_sql('Milk')}', 2, 10, 10, 1, 6, 1); --23
@@ -128,16 +129,17 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (5, 2, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount, qu_id, only_check_single_unit_in_stock) VALUES (5, 23, 200, 11, 1);
 
-				INSERt INTO recipes_nestings(recipe_id, includes_recipe_id) VALUES (6, 4);
-				INSERt INTO recipes_nestings(recipe_id, includes_recipe_id) VALUES (6, 5);
+				INSERT INTO recipes_nestings(recipe_id, includes_recipe_id) VALUES (6, 4);
+				INSERT INTO recipes_nestings(recipe_id, includes_recipe_id) VALUES (6, 5);
 
-				INSERt INTO meal_plan(day, recipe_id) VALUES ('{$mondayThisWeek}', 1);
-				INSERt INTO meal_plan(day, recipe_id) VALUES ('{$tuesdayThisWeek}', 2);
-				INSERt INTO meal_plan(day, recipe_id) VALUES ('{$wednesdayThisWeek}', 3);
-				INSERt INTO meal_plan(day, recipe_id) VALUES ('{$thursdayThisWeek}', 4);
-				INSERt INTO meal_plan(day, recipe_id) VALUES ('{$fridayThisWeek}', 1);
-				INSERt INTO meal_plan(day, recipe_id) VALUES ('{$saturdayThisWeek}', 2);
-				INSERt INTO meal_plan(day, recipe_id) VALUES ('{$sundayThisWeek}', 4);
+				INSERT INTO meal_plan(day, recipe_id) VALUES ('{$mondayThisWeek}', 1);
+				INSERT INTO meal_plan(day, recipe_id) VALUES ('{$tuesdayThisWeek}', 2);
+				INSERT INTO meal_plan(day, recipe_id) VALUES ('{$wednesdayThisWeek}', 3);
+				INSERT INTO meal_plan(day, recipe_id) VALUES ('{$thursdayThisWeek}', 4);
+				INSERT INTO meal_plan(day, recipe_id) VALUES ('{$fridayThisWeek}', 1);
+				INSERT INTO meal_plan(day, recipe_id) VALUES ('{$saturdayThisWeek}', 2);
+				INSERT INTO meal_plan(day, recipe_id) VALUES ('{$sundayThisWeek}', 4);
+				INSERT INTO meal_plan(day, type, note) VALUES ('{$tuesdayThisWeek}', 'note', '{$this->__t_sql('This is a note')}');
 
 				INSERT INTO chores (name, period_type, period_days) VALUES ('{$this->__t_sql('Changed towels in the bathroom')}', 'manually', 5); --1
 				INSERT INTO chores (name, period_type, period_days, assignment_type, assignment_config, next_execution_assigned_to_user_id) VALUES ('{$this->__t_sql('Cleaned the kitchen floor')}', 'dynamic-regular', 7, 'random', '1,2,3,4', 1); --2

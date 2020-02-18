@@ -23,7 +23,7 @@ Just unpack the [latest release](https://releases.grocy.info/latest) on your PHP
 
 Alternatively clone this repository and install Composer and Yarn dependencies manually.
 
-If you use nginx as your webserver, please include `try_files $uri /index.php;` in your location block.
+If you use nginx as your webserver, please include `try_files $uri /index.php$is_args$query_string;` in your location block.
 
 If, however, your webserver does not support URL rewriting, set `DISABLE_URL_REWRITING` in `data/config.php` (`Setting('DISABLE_URL_REWRITING', true);`).
 
@@ -45,18 +45,20 @@ You can easily help translating grocy at https://www.transifex.com/grocy/grocy, 
 
 The [pre-release demo](https://demo-prerelease.grocy.info) is available for any translation which is at least 80 % complete and will pull the translations from Transifex 10 minutes past every hour, so you can have a kind of instant preview of your contributed translations. Thank you!
 
+Also any translation which reached a completion level of 80 % will be included in releases.
+
 ## Things worth to know
 
 ### REST API & data model documentation
 See the integrated Swagger UI instance on [/api](https://demo.grocy.info/api).
 
 ### Barcode readers & camera scanning
-Some fields also allow to select a value by scanning a barcode. It works best when your barcode reader prefixes every barcode with a letter which is normally not part of a item name (I use a `$`) and sends a `TAB` after a scan.
+Some fields (with a barcode icon above) also allow to select a value by scanning a barcode. It works best when your barcode reader prefixes every barcode with a letter which is normally not part of a item name (I use a `$`) and sends a `TAB` after a scan.
 
 Additionally it's also possible to use your device camera to scan a barcode by using the camera button on the right side of the corresponding field (powered by [QuaggaJS](https://github.com/serratus/quaggaJS), totally offline / client-side camera stream processing, please note due to browser security restrictions, this only works when serving grocy via a secure connection (`https://`)). Quick video demo: https://www.youtube.com/watch?v=Y5YH6IJFnfc
 
 ### Input shorthands for date fields
-For (productivity) reasons all date (and time) input fields use the ISO-8601 format regardless of localization.
+For (productivity) reasons all date (and time) input (and display) fields use the ISO-8601 format regardless of localization.
 The following shorthands are available:
 - `MMDD` gets expanded to the given day on the current year, if > today, or to the given day next year, if < today, in proper notation
   - Example: `0517` will be converted to `2018-05-17`
@@ -90,7 +92,7 @@ If you don't use certain feature sets of grocy (for example if you don't need "C
 - When the file `data/custom_css.html` exists, the contents of the file will be added just before `</head>` (end of head) on every page
 
 ### Demo mode
-When the file `data/demo.txt` exists, the application will work in a demo mode which means authentication is disabled and some demo data will be generated during the database schema migration.
+When the `MODE` setting is set to `dev`, `demo` or `prerelease`, the application will work in a demo mode which means authentication is disabled and some demo data will be generated during the database schema migration.
 
 ### Embedded mode
 When the file `embedded.txt` exists, it must contain a valid and writable path which will be used as the data directory instead of `data` and authentication will be disabled (used in [grocy-desktop](https://github.com/grocy/grocy-desktop)).

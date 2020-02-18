@@ -1,0 +1,1837 @@
+# Translators:
+# Márk Kökény <oregapamgroup@gmail.com>, 2019
+# Ádám Kovács <kovacsadam07@outlook.hu>, 2019
+# Gabor Pilsits <gabor.pilsits@gmail.com>, 2020
+# Peter Gyetvai <gyetpet@gmail.com>, 2020
+# Gábor Szellő <gabor.szello@gmail.com>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Gábor Szellő <gabor.szello@gmail.com>, 2020\n"
+"Language-Team: Hungarian (https://www.transifex.com/grocy/teams/93189/hu/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/strings\n"
+
+msgid "Stock overview"
+msgstr "Készlet áttekintése"
+
+msgid "%s product expires"
+msgid_plural "%s products expiring"
+msgstr[0] "%s termék szavatossága le fog járni"
+msgstr[1] "%s termék szavatossága le fog járni"
+
+msgid "within the next day"
+msgid_plural "within the next %s days"
+msgstr[0] "a következő napon"
+msgstr[1] "a következő %s napon belül"
+
+msgid "%s product is already expired"
+msgid_plural "%s products are already expired"
+msgstr[0] " %s termék szavatossága lejárt"
+msgstr[1] "%s termék szavatossága lejárt"
+
+msgid "%s product is below defined min. stock amount"
+msgid_plural "%s products are below defined min. stock amount"
+msgstr[0] "%s termék a meghatározott minimum mennyiség alá esett"
+msgstr[1] "%s termék a meghatározott minimum mennyiség alá esett"
+
+msgid "Product"
+msgstr "Termék"
+
+msgid "%s Product"
+msgid_plural "%s Products"
+msgstr[0] "%s Termék"
+msgstr[1] "%s Termék"
+
+msgid "Amount"
+msgstr "Mennyiség"
+
+msgid "Next best before date"
+msgstr "Következő lejárati dátum"
+
+msgid "Logout"
+msgstr "Kijelentkezés"
+
+msgid "Chores overview"
+msgstr "Házimunkák áttekintése"
+
+msgid "Batteries overview"
+msgstr "Elemek áttekintése"
+
+msgid "Purchase"
+msgstr "Vásárlás"
+
+msgid "Consume"
+msgstr "Felhasználás"
+
+msgid "Inventory"
+msgstr "Készlet"
+
+msgid "Shopping list"
+msgstr "Bevásárlólista"
+
+msgid "Chore tracking"
+msgstr "Házimunka követése"
+
+msgid "Battery tracking"
+msgstr "Elemek követése"
+
+msgid "Locations"
+msgstr "Helyek"
+
+msgid "Quantity units"
+msgstr "Mennyiségi egységek"
+
+msgid "Chores"
+msgstr "Házimunkák"
+
+msgid "Batteries"
+msgstr "Elemek"
+
+msgid "Chore"
+msgstr "Házimunka"
+
+msgid "Next estimated tracking"
+msgstr "Legközelebbi becsült követés"
+
+msgid "Last tracked"
+msgstr "Legutóbb követve"
+
+msgid "Battery"
+msgstr "Elem"
+
+msgid "Last charged"
+msgstr "Legutóbb feltöltve"
+
+msgid "Next planned charge cycle"
+msgstr "Következő tervezett töltési ciklus"
+
+msgid "Best before"
+msgstr "Szavatosság"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Product overview"
+msgstr "Termékek áttekintése"
+
+msgid "Stock quantity unit"
+msgstr "Készlet mennyiségi egység"
+
+msgid "Stock amount"
+msgstr "Készlet mennyiség"
+
+msgid "Last purchased"
+msgstr "Legutóbb vásárolva"
+
+msgid "Last used"
+msgstr "Legutóbb felhasználva"
+
+msgid "Spoiled"
+msgstr "Megromlott"
+
+msgid "Barcode lookup is disabled"
+msgstr "Vonalkódos keresés le van tiltva"
+
+msgid ""
+"will be added to the list of barcodes for the selected product on submit"
+msgstr ""
+"hozzá lesz adva a vonalkódok listájához a kiválasztott termék esetén "
+"beküldéskor"
+
+msgid "New amount"
+msgstr "Új mennyiség"
+
+msgid "Note"
+msgstr "Jegyzet"
+
+msgid "Tracked time"
+msgstr "Követett idő"
+
+msgid "Chore overview"
+msgstr "Házimunkák áttekintése"
+
+msgid "Tracked count"
+msgstr "Nyomonkövetések száma"
+
+msgid "Battery overview"
+msgstr "Elemek áttekintése"
+
+msgid "Charge cycles count"
+msgstr "Töltési ciklusok száma"
+
+msgid "Create shopping list item"
+msgstr "Bevásárlólista elem létrehozása"
+
+msgid "Edit shopping list item"
+msgstr "Bevásárlólista elem szerkesztése"
+
+msgid "Save"
+msgstr "Mentés"
+
+msgid "Add"
+msgstr "Hozzáadás"
+
+msgid "Name"
+msgstr "Név"
+
+msgid "Location"
+msgstr "Hely"
+
+msgid "Min. stock amount"
+msgstr "Min. készlet mennyiség"
+
+msgid "QU purchase"
+msgstr "Mennyiségi egység vásárlás"
+
+msgid "QU stock"
+msgstr "Mennyiségi egység készlet"
+
+msgid "QU factor"
+msgstr "Mennyiségi egység szorzó"
+
+msgid "Description"
+msgstr "Leírás"
+
+msgid "Create product"
+msgstr "Termék létrehozása"
+
+msgid "Barcode(s)"
+msgstr "Vonalkód(ok)"
+
+msgid "Minimum stock amount"
+msgstr "Minimális készlet mennyiség"
+
+msgid "Default best before days"
+msgstr "Alapértelmezett szavatossági idő"
+
+msgid "Quantity unit purchase"
+msgstr "Mennyiségi egység vásárlás"
+
+msgid "Quantity unit stock"
+msgstr "Mennyiségi egység készleten"
+
+msgid "Factor purchase to stock quantity unit"
+msgstr "Vásárlás beszámítása a készlet mennyiségi egységbe"
+
+msgid "Create location"
+msgstr "Hely létrehozása"
+
+msgid "Create quantity unit"
+msgstr "Mennyiségi egység létrehozása"
+
+msgid "Period type"
+msgstr "Ciklus típusa"
+
+msgid "Period days"
+msgstr "Ciklus napok"
+
+msgid "Create chore"
+msgstr "Házimunka létrehozása"
+
+msgid "Used in"
+msgstr "Itt használva"
+
+msgid "Create battery"
+msgstr "Elem létrehozása"
+
+msgid "Edit battery"
+msgstr "Elem szerkesztése"
+
+msgid "Edit chore"
+msgstr "Házimunka szerkesztése"
+
+msgid "Edit quantity unit"
+msgstr "Mennyiségi egység szerkesztése"
+
+msgid "Edit product"
+msgstr "Termék szerkesztése"
+
+msgid "Edit location"
+msgstr "Hely szerkesztése"
+
+msgid "Record data"
+msgstr "Adat rögzítése"
+
+msgid "Manage master data"
+msgstr "Törzsadatkezelés"
+
+msgid "This will apply to added products"
+msgstr "Ez érvényesülni fog a hozzáadott termékekre"
+
+msgid "never"
+msgstr "soha"
+
+msgid "Add products that are below defined min. stock amount"
+msgstr "A megadott minimum alatti termékek hozzáadása"
+
+msgid ""
+"For purchases this amount of days will be added to today for the best before"
+" date suggestion"
+msgstr ""
+
+msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
+msgstr ""
+"Ez azt jelenti, hogy a megvásárolt  1 %1$s, %2$sés %3$s-ként fog átváltódni "
+"és megjelenni a készletben "
+
+msgid "Login"
+msgstr "Bejelentkezés"
+
+msgid "Username"
+msgstr "Felhasználóinév"
+
+msgid "Password"
+msgstr "Jelszó"
+
+msgid "Invalid credentials, please try again"
+msgstr "Érvénytelen adatok, kérlek próbáld újra"
+
+msgid "Are you sure to delete battery \"%s\"?"
+msgstr "Biztosan törölni szeretnéd a következő elemet: \"%s\"?"
+
+msgid "Yes"
+msgstr "Igen"
+
+msgid "No"
+msgstr "Nem"
+
+msgid "Are you sure to delete chore \"%s\"?"
+msgstr "Biztosan törölni szeretnéd a következő házimunkát: \"%s\"?"
+
+msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
+msgstr "%s nem feleltethető meg terméknek, hogyan folytatod?"
+
+msgid "Create or assign product"
+msgstr "Létrehozás, vagy hozzárendelés termékhez"
+
+msgid "Cancel"
+msgstr "Mégse"
+
+msgid "Add as new product"
+msgstr "Új termék hozzáadása"
+
+msgid "Add as barcode to existing product"
+msgstr "Hozzáadás vonalkódként létező termékhez"
+
+msgid "Add as new product and prefill barcode"
+msgstr "Hozzáadás új termékként és a vonalkód kitöltése"
+
+msgid "Are you sure to delete quantity unit \"%s\"?"
+msgstr "Biztosan törölni szeretnéd a következő mennyiségi egységet: \"%s\" ?"
+
+msgid "Are you sure to delete product \"%s\"?"
+msgstr "Biztosan törölni szeretnéd a következő terméket: \"%s\"?"
+
+msgid "Are you sure to delete location \"%s\"?"
+msgstr "Biztosan törölni szeretnéd a következő helyet: \"%s\"?"
+
+msgid "Manage API keys"
+msgstr "API kulcsok kezelése"
+
+msgid "REST API & data model documentation"
+msgstr "REST API & adat modell dokumentáció"
+
+msgid "API keys"
+msgstr "API kulcsok"
+
+msgid "Create new API key"
+msgstr "Új API kulcs létrehozása"
+
+msgid "API key"
+msgstr "API kulcs"
+
+msgid "Expires"
+msgstr "Lejár"
+
+msgid "Created"
+msgstr "Létrehozva"
+
+msgid "This product is not in stock"
+msgstr "Ez a termék nincs készleten"
+
+msgid "This means %s will be added to stock"
+msgstr "Ez azt jelenti, %s hozzá lesz adva a készlethez"
+
+msgid "This means %s will be removed from stock"
+msgstr "Ez azt jelenti, %s el lesz távolítva a készletből"
+
+msgid ""
+"This means the next execution of this chore is scheduled %s days after the "
+"last execution"
+msgstr ""
+"Ez azt jelenti, hogy a következő háztartási munka %s nap múlva lesz "
+"beütemezve a legutólsóhoz képest"
+
+msgid "Removed %1$s of %2$s from stock"
+msgstr "%1$s a %2$s-ből/ból el lett távolítva a készletből"
+
+msgid "About grocy"
+msgstr "Grocyról"
+
+msgid "Close"
+msgstr "Bezár"
+
+msgid "Released on"
+msgstr "Megjelent ekkor"
+
+msgid "Added %1$s of %2$s to stock"
+msgstr "%1$sa %2$s-ből/ból hozzá lett adva a készlethez"
+
+msgid "Stock amount of %1$s is now %2$s"
+msgstr "A készlet %1$s-ból/ből jelenleg %2$s"
+
+msgid "Tracked execution of chore %1$s on %2$s"
+msgstr "Az elvégzett%1$sházimunka a %2$s -on naplózásra került"
+
+msgid "Tracked charge cycle of battery %1$s on %2$s"
+msgstr ""
+
+msgid "Consume all %s which are currently in stock"
+msgstr "Összes készleten lévő %s felhasználása"
+
+msgid "All"
+msgstr "Mind"
+
+msgid "Track charge cycle of battery %s"
+msgstr "%s elem töltési ciklusának a követése"
+
+msgid "Track execution of chore %s"
+msgstr "%s házimunka elvégzésének követése"
+
+msgid "Filter by location"
+msgstr "Hely szerinti szűrés"
+
+msgid "Search"
+msgstr "Keresés"
+
+msgid "Not logged in"
+msgstr "Nincs bejelentkezve"
+
+msgid "You have to select a product"
+msgstr "Ki kell választanod egy terméket"
+
+msgid "You have to select a chore"
+msgstr "Választanod kell választanod egy házimunkát"
+
+msgid "You have to select a battery"
+msgstr "Választanod kell választanod egy elemet"
+
+msgid "A name is required"
+msgstr "A név megadása kötelező"
+
+msgid "A location is required"
+msgstr "A hely megadása kötelező"
+
+msgid "The amount cannot be lower than %s"
+msgstr "A mennyiség nem lehet kevesebb, mint %s"
+
+msgid "This cannot be negative"
+msgstr "Nem lehet negatív"
+
+msgid "A quantity unit is required"
+msgstr "A mennyiségi egység megadása kötelező"
+
+msgid "A period type is required"
+msgstr "A ciklus típusának megadása kötelező"
+
+msgid "A best before date is required"
+msgstr "A lejárati dátum megadása kötelező"
+
+msgid "Settings"
+msgstr "Beállítások"
+
+msgid "This can only be before now"
+msgstr "Ez csak jelenlegi dátumnál korábbi dátum lehet csak"
+
+msgid "Calendar"
+msgstr "Naptár"
+
+msgid "Recipes"
+msgstr "Receptek"
+
+msgid "Edit recipe"
+msgstr "Recept szerkesztése"
+
+msgid "New recipe"
+msgstr "Új recept"
+
+msgid "Ingredients list"
+msgstr "Hozzávalók listája"
+
+msgid "Add recipe ingredient"
+msgstr "Hozzávaló hozzáadása"
+
+msgid "Edit recipe ingredient"
+msgstr "Hozzávaló szerkesztése"
+
+msgid "Are you sure to delete recipe \"%s\"?"
+msgstr "Biztos benne, hogy törli a receptet \"%s\" ?"
+
+msgid "Are you sure to delete recipe ingredient \"%s\"?"
+msgstr "Biztos benne, hogy törli a recept hozzávalót \"%s\" ?"
+
+msgid "Are you sure to empty shopping list \"%s\"?"
+msgstr "Biztosan kiüríted a következő bevásárló listát: %s?"
+
+msgid "Clear list"
+msgstr "Lista törlése"
+
+msgid "Requirements fulfilled"
+msgstr "Követelmények teljesültek"
+
+msgid "Put missing products on shopping list"
+msgstr "Add hozzá a hiányzó termékeket a bevásárló listához"
+
+msgid "Enough in stock"
+msgstr "Elegendő mennyiség készleten"
+
+msgid ""
+"Not enough in stock, %s ingredient missing but already on the shopping list"
+msgid_plural ""
+"Not enough in stock, %s ingredients missing but already on the shopping list"
+msgstr[0] ""
+"Nincs elegendő készleten, %s hozzávaló hiányzik, de már szerepel a "
+"bevásárlólistán"
+msgstr[1] ""
+"Nincs elegendő készleten, %s hozzávaló hiányzik, de már szerepel a "
+"bevásárlólistán"
+
+msgid "Expand to fullscreen"
+msgstr "Teljes képernyő"
+
+msgid "Ingredients"
+msgstr "Hozzávalók"
+
+msgid "Preparation"
+msgstr "Előkészületek"
+
+msgid "Recipe"
+msgstr "Recept"
+
+msgid "Not enough in stock, %1$s missing, %2$s already on shopping list"
+msgstr ""
+"Nincs elegendő készleten, %1$s hiányzik, %2$s már szerepel a bevásárlólistán"
+
+msgid "Show notes"
+msgstr "Jegyzetek megtekintése"
+
+msgid "Put missing amount on shopping list"
+msgstr "Tegye a hiányzó mennyiséget a bevásárlólistára"
+
+msgid ""
+"Are you sure to put all missing ingredients for recipe \"%s\" on the "
+"shopping list?"
+msgstr ""
+"Biztos benne, hogy a bevásárlólistára teszi az összes hiányzó \"%s\" "
+"recepthez tartózó hozzávalót?"
+
+msgid "Added for recipe %s"
+msgstr "Hozzáadva ehhez a recepthez: \"%s\""
+
+msgid "Manage users"
+msgstr "Felhasználók kezelése"
+
+msgid "User"
+msgstr "Felhasználó"
+
+msgid "Users"
+msgstr "Felhasználó"
+
+msgid "Are you sure to delete user \"%s\"?"
+msgstr "Biztosan törölni szeretnéd a következő felhasználót: \"%s\"?"
+
+msgid "Create user"
+msgstr "Felhasználó létrehozása"
+
+msgid "Edit user"
+msgstr "Felhasználó szerkesztése"
+
+msgid "First name"
+msgstr "Keresztnév"
+
+msgid "Last name"
+msgstr "Vezetéknév"
+
+msgid "A username is required"
+msgstr "A felhasználóinév megadása kötelező"
+
+msgid "Confirm password"
+msgstr "Jelszó megerősítése"
+
+msgid "Passwords do not match"
+msgstr "Jelszavak nem egyeznek"
+
+msgid "Change password"
+msgstr "Jelszó módosítása"
+
+msgid "Done by"
+msgstr "Elvégezte:"
+
+msgid "Last done by"
+msgstr "Legutóbb elvégezte:"
+
+msgid "Unknown"
+msgstr "Ismeretlen"
+
+msgid "Filter by chore"
+msgstr "Házimunka szerinti szűrés"
+
+msgid "Chores journal"
+msgstr "Házimunka napló"
+
+msgid "0 means suggestions for the next charge cycle are disabled"
+msgstr ""
+"0 azt jelenti, hogy javaslatok a következő töltésiciklusra nincsenek "
+"bekapcsolva"
+
+msgid "Charge cycle interval (days)"
+msgstr "Töltésiciklus intervallum (napok)"
+
+msgid "Last price"
+msgstr "Legutóbbi ár"
+
+msgid "Price history"
+msgstr "Ár előzmények"
+
+msgid "No price history available"
+msgstr "Nincs elérhető ár előzmények"
+
+msgid "Price"
+msgstr "Ár"
+
+msgid "in %s per purchase quantity unit"
+msgstr ""
+
+msgid "The price cannot be lower than %s"
+msgstr "Az ár nem lehet kevesebb, mint %s"
+
+msgid "Unit"
+msgstr "Egység"
+
+msgid "%s Unit"
+msgid_plural "%s Units"
+msgstr[0] "%s Egység"
+msgstr[1] "%s Egység"
+
+msgid "%s chore is due to be done"
+msgid_plural "%s chores are due to be done"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s chore is overdue to be done"
+msgid_plural "%s chores are overdue to be done"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s battery is due to be charged"
+msgid_plural "%s batteries are due to be charged"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s battery is overdue to be charged"
+msgid_plural "%s batteries are overdue to be charged"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "in singular form"
+msgstr "egyes számban"
+
+msgid "Never expires"
+msgstr "Sosem jár le"
+
+msgid "This cannot be lower than %s"
+msgstr "Nem lehet kisebb, mint %s"
+
+msgid "-1 means that this product never expires"
+msgstr "-1 azt jelenti, hogy ez a termék sohasem romlik meg"
+
+msgid "Quantity unit"
+msgstr "Mennyiségi egység"
+
+msgid ""
+"Only check if a single unit is in stock (a different quantity can then be "
+"used above)"
+msgstr ""
+
+msgid ""
+"Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
+" marked with \"check only if a single unit is in stock\" will be ignored)?"
+msgstr ""
+
+msgid "Removed all ingredients of recipe \"%s\" from stock"
+msgstr "Minden hozzávaló eltávolítva a készletről ehhez: '%s'"
+
+msgid "Consume all ingredients needed by this recipe"
+msgstr "A recept minden alapanyagának felhasználása"
+
+msgid "Click to show technical details"
+msgstr "Kattintson ide a technikai részletekért"
+
+msgid "Error while saving, probably this item already exists"
+msgstr "Hiba mentés közben, valószínűleg ez a termék már létezik"
+
+msgid "Error details"
+msgstr "Hiba részletei"
+
+msgid "Tasks"
+msgstr "Feladatok"
+
+msgid "Show done tasks"
+msgstr "Befejezett feladatok"
+
+msgid "Task"
+msgstr "Feladat"
+
+msgid "Due"
+msgstr "Esedékes"
+
+msgid "Assigned to"
+msgstr "Hozzárendelve"
+
+msgid "Mark task \"%s\" as completed"
+msgstr ""
+
+msgid "Uncategorized"
+msgstr "Kategorizálatlan"
+
+msgid "Task categories"
+msgstr "Feladat kategóriák"
+
+msgid "Create task"
+msgstr "Feladat létrehozása"
+
+msgid "A due date is required"
+msgstr "A határidő megadása kötelező"
+
+msgid "Category"
+msgstr "Kategória"
+
+msgid "Edit task"
+msgstr "Feladat szerkesztése"
+
+msgid "Are you sure to delete task \"%s\"?"
+msgstr "Biztosan törölni szeretnéd a következő feladatot: \"%s\"?"
+
+msgid "%s task is due to be done"
+msgid_plural "%s tasks are due to be done"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s task is overdue to be done"
+msgid_plural "%s tasks are overdue to be done"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Edit task category"
+msgstr "Feladat kategória szerkesztése"
+
+msgid "Create task category"
+msgstr "Feladat kategória létrehozása"
+
+msgid "Product groups"
+msgstr "Termékcsoportok"
+
+msgid "Ungrouped"
+msgstr "Nem csoportosított"
+
+msgid "Create product group"
+msgstr "Termékcsoport létrehozása"
+
+msgid "Edit product group"
+msgstr "Termékcsoport szerkesztése"
+
+msgid "Product group"
+msgstr "Termékcsoport"
+
+msgid "Are you sure to delete product group \"%s\"?"
+msgstr "Biztosan töröli szeretnéd a következő termékcsoportot: \"%s\"?"
+
+msgid "Stay logged in permanently"
+msgstr "Bejelentkezés korlátlan ideig"
+
+msgid "When not set, you will get logged out at latest after 30 days"
+msgstr ""
+"Amikor nincs beállítva, akkor legkorábban 30 nap után ki leszel léptetve"
+
+msgid "Filter by status"
+msgstr "Állapot szerinti szűrés"
+
+msgid "Below min. stock amount"
+msgstr "Min. készlet mennyiség alatt"
+
+msgid "Expiring soon"
+msgstr "Hamarosan lejár"
+
+msgid "Already expired"
+msgstr "Lejárt"
+
+msgid "Due soon"
+msgstr "Hamarosan esedékes"
+
+msgid "Overdue"
+msgstr "Késik"
+
+msgid "View settings"
+msgstr "Beállítások megtekintése"
+
+msgid "Auto reload on external changes"
+msgstr "Automatikus újratöltés külső változásoknál"
+
+msgid "Enable night mode"
+msgstr "Éjszakai mód engedélyezése"
+
+msgid "Auto enable in time range"
+msgstr "Automatikus bekapcsolás az időintervallumon"
+
+msgid "From"
+msgstr ""
+
+msgid "in format"
+msgstr ""
+
+msgid "To"
+msgstr ""
+
+msgid "Time range goes over midnight"
+msgstr ""
+
+msgid "Product picture"
+msgstr "Termék kép"
+
+msgid "No file selected"
+msgstr "Nincs fájl kiválasztva"
+
+msgid "If you don't select a file, the current picture will not be altered"
+msgstr ""
+"Ha nem választasz ki egy fájlt, akkor a jelenlegi kép nem lesz módosítva"
+
+msgid "Delete"
+msgstr "Törlés"
+
+msgid "The current picture will be deleted when you save the product"
+msgstr "A jelenlegi kép törölve lesz amikor mented a terméket"
+
+msgid "Select file"
+msgstr "Válassz fájlt"
+
+msgid "Image of product %s"
+msgstr ""
+
+msgid ""
+"This product cannot be deleted because it is in stock, please remove the "
+"stock amount first."
+msgstr ""
+"Ez a termék nem törölhető, mert még készleten van, kérlek először távolítsd "
+"el a készlet mennyiséget!"
+
+msgid "Delete not possible"
+msgstr "Nem lehetséges a törlés"
+
+msgid "Equipment"
+msgstr "Eszköz"
+
+msgid "Instruction manual"
+msgstr "Használati útmutató"
+
+msgid "The selected equipment has no instruction manual"
+msgstr "A kiválasztott eszköznek nincs használati útmutatója"
+
+msgid "Notes"
+msgstr "Jegyzetek"
+
+msgid "Edit equipment"
+msgstr "Eszköz szerkesztése"
+
+msgid "Create equipment"
+msgstr "Eszköz létrehozása"
+
+msgid ""
+"If you don't select a file, the current instruction manual will not be "
+"altered"
+msgstr ""
+"Ha nem választasz ki egy fájlt, akkor a jelenlegi használati útmutató nem "
+"lesz módosítva"
+
+msgid "No instruction manual available"
+msgstr "Nem áll rendelkezésre használati útmutató"
+
+msgid ""
+"The current instruction manual will be deleted when you save the equipment"
+msgstr ""
+"A jelenlegi használati útmutató törölve lesz, amikor mented az eszközt"
+
+msgid "No picture available"
+msgstr "Nincs kép megadva"
+
+msgid "Filter by product group"
+msgstr "Termékcsoport szerinti szűrés"
+
+msgid "Presets for new products"
+msgstr ""
+
+msgid "Included recipes"
+msgstr ""
+
+msgid "A recipe is required"
+msgstr " A recept megadása kötelező"
+
+msgid "Add included recipe"
+msgstr ""
+
+msgid "Edit included recipe"
+msgstr "Recept szerkesztése"
+
+msgid "Group"
+msgstr "Csoport"
+
+msgid "This will be used as a headline to group ingredients together"
+msgstr ""
+
+msgid "Journal"
+msgstr "Napló"
+
+msgid "Stock journal"
+msgstr "Készlet napló"
+
+msgid "Filter by product"
+msgstr "Termék szerinti szűrés"
+
+msgid "Booking time"
+msgstr "Foglalási időpont"
+
+msgid "Booking type"
+msgstr "Foglalás típus"
+
+msgid "Undo booking"
+msgstr "Foglalás visszavonása"
+
+msgid "Undone on"
+msgstr ""
+
+msgid "Batteries journal"
+msgstr "Elem napló"
+
+msgid "Filter by battery"
+msgstr "Elem szerinti szűrés"
+
+msgid "Undo charge cycle"
+msgstr "Töltési ciklus visszavonása"
+
+msgid "Undo chore execution"
+msgstr "Házimunka végrehajtás visszavonása"
+
+msgid "Chore execution successfully undone"
+msgstr "Házimunka végrehajtás sikeresen visszavonva"
+
+msgid "Undo"
+msgstr "Visszavonás"
+
+msgid "Booking successfully undone"
+msgstr "Foglalás sikeresen visszavonva"
+
+msgid "Charge cycle successfully undone"
+msgstr "Töltési ciklus sikeresen visszavonva"
+
+msgid "This cannot be negative and must be an integral number"
+msgstr "Nem lehet negatív, és egész szám megadása szükséges"
+
+msgid "Disable stock fulfillment checking for this ingredient"
+msgstr ""
+
+msgid "Add all list items to stock"
+msgstr "Összes listaelem hozzáadása készlethez"
+
+msgid "Add %1$s of %2$s to stock"
+msgstr ""
+
+msgid "Adding shopping list item %1$s of %2$s"
+msgstr ""
+
+msgid "Use a specific stock item"
+msgstr "Megadott készletelem használata"
+
+msgid ""
+"The first item in this list would be picked by the default rule which is "
+"\"First expiring first, then first in first out\""
+msgstr ""
+
+msgid "Mark %1$s of %2$s as open"
+msgstr ""
+
+msgid ""
+"When this product was marked as opened, the best before date will be "
+"replaced by today + this amount of days (a value of 0 disables this)"
+msgstr ""
+
+msgid "Default best before days after opened"
+msgstr "Alapértelmezett szavatossági idő felbontás után"
+
+msgid "Marked %1$s of %2$s as opened"
+msgstr ""
+
+msgid "Mark as opened"
+msgstr "Megjelölés felbontottként"
+
+msgid "Not opened"
+msgstr "Felbontatlan"
+
+msgid "Opened"
+msgstr "Felbontva"
+
+msgid "%s opened"
+msgstr "%s felbontva"
+
+msgid "Product expires"
+msgstr "Termék lejár"
+
+msgid "Task due"
+msgstr "Feladat esedékes"
+
+msgid "Chore due"
+msgstr "Házimunka esedékes"
+
+msgid "Battery charge cycle due"
+msgstr "Töltési ciklus esedékes"
+
+msgid "Show clock in header"
+msgstr "Óra megjelenítése a fejlécben"
+
+msgid "Stock settings"
+msgstr "Készlet beállítások"
+
+msgid "Shopping list to stock workflow"
+msgstr ""
+
+msgid ""
+"Automatically do the booking using the last price and the amount of the "
+"shopping list item, if the product has \"Default best before days\" set"
+msgstr ""
+
+msgid "Skip"
+msgstr "Kihagyás"
+
+msgid "Servings"
+msgstr "Adagok"
+
+msgid "Costs"
+msgstr "Árak"
+
+msgid "Based on the prices of the last purchase per product"
+msgstr ""
+
+msgid "The ingredients listed here result in this amount of servings"
+msgstr "A megadott alapanyagokból ennyi adag jön ki"
+
+msgid "Do not check against the shopping list when adding missing items to it"
+msgstr ""
+
+msgid ""
+"By default the amount to be added to the shopping list is \"needed amount - "
+"stock amount - shopping list amount\" - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+msgstr ""
+
+msgid "Picture"
+msgstr "Kép"
+
+msgid "Uncheck ingredients to not put them on the shopping list"
+msgstr ""
+
+msgid "This is for statistical purposes only"
+msgstr "Csak statisztikai céllal"
+
+msgid "You have to select a recipe"
+msgstr "Ki kell választanod egy receptet"
+
+msgid "Key type"
+msgstr "Kulcs típus"
+
+msgid "Share/Integrate calendar (iCal)"
+msgstr "Naptár megosztása/integrálása (iCal)"
+
+msgid ""
+"Use the following (public) URL to share or integrate the calendar in iCal "
+"format"
+msgstr ""
+
+msgid "Allow partial units in stock"
+msgstr ""
+
+msgid "Enable tare weight handling"
+msgstr "Tára súly kezelés engedélyezése"
+
+msgid ""
+"This is useful e.g. for flour in jars - on purchase/consume/inventory you "
+"always weigh the whole jar, the amount to be posted is then automatically "
+"calculated based on what is in stock and the tare weight defined below"
+msgstr ""
+
+msgid "Tare weight"
+msgstr "Tára súly"
+
+msgid ""
+"Tare weight handling enabled - please weigh the whole container, the amount "
+"to be posted will be automatically calculcated"
+msgstr ""
+
+msgid "You have to select a location"
+msgstr "Ki kell választanod egy helyet"
+
+msgid "List"
+msgstr "Lista"
+
+msgid "Gallery"
+msgstr "Galéria"
+
+msgid "The current picture will be deleted when you save the recipe"
+msgstr "A jelenlegi kép törölve lesz, amikor mented a receptet"
+
+msgid "Show product details"
+msgstr "Termék részletek"
+
+msgid "Stock journal for this product"
+msgstr "Termékhez tartozó készlet napló"
+
+msgid "Show chore details"
+msgstr "Házimunka részletei"
+
+msgid "Journal for this chore"
+msgstr "Házimunkához tartozó napló"
+
+msgid "Show battery details"
+msgstr "Elem részletek"
+
+msgid "Journal for this battery"
+msgstr "Elemhez tartozó napló"
+
+msgid "System info"
+msgstr "Rendszerinformáció"
+
+msgid "Changelog"
+msgstr "Változásnapló"
+
+msgid "will be multiplied a factor of %1$s to get %2$s"
+msgstr ""
+
+msgid "The given date is earlier than today, are you sure?"
+msgstr "A megadott dátum korábbi, mint a mai nap. Megtartod?"
+
+msgid "Product count"
+msgstr "Termék darabszám"
+
+msgid "Type a new product name or barcode and hit TAB to start a workflow"
+msgstr ""
+"Írj be egy új terméket vagy vonalkódot, majd nyomd meg a TAB gombot a "
+"munkafolyamat elindításához"
+
+msgid ""
+"This will be used as the default setting when adding this product as a "
+"recipe ingredient"
+msgstr ""
+
+msgid "Add item"
+msgstr "Hozzáadás"
+
+msgid "Selected shopping list"
+msgstr "Kiválasztott bevásárló lista"
+
+msgid "New shopping list"
+msgstr "Új bevásárló lista"
+
+msgid "Delete shopping list"
+msgstr "Bevásárló lista törlése"
+
+msgid "Chores settings"
+msgstr "Házimunka beállítások"
+
+msgid "Batteries settings"
+msgstr "Elem beállítások"
+
+msgid "Tasks settings"
+msgstr "Feladat beállítások"
+
+msgid "Create shopping list"
+msgstr "Bevásárlólista létrehozása"
+
+msgid "Are you sure to delete shopping list \"%s\"?"
+msgstr "Biztosan törölni szeretnéd a következő bevásárlólistát: \"%s\"?"
+
+msgid "Average shelf life"
+msgstr "Átlagos szavatossági idő"
+
+msgid "Spoil rate"
+msgstr "Megromlási arány"
+
+msgid "Show more"
+msgstr "Több mutatása"
+
+msgid "Show less"
+msgstr "Kevesebb mutatása"
+
+msgid "The amount must be between %1$s and %2$s"
+msgstr "A mennyiség %1$s és %2$s között kell lennie"
+
+msgid "Day of month"
+msgstr ""
+
+msgid "Monday"
+msgstr "Hétfő"
+
+msgid "Tuesday"
+msgstr "Kedd"
+
+msgid "Wednesday"
+msgstr "Szerda"
+
+msgid "Thursday"
+msgstr "Csütörtök"
+
+msgid "Friday"
+msgstr "Péntek"
+
+msgid "Saturday"
+msgstr "Szombat"
+
+msgid "Sunday"
+msgstr "Vasárnap"
+
+msgid "Configure userfields"
+msgstr "Egyéni mezők testreszabása"
+
+msgid "Userfields"
+msgstr "Egyéni mezők"
+
+msgid "Filter by entity"
+msgstr "Szűrés entitás szerint"
+
+msgid "Entity"
+msgstr "Entitás"
+
+msgid "Caption"
+msgstr "Felirat"
+
+msgid "Type"
+msgstr "Típus"
+
+msgid "Create userfield"
+msgstr "Egyéni mező létrehozása"
+
+msgid "A entity is required"
+msgstr "Az entitás megadása kötelező"
+
+msgid "A caption is required"
+msgstr "A felirat megadása kötelező"
+
+msgid "A type is required"
+msgstr "A típus megadása kötelező"
+
+msgid "Show as column in tables"
+msgstr "Megjelenítés oszlopként a táblázatokban"
+
+msgid "This is required and can only contain letters and numbers"
+msgstr "Ez kötelező és csak betűket és számokat tartalmazhat"
+
+msgid "Edit userfield"
+msgstr "Egyéni mező szerkesztése"
+
+msgid "Plural forms"
+msgstr ""
+
+msgid "One plural form per line, the current language requires"
+msgstr ""
+
+msgid "Plural count"
+msgstr ""
+
+msgid "Plural rule"
+msgstr ""
+
+msgid "in plural form"
+msgstr "többesszámban"
+
+msgid "Not enough in stock, %s ingredient missing"
+msgid_plural "Not enough in stock, %s ingredients missing"
+msgstr[0] "Nincs elegendő készleten, %s hozzávaló hiányzik"
+msgstr[1] "Nincs elegendő készleten, %s hozzávaló hiányzik"
+
+msgid "The amount cannot be lower than %1$s or equal %2$s"
+msgstr ""
+
+msgid "Not enough in stock, but already on the shopping list"
+msgstr "Nincs elegendő készleten, de már szerepel a bevásárlólistán"
+
+msgid "Not enough in stock"
+msgstr "Nincs elegendő készleten"
+
+msgid "Expiring soon days"
+msgstr ""
+
+msgid "Default location"
+msgstr "Alapértelmezett hely"
+
+msgid "Default amount for purchase"
+msgstr "Alapértelmezett vásárlási mennyiség"
+
+msgid "Default amount for consume"
+msgstr "Alapértelmezett felhasználási mennyiség"
+
+msgid "Variable amount"
+msgstr "Változó mennyiség"
+
+msgid ""
+"When this is not empty, it will be shown instead of the amount entered above"
+" while the amount there will still be used for stock fulfillment checking"
+msgstr ""
+
+msgid "Track date only"
+msgstr "Csak a dátum követése"
+
+msgid "When enabled only the day of an execution is tracked, not the time"
+msgstr ""
+
+msgid "Consume %1$s of %2$s"
+msgstr ""
+
+msgid "Meal plan"
+msgstr "Menü terv"
+
+msgid "Add recipe to %s"
+msgstr "Recept hozzáadása ehhez: \"%s\""
+
+msgid "%s serving"
+msgid_plural "%s servings"
+msgstr[0] "%s tálalás"
+msgstr[1] "%s adag"
+
+msgid "Week costs"
+msgstr "Heti költség"
+
+msgid "Configuration"
+msgstr "Konfiguráció"
+
+msgid "A predefined list of values, one per line"
+msgstr ""
+
+msgid "Chores due soon days"
+msgstr ""
+
+msgid "Batteries due to be charged soon days"
+msgstr ""
+
+msgid "Tasks due soon days"
+msgstr ""
+
+msgid "Products"
+msgstr "Termékek"
+
+msgid "Marked task %s as completed on %s"
+msgstr ""
+
+msgid "Booking has subsequent dependent bookings, undo not possible"
+msgstr ""
+
+msgid "per serving"
+msgstr "per adag"
+
+msgid "Never"
+msgstr "Soha"
+
+msgid "Today"
+msgstr "Ma"
+
+msgid "Consume %1$s of %2$s as spoiled"
+msgstr ""
+
+msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
+msgstr ""
+
+msgid "Undo task \"%s\""
+msgstr "\"%s\" tevékenység visszavonása"
+
+msgid "Due date rollover"
+msgstr ""
+
+msgid ""
+"When enabled the chore can never be overdue, the due date will shift forward"
+" each day when due"
+msgstr ""
+
+msgid "Location Content Sheet"
+msgstr "Helyek áttekintése"
+
+msgid "Print"
+msgstr "Nyomtatás"
+
+msgid "all locations"
+msgstr "összes helyek"
+
+msgid ""
+"Here you can print a page per location with the current stock, maybe to hang"
+" it there and note the consumed things on it."
+msgstr ""
+
+msgid "this location"
+msgstr "ez a hely"
+
+msgid "Consumend amount"
+msgstr "Felhasznált mennyiség"
+
+msgid "Time of printing"
+msgstr "Nyomtatás időpontja"
+
+msgid "Are you sure to delete equipment \"%s\"?"
+msgstr "Biztosan törölni szeretnéd a következő eszközt: \"%s\"?"
+
+msgid "Parent product"
+msgstr "Szülő termék"
+
+msgid ""
+"Not possible because this product is already used as a parent product in "
+"another product"
+msgstr ""
+"Nem lehetséges, mert ez a termék egy másik termék szülő termékeként már "
+"felhasználásra került"
+
+msgid "Default conversions"
+msgstr "Alapértelmezett átváltások"
+
+msgid "Factor"
+msgstr "Szorzó"
+
+msgid "1 %s is the same as..."
+msgstr "1 %s ugyanaz mint..."
+
+msgid "Create QU conversion"
+msgstr "Mennyiségi egység átváltás létrehozása"
+
+msgid "Default for QU"
+msgstr "Alapértelmezett mennyiségi egység"
+
+msgid "Quantity unit from"
+msgstr ""
+
+msgid "Quantity unit to"
+msgstr ""
+
+msgid ""
+"This cannot be lower than %1$s and must be a valid number with max. %2$s "
+"decimal places"
+msgstr ""
+
+msgid "This cannot be equal to %s"
+msgstr ""
+
+msgid "This means 1 %1$s is the same as %2$s %3$s"
+msgstr ""
+
+msgid "QU conversions"
+msgstr "Mennyiségi egység átváltások"
+
+msgid "Product overrides"
+msgstr ""
+
+msgid "Override for product"
+msgstr ""
+
+msgid "This equals %1$s %2$s in stock"
+msgstr ""
+
+msgid "Edit QU conversion"
+msgstr "Mennyiségi egység átváltás szerkesztése"
+
+msgid "An assignment type is required"
+msgstr "A hozzárendelési típus megadása kötelező"
+
+msgid "Assignment type"
+msgstr "Hozzárendelés típusa"
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 day after the "
+"last execution"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 day after the "
+"last execution, but only for the weekdays selected below"
+msgstr ""
+
+msgid "This means the next execution of this chore is not scheduled"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore is scheduled on the below "
+"selected day of each month"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore will not be assigned to anyone"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore will be assigned to the one who "
+"executed it least"
+msgstr ""
+
+msgid "This means the next execution of this chore will be assigned randomly"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore will be assigned to the next one"
+" in alphabetical order"
+msgstr ""
+
+msgid "Assign to"
+msgstr "Hozzérendelve"
+
+msgid "This assignment type requires that at least one is assigned"
+msgstr ""
+
+msgid "%s chore is assigned to me"
+msgid_plural "%s chores are assigned to me"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Assigned to me"
+msgstr "Hozzám rendelve"
+
+msgid "assigned to %s"
+msgstr "hozzárendelve ehhez: %s"
+
+msgid "Filter by assignment"
+msgstr "Hozzárendelés szerinti szűrés"
+
+msgid "Consume product on chore execution"
+msgstr ""
+
+msgid "Are you sure to delete user field \"%s\"?"
+msgstr "Biztosan törölni szeretnéd a következő egyéni mezőt: \"%s\"?"
+
+msgid "Userentities"
+msgstr "Felhasználóentitások"
+
+msgid "Create userentity"
+msgstr "Felhasználóentitás létrehozása"
+
+msgid "Show in sidebar menu"
+msgstr "Megjelenítés oldalsávon"
+
+msgid "Edit userentity"
+msgstr "Felhasználóentitás szerkesztése"
+
+msgid "Edit %s"
+msgstr "%s szerkesztése"
+
+msgid "Create %s"
+msgstr "%s létrehozása"
+
+msgid "Are you sure to delete this userobject?"
+msgstr ""
+
+msgid "Icon CSS class"
+msgstr "Ikon CSS osztály"
+
+msgid "For example"
+msgstr "Példáúl"
+
+msgid "Configure fields"
+msgstr "Mezők testreszabása"
+
+msgid "Quantity unit plural form testing"
+msgstr ""
+
+msgid "Result"
+msgstr "Eredmény"
+
+msgid "Test plural forms"
+msgstr ""
+
+msgid "Scan a barcode"
+msgstr "Vonalkód beolvasása"
+
+msgid "Error while initializing the barcode scanning library"
+msgstr "Hiba történt a vonalkódolvasó könyvtár inicializálásakor"
+
+msgid ""
+"The resulting price of this ingredient will be multiplied by this factor"
+msgstr ""
+
+msgid "Price factor"
+msgstr "Ár szorzó"
+
+msgid "Do you find grocy useful?"
+msgstr "Hasznosnak találod a Grocyt?"
+
+msgid "Say thanks"
+msgstr "Köszönd meg"
+
+msgid "Search for recipes containing this product"
+msgstr "Receptek keresése, amelyek ezt a terméket tartalmazzák"
+
+msgid "Add to shopping list"
+msgstr "Hozzáadás bevásárlólistához"
+
+msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
+msgstr ""
+
+msgid "Output"
+msgstr "Kimenet"
+
+msgid "Energy (kcal)"
+msgstr "Energia (kcal)"
+
+msgid "Per stock quantity unit"
+msgstr ""
+
+msgid "Barcode scanner testing"
+msgstr "Vonalkódolvasó tesztelés"
+
+msgid "Expected barcode"
+msgstr "Elvárt vonalkód"
+
+msgid "Scan field"
+msgstr "Vonalkód mező"
+
+msgid "Scanned barcodes"
+msgstr "Beolvasott vonalkódók"
+
+msgid "Hit"
+msgstr "Találat"
+
+msgid "Miss"
+msgstr "Téves"
+
+msgid "Display recipe"
+msgstr "Recept megjelenítése"
+
+msgid "Accumulate sub products min. stock amount"
+msgstr ""
+
+msgid ""
+"If enabled, the min. stock amount of sub products will be accumulated into "
+"this product, means the sub product will never be \"missing\", only this "
+"product"
+msgstr ""
+
+msgid "Are you sure to remove this conversion?"
+msgstr "Biztosan törölni szeretnéd ezt az átváltást?"
+
+msgid "Unit price"
+msgstr "Egységár"
+
+msgid "Total price"
+msgstr "Összes költség"
+
+msgid "in %s and based on the purchase quantity unit"
+msgstr ""
+
+msgid "Unlimited"
+msgstr "Korlátlan"
+
+msgid "Clear"
+msgstr "Törlés"
+
+msgid "Are you sure to remove the included recipe \"%s\"?"
+msgstr ""
+
+msgid "Period interval"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s days"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s weeks"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s months"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 year after the "
+"last execution"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s years"
+msgstr ""
+
+msgid "Transfer"
+msgstr "Áthelyezés"
+
+msgid "From location"
+msgstr "Forráshely"
+
+msgid "To location"
+msgstr "Célhely"
+
+msgid "There are no units available at this location"
+msgstr "Nincsenek elérhető egységek ezen a helyen"
+
+msgid "Amount: %1$s; Expires on %2$s; Bought on %3$s"
+msgstr ""
+
+msgid "Transfered %1$s of %2$s from %3$s to %4$s"
+msgstr ""
+
+msgid "Show stock entries"
+msgstr "Készlet bejegyzések megjelenítése"
+
+msgid "Stock entries"
+msgstr "Készlet bejegyzések"
+
+msgid "Best before date"
+msgstr "Szavatossági idő"
+
+msgid "Purchased date"
+msgstr "Vásárlási napja"
+
+msgid "Consume all %s for this stock entry"
+msgstr ""
+
+msgid "The amount cannot be lower than %1$s"
+msgstr "A mennyiség nem lehet kisebb, mint %1$s"
+
+msgid "Stock entry successfully updated"
+msgstr "Készlet bejegyzés sikeresen frissítve"
+
+msgid "Edit stock entry"
+msgstr "Készlet bejegyzés szerkesztése"
+
+msgid ""
+"Camera access is on only possible when supported and allowed by your browser"
+" and when grocy is served via a secure (https://) connection"
+msgstr ""
+"A kamera hozzáférés csak akkor lehetséges, ha a böngésződ által támogatott "
+"és engedélyezett, valamint ha a Grocy egy biztonságos (https://) kapcsolaton"
+" keresztül van kiszolgálva"
+
+msgid "Keep screen on"
+msgstr "Kijelző ébren tartása"
+
+msgid "Keep screen on while displaying a \"fullscreen-card\""
+msgstr "Kijelző ébren tartása a \"teljesképernyős-kártya\" megjelenítésekor"
+
+msgid "A purchased date is required"
+msgstr "A vásárlás dátumának megadása kötelező"
+
+msgid ""
+"When a product is selected, one unit (per serving in purchase quantity unit)"
+" will be added to stock on consuming this recipe"
+msgstr ""
+
+msgid "Produces product"
+msgstr "Terméket állít elő"
+
+msgid "This booking cannot be undone"
+msgstr "Ez a foglalás nem visszavonható"
+
+msgid "Booking does not exist or was already undone"
+msgstr "A foglalás nem létezik, vagy már korábban visszavonásra került"
+
+msgid "Are you sure to delete API key \"%s\"?"
+msgstr "Biztosan törölni szeretnéd a következő API kulcsot: \"%s\"?"
+
+msgid "Add note"
+msgstr "Jegyzet hozzáadása"
+
+msgid "Add note to %s"
+msgstr "Jegyzet hozzáadása ehhez: \"%s\""
+
+msgid "per day"
+msgstr "per nap"
+
+msgid "Compact view"
+msgstr "Kompakt nézet"
+
+msgid "Normal view"
+msgstr "Normál nézet"
+
+msgid "Only undone items"
+msgstr ""
+
+msgid "Add product"
+msgstr "Termék hozzáadása"
+
+msgid "Add product to %s"
+msgstr "Termék hozzáadása ehhez: \"%s\""
+
+msgid "Consume all ingredients needed by this weeks recipes or products"
+msgstr ""
+"A hét receptjei vagy termékei számára szükséges összes hozzávaló "
+"felhasználása "
+
+msgid "Meal plan recipe"
+msgstr "Menü terv recept"
+
+msgid "Meal plan note"
+msgstr "Menü terv jegyzet"
+
+msgid "Meal plan product"
+msgstr "Menü terv termék"
+
+msgid "Scan mode"
+msgstr "Beolvasás mód"
+
+msgid "on"
+msgstr "be"
+
+msgid "off"
+msgstr "ki"
+
+msgid ""
+"Scan mode is on but not all required fields could be populated automatically"
+msgstr ""
+"A beolvasási mód be van kapcsolva, de nem minden kötelező mező tölthető ki "
+"automatikusan"
+
+msgid "Is freezer"
+msgstr "Fagyasztószekrény"
+
+msgid ""
+"When moving products from/to a freezer location, the products best before "
+"date is automatically adjusted according to the product settings"
+msgstr ""
+
+msgid ""
+"On moving this product to a freezer location (so when freezing it), the best"
+" before date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default best before days after freezing"
+msgstr "Alapértelmezett szavatossági idő fagyasztás után"
+
+msgid ""
+"On moving this product from a freezer location (so when thawing it), the "
+"best before date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default best before days after thawing"
+msgstr "Alapértelmezett szavatossági idő kiolvasztás után"
+
+msgid "This cannot be the same as the \"From\" location"
+msgstr "Nem lehet azonos a \"Forrás\" hellyel"
+
+msgid "Thawed"
+msgstr "Kiolvasztott"
+
+msgid "Frozen"
+msgstr "Fagyasztott"
+
+msgid "Are you sure to delete userentity \"%s\"?"
+msgstr "Biztosan törölni szeretnéd a következő felhasználóentitást: \"%s\"?"

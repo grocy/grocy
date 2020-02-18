@@ -145,3 +145,30 @@ function Delay(callable, delayMilliseconds)
 		}, delayMilliseconds || 0);
 	};
 }
+
+$.fn.isVisibleInViewport = function(extraHeightPadding = 0)
+{
+	var elementTop = $(this).offset().top;
+	var viewportTop = $(window).scrollTop() - extraHeightPadding;
+	
+	return elementTop + $(this).outerHeight() > viewportTop && elementTop < viewportTop + $(window).height();
+};
+
+function animateCSS(selector, animationName, callback, speed = "faster")
+{
+	var nodes = $(selector);
+	nodes.addClass('animated').addClass(speed).addClass(animationName);
+
+	function handleAnimationEnd()
+	{
+		nodes.removeClass('animated').removeClass(speed).removeClass(animationName);
+		nodes.unbind('animationend', handleAnimationEnd);
+		
+		if (typeof callback === 'function')
+		{
+			callback();
+		}
+	}
+
+	nodes.on('animationend', handleAnimationEnd);
+}

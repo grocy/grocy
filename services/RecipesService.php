@@ -15,11 +15,6 @@ class RecipesService extends BaseService
 		parent::__construct();
 	}
 
-	protected function getStockService()
-	{
-		return StockService::getInstance();
-	}
-
 	public function GetRecipesPosResolved()
 	{
 		$sql = 'SELECT * FROM recipes_pos_resolved';
@@ -69,13 +64,21 @@ class RecipesService extends BaseService
 			throw new \Exception('Recipe does not exist');
 		}
 
-		$recipePositions = $this->getDataBase()->recipes_pos_resolved()->where('recipe_id', $recipeId)->fetchAll();
+		$transactionId = uniqid();
+		$recipePositions = $this->getDatabase()->recipes_pos_resolved()->where('recipe_id', $recipeId)->fetchAll();
 		foreach ($recipePositions as $recipePosition)
 		{
 			if ($recipePosition->only_check_single_unit_in_stock == 0)
 			{
-				$this->getStockService()->ConsumeProduct($recipePosition->product_id, $recipePosition->recipe_amount, false, StockService::TRANSACTION_TYPE_CONSUME, 'default', $recipeId);
+				$this->getStockService()->ConsumeProduct($recipePosition->product_id, $recipePosition->recipe_amount, false, StockService::TRANSACTION_TYPE_CONSUME, 'default', $recipeId, null, $transactionId, true);
 			}
+		}
+
+		$recipeRow = $this->getDatabase()->recipes()->where('id = :1', $recipeId)->fetch();
+		if (!empty($recipeRow->product_id))
+		{
+			$recipeResolvedRow = $this->getDatabase()->recipes_resolved()->where('recipe_id = :1', $recipeId)->fetch();
+			$this->StockService->AddProduct($recipeRow->product_id, floatval($recipeRow->desired_servings), null, StockService::TRANSACTION_TYPE_SELF_PRODUCTION, date('Y-m-d'), floatval($recipeResolvedRow->costs));
 		}
 	}
 

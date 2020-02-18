@@ -59,7 +59,7 @@
 		<div class="tab-content">
 			<div class="tab-pane fade show active" id="instruction-manual-tab">
 				<div id="selectedEquipmentInstructionManualCard" class="card">
-					<div class="card-header">
+					<div class="card-header card-header-fullscreen">
 						<i class="fas fa-toolbox"></i> <span class="selected-equipment-name"></span>&nbsp;&nbsp;
 						<a class="btn btn-sm btn-outline-info py-0 equipment-edit-button hide-on-fullscreen-card" href="#">
 							<i class="fas fa-edit"></i>
@@ -79,7 +79,7 @@
 			</div>
 			<div class="tab-pane fade" id="description-tab">
 				<div id="selectedEquipmentDescriptionCard" class="card">
-					<div class="card-header">
+					<div class="card-header card-header-fullscreen">
 						<i class="fas fa-toolbox"></i> <span class="selected-equipment-name"></span>&nbsp;&nbsp;
 						<a class="btn btn-sm btn-outline-info py-0 equipment-edit-button hide-on-fullscreen-card" href="#">
 							<i class="fas fa-edit"></i>

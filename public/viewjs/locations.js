@@ -1,7 +1,8 @@
 ﻿var locationsTable = $('#locations-table').DataTable({
 	'order': [[1, 'asc']],
 	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 }
+		{ 'orderable': false, 'targets': 0 },
+		{ 'searchable': false, "targets": 0 }
 	]
 });
 $('#locations-table tbody').removeClass("d-none");

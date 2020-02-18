@@ -55,7 +55,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 			{
 				Grocy.RecipePosFormProductChangeCount++;
 				
-				if (Grocy.RecipePosFormProductChangeCount < 3) // This triggers twice on inital page load, however
+				if (Grocy.RecipePosFormProductChangeCount < 3) // This triggers twice on initial page load, however
 				{
 					Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id, true);
 				}
@@ -78,6 +78,8 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				}
 
 				$("#not_check_stock_fulfillment").prop("checked", productDetails.product.not_check_stock_fulfillment_for_recipes == 1);
+
+				Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.quantity_unit_stock.id);
 
 				$('#display_amount').focus();
 				Grocy.FrontendHelpers.ValidateForm('recipe-pos-form');
@@ -139,7 +141,7 @@ $("#only_check_single_unit_in_stock").on("click", function()
 		$("#display_amount").attr("min", "0.01");
 		$("#display_amount").attr("step", "0.01");
 		$("#display_amount").parent().find(".invalid-feedback").text(__t("This cannot be negative"));
-		Grocy.Components.ProductAmountPicker.AllowAnyQu();
+		Grocy.Components.ProductAmountPicker.AllowAnyQu(true);
 		Grocy.FrontendHelpers.ValidateForm("recipe-pos-form");
 	}
 	else
@@ -153,6 +155,7 @@ $("#only_check_single_unit_in_stock").on("click", function()
 	}
 });
 
-// Click twice to trigger on-click but not change the actual checked state
-//$("#only_check_single_unit_in_stock").click();
-//$("#only_check_single_unit_in_stock").click();
+if ($("#only_check_single_unit_in_stock").prop("checked"))
+{
+	Grocy.Components.ProductAmountPicker.AllowAnyQu(true);
+}

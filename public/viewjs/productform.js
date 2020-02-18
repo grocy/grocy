@@ -354,6 +354,7 @@ var quConversionsTable = $('#qu-conversions-table').DataTable({
 	"orderFixed": [[3, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
+		{ 'searchable': false, "targets": 0 },
 		{ 'visible': false, 'targets': 3 }
 	],
 	'rowGroup': {

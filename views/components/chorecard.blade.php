@@ -2,7 +2,7 @@
 	<script src="{{ $U('/viewjs/components/chorecard.js', true) }}?v={{ $version }}"></script>
 @endpush
 
-<div class="card">
+<div class="card chorecard">
 	<div class="card-header">
 		<i class="fas fa-home"></i> {{ $__t('Chore overview') }}
 		<a id="chorecard-chore-edit-button" class="btn btn-sm btn-outline-info py-0 float-right disabled" href="#" data-toggle="tooltip" title="{{ $__t('Edit chore') }}">

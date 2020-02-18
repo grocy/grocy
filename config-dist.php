@@ -15,7 +15,8 @@
 
 
 # Either "production", "dev", "demo" or "prerelease"
-# ("demo" and "prerelease" is reserved to be used only on the offical demo instances)
+# When not "production", authentication will be disabled and
+# demo data will be populated during database migrations
 Setting('MODE', 'production');
 
 # Either "en" or "de" or the directory name of
@@ -32,7 +33,7 @@ Setting('CALENDAR_SHOW_WEEK_OF_YEAR', true);
 
 # To keep it simple: grocy does not handle any currency conversions,
 # this here is used to format all money values,
-# so doesn't matter really matter, but should be the
+# so doesn't really matter, but should be the
 # ISO 4217 code of the currency ("USD", "EUR", "GBP", etc.)
 Setting('CURRENCY', 'USD');
 
@@ -61,6 +62,11 @@ Setting('DISABLE_AUTH', false);
 # Set this to true if you want to disable the ability to scan a barcode via the device camera (Browser API)
 Setting('DISABLE_BROWSER_BARCODE_CAMERA_SCANNING', false);
 
+# Set this if you want to have a different start day for the weekly meal plan view,
+# leave empty to use CALENDAR_FIRST_DAY_OF_WEEK (see above)
+# Needs to be a number where Sunday = 0, Monday = 1 and so forth
+Setting('MEAL_PLAN_FIRST_DAY_OF_WEEK', '');
+
 
 # Default user settings
 # These settings can be changed per user, here the defaults
@@ -74,6 +80,10 @@ DefaultUserSetting('auto_night_mode_time_range_to', "07:00"); // Format HH:mm
 DefaultUserSetting('auto_night_mode_time_range_goes_over_midnight', true); // If the time range above goes over midnight
 DefaultUserSetting('currently_inside_night_mode_range', false); // If we're currently inside of night mode time range (this is not user configurable, but stored as a user setting because it's evaluated client side to be able to use the client time instead of the maybe different server time)
 
+# Keep screen on settings
+DefaultUserSetting('keep_screen_on', false); // Keep the screen always on
+DefaultUserSetting('keep_screen_on_when_fullscreen_card', false); // Keep the screen on when a "fullscreen-card" is displayed
+
 # Stock settings
 DefaultUserSetting('product_presets_location_id', -1); // Default location id for new products (-1 means no location is preset)
 DefaultUserSetting('product_presets_product_group_id', -1); // Default product group id for new products (-1 means no product group is preset)
@@ -81,6 +91,16 @@ DefaultUserSetting('product_presets_qu_id', -1); // Default quantity unit id for
 DefaultUserSetting('stock_expring_soon_days', 5);
 DefaultUserSetting('stock_default_purchase_amount', 0);
 DefaultUserSetting('stock_default_consume_amount', 1);
+DefaultUserSetting('scan_mode_consume_enabled', false);
+DefaultUserSetting('scan_mode_purchase_enabled', false);
+
+# Shopping list settings
+DefaultUserSetting('shopping_list_to_stock_workflow_auto_submit_when_prefilled', false); // Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set
+DefaultUserSetting('shopping_list_show_calendar', false);
+DefaultUserSetting('shopping_list_disable_auto_compact_view_on_mobile', false);
+
+# Recipe settings
+DefaultUserSetting('recipe_ingredients_group_by_product_group', false); // Group recipe ingredients by their product group
 
 # Chores settings
 DefaultUserSetting('chores_due_soon_days', 5);
@@ -97,11 +117,6 @@ DefaultUserSetting('auto_reload_on_db_change', true);
 
 # Show a clock in the header next to the logo or not
 DefaultUserSetting('show_clock_in_header', false);
-
-# Shopping list to stock workflow:
-# Automatically do the booking using the last price and the amount
-# of the shopping list item, if the product has "Default best before days" set
-DefaultUserSetting('shopping_list_to_stock_workflow_auto_submit_when_prefilled', false);
 
 
 # Feature flags
@@ -124,6 +139,7 @@ Setting('FEATURE_FLAG_STOCK_PRICE_TRACKING', true);
 Setting('FEATURE_FLAG_STOCK_LOCATION_TRACKING', true);
 Setting('FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING', true);
 Setting('FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING', true);
+Setting('FEATURE_FLAG_STOCK_PRODUCT_FREEZING', true);
 Setting('FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS', true);
 Setting('FEATURE_FLAG_CHORES_ASSIGNMENTS', true);
 

@@ -18,6 +18,40 @@
 		{
 			"name": "Generic entity interactions",
 			"description": "A limited set of entities are directly exposed for convenience"
+		},
+		{
+			"name": "System"
+		},
+		{
+			"name": "User management"
+		},
+		{
+			"name": "User settings"
+		},
+		{
+			"name": "Stock"
+		},
+		{
+			"name": "Stock \"by-barcode\"",
+			"description": "Some of the *Stock* routes, but access them by the products barcode instead of its id"
+		},
+		{
+			"name": "Recipes"
+		},
+		{
+			"name": "Chores"
+		},
+		{
+			"name": "Batteries"
+		},
+		{
+			"name": "Tasks"
+		},
+		{
+			"name": "Calendar"
+		},
+		{
+			"name": "Files"
 		}
 	],
 	"paths": {
@@ -129,7 +163,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/ExposedEntity"
+							"$ref": "#/components/internalSchemas/ExposedEntityButNoListing"
 						}
 					}
 				],
@@ -163,7 +197,7 @@
 											{
 												"$ref": "#/components/schemas/StockEntry"
 											}
-										]	
+										]
 									}
 								}
 							}
@@ -274,7 +308,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/ExposedEntity"
+							"$ref": "#/components/internalSchemas/ExposedEntityButNoListing"
 						}
 					},
 					{
@@ -626,7 +660,7 @@
 					}
 				}
 			}
-		},		
+		},
 		"/files/{group}/{fileName}": {
 			"get": {
 				"summary": "Serves the given file",
@@ -673,8 +707,7 @@
 						"schema": {
 							"type": "integer"
 						}
-					}
-					,
+					},
 					{
 						"in": "query",
 						"name": "best_fit_width",
@@ -1050,11 +1083,63 @@
 						}
 					}
 				}
+			}
+		},
+		"/stock/entry/{entryId}": {
+			"get": {
+				"summary": "Returns details of the given stock",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "entryId",
+						"required": true,
+						"description": "A valid stock row id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A StockEntry Response object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/StockEntry"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
 			},
 			"put": {
 				"summary": "Edits the stock entry",
 				"tags": [
 					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "entryId",
+						"required": true,
+						"description": "A valid stock row id",
+						"schema": {
+							"type": "integer"
+						}
+					}
 				],
 				"requestBody": {
 					"required": true,
@@ -1063,11 +1148,6 @@
 							"schema": {
 								"type": "object",
 								"properties": {
-									"stock_row_id": {
-										"type": "number",
-										"format": "number",
-										"description": "The Stock Row Id"
-									},
 									"amount": {
 										"type": "number",
 										"format": "number",
@@ -1078,23 +1158,34 @@
 										"format": "date",
 										"description": "The best before date of the product to add, when omitted, the current date is used"
 									},
+									"price": {
+										"type": "number",
+										"format": "number",
+										"description": "The price per purchase quantity unit in configured currency"
+									},
+									"open": {
+										"type": "boolean",
+										"description": "If the stock entry was already opened or not"
+									},
 									"location_id": {
 										"type": "number",
 										"format": "integer",
 										"description": "If omitted, the default location of the product is used"
 									},
-									"price": {
-										"type": "number",
-										"format": "number",
-										"description": "The price per purchase quantity unit in configured currency"
+									"purchased_date": {
+										"type": "string",
+										"format": "date",
+										"description": "The date when this stock entry was purchased"
 									}
 								},
 								"example": {
-									"stock_row_id":	2,
-									"amount": 1,
-									"best_before_date": "2019-01-19",
-									"location_id": 2,
-									"price": "1.99"
+									"id": "2",
+									"amount": "1",
+									"best_before_date": "2021-07-19",
+									"purchased_date": "2020-01-01",
+									"price": "22.03",
+									"open": false,
+									"location_id": "4"
 								}
 							}
 						}
@@ -1106,7 +1197,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/StockLogEntry"
+									"$ref": "#/components/schemas/StockEntry"
 								}
 							}
 						}
@@ -1258,6 +1349,15 @@
 						"description": "A valid product id",
 						"schema": {
 							"type": "integer"
+						}
+					},
+					{
+						"in": "query",
+						"name": "include_sub_products",
+						"required": false,
+						"description": "If sub products should be included (if the given product is a parent product and in addition to the ones of the given product)",
+						"schema": {
+							"type": "boolean"
 						}
 					}
 				],
@@ -1713,7 +1813,7 @@
 			"get": {
 				"summary": "Returns details of the given product by its barcode",
 				"tags": [
-					"Stock"
+					"Stock \"by-barcode\""
 				],
 				"parameters": [
 					{
@@ -1754,7 +1854,7 @@
 			"post": {
 				"summary": "Adds the given amount of the by its barcode given product to stock",
 				"tags": [
-					"Stock"
+					"Stock \"by-barcode\""
 				],
 				"parameters": [
 					{
@@ -1836,7 +1936,7 @@
 			"post": {
 				"summary": "Removes the given amount of the by its barcode given product from stock",
 				"tags": [
-					"Stock"
+					"Stock \"by-barcode\""
 				],
 				"parameters": [
 					{
@@ -1919,7 +2019,7 @@
 			"post": {
 				"summary": "Transfers the given amount of the by its barcode given product from one location to another (this is currently not supported for tare weight handling enabled products)",
 				"tags": [
-					"Stock"
+					"Stock \"by-barcode\""
 				],
 				"parameters": [
 					{
@@ -1995,7 +2095,7 @@
 			"post": {
 				"summary": "Inventories the by its barcode given product (adds/removes based on the given new amount)",
 				"tags": [
-					"Stock"
+					"Stock \"by-barcode\""
 				],
 				"parameters": [
 					{
@@ -2067,7 +2167,7 @@
 			"post": {
 				"summary": "Marks the given amount of the by its barcode given product as opened",
 				"tags": [
-					"Stock"
+					"Stock \"by-barcode\""
 				],
 				"parameters": [
 					{
@@ -3203,7 +3303,6 @@
 					"quantity_unit_conversions",
 					"shopping_list",
 					"shopping_lists",
-					"stock",
 					"recipes",
 					"recipes_pos",
 					"recipes_nestings",
@@ -3218,10 +3317,28 @@
 					"meal_plan"
 				]
 			},
-			"ExposedEntitiesPreventListing": {
+			"ExposedEntityButNoListing": {
 				"type": "string",
 				"enum": [
-					"api_keys"
+					"products",
+					"chores",
+					"batteries",
+					"locations",
+					"quantity_units",
+					"quantity_unit_conversions",
+					"shopping_list",
+					"shopping_lists",
+					"recipes",
+					"recipes_pos",
+					"recipes_nestings",
+					"tasks",
+					"task_categories",
+					"product_groups",
+					"equipment",
+					"userfields",
+					"userentities",
+					"userobjects",
+					"meal_plan"
 				]
 			},
 			"StockTransactionType": {
@@ -3392,8 +3509,11 @@
 					"location_id": {
 						"type": "integer"
 					},
-					"name": {
+					"location_name": {
 						"type": "string"
+					},
+					"location_is_freezer": {
+						"type": "integer"
 					}
 				},
 				"example": {
@@ -4025,6 +4145,9 @@
 					"is_aggregated_amount": {
 						"type": "boolean",
 						"description": "Indicates wheter this product has sub-products or not / if the fields `amount_aggregated` and `amount_opened_aggregated` are filled"
+					},
+					"product": {
+						"$ref": "#/components/schemas/Product"
 					}
 				}
 			},
@@ -4080,7 +4203,20 @@
 					"missing_products": {
 						"type": "array",
 						"items": {
-							"$ref": "#/components/schemas/CurrentStockResponse"
+							"properties": {
+								"id": {
+									"type": "integer"
+								},
+								"name": {
+									"type": "string"
+								},
+								"amount_missing": {
+									"type": "number"
+								},
+								"is_partly_in_stock": {
+									"type": "integer"
+								}
+							}
 						}
 					}
 				}

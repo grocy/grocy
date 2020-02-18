@@ -23,16 +23,6 @@ class ChoresService extends BaseService
 		parent::__construct();
 	}
 
-	protected function getStockService()
-	{
-		return StockService::getInstance();
-	}
-
-	protected function getUsersService()
-	{
-		return UsersService::getInstance();
-	}
-
 	public function GetCurrent()
 	{
 		$sql = 'SELECT * from chores_current';

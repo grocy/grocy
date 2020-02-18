@@ -2,12 +2,17 @@
 
 namespace Grocy\Middleware;
 
-use \Grocy\Services\SessionService;
-use \Grocy\Services\ApiKeyService;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
+use Psr\Http\Message\ResponseInterface as Response;
+use Slim\Routing\RouteContext;
+
+use Grocy\Services\SessionService;
+use Grocy\Services\ApiKeyService;
 
 class ApiKeyAuthMiddleware extends BaseMiddleware
 {
-	public function __construct(\Slim\Container $container, string $sessionCookieName, string $apiKeyHeaderName)
+	public function __construct(\DI\Container $container, string $sessionCookieName, string $apiKeyHeaderName)
 	{
 		parent::__construct($container);
 		$this->SessionCookieName = $sessionCookieName;
@@ -17,15 +22,16 @@ class ApiKeyAuthMiddleware extends BaseMiddleware
 	protected $SessionCookieName;
 	protected $ApiKeyHeaderName;
 
-	public function __invoke(\Slim\Http\Request $request, \Slim\Http\Response $response, callable $next)
+	public function __invoke(Request $request, RequestHandler $handler): Response
 	{
-		$route = $request->getAttribute('route');
+		$routeContext = RouteContext::fromRequest($request);
+		$route = $routeContext->getRoute();
 		$routeName = $route->getName();
 
-		if (GROCY_IS_DEMO_INSTALL || GROCY_IS_EMBEDDED_INSTALL || GROCY_DISABLE_AUTH)
+		if (GROCY_MODE === 'dev' || GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease' || GROCY_IS_EMBEDDED_INSTALL || GROCY_DISABLE_AUTH)
 		{
 			define('GROCY_AUTHENTICATED', true);
-			$response = $next($request, $response);
+			$response = $handler->handle($request);
 		}
 		else
 		{
@@ -73,6 +79,7 @@ class ApiKeyAuthMiddleware extends BaseMiddleware
 			if (!$validSession && !$validApiKey)
 			{
 				define('GROCY_AUTHENTICATED', false);
+				$response = new \Slim\Psr7\Response(); // No content when unauthorized
 				$response = $response->withStatus(401);
 			}
 			elseif ($validApiKey)
@@ -81,7 +88,7 @@ class ApiKeyAuthMiddleware extends BaseMiddleware
 				define('GROCY_AUTHENTICATED', true);
 				define('GROCY_USER_ID', $user->id);
 
-				$response = $next($request, $response);
+				$response = $handler->handle($request);
 			}
 			elseif ($validSession)
 			{
@@ -89,7 +96,7 @@ class ApiKeyAuthMiddleware extends BaseMiddleware
 				define('GROCY_AUTHENTICATED', true);
 				define('GROCY_USER_ID', $user->id);
 
-				$response = $next($request, $response);
+				$response = $handler->handle($request);
 			}
 		}
 

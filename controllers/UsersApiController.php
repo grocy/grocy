@@ -6,27 +6,16 @@ use \Grocy\Services\UsersService;
 
 class UsersApiController extends BaseApiController
 {
-	public function __construct(\Slim\Container $container)
+	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 	}
 
-	protected $UsersService = null;
-
-    protected function getUsersService()
-	{
-		if($this->UsersService == null)
-		{
-			$this->UsersService = UsersService::getInstance();
-		}
-		return $this->UsersService;
-	}
-
-	public function GetUsers(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function GetUsers(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
-			return $this->ApiResponse($this->getUsersService()->GetUsersAsDto());
+			return $this->ApiResponse($response, $this->getUsersService()->GetUsersAsDto());
 		}
 		catch (\Exception $ex)
 		{
@@ -34,7 +23,7 @@ class UsersApiController extends BaseApiController
 		}
 	}
 
-	public function CreateUser(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function CreateUser(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$requestBody = $request->getParsedBody();
 
@@ -54,7 +43,7 @@ class UsersApiController extends BaseApiController
 		}
 	}
 
-	public function DeleteUser(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function DeleteUser(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -67,7 +56,7 @@ class UsersApiController extends BaseApiController
 		}
 	}
 
-	public function EditUser(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function EditUser(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$requestBody = $request->getParsedBody();
 
@@ -82,12 +71,12 @@ class UsersApiController extends BaseApiController
 		}
 	}
 
-	public function GetUserSetting(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function GetUserSetting(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
 			$value = $this->getUsersService()->GetUserSetting(GROCY_USER_ID, $args['settingKey']);
-			return $this->ApiResponse(array('value' => $value));
+			return $this->ApiResponse($response, array('value' => $value));
 		}
 		catch (\Exception $ex)
 		{
@@ -95,7 +84,7 @@ class UsersApiController extends BaseApiController
 		}
 	}
 
-	public function SetUserSetting(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function SetUserSetting(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{

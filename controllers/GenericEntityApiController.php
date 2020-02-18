@@ -4,16 +4,16 @@ namespace Grocy\Controllers;
 
 class GenericEntityApiController extends BaseApiController
 {
-	public function __construct(\Slim\Container $container)
+	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 	}
 
-	public function GetObjects(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function GetObjects(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithPreventedListing($args['entity']))
 		{
-			return $this->ApiResponse($this->getDatabase()->{$args['entity']}());
+			return $this->ApiResponse($response, $this->getDatabase()->{$args['entity']}());
 		}
 		else
 		{
@@ -21,11 +21,11 @@ class GenericEntityApiController extends BaseApiController
 		}
 	}
 
-	public function GetObject(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function GetObject(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithPreventedListing($args['entity']))
 		{
-			return $this->ApiResponse($this->getDatabase()->{$args['entity']}($args['objectId']));
+			return $this->ApiResponse($response, $this->getDatabase()->{$args['entity']}($args['objectId']));
 		}
 		else
 		{
@@ -33,7 +33,7 @@ class GenericEntityApiController extends BaseApiController
 		}
 	}
 
-	public function AddObject(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function AddObject(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($this->IsValidEntity($args['entity']))
 		{
@@ -49,7 +49,7 @@ class GenericEntityApiController extends BaseApiController
 				$newRow = $this->getDatabase()->{$args['entity']}()->createRow($requestBody);
 				$newRow->save();
 				$success = $newRow->isClean();
-				return $this->ApiResponse(array(
+				return $this->ApiResponse($response, array(
 					'created_object_id' => $this->getDatabase()->lastInsertId()
 				));
 			}
@@ -64,7 +64,7 @@ class GenericEntityApiController extends BaseApiController
 		}
 	}
 
-	public function EditObject(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function EditObject(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($this->IsValidEntity($args['entity']))
 		{
@@ -93,7 +93,7 @@ class GenericEntityApiController extends BaseApiController
 		}
 	}
 
-	public function DeleteObject(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function DeleteObject(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($this->IsValidEntity($args['entity']))
 		{
@@ -108,13 +108,13 @@ class GenericEntityApiController extends BaseApiController
 		}
 	}
 
-	public function SearchObjects(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function SearchObjects(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithPreventedListing($args['entity']))
 		{
 			try
 			{
-				return $this->ApiResponse($this->getDatabase()->{$args['entity']}()->where('name LIKE ?', '%' . $args['searchString'] . '%'));
+				return $this->ApiResponse($response, $this->getDatabase()->{$args['entity']}()->where('name LIKE ?', '%' . $args['searchString'] . '%'));
 			}
 			catch (\PDOException $ex)
 			{
@@ -127,11 +127,11 @@ class GenericEntityApiController extends BaseApiController
 		}
 	}
 
-	public function GetUserfields(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function GetUserfields(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
-			return $this->ApiResponse($this->getUserfieldsService()->GetValues($args['entity'], $args['objectId']));
+			return $this->ApiResponse($response, $this->getUserfieldsService()->GetValues($args['entity'], $args['objectId']));
 		}
 		catch (\Exception $ex)
 		{
@@ -139,7 +139,7 @@ class GenericEntityApiController extends BaseApiController
 		}
 	}
 
-	public function SetUserfields(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function SetUserfields(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$requestBody = $request->getParsedBody();
 
@@ -166,6 +166,6 @@ class GenericEntityApiController extends BaseApiController
 
 	private function IsEntityWithPreventedListing($entity)
 	{
-		return in_array($entity, $this->getOpenApiSpec()->components->internalSchemas->ExposedEntitiesPreventListing->enum);
+		return !in_array($entity, $this->getOpenApiSpec()->components->internalSchemas->ExposedEntityButNoListing->enum);
 	}
 }

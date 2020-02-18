@@ -21,10 +21,7 @@
 			{
 				jsonData.location_id = Grocy.Components.LocationPicker.GetValue();
 			}
-			else
-			{
-				jsonData.location_id = 1;
-			}
+			
 			jsonData.price = price;
 
 			var bookingResponse = null;
@@ -88,6 +85,7 @@
 								Grocy.Components.DateTimePicker.Clear();
 								Grocy.Components.ProductPicker.SetValue('');
 								Grocy.Components.ProductPicker.GetInputElement().focus();
+								Grocy.Components.ProductCard.Refresh(jsonForm.product_id);
 								Grocy.FrontendHelpers.ValidateForm('inventory-form');
 							}
 						},
@@ -156,7 +154,10 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				{
 					Grocy.Components.LocationPicker.SetId(productDetails.location.id);
 				}
+
+				$('#new_amount').val(productDetails.stock_amount);
 				$('#new_amount').focus();
+				$('#new_amount').trigger('keyup');
 			},
 			function(xhr)
 			{

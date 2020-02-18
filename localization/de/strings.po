@@ -1,5 +1,6 @@
 # Translators:
-# Bernd Bestel <bernd@berrnd.de>, 2019
+# H T <github@fvbor.de>, 2020
+# Bernd Bestel <bernd@berrnd.de>, 2020
 # 
 msgid ""
 msgstr ""
@@ -7,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2019\n"
+"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2020\n"
 "Language-Team: German (https://www.transifex.com/grocy/teams/93189/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -676,7 +677,7 @@ msgstr ""
 msgid "Consume all ingredients needed by this recipe"
 msgstr ""
 "Alle Zutaten, die von diesem Rezept benötigt werden, aus dem Bestand "
-"enternen"
+"entfernen"
 
 msgid "Click to show technical details"
 msgstr "Klick um technische Details anzuzeigen"
@@ -975,12 +976,12 @@ msgid "Mark %1$s of %2$s as open"
 msgstr "%1$s %2$s als geöffnet markieren"
 
 msgid ""
-"When a product was marked as opened, the best before date will be replaced "
-"by today + this amount of days (a value of 0 disables this)"
+"When this product was marked as opened, the best before date will be "
+"replaced by today + this amount of days (a value of 0 disables this)"
 msgstr ""
-"Wenn ein Produkt als geöffnet markiert wurde, wird das "
+"Wenn dieses Produkt als geöffnet markiert wurde, wird das "
 "Mindesthaltbarkeitsdatum durch heute + diese Anzahl von Tagen ersetzt (ein "
-"Wert von 0 deaktiviert dies)"
+"Wert von 0 deaktiviert dies) "
 
 msgid "Default best before days after opened"
 msgstr "Standard Haltbarkeit in Tagen nach dem Öffnen"
@@ -990,9 +991,6 @@ msgstr "%1$s %2$s als geöffnet markiert"
 
 msgid "Mark as opened"
 msgstr "Als geöffnet markieren"
-
-msgid "Expires on %1$s; Bought on %2$s"
-msgstr "Läuft ab am %1$s; Gekauft am %2$s"
 
 msgid "Not opened"
 msgstr "Nicht geöffnet"
@@ -1308,6 +1306,9 @@ msgstr "Nicht ausreichend im Bestand"
 
 msgid "Expiring soon days"
 msgstr "\"Bald ablaufend\"-Tage"
+
+msgid "Default location"
+msgstr "Standard Standort"
 
 msgid "Default amount for purchase"
 msgstr "Standardmenge für Einkauf"
@@ -1745,3 +1746,178 @@ msgid ""
 msgstr ""
 "Das bedeutet, dass eine erneute Ausführung der Hausarbeit nur alle %s Jahre "
 "geplant wird"
+
+msgid "Transfer"
+msgstr "Umlagern"
+
+msgid "From location"
+msgstr "Von Standort"
+
+msgid "To location"
+msgstr "Nach Standort"
+
+msgid "There are no units available at this location"
+msgstr "Keine Einheiten an diesem Standort verfügbar"
+
+msgid "Amount: %1$s; Expires on %2$s; Bought on %3$s"
+msgstr "Menge: %1$s; Läuft ab am %2$s; Gekauft am %3$s "
+
+msgid "Transfered %1$s of %2$s from %3$s to %4$s"
+msgstr "%1$s %2$s von %3$s nach %4$s verschoben"
+
+msgid "Show stock entries"
+msgstr "Bestandseinträge anzeigen"
+
+msgid "Stock entries"
+msgstr "Bestandseinträge"
+
+msgid "Best before date"
+msgstr "MHD"
+
+msgid "Purchased date"
+msgstr "Einkaufsdatum"
+
+msgid "Consume all %s for this stock entry"
+msgstr "Verbrauche alle %s dieses Bestandseintrags"
+
+msgid "The amount cannot be lower than %1$s"
+msgstr "Die Menge darf nicht kleiner als %1$s sein"
+
+msgid "Stock entry successfully updated"
+msgstr "Bestandseintrag wurde erfolgreich aktualisiert"
+
+msgid "Edit stock entry"
+msgstr "Bestandseintrag bearbeiten"
+
+msgid ""
+"Camera access is on only possible when supported and allowed by your browser"
+" and when grocy is served via a secure (https://) connection"
+msgstr ""
+"Der Kamerazugriff ist nur möglich, wenn dein Browser dies unterstützt und "
+"zulässt und wenn auf grocy über eine sichere Verbindung (https://) "
+"zugegriffen wird"
+
+msgid "Keep screen on"
+msgstr "Bildschirm eingeschaltet lassen"
+
+msgid "Keep screen on while displaying a \"fullscreen-card\""
+msgstr ""
+"Bildschirm eingeschaltet lassen während eine \"fullscreen-card\" angezeigt "
+"wird"
+
+msgid "A purchased date is required"
+msgstr "Ein Einkaufsdatum ist erforderlich"
+
+msgid ""
+"When a product is selected, one unit (per serving in purchase quantity unit)"
+" will be added to stock on consuming this recipe"
+msgstr ""
+"Wenn ein Produkt ausgewählt ist, wird beim Verbrauch dieses Rezeptes eine "
+"Einheit (pro Portion in Einkaufsmengeneinheit) dem Bestand hinzugefügt"
+
+msgid "Produces product"
+msgstr "Produziertes Produkt"
+
+msgid "This booking cannot be undone"
+msgstr "Die Buchung kann nicht rückgängig gemacht werden"
+
+msgid "Booking does not exist or was already undone"
+msgstr "Buchung existiert nicht oder wurde bereits rückgängig gemacht"
+
+msgid "Are you sure to delete API key \"%s\"?"
+msgstr "API key \"%s\" wirklich löschen?"
+
+msgid "Add note"
+msgstr "Notiz hinzufügen"
+
+msgid "Add note to %s"
+msgstr "Notiz zu %s hinzufügen"
+
+msgid "per day"
+msgstr "pro Tag"
+
+msgid "Compact view"
+msgstr "Kompakte Ansicht"
+
+msgid "Normal view"
+msgstr "Normale Ansicht"
+
+msgid "Only undone items"
+msgstr "Nur unerledigte Einträge"
+
+msgid "Add product"
+msgstr "Produkt hinzufügen"
+
+msgid "Add product to %s"
+msgstr "Produkt zu %s hinzufügen"
+
+msgid "Consume all ingredients needed by this weeks recipes or products"
+msgstr ""
+"Alle Zutaten, die diese Woche von Rezepten oder Produkten benötigt werden, "
+"aus dem Bestand entfernen"
+
+msgid "Meal plan recipe"
+msgstr "Speiseplan Rezept"
+
+msgid "Meal plan note"
+msgstr "Speiseplan Notiz"
+
+msgid "Meal plan product"
+msgstr "Speiseplan Produkt"
+
+msgid "Scan mode"
+msgstr "Scan-Modus"
+
+msgid "on"
+msgstr "an"
+
+msgid "off"
+msgstr "aus"
+
+msgid ""
+"Scan mode is on but not all required fields could be populated automatically"
+msgstr ""
+"Scan-Modus ist eingeschaltet, aber nicht alle erforderlichen Felder konnten "
+"automatisch ausgefüllt werden"
+
+msgid "Is freezer"
+msgstr "Ist ein Gefrier-Standort (also z. B. ein Gefrierschrank)"
+
+msgid ""
+"When moving products from/to a freezer location, the products best before "
+"date is automatically adjusted according to the product settings"
+msgstr ""
+"Beim Umlagen von Produkten von/zu einem Gefrier-Standort wird das "
+"Mindesthaltbarkeitsdatum der Produkte automatisch entsprechend den "
+"Produkteinstellungen angepasst"
+
+msgid ""
+"On moving this product to a freezer location (so when freezing it), the best"
+" before date will be replaced by today + this amount of days"
+msgstr ""
+"Wenn dieses Produkt zu einem Gefrier-Standort umgelagert (sprich "
+"eingefroren) wird, wird das Mindesthaltbarkeitsdatum durch heute + diese "
+"Anzahl von Tagen ersetzt"
+
+msgid "Default best before days after freezing"
+msgstr "Standard Haltbartkeit in Tagen nach dem Einfrieren"
+
+msgid ""
+"On moving this product from a freezer location (so when thawing it), the "
+"best before date will be replaced by today + this amount of days"
+msgstr ""
+"Wenn dieses Produkt von einem Gefrier-Standort umgelagert (sprich aufgetaut)"
+" wird, wird das Mindesthaltbarkeitsdatum durch heute + diese Anzahl von "
+"Tagen ersetzt"
+
+msgid "Default best before days after thawing"
+msgstr "Standard Haltbartkeit in Tagen nach dem Auftauen"
+
+msgid "This cannot be the same as the \"From\" location"
+msgstr "Dies kann nicht derselbe Standort wie \"Von Standort\" sein"
+
+msgid "Thawed"
+msgstr "Aufgetaut"
+
+msgid "Frozen"
+msgstr "Eingefroren"

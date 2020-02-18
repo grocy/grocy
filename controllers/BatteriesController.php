@@ -6,23 +6,12 @@ use \Grocy\Services\BatteriesService;
 
 class BatteriesController extends BaseController
 {
-	public function __construct(\Slim\Container $container)
+	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 	}
 
-	protected $BatteriesService = null;
-
-	protected function getBatteriesService()
-	{
-		if($this->BatteriesService == null)
-		{
-			$this->BatteriesService = BatteriesService::getInstance();
-		}
-		return $this->BatteriesService;
-	}
-
-	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$usersService = $this->getUsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['batteries_due_soon_days'];
@@ -36,14 +25,14 @@ class BatteriesController extends BaseController
 		]);
 	}
 
-	public function TrackChargeCycle(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function TrackChargeCycle(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'batterytracking', [
 			'batteries' =>  $this->getDatabase()->batteries()->orderBy('name')
 		]);
 	}
 
-	public function BatteriesList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function BatteriesList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'batteries', [
 			'batteries' => $this->getDatabase()->batteries()->orderBy('name'),
@@ -52,7 +41,7 @@ class BatteriesController extends BaseController
 		]);
 	}
 
-	public function BatteryEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function BatteryEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($args['batteryId'] == 'new')
 		{
@@ -71,7 +60,7 @@ class BatteriesController extends BaseController
 		}
 	}
 
-	public function Journal(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function Journal(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'batteriesjournal', [
 			'chargeCycles' => $this->getDatabase()->battery_charge_cycles()->orderBy('tracked_time', 'DESC'),
@@ -79,7 +68,7 @@ class BatteriesController extends BaseController
 		]);
 	}
 
-	public function BatteriesSettings(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function BatteriesSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'batteriessettings');
 	}

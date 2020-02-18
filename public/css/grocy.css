@@ -41,6 +41,10 @@ a.discrete-link:focus {
 	background-color: #e5e5e5;
 }
 
+.card-header:first-child {
+	border-radius: 0;
+}
+
 .card-body {
 	flex-grow: 0;
 }
@@ -51,13 +55,13 @@ a.discrete-link:focus {
 
 .fullscreen {
 	z-index: 8888;
-	width: 100%;
 	height: 100%;
 	position: fixed;
 	top: 0;
 	left: 0;
 	overflow: auto;
- }
+	background-color: #ffffff;
+}
 
  /* Fixes smooth scrolling on iOS */
 #sidebarResponsive,
@@ -65,7 +69,7 @@ a.discrete-link:focus {
 	-webkit-overflow-scrolling: touch;
 }
 
-.fullscreen-card .card-header {
+.fullscreen-card .card-header-fullscreen {
 	z-index: 9999;
 	width: 100%;
 	position: fixed;
@@ -119,9 +123,15 @@ input::-webkit-inner-spin-button {
 
 /* Navigation style customizations */
 #mainNav {
+	line-height: 1;
 	background-color: #e5e5e5 !important;
 	border-bottom: 2px solid !important;
 	border-color: #d6d6d6 !important;
+	padding-bottom: 0.3rem;
+}
+
+#mainNav .dropdown-menu {
+	line-height: 1.5;
 }
 
 .navbar-sidenav {
@@ -143,7 +153,8 @@ input::-webkit-inner-spin-button {
 	border-radius: 0;
 }
 
-.navbar-nav .dropdown-divider {
+.navbar-nav .dropdown-divider,
+.nav-item-divider {
 	border-top: 2px solid !important;
 	border-color: #d6d6d6 !important;
 }
@@ -305,6 +316,28 @@ input::-webkit-inner-spin-button {
 	}
 }
 
+@media (min-width:992px) {
+	#mainNav .navbar-collapse .navbar-sidenav {
+		margin-top: 46px;
+	}
+
+	#mainNav.fixed-top .navbar-sidenav {
+		height: calc(100vh - 94px)
+	}
+
+	#mainNav.fixed-top .sidenav-toggler {
+		margin-top:calc(100vh - 48px);
+	}
+
+	.content-wrapper {
+		margin-left: 245px;
+	}
+}
+
+body.fixed-nav {
+	padding-top: 54px;
+}
+
 html {
 	min-height: inherit;
 }
@@ -315,6 +348,10 @@ html {
 
 #mainNav .navbar-collapse .navbar-sidenav > .nav-item > .nav-link {
 	padding-right: 1.25em !important;
+}
+
+#sidebarResponsive .nav-item-sidebar {
+	line-height: 1;
 }
 
 /* Third party component customizations - Tempus Dominus */

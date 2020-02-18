@@ -6,23 +6,12 @@ use \Grocy\Services\TasksService;
 
 class TasksController extends BaseController
 {
-	public function __construct(\Slim\Container $container)
+	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 	}
 
-	protected $TasksService = null;
-
-    protected function getTasksService()
-	{
-		if($this->TasksService == null)
-		{
-			$this->TasksService = TasksService::getInstance();
-		}
-		return $this->TasksService;
-	}
-
-	public function Overview(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if (isset($request->getQueryParams()['include_done']))
 		{
@@ -46,7 +35,7 @@ class TasksController extends BaseController
 		]);
 	}
 
-	public function TaskEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function TaskEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($args['taskId'] == 'new')
 		{
@@ -69,7 +58,7 @@ class TasksController extends BaseController
 		}
 	}
 
-	public function TaskCategoriesList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function TaskCategoriesList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'taskcategories', [
 			'taskCategories' => $this->getDatabase()->task_categories()->orderBy('name'),
@@ -78,7 +67,7 @@ class TasksController extends BaseController
 		]);
 	}
 
-	public function TaskCategoryEditForm(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function TaskCategoryEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($args['categoryId'] == 'new')
 		{
@@ -97,7 +86,7 @@ class TasksController extends BaseController
 		}
 	}
 
-	public function TasksSettings(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args)
+	public function TasksSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'taskssettings');
 	}

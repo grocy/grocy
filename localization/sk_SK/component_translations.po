@@ -1,0 +1,49 @@
+# Translators:
+# Jose Riha <jose1711@gmail.com>, 2020
+# Bernd Bestel <bernd@berrnd.de>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2020\n"
+"Language-Team: Slovak (Slovakia) (https://www.transifex.com/grocy/teams/93189/sk_SK/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sk_SK\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
+"X-Domain: grocy/component_translations\n"
+
+msgid "timeago_locale"
+msgstr "sk"
+
+msgid "timeago_nan"
+msgstr "pred NaN rokmi"
+
+msgid "moment_locale"
+msgstr "sk"
+
+msgid "datatables_localization"
+msgstr ""
+"{\"sEmptyTable\":\"Nie sú k dispozícii žiadne dáta\",\"sInfo\":\"Záznamy "
+"_START_ až _END_ z celkom _TOTAL_\",\"sInfoEmpty\":\"Záznamy 0 až 0 z celkom"
+" 0 \",\"sInfoFiltered\":\"(vyfiltrované spomedzi _MAX_ "
+"záznamov)\",\"sInfoPostFix\":\"\",\"sInfoThousands\":\",\",\"sLengthMenu\":\"Zobraz"
+" _MENU_ "
+"záznamov\",\"sLoadingRecords\":\"Načítavam...\",\"sProcessing\":\"Spracúvam...\",\"sSearch\":\"Hľadať:\",\"sZeroRecords\":\"Nenašli"
+" sa žiadne vyhovujúce "
+"záznamy\",\"oPaginate\":{\"sFirst\":\"Prvá\",\"sLast\":\"Posledná\",\"sNext\":\"Nasledujúca\",\"sPrevious\":\"Predchádzajúca\"},\"oAria\":{\"sSortAscending\":\":"
+" aktivujte na zoradenie stĺpca vzostupne\",\"sSortDescending\":\": aktivujte"
+" na zoradenie stĺpca zostupne\"}}"
+
+msgid "summernote_locale"
+msgstr "sk-SK"
+
+msgid "fullcalendar_locale"
+msgstr "sk"
+
+msgid "bootstrap-select_locale"
+msgstr "sk_SK"

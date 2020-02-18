@@ -61,7 +61,7 @@
 				'value' => $value,
 				'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
 				'hint' => $__t('The ingredients listed here result in this amount of servings')
-			))
+			))			
 
 			<div class="form-group">
 				<div class="form-check">
@@ -82,6 +82,14 @@
 					<label class="custom-file-label" for="recipe-picture">{{ $__t('No file selected') }}</label>
 				</div>
 			</div>
+
+			@include('components.productpicker', array(
+				'products' => $products,
+				'isRequired' => false,
+				'label' => 'Produces product',
+				'prefillById' => $recipe->product_id,
+				'hint' => $__t('When a product is selected, one unit (per serving in purchase quantity unit) will be added to stock on consuming this recipe')
+			))
 
 			@include('components.userfieldsform', array(
 				'userfields' => $userfields,
@@ -145,6 +153,10 @@
 									<span class="locale-number locale-number-quantity-amount">@if($recipePosition->amount == round($recipePosition->amount)){{ round($recipePosition->amount) }}@else{{ $recipePosition->amount }}@endif</span>
 								@endif
 								{{ $__n($recipePosition->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', $recipePosition->qu_id)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', $recipePosition->qu_id)->name_plural) }}
+
+								@if(!empty($recipePosition->variable_amount))
+									<div class="small text-muted font-italic">{{ $__t('Variable amount') }}</div>
+								@endif
 							</td>
 							<td class="fit-content">
 								<a class="btn btn-sm btn-info recipe-pos-show-note-button @if(empty($recipePosition->note)) disabled @endif" href="#" data-toggle="tooltip" data-placement="top" title="{{ $__t('Show notes') }}" data-recipe-pos-note="{{ $recipePosition->note }}">
@@ -217,6 +229,7 @@
 			</div>
 		</div>
 	</div>
+
 </div>
 
 <div class="modal fade" id="recipe-include-editform-modal" tabindex="-1">
