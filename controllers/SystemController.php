@@ -2,6 +2,8 @@
 
 namespace Grocy\Controllers;
 
+use \Grocy\Services\DatabaseMigrationService;
+
 class SystemController extends BaseController
 {
 
