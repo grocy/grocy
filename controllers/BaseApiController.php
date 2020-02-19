@@ -38,19 +38,4 @@ class BaseApiController extends BaseController
 			'error_message' => $errorMessage
 		));
 	}
-
-	protected function getApiKeyService()
-	{
-		return ApiKeyService::getInstance();
-	}
-
-	protected function getChoresService()
-	{
-		return ChoresService::getInstance();
-	}
-
-	protected function getFilesService()
-	{
-		return FilesService::getInstance();
-	}
 }

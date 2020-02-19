@@ -65,7 +65,7 @@ class StockController extends BaseController
 
 	public function Transfer(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->View->render($response, 'transfer', [
+		return $this->renderPage($response, 'transfer', [
 			'products' => $this->getDatabase()->products()->orderBy('name'),
 			'recipes' => $this->getDatabase()->recipes()->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name')

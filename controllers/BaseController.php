@@ -13,6 +13,9 @@ use \Grocy\Services\CalendarService;
 use \Grocy\Services\SessionService;
 use \Grocy\Services\RecipesService;
 use \Grocy\Services\TasksService;
+use \Grocy\Services\FilesService;
+use \Grocy\Services\ChoresService;
+use \Grocy\Services\ApiKeyService;
 
 class BaseController
 {
@@ -144,11 +147,24 @@ class BaseController
 		return UsersService::getInstance();
 	}
 
-	private $userfieldsService = null;
-
 	protected function getUserfieldsService()
 	{
 		return UserfieldsService::getInstance();
+	}
+
+	protected function getApiKeyService()
+	{
+		return ApiKeyService::getInstance();
+	}
+
+	protected function getChoresService()
+	{
+		return ChoresService::getInstance();
+	}
+
+	protected function getFilesService()
+	{
+		return FilesService::getInstance();
 	}
 	
 	protected $AppContainer;
