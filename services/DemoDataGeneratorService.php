@@ -2,7 +2,7 @@
 
 namespace Grocy\Services;
 
-use \Grocy\Services\LocalizationService;
+#use \Grocy\Services\LocalizationService;
 
 class DemoDataGeneratorService extends BaseService
 {

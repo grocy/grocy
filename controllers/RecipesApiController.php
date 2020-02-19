@@ -2,8 +2,6 @@
 
 namespace Grocy\Controllers;
 
-use \Grocy\Services\RecipesService;
-
 class RecipesApiController extends BaseApiController
 {
 	public function __construct(\DI\Container $container)

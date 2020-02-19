@@ -2,8 +2,8 @@
 
 namespace Grocy\Services;
 
-use \Grocy\Services\DatabaseService;
-use \Grocy\Services\LocalizationService;
+#use \Grocy\Services\DatabaseService;
+#use \Grocy\Services\LocalizationService;
 
 class BaseService
 {

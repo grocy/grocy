@@ -2,9 +2,6 @@
 
 namespace Grocy\Controllers;
 
-use \Grocy\Services\StockService;
-use \Grocy\Services\UserfieldsService;
-
 class StockController extends BaseController
 {
 

@@ -5,8 +5,14 @@ namespace Grocy\Controllers;
 use \Grocy\Services\DatabaseService;
 use \Grocy\Services\ApplicationService;
 use \Grocy\Services\LocalizationService;
+use \Grocy\Services\StockService;
 use \Grocy\Services\UsersService;
 use \Grocy\Services\UserfieldsService;
+use \Grocy\Services\BatteriesService;
+use \Grocy\Services\CalendarService;
+use \Grocy\Services\SessionService;
+use \Grocy\Services\RecipesService;
+use \Grocy\Services\TasksService;
 
 class BaseController
 {

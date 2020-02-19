@@ -2,8 +2,6 @@
 
 namespace Grocy\Controllers;
 
-use \Grocy\Services\ChoresService;
-
 class ChoresController extends BaseController
 {
 	public function __construct(\DI\Container $container)

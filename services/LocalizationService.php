@@ -2,7 +2,7 @@
 
 namespace Grocy\Services;
 
-use \Grocy\Services\DatabaseService;
+#use \Grocy\Services\DatabaseService;
 use \Gettext\Translation;
 use \Gettext\Translations;
 use \Gettext\Translator;

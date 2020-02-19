@@ -2,11 +2,11 @@
 
 namespace Grocy\Services;
 
-use \Grocy\Services\StockService;
-use \Grocy\Services\TasksService;
-use \Grocy\Services\ChoresService;
-use \Grocy\Services\BatteriesService;
-use \Grocy\Services\UsersService;
+#use \Grocy\Services\StockService;
+#use \Grocy\Services\TasksService;
+#use \Grocy\Services\ChoresService;
+#use \Grocy\Services\BatteriesService;
+#use \Grocy\Services\UsersService;
 use \Grocy\Helpers\UrlManager;
 
 class CalendarService extends BaseService

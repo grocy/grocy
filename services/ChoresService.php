@@ -2,7 +2,7 @@
 
 namespace Grocy\Services;
 
-use \Grocy\Services\StockService;
+#use \Grocy\Services\StockService;
 
 class ChoresService extends BaseService
 {

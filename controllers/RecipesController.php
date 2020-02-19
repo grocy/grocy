@@ -2,10 +2,6 @@
 
 namespace Grocy\Controllers;
 
-use \Grocy\Services\RecipesService;
-use \Grocy\Services\StockService;
-use \Grocy\Services\UserfieldsService;
-
 class RecipesController extends BaseController
 {
 	public function __construct(\DI\Container $container)

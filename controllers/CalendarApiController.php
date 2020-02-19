@@ -2,9 +2,6 @@
 
 namespace Grocy\Controllers;
 
-use \Grocy\Services\CalendarService;
-use \Grocy\Services\ApiKeyService;
-
 class CalendarApiController extends BaseApiController
 {
 	public function __construct(\DI\Container $container)

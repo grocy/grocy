@@ -2,9 +2,6 @@
 
 namespace Grocy\Controllers;
 
-use \Grocy\Services\DatabaseMigrationService;
-use \Grocy\Services\DemoDataGeneratorService;
-
 class SystemController extends BaseController
 {
 

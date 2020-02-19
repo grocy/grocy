@@ -2,9 +2,6 @@
 
 namespace Grocy\Controllers;
 
-#use \Grocy\Services\ApplicationService;
-use \Grocy\Services\ApiKeyService;
-
 class OpenApiController extends BaseApiController
 {
 	public function __construct(\DI\Container $container)

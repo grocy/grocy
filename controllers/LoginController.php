@@ -2,10 +2,6 @@
 
 namespace Grocy\Controllers;
 
-use \Grocy\Services\SessionService;
-use \Grocy\Services\DatabaseMigrationService;
-use \Grocy\Services\DemoDataGeneratorService;
-
 class LoginController extends BaseController
 {
 	public function __construct(\DI\Container $container, string $sessionCookieName)

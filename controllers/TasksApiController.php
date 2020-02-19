@@ -2,8 +2,6 @@
 
 namespace Grocy\Controllers;
 
-use \Grocy\Services\TasksService;
-
 class TasksApiController extends BaseApiController
 {
 	public function __construct(\DI\Container $container)

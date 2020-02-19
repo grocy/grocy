@@ -2,8 +2,6 @@
 
 namespace Grocy\Controllers;
 
-use \Grocy\Services\TasksService;
-
 class TasksController extends BaseController
 {
 	public function __construct(\DI\Container $container)

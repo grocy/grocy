@@ -2,8 +2,6 @@
 
 namespace Grocy\Controllers;
 
-use \Grocy\Services\StockService;
-
 class StockApiController extends BaseApiController
 {
 	public function __construct(\DI\Container $container)
