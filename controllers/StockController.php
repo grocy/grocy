@@ -10,11 +10,6 @@ class StockController extends BaseController
 		parent::__construct($container);
 	}
 
-    protected function getStockService()
-	{
-		return StockService::getInstance();
-	}
-
 	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$usersService = $this->getUsersService();
