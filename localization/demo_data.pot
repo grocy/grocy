@@ -339,3 +339,6 @@ msgstr ""
 
 msgid "Slovak"
 msgstr ""
+
+msgid "Czech"
+msgstr ""
