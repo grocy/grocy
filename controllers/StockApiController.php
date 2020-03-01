@@ -2,6 +2,8 @@
 
 namespace Grocy\Controllers;
 
+use \Grocy\Services\StockService;
+
 class StockApiController extends BaseApiController
 {
 	public function __construct(\DI\Container $container)
@@ -541,7 +543,7 @@ class StockApiController extends BaseApiController
 	{
 		try
 		{
-			$this->ApiResponse($response, $this->StockService->UndoBooking($args['bookingId']));
+			$this->ApiResponse($response, $this->getStockService()->UndoBooking($args['bookingId']));
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
@@ -554,7 +556,7 @@ class StockApiController extends BaseApiController
 	{
 		try
 		{
-			$this->ApiResponse($response, $this->StockService->UndoTransaction($args['transactionId']));
+			$this->ApiResponse($response, $this->getStockService()->UndoTransaction($args['transactionId']));
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
@@ -571,17 +573,17 @@ class StockApiController extends BaseApiController
 			$allowSubproductSubstitution = true;
 		}
 
-		return $this->ApiResponse($response, $this->StockService->GetProductStockEntries($args['productId'], false, $allowSubproductSubstitution));
+		return $this->ApiResponse($response, $this->getStockService()->GetProductStockEntries($args['productId'], false, $allowSubproductSubstitution));
 	}
 
 	public function ProductStockLocations(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->ApiResponse($response, $this->getStockService()->GetProductStockEntries($args['productId']));
+		return $this->ApiResponse($response, $this->getStockService()->GetProductStockLocations($args['productId']));
 	}
 
 	public function StockEntry(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->ApiResponse($response, $this->StockService->GetStockEntry($args['entryId']));
+		return $this->ApiResponse($response, $this->getStockService()->GetStockEntry($args['entryId']));
 	}
 
 	public function StockBooking(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)

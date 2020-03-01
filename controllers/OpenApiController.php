@@ -16,7 +16,7 @@ class OpenApiController extends BaseApiController
 
 	public function DocumentationSpec(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$applicationService = $this->getApplicationService;
+		$applicationService = $this->getApplicationService();
 
 		$versionInfo = $applicationService->GetInstalledVersion();
 		$this->getOpenApiSpec()->info->version = $versionInfo->Version;

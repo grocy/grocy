@@ -122,7 +122,7 @@ class BaseController
 		return CalendarService::getInstance();
 	}
 
-    private function getSessionService()
+    protected function getSessionService()
 	{
 		return SessionService::getInstance();
 	}

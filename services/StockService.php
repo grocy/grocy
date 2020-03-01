@@ -916,7 +916,7 @@ class StockService extends BaseService
 
 	private function LocationExists($locationId)
 	{
-		$locationRow = $this->Database->locations()->where('id = :1', $locationId)->fetch();
+		$locationRow = $this->getDatabase()->locations()->where('id = :1', $locationId)->fetch();
 		return $locationRow !== null;
 	}
 
@@ -938,7 +938,7 @@ class StockService extends BaseService
 		if (file_exists($path))
 		{
 			require_once $path;
-			return new $pluginName($this->getDatabase()->locations()->fetchAll(), $this->Database->quantity_units()->fetchAll());
+			return new $pluginName($this->getDatabase()->locations()->fetchAll(), $this->getDatabase()->quantity_units()->fetchAll());
 		}
 		else
 		{

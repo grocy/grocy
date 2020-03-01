@@ -31,10 +31,10 @@ class StockController extends BaseController
 
 	public function Stockentries(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$usersService = new UsersService();
+		$usersService = $this->getUsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['stock_expring_soon_days'];
 
-		return $this->AppContainer->view($response, 'stockentries', [
+		return $this->renderPage($response, 'stockentries', [
 			'products' => $this->getDatabase()->products()->orderBy('name'),
 			'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name'),
@@ -82,7 +82,7 @@ class StockController extends BaseController
 
 	public function StockEntryEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->View->render($response, 'stockentryform', [
+		return $this->renderPage($response, 'stockentryform', [
 			'stockEntry' => $this->getDatabase()->stock()->where('id', $args['entryId'])->fetch(),
 			'products' => $this->getDatabase()->products()->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name')
@@ -296,7 +296,7 @@ class StockController extends BaseController
 
 	public function ShoppingListSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->View->render($response, 'shoppinglistsettings');
+		return $this->renderPage($response, 'shoppinglistsettings');
 	}
 
 	public function Journal(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
