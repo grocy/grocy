@@ -31,6 +31,7 @@
 - Fixed that the calendar not used the full height on mobile devices
 
 ### General & other improvements/fixes
+- Big backend performance improvements (thanks @zebardy)
 - Optimized the top navbar height and overall spacing to waste less space
 - Replaced the scan-mode-switch-button by a native button because it's less disturbing
 - Fixed that the "contextual time ago" of date/time pickers was not displayed
