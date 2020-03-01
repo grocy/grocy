@@ -136,7 +136,6 @@ Quagga.onProcessed(function(result)
 $(document).on("click", "#barcodescanner-start-button", function(e)
 {
 	e.preventDefault();
-
 	var inputElement = $(e.currentTarget).prev();
 	if (inputElement.hasAttr("disabled"))
 	{
@@ -154,8 +153,17 @@ $(document).on("click", "#barcodescanner-start-button", function(e)
 		},
 		size: 'big',
 		backdrop: true,
-		closeButton: false,
+		closeButton: true,
 		buttons: {
+			torch: {
+				label: __t('Torch'),
+				className: 'btn-primary responsive-button',
+				callback: function(){
+					var track = Quagga.CameraAccess.getActiveTrack();
+					track.applyConstraints({advanced: [{torch:true}]});
+            		    return false;
+           		}	
+			},			
 			cancel: {
 				label: __t('Cancel'),
 				className: 'btn-secondary responsive-button',
@@ -166,10 +174,8 @@ $(document).on("click", "#barcodescanner-start-button", function(e)
 			}
 		}
 	});
-
 	Grocy.Components.BarcodeScanner.StartScanning();
 });
-
 
 setTimeout(function()
 {
