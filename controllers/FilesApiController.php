@@ -2,17 +2,12 @@
 
 namespace Grocy\Controllers;
 
-use \Grocy\Services\FilesService;
-
 class FilesApiController extends BaseApiController
 {
 	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
-		$this->FilesService = new FilesService();
 	}
-
-	protected $FilesService;
 
 	public function UploadFile(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
@@ -28,7 +23,7 @@ class FilesApiController extends BaseApiController
 			}
 
 			$data = $request->getBody()->getContents();
-			file_put_contents($this->FilesService->GetFilePath($args['group'], $fileName), $data);
+			file_put_contents($this->getFilesService()->GetFilePath($args['group'], $fileName), $data);
 
 			return $this->EmptyApiResponse($response);
 		}
@@ -71,11 +66,11 @@ class FilesApiController extends BaseApiController
 					$bestFitWidth = $request->getQueryParams()['best_fit_width'];
 				}
 
-				$filePath = $this->FilesService->DownscaleImage($args['group'], $fileName, $bestFitHeight, $bestFitWidth);
+				$filePath = $this->getFilesService()->DownscaleImage($args['group'], $fileName, $bestFitHeight, $bestFitWidth);
 			}
 			else
 			{
-				$filePath = $this->FilesService->GetFilePath($args['group'], $fileName);
+				$filePath = $this->getFilesService()->GetFilePath($args['group'], $fileName);
 			}
 
 			if (file_exists($filePath))
@@ -109,7 +104,7 @@ class FilesApiController extends BaseApiController
 				throw new \Exception('Invalid filename');
 			}
 
-			$filePath = $this->FilesService->GetFilePath($args['group'], $fileName);
+			$filePath = $this->getFilesService()->GetFilePath($args['group'], $fileName);
 			if (file_exists($filePath))
 			{
 				unlink($filePath);

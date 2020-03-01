@@ -2,17 +2,12 @@
 
 namespace Grocy\Controllers;
 
-use \Grocy\Services\BatteriesService;
-
 class BatteriesApiController extends BaseApiController
 {
 	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
-		$this->BatteriesService = new BatteriesService();
 	}
-
-	protected $BatteriesService;
 
 	public function TrackChargeCycle(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
@@ -26,8 +21,8 @@ class BatteriesApiController extends BaseApiController
 				$trackedTime = $requestBody['tracked_time'];
 			}
 
-			$chargeCycleId = $this->BatteriesService->TrackChargeCycle($args['batteryId'], $trackedTime);
-			return $this->ApiResponse($response, $this->Database->battery_charge_cycles($chargeCycleId));
+			$chargeCycleId = $this->getBatteriesService()->TrackChargeCycle($args['batteryId'], $trackedTime);
+			return $this->ApiResponse($response, $this->getDatabase()->battery_charge_cycles($chargeCycleId));
 		}
 		catch (\Exception $ex)
 		{
@@ -39,7 +34,7 @@ class BatteriesApiController extends BaseApiController
 	{
 		try
 		{
-			return $this->ApiResponse($response, $this->BatteriesService->GetBatteryDetails($args['batteryId']));
+			return $this->ApiResponse($response, $this->getBatteriesService()->GetBatteryDetails($args['batteryId']));
 		}
 		catch (\Exception $ex)
 		{
@@ -49,14 +44,14 @@ class BatteriesApiController extends BaseApiController
 
 	public function Current(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->ApiResponse($response, $this->BatteriesService->GetCurrent());
+		return $this->ApiResponse($response, $this->getBatteriesService()->GetCurrent());
 	}
 
 	public function UndoChargeCycle(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
-			$this->ApiResponse($response, $this->BatteriesService->UndoChargeCycle($args['chargeCycleId']));
+			$this->ApiResponse($response, $this->getBatteriesService()->UndoChargeCycle($args['chargeCycleId']));
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)

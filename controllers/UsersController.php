@@ -6,8 +6,8 @@ class UsersController extends BaseController
 {
 	public function UsersList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->View->render($response, 'users', [
-			'users' => $this->Database->users()->orderBy('username')
+		return $this->renderPage($response, 'users', [
+			'users' => $this->getDatabase()->users()->orderBy('username')
 		]);
 	}
 
@@ -15,14 +15,14 @@ class UsersController extends BaseController
 	{
 		if ($args['userId'] == 'new')
 		{
-			return $this->View->render($response, 'userform', [
+			return $this->renderPage($response, 'userform', [
 				'mode' => 'create'
 			]);
 		}
 		else
 		{
-			return $this->View->render($response, 'userform', [
-				'user' =>  $this->Database->users($args['userId']),
+			return $this->renderPage($response, 'userform', [
+				'user' =>  $this->getDatabase()->users($args['userId']),
 				'mode' => 'edit'
 			]);
 		}

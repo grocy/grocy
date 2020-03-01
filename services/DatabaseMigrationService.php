@@ -6,7 +6,7 @@ class DatabaseMigrationService extends BaseService
 {
 	public function MigrateDatabase()
 	{
-		$this->DatabaseService->ExecuteDbStatement("CREATE TABLE IF NOT EXISTS migrations (migration INTEGER NOT NULL PRIMARY KEY UNIQUE, execution_time_timestamp DATETIME DEFAULT (datetime('now', 'localtime')))");
+		$this->getDatabaseService()->ExecuteDbStatement("CREATE TABLE IF NOT EXISTS migrations (migration INTEGER NOT NULL PRIMARY KEY UNIQUE, execution_time_timestamp DATETIME DEFAULT (datetime('now', 'localtime')))");
 
 		$sqlMigrationFiles = array();
 		foreach (new \FilesystemIterator(__DIR__ . '/../migrations') as $file)
@@ -41,21 +41,21 @@ class DatabaseMigrationService extends BaseService
 
 	private function ExecuteSqlMigrationWhenNeeded(int $migrationId, string $sql)
 	{
-		$rowCount = $this->DatabaseService->ExecuteDbQuery('SELECT COUNT(*) FROM migrations WHERE migration = ' . $migrationId)->fetchColumn();
+		$rowCount = $this->getDatabaseService()->ExecuteDbQuery('SELECT COUNT(*) FROM migrations WHERE migration = ' . $migrationId)->fetchColumn();
 		if (intval($rowCount) === 0)
 		{
-			$this->DatabaseService->ExecuteDbStatement($sql);
-			$this->DatabaseService->ExecuteDbStatement('INSERT INTO migrations (migration) VALUES (' . $migrationId . ')');
+			$this->getDatabaseService()->ExecuteDbStatement($sql);
+			$this->getDatabaseService()->ExecuteDbStatement('INSERT INTO migrations (migration) VALUES (' . $migrationId . ')');
 		}
 	}
 
 	private function ExecutePhpMigrationWhenNeeded(int $migrationId, string $phpFile)
 	{
-		$rowCount = $this->DatabaseService->ExecuteDbQuery('SELECT COUNT(*) FROM migrations WHERE migration = ' . $migrationId)->fetchColumn();
+		$rowCount = $this->getDatabaseService()->ExecuteDbQuery('SELECT COUNT(*) FROM migrations WHERE migration = ' . $migrationId)->fetchColumn();
 		if (intval($rowCount) === 0)
 		{
 			include $phpFile;
-			$this->DatabaseService->ExecuteDbStatement('INSERT INTO migrations (migration) VALUES (' . $migrationId . ')');
+			$this->getDatabaseService()->ExecuteDbStatement('INSERT INTO migrations (migration) VALUES (' . $migrationId . ')');
 		}
 	}
 }

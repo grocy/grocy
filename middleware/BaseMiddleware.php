@@ -9,7 +9,7 @@ class BaseMiddleware
 	public function __construct(\DI\Container $container)
 	{
 		$this->AppContainer = $container;
-		$this->ApplicationService = new ApplicationService();
+		$this->ApplicationService = ApplicationService::getInstance();
 	}
 
 	protected $AppContainer;

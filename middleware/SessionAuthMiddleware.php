@@ -25,7 +25,7 @@ class SessionAuthMiddleware extends BaseMiddleware
 		$routeContext = RouteContext::fromRequest($request);
 		$route = $routeContext->getRoute();
 		$routeName = $route->getName();
-		$sessionService = new SessionService();
+		$sessionService = SessionService::getInstance();
 
 		if ($routeName === 'root')
 		{

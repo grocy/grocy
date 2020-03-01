@@ -2,17 +2,12 @@
 
 namespace Grocy\Controllers;
 
-use \Grocy\Services\ChoresService;
-
 class ChoresApiController extends BaseApiController
 {
 	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
-		$this->ChoresService = new ChoresService();
 	}
-
-	protected $ChoresService;
 
 	public function TrackChoreExecution(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
@@ -32,8 +27,8 @@ class ChoresApiController extends BaseApiController
 				$doneBy = $requestBody['done_by'];
 			}
 
-			$choreExecutionId = $this->ChoresService->TrackChore($args['choreId'], $trackedTime, $doneBy);
-			return $this->ApiResponse($response, $this->Database->chores_log($choreExecutionId));
+			$choreExecutionId = $this->getChoresService()->TrackChore($args['choreId'], $trackedTime, $doneBy);
+			return $this->ApiResponse($response, $this->getDatabase()->chores_log($choreExecutionId));
 		}
 		catch (\Exception $ex)
 		{
@@ -45,7 +40,7 @@ class ChoresApiController extends BaseApiController
 	{
 		try
 		{
-			return $this->ApiResponse($response, $this->ChoresService->GetChoreDetails($args['choreId']));
+			return $this->ApiResponse($response, $this->getChoresService()->GetChoreDetails($args['choreId']));
 		}
 		catch (\Exception $ex)
 		{
@@ -55,14 +50,14 @@ class ChoresApiController extends BaseApiController
 
 	public function Current(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->ApiResponse($response, $this->ChoresService->GetCurrent());
+		return $this->ApiResponse($response, $this->getChoresService()->GetCurrent());
 	}
 
 	public function UndoChoreExecution(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
 		{
-			$this->ApiResponse($response, $this->ChoresService->UndoChoreExecution($args['executionId']));
+			$this->ApiResponse($response, $this->getChoresService()->UndoChoreExecution($args['executionId']));
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
@@ -85,15 +80,15 @@ class ChoresApiController extends BaseApiController
 
 			if ($choreId === null)
 			{
-				$chores = $this->Database->chores();
+				$chores = $this->getDatabase()->chores();
 				foreach ($chores as $chore)
 				{
-					$this->ChoresService->CalculateNextExecutionAssignment($chore->id);
+					$this->getChoresService()->CalculateNextExecutionAssignment($chore->id);
 				}
 			}
 			else
 			{
-				$this->ChoresService->CalculateNextExecutionAssignment($choreId);
+				$this->getChoresService()->CalculateNextExecutionAssignment($choreId);
 			}
 
 			return $this->EmptyApiResponse($response);

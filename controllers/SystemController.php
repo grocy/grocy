@@ -2,29 +2,26 @@
 
 namespace Grocy\Controllers;
 
-use \Grocy\Services\ApplicationService;
 use \Grocy\Services\DatabaseMigrationService;
 use \Grocy\Services\DemoDataGeneratorService;
 
 class SystemController extends BaseController
 {
-	protected $ApplicationService;
 
 	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
-		$this->ApplicationService = new ApplicationService();
 	}
 
 	public function Root(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		// Schema migration is done here
-		$databaseMigrationService = new DatabaseMigrationService();
+		$databaseMigrationService = DatabaseMigrationService::getInstance();
 		$databaseMigrationService->MigrateDatabase();
 
 		if (GROCY_MODE === 'dev' || GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease')
 		{
-			$demoDataGeneratorService = new DemoDataGeneratorService();
+			$demoDataGeneratorService = DemoDataGeneratorService::getInstance();
 			$demoDataGeneratorService->PopulateDemoData();
 		}
 
@@ -85,7 +82,7 @@ class SystemController extends BaseController
 		if ($entryPage === 'calendar' && constant('GROCY_FEATURE_FLAG_CALENDAR')) {
 			return '/calendar';
 		}
-		
+
 		// Meal Plan
 		if ($entryPage === 'mealplan' && constant('GROCY_FEATURE_FLAG_RECIPES')) {
 			return '/mealplan';
@@ -96,14 +93,14 @@ class SystemController extends BaseController
 
 	public function About(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->View->render($response, 'about', [
-			'system_info' => $this->ApplicationService->GetSystemInfo(),
-			'changelog' => $this->ApplicationService->GetChangelog()
+		return $this->renderPage($response, 'about', [
+			'system_info' => $this->getApplicationService()->GetSystemInfo(),
+			'changelog' => $this->getApplicationService()->GetChangelog()
 		]);
 	}
 
 	public function BarcodeScannerTesting(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->View->render($response, 'barcodescannertesting');
+		return $this->renderPage($response, 'barcodescannertesting');
 	}
 }

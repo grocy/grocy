@@ -2,24 +2,44 @@
 
 namespace Grocy\Services;
 
-use \Grocy\Services\DatabaseService;
+#use \Grocy\Services\DatabaseService;
 use \Gettext\Translation;
 use \Gettext\Translations;
 use \Gettext\Translator;
 
 class LocalizationService
 {
+
+	private static $instanceMap = array();
+
 	public function __construct(string $culture)
 	{
 		$this->Culture = $culture;
-		$this->DatabaseService = new DatabaseService();
-		$this->Database = $this->DatabaseService->GetDbConnection();
 
 		$this->LoadLocalizations($culture);
 	}
 
-	protected $DatabaseService;
-	protected $Database;
+
+	protected function getDatabaseService()
+    {
+        return DatabaseService::getInstance();
+    }
+
+    protected function getdatabase()
+    {
+        return $this->getDatabaseService()->GetDbConnection();
+    }
+
+    public static function getInstance(string $culture)
+	{
+		if (!in_array($culture, self::$instanceMap))
+		{
+			self::$instanceMap[$culture] = new self($culture);
+		}
+
+		return self::$instanceMap[$culture];
+	}
+
 	protected $Pot;
 	protected $PotMain;
 	protected $Po;
@@ -57,7 +77,7 @@ class LocalizationService
 		$quantityUnits = null;
 		try
 		{
-			$quantityUnits = $this->Database->quantity_units()->fetchAll();
+			$quantityUnits = $this->getDatabase()->quantity_units()->fetchAll();
 		}
 		catch (\Exception $ex)
 		{

@@ -2,23 +2,18 @@
 
 namespace Grocy\Controllers;
 
-use \Grocy\Services\UserfieldsService;
-
 class GenericEntityApiController extends BaseApiController
 {
 	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
-		$this->UserfieldsService = new UserfieldsService();
 	}
-
-	protected $UserfieldsService;
 
 	public function GetObjects(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithPreventedListing($args['entity']))
 		{
-			return $this->ApiResponse($response, $this->Database->{$args['entity']}());
+			return $this->ApiResponse($response, $this->getDatabase()->{$args['entity']}());
 		}
 		else
 		{
@@ -30,7 +25,7 @@ class GenericEntityApiController extends BaseApiController
 	{
 		if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithPreventedListing($args['entity']))
 		{
-			return $this->ApiResponse($response, $this->Database->{$args['entity']}($args['objectId']));
+			return $this->ApiResponse($response, $this->getDatabase()->{$args['entity']}($args['objectId']));
 		}
 		else
 		{
@@ -51,11 +46,11 @@ class GenericEntityApiController extends BaseApiController
 					throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
 				}
 
-				$newRow = $this->Database->{$args['entity']}()->createRow($requestBody);
+				$newRow = $this->getDatabase()->{$args['entity']}()->createRow($requestBody);
 				$newRow->save();
 				$success = $newRow->isClean();
 				return $this->ApiResponse($response, array(
-					'created_object_id' => $this->Database->lastInsertId()
+					'created_object_id' => $this->getDatabase()->lastInsertId()
 				));
 			}
 			catch (\Exception $ex)
@@ -82,7 +77,7 @@ class GenericEntityApiController extends BaseApiController
 					throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
 				}
 
-				$row = $this->Database->{$args['entity']}($args['objectId']);
+				$row = $this->getDatabase()->{$args['entity']}($args['objectId']);
 				$row->update($requestBody);
 				$success = $row->isClean();
 				return $this->EmptyApiResponse($response);
@@ -102,7 +97,7 @@ class GenericEntityApiController extends BaseApiController
 	{
 		if ($this->IsValidEntity($args['entity']))
 		{
-			$row = $this->Database->{$args['entity']}($args['objectId']);
+			$row = $this->getDatabase()->{$args['entity']}($args['objectId']);
 			$row->delete();
 			$success = $row->isClean();
 			return $this->EmptyApiResponse($response);
@@ -119,7 +114,7 @@ class GenericEntityApiController extends BaseApiController
 		{
 			try
 			{
-				return $this->ApiResponse($response, $this->Database->{$args['entity']}()->where('name LIKE ?', '%' . $args['searchString'] . '%'));
+				return $this->ApiResponse($response, $this->getDatabase()->{$args['entity']}()->where('name LIKE ?', '%' . $args['searchString'] . '%'));
 			}
 			catch (\PDOException $ex)
 			{
@@ -136,7 +131,7 @@ class GenericEntityApiController extends BaseApiController
 	{
 		try
 		{
-			return $this->ApiResponse($response, $this->UserfieldsService->GetValues($args['entity'], $args['objectId']));
+			return $this->ApiResponse($response, $this->getUserfieldsService()->GetValues($args['entity'], $args['objectId']));
 		}
 		catch (\Exception $ex)
 		{
@@ -155,7 +150,7 @@ class GenericEntityApiController extends BaseApiController
 				throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
 			}
 
-			$this->UserfieldsService->SetValues($args['entity'], $args['objectId'], $requestBody);
+			$this->getUserfieldsService()->SetValues($args['entity'], $args['objectId'], $requestBody);
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
@@ -166,11 +161,11 @@ class GenericEntityApiController extends BaseApiController
 
 	private function IsValidEntity($entity)
 	{
-		return in_array($entity, $this->OpenApiSpec->components->internalSchemas->ExposedEntity->enum);
+		return in_array($entity, $this->getOpenApiSpec()->components->internalSchemas->ExposedEntity->enum);
 	}
 
 	private function IsEntityWithPreventedListing($entity)
 	{
-		return !in_array($entity, $this->OpenApiSpec->components->internalSchemas->ExposedEntityButNoListing->enum);
+		return !in_array($entity, $this->getOpenApiSpec()->components->internalSchemas->ExposedEntityButNoListing->enum);
 	}
 }

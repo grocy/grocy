@@ -2,21 +2,16 @@
 
 namespace Grocy\Controllers;
 
-use \Grocy\Services\TasksService;
-
 class TasksApiController extends BaseApiController
 {
 	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
-		$this->TasksService = new TasksService();
 	}
-
-	protected $TasksService;
 
 	public function Current(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->ApiResponse($response, $this->TasksService->GetCurrent());
+		return $this->ApiResponse($response, $this->getTasksService()->GetCurrent());
 	}
 
 	public function MarkTaskAsCompleted(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -31,7 +26,7 @@ class TasksApiController extends BaseApiController
 				$doneTime = $requestBody['done_time'];
 			}
 
-			$this->TasksService->MarkTaskAsCompleted($args['taskId'], $doneTime);
+			$this->getTasksService()->MarkTaskAsCompleted($args['taskId'], $doneTime);
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
@@ -44,7 +39,7 @@ class TasksApiController extends BaseApiController
 	{
 		try
 		{
-			$this->TasksService->UndoTask($args['taskId']);
+			$this->getTasksService()->UndoTask($args['taskId']);
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)

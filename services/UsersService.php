@@ -6,7 +6,7 @@ class UsersService extends BaseService
 {
 	public function CreateUser(string $username, string $firstName, string $lastName, string $password)
 	{
-		$newUserRow = $this->Database->users()->createRow(array(
+		$newUserRow = $this->getDatabase()->users()->createRow(array(
 			'username' => $username,
 			'first_name' => $firstName,
 			'last_name' => $lastName,
@@ -22,7 +22,7 @@ class UsersService extends BaseService
 			throw new \Exception('User does not exist');
 		}
 
-		$user = $this->Database->users($userId);
+		$user = $this->getDatabase()->users($userId);
 		$user->update(array(
 			'username' => $username,
 			'first_name' => $firstName,
@@ -33,13 +33,13 @@ class UsersService extends BaseService
 
 	public function DeleteUser($userId)
 	{
-		$row = $this->Database->users($userId);
+		$row = $this->getDatabase()->users($userId);
 		$row->delete();
 	}
 
 	public function GetUsersAsDto()
 	{
-		$users = $this->Database->users();
+		$users = $this->getDatabase()->users();
 		$returnUsers = array();
 		foreach ($users as $user)
 		{
@@ -52,7 +52,7 @@ class UsersService extends BaseService
 
 	public function GetUserSetting($userId, $settingKey)
 	{
-		$settingRow = $this->Database->user_settings()->where('user_id = :1 AND key = :2', $userId, $settingKey)->fetch();
+		$settingRow = $this->getDatabase()->user_settings()->where('user_id = :1 AND key = :2', $userId, $settingKey)->fetch();
 		if ($settingRow !== null)
 		{
 			return $settingRow->value;
@@ -67,7 +67,7 @@ class UsersService extends BaseService
 	{
 		$settings = array();
 
-		$settingRows = $this->Database->user_settings()->where('user_id = :1', $userId)->fetchAll();
+		$settingRows = $this->getDatabase()->user_settings()->where('user_id = :1', $userId)->fetchAll();
 		foreach ($settingRows as $settingRow)
 		{
 			$settings[$settingRow->key] = $settingRow->value;
@@ -80,7 +80,7 @@ class UsersService extends BaseService
 
 	public function SetUserSetting($userId, $settingKey, $settingValue)
 	{
-		$settingRow = $this->Database->user_settings()->where('user_id = :1 AND key = :2', $userId, $settingKey)->fetch();
+		$settingRow = $this->getDatabase()->user_settings()->where('user_id = :1 AND key = :2', $userId, $settingKey)->fetch();
 		if ($settingRow !== null)
 		{
 			$settingRow->update(array(
@@ -90,7 +90,7 @@ class UsersService extends BaseService
 		}
 		else
 		{
-			$settingRow = $this->Database->user_settings()->createRow(array(
+			$settingRow = $this->getDatabase()->user_settings()->createRow(array(
 				'user_id' => $userId,
 				'key' => $settingKey,
 				'value' => $settingValue
@@ -101,7 +101,7 @@ class UsersService extends BaseService
 
 	private function UserExists($userId)
 	{
-		$userRow = $this->Database->users()->where('id = :1', $userId)->fetch();
+		$userRow = $this->getDatabase()->users()->where('id = :1', $userId)->fetch();
 		return $userRow !== null;
 	}
 }

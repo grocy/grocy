@@ -9,6 +9,7 @@ use Grocy\Middleware\ApiKeyAuthMiddleware;
 
 $app->group('', function(RouteCollectorProxy $group)
 {
+
 	// System routes
 	$group->get('/', '\Grocy\Controllers\SystemController:Root')->setName('root');
 	$group->get('/about', '\Grocy\Controllers\SystemController:About');
@@ -113,7 +114,7 @@ $app->group('', function(RouteCollectorProxy $group)
 		$group->get('/equipment', '\Grocy\Controllers\EquipmentController:Overview');
 		$group->get('/equipment/{equipmentId}', '\Grocy\Controllers\EquipmentController:EditForm');
 	}
-	
+
 	// Calendar routes
 	if (GROCY_FEATURE_FLAG_CALENDAR)
 	{

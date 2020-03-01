@@ -2,11 +2,11 @@
 
 namespace Grocy\Services;
 
-use \Grocy\Services\StockService;
-use \Grocy\Services\TasksService;
-use \Grocy\Services\ChoresService;
-use \Grocy\Services\BatteriesService;
-use \Grocy\Services\UsersService;
+#use \Grocy\Services\StockService;
+#use \Grocy\Services\TasksService;
+#use \Grocy\Services\ChoresService;
+#use \Grocy\Services\BatteriesService;
+#use \Grocy\Services\UsersService;
 use \Grocy\Helpers\UrlManager;
 
 class CalendarService extends BaseService
@@ -14,27 +14,17 @@ class CalendarService extends BaseService
 	public function __construct()
 	{
 		parent::__construct();
-		$this->StockService = new StockService();
-		$this->TasksService = new TasksService();
-		$this->ChoresService = new ChoresService();
-		$this->BatteriesService = new BatteriesService();
 		$this->UrlManager = new UrlManager(GROCY_BASE_URL);
 	}
-
-	protected $StockService;
-	protected $TasksService;
-	protected $ChoresService;
-	protected $BatteriesService;
-	protected $UrlManager;
 
 	public function GetEvents()
 	{
 		$stockEvents = array();
 		if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 		{
-			$products = $this->Database->products();
-			$titlePrefix = $this->LocalizationService->__t('Product expires') . ': ';
-			foreach($this->StockService->GetCurrentStock() as $currentStockEntry)
+			$products = $this->getDatabase()->products();
+			$titlePrefix = $this->getLocalizationService()->__t('Product expires') . ': ';
+			foreach($this->getStockService()->GetCurrentStock() as $currentStockEntry)
 			{
 				if ($currentStockEntry->amount > 0)
 				{
@@ -50,8 +40,8 @@ class CalendarService extends BaseService
 		$taskEvents = array();
 		if (GROCY_FEATURE_FLAG_TASKS)
 		{
-			$titlePrefix = $this->LocalizationService->__t('Task due') . ': ';
-			foreach($this->TasksService->GetCurrent() as $currentTaskEntry)
+			$titlePrefix = $this->getLocalizationService()->__t('Task due') . ': ';
+			foreach($this->getTasksService()->GetCurrent() as $currentTaskEntry)
 			{
 				$taskEvents[] = array(
 					'title' => $titlePrefix . $currentTaskEntry->name,
@@ -64,19 +54,18 @@ class CalendarService extends BaseService
 		$choreEvents = array();
 		if (GROCY_FEATURE_FLAG_CHORES)
 		{
-			$usersService = new UsersService();
-			$users = $usersService->GetUsersAsDto();
+			$users = $this->getUsersService()->GetUsersAsDto();
 
-			$chores = $this->Database->chores();
-			$titlePrefix = $this->LocalizationService->__t('Chore due') . ': ';
-			foreach($this->ChoresService->GetCurrent() as $currentChoreEntry)
+			$chores = $this->getDatabase()->chores();
+			$titlePrefix = $this->getLocalizationService()->__t('Chore due') . ': ';
+			foreach($this->getChoresService()->GetCurrent() as $currentChoreEntry)
 			{
 				$chore = FindObjectInArrayByPropertyValue($chores, 'id', $currentChoreEntry->chore_id);
 
 				$assignedToText = '';
 				if (!empty($currentChoreEntry->next_execution_assigned_to_user_id))
 				{
-					$assignedToText = ' (' . $this->LocalizationService->__t('assigned to %s', FindObjectInArrayByPropertyValue($users, 'id', $currentChoreEntry->next_execution_assigned_to_user_id)->display_name) . ')';
+					$assignedToText = ' (' . $this->getLocalizationService()->__t('assigned to %s', FindObjectInArrayByPropertyValue($users, 'id', $currentChoreEntry->next_execution_assigned_to_user_id)->display_name) . ')';
 				}
 
 				$choreEvents[] = array(
@@ -90,9 +79,9 @@ class CalendarService extends BaseService
 		$batteryEvents = array();
 		if (GROCY_FEATURE_FLAG_BATTERIES)
 		{
-			$batteries = $this->Database->batteries();
-			$titlePrefix = $this->LocalizationService->__t('Battery charge cycle due') . ': ';
-			foreach($this->BatteriesService->GetCurrent() as $currentBatteryEntry)
+			$batteries = $this->getDatabase()->batteries();
+			$titlePrefix = $this->getLocalizationService()->__t('Battery charge cycle due') . ': ';
+			foreach($this->getBatteriesService()->GetCurrent() as $currentBatteryEntry)
 			{
 				$batteryEvents[] = array(
 					'title' => $titlePrefix . FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->name,
@@ -105,13 +94,13 @@ class CalendarService extends BaseService
 		$mealPlanRecipeEvents = array();
 		if (GROCY_FEATURE_FLAG_RECIPES)
 		{
-			$recipes = $this->Database->recipes();
-			$mealPlanDayRecipes = $this->Database->recipes()->where('type', 'mealplan-day');
-			$titlePrefix = $this->LocalizationService->__t('Meal plan recipe') . ': ';
+			$recipes = $this->getDatabase()->recipes();
+			$mealPlanDayRecipes = $this->getDatabase()->recipes()->where('type', 'mealplan-day');
+			$titlePrefix = $this->getLocalizationService()->__t('Meal plan recipe') . ': ';
 
 			foreach($mealPlanDayRecipes as $mealPlanDayRecipe)
 			{
-				$recipesOfCurrentDay = $this->Database->recipes_nestings_resolved()->where('recipe_id = :1 AND includes_recipe_id != :1', $mealPlanDayRecipe->id);
+				$recipesOfCurrentDay = $this->getDatabase()->recipes_nestings_resolved()->where('recipe_id = :1 AND includes_recipe_id != :1', $mealPlanDayRecipe->id);
 				foreach ($recipesOfCurrentDay as $recipeOfCurrentDay)
 				{
 					$mealPlanRecipeEvents[] = array(
@@ -123,8 +112,8 @@ class CalendarService extends BaseService
 				}
 			}
 
-			$mealPlanDayNotes = $this->Database->meal_plan()->where('type', 'note');
-			$titlePrefix = $this->LocalizationService->__t('Meal plan note') . ': ';
+			$mealPlanDayNotes = $this->getDatabase()->meal_plan()->where('type', 'note');
+			$titlePrefix = $this->getLocalizationService()->__t('Meal plan note') . ': ';
 			$mealPlanNotesEvents = array();
 			foreach($mealPlanDayNotes as $mealPlanDayNote)
 			{
@@ -135,9 +124,9 @@ class CalendarService extends BaseService
 				);
 			}
 
-			$products = $this->Database->products();
-			$mealPlanDayProducts = $this->Database->meal_plan()->where('type', 'product');
-			$titlePrefix = $this->LocalizationService->__t('Meal plan product') . ': ';
+			$products = $this->getDatabase()->products();
+			$mealPlanDayProducts = $this->getDatabase()->meal_plan()->where('type', 'product');
+			$titlePrefix = $this->getLocalizationService()->__t('Meal plan product') . ': ';
 			$mealPlanProductEvents = array();
 			foreach($mealPlanDayProducts as $mealPlanDayProduct)
 			{

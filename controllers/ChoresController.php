@@ -2,95 +2,86 @@
 
 namespace Grocy\Controllers;
 
-use \Grocy\Services\ChoresService;
-use \Grocy\Services\UsersService;
-use \Grocy\Services\UserfieldsService;
-
 class ChoresController extends BaseController
 {
 	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
-		$this->ChoresService = new ChoresService();
-		$this->UserfieldsService = new UserfieldsService();
 	}
-
-	protected $ChoresService;
-	protected $UserfieldsService;
 
 	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$usersService = new UsersService();
+		$usersService = $this->getUsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['chores_due_soon_days'];
 
-		return $this->View->render($response, 'choresoverview', [
-			'chores' => $this->Database->chores()->orderBy('name'),
-			'currentChores' => $this->ChoresService->GetCurrent(),
+		return $this->renderPage($response, 'choresoverview', [
+			'chores' => $this->getDatabase()->chores()->orderBy('name'),
+			'currentChores' => $this->getChoresService()->GetCurrent(),
 			'nextXDays' => $nextXDays,
-			'userfields' => $this->UserfieldsService->GetFields('chores'),
-			'userfieldValues' => $this->UserfieldsService->GetAllValues('chores'),
+			'userfields' => $this->getUserfieldsService()->GetFields('chores'),
+			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('chores'),
 			'users' => $usersService->GetUsersAsDto()
 		]);
 	}
 
 	public function TrackChoreExecution(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->View->render($response, 'choretracking', [
-			'chores' => $this->Database->chores()->orderBy('name'),
-			'users' => $this->Database->users()->orderBy('username')
+		return $this->renderPage($response, 'choretracking', [
+			'chores' => $this->getDatabase()->chores()->orderBy('name'),
+			'users' => $this->getDatabase()->users()->orderBy('username')
 		]);
 	}
 
 	public function ChoresList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->View->render($response, 'chores', [
-			'chores' => $this->Database->chores()->orderBy('name'),
-			'userfields' => $this->UserfieldsService->GetFields('chores'),
-			'userfieldValues' => $this->UserfieldsService->GetAllValues('chores')
+		return $this->renderPage($response, 'chores', [
+			'chores' => $this->getDatabase()->chores()->orderBy('name'),
+			'userfields' => $this->getUserfieldsService()->GetFields('chores'),
+			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('chores')
 		]);
 	}
 
 	public function Journal(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->View->render($response, 'choresjournal', [
-			'choresLog' => $this->Database->chores_log()->orderBy('tracked_time', 'DESC'),
-			'chores' => $this->Database->chores()->orderBy('name'),
-			'users' => $this->Database->users()->orderBy('username')
+		return $this->renderPage($response, 'choresjournal', [
+			'choresLog' => $this->getDatabase()->chores_log()->orderBy('tracked_time', 'DESC'),
+			'chores' => $this->getDatabase()->chores()->orderBy('name'),
+			'users' => $this->getDatabase()->users()->orderBy('username')
 		]);
 	}
 
 	public function ChoreEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$usersService = new UsersService();
+		$usersService = getUsersService();
 		$users = $usersService->GetUsersAsDto();
 
 		if ($args['choreId'] == 'new')
 		{
-			return $this->View->render($response, 'choreform', [
+			return $this->renderPage($response, 'choreform', [
 				'periodTypes' => GetClassConstants('\Grocy\Services\ChoresService', 'CHORE_PERIOD_TYPE_'),
 				'mode' => 'create',
-				'userfields' => $this->UserfieldsService->GetFields('chores'),
+				'userfields' => $this->getUserfieldsService()->GetFields('chores'),
 				'assignmentTypes' => GetClassConstants('\Grocy\Services\ChoresService', 'CHORE_ASSIGNMENT_TYPE_'),
 				'users' => $users,
-				'products' => $this->Database->products()->orderBy('name')
+				'products' => $this->getDatabase()->products()->orderBy('name')
 			]);
 		}
 		else
 		{
-			return $this->View->render($response, 'choreform', [
-				'chore' =>  $this->Database->chores($args['choreId']),
+			return $this->renderPage($response, 'choreform', [
+				'chore' =>  $this->getDatabase()->chores($args['choreId']),
 				'periodTypes' => GetClassConstants('\Grocy\Services\ChoresService', 'CHORE_PERIOD_TYPE_'),
 				'mode' => 'edit',
-				'userfields' => $this->UserfieldsService->GetFields('chores'),
+				'userfields' => $this->getUserfieldsService()->GetFields('chores'),
 				'assignmentTypes' => GetClassConstants('\Grocy\Services\ChoresService', 'CHORE_ASSIGNMENT_TYPE_'),
 				'users' => $users,
-				'products' => $this->Database->products()->orderBy('name')
+				'products' => $this->getDatabase()->products()->orderBy('name')
 			]);
 		}
 	}
 
 	public function ChoresSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->View->render($response, 'choressettings');
+		return $this->renderPage($response, 'choressettings');
 	}
 }

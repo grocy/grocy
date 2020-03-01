@@ -2,10 +2,22 @@
 
 namespace Grocy\Services;
 
-use \Grocy\Services\ApplicationService;
+#use \Grocy\Services\ApplicationService;
 
 class DatabaseService
 {
+	private static $instance = null;
+
+	public static function getInstance()
+	{
+		if (self::$instance == null)
+		{
+			self::$instance = new self();
+		}
+
+		return self::$instance;
+	}
+
 	private function GetDbFilePath()
 	{
 		if (GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease')
@@ -16,34 +28,34 @@ class DatabaseService
 		return GROCY_DATAPATH . '/grocy.db';
 	}
 
-	private $DbConnectionRaw;
+    private static $DbConnectionRaw = null;
 	/**
 	 * @return \PDO
 	 */
 	public function GetDbConnectionRaw()
 	{
-		if ($this->DbConnectionRaw == null)
+		if (self::$DbConnectionRaw == null)
 		{
 			$pdo = new \PDO('sqlite:' . $this->GetDbFilePath());
 			$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-			$this->DbConnectionRaw = $pdo;
+			self::$DbConnectionRaw = $pdo;
 		}
 
-		return $this->DbConnectionRaw;
+		return self::$DbConnectionRaw;
 	}
 
-	private $DbConnection;
+	private static $DbConnection = null;
 	/**
 	 * @return \LessQL\Database
 	 */
 	public function GetDbConnection()
 	{
-		if ($this->DbConnection == null)
+		if (self::$DbConnection == null)
 		{
-			$this->DbConnection = new \LessQL\Database($this->GetDbConnectionRaw());
+			self::$DbConnection = new \LessQL\Database($this->GetDbConnectionRaw());
 		}
 
-		return $this->DbConnection;
+		return self::$DbConnection;
 	}
 
 	/**

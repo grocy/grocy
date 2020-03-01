@@ -18,11 +18,19 @@ class UserfieldsService extends BaseService
 	public function __construct()
 	{
 		parent::__construct();
-		$this->OpenApiSpec = json_decode(file_get_contents(__DIR__ . '/../grocy.openapi.json'));
 	}
 
-	protected $OpenApiSpec;
-	
+	protected $OpenApiSpec = null;
+
+	protected function getOpenApispec()
+    {
+        if($this->OpenApiSpec == null)
+        {
+            $this->OpenApiSpec = json_decode(file_get_contents(__DIR__ . '/../grocy.openapi.json'));
+        }
+        return $this->OpenApiSpec;
+    }
+
 	public function GetFields($entity)
 	{
 		if (!$this->IsValidEntity($entity))
@@ -30,17 +38,17 @@ class UserfieldsService extends BaseService
 			throw new \Exception('Entity does not exist or is not exposed');
 		}
 
-		return $this->Database->userfields()->where('entity', $entity)->orderBy('name')->fetchAll();
+		return $this->getDatabase()->userfields()->where('entity', $entity)->orderBy('name')->fetchAll();
 	}
 
 	public function GetField($fieldId)
 	{
-		return $this->Database->userfields($fieldId);
+		return $this->getDatabase()->userfields($fieldId);
 	}
 
 	public function GetAllFields()
 	{
-		return $this->Database->userfields()->orderBy('name')->fetchAll();
+		return $this->getDatabase()->userfields()->orderBy('name')->fetchAll();
 	}
 
 	public function GetValues($entity, $objectId)
@@ -50,7 +58,7 @@ class UserfieldsService extends BaseService
 			throw new \Exception('Entity does not exist or is not exposed');
 		}
 
-		$userfields = $this->Database->userfield_values_resolved()->where('entity = :1 AND object_id = :2', $entity, $objectId)->orderBy('name')->fetchAll();
+		$userfields = $this->getDatabase()->userfield_values_resolved()->where('entity = :1 AND object_id = :2', $entity, $objectId)->orderBy('name')->fetchAll();
 		$userfieldKeyValuePairs = array();
 		foreach ($userfields as $userfield)
 		{
@@ -67,7 +75,7 @@ class UserfieldsService extends BaseService
 			throw new \Exception('Entity does not exist or is not exposed');
 		}
 
-		return $this->Database->userfield_values_resolved()->where('entity', $entity)->orderBy('name')->fetchAll();
+		return $this->getDatabase()->userfield_values_resolved()->where('entity', $entity)->orderBy('name')->fetchAll();
 	}
 
 	public function SetValues($entity, $objectId, $userfields)
@@ -79,7 +87,7 @@ class UserfieldsService extends BaseService
 
 		foreach ($userfields as $key => $value)
 		{
-			$fieldRow = $this->Database->userfields()->where('entity = :1 AND name = :2', $entity, $key)->fetch();
+			$fieldRow = $this->getDatabase()->userfields()->where('entity = :1 AND name = :2', $entity, $key)->fetch();
 
 			if ($fieldRow === null)
 			{
@@ -88,7 +96,7 @@ class UserfieldsService extends BaseService
 
 			$fieldId = $fieldRow->id;
 
-			$alreadyExistingEntry = $this->Database->userfield_values()->where('field_id = :1 AND object_id = :2', $fieldId, $objectId)->fetch();
+			$alreadyExistingEntry = $this->getDatabase()->userfield_values()->where('field_id = :1 AND object_id = :2', $fieldId, $objectId)->fetch();
 			if ($alreadyExistingEntry) // Update
 			{
 				$alreadyExistingEntry->update(array(
@@ -97,7 +105,7 @@ class UserfieldsService extends BaseService
 			}
 			else // Insert
 			{
-				$newRow = $this->Database->userfield_values()->createRow(array(
+				$newRow = $this->getDatabase()->userfield_values()->createRow(array(
 					'field_id' => $fieldId,
 					'object_id' => $objectId,
 					'value' => $value
@@ -109,10 +117,10 @@ class UserfieldsService extends BaseService
 
 	public function GetEntities()
 	{
-		$exposedDefaultEntities = $this->OpenApiSpec->components->internalSchemas->ExposedEntity->enum;
-		
+		$exposedDefaultEntities = $this->getOpenApiSpec()->components->internalSchemas->ExposedEntity->enum;
+
 		$userentities = array();
-		foreach ($this->Database->userentities()->orderBy('name') as $userentity)
+		foreach ($this->getDatabase()->userentities()->orderBy('name') as $userentity)
 		{
 			$userentities[] = 'userentity-' . $userentity->name;
 		}

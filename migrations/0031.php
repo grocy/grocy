@@ -3,9 +3,9 @@
 // This is executed inside DatabaseMigrationService class/context
 
 use \Grocy\Services\LocalizationService;
-$localizationService = new LocalizationService(GROCY_CULTURE);
+$localizationService = $this->getLocalizationService();
 
-$db = $this->DatabaseService->GetDbConnection();
+$db = $this->getDatabaseService()->GetDbConnection();
 
 if ($db->quantity_units()->count() === 0)
 {
