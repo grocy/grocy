@@ -63,7 +63,7 @@ Grocy.Components.BarcodeScanner.StartScanning = function()
 		if (error)
 		{
 			Grocy.FrontendHelpers.ShowGenericError("Error while initializing the barcode scanning library", error.message);
-			toastr.info(__t("Camera access is on only possible when supported and allowed by your browser and when grocy is served via a secure (https://) connection"));
+			toastr.info(__t("Camera access is only possible when supported and allowed by your browser and when grocy is served via a secure (https://) connection"));
 			setTimeout(function()
 			{
 				bootbox.hideAll();

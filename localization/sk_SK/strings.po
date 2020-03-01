@@ -1795,7 +1795,7 @@ msgid "Edit stock entry"
 msgstr "Upraviť zásobu"
 
 msgid ""
-"Camera access is on only possible when supported and allowed by your browser"
+"Camera access is only possible when supported and allowed by your browser"
 " and when grocy is served via a secure (https://) connection"
 msgstr ""
 "Prístup ku kamere je možný iba tam, kde to podporuje a povoľuje váš "
