@@ -156,12 +156,12 @@ $(document).on("click", "#barcodescanner-start-button", function(e)
 		closeButton: true,
 		buttons: {
 			torch: {
-				label: __t('Torch'),
-				className: 'btn-primary responsive-button',
-				callback: function(){
-					var track = Quagga.CameraAccess.getActiveTrack();
-					track.applyConstraints({advanced: [{torch:true}]});
-            		    return false;
+				label: '<i class="far fa-lightbulb"></i>',
+				className: 'btn-warning responsive-button',
+				callback: function()
+				{
+					Quagga.CameraAccess.getActiveTrack().applyConstraints({ advanced: [{ torch: true }] });
+					return false;
            		}	
 			},			
 			cancel: {
