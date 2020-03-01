@@ -2,6 +2,8 @@
 
 namespace Grocy\Controllers;
 
+use \Grocy\Services\FilesService;
+
 class FilesApiController extends BaseApiController
 {
 	public function __construct(\DI\Container $container)
