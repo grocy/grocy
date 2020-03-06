@@ -363,3 +363,6 @@ msgstr ""
 
 msgid "Czech"
 msgstr ""
+
+msgid "Portuguese (Portugal)"
+msgstr ""
