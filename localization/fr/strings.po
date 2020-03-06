@@ -11,8 +11,11 @@
 # Antonin DESFONTAINES <antonin.desfontaines@outlook.com>, 2019
 # Adrien Guillement <adrien.guillement@gmail.com>, 2019
 # Matthias Baumgartner <dersoistargate@gmail.com>, 2019
-# Guillaume RICHARD <giz.richard@gmail.com>, 2020
 # Zkryvix <angelo.frangione@gmail.com>, 2020
+# Guillaume RICHARD <giz.richard@gmail.com>, 2020
+# Bastien SOL <agentcobra57@gmail.com>, 2020
+# Bruno D'agen <iamlionem@gmail.com>, 2020
+# Laurent Mox <laurent@laurent.sh>, 2020
 # 
 msgid ""
 msgstr ""
@@ -20,7 +23,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Zkryvix <angelo.frangione@gmail.com>, 2020\n"
+"Last-Translator: Laurent Mox <laurent@laurent.sh>, 2020\n"
 "Language-Team: French (https://www.transifex.com/grocy/teams/93189/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -94,7 +97,7 @@ msgid "Battery tracking"
 msgstr "Suivi des piles"
 
 msgid "Locations"
-msgstr "Il n'y a pas d'unités disponibles à cet endroit."
+msgstr "Emplacements"
 
 msgid "Quantity units"
 msgstr "Formats"
@@ -160,7 +163,7 @@ msgid "New amount"
 msgstr "Nouvelle quantité"
 
 msgid "Note"
-msgstr "Remarques"
+msgstr "Remarque"
 
 msgid "Tracked time"
 msgstr "Réalisé le"
@@ -531,7 +534,7 @@ msgid "Not enough in stock, %1$s missing, %2$s already on shopping list"
 msgstr "Pas assez en stock,  %1$s manque, %2$s déjà dans la liste de courses"
 
 msgid "Show notes"
-msgstr "Afficher les notes"
+msgstr "Afficher les remarques"
 
 msgid "Put missing amount on shopping list"
 msgstr "Ajouter la quantité manquante dans la liste de courses"
@@ -858,7 +861,7 @@ msgid "The selected equipment has no instruction manual"
 msgstr "L'équipement sélectionné n'a pas de manuel d'utilisation"
 
 msgid "Notes"
-msgstr "Notes"
+msgstr "Remarques"
 
 msgid "Edit equipment"
 msgstr "Modifier un équipement"
@@ -986,6 +989,9 @@ msgid ""
 "When this product was marked as opened, the best before date will be "
 "replaced by today + this amount of days (a value of 0 disables this)"
 msgstr ""
+"Lorsque ce produit est marqué comme ouvert, la date \"À consommer de "
+"préférence avant\" sera remplacée par aujourd'hui + le nombre de jours (une "
+"valeur de 0 désactive ceci)"
 
 msgid "Default best before days after opened"
 msgstr "Date de péremption en jours par défaut après ouverture"
@@ -1341,8 +1347,8 @@ msgstr "Consommer %1$s de %2$s"
 msgid "Meal plan"
 msgstr "Prévisions des menus"
 
-msgid "Add recipe to %s"
-msgstr "Ajouter la recette à %s"
+msgid "Add recipe on %s"
+msgstr ""
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1786,8 +1792,8 @@ msgid "Edit stock entry"
 msgstr ""
 
 msgid ""
-"Camera access is on only possible when supported and allowed by your browser"
-" and when grocy is served via a secure (https://) connection"
+"Camera access is only possible when supported and allowed by your browser "
+"and when grocy is served via a secure (https://) connection"
 msgstr ""
 
 msgid "Keep screen on"
@@ -1797,7 +1803,7 @@ msgid "Keep screen on while displaying a \"fullscreen-card\""
 msgstr ""
 
 msgid "A purchased date is required"
-msgstr ""
+msgstr "Date d'achat obligatoire"
 
 msgid ""
 "When a product is selected, one unit (per serving in purchase quantity unit)"
@@ -1817,27 +1823,27 @@ msgid "Are you sure to delete API key \"%s\"?"
 msgstr ""
 
 msgid "Add note"
-msgstr ""
+msgstr "Ajouter une remarque"
 
-msgid "Add note to %s"
+msgid "Add note on %s"
 msgstr ""
 
 msgid "per day"
-msgstr ""
+msgstr "par jour"
 
 msgid "Compact view"
-msgstr ""
+msgstr "Vue compacte"
 
 msgid "Normal view"
-msgstr ""
+msgstr "Vue normale"
 
 msgid "Only undone items"
 msgstr ""
 
 msgid "Add product"
-msgstr ""
+msgstr "Ajouter un produit"
 
-msgid "Add product to %s"
+msgid "Add product on %s"
 msgstr ""
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
@@ -1847,13 +1853,13 @@ msgid "Meal plan recipe"
 msgstr "Recette des prévisions de repas"
 
 msgid "Meal plan note"
-msgstr ""
+msgstr "Remarque sur les prévisions des menus"
 
 msgid "Meal plan product"
 msgstr "Produit des prévisions de repas"
 
 msgid "Scan mode"
-msgstr ""
+msgstr "Mode scanner"
 
 msgid "on"
 msgstr "Allumé"
@@ -1900,3 +1906,36 @@ msgstr "Congelé"
 
 msgid "Are you sure to delete userentity \"%s\"?"
 msgstr ""
+
+msgid "Shopping list settings"
+msgstr "Paramètres de la liste de courses"
+
+msgid "Show a month-view calendar"
+msgstr ""
+
+msgid "Don't automatically switch to the compact view on mobile devices"
+msgstr ""
+
+msgid "Edit note on %s"
+msgstr ""
+
+msgid "Edit product on %s"
+msgstr ""
+
+msgid "Edit recipe on %s"
+msgstr ""
+
+msgid "Desired servings"
+msgstr "portions souhaitées"
+
+msgid "Base: %s"
+msgstr ""
+
+msgid "Recipes settings"
+msgstr ""
+
+msgid "Recipe card"
+msgstr ""
+
+msgid "Group ingredients by their product group"
+msgstr "Regrouper les ingrédients par groupe de produits"

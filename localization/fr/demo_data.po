@@ -4,6 +4,7 @@
 # Matthieu K, 2019
 # Antonin DESFONTAINES <antonin.desfontaines@outlook.com>, 2019
 # Zkryvix <angelo.frangione@gmail.com>, 2020
+# Laurent Mox <laurent@laurent.sh>, 2020
 # 
 msgid ""
 msgstr ""
@@ -11,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Zkryvix <angelo.frangione@gmail.com>, 2020\n"
+"Last-Translator: Laurent Mox <laurent@laurent.sh>, 2020\n"
 "Language-Team: French (https://www.transifex.com/grocy/teams/93189/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -339,13 +340,16 @@ msgid "Portuguese (Brazil)"
 msgstr "Portugais (Brésil)"
 
 msgid "This is a note"
-msgstr ""
+msgstr "Ceci est une note"
 
 msgid "Freezer"
 msgstr "Congélateur"
 
 msgid "Hungarian"
-msgstr ""
+msgstr "Hongrois"
 
 msgid "Slovak"
+msgstr "Slovaque"
+
+msgid "Czech"
 msgstr ""

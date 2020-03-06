@@ -44,3 +44,6 @@ If you run grocy in a subdirectory, you need to set a new `config.php` setting (
 - Optimized the top navbar height and overall spacing to waste less space
 - Replaced the scan-mode-switch-button by a native button because it's less disturbing
 - Fixed that the "contextual time ago" of date/time pickers was not displayed
+- New translations: (thanks all the translators)
+  - Czech (demo available at https://cs.demo.grocy.info)
+  - Portuguese (Brazil) (demo available at https://pt-pt.demo.grocy.info)

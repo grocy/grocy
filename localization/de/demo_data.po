@@ -343,3 +343,6 @@ msgstr "Ungarisch"
 
 msgid "Slovak"
 msgstr "Slowakisch"
+
+msgid "Czech"
+msgstr "Tschechisch"

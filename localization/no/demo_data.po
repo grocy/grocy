@@ -344,3 +344,6 @@ msgstr "Ungarsk"
 
 msgid "Slovak"
 msgstr "Slovakisk"
+
+msgid "Czech"
+msgstr ""

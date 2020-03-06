@@ -1,9 +1,10 @@
 # Translators:
 # Márk Kökény <oregapamgroup@gmail.com>, 2019
 # Ádám Kovács <kovacsadam07@outlook.hu>, 2019
-# Gabor Pilsits <gabor.pilsits@gmail.com>, 2020
 # Peter Gyetvai <gyetpet@gmail.com>, 2020
 # Gábor Szellő <gabor.szello@gmail.com>, 2020
+# Gabor Pilsits <gabor.pilsits@gmail.com>, 2020
+# b i <balazs.izso@gesundheitscloud.de>, 2020
 # 
 msgid ""
 msgstr ""
@@ -11,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Gábor Szellő <gabor.szello@gmail.com>, 2020\n"
+"Last-Translator: b i <balazs.izso@gesundheitscloud.de>, 2020\n"
 "Language-Team: Hungarian (https://www.transifex.com/grocy/teams/93189/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -73,7 +74,7 @@ msgid "Consume"
 msgstr "Felhasználás"
 
 msgid "Inventory"
-msgstr "Készlet"
+msgstr "Leltár"
 
 msgid "Shopping list"
 msgstr "Bevásárlólista"
@@ -121,7 +122,7 @@ msgid "OK"
 msgstr "OK"
 
 msgid "Product overview"
-msgstr "Termékek áttekintése"
+msgstr "Termék áttekintése"
 
 msgid "Stock quantity unit"
 msgstr "Készlet mennyiségi egység"
@@ -399,7 +400,7 @@ msgid "Consume all %s which are currently in stock"
 msgstr "Összes készleten lévő %s felhasználása"
 
 msgid "All"
-msgstr "Mind"
+msgstr "Összes"
 
 msgid "Track charge cycle of battery %s"
 msgstr "%s elem töltési ciklusának a követése"
@@ -474,10 +475,10 @@ msgid "Edit recipe ingredient"
 msgstr "Hozzávaló szerkesztése"
 
 msgid "Are you sure to delete recipe \"%s\"?"
-msgstr "Biztos benne, hogy törli a receptet \"%s\" ?"
+msgstr "Biztosan törölni szeretnéd a következő receptet: %s?"
 
 msgid "Are you sure to delete recipe ingredient \"%s\"?"
-msgstr "Biztos benne, hogy törli a recept hozzávalót \"%s\" ?"
+msgstr "Biztos benne, hogy törli a következő recept hozzávalót: %s?"
 
 msgid "Are you sure to empty shopping list \"%s\"?"
 msgstr "Biztosan kiüríted a következő bevásárló listát: %s?"
@@ -535,7 +536,7 @@ msgstr ""
 "recepthez tartózó hozzávalót?"
 
 msgid "Added for recipe %s"
-msgstr "Hozzáadva ehhez a recepthez: \"%s\""
+msgstr "Hozzáadva ehhez a recepthez: %s"
 
 msgid "Manage users"
 msgstr "Felhasználók kezelése"
@@ -603,7 +604,7 @@ msgid "Price history"
 msgstr "Ár előzmények"
 
 msgid "No price history available"
-msgstr "Nincs elérhető ár előzmények"
+msgstr "Nincs elérhető ár előzmény"
 
 msgid "Price"
 msgstr "Ár"
@@ -668,7 +669,7 @@ msgid ""
 msgstr ""
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
-msgstr "Minden hozzávaló eltávolítva a készletről ehhez: '%s'"
+msgstr "Összes hozzávaló eltávolítva a készletről ehhez: \"%s\""
 
 msgid "Consume all ingredients needed by this recipe"
 msgstr "A recept minden alapanyagának felhasználása"
@@ -796,10 +797,10 @@ msgid "From"
 msgstr ""
 
 msgid "in format"
-msgstr ""
+msgstr "formátumban"
 
 msgid "To"
-msgstr ""
+msgstr "-ig"
 
 msgid "Time range goes over midnight"
 msgstr ""
@@ -824,7 +825,7 @@ msgid "Select file"
 msgstr "Válassz fájlt"
 
 msgid "Image of product %s"
-msgstr ""
+msgstr "A termék képe %s"
 
 msgid ""
 "This product cannot be deleted because it is in stock, please remove the "
@@ -837,7 +838,7 @@ msgid "Delete not possible"
 msgstr "Nem lehetséges a törlés"
 
 msgid "Equipment"
-msgstr "Eszköz"
+msgstr "Eszközök"
 
 msgid "Instruction manual"
 msgstr "Használati útmutató"
@@ -876,10 +877,10 @@ msgid "Filter by product group"
 msgstr "Termékcsoport szerinti szűrés"
 
 msgid "Presets for new products"
-msgstr ""
+msgstr "Új termék alapértelmezett tulajdonságok"
 
 msgid "Included recipes"
-msgstr ""
+msgstr "Tartalmazza a recepteket"
 
 msgid "A recipe is required"
 msgstr " A recept megadása kötelező"
@@ -951,7 +952,7 @@ msgid "Add all list items to stock"
 msgstr "Összes listaelem hozzáadása készlethez"
 
 msgid "Add %1$s of %2$s to stock"
-msgstr ""
+msgstr "%1$s %2$s hozzáadása készlethez"
 
 msgid "Adding shopping list item %1$s of %2$s"
 msgstr ""
@@ -965,7 +966,7 @@ msgid ""
 msgstr ""
 
 msgid "Mark %1$s of %2$s as open"
-msgstr ""
+msgstr "%1$s %2$s megjelölése felbontottként"
 
 msgid ""
 "When this product was marked as opened, the best before date will be "
@@ -976,7 +977,7 @@ msgid "Default best before days after opened"
 msgstr "Alapértelmezett szavatossági idő felbontás után"
 
 msgid "Marked %1$s of %2$s as opened"
-msgstr ""
+msgstr "%1$s %2$s megjelölése felbontottként"
 
 msgid "Mark as opened"
 msgstr "Megjelölés felbontottként"
@@ -985,7 +986,7 @@ msgid "Not opened"
 msgstr "Felbontatlan"
 
 msgid "Opened"
-msgstr "Felbontva"
+msgstr "Felbontott"
 
 msgid "%s opened"
 msgstr "%s felbontva"
@@ -1009,12 +1010,15 @@ msgid "Stock settings"
 msgstr "Készlet beállítások"
 
 msgid "Shopping list to stock workflow"
-msgstr ""
+msgstr "Bevásárlólistából készletbe munkafolyamat"
 
 msgid ""
 "Automatically do the booking using the last price and the amount of the "
 "shopping list item, if the product has \"Default best before days\" set"
 msgstr ""
+"Automatikusan végezze el a foglalását a legutóbb használt árral és a "
+"bevásárló lista elem mennyiségével, ha a terméknek van \"alapértelmezett "
+"szavatossági ideje\""
 
 msgid "Skip"
 msgstr "Kihagyás"
@@ -1046,6 +1050,8 @@ msgstr "Kép"
 
 msgid "Uncheck ingredients to not put them on the shopping list"
 msgstr ""
+"Vedd ki a pipát a hozzávalók mellől, amelyeket nem szeretnél a "
+"bevásárlólistához adni:"
 
 msgid "This is for statistical purposes only"
 msgstr "Csak statisztikai céllal"
@@ -1131,7 +1137,7 @@ msgstr "Termék darabszám"
 
 msgid "Type a new product name or barcode and hit TAB to start a workflow"
 msgstr ""
-"Írj be egy új terméket vagy vonalkódot, majd nyomd meg a TAB gombot a "
+"Írj be egy új terméket vagy vonalkódot, majd nyomd meg a TAB billentyűt a "
 "munkafolyamat elindításához"
 
 msgid ""
@@ -1274,7 +1280,7 @@ msgid "Not enough in stock"
 msgstr "Nincs elegendő készleten"
 
 msgid "Expiring soon days"
-msgstr ""
+msgstr "Hamarosan lejár - napok száma"
 
 msgid "Default location"
 msgstr "Alapértelmezett hely"
@@ -1300,13 +1306,13 @@ msgid "When enabled only the day of an execution is tracked, not the time"
 msgstr ""
 
 msgid "Consume %1$s of %2$s"
-msgstr ""
+msgstr "%1$s %2$s felhasználása"
 
 msgid "Meal plan"
 msgstr "Menü terv"
 
-msgid "Add recipe to %s"
-msgstr "Recept hozzáadása ehhez: \"%s\""
+msgid "Add recipe on %s"
+msgstr ""
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1350,7 +1356,7 @@ msgid "Today"
 msgstr "Ma"
 
 msgid "Consume %1$s of %2$s as spoiled"
-msgstr ""
+msgstr "%1$s %2$s felhasználása romlottként"
 
 msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
 msgstr ""
@@ -1629,7 +1635,7 @@ msgid "Unit price"
 msgstr "Egységár"
 
 msgid "Total price"
-msgstr "Összes költség"
+msgstr "Teljes ár"
 
 msgid "in %s and based on the purchase quantity unit"
 msgstr ""
@@ -1714,12 +1720,9 @@ msgid "Edit stock entry"
 msgstr "Készlet bejegyzés szerkesztése"
 
 msgid ""
-"Camera access is on only possible when supported and allowed by your browser"
-" and when grocy is served via a secure (https://) connection"
+"Camera access is only possible when supported and allowed by your browser "
+"and when grocy is served via a secure (https://) connection"
 msgstr ""
-"A kamera hozzáférés csak akkor lehetséges, ha a böngésződ által támogatott "
-"és engedélyezett, valamint ha a Grocy egy biztonságos (https://) kapcsolaton"
-" keresztül van kiszolgálva"
 
 msgid "Keep screen on"
 msgstr "Kijelző ébren tartása"
@@ -1750,8 +1753,8 @@ msgstr "Biztosan törölni szeretnéd a következő API kulcsot: \"%s\"?"
 msgid "Add note"
 msgstr "Jegyzet hozzáadása"
 
-msgid "Add note to %s"
-msgstr "Jegyzet hozzáadása ehhez: \"%s\""
+msgid "Add note on %s"
+msgstr ""
 
 msgid "per day"
 msgstr "per nap"
@@ -1763,13 +1766,13 @@ msgid "Normal view"
 msgstr "Normál nézet"
 
 msgid "Only undone items"
-msgstr ""
+msgstr "Nem elvégzett tételek"
 
 msgid "Add product"
 msgstr "Termék hozzáadása"
 
-msgid "Add product to %s"
-msgstr "Termék hozzáadása ehhez: \"%s\""
+msgid "Add product on %s"
+msgstr ""
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
 msgstr ""
@@ -1835,3 +1838,36 @@ msgstr "Fagyasztott"
 
 msgid "Are you sure to delete userentity \"%s\"?"
 msgstr "Biztosan törölni szeretnéd a következő felhasználóentitást: \"%s\"?"
+
+msgid "Shopping list settings"
+msgstr "Bevásárlólista beállítások"
+
+msgid "Show a month-view calendar"
+msgstr "Havi-nézet naptár megjelenítése"
+
+msgid "Don't automatically switch to the compact view on mobile devices"
+msgstr "Ne kapcsoljon automatikusan kompakt nézetbe mobil eszközökön"
+
+msgid "Edit note on %s"
+msgstr ""
+
+msgid "Edit product on %s"
+msgstr ""
+
+msgid "Edit recipe on %s"
+msgstr ""
+
+msgid "Desired servings"
+msgstr ""
+
+msgid "Base: %s"
+msgstr "Alap:%s"
+
+msgid "Recipes settings"
+msgstr "Recept beállítások"
+
+msgid "Recipe card"
+msgstr "Receptkártya"
+
+msgid "Group ingredients by their product group"
+msgstr ""

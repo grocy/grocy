@@ -1,9 +1,7 @@
 # Translators:
-# Bernd Bestel <bernd@berrnd.de>, 2019
-# Mathias Fröjd <info@mcfrojd.com>, 2019
-# Jimmy Hawkin <jimmyhawkin@gmail.com>, 2019
-# Fredrik Hendeberg <fredrik@hendeberg.com>, 2019
-# Jesper Sandström <jesper@languageconsulting.se>, 2019
+# Joao Santos <joaocpdsantos@gmail.com>, 2019
+# Ricardo Rodrigues <fenix999@gmail.com>, 2020
+# Miguel Pereira <miguelpereira.pro@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -11,1035 +9,1040 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Jesper Sandström <jesper@languageconsulting.se>, 2019\n"
-"Language-Team: Swedish (Sweden) (https://www.transifex.com/grocy/teams/93189/sv_SE/)\n"
+"Last-Translator: Miguel Pereira <miguelpereira.pro@gmail.com>, 2020\n"
+"Language-Team: Portuguese (Portugal) (https://www.transifex.com/grocy/teams/93189/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv_SE\n"
+"Language: pt_PT\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Domain: grocy/strings\n"
 
 msgid "Stock overview"
-msgstr "Lageröversikt"
+msgstr "Visão geral do Stock"
 
 msgid "%s product expires"
 msgid_plural "%s products expiring"
-msgstr[0] "%s produkt går ut"
-msgstr[1] "%s produkter går ut"
+msgstr[0] "%s produto expira"
+msgstr[1] "%s produtos a expirar"
 
 msgid "within the next day"
 msgid_plural "within the next %s days"
-msgstr[0] "inom en dag"
-msgstr[1] "inom %s dagar"
+msgstr[0] "no próximo dia"
+msgstr[1] "nos próximos %s dias"
 
 msgid "%s product is already expired"
 msgid_plural "%s products are already expired"
-msgstr[0] "%s produkt har redan gått ut"
-msgstr[1] "%s produkter har redan gått ut"
+msgstr[0] "%s produto já expirou"
+msgstr[1] "%s produtos já expiraram"
 
 msgid "%s product is below defined min. stock amount"
 msgid_plural "%s products are below defined min. stock amount"
-msgstr[0] "%s produkt är under beställningspunkten"
-msgstr[1] "%s produkter är under den valda gränsen för minsta lagerantal"
+msgstr[0] "%s produto está abaixo da quantidade min. de stock"
+msgstr[1] "%s produtos estão abaixo da quantidade min. de stock"
 
 msgid "Product"
-msgstr "Produkt"
+msgstr "Produto"
 
 msgid "%s Product"
 msgid_plural "%s Products"
-msgstr[0] "%s Produkt"
-msgstr[1] "%s produkter"
+msgstr[0] "%s Produto"
+msgstr[1] "%s Produtos"
 
 msgid "Amount"
-msgstr "Belopp"
+msgstr "Quantidade"
 
 msgid "Next best before date"
-msgstr "Nästa bäst-före-datum"
+msgstr "Próxima data de validade a expirar"
 
 msgid "Logout"
-msgstr "Logga ut"
+msgstr "Logout"
 
 msgid "Chores overview"
-msgstr "Sysslor översikt"
+msgstr "Visão geral das Tarefas"
 
 msgid "Batteries overview"
-msgstr "Batterier översikt"
+msgstr "Visão geral das Pilhas"
 
 msgid "Purchase"
-msgstr "Inköp"
+msgstr "Comprar"
 
 msgid "Consume"
-msgstr "Förbruka"
+msgstr "Consumir"
 
 msgid "Inventory"
-msgstr "Lager"
+msgstr "Inventário"
 
 msgid "Shopping list"
-msgstr "Inköpslista"
+msgstr "Lista de compras"
 
 msgid "Chore tracking"
-msgstr "Spårning av sysslor"
+msgstr "Tracking de Tarefas"
 
 msgid "Battery tracking"
-msgstr "Spårning av batterier"
+msgstr "Tracking de Pilhas"
 
 msgid "Locations"
-msgstr "Platser"
+msgstr "Localizações"
 
 msgid "Quantity units"
-msgstr "Mängdenheter"
+msgstr "Unidades de medida"
 
 msgid "Chores"
-msgstr "Sysslor"
+msgstr "Tarefas"
 
 msgid "Batteries"
-msgstr "Batterier"
+msgstr "Pilhas"
 
 msgid "Chore"
-msgstr "Syssla"
+msgstr "Tarefa"
 
 msgid "Next estimated tracking"
-msgstr "Nästa beräknade spårning"
+msgstr "Próximo acompanhamento estimado"
 
 msgid "Last tracked"
-msgstr "Senast spårad"
+msgstr "Apagar lista de compras"
 
 msgid "Battery"
-msgstr "Batteri"
+msgstr "Pilha"
 
 msgid "Last charged"
-msgstr "Senast debiterad"
+msgstr "Última carga"
 
 msgid "Next planned charge cycle"
-msgstr "Nästa planerad laddningscykel"
+msgstr "Próximo ciclo de carga planeado"
 
 msgid "Best before"
-msgstr "Bäst före"
+msgstr "Consumir antes de"
 
 msgid "OK"
 msgstr "OK"
 
 msgid "Product overview"
-msgstr "Produktöversikt"
+msgstr "Visão geral do Produto"
 
 msgid "Stock quantity unit"
-msgstr "Mängdenhet för lager"
+msgstr "Unidade de medida do Stock"
 
 msgid "Stock amount"
-msgstr "Lagerantal"
+msgstr "Quantidade em stock"
 
 msgid "Last purchased"
-msgstr "Senast köpt"
+msgstr "Comprado pela última vez em"
 
 msgid "Last used"
-msgstr "Senast använd"
+msgstr "Usado pela última vez em"
 
 msgid "Spoiled"
-msgstr "Utgången"
+msgstr "Estragado"
 
 msgid "Barcode lookup is disabled"
-msgstr "Streckkodsuppslagning är inaktiverad"
+msgstr "Pesquisa por código de barras desactivada"
 
 msgid ""
 "will be added to the list of barcodes for the selected product on submit"
 msgstr ""
-"kommer att läggas till i listan över streckkoder för den valda produkten när"
-" du trycker 'skicka'"
+"ao submeter irá ser adicionado à lista de códigos de barra para o produto "
+"seleccionado"
 
 msgid "New amount"
-msgstr "Nytt antal"
+msgstr "Nova quantidade"
 
 msgid "Note"
-msgstr "Anteckning"
+msgstr "Nota"
 
 msgid "Tracked time"
-msgstr "Spårad tid"
+msgstr "Tempo registado"
 
 msgid "Chore overview"
-msgstr "Översikt över syssla"
+msgstr "Visão geral da Tarefa"
 
 msgid "Tracked count"
-msgstr "Antal spårningar"
+msgstr "Total de registos"
 
 msgid "Battery overview"
-msgstr "Batteriöversikt"
+msgstr "Visão geral da Pilha"
 
 msgid "Charge cycles count"
-msgstr "Antal laddcykler"
+msgstr "Total de ciclos de carga"
 
 msgid "Create shopping list item"
-msgstr "Skapa artikel på inköpslista"
+msgstr "Criar item na lista de compras"
 
 msgid "Edit shopping list item"
-msgstr "Redigera artikel på inköpslista"
+msgstr "Editar item da lista de compras"
 
 msgid "Save"
-msgstr "Spara"
+msgstr "Guardar"
 
 msgid "Add"
-msgstr "Lägg till"
+msgstr "Adicionar"
 
 msgid "Name"
-msgstr "Namn"
+msgstr "Nome"
 
 msgid "Location"
-msgstr "Plats"
+msgstr "Localização"
 
 msgid "Min. stock amount"
-msgstr "Minsta lagerantal"
+msgstr "Quantidade mínima de stock"
 
 msgid "QU purchase"
-msgstr "Mängdenhet köp"
+msgstr "UM compra"
 
 msgid "QU stock"
-msgstr "Mängdenhet lager"
+msgstr "UM stock"
 
 msgid "QU factor"
-msgstr "Faktor för mängdenhet"
+msgstr "UM factor"
 
 msgid "Description"
-msgstr "Beskrivning"
+msgstr "Descrição"
 
 msgid "Create product"
-msgstr "Skapa produkt"
+msgstr "Criar produto"
 
 msgid "Barcode(s)"
-msgstr "Streckkod (er)"
+msgstr "Código(s) de barras"
 
 msgid "Minimum stock amount"
-msgstr "Minsta beståndsbelopp"
+msgstr "Quantidade mínima de stock"
 
 msgid "Default best before days"
-msgstr "Standardantal bäst-före-dagar"
+msgstr "Data de validade padrão"
 
 msgid "Quantity unit purchase"
-msgstr "Mängdenhet inköp"
+msgstr "Unidade de medida da compra"
 
 msgid "Quantity unit stock"
-msgstr "Kvantitetsenhet lager"
+msgstr "Unidade de medida do stock"
 
 msgid "Factor purchase to stock quantity unit"
-msgstr "Faktorera mängdenhet för inköp mot mängdenhet för lager"
+msgstr "Unidade de medida do stock por compra"
 
 msgid "Create location"
-msgstr "Skapa plats"
+msgstr "Criar localização"
 
 msgid "Create quantity unit"
-msgstr "Skapa mängdenhet"
+msgstr "Criar unidade de medida"
 
 msgid "Period type"
-msgstr "Periodstyp"
+msgstr "Tipo de periodo"
 
 msgid "Period days"
-msgstr "Antal dagar i perioden"
+msgstr "Dias do periodo"
 
 msgid "Create chore"
-msgstr "Skapa syssla"
+msgstr "Criar tarefa"
 
 msgid "Used in"
-msgstr "Använd i"
+msgstr "Usado em"
 
 msgid "Create battery"
-msgstr "Skapa batteri"
+msgstr "Criar Pilha"
 
 msgid "Edit battery"
-msgstr "Redigera batteri"
+msgstr "Editar Pilha"
 
 msgid "Edit chore"
-msgstr "Redigera syssla"
+msgstr "Editar Tarefa"
 
 msgid "Edit quantity unit"
-msgstr "Redigera mängdenhet"
+msgstr "Editar unidade de medida"
 
 msgid "Edit product"
-msgstr "Redigera produkt"
+msgstr "Editar Produto"
 
 msgid "Edit location"
-msgstr "Redigera plats"
+msgstr "Editar Localização"
 
 msgid "Record data"
-msgstr "Spara data"
+msgstr "Gravar dados"
 
 msgid "Manage master data"
-msgstr "Hantera övergripande data"
+msgstr "Gerir dados mestre"
 
 msgid "This will apply to added products"
-msgstr "Detta gäller för tillagda produkter"
+msgstr "Isto será aplicado a todos os produtos"
 
 msgid "never"
-msgstr "aldrig"
+msgstr "nunca"
 
 msgid "Add products that are below defined min. stock amount"
-msgstr "Lägg till produkter som är under det angivna minsta lagerantalet"
+msgstr ""
+"Adicionar produtos que estão abaixo da quantidade min. de stock definida"
 
 msgid ""
 "For purchases this amount of days will be added to today for the best before"
 " date suggestion"
 msgstr ""
-"För inköp kommer denna mängd dagar att läggas till idag för det bästa före "
-"datumförslaget"
+"Numa compra este número de dias irá ser adicionado ao dia de hoje como "
+"sugestão de prazo de validade"
 
 msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
 msgstr ""
-"Detta betyder at 1 %1$s köpta kommer att konverteras till %2$s %3$s i lager"
+"Isto significa que 1 %1$s comprado irá ser convertido em %2$s %3$s em stock"
 
 msgid "Login"
-msgstr "Logga in"
+msgstr "Login"
 
 msgid "Username"
-msgstr "Användarnamn"
+msgstr "Nome de utilizador"
 
 msgid "Password"
-msgstr "Lösenord"
+msgstr "Palavra passe"
 
 msgid "Invalid credentials, please try again"
-msgstr "Ogiltiga uppgifter, var god försök igen"
+msgstr "Credenciais incorrectas, por favor tente novamente"
 
 msgid "Are you sure to delete battery \"%s\"?"
-msgstr "Är du säker på att radera batteri \"%s\"?"
+msgstr "Tem a certeza que pretende eliminar a pilha \"%s\"?"
 
 msgid "Yes"
-msgstr "Ja"
+msgstr "Sim"
 
 msgid "No"
-msgstr "Nej"
+msgstr "Não"
 
 msgid "Are you sure to delete chore \"%s\"?"
-msgstr "Är du säker på att radera sysslan \"%s\"?"
+msgstr "Tem a certeza que pretende eliminar a tarefa \"%s\"?"
 
 msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
-msgstr "\"%s\" kunde inte hittas som produkt, hur vill du fortsätta?"
+msgstr ""
+"Não foi possivel identificar \"%s\" como um produto, como pretende "
+"prosseguir?"
 
 msgid "Create or assign product"
-msgstr "Skapa eller tilldela produkt"
+msgstr "Criar ou atribuir a produto"
 
 msgid "Cancel"
-msgstr "Avbryt"
+msgstr "Cancelar"
 
 msgid "Add as new product"
-msgstr "Lägg till som ny produkt"
+msgstr "Adicionar como novo produto"
 
 msgid "Add as barcode to existing product"
-msgstr "Lägg till som streckkod till befintlig produkt"
+msgstr "Adicionar como código de barras de um produto já existente"
 
 msgid "Add as new product and prefill barcode"
-msgstr "Lägg till som ny produkt och fyll i streckkoden"
+msgstr "Adicionar como novo produto e preencher código de barras"
 
 msgid "Are you sure to delete quantity unit \"%s\"?"
-msgstr "Är du säker på att radera mängdenheten \"%s\"?"
+msgstr "Tem a certeza que pretende eliminar a unidade de medida \"%s\"?"
 
 msgid "Are you sure to delete product \"%s\"?"
-msgstr "Är du säker på att du vill radera produkten \"%s\"?"
+msgstr "Tem a certeza que pretende eliminar o produto \"%s\"?"
 
 msgid "Are you sure to delete location \"%s\"?"
-msgstr "Är du säker på att du vill radera platsen \"%s\"?"
+msgstr "Tem a certeza que pretende eliminar o local \"%s\"?"
 
 msgid "Manage API keys"
-msgstr "Hantera API-nycklar"
+msgstr "Gerir chaves da API"
 
 msgid "REST API & data model documentation"
-msgstr "REST API och dokumentation för datamodell"
+msgstr "REST API e documentação do modelo de dados"
 
 msgid "API keys"
-msgstr "API-nycklar"
+msgstr "Chaves da API"
 
 msgid "Create new API key"
-msgstr "Skapa ny API-nyckel"
+msgstr "Criar uma nova chave da API"
 
 msgid "API key"
-msgstr "API-nyckel"
+msgstr "Chave da API"
 
 msgid "Expires"
-msgstr "Löper ut"
+msgstr "Expira"
 
 msgid "Created"
-msgstr "Skapad"
+msgstr "Criada"
 
 msgid "This product is not in stock"
-msgstr "Denna produkt finns inte i lager"
+msgstr "Este produto não existe em stock"
 
 msgid "This means %s will be added to stock"
-msgstr "Detta betyder att %s kommer att läggas till lager"
+msgstr "Isto significa que %s será adicionado ao stock"
 
 msgid "This means %s will be removed from stock"
-msgstr "Detta betyder att %s kommer att tas bort från lager"
+msgstr "Isto significa que %s será removido do stock"
 
 msgid ""
 "This means the next execution of this chore is scheduled %s days after the "
 "last execution"
 msgstr ""
-"Det innebär att nästa utförande av denna syssla schemaläggs 1%s dagar efter "
-"att den senast utförts"
+"Isto significa que a próxima tarefa será agendada para %s dias depois da "
+"última execução."
 
 msgid "Removed %1$s of %2$s from stock"
-msgstr "Tog bort %1$s  %2$s från lagret"
+msgstr "Removidos %1$s de %2$s do stock"
 
 msgid "About grocy"
-msgstr "Om grocy"
+msgstr "Acerca do grocy"
 
 msgid "Close"
-msgstr "Stäng"
+msgstr "Fechar"
 
 msgid "Released on"
-msgstr "Utgiven"
+msgstr "Lançado em"
 
 msgid "Added %1$s of %2$s to stock"
-msgstr "Lade till %1$s %2$s till lagret"
+msgstr "Adicionado %1$s de %2$s ao stock"
 
 msgid "Stock amount of %1$s is now %2$s"
-msgstr "Mängden %1$s i lager är nu %2$s"
+msgstr "Quantidade de stock de %1$s é agora %2$s"
 
 msgid "Tracked execution of chore %1$s on %2$s"
-msgstr "Spårat utförandet av syssla %1$s den %2$s"
+msgstr "Acompanhamento da tarefa %1$s de %2$s"
 
 msgid "Tracked charge cycle of battery %1$s on %2$s"
-msgstr "Spårade laddningscykeln för batteri %1$s den %2$s"
+msgstr "Registado o ciclo de carga da bateria %1$s em %2$s"
 
 msgid "Consume all %s which are currently in stock"
-msgstr "Förbruka alla %s som för närvarande finns i lager"
+msgstr "Usar todos os/as %s que estão em stock"
 
 msgid "All"
-msgstr "Alla"
+msgstr "Todos"
 
 msgid "Track charge cycle of battery %s"
-msgstr "Spåra laddningscykel för batteriet %s"
+msgstr "Registar o ciclo de carga da bateria %s"
 
 msgid "Track execution of chore %s"
-msgstr "Spåra utförandet av syssla %s"
+msgstr "Registar a execução da tarefa %s"
 
 msgid "Filter by location"
-msgstr "Filtrera efter plats"
+msgstr "Filtrar por localização"
 
 msgid "Search"
-msgstr "Sök"
+msgstr "Procurar"
 
 msgid "Not logged in"
-msgstr "Inte inloggad"
+msgstr "Login não efectuado"
 
 msgid "You have to select a product"
-msgstr "Du måste välja en produkt"
+msgstr "Tem que seleccionar um produto"
 
 msgid "You have to select a chore"
-msgstr "Du måste välja en syssla"
+msgstr "Tem que seleccionar uma tarefa"
 
 msgid "You have to select a battery"
-msgstr "Du måste välja ett batteri"
+msgstr "Tem que seleccionar uma pilha"
 
 msgid "A name is required"
-msgstr "Ett namn krävs"
+msgstr "O nome é obrigatório"
 
 msgid "A location is required"
-msgstr "En plats krävs"
+msgstr "A localização é obrigatória"
 
 msgid "The amount cannot be lower than %s"
-msgstr "Mängden kan inte vara lägre än %s"
+msgstr "A quantidade não pode ser menor do que %s"
 
 msgid "This cannot be negative"
-msgstr "Detta kan inte vara negativt"
+msgstr "Isto não pode ser negativo"
 
 msgid "A quantity unit is required"
-msgstr "En mängdenhet krävs"
+msgstr "Uma unidade de medida é obrigatória"
 
 msgid "A period type is required"
-msgstr "En periodstyp krävs"
+msgstr "Um tipo de periodo é obrigatório"
 
 msgid "A best before date is required"
-msgstr "Ett bäst-före-datum krävs"
+msgstr "O prazo de validade é obrigatório"
 
 msgid "Settings"
-msgstr "inställningar"
+msgstr "Definições"
 
 msgid "This can only be before now"
-msgstr "Detta kan bara vara en tidpunkt tidigare än just nu"
+msgstr "Apenas pode ser anterior a hoje"
 
 msgid "Calendar"
-msgstr "Kalender"
+msgstr "Calendário"
 
 msgid "Recipes"
-msgstr "Recept"
+msgstr "Receitas"
 
 msgid "Edit recipe"
-msgstr "Redigera recept"
+msgstr "Editar receita"
 
 msgid "New recipe"
-msgstr "Nytt recept"
+msgstr "Nova receita"
 
 msgid "Ingredients list"
-msgstr "Ingredienslista"
+msgstr "Lista de ingredientes"
 
 msgid "Add recipe ingredient"
-msgstr "Lägg till receptingrediens"
+msgstr "Adicionar ingrediente da receita"
 
 msgid "Edit recipe ingredient"
-msgstr "Redigera receptingrediens"
+msgstr "Editar ingrediente da receita"
 
 msgid "Are you sure to delete recipe \"%s\"?"
-msgstr "Är du säker på att du vill radera receptet \"%s\"?"
+msgstr "Pretende eliminar a receita \"%s\"?"
 
 msgid "Are you sure to delete recipe ingredient \"%s\"?"
-msgstr "Är du säker på att du vill radera receptingrediensen \"%s\"?"
+msgstr "Pretende eliminar o ingrediente da receita \"%s\"?"
 
 msgid "Are you sure to empty shopping list \"%s\"?"
-msgstr "Är du säker på att du vill tömma inköpslistan \"%s\"?"
+msgstr "Pretende esvaziar a lista de compras \"%s\"?"
 
 msgid "Clear list"
-msgstr "Töm lista"
+msgstr "Esvaziar lista"
 
 msgid "Requirements fulfilled"
-msgstr "Krav uppfyllda"
+msgstr "Requisitos cumpridos"
 
 msgid "Put missing products on shopping list"
-msgstr "Sätt saknade produkter i inköpslista"
+msgstr "Colocar produtos em falta na lista de compras"
 
 msgid "Enough in stock"
-msgstr "Tillräckligt i lager"
+msgstr "Suficiente em stock"
 
 msgid ""
 "Not enough in stock, %s ingredient missing but already on the shopping list"
 msgid_plural ""
 "Not enough in stock, %s ingredients missing but already on the shopping list"
 msgstr[0] ""
-"Inte tillräckligt mycket i lager, %s ingrediens saknas men finns redan på "
-"inköpslistan"
+"Não existe suficiente em stock, %s ingrediente em falta mas já na lista de "
+"compras"
 msgstr[1] ""
-"Inte tillräckligt mycket i lager, %s ingredienser saknas men finns redan i "
-"inköpslistan"
+"Não existe suficiente em stock, %s ingredientes em falta mas já na lista de "
+"compras"
 
 msgid "Expand to fullscreen"
-msgstr "Expandera till fullskärm"
+msgstr "Expandir para ecrã inteiro"
 
 msgid "Ingredients"
-msgstr "Ingredienser"
+msgstr "Ingredientes"
 
 msgid "Preparation"
-msgstr "Förberedelse"
+msgstr "Preparação"
 
 msgid "Recipe"
-msgstr "Recept"
+msgstr "Receita"
 
 msgid "Not enough in stock, %1$s missing, %2$s already on shopping list"
 msgstr ""
-"Inte tillräckligt mycket i lager, %1$s saknas, %2$s finns redan på "
-"inköpslistan"
+"Não existe suficiente em stock, %1$s em falta, %2$s já na lista de compras"
 
 msgid "Show notes"
-msgstr "Visa anteckningar"
+msgstr "Mostrar notas"
 
 msgid "Put missing amount on shopping list"
-msgstr "Lägg till saknat antal i inköpslistan"
+msgstr "Colocar quantidade em falta na lista de compras"
 
 msgid ""
 "Are you sure to put all missing ingredients for recipe \"%s\" on the "
 "shopping list?"
 msgstr ""
-"Är du säker på att lägga alla saknade ingredienser för receptet \"%s\" på "
-"köplistan?"
+"Pretende colocar todos os produtos em falta da receita \"%s\" na lista de "
+"compras?"
 
 msgid "Added for recipe %s"
-msgstr "Tillagd för recept %s"
+msgstr "Adicionado para a receita %s"
 
 msgid "Manage users"
-msgstr "Hantera användare"
+msgstr "Gerir utilizadores"
 
 msgid "User"
-msgstr "Användare"
+msgstr "Utilizador"
 
 msgid "Users"
-msgstr "användare"
+msgstr "Utilizadores"
 
 msgid "Are you sure to delete user \"%s\"?"
-msgstr "Vill du radera användaren \"%s\"?"
+msgstr "Pretende eliminar o utilizador \"%s\"?"
 
 msgid "Create user"
-msgstr "Skapa användare"
+msgstr "Criar utilizador"
 
 msgid "Edit user"
-msgstr "Redigera användare"
+msgstr "Editar utilizador"
 
 msgid "First name"
-msgstr "Förnamn"
+msgstr "Nome"
 
 msgid "Last name"
-msgstr "Efternamn"
+msgstr "Apelido"
 
 msgid "A username is required"
-msgstr "Ett användarnamn är obligatoriskt"
+msgstr "Nome de utilizador é obrigatório"
 
 msgid "Confirm password"
-msgstr "Bekräfta lösenord"
+msgstr "Confirmar palavra passe"
 
 msgid "Passwords do not match"
-msgstr "Lösenorden matchar inte"
+msgstr "Palavras passes não são iguais"
 
 msgid "Change password"
-msgstr "ändra lösenord"
+msgstr "Alterar palavra passe"
 
 msgid "Done by"
-msgstr "Gjord av"
+msgstr "Efectuado por"
 
 msgid "Last done by"
-msgstr "Senast gjord av"
+msgstr "Efectuado na ultima vez por"
 
 msgid "Unknown"
-msgstr "Okänd"
+msgstr "Desconhecido"
 
 msgid "Filter by chore"
-msgstr "Filtrera efter syssla"
+msgstr "Filtrar por tarefa"
 
 msgid "Chores journal"
-msgstr "Sysslor journal"
+msgstr "Diário de tarefas"
 
 msgid "0 means suggestions for the next charge cycle are disabled"
-msgstr "0 betyder att förslag till nästa laddningscykel är inaktiverade"
+msgstr ""
+"0 significa que as sugestões para o próximo ciclo de carga estão "
+"desactivadas"
 
 msgid "Charge cycle interval (days)"
-msgstr "Laddningscykelintervall (dagar)"
+msgstr "Periodo do ciclo de carga (dias)"
 
 msgid "Last price"
-msgstr "Sista priset"
+msgstr "Ultimo preço"
 
 msgid "Price history"
-msgstr "Prishistoria"
+msgstr "Histórico de preços"
 
 msgid "No price history available"
-msgstr "Ingen prishistoria tillgänglig"
+msgstr "Histórico de preços não está disponivel"
 
 msgid "Price"
-msgstr "Pris"
+msgstr "Preço"
 
 msgid "in %s per purchase quantity unit"
-msgstr "i %s per inköpskvantitetsenhet"
+msgstr "em %s por unidade de medida de compra"
 
 msgid "The price cannot be lower than %s"
-msgstr "Priset kan inte vara lägre än %s"
+msgstr "O preço não pode ser inferior a %s"
 
 msgid "Unit"
-msgstr "Enhet"
+msgstr "Unidade"
 
 msgid "%s Unit"
 msgid_plural "%s Units"
-msgstr[0] "%s Enhet"
-msgstr[1] "%s Enheter"
+msgstr[0] "%s Unidade"
+msgstr[1] "%s Unidades"
 
 msgid "%s chore is due to be done"
 msgid_plural "%s chores are due to be done"
-msgstr[0] "%s syssla att utföra"
-msgstr[1] "%s sysslor att utföra"
+msgstr[0] "%s tarefa está agendada"
+msgstr[1] "%s tarefas estão agendadas "
 
 msgid "%s chore is overdue to be done"
 msgid_plural "%s chores are overdue to be done"
-msgstr[0] "%s syssla är försenad"
-msgstr[1] "%s sysslor är försenade"
+msgstr[0] "%s tarefa já ultrapassou o prazo"
+msgstr[1] "%s tarefas já ultrapassaram o prazo"
 
 msgid "%s battery is due to be charged"
 msgid_plural "%s batteries are due to be charged"
-msgstr[0] "%s batteri behöver laddas"
-msgstr[1] "%sbatterier behöver laddas"
+msgstr[0] "%s pilha precisa ser carregada"
+msgstr[1] "%s pilhas precisam ser carregadas"
 
 msgid "%s battery is overdue to be charged"
 msgid_plural "%s batteries are overdue to be charged"
-msgstr[0] "%s batteri borde redan ha laddats"
-msgstr[1] "%s batterier borde redan ha laddats"
+msgstr[0] "%s pilha ultrapassou o prazo para ser carregada"
+msgstr[1] "%s pilhas ultrapassaram o prazo para serem carregadas"
 
 msgid "in singular form"
-msgstr "i singular form"
+msgstr "no singular"
 
 msgid "Never expires"
-msgstr "Går aldrig ut"
+msgstr "Nunca expira"
 
 msgid "This cannot be lower than %s"
-msgstr "Detta kan inte vara lägre än %s"
+msgstr "Não pode ser mais baixo do que %s"
 
 msgid "-1 means that this product never expires"
-msgstr "-1 betyder att denna produkt aldrig löper ut"
+msgstr "-1 significa que o produto nunca expira"
 
 msgid "Quantity unit"
-msgstr "Mängdenhet"
+msgstr "Unidade de medida"
 
 msgid ""
 "Only check if a single unit is in stock (a different quantity can then be "
 "used above)"
 msgstr ""
-"Kontrollera bara om en enda enhet finns i lager (en annan mängd kan sedan "
-"användas ovan)"
+"Marcar se apenas uma única unidade se encontra em stock (uma quantidade "
+"diferente pode depois ser usada acima)"
 
 msgid ""
 "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
 " marked with \"check only if a single unit is in stock\" will be ignored)?"
 msgstr ""
-"Är du säker på att konsumera alla ingredienser som behövs med receptet "
-"\"%s\" (ingredienser märkta med \"kontrollera endast om en enhet finns i "
-"lager\" kommer att ignoreras)?"
+"Pretende consumir todos os ingredientes necessários para a receita \"%s\" "
+"(ingredientes identificados com \"Marcar apenas se apenas uma unidade se "
+"encontra em stock\" serão ignorados)?"
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
-msgstr "Ta bort alla ingredienser i receptet \"%s\" från lager"
+msgstr "Remover todos os ingredientes da receita \"%s\" do stock"
 
 msgid "Consume all ingredients needed by this recipe"
-msgstr "Konsumera alla ingredienser som behövs av detta recept"
+msgstr "Consumir todos os ingredientes necessários nesta receita"
 
 msgid "Click to show technical details"
-msgstr "Klicka för att visa tekniska detaljer"
+msgstr "Clicar para ver detalhes técnicos"
 
 msgid "Error while saving, probably this item already exists"
-msgstr "Ett fel uppstod vid lagring, förmodligen finns det här objektet"
+msgstr "Erro ao gravar, provavelmente este item já existe"
 
 msgid "Error details"
-msgstr "Detaljer om felet"
+msgstr "Detalhes do erro"
 
 msgid "Tasks"
-msgstr "Uppgifter"
+msgstr "Tarefas"
 
 msgid "Show done tasks"
-msgstr "Visa utförda uppgifter"
+msgstr "Mostrar tarefas concluidas"
 
 msgid "Task"
-msgstr "Uppgift"
+msgstr "Tarefa"
 
 msgid "Due"
-msgstr "Till följd av"
+msgstr "Agendado para"
 
 msgid "Assigned to"
-msgstr "Tilldelats"
+msgstr "Atribuído a"
 
 msgid "Mark task \"%s\" as completed"
-msgstr "Markera uppgiften \"%s\" som färdigställd"
+msgstr "Marcar tarefa \"%s\" como concluída"
 
 msgid "Uncategorized"
-msgstr "Okategoriserad"
+msgstr "Sem categoria"
 
 msgid "Task categories"
-msgstr "Uppgiftskategorier"
+msgstr "Categorias das tarefas"
 
 msgid "Create task"
-msgstr "Skapa uppgift"
+msgstr "Criar tarefa"
 
 msgid "A due date is required"
-msgstr "Förfallodatum krävs"
+msgstr "A data de agendamento é obrigatória"
 
 msgid "Category"
-msgstr "Kategori"
+msgstr "Categoria"
 
 msgid "Edit task"
-msgstr "Redigera uppgiften"
+msgstr "Editar tarefa"
 
 msgid "Are you sure to delete task \"%s\"?"
-msgstr "Är du säker på att ta bort uppgift \"%s\"?"
+msgstr "Pretende eliminar a tarefa \"%s\"?"
 
 msgid "%s task is due to be done"
 msgid_plural "%s tasks are due to be done"
-msgstr[0] "%s uppgift skall utföras"
-msgstr[1] "%s uppgifter skall utföras"
+msgstr[0] "%s tarefa agendada"
+msgstr[1] "%s tarefas agendadas"
 
 msgid "%s task is overdue to be done"
 msgid_plural "%s tasks are overdue to be done"
-msgstr[0] "%s uppgift är försenad"
-msgstr[1] "%s uppgifter är försenade"
+msgstr[0] "%s tarefas pendentes de execução"
+msgstr[1] "%staferas pendentes de realização"
 
 msgid "Edit task category"
-msgstr "Redigera uppgiftskategori"
+msgstr "Editar categoria da tarefa"
 
 msgid "Create task category"
-msgstr "Skapa uppgiftskategori"
+msgstr "Criar categoria da tarefa"
 
 msgid "Product groups"
-msgstr "Produktgrupper"
+msgstr "Grupos de produto"
 
 msgid "Ungrouped"
-msgstr "ogrupperade"
+msgstr "Sem agrupar"
 
 msgid "Create product group"
-msgstr "Skapa produktgrupp"
+msgstr "Criar grupo de produtos"
 
 msgid "Edit product group"
-msgstr "Redigera produktgrupp"
+msgstr "Editar grupos de produto"
 
 msgid "Product group"
-msgstr "Produktgrupp"
+msgstr "Grupo de produto"
 
 msgid "Are you sure to delete product group \"%s\"?"
-msgstr "Är du säker på att radera produktgrupp \"%s\"?"
+msgstr "Estás seguro que queres apagar o grupo de produtos \"%s\"?"
 
 msgid "Stay logged in permanently"
-msgstr "Håll dig inloggad permanent"
+msgstr "Permanecer com a sessão aberta"
 
 msgid "When not set, you will get logged out at latest after 30 days"
-msgstr ""
-"När du inte är inställd kommer du att bli utloggad senast efter 30 dagar"
+msgstr "Quando não marcado, a sessão encerrará em no máximo 30 dias"
 
 msgid "Filter by status"
-msgstr "Filtrera efter status"
+msgstr "Filtrar por estado"
 
 msgid "Below min. stock amount"
-msgstr "Under min. lagerbelopp"
+msgstr "Por debaixo da quantidade min. de stock"
 
 msgid "Expiring soon"
-msgstr "Förfallande snart"
+msgstr "Expira em breve"
 
 msgid "Already expired"
-msgstr "Redan utgått"
+msgstr "Já expirado"
 
 msgid "Due soon"
-msgstr "Förfaller snart"
+msgstr "previsto em breve"
 
 msgid "Overdue"
-msgstr "Försenad"
+msgstr "Caducado"
 
 msgid "View settings"
-msgstr "Visa inställningar"
+msgstr "Ver configuração"
 
 msgid "Auto reload on external changes"
-msgstr "Auto reload på externa ändringar"
+msgstr "Auto recarrega  com alterações externas"
 
 msgid "Enable night mode"
-msgstr "Aktivera nattläge"
+msgstr "Habilitar modo de noite"
 
 msgid "Auto enable in time range"
-msgstr "Automatisk aktivering i tidsintervall"
+msgstr "Auto activado no limite de tempo"
 
 msgid "From"
-msgstr "Från"
+msgstr "Desde"
 
 msgid "in format"
-msgstr "i format"
+msgstr "em formato"
 
 msgid "To"
-msgstr "Till"
+msgstr "Para"
 
 msgid "Time range goes over midnight"
-msgstr "Tidsintervallet går över midnatt"
+msgstr "Limite de tempo passa a meia-noite"
 
 msgid "Product picture"
-msgstr "Produktbild"
+msgstr "Foto do produto"
 
 msgid "No file selected"
-msgstr "Ingen fil vald"
+msgstr "Não existe ficheiro seleccionado"
 
 msgid "If you don't select a file, the current picture will not be altered"
-msgstr "Om du inte väljer en fil, kommer inte den nuvarande bilden att ändras"
+msgstr "Se não seleccionar um ficheiro, a imagem não será alterada"
 
 msgid "Delete"
-msgstr "Radera"
+msgstr "Apagar"
 
 msgid "The current picture will be deleted when you save the product"
-msgstr "Den aktuella bilden raderas när du sparar produkten"
+msgstr "A imagem actual será apagada quando salvar o produto"
 
 msgid "Select file"
-msgstr "Välj fil"
+msgstr "Seleccionar ficheiro"
 
 msgid "Image of product %s"
-msgstr "Bild av produkt nr 1"
+msgstr "Imagem do produto %s"
 
 msgid ""
 "This product cannot be deleted because it is in stock, please remove the "
 "stock amount first."
 msgstr ""
-"Den här produkten kan inte raderas eftersom den finns i lager, var god ta "
-"bort lagerbeloppet först."
+"Este produto não pode ser apagado porque está em stock, por favor, elimine o"
+" stock antes"
 
 msgid "Delete not possible"
-msgstr "Radera inte möjligt"
+msgstr "Não é possível eliminar"
 
 msgid "Equipment"
-msgstr "Utrustning"
+msgstr "Equipamento"
 
 msgid "Instruction manual"
-msgstr "Instruktionsmanual"
+msgstr "Manual de instruções"
 
 msgid "The selected equipment has no instruction manual"
-msgstr "Den valda utrustningen har ingen bruksanvisning"
+msgstr "O equipamento seleccionado não tem manual de instruções"
 
 msgid "Notes"
-msgstr "Anteckningar"
+msgstr "Notas"
 
 msgid "Edit equipment"
-msgstr "Redigera utrustning"
+msgstr "Editar equipamento"
 
 msgid "Create equipment"
-msgstr "Skapa utrustning"
+msgstr "Criar equipamento"
 
 msgid ""
 "If you don't select a file, the current instruction manual will not be "
 "altered"
-msgstr "Om du inte väljer en fil, så kommer inte manualen att ändras"
+msgstr ""
+"Se não seleccionar um ficheiro, o manual de instruções actual não será "
+"alterado"
 
 msgid "No instruction manual available"
-msgstr "Ingen instruktionsbok tillgänglig"
+msgstr "Manual de instruções não disponível"
 
 msgid ""
 "The current instruction manual will be deleted when you save the equipment"
-msgstr "Den nuvarande bruksanvisningen raderas när du sparar utrustningen"
+msgstr ""
+"O actual manual de instruções será apagado quando salvar o equipamento"
 
 msgid "No picture available"
-msgstr "Ingen bild tillgänglig"
+msgstr "Sem imagem disponível"
 
 msgid "Filter by product group"
-msgstr "Filtrera efter produktgrupp"
+msgstr "Filtra por grupo de produto"
 
 msgid "Presets for new products"
-msgstr "Förinställningar för nya produkter"
+msgstr "Configurações para novos produtos"
 
 msgid "Included recipes"
-msgstr "Inkluderade recept"
+msgstr "Receitas incluídas"
 
 msgid "A recipe is required"
-msgstr "Ett recept krävs"
+msgstr "É necessário uma receita"
 
 msgid "Add included recipe"
-msgstr "Lägg till medföljande recept"
+msgstr "Adicionar receita incluída"
 
 msgid "Edit included recipe"
-msgstr "Redigera inkluderat recept"
+msgstr "Editar receita incluída"
 
 msgid "Group"
-msgstr "Grupp"
+msgstr "Grupo"
 
 msgid "This will be used as a headline to group ingredients together"
-msgstr ""
-"Detta kommer att användas som en rubrik för att gruppera ingredienser "
-"tillsammans"
+msgstr "Este será usado como cabeçalho para agrupar os ingredientes"
 
 msgid "Journal"
-msgstr "Journal"
+msgstr "Diário"
 
 msgid "Stock journal"
-msgstr "Lager journal"
+msgstr "Diário do stock"
 
 msgid "Filter by product"
-msgstr "Filtrera efter produkt"
+msgstr "Filtrar por produto"
 
 msgid "Booking time"
-msgstr "Bokningstid"
+msgstr "Tempo de reserva"
 
 msgid "Booking type"
-msgstr "Bokningstyp"
+msgstr "Tipo de reserva"
 
 msgid "Undo booking"
-msgstr "Ångra bokning"
+msgstr "Desfazer reserva"
 
 msgid "Undone on"
-msgstr "Ogjord den"
+msgstr "Desfeito em"
 
 msgid "Batteries journal"
-msgstr "Batterier journal"
+msgstr "Diário de pilhas"
 
 msgid "Filter by battery"
-msgstr "Filtrera med batteri"
+msgstr "Filtrar por bateria"
 
 msgid "Undo charge cycle"
-msgstr "Ångra laddningscykel"
+msgstr "Anular ciclo de carga"
 
 msgid "Undo chore execution"
-msgstr "Ångra utförande av syssla"
+msgstr "Anular a execução da tarefa"
 
 msgid "Chore execution successfully undone"
-msgstr "Ångrande av sysslan är framgångsrikt utförd"
+msgstr "Execução da tarefa anulada com sucesso"
 
 msgid "Undo"
-msgstr "Ångra"
+msgstr "Anular"
 
 msgid "Booking successfully undone"
-msgstr "Bokningen lyckades obefintlig"
+msgstr "Reserva anulada com sucesso"
 
 msgid "Charge cycle successfully undone"
-msgstr "Laddningscykeln är framgångsrikt borttagen"
+msgstr "Ciclo de carga anulado com sucesso"
 
 msgid "This cannot be negative and must be an integral number"
-msgstr "Detta kan inte vara negativt och måste vara ett integrerat nummer"
+msgstr "Não pode ser um número negativo e tem de ser um número inteiro"
 
 msgid "Disable stock fulfillment checking for this ingredient"
-msgstr "Inaktivera kontroll av lageruppfyllelse för denna ingrediens"
+msgstr "Desactivar verificação do stock para este ingrediente"
 
 msgid "Add all list items to stock"
-msgstr "Lägg till alla listobjekt på lager"
+msgstr "Adicionar todos os elementos da lista ao stock"
 
 msgid "Add %1$s of %2$s to stock"
-msgstr "Lägg till %1$s av %2$s till lagret"
+msgstr "Adicionar  %1$s de %2$s ao stock"
 
 msgid "Adding shopping list item %1$s of %2$s"
-msgstr "Lägger till %1$s av %2$s på inköpslistan"
+msgstr "Adicionando item %1$s de %2$s à lista de compras"
 
 msgid "Use a specific stock item"
-msgstr "Använd ett specifikt lagerobjekt"
+msgstr "Usar um elemento de stock específico"
 
 msgid ""
 "The first item in this list would be picked by the default rule which is "
 "\"First expiring first, then first in first out\""
 msgstr ""
-"Det första objektet i den här listan skulle plockas av standardregeln som är"
-" \"Första utgången först, sedan först i första utgåvan\""
+"O primeiro elemento da lista será seleccionado primeiro pela regra de "
+"\"primeiro o que expira primeiro, depois primeiro a chegar, primeiro a "
+"sair\""
 
 msgid "Mark %1$s of %2$s as open"
-msgstr "Markera %1$s av %2$s som öppna"
+msgstr "Marcar %1$s de %2$s como aberto"
 
 msgid ""
 "When this product was marked as opened, the best before date will be "
 "replaced by today + this amount of days (a value of 0 disables this)"
 msgstr ""
+"Quando este produto for marcado aberto, a data de preferência antes de será "
+"substituída por hoje + este número de dias ( o valor 0 desactiva a função)"
 
 msgid "Default best before days after opened"
-msgstr "Standard bäst före dagar efter öppnandet"
+msgstr "Dias de consumo depois de aberto por defeito"
 
 msgid "Marked %1$s of %2$s as opened"
-msgstr "Markerat %1$s av %2$s som öppna"
+msgstr "Marcar  %1$s de %2$s como aberto"
 
 msgid "Mark as opened"
-msgstr "Markera som öppnat"
+msgstr "Marcar como aberto"
 
 msgid "Not opened"
-msgstr "Ej öppnad"
+msgstr "Fechado"
 
 msgid "Opened"
-msgstr "Öppnad"
+msgstr "Aberto"
 
 msgid "%s opened"
-msgstr "%s öppnade"
+msgstr "%s aberto"
 
 msgid "Product expires"
-msgstr "Produkten löper ut"
+msgstr "Validade do produto"
 
 msgid "Task due"
-msgstr "Uppgift pågår"
+msgstr "Tarefa prevista em"
 
 msgid "Chore due"
-msgstr "Syssla pågår"
+msgstr "Tarefa prevista em"
 
 msgid "Battery charge cycle due"
-msgstr "Batteriladdningscykel förfaller"
+msgstr "Ciclo de carga da bateria previsto em"
 
 msgid "Show clock in header"
-msgstr "Visa klockan i sidhuvudet"
+msgstr "Mostrar relógio no cabeçalho"
 
 msgid "Stock settings"
-msgstr "Lagerinställningar"
+msgstr "Configuração do stock"
 
 msgid "Shopping list to stock workflow"
-msgstr "Shopping lista till lager arbetsflöde"
+msgstr "Fluxo de trabalho da lista de compras para o stock"
 
 msgid ""
 "Automatically do the booking using the last price and the amount of the "
 "shopping list item, if the product has \"Default best before days\" set"
 msgstr ""
-"Gör automatiskt bokningen med det sista priset och summan av inköpslista, om"
-" produkten har \"Standard bäst före dagar\""
 
 msgid "Skip"
-msgstr "Hoppa över"
+msgstr "Passar"
 
 msgid "Servings"
-msgstr "Portioner"
+msgstr "Porções"
 
 msgid "Costs"
-msgstr "Kostar"
+msgstr "Custos"
 
 msgid "Based on the prices of the last purchase per product"
-msgstr "Baserat på priserna för det senaste köpet per produkt"
+msgstr "Baseado nos preços das últimas compras por produto"
 
 msgid "The ingredients listed here result in this amount of servings"
-msgstr "Ingredienserna som anges här resulterar i denna mängd portioner"
+msgstr ""
 
 msgid "Do not check against the shopping list when adding missing items to it"
-msgstr "Kontrollera inte inköpslistan när du lägger till saknade objekt i den"
+msgstr ""
 
 msgid ""
 "By default the amount to be added to the shopping list is \"needed amount - "
@@ -1047,725 +1050,693 @@ msgid ""
 "checked against the stock amount, not against what is already on the "
 "shopping list"
 msgstr ""
-"Som standard är beloppet som ska läggas till i inköpslistan \"nödvändig "
-"mängd - lagerbelopp - antal belopp för inköpslista\" - när det är aktiverat,"
-" kontrolleras det endast i lagerbeloppet, inte mot det som redan finns på "
-"köplistan"
 
 msgid "Picture"
-msgstr "Bild"
+msgstr "Imagem"
 
 msgid "Uncheck ingredients to not put them on the shopping list"
-msgstr "Avmarkera ingredienser för att inte lägga dem på inköpslistan"
+msgstr ""
 
 msgid "This is for statistical purposes only"
-msgstr "Detta är endast för statistiska ändamål"
+msgstr "Apenas para propósito estatístico."
 
 msgid "You have to select a recipe"
-msgstr "Du måste välja ett recept"
+msgstr "Tem de seleccionar uma receita"
 
 msgid "Key type"
-msgstr "Nyckeltyp"
+msgstr "Tipo de chave"
 
 msgid "Share/Integrate calendar (iCal)"
-msgstr "Dela / Integrera kalender (iCal)"
+msgstr "Partilhar/integrar calendário (iCal)"
 
 msgid ""
 "Use the following (public) URL to share or integrate the calendar in iCal "
 "format"
 msgstr ""
-"Använd följande (offentliga) URL för att dela eller integrera kalendern i "
-"iCal-format"
+"Utilize o seguinte URL (publico) para partilhar ou integrar o calendário em "
+"formato iCal"
 
 msgid "Allow partial units in stock"
-msgstr "Tillåt dela enheter på lager"
+msgstr "Permitir unidades parciais no stock"
 
 msgid "Enable tare weight handling"
-msgstr "Aktivera Vikthantering"
+msgstr "Activar a manipulação de tara"
 
 msgid ""
 "This is useful e.g. for flour in jars - on purchase/consume/inventory you "
 "always weigh the whole jar, the amount to be posted is then automatically "
 "calculated based on what is in stock and the tare weight defined below"
 msgstr ""
-"Detta är användbart t.ex. för mjöl i burkar - vid köp / konsumtion / "
-"inventering väger du alltid hela burken, det belopp som ska läggas ut "
-"beräknas sedan automatiskt baserat på vad som finns i lager och den vikt som"
-" anges nedan"
 
 msgid "Tare weight"
-msgstr "Vikt"
+msgstr "Peso"
 
 msgid ""
 "Tare weight handling enabled - please weigh the whole container, the amount "
 "to be posted will be automatically calculcated"
 msgstr ""
-"Vikthantering aktiverad - vänligen väga hela behållaren, kommer beloppet som"
-" ska läggas ut automatiskt att beräknas"
 
 msgid "You have to select a location"
-msgstr "Du måste välja en plats"
+msgstr "Precisa de seleccionar uma localização"
 
 msgid "List"
 msgstr "Lista"
 
 msgid "Gallery"
-msgstr "Galleri"
+msgstr "Galeria"
 
 msgid "The current picture will be deleted when you save the recipe"
-msgstr "Den aktuella bilden raderas när du sparar receptet"
+msgstr "A imagem actual será apagada quando salvar a receita"
 
 msgid "Show product details"
-msgstr "Visa produktdetaljer"
+msgstr "Mostrar detalhes do produto"
 
 msgid "Stock journal for this product"
-msgstr "Lagerbok för denna produkt"
+msgstr "Diário de stock para este produto"
 
 msgid "Show chore details"
-msgstr "Visa  detaljer för syssla"
+msgstr "Exibir detalhes da tarefa doméstica"
 
 msgid "Journal for this chore"
-msgstr "Journal för denna syssla"
+msgstr "Diário para a tarefa doméstica"
 
 msgid "Show battery details"
-msgstr "Visa batteridetaljer"
+msgstr "Mostrar detalhes da bateria"
 
 msgid "Journal for this battery"
-msgstr "Tidskrift för detta batteri"
+msgstr "Diário para esta bateria"
 
 msgid "System info"
-msgstr "System information"
+msgstr "Informação do sistema"
 
 msgid "Changelog"
-msgstr "Ändringslogg"
+msgstr "histórico de modificações"
 
 msgid "will be multiplied a factor of %1$s to get %2$s"
-msgstr "kommer att multipliceras med en faktor av %1$s för att få %2$s"
+msgstr "será multiplicado pelo factor de %1$s para ter%2$s"
 
 msgid "The given date is earlier than today, are you sure?"
-msgstr "Det angivna datumet är tidigare än idag, är du säker?"
+msgstr "A data é anterior a hoje, tem a certeza?"
 
 msgid "Product count"
-msgstr "Produktantal"
+msgstr "Contagem do produto"
 
 msgid "Type a new product name or barcode and hit TAB to start a workflow"
 msgstr ""
-"Skriv ett nytt produktnamn eller streckkod och tryck på TAB för att starta "
-"ett arbetsflöde"
 
 msgid ""
 "This will be used as the default setting when adding this product as a "
 "recipe ingredient"
 msgstr ""
-"Detta kommer att användas som standardinställning när du lägger till denna "
-"produkt som receptkomponent"
 
 msgid "Add item"
-msgstr "Lägg till vara"
+msgstr "Adicionar item"
 
 msgid "Selected shopping list"
-msgstr "Valda inköpslista"
+msgstr "Seleccionar lista de compras"
 
 msgid "New shopping list"
-msgstr "Ny köplista"
+msgstr "Nova lista de compras"
 
 msgid "Delete shopping list"
-msgstr "Ta bort inköpslista"
+msgstr "Apagar lista de compras"
 
 msgid "Chores settings"
-msgstr "Sysslor inställningar"
+msgstr "Configurações das tarefas domésticas"
 
 msgid "Batteries settings"
-msgstr "Batterier inställningar"
+msgstr "Configurações das baterias"
 
 msgid "Tasks settings"
-msgstr "Inställningar för uppgifter"
+msgstr "Configurações das tarefas"
 
 msgid "Create shopping list"
-msgstr "Skapa inköpslista"
+msgstr "Criar lista de compras"
 
 msgid "Are you sure to delete shopping list \"%s\"?"
-msgstr "Är du säker på att radera inköpslista \"%s\"?"
+msgstr "Tem a certeza que quer apagar a lista de compras \"%s\"?"
 
 msgid "Average shelf life"
-msgstr "Genomsnittlig hållbarhet"
+msgstr "Tempo de vida médio na prateleira"
 
 msgid "Spoil rate"
-msgstr "Skämd takt"
+msgstr "Taxa de desperdício"
 
 msgid "Show more"
-msgstr "Visa mer"
+msgstr "Mostrar mais"
 
 msgid "Show less"
-msgstr "Visa mindre"
+msgstr "Mostrar menos"
 
 msgid "The amount must be between %1$s and %2$s"
-msgstr "Beloppet måste vara mellan %1$s och %2$s"
+msgstr "A quantidade tem de ser entre %1$s e %2$s"
 
 msgid "Day of month"
-msgstr "Dag i månad"
+msgstr "Dia do mês"
 
 msgid "Monday"
-msgstr "Måndag"
+msgstr "Segunda-feira"
 
 msgid "Tuesday"
-msgstr "Tisdag"
+msgstr "Terça-feira"
 
 msgid "Wednesday"
-msgstr "Onsdag"
+msgstr "Quarta-feira"
 
 msgid "Thursday"
-msgstr "Torsdag"
+msgstr "Quinta-feira"
 
 msgid "Friday"
-msgstr "Fredag"
+msgstr "Sexta-feira"
 
 msgid "Saturday"
-msgstr "Lördag"
+msgstr "Sábado"
 
 msgid "Sunday"
-msgstr "Söndag"
+msgstr "Domingo"
 
 msgid "Configure userfields"
-msgstr "Configure userfields"
+msgstr "Configurar campos do utilizador"
 
 msgid "Userfields"
-msgstr "Userfields"
+msgstr "Campos do utilizador"
 
 msgid "Filter by entity"
-msgstr "Filter by entity"
+msgstr "Filtrar por entidade"
 
 msgid "Entity"
-msgstr "Entity"
+msgstr "Entidade"
 
 msgid "Caption"
-msgstr "Caption"
+msgstr "Legenda"
 
 msgid "Type"
-msgstr "Type"
+msgstr "Tipo"
 
 msgid "Create userfield"
-msgstr "Create userfield"
+msgstr "Criar campo do utilizador"
 
 msgid "A entity is required"
-msgstr "A entity is required"
+msgstr "É necessário uma entidade"
 
 msgid "A caption is required"
-msgstr "A caption is required"
+msgstr "É necessário uma legenda"
 
 msgid "A type is required"
-msgstr "A type is required"
+msgstr "É necessário um tipo"
 
 msgid "Show as column in tables"
-msgstr "Show as column in tables"
+msgstr "Mostrar como coluna nas tabelas"
 
 msgid "This is required and can only contain letters and numbers"
-msgstr "This is required and can only contain letters and numbers"
+msgstr "É necessário e só pode conter letras e números"
 
 msgid "Edit userfield"
-msgstr "Edit userfield"
+msgstr "Editar campo do utilizador"
 
 msgid "Plural forms"
-msgstr "Pluralformer"
+msgstr "Forma plural"
 
 msgid "One plural form per line, the current language requires"
-msgstr "En pluralform per rad, språket behöver"
+msgstr "Uma forma plural por linha, a língua actual exige."
 
 msgid "Plural count"
-msgstr "Flertal"
+msgstr "Contagem plural"
 
 msgid "Plural rule"
-msgstr "Plural regel"
+msgstr "Regra plural"
 
 msgid "in plural form"
-msgstr "i plural form"
+msgstr "no plural"
 
 msgid "Not enough in stock, %s ingredient missing"
 msgid_plural "Not enough in stock, %s ingredients missing"
-msgstr[0] "Inte tillräckligt i lager, %s ingrediens saknas"
-msgstr[1] "Inte tillräckligt i lager, %s ingredienser saknas"
+msgstr[0] "Sem stock suficiente, %s ingredientes faltando"
+msgstr[1] "Sem stock suficiente, %s ingredientes faltando"
 
 msgid "The amount cannot be lower than %1$s or equal %2$s"
-msgstr "Mängden kan inte vara längre än %1$s eller lika med %2$s"
+msgstr "A quantidade não pode ser menor que %1$s ou igual a %2$s"
 
 msgid "Not enough in stock, but already on the shopping list"
-msgstr "Inte tillräckligt i lager, men redan på inköpslistan"
+msgstr "Stock insuficiente, mas já na lista de compras"
 
 msgid "Not enough in stock"
-msgstr "Inte tillräckligt i lager"
+msgstr "Não há stock suficiente"
 
 msgid "Expiring soon days"
-msgstr "Utgår snart dagar"
+msgstr "A expirar em breve"
 
 msgid "Default location"
-msgstr "Standardplats"
+msgstr "Localização padrão"
 
 msgid "Default amount for purchase"
-msgstr "Standardbelopp för köp"
+msgstr "Quantidade padrão para comprar"
 
 msgid "Default amount for consume"
-msgstr "Standardbelopp för konsumtion"
+msgstr "Quantidade padrão para consumir"
 
 msgid "Variable amount"
-msgstr "Variabelt belopp"
+msgstr "Quantidade variável"
 
 msgid ""
 "When this is not empty, it will be shown instead of the amount entered above"
 " while the amount there will still be used for stock fulfillment checking"
 msgstr ""
-"När detta inte är tomt kommer det att visas istället för det angivna "
-"beloppet medan beloppet där fortfarande kommer att användas för att "
-"kontrollera lager"
 
 msgid "Track date only"
-msgstr "Spåra endast datum"
+msgstr "Monitorizar apenas  a data"
 
 msgid "When enabled only the day of an execution is tracked, not the time"
-msgstr "När det är aktiverat spåras bara dagen för en körning, inte tiden"
+msgstr ""
 
 msgid "Consume %1$s of %2$s"
-msgstr "Konsumerat%1$sav%2$s"
+msgstr "Consumir %1$s de %2$s"
 
 msgid "Meal plan"
-msgstr "Måltidsplan"
+msgstr "Plano de refeições"
 
 msgid "Add recipe on %s"
-msgstr ""
+msgstr "Adicionar receita em %s"
 
 msgid "%s serving"
 msgid_plural "%s servings"
-msgstr[0] "%s portion"
-msgstr[1] "%s portioner"
+msgstr[0] "%s porções"
+msgstr[1] "%s porções"
 
 msgid "Week costs"
-msgstr "Veckokostnader"
+msgstr "Custo por semana"
 
 msgid "Configuration"
-msgstr "Konfiguration"
+msgstr "Configuração"
 
 msgid "A predefined list of values, one per line"
-msgstr "En fördefinierad lista med värden, en per rad"
+msgstr "Uma lista pré-definida de valores, um por linha"
 
 msgid "Chores due soon days"
-msgstr "Ärenden kommer snart dagar"
+msgstr "Tarefas domésticas a expirarem nos próximos dias"
 
 msgid "Batteries due to be charged soon days"
-msgstr "Batterier kommer att laddas snart dagar"
+msgstr "Pilhas cujo o prazo para serem carregadas expiram nos próximos dias"
 
 msgid "Tasks due soon days"
-msgstr "Uppgifter som kommer snart dagar"
+msgstr "Tarefas a expirarem nos próximos dias"
 
 msgid "Products"
-msgstr "Produkter"
+msgstr "Produtos"
 
 msgid "Marked task %s as completed on %s"
-msgstr "Markerad uppgift%som avslutad den%s"
+msgstr ""
 
 msgid "Booking has subsequent dependent bookings, undo not possible"
-msgstr "Bokning har efterföljande beroende bokningar, går inte att ångra"
+msgstr ""
 
 msgid "per serving"
-msgstr "per portion"
+msgstr "por porção"
 
 msgid "Never"
-msgstr "Aldrig"
+msgstr "Nunca"
 
 msgid "Today"
-msgstr "Idag"
+msgstr "Hoje"
 
 msgid "Consume %1$s of %2$s as spoiled"
-msgstr "Konsumera%1$s av %2$s som förstört "
+msgstr "Consumir %1$s de %2$scomo estragado"
 
 msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr "Inte alla ingredienser i recept \"%s\" finns i lager, inget togs bort"
+msgstr ""
+"Nem todos os ingredientes da receita \"%s\" estão em stock, nada foi "
+"removido"
 
 msgid "Undo task \"%s\""
-msgstr "Ångra uppgiften \"%s\""
+msgstr "Desfazer a tarefa \"%s\""
 
 msgid "Due date rollover"
-msgstr "Förfallodatumövergång"
+msgstr ""
 
 msgid ""
 "When enabled the chore can never be overdue, the due date will shift forward"
 " each day when due"
 msgstr ""
-"När det är aktiverat kan uppdraget aldrig förfalla, förfallodatumet "
-"förflyttas framåt varje dag när det förfaller"
 
 msgid "Location Content Sheet"
-msgstr "Platsinnehållsblad"
+msgstr ""
 
 msgid "Print"
-msgstr "Skriv ut"
+msgstr "Imprimir"
 
 msgid "all locations"
-msgstr "Alla positioner"
+msgstr "Todas localizações"
 
 msgid ""
 "Here you can print a page per location with the current stock, maybe to hang"
 " it there and note the consumed things on it."
 msgstr ""
-"Här kan du skriva ut en sida per plats med det aktuella lagret, kanske för "
-"att hänga den där och notera de förbrukade sakerna på den."
 
 msgid "this location"
-msgstr "Denna position"
+msgstr "Esta localização"
 
 msgid "Consumend amount"
-msgstr "Förbrukat antal"
+msgstr "Quantidade consumida"
 
 msgid "Time of printing"
-msgstr "Tid för utskrift"
+msgstr "Hora de impressão"
 
 msgid "Are you sure to delete equipment \"%s\"?"
-msgstr "Är du säker på att radera utrustningen \"%s\"?"
+msgstr "Tem a certeza que quer apagar o equipamento \"%s\"?"
 
 msgid "Parent product"
-msgstr "Överordnad produkt"
+msgstr "Produto pai"
 
 msgid ""
 "Not possible because this product is already used as a parent product in "
 "another product"
 msgstr ""
-"Inte möjligt då denna produkt redan används som överordnad produkt för en "
-"annan produkt"
 
 msgid "Default conversions"
-msgstr "Standardkonverteringar"
+msgstr "Conversão padrão"
 
 msgid "Factor"
-msgstr "Faktor"
+msgstr "Fator"
 
 msgid "1 %s is the same as..."
-msgstr "1 %s är detsamma som..."
+msgstr ""
 
 msgid "Create QU conversion"
-msgstr "Skapa konvertering för mängdenhet"
+msgstr ""
 
 msgid "Default for QU"
-msgstr "Standard för mängdenhet"
+msgstr ""
 
 msgid "Quantity unit from"
-msgstr "Från mängdenhet"
+msgstr "Unidade de medida de"
 
 msgid "Quantity unit to"
-msgstr "Till mängdenhet"
+msgstr "Unidade de medida para"
 
 msgid ""
 "This cannot be lower than %1$s and must be a valid number with max. %2$s "
 "decimal places"
 msgstr ""
-"Detta kan inte vara mindre än %1$s och måste vara ettgiltigt tal med max "
-"%2$s decimaler"
 
 msgid "This cannot be equal to %s"
-msgstr "Detta kan inte vara lika med %s"
+msgstr "Não pode ser igual a %s"
 
 msgid "This means 1 %1$s is the same as %2$s %3$s"
-msgstr "Det innebär att 1 %1$s är detsamma som %2$s %3$s"
+msgstr ""
 
 msgid "QU conversions"
-msgstr "Konverteringar mellan mängdenheter"
+msgstr ""
 
 msgid "Product overrides"
-msgstr "Produkten har företräde framför"
+msgstr ""
 
 msgid "Override for product"
-msgstr "Företräde för produkt"
+msgstr ""
 
 msgid "This equals %1$s %2$s in stock"
-msgstr "Det motsvarar %1$s %2$s i lager"
+msgstr ""
 
 msgid "Edit QU conversion"
-msgstr "Redigera konvertering för mängdenhet"
+msgstr ""
 
 msgid "An assignment type is required"
-msgstr "En uppgiftstyp behövs"
+msgstr ""
 
 msgid "Assignment type"
-msgstr "Uppgiftstyp"
+msgstr ""
 
 msgid ""
 "This means the next execution of this chore is scheduled 1 day after the "
 "last execution"
 msgstr ""
-"Det innebär att nästa utförande av denna syssla schemaläggs 1 dag efter att "
-"den senast utförts"
+"Isto significa que a próxima execução desta tarefa está agendada para 1 dia "
+"após a sua última execução"
 
 msgid ""
 "This means the next execution of this chore is scheduled 1 day after the "
 "last execution, but only for the weekdays selected below"
 msgstr ""
-"Det innebär att nästa utförande av denna syssla schemaläggs 1 dag efter att "
-"den senast utförts, men endast på de nedan valda veckodagarna"
+"Isto significa que a próxima execução desta tarefa está agendada para 1 dia "
+"após a sua última execução, mas apenas para os dias da semana em baixo "
+"selecionados"
 
 msgid "This means the next execution of this chore is not scheduled"
-msgstr "Det innebär att nästa utförande av denna syssla inte schemaläggs"
+msgstr "Isto significa que a próxima execução desta tarefa não está agendada"
 
 msgid ""
 "This means the next execution of this chore is scheduled on the below "
 "selected day of each month"
 msgstr ""
-"Det innebär att nästa utförande av denna syssla schemaläggs på den nedan "
-"valda dagen i varje månad"
+"Isto significa que a próxima execução desta tarefa está agendada para o dia "
+"em baixo selecionado de cada mês"
 
 msgid ""
 "This means the next execution of this chore will not be assigned to anyone"
-msgstr "Det innebär att nästa utförande av denna syssla inte tilldelas någon"
+msgstr ""
+"Isto significa que a próxima execução desta tarefa não será atribuída a "
+"ninguém"
 
 msgid ""
 "This means the next execution of this chore will be assigned to the one who "
 "executed it least"
 msgstr ""
-"Det innebär att nästa utförande av denna syssla tilldelas den som senast "
-"utförde den"
+"Isto significa que a próxima execução desta tarefa será atribuída a quem a "
+"executou menos vezes"
 
 msgid "This means the next execution of this chore will be assigned randomly"
 msgstr ""
-"Det innebär att nästa utförande av denna syssla tilldelas slumpmässigt"
+"Isto significa que a próxima execução desta tarefa será atribuída de modo "
+"aleatório"
 
 msgid ""
 "This means the next execution of this chore will be assigned to the next one"
 " in alphabetical order"
 msgstr ""
-"Det innebär att nästa utförande av denna syssla tilldelas nästa person i "
-"bokstavsordning"
+"Isto significa que a próxima execução desta tarefa será atribuída ao "
+"seguinte por ordem alfabética"
 
 msgid "Assign to"
-msgstr "Tilldela"
+msgstr "Atribuí a"
 
 msgid "This assignment type requires that at least one is assigned"
-msgstr "Denna uppgiftstyp kräver åtminstone en tilldelning"
+msgstr ""
 
 msgid "%s chore is assigned to me"
 msgid_plural "%s chores are assigned to me"
-msgstr[0] "Jag har %s tilldelad syssla"
-msgstr[1] "Jag har %s tilldelade sysslor"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Assigned to me"
-msgstr "Tilldelad till mig"
+msgstr "Atribuído a mim"
 
 msgid "assigned to %s"
-msgstr "Tilldelad till %s"
+msgstr "atribuído a %s"
 
 msgid "Filter by assignment"
-msgstr "Filtrera på uppgift"
+msgstr "Filtrar por atribuição"
 
 msgid "Consume product on chore execution"
-msgstr "Förbruka produkt när syssla utförs"
+msgstr ""
 
 msgid "Are you sure to delete user field \"%s\"?"
-msgstr "Är du säker på att du vill radera användarfältet \"%s\"?"
+msgstr "Tem a certeza que pretende eliminar o campo do utilizador \"%s\"?"
 
 msgid "Userentities"
-msgstr "Användarposter"
+msgstr ""
 
 msgid "Create userentity"
-msgstr "Skapa användarpost"
+msgstr ""
 
 msgid "Show in sidebar menu"
-msgstr "Visa i sidofältet"
+msgstr ""
 
 msgid "Edit userentity"
-msgstr "Redigera användarpost"
+msgstr ""
 
 msgid "Edit %s"
-msgstr "Redigera %s"
+msgstr "Editar %s"
 
 msgid "Create %s"
-msgstr "Skapa %s"
+msgstr "Criar %s"
 
 msgid "Are you sure to delete this userobject?"
-msgstr "Är du säker på att du vill radera detta användarobjekt?"
+msgstr ""
 
 msgid "Icon CSS class"
-msgstr "CSS-klass för ikon"
+msgstr ""
 
 msgid "For example"
-msgstr "Till exempel"
+msgstr "Por exemplo"
 
 msgid "Configure fields"
-msgstr "Konfigurera fält"
+msgstr ""
 
 msgid "Quantity unit plural form testing"
-msgstr "Test för pluralform av mängdenhet"
+msgstr ""
 
 msgid "Result"
-msgstr "Resultat"
+msgstr "Resultado"
 
 msgid "Test plural forms"
-msgstr "Testa pluralformer"
+msgstr ""
 
 msgid "Scan a barcode"
-msgstr "Skanna streckkod"
+msgstr "Ler o código de barras"
 
 msgid "Error while initializing the barcode scanning library"
-msgstr "Fel när programbiblioteket för streckkodsskanning skulle läsas in"
+msgstr "Erro enquanto inicializava a biblioteca para ler o código de barras"
 
 msgid ""
 "The resulting price of this ingredient will be multiplied by this factor"
-msgstr "Priset för denna ingrediens kommer att multipliceras med denna faktor"
+msgstr ""
 
 msgid "Price factor"
-msgstr "Prisfaktor"
+msgstr ""
 
 msgid "Do you find grocy useful?"
-msgstr "Tycker du att grocy är användbart?"
+msgstr "Você acha grocy útil?"
 
 msgid "Say thanks"
-msgstr "Tacka"
+msgstr "Diga obrigado"
 
 msgid "Search for recipes containing this product"
-msgstr "Sök efter recept innehållande denna produkt"
+msgstr ""
 
 msgid "Add to shopping list"
-msgstr "Lägg till inköpslista"
+msgstr "Adicione à lista de compras"
 
 msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
-msgstr "La till %1$s %2$s till inköpslistan \"%3$s\""
+msgstr "Adicionado %1$s de %2$s à lista de compras \"%3$s\""
 
 msgid "Output"
-msgstr "Utdata"
+msgstr ""
 
 msgid "Energy (kcal)"
-msgstr "Energi (kcal)"
+msgstr "Energia (kcal)"
 
 msgid "Per stock quantity unit"
-msgstr "Per mängdenhet i lager"
+msgstr "Unidade de medida por stock"
 
 msgid "Barcode scanner testing"
-msgstr "Test av streckkodsskanning"
+msgstr ""
 
 msgid "Expected barcode"
-msgstr "Förväntad streckkod"
+msgstr "Código de barras esperado"
 
 msgid "Scan field"
-msgstr "Skanningsfält"
+msgstr "Ler campo"
 
 msgid "Scanned barcodes"
-msgstr "Skannade streckkoder"
+msgstr "Código de barras lidos"
 
 msgid "Hit"
-msgstr "Träff"
+msgstr ""
 
 msgid "Miss"
-msgstr "Ej träff"
+msgstr ""
 
 msgid "Display recipe"
-msgstr "Visa recept"
+msgstr "Mostrar receita"
 
 msgid "Accumulate sub products min. stock amount"
-msgstr "Ackumulera minsta lagersumma för underprodukt"
+msgstr ""
 
 msgid ""
 "If enabled, the min. stock amount of sub products will be accumulated into "
 "this product, means the sub product will never be \"missing\", only this "
 "product"
 msgstr ""
-"Om detta är aktiverat kommer minsta lagerantal för underprodukter att "
-"ackumuleras till denna produkt, vilket innebär att underprodukten aldrig "
-"kommer saknas, endast denna överordnade produkt"
 
 msgid "Are you sure to remove this conversion?"
-msgstr "Är du säker på att du vill radera denna konvertering?"
+msgstr "Tem a certeza que pretende remover esta conversão?"
 
 msgid "Unit price"
-msgstr "Enhetspris"
+msgstr "Preço de unidade"
 
 msgid "Total price"
-msgstr "Totalpris"
+msgstr "Preço total"
 
 msgid "in %s and based on the purchase quantity unit"
-msgstr "i %s och baserat på mängdenhet för inköp"
+msgstr ""
 
 msgid "Unlimited"
-msgstr "Obegränsat"
+msgstr "Ilimitado"
 
 msgid "Clear"
-msgstr "Töm"
+msgstr ""
 
 msgid "Are you sure to remove the included recipe \"%s\"?"
-msgstr "Är du säker på att du vill radera receptet \"%s\" som ingår?"
+msgstr ""
 
 msgid "Period interval"
-msgstr "Periodintervall"
+msgstr "Periodo de intervalo"
 
 msgid ""
 "This means the next execution of this chore should only be scheduled every "
 "%s days"
 msgstr ""
-"Det innebär att nästa utförande av denna syssla endast ska schemaläggas var "
-"%s dag"
 
 msgid ""
 "This means the next execution of this chore should only be scheduled every "
 "%s weeks"
 msgstr ""
-"Det innebär att nästa utförande av denna syssla endast ska schemaläggas var "
-"%s vecka"
 
 msgid ""
 "This means the next execution of this chore should only be scheduled every "
 "%s months"
 msgstr ""
-"Det innebär att nästa utförande av denna syssla endast ska schemaläggas var "
-"%s månad"
 
 msgid ""
 "This means the next execution of this chore is scheduled 1 year after the "
 "last execution"
 msgstr ""
-"Det innebär att nästa utförande av denna syssla schemaläggs 1 år efter att "
-"den senast utförts"
 
 msgid ""
 "This means the next execution of this chore should only be scheduled every "
 "%s years"
 msgstr ""
-"Det innebär att nästa utförande av denna syssla endast ska schemaläggas var "
-"%s år"
 
 msgid "Transfer"
-msgstr ""
+msgstr "Transferir"
 
 msgid "From location"
-msgstr ""
+msgstr "Da localização"
 
 msgid "To location"
-msgstr ""
+msgstr "Para a localização"
 
 msgid "There are no units available at this location"
-msgstr ""
+msgstr "Não existem unidades disponíveis nesta localização"
 
 msgid "Amount: %1$s; Expires on %2$s; Bought on %3$s"
-msgstr ""
+msgstr "Quantidade: %1$s; Expira em %2$s; Comprado em %3$s"
 
 msgid "Transfered %1$s of %2$s from %3$s to %4$s"
-msgstr ""
+msgstr "Transferido %1$s de %2$s do %3$s para %4$s"
 
 msgid "Show stock entries"
-msgstr ""
+msgstr "Mostrar entradas no stock"
 
 msgid "Stock entries"
-msgstr ""
+msgstr "Entradas de stock"
 
 msgid "Best before date"
-msgstr ""
+msgstr "Prazo de validade"
 
 msgid "Purchased date"
-msgstr ""
+msgstr "Data de compra"
 
 msgid "Consume all %s for this stock entry"
-msgstr ""
+msgstr "Consumir todos os/as %s nesta entrada de stock"
 
 msgid "The amount cannot be lower than %1$s"
-msgstr ""
+msgstr "A quantidade não pode ser menor que %1$s"
 
 msgid "Stock entry successfully updated"
-msgstr ""
+msgstr "Entrada de stock foi actualizada com sucesso"
 
 msgid "Edit stock entry"
-msgstr ""
+msgstr "Editar entrada de stock"
 
 msgid ""
 "Camera access is only possible when supported and allowed by your browser "
@@ -1773,13 +1744,13 @@ msgid ""
 msgstr ""
 
 msgid "Keep screen on"
-msgstr ""
+msgstr "Manter o ecrã ligado"
 
 msgid "Keep screen on while displaying a \"fullscreen-card\""
-msgstr ""
+msgstr "Manter ecrã ligado enquanto é mostrado um \"cartão em ecrã inteiro\""
 
 msgid "A purchased date is required"
-msgstr ""
+msgstr "É necessário uma data de compra"
 
 msgid ""
 "When a product is selected, one unit (per serving in purchase quantity unit)"
@@ -1787,49 +1758,49 @@ msgid ""
 msgstr ""
 
 msgid "Produces product"
-msgstr ""
+msgstr "Produzir o produto"
 
 msgid "This booking cannot be undone"
-msgstr ""
+msgstr "Esta marcação não pode ser revertida"
 
 msgid "Booking does not exist or was already undone"
-msgstr ""
+msgstr "A marcação não existe ou foi já previamente revertida"
 
 msgid "Are you sure to delete API key \"%s\"?"
-msgstr ""
+msgstr "Tem a certeza que pretende apagar a chave da API \"%s\"?"
 
 msgid "Add note"
-msgstr ""
+msgstr "Adicionar nota"
 
 msgid "Add note on %s"
-msgstr ""
+msgstr "Adicionar nota em %s"
 
 msgid "per day"
-msgstr ""
+msgstr "por dia"
 
 msgid "Compact view"
-msgstr ""
+msgstr "Vista compacta"
 
 msgid "Normal view"
-msgstr ""
+msgstr "Vista normal"
 
 msgid "Only undone items"
-msgstr ""
+msgstr "Apenas items revertidos"
 
 msgid "Add product"
-msgstr ""
+msgstr "Adicionar produto"
 
 msgid "Add product on %s"
-msgstr ""
+msgstr "Adicionar produto em %s"
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
 msgstr ""
 
 msgid "Meal plan recipe"
-msgstr ""
+msgstr "Receita do plano de refeições"
 
 msgid "Meal plan note"
-msgstr ""
+msgstr "Nota do plano de refeições"
 
 msgid "Meal plan product"
 msgstr ""
@@ -1838,10 +1809,10 @@ msgid "Scan mode"
 msgstr ""
 
 msgid "on"
-msgstr ""
+msgstr "ligado"
 
 msgid "off"
-msgstr ""
+msgstr "desligado"
 
 msgid ""
 "Scan mode is on but not all required fields could be populated automatically"
@@ -1875,43 +1846,43 @@ msgid "This cannot be the same as the \"From\" location"
 msgstr ""
 
 msgid "Thawed"
-msgstr ""
+msgstr "Descongelado"
 
 msgid "Frozen"
-msgstr ""
+msgstr "Congelado"
 
 msgid "Are you sure to delete userentity \"%s\"?"
 msgstr ""
 
 msgid "Shopping list settings"
-msgstr ""
+msgstr "Definições da lista de compras"
 
 msgid "Show a month-view calendar"
-msgstr ""
+msgstr "Mostrar a vista mensal do calendário"
 
 msgid "Don't automatically switch to the compact view on mobile devices"
 msgstr ""
 
 msgid "Edit note on %s"
-msgstr ""
+msgstr "Editar nota em %s"
 
 msgid "Edit product on %s"
-msgstr ""
+msgstr "Editar produto em %s"
 
 msgid "Edit recipe on %s"
-msgstr ""
+msgstr "Editar receita em %s"
 
 msgid "Desired servings"
-msgstr ""
+msgstr "Porção desejada"
 
 msgid "Base: %s"
-msgstr ""
+msgstr "Base: %s"
 
 msgid "Recipes settings"
-msgstr ""
+msgstr "Definições de receitas"
 
 msgid "Recipe card"
-msgstr ""
+msgstr "Cartão da receita"
 
 msgid "Group ingredients by their product group"
-msgstr ""
+msgstr "Agrupar ingredientes pelo respectivo grupo de produto"

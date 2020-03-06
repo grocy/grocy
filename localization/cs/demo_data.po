@@ -1,5 +1,7 @@
 # Translators:
-# Jose Riha <jose1711@gmail.com>, 2020
+# Michal Petříček <michal@petricek.org>, 2019
+# Ondřej Suk <ondra.suk.55@gmail.com>, 2020
+# Radim Kabeláč <radim.ekk@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -7,152 +9,152 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Jose Riha <jose1711@gmail.com>, 2020\n"
-"Language-Team: Slovak (Slovakia) (https://www.transifex.com/grocy/teams/93189/sk_SK/)\n"
+"Last-Translator: Radim Kabeláč <radim.ekk@gmail.com>, 2020\n"
+"Language-Team: Czech (https://www.transifex.com/grocy/teams/93189/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sk_SK\n"
-"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
+"Language: cs\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 "X-Domain: grocy/demo_data\n"
 
 msgid "Cookies"
-msgstr "Sušienky"
+msgstr "Sušenky"
 
 msgid "Chocolate"
 msgstr "Čokoláda"
 
 msgid "Pantry"
-msgstr "Komora"
+msgstr "Spíž"
 
 msgid "Candy cupboard"
-msgstr "Skrinka so sladkosťami"
+msgstr "Skříňka s cukrovím"
 
 msgid "Tinned food cupboard"
-msgstr "Skrinka s konzervami"
+msgstr "Skříňka s konzervami"
 
 msgid "Fridge"
-msgstr "Chladnička"
+msgstr "Lednička"
 
 msgid "Piece"
 msgid_plural "Pieces"
 msgstr[0] "Kus"
-msgstr[1] "Kusy"
-msgstr[2] "Kusov"
-msgstr[3] "Kusov"
+msgstr[1] "Kusů"
+msgstr[2] "Kusů"
+msgstr[3] "Kusů"
 
 msgid "Pack"
 msgid_plural "Packs"
-msgstr[0] "Balenie"
-msgstr[1] "Balenia"
+msgstr[0] "Balení"
+msgstr[1] "Balení"
 msgstr[2] "Balení"
 msgstr[3] "Balení"
 
 msgid "Glass"
 msgid_plural "Glasses"
-msgstr[0] "Pohár"
-msgstr[1] "Poháre"
-msgstr[2] "Pohárov"
-msgstr[3] "Pohárov"
+msgstr[0] "Sklenice"
+msgstr[1] "Sklenic"
+msgstr[2] "Sklenic"
+msgstr[3] "Sklenic"
 
 msgid "Tin"
 msgid_plural "Tins"
 msgstr[0] "Plechovka"
-msgstr[1] "Plechovky"
-msgstr[2] "Plechoviek"
-msgstr[3] "Plechoviek"
+msgstr[1] "Plechovek"
+msgstr[2] "Plechovek"
+msgstr[3] "Plechovek"
 
 msgid "Can"
 msgid_plural "Cans"
 msgstr[0] "Konzerva"
-msgstr[1] "Konzervy"
+msgstr[1] "Konzerv"
 msgstr[2] "Konzerv"
 msgstr[3] "Konzerv"
 
 msgid "Bunch"
 msgid_plural "Bunches"
-msgstr[0] "Strapec"
-msgstr[1] "Strapce"
-msgstr[2] "Strapcov"
-msgstr[3] "Strapcov"
+msgstr[0] "Svazek"
+msgstr[1] "Svazky"
+msgstr[2] "Svazky"
+msgstr[3] "Svazky"
 
 msgid "Gummy bears"
-msgstr "Gumoví medvedíci"
+msgstr "Gumoví medvídci"
 
 msgid "Crisps"
-msgstr "Čipsy"
+msgstr "Brambůrky"
 
 msgid "Eggs"
-msgstr "Vajcia"
+msgstr "Vajíčka"
 
 msgid "Noodles"
-msgstr "Rezance"
+msgstr "Nudle"
 
 msgid "Pickles"
-msgstr "Čalamáda"
+msgstr "Kyselé okurky"
 
 msgid "Gulash soup"
-msgstr "Guláš"
+msgstr "Gulášová polévka"
 
 msgid "Yogurt"
 msgstr "Jogurt"
 
 msgid "Cheese"
-msgstr "Syr"
+msgstr "Sýr"
 
 msgid "Cold cuts"
-msgstr "Nárezy"
+msgstr "Uzeniny"
 
 msgid "Paprika"
 msgstr "Paprika"
 
 msgid "Cucumber"
-msgstr "Uhorka"
+msgstr "Okurka"
 
 msgid "Radish"
-msgstr "Reďkovka"
+msgstr "Ředkev"
 
 msgid "Tomato"
-msgstr "Paradajka"
+msgstr "Rajče"
 
 msgid "Changed towels in the bathroom"
-msgstr "Vymenené uteráky v kúpeľni"
+msgstr "Vyměněny ručníky v koupeně"
 
 msgid "Cleaned the kitchen floor"
-msgstr "Umytá dlážka v kuchyni"
+msgstr "Vytřena podlaha v kuchyni"
 
 msgid "Warranty ends"
 msgstr "Záruka končí"
 
 msgid "TV remote control"
-msgstr "Diaľkové ovládanie TV"
+msgstr "Dálkový ovladač k TV"
 
 msgid "Alarm clock"
 msgstr "Budík"
 
 msgid "Heat remote control"
-msgstr "Diaľkové ovládanie klimatizácie"
+msgstr "Dálkové ovládání k topení"
 
 msgid "Lawn mowed in the garden"
-msgstr "Pokosený trávnik v záhrade"
+msgstr "Posekán trávník na zahradě"
 
 msgid "Some good snacks"
-msgstr "Nejaká dobrá mňamka"
+msgstr "Nějaké dobroty"
 
 msgid "Pizza dough"
-msgstr "Cesto na pizzu"
+msgstr "Těsto na pizzu"
 
 msgid "Sieved tomatoes"
-msgstr "Pretlak"
+msgstr "Drcená rajčata"
 
 msgid "Salami"
-msgstr "Saláma"
+msgstr "Salám"
 
 msgid "Toast"
-msgstr "Hrianka"
+msgstr "Toast"
 
 msgid "Minced meat"
-msgstr "Mleté mäso"
+msgstr "Mleté maso"
 
 msgid "Pizza"
 msgstr "Pizza"
@@ -167,32 +169,32 @@ msgid "English"
 msgstr "Angličtina"
 
 msgid "German"
-msgstr "Nemčina"
+msgstr "Němčina"
 
 msgid "Italian"
-msgstr "Taliančina"
+msgstr "Italština"
 
 msgid "This is the note content of the recipe ingredient"
-msgstr "Toto je obsah poznámky pre ingredienciu"
+msgstr "Toto je poznámka u suroviny receptu"
 
 msgid "Demo User"
-msgstr "Používateľ dema"
+msgstr "Demo uživatel"
 
 msgid "Gram"
 msgid_plural "Grams"
 msgstr[0] "Gram"
-msgstr[1] "Gramy"
-msgstr[2] "Gramov"
-msgstr[3] "Gramov"
+msgstr[1] "Gramů"
+msgstr[2] "Gramů"
+msgstr[3] "Gramů"
 
 msgid "Flour"
-msgstr "Múka"
+msgstr "Mouka"
 
 msgid "Pancakes"
-msgstr "Palacinky"
+msgstr "Palačinky"
 
 msgid "Sugar"
-msgstr "Cukor"
+msgstr "Cukr"
 
 msgid "Home"
 msgstr "Domov"
@@ -204,161 +206,161 @@ msgid "Projects"
 msgstr "Projekty"
 
 msgid "Repair the garage door"
-msgstr "Opraviť garážové dvere"
+msgstr "Opravit garážová vrata"
 
 msgid "Fork and improve grocy"
-msgstr "Forknúť a vylepšiť grocy"
+msgstr "Forknout a vylepšit grocy"
 
 msgid "Find a solution for what to do when I forget the door keys"
-msgstr "Nájsť riešenie čo robiť, keď zabudnem kľúče od domu"
+msgstr "Najít řešení situace, když si zapomenu klíče od domova"
 
 msgid "Sweets"
 msgstr "Sladkosti"
 
 msgid "Bakery products"
-msgstr "Pekárenské výrobky"
+msgstr "Pečivo"
 
 msgid "Tinned food"
-msgstr "Jedlo v konzerve"
+msgstr "Konzervované potraviny"
 
 msgid "Butchery products"
-msgstr "Mäsové výrobky"
+msgstr "Maso a uzeniny"
 
 msgid "Vegetables/Fruits"
-msgstr "Zelenina/Ovocie"
+msgstr "Ovoce a zelenina"
 
 msgid "Refrigerated products"
-msgstr "Chladené výrobky"
+msgstr "Chlazené potraviny"
 
 msgid "Coffee machine"
 msgstr "Kávovar"
 
 msgid "Dishwasher"
-msgstr "Umývačka riadu"
+msgstr "Myčka nádobí"
 
 msgid "Liter"
-msgstr "Liter"
+msgstr "Litr"
 
 msgid "Liters"
-msgstr "Litre"
+msgstr "Litry"
 
 msgid "Bottle"
-msgstr "Fľaša"
+msgstr "Láhev"
 
 msgid "Bottles"
-msgstr "Fľaše"
+msgstr "Láhve"
 
 msgid "Milk"
-msgstr "Mlieko"
+msgstr "Mléko"
 
 msgid "Chocolate sauce"
 msgstr "Čokoládová poleva"
 
 msgid "Milliliters"
-msgstr "Mililitre"
+msgstr "Mililitry"
 
 msgid "Milliliter"
-msgstr "Mililiter"
+msgstr "Mililitr"
 
 msgid "Bottom"
-msgstr "Základ"
+msgstr "Dno"
 
 msgid "Topping"
 msgstr "Poleva"
 
 msgid "French"
-msgstr "Francúzština"
+msgstr "Francouzština"
 
 msgid "Turkish"
 msgstr "Turečtina"
 
 msgid "Spanish"
-msgstr "Španielčina"
+msgstr "Španělština"
 
 msgid "Russian"
 msgstr "Ruština"
 
 msgid "The thing which happens on the 5th of every month"
-msgstr "Vec, ktorá sa deje 5. v každom mesiaci"
+msgstr "Událost opakující se 5. den každý měsíc"
 
 msgid "The thing which happens daily"
-msgstr "Vec, ktorá sa deje každý deň"
+msgstr "Událost opakující se každý den"
 
 msgid "The thing which happens on Mondays and Wednesdays"
-msgstr "Vec, ktorá sa deje každý pondelok a stredu"
+msgstr "Událost opakující se každé pondělí a středu"
 
 msgid "Swedish"
-msgstr "Švédčina"
+msgstr "Švédština"
 
 msgid "Polish"
-msgstr "Poľština"
+msgstr "Polština"
 
 msgid "Milk Chocolate"
-msgstr "Mliečna čokoláda"
+msgstr "Mléčná čokoláda"
 
 msgid "Dark Chocolate"
-msgstr "Horká čokoláda"
+msgstr "Hořká čokoláda"
 
 msgid "Slice"
 msgid_plural "Slices"
-msgstr[0] "Krajec"
-msgstr[1] "Krajce"
-msgstr[2] "Krajcov"
-msgstr[3] "Krajcov"
+msgstr[0] "Plátek"
+msgstr[1] "Plátky"
+msgstr[2] "Plátky"
+msgstr[3] "Plátky"
 
 msgid "Example userentity"
-msgstr "Príklad používateľskej entity"
+msgstr "Příklad uživatelské entity"
 
 msgid "This is an example user entity..."
-msgstr "Toto je prázdna používateľská entita..."
+msgstr "Toto je ukázková položka uživatelské entity"
 
 msgid "Custom field"
-msgstr "Vlastné pole"
+msgstr "Vlastní pole"
 
 msgid "Example field value..."
-msgstr "Príklad hodnoty poľa..."
+msgstr "Příklad hodnoty pole..."
 
 msgid "Waffle rolls"
-msgstr "Lievance"
+msgstr "Oplatky"
 
 msgid "Danish"
-msgstr "Dánčina"
+msgstr "Dánština"
 
 msgid "Dutch"
-msgstr "Holandčina"
+msgstr "Holandština"
 
 msgid "Norwegian"
-msgstr "Nórčina"
+msgstr "Norština"
 
 msgid "Demo"
 msgstr "Demo"
 
 msgid "Stable version"
-msgstr "Stabilná verzia"
+msgstr "Stabilní verze"
 
 msgid "Preview version"
-msgstr "Vývojová verzia"
+msgstr "Preview verze"
 
 msgid "current release"
-msgstr "aktuálne vydanie"
+msgstr "aktuální vydání"
 
 msgid "not yet released"
-msgstr "zatiaľ nevydané"
+msgstr "zatím nevydáno"
 
 msgid "Portuguese (Brazil)"
-msgstr "Portugalčina (brazílska)"
+msgstr "Portugalština (Brazílie)"
 
 msgid "This is a note"
 msgstr "Toto je poznámka"
 
 msgid "Freezer"
-msgstr "Mraznička"
+msgstr "Mrazák"
 
 msgid "Hungarian"
-msgstr "Maďarčina"
+msgstr "Maďarština"
 
 msgid "Slovak"
-msgstr "Slovenčina"
+msgstr "Slovenština"
 
 msgid "Czech"
 msgstr ""

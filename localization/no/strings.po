@@ -1322,8 +1322,8 @@ msgstr "Forbruk %1$s av %2$s"
 msgid "Meal plan"
 msgstr "Middagsplanlegger"
 
-msgid "Add recipe to %s"
-msgstr "Legg oppskrift til %s"
+msgid "Add recipe on %s"
+msgstr ""
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1766,11 +1766,9 @@ msgid "Edit stock entry"
 msgstr "Endre beholdningsoppføring"
 
 msgid ""
-"Camera access is on only possible when supported and allowed by your browser"
-" and when grocy is served via a secure (https://) connection"
+"Camera access is only possible when supported and allowed by your browser "
+"and when grocy is served via a secure (https://) connection"
 msgstr ""
-"Tilgang til kamera må støttes av din nettleser og grocy må serves via en "
-"sikker tilkobling (https://)"
 
 msgid "Keep screen on"
 msgstr "Skjerm alltid på"
@@ -1803,8 +1801,8 @@ msgstr "Er du sikker du ønsker slette API key \"%s\"?"
 msgid "Add note"
 msgstr "Legg til notat"
 
-msgid "Add note to %s"
-msgstr "Legg notat til %s"
+msgid "Add note on %s"
+msgstr ""
 
 msgid "per day"
 msgstr "per dag"
@@ -1821,8 +1819,8 @@ msgstr "Kun angrede enheter"
 msgid "Add product"
 msgstr "Legg til produkt"
 
-msgid "Add product to %s"
-msgstr "Legg produkt til %s"
+msgid "Add product on %s"
+msgstr ""
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
 msgstr ""
@@ -1892,3 +1890,36 @@ msgstr "Fryst"
 
 msgid "Are you sure to delete userentity \"%s\"?"
 msgstr "Er du sikker på at du ønsker slette userentity \"%s\"?"
+
+msgid "Shopping list settings"
+msgstr ""
+
+msgid "Show a month-view calendar"
+msgstr ""
+
+msgid "Don't automatically switch to the compact view on mobile devices"
+msgstr ""
+
+msgid "Edit note on %s"
+msgstr ""
+
+msgid "Edit product on %s"
+msgstr ""
+
+msgid "Edit recipe on %s"
+msgstr ""
+
+msgid "Desired servings"
+msgstr ""
+
+msgid "Base: %s"
+msgstr ""
+
+msgid "Recipes settings"
+msgstr ""
+
+msgid "Recipe card"
+msgstr ""
+
+msgid "Group ingredients by their product group"
+msgstr ""

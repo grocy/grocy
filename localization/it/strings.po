@@ -2,7 +2,7 @@
 # Sergio Zampello <seriotv88@gmail.com>, 2019
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # Matteo Piotto <matteo.piotto@welaika.com>, 2019
-# Matteo Parolin <matteoparolin99@gmail.com>, 2019
+# 42d76af3cd20bc399c7e8a413695959f, 2019
 # Antonino Ursino <ninus_@libero.it>, 2020
 # 
 msgid ""
@@ -1343,8 +1343,8 @@ msgstr "Consumare %1$s di %2$s"
 msgid "Meal plan"
 msgstr "Piano dei pasti"
 
-msgid "Add recipe to %s"
-msgstr "Aggiungi ricetta a %s"
+msgid "Add recipe on %s"
+msgstr ""
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1796,11 +1796,9 @@ msgid "Edit stock entry"
 msgstr "Modifica voce di dispensa"
 
 msgid ""
-"Camera access is on only possible when supported and allowed by your browser"
-" and when grocy is served via a secure (https://) connection"
+"Camera access is only possible when supported and allowed by your browser "
+"and when grocy is served via a secure (https://) connection"
 msgstr ""
-"L'accesso alla videocamera è possibile solo se supportato e consentito dal "
-"browser e quando grocy è connesso tramite una connessione sicura (https://)"
 
 msgid "Keep screen on"
 msgstr "Mantieni lo schermo acceso"
@@ -1835,8 +1833,8 @@ msgstr "Eliminare la chiave API \"%s\"?"
 msgid "Add note"
 msgstr "Aggiungi nota"
 
-msgid "Add note to %s"
-msgstr "Aggiungi nota a %s"
+msgid "Add note on %s"
+msgstr ""
 
 msgid "per day"
 msgstr "al giorno"
@@ -1853,8 +1851,8 @@ msgstr "Solo oggetti annullati"
 msgid "Add product"
 msgstr "Aggiungi prodotto"
 
-msgid "Add product to %s"
-msgstr "Aggiungi prodotto a %s"
+msgid "Add product on %s"
+msgstr ""
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
 msgstr ""
@@ -1926,3 +1924,39 @@ msgstr "Scongelato"
 
 msgid "Frozen"
 msgstr "Congelato"
+
+msgid "Are you sure to delete userentity \"%s\"?"
+msgstr ""
+
+msgid "Shopping list settings"
+msgstr ""
+
+msgid "Show a month-view calendar"
+msgstr ""
+
+msgid "Don't automatically switch to the compact view on mobile devices"
+msgstr ""
+
+msgid "Edit note on %s"
+msgstr ""
+
+msgid "Edit product on %s"
+msgstr ""
+
+msgid "Edit recipe on %s"
+msgstr ""
+
+msgid "Desired servings"
+msgstr ""
+
+msgid "Base: %s"
+msgstr ""
+
+msgid "Recipes settings"
+msgstr ""
+
+msgid "Recipe card"
+msgstr ""
+
+msgid "Group ingredients by their product group"
+msgstr ""

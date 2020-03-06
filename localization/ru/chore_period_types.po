@@ -1,6 +1,6 @@
 # Translators:
-# Bernd Bestel <bernd@berrnd.de>, 2019
 # Pavel Pletenev <cpp.create@gmail.com>, 2019
+# First Name Second Name <greentail@protonmail.ch>, 2019
 # 
 msgid ""
 msgstr ""
@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Pavel Pletenev <cpp.create@gmail.com>, 2019\n"
+"Last-Translator: First Name Second Name <greentail@protonmail.ch>, 2019\n"
 "Language-Team: Russian (https://www.transifex.com/grocy/teams/93189/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,10 +18,10 @@ msgstr ""
 "X-Domain: grocy/chore_types\n"
 
 msgid "manually"
-msgstr "Вручную"
+msgstr "вручную"
 
 msgid "dynamic-regular"
-msgstr "Динамически постоянно"
+msgstr "регулярно"
 
 msgid "daily"
 msgstr "ежедневно"
@@ -31,3 +31,6 @@ msgstr "еженедельно"
 
 msgid "monthly"
 msgstr "ежемесячно"
+
+msgid "yearly"
+msgstr ""

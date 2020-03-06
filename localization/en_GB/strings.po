@@ -1315,8 +1315,8 @@ msgstr "Consume %1$s of %2$s"
 msgid "Meal plan"
 msgstr "Meal plan"
 
-msgid "Add recipe to %s"
-msgstr "Add recipe to %s"
+msgid "Add recipe on %s"
+msgstr ""
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1755,11 +1755,9 @@ msgid "Edit stock entry"
 msgstr "Edit stock entry"
 
 msgid ""
-"Camera access is on only possible when supported and allowed by your browser"
-" and when grocy is served via a secure (https://) connection"
+"Camera access is only possible when supported and allowed by your browser "
+"and when grocy is served via a secure (https://) connection"
 msgstr ""
-"Camera access is on only possible when supported and allowed by your browser"
-" and when grocy is served via a secure (https://) connection"
 
 msgid "Keep screen on"
 msgstr "Keep screen on"
@@ -1790,7 +1788,7 @@ msgstr ""
 msgid "Add note"
 msgstr ""
 
-msgid "Add note to %s"
+msgid "Add note on %s"
 msgstr ""
 
 msgid "per day"
@@ -1808,7 +1806,7 @@ msgstr ""
 msgid "Add product"
 msgstr ""
 
-msgid "Add product to %s"
+msgid "Add product on %s"
 msgstr ""
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
@@ -1867,4 +1865,40 @@ msgid "Thawed"
 msgstr ""
 
 msgid "Frozen"
+msgstr ""
+
+msgid "Are you sure to delete userentity \"%s\"?"
+msgstr ""
+
+msgid "Shopping list settings"
+msgstr ""
+
+msgid "Show a month-view calendar"
+msgstr ""
+
+msgid "Don't automatically switch to the compact view on mobile devices"
+msgstr ""
+
+msgid "Edit note on %s"
+msgstr ""
+
+msgid "Edit product on %s"
+msgstr ""
+
+msgid "Edit recipe on %s"
+msgstr ""
+
+msgid "Desired servings"
+msgstr ""
+
+msgid "Base: %s"
+msgstr ""
+
+msgid "Recipes settings"
+msgstr ""
+
+msgid "Recipe card"
+msgstr ""
+
+msgid "Group ingredients by their product group"
 msgstr ""

@@ -30,3 +30,6 @@ msgstr "W określone dni tygodnia"
 
 msgid "monthly"
 msgstr "Co miesiąc"
+
+msgid "yearly"
+msgstr ""

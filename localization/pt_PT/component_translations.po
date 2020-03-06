@@ -1,0 +1,49 @@
+# Translators:
+# Ricardo Rodrigues <fenix999@gmail.com>, 2020
+# Bernd Bestel <bernd@berrnd.de>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2020\n"
+"Language-Team: Portuguese (Portugal) (https://www.transifex.com/grocy/teams/93189/pt_PT/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_PT\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/component_translations\n"
+
+msgid "timeago_locale"
+msgstr "pt"
+
+msgid "timeago_nan"
+msgstr "NaN anos atrás"
+
+msgid "moment_locale"
+msgstr "pt"
+
+msgid "datatables_localization"
+msgstr ""
+"{\"sEmptyTable\":\"Não há dados disponiveis na tabela\",\"sInfo\":\"Showing "
+"_START_ to _END_ of _TOTAL_ entries\",\"sInfoEmpty\":\"A mostrar 0 a 0 de 0 "
+"registos\",\"sInfoFiltered\":\"(filtered from _MAX_ total "
+"entries)\",\"sInfoPostFix\":\"\",\"sInfoThousands\":\",\",\"sLengthMenu\":\"Show"
+" _MENU_ entries\",\"sLoadingRecords\":\"A carregar...\",\"sProcessing\":\"A "
+"processar...\",\"sSearch\":\"Pesquisa:\",\"sZeroRecords\":\"Não foram "
+"encontrados "
+"registos\",\"oPaginate\":{\"sFirst\":\"Primeira\",\"sLast\":\"Última\",\"sNext\":\"Próxima\",\"sPrevious\":\"Anterior\"},\"oAria\":{\"sSortAscending\":\":"
+" activar para ordernar coluna em ascendente\",\"sSortDescending\":\": "
+"activar para ordernar coluna em descendente\"}}"
+
+msgid "summernote_locale"
+msgstr "pt-PT"
+
+msgid "fullcalendar_locale"
+msgstr "pt"
+
+msgid "bootstrap-select_locale"
+msgstr "pt_PT"

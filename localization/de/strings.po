@@ -1017,7 +1017,7 @@ msgid "Show clock in header"
 msgstr "Uhr in der Kopfzeile anzeigen"
 
 msgid "Stock settings"
-msgstr "Bestandseinstellungen"
+msgstr "Bestand-Einstellungen"
 
 msgid "Shopping list to stock workflow"
 msgstr "Einkaufsliste -> Bestand Workflow"
@@ -1340,8 +1340,8 @@ msgstr "Verbrauche %1$s %2$s"
 msgid "Meal plan"
 msgstr "Speiseplan"
 
-msgid "Add recipe to %s"
-msgstr "Rezept zu %s hinzufügen"
+msgid "Add recipe on %s"
+msgstr "Rezept am %s hinzufügen"
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1790,8 +1790,8 @@ msgid "Edit stock entry"
 msgstr "Bestandseintrag bearbeiten"
 
 msgid ""
-"Camera access is on only possible when supported and allowed by your browser"
-" and when grocy is served via a secure (https://) connection"
+"Camera access is only possible when supported and allowed by your browser "
+"and when grocy is served via a secure (https://) connection"
 msgstr ""
 "Der Kamerazugriff ist nur möglich, wenn dein Browser dies unterstützt und "
 "zulässt und wenn auf grocy über eine sichere Verbindung (https://) "
@@ -1830,8 +1830,8 @@ msgstr "API key \"%s\" wirklich löschen?"
 msgid "Add note"
 msgstr "Notiz hinzufügen"
 
-msgid "Add note to %s"
-msgstr "Notiz zu %s hinzufügen"
+msgid "Add note on %s"
+msgstr "Notiz am %s hinzufügen"
 
 msgid "per day"
 msgstr "pro Tag"
@@ -1848,8 +1848,8 @@ msgstr "Nur unerledigte Einträge"
 msgid "Add product"
 msgstr "Produkt hinzufügen"
 
-msgid "Add product to %s"
-msgstr "Produkt zu %s hinzufügen"
+msgid "Add product on %s"
+msgstr "Produkt am %s hinzufügen"
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
 msgstr ""
@@ -1921,3 +1921,39 @@ msgstr "Aufgetaut"
 
 msgid "Frozen"
 msgstr "Eingefroren"
+
+msgid "Are you sure to delete userentity \"%s\"?"
+msgstr "Benutzerentität \"%s\" wirklich löschen?"
+
+msgid "Shopping list settings"
+msgstr "Einkaufszettel-Einstellungen"
+
+msgid "Show a month-view calendar"
+msgstr "Einen Kalender (Monatsansicht) anzeigen"
+
+msgid "Don't automatically switch to the compact view on mobile devices"
+msgstr "Nicht automatisch zur Kompaktansicht wechseln auf mobilen Geräten"
+
+msgid "Edit note on %s"
+msgstr "Notiz am %s bearbeiten"
+
+msgid "Edit product on %s"
+msgstr "Produkt am %s bearbeiten"
+
+msgid "Edit recipe on %s"
+msgstr "Rezept am %s bearbeiten"
+
+msgid "Desired servings"
+msgstr "Gewünschte Portionen"
+
+msgid "Base: %s"
+msgstr "Basis: %s"
+
+msgid "Recipes settings"
+msgstr "Rezept-Einstellungen"
+
+msgid "Recipe card"
+msgstr "Rezept-Karte"
+
+msgid "Group ingredients by their product group"
+msgstr "Zutaten nach Produktgruppen gruppieren"

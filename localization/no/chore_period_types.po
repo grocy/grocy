@@ -31,3 +31,6 @@ msgstr "Ukentlig"
 
 msgid "monthly"
 msgstr "Månedlig"
+
+msgid "yearly"
+msgstr "årlig"

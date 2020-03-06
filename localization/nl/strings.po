@@ -10,9 +10,10 @@
 # Niels Tholenaar <info@123quality.nl>, 2019
 # Frank Klaassen <frank@frankklaassen.nl>, 2019
 # Kees van Nieuwenhuijzen <kees@vannieuwenhuijzen.com>, 2019
-# gggg <bashankamp@gmail.com>, 2019
 # Boding Clockchain <joost_nl@live.nl>, 2020
 # Daniel Polders <zigurana@gmail.com>, 2020
+# Bastien Van Houdt <bastienvanhoudt@gmail.com>, 2020
+# gggg <bashankamp@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -20,7 +21,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Daniel Polders <zigurana@gmail.com>, 2020\n"
+"Last-Translator: gggg <bashankamp@gmail.com>, 2020\n"
 "Language-Team: Dutch (https://www.transifex.com/grocy/teams/93189/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,7 +59,7 @@ msgstr "Product"
 msgid "%s Product"
 msgid_plural "%s Products"
 msgstr[0] "%s Product"
-msgstr[1] "%s Producten"
+msgstr[1] "%s producten"
 
 msgid "Amount"
 msgstr "Hoeveelheid"
@@ -395,7 +396,7 @@ msgid "Released on"
 msgstr "Vrijgegeven op"
 
 msgid "Added %1$s of %2$s to stock"
-msgstr "%1$s van %2$s toegevoegd aan de voorraad"
+msgstr "%1$s %2$s toegevoegd aan de voorraad"
 
 msgid "Stock amount of %1$s is now %2$s"
 msgstr "Van %1$s is er nu %2$s in voorraad"
@@ -407,7 +408,7 @@ msgid "Tracked charge cycle of battery %1$s on %2$s"
 msgstr "Bijgehouden laadcyclus van batterij %1$sop %2$s"
 
 msgid "Consume all %s which are currently in stock"
-msgstr "Consumeer alle %s op voorraad"
+msgstr "Consumeer alle %s in voorraad"
 
 msgid "All"
 msgstr "Alle"
@@ -540,7 +541,7 @@ msgid ""
 "Are you sure to put all missing ingredients for recipe \"%s\" on the "
 "shopping list?"
 msgstr ""
-"Ben je zeker dat je alle ontbrekende ingrediënten voor recept \"%s\" op de "
+"Weet je zeker dat je alle ontbrekende ingrediënten voor recept \"%s\" op de "
 "boodschappenlijst wilt zetten?"
 
 msgid "Added for recipe %s"
@@ -784,7 +785,7 @@ msgid "Expiring soon"
 msgstr "Vervalt binnenkort"
 
 msgid "Already expired"
-msgstr "Al vervallen"
+msgstr "Al verlopen"
 
 msgid "Due soon"
 msgstr "Bij over tijd"
@@ -964,7 +965,7 @@ msgid "Add all list items to stock"
 msgstr "Voeg alle lijstitems toe aan voorraad"
 
 msgid "Add %1$s of %2$s to stock"
-msgstr "Voeg %1$svan %2$stoe aan voorraad"
+msgstr "Voeg %1$s %2$s toe aan voorraad"
 
 msgid "Adding shopping list item %1$s of %2$s"
 msgstr "Item %1$s van %2$s van boodschappenlijst toevoegen"
@@ -980,18 +981,21 @@ msgstr ""
 "als eerste vervallen, daarna als eerste in de eerste keer\""
 
 msgid "Mark %1$s of %2$s as open"
-msgstr "Markeer %1$svan %2$s als open"
+msgstr "Markeer %1$s %2$s als geopend"
 
 msgid ""
 "When this product was marked as opened, the best before date will be "
 "replaced by today + this amount of days (a value of 0 disables this)"
 msgstr ""
+"Wanneer een product is gemarkeerd als geopend, zal de houdbaarheidsdatum "
+"worden vervangen door vandaag + dit aantal dagen (een waarde van 0 schakelt "
+"dit uit)"
 
 msgid "Default best before days after opened"
 msgstr "Standaard houdbaar tot na geopend"
 
 msgid "Marked %1$s of %2$s as opened"
-msgstr "%1$svan %2$sgemarkeerd als geopend"
+msgstr "%1$s %2$sgemarkeerd als geopend"
 
 msgid "Mark as opened"
 msgstr "Markeer als geopend"
@@ -1347,8 +1351,8 @@ msgstr "Consumeer %1$s %2$s"
 msgid "Meal plan"
 msgstr "Maaltijdplan"
 
-msgid "Add recipe to %s"
-msgstr "Recept toevoegen aan %s"
+msgid "Add recipe on %s"
+msgstr "Voeg recept toe op %s"
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1796,11 +1800,9 @@ msgid "Edit stock entry"
 msgstr "Bewerk voorraad item"
 
 msgid ""
-"Camera access is on only possible when supported and allowed by your browser"
-" and when grocy is served via a secure (https://) connection"
+"Camera access is only possible when supported and allowed by your browser "
+"and when grocy is served via a secure (https://) connection"
 msgstr ""
-"Toegang tot de camera is enkel mogelijk indien dit ondersteund en toegestaan"
-" wordt en grocy gebruik maakt van een beveiligde (https://) verbinding"
 
 msgid "Keep screen on"
 msgstr "Houd scherm aan"
@@ -1815,6 +1817,9 @@ msgid ""
 "When a product is selected, one unit (per serving in purchase quantity unit)"
 " will be added to stock on consuming this recipe"
 msgstr ""
+"Wanneer een product is geselecteerd, zal een eenheid ervan worden toegevoegd"
+" aan de voorraad bij consumptie van dit recept (per portie zoals in de "
+"aankoophoeveelheidseenheid)."
 
 msgid "Produces product"
 msgstr "Maakt product"
@@ -1823,89 +1828,138 @@ msgid "This booking cannot be undone"
 msgstr "Deze reservering kan niet ongedaan worden gemaakt"
 
 msgid "Booking does not exist or was already undone"
-msgstr ""
+msgstr "Boeking bestaat niet of was reeds ongedaan gemaakt"
 
 msgid "Are you sure to delete API key \"%s\"?"
-msgstr ""
+msgstr "Bent u zeker dat u API sleutel “%s” wilt verwijderen?"
 
 msgid "Add note"
-msgstr ""
+msgstr "Voeg notitie toe"
 
-msgid "Add note to %s"
-msgstr ""
+msgid "Add note on %s"
+msgstr "Voeg notitie toe aan %s"
 
 msgid "per day"
-msgstr ""
+msgstr "per day"
 
 msgid "Compact view"
-msgstr ""
+msgstr "compacte weergave"
 
 msgid "Normal view"
-msgstr ""
+msgstr "normale weergave"
 
 msgid "Only undone items"
-msgstr ""
+msgstr "Alleen ongedaan gemaakte items"
 
 msgid "Add product"
-msgstr ""
+msgstr "Voeg product toe"
 
-msgid "Add product to %s"
-msgstr ""
+msgid "Add product on %s"
+msgstr "Voeg product toe aan %s"
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
 msgstr ""
+"Consumeer alle ingrediënten die nodig zijn voor de recepten of producten van"
+" deze week"
 
 msgid "Meal plan recipe"
-msgstr ""
+msgstr "Maaltijdplan recept"
 
 msgid "Meal plan note"
-msgstr ""
+msgstr "Maaltijdplan notitie"
 
 msgid "Meal plan product"
-msgstr ""
+msgstr "Maaltijdplan product"
 
 msgid "Scan mode"
-msgstr ""
+msgstr "Scan modus"
 
 msgid "on"
-msgstr ""
+msgstr "aan"
 
 msgid "off"
-msgstr ""
+msgstr "uit"
 
 msgid ""
 "Scan mode is on but not all required fields could be populated automatically"
 msgstr ""
+"Scan modus is geactiveerd, maar niet alle vereiste velden konden automatisch"
+" ingevuld worden"
 
 msgid "Is freezer"
-msgstr ""
+msgstr "Is diepvriezer"
 
 msgid ""
 "When moving products from/to a freezer location, the products best before "
 "date is automatically adjusted according to the product settings"
 msgstr ""
+"Bij het verplaatsen van producten van/naar een driepvriezer locatie, zal de "
+"THT datum automatisch aangepast worden volgens de product instellingen"
 
 msgid ""
 "On moving this product to a freezer location (so when freezing it), the best"
 " before date will be replaced by today + this amount of days"
 msgstr ""
+"Bij verplaatsen van dit product naar een driepvriezer locatie (dus bij "
+"invriezen), zal de THT datum vervangen worden door vandaag + dit aantal "
+"dagen"
 
 msgid "Default best before days after freezing"
-msgstr ""
+msgstr "Standaard aantal THT dagen na invriezen"
 
 msgid ""
 "On moving this product from a freezer location (so when thawing it), the "
 "best before date will be replaced by today + this amount of days"
 msgstr ""
+"Bij verplaatsen van dit product vanuit een driepvriezer locatie (dus bij "
+"ontdooien), zal de THT datum vervangen worden door vandaag + dit aantal "
+"dagen"
 
 msgid "Default best before days after thawing"
-msgstr ""
+msgstr "Standaard aantal THT dagen na ontdooien"
 
 msgid "This cannot be the same as the \"From\" location"
-msgstr ""
+msgstr "Dit kan niet hetzelfde zijn als de “Van” locatie"
 
 msgid "Thawed"
-msgstr ""
+msgstr "Ontdooid"
 
 msgid "Frozen"
+msgstr "Ingevroren"
+
+msgid "Are you sure to delete userentity \"%s\"?"
+msgstr "Ben je zeker dat je gebruikerentiteit \"%s\" wilt verwijderen?"
+
+msgid "Shopping list settings"
+msgstr "Instellingen voor het boodschappenlijstje"
+
+msgid "Show a month-view calendar"
+msgstr "Toon de maandkalender."
+
+msgid "Don't automatically switch to the compact view on mobile devices"
 msgstr ""
+"Niet automatisch omschakelen naar compacte weergave op mobiele apparaten"
+
+msgid "Edit note on %s"
+msgstr "Bewerk notitie over %s"
+
+msgid "Edit product on %s"
+msgstr "Bewerk product over %s"
+
+msgid "Edit recipe on %s"
+msgstr "Bewerk recept over %s"
+
+msgid "Desired servings"
+msgstr "Gewenst aantal porties"
+
+msgid "Base: %s"
+msgstr "Basis: %s"
+
+msgid "Recipes settings"
+msgstr "Recept instellingen"
+
+msgid "Recipe card"
+msgstr "Receptfiche"
+
+msgid "Group ingredients by their product group"
+msgstr "Groepeer ingrediënten per productcategorie"
