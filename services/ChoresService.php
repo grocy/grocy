@@ -25,7 +25,7 @@ class ChoresService extends BaseService
 
 	public function GetCurrent()
 	{
-		$sql = 'SELECT * from chores_current';
+		$sql = 'SELECT chores_current.*, chores.name from chores_current join chores on chores_current.chore_id = chores.id';
 		return $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
 
