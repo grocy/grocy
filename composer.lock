@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b1fde916a45ad371e89da8c603362c0c",
+    "content-hash": "9c7420e77a3f1afb59e00560d5b9081c",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -1651,51 +1651,6 @@
                 "view"
             ],
             "time": "2016-03-11T02:32:00+00:00"
-        },
-        {
-            "name": "selective/basepath",
-            "version": "0.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/selective-php/basepath.git",
-                "reference": "58566c248279a0035012c393b669619ff3a140ee"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/selective-php/basepath/zipball/58566c248279a0035012c393b669619ff3a140ee",
-                "reference": "58566c248279a0035012c393b669619ff3a140ee",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1",
-                "psr/http-server-middleware": "^1.0"
-            },
-            "require-dev": {
-                "overtrue/phplint": "^1.1",
-                "phpstan/phpstan-shim": "^0.11",
-                "phpunit/phpunit": "^7",
-                "slim/psr7": "^0.6.0",
-                "slim/slim": "^4.3",
-                "squizlabs/php_codesniffer": "^3.4"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Selective\\BasePath\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "A URL base path detector for Slim 4",
-            "homepage": "https://github.com/selective-php/basepath",
-            "keywords": [
-                "basepath",
-                "slim",
-                "slim4"
-            ],
-            "time": "2019-11-24T21:59:39+00:00"
         },
         {
             "name": "slim/http",

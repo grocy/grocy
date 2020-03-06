@@ -4,7 +4,6 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Container\ContainerInterface as Container;
 use Slim\Factory\AppFactory;
-use Selective\BasePath\BasePathMiddleware;
 
 use Grocy\Helpers\UrlManager;
 use Grocy\Controllers\LoginController;
@@ -71,7 +70,6 @@ require_once __DIR__ . '/routes.php';
 
 // Add default middleware
 $app->addRoutingMiddleware();
-$app->add(new BasePathMiddleware($app));
 $app->addErrorMiddleware(true, false, false);
 
 $app->run();
