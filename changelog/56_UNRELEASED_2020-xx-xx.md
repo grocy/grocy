@@ -1,3 +1,6 @@
+## !! Important notice
+If you run grocy in a subdirectory, you need to set a new `config.php` setting (`BASE_PATH`, see `config-dist.php`)
+
 ### Stock fixes
 - Fixed purchase/consume/inventory problems when `FEATURE_FLAG_STOCK_LOCATION_TRACKING` was set to `false`
 

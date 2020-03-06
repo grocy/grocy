@@ -68,6 +68,12 @@ $container->set('ApiKeyHeaderName', function(Container $container)
 // Load routes from separate file
 require_once __DIR__ . '/routes.php';
 
+// Set base path if defined
+if (!empty(GROCY_BASE_PATH))
+{
+	$app->setBasePath(GROCY_BASE_PATH);
+}
+
 // Add default middleware
 $app->addRoutingMiddleware();
 $app->addErrorMiddleware(true, false, false);
