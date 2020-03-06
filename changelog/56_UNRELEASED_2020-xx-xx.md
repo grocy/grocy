@@ -3,6 +3,7 @@ If you run grocy in a subdirectory, you need to set a new `config.php` setting (
 
 ### Stock fixes
 - Fixed purchase/consume/inventory problems when `FEATURE_FLAG_STOCK_LOCATION_TRACKING` was set to `false`
+- Fixed that products on the Location Content Sheet were not ordered by the product name
 
 ### Shopping list improvements/fixes
 - Added an option to hide the month-calendar (in the shopping list settings / top right corner settings menu) (defaults to disabled, so please enable this option if you still want to have the month-calendar on the shopping list)

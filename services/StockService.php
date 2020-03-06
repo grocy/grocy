@@ -41,7 +41,7 @@ class StockService extends BaseService
 
 	public function GetCurrentStockLocationContent()
 	{
-		$sql = 'SELECT * FROM stock_current_location_content';
+		$sql = 'SELECT sclc.* FROM stock_current_location_content sclc JOIN products p ON sclc.product_id = p.id ORDER BY p.name';
 		return $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
 
