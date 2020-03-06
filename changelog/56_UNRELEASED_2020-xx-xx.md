@@ -33,6 +33,9 @@ If you run grocy in a subdirectory, you need to set a new `config.php` setting (
 - Fixed to only include events when the corresponding feature flag is enabled (e. g. don't show expiring products when `FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING` is set to `false`) (thanks @kriddles)
 - Fixed that the calendar not used the full height on mobile devices
 
+### API improvements/fixes
+- The endpoint `/chores` now also includes the chore name (new field `chore_name`) (thanks @DarienFord)
+
 ### General & other improvements/fixes
 - Big backend performance improvements (thanks @zebardy)
 - Added a button to enable the device flash light on the camera barcode scanner popup (thanks @radim-ek)
