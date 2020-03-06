@@ -1607,7 +1607,7 @@ msgstr ""
 msgid "Edit stock entry"
 msgstr ""
 
-msgid "Camera access is on only possible when supported and allowed by your browser and when grocy is served via a secure (https://) connection"
+msgid "Camera access is only possible when supported and allowed by your browser and when grocy is served via a secure (https://) connection"
 msgstr ""
 
 msgid "Keep screen on"
