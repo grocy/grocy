@@ -52,7 +52,7 @@ class ChoresController extends BaseController
 
 	public function ChoreEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$usersService = getUsersService();
+		$usersService = $this->getUsersService();
 		$users = $usersService->GetUsersAsDto();
 
 		if ($args['choreId'] == 'new')
