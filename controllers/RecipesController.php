@@ -33,17 +33,7 @@ class RecipesController extends BaseController
 			}
 		}
 
-		$selectedRecipeSubRecipes = $this->getDatabase()->recipes()->where('id IN (SELECT includes_recipe_id FROM recipes_nestings_resolved WHERE recipe_id = :1 AND includes_recipe_id != :1)', $selectedRecipe->id)->orderBy('name')->fetchAll();
-		$selectedRecipeSubRecipesPositions = $this->getDatabase()->recipes_pos_resolved()->where('recipe_id = :1', $selectedRecipe->id)->orderBy('ingredient_group', 'ASC', 'product_group', 'ASC')->fetchAll();
-
-		$includedRecipeIdsAbsolute = array();
-		$includedRecipeIdsAbsolute[] = $selectedRecipe->id;
-		foreach($selectedRecipeSubRecipes as $subRecipe)
-		{
-			$includedRecipeIdsAbsolute[] = $subRecipe->id;
-		}
-
-		return $this->renderPage($response, 'recipes', [
+		$renderArray = [
 			'recipes' => $recipes,
 			'recipesResolved' => $recipesResolved,
 			'recipePositionsResolved' => $this->getDatabase()->recipes_pos_resolved()->where('recipe_type', RecipesService::RECIPE_TYPE_NORMAL),
@@ -51,15 +41,43 @@ class RecipesController extends BaseController
 			'selectedRecipePositionsResolved' => $selectedRecipePositionsResolved,
 			'products' => $this->getDatabase()->products(),
 			'quantityUnits' => $this->getDatabase()->quantity_units(),
-			'selectedRecipeSubRecipes' => $selectedRecipeSubRecipes,
-			'selectedRecipeSubRecipesPositions' => $selectedRecipeSubRecipesPositions,
-			'includedRecipeIdsAbsolute' => $includedRecipeIdsAbsolute,
-			'selectedRecipeTotalCosts' => FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->costs,
-			'selectedRecipeTotalCalories' => FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->calories,
 			'userfields' => $this->getUserfieldsService()->GetFields('recipes'),
 			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('recipes'),
 			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
-		]);
+		];
+
+		if ($selectedRecipe) {
+			$selectedRecipeSubRecipes = $this->getDatabase()->recipes()->where('id IN (SELECT includes_recipe_id FROM recipes_nestings_resolved WHERE recipe_id = :1 AND includes_recipe_id != :1)', $selectedRecipe->id)->orderBy('name')->fetchAll();
+			$selectedRecipeSubRecipesPositions = $this->getDatabase()->recipes_pos_resolved()->where('recipe_id = :1', $selectedRecipe->id)->orderBy('ingredient_group', 'ASC', 'product_group', 'ASC')->fetchAll();
+
+			$includedRecipeIdsAbsolute = array();
+			$includedRecipeIdsAbsolute[] = $selectedRecipe->id;
+			foreach($selectedRecipeSubRecipes as $subRecipe)
+			{
+				$includedRecipeIdsAbsolute[] = $subRecipe->id;
+			}
+			$renderArray = [
+				'recipes' => $recipes,
+				'recipesResolved' => $recipesResolved,
+				'recipePositionsResolved' => $this->getDatabase()->recipes_pos_resolved()->where('recipe_type', RecipesService::RECIPE_TYPE_NORMAL),
+				'selectedRecipe' => $selectedRecipe,
+				'selectedRecipePositionsResolved' => $selectedRecipePositionsResolved,
+				'products' => $this->getDatabase()->products(),
+				'quantityUnits' => $this->getDatabase()->quantity_units(),
+				'selectedRecipeSubRecipes' => $selectedRecipeSubRecipes,
+				'selectedRecipeSubRecipesPositions' => $selectedRecipeSubRecipesPositions,
+				'includedRecipeIdsAbsolute' => $includedRecipeIdsAbsolute,
+				'selectedRecipeTotalCosts' => FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->costs,
+				'selectedRecipeTotalCalories' => FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->calories,
+				'userfields' => $this->getUserfieldsService()->GetFields('recipes'),
+				'userfieldValues' => $this->getUserfieldsService()->GetAllValues('recipes'),
+				'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
+			];
+
+		}
+
+
+		return $this->renderPage($response, 'recipes', $renderArray);
 	}
 
 	public function RecipeEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -124,7 +142,7 @@ class RecipesController extends BaseController
 	public function MealPlan(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$recipes = $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll();
-		
+
 		$events = array();
 		foreach($this->getDatabase()->meal_plan() as $mealPlanEntry)
 		{
