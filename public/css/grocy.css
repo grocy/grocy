@@ -225,6 +225,40 @@ input::-webkit-inner-spin-button {
 	display: none;
 }
 
+/* Stock overview table */
+
+.table-inline-menu.dropdown-menu {
+	padding-left: 12px;
+	padding-right: 12px;
+	width: 96vw; /* Set width of popup menu to screen size */
+}
+
+/* Set width of popup menu to fixed value on larger devices */
+@media (min-width: 400px) {
+	.table-inline-menu.dropdown-menu {
+		width: 400px;
+	}
+}
+
+.table-inline-menu .dropdown-item {
+	width: auto;
+	text-indent: -24px;
+}
+
+.table-inline-menu .dropdown-item .dropdown-item-icon {
+	min-width: 24px;
+	padding-left:20px;
+	text-align: center;
+	display: inline;
+}
+
+.table-inline-menu .dropdown-item .dropdown-item-text {
+	display: inline;
+	padding: 0;
+	word-wrap: break-word;
+	white-space: pre-wrap;
+}
+
 /* Third party component customizations - Bootstrap */
 
 /* Hide the form validation feedback icons introduced in Bootstrap 4.2.0 - a colored border is enough */

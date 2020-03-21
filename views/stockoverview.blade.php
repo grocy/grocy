@@ -124,38 +124,38 @@
 							<button class="btn btn-sm btn-light text-secondary" type="button" data-toggle="dropdown">
 								<i class="fas fa-ellipsis-v"></i>
 							</button>
-							<div class="dropdown-menu">
+							<div class="table-inline-menu dropdown-menu dropdown-menu-right">
 								<a class="dropdown-item show-as-dialog-link" type="button" href="{{ $U('/shoppinglistitem/new?embedded&updateexistingproduct&product=' . $currentStockEntry->product_id ) }}">
-									<i class="fas fa-shopping-cart"></i> {{ $__t('Add to shopping list') }}
+									<span class="dropdown-item-icon"><i class="fas fa-shopping-cart"></i></span> <span class="dropdown-item-text">{{ $__t('Add to shopping list') }}</span>
 								</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item show-as-dialog-link" type="button" href="{{ $U('/purchase?embedded&product=' . $currentStockEntry->product_id ) }}">
-									<i class="fas fa-shopping-cart"></i> {{ $__t('Purchase') }}
+									<span class="dropdown-item-icon"><i class="fas fa-shopping-cart"></i></span> <span class="dropdown-item-text">{{ $__t('Purchase') }}</span>
 								</a>
 								<a class="dropdown-item show-as-dialog-link" type="button" href="{{ $U('/consume?embedded&product=' . $currentStockEntry->product_id ) }}">
-									<i class="fas fa-utensils"></i> {{ $__t('Consume') }}
+									<span class="dropdown-item-icon"><i class="fas fa-utensils"></i></span> <span class="dropdown-item-text">{{ $__t('Consume') }}</span>
 								</a>
 								@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 								<a class="dropdown-item show-as-dialog-link @if($currentStockEntry->amount < 1) disabled @endif" type="button" href="{{ $U('/transfer?embedded&product=' . $currentStockEntry->product_id) }}">
-									<i class="fas fa-exchange-alt"></i> {{ $__t('Transfer') }}
+									<span class="dropdown-item-icon"><i class="fas fa-exchange-alt"></i></span> <span class="dropdown-item-text">{{ $__t('Transfer') }}</span>
 								</a>
 								@endif
 								<a class="dropdown-item show-as-dialog-link" type="button" href="{{ $U('/inventory?embedded&product=' . $currentStockEntry->product_id ) }}">
-									<i class="fas fa-list"></i> {{ $__t('Inventory') }}
+									<span class="dropdown-item-icon"><i class="fas fa-list"></i></span> <span class="dropdown-item-text">{{ $__t('Inventory') }}</span>
 								</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item product-name-cell" data-product-id="{{ $currentStockEntry->product_id }}" type="button" href="#">
-									<i class="fas fa-info"></i> {{ $__t('Show product details') }}
+									<span class="dropdown-item-icon"><i class="fas fa-info"></i></span> <span class="dropdown-item-text">{{ $__t('Show product details') }}</span>
 								</a>
 								<a class="dropdown-item" type="button" href="{{ $U('/stockentries?product=') }}{{ $currentStockEntry->product_id }}"
 									data-product-id="{{ $currentStockEntry->product_id }}">
-									<i class="fas fa-boxes"></i> {{ $__t('Show stock entries') }}
+									<span class="dropdown-item-icon"><i class="fas fa-boxes"></i></span> <span class="dropdown-item-text">{{ $__t('Show stock entries') }}</span>
 								</a>
 								<a class="dropdown-item" type="button" href="{{ $U('/stockjournal?product=') }}{{ $currentStockEntry->product_id }}">
-									<i class="fas fa-file-alt"></i> {{ $__t('Stock journal for this product') }}
+									<span class="dropdown-item-icon"><i class="fas fa-file-alt"></i></span> <span class="dropdown-item-text">{{ $__t('Stock journal for this product') }}</span>
 								</a>
 								<a class="dropdown-item" type="button" href="{{ $U('/product/') }}{{ $currentStockEntry->product_id . '?returnto=%2Fstockoverview' }}">
-									<i class="fas fa-edit"></i> {{ $__t('Edit product') }}
+									<span class="dropdown-item-icon"><i class="fas fa-edit"></i></span> <span class="dropdown-item-text">{{ $__t('Edit product') }}</span>
 								</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item product-consume-button product-consume-button-spoiled @if($currentStockEntry->amount < 1) disabled @endif" type="button" href="#"
@@ -163,11 +163,11 @@
 									data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}"
 									data-product-qu-name="{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name }}"
 									data-consume-amount="1">
-									<i class="fas fa-utensils"></i> {{ $__t('Consume %1$s of %2$s as spoiled', '1 ' . FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name) }}
+									<span class="dropdown-item-icon"><i class="fas fa-utensils"></i></span> <span class="dropdown-item-text">{{ $__t('Consume %1$s of %2$s as spoiled', '1 ' . FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name) }}</span>
 								</a>
 								@if(GROCY_FEATURE_FLAG_RECIPES)
 								<a class="dropdown-item" type="button" href="{{ $U('/recipes?search=') }}{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}">
-									<i class="fas fa-cocktail"></i> {{ $__t('Search for recipes containing this product') }}
+									<span class="dropdown-item-icon"><i class="fas fa-cocktail"></i></span> <span class="dropdown-item-text">{{ $__t('Search for recipes containing this product') }}</span>
 								</a>
 								@endif
 							</div>
