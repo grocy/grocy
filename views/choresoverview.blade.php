@@ -86,15 +86,15 @@
 							<button class="btn btn-sm btn-light text-secondary" type="button" data-toggle="dropdown">
 								<i class="fas fa-ellipsis-v"></i>
 							</button>
-							<div class="dropdown-menu">
+							<div class="table-inline-menu dropdown-menu dropdown-menu-right">
 								<a class="dropdown-item chore-name-cell" data-chore-id="{{ $curentChoreEntry->chore_id }}" type="button" href="#">
-									<i class="fas fa-info"></i> {{ $__t('Show chore details') }}
+									<span class="dropdown-item-icon"><i class="fas fa-info"></i></span> <span class="dropdown-item-text">{{ $__t('Show chore details') }}</span>
 								</a>
 								<a class="dropdown-item" type="button" href="{{ $U('/choresjournal?chore=') }}{{ $curentChoreEntry->chore_id }}">
-									<i class="fas fa-file-alt"></i> {{ $__t('Journal for this chore') }}
+									<span class="dropdown-item-icon"><i class="fas fa-file-alt"></i></span> <span class="dropdown-item-text">{{ $__t('Journal for this chore') }}</span>
 								</a>
 								<a class="dropdown-item" type="button" href="{{ $U('/chore/') }}{{ $curentChoreEntry->chore_id }}">
-									<i class="fas fa-edit"></i> {{ $__t('Edit chore') }}
+									<span class="dropdown-item-icon"><i class="fas fa-edit"></i></span> <span class="dropdown-item-text">{{ $__t('Edit chore') }}</span>
 								</a>
 							</div>
 						</div>

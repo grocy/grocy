@@ -66,15 +66,15 @@
 							<button class="btn btn-sm btn-light text-secondary" type="button" data-toggle="dropdown">
 								<i class="fas fa-ellipsis-v"></i>
 							</button>
-							<div class="dropdown-menu">
+							<div class="table-inline-menu dropdown-menu dropdown-menu-right">
 								<a class="dropdown-item battery-name-cell" data-battery-id="{{ $currentBatteryEntry->battery_id }}" type="button" href="#">
-									<i class="fas fa-info"></i> {{ $__t('Show battery details') }}
+									<span class="dropdown-item-icon"><i class="fas fa-info"></i></span> <span class="dropdown-item-text">{{ $__t('Show battery details') }}</span>
 								</a>
 								<a class="dropdown-item" type="button" href="{{ $U('/batteriesjournal?battery=') }}{{ $currentBatteryEntry->battery_id }}">
-									<i class="fas fa-file-alt"></i> {{ $__t('Journal for this battery') }}
+									<span class="dropdown-item-icon"><i class="fas fa-file-alt"></i></span> <span class="dropdown-item-text">{{ $__t('Journal for this battery') }}</span>
 								</a>
 								<a class="dropdown-item" type="button" href="{{ $U('/battery/') }}{{ $currentBatteryEntry->battery_id }}">
-									<i class="fas fa-edit"></i> {{ $__t('Edit battery') }}
+									<span class="dropdown-item-icon"><i class="fas fa-edit"></i></span> <span class="dropdown-item-text">{{ $__t('Edit battery') }}</span>
 								</a>
 							</div>
 						</div>
