@@ -1744,3 +1744,6 @@ msgstr ""
 
 msgid "Group ingredients by their product group"
 msgstr ""
+
+msgid "Transaction successfully undone"
+msgstr ""
