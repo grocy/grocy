@@ -9,10 +9,10 @@ const REQUIRED_PHP_EXTENSIONS = array("fileinfo", "pdo_sqlite", "gd");
 class PrerequisiteChecker {
     
     public function checkRequirements() {
-       /* self::checkForConfigFile();
+        self::checkForConfigFile();
         self::checkForConfigDistFile();
         self::checkForComposer();
-        self::checkForYarn(); */
+        self::checkForYarn();
         self::checkForPhpExtensions();
     }
     
