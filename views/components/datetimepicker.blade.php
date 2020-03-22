@@ -25,7 +25,7 @@
 	</label>
 	<div class="input-group">
 		<div class="input-group date datetimepicker @if(!empty($additionalGroupCssClasses)){{ $additionalGroupCssClasses }}@endif" id="{{ $id }}" @if(!$noNameAttribute) name="{{ $id }}" @endif data-target-input="nearest">
-			<input {!! $additionalAttributes !!} @if($inputTypeAsNumber) type="number" @else type="text" @endif @if($isRequired) @if($isRequired) required @endif @endif class="form-control datetimepicker-input @if(!empty($additionalCssClasses)){{ $additionalCssClasses }}@endif"
+			<input {!! $additionalAttributes !!} type="text" @if($inputTypeAsNumber) inputmode="numeric" pattern="[0-9]*" @endif @if($isRequired) @if($isRequired) required @endif @endif class="form-control datetimepicker-input @if(!empty($additionalCssClasses)){{ $additionalCssClasses }}@endif"
 				data-target="#{{ $id }}" data-format="{{ $format }}"
 				data-init-with-now="{{ BoolToString($initWithNow) }}"
 				data-init-value="{{ $initialValue }}"
