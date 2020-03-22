@@ -51,7 +51,8 @@
 				'shortcutLabel' => 'Never expires',
 				'earlierThanInfoLimit' => date('Y-m-d'),
 				'earlierThanInfoText' => $__t('The given date is earlier than today, are you sure?'),
-				'additionalGroupCssClasses' => $additionalGroupCssClasses
+				'additionalGroupCssClasses' => $additionalGroupCssClasses,
+				'inputTypeAsNumber' => GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_FIELD_AS_NUMBER
 			))
 			@php $additionalGroupCssClasses = ''; @endphp
 
