@@ -3,13 +3,17 @@
 class ERequirementNotMet extends Exception {
 }
 
+
+const REQUIRED_PHP_EXTENSIONS = array("fileinfo", "pdo_sqlite", "gd");
+
 class PrerequisiteChecker {
     
     public function checkRequirements() {
-        self::checkForConfigFile();
+       /* self::checkForConfigFile();
         self::checkForConfigDistFile();
         self::checkForComposer();
-        self::checkForYarn();
+        self::checkForYarn(); */
+        self::checkForPhpExtensions();
     }
     
     
@@ -31,6 +35,14 @@ class PrerequisiteChecker {
     private function checkForYarn() {
         if (!file_exists(__DIR__ . "/../public/node_modules"))
             throw new ERequirementNotMet("/public/node_modules not found. Have you run Yarn?");
+    }
+
+    private function checkForPhpExtensions() {
+        $loadedExtensions = get_loaded_extensions();
+        foreach (REQUIRED_PHP_EXTENSIONS as $extension) {
+            if (!in_array($extension, $loadedExtensions))
+                throw new ERequirementNotMet("PHP module '{$extension}' not installed, but required.");
+        }
     }
 }
 
