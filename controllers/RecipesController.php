@@ -33,20 +33,8 @@ class RecipesController extends BaseController
 			}
 		}
 
-		$renderArray = [
-			'recipes' => $recipes,
-			'recipesResolved' => $recipesResolved,
-			'recipePositionsResolved' => $this->getDatabase()->recipes_pos_resolved()->where('recipe_type', RecipesService::RECIPE_TYPE_NORMAL),
-			'selectedRecipe' => $selectedRecipe,
-			'selectedRecipePositionsResolved' => $selectedRecipePositionsResolved,
-			'products' => $this->getDatabase()->products(),
-			'quantityUnits' => $this->getDatabase()->quantity_units(),
-			'userfields' => $this->getUserfieldsService()->GetFields('recipes'),
-			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('recipes'),
-			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
-		];
-
-		if ($selectedRecipe) {
+		if ($selectedRecipe)
+		{
 			$selectedRecipeSubRecipes = $this->getDatabase()->recipes()->where('id IN (SELECT includes_recipe_id FROM recipes_nestings_resolved WHERE recipe_id = :1 AND includes_recipe_id != :1)', $selectedRecipe->id)->orderBy('name')->fetchAll();
 			$selectedRecipeSubRecipesPositions = $this->getDatabase()->recipes_pos_resolved()->where('recipe_id = :1', $selectedRecipe->id)->orderBy('ingredient_group', 'ASC', 'product_group', 'ASC')->fetchAll();
 
@@ -56,6 +44,7 @@ class RecipesController extends BaseController
 			{
 				$includedRecipeIdsAbsolute[] = $subRecipe->id;
 			}
+
 			$renderArray = [
 				'recipes' => $recipes,
 				'recipesResolved' => $recipesResolved,
@@ -73,9 +62,22 @@ class RecipesController extends BaseController
 				'userfieldValues' => $this->getUserfieldsService()->GetAllValues('recipes'),
 				'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
 			];
-
 		}
-
+		else
+		{
+			$renderArray = [
+				'recipes' => $recipes,
+				'recipesResolved' => $recipesResolved,
+				'recipePositionsResolved' => $this->getDatabase()->recipes_pos_resolved()->where('recipe_type', RecipesService::RECIPE_TYPE_NORMAL),
+				'selectedRecipe' => $selectedRecipe,
+				'selectedRecipePositionsResolved' => $selectedRecipePositionsResolved,
+				'products' => $this->getDatabase()->products(),
+				'quantityUnits' => $this->getDatabase()->quantity_units(),
+				'userfields' => $this->getUserfieldsService()->GetFields('recipes'),
+				'userfieldValues' => $this->getUserfieldsService()->GetAllValues('recipes'),
+				'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
+			];
+		}
 
 		return $this->renderPage($response, 'recipes', $renderArray);
 	}
