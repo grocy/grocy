@@ -15,6 +15,8 @@ Grocy.Components.BarcodeScanner.CheckCapabilities = function()
 	}
 }
 
+Grocy.Components.BarcodeScanner.TorchState = false;
+
 Grocy.Components.BarcodeScanner.StartScanning = function()
 {
 	Grocy.Components.BarcodeScanner.DecodedCodesCount = 0;
@@ -178,7 +180,15 @@ $(document).on("click", "#barcodescanner-start-button", function(e)
 				className: 'btn-warning responsive-button torch',
 				callback: function()
 				{
-					Quagga.CameraAccess.getActiveTrack().applyConstraints({ advanced: [{ torch: true }] });
+					Grocy.Components.BarcodeScanner.TorchState = !Grocy.Components.BarcodeScanner.TorchState;
+					
+					Quagga.CameraAccess.getActiveTrack().applyConstraints({ 
+						advanced: [
+							{ 
+								torch: Grocy.Components.BarcodeScanner.TorchState 
+							}
+						]
+					});
 					return false;
            		}	
 			},			
