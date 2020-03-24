@@ -1,5 +1,20 @@
 Grocy.Components.BarcodeScanner = { };
 
+Grocy.Components.BarcodeScanner.CheckCapabilities = function()
+{
+	var track = Quagga.CameraAccess.getActiveTrack();
+	var capabilities = {};
+	if (typeof track.getCapabilities === 'function') {
+		capabilities = track.getCapabilities();
+	}
+	
+	var canTorch = typeof capabilities.torch === 'boolean' && capabilities.torch
+	var node = document.querySelector('.torch');
+	if (node) {
+		node.style.display = canTorch ? 'block' : 'none';
+	}
+}
+
 Grocy.Components.BarcodeScanner.StartScanning = function()
 {
 	Grocy.Components.BarcodeScanner.DecodedCodesCount = 0;
@@ -70,6 +85,9 @@ Grocy.Components.BarcodeScanner.StartScanning = function()
 			}, 500);
 			return;
 		}
+
+		Grocy.Components.BarcodeScanner.CheckCapabilities();
+
 		Quagga.start();
 	});
 }
@@ -157,7 +175,7 @@ $(document).on("click", "#barcodescanner-start-button", function(e)
 		buttons: {
 			torch: {
 				label: '<i class="far fa-lightbulb"></i>',
-				className: 'btn-warning responsive-button',
+				className: 'btn-warning responsive-button torch',
 				callback: function()
 				{
 					Quagga.CameraAccess.getActiveTrack().applyConstraints({ advanced: [{ torch: true }] });
