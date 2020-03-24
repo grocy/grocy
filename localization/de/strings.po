@@ -1957,6 +1957,3 @@ msgstr "Rezept-Karte"
 
 msgid "Group ingredients by their product group"
 msgstr "Zutaten nach Produktgruppen gruppieren"
-
-msgid "Transaction successfully undone"
-msgstr "Vorgang wurde rückgängig gemacht"
