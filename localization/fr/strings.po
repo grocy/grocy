@@ -1348,7 +1348,7 @@ msgid "Meal plan"
 msgstr "Prévisions des menus"
 
 msgid "Add recipe on %s"
-msgstr ""
+msgstr "Ajouter une recette sur %s"
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1768,10 +1768,10 @@ msgid "Transfered %1$s of %2$s from %3$s to %4$s"
 msgstr "A transferé%1$sde %2$svenant de %3$s à %4$s"
 
 msgid "Show stock entries"
-msgstr ""
+msgstr "Voir les entrées de stock"
 
 msgid "Stock entries"
-msgstr ""
+msgstr "Entrées de stock"
 
 msgid "Best before date"
 msgstr "A consommer de préférence avant le"
@@ -1780,27 +1780,29 @@ msgid "Purchased date"
 msgstr "Date d'achat"
 
 msgid "Consume all %s for this stock entry"
-msgstr ""
+msgstr "Consommer tous les %s pour cette entrée de stock"
 
 msgid "The amount cannot be lower than %1$s"
 msgstr "La quantité ne peut être inférieure à %s"
 
 msgid "Stock entry successfully updated"
-msgstr ""
+msgstr "Entrée de stock mise à jour avec succès"
 
 msgid "Edit stock entry"
-msgstr ""
+msgstr "Modifier l'entrée de stock"
 
 msgid ""
 "Camera access is only possible when supported and allowed by your browser "
 "and when grocy is served via a secure (https://) connection"
 msgstr ""
+"L'accès à la caméra n'est possible que s'il est pris en charge et autorisé par votre navigateur "
+"et lorsque grocy est servi via une connexion sécurisée (https: //)"
 
 msgid "Keep screen on"
 msgstr "Garder l'écran allumé"
 
 msgid "Keep screen on while displaying a \"fullscreen-card\""
-msgstr ""
+msgstr "Gardez l'écran allumé pendant l'affichage d'un \"fullscreen-card\""
 
 msgid "A purchased date is required"
 msgstr "Date d'achat obligatoire"
@@ -1809,24 +1811,26 @@ msgid ""
 "When a product is selected, one unit (per serving in purchase quantity unit)"
 " will be added to stock on consuming this recipe"
 msgstr ""
+"Lorsqu'un produit est sélectionné, une unité (par portion en unité de quantité d'achat)"
+" sera ajouté au stock en consommant cette recette"
 
 msgid "Produces product"
 msgstr ""
 
 msgid "This booking cannot be undone"
-msgstr ""
+msgstr "Cette réservation ne peut pas être annulée"
 
 msgid "Booking does not exist or was already undone"
-msgstr ""
+msgstr "La réservation n'existe pas ou a déjà été annulée"
 
 msgid "Are you sure to delete API key \"%s\"?"
-msgstr ""
+msgstr "Voulez-vous vraiment supprimer la clé API \"%s\"?"
 
 msgid "Add note"
 msgstr "Ajouter une remarque"
 
 msgid "Add note on %s"
-msgstr ""
+msgstr "Ajouter une note sur %s""
 
 msgid "per day"
 msgstr "par jour"
@@ -1838,16 +1842,16 @@ msgid "Normal view"
 msgstr "Vue normale"
 
 msgid "Only undone items"
-msgstr ""
+msgstr "Uniquement les éléments annulés"
 
 msgid "Add product"
 msgstr "Ajouter un produit"
 
 msgid "Add product on %s"
-msgstr ""
+msgstr "Ajouter un produit sur %s"
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
-msgstr ""
+msgstr "Consommer tous les ingrédients nécessaires aux recettes de cette semaine"
 
 msgid "Meal plan recipe"
 msgstr "Recette des prévisions de repas"
@@ -1870,6 +1874,7 @@ msgstr "Éteint"
 msgid ""
 "Scan mode is on but not all required fields could be populated automatically"
 msgstr ""
+"Le mode de numérisation est activé mais tous les champs obligatoires ne peuvent pas être remplis automatiquement"
 
 msgid "Is freezer"
 msgstr ""
@@ -1878,64 +1883,70 @@ msgid ""
 "When moving products from/to a freezer location, the products best before "
 "date is automatically adjusted according to the product settings"
 msgstr ""
+"Lorsque vous déplacez des produits de/vers un congélateur, les produits sont à consommer de préférence avant "
+"la date est automatiquement ajustée en fonction des paramètres du produit"
 
 msgid ""
 "On moving this product to a freezer location (so when freezing it), the best"
 " before date will be replaced by today + this amount of days"
 msgstr ""
+"Pour déplacer ce produit dans un congélateur (donc lors de la congélation), la DLUO / DLC"
+" sera remplacée par aujourd'hui + ce nombre de jours"
 
 msgid "Default best before days after freezing"
-msgstr ""
+msgstr "" 
 
 msgid ""
 "On moving this product from a freezer location (so when thawing it), the "
 "best before date will be replaced by today + this amount of days"
 msgstr ""
+"En déplaçant ce produit d'un congélateur (donc lors de sa décongélation), "
+"La date de péremption sera remplacée par aujourd'hui + ce nombre de jours"
 
 msgid "Default best before days after thawing"
-msgstr ""
+msgstr "À consommer de préférence avant le jours après décongélation"
 
 msgid "This cannot be the same as the \"From\" location"
-msgstr ""
+msgstr "Cela ne peut pas être le même que l'emplacement \"From\""
 
 msgid "Thawed"
-msgstr ""
+msgstr "Décongelé"
 
 msgid "Frozen"
 msgstr "Congelé"
 
 msgid "Are you sure to delete userentity \"%s\"?"
-msgstr ""
+msgstr "Voulez-vous vraiment supprimer l'entité utilisateur \"%s\"?"
 
 msgid "Shopping list settings"
 msgstr "Paramètres de la liste de courses"
 
 msgid "Show a month-view calendar"
-msgstr ""
+msgstr "Afficher un calendrier mensuel"
 
 msgid "Don't automatically switch to the compact view on mobile devices"
-msgstr ""
+msgstr "Ne passez pas automatiquement à la vue compacte sur les appareils mobiles"
 
 msgid "Edit note on %s"
-msgstr ""
+msgstr "Modifier la note sur %s"
 
 msgid "Edit product on %s"
-msgstr ""
+msgstr "Modifier le prduit sur %s"
 
 msgid "Edit recipe on %s"
-msgstr ""
+msgstr "Modifier la recette sur %s"
 
 msgid "Desired servings"
 msgstr "portions souhaitées"
 
 msgid "Base: %s"
-msgstr ""
+msgstr "Base: %s"
 
 msgid "Recipes settings"
-msgstr ""
+msgstr "Paramètres de recette"
 
 msgid "Recipe card"
-msgstr ""
+msgstr "Carte de recette"
 
 msgid "Group ingredients by their product group"
 msgstr "Regrouper les ingrédients par groupe de produits"
