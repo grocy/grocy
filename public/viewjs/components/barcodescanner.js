@@ -28,8 +28,8 @@ Grocy.Components.BarcodeScanner.StartScanning = function()
 			type: "LiveStream",
 			target: document.querySelector("#barcodescanner-livestream"),
 			constraints: {
-				width: 436,
-				height: 327,
+				// width: 436,
+				// height: 327,
 				facingMode: "environment"
 			}
 		},
@@ -181,7 +181,7 @@ $(document).on("click", "#barcodescanner-start-button", function(e)
 				callback: function()
 				{
 					Grocy.Components.BarcodeScanner.TorchState = !Grocy.Components.BarcodeScanner.TorchState;
-					
+
 					Quagga.CameraAccess.getActiveTrack().applyConstraints({ 
 						advanced: [
 							{ 

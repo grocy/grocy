@@ -259,6 +259,14 @@ input::-webkit-inner-spin-button {
 	color: inherit;
 }
 
+/* Barcodescanner Quagga */
+#barcodescanner-livestream video {
+	width: 100%;
+}
+#barcodescanner-livestream canvas {
+	width: 100%;
+}
+
 /* Third party component customizations - Bootstrap */
 
 /* Hide the form validation feedback icons introduced in Bootstrap 4.2.0 - a colored border is enough */
