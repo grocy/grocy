@@ -52,7 +52,7 @@
 				'earlierThanInfoLimit' => date('Y-m-d'),
 				'earlierThanInfoText' => $__t('The given date is earlier than today, are you sure?'),
 				'additionalGroupCssClasses' => $additionalGroupCssClasses,
-				'inputTypeAsNumber' => GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_FIELD_AS_NUMBER
+				'activateNumberPad' => GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_FIELD_NUMBER_PAD
 			))
 			@php $additionalGroupCssClasses = ''; @endphp
 
