@@ -181,7 +181,7 @@ $(document).on("click", "#barcodescanner-start-button", function(e)
 				callback: function()
 				{
 					Grocy.Components.BarcodeScanner.TorchState = !Grocy.Components.BarcodeScanner.TorchState;
-
+					
 					Quagga.CameraAccess.getActiveTrack().applyConstraints({ 
 						advanced: [
 							{ 
