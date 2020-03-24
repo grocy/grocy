@@ -14,6 +14,7 @@
 	jsonData.amount = jsonForm.amount;
 	jsonData.best_before_date = Grocy.Components.DateTimePicker.GetValue();
 	jsonData.purchased_date = Grocy.Components.DateTimePicker2.GetValue();
+	jsonData.shopping_location_id = Grocy.Components.ShoppingLocationPicker.GetValue();
 	if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 	{
 		jsonData.location_id = Grocy.Components.LocationPicker.GetValue();

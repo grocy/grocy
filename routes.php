@@ -57,6 +57,13 @@ $app->group('', function(RouteCollectorProxy $group)
 		$group->get('/quantityunitpluraltesting', '\Grocy\Controllers\StockController:QuantityUnitPluralFormTesting');
 	}
 
+	// Stock price tracking
+	if (GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+	{
+		$group->get('/shoppinglocations', '\Grocy\Controllers\StockController:ShoppingLocationsList');
+		$group->get('/shoppinglocation/{shoppingLocationId}', '\Grocy\Controllers\StockController:ShoppingLocationEditForm');
+	}
+
 	// Shopping list routes
 	if (GROCY_FEATURE_FLAG_SHOPPINGLIST)
 	{

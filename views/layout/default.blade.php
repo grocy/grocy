@@ -243,6 +243,14 @@
 							</a>
 						</li>
 						@endif
+						@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+						<li data-nav-for-page="shoppinglocations" data-sub-menu-of="#top-nav-manager-master-data">
+							<a class="nav-link discrete-link" href="{{ $U('/shoppinglocations') }}">
+								<i class="fas fa-shopping-cart"></i>
+								<span class="nav-link-text">{{ $__t('Shopping locations') }}</span>
+							</a>
+						</li>
+						@endif
 						<li data-nav-for-page="quantityunits" data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link" href="{{ $U('/quantityunits') }}">
 								<i class="fas fa-balance-scale"></i>
