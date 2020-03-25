@@ -138,6 +138,20 @@ function BoolToString(bool $bool)
 	return $bool ? 'true' : 'false';
 }
 
+function ExternalSettingValue(string $value)
+{
+	$tvalue = rtrim($value, "\r\n");
+	$lvalue = strtolower($tvalue);
+	if ($lvalue === "true"){
+		return true;
+	}
+	elseif ($lvalue === "false")
+	{
+		return false;
+	}
+	return $tvalue;
+}
+
 function Setting(string $name, $value)
 {
 	if (!defined('GROCY_' . $name))
@@ -146,22 +160,11 @@ function Setting(string $name, $value)
 		$settingOverrideFile = GROCY_DATAPATH . '/settingoverrides/' . $name . '.txt';
 		if (file_exists($settingOverrideFile))
 		{
-			define('GROCY_' . $name, file_get_contents($settingOverrideFile));
+			define('GROCY_' . $name, ExternalSettingValue(file_get_contents($settingOverrideFile)));
 		}
 		elseif (getenv('GROCY_' . $name) !== false) // An environment variable with the same name and prefix GROCY_ overwrites the given setting
 		{
-			if (strtolower(getenv('GROCY_' . $name)) === "true")
-			{
-				define('GROCY_' . $name, true);
-			}
-			elseif (strtolower(getenv('GROCY_' . $name)) === "false")
-			{
-				define('GROCY_' . $name, false);
-			}
-			else
-			{
-				define('GROCY_' . $name, getenv('GROCY_' . $name));
-			}
+			define('GROCY_' . $name, ExternalSettingValue(getenv('GROCY_'. $name)));
 		}
 		else
 		{
