@@ -166,17 +166,34 @@ function RefreshStockEntryRow(stockRowId)
 					function(locationResult)
 					{
 						locationName = locationResult.name;
+
+						$('#stock-' + stockRowId + '-location').attr('data-location-id', result.location_id);
+						$('#stock-' + stockRowId + '-location').text(locationName);
 					},
 					function(xhr)
 					{
 						console.error(xhr);
 					}
 				);
-				$('#stock-' + stockRowId + '-location').attr('data-location-id', result.location_id);
-				$('#stock-' + stockRowId + '-location').text(locationName);
+				
 				$('#stock-' + stockRowId + '-price').text(result.price);
 				$('#stock-' + stockRowId + '-purchased-date').text(result.purchased_date);
 				$('#stock-' + stockRowId + '-purchased-date-timeago').attr('datetime', result.purchased_date + ' 23:59:59');
+
+				var shoppingLocationName = "";
+				Grocy.Api.Get("objects/shopping_locations/" + result.shopping_location_id,
+					function(shoppingLocationResult)
+					{
+						shoppingLocationName = shoppingLocationResult.name;
+
+						$('#stock-' + stockRowId + '-shopping-location').attr('data-shopping-location-id', result.location_id);
+						$('#stock-' + stockRowId + '-shopping-location').text(shoppingLocationName);
+					},
+					function (xhr)
+					{
+						console.error(xhr);
+					}
+				);
 
 				if (result.open == 1)
 				{

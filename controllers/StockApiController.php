@@ -82,13 +82,19 @@ class StockApiController extends BaseApiController
 				$locationId = $requestBody['location_id'];
 			}
 
+			$shoppingLocationId = null;
+			if (array_key_exists('shopping_location_id', $requestBody) && is_numeric($requestBody['shopping_location_id']))
+			{
+				$shoppingLocationId = $requestBody['shopping_location_id'];
+			}
+
 			$transactionType = StockService::TRANSACTION_TYPE_PURCHASE;
 			if (array_key_exists('transaction_type', $requestBody)  && !empty($requestBody['transactiontype']))
 			{
 				$transactionType = $requestBody['transactiontype'];
 			}
 
-			$bookingId = $this->getStockService()->AddProduct($args['productId'], $requestBody['amount'], $bestBeforeDate, $transactionType, date('Y-m-d'), $price, $locationId);
+			$bookingId = $this->getStockService()->AddProduct($args['productId'], $requestBody['amount'], $bestBeforeDate, $transactionType, date('Y-m-d'), $price, $locationId, $shoppingLocationId);
 			return $this->ApiResponse($response, $this->getDatabase()->stock_log($bookingId));
 		}
 		catch (\Exception $ex)
@@ -144,7 +150,13 @@ class StockApiController extends BaseApiController
 				$locationId = $requestBody['location_id'];
 			}
 
-			$bookingId = $this->getStockService()->EditStockEntry($args['entryId'], $requestBody['amount'], $bestBeforeDate, $locationId, $price, $requestBody['open'], $requestBody['purchased_date']);
+			$shoppingLocationId = null;
+			if (array_key_exists('shopping_location_id', $requestBody) && is_numeric($requestBody['shopping_location_id']))
+			{
+				$shoppingLocationId = $requestBody['shopping_location_id'];
+			}
+
+			$bookingId = $this->getStockService()->EditStockEntry($args['entryId'], $requestBody['amount'], $bestBeforeDate, $locationId, $shoppingLocationId, $price, $requestBody['open'], $requestBody['purchased_date']);
 			return $this->ApiResponse($response, $this->getDatabase()->stock_log($bookingId));
 		}
 		catch (\Exception $ex)
@@ -312,7 +324,13 @@ class StockApiController extends BaseApiController
 				$price = $requestBody['price'];
 			}
 
-			$bookingId = $this->getStockService()->InventoryProduct($args['productId'], $requestBody['new_amount'], $bestBeforeDate, $locationId, $price);
+			$shoppingLocationId = null;
+			if (array_key_exists('shopping_location_id', $requestBody) && is_numeric($requestBody['shopping_location_id']))
+			{
+				$shoppingLocationId = $requestBody['shopping_location_id'];
+			}
+
+			$bookingId = $this->getStockService()->InventoryProduct($args['productId'], $requestBody['new_amount'], $bestBeforeDate, $locationId, $price, $shoppingLocationId);
 			return $this->ApiResponse($response, $this->getDatabase()->stock_log($bookingId));
 		}
 		catch (\Exception $ex)

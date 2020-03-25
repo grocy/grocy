@@ -118,12 +118,30 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 					$("#productcard-no-price-data-hint").addClass("d-none");
 
 					Grocy.Components.ProductCard.ReInitPriceHistoryChart();
+					var datasets = {};
+					var chart = Grocy.Components.ProductCard.PriceHistoryChart.data;
 					priceHistoryDataPoints.forEach((dataPoint) =>
 					{
-						Grocy.Components.ProductCard.PriceHistoryChart.data.labels.push(moment(dataPoint.date).toDate());
+						var key = __t("Unknown store");
+						if (dataPoint.shopping_location)
+						{
+							key = dataPoint.shopping_location.name
+						}
+						
+						if (!datasets[key]) {
+							datasets[key] = []
+						}
+						chart.labels.push(moment(dataPoint.date).toDate());
+						datasets[key].push(dataPoint.price);
 
-						var dataset = Grocy.Components.ProductCard.PriceHistoryChart.data.datasets[0];
-						dataset.data.push(dataPoint.price);
+					});
+					Object.keys(datasets).forEach((key) => {
+						chart.datasets.push({
+							data: datasets[key],
+							fill: false,
+							borderColor: "HSL(" + (129 * chart.datasets.length) + ",100%,50%)",
+							label: key,
+						});
 					});
 					Grocy.Components.ProductCard.PriceHistoryChart.update();
 				}
@@ -155,13 +173,9 @@ Grocy.Components.ProductCard.ReInitPriceHistoryChart = function()
 			labels: [ //Date objects
 				// Will be populated in Grocy.Components.ProductCard.Refresh
 			],
-			datasets: [{
-				data: [
-					// Will be populated in Grocy.Components.ProductCard.Refresh
-				],
-				fill: false,
-				borderColor: '%s7a2b8'
-			}]
+			datasets: [ //Datasets
+				// Will be populated in Grocy.Components.ProductCard.Refresh
+			]
 		},
 		options: {
 			scales: {
@@ -189,7 +203,7 @@ Grocy.Components.ProductCard.ReInitPriceHistoryChart = function()
 				}]
 			},
 			legend: {
-				display: false
+				display: true
 			}
 		}
 	});

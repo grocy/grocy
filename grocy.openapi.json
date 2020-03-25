@@ -1172,6 +1172,11 @@
 										"format": "integer",
 										"description": "If omitted, the default location of the product is used"
 									},
+									"shopping_location_id": {
+										"type": "number",
+										"format": "integer",
+										"description": "If omitted, no store will be affected"
+									},
 									"purchased_date": {
 										"type": "string",
 										"format": "date",
@@ -1478,6 +1483,11 @@
 										"type": "number",
 										"format": "integer",
 										"description": "If omitted, the default location of the product is used"
+									},
+									"shopping_location_id": {
+										"type": "number",
+										"format": "integer",
+										"description": "If omitted, no store will be affected"
 									}
 								},
 								"example": {
@@ -1705,6 +1715,11 @@
 										"type": "string",
 										"format": "date",
 										"description": "The best before date which applies to added products"
+									},
+									"shopping_location_id": {
+										"type": "number",
+										"format": "integer",
+										"description": "If omitted, no store will be affected"
 									},
 									"location_id": {
 										"type": "number",
@@ -3303,6 +3318,7 @@
 					"quantity_unit_conversions",
 					"shopping_list",
 					"shopping_lists",
+					"shopping_locations",
 					"recipes",
 					"recipes_pos",
 					"recipes_nestings",
@@ -3328,6 +3344,7 @@
 					"quantity_unit_conversions",
 					"shopping_list",
 					"shopping_lists",
+					"shopping_locations",
 					"recipes",
 					"recipes_pos",
 					"recipes_nestings",
@@ -3497,6 +3514,30 @@
 					"row_created_timestamp": "2019-05-02 20:12:25"
 				}
 			},
+			"ShoppingLocation": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"name": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"example": {
+					"id": "2",
+					"name": "0",
+					"description": null,
+					"row_created_timestamp": "2019-05-02 20:12:25"
+				}
+			},
 			"StockLocation": {
 				"type": "object",
 				"properties": {
@@ -3533,6 +3574,9 @@
 						"type": "integer"
 					},
 					"location_id": {
+						"type": "integer"
+					},
+					"shopping_location_id": {
 						"type": "integer"
 					},
 					"amount": {
@@ -3576,7 +3620,8 @@
 					"open": "0",
 					"opened_date": null,
 					"row_created_timestamp": "2019-05-03 18:24:04",
-					"location_id": "4"
+					"location_id": "4",
+					"shopping_location_id": null
 				}
 			},
 			"RecipeFulfillmentResponse": {
@@ -3641,6 +3686,9 @@
 						"type": "number",
 						"format": "number"
 					},
+					"last_shopping_location_id": {
+						"type": "integer"
+					},
 					"location": {
 						"$ref": "#/components/schemas/Location"
 					},
@@ -3695,6 +3743,7 @@
 						"plural_forms": null
 					},
 					"last_price": null,
+					"last_shopping_location_id": null,
 					"next_best_before_date": "2019-07-07",
 					"location": {
 						"id": "4",
@@ -3716,6 +3765,9 @@
 					"price": {
 						"type": "number",
 						"format": "number"
+					},
+					"shopping_location": {
+						"$ref": "#/components/schemas/ShoppingLocation"
 					}
 				}
 			},

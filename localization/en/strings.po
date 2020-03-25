@@ -66,6 +66,9 @@ msgstr "Products"
 msgid "Locations"
 msgstr "Locations"
 
+msgid "Shopping locations"
+msgstr "Shopping locations"
+
 msgid "Quantity units"
 msgstr "Quantity units"
 
@@ -162,6 +165,9 @@ msgstr "Name"
 msgid "Location"
 msgstr "Location"
 
+msgid "Shopping location"
+msgstr "Shopping location"
+
 msgid "Min. stock amount"
 msgstr "Min. stock amount"
 
@@ -201,6 +207,9 @@ msgstr "Factor purchase to stock quantity unit"
 msgid "Create location"
 msgstr "Create location"
 
+msgid "Create shopping location"
+msgstr "Create shopping location"
+
 msgid "Create quantity unit"
 msgstr "Create quantity unit"
 
@@ -233,6 +242,9 @@ msgstr "Edit product"
 
 msgid "Edit location"
 msgstr "Edit location"
+
+msgid "Edit shopping location"
+msgstr "Edit shopping location"
 
 msgid "Record data"
 msgstr "Record data"
@@ -305,6 +317,9 @@ msgstr "Are you sure to delete product \"%s\"?"
 
 msgid "Are you sure to delete location \"%s\"?"
 msgstr "Are you sure to delete location \"%s\"?"
+
+msgid "Are you sure to delete shopping location \"%s\"?"
+msgstr "Are you sure to delete shopping location \"%s\"?"
 
 msgid "Manage API keys"
 msgstr "Manage API keys"
@@ -1034,6 +1049,9 @@ msgstr "Tare weight handling enabled - please weigh the whole container, the amo
 
 msgid "You have to select a location"
 msgstr "You have to select a location"
+
+msgid "You have to select a shopping location"
+msgstr "You have to select a shopping location"
 
 msgid "List"
 msgstr "List"

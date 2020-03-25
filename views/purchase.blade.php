@@ -30,6 +30,7 @@
 				'nextInputSelector' => '#best_before_date .datetimepicker-input'
 			))
 
+
 			@php
 				$additionalGroupCssClasses = '';
 				if (!GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
@@ -85,6 +86,9 @@
 				<input class="form-check-input" type="radio" name="price-type" id="price-type-total-price" value="total-price">
 				<label class="form-check-label" for="price-type-total-price">{{ $__t('Total price') }}</label>
 			</div>
+			@include('components.shoppinglocationpicker', array(
+				'shoppinglocations' => $shoppinglocations,
+			))
 			@else
 			<input type="hidden" name="price" id="price" value="0">
 			@endif

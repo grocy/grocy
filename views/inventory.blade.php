@@ -67,6 +67,10 @@
 				'invalidFeedback' => $__t('The price cannot be lower than %s', '0'),
 				'isRequired' => false
 			))
+
+			@include('components.shoppinglocationpicker', array(
+				'shoppinglocations' => $shoppinglocations,
+			))
 			@else
 			<input type="hidden" name="price" id="price" value="0">
 			@endif
