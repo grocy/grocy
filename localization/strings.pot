@@ -1765,3 +1765,6 @@ msgstr ""
 
 msgid "Store"
 msgstr ""
+
+msgid "Transaction successfully undone"
+msgstr ""

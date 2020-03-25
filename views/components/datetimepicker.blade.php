@@ -14,6 +14,7 @@
 @php if(!isset($nextInputSelector)) { $nextInputSelector = false; } @endphp
 @php if(empty($additionalAttributes)) { $additionalAttributes = ''; } @endphp
 @php if(empty($additionalGroupCssClasses)) { $additionalGroupCssClasses = ''; } @endphp
+@php if(empty($activateNumberPad)) { $activateNumberPad = false; } @endphp
 
 <div id="datetimepicker-wrapper" class="form-group {{ $additionalGroupCssClasses }}">
 	<label for="{{ $id }}">{{ $__t($label) }}
@@ -24,7 +25,7 @@
 	</label>
 	<div class="input-group">
 		<div class="input-group date datetimepicker @if(!empty($additionalGroupCssClasses)){{ $additionalGroupCssClasses }}@endif" id="{{ $id }}" @if(!$noNameAttribute) name="{{ $id }}" @endif data-target-input="nearest">
-			<input {!! $additionalAttributes !!} type="text" @if($isRequired) @if($isRequired) required @endif @endif class="form-control datetimepicker-input @if(!empty($additionalCssClasses)){{ $additionalCssClasses }}@endif"
+			<input {!! $additionalAttributes !!} type="text" @if($activateNumberPad) inputmode="numeric" @endif @if($isRequired) @if($isRequired) required @endif @endif class="form-control datetimepicker-input @if(!empty($additionalCssClasses)){{ $additionalCssClasses }}@endif"
 				data-target="#{{ $id }}" data-format="{{ $format }}"
 				data-init-with-now="{{ BoolToString($initWithNow) }}"
 				data-init-value="{{ $initialValue }}"
