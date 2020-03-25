@@ -35,8 +35,10 @@
 					<th>{{ $__t('Amount') }}</th>
 					<th>{{ $__t('Best before date') }}</th>
 					@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)<th>{{ $__t('Location') }}</th>@endif
+					@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 					<th>{{ $__t('Shopping location') }}</th>
-					@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)<th>{{ $__t('Price') }}</th>@endif
+					<th>{{ $__t('Price') }}</th>
+					@endif
 					<th>{{ $__t('Purchased date') }}</th>
 
 					@include('components.userfields_thead', array(
