@@ -3767,7 +3767,7 @@
 						"format": "number"
 					},
 					"shopping_location": {
-						"type": "string"
+						"$ref": "#/components/schemas/ShoppingLocation"
 					}
 				}
 			},

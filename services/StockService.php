@@ -178,7 +178,7 @@ class StockService extends BaseService
 			$returnData[] = array(
 				'date' => $row->purchased_date,
 				'price' => $row->price,
-				'shopping_location' => FindObjectInArrayByPropertyValue($shoppingLocations, 'id', $row->shopping_location_id)->name,
+				'shopping_location' => FindObjectInArrayByPropertyValue($shoppingLocations, 'id', $row->shopping_location_id),
 			);
 		}
 		return $returnData;

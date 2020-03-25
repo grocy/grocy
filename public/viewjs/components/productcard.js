@@ -122,7 +122,12 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 					var chart = Grocy.Components.ProductCard.PriceHistoryChart.data;
 					priceHistoryDataPoints.forEach((dataPoint) =>
 					{
-						var key = dataPoint.shopping_location || "empty";
+						var key = __t("Unknown shopping location");
+						if (dataPoint.shopping_location)
+						{
+							key = dataPoint.shopping_location.name
+						}
+						
 						if (!datasets[key]) {
 							datasets[key] = []
 						}
