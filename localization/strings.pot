@@ -79,7 +79,7 @@ msgstr ""
 msgid "Locations"
 msgstr ""
 
-msgid "Shopping locations"
+msgid "Stores"
 msgstr ""
 
 msgid "Quantity units"
@@ -178,9 +178,6 @@ msgstr ""
 msgid "Location"
 msgstr ""
 
-msgid "Shopping location"
-msgstr ""
-
 msgid "Min. stock amount"
 msgstr ""
 
@@ -220,7 +217,7 @@ msgstr ""
 msgid "Create location"
 msgstr ""
 
-msgid "Create shopping location"
+msgid "Create store"
 msgstr ""
 
 msgid "Create quantity unit"
@@ -256,7 +253,7 @@ msgstr ""
 msgid "Edit location"
 msgstr ""
 
-msgid "Edit shopping location"
+msgid "Edit store"
 msgstr ""
 
 msgid "Record data"
@@ -331,7 +328,7 @@ msgstr ""
 msgid "Are you sure to delete location \"%s\"?"
 msgstr ""
 
-msgid "Are you sure to delete shopping location \"%s\"?"
+msgid "Are you sure to delete store \"%s\"?"
 msgstr ""
 
 msgid "Manage API keys"
@@ -1037,7 +1034,7 @@ msgstr ""
 msgid "You have to select a location"
 msgstr ""
 
-msgid "You have to select a shopping location"
+msgid "You have to select a store"
 msgstr ""
 
 msgid "List"
@@ -1763,5 +1760,8 @@ msgstr ""
 msgid "Group ingredients by their product group"
 msgstr ""
 
-msgid "Unknown shopping location"
+msgid "Unknown store"
+msgstr ""
+
+msgid "Store"
 msgstr ""

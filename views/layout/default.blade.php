@@ -247,7 +247,7 @@
 						<li data-nav-for-page="shoppinglocations" data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link" href="{{ $U('/shoppinglocations') }}">
 								<i class="fas fa-shopping-cart"></i>
-								<span class="nav-link-text">{{ $__t('Shopping locations') }}</span>
+								<span class="nav-link-text">{{ $__t('Stores') }}</span>
 							</a>
 						</li>
 						@endif

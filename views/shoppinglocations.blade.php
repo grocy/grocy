@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $__t('Shopping locations'))
+@section('title', $__t('Stores'))
 @section('activeNav', 'shoppinglocations')
 @section('viewJsName', 'shoppinglocations')
 

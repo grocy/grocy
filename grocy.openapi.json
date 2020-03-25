@@ -1175,7 +1175,7 @@
 									"shopping_location_id": {
 										"type": "number",
 										"format": "integer",
-										"description": "If omitted, no shopping location will be affected"
+										"description": "If omitted, no store will be affected"
 									},
 									"purchased_date": {
 										"type": "string",
@@ -1487,7 +1487,7 @@
 									"shopping_location_id": {
 										"type": "number",
 										"format": "integer",
-										"description": "If omitted, no shopping location will be affected"
+										"description": "If omitted, no store will be affected"
 									}
 								},
 								"example": {
@@ -1719,7 +1719,7 @@
 									"shopping_location_id": {
 										"type": "number",
 										"format": "integer",
-										"description": "If omitted, no shopping location will be affected"
+										"description": "If omitted, no store will be affected"
 									},
 									"location_id": {
 										"type": "number",

@@ -1,9 +1,9 @@
 @extends('layout.default')
 
 @if($mode == 'edit')
-	@section('title', $__t('Edit shopping location'))
+	@section('title', $__t('Edit store'))
 @else
-	@section('title', $__t('Create shopping location'))
+	@section('title', $__t('Create store'))
 @endif
 
 @section('viewJsName', 'shoppinglocationform')
