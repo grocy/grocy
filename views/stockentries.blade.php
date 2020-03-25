@@ -147,7 +147,9 @@
 						{{ $stockEntry->price }}
 					</td>
 					<td id="stock-{{ $stockEntry->id }}-shopping-location" data-shopping-location-id="{{ $stockEntry->shopping_location_id }}">
+						@if (FindObjectInArrayByPropertyValue($shoppinglocations, 'id', $stockEntry->shopping_location_id) !== null)
 						{{ FindObjectInArrayByPropertyValue($shoppinglocations, 'id', $stockEntry->shopping_location_id)->name }}
+						@endif
 					</td>
 					@endif
 					<td>
