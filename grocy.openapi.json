@@ -3547,6 +3547,9 @@
 					"product_id": {
 						"type": "integer"
 					},
+					"amount": {
+						"type": "integer"
+					},
 					"location_id": {
 						"type": "integer"
 					},
@@ -3560,6 +3563,7 @@
 				"example": {
 					"id": "1",
 					"product_id": "3",
+					"amount": "2",
 					"location_id": "1",
 					"name": "Fridge"
 				}
