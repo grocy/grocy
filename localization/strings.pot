@@ -1768,3 +1768,6 @@ msgstr ""
 
 msgid "Transaction successfully undone"
 msgstr ""
+
+msgid "Default store"
+msgstr ""

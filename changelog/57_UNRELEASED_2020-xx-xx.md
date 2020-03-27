@@ -1,8 +1,9 @@
 ### New feature: Price history per store
 - Define stores under master data
-- Track on purchase/inventory in which store you bought the product
+- New product option to set the default store
+- Track on purchase/inventory in which store you bought the product (gets prefilled by the last store you purchased the product, or the default store of the product if you never bought it)
 - => The price history chart on the product card shows a line per store
-- (Thanks @immae)
+- (Thanks @immae and @kriddles)
 
 ### Recipe fixes
 - Fixed a PHP notice on the recipes page when there are no recipes (thanks @mrunkel)
