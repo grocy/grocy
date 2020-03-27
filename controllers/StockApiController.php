@@ -419,6 +419,59 @@ class StockApiController extends BaseApiController
 		));
 	}
 
+    public function CurrentShoppingLists(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+    {
+        $lists = $this->getStockService()->GetCurrentShoppingLists();
+
+        return $this->ApiResponse($response, $lists);
+    }
+
+    public function ShoppingListDetails(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+    {
+        try
+        {
+            return $this->ApiResponse($response, $this->getStockService()->GetShoppingListDetails($args['listId']));
+        }
+        catch (\Exception $ex)
+        {
+            return $this->GenericErrorResponse($response, $ex->getMessage());
+        }
+    }
+
+    public function ShoppingListEntries(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+    {
+        try
+        {
+            return $this->ApiResponse($response, $this->getStockService()->GetShoppingListEntries($args['listId']));
+        }
+        catch (\Exception $ex)
+        {
+            return $this->GenericErrorResponse($response, $ex->getMessage());
+        }
+    }
+
+    public function ShoppingListSetDone(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+    {
+        $entryId = $args['entryId'];
+
+        try {
+            $requestBody = $request->getParsedBody();
+
+            $done = 1;
+            if (array_key_exists('done', $requestBody) && is_numeric($requestBody['done']))
+            {
+                $done = intval($requestBody['done']);
+            }
+
+            $this->getStockService()->SetShoppingListEntryDone($entryId, $done);
+
+            return $this->EmptyApiResponse($response);
+        }
+        catch (\Exception $ex) {
+            return $this->GenericErrorResponse($response, $ex->getMessage());
+        }
+    }
+
 	public function AddMissingProductsToShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
@@ -548,7 +601,7 @@ class StockApiController extends BaseApiController
 			{
 				$addFoundProduct = true;
 			}
-			
+
 			return $this->ApiResponse($response, $this->getStockService()->ExternalBarcodeLookup($args['barcode'], $addFoundProduct));
 		}
 		catch (\Exception $ex)
@@ -614,7 +667,7 @@ class StockApiController extends BaseApiController
 			{
 				throw new \Exception('Stock booking does not exist');
 			}
-			
+
 			return $this->ApiResponse($response, $stockLogRow);
 		}
 		catch (\Exception $ex)
@@ -633,7 +686,7 @@ class StockApiController extends BaseApiController
 			{
 				throw new \Exception('No transaction was found by the given transaction id');
 			}
-			
+
 			return $this->ApiResponse($response, $transactionRows);
 		}
 		catch (\Exception $ex)

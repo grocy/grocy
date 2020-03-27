@@ -141,9 +141,9 @@ $app->group('/api', function(RouteCollectorProxy $group)
 
 	// System
 	$group->get('/system/info', '\Grocy\Controllers\SystemApiController:GetSystemInfo');
-	$group->get('/system/db-changed-time', '\Grocy\Controllers\SystemApiController:GetDbChangedTime');	
+	$group->get('/system/db-changed-time', '\Grocy\Controllers\SystemApiController:GetDbChangedTime');
 	$group->post('/system/log-missing-localization', '\Grocy\Controllers\SystemApiController:LogMissingLocalization');
-	
+
 	// Generic entity interaction
 	$group->get('/objects/{entity}', '\Grocy\Controllers\GenericEntityApiController:GetObjects');
 	$group->get('/objects/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:GetObject');
@@ -201,6 +201,10 @@ $app->group('/api', function(RouteCollectorProxy $group)
 	// Shopping list
 	if (GROCY_FEATURE_FLAG_SHOPPINGLIST)
 	{
+        $group->get('/stock/shoppinglist', '\Grocy\Controllers\StockApiController:CurrentShoppingLists');
+        $group->get('/stock/shoppinglist/{listId}', '\Grocy\Controllers\StockApiController:ShoppingListDetails');
+        $group->get('/stock/shoppinglist/{listId}/entries', '\Grocy\Controllers\StockApiController:ShoppingListEntries');
+        $group->post('/stock/shoppinglist/set-done/{entryId}', '\Grocy\Controllers\StockApiController:ShoppingListSetDone');
 		$group->post('/stock/shoppinglist/add-missing-products', '\Grocy\Controllers\StockApiController:AddMissingProductsToShoppingList');
 		$group->post('/stock/shoppinglist/clear', '\Grocy\Controllers\StockApiController:ClearShoppingList');
 		$group->post('/stock/shoppinglist/add-product', '\Grocy\Controllers\StockApiController:AddProductToShoppingList');

@@ -2242,6 +2242,164 @@
 				}
 			}
 		},
+        "/stock/shoppinglist": {
+			"get": {
+				"summary": "Returns array of shopping lists",
+				"tags": [
+					"Stock"
+				],
+				"responses": {
+					"200": {
+						"description": "An array of shopping lists",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/CurrentShoppingListResponse"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/shoppinglist/{listId}": {
+			"get": {
+				"summary": "Returns the given shopping list content",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "listId",
+						"required": true,
+						"description": "A valid shopping list id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A ShoppingList object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CurrentShoppingListResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A shopping list with the provided id is not found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/shoppinglist/{listId}/entries": {
+			"get": {
+				"summary": "Returns product in shopping list",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "listId",
+						"required": true,
+						"description": "A valid shopping list id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An array of shopping list entries",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ShoppingListEntryResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "A shopping list with the provided id is not found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/shoppinglist/set-done/{entryId}": {
+			"post": {
+				"summary": "Updates done state for shopping list entry",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "entryId",
+						"required": true,
+						"description": "A valid shopping list entry id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"requestBody": {
+					"required": false,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"done": {
+										"type": "integer",
+										"description": "1 if entry is done, 0 if not, when omitted 1 is used"
+									}
+								},
+								"example": {
+									"done": 1
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing shopping list)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/stock/shoppinglist/add-missing-products": {
 			"post": {
 				"summary": "Adds currently missing products (below defined min. stock amount) to the given shopping list",
@@ -4197,6 +4355,55 @@
 					"is_aggregated_amount": {
 						"type": "boolean",
 						"description": "Indicates wheter this product has sub-products or not / if the fields `amount_aggregated` and `amount_opened_aggregated` are filled"
+					},
+					"product": {
+						"$ref": "#/components/schemas/Product"
+					}
+				}
+			},
+			"CurrentShoppingListResponse": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"name": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"ShoppingListEntryResponse": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"product_id": {
+						"type": "integer"
+					},
+					"note": {
+						"type": "string"
+					},
+					"amount": {
+						"type": "integer"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"shopping_list_id": {
+						"type": "integer"
+					},
+					"done": {
+						"type": "integer",
+						"description": "0 or 1"
 					},
 					"product": {
 						"$ref": "#/components/schemas/Product"

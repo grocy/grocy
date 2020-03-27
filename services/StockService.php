@@ -28,7 +28,7 @@ class StockService extends BaseService
 			$sql = 'SELECT * FROM stock_current WHERE best_before_date IS NOT NULL UNION SELECT id, 0, 0, null, 0, 0, 0 FROM ' . $missingProductsView . ' WHERE id NOT IN (SELECT product_id FROM stock_current)';
 		}
 		$currentStockMapped = $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_GROUP|\PDO::FETCH_OBJ);
-		
+
 		$relevantProducts = $this->getDatabase()->products()->where('id IN (SELECT product_id FROM (' . $sql . ') x)');
 		foreach ($relevantProducts as $product)
 		{
@@ -818,6 +818,53 @@ class StockService extends BaseService
 		return $this->getDatabase()->lastInsertId();
 	}
 
+    public function GetCurrentShoppingLists()
+    {
+        return $this->getDatabase()->shopping_lists()->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+    public function GetShoppingListDetails($listId)
+    {
+        $shoppingListRow = $this->getDatabase()->shopping_lists()->where('id = :1', $listId)->fetch();
+
+        if ($shoppingListRow === null)
+        {
+            throw new \Exception('Shopping list does not exist');
+        }
+
+        return $shoppingListRow;
+    }
+
+    public function GetShoppingListEntries($listId)
+    {
+        if (!$this->ShoppingListExists($listId))
+        {
+            throw new \Exception('Shopping list does not exist');
+        }
+
+        $entries = $this->getDatabase()->shopping_list()->where('shopping_list_id', $listId)->fetchAll();
+
+        foreach ($entries as $entry) {
+            $entry->product = $this->getDatabase()->products()->where('id', $entry->product_id)->fetch();
+        }
+
+        return $entries;
+    }
+
+    public function SetShoppingListEntryDone($entryId, $done = 1)
+    {
+        if (!$this->ShoppingListEntryExists($entryId))
+        {
+            throw new \Exception('Entry does not exist');
+        }
+
+        $entry = $this->getDatabase()->shopping_list()->where('id', $entryId)->fetch();
+
+        $entry->update(array(
+            'done' => $done
+        ));
+    }
+
 	public function AddMissingProductsToShoppingList($listId = 1)
 	{
 		if (!$this->ShoppingListExists($listId))
@@ -929,16 +976,23 @@ class StockService extends BaseService
 		return $productRow !== null;
 	}
 
+
+    private function ShoppingListExists($listId)
+    {
+        $shoppingListRow = $this->getDatabase()->shopping_lists()->where('id = :1', $listId)->fetch();
+        return $shoppingListRow !== null;
+    }
+
+    private function ShoppingListEntryExists($listId)
+    {
+        $shoppingListEntryRow = $this->getDatabase()->shopping_list()->where('id = :1', $listId)->fetch();
+        return $shoppingListEntryRow !== null;
+    }
+
 	private function LocationExists($locationId)
 	{
 		$locationRow = $this->getDatabase()->locations()->where('id = :1', $locationId)->fetch();
 		return $locationRow !== null;
-	}
-
-	private function ShoppingListExists($listId)
-	{
-		$shoppingListRow = $this->getDatabase()->shopping_lists()->where('id = :1', $listId)->fetch();
-		return $shoppingListRow !== null;
 	}
 
 	private function LoadBarcodeLookupPlugin()
