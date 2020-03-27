@@ -7,6 +7,9 @@
 ### Recipe fixes
 - Fixed a PHP notice on the recipes page when there are no recipes (thanks @mrunkel)
 
+### Calendar fixes
+- Fixed that the "Share/Integrate calendar (iCal)" button did not work (thanks @tsia)
+
 ### API improvements
 - The endpoint `/stock/products/{productId}/locations` now also returns the current stock amount of the product in that loctation (new field/property `amount`) (thanks @Forceu)
 
