@@ -3435,6 +3435,9 @@
 					"row_created_timestamp": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"shopping_location_id": {
+						"type": "integer"
 					}
 				},
 				"example": {
@@ -3455,7 +3458,8 @@
 					"allow_partial_units_in_stock": "0",
 					"enable_tare_weight_handling": "0",
 					"tare_weight": "0.0",
-					"not_check_stock_fulfillment_for_recipes": "0"
+					"not_check_stock_fulfillment_for_recipes": "0",
+					"shopping_location_id": null
 				}
 			},
 			"QuantityUnit": {
@@ -3724,7 +3728,8 @@
 						"allow_partial_units_in_stock": "0",
 						"enable_tare_weight_handling": "0",
 						"tare_weight": "0.0",
-						"not_check_stock_fulfillment_for_recipes": "0"
+						"not_check_stock_fulfillment_for_recipes": "0",
+						"last_shopping_location_id": null
 					},
 					"last_purchased": null,
 					"last_used": null,

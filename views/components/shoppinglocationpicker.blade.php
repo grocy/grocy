@@ -9,7 +9,7 @@
 @php if(empty($nextInputSelector)) { $nextInputSelector = ''; } @endphp
 
 <div class="form-group" data-next-input-selector="{{ $nextInputSelector }}" data-prefill-by-name="{{ $prefillByName }}" data-prefill-by-id="{{ $prefillById }}">
-	<label for="shopping_location_id">{{ $__t('Store') }}&nbsp;&nbsp;<span id="{{ $hintId }}" class="small text-muted">{{ $hint }}</span></label>
+	<label for="shopping_location_id">{{ $__t($label) }}&nbsp;&nbsp;<span id="{{ $hintId }}" class="small text-muted">{{ $hint }}</span></label>
 	<select class="form-control shopping-location-combobox" id="shopping_location_id" name="shopping_location_id" @if($isRequired) required @endif>
 		<option value=""></option>
 		@foreach($shoppinglocations as $shoppinglocation)

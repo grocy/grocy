@@ -88,6 +88,15 @@
 			<input type="hidden" name="location_id" id="location_id" value="1">
 			@endif
 
+			@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+			@include('components.shoppinglocationpicker', array(
+				'label' => 'Default store',
+				'shoppinglocations' => $shoppinglocations
+			))
+			@else
+			<input type="hidden" name="shopping_location_id" id="shopping_location_id" value="1">
+			@endif
+
 			@php if($mode == 'edit') { $value = $product->min_stock_amount; } else { $value = 0; } @endphp
 			@include('components.numberpicker', array(
 				'id' => 'min_stock_amount',

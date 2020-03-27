@@ -179,6 +179,7 @@ class StockController extends BaseController
 			return $this->renderPage($response, 'productform', [
 				'locations' =>  $this->getDatabase()->locations()->orderBy('name'),
 				'quantityunits' =>  $this->getDatabase()->quantity_units()->orderBy('name'),
+				'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name'),
 				'productgroups' => $this->getDatabase()->product_groups()->orderBy('name'),
 				'userfields' => $this->getUserfieldsService()->GetFields('products'),
 				'products' => $this->getDatabase()->products()->where('parent_product_id IS NULL')->orderBy('name'),
@@ -194,6 +195,7 @@ class StockController extends BaseController
 				'product' =>  $product,
 				'locations' =>  $this->getDatabase()->locations()->orderBy('name'),
 				'quantityunits' =>  $this->getDatabase()->quantity_units()->orderBy('name'),
+				'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name'),
 				'productgroups' => $this->getDatabase()->product_groups()->orderBy('name'),
 				'userfields' => $this->getUserfieldsService()->GetFields('products'),
 				'products' => $this->getDatabase()->products()->where('id != :1 AND parent_product_id IS NULL', $product->id)->orderBy('name'),

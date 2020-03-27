@@ -140,7 +140,16 @@ if (Grocy.Components.ProductPicker !== undefined)
 				function(productDetails)
 				{
 					$('#price').val(productDetails.last_price);
-					Grocy.Components.ShoppingLocationPicker.SetId(productDetails.last_shopping_location_id);
+
+					if (productDetails.last_shopping_location_id != null)
+					{
+						Grocy.Components.ShoppingLocationPicker.SetId(productDetails.last_shopping_location_id);
+					}
+					else
+					{
+						Grocy.Components.ShoppingLocationPicker.SetId(productDetails.default_shopping_location_id);
+					}
+
 					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 					{
 						Grocy.Components.LocationPicker.SetId(productDetails.location.id);
