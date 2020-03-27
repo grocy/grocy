@@ -11,6 +11,9 @@ ADD shopping_location_id INTEGER;
 ALTER TABLE stock
 ADD shopping_location_id INTEGER;
 
+ALTER TABLE products
+ADD shopping_location_id INTEGER;
+
 DROP VIEW stock_current_locations;
 CREATE VIEW stock_current_locations
 AS

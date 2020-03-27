@@ -69,7 +69,8 @@
 			))
 
 			@include('components.shoppinglocationpicker', array(
-				'shoppinglocations' => $shoppinglocations,
+				'label' => 'Store',
+				'shoppinglocations' => $shoppinglocations
 			))
 			@else
 			<input type="hidden" name="price" id="price" value="0">

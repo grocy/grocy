@@ -67,6 +67,7 @@
 				'isRequired' => false
 			))
 			@include('components.shoppinglocationpicker', array(
+				'label' => 'Store',
 				'shoppinglocations' => $shoppinglocations,
 				'prefillById' => $stockEntry->shopping_location_id
 			))
