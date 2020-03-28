@@ -1,0 +1,18 @@
+[{
+    "name": "Twix Minis Size Chocolate Cookie Bars",
+    "location_id": 2,
+    "qu_id_purchase": 3,
+    "qu_id_stock": 3,
+    "barcode": "0040000525509",
+    "quantity": 1,
+    "transaction_date": "2020-03-21"
+}, {
+    "name": "Franz Extra Crisp English Muffins",
+    "location_id": 2,
+    "qu_id_purchase": 3,
+    "qu_id_stock": 3,
+    "barcode": "0072220005165",
+    "quantity": 3,
+    "transaction_date": "2020-03-21"
+}
+]
