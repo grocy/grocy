@@ -2,8 +2,6 @@
 
 namespace Grocy\Helpers;
 
-use Grocy\Services\StockService;
-
 class KrogerToGrocyConverter
 {
 	// Fields returned: 'name', 'location_id', 'qu_id_purchase', 'qu_id_stock',
