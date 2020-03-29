@@ -260,6 +260,10 @@
 					<input type="file" class="custom-file-input" id="product-picture" accept="image/*">
 					<label class="custom-file-label" for="product-picture">{{ $__t('No file selected') }}</label>
 				</div>
+				
+				@if(!empty($product->picture_url))
+					<input type="hidden" name="picture_url" value="{{ $product->picture_url }}" />
+				@endif
 			</div>
 
 			@include('components.userfieldsform', array(

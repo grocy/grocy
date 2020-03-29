@@ -226,9 +226,19 @@ var calendar = $("#calendar").fullCalendar({
 					</h5> \
 				</div>');
 
+			var pictureUrl = null;
 			if (productDetails.product.picture_file_name && !productDetails.product.picture_file_name.isEmpty())
 			{
-				element.html(element.html() + '<div class="mx-auto"><img data-src="' + U("/api/files/productpictures/") + btoa(productDetails.product.picture_file_name) + '?force_serve_as=picture&best_fit_width=400" class="img-fluid lazy"></div>')
+				pictureUrl = U("/api/files/productpictures/") + btoa(productDetails.product.picture_file_name) + '?force_serve_as=picture&best_fit_width=400';
+			}
+			else if (productDetails.product.picture_url && !productDetails.product.picture_url.isEmpty())
+			{
+				pictureUrl = productDetails.product.picture_url;
+			}
+
+			if (pictureUrl)
+			{
+				element.html(element.html() + '<div class="mx-auto"><img data-src="' + pictureUrl + '" class="img-fluid lazy"></div>')
 			}
 
 			var dayRecipeName = event.start.format("YYYY-MM-DD");

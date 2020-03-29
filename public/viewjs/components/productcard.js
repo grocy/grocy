@@ -92,6 +92,11 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 				$("#productcard-product-picture").removeClass("d-none");
 				$("#productcard-product-picture").attr("src", U('/api/files/productpictures/' + btoa(productDetails.product.picture_file_name) + '?force_serve_as=picture&best_fit_width=400'));
 			}
+			else if (productDetails.product.picture_url !== null && !productDetails.product.picture_url.isEmpty())
+			{
+				$("#productcard-product-picture").removeClass("d-none");
+				$("#productcard-product-picture").attr("src", productDetails.product.picture_url);
+			}
 			else
 			{
 				$("#productcard-product-picture").addClass("d-none");

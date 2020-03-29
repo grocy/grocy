@@ -71,7 +71,7 @@
 						</a>
 					</td>
 					<td>
-						{{ $product->name }}@if(!empty($product->picture_file_name)) <i class="fas fa-image text-muted"></i>@endif
+						{{ $product->name }}@if(!empty($product->picture_file_name) || !empty($product->picture_url)) <i class="fas fa-image text-muted"></i>@endif
 					</td>
 					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif">
 						{{ FindObjectInArrayByPropertyValue($locations, 'id', $product->location_id)->name }}
