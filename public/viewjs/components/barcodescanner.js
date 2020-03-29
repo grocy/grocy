@@ -13,10 +13,10 @@ Grocy.Components.BarcodeScanner.CheckCapabilities = function()
 	// Remove the torch button, if either the device can not torch or AutoTorchOn is set.
 	var node = document.querySelector('.torch');
 	if (node) {
-		node.style.display = canTorch && !Grocy.FeatureFlags.FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA ? 'inline-block' : 'none';
+		node.style.display = canTorch && !Grocy.FeatureFlags.GROCY_FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA ? 'inline-block' : 'none';
 	}
 	// If AutoTorchOn is set, turn on the torch.
-	if (canTorch && Grocy.FeatureFlags.FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA) {
+	if (canTorch && Grocy.FeatureFlags.GROCY_FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA) {
 		Grocy.Components.BarcodeScanner.TorchOn(track);
 	}
 
