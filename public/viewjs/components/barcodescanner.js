@@ -8,10 +8,16 @@ Grocy.Components.BarcodeScanner.CheckCapabilities = function()
 		capabilities = track.getCapabilities();
 	}
 	
+	// Check if the camera is capable to turn on a torch.
 	var canTorch = typeof capabilities.torch === 'boolean' && capabilities.torch
+	// Remove the torch button, if either the device can not torch or AutoTorchOn is set.
 	var node = document.querySelector('.torch');
 	if (node) {
-		node.style.display = canTorch ? 'inline-block' : 'none';
+		node.style.display = canTorch && !Grocy.FeatureFlags.FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA ? 'inline-block' : 'none';
+	}
+	// If AutoTorchOn is set, turn on the torch.
+	if (canTorch && Grocy.FeatureFlags.FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA) {
+		Grocy.Components.BarcodeScanner.TorchOn(track);
 	}
 
 	// Reduce the height of the video, if it's heigher than then the viewport
@@ -116,6 +122,19 @@ Grocy.Components.BarcodeScanner.StopScanning = function()
 	bootbox.hideAll();
 }
 
+Grocy.Components.BarcodeScanner.TorchOn = function(track)
+{
+	if (track) {
+		track.applyConstraints({ 
+			advanced: [
+				{ 
+					torch: true
+				}
+			]
+		});
+	}
+}
+
 Quagga.onDetected(function(result)
 {
 	$.each(result.codeResult.decodedCodes, function(id, error)
@@ -192,13 +211,7 @@ $(document).on("click", "#barcodescanner-start-button", function(e)
 				className: 'btn-warning responsive-button torch',
 				callback: function()
 				{
-					Quagga.CameraAccess.getActiveTrack().applyConstraints({ 
-						advanced: [
-							{ 
-								torch: true
-							}
-						]
-					});
+					Grocy.Components.BarcodeScanner.TorchOn(Quagga.CameraAccess.getActiveTrack());
 					return false;
            		}	
 			},			
