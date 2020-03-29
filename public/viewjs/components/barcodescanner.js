@@ -11,11 +11,25 @@ Grocy.Components.BarcodeScanner.CheckCapabilities = function()
 	var canTorch = typeof capabilities.torch === 'boolean' && capabilities.torch
 	var node = document.querySelector('.torch');
 	if (node) {
-		node.style.display = canTorch ? 'block' : 'none';
+		node.style.display = canTorch ? 'inline-block' : 'none';
+	}
+
+	// Reduce the height of the video, if it's heigher than then the viewport
+	var bc = document.getElementById('barcodescanner-container');
+	if (bc) {
+		var bcAspectRatio = bc.offsetWidth / bc.offsetHeight;
+		var settings = track.getSettings();
+		if (bcAspectRatio > settings.aspectRatio) {
+			var v = document.querySelector('#barcodescanner-livestream video')
+			if (v) {
+				var c = document.querySelector('#barcodescanner-livestream canvas')
+				var newWidth = v.clientWidth / bcAspectRatio * settings.aspectRatio + 'px';
+				v.style.width = newWidth;
+				c.style.width = newWidth;
+			}
+		}
 	}
 }
-
-Grocy.Components.BarcodeScanner.TorchState = false;
 
 Grocy.Components.BarcodeScanner.StartScanning = function()
 {
@@ -28,8 +42,6 @@ Grocy.Components.BarcodeScanner.StartScanning = function()
 			type: "LiveStream",
 			target: document.querySelector("#barcodescanner-livestream"),
 			constraints: {
-				// width: 436,
-				// height: 327,
 				facingMode: "environment"
 			}
 		},
@@ -180,11 +192,10 @@ $(document).on("click", "#barcodescanner-start-button", function(e)
 				className: 'btn-warning responsive-button torch',
 				callback: function()
 				{
-					Grocy.Components.BarcodeScanner.TorchState = !Grocy.Components.BarcodeScanner.TorchState;
 					Quagga.CameraAccess.getActiveTrack().applyConstraints({ 
 						advanced: [
 							{ 
-								torch: Grocy.Components.BarcodeScanner.TorchState 
+								torch: true
 							}
 						]
 					});
