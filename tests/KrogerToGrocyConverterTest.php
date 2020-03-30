@@ -17,7 +17,12 @@ final class KrogerToGrocyConverterTest extends TestCase
 		$this->assertEquals(
 			"0072220005165",
 			KrogerToGrocyConverter::ConvertUpcToBarcode("0000007222000516")
-		);
+        );
+        
+        $this->assertEquals(
+            "0000000041300",
+            KrogerToGrocyConverter::ConvertUpcToBarcode("0000000004130")
+        );
     }
     
     public function testConvertJson(): void
@@ -37,7 +42,7 @@ final class KrogerToGrocyConverterTest extends TestCase
         {
             foreach ($product as $key => $value)
             {
-                $this->assertEquals($value, $products[$index][$key]);
+                $this->assertEquals($value, $products[$index][$key], "Failed matching key " . $key);
             }
         }
     }
