@@ -35,7 +35,10 @@
 					<th>{{ $__t('Amount') }}</th>
 					<th>{{ $__t('Best before date') }}</th>
 					@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)<th>{{ $__t('Location') }}</th>@endif
-					@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)<th>{{ $__t('Price') }}</th>@endif
+					@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+					<th>{{ $__t('Store') }}</th>
+					<th>{{ $__t('Price') }}</th>
+					@endif
 					<th>{{ $__t('Purchased date') }}</th>
 
 					@include('components.userfields_thead', array(
@@ -142,6 +145,11 @@
 					</td>
 					@endif
 					@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+					<td id="stock-{{ $stockEntry->id }}-shopping-location" data-shopping-location-id="{{ $stockEntry->shopping_location_id }}">
+						@if (FindObjectInArrayByPropertyValue($shoppinglocations, 'id', $stockEntry->shopping_location_id) !== null)
+						{{ FindObjectInArrayByPropertyValue($shoppinglocations, 'id', $stockEntry->shopping_location_id)->name }}
+						@endif
+					</td>
 					<td id="stock-{{ $stockEntry->id }}-price" class="locale-number locale-number-currency" data-price-id="{{ $stockEntry->price }}">
 						{{ $stockEntry->price }}
 					</td>

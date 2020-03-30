@@ -127,10 +127,13 @@ class StockService extends BaseService
 		$averageShelfLifeDays = intval($this->getDatabase()->stock_average_product_shelf_life()->where('id', $productId)->fetch()->average_shelf_life_days);
 
 		$lastPrice = null;
+		$defaultShoppingLocation = null;
+		$lastShoppingLocation = null;
 		$lastLogRow = $this->getDatabase()->stock_log()->where('product_id = :1 AND transaction_type IN (:2, :3) AND undone = 0', $productId, self::TRANSACTION_TYPE_PURCHASE, self::TRANSACTION_TYPE_INVENTORY_CORRECTION)->orderBy('row_created_timestamp', 'DESC')->limit(1)->fetch();
 		if ($lastLogRow !== null && !empty($lastLogRow))
 		{
 			$lastPrice = $lastLogRow->price;
+			$lastShoppingLocation = $lastLogRow->shopping_location_id;
 		}
 
 		$consumeCount = $this->getDatabase()->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone = 0 AND spoiled = 0')->sum('amount') * -1;
@@ -152,6 +155,8 @@ class StockService extends BaseService
 			'quantity_unit_purchase' => $quPurchase,
 			'quantity_unit_stock' => $quStock,
 			'last_price' => $lastPrice,
+			'last_shopping_location_id' => $lastShoppingLocation,
+			'default_shopping_location_id' => $product->shopping_location_id,
 			'next_best_before_date' => $nextBestBeforeDate,
 			'location' => $location,
 			'average_shelf_life_days' => $averageShelfLifeDays,
@@ -168,12 +173,14 @@ class StockService extends BaseService
 		}
 
 		$returnData = array();
+		$shoppingLocations = $this->getDatabase()->shopping_locations();
 		$rows = $this->getDatabase()->stock_log()->where('product_id = :1 AND transaction_type IN (:2, :3) AND undone = 0', $productId, self::TRANSACTION_TYPE_PURCHASE, self::TRANSACTION_TYPE_INVENTORY_CORRECTION)->whereNOT('price', null)->orderBy('purchased_date', 'DESC');
 		foreach ($rows as $row)
 		{
 			$returnData[] = array(
 				'date' => $row->purchased_date,
-				'price' => $row->price
+				'price' => $row->price,
+				'shopping_location' => FindObjectInArrayByPropertyValue($shoppingLocations, 'id', $row->shopping_location_id),
 			);
 		}
 		return $returnData;
@@ -210,7 +217,7 @@ class StockService extends BaseService
 		return FindAllObjectsInArrayByPropertyValue($stockEntries, 'location_id', $locationId);
 	}
 
-	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId = null, &$transactionId = null)
+	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId = null, $shoppingLocationId = null, &$transactionId = null)
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -266,7 +273,8 @@ class StockService extends BaseService
 				'transaction_type' => $transactionType,
 				'price' => $price,
 				'location_id' => $locationId,
-				'transaction_id' => $transactionId
+				'transaction_id' => $transactionId,
+				'shopping_location_id' => $shoppingLocationId,
 			));
 			$logRow->save();
 
@@ -279,7 +287,8 @@ class StockService extends BaseService
 				'purchased_date' => $purchasedDate,
 				'stock_id' => $stockId,
 				'price' => $price,
-				'location_id' => $locationId
+				'location_id' => $locationId,
+				'shopping_location_id' => $shoppingLocationId,
 			));
 			$stockRow->save();
 
@@ -589,7 +598,7 @@ class StockService extends BaseService
 		return $this->getDatabase()->lastInsertId();
 	}
 
-	public function EditStockEntry(int $stockRowId, int $amount, $bestBeforeDate, $locationId, $price, $open, $purchasedDate)
+	public function EditStockEntry(int $stockRowId, int $amount, $bestBeforeDate, $locationId, $shoppingLocationId, $price, $open, $purchasedDate)
 	{
 
 		$stockRow = $this->getDatabase()->stock()->where('id = :1', $stockRowId)->fetch();
@@ -611,6 +620,7 @@ class StockService extends BaseService
 			'price' => $stockRow->price,
 			'opened_date' => $stockRow->opened_date,
 			'location_id' => $stockRow->location_id,
+			'shopping_location_id' => $stockRow->shopping_location_id,
 			'correlation_id' => $correlationId,
 			'transaction_id' => $transactionId,
 			'stock_row_id' => $stockRow->id
@@ -632,6 +642,7 @@ class StockService extends BaseService
 			'price' => $price,
 			'best_before_date' => $bestBeforeDate,
 			'location_id' => $locationId,
+			'shopping_location_id' => $shoppingLocationId,
 			'opened_date' => $openedDate,
 			'open' => $open,
 			'purchased_date' => $purchasedDate
@@ -647,6 +658,7 @@ class StockService extends BaseService
 			'price' => $price,
 			'opened_date' => $stockRow->opened_date,
 			'location_id' => $locationId,
+			'shopping_location_id' => $shoppingLocationId,
 			'correlation_id' => $correlationId,
 			'transaction_id' => $transactionId,
 			'stock_row_id' => $stockRow->id
@@ -656,7 +668,7 @@ class StockService extends BaseService
 		return $this->getDatabase()->lastInsertId();
 	}
 
-	public function InventoryProduct(int $productId, float $newAmount, $bestBeforeDate, $locationId = null, $price = null)
+	public function InventoryProduct(int $productId, float $newAmount, $bestBeforeDate, $locationId = null, $price = null, $shoppingLocationId = null)
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -668,6 +680,11 @@ class StockService extends BaseService
 		if ($price === null)
 		{
 			$price = $productDetails->last_price;
+		}
+
+		if ($shoppingLocationId === null)
+		{
+			$shoppingLocationId = $productDetails->last_shopping_location_id;
 		}
 
 		// Tare weight handling
@@ -691,7 +708,7 @@ class StockService extends BaseService
 				$bookingAmount = $newAmount;
 			}
 
-			return $this->AddProduct($productId, $bookingAmount, $bestBeforeDate, self::TRANSACTION_TYPE_INVENTORY_CORRECTION, date('Y-m-d'), $price, $locationId);
+			return $this->AddProduct($productId, $bookingAmount, $bestBeforeDate, self::TRANSACTION_TYPE_INVENTORY_CORRECTION, date('Y-m-d'), $price, $locationId, $shoppingLocationId);
 		}
 		else if ($newAmount < $productDetails->stock_amount + $containerWeight)
 		{

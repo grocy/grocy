@@ -147,9 +147,11 @@ Setting('FEATURE_FLAG_STOCK_LOCATION_TRACKING', true);
 Setting('FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING', true);
 Setting('FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING', true);
 Setting('FEATURE_FLAG_STOCK_PRODUCT_FREEZING', true);
+Setting('FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_FIELD_NUMBER_PAD', true); // Activate the number pad in best-before-date fields on (supported) mobile browsers
 Setting('FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS', true);
 Setting('FEATURE_FLAG_CHORES_ASSIGNMENTS', true);
 
 
 # Feature settings
 Setting('FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT', true); // When set to false, opened products will not be considered for minimum stock amounts
+Setting('FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA', true); // Enables the torch automaticaly in every camera barcode scanner.

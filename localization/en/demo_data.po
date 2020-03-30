@@ -284,3 +284,9 @@ msgstr "Swedish"
 
 msgid "Polish"
 msgstr "Polish"
+
+msgid "DemoSupermarket1"
+msgstr "Walmart"
+
+msgid "DemoSupermarket2"
+msgstr "Kroger"

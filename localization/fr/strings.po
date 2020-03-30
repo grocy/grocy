@@ -99,6 +99,9 @@ msgstr "Suivi des piles"
 msgid "Locations"
 msgstr "Emplacements"
 
+msgid "Shopping locations"
+msgstr "Commerces"
+
 msgid "Quantity units"
 msgstr "Formats"
 
@@ -198,6 +201,9 @@ msgstr "Nom"
 msgid "Location"
 msgstr "Emplacement"
 
+msgid "Shopping location"
+msgstr "Commerce"
+
 msgid "Min. stock amount"
 msgstr "Quantité minimum en stock"
 
@@ -237,6 +243,9 @@ msgstr "Facteur entre la quantité à l'achat et la quantité en stock"
 msgid "Create location"
 msgstr "Créer un emplacement"
 
+msgid "Create shopping location"
+msgstr "Créer un commerce"
+
 msgid "Create quantity unit"
 msgstr "Créer un format"
 
@@ -269,6 +278,9 @@ msgstr "Modifier le produit"
 
 msgid "Edit location"
 msgstr "Modifier l'emplacement"
+
+msgid "Edit shopping location"
+msgstr "Modifier le commerce"
 
 msgid "Record data"
 msgstr "Enregistrer les données"
@@ -346,6 +358,9 @@ msgstr "Voulez-vous vraiment supprimer le produit \"%s\" ?"
 
 msgid "Are you sure to delete location \"%s\"?"
 msgstr "Voulez-vous vraiment supprimer l'emplacement \"%s\" ?"
+
+msgid "Are you sure to delete shopping location \"%s\"?"
+msgstr "Voulez-vous vraiment supprimer le commerce \"%s\" ?"
 
 msgid "Manage API keys"
 msgstr "Gérer les clefs API"
@@ -1123,6 +1138,9 @@ msgstr ""
 
 msgid "You have to select a location"
 msgstr "Vous devez sélectionner un endroit"
+
+msgid "You have to select a shopping location"
+msgstr "Vous devez sélectionner un commerce"
 
 msgid "List"
 msgstr "Liste"

@@ -1,5 +1,42 @@
 Grocy.Components.BarcodeScanner = { };
 
+Grocy.Components.BarcodeScanner.CheckCapabilities = function()
+{
+	var track = Quagga.CameraAccess.getActiveTrack();
+	var capabilities = {};
+	if (typeof track.getCapabilities === 'function') {
+		capabilities = track.getCapabilities();
+	}
+	
+	// Check if the camera is capable to turn on a torch.
+	var canTorch = typeof capabilities.torch === 'boolean' && capabilities.torch
+	// Remove the torch button, if either the device can not torch or AutoTorchOn is set.
+	var node = document.querySelector('.torch');
+	if (node) {
+		node.style.display = canTorch && !Grocy.FeatureFlags.GROCY_FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA ? 'inline-block' : 'none';
+	}
+	// If AutoTorchOn is set, turn on the torch.
+	if (canTorch && Grocy.FeatureFlags.GROCY_FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA) {
+		Grocy.Components.BarcodeScanner.TorchOn(track);
+	}
+
+	// Reduce the height of the video, if it's heigher than then the viewport
+	var bc = document.getElementById('barcodescanner-container');
+	if (bc) {
+		var bcAspectRatio = bc.offsetWidth / bc.offsetHeight;
+		var settings = track.getSettings();
+		if (bcAspectRatio > settings.aspectRatio) {
+			var v = document.querySelector('#barcodescanner-livestream video')
+			if (v) {
+				var c = document.querySelector('#barcodescanner-livestream canvas')
+				var newWidth = v.clientWidth / bcAspectRatio * settings.aspectRatio + 'px';
+				v.style.width = newWidth;
+				c.style.width = newWidth;
+			}
+		}
+	}
+}
+
 Grocy.Components.BarcodeScanner.StartScanning = function()
 {
 	Grocy.Components.BarcodeScanner.DecodedCodesCount = 0;
@@ -11,8 +48,6 @@ Grocy.Components.BarcodeScanner.StartScanning = function()
 			type: "LiveStream",
 			target: document.querySelector("#barcodescanner-livestream"),
 			constraints: {
-				width: 436,
-				height: 327,
 				facingMode: "environment"
 			}
 		},
@@ -70,6 +105,9 @@ Grocy.Components.BarcodeScanner.StartScanning = function()
 			}, 500);
 			return;
 		}
+
+		Grocy.Components.BarcodeScanner.CheckCapabilities();
+
 		Quagga.start();
 	});
 }
@@ -82,6 +120,19 @@ Grocy.Components.BarcodeScanner.StopScanning = function()
 	Grocy.Components.BarcodeScanner.DecodedCodesErrorCount = 0;
 
 	bootbox.hideAll();
+}
+
+Grocy.Components.BarcodeScanner.TorchOn = function(track)
+{
+	if (track) {
+		track.applyConstraints({ 
+			advanced: [
+				{ 
+					torch: true
+				}
+			]
+		});
+	}
 }
 
 Quagga.onDetected(function(result)
@@ -157,10 +208,10 @@ $(document).on("click", "#barcodescanner-start-button", function(e)
 		buttons: {
 			torch: {
 				label: '<i class="far fa-lightbulb"></i>',
-				className: 'btn-warning responsive-button',
+				className: 'btn-warning responsive-button torch',
 				callback: function()
 				{
-					Quagga.CameraAccess.getActiveTrack().applyConstraints({ advanced: [{ torch: true }] });
+					Grocy.Components.BarcodeScanner.TorchOn(Quagga.CameraAccess.getActiveTrack());
 					return false;
            		}	
 			},			

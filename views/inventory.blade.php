@@ -50,7 +50,8 @@
 				'shortcutLabel' => 'Never expires',
 				'earlierThanInfoLimit' => date('Y-m-d'),
 				'earlierThanInfoText' => $__t('The given date is earlier than today, are you sure?'),
-				'additionalGroupCssClasses' => $additionalGroupCssClasses
+				'additionalGroupCssClasses' => $additionalGroupCssClasses,
+				'activateNumberPad' => GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_FIELD_NUMBER_PAD
 			))
 			@php $additionalGroupCssClasses = ''; @endphp
 
@@ -65,6 +66,11 @@
 				'additionalHtmlContextHelp' => '<br><span class="small text-muted">' . $__t('This will apply to added products') . '</span>',
 				'invalidFeedback' => $__t('The price cannot be lower than %s', '0'),
 				'isRequired' => false
+			))
+
+			@include('components.shoppinglocationpicker', array(
+				'label' => 'Store',
+				'shoppinglocations' => $shoppinglocations
 			))
 			@else
 			<input type="hidden" name="price" id="price" value="0">

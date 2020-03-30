@@ -14,7 +14,7 @@ class DemoBarcodeLookupPlugin extends BaseBarcodeLookupPlugin
 
 	/*
 		To try it:
-		Call the API function at /api/stock/external-barcode-lookup/{barcode}
+		Call the API function at /api/stock/barcodes/external-lookup/{barcode}
 
 		When you also add ?add=true as a query parameter to the API call,
 		on a successful lookup the product is added to the database and in the output

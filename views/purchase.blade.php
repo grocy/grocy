@@ -30,6 +30,7 @@
 				'nextInputSelector' => '#best_before_date .datetimepicker-input'
 			))
 
+
 			@php
 				$additionalGroupCssClasses = '';
 				if (!GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
@@ -51,7 +52,8 @@
 				'shortcutLabel' => 'Never expires',
 				'earlierThanInfoLimit' => date('Y-m-d'),
 				'earlierThanInfoText' => $__t('The given date is earlier than today, are you sure?'),
-				'additionalGroupCssClasses' => $additionalGroupCssClasses
+				'additionalGroupCssClasses' => $additionalGroupCssClasses,
+				'activateNumberPad' => GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_FIELD_NUMBER_PAD
 			))
 			@php $additionalGroupCssClasses = ''; @endphp
 
@@ -84,6 +86,10 @@
 				<input class="form-check-input" type="radio" name="price-type" id="price-type-total-price" value="total-price">
 				<label class="form-check-label" for="price-type-total-price">{{ $__t('Total price') }}</label>
 			</div>
+			@include('components.shoppinglocationpicker', array(
+				'label' => 'Store',
+				'shoppinglocations' => $shoppinglocations
+			))
 			@else
 			<input type="hidden" name="price" id="price" value="0">
 			@endif
