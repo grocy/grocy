@@ -250,8 +250,8 @@ $app->group('/api', function(RouteCollectorProxy $group)
 		$group->get('/calendar/ical/sharing-link', '\Grocy\Controllers\CalendarApiController:IcalSharingLink');
 	}
 })->add(new CorsMiddleware([
-	'origin' => ["*"],
-	'methods' => ["GET", "POST"],
+	'origin' => ['*'],
+	'methods' => ['GET', 'POST', 'PUT', 'DELETE'],
 	'headers.allow' => [ $container->get('ApiKeyHeaderName') ],
 	'headers.expose' => [ ],
 	'credentials' => false,
