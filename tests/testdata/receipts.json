@@ -110,6 +110,45 @@
 					"pharmacy": false,
 					"managerOverride": false,
 					"weighted": false
+				},
+				{
+					"itemIdentifier": "0000000004648",
+					"baseUpc": "0000000004648",
+					"department": "57",
+					"unitOfMeasure": "LBR",
+					"detail": {
+						"upc": "0000000004648",
+						"customerFacingSize": "1 lb",
+						"description": "Mushrooms - Crimini - Bulk",
+						"familyTreeCommodityCode": "613",
+						"familyTreeDepartmentCode": "57",
+						"familyTreeSubCommodityCode": "8067",
+						"mainImage": "https://www.kroger.com/product/images/small/front/0000000004648",
+						"soldInStore": true,
+						"categories": [{
+								"category": "Produce",
+								"categoryCode": "36"
+							}
+						]
+					},
+					"quantity": 0.84,
+					"totalSavings": 0,
+					"extendedPrice": 3.35,
+					"pricePaid": 3.35,
+					"priceModifiers": [],
+					"unitPrice": 3.99,
+					"itemType": "NORMAL",
+					"entryMethod": "KEYED_ITEM_CODE",
+					"imageUrl": "https://www.kroger.com/product/images/small/front/0000000004648",
+					"detailUrl": "/p/item/0000000004648",
+					"sellableUpc": "0000000004648",
+					"containerDeposit": false,
+					"managerOverride": false,
+					"weighted": true,
+					"giftCard": false,
+					"pharmacy": false,
+					"fuel": false,
+					"managerOverrideIgnored": false
 				}
 			],
 			"transactionTime": "2020-03-21T09:14:00"

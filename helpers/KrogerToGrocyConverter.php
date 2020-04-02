@@ -38,10 +38,16 @@ class KrogerToGrocyConverter
 
 				$barcode = KrogerToGrocyConverter::ConvertUpcToBarcode($item["baseUpc"]);
 
+				$min_stock_amount = 1;
 				$quantity = $item['quantity'];
 				if ($item['weighted'] && array_key_exists('averageWeight', $item['detail']))
 				{
 					$quantity = round($item['quantity'] / $item['detail']['averageWeight']);
+				}
+				else if ($item['weighted'])
+				{
+					// this is semi-arbitrary; some things are bought by weight but with no way to determine quantity
+					$min_stock_amount = $item['quantity'] / 4;
 				}
 
 				$quantity_units = $default_quantity_units;
@@ -57,8 +63,8 @@ class KrogerToGrocyConverter
 					}
 				}
 
+				$best_before_days = 21;
 				$location = $default_location_id;
-				
 				if (array_key_exists('categories', $item['detail']) && count($item['detail']['categories']) > 0)
 				{
 					$category = $item['detail']['categories'][0]['categoryCode'];
@@ -67,30 +73,36 @@ class KrogerToGrocyConverter
 						case 1 /*adult beverage*/:
 							$location = 3 /*pantry*/;
 							$quantity_units = 10 /*bottle*/;
+							$best_before_days = -1;
 							break;
-						case 6 /*bakery*/:
 						case 7 /*baking goods*/:
 						case 10 /*breakfast*/:
 						case 12 /*canned and packaged*/:
 						case 13 /*cleaning products*/:
 						case 33 /*pasta, sauces, & grain*/:
-						case 36 /*produce*/:
 						case 73 /*natural & organic*/:
 						case 75 /*personal care*/:
 						case 76 /*health*/:
 							$location = 3 /*pantry*/;
+							$best_before_days = -1;
+							break;
+						case 36 /*produce*/:
+						case 6 /*bakery*/:
+							$location = 3 /*pantry*/;
 							break;
 						case 15 /*dairy*/:
 						case 16 /*deli*/:
-						case 28 /*meet & seafood*/:
+						case 28 /*meat & seafood*/:
 							$location = 2 /*fridge*/;
 							break;
 						case 20 /*frozen*/:
 							$location = 6 /*freezer*/;
+							$best_before_days = -1;
 							break;
 						case 37 /*snacks*/:
 						case 77 /*candy*/:
 							$location = 4 /*candy cupboard*/;
+							$best_before_days = 360;
 							break;
 					}
 				}
@@ -102,16 +114,18 @@ class KrogerToGrocyConverter
 					'qu_id_stock' => $quantity_units,
 					'qu_factor_purchase_to_stock' => 1,
 					'barcode' => $barcode,
-					'default_best_before_days' => 21,
+					'default_best_before_days' => $best_before_days,
 					'quantity' => $quantity,
+					'min_stock_amount' => $min_stock_amount,
 					'transaction_date' => $transactionDate,
-					'price_paid' => $item['pricePaid'],
+					'price_paid' => $item['pricePaid'] / $item['quantity'],
 					'picture_url' => (array_key_exists("mainImage", $item['detail']) ? $item['detail']['mainImage'] : null)
 				);
 
 				array_push($products, $product);
 			}
 		}
+		
 		return $products;
 	}
 	

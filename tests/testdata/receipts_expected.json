@@ -14,5 +14,17 @@
     "barcode": "0072220005165",
     "quantity": 3,
     "transaction_date": "2020-03-21"
+}, {
+    "name": "Mushrooms - Crimini - Bulk",
+    "location_id": 3,
+    "qu_id_purchase": 2,
+    "qu_id_stock": 2,
+    "qu_factor_purchase_to_stock": 1,
+    "barcode": "0000000046480",
+    "default_best_before_days": 21,
+    "quantity": 0.84,
+    "transaction_date": "2020-03-21",
+    "price_paid": 3.988095238095238,
+    "picture_url": "https:\/\/www.kroger.com\/product\/images\/small\/front\/0000000004648"
 }
 ]
