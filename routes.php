@@ -262,8 +262,8 @@ $app->group('/api', function(RouteCollectorProxy $group)
 		$group->post('/uploadjson', '\Grocy\Controllers\StockApiController:UploadJson');
 	}
 })->add(new CorsMiddleware([
-	'origin' => ["*"],
-	'methods' => ["GET", "POST"],
+	'origin' => ['*'],
+	'methods' => ['GET', 'POST', 'PUT', 'DELETE'],
 	'headers.allow' => [ $container->get('ApiKeyHeaderName') ],
 	'headers.expose' => [ ],
 	'credentials' => false,
