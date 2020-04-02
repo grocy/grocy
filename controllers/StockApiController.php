@@ -289,6 +289,44 @@ class StockApiController extends BaseApiController
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
+	
+	public function UploadJson(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		$requestBody = $request->getParsedBody();
+
+		try
+		{
+			if ($requestBody === null)
+			{
+				throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
+			}
+
+			if (!array_key_exists('json-data', $requestBody))
+			{
+				throw new \Exception('JSON data is required');
+			}
+			
+			$default_location_id = $this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'product_presets_location_id');
+			$default_qu_id = $this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'product_presets_qu_id');
+
+			if (!$default_location_id) 
+				$default_location_id = $this->getDatabase()->locations()->limit(1)->fetch()['id'];
+			
+			if (!$default_qu_id)
+				$default_qu_id = $this->getDatabase()->quantity_units()->limit(1)->fetch()['id'];
+				
+			$shopping_location_id = array_key_exists('shopping_location_id', $requestBody) ? $requestBody['shopping_location_id'] : null;
+			$parsedData = json_decode($requestBody['json-data'], true);
+			
+			$lastInsertId = $this->getStockService()->AddMultipleProducts($parsedData, $default_qu_id, 
+				$default_location_id, $requestBody['dont_add_to_stock'] == "1", $shopping_location_id);
+			return $this->ApiResponse($response, $lastInsertId);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
 
 	public function InventoryProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{

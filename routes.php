@@ -128,6 +128,12 @@ $app->group('', function(RouteCollectorProxy $group)
 		$group->get('/calendar', '\Grocy\Controllers\CalendarController:Overview');
 	}
 
+	// Upload json routes
+	if (GROCY_FEATURE_FLAG_UPLOAD_JSON)
+	{
+		$group->get('/uploadjson', '\Grocy\Controllers\StockController:UploadJson');
+	}
+
 	// OpenAPI routes
 	$group->get('/api', '\Grocy\Controllers\OpenApiController:DocumentationUi');
 	$group->get('/manageapikeys', '\Grocy\Controllers\OpenApiController:ApiKeysList');
@@ -248,6 +254,12 @@ $app->group('/api', function(RouteCollectorProxy $group)
 	{
 		$group->get('/calendar/ical', '\Grocy\Controllers\CalendarApiController:Ical')->setName('calendar-ical');
 		$group->get('/calendar/ical/sharing-link', '\Grocy\Controllers\CalendarApiController:IcalSharingLink');
+	}
+	
+	// Upload json routes
+	if (GROCY_FEATURE_FLAG_UPLOAD_JSON)
+	{
+		$group->post('/uploadjson', '\Grocy\Controllers\StockApiController:UploadJson');
 	}
 })->add(new CorsMiddleware([
 	'origin' => ["*"],

@@ -1760,14 +1760,66 @@ msgstr ""
 msgid "Group ingredients by their product group"
 msgstr ""
 
-msgid "Unknown store"
+msgid "Upload json"
+msgstr ""
+
+msgid "Upload Json"
+msgstr ""
+
+msgid "Upload Purchase Data As JSON"
+msgstr ""
+
+msgid "Error while saving, probably an error in the json"
+msgstr ""
+
+msgid "Default Quantity unit purchase"
+msgstr ""
+
+msgid "Don't add old purchases to stock"
+msgstr ""
+
+msgid "JSON Data"
+msgstr ""
+
+msgid ""
+"Kroger grocery stores allow manual access to past purchases in json form \r\n"
+"\t\t\tthrough a browser's developer tools."
+msgstr ""
+
+msgid ""
+"To get this json, open developer tools\r\n"
+"\t\t\tand navigate to https://www.qfc.com/mypurchases (or another Kroger grocer,\r\n"
+"\t\t\tsuch as https://www.fredmeyer.com/mypurchases) and look for a call to \r\n"
+"\t\t\t/mypurchases/api/v1/receipt/details.  The response will contain data for the\r\n"
+"\t\t\tlast five receipts."
 msgstr ""
 
 msgid "Store"
 msgstr ""
 
+msgid "Default shopping location"
+msgstr ""
+
 msgid "Transaction successfully undone"
 msgstr ""
 
+msgid "Unknown store"
+msgstr ""
+
 msgid "Default store"
+msgstr ""
+
+msgid "Default location "
+msgstr ""
+
+msgid "Change this value in user settings"
+msgstr ""
+
+msgid "Default Quantity unit "
+msgstr ""
+
+msgid "Don't add to stock"
+msgstr ""
+
+msgid ""
 msgstr ""

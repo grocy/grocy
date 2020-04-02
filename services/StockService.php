@@ -2,6 +2,8 @@
 
 namespace Grocy\Services;
 
+use Grocy\Helpers\KrogerToGrocyConverter;
+
 class StockService extends BaseService
 {
 	const TRANSACTION_TYPE_PURCHASE = 'purchase';
@@ -72,8 +74,8 @@ class StockService extends BaseService
 	{
 		return $this->getDatabase()->stock_current_locations()->where('product_id', $productId)->fetchAll();
 	}
-
-	public function GetProductIdFromBarcode(string $barcode)
+	
+	public function GetProductFromBarcode(string $barcode)
 	{
 		$potentialProduct = $this->getDatabase()->products()->where("','  || barcode || ',' LIKE '%,' || :1 || ',%' AND IFNULL(barcode, '') != ''", $barcode)->limit(1)->fetch();
 
@@ -81,6 +83,25 @@ class StockService extends BaseService
 		{
 			throw new \Exception("No product with barcode $barcode found");
 		}
+
+		return $potentialProduct;
+	}
+	
+	public function GetProductFromName(string $name)
+	{
+		$potentialProduct = $this->getDatabase()->products()->where("','  || name || ',' LIKE '%,' || :1 || ',%'", $name)->limit(1)->fetch();
+
+		if ($potentialProduct === null)
+		{
+			throw new \Exception("No product with name $name found");
+		}
+
+		return $potentialProduct;
+	}
+
+	public function GetProductIdFromBarcode(string $barcode)
+	{
+		$potentialProduct = $this->GetProductFromBarcode($barcode);
 
 		return intval($potentialProduct->id);
 	}
@@ -592,6 +613,72 @@ class StockService extends BaseService
 				$stockEntryNew->save();
 
 				$amount = 0;
+			}
+		}
+
+		return $this->getDatabase()->lastInsertId();
+	}
+
+	public function AddMultipleProducts($data, $defaultQuantityUnits, $defaultLocation, $dontAddToStock, $shoppingLocation)
+	{
+		$products = KrogerToGrocyConverter::ConvertJson($data, $defaultQuantityUnits, $defaultLocation);
+		
+		foreach ($products as &$product) 
+		{
+			$existingProduct = null;
+			try
+			{
+				$existingProduct = $this->GetProductFromBarcode($product["barcode"]);
+			}
+			catch (\Exception $ex)
+			{
+				try
+				{
+					$existingProduct = $this->GetProductFromName($product["name"]);
+				}
+				catch (\Exception $ex)
+				{
+					if (defined(GROCY_STOCK_BARCODE_LOOKUP_PLUGIN) && GROCY_STOCK_BARCODE_LOOKUP_PLUGIN != "DemoBarcodeLookupPlugin")
+					{
+						$existingProduct = $this->ExternalBarcodeLookup($product["barcode"], true /*addFoundProduct*/);
+					}
+					
+					if ($existingProduct == null)
+					{
+						$existingProduct = array(
+							'name' => $product['name'],
+							'location_id' => $product['location_id'],
+							'qu_id_purchase' => $product['qu_id_purchase'],
+							'qu_id_stock' => $product['qu_id_stock'],
+							'qu_factor_purchase_to_stock' => $product['qu_factor_purchase_to_stock'],
+							'default_best_before_days' => $product['default_best_before_days'],
+							'barcode' => $product['barcode'],
+							'picture_url' => $product['picture_url'],
+							'shopping_location_id' => $shoppingLocation,
+							'cumulate_min_stock_amount_of_sub_products' => 1,
+							'min_stock_amount' => 1
+						);
+						$newRow = $this->getDatabase()->products()->createRow($existingProduct);
+						$newRow->save();
+
+						$existingProduct['id'] = $newRow->id;
+					}
+				}
+			}
+			
+			$bestBeforeDays = -1;
+			if ($existingProduct['default_best_before_days'] > -1)
+			{
+				$bestBeforeDays = $existingProduct['default_best_before_days'];
+			}
+			
+			$this->AddProduct($existingProduct['id'], $product["quantity"], null /*newBestBeforeDate*/, StockService::TRANSACTION_TYPE_PURCHASE, 
+				$product["transaction_date"], $product["price_paid"], $existingProduct['location_id'], $existingProduct['shopping_location_id']);
+
+			
+			if ($dontAddToStock)
+			{
+				$this->ConsumeProduct($existingProduct['id'], $product['quantity'], false /*spoiled*/, self::TRANSACTION_TYPE_INVENTORY_CORRECTION);
 			}
 		}
 
