@@ -423,3 +423,13 @@ $("#qu-conversion-add-button").on("click", function(e)
 	Grocy.ProductEditFormRedirectUri = U("/quantityunitconversion/new?product=editobjectid");
 	$('#save-product-button').click();
 });
+
+$('#qu_id_purchase').blur(function(e) 
+{
+	// Preset the stock quantity unit with the purchase quantity unit, if the stock quantity unit is unset.
+	var QuIdStock = $('#qu_id_stock');
+	var QuIdPurchase = $('#qu_id_purchase');
+	if (QuIdStock[0].selectedIndex === 0 && QuIdPurchase[0].selectedIndex !== 0) {
+		QuIdStock[0].selectedIndex = QuIdPurchase[0].selectedIndex;
+	}
+});
