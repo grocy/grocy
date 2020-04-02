@@ -73,23 +73,31 @@ class StockController extends BaseController
 			'locations' => $this->getDatabase()->locations()->orderBy('name')
 		]);
 	}
-	
+
 	public function UploadJson(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$location_id = $this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'product_presets_location_id');
 		$location = null;
 		if ($location_id > 0)
+		{
 			$location = $this->getDatabase()->locations()->where('id', $location_id).fetch();
+		}
 		else
+		{
 			$location = $this->getDatabase()->locations()->limit(1)->fetch();
-		
+		}
+
 		$qu_id = $this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'product_presets_location_id');
 		$quantity_unit = null;
 		if ($qu_id > 0)
+		{
 			$quantity_unit = $this->getDatabase()->quantity_units()->where('id', $qui_id).fetch();
+		}
 		else
+		{
 			$quantity_unit = $this->getDatabase()->quantity_units()->limit(1)->fetch();
-
+		}
+		
 		return $this->renderPage($response, 'uploadjson', [
 			'location' => $location,
 			'quantityunit' => $quantity_unit,

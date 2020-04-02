@@ -6,10 +6,10 @@ class KrogerToGrocyConverter
 {
 	// Fields returned: 'name', 'location_id', 'qu_id_purchase', 'qu_id_stock',
 	// 'qu_factor_purchase_to_stock', 'barcode', 'default_best_before_days'
-	// 'quantity', 'transaction_date', 'price_paid', 'picture_url'
+	// 'quantity', 'transaction_date', 'price_paid', 'picture_url', 'min_stock_amount'
 	public static function ConvertJson($data, $default_quantity_units, $default_location_id) 
 	{
-		if (array_key_exists("data", $data))
+		if ($data != null && array_key_exists("data", $data))
 		{
 			$data = $data['data'];
 		}

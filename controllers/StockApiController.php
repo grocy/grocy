@@ -307,15 +307,23 @@ class StockApiController extends BaseApiController
 			}
 			
 			$default_location_id = $this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'product_presets_location_id');
-			$default_qu_id = $this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'product_presets_qu_id');
-
 			if (!$default_location_id) 
+			{
 				$default_location_id = $this->getDatabase()->locations()->limit(1)->fetch()['id'];
-			
+			}
+
+			$default_qu_id = $this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'product_presets_qu_id');
 			if (!$default_qu_id)
+			{
 				$default_qu_id = $this->getDatabase()->quantity_units()->limit(1)->fetch()['id'];
+			}
 				
-			$shopping_location_id = array_key_exists('shopping_location_id', $requestBody) ? $requestBody['shopping_location_id'] : null;
+			$shopping_location_id = null;
+			if (array_key_exists('shopping_location_id', $requestBody))
+			{
+				$shopping_location_id = $requestBody['shopping_location_id'];
+			}
+
 			$parsedData = json_decode($requestBody['json-data'], true);
 			
 			$lastInsertId = $this->getStockService()->AddMultipleProducts($parsedData, $default_qu_id, 

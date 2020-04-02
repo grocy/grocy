@@ -209,7 +209,7 @@
 				@if(GROCY_FEATURE_FLAG_UPLOAD_JSON)
 				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Upload json') }}" data-nav-for-page="upload-json">
 					<a class="nav-link discrete-link" href="{{ $U('/uploadjson') }}">
-						<i class="fas fa-fire"></i>
+						<i class="fas fa-code"></i>
 						<span class="nav-link-text">{{ $__t('Upload Json') }}</span>
 					</a>
 				</li>
