@@ -5,6 +5,9 @@
 - => The price history chart on the product card shows a line per store
 - (Thanks @immae and @kriddles)
 
+### Stock improvements
+- When creating a new product, the "QU id stock" is now preset by the "QU id purchase" (because most of the time that's most probably the same) (thanks @Mik-)
+
 ### Recipe fixes
 - Fixed a PHP notice on the recipes page when there are no recipes (thanks @mrunkel)
 
