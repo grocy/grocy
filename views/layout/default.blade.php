@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ GROCY_CULTURE }}">
-<head>
+<head profile="http://www.w3.org/2005/10/profile">
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
