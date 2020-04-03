@@ -4,6 +4,7 @@ namespace Grocy\Middleware;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
+use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Slim\Routing\RouteContext;
 
@@ -12,13 +13,15 @@ use Grocy\Services\LocalizationService;
 
 class SessionAuthMiddleware extends BaseMiddleware
 {
-	public function __construct(\DI\Container $container, string $sessionCookieName)
+	public function __construct(\DI\Container $container, string $sessionCookieName, ResponseFactoryInterface $responseFactory)
 	{
 		parent::__construct($container);
 		$this->SessionCookieName = $sessionCookieName;
+		$this->ResponseFactory = $responseFactory;
 	}
 
 	protected $SessionCookieName;
+	protected $ResponseFactory;
 
 	public function __invoke(Request $request, RequestHandler $handler): Response
 	{
@@ -44,8 +47,8 @@ class SessionAuthMiddleware extends BaseMiddleware
 			if ((!isset($_COOKIE[$this->SessionCookieName]) || !$sessionService->IsValidSession($_COOKIE[$this->SessionCookieName])) && $routeName !== 'login')
 			{
 				define('GROCY_AUTHENTICATED', false);
-				$response = new \Slim\Psr7\Response(); // No content when unauthorized
-				$response = $response->withHeader('Location', $this->AppContainer->get('UrlManager')->ConstructUrl('/login'));
+				$response = $this->responseFactory->createResponse();
+				return $response->withHeader('Location', $this->AppContainer->get('UrlManager')->ConstructUrl('/login'));
 			}
 			else
 			{
