@@ -44,7 +44,7 @@ class SessionAuthMiddleware extends BaseMiddleware
 			if ((!isset($_COOKIE[$this->SessionCookieName]) || !$sessionService->IsValidSession($_COOKIE[$this->SessionCookieName])) && $routeName !== 'login')
 			{
 				define('GROCY_AUTHENTICATED', false);
-				$response = $handler->handle($request);
+				$response = new \Slim\Psr7\Response(); // No content when unauthorized
 				$response = $response->withHeader('Location', $this->AppContainer->get('UrlManager')->ConstructUrl('/login'));
 			}
 			else
