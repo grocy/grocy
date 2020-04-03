@@ -125,7 +125,7 @@ $app->group('', function(RouteCollectorProxy $group)
 	$group->get('/api', '\Grocy\Controllers\OpenApiController:DocumentationUi');
 	$group->get('/manageapikeys', '\Grocy\Controllers\OpenApiController:ApiKeysList');
 	$group->get('/manageapikeys/new', '\Grocy\Controllers\OpenApiController:CreateNewApiKey');
-})->add(new SessionAuthMiddleware($container, $container->get('LoginControllerInstance')->GetSessionCookieName()));
+})->add(new SessionAuthMiddleware($container, $container->get('LoginControllerInstance')->GetSessionCookieName(), $app->getResponseFactory()));
 
 $app->group('/api', function(RouteCollectorProxy $group)
 {
