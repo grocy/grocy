@@ -30,6 +30,7 @@
 				<tr>
 					<th class="border-right"></th>
 					<th>{{ $__t('Username') }}</th>
+					<th>{{ $__t('Email') }}</th>
 					<th>{{ $__t('First name') }}</th>
 					<th>{{ $__t('Last name') }}</th>
 				</tr>
@@ -47,6 +48,9 @@
 					</td>
 					<td>
 						{{ $user->username }}
+					</td>
+					<td>
+						{{ $user->email }}
 					</td>
 					<td>
 						{{ $user->first_name }}

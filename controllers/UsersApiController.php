@@ -32,7 +32,7 @@ class UsersApiController extends BaseApiController
 				throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
 			}
 
-			$this->getUsersService()->CreateUser($requestBody['username'], $requestBody['first_name'], $requestBody['last_name'], $requestBody['password']);
+			$this->getUsersService()->CreateUser($requestBody['username'], $requestBody['email'], $requestBody['first_name'], $requestBody['last_name'], $requestBody['password']);
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
@@ -60,7 +60,7 @@ class UsersApiController extends BaseApiController
 
 		try
 		{
-			$this->getUsersService()->EditUser($args['userId'], $requestBody['username'], $requestBody['first_name'], $requestBody['last_name'], $requestBody['password']);
+			$this->getUsersService()->EditUser($args['userId'], $requestBody['username'], $requestBody['email'], $requestBody['first_name'], $requestBody['last_name'], $requestBody['password']);
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)

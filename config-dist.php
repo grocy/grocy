@@ -74,6 +74,14 @@ Setting('DISABLE_BROWSER_BARCODE_CAMERA_SCANNING', false);
 # Needs to be a number where Sunday = 0, Monday = 1 and so forth
 Setting('MEAL_PLAN_FIRST_DAY_OF_WEEK', '');
 
+# Email smtp settings
+Setting('EMAIL_HOST','smtp.gmail.com');
+Setting('EMAIL_PORT','587');
+Setting('EMAIL_USERNAME','');
+Setting('EMAIL_PASSWORD','');
+Setting('EMAIL_FROM','from@example.com, from who');
+Setting('EMAIL_REPLYTO','noreply@example.com, No Reply');
+
 
 # Default user settings
 # These settings can be changed per user, here the defaults

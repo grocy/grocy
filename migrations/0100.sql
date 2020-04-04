@@ -40,3 +40,13 @@ JOIN stock s
 WHERE pr.parent_product_id != pr.sub_product_id
 GROUP BY pr.sub_product_id
 HAVING SUM(s.amount) > 0;
+
+ALTER TABLE users
+ADD email TEXT;
+
+CREATE TABLE password_reset_temp (
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	email TEXT NOT NULL UNIQUE,
+	key TEXT,
+	expiration_date DATETIME NOT NULL
+);

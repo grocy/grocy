@@ -28,6 +28,12 @@
 			</div>
 
 			<div class="form-group">
+				<label for="email">{{ $__t('Email') }}</label>
+				<input type="text" class="form-control" required id="email" name="email" value="@if($mode == 'edit'){{ $user->email }}@endif">
+				<div class="invalid-feedback">{{ $__t('An email is required') }}</div>
+			</div>
+
+			<div class="form-group">
 				<label for="first_name">{{ $__t('First name') }}</label>
 				<input type="text" class="form-control" id="first_name" name="first_name" value="@if($mode == 'edit'){{ $user->first_name }}@endif">
 			</div>

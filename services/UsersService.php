@@ -4,10 +4,11 @@ namespace Grocy\Services;
 
 class UsersService extends BaseService
 {
-	public function CreateUser(string $username, string $firstName, string $lastName, string $password)
+	public function CreateUser(string $username, string $email, string $firstName, string $lastName, string $password)
 	{
 		$newUserRow = $this->getDatabase()->users()->createRow(array(
 			'username' => $username,
+			'email' => $email,
 			'first_name' => $firstName,
 			'last_name' => $lastName,
 			'password' => password_hash($password, PASSWORD_DEFAULT)
@@ -15,7 +16,7 @@ class UsersService extends BaseService
 		$newUserRow->save();
 	}
 
-	public function EditUser(int $userId, string $username, string $firstName, string $lastName, string $password)
+	public function EditUser(int $userId, string $username, string $email, string $firstName, string $lastName, string $password)
 	{
 		if (!$this->UserExists($userId))
 		{
@@ -25,6 +26,7 @@ class UsersService extends BaseService
 		$user = $this->getDatabase()->users($userId);
 		$user->update(array(
 			'username' => $username,
+			'email' => $email,
 			'first_name' => $firstName,
 			'last_name' => $lastName,
 			'password' => password_hash($password, PASSWORD_DEFAULT)
