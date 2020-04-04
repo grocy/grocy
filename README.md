@@ -2,8 +2,8 @@
 ERP beyond your fridge
 
 ## Give it a try
-- Public demo of the latest stable version &rarr; [https://demo.grocy.info](https://demo.grocy.info)
-- Public demo of the latest pre-release version (current master branch) &rarr; [https://demo-prerelease.grocy.info](https://demo-prerelease.grocy.info)
+- Public demo of the latest stable version (`release` branch) &rarr; [https://demo.grocy.info](https://demo.grocy.info)
+- Public demo of the latest pre-release version (`master` branch) &rarr; [https://demo-prerelease.grocy.info](https://demo-prerelease.grocy.info)
 
 ## Getting in touch
 There is the [r/grocy subreddit](https://www.reddit.com/r/grocy) to connect with other grocy users. If you've found something that does not work or if you have an idea for an improvement or new things which you would find useful, feel free to open an issue in the [issue tracker](https://github.com/grocy/grocy/issues) here.
@@ -21,7 +21,7 @@ A household needs to be managed. I did this so far (almost 10 years) with my fir
 
 Just unpack the [latest release](https://releases.grocy.info/latest) on your PHP (SQLite (3.8.3 or higher) extension required, currently only tested with PHP 7.3) enabled webserver (webservers root should point to the `public` directory), copy `config-dist.php` to `data/config.php`, edit it to your needs, ensure that the `data` directory is writable and you're ready to go, (to make it writable, maybe use `chown -R www-data:www-data data/`). Default login is user `admin` with password `admin`, please change the password immediately (see user menu).
 
-Alternatively clone this repository and install Composer and Yarn dependencies manually.
+Alternatively clone this repository (the `release` branch always references the latest released version, or checkout the latest tagged revision) and install Composer and Yarn dependencies manually.
 
 If you use nginx as your webserver, please include `try_files $uri /index.php$is_args$query_string;` in your location block.
 
