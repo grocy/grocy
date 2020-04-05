@@ -1,0 +1,29 @@
+# Translators:
+# EbXpJ6bp <ebxpj6bp@outlook.jp>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-09-17 10:45+0000\n"
+"Last-Translator: EbXpJ6bp <ebxpj6bp@outlook.jp>, 2020\n"
+"Language-Team: Japanese (https://www.transifex.com/grocy/teams/93189/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Domain: grocy/chore_assignment_types\n"
+
+msgid "no-assignment"
+msgstr "割り当てなし"
+
+msgid "who-least-did-first"
+msgstr "誰が最後にやったか"
+
+msgid "random"
+msgstr "ランダム"
+
+msgid "in-alphabetical-order"
+msgstr "アルファベット順"

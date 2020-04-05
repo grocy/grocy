@@ -1,0 +1,352 @@
+# Translators:
+# EbXpJ6bp <ebxpj6bp@outlook.jp>, 2020
+# 鳥山 陽平 <kagemomiji@gmail.com>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: 鳥山 陽平 <kagemomiji@gmail.com>, 2020\n"
+"Language-Team: Japanese (https://www.transifex.com/grocy/teams/93189/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Domain: grocy/demo_data\n"
+
+msgid "Cookies"
+msgstr "クッキー"
+
+msgid "Chocolate"
+msgstr "チョコレート"
+
+msgid "Pantry"
+msgstr "パントリー"
+
+msgid "Candy cupboard"
+msgstr "お菓子棚"
+
+msgid "Tinned food cupboard"
+msgstr "缶詰の保管棚"
+
+msgid "Fridge"
+msgstr "冷蔵庫"
+
+msgid "Piece"
+msgid_plural "Pieces"
+msgstr[0] "ピース"
+
+msgid "Pack"
+msgid_plural "Packs"
+msgstr[0] "パック"
+
+msgid "Glass"
+msgid_plural "Glasses"
+msgstr[0] "眼鏡"
+
+msgid "Tin"
+msgid_plural "Tins"
+msgstr[0] "小缶"
+
+msgid "Can"
+msgid_plural "Cans"
+msgstr[0] "カン"
+
+msgid "Bunch"
+msgid_plural "Bunches"
+msgstr[0] "房"
+
+msgid "Gummy bears"
+msgstr "グミベア"
+
+msgid "Crisps"
+msgstr "チップス"
+
+msgid "Eggs"
+msgstr "卵"
+
+msgid "Noodles"
+msgstr "麺類"
+
+msgid "Pickles"
+msgstr "ピクルス"
+
+msgid "Gulash soup"
+msgstr "グヤーシュ"
+
+msgid "Yogurt"
+msgstr "ヨーグルト"
+
+msgid "Cheese"
+msgstr "チーズ"
+
+msgid "Cold cuts"
+msgstr "コールドカット"
+
+msgid "Paprika"
+msgstr "パプリカ"
+
+msgid "Cucumber"
+msgstr "きゅうり"
+
+msgid "Radish"
+msgstr "だいこん"
+
+msgid "Tomato"
+msgstr "トマト"
+
+msgid "Changed towels in the bathroom"
+msgstr "浴室のタオルを変更"
+
+msgid "Cleaned the kitchen floor"
+msgstr "キッチンの床掃除"
+
+msgid "Warranty ends"
+msgstr "保証終了"
+
+msgid "TV remote control"
+msgstr "TV リモコン"
+
+msgid "Alarm clock"
+msgstr "時計のアラーム"
+
+msgid "Heat remote control"
+msgstr "ヒータのリモコン"
+
+msgid "Lawn mowed in the garden"
+msgstr "庭の芝刈り"
+
+msgid "Some good snacks"
+msgstr "おやつ"
+
+msgid "Pizza dough"
+msgstr "ピザ生地"
+
+msgid "Sieved tomatoes"
+msgstr "トマトペースト"
+
+msgid "Salami"
+msgstr "サラミ"
+
+msgid "Toast"
+msgstr "トースト"
+
+msgid "Minced meat"
+msgstr "ひき肉"
+
+msgid "Pizza"
+msgstr "ピザ"
+
+msgid "Spaghetti bolognese"
+msgstr "ボロネーゼスパゲッティ"
+
+msgid "Sandwiches"
+msgstr "サンドイッチ"
+
+msgid "English"
+msgstr "英語"
+
+msgid "German"
+msgstr "ドイツ語"
+
+msgid "Italian"
+msgstr "イタリア語"
+
+msgid "This is the note content of the recipe ingredient"
+msgstr "レシピの材料のノート"
+
+msgid "Demo User"
+msgstr "デモユーザー"
+
+msgid "Gram"
+msgid_plural "Grams"
+msgstr[0] "グラム"
+
+msgid "Flour"
+msgstr "小麦粉"
+
+msgid "Pancakes"
+msgstr "パンケーキ"
+
+msgid "Sugar"
+msgstr "砂糖"
+
+msgid "Home"
+msgstr "家"
+
+msgid "Life"
+msgstr "生活"
+
+msgid "Projects"
+msgstr "プロジェクト"
+
+msgid "Repair the garage door"
+msgstr "ガレージのドアを修復"
+
+msgid "Fork and improve grocy"
+msgstr "grocy をフォークして改善"
+
+msgid "Find a solution for what to do when I forget the door keys"
+msgstr "ドアの鍵を忘れたときの解決策を見つける"
+
+msgid "Sweets"
+msgstr "お菓子"
+
+msgid "Bakery products"
+msgstr "パン食品"
+
+msgid "Tinned food"
+msgstr "缶詰"
+
+msgid "Butchery products"
+msgstr "肉食品"
+
+msgid "Vegetables/Fruits"
+msgstr "野菜/フルーツ"
+
+msgid "Refrigerated products"
+msgstr "冷凍食品"
+
+msgid "Coffee machine"
+msgstr "コーヒー マシーン"
+
+msgid "Dishwasher"
+msgstr "食器洗い機"
+
+msgid "Liter"
+msgstr "リットル"
+
+msgid "Liters"
+msgstr "リットル"
+
+msgid "Bottle"
+msgstr "本"
+
+msgid "Bottles"
+msgstr "本"
+
+msgid "Milk"
+msgstr "ミルク"
+
+msgid "Chocolate sauce"
+msgstr "チョコレート ソース"
+
+msgid "Milliliters"
+msgstr "ミリリットル"
+
+msgid "Milliliter"
+msgstr "ミリリットル"
+
+msgid "Bottom"
+msgstr "底"
+
+msgid "Topping"
+msgstr "トッピング"
+
+msgid "French"
+msgstr "フランス語"
+
+msgid "Turkish"
+msgstr "トルコ語"
+
+msgid "Spanish"
+msgstr "スペイン語"
+
+msgid "Russian"
+msgstr "ロシア語"
+
+msgid "The thing which happens on the 5th of every month"
+msgstr "毎月5日に起こること"
+
+msgid "The thing which happens daily"
+msgstr "毎日起こること"
+
+msgid "The thing which happens on Mondays and Wednesdays"
+msgstr "月曜日と水曜日に起こること"
+
+msgid "Swedish"
+msgstr "スウェーデン語"
+
+msgid "Polish"
+msgstr "ポーランド語"
+
+msgid "Milk Chocolate"
+msgstr "ミルク チョコレート"
+
+msgid "Dark Chocolate"
+msgstr "ダーク チョコレート"
+
+msgid "Slice"
+msgid_plural "Slices"
+msgstr[0] "枚"
+
+msgid "Example userentity"
+msgstr "ユーザーエントリーの例"
+
+msgid "This is an example user entity..."
+msgstr "これはユーザー エントリーの例です..."
+
+msgid "Custom field"
+msgstr "カスタム フィールド"
+
+msgid "Example field value..."
+msgstr "フィールド値の例..."
+
+msgid "Waffle rolls"
+msgstr "ワッフル・ロール"
+
+msgid "Danish"
+msgstr "デンマーク語"
+
+msgid "Dutch"
+msgstr "オランダ語"
+
+msgid "Norwegian"
+msgstr "ノルウェー語"
+
+msgid "Demo"
+msgstr "デモ"
+
+msgid "Stable version"
+msgstr "安定板"
+
+msgid "Preview version"
+msgstr "プレビュー版"
+
+msgid "current release"
+msgstr "リリース済み"
+
+msgid "not yet released"
+msgstr "未リリース"
+
+msgid "Portuguese (Brazil)"
+msgstr "ポルトガル語 (ブラジル)"
+
+msgid "This is a note"
+msgstr "てすと"
+
+msgid "Freezer"
+msgstr "冷凍庫"
+
+msgid "Hungarian"
+msgstr "ハンガリー語"
+
+msgid "Slovak"
+msgstr "スロバキア語"
+
+msgid "Czech"
+msgstr "チェコ語"
+
+msgid "Portuguese (Portugal)"
+msgstr "ポルトガル語 (ポルトガル)"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket1"
+msgstr "イオン1"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket2"
+msgstr "イオン2"

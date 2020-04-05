@@ -26,3 +26,6 @@
 - Prerequisites (PHP extensions, critical files/folders) will now be checked and properly reported if there are problems (thanks @Forceu)
 - Improved the the overview pages on mobile devices (main column was hidden) (thanks @Mik-)
 - Optimized the handling of settings provided by `data/settingoverrides` files (thanks @dacto)
+- New translations: (thanks all the translators)
+  - Japanese (demo available at https://ja.demo.grocy.info)
+  - Chinese (Taiwan) (demo available at https://zh-tw.demo.grocy.info)

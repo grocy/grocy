@@ -1,0 +1,1845 @@
+# Translators:
+# 鳥山 陽平 <kagemomiji@gmail.com>, 2020
+# EbXpJ6bp <ebxpj6bp@outlook.jp>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: EbXpJ6bp <ebxpj6bp@outlook.jp>, 2020\n"
+"Language-Team: Japanese (https://www.transifex.com/grocy/teams/93189/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Domain: grocy/strings\n"
+
+msgid "Stock overview"
+msgstr "在庫状況"
+
+msgid "%s product expires"
+msgid_plural "%s products expiring"
+msgstr[0] "%s 個が期限切れ"
+
+msgid "within the next day"
+msgid_plural "within the next %s days"
+msgstr[0] "(%s 日以内に)"
+
+msgid "%s product is already expired"
+msgid_plural "%s products are already expired"
+msgstr[0] "%s 個がすでに期限切れ"
+
+msgid "%s product is below defined min. stock amount"
+msgid_plural "%s products are below defined min. stock amount"
+msgstr[0] "%s 個が設定した最小の在庫未満"
+
+msgid "Product"
+msgstr "製品"
+
+msgid "%s Product"
+msgid_plural "%s Products"
+msgstr[0] "%s 個"
+
+msgid "Amount"
+msgstr "量"
+
+msgid "Next best before date"
+msgstr "期限"
+
+msgid "Logout"
+msgstr "ログアウト"
+
+msgid "Chores overview"
+msgstr "家事の状況"
+
+msgid "Batteries overview"
+msgstr "電池の状況"
+
+msgid "Purchase"
+msgstr "購入"
+
+msgid "Consume"
+msgstr "消費"
+
+msgid "Inventory"
+msgstr "在庫"
+
+msgid "Shopping list"
+msgstr "買い物リスト"
+
+msgid "Chore tracking"
+msgstr "雑用追跡"
+
+msgid "Battery tracking"
+msgstr "電池追跡"
+
+msgid "Locations"
+msgstr "場所"
+
+msgid "Stores"
+msgstr "店舗"
+
+msgid "Quantity units"
+msgstr "数量単位"
+
+msgid "Chores"
+msgstr "雑用"
+
+msgid "Batteries"
+msgstr "電池"
+
+msgid "Chore"
+msgstr "雑用"
+
+msgid "Next estimated tracking"
+msgstr "次の予定追跡"
+
+msgid "Last tracked"
+msgstr "最終追跡"
+
+msgid "Battery"
+msgstr "電池"
+
+msgid "Last charged"
+msgstr "最終充電"
+
+msgid "Next planned charge cycle"
+msgstr "次の予定される充電サイクル"
+
+msgid "Best before"
+msgstr "期限"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Product overview"
+msgstr "製品状況"
+
+msgid "Stock quantity unit"
+msgstr "在庫の数量単位"
+
+msgid "Stock amount"
+msgstr "在庫量"
+
+msgid "Last purchased"
+msgstr "最終購入"
+
+msgid "Last used"
+msgstr "最終使用"
+
+msgid "Spoiled"
+msgstr ""
+
+msgid "Barcode lookup is disabled"
+msgstr "バーコード検索が無効"
+
+msgid ""
+"will be added to the list of barcodes for the selected product on submit"
+msgstr ""
+
+msgid "New amount"
+msgstr "新しい量"
+
+msgid "Note"
+msgstr "ノート"
+
+msgid "Tracked time"
+msgstr "追跡日"
+
+msgid "Chore overview"
+msgstr "雑用の状況"
+
+msgid "Tracked count"
+msgstr "追跡数"
+
+msgid "Battery overview"
+msgstr "電池の状況"
+
+msgid "Charge cycles count"
+msgstr "充電サイクル数"
+
+msgid "Create shopping list item"
+msgstr "買い物リストの項目を作成"
+
+msgid "Edit shopping list item"
+msgstr "買い物リストの項目を編集"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Add"
+msgstr "追加"
+
+msgid "Name"
+msgstr "名前"
+
+msgid "Location"
+msgstr "場所"
+
+msgid "Min. stock amount"
+msgstr "最小の在庫量"
+
+msgid "QU purchase"
+msgstr "購入数量"
+
+msgid "QU stock"
+msgstr "保管数量"
+
+msgid "QU factor"
+msgstr ""
+
+msgid "Description"
+msgstr "説明"
+
+msgid "Create product"
+msgstr "製品を作成"
+
+msgid "Barcode(s)"
+msgstr "バーコード"
+
+msgid "Minimum stock amount"
+msgstr "最小の在庫量"
+
+msgid "Default best before days"
+msgstr "デフォルトの期限日"
+
+msgid "Quantity unit purchase"
+msgstr "購入の数量単位"
+
+msgid "Quantity unit stock"
+msgstr "保管の数量単位"
+
+msgid "Factor purchase to stock quantity unit"
+msgstr ""
+
+msgid "Create location"
+msgstr "場所を作成"
+
+msgid "Create store"
+msgstr "店舗を作成"
+
+msgid "Create quantity unit"
+msgstr "数量単位を作成"
+
+msgid "Period type"
+msgstr "期限の種類"
+
+msgid "Period days"
+msgstr "期限日"
+
+msgid "Create chore"
+msgstr "雑用を作成"
+
+msgid "Used in"
+msgstr "使用場所"
+
+msgid "Create battery"
+msgstr "電池を作成"
+
+msgid "Edit battery"
+msgstr "電池を編集"
+
+msgid "Edit chore"
+msgstr "雑用を編集"
+
+msgid "Edit quantity unit"
+msgstr "数量単位を編集"
+
+msgid "Edit product"
+msgstr "製品を編集"
+
+msgid "Edit location"
+msgstr "場所を編集"
+
+msgid "Edit store"
+msgstr "店舗を編集"
+
+msgid "Record data"
+msgstr "デーダを記録"
+
+msgid "Manage master data"
+msgstr "マスターデータを管理"
+
+msgid "This will apply to added products"
+msgstr "追加された製品に適用します"
+
+msgid "never"
+msgstr "該当なし"
+
+msgid "Add products that are below defined min. stock amount"
+msgstr "保管数の下限以下の製品を追加する"
+
+msgid ""
+"For purchases this amount of days will be added to today for the best before"
+" date suggestion"
+msgstr ""
+
+msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
+msgstr ""
+
+msgid "Login"
+msgstr "ログイン"
+
+msgid "Username"
+msgstr "ユーザー名"
+
+msgid "Password"
+msgstr "パスワード"
+
+msgid "Invalid credentials, please try again"
+msgstr "資格情報が無効です。もう一度お試しください"
+
+msgid "Are you sure to delete battery \"%s\"?"
+msgstr "電池\"%s\"を本当に削除しますか?"
+
+msgid "Yes"
+msgstr "はい"
+
+msgid "No"
+msgstr "いいえ"
+
+msgid "Are you sure to delete chore \"%s\"?"
+msgstr "雑用\"%s\"を本当に削除しますか?"
+
+msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
+msgstr "\"%s\" を製品として解決できませんでした、どのように継続しますか?"
+
+msgid "Create or assign product"
+msgstr "プロダクトの作成または割り当て"
+
+msgid "Cancel"
+msgstr "キャンセル"
+
+msgid "Add as new product"
+msgstr "新しい製品として追加"
+
+msgid "Add as barcode to existing product"
+msgstr "既存の製品にバーコードとして追加"
+
+msgid "Add as new product and prefill barcode"
+msgstr "新しい製品として追加し、バーコードで事前入力する"
+
+msgid "Are you sure to delete quantity unit \"%s\"?"
+msgstr "数量単位 \"%s\" を本当に削除しますか?"
+
+msgid "Are you sure to delete product \"%s\"?"
+msgstr "製品 \"%s\" を本当に削除しますか?"
+
+msgid "Are you sure to delete location \"%s\"?"
+msgstr "場所 \"%s\" を本当に削除しますか?"
+
+msgid "Are you sure to delete store \"%s\"?"
+msgstr "店舗 \"%s\" を本当に削除しますか?"
+
+msgid "Manage API keys"
+msgstr "API キーを管理"
+
+msgid "REST API & data model documentation"
+msgstr "REST API とデータのモデルについての説明"
+
+msgid "API keys"
+msgstr "API キー"
+
+msgid "Create new API key"
+msgstr "新しい API キーを作成"
+
+msgid "API key"
+msgstr "API キー"
+
+msgid "Expires"
+msgstr "期限"
+
+msgid "Created"
+msgstr "作成"
+
+msgid "This product is not in stock"
+msgstr "この製品は在庫切れです"
+
+msgid "This means %s will be added to stock"
+msgstr "これは%sが在庫に追加されるという意味です"
+
+msgid "This means %s will be removed from stock"
+msgstr "これは%sが在庫から削除されるという意味です"
+
+msgid ""
+"This means the next execution of this chore is scheduled %s days after the "
+"last execution"
+msgstr ""
+
+msgid "Removed %1$s of %2$s from stock"
+msgstr "在庫から %2$s の %1$s を削除しました"
+
+msgid "About grocy"
+msgstr "grocy について"
+
+msgid "Close"
+msgstr "閉じる"
+
+msgid "Released on"
+msgstr "リリース日:"
+
+msgid "Added %1$s of %2$s to stock"
+msgstr "%2$s の %1$s を在庫に追加しました"
+
+msgid "Stock amount of %1$s is now %2$s"
+msgstr "%1$s の在庫数は現在 %2$s です"
+
+msgid "Tracked execution of chore %1$s on %2$s"
+msgstr ""
+
+msgid "Tracked charge cycle of battery %1$s on %2$s"
+msgstr ""
+
+msgid "Consume all %s which are currently in stock"
+msgstr "現在在庫にあるすべての %s を消費する"
+
+msgid "All"
+msgstr "すべて"
+
+msgid "Track charge cycle of battery %s"
+msgstr "電池 %s の充電サイクルを追跡"
+
+msgid "Track execution of chore %s"
+msgstr "雑用 %s の実行を追跡"
+
+msgid "Filter by location"
+msgstr "場所でフィルター"
+
+msgid "Search"
+msgstr "検索"
+
+msgid "Not logged in"
+msgstr "ログインしていません"
+
+msgid "You have to select a product"
+msgstr "製品を選択していません"
+
+msgid "You have to select a chore"
+msgstr "雑用を選択していません"
+
+msgid "You have to select a battery"
+msgstr "電池を選択していません"
+
+msgid "A name is required"
+msgstr "名前が必要です"
+
+msgid "A location is required"
+msgstr "場所が必要です"
+
+msgid "The amount cannot be lower than %s"
+msgstr "量は %s より小さくできません"
+
+msgid "This cannot be negative"
+msgstr ""
+
+msgid "A quantity unit is required"
+msgstr "数量単位が必要です"
+
+msgid "A period type is required"
+msgstr "期限のタイプが必要です"
+
+msgid "A best before date is required"
+msgstr "期限が必要です"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "This can only be before now"
+msgstr ""
+
+msgid "Calendar"
+msgstr "カレンダー"
+
+msgid "Recipes"
+msgstr "レシピ"
+
+msgid "Edit recipe"
+msgstr "レシピを編集"
+
+msgid "New recipe"
+msgstr "新しいレシピ"
+
+msgid "Ingredients list"
+msgstr "材料リスト"
+
+msgid "Add recipe ingredient"
+msgstr "レシピの材料を追加"
+
+msgid "Edit recipe ingredient"
+msgstr "レシピの材料を編集"
+
+msgid "Are you sure to delete recipe \"%s\"?"
+msgstr "レシピ \"%s\" を本当に削除しますか?"
+
+msgid "Are you sure to delete recipe ingredient \"%s\"?"
+msgstr "レシピの材料 \"%s\" を本当に削除しますか?"
+
+msgid "Are you sure to empty shopping list \"%s\"?"
+msgstr "買い物リスト \"%s\" を本当に空にしますか?"
+
+msgid "Clear list"
+msgstr "リストを削除"
+
+msgid "Requirements fulfilled"
+msgstr "要件"
+
+msgid "Put missing products on shopping list"
+msgstr "不足している製品を買い物リストに入れる"
+
+msgid "Enough in stock"
+msgstr "在庫あり"
+
+msgid ""
+"Not enough in stock, %s ingredient missing but already on the shopping list"
+msgid_plural ""
+"Not enough in stock, %s ingredients missing but already on the shopping list"
+msgstr[0] "在庫不足。%s 個の材料がありませんが買い物リストに存在します"
+
+msgid "Expand to fullscreen"
+msgstr "フルスクリーンに拡大"
+
+msgid "Ingredients"
+msgstr "材料"
+
+msgid "Preparation"
+msgstr ""
+
+msgid "Recipe"
+msgstr "レシピ"
+
+msgid "Not enough in stock, %1$s missing, %2$s already on shopping list"
+msgstr "在庫不足。%1$s 個の材料がありませんが、%2$s 個がすでに買い物リストに存在します"
+
+msgid "Show notes"
+msgstr "ノートを表示"
+
+msgid "Put missing amount on shopping list"
+msgstr "不足している量を買い物リストに入れる"
+
+msgid ""
+"Are you sure to put all missing ingredients for recipe \"%s\" on the "
+"shopping list?"
+msgstr "レシピ \"%s\" の不足しているすべての材料を買い物リストに追加しますか?"
+
+msgid "Added for recipe %s"
+msgstr "レシピ %s に追加しました"
+
+msgid "Manage users"
+msgstr "ユーザーを管理"
+
+msgid "User"
+msgstr "ユーザー"
+
+msgid "Users"
+msgstr "ユーザー"
+
+msgid "Are you sure to delete user \"%s\"?"
+msgstr "ユーザー \"%s\" を本当に削除しますか?"
+
+msgid "Create user"
+msgstr "ユーザーを作成"
+
+msgid "Edit user"
+msgstr "ユーザーを編集"
+
+msgid "First name"
+msgstr "名前"
+
+msgid "Last name"
+msgstr "苗字"
+
+msgid "A username is required"
+msgstr "ユーザー名が必要です"
+
+msgid "Confirm password"
+msgstr "パスワードの確認"
+
+msgid "Passwords do not match"
+msgstr "パスワードが一致していません"
+
+msgid "Change password"
+msgstr "パスワードの変更"
+
+msgid "Done by"
+msgstr "実行者"
+
+msgid "Last done by"
+msgstr "最終実行者"
+
+msgid "Unknown"
+msgstr "不明"
+
+msgid "Filter by chore"
+msgstr "雑用でフィルター"
+
+msgid "Chores journal"
+msgstr "雑用記録"
+
+msgid "0 means suggestions for the next charge cycle are disabled"
+msgstr "0にすると次の充電サイクルの提案が無効になります"
+
+msgid "Charge cycle interval (days)"
+msgstr "充電サイクル間隔(日)"
+
+msgid "Last price"
+msgstr "最終価格"
+
+msgid "Price history"
+msgstr "価格変動"
+
+msgid "No price history available"
+msgstr "価格履歴を利用できません"
+
+msgid "Price"
+msgstr "価格"
+
+msgid "in %s per purchase quantity unit"
+msgstr ""
+
+msgid "The price cannot be lower than %s"
+msgstr "価格は %s より小さくできません"
+
+msgid "Unit"
+msgstr ""
+
+msgid "%s Unit"
+msgid_plural "%s Units"
+msgstr[0] ""
+
+msgid "%s chore is due to be done"
+msgid_plural "%s chores are due to be done"
+msgstr[0] "%s 個の雑用が予定されています"
+
+msgid "%s chore is overdue to be done"
+msgid_plural "%s chores are overdue to be done"
+msgstr[0] "%s 個の雑用が期限切れ"
+
+msgid "%s battery is due to be charged"
+msgid_plural "%s batteries are due to be charged"
+msgstr[0] "%s 個の電池の充電が予定されています"
+
+msgid "%s battery is overdue to be charged"
+msgid_plural "%s batteries are overdue to be charged"
+msgstr[0] "%s 個の交換が期限切れ"
+
+msgid "in singular form"
+msgstr ""
+
+msgid "Never expires"
+msgstr "期限切れなし"
+
+msgid "This cannot be lower than %s"
+msgstr "%s より小さくできません"
+
+msgid "-1 means that this product never expires"
+msgstr "-1 にするとこの製品の期限が切れません"
+
+msgid "Quantity unit"
+msgstr "数量単位"
+
+msgid ""
+"Only check if a single unit is in stock (a different quantity can then be "
+"used above)"
+msgstr ""
+
+msgid ""
+"Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
+" marked with \"check only if a single unit is in stock\" will be ignored)?"
+msgstr ""
+
+msgid "Removed all ingredients of recipe \"%s\" from stock"
+msgstr "在庫からレシピ \"%s\" のすべての材料を削除しました"
+
+msgid "Consume all ingredients needed by this recipe"
+msgstr "このレシピに必要なすべての材料を消費"
+
+msgid "Click to show technical details"
+msgstr "クリックして技術的な詳細情報を表示"
+
+msgid "Error while saving, probably this item already exists"
+msgstr "保存中にエラーが発生しました。おそらくアイテムがすでに存在します"
+
+msgid "Error details"
+msgstr "エラー詳細"
+
+msgid "Tasks"
+msgstr "タスク"
+
+msgid "Show done tasks"
+msgstr "完了済みのタスクを表示"
+
+msgid "Task"
+msgstr "タスク"
+
+msgid "Due"
+msgstr "期限"
+
+msgid "Assigned to"
+msgstr "次の人に割り当てる"
+
+msgid "Mark task \"%s\" as completed"
+msgstr "タスク \"%s\" を完了済みとしてマーク"
+
+msgid "Uncategorized"
+msgstr "未カテゴライズ"
+
+msgid "Task categories"
+msgstr "タスク カテゴリ"
+
+msgid "Create task"
+msgstr "タスクを作成"
+
+msgid "A due date is required"
+msgstr "期限の日付が必要です"
+
+msgid "Category"
+msgstr "カテゴリ"
+
+msgid "Edit task"
+msgstr "タスクを編集"
+
+msgid "Are you sure to delete task \"%s\"?"
+msgstr "タスク \"%s\" を本当に削除しますか?"
+
+msgid "%s task is due to be done"
+msgid_plural "%s tasks are due to be done"
+msgstr[0] "%s 個のタスクが予定されています"
+
+msgid "%s task is overdue to be done"
+msgid_plural "%s tasks are overdue to be done"
+msgstr[0] "%s 個のタスクが期限切れ"
+
+msgid "Edit task category"
+msgstr "タスク カテゴリを編集"
+
+msgid "Create task category"
+msgstr "タスク カテゴリを作成"
+
+msgid "Product groups"
+msgstr "製品グループ"
+
+msgid "Ungrouped"
+msgstr "未グループ"
+
+msgid "Create product group"
+msgstr "製品グループを作成"
+
+msgid "Edit product group"
+msgstr "製品グループを編集"
+
+msgid "Product group"
+msgstr "製品グループ"
+
+msgid "Are you sure to delete product group \"%s\"?"
+msgstr "製品グループ \"%s\" を本当に削除しますか?"
+
+msgid "Stay logged in permanently"
+msgstr "ログインしたままにする"
+
+msgid "When not set, you will get logged out at latest after 30 days"
+msgstr "設定しない場合、30日後にログアウトされます"
+
+msgid "Filter by status"
+msgstr "ステータスでフィルター"
+
+msgid "Below min. stock amount"
+msgstr ""
+
+msgid "Expiring soon"
+msgstr "まもなく期限切れ"
+
+msgid "Already expired"
+msgstr "期限切れ"
+
+msgid "Due soon"
+msgstr ""
+
+msgid "Overdue"
+msgstr "期限切れ"
+
+msgid "View settings"
+msgstr "表示設定"
+
+msgid "Auto reload on external changes"
+msgstr "外部の変更時に自動再読み込み"
+
+msgid "Enable night mode"
+msgstr "ナイトモードを有効"
+
+msgid "Auto enable in time range"
+msgstr ""
+
+msgid "From"
+msgstr ""
+
+msgid "in format"
+msgstr ""
+
+msgid "To"
+msgstr ""
+
+msgid "Time range goes over midnight"
+msgstr ""
+
+msgid "Product picture"
+msgstr "製品の写真"
+
+msgid "No file selected"
+msgstr "ファイルが選択されていません"
+
+msgid "If you don't select a file, the current picture will not be altered"
+msgstr "ファイルを選択しない場合、現在の写真は変更されません"
+
+msgid "Delete"
+msgstr "削除"
+
+msgid "The current picture will be deleted when you save the product"
+msgstr "製品を保存するときに現在の写真は削除されます"
+
+msgid "Select file"
+msgstr "ファイル選択"
+
+msgid "Image of product %s"
+msgstr "製品 %s のイメージ"
+
+msgid ""
+"This product cannot be deleted because it is in stock, please remove the "
+"stock amount first."
+msgstr "この商品は在庫があるため削除できません。最初に在庫数を削除してください。"
+
+msgid "Delete not possible"
+msgstr ""
+
+msgid "Equipment"
+msgstr "機器"
+
+msgid "Instruction manual"
+msgstr "取扱説明書"
+
+msgid "The selected equipment has no instruction manual"
+msgstr "選択した機器に取扱説明書はありません"
+
+msgid "Notes"
+msgstr "ノート"
+
+msgid "Edit equipment"
+msgstr "機器を編集"
+
+msgid "Create equipment"
+msgstr "機器を作成"
+
+msgid ""
+"If you don't select a file, the current instruction manual will not be "
+"altered"
+msgstr "ファイルを選択しない場合、現在の取扱説明書は変更されませｎ"
+
+msgid "No instruction manual available"
+msgstr "利用可能な取扱説明書はありません"
+
+msgid ""
+"The current instruction manual will be deleted when you save the equipment"
+msgstr "保存するときに現在の取扱説明書は削除されます"
+
+msgid "No picture available"
+msgstr "利用できる写真はありません"
+
+msgid "Filter by product group"
+msgstr "製品グループでフィルター"
+
+msgid "Presets for new products"
+msgstr "新しい製品のプリセット"
+
+msgid "Included recipes"
+msgstr "含まれているレシピ"
+
+msgid "A recipe is required"
+msgstr "レシピが必要です"
+
+msgid "Add included recipe"
+msgstr "含まれているレシピを追加"
+
+msgid "Edit included recipe"
+msgstr "含まれているレシピ編集"
+
+msgid "Group"
+msgstr "グループ"
+
+msgid "This will be used as a headline to group ingredients together"
+msgstr ""
+
+msgid "Journal"
+msgstr "記録"
+
+msgid "Stock journal"
+msgstr "在庫記録"
+
+msgid "Filter by product"
+msgstr "製品でフィルター"
+
+msgid "Booking time"
+msgstr "予約時間"
+
+msgid "Booking type"
+msgstr "予約タイプ"
+
+msgid "Undo booking"
+msgstr "予約を元に戻す"
+
+msgid "Undone on"
+msgstr ""
+
+msgid "Batteries journal"
+msgstr "電池記録"
+
+msgid "Filter by battery"
+msgstr "電池でフィルター"
+
+msgid "Undo charge cycle"
+msgstr "充電サイクルを元に戻す"
+
+msgid "Undo chore execution"
+msgstr "雑用の実行を元に戻す"
+
+msgid "Chore execution successfully undone"
+msgstr "雑用の実行を元に戻しました"
+
+msgid "Undo"
+msgstr "元に戻す"
+
+msgid "Booking successfully undone"
+msgstr "予約を元に戻しました"
+
+msgid "Charge cycle successfully undone"
+msgstr "充電サイクルを元に戻しました"
+
+msgid "This cannot be negative and must be an integral number"
+msgstr "負の数にはできません。整数を指定してください"
+
+msgid "Disable stock fulfillment checking for this ingredient"
+msgstr "この材料の在庫フィルメントを無効にする"
+
+msgid "Add all list items to stock"
+msgstr "すべてのリスト項目をストックに追加"
+
+msgid "Add %1$s of %2$s to stock"
+msgstr "%2$s の %1$s を在庫に追加"
+
+msgid "Adding shopping list item %1$s of %2$s"
+msgstr "買い物リストの項目 %2$s の %1$s を追加しています"
+
+msgid "Use a specific stock item"
+msgstr "特定の在庫アイテムを使用する"
+
+msgid ""
+"The first item in this list would be picked by the default rule which is "
+"\"First expiring first, then first in first out\""
+msgstr ""
+
+msgid "Mark %1$s of %2$s as open"
+msgstr "%2$s の %1$s を開封済みとしてマーク"
+
+msgid ""
+"When this product was marked as opened, the best before date will be "
+"replaced by today + this amount of days (a value of 0 disables this)"
+msgstr ""
+
+msgid "Default best before days after opened"
+msgstr "開封した後のデフォルトの期限日"
+
+msgid "Marked %1$s of %2$s as opened"
+msgstr "%2$s の %1$s を開封済みとしてマークしました"
+
+msgid "Mark as opened"
+msgstr "開封済みとしてマーク"
+
+msgid "Not opened"
+msgstr "未開封"
+
+msgid "Opened"
+msgstr "開封済み"
+
+msgid "%s opened"
+msgstr "%s 個が開封済み"
+
+msgid "Product expires"
+msgstr ""
+
+msgid "Task due"
+msgstr "タスクの期限"
+
+msgid "Chore due"
+msgstr "雑用の期限"
+
+msgid "Battery charge cycle due"
+msgstr "電池の充電サイクル期限"
+
+msgid "Show clock in header"
+msgstr "ヘッダーに時計を表示"
+
+msgid "Stock settings"
+msgstr "在庫設定"
+
+msgid "Shopping list to stock workflow"
+msgstr ""
+
+msgid ""
+"Automatically do the booking using the last price and the amount of the "
+"shopping list item, if the product has \"Default best before days\" set"
+msgstr ""
+
+msgid "Skip"
+msgstr "スキップ"
+
+msgid "Servings"
+msgstr "提供数"
+
+msgid "Costs"
+msgstr "コスト"
+
+msgid "Based on the prices of the last purchase per product"
+msgstr "1 商品あたりの最終購入価格に基づく"
+
+msgid "The ingredients listed here result in this amount of servings"
+msgstr ""
+
+msgid "Do not check against the shopping list when adding missing items to it"
+msgstr "不足しているアイテムを買い物リストに追加するときに、買い物リストと照会しないでください"
+
+msgid ""
+"By default the amount to be added to the shopping list is \"needed amount - "
+"stock amount - shopping list amount\" - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+msgstr ""
+
+msgid "Picture"
+msgstr "写真"
+
+msgid "Uncheck ingredients to not put them on the shopping list"
+msgstr "買い物リストに入れない材料はチェックを外してください"
+
+msgid "This is for statistical purposes only"
+msgstr "統計を記録するために使われます"
+
+msgid "You have to select a recipe"
+msgstr "レシピを選択していません"
+
+msgid "Key type"
+msgstr "キー タイプ"
+
+msgid "Share/Integrate calendar (iCal)"
+msgstr "カレンダー (iCal) の共有/統合"
+
+msgid ""
+"Use the following (public) URL to share or integrate the calendar in iCal "
+"format"
+msgstr "iCal 形式のカレンダーを共有/統合するには次の (公開) URL を使用してください"
+
+msgid "Allow partial units in stock"
+msgstr ""
+
+msgid "Enable tare weight handling"
+msgstr ""
+
+msgid ""
+"This is useful e.g. for flour in jars - on purchase/consume/inventory you "
+"always weigh the whole jar, the amount to be posted is then automatically "
+"calculated based on what is in stock and the tare weight defined below"
+msgstr ""
+
+msgid "Tare weight"
+msgstr ""
+
+msgid ""
+"Tare weight handling enabled - please weigh the whole container, the amount "
+"to be posted will be automatically calculcated"
+msgstr ""
+
+msgid "You have to select a location"
+msgstr "場所を選択していません"
+
+msgid "You have to select a store"
+msgstr "店舗を選択していません"
+
+msgid "List"
+msgstr "リスト"
+
+msgid "Gallery"
+msgstr "ギャラリー"
+
+msgid "The current picture will be deleted when you save the recipe"
+msgstr "レシピを保存するときに現在の写真は削除されます"
+
+msgid "Show product details"
+msgstr "製品の詳細を表示"
+
+msgid "Stock journal for this product"
+msgstr "この製品の在庫記録"
+
+msgid "Show chore details"
+msgstr "雑用の詳細を表示"
+
+msgid "Journal for this chore"
+msgstr "この雑用の記録"
+
+msgid "Show battery details"
+msgstr "電池の詳細を表示"
+
+msgid "Journal for this battery"
+msgstr "この電池の記録"
+
+msgid "System info"
+msgstr "システム情報"
+
+msgid "Changelog"
+msgstr "変更ログ"
+
+msgid "will be multiplied a factor of %1$s to get %2$s"
+msgstr ""
+
+msgid "The given date is earlier than today, are you sure?"
+msgstr ""
+
+msgid "Product count"
+msgstr "製品数"
+
+msgid "Type a new product name or barcode and hit TAB to start a workflow"
+msgstr "新しい製品名またはバーコードを入力し、Tabキーを押してワークフローを開始します"
+
+msgid ""
+"This will be used as the default setting when adding this product as a "
+"recipe ingredient"
+msgstr "レシピの材料としてこの製品を追加するとききのデフォルトの設定として使用されます"
+
+msgid "Add item"
+msgstr "アイテムを追加する"
+
+msgid "Selected shopping list"
+msgstr "選択した買い物リスト"
+
+msgid "New shopping list"
+msgstr "新しい買い物リスト"
+
+msgid "Delete shopping list"
+msgstr "買い物リストを削除"
+
+msgid "Chores settings"
+msgstr "雑用の設定"
+
+msgid "Batteries settings"
+msgstr "電池の設定"
+
+msgid "Tasks settings"
+msgstr "タスクの設定"
+
+msgid "Create shopping list"
+msgstr "買い物リストを作成"
+
+msgid "Are you sure to delete shopping list \"%s\"?"
+msgstr "買い物リスト \"%s\" を本当に削除しますか?"
+
+msgid "Average shelf life"
+msgstr "棚保存の平均時間"
+
+msgid "Spoil rate"
+msgstr ""
+
+msgid "Show more"
+msgstr "さらに表示"
+
+msgid "Show less"
+msgstr "詳細を隠す"
+
+msgid "The amount must be between %1$s and %2$s"
+msgstr ""
+
+msgid "Day of month"
+msgstr ""
+
+msgid "Monday"
+msgstr "月曜日"
+
+msgid "Tuesday"
+msgstr "火曜日"
+
+msgid "Wednesday"
+msgstr "水曜日"
+
+msgid "Thursday"
+msgstr "木曜日"
+
+msgid "Friday"
+msgstr "金曜日"
+
+msgid "Saturday"
+msgstr "土曜日"
+
+msgid "Sunday"
+msgstr "日曜日"
+
+msgid "Configure userfields"
+msgstr "ユーザーフィールドを構成"
+
+msgid "Userfields"
+msgstr "ユーザーフィールド"
+
+msgid "Filter by entity"
+msgstr "エンティティでフィルター"
+
+msgid "Entity"
+msgstr "エンティティ"
+
+msgid "Caption"
+msgstr "キャプション"
+
+msgid "Type"
+msgstr "タイプ"
+
+msgid "Create userfield"
+msgstr "ユーザーフィールドを作成"
+
+msgid "A entity is required"
+msgstr "エンティティが必要です"
+
+msgid "A caption is required"
+msgstr "キャプションが必要です"
+
+msgid "A type is required"
+msgstr "タイプが必要です"
+
+msgid "Show as column in tables"
+msgstr ""
+
+msgid "This is required and can only contain letters and numbers"
+msgstr ""
+
+msgid "Edit userfield"
+msgstr "ユーザーフィールドを編集"
+
+msgid "Plural forms"
+msgstr ""
+
+msgid "One plural form per line, the current language requires"
+msgstr ""
+
+msgid "Plural count"
+msgstr ""
+
+msgid "Plural rule"
+msgstr ""
+
+msgid "in plural form"
+msgstr ""
+
+msgid "Not enough in stock, %s ingredient missing"
+msgid_plural "Not enough in stock, %s ingredients missing"
+msgstr[0] "在庫不足。%s 個の材料がありません"
+
+msgid "The amount cannot be lower than %1$s or equal %2$s"
+msgstr ""
+
+msgid "Not enough in stock, but already on the shopping list"
+msgstr "在庫不足ですが、すでに買い物リストに存在します"
+
+msgid "Not enough in stock"
+msgstr "在庫不足"
+
+msgid "Expiring soon days"
+msgstr "まもなく期限切れ"
+
+msgid "Default location"
+msgstr "デフォルトの場所"
+
+msgid "Default amount for purchase"
+msgstr "購入のデフォルトの量"
+
+msgid "Default amount for consume"
+msgstr "消費のデフォルトの量"
+
+msgid "Variable amount"
+msgstr "可変量"
+
+msgid ""
+"When this is not empty, it will be shown instead of the amount entered above"
+" while the amount there will still be used for stock fulfillment checking"
+msgstr ""
+
+msgid "Track date only"
+msgstr "日付のみ追跡"
+
+msgid "When enabled only the day of an execution is tracked, not the time"
+msgstr "この機能を有効にすると、時間ではなく実行日のみが追跡されます"
+
+msgid "Consume %1$s of %2$s"
+msgstr "%2$s の %1$s を消費"
+
+msgid "Meal plan"
+msgstr "食事プラン"
+
+msgid "Add recipe on %s"
+msgstr "%s のレシピを追加"
+
+msgid "%s serving"
+msgid_plural "%s servings"
+msgstr[0] "%s 人分"
+
+msgid "Week costs"
+msgstr "週コスト"
+
+msgid "Configuration"
+msgstr "構成"
+
+msgid "A predefined list of values, one per line"
+msgstr ""
+
+msgid "Chores due soon days"
+msgstr "雑用の期限を何日前に知らせるか"
+
+msgid "Batteries due to be charged soon days"
+msgstr "電池の交換日を何日前に知らせるか"
+
+msgid "Tasks due soon days"
+msgstr "タスクの期限を何日前に知らせるか"
+
+msgid "Products"
+msgstr "製品"
+
+msgid "Marked task %s as completed on %s"
+msgstr ""
+
+msgid "Booking has subsequent dependent bookings, undo not possible"
+msgstr ""
+
+msgid "per serving"
+msgstr ""
+
+msgid "Never"
+msgstr ""
+
+msgid "Today"
+msgstr "今日"
+
+msgid "Consume %1$s of %2$s as spoiled"
+msgstr ""
+
+msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
+msgstr ""
+
+msgid "Undo task \"%s\""
+msgstr "タスク \"%s\" を元に戻す"
+
+msgid "Due date rollover"
+msgstr "期日のロールオーバー"
+
+msgid ""
+"When enabled the chore can never be overdue, the due date will shift forward"
+" each day when due"
+msgstr ""
+
+msgid "Location Content Sheet"
+msgstr ""
+
+msgid "Print"
+msgstr "印刷"
+
+msgid "all locations"
+msgstr "すべての場所"
+
+msgid ""
+"Here you can print a page per location with the current stock, maybe to hang"
+" it there and note the consumed things on it."
+msgstr ""
+
+msgid "this location"
+msgstr "この場所"
+
+msgid "Consumend amount"
+msgstr "消費した量"
+
+msgid "Time of printing"
+msgstr ""
+
+msgid "Are you sure to delete equipment \"%s\"?"
+msgstr "機器 \"%s\" を本当に削除しますか?"
+
+msgid "Parent product"
+msgstr "親製品"
+
+msgid ""
+"Not possible because this product is already used as a parent product in "
+"another product"
+msgstr ""
+
+msgid "Default conversions"
+msgstr "デフォルトの変換"
+
+msgid "Factor"
+msgstr ""
+
+msgid "1 %s is the same as..."
+msgstr ""
+
+msgid "Create QU conversion"
+msgstr "数量単位の変換を作成"
+
+msgid "Default for QU"
+msgstr "数量単位のデフォルト"
+
+msgid "Quantity unit from"
+msgstr ""
+
+msgid "Quantity unit to"
+msgstr ""
+
+msgid ""
+"This cannot be lower than %1$s and must be a valid number with max. %2$s "
+"decimal places"
+msgstr ""
+
+msgid "This cannot be equal to %s"
+msgstr "%s と同じにすることはできません"
+
+msgid "This means 1 %1$s is the same as %2$s %3$s"
+msgstr ""
+
+msgid "QU conversions"
+msgstr "数量単位の変換"
+
+msgid "Product overrides"
+msgstr "製品の上書き"
+
+msgid "Override for product"
+msgstr "製品のオーバーライド"
+
+msgid "This equals %1$s %2$s in stock"
+msgstr ""
+
+msgid "Edit QU conversion"
+msgstr "数量単位の変換を編集"
+
+msgid "An assignment type is required"
+msgstr "割り当てタイプが必要です"
+
+msgid "Assignment type"
+msgstr "割り当てタイプ"
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 day after the "
+"last execution"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 day after the "
+"last execution, but only for the weekdays selected below"
+msgstr ""
+
+msgid "This means the next execution of this chore is not scheduled"
+msgstr "この雑用の次の実行がスケジュールされていないことを意味します"
+
+msgid ""
+"This means the next execution of this chore is scheduled on the below "
+"selected day of each month"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore will not be assigned to anyone"
+msgstr "この雑用の次の実行が誰にも割り当てられないことを意味します"
+
+msgid ""
+"This means the next execution of this chore will be assigned to the one who "
+"executed it least"
+msgstr "この雑用の次の実行が最も行わなかった人に割り当てられることを意味します"
+
+msgid "This means the next execution of this chore will be assigned randomly"
+msgstr "この雑用の次の実行がラムダムに割り当てられることを意味します"
+
+msgid ""
+"This means the next execution of this chore will be assigned to the next one"
+" in alphabetical order"
+msgstr "この雑用の次の実行がアルファベット順に割り当てられることを意味します"
+
+msgid "Assign to"
+msgstr "次の人に割り当てる"
+
+msgid "This assignment type requires that at least one is assigned"
+msgstr ""
+
+msgid "%s chore is assigned to me"
+msgid_plural "%s chores are assigned to me"
+msgstr[0] "%s個の家事が自分に割り当てられています"
+
+msgid "Assigned to me"
+msgstr "自分に割り当てる"
+
+msgid "assigned to %s"
+msgstr "%sに割り当てる"
+
+msgid "Filter by assignment"
+msgstr "割り当てでフィルター"
+
+msgid "Consume product on chore execution"
+msgstr "雑用を実行するときに製品を消費"
+
+msgid "Are you sure to delete user field \"%s\"?"
+msgstr "ユーザー フィールド \"%s\" を本当に削除しますか?"
+
+msgid "Userentities"
+msgstr "ユーザーエントリー"
+
+msgid "Create userentity"
+msgstr "ユーザーエンティティを作成"
+
+msgid "Show in sidebar menu"
+msgstr "サイドバー メニューに表示"
+
+msgid "Edit userentity"
+msgstr "ユーザーエンティティを編集"
+
+msgid "Edit %s"
+msgstr "%sを編集"
+
+msgid "Create %s"
+msgstr "%sを作成"
+
+msgid "Are you sure to delete this userobject?"
+msgstr "ユーザーオブジェクトを本当に削除しますか?"
+
+msgid "Icon CSS class"
+msgstr "Icon CSS class"
+
+msgid "For example"
+msgstr "例"
+
+msgid "Configure fields"
+msgstr "フィールドを構成"
+
+msgid "Quantity unit plural form testing"
+msgstr ""
+
+msgid "Result"
+msgstr "結果"
+
+msgid "Test plural forms"
+msgstr ""
+
+msgid "Scan a barcode"
+msgstr "バーコードをスキャン"
+
+msgid "Error while initializing the barcode scanning library"
+msgstr "バーコードのスキャニング ライブラリの初期化中にエラーが発生しました"
+
+msgid ""
+"The resulting price of this ingredient will be multiplied by this factor"
+msgstr ""
+
+msgid "Price factor"
+msgstr ""
+
+msgid "Do you find grocy useful?"
+msgstr "grocy が便利だと思いますか?"
+
+msgid "Say thanks"
+msgstr "お礼する"
+
+msgid "Search for recipes containing this product"
+msgstr "この製品を含むレシピを検索"
+
+msgid "Add to shopping list"
+msgstr "買い物リストに追加"
+
+msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
+msgstr ""
+
+msgid "Output"
+msgstr "出力"
+
+msgid "Energy (kcal)"
+msgstr "エネルギー (kcal)"
+
+msgid "Per stock quantity unit"
+msgstr ""
+
+msgid "Barcode scanner testing"
+msgstr "バーコードスキャナーを試す"
+
+msgid "Expected barcode"
+msgstr "期待されるバーコード"
+
+msgid "Scan field"
+msgstr "スキャン フィールド"
+
+msgid "Scanned barcodes"
+msgstr "スキャンされたバーコード"
+
+msgid "Hit"
+msgstr "ヒット"
+
+msgid "Miss"
+msgstr "ミス"
+
+msgid "Display recipe"
+msgstr "レシピを表示する"
+
+msgid "Accumulate sub products min. stock amount"
+msgstr ""
+
+msgid ""
+"If enabled, the min. stock amount of sub products will be accumulated into "
+"this product, means the sub product will never be \"missing\", only this "
+"product"
+msgstr ""
+
+msgid "Are you sure to remove this conversion?"
+msgstr "この変換を本当に削除しますか?"
+
+msgid "Unit price"
+msgstr "単価"
+
+msgid "Total price"
+msgstr "合計金額"
+
+msgid "in %s and based on the purchase quantity unit"
+msgstr ""
+
+msgid "Unlimited"
+msgstr "無制限"
+
+msgid "Clear"
+msgstr "削除"
+
+msgid "Are you sure to remove the included recipe \"%s\"?"
+msgstr "含まれているレシピ \"%s\" を本当に削除しますか?"
+
+msgid "Period interval"
+msgstr "期限の周期"
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s days"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s weeks"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s months"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 year after the "
+"last execution"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s years"
+msgstr ""
+
+msgid "Transfer"
+msgstr "移動"
+
+msgid "From location"
+msgstr "移動元"
+
+msgid "To location"
+msgstr "移動先"
+
+msgid "There are no units available at this location"
+msgstr "この場所で利用できる単位はありません"
+
+msgid "Amount: %1$s; Expires on %2$s; Bought on %3$s"
+msgstr ""
+
+msgid "Transfered %1$s of %2$s from %3$s to %4$s"
+msgstr "%2$s の %1$s を %3$s から %4$s に移動しました"
+
+msgid "Show stock entries"
+msgstr "在庫エントリーを表示"
+
+msgid "Stock entries"
+msgstr "在庫エントリー"
+
+msgid "Best before date"
+msgstr "期限日"
+
+msgid "Purchased date"
+msgstr "購入日"
+
+msgid "Consume all %s for this stock entry"
+msgstr "この在庫エントリーのすべての %s を消費する"
+
+msgid "The amount cannot be lower than %1$s"
+msgstr "量は %1$s より小さくできません"
+
+msgid "Stock entry successfully updated"
+msgstr "在庫エントリーを更新しました"
+
+msgid "Edit stock entry"
+msgstr "在庫エントリーを編集"
+
+msgid ""
+"Camera access is only possible when supported and allowed by your browser "
+"and when grocy is served via a secure (https://) connection"
+msgstr ""
+
+msgid "Keep screen on"
+msgstr ""
+
+msgid "Keep screen on while displaying a \"fullscreen-card\""
+msgstr ""
+
+msgid "A purchased date is required"
+msgstr "購入した日付が必要です"
+
+msgid ""
+"When a product is selected, one unit (per serving in purchase quantity unit)"
+" will be added to stock on consuming this recipe"
+msgstr ""
+
+msgid "Produces product"
+msgstr ""
+
+msgid "This booking cannot be undone"
+msgstr "この予約を元に戻すことができませんでした"
+
+msgid "Booking does not exist or was already undone"
+msgstr "予約が既に存在しないか、すでに元に戻せません"
+
+msgid "Are you sure to delete API key \"%s\"?"
+msgstr "API キー \"%s\" を本当に削除しますか?"
+
+msgid "Add note"
+msgstr "ノートを追加する"
+
+msgid "Add note on %s"
+msgstr "ノートを%sに追加する"
+
+msgid "per day"
+msgstr "(1 日当たり)"
+
+msgid "Compact view"
+msgstr "コンパクト表示"
+
+msgid "Normal view"
+msgstr "通常表示"
+
+msgid "Only undone items"
+msgstr "未完了のアイテムのみ"
+
+msgid "Add product"
+msgstr "製品を追加"
+
+msgid "Add product on %s"
+msgstr "%s に製品を追加"
+
+msgid "Consume all ingredients needed by this weeks recipes or products"
+msgstr "今週のレシピか製品に必要なすべての材料を消費"
+
+msgid "Meal plan recipe"
+msgstr "食事プランのレシピ"
+
+msgid "Meal plan note"
+msgstr "食事プランのノート"
+
+msgid "Meal plan product"
+msgstr "食事プランの製品"
+
+msgid "Scan mode"
+msgstr "スキャン モード"
+
+msgid "on"
+msgstr "on"
+
+msgid "off"
+msgstr "off"
+
+msgid ""
+"Scan mode is on but not all required fields could be populated automatically"
+msgstr "スキャンモードが有効ですが、すべての必須フィールドを自動的に埋めることができるわけではありません"
+
+msgid "Is freezer"
+msgstr ""
+
+msgid ""
+"When moving products from/to a freezer location, the products best before "
+"date is automatically adjusted according to the product settings"
+msgstr "冷凍庫の場所との間で製品を移動する場合、製品の期限はの設定に応じて自動的に調整されます"
+
+msgid ""
+"On moving this product to a freezer location (so when freezing it), the best"
+" before date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default best before days after freezing"
+msgstr "冷凍した後のデフォルトの期限日"
+
+msgid ""
+"On moving this product from a freezer location (so when thawing it), the "
+"best before date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default best before days after thawing"
+msgstr "解答した後のデフォルトの期限日"
+
+msgid "This cannot be the same as the \"From\" location"
+msgstr "移動元と同じ場所にはできません"
+
+msgid "Thawed"
+msgstr "解凍"
+
+msgid "Frozen"
+msgstr "冷凍"
+
+msgid "Are you sure to delete userentity \"%s\"?"
+msgstr "ユーザーエンティティ \"%s\" を本当に削除しますか?"
+
+msgid "Shopping list settings"
+msgstr "買い物リスト設定"
+
+msgid "Show a month-view calendar"
+msgstr "月表示のカレンダーを表示する"
+
+msgid "Don't automatically switch to the compact view on mobile devices"
+msgstr "モバイル デバイスで自動的にコンパクトビューに変更しない"
+
+msgid "Edit note on %s"
+msgstr "%s のノートを編集"
+
+msgid "Edit product on %s"
+msgstr "%s の製品を編集"
+
+msgid "Edit recipe on %s"
+msgstr "%s のレシピを編集"
+
+msgid "Desired servings"
+msgstr "何人前"
+
+msgid "Base: %s"
+msgstr "Base: %s"
+
+msgid "Recipes settings"
+msgstr "レシピの設定"
+
+msgid "Recipe card"
+msgstr "レシピ カード"
+
+msgid "Group ingredients by their product group"
+msgstr "製品グループごとに材料をグループ化"
+
+msgid "Unknown store"
+msgstr "不明な店舗"
+
+msgid "Store"
+msgstr "店舗"
+
+msgid "Transaction successfully undone"
+msgstr "トランザクションを元に戻しました"
+
+msgid "Default store"
+msgstr "デフォルトの店舗"

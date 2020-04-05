@@ -1,361 +1,351 @@
+# Translators:
+# jd615645 <jd615645@gmail.com>, 2020
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Translation migration from old PHP array files\n"
-"Language-Team: http://www.transifex.com/grocy/grocy/language/en\n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: jd615645 <jd615645@gmail.com>, 2020\n"
+"Language-Team: Chinese (Taiwan) (https://www.transifex.com/grocy/teams/93189/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
-"PO-Revision-Date: 2019-05-01T17:59:17+00:00\n"
-"Language: en\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Domain: grocy/demo_data\n"
 
 msgid "Cookies"
-msgstr ""
+msgstr "餅乾"
 
 msgid "Chocolate"
-msgstr ""
+msgstr "巧克力"
 
 msgid "Pantry"
-msgstr ""
+msgstr "食物儲藏室"
 
 msgid "Candy cupboard"
-msgstr ""
+msgstr "糖果櫃"
 
 msgid "Tinned food cupboard"
-msgstr ""
+msgstr "罐頭儲藏櫃"
 
 msgid "Fridge"
-msgstr ""
+msgstr "冰箱"
 
 msgid "Piece"
 msgid_plural "Pieces"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "件"
 
 msgid "Pack"
 msgid_plural "Packs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "包"
 
 msgid "Glass"
 msgid_plural "Glasses"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "杯"
 
 msgid "Tin"
 msgid_plural "Tins"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "罐"
 
 msgid "Can"
 msgid_plural "Cans"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "罐"
 
 msgid "Bunch"
 msgid_plural "Bunches"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "綑"
 
 msgid "Gummy bears"
-msgstr ""
+msgstr "小熊軟糖"
 
 msgid "Crisps"
-msgstr ""
+msgstr "洋芋片"
 
 msgid "Eggs"
-msgstr ""
+msgstr "雞蛋"
 
 msgid "Noodles"
-msgstr ""
+msgstr "麵條"
 
 msgid "Pickles"
-msgstr ""
+msgstr "醃黃瓜"
 
 msgid "Gulash soup"
-msgstr ""
+msgstr "匈牙利湯"
 
 msgid "Yogurt"
-msgstr ""
+msgstr "優格"
 
 msgid "Cheese"
-msgstr ""
+msgstr "起司"
 
 msgid "Cold cuts"
-msgstr ""
+msgstr "午餐肉"
 
 msgid "Paprika"
-msgstr ""
+msgstr "辣椒"
 
 msgid "Cucumber"
-msgstr ""
+msgstr "黃瓜"
 
 msgid "Radish"
-msgstr ""
+msgstr "蘿蔔"
 
 msgid "Tomato"
-msgstr ""
+msgstr "番茄"
 
 msgid "Changed towels in the bathroom"
-msgstr ""
+msgstr "浴室毛巾"
 
 msgid "Cleaned the kitchen floor"
-msgstr ""
+msgstr "清理廚房地板"
 
 msgid "Warranty ends"
-msgstr ""
+msgstr "保存期限結束"
 
 msgid "TV remote control"
-msgstr ""
+msgstr "電視遙控器"
 
 msgid "Alarm clock"
-msgstr ""
+msgstr "鬧鐘"
 
 msgid "Heat remote control"
-msgstr ""
+msgstr "加熱器遙控器"
 
 msgid "Lawn mowed in the garden"
-msgstr ""
+msgstr "清理花園草坪"
 
 msgid "Some good snacks"
-msgstr ""
+msgstr "美味零食"
 
 msgid "Pizza dough"
-msgstr ""
+msgstr "披薩麵團"
 
 msgid "Sieved tomatoes"
-msgstr ""
+msgstr "精選番茄"
 
 msgid "Salami"
-msgstr ""
+msgstr "義大利香腸"
 
 msgid "Toast"
-msgstr ""
+msgstr "吐司"
 
 msgid "Minced meat"
-msgstr ""
+msgstr "絞肉"
 
 msgid "Pizza"
-msgstr ""
+msgstr "披薩"
 
 msgid "Spaghetti bolognese"
-msgstr ""
+msgstr "番茄肉醬意大利麵"
 
 msgid "Sandwiches"
-msgstr ""
+msgstr "三明治"
 
 msgid "English"
-msgstr ""
+msgstr "英文"
 
 msgid "German"
-msgstr ""
+msgstr "德文"
 
 msgid "Italian"
-msgstr ""
+msgstr "義大利文"
 
 msgid "This is the note content of the recipe ingredient"
-msgstr ""
+msgstr "這是配方表中的標示內容"
 
 msgid "Demo User"
-msgstr ""
+msgstr "測試用戶"
 
 msgid "Gram"
 msgid_plural "Grams"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "克"
 
 msgid "Flour"
-msgstr ""
+msgstr "麵粉"
 
 msgid "Pancakes"
-msgstr ""
+msgstr "烤餅"
 
 msgid "Sugar"
-msgstr ""
+msgstr "糖"
 
 msgid "Home"
-msgstr ""
+msgstr "首頁"
 
 msgid "Life"
-msgstr ""
+msgstr "生命"
 
 msgid "Projects"
-msgstr ""
+msgstr "專案"
 
 msgid "Repair the garage door"
-msgstr ""
+msgstr "修理車庫門"
 
 msgid "Fork and improve grocy"
-msgstr ""
+msgstr "建立 Fork 並且改善 grocy"
 
 msgid "Find a solution for what to do when I forget the door keys"
-msgstr ""
+msgstr "當我忘記鑰匙時去想辦法解決"
 
 msgid "Sweets"
-msgstr ""
+msgstr "甜食"
 
 msgid "Bakery products"
-msgstr ""
+msgstr "烘焙用品"
 
 msgid "Tinned food"
-msgstr ""
+msgstr "罐裝食品"
 
 msgid "Butchery products"
-msgstr ""
+msgstr "肉類食品"
 
 msgid "Vegetables/Fruits"
-msgstr ""
+msgstr "蔬果"
 
 msgid "Refrigerated products"
-msgstr ""
+msgstr "冷藏食品"
 
 msgid "Coffee machine"
-msgstr ""
+msgstr "咖啡機"
 
 msgid "Dishwasher"
-msgstr ""
+msgstr "洗碗機"
 
 msgid "Liter"
-msgstr ""
+msgstr "公升"
 
 msgid "Liters"
-msgstr ""
+msgstr "公升"
 
 msgid "Bottle"
-msgstr ""
+msgstr "瓶"
 
 msgid "Bottles"
-msgstr ""
+msgstr "瓶"
 
 msgid "Milk"
-msgstr ""
+msgstr "牛奶"
 
 msgid "Chocolate sauce"
-msgstr ""
+msgstr "巧克力醬"
 
 msgid "Milliliters"
-msgstr ""
+msgstr "毫升"
 
 msgid "Milliliter"
-msgstr ""
+msgstr "毫升"
 
 msgid "Bottom"
-msgstr ""
+msgstr "底部"
 
 msgid "Topping"
-msgstr ""
+msgstr "配料"
 
 msgid "French"
-msgstr ""
+msgstr "法文"
 
 msgid "Turkish"
-msgstr ""
+msgstr "土耳其文"
 
 msgid "Spanish"
-msgstr ""
+msgstr "西班牙文"
 
 msgid "Russian"
-msgstr ""
+msgstr "俄語"
 
 msgid "The thing which happens on the 5th of every month"
-msgstr ""
+msgstr "每月5號發生的事情"
 
 msgid "The thing which happens daily"
-msgstr ""
+msgstr "每天發生的事情"
 
 msgid "The thing which happens on Mondays and Wednesdays"
-msgstr ""
+msgstr "每周一與每周三會發生的事情"
 
 msgid "Swedish"
-msgstr ""
+msgstr "瑞典文"
 
 msgid "Polish"
-msgstr ""
+msgstr "波蘭文"
 
 msgid "Milk Chocolate"
-msgstr ""
+msgstr "牛奶巧克力"
 
 msgid "Dark Chocolate"
-msgstr ""
+msgstr "黑巧克力"
 
 msgid "Slice"
 msgid_plural "Slices"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "切片"
 
 msgid "Example userentity"
-msgstr ""
+msgstr "Example userentity"
 
 msgid "This is an example user entity..."
-msgstr ""
+msgstr "這是一個 user entity..."
 
 msgid "Custom field"
-msgstr ""
+msgstr "自訂義區域"
 
 msgid "Example field value..."
-msgstr ""
+msgstr "範例值"
 
 msgid "Waffle rolls"
-msgstr ""
+msgstr "蛋捲"
 
 msgid "Danish"
-msgstr ""
+msgstr "丹麥文"
 
 msgid "Dutch"
-msgstr ""
+msgstr "荷蘭文"
 
 msgid "Norwegian"
-msgstr ""
+msgstr "挪威文"
 
 msgid "Demo"
-msgstr ""
+msgstr "範例"
 
 msgid "Stable version"
-msgstr ""
+msgstr "穩定版本"
 
 msgid "Preview version"
-msgstr ""
+msgstr "預覽版本"
 
 msgid "current release"
-msgstr ""
+msgstr "當前版本"
 
 msgid "not yet released"
-msgstr ""
+msgstr "尚未發布"
 
 msgid "Portuguese (Brazil)"
-msgstr ""
+msgstr "葡萄牙文(巴西)"
 
 msgid "This is a note"
-msgstr ""
+msgstr "這是一個標註"
 
 msgid "Freezer"
-msgstr ""
+msgstr "冰箱"
 
 msgid "Hungarian"
-msgstr ""
+msgstr "匈牙利文"
 
 msgid "Slovak"
-msgstr ""
+msgstr "斯洛伐克文"
 
 msgid "Czech"
-msgstr ""
+msgstr "捷克文"
 
 msgid "Portuguese (Portugal)"
-msgstr ""
+msgstr "葡萄牙文(葡萄牙)"
 
 # Use a in your country well known supermarket name
 msgid "DemoSupermarket1"
-msgstr ""
+msgstr "範例超市1"
 
 # Use a in your country well known supermarket name
 msgid "DemoSupermarket2"
-msgstr ""
-
-msgid "Japanese"
-msgstr ""
-
-msgid "Chinese (Taiwan)"
-msgstr ""
+msgstr "範例超市2"

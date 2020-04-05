@@ -1,0 +1,45 @@
+# Translators:
+# EbXpJ6bp <ebxpj6bp@outlook.jp>, 2020
+# Bernd Bestel <bernd@berrnd.de>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2020\n"
+"Language-Team: Japanese (https://www.transifex.com/grocy/teams/93189/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Domain: grocy/component_translations\n"
+
+msgid "timeago_locale"
+msgstr "ja"
+
+msgid "timeago_nan"
+msgstr "約 NaN 年"
+
+msgid "moment_locale"
+msgstr "ja"
+
+msgid "datatables_localization"
+msgstr ""
+"{\"sEmptyTable\":\"テーブルにデータがありません\",\"sInfo\":\" _TOTAL_ 件中 _START_ から _END_"
+" まで表示\",\"sInfoEmpty\":\" 0 件中 0 から 0 まで表示\",\"sInfoFiltered\":\"（全 _MAX_ "
+"件より抽出）\",\"sInfoPostFix\":\"\",\"sInfoThousands\":\",\",\"sLengthMenu\":\"_MENU_"
+" "
+"件表示\",\"sLoadingRecords\":\"読み込み中...\",\"sProcessing\":\"処理中...\",\"sSearch\":\"検索:\",\"sZeroRecords\":\"一致するレコードがありません\",\"oPaginate\":{\"sFirst\":\"先頭\",\"sLast\":\"最終\",\"sNext\":\"次\",\"sPrevious\":\"前\"},\"oAria\":{\"sSortAscending\":\":"
+" 列を昇順に並べ替えるにはアクティブにする\",\"sSortDescending\":\": 列を降順に並べ替えるにはアクティブにする\"}}"
+
+msgid "summernote_locale"
+msgstr "ja-JP"
+
+msgid "fullcalendar_locale"
+msgstr "ja"
+
+msgid "bootstrap-select_locale"
+msgstr "ja_JP"
