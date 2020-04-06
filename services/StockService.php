@@ -34,6 +34,30 @@ class StockService extends BaseService
 		{
 			$currentStockMapped[$product->id][0]->product_id = $product->id;
 			$currentStockMapped[$product->id][0]->product = $product;
+			
+			$productLastPurchased = $this->getDatabase()->stock_log()->where('product_id', $product->id)->where('transaction_type', self::TRANSACTION_TYPE_PURCHASE)->where('undone', 0)->max('purchased_date');
+			$currentStockMapped[$product->id][0]->last_purchased = $productLastPurchased;
+			
+			$productLastUsed = $this->getDatabase()->stock_log()->where('product_id', $product->id)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone', 0)->max('used_date');
+			$currentStockMapped[$product->id][0]->last_used = $productLastUsed;
+			
+			$currentStockMapped[$product->id][0]->last_price = null;
+			$lastLogRow = $this->getDatabase()->stock_log()->where('product_id = :1 AND transaction_type IN (:2, :3) AND undone = 0', $product->id, self::TRANSACTION_TYPE_PURCHASE, self::TRANSACTION_TYPE_INVENTORY_CORRECTION)->orderBy('row_created_timestamp', 'DESC')->limit(1)->fetch();
+			if ($lastLogRow !== null && !empty($lastLogRow))
+			{
+				$currentStockMapped[$product->id][0]->last_price = $lastLogRow->price;
+			}
+			
+			$averageShelfLifeDays = intval($this->getDatabase()->stock_average_product_shelf_life()->where('id', $product->id)->fetch()->average_shelf_life_days);
+			$currentStockMapped[$product->id][0]->average_shelf_life_days = $averageShelfLifeDays;
+			
+			$consumeCount = $this->getDatabase()->stock_log()->where('product_id', $product->id)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone = 0 AND spoiled = 0')->sum('amount') * -1;
+			$consumeCountSpoiled = $this->getDatabase()->stock_log()->where('product_id', $product->id)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone = 0 AND spoiled = 1')->sum('amount') * -1;
+			if ($consumeCount == 0)
+			{
+				$consumeCount = 1;
+			}
+			$currentStockMapped[$product->id][0]->spoil_rate = ($consumeCountSpoiled * 100) / $consumeCount;
 		}
 
 		return array_column($currentStockMapped, 0);
