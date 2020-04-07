@@ -12,6 +12,7 @@ pushd `dirname $0` > /dev/null
 backupBundleFileName="backup-`date +%d-%m-%Y-%H-%M-%S`.tgz"
 echo Making a backup of the current installation in ./data/backups/$backupBundleFileName
 mkdir -p ./data/backups > /dev/null
+touch ./data/backups/$backupBundleFileName
 tar -zcvf ./data/backups/$backupBundleFileName --exclude ./data/backups . > /dev/null
 find ./data/backups/*.tgz -mtime +60 -type f -delete
 
