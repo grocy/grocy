@@ -26,6 +26,7 @@
 - Prerequisites (PHP extensions, critical files/folders) will now be checked and properly reported if there are problems (thanks @Forceu)
 - Improved the the overview pages on mobile devices (main column was hidden) (thanks @Mik-)
 - Optimized the handling of settings provided by `data/settingoverrides` files (thanks @dacto)
+- Optimized the update script (`update.sh`) to create the backup tar archive before writing to it (was a problem on Btrfs file systems) (thanks @shane-kerr)
 - New translations: (thanks all the translators)
   - Japanese (demo available at https://ja.demo.grocy.info)
   - Chinese (Taiwan) (demo available at https://zh-tw.demo.grocy.info)
