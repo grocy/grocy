@@ -105,7 +105,7 @@ Any help is more than appreciated. Feel free to pick any open unassigned issue a
 See https://grocy.info/#say-thanks for more ideas if you just want to say thanks.
 
 ## Roadmap
-There is none. grocy is only my hobby, one I like, but not the only one, and because of that, there are no release dates, no schedules for when anything is ready, it's done when it's done, maybe tomorrow, maybe tomorrow next year, everyone is invited to contribute, I appreciate all ideas and contributions.
+There is none. grocy is only my hobby, one I like, but not the only one, and because of that, there are no release dates, no schedules for when anything is ready, it's done when it's done, maybe tomorrow, maybe tomorrow next year, everyone is invited to contribute, I appreciate all ideas and contributions. The progress of a specific bug/enhancement is always tracked in the corresponding issue, at least by commit comment references.
 
 ## Screenshots
 #### Dashboard
