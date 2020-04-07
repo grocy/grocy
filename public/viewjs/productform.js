@@ -431,5 +431,6 @@ $('#qu_id_purchase').blur(function(e)
 	var QuIdPurchase = $('#qu_id_purchase');
 	if (QuIdStock[0].selectedIndex === 0 && QuIdPurchase[0].selectedIndex !== 0) {
 		QuIdStock[0].selectedIndex = QuIdPurchase[0].selectedIndex;
+		Grocy.FrontendHelpers.ValidateForm('product-form');
 	}
 });
