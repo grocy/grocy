@@ -67,27 +67,27 @@ class LocalizationService
 		$this->PoUserStrings->setDomain('grocy/userstrings');
 
 		$this->Po = Translations::fromPoFile(__DIR__ . "/../localization/$culture/strings.po");
-		if (file_exists("/../localization/$culture/chore_assignment_types.po"))
+		if (file_exists(__DIR__ . "/../localization/$culture/chore_assignment_types.po"))
 		{
 			$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/chore_assignment_types.po"));
 		}
-		if (file_exists("/../localization/$culture/component_translations.po"))
+		if (file_exists(__DIR__ . "/../localization/$culture/component_translations.po"))
 		{
 			$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/component_translations.po"));
 		}
-		if (file_exists("/../localization/$culture/demo_data.po"))
+		if (file_exists(__DIR__ . "/../localization/$culture/demo_data.po"))
 		{
 			$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/demo_data.po"));
 		}
-		if (file_exists("/../localization/$culture/stock_transaction_types.po"))
+		if (file_exists(__DIR__ . "/../localization/$culture/stock_transaction_types.po"))
 		{
 			$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/stock_transaction_types.po"));
 		}
-		if (file_exists("/../localization/$culture/chore_period_types.po"))
+		if (file_exists(__DIR__ . "/../localization/$culture/chore_period_types.po"))
 		{
 			$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/chore_period_types.po"));
 		}
-		if (file_exists("/../localization/$culture/userfield_types.po"))
+		if (file_exists(__DIR__ . "/../localization/$culture/userfield_types.po"))
 		{
 			$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/userfield_types.po"));
 		}
