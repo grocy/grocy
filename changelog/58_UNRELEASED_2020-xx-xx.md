@@ -29,6 +29,7 @@
 
 ### General & other improvements/fixes
 - Fixed that all number inputs are always prefilled in the browser locale number format
+- Fixed (again) that the `update.sh` file had wrong line endings (DOS instead of Unix)
 - New `config.php` setting `FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_FIELD_NUMBER_PAD` which activates the number pad for best-before-date fields on (supported) mobile browsers (useful because of [shorthands](https://github.com/grocy/grocy#input-shorthands-for-date-fields)) (defaults to `true`) (thanks @Mik-)
 - Enhancements for the camera barcode scanner (thanks @Mik-)
   - The light button only displayed when the device has a flash light
