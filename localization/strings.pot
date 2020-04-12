@@ -1771,3 +1771,9 @@ msgstr ""
 
 msgid "Default store"
 msgstr ""
+
+msgid "Consume this stock entry"
+msgstr ""
+
+msgid "Mark this stock entry as open"
+msgstr ""

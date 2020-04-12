@@ -50,7 +50,7 @@
 				@foreach($stockEntries as $stockEntry)
 				<tr id="stock-{{ $stockEntry->id }}-row" class="@if(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $stockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('-1 days')) && $stockEntry->amount > 0) table-danger @elseif(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $stockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime("+$nextXDays days")) && $stockEntry->amount > 0) table-warning @endif">
 					<td class="fit-content border-right">
-						<a class="btn btn-success btn-sm stock-consume-button" href="#" data-toggle="tooltip" data-placement="left" title="{{ $__t('Consume %1$s of %2$s', '1 ' . FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->name) }}"
+						<a class="btn btn-danger btn-sm stock-consume-button" href="#" data-toggle="tooltip" data-placement="left" title="{{ $__t('Consume this stock entry') }}"
 							data-product-id="{{ $stockEntry->product_id }}"
 							data-stock-id="{{ $stockEntry->stock_id }}"
 							data-stockrow-id="{{ $stockEntry->id }}"
@@ -61,7 +61,7 @@
 							<i class="fas fa-utensils"></i>
 						</a>
 						@if(GROCY_FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING)
-						<a class="btn btn-success btn-sm product-open-button @if($stockEntry->open == 1) disabled @endif" href="#" data-toggle="tooltip" data-placement="left" title="{{ $__t('Mark %1$s of %2$s as open', '1 ' . FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->name) }}"
+						<a class="btn btn-success btn-sm product-open-button @if($stockEntry->open == 1) disabled @endif" href="#" data-toggle="tooltip" data-placement="left" title="{{ $__t('Mark this stock entry as open') }}"
 							data-product-id="{{ $stockEntry->product_id }}"
 							data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->name }}"
 							data-product-qu-name="{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_stock)->name }}"

@@ -7,6 +7,7 @@
 
 ### Stock improvements
 - When creating a new product, the "QU id stock" is now preset by the "QU id purchase" (because most of the time that's most probably the same) (thanks @Mik-)
+- Clarified the row-button colors and toolips on the stock entries page
 
 ### Recipe fixes
 - Fixed that when editing an ingredient with "Only check if a single unit is in stock" set, the quantity unit was always set to the products stock quantity unit regardless if a different one was selected for that ingredient
