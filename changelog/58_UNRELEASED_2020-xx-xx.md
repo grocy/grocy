@@ -5,16 +5,19 @@
 - => The price history chart on the product card shows a line per store
 - (Thanks @immae and @kriddles)
 
-### Stock improvements
+### Stock improvements/fixes
 - When creating a new product, the "QU id stock" is now preset by the "QU id purchase" (because most of the time that's most probably the same) (thanks @Mik-)
 - Clarified the row-button colors and toolips on the stock entries page
+- Fixed the conversion factor hint to display also decimal places on the purchase page (only displayed when the product has a different purchase/stock quantity unit)
+- Fixed that the stock entries page was broken when there were product userfields defined with enabled "Show as column in tables"
+- Fixed that best before dates were displayed on the stock overview and stock entries page even with disabled `GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING`
+
+### Shopping list fixes
+- Fixed that the "shopping list to stock workflow"-dialog was not visible in compact view
 
 ### Recipe fixes
 - Fixed that when editing an ingredient with "Only check if a single unit is in stock" set, the quantity unit was always set to the products stock quantity unit regardless if a different one was selected for that ingredient
 - Fixed a PHP notice on the recipes page when there are no recipes (thanks @mrunkel)
-- Fixed the conversion factor hint to display also decimal places on the purchase page (only displayed when the product has a different purchase/stock quantity unit)
-- Fixed that the stock entries page was broken when there were product userfields defined with enabled "Show as column in tables"
-- Fixed that best before dates were displayed on the stock overview and stock entries page even with disabled `GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING`
 
 ### Calendar fixes
 - Fixed that the "Share/Integrate calendar (iCal)" button did not work (thanks @tsia)

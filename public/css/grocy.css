@@ -308,6 +308,11 @@ input::-webkit-inner-spin-button {
 	flex-shrink: 0;
 }
 
+/* Always show modals over everything else */
+.modal {
+	z-index: 99999;
+}
+
 /* Third party component customizations - DataTables */
 .dataTable td {
 	vertical-align: middle !important;
