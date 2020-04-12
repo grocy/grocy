@@ -1070,7 +1070,7 @@ msgstr ""
 msgid "Changelog"
 msgstr ""
 
-msgid "will be multiplied a factor of %1$s to get %2$s"
+msgid "will be multiplied by a factor of %1$s to get %2$s"
 msgstr ""
 
 msgid "The given date is earlier than today, are you sure?"
@@ -1776,4 +1776,7 @@ msgid "Consume this stock entry"
 msgstr ""
 
 msgid "Mark this stock entry as open"
+msgstr ""
+
+msgid ""
 msgstr ""

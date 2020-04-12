@@ -167,7 +167,7 @@ if (Grocy.Components.ProductPicker !== undefined)
 					}
 					else
 					{
-						$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name + " (" + __t("will be multiplied a factor of %1$s to get %2$s", parseInt(productDetails.product.qu_factor_purchase_to_stock).toString(), __n(2, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)) + ")");
+						$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name + " (" + __t("will be multiplied by a factor of %1$s to get %2$s", parseFloat(productDetails.product.qu_factor_purchase_to_stock).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 2 }), __n(2, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)) + ")");
 					}
 
 					if (productDetails.product.allow_partial_units_in_stock == 1)
