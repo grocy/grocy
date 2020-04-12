@@ -233,7 +233,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 	}
 });
 
-$('#amount').val(parseFloat(Grocy.UserSettings.stock_default_transfer_amount)..toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 4 }));
+$('#amount').val(parseFloat(Grocy.UserSettings.stock_default_transfer_amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 4 }));
 Grocy.FrontendHelpers.ValidateForm('transfer-form');
 
 $("#location_id_from").on('change', function(e)
