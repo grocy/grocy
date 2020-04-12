@@ -83,7 +83,7 @@ $(".input-group-productamountpicker").on("change", function()
 		$("#qu-conversion-info").text(__t("This equals %1$s %2$s in stock", destinationAmount.toLocaleString(), destinationQuName));
 	}
 
-	$("#amount").val(destinationAmount);
+	$("#amount").val(destinationAmount.toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 4 }));
 });
 
 $("#display_amount").on("keyup", function()

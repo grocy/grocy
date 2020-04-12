@@ -191,6 +191,6 @@ if (GetUriParam("list") !== undefined)
 
 if (GetUriParam("amount") !== undefined)
 {
-	$("#amount").val(GetUriParam("amount"));
+	$("#amount").val(parseFloat(GetUriParam("amount")).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 4 }));
 	Grocy.FrontendHelpers.ValidateForm('shoppinglist-form');
 }

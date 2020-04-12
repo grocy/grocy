@@ -92,7 +92,7 @@
 						$("#amount").attr("min", "1");
 						$("#amount").attr("step", "1");
 						$("#amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '1'));
-						$('#amount').val(Grocy.UserSettings.stock_default_purchase_amount);
+						$('#amount').val(parseFloat(Grocy.UserSettings.stock_default_purchase_amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 4 }));
 						$('#price').val('');
 						$('#amount_qu_unit').text("");
 						$("#tare-weight-handling-info").addClass("d-none");
@@ -143,7 +143,7 @@ if (Grocy.Components.ProductPicker !== undefined)
 			Grocy.Api.Get('stock/products/' + productId,
 				function(productDetails)
 				{
-					$('#price').val(productDetails.last_price);
+					$('#price').val(parseFloat(productDetails.last_price).toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: 2 }));
 
 					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) {
 						if (productDetails.last_shopping_location_id != null)
@@ -258,7 +258,7 @@ if (Grocy.Components.ProductPicker !== undefined)
 	});
 }
 
-$('#amount').val(Grocy.UserSettings.stock_default_purchase_amount);
+$('#amount').val(parseFloat(Grocy.UserSettings.stock_default_purchase_amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 4 }));
 Grocy.FrontendHelpers.ValidateForm('purchase-form');
 
 if (Grocy.Components.ProductPicker)
@@ -327,7 +327,7 @@ $('#amount').on('change', function(e)
 
 if (GetUriParam("flow") === "shoppinglistitemtostock")
 {
-	$('#amount').val(GetUriParam("amount"));
+	$('#amount').val(parseFloat(GetUriParam("amount")).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 4 }));
 }
 
 function UndoStockBooking(bookingId)
