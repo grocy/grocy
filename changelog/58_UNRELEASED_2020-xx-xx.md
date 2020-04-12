@@ -9,6 +9,7 @@
 - When creating a new product, the "QU id stock" is now preset by the "QU id purchase" (because most of the time that's most probably the same) (thanks @Mik-)
 
 ### Recipe fixes
+- Fixed that when editing an ingredient with "Only check if a single unit is in stock" set, the quantity unit was always set to the products stock quantity unit regardless if a different one was selected for that ingredient
 - Fixed a PHP notice on the recipes page when there are no recipes (thanks @mrunkel)
 
 ### Calendar fixes

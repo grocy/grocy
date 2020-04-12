@@ -79,7 +79,10 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 
 				$("#not_check_stock_fulfillment").prop("checked", productDetails.product.not_check_stock_fulfillment_for_recipes == 1);
 
-				Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.quantity_unit_stock.id);
+				if (!$("#only_check_single_unit_in_stock").prop("checked"))
+				{
+					Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.quantity_unit_stock.id);
+				}
 
 				$('#display_amount').focus();
 				Grocy.FrontendHelpers.ValidateForm('recipe-pos-form');
