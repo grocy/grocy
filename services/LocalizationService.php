@@ -178,7 +178,7 @@ class LocalizationService
 	{
 		if (GROCY_MODE === 'dev')
 		{
-			if ($this->Pot->find('', $text) === false && $this->PoUserStrings->find('', $text) === false)
+			if ($this->Pot->find('', $text) === false && $this->PoUserStrings->find('', $text) === false && empty($text) === false)
 			{
 				$translation = new Translation('', $text);
 				$this->PotMain[] = $translation;
