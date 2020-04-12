@@ -276,6 +276,7 @@ $('.datetimepicker2').on('update.datetimepicker', function(e)
 	Grocy.Components.DateTimePicker2.GetInputElement().trigger('input');
 	Grocy.Components.DateTimePicker2.GetInputElement().trigger('change');
 	Grocy.Components.DateTimePicker2.GetInputElement().trigger('keypress');
+	Grocy.Components.DateTimePicker2.GetInputElement().trigger('keyup');
 });
 
 $('.datetimepicker2').on('hide.datetimepicker', function(e)
@@ -283,6 +284,7 @@ $('.datetimepicker2').on('hide.datetimepicker', function(e)
 	Grocy.Components.DateTimePicker2.GetInputElement().trigger('input');
 	Grocy.Components.DateTimePicker2.GetInputElement().trigger('change');
 	Grocy.Components.DateTimePicker2.GetInputElement().trigger('keypress');
+	Grocy.Components.DateTimePicker2.GetInputElement().trigger('keyup');
 });
 
 $("#datetimepicker2-shortcut").on("click", function()
