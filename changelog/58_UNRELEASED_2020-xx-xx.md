@@ -11,6 +11,7 @@
 - Fixed the conversion factor hint to display also decimal places on the purchase page (only displayed when the product has a different purchase/stock quantity unit)
 - Fixed that the stock entries page was broken when there were product userfields defined with enabled "Show as column in tables"
 - Fixed that best before dates were displayed on the stock overview and stock entries page even with disabled `GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING`
+- Fixed that when editing a stock entry and setting a decimal amount, the decimal part was ignored (only possible when the product option "Allow partial units in stock" is enabled)
 
 ### Shopping list fixes
 - Fixed that the "shopping list to stock workflow"-dialog was not visible in compact view

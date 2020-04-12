@@ -598,7 +598,7 @@ class StockService extends BaseService
 		return $this->getDatabase()->lastInsertId();
 	}
 
-	public function EditStockEntry(int $stockRowId, int $amount, $bestBeforeDate, $locationId, $shoppingLocationId, $price, $open, $purchasedDate)
+	public function EditStockEntry(int $stockRowId, float $amount, $bestBeforeDate, $locationId, $shoppingLocationId, $price, $open, $purchasedDate)
 	{
 
 		$stockRow = $this->getDatabase()->stock()->where('id = :1', $stockRowId)->fetch();
