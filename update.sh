@@ -33,3 +33,4 @@ rm -f ./grocy-latest.zip > /dev/null
 popd > /dev/null
 
 echo Finished updating grocy
+
