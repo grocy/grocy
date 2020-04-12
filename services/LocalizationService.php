@@ -57,10 +57,14 @@ class LocalizationService
 			$this->Pot = Translations::fromPoFile(__DIR__ . '/../localization/chore_period_types.pot');
 			$this->Pot = $this->Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/chore_assignment_types.pot'));
 			$this->Pot = $this->Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/component_translations.pot'));
-			$this->Pot = $this->Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/demo_data.pot'));
 			$this->Pot = $this->Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/stock_transaction_types.pot'));
 			$this->Pot = $this->Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/strings.pot'));
 			$this->Pot = $this->Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/userfield_types.pot'));
+
+			if (GROCY_MODE !== 'production')
+			{
+				$this->Pot = $this->Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/demo_data.pot'));
+			}
 		}
 
 		$this->PoUserStrings = new Translations();
@@ -75,10 +79,6 @@ class LocalizationService
 		{
 			$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/component_translations.po"));
 		}
-		if (file_exists(__DIR__ . "/../localization/$culture/demo_data.po"))
-		{
-			$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/demo_data.po"));
-		}
 		if (file_exists(__DIR__ . "/../localization/$culture/stock_transaction_types.po"))
 		{
 			$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/stock_transaction_types.po"));
@@ -90,6 +90,10 @@ class LocalizationService
 		if (file_exists(__DIR__ . "/../localization/$culture/userfield_types.po"))
 		{
 			$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/userfield_types.po"));
+		}
+		if (GROCY_MODE !== 'production' && file_exists(__DIR__ . "/../localization/$culture/demo_data.po"))
+		{
+			$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/demo_data.po"));
 		}
 
 		$quantityUnits = null;
