@@ -209,6 +209,11 @@
 					<tr>
 						<th>{{ $__t('Product') }} / <em>{{ $__t('Note') }}</em></th>
 						<th>{{ $__t('Amount') }}</th>
+
+						@include('components.userfields_thead', array(
+							'userfields' => $userfields
+						))
+
 					</tr>
 				</thead>
 				<tbody>
@@ -220,6 +225,12 @@
 						<td>
 							{{ $listItem->amount }} @if(!empty($listItem->product_id)){{ $__n($listItem->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name_plural) }}@endif
 						</td>
+
+						@include('components.userfields_tbody', array(
+							'userfields' => $userfields,
+							'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $listItem->product_id)
+						))
+
 					</tr>
 					@endforeach
 				</tbody>

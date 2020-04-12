@@ -14,6 +14,7 @@
 
 ### Shopping list fixes
 - Fixed that the "shopping list to stock workflow"-dialog was not visible in compact view
+- Fixed that when printing the shopping list configured userfields were not included
 
 ### Recipe fixes
 - Fixed that when editing an ingredient with "Only check if a single unit is in stock" set, the quantity unit was always set to the products stock quantity unit regardless if a different one was selected for that ingredient
