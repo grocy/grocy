@@ -117,6 +117,7 @@
 				</div>
 			</div>
 
+			@if(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 			@php if($mode == 'edit') { $value = $product->default_best_before_days; } else { $value = 0; } @endphp
 			@include('components.numberpicker', array(
 				'id' => 'default_best_before_days',
@@ -127,6 +128,7 @@
 				'hint' => $__t('For purchases this amount of days will be added to today for the best before date suggestion') . ' (' . $__t('-1 means that this product never expires') . ')'
 			))
 
+			@if(GROCY_FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING)
 			@php if($mode == 'edit') { $value = $product->default_best_before_days_after_open; } else { $value = 0; } @endphp
 			@include('components.numberpicker', array(
 				'id' => 'default_best_before_days_after_open',
@@ -136,6 +138,8 @@
 				'invalidFeedback' => $__t('The amount cannot be lower than %s', '-1'),
 				'hint' => $__t('When this product was marked as opened, the best before date will be replaced by today + this amount of days (a value of 0 disables this)')
 			))
+			@endif
+			@endif
 
 			<div class="form-group">
 				<label for="product_group_id">{{ $__t('Product group') }}</label>
