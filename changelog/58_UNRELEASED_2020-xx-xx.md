@@ -8,6 +8,7 @@
 ### Stock improvements/fixes
 - When creating a new product, the "QU id stock" is now preset by the "QU id purchase" (because most of the time that's most probably the same) (thanks @Mik-)
 - Clarified the row-button colors and toolips on the stock entries page
+- Fixed that the accumulated parent product amount (displayed on the stock overview page and on the product card) did not respect quantity unit conversions when the parent/sub products had different stock quantity units (the unit conversion needs to be globally defined, or as an override on the sub product)
 - Fixed the conversion factor hint to display also decimal places on the purchase page (only displayed when the product has a different purchase/stock quantity unit)
 - Fixed that the stock entries page was broken when there were product userfields defined with enabled "Show as column in tables"
 - Fixed that best before dates were displayed on the stock overview and stock entries page even with disabled `FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING`
