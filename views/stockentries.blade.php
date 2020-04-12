@@ -33,7 +33,9 @@
 					<th class="d-none">product_id</th> <!-- This must be in the first column for searching -->
 					<th>{{ $__t('Product') }}</th>
 					<th>{{ $__t('Amount') }}</th>
+					@if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 					<th>{{ $__t('Best before date') }}</th>
+					@endif
 					@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)<th>{{ $__t('Location') }}</th>@endif
 					@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 					<th>{{ $__t('Store') }}</th>
@@ -135,10 +137,12 @@
 						<span id="stock-{{ $stockEntry->id }}-amount" class="locale-number locale-number-quantity-amount">{{ $stockEntry->amount }}</span> <span id="product-{{ $stockEntry->product_id }}-qu-name">{{ $__n($stockEntry->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_stock)->name_plural) }}</span>
 						<span id="stock-{{ $stockEntry->id }}-opened-amount" class="small font-italic">@if($stockEntry->open == 1){{ $__t('Opened') }}@endif</span>
 					</td>
+					@if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 					<td>
 						<span id="stock-{{ $stockEntry->id }}-best-before-date">{{ $stockEntry->best_before_date }}</span>
 						<time id="stock-{{ $stockEntry->id }}-best-before-date-timeago" class="timeago timeago-contextual" datetime="{{ $stockEntry->best_before_date }} 23:59:59"></time>
 					</td>
+					@endif
 					@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 					<td id="stock-{{ $stockEntry->id }}-location" data-location-id="{{ $stockEntry->location_id }}">
 						{{ FindObjectInArrayByPropertyValue($locations, 'id', $stockEntry->location_id)->name }}

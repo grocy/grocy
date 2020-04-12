@@ -14,6 +14,7 @@
 - Fixed a PHP notice on the recipes page when there are no recipes (thanks @mrunkel)
 - Fixed the conversion factor hint to display also decimal places on the purchase page (only displayed when the product has a different purchase/stock quantity unit)
 - Fixed that the stock entries page was broken when there were product userfields defined with enabled "Show as column in tables"
+- Fixed that best before dates were displayed on the stock overview and stock entries page even with disabled `GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING`
 
 ### Calendar fixes
 - Fixed that the "Share/Integrate calendar (iCal)" button did not work (thanks @tsia)

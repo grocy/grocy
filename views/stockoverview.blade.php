@@ -83,7 +83,9 @@
 					<th class="border-right"></th>
 					<th>{{ $__t('Product') }}</th>
 					<th>{{ $__t('Amount') }}</th>
+					@if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 					<th>{{ $__t('Next best before date') }}</th>
+					@endif
 					<th class="d-none">Hidden location</th>
 					<th class="d-none">Hidden status</th>
 					<th class="d-none">Hidden product group</th>
@@ -193,10 +195,12 @@
 						</span>
 						@endif
 					</td>
+					@if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 					<td>
 						<span id="product-{{ $currentStockEntry->product_id }}-next-best-before-date">{{ $currentStockEntry->best_before_date }}</span>
 						<time id="product-{{ $currentStockEntry->product_id }}-next-best-before-date-timeago" class="timeago timeago-contextual" datetime="{{ $currentStockEntry->best_before_date }} 23:59:59"></time>
 					</td>
+					@endif
 					<td class="d-none">
 						@foreach(FindAllObjectsInArrayByPropertyValue($currentStockLocations, 'product_id', $currentStockEntry->product_id) as $locationsForProduct) 
 						{{ FindObjectInArrayByPropertyValue($locations, 'id', $locationsForProduct->location_id)->name }}
