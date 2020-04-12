@@ -158,6 +158,12 @@
 						<span id="stock-{{ $stockEntry->id }}-purchased-date">{{ $stockEntry->purchased_date }}</span>
 						<time id="stock-{{ $stockEntry->id }}-purchased-date-timeago" class="timeago timeago-contextual" datetime="{{ $stockEntry->purchased_date }} 23:59:59"></time>
 					</td>
+
+					@include('components.userfields_tbody', array(
+						'userfields' => $userfields,
+						'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $stockEntry->product_id)
+					))
+
 				</tr>
 				@endforeach
 			</tbody>

@@ -1777,6 +1777,3 @@ msgstr ""
 
 msgid "Mark this stock entry as open"
 msgstr ""
-
-msgid ""
-msgstr ""

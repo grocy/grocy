@@ -13,6 +13,7 @@
 - Fixed that when editing an ingredient with "Only check if a single unit is in stock" set, the quantity unit was always set to the products stock quantity unit regardless if a different one was selected for that ingredient
 - Fixed a PHP notice on the recipes page when there are no recipes (thanks @mrunkel)
 - Fixed the conversion factor hint to display also decimal places on the purchase page (only displayed when the product has a different purchase/stock quantity unit)
+- Fixed that the stock entries page was broken when there were product userfields defined with enabled "Show as column in tables"
 
 ### Calendar fixes
 - Fixed that the "Share/Integrate calendar (iCal)" button did not work (thanks @tsia)
