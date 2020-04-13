@@ -27,7 +27,8 @@
 ### Calendar fixes
 - Fixed that the "Share/Integrate calendar (iCal)" button did not work (thanks @tsia)
 
-### API improvements
+### API improvements/fixes
+- Fixed that CORS was broken (there was no response to preflight OPTIONS requests)
 - The endpoint `/stock/products/{productId}/locations` now also returns the current stock amount of the product in that loctation (new field/property `amount`) (thanks @Forceu)
 
 ### General & other improvements/fixes

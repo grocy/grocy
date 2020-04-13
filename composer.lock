@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9c7420e77a3f1afb59e00560d5b9081c",
+    "content-hash": "70c5b65f78f4eb43dac8df8dc144e56c",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -752,6 +752,7 @@
                 "serialize",
                 "tokenizer"
             ],
+            "abandoned": "opis/closure",
             "time": "2018-03-21T22:21:57+00:00"
         },
         {
@@ -802,61 +803,6 @@
                 "sql"
             ],
             "time": "2019-05-03T23:46:26+00:00"
-        },
-        {
-            "name": "neomerx/cors-psr7",
-            "version": "v1.0.13",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/neomerx/cors-psr7.git",
-                "reference": "2556e2013f16a55532c95928455257d5b6bbc6e2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/neomerx/cors-psr7/zipball/2556e2013f16a55532c95928455257d5b6bbc6e2",
-                "reference": "2556e2013f16a55532c95928455257d5b6bbc6e2",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.6.0",
-                "psr/http-message": "^1.0",
-                "psr/log": "^1.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.0",
-                "phpunit/phpunit": "^5.7",
-                "scrutinizer/ocular": "^1.1",
-                "squizlabs/php_codesniffer": "^3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Neomerx\\Cors\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "neomerx",
-                    "email": "info@neomerx.com"
-                }
-            ],
-            "description": "Framework agnostic (PSR-7) CORS implementation (www.w3.org/TR/cors/)",
-            "homepage": "https://github.com/neomerx/cors-psr7",
-            "keywords": [
-                "Cross Origin Resource Sharing",
-                "Cross-Origin Resource Sharing",
-                "cors",
-                "neomerx",
-                "psr-7",
-                "psr7",
-                "w3.org",
-                "www.w3.org"
-            ],
-            "time": "2018-05-23T16:10:11+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -1469,16 +1415,16 @@
         },
         {
             "name": "psr/log",
-            "version": "1.1.2",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "446d54b4cb6bf489fc9d75f55843658e6f25d801"
+                "reference": "0f73288fd15629204f9d42b7055f72dacbe811fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/446d54b4cb6bf489fc9d75f55843658e6f25d801",
-                "reference": "446d54b4cb6bf489fc9d75f55843658e6f25d801",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/0f73288fd15629204f9d42b7055f72dacbe811fc",
+                "reference": "0f73288fd15629204f9d42b7055f72dacbe811fc",
                 "shasum": ""
             },
             "require": {
@@ -1512,7 +1458,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2019-11-01T11:05:21+00:00"
+            "time": "2020-03-23T09:12:05+00:00"
         },
         {
             "name": "psr/simple-cache",
@@ -2299,175 +2245,6 @@
                 "standards"
             ],
             "time": "2019-11-18T17:27:11+00:00"
-        },
-        {
-            "name": "tuupola/callable-handler",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/tuupola/callable-handler.git",
-                "reference": "8b9d87f88056d4234af317d65612d7b6307a747a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/tuupola/callable-handler/zipball/8b9d87f88056d4234af317d65612d7b6307a747a",
-                "reference": "8b9d87f88056d4234af317d65612d7b6307a747a",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1",
-                "psr/http-server-middleware": "^1.0"
-            },
-            "require-dev": {
-                "codedungeon/phpunit-result-printer": "^0.4.4",
-                "overtrue/phplint": "^1.0",
-                "phpunit/phpunit": "^6.5",
-                "squizlabs/php_codesniffer": "^3.2",
-                "tuupola/http-factory": "^0.4.0|^1.0",
-                "zendframework/zend-diactoros": "^1.6.0|^2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Tuupola\\Middleware\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mika Tuupola",
-                    "email": "tuupola@appelsiini.net",
-                    "homepage": "https://appelsiini.net/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Compatibility layer for PSR-7 double pass and PSR-15 middlewares.",
-            "homepage": "https://github.com/tuupola/callable-handler",
-            "keywords": [
-                "middleware",
-                "psr-15",
-                "psr-7"
-            ],
-            "time": "2018-10-12T09:59:35+00:00"
-        },
-        {
-            "name": "tuupola/cors-middleware",
-            "version": "1.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/tuupola/cors-middleware.git",
-                "reference": "a043f4f52b902ee8902f95d28aae05013a7180fc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/tuupola/cors-middleware/zipball/a043f4f52b902ee8902f95d28aae05013a7180fc",
-                "reference": "a043f4f52b902ee8902f95d28aae05013a7180fc",
-                "shasum": ""
-            },
-            "require": {
-                "neomerx/cors-psr7": "^1.0.4",
-                "php": "^7.1",
-                "psr/http-message": "^1.0.1",
-                "psr/http-server-middleware": "^1.0",
-                "tuupola/callable-handler": "^1.0",
-                "tuupola/http-factory": "^1.0"
-            },
-            "require-dev": {
-                "codedungeon/phpunit-result-printer": "^0.23.2",
-                "equip/dispatch": "^2.0",
-                "overtrue/phplint": "^1.0",
-                "phpstan/phpstan": "^0.11.15",
-                "phpunit/phpunit": "^7.4",
-                "squizlabs/php_codesniffer": "^3.3.1",
-                "zendframework/zend-diactoros": "^1.0|^2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Tuupola\\Middleware\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mika Tuupola",
-                    "email": "tuupola@appelsiini.net",
-                    "homepage": "https://appelsiini.net/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "PSR-7 and PSR-15 CORS middleware",
-            "homepage": "https://github.com/tuupola/cors-middleware",
-            "keywords": [
-                "cors",
-                "middleware",
-                "psr-15",
-                "psr-7"
-            ],
-            "time": "2019-10-30T11:18:16+00:00"
-        },
-        {
-            "name": "tuupola/http-factory",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/tuupola/http-factory.git",
-                "reference": "5fbde4c65a10d09a85652684a6e569542265a749"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/tuupola/http-factory/zipball/5fbde4c65a10d09a85652684a6e569542265a749",
-                "reference": "5fbde4c65a10d09a85652684a6e569542265a749",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1",
-                "psr/http-factory": "^1.0"
-            },
-            "conflict": {
-                "nyholm/psr7": "<1.0"
-            },
-            "provide": {
-                "psr/http-factory-implementation": "^1.0"
-            },
-            "require-dev": {
-                "http-interop/http-factory-tests": "^0.5.0",
-                "overtrue/phplint": "^1.0",
-                "phpunit/phpunit": "^6.0|^7.0",
-                "squizlabs/php_codesniffer": "^3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Tuupola\\Http\\Factory\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mika Tuupola",
-                    "email": "tuupola@appelsiini.net",
-                    "homepage": "https://appelsiini.net/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Lightweight autodiscovering PSR-17 HTTP factories",
-            "homepage": "https://github.com/tuupola/http-factory",
-            "keywords": [
-                "http",
-                "psr-17",
-                "psr-7"
-            ],
-            "time": "2019-08-07T07:10:58+00:00"
         }
     ],
     "packages-dev": [],
@@ -2479,5 +2256,6 @@
     "platform": {
         "php": ">=7.2"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
