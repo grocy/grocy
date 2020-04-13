@@ -10,7 +10,7 @@ Grocy.Components.BarcodeScanner.CheckCapabilities = async function()
 	
 	// If there is more than 1 camera, show the camera selection
 	var cameras = await Quagga.CameraAccess.enumerateVideoDevices();
-	var cameraSelect = document.querySelector('.cameraSelect');
+	var cameraSelect = document.querySelector('.cameraSelect-wrapper');
 	if (cameraSelect) {
 		cameraSelect.style.display = cameras.length > 1 ? 'inline-block' : 'none';
 	}
@@ -238,7 +238,7 @@ $(document).on("click", "#barcodescanner-start-button", async function(e)
 	});
 	
 	// Add camera select to existing dialog
-	dialog.find('.bootbox-body').append('<select class="form-control cameraSelect" style="display: none">  </select>');
+	dialog.find('.bootbox-body').append('<div class="form-group py-0 my-1 cameraSelect-wrapper"><select class="form-control cameraSelect"><select class="form-control cameraSelect" style="display: none"></select></div>');
 	var cameraSelect = document.querySelector('.cameraSelect');
 	
 	var cameras = await Quagga.CameraAccess.enumerateVideoDevices();
