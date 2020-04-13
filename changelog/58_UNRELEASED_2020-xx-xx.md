@@ -25,6 +25,9 @@
 - Fixed that when editing an ingredient with "Only check if a single unit is in stock" set, the quantity unit was always set to the products stock quantity unit regardless if a different one was selected for that ingredient
 - Fixed a PHP notice on the recipes page when there are no recipes (thanks @mrunkel)
 
+### Chores fixes
+- Fixed that weekly chores, where the next execution should be in the same week, were scheduled always for the next week only
+
 ### Calendar fixes
 - Fixed that the "Share/Integrate calendar (iCal)" button did not work (thanks @tsia)
 
