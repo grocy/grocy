@@ -3500,6 +3500,10 @@
 					},
 					"shopping_location_id": {
 						"type": "integer"
+					},
+					"userfields": {
+						"type": "object",
+						"description": "Key/value pairs of userfields"
 					}
 				},
 				"example": {
@@ -3521,7 +3525,8 @@
 					"enable_tare_weight_handling": "0",
 					"tare_weight": "0.0",
 					"not_check_stock_fulfillment_for_recipes": "0",
-					"shopping_location_id": null
+					"shopping_location_id": null,
+					"userfields": null
 				}
 			},
 			"QuantityUnit": {
@@ -3545,6 +3550,10 @@
 					},
 					"plural_forms": {
 						"type": "string"
+					},
+					"userfields": {
+						"type": "object",
+						"description": "Key/value pairs of userfields"
 					}
 				},
 				"example": {
@@ -3553,7 +3562,8 @@
 					"description": null,
 					"row_created_timestamp": "2019-05-02 20:12:25",
 					"name_plural": "Pieces",
-					"plural_forms": null
+					"plural_forms": null,
+					"userfields": null
 				}
 			},
 			"Location": {
@@ -3571,13 +3581,18 @@
 					"row_created_timestamp": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"userfields": {
+						"type": "object",
+						"description": "Key/value pairs of userfields"
 					}
 				},
 				"example": {
 					"id": "2",
 					"name": "0",
 					"description": null,
-					"row_created_timestamp": "2019-05-02 20:12:25"
+					"row_created_timestamp": "2019-05-02 20:12:25",
+					"userfields": null
 				}
 			},
 			"ShoppingLocation": {
@@ -3595,21 +3610,26 @@
 					"row_created_timestamp": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"userfields": {
+						"type": "object",
+						"description": "Key/value pairs of userfields"
 					}
 				},
 				"example": {
 					"id": "2",
 					"name": "0",
 					"description": null,
-					"row_created_timestamp": "2019-05-02 20:12:25"
+					"row_created_timestamp": "2019-05-02 20:12:25",
+					"userfields": null
 				}
 			},
 			"StockLocation": {
 				"type": "object",
 				"properties": {
 					"id": {
-                                                "type": "integer"
-                                        },
+						"type": "integer"
+					},
 					"product_id": {
 						"type": "integer"
 					},
@@ -4069,6 +4089,10 @@
 					"row_created_timestamp": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"userfields": {
+						"type": "object",
+						"description": "Key/value pairs of userfields"
 					}
 				}
 			},
@@ -4095,6 +4119,10 @@
 					"row_created_timestamp": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"userfields": {
+						"type": "object",
+						"description": "Key/value pairs of userfields"
 					}
 				}
 			},
@@ -4169,6 +4197,10 @@
 					"row_created_timestamp": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"userfields": {
+						"type": "object",
+						"description": "Key/value pairs of userfields"
 					}
 				}
 			},
@@ -4376,6 +4408,10 @@
 					"row_created_timestamp": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"userfields": {
+						"type": "object",
+						"description": "Key/value pairs of userfields"
 					}
 				}
 			},
