@@ -75,6 +75,14 @@
 			'additionalCssClasses' => 'user-setting-control'
 		))
 
+		<div class="form-group">
+			<div class="checkbox">
+				<label for="show_icon_on_stock_overview_page_when_product_is_on_shopping_list">
+					<input type="checkbox" class="user-setting-control" id="show_icon_on_stock_overview_page_when_product_is_on_shopping_list" data-setting-key="show_icon_on_stock_overview_page_when_product_is_on_shopping_list"> {{ $__t('Show an icon if the product is already on the shopping list') }}
+				</label>
+			</div>
+		</div>
+
 		<a href="{{ $U('/stockoverview') }}" class="btn btn-success">{{ $__t('OK') }}</a>
 	</div>
 </div>

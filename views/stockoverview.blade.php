@@ -195,6 +195,14 @@
 							@if($currentStockEntry->amount_opened_aggregated > 0)<span id="product-{{ $currentStockEntry->product_id }}-opened-amount-aggregated" class="small font-italic">{{ $__t('%s opened', $currentStockEntry->amount_opened_aggregated) }}</span>@endif
 						</span>
 						@endif
+						@if(boolval($userSettings['show_icon_on_stock_overview_page_when_product_is_on_shopping_list']))
+						@php $currentStockEntryShoppingListItems = FindAllObjectsInArrayByPropertyValue($shoppingListItems, 'product_id', $currentStockEntry->product_id) @endphp
+						@if(count($currentStockEntryShoppingListItems) > 0)
+						<span class="btn btn-link btn-sm text-muted">
+							<i class="fas fa-shopping-cart"></i>
+						</span>
+						@endif
+						@endif
 					</td>
 					@if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 					<td>

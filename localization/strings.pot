@@ -1786,3 +1786,6 @@ msgstr ""
 
 msgid "Delete this item"
 msgstr ""
+
+msgid "Show an icon if the product is already on the shopping list"
+msgstr ""

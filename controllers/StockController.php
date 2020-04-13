@@ -25,7 +25,8 @@ class StockController extends BaseController
 			'nextXDays' => $nextXDays,
 			'productGroups' => $this->getDatabase()->product_groups()->orderBy('name'),
 			'userfields' => $this->getUserfieldsService()->GetFields('products'),
-			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('products')
+			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('products'),
+			'shoppingListItems' => $this->getDatabase()->shopping_list(),
 		]);
 	}
 
