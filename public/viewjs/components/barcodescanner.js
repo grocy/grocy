@@ -1,5 +1,6 @@
 Grocy.Components.BarcodeScanner = { };
 
+Grocy.Components.BarcodeScanner.LiveVideoSizeAdjusted = false;
 Grocy.Components.BarcodeScanner.CheckCapabilities = async function()
 {
 	var track = Quagga.CameraAccess.getActiveTrack();
@@ -28,18 +29,26 @@ Grocy.Components.BarcodeScanner.CheckCapabilities = async function()
 	}
 
 	// Reduce the height of the video, if it's heigher than then the viewport
-	var bc = document.getElementById('barcodescanner-container');
-	if (bc) {
-		var bcAspectRatio = bc.offsetWidth / bc.offsetHeight;
-		var settings = track.getSettings();
-		if (bcAspectRatio > settings.aspectRatio) {
-			var v = document.querySelector('#barcodescanner-livestream video')
-			if (v) {
-				var c = document.querySelector('#barcodescanner-livestream canvas')
-				var newWidth = v.clientWidth / bcAspectRatio * settings.aspectRatio + 'px';
-				v.style.width = newWidth;
-				c.style.width = newWidth;
+	if (!Grocy.Components.BarcodeScanner.LiveVideoSizeAdjusted)
+	{
+		var bc = document.getElementById('barcodescanner-container');
+		if (bc)
+		{
+			var bcAspectRatio = bc.offsetWidth / bc.offsetHeight;
+			var settings = track.getSettings();
+			if (bcAspectRatio > settings.aspectRatio)
+			{
+				var v = document.querySelector('#barcodescanner-livestream video')
+				if (v)
+				{
+					var c = document.querySelector('#barcodescanner-livestream canvas')
+					var newWidth = v.clientWidth / bcAspectRatio * settings.aspectRatio + 'px';
+					v.style.width = newWidth;
+					c.style.width = newWidth;
+				}
 			}
+
+			Grocy.Components.BarcodeScanner.LiveVideoSizeAdjusted = true;
 		}
 	}
 }
