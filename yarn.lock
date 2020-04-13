@@ -716,6 +716,11 @@ datatables.net-colreorder@1.5.2, datatables.net-colreorder@^1.5.1:
     datatables.net "^1.10.15"
     jquery ">=1.7"
 
+datatables.net-plugins@^1.10.20:
+  version "1.10.20"
+  resolved "https://registry.yarnpkg.com/datatables.net-plugins/-/datatables.net-plugins-1.10.20.tgz#c89f6bed3fa7e6605cbeaa35d60f223659e84c8c"
+  integrity sha512-rnhNmRHe9UEzvM7gtjBay1QodkWUmxLUhHNbmJMYhhUggjtm+BRSlE0PRilkeUkwckpNWzq+0fPd7/i0fpQgzA==
+
 datatables.net-responsive-bs4@^2.2.3:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/datatables.net-responsive-bs4/-/datatables.net-responsive-bs4-2.2.3.tgz#639de17c1d31210ebf2b3c25f1c774c13f729e94"
