@@ -1,11 +1,18 @@
 Grocy.Components.BarcodeScanner = { };
 
-Grocy.Components.BarcodeScanner.CheckCapabilities = function()
+Grocy.Components.BarcodeScanner.CheckCapabilities = async function()
 {
 	var track = Quagga.CameraAccess.getActiveTrack();
 	var capabilities = {};
 	if (typeof track.getCapabilities === 'function') {
 		capabilities = track.getCapabilities();
+	}
+	
+	// If there is more than 1 camera, show the camera selection
+	var cameras = await Quagga.CameraAccess.enumerateVideoDevices();
+	var cameraSelect = document.querySelector('.cameraSelect');
+	if (cameraSelect) {
+		cameraSelect.style.display = cameras.length > 1 ? 'inline-block' : 'none';
 	}
 	
 	// Check if the camera is capable to turn on a torch.
@@ -48,7 +55,8 @@ Grocy.Components.BarcodeScanner.StartScanning = function()
 			type: "LiveStream",
 			target: document.querySelector("#barcodescanner-livestream"),
 			constraints: {
-				facingMode: "environment"
+				facingMode: "environment",
+				...(window.localStorage.getItem('cameraId') && {deviceId : window.localStorage.getItem('cameraId')}) // If preferred cameraId is set, request to use that specific camera
 			}
 		},
 		locator: {
@@ -99,6 +107,7 @@ Grocy.Components.BarcodeScanner.StartScanning = function()
 		{
 			Grocy.FrontendHelpers.ShowGenericError("Error while initializing the barcode scanning library", error.message);
 			toastr.info(__t("Camera access is only possible when supported and allowed by your browser and when grocy is served via a secure (https://) connection"));
+			window.localStorage.removeItem("cameraId");
 			setTimeout(function()
 			{
 				bootbox.hideAll();
@@ -184,7 +193,7 @@ Quagga.onProcessed(function(result)
 	}
 });
 
-$(document).on("click", "#barcodescanner-start-button", function(e)
+$(document).on("click", "#barcodescanner-start-button", async function(e)
 {
 	e.preventDefault();
 	var inputElement = $(e.currentTarget).prev();
@@ -197,7 +206,7 @@ $(document).on("click", "#barcodescanner-start-button", function(e)
 
 	Grocy.Components.BarcodeScanner.CurrentTarget = inputElement.attr("data-target");
 	
-	bootbox.dialog({
+	var dialog = bootbox.dialog({
 		message: '<div id="barcodescanner-container" class="col"><div id="barcodescanner-livestream"></div></div>',
 		title: __t('Scan a barcode'),
 		onEscape: function()
@@ -227,6 +236,28 @@ $(document).on("click", "#barcodescanner-start-button", function(e)
 			}
 		}
 	});
+	
+	// Add camera select to existing dialog
+	dialog.find('.bootbox-body').append('<select class="form-control cameraSelect" style="display: none">  </select>');
+	var cameraSelect = document.querySelector('.cameraSelect');
+	
+	var cameras = await Quagga.CameraAccess.enumerateVideoDevices();
+	cameras.forEach(camera => {
+		var option = document.createElement("option");
+		option.text = camera.label ? camera.label : camera.deviceId; // Use camera label if it exists, else show device id
+		option.value = camera.deviceId;
+		cameraSelect.appendChild(option);
+	});
+
+	// Set initial value to preferred camera if one exists - and if not, start out empty
+	cameraSelect.value = window.localStorage.getItem('cameraId');
+
+	cameraSelect.onchange = function(){
+		window.localStorage.setItem('cameraId', cameraSelect.value);
+		Quagga.stop();
+		Grocy.Components.BarcodeScanner.StartScanning();
+	};
+    
 	Grocy.Components.BarcodeScanner.StartScanning();
 });
 
