@@ -5,7 +5,7 @@
 @endpush
 
 @push('pageScripts')
-	<script src="{{ $U('/node_modules/quagga/dist/quagga.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/@ericblade/quagga2/dist/quagga.min.js?v=', true) }}{{ $version }}"></script>
 @endpush
 
 @push('pageStyles')
