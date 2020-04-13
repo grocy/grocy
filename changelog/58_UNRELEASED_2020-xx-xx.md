@@ -15,6 +15,7 @@
 - Fixed that when editing a stock entry and setting a decimal amount, the decimal part was ignored (only possible when the product option "Allow partial units in stock" is enabled)
 - Fixed that "Default best before days" and "Default best before days after opened" on the product edit page were always shown regardless of the feature flags `FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING` and `FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING`
 - Fixed that the form validation limits for the amount input and products with enabled tare weight handling were wrong
+- Fixed that the price was saved wrong for products with a different purchase/stock quantity unit when using "Total price" on purchase (resulted for example in wrong recipe costs)
 
 ### Shopping list fixes
 - Fixed that the "shopping list to stock workflow"-dialog was not visible in compact view

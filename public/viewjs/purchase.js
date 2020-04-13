@@ -17,7 +17,7 @@
 
 				if ($("input[name='price-type']:checked").val() == "total-price")
 				{
-					price = price / amount;
+					price = price / jsonForm.amount;
 				}
 			}
 
