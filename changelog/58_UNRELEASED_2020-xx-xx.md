@@ -36,6 +36,7 @@
 - New endpoint `/user/settings` to get all user settings of the currently logged in user (key/value pairs)
 - New endpoint `/system/config` to get all config settings (`config.php`) (key/value pairs)
 - The endpoint `/stock/products/{productId}/locations` now also returns the current stock amount of the product in that loctation (new field/property `amount`) (thanks @Forceu)
+- The endpoints `/objects/{entity}` and `/objects/{entity}/{objectId}` now also include/return userfields of the object(s) (new field/property `userfields` per object, is an array of key/value pairs and `null`, when the object has no userfields)
 - Fixed that CORS was broken (there was no response to preflight OPTIONS requests)
 
 ### General & other improvements/fixes

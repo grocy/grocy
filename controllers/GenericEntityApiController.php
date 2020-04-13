@@ -11,9 +11,27 @@ class GenericEntityApiController extends BaseApiController
 
 	public function GetObjects(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
+		$objects = $this->getDatabase()->{$args['entity']}();
+		$allUserfields = $this->getUserfieldsService()->GetAllValues($args['entity']);
+
+		foreach ($objects as $object)
+		{
+			$userfields = FindAllObjectsInArrayByPropertyValue($allUserfields, 'object_id', $object->id);
+			$userfieldKeyValuePairs = null;
+			if (count($userfields) > 0)
+			{
+				foreach ($userfields as $userfield)
+				{
+					$userfieldKeyValuePairs[$userfield->name] = $userfield->value;
+				}
+			}
+
+			$object->userfields = $userfieldKeyValuePairs;
+		}
+
 		if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithPreventedListing($args['entity']))
 		{
-			return $this->ApiResponse($response, $this->getDatabase()->{$args['entity']}());
+			return $this->ApiResponse($response, $objects);
 		}
 		else
 		{
@@ -25,7 +43,16 @@ class GenericEntityApiController extends BaseApiController
 	{
 		if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithPreventedListing($args['entity']))
 		{
-			return $this->ApiResponse($response, $this->getDatabase()->{$args['entity']}($args['objectId']));
+			$userfields = $this->getUserfieldsService()->GetValues($args['entity'], $args['objectId']);
+			if (count($userfields) === 0)
+			{
+				$userfields = null;
+			}
+
+			$object = $this->getDatabase()->{$args['entity']}($args['objectId']);
+			$object['userfields'] = $userfields;
+
+			return $this->ApiResponse($response, $object);
 		}
 		else
 		{
