@@ -16,6 +16,35 @@ class SystemApiController extends BaseApiController
         ));
 	}
 
+	public function GetConfig(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		try
+		{
+			$constants = get_defined_constants();
+
+			// Some GROCY_* constants are not really config settings and therefore should not be exposed
+			unset($constants['GROCY_AUTHENTICATED']);
+			unset($constants['GROCY_DATAPATH']);
+			unset($constants['GROCY_IS_EMBEDDED_INSTALL']);
+			unset($constants['GROCY_USER_ID']);
+
+			$returnArray = array();
+			foreach ($constants as $constant => $value)
+			{
+				if (substr($constant, 0, 6) === 'GROCY_')
+				{
+					$returnArray[substr($constant, 6)] = $value;
+				}
+			}
+
+			return $this->ApiResponse($response, $returnArray);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
+
 	public function LogMissingLocalization(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if (GROCY_MODE === 'dev')

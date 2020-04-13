@@ -28,12 +28,12 @@
 - Fixed that the "Share/Integrate calendar (iCal)" button did not work (thanks @tsia)
 
 ### API improvements/fixes
-- Fixed that CORS was broken (there was no response to preflight OPTIONS requests)
+- New endpoint `/user/settings` to get all user settings of the currently logged in user (key/value pairs)
+- New endpoint `/system/config` to get all config settings (`config.php`) (key/value pairs)
 - The endpoint `/stock/products/{productId}/locations` now also returns the current stock amount of the product in that loctation (new field/property `amount`) (thanks @Forceu)
+- Fixed that CORS was broken (there was no response to preflight OPTIONS requests)
 
 ### General & other improvements/fixes
-- Fixed that all number inputs are always prefilled in the browser locale number format
-- Fixed (again) that the `update.sh` file had wrong line endings (DOS instead of Unix)
 - Optimized that sometimes the corresponding form was not validated when selecting a date from the datetimepicker
 - New `config.php` setting `FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_FIELD_NUMBER_PAD` which activates the number pad for best-before-date fields on (supported) mobile browsers (useful because of [shorthands](https://github.com/grocy/grocy#input-shorthands-for-date-fields)) (defaults to `true`) (thanks @Mik-)
 - Enhancements for the camera barcode scanner (thanks @Mik-)
@@ -44,6 +44,8 @@
 - Improved the the overview pages on mobile devices (main column was hidden) (thanks @Mik-)
 - Optimized the handling of settings provided by `data/settingoverrides` files (thanks @dacto)
 - Optimized the update script (`update.sh`) to create the backup tar archive before writing to it (was a problem on Btrfs file systems) (thanks @shane-kerr)
+- Fixed that all number inputs are always prefilled in the browser locale number format
+- Fixed (again) that the `update.sh` file had wrong line endings (DOS instead of Unix)
 - New translations: (thanks all the translators)
   - Japanese (demo available at https://ja.demo.grocy.info)
   - Chinese (Taiwan) (demo available at https://zh-tw.demo.grocy.info)

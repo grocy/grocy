@@ -115,6 +115,37 @@
 				}
 			}
 		},
+		"/system/config": {
+			"get": {
+				"summary": "Returns all config settings",
+				"tags": [
+					"System"
+				],
+				"responses": {
+					"200": {
+						"description": "Key/value pairs of config settings",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"description": "Key/value pairs of config settings"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/system/log-missing-localization": {
 			"post": {
 				"summary": "Logs a missing localization string",
@@ -586,12 +617,12 @@
 				],
 				"responses": {
 					"200": {
-						"description": "An entity object",
+						"description": "Key/value pairs of userfields",
 						"content": {
 							"application/json": {
 								"schema": {
 									"type": "object",
-									"description": "Just key/value pairs of userfields"
+									"description": "Key/value pairs of userfields"
 								}
 							}
 						}
@@ -639,7 +670,7 @@
 					"content": {
 						"application/json": {
 							"schema": {
-								"description": "Just key/value pairs of userfields"
+								"description": "Key/value pairs of userfields"
 							}
 						}
 					}
@@ -978,9 +1009,40 @@
 				}
 			}
 		},
+		"/user/settings": {
+			"get": {
+				"summary": "Returns all settings of the currently logged in user",
+				"tags": [
+					"User settings"
+				],
+				"responses": {
+					"200": {
+						"description": "Key/value pairs of user settings",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"description": "Key/value pairs of user settings"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/user/settings/{settingKey}": {
 			"get": {
-				"summary": "Gets the given setting of the currently logged in user",
+				"summary": "Returns the given setting of the currently logged in user",
 				"tags": [
 					"User settings"
 				],

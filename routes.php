@@ -143,6 +143,7 @@ $app->group('/api', function(RouteCollectorProxy $group)
 	// System
 	$group->get('/system/info', '\Grocy\Controllers\SystemApiController:GetSystemInfo');
 	$group->get('/system/db-changed-time', '\Grocy\Controllers\SystemApiController:GetDbChangedTime');	
+	$group->get('/system/config', '\Grocy\Controllers\SystemApiController:GetConfig');
 	$group->post('/system/log-missing-localization', '\Grocy\Controllers\SystemApiController:LogMissingLocalization');
 	
 	// Generic entity interaction
@@ -167,6 +168,7 @@ $app->group('/api', function(RouteCollectorProxy $group)
 	$group->delete('/users/{userId}', '\Grocy\Controllers\UsersApiController:DeleteUser');
 
 	// User
+	$group->get('/user/settings', '\Grocy\Controllers\UsersApiController:GetUserSettings');
 	$group->get('/user/settings/{settingKey}', '\Grocy\Controllers\UsersApiController:GetUserSetting');
 	$group->put('/user/settings/{settingKey}', '\Grocy\Controllers\UsersApiController:SetUserSetting');
 

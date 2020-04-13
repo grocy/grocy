@@ -50,6 +50,19 @@ class UsersService extends BaseService
 		return $returnUsers;
 	}
 
+	public function GetUserSettinsg($userId)
+	{
+		$settingRow = $this->getDatabase()->user_settings()->where('user_id = :1 AND key = :2', $userId, $settingKey)->fetch();
+		if ($settingRow !== null)
+		{
+			return $settingRow->value;
+		}
+		else
+		{
+			return null;
+		}
+	}
+
 	public function GetUserSetting($userId, $settingKey)
 	{
 		$settingRow = $this->getDatabase()->user_settings()->where('user_id = :1 AND key = :2', $userId, $settingKey)->fetch();
