@@ -18,6 +18,7 @@
 - Fixed that the form validation limits for the amount input and products with enabled tare weight handling were wrong
 - Fixed that the price was saved wrong for products with a different purchase/stock quantity unit when using "Total price" on purchase (resulted for example in wrong recipe costs)
 - Fixed that undoing "product-opened"-actions was not possible
+- Fixed/improved consuming from the stock overview page for products with enabled tare weight handling ("consume 1" button is now disabled for such products, "consume all" works again)
 
 ### Shopping list fixes
 - Fixed that the "shopping list to stock workflow"-dialog was not visible in compact view
