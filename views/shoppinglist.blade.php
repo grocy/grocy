@@ -119,13 +119,16 @@
 					<td class="fit-content border-right">
 						<a class="btn btn-success btn-sm order-listitem-button" href="#"
 							data-item-id="{{ $listItem->id }}"
-							data-item-done="{{ $listItem->done }}">
+							data-item-done="{{ $listItem->done }}"
+							data-toggle="tooltip" data-placement="right" title="{{ $__t('Mark this item as done') }}">
 							<i class="fas fa-check"></i>
 						</a>
-						<a class="btn btn-sm btn-info" href="{{ $U('/shoppinglistitem/') . $listItem->id . '?list=' . $selectedShoppingListId }}">
+						<a class="btn btn-sm btn-info" href="{{ $U('/shoppinglistitem/') . $listItem->id . '?list=' . $selectedShoppingListId }}"
+							data-toggle="tooltip" data-placement="right" title="{{ $__t('Edit this item') }}">
 							<i class="fas fa-edit"></i>
 						</a>
-						<a class="btn btn-sm btn-danger shoppinglist-delete-button" href="#" data-shoppinglist-id="{{ $listItem->id }}">
+						<a class="btn btn-sm btn-danger shoppinglist-delete-button" href="#" data-shoppinglist-id="{{ $listItem->id }}"
+							data-toggle="tooltip" data-placement="right" title="{{ $__t('Delete this item') }}">
 							<i class="fas fa-trash"></i>
 						</a>
 						<a class="btn btn-sm btn-primary @if(empty($listItem->product_id)) disabled @else shopping-list-stock-add-workflow-list-item-button @endif" href="{{ $U('/purchase?embedded&flow=shoppinglistitemtostock&product=') }}{{ $listItem->product_id }}&amount={{ $listItem->amount }}&listitemid={{ $listItem->id }}" @if(!empty($listItem->product_id)) data-toggle="tooltip" title="{{ $__t('Add %1$s of %2$s to stock', $listItem->amount . ' ' . $__n($listItem->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name_plural), FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->name, $listItem->amount) }}" @endif>

@@ -1777,3 +1777,12 @@ msgstr ""
 
 msgid "Mark this stock entry as open"
 msgstr ""
+
+msgid "Mark this item as done"
+msgstr ""
+
+msgid "Edit this item"
+msgstr ""
+
+msgid "Delete this item"
+msgstr ""

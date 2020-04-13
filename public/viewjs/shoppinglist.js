@@ -92,6 +92,10 @@ $(document).on('click', '.shoppinglist-delete-button', function(e)
 {
 	e.preventDefault();
 
+	// Remove the focus from the current button
+	// to prevent that the tooltip stays until clicked anywhere else
+	document.activeElement.blur();
+
 	var shoppingListItemId = $(e.currentTarget).attr('data-shoppinglist-id');
 	Grocy.FrontendHelpers.BeginUiBusy();
 
@@ -173,6 +177,10 @@ $(document).on('click', '.shopping-list-stock-add-workflow-list-item-button', fu
 {
 	e.preventDefault();
 
+	// Remove the focus from the current button
+	// to prevent that the tooltip stays until clicked anywhere else
+	document.activeElement.blur();
+
 	var href = $(e.currentTarget).attr('href');
 
 	$("#shopping-list-stock-add-workflow-purchase-form-frame").attr("src", href);
@@ -247,6 +255,10 @@ $(document).on('click', '#shopping-list-stock-add-workflow-skip-button', functio
 $(document).on('click', '.order-listitem-button', function(e)
 {
 	e.preventDefault();
+
+	// Remove the focus from the current button
+	// to prevent that the tooltip stays until clicked anywhere else
+	document.activeElement.blur();
 
 	Grocy.FrontendHelpers.BeginUiBusy();
 
