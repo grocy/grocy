@@ -724,7 +724,7 @@ class StockService extends BaseService
 		return null;
 	}
 
-	public function OpenProduct(int $productId, float $amount, $specificStockEntryId = 'default')
+	public function OpenProduct(int $productId, float $amount, $specificStockEntryId = 'default', &$transactionId = null)
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -743,6 +743,11 @@ class StockService extends BaseService
 		if ($specificStockEntryId !== 'default')
 		{
 			$potentialStockEntries = FindAllObjectsInArrayByPropertyValue($potentialStockEntries, 'stock_id', $specificStockEntryId);
+		}
+
+		if ($transactionId === null)
+		{
+			$transactionId = uniqid();
 		}
 
 		foreach ($potentialStockEntries as $stockEntry)
@@ -768,7 +773,8 @@ class StockService extends BaseService
 					'stock_id' => $stockEntry->stock_id,
 					'transaction_type' => self::TRANSACTION_TYPE_PRODUCT_OPENED,
 					'price' => $stockEntry->price,
-					'opened_date' => date('Y-m-d')
+					'opened_date' => date('Y-m-d'),
+					'transaction_id' => $transactionId
 				));
 				$logRow->save();
 
@@ -802,7 +808,8 @@ class StockService extends BaseService
 					'stock_id' => $stockEntry->stock_id,
 					'transaction_type' => self::TRANSACTION_TYPE_PRODUCT_OPENED,
 					'price' => $stockEntry->price,
-					'opened_date' => date('Y-m-d')
+					'opened_date' => date('Y-m-d'),
+					'transaction_id' => $transactionId
 				));
 				$logRow->save();
 
