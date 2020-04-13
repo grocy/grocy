@@ -69,7 +69,9 @@
 
 			<div class="form-group tm-group">
 				<label for="barcode-taginput">{{ $__t('Barcode(s)') }}&nbsp;&nbsp;<i class="fas fa-barcode"></i></label>
-				<input type="text" class="form-control tm-input" id="barcode-taginput">
+				<div class="input-group">
+					<input type="text" class="form-control tm-input barcodescanner-input" id="barcode-taginput" data-target="#barcode-taginput">
+				</div>
 				<div id="barcode-taginput-container"></div>
 			</div>
 

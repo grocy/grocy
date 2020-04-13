@@ -434,3 +434,13 @@ $('#qu_id_purchase').blur(function(e)
 		Grocy.FrontendHelpers.ValidateForm('product-form');
 	}
 });
+
+$(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
+{
+	if (target != "#barcode-taginput")
+	{
+		return;
+	}
+	
+	$("#barcode-taginput").tagsManager("pushTag", barcode);
+});

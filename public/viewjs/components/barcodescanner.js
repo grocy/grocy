@@ -149,7 +149,7 @@ Quagga.onDetected(function(result)
 	if (Grocy.Components.BarcodeScanner.DecodedCodesErrorCount / Grocy.Components.BarcodeScanner.DecodedCodesCount < 0.15)
 	{
 		Grocy.Components.BarcodeScanner.StopScanning();
-		$(document).trigger("Grocy.BarcodeScanned", [result.codeResult.code]);
+		$(document).trigger("Grocy.BarcodeScanned", [result.codeResult.code, Grocy.Components.BarcodeScanner.CurrentTarget]);
 	}
 });
 
@@ -195,6 +195,8 @@ $(document).on("click", "#barcodescanner-start-button", function(e)
 		return;
 	}
 
+	Grocy.Components.BarcodeScanner.CurrentTarget = inputElement.attr("data-target");
+	
 	bootbox.dialog({
 		message: '<div id="barcodescanner-container" class="col"><div id="barcodescanner-livestream"></div></div>',
 		title: __t('Scan a barcode'),
@@ -234,11 +236,11 @@ setTimeout(function()
 	{
 		if ($(this).hasAttr("disabled"))
 		{
-			$(this).after('<a id="barcodescanner-start-button" class="btn btn-sm btn-primary text-white disabled"><i class="fas fa-camera"></i></a>');
+			$(this).after('<a id="barcodescanner-start-button" class="btn btn-sm btn-primary text-white disabled" data-target="' + $(this).attr("data-target") + '"><i class="fas fa-camera"></i></a>');
 		}
 		else
 		{
-			$(this).after('<a id="barcodescanner-start-button" class="btn btn-sm btn-primary text-white"><i class="fas fa-camera"></i></a>');
+			$(this).after('<a id="barcodescanner-start-button" class="btn btn-sm btn-primary text-white" data-target="' + $(this).attr("data-target") + '"><i class="fas fa-camera"></i></a>');
 		}
 	});
 }, 50);

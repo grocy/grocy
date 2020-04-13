@@ -8,6 +8,7 @@
 ### Stock improvements/fixes
 - When creating a new product, the "QU id stock" is now preset by the "QU id purchase" (because most of the time that's most probably the same) (thanks @Mik-)
 - Clarified the row-button colors and toolips on the stock entries page
+- Added a camera-barcode-scanning-button to the barcode(s) field on the product edit page to be able to also scan barcodes by the device camera there
 - Fixed that the aggregated parent product amount (displayed on the stock overview page and on the product card) did not respect quantity unit conversions when the parent/sub products had different stock quantity units (the unit conversion needs to be globally defined, or as an override on the sub product)
 - Fixed the conversion factor hint to display also decimal places on the purchase page (only displayed when the product has a different purchase/stock quantity unit)
 - Fixed that the stock entries page was broken when there were product userfields defined with enabled "Show as column in tables"

@@ -227,8 +227,13 @@ $('#product_id_text_input').on('blur', function(e)
 	}
 });
 
-$(document).on("Grocy.BarcodeScanned", function(e, barcode)
+$(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
 {
+	if (!(target == "@productpicker" || target == "undefined" || target == undefined)) // Default target
+	{
+		return;
+	}
+	
 	// Don't know why the blur event does not fire immediately ... this works...
 
 	Grocy.Components.ProductPicker.GetInputElement().focusout();

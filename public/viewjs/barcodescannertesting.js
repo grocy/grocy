@@ -85,7 +85,12 @@ function OnBarcodeScanned(barcode)
 	}, 200);
 }
 
-$(document).on("Grocy.BarcodeScanned", function(e, barcode)
+$(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
 {
+	if (target !== "#scanned_barcod")
+	{
+		return;
+	}
+	
 	OnBarcodeScanned(barcode);
 });
