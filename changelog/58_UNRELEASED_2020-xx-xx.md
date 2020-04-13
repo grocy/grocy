@@ -49,7 +49,7 @@
   - Various display/CSS improvements
 - Prerequisites (PHP extensions, critical files/folders) will now be checked and properly reported if there are problems (thanks @Forceu)
 - Improved the the overview pages on mobile devices (main column was hidden) (thanks @Mik-)
-- THe general search field now searches accent insensitive
+- The general search field now searches accent insensitive
 - Optimized the handling of settings provided by `data/settingoverrides` files (thanks @dacto)
 - Optimized the update script (`update.sh`) to create the backup tar archive before writing to it (was a problem on Btrfs file systems) (thanks @shane-kerr)
 - Fixed that all number inputs are always prefilled in the browser locale number format
