@@ -21,7 +21,8 @@
 - Fixed that undoing "product-opened"-actions was not possible
 - Fixed/improved consuming from the stock overview page for products with enabled tare weight handling ("consume 1" button is now disabled for such products, "consume all" works again)
 
-### Shopping list fixes
+### Shopping list improvements/fixes
+- It's now possible to collapse/expand the product group sections (by clicking on the grey group header)
 - Fixed that the "shopping list to stock workflow"-dialog was not visible in compact view
 - Fixed that when printing the shopping list configured userfields were not included
 

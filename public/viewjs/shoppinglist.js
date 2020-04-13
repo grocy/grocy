@@ -1,4 +1,6 @@
-﻿var shoppingListTable = $('#shoppinglist-table').DataTable({
+﻿var collapsedGroups = {};
+
+var shoppingListTable = $('#shoppinglist-table').DataTable({
 	'order': [[1, 'asc']],
 	"orderFixed": [[3, 'asc']],
 	'columnDefs': [
@@ -7,11 +9,33 @@
 		{ 'visible': false, 'targets': 3 }
 	],
 	'rowGroup': {
-		dataSrc: 3
+		dataSrc: 3,
+		startRender: function(rows, group)
+		{
+			var collapsed = !!collapsedGroups[group];
+			var toggleClass = collapsed ? "fa-caret-right" : "fa-caret-down";
+
+			rows.nodes().each(function(row)
+			{
+				row.style.display = collapsed ? "none" : "";
+			});
+
+			return $("<tr/>")
+				.append('<td colspan="' + rows.columns()[0].length + '">' + group + ' <span class="fa fa-fw ' + toggleClass + '"/></td>')
+				.attr("data-name", group)
+				.toggleClass("collapsed", collapsed);
+		}
 	}
 });
 $('#shoppinglist-table tbody').removeClass("d-none");
 shoppingListTable.columns.adjust().draw();
+
+$(document).on("click", "tr.dtrg-group", function()
+{
+	var name = $(this).data('name');
+	collapsedGroups[name] = !collapsedGroups[name];
+	shoppingListTable.draw();
+});
 
 $("#search").on("keyup", Delay(function()
 {
