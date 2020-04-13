@@ -8,11 +8,11 @@ Grocy.Components.BarcodeScanner.CheckCapabilities = async function()
 		capabilities = track.getCapabilities();
 	}
 	
-	// If there is only 1 camera, hide the camera select button
+	// If there is more than 1 camera, show the camera selection
 	var cameras = await Quagga.CameraAccess.enumerateVideoDevices();
-	var cameraPickerButton = document.querySelector('.cameraPicker');
-	if (cameraPickerButton) {
-		cameraPickerButton.style.display = cameras.length > 1 ? 'inline-block' : 'none';
+	var cameraSelect = document.querySelector('.cameraSelect');
+	if (cameraSelect) {
+		cameraSelect.style.display = cameras.length > 1 ? 'inline-block' : 'none';
 	}
 	
 	// Check if the camera is capable to turn on a torch.
@@ -206,9 +206,7 @@ $(document).on("click", "#barcodescanner-start-button", async function(e)
 
 	Grocy.Components.BarcodeScanner.CurrentTarget = inputElement.attr("data-target");
 	
-	var cameras = await Quagga.CameraAccess.enumerateVideoDevices();
-
-	bootbox.dialog({
+	var dialog = bootbox.dialog({
 		message: '<div id="barcodescanner-container" class="col"><div id="barcodescanner-livestream"></div></div>',
 		title: __t('Scan a barcode'),
 		onEscape: function()
@@ -219,34 +217,6 @@ $(document).on("click", "#barcodescanner-start-button", async function(e)
 		backdrop: true,
 		closeButton: true,
 		buttons: {
-			cameraPicker: {
-				label: 'Camera Picker',
-				className: 'btn-secondary responsive-button cameraPicker',
-				// When clicking the camera picker button, open a second prompt and populate it with a list of cameras to choose from
-				callback: function()
-				{
-					bootbox.prompt({
-						title: "Pick a camera",
-						inputType: 'select',
-						value: window.localStorage.getItem('cameraId'),
-						inputOptions: cameras.map(camera => {
-							const cameraSelect = {};
-							cameraSelect.text = camera.label ? camera.label : camera.deviceId; // Use camera label if it exists, else show device id
-							cameraSelect.value = camera.deviceId;
-							return cameraSelect;
-						}),
-						// When new camera is picked, re-initialise scanning so it picks up the new camera choice
-						callback: function (result) {
-							if ( result ) {
-								window.localStorage.setItem('cameraId', result);
-								Quagga.stop();
-								Grocy.Components.BarcodeScanner.StartScanning();
-							}
-						}
-					});
-					return false;
-				}
-			},		
 			torch: {
 				label: '<i class="far fa-lightbulb"></i>',
 				className: 'btn-warning responsive-button torch',
@@ -258,7 +228,7 @@ $(document).on("click", "#barcodescanner-start-button", async function(e)
 			},			
 			cancel: {
 				label: __t('Cancel'),
-				className: 'btn-danger responsive-button',
+				className: 'btn-secondary responsive-button',
 				callback: function()
 				{
 					Grocy.Components.BarcodeScanner.StopScanning();
@@ -266,6 +236,28 @@ $(document).on("click", "#barcodescanner-start-button", async function(e)
 			}
 		}
 	});
+	
+	// Add camera select to existing dialog
+	dialog.find('.bootbox-body').append('<select class="form-control cameraSelect" style="display: none">  </select>');
+	var cameraSelect = document.querySelector('.cameraSelect');
+	
+	var cameras = await Quagga.CameraAccess.enumerateVideoDevices();
+	cameras.forEach(camera => {
+		var option = document.createElement("option");
+		option.text = camera.label ? camera.label : camera.deviceId; // Use camera label if it exists, else show device id
+		option.value = camera.deviceId;
+		cameraSelect.appendChild(option);
+	});
+
+	// Set initial value to preferred camera if one exists - and if not, start out empty
+	cameraSelect.value = window.localStorage.getItem('cameraId');
+
+	cameraSelect.onchange = function(){
+		window.localStorage.setItem('cameraId', cameraSelect.value);
+		Quagga.stop();
+		Grocy.Components.BarcodeScanner.StartScanning();
+	};
+    
 	Grocy.Components.BarcodeScanner.StartScanning();
 });
 
