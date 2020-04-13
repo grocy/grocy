@@ -41,10 +41,11 @@
 ### General & other improvements/fixes
 - Optimized that sometimes the corresponding form was not validated when selecting a date from the datetimepicker
 - New `config.php` setting `FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_FIELD_NUMBER_PAD` which activates the number pad for best-before-date fields on (supported) mobile browsers (useful because of [shorthands](https://github.com/grocy/grocy#input-shorthands-for-date-fields)) (defaults to `true`) (thanks @Mik-)
-- Enhancements for the camera barcode scanner (thanks @Mik- for the work on improving the torch capabilities)
+- Enhancements for the camera barcode scanner (thanks @Mik- for the work on improving the torch capabilities & CSS)
   - Replaced [QuaggaJS](https://github.com/serratus/quaggaJS) (seems to be unmaintained) by [Quagga2](https://github.com/ericblade/quagga2)
   - The light button only displayed when the device has a flash light
   - New `config.php` setting `FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA` to always enable the flash light automatically
+  - New user setting `quagga2_numofworkers` (`config.php`) to make the Quagga2 setting "numOfWorkers" adjustable (defaults to `4`)
   - Various display/CSS improvements
 - Prerequisites (PHP extensions, critical files/folders) will now be checked and properly reported if there are problems (thanks @Forceu)
 - Improved the the overview pages on mobile devices (main column was hidden) (thanks @Mik-)

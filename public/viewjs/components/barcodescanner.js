@@ -69,7 +69,7 @@ Grocy.Components.BarcodeScanner.StartScanning = function()
 				}
 			}
 		},
-		numOfWorkers: 2,
+		numOfWorkers: Grocy.UserSettings.quagga2_numofworkers,
 		frequency: 10,
 		decoder: {
 			readers: [

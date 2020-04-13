@@ -125,6 +125,9 @@ DefaultUserSetting('auto_reload_on_db_change', true);
 # Show a clock in the header next to the logo or not
 DefaultUserSetting('show_clock_in_header', false);
 
+# Component configuration
+DefaultUserSetting('quagga2_numofworkers', 4);
+
 
 # Feature flags
 # grocy was initially about "stock management for your household", many other things
