@@ -78,7 +78,4 @@ if (!empty(GROCY_BASE_PATH))
 $app->addRoutingMiddleware();
 $app->addErrorMiddleware(true, false, false);
 
-// Cache "compiled" routes
-$app->getRouteCollector()->setCacheFile(__DIR__ . '/routes-compiled.php');
-
 $app->run();
