@@ -24,7 +24,7 @@
 		"datatables.net-select-bs4": "^1.3.0",
 		"fullcalendar": "^3.10.1",
 		"gettext-translator": "2.1.0",
-		"jquery": "^3.5.0",
+		"jquery": "3.4.1",
 		"jquery-lazy": "^1.7.10",
 		"jquery-serializejson": "^2.9.0",
 		"moment": "^2.24.0",
