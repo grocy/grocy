@@ -88,6 +88,9 @@ msgstr "Dati batterie"
 msgid "Locations"
 msgstr "Posizioni"
 
+msgid "Stores"
+msgstr "Negozi"
+
 msgid "Quantity units"
 msgstr "Unità di misura"
 
@@ -226,6 +229,9 @@ msgstr "Fattore di conversione tra unità di acquisto e di dispensa"
 msgid "Create location"
 msgstr "Aggiungi posizione"
 
+msgid "Create store"
+msgstr "Crea negozio"
+
 msgid "Create quantity unit"
 msgstr "Aggiungi unità di misura"
 
@@ -258,6 +264,9 @@ msgstr "Modifica prodotto"
 
 msgid "Edit location"
 msgstr "Modifica posizione"
+
+msgid "Edit store"
+msgstr "Modifica negozio"
 
 msgid "Record data"
 msgstr "Registra dati"
@@ -335,6 +344,9 @@ msgstr "Sei sicuro di voler eliminare il prodotto \"%s\"?"
 
 msgid "Are you sure to delete location \"%s\"?"
 msgstr "Sei sicuro di voler eliminare la posizione \"%s\"?"
+
+msgid "Are you sure to delete store \"%s\"?"
+msgstr "Sei sicuro di voler eliminare il negozio \"%s\"?"
 
 msgid "Manage API keys"
 msgstr "Gestisci le chiavi API"
@@ -1118,6 +1130,9 @@ msgstr ""
 msgid "You have to select a location"
 msgstr "Devi selezionare una posizione"
 
+msgid "You have to select a store"
+msgstr "Devi selezionare un negozio"
+
 msgid "List"
 msgstr "Elenco"
 
@@ -1151,7 +1166,7 @@ msgstr "Informazioni di sistema"
 msgid "Changelog"
 msgstr "Registro delle modifiche"
 
-msgid "will be multiplied a factor of %1$s to get %2$s"
+msgid "will be multiplied by a factor of %1$s to get %2$s"
 msgstr "verrà moltiplicato per un fattore di %1$s per ottenere %2$s"
 
 msgid "The given date is earlier than today, are you sure?"
@@ -1344,7 +1359,7 @@ msgid "Meal plan"
 msgstr "Piano dei pasti"
 
 msgid "Add recipe on %s"
-msgstr ""
+msgstr "Aggiungi ricetta a %s"
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1799,6 +1814,8 @@ msgid ""
 "Camera access is only possible when supported and allowed by your browser "
 "and when grocy is served via a secure (https://) connection"
 msgstr ""
+"L'accesso alla videocamera è possibile solo se supportato e consentito dal "
+"browser e quando grocy è connesso tramite una connessione sicura (https://)"
 
 msgid "Keep screen on"
 msgstr "Mantieni lo schermo acceso"
@@ -1834,7 +1851,7 @@ msgid "Add note"
 msgstr "Aggiungi nota"
 
 msgid "Add note on %s"
-msgstr ""
+msgstr "Aggiungi nota a %s"
 
 msgid "per day"
 msgstr "al giorno"
@@ -1852,7 +1869,7 @@ msgid "Add product"
 msgstr "Aggiungi prodotto"
 
 msgid "Add product on %s"
-msgstr ""
+msgstr "Aggiungi prodotto a %s"
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
 msgstr ""
@@ -1926,37 +1943,69 @@ msgid "Frozen"
 msgstr "Congelato"
 
 msgid "Are you sure to delete userentity \"%s\"?"
-msgstr ""
+msgstr "Sei sicuro di voler eliminare l'entità utente \"%s\"?"
 
 msgid "Shopping list settings"
-msgstr ""
+msgstr "Impostazioni Lista della Spesa"
 
 msgid "Show a month-view calendar"
-msgstr ""
+msgstr "Mostra un calendario con vista mensile"
 
 msgid "Don't automatically switch to the compact view on mobile devices"
 msgstr ""
+"Non passare automaticamente alla visualizzazione compatta sui dispositivi "
+"mobili"
 
 msgid "Edit note on %s"
-msgstr ""
+msgstr "Modifica nota a %s"
 
 msgid "Edit product on %s"
-msgstr ""
+msgstr "Modifica prodotto a %s"
 
 msgid "Edit recipe on %s"
-msgstr ""
+msgstr "Modifica ricetta a %s"
 
 msgid "Desired servings"
-msgstr ""
+msgstr "Porzioni desiderate"
 
 msgid "Base: %s"
-msgstr ""
+msgstr "Base: %s"
 
 msgid "Recipes settings"
-msgstr ""
+msgstr "Impostazioni Ricette"
 
 msgid "Recipe card"
-msgstr ""
+msgstr "Scheda ricetta"
 
 msgid "Group ingredients by their product group"
-msgstr ""
+msgstr "Raggruppa gli ingredienti per il loro gruppo di prodotti"
+
+msgid "Unknown store"
+msgstr "Negozio sconosciuto"
+
+msgid "Store"
+msgstr "Negozio"
+
+msgid "Transaction successfully undone"
+msgstr "Transazione annullata correttamente"
+
+msgid "Default store"
+msgstr "Negozio predefinito"
+
+msgid "Consume this stock entry"
+msgstr "Consuma questa voce di dispensa"
+
+msgid "Mark this stock entry as open"
+msgstr "Segna questa voce di dispensa come aperta"
+
+msgid "Mark this item as done"
+msgstr "Segna questo elemento come fatto"
+
+msgid "Edit this item"
+msgstr "Modifica questo elemento"
+
+msgid "Delete this item"
+msgstr "Elimina questo elemento"
+
+msgid "Show an icon if the product is already on the shopping list"
+msgstr "Mostra un'icona se il prodotto è già nella lista della spesa"

@@ -1,6 +1,7 @@
 # Translators:
-# Pavel Pletenev <cpp.create@gmail.com>, 2019
 # cool guy <eut53770@bcaoo.com>, 2019
+# Maksim Moiseikin <m.moiseikin@gmail.com>, 2020
+# Pavel Pletenev <cpp.create@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -8,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: cool guy <eut53770@bcaoo.com>, 2019\n"
+"Last-Translator: Pavel Pletenev <cpp.create@gmail.com>, 2020\n"
 "Language-Team: Russian (https://www.transifex.com/grocy/teams/93189/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -165,7 +166,7 @@ msgid "Sandwiches"
 msgstr "Сэндвичи"
 
 msgid "English"
-msgstr "Английски"
+msgstr "Английский"
 
 msgid "German"
 msgstr "Немецкий"
@@ -347,22 +348,36 @@ msgid "not yet released"
 msgstr "Пока не выпущено"
 
 msgid "Portuguese (Brazil)"
-msgstr ""
+msgstr "Португальский (Бразилия)"
 
 msgid "This is a note"
-msgstr ""
+msgstr "Это заметка"
 
 msgid "Freezer"
-msgstr ""
+msgstr "Морозилка"
 
 msgid "Hungarian"
-msgstr ""
+msgstr "Венгерский"
 
 msgid "Slovak"
-msgstr ""
+msgstr "Словацкий"
 
 msgid "Czech"
-msgstr ""
+msgstr "Чешский"
 
 msgid "Portuguese (Portugal)"
-msgstr ""
+msgstr "Португальский (Португалия)"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket1"
+msgstr "ДемоСупермаркет1"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket2"
+msgstr "ДемоСупермаркет2"
+
+msgid "Japanese"
+msgstr "Японский"
+
+msgid "Chinese (Taiwan)"
+msgstr "Китайский (Тайвань)"

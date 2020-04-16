@@ -87,6 +87,9 @@ msgstr "Monitoramento de Bateria"
 msgid "Locations"
 msgstr "Localizações"
 
+msgid "Stores"
+msgstr ""
+
 msgid "Quantity units"
 msgstr "Unidades de medida"
 
@@ -224,6 +227,9 @@ msgstr "Fator de unidade de compra e estoque"
 msgid "Create location"
 msgstr "Criar Localização"
 
+msgid "Create store"
+msgstr ""
+
 msgid "Create quantity unit"
 msgstr "Criar unidade de medida"
 
@@ -256,6 +262,9 @@ msgstr "Editar produto"
 
 msgid "Edit location"
 msgstr "Editar localização"
+
+msgid "Edit store"
+msgstr ""
 
 msgid "Record data"
 msgstr "Gravar dados"
@@ -334,6 +343,9 @@ msgstr "Tem certeza que quer apagar este produto \"%s\"?"
 
 msgid "Are you sure to delete location \"%s\"?"
 msgstr "Tem certeza que quer apagar este local \"%s\"?"
+
+msgid "Are you sure to delete store \"%s\"?"
+msgstr ""
 
 msgid "Manage API keys"
 msgstr "Organizar Chaves do API"
@@ -1107,6 +1119,9 @@ msgstr ""
 msgid "You have to select a location"
 msgstr "Você precisa selecionar uma localização"
 
+msgid "You have to select a store"
+msgstr ""
+
 msgid "List"
 msgstr "Lista"
 
@@ -1140,8 +1155,8 @@ msgstr "Informações do sistema"
 msgid "Changelog"
 msgstr "Log de alterações"
 
-msgid "will be multiplied a factor of %1$s to get %2$s"
-msgstr "será multiplicado um fator de %1$s para obter %2$s"
+msgid "will be multiplied by a factor of %1$s to get %2$s"
+msgstr ""
 
 msgid "The given date is earlier than today, are you sure?"
 msgstr "Você tem certeza que a data especificada é anterior a data de hoje?"
@@ -1926,4 +1941,34 @@ msgid "Recipe card"
 msgstr ""
 
 msgid "Group ingredients by their product group"
+msgstr ""
+
+msgid "Unknown store"
+msgstr ""
+
+msgid "Store"
+msgstr ""
+
+msgid "Transaction successfully undone"
+msgstr ""
+
+msgid "Default store"
+msgstr ""
+
+msgid "Consume this stock entry"
+msgstr ""
+
+msgid "Mark this stock entry as open"
+msgstr ""
+
+msgid "Mark this item as done"
+msgstr ""
+
+msgid "Edit this item"
+msgstr ""
+
+msgid "Delete this item"
+msgstr ""
+
+msgid "Show an icon if the product is already on the shopping list"
 msgstr ""

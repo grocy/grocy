@@ -94,6 +94,9 @@ msgstr "Záznam stavu batérií"
 msgid "Locations"
 msgstr "Umiestnenia"
 
+msgid "Stores"
+msgstr ""
+
 msgid "Quantity units"
 msgstr "Merné jednotky"
 
@@ -230,6 +233,9 @@ msgstr "Faktor množstva jednotiek zásoby pri nákupe jedného kusu výrobku"
 msgid "Create location"
 msgstr "Vytvoriť umiestnenie"
 
+msgid "Create store"
+msgstr ""
+
 msgid "Create quantity unit"
 msgstr "Vytvoriť mernú jednotku"
 
@@ -262,6 +268,9 @@ msgstr "Upraviť výrobok"
 
 msgid "Edit location"
 msgstr "Upraviť umiestnenie"
+
+msgid "Edit store"
+msgstr ""
 
 msgid "Record data"
 msgstr "Zaznamenať údaje"
@@ -338,6 +347,9 @@ msgstr "Naozaj si prajete odstrániť výrobok \"%s\"?"
 
 msgid "Are you sure to delete location \"%s\"?"
 msgstr "Naozaj si prajete odstrániť umiestnenie \"%s\"?"
+
+msgid "Are you sure to delete store \"%s\"?"
+msgstr ""
 
 msgid "Manage API keys"
 msgstr "Spravovať API kľúče"
@@ -1127,6 +1139,9 @@ msgstr ""
 msgid "You have to select a location"
 msgstr "Musíte vybrať umiestnenie"
 
+msgid "You have to select a store"
+msgstr ""
+
 msgid "List"
 msgstr "Zoznam"
 
@@ -1160,8 +1175,8 @@ msgstr "Systémové informácie"
 msgid "Changelog"
 msgstr "Zoznam zmien"
 
-msgid "will be multiplied a factor of %1$s to get %2$s"
-msgstr "bude vynásobený faktorom %1$s, aby bolo dosiahnuté %2$s"
+msgid "will be multiplied by a factor of %1$s to get %2$s"
+msgstr ""
 
 msgid "The given date is earlier than today, are you sure?"
 msgstr "Zadaný dátum je v minulosti, ste si istý?"
@@ -1962,3 +1977,33 @@ msgstr "Karta s receptom"
 
 msgid "Group ingredients by their product group"
 msgstr "Zoskupiť ingrediencie podľa skupiny výrobkov"
+
+msgid "Unknown store"
+msgstr ""
+
+msgid "Store"
+msgstr ""
+
+msgid "Transaction successfully undone"
+msgstr ""
+
+msgid "Default store"
+msgstr ""
+
+msgid "Consume this stock entry"
+msgstr ""
+
+msgid "Mark this stock entry as open"
+msgstr ""
+
+msgid "Mark this item as done"
+msgstr ""
+
+msgid "Edit this item"
+msgstr ""
+
+msgid "Delete this item"
+msgstr ""
+
+msgid "Show an icon if the product is already on the shopping list"
+msgstr ""

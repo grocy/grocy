@@ -1,5 +1,5 @@
 # Translators:
-# H T <github@fvbor.de>, 2020
+# Hagen Tasche <github@fvbor.de>, 2020
 # Bernd Bestel <bernd@berrnd.de>, 2020
 # 
 msgid ""
@@ -83,6 +83,9 @@ msgstr "Batterie-Ladezyklus"
 
 msgid "Locations"
 msgstr "Standorte"
+
+msgid "Stores"
+msgstr "Geschäfte"
 
 msgid "Quantity units"
 msgstr "Mengeneinheiten"
@@ -222,6 +225,9 @@ msgstr "Faktor Mengeneinheit Einkauf zu Mengeneinheit Bestand"
 msgid "Create location"
 msgstr "Standort erstellen"
 
+msgid "Create store"
+msgstr "Geschäft erstellen"
+
 msgid "Create quantity unit"
 msgstr "Mengeneinheit erstellen"
 
@@ -254,6 +260,9 @@ msgstr "Produkt bearbeiten"
 
 msgid "Edit location"
 msgstr "Standort bearbeiten"
+
+msgid "Edit store"
+msgstr "Geschäft bearbeiten"
 
 msgid "Record data"
 msgstr "Daten erfassen"
@@ -330,6 +339,9 @@ msgstr "Produkt \"%s\" wirklich löschen?"
 
 msgid "Are you sure to delete location \"%s\"?"
 msgstr "Standort \"%s\" wirklich löschen?"
+
+msgid "Are you sure to delete store \"%s\"?"
+msgstr "Geschäft \"%s\" wirklich löschen?"
 
 msgid "Manage API keys"
 msgstr "API-Keys verwalten"
@@ -1116,6 +1128,9 @@ msgstr ""
 msgid "You have to select a location"
 msgstr "Ein Standort muss ausgewählt werden"
 
+msgid "You have to select a store"
+msgstr "Ein Geschäft muss ausgewählt werden"
+
 msgid "List"
 msgstr "Liste"
 
@@ -1149,7 +1164,7 @@ msgstr "Systeminformationen"
 msgid "Changelog"
 msgstr "Änderungsprotokoll"
 
-msgid "will be multiplied a factor of %1$s to get %2$s"
+msgid "will be multiplied by a factor of %1$s to get %2$s"
 msgstr "wird mit dem Faktor %1$s multipliziert um %2$s zu erhalten"
 
 msgid "The given date is earlier than today, are you sure?"
@@ -1957,3 +1972,34 @@ msgstr "Rezept-Karte"
 
 msgid "Group ingredients by their product group"
 msgstr "Zutaten nach Produktgruppen gruppieren"
+
+msgid "Unknown store"
+msgstr "Unbekanntes Geschäft"
+
+msgid "Store"
+msgstr "Geschäft"
+
+msgid "Transaction successfully undone"
+msgstr "Transaktion erfolgreich rückgängig gemacht"
+
+msgid "Default store"
+msgstr "Standard Geschäft"
+
+msgid "Consume this stock entry"
+msgstr "Verbrauche diesen Bestandseintrag"
+
+msgid "Mark this stock entry as open"
+msgstr "Diesen Bestandseintrag als geöffnet markieren"
+
+msgid "Mark this item as done"
+msgstr "Diesen Eintrag als erledigt markieren"
+
+msgid "Edit this item"
+msgstr "Diesen Eintrag löschen"
+
+msgid "Delete this item"
+msgstr "Diesen Eintrag bearbeiten"
+
+msgid "Show an icon if the product is already on the shopping list"
+msgstr ""
+"Ein Symbol anzeigen, wenn das Produkt bereits auf dem Einkaufszettel steht"

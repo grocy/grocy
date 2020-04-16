@@ -349,3 +349,17 @@ msgstr "Tschechisch"
 
 msgid "Portuguese (Portugal)"
 msgstr "Portugiesisch (Portugal)"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket1"
+msgstr "Aldi"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket2"
+msgstr "Rewe"
+
+msgid "Japanese"
+msgstr "Japanisch"
+
+msgid "Chinese (Taiwan)"
+msgstr "Chinesisch (Taiwan)"

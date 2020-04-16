@@ -354,7 +354,21 @@ msgid "Slovak"
 msgstr "Slovaaks"
 
 msgid "Czech"
-msgstr ""
+msgstr "Tsjechisch"
 
 msgid "Portuguese (Portugal)"
+msgstr "Portugees (Portugal)"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket1"
+msgstr ""
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket2"
+msgstr ""
+
+msgid "Japanese"
+msgstr ""
+
+msgid "Chinese (Taiwan)"
 msgstr ""

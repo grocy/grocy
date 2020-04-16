@@ -5,6 +5,8 @@
 # Antonin DESFONTAINES <antonin.desfontaines@outlook.com>, 2019
 # Zkryvix <angelo.frangione@gmail.com>, 2020
 # Laurent Mox <laurent@laurent.sh>, 2020
+# Nicolas Moisson <nicolas.moisson@protonmail.com>, 2020
+# Nikola Kotur <nikola.kotur@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -12,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Laurent Mox <laurent@laurent.sh>, 2020\n"
+"Last-Translator: Nikola Kotur <nikola.kotur@gmail.com>, 2020\n"
 "Language-Team: French (https://www.transifex.com/grocy/teams/93189/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -352,7 +354,21 @@ msgid "Slovak"
 msgstr "Slovaque"
 
 msgid "Czech"
-msgstr ""
+msgstr "Tchèque"
 
 msgid "Portuguese (Portugal)"
-msgstr ""
+msgstr "Portugais (Portugal)"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket1"
+msgstr "DemoSupermarché1"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket2"
+msgstr "DemoSupermarché2"
+
+msgid "Japanese"
+msgstr "Japonais"
+
+msgid "Chinese (Taiwan)"
+msgstr "Chinois (Taïwan)"

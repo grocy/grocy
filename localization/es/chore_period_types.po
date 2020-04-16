@@ -1,6 +1,5 @@
 # Translators:
-# Bernd Bestel <bernd@berrnd.de>, 2019
-# Igor Perez <igordiablo@hotmail.com>, 2020
+# Jose Rugel <joserugel@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -8,7 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Igor Perez <igordiablo@hotmail.com>, 2020\n"
+"Last-Translator: Jose Rugel <joserugel@gmail.com>, 2020\n"
 "Language-Team: Spanish (https://www.transifex.com/grocy/teams/93189/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,19 +17,19 @@ msgstr ""
 "X-Domain: grocy/chore_types\n"
 
 msgid "manually"
-msgstr "Manualmente"
+msgstr "manualmente"
 
 msgid "dynamic-regular"
-msgstr "Dinámico regular"
+msgstr "dinamico-regular"
 
 msgid "daily"
-msgstr "Diario"
+msgstr "diariamente"
 
 msgid "weekly"
-msgstr "Semanal"
+msgstr "semanalmente"
 
 msgid "monthly"
-msgstr "Mensual"
+msgstr "mensualmente"
 
 msgid "yearly"
-msgstr "Anual"
+msgstr "Anualmente"

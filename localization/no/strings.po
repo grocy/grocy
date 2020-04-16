@@ -85,6 +85,9 @@ msgstr "Batteriregistrering"
 msgid "Locations"
 msgstr "Lokasjoner"
 
+msgid "Stores"
+msgstr ""
+
 msgid "Quantity units"
 msgstr "Forpakning"
 
@@ -207,7 +210,7 @@ msgid "Minimum stock amount"
 msgstr "Minimumsbeholdning"
 
 msgid "Default best before days"
-msgstr "Standard for antall dager best før"
+msgstr "Forhåndsatt antall dager best før"
 
 msgid "Quantity unit purchase"
 msgstr "Forpakning kjøpt"
@@ -220,6 +223,9 @@ msgstr "Innkjøpsfaktor for forpakning"
 
 msgid "Create location"
 msgstr "Opprett lokasjon"
+
+msgid "Create store"
+msgstr ""
 
 msgid "Create quantity unit"
 msgstr "Opprett forpakning"
@@ -253,6 +259,9 @@ msgstr "Endre produkt"
 
 msgid "Edit location"
 msgstr "Endre lokasjon"
+
+msgid "Edit store"
+msgstr ""
 
 msgid "Record data"
 msgstr "Logg handlinger"
@@ -328,6 +337,9 @@ msgstr "Er du sikker du ønsker å slette produkt \"%s\"?"
 
 msgid "Are you sure to delete location \"%s\"?"
 msgstr "Er du sikker du ønsker å slette lokasjon \"%s\"?"
+
+msgid "Are you sure to delete store \"%s\"?"
+msgstr ""
 
 msgid "Manage API keys"
 msgstr "Administrer API-Keys"
@@ -867,7 +879,7 @@ msgid "Filter by product group"
 msgstr "Filtrér etter produktgruppe"
 
 msgid "Presets for new products"
-msgstr "Standard for nye produkter"
+msgstr "Forhåndsatt for nye produkter"
 
 msgid "Included recipes"
 msgstr "Inkludert oppskrift"
@@ -968,7 +980,7 @@ msgstr ""
 "dato + antall dager under"
 
 msgid "Default best before days after opened"
-msgstr "Standard best før dager etter åpnet"
+msgstr "Forhåndsatt best før dager etter åpnet"
 
 msgid "Marked %1$s of %2$s as opened"
 msgstr "Merket %1$s av %2$s som åpnet"
@@ -1011,7 +1023,7 @@ msgid ""
 "shopping list item, if the product has \"Default best before days\" set"
 msgstr ""
 "Legg produkter automatisk til fra handlelisten. Dette vil bruke siste brukte"
-" innkjøpspris og forutsetter at \"Standard for antall dager best før\" er "
+" innkjøpspris og forutsetter at \"Forhåndsatt antall dager best før\" er "
 "satt"
 
 msgid "Skip"
@@ -1098,6 +1110,9 @@ msgstr ""
 msgid "You have to select a location"
 msgstr "Du må velge en lokasjon"
 
+msgid "You have to select a store"
+msgstr ""
+
 msgid "List"
 msgstr "Liste"
 
@@ -1131,8 +1146,8 @@ msgstr "System info"
 msgid "Changelog"
 msgstr "Change Log"
 
-msgid "will be multiplied a factor of %1$s to get %2$s"
-msgstr "Vil bli ganget med %1$s for å få %2$s"
+msgid "will be multiplied by a factor of %1$s to get %2$s"
+msgstr ""
 
 msgid "The given date is earlier than today, are you sure?"
 msgstr ""
@@ -1151,7 +1166,7 @@ msgid ""
 "This will be used as the default setting when adding this product as a "
 "recipe ingredient"
 msgstr ""
-"Dette vil bli brukt som standard innstilling når dette produktet blir brukt "
+"Dette vil bli brukt som forhåndsinnstilling når dette produktet blir brukt "
 "som ingrediens i en oppskrift"
 
 msgid "Add item"
@@ -1323,7 +1338,7 @@ msgid "Meal plan"
 msgstr "Middagsplanlegger"
 
 msgid "Add recipe on %s"
-msgstr ""
+msgstr "Legg oppskrift til %s"
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1653,7 +1668,7 @@ msgid "Display recipe"
 msgstr "Vis oppskrift"
 
 msgid "Accumulate sub products min. stock amount"
-msgstr "Akkumulert underprodukter minimum beholdningsnivå"
+msgstr "Akkumuler underordnede produkter i minimum beholdningsnivå"
 
 msgid ""
 "If enabled, the min. stock amount of sub products will be accumulated into "
@@ -1661,8 +1676,8 @@ msgid ""
 "product"
 msgstr ""
 "Hvis aktivert vil minimum beholdningsnivå av under produkter bli akkumulert "
-"inn i dette produktet. Dette betyr at under produktet aldri vil \"mangle\", "
-"kunne dette produktet."
+"inn i dette produktet. Dette betyr at underordnede produktet aldri vil "
+"\"mangle\", kunne dette produktet."
 
 msgid "Are you sure to remove this conversion?"
 msgstr "Er du sikker på at du ønsker å fjerne denne konverteringen?"
@@ -1680,7 +1695,7 @@ msgid "Unlimited"
 msgstr "Evig"
 
 msgid "Clear"
-msgstr "Tøm"
+msgstr "Slett"
 
 msgid "Are you sure to remove the included recipe \"%s\"?"
 msgstr "Er du sikker du ønsker å slette den inkluderte oppskriften \"%s\"?"
@@ -1769,6 +1784,8 @@ msgid ""
 "Camera access is only possible when supported and allowed by your browser "
 "and when grocy is served via a secure (https://) connection"
 msgstr ""
+"Tilgang til kamera er kun mulig når det er støttet og når nettleseren din "
+"tillater det og når grocy kjøres gjennom en sikker tilkobling (https://)"
 
 msgid "Keep screen on"
 msgstr "Skjerm alltid på"
@@ -1802,7 +1819,7 @@ msgid "Add note"
 msgstr "Legg til notat"
 
 msgid "Add note on %s"
-msgstr ""
+msgstr "Legg notat til %s"
 
 msgid "per day"
 msgstr "per dag"
@@ -1820,7 +1837,7 @@ msgid "Add product"
 msgstr "Legg til produkt"
 
 msgid "Add product on %s"
-msgstr ""
+msgstr "Legg produkt til %s"
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
 msgstr ""
@@ -1867,7 +1884,7 @@ msgstr ""
 "fryses), endres best før datoen fra i dag + antall dager under"
 
 msgid "Default best before days after freezing"
-msgstr "Standard best før dager etter frysing"
+msgstr "Forhåndssatt best før dager etter frysing"
 
 msgid ""
 "On moving this product from a freezer location (so when thawing it), the "
@@ -1877,7 +1894,7 @@ msgstr ""
 "tines), endres best før datoen fra i dag + antall dager under"
 
 msgid "Default best before days after thawing"
-msgstr "Standard best før dager etter tining"
+msgstr "Forhåndsatt best før dager etter tining"
 
 msgid "This cannot be the same as the \"From\" location"
 msgstr "Dette kan ikke være det som \"Fra\" lokasjonen"
@@ -1892,34 +1909,64 @@ msgid "Are you sure to delete userentity \"%s\"?"
 msgstr "Er du sikker på at du ønsker slette userentity \"%s\"?"
 
 msgid "Shopping list settings"
-msgstr ""
+msgstr "Handleliste - innstillinger"
 
 msgid "Show a month-view calendar"
-msgstr ""
+msgstr "Vis månedsoverblikk for kalenderen "
 
 msgid "Don't automatically switch to the compact view on mobile devices"
-msgstr ""
+msgstr "Ikke bytt til kompakt visning automatisk når du er på en mobil enhet"
 
 msgid "Edit note on %s"
-msgstr ""
+msgstr "Endre notat for den %s"
 
 msgid "Edit product on %s"
-msgstr ""
+msgstr "Endre produkt for den %s"
 
 msgid "Edit recipe on %s"
-msgstr ""
+msgstr "Endre produkt for den %s"
 
 msgid "Desired servings"
-msgstr ""
+msgstr "Ønskede porsjoner"
 
 msgid "Base: %s"
-msgstr ""
+msgstr "Base: %s"
 
 msgid "Recipes settings"
-msgstr ""
+msgstr "Opprkifter - innstillinger"
 
 msgid "Recipe card"
-msgstr ""
+msgstr "Oppskrift kort"
 
 msgid "Group ingredients by their product group"
+msgstr "Gruppér ingredienser ut fra deres produktgruppe"
+
+msgid "Unknown store"
+msgstr ""
+
+msgid "Store"
+msgstr ""
+
+msgid "Transaction successfully undone"
+msgstr ""
+
+msgid "Default store"
+msgstr ""
+
+msgid "Consume this stock entry"
+msgstr ""
+
+msgid "Mark this stock entry as open"
+msgstr ""
+
+msgid "Mark this item as done"
+msgstr ""
+
+msgid "Edit this item"
+msgstr ""
+
+msgid "Delete this item"
+msgstr ""
+
+msgid "Show an icon if the product is already on the shopping list"
 msgstr ""

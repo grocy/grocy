@@ -3,8 +3,8 @@
 # Ádám Kovács <kovacsadam07@outlook.hu>, 2019
 # Peter Gyetvai <gyetpet@gmail.com>, 2020
 # Gábor Szellő <gabor.szello@gmail.com>, 2020
-# Gabor Pilsits <gabor.pilsits@gmail.com>, 2020
 # b i <balazs.izso@gesundheitscloud.de>, 2020
+# Gabor Pilsits <gabor.pilsits@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -12,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: b i <balazs.izso@gesundheitscloud.de>, 2020\n"
+"Last-Translator: Gabor Pilsits <gabor.pilsits@gmail.com>, 2020\n"
 "Language-Team: Hungarian (https://www.transifex.com/grocy/teams/93189/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -87,6 +87,9 @@ msgstr "Elemek követése"
 
 msgid "Locations"
 msgstr "Helyek"
+
+msgid "Stores"
+msgstr "Boltok"
 
 msgid "Quantity units"
 msgstr "Mennyiségi egységek"
@@ -226,6 +229,9 @@ msgstr "Vásárlás beszámítása a készlet mennyiségi egységbe"
 msgid "Create location"
 msgstr "Hely létrehozása"
 
+msgid "Create store"
+msgstr "Áruház hozzáadása"
+
 msgid "Create quantity unit"
 msgstr "Mennyiségi egység létrehozása"
 
@@ -258,6 +264,9 @@ msgstr "Termék szerkesztése"
 
 msgid "Edit location"
 msgstr "Hely szerkesztése"
+
+msgid "Edit store"
+msgstr "Áruház szerkesztése"
 
 msgid "Record data"
 msgstr "Adat rögzítése"
@@ -334,6 +343,9 @@ msgstr "Biztosan törölni szeretnéd a következő terméket: \"%s\"?"
 
 msgid "Are you sure to delete location \"%s\"?"
 msgstr "Biztosan törölni szeretnéd a következő helyet: \"%s\"?"
+
+msgid "Are you sure to delete store \"%s\"?"
+msgstr "Biztos benne, hogy törli a \"%s\" áruházat? "
 
 msgid "Manage API keys"
 msgstr "API kulcsok kezelése"
@@ -625,8 +637,8 @@ msgstr[1] "%s Egység"
 
 msgid "%s chore is due to be done"
 msgid_plural "%s chores are due to be done"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%sházimunkát(kat) kell elvégezni"
+msgstr[1] "%sházimunkát(kat) kell elvégezni"
 
 msgid "%s chore is overdue to be done"
 msgid_plural "%s chores are overdue to be done"
@@ -724,8 +736,8 @@ msgstr "Biztosan törölni szeretnéd a következő feladatot: \"%s\"?"
 
 msgid "%s task is due to be done"
 msgid_plural "%s tasks are due to be done"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s feladatot(okat) kell elvégezni"
+msgstr[1] "%sfeladatot(okat) kell elvégezni"
 
 msgid "%s task is overdue to be done"
 msgid_plural "%s tasks are overdue to be done"
@@ -947,6 +959,7 @@ msgstr "Nem lehet negatív, és egész szám megadása szükséges"
 
 msgid "Disable stock fulfillment checking for this ingredient"
 msgstr ""
+"Készlet rendelkezésre állás ellenőrzés kikapcsolása ehhez a hozzávalóhoz"
 
 msgid "Add all list items to stock"
 msgstr "Összes listaelem hozzáadása készlethez"
@@ -1093,6 +1106,9 @@ msgstr ""
 msgid "You have to select a location"
 msgstr "Ki kell választanod egy helyet"
 
+msgid "You have to select a store"
+msgstr "Ki kell választanod egy áruházat"
+
 msgid "List"
 msgstr "Lista"
 
@@ -1126,7 +1142,7 @@ msgstr "Rendszerinformáció"
 msgid "Changelog"
 msgstr "Változásnapló"
 
-msgid "will be multiplied a factor of %1$s to get %2$s"
+msgid "will be multiplied by a factor of %1$s to get %2$s"
 msgstr ""
 
 msgid "The given date is earlier than today, are you sure?"
@@ -1188,7 +1204,7 @@ msgid "The amount must be between %1$s and %2$s"
 msgstr "A mennyiség %1$s és %2$s között kell lennie"
 
 msgid "Day of month"
-msgstr ""
+msgstr "Hónap napja"
 
 msgid "Monday"
 msgstr "Hétfő"
@@ -1754,7 +1770,7 @@ msgid "Add note"
 msgstr "Jegyzet hozzáadása"
 
 msgid "Add note on %s"
-msgstr ""
+msgstr "Megjegyzés hozzáadása %s-hoz/hez"
 
 msgid "per day"
 msgstr "per nap"
@@ -1858,7 +1874,7 @@ msgid "Edit recipe on %s"
 msgstr ""
 
 msgid "Desired servings"
-msgstr ""
+msgstr "Kívánt adagok"
 
 msgid "Base: %s"
 msgstr "Alap:%s"
@@ -1870,4 +1886,34 @@ msgid "Recipe card"
 msgstr "Receptkártya"
 
 msgid "Group ingredients by their product group"
+msgstr ""
+
+msgid "Unknown store"
+msgstr "Ismeretlen áruház"
+
+msgid "Store"
+msgstr "Áruház"
+
+msgid "Transaction successfully undone"
+msgstr ""
+
+msgid "Default store"
+msgstr "Alapértelmezett áruház"
+
+msgid "Consume this stock entry"
+msgstr ""
+
+msgid "Mark this stock entry as open"
+msgstr ""
+
+msgid "Mark this item as done"
+msgstr ""
+
+msgid "Edit this item"
+msgstr ""
+
+msgid "Delete this item"
+msgstr ""
+
+msgid "Show an icon if the product is already on the shopping list"
 msgstr ""

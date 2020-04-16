@@ -29,10 +29,10 @@ msgid "consume"
 msgstr "forbruk"
 
 msgid "inventory-correction"
-msgstr "beholdningsantall korreksjon"
+msgstr "beholdningsantall_korreksjon"
 
 msgid "product-opened"
-msgstr "produkt åpnet"
+msgstr "produkt_åpnet"
 
 msgid "stock-edit-old"
 msgstr "beholdning_endre_gammel"

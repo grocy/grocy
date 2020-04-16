@@ -342,13 +342,27 @@ msgid "Freezer"
 msgstr "Congelatore"
 
 msgid "Hungarian"
-msgstr ""
+msgstr "Ungherese"
 
 msgid "Slovak"
-msgstr ""
+msgstr "Slovacco"
 
 msgid "Czech"
-msgstr ""
+msgstr "Ceco"
 
 msgid "Portuguese (Portugal)"
-msgstr ""
+msgstr "Portoghese (Portogallo)"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket1"
+msgstr "DemoSupermercato1"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket2"
+msgstr "DemoSupermercato2"
+
+msgid "Japanese"
+msgstr "Giapponese"
+
+msgid "Chinese (Taiwan)"
+msgstr "Cinese (Taiwan)"

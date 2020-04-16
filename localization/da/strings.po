@@ -86,6 +86,9 @@ msgstr "Batteriregistrering"
 msgid "Locations"
 msgstr "Steder"
 
+msgid "Stores"
+msgstr ""
+
 msgid "Quantity units"
 msgstr "Mængdeenheder"
 
@@ -222,6 +225,9 @@ msgstr "Konverteringfaktor ved køb til beholdningstypen"
 msgid "Create location"
 msgstr "Opret placering"
 
+msgid "Create store"
+msgstr ""
+
 msgid "Create quantity unit"
 msgstr "Opret mængdeenhed"
 
@@ -254,6 +260,9 @@ msgstr "Rediger vare"
 
 msgid "Edit location"
 msgstr "Rediger placering"
+
+msgid "Edit store"
+msgstr ""
 
 msgid "Record data"
 msgstr "Optag data"
@@ -330,6 +339,9 @@ msgstr "Er du sikker på du vil slette varen \"%s\"?"
 
 msgid "Are you sure to delete location \"%s\"?"
 msgstr "Er du sikker på du vil slette placeringen \"%s\"?"
+
+msgid "Are you sure to delete store \"%s\"?"
+msgstr ""
 
 msgid "Manage API keys"
 msgstr "Administrer API nøgler"
@@ -1102,6 +1114,9 @@ msgstr ""
 msgid "You have to select a location"
 msgstr "Du skal vælge en placering"
 
+msgid "You have to select a store"
+msgstr ""
+
 msgid "List"
 msgstr "Liste"
 
@@ -1135,8 +1150,8 @@ msgstr "Systeminformation"
 msgid "Changelog"
 msgstr "Ændringslog"
 
-msgid "will be multiplied a factor of %1$s to get %2$s"
-msgstr "vil blive ganget med en faktor af %1$s for at få %2$s"
+msgid "will be multiplied by a factor of %1$s to get %2$s"
+msgstr ""
 
 msgid "The given date is earlier than today, are you sure?"
 msgstr "Den angivne dato er før i dag, er du sikker?"
@@ -1914,4 +1929,34 @@ msgid "Recipe card"
 msgstr ""
 
 msgid "Group ingredients by their product group"
+msgstr ""
+
+msgid "Unknown store"
+msgstr ""
+
+msgid "Store"
+msgstr ""
+
+msgid "Transaction successfully undone"
+msgstr ""
+
+msgid "Default store"
+msgstr ""
+
+msgid "Consume this stock entry"
+msgstr ""
+
+msgid "Mark this stock entry as open"
+msgstr ""
+
+msgid "Mark this item as done"
+msgstr ""
+
+msgid "Edit this item"
+msgstr ""
+
+msgid "Delete this item"
+msgstr ""
+
+msgid "Show an icon if the product is already on the shopping list"
 msgstr ""

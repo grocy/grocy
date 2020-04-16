@@ -3,6 +3,7 @@
 # Pavel Pletenev <cpp.create@gmail.com>, 2019
 # cool guy <eut53770@bcaoo.com>, 2019
 # First Name Second Name <greentail@protonmail.ch>, 2019
+# Maksim Moiseikin <m.moiseikin@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -10,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: First Name Second Name <greentail@protonmail.ch>, 2019\n"
+"Last-Translator: Maksim Moiseikin <m.moiseikin@gmail.com>, 2020\n"
 "Language-Team: Russian (https://www.transifex.com/grocy/teams/93189/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -95,6 +96,9 @@ msgstr "Отслеживание батареек"
 
 msgid "Locations"
 msgstr "Места"
+
+msgid "Stores"
+msgstr "Магазины"
 
 msgid "Quantity units"
 msgstr "Единицы измерения"
@@ -233,6 +237,9 @@ msgstr "Коэффициент пересчёта единиц измерени�
 msgid "Create location"
 msgstr "Создать место хранения"
 
+msgid "Create store"
+msgstr "Добавить магазин"
+
 msgid "Create quantity unit"
 msgstr "Создать единицу измерения"
 
@@ -265,6 +272,9 @@ msgstr "Изменить продукт"
 
 msgid "Edit location"
 msgstr "Изменить место хранения"
+
+msgid "Edit store"
+msgstr "Редактировать магазин"
 
 msgid "Record data"
 msgstr "Записать данные"
@@ -344,6 +354,9 @@ msgstr "Вы уверены, что хотите удалить продукт %
 
 msgid "Are you sure to delete location \"%s\"?"
 msgstr "Вы уверены, что нужно удалить место хранения \"%s\"?"
+
+msgid "Are you sure to delete store \"%s\"?"
+msgstr "Вы уверены, что хотите удалить магазин \"%s\"?"
 
 msgid "Manage API keys"
 msgstr "Управление ключами доступа к API"
@@ -1003,6 +1016,8 @@ msgid ""
 "When this product was marked as opened, the best before date will be "
 "replaced by today + this amount of days (a value of 0 disables this)"
 msgstr ""
+"Когда продукт помечается как открытый, срок годности заменится по формуле: "
+"сегодня + это количество дней (значение 0 отключает этот функционал)"
 
 msgid "Default best before days after opened"
 msgstr "Срок годности в днях по умолчанию после открытия"
@@ -1138,6 +1153,9 @@ msgstr ""
 msgid "You have to select a location"
 msgstr "Вам нужно выбрать место хранения"
 
+msgid "You have to select a store"
+msgstr "Вам нужно выбрать магазин"
+
 msgid "List"
 msgstr "Список"
 
@@ -1171,8 +1189,8 @@ msgstr "Системная информация"
 msgid "Changelog"
 msgstr "Список изменений"
 
-msgid "will be multiplied a factor of %1$s to get %2$s"
-msgstr "будет умножено на коэфф. %1$s, т.е. %2$s"
+msgid "will be multiplied by a factor of %1$s to get %2$s"
+msgstr ""
 
 msgid "The given date is earlier than today, are you sure?"
 msgstr "Введённая дата в прошлом, вы уверены?"
@@ -1330,7 +1348,7 @@ msgid "Expiring soon days"
 msgstr "Дней до окончания срока годности"
 
 msgid "Default location"
-msgstr ""
+msgstr "Место хранения по умолчанию"
 
 msgid "Default amount for purchase"
 msgstr "Количество покупки по умолчанию"
@@ -1362,7 +1380,7 @@ msgid "Meal plan"
 msgstr "План питания"
 
 msgid "Add recipe on %s"
-msgstr ""
+msgstr "Добавить рецепт в %s"
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1708,106 +1726,115 @@ msgid "Are you sure to remove this conversion?"
 msgstr "Вы уверены, что нужно удалить это преобразование?"
 
 msgid "Unit price"
-msgstr ""
+msgstr "Цена за единицу"
 
 msgid "Total price"
-msgstr ""
+msgstr "Общая цена"
 
 msgid "in %s and based on the purchase quantity unit"
-msgstr ""
+msgstr "в %s исходя из количества купленных единиц"
 
 msgid "Unlimited"
-msgstr ""
+msgstr "Неограниченно"
 
 msgid "Clear"
-msgstr ""
+msgstr "Очистить"
 
 msgid "Are you sure to remove the included recipe \"%s\"?"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить включённый рецепт \"%s\"?"
 
 msgid "Period interval"
-msgstr ""
+msgstr "Временной интервал"
 
 msgid ""
 "This means the next execution of this chore should only be scheduled every "
 "%s days"
 msgstr ""
+"Это означает, что выполнение этой работы будет назначаться каждые %s дней"
 
 msgid ""
 "This means the next execution of this chore should only be scheduled every "
 "%s weeks"
 msgstr ""
+"Это означает, что выполнение этой работы будет назначаться каждые %s недель"
 
 msgid ""
 "This means the next execution of this chore should only be scheduled every "
 "%s months"
 msgstr ""
+"Это означает, что выполнение этой работы будет назначаться каждые %s месяцев"
 
 msgid ""
 "This means the next execution of this chore is scheduled 1 year after the "
 "last execution"
 msgstr ""
+"Это означает, что выполнение этой работы будет назначено через год после "
+"последнего выполнения"
 
 msgid ""
 "This means the next execution of this chore should only be scheduled every "
 "%s years"
 msgstr ""
+"Это означает, что выполнение этой работы будет назначаться каждые %s лет"
 
 msgid "Transfer"
-msgstr ""
+msgstr "Переместить"
 
 msgid "From location"
-msgstr ""
+msgstr "Из места хранения"
 
 msgid "To location"
-msgstr ""
+msgstr "В место хранения"
 
 msgid "There are no units available at this location"
-msgstr ""
+msgstr "Нет объектов доступных в этом месте хранения"
 
 msgid "Amount: %1$s; Expires on %2$s; Bought on %3$s"
-msgstr ""
+msgstr "Количество: %1$s; Срок годности: %2$s; Куплено: %3$s"
 
 msgid "Transfered %1$s of %2$s from %3$s to %4$s"
-msgstr ""
+msgstr "Перемещено %1$s из %2$s из %3$s в %4$s"
 
 msgid "Show stock entries"
-msgstr ""
+msgstr "Показать запасы"
 
 msgid "Stock entries"
-msgstr ""
+msgstr "Запасы"
 
 msgid "Best before date"
-msgstr ""
+msgstr "Годен до"
 
 msgid "Purchased date"
-msgstr ""
+msgstr "Дата покупки"
 
 msgid "Consume all %s for this stock entry"
-msgstr ""
+msgstr "Употребить все %s этого запаса"
 
 msgid "The amount cannot be lower than %1$s"
-msgstr ""
+msgstr "Количество не может быть меньше %s"
 
 msgid "Stock entry successfully updated"
-msgstr ""
+msgstr "Данные по запасу успешно обновлены"
 
 msgid "Edit stock entry"
-msgstr ""
+msgstr "Редактировать запас"
 
 msgid ""
 "Camera access is only possible when supported and allowed by your browser "
 "and when grocy is served via a secure (https://) connection"
 msgstr ""
+"Доступ к камере возможен только тогда, когда это поддерживается и разрешено "
+"вашим браузером и когда grocy обслуживается через безопасное (https://) "
+"соединение."
 
 msgid "Keep screen on"
-msgstr ""
+msgstr "Держать экран включенным"
 
 msgid "Keep screen on while displaying a \"fullscreen-card\""
-msgstr ""
+msgstr "Держать экран включенным при отображении \"полноэкранной карточки\""
 
 msgid "A purchased date is required"
-msgstr ""
+msgstr "Укажите дату покупки"
 
 msgid ""
 "When a product is selected, one unit (per serving in purchase quantity unit)"
@@ -1824,101 +1851,115 @@ msgid "Booking does not exist or was already undone"
 msgstr ""
 
 msgid "Are you sure to delete API key \"%s\"?"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить ключ API \"%s\"?"
 
 msgid "Add note"
-msgstr ""
+msgstr "Добавить заметку"
 
 msgid "Add note on %s"
 msgstr ""
 
 msgid "per day"
-msgstr ""
+msgstr "в день"
 
 msgid "Compact view"
-msgstr ""
+msgstr "Компактный режим"
 
 msgid "Normal view"
-msgstr ""
+msgstr "Нормальный режим"
 
 msgid "Only undone items"
 msgstr ""
 
 msgid "Add product"
-msgstr ""
+msgstr "Добавить продукт"
 
 msgid "Add product on %s"
 msgstr ""
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
 msgstr ""
+"Употребить все ингредиенты, необходимые для рецептов или продуктов этой "
+"недели"
 
 msgid "Meal plan recipe"
-msgstr ""
+msgstr "Рецепт плана питания"
 
 msgid "Meal plan note"
-msgstr ""
+msgstr "Заметка плана питания"
 
 msgid "Meal plan product"
-msgstr ""
+msgstr "Продукт плана питания"
 
 msgid "Scan mode"
-msgstr ""
+msgstr "Режим сканирования"
 
 msgid "on"
-msgstr ""
+msgstr "вкл"
 
 msgid "off"
-msgstr ""
+msgstr "выкл"
 
 msgid ""
 "Scan mode is on but not all required fields could be populated automatically"
 msgstr ""
+"Режим сканирования включен, но не все обязательные поля могут быть заполнены"
+" автоматически"
 
 msgid "Is freezer"
-msgstr ""
+msgstr "В морозилке"
 
 msgid ""
 "When moving products from/to a freezer location, the products best before "
 "date is automatically adjusted according to the product settings"
 msgstr ""
+"При перемещении продуктов в морозильную камеру или из неё, срок годности "
+"продукта будет автоматически обновлен в соответствии с настройками этого "
+"продукта"
 
 msgid ""
 "On moving this product to a freezer location (so when freezing it), the best"
 " before date will be replaced by today + this amount of days"
 msgstr ""
+"При перемещении данного продукта в морозильную камеру (т. е. при его "
+"заморозке), срок годности заменится по формуле: сегодня + это количество "
+"дней"
 
 msgid "Default best before days after freezing"
-msgstr ""
+msgstr "Срок годности по умолчанию после заморозки"
 
 msgid ""
 "On moving this product from a freezer location (so when thawing it), the "
 "best before date will be replaced by today + this amount of days"
 msgstr ""
+"При перемещении данного продукта из морозильной камеры (т. е. при его "
+"разморозке), срок годности заменится по формуле: сегодня + это количество "
+"дней"
 
 msgid "Default best before days after thawing"
-msgstr ""
+msgstr "Срок годности по умолчанию после разморозки"
 
 msgid "This cannot be the same as the \"From\" location"
-msgstr ""
+msgstr "Это не может быть тем же местом хранения, что и \"из\""
 
 msgid "Thawed"
-msgstr ""
+msgstr "Разморожен"
 
 msgid "Frozen"
-msgstr ""
+msgstr "Заморожен"
 
 msgid "Are you sure to delete userentity \"%s\"?"
-msgstr ""
+msgstr "Вы уверены, что нужно удалить пользовательскую запись \"%s\"?"
 
 msgid "Shopping list settings"
-msgstr ""
+msgstr "Настройки списка покупок"
 
 msgid "Show a month-view calendar"
-msgstr ""
+msgstr "Показать календарь на месяц"
 
 msgid "Don't automatically switch to the compact view on mobile devices"
 msgstr ""
+"Не переключаться автоматически на компактный режим на мобильных устройствах"
 
 msgid "Edit note on %s"
 msgstr ""
@@ -1930,16 +1971,46 @@ msgid "Edit recipe on %s"
 msgstr ""
 
 msgid "Desired servings"
-msgstr ""
+msgstr "Количество порций"
 
 msgid "Base: %s"
-msgstr ""
+msgstr "База: %s"
 
 msgid "Recipes settings"
-msgstr ""
+msgstr "Настройки рецептов"
 
 msgid "Recipe card"
-msgstr ""
+msgstr "Карточка рецепта"
 
 msgid "Group ingredients by their product group"
+msgstr "Сгруппировать ингредиенты по группам продуктов"
+
+msgid "Unknown store"
+msgstr "Неизвестный магазин"
+
+msgid "Store"
+msgstr "Магазин"
+
+msgid "Transaction successfully undone"
+msgstr "Транзакция успешно отменена"
+
+msgid "Default store"
+msgstr ""
+
+msgid "Consume this stock entry"
+msgstr ""
+
+msgid "Mark this stock entry as open"
+msgstr ""
+
+msgid "Mark this item as done"
+msgstr ""
+
+msgid "Edit this item"
+msgstr ""
+
+msgid "Delete this item"
+msgstr ""
+
+msgid "Show an icon if the product is already on the shopping list"
 msgstr ""

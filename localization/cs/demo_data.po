@@ -367,3 +367,17 @@ msgstr ""
 
 msgid "Portuguese (Portugal)"
 msgstr ""
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket1"
+msgstr ""
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket2"
+msgstr ""
+
+msgid "Japanese"
+msgstr ""
+
+msgid "Chinese (Taiwan)"
+msgstr ""

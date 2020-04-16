@@ -1,6 +1,7 @@
 # Translators:
 # Joao Santos <joaocpdsantos@gmail.com>, 2019
 # Ricardo Rodrigues <fenix999@gmail.com>, 2020
+# Miguel Pereira <miguelpereira.pro@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -8,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Ricardo Rodrigues <fenix999@gmail.com>, 2020\n"
+"Last-Translator: Miguel Pereira <miguelpereira.pro@gmail.com>, 2020\n"
 "Language-Team: Portuguese (Portugal) (https://www.transifex.com/grocy/teams/93189/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -347,7 +348,21 @@ msgid "Slovak"
 msgstr "Eslovaco"
 
 msgid "Czech"
-msgstr ""
+msgstr "Checo"
 
 msgid "Portuguese (Portugal)"
+msgstr "Português (Portugal)"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket1"
+msgstr ""
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket2"
+msgstr ""
+
+msgid "Japanese"
+msgstr ""
+
+msgid "Chinese (Taiwan)"
 msgstr ""

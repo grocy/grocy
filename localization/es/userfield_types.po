@@ -1,7 +1,6 @@
 # Translators:
-# Bernd Bestel <bernd@berrnd.de>, 2019
 # Fernando Sánchez <fernando.l.sanchez@gmail.com>, 2019
-# Igor Perez <igordiablo@hotmail.com>, 2020
+# Jose Rugel <joserugel@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -9,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:43+0000\n"
-"Last-Translator: Igor Perez <igordiablo@hotmail.com>, 2020\n"
+"Last-Translator: Jose Rugel <joserugel@gmail.com>, 2020\n"
 "Language-Team: Spanish (https://www.transifex.com/grocy/teams/93189/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,25 +18,25 @@ msgstr ""
 "X-Domain: grocy/userfield_types\n"
 
 msgid "text-single-line"
-msgstr "Texto (una línea)"
+msgstr "texto-unica-linea"
 
 msgid "text-multi-line"
-msgstr "Texto (múltiples líneas)"
+msgstr "texto-multi-linea"
 
 msgid "number-integral"
-msgstr "Número (entero)"
+msgstr "numero-entero"
 
 msgid "number-decimal"
-msgstr "Número (decimal)"
+msgstr "numero-decimal"
 
 msgid "date"
-msgstr "Fecha"
+msgstr "fecha"
 
 msgid "datetime"
-msgstr "Fecha y hora"
+msgstr "fecha-hora"
 
 msgid "checkbox"
-msgstr "Casilla de verificación"
+msgstr "casilla-verificacion"
 
 msgid "preset-list"
 msgstr "lista-predefinida"

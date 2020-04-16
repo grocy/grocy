@@ -97,6 +97,9 @@ msgstr "Sledování baterií"
 msgid "Locations"
 msgstr "Umístění"
 
+msgid "Stores"
+msgstr ""
+
 msgid "Quantity units"
 msgstr "Měrné jednotky"
 
@@ -234,6 +237,9 @@ msgstr "Faktor množství jednotek zásoby při nákupu jednoho kusu produktu"
 msgid "Create location"
 msgstr "Vytvořit umístění"
 
+msgid "Create store"
+msgstr ""
+
 msgid "Create quantity unit"
 msgstr "Vytvořit měrnou jednotku"
 
@@ -266,6 +272,9 @@ msgstr "Upravit produkt"
 
 msgid "Edit location"
 msgstr "Upravit umístění"
+
+msgid "Edit store"
+msgstr ""
 
 msgid "Record data"
 msgstr "Zaznamenat data"
@@ -342,6 +351,9 @@ msgstr "Opravdu chcete smazat produkt \"%s\"?"
 
 msgid "Are you sure to delete location \"%s\"?"
 msgstr "Opravdu chcete smazat umístění \"%s\"?"
+
+msgid "Are you sure to delete store \"%s\"?"
+msgstr ""
 
 msgid "Manage API keys"
 msgstr "Spravovat API klíče"
@@ -1122,6 +1134,9 @@ msgstr ""
 msgid "You have to select a location"
 msgstr "Musí být vybráno umístění"
 
+msgid "You have to select a store"
+msgstr ""
+
 msgid "List"
 msgstr "Seznam"
 
@@ -1155,8 +1170,8 @@ msgstr "Systémové informace"
 msgid "Changelog"
 msgstr "Seznam změn"
 
-msgid "will be multiplied a factor of %1$s to get %2$s"
-msgstr "bude vynásobené faktorem %1$s aby se získalo%2$s"
+msgid "will be multiplied by a factor of %1$s to get %2$s"
+msgstr ""
 
 msgid "The given date is earlier than today, are you sure?"
 msgstr "Zadaná datum je v minulosti, jste si jistí?"
@@ -1306,7 +1321,7 @@ msgid "The amount cannot be lower than %1$s or equal %2$s"
 msgstr "Počet nemůže být menší než %1$s nebo rovno %2$s"
 
 msgid "Not enough in stock, but already on the shopping list"
-msgstr ""
+msgstr "Nedostatečná zásoba, ale již na nákupním seznamu"
 
 msgid "Not enough in stock"
 msgstr "Nedostatečná zásoba"
@@ -1461,7 +1476,7 @@ msgid "Create QU conversion"
 msgstr "Vytvořit převod měrné jednotky"
 
 msgid "Default for QU"
-msgstr ""
+msgstr "Výchozí pro Měrné Jednotky"
 
 msgid "Quantity unit from"
 msgstr "Měrná jednotka z"
@@ -1498,10 +1513,10 @@ msgid "Edit QU conversion"
 msgstr "Upravit převod měrné jednotky"
 
 msgid "An assignment type is required"
-msgstr ""
+msgstr "Typ přiřazení je vyžadován"
 
 msgid "Assignment type"
-msgstr ""
+msgstr "Typ přiřazení"
 
 msgid ""
 "This means the next execution of this chore is scheduled 1 day after the "
@@ -1550,7 +1565,7 @@ msgid "Assign to"
 msgstr "Přiřadit k"
 
 msgid "This assignment type requires that at least one is assigned"
-msgstr ""
+msgstr "Typ přiřazení vyžaduje nejméně jednoho přiřazeného"
 
 msgid "%s chore is assigned to me"
 msgid_plural "%s chores are assigned to me"
@@ -1935,3 +1950,33 @@ msgstr "Karta receptu"
 
 msgid "Group ingredients by their product group"
 msgstr "Seskupit suroviny podle skupiny produktů"
+
+msgid "Unknown store"
+msgstr ""
+
+msgid "Store"
+msgstr ""
+
+msgid "Transaction successfully undone"
+msgstr ""
+
+msgid "Default store"
+msgstr ""
+
+msgid "Consume this stock entry"
+msgstr ""
+
+msgid "Mark this stock entry as open"
+msgstr ""
+
+msgid "Mark this item as done"
+msgstr ""
+
+msgid "Edit this item"
+msgstr ""
+
+msgid "Delete this item"
+msgstr ""
+
+msgid "Show an icon if the product is already on the shopping list"
+msgstr ""

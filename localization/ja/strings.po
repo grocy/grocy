@@ -1097,7 +1097,7 @@ msgstr "システム情報"
 msgid "Changelog"
 msgstr "変更ログ"
 
-msgid "will be multiplied a factor of %1$s to get %2$s"
+msgid "will be multiplied by a factor of %1$s to get %2$s"
 msgstr ""
 
 msgid "The given date is earlier than today, are you sure?"
@@ -1843,3 +1843,21 @@ msgstr "トランザクションを元に戻しました"
 
 msgid "Default store"
 msgstr "デフォルトの店舗"
+
+msgid "Consume this stock entry"
+msgstr ""
+
+msgid "Mark this stock entry as open"
+msgstr ""
+
+msgid "Mark this item as done"
+msgstr ""
+
+msgid "Edit this item"
+msgstr ""
+
+msgid "Delete this item"
+msgstr ""
+
+msgid "Show an icon if the product is already on the shopping list"
+msgstr ""

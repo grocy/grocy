@@ -85,6 +85,9 @@ msgstr "Tracking de Pilhas"
 msgid "Locations"
 msgstr "Localizações"
 
+msgid "Stores"
+msgstr ""
+
 msgid "Quantity units"
 msgstr "Unidades de medida"
 
@@ -223,6 +226,9 @@ msgstr "Unidade de medida do stock por compra"
 msgid "Create location"
 msgstr "Criar localização"
 
+msgid "Create store"
+msgstr ""
+
 msgid "Create quantity unit"
 msgstr "Criar unidade de medida"
 
@@ -255,6 +261,9 @@ msgstr "Editar Produto"
 
 msgid "Edit location"
 msgstr "Editar Localização"
+
+msgid "Edit store"
+msgstr ""
 
 msgid "Record data"
 msgstr "Gravar dados"
@@ -335,6 +344,9 @@ msgstr "Tem a certeza que pretende eliminar o produto \"%s\"?"
 
 msgid "Are you sure to delete location \"%s\"?"
 msgstr "Tem a certeza que pretende eliminar o local \"%s\"?"
+
+msgid "Are you sure to delete store \"%s\"?"
+msgstr ""
 
 msgid "Manage API keys"
 msgstr "Gerir chaves da API"
@@ -1099,6 +1111,9 @@ msgstr ""
 msgid "You have to select a location"
 msgstr "Precisa de seleccionar uma localização"
 
+msgid "You have to select a store"
+msgstr ""
+
 msgid "List"
 msgstr "Lista"
 
@@ -1132,8 +1147,8 @@ msgstr "Informação do sistema"
 msgid "Changelog"
 msgstr "histórico de modificações"
 
-msgid "will be multiplied a factor of %1$s to get %2$s"
-msgstr "será multiplicado pelo factor de %1$s para ter%2$s"
+msgid "will be multiplied by a factor of %1$s to get %2$s"
+msgstr ""
 
 msgid "The given date is earlier than today, are you sure?"
 msgstr "A data é anterior a hoje, tem a certeza?"
@@ -1886,3 +1901,33 @@ msgstr "Cartão da receita"
 
 msgid "Group ingredients by their product group"
 msgstr "Agrupar ingredientes pelo respectivo grupo de produto"
+
+msgid "Unknown store"
+msgstr ""
+
+msgid "Store"
+msgstr ""
+
+msgid "Transaction successfully undone"
+msgstr ""
+
+msgid "Default store"
+msgstr ""
+
+msgid "Consume this stock entry"
+msgstr ""
+
+msgid "Mark this stock entry as open"
+msgstr ""
+
+msgid "Mark this item as done"
+msgstr ""
+
+msgid "Edit this item"
+msgstr ""
+
+msgid "Delete this item"
+msgstr ""
+
+msgid "Show an icon if the product is already on the shopping list"
+msgstr ""

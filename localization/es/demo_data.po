@@ -2,6 +2,7 @@
 # Ankue <ankue.spam@gmail.com>, 2019
 # Fernando Sánchez <fernando.l.sanchez@gmail.com>, 2019
 # Igor Perez <igordiablo@hotmail.com>, 2020
+# Jose Rugel <joserugel@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -9,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Igor Perez <igordiablo@hotmail.com>, 2020\n"
+"Last-Translator: Jose Rugel <joserugel@gmail.com>, 2020\n"
 "Language-Team: Spanish (https://www.transifex.com/grocy/teams/93189/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,7 +35,7 @@ msgid "Tinned food cupboard"
 msgstr "Estante de las latas"
 
 msgid "Fridge"
-msgstr "Frigorífico"
+msgstr "Refrigerador"
 
 msgid "Piece"
 msgid_plural "Pieces"
@@ -54,12 +55,12 @@ msgstr[1] "Vasos"
 msgid "Tin"
 msgid_plural "Tins"
 msgstr[0] "Envases"
-msgstr[1] "Envases"
+msgstr[1] "Latas"
 
 msgid "Can"
 msgid_plural "Cans"
 msgstr[0] "Lata"
-msgstr[1] "Latas"
+msgstr[1] "Envases"
 
 msgid "Bunch"
 msgid_plural "Bunches"
@@ -67,7 +68,7 @@ msgstr[0] "Puñados"
 msgstr[1] "Puñados"
 
 msgid "Gummy bears"
-msgstr "Ositos"
+msgstr "Ositos de goma"
 
 msgid "Crisps"
 msgstr "Patatas fritas"
@@ -82,7 +83,7 @@ msgid "Pickles"
 msgstr "Pepinillos"
 
 msgid "Gulash soup"
-msgstr "Sopa"
+msgstr "Sopa Gulash"
 
 msgid "Yogurt"
 msgstr "Yogurt"
@@ -115,13 +116,13 @@ msgid "Warranty ends"
 msgstr "Final de la garantía"
 
 msgid "TV remote control"
-msgstr "Mando de la TV"
+msgstr "Control remoto del televisor"
 
 msgid "Alarm clock"
 msgstr "Despertador"
 
 msgid "Heat remote control"
-msgstr "Mando de la calefacción"
+msgstr "Control remoto de la calefacción"
 
 msgid "Lawn mowed in the garden"
 msgstr "Cortar el césped del jardín"
@@ -133,10 +134,10 @@ msgid "Pizza dough"
 msgstr "Masa de pizza"
 
 msgid "Sieved tomatoes"
-msgstr "Tomate triturado"
+msgstr "Tomates triturados"
 
 msgid "Salami"
-msgstr "Salami"
+msgstr "Salame"
 
 msgid "Toast"
 msgstr "Tostada"
@@ -148,10 +149,10 @@ msgid "Pizza"
 msgstr "Pizza"
 
 msgid "Spaghetti bolognese"
-msgstr "Spaghetti boloñesa"
+msgstr "Spaghetti a la boloñesa"
 
 msgid "Sandwiches"
-msgstr "Bocadillos"
+msgstr "Sándwiches"
 
 msgid "English"
 msgstr "Inglés"
@@ -177,7 +178,7 @@ msgid "Flour"
 msgstr "Harina"
 
 msgid "Pancakes"
-msgstr "Tortitas"
+msgstr "Panqueques"
 
 msgid "Sugar"
 msgstr "Azúcar"
@@ -273,7 +274,7 @@ msgid "The thing which happens daily"
 msgstr "Lo que ocurre diariamente"
 
 msgid "The thing which happens on Mondays and Wednesdays"
-msgstr "Lo que ocurre los lunes y los miércoles"
+msgstr "Lo que ocurre los Lunes y los Miércoles"
 
 msgid "Swedish"
 msgstr "Sueco"
@@ -290,19 +291,19 @@ msgstr "Chocolate negro"
 msgid "Slice"
 msgid_plural "Slices"
 msgstr[0] "Lonchas"
-msgstr[1] "Lonchas"
+msgstr[1] "Rebanadas"
 
 msgid "Example userentity"
 msgstr "Entidad de usuario de ejemplo"
 
 msgid "This is an example user entity..."
-msgstr "Esto es un ejemplo de entidad de usuario..."
+msgstr "Esto es un ejemplo de una entidad personalizada ..."
 
 msgid "Custom field"
 msgstr "Campo personalizado"
 
 msgid "Example field value..."
-msgstr "Ejemplo de valor de campo..."
+msgstr "Valor del campo de ejemplo ..."
 
 msgid "Waffle rolls"
 msgstr "Canutillos"
@@ -326,10 +327,10 @@ msgid "Preview version"
 msgstr "Versión previa"
 
 msgid "current release"
-msgstr "Release actual"
+msgstr "Elaboración actual"
 
 msgid "not yet released"
-msgstr "Todavía no liberado"
+msgstr "Todavía no elaborado"
 
 msgid "Portuguese (Brazil)"
 msgstr "Portugués (Brasil)"
@@ -347,7 +348,21 @@ msgid "Slovak"
 msgstr "Eslovaco"
 
 msgid "Czech"
-msgstr ""
+msgstr "Checo"
 
 msgid "Portuguese (Portugal)"
-msgstr ""
+msgstr "Portugués (Portugal)"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket1"
+msgstr "DemoSupermercado1"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket2"
+msgstr "DemoSupermercado2"
+
+msgid "Japanese"
+msgstr "Japonés"
+
+msgid "Chinese (Taiwan)"
+msgstr "Chino (Taiwan)"

@@ -1,8 +1,9 @@
 # Translators:
 # Mathias Fröjd <info@mcfrojd.com>, 2019
-# Bernd Bestel <bernd@berrnd.de>, 2019
 # Fredrik Hendeberg <fredrik@hendeberg.com>, 2019
 # Peter Wickenberg <peter@wickenberg.nu>, 2019
+# Sebastian Backman <valtkor@hotmail.com>, 2020
+# Per Bäckman <fotodille@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -10,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Peter Wickenberg <peter@wickenberg.nu>, 2019\n"
+"Last-Translator: Per Bäckman <fotodille@gmail.com>, 2020\n"
 "Language-Team: Swedish (Sweden) (https://www.transifex.com/grocy/teams/93189/sv_SE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,10 +30,10 @@ msgid "Pantry"
 msgstr "Skafferi"
 
 msgid "Candy cupboard"
-msgstr "Godis skåp"
+msgstr "Godisskåp"
 
 msgid "Tinned food cupboard"
-msgstr "Konservburk för konserverad mat"
+msgstr "Konservskafferi"
 
 msgid "Fridge"
 msgstr "Kylskåp"
@@ -40,32 +41,32 @@ msgstr "Kylskåp"
 msgid "Piece"
 msgid_plural "Pieces"
 msgstr[0] "Bit"
-msgstr[1] "Bitar"
+msgstr[1] "bitar"
 
 msgid "Pack"
 msgid_plural "Packs"
 msgstr[0] "Förpackning"
-msgstr[1] "Förpackningar"
+msgstr[1] "förpackningar"
 
 msgid "Glass"
 msgid_plural "Glasses"
 msgstr[0] "Glas"
-msgstr[1] "Glas"
+msgstr[1] "glas"
 
 msgid "Tin"
 msgid_plural "Tins"
 msgstr[0] "Burk"
-msgstr[1] "Burkar"
+msgstr[1] "konservburk"
 
 msgid "Can"
 msgid_plural "Cans"
 msgstr[0] "Burk"
-msgstr[1] "Burkar"
+msgstr[1] "burkar"
 
 msgid "Bunch"
 msgid_plural "Bunches"
 msgstr[0] "Knippa"
-msgstr[1] "Knippor"
+msgstr[1] "knippor"
 
 msgid "Gummy bears"
 msgstr "Gummibjörnar"
@@ -80,10 +81,10 @@ msgid "Noodles"
 msgstr "Spaghetti"
 
 msgid "Pickles"
-msgstr "Ättiksgurka"
+msgstr "Inlagda grönsaker"
 
 msgid "Gulash soup"
-msgstr "Gulashoppa"
+msgstr "Gulashsoppa"
 
 msgid "Yogurt"
 msgstr "Yoghurt"
@@ -134,7 +135,7 @@ msgid "Pizza dough"
 msgstr "Pizzadeg"
 
 msgid "Sieved tomatoes"
-msgstr "Siktade tomater"
+msgstr "Passerade tomater"
 
 msgid "Salami"
 msgstr "Salami"
@@ -155,16 +156,16 @@ msgid "Sandwiches"
 msgstr "Smörgåsar"
 
 msgid "English"
-msgstr "Engelsk"
+msgstr "Engelska"
 
 msgid "German"
-msgstr "Tysk"
+msgstr "Tyska"
 
 msgid "Italian"
 msgstr "Italienska"
 
 msgid "This is the note content of the recipe ingredient"
-msgstr "Detta är anteckningsinnehållet i receptens ingrediens"
+msgstr "Detta är anteckningen för receptets ingrediens"
 
 msgid "Demo User"
 msgstr "Demo-användare"
@@ -172,13 +173,13 @@ msgstr "Demo-användare"
 msgid "Gram"
 msgid_plural "Grams"
 msgstr[0] "Gram"
-msgstr[1] "Gram"
+msgstr[1] "gram"
 
 msgid "Flour"
 msgstr "Mjöl"
 
 msgid "Pancakes"
-msgstr "pannkakor"
+msgstr "Pannkakor"
 
 msgid "Sugar"
 msgstr "Socker"
@@ -196,7 +197,7 @@ msgid "Repair the garage door"
 msgstr "Reparera garagedörren"
 
 msgid "Fork and improve grocy"
-msgstr "Gaffel och förbättra grocy"
+msgstr "Starta ny gren och förbättra grocy"
 
 msgid "Find a solution for what to do when I forget the door keys"
 msgstr "Hitta en lösning för vad man ska göra när jag glömmer dörrnycklarna"
@@ -214,7 +215,7 @@ msgid "Butchery products"
 msgstr "Slaktprodukter"
 
 msgid "Vegetables/Fruits"
-msgstr "Grönsaker / frukt"
+msgstr "Grönsaker/frukt"
 
 msgid "Refrigerated products"
 msgstr "Kylda produkter"
@@ -226,16 +227,16 @@ msgid "Dishwasher"
 msgstr "Diskmaskin"
 
 msgid "Liter"
-msgstr "Liter"
+msgstr "liter"
 
 msgid "Liters"
-msgstr "Liter"
+msgstr "liter"
 
 msgid "Bottle"
-msgstr "Flaska"
+msgstr "flaska"
 
 msgid "Bottles"
-msgstr "Flaskor"
+msgstr "flaskor"
 
 msgid "Milk"
 msgstr "Mjölk"
@@ -244,10 +245,10 @@ msgid "Chocolate sauce"
 msgstr "Chokladsås"
 
 msgid "Milliliters"
-msgstr "Milliliter"
+msgstr "ml"
 
 msgid "Milliliter"
-msgstr "Milliliter"
+msgstr "ml"
 
 msgid "Bottom"
 msgstr "Botten"
@@ -291,7 +292,7 @@ msgstr "Mörk chocklad"
 msgid "Slice"
 msgid_plural "Slices"
 msgstr[0] "Skiva"
-msgstr[1] "Skivor"
+msgstr[1] "skivor"
 
 msgid "Example userentity"
 msgstr "Exempel användarenhet"
@@ -336,19 +337,33 @@ msgid "Portuguese (Brazil)"
 msgstr "Portugisiska (Brasilien)"
 
 msgid "This is a note"
-msgstr ""
+msgstr "Detta är en anteckning"
 
 msgid "Freezer"
-msgstr ""
+msgstr "Frys"
 
 msgid "Hungarian"
-msgstr ""
+msgstr "Ungerska"
 
 msgid "Slovak"
-msgstr ""
+msgstr "Slovakiska"
 
 msgid "Czech"
-msgstr ""
+msgstr "Tjeckiska"
 
 msgid "Portuguese (Portugal)"
+msgstr "Portugisiska (Portugal)"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket1"
+msgstr ""
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket2"
+msgstr ""
+
+msgid "Japanese"
+msgstr ""
+
+msgid "Chinese (Taiwan)"
 msgstr ""
