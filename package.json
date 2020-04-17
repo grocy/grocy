@@ -3,7 +3,6 @@
 	"private": true,
 	"dependencies": {
 		"@danielfarrell/bootstrap-combobox": "https://github.com/berrnd/bootstrap-combobox.git#master",
-		"@ericblade/quagga2": "^0.0.20",
 		"@fortawesome/fontawesome-free": "^5.13.0",
 		"TagManager": "https://github.com/max-favilli/tagmanager.git#master",
 		"animate.css": "^3.7.2",
@@ -29,6 +28,7 @@
 		"jquery-serializejson": "^2.9.0",
 		"moment": "^2.24.0",
 		"nosleep.js": "^0.9.0",
+		"quagga": "https://github.com/serratus/quaggaJS.git#master",
 		"sprintf-js": "^1.1.2",
 		"startbootstrap-sb-admin": "4.0.0",
 		"summernote": "^0.8.16",
