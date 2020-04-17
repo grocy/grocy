@@ -11,7 +11,6 @@ class PrerequisiteChecker
         self::checkForConfigFile();
         self::checkForConfigDistFile();
         self::checkForComposer();
-        self::checkForYarn();
         self::checkForPhpExtensions();
     }
     
@@ -37,14 +36,6 @@ class PrerequisiteChecker
         if (!file_exists(__DIR__ . '/../vendor/autoload.php'))
         {
             throw new ERequirementNotMet('/vendor/autoload.php not found. Have you run Composer?');
-        }
-    }
-
-    private function checkForYarn()
-    {
-        if (!file_exists(__DIR__ . '/../public/node_modules'))
-        {
-            throw new ERequirementNotMet('/public/node_modules not found. Have you run Yarn?');
         }
     }
 
