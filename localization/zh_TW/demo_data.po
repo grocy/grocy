@@ -1,6 +1,6 @@
 # Translators:
 # jd615645 <jd615645@gmail.com>, 2020
-# Bernd Bestel <bernd@berrnd.de>, 2020
+# richegg Tsai <zxp86021@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2020\n"
+"Last-Translator: richegg Tsai <zxp86021@gmail.com>, 2020\n"
 "Language-Team: Chinese (Taiwan) (https://www.transifex.com/grocy/teams/93189/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -105,7 +105,7 @@ msgid "Cleaned the kitchen floor"
 msgstr "清理廚房地板"
 
 msgid "Warranty ends"
-msgstr "保存期限結束"
+msgstr "過保固"
 
 msgid "TV remote control"
 msgstr "電視遙控器"
@@ -114,7 +114,7 @@ msgid "Alarm clock"
 msgstr "鬧鐘"
 
 msgid "Heat remote control"
-msgstr "加熱器遙控器"
+msgstr "暖爐遙控器"
 
 msgid "Lawn mowed in the garden"
 msgstr "清理花園草坪"
@@ -187,10 +187,10 @@ msgid "Repair the garage door"
 msgstr "修理車庫門"
 
 msgid "Fork and improve grocy"
-msgstr "建立 Fork 並且改善 grocy"
+msgstr "協助改進 grocy"
 
 msgid "Find a solution for what to do when I forget the door keys"
-msgstr "當我忘記鑰匙時去想辦法解決"
+msgstr "規劃當我忘記鑰匙時的解決辦法"
 
 msgid "Sweets"
 msgstr "甜食"
@@ -256,10 +256,10 @@ msgid "Spanish"
 msgstr "西班牙文"
 
 msgid "Russian"
-msgstr "俄語"
+msgstr "俄文"
 
 msgid "The thing which happens on the 5th of every month"
-msgstr "每月5號發生的事情"
+msgstr "每月 5 號發生的事情"
 
 msgid "The thing which happens daily"
 msgstr "每天發生的事情"
@@ -284,13 +284,13 @@ msgid_plural "Slices"
 msgstr[0] "切片"
 
 msgid "Example userentity"
-msgstr "Example userentity"
+msgstr "使用者自訂項目範例"
 
 msgid "This is an example user entity..."
-msgstr "這是一個 user entity..."
+msgstr "這是一個使用者自訂項目範例"
 
 msgid "Custom field"
-msgstr "自訂義區域"
+msgstr "自訂欄位"
 
 msgid "Example field value..."
 msgstr "範例值"
@@ -323,13 +323,13 @@ msgid "not yet released"
 msgstr "尚未發布"
 
 msgid "Portuguese (Brazil)"
-msgstr "葡萄牙文(巴西)"
+msgstr "葡萄牙文（巴西）"
 
 msgid "This is a note"
-msgstr "這是一個標註"
+msgstr "這是一則備註"
 
 msgid "Freezer"
-msgstr "电冰箱"
+msgstr "冷凍庫"
 
 msgid "Hungarian"
 msgstr "匈牙利文"
@@ -341,7 +341,7 @@ msgid "Czech"
 msgstr "捷克文"
 
 msgid "Portuguese (Portugal)"
-msgstr "葡萄牙文(葡萄牙)"
+msgstr "葡萄牙文（葡萄牙）"
 
 # Use a in your country well known supermarket name
 msgid "DemoSupermarket1"
@@ -352,7 +352,7 @@ msgid "DemoSupermarket2"
 msgstr "範例超市2"
 
 msgid "Japanese"
-msgstr ""
+msgstr "日本語"
 
 msgid "Chinese (Taiwan)"
-msgstr ""
+msgstr "正體中文（臺灣）"

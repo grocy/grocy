@@ -1,6 +1,7 @@
 # Translators:
 # jd615645 <jd615645@gmail.com>, 2020
 # ppatrickxctw <ppatrickxctw@gmail.com>, 2020
+# richegg Tsai <zxp86021@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -8,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: ppatrickxctw <ppatrickxctw@gmail.com>, 2020\n"
+"Last-Translator: richegg Tsai <zxp86021@gmail.com>, 2020\n"
 "Language-Team: Chinese (Taiwan) (https://www.transifex.com/grocy/teams/93189/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,38 +23,38 @@ msgstr "庫存總覽"
 
 msgid "%s product expires"
 msgid_plural "%s products expiring"
-msgstr[0] "%s 產品即將過期"
+msgstr[0] "%s 項物品即將過期"
 
 msgid "within the next day"
 msgid_plural "within the next %s days"
-msgstr[0] "在接下來  %s 天"
+msgstr[0] "在接下來 %s 天內"
 
 msgid "%s product is already expired"
 msgid_plural "%s products are already expired"
-msgstr[0] "%s 產品已經過期"
+msgstr[0] "%s 項物品已經過期"
 
 msgid "%s product is below defined min. stock amount"
 msgid_plural "%s products are below defined min. stock amount"
-msgstr[0] "%s 產品低於定義的最小庫存"
+msgstr[0] "%s 項物品數量低於設定的最小庫存數量"
 
 msgid "Product"
-msgstr "產品"
+msgstr "物品"
 
 msgid "%s Product"
 msgid_plural "%s Products"
-msgstr[0] "%s 產品"
+msgstr[0] "%s 項物品"
 
 msgid "Amount"
 msgstr "總量"
 
 msgid "Next best before date"
-msgstr "最好在某天之前"
+msgstr "最近的保存期限日期"
 
 msgid "Logout"
 msgstr "登出"
 
 msgid "Chores overview"
-msgstr "雜物總覽"
+msgstr "家事總覽"
 
 msgid "Batteries overview"
 msgstr "電池總覽"
@@ -65,61 +66,61 @@ msgid "Consume"
 msgstr "消耗"
 
 msgid "Inventory"
-msgstr "庫存"
+msgstr "庫存調整"
 
 msgid "Shopping list"
 msgstr "購物清單"
 
 msgid "Chore tracking"
-msgstr "零工追蹤"
+msgstr "家事追蹤"
 
 msgid "Battery tracking"
-msgstr "電量追蹤"
+msgstr "電池追蹤"
 
 msgid "Locations"
-msgstr "地理位置"
+msgstr "存放位置"
 
 msgid "Stores"
-msgstr "商店"
+msgstr "店家"
 
 msgid "Quantity units"
 msgstr "數量單位"
 
 msgid "Chores"
-msgstr "零工"
+msgstr "家事"
 
 msgid "Batteries"
 msgstr "電池"
 
 msgid "Chore"
-msgstr "零工"
+msgstr "家事"
 
 msgid "Next estimated tracking"
-msgstr "接下來預測追蹤"
+msgstr "預計下次檢查"
 
 msgid "Last tracked"
-msgstr "上次紀錄"
+msgstr "上次檢查"
 
 msgid "Battery"
 msgstr "電池"
 
 msgid "Last charged"
-msgstr "上次收費"
+msgstr "上次充電"
 
 msgid "Next planned charge cycle"
-msgstr "下次計畫充電周期"
+msgstr "預計下次充電"
 
 msgid "Best before"
-msgstr "最好早於"
+msgstr "保存期限"
 
 msgid "OK"
-msgstr "是"
+msgstr "OK"
 
 msgid "Product overview"
-msgstr "商品總覽"
+msgstr "物品總覽"
 
 msgid "Stock quantity unit"
-msgstr "庫存總量"
+msgstr "庫存數量單位"
 
 msgid "Stock amount"
 msgstr "庫存總量"
@@ -131,41 +132,41 @@ msgid "Last used"
 msgstr "上次使用"
 
 msgid "Spoiled"
-msgstr "腐敗的"
+msgstr "已過期"
 
 msgid "Barcode lookup is disabled"
-msgstr "條碼查找已禁用"
+msgstr "條碼掃描功能被禁用"
 
 msgid ""
 "will be added to the list of barcodes for the selected product on submit"
-msgstr "提交時加入所選商品的條形碼清單"
+msgstr "送出時將會把所選物品的條碼加入條碼清單"
 
 msgid "New amount"
-msgstr "新增總量"
+msgstr "新總量"
 
 msgid "Note"
-msgstr "注意"
+msgstr "備註"
 
 msgid "Tracked time"
-msgstr "紀錄時間"
+msgstr "檢查時間"
 
 msgid "Chore overview"
-msgstr "零工總覽"
+msgstr "家事總覽"
 
 msgid "Tracked count"
-msgstr "記錄數量"
+msgstr "檢查次數"
 
 msgid "Battery overview"
 msgstr "電池總覽"
 
 msgid "Charge cycles count"
-msgstr "充電週期次數"
+msgstr "充電次數"
 
 msgid "Create shopping list item"
-msgstr "創建購物清單條目"
+msgstr "增加購物清單項目"
 
 msgid "Edit shopping list item"
-msgstr "修改購物清單條目"
+msgstr "編輯購物清單項目"
 
 msgid "Save"
 msgstr "保存"
@@ -177,10 +178,10 @@ msgid "Name"
 msgstr "名稱"
 
 msgid "Location"
-msgstr "地址"
+msgstr "存放位置"
 
 msgid "Min. stock amount"
-msgstr "最小庫存數量"
+msgstr "最低庫存數量"
 
 msgid "QU purchase"
 msgstr "購買數量單位"
@@ -189,22 +190,22 @@ msgid "QU stock"
 msgstr "庫存數量單位"
 
 msgid "QU factor"
-msgstr "數量單位因數"
+msgstr "包裝數量單位"
 
 msgid "Description"
 msgstr "描述"
 
 msgid "Create product"
-msgstr "創建產品"
+msgstr "增加物品"
 
 msgid "Barcode(s)"
-msgstr "條形碼"
+msgstr "條碼"
 
 msgid "Minimum stock amount"
 msgstr "最小庫存總量"
 
 msgid "Default best before days"
-msgstr "默認最好早於"
+msgstr "預設保存天數"
 
 msgid "Quantity unit purchase"
 msgstr "購買數量單位"
@@ -213,16 +214,16 @@ msgid "Quantity unit stock"
 msgstr "庫存數量單位"
 
 msgid "Factor purchase to stock quantity unit"
-msgstr "庫存數量單位"
+msgstr "包裝數量單位"
 
 msgid "Create location"
-msgstr "創建位置"
+msgstr "增加存放位置"
 
 msgid "Create store"
-msgstr "創建商品"
+msgstr "增加店家"
 
 msgid "Create quantity unit"
-msgstr "創建數量單位"
+msgstr "增加數量單位"
 
 msgid "Period type"
 msgstr "週期類型"
@@ -231,69 +232,69 @@ msgid "Period days"
 msgstr "週期天數"
 
 msgid "Create chore"
-msgstr "創建零工"
+msgstr "增加家事"
 
 msgid "Used in"
 msgstr "使用於"
 
 msgid "Create battery"
-msgstr "創建電池"
+msgstr "增加電池"
 
 msgid "Edit battery"
-msgstr "修改電池"
+msgstr "編輯電池"
 
 msgid "Edit chore"
-msgstr "修改零工"
+msgstr "編輯家事"
 
 msgid "Edit quantity unit"
-msgstr "修改數量單位"
+msgstr "編輯數量單位"
 
 msgid "Edit product"
-msgstr "修改產品"
+msgstr "編輯物品"
 
 msgid "Edit location"
-msgstr "修改地址"
+msgstr "編輯存放位置"
 
 msgid "Edit store"
-msgstr "修改商店"
+msgstr "編輯店家"
 
 msgid "Record data"
-msgstr "記錄數據"
+msgstr "記錄資料"
 
 msgid "Manage master data"
-msgstr "管理主數據"
+msgstr "管理基礎資料"
 
 msgid "This will apply to added products"
-msgstr "這將應用於新增商品"
+msgstr "這將會套用於新增的物品"
 
 msgid "never"
-msgstr "從不"
+msgstr "永不"
 
 msgid "Add products that are below defined min. stock amount"
-msgstr "增加低於最低庫存數量的商品"
+msgstr "加入低於最低庫存數量的物品"
 
 msgid ""
 "For purchases this amount of days will be added to today for the best before"
 " date suggestion"
-msgstr "對於購買，此天數將被添加到今天，以獲得最佳的建議日期"
+msgstr "建議的保存期限日期為今天的日期加上此天數"
 
 msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
-msgstr "這意味著1 %1$s 購買的將轉換為 %2$s %3$s在貨品中 "
+msgstr "這代表購買 1 %1$s 會增加 %2$s %3$s 的庫存 "
 
 msgid "Login"
-msgstr "登錄"
+msgstr "登入"
 
 msgid "Username"
-msgstr "用戶名"
+msgstr "帳號"
 
 msgid "Password"
 msgstr "密碼"
 
 msgid "Invalid credentials, please try again"
-msgstr "用戶名或者密碼錯誤，請重試"
+msgstr "帳號或密碼錯誤，請重試"
 
 msgid "Are you sure to delete battery \"%s\"?"
-msgstr "確定刪除電池%s"
+msgstr "確定要刪除電池「%s」嗎？"
 
 msgid "Yes"
 msgstr "是"
@@ -302,10 +303,10 @@ msgid "No"
 msgstr "否"
 
 msgid "Are you sure to delete chore \"%s\"?"
-msgstr "確定刪除零工%s？"
+msgstr "確定要刪除家事「%s」嗎？"
 
 msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
-msgstr "%s不能找到對應的產品，想要如何繼續？"
+msgstr "「%s」不能找到對應的產品，想要如何繼續？"
 
 msgid "Create or assign product"
 msgstr "增加或者指定產品"
@@ -314,40 +315,40 @@ msgid "Cancel"
 msgstr "取消"
 
 msgid "Add as new product"
-msgstr "增加新產品"
+msgstr "增加為新物品"
 
 msgid "Add as barcode to existing product"
-msgstr "作為條形碼增加到已知產品"
+msgstr "作為條碼增加到現有物品"
 
 msgid "Add as new product and prefill barcode"
-msgstr "作為新產品增加並預輸入條形碼"
+msgstr "增加為新物品增加並預填入條碼"
 
 msgid "Are you sure to delete quantity unit \"%s\"?"
-msgstr "確定刪除數量單位%s？"
+msgstr "確定要刪除數量單位「%s」嗎？"
 
 msgid "Are you sure to delete product \"%s\"?"
-msgstr "確定刪除產品%s ？"
+msgstr "確定要刪除物品「%s」嗎？"
 
 msgid "Are you sure to delete location \"%s\"?"
-msgstr "確定刪除地址%s？"
+msgstr "確定要刪除存放位置「%s」嗎？"
 
 msgid "Are you sure to delete store \"%s\"?"
-msgstr "確定刪除商店%s "
+msgstr "確定要刪除店家「%s」嗎？"
 
 msgid "Manage API keys"
-msgstr "管理API秘鑰"
+msgstr "管理 API 金鑰"
 
 msgid "REST API & data model documentation"
-msgstr "REST API和數據模型文檔"
+msgstr "REST API 及資料模型文件"
 
 msgid "API keys"
-msgstr "API秘鑰"
+msgstr "API 金鑰"
 
 msgid "Create new API key"
-msgstr "天劍新API秘鑰"
+msgstr "建立新 API 金鑰"
 
 msgid "API key"
-msgstr "API秘鑰"
+msgstr "API 金鑰"
 
 msgid "Expires"
 msgstr "過期"
@@ -356,21 +357,21 @@ msgid "Created"
 msgstr "已增加"
 
 msgid "This product is not in stock"
-msgstr "這個產品不在庫存中"
+msgstr "這個物品不在庫存中"
 
 msgid "This means %s will be added to stock"
-msgstr "這意味著%s將被增加到庫存中"
+msgstr "這表示 %s 將被增加到庫存中"
 
 msgid "This means %s will be removed from stock"
-msgstr "這意味著%s將從庫存中刪除"
+msgstr "這表示 %s 將被從庫存中刪除"
 
 msgid ""
 "This means the next execution of this chore is scheduled %s days after the "
 "last execution"
-msgstr "這意味著這個零工的下次執行被安排在上一次執行後的%s天"
+msgstr "這表示這件家事將在上一次執行的 %s 天後再次執行"
 
 msgid "Removed %1$s of %2$s from stock"
-msgstr "從庫存的%2$s中刪除%1$s"
+msgstr "從庫存的 %2$s 中刪除 %1$s"
 
 msgid "About grocy"
 msgstr "關於 grocy"
@@ -382,70 +383,70 @@ msgid "Released on"
 msgstr "發佈於"
 
 msgid "Added %1$s of %2$s to stock"
-msgstr "增加%2$s中的%1$s到庫存"
+msgstr "已增加 %2$s 中的 %1$s 進庫存"
 
 msgid "Stock amount of %1$s is now %2$s"
-msgstr "當前%1$s在庫存中的數量是%2$s"
+msgstr "%1$s 的庫存總量變為 %2$s"
 
 msgid "Tracked execution of chore %1$s on %2$s"
-msgstr "跟踪執行雜項%1 $s on %2$s"
+msgstr "於 %2$s  檢查家務 %1$s 執行"
 
 msgid "Tracked charge cycle of battery %1$s on %2$s"
-msgstr "跟踪電池的充電週期 %1$s on %2$s"
+msgstr "於 %2$s 檢查電池 %1$s 充電狀況"
 
 msgid "Consume all %s which are currently in stock"
-msgstr "消耗所有當前庫存中的 %s"
+msgstr "消耗庫存中所有的 %s"
 
 msgid "All"
 msgstr "全部"
 
 msgid "Track charge cycle of battery %s"
-msgstr "追蹤電池的充電週期 %s"
+msgstr "檢查電池 %s 充電狀況"
 
 msgid "Track execution of chore %s"
 msgstr "追蹤執行雜務 %s"
 
 msgid "Filter by location"
-msgstr "根據位置過濾"
+msgstr "以存放位置篩選"
 
 msgid "Search"
 msgstr "搜尋"
 
 msgid "Not logged in"
-msgstr "未登錄"
+msgstr "未登入"
 
 msgid "You have to select a product"
-msgstr "請選擇一個產品"
+msgstr "請選擇一個物品"
 
 msgid "You have to select a chore"
-msgstr "您必須選擇一個瑣事"
+msgstr "請選擇一件家事"
 
 msgid "You have to select a battery"
 msgstr "請選擇一個電池"
 
 msgid "A name is required"
-msgstr "名稱為必填項"
+msgstr "名稱為必填項目"
 
 msgid "A location is required"
-msgstr "需要一個位置"
+msgstr "存放位置為必填項目"
 
 msgid "The amount cannot be lower than %s"
-msgstr "數量不能少於%s"
+msgstr "總量不能少於 %s"
 
 msgid "This cannot be negative"
-msgstr "這不能是負數"
+msgstr "不能為負數"
 
 msgid "A quantity unit is required"
-msgstr "需要數量單位"
+msgstr "數量單位為必填項目"
 
 msgid "A period type is required"
-msgstr "必須為期間類型"
+msgstr "週期類型為必填項目"
 
 msgid "A best before date is required"
-msgstr "需要一個最佳的截止日期"
+msgstr "保存期限日期為必填項目"
 
 msgid "Settings"
-msgstr "設置"
+msgstr "設定"
 
 msgid "This can only be before now"
 msgstr "這只能在現在之前"
@@ -457,28 +458,28 @@ msgid "Recipes"
 msgstr "食譜"
 
 msgid "Edit recipe"
-msgstr "修改食譜"
+msgstr "編輯食譜"
 
 msgid "New recipe"
 msgstr "新食譜"
 
 msgid "Ingredients list"
-msgstr "成分列表"
+msgstr "食材列表"
 
 msgid "Add recipe ingredient"
-msgstr "增加配方成分"
+msgstr "增加食材"
 
 msgid "Edit recipe ingredient"
-msgstr "編輯配方成分"
+msgstr "編輯食材"
 
 msgid "Are you sure to delete recipe \"%s\"?"
-msgstr "確定刪除食譜%s"
+msgstr "確定要刪除食譜「%s」嗎？"
 
 msgid "Are you sure to delete recipe ingredient \"%s\"?"
-msgstr "您確定要刪除配方成分嗎 \"%s\"?"
+msgstr "確定要刪除食材「%s」嗎？"
 
 msgid "Are you sure to empty shopping list \"%s\"?"
-msgstr "您確定要清空購物清單 \"%s\"?"
+msgstr "確定要清空購物清單「%s」嗎？"
 
 msgid "Clear list"
 msgstr "清除列表"
@@ -487,7 +488,7 @@ msgid "Requirements fulfilled"
 msgstr "滿足要求"
 
 msgid "Put missing products on shopping list"
-msgstr "將缺失的商品放入購物清單"
+msgstr "將缺少的物品加入購物清單"
 
 msgid "Enough in stock"
 msgstr "庫存充足"
@@ -496,7 +497,7 @@ msgid ""
 "Not enough in stock, %s ingredient missing but already on the shopping list"
 msgid_plural ""
 "Not enough in stock, %s ingredients missing but already on the shopping list"
-msgstr[0] "庫存不足，%s配料丟失，但已經在購物清單中"
+msgstr[0] "已經將庫存不足的 %s 種材料加入購物清單"
 
 msgid "Expand to fullscreen"
 msgstr "全螢幕"
@@ -511,18 +512,18 @@ msgid "Recipe"
 msgstr "食譜"
 
 msgid "Not enough in stock, %1$s missing, %2$s already on shopping list"
-msgstr "庫存不足，缺少%1$s，%2$s已經在購物清單中"
+msgstr "庫存缺少 %1$s，其中 %2$s 已經加入購物清單"
 
 msgid "Show notes"
 msgstr "顯示筆記"
 
 msgid "Put missing amount on shopping list"
-msgstr "將遺漏的金額放入購物清單"
+msgstr "將全部缺少的數量加入購物清單"
 
 msgid ""
 "Are you sure to put all missing ingredients for recipe \"%s\" on the "
 "shopping list?"
-msgstr "您確定將食譜\"%s\"中所有缺少的成分放到購物清單上嗎？"
+msgstr "確定要將「%s」食譜中所有缺少的材料加入購物清單嗎？"
 
 msgid "Added for recipe %s"
 msgstr "為配方增加 %s"
@@ -537,7 +538,7 @@ msgid "Users"
 msgstr "用戶"
 
 msgid "Are you sure to delete user \"%s\"?"
-msgstr "確定要刪除用戶“%s”嗎？"
+msgstr "確定要刪除使用者「%s」嗎？"
 
 msgid "Create user"
 msgstr "創建用戶"
@@ -579,10 +580,10 @@ msgid "Chores journal"
 msgstr "雜務日記"
 
 msgid "0 means suggestions for the next charge cycle are disabled"
-msgstr "0表示下一個充電週期的建議已禁用"
+msgstr "0 表示停用下個充電時間建議"
 
 msgid "Charge cycle interval (days)"
-msgstr "0表示下一個充電週期的建議已禁用"
+msgstr "充電時間間隔（天）"
 
 msgid "Last price"
 msgstr "最後的價格"
@@ -611,19 +612,19 @@ msgstr[0] "%s 單位"
 
 msgid "%s chore is due to be done"
 msgid_plural "%s chores are due to be done"
-msgstr[0] "%schores are due to be done"
+msgstr[0] "%s 件家事需要完成"
 
 msgid "%s chore is overdue to be done"
 msgid_plural "%s chores are overdue to be done"
-msgstr[0] "%s家務事早該完成"
+msgstr[0] "%s 件家事早該完成"
 
 msgid "%s battery is due to be charged"
 msgid_plural "%s batteries are due to be charged"
-msgstr[0] "%s電池需要充電"
+msgstr[0] "%s 顆電池需要充電"
 
 msgid "%s battery is overdue to be charged"
 msgid_plural "%s batteries are overdue to be charged"
-msgstr[0] "%s電池逾期未充電"
+msgstr[0] "%s 顆電池逾期未充電"
 
 msgid "in singular form"
 msgstr "的所有成分"
@@ -648,7 +649,7 @@ msgstr "僅檢查是否有一個單位庫存（上面可以使用其他數量）
 msgid ""
 "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
 " marked with \"check only if a single unit is in stock\" will be ignored)?"
-msgstr "您確定要消耗配方\"%s\" 所需的所有成分（標記為“僅檢查一個單位是否有庫存”的成分將被忽略）嗎？"
+msgstr "確定要消耗食譜「%s」所需的所有材料嗎？（標記為「僅檢查庫存中是否一個單位」的材料將被忽略）"
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
 msgstr "從庫存中刪除了配方 \"%s\" 的所有成分"
@@ -693,7 +694,7 @@ msgid "Create task"
 msgstr "創建任務"
 
 msgid "A due date is required"
-msgstr "需要截止日期"
+msgstr "截止日期為必填項目"
 
 msgid "Category"
 msgstr "類別"
@@ -702,15 +703,15 @@ msgid "Edit task"
 msgstr "編輯任務"
 
 msgid "Are you sure to delete task \"%s\"?"
-msgstr "您確定要刪除任務 \"%s\" 嗎？"
+msgstr "確定要刪除任務「%s」嗎？"
 
 msgid "%s task is due to be done"
 msgid_plural "%s tasks are due to be done"
-msgstr[0] "%s任務將要完成"
+msgstr[0] "%s 項任務需要完成"
 
 msgid "%s task is overdue to be done"
 msgid_plural "%s tasks are overdue to be done"
-msgstr[0] "%s 任務早該完成"
+msgstr[0] "%s 項任務早該完成"
 
 msgid "Edit task category"
 msgstr "編輯任務分類"
@@ -734,7 +735,7 @@ msgid "Product group"
 msgstr "產品組"
 
 msgid "Are you sure to delete product group \"%s\"?"
-msgstr "您確定要刪除產品組 \"%s\"嗎?"
+msgstr "確定要刪除產品分類「%s」嗎？"
 
 msgid "Stay logged in permanently"
 msgstr "保持登陸"
@@ -898,7 +899,7 @@ msgid "Filter by battery"
 msgstr "電池過濾"
 
 msgid "Undo charge cycle"
-msgstr "撤消充電週期"
+msgstr "取消充電紀錄"
 
 msgid "Undo chore execution"
 msgstr "撤銷雜項執行"
@@ -913,7 +914,7 @@ msgid "Booking successfully undone"
 msgstr "預訂成功撤消"
 
 msgid "Charge cycle successfully undone"
-msgstr "充電週期成功撤消"
+msgstr "充電紀錄取消成功"
 
 msgid "This cannot be negative and must be an integral number"
 msgstr "這必須是數字且不能是負數"
@@ -928,7 +929,7 @@ msgid "Add %1$s of %2$s to stock"
 msgstr "新增%1$s之%2$s進庫存"
 
 msgid "Adding shopping list item %1$s of %2$s"
-msgstr "添加購物清單項目%1$s之%2$s"
+msgstr "增加購物清單項目 %1$s 之 %2$s"
 
 msgid "Use a specific stock item"
 msgstr "使用特定的庫存物料"
@@ -944,10 +945,10 @@ msgstr "標記%1$s %2$s為已拆封"
 msgid ""
 "When this product was marked as opened, the best before date will be "
 "replaced by today + this amount of days (a value of 0 disables this)"
-msgstr "當此產品標記為已打開時，最好的截止日期將替換為今天+該天數（值0會禁用此日期）"
+msgstr "當此物品標記為已拆封時，保存期限日期將替換為今天的日期加上此天數（設定為 0 代表禁用此項目）"
 
 msgid "Default best before days after opened"
-msgstr "默認最佳開封後幾天"
+msgstr "拆封後預設保存天數"
 
 msgid "Marked %1$s of %2$s as opened"
 msgstr "已標記%1$s %2$s為已拆封"
@@ -971,7 +972,7 @@ msgid "Task due"
 msgstr "任務到期"
 
 msgid "Chore due"
-msgstr "雜務"
+msgstr "家務到期"
 
 msgid "Battery charge cycle due"
 msgstr "電池充電週期到期"
@@ -1020,7 +1021,7 @@ msgid "Picture"
 msgstr "圖片"
 
 msgid "Uncheck ingredients to not put them on the shopping list"
-msgstr "取消選中不將其放入購物清單的成分"
+msgstr "請將不想加入購物清單的材料取消勾選"
 
 msgid "This is for statistical purposes only"
 msgstr "這僅出於統計目的"
@@ -1103,7 +1104,7 @@ msgid "will be multiplied by a factor of %1$s to get %2$s"
 msgstr ""
 
 msgid "The given date is earlier than today, are you sure?"
-msgstr "該日期早於今天，確認嗎？"
+msgstr "填寫的日期早於今天，確定嗎？"
 
 msgid "Product count"
 msgstr "產品數量"
@@ -1120,10 +1121,10 @@ msgid "Add item"
 msgstr "新增項目"
 
 msgid "Selected shopping list"
-msgstr "選中的購物清單"
+msgstr "使用中的購物清單"
 
 msgid "New shopping list"
-msgstr "新建購物清單"
+msgstr "建立新的購物清單"
 
 msgid "Delete shopping list"
 msgstr "刪除購物清單"
@@ -1138,10 +1139,10 @@ msgid "Tasks settings"
 msgstr "任務設置"
 
 msgid "Create shopping list"
-msgstr "創建購物清單"
+msgstr "增加購物清單"
 
 msgid "Are you sure to delete shopping list \"%s\"?"
-msgstr "確認要刪除購物清單“%s”嗎？"
+msgstr "確定要刪除購物清單「%s」嗎？"
 
 msgid "Average shelf life"
 msgstr "平均保質期"
@@ -1365,7 +1366,7 @@ msgid "Time of printing"
 msgstr "印刷時間"
 
 msgid "Are you sure to delete equipment \"%s\"?"
-msgstr "您確定要刪除設備 \"%s\" 嗎？"
+msgstr "確定要刪除器材「%s」嗎？"
 
 msgid "Parent product"
 msgstr "母產品"
@@ -1486,7 +1487,7 @@ msgid "Consume product on chore execution"
 msgstr "在執行雜項時消費產品"
 
 msgid "Are you sure to delete user field \"%s\"?"
-msgstr "您確定要刪除用戶字段 \"%s\" 嗎？"
+msgstr "確定要刪除自定義欄位「%s」嗎？"
 
 msgid "Userentities"
 msgstr "用戶實體"
@@ -1507,7 +1508,7 @@ msgid "Create %s"
 msgstr "創建%s"
 
 msgid "Are you sure to delete this userobject?"
-msgstr "您確定要刪除此用戶對象嗎？"
+msgstr "確定要刪除此用戶對象嗎？"
 
 msgid "Icon CSS class"
 msgstr "圖標CSS類"
@@ -1553,7 +1554,7 @@ msgid "Add to shopping list"
 msgstr "加入購物清單"
 
 msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
-msgstr "已將%2$s中的%1$s添加到購物清單 \"%3$s\""
+msgstr "已將 %2$s 中的 %1$s 添加到購物清單「%3$s」"
 
 msgid "Output"
 msgstr "輸出量"
@@ -1595,7 +1596,7 @@ msgid ""
 msgstr "如果啟用，則最小值 子產品的庫存量將累計到該產品中，這意味著子產品將永遠不會 \"丟失\"，只有該產品"
 
 msgid "Are you sure to remove this conversion?"
-msgstr "您確定要刪除此轉換嗎？"
+msgstr "確定要刪除此單位換算嗎？"
 
 msgid "Unit price"
 msgstr "單價"
@@ -1613,7 +1614,7 @@ msgid "Clear"
 msgstr "明確"
 
 msgid "Are you sure to remove the included recipe \"%s\"?"
-msgstr "您確定要刪除隨附的配方\"%s\"?嗎？"
+msgstr "確定要刪除包括在內的食譜「%s」嗎？"
 
 msgid "Period interval"
 msgstr "週期間隔"
@@ -1668,7 +1669,7 @@ msgid "Stock entries"
 msgstr "庫存條目"
 
 msgid "Best before date"
-msgstr "此日期前最佳"
+msgstr "保存期限日期"
 
 msgid "Purchased date"
 msgstr "購買日期"
@@ -1714,7 +1715,7 @@ msgid "Booking does not exist or was already undone"
 msgstr "預訂不存在或已撤消"
 
 msgid "Are you sure to delete API key \"%s\"?"
-msgstr "您確定要刪除API密鑰 \"%s\"嗎？"
+msgstr "確定要刪除 API 金鑰 %s 嗎？"
 
 msgid "Add note"
 msgstr "增加筆記"
@@ -1787,22 +1788,22 @@ msgid ""
 msgstr "將本產品移至冷藏室時（因此將其冷凍時），最好的終止日期將由今天+此天數代替"
 
 msgid "Default best before days after thawing"
-msgstr "融化後幾天前的默認最佳"
+msgstr "解凍後的保存天數"
 
 msgid "This cannot be the same as the \"From\" location"
-msgstr "這不能與 \"發件人\" 位置相同"
+msgstr "這不能與「來源」存放位置相同"
 
 msgid "Thawed"
 msgstr "解凍"
 
 msgid "Frozen"
-msgstr "冰凍的"
+msgstr "冷凍的"
 
 msgid "Are you sure to delete userentity \"%s\"?"
-msgstr "您確定要刪除用戶身份嗎 \"%s\"?"
+msgstr "確定要刪除自定義項目「%s」嗎？"
 
 msgid "Shopping list settings"
-msgstr "購物清單設置"
+msgstr "購物清單設定"
 
 msgid "Show a month-view calendar"
 msgstr "顯示月視圖日曆"
@@ -1814,10 +1815,10 @@ msgid "Edit note on %s"
 msgstr "編輯 %s 上的筆記"
 
 msgid "Edit product on %s"
-msgstr "在 %s 上編輯產品"
+msgstr "在 %s 上編輯物品"
 
 msgid "Edit recipe on %s"
-msgstr "在 %s 上編輯配方"
+msgstr "在 %s 上編輯食譜"
 
 msgid "Desired servings"
 msgstr "所需份量"
@@ -1832,25 +1833,25 @@ msgid "Recipe card"
 msgstr "食譜卡"
 
 msgid "Group ingredients by their product group"
-msgstr "按產品組對成分進行分組"
+msgstr "根據產品分類對材料進行分類"
 
 msgid "Unknown store"
-msgstr "未知商店"
+msgstr "不明店家"
 
 msgid "Store"
-msgstr "商店"
+msgstr "店家"
 
 msgid "Transaction successfully undone"
 msgstr "交易成功取消"
 
 msgid "Default store"
-msgstr "默認商店"
+msgstr "預設店家"
 
 msgid "Consume this stock entry"
-msgstr ""
+msgstr "消耗此項庫存"
 
 msgid "Mark this stock entry as open"
-msgstr ""
+msgstr "將此項庫存標示為已拆封"
 
 msgid "Mark this item as done"
 msgstr "標記為已完成"
@@ -1862,4 +1863,4 @@ msgid "Delete this item"
 msgstr "刪除此項目"
 
 msgid "Show an icon if the product is already on the shopping list"
-msgstr ""
+msgstr "當物品已經在購物清單時顯示圖示"

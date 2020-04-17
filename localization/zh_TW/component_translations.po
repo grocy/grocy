@@ -1,5 +1,6 @@
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2020
+# richegg Tsai <zxp86021@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -7,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2020\n"
+"Last-Translator: richegg Tsai <zxp86021@gmail.com>, 2020\n"
 "Language-Team: Chinese (Taiwan) (https://www.transifex.com/grocy/teams/93189/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,19 +21,21 @@ msgid "timeago_locale"
 msgstr "zh-TW"
 
 msgid "timeago_nan"
-msgstr "NaN年"
+msgstr "NaN 年以前"
 
 msgid "moment_locale"
 msgstr "zh-tw"
 
 msgid "datatables_localization"
 msgstr ""
-"{\"sProcessing\":\"处理中...\",\"sLengthMenu\":\"显示 _MENU_ "
-"项结果\",\"sZeroRecords\":\"没有匹配结果\",\"sInfo\":\"显示第 _START_ 至 _END_ 项结果，共 "
-"_TOTAL_ 项\",\"sInfoEmpty\":\"显示第 0 至 0 项结果，共 0 项\",\"sInfoFiltered\":\"(由 "
-"_MAX_ "
-"项结果过滤)\",\"sInfoPostFix\":\"\",\"sSearch\":\"搜索:\",\"sUrl\":\"\",\"sEmptyTable\":\"表中数据为空\",\"sLoadingRecords\":\"载入中...\",\"sInfoThousands\":\",\",\"oPaginate\":{\"sFirst\":\"首页\",\"sPrevious\":\"上页\",\"sNext\":\"下页\",\"sLast\":\"末页\"},\"oAria\":{\"sSortAscending\":\":"
-" 以升序排列此列\",\"sSortDescending\":\": 以降序排列此列\"}}"
+"{\"sProcessing\": \"處理中...\",\"sLengthMenu\": \"顯示 _MENU_ "
+"項結果\",\"sZeroRecords\": \"沒有符合的結果\",\"sInfo\": \"顯示第 _START_ 至 _END_ 項結果，共 "
+"_TOTAL_ 項\",\"sInfoEmpty\": \"顯示第 0 至 0 項結果，共 0 項\",\"sInfoFiltered\": \"(由 "
+"_MAX_ 項結果過濾)\",\"sInfoPostFix\": \"\",\"sSearch\": \"搜尋:\",\"sUrl\": "
+"\"\",\"sEmptyTable\": \"表格無資料\",\"sLoadingRecords\": "
+"\"載入中...\",\"sInfoThousands\": \",\",\"oPaginate\": {\"sFirst\": "
+"\"首頁\",\"sPrevious\": \"上頁\",\"sNext\": \"下頁\",\"sLast\": \"末頁\"},\"oAria\":"
+" {\"sSortAscending\": \": 以升冪排列此列\",\"sSortDescending\": \": 以降冪排列此列\"}}"
 
 msgid "summernote_locale"
 msgstr "zh-TW"
