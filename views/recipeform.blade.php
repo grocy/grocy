@@ -20,8 +20,8 @@
 @section('content')
 <div class="row">
 	<div class="col">
-		<h1>@yield('title')</h1>
-
+		<h2>@yield('title')</h2>
+		<hr>
 		<script>
 			Grocy.EditMode = '{{ $mode }}';
 			Grocy.QuantityUnits = {!! json_encode($quantityunits) !!};

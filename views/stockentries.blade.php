@@ -14,7 +14,7 @@
 @section('content')
 <div class="row">
 	<div class="col">
-		<h1>@yield('title')</h1> 
+		<h2>@yield('title')</h2> 
 	</div>
 	<div class="col">
 		@include('components.productpicker', array(
@@ -22,6 +22,7 @@
 			'disallowAllProductWorkflows' => true
 		))
 	</div>
+	<hr>
 </div>
 
 <div class="row">

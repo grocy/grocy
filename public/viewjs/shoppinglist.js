@@ -68,7 +68,7 @@ $("#selected-shopping-list").on("change", function()
 	window.location.href = U('/shoppinglist?list=' + value);
 });
 
-$(".status-filter-button").on("click", function()
+$(".status-filter-message").on("click", function()
 {
 	var value = $(this).data("status-filter");
 	$("#status-filter").val(value);

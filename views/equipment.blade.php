@@ -8,15 +8,22 @@
 <div class="row">
 
 	<div class="col-xs-12 col-md-4 pb-3">
-		<h1>
-			@yield('title')
-			<a class="btn btn-outline-dark" href="{{ $U('/equipment/new') }}">
-				<i class="fas fa-plus"></i>&nbsp;{{ $__t('Add') }}
-			</a>
-		</h1>
+		<h2 class="title">@yield('title')</h2>
+		<hr>
 
-		<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
-		<input type="text" class="form-control" id="search">
+		<div class="row">
+			<div class="col-xs-12 col-md-4 col-xl-3">
+				<a class="btn btn-primary btn-sm responsive-button w-100 mb-3" href="{{ $U('/equipment/new') }}">
+					{{ $__t('Add') }}
+				</a>
+			</div>
+		</div>
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+					<span class="input-group-text"><i class="fas fa-search"></i></span>
+			</div>
+			<input type="text" id="search" class="form-control" placeholder="{{ $__t('Search') }}">
+		</div>
 
 		<table id="equipment-table" class="table table-striped dt-responsive">
 			<thead>

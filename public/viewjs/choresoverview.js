@@ -52,14 +52,14 @@ $("#user-filter").on("change", function()
 	}
 });
 
-$(".status-filter-button").on("click", function()
+$(".status-filter-message").on("click", function()
 {
 	var value = $(this).data("status-filter");
 	$("#status-filter").val(value);
 	$("#status-filter").trigger("change");
 });
 
-$(".user-filter-button").on("click", function()
+$(".user-filter-message").on("click", function()
 {
 	var value = $(this).data("user-filter");
 	$("#user-filter").val(value);
