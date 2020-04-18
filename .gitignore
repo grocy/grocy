@@ -2,3 +2,6 @@
 /vendor
 /.release
 embedded.txt
+
+# jetbrains IDE
+.idea
