@@ -17,7 +17,7 @@
 @section('content')
 <div class="row">
 	<div class="col">
-		<h2>@yield('title')</h2>
+		<h2 class="title">@yield('title')</h2>
 		<hr>
 		<p id="info-due-tasks" data-status-filter="duesoon" data-next-x-days="{{ $nextXDays }}" class="warning-message status-filter-message responsive-button mr-2"></p>
 		<p id="info-overdue-tasks" data-status-filter="overdue" class="error-message status-filter-message responsive-button"></p>

@@ -11,7 +11,7 @@
 @section('content')
 <div class="row">
 	<div class="col">
-		<h2>@yield('title')</h2>
+		<h2 class="title">@yield('title')</h2>
 		<hr>
 	</div>
 </div>

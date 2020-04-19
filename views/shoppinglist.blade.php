@@ -25,7 +25,7 @@
 <div class="row d-print-none hide-on-fullscreen-card">
 	<div class="col">
 		<div class="row">
-			<h2 class="col-sm-12 col-md-6 mb-2">@yield('title')</h2>
+			<h2 class="col-sm-12 col-md-6 mb-2 title">@yield('title')</h2>
 			@if(GROCY_FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS)
 				<div class="col-sm-12 col-md-6 d-flex align-items-end flex-wrap">
 					<div class="d-inline-block flex-grow-1 pr-1 mb-1">

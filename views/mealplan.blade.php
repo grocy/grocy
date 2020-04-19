@@ -27,9 +27,7 @@
 
 <div class="row">
 	<div class="col">
-		<h2>
-			@yield('title')
-		</h2>
+		<h2 class="title">@yield('title')</h2>
 	</div>
 </div>
 <hr>
