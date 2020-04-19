@@ -19,7 +19,7 @@ class CalendarApiController extends BaseApiController
 			foreach($events as $event)
 			{
 				$date = new \DateTime($event['start']);
-				$date->setTimezone(date_default_timezone_get());
+				$date->setTimezone(new \DateTimeZone(date_default_timezone_get()));
 
 				if ($event['date_format'] === 'date')
 				{
