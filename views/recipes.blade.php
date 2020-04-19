@@ -250,7 +250,7 @@
 								@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 									<div class="col-5">
 										<label>{{ $__t('Costs') }}&nbsp;</label>
-										<i class="fas fa-question-circle" data-toggle="tooltip" title="{{ $__t('Based on the prices of the last purchase per product') }}"></i>
+										<i class="fas fa-question-circle" data-toggle="tooltip" title="{{ $__t('Based on the prices of the default consume rule which is "First expiring first, then first in first out"') }}"></i>
 										<h3 class="locale-number locale-number-currency pt-0">{{ $costs }}</h3>
 									</div>
 								@endif
