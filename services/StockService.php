@@ -51,12 +51,6 @@ class StockService extends BaseService
 		return $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
 
-	public function GetCurrentProductPrices()
-	{
-		$sql = 'SELECT * FROM products_current_price';
-		return $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
-	}
-
 	public function GetMissingProducts()
 	{
 		$sql = 'SELECT * FROM stock_missing_products_including_opened';
