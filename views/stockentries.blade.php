@@ -22,9 +22,8 @@
 			'disallowAllProductWorkflows' => true
 		))
 	</div>
-	<hr>
 </div>
-
+<hr>
 <div class="row">
 	<div class="col">
 		<table id="stockentries-table" class="table table-sm table-striped dt-responsive">
