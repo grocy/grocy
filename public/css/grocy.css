@@ -477,6 +477,7 @@ canvas.drawingBuffer {
 
 .title {
   display: inline-block;
+  margin-bottom: 0 !important;
 }
 
 .title-related-links {
