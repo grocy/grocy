@@ -169,7 +169,8 @@
 $('#barcode-taginput').tagsManager({
 	'hiddenTagListName': 'barcode',
 	'tagsContainer': '#barcode-taginput-container',
-	'tagClass': 'badge badge-secondary'
+	'tagClass': 'badge badge-secondary',
+	'delimiters': [13, 44]
 });
 
 if (Grocy.EditMode === 'edit')
