@@ -3828,6 +3828,14 @@
 						"type": "number",
 						"format": "number"
 					},
+					"avg_price": {
+						"type": "number",
+						"format": "number"
+					},
+					"oldest_price": {
+						"type": "number",
+						"format": "number"
+					},
 					"last_shopping_location_id": {
 						"type": "integer"
 					},
@@ -3886,6 +3894,8 @@
 						"plural_forms": null
 					},
 					"last_price": null,
+					"avg_price": null,
+					"oldest_price": null,
 					"last_shopping_location_id": null,
 					"next_best_before_date": "2019-07-07",
 					"location": {
