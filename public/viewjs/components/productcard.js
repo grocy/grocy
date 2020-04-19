@@ -96,6 +96,15 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 				$('#productcard-product-last-price').text(__t('Unknown'));
 			}
 
+			if (productDetails.avg_price !== null)
+			{
+				$('#productcard-product-average-price').text(Number.parseFloat(productDetails.avg_price).toLocaleString() + ' ' + Grocy.Currency);
+			}
+			else
+			{
+				$('#productcard-product-average-price').text(__t('Unknown'));
+			}
+
 			if (productDetails.product.picture_file_name !== null && !productDetails.product.picture_file_name.isEmpty())
 			{
 				$("#productcard-product-picture").removeClass("d-none");
