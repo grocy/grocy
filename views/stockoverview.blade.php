@@ -15,63 +15,85 @@
 @section('content')
 <div class="row">
 	<div class="col">
-		<h1>@yield('title')
-			<small id="info-current-stock" class="text-muted"></small>
-			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/stockjournal') }}">
-				<i class="fas fa-file-alt"></i> {{ $__t('Journal') }}
-			</a>
-			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/stockentries') }}">
-				<i class="fas fa-boxes"></i> {{ $__t('Stock entries') }}
-			</a>
-			@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
-			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/locationcontentsheet') }}">
-				<i class="fas fa-print"></i> {{ $__t('Location Content Sheet') }}
-			</a>
-			@endif
-		</h1>
+		<div class="title-related-links">
+			<h2 class="title">@yield('title')</h2>
+			<div class="related-links">
+				<a class="btn btn-outline-dark responsive-button" href="{{ $U('/stockjournal') }}">
+					{{ $__t('Journal') }}
+				</a>
+				<a class="btn btn-outline-dark responsive-button" href="{{ $U('/stockentries') }}">
+					{{ $__t('Stock entries') }}
+				</a>
+				@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
+				<a class="btn btn-outline-dark responsive-button" href="{{ $U('/locationcontentsheet') }}">
+					{{ $__t('Location Content Sheet') }}
+				</a>
+				@endif
+			</div>
+		</div>
+		<div id="info-current-stock" class="text-muted"></div>
+		<hr>
 		@if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
-		<p id="info-expiring-products" data-next-x-days="{{ $nextXDays }}" data-status-filter="expiring" class="btn btn-lg btn-warning status-filter-button responsive-button mr-2"></p>
-		<p id="info-expired-products" data-status-filter="expired" class="btn btn-lg btn-danger status-filter-button responsive-button mr-2"></p>
+		<p id="info-expiring-products" data-next-x-days="{{ $nextXDays }}" data-status-filter="expiring" class="warning-message status-filter-message responsive-button mr-2"></p>
+		<p id="info-expired-products" data-status-filter="expired" class="error-message status-filter-message responsive-button mr-2"></p>
 		@endif
-		<p id="info-missing-products" data-status-filter="belowminstockamount" class="btn btn-lg btn-info status-filter-button responsive-button"></p>
+		<p id="info-missing-products" data-status-filter="belowminstockamount" class="normal-message status-filter-message responsive-button"></p>
 	</div>
 </div>
-
 <div class="row mt-3">
-	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
-		<input type="text" class="form-control" id="search">
+	<div class="col-xs-12 col-md-6 col-xl-3 d-flex align-items-end">
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+					<span class="input-group-text"><i class="fas fa-search"></i></span>
+			</div>
+			<input type="text"  id="search" class="form-control" placeholder="{{ $__t('Search') }}">
+		</div>
 	</div>
 	@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="location-filter">{{ $__t('Filter by location') }}</label> <i class="fas fa-filter"></i>
-		<select class="form-control" id="location-filter">
-			<option value="all">{{ $__t('All') }}</option>
-			@foreach($locations as $location)
-				<option value="{{ $location->name }}">{{ $location->name }}</option>
-			@endforeach
-		</select>
+		<label for="location-filter">{{ $__t('Location') }}</label>
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+					<span class="input-group-text"><i class="fas fa-filter"></i></span>
+			</div>
+			<select class="form-control" id="location-filter">
+				<option value="all">{{ $__t('All') }}</option>
+				@foreach($locations as $location)
+					<option value="{{ $location->name }}">{{ $location->name }}</option>
+				@endforeach
+			</select>
+		</div>
 	</div>
 	@endif
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="location-filter">{{ $__t('Filter by product group') }}</label> <i class="fas fa-filter"></i>
-		<select class="form-control" id="product-group-filter">
-			<option value="all">{{ $__t('All') }}</option>
-			@foreach($productGroups as $productGroup)
-				<option value="{{ $productGroup->name }}">{{ $productGroup->name }}</option>
-			@endforeach
-		</select>
+		<label for="product-group-filter">{{ $__t('Product group') }}</label>
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+					<span class="input-group-text"><i class="fas fa-filter"></i></span>
+			</div>
+			<select class="form-control" id="product-group-filter">
+				<option value="all">{{ $__t('All') }}</option>
+				@foreach($productGroups as $productGroup)
+					<option value="{{ $productGroup->name }}">{{ $productGroup->name }}</option>
+				@endforeach
+			</select>
+		</div>
 	</div>
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="status-filter">{{ $__t('Filter by status') }}</label> <i class="fas fa-filter"></i>
-		<select class="form-control" id="status-filter">
-			<option class="bg-white" value="all">{{ $__t('All') }}</option>
-			@if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
-			<option class="bg-warning" value="expiring">{{ $__t('Expiring soon') }}</option>
-			<option class="bg-danger" value="expired">{{ $__t('Already expired') }}</option>
-			@endif
-			<option class="bg-info" value="belowminstockamount">{{ $__t('Below min. stock amount') }}</option>
-		</select>
+		<label for="status-filter">{{ $__t('Status') }}</label>
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+					<span class="input-group-text"><i class="fas fa-filter"></i></span>
+			</div>
+			<select class="form-control" id="status-filter">
+				<option class="bg-white" value="all">{{ $__t('All') }}</option>
+				@if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
+				<option value="expiring">{{ $__t('Expiring soon') }}</option>
+				<option value="expired">{{ $__t('Already expired') }}</option>
+				@endif
+				<option value="belowminstockamount">{{ $__t('Below min. stock amount') }}</option>
+			</select>
+		</div>
 	</div>
 </div>
 

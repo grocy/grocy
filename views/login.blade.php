@@ -6,8 +6,8 @@
 @section('content')
 <div class="row">
 	<div class="col-lg-6 offset-lg-3 col-xs-12">
-		<h1 class="text-center">@yield('title')</h1>
-
+		<h2 class="text-center">@yield('title')</h2>
+		<hr>
 		<form method="post" action="{{ $U('/login') }}" id="login-form" novalidate>
 
 			<div class="form-group">

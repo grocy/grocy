@@ -11,17 +11,20 @@
 @section('content')
 <div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
-		<h1>
-			@yield('title')
-			@if(!$embedded)
-			<button id="scan-mode-button" class="btn @if(boolval($userSettings['scan_mode_consume_enabled'])) btn-success @else btn-danger @endif" type="checkbox">{{ $__t('Scan mode') }} <span id="scan-mode-status">@if(boolval($userSettings['scan_mode_consume_enabled'])) {{ $__t('on') }} @else {{ $__t('off') }} @endif</span></button>
-			<input id="scan-mode" type="checkbox" class="d-none user-setting-control" data-setting-key="scan_mode_consume_enabled" @if(boolval($userSettings['scan_mode_consume_enabled'])) checked @endif>
-			@else
-			<script>
-				Grocy.UserSettings.scan_mode_consume_enabled = false;
-			</script>
-			@endif
-		</h1>
+		<div class="title-related-links">
+			<h2 class="title">@yield('title')</h2>
+			<div class="related-links">
+				@if(!$embedded)
+				<button id="scan-mode-button" class="btn @if(boolval($userSettings['scan_mode_consume_enabled'])) btn-success @else btn-danger @endif" type="checkbox">{{ $__t('Scan mode') }} <span id="scan-mode-status">@if(boolval($userSettings['scan_mode_consume_enabled'])) {{ $__t('on') }} @else {{ $__t('off') }} @endif</span></button>
+				<input id="scan-mode" type="checkbox" class="d-none user-setting-control" data-setting-key="scan_mode_consume_enabled" @if(boolval($userSettings['scan_mode_consume_enabled'])) checked @endif>
+				@else
+				<script>
+					Grocy.UserSettings.scan_mode_consume_enabled = false;
+				</script>
+				@endif
+			</div>
+		</div>
+		<hr>
 
 		<form id="consume-form" novalidate>
 

@@ -7,8 +7,8 @@
 @section('content')
 <div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
-		<h1>@yield('title')</h1>
-
+		<h2 class="title">@yield('title')</h2>
+		<hr>
 		<form id="batterytracking-form" novalidate>
 
 			<div class="form-group">

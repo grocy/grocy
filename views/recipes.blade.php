@@ -13,27 +13,40 @@
 <div class="row">
 	
 	<div class="col-xs-12 col-md-6 pb-3">
-		<h1>
-			@yield('title')
-			<a class="btn btn-outline-dark" href="{{ $U('/recipe/new') }}">
-				<i class="fas fa-plus"></i> {{ $__t('Add') }}
-			</a>
-		</h1>
+		<div>
+			<h2 class="title">@yield('title')</h2>
+		</div>
+		<hr>
 
 		<div class="row">
-			<div class="col-6">
-				<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
-				<input type="text" class="form-control" id="search">
+			<div class="col-xs-12 col-md-4 col-xl-2">
+				<a class="btn btn-primary btn-sm responsive-button w-100 mb-3" href="{{ $U('/recipe/new') }}">
+					{{ $__t('Add') }}
+				</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-md-6 col-xl-6">
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-search"></i></span>
+					</div>
+					<input type="text"  id="search" class="form-control" placeholder="{{ $__t('Search') }}">
+				</div>
 			</div>
 
-			<div class="col-6">
-				<label for="status-filter">{{ $__t('Filter by status') }}</label> <i class="fas fa-filter"></i>
-				<select class="form-control" id="status-filter">
-					<option class="bg-white" value="all">{{ $__t('All') }}</option>
-					<option class="bg-success" value="enoughtinstock">{{ $__t('Enough in stock') }}</option>
-					<option class="bg-warning" value="enoughinstockwithshoppinglist">{{ $__t('Not enough in stock, but already on the shopping list') }}</option>
-					<option class="bg-danger" value="notenoughinstock">{{ $__t('Not enough in stock') }}</option>
-				</select>
+			<div class="col-xs-12 col-md-6 col-xl-6">
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-filter"></i></span>
+					</div>
+					<select class="form-control" id="status-filter">
+						<option value="all">{{ $__t('All') }}</option>
+						<option value="enoughtinstock">{{ $__t('Enough in stock') }}</option>
+						<option value="enoughinstockwithshoppinglist">{{ $__t('Not enough in stock, but already on the shopping list') }}</option>
+						<option value="notenoughinstock">{{ $__t('Not enough in stock') }}</option>
+					</select>
+				</div>
 			</div>
 		</div>
 

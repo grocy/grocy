@@ -6,8 +6,8 @@
 @section('content')
 <div class="row">
 	<div class="col-xs-12 col-md-6 text-center">
-		<h1>@yield('title')</h1>
-
+		<h2 class="title">@yield('title')</h2>
+		<hr>
 		<ul class="nav nav-tabs justify-content-center mt-3">
 			<li class="nav-item">
 				<a class="nav-link active" id="system-info-tab" data-toggle="tab" href="#system-info">{{ $__t('System info') }}</a>

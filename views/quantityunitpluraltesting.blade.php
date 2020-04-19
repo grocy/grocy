@@ -10,9 +10,13 @@
 
 @section('content')
 <div class="row">
+	<div class="col">
+		<h2 class="title">@yield('title')</h2>
+		<hr>
+	</div>
+</div>
+<div class="row">
 	<div class="col-lg-6 col-xs-12">
-		<h1>@yield('title')</h1>
-
 		<form id="quantityunitpluraltesting-form" novalidate>
 
 			<div class="form-group">

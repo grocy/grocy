@@ -737,7 +737,7 @@ msgstr ""
 msgid "When not set, you will get logged out at latest after 30 days"
 msgstr ""
 
-msgid "Filter by status"
+msgid "Status"
 msgstr ""
 
 msgid "Below min. stock amount"
@@ -1430,7 +1430,7 @@ msgstr ""
 msgid "assigned to %s"
 msgstr ""
 
-msgid "Filter by assignment"
+msgid "Assignment"
 msgstr ""
 
 msgid "Consume product on chore execution"

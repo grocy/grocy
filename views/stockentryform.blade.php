@@ -10,8 +10,13 @@
 </script>
 
 <div class="row">
+	<div class="col">
+		<h2 class="title">@yield('title')</h2>
+		<hr>
+	</div>
+</div>
+<div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
-		<h1>@yield('title')</h1>
 
 		<form id="stockentry-form" novalidate>
 			@php

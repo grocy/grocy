@@ -7,23 +7,32 @@
 @section('content')
 <div class="row">
 	<div class="col">
-		<h1>@yield('title')</h1>
+		<h2 class="title">@yield('title')</h2>
 	</div>
 </div>
 
+<hr>
 <div class="row my-3">
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
-		<input type="text" class="form-control" id="search">
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+					<span class="input-group-text"><i class="fas fa-search"></i></span>
+			</div>
+			<input type="text"  id="search" class="form-control" placeholder="{{ $__t('Search') }}">
+		</div>
 	</div>
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="chore-filter">{{ $__t('Filter by chore') }}</label> <i class="fas fa-filter"></i>
-		<select class="form-control" id="chore-filter">
-			<option value="all">{{ $__t('All') }}</option>
-			@foreach($chores as $chore)
-				<option value="{{ $chore->id }}">{{ $chore->name }}</option>
-			@endforeach
-		</select>
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+					<span class="input-group-text"><i class="fas fa-filter"></i></span>
+			</div>
+			<select class="form-control" id="chore-filter">
+				<option value="all">{{ $__t('All') }}</option>
+				@foreach($chores as $chore)
+					<option value="{{ $chore->id }}">{{ $chore->name }}</option>
+				@endforeach
+			</select>
+		</div>
 	</div>
 </div>
 

@@ -17,34 +17,45 @@
 @section('content')
 <div class="row">
 	<div class="col">
-		<h1>
-			@yield('title')
-			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/task/new') }}">
-				<i class="fas fa-plus"></i> {{ $__t('Add') }}
-			</a>
-		</h1>
-		<p id="info-due-tasks" data-status-filter="duesoon" data-next-x-days="{{ $nextXDays }}" class="btn btn-lg btn-warning status-filter-button responsive-button mr-2"></p>
-		<p id="info-overdue-tasks" data-status-filter="overdue" class="btn btn-lg btn-danger status-filter-button responsive-button"></p>
+		<h2 class="title">@yield('title')</h2>
+		<hr>
+		<p id="info-due-tasks" data-status-filter="duesoon" data-next-x-days="{{ $nextXDays }}" class="warning-message status-filter-message responsive-button mr-2"></p>
+		<p id="info-overdue-tasks" data-status-filter="overdue" class="error-message status-filter-message responsive-button"></p>
 	</div>
 </div>
 
 <div class="row mt-3">
+	<div class="col-xs-12 col-md-2 col-xl-1">
+		<a class="btn btn-primary btn-sm responsive-button w-100 mb-3" href="{{ $U('/task/new') }}">
+			{{ $__t('Add') }}
+		</a>
+	</div>
+</div>
+<div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
-		<input type="text" class="form-control" id="search">
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+					<span class="input-group-text"><i class="fas fa-search"></i></span>
+			</div>
+			<input type="text"  id="search" class="form-control" placeholder="{{ $__t('Search') }}">
+		</div>
 	</div>
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="status-filter">{{ $__t('Filter by status') }}</label> <i class="fas fa-filter"></i>
-		<select class="form-control" id="status-filter">
-			<option class="bg-white" value="all">{{ $__t('All') }}</option>
-			<option class="bg-warning" value="duesoon">{{ $__t('Due soon') }}</option>
-			<option class="bg-danger" value="overdue">{{ $__t('Overdue') }}</option>
-		</select>
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+					<span class="input-group-text"><i class="fas fa-filter"></i></span>
+			</div>
+			<select class="form-control" id="status-filter">
+				<option value="all">{{ $__t('All') }}</option>
+				<option value="duesoon">{{ $__t('Due soon') }}</option>
+				<option value="overdue">{{ $__t('Overdue') }}</option>
+			</select>
+		</div>
 	</div>
-	<div class="col-xs-12 col-md-6 col-xl-3 d-flex align-items-end">
-		<div class="form-check">
-			<input class="form-check-input" type="checkbox" id="show-done-tasks">
-			<label class="form-check-label" for="show-done-tasks">
+	<div class="col-xs-12 col-md-6 col-xl-3">
+		<div class="form-check custom-control form-control-lg custom-checkbox pt-0">
+			<input class="form-check-input custom-control-input" type="checkbox" id="show-done-tasks">
+			<label class="form-check-label custom-control-label" for="show-done-tasks">
 				{{ $__t('Show done tasks') }}
 			</label>
 		</div>

@@ -27,11 +27,10 @@
 
 <div class="row">
 	<div class="col">
-		<h1>
-			@yield('title')
-		</h1>
+		<h2 class="title">@yield('title')</h2>
 	</div>
 </div>
+<hr>
 
 <div class="row">
 	<div class="col">

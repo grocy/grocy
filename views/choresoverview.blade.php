@@ -11,41 +11,59 @@
 @section('content')
 <div class="row">
 	<div class="col">
-		<h1>@yield('title')
-			<a class="btn btn-outline-dark responsive-button" href="{{ $U('/choresjournal') }}">
-				<i class="fas fa-file-alt"></i> {{ $__t('Journal') }}
-			</a>
-		</h1>
-		<p id="info-due-chores" data-status-filter="duesoon" data-next-x-days="{{ $nextXDays }}" class="btn btn-lg btn-warning status-filter-button responsive-button mr-2"></p>
-		<p id="info-overdue-chores" data-status-filter="overdue" class="btn btn-lg btn-danger status-filter-button responsive-button mr-2"></p>
+		<div class="title-related-links">
+			<h2 class="title">@yield('title')</h2>
+			<div class="related-links">
+				<a class="btn btn-outline-dark responsive-button" href="{{ $U('/choresjournal') }}">
+					{{ $__t('Journal') }}
+				</a>
+			</div>
+		</div>
+		<hr>
+		<p id="info-due-chores" data-status-filter="duesoon" data-next-x-days="{{ $nextXDays }}" class="warning-message status-filter-message responsive-message mr-2"></p>
+		<p id="info-overdue-chores" data-status-filter="overdue" class="error-message status-filter-message responsive-button mr-2"></p>
 		@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
-		<p id="info-assigned-to-me-chores" data-user-filter="xx{{ GROCY_USER_ID }}xx" class="btn btn-lg btn-secondary user-filter-button responsive-button"></p>
+		<p id="info-assigned-to-me-chores" data-user-filter="xx{{ GROCY_USER_ID }}xx" class="normal-message user-filter-message responsive-button"></p>
 		@endif
 	</div>
 </div>
 
 <div class="row mt-3">
-	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="search">{{ $__t('Search') }}</label> <i class="fas fa-search"></i>
-		<input type="text" class="form-control input-group-filter" id="search">
+	<div class="col-xs-12 col-md-6 col-xl-3 d-flex align-items-end">
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+					<span class="input-group-text"><i class="fas fa-search"></i></span>
+			</div>
+			<input type="text"  id="search" class="form-control" placeholder="{{ $__t('Search') }}">
+		</div>
 	</div>
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="status-filter">{{ $__t('Filter by status') }}</label> <i class="fas fa-filter"></i>
-		<select class="form-control input-group-filter" id="status-filter">
-			<option class="bg-white" value="all">{{ $__t('All') }}</option>
-			<option class="bg-warning" value="duesoon">{{ $__t('Due soon') }}</option>
-			<option class="bg-danger" value="overdue">{{ $__t('Overdue') }}</option>
-		</select>
+		<label for="status-filter">{{ $__t('Status') }}</label>
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+					<span class="input-group-text"><i class="fas fa-filter"></i></span>
+			</div>
+			<select class="form-control" id="status-filter">
+				<option value="all">{{ $__t('All') }}</option>
+				<option value="duesoon">{{ $__t('Due soon') }}</option>
+				<option value="overdue">{{ $__t('Overdue') }}</option>
+			</select>
+		</div>
 	</div>
 	@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="user-filter">{{ $__t('Filter by assignment') }}</label> <i class="fas fa-filter"></i>
-		<select class="form-control input-group-filter" id="user-filter">
-			<option></option>
-			@foreach($users as $user)
-			<option class="@if($user->id == GROCY_USER_ID) bg-secondary text-white @endif" data-user-id="{{ $user->id }}" value="xx{{ $user->id }}xx">{{ $user->display_name }}</option>
-			@endforeach
-		</select>
+		<label for="user-filter">{{ $__t('Assignment') }}</label>
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+					<span class="input-group-text"><i class="fas fa-filter"></i></span>
+			</div>
+			<select class="form-control" id="user-filter">
+				<option></option>
+				@foreach($users as $user)
+				<option data-user-id="{{ $user->id }}" value="xx{{ $user->id }}xx">{{ $user->display_name }}</option>
+				@endforeach
+			</select>
+		</div>
 	</div>
 	@endif
 </div>
