@@ -13,7 +13,11 @@
 @php if(empty($nextInputSelector)) { $nextInputSelector = ''; } @endphp
 
 <div class="form-group" data-next-input-selector="{{ $nextInputSelector }}" data-disallow-add-product-workflows="{{ BoolToString($disallowAddProductWorkflows) }}" data-disallow-all-product-workflows="{{ BoolToString($disallowAllProductWorkflows) }}" data-prefill-by-name="{{ $prefillByName }}" data-prefill-by-id="{{ $prefillById }}">
-	<label for="product_id">{{ $__t($label) }} <i class="fas fa-barcode"></i><span id="barcode-lookup-disabled-hint" class="small text-muted d-none"> {{ $__t('Barcode lookup is disabled') }}</span>&nbsp;&nbsp;<span class="small text-muted">{{ $hint }}</span></label>
+	<label for="product_id">
+		{{ $__t($label) }}&nbsp;<i class="fas fa-barcode"></i>&nbsp;
+		<span id="barcode-lookup-disabled-hint" class="small text-muted d-none"> {{ $__t('Barcode lookup is disabled') }}</span>&nbsp;
+		<i class="fas fa-question-circle" data-toggle="tooltip" title="{{ $hint }}"></i>
+	</label>
 	<select class="form-control product-combobox barcodescanner-input" id="product_id" name="product_id" @if($isRequired) required @endif @if($disabled) disabled @endif data-target="@productpicker">
 		<option value=""></option>
 		@foreach($products as $product)

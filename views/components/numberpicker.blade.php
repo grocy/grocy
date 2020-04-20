@@ -17,7 +17,9 @@
 @php if(!isset($noNameAttribute)) { $noNameAttribute = false; } @endphp
 
 <div class="form-group {{ $additionalGroupCssClasses }}">
-	<label for="{{ $id }}">{{ $__t($label) }}&nbsp;&nbsp;<span id="{{ $hintId }}" class="small text-muted">{{ $hint }}</span>{!! $additionalHtmlContextHelp !!}</label>
+	<label for="{{ $id }}">
+		{{ $__t($label) }}&nbsp;
+		<i class="fas fa-question-circle" id="{{ $hintId }}" data-toggle="tooltip" title="{{ $hint }}"></i>{!! $additionalHtmlContextHelp !!}</label>
 	<div class="input-group">
 		<input {!! $additionalAttributes !!} type="number" class="form-control numberpicker {{ $additionalCssClasses }}" id="{{ $id }}" @if(!$noNameAttribute) name="{{ $id }}" @endif value="{{ $value }}" min="{{ $min }}" max="{{ $max }}" step="{{ $step }}" @if($isRequired) required @endif>
 		<div class="input-group-append">

@@ -79,14 +79,15 @@
 			))			
 
 			<div class="form-group">
-				<div class="form-check custom-control custom-checkbox pt-0">
+				<div class="custom-control custom-checkbox">
 					<input type="hidden" name="not_check_shoppinglist" value="0">
 					<input @if($mode == 'edit' && $recipe->not_check_shoppinglist == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="not_check_shoppinglist" name="not_check_shoppinglist" value="1">
 					<label class="form-check-label custom-control-label" for="not_check_shoppinglist">
-						{{ $__t('Do not check against the shopping list when adding missing items to it') }}&nbsp;&nbsp;
-						<span class="small text-muted">
-							{{ $__t('By default the amount to be added to the shopping list is "needed amount - stock amount - shopping list amount" - when this is enabled, it is only checked against the stock amount, not against what is already on the shopping list') }}
-						</span>
+						{{ $__t('Do not check against the shopping list when adding missing items to it') }}&nbsp;
+						<i class="fas fa-question-circle"
+							data-toggle="tooltip" 
+							title="{{ $__t('By default the amount to be added to the shopping list is `needed amount - stock amount - shopping list amount` - when this is enabled, it is only checked against the stock amount, not against what is already on the shopping list') }}"
+						></i>
 					</label>
 				</div>
 			</div>

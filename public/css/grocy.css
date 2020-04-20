@@ -488,8 +488,13 @@ canvas.drawingBuffer {
   flex-wrap: wrap;
 }
 
-.custom-control-label {
+.form-control-lg .custom-control-label {
   padding-top: 7px;
+  padding-left: 10px;
+}
+
+.custom-control-label {
+  padding-top: 13px;
   padding-left: 10px;
 }
 

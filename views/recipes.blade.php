@@ -179,9 +179,8 @@
 					@endif
 					@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 					<div class="col-6">
-						<label>{{ $__t('Costs') }}&nbsp;&nbsp;
-							<span class="small text-muted">{{ $__t('Based on the prices of the last purchase per product') }}</span>
-						</label>
+						<label>{{ $__t('Costs') }}&nbsp;</label>
+						<i class="fas fa-question-circle" data-toggle="tooltip" title="{{ $__t('Based on the prices of the last purchase per product') }}"></i>
 						<p class="mb-0">
 							<h3 class="locale-number locale-number-currency pt-0">{{ $selectedRecipeTotalCosts }}</h3>
 						</p>
