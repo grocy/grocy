@@ -61,6 +61,7 @@ a.discrete-link:focus {
 	left: 0;
 	overflow: auto;
 	background-color: #ffffff;
+	width: 100%;
 }
 
  /* Fixes smooth scrolling on iOS */
@@ -497,4 +498,19 @@ canvas.drawingBuffer {
   top: 0.8rem;
   width: 1.25rem;
   height: 1.25rem;
+}
+
+.recipe-card-name {
+	font-size: 16px;
+	text-align: center;
+	width: 100%;
+}
+
+.recipe-expand {
+	right: 1.25rem;
+	top: .75rem;
+}
+
+.recipe-servings-input {
+	width: 125px;
 }
