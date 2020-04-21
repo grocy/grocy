@@ -17,11 +17,10 @@ class CorsMiddleware extends BaseMiddleware
 		$routingResults = $routeContext->getRoutingResults();
 		$methods = $routingResults->getAllowedMethods();
 		//$requestHeaders = $request->getHeaderLine('Access-Control-Request-Headers');
-		$origin = $request->getHeaderLine('Origin');
 
 		$response = $handler->handle($request);
 
-		$response = $response->withHeader('Access-Control-Allow-Origin', $origin);
+		$response = $response->withHeader('Access-Control-Allow-Origin', '*');
 		$response = $response->withHeader('Access-Control-Allow-Methods', implode(',', $methods));
 		$response = $response->withHeader('Access-Control-Allow-Headers', 'Content-Type,GROCY-API-KEY');
 
