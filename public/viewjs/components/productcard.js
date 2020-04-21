@@ -80,7 +80,7 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 
 			if (productDetails.last_price !== null)
 			{
-				$('#productcard-product-last-price').text(Number.parseFloat(productDetails.last_price).toLocaleString() + ' ' + Grocy.Currency);
+				$('#productcard-product-last-price').text(Number.parseFloat(productDetails.last_price).toLocaleString() + ' ' + Grocy.Currency + ' per ' + productDetails.quantity_unit_purchase.name);
 			}
 			else
 			{
