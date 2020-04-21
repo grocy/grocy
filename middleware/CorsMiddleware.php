@@ -23,6 +23,7 @@ class CorsMiddleware extends BaseMiddleware
 		$response = $response->withHeader('Access-Control-Allow-Origin', '*');
 		$response = $response->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
 		$response = $response->withHeader('Access-Control-Allow-Headers', '*');
+		$response = $response->withStatus(204);
 
 		return $response;
 	}
