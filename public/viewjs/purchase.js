@@ -206,7 +206,7 @@ if (Grocy.Components.ProductPicker !== undefined)
 
 					if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 					{
-						Grocy.Components.DateTimePicker.SetValue(moment().format('YYYY-MM-DD'));
+						Grocy.Components.DateTimePicker.SetValue('2999-12-31');
 					}
 
 					if (productDetails.product.default_best_before_days.toString() !== '0')
