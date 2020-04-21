@@ -47,11 +47,26 @@
 				<input type="text" class="form-control" required id="name" name="name" value="@if($mode == 'edit'){{ $recipe->name }}@endif">
 				<div class="invalid-feedback">{{ $__t('A name is required') }}</div>
 			</div>
-
+			
 			<div class="form-group">
-				<label for="description">{{ $__t('Preparation') }}</label>
-				<textarea id="description" class="form-control wysiwyg-editor" name="description">@if($mode == 'edit'){{ $recipe->description }}@endif</textarea>
-			</div>
+					<label for="recipe-picture">
+						{{ $__t('Picture') }}
+					</label>
+					<div class="input-group">
+						<div class="custom-file">
+							<input type="file" class="custom-file-input" id="recipe-picture" accept="image/*">
+							<label id="recipe-picture-label" class="custom-file-label @if(empty($recipe->picture_file_name)) d-none @endif" for="recipe-picture">
+								{{ $recipe->picture_file_name }}
+							</label>
+							<label id="recipe-picture-label-none" class="custom-file-label @if(!empty($recipe->picture_file_name)) d-none @endif" for="recipe-picture">
+								{{ $__t('No file selected') }}
+							</label>
+						</div>
+						<div class="input-group-append">
+							<span class="input-group-text"><i class="fas fa-trash" id="delete-current-recipe-picture-button"></i></span>
+						</div>
+					</div>
+				</div>
 
 			@php if($mode == 'edit') { $value = $recipe->base_servings; } else { $value = 1; } @endphp
 			@include('components.numberpicker', array(
@@ -64,22 +79,16 @@
 			))			
 
 			<div class="form-group">
-				<div class="form-check">
+				<div class="custom-control custom-checkbox">
 					<input type="hidden" name="not_check_shoppinglist" value="0">
-					<input @if($mode == 'edit' && $recipe->not_check_shoppinglist == 1) checked @endif class="form-check-input" type="checkbox" id="not_check_shoppinglist" name="not_check_shoppinglist" value="1">
-					<label class="form-check-label" for="not_check_shoppinglist">{{ $__t('Do not check against the shopping list when adding missing items to it') }}&nbsp;&nbsp;
-						<span class="small text-muted">{{ $__t('By default the amount to be added to the shopping list is "needed amount - stock amount - shopping list amount" - when this is enabled, it is only checked against the stock amount, not against what is already on the shopping list') }}</span>
+					<input @if($mode == 'edit' && $recipe->not_check_shoppinglist == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="not_check_shoppinglist" name="not_check_shoppinglist" value="1">
+					<label class="form-check-label custom-control-label" for="not_check_shoppinglist">
+						{{ $__t('Do not check against the shopping list when adding missing items to it') }}&nbsp;
+						<i class="fas fa-question-circle"
+							data-toggle="tooltip" 
+							title="{{ $__t('By default the amount to be added to the shopping list is `needed amount - stock amount - shopping list amount` - when this is enabled, it is only checked against the stock amount, not against what is already on the shopping list') }}"
+						></i>
 					</label>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label for="recipe-picture">{{ $__t('Picture') }}
-					<span class="text-muted small">{{ $__t('If you don\'t select a file, the current picture will not be altered') }}</span>
-				</label>
-				<div class="custom-file">
-					<input type="file" class="custom-file-input" id="recipe-picture" accept="image/*">
-					<label class="custom-file-label" for="recipe-picture">{{ $__t('No file selected') }}</label>
 				</div>
 			</div>
 
@@ -96,7 +105,12 @@
 				'entity' => 'recipes'
 			))
 
-			<button id="save-recipe-button" class="btn btn-success">{{ $__t('Save') }}</button>
+			<div class="form-group">
+				<label for="description">{{ $__t('Preparation') }}</label>
+				<textarea id="description" class="form-control wysiwyg-editor" name="description">@if($mode == 'edit'){{ $recipe->description }}@endif</textarea>
+			</div>
+
+			<button id="save-recipe-button" class="btn btn-success mb-2">{{ $__t('Save') }}</button>
 
 		</form>
 	</div>
@@ -104,12 +118,27 @@
 	<div class="col-xs-12 col-md-5 pb-3">
 		<div class="row">
 			<div class="col">
-				<h2>
-					{{ $__t('Ingredients list') }}
-					<a id="recipe-pos-add-button" class="btn btn-outline-dark recipe-pos-add-button" type="button" href="#">
-						<i class="fas fa-plus"></i> {{ $__t('Add') }}
-					</a>
-				</h2>
+				@if(!empty($recipe->picture_file_name))
+					<img id="current-recipe-picture" data-src="{{ $U('/api/files/recipepictures/' . base64_encode($recipe->picture_file_name) . '?force_serve_as=picture&best_fit_width=400') }}" class="img-fluid img-thumbnail mt-2 lazy mb-5">
+					<p id="delete-current-recipe-picture-on-save-hint" class="form-text text-muted font-italic d-none mb-5">{{ $__t('The current picture will be deleted when you save the recipe') }}</p>
+				@else
+					<p id="no-current-recipe-picture-hint" class="form-text text-muted font-italic mb-5">{{ $__t('No picture available') }}</p>
+				@endif
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<div class="title-related-links">
+					<h4>
+						{{ $__t('Ingredients list') }}
+					</h4>
+					<div class="related-links">
+						<a id="recipe-pos-add-button" class="btn btn-outline-primary btn-sm recipe-pos-add-button" type="button" href="#">
+							{{ $__t('Add') }}
+						</a>
+					</div>
+				</div>
 				
 				<table id="recipes-pos-table" class="table table-sm table-striped dt-responsive">
 					<thead>
@@ -176,12 +205,16 @@
 
 		<div class="row mt-5">
 			<div class="col">
-				<h2>
-					{{ $__t('Included recipes') }}
-					<a id="recipe-include-add-button" class="btn btn-outline-dark" href="#">
-						<i class="fas fa-plus"></i> {{ $__t('Add') }}
-					</a>
-				</h2>
+				<div class="title-related-links">
+					<h4>
+						{{ $__t('Included recipes') }}
+					</h4>
+					<div class="related-links">
+						<a id="recipe-include-add-button" class="btn btn-outline-primary btn-sm" href="#">
+							{{ $__t('Add') }}
+						</a>
+					</div>
+				</div>
 				<table id="recipes-includes-table" class="table table-sm table-striped dt-responsive">
 					<thead>
 						<tr>
@@ -213,19 +246,6 @@
 						@endif
 					</tbody>
 				</table>
-			</div>
-		</div>
-
-		<div class="row mt-5">
-			<div class="col">
-				<label class="mt-2">{{ $__t('Picture') }}</label>
-				<button id="delete-current-recipe-picture-button" class="btn btn-sm btn-danger @if(empty($recipe->picture_file_name)) disabled @endif"><i class="fas fa-trash"></i> {{ $__t('Delete') }}</button>
-				@if(!empty($recipe->picture_file_name))
-					<p><img id="current-recipe-picture" data-src="{{ $U('/api/files/recipepictures/' . base64_encode($recipe->picture_file_name) . '?force_serve_as=picture&best_fit_width=400') }}" class="img-fluid img-thumbnail mt-2 lazy"></p>
-					<p id="delete-current-recipe-picture-on-save-hint" class="form-text text-muted font-italic d-none">{{ $__t('The current picture will be deleted when you save the recipe') }}</p>
-				@else
-					<p id="no-current-recipe-picture-hint" class="form-text text-muted font-italic">{{ $__t('No picture available') }}</p>
-				@endif
 			</div>
 		</div>
 	</div>

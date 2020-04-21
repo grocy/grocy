@@ -143,28 +143,52 @@
 	@if($selectedRecipe !== null)
 	<div class="col-xs-12 col-md-6">
 		<div id="selectedRecipeCard" class="card">
-			<div class="card-header card-header-fullscreen">
-				<i class="fas fa-cocktail"></i> {{ $selectedRecipe->name }}&nbsp;&nbsp;
-				<a id="selectedRecipeConsumeButton" class="btn btn-sm btn-outline-success py-0 hide-when-embedded hide-on-fullscreen-card @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->need_fulfilled == 0) disabled @endif" href="#" data-toggle="tooltip" title="{{ $__t('Consume all ingredients needed by this recipe') }}" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
-					<i class="fas fa-utensils"></i>
-				</a>
-				<a class="btn btn-sm btn-outline-primary py-0 recipe-order-missing-button hide-when-embedded hide-on-fullscreen-card @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif" href="#" data-toggle="tooltip" title="{{ $__t('Put missing products on shopping list') }}" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
-					<i class="fas fa-cart-plus"></i>
-				</a>&nbsp;&nbsp;
-				<a id="selectedRecipeEditButton" class="btn btn-sm btn-outline-info hide-when-embedded hide-on-fullscreen-card py-0" href="{{ $U('/recipe/') }}{{ $selectedRecipe->id }}">
-					<i class="fas fa-edit"></i>
-				</a>
-				<a id="selectedRecipeDeleteButton" class="btn btn-sm btn-outline-danger hide-when-embedded hide-on-fullscreen-card py-0" href="#" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
-					<i class="fas fa-trash"></i>
-				</a>
-				<a id="selectedRecipeToggleFullscreenButton" class="btn btn-sm btn-outline-secondary py-0 hide-when-embedded float-right" href="#" data-toggle="tooltip" title="{{ $__t('Expand to fullscreen') }}">
-					<i class="fas fa-expand-arrows-alt"></i>
-				</a>
+			<div class="card-header card-header-fullscreen position-relative">
+				<div class="position-absolute">
+					<a id="selectedRecipeEditButton" class="btn btn-sm btn-outline-info hide-when-embedded hide-on-fullscreen-card py-0" href="{{ $U('/recipe/') }}{{ $selectedRecipe->id }}">
+						<i class="fas fa-edit"></i>
+					</a>
+					<a id="selectedRecipeDeleteButton" class="btn btn-sm btn-outline-danger hide-when-embedded hide-on-fullscreen-card py-0 mr-2" href="#" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
+						<i class="fas fa-trash"></i>
+					</a>
+					<a id="selectedRecipeConsumeButton" class="btn btn-sm btn-outline-success py-0 hide-when-embedded hide-on-fullscreen-card @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->need_fulfilled == 0) disabled @endif" href="#" data-toggle="tooltip" title="{{ $__t('Consume all ingredients needed by this recipe') }}" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
+						<i class="fas fa-utensils"></i>
+					</a>
+					<a class="btn btn-sm btn-outline-primary py-0 recipe-order-missing-button hide-when-embedded hide-on-fullscreen-card @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif" href="#" data-toggle="tooltip" title="{{ $__t('Put missing products on shopping list') }}" data-recipe-id="{{ $selectedRecipe->id }}" data-recipe-name="{{ $selectedRecipe->name }}">
+						<i class="fas fa-cart-plus"></i>
+					</a>
+				</div>
+				<div class="recipe-card-name">{{ $selectedRecipe->name }}</div>
+				<div class="recipe-expand position-absolute"> 
+					<a id="selectedRecipeToggleFullscreenButton" class="btn btn-sm btn-outline-secondary py-0 hide-when-embedded" href="#" data-toggle="tooltip" title="{{ $__t('Expand to fullscreen') }}">
+						<i class="fas fa-expand-arrows-alt"></i>
+					</a>
+				</div>
 			</div>
 
 			<div class="card-body mb-0 pb-0">
 
 				<div class="row">
+					@if(!empty($selectedRecipeTotalCalories) && intval($selectedRecipeTotalCalories) > 0)
+					<div class="col-2">
+						<label>{{ $__t('Calories') }}</label>
+						<p class="mb-0">
+							<h3 class="locale-number locale-number-generic pt-0">{{ $selectedRecipeTotalCalories }}</h3>
+						</p>
+					</div>
+					@endif
+					@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+					<div class="col-6">
+						<label>{{ $__t('Costs') }}&nbsp;</label>
+						<i class="fas fa-question-circle" data-toggle="tooltip" title="{{ $__t('Based on the prices of the last purchase per product') }}"></i>
+						<p class="mb-0">
+							<h3 class="locale-number locale-number-currency pt-0">{{ $selectedRecipeTotalCosts }}</h3>
+						</p>
+					</div>
+					@endif
+				</div>
+
+				<div class="row py-3">
 					<div class="col-4">
 						@include('components.numberpicker', array(
 							'id' => 'servings-scale',
@@ -176,24 +200,6 @@
 							'hint' => $__t('Base: %s', $selectedRecipe->base_servings)
 						))
 					</div>
-					@if(!empty($selectedRecipeTotalCalories) && intval($selectedRecipeTotalCalories) > 0)
-					<div class="col-2">
-						<label>{{ $__t('Energy (kcal)') }}</label>
-						<p class="mb-0">
-							<h3 class="locale-number locale-number-generic pt-0">{{ $selectedRecipeTotalCalories }}</h3>
-						</p>
-					</div>
-					@endif
-					@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
-					<div class="col-6">
-						<label>{{ $__t('Costs') }}&nbsp;&nbsp;
-							<span class="small text-muted">{{ $__t('Based on the prices of the last purchase per product') }}</span>
-						</label>
-						<p class="mb-0">
-							<h3 class="locale-number locale-number-currency pt-0">{{ $selectedRecipeTotalCosts }}</h3>
-						</p>
-					</div>
-					@endif
 				</div>
 
 				<!-- Subrecipes first -->
@@ -265,12 +271,13 @@
 
 				<!-- Selected recipe -->
 				@if(!empty($selectedRecipe->picture_file_name))
-				<p class="w-75 mx-auto text-center"><img src="{{ $U('/api/files/recipepictures/' . base64_encode($selectedRecipe->picture_file_name) . '?force_serve_as=picture&best_fit_width=400') }}" class="img-fluid img-thumbnail lazy"></p>
+				<img src="{{ $U('/api/files/recipepictures/' . base64_encode($selectedRecipe->picture_file_name) . '?force_serve_as=picture&best_fit_width=400') }}" 
+				    class="img-thumbnail lazy mx-auto d-block mb-5">
 				@endif
 
 				@if($selectedRecipePositionsResolved->count() > 0)
-				<h5 class="mb-0">{{ $__t('Ingredients') }}</h5>
-				<ul class="list-group list-group-flush">
+				<h4 class="mb-2">{{ $__t('Ingredients') }}</h4>
+				<ul class="list-group list-group-flush mb-5">
 					@php
 						$lastIngredientGroup = 'undefined';
 						$lastProductGroup = 'undefined';
@@ -321,7 +328,7 @@
 				@endif
 
 				@if(!empty($selectedRecipe->description))
-				<h5 class="mt-4">{{ $__t('Preparation') }}</h5>
+				<h4 class="mt-1 mb-2">{{ $__t('Preparation') }}</h4>
 				{!! $selectedRecipe->description !!}
 				@endif
 			</div>

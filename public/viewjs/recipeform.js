@@ -326,13 +326,21 @@ $('#save-recipe-include-button').on('click', function(e)
 	}
 });
 
+$("#recipe-picture").on("change", function (e) {
+  $("#recipe-picture-label").removeClass("d-none");
+  $("#recipe-picture-label-none").addClass("d-none");
+  $("#delete-current-recipe-picture-on-save-hint").addClass("d-none");
+  $("#current-recipe-picture").addClass("d-none");
+  Grocy.DeleteRecipePictureOnSave = false;
+});
+
 Grocy.DeleteRecipePictureOnSave = false;
-$('#delete-current-recipe-picture-button').on('click', function (e)
-{
-	Grocy.DeleteRecipePictureOnSave = true;
-	$("#current-recipe-picture").addClass("d-none");
-	$("#delete-current-recipe-picture-on-save-hint").removeClass("d-none");
-	$("#delete-current-recipe-picture-button").addClass("disabled");
+$("#delete-current-recipe-picture-button").on("click", function (e) {
+  Grocy.DeleteRecipePictureOnSave = true;
+  $("#current-recipe-picture").addClass("d-none");
+  $("#delete-current-recipe-picture-on-save-hint").removeClass("d-none");
+  $("#recipe-picture-label").addClass("d-none");
+  $("#recipe-picture-label-none").removeClass("d-none");
 });
 
 Grocy.Components.UserfieldsForm.Load();
