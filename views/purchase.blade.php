@@ -76,14 +76,14 @@
 				'min' => 0,
 				'step' => 0.01,
 				'value' => '',
-				'hint' => $__t('in %s and based on the purchase quantity unit', GROCY_CURRENCY),
+				'hintId' => 'price-hint',
 				'invalidFeedback' => $__t('The price cannot be lower than %s', '0'),
 				'isRequired' => false,
 				'additionalGroupCssClasses' => 'mb-1'
 			))
 			<div class="form-check form-check-inline mb-3">
 				<input class="form-check-input" type="radio" name="price-type" id="price-type-unit-price" value="unit-price" checked>
-				<label class="form-check-label" for="price-type-unit-price">{{ $__t('Unit price') }}</label>
+				<label class="form-check-label" for="price-type-unit-price">{{ $__t('Price') }}</label>
 			</div>
 			<div class="form-check form-check-inline mb-3">
 				<input class="form-check-input" type="radio" name="price-type" id="price-type-total-price" value="total-price">

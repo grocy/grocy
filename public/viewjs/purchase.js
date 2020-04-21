@@ -161,6 +161,8 @@ if (Grocy.Components.ProductPicker !== undefined)
 						Grocy.Components.LocationPicker.SetId(productDetails.location.id);
 					}
 
+					$('#amount_qu_unit').attr("qu-factor-purchase-to-stock", productDetails.product.qu_factor_purchase_to_stock);
+					$('#amount_qu_unit').attr("quantity-unit-stock-name", productDetails.quantity_unit_stock.name);
 					if (productDetails.product.qu_id_purchase === productDetails.product.qu_id_stock)
 					{
 						$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name);
@@ -169,6 +171,12 @@ if (Grocy.Components.ProductPicker !== undefined)
 					{
 						$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name + " (" + __t("will be multiplied by a factor of %1$s to get %2$s", parseFloat(productDetails.product.qu_factor_purchase_to_stock).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 2 }), __n(2, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)) + ")");
 					}
+
+					var priceTypeUnitPrice = $("#price-type-unit-price");
+					var priceTypeUnitPriceLabel = $("[for=" + priceTypeUnitPrice.attr("id") + "]");
+					priceTypeUnitPriceLabel.text(productDetails.quantity_unit_purchase.name + " price");
+
+					refreshPriceHint();
 
 					if (productDetails.product.allow_partial_units_in_stock == 1)
 					{
@@ -320,8 +328,24 @@ if (Grocy.Components.DateTimePicker)
 	});
 }
 
+$('#price').on('change', function(e)
+{
+	refreshPriceHint();
+});
+
+$('#price-type-unit-price').on('change', function(e)
+{
+	refreshPriceHint();
+});
+
+$('#price-type-total-price').on('change', function(e)
+{
+	refreshPriceHint();
+});
+
 $('#amount').on('change', function(e)
 {
+	refreshPriceHint();
 	Grocy.FrontendHelpers.ValidateForm('purchase-form');
 });
 
@@ -329,6 +353,42 @@ if (GetUriParam("flow") === "shoppinglistitemtostock")
 {
 	$('#amount').val(parseFloat(GetUriParam("amount")).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 4 }));
 }
+
+function refreshPriceHint()
+{
+
+	if ($('#amount').val() == 0)
+	{
+		$('#price-hint').text("");
+		return;
+	}
+	if ($('#price').val() == 0)
+	{
+		$('#price-hint').text("");
+		return;
+	}
+
+	if ($("input[name='price-type']:checked").val() == "total-price")
+	{
+		var priceTypeUnitPrice = $("#price-type-unit-price");
+		var priceTypeUnitPriceLabel = $("[for=" + priceTypeUnitPrice.attr("id") + "]");
+		var price = $('#price').val() / $('#amount').val();
+
+		$('#price-hint').text('(will result with ' + priceTypeUnitPriceLabel.text() + ' cost of ' + price.toFixed(2) + ')');
+	}
+	else
+	{
+		if (document.getElementById("amount_qu_unit").getAttribute("qu-factor-purchase-to-stock") > 1)
+		{
+			var price = $('#price').val() / document.getElementById("amount_qu_unit").getAttribute("qu-factor-purchase-to-stock");
+			$('#price-hint').text('(will result with ' + document.getElementById("amount_qu_unit").getAttribute("quantity-unit-stock-name") + ' cost of ' + price.toFixed(2) + ')');
+		}
+		else
+		{
+			$('#price-hint').text("");
+		}
+	}
+};
 
 function UndoStockBooking(bookingId)
 {
