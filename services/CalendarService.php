@@ -31,7 +31,8 @@ class CalendarService extends BaseService
 					$stockEvents[] = array(
 						'title' => $titlePrefix . FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name,
 						'start' => $currentStockEntry->best_before_date,
-						'date_format' => 'date'
+						'date_format' => 'date',
+						'link' => $this->UrlManager->ConstructUrl('/stockoverview')
 					);
 				}
 			}
@@ -46,7 +47,8 @@ class CalendarService extends BaseService
 				$taskEvents[] = array(
 					'title' => $titlePrefix . $currentTaskEntry->name,
 					'start' => $currentTaskEntry->due_date,
-					'date_format' => 'date'
+					'date_format' => 'date',
+					'link' => $this->UrlManager->ConstructUrl('/tasks')
 				);
 			}
 		}
@@ -71,7 +73,8 @@ class CalendarService extends BaseService
 				$choreEvents[] = array(
 					'title' => $titlePrefix . $chore->name . $assignedToText,
 					'start' => $currentChoreEntry->next_estimated_execution_time,
-					'date_format' => 'datetime'
+					'date_format' => 'datetime',
+					'link' => $this->UrlManager->ConstructUrl('/choresoverview')
 				);
 			}
 		}
@@ -86,7 +89,8 @@ class CalendarService extends BaseService
 				$batteryEvents[] = array(
 					'title' => $titlePrefix . FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->name,
 					'start' => $currentBatteryEntry->next_estimated_charge_time,
-					'date_format' => 'datetime'
+					'date_format' => 'datetime',
+					'link' => $this->UrlManager->ConstructUrl('/batteriesoverview')
 				);
 			}
 		}
@@ -107,7 +111,8 @@ class CalendarService extends BaseService
 						'title' => $titlePrefix . FindObjectInArrayByPropertyValue($recipes, 'id', $recipeOfCurrentDay->includes_recipe_id)->name,
 						'start' => FindObjectInArrayByPropertyValue($recipes, 'id', $recipeOfCurrentDay->recipe_id)->name,
 						'date_format' => 'date',
-						'description' => $this->UrlManager->ConstructUrl('/mealplan' . '?week=' . FindObjectInArrayByPropertyValue($recipes, 'id', $recipeOfCurrentDay->recipe_id)->name)
+						'description' => $this->UrlManager->ConstructUrl('/mealplan' . '?week=' . FindObjectInArrayByPropertyValue($recipes, 'id', $recipeOfCurrentDay->recipe_id)->name),
+						'link' => $this->UrlManager->ConstructUrl('/recipes' . '?recipe=' . $recipeOfCurrentDay->includes_recipe_id . "#fullscreen")
 					);
 				}
 			}
