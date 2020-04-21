@@ -30,9 +30,17 @@
 
 			@include('components.productpicker', array(
 				'products' => $products,
-				'nextInputSelector' => '#best_before_date .datetimepicker-input'
+				'nextInputSelector' => '#amount'
 			))
 
+			@include('components.numberpicker', array(
+				'id' => 'amount',
+				'label' => 'Amount',
+				'hintId' => 'amount_qu_unit',
+				'min' => 1,
+				'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
+				'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info" class="text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
+			))
 
 			@php
 				$additionalGroupCssClasses = '';
@@ -49,7 +57,7 @@
 				'limitEndToNow' => false,
 				'limitStartToNow' => false,
 				'invalidFeedback' => $__t('A best before date is required'),
-				'nextInputSelector' => '#amount',
+				'nextInputSelector' => '#price',
 				'additionalCssClasses' => 'date-only-datetimepicker',
 				'shortcutValue' => '2999-12-31',
 				'shortcutLabel' => 'Never expires',
@@ -59,15 +67,6 @@
 				'activateNumberPad' => GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_FIELD_NUMBER_PAD
 			))
 			@php $additionalGroupCssClasses = ''; @endphp
-
-			@include('components.numberpicker', array(
-				'id' => 'amount',
-				'label' => 'Amount',
-				'hintId' => 'amount_qu_unit',
-				'min' => 1,
-				'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
-				'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info" class="text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
-			))
 
 			@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 			@include('components.numberpicker', array(
