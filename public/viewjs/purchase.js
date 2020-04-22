@@ -360,18 +360,16 @@ function refreshPriceHint()
 
 	if ($("input[name='price-type']:checked").val() == "total-price")
 	{
-		var priceTypeUnitPrice = $("#price-type-unit-price");
-		var priceTypeUnitPriceLabel = $("[for=" + priceTypeUnitPrice.attr("id") + "]");
-		var price = $('#price').val() / $('#amount').val();
+		var price = parseFloat($('#price').val()) / parseFloat($('#amount').val());
 
-		$('#price-hint').text('(will result with ' + priceTypeUnitPriceLabel.text() + ' cost of ' + price.toFixed(2) + ')');
+		$('#price-hint').text(__t('means %1$s per %2$s', price.toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: 2 }), document.getElementById("amount_qu_unit").getAttribute("quantity-unit-stock-name")));
 	}
 	else
 	{
 		if (document.getElementById("amount_qu_unit").getAttribute("qu-factor-purchase-to-stock") > 1)
 		{
 			var price = $('#price').val() / document.getElementById("amount_qu_unit").getAttribute("qu-factor-purchase-to-stock");
-			$('#price-hint').text('(will result with ' + document.getElementById("amount_qu_unit").getAttribute("quantity-unit-stock-name") + ' cost of ' + price.toFixed(2) + ')');
+			$('#price-hint').text(__t('means %1$s per %2$s', price.toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: 2 }), document.getElementById("amount_qu_unit").getAttribute("quantity-unit-stock-name")));
 		}
 		else
 		{

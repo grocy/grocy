@@ -1795,3 +1795,6 @@ msgstr ""
 
 msgid "By default the amount to be added to the shopping list is `needed amount - stock amount - shopping list amount` - when this is enabled, it is only checked against the stock amount, not against what is already on the shopping list"
 msgstr ""
+
+msgid "means %1$s per %2$s"
+msgstr ""
