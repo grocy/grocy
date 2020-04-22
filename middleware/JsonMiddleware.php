@@ -18,7 +18,12 @@ class JsonMiddleware extends BaseMiddleware
 		}
 		else
 		{
-			return $response->withHeader('Content-Type', 'application/json');
+			// TODO: This belongs more to CorsMiddleware, but that handles currently OPTIONS (CORS preflight) requests...
+			$response = $response->withHeader('Access-Control-Allow-Origin', '*');
+
+			$response = $response->withHeader('Content-Type', 'application/json');
+
+			return $response;
 		}
 	}
 }
