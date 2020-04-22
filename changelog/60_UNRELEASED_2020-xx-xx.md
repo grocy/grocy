@@ -4,7 +4,8 @@
 - Changed that when `FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING` is disabled, products now get internally a best before of "never expires" (aka `2999-12-31`) instead of today (thanks @kriddles)
 - Fixed that it was not possible to leave the "Barcode(s)" on the product edit page by `TAB`
 
-### Calendar fixes
+### Calendar improvements/fixes
+- Events are now links to the corresponding page (thanks @zsarnett)
 - Fixed a PHP warning when using the "Share/Integrate calendar (iCal)" button (thanks @tsia)
 
 ### API fixes
