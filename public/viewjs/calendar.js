@@ -16,7 +16,10 @@ var calendar = $("#calendar").fullCalendar({
 	"firstDay": firstDay,
 	"eventLimit": false,
 	"height": "auto",
-	"eventSources": fullcalendarEventSources
+	"eventSources": fullcalendarEventSources,
+	eventClick: function(info) {
+		location.href = info.link;
+  }
 });
 
 $("#ical-button").on("click", function(e)

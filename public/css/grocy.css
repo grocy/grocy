@@ -519,3 +519,7 @@ canvas.drawingBuffer {
 .recipe-servings-input {
 	width: 125px;
 }
+
+.fc-event{
+	cursor: pointer;
+}
