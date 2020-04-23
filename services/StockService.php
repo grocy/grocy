@@ -217,7 +217,7 @@ class StockService extends BaseService
 		return FindAllObjectsInArrayByPropertyValue($stockEntries, 'location_id', $locationId);
 	}
 
-	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId = null, $shoppingLocationId = null, &$transactionId = null)
+	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $quFactorPurchaseToStock, $locationId = null, $shoppingLocationId = null, &$transactionId = null)
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -275,6 +275,7 @@ class StockService extends BaseService
 				'location_id' => $locationId,
 				'transaction_id' => $transactionId,
 				'shopping_location_id' => $shoppingLocationId,
+				'qu_factor_purchase_to_stock' => $quFactorPurchaseToStock,
 			));
 			$logRow->save();
 
@@ -289,6 +290,7 @@ class StockService extends BaseService
 				'price' => $price,
 				'location_id' => $locationId,
 				'shopping_location_id' => $shoppingLocationId,
+				'qu_factor_purchase_to_stock' => $quFactorPurchaseToStock,
 			));
 			$stockRow->save();
 

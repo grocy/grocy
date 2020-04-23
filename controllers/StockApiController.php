@@ -88,13 +88,19 @@ class StockApiController extends BaseApiController
 				$shoppingLocationId = $requestBody['shopping_location_id'];
 			}
 
+			$quFactorPurchaseToStock = null;
+			if (array_key_exists('qu_factor_purchase_to_stock', $requestBody) && is_numeric($requestBody['qu_factor_purchase_to_stock']))
+			{
+				$quFactorPurchaseToStock = $requestBody['qu_factor_purchase_to_stock'];
+			}
+
 			$transactionType = StockService::TRANSACTION_TYPE_PURCHASE;
 			if (array_key_exists('transaction_type', $requestBody)  && !empty($requestBody['transactiontype']))
 			{
 				$transactionType = $requestBody['transactiontype'];
 			}
 
-			$bookingId = $this->getStockService()->AddProduct($args['productId'], $requestBody['amount'], $bestBeforeDate, $transactionType, date('Y-m-d'), $price, $locationId, $shoppingLocationId);
+			$bookingId = $this->getStockService()->AddProduct($args['productId'], $requestBody['amount'], $bestBeforeDate, $transactionType, date('Y-m-d'), $price, $quFactorPurchaseToStock, $locationId, $shoppingLocationId);
 			return $this->ApiResponse($response, $this->getDatabase()->stock_log($bookingId));
 		}
 		catch (\Exception $ex)

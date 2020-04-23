@@ -8,7 +8,7 @@
 	Grocy.Api.Get('stock/products/' + jsonForm.product_id,
 		function(productDetails)
 		{
-			var amount = jsonForm.amount * productDetails.product.qu_factor_purchase_to_stock;
+			var amount = jsonForm.amount * jsonForm.qu_factor_purchase_to_stock;
 
 			var price = "";
 			if (!jsonForm.price.toString().isEmpty())
@@ -37,6 +37,7 @@
 			{
 				jsonData.location_id = Grocy.Components.LocationPicker.GetValue();
 			}
+			jsonData.qu_factor_purchase_to_stock = jsonForm.qu_factor_purchase_to_stock;
 
 			Grocy.Api.Post('stock/products/' + jsonForm.product_id + '/add', jsonData,
 				function(result)
@@ -162,14 +163,20 @@ if (Grocy.Components.ProductPicker !== undefined)
 					}
 
 					$('#amount_qu_unit').attr("qu-factor-purchase-to-stock", productDetails.product.qu_factor_purchase_to_stock);
+					$('#amount_qu_unit').attr("quantity-unit-purchase-name", productDetails.quantity_unit_purchase.name);
 					$('#amount_qu_unit').attr("quantity-unit-stock-name", productDetails.quantity_unit_stock.name);
+					$('#amount_qu_unit').attr("quantity-unit-stock-name-plural", productDetails.quantity_unit_stock.name_plural);
+					$('#qu_factor_purchase_to_stock').val(productDetails.product.qu_factor_purchase_to_stock);
+
 					if (productDetails.product.qu_id_purchase === productDetails.product.qu_id_stock)
 					{
 						$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name);
+						$('#group-qu_factor_purchase_to_stock').addClass('d-none');
 					}
 					else
 					{
 						$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name + " (" + __t("will be multiplied by a factor of %1$s to get %2$s", parseFloat(productDetails.product.qu_factor_purchase_to_stock).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 2 }), __n(2, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)) + ")");
+						$('#group-qu_factor_purchase_to_stock').removeClass('d-none');
 					}
 
 					var priceTypeUnitPrice = $("#price-type-unit-price");
@@ -335,6 +342,15 @@ $('#price-type-total-price').on('change', function(e)
 
 $('#amount').on('change', function(e)
 {
+	refreshPriceHint();
+	Grocy.FrontendHelpers.ValidateForm('purchase-form');
+});
+
+$('#qu_factor_purchase_to_stock').on('change', function(e)
+{
+	var value = $(e.target).val();
+	$('#amount_qu_unit').attr("qu-factor-purchase-to-stock", value);
+	$('#amount_qu_unit').text(document.getElementById("amount_qu_unit").getAttribute("quantity-unit-purchase-name")  + " (" + __t("will be multiplied by a factor of %1$s to get %2$s", parseFloat(value).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 2 }), __n(2, document.getElementById("amount_qu_unit").getAttribute("quantity-unit-stock-name"), document.getElementById("amount_qu_unit").getAttribute("quantity-unit-stock-name-plural")) + ")"));
 	refreshPriceHint();
 	Grocy.FrontendHelpers.ValidateForm('purchase-form');
 });

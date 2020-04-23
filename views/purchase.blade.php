@@ -96,6 +96,16 @@
 			<input type="hidden" name="price" id="price" value="0">
 			@endif
 
+			@include('components.numberpicker', array(
+				'id' => 'qu_factor_purchase_to_stock',
+				'label' => 'Factor purchase to stock quantity unit',
+				'min' => 1,
+				'additionalGroupCssClasses' => 'd-none',
+				'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
+				'additionalCssClasses' => 'input-group-qu',
+				'additionalHtmlElements' => '<p id="qu-conversion-info" class="form-text text-muted small d-none"></p>'
+			))
+
 			@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 			@include('components.locationpicker', array(
 				'locations' => $locations,
