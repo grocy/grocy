@@ -23,7 +23,7 @@ String.prototype.replaceAll = function(search, replacement)
 
 GetUriParam = function(key)
 {
-	var currentUri = decodeURIComponent(window.location.search.substring(1));
+	var currentUri = window.location.search.substring(1);
 	var vars = currentUri.split('&');
 
 	for (i = 0; i < vars.length; i++)
@@ -32,7 +32,7 @@ GetUriParam = function(key)
 
 		if (currentParam[0] === key)
 		{
-			return currentParam[1] === undefined ? true : currentParam[1];
+			return currentParam[1] === undefined ? true : decodeURIComponent(currentParam[1]);
 		}
 	}
 };
