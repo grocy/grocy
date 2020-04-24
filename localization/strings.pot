@@ -454,9 +454,6 @@ msgstr ""
 msgid "Edit recipe"
 msgstr ""
 
-msgid "New recipe"
-msgstr ""
-
 msgid "Ingredients list"
 msgstr ""
 
@@ -1800,4 +1797,16 @@ msgid "means %1$s per %2$s"
 msgstr ""
 
 msgid "Create inverse QU conversion"
+msgstr ""
+
+msgid "Create recipe"
+msgstr ""
+
+msgid "Save & continue to add ingredients and included recipes"
+msgstr ""
+
+msgid "Save & continue"
+msgstr ""
+
+msgid "Save & return to recipes"
 msgstr ""

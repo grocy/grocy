@@ -44,7 +44,7 @@
 
 			<div class="form-group">
 				<label for="name">{{ $__t('Name') }}</label>
-				<input type="text" class="form-control" required id="name" name="name" placeholder="{{ $__t('New Recipe')}}" value="@if($mode == 'edit'){{ $recipe->name }}@endif">
+				<input type="text" class="form-control" required id="name" name="name" value="@if($mode == 'edit'){{ $recipe->name }}@endif">
 				<div class="invalid-feedback">{{ $__t('A name is required') }}</div>
 			</div>
 			
@@ -110,10 +110,10 @@
 				<textarea id="description" class="form-control wysiwyg-editor" name="description">@if($mode == 'edit'){{ $recipe->description }}@endif</textarea>
 			</div>
 
-			<small class="my-2 form-text text-muted @if($mode == 'edit') d-none @endif">{{ $__t('Save & Continue to add Ingredients and Included Recipes') }}</small>
+			<small class="my-2 form-text text-muted @if($mode == 'edit') d-none @endif">{{ $__t('Save & continue to add ingredients and included recipes') }}</small>
 
-			<button class="save-recipe btn btn-success mb-2" data-location="continue">{{ $__t('Save & Continue') }}</button>
-			<button class="save-recipe btn btn-info mb-2" data-location="return">{{ $__t('Save & Return to Recipes') }}</button>
+			<button class="save-recipe btn btn-success mb-2" data-location="continue">{{ $__t('Save & continue') }}</button>
+			<button class="save-recipe btn btn-info mb-2" data-location="return">{{ $__t('Save & return to recipes') }}</button>
 
 		</form>
 	</div>
