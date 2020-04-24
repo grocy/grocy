@@ -31,22 +31,24 @@ a.discrete-link:focus {
 	text-decoration: none !important;
 }
 
-.card {
-	border: 2px solid;
-	border-color: #d6d6d6;
-	border-radius: 0;
+.grocy-card .card-header {
+	background-color: inherit;
 }
 
-.card-header {
-	background-color: #e5e5e5;
+.grocy-card .card-title {
+	color: #495157;
 }
 
-.card-header:first-child {
-	border-radius: 0;
+.grocy-card .card-icons a {
+	font-size: 18px;
+	color: #495157;
+	padding: 2px 4px;
+	text-decoration: none;
+	text-align: center;
 }
 
-.card-body {
-	flex-grow: 0;
+.grocy-card .card-icons i {
+	width: 18px;
 }
 
 .content-text .invalid-feedback {
@@ -84,6 +86,11 @@ a.discrete-link:focus {
 
  .fullscreen-card .hide-on-fullscreen-card {
 	display: none;
+}
+
+.fullscreen.card .card-img-top {
+	width: 50%;
+	margin: 0 auto;
 }
 
  .form-check-input.is-valid ~ .form-check-label,
@@ -505,17 +512,6 @@ canvas.drawingBuffer {
   height: 1.25rem;
 }
 
-.recipe-card-name {
-	font-size: 16px;
-	text-align: center;
-	width: 100%;
-}
-
-.recipe-expand {
-	right: 1.25rem;
-	top: .75rem;
-}
-
 .recipe-servings-input {
 	width: 125px;
 }
@@ -523,3 +519,65 @@ canvas.drawingBuffer {
 .fc-event{
 	cursor: pointer;
 }
+
+.grocy-tabs .nav-link {
+	color: #767676;
+	text-transform: uppercase;
+}
+
+ .grocy-tabs .nav-link {
+	border: 2px solid transparent;
+	transition: border-bottom-color ease-in 0.1s;
+}
+
+.grocy-tabs .nav-link.active {
+	border: 2px solid transparent;
+	border-bottom-color: #0b024c !important;
+}
+
+.grocy-tabs .nav-link:hover {
+	border: 2px solid transparent;
+	border-bottom-color: #0b024c7d;
+}
+
+.grocy-tabs .nav-item {
+	margin-bottom: -2px;
+}
+
+.grocy-tabs.card-header-tabs {
+	margin-bottom: -.65rem;
+}
+
+.grocy-tabs.tab-content > .active {
+	display: flex;
+	flex-direction: column;
+}
+
+.recipe-card img {
+	height: 14rem;
+	width: 100%;
+	object-fit: cover;
+}
+
+@media print {
+	.grocy-tabs.print.tab-content > .tab-pane {
+		display: flex !important;
+		flex-direction: column !important;
+		opacity: 1 !important;
+		visibility: visible !important;
+		overflow: visible !important;
+		width: auto !important;
+		height: auto !important;
+	}
+
+	.grocy-tabs.break > .tab-pane {
+		page-break-after: always;
+	}
+
+	.print-view {
+    width: 100%;
+    max-width: 100%;
+    flex-basis: 100%;
+	}
+}
+

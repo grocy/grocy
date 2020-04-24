@@ -44,7 +44,7 @@
 
 			<div class="form-group">
 				<label for="name">{{ $__t('Name') }}</label>
-				<input type="text" class="form-control" required id="name" name="name" value="@if($mode == 'edit'){{ $recipe->name }}@endif">
+				<input type="text" class="form-control" required id="name" name="name" placeholder="{{ $__t('New Recipe')}}" value="@if($mode == 'edit'){{ $recipe->name }}@endif">
 				<div class="invalid-feedback">{{ $__t('A name is required') }}</div>
 			</div>
 			
@@ -96,7 +96,7 @@
 				'products' => $products,
 				'isRequired' => false,
 				'label' => 'Produces product',
-				'prefillById' => $recipe->product_id,
+				'prefillById' => $mode == 'edit' ? $recipe->product_id : '',
 				'hint' => $__t('When a product is selected, one unit (per serving in purchase quantity unit) will be added to stock on consuming this recipe')
 			))
 
@@ -110,12 +110,15 @@
 				<textarea id="description" class="form-control wysiwyg-editor" name="description">@if($mode == 'edit'){{ $recipe->description }}@endif</textarea>
 			</div>
 
-			<button id="save-recipe-button" class="btn btn-success mb-2">{{ $__t('Save') }}</button>
+			<small class="my-2 form-text text-muted @if($mode == 'edit') d-none @endif">{{ $__t('Save & Continue to add Ingredients and Included Recipes') }}</small>
+
+			<button class="save-recipe btn btn-success mb-2" data-location="continue">{{ $__t('Save & Continue') }}</button>
+			<button class="save-recipe btn btn-info mb-2" data-location="return">{{ $__t('Save & Return to Recipes') }}</button>
 
 		</form>
 	</div>
 
-	<div class="col-xs-12 col-md-5 pb-3">
+	<div class="col-xs-12 col-md-5 pb-3 @if($mode == 'create') d-none @endif">
 		<div class="row">
 			<div class="col">
 				@if(!empty($recipe->picture_file_name))

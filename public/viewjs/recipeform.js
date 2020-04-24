@@ -1,4 +1,30 @@
-﻿$('#save-recipe-button').on('click', function(e)
+﻿function saveRecipePicture(result, location)
+{	
+	$recipeId = Grocy.EditObjectId || result.created_object_id;
+	Grocy.Components.UserfieldsForm.Save(() =>
+	{
+		if (jsonData.hasOwnProperty("picture_file_name") && !Grocy.DeleteRecipePictureOnSave)
+		{
+			Grocy.Api.UploadFile($("#recipe-picture")[0].files[0], 'recipepictures', jsonData.picture_file_name,
+				(result) =>
+				{
+					window.location.href = U(location + $recipeId);
+				},
+				(xhr) =>
+				{
+					Grocy.FrontendHelpers.EndUiBusy("recipe-form");
+					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+				}
+			);
+		}
+		else
+		{
+			window.location.href = U(location + $recipeId);
+		}
+	});
+}
+
+$('.save-recipe').on('click', function(e)
 {
 	e.preventDefault();
 
@@ -9,6 +35,15 @@
 	{
 		var someRandomStuff = Math.random().toString(36).substring(2, 100) + Math.random().toString(36).substring(2, 100);
 		jsonData.picture_file_name = someRandomStuff + $("#recipe-picture")[0].files[0].name;
+	}
+
+	const location = $(e.currentTarget).attr('data-location') == 'return' ? '/recipes?recipe=' : '/recipe/';
+	
+	if(Grocy.EditMode == 'create') {
+		console.log(jsonData);
+		Grocy.Api.Post('objects/recipes', jsonData,
+		(result) => saveRecipePicture(result, location));
+		return;
 	}
 
 	if (Grocy.DeleteRecipePictureOnSave)
@@ -29,30 +64,7 @@
 	}
 
 	Grocy.Api.Put('objects/recipes/' + Grocy.EditObjectId, jsonData,
-		function(result)
-		{
-			Grocy.Components.UserfieldsForm.Save(function()
-			{
-				if (jsonData.hasOwnProperty("picture_file_name") && !Grocy.DeleteRecipePictureOnSave)
-				{
-					Grocy.Api.UploadFile($("#recipe-picture")[0].files[0], 'recipepictures', jsonData.picture_file_name,
-						function (result)
-						{
-							window.location.href = U('/recipes?recipe=' + Grocy.EditObjectId);
-						},
-						function (xhr)
-						{
-							Grocy.FrontendHelpers.EndUiBusy("recipe-form");
-							Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-						}
-					);
-				}
-				else
-				{
-					window.location.href = U('/recipes?recipe=' + Grocy.EditObjectId);
-				}
-			});
-		},
+		(result) => saveRecipePicture(result, location),
 		function(xhr)
 		{
 			Grocy.FrontendHelpers.EndUiBusy("recipe-form");
@@ -354,7 +366,7 @@ $(window).on("message", function(e)
 		Grocy.Api.Put('objects/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(),
 			function(result)
 			{
-				window.location.href = U('/recipe/' + Grocy.EditObjectId);
+				// window.location.href = U('/recipe/' + Grocy.EditObjectId);
 			},
 			function(xhr)
 			{
@@ -364,35 +376,35 @@ $(window).on("message", function(e)
 	}
 });
 
-Grocy.Components.RecipePicker.GetPicker().on('change', function (e)
-{
-	var value = Grocy.Components.RecipePicker.GetValue();
-	if (value.toString().isEmpty())
-	{
-		return;
-	}
+// Grocy.Components.RecipePicker.GetPicker().on('change', function (e)
+// {
+// 	var value = Grocy.Components.RecipePicker.GetValue();
+// 	if (value.toString().isEmpty())
+// 	{
+// 		return;
+// 	}
 
-	Grocy.Api.Get('objects/recipes/' + value,
-		function(recipe)
-		{
-			$("#includes_servings").val(recipe.servings);
-		},
-		function(xhr)
-		{
-			console.error(xhr);
-		}
-	);
-});
+// 	Grocy.Api.Get('objects/recipes/' + value,
+// 		function(recipe)
+// 		{
+// 			$("#includes_servings").val(recipe.servings);
+// 		},
+// 		function(xhr)
+// 		{
+// 			console.error(xhr);
+// 		}
+// 	);
+// });
 
-Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
-{
-	// Just save the current recipe on every change of the product picker as a workflow could be started which leaves the page...
-	Grocy.Api.Put('objects/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(), function () { }, function () { });
-});
+// Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
+// {
+// 	// Just save the current recipe on every change of the product picker as a workflow could be started which leaves the page...
+// 	Grocy.Api.Put('objects/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(), function () { }, function () { });
+// });
 
 // As the /recipe/new route immediately creates a new recipe on load,
 // always replace the current location by the created recipes edit page location
-if (window.location.pathname.toLowerCase() === "/recipe/new")
-{
-	window.history.replaceState(null, null, U("/recipe/" + Grocy.EditObjectId));
-}
+// if (window.location.pathname.toLowerCase() === "/recipe/new")
+// {
+// 	window.history.replaceState(null, null, U("/recipe/" + Grocy.EditObjectId));
+// }
