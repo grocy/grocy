@@ -346,6 +346,55 @@
 			</tbody>
 		</table>
 
+		<h2>
+			{{ $__t('Barcode Details') }}
+			<a id="barcode-add-button" class="btn btn-outline-dark" href="#">
+				<i class="fas fa-plus"></i> {{ $__t('Add') }}
+			</a>
+		</h2>
+		<h5 id="barcode-headline-info" class="text-muted font-italic"></h5>
+		<table id="barcode-table" class="table table-sm table-striped dt-responsive">
+			<thead>
+				<tr>
+					<th class="border-right"></th>
+					<th>{{ $__t('Barcode') }}</th>
+					<th>{{ $__t('QU Factor Purchase To Stock') }}</th>
+					<th>{{ $__t('Shopping Location') }}</th>
+				</tr>
+			</thead>
+			<tbody class="d-none">
+				@if($mode == "edit")
+				@foreach($barcodes as $barcode)
+					@if($barcode->product_id == $product->id || $barcode->product_id == null)
+					<tr>
+						<td class="fit-content border-right">
+							<a class="btn btn-sm btn-info barcode-edit-button @if($barcode->product_id == null) disabled @endif" href="#" data-barcode-id="{{ $barcode->id }}">
+								<i class="fas fa-edit"></i>
+							</a>
+							<a class="btn btn-sm btn-danger barcode-delete-button @if($barcode->product_id == null) disabled @endif" href="#" data-barcode-id="{{ $barcode->id }}" data-barcode="{{ $barcode->barcode }}" data-product-barcode="{{ $product->barcode }}" data-product-id="{{ $product->id }}">
+								<i class="fas fa-trash"></i>
+							</a>
+						</td>
+						<td>
+							{{ $barcode->barcode }}
+						</td>
+						<td>
+							<span class="locale-number locale-number-quantity-amount">{{ $barcode->qu_factor_purchase_to_stock }}</span>
+						</td>
+						@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+						<td id="barcode-shopping-location">
+							@if (FindObjectInArrayByPropertyValue($shoppinglocations, 'id', $barcode->shopping_location_id) !== null)
+							{{ FindObjectInArrayByPropertyValue($shoppinglocations, 'id', $barcode->shopping_location_id)->name }}
+							@endif
+						</td>
+						@endif
+					</tr>
+					@endif
+				@endforeach
+				@endif
+			</tbody>
+		</table>
+
 		<div class="pt-5">
 			<label class="mt-2">{{ $__t('Picture') }}</label>
 			<button id="delete-current-product-picture-button" class="btn btn-sm btn-danger @if(empty($product->picture_file_name)) disabled @endif"><i class="fas fa-trash"></i> {{ $__t('Delete') }}</button>

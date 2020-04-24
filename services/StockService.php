@@ -127,12 +127,14 @@ class StockService extends BaseService
 		$averageShelfLifeDays = intval($this->getDatabase()->stock_average_product_shelf_life()->where('id', $productId)->fetch()->average_shelf_life_days);
 
 		$lastPrice = null;
+		$lastQuFactorPurchaseToStock = null;
 		$defaultShoppingLocation = null;
 		$lastShoppingLocation = null;
 		$lastLogRow = $this->getDatabase()->stock_log()->where('product_id = :1 AND transaction_type IN (:2, :3) AND undone = 0', $productId, self::TRANSACTION_TYPE_PURCHASE, self::TRANSACTION_TYPE_INVENTORY_CORRECTION)->orderBy('row_created_timestamp', 'DESC')->limit(1)->fetch();
 		if ($lastLogRow !== null && !empty($lastLogRow))
 		{
 			$lastPrice = $lastLogRow->price;
+			$lastQuFactorPurchaseToStock = $lastLogRow->qu_factor_purchase_to_stock;
 			$lastShoppingLocation = $lastLogRow->shopping_location_id;
 		}
 
@@ -155,6 +157,7 @@ class StockService extends BaseService
 			'quantity_unit_purchase' => $quPurchase,
 			'quantity_unit_stock' => $quStock,
 			'last_price' => $lastPrice,
+			'last_qu_factor_purchase_to_stock' => $lastQuFactorPurchaseToStock,
 			'last_shopping_location_id' => $lastShoppingLocation,
 			'default_shopping_location_id' => $product->shopping_location_id,
 			'next_best_before_date' => $nextBestBeforeDate,

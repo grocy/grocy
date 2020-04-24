@@ -179,6 +179,7 @@ class StockController extends BaseController
 		{
 			return $this->renderPage($response, 'productform', [
 				'locations' =>  $this->getDatabase()->locations()->orderBy('name'),
+				'barcodes' =>  $this->getDatabase()->product_barcodes()->orderBy('barcode'),
 				'quantityunits' =>  $this->getDatabase()->quantity_units()->orderBy('name'),
 				'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name'),
 				'productgroups' => $this->getDatabase()->product_groups()->orderBy('name'),
@@ -195,6 +196,7 @@ class StockController extends BaseController
 			return $this->renderPage($response, 'productform', [
 				'product' =>  $product,
 				'locations' =>  $this->getDatabase()->locations()->orderBy('name'),
+				'barcodes' =>  $this->getDatabase()->product_barcodes()->orderBy('barcode'),
 				'quantityunits' =>  $this->getDatabase()->quantity_units()->orderBy('name'),
 				'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name'),
 				'productgroups' => $this->getDatabase()->product_groups()->orderBy('name'),
@@ -352,6 +354,34 @@ class StockController extends BaseController
 			'locations' => $this->getDatabase()->locations()->orderBy('name'),
 			'currentStockLocationContent' => $this->getStockService()->GetCurrentStockLocationContent()
 		]);
+	}
+
+	public function ProductBarcodesEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		$product = null;
+		if (isset($request->getQueryParams()['product']))
+		{
+			$product = $this->getDatabase()->products($request->getQueryParams()['product']);
+		}
+
+		if ($args['productBarcodeId'] == 'new')
+		{
+			return $this->renderPage($response, 'productbarcodesform', [
+				'mode' => 'create',
+				'barcodes' => $this->getDatabase()->product_barcodes()->orderBy('barcode'),
+				'product' => $product,
+				'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name')
+			]);
+		}
+		else
+		{
+			return $this->renderPage($response, 'productbarcodesform', [
+				'mode' => 'edit',
+				'barcode' => $this->getDatabase()->product_barcodes($args['productBarcodeId']),
+				'product' => $product,
+				'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name')
+			]);
+		}
 	}
 
 	public function QuantityUnitConversionEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)

@@ -249,12 +249,28 @@ $('#product-form input').keyup(function(event)
 	{
 		$("#qu-conversion-add-button").removeClass("disabled");
 	}
+	if (document.getElementById('product-form').checkValidity() === false) //There is at least one validation error
+	{
+		$("#barcode-add-button").addClass("disabled");
+	}
+	else
+	{
+		$("#barcode-add-button").removeClass("disabled");
+	}
 });
 
 $('#product-form select').change(function(event)
 {
 	Grocy.FrontendHelpers.ValidateForm('product-form');
 
+	if (document.getElementById('product-form').checkValidity() === false) //There is at least one validation error
+	{
+		$("#barcode-add-button").addClass("disabled");
+	}
+	else
+	{
+		$("#barcode-add-button").removeClass("disabled");
+	}
 	if (document.getElementById('product-form').checkValidity() === false) //There is at least one validation error
 	{
 		$("#qu-conversion-add-button").addClass("disabled");
@@ -365,6 +381,18 @@ var quConversionsTable = $('#qu-conversions-table').DataTable({
 $('#qu-conversions-table tbody').removeClass("d-none");
 quConversionsTable.columns.adjust().draw();
 
+var barcodeTable = $('#barcode-table').DataTable({
+	'order': [[1, 'asc']],
+	"orderFixed": [[1, 'asc']],
+	'columnDefs': [
+		{ 'orderable': false, 'targets': 0 },
+		{ 'searchable': false, "targets": 0 }
+	]
+});
+$('#barcode-table tbody').removeClass("d-none");
+barcodeTable.columns.adjust().draw();
+
+
 Grocy.Components.UserfieldsForm.Load();
 $("#name").trigger("keyup");
 $('#name').focus();
@@ -407,6 +435,29 @@ $(document).on('click', '.qu-conversion-delete-button', function(e)
 						console.error(xhr);
 					}
 				);
+
+				var newBarcode = '';
+				productBarcode.split(',').forEach(function(item)
+				{
+					if(barcode != item)
+					{
+						newBarcode += ',' + item;
+					}
+				});
+
+				var jsonDataProduct = {};
+				jsonDataProduct.barcode = newBarcode;
+
+				Grocy.Api.Put('objects/products/' + productId, jsonDataProduct,
+					function(result)
+					{
+					},
+					function(xhr)
+					{
+						Grocy.FrontendHelpers.EndUiBusy("product-form");
+						Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+					}
+				);
 			}
 		}
 	});
@@ -422,6 +473,82 @@ $(document).on('click', '.qu-conversion-edit-button', function (e)
 $("#qu-conversion-add-button").on("click", function(e)
 {
 	Grocy.ProductEditFormRedirectUri = U("/quantityunitconversion/new?product=editobjectid");
+	$('#save-product-button').click();
+});
+
+$(document).on('click', '.barcode-delete-button', function(e)
+{
+	var objectId = $(e.currentTarget).attr('data-barcode-id');
+	var productId = $(e.currentTarget).attr('data-product-id');
+	var barcode = $(e.currentTarget).attr('data-barcode');
+	var productBarcode = $(e.currentTarget).attr('data-product-barcode');
+
+	bootbox.confirm({
+		message: __t('Are you sure to remove this barcode?'),
+		closeButton: false,
+		buttons: {
+			confirm: {
+				label: __t('Yes'),
+				className: 'btn-success'
+			},
+			cancel: {
+				label: __t('No'),
+				className: 'btn-danger'
+			}
+		},
+		callback: function(result)
+		{
+			if (result === true)
+			{
+				Grocy.Api.Delete('objects/product_barcodes/' + objectId, { },
+					function(result)
+					{
+						Grocy.ProductEditFormRedirectUri = "reload";
+						$('#save-product-button').click();
+					},
+					function(xhr)
+					{
+						console.error(xhr);
+					}
+				);
+
+				var newBarcode = '';
+				productBarcode.split(',').forEach(function(item)
+				{
+					if(barcode != item)
+					{
+						newBarcode += ',' + item;
+					}
+				});
+
+				var jsonDataProduct = {};
+				jsonDataProduct.barcode = newBarcode;
+
+				Grocy.Api.Put('objects/products/' + productId, jsonDataProduct,
+					function(result)
+					{
+					},
+					function(xhr)
+					{
+						Grocy.FrontendHelpers.EndUiBusy("product-form");
+						Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+					}
+				);
+			}
+		}
+	});
+});
+
+$(document).on('click', '.barcode-edit-button', function (e)
+{
+	var id = $(e.currentTarget).attr('data-barcode-id');
+	Grocy.ProductEditFormRedirectUri = U("/productbarcodes/" + id.toString() + "?product=editobjectid");
+	$('#save-product-button').click();
+});
+
+$("#barcode-add-button").on("click", function(e)
+{
+	Grocy.ProductEditFormRedirectUri = U("/productbarcodes/new?product=editobjectid");
 	$('#save-product-button').click();
 });
 

@@ -80,7 +80,14 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 
 			if (productDetails.last_price !== null)
 			{
-				$('#productcard-product-last-price').text(Number.parseFloat(productDetails.last_price).toLocaleString() + ' ' + Grocy.Currency + ' per ' + productDetails.quantity_unit_purchase.name);
+				if (productDetails.last_qu_factor_purchase_to_stock > 1)
+				{
+					$('#productcard-product-last-price').text(Number.parseFloat(productDetails.last_price).toLocaleString() + ' ' + Grocy.Currency + ' per 1 ' + productDetails.quantity_unit_purchase.name + ' of ' + productDetails.last_qu_factor_purchase_to_stock  + ' ' + productDetails.quantity_unit_stock.name_plural);
+				}
+				else
+				{
+					$('#productcard-product-last-price').text(Number.parseFloat(productDetails.last_price).toLocaleString() + ' ' + Grocy.Currency + ' per ' + productDetails.quantity_unit_purchase.name);
+				}
 			}
 			else
 			{

@@ -2703,6 +2703,57 @@
 				}
 			}
 		},
+		"/productbarcodedetails/{barcode}": {
+			"get": {
+				"summary": "Executes a product barcode details lookoup via the configured plugin with the given barcode",
+				"tags": [
+					"Product"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "barcode",
+						"required": true,
+						"description": "The barcode to lookup up",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "add",
+						"required": false,
+						"description": "When true, the product is added to the database on a successful lookup and the new product id is in included in the response",
+						"schema": {
+							"type": "boolean",
+							"default": false
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An ProductBarcodeDetails object or null, when nothing was found for the given barcode",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ProductBarcodeDetailsResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Plugin error)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/recipes/{recipeId}/add-not-fulfilled-products-to-shoppinglist": {
 			"post": {
 				"summary": "Adds all missing products for the given recipe to the shopping list",
@@ -3374,6 +3425,7 @@
 				"enum": [
 					"products",
 					"chores",
+					"product_barcodes",
 					"batteries",
 					"locations",
 					"quantity_units",
@@ -3859,6 +3911,28 @@
 					},
 					"shopping_location": {
 						"$ref": "#/components/schemas/ShoppingLocation"
+					}
+				}
+			},
+			"ProductBarcodeDetailsResponse": {
+				"type": "object",
+				"properties": {
+					"product_id": {
+						"type": "integer"
+					},
+					"barcode": {
+						"type": "string"
+					},
+					"qu_factor_purchase_to_stock": {
+						"type": "number",
+						"format": "number"
+					},
+					"barcode": {
+						"type": "string",
+						"description": "Can contain multiple barcodes separated by comma"
+					},
+					"shopping_location_id": {
+						"type": "integer"
 					}
 				}
 			},
