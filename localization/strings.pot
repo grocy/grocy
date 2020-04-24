@@ -1798,3 +1798,6 @@ msgstr ""
 
 msgid "means %1$s per %2$s"
 msgstr ""
+
+msgid "Create inverse QU conversion"
+msgstr ""

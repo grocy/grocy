@@ -1,4 +1,5 @@
 ### Stock improvements/fixes
+- When creating a quantity unit conversion it's now possible to automatically create the inverse conversion (thanks @kriddles)
 - Optimized/clarified what the total/unit price is on the purchase page (thanks @kriddles)
 - On the purchase page the amount field is now displayed above/before the best before date for better `TAB` handling (thanks @kriddles)
 - Changed that when `FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING` is disabled, products now get internally a best before of "never expires" (aka `2999-12-31`) instead of today (thanks @kriddles)

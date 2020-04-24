@@ -72,9 +72,9 @@
 
 			<div class="checkbox @if($mode == 'edit') d-none @endif">
 				<label for="create_inverse">
-					<input type="checkbox" id="create_inverse" name="create_inverse:skip" checked> {{ $__t('Create Inverse QU Conversion') }}
+					<input type="checkbox" id="create_inverse" name="create_inverse:skip" checked> {{ $__t('Create inverse QU conversion') }}
+					<span id="qu-conversion-inverse-info" class="form-text text-info d-none"></span>
 				</label>
-				<p id="qu-conversion-inverse-info" class="form-text text-info d-none"></p>
 			</div>
 
 			@include('components.userfieldsform', array(

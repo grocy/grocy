@@ -152,7 +152,7 @@ $('.input-group-qu').on('change', function(e)
 
 		if (Grocy.EditMode === 'create')
 		{
-			$('#qu-conversion-inverse-info').text(__t('This means the inverse of 1 %1$s is the same as %2$s %3$s will also be created', $("#to_qu_id option:selected").text(), (1 / factor).toString(), __n((1 / factor).toString(), $("#from_qu_id option:selected").text(), $("#from_qu_id option:selected").data("plural-form"))));
+			$('#qu-conversion-inverse-info').text('(' + __t('This means 1 %1$s is the same as %2$s %3$s', $("#to_qu_id option:selected").text(), (1 / factor).toString(), __n((1 / factor).toString(), $("#from_qu_id option:selected").text(), $("#from_qu_id option:selected").data("plural-form"))) + ')');
 			$('#qu-conversion-inverse-info').removeClass('d-none');
 		}
 	}
