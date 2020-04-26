@@ -12,6 +12,9 @@
 - Improved the recipe adding workflow (a recipe called "New recipe" is now not automatically created when starting to add a recipe) (thanks @zsarnett)
 - Fixed that images on the recipe gallery view were not scaled correctly on largers screens (thanks @zsarnett)
 
+### Chores fixes
+- Fixed (again) that weekly chores, where the next execution should be in the same week, were scheduled (not) always (but sometimes) for the next week only (thanks @shadow7412)
+
 ### Calendar improvements/fixes
 - Events are now links to the corresponding page (thanks @zsarnett)
 - Fixed a PHP warning when using the "Share/Integrate calendar (iCal)" button (thanks @tsia)

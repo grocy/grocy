@@ -23,21 +23,21 @@ SELECT
 		WHEN 'weekly' THEN (
 			SELECT next
         		FROM (
-					SELECT 'saturday' AS day, DATETIME(COALESCE((SELECT tracked_time FROM chores_log WHERE chore_id = h.id order by tracked_time desc limit 1), DATETIME('now', 'localtime')), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 6') AS next
+					SELECT 'saturday' AS day, DATETIME(COALESCE((SELECT tracked_time FROM chores_log WHERE chore_id = h.id ORDER BY tracked_time DESC LIMIT 1), DATETIME('now', 'localtime')), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 6') AS next
 					UNION
-					SELECT 'friday' AS day, DATETIME(COALESCE((SELECT tracked_time FROM chores_log WHERE chore_id = h.id order by tracked_time desc limit 1), DATETIME('now', 'localtime')), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 5') AS next
+					SELECT 'friday' AS day, DATETIME(COALESCE((SELECT tracked_time FROM chores_log WHERE chore_id = h.id ORDER BY tracked_time DESC LIMIT 1), DATETIME('now', 'localtime')), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 5') AS next
 					UNION
-					SELECT 'thursday' AS day, DATETIME(COALESCE((SELECT tracked_time FROM chores_log WHERE chore_id = h.id order by tracked_time desc limit 1), DATETIME('now', 'localtime')), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 4') AS next
+					SELECT 'thursday' AS day, DATETIME(COALESCE((SELECT tracked_time FROM chores_log WHERE chore_id = h.id ORDER BY tracked_time DESC LIMIT 1), DATETIME('now', 'localtime')), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 4') AS next
 					UNION
-					SELECT 'wednesday' AS day, DATETIME(COALESCE((SELECT tracked_time FROM chores_log WHERE chore_id = h.id order by tracked_time desc limit 1), DATETIME('now', 'localtime')), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 4') AS next
+					SELECT 'wednesday' AS day, DATETIME(COALESCE((SELECT tracked_time FROM chores_log WHERE chore_id = h.id ORDER BY tracked_time DESC LIMIT 1), DATETIME('now', 'localtime')), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 4') AS next
 					UNION
-					SELECT 'tuesday' AS day, DATETIME(COALESCE((SELECT tracked_time FROM chores_log WHERE chore_id = h.id order by tracked_time desc limit 1), DATETIME('now', 'localtime')), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 3') AS next
+					SELECT 'tuesday' AS day, DATETIME(COALESCE((SELECT tracked_time FROM chores_log WHERE chore_id = h.id ORDER BY tracked_time DESC LIMIT 1), DATETIME('now', 'localtime')), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 3') AS next
 					UNION
-					SELECT 'monday' AS day, DATETIME(COALESCE((SELECT tracked_time FROM chores_log WHERE chore_id = h.id order by tracked_time desc limit 1), DATETIME('now', 'localtime')), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 2') AS next
+					SELECT 'monday' AS day, DATETIME(COALESCE((SELECT tracked_time FROM chores_log WHERE chore_id = h.id ORDER BY tracked_time DESC LIMIT 1), DATETIME('now', 'localtime')), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 2') AS next
 					UNION
-					SELECT 'sunday' AS day, DATETIME(COALESCE((SELECT tracked_time FROM chores_log WHERE chore_id = h.id order by tracked_time desc limit 1), DATETIME('now', 'localtime')), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 1') AS next
+					SELECT 'sunday' AS day, DATETIME(COALESCE((SELECT tracked_time FROM chores_log WHERE chore_id = h.id ORDER BY tracked_time DESC LIMIT 1), DATETIME('now', 'localtime')), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 1') AS next
 				)
-			WHERE instr(period_config, day) > 0
+			WHERE INSTR(period_config, day) > 0
 			ORDER BY day
 			LIMIT 1
 		)
