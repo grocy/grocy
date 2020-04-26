@@ -93,9 +93,11 @@
 			<input type="hidden" name="location_id" id="location_id" value="1">
 			@endif
 
+			@php $prefillById = ''; if($mode=='edit') { $prefillById = $product->shopping_location_id; } @endphp
 			@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 			@include('components.shoppinglocationpicker', array(
 				'label' => 'Default store',
+				'prefillById' => $prefillById,
 				'shoppinglocations' => $shoppinglocations
 			))
 			@else
