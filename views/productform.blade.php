@@ -56,7 +56,6 @@
 			@endphp
 			@include('components.productpicker', array(
 				'products' => $products,
-				'nextInputSelector' => '#barcode-taginput',
 				'prefillById' => $prefillById,
 				'disallowAllProductWorkflows' => true,
 				'isRequired' => false,
@@ -68,14 +67,6 @@
 			<div class="form-group">
 				<label for="description">{{ $__t('Description') }}</label>
 				<textarea class="form-control wysiwyg-editor" id="description" name="description">@if($mode == 'edit'){{ $product->description }}@endif</textarea>
-			</div>
-
-			<div class="form-group tm-group">
-				<label for="barcode-taginput">{{ $__t('Barcode(s)') }}&nbsp;&nbsp;<i class="fas fa-barcode"></i></label>
-				<div class="input-group">
-					<input type="text" class="form-control tm-input barcodescanner-input" id="barcode-taginput" data-target="#barcode-taginput">
-				</div>
-				<div id="barcode-taginput-container"></div>
 			</div>
 
 			@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)

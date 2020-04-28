@@ -166,51 +166,12 @@
 	}
 });
 
-$('#barcode-taginput').tagsManager({
-	'hiddenTagListName': 'barcode',
-	'tagsContainer': '#barcode-taginput-container',
-	'tagClass': 'badge badge-secondary',
-	'delimiters': [13, 44]
-});
-
-if (Grocy.EditMode === 'edit')
-{
-	Grocy.Api.Get('objects/products/' + Grocy.EditObjectId,
-		function (product)
-		{
-			if (product.barcode !== null && product.barcode.length > 0)
-			{
-				product.barcode.split(',').forEach(function(item)
-				{
-					$('#barcode-taginput').tagsManager('pushTag', item);
-				});
-			}
-		},
-		function(xhr)
-		{
-			console.error(xhr);
-		}
-	);
-}
-
 var prefillName = GetUriParam('prefillname');
 if (prefillName !== undefined)
 {
 	$('#name').val(prefillName);
 	$('#name').focus();
 }
-
-var prefillBarcode = GetUriParam('prefillbarcode');
-if (prefillBarcode !== undefined)
-{
-	$('#barcode-taginput').tagsManager('pushTag', prefillBarcode);
-	$('#name').focus();
-}
-
-$("#barcode-taginput").on("blur", function(e)
-{
-	$("#barcode-taginput").tagsManager("pushTag", $("#barcode-taginput").val());
-});
 
 $('.input-group-qu').on('change', function(e)
 {
@@ -435,29 +396,6 @@ $(document).on('click', '.qu-conversion-delete-button', function(e)
 						console.error(xhr);
 					}
 				);
-
-				var newBarcode = '';
-				productBarcode.split(',').forEach(function(item)
-				{
-					if(barcode != item)
-					{
-						newBarcode += ',' + item;
-					}
-				});
-
-				var jsonDataProduct = {};
-				jsonDataProduct.barcode = newBarcode;
-
-				Grocy.Api.Put('objects/products/' + productId, jsonDataProduct,
-					function(result)
-					{
-					},
-					function(xhr)
-					{
-						Grocy.FrontendHelpers.EndUiBusy("product-form");
-						Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-					}
-				);
 			}
 		}
 	});
@@ -561,14 +499,4 @@ $('#qu_id_purchase').blur(function(e)
 		QuIdStock[0].selectedIndex = QuIdPurchase[0].selectedIndex;
 		Grocy.FrontendHelpers.ValidateForm('product-form');
 	}
-});
-
-$(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
-{
-	if (target != "#barcode-taginput")
-	{
-		return;
-	}
-	
-	$("#barcode-taginput").tagsManager("pushTag", barcode);
 });
