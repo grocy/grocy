@@ -623,6 +623,7 @@ class StockService extends BaseService
 			'opened_date' => $stockRow->opened_date,
 			'location_id' => $stockRow->location_id,
 			'shopping_location_id' => $stockRow->shopping_location_id,
+			'qu_factor_purchase_to_stock' => $stockRow->qu_factor_purchase_to_stock,
 			'correlation_id' => $correlationId,
 			'transaction_id' => $transactionId,
 			'stock_row_id' => $stockRow->id
@@ -661,6 +662,7 @@ class StockService extends BaseService
 			'opened_date' => $stockRow->opened_date,
 			'location_id' => $locationId,
 			'shopping_location_id' => $shoppingLocationId,
+			'qu_factor_purchase_to_stock' => $stockRow->qu_factor_purchase_to_stock,
 			'correlation_id' => $correlationId,
 			'transaction_id' => $transactionId,
 			'stock_row_id' => $stockRow->id
