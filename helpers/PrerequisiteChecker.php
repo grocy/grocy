@@ -2,9 +2,8 @@
 
 class ERequirementNotMet extends Exception { }
 
-const REQUIRED_PHP_EXTENSIONS        = array('fileinfo', 'pdo_sqlite', 'gd');
-const REQUIRED_SQLITE_VERSION_INT    = "3008003"; //3.8.3 - this value will be checked
-const REQUIRED_SQLITE_VERSION_STRING = "3.8.3";   //This value is just for error output, no check is done
+const REQUIRED_PHP_EXTENSIONS = array('fileinfo', 'pdo_sqlite', 'gd');
+const REQUIRED_SQLITE_VERSION = "3.8.3";
 
 class PrerequisiteChecker
 {
@@ -57,10 +56,17 @@ class PrerequisiteChecker
 
     private function checkForSqliteVersion()
     {
-        $sqliteVersion = SQLite3::version()["versionNumber"];
-        if ($sqliteVersion < REQUIRED_SQLITE_VERSION_INT)
+        $sqliteVersion = self::getSqlVersionAsString();
+        if (version_compare($sqliteVersion, REQUIRED_SQLITE_VERSION, '<'))
         {
-            throw new ERequirementNotMet('SQLite ' . REQUIRED_SQLITE_VERSION_STRING . ' is required, however you are running ' . SQLite3::version()["versionString"]);
+            throw new ERequirementNotMet('SQLite ' . REQUIRED_SQLITE_VERSION . ' is required, however you are running ' . $sqliteVersion);
         }
     }
+
+   private function getSqlVersionAsString()
+   {
+	$dbh = new PDO('sqlite::memory:');
+	return $dbh->query('select sqlite_version()')->fetch()[0];
+   }
+
 }
