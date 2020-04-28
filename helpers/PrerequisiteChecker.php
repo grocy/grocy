@@ -10,11 +10,11 @@ class PrerequisiteChecker
 {
     public function checkRequirements()
     {
-        self::checkForSqliteVersion();
         self::checkForConfigFile();
         self::checkForConfigDistFile();
         self::checkForComposer();
         self::checkForPhpExtensions();
+        self::checkForSqliteVersion();
     }
     
     
