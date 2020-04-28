@@ -6,12 +6,23 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 		function(productDetails)
 		{
 			var stockAmount = productDetails.stock_amount || '0';
+			var stockFactorPurchaseAmount = productDetails.stock_factor_purchase_amount || '0';
 			var stockValue = productDetails.stock_value || '0';
 			var stockAmountOpened = productDetails.stock_amount_opened || '0';
 			$('#productcard-product-name').text(productDetails.product.name);
 			$('#productcard-product-description').html(productDetails.product.description);
 			$('#productcard-product-stock-amount').text(stockAmount);
 			$('#productcard-product-stock-qu-name').text(__n(stockAmount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural));
+			if (productDetails.last_qu_factor_purchase_to_stock > 1)
+			{
+				$('#productcard-product-stock-factor-purchase-amount').text('(' + stockFactorPurchaseAmount);
+				$('#productcard-product-stock-factor-purchase-qu-name').text(__n(stockFactorPurchaseAmount, productDetails.quantity_unit_purchase.name, productDetails.quantity_unit_purchase.name_plural) + ')');
+			}
+			else
+			{
+				$('#productcard-product-stock-factor-purchase-amount').text('');
+				$('#productcard-product-stock-factor-purchase-qu-name').text('');
+			}
 			$('#productcard-product-stock-value').text(stockValue + ' ' + Grocy.Currency);
 			$('#productcard-product-last-purchased').text((productDetails.last_purchased || '2999-12-31').substring(0, 10));
 			$('#productcard-product-last-purchased-timeago').attr("datetime", productDetails.last_purchased || '2999-12-31');

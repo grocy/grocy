@@ -21,7 +21,9 @@
 			<a class="collapsed" data-toggle="collapse" href="#productcard-product-description">{{ $__t('Show more') }}</a>
 		</div>
 
-		<strong>{{ $__t('Stock amount') . ' / ' . $__t('Quantity unit') }}:</strong> <span id="productcard-product-stock-amount" class="locale-number locale-number-quantity-amount"></span> <span id="productcard-product-stock-qu-name"></span> <span id="productcard-product-stock-opened-amount" class="small font-italic locale-number locale-number-quantity-amount"></span><br>
+		<strong>{{ $__t('Stock amount') }}:</strong> <span id="productcard-product-stock-amount" class="locale-number locale-number-quantity-amount"></span> <span id="productcard-product-stock-qu-name"></span>
+			<span id="productcard-product-stock-factor-purchase-amount" class="locale-number locale-number-quantity-amount"></span> <span id="productcard-product-stock-factor-purchase-qu-name"></span>
+			<span id="productcard-product-stock-opened-amount" class="small font-italic locale-number locale-number-quantity-amount"></span><br>
 		<strong>{{ $__t('Stock value') }}:</strong> <span id="productcard-product-stock-value" class="locale-number locale-number-currency"></span>
 		<span id="productcard-aggregated-amounts" class="pl-2 text-secondary d-none"><i class="fas fa-custom-sigma-sign"></i> <span id="productcard-product-stock-amount-aggregated" class="locale-number locale-number-quantity-amount"></span> <span id="productcard-product-stock-qu-name-aggregated"></span> <span id="productcard-product-stock-opened-amount-aggregated locale-number locale-number-quantity-amount" class="small font-italic"></span></span><br>
 		@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)<strong>{{ $__t('Default location') }}:</strong> <span id="productcard-product-location"></span><br>@endif
