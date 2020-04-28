@@ -65,12 +65,29 @@
 							{
 								$("#flow-info-addbarcodetoselection").addClass("d-none");
 								$('#barcode-lookup-disabled-hint').addClass('d-none');
-								window.history.replaceState({ }, document.title, U("/purchase"));
 							},
 							function(xhr)
 							{
 								Grocy.FrontendHelpers.EndUiBusy("purchase-form");
 								console.error(xhr);
+							}
+						);
+
+						var jsonDataBarcode = {};
+						jsonDataBarcode.barcode = addBarcode;
+						jsonDataBarcode.product_id = jsonForm.product_id;
+						jsonDataBarcode.qu_factor_purchase_to_stock  = jsonForm.qu_factor_purchase_to_stock;
+						jsonDataBarcode.shopping_location_id = jsonForm.shopping_location_id;
+
+						Grocy.Api.Post('objects/product_barcodes', jsonDataBarcode,
+							function(result)
+							{
+								window.history.replaceState({ }, document.title, U("/purchase"));
+							},
+							function(xhr)
+							{
+								Grocy.FrontendHelpers.EndUiBusy("barcode-form");
+								Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 							}
 						);
 					}
