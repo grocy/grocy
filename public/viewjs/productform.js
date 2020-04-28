@@ -42,6 +42,26 @@
 			function(result)
 			{
 				Grocy.EditObjectId = result.created_object_id;
+
+				if (prefillBarcode !== undefined)
+				{
+					var jsonDataBarcode = {};
+					jsonDataBarcode.barcode = prefillBarcode;
+					jsonDataBarcode.product_id = result.created_object_id;
+					jsonDataBarcode.qu_factor_purchase_to_stock  = jsonData.qu_factor_purchase_to_stock;
+					jsonDataBarcode.shopping_location_id = jsonData.shopping_location_id;
+
+					Grocy.Api.Post('objects/product_barcodes', jsonDataBarcode,
+						function(result)
+						{
+						},
+						function(xhr)
+						{
+							Grocy.FrontendHelpers.EndUiBusy("barcode-form");
+							Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
+						}
+					);
+				}
 				Grocy.Components.UserfieldsForm.Save(function()
 				{
 					if (jsonData.hasOwnProperty("picture_file_name") && !Grocy.DeleteProductPictureOnSave)
@@ -173,6 +193,8 @@ if (prefillName !== undefined)
 	$('#name').focus();
 }
 
+var prefillBarcode = GetUriParam('prefillbarcode');
+
 $('.input-group-qu').on('change', function(e)
 {
 	var quIdPurchase = $("#qu_id_purchase").val();
@@ -216,7 +238,10 @@ $('#product-form input').keyup(function(event)
 	}
 	else
 	{
-		$("#barcode-add-button").removeClass("disabled");
+		if (prefillBarcode === undefined)
+		{
+			$("#barcode-add-button").removeClass("disabled");
+		}
 	}
 });
 
@@ -230,7 +255,10 @@ $('#product-form select').change(function(event)
 	}
 	else
 	{
-		$("#barcode-add-button").removeClass("disabled");
+		if (prefillBarcode === undefined)
+		{
+			$("#barcode-add-button").removeClass("disabled");
+		}
 	}
 	if (document.getElementById('product-form').checkValidity() === false) //There is at least one validation error
 	{
