@@ -25,7 +25,7 @@ SELECT
 	IFNULL(s.location_id, p.location_id) AS location_id,
 	s.product_id,
 	SUM(s.amount) AS amount,
-	SUM(s.amount / s.qu_factor_purchase_to_stock) as factor_purchase_amount,
+	ROUND(SUM(s.amount / s.qu_factor_purchase_to_stock),2) as factor_purchase_amount,
 	ROUND(SUM(IFNULL(s.price, 0) * (s.amount / s.qu_factor_purchase_to_stock)),2) AS value,
 	MIN(s.best_before_date) AS best_before_date,
 	IFNULL((SELECT SUM(amount) FROM stock WHERE product_id = s.product_id AND location_id = s.location_id AND open = 1), 0) AS amount_opened
@@ -40,9 +40,9 @@ AS
 SELECT
 	pr.parent_product_id AS product_id,
 	IFNULL((SELECT SUM(amount) FROM stock WHERE product_id = pr.parent_product_id), 0) AS amount,
-	IFNULL((SELECT SUM(amount / qu_factor_purchase_to_stock) FROM stock WHERE product_id = pr.parent_product_id), 0)  as factor_purchase_amount,
+	IFNULL(ROUND((SELECT SUM(amount / qu_factor_purchase_to_stock) FROM stock WHERE product_id = pr.parent_product_id),2), 0)  as factor_purchase_amount,
 	SUM(s.amount) * IFNULL(qucr.factor, 1) AS amount_aggregated,
-	IFNULL((SELECT SUM(IFNULL(price,0) * (amount / qu_factor_purchase_to_stock)) FROM stock WHERE product_id = pr.parent_product_id), 0)  AS value,
+	IFNULL(ROUND((SELECT SUM(IFNULL(price,0) * (amount / qu_factor_purchase_to_stock)) FROM stock WHERE product_id = pr.parent_product_id),2), 0)  AS value,
 	MIN(s.best_before_date) AS best_before_date,
 	IFNULL((SELECT SUM(amount) FROM stock WHERE product_id = pr.parent_product_id AND open = 1), 0) AS amount_opened,
 	IFNULL((SELECT SUM(amount) FROM stock WHERE product_id IN (SELECT sub_product_id FROM products_resolved WHERE parent_product_id = pr.parent_product_id) AND open = 1), 0) * IFNULL(qucr.factor, 1) AS amount_opened_aggregated,
@@ -67,9 +67,9 @@ UNION
 SELECT
 	pr.sub_product_id AS product_id,
 	SUM(s.amount) AS amount,
-	SUM(s.amount / s.qu_factor_purchase_to_stock) as factor_purchase_amount,
+	ROUND(SUM(s.amount / s.qu_factor_purchase_to_stock),2) as factor_purchase_amount,
         SUM(s.amount) AS amount_aggregated,
-        SUM(IFNULL(s.price, 0) * (s.amount / s.qu_factor_purchase_to_stock)) AS value,
+        ROUND(SUM(IFNULL(s.price, 0) * (s.amount / s.qu_factor_purchase_to_stock)),2) AS value,
 	MIN(s.best_before_date) AS best_before_date,
 	IFNULL((SELECT SUM(amount) FROM stock WHERE product_id = s.product_id AND open = 1), 0) AS amount_opened,
 	IFNULL((SELECT SUM(amount) FROM stock WHERE product_id = s.product_id AND open = 1), 0) AS amount_opened_aggregated,
