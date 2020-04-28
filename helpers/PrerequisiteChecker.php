@@ -2,12 +2,15 @@
 
 class ERequirementNotMet extends Exception { }
 
-const REQUIRED_PHP_EXTENSIONS = array('fileinfo', 'pdo_sqlite', 'gd');
+const REQUIRED_PHP_EXTENSIONS        = array('fileinfo', 'pdo_sqlite', 'gd');
+const REQUIRED_SQLITE_VERSION_INT    = "3008003"; //3.8.3 - this value will be checked
+const REQUIRED_SQLITE_VERSION_STRING = "3.8.3";   //This value is just for error output, no check is done
 
 class PrerequisiteChecker
 {
     public function checkRequirements()
     {
+        self::checkForSqliteVersion();
         self::checkForConfigFile();
         self::checkForConfigDistFile();
         self::checkForComposer();
@@ -48,6 +51,16 @@ class PrerequisiteChecker
             {
                 throw new ERequirementNotMet("PHP module '{$extension}' not installed, but required.");
             }
+        }
+    }
+
+
+    private function checkForSqliteVersion()
+    {
+        $sqliteVersion = SQLite3::version()["versionNumber"];
+        if ($sqliteVersion < REQUIRED_SQLITE_VERSION_INT)
+        {
+            throw new ERequirementNotMet('SQLite ' . REQUIRED_SQLITE_VERSION_STRING . ' is required, however you are running ' . SQLite3::version()["versionString"]);
         }
     }
 }
