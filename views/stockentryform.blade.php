@@ -60,6 +60,16 @@
 				'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info" class="text-small text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
 			))
 
+			@include('components.numberpicker', array(
+				'id' => 'qu_factor_purchase_to_stock',
+				'label' => 'Factor purchase to stock quantity unit',
+				'value' => $stockEntry->qu_factor_purchase_to_stock,
+				'min' => 1,
+				'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
+				'additionalCssClasses' => 'input-group-qu',
+				'additionalHtmlElements' => '<p id="qu-conversion-info" class="form-text text-muted small d-none"></p>'
+			))
+
 			@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 			@include('components.numberpicker', array(
 				'id' => 'price',

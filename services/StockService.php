@@ -597,7 +597,7 @@ class StockService extends BaseService
 		return $this->getDatabase()->lastInsertId();
 	}
 
-	public function EditStockEntry(int $stockRowId, float $amount, $bestBeforeDate, $locationId, $shoppingLocationId, $price, $open, $purchasedDate)
+	public function EditStockEntry(int $stockRowId, float $amount, $bestBeforeDate, $locationId, $shoppingLocationId, $price, $open, $purchasedDate, $quFactorPurchaseToStock)
 	{
 
 		$stockRow = $this->getDatabase()->stock()->where('id = :1', $stockRowId)->fetch();
@@ -645,6 +645,7 @@ class StockService extends BaseService
 			'shopping_location_id' => $shoppingLocationId,
 			'opened_date' => $openedDate,
 			'open' => $open,
+			'qu_factor_purchase_to_stock' => $quFactorPurchaseToStock,
 			'purchased_date' => $purchasedDate
 		));
 
@@ -1146,6 +1147,7 @@ class StockService extends BaseService
 				'best_before_date' => $logRow->best_before_date,
 				'purchased_date' => $logRow->purchased_date,
 				'price' => $logRow->price,
+				'qu_factor_purchase_to_stock' => $logRow->qu_factor_purchase_to_stock,
 				'location_id' => $logRow->location_id,
 				'open' => $open,
 				'opened_date' => $openedDate
