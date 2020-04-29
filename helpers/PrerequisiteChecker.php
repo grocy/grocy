@@ -3,6 +3,7 @@
 class ERequirementNotMet extends Exception { }
 
 const REQUIRED_PHP_EXTENSIONS = array('fileinfo', 'pdo_sqlite', 'gd');
+const REQUIRED_SQLITE_VERSION = "3.8.3";
 
 class PrerequisiteChecker
 {
@@ -12,6 +13,7 @@ class PrerequisiteChecker
         self::checkForConfigDistFile();
         self::checkForComposer();
         self::checkForPhpExtensions();
+        self::checkForSqliteVersion();
     }
     
     
@@ -50,4 +52,21 @@ class PrerequisiteChecker
             }
         }
     }
+
+
+    private function checkForSqliteVersion()
+    {
+        $sqliteVersion = self::getSqlVersionAsString();
+        if (version_compare($sqliteVersion, REQUIRED_SQLITE_VERSION, '<'))
+        {
+            throw new ERequirementNotMet('SQLite ' . REQUIRED_SQLITE_VERSION . ' is required, however you are running ' . $sqliteVersion);
+        }
+    }
+
+   private function getSqlVersionAsString()
+   {
+	$dbh = new PDO('sqlite::memory:');
+	return $dbh->query('select sqlite_version()')->fetch()[0];
+   }
+
 }
