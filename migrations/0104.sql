@@ -32,7 +32,7 @@ CREATE VIEW products_oldest_stock_unit_price AS
 -- find oldest best_before_date then oldest purchased_date then make sure to return one stock row using max
 select
 	1 AS id, -- Dummy, LessQL needs an id column
-	sw.product_id, sw.amount, sw.best_before_date, sw.purchased_date, sw.price / sw.qu_factor_purchase_to_stock as price , sw.qu_factor_purchase_to_stock, sw.location_id, sw.shopping_location_id
+	sw.product_id, sw.amount, sw.best_before_date, sw.purchased_date, sw.price, sw.qu_factor_purchase_to_stock, sw.location_id, sw.shopping_location_id
  from stock sw join
 	(select
 		s1.product_id,

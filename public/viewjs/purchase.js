@@ -13,7 +13,8 @@
 			var price = "";
 			if (!jsonForm.price.toString().isEmpty())
 			{
-				price = parseFloat(jsonForm.price).toFixed(2);
+				// price is saved as 1 QU to stock
+				price = parseFloat(jsonForm.price / amount).toFixed(2);
 
 				if ($("input[name='price-type']:checked").val() == "total-price")
 				{
