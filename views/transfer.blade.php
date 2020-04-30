@@ -14,6 +14,7 @@
 
 			@include('components.productpicker', array(
 				'products' => $products,
+				'barcodes' => $barcodes,
 				'nextInputSelector' => '#location_id_from',
 				'disallowAddProductWorkflows' => true
 			))

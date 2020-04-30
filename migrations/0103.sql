@@ -25,6 +25,43 @@ qu_factor_purchase_to_stock REAL NOT NULL DEFAULT 1,
 shopping_location_id INTEGER
 );
 
+ALTER TABLE products RENAME TO products_old;
+
+--Remove barcode column
+--Reorder columns
+
+CREATE TABLE products (
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	name TEXT NOT NULL UNIQUE,
+	description TEXT,
+	product_group_id INTEGER,
+	location_id INTEGER NOT NULL,
+	shopping_location_id INTEGER,
+	qu_id_purchase INTEGER NOT NULL,
+	qu_id_stock INTEGER NOT NULL,
+	qu_factor_purchase_to_stock REAL NOT NULL,
+	min_stock_amount INTEGER NOT NULL DEFAULT 0,
+	default_best_before_days INTEGER NOT NULL DEFAULT 0,
+	default_best_before_days_after_open INTEGER NOT NULL DEFAULT 0,
+	default_best_before_days_after_freezing INTEGER NOT NULL DEFAULT 0,
+	default_best_before_days_after_thawing INTEGER NOT NULL DEFAULT 0,
+	row_created_timestamp DATETIME DEFAULT (datetime('now', 'localtime')),
+	picture_file_name TEXT,
+	allow_partial_units_in_stock TINYINT NOT NULL DEFAULT 0,
+	enable_tare_weight_handling TINYINT NOT NULL DEFAULT 0,
+	tare_weight REAL NOT NULL DEFAULT 0,
+	not_check_stock_fulfillment_for_recipes TINYINT DEFAULT 0,
+	parent_product_id INT,
+	calories INTEGER,
+	cumulate_min_stock_amount_of_sub_products TINYINT DEFAULT 0);
+
+INSERT INTO products
+	(id,name,description,location_id,qu_id_purchase,qu_id_stock,qu_factor_purchase_to_stock,min_stock_amount,default_best_before_days,row_created_timestamp,product_group_id,picture_file_name,default_best_before_days_after_open,allow_partial_units_in_stock,enable_tare_weight_handling,tare_weight,not_check_stock_fulfillment_for_recipes,parent_product_id,calories,cumulate_min_stock_amount_of_sub_products,default_best_before_days_after_freezing,default_best_before_days_after_thawing,shopping_location_id)
+SELECT id,name,description,location_id,qu_id_purchase,qu_id_stock,qu_factor_purchase_to_stock,min_stock_amount,default_best_before_days,row_created_timestamp,product_group_id,picture_file_name,default_best_before_days_after_open,allow_partial_units_in_stock,enable_tare_weight_handling,tare_weight,not_check_stock_fulfillment_for_recipes,parent_product_id,calories,cumulate_min_stock_amount_of_sub_products,default_best_before_days_after_freezing,default_best_before_days_after_thawing,shopping_location_id
+FROM products_old;
+
+DROP TABLE products_old;
+
 DROP VIEW stock_current_location_content;
 CREATE VIEW stock_current_location_content
 AS

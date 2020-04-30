@@ -69,7 +69,7 @@ class StockService extends BaseService
 
 	public function GetProductIdFromBarcode(string $barcode)
 	{
-		$potentialProduct = $this->getDatabase()->products()->where("','  || barcode || ',' LIKE '%,' || :1 || ',%' AND IFNULL(barcode, '') != ''", $barcode)->limit(1)->fetch();
+		$potentialProduct = $this->getDatabase()->product_barcodes()->where("barcode = :1", $barcode)->fetch();
 
 		if ($potentialProduct === null)
 		{
@@ -114,6 +114,7 @@ class StockService extends BaseService
 		}
 
 		$product = $this->getDatabase()->products($productId);
+		$productBarcodes = $this->getDatabase()->product_barcodes()->where('product_id', $productId)->fetchAll();
 		$productLastPurchased = $this->getDatabase()->products_last_purchased()->where('product_id', $productId)->fetch();
 		$productLastUsed = $this->getDatabase()->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone', 0)->max('used_date');
 		$nextBestBeforeDate = $this->getDatabase()->stock()->where('product_id', $productId)->min('best_before_date');
@@ -138,6 +139,7 @@ class StockService extends BaseService
 
 		return array(
 			'product' => $product,
+			'product_barcodes' => $productBarcodes,
 			'last_purchased' => $productLastPurchased->purchased_date,
 			'last_used' => $productLastUsed,
 			'stock_amount' => $stockCurrentRow->amount,

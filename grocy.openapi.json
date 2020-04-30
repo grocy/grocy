@@ -3451,6 +3451,7 @@
 				"type": "string",
 				"enum": [
 					"products",
+					"product_barcodes",
 					"chores",
 					"batteries",
 					"locations",
@@ -3800,6 +3801,9 @@
 					"product": {
 						"$ref": "#/components/schemas/Product"
 					},
+					"product_barcodes": {
+						"$ref": "#/components/schemas/ProductBarcodeDetailsResponse"
+					},
 					"quantity_unit_purchase": {
 						"$ref": "#/components/schemas/QuantityUnit"
 					},
@@ -3873,6 +3877,15 @@
 						"not_check_stock_fulfillment_for_recipes": "0",
 						"last_shopping_location_id": null
 					},
+					"product_barcodes": [
+						{
+							"id": "1",
+							"product_id": "13",
+							"barcode": "01321230213",
+							"qu_factor_purchase_to_stock": "10.0",
+							"shopping_location_id": "2"
+						}
+					],
 					"last_purchased": null,
 					"last_used": null,
 					"stock_amount": "2",

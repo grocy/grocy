@@ -50,8 +50,12 @@ class StockController extends BaseController
 
 	public function Purchase(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
+		$sql = 'select group_concat(barcode) barcodes, product_id from product_barcodes group by product_id';
+		$productBarcodes = $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
+
 		return $this->renderPage($response, 'purchase', [
 			'products' => $this->getDatabase()->products()->orderBy('name'),
+			'barcodes' =>  $productBarcodes,
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name')
 		]);
@@ -59,8 +63,12 @@ class StockController extends BaseController
 
 	public function Consume(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
+		$sql = 'select group_concat(barcode) barcodes, product_id from product_barcodes group by product_id';
+		$productBarcodes = $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
+
 		return $this->renderPage($response, 'consume', [
 			'products' => $this->getDatabase()->products()->orderBy('name'),
+			'barcodes' =>  $productBarcodes,
 			'recipes' => $this->getDatabase()->recipes()->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name')
 		]);
@@ -68,8 +76,12 @@ class StockController extends BaseController
 
 	public function Transfer(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
+		$sql = 'select group_concat(barcode) barcodes, product_id from product_barcodes group by product_id';
+		$productBarcodes = $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
+
 		return $this->renderPage($response, 'transfer', [
 			'products' => $this->getDatabase()->products()->orderBy('name'),
+			'barcodes' =>  $productBarcodes,
 			'recipes' => $this->getDatabase()->recipes()->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name')
 		]);
@@ -77,8 +89,12 @@ class StockController extends BaseController
 
 	public function Inventory(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
+		$sql = 'select group_concat(barcode) barcodes, product_id from product_barcodes group by product_id';
+		$productBarcodes = $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
+
 		return $this->renderPage($response, 'inventory', [
 			'products' => $this->getDatabase()->products()->orderBy('name'),
+			'barcodes' =>  $productBarcodes,
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name')
 		]);

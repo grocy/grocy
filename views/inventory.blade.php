@@ -13,6 +13,7 @@
 
 			@include('components.productpicker', array(
 				'products' => $products,
+				'barcodes' => $barcodes,
 				'nextInputSelector' => '#new_amount'
 			))
 
