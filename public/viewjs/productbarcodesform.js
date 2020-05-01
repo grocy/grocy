@@ -10,8 +10,6 @@
 		Grocy.Api.Post('objects/product_barcodes', jsonData,
 			function(result)
 			{
-				Grocy.EditObjectId = result.created_object_id;
-				window.location.href = U("/product/" + GetUriParam("product"));
 			},
 			function(xhr)
 			{
@@ -25,7 +23,6 @@
 		Grocy.Api.Put('objects/product_barcodes/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
-				window.location.href = U("/product/" + GetUriParam("product"));
 			},
 			function(xhr)
 			{
@@ -35,38 +32,8 @@
 		);
 	}
 
-	Grocy.Api.Get('stock/products/' + jsonData.product_id,
-		function(productDetails)
-		{
-			var existingBarcodes = productDetails.product.barcode || '';
-			if (existingBarcodes.length === 0)
-			{
-				productDetails.product.barcode = jsonData.barcode;
-			}
-			else
-			{
-				productDetails.product.barcode += ',' + jsonData.barcode;
-			}
-			var jsonDataProduct = {};
-			jsonDataProduct.barcode = productDetails.product.barcode;
-
-			Grocy.Api.Put('objects/products/' + jsonData.product_id, jsonDataProduct,
-				function(result)
-				{
-				},
-				function(xhr)
-				{
-					Grocy.FrontendHelpers.EndUiBusy("barcode-form");
-					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-				}
-			);
-		},
-		function(xhr)
-		{
-			Grocy.FrontendHelpers.EndUiBusy("barcode-form");
-			Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
-		}
-	);
+	window.parent.postMessage(WindowMessageBag("ProductBarcodesChanged"), U("/product/" + GetUriParam("product")));
+	window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/product/" + GetUriParam("product")));
 });
 
 $('#barcode').on('change', function(e)

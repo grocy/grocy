@@ -294,7 +294,7 @@
 	<div class="col-lg-6 col-xs-12">
 		<h2>
 			{{ $__t('QU conversions') }}
-			<a id="qu-conversion-add-button" class="btn btn-outline-dark" href="#">
+			<a class="btn btn-outline-dark show-as-dialog-link" type="button" href="{{ $U('/quantityunitconversion/new?embedded&product=' . $product->id ) }}">
 				<i class="fas fa-plus"></i> {{ $__t('Add') }}
 			</a>
 		</h2>
@@ -315,7 +315,7 @@
 					@if($quConversion->product_id == $product->id || $quConversion->product_id == null)
 					<tr>
 						<td class="fit-content border-right">
-							<a class="btn btn-sm btn-info qu-conversion-edit-button @if($quConversion->product_id == null) disabled @endif" href="#" data-qu-conversion-id="{{ $quConversion->id }}">
+							<a class="btn btn-sm btn-info show-as-dialog-link @if($quConversion->product_id == null) disabled @endif" href="{{ $U('/quantityunitconversion/' . $quConversion->id . '?embedded&product=' . $product->id ) }}">
 								<i class="fas fa-edit"></i>
 							</a>
 							<a class="btn btn-sm btn-danger qu-conversion-delete-button @if($quConversion->product_id == null) disabled @endif" href="#" data-qu-conversion-id="{{ $quConversion->id }}">
@@ -347,7 +347,7 @@
 
 		<h2>
 			{{ $__t('Barcode Details') }}
-			<a id="barcode-add-button" class="btn btn-outline-dark" href="#">
+			<a class="btn btn-outline-dark show-as-dialog-link" type="button" href="{{ $U('/productbarcodes/new?embedded&product=' . $product->id ) }}">
 				<i class="fas fa-plus"></i> {{ $__t('Add') }}
 			</a>
 		</h2>
@@ -367,7 +367,7 @@
 					@if($barcode->product_id == $product->id || $barcode->product_id == null)
 					<tr>
 						<td class="fit-content border-right">
-							<a class="btn btn-sm btn-info barcode-edit-button @if($barcode->product_id == null) disabled @endif" href="#" data-barcode-id="{{ $barcode->id }}">
+							<a class="btn btn-sm btn-info show-as-dialog-link @if($barcode->product_id == null) disabled @endif" href="{{ $U('/productbarcodes/' . $barcode->id . '?embedded&product=' . $product->id ) }}">
 								<i class="fas fa-edit"></i>
 							</a>
 							<a class="btn btn-sm btn-danger barcode-delete-button @if($barcode->product_id == null) disabled @endif" href="#" data-barcode-id="{{ $barcode->id }}" data-barcode="{{ $barcode->barcode }}" data-product-barcode="{{ $product->barcode }}" data-product-id="{{ $product->id }}">

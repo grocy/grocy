@@ -381,7 +381,6 @@ var barcodeTable = $('#barcode-table').DataTable({
 $('#barcode-table tbody').removeClass("d-none");
 barcodeTable.columns.adjust().draw();
 
-
 Grocy.Components.UserfieldsForm.Load();
 $("#name").trigger("keyup");
 $('#name').focus();
@@ -429,19 +428,6 @@ $(document).on('click', '.qu-conversion-delete-button', function(e)
 	});
 });
 
-$(document).on('click', '.qu-conversion-edit-button', function (e)
-{
-	var id = $(e.currentTarget).attr('data-qu-conversion-id');
-	Grocy.ProductEditFormRedirectUri = U("/quantityunitconversion/" + id.toString() + "?product=editobjectid");
-	$('#save-product-button').click();
-});
-
-$("#qu-conversion-add-button").on("click", function(e)
-{
-	Grocy.ProductEditFormRedirectUri = U("/quantityunitconversion/new?product=editobjectid");
-	$('#save-product-button').click();
-});
-
 $(document).on('click', '.barcode-delete-button', function(e)
 {
 	var objectId = $(e.currentTarget).attr('data-barcode-id');
@@ -477,45 +463,9 @@ $(document).on('click', '.barcode-delete-button', function(e)
 						console.error(xhr);
 					}
 				);
-
-				var newBarcode = '';
-				productBarcode.split(',').forEach(function(item)
-				{
-					if(barcode != item)
-					{
-						newBarcode += ',' + item;
-					}
-				});
-
-				var jsonDataProduct = {};
-				jsonDataProduct.barcode = newBarcode;
-
-				Grocy.Api.Put('objects/products/' + productId, jsonDataProduct,
-					function(result)
-					{
-					},
-					function(xhr)
-					{
-						Grocy.FrontendHelpers.EndUiBusy("product-form");
-						Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-					}
-				);
 			}
 		}
 	});
-});
-
-$(document).on('click', '.barcode-edit-button', function (e)
-{
-	var id = $(e.currentTarget).attr('data-barcode-id');
-	Grocy.ProductEditFormRedirectUri = U("/productbarcodes/" + id.toString() + "?product=editobjectid");
-	$('#save-product-button').click();
-});
-
-$("#barcode-add-button").on("click", function(e)
-{
-	Grocy.ProductEditFormRedirectUri = U("/productbarcodes/new?product=editobjectid");
-	$('#save-product-button').click();
 });
 
 $('#qu_id_purchase').blur(function(e) 
@@ -526,5 +476,15 @@ $('#qu_id_purchase').blur(function(e)
 	if (QuIdStock[0].selectedIndex === 0 && QuIdPurchase[0].selectedIndex !== 0) {
 		QuIdStock[0].selectedIndex = QuIdPurchase[0].selectedIndex;
 		Grocy.FrontendHelpers.ValidateForm('product-form');
+	}
+});
+
+$(window).on("message", function(e)
+{
+	var data = e.originalEvent.data;
+
+	if (data.Message === "ProductBarcodesChanged" || data.Message === "ProductQUConversionChanged")
+	{
+		window.location.reload();
 	}
 });
