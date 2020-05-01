@@ -35,6 +35,7 @@ CREATE TABLE products (
 	name TEXT NOT NULL UNIQUE,
 	description TEXT,
 	product_group_id INTEGER,
+	active TINYINT NOT NULL DEFAULT 1,
 	location_id INTEGER NOT NULL,
 	shopping_location_id INTEGER,
 	qu_id_purchase INTEGER NOT NULL,
@@ -75,7 +76,7 @@ SELECT
 	IFNULL((SELECT SUM(amount) FROM stock WHERE product_id = s.product_id AND location_id = s.location_id AND open = 1), 0) AS amount_opened
 FROM stock s
 JOIN products p
-	ON s.product_id = p.id
+	ON s.product_id = p.id and p.active = 1
 GROUP BY IFNULL(s.location_id, p.location_id), s.product_id;
 
 DROP VIEW stock_current;
@@ -95,9 +96,9 @@ FROM products_resolved pr
 JOIN stock s
 	ON pr.sub_product_id = s.product_id
 JOIN products p_parent
-	ON pr.parent_product_id = p_parent.id
+	ON pr.parent_product_id = p_parent.id and p_parent.active = 1
 JOIN products p_sub
-	ON pr.sub_product_id = p_sub.id
+	ON pr.sub_product_id = p_sub.id and p_sub.active = 1
 LEFT JOIN quantity_unit_conversions_resolved qucr
 	ON pr.sub_product_id = qucr.product_id
 	AND p_sub.qu_id_stock = qucr.from_qu_id
@@ -124,3 +125,21 @@ JOIN stock s
 WHERE pr.parent_product_id != pr.sub_product_id
 GROUP BY pr.sub_product_id
 HAVING SUM(s.amount) > 0;
+
+DROP VIEW products_resolved;
+CREATE VIEW products_resolved AS
+SELECT
+	p.parent_product_id parent_product_id,
+	p.id as sub_product_id
+FROM products p
+	WHERE p.parent_product_id IS NOT NULL
+	and p.active = 1
+
+UNION
+
+SELECT
+	p.id parent_product_id,
+	p.id as sub_product_id
+FROM products p
+	WHERE p.parent_product_id IS NULL
+	AND p.active = 1;

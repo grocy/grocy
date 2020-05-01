@@ -16,7 +16,7 @@ class StockController extends BaseController
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['stock_expring_soon_days'];
 
 		return $this->renderPage($response, 'stockoverview', [
-			'products' => $this->getDatabase()->products()->orderBy('name'),
+			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
 			'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name'),
 			'currentStock' => $this->getStockService()->GetCurrentStock(true),
@@ -36,7 +36,7 @@ class StockController extends BaseController
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['stock_expring_soon_days'];
 
 		return $this->renderPage($response, 'stockentries', [
-			'products' => $this->getDatabase()->products()->orderBy('name'),
+			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
 			'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name'),
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name'),
@@ -54,7 +54,7 @@ class StockController extends BaseController
 		$productBarcodes = $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 
 		return $this->renderPage($response, 'purchase', [
-			'products' => $this->getDatabase()->products()->orderBy('name'),
+			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
 			'barcodes' =>  $productBarcodes,
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name')
@@ -67,7 +67,7 @@ class StockController extends BaseController
 		$productBarcodes = $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 
 		return $this->renderPage($response, 'consume', [
-			'products' => $this->getDatabase()->products()->orderBy('name'),
+			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
 			'barcodes' =>  $productBarcodes,
 			'recipes' => $this->getDatabase()->recipes()->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name')
@@ -80,7 +80,7 @@ class StockController extends BaseController
 		$productBarcodes = $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 
 		return $this->renderPage($response, 'transfer', [
-			'products' => $this->getDatabase()->products()->orderBy('name'),
+			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
 			'barcodes' =>  $productBarcodes,
 			'recipes' => $this->getDatabase()->recipes()->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name')
@@ -93,7 +93,7 @@ class StockController extends BaseController
 		$productBarcodes = $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 
 		return $this->renderPage($response, 'inventory', [
-			'products' => $this->getDatabase()->products()->orderBy('name'),
+			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
 			'barcodes' =>  $productBarcodes,
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name')
@@ -104,7 +104,7 @@ class StockController extends BaseController
 	{
 		return $this->renderPage($response, 'stockentryform', [
 			'stockEntry' => $this->getDatabase()->stock()->where('id', $args['entryId'])->fetch(),
-			'products' => $this->getDatabase()->products()->orderBy('name'),
+			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name')
 		]);
@@ -120,7 +120,7 @@ class StockController extends BaseController
 
 		return $this->renderPage($response, 'shoppinglist', [
 			'listItems' => $this->getDatabase()->shopping_list()->where('shopping_list_id = :1', $listId),
-			'products' => $this->getDatabase()->products()->orderBy('name'),
+			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
 			'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name'),
 			'missingProducts' => $this->getStockService()->GetMissingProducts(),
 			'productGroups' => $this->getDatabase()->product_groups()->orderBy('name'),
@@ -174,7 +174,7 @@ class StockController extends BaseController
 	{
 		return $this->renderPage($response, 'productgroups', [
 			'productGroups' => $this->getDatabase()->product_groups()->orderBy('name'),
-			'products' => $this->getDatabase()->products()->orderBy('name'),
+			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
 			'userfields' => $this->getUserfieldsService()->GetFields('product_groups'),
 			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('product_groups')
 		]);
@@ -200,7 +200,7 @@ class StockController extends BaseController
 				'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name'),
 				'productgroups' => $this->getDatabase()->product_groups()->orderBy('name'),
 				'userfields' => $this->getUserfieldsService()->GetFields('products'),
-				'products' => $this->getDatabase()->products()->where('parent_product_id IS NULL')->orderBy('name'),
+				'products' => $this->getDatabase()->products()->where('parent_product_id IS NULL and active = 1')->orderBy('name'),
 				'isSubProductOfOthers' => false,
 				'mode' => 'create'
 			]);
@@ -217,7 +217,7 @@ class StockController extends BaseController
 				'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name'),
 				'productgroups' => $this->getDatabase()->product_groups()->orderBy('name'),
 				'userfields' => $this->getUserfieldsService()->GetFields('products'),
-				'products' => $this->getDatabase()->products()->where('id != :1 AND parent_product_id IS NULL', $product->id)->orderBy('name'),
+				'products' => $this->getDatabase()->products()->where('id != :1 AND parent_product_id IS NULL and active = 1', $product->id)->orderBy('name'),
 				'isSubProductOfOthers' => $this->getDatabase()->products()->where('parent_product_id = :1', $product->id)->count() !== 0,
 				'mode' => 'edit',
 				'quConversions' => $this->getDatabase()->quantity_unit_conversions()
@@ -314,7 +314,7 @@ class StockController extends BaseController
 		if ($args['itemId'] == 'new')
 		{
 			return $this->renderPage($response, 'shoppinglistitemform', [
-				'products' =>  $this->getDatabase()->products()->orderBy('name'),
+				'products' =>  $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
 				'shoppingLists' => $this->getDatabase()->shopping_lists()->orderBy('name'),
 				'mode' => 'create'
 			]);
@@ -323,7 +323,7 @@ class StockController extends BaseController
 		{
 			return $this->renderPage($response, 'shoppinglistitemform', [
 				'listItem' =>  $this->getDatabase()->shopping_list($args['itemId']),
-				'products' =>  $this->getDatabase()->products()->orderBy('name'),
+				'products' =>  $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
 				'shoppingLists' => $this->getDatabase()->shopping_lists()->orderBy('name'),
 				'mode' => 'edit'
 			]);
@@ -357,7 +357,7 @@ class StockController extends BaseController
 		return $this->renderPage($response, 'stockjournal', [
 			'stockLog' => $this->getDatabase()->stock_log()->orderBy('row_created_timestamp', 'DESC'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name'),
-			'products' => $this->getDatabase()->products()->orderBy('name'),
+			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
 			'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name')
 		]);
 	}
@@ -365,7 +365,7 @@ class StockController extends BaseController
 	public function LocationContentSheet(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'locationcontentsheet', [
-			'products' => $this->getDatabase()->products()->orderBy('name'),
+			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
 			'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name'),
 			'currentStockLocationContent' => $this->getStockService()->GetCurrentStockLocationContent()

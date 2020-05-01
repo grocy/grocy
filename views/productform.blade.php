@@ -46,6 +46,14 @@
 				<div class="invalid-feedback">{{ $__t('A name is required') }}</div>
 			</div>
 
+			<div class="form-group">
+				<div class="form-check">
+					<input type="hidden" name="active" value="1">
+					<input @if($mode == 'create') checked @elseif($mode == 'edit' && $product->active == 1) checked @endif class="form-check-input" type="checkbox" id="active" name="active" value="1">
+					<label class="form-check-label" for="active">{{ $__t('Active') }}</label>
+				</div>
+			</div>
+
 			@php $prefillById = ''; if($mode=='edit') { $prefillById = $product->parent_product_id; } @endphp
 			@php
 				$hint = '';

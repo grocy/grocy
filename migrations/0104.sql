@@ -77,7 +77,8 @@ SELECT
 	rp.note,
 	rp.variable_amount AS recipe_variable_amount,
 	rp.only_check_single_unit_in_stock,
-	rp.amount * (r.desired_servings*1.0 / r.base_servings*1.0) * (rnr.includes_servings*1.0 / CASE WHEN rnr.recipe_id != rnr.includes_recipe_id THEN rnrr.base_servings*1.0 ELSE 1 END) * IFNULL(p.calories, 0) AS calories
+	rp.amount * (r.desired_servings*1.0 / r.base_servings*1.0) * (rnr.includes_servings*1.0 / CASE WHEN rnr.recipe_id != rnr.includes_recipe_id THEN rnrr.base_servings*1.0 ELSE 1 END) * IFNULL(p.calories, 0) AS calories,
+	p.active AS product_active
 FROM recipes r
 JOIN recipes_nestings_resolved rnr
 	ON r.id = rnr.recipe_id
@@ -125,7 +126,8 @@ SELECT
 	rp.note,
 	rp.variable_amount AS recipe_variable_amount,
 	rp.only_check_single_unit_in_stock,
-	rp.amount * (r.desired_servings*1.0 / r.base_servings*1.0) * (rnr.includes_servings*1.0 / CASE WHEN rnr.recipe_id != rnr.includes_recipe_id THEN rnrr.base_servings*1.0 ELSE 1 END) * IFNULL(p.calories, 0) AS calories
+	rp.amount * (r.desired_servings*1.0 / r.base_servings*1.0) * (rnr.includes_servings*1.0 / CASE WHEN rnr.recipe_id != rnr.includes_recipe_id THEN rnrr.base_servings*1.0 ELSE 1 END) * IFNULL(p.calories, 0) AS calories,
+	p.active AS product_active
 FROM recipes r
 JOIN recipes_nestings_resolved rnr
 	ON r.id = rnr.recipe_id

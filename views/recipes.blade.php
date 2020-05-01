@@ -310,6 +310,9 @@
 												<h6 class="mb-2 mt-2 @if($hasIngredientGroups) ml-3 @else ml-1 @endif"><strong>{{ $selectedRecipePosition->product_group }}</strong></h6>
 											@endif
 											<li class="list-group-item px-0 @if($hasIngredientGroups && $hasProductGroups) ml-4 @elseif($hasIngredientGroups || $hasProductGroups) ml-2 @else ml-0 @endif">
+												@if($selectedRecipePosition->product_active == 0)
+													<div class="small text-muted font-italic">{{ $__t('Deactivated Product') }}</div>
+												@endif
 												@php
 													$product = FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id);
 													$productQuConversions = FindAllObjectsInArrayByPropertyValue($quantityUnitConversionsResolved, 'product_id', $product->id);

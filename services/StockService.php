@@ -96,7 +96,7 @@ class StockService extends BaseService
 	{
 		if (!$this->ProductExists($productId))
 		{
-			throw new \Exception('Product does not exist');
+			throw new \Exception('Product does not exist or is inactive');
 		}
 
 		$stockCurrentRow = FindObjectinArrayByPropertyValue($this->GetCurrentStock(), 'product_id', $productId);
@@ -168,7 +168,7 @@ class StockService extends BaseService
 	{
 		if (!$this->ProductExists($productId))
 		{
-			throw new \Exception('Product does not exist');
+			throw new \Exception('Product does not exist or is inactive');
 		}
 
 		$returnData = array();
@@ -220,7 +220,7 @@ class StockService extends BaseService
 	{
 		if (!$this->ProductExists($productId))
 		{
-			throw new \Exception('Product does not exist');
+			throw new \Exception('Product does not exist or is inactive');
 		}
 
 		// Tare weight handling
@@ -305,7 +305,7 @@ class StockService extends BaseService
 	{
 		if (!$this->ProductExists($productId))
 		{
-			throw new \Exception('Product does not exist');
+			throw new \Exception('Product does not exist or is inactive');
 		}
 
 		if ($locationId !== null && !$this->LocationExists($locationId))
@@ -424,7 +424,7 @@ class StockService extends BaseService
 	{
 		if (!$this->ProductExists($productId))
 		{
-			throw new \Exception('Product does not exist');
+			throw new \Exception('Product does not exist or is inactive');
 		}
 
 		if (!$this->LocationExists($locationIdFrom))
@@ -681,7 +681,7 @@ class StockService extends BaseService
 	{
 		if (!$this->ProductExists($productId))
 		{
-			throw new \Exception('Product does not exist');
+			throw new \Exception('Product does not exist or is inactive');
 		}
 
 		$productDetails = (object)$this->GetProductDetails($productId);
@@ -737,7 +737,7 @@ class StockService extends BaseService
 	{
 		if (!$this->ProductExists($productId))
 		{
-			throw new \Exception('Product does not exist');
+			throw new \Exception('Product does not exist or is inactive');
 		}
 
 		$productStockAmountUnopened = $this->getDatabase()->stock()->where('product_id = :1 AND open = 0', $productId)->sum('amount');
@@ -917,7 +917,7 @@ class StockService extends BaseService
 
 		if (!$this->ProductExists($productId))
 		{
-			throw new \Exception('Product does not exist');
+			throw new \Exception('Product does not exist or is inactive');
 		}
 
 		$alreadyExistingEntry = $this->getDatabase()->shopping_list()->where('product_id = :1 AND shopping_list_id = :2', $productId, $listId)->fetch();
@@ -943,7 +943,7 @@ class StockService extends BaseService
 
 	private function ProductExists($productId)
 	{
-		$productRow = $this->getDatabase()->products()->where('id = :1', $productId)->fetch();
+		$productRow = $this->getDatabase()->products()->where('id = :1 and active = 1', $productId)->fetch();
 		return $productRow !== null;
 	}
 
