@@ -125,7 +125,7 @@
 							<span id="chore-{{ $curentChoreEntry->chore_id }}-next-execution-time">{{ $curentChoreEntry->next_estimated_execution_time }}</span>
 							<time id="chore-{{ $curentChoreEntry->chore_id }}-next-execution-time-timeago" class="timeago timeago-contextual @if($curentChoreEntry->track_date_only == 1) timeago-date-only @endif" datetime="{{ $curentChoreEntry->next_estimated_execution_time }}"></time>
 						@else
-							...
+							<span>-</span>
 						@endif
 					</td>
 					<td>
@@ -138,7 +138,7 @@
 						@if(!empty($curentChoreEntry->next_execution_assigned_to_user_id))
 							{{ FindObjectInArrayByPropertyValue($users, 'id', $curentChoreEntry->next_execution_assigned_to_user_id)->display_name }}
 						@else
-							...
+							<span>-</span>
 						@endif
 						</span>
 					</td>
