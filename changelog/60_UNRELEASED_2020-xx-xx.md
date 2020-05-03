@@ -13,7 +13,8 @@
 - Improved the recipe adding workflow (a recipe called "New recipe" is now not automatically created when starting to add a recipe) (thanks @zsarnett)
 - Fixed that images on the recipe gallery view were not scaled correctly on largers screens (thanks @zsarnett)
 
-### Chores fixes
+### Chores improvements/fixes
+- Changed that not assigned chores on the chores overview page display now just a dash instead of an ellipsis in the "Assigned to" column to make this more clear (thanks @Germs2004)
 - Fixed (again) that weekly chores, where the next execution should be in the same week, were scheduled (not) always (but sometimes) for the next week only (thanks @shadow7412)
 
 ### Calendar improvements/fixes
