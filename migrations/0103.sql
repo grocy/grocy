@@ -25,6 +25,19 @@ qu_factor_purchase_to_stock REAL NOT NULL DEFAULT 1,
 shopping_location_id INTEGER
 );
 
+--Convert product table to new barcode table
+INSERT INTO product_barcodes (product_id, barcode, qu_factor_purchase_to_stock, shopping_location_id)
+WITH split(id, barcode, str, qu_factor_purchase_to_stock, shopping_location_id) AS (
+select id as product_id, '', barcode||',' ,qu_factor_purchase_to_stock, shopping_location_id from products
+    UNION ALL SELECT
+	id as product_id,
+    substr(str, 0, instr(str, ',')),
+    substr(str, instr(str, ',')+1),
+	qu_factor_purchase_to_stock,
+	shopping_location_id
+    FROM split WHERE str!=''
+) SELECT id as product_id, barcode, qu_factor_purchase_to_stock, shopping_location_id FROM split WHERE barcode!='';
+
 ALTER TABLE products RENAME TO products_old;
 
 --Remove barcode column
