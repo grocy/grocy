@@ -32,7 +32,10 @@
 
 			<div class="form-group">
 				<label for="name">{{ $__t('Barcode') }}<i class="fas fa-barcode"></i></label>
-				<input type="text" class="form-control" required id="barcode" name="barcode" value="@if($mode == 'edit'){{ $barcode->barcode }}@endif">
+				 <div class="input-group">
+					<input type="text" class="form-control barcodescanner-input" required id="barcode" name="barcode" value="@if($mode == 'edit'){{ $barcode->barcode }}@endif" data-target="#scanned_barcode">
+					@include('components.barcodescanner')
+				</div>
 			</div>
 
 			@php if($mode == 'edit') { $value = $barcode->qu_factor_purchase_to_stock; } else { $value = 1; } @endphp
