@@ -55,3 +55,12 @@ $(document).on('click', '.product-group-delete-button', function(e)
 		}
 	});
 });
+$(window).on("message", function(e)
+{
+	var data = e.originalEvent.data;
+
+	if (data.Message === "CloseAllModals")
+	{
+		window.location.reload();
+	}
+});
