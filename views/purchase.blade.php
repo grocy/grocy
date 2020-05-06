@@ -25,6 +25,10 @@
 			</div>
 		</div>
 		<hr>
+		<script>
+			Grocy.QuantityUnits = {!! json_encode($quantityUnits) !!};
+			Grocy.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
+		</script>
 
 		<form id="purchase-form" novalidate>
 
@@ -34,10 +38,9 @@
 				'nextInputSelector' => '#amount'
 			))
 
-			@include('components.numberpicker', array(
-				'id' => 'amount',
-				'label' => 'Amount',
-				'hintId' => 'amount_qu_unit',
+			@include('components.productamountpicker', array(
+				'additionalGroupCssClasses' => 'mb-0',
+				'hintId' => 'display_amount_qu_unit',
 				'min' => 1,
 				'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
 				'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info" class="text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
@@ -97,15 +100,6 @@
 			<input type="hidden" name="price" id="price" value="0">
 			@endif
 
-			@include('components.numberpicker', array(
-				'id' => 'qu_factor_purchase_to_stock',
-				'label' => 'Factor purchase to stock quantity unit',
-				'min' => 1,
-				'additionalGroupCssClasses' => 'd-none',
-				'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
-				'additionalCssClasses' => 'input-group-qu',
-				'additionalHtmlElements' => '<p id="qu-conversion-info" class="form-text text-muted small d-none"></p>'
-			))
 
 			@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 			@include('components.locationpicker', array(

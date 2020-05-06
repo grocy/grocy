@@ -16,7 +16,7 @@
 	<label for="product_id">
 		{{ $__t($label) }}&nbsp;<i class="fas fa-barcode"></i>&nbsp;
 		<span id="barcode-lookup-disabled-hint" class="small text-muted d-none"> {{ $__t('Barcode lookup is disabled') }}</span>&nbsp;
-		<i class="fas fa-question-circle" data-toggle="tooltip" title="{{ $hint }}"></i>
+		<i class="fas fa-question-circle d-none" data-toggle="tooltip" title="{{ $hint }}"></i>
 	</label>
 	<select class="form-control product-combobox barcodescanner-input" id="product_id" name="product_id" @if($isRequired) required @endif @if($disabled) disabled @endif data-target="@productpicker">
 		<option value=""></option>

@@ -52,6 +52,8 @@ class StockController extends BaseController
 		return $this->renderPage($response, 'purchase', [
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
 			'barcodes' =>  $productBarcodes,
+			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name'),
+			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved(),
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name')
 		]);
