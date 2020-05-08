@@ -186,6 +186,20 @@
 	}
 });
 
+Grocy.Api.Get('stock/products/' + Grocy.EditObjectId,
+	function(productDetails)
+	{
+		if (productDetails.last_purchased == null)
+		{
+			$('#qu_id_stock').removeAttr("disabled");
+		}
+	},
+	function(xhr)
+	{
+		console.error(xhr);
+	}
+);
+
 var prefillName = GetUriParam('prefillname');
 if (prefillName !== undefined)
 {
