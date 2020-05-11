@@ -4,9 +4,9 @@
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 },
+		{ 'searchable': false, "targets": 0 },
 		{ 'visible': false, 'targets': 4 },
-		{ 'visible': false, 'targets': 5 },
-		{ 'visible': false, 'targets': 6 }
+		{ 'visible': false, 'targets': 5 }
 	],
 });
 $('#stock-overview-table tbody').removeClass("d-none");
@@ -20,7 +20,7 @@ $("#location-filter").on("change", function()
 		value = "";
 	}
 
-	stockOverviewTable.column(4).search(value).draw();
+	stockOverviewTable.column(5).search(value).draw();
 });
 
 $("#product-group-filter").on("change", function()
@@ -31,7 +31,7 @@ $("#product-group-filter").on("change", function()
 		value = "";
 	}
 
-	stockOverviewTable.column(6).search(value).draw();
+	stockOverviewTable.column(2).search(value).draw();
 });
 
 $("#status-filter").on("change", function()
@@ -45,7 +45,7 @@ $("#status-filter").on("change", function()
 	// Transfer CSS classes of selected element to dropdown element (for background)
 	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
 
-	stockOverviewTable.column(5).search(value).draw();
+	stockOverviewTable.column(6).search(value).draw();
 });
 
 $(".status-filter-message").on("click", function()

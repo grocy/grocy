@@ -104,11 +104,11 @@
 				<tr>
 					<th class="border-right"></th>
 					<th>{{ $__t('Product') }}</th>
+					<th>{{ $__t('Product Group') }}</th>
 					<th>{{ $__t('Amount') }}</th>
 					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING) d-none @endif">{{ $__t('Next best before date') }}</th>
 					<th class="d-none">Hidden location</th>
 					<th class="d-none">Hidden status</th>
-					<th class="d-none">Hidden product group</th>
 
 					@include('components.userfields_thead', array(
 						'userfields' => $userfields
@@ -206,6 +206,10 @@
 					<td class="product-name-cell cursor-link" data-product-id="{{ $currentStockEntry->product_id }}">
 						{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}
 					</td>
+					@php $productGroup = FindObjectInArrayByPropertyValue($productGroups, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->product_group_id) @endphp
+					<td>
+						@if($productGroup !== null){{ $productGroup->name }}@endif
+					</td>
 					<td>
 						<span id="product-{{ $currentStockEntry->product_id }}-amount" class="locale-number locale-number-quantity-amount">{{ $currentStockEntry->amount }}</span> <span id="product-{{ $currentStockEntry->product_id }}-qu-name">{{ $__n($currentStockEntry->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->qu_id_stock)->name_plural) }}</span>
 						<span id="product-{{ $currentStockEntry->product_id }}-opened-amount" class="small font-italic">@if($currentStockEntry->amount_opened > 0){{ $__t('%s opened', $currentStockEntry->amount_opened) }}@endif</span>
@@ -238,10 +242,6 @@
 					</td>
 					<td class="d-none">
 						@if($currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('-1 days')) && $currentStockEntry->amount > 0) expired @elseif($currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime("+$nextXDays days")) && $currentStockEntry->amount > 0) expiring @endif @if(FindObjectInArrayByPropertyValue($missingProducts, 'id', $currentStockEntry->product_id) !== null) belowminstockamount @endif
-					</td>
-					@php $productGroup = FindObjectInArrayByPropertyValue($productGroups, 'id', FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->product_group_id) @endphp
-					<td class="d-none">
-						@if($productGroup !== null){{ $productGroup->name }}@endif
 					</td>
 
 					@include('components.userfields_tbody', array(
