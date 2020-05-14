@@ -54,7 +54,7 @@ $container->set('ApiKeyHeaderName', function(Container $container)
 
 
 $routeCollector = $app->getRouteCollector();
-$routeCollector->setCacheFile(GROCY_DATAPATH . '/routecache');
+$routeCollector->setCacheFile(GROCY_DATAPATH . '/routecache.php');
 
 // Load routes from separate file
 require_once __DIR__ . '/routes.php';
