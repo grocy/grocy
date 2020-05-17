@@ -157,5 +157,5 @@ Setting('FEATURE_FLAG_CHORES_ASSIGNMENTS', true);
 
 
 # Feature settings
-Setting('FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT', true); // When set to false, opened products will not be considered for minimum stock amounts
+Setting('FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT', true); // When set to true opened items will be counted as missing from stock when calculating if a product is below its minimum.
 Setting('FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA', true); // Enables the torch automaticaly in every camera barcode scanner.
