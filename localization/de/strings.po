@@ -1995,10 +1995,10 @@ msgid "Mark this item as done"
 msgstr "Diesen Eintrag als erledigt markieren"
 
 msgid "Edit this item"
-msgstr "Diesen Eintrag löschen"
+msgstr "Diesen Eintrag bearbeiten"
 
 msgid "Delete this item"
-msgstr "Diesen Eintrag bearbeiten"
+msgstr "Diesen Eintrag löschen"
 
 msgid "Show an icon if the product is already on the shopping list"
 msgstr ""
