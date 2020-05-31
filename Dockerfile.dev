@@ -1,0 +1,77 @@
+FROM php:7.3-apache
+
+# Enable Apache Rewrite + Expires Module
+RUN a2enmod rewrite expires
+
+# Install dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    unzip \
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libpng-dev \
+    libyaml-dev \
+    libzip4 \
+    libzip-dev \
+    zlib1g-dev \
+    libicu-dev \
+    g++ \
+    git \
+    cron \
+    vim \
+    curl \
+    unzip \
+    gnupg2 \
+    && docker-php-ext-install opcache \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install intl \
+    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-install -j$(nproc) gd \
+    && docker-php-ext-install zip \
+    && rm -rf /var/lib/apt/lists/*
+
+# set recommended PHP.ini settings
+# see https://secure.php.net/manual/en/opcache.installation.php
+RUN { \
+    echo 'opcache.memory_consumption=128'; \
+    echo 'opcache.interned_strings_buffer=8'; \
+    echo 'opcache.max_accelerated_files=4000'; \
+    echo 'opcache.revalidate_freq=2'; \
+    echo 'opcache.fast_shutdown=1'; \
+    echo 'opcache.enable_cli=1'; \
+    echo 'upload_max_filesize=128M'; \
+    echo 'post_max_size=128M'; \
+    } > /usr/local/etc/php/conf.d/php-recommended.ini
+
+RUN pecl install apcu \
+    && pecl install yaml-2.0.4 \
+    && docker-php-ext-enable apcu yaml
+
+RUN curl -s https://getcomposer.org/installer | php && \
+    mv composer.phar /usr/local/bin/composer
+
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+    apt-get update && apt-get -y install yarn && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set user to www-data
+# RUN chown www-data:www-data /var/www
+USER www-data
+
+# Copy files
+COPY ./ /var/www/html
+
+# Return to root user
+USER root
+RUN chown -R www-data:www-data /var/www
+RUN chmod -R 777 /var/www
+
+USER www-data
+WORKDIR /var/www/html
+RUN composer install && \
+    yarn install
+
+USER root
+ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
+RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
