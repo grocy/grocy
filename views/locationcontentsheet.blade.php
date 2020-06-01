@@ -58,7 +58,7 @@
 					<tr>
 						<th>{{ $__t('Product') }}</th>
 						<th>{{ $__t('Amount') }}</th>
-						<th>{{ $__t('Consumend amount') . ' / ' . $__t('Notes') }}</th>
+						<th>{{ $__t('Consumed amount') . ' / ' . $__t('Notes') }}</th>
 					</tr>
 				</thead>
 				<tbody>
