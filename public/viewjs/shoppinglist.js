@@ -343,12 +343,6 @@ function OnListItemRemoved()
 }
 OnListItemRemoved();
 
-$(document).on("click", "#print-shopping-list-button", function(e)
-{
-	$(".print-timestamp").text(moment().format("l LT"));
-	$("#description-for-print").html($("#description").val());
-	window.print();
-});
 
 $("#description").on("summernote.change", function()
 {
@@ -424,3 +418,44 @@ if ($(window).width() < 768 & window.location.hash !== "#compact" && !BoolVal(Gr
 {
 	$("#shopping-list-compact-view-button").click();
 }
+
+/**
+ * Printing
+ * =========
+ */
+
+const defaultPrintTextSize = 16;
+let currentPrintTextSize = defaultPrintTextSize;
+const showPrintHeaders = true;
+// cached selectors
+const textSizeSandbox = document.getElementById("print-text-size-sandbox");
+const textSizeDisplay = document.getElementById("print-text-size-display");
+const printBlock = document.querySelector(".d-print-block table");
+
+// show print modal button
+document.getElementById("print-shopping-list-button").addEventListener("click", function (e) {
+    changePrintTextSize(currentPrintTextSize); // remember for current session
+    $("#print-options-modal").modal("show");
+});
+
+// range slider
+document.getElementById("print-text-size").addEventListener("change", function ({target}) {
+    currentPrintTextSize = target.value;
+    changePrintTextSize(currentPrintTextSize);
+});
+
+// print button
+document.getElementById("print-button").addEventListener("click", function (e) {
+    printBlock.querySelector('thead').style.visibility = document.getElementById("show-print-headers").checked ? "visible" : "hidden";
+    document.getElementById("print-timestamp").innerText = moment().format("l LT");
+    // value from wysiwyg is stored in jQuery, so we have to pull it out using jQuery
+    document.getElementById("description-for-print").innerHTML = $("#description").val();
+    window.print();
+});
+
+function changePrintTextSize(textSize) {
+    textSizeSandbox.style.fontSize = `${textSize}pt`; // init text size before opening modal
+    textSizeDisplay.innerText = textSize;
+    // shopping list text
+    printBlock.style.fontSize = `${textSize}pt`;
+};

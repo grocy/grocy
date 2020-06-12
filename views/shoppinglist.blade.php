@@ -202,6 +202,35 @@
 	</div>
 </div>
 
+{{-- Printing Options Modal --}}
+<div class="modal fade d-print-none" id="print-options-modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content text-center">
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="print-text-size" id="print-text-size-sandbox">
+                            <!-- would normally implement using the Vue interpolation syntax, but it messes with PHP interpreter -->
+                            <span>{{ $__t('Print Text Size') }}</span>
+                            <span id="print-text-size-display"></span>
+                            <span>pt</span>
+                        </label>
+                        <input type="range" id="print-text-size" min="6" max="26" class="form-control-range">
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="show-print-headers" />
+                        <label class="form-check-label" for="show-print-headers">{{ $__t('Show Print Headers') }}</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="print-button" type="button" class="btn btn-primary"><i class="fas fa-print"></i> {{ $__t('Print') }}</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ $__t('Close') }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="d-none d-print-block">
 	<h1 class="text-center">
 		<img src="{{ $U('/img/grocy_logo.svg?v=', true) }}{{ $version }}" height="30" class="d-print-flex mx-auto">
@@ -214,7 +243,7 @@
 	@endif
 	<h6 class="text-center mb-4">
 		{{ $__t('Time of printing') }}:
-		<span class="d-inline print-timestamp"></span>
+		<span id="print-timestamp" class="d-inline"></span>
 	</h6>
 	<div class="row w-75">
 		<div class="col">
