@@ -1810,3 +1810,9 @@ msgstr ""
 
 msgid "Save & return to recipes"
 msgstr ""
+
+msgid "Print Text Size"
+msgstr ""
+
+msgid "Show Print Headers"
+msgstr ""

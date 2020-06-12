@@ -1205,3 +1205,9 @@ msgstr "This is required and can only contain letters and numbers"
 
 msgid "Edit userfield"
 msgstr "Edit userfield"
+
+msgid "Print Text Size"
+msgstr "Print Text Size"
+
+msgid "Show Print Headers"
+msgstr "Show Print Headers?"
