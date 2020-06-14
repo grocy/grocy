@@ -6,6 +6,7 @@ $('#save-recipe-pos-button').on('click', function (e)
 
 	var jsonData = $('#recipe-pos-form').serializeJSON({ checkboxUncheckedValue: "0" });
 	jsonData.recipe_id = Grocy.EditObjectParentId;
+    jsonData.amount = jsonData.amount.replace(/\s/g, '');
 	delete jsonData.display_amount;
 
 	Grocy.FrontendHelpers.BeginUiBusy("recipe-pos-form");
