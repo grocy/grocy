@@ -1,14 +1,13 @@
 <?php
 
+use Grocy\Middleware\AuthMiddleware;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 use Slim\Routing\RouteCollectorProxy;
 
 use Grocy\Middleware\JsonMiddleware;
 use Grocy\Middleware\CorsMiddleware;
-use Grocy\Middleware\SessionAuthMiddleware;
-use Grocy\Middleware\ApiKeyAuthMiddleware;
-
+$auth_middleware = GROCY_AUTH_CLASS;
 $app->group('', function(RouteCollectorProxy $group)
 {
 	// System routes
@@ -133,7 +132,7 @@ $app->group('', function(RouteCollectorProxy $group)
 	$group->get('/api', '\Grocy\Controllers\OpenApiController:DocumentationUi');
 	$group->get('/manageapikeys', '\Grocy\Controllers\OpenApiController:ApiKeysList');
 	$group->get('/manageapikeys/new', '\Grocy\Controllers\OpenApiController:CreateNewApiKey');
-})->add(new SessionAuthMiddleware($container, $container->get('LoginControllerInstance')->GetSessionCookieName(), $app->getResponseFactory()));
+})->add(new $auth_middleware($container, $app->getResponseFactory()));
 
 $app->group('/api', function(RouteCollectorProxy $group)
 {
@@ -253,7 +252,7 @@ $app->group('/api', function(RouteCollectorProxy $group)
 		$group->get('/calendar/ical/sharing-link', '\Grocy\Controllers\CalendarApiController:IcalSharingLink');
 	}
 })->add(JsonMiddleware::class)
-->add(new ApiKeyAuthMiddleware($container, $container->get('LoginControllerInstance')->GetSessionCookieName(), $container->get('ApiKeyHeaderName')));
+->add(new $auth_middleware($container, $app->getResponseFactory()));
 
 // Handle CORS preflight OPTIONS requests
 $app->options('/api/{routes:.+}', function(Request $request, Response $response): Response
