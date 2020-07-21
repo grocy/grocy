@@ -12,7 +12,7 @@ class UsersService extends BaseService
 			'last_name' => $lastName,
 			'password' => password_hash($password, PASSWORD_DEFAULT)
 		));
-		$newUserRow->save();
+		return $newUserRow->save();
 	}
 
 	public function EditUser(int $userId, string $username, string $firstName, string $lastName, string $password)
