@@ -313,7 +313,7 @@
 			</ul>
 
 			<ul class="navbar-nav ml-auto">
-				@if(GROCY_AUTHENTICATED === true && !GROCY_IS_EMBEDDED_INSTALL)
+				@if(GROCY_AUTHENTICATED === true && !GROCY_IS_EMBEDDED_INSTALL && GROCY_SHOW_AUTH_VIEWS)
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle discrete-link" href="#" data-toggle="dropdown"><i class="fas fa-user"></i> {{ GROCY_USER_USERNAME }}</a>
 
@@ -416,9 +416,11 @@
 						<a class="dropdown-item discrete-link" href="{{ $U('/taskssettings') }}"><i class="fas fa-tasks"></i>&nbsp;{{ $__t('Tasks settings') }}</a>
 						@endif
 						<div class="dropdown-divider"></div>
+						@if(GROCY_SHOW_AUTH_VIEWS)
 						<a class="dropdown-item discrete-link" href="{{ $U('/users') }}"><i class="fas fa-users"></i>&nbsp;{{ $__t('Manage users') }}</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item discrete-link" href="{{ $U('/manageapikeys') }}"><i class="fas fa-handshake"></i>&nbsp;{{ $__t('Manage API keys') }}</a>
+						@endif
 						<a class="dropdown-item discrete-link" target="_blank" href="{{ $U('/api') }}"><i class="fas fa-book"></i>&nbsp;{{ $__t('REST API & data model documentation') }}</a>
 						<a class="dropdown-item discrete-link" href="{{ $U('/barcodescannertesting') }}"><i class="fas fa-barcode"></i>&nbsp;{{ $__t('Barcode scanner testing') }}</a>
 						<div class="dropdown-divider"></div>

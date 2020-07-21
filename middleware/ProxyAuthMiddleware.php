@@ -12,6 +12,8 @@ class ProxyAuthMiddleware extends AuthMiddleware
 {
     function authenticate(Request $request)
     {
+        define('GROCY_SHOW_AUTH_VIEWS', false);
+
         $db = DatabaseService::getInstance()->GetDbConnection();
 
         $username = $request->getHeader(GROCY_PROXY_AUTH_HEADER);

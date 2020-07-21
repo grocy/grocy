@@ -20,6 +20,8 @@ class SessionAuthMiddleware extends AuthMiddleware
 
     function authenticate(Request $request)
     {
+        define('GROCY_SHOW_AUTH_VIEWS', true);
+
         $sessionService = SessionService::getInstance();
         if (!isset($_COOKIE[$this->SessionCookieName]) || !$sessionService->IsValidSession($_COOKIE[$this->SessionCookieName])) {
             return null;
