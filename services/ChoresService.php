@@ -133,7 +133,7 @@ class ChoresService extends BaseService
 
 		$chore = $this->getDatabase()->chores($choreId);
 		$choreLastTrackedTime = $this->getDatabase()->chores_log()->where('chore_id = :1 AND undone = 0', $choreId)->max('tracked_time');
-		$lastChoreLogRow =  $this->getDatabase()->chores_log()->where('chore_id = :1 AND tracked_time = :2 AND undone = 0', $choreId, $choreLastTrackedTime)->fetch();
+		$lastChoreLogRow =  $this->getDatabase()->chores_log()->where('chore_id = :1 AND tracked_time = :2 AND undone = 0', $choreId, $choreLastTrackedTime)->orderBy('row_created_timestamp', 'DESC')->fetch();
 		$lastDoneByUserId = $lastChoreLogRow->done_by_user_id;
 
 		$users = $this->getUsersService()->GetUsersAsDto();
