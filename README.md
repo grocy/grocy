@@ -25,7 +25,7 @@ Just unpack the [latest release](https://releases.grocy.info/latest) on your PHP
 
 Alternatively clone this repository (the `release` branch always references the latest released version, or checkout the latest tagged revision) and install Composer and Yarn dependencies manually.
 
-If you use nginx as your webserver, please include `try_files $uri /index.php$is_args$query_string;` in your location block.
+If you use nginx as your webserver, please include `try_files $uri /index.php;` in your location block.
 
 If, however, your webserver does not support URL rewriting, set `DISABLE_URL_REWRITING` in `data/config.php` (`Setting('DISABLE_URL_REWRITING', true);`).
 
