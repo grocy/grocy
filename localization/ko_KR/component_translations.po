@@ -1,0 +1,47 @@
+# 
+# Translators:
+# Bernd Bestel <bernd@berrnd.de>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2020\n"
+"Language-Team: Korean (Korea) (https://www.transifex.com/grocy/teams/93189/ko_KR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ko_KR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Domain: grocy/component_translations\n"
+
+msgid "timeago_locale"
+msgstr "ko"
+
+msgid "timeago_nan"
+msgstr "NaN년"
+
+msgid "moment_locale"
+msgstr "ko"
+
+msgid "datatables_localization"
+msgstr ""
+"{\"sEmptyTable\":\"데이터가 없습니다\",\"sInfo\":\"_START_ - _END_ / "
+"_TOTAL_\",\"sInfoEmpty\":\"0 - 0 / 0\",\"sInfoFiltered\":\"(총 _MAX_ "
+"개)\",\"sInfoPostFix\":\"\",\"sInfoThousands\":\",\",\"sLengthMenu\":\"페이지당 "
+"줄수 "
+"_MENU_\",\"sLoadingRecords\":\"읽는중...\",\"sProcessing\":\"처리중...\",\"sSearch\":\"검색:\",\"sZeroRecords\":\"검색"
+" 결과가 "
+"없습니다\",\"oPaginate\":{\"sFirst\":\"처음\",\"sLast\":\"마지막\",\"sNext\":\"다음\",\"sPrevious\":\"이전\"},\"oAria\":{\"sSortAscending\":\":"
+" 오름차순 정렬\",\"sSortDescending\":\": 내림차순 정렬\"}}"
+
+msgid "summernote_locale"
+msgstr "ko-KR"
+
+msgid "fullcalendar_locale"
+msgstr "ko"
+
+msgid "bootstrap-select_locale"
+msgstr "ko_KR"

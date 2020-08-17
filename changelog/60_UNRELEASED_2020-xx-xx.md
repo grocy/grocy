@@ -29,3 +29,4 @@
 - The prerequisites checker now also checks for the minimum required SQLite version (thanks @Forceu)
 - New translations: (thanks all the translators)
   - Greek (demo available at https://el.demo.grocy.info)
+  - Korean (demo available at https://ko.demo.grocy.info)

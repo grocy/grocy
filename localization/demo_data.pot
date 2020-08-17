@@ -362,3 +362,6 @@ msgstr ""
 
 msgid "Greek"
 msgstr ""
+
+msgid "Korean"
+msgstr ""

@@ -1,0 +1,45 @@
+# 
+# Translators:
+# CW kim <cw2002.kim@gmail.com>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: CW kim <cw2002.kim@gmail.com>, 2020\n"
+"Language-Team: Korean (Korea) (https://www.transifex.com/grocy/teams/93189/ko_KR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ko_KR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Domain: grocy/stock_transaction_types\n"
+
+msgid "purchase"
+msgstr "구매"
+
+msgid "transfer_from"
+msgstr "이동 전"
+
+msgid "transfer_to"
+msgstr "이동 후"
+
+msgid "consume"
+msgstr "소모"
+
+msgid "inventory-correction"
+msgstr "재고 정리"
+
+msgid "product-opened"
+msgstr "제품 개봉"
+
+msgid "stock-edit-old"
+msgstr "재고 수정 오래됨"
+
+msgid "stock-edit-new"
+msgstr "재고 수정 신규"
+
+msgid "self-production"
+msgstr "자채 생산"

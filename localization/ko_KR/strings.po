@@ -1,0 +1,1951 @@
+# 
+# Translators:
+# CW kim <cw2002.kim@gmail.com>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: CW kim <cw2002.kim@gmail.com>, 2020\n"
+"Language-Team: Korean (Korea) (https://www.transifex.com/grocy/teams/93189/ko_KR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ko_KR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Domain: grocy/strings\n"
+
+msgid "Stock overview"
+msgstr "재고 개요"
+
+msgid "%s product expires"
+msgid_plural "%s products expiring"
+msgstr[0] "%s개 제품 유통기한 만료"
+
+msgid "within the next day"
+msgid_plural "within the next %s days"
+msgstr[0] "(향후 %s 일 이내)"
+
+msgid "%s product is already expired"
+msgid_plural "%s products are already expired"
+msgstr[0] "%s 개 제품 유통기한이 이미 만료됨"
+
+msgid "%s product is below defined min. stock amount"
+msgid_plural "%s products are below defined min. stock amount"
+msgstr[0] "%s 개 제품은 재고 미달"
+
+msgid "Product"
+msgstr "제품"
+
+msgid "%s Product"
+msgid_plural "%s Products"
+msgstr[0] "%s 개 제품"
+
+msgid "Amount"
+msgstr "합계"
+
+msgid "Next best before date"
+msgstr "다음 유통 기한"
+
+msgid "Logout"
+msgstr "로그아웃"
+
+msgid "Chores overview"
+msgstr "집안일 개요"
+
+msgid "Batteries overview"
+msgstr "배터리 개요"
+
+msgid "Purchase"
+msgstr "구매"
+
+msgid "Consume"
+msgstr "소비"
+
+msgid "Inventory"
+msgstr "물품 목록"
+
+msgid "Shopping list"
+msgstr "구매 목록"
+
+msgid "Chore tracking"
+msgstr "집안일 기록"
+
+msgid "Battery tracking"
+msgstr "배터리 기록"
+
+msgid "Locations"
+msgstr "위치"
+
+msgid "Stores"
+msgstr "상점/비축"
+
+msgid "Quantity units"
+msgstr "수량 단위"
+
+msgid "Chores"
+msgstr "집안일"
+
+msgid "Batteries"
+msgstr "배터리"
+
+msgid "Chore"
+msgstr "집안일"
+
+msgid "Next estimated tracking"
+msgstr "다음 예상 추적"
+
+msgid "Last tracked"
+msgstr "마지막 추적"
+
+msgid "Battery"
+msgstr "배터리"
+
+msgid "Last charged"
+msgstr "마지막 충전"
+
+msgid "Next planned charge cycle"
+msgstr "다음 충전 주기"
+
+msgid "Best before"
+msgstr "유통기한"
+
+msgid "OK"
+msgstr "확인"
+
+msgid "Product overview"
+msgstr "제품 개요"
+
+msgid "Stock quantity unit"
+msgstr "재고 수량 단위"
+
+msgid "Stock amount"
+msgstr "재고 수량"
+
+msgid "Last purchased"
+msgstr "마지막 구매"
+
+msgid "Last used"
+msgstr "마지막 사용"
+
+msgid "Spoiled"
+msgstr "망쳤다"
+
+msgid "Barcode lookup is disabled"
+msgstr "바코드 조회가 비활성화됨"
+
+msgid ""
+"will be added to the list of barcodes for the selected product on submit"
+msgstr "제출시 선택한 제품의 바코드 목록에 추가됨"
+
+msgid "New amount"
+msgstr "신규 총합"
+
+msgid "Note"
+msgstr "노트"
+
+msgid "Tracked time"
+msgstr "기록 시간"
+
+msgid "Chore overview"
+msgstr "집안일 개요"
+
+msgid "Tracked count"
+msgstr "기록 횟수"
+
+msgid "Battery overview"
+msgstr "배터리 개요"
+
+msgid "Charge cycles count"
+msgstr "충전 횟수"
+
+msgid "Create shopping list item"
+msgstr "구매 목록 생성"
+
+msgid "Edit shopping list item"
+msgstr "구매 목록 편집"
+
+msgid "Save"
+msgstr "저장"
+
+msgid "Add"
+msgstr "추가"
+
+msgid "Name"
+msgstr "명칭"
+
+msgid "Location"
+msgstr "위치"
+
+msgid "Min. stock amount"
+msgstr "최소 수량"
+
+msgid "QU purchase"
+msgstr "수량 단위 구매"
+
+msgid "QU stock"
+msgstr "수량 단위 보관"
+
+msgid "QU factor"
+msgstr "수량 단위 증가"
+
+msgid "Description"
+msgstr "설명"
+
+msgid "Create product"
+msgstr "제품 생성"
+
+msgid "Barcode(s)"
+msgstr "바코드"
+
+msgid "Minimum stock amount"
+msgstr "최소 재고 수량"
+
+msgid "Default best before days"
+msgstr "기본 유통기한"
+
+msgid "Quantity unit purchase"
+msgstr "수량 단위 구매"
+
+msgid "Quantity unit stock"
+msgstr "수량 단위 보관"
+
+msgid "Factor purchase to stock quantity unit"
+msgstr " 보관 수량 단위 구매 증가분"
+
+msgid "Create location"
+msgstr "위치 생성"
+
+msgid "Create store"
+msgstr "저장소 생성"
+
+msgid "Create quantity unit"
+msgstr "수량 단위 생성"
+
+msgid "Period type"
+msgstr "보관 형태"
+
+msgid "Period days"
+msgstr "보관 기한"
+
+msgid "Create chore"
+msgstr "집안일 생성"
+
+msgid "Used in"
+msgstr "사용됨"
+
+msgid "Create battery"
+msgstr "배터리 생성"
+
+msgid "Edit battery"
+msgstr "배터리 편집"
+
+msgid "Edit chore"
+msgstr "집안일 편집"
+
+msgid "Edit quantity unit"
+msgstr "수량 단위 수정"
+
+msgid "Edit product"
+msgstr "제품 수정"
+
+msgid "Edit location"
+msgstr "위치 수정"
+
+msgid "Edit store"
+msgstr "저장소 수정"
+
+msgid "Record data"
+msgstr "Record data"
+
+msgid "Manage master data"
+msgstr "기초 자료 관리"
+
+msgid "This will apply to added products"
+msgstr "이것은 추가된 제품에 적용될 것이다."
+
+msgid "never"
+msgstr "never"
+
+msgid "Add products that are below defined min. stock amount"
+msgstr "정의된 최소값 미만인 제품을 추가. 재고량"
+
+msgid ""
+"For purchases this amount of days will be added to today for the best before"
+" date suggestion"
+msgstr "구매시 설정일수를 유효기한으로 추가하여 제안한다"
+
+msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
+msgstr "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
+
+msgid "Login"
+msgstr "로그인"
+
+msgid "Username"
+msgstr "사용자계정"
+
+msgid "Password"
+msgstr "비밀번호"
+
+msgid "Invalid credentials, please try again"
+msgstr "잘못된 자격증명입니다. 다시 시도하십시오"
+
+msgid "Are you sure to delete battery \"%s\"?"
+msgstr " %s 배터리를 삭제 했습니까?"
+
+msgid "Yes"
+msgstr "예"
+
+msgid "No"
+msgstr "아니오"
+
+msgid "Are you sure to delete chore \"%s\"?"
+msgstr "%s 집안일을 삭제 하시겠습니까?"
+
+msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
+msgstr "\"%s\" could not be resolved to a product, how do you want to proceed?"
+
+msgid "Create or assign product"
+msgstr "제품 생성 또는 할당"
+
+msgid "Cancel"
+msgstr "취소"
+
+msgid "Add as new product"
+msgstr "새로운 제품으로 추가"
+
+msgid "Add as barcode to existing product"
+msgstr "기존 제품에 바코드로 추가"
+
+msgid "Add as new product and prefill barcode"
+msgstr "새로운 제품으로 추가 및 미리 바코드 채우기"
+
+msgid "Are you sure to delete quantity unit \"%s\"?"
+msgstr " \"%s\" 수량 단위를 삭제 하시겠습니까?"
+
+msgid "Are you sure to delete product \"%s\"?"
+msgstr "\"%s\" 제품을 삭제 하시겠습니까? "
+
+msgid "Are you sure to delete location \"%s\"?"
+msgstr " \"%s\" 위치를 삭제 하시겠습니까?"
+
+msgid "Are you sure to delete store \"%s\"?"
+msgstr "\"%s\" 저장소를 삭제 하시겠습니까? "
+
+msgid "Manage API keys"
+msgstr "API키 관리"
+
+msgid "REST API & data model documentation"
+msgstr "REST API 및 데이터 모델 문서"
+
+msgid "API keys"
+msgstr "API 키"
+
+msgid "Create new API key"
+msgstr "API 키 생성"
+
+msgid "API key"
+msgstr "API 키"
+
+msgid "Expires"
+msgstr "만료"
+
+msgid "Created"
+msgstr "생성"
+
+msgid "This product is not in stock"
+msgstr "이 상품은 재고가 없습니다."
+
+msgid "This means %s will be added to stock"
+msgstr "이것은 %s 이 저장소에 추가됩니다."
+
+msgid "This means %s will be removed from stock"
+msgstr "이것은 %s 이 저장소에 제거됩니다."
+
+msgid ""
+"This means the next execution of this chore is scheduled %s days after the "
+"last execution"
+msgstr ""
+"This means the next execution of this chore is scheduled %s days after the "
+"last execution"
+
+msgid "Removed %1$s of %2$s from stock"
+msgstr "Removed %1$s of %2$s from stock"
+
+msgid "About grocy"
+msgstr "About grocy"
+
+msgid "Close"
+msgstr "닫기"
+
+msgid "Released on"
+msgstr "Released on"
+
+msgid "Added %1$s of %2$s to stock"
+msgstr "재고 %2$s 중 %1$s 추가 "
+
+msgid "Stock amount of %1$s is now %2$s"
+msgstr "현재 재고양은  %2$s중 %1$s "
+
+msgid "Tracked execution of chore %1$s on %2$s"
+msgstr "%2$s에 %1$s집안일 추적"
+
+msgid "Tracked charge cycle of battery %1$s on %2$s"
+msgstr "%2$s에 %1$s 충전 주기 추적"
+
+msgid "Consume all %s which are currently in stock"
+msgstr "현재 재고가 있는 %s 모두 소비"
+
+msgid "All"
+msgstr "모두"
+
+msgid "Track charge cycle of battery %s"
+msgstr "배터리 %s 충전주기 추적"
+
+msgid "Track execution of chore %s"
+msgstr "집안일 %s 실행 추적"
+
+msgid "Filter by location"
+msgstr "위치별 정렬"
+
+msgid "Search"
+msgstr "검색"
+
+msgid "Not logged in"
+msgstr "로그인하지 않았습니다."
+
+msgid "You have to select a product"
+msgstr "제품을 선택해야 합니다."
+
+msgid "You have to select a chore"
+msgstr "집안일을 선택해야 합니다."
+
+msgid "You have to select a battery"
+msgstr "배터리를 선택해야 합니다."
+
+msgid "A name is required"
+msgstr "이름이 필요합니다."
+
+msgid "A location is required"
+msgstr "위치가 필요합니다."
+
+msgid "The amount cannot be lower than %s"
+msgstr "수량은 %s개 보다 작을 수 없습니다."
+
+msgid "This cannot be negative"
+msgstr "음수 일 수 없습니다."
+
+msgid "A quantity unit is required"
+msgstr "수량 단위가 필요합니다."
+
+msgid "A period type is required"
+msgstr "기간 유형이 필요합니다."
+
+msgid "A best before date is required"
+msgstr "유통기한이 필요합니다."
+
+msgid "Settings"
+msgstr "설정"
+
+msgid "This can only be before now"
+msgstr "현재 이전 만 가능합니다."
+
+msgid "Calendar"
+msgstr "달력"
+
+msgid "Recipes"
+msgstr "요리법"
+
+msgid "Edit recipe"
+msgstr "요리법 수정"
+
+msgid "Ingredients list"
+msgstr "재료 목록"
+
+msgid "Add recipe ingredient"
+msgstr "요리법 재료 추가"
+
+msgid "Edit recipe ingredient"
+msgstr "요리법 재료 편집"
+
+msgid "Are you sure to delete recipe \"%s\"?"
+msgstr "\"%s\" 요리법을 삭제하시겠습니까? "
+
+msgid "Are you sure to delete recipe ingredient \"%s\"?"
+msgstr "요리법 재료를 삭제하시겠습니까? \"%s\""
+
+msgid "Are you sure to empty shopping list \"%s\"?"
+msgstr " \"%s\" 구매 목록을 비우시겠습니까?"
+
+msgid "Clear list"
+msgstr "목록 지우기"
+
+msgid "Requirements fulfilled"
+msgstr "요구 사항 충족"
+
+msgid "Put missing products on shopping list"
+msgstr "누락제품 구매목록 등록"
+
+msgid "Enough in stock"
+msgstr "재고가 충분하다"
+
+msgid ""
+"Not enough in stock, %s ingredient missing but already on the shopping list"
+msgid_plural ""
+"Not enough in stock, %s ingredients missing but already on the shopping list"
+msgstr[0] "재고가 충분하지 않습니다. %s 재료가 누락되었지만 이미 쇼핑 목록에 있음"
+
+msgid "Expand to fullscreen"
+msgstr "전체 화면으로 확장"
+
+msgid "Ingredients"
+msgstr "재료"
+
+msgid "Preparation"
+msgstr "준비"
+
+msgid "Recipe"
+msgstr "요리법"
+
+msgid "Not enough in stock, %1$s missing, %2$s already on shopping list"
+msgstr "재고가 충분하지 않습니다. %1$s 누락, %2$s이미 쇼핑리스트에 있습니다."
+
+msgid "Show notes"
+msgstr "노트 보기"
+
+msgid "Put missing amount on shopping list"
+msgstr "쇼핑목록에 누락된 양 입력"
+
+msgid ""
+"Are you sure to put all missing ingredients for recipe \"%s\" on the "
+"shopping list?"
+msgstr ""
+"Are you sure to put all missing ingredients for recipe \"%s\" on the "
+"shopping list?"
+
+msgid "Added for recipe %s"
+msgstr "\"%s\" 요리법 추가"
+
+msgid "Manage users"
+msgstr "사용자 관리"
+
+msgid "User"
+msgstr "사용자"
+
+msgid "Users"
+msgstr "사용자"
+
+msgid "Are you sure to delete user \"%s\"?"
+msgstr "\"%s\"사용자를 삭제할까요?"
+
+msgid "Create user"
+msgstr "새용자 생성"
+
+msgid "Edit user"
+msgstr "사용자 수정"
+
+msgid "First name"
+msgstr "이름"
+
+msgid "Last name"
+msgstr "성"
+
+msgid "A username is required"
+msgstr "사용자 이름이 필요합니다."
+
+msgid "Confirm password"
+msgstr "암호 변경"
+
+msgid "Passwords do not match"
+msgstr "암호 불일치"
+
+msgid "Change password"
+msgstr "암호 변경"
+
+msgid "Done by"
+msgstr "완료 사용자"
+
+msgid "Last done by"
+msgstr "마지막 완료 사용자"
+
+msgid "Unknown"
+msgstr "Unknown"
+
+msgid "Filter by chore"
+msgstr "집안일 정렬"
+
+msgid "Chores journal"
+msgstr "집안일 일지"
+
+msgid "0 means suggestions for the next charge cycle are disabled"
+msgstr "0은 다음 충전 사이클에 대한 제안이 비활성화됨을 의미한다."
+
+msgid "Charge cycle interval (days)"
+msgstr "충전 주기 (일)"
+
+msgid "Last price"
+msgstr "마지막 가격"
+
+msgid "Price history"
+msgstr "금액 정보"
+
+msgid "No price history available"
+msgstr "사용 가능한 금액 정보 없음"
+
+msgid "Price"
+msgstr "금액"
+
+msgid "in %s per purchase quantity unit"
+msgstr "in %s per purchase quantity unit"
+
+msgid "The price cannot be lower than %s"
+msgstr "가격이 %s보다 낮을 수 없음"
+
+msgid "Unit"
+msgstr "단위"
+
+msgid "%s Unit"
+msgid_plural "%s Units"
+msgstr[0] "%s 개"
+
+msgid "%s chore is due to be done"
+msgid_plural "%s chores are due to be done"
+msgstr[0] "%s 개의 집안일이 예정되어 있습니다."
+
+msgid "%s chore is overdue to be done"
+msgid_plural "%s chores are overdue to be done"
+msgstr[0] "%s 개의 집안일이 밀려있습니다."
+
+msgid "%s battery is due to be charged"
+msgid_plural "%s batteries are due to be charged"
+msgstr[0] "%s 배터리를 충전해야 합니다."
+
+msgid "%s battery is overdue to be charged"
+msgid_plural "%s batteries are overdue to be charged"
+msgstr[0] "%s 배터리 충전 기한이 지났습니다."
+
+msgid "in singular form"
+msgstr "단수형"
+
+msgid "Never expires"
+msgstr "기한 없음"
+
+msgid "This cannot be lower than %s"
+msgstr "이것은 %s보다 낮을 수 없음"
+
+msgid "-1 means that this product never expires"
+msgstr "-1은 유통기한 없음"
+
+msgid "Quantity unit"
+msgstr "단위"
+
+msgid ""
+"Only check if a single unit is in stock (a different quantity can then be "
+"used above)"
+msgstr ""
+"Only check if a single unit is in stock (a different quantity can then be "
+"used above)"
+
+msgid ""
+"Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
+" marked with \"check only if a single unit is in stock\" will be ignored)?"
+msgstr ""
+"레시피 \"%s\"에 필요한 모든 재료를 소비할까요? \n"
+" (ingredients marked with \"check only if a single unit is in stock\" will be ignored)?"
+
+msgid "Removed all ingredients of recipe \"%s\" from stock"
+msgstr "조리법 \"%s\"의 모든 재료를 제거했다."
+
+msgid "Consume all ingredients needed by this recipe"
+msgstr "이 조리법에 필요한 모든 재료를 소비"
+
+msgid "Click to show technical details"
+msgstr "기술 정보를 보려면 클릭하십시오"
+
+msgid "Error while saving, probably this item already exists"
+msgstr "저장하는 동안 오류가 발생했습니다. 이 항목이 이미 있을 수 있습니다."
+
+msgid "Error details"
+msgstr "오류 상세정보"
+
+msgid "Tasks"
+msgstr "작업"
+
+msgid "Show done tasks"
+msgstr "완료된 작업 보기"
+
+msgid "Task"
+msgstr "작업"
+
+msgid "Due"
+msgstr "기한"
+
+msgid "Assigned to"
+msgstr "할당"
+
+msgid "Mark task \"%s\" as completed"
+msgstr " \"%s\" 작업을 완료된 것으로 표시"
+
+msgid "Uncategorized"
+msgstr "기타"
+
+msgid "Task categories"
+msgstr "작업 구분"
+
+msgid "Create task"
+msgstr "작업 만들기"
+
+msgid "A due date is required"
+msgstr "마감일이 필요합니다."
+
+msgid "Category"
+msgstr "구분"
+
+msgid "Edit task"
+msgstr "작업 수정"
+
+msgid "Are you sure to delete task \"%s\"?"
+msgstr "작업을 삭제하시겠습니까? \"%s\""
+
+msgid "%s task is due to be done"
+msgid_plural "%s tasks are due to be done"
+msgstr[0] "%s 작업이 완료될 예정입니다"
+
+msgid "%s task is overdue to be done"
+msgid_plural "%s tasks are overdue to be done"
+msgstr[0] "%s 작업이 완료되지 않았습니다"
+
+msgid "Edit task category"
+msgstr "작업 구분 수정"
+
+msgid "Create task category"
+msgstr "작업 구분 생성"
+
+msgid "Product groups"
+msgstr "제품 그룹"
+
+msgid "Ungrouped"
+msgstr "제품 그룹 해제"
+
+msgid "Create product group"
+msgstr "제품 그룹 생성"
+
+msgid "Edit product group"
+msgstr "제품 그룹 수정"
+
+msgid "Product group"
+msgstr "제품 그룹"
+
+msgid "Are you sure to delete product group \"%s\"?"
+msgstr " \"%s\" 제품 그룹을 삭제 하시겠습니까?"
+
+msgid "Stay logged in permanently"
+msgstr "로그인 영구유지"
+
+msgid "When not set, you will get logged out at latest after 30 days"
+msgstr "설정되지 않은 경우 30일 후에 로그아웃됨"
+
+msgid "Status"
+msgstr "상태"
+
+msgid "Below min. stock amount"
+msgstr "최소 재고 미만"
+
+msgid "Expiring soon"
+msgstr "곧 만료 예정"
+
+msgid "Already expired"
+msgstr "이미 만료됨"
+
+msgid "Due soon"
+msgstr "마감 임박"
+
+msgid "Overdue"
+msgstr "마감지연"
+
+msgid "View settings"
+msgstr "화면 설정"
+
+msgid "Auto reload on external changes"
+msgstr "외부 변경시 자동 재로드"
+
+msgid "Enable night mode"
+msgstr "야간모드 사용"
+
+msgid "Auto enable in time range"
+msgstr "시간 범위에서 자동활성화"
+
+msgid "From"
+msgstr "From"
+
+msgid "in format"
+msgstr "in format"
+
+msgid "To"
+msgstr "To"
+
+msgid "Time range goes over midnight"
+msgstr "시간범위가 자정을 넘어간다"
+
+msgid "Product picture"
+msgstr "제품 사진"
+
+msgid "No file selected"
+msgstr "파일 선택 안됨"
+
+msgid "If you don't select a file, the current picture will not be altered"
+msgstr "파일을 선택하지 않으면 현재 사진이 변경되지 않음"
+
+msgid "Delete"
+msgstr "삭제"
+
+msgid "The current picture will be deleted when you save the product"
+msgstr "제품을 저장하면 현재 사진은 삭제됩니다."
+
+msgid "Select file"
+msgstr "파일 선택"
+
+msgid "Image of product %s"
+msgstr "%s제품이미지 "
+
+msgid ""
+"This product cannot be deleted because it is in stock, please remove the "
+"stock amount first."
+msgstr "이 제품은 재고가 없어서 삭제할 수 없습니다. 재고 양을 먼저 제거하십시오."
+
+msgid "Delete not possible"
+msgstr "삭제 불가능"
+
+msgid "Equipment"
+msgstr "장비"
+
+msgid "Instruction manual"
+msgstr "사용설명서"
+
+msgid "The selected equipment has no instruction manual"
+msgstr "선택한 장비 사용 설명서 업음"
+
+msgid "Notes"
+msgstr "메모"
+
+msgid "Edit equipment"
+msgstr "장비 수정"
+
+msgid "Create equipment"
+msgstr "장비 생성"
+
+msgid ""
+"If you don't select a file, the current instruction manual will not be "
+"altered"
+msgstr "파일을 선택하지 않으면 현재 사용 설명서가 변경되지 않음"
+
+msgid "No instruction manual available"
+msgstr "사용 설명서 없음"
+
+msgid ""
+"The current instruction manual will be deleted when you save the equipment"
+msgstr "장비를 저장하면 현재 사용자 설명서는 삭제됩니다."
+
+msgid "No picture available"
+msgstr "사용 가능한 사진 없음"
+
+msgid "Filter by product group"
+msgstr "제품 그룹별 정렬"
+
+msgid "Presets for new products"
+msgstr "새로운 제품 사전 설정"
+
+msgid "Included recipes"
+msgstr "포함된 요리법"
+
+msgid "A recipe is required"
+msgstr "요리법이 필요합니다."
+
+msgid "Add included recipe"
+msgstr "포함된 요리법 추가"
+
+msgid "Edit included recipe"
+msgstr "포함된 요리법 수정"
+
+msgid "Group"
+msgstr "그룹"
+
+msgid "This will be used as a headline to group ingredients together"
+msgstr "This will be used as a headline to group ingredients together"
+
+msgid "Journal"
+msgstr "일지"
+
+msgid "Stock journal"
+msgstr "재고 일지"
+
+msgid "Filter by product"
+msgstr "제품별 정렬"
+
+msgid "Booking time"
+msgstr "시간"
+
+msgid "Booking type"
+msgstr "종류"
+
+msgid "Undo booking"
+msgstr "실행 취소"
+
+msgid "Undone on"
+msgstr "실행 취소됨"
+
+msgid "Batteries journal"
+msgstr "배터리 일지"
+
+msgid "Filter by battery"
+msgstr "배터리별 정렬"
+
+msgid "Undo charge cycle"
+msgstr "충전 주기 실행 취소"
+
+msgid "Undo chore execution"
+msgstr "집안일 실행 취소"
+
+msgid "Chore execution successfully undone"
+msgstr "집안일 실행 취소 성공"
+
+msgid "Undo"
+msgstr "실행 취소"
+
+msgid "Booking successfully undone"
+msgstr "실행 취소 성공"
+
+msgid "Charge cycle successfully undone"
+msgstr "충전 주기 실행 취소 성공"
+
+msgid "This cannot be negative and must be an integral number"
+msgstr "음수는 사용할 수 없습니다. 정수여야 함"
+
+msgid "Disable stock fulfillment checking for this ingredient"
+msgstr "이 재료에 대한 재고 확인기능 비활성"
+
+msgid "Add all list items to stock"
+msgstr "재고에 모든 목록 항목 추가"
+
+msgid "Add %1$s of %2$s to stock"
+msgstr "Add %1$s of %2$s to stock"
+
+msgid "Adding shopping list item %1$s of %2$s"
+msgstr "쇼핑 목록 항목 추가 %1$s of %2$s"
+
+msgid "Use a specific stock item"
+msgstr "특정 재고 품목 사용"
+
+msgid ""
+"The first item in this list would be picked by the default rule which is "
+"\"First expiring first, then first in first out\""
+msgstr ""
+"The first item in this list would be picked by the default rule which is "
+"\"First expiring first, then first in first out\""
+
+msgid "Mark %1$s of %2$s as open"
+msgstr "Mark %1$s of %2$s as open"
+
+msgid ""
+"When this product was marked as opened, the best before date will be "
+"replaced by today + this amount of days (a value of 0 disables this)"
+msgstr ""
+"When this product was marked as opened, the best before date will be "
+"replaced by today + this amount of days (a value of 0 disables this)"
+
+msgid "Default best before days after opened"
+msgstr "상품 개봉후 기본 유통기한"
+
+msgid "Marked %1$s of %2$s as opened"
+msgstr "Marked %1$s of %2$s as opened"
+
+msgid "Mark as opened"
+msgstr "제품 개봉"
+
+msgid "Not opened"
+msgstr "미개봉"
+
+msgid "Opened"
+msgstr "개봉"
+
+msgid "%s opened"
+msgstr "%s 개봉"
+
+msgid "Product expires"
+msgstr "제품 만료"
+
+msgid "Task due"
+msgstr "마감 기한"
+
+msgid "Chore due"
+msgstr "집안일"
+
+msgid "Battery charge cycle due"
+msgstr "배터리 충전 기한"
+
+msgid "Show clock in header"
+msgstr "상단 시계 보기"
+
+msgid "Stock settings"
+msgstr "저장소 설정"
+
+msgid "Shopping list to stock workflow"
+msgstr "구매 목록에서 재고 흐름"
+
+msgid ""
+"Automatically do the booking using the last price and the amount of the "
+"shopping list item, if the product has \"Default best before days\" set"
+msgstr "만약 제품 기본 유효기간이 설정된 경우  구매목록 아이템의 마지막 가격과 양으로 자동 기록"
+
+msgid "Skip"
+msgstr "건너뜀"
+
+msgid "Servings"
+msgstr "1인분"
+
+msgid "Costs"
+msgstr "비용"
+
+msgid "Based on the prices of the last purchase per product"
+msgstr "제품별 마지막 구매가격 기준"
+
+msgid "The ingredients listed here result in this amount of servings"
+msgstr "여기에 나열된 재료는몇 인분의 제공합니다"
+
+msgid "Do not check against the shopping list when adding missing items to it"
+msgstr "누락된 항목을 쇼핑 목록에 추가할 때 구매 목록과 대조하지 않음"
+
+msgid ""
+"By default the amount to be added to the shopping list is \"needed amount - "
+"stock amount - shopping list amount\" - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+msgstr ""
+"By default the amount to be added to the shopping list is \"needed amount - "
+"stock amount - shopping list amount\" - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+
+msgid "Picture"
+msgstr "사진"
+
+msgid "Uncheck ingredients to not put them on the shopping list"
+msgstr "구매 목록에 넣지 않으려면 재료 선택을 취소하십시오."
+
+msgid "This is for statistical purposes only"
+msgstr "이것은 통계적 목적만을 위한 것이다."
+
+msgid "You have to select a recipe"
+msgstr "레시피를 선택해야 합니다."
+
+msgid "Key type"
+msgstr "Key type"
+
+msgid "Share/Integrate calendar (iCal)"
+msgstr "Share/Integrate calendar (iCal)"
+
+msgid ""
+"Use the following (public) URL to share or integrate the calendar in iCal "
+"format"
+msgstr ""
+"Use the following (public) URL to share or integrate the calendar in iCal "
+"format"
+
+msgid "Allow partial units in stock"
+msgstr "일부 단위의 재고로 허용"
+
+msgid "Enable tare weight handling"
+msgstr "용기 무게 포함"
+
+msgid ""
+"This is useful e.g. for flour in jars - on purchase/consume/inventory you "
+"always weigh the whole jar, the amount to be posted is then automatically "
+"calculated based on what is in stock and the tare weight defined below"
+msgstr ""
+"이것은 밀가루를 병에 담는 데 유용하다. 구입/소비/재고시에 당신은 항상 전체 병을 무게를 재는데, 게시될 양은 재고량과 아래에 정의된 "
+"무게에 따라 자동으로 계산된다."
+
+msgid "Tare weight"
+msgstr "용기 무게"
+
+msgid ""
+"Tare weight handling enabled - please weigh the whole container, the amount "
+"to be posted will be automatically calculcated"
+msgstr ""
+"Tare weight handling enabled - please weigh the whole container, the amount "
+"to be posted will be automatically calculcated"
+
+msgid "You have to select a location"
+msgstr "위치를 선택하세요"
+
+msgid "You have to select a store"
+msgstr "상점을 선택하세요"
+
+msgid "List"
+msgstr "목록"
+
+msgid "Gallery"
+msgstr "사진첩"
+
+msgid "The current picture will be deleted when you save the recipe"
+msgstr "요리법을 저장하면 현재 사진은 삭제됩니다."
+
+msgid "Show product details"
+msgstr "제품 상세 보기"
+
+msgid "Stock journal for this product"
+msgstr "제품별 재고 일지"
+
+msgid "Show chore details"
+msgstr "집안일 상세 보기"
+
+msgid "Journal for this chore"
+msgstr "해당 집안일에 대한 일지"
+
+msgid "Show battery details"
+msgstr "배터리 상세 보기"
+
+msgid "Journal for this battery"
+msgstr "해당 배터리에 대한 일지"
+
+msgid "System info"
+msgstr "시스템 정보"
+
+msgid "Changelog"
+msgstr "변경 기록"
+
+msgid "will be multiplied by a factor of %1$s to get %2$s"
+msgstr "will be multiplied by a factor of %1$s to get %2$s"
+
+msgid "The given date is earlier than today, are you sure?"
+msgstr "지정된 날짜가 오늘보다 빠릅니다. 확실합니까?"
+
+msgid "Product count"
+msgstr "제품 수"
+
+msgid "Type a new product name or barcode and hit TAB to start a workflow"
+msgstr "새로운 제품 이름 또는 바코드를 입력하고 Tab 키를 눌러 작업을 시작하십시오."
+
+msgid ""
+"This will be used as the default setting when adding this product as a "
+"recipe ingredient"
+msgstr "이것은 요리법 재료로 추가 할 때 기본 설정으로 사용됩니다"
+
+msgid "Add item"
+msgstr "아이템 추가"
+
+msgid "Selected shopping list"
+msgstr "선택된 구매 목록"
+
+msgid "New shopping list"
+msgstr "새로운 구매 목록"
+
+msgid "Delete shopping list"
+msgstr "구매목록 삭제"
+
+msgid "Chores settings"
+msgstr "집안일 설정"
+
+msgid "Batteries settings"
+msgstr "배터리 설정"
+
+msgid "Tasks settings"
+msgstr "작업 설정"
+
+msgid "Create shopping list"
+msgstr "구매목록 생성"
+
+msgid "Are you sure to delete shopping list \"%s\"?"
+msgstr " \"%s\" 구매 목록을 삭제하시겠습니까?"
+
+msgid "Average shelf life"
+msgstr "평균 저장 수명"
+
+msgid "Spoil rate"
+msgstr "부패율"
+
+msgid "Show more"
+msgstr "더보기"
+
+msgid "Show less"
+msgstr "감추기"
+
+msgid "The amount must be between %1$s and %2$s"
+msgstr "The amount must be between %1$s and %2$s"
+
+msgid "Day of month"
+msgstr "Day of month"
+
+msgid "Monday"
+msgstr "월요일"
+
+msgid "Tuesday"
+msgstr "화요일"
+
+msgid "Wednesday"
+msgstr "수요일"
+
+msgid "Thursday"
+msgstr "목요일"
+
+msgid "Friday"
+msgstr "금요일"
+
+msgid "Saturday"
+msgstr "토요일"
+
+msgid "Sunday"
+msgstr "일요일"
+
+msgid "Configure userfields"
+msgstr "사용자 항목 설정"
+
+msgid "Userfields"
+msgstr "사용자 항목"
+
+msgid "Filter by entity"
+msgstr "목록별 정렬"
+
+msgid "Entity"
+msgstr "목록"
+
+msgid "Caption"
+msgstr "설명"
+
+msgid "Type"
+msgstr "종류"
+
+msgid "Create userfield"
+msgstr "사용자 항목 생성"
+
+msgid "A entity is required"
+msgstr "목록이 필요합니다."
+
+msgid "A caption is required"
+msgstr "설명이 필요합니다."
+
+msgid "A type is required"
+msgstr "구분이 필요합니다."
+
+msgid "Show as column in tables"
+msgstr "Show as column in tables"
+
+msgid "This is required and can only contain letters and numbers"
+msgstr "This is required and can only contain letters and numbers"
+
+msgid "Edit userfield"
+msgstr "사용자 항목 수정"
+
+msgid "Plural forms"
+msgstr "Plural forms"
+
+msgid "One plural form per line, the current language requires"
+msgstr "One plural form per line, the current language requires"
+
+msgid "Plural count"
+msgstr "Plural count"
+
+msgid "Plural rule"
+msgstr "Plural rule"
+
+msgid "in plural form"
+msgstr "복수형"
+
+msgid "Not enough in stock, %s ingredient missing"
+msgid_plural "Not enough in stock, %s ingredients missing"
+msgstr[0] "Not enough in stock, %s ingredients missing"
+
+msgid "The amount cannot be lower than %1$s or equal %2$s"
+msgstr "수량은  %1$s개 보다 작거나 %2$s개와 같을 수 없습니다."
+
+msgid "Not enough in stock, but already on the shopping list"
+msgstr "Not enough in stock, but already on the shopping list"
+
+msgid "Not enough in stock"
+msgstr "Not enough in stock"
+
+msgid "Expiring soon days"
+msgstr "곧 만료"
+
+msgid "Default location"
+msgstr "기본 위치"
+
+msgid "Default amount for purchase"
+msgstr "구매 기본 수량"
+
+msgid "Default amount for consume"
+msgstr "소비 기본 수량"
+
+msgid "Variable amount"
+msgstr "Variable amount"
+
+msgid ""
+"When this is not empty, it will be shown instead of the amount entered above"
+" while the amount there will still be used for stock fulfillment checking"
+msgstr ""
+"When this is not empty, it will be shown instead of the amount entered above"
+" while the amount there will still be used for stock fulfillment checking"
+
+msgid "Track date only"
+msgstr "Track date only"
+
+msgid "When enabled only the day of an execution is tracked, not the time"
+msgstr "When enabled only the day of an execution is tracked, not the time"
+
+msgid "Consume %1$s of %2$s"
+msgstr "Consume %1$s of %2$s"
+
+msgid "Meal plan"
+msgstr "식단 계획"
+
+msgid "Add recipe on %s"
+msgstr "Add recipe on %s"
+
+msgid "%s serving"
+msgid_plural "%s servings"
+msgstr[0] "%s 인분"
+
+msgid "Week costs"
+msgstr "주당 비용"
+
+msgid "Configuration"
+msgstr "설정"
+
+msgid "A predefined list of values, one per line"
+msgstr "A predefined list of values, one per line"
+
+msgid "Chores due soon days"
+msgstr "Chores due soon days"
+
+msgid "Batteries due to be charged soon days"
+msgstr "Batteries due to be charged soon days"
+
+msgid "Tasks due soon days"
+msgstr "Tasks due soon days"
+
+msgid "Products"
+msgstr "제품"
+
+msgid "Marked task %s as completed on %s"
+msgstr "Marked task %s as completed on %s"
+
+msgid "Booking has subsequent dependent bookings, undo not possible"
+msgstr "Booking has subsequent dependent bookings, undo not possible"
+
+msgid "per serving"
+msgstr "/ 1인분당"
+
+msgid "Never"
+msgstr "Never"
+
+msgid "Today"
+msgstr "오늘"
+
+msgid "Consume %1$s of %2$s as spoiled"
+msgstr "Consume %1$s of %2$s as spoiled"
+
+msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
+msgstr "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
+
+msgid "Undo task \"%s\""
+msgstr "Undo task \"%s\""
+
+msgid "Due date rollover"
+msgstr "Due date rollover"
+
+msgid ""
+"When enabled the chore can never be overdue, the due date will shift forward"
+" each day when due"
+msgstr ""
+"When enabled the chore can never be overdue, the due date will shift forward"
+" each day when due"
+
+msgid "Location Content Sheet"
+msgstr "위치 내용 목록"
+
+msgid "Print"
+msgstr "출력"
+
+msgid "all locations"
+msgstr "모든 위치"
+
+msgid ""
+"Here you can print a page per location with the current stock, maybe to hang"
+" it there and note the consumed things on it."
+msgstr "이곳에서 현재 재고가 있는 위치별로 페이지를 인쇄 할 수 있고 그곳에 걸어 놓아 소비된 것을 기록 할 수 있습니다."
+
+msgid "this location"
+msgstr "이 위치"
+
+msgid "Consumend amount"
+msgstr "소비량"
+
+msgid "Time of printing"
+msgstr "출력 시간"
+
+msgid "Are you sure to delete equipment \"%s\"?"
+msgstr "\"%s\" 장비 목록을 삭제하시겠습니까?"
+
+msgid "Parent product"
+msgstr "상위 제품군"
+
+msgid ""
+"Not possible because this product is already used as a parent product in "
+"another product"
+msgstr ""
+"Not possible because this product is already used as a parent product in "
+"another product"
+
+msgid "Default conversions"
+msgstr "기본 변환"
+
+msgid "Factor"
+msgstr "Factor"
+
+msgid "1 %s is the same as..."
+msgstr "1 %s is the same as..."
+
+msgid "Create QU conversion"
+msgstr "수량 단위 변환 생성"
+
+msgid "Default for QU"
+msgstr "기본 수량 단위"
+
+msgid "Quantity unit from"
+msgstr "Quantity unit from"
+
+msgid "Quantity unit to"
+msgstr "Quantity unit to"
+
+msgid ""
+"This cannot be lower than %1$s and must be a valid number with max. %2$s "
+"decimal places"
+msgstr ""
+"This cannot be lower than %1$s and must be a valid number with max. %2$s "
+"decimal places"
+
+msgid "This cannot be equal to %s"
+msgstr "This cannot be equal to %s"
+
+msgid "This means 1 %1$s is the same as %2$s %3$s"
+msgstr "This means 1 %1$s is the same as %2$s %3$s"
+
+msgid "QU conversions"
+msgstr "수량 단위 변환"
+
+msgid "Product overrides"
+msgstr "제품 재정의"
+
+msgid "Override for product"
+msgstr "제품 재정의"
+
+msgid "This equals %1$s %2$s in stock"
+msgstr "This equals %1$s %2$s in stock"
+
+msgid "Edit QU conversion"
+msgstr "수량 단위 변환 수정"
+
+msgid "An assignment type is required"
+msgstr "작업자 할당이 필요합니다."
+
+msgid "Assignment type"
+msgstr "Assignment type"
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 day after the "
+"last execution"
+msgstr ""
+"This means the next execution of this chore is scheduled 1 day after the "
+"last execution"
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 day after the "
+"last execution, but only for the weekdays selected below"
+msgstr ""
+"This means the next execution of this chore is scheduled 1 day after the "
+"last execution, but only for the weekdays selected below"
+
+msgid "This means the next execution of this chore is not scheduled"
+msgstr "This means the next execution of this chore is not scheduled"
+
+msgid ""
+"This means the next execution of this chore is scheduled on the below "
+"selected day of each month"
+msgstr ""
+"This means the next execution of this chore is scheduled on the below "
+"selected day of each month"
+
+msgid ""
+"This means the next execution of this chore will not be assigned to anyone"
+msgstr ""
+"This means the next execution of this chore will not be assigned to anyone"
+
+msgid ""
+"This means the next execution of this chore will be assigned to the one who "
+"executed it least"
+msgstr ""
+"This means the next execution of this chore will be assigned to the one who "
+"executed it least"
+
+msgid "This means the next execution of this chore will be assigned randomly"
+msgstr "This means the next execution of this chore will be assigned randomly"
+
+msgid ""
+"This means the next execution of this chore will be assigned to the next one"
+" in alphabetical order"
+msgstr ""
+"This means the next execution of this chore will be assigned to the next one"
+" in alphabetical order"
+
+msgid "Assign to"
+msgstr "역할 분담"
+
+msgid "This assignment type requires that at least one is assigned"
+msgstr "This assignment type requires that at least one is assigned"
+
+msgid "%s chore is assigned to me"
+msgid_plural "%s chores are assigned to me"
+msgstr[0] "%s 개의 집안일이 나에게 할당되었습니다."
+
+msgid "Assigned to me"
+msgstr "나에게 할당됨"
+
+msgid "assigned to %s"
+msgstr "%s에게 할당됨"
+
+msgid "Assignment"
+msgstr "작업 배분"
+
+msgid "Consume product on chore execution"
+msgstr "집안일 수행시 제품 소비"
+
+msgid "Are you sure to delete user field \"%s\"?"
+msgstr "사용자 정의 목록 \"%s\"을 삭제하시겠습니까?"
+
+msgid "Userentities"
+msgstr "사용자 정의 메뉴"
+
+msgid "Create userentity"
+msgstr "사용자 정의 목록 생성"
+
+msgid "Show in sidebar menu"
+msgstr "사이드 메뉴 보기"
+
+msgid "Edit userentity"
+msgstr "사용자 정의 목록 수정"
+
+msgid "Edit %s"
+msgstr "%s 수정 "
+
+msgid "Create %s"
+msgstr " %s 생성"
+
+msgid "Are you sure to delete this userobject?"
+msgstr "Are you sure to delete this userobject?"
+
+msgid "Icon CSS class"
+msgstr "Icon CSS class"
+
+msgid "For example"
+msgstr "예시"
+
+msgid "Configure fields"
+msgstr "Configure fields"
+
+msgid "Quantity unit plural form testing"
+msgstr "Quantity unit plural form testing"
+
+msgid "Result"
+msgstr "Result"
+
+msgid "Test plural forms"
+msgstr "Test plural forms"
+
+msgid "Scan a barcode"
+msgstr "바코드 스캔"
+
+msgid "Error while initializing the barcode scanning library"
+msgstr "Error while initializing the barcode scanning library"
+
+msgid ""
+"The resulting price of this ingredient will be multiplied by this factor"
+msgstr ""
+"The resulting price of this ingredient will be multiplied by this factor"
+
+msgid "Price factor"
+msgstr "가격 변동"
+
+msgid "Do you find grocy useful?"
+msgstr "Do you find grocy useful?"
+
+msgid "Say thanks"
+msgstr "Say thanks"
+
+msgid "Search for recipes containing this product"
+msgstr "Search for recipes containing this product"
+
+msgid "Add to shopping list"
+msgstr "구매 목록 추가"
+
+msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
+msgstr "Added %1$s of %2$s to the shopping list \"%3$s\""
+
+msgid "Output"
+msgstr "Output"
+
+msgid "Energy (kcal)"
+msgstr "열량 (kcal)"
+
+msgid "Per stock quantity unit"
+msgstr "Per stock quantity unit"
+
+msgid "Barcode scanner testing"
+msgstr "바코드 스캐너 테스트"
+
+msgid "Expected barcode"
+msgstr "예상되는 바코드"
+
+msgid "Scan field"
+msgstr "스캔 항목"
+
+msgid "Scanned barcodes"
+msgstr "스캔 바코드"
+
+msgid "Hit"
+msgstr "Hit"
+
+msgid "Miss"
+msgstr "Miss"
+
+msgid "Display recipe"
+msgstr "Display recipe"
+
+msgid "Accumulate sub products min. stock amount"
+msgstr "Accumulate sub products min. stock amount"
+
+msgid ""
+"If enabled, the min. stock amount of sub products will be accumulated into "
+"this product, means the sub product will never be \"missing\", only this "
+"product"
+msgstr ""
+"If enabled, the min. stock amount of sub products will be accumulated into "
+"this product, means the sub product will never be \"missing\", only this "
+"product"
+
+msgid "Are you sure to remove this conversion?"
+msgstr "이 변환을 제거하시겠습니까?"
+
+msgid "Unit price"
+msgstr "단가"
+
+msgid "Total price"
+msgstr "총 가격"
+
+msgid "in %s and based on the purchase quantity unit"
+msgstr "%s 단위 및  구매 단위 기준"
+
+msgid "Unlimited"
+msgstr "Unlimited"
+
+msgid "Clear"
+msgstr "Clear"
+
+msgid "Are you sure to remove the included recipe \"%s\"?"
+msgstr "Are you sure to remove the included recipe \"%s\"?"
+
+msgid "Period interval"
+msgstr "Period interval"
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s days"
+msgstr ""
+"This means the next execution of this chore should only be scheduled every "
+"%s days"
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s weeks"
+msgstr ""
+"This means the next execution of this chore should only be scheduled every "
+"%s weeks"
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s months"
+msgstr ""
+"This means the next execution of this chore should only be scheduled every "
+"%s months"
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 year after the "
+"last execution"
+msgstr ""
+"This means the next execution of this chore is scheduled 1 year after the "
+"last execution"
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s years"
+msgstr ""
+"This means the next execution of this chore should only be scheduled every "
+"%s years"
+
+msgid "Transfer"
+msgstr "위치이동"
+
+msgid "From location"
+msgstr "이동전 위치"
+
+msgid "To location"
+msgstr "이동 후 위치"
+
+msgid "There are no units available at this location"
+msgstr "이 위치에서 사용가능한 단위가 없다"
+
+msgid "Amount: %1$s; Expires on %2$s; Bought on %3$s"
+msgstr "Amount: %1$s; Expires on %2$s; Bought on %3$s"
+
+msgid "Transfered %1$s of %2$s from %3$s to %4$s"
+msgstr "Transfered %1$s of %2$s from %3$s to %4$s"
+
+msgid "Show stock entries"
+msgstr "재고 항목 보기"
+
+msgid "Stock entries"
+msgstr "재고 항목"
+
+msgid "Best before date"
+msgstr "Best before date"
+
+msgid "Purchased date"
+msgstr "구매일"
+
+msgid "Consume all %s for this stock entry"
+msgstr "Consume all %s for this stock entry"
+
+msgid "The amount cannot be lower than %1$s"
+msgstr "수량은 %1$s개 보다 작을 수 없습니다."
+
+msgid "Stock entry successfully updated"
+msgstr "Stock entry successfully updated"
+
+msgid "Edit stock entry"
+msgstr "Edit stock entry"
+
+msgid ""
+"Camera access is only possible when supported and allowed by your browser "
+"and when grocy is served via a secure (https://) connection"
+msgstr ""
+"Camera access is only possible when supported and allowed by your browser "
+"and when grocy is served via a secure (https://) connection"
+
+msgid "Keep screen on"
+msgstr "화면 켜짐 유지"
+
+msgid "Keep screen on while displaying a \"fullscreen-card\""
+msgstr "\"전체 화면\"시 화면 켜짐 유지"
+
+msgid "A purchased date is required"
+msgstr "구매일이 필요합니다."
+
+msgid ""
+"When a product is selected, one unit (per serving in purchase quantity unit)"
+" will be added to stock on consuming this recipe"
+msgstr "제품을 선택하면 이 레시피를 재고로 한 개(구매 수량 단위당 1개)가 추가된다."
+
+msgid "Produces product"
+msgstr "제품 소개"
+
+msgid "This booking cannot be undone"
+msgstr "실행 취소를 할 수 없습니다"
+
+msgid "Booking does not exist or was already undone"
+msgstr "Booking does not exist or was already undone"
+
+msgid "Are you sure to delete API key \"%s\"?"
+msgstr "Are you sure to delete API key \"%s\"?"
+
+msgid "Add note"
+msgstr "메모 추가"
+
+msgid "Add note on %s"
+msgstr "%s 메모 추가"
+
+msgid "per day"
+msgstr "per day"
+
+msgid "Compact view"
+msgstr "Compact view"
+
+msgid "Normal view"
+msgstr "Normal view"
+
+msgid "Only undone items"
+msgstr "Only undone items"
+
+msgid "Add product"
+msgstr "제품 생성"
+
+msgid "Add product on %s"
+msgstr " %s제품 생성"
+
+msgid "Consume all ingredients needed by this weeks recipes or products"
+msgstr "Consume all ingredients needed by this weeks recipes or products"
+
+msgid "Meal plan recipe"
+msgstr "신단 계획 레시피"
+
+msgid "Meal plan note"
+msgstr "식단 계획"
+
+msgid "Meal plan product"
+msgstr "식단 계획 제품"
+
+msgid "Scan mode"
+msgstr "스캔 모드"
+
+msgid "on"
+msgstr "On"
+
+msgid "off"
+msgstr "Off"
+
+msgid ""
+"Scan mode is on but not all required fields could be populated automatically"
+msgstr "스캔 모드가 켜져 있지만 일부 필수 필드를 자동으로 채울 수는 없음"
+
+msgid "Is freezer"
+msgstr "냉동고"
+
+msgid ""
+"When moving products from/to a freezer location, the products best before "
+"date is automatically adjusted according to the product settings"
+msgstr "제품을 냉동실에서 냉장소로 제품을 옮기는경우 제품 설정에 따라 유통기한 자동조정"
+
+msgid ""
+"On moving this product to a freezer location (so when freezing it), the best"
+" before date will be replaced by today + this amount of days"
+msgstr "이 제품을 냉동고 위치로 옮기면 (냉동시)  유통기한을 오늘 + 설정값으로 변경한다"
+
+msgid "Default best before days after freezing"
+msgstr "냉동보관시 기본 유통기한"
+
+msgid ""
+"On moving this product from a freezer location (so when thawing it), the "
+"best before date will be replaced by today + this amount of days"
+msgstr ""
+"On moving this product from a freezer location (so when thawing it), the "
+"best before date will be replaced by today + this amount of days"
+
+msgid "Default best before days after thawing"
+msgstr "해동 후 기본 유통기한"
+
+msgid "This cannot be the same as the \"From\" location"
+msgstr "This cannot be the same as the \"From\" location"
+
+msgid "Thawed"
+msgstr "해동"
+
+msgid "Frozen"
+msgstr "냉동"
+
+msgid "Are you sure to delete userentity \"%s\"?"
+msgstr "Are you sure to delete userentity \"%s\"?"
+
+msgid "Shopping list settings"
+msgstr "구매 목록 설정"
+
+msgid "Show a month-view calendar"
+msgstr "월간 일정 보기"
+
+msgid "Don't automatically switch to the compact view on mobile devices"
+msgstr "휴대 기기에서 컴팩트보기로 자동 전환하지 않습니다"
+
+msgid "Edit note on %s"
+msgstr " %s메모 수정"
+
+msgid "Edit product on %s"
+msgstr " %s제품 수정"
+
+msgid "Edit recipe on %s"
+msgstr " %s레시피 수정"
+
+msgid "Desired servings"
+msgstr "원하는 인원분량"
+
+msgid "Base: %s"
+msgstr "Base: %s"
+
+msgid "Recipes settings"
+msgstr "요리법 설정"
+
+msgid "Recipe card"
+msgstr "Recipe card"
+
+msgid "Group ingredients by their product group"
+msgstr "Group ingredients by their product group"
+
+msgid "Unknown store"
+msgstr "알수없는 상점"
+
+msgid "Store"
+msgstr "상점"
+
+msgid "Transaction successfully undone"
+msgstr "실행 취소 성공"
+
+msgid "Default store"
+msgstr "기본 상점"
+
+msgid "Consume this stock entry"
+msgstr "재고품목 소비"
+
+msgid "Mark this stock entry as open"
+msgstr "이 재고 항목을 열린 것으로 표시"
+
+msgid "Mark this item as done"
+msgstr "항목 완료표시"
+
+msgid "Edit this item"
+msgstr "이 항목을 편집"
+
+msgid "Delete this item"
+msgstr "항목 삭제"
+
+msgid "Show an icon if the product is already on the shopping list"
+msgstr "제품이 이미 구매 목록에 있는 경우 아이콘 표시"
+
+msgid "Calories"
+msgstr "칼로리"
+
+msgid ""
+"By default the amount to be added to the shopping list is `needed amount - "
+"stock amount - shopping list amount` - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+msgstr ""
+"By default the amount to be added to the shopping list is `needed amount - "
+"stock amount - shopping list amount` - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+
+msgid "means %1$s per %2$s"
+msgstr "means %1$s per %2$s"
+
+msgid "Create inverse QU conversion"
+msgstr "Create inverse QU conversion"
+
+msgid "Create recipe"
+msgstr "레시피 생성"
+
+msgid "Save & continue to add ingredients and included recipes"
+msgstr "재료 및 포함 된 레시피 저장 및 계속 추가"
+
+msgid "Save & continue"
+msgstr "저장 및 계속진행"
+
+msgid "Save & return to recipes"
+msgstr "저장 및 레시피로 돌아가기"
