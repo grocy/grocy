@@ -32,7 +32,7 @@
 - Fixed a PHP warning when using the "Share/Integrate calendar (iCal)" button (thanks @tsia)
 
 ### API improvements/fixes
-- !!! BRAKING CHANGE: All prices are now related to the products **stock** quantity unit (instead the purchase QU)
+- !!! BREAKING CHANGE: All prices are now related to the products **stock** quantity unit (instead the purchase QU)
 - Fixed (again) that CORS was broken
 
 ### General & other improvements
