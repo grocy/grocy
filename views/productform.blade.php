@@ -347,7 +347,7 @@
 		</table>
 
 		<h2>
-			{{ $__t('Barcode Details') }}
+			{{ $__t('Barcodes') }}
 			<a class="btn btn-outline-dark show-as-dialog-link" type="button" href="{{ $U('/productbarcodes/new?embedded&product=' . $product->id ) }}">
 				<i class="fas fa-plus"></i> {{ $__t('Add') }}
 			</a>
@@ -358,8 +358,8 @@
 				<tr>
 					<th class="border-right"></th>
 					<th>{{ $__t('Barcode') }}</th>
-					<th>{{ $__t('QU Factor Purchase To Stock') }}</th>
-					<th>{{ $__t('Shopping Location') }}</th>
+					<th>{{ $__t('Factor purchase to stock quantity unit') }}</th>
+					<th>{{ $__t('Store') }}</th>
 				</tr>
 			</thead>
 			<tbody class="d-none">

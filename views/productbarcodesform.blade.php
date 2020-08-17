@@ -1,9 +1,9 @@
 @extends('layout.default')
 
 @if($mode == 'edit')
-	@section('title', $__t('Edit Barcodes'))
+	@section('title', $__t('Edit Barcode'))
 @else
-	@section('title', $__t('Create Barcodes'))
+	@section('title', $__t('Create Barcode'))
 @endif
 
 @section('viewJsName', 'productbarcodesform')
@@ -49,7 +49,7 @@
 				'additionalCssClasses' => 'input-group-qu',
 			))
 
-			@if(GROCY_FEATURE_FLAG_PRICE_TRACKING)
+			@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 			<div class="form-group">
 				<label for="shopping_location_id_id">{{ $__t('Default store') }}</label>
 				<select class="form-control" id="shopping_location_id" name="shopping_location_id">

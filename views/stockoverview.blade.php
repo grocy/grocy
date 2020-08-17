@@ -104,7 +104,7 @@
 				<tr>
 					<th class="border-right"></th>
 					<th>{{ $__t('Product') }}</th>
-					<th>{{ $__t('Product Group') }}</th>
+					<th>{{ $__t('Product group') }}</th>
 					<th>{{ $__t('Amount') }}</th>
 					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING) d-none @endif">{{ $__t('Next best before date') }}</th>
 					<th class="d-none">Hidden location</th>

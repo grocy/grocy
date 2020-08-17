@@ -1,12 +1,12 @@
 ﻿var stockOverviewTable = $('#stock-overview-table').DataTable({
-	'order': [[3, 'asc']],
+	'order': [[4, 'asc']],
 	'colReorder': false,
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 },
 		{ 'searchable': false, "targets": 0 },
-		{ 'visible': false, 'targets': 4 },
-		{ 'visible': false, 'targets': 5 }
+		{ 'visible': false, 'targets': 5 },
+		{ 'visible': false, 'targets': 6 }
 	],
 });
 $('#stock-overview-table tbody').removeClass("d-none");

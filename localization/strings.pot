@@ -1810,3 +1810,33 @@ msgstr ""
 
 msgid "Save & return to recipes"
 msgstr ""
+
+msgid "Stock value"
+msgstr ""
+
+msgid "Average price"
+msgstr ""
+
+msgid "Active"
+msgstr ""
+
+msgid "Barcodes"
+msgstr ""
+
+msgid "Barcode"
+msgstr ""
+
+msgid "Create Barcode"
+msgstr ""
+
+msgid "Barcode for product"
+msgstr ""
+
+msgid "Edit Barcode"
+msgstr ""
+
+msgid "Not enough in stock (not included in costs), %s ingredient missing"
+msgstr ""
+
+msgid "Based on the prices of the default consume rule which is \"First expiring first, then first in first out\""
+msgstr ""

@@ -1,54 +1,88 @@
---Deprecate unused view to instead use products_last_purchased
+-- Deprecate unused view to instead use products_last_purchased
 DROP VIEW products_current_price;
 
-CREATE VIEW products_last_purchased AS
+CREATE VIEW products_last_purchased
+AS
 select
-        1 AS id, -- Dummy, LessQL needs an id column
-        sw.product_id, sw.amount, sw.best_before_date, sw.purchased_date, sw.price, sw.qu_factor_purchase_to_stock, sw.location_id, sw.shopping_location_id
- from stock_log sw join
-        (select
-        s1.product_id,
-        max(s1.id) max_stock_id
-        from stock_log s1
-        join (
-                select s.product_id,
-                        max(s.purchased_date) max_purchased_date
-                from stock_log s
-                where undone = 0
-                and transaction_type in ('purchase', 'stock-edit-new', 'inventory-correction')
-                group by s.product_id) sp2 on s1.product_id = sp2.product_id and s1.purchased_date = sp2.max_purchased_date
-	where undone = 0
-	and transaction_type in ('purchase', 'stock-edit-new', 'inventory-correction')
-group by s1.product_id) sp3 on sw.product_id = sp3.product_id and sw.id = sp3.max_stock_id;
+	1 AS id, -- Dummy, LessQL needs an id column
+	sl.product_id,
+	sl.amount,
+	sl.best_before_date,
+	sl.purchased_date,
+	sl.price,
+	sl.qu_factor_purchase_to_stock,
+	sl.location_id,
+	sl.shopping_location_id
+	from stock_log sl
+	JOIN (
+			SELECT
+				s1.product_id,
+				MAX(s1.id) max_stock_id
+				FROM stock_log s1
+				JOIN (
+						SELECT
+							s.product_id,
+							MAX(s.purchased_date) max_purchased_date
+						FROM stock_log s
+						WHERE undone = 0
+							AND transaction_type in ('purchase', 'stock-edit-new', 'inventory-correction')
+						GROUP BY s.product_id) sp2
+					ON s1.product_id = sp2.product_id
+					AND s1.purchased_date = sp2.max_purchased_date
+			WHERE undone = 0
+				AND transaction_type in ('purchase', 'stock-edit-new', 'inventory-correction')
+			GROUP BY s1.product_id) sp3
+		ON sl.product_id = sp3.product_id
+		AND sl.id = sp3.max_stock_id;
 
-CREATE VIEW products_average_price AS
-select
+CREATE VIEW products_average_price
+AS
+SELECT
 	1 AS id, -- Dummy, LessQL needs an id column
 	s.product_id,
 	round(sum(s.amount * s.price) / sum(s.amount), 2) as price
-from stock s group by s.product_id;
+FROM stock s
+GROUP BY s.product_id;
 
-CREATE VIEW products_oldest_stock_unit_price AS
--- find oldest best_before_date then oldest purchased_date then make sure to return one stock row using max
-select
+CREATE VIEW products_oldest_stock_unit_price
+AS
+-- Find oldest best_before_date then oldest purchased_date then make sure to return one stock row using max
+SELECT
 	1 AS id, -- Dummy, LessQL needs an id column
-	sw.product_id, sw.amount, sw.best_before_date, sw.purchased_date, sw.price, sw.qu_factor_purchase_to_stock, sw.location_id, sw.shopping_location_id
- from stock sw join
-	(select
-		s1.product_id,
-		min(s1.id) min_stock_id
-		from stock s1
-		join (
-			select s.product_id,
-				sp.oldest_date,
-				min(s.purchased_date) min_purchased_date
-			from stock s join
-				(select product_id,
-					min(best_before_date) as oldest_date
-					from stock
-					group by product_id) sp on s.product_id = sp.product_id and s.best_before_date = sp.oldest_date
-			group by s.product_id, sp.oldest_date) sp2 on s1.product_id = sp2.product_id and s1.best_before_date = sp2.oldest_date and s1.purchased_date = sp2.min_purchased_date
-	group by s1.product_id) sp3 on sw.product_id = sp3.product_id and sw.id = sp3.min_stock_id;
+	sw.product_id,
+	sw.amount,
+	sw.best_before_date,
+	sw.purchased_date,
+	sw.price, sw.qu_factor_purchase_to_stock,
+	sw.location_id,
+	sw.shopping_location_id
+	FROM stock sw
+	JOIN (
+			SELECT
+				s1.product_id,
+				MIN(s1.id) min_stock_id
+			FROM stock s1
+			JOIN (
+				SELECT
+					s.product_id,
+					sp.oldest_date,
+					MIN(s.purchased_date) min_purchased_date
+				FROM stock s
+				JOIN (
+						SELECT
+							product_id,
+							MIN(best_before_date) as oldest_date
+						FROM stock
+						GROUP BY product_id) sp
+					ON s.product_id = sp.product_id
+						AND s.best_before_date = sp.oldest_date
+				GROUP BY s.product_id, sp.oldest_date) sp2
+			ON s1.product_id = sp2.product_id
+				AND s1.best_before_date = sp2.oldest_date
+				AND s1.purchased_date = sp2.min_purchased_date
+			GROUP BY s1.product_id) sp3
+ON sw.product_id = sp3.product_id
+AND sw.id = sp3.min_stock_id;
 
 DROP VIEW recipes_pos_resolved;
 CREATE VIEW recipes_pos_resolved
