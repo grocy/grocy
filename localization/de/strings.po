@@ -1,5 +1,8 @@
+# 
 # Translators:
 # Hagen Tasche <github@fvbor.de>, 2020
+# Luca RHK <luca@rhk-in.de>, 2020
+# Tobias Wolter <mumpfpuffel@gmail.com>, 2020
 # Bernd Bestel <bernd@berrnd.de>, 2020
 # 
 msgid ""
@@ -211,7 +214,7 @@ msgid "Minimum stock amount"
 msgstr "Mindestbestand"
 
 msgid "Default best before days"
-msgstr "Standard Haltbarkeit in Tagen"
+msgstr "Standard-Haltbarkeit in Tagen"
 
 msgid "Quantity unit purchase"
 msgstr "Mengeneinheit Einkauf"
@@ -469,9 +472,6 @@ msgstr "Rezepte"
 
 msgid "Edit recipe"
 msgstr "Rezept bearbeiten"
-
-msgid "New recipe"
-msgstr "Neues Rezept"
 
 msgid "Ingredients list"
 msgstr "Zutatenliste"
@@ -780,8 +780,8 @@ msgid "When not set, you will get logged out at latest after 30 days"
 msgstr ""
 "Wenn nicht gesetzt, wirst du spätestens nach 30 Tagen automatisch abgemeldet"
 
-msgid "Filter by status"
-msgstr "Nach Status filtern"
+msgid "Status"
+msgstr "Status"
 
 msgid "Below min. stock amount"
 msgstr "Unter Mindestbestand"
@@ -996,7 +996,7 @@ msgstr ""
 "Wert von 0 deaktiviert dies) "
 
 msgid "Default best before days after opened"
-msgstr "Standard Haltbarkeit in Tagen nach dem Öffnen"
+msgstr "Standard-Haltbarkeit in Tagen nach dem Öffnen"
 
 msgid "Marked %1$s of %2$s as opened"
 msgstr "%1$s %2$s als geöffnet markiert"
@@ -1038,7 +1038,7 @@ msgid ""
 "Automatically do the booking using the last price and the amount of the "
 "shopping list item, if the product has \"Default best before days\" set"
 msgstr ""
-"Buchung automatisch ausführen, wenn das Produkt \"Standard Haltbarkeit in "
+"Buchung automatisch ausführen, wenn das Produkt \"Standard-Haltbarkeit in "
 "Tagen\" hinterlegt hat (als Preis wird der letzte Preis verwendet)"
 
 msgid "Skip"
@@ -1323,7 +1323,7 @@ msgid "Expiring soon days"
 msgstr "\"Bald ablaufend\"-Tage"
 
 msgid "Default location"
-msgstr "Standard Standort"
+msgstr "Standard-Standort"
 
 msgid "Default amount for purchase"
 msgstr "Standardmenge für Einkauf"
@@ -1584,8 +1584,8 @@ msgstr "Mir zugewiesen"
 msgid "assigned to %s"
 msgstr "zugewiesen an %s"
 
-msgid "Filter by assignment"
-msgstr "Nach Zuweisung filtern"
+msgid "Assignment"
+msgstr "Zuweisung"
 
 msgid "Consume product on chore execution"
 msgstr "Ein Produkt bei Hausarbeit-Ausführung verbrauchen"
@@ -1915,7 +1915,7 @@ msgstr ""
 "Anzahl von Tagen ersetzt"
 
 msgid "Default best before days after freezing"
-msgstr "Standard Haltbartkeit in Tagen nach dem Einfrieren"
+msgstr "Standard-Haltbartkeit in Tagen nach dem Einfrieren"
 
 msgid ""
 "On moving this product from a freezer location (so when thawing it), the "
@@ -1926,7 +1926,7 @@ msgstr ""
 "Tagen ersetzt"
 
 msgid "Default best before days after thawing"
-msgstr "Standard Haltbartkeit in Tagen nach dem Auftauen"
+msgstr "Standard-Haltbartkeit in Tagen nach dem Auftauen"
 
 msgid "This cannot be the same as the \"From\" location"
 msgstr "Dies kann nicht derselbe Standort wie \"Von Standort\" sein"
@@ -1983,7 +1983,7 @@ msgid "Transaction successfully undone"
 msgstr "Transaktion erfolgreich rückgängig gemacht"
 
 msgid "Default store"
-msgstr "Standard Geschäft"
+msgstr "Standardgeschäft"
 
 msgid "Consume this stock entry"
 msgstr "Verbrauche diesen Bestandseintrag"
@@ -1995,11 +1995,43 @@ msgid "Mark this item as done"
 msgstr "Diesen Eintrag als erledigt markieren"
 
 msgid "Edit this item"
-msgstr "Diesen Eintrag löschen"
+msgstr "Diesen Eintrag bearbeiten"
 
 msgid "Delete this item"
-msgstr "Diesen Eintrag bearbeiten"
+msgstr "Diesen Eintrag löschen"
 
 msgid "Show an icon if the product is already on the shopping list"
 msgstr ""
 "Ein Symbol anzeigen, wenn das Produkt bereits auf dem Einkaufszettel steht"
+
+msgid "Calories"
+msgstr "Kalorien"
+
+msgid ""
+"By default the amount to be added to the shopping list is `needed amount - "
+"stock amount - shopping list amount` - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+msgstr ""
+"Standardmäßig ist die Menge, die der Einkaufsliste hinzugefügt werden soll, "
+"\"benötigte Menge - Lagerbestand - Menge bereits auf der Einkaufsliste\" - "
+"wenn dies aktiviert ist, wird nur gegen den Lagerbestand geprüft, nicht "
+"gegen das, was bereits auf der Einkaufsliste steht"
+
+msgid "means %1$s per %2$s"
+msgstr "bedeutet %1$s pro %2$s"
+
+msgid "Create inverse QU conversion"
+msgstr "Inverse ME-Umrechnung erstellen"
+
+msgid "Create recipe"
+msgstr "Rezept erstellen"
+
+msgid "Save & continue to add ingredients and included recipes"
+msgstr "Speichern & fortfahren um Zutaten und enthaltene Rezepte hinzuzufügen"
+
+msgid "Save & continue"
+msgstr "Speichern & fortfahren"
+
+msgid "Save & return to recipes"
+msgstr "Speichern & zurück zu Rezepte"

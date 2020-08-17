@@ -1,5 +1,8 @@
+# 
 # Translators:
 # Jonathan Adams <jonathan@connockadams.uk>, 2020
+# Ben Fayers <ben.fayers@gmail.com>, 2020
+# duck. <me@duck.me.uk>, 2020
 # 
 msgid ""
 msgstr ""
@@ -7,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Jonathan Adams <jonathan@connockadams.uk>, 2020\n"
+"Last-Translator: duck. <me@duck.me.uk>, 2020\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/grocy/teams/93189/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -84,7 +87,7 @@ msgid "Locations"
 msgstr "Locations"
 
 msgid "Stores"
-msgstr ""
+msgstr "Shops"
 
 msgid "Quantity units"
 msgstr "Quantity units"
@@ -224,7 +227,7 @@ msgid "Create location"
 msgstr "Create location"
 
 msgid "Create store"
-msgstr ""
+msgstr "Create shop"
 
 msgid "Create quantity unit"
 msgstr "Create quantity unit"
@@ -260,7 +263,7 @@ msgid "Edit location"
 msgstr "Edit location"
 
 msgid "Edit store"
-msgstr ""
+msgstr "Edit shop"
 
 msgid "Record data"
 msgstr "Record data"
@@ -339,7 +342,7 @@ msgid "Are you sure to delete location \"%s\"?"
 msgstr "Are you sure to delete location \"%s\"?"
 
 msgid "Are you sure to delete store \"%s\"?"
-msgstr ""
+msgstr "Are you sure to delete shop \"%s\"?"
 
 msgid "Manage API keys"
 msgstr "Manage API keys"
@@ -467,9 +470,6 @@ msgstr "Recipes"
 
 msgid "Edit recipe"
 msgstr "Edit recipe"
-
-msgid "New recipe"
-msgstr "New recipe"
 
 msgid "Ingredients list"
 msgstr "Ingredients list"
@@ -767,8 +767,8 @@ msgstr "Stay logged in permanently"
 msgid "When not set, you will get logged out at latest after 30 days"
 msgstr "When not set, you will get logged out at latest after 30 days"
 
-msgid "Filter by status"
-msgstr "Filter by status"
+msgid "Status"
+msgstr "Status"
 
 msgid "Below min. stock amount"
 msgstr "Below min. stock amount"
@@ -977,6 +977,8 @@ msgid ""
 "When this product was marked as opened, the best before date will be "
 "replaced by today + this amount of days (a value of 0 disables this)"
 msgstr ""
+"When this product was marked as opened, the best before date will be "
+"replaced by today + this amount of days (a value of 0 disables this)"
 
 msgid "Default best before days after opened"
 msgstr "Default best before days after opened"
@@ -1108,7 +1110,7 @@ msgid "You have to select a location"
 msgstr "You have to select a location"
 
 msgid "You have to select a store"
-msgstr ""
+msgstr "You have to select a shop"
 
 msgid "List"
 msgstr "List"
@@ -1144,7 +1146,7 @@ msgid "Changelog"
 msgstr "Changelog"
 
 msgid "will be multiplied by a factor of %1$s to get %2$s"
-msgstr ""
+msgstr "will be multiplied by a factor of %1$s to get %2$s"
 
 msgid "The given date is earlier than today, are you sure?"
 msgstr "The given date is earlier than today, are you sure?"
@@ -1331,7 +1333,7 @@ msgid "Meal plan"
 msgstr "Meal plan"
 
 msgid "Add recipe on %s"
-msgstr ""
+msgstr "Add recipe on %s"
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1549,8 +1551,8 @@ msgstr "Assigned to me"
 msgid "assigned to %s"
 msgstr "assigned to %s"
 
-msgid "Filter by assignment"
-msgstr "Filter by assignment"
+msgid "Assignment"
+msgstr "Assignment"
 
 msgid "Consume product on chore execution"
 msgstr "Consume product on chore execution"
@@ -1773,6 +1775,8 @@ msgid ""
 "Camera access is only possible when supported and allowed by your browser "
 "and when grocy is served via a secure (https://) connection"
 msgstr ""
+"Camera access is only possible when supported and allowed by your browser "
+"and when grocy is served via a secure (https://) connection"
 
 msgid "Keep screen on"
 msgstr "Keep screen on"
@@ -1781,169 +1785,210 @@ msgid "Keep screen on while displaying a \"fullscreen-card\""
 msgstr "Keep screen on while displaying a \"fullscreen-card\""
 
 msgid "A purchased date is required"
-msgstr ""
+msgstr "A purchased date is required"
 
 msgid ""
 "When a product is selected, one unit (per serving in purchase quantity unit)"
 " will be added to stock on consuming this recipe"
 msgstr ""
+"When a product is selected, one unit (per serving in purchase quantity unit)"
+" will be added to stock on consuming this recipe"
 
 msgid "Produces product"
-msgstr ""
+msgstr "Produces product"
 
 msgid "This booking cannot be undone"
-msgstr ""
+msgstr "This booking cannot be undone"
 
 msgid "Booking does not exist or was already undone"
-msgstr ""
+msgstr "Booking does not exist or was already undone"
 
 msgid "Are you sure to delete API key \"%s\"?"
-msgstr ""
+msgstr "Are you sure to delete API key \"%s\"?"
 
 msgid "Add note"
-msgstr ""
+msgstr "Add note"
 
 msgid "Add note on %s"
-msgstr ""
+msgstr "Add note on %s"
 
 msgid "per day"
-msgstr ""
+msgstr "per day"
 
 msgid "Compact view"
-msgstr ""
+msgstr "Compact view"
 
 msgid "Normal view"
-msgstr ""
+msgstr "Normal view"
 
 msgid "Only undone items"
-msgstr ""
+msgstr "Only undone items"
 
 msgid "Add product"
-msgstr ""
+msgstr "Add product"
 
 msgid "Add product on %s"
-msgstr ""
+msgstr "Add product on %s"
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
-msgstr ""
+msgstr "Consume all ingredients needed by this weeks recipes or products"
 
 msgid "Meal plan recipe"
-msgstr ""
+msgstr "Meal plan recipe"
 
 msgid "Meal plan note"
-msgstr ""
+msgstr "Meal plan note"
 
 msgid "Meal plan product"
-msgstr ""
+msgstr "Meal plan product"
 
 msgid "Scan mode"
-msgstr ""
+msgstr "Scan mode"
 
 msgid "on"
-msgstr ""
+msgstr "on"
 
 msgid "off"
-msgstr ""
+msgstr "off"
 
 msgid ""
 "Scan mode is on but not all required fields could be populated automatically"
 msgstr ""
+"Scan mode is on but not all required fields could be populated automatically"
 
 msgid "Is freezer"
-msgstr ""
+msgstr "Is freezer"
 
 msgid ""
 "When moving products from/to a freezer location, the products best before "
 "date is automatically adjusted according to the product settings"
 msgstr ""
+"When moving products from/to a freezer location, the products best before "
+"date is automatically adjusted according to the product settings"
 
 msgid ""
 "On moving this product to a freezer location (so when freezing it), the best"
 " before date will be replaced by today + this amount of days"
 msgstr ""
+"On moving this product to a freezer location (so when freezing it), the best"
+" before date will be replaced by today + this amount of days"
 
 msgid "Default best before days after freezing"
-msgstr ""
+msgstr "Default best before days after freezing"
 
 msgid ""
 "On moving this product from a freezer location (so when thawing it), the "
 "best before date will be replaced by today + this amount of days"
 msgstr ""
+"On moving this product from a freezer location (so when thawing it), the "
+"best before date will be replaced by today + this amount of days"
 
 msgid "Default best before days after thawing"
-msgstr ""
+msgstr "Default best before days after thawing"
 
 msgid "This cannot be the same as the \"From\" location"
-msgstr ""
+msgstr "This cannot be the same as the \"From\" location"
 
 msgid "Thawed"
-msgstr ""
+msgstr "Thawed"
 
 msgid "Frozen"
-msgstr ""
+msgstr "Frozen"
 
 msgid "Are you sure to delete userentity \"%s\"?"
-msgstr ""
+msgstr "Are you sure to delete userentity \"%s\"?"
 
 msgid "Shopping list settings"
-msgstr ""
+msgstr "Shopping list settings"
 
 msgid "Show a month-view calendar"
-msgstr ""
+msgstr "Show a month-view calendar"
 
 msgid "Don't automatically switch to the compact view on mobile devices"
-msgstr ""
+msgstr "Don't automatically switch to the compact view on mobile devices"
 
 msgid "Edit note on %s"
-msgstr ""
+msgstr "Edit note on %s"
 
 msgid "Edit product on %s"
-msgstr ""
+msgstr "Edit product on %s"
 
 msgid "Edit recipe on %s"
-msgstr ""
+msgstr "Edit recipe on %s"
 
 msgid "Desired servings"
-msgstr ""
+msgstr "Desired servings"
 
 msgid "Base: %s"
-msgstr ""
+msgstr "Base: %s"
 
 msgid "Recipes settings"
-msgstr ""
+msgstr "Recipes settings"
 
 msgid "Recipe card"
-msgstr ""
+msgstr "Recipe card"
 
 msgid "Group ingredients by their product group"
-msgstr ""
+msgstr "Group ingredients by their product group"
 
 msgid "Unknown store"
-msgstr ""
+msgstr "Unknown shop"
 
 msgid "Store"
-msgstr ""
+msgstr "Shop"
 
 msgid "Transaction successfully undone"
-msgstr ""
+msgstr "Transaction successfully undone"
 
 msgid "Default store"
-msgstr ""
+msgstr "Default shop"
 
 msgid "Consume this stock entry"
-msgstr ""
+msgstr "Consume this stock entry"
 
 msgid "Mark this stock entry as open"
-msgstr ""
+msgstr "Mark this stock entry as open"
 
 msgid "Mark this item as done"
-msgstr ""
+msgstr "Mark this item as done"
 
 msgid "Edit this item"
-msgstr ""
+msgstr "Edit this item"
 
 msgid "Delete this item"
-msgstr ""
+msgstr "Delete this item"
 
 msgid "Show an icon if the product is already on the shopping list"
+msgstr "Show an icon if the product is already on the shopping list"
+
+msgid "Calories"
+msgstr "Calories"
+
+msgid ""
+"By default the amount to be added to the shopping list is `needed amount - "
+"stock amount - shopping list amount` - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
 msgstr ""
+"By default the amount to be added to the shopping list is `needed amount - "
+"stock amount - shopping list amount` - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+
+msgid "means %1$s per %2$s"
+msgstr "means %1$s per %2$s"
+
+msgid "Create inverse QU conversion"
+msgstr "Create inverse QU conversion"
+
+msgid "Create recipe"
+msgstr "Create recipe"
+
+msgid "Save & continue to add ingredients and included recipes"
+msgstr "Save & continue to add ingredients and included recipes"
+
+msgid "Save & continue"
+msgstr "Save & continue"
+
+msgid "Save & return to recipes"
+msgstr "Save & return to recipes"

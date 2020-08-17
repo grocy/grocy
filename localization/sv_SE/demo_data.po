@@ -1,3 +1,4 @@
+# 
 # Translators:
 # Mathias Fröjd <info@mcfrojd.com>, 2019
 # Fredrik Hendeberg <fredrik@hendeberg.com>, 2019
@@ -356,14 +357,14 @@ msgstr "Portugisiska (Portugal)"
 
 # Use a in your country well known supermarket name
 msgid "DemoSupermarket1"
-msgstr ""
+msgstr "Demo-affär1"
 
 # Use a in your country well known supermarket name
 msgid "DemoSupermarket2"
-msgstr ""
+msgstr "Demo-affär2"
 
 msgid "Japanese"
-msgstr ""
+msgstr "Japanska"
 
 msgid "Chinese (Taiwan)"
-msgstr ""
+msgstr "Kinesiska (Taiwan)"

@@ -1,3 +1,4 @@
+# 
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # Ankue <ankue.spam@gmail.com>, 2019
@@ -5,6 +6,8 @@
 # Ricardo Martin Marcucci <rmarku@gmail.com>, 2019
 # Igor Perez <igordiablo@hotmail.com>, 2020
 # Jose Rugel <joserugel@gmail.com>, 2020
+# Christian Cotillas <marril01@gmail.com>, 2020
+# 94da36f1deec90bc5ed082cca3edbf58_8d5d5e6 <4436ad586b0a58e21cae88865adf5b43_901667>, 2020
 # 
 msgid ""
 msgstr ""
@@ -12,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Jose Rugel <joserugel@gmail.com>, 2020\n"
+"Last-Translator: 94da36f1deec90bc5ed082cca3edbf58_8d5d5e6 <4436ad586b0a58e21cae88865adf5b43_901667>, 2020\n"
 "Language-Team: Spanish (https://www.transifex.com/grocy/teams/93189/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -68,16 +71,16 @@ msgid "Batteries overview"
 msgstr "Resumen de pilas"
 
 msgid "Purchase"
-msgstr "Compra"
+msgstr "Comprar"
 
 msgid "Consume"
-msgstr "Consumo"
+msgstr "Consumir"
 
 msgid "Inventory"
 msgstr "Inventario"
 
 msgid "Shopping list"
-msgstr "Lista de compras"
+msgstr "Lista de la compra"
 
 msgid "Chore tracking"
 msgstr "Seguimiento de tareas del hogar"
@@ -89,7 +92,7 @@ msgid "Locations"
 msgstr "Ubicaciones"
 
 msgid "Stores"
-msgstr "Almacenes"
+msgstr "Tiendas"
 
 msgid "Quantity units"
 msgstr "Unidades"
@@ -230,7 +233,7 @@ msgid "Create location"
 msgstr "Crear ubicación"
 
 msgid "Create store"
-msgstr "Crear almacén"
+msgstr "Crear tienda"
 
 msgid "Create quantity unit"
 msgstr "Crear unidad"
@@ -266,7 +269,7 @@ msgid "Edit location"
 msgstr "Editar ubicación"
 
 msgid "Edit store"
-msgstr "Editar almacén"
+msgstr "Editar tienda"
 
 msgid "Record data"
 msgstr "Registro de datos"
@@ -347,7 +350,7 @@ msgid "Are you sure to delete location \"%s\"?"
 msgstr "¿Borrar la ubicación \"%s\"?"
 
 msgid "Are you sure to delete store \"%s\"?"
-msgstr "¿Eliminar el almacén \"%s\"?"
+msgstr "¿Eliminar la tienda \"%s\"?"
 
 msgid "Manage API keys"
 msgstr "Administrar las claves de API"
@@ -475,9 +478,6 @@ msgstr "Recetas"
 
 msgid "Edit recipe"
 msgstr "Editar receta"
-
-msgid "New recipe"
-msgstr "Receta nueva"
 
 msgid "Ingredients list"
 msgstr "Lista de ingredientes"
@@ -782,8 +782,8 @@ msgstr "Mantener la sesión iniciada"
 msgid "When not set, you will get logged out at latest after 30 days"
 msgstr "Si no está marcado, se cerrará la sesión como máximo en 30 días"
 
-msgid "Filter by status"
-msgstr "Filtrar por estado"
+msgid "Status"
+msgstr "Estado"
 
 msgid "Below min. stock amount"
 msgstr "Por debajo de la cantidad mínima de inventario"
@@ -1126,7 +1126,7 @@ msgid "You have to select a location"
 msgstr "Debe seleccionar una ubicación"
 
 msgid "You have to select a store"
-msgstr "Debe seleccionar un almacén"
+msgstr "Debe seleccionar una tienda"
 
 msgid "List"
 msgstr "Lista"
@@ -1579,8 +1579,8 @@ msgstr "Asignada a mí"
 msgid "assigned to %s"
 msgstr "asignada a %s"
 
-msgid "Filter by assignment"
-msgstr "Filtrar por asignado"
+msgid "Assignment"
+msgstr "Asignación"
 
 msgid "Consume product on chore execution"
 msgstr "Consumir productos en la ejecución de las tareas"
@@ -1967,16 +1967,16 @@ msgid "Group ingredients by their product group"
 msgstr "Agrupar los ingredientes por su grupo de productos"
 
 msgid "Unknown store"
-msgstr "Almacén desconocido"
+msgstr "Tienda desconocida"
 
 msgid "Store"
-msgstr "Almacén"
+msgstr "Tienda"
 
 msgid "Transaction successfully undone"
 msgstr "Transacción deshecha exitosamente"
 
 msgid "Default store"
-msgstr "Almacén predeterminado"
+msgstr "Tienda predeterminada"
 
 msgid "Consume this stock entry"
 msgstr "Consumir esta entrada de inventario"
@@ -1995,3 +1995,35 @@ msgstr "Eliminar este ítem"
 
 msgid "Show an icon if the product is already on the shopping list"
 msgstr "Mostrar un icono si el producto ya está en la lista de compras"
+
+msgid "Calories"
+msgstr "Calorías"
+
+msgid ""
+"By default the amount to be added to the shopping list is `needed amount - "
+"stock amount - shopping list amount` - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+msgstr ""
+"De manera predeterminada, la cantidad que se agregará a la lista de compras "
+"es `cantidad necesaria - cantidad de existencias - cantidad de la lista de "
+"compras` - cuando esto está habilitado, solo se compara con la cantidad de "
+"existencias, no con lo que ya está en la lista de compras"
+
+msgid "means %1$s per %2$s"
+msgstr "significa %1$s por %2$s"
+
+msgid "Create inverse QU conversion"
+msgstr "Crear Unidad de conversion inversa"
+
+msgid "Create recipe"
+msgstr "Crear receta"
+
+msgid "Save & continue to add ingredients and included recipes"
+msgstr "Guardar y continuar agregando ingredientes y recetas incluidas"
+
+msgid "Save & continue"
+msgstr "Guardar y continuar"
+
+msgid "Save & return to recipes"
+msgstr "Guardar y regresar a la lista de recetas"

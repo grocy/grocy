@@ -1,6 +1,8 @@
+# 
 # Translators:
 # Marcin Redlica <marcin.redlica@gmail.com>, 2019
 # Maczuga <maczugapl@gmail.com>, 2019
+# Tomasz Dobrzański <verbanet@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -8,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Maczuga <maczugapl@gmail.com>, 2019\n"
+"Last-Translator: Tomasz Dobrzański <verbanet@gmail.com>, 2020\n"
 "Language-Team: Polish (https://www.transifex.com/grocy/teams/93189/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -173,9 +175,6 @@ msgstr "Niemiecki"
 msgid "Italian"
 msgstr "Włoski"
 
-msgid "Demo in different language"
-msgstr "Demo w innych językach"
-
 msgid "This is the note content of the recipe ingredient"
 msgstr "To jest treść notatki składnika receptury"
 
@@ -317,10 +316,69 @@ msgid "This is an example user entity..."
 msgstr ""
 
 msgid "Custom field"
-msgstr ""
+msgstr "Pole niestandardowe"
 
 msgid "Example field value..."
-msgstr ""
+msgstr "Przykładowa wartość pola ..."
 
 msgid "Waffle rolls"
 msgstr ""
+
+msgid "Danish"
+msgstr "Duński"
+
+msgid "Dutch"
+msgstr "Holenderski"
+
+msgid "Norwegian"
+msgstr "Norweski"
+
+msgid "Demo"
+msgstr ""
+
+msgid "Stable version"
+msgstr ""
+
+msgid "Preview version"
+msgstr ""
+
+msgid "current release"
+msgstr ""
+
+msgid "not yet released"
+msgstr ""
+
+msgid "Portuguese (Brazil)"
+msgstr "Portugalski (Brazylia)"
+
+msgid "This is a note"
+msgstr ""
+
+msgid "Freezer"
+msgstr "Zamrażarka"
+
+msgid "Hungarian"
+msgstr "Węgierski"
+
+msgid "Slovak"
+msgstr "Słowacki"
+
+msgid "Czech"
+msgstr "Czeski"
+
+msgid "Portuguese (Portugal)"
+msgstr "Portugalski (Portugalia)"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket1"
+msgstr ""
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket2"
+msgstr ""
+
+msgid "Japanese"
+msgstr "Japoński"
+
+msgid "Chinese (Taiwan)"
+msgstr "Chiński (Tajwan)"

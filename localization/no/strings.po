@@ -1,7 +1,9 @@
+# 
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # Andreas Henden <chairman2s.ah@gmail.com>, 2019
 # Marius Borø <blizzwave@gmail.com>, 2020
+# Ruben Sperre <ruben@rsperre.net>, 2020
 # 
 msgid ""
 msgstr ""
@@ -9,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Marius Borø <blizzwave@gmail.com>, 2020\n"
+"Last-Translator: Ruben Sperre <ruben@rsperre.net>, 2020\n"
 "Language-Team: Norwegian (https://www.transifex.com/grocy/teams/93189/no/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -86,7 +88,7 @@ msgid "Locations"
 msgstr "Lokasjoner"
 
 msgid "Stores"
-msgstr ""
+msgstr "Butikker"
 
 msgid "Quantity units"
 msgstr "Forpakning"
@@ -225,7 +227,7 @@ msgid "Create location"
 msgstr "Opprett lokasjon"
 
 msgid "Create store"
-msgstr ""
+msgstr "Opprett butikk"
 
 msgid "Create quantity unit"
 msgstr "Opprett forpakning"
@@ -261,7 +263,7 @@ msgid "Edit location"
 msgstr "Endre lokasjon"
 
 msgid "Edit store"
-msgstr ""
+msgstr "Rediger butikk"
 
 msgid "Record data"
 msgstr "Logg handlinger"
@@ -339,7 +341,7 @@ msgid "Are you sure to delete location \"%s\"?"
 msgstr "Er du sikker du ønsker å slette lokasjon \"%s\"?"
 
 msgid "Are you sure to delete store \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette butikken"
 
 msgid "Manage API keys"
 msgstr "Administrer API-Keys"
@@ -467,9 +469,6 @@ msgstr "Oppskrifter"
 
 msgid "Edit recipe"
 msgstr "Endre oppskrift"
-
-msgid "New recipe"
-msgstr "Ny oppskrift"
 
 msgid "Ingredients list"
 msgstr "Liste over ingredienser"
@@ -768,8 +767,8 @@ msgstr ""
 "Hvis \"Husk meg\" ikke er huket av vil du automatisk bli logget av om 30 "
 "dager"
 
-msgid "Filter by status"
-msgstr "Filtrér etter status"
+msgid "Status"
+msgstr "Status"
 
 msgid "Below min. stock amount"
 msgstr "Under under min. beholdningsmengde"
@@ -1111,7 +1110,7 @@ msgid "You have to select a location"
 msgstr "Du må velge en lokasjon"
 
 msgid "You have to select a store"
-msgstr ""
+msgstr "Du må velge en butikk"
 
 msgid "List"
 msgstr "Liste"
@@ -1147,7 +1146,7 @@ msgid "Changelog"
 msgstr "Change Log"
 
 msgid "will be multiplied by a factor of %1$s to get %2$s"
-msgstr ""
+msgstr "vil bli ganget med%1$sfor å få %2$s"
 
 msgid "The given date is earlier than today, are you sure?"
 msgstr ""
@@ -1561,8 +1560,8 @@ msgstr "Tildelt meg"
 msgid "assigned to %s"
 msgstr "tildelt %s"
 
-msgid "Filter by assignment"
-msgstr "Filtrér etter oppgave"
+msgid "Assignment"
+msgstr "Oppgave"
 
 msgid "Consume product on chore execution"
 msgstr "Konsumer produkt når husarbeid blir utført"
@@ -1942,31 +1941,64 @@ msgid "Group ingredients by their product group"
 msgstr "Gruppér ingredienser ut fra deres produktgruppe"
 
 msgid "Unknown store"
-msgstr ""
+msgstr "Ukjent butikk"
 
 msgid "Store"
-msgstr ""
+msgstr "Butikk"
 
 msgid "Transaction successfully undone"
-msgstr ""
+msgstr "Transaksjonen er reversert"
 
 msgid "Default store"
-msgstr ""
+msgstr "Standard butikk"
 
 msgid "Consume this stock entry"
-msgstr ""
+msgstr "Bruk denne lagerbeholdningen"
 
 msgid "Mark this stock entry as open"
-msgstr ""
+msgstr "Marker denne som åpen"
 
 msgid "Mark this item as done"
-msgstr ""
+msgstr "Marker denne som utført"
 
 msgid "Edit this item"
-msgstr ""
+msgstr "Rediger denne oppføringen"
 
 msgid "Delete this item"
-msgstr ""
+msgstr "Slett denne varen"
 
 msgid "Show an icon if the product is already on the shopping list"
+msgstr "Vis ett ikon dersom produktet allerede er på handlelisten"
+
+msgid "Calories"
+msgstr "Kalorier"
+
+msgid ""
+"By default the amount to be added to the shopping list is `needed amount - "
+"stock amount - shopping list amount` - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
 msgstr ""
+"Som standard er antallet som legges til handlelisten 'antallet du behøver - "
+"antallet du har på lager - handleliste antall' Når dette er aktivert blir "
+"det kun sjekket mot lagerbeholdningen, ikke det som allerede er påført "
+"handlelisten"
+
+msgid "means %1$s per %2$s"
+msgstr "betyr %1$s per %2$s"
+
+msgid "Create inverse QU conversion"
+msgstr "Lager invertert QU konvertering"
+
+msgid "Create recipe"
+msgstr "Lag oppskrift"
+
+msgid "Save & continue to add ingredients and included recipes"
+msgstr ""
+"Lagre og fortsett for å legge til ingredienser og inkluderte oppskrifter"
+
+msgid "Save & continue"
+msgstr "Lagre & fortsett"
+
+msgid "Save & return to recipes"
+msgstr "Lagre & returner til oppskrifter"

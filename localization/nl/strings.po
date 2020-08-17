@@ -1,3 +1,4 @@
+# 
 # Translators:
 # Llewy <carlvanoene@gmail.com>, 2019
 # Adriaan Peeters <apeeters@lashout.net>, 2019
@@ -14,6 +15,10 @@
 # gggg <bashankamp@gmail.com>, 2020
 # Bastien Van Houdt <bastienvanhoudt@gmail.com>, 2020
 # D. Polders <zigurana@gmail.com>, 2020
+# crnh <corne@haasjes.nu>, 2020
+# Sigi 789 <ssigi333lvl3@outlook.com>, 2020
+# Jesse Nagel <jnagel24@gmail.com>, 2020
+# Peter van den Heuvel <peter@pvandenheuvel.nl>, 2020
 # 
 msgid ""
 msgstr ""
@@ -21,7 +26,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: D. Polders <zigurana@gmail.com>, 2020\n"
+"Last-Translator: Peter van den Heuvel <peter@pvandenheuvel.nl>, 2020\n"
 "Language-Team: Dutch (https://www.transifex.com/grocy/teams/93189/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -98,7 +103,7 @@ msgid "Locations"
 msgstr "Locaties"
 
 msgid "Stores"
-msgstr ""
+msgstr "Winkel"
 
 msgid "Quantity units"
 msgstr "Hoeveelheidseenheden"
@@ -239,7 +244,7 @@ msgid "Create location"
 msgstr "Maak een locatie"
 
 msgid "Create store"
-msgstr ""
+msgstr "Maak winkel"
 
 msgid "Create quantity unit"
 msgstr "Maak hoeveelheidseenheid"
@@ -275,7 +280,7 @@ msgid "Edit location"
 msgstr "Wijzig locatie"
 
 msgid "Edit store"
-msgstr ""
+msgstr "Bewerk winkel"
 
 msgid "Record data"
 msgstr "Gegevens opslaan"
@@ -356,7 +361,7 @@ msgid "Are you sure to delete location \"%s\"?"
 msgstr "Weet u zeker dat u locatie \"%s\" wilt verwijderen?"
 
 msgid "Are you sure to delete store \"%s\"?"
-msgstr ""
+msgstr "Weet je zeker dat je winkel \"%s\" wilt verwijderen?"
 
 msgid "Manage API keys"
 msgstr "Beheer API sleutels"
@@ -484,9 +489,6 @@ msgstr "Recepten"
 
 msgid "Edit recipe"
 msgstr "Bewerk recept"
-
-msgid "New recipe"
-msgstr "Nieuw recept"
 
 msgid "Ingredients list"
 msgstr "Ingrediëntenlijst"
@@ -787,8 +789,8 @@ msgstr "Permanent aangemeld blijven"
 msgid "When not set, you will get logged out at latest after 30 days"
 msgstr "Wanneer niet aangevinkt zal je na maximum 30 dagen afgemeld worden"
 
-msgid "Filter by status"
-msgstr "Filteren op status"
+msgid "Status"
+msgstr "Status"
 
 msgid "Below min. stock amount"
 msgstr "Onder min. voorraadhoeveelheid"
@@ -1138,7 +1140,7 @@ msgid "You have to select a location"
 msgstr "Je moet een locatie selecteren"
 
 msgid "You have to select a store"
-msgstr ""
+msgstr "Je moet een winkel selecteren"
 
 msgid "List"
 msgstr "Lijst"
@@ -1175,7 +1177,7 @@ msgid "Changelog"
 msgstr "Changelog"
 
 msgid "will be multiplied by a factor of %1$s to get %2$s"
-msgstr ""
+msgstr "Wordt vermenigvuldigd met een factor van %1$s om %2$s te bekomen "
 
 msgid "The given date is earlier than today, are you sure?"
 msgstr "De opgegeven datum is eerder dan vandaag; weet je het zeker?"
@@ -1593,8 +1595,8 @@ msgstr "Toegewezen aan mij"
 msgid "assigned to %s"
 msgstr "Toegewezen aan %s"
 
-msgid "Filter by assignment"
-msgstr "Filter op toewijzing"
+msgid "Assignment"
+msgstr "Toewijzing"
 
 msgid "Consume product on chore execution"
 msgstr "Consumeer product bij uitvoeren klus"
@@ -1982,31 +1984,66 @@ msgid "Group ingredients by their product group"
 msgstr "Groepeer ingrediënten per productcategorie"
 
 msgid "Unknown store"
-msgstr ""
+msgstr "Onbekende winkel"
 
 msgid "Store"
-msgstr ""
+msgstr "Winkel"
 
 msgid "Transaction successfully undone"
-msgstr ""
+msgstr "Transactie succesvol ongedaan gemaakt"
 
 msgid "Default store"
-msgstr ""
+msgstr "Standaardwinkel"
 
 msgid "Consume this stock entry"
-msgstr ""
+msgstr "Consumeer deze voorraad"
 
 msgid "Mark this stock entry as open"
-msgstr ""
+msgstr "Markeer deze voorraad als open"
 
 msgid "Mark this item as done"
-msgstr ""
+msgstr "Markeer dit item als voltooid"
 
 msgid "Edit this item"
-msgstr ""
+msgstr "Wijzig dit item"
 
 msgid "Delete this item"
-msgstr ""
+msgstr "Verwijder dit item"
 
 msgid "Show an icon if the product is already on the shopping list"
 msgstr ""
+"Toon een symbool indien dit product al op het boodschappenlijstje staat"
+
+msgid "Calories"
+msgstr "Calorieën"
+
+msgid ""
+"By default the amount to be added to the shopping list is `needed amount - "
+"stock amount - shopping list amount` - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+msgstr ""
+"Standaard is de hoeveelheid die toegevoegd  zal worden aan het "
+"boodschappenlijstje gelijk aan 'Vereiste hoeveelheid - hoeveelheid in "
+"voorraad - hoeveelheid op boodschappenlijstje'. Wanneer dit is ingeschakeld "
+"wordt alleen het verchil tussen de vereiste hoeveelheid en de voorraad "
+"vergeleken, en niet wat al op het boodschappelijstje staat."
+
+msgid "means %1$s per %2$s"
+msgstr "Betekent %1$s per %2$s"
+
+msgid "Create inverse QU conversion"
+msgstr "Maak tegenovergestelde hoeveelheidseenheidsconversie"
+
+msgid "Create recipe"
+msgstr "Maak een recept"
+
+msgid "Save & continue to add ingredients and included recipes"
+msgstr ""
+"Bewaar en ga door met het toevoegen van ingrediënten en toegevoegde recepten"
+
+msgid "Save & continue"
+msgstr "Opslaan en doorgaan"
+
+msgid "Save & return to recipes"
+msgstr "Opslaan en terugkeren naar recepten"

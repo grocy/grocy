@@ -1,3 +1,4 @@
+# 
 # Translators:
 # Juraj Smieško <juraj.smiesko@gmail.com>, 2020
 # Jose Riha <jose1711@gmail.com>, 2020
@@ -478,9 +479,6 @@ msgstr "Recepty"
 msgid "Edit recipe"
 msgstr "Upraviť recept"
 
-msgid "New recipe"
-msgstr "Nový recept"
-
 msgid "Ingredients list"
 msgstr "Zoznam ingrediencií"
 
@@ -800,8 +798,8 @@ msgstr "Zostať prihlásený"
 msgid "When not set, you will get logged out at latest after 30 days"
 msgstr "Ak nie je zaškrtnuté, budete odhlásený najneskôr o 30 dní"
 
-msgid "Filter by status"
-msgstr "Filtrovať podľa stavu"
+msgid "Status"
+msgstr ""
 
 msgid "Below min. stock amount"
 msgstr "Pod min. množstvom zásoby"
@@ -1595,8 +1593,8 @@ msgstr "Priradené mne"
 msgid "assigned to %s"
 msgstr "priradené používateľovi %s"
 
-msgid "Filter by assignment"
-msgstr "Filtrovať podľa priradenia"
+msgid "Assignment"
+msgstr ""
 
 msgid "Consume product on chore execution"
 msgstr "Spotrebovať výrobok pri vykonaní povinnosti"
@@ -2006,4 +2004,32 @@ msgid "Delete this item"
 msgstr ""
 
 msgid "Show an icon if the product is already on the shopping list"
+msgstr ""
+
+msgid "Calories"
+msgstr ""
+
+msgid ""
+"By default the amount to be added to the shopping list is `needed amount - "
+"stock amount - shopping list amount` - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+msgstr ""
+
+msgid "means %1$s per %2$s"
+msgstr ""
+
+msgid "Create inverse QU conversion"
+msgstr ""
+
+msgid "Create recipe"
+msgstr ""
+
+msgid "Save & continue to add ingredients and included recipes"
+msgstr ""
+
+msgid "Save & continue"
+msgstr ""
+
+msgid "Save & return to recipes"
 msgstr ""

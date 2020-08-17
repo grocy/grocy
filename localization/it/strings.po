@@ -1,3 +1,4 @@
+# 
 # Translators:
 # Sergio Zampello <seriotv88@gmail.com>, 2019
 # Bernd Bestel <bernd@berrnd.de>, 2019
@@ -475,9 +476,6 @@ msgstr "Ricette"
 msgid "Edit recipe"
 msgstr "Modifica Ricetta"
 
-msgid "New recipe"
-msgstr "Nuova Ricetta"
-
 msgid "Ingredients list"
 msgstr "Lista Ingredienti"
 
@@ -781,8 +779,8 @@ msgstr "Resta connesso in modo permanente"
 msgid "When not set, you will get logged out at latest after 30 days"
 msgstr "Se non impostato, si verrà disconnessi alla fine dopo 30 giorni"
 
-msgid "Filter by status"
-msgstr "Filtra per stato"
+msgid "Status"
+msgstr "Stato"
 
 msgid "Below min. stock amount"
 msgstr "Sotto min. quantità in dispensa"
@@ -1587,8 +1585,8 @@ msgstr "Assegnato a me"
 msgid "assigned to %s"
 msgstr "assegnato a %s"
 
-msgid "Filter by assignment"
-msgstr "Filtra per assegnazione"
+msgid "Assignment"
+msgstr "Incarico"
 
 msgid "Consume product on chore execution"
 msgstr "Consumare il prodotto per l'esecuzione delle faccende domestiche"
@@ -2009,3 +2007,36 @@ msgstr "Elimina questo elemento"
 
 msgid "Show an icon if the product is already on the shopping list"
 msgstr "Mostra un'icona se il prodotto è già nella lista della spesa"
+
+msgid "Calories"
+msgstr "Calorie"
+
+msgid ""
+"By default the amount to be added to the shopping list is `needed amount - "
+"stock amount - shopping list amount` - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+msgstr ""
+"Per impostazione predefinita, l'importo da aggiungere alla lista della spesa"
+" è “importo necessario - importo della dispensa - importo della lista della "
+"spesa”  - quando questo è abilitato, viene verificato solo rispetto "
+"all'importo della dispensa, non rispetto a ciò che è già nella lista della "
+"spesa"
+
+msgid "means %1$s per %2$s"
+msgstr "si intende %1$s fino a %2$s"
+
+msgid "Create inverse QU conversion"
+msgstr "Crea conversione inversa di Unità di Quantità"
+
+msgid "Create recipe"
+msgstr "Crea una ricetta"
+
+msgid "Save & continue to add ingredients and included recipes"
+msgstr "Salva e continua ad aggiungere ingredienti e ricette incluse"
+
+msgid "Save & continue"
+msgstr "Salva e continua"
+
+msgid "Save & return to recipes"
+msgstr "Salva e torna alle ricette"

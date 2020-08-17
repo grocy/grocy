@@ -1,9 +1,12 @@
+# 
 # Translators:
 # Joao Santos <joaocpdsantos@gmail.com>, 2019
 # Armando Neto <armando.muassab@gmail.com>, 2019
 # Danilo Vieira <cebikyn@gmail.com>, 2019
 # Jefferson Brito Passos dos Santos <jeffersantoss@gmail.com>, 2019
 # Arthur Vieira <skytakes.arthur@gmail.com>, 2020
+# Leonardo Fialho <leonardofialho@gmail.com>, 2020
+# Andre Souto <andre.jost@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -11,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Arthur Vieira <skytakes.arthur@gmail.com>, 2020\n"
+"Last-Translator: Andre Souto <andre.jost@gmail.com>, 2020\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/grocy/teams/93189/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +24,7 @@ msgstr ""
 "X-Domain: grocy/strings\n"
 
 msgid "Stock overview"
-msgstr "Resumo do Estoque"
+msgstr "Resumo do estoque"
 
 msgid "%s product expires"
 msgid_plural "%s products expiring"
@@ -88,7 +91,7 @@ msgid "Locations"
 msgstr "Localizações"
 
 msgid "Stores"
-msgstr ""
+msgstr "Lojas"
 
 msgid "Quantity units"
 msgstr "Unidades de medida"
@@ -228,7 +231,7 @@ msgid "Create location"
 msgstr "Criar Localização"
 
 msgid "Create store"
-msgstr ""
+msgstr "Criar loja"
 
 msgid "Create quantity unit"
 msgstr "Criar unidade de medida"
@@ -264,7 +267,7 @@ msgid "Edit location"
 msgstr "Editar localização"
 
 msgid "Edit store"
-msgstr ""
+msgstr "Editar loja"
 
 msgid "Record data"
 msgstr "Gravar dados"
@@ -345,7 +348,7 @@ msgid "Are you sure to delete location \"%s\"?"
 msgstr "Tem certeza que quer apagar este local \"%s\"?"
 
 msgid "Are you sure to delete store \"%s\"?"
-msgstr ""
+msgstr "Você tem certeza que deseja apagar a loja \"%s\"?"
 
 msgid "Manage API keys"
 msgstr "Organizar Chaves do API"
@@ -473,9 +476,6 @@ msgstr "Receitas"
 
 msgid "Edit recipe"
 msgstr "Editar receita"
-
-msgid "New recipe"
-msgstr "Nova receita"
 
 msgid "Ingredients list"
 msgstr "Lista de ingredientes"
@@ -778,8 +778,8 @@ msgstr "Permanecer logado permanentemente"
 msgid "When not set, you will get logged out at latest after 30 days"
 msgstr "Quando não marcado, você será deslogado após 30 dias"
 
-msgid "Filter by status"
-msgstr "Filtrar por status"
+msgid "Status"
+msgstr "Status"
 
 msgid "Below min. stock amount"
 msgstr "Abaixo da quantidade min. de estoque"
@@ -988,6 +988,9 @@ msgid ""
 "When this product was marked as opened, the best before date will be "
 "replaced by today + this amount of days (a value of 0 disables this)"
 msgstr ""
+"Quando este produto foi marcado como aberto, a data \"melhor consumir antes "
+"de\" ser'á trocada por hoje + quantidade de dias (um valor em 0 desativa "
+"isso)"
 
 msgid "Default best before days after opened"
 msgstr "Validade padão após aberto"
@@ -1120,7 +1123,7 @@ msgid "You have to select a location"
 msgstr "Você precisa selecionar uma localização"
 
 msgid "You have to select a store"
-msgstr ""
+msgstr "Necessário Selecionar uma Loja"
 
 msgid "List"
 msgstr "Lista"
@@ -1156,7 +1159,7 @@ msgid "Changelog"
 msgstr "Log de alterações"
 
 msgid "will be multiplied by a factor of %1$s to get %2$s"
-msgstr ""
+msgstr "será multiplicado por um fator de %1$s para obter %2$s"
 
 msgid "The given date is earlier than today, are you sure?"
 msgstr "Você tem certeza que a data especificada é anterior a data de hoje?"
@@ -1347,7 +1350,7 @@ msgid "Meal plan"
 msgstr "Plano de refeições"
 
 msgid "Add recipe on %s"
-msgstr ""
+msgstr "Adicionar receita a %s"
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1574,8 +1577,8 @@ msgstr "Atribuir para mim"
 msgid "assigned to %s"
 msgstr "atribuído para %s"
 
-msgid "Filter by assignment"
-msgstr "Filtrar por atribuição"
+msgid "Assignment"
+msgstr "Tarefa"
 
 msgid "Consume product on chore execution"
 msgstr "Consumir produto na execução de tarefa doméstica"
@@ -1797,6 +1800,9 @@ msgid ""
 "Camera access is only possible when supported and allowed by your browser "
 "and when grocy is served via a secure (https://) connection"
 msgstr ""
+"O acesso para a câmera só é possível quando suportado e autorizado pelo seu "
+"Navegador e quando o grocy está trafegando por uma conexão segura "
+"(https://)."
 
 msgid "Keep screen on"
 msgstr "Mantenha a tela ligada"
@@ -1806,169 +1812,215 @@ msgstr ""
 "Mantenha a tela ligada quando estiver mostrando um \"Cartão de tela-cheia\""
 
 msgid "A purchased date is required"
-msgstr ""
+msgstr "Uma data de compra é obrigatória"
 
 msgid ""
 "When a product is selected, one unit (per serving in purchase quantity unit)"
 " will be added to stock on consuming this recipe"
 msgstr ""
+"Quando um produto é selecionado, uma unidade (por porção servida em "
+"quantidade de unidade de compra) será adicionada ao estoque ao consumir essa"
+" receita."
 
 msgid "Produces product"
-msgstr ""
+msgstr "Produto Manufaturado"
 
 msgid "This booking cannot be undone"
-msgstr ""
+msgstr "Essa reserva não pode ser desfeita"
 
 msgid "Booking does not exist or was already undone"
-msgstr ""
+msgstr "Reserva não existe ou já foi desfeita anteriormente."
 
 msgid "Are you sure to delete API key \"%s\"?"
-msgstr ""
+msgstr "Tem certeza que gostaria de remover a chave de API \"%s\"?"
 
 msgid "Add note"
-msgstr ""
+msgstr "Adicionar Comentário"
 
 msgid "Add note on %s"
-msgstr ""
+msgstr "Adicionar Nota a %s"
 
 msgid "per day"
-msgstr ""
+msgstr "Diário"
 
 msgid "Compact view"
-msgstr ""
+msgstr "Visão Compacta"
 
 msgid "Normal view"
-msgstr ""
+msgstr "Visão Normal"
 
 msgid "Only undone items"
-msgstr ""
+msgstr "Somente Itens incompletos"
 
 msgid "Add product"
-msgstr ""
+msgstr "Adicionar Produto"
 
 msgid "Add product on %s"
-msgstr ""
+msgstr "Adicionar produto em %s"
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
 msgstr ""
+"Consumir todos ingredientes necessários para as receitas dessa semana ou "
+"produtos."
 
 msgid "Meal plan recipe"
-msgstr ""
+msgstr "Receita do Plano de Refeição "
 
 msgid "Meal plan note"
-msgstr ""
+msgstr "Comentário do Plano de Refeição"
 
 msgid "Meal plan product"
-msgstr ""
+msgstr "Produto do Plano de Refeição"
 
 msgid "Scan mode"
-msgstr ""
+msgstr "Modo Scanner"
 
 msgid "on"
-msgstr ""
+msgstr "Ligado"
 
 msgid "off"
-msgstr ""
+msgstr "Desligado"
 
 msgid ""
 "Scan mode is on but not all required fields could be populated automatically"
 msgstr ""
+"Modo Scanner está ligado, mas não foi possível preencher todos os Campos "
+"Obrigatórios automaticamente."
 
 msgid "Is freezer"
-msgstr ""
+msgstr "Congelador"
 
 msgid ""
 "When moving products from/to a freezer location, the products best before "
 "date is automatically adjusted according to the product settings"
 msgstr ""
+"Quando mover produtos de/para uma localidade freezer, as datas \"melhor "
+"consumir antes de\" serão ajustadas automaticamente de acordo com as "
+"configurações do produto."
 
 msgid ""
 "On moving this product to a freezer location (so when freezing it), the best"
 " before date will be replaced by today + this amount of days"
 msgstr ""
+"Ao mover esse produto para uma localidade freezer (enquanto congelar), a "
+"data \"melhor consumir antes de\" será trocada por hoje + quantidade de dias"
 
 msgid "Default best before days after freezing"
-msgstr ""
+msgstr "\"Consumir antes de\" padrão depois de congelado"
 
 msgid ""
 "On moving this product from a freezer location (so when thawing it), the "
 "best before date will be replaced by today + this amount of days"
 msgstr ""
+"Ao mover esse produto para uma localidade freezer (enquanto derreter), a "
+"data \"melhor consumir antes de\" será trocada por hoje + quantidade de dias"
 
 msgid "Default best before days after thawing"
-msgstr ""
+msgstr "Consumir antes de (após derretimento) padrão"
 
 msgid "This cannot be the same as the \"From\" location"
-msgstr ""
+msgstr "Isto não será o mesmo que a localidade \"De\""
 
 msgid "Thawed"
-msgstr ""
+msgstr "Derretido"
 
 msgid "Frozen"
-msgstr ""
+msgstr "Congelado"
 
 msgid "Are you sure to delete userentity \"%s\"?"
-msgstr ""
+msgstr "Tem certeza que deseja remover \"%s\"?"
 
 msgid "Shopping list settings"
-msgstr ""
+msgstr "Configurações da Lista de Compras"
 
 msgid "Show a month-view calendar"
-msgstr ""
+msgstr "Visualizar calendário em formato \"Mês Completo\""
 
 msgid "Don't automatically switch to the compact view on mobile devices"
-msgstr ""
+msgstr "Não alterar automaticamente para a Visão Compacta em aparelhos móveis"
 
 msgid "Edit note on %s"
-msgstr ""
+msgstr "Editar comentário em %s"
 
 msgid "Edit product on %s"
-msgstr ""
+msgstr "Editar produto em %s"
 
 msgid "Edit recipe on %s"
-msgstr ""
+msgstr "Editar receita em %s"
 
 msgid "Desired servings"
-msgstr ""
+msgstr "Porções Desejadas"
 
 msgid "Base: %s"
-msgstr ""
+msgstr "Base: %s"
 
 msgid "Recipes settings"
-msgstr ""
+msgstr "Configurações da Receita"
 
 msgid "Recipe card"
-msgstr ""
+msgstr "Cartão de Receita"
 
 msgid "Group ingredients by their product group"
-msgstr ""
+msgstr "Agrupar ingredientes por grupo de produto"
 
 msgid "Unknown store"
-msgstr ""
+msgstr "Loja Desconhecida"
 
 msgid "Store"
-msgstr ""
+msgstr "Loja"
 
 msgid "Transaction successfully undone"
-msgstr ""
+msgstr "Transação estornada com sucesso"
 
 msgid "Default store"
-msgstr ""
+msgstr "Loja Padrão"
 
 msgid "Consume this stock entry"
-msgstr ""
+msgstr "Consumir esse item do estoque"
 
 msgid "Mark this stock entry as open"
-msgstr ""
+msgstr "Marcar esse item do estoque como Aberto"
 
 msgid "Mark this item as done"
-msgstr ""
+msgstr "Marcar item como Concluído"
 
 msgid "Edit this item"
-msgstr ""
+msgstr "Editar esse item"
 
 msgid "Delete this item"
-msgstr ""
+msgstr "Remover esse item"
 
 msgid "Show an icon if the product is already on the shopping list"
+msgstr "Mostrar um ícone se o produto já está na lista de compras"
+
+msgid "Calories"
+msgstr "Calorias"
+
+msgid ""
+"By default the amount to be added to the shopping list is `needed amount - "
+"stock amount - shopping list amount` - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
 msgstr ""
+"Por padrão, a quantidade a ser adicionada a lista de compras é \"quantidade "
+"necessária\" , \"quantidade em estoque\" , \"quantidade na lista de "
+"compras\" - quando isto está ativado, só é feita a verificação contra a "
+"\"quantidade em estoque\", não contra o que já estava na lista de compras."
+
+msgid "means %1$s per %2$s"
+msgstr "quer dizer %1$s para cada %2$s"
+
+msgid "Create inverse QU conversion"
+msgstr "Criar conversão QU inversa"
+
+msgid "Create recipe"
+msgstr "Criar receita"
+
+msgid "Save & continue to add ingredients and included recipes"
+msgstr "Salvar & Continuar para adicionar ingredientes nas receitas incluídas"
+
+msgid "Save & continue"
+msgstr "Salvar & continuar"
+
+msgid "Save & return to recipes"
+msgstr "Salvar & retornar a receitas"

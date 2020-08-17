@@ -1,10 +1,12 @@
+# 
 # Translators:
 # Márk Kökény <oregapamgroup@gmail.com>, 2019
 # Ádám Kovács <kovacsadam07@outlook.hu>, 2019
-# Peter Gyetvai <gyetpet@gmail.com>, 2020
+# Peter Gyetvai <gyetpet@mailbox.org>, 2020
 # Gábor Szellő <gabor.szello@gmail.com>, 2020
-# b i <balazs.izso@gesundheitscloud.de>, 2020
+# bolash <balazs.izso@gesundheitscloud.de>, 2020
 # Gabor Pilsits <gabor.pilsits@gmail.com>, 2020
+# lakosd <login@lakosd.net>, 2020
 # 
 msgid ""
 msgstr ""
@@ -12,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Gabor Pilsits <gabor.pilsits@gmail.com>, 2020\n"
+"Last-Translator: lakosd <login@lakosd.net>, 2020\n"
 "Language-Team: Hungarian (https://www.transifex.com/grocy/teams/93189/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -474,9 +476,6 @@ msgstr "Receptek"
 msgid "Edit recipe"
 msgstr "Recept szerkesztése"
 
-msgid "New recipe"
-msgstr "Új recept"
-
 msgid "Ingredients list"
 msgstr "Hozzávalók listája"
 
@@ -637,13 +636,13 @@ msgstr[1] "%s Egység"
 
 msgid "%s chore is due to be done"
 msgid_plural "%s chores are due to be done"
-msgstr[0] "%sházimunkát(kat) kell elvégezni"
-msgstr[1] "%sházimunkát(kat) kell elvégezni"
+msgstr[0] "%sházimunkát kell elvégezni"
+msgstr[1] "%sházimunkát kell elvégezni"
 
 msgid "%s chore is overdue to be done"
 msgid_plural "%s chores are overdue to be done"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s házimunkára lejárt a határidő"
+msgstr[1] "%s házimunkára lejárt a határidő"
 
 msgid "%s battery is due to be charged"
 msgid_plural "%s batteries are due to be charged"
@@ -775,8 +774,8 @@ msgid "When not set, you will get logged out at latest after 30 days"
 msgstr ""
 "Amikor nincs beállítva, akkor legkorábban 30 nap után ki leszel léptetve"
 
-msgid "Filter by status"
-msgstr "Állapot szerinti szűrés"
+msgid "Status"
+msgstr ""
 
 msgid "Below min. stock amount"
 msgstr "Min. készlet mennyiség alatt"
@@ -1345,7 +1344,7 @@ msgid "A predefined list of values, one per line"
 msgstr ""
 
 msgid "Chores due soon days"
-msgstr ""
+msgstr "Esedékes házimunkák ennyi napon belül"
 
 msgid "Batteries due to be charged soon days"
 msgstr ""
@@ -1520,8 +1519,8 @@ msgstr ""
 
 msgid "%s chore is assigned to me"
 msgid_plural "%s chores are assigned to me"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s házimunka hozzám rendelve"
+msgstr[1] "%s házimunka hozzám rendelve"
 
 msgid "Assigned to me"
 msgstr "Hozzám rendelve"
@@ -1529,8 +1528,8 @@ msgstr "Hozzám rendelve"
 msgid "assigned to %s"
 msgstr "hozzárendelve ehhez: %s"
 
-msgid "Filter by assignment"
-msgstr "Hozzárendelés szerinti szűrés"
+msgid "Assignment"
+msgstr ""
 
 msgid "Consume product on chore execution"
 msgstr ""
@@ -1916,4 +1915,32 @@ msgid "Delete this item"
 msgstr ""
 
 msgid "Show an icon if the product is already on the shopping list"
+msgstr ""
+
+msgid "Calories"
+msgstr ""
+
+msgid ""
+"By default the amount to be added to the shopping list is `needed amount - "
+"stock amount - shopping list amount` - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+msgstr ""
+
+msgid "means %1$s per %2$s"
+msgstr ""
+
+msgid "Create inverse QU conversion"
+msgstr ""
+
+msgid "Create recipe"
+msgstr ""
+
+msgid "Save & continue to add ingredients and included recipes"
+msgstr ""
+
+msgid "Save & continue"
+msgstr ""
+
+msgid "Save & return to recipes"
 msgstr ""

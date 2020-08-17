@@ -1,7 +1,7 @@
+# 
 # Translators:
 # bigoudo, 2019
 # Bernd Bestel <bernd@berrnd.de>, 2019
-# Alex Deneuvillers <alex.deneuvillers@gmail.com>, 2019
 # Cedric Octave <transifex@octvcdrc.fr>, 2019
 # Hydreliox Hydreliox <hydreliox@gmail.com>, 2019
 # Matthieu K, 2019
@@ -19,6 +19,10 @@
 # Nicolas Moisson <nicolas.moisson@protonmail.com>, 2020
 # Gregory Pelletier <gpelletier@ip512.com>, 2020
 # nerdinator <florian.dupret@gmail.com>, 2020
+# Sacha D <contact@shaac.me>, 2020
+# Julien Ferga <palalex38@gmail.com>, 2020
+# S Hugeee <sebsebsebseb007@gmail.com>, 2020
+# Renaud Martinet <me+github@renaudmarti.net>, 2020
 # 
 msgid ""
 msgstr ""
@@ -26,7 +30,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: nerdinator <florian.dupret@gmail.com>, 2020\n"
+"Last-Translator: Renaud Martinet <me+github@renaudmarti.net>, 2020\n"
 "Language-Team: French (https://www.transifex.com/grocy/teams/93189/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -360,7 +364,7 @@ msgid "Are you sure to delete location \"%s\"?"
 msgstr "Voulez-vous vraiment supprimer l'emplacement \"%s\" ?"
 
 msgid "Are you sure to delete store \"%s\"?"
-msgstr ""
+msgstr "Voulez-vous vraiment supprimer le magasin \"%s\" ?"
 
 msgid "Manage API keys"
 msgstr "Gérer les clefs API"
@@ -488,9 +492,6 @@ msgstr "Recettes"
 
 msgid "Edit recipe"
 msgstr "Modifier une recette"
-
-msgid "New recipe"
-msgstr "Nouvelle recette"
 
 msgid "Ingredients list"
 msgstr "Liste des ingrédients"
@@ -793,8 +794,8 @@ msgstr "Rester connecté de manière permanente"
 msgid "When not set, you will get logged out at latest after 30 days"
 msgstr "Si non défini, vous serez déconnecté après au moins 30 jours"
 
-msgid "Filter by status"
-msgstr "Filtrer par statut"
+msgid "Status"
+msgstr "Status"
 
 msgid "Below min. stock amount"
 msgstr "En dessous du seuil de stock minimum"
@@ -998,7 +999,7 @@ msgstr ""
 "premier sorti\""
 
 msgid "Mark %1$s of %2$s as open"
-msgstr "Indiquer%1$s de %2$s comme ouvert"
+msgstr "Indiquer %1$s de %2$s comme ouvert"
 
 msgid ""
 "When this product was marked as opened, the best before date will be "
@@ -1012,7 +1013,7 @@ msgid "Default best before days after opened"
 msgstr "Date de péremption en jours par défaut après ouverture"
 
 msgid "Marked %1$s of %2$s as opened"
-msgstr "Indiqué%1$s de %2$s comme ouvert"
+msgstr "Indiquer %1$s de %2$s comme ouvert"
 
 msgid "Mark as opened"
 msgstr "Indiquer comme ouvert"
@@ -1089,8 +1090,7 @@ msgstr "Photo"
 
 msgid "Uncheck ingredients to not put them on the shopping list"
 msgstr ""
-"Pas assez en stock, %s ingrédients manquants mais déjà dans la liste de "
-"courses"
+"Décocher des ingrédients pour ne pas les ajouter à la liste de courses"
 
 msgid "This is for statistical purposes only"
 msgstr "À des fins statistiques uniquement"
@@ -1176,7 +1176,7 @@ msgid "Changelog"
 msgstr "Journalisation"
 
 msgid "will be multiplied by a factor of %1$s to get %2$s"
-msgstr ""
+msgstr "sera multiplié par un facteur %1$s pour obtenir %2$s"
 
 msgid "The given date is earlier than today, are you sure?"
 msgstr "La date saisie est antérieure à aujourd'hui, êtes-vous sûr?"
@@ -1374,7 +1374,7 @@ msgstr[0] "%s part / portion"
 msgstr[1] "%s parts / portions"
 
 msgid "Week costs"
-msgstr "Budget hebo"
+msgstr "Budget hebdo"
 
 msgid "Configuration"
 msgstr "Configuration"
@@ -1590,8 +1590,8 @@ msgstr "Assigné à moi"
 msgid "assigned to %s"
 msgstr "assigné à %s"
 
-msgid "Filter by assignment"
-msgstr "Filtrer par tâche"
+msgid "Assignment"
+msgstr "Tâche"
 
 msgid "Consume product on chore execution"
 msgstr "Consommer un produit lors de l'exécution de la corvée"
@@ -1983,25 +1983,57 @@ msgid "Store"
 msgstr "Magasin"
 
 msgid "Transaction successfully undone"
-msgstr ""
+msgstr "Transaction annulée avec succès"
 
 msgid "Default store"
-msgstr ""
+msgstr "Magasin par défaut"
 
 msgid "Consume this stock entry"
-msgstr ""
+msgstr "Consommer cette entrée du stock"
 
 msgid "Mark this stock entry as open"
-msgstr ""
+msgstr "Indiquer cette entrée du stock comme ouverte"
 
 msgid "Mark this item as done"
-msgstr ""
+msgstr "Indiqué cet élément comme fait"
 
 msgid "Edit this item"
-msgstr ""
+msgstr "Éditer cet élément"
 
 msgid "Delete this item"
-msgstr ""
+msgstr "Supprimer cet élément"
 
 msgid "Show an icon if the product is already on the shopping list"
+msgstr "Afficher une icône si le produit est déjà dans la liste de courses"
+
+msgid "Calories"
+msgstr "Calories"
+
+msgid ""
+"By default the amount to be added to the shopping list is `needed amount - "
+"stock amount - shopping list amount` - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
 msgstr ""
+"Par défaut, la quantité ajoutée à la liste d’achat est « qté nécessaire - "
+"qté en stock - qté présente dans la liste de course ». Lorsque cette "
+"fonction est activée, la comparaison s’effectuera uniquement sur les stocks,"
+" et non sur la quantité déjà présente dans la liste de course."
+
+msgid "means %1$s per %2$s"
+msgstr "signifie %1$s par %2$s"
+
+msgid "Create inverse QU conversion"
+msgstr "Créer un ratio de conversion d'UQ inverse"
+
+msgid "Create recipe"
+msgstr "Créer une recette"
+
+msgid "Save & continue to add ingredients and included recipes"
+msgstr ""
+
+msgid "Save & continue"
+msgstr "Sauvegarder et continuer"
+
+msgid "Save & return to recipes"
+msgstr "Sauvegarder et retourner aux recettes"

@@ -1,3 +1,4 @@
+# 
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # Pavel Pletenev <cpp.create@gmail.com>, 2019
@@ -485,9 +486,6 @@ msgstr "Рецепты"
 msgid "Edit recipe"
 msgstr "Изменить рецепт"
 
-msgid "New recipe"
-msgstr "Новый рецепт"
-
 msgid "Ingredients list"
 msgstr "Список ингредиентов"
 
@@ -809,8 +807,8 @@ msgstr "Оставаться  в сети всегда"
 msgid "When not set, you will get logged out at latest after 30 days"
 msgstr "Если не отмечено, то вы выйдете автоматически через 30 дней"
 
-msgid "Filter by status"
-msgstr "Отфильтровать по статусу"
+msgid "Status"
+msgstr ""
 
 msgid "Below min. stock amount"
 msgstr "Меньше мин. заданного кол-ва"
@@ -1604,8 +1602,8 @@ msgstr "Назначено мне"
 msgid "assigned to %s"
 msgstr "назначено %s"
 
-msgid "Filter by assignment"
-msgstr "Отфильтровать по назначению"
+msgid "Assignment"
+msgstr ""
 
 msgid "Consume product on chore execution"
 msgstr "Употребить продукт по исполнению работы"
@@ -2013,4 +2011,32 @@ msgid "Delete this item"
 msgstr ""
 
 msgid "Show an icon if the product is already on the shopping list"
+msgstr ""
+
+msgid "Calories"
+msgstr ""
+
+msgid ""
+"By default the amount to be added to the shopping list is `needed amount - "
+"stock amount - shopping list amount` - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+msgstr ""
+
+msgid "means %1$s per %2$s"
+msgstr ""
+
+msgid "Create inverse QU conversion"
+msgstr ""
+
+msgid "Create recipe"
+msgstr ""
+
+msgid "Save & continue to add ingredients and included recipes"
+msgstr ""
+
+msgid "Save & continue"
+msgstr ""
+
+msgid "Save & return to recipes"
 msgstr ""

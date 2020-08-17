@@ -1,8 +1,10 @@
+# 
 # Translators:
 # dark159123 <r.j.hansen@protonmail.com>, 2019
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # Troels Siggaard <troels@siggaard.com>, 2019
 # Brian Moos Lindberg <brian@blueeel.dk>, 2019
+# Henrik Bækbo <henrik.baekbo@mail.dk>, 2020
 # 
 msgid ""
 msgstr ""
@@ -10,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Brian Moos Lindberg <brian@blueeel.dk>, 2019\n"
+"Last-Translator: Henrik Bækbo <henrik.baekbo@mail.dk>, 2020\n"
 "Language-Team: Danish (https://www.transifex.com/grocy/teams/93189/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -87,7 +89,7 @@ msgid "Locations"
 msgstr "Steder"
 
 msgid "Stores"
-msgstr ""
+msgstr "Forretninger"
 
 msgid "Quantity units"
 msgstr "Mængdeenheder"
@@ -470,9 +472,6 @@ msgstr "Opskrifter"
 msgid "Edit recipe"
 msgstr "Rediger opskrift"
 
-msgid "New recipe"
-msgstr "Ny opskrift"
-
 msgid "Ingredients list"
 msgstr "Ingrediensliste"
 
@@ -772,8 +771,8 @@ msgstr "Forbliv logget ind"
 msgid "When not set, you will get logged out at latest after 30 days"
 msgstr "Hvis ikke markeret, vil du blive logget ud senest efter 30 dage"
 
-msgid "Filter by status"
-msgstr "Filtrer efter status"
+msgid "Status"
+msgstr ""
 
 msgid "Below min. stock amount"
 msgstr "Under min. beholdningsantal"
@@ -1564,8 +1563,8 @@ msgstr "Tildelt til mig"
 msgid "assigned to %s"
 msgstr "tildelt til %s"
 
-msgid "Filter by assignment"
-msgstr "Filtrer efter tildeling"
+msgid "Assignment"
+msgstr ""
 
 msgid "Consume product on chore execution"
 msgstr "Forbrug vare ved udførsel af pligt"
@@ -1959,4 +1958,32 @@ msgid "Delete this item"
 msgstr ""
 
 msgid "Show an icon if the product is already on the shopping list"
+msgstr ""
+
+msgid "Calories"
+msgstr ""
+
+msgid ""
+"By default the amount to be added to the shopping list is `needed amount - "
+"stock amount - shopping list amount` - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+msgstr ""
+
+msgid "means %1$s per %2$s"
+msgstr ""
+
+msgid "Create inverse QU conversion"
+msgstr ""
+
+msgid "Create recipe"
+msgstr ""
+
+msgid "Save & continue to add ingredients and included recipes"
+msgstr ""
+
+msgid "Save & continue"
+msgstr ""
+
+msgid "Save & return to recipes"
 msgstr ""

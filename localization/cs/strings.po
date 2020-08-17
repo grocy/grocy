@@ -1,9 +1,11 @@
+# 
 # Translators:
 # Tomas Reznicek <tomas.reznicek@gmail.com>, 2019
 # Michal Petříček <michal@petricek.org>, 2019
 # Jose Riha <jose1711@gmail.com>, 2020
 # Michal Franc, 2020
 # Radim Kabeláč <radim.ekk@gmail.com>, 2020
+# Matyas Bobek <matyas.bobek@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -11,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Radim Kabeláč <radim.ekk@gmail.com>, 2020\n"
+"Last-Translator: Matyas Bobek <matyas.bobek@gmail.com>, 2020\n"
 "Language-Team: Czech (https://www.transifex.com/grocy/teams/93189/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -482,9 +484,6 @@ msgstr "Recepty"
 msgid "Edit recipe"
 msgstr "Upravit recept"
 
-msgid "New recipe"
-msgstr "Nový recept"
-
 msgid "Ingredients list"
 msgstr "Seznam ingeriencí"
 
@@ -803,8 +802,8 @@ msgstr "Zůstat přihlášen"
 msgid "When not set, you will get logged out at latest after 30 days"
 msgstr "Pokud nebude zaškrtnuto, budete odhlášeni nejdéle za 30 dní"
 
-msgid "Filter by status"
-msgstr "Filtrovat podle statusu"
+msgid "Status"
+msgstr ""
 
 msgid "Below min. stock amount"
 msgstr "Pod min. množstvím zásoby"
@@ -1580,8 +1579,8 @@ msgstr "Přiřazeno mě"
 msgid "assigned to %s"
 msgstr "přiřazeno k %s"
 
-msgid "Filter by assignment"
-msgstr "Filtrovat podle přiřazení"
+msgid "Assignment"
+msgstr ""
 
 msgid "Consume product on chore execution"
 msgstr "Spotřebovat produkt při provedení povinnosti"
@@ -1979,4 +1978,32 @@ msgid "Delete this item"
 msgstr ""
 
 msgid "Show an icon if the product is already on the shopping list"
+msgstr ""
+
+msgid "Calories"
+msgstr "Kalorie"
+
+msgid ""
+"By default the amount to be added to the shopping list is `needed amount - "
+"stock amount - shopping list amount` - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+msgstr ""
+
+msgid "means %1$s per %2$s"
+msgstr ""
+
+msgid "Create inverse QU conversion"
+msgstr ""
+
+msgid "Create recipe"
+msgstr ""
+
+msgid "Save & continue to add ingredients and included recipes"
+msgstr ""
+
+msgid "Save & continue"
+msgstr ""
+
+msgid "Save & return to recipes"
 msgstr ""
