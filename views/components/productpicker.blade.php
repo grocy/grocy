@@ -21,7 +21,7 @@
 	<select class="form-control product-combobox barcodescanner-input" id="product_id" name="product_id" @if($isRequired) required @endif @if($disabled) disabled @endif data-target="@productpicker">
 		<option value=""></option>
 		@foreach($products as $product)
-			<option data-additional-searchdata="{{ $product->barcode }}@if(!empty($product->barcode)),@endif" value="{{ $product->id }}">{{ $product->name }}</option>
+			<option data-additional-searchdata="{{ FindObjectInArrayByPropertyValue($barcodes, 'product_id', $product->id)->barcodes }}," value="{{ $product->id }}">{{ $product->name }}</option>
 		@endforeach
 	</select>
 	<div class="invalid-feedback">{{ $__t('You have to select a product') }}</div>

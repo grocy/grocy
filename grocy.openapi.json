@@ -2703,6 +2703,57 @@
 				}
 			}
 		},
+		"/productbarcodedetails/{barcode}": {
+			"get": {
+				"summary": "Executes a product barcode details lookoup via the configured plugin with the given barcode",
+				"tags": [
+					"Product"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "barcode",
+						"required": true,
+						"description": "The barcode to lookup up",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "add",
+						"required": false,
+						"description": "When true, the product is added to the database on a successful lookup and the new product id is in included in the response",
+						"schema": {
+							"type": "boolean",
+							"default": false
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An ProductBarcodeDetails object or null, when nothing was found for the given barcode",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ProductBarcodeDetailsResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Plugin error)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/recipes/{recipeId}/add-not-fulfilled-products-to-shoppinglist": {
 			"post": {
 				"summary": "Adds all missing products for the given recipe to the shopping list",
@@ -3374,6 +3425,7 @@
 				"enum": [
 					"products",
 					"chores",
+					"product_barcodes",
 					"batteries",
 					"locations",
 					"quantity_units",
@@ -3399,6 +3451,7 @@
 				"type": "string",
 				"enum": [
 					"products",
+					"product_barcodes",
 					"chores",
 					"batteries",
 					"locations",
@@ -3748,6 +3801,9 @@
 					"product": {
 						"$ref": "#/components/schemas/Product"
 					},
+					"product_barcodes": {
+						"$ref": "#/components/schemas/ProductBarcodeDetailsResponse"
+					},
 					"quantity_unit_purchase": {
 						"$ref": "#/components/schemas/QuantityUnit"
 					},
@@ -3773,6 +3829,14 @@
 						"format": "date-time"
 					},
 					"last_price": {
+						"type": "number",
+						"format": "number"
+					},
+					"avg_price": {
+						"type": "number",
+						"format": "number"
+					},
+					"oldest_price": {
 						"type": "number",
 						"format": "number"
 					},
@@ -3813,6 +3877,15 @@
 						"not_check_stock_fulfillment_for_recipes": "0",
 						"last_shopping_location_id": null
 					},
+					"product_barcodes": [
+						{
+							"id": "1",
+							"product_id": "13",
+							"barcode": "01321230213",
+							"qu_factor_purchase_to_stock": "10.0",
+							"shopping_location_id": "2"
+						}
+					],
 					"last_purchased": null,
 					"last_used": null,
 					"stock_amount": "2",
@@ -3834,6 +3907,8 @@
 						"plural_forms": null
 					},
 					"last_price": null,
+					"avg_price": null,
+					"oldest_price": null,
 					"last_shopping_location_id": null,
 					"next_best_before_date": "2019-07-07",
 					"location": {
@@ -3859,6 +3934,28 @@
 					},
 					"shopping_location": {
 						"$ref": "#/components/schemas/ShoppingLocation"
+					}
+				}
+			},
+			"ProductBarcodeDetailsResponse": {
+				"type": "object",
+				"properties": {
+					"product_id": {
+						"type": "integer"
+					},
+					"barcode": {
+						"type": "string"
+					},
+					"qu_factor_purchase_to_stock": {
+						"type": "number",
+						"format": "number"
+					},
+					"barcode": {
+						"type": "string",
+						"description": "Can contain multiple barcodes separated by comma"
+					},
+					"shopping_location_id": {
+						"type": "integer"
 					}
 				}
 			},

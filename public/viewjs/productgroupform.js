@@ -13,7 +13,7 @@
 				Grocy.EditObjectId = result.created_object_id;
 				Grocy.Components.UserfieldsForm.Save(function()
 				{
-					window.location.href = U('/productgroups');
+					window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/productgroups"));
 				});
 			},
 			function(xhr)
@@ -30,7 +30,7 @@
 			{
 				Grocy.Components.UserfieldsForm.Save(function()
 				{
-					window.location.href = U('/productgroups');
+					window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/productgroups"));
 				});
 			},
 			function(xhr)

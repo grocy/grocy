@@ -44,17 +44,12 @@
 					var addBarcode = GetUriParam('addbarcodetoselection');
 					if (addBarcode !== undefined)
 					{
-						var existingBarcodes = productDetails.product.barcode || '';
-						if (existingBarcodes.length === 0)
-						{
-							productDetails.product.barcode = addBarcode;
-						}
-						else
-						{
-							productDetails.product.barcode += ',' + addBarcode;
-						}
+						var jsonDataBarcode = {};
+						jsonDataBarcode.barcode = addBarcode;
+						jsonDataBarcode.product_id = jsonForm.product_id;
+						jsonDataBarcode.qu_factor_purchase_to_stock  = productDetails.product.qu_factor_purchase_to_stock;
 
-						Grocy.Api.Put('objects/products/' + productDetails.product.id, productDetails.product,
+						Grocy.Api.Post('objects/product_barcodes', jsonDataBarcode,
 							function(result)
 							{
 								$("#flow-info-addbarcodetoselection").addClass("d-none");
@@ -63,7 +58,8 @@
 							},
 							function(xhr)
 							{
-								console.error(xhr);
+								Grocy.FrontendHelpers.EndUiBusy("consume-form");
+								Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 							}
 						);
 					}

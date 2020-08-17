@@ -1,9 +1,10 @@
 ﻿var stockOverviewTable = $('#stock-overview-table').DataTable({
-	'order': [[3, 'asc']],
+	'order': [[4, 'asc']],
+	'colReorder': false,
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 },
-		{ 'visible': false, 'targets': 4 },
+		{ 'searchable': false, "targets": 0 },
 		{ 'visible': false, 'targets': 5 },
 		{ 'visible': false, 'targets': 6 }
 	],
@@ -19,7 +20,7 @@ $("#location-filter").on("change", function()
 		value = "";
 	}
 
-	stockOverviewTable.column(4).search(value).draw();
+	stockOverviewTable.column(5).search(value).draw();
 });
 
 $("#product-group-filter").on("change", function()
@@ -30,7 +31,7 @@ $("#product-group-filter").on("change", function()
 		value = "";
 	}
 
-	stockOverviewTable.column(6).search(value).draw();
+	stockOverviewTable.column(2).search(value).draw();
 });
 
 $("#status-filter").on("change", function()
@@ -44,7 +45,7 @@ $("#status-filter").on("change", function()
 	// Transfer CSS classes of selected element to dropdown element (for background)
 	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
 
-	stockOverviewTable.column(5).search(value).draw();
+	stockOverviewTable.column(6).search(value).draw();
 });
 
 $(".status-filter-message").on("click", function()
@@ -252,7 +253,7 @@ function RefreshProductRow(productId)
 				$('#product-' + productId + '-qu-name').text(__n(result.stock_amount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural));
 				$('#product-' + productId + '-amount').text(result.stock_amount);
 				$('#product-' + productId + '-consume-all-button').attr('data-consume-amount', result.stock_amount);
-
+				$('#product-' + productId + '-factor-purchase-amount').text(__t('( %s', result.stock_factor_purchase_amount));
 				$('#product-' + productId + '-next-best-before-date').text(result.next_best_before_date);
 				$('#product-' + productId + '-next-best-before-date-timeago').attr('datetime', result.next_best_before_date);
 

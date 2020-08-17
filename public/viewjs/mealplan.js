@@ -180,6 +180,11 @@ var calendar = $("#calendar").fullCalendar({
 				productDetails.last_price = 0;
 			}
 
+			if (productDetails.last_qu_factor_purchase_to_stock === null)
+			{
+				productDetails.last_qu_factor_purchase_to_stock = 1;
+			}
+
 			element.attr("data-product-details", event.productDetails);
 
 			var productOrderMissingButtonDisabledClasses = "disabled";
@@ -205,7 +210,7 @@ var calendar = $("#calendar").fullCalendar({
 			var costsAndCaloriesPerServing = ""
 			if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 			{
-				costsAndCaloriesPerServing = '<h5 class="small text-truncate"><span class="locale-number locale-number-currency">' + productDetails.last_price / productDetails.product.qu_factor_purchase_to_stock * mealPlanEntry.product_amount + '</span> / <span class="locale-number locale-number-generic">' + productDetails.product.calories * mealPlanEntry.product_amount + '</span> kcal ' + '<h5>';
+				costsAndCaloriesPerServing = '<h5 class="small text-truncate"><span class="locale-number locale-number-currency">' + productDetails.last_price / productDetails.last_qu_factor_purchase_to_stock * mealPlanEntry.product_amount + '</span> / <span class="locale-number locale-number-generic">' + productDetails.product.calories * mealPlanEntry.product_amount + '</span> kcal ' + '<h5>';
 			}
 			else
 			{

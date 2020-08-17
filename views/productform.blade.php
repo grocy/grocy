@@ -46,6 +46,14 @@
 				<div class="invalid-feedback">{{ $__t('A name is required') }}</div>
 			</div>
 
+			<div class="form-group">
+				<div class="form-check">
+					<input type="hidden" name="active" value="1">
+					<input @if($mode == 'create') checked @elseif($mode == 'edit' && $product->active == 1) checked @endif class="form-check-input" type="checkbox" id="active" name="active" value="1">
+					<label class="form-check-label" for="active">{{ $__t('Active') }}</label>
+				</div>
+			</div>
+
 			@php $prefillById = ''; if($mode=='edit') { $prefillById = $product->parent_product_id; } @endphp
 			@php
 				$hint = '';
@@ -56,7 +64,6 @@
 			@endphp
 			@include('components.productpicker', array(
 				'products' => $products,
-				'nextInputSelector' => '#barcode-taginput',
 				'prefillById' => $prefillById,
 				'disallowAllProductWorkflows' => true,
 				'isRequired' => false,
@@ -68,14 +75,6 @@
 			<div class="form-group">
 				<label for="description">{{ $__t('Description') }}</label>
 				<textarea class="form-control wysiwyg-editor" id="description" name="description">@if($mode == 'edit'){{ $product->description }}@endif</textarea>
-			</div>
-
-			<div class="form-group tm-group">
-				<label for="barcode-taginput">{{ $__t('Barcode(s)') }}&nbsp;&nbsp;<i class="fas fa-barcode"></i></label>
-				<div class="input-group">
-					<input type="text" class="form-control tm-input barcodescanner-input" id="barcode-taginput" data-target="#barcode-taginput">
-				</div>
-				<div id="barcode-taginput-container"></div>
 			</div>
 
 			@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
@@ -171,7 +170,8 @@
 
 			<div class="form-group">
 				<label for="qu_id_stock">{{ $__t('Quantity unit stock') }}</label>
-				<select required class="form-control input-group-qu" id="qu_id_stock" name="qu_id_stock">
+				<i class="fas fa-question-circle" data-toggle="tooltip" title="Quantity unit stock cannot be changed after first purchase"></i>
+				<select required class="form-control input-group-qu" id="qu_id_stock" name="qu_id_stock" @if($mode == 'edit') disabled @endif>
 					<option></option>
 					@foreach($quantityunits as $quantityunit)
 						<option @if($mode == 'edit' && $quantityunit->id == $product->qu_id_stock) selected="selected" @endif value="{{ $quantityunit->id }}" data-plural-form="{{ $quantityunit->name_plural }}">{{ $quantityunit->name }}</option>
@@ -295,7 +295,7 @@
 	<div class="col-lg-6 col-xs-12">
 		<h2>
 			{{ $__t('QU conversions') }}
-			<a id="qu-conversion-add-button" class="btn btn-outline-dark" href="#">
+			<a class="btn btn-outline-dark show-as-dialog-link" type="button" href="{{ $U('/quantityunitconversion/new?embedded&product=' . $product->id ) }}">
 				<i class="fas fa-plus"></i> {{ $__t('Add') }}
 			</a>
 		</h2>
@@ -316,7 +316,7 @@
 					@if($quConversion->product_id == $product->id || $quConversion->product_id == null)
 					<tr>
 						<td class="fit-content border-right">
-							<a class="btn btn-sm btn-info qu-conversion-edit-button @if($quConversion->product_id == null) disabled @endif" href="#" data-qu-conversion-id="{{ $quConversion->id }}">
+							<a class="btn btn-sm btn-info show-as-dialog-link @if($quConversion->product_id == null) disabled @endif" href="{{ $U('/quantityunitconversion/' . $quConversion->id . '?embedded&product=' . $product->id ) }}">
 								<i class="fas fa-edit"></i>
 							</a>
 							<a class="btn btn-sm btn-danger qu-conversion-delete-button @if($quConversion->product_id == null) disabled @endif" href="#" data-qu-conversion-id="{{ $quConversion->id }}">
@@ -339,6 +339,55 @@
 						<td class="d-none">
 							from_qu_id xx{{ $quConversion->from_qu_id }}xx
 						</td>
+					</tr>
+					@endif
+				@endforeach
+				@endif
+			</tbody>
+		</table>
+
+		<h2>
+			{{ $__t('Barcodes') }}
+			<a class="btn btn-outline-dark show-as-dialog-link" type="button" href="{{ $U('/productbarcodes/new?embedded&product=' . $product->id ) }}">
+				<i class="fas fa-plus"></i> {{ $__t('Add') }}
+			</a>
+		</h2>
+		<h5 id="barcode-headline-info" class="text-muted font-italic"></h5>
+		<table id="barcode-table" class="table table-sm table-striped dt-responsive">
+			<thead>
+				<tr>
+					<th class="border-right"></th>
+					<th>{{ $__t('Barcode') }}</th>
+					<th>{{ $__t('Factor purchase to stock quantity unit') }}</th>
+					<th>{{ $__t('Store') }}</th>
+				</tr>
+			</thead>
+			<tbody class="d-none">
+				@if($mode == "edit")
+				@foreach($barcodes as $barcode)
+					@if($barcode->product_id == $product->id || $barcode->product_id == null)
+					<tr>
+						<td class="fit-content border-right">
+							<a class="btn btn-sm btn-info show-as-dialog-link @if($barcode->product_id == null) disabled @endif" href="{{ $U('/productbarcodes/' . $barcode->id . '?embedded&product=' . $product->id ) }}">
+								<i class="fas fa-edit"></i>
+							</a>
+							<a class="btn btn-sm btn-danger barcode-delete-button @if($barcode->product_id == null) disabled @endif" href="#" data-barcode-id="{{ $barcode->id }}" data-barcode="{{ $barcode->barcode }}" data-product-barcode="{{ $product->barcode }}" data-product-id="{{ $product->id }}">
+								<i class="fas fa-trash"></i>
+							</a>
+						</td>
+						<td>
+							{{ $barcode->barcode }}
+						</td>
+						<td>
+							<span class="locale-number locale-number-quantity-amount">{{ $barcode->qu_factor_purchase_to_stock }}</span>
+						</td>
+						@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+						<td id="barcode-shopping-location">
+							@if (FindObjectInArrayByPropertyValue($shoppinglocations, 'id', $barcode->shopping_location_id) !== null)
+							{{ FindObjectInArrayByPropertyValue($shoppinglocations, 'id', $barcode->shopping_location_id)->name }}
+							@endif
+						</td>
+						@endif
 					</tr>
 					@endif
 				@endforeach

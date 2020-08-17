@@ -132,6 +132,7 @@ $('#product_id_text_input').on('blur', function(e)
 	{
 		return;	
 	}
+	$('#product_id').attr("barcode", "null");
 
 	var input = $('#product_id_text_input').val().toString();
 	var possibleOptionElement = $("#product_id option[data-additional-searchdata*=\"" + input + ",\"]").first();
@@ -139,6 +140,7 @@ $('#product_id_text_input').on('blur', function(e)
 	if (GetUriParam('addbarcodetoselection') === undefined && input.length > 0 && possibleOptionElement.length > 0)
 	{
 		$('#product_id').val(possibleOptionElement.val());
+		$('#product_id').attr("barcode", input);
 		$('#product_id').data('combobox').refresh();
 		$('#product_id').trigger('change');
 	}

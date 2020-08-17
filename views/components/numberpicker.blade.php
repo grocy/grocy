@@ -16,7 +16,7 @@
 @php if(!isset($isRequired)) { $isRequired = true; } @endphp
 @php if(!isset($noNameAttribute)) { $noNameAttribute = false; } @endphp
 
-<div class="form-group {{ $additionalGroupCssClasses }}">
+<div id="group-{{ $id }}" class="form-group {{ $additionalGroupCssClasses }}">
 	<label for="{{ $id }}">
 		{{ $__t($label) }}&nbsp;
 		<i class="fas fa-question-circle" id="{{ $hintId }}" data-toggle="tooltip" title="{{ $hint }}"></i>{!! $additionalHtmlContextHelp !!}</label>

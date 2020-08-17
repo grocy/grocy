@@ -177,6 +177,7 @@ function RefreshStockEntryRow(stockRowId)
 				);
 				
 				$('#stock-' + stockRowId + '-price').text(result.price);
+				$('#stock-' + stockRowId + '-qu-factor-purchase-to-stock').text(result.qu_factor_purchase_to_stock);
 				$('#stock-' + stockRowId + '-purchased-date').text(result.purchased_date);
 				$('#stock-' + stockRowId + '-purchased-date-timeago').attr('datetime', result.purchased_date + ' 23:59:59');
 

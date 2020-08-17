@@ -25,7 +25,8 @@
 					}
 					else
 					{
-						window.location.href = U("/product/" + GetUriParam("product"));
+						window.parent.postMessage(WindowMessageBag("ProductQUConversionChanged"), U("/product/" + GetUriParam("product")));
+						window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/product/" + GetUriParam("product")));
 					}
 				});
 			},
@@ -54,7 +55,8 @@
 						}
 						else
 						{
-							window.location.href = U("/product/" + GetUriParam("product"));
+							window.parent.postMessage(WindowMessageBag("ProductQUConversionChanged"), U("/product/" + GetUriParam("product")));
+							window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/product/" + GetUriParam("product")));
 						}
 					});
 				},
@@ -79,7 +81,8 @@
 					}
 					else
 					{
-						window.location.href = U("/product/" + GetUriParam("product"));
+						window.parent.postMessage(WindowMessageBag("ProductQUConversionChanged"), U("/product/" + GetUriParam("product")));
+						window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/product/" + GetUriParam("product")));
 					}
 				});
 			},

@@ -45,6 +45,7 @@ $app->group('', function(RouteCollectorProxy $group)
 		$group->get('/stockentry/{entryId}', '\Grocy\Controllers\StockController:StockEntryEditForm');
 		$group->get('/products', '\Grocy\Controllers\StockController:ProductsList');
 		$group->get('/product/{productId}', '\Grocy\Controllers\StockController:ProductEditForm');
+		$group->get('/productbarcodes/{productBarcodeId}', '\Grocy\Controllers\StockController:ProductBarcodesEditForm');
 		$group->get('/stocksettings', '\Grocy\Controllers\StockController:StockSettings');
 		$group->get('/locations', '\Grocy\Controllers\StockController:LocationsList');
 		$group->get('/location/{locationId}', '\Grocy\Controllers\StockController:LocationEditForm');
@@ -199,6 +200,7 @@ $app->group('/api', function(RouteCollectorProxy $group)
 		$group->get('/stock/transactions/{transactionId}', '\Grocy\Controllers\StockApiController:StockTransactions');
 		$group->post('/stock/transactions/{transactionId}/undo', '\Grocy\Controllers\StockApiController:UndoTransaction');
 		$group->get('/stock/barcodes/external-lookup/{barcode}', '\Grocy\Controllers\StockApiController:ExternalBarcodeLookup');
+		$group->get('/productbarcodedetails/{barcode}', '\Grocy\Controllers\StockApiController:ProductBarcodeDetails');
 	}
 
 	// Shopping list

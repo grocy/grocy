@@ -20,7 +20,7 @@
 <hr>
 <div class="row mt-3">
 	<div class="col-xs-12 col-md-2 col-xl-1">
-		<a class="btn btn-primary btn-sm responsive-button w-100 mb-3" href="{{ $U('/productgroup/new') }}">
+		<a class="btn btn-primary btn-sm responsive-button w-100 mb-3 show-as-dialog-link" href="{{ $U('/productgroup/new?embedded') }}">
 			{{ $__t('Add') }}
 		</a>
 	</div>
@@ -55,7 +55,7 @@
 				@foreach($productGroups as $productGroup)
 				<tr>
 					<td class="fit-content border-right">
-						<a class="btn btn-info btn-sm" href="{{ $U('/productgroup/') }}{{ $productGroup->id }}">
+						<a class="btn btn-info btn-sm show-as-dialog-link" href="{{ $U('/productgroup/') }}{{ $productGroup->id }}?embedded">
 							<i class="fas fa-edit"></i>
 						</a>
 						<a class="btn btn-danger btn-sm product-group-delete-button" href="#" data-group-id="{{ $productGroup->id }}" data-group-name="{{ $productGroup->name }}">
