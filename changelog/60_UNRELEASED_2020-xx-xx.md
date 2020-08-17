@@ -1,8 +1,18 @@
+> !!! The major version bump is due to a breaking API change, please see below if you use the API
+
+### New feature: Link product of different sizes
+- Imagine you buy for example eggs in different pack sizes
+- The "Factor purchase to stock quantity unit" can now be set during purchase (if the products purchase and stock QU are different)
+- Additionally, each product barcode can be assigned a different "Factor purchase to stock quantity unit" (on the product edit page), which is then automatically prefilled on the purchase page
+- (Thanks @kriddles)
+
 ### Stock improvements/fixes
 - When creating a quantity unit conversion it's now possible to automatically create the inverse conversion (thanks @kriddles)
 - Optimized/clarified what the total/unit price is on the purchase page (thanks @kriddles)
 - On the purchase page the amount field is now displayed above/before the best before date for better `TAB` handling (thanks @kriddles)
 - Changed that when `FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING` is disabled, products now get internally a best before of "never expires" (aka `2999-12-31`) instead of today (thanks @kriddles)
+- Products can now be hidden instead of deleted to prevent problems / missing information on existing references (new checkbox on the product edit page) (thanks @kriddles)
+- Improved/fixed that changing the products "Factor purchase to stock quantity unit" not longer messes up historical prices (which results for example in wrong recipe costs) (thanks @kriddles)
 - Fixed that it was not possible to leave the "Barcode(s)" on the product edit page by `TAB`
 - Fixed that when adding products through a product picker workflow and when the created products contains special characters, the product was not preselected on the previous page (thanks @Forceu)
 - Fixed that when editing a product the default store was not visible / always empty regardless if the product had one set (thanks @kriddles)
@@ -21,7 +31,8 @@
 - Events are now links to the corresponding page (thanks @zsarnett)
 - Fixed a PHP warning when using the "Share/Integrate calendar (iCal)" button (thanks @tsia)
 
-### API fixes
+### API improvements/fixes
+- !!! BRAKING CHANGE: All prices are now related to the products **stock** quantity unit (instead the purchase QU)
 - Fixed (again) that CORS was broken
 
 ### General & other improvements

@@ -13,7 +13,7 @@ select
 	sl.qu_factor_purchase_to_stock,
 	sl.location_id,
 	sl.shopping_location_id
-	from stock_log sl
+	FROM stock_log sl
 	JOIN (
 			SELECT
 				s1.product_id,
