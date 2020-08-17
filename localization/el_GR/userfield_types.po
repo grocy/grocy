@@ -1,0 +1,49 @@
+# 
+# Translators:
+# Dionysios Gkotsis <bloodsak4@yahoo.gr>, 2020
+# ByteGet, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:43+0000\n"
+"Last-Translator: ByteGet, 2020\n"
+"Language-Team: Greek (Greece) (https://www.transifex.com/grocy/teams/93189/el_GR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/userfield_types\n"
+
+msgid "text-single-line"
+msgstr "κείμενο-μονή γραμμή"
+
+msgid "text-multi-line"
+msgstr "κείμενο-πολλαπλών γραμμών"
+
+msgid "number-integral"
+msgstr "αριθμός-ακέραιο"
+
+msgid "number-decimal"
+msgstr "αριθμός-δεκαδικός"
+
+msgid "date"
+msgstr "ημερομηνία"
+
+msgid "datetime"
+msgstr "ημερομηνία ώρα"
+
+msgid "checkbox"
+msgstr "πλαίσιο ελέγχου"
+
+msgid "preset-list"
+msgstr "προκαθορισμένη λίστα"
+
+msgid "preset-checklist"
+msgstr "προκαθορισμένη λίστα ελέγχου"
+
+msgid "link"
+msgstr "σύνδεσμος"

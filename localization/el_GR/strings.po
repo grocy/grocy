@@ -1,0 +1,2032 @@
+# 
+# Translators:
+# Stathis Stamoulis <sstamoulis2010@gmail.com>, 2020
+# Dionysios Gkotsis <bloodsak4@yahoo.gr>, 2020
+# ByteGet, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: ByteGet, 2020\n"
+"Language-Team: Greek (Greece) (https://www.transifex.com/grocy/teams/93189/el_GR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/strings\n"
+
+msgid "Stock overview"
+msgstr "Επισκόπηση αποθεμάτων"
+
+msgid "%s product expires"
+msgid_plural "%s products expiring"
+msgstr[0] "%s προϊόν λήγει"
+msgstr[1] "%s προϊόντα λήγουν"
+
+msgid "within the next day"
+msgid_plural "within the next %s days"
+msgstr[0] "μέσα στην επόμενη ημέρα"
+msgstr[1] "μέσα στις επόμενες %s ημέρες"
+
+msgid "%s product is already expired"
+msgid_plural "%s products are already expired"
+msgstr[0] "%s προϊόν έχει ήδη λήξει"
+msgstr[1] "%s προϊόντα έχουν ήδη λήξει"
+
+msgid "%s product is below defined min. stock amount"
+msgid_plural "%s products are below defined min. stock amount"
+msgstr[0] "%s προϊόν είναι κάτω από το ορισμένο ελάχιστο απόθεμα"
+msgstr[1] "%s προϊόντα είναι κάτω από το ορισμένο ελάχιστο απόθεμα"
+
+msgid "Product"
+msgstr "Προϊόν"
+
+msgid "%s Product"
+msgid_plural "%s Products"
+msgstr[0] "%s Προϊόν"
+msgstr[1] "%s Προϊόντα"
+
+msgid "Amount"
+msgstr "Ποσό"
+
+msgid "Next best before date"
+msgstr "Επόμενο καλύτερο πριν από την ημερομηνία"
+
+msgid "Logout"
+msgstr "Αποσύνδεση"
+
+msgid "Chores overview"
+msgstr "Επισκόπηση μικροδουλειών"
+
+msgid "Batteries overview"
+msgstr "Επισκόπηση μπαταριών"
+
+msgid "Purchase"
+msgstr "Αγορά"
+
+msgid "Consume"
+msgstr "Καταναλώνω"
+
+msgid "Inventory"
+msgstr "Καταγραφή εμπορευμάτων"
+
+msgid "Shopping list"
+msgstr "Λίστα με τα ψώνια"
+
+msgid "Chore tracking"
+msgstr "Παρακολούθηση μικροδουλειών"
+
+msgid "Battery tracking"
+msgstr "Παρακολούθηση μπαταρίας"
+
+msgid "Locations"
+msgstr "Τοποθεσίες"
+
+msgid "Stores"
+msgstr "Προμήθεια"
+
+msgid "Quantity units"
+msgstr "Μονάδες ποσότητας"
+
+msgid "Chores"
+msgstr "Μικροδουλειές"
+
+msgid "Batteries"
+msgstr "Μπαταρίες"
+
+msgid "Chore"
+msgstr "Αγγαρεία"
+
+msgid "Next estimated tracking"
+msgstr "Επόμενη εκτιμώμενη παρακολούθηση"
+
+msgid "Last tracked"
+msgstr "Τελευταία παρακολούθηση"
+
+msgid "Battery"
+msgstr "Μπαταρία"
+
+msgid "Last charged"
+msgstr "Τελευταία χρέωση"
+
+msgid "Next planned charge cycle"
+msgstr "Επόμενος προγραμματισμένος κύκλος φόρτισης"
+
+msgid "Best before"
+msgstr "Ανάλωση κατά προτίμηση πριν"
+
+msgid "OK"
+msgstr "Εντάξει"
+
+msgid "Product overview"
+msgstr "Επισκόπηση προϊόντος"
+
+msgid "Stock quantity unit"
+msgstr "Μονάδα ποσότητας αποθεμάτων"
+
+msgid "Stock amount"
+msgstr "Ποσό αποθέματος"
+
+msgid "Last purchased"
+msgstr "Τελευταία αγορά"
+
+msgid "Last used"
+msgstr "Τελευταία χρήση"
+
+msgid "Spoiled"
+msgstr "Κακομαθημένος"
+
+msgid "Barcode lookup is disabled"
+msgstr "Η αναζήτηση γραμμωτού κώδικα είναι απενεργοποιημένη"
+
+msgid ""
+"will be added to the list of barcodes for the selected product on submit"
+msgstr ""
+"θα προστεθεί στη λίστα των γραμμικών κωδικών για το επιλεγμένο προϊόν κατά "
+"την υποβολή"
+
+msgid "New amount"
+msgstr "Νέο ποσό"
+
+msgid "Note"
+msgstr "Σημείωση"
+
+msgid "Tracked time"
+msgstr "Παρακολούθηση χρόνου"
+
+msgid "Chore overview"
+msgstr "Επισκόπηση μικροδουλειάς"
+
+msgid "Tracked count"
+msgstr "Παρακολούθηση"
+
+msgid "Battery overview"
+msgstr "Επισκόπηση μπαταρίας"
+
+msgid "Charge cycles count"
+msgstr "Πλήθος κύκλων φόρτισης"
+
+msgid "Create shopping list item"
+msgstr "Δημιουργία στοιχείου λίστας αγορών"
+
+msgid "Edit shopping list item"
+msgstr "Επεξεργασία στοιχείου λίστας αγορών"
+
+msgid "Save"
+msgstr "Αποθηκεύσετε"
+
+msgid "Add"
+msgstr "Προσθήκη"
+
+msgid "Name"
+msgstr "Ονομα"
+
+msgid "Location"
+msgstr "Τοποθεσία"
+
+msgid "Min. stock amount"
+msgstr "Ελάχ. ποσό αποθέματος"
+
+msgid "QU purchase"
+msgstr "Αγορά QU"
+
+msgid "QU stock"
+msgstr "QU απόθεμα"
+
+msgid "QU factor"
+msgstr "Συντελεστής Q"
+
+msgid "Description"
+msgstr "Περιγραφή"
+
+msgid "Create product"
+msgstr "Δημιουργία προϊόντος"
+
+msgid "Barcode(s)"
+msgstr "Γραμμικός κώδικας"
+
+msgid "Minimum stock amount"
+msgstr "Ελάχιστο ποσό αποθέματος"
+
+msgid "Default best before days"
+msgstr "Προεπιλογή καλύτερη πριν από ημέρες"
+
+msgid "Quantity unit purchase"
+msgstr "Αγορά μονάδας ποσότητας"
+
+msgid "Quantity unit stock"
+msgstr "Απόθεμα μονάδας ποσότητας"
+
+msgid "Factor purchase to stock quantity unit"
+msgstr "Αγορά παράγοντα σε μονάδα ποσότητας αποθεμάτων"
+
+msgid "Create location"
+msgstr "Δημιουργία τοποθεσίας"
+
+msgid "Create store"
+msgstr "Δημιουργία καταστήματος"
+
+msgid "Create quantity unit"
+msgstr "Δημιουργία μονάδας ποσότητας"
+
+msgid "Period type"
+msgstr "Τύπος περιόδου"
+
+msgid "Period days"
+msgstr "Περίοδος ημερών"
+
+msgid "Create chore"
+msgstr "Δημιουργήστε μικροδουλειές"
+
+msgid "Used in"
+msgstr "Χρησιμοποιείται σε"
+
+msgid "Create battery"
+msgstr "Δημιουργήστε μπαταρία"
+
+msgid "Edit battery"
+msgstr "Επεξεργασία μπαταρίας"
+
+msgid "Edit chore"
+msgstr "Επεξεργασία μικροδουλειάς"
+
+msgid "Edit quantity unit"
+msgstr "Επεξεργασία μονάδας ποσότητας"
+
+msgid "Edit product"
+msgstr "Επεξεργασία προϊόντος"
+
+msgid "Edit location"
+msgstr "Επεξεργασία τοποθεσίας"
+
+msgid "Edit store"
+msgstr "Επεξεργασία καταστήματος"
+
+msgid "Record data"
+msgstr "Εγγραφή δεδομένων"
+
+msgid "Manage master data"
+msgstr "Διαχείριση βασικών δεδομένων"
+
+msgid "This will apply to added products"
+msgstr "Αυτό θα ισχύει για προστιθέμενα προϊόντα"
+
+msgid "never"
+msgstr "ποτέ"
+
+msgid "Add products that are below defined min. stock amount"
+msgstr ""
+"Προσθέστε προϊόντα που είναι κάτω από τα καθορισμένα ελάχιστα. ποσό "
+"αποθέματος"
+
+msgid ""
+"For purchases this amount of days will be added to today for the best before"
+" date suggestion"
+msgstr ""
+"Για αγορές, αυτό το ποσό ημερών θα προστεθεί στο σήμερα για την καλύτερη "
+"πρόταση πριν από την ημερομηνία"
+
+msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
+msgstr ""
+"Αυτό σημαίνει ότι 1% 1 $ s που αγοράζεται θα μετατραπεί σε% 2 $ s% 3 $ s σε "
+"απόθεμα"
+
+msgid "Login"
+msgstr "Σύνδεση"
+
+msgid "Username"
+msgstr "Όνομα χρήστη"
+
+msgid "Password"
+msgstr "Κωδικός πρόσβασης"
+
+msgid "Invalid credentials, please try again"
+msgstr "Μη έγκυρα διαπιστευτήρια, δοκιμάστε ξανά"
+
+msgid "Are you sure to delete battery \"%s\"?"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε την μπαταρία \"% s\";"
+
+msgid "Yes"
+msgstr "Ναί"
+
+msgid "No"
+msgstr "Οχι"
+
+msgid "Are you sure to delete chore \"%s\"?"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε τη δουλειά \"% s\";"
+
+msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
+msgstr ""
+"Δεν ήταν δυνατή η επίλυση του \"% s\" σε ένα προϊόν, πώς θέλετε να "
+"προχωρήσετε;"
+
+msgid "Create or assign product"
+msgstr "Δημιουργία ή εκχώρηση προϊόντος"
+
+msgid "Cancel"
+msgstr "Ματαίωση"
+
+msgid "Add as new product"
+msgstr "Προσθήκη ως νέο προϊόν"
+
+msgid "Add as barcode to existing product"
+msgstr "Προσθέστε ως γραμμωτό κώδικα στο υπάρχον προϊόν"
+
+msgid "Add as new product and prefill barcode"
+msgstr "Προσθέστε ως νέο προϊόν και γραμμωτού κώδικα προσυμπλήρωσης"
+
+msgid "Are you sure to delete quantity unit \"%s\"?"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε τη μονάδα ποσότητας \"% s\";"
+
+msgid "Are you sure to delete product \"%s\"?"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε το προϊόν \"% s\";"
+
+msgid "Are you sure to delete location \"%s\"?"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε την τοποθεσία \"% s\";"
+
+msgid "Are you sure to delete store \"%s\"?"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε το κατάστημα \"% s\";"
+
+msgid "Manage API keys"
+msgstr "Διαχείριση κλειδιών API"
+
+msgid "REST API & data model documentation"
+msgstr "REST API & τεκμηρίωση μοντέλου δεδομένων"
+
+msgid "API keys"
+msgstr "Κλειδιά API"
+
+msgid "Create new API key"
+msgstr "Δημιουργία νέου κλειδιού API"
+
+msgid "API key"
+msgstr "Κλειδί API"
+
+msgid "Expires"
+msgstr "Λήγει"
+
+msgid "Created"
+msgstr "Δημιουργήθηκε"
+
+msgid "This product is not in stock"
+msgstr "Αυτό το προϊόν δεν είναι διαθέσιμο"
+
+msgid "This means %s will be added to stock"
+msgstr "Αυτό σημαίνει ότι το% s θα προστεθεί στο απόθεμα"
+
+msgid "This means %s will be removed from stock"
+msgstr "Αυτό σημαίνει ότι το% s θα αφαιρεθεί από το απόθεμα"
+
+msgid ""
+"This means the next execution of this chore is scheduled %s days after the "
+"last execution"
+msgstr ""
+"Αυτό σημαίνει ότι η επόμενη εκτέλεση αυτής της δουλειάς έχει "
+"προγραμματιστεί% s ημέρες μετά την τελευταία εκτέλεση"
+
+msgid "Removed %1$s of %2$s from stock"
+msgstr "Καταργήθηκε% 1 $ s από% 2 $ s από το απόθεμα"
+
+msgid "About grocy"
+msgstr "Σχετικά με το grocy"
+
+msgid "Close"
+msgstr "Κλείσε"
+
+msgid "Released on"
+msgstr "Κυκλοφόρησε στις"
+
+msgid "Added %1$s of %2$s to stock"
+msgstr "Προστέθηκε% 1 $ s από% 2 $ s στο απόθεμα"
+
+msgid "Stock amount of %1$s is now %2$s"
+msgstr "Το χρηματικό ποσό των% 1 $ s είναι τώρα% 2 $ s"
+
+msgid "Tracked execution of chore %1$s on %2$s"
+msgstr "Παρακολούθηση εκτέλεσης της δουλειάς% 1 $ s στο% 2 $ s"
+
+msgid "Tracked charge cycle of battery %1$s on %2$s"
+msgstr "Παρακολούθηση κύκλου φόρτισης μπαταρίας% 1 $ s στο% 2 $ s"
+
+msgid "Consume all %s which are currently in stock"
+msgstr "Καταναλώστε όλα τα% s που βρίσκονται σε απόθεμα"
+
+msgid "All"
+msgstr "Ολα"
+
+msgid "Track charge cycle of battery %s"
+msgstr "Παρακολούθηση κύκλου φόρτισης μπαταρίας% s"
+
+msgid "Track execution of chore %s"
+msgstr "Παρακολούθηση εκτέλεσης της δουλειάς% s"
+
+msgid "Filter by location"
+msgstr "Φιλτράρισμα κατά τοποθεσία"
+
+msgid "Search"
+msgstr "Αναζήτηση"
+
+msgid "Not logged in"
+msgstr "Δεν έχετε συνδεθεί"
+
+msgid "You have to select a product"
+msgstr "Πρέπει να επιλέξετε ένα προϊόν"
+
+msgid "You have to select a chore"
+msgstr "Πρέπει να επιλέξετε μια δουλειά"
+
+msgid "You have to select a battery"
+msgstr "Πρέπει να επιλέξετε μια μπαταρία"
+
+msgid "A name is required"
+msgstr "Απαιτείται όνομα"
+
+msgid "A location is required"
+msgstr "Απαιτείται τοποθεσία"
+
+msgid "The amount cannot be lower than %s"
+msgstr "Το ποσό δεν μπορεί να είναι μικρότερο από% s"
+
+msgid "This cannot be negative"
+msgstr "Αυτό δεν μπορεί να είναι αρνητικό"
+
+msgid "A quantity unit is required"
+msgstr "Απαιτείται μονάδα ποσότητας"
+
+msgid "A period type is required"
+msgstr "Απαιτείται τύπος περιόδου"
+
+msgid "A best before date is required"
+msgstr "Απαιτείται καλύτερη ημερομηνία πριν"
+
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+msgid "This can only be before now"
+msgstr "Αυτό μπορεί να είναι μόνο πριν από τώρα"
+
+msgid "Calendar"
+msgstr "Ημερολόγιο"
+
+msgid "Recipes"
+msgstr "Συνταγές"
+
+msgid "Edit recipe"
+msgstr "Επεξεργασία συνταγής"
+
+msgid "Ingredients list"
+msgstr "Λίστα συστατικών"
+
+msgid "Add recipe ingredient"
+msgstr "Προσθέστε συστατικό συνταγής"
+
+msgid "Edit recipe ingredient"
+msgstr "Επεξεργασία συστατικού συνταγής"
+
+msgid "Are you sure to delete recipe \"%s\"?"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε τη συνταγή \"% s\";"
+
+msgid "Are you sure to delete recipe ingredient \"%s\"?"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε το συστατικό συνταγής \"% s\";"
+
+msgid "Are you sure to empty shopping list \"%s\"?"
+msgstr "Είστε βέβαιοι ότι αδειάζετε τη λίστα αγορών \"% s\";"
+
+msgid "Clear list"
+msgstr "Σαφή κατάλογο"
+
+msgid "Requirements fulfilled"
+msgstr "Οι απαιτήσεις πληρούνται"
+
+msgid "Put missing products on shopping list"
+msgstr "Βάλτε τα προϊόντα που λείπουν στη λίστα αγορών"
+
+msgid "Enough in stock"
+msgstr "Αρκετά σε απόθεμα"
+
+msgid ""
+"Not enough in stock, %s ingredient missing but already on the shopping list"
+msgid_plural ""
+"Not enough in stock, %s ingredients missing but already on the shopping list"
+msgstr[0] ""
+"Not enough in stock, %s ingredient missing but already on the shopping list"
+msgstr[1] ""
+"Δεν υπάρχει αρκετό απόθεμα, λείπουν τα συστατικά του %s αλλά ήδη βρίσκονται "
+"στη λίστα αγορών"
+
+msgid "Expand to fullscreen"
+msgstr "Ανάπτυξη σε πλήρη οθόνη"
+
+msgid "Ingredients"
+msgstr "Συστατικά"
+
+msgid "Preparation"
+msgstr "Παρασκευή"
+
+msgid "Recipe"
+msgstr "Συνταγή"
+
+msgid "Not enough in stock, %1$s missing, %2$s already on shopping list"
+msgstr ""
+"Δεν υπάρχει αρκετό απόθεμα,% 1 $ s λείπει,% 2 $ s ήδη στη λίστα αγορών"
+
+msgid "Show notes"
+msgstr "Εμφάνιση σημειώσεων"
+
+msgid "Put missing amount on shopping list"
+msgstr "Τοποθετήστε το ποσό που λείπει στη λίστα αγορών"
+
+msgid ""
+"Are you sure to put all missing ingredients for recipe \"%s\" on the "
+"shopping list?"
+msgstr ""
+"Είστε βέβαιοι ότι θα βάλετε όλα τα συστατικά που λείπουν για τη συνταγή \"% "
+"s\" στη λίστα αγορών;"
+
+msgid "Added for recipe %s"
+msgstr "Προστέθηκε για τη συνταγή% s"
+
+msgid "Manage users"
+msgstr "Διαχείριση χρηστών"
+
+msgid "User"
+msgstr "Χρήστης"
+
+msgid "Users"
+msgstr "Χρήστες"
+
+msgid "Are you sure to delete user \"%s\"?"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε τον χρήστη \"% s\";"
+
+msgid "Create user"
+msgstr "Δημιουργία χρήστη"
+
+msgid "Edit user"
+msgstr "Επεξεργασία χρήστη"
+
+msgid "First name"
+msgstr "Ονομα"
+
+msgid "Last name"
+msgstr "Επίθετο"
+
+msgid "A username is required"
+msgstr "Απαιτείται όνομα χρήστη"
+
+msgid "Confirm password"
+msgstr "Επιβεβαίωση Κωδικού"
+
+msgid "Passwords do not match"
+msgstr "Οι κωδικοί πρόσβασης δεν ταιριάζουν"
+
+msgid "Change password"
+msgstr "Αλλαξε κωδικό"
+
+msgid "Done by"
+msgstr "Γίνεται από"
+
+msgid "Last done by"
+msgstr "Τελευταία από"
+
+msgid "Unknown"
+msgstr "Αγνωστος"
+
+msgid "Filter by chore"
+msgstr "Φιλτράρετε ανά μικροδουλειά"
+
+msgid "Chores journal"
+msgstr "Περιοδικό Chores"
+
+msgid "0 means suggestions for the next charge cycle are disabled"
+msgstr ""
+"0 σημαίνει ότι οι προτάσεις για τον επόμενο κύκλο φόρτισης είναι "
+"απενεργοποιημένες"
+
+msgid "Charge cycle interval (days)"
+msgstr "Διάστημα κύκλου φόρτισης (ημέρες)"
+
+msgid "Last price"
+msgstr "Τελική τιμή"
+
+msgid "Price history"
+msgstr "Ιστορικό τιμών"
+
+msgid "No price history available"
+msgstr "Δεν υπάρχει διαθέσιμο ιστορικό τιμών"
+
+msgid "Price"
+msgstr "Τιμή"
+
+msgid "in %s per purchase quantity unit"
+msgstr "σε% s ανά μονάδα ποσότητας αγοράς"
+
+msgid "The price cannot be lower than %s"
+msgstr "Η τιμή δεν μπορεί να είναι χαμηλότερη από% s"
+
+msgid "Unit"
+msgstr "Μονάδα"
+
+msgid "%s Unit"
+msgid_plural "%s Units"
+msgstr[0] "%sΜονάδα"
+msgstr[1] " %sΜονάδες"
+
+msgid "%s chore is due to be done"
+msgid_plural "%s chores are due to be done"
+msgstr[0] "%s  δουλειά πρόκειται να γίνει"
+msgstr[1] "%s δουλειές πρόκειται να γίνουν"
+
+msgid "%s chore is overdue to be done"
+msgid_plural "%s chores are overdue to be done"
+msgstr[0] "%s δουλειά έχει καθυστερήσει να γίνει"
+msgstr[1] "%s δουλειές έχουν καθυστερήσει να γίνουν"
+
+msgid "%s battery is due to be charged"
+msgid_plural "%s batteries are due to be charged"
+msgstr[0] "%s μπαταρία πρέπει να φορτιστεί"
+msgstr[1] "%s μπαταρίες πρέπει να φορτιστούν"
+
+msgid "%s battery is overdue to be charged"
+msgid_plural "%s batteries are overdue to be charged"
+msgstr[0] "%s μπαταρία έχει καθυστερήσει να φορτιστεί"
+msgstr[1] "%s μπαταρίες έχουν καθυστερήσει να φορτιστούν"
+
+msgid "in singular form"
+msgstr "σε μοναδική μορφή"
+
+msgid "Never expires"
+msgstr "Δεν λήγει ποτέ"
+
+msgid "This cannot be lower than %s"
+msgstr "Αυτό δεν μπορεί να είναι χαμηλότερο από% s"
+
+msgid "-1 means that this product never expires"
+msgstr "-1 σημαίνει ότι αυτό το προϊόν δεν λήγει ποτέ"
+
+msgid "Quantity unit"
+msgstr "Μονάδα ποσότητας"
+
+msgid ""
+"Only check if a single unit is in stock (a different quantity can then be "
+"used above)"
+msgstr ""
+"Ελέγξτε μόνο εάν υπάρχει μεμονωμένη μονάδα (μπορεί να χρησιμοποιηθεί "
+"διαφορετική ποσότητα παραπάνω)"
+
+msgid ""
+"Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
+" marked with \"check only if a single unit is in stock\" will be ignored)?"
+msgstr ""
+"Είστε βέβαιοι ότι θα καταναλώσετε όλα τα συστατικά που απαιτούνται από τη "
+"συνταγή \"% s\" (τα συστατικά που επισημαίνονται με \"ελέγξτε μόνο εάν "
+"υπάρχει μεμονωμένη μονάδα\" θα αγνοηθούν);"
+
+msgid "Removed all ingredients of recipe \"%s\" from stock"
+msgstr "Καταργήθηκαν όλα τα συστατικά της συνταγής \"% s\" από το απόθεμα"
+
+msgid "Consume all ingredients needed by this recipe"
+msgstr "Καταναλώστε όλα τα συστατικά που απαιτούνται από αυτήν τη συνταγή"
+
+msgid "Click to show technical details"
+msgstr "Κάντε κλικ για να εμφανίσετε τεχνικές λεπτομέρειες"
+
+msgid "Error while saving, probably this item already exists"
+msgstr "Σφάλμα κατά την αποθήκευση, πιθανώς αυτό το στοιχείο υπάρχει ήδη"
+
+msgid "Error details"
+msgstr "Λεπτομέρειες σφάλματος"
+
+msgid "Tasks"
+msgstr "Καθήκοντα"
+
+msgid "Show done tasks"
+msgstr "Εμφάνιση ολοκληρωμένων εργασιών"
+
+msgid "Task"
+msgstr "Εργο"
+
+msgid "Due"
+msgstr "Λόγω"
+
+msgid "Assigned to"
+msgstr "Ανατεθεί"
+
+msgid "Mark task \"%s\" as completed"
+msgstr "Επισημάνετε την εργασία \"% s\" ως ολοκληρωμένη"
+
+msgid "Uncategorized"
+msgstr "Χωρίς κατηγορία"
+
+msgid "Task categories"
+msgstr "Κατηγορίες εργασιών"
+
+msgid "Create task"
+msgstr "Δημιουργήστε εργασία"
+
+msgid "A due date is required"
+msgstr "Απαιτείται προθεσμία"
+
+msgid "Category"
+msgstr "Κατηγορία"
+
+msgid "Edit task"
+msgstr "Επεξεργασία εργασίας"
+
+msgid "Are you sure to delete task \"%s\"?"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε την εργασία \"% s\";"
+
+msgid "%s task is due to be done"
+msgid_plural "%s tasks are due to be done"
+msgstr[0] "%s εργασία πρέπει να γίνει"
+msgstr[1] "%s εργασίες πρέπει να γίνουν"
+
+msgid "%s task is overdue to be done"
+msgid_plural "%s tasks are overdue to be done"
+msgstr[0] "%s  καθήκον που πρέπει να γίνει"
+msgstr[1] "%s καθήκοντα έχουν καθυστερήσει να γίνουν"
+
+msgid "Edit task category"
+msgstr "Επεξεργασία κατηγορίας εργασιών"
+
+msgid "Create task category"
+msgstr "Δημιουργία κατηγορίας εργασιών"
+
+msgid "Product groups"
+msgstr "Ομάδες προϊόντων"
+
+msgid "Ungrouped"
+msgstr "Χωρίς ομάδα"
+
+msgid "Create product group"
+msgstr "Δημιουργία ομάδας προϊόντων"
+
+msgid "Edit product group"
+msgstr "Επεξεργασία ομάδας προϊόντων"
+
+msgid "Product group"
+msgstr "Ομάδα προϊόντων"
+
+msgid "Are you sure to delete product group \"%s\"?"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε την ομάδα προϊόντων \"% s\";"
+
+msgid "Stay logged in permanently"
+msgstr "Μείνετε μόνιμα συνδεδεμένοι"
+
+msgid "When not set, you will get logged out at latest after 30 days"
+msgstr "Όταν δεν ρυθμιστεί, θα αποσυνδεθείτε το αργότερο μετά από 30 ημέρες"
+
+msgid "Status"
+msgstr "Κατάσταση"
+
+msgid "Below min. stock amount"
+msgstr "Κάτω από ελάχ. ποσό αποθέματος"
+
+msgid "Expiring soon"
+msgstr "Λήγει σύντομα"
+
+msgid "Already expired"
+msgstr "Έχει ήδη λήξει"
+
+msgid "Due soon"
+msgstr "Λήγει σύντομα"
+
+msgid "Overdue"
+msgstr "Εκπρόθεσμος"
+
+msgid "View settings"
+msgstr "Προβολή ρυθμίσεων"
+
+msgid "Auto reload on external changes"
+msgstr "Αυτόματη φόρτωση σε εξωτερικές αλλαγές"
+
+msgid "Enable night mode"
+msgstr "Ενεργοποίηση νυχτερινής λειτουργίας"
+
+msgid "Auto enable in time range"
+msgstr "Αυτόματη ενεργοποίηση στο χρονικό εύρος"
+
+msgid "From"
+msgstr "Από"
+
+msgid "in format"
+msgstr "σε μορφή"
+
+msgid "To"
+msgstr "Το"
+
+msgid "Time range goes over midnight"
+msgstr "Το χρονικό εύρος ξεπερνά τα μεσάνυχτα"
+
+msgid "Product picture"
+msgstr "Εικόνα προϊόντος"
+
+msgid "No file selected"
+msgstr "Κανένα επιλεγμένο αρχείο"
+
+msgid "If you don't select a file, the current picture will not be altered"
+msgstr "Εάν δεν επιλέξετε ένα αρχείο, η τρέχουσα εικόνα δεν θα αλλάξει"
+
+msgid "Delete"
+msgstr "Διαγράφω"
+
+msgid "The current picture will be deleted when you save the product"
+msgstr "Η τρέχουσα εικόνα θα διαγραφεί όταν αποθηκεύετε το προϊόν"
+
+msgid "Select file"
+msgstr "Επιλέξτε αρχείο"
+
+msgid "Image of product %s"
+msgstr "Εικόνα του προϊόντος% s"
+
+msgid ""
+"This product cannot be deleted because it is in stock, please remove the "
+"stock amount first."
+msgstr ""
+"Αυτό το προϊόν δεν μπορεί να διαγραφεί επειδή είναι διαθέσιμο, αφαιρέστε "
+"πρώτα το ποσό της μετοχής."
+
+msgid "Delete not possible"
+msgstr "Δεν είναι δυνατή η διαγραφή"
+
+msgid "Equipment"
+msgstr "Εξοπλισμός"
+
+msgid "Instruction manual"
+msgstr "Εγχειρίδιο οδηγιών"
+
+msgid "The selected equipment has no instruction manual"
+msgstr "Ο επιλεγμένος εξοπλισμός δεν έχει εγχειρίδιο οδηγιών"
+
+msgid "Notes"
+msgstr "Σημειώσεις"
+
+msgid "Edit equipment"
+msgstr "Επεξεργασία εξοπλισμού"
+
+msgid "Create equipment"
+msgstr "Δημιουργήστε εξοπλισμό"
+
+msgid ""
+"If you don't select a file, the current instruction manual will not be "
+"altered"
+msgstr ""
+"Εάν δεν επιλέξετε ένα αρχείο, το τρέχον εγχειρίδιο οδηγιών δεν θα αλλάξει"
+
+msgid "No instruction manual available"
+msgstr "Δεν υπάρχει διαθέσιμο εγχειρίδιο οδηγιών"
+
+msgid ""
+"The current instruction manual will be deleted when you save the equipment"
+msgstr ""
+"Το τρέχον εγχειρίδιο οδηγιών θα διαγραφεί όταν αποθηκεύετε τον εξοπλισμό"
+
+msgid "No picture available"
+msgstr "Δεν υπάρχει διαθέσιμη εικόνα"
+
+msgid "Filter by product group"
+msgstr "Φιλτράρισμα κατά ομάδα προϊόντων"
+
+msgid "Presets for new products"
+msgstr "Προεπιλογές για νέα προϊόντα"
+
+msgid "Included recipes"
+msgstr "Συμπεριλαμβάνονται συνταγές"
+
+msgid "A recipe is required"
+msgstr "Απαιτείται συνταγή"
+
+msgid "Add included recipe"
+msgstr "Προσθέστε συμπεριλαμβανόμενη συνταγή"
+
+msgid "Edit included recipe"
+msgstr "Επεξεργασία συμπεριλαμβανόμενης συνταγής"
+
+msgid "Group"
+msgstr "Ομάδα"
+
+msgid "This will be used as a headline to group ingredients together"
+msgstr "Αυτό θα χρησιμοποιηθεί ως τίτλος για την ομαδοποίηση συστατικών"
+
+msgid "Journal"
+msgstr "Εφημερίδα"
+
+msgid "Stock journal"
+msgstr "Περιοδικό αποθεμάτων"
+
+msgid "Filter by product"
+msgstr "Φιλτράρισμα ανά προϊόν"
+
+msgid "Booking time"
+msgstr "Χρόνος κράτησης"
+
+msgid "Booking type"
+msgstr "Τύπος κράτησης"
+
+msgid "Undo booking"
+msgstr "Αναίρεση κράτησης"
+
+msgid "Undone on"
+msgstr "Αναίρεση στις"
+
+msgid "Batteries journal"
+msgstr "Περιοδικό μπαταριών"
+
+msgid "Filter by battery"
+msgstr "Φιλτράρετε με μπαταρία"
+
+msgid "Undo charge cycle"
+msgstr "Αναίρεση κύκλου φόρτισης"
+
+msgid "Undo chore execution"
+msgstr "Αναίρεση εκτέλεσης μικροδουλειάς"
+
+msgid "Chore execution successfully undone"
+msgstr "Η εκτέλεση της δουλειάς αναιρέθηκε με επιτυχία"
+
+msgid "Undo"
+msgstr "Ξεκάνω"
+
+msgid "Booking successfully undone"
+msgstr "Η κράτηση ακυρώθηκε με επιτυχία"
+
+msgid "Charge cycle successfully undone"
+msgstr "Ο κύκλος φόρτισης αναιρέθηκε με επιτυχία"
+
+msgid "This cannot be negative and must be an integral number"
+msgstr ""
+"Αυτό δεν μπορεί να είναι αρνητικό και πρέπει να είναι ακέραιος αριθμός"
+
+msgid "Disable stock fulfillment checking for this ingredient"
+msgstr ""
+"Απενεργοποιήστε τον έλεγχο εκπλήρωσης αποθεμάτων για αυτό το συστατικό"
+
+msgid "Add all list items to stock"
+msgstr "Προσθήκη όλων των στοιχείων λίστας στο απόθεμα"
+
+msgid "Add %1$s of %2$s to stock"
+msgstr "Προσθέστε% 1 $ s από% 2 $ s στο απόθεμα"
+
+msgid "Adding shopping list item %1$s of %2$s"
+msgstr "Προσθήκη στοιχείου λίστας αγορών% 1 $ s από% 2 $ s"
+
+msgid "Use a specific stock item"
+msgstr "Χρησιμοποιήστε ένα συγκεκριμένο είδος αποθέματος"
+
+msgid ""
+"The first item in this list would be picked by the default rule which is "
+"\"First expiring first, then first in first out\""
+msgstr ""
+"Το πρώτο στοιχείο αυτής της λίστας θα επιλεγεί από τον προεπιλεγμένο κανόνα "
+"που είναι \"Πρώτα λήγει πρώτα και έπειτα πρώτο στην πρώτη έξοδο\""
+
+msgid "Mark %1$s of %2$s as open"
+msgstr "Επισήμανση% 1 $ s από% 2 $ s ως ανοιχτό"
+
+msgid ""
+"When this product was marked as opened, the best before date will be "
+"replaced by today + this amount of days (a value of 0 disables this)"
+msgstr ""
+"Όταν αυτό το προϊόν επισημάνθηκε ως ανοιχτό, το καλύτερο πριν από την "
+"ημερομηνία θα αντικατασταθεί από σήμερα + αυτό το ποσό ημερών (μια τιμή 0 "
+"απενεργοποιεί αυτό)"
+
+msgid "Default best before days after opened"
+msgstr "Η προεπιλογή καλύτερη πριν από ημέρες μετά το άνοιγμα"
+
+msgid "Marked %1$s of %2$s as opened"
+msgstr "Επισημάνθηκε% 1 $ s από% 2 $ s ως άνοιγμα"
+
+msgid "Mark as opened"
+msgstr "Επισήμανση ως άνοιξε"
+
+msgid "Not opened"
+msgstr "Δεν άνοιξε"
+
+msgid "Opened"
+msgstr "Άνοιξε"
+
+msgid "%s opened"
+msgstr "Το% s άνοιξε"
+
+msgid "Product expires"
+msgstr "Το προϊόν λήγει"
+
+msgid "Task due"
+msgstr "Η εργασία οφείλεται"
+
+msgid "Chore due"
+msgstr "Η δουλειά οφείλεται"
+
+msgid "Battery charge cycle due"
+msgstr "Ο κύκλος φόρτισης της μπαταρίας οφείλεται"
+
+msgid "Show clock in header"
+msgstr "Εμφάνιση ρολογιού στην κεφαλίδα"
+
+msgid "Stock settings"
+msgstr "Ρυθμίσεις αποθεμάτων"
+
+msgid "Shopping list to stock workflow"
+msgstr "Λίστα αγορών σε απόθεμα ροής εργασίας"
+
+msgid ""
+"Automatically do the booking using the last price and the amount of the "
+"shopping list item, if the product has \"Default best before days\" set"
+msgstr ""
+"Πραγματοποιήστε αυτόματα την κράτηση χρησιμοποιώντας την τελευταία τιμή και "
+"το ποσό του αντικειμένου της λίστας αγορών, εάν το προϊόν έχει οριστεί "
+"\"Προεπιλεγμένο καλύτερο πριν από τις ημέρες\""
+
+msgid "Skip"
+msgstr "Παραλείπω"
+
+msgid "Servings"
+msgstr "Μερίδες"
+
+msgid "Costs"
+msgstr "Δικαστικά έξοδα"
+
+msgid "Based on the prices of the last purchase per product"
+msgstr "Με βάση τις τιμές της τελευταίας αγοράς ανά προϊόν"
+
+msgid "The ingredients listed here result in this amount of servings"
+msgstr "Τα συστατικά που αναφέρονται εδώ οδηγούν σε αυτό το ποσό μερίδων"
+
+msgid "Do not check against the shopping list when adding missing items to it"
+msgstr ""
+"Μην ελέγχετε τη λίστα αγορών κατά την προσθήκη λείπουν αντικειμένων σε αυτήν"
+
+msgid ""
+"By default the amount to be added to the shopping list is \"needed amount - "
+"stock amount - shopping list amount\" - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+msgstr ""
+"Από προεπιλογή, το ποσό που πρέπει να προστεθεί στη λίστα αγορών είναι "
+"\"απαιτούμενο ποσό - ποσό μετοχής - ποσό λίστας αγορών\" - όταν είναι "
+"ενεργοποιημένο, ελέγχεται μόνο με το ποσό της μετοχής και όχι με αυτό που "
+"υπάρχει ήδη στη λίστα αγορών"
+
+msgid "Picture"
+msgstr "Εικόνα"
+
+msgid "Uncheck ingredients to not put them on the shopping list"
+msgstr ""
+"Καταργήστε την επιλογή των συστατικών για να μην τα βάλετε στη λίστα αγορών"
+
+msgid "This is for statistical purposes only"
+msgstr "Αυτό είναι μόνο για στατιστικούς σκοπούς"
+
+msgid "You have to select a recipe"
+msgstr "Πρέπει να επιλέξετε μια συνταγή"
+
+msgid "Key type"
+msgstr "Τύπος κλειδιού"
+
+msgid "Share/Integrate calendar (iCal)"
+msgstr "Κοινή χρήση / ενοποίηση ημερολογίου (iCal)"
+
+msgid ""
+"Use the following (public) URL to share or integrate the calendar in iCal "
+"format"
+msgstr ""
+"Χρησιμοποιήστε την ακόλουθη (δημόσια) διεύθυνση URL για κοινή χρήση ή "
+"ενοποίηση του ημερολογίου σε μορφή iCal"
+
+msgid "Allow partial units in stock"
+msgstr "Επιτρέψτε μερικές μονάδες σε απόθεμα"
+
+msgid "Enable tare weight handling"
+msgstr "Ενεργοποίηση χειρισμού απόβαρου βάρους"
+
+msgid ""
+"This is useful e.g. for flour in jars - on purchase/consume/inventory you "
+"always weigh the whole jar, the amount to be posted is then automatically "
+"calculated based on what is in stock and the tare weight defined below"
+msgstr ""
+"Αυτό είναι χρήσιμο π.χ. για αλεύρι σε βάζα - κατά την αγορά / κατανάλωση / "
+"απόθεμα ζυγίζετε πάντα ολόκληρο το βάζο, το ποσό που θα δημοσιευτεί "
+"υπολογίζεται αυτόματα αυτόματα με βάση το απόθεμα και το απόβαρο που "
+"ορίζεται παρακάτω"
+
+msgid "Tare weight"
+msgstr "απόβαρο"
+
+msgid ""
+"Tare weight handling enabled - please weigh the whole container, the amount "
+"to be posted will be automatically calculcated"
+msgstr ""
+"Ο χειρισμός απόβαρου βάρους ενεργοποιήθηκε - ζυγίστε ολόκληρο το δοχείο, το "
+"ποσό που θα δημοσιευτεί θα υπολογιστεί αυτόματα"
+
+msgid "You have to select a location"
+msgstr "Πρέπει να επιλέξετε μια τοποθεσία"
+
+msgid "You have to select a store"
+msgstr "Πρέπει να επιλέξετε ένα κατάστημα"
+
+msgid "List"
+msgstr "Λίστα"
+
+msgid "Gallery"
+msgstr "Εκθεσιακός χώρος"
+
+msgid "The current picture will be deleted when you save the recipe"
+msgstr "Η τρέχουσα εικόνα θα διαγραφεί όταν αποθηκεύσετε τη συνταγή"
+
+msgid "Show product details"
+msgstr "Εμφάνιση λεπτομερειών προϊόντος"
+
+msgid "Stock journal for this product"
+msgstr "Χρηματιστήριο για αυτό το προϊόν"
+
+msgid "Show chore details"
+msgstr "Εμφάνιση λεπτομερειών μικροδουλειάς"
+
+msgid "Journal for this chore"
+msgstr "Εφημερίδα για αυτήν τη δουλειά"
+
+msgid "Show battery details"
+msgstr "Εμφάνιση λεπτομερειών μπαταρίας"
+
+msgid "Journal for this battery"
+msgstr "Εφημερίδα για αυτήν την μπαταρία"
+
+msgid "System info"
+msgstr "Πληροφορίες συστήματος"
+
+msgid "Changelog"
+msgstr "Τσανγκολόγκ"
+
+msgid "will be multiplied by a factor of %1$s to get %2$s"
+msgstr "θα πολλαπλασιαστεί με συντελεστή% 1 $ s για να πάρει% 2 $ s"
+
+msgid "The given date is earlier than today, are you sure?"
+msgstr "Η δεδομένη ημερομηνία είναι νωρίτερη από σήμερα, είστε βέβαιοι;"
+
+msgid "Product count"
+msgstr "Αριθμός προϊόντων"
+
+msgid "Type a new product name or barcode and hit TAB to start a workflow"
+msgstr ""
+"Πληκτρολογήστε ένα νέο όνομα προϊόντος ή έναν γραμμικό κώδικα και πατήστε "
+"TAB για να ξεκινήσετε μια ροή εργασίας"
+
+msgid ""
+"This will be used as the default setting when adding this product as a "
+"recipe ingredient"
+msgstr ""
+"Αυτό θα χρησιμοποιηθεί ως η προεπιλεγμένη ρύθμιση κατά την προσθήκη αυτού "
+"του προϊόντος ως συστατικού συνταγής"
+
+msgid "Add item"
+msgstr "Πρόσθεσε είδος"
+
+msgid "Selected shopping list"
+msgstr "Επιλεγμένη λίστα αγορών"
+
+msgid "New shopping list"
+msgstr "Νέα λίστα αγορών"
+
+msgid "Delete shopping list"
+msgstr "Διαγραφή λίστας αγορών"
+
+msgid "Chores settings"
+msgstr "Ρυθμίσεις μικροδουλειών"
+
+msgid "Batteries settings"
+msgstr "Ρυθμίσεις μπαταριών"
+
+msgid "Tasks settings"
+msgstr "Ρυθμίσεις εργασιών"
+
+msgid "Create shopping list"
+msgstr "Δημιουργία λίστας αγορών"
+
+msgid "Are you sure to delete shopping list \"%s\"?"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε τη λίστα αγορών \"% s\";"
+
+msgid "Average shelf life"
+msgstr "Μέση διάρκεια ζωής"
+
+msgid "Spoil rate"
+msgstr "Ποσοστό χαλάρωσης"
+
+msgid "Show more"
+msgstr "Δείτε περισσότερα"
+
+msgid "Show less"
+msgstr "Δείξε λιγότερο"
+
+msgid "The amount must be between %1$s and %2$s"
+msgstr "Το ποσό πρέπει να κυμαίνεται μεταξύ% 1 $ s και% 2 $ s"
+
+msgid "Day of month"
+msgstr "Ημέρα του μήνα"
+
+msgid "Monday"
+msgstr "Δευτέρα"
+
+msgid "Tuesday"
+msgstr "Τρίτη"
+
+msgid "Wednesday"
+msgstr "Τετάρτη"
+
+msgid "Thursday"
+msgstr "Πέμπτη"
+
+msgid "Friday"
+msgstr "Παρασκευή"
+
+msgid "Saturday"
+msgstr "Σάββατο"
+
+msgid "Sunday"
+msgstr "Κυριακή"
+
+msgid "Configure userfields"
+msgstr "Διαμόρφωση πεδίων χρήστη"
+
+msgid "Userfields"
+msgstr "Πεδία χρηστών"
+
+msgid "Filter by entity"
+msgstr "Φιλτράρισμα κατά οντότητα"
+
+msgid "Entity"
+msgstr "Οντότητα"
+
+msgid "Caption"
+msgstr "Λεζάντα"
+
+msgid "Type"
+msgstr "Τύπος"
+
+msgid "Create userfield"
+msgstr "Δημιουργία πεδίου χρήστη"
+
+msgid "A entity is required"
+msgstr "Απαιτείται οντότητα"
+
+msgid "A caption is required"
+msgstr "Απαιτείται λεζάντα"
+
+msgid "A type is required"
+msgstr "Απαιτείται τύπος"
+
+msgid "Show as column in tables"
+msgstr "Εμφάνιση ως στήλη σε πίνακες"
+
+msgid "This is required and can only contain letters and numbers"
+msgstr "Αυτό απαιτείται και μπορεί να περιέχει μόνο γράμματα και αριθμούς"
+
+msgid "Edit userfield"
+msgstr "Επεξεργασία πεδίου χρήστη"
+
+msgid "Plural forms"
+msgstr "Πληθυντικές μορφές"
+
+msgid "One plural form per line, the current language requires"
+msgstr "Μία πληθυντική μορφή ανά γραμμή, απαιτεί η τρέχουσα γλώσσα"
+
+msgid "Plural count"
+msgstr "Πληθυντικός αριθμός"
+
+msgid "Plural rule"
+msgstr "Πληθυντικός κανόνας"
+
+msgid "in plural form"
+msgstr "σε πληθυντικό σχήμα"
+
+msgid "Not enough in stock, %s ingredient missing"
+msgid_plural "Not enough in stock, %s ingredients missing"
+msgstr[0] "Δεν υπάρχει αρκετό απόθεμα, λείπει %s συστατικό"
+msgstr[1] "Δεν υπάρχει αρκετό απόθεμα, λείπουν %s συστατικά"
+
+msgid "The amount cannot be lower than %1$s or equal %2$s"
+msgstr "Το ποσό δεν μπορεί να είναι μικρότερο από% 1 $ s ή ίσο με% 2 $ s"
+
+msgid "Not enough in stock, but already on the shopping list"
+msgstr "Δεν υπάρχει αρκετό απόθεμα, αλλά ήδη στη λίστα αγορών"
+
+msgid "Not enough in stock"
+msgstr "Δεν υπάρχει αρκετό απόθεμα"
+
+msgid "Expiring soon days"
+msgstr "Λήγει σύντομα ημέρες"
+
+msgid "Default location"
+msgstr "Προεπιλεγμένη τοποθεσία"
+
+msgid "Default amount for purchase"
+msgstr "Προεπιλεγμένο ποσό για αγορά"
+
+msgid "Default amount for consume"
+msgstr "Προεπιλεγμένο ποσό για κατανάλωση"
+
+msgid "Variable amount"
+msgstr "Μεταβλητό ποσό"
+
+msgid ""
+"When this is not empty, it will be shown instead of the amount entered above"
+" while the amount there will still be used for stock fulfillment checking"
+msgstr ""
+"Όταν αυτό δεν είναι κενό, θα εμφανίζεται αντί για το ποσό που έχει εισαχθεί "
+"παραπάνω, ενώ το ποσό εκεί θα εξακολουθεί να χρησιμοποιείται για τον έλεγχο "
+"της εκπλήρωσης αποθεμάτων"
+
+msgid "Track date only"
+msgstr "Μόνο ημερομηνία παρακολούθησης"
+
+msgid "When enabled only the day of an execution is tracked, not the time"
+msgstr ""
+"Όταν ενεργοποιείται, παρακολουθείται μόνο η ημέρα εκτέλεσης και όχι η ώρα"
+
+msgid "Consume %1$s of %2$s"
+msgstr "Καταναλώστε% 1 $ s από% 2 $ s"
+
+msgid "Meal plan"
+msgstr "Προτίμηση γεύματος"
+
+msgid "Add recipe on %s"
+msgstr "Προσθέστε συνταγή στο% s"
+
+msgid "%s serving"
+msgid_plural "%s servings"
+msgstr[0] "Μερίδα %s"
+msgstr[1] "%s Μερίδες"
+
+msgid "Week costs"
+msgstr "Κόστος εβδομάδας"
+
+msgid "Configuration"
+msgstr "Διαμόρφωση"
+
+msgid "A predefined list of values, one per line"
+msgstr "Μια προκαθορισμένη λίστα τιμών, μία ανά γραμμή"
+
+msgid "Chores due soon days"
+msgstr "Οι δουλειές οφείλονται σύντομα"
+
+msgid "Batteries due to be charged soon days"
+msgstr "Οι μπαταρίες πρόκειται να φορτιστούν σύντομα ημέρες"
+
+msgid "Tasks due soon days"
+msgstr "Οι εργασίες αναμένεται σύντομα"
+
+msgid "Products"
+msgstr "Προϊόντα"
+
+msgid "Marked task %s as completed on %s"
+msgstr "Επισημάνθηκε η εργασία% s ως ολοκληρωμένη στο% s"
+
+msgid "Booking has subsequent dependent bookings, undo not possible"
+msgstr ""
+"Η κράτηση έχει επακόλουθες εξαρτημένες κρατήσεις, δεν είναι δυνατή η "
+"αναίρεση"
+
+msgid "per serving"
+msgstr "ανά μερίδα"
+
+msgid "Never"
+msgstr "Ποτέ"
+
+msgid "Today"
+msgstr "Σήμερα"
+
+msgid "Consume %1$s of %2$s as spoiled"
+msgstr "Καταναλώστε% 1 $ s από% 2 $ s ως χαλασμένο"
+
+msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
+msgstr "Δεν υπάρχουν όλα τα συστατικά της συνταγής \"% s\", τίποτα δεν αφαιρείται"
+
+msgid "Undo task \"%s\""
+msgstr "Αναίρεση εργασίας \"% s\""
+
+msgid "Due date rollover"
+msgstr "Ανατροπή ημερομηνίας λήξης"
+
+msgid ""
+"When enabled the chore can never be overdue, the due date will shift forward"
+" each day when due"
+msgstr ""
+"Όταν είναι ενεργοποιημένη, η δουλειά δεν μπορεί ποτέ να είναι καθυστερημένη,"
+" η ημερομηνία λήξης θα αλλάζει προς τα εμπρός κάθε μέρα, όταν πρέπει"
+
+msgid "Location Content Sheet"
+msgstr "Φύλλο περιεχομένου τοποθεσίας"
+
+msgid "Print"
+msgstr "Τυπώνω"
+
+msgid "all locations"
+msgstr "όλες οι τοποθεσίες"
+
+msgid ""
+"Here you can print a page per location with the current stock, maybe to hang"
+" it there and note the consumed things on it."
+msgstr ""
+"Εδώ μπορείτε να εκτυπώσετε μια σελίδα ανά τοποθεσία με το τρέχον απόθεμα, "
+"ίσως να την κρεμάσετε εκεί και να σημειώσετε τα αναλωμένα πράγματα σε αυτήν."
+
+msgid "this location"
+msgstr "αυτήν την τοποθεσία"
+
+msgid "Consumend amount"
+msgstr "Καταναλώστε το ποσό"
+
+msgid "Time of printing"
+msgstr "Ώρα εκτύπωσης"
+
+msgid "Are you sure to delete equipment \"%s\"?"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε τον εξοπλισμό \"% s\";"
+
+msgid "Parent product"
+msgstr "Γονικό προϊόν"
+
+msgid ""
+"Not possible because this product is already used as a parent product in "
+"another product"
+msgstr ""
+"Δεν είναι δυνατό επειδή αυτό το προϊόν χρησιμοποιείται ήδη ως μητρικό προϊόν"
+" σε άλλο προϊόν"
+
+msgid "Default conversions"
+msgstr "Προεπιλεγμένες μετατροπές"
+
+msgid "Factor"
+msgstr "Παράγοντας"
+
+msgid "1 %s is the same as..."
+msgstr "Το 1% s είναι το ίδιο με ..."
+
+msgid "Create QU conversion"
+msgstr "Δημιουργία μετατροπής QU"
+
+msgid "Default for QU"
+msgstr "Προεπιλογή για QU"
+
+msgid "Quantity unit from"
+msgstr "Μονάδα ποσότητας από"
+
+msgid "Quantity unit to"
+msgstr "Μονάδα ποσότητας έως"
+
+msgid ""
+"This cannot be lower than %1$s and must be a valid number with max. %2$s "
+"decimal places"
+msgstr ""
+"Αυτό δεν μπορεί να είναι χαμηλότερο από% 1 $ s και πρέπει να είναι έγκυρος "
+"αριθμός με μέγ. Δεκαδικά ψηφία% 2 $ s"
+
+msgid "This cannot be equal to %s"
+msgstr "Αυτό δεν μπορεί να είναι ίσο με% s"
+
+msgid "This means 1 %1$s is the same as %2$s %3$s"
+msgstr "Αυτό σημαίνει ότι το 1% 1 $ s είναι το ίδιο με το% 2 $ s% 3 $ s"
+
+msgid "QU conversions"
+msgstr "QU μετατροπές"
+
+msgid "Product overrides"
+msgstr "Παράκαμψη προϊόντος"
+
+msgid "Override for product"
+msgstr "Παράκαμψη προϊόντος"
+
+msgid "This equals %1$s %2$s in stock"
+msgstr "Αυτό ισούται με% 1 $ s% 2 $ s σε απόθεμα"
+
+msgid "Edit QU conversion"
+msgstr "Επεξεργασία μετατροπής QU"
+
+msgid "An assignment type is required"
+msgstr "Απαιτείται τύπος ανάθεσης"
+
+msgid "Assignment type"
+msgstr "Τύπος εργασίας"
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 day after the "
+"last execution"
+msgstr ""
+"Αυτό σημαίνει ότι η επόμενη εκτέλεση αυτής της δουλειάς έχει προγραμματιστεί"
+" 1 ημέρα μετά την τελευταία εκτέλεση"
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 day after the "
+"last execution, but only for the weekdays selected below"
+msgstr ""
+"Αυτό σημαίνει ότι η επόμενη εκτέλεση αυτής της δουλειάς έχει προγραμματιστεί"
+" 1 ημέρα μετά την τελευταία εκτέλεση, αλλά μόνο για τις καθημερινές που "
+"επιλέγονται παρακάτω"
+
+msgid "This means the next execution of this chore is not scheduled"
+msgstr ""
+"Αυτό σημαίνει ότι η επόμενη εκτέλεση αυτής της δουλειάς δεν είναι "
+"προγραμματισμένη"
+
+msgid ""
+"This means the next execution of this chore is scheduled on the below "
+"selected day of each month"
+msgstr ""
+"Αυτό σημαίνει ότι η επόμενη εκτέλεση αυτής της δουλειάς έχει προγραμματιστεί"
+" την παρακάτω επιλεγμένη ημέρα κάθε μήνα"
+
+msgid ""
+"This means the next execution of this chore will not be assigned to anyone"
+msgstr ""
+"Αυτό σημαίνει ότι η επόμενη εκτέλεση αυτής της δουλειάς δεν θα ανατεθεί σε "
+"κανέναν"
+
+msgid ""
+"This means the next execution of this chore will be assigned to the one who "
+"executed it least"
+msgstr ""
+"Αυτό σημαίνει ότι η επόμενη εκτέλεση αυτής της δουλειάς θα ανατεθεί σε αυτόν"
+" που την εκτέλεσε λιγότερο"
+
+msgid "This means the next execution of this chore will be assigned randomly"
+msgstr ""
+"Αυτό σημαίνει ότι η επόμενη εκτέλεση αυτής της δουλειάς θα ανατεθεί τυχαία"
+
+msgid ""
+"This means the next execution of this chore will be assigned to the next one"
+" in alphabetical order"
+msgstr ""
+"Αυτό σημαίνει ότι η επόμενη εκτέλεση αυτής της δουλειάς θα ανατεθεί στην "
+"επόμενη με αλφαβητική σειρά"
+
+msgid "Assign to"
+msgstr "Ανάθεση σε"
+
+msgid "This assignment type requires that at least one is assigned"
+msgstr "Αυτός ο τύπος ανάθεσης απαιτεί να αντιστοιχιστεί τουλάχιστον ένας"
+
+msgid "%s chore is assigned to me"
+msgid_plural "%s chores are assigned to me"
+msgstr[0] "%s δουλειά μου έχει ανατεθεί"
+msgstr[1] "%s δουλειές μου έχουν ανατεθεί"
+
+msgid "Assigned to me"
+msgstr "Ανατέθηκε σε μένα"
+
+msgid "assigned to %s"
+msgstr "εκχωρήθηκε στο% s"
+
+msgid "Assignment"
+msgstr "ΑΝΑΘΕΣΗ ΕΡΓΑΣΙΑΣ"
+
+msgid "Consume product on chore execution"
+msgstr "Καταναλώστε το προϊόν κατά την εκτέλεση της δουλειάς"
+
+msgid "Are you sure to delete user field \"%s\"?"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε το πεδίο χρήστη \"% s\";"
+
+msgid "Userentities"
+msgstr "Χρήστες"
+
+msgid "Create userentity"
+msgstr "Δημιουργία χρήστη"
+
+msgid "Show in sidebar menu"
+msgstr "Εμφάνιση στο μενού πλευρικής γραμμής"
+
+msgid "Edit userentity"
+msgstr "Επεξεργασία χρήστη"
+
+msgid "Edit %s"
+msgstr "Επεξεργασία% s"
+
+msgid "Create %s"
+msgstr "Δημιουργία% s"
+
+msgid "Are you sure to delete this userobject?"
+msgstr "Είστε βέβαιοι ότι διαγράψατε αυτό το αντικείμενο χρήστη;"
+
+msgid "Icon CSS class"
+msgstr "Εικονίδιο CSS τάξη"
+
+msgid "For example"
+msgstr "Για παράδειγμα"
+
+msgid "Configure fields"
+msgstr "Διαμόρφωση πεδίων"
+
+msgid "Quantity unit plural form testing"
+msgstr "Έλεγχος πολλαπλών μορφών μονάδας ποσότητας"
+
+msgid "Result"
+msgstr "Αποτέλεσμα"
+
+msgid "Test plural forms"
+msgstr "Δοκιμή πολλαπλών μορφών"
+
+msgid "Scan a barcode"
+msgstr "Σάρωση γραμμωτού κώδικα"
+
+msgid "Error while initializing the barcode scanning library"
+msgstr "Σφάλμα κατά την προετοιμασία της βιβλιοθήκης σάρωσης γραμμωτού κώδικα"
+
+msgid ""
+"The resulting price of this ingredient will be multiplied by this factor"
+msgstr ""
+"Η προκύπτουσα τιμή αυτού του συστατικού πολλαπλασιάζεται με αυτόν τον "
+"παράγοντα"
+
+msgid "Price factor"
+msgstr "Συντελεστής τιμής"
+
+msgid "Do you find grocy useful?"
+msgstr "Βρίσκετε το grocy χρήσιμο;"
+
+msgid "Say thanks"
+msgstr "Πες ευχαριστώ"
+
+msgid "Search for recipes containing this product"
+msgstr "Αναζητήστε συνταγές που περιέχουν αυτό το προϊόν"
+
+msgid "Add to shopping list"
+msgstr "Προσθήκη στη λίστα αγορών"
+
+msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
+msgstr "Προστέθηκε% 1 $ s από% 2 $ s στη λίστα αγορών \"% 3 $ s\""
+
+msgid "Output"
+msgstr "Παραγωγή"
+
+msgid "Energy (kcal)"
+msgstr "Ενέργεια (kcal)"
+
+msgid "Per stock quantity unit"
+msgstr "Ανά μονάδα ποσότητας αποθεμάτων"
+
+msgid "Barcode scanner testing"
+msgstr "Δοκιμή σαρωτή γραμμωτού κώδικα"
+
+msgid "Expected barcode"
+msgstr "Αναμενόμενος γραμμικός κώδικας"
+
+msgid "Scan field"
+msgstr "Πεδίο σάρωσης"
+
+msgid "Scanned barcodes"
+msgstr "Σαρωμένοι γραμμωτοί κώδικες"
+
+msgid "Hit"
+msgstr "Κτύπημα"
+
+msgid "Miss"
+msgstr "Δεσποινίδα"
+
+msgid "Display recipe"
+msgstr "Εμφάνιση συνταγής"
+
+msgid "Accumulate sub products min. stock amount"
+msgstr "Συσσώρευση υποπροϊόντων ελάχ. ποσό αποθέματος"
+
+msgid ""
+"If enabled, the min. stock amount of sub products will be accumulated into "
+"this product, means the sub product will never be \"missing\", only this "
+"product"
+msgstr ""
+"Εάν είναι ενεργοποιημένο, το ελάχιστο το απόθεμα των υπο-προϊόντων θα "
+"συσσωρευτεί σε αυτό το προϊόν, σημαίνει ότι το υπο-προϊόν δεν θα \"λείπει\" "
+"ποτέ, μόνο αυτό το προϊόν"
+
+msgid "Are you sure to remove this conversion?"
+msgstr "Είστε βέβαιοι ότι θα καταργήσετε αυτήν τη μετατροπή;"
+
+msgid "Unit price"
+msgstr "Τιμή μονάδας"
+
+msgid "Total price"
+msgstr "Συνολικό ποσό"
+
+msgid "in %s and based on the purchase quantity unit"
+msgstr "σε% s και βασίζεται στη μονάδα ποσότητας αγοράς"
+
+msgid "Unlimited"
+msgstr "Απεριόριστος"
+
+msgid "Clear"
+msgstr "Σαφή"
+
+msgid "Are you sure to remove the included recipe \"%s\"?"
+msgstr "Είστε βέβαιοι ότι έχετε καταργήσει τη συνταγή \"% s\";"
+
+msgid "Period interval"
+msgstr "Διάστημα περιόδου"
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s days"
+msgstr ""
+"Αυτό σημαίνει ότι η επόμενη εκτέλεση αυτής της δουλειάς θα πρέπει να "
+"προγραμματίζεται μόνο κάθε% s ημέρες"
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s weeks"
+msgstr ""
+"Αυτό σημαίνει ότι η επόμενη εκτέλεση αυτής της δουλειάς θα πρέπει να "
+"προγραμματίζεται μόνο κάθε% s εβδομάδες"
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s months"
+msgstr ""
+"Αυτό σημαίνει ότι η επόμενη εκτέλεση αυτής της δουλειάς θα πρέπει να "
+"προγραμματίζεται μόνο κάθε% s μήνες"
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 year after the "
+"last execution"
+msgstr ""
+"Αυτό σημαίνει ότι η επόμενη εκτέλεση αυτής της δουλειάς έχει προγραμματιστεί"
+" 1 έτος μετά την τελευταία εκτέλεση"
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s years"
+msgstr ""
+"Αυτό σημαίνει ότι η επόμενη εκτέλεση αυτής της δουλειάς θα πρέπει να "
+"προγραμματίζεται μόνο κάθε% s χρόνια"
+
+msgid "Transfer"
+msgstr "ΜΕΤΑΦΟΡΑ"
+
+msgid "From location"
+msgstr "Από την τοποθεσία"
+
+msgid "To location"
+msgstr "Στην τοποθεσία"
+
+msgid "There are no units available at this location"
+msgstr "Δεν υπάρχουν διαθέσιμες μονάδες σε αυτήν την τοποθεσία"
+
+msgid "Amount: %1$s; Expires on %2$s; Bought on %3$s"
+msgstr "Ποσό:% 1 $ s; Λήγει σε% 2 $ s; Αγοράστηκε από% 3 $ s"
+
+msgid "Transfered %1$s of %2$s from %3$s to %4$s"
+msgstr "Μεταφέρθηκε% 1 $ s από% 2's από% 3 $ s σε% 4 $ s"
+
+msgid "Show stock entries"
+msgstr "Εμφάνιση καταχωρίσεων μετοχών"
+
+msgid "Stock entries"
+msgstr "Καταχωρήσεις αποθεμάτων"
+
+msgid "Best before date"
+msgstr "Καλύτερο πριν από την ημερομηνία"
+
+msgid "Purchased date"
+msgstr "Ημερομηνία αγοράς"
+
+msgid "Consume all %s for this stock entry"
+msgstr "Καταναλώστε όλα τα% s για αυτήν την καταχώριση μετοχών"
+
+msgid "The amount cannot be lower than %1$s"
+msgstr "Το ποσό δεν μπορεί να είναι χαμηλότερο από% 1 $ s"
+
+msgid "Stock entry successfully updated"
+msgstr "Η καταχώριση μετοχής ενημερώθηκε με επιτυχία"
+
+msgid "Edit stock entry"
+msgstr "Επεξεργασία καταχώρησης μετοχών"
+
+msgid ""
+"Camera access is only possible when supported and allowed by your browser "
+"and when grocy is served via a secure (https://) connection"
+msgstr ""
+"Η πρόσβαση στην κάμερα είναι δυνατή μόνο όταν υποστηρίζεται και επιτρέπεται "
+"από το πρόγραμμα περιήγησής σας και όταν το grocy σερβίρεται μέσω ασφαλούς "
+"σύνδεσης (https: //)"
+
+msgid "Keep screen on"
+msgstr "Συνεχίστε την οθόνη"
+
+msgid "Keep screen on while displaying a \"fullscreen-card\""
+msgstr ""
+"Κρατήστε την οθόνη ενεργοποιημένη ενώ εμφανίζετε μια \"κάρτα πλήρους "
+"οθόνης\""
+
+msgid "A purchased date is required"
+msgstr "Απαιτείται ημερομηνία αγοράς"
+
+msgid ""
+"When a product is selected, one unit (per serving in purchase quantity unit)"
+" will be added to stock on consuming this recipe"
+msgstr ""
+"Όταν επιλεγεί ένα προϊόν, μία μονάδα (ανά μερίδα σε μονάδα ποσότητας αγοράς)"
+" θα προστεθεί στο απόθεμα κατά την κατανάλωση αυτής της συνταγής"
+
+msgid "Produces product"
+msgstr "Παράγει προϊόν"
+
+msgid "This booking cannot be undone"
+msgstr "Δεν είναι δυνατή η αναίρεση αυτής της κράτησης"
+
+msgid "Booking does not exist or was already undone"
+msgstr "Η κράτηση δεν υπάρχει ή έχει ήδη αναιρεθεί"
+
+msgid "Are you sure to delete API key \"%s\"?"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε το κλειδί API \"% s\";"
+
+msgid "Add note"
+msgstr "Προσθήκη σημείωσης"
+
+msgid "Add note on %s"
+msgstr "Προσθήκη σημείωσης στο% s"
+
+msgid "per day"
+msgstr "ανά μέρα"
+
+msgid "Compact view"
+msgstr "Συμπαγής προβολή"
+
+msgid "Normal view"
+msgstr "Κανονική προβολή"
+
+msgid "Only undone items"
+msgstr "Αναίρεση μόνο αντικειμένων"
+
+msgid "Add product"
+msgstr "Προσθήκη προϊόντος"
+
+msgid "Add product on %s"
+msgstr "Προσθήκη προϊόντος στο% s"
+
+msgid "Consume all ingredients needed by this weeks recipes or products"
+msgstr ""
+"Καταναλώστε όλα τα συστατικά που χρειάζονται αυτές τις εβδομάδες συνταγές ή "
+"προϊόντα"
+
+msgid "Meal plan recipe"
+msgstr "Συνταγή γεύματος"
+
+msgid "Meal plan note"
+msgstr "Σημείωση για το γεύμα"
+
+msgid "Meal plan product"
+msgstr "Προϊόν γεύματος"
+
+msgid "Scan mode"
+msgstr "Λειτουργία σάρωσης"
+
+msgid "on"
+msgstr "επί"
+
+msgid "off"
+msgstr "μακριά από"
+
+msgid ""
+"Scan mode is on but not all required fields could be populated automatically"
+msgstr ""
+"Η λειτουργία σάρωσης είναι ενεργοποιημένη αλλά δεν μπορούν να συμπληρωθούν "
+"αυτόματα όλα τα απαιτούμενα πεδία"
+
+msgid "Is freezer"
+msgstr "Είναι καταψύκτης"
+
+msgid ""
+"When moving products from/to a freezer location, the products best before "
+"date is automatically adjusted according to the product settings"
+msgstr ""
+"Όταν μετακινείτε προϊόντα από / προς μια θέση κατάψυξης, τα καλύτερα "
+"προϊόντα πριν από την ημερομηνία προσαρμόζονται αυτόματα σύμφωνα με τις "
+"ρυθμίσεις του προϊόντος"
+
+msgid ""
+"On moving this product to a freezer location (so when freezing it), the best"
+" before date will be replaced by today + this amount of days"
+msgstr ""
+"Κατά τη μετακίνηση αυτού του προϊόντος σε μια θέση κατάψυξης (οπότε κατά την"
+" κατάψυξή του), το καλύτερο πριν από την ημερομηνία θα αντικατασταθεί από "
+"σήμερα + αυτό το ποσό ημερών"
+
+msgid "Default best before days after freezing"
+msgstr "Προεπιλογή καλύτερη πριν από ημέρες μετά την κατάψυξη"
+
+msgid ""
+"On moving this product from a freezer location (so when thawing it), the "
+"best before date will be replaced by today + this amount of days"
+msgstr ""
+"Κατά τη μετακίνηση αυτού του προϊόντος από μια θέση κατάψυξης (έτσι κατά την"
+" απόψυξη), η καλύτερη ημερομηνία πριν από την αντικατάσταση θα "
+"αντικατασταθεί από σήμερα + αυτό το ποσό ημερών"
+
+msgid "Default best before days after thawing"
+msgstr "Η προεπιλογή είναι καλύτερη πριν από ημέρες μετά την απόψυξη"
+
+msgid "This cannot be the same as the \"From\" location"
+msgstr "Αυτό δεν μπορεί να είναι το ίδιο με την τοποθεσία \"Από\""
+
+msgid "Thawed"
+msgstr "Αποψυχθεί"
+
+msgid "Frozen"
+msgstr "Παγωμένος"
+
+msgid "Are you sure to delete userentity \"%s\"?"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε το userentity \"% s\";"
+
+msgid "Shopping list settings"
+msgstr "Ρυθμίσεις λίστας αγορών"
+
+msgid "Show a month-view calendar"
+msgstr "Εμφάνιση ημερολογίου μηνιαίας προβολής"
+
+msgid "Don't automatically switch to the compact view on mobile devices"
+msgstr "Μην μεταβείτε αυτόματα στη συμπαγή προβολή σε φορητές συσκευές"
+
+msgid "Edit note on %s"
+msgstr "Επεξεργασία σημείωσης στο% s"
+
+msgid "Edit product on %s"
+msgstr "Επεξεργασία προϊόντος στο% s"
+
+msgid "Edit recipe on %s"
+msgstr "Επεξεργασία συνταγής στο% s"
+
+msgid "Desired servings"
+msgstr "Επιθυμητές μερίδες"
+
+msgid "Base: %s"
+msgstr "Βάση:% s"
+
+msgid "Recipes settings"
+msgstr "Ρυθμίσεις συνταγών"
+
+msgid "Recipe card"
+msgstr "Κάρτα συνταγής"
+
+msgid "Group ingredients by their product group"
+msgstr "Ομαδοποιήστε τα συστατικά ανά ομάδα προϊόντων"
+
+msgid "Unknown store"
+msgstr "Άγνωστο κατάστημα"
+
+msgid "Store"
+msgstr "Κατάστημα"
+
+msgid "Transaction successfully undone"
+msgstr "Η συναλλαγή αναιρέθηκε με επιτυχία"
+
+msgid "Default store"
+msgstr "Προεπιλεγμένο κατάστημα"
+
+msgid "Consume this stock entry"
+msgstr "Καταναλώστε αυτήν την καταχώριση μετοχών"
+
+msgid "Mark this stock entry as open"
+msgstr "Επισημάνετε αυτήν την καταχώρηση ως ανοιχτή"
+
+msgid "Mark this item as done"
+msgstr "Επισημάνετε αυτό το στοιχείο ως ολοκληρωμένο"
+
+msgid "Edit this item"
+msgstr "Επεξεργαστείτε αυτό το αντικείμενο"
+
+msgid "Delete this item"
+msgstr "Διαγραφή αυτού του αντικειμένου"
+
+msgid "Show an icon if the product is already on the shopping list"
+msgstr "Εμφάνιση ενός εικονιδίου εάν το προϊόν βρίσκεται ήδη στη λίστα αγορών"
+
+msgid "Calories"
+msgstr "Θερμίδες"
+
+msgid ""
+"By default the amount to be added to the shopping list is `needed amount - "
+"stock amount - shopping list amount` - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+msgstr ""
+"Από προεπιλογή, το ποσό που θα προστεθεί στη λίστα αγορών είναι «απαιτούμενο"
+" ποσό - ποσό μετοχής - ποσό λίστας αγορών» - όταν είναι ενεργοποιημένο, "
+"ελέγχεται μόνο με το ποσό της μετοχής και όχι με αυτό που υπάρχει ήδη στη "
+"λίστα αγορών"
+
+msgid "means %1$s per %2$s"
+msgstr "σημαίνει% 1 $ s ανά% 2 $ s"
+
+msgid "Create inverse QU conversion"
+msgstr "Δημιουργία αντίστροφης μετατροπής QU"
+
+msgid "Create recipe"
+msgstr "Δημιουργήστε συνταγή"
+
+msgid "Save & continue to add ingredients and included recipes"
+msgstr "Αποθηκεύστε & συνεχίστε να προσθέτετε συστατικά και συνταγές"
+
+msgid "Save & continue"
+msgstr "Αποθήκευση & συνέχεια"
+
+msgid "Save & return to recipes"
+msgstr "Αποθήκευση και επιστροφή στις συνταγές"

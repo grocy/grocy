@@ -27,3 +27,5 @@
 ### General & other improvements
 - UI refresh / style improvements (thanks @zsarnett)
 - The prerequisites checker now also checks for the minimum required SQLite version (thanks @Forceu)
+- New translations: (thanks all the translators)
+  - Greek (demo available at https://el.demo.grocy.info)
