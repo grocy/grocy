@@ -39,6 +39,9 @@
 
 ### General & other improvements
 - UI refresh / style improvements (thanks @zsarnett)
+- The data path (previously fixed to the `data` folder) is now configurable, making it possible to run multiple grocy instances from the same directory (with different `config.php` files / different database, etc.) (thanks @fgrsnau)
+  - Via an environment variable `GROCY_DATAPTH` (higher priority)
+  - Via an FastCGI parameter (lower priority)
 - The prerequisites checker now also checks for the minimum required SQLite version (thanks @Forceu)
 - New translations: (thanks all the translators)
   - Greek (demo available at https://el.demo.grocy.info)
