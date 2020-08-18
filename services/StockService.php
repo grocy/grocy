@@ -17,9 +17,9 @@ class StockService extends BaseService
     public function GetCurrentStockOverview()
     {
         if (!GROCY_FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT) {
-            return $this->getDatabase()->stock_current_overview();
+            return $this->getDatabase()->uihelper_stock_current_overview();
         } else {
-            return $this->getDatabase()->stock_current_overview_opened();
+            return $this->getDatabase()->uihelper_stock_current_overview_including_opened();
         }
     }
 
