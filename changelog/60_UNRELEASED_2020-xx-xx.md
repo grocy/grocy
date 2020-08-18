@@ -35,6 +35,7 @@
 - Breaking changes:
   - All prices are now related to the products **stock** quantity unit (instead the purchase QU)
   - The product object no longer has a field `barcodes` with a comma separated barcode list, instead barcodes are now stored in a separate table/entity `product_barcodes` (use the existing "Generic entity interactions" endpoints to access them)
+- Performance improvements of the `/stock/products/*` endpoints (thanks @fipwmaqzufheoxq92ebc)
 - Fixed (again) that CORS was broken
 
 ### General & other improvements/fixes
@@ -42,6 +43,7 @@
 - The data path (previously fixed to the `data` folder) is now configurable, making it possible to run multiple grocy instances from the same directory (with different `config.php` files / different database, etc.) (thanks @fgrsnau)
   - Via an environment variable `GROCY_DATAPTH` (higher priority)
   - Via an FastCGI parameter (lower priority)
+- Performance improvements (page loading time) of the stock overview page (thanks @fipwmaqzufheoxq92ebc)
 - The prerequisites checker now also checks for the minimum required SQLite version (thanks @Forceu)
 - Some localization string fixes (thanks @duckfullstop)
 - New translations: (thanks all the translators)
