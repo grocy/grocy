@@ -14,7 +14,16 @@ class StockService extends BaseService
 	const TRANSACTION_TYPE_PRODUCT_OPENED = 'product-opened';
 	const TRANSACTION_TYPE_SELF_PRODUCTION = 'self-production';
 
-	public function GetCurrentStock($includeNotInStockButMissingProducts = false)
+    public function GetCurrentStockOverview()
+    {
+        if (!GROCY_FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT) {
+            return $this->getDatabase()->stock_current_overview();
+        } else {
+            return $this->getDatabase()->stock_current_overview_opened();
+        }
+    }
+
+    public function GetCurrentStock($includeNotInStockButMissingProducts = false)
 	{
 		$sql = 'SELECT * FROM stock_current';
 		if ($includeNotInStockButMissingProducts)
