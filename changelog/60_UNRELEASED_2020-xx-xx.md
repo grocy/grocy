@@ -1,4 +1,4 @@
-> !!! The major version bump is due to a breaking API change, please see below if you use the API
+> !!! The major version bump is due to breaking API changes, please see below if you use the API
 
 ### New feature: Link product of different sizes
 - Imagine you buy for example eggs in different pack sizes
@@ -32,7 +32,9 @@
 - Fixed a PHP warning when using the "Share/Integrate calendar (iCal)" button (thanks @tsia)
 
 ### API improvements/fixes
-- !!! BREAKING CHANGE: All prices are now related to the products **stock** quantity unit (instead the purchase QU)
+- Breaking changes:
+  - All prices are now related to the products **stock** quantity unit (instead the purchase QU)
+  - The product object no longer has a field `barcodes` with a comma separated barcode list, instead barcodes are now stored in a separate table/entity `product_barcodes` (use the existing "Generic entity interactions" endpoints to access them)
 - Fixed (again) that CORS was broken
 
 ### General & other improvements
