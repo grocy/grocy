@@ -22,6 +22,7 @@
 - Improved recipe card presentation (thanks @zsarnett)
 - Improved the recipe adding workflow (a recipe called "New recipe" is now not automatically created when starting to add a recipe) (thanks @zsarnett)
 - Fixed that images on the recipe gallery view were not scaled correctly on largers screens (thanks @zsarnett)
+- Fixed that decimal ingredient amounts maybe resulted in wrong conversions truncated decimal places if your locale does not use a dot as the decimal separator (thanks @m-byte)
 
 ### Chores improvements/fixes
 - Changed that not assigned chores on the chores overview page display now just a dash instead of an ellipsis in the "Assigned to" column to make this more clear (thanks @Germs2004)
