@@ -66,11 +66,13 @@ Setting('ENTRY_PAGE', 'stock');
 # places where user context is needed will then use the default (first existing) user
 Setting('DISABLE_AUTH', false);
 
-#
-Setting('AUTH_CLASS', '\\Grocy\\Middleware\\DefaultAuthMiddleware');
+# Either "Grocy\Middleware\DefaultAuthMiddleware", "Grocy\Middleware\ReverseProxyAuthMiddleware"
+# or any class that implements Grocy\Middleware\AuthMiddleware
+Setting('AUTH_CLASS', 'Grocy\Middleware\DefaultAuthMiddleware');
 
-# The Header-name with the username set by the reverse-proxy (case-insensitive)
-Setting('PROXY_AUTH_HEADER', 'X-Username');
+# When using ReverseProxyAuthMiddleware,
+# the name of the HTTP header which your reverse proxy uses to pass the username (on successful authentication)
+Setting('REVERSE_PROXY_AUTH_HEADER', 'REMOTE_USER');
 
 # Set this to true if you want to disable the ability to scan a barcode via the device camera (Browser API)
 Setting('DISABLE_BROWSER_BARCODE_CAMERA_SCANNING', false);

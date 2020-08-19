@@ -1,13 +1,12 @@
 <?php
 
-
 namespace Grocy\Middleware;
 
-
-use Grocy\Services\ApiKeyService;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Routing\RouteContext;
+
+use Grocy\Services\ApiKeyService;
 
 class ApiKeyAuthMiddleware extends AuthMiddleware
 {
@@ -21,7 +20,10 @@ class ApiKeyAuthMiddleware extends AuthMiddleware
 
     function authenticate(Request $request)
     {
-        define('GROCY_SHOW_AUTH_VIEWS', true);
+        if (!defined('GROCY_SHOW_AUTH_VIEWS'))
+        {
+            define('GROCY_SHOW_AUTH_VIEWS', true);
+        }
 
         $routeContext = RouteContext::fromRequest($request);
         $route = $routeContext->getRoute();
@@ -30,35 +32,44 @@ class ApiKeyAuthMiddleware extends AuthMiddleware
         $validApiKey = true;
         $usedApiKey = null;
 
-
         $apiKeyService = new ApiKeyService();
 
         // First check of the API key in the configured header
-        if (!$request->hasHeader($this->ApiKeyHeaderName) || !$apiKeyService->IsValidApiKey($request->getHeaderLine($this->ApiKeyHeaderName))) {
+        if (!$request->hasHeader($this->ApiKeyHeaderName) || !$apiKeyService->IsValidApiKey($request->getHeaderLine($this->ApiKeyHeaderName)))
+        {
             $validApiKey = false;
-        } else {
+        }
+        else
+        {
             $usedApiKey = $request->getHeaderLine($this->ApiKeyHeaderName);
         }
 
         // Not recommended, but it's also possible to provide the API key via a query parameter (same name as the configured header)
-        if (!$validApiKey && !empty($request->getQueryParam($this->ApiKeyHeaderName)) && $apiKeyService->IsValidApiKey($request->getQueryParam($this->ApiKeyHeaderName))) {
+        if (!$validApiKey && !empty($request->getQueryParam($this->ApiKeyHeaderName)) && $apiKeyService->IsValidApiKey($request->getQueryParam($this->ApiKeyHeaderName)))
+        {
             $validApiKey = true;
             $usedApiKey = $request->getQueryParam($this->ApiKeyHeaderName);
         }
 
         // Handling of special purpose API keys
-        if (!$validApiKey) {
-            if ($routeName === 'calendar-ical') {
-                if ($request->getQueryParam('secret') !== null && $apiKeyService->IsValidApiKey($request->getQueryParam('secret'), ApiKeyService::API_KEY_TYPE_SPECIAL_PURPOSE_CALENDAR_ICAL)) {
+        if (!$validApiKey)
+        {
+            if ($routeName === 'calendar-ical')
+            {
+                if ($request->getQueryParam('secret') !== null && $apiKeyService->IsValidApiKey($request->getQueryParam('secret'), ApiKeyService::API_KEY_TYPE_SPECIAL_PURPOSE_CALENDAR_ICAL))
+                {
                     $validApiKey = true;
                 }
             }
         }
 
-        if ($validApiKey) {
+        if ($validApiKey)
+        {
             return $apiKeyService->GetUserByApiKey($usedApiKey);
 
-        } else {
+        }
+        else
+        {
             return null;
         }
     }

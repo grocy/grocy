@@ -1,17 +1,14 @@
 <?php
 
-
 namespace Grocy\Middleware;
 
-
-use Grocy\Auth\ApiKeyAuthProvider;
-use Grocy\Auth\ProxyAuthProvider;
-use Grocy\Auth\SessionAuthProvider;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 use Slim\Routing\RouteContext;
+
+use Grocy\Services\SessionService;
 
 abstract class AuthMiddleware extends BaseMiddleware
 {
@@ -28,27 +25,50 @@ abstract class AuthMiddleware extends BaseMiddleware
         $routeContext = RouteContext::fromRequest($request);
         $route = $routeContext->getRoute();
         $routeName = $route->getName();
-        if ($routeName === 'root') {
+        $isApiRoute = string_starts_with($request->getUri()->getPath(), '/api/');
+
+        if ($routeName === 'root')
+        {
             return $handler->handle($request);
         }
-        if ($routeName === 'login') {
+        else if ($routeName === 'login')
+        {
             define('GROCY_AUTHENTICATED', false);
             return $handler->handle($request);
         }
-        if (GROCY_MODE === 'dev' || GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease' || GROCY_IS_EMBEDDED_INSTALL || GROCY_DISABLE_AUTH) {
+        if (GROCY_MODE === 'dev' || GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease' || GROCY_IS_EMBEDDED_INSTALL || GROCY_DISABLE_AUTH)
+        {
+            $sessionService = SessionService::getInstance();
+            $user = $sessionService->GetDefaultUser();
+
             define('GROCY_AUTHENTICATED', true);
+            define('GROCY_USER_USERNAME', $user->username);
+
             return $handler->handle($request);
-        } else {
+        }
+        else
+        {
             $user = $this->authenticate($request);
-            if ($user === null) {
+
+            if ($user === null)
+            {
                 define('GROCY_AUTHENTICATED', false);
+
                 $response = $this->ResponseFactory->createResponse();
-                return $response->withHeader('Location', $this->AppContainer->get('UrlManager')->ConstructUrl('/login'));
-            } else {
+                if ($isApiRoute)
+                {
+                    return $response->withStatus(401);
+                }
+                else
+                {
+                    return $response->withHeader('Location', $this->AppContainer->get('UrlManager')->ConstructUrl('/login'));
+                }
+            }
+            else
+            {
                 define('GROCY_AUTHENTICATED', true);
                 define('GROCY_USER_ID', $user->id);
                 define('GROCY_USER_USERNAME', $user->username);
-
 
                 return $response = $handler->handle($request);
             }
@@ -61,5 +81,4 @@ abstract class AuthMiddleware extends BaseMiddleware
      * @throws \Exception Throws an \Exception if config is invalid.
      */
     protected abstract function authenticate(Request $request);
-
 }
