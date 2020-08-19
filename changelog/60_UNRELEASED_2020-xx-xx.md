@@ -21,6 +21,7 @@
 - Fixed that it was not possible to leave the "Barcode(s)" on the product edit page by `TAB`
 - Fixed that when adding products through a product picker workflow and when the created products contains special characters, the product was not preselected on the previous page (thanks @Forceu)
 - Fixed that when editing a product the default store was not visible / always empty regardless if the product had one set (thanks @kriddles)
+- Fixed that `FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT` (option to configure if opened products should be considered for minimum stock amounts) was not handled correctly (thanks @teddybeermaniac)
 
 ### Recipe improvements/fixes
 - It's now possible to print recipes (button next to the recipe title) (thanks @zsarnett)
