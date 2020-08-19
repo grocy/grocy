@@ -53,6 +53,7 @@
   - Via an FastCGI parameter (lower priority)
 - Performance improvements (page loading time) of the stock overview page (thanks @fipwmaqzufheoxq92ebc)
 - The prerequisites checker now also checks for the minimum required SQLite version (thanks @Forceu)
+- More `config.php` settings (see the section `Component configuration for Quagga2`) to tweak Quagga2 (this is the component used for device camera for barcode scanning) (thanks @andrelam)
 - Some localization string fixes (thanks @duckfullstop)
 - New translations: (thanks all the translators)
   - Greek (demo available at https://el.demo.grocy.info)
