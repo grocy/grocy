@@ -8,7 +8,7 @@
 
 ### New feature: Reverse proxy authenticaton support
 - New `config.php` settings `AUTH_CLASS` and `REVERSE_PROXY_AUTH_HEADER`
-- If you set `AUTH_CLASS` to `Grocy\Middleware\ReverseProxyAuthMiddleware` and your reverse proxy sends a username in the HTTP header `REMOTE_USER` (header anme can be changed by the setting `REVERSE_PROXY_AUTH_HEADER`), the user is automatically authenticated (and will also be created, if not already present)
+- If you set `AUTH_CLASS` to `Grocy\Middleware\ReverseProxyAuthMiddleware` and your reverse proxy sends a username in the HTTP header `REMOTE_USER` (header name can be changed by the setting `REVERSE_PROXY_AUTH_HEADER`), the user is automatically authenticated (and will also be created, if not already present)
 - (Thanks @fipwmaqzufheoxq92ebc for the initial work on this)
 
 ### Stock improvements/fixes
