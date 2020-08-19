@@ -134,9 +134,14 @@ DefaultUserSetting('auto_reload_on_db_change', true);
 # Show a clock in the header next to the logo or not
 DefaultUserSetting('show_clock_in_header', false);
 
-# Component configuration
+# Component configuration for Quagga2 - read https://github.com/ericblade/quagga2#configobject for details
+# Default for Grocy is as below
+# For iPhone 7 PLus, halfsample = true, patchsize = small, frequency = 5 yields very good results
 DefaultUserSetting('quagga2_numofworkers', 4);
-
+DefaultUserSetting('quagga2_halfsample', false);
+DefaultUserSetting('quagga2_patchsize', 'medium');
+DefaultUserSetting('quagga2_frequency', 10);
+DefaultUserSetting('quagga2_debug', true);
 
 # Feature flags
 # grocy was initially about "stock management for your household", many other things

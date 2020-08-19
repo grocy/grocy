@@ -69,25 +69,25 @@ Grocy.Components.BarcodeScanner.StartScanning = function()
 			}
 		},
 		locator: {
-			patchSize: "medium",
-			halfSample: false,
+			patchSize: Grocy.UserSettings.quagga2_patchsize,
+			halfSample: Grocy.UserSettings.quagga2_halfsample,
 			debug: {
-				showCanvas: true,
-				showPatches: true,
-				showFoundPatches: true,
-				showSkeleton: true,
-				showLabels: true,
-				showPatchLabels: true,
-				showRemainingPatchLabels: true,
+				showCanvas: Grocy.UserSettings.quagga2_debug,
+				showPatches: Grocy.UserSettings.quagga2_debug,
+				showFoundPatches: Grocy.UserSettings.quagga2_debug,
+				showSkeleton: Grocy.UserSettings.quagga2_debug,
+				showLabels: Grocy.UserSettings.quagga2_debug,
+				showPatchLabels: Grocy.UserSettings.quagga2_debug,
+				showRemainingPatchLabels: Grocy.UserSettings.quagga2_debug,
 				boxFromPatches: {
-					showTransformed: true,
-					showTransformedBox: true,
-					showBB: true
+					showTransformed: Grocy.UserSettings.quagga2_debug,
+					showTransformedBox: Grocy.UserSettings.quagga2_debug,
+					showBB: Grocy.UserSettings.quagga2_debug
 				}
 			}
 		},
 		numOfWorkers: Grocy.UserSettings.quagga2_numofworkers,
-		frequency: 10,
+		frequency: Grocy.UserSettings.quagga2_frequency,
 		decoder: {
 			readers: [
 				"ean_reader",
@@ -95,17 +95,17 @@ Grocy.Components.BarcodeScanner.StartScanning = function()
 				"code_128_reader"
 			],
 			debug: {
-				showCanvas: true,
-				showPatches: true,
-				showFoundPatches: true,
-				showSkeleton: true,
-				showLabels: true,
-				showPatchLabels: true,
-				showRemainingPatchLabels: true,
+				showCanvas: Grocy.UserSettings.quagga2_debug,
+				showPatches: Grocy.UserSettings.quagga2_debug,
+				showFoundPatches: Grocy.UserSettings.quagga2_debug,
+				showSkeleton: Grocy.UserSettings.quagga2_debug,
+				showLabels: Grocy.UserSettings.quagga2_debug,
+				showPatchLabels: Grocy.UserSettings.quagga2_debug,
+				showRemainingPatchLabels: Grocy.UserSettings.quagga2_debug,
 				boxFromPatches: {
-					showTransformed: true,
-					showTransformedBox: true,
-					showBB: true
+					showTransformed: Grocy.UserSettings.quagga2_debug,
+					showTransformedBox: Grocy.UserSettings.quagga2_debug,
+					showBB: Grocy.UserSettings.quagga2_debug
 				}
 			}
 		},
