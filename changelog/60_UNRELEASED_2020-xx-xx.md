@@ -6,6 +6,11 @@
 - Additionally, each product barcode can be assigned a different "Factor purchase to stock quantity unit" (on the product edit page), which is then automatically prefilled on the purchase page
 - (Thanks @kriddles)
 
+### New feature: Reverse proxy authenticaton support
+- New `config.php` settings `AUTH_CLASS` and `REVERSE_PROXY_AUTH_HEADER`
+- If you set `AUTH_CLASS` to `Grocy\Middleware\ReverseProxyAuthMiddleware` and your reverse proxy sends a username in the HTTP header `REMOTE_USER` (header anme can be changed by the setting `REVERSE_PROXY_AUTH_HEADER`), the user is automatically authenticated (and will also be created, if not already present)
+- (Thanks @fipwmaqzufheoxq92ebc for the initial work on this)
+
 ### Stock improvements/fixes
 - When creating a quantity unit conversion it's now possible to automatically create the inverse conversion (thanks @kriddles)
 - Optimized/clarified what the total/unit price is on the purchase page (thanks @kriddles)
