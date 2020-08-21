@@ -50,6 +50,10 @@ class GenericEntityApiController extends BaseApiController
 			}
 
 			$object = $this->getDatabase()->{$args['entity']}($args['objectId']);
+            if ($object == null) {
+                return $this->GenericErrorResponse($response, 'Object not found', 404);
+            }
+
 			$object['userfields'] = $userfields;
 
 			return $this->ApiResponse($response, $object);

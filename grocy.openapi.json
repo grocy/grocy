@@ -395,6 +395,16 @@
 								}
 							}
 						}
+					},
+					"404": {
+						"description": "Object not found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
 					}
 				}
 			},
