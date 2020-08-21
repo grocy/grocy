@@ -95,7 +95,7 @@ class StockService extends BaseService
 
 		if ($excludeExpired)
 		{
-			$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d 23:59:59', strtotime('now')), '>');
+			$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d 23:59:59', strtotime('-1 days')), '>');
 		}
 
 		return $currentStock;
