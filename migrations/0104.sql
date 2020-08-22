@@ -3,9 +3,9 @@ DROP VIEW products_current_price;
 
 CREATE VIEW products_last_purchased
 AS
-select
+SELECT
 	1 AS id, -- Dummy, LessQL needs an id column
-	sl.product_id,
+	p.id AS product_id,
 	sl.amount,
 	sl.best_before_date,
 	sl.purchased_date,
@@ -13,8 +13,10 @@ select
 	sl.qu_factor_purchase_to_stock,
 	sl.location_id,
 	sl.shopping_location_id
-	FROM stock_log sl
-	JOIN (
+	FROM products p
+	LEFT JOIN stock_log sl
+		ON p.id = sl.product_id
+	LEFT JOIN (
 			SELECT
 				s1.product_id,
 				MAX(s1.id) max_stock_id
@@ -32,8 +34,8 @@ select
 			WHERE undone = 0
 				AND transaction_type in ('purchase', 'stock-edit-new', 'inventory-correction')
 			GROUP BY s1.product_id) sp3
-		ON sl.product_id = sp3.product_id
-		AND sl.id = sp3.max_stock_id;
+	ON sl.product_id = sp3.product_id
+	AND sl.id = sp3.max_stock_id;
 
 CREATE VIEW products_average_price
 AS
