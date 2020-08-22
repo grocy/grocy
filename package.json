@@ -6,7 +6,7 @@
 		"@ericblade/quagga2": "^1.2.1",
 		"@fortawesome/fontawesome-free": "^5.14.0",
 		"TagManager": "https://github.com/max-favilli/tagmanager.git#master",
-		"animate.css": "^4.1.0",
+		"animate.css": "^3.7.2",
 		"bootbox": "^5.3.2",
 		"bootstrap": "^4.5.2",
 		"bootstrap-select": "^1.13.18",
