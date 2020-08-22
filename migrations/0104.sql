@@ -39,25 +39,30 @@ CREATE VIEW products_average_price
 AS
 SELECT
 	1 AS id, -- Dummy, LessQL needs an id column
-	s.product_id,
-	round(sum(s.amount * s.price) / sum(s.amount), 2) as price
-FROM stock s
-GROUP BY s.product_id;
+	p.id AS product_id,
+	CASE WHEN s.product_id IS NOT NULL THEN round(sum(s.amount * s.price) / sum(s.amount), 2) ELSE NULL END as price
+FROM products p
+LEFT JOIN stock s
+	ON p.id = s.product_id
+GROUP BY p.id;
 
 CREATE VIEW products_oldest_stock_unit_price
 AS
 -- Find oldest best_before_date then oldest purchased_date then make sure to return one stock row using max
 SELECT
 	1 AS id, -- Dummy, LessQL needs an id column
-	sw.product_id,
-	sw.amount,
-	sw.best_before_date,
-	sw.purchased_date,
-	sw.price, sw.qu_factor_purchase_to_stock,
-	sw.location_id,
-	sw.shopping_location_id
-	FROM stock sw
-	JOIN (
+	p.id AS product_id,
+	s.amount,
+	s.best_before_date,
+	s.purchased_date,
+	s.price,
+	s.qu_factor_purchase_to_stock,
+	s.location_id,
+	s.shopping_location_id
+	FROM products p
+	LEFT JOIN stock s
+		ON p.id = s.product_id
+	LEFT JOIN (
 			SELECT
 				s1.product_id,
 				MIN(s1.id) min_stock_id
@@ -81,8 +86,8 @@ SELECT
 				AND s1.best_before_date = sp2.oldest_date
 				AND s1.purchased_date = sp2.min_purchased_date
 			GROUP BY s1.product_id) sp3
-ON sw.product_id = sp3.product_id
-AND sw.id = sp3.min_stock_id;
+	ON s.product_id = sp3.product_id
+	AND s.id = sp3.min_stock_id;
 
 DROP VIEW recipes_pos_resolved;
 CREATE VIEW recipes_pos_resolved
