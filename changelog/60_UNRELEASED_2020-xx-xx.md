@@ -22,6 +22,8 @@
 - Fixed that when adding products through a product picker workflow and when the created products contains special characters, the product was not preselected on the previous page (thanks @Forceu)
 - Fixed that when editing a product the default store was not visible / always empty regardless if the product had one set (thanks @kriddles)
 - Fixed that `FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT` (option to configure if opened products should be considered for minimum stock amounts) was not handled correctly (thanks @teddybeermaniac)
+- Fixed that the "Expiring soon" sum (yellow header-button) on the stock overview page didn't include products which expire today (thanks @fipwmaqzufheoxq92ebc)
+- Fixed that the shopping cart icon on the stock overview page was also shown if the product was on an already deleted shopping list (if enabled) (thanks @fipwmaqzufheoxq92ebc)
 
 ### Recipe improvements/fixes
 - It's now possible to print recipes (button next to the recipe title) (thanks @zsarnett)
@@ -29,6 +31,7 @@
 - Improved the recipe adding workflow (a recipe called "New recipe" is now not automatically created when starting to add a recipe) (thanks @zsarnett)
 - Fixed that images on the recipe gallery view were not scaled correctly on largers screens (thanks @zsarnett)
 - Fixed that decimal ingredient amounts maybe resulted in wrong conversions truncated decimal places if your locale does not use a dot as the decimal separator (thanks @m-byte)
+- Fixed that a recipe cannot be included in itself (because this will cause an infinite loop) (thanks @fipwmaqzufheoxq92ebc)
 
 ### Chores improvements/fixes
 - Changed that not assigned chores on the chores overview page display now just a dash instead of an ellipsis in the "Assigned to" column to make this more clear (thanks @Germs2004)
@@ -44,6 +47,8 @@
   - All prices are now related to the products **stock** quantity unit (instead the purchase QU)
   - The product object no longer has a field `barcodes` with a comma separated barcode list, instead barcodes are now stored in a separate table/entity `product_barcodes` (use the existing "Generic entity interactions" endpoints to access them)
 - Performance improvements of the `/stock/products/*` endpoints (thanks @fipwmaqzufheoxq92ebc)
+- Fixed that the endpoint `/objects/{entity}/{objectId}` always returned successfully, even when the given object not exists (now returns `404` when the object is not found) (thanks @fipwmaqzufheoxq92ebc)
+- Fixed that the endpoint `/stock/volatile` didn't include products which expire today (thanks @fipwmaqzufheoxq92ebc)
 - Fixed (again) that CORS was broken
 
 ### General & other improvements/fixes
