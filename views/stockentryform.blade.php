@@ -71,9 +71,19 @@
 			))
 
 			@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+			@php
+			if (empty($stockEntry->price))
+			{
+				$price = '';
+			}
+			else
+			{
+				$price = $stockEntry->price;
+			}
+			@endphp
 			@include('components.numberpicker', array(
 				'id' => 'price',
-				'value' => $stockEntry->price,
+				'value' => $price,
 				'label' => 'Price',
 				'min' => 0,
 				'step' => 0.01,
