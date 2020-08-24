@@ -28,6 +28,10 @@
 - Fixed that location & product groups filter on the stock overview page did a contains search instead an exact search
 - Fixed that the amount on the success popup was wrong when consuming a product with "Tare weight handling" enabled
 
+
+### Shopping list improvements
+- "Add products that are below defined min. stock amount" always rounded up the missing amount to an integral number, this now allows decimal numbers
+
 ### Recipe improvements/fixes
 - It's now possible to print recipes (button next to the recipe title) (thanks @zsarnett)
 - Improved recipe card presentation (thanks @zsarnett)

@@ -856,7 +856,7 @@ class StockService extends BaseService
 		foreach ($missingProducts as $missingProduct)
 		{
 			$product = $this->getDatabase()->products()->where('id', $missingProduct->id)->fetch();
-			$amountToAdd = ceil($missingProduct->amount_missing / $product->qu_factor_purchase_to_stock);
+			$amountToAdd = round($missingProduct->amount_missing / $product->qu_factor_purchase_to_stock, 2);
 
 			$alreadyExistingEntry = $this->getDatabase()->shopping_list()->where('product_id', $missingProduct->id)->fetch();
 			if ($alreadyExistingEntry) // Update
