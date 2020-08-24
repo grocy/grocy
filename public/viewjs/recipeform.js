@@ -366,7 +366,7 @@ $(window).on("message", function(e)
 		Grocy.Api.Put('objects/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(),
 			function(result)
 			{
-				// window.location.href = U('/recipe/' + Grocy.EditObjectId);
+				window.location.href = U('/recipe/' + Grocy.EditObjectId);
 			},
 			function(xhr)
 			{
