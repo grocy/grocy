@@ -905,7 +905,7 @@ class StockService extends BaseService
 		if ($productRow != null && !empty($productRow))
 		{
 			$newAmount = $productRow->amount - $amount;
-			if ($newAmount < 1)
+			if ($newAmount < 0.01)
 			{
 				$productRow->delete();
 			}

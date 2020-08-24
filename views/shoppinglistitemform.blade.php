@@ -51,9 +51,10 @@
 				'id' => 'amount',
 				'label' => 'Amount',
 				'hintId' => 'amount_qu_unit',
-				'min' => 0,
+				'min' => 0.01,
+				'step' => 0.01,
 				'value' => $value,
-				'invalidFeedback' => $__t('The amount cannot be lower than %s', '1')
+				'invalidFeedback' => $__t('The amount cannot be lower than %s', '0.01')
 			))
 
 			<div class="form-group">

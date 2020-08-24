@@ -38,10 +38,10 @@ class RecipesService extends BaseService
 			{
 				$product = $this->getDataBase()->products($recipePosition->product_id);
 
-				$toOrderAmount = ceil(($recipePosition->missing_amount - $recipePosition->amount_on_shopping_list) / $product->qu_factor_purchase_to_stock);
+				$toOrderAmount = round(($recipePosition->missing_amount - $recipePosition->amount_on_shopping_list) / $product->qu_factor_purchase_to_stock, 2);
 				if ($recipe->not_check_shoppinglist == 1)
 				{
-					$toOrderAmount = ceil($recipePosition->missing_amount / $product->qu_factor_purchase_to_stock);
+					$toOrderAmount = round($recipePosition->missing_amount / $product->qu_factor_purchase_to_stock, 2);
 				}
 
 				if($toOrderAmount > 0)

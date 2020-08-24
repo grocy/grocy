@@ -30,6 +30,7 @@
 
 
 ### Shopping list improvements
+- Decimal amounts are now allowed (for any product, rounded by two decimal places)
 - "Add products that are below defined min. stock amount" always rounded up the missing amount to an integral number, this now allows decimal numbers
 
 ### Recipe improvements/fixes
