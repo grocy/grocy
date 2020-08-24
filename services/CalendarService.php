@@ -74,7 +74,8 @@ class CalendarService extends BaseService
 					'title' => $titlePrefix . $chore->name . $assignedToText,
 					'start' => $currentChoreEntry->next_estimated_execution_time,
 					'date_format' => 'datetime',
-					'link' => $this->UrlManager->ConstructUrl('/choresoverview')
+					'link' => $this->UrlManager->ConstructUrl('/choresoverview'),
+					'allDay' => $chore->track_date_only == 1
 				);
 			}
 		}

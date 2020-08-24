@@ -44,6 +44,7 @@
 ### Calendar improvements/fixes
 - Events are now links to the corresponding page (thanks @zsarnett)
 - Fixed a PHP warning when using the "Share/Integrate calendar (iCal)" button (thanks @tsia)
+- Fixed that "Track date only"-chores were always displayed at 12am (are now displayed as all-day events)
 
 ### API improvements/fixes
 - Breaking changes:
