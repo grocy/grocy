@@ -25,6 +25,7 @@
 - Fixed that the "Expiring soon" sum (yellow header-button) on the stock overview page didn't include products which expire today (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that the shopping cart icon on the stock overview page was also shown if the product was on an already deleted shopping list (if enabled) (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that when editing a stock entry without a price, the price field was prefilled with `1`
+- Fixed that location & product groups filter on the stock overview page did a contains search instead an exact search
 
 ### Recipe improvements/fixes
 - It's now possible to print recipes (button next to the recipe title) (thanks @zsarnett)

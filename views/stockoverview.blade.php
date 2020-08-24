@@ -109,6 +109,7 @@
 					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING) d-none @endif">{{ $__t('Next best before date') }}</th>
 					<th class="d-none">Hidden location</th>
 					<th class="d-none">Hidden status</th>
+					<th class="d-none">Hidden product group</th>
 
 					@include('components.userfields_thead', array(
 						'userfields' => $userfields
@@ -235,11 +236,14 @@
 					</td>
 					<td class="d-none">
 						@foreach(FindAllObjectsInArrayByPropertyValue($currentStockLocations, 'product_id', $currentStockEntry->product_id) as $locationsForProduct)
-						{{ FindObjectInArrayByPropertyValue($locations, 'id', $locationsForProduct->location_id)->name }}
+						xx{{ FindObjectInArrayByPropertyValue($locations, 'id', $locationsForProduct->location_id)->name }}xx
 						@endforeach
 					</td>
 					<td class="d-none">
 						@if($currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('-1 days')) && $currentStockEntry->amount > 0) expired @elseif($currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime("+$nextXDays days")) && $currentStockEntry->amount > 0) expiring @endif @if($currentStockEntry->product_missing) belowminstockamount @endif
+					</td>
+					<td class="d-none">
+						xx{{ $currentStockEntry->product_group_name }}xx
 					</td>
 
 					@include('components.userfields_tbody', array(

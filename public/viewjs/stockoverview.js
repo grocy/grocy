@@ -6,7 +6,8 @@
 		{ 'searchable': false, "targets": 0 },
 		{ 'searchable': false, "targets": 0 },
 		{ 'visible': false, 'targets': 5 },
-		{ 'visible': false, 'targets': 6 }
+		{ 'visible': false, 'targets': 6 },
+		{ 'visible': false, 'targets': 7 }
 	],
 });
 $('#stock-overview-table tbody').removeClass("d-none");
@@ -20,7 +21,7 @@ $("#location-filter").on("change", function()
 		value = "";
 	}
 
-	stockOverviewTable.column(5).search(value).draw();
+	stockOverviewTable.column(5).search("xx" + value + "xx", true, false, true).draw();
 });
 
 $("#product-group-filter").on("change", function()
@@ -30,8 +31,8 @@ $("#product-group-filter").on("change", function()
 	{
 		value = "";
 	}
-
-	stockOverviewTable.column(2).search(value).draw();
+	
+	stockOverviewTable.column(7).search("xx" + value + "xx").draw();
 });
 
 $("#status-filter").on("change", function()
