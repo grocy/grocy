@@ -77,7 +77,10 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 					$("#display_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '1'));
 				}
 
-				$("#not_check_stock_fulfillment").prop("checked", productDetails.product.not_check_stock_fulfillment_for_recipes == 1);
+				if (Grocy.Mode == "create")
+				{
+					$("#not_check_stock_fulfillment").prop("checked", productDetails.product.not_check_stock_fulfillment_for_recipes == 1);
+				}
 
 				if (!$("#only_check_single_unit_in_stock").prop("checked"))
 				{
