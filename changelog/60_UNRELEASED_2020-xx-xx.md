@@ -35,6 +35,7 @@
 - Fixed that decimal ingredient amounts maybe resulted in wrong conversions truncated decimal places if your locale does not use a dot as the decimal separator (thanks @m-byte)
 - Fixed that a recipe cannot be included in itself (because this will cause an infinite loop) (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that when editing a recipe ingredient the checkbox "Disable stock fulfillment checking for this ingredient" was not initaliased with the saved value
+- Fixed that when using the "+"-symbol (which appears on small screens only to expand columns which don't fit the screen) the page reloaded
 
 ### Chores improvements/fixes
 - Changed that not assigned chores on the chores overview page display now just a dash instead of an ellipsis in the "Assigned to" column to make this more clear (thanks @Germs2004)

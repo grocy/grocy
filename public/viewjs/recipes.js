@@ -5,7 +5,10 @@
 		{ 'searchable': false, "targets": 0 },
 		{ 'orderData': 2, 'targets': 1 }
 	],
-	'select': 'single',
+	select: {
+		style: 'single',
+		selector: 'tr td:not(:first-child)'
+	},
 	'initComplete': function()
 	{
 		this.api().row({ order: 'current' }, 0).select();
