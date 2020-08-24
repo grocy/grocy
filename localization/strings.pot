@@ -1840,3 +1840,6 @@ msgstr ""
 
 msgid "Based on the prices of the default consume rule which is \"First expiring first, then first in first out\""
 msgstr ""
+
+msgid "Not enough in stock (not included in costs), %1$s missing, %2$s already on shopping list"
+msgstr ""
