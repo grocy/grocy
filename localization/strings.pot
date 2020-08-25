@@ -1849,3 +1849,90 @@ msgstr ""
 
 msgid "Clear filter"
 msgstr ""
+
+msgid "Permissions of %s"
+msgstr ""
+
+msgid "ADMIN"
+msgstr ""
+
+msgid "CREATE_USER"
+msgstr ""
+
+msgid "EDIT_USER"
+msgstr ""
+
+msgid "READ_USER"
+msgstr ""
+
+msgid "EDIT_SELF"
+msgstr ""
+
+msgid "BATTERY_UNDO_TRACK_CHARGE_CYCLE"
+msgstr ""
+
+msgid "BATTERY_TRACK_CHARGE_CYCLE"
+msgstr ""
+
+msgid "CHORE_TRACK"
+msgstr ""
+
+msgid "CHORE_TRACK_OTHERS"
+msgstr ""
+
+msgid "CHORE_EDIT"
+msgstr ""
+
+msgid "CHORE_UNDO"
+msgstr ""
+
+msgid "UPLOAD_FILE"
+msgstr ""
+
+msgid "DELETE_FILE"
+msgstr ""
+
+msgid "MASTER_DATA_EDIT"
+msgstr ""
+
+msgid "MASTER_DATA_READ"
+msgstr ""
+
+msgid "TASKS_UNDO"
+msgstr ""
+
+msgid "TASKS_MARK_COMPLETED"
+msgstr ""
+
+msgid "STOCK_EDIT"
+msgstr ""
+
+msgid "STOCK_TRANSFER"
+msgstr ""
+
+msgid "STOCK_CORRECTION"
+msgstr ""
+
+msgid "PRODUCT_ADD"
+msgstr ""
+
+msgid "PRODUCT_CONSUME"
+msgstr ""
+
+msgid "PRODUCT_OPEN"
+msgstr ""
+
+msgid "SHOPPINGLIST_ITEMS_ADD"
+msgstr ""
+
+msgid "SHOPPINGLIST_ITEMS_DELETE"
+msgstr ""
+
+msgid "Are you sure you want to stop being an ADMIN?"
+msgstr ""
+
+msgid "Permissions saved!"
+msgstr ""
+
+msgid "You are not allowed to view this page!"
+msgstr ""
