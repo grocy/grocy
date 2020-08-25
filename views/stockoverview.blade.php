@@ -44,17 +44,16 @@
 	<div class="col-xs-12 col-md-6 col-xl-3 d-flex align-items-end">
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
-					<span class="input-group-text"><i class="fas fa-search"></i></span>
+				<span class="input-group-text"><i class="fas fa-search"></i></span>
 			</div>
-			<input type="text"  id="search" class="form-control" placeholder="{{ $__t('Search') }}">
+			<input type="text" id="search" class="form-control" placeholder="{{ $__t('Search') }}">
 		</div>
 	</div>
 	@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="location-filter">{{ $__t('Location') }}</label>
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
-					<span class="input-group-text"><i class="fas fa-filter"></i></span>
+				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Location') }}</span>
 			</div>
 			<select class="form-control" id="location-filter">
 				<option value="all">{{ $__t('All') }}</option>
@@ -66,10 +65,9 @@
 	</div>
 	@endif
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="product-group-filter">{{ $__t('Product group') }}</label>
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
-					<span class="input-group-text"><i class="fas fa-filter"></i></span>
+				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Product group') }}</span>
 			</div>
 			<select class="form-control" id="product-group-filter">
 				<option value="all">{{ $__t('All') }}</option>
@@ -80,10 +78,9 @@
 		</div>
 	</div>
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="status-filter">{{ $__t('Status') }}</label>
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
-					<span class="input-group-text"><i class="fas fa-filter"></i></span>
+				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>
 			</div>
 			<select class="form-control" id="status-filter">
 				<option class="bg-white" value="all">{{ $__t('All') }}</option>
