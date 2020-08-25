@@ -1846,3 +1846,6 @@ msgstr ""
 
 msgid "Quantity unit stock cannot be changed after first purchase"
 msgstr ""
+
+msgid "Clear filter"
+msgstr ""

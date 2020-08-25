@@ -20,8 +20,12 @@ $("#location-filter").on("change", function()
 	{
 		value = "";
 	}
+	else
+	{
+		value = "xx" + value + "xx";
+	}
 
-	stockOverviewTable.column(5).search("xx" + value + "xx", true, false, true).draw();
+	stockOverviewTable.column(5).search(value).draw();
 });
 
 $("#product-group-filter").on("change", function()
@@ -31,8 +35,12 @@ $("#product-group-filter").on("change", function()
 	{
 		value = "";
 	}
+	else
+	{
+		value = "xx" + value + "xx";
+	}
 	
-	stockOverviewTable.column(7).search("xx" + value + "xx").draw();
+	stockOverviewTable.column(7).search(value).draw();
 });
 
 $("#status-filter").on("change", function()
@@ -54,6 +62,18 @@ $(".status-filter-message").on("click", function()
 	var value = $(this).data("status-filter");
 	$("#status-filter").val(value);
 	$("#status-filter").trigger("change");
+});
+
+$("#clear-filter-button").on("click", function()
+{
+	$("#search").val("");
+	$("#status-filter").val("all");
+	$("#product-group-filter").val("all");
+	$("#location-filter").val("all");
+	stockOverviewTable.column(5).search("").draw();
+	stockOverviewTable.column(6).search("").draw();
+	stockOverviewTable.column(7).search("").draw();
+	stockOverviewTable.search("").draw();
 });
 
 $("#search").on("keyup", Delay(function()

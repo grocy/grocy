@@ -38,10 +38,13 @@
 		<p id="info-expired-products" data-status-filter="expired" class="error-message status-filter-message responsive-button mr-2"></p>
 		@endif
 		<p id="info-missing-products" data-status-filter="belowminstockamount" class="normal-message status-filter-message responsive-button"></p>
+		<a id="clear-filter-button" class="btn btn-sm btn-outline-info float-right" href="#">
+			{{ $__t('Clear filter') }}
+		</a>
 	</div>
 </div>
 <div class="row mt-3">
-	<div class="col-xs-12 col-md-6 col-xl-3 d-flex align-items-end">
+	<div class="col-xs-12 col-md-6 col-xl-3">
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-search"></i></span>
