@@ -59,3 +59,14 @@ SELECT ph.id     AS id,
        ph.parent AS parent
 FROM users u,
      permission_hierarchy ph;
+
+
+INSERT INTO permission_hierarchy(name, parent)
+VALUES ('CREATE_USER', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN'));
+
+INSERT INTO permission_hierarchy(name, parent)
+VALUES ('EDIT_USER', last_insert_rowid());
+
+INSERT INTO permission_hierarchy(name, parent)
+VALUES ('READ_USER', last_insert_rowid()),
+       ('EDIT_SELF', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN'));

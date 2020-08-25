@@ -5,6 +5,10 @@ namespace Grocy\Controllers\Users;
 abstract class User
 {
     const PERMISSION_ADMIN = 'ADMIN';
+    const PERMISSION_CREATE_USER = 'CREATE_USER';
+    const PERMISSION_EDIT_USER = 'EDIT_USER';
+    const PERMISSION_READ_USER = 'READ_USER';
+    const PERMISSION_EDIT_SELF = 'EDIT_SELF';
 
     public abstract function hasPermission(string $permission): bool;
 
