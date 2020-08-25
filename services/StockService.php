@@ -182,7 +182,7 @@ class StockService extends BaseService
 
 		$returnData = array();
 		$shoppingLocations = $this->getDatabase()->shopping_locations();
-		$rows = $this->getDatabase()->stock_log()->where('product_id = :1 AND transaction_type IN (:2, :3) AND undone = 0', $productId, self::TRANSACTION_TYPE_PURCHASE, self::TRANSACTION_TYPE_INVENTORY_CORRECTION)->whereNOT('price', null)->orderBy('purchased_date', 'DESC');
+		$rows = $this->getDatabase()->product_price_history()->where('product_id = :1', $productId)->orderBy('purchased_date', 'DESC');
 		foreach ($rows as $row)
 		{
 			$returnData[] = array(
