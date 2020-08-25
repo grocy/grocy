@@ -65,6 +65,9 @@ if (!empty(GROCY_BASE_PATH))
 
 // Add default middleware
 $app->addRoutingMiddleware();
-$app->addErrorMiddleware(true, false, false);
+$errorMiddleware = $app->addErrorMiddleware(true, false, false);
+$errorMiddleware->setDefaultErrorHandler(
+    new \Grocy\Controllers\ExceptionController($app, $container)
+);
 
 $app->run();

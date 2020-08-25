@@ -1936,3 +1936,9 @@ msgstr ""
 
 msgid "You are not allowed to view this page!"
 msgstr ""
+
+msgid "A server error occured while processing your request. You might found a bug in grocy!"
+msgstr ""
+
+msgid "Page not found"
+msgstr ""
