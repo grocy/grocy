@@ -2,6 +2,7 @@
 
 namespace Grocy\Controllers;
 
+use Grocy\Controllers\Users\User;
 use \Grocy\Services\StockService;
 
 class StockApiController extends BaseApiController
@@ -62,7 +63,9 @@ class StockApiController extends BaseApiController
 
 	public function AddProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$requestBody = $request->getParsedBody();
+        User::checkPermission($request, User::PERMISSION_PRODUCT_ADD);
+
+        $requestBody = $request->getParsedBody();
 
 		try
 		{
@@ -136,7 +139,9 @@ class StockApiController extends BaseApiController
 
 	public function EditStockEntry(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$requestBody = $request->getParsedBody();
+        User::checkPermission($request, User::PERMISSION_STOCK_EDIT);
+
+        $requestBody = $request->getParsedBody();
 
 		try
 		{
@@ -185,7 +190,9 @@ class StockApiController extends BaseApiController
 
 	public function TransferProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$requestBody = $request->getParsedBody();
+        User::checkPermission($request, User::PERMISSION_STOCK_TRANSFER);
+
+        $requestBody = $request->getParsedBody();
 
 		try
 		{
@@ -239,7 +246,9 @@ class StockApiController extends BaseApiController
 
 	public function ConsumeProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$requestBody = $request->getParsedBody();
+        User::checkPermission($request, User::PERMISSION_PRODUCT_CONSUME);
+
+        $requestBody = $request->getParsedBody();
 
 		$result = null;
 
@@ -310,7 +319,9 @@ class StockApiController extends BaseApiController
 
 	public function InventoryProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$requestBody = $request->getParsedBody();
+        User::checkPermission($request, User::PERMISSION_STOCK_CORRECTION);
+
+        $requestBody = $request->getParsedBody();
 
 		try
 		{
@@ -372,7 +383,9 @@ class StockApiController extends BaseApiController
 
 	public function OpenProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$requestBody = $request->getParsedBody();
+        User::checkPermission($request, User::PERMISSION_PRODUCT_OPEN);
+
+        $requestBody = $request->getParsedBody();
 
 		try
 		{
@@ -439,7 +452,9 @@ class StockApiController extends BaseApiController
 
 	public function AddMissingProductsToShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		try
+        User::checkPermission($request, User::PERMISSION_SHOPPINGLIST_ITEMS_ADD);
+
+        try
 		{
 			$requestBody = $request->getParsedBody();
 
@@ -460,7 +475,9 @@ class StockApiController extends BaseApiController
 
 	public function ClearShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		try
+        User::checkPermission($request, User::PERMISSION_SHOPPINGLIST_ITEMS_DELETE);
+
+        try
 		{
 			$requestBody = $request->getParsedBody();
 
@@ -482,7 +499,9 @@ class StockApiController extends BaseApiController
 
 	public function AddProductToShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		try
+        User::checkPermission($request, User::PERMISSION_SHOPPINGLIST_ITEMS_ADD);
+
+        try
 		{
 			$requestBody = $request->getParsedBody();
 
@@ -523,7 +542,9 @@ class StockApiController extends BaseApiController
 
 	public function RemoveProductFromShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		try
+        User::checkPermission($request, User::PERMISSION_SHOPPINGLIST_ITEMS_DELETE);
+
+        try
 		{
 			$requestBody = $request->getParsedBody();
 
@@ -559,7 +580,9 @@ class StockApiController extends BaseApiController
 
 	public function ExternalBarcodeLookup(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		try
+        User::checkPermission($request, User::PERMISSION_PRODUCT_ADD);
+
+        try
 		{
 			$addFoundProduct = false;
 			if (isset($request->getQueryParams()['add']) && ($request->getQueryParams()['add'] === 'true' || $request->getQueryParams()['add'] === 1))
@@ -577,7 +600,9 @@ class StockApiController extends BaseApiController
 
 	public function UndoBooking(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		try
+        User::checkPermission($request, User::PERMISSION_STOCK_CORRECTION);
+
+        try
 		{
 			$this->ApiResponse($response, $this->getStockService()->UndoBooking($args['bookingId']));
 			return $this->EmptyApiResponse($response);
@@ -590,7 +615,9 @@ class StockApiController extends BaseApiController
 
 	public function UndoTransaction(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		try
+        User::checkPermission($request, User::PERMISSION_STOCK_CORRECTION);
+
+        try
 		{
 			$this->ApiResponse($response, $this->getStockService()->UndoTransaction($args['transactionId']));
 			return $this->EmptyApiResponse($response);

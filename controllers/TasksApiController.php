@@ -2,6 +2,8 @@
 
 namespace Grocy\Controllers;
 
+use Grocy\Controllers\Users\User;
+
 class TasksApiController extends BaseApiController
 {
 	public function __construct(\DI\Container $container)
@@ -16,7 +18,9 @@ class TasksApiController extends BaseApiController
 
 	public function MarkTaskAsCompleted(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$requestBody = $request->getParsedBody();
+        User::checkPermission($request, User::PERMISSION_TASKS_MARK_COMPLETED);
+
+        $requestBody = $request->getParsedBody();
 
 		try
 		{
@@ -37,7 +41,9 @@ class TasksApiController extends BaseApiController
 
 	public function UndoTask(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		try
+        User::checkPermission($request, User::PERMISSION_TASKS_UNDO);
+
+        try
 		{
 			$this->getTasksService()->UndoTask($args['taskId']);
 			return $this->EmptyApiResponse($response);

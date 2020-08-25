@@ -2,6 +2,7 @@
 
 namespace Grocy\Controllers;
 
+use Grocy\Controllers\Users\User;
 use \Grocy\Services\FilesService;
 
 class FilesApiController extends BaseApiController
@@ -15,7 +16,9 @@ class FilesApiController extends BaseApiController
 	{
 		try
 		{
-			if (IsValidFileName(base64_decode($args['fileName'])))
+            User::checkPermission($request, User::PERMISSION_UPLOAD_FILE);
+
+            if (IsValidFileName(base64_decode($args['fileName'])))
 			{
 				$fileName = base64_decode($args['fileName']);
 			}
@@ -97,7 +100,9 @@ class FilesApiController extends BaseApiController
 	{
 		try
 		{
-			if (IsValidFileName(base64_decode($args['fileName'])))
+            User::checkPermission($request, User::PERMISSION_DELETE_FILE);
+
+            if (IsValidFileName(base64_decode($args['fileName'])))
 			{
 				$fileName = base64_decode($args['fileName']);
 			}

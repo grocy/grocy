@@ -70,3 +70,33 @@ VALUES ('EDIT_USER', last_insert_rowid());
 INSERT INTO permission_hierarchy(name, parent)
 VALUES ('READ_USER', last_insert_rowid()),
        ('EDIT_SELF', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN'));
+
+INSERT INTO permission_hierarchy(name, parent)
+VALUES
+       -- Batteries
+('BATTERY_UNDO_TRACK_CHARGE_CYCLE', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
+('BATTERY_TRACK_CHARGE_CYCLE', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
+       -- Chores
+('CHORE_TRACK', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
+('CHORE_TRACK_OTHERS', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
+('CHORE_EDIT', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
+('CHORE_UNDO', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
+       -- Files
+('UPLOAD_FILE', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
+('DELETE_FILE', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
+       -- master data
+('MASTER_DATA_EDIT', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
+('MASTER_DATA_READ', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
+       -- Tasks
+('TASKS_UNDO', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
+('TASKS_MARK_COMPLETED', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
+       -- Stock / Products
+('STOCK_EDIT', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
+('STOCK_TRANSFER', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
+('STOCK_CORRECTION', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
+('PRODUCT_ADD', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
+('PRODUCT_CONSUME', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
+('PRODUCT_OPEN', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
+       -- shopping list
+('SHOPPINGLIST_ITEMS_ADD', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
+('SHOPPINGLIST_ITEMS_DELETE', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN'));
