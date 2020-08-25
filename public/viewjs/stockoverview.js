@@ -239,7 +239,7 @@ function RefreshProductRow(productId)
 				productRow.addClass("table-warning");
 			}
 
-			if (result.stock_amount == 0 && result.product.min_stock_amount == 0)
+			if (result.stock_amount == 0 && result.stock_amount_aggregated == 0 && result.product.min_stock_amount == 0)
 			{
 				animateCSS("#product-" + productId + "-row", "fadeOut", function()
 				{
