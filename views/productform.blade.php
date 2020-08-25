@@ -170,7 +170,7 @@
 
 			<div class="form-group">
 				<label for="qu_id_stock">{{ $__t('Quantity unit stock') }}</label>
-				<i class="fas fa-question-circle" data-toggle="tooltip" title="Quantity unit stock cannot be changed after first purchase"></i>
+				<i class="fas fa-question-circle" data-toggle="tooltip" title="{{ $__t('Quantity unit stock cannot be changed after first purchase') }}"></i>
 				<select required class="form-control input-group-qu" id="qu_id_stock" name="qu_id_stock" @if($mode == 'edit') disabled @endif>
 					<option></option>
 					@foreach($quantityunits as $quantityunit)

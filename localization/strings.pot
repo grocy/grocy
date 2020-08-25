@@ -1843,3 +1843,6 @@ msgstr ""
 
 msgid "Not enough in stock (not included in costs), %1$s missing, %2$s already on shopping list"
 msgstr ""
+
+msgid "Quantity unit stock cannot be changed after first purchase"
+msgstr ""
