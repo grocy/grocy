@@ -27,6 +27,7 @@
 - Fixed that when editing a stock entry without a price, the price field was prefilled with `1`
 - Fixed that location & product groups filter on the stock overview page did a contains search instead an exact search
 - Fixed that the amount on the success popup was wrong when consuming a product with "Tare weight handling" enabled
+- Fixed that the aggregated amount of parent products was wrong on the stock overview page when the child products had not the same stock quantity units
 
 
 ### Shopping list improvements

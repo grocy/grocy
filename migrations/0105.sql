@@ -18,7 +18,8 @@ SELECT
     (SELECT name FROM quantity_units WHERE quantity_units.id = p.qu_id_purchase) AS qu_purchase_unit_name,
     (SELECT name_plural FROM quantity_units WHERE quantity_units.id = p.qu_id_purchase) AS qu_purchase_unit_name_plural,
     sc.is_aggregated_amount,
-    sc.amount_opened_aggregated
+    sc.amount_opened_aggregated,
+    sc.amount_aggregated
 FROM (
         SELECT *
         FROM stock_current
@@ -51,7 +52,8 @@ SELECT
     (SELECT name FROM quantity_units WHERE quantity_units.id = p.qu_id_purchase) AS qu_purchase_unit_name,
     (SELECT name_plural FROM quantity_units WHERE quantity_units.id = p.qu_id_purchase) AS qu_purchase_unit_name_plural,
     sc.is_aggregated_amount,
-    sc.amount_opened_aggregated
+    sc.amount_opened_aggregated,
+    sc.amount_aggregated
 FROM (
         SELECT *
         FROM stock_current
