@@ -74,6 +74,9 @@
 					</td>
 					<td>
 						{{ $__t($stockLogEntry->transaction_type) }}
+						@if ($stockLogEntry->spoiled == 1)
+						<span class="font-italic text-muted">{{ $__t('Spoiled') }}</span>
+						@endif
 					</td>
 					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif">
 						{{ FindObjectInArrayByPropertyValue($locations, 'id', $stockLogEntry->location_id)->name }}
