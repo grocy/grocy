@@ -63,7 +63,7 @@ class StockApiController extends BaseApiController
 
 	public function AddProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-        User::checkPermission($request, User::PERMISSION_PRODUCT_ADD);
+        User::checkPermission($request, User::PERMISSION_PRODUCT_PURCHASE);
 
         $requestBody = $request->getParsedBody();
 
@@ -580,7 +580,7 @@ class StockApiController extends BaseApiController
 
 	public function ExternalBarcodeLookup(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-        User::checkPermission($request, User::PERMISSION_PRODUCT_ADD);
+        User::checkPermission($request, User::PERMISSION_MASTER_DATA_EDIT);
 
         try
 		{

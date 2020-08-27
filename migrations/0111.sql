@@ -94,7 +94,7 @@ VALUES
 ('STOCK_EDIT', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
 ('STOCK_TRANSFER', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
 ('STOCK_CORRECTION', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
-('PRODUCT_ADD', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
+('PRODUCT_PURCHASE', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
 ('PRODUCT_CONSUME', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
 ('PRODUCT_OPEN', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
        -- shopping list
