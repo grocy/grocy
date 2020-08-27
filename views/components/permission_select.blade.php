@@ -1,5 +1,5 @@
 <label>
-    <input type="checkbox" name="{{ $perm->permission_name }}" class="permission-cb" data-perm-id="{{ $perm->permission_id }}" @if($perm->has_permission) checked @endif>
+    <input type="checkbox" name="{{ $perm->permission_name }}" class="permission-cb" data-perm-id="{{ $perm->permission_id }}" @if($perm->has_permission) checked @endif autocomplete="off">
     {{ $__t($perm->permission_name) }}
 </label>
 <div id="permission-sub-{{ $perm->permission_name }}">
