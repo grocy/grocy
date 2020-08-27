@@ -4,16 +4,14 @@
 namespace Grocy\Controllers;
 
 
-use Exception;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Log\LoggerInterface;
+use Slim\Exception\HttpException;
 use Slim\Exception\HttpForbiddenException;
-use Slim\Exception\HttpInternalServerErrorException;
 use Slim\Exception\HttpNotFoundException;
-use Slim\Exception\HttpSpecializedException;
 use Throwable;
 
-class ExceptionController extends BaseController
+class ExceptionController extends BaseApiController
 {
     /**
      * @var \Slim\App
@@ -34,6 +32,26 @@ class ExceptionController extends BaseController
                              ?LoggerInterface $logger = null)
     {
         $response = $this->app->getResponseFactory()->createResponse();
+
+        $isApiRoute = string_starts_with($request->getUri()->getPath(), '/api/');
+        if ($isApiRoute) {
+            $status = 500;
+            if ($exception instanceof HttpException) {
+                $status = $exception->getCode();
+            }
+            $data = [
+                'error_message' => $exception->getMessage(),
+            ];
+            if ($displayErrorDetails) {
+                $data['error_details'] = [
+                    'stack_trace' => $exception->getTrace(),
+                    'previous' => $exception->getPrevious(),
+                    'file' => $exception->getFile(),
+                    'line' => $exception->getLine(),
+                ];
+            }
+            return $this->ApiResponse($response->withStatus($status), $data);
+        }
         if ($exception instanceof HttpNotFoundException) {
             return $this->renderPage($response->withStatus(404), 'errors/404', [
                 'exception' => $exception
