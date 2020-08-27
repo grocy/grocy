@@ -1,0 +1,85 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01T17:59:17+00:00\n"
+"Last-Translator: \n"
+"Language-Team: http://www.transifex.com/grocy/grocy/language/en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"X-Domain: grocy/permissions\n"
+
+msgid "ADMIN"
+msgstr ""
+
+msgid "CREATE_USER"
+msgstr "Create new users"
+
+msgid "EDIT_USER"
+msgstr "Edit existing users (including passwords)"
+
+msgid "READ_USER"
+msgstr "View user data"
+
+msgid "EDIT_SELF"
+msgstr "Edit own user data, e.g. password and name"
+
+msgid "BATTERY_UNDO_TRACK_CHARGE_CYCLE"
+msgstr "Batteries: undo tracking of charge cycles"
+
+msgid "BATTERY_TRACK_CHARGE_CYCLE"
+msgstr "Batteries: track charge cycle"
+
+msgid "CHORE_TRACK"
+msgstr "Chores: track execution"
+
+msgid "CHORE_TRACK_OTHERS"
+msgstr "Chores: Track execution for others"
+
+msgid "CHORE_EDIT"
+msgstr "Chores: Edit chore data"
+
+msgid "CHORE_UNDO"
+msgstr "Chores: undo tracked execution"
+
+msgid "UPLOAD_FILE"
+msgstr "Upload files, e.g. product images"
+
+msgid "DELETE_FILE"
+msgstr "Delete (uploaded) files"
+
+msgid "MASTER_DATA_EDIT"
+msgstr "Edit Master data (e.g. products)"
+
+msgid "TASKS_UNDO"
+msgstr "Tasks: undo tracked execution"
+
+msgid "TASKS_MARK_COMPLETED"
+msgstr "Tasks: mark as completed"
+
+msgid "STOCK_EDIT"
+msgstr "Stock: edit entries"
+
+msgid "STOCK_TRANSFER"
+msgstr "Stock: transfer products between locations"
+
+msgid "STOCK_CORRECTION"
+msgstr "Stock: correct wrong entries"
+
+msgid "PRODUCT_CONSUME"
+msgstr "Consume Products"
+
+msgid "PRODUCT_OPEN"
+msgstr "Open products"
+
+msgid "PRODUCT_PURCHASE"
+msgstr "Purchase new products and add them to stock"
+
+msgid "SHOPPINGLIST_ITEMS_ADD"
+msgstr "Add items to shopping list"
+
+msgid "SHOPPINGLIST_ITEMS_DELETE"
+msgstr "Remove items from shopping list"
