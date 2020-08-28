@@ -2,7 +2,10 @@
 
 namespace Grocy\Controllers\Users;
 
-abstract class User
+use Grocy\Services\DatabaseService;
+use LessQL\Result;
+
+class User
 {
     const PERMISSION_ADMIN = 'ADMIN';
     const PERMISSION_CREATE_USER = 'CREATE_USER';
@@ -30,20 +33,63 @@ abstract class User
     const PERMISSION_SHOPPINGLIST_ITEMS_DELETE = 'SHOPPINGLIST_ITEMS_DELETE';
     const PERMISSION_PRODUCT_PURCHASE = 'PRODUCT_PURCHASE';
 
-    public abstract function hasPermission(string $permission): bool;
+    /**
+     * @var \LessQL\Database|null
+     */
+    protected $db;
+
+    public function __construct()
+    {
+        $this->db = DatabaseService::getInstance()->GetDbConnection();
+
+    }
+
+    protected function getPermissions(): Result
+    {
+        return $this->db->permission_check()->where('user_id', GROCY_USER_ID);
+    }
+
+    public function hasPermission(string $permission): bool
+    {
+        // global $PERMISSION_CACHE;
+        // if(isset($PERMISSION_CACHE[$permission]))
+        //    return $PERMISSION_CACHE[$permission];
+        return $this->getPermissions()->where('permission_name', $permission)->fetch() !== null;
+    }
 
     public static function checkPermission($request, string ...$permissions): void
     {
-        $user_class = GROCY_USER_CLASS;
-        $user = new $user_class();
-        assert($user instanceof User, 'Please check the Setting USER_CLASS: It should be an implementation of User');
+        $user = new User();
         foreach ($permissions as $permission) {
             if (!$user->hasPermission($permission)) {
                 throw new PermissionMissingException($request, $permission);
             }
         }
+
     }
 
+    public function getPermissionList()
+    {
+        return $this->db->uihelper_permission()->where('user_id', GROCY_USER_ID);
+    }
+
+    public static function hasPermissions(string ...$permissions)
+    {
+        $user = new User();
+        foreach ($permissions as $permission) {
+            if (!$user->hasPermission($permission)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static function PermissionList()
+    {
+        $user = new User();
+        return $user->getPermissionList();
+    }
 
 }
+
 
