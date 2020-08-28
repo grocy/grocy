@@ -54,9 +54,6 @@ msgstr ""
 msgid "MASTER_DATA_EDIT"
 msgstr ""
 
-msgid "MASTER_DATA_READ"
-msgstr ""
-
 msgid "TASKS_UNDO"
 msgstr ""
 

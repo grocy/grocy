@@ -86,7 +86,6 @@ VALUES
 ('DELETE_FILE', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
        -- master data
 ('MASTER_DATA_EDIT', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
-('MASTER_DATA_READ', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
        -- Tasks
 ('TASKS_UNDO', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
 ('TASKS_MARK_COMPLETED', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),

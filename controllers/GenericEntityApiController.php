@@ -13,8 +13,6 @@ class GenericEntityApiController extends BaseApiController
 
 	public function GetObjects(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-        User::checkPermission($request, User::PERMISSION_MASTER_DATA_READ);
-
         $objects = $this->getDatabase()->{$args['entity']}();
 		$allUserfields = $this->getUserfieldsService()->GetAllValues($args['entity']);
 
@@ -45,7 +43,6 @@ class GenericEntityApiController extends BaseApiController
 
 	public function GetObject(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-        User::checkPermission($request, User::PERMISSION_MASTER_DATA_READ);
         if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithPreventedListing($args['entity']))
 		{
 			$userfields = $this->getUserfieldsService()->GetValues($args['entity'], $args['objectId']);
@@ -152,7 +149,6 @@ class GenericEntityApiController extends BaseApiController
 
 	public function SearchObjects(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-        User::checkPermission($request, User::PERMISSION_MASTER_DATA_READ);
 
         if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithPreventedListing($args['entity']))
 		{
@@ -173,7 +169,6 @@ class GenericEntityApiController extends BaseApiController
 
 	public function GetUserfields(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-        User::checkPermission($request, User::PERMISSION_MASTER_DATA_READ);
         try
 		{
 			return $this->ApiResponse($response, $this->getUserfieldsService()->GetValues($args['entity'], $args['objectId']));
