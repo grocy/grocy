@@ -2,6 +2,7 @@
 
 namespace Grocy\Controllers;
 
+use Grocy\Controllers\Users\User;
 use \Grocy\Services\DatabaseService;
 use \Grocy\Services\ApplicationService;
 use \Grocy\Services\LocalizationService;
@@ -65,6 +66,8 @@ class BaseController
 			}
 		}
 		$this->View->set('featureFlags', $constants);
+
+		$this->View->set('permissions', User::PermissionList());
 
 		return $this->View->render($response, $page, $data);
 	}

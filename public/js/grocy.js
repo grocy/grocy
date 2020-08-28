@@ -662,3 +662,11 @@ $.extend(true, $.fn.dataTable.defaults, {
 		});
 	}
 });
+
+$(Grocy.Permissions).each(function (index, item)
+{
+	if(item.has_permission == 0)
+	{
+		$('.permission-'+item.permission_name).addClass('disabled').addClass('not-allowed');
+	}
+});

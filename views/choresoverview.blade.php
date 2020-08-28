@@ -95,7 +95,7 @@
 				@foreach($currentChores as $curentChoreEntry)
 				<tr id="chore-{{ $curentChoreEntry->chore_id }}-row" class="@if(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_PERIOD_TYPE_MANUALLY && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s')) table-danger @elseif(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_PERIOD_TYPE_MANUALLY && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) table-warning @endif">
 					<td class="fit-content border-right">
-						<a class="btn btn-success btn-sm track-chore-button" href="#" data-toggle="tooltip" data-placement="left" title="{{ $__t('Track execution of chore %s', FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name) }}"
+						<a class="btn btn-success btn-sm track-chore-button permission-CHORE_TRACK" href="#" data-toggle="tooltip" data-placement="left" title="{{ $__t('Track execution of chore %s', FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name) }}"
 							data-chore-id="{{ $curentChoreEntry->chore_id }}"
 							data-chore-name="{{ FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name }}">
 							<i class="fas fa-play"></i>
@@ -111,7 +111,7 @@
 								<a class="dropdown-item" type="button" href="{{ $U('/choresjournal?chore=') }}{{ $curentChoreEntry->chore_id }}">
 									<span class="dropdown-item-icon"><i class="fas fa-file-alt"></i></span> <span class="dropdown-item-text">{{ $__t('Journal for this chore') }}</span>
 								</a>
-								<a class="dropdown-item" type="button" href="{{ $U('/chore/') }}{{ $curentChoreEntry->chore_id }}">
+								<a class="dropdown-item permission-MASTER_DATA_EDIT" type="button" href="{{ $U('/chore/') }}{{ $curentChoreEntry->chore_id }}">
 									<span class="dropdown-item-icon"><i class="fas fa-edit"></i></span> <span class="dropdown-item-text">{{ $__t('Edit chore') }}</span>
 								</a>
 							</div>
