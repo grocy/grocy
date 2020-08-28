@@ -18,8 +18,7 @@ CREATE TABLE permission_hierarchy
 INSERT INTO permission_hierarchy(name, parent)
 VALUES ('ADMIN', NULL);
 INSERT INTO user_permissions(permission_id, user_id)
-VALUES (last_insert_rowid(), (SELECT MIN(id) FROM users)); -- The first user (normally "admin") starts as ADMIN
-
+SELECT (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN'), id FROM users;
 
 DROP VIEW IF EXISTS permission_tree;
 CREATE VIEW permission_tree
