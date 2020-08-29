@@ -22,39 +22,46 @@ class ExceptionController extends BaseApiController
 		$this->app = $app;
 	}
 
-	public function __invoke(ServerRequestInterface $request,
-							 Throwable $exception,
-							 bool $displayErrorDetails,
-							 bool $logErrors,
-							 bool $logErrorDetails,
-							 ?LoggerInterface $logger = null)
+	public function __invoke(ServerRequestInterface $request, Throwable $exception, bool $displayErrorDetails, bool $logErrors, bool $logErrorDetails, ?LoggerInterface $logger = null)
 	{
 		$response = $this->app->getResponseFactory()->createResponse();
 
 		$isApiRoute = string_starts_with($request->getUri()->getPath(), '/api/');
-		if ($isApiRoute) {
+		if ($isApiRoute)
+		{
 			$status = 500;
-			if ($exception instanceof HttpException) {
+			if ($exception instanceof HttpException)
+			{
 				$status = $exception->getCode();
 			}
+
 			$data = [
 				'error_message' => $exception->getMessage(),
 			];
-			if ($displayErrorDetails) {
+
+			if ($displayErrorDetails)
+			{
 				$data['error_details'] = [
 					'stack_trace' => $exception->getTraceAsString(),
 					'file' => $exception->getFile(),
 					'line' => $exception->getLine(),
 				];
 			}
+
 			return $this->ApiResponse($response->withStatus($status), $data);
 		}
-		if ($exception instanceof HttpNotFoundException) {
+
+		if ($exception instanceof HttpNotFoundException)
+		{
+			define('GROCY_AUTHENTICATED', false);
+
 			return $this->renderPage($response->withStatus(404), 'errors/404', [
 				'exception' => $exception
 			]);
 		}
-		if ($exception instanceof HttpForbiddenException) {
+
+		if ($exception instanceof HttpForbiddenException)
+		{
 			return $this->renderPage($response->withStatus(403), 'errors/403', [
 				'exception' => $exception
 			]);
@@ -63,6 +70,5 @@ class ExceptionController extends BaseApiController
 		return $this->renderPage($response->withStatus(500), 'errors/500', [
 			'exception' => $exception
 		]);
-
 	}
 }
