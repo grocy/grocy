@@ -6,37 +6,28 @@ class DatabaseMigrationService extends BaseService
 {
 	public function MigrateDatabase()
 	{
-		$this->getDatabaseService()->ExecuteDbStatement("CREATE TABLE IF NOT EXISTS migrations (migration INTEGER NOT NULL PRIMARY KEY UNIQUE, execution_time_timestamp DATETIME DEFAULT (datetime('now', 'localtime')))");
+	    $this->getDatabaseService()->ExecuteDbStatement("CREATE TABLE IF NOT EXISTS migrations (migration INTEGER NOT NULL PRIMARY KEY UNIQUE, execution_time_timestamp DATETIME DEFAULT (datetime('now', 'localtime')))");
 
-		$sqlMigrationFiles = array();
+        $migrationFiles = array();
 		foreach (new \FilesystemIterator(__DIR__ . '/../migrations') as $file)
 		{
-			if ($file->getExtension() === 'sql')
-			{
-				$sqlMigrationFiles[$file->getBasename('.sql')] = $file->getPathname();
-			}
+            $migrationFiles[$file->getBasename()] = $file;
 		}
-		ksort($sqlMigrationFiles);
-		foreach($sqlMigrationFiles as $migrationNumber => $migrationFile)
+		ksort($migrationFiles);
+		foreach($migrationFiles as $migrationKey => $migrationFile)
 		{
-			$migrationNumber = ltrim($migrationNumber, '0');
-			$this->ExecuteSqlMigrationWhenNeeded($migrationNumber, file_get_contents($migrationFile));
-		}
+			if($migrationFile->getExtension() === 'php')
+            {
+                $migrationNumber = ltrim($migrationFile->getBasename('.php'), '0');
+                $this->ExecutePhpMigrationWhenNeeded($migrationNumber, $migrationFile->getPathname());
+            }
+			else if($migrationFile->getExtension() === 'sql')
+            {
+                $migrationNumber = ltrim($migrationFile->getBasename('.sql'), '0');
+                $this->ExecuteSqlMigrationWhenNeeded($migrationNumber, file_get_contents($migrationFile->getPathname()));
+            }
 
-		$phpMigrationFiles = array();
-		foreach (new \FilesystemIterator(__DIR__ . '/../migrations') as $file)
-		{
-			if ($file->getExtension() === 'php')
-			{
-				$phpMigrationFiles[$file->getBasename('.php')] = $file->getPathname();
-			}
-		}
-		ksort($phpMigrationFiles);
-		foreach($phpMigrationFiles as $migrationNumber => $migrationFile)
-		{
-			$migrationNumber = ltrim($migrationNumber, '0');
-			$this->ExecutePhpMigrationWhenNeeded($migrationNumber, $migrationFile);
-		}
+        }
 	}
 
 	private function ExecuteSqlMigrationWhenNeeded(int $migrationId, string $sql)
