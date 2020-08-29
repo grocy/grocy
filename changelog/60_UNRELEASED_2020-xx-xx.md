@@ -6,6 +6,12 @@
 - Additionally, each product barcode can be assigned a different "Factor purchase to stock quantity unit" (on the product edit page), which is then automatically prefilled on the purchase page
 - (Thanks @kriddles)
 
+## New feature: Permissions
+- Users can now have permissions, can be configured per user on the "Manage users" page (lock icon)
+- Default permissions for new users can be set via a new `config.php` setting `DEFAULT_PERMISSIONS` (defaults to `ADMIN`, so no changed behavior when not configured)
+- All currently existing users will get all permissions (`ADMIN`) during the update/migration
+- (Thanks @fipwmaqzufheoxq92ebc)
+
 ### New feature: Reverse proxy authenticaton support
 - New `config.php` settings `AUTH_CLASS` and `REVERSE_PROXY_AUTH_HEADER`
 - If you set `AUTH_CLASS` to `Grocy\Middleware\ReverseProxyAuthMiddleware` and your reverse proxy sends a username in the HTTP header `REMOTE_USER` (header name can be changed by the setting `REVERSE_PROXY_AUTH_HEADER`), the user is automatically authenticated (and will also be created, if not already present)
