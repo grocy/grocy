@@ -789,6 +789,8 @@ class StockService extends BaseService
 					'best_before_date' => $stockEntry->best_before_date,
 					'purchased_date' => $stockEntry->purchased_date,
 					'stock_id' => $stockEntry->stock_id,
+					'location_id' => $stockEntry->location_id,
+					'shopping_location_id' => $stockEntry->shopping_location_id,
 					'transaction_type' => self::TRANSACTION_TYPE_PRODUCT_OPENED,
 					'price' => $stockEntry->price,
 					'opened_date' => date('Y-m-d'),
@@ -813,6 +815,8 @@ class StockService extends BaseService
 					'amount' => $restStockAmount,
 					'best_before_date' => $stockEntry->best_before_date,
 					'purchased_date' => $stockEntry->purchased_date,
+					'location_id' => $stockEntry->location_id,
+					'shopping_location_id' => $stockEntry->shopping_location_id,
 					'stock_id' => $stockEntry->stock_id,
 					'price' => $stockEntry->price
 				));
@@ -824,6 +828,8 @@ class StockService extends BaseService
 					'best_before_date' => $stockEntry->best_before_date,
 					'purchased_date' => $stockEntry->purchased_date,
 					'stock_id' => $stockEntry->stock_id,
+					'location_id' => $stockEntry->location_id,
+					'shopping_location_id' => $stockEntry->shopping_location_id,
 					'transaction_type' => self::TRANSACTION_TYPE_PRODUCT_OPENED,
 					'price' => $stockEntry->price,
 					'opened_date' => date('Y-m-d'),
