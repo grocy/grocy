@@ -41,7 +41,7 @@ class TasksApiController extends BaseApiController
 
 	public function UndoTask(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		User::checkPermission($request, User::PERMISSION_TASKS_UNDO);
+		User::checkPermission($request, User::PERMISSION_TASKS_UNDO_EXECUTION);
 
 		try
 		{

@@ -33,7 +33,7 @@ $('#permission-save').click(
 if (Grocy.EditObjectId == Grocy.UserId) {
 	$('input.permission-cb[name=ADMIN]').click(function () {
 		if (!this.checked) {
-			if (!confirm(__t('Are you sure you want to stop being an ADMIN?'))) {
+			if (!confirm(__t('Are you sure you want to remove full permissions for yourself?'))) {
 				this.checked = true;
 				check_hierachy(this.checked, this.name);
 			}

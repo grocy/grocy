@@ -17,7 +17,7 @@ class ChoresApiController extends BaseApiController
 
 		try
 		{
-			User::checkPermission($request, User::PERMISSION_CHORE_TRACK);
+			User::checkPermission($request, User::PERMISSION_CHORE_TRACK_EXECUTION);
 
 			$trackedTime = date('Y-m-d H:i:s');
 			if (array_key_exists('tracked_time', $requestBody) && (IsIsoDateTime($requestBody['tracked_time']) || IsIsoDate($requestBody['tracked_time'])))
@@ -31,7 +31,7 @@ class ChoresApiController extends BaseApiController
 				$doneBy = $requestBody['done_by'];
 			}
 			if($doneBy != GROCY_USER_ID)
-				User::checkPermission($request, User::PERMISSION_CHORE_TRACK_OTHERS);
+				User::checkPermission($request, User::PERMISSION_CHORE_TRACK_EXECUTION_EXECUTION);
 
 			$choreExecutionId = $this->getChoresService()->TrackChore($args['choreId'], $trackedTime, $doneBy);
 			return $this->ApiResponse($response, $this->getDatabase()->chores_log($choreExecutionId));
@@ -63,7 +63,7 @@ class ChoresApiController extends BaseApiController
 	{
 		try
 		{
-			User::checkPermission($request, User::PERMISSION_CHORE_UNDO);
+			User::checkPermission($request, User::PERMISSION_CHORE_UNDO_EXECUTION);
 
 			$this->ApiResponse($response, $this->getChoresService()->UndoChoreExecution($args['executionId']));
 			return $this->EmptyApiResponse($response);
@@ -78,8 +78,6 @@ class ChoresApiController extends BaseApiController
 	{
 		try
 		{
-			User::checkPermission($request, User::PERMISSION_CHORE_EDIT);
-
 			$requestBody = $request->getParsedBody();
 
 			$choreId = null;

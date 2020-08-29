@@ -13,73 +13,91 @@ msgstr ""
 "X-Domain: grocy/permissions\n"
 
 msgid "ADMIN"
-msgstr ""
+msgstr "All permissions"
 
-msgid "CREATE_USER"
-msgstr "Create new users"
+msgid "USERS_CREATE"
+msgstr "Create users"
 
-msgid "EDIT_USER"
-msgstr "Edit existing users (including passwords)"
+msgid "USERS_EDIT"
+msgstr "Edit users (including passwords)"
 
-msgid "READ_USER"
-msgstr "View user data"
+msgid "USERS_READ"
+msgstr "Show users"
 
-msgid "EDIT_SELF"
-msgstr "Edit own user data, e.g. password and name"
+msgid "USERS_EDIT_SELF"
+msgstr "Edit own user data / change own password"
 
-msgid "BATTERY_UNDO_TRACK_CHARGE_CYCLE"
-msgstr "Batteries: undo tracking of charge cycles"
+msgid "BATTERIES_UNDO_CHARGE_CYCLE"
+msgstr "Undo charge cycle"
 
-msgid "BATTERY_TRACK_CHARGE_CYCLE"
-msgstr "Batteries: track charge cycle"
+msgid "BATTERIES_TRACK_CHARGE_CYCLE"
+msgstr "Track charge cycle"
 
-msgid "CHORE_TRACK"
-msgstr "Chores: track execution"
+msgid "CHORE_TRACK_EXECUTION"
+msgstr "Track execution"
 
-msgid "CHORE_TRACK_OTHERS"
-msgstr "Chores: Track execution for others"
-
-msgid "CHORE_EDIT"
-msgstr "Chores: Edit chore data"
-
-msgid "CHORE_UNDO"
-msgstr "Chores: undo tracked execution"
-
-msgid "UPLOAD_FILE"
-msgstr "Upload files, e.g. product images"
-
-msgid "DELETE_FILE"
-msgstr "Delete (uploaded) files"
+msgid "CHORE_UNDO_EXECUTION"
+msgstr "Undo execution"
 
 msgid "MASTER_DATA_EDIT"
-msgstr "Edit Master data (e.g. products)"
+msgstr "Edit master data"
 
-msgid "TASKS_UNDO"
-msgstr "Tasks: undo tracked execution"
+msgid "TASKS_UNDO_EXECUTION"
+msgstr "Undo execution"
 
 msgid "TASKS_MARK_COMPLETED"
-msgstr "Tasks: mark as completed"
+msgstr "Mark completed"
 
 msgid "STOCK_EDIT"
-msgstr "Stock: edit entries"
+msgstr "Edit stock entries"
 
 msgid "STOCK_TRANSFER"
-msgstr "Stock: transfer products between locations"
+msgstr "Transfer"
 
-msgid "STOCK_CORRECTION"
-msgstr "Stock: correct wrong entries"
+msgid "STOCK_INVENTORY"
+msgstr "Inventory"
 
-msgid "PRODUCT_CONSUME"
-msgstr "Consume Products"
+msgid "STOCK_CONSUME"
+msgstr "Consume"
 
-msgid "PRODUCT_OPEN"
+msgid "STOCK_OPEN"
 msgstr "Open products"
 
-msgid "PRODUCT_PURCHASE"
-msgstr "Purchase new products and add them to stock"
+msgid "STOCK_PURCHASE"
+msgstr "Purchase"
 
 msgid "SHOPPINGLIST_ITEMS_ADD"
-msgstr "Add items to shopping list"
+msgstr "Add items"
 
 msgid "SHOPPINGLIST_ITEMS_DELETE"
-msgstr "Remove items from shopping list"
+msgstr "Remove items"
+
+msgid "USERS"
+msgstr "User management"
+
+msgid "STOCK"
+msgstr "Stock"
+
+msgid "SHOPPINGLIST"
+msgstr "Shopping list"
+
+msgid "CHORES"
+msgstr "Chores"
+
+msgid "BATTERIES"
+msgstr "Batteries"
+
+msgid "TASKS"
+msgstr "Tasks"
+
+msgid "RECIPES"
+msgstr "Recipes"
+
+msgid "EQUIPMENT"
+msgstr "Equipment"
+
+msgid "CALENDAR"
+msgstr "Calendar"
+
+msgid "RECIPES_MEALPLAN"
+msgstr "Meal plan"

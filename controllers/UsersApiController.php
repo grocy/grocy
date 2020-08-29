@@ -13,7 +13,7 @@ class UsersApiController extends BaseApiController
 
 	public function GetUsers(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		User::checkPermission($request, User::PERMISSION_READ_USER);
+		User::checkPermission($request, User::PERMISSION_USERS_READ);
 		try
 		{
 			return $this->ApiResponse($response, $this->getUsersService()->GetUsersAsDto());
@@ -26,7 +26,7 @@ class UsersApiController extends BaseApiController
 
 	public function CreateUser(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		User::checkPermission($request, User::PERMISSION_CREATE_USER);
+		User::checkPermission($request, User::PERMISSION_USERS_CREATE);
 		$requestBody = $request->getParsedBody();
 
 		try
@@ -47,7 +47,7 @@ class UsersApiController extends BaseApiController
 
 	public function DeleteUser(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		User::checkPermission($request, User::PERMISSION_EDIT_USER);
+		User::checkPermission($request, User::PERMISSION_USERS_EDIT);
 		try
 		{
 			$this->getUsersService()->DeleteUser($args['userId']);
@@ -62,9 +62,9 @@ class UsersApiController extends BaseApiController
 	public function EditUser(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($args['userId'] == GROCY_USER_ID) {
-			User::checkPermission($request, User::PERMISSION_EDIT_SELF);
+			User::checkPermission($request, User::PERMISSION_USERS_EDIT_SELF);
 		} else {
-			User::checkPermission($request, User::PERMISSION_EDIT_USER);
+			User::checkPermission($request, User::PERMISSION_USERS_EDIT);
 		}
 		$requestBody = $request->getParsedBody();
 

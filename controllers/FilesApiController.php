@@ -16,8 +16,6 @@ class FilesApiController extends BaseApiController
 	{
 		try
 		{
-			User::checkPermission($request, User::PERMISSION_UPLOAD_FILE);
-
 			if (IsValidFileName(base64_decode($args['fileName'])))
 			{
 				$fileName = base64_decode($args['fileName']);
@@ -100,8 +98,6 @@ class FilesApiController extends BaseApiController
 	{
 		try
 		{
-			User::checkPermission($request, User::PERMISSION_DELETE_FILE);
-
 			if (IsValidFileName(base64_decode($args['fileName'])))
 			{
 				$fileName = base64_decode($args['fileName']);

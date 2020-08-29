@@ -13,7 +13,7 @@ class BatteriesApiController extends BaseApiController
 
 	public function TrackChargeCycle(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		User::checkPermission($request, User::PERMISSION_BATTERY_TRACK_CHARGE_CYCLE);
+		User::checkPermission($request, User::PERMISSION_BATTERIES_TRACK_CHARGE_CYCLE);
 
 		$requestBody = $request->getParsedBody();
 
@@ -53,7 +53,7 @@ class BatteriesApiController extends BaseApiController
 
 	public function UndoChargeCycle(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		User::checkPermission($request, User::PERMISSION_BATTERY_UNDO_TRACK_CHARGE_CYCLE);
+		User::checkPermission($request, User::PERMISSION_BATTERIES_UNDO_CHARGE_CYCLE);
 
 		try
 		{

@@ -69,7 +69,7 @@
 				@foreach($current as $currentBatteryEntry)
 				<tr id="battery-{{ $currentBatteryEntry->battery_id }}-row" class="@if(FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->charge_interval_days > 0 && $currentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s')) table-danger @elseif(FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->charge_interval_days > 0 && $currentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days"))) table-warning @endif">
 					<td class="fit-content border-right">
-						<a class="btn btn-success btn-sm track-charge-cycle-button permission-BATTERY_TRACK_CHARGE_CYCLE" href="#" data-toggle="tooltip" data-placement="left" title="{{ $__t('Track charge cycle of battery %s', FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->name) }}"
+						<a class="btn btn-success btn-sm track-charge-cycle-button permission-BATTERIES_TRACK_CHARGE_CYCLE" href="#" data-toggle="tooltip" data-placement="left" title="{{ $__t('Track charge cycle of battery %s', FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->name) }}"
 							data-battery-id="{{ $currentBatteryEntry->battery_id }}"
 							data-battery-name="{{ FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->name }}">
 							<i class="fas fa-fire"></i>

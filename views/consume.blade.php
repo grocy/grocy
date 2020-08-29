@@ -92,7 +92,7 @@
 			<button id="save-consume-button" class="btn btn-success">{{ $__t('OK') }}</button>
 
 			@if(GROCY_FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING)
-			<button id="save-mark-as-open-button" class="btn btn-secondary">{{ $__t('Mark as opened') }}</button>
+			<button id="save-mark-as-open-button" class="btn btn-secondary permission-STOCK_OPEN">{{ $__t('Mark as opened') }}</button>
 			@endif
 
 		</form>

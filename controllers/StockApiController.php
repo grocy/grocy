@@ -63,7 +63,7 @@ class StockApiController extends BaseApiController
 
 	public function AddProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		User::checkPermission($request, User::PERMISSION_PRODUCT_PURCHASE);
+		User::checkPermission($request, User::PERMISSION_STOCK_PURCHASE);
 
 		$requestBody = $request->getParsedBody();
 
@@ -246,7 +246,7 @@ class StockApiController extends BaseApiController
 
 	public function ConsumeProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		User::checkPermission($request, User::PERMISSION_PRODUCT_CONSUME);
+		User::checkPermission($request, User::PERMISSION_STOCK_CONSUME);
 
 		$requestBody = $request->getParsedBody();
 
@@ -319,7 +319,7 @@ class StockApiController extends BaseApiController
 
 	public function InventoryProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		User::checkPermission($request, User::PERMISSION_STOCK_CORRECTION);
+		User::checkPermission($request, User::PERMISSION_STOCK_INVENTORY);
 
 		$requestBody = $request->getParsedBody();
 
@@ -383,7 +383,7 @@ class StockApiController extends BaseApiController
 
 	public function OpenProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		User::checkPermission($request, User::PERMISSION_PRODUCT_OPEN);
+		User::checkPermission($request, User::PERMISSION_STOCK_OPEN);
 
 		$requestBody = $request->getParsedBody();
 
@@ -600,7 +600,7 @@ class StockApiController extends BaseApiController
 
 	public function UndoBooking(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		User::checkPermission($request, User::PERMISSION_STOCK_CORRECTION);
+		User::checkPermission($request, User::PERMISSION_STOCK_EDIT);
 
 		try
 		{
@@ -615,7 +615,7 @@ class StockApiController extends BaseApiController
 
 	public function UndoTransaction(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		User::checkPermission($request, User::PERMISSION_STOCK_CORRECTION);
+		User::checkPermission($request, User::PERMISSION_STOCK_EDIT);
 
 		try
 		{

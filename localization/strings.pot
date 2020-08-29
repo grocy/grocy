@@ -1853,7 +1853,7 @@ msgstr ""
 msgid "Permissions for user %s"
 msgstr ""
 
-msgid "Are you sure you want to stop being an ADMIN?"
+msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr ""
 
 msgid "Permissions saved"

@@ -29,7 +29,7 @@ class RecipesApiController extends BaseApiController
 
 	public function ConsumeRecipe(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		User::checkPermission($request, User::PERMISSION_PRODUCT_CONSUME);
+		User::checkPermission($request, User::PERMISSION_STOCK_CONSUME);
 
 		try
 		{

@@ -8,7 +8,7 @@ class UsersController extends BaseController
 {
 	public function UsersList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		User::checkPermission($request, User::PERMISSION_READ_USER);
+		User::checkPermission($request, User::PERMISSION_USERS_READ);
 		return $this->renderPage($response, 'users', [
 			'users' => $this->getDatabase()->users()->orderBy('username')
 		]);
@@ -18,7 +18,7 @@ class UsersController extends BaseController
 	{
 		if ($args['userId'] == 'new')
 		{
-			User::checkPermission($request, User::PERMISSION_CREATE_USER);
+			User::checkPermission($request, User::PERMISSION_USERS_CREATE);
 			return $this->renderPage($response, 'userform', [
 				'mode' => 'create'
 			]);
@@ -26,8 +26,8 @@ class UsersController extends BaseController
 		else
 		{
 			if($args['userId'] == GROCY_USER_ID)
-				User::checkPermission($request, User::PERMISSION_EDIT_SELF);
-			else User::checkPermission($request, User::PERMISSION_EDIT_USER);
+				User::checkPermission($request, User::PERMISSION_USERS_EDIT_SELF);
+			else User::checkPermission($request, User::PERMISSION_USERS_EDIT);
 			return $this->renderPage($response, 'userform', [
 				'user' =>  $this->getDatabase()->users($args['userId']),
 				'mode' => 'edit'
@@ -37,7 +37,7 @@ class UsersController extends BaseController
 
 	public function PermissionList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		User::checkPermission($request, User::PERMISSION_READ_USER);
+		User::checkPermission($request, User::PERMISSION_USERS_READ);
 		return $this->renderPage($response, 'userpermissions', [
 			'user' => $this->getDatabase()->users($args['userId']),
 			'permissions' => $this->getDatabase()->uihelper_user_permissions()

@@ -106,13 +106,13 @@
 				@endif
 				@if(GROCY_FEATURE_FLAG_RECIPES)
 				<div class="nav-item-divider"></div>
-				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Recipes') }}" data-nav-for-page="recipes">
+				<li class="nav-item nav-item-sidebar permission-RECIPES" data-toggle="tooltip" data-placement="right" title="{{ $__t('Recipes') }}" data-nav-for-page="recipes">
 					<a class="nav-link discrete-link" href="{{ $U('/recipes') }}">
 						<i class="fas fa-cocktail"></i>
 						<span class="nav-link-text">{{ $__t('Recipes') }}</span>
 					</a>
 				</li>
-				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Meal plan') }}" data-nav-for-page="mealplan">
+				<li class="nav-item nav-item-sidebar permission-RECIPES_MEALPLAN" data-toggle="tooltip" data-placement="right" title="{{ $__t('Meal plan') }}" data-nav-for-page="mealplan">
 					<a class="nav-link discrete-link" href="{{ $U('/mealplan') }}">
 						<i class="fas fa-paper-plane"></i>
 						<span class="nav-link-text">{{ $__t('Meal plan') }}</span>
@@ -145,7 +145,7 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_EQUIPMENT)
-				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Equipment') }}" data-nav-for-page="equipment">
+				<li class="nav-item nav-item-sidebar permission-EQUIPMENT" data-toggle="tooltip" data-placement="right" title="{{ $__t('Equipment') }}" data-nav-for-page="equipment">
 					<a class="nav-link discrete-link" href="{{ $U('/equipment') }}">
 						<i class="fas fa-toolbox"></i>
 						<span class="nav-link-text">{{ $__t('Equipment') }}</span>
@@ -154,7 +154,7 @@
 				@endif
 				@if(GROCY_FEATURE_FLAG_CALENDAR)
 				<div class="nav-item-divider"></div>
-				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Calendar') }}" data-nav-for-page="calendar">
+				<li class="nav-item nav-item-sidebar permission-CALENDAR" data-toggle="tooltip" data-placement="right" title="{{ $__t('Calendar') }}" data-nav-for-page="calendar">
 					<a class="nav-link discrete-link" href="{{ $U('/calendar') }}">
 						<i class="fas fa-calendar-alt"></i>
 						<span class="nav-link-text">{{ $__t('Calendar') }}</span>
@@ -164,13 +164,13 @@
 
 				@if(GROCY_FEATURE_FLAG_STOCK)
 				<div class="nav-item-divider"></div>
-				<li class="nav-item nav-item-sidebar permission-PRODUCT_PURCHASE" data-toggle="tooltip" data-placement="right" title="{{ $__t('Purchase') }}" data-nav-for-page="purchase">
+				<li class="nav-item nav-item-sidebar permission-STOCK_PURCHASE" data-toggle="tooltip" data-placement="right" title="{{ $__t('Purchase') }}" data-nav-for-page="purchase">
 					<a class="nav-link discrete-link" href="{{ $U('/purchase') }}">
 						<i class="fas fa-shopping-cart"></i>
 						<span class="nav-link-text">{{ $__t('Purchase') }}</span>
 					</a>
 				</li>
-				<li class="nav-item nav-item-sidebar permission-PRODUCT_CONSUME" data-toggle="tooltip" data-placement="right" title="{{ $__t('Consume') }}" data-nav-for-page="consume">
+				<li class="nav-item nav-item-sidebar permission-STOCK_CONSUME" data-toggle="tooltip" data-placement="right" title="{{ $__t('Consume') }}" data-nav-for-page="consume">
 					<a class="nav-link discrete-link" href="{{ $U('/consume') }}">
 						<i class="fas fa-utensils"></i>
 						<span class="nav-link-text">{{ $__t('Consume') }}</span>
@@ -184,7 +184,7 @@
 					</a>
 				</li>
 				@endif
-				<li class="nav-item nav-item-sidebar permission-STOCK_CORRECTION" data-toggle="tooltip" data-placement="right" title="{{ $__t('Inventory') }}" data-nav-for-page="inventory">
+				<li class="nav-item nav-item-sidebar permission-STOCK_INVENTORY" data-toggle="tooltip" data-placement="right" title="{{ $__t('Inventory') }}" data-nav-for-page="inventory">
 					<a class="nav-link discrete-link" href="{{ $U('/inventory') }}">
 						<i class="fas fa-list"></i>
 						<span class="nav-link-text">{{ $__t('Inventory') }}</span>
@@ -192,7 +192,7 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_CHORES)
-				<li class="nav-item nav-item-sidebar permission-CHORE_TRACK_OTHERS" data-toggle="tooltip" data-placement="right" title="{{ $__t('Chore tracking') }}" data-nav-for-page="choretracking">
+				<li class="nav-item nav-item-sidebar permission-CHORE_TRACK_EXECUTION" data-toggle="tooltip" data-placement="right" title="{{ $__t('Chore tracking') }}" data-nav-for-page="choretracking">
 					<a class="nav-link discrete-link" href="{{ $U('/choretracking') }}">
 						<i class="fas fa-play"></i>
 						<span class="nav-link-text">{{ $__t('Chore tracking') }}</span>
@@ -200,7 +200,7 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_BATTERIES)
-				<li class="nav-item nav-item-sidebar permission-BATTERY_TRACK_CHARGE_CYCLE" data-toggle="tooltip" data-placement="right" title="{{ $__t('Battery tracking') }}" data-nav-for-page="batterytracking">
+				<li class="nav-item nav-item-sidebar permission-BATTERIES_TRACK_CHARGE_CYCLE" data-toggle="tooltip" data-placement="right" title="{{ $__t('Battery tracking') }}" data-nav-for-page="batterytracking">
 					<a class="nav-link discrete-link" href="{{ $U('/batterytracking') }}">
 						<i class="fas fa-fire"></i>
 						<span class="nav-link-text">{{ $__t('Battery tracking') }}</span>
@@ -402,23 +402,23 @@
 					<div class="dropdown-menu dropdown-menu-right">
 						<a class="dropdown-item discrete-link" href="{{ $U('/stocksettings') }}"><i class="fas fa-box"></i>&nbsp;{{ $__t('Stock settings') }}</a>
 						@if(GROCY_FEATURE_FLAG_SHOPPINGLIST)
-						<a class="dropdown-item discrete-link" href="{{ $U('/shoppinglistsettings') }}"><i class="fas fa-shopping-cart"></i>&nbsp;{{ $__t('Shopping list settings') }}</a>
+						<a class="dropdown-item discrete-link permission-SHOPPINGLIST" href="{{ $U('/shoppinglistsettings') }}"><i class="fas fa-shopping-cart"></i>&nbsp;{{ $__t('Shopping list settings') }}</a>
 						@endif
 						@if(GROCY_FEATURE_FLAG_RECIPES)
-						<a class="dropdown-item discrete-link" href="{{ $U('/recipessettings') }}"><i class="fas fa-cocktail"></i>&nbsp;{{ $__t('Recipes settings') }}</a>
+						<a class="dropdown-item discrete-link permission-RECIPES" href="{{ $U('/recipessettings') }}"><i class="fas fa-cocktail"></i>&nbsp;{{ $__t('Recipes settings') }}</a>
 						@endif
 						@if(GROCY_FEATURE_FLAG_CHORES)
-						<a class="dropdown-item discrete-link" href="{{ $U('/choressettings') }}"><i class="fas fa-home"></i>&nbsp;{{ $__t('Chores settings') }}</a>
+						<a class="dropdown-item discrete-link permission-CHORES" href="{{ $U('/choressettings') }}"><i class="fas fa-home"></i>&nbsp;{{ $__t('Chores settings') }}</a>
 						@endif
 						@if(GROCY_FEATURE_FLAG_BATTERIES)
-						<a class="dropdown-item discrete-link" href="{{ $U('/batteriessettings') }}"><i class="fas fa-battery-half"></i>&nbsp;{{ $__t('Batteries settings') }}</a>
+						<a class="dropdown-item discrete-link permission-BATTERIES" href="{{ $U('/batteriessettings') }}"><i class="fas fa-battery-half"></i>&nbsp;{{ $__t('Batteries settings') }}</a>
 						@endif
 						@if(GROCY_FEATURE_FLAG_TASKS)
-						<a class="dropdown-item discrete-link" href="{{ $U('/taskssettings') }}"><i class="fas fa-tasks"></i>&nbsp;{{ $__t('Tasks settings') }}</a>
+						<a class="dropdown-item discrete-link permission-TASKS" href="{{ $U('/taskssettings') }}"><i class="fas fa-tasks"></i>&nbsp;{{ $__t('Tasks settings') }}</a>
 						@endif
 						<div class="dropdown-divider"></div>
 						@if(GROCY_SHOW_AUTH_VIEWS)
-						<a class="dropdown-item discrete-link permission-READ_USER" href="{{ $U('/users') }}"><i class="fas fa-users"></i>&nbsp;{{ $__t('Manage users') }}</a>
+						<a class="dropdown-item discrete-link permission-USERS_READ" href="{{ $U('/users') }}"><i class="fas fa-users"></i>&nbsp;{{ $__t('Manage users') }}</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item discrete-link" href="{{ $U('/manageapikeys') }}"><i class="fas fa-handshake"></i>&nbsp;{{ $__t('Manage API keys') }}</a>
 						@endif

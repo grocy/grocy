@@ -12,74 +12,122 @@ msgstr ""
 "Language: en\n"
 "X-Domain: grocy/permissions\n"
 
+# All permissions
 msgid "ADMIN"
 msgstr ""
 
-msgid "CREATE_USER"
+# Create users
+msgid "USERS_CREATE"
 msgstr ""
 
-msgid "EDIT_USER"
+#Edit users (including passwords)
+msgid "USERS_EDIT"
 msgstr ""
 
-msgid "READ_USER"
+# Show users
+msgid "USERS_READ"
 msgstr ""
 
-msgid "EDIT_SELF"
+# Edit own user data / change own password
+msgid "USERS_EDIT_SELF"
 msgstr ""
 
-msgid "BATTERY_UNDO_TRACK_CHARGE_CYCLE"
+# Undo charge cycle
+msgid "BATTERIES_UNDO_CHARGE_CYCLE"
 msgstr ""
 
-msgid "BATTERY_TRACK_CHARGE_CYCLE"
+# Track charge cycle
+msgid "BATTERIES_TRACK_CHARGE_CYCLE"
 msgstr ""
 
-msgid "CHORE_TRACK"
+# Track execution
+msgid "CHORE_TRACK_EXECUTION"
 msgstr ""
 
-msgid "CHORE_TRACK_OTHERS"
+# Undo execution
+msgid "CHORE_UNDO_EXECUTION"
 msgstr ""
 
-msgid "CHORE_EDIT"
-msgstr ""
-
-msgid "CHORE_UNDO"
-msgstr ""
-
-msgid "UPLOAD_FILE"
-msgstr ""
-
-msgid "DELETE_FILE"
-msgstr ""
-
+# Edit master data
 msgid "MASTER_DATA_EDIT"
 msgstr ""
 
-msgid "TASKS_UNDO"
+# Undo execution
+msgid "TASKS_UNDO_EXECUTION"
 msgstr ""
 
+# Mark completed
 msgid "TASKS_MARK_COMPLETED"
 msgstr ""
 
+# Edit stock entries
 msgid "STOCK_EDIT"
 msgstr ""
 
+# Transfer
 msgid "STOCK_TRANSFER"
 msgstr ""
 
-msgid "STOCK_CORRECTION"
+# Inventory
+msgid "STOCK_INVENTORY"
 msgstr ""
 
-msgid "PRODUCT_CONSUME"
+# Consume
+msgid "STOCK_CONSUME"
 msgstr ""
 
-msgid "PRODUCT_OPEN"
+# Open products
+msgid "STOCK_OPEN"
 msgstr ""
 
-msgid "PRODUCT_PURCHASE"
+# Purchase
+msgid "STOCK_PURCHASE"
 msgstr ""
 
+# Add items
 msgid "SHOPPINGLIST_ITEMS_ADD"
 msgstr ""
 
+# Remove items
 msgid "SHOPPINGLIST_ITEMS_DELETE"
+msgstr ""
+
+# User management
+msgid "USERS"
+msgstr ""
+
+# Stock
+msgid "STOCK"
+msgstr ""
+
+# Shopping list
+msgid "SHOPPINGLIST"
+msgstr ""
+
+# Chores
+msgid "CHORES"
+msgstr ""
+
+# Batteries
+msgid "BATTERIES"
+msgstr ""
+
+# Tasks
+msgid "TASKS"
+msgstr ""
+
+# Recipes
+msgid "RECIPES"
+msgstr ""
+
+# Equipment
+msgid "EQUIPMENT"
+msgstr ""
+
+# Calendar
+msgid "CALENDAR"
+msgstr ""
+
+# Meal plan
+msgid "RECIPES_MEALPLAN"
 msgstr ""
