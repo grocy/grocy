@@ -42,3 +42,9 @@ file_filter = localization/<lang>/userfield_types.po
 source_file = localization/userfield_types.pot
 source_lang = en
 type = PO
+
+[grocy.permissions]
+file_filter = localization/<lang>/permissions.po
+source_file = localization/permissions.pot
+source_lang = en
+type = PO
