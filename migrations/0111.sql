@@ -51,7 +51,9 @@ VALUES
 	('RECIPES', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
 	('CHORES', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
 	('BATTERIES', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
-	('TASKS', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN'));
+	('TASKS', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
+	('EQUIPMENT', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN')),
+	('CALENDAR', (SELECT id FROM permission_hierarchy WHERE name = 'ADMIN'));
 
 -- Sub feature permissions
 INSERT INTO permission_hierarchy
@@ -72,13 +74,13 @@ VALUES
 	-- Recipes
 	('RECIPES_MEALPLAN', (SELECT id FROM permission_hierarchy WHERE name = 'RECIPES')),
 
-	-- Batteries
-	('BATTERIES_TRACK_CHARGE_CYCLE', (SELECT id FROM permission_hierarchy WHERE name = 'BATTERIES')),
-	('BATTERIES_UNDO_CHARGE_CYCLE', (SELECT id FROM permission_hierarchy WHERE name = 'BATTERIES')),
-
 	-- Chores
 	('CHORE_TRACK_EXECUTION', (SELECT id FROM permission_hierarchy WHERE name = 'CHORES')),
 	('CHORE_UNDO_EXECUTION', (SELECT id FROM permission_hierarchy WHERE name = 'CHORES')),
+
+	-- Batteries
+	('BATTERIES_TRACK_CHARGE_CYCLE', (SELECT id FROM permission_hierarchy WHERE name = 'BATTERIES')),
+	('BATTERIES_UNDO_CHARGE_CYCLE', (SELECT id FROM permission_hierarchy WHERE name = 'BATTERIES')),
 
 	-- Tasks
 	('TASKS_UNDO_EXECUTION', (SELECT id FROM permission_hierarchy WHERE name = 'TASKS')),
