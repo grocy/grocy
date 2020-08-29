@@ -48,7 +48,7 @@ class ExceptionController extends BaseApiController
 				];
 			}
 
-			return $this->ApiResponse($response->withStatus($status), $data);
+			return $this->ApiResponse($response->withStatus($status)->withHeader('Content-Type', 'application/json'), $data);
 		}
 
 		if ($exception instanceof HttpNotFoundException)
