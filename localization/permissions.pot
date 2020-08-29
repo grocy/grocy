@@ -20,7 +20,7 @@ msgstr ""
 msgid "USERS_CREATE"
 msgstr ""
 
-#Edit users (including passwords)
+# Edit users (including passwords)
 msgid "USERS_EDIT"
 msgstr ""
 
