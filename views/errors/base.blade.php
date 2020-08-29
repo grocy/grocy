@@ -2,10 +2,18 @@
 
 @section('content')
     <div class="row">
-        <div class="col-xs-12 col-md-6">
-            <h2 class="title">@yield('title')</h2>
+        <div class="col">
             <div>
-                {!! nl2br(e($exception->getTraceAsString())) !!}
+                <h6>{{ $__t('Error source') }}</h6>
+                <pre><code>{!! $exception->getFile() !!}:{!! $exception->getLine() !!}</code></pre>
+            </div>
+            <div>
+                <h6>{{ $__t('Error message') }}</h6>
+                <pre><code>{!! $exception->getMessage() !!}</code></pre>
+            </div>
+            <div>
+                <h6>{{ $__t('Stack trace') }}</h6>
+                <pre><code>{!! $exception->getTraceAsString() !!}</code></pre>
             </div>
         </div>
     </div>

@@ -82,6 +82,11 @@ Setting('DISABLE_BROWSER_BARCODE_CAMERA_SCANNING', false);
 # Needs to be a number where Sunday = 0, Monday = 1 and so forth
 Setting('MEAL_PLAN_FIRST_DAY_OF_WEEK', '');
 
+# Default permissions for new users
+# the array needs to contain the technical/constant names
+# see the file controllers/Users/User.php for possible values
+Setting('DEFAULT_PERMISSIONS', ['ADMIN']);
+
 
 # Default user settings
 # These settings can be changed per user, here the defaults
@@ -172,5 +177,3 @@ Setting('FEATURE_FLAG_CHORES_ASSIGNMENTS', true);
 # Feature settings
 Setting('FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT', true); // When set to true opened items will be counted as missing from stock when calculating if a product is below its minimum.
 Setting('FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA', true); // Enables the torch automaticaly in every camera barcode scanner.
-
-Setting('DEFAULT_PERMISSIONS', ['ADMIN']);

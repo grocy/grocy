@@ -67,7 +67,10 @@ class BaseController
 		}
 		$this->View->set('featureFlags', $constants);
 
-		$this->View->set('permissions', User::PermissionList());
+		if (GROCY_AUTHENTICATED)
+		{
+			$this->View->set('permissions', User::PermissionList());
+		}
 
 		return $this->View->render($response, $page, $data);
 	}

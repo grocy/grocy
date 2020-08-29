@@ -45,7 +45,7 @@ class User
 
     protected function getPermissions(): Result
     {
-        return $this->db->permission_check()->where('user_id', GROCY_USER_ID);
+        return $this->db->user_permissions_resolved()->where('user_id', GROCY_USER_ID);
     }
 
     public function hasPermission(string $permission): bool
@@ -69,7 +69,7 @@ class User
 
     public function getPermissionList()
     {
-        return $this->db->uihelper_permission()->where('user_id', GROCY_USER_ID);
+        return $this->db->uihelper_user_permissions()->where('user_id', GROCY_USER_ID);
     }
 
     public static function hasPermissions(string ...$permissions)
@@ -88,7 +88,4 @@ class User
         $user = new User();
         return $user->getPermissionList();
     }
-
 }
-
-

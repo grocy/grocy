@@ -1,14 +1,13 @@
 @extends('errors.base')
 
 @section('title', $__t('Page not found'))
+
 @section('content')
-    <meta http-equiv="refresh" content="5;url=/">
+    <meta http-equiv="refresh" content="5;url={{$U('/')}}">
     <div class="row">
-        <div class="col-xs-12 col-md-6">
-            <h2 class="title">@yield('title')</h2>
-            <div>
-                {!! nl2br(e($exception->getTraceAsString())) !!}
-            </div>
+        <div class="col">
+            <div class="alert alert-danger">{{ $__t('This page does not exists') }}</div>
+            <div>{{ $__t('You will be redirected to the default page in %s seconds', '5') }}</div>
         </div>
     </div>
 @stop

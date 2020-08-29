@@ -663,7 +663,7 @@ $.extend(true, $.fn.dataTable.defaults, {
 	}
 });
 
-$(Grocy.Permissions).each(function (index, item)
+$(Grocy.UserPermissions).each(function (index, item)
 {
 	if(item.has_permission == 0)
 	{

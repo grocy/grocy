@@ -1,11 +1,11 @@
 @extends('errors.base')
 
-@section('title', $__t('You are not allowed to view this page!'))
+@section('title', $__t('Unauthorized'))
 
 @section('content')
     <div class="row">
-        <div class="col-xs-12 col-md-6 text-center">
-            <h2 class="title">@yield('title')</h2>
+        <div class="col">
+            <div class="alert alert-danger">{{ $__t('You are not allowed to view this page') }}</div>
         </div>
     </div>
 @stop

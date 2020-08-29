@@ -4,9 +4,9 @@
 </label>
 <div id="permission-sub-{{ $perm->permission_name }}">
     <ul>
-        @foreach($perm->uihelper_permissionList(array('user_id' => $user->id))->via('parent') as $p)
+        @foreach($perm->uihelper_user_permissionsList(array('user_id' => $user->id))->via('parent') as $p)
             <li>
-                @include('components.permission_select', array(
+                @include('components.userpermission_select', array(
                         'perm' =>  $p
                        ))
             </li>

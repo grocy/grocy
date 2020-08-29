@@ -59,11 +59,10 @@
 		Grocy.GettextPo = {!! $GettextPo !!};
 		Grocy.FeatureFlags = {!! json_encode($featureFlags) !!};
 
-		Grocy.Permissions = {!! json_encode($permissions) !!};
-
 		@if (GROCY_AUTHENTICATED)
 		Grocy.UserSettings = {!! json_encode($userSettings) !!};
 		Grocy.UserId = {{ GROCY_USER_ID }};
+		Grocy.UserPermissions = {!! json_encode($permissions) !!};
 		@else
 		Grocy.UserSettings = { };
 		Grocy.UserId = -1;

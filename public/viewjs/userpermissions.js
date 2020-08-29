@@ -19,17 +19,18 @@ $('#permission-save').click(
             }).map(function () {
                 return $(this).data('perm-id');
             }).toArray();
-        Grocy.Api.Put('users/' + edited_user_id + '/permissions', {
+        Grocy.Api.Put('users/' + Grocy.EditObjectId + '/permissions', {
                 'permissions': permission_list,
             }, function (result) {
-                toastr.success(__t("Permissions saved!"));
+                toastr.success(__t("Permissions saved"));
             }, function (xhr) {
                 toastr.error(__t(JSON.parse(xhr.response).error_message));
             }
         );
     }
 );
-if (edited_user_id == Grocy.UserId) {
+
+if (Grocy.EditObjectId == Grocy.UserId) {
     $('input.permission-cb[name=ADMIN]').click(function () {
         if (!this.checked) {
             if (!confirm(__t('Are you sure you want to stop being an ADMIN?'))) {

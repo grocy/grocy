@@ -1850,20 +1850,44 @@ msgstr ""
 msgid "Clear filter"
 msgstr ""
 
-msgid "Permissions of %s"
+msgid "Permissions for user %s"
 msgstr ""
 
 msgid "Are you sure you want to stop being an ADMIN?"
 msgstr ""
 
-msgid "Permissions saved!"
+msgid "Permissions saved"
 msgstr ""
 
-msgid "You are not allowed to view this page!"
-msgstr ""
-
-msgid "A server error occured while processing your request. You might found a bug in grocy!"
+msgid "You are not allowed to view this page"
 msgstr ""
 
 msgid "Page not found"
+msgstr ""
+
+msgid "Unauthorized"
+msgstr ""
+
+msgid "Error source"
+msgstr ""
+
+msgid "Error message"
+msgstr ""
+
+msgid "Stack trace"
+msgstr ""
+
+msgid "This page does not exists"
+msgstr ""
+
+msgid "You will be redirected to the default page in %s seconds"
+msgstr ""
+
+msgid "Server error"
+msgstr ""
+
+msgid "A server error occured while processing your request"
+msgstr ""
+
+msgid "If you think this is a bug, please report it"
 msgstr ""

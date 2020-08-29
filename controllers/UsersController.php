@@ -38,9 +38,9 @@ class UsersController extends BaseController
     public function PermissionList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
     {
         User::checkPermission($request, User::PERMISSION_READ_USER);
-        return $this->renderPage($response, 'permissions', [
+        return $this->renderPage($response, 'userpermissions', [
             'user' => $this->getDatabase()->users($args['userId']),
-            'permissions' => $this->getDatabase()->uihelper_permission()
+            'permissions' => $this->getDatabase()->uihelper_user_permissions()
                 ->where('parent IS NULL')->where('user_id', $args['userId']),
         ]);
     }

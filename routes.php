@@ -33,9 +33,7 @@ $app->group('', function(RouteCollectorProxy $group)
 	// User routes
 	$group->get('/users', '\Grocy\Controllers\UsersController:UsersList');
 	$group->get('/user/{userId}', '\Grocy\Controllers\UsersController:UserEditForm');
-
-    $group->get('/user/permissions/{userId}', '\Grocy\Controllers\UsersController:PermissionList');
-
+    $group->get('/user/{userId}/permissions', '\Grocy\Controllers\UsersController:PermissionList');
 
     // Stock routes
 	if (GROCY_FEATURE_FLAG_STOCK)
@@ -171,7 +169,6 @@ $app->group('/api', function(RouteCollectorProxy $group)
 	$group->post('/users', '\Grocy\Controllers\UsersApiController:CreateUser');
 	$group->put('/users/{userId}', '\Grocy\Controllers\UsersApiController:EditUser');
 	$group->delete('/users/{userId}', '\Grocy\Controllers\UsersApiController:DeleteUser');
-
     $group->get('/users/{userId}/permissions', '\Grocy\Controllers\UsersApiController:ListPermissions');
     $group->post('/users/{userId}/permissions', '\Grocy\Controllers\UsersApiController:AddPermission');
     $group->put('/users/{userId}/permissions', '\Grocy\Controllers\UsersApiController:SetPermissions');

@@ -3,7 +3,6 @@
 
 namespace Grocy\Controllers;
 
-
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Log\LoggerInterface;
 use Slim\Exception\HttpException;
@@ -44,8 +43,7 @@ class ExceptionController extends BaseApiController
             ];
             if ($displayErrorDetails) {
                 $data['error_details'] = [
-                    'stack_trace' => $exception->getTrace(),
-                    'previous' => $exception->getPrevious(),
+                    'stack_trace' => $exception->getTraceAsString(),
                     'file' => $exception->getFile(),
                     'line' => $exception->getLine(),
                 ];
