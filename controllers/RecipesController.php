@@ -51,7 +51,7 @@ class RecipesController extends BaseController
 		if ($selectedRecipe)
 		{
 			$selectedRecipeSubRecipes = $this->getDatabase()->recipes()->where('id IN (SELECT includes_recipe_id FROM recipes_nestings_resolved WHERE recipe_id = :1 AND includes_recipe_id != :1)', $selectedRecipe->id)->orderBy('name')->fetchAll();
-			
+
 			$includedRecipeIdsAbsolute = array();
 			$includedRecipeIdsAbsolute[] = $selectedRecipe->id;
 			foreach($selectedRecipeSubRecipes as $subRecipe)

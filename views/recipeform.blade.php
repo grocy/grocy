@@ -47,7 +47,7 @@
 				<input type="text" class="form-control" required id="name" name="name" value="@if($mode == 'edit'){{ $recipe->name }}@endif">
 				<div class="invalid-feedback">{{ $__t('A name is required') }}</div>
 			</div>
-			
+
 			<div class="form-group">
 					<label for="recipe-picture">
 						{{ $__t('Picture') }}
@@ -76,7 +76,7 @@
 				'value' => $value,
 				'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
 				'hint' => $__t('The ingredients listed here result in this amount of servings')
-			))			
+			))
 
 			<div class="form-group">
 				<div class="custom-control custom-checkbox">
@@ -85,7 +85,7 @@
 					<label class="form-check-label custom-control-label" for="not_check_shoppinglist">
 						{{ $__t('Do not check against the shopping list when adding missing items to it') }}&nbsp;
 						<i class="fas fa-question-circle"
-							data-toggle="tooltip" 
+							data-toggle="tooltip"
 							title="{{ $__t('By default the amount to be added to the shopping list is `needed amount - stock amount - shopping list amount` - when this is enabled, it is only checked against the stock amount, not against what is already on the shopping list') }}"
 						></i>
 					</label>
@@ -142,7 +142,7 @@
 						</a>
 					</div>
 				</div>
-				
+
 				<table id="recipes-pos-table" class="table table-sm table-striped dt-responsive">
 					<thead>
 						<tr>

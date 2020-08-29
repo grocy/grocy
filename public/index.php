@@ -36,7 +36,7 @@ try
 }
 catch (ERequirementNotMet $ex)
 {
-    die('Unable to run grocy: ' . $ex->getMessage());
+	die('Unable to run grocy: ' . $ex->getMessage());
 }
 
 require_once __DIR__ . '/../app.php';

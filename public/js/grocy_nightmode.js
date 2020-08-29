@@ -38,7 +38,7 @@ $(document).on("keyup", "#auto-night-mode-time-range-from, #auto-night-mode-time
 {
 	var value = $(this).val();
 	var valueIsValid = moment(value, "HH:mm", true).isValid();
-	
+
 	if (valueIsValid)
 	{
 		$(this).removeClass("bg-danger");
@@ -105,7 +105,7 @@ function CheckNightMode()
 			$("body").removeClass("night-mode");
 			$("#currently-inside-night-mode-range").prop("checked", false);
 			$("#currently-inside-night-mode-range").trigger("change");
-		}		
+		}
 	}
 }
 if (Grocy.UserId !== -1)

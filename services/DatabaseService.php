@@ -28,7 +28,7 @@ class DatabaseService
 		return GROCY_DATAPATH . '/grocy.db';
 	}
 
-    private static $DbConnectionRaw = null;
+	private static $DbConnectionRaw = null;
 	/**
 	 * @return \PDO
 	 */

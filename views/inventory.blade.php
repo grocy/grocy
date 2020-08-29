@@ -28,7 +28,7 @@
 				'additionalHtmlElements' => '<div id="inventory-change-info" class="form-text text-muted small d-none"></div>',
 				'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info" class="text-small text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
 			))
-			
+
 			@php
 				$additionalGroupCssClasses = '';
 				if (!GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)

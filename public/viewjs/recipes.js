@@ -62,7 +62,7 @@ $("#search").on("keyup", Delay(function()
 
 	$(".recipe-gallery-item").removeClass("d-none");
 	console.log(	$(".recipe-gallery-item .card-title:not(:contains_case_insensitive(" + value + "))"));
-	
+
 	$(".recipe-gallery-item .card-title:not(:contains_case_insensitive(" + value + "))").parent().parent().parent().addClass("d-none");
 }, 200));
 
@@ -80,7 +80,7 @@ $("#status-filter").on("change", function()
 $(".recipe-delete").on('click', function(e)
 {
 	e.preventDefault();
-	
+
 	var objectName = $(e.currentTarget).attr('data-recipe-name');
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 
@@ -245,7 +245,7 @@ $(".recipe-fullscreen").on('click', function(e)
 
 $(".recipe-print").on('click', function(e)
 {
-	e.preventDefault();	
+	e.preventDefault();
 
 	$("#selectedRecipeCard").removeClass("fullscreen");
 	$("body").removeClass("fullscreen-card");

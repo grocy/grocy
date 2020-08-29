@@ -108,7 +108,7 @@
 			@else
 			<input type="hidden" name="location_id" id="location_id" value="1">
 			@endif
-			
+
 			@include('components.datetimepicker2', array(
 				'id' => 'purchase_date',
 				'initialValue' => $stockEntry->purchased_date,

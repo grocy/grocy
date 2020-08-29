@@ -18,9 +18,9 @@ class TasksApiController extends BaseApiController
 
 	public function MarkTaskAsCompleted(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-        User::checkPermission($request, User::PERMISSION_TASKS_MARK_COMPLETED);
+		User::checkPermission($request, User::PERMISSION_TASKS_MARK_COMPLETED);
 
-        $requestBody = $request->getParsedBody();
+		$requestBody = $request->getParsedBody();
 
 		try
 		{
@@ -41,9 +41,9 @@ class TasksApiController extends BaseApiController
 
 	public function UndoTask(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-        User::checkPermission($request, User::PERMISSION_TASKS_UNDO);
+		User::checkPermission($request, User::PERMISSION_TASKS_UNDO);
 
-        try
+		try
 		{
 			$this->getTasksService()->UndoTask($args['taskId']);
 			return $this->EmptyApiResponse($response);

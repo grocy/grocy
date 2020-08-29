@@ -34,7 +34,7 @@ class BaseController
 		$this->View->set('version', $versionInfo->Version);
 		$this->View->set('releaseDate', $versionInfo->ReleaseDate);
 
-        $localizationService = $this->getLocalizationService();
+		$localizationService = $this->getLocalizationService();
 		$this->View->set('__t', function(string $text, ...$placeholderValues) use($localizationService)
 		{
 			return $localizationService->__t($text, $placeholderValues);
@@ -98,12 +98,12 @@ class BaseController
 		return $this->render($response, $page, $data);
 	}
 
-    protected function getDatabaseService()
+	protected function getDatabaseService()
 	{
 		return DatabaseService::getInstance();
 	}
 
-    protected function getDatabase()
+	protected function getDatabase()
 	{
 		return $this->getDatabaseService()->GetDbConnection();
 	}
@@ -128,7 +128,7 @@ class BaseController
 		return CalendarService::getInstance();
 	}
 
-    protected function getSessionService()
+	protected function getSessionService()
 	{
 		return SessionService::getInstance();
 	}
@@ -143,12 +143,12 @@ class BaseController
 		return StockService::getInstance();
 	}
 
-    protected function getTasksService()
+	protected function getTasksService()
 	{
 		return TasksService::getInstance();
 	}
 
-    protected function getUsersService()
+	protected function getUsersService()
 	{
 		return UsersService::getInstance();
 	}
@@ -172,6 +172,6 @@ class BaseController
 	{
 		return FilesService::getInstance();
 	}
-	
+
 	protected $AppContainer;
 }

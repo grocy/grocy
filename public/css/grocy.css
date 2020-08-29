@@ -79,7 +79,7 @@ a.discrete-link:focus {
 	top: 0;
 	left: 0;
 }
- 
+
  body.fullscreen-card {
 	 overflow: hidden;
  }
@@ -575,13 +575,13 @@ canvas.drawingBuffer {
 	}
 
 	.print-view {
-    width: 100%;
-    max-width: 100%;
-    flex-basis: 100%;
+	width: 100%;
+	max-width: 100%;
+	flex-basis: 100%;
 	}
 }
 
 .not-allowed {
-    pointer-events: none;
+	pointer-events: none;
 	opacity: 0.5;
 }

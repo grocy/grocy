@@ -13,8 +13,8 @@ class UsersApiController extends BaseApiController
 
 	public function GetUsers(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-        User::checkPermission($request, User::PERMISSION_READ_USER);
-        try
+		User::checkPermission($request, User::PERMISSION_READ_USER);
+		try
 		{
 			return $this->ApiResponse($response, $this->getUsersService()->GetUsersAsDto());
 		}
@@ -26,7 +26,7 @@ class UsersApiController extends BaseApiController
 
 	public function CreateUser(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-	    User::checkPermission($request, User::PERMISSION_CREATE_USER);
+		User::checkPermission($request, User::PERMISSION_CREATE_USER);
 		$requestBody = $request->getParsedBody();
 
 		try
@@ -47,8 +47,8 @@ class UsersApiController extends BaseApiController
 
 	public function DeleteUser(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-        User::checkPermission($request, User::PERMISSION_EDIT_USER);
-        try
+		User::checkPermission($request, User::PERMISSION_EDIT_USER);
+		try
 		{
 			$this->getUsersService()->DeleteUser($args['userId']);
 			return $this->EmptyApiResponse($response);
@@ -61,12 +61,12 @@ class UsersApiController extends BaseApiController
 
 	public function EditUser(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-        if ($args['userId'] == GROCY_USER_ID) {
-            User::checkPermission($request, User::PERMISSION_EDIT_SELF);
-        } else {
-            User::checkPermission($request, User::PERMISSION_EDIT_USER);
-        }
-        $requestBody = $request->getParsedBody();
+		if ($args['userId'] == GROCY_USER_ID) {
+			User::checkPermission($request, User::PERMISSION_EDIT_SELF);
+		} else {
+			User::checkPermission($request, User::PERMISSION_EDIT_USER);
+		}
+		$requestBody = $request->getParsedBody();
 
 		try
 		{
@@ -119,65 +119,65 @@ class UsersApiController extends BaseApiController
 		}
 	}
 
-    public function AddPermission(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
-    {
-        try {
-            User::checkPermission($request, User::PERMISSION_ADMIN);
-            $requestBody = $request->getParsedBody();
+	public function AddPermission(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		try {
+			User::checkPermission($request, User::PERMISSION_ADMIN);
+			$requestBody = $request->getParsedBody();
 
-            $this->getDatabase()->user_permissions()->createRow(array(
-                'user_id' => $args['userId'],
-                'permission_id' => $requestBody['permission_id'],
-            ))->save();
-            return $this->EmptyApiResponse($response);
-        } catch (\Slim\Exception\HttpSpecializedException $ex) {
-            return $this->GenericErrorResponse($response, $ex->getMessage(), $ex->getCode());
-        } catch (\Exception $ex) {
-            return $this->GenericErrorResponse($response, $ex->getMessage());
-        }
-    }
+			$this->getDatabase()->user_permissions()->createRow(array(
+				'user_id' => $args['userId'],
+				'permission_id' => $requestBody['permission_id'],
+			))->save();
+			return $this->EmptyApiResponse($response);
+		} catch (\Slim\Exception\HttpSpecializedException $ex) {
+			return $this->GenericErrorResponse($response, $ex->getMessage(), $ex->getCode());
+		} catch (\Exception $ex) {
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
 
-    public function ListPermissions(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
-    {
-        try {
-            User::checkPermission($request, User::PERMISSION_ADMIN);
+	public function ListPermissions(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		try {
+			User::checkPermission($request, User::PERMISSION_ADMIN);
 
-            return $this->ApiResponse($response,
-                $this->getDatabase()->user_permissions()->where($args['userId'])
-            );
-        } catch (\Slim\Exception\HttpSpecializedException $ex) {
-            return $this->GenericErrorResponse($response, $ex->getMessage(), $ex->getCode());
-        } catch (\Exception $ex) {
-            return $this->GenericErrorResponse($response, $ex->getMessage());
-        }
-    }
+			return $this->ApiResponse($response,
+				$this->getDatabase()->user_permissions()->where($args['userId'])
+			);
+		} catch (\Slim\Exception\HttpSpecializedException $ex) {
+			return $this->GenericErrorResponse($response, $ex->getMessage(), $ex->getCode());
+		} catch (\Exception $ex) {
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
 
-    public function SetPermissions(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
-    {
-        try {
-            User::checkPermission($request, User::PERMISSION_ADMIN);
-            $requestBody = $request->getParsedBody();
-            $db = $this->getDatabase();
-            $db->user_permissions()
-                ->where('user_id', $args['userId'])
-                ->delete();
+	public function SetPermissions(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		try {
+			User::checkPermission($request, User::PERMISSION_ADMIN);
+			$requestBody = $request->getParsedBody();
+			$db = $this->getDatabase();
+			$db->user_permissions()
+				->where('user_id', $args['userId'])
+				->delete();
 
-            $perms = [];
+			$perms = [];
 
-            foreach ($requestBody['permissions'] as $perm_id) {
-                $perms[] = array(
-                    'user_id' => $args['userId'],
-                    'permission_id' => $perm_id
-                );
-            }
+			foreach ($requestBody['permissions'] as $perm_id) {
+				$perms[] = array(
+					'user_id' => $args['userId'],
+					'permission_id' => $perm_id
+				);
+			}
 
-            $db->insert('user_permissions', $perms, 'batch');
+			$db->insert('user_permissions', $perms, 'batch');
 
-            return $this->EmptyApiResponse($response);
-        } catch (\Slim\Exception\HttpSpecializedException $ex) {
-            return $this->GenericErrorResponse($response, $ex->getMessage(), $ex->getCode());
-        } catch (\Exception $ex) {
-            return $this->GenericErrorResponse($response, $ex->getMessage());
-        }
-    }
+			return $this->EmptyApiResponse($response);
+		} catch (\Slim\Exception\HttpSpecializedException $ex) {
+			return $this->GenericErrorResponse($response, $ex->getMessage(), $ex->getCode());
+		} catch (\Exception $ex) {
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
 }

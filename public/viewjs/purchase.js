@@ -153,7 +153,7 @@ if (Grocy.Components.ProductPicker !== undefined)
 								$('#product_id').attr("barcode-qu-factor-purchase-to-stock", "null");
 								$('#product_id').attr("barcode-shopping-location-id", "null");
 							}
-                                                },
+												},
 						function(xhr)
 						{
 							console.error(xhr);
@@ -171,7 +171,7 @@ if (Grocy.Components.ProductPicker !== undefined)
 				{
 
 					$('#price').val(parseFloat(productDetails.last_price).toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: 2 }));
-					
+
 					var qu_factor_purchase_to_stock = null;
 					var barcode_shopping_location_id = null;
 
@@ -184,14 +184,14 @@ if (Grocy.Components.ProductPicker !== undefined)
 					{
 						if (productDetails.last_qu_factor_purchase_to_stock != null)
 						{
-	                                                qu_factor_purchase_to_stock = productDetails.last_qu_factor_purchase_to_stock;
+													qu_factor_purchase_to_stock = productDetails.last_qu_factor_purchase_to_stock;
 						}
 						else
 						{
-	                                                qu_factor_purchase_to_stock = productDetails.product.qu_factor_purchase_to_stock;
+													qu_factor_purchase_to_stock = productDetails.product.qu_factor_purchase_to_stock;
 						}
 					}
-					
+
 					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) {
 						if (barcode_shopping_location_id != null)
 						{

@@ -55,7 +55,7 @@
 				</div>
 				@endforeach
 			</div>
-			
+
 		</div>
 
 		<p class="small text-muted">

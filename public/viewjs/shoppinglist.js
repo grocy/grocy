@@ -287,7 +287,7 @@ $(document).on('click', '.order-listitem-button', function(e)
 	Grocy.FrontendHelpers.BeginUiBusy();
 
 	var listItemId = $(e.currentTarget).attr('data-item-id');
-	
+
 	var done = 1;
 	if ($(e.currentTarget).attr('data-item-done') == 1)
 	{
@@ -319,7 +319,7 @@ $(document).on('click', '.order-listitem-button', function(e)
 		}
 	);
 
-	
+
 	var statusInfoCell = $("#shoppinglistitem-" + listItemId + "-status-info");
 	if (done == 1)
 	{
@@ -403,7 +403,7 @@ $(".switch-view-mode-button").on('click', function(e)
 
 	if ($("body").hasClass("fullscreen-card"))
 	{
-		window.location.hash = "#compact";	
+		window.location.hash = "#compact";
 	}
 	else
 	{

@@ -63,7 +63,7 @@
 				</thead>
 				<tbody>
 					@php $currentStockEntriesForLocation = FindAllObjectsInArrayByPropertyValue($currentStockLocationContent, 'location_id', $location->id); @endphp
-					@foreach($currentStockEntriesForLocation as $currentStockEntry) 
+					@foreach($currentStockEntriesForLocation as $currentStockEntry)
 					<tr>
 						<td>
 							{{ FindObjectInArrayByPropertyValue($products, 'id', $currentStockEntry->product_id)->name }}

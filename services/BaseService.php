@@ -15,7 +15,7 @@ class BaseService
 	public static function getInstance()
 	{
 		$className = get_called_class();
-		if(!isset(self::$instances[$className])) 
+		if(!isset(self::$instances[$className]))
 		{
 			self::$instances[$className] = new $className();
 		}
@@ -23,7 +23,7 @@ class BaseService
 		return self::$instances[$className];
 	}
 
-    protected function getDatabaseService()
+	protected function getDatabaseService()
 	{
 		return DatabaseService::getInstance();
 	}

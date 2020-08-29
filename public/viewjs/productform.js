@@ -482,7 +482,7 @@ $(document).on('click', '.barcode-delete-button', function(e)
 	});
 });
 
-$('#qu_id_purchase').blur(function(e) 
+$('#qu_id_purchase').blur(function(e)
 {
 	// Preset the stock quantity unit with the purchase quantity unit, if the stock quantity unit is unset.
 	var QuIdStock = $('#qu_id_stock');

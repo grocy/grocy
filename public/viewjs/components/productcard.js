@@ -156,7 +156,7 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 						{
 							key = dataPoint.shopping_location.name
 						}
-						
+
 						if (!datasets[key]) {
 							datasets[key] = []
 						}

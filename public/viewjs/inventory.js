@@ -24,7 +24,7 @@
 			{
 				jsonData.location_id = Grocy.Components.LocationPicker.GetValue();
 			}
-			
+
 			jsonData.price = price;
 
 			var bookingResponse = null;
@@ -33,7 +33,7 @@
 				function(result)
 				{
 					bookingResponse = result;
-					
+
 					var addBarcode = GetUriParam('addbarcodetoselection');
 					if (addBarcode !== undefined)
 					{
@@ -62,7 +62,7 @@
 						function(result)
 						{
 							var successMessage = __t('Stock amount of %1$s is now %2$s', result.product.name, result.stock_amount + " " + __n(result.stock_amount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural)) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse.transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
-							
+
 							if (GetUriParam("embedded") !== undefined)
 							{
 								window.parent.postMessage(WindowMessageBag("ProductChanged", jsonForm.product_id), Grocy.BaseUrl);
@@ -245,7 +245,7 @@ $('#new_amount').on('keyup', function(e)
 			function(productDetails)
 			{
 				var productStockAmount = parseFloat(productDetails.stock_amount || parseFloat('0'));
-				
+
 				var containerWeight = parseFloat("0");
 				if (productDetails.product.enable_tare_weight_handling == 1)
 				{

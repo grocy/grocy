@@ -16,5 +16,5 @@
 			<option value="{{ $shoppinglocation->id }}">{{ $shoppinglocation->name }}</option>
 		@endforeach
 	</select>
-        <div class="invalid-feedback">{{ $__t('You have to select a store') }}</div>
+		<div class="invalid-feedback">{{ $__t('You have to select a store') }}</div>
 </div>

@@ -21,16 +21,16 @@ class LocalizationService
 
 
 	protected function getDatabaseService()
-    {
-        return DatabaseService::getInstance();
-    }
+	{
+		return DatabaseService::getInstance();
+	}
 
-    protected function getdatabase()
-    {
-        return $this->getDatabaseService()->GetDbConnection();
-    }
+	protected function getdatabase()
+	{
+		return $this->getDatabaseService()->GetDbConnection();
+	}
 
-    public static function getInstance(string $culture)
+	public static function getInstance(string $culture)
 	{
 		if (!in_array($culture, self::$instanceMap))
 		{
@@ -92,10 +92,10 @@ class LocalizationService
 		{
 			$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/userfield_types.po"));
 		}
-        if (file_exists(__DIR__ . "/../localization/$culture/permissions.po"))
-        {
-            $this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/permissions.po"));
-        }
+		if (file_exists(__DIR__ . "/../localization/$culture/permissions.po"))
+		{
+			$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/permissions.po"));
+		}
 		if (GROCY_MODE !== 'production' && file_exists(__DIR__ . "/../localization/$culture/demo_data.po"))
 		{
 			$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/demo_data.po"));

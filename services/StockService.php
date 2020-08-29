@@ -14,16 +14,16 @@ class StockService extends BaseService
 	const TRANSACTION_TYPE_PRODUCT_OPENED = 'product-opened';
 	const TRANSACTION_TYPE_SELF_PRODUCTION = 'self-production';
 
-    public function GetCurrentStockOverview()
-    {
-        if (!GROCY_FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT) {
-            return $this->getDatabase()->uihelper_stock_current_overview();
-        } else {
-            return $this->getDatabase()->uihelper_stock_current_overview_including_opened();
-        }
-    }
+	public function GetCurrentStockOverview()
+	{
+		if (!GROCY_FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT) {
+			return $this->getDatabase()->uihelper_stock_current_overview();
+		} else {
+			return $this->getDatabase()->uihelper_stock_current_overview_including_opened();
+		}
+	}
 
-    public function GetCurrentStock($includeNotInStockButMissingProducts = false)
+	public function GetCurrentStock($includeNotInStockButMissingProducts = false)
 	{
 		$sql = 'SELECT * FROM stock_current';
 		if ($includeNotInStockButMissingProducts)
@@ -37,7 +37,7 @@ class StockService extends BaseService
 			$sql = 'SELECT * FROM stock_current WHERE best_before_date IS NOT NULL UNION SELECT id, 0, 0, 0, 0, null, 0, 0, 0 FROM ' . $missingProductsView . ' WHERE id NOT IN (SELECT product_id FROM stock_current)';
 		}
 		$currentStockMapped = $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_GROUP|\PDO::FETCH_OBJ);
-		
+
 		$relevantProducts = $this->getDatabase()->products()->where('id IN (SELECT product_id FROM (' . $sql . ') x)');
 		foreach ($relevantProducts as $product)
 		{

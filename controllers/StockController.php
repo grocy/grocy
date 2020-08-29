@@ -16,7 +16,7 @@ class StockController extends BaseController
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['stock_expring_soon_days'];
 
 		return $this->renderPage($response, 'stockoverview', [
-		    'currentStock' => $this->getStockService()->GetCurrentStockOverview(),
+			'currentStock' => $this->getStockService()->GetCurrentStockOverview(),
 			'locations' => $this->getDatabase()->locations()->orderBy('name'),
 			'currentStockLocations' => $this->getStockService()->GetCurrentStockLocations(),
 			'nextXDays' => $nextXDays,

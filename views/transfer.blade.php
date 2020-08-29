@@ -56,7 +56,7 @@
 					<option></option>
 				</select>
 			</div>
-			
+
 			@php /*@include('components.locationpicker', array(
 				'locations' => $locations,
 				'isRequired' => true,
@@ -75,7 +75,7 @@
 			</div>
 
 			<button id="save-transfer-button" class="btn btn-success">{{ $__t('OK') }}</button>
-			
+
 		</form>
 	</div>
 

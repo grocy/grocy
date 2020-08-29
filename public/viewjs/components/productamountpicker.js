@@ -50,7 +50,7 @@ Grocy.Components.ProductAmountPicker.SetQuantityUnit = function(quId)
 Grocy.Components.ProductAmountPicker.AllowAnyQu = function(keepInitialQu = false)
 {
 	Grocy.Components.ProductAmountPicker.AllowAnyQuEnabled = true;
-	
+
 	$("#qu_id").find("option").remove().end();
 	Grocy.QuantityUnits.forEach(qu =>
 	{

@@ -33,7 +33,7 @@
 					@include('components.userfields_thead', array(
 						'userfields' => $userfields
 					))
-					
+
 				</tr>
 			</thead>
 			<tbody class="d-none">

@@ -15,7 +15,7 @@ $.fn.dataTable.ext.search.push(function(settings, data, dataIndex)
 	{
 		return true;
 	}
-	
+
 	return false;
 });
 
@@ -90,7 +90,7 @@ $(document).on('click', '.product-open-button', function(e)
 	var specificStockEntryId = $(e.currentTarget).attr('data-stock-id');
 	var stockRowId = $(e.currentTarget).attr('data-stockrow-id');
 	var button = $(e.currentTarget);
-	
+
 	Grocy.Api.Post('stock/products/' + productId + '/open', { 'amount': 1, 'stock_entry_id': specificStockEntryId },
 		function(bookingResponse)
 		{
@@ -125,7 +125,7 @@ function RefreshStockEntryRow(stockRowId)
 			{
 				window.location.reload();
 			}
-			
+
 			if (result == null || result.amount == 0)
 			{
 				animateCSS("#stock-" + stockRowId + "-row", "fadeOut", function()
@@ -175,7 +175,7 @@ function RefreshStockEntryRow(stockRowId)
 						console.error(xhr);
 					}
 				);
-				
+
 				$('#stock-' + stockRowId + '-price').text(result.price);
 				$('#stock-' + stockRowId + '-qu-factor-purchase-to-stock').text(result.qu_factor_purchase_to_stock);
 				$('#stock-' + stockRowId + '-purchased-date').text(result.purchased_date);

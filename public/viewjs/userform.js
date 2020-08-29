@@ -55,7 +55,7 @@ $('#user-form input').keydown(function (event)
 	if (event.keyCode === 13) //Enter
 	{
 		event.preventDefault();
-		
+
 		if (document.getElementById('user-form').checkValidity() === false) //There is at least one validation error
 		{
 			return false;

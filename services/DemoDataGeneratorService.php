@@ -12,7 +12,7 @@ class DemoDataGeneratorService extends BaseService
 		$this->LocalizationService = new LocalizationService(GROCY_CULTURE);
 	}
 
-    protected $LocalizationService;
+	protected $LocalizationService;
 
 	public function PopulateDemoData()
 	{

@@ -35,7 +35,7 @@ class ChoresService extends BaseService
 		{
 			throw new \Exception('Chore does not exist');
 		}
-		
+
 			$users = $this->getUsersService()->GetUsersAsDto();
 
 		$chore = $this->getDatabase()->chores($choreId);

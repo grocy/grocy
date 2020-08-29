@@ -11,9 +11,9 @@ class SystemApiController extends BaseApiController
 
 	public function GetDbChangedTime(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-        return $this->ApiResponse($response, array(
-            'changed_time' => $this->getDatabaseService()->GetDbChangedTime()
-        ));
+		return $this->ApiResponse($response, array(
+			'changed_time' => $this->getDatabaseService()->GetDbChangedTime()
+		));
 	}
 
 	public function GetConfig(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)

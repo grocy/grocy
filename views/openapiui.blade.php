@@ -18,7 +18,7 @@
 	@if(file_exists(GROCY_DATAPATH . '/custom_css.html'))
 		@php include GROCY_DATAPATH . '/custom_css.html' @endphp
 	@endif
-	
+
 	<script>
 		var Grocy = { };
 		Grocy.OpenApi = { };

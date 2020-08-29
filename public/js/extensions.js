@@ -91,25 +91,25 @@ FindObjectInArrayByPropertyValue = function(array, propertyName, propertyValue)
 	{
 		if (array[i][propertyName] == propertyValue)
 		{
-            return array[i];
-        }
+			return array[i];
+		}
 	}
-	
-    return null;
+
+	return null;
 }
 
 FindAllObjectsInArrayByPropertyValue = function(array, propertyName, propertyValue)
 {
 	var returnArray = [];
-	
+
 	for (var i = 0; i < array.length; i++)
 	{
 		if (array[i][propertyName] == propertyValue)
 		{
 			returnArray.push(array[i]);
-        }
+		}
 	}
-	
+
 	return returnArray;
 }
 
@@ -137,7 +137,7 @@ function Delay(callable, delayMilliseconds)
 	{
 		var context = this;
 		var args = arguments;
-		
+
 		clearTimeout(timer);
 		timer = setTimeout(function()
 		{
@@ -150,7 +150,7 @@ $.fn.isVisibleInViewport = function(extraHeightPadding = 0)
 {
 	var elementTop = $(this).offset().top;
 	var viewportTop = $(window).scrollTop() - extraHeightPadding;
-	
+
 	return elementTop + $(this).outerHeight() > viewportTop && elementTop < viewportTop + $(window).height();
 };
 
@@ -163,7 +163,7 @@ function animateCSS(selector, animationName, callback, speed = "faster")
 	{
 		nodes.removeClass('animated').removeClass(speed).removeClass(animationName);
 		nodes.unbind('animationend', handleAnimationEnd);
-		
+
 		if (typeof callback === 'function')
 		{
 			callback();

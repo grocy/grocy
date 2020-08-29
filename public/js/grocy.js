@@ -234,7 +234,7 @@ __t = function(text, ...placeholderValues)
 		var text2 = text;
 		Grocy.Api.Post('system/log-missing-localization', { "text": text2 });
 	}
-	
+
 	return Grocy.Translator.__(text, ...placeholderValues)
 }
 __n = function(number, singularForm, pluralForm)
@@ -572,7 +572,7 @@ function RefreshLocaleNumberDisplay(rootSelector = "#page-content")
 		{
 			return;
 		}
-		
+
 		$(this).text(parseFloat($(this).text()).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 2 }));
 	});
 }
@@ -625,7 +625,7 @@ $(document).on("click", ".show-as-dialog-link", function(e)
 	e.preventDefault();
 
 	var link = $(e.currentTarget).attr("href");
-	
+
 	bootbox.dialog({
 		message: '<iframe height="650px" class="embed-responsive" src="' + link + '"></iframe>',
 		size: 'large',

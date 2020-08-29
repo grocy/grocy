@@ -69,7 +69,7 @@ Grocy.Components.UserfieldsForm.Load = function()
 			$.each(result, function(key, value)
 			{
 				var input = $(".userfield-input[data-userfield-name='" + key + "']");
-				
+
 				if (input.attr("type") == "checkbox" && value == 1)
 				{
 					input.prop("checked", true);

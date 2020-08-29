@@ -39,7 +39,7 @@ $("#product-group-filter").on("change", function()
 	{
 		value = "xx" + value + "xx";
 	}
-	
+
 	stockOverviewTable.column(7).search(value).draw();
 });
 
@@ -116,7 +116,7 @@ $(document).on('click', '.product-consume-button', function(e)
 					{
 						var toastMessage = __t('Removed %1$s of %2$s from stock', consumeAmount.toString() + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural), result.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse.transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
 					}
-					
+
 					if (wasSpoiled)
 					{
 						toastMessage += " (" + __t("Spoiled") + ")";
@@ -244,7 +244,7 @@ function RefreshProductRow(productId)
 			var expiringThreshold = moment().add($("#info-expiring-products").data("next-x-days"), "days");
 			var now = moment();
 			var nextBestBeforeDate = moment(result.next_best_before_date);
-			
+
 			productRow.removeClass("table-warning");
 			productRow.removeClass("table-danger");
 			productRow.removeClass("table-info");

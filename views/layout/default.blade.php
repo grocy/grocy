@@ -32,7 +32,7 @@
 	<link href="{{ $U('/node_modules/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/node_modules/datatables.net-colreorder-bs4/css/colReorder.bootstrap4.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/node_modules/datatables.net-select-bs4/css/select.bootstrap4.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
-	<link href="{{ $U('/node_modules/toastr/build/toastr.min.css?v=', true) }}{{ $version }}" rel="stylesheet">	
+	<link href="{{ $U('/node_modules/toastr/build/toastr.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/node_modules/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/node_modules/summernote/dist/summernote-bs4.css?v=', true) }}{{ $version }}" rel="stylesheet">
 	<link href="{{ $U('/node_modules/bootstrap-select/dist/css/bootstrap-select.min.css?v=', true) }}{{ $version }}" rel="stylesheet">
@@ -79,7 +79,7 @@
 			<span id="clock-small" class="d-inline d-sm-none"></span>
 			<span id="clock-big" class="d-none d-sm-inline"></span>
 		</span>
-		
+
 		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#sidebarResponsive">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -161,7 +161,7 @@
 					</a>
 				</li>
 				@endif
-				
+
 				@if(GROCY_FEATURE_FLAG_STOCK)
 				<div class="nav-item-divider"></div>
 				<li class="nav-item nav-item-sidebar permission-PRODUCT_PURCHASE" data-toggle="tooltip" data-placement="right" title="{{ $__t('Purchase') }}" data-nav-for-page="purchase">
@@ -221,7 +221,7 @@
 				</li>
 				@php if ($firstUserentity) { $firstUserentity = false; } @endphp
 				@endforeach
-				
+
 				<div class="nav-item-divider"></div>
 				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Manage master data') }}">
 					<a class="nav-link nav-link-collapse collapsed discrete-link" data-toggle="collapse" href="#top-nav-manager-master-data">
@@ -480,7 +480,7 @@
 	<script src="{{ $U('/js/grocy_nightmode.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy_clock.js?v=', true) }}{{ $version }}"></script>
 	@stack('pageScripts')
-	
+
 	@php
 	// @stack('componentScripts') maybe contains the components JS file reference multiple times
 	// if the component was included more than once in the view

@@ -54,7 +54,7 @@ function OnBarcodeScanned(barcode)
 	{
 		return;
 	}
-	
+
 	var bgClass = "";
 	if (barcode != $("#expected_barcode").val())
 	{
@@ -91,6 +91,6 @@ $(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
 	{
 		return;
 	}
-	
+
 	OnBarcodeScanned(barcode);
 });

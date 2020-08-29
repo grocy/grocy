@@ -13,9 +13,9 @@ class RecipesApiController extends BaseApiController
 
 	public function AddNotFulfilledProductsToShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-        User::checkPermission($request, User::PERMISSION_SHOPPINGLIST_ITEMS_ADD);
+		User::checkPermission($request, User::PERMISSION_SHOPPINGLIST_ITEMS_ADD);
 
-        $requestBody = $request->getParsedBody();
+		$requestBody = $request->getParsedBody();
 		$excludedProductIds = null;
 
 		if ($requestBody !== null && array_key_exists('excludedProductIds', $requestBody))
@@ -29,9 +29,9 @@ class RecipesApiController extends BaseApiController
 
 	public function ConsumeRecipe(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-        User::checkPermission($request, User::PERMISSION_PRODUCT_CONSUME);
+		User::checkPermission($request, User::PERMISSION_PRODUCT_CONSUME);
 
-        try
+		try
 		{
 			$this->getRecipesService()->ConsumeRecipe($args['recipeId']);
 			return $this->EmptyApiResponse($response);

@@ -132,7 +132,7 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keyup', function(e)
 	var centuryEnd = Number.parseInt(now.getFullYear().toString().substring(0, 2) + '99');
 	var format = Grocy.Components.DateTimePicker.GetInputElement().data('format');
 	var nextInputElement = $(Grocy.Components.DateTimePicker.GetInputElement().data('next-input-selector'));
-	
+
 	//If input is empty and any arrow key is pressed, set date to today
 	if (value.length === 0 && (e.keyCode === 38 || e.keyCode === 40 || e.keyCode === 37 || e.keyCode === 39))
 	{
@@ -224,7 +224,7 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keyup', function(e)
 		if ($(element).hasAttr("required"))
 		{
 			element.setCustomValidity("error");
-		}		
+		}
 	}
 	else
 	{

@@ -36,10 +36,10 @@
 				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 			}
 		);
-	        if ($("#create_inverse").is(":checked"))
+			if ($("#create_inverse").is(":checked"))
 		{
-		        jsonData.to_qu_id = inverse_to_qu_id;
-		        jsonData.from_qu_id = inverse_from_qu_id;
+				jsonData.to_qu_id = inverse_to_qu_id;
+				jsonData.from_qu_id = inverse_from_qu_id;
 			jsonData.factor = 1 / jsonData.factor;
 
 			//Create Inverse
@@ -124,7 +124,7 @@ $("#create_inverse").on("change", function()
 
 	if (value)
 	{
-                $('#qu-conversion-inverse-info').removeClass('d-none');
+				$('#qu-conversion-inverse-info').removeClass('d-none');
 	}
 	else
 	{

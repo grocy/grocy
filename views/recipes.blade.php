@@ -11,7 +11,7 @@
 </script>
 
 <div class="row">
-	
+
 	<div class="col-xs-12 col-md-6 pb-3 d-print-none">
 		<div>
 			<h2 class="title">@yield('title')</h2>
@@ -172,28 +172,28 @@
 						@endif
 						<div class="card-body">
 							<div class="shadow p-4 mb-5 bg-white rounded mt-n5 d-print-none @if(empty($recipe->picture_file_name)) d-none @endif">
-								<div class="d-flex justify-content-between align-items-center"> 
+								<div class="d-flex justify-content-between align-items-center">
 									<h3 class="card-title mb-0">{{ $recipe->name }}</h3>
 									<div class="card-icons d-flex flex-wrap justify-content-end flex-shrink-1">
-										<a class="recipe-consume hide-when-embedded @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 0) disabled @endif" 
-											 href="#" 
-											 data-toggle="tooltip" 
-											 title="{{ $__t('Consume all ingredients needed by this recipe') }}" 
-											 data-recipe-id="{{ $recipe->id }}" 
+										<a class="recipe-consume hide-when-embedded @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 0) disabled @endif"
+											 href="#"
+											 data-toggle="tooltip"
+											 title="{{ $__t('Consume all ingredients needed by this recipe') }}"
+											 data-recipe-id="{{ $recipe->id }}"
 											 data-recipe-name="{{ $recipe->name }}">
 											<i class="fas fa-utensils"></i>
 										</a>
-										<a class="recipe-shopping-list hide-when-embedded @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif" 
-											 href="#" 
-											 data-toggle="tooltip" 
-											 title="{{ $__t('Put missing products on shopping list') }}" 
-											 data-recipe-id="{{ $recipe->id }}" 
+										<a class="recipe-shopping-list hide-when-embedded @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif"
+											 href="#"
+											 data-toggle="tooltip"
+											 title="{{ $__t('Put missing products on shopping list') }}"
+											 data-recipe-id="{{ $recipe->id }}"
 											 data-recipe-name="{{ $recipe->name }}">
 											<i class="fas fa-cart-plus"></i>
 										</a>
-										<a class="recipe-fullscreen hide-when-embedded" 
-											 href="#" 
-											 data-toggle="tooltip" 
+										<a class="recipe-fullscreen hide-when-embedded"
+											 href="#"
+											 data-toggle="tooltip"
 											 title="{{ $__t('Expand to fullscreen') }}">
 											<i class="fas fa-expand-arrows-alt"></i>
 										</a>
@@ -207,25 +207,25 @@
 							<div class="mb-4 @if(!empty($recipe->picture_file_name)) d-none @else d-flex @endif d-print-block justify-content-between align-items-center">
 								<h1 class="card-title mb-0">{{ $recipe->name }}</h1>
 								<div class="card-icons d-flex flex-wrap justify-content-end flex-shrink-1 d-print-none">
-										<a class="recipe-consume hide-when-embedded @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 0) disabled @endif" 
-											 href="#" 
-											 data-toggle="tooltip" 
-											 title="{{ $__t('Consume all ingredients needed by this recipe') }}" 
-											 data-recipe-id="{{ $recipe->id }}" 
+										<a class="recipe-consume hide-when-embedded @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 0) disabled @endif"
+											 href="#"
+											 data-toggle="tooltip"
+											 title="{{ $__t('Consume all ingredients needed by this recipe') }}"
+											 data-recipe-id="{{ $recipe->id }}"
 											 data-recipe-name="{{ $recipe->name }}">
 											<i class="fas fa-utensils"></i>
 										</a>
-										<a class="recipe-shopping-list hide-when-embedded @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif" 
-											 href="#" 
-											 data-toggle="tooltip" 
-											 title="{{ $__t('Put missing products on shopping list') }}" 
-											 data-recipe-id="{{ $recipe->id }}" 
+										<a class="recipe-shopping-list hide-when-embedded @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif"
+											 href="#"
+											 data-toggle="tooltip"
+											 title="{{ $__t('Put missing products on shopping list') }}"
+											 data-recipe-id="{{ $recipe->id }}"
 											 data-recipe-name="{{ $recipe->name }}">
 											<i class="fas fa-cart-plus"></i>
 										</a>
-										<a class="recipe-fullscreen hide-when-embedded" 
-											 href="#" 
-											 data-toggle="tooltip" 
+										<a class="recipe-fullscreen hide-when-embedded"
+											 href="#"
+											 data-toggle="tooltip"
 											 title="{{ $__t('Expand to fullscreen') }}">
 											<i class="fas fa-expand-arrows-alt"></i>
 										</a>

@@ -7,7 +7,7 @@
 	{
 		jsonData.assignment_config = $("#assignment_config").val().join(",");
 	}
-	
+
 	Grocy.FrontendHelpers.BeginUiBusy("chore-form");
 
 	if (Grocy.EditMode === 'create')

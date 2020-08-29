@@ -1,5 +1,5 @@
 ﻿function saveRecipePicture(result, location)
-{	
+{
 	$recipeId = Grocy.EditObjectId || result.created_object_id;
 	Grocy.Components.UserfieldsForm.Save(() =>
 	{
@@ -38,7 +38,7 @@ $('.save-recipe').on('click', function(e)
 	}
 
 	const location = $(e.currentTarget).attr('data-location') == 'return' ? '/recipes?recipe=' : '/recipe/';
-	
+
 	if(Grocy.EditMode == 'create') {
 		console.log(jsonData);
 		Grocy.Api.Post('objects/recipes', jsonData,
@@ -210,7 +210,7 @@ $(document).on('click', '.recipe-pos-edit-button', function(e)
 
 	var productId = $(e.currentTarget).attr("data-product-id");
 	var recipePosId = $(e.currentTarget).attr('data-recipe-pos-id');
-	
+
 	bootbox.dialog({
 		message: '<iframe height="650px" class="embed-responsive" src="' + U("/recipe/") + Grocy.EditObjectId.toString() + '/pos/' + recipePosId.toString()  + '?embedded&product=' + productId.toString() + '"></iframe>',
 		size: 'large',
@@ -234,7 +234,7 @@ $(document).on('click', '.recipe-include-edit-button', function (e)
 	var id = $(e.currentTarget).attr('data-recipe-include-id');
 	var recipeId = $(e.currentTarget).attr('data-recipe-included-recipe-id');
 	var recipeServings = $(e.currentTarget).attr('data-recipe-included-recipe-servings');
-	
+
 	Grocy.Api.Put('objects/recipes/' + Grocy.EditObjectId, $('#recipe-form').serializeJSON(),
 		function(result)
 		{

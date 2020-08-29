@@ -48,7 +48,7 @@ var calendar = $("#calendar").fullCalendar({
 
 		var weekRecipeName = view.start.year().toString() + "-" + ((view.start.week() - 1).toString().padStart(2, "0")).toString();
 		var weekRecipe = FindObjectInArrayByPropertyValue(internalRecipes, "name", weekRecipeName);
-		
+
 		var weekCosts = 0;
 		var weekRecipeOrderMissingButtonHtml = "";
 		var weekRecipeConsumeButtonHtml = "";
@@ -66,7 +66,7 @@ var calendar = $("#calendar").fullCalendar({
 			{
 				weekRecipeOrderMissingButtonDisabledClasses = "disabled";
 			}
-			
+
 			var weekRecipeConsumeButtonDisabledClasses = "";
 			if (FindObjectInArrayByPropertyValue(recipesResolved, "recipe_id", weekRecipe.id).need_fulfilled == 0 || weekCosts == 0)
 			{
@@ -174,7 +174,7 @@ var calendar = $("#calendar").fullCalendar({
 			{
 				return false;
 			}
-			
+
 			if (productDetails.last_price === null)
 			{
 				productDetails.last_price = 0;
@@ -458,7 +458,7 @@ $('#save-add-note-button').on('click', function(e)
 			}
 		);
 	}
-	
+
 });
 
 $('#save-add-product-button').on('click', function(e)
@@ -562,7 +562,7 @@ $(document).on('click', '.recipe-order-missing-button', function(e)
 	// Remove the focus from the current button
 	// to prevent that the tooltip stays until clicked anywhere else
 	document.activeElement.blur();
-	
+
 	var objectName = $(e.currentTarget).attr('data-recipe-name');
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 	var button = $(this);

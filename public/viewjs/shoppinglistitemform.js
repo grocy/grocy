@@ -116,7 +116,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 			function (productDetails)
 			{
 				$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name);
-				
+
 				$('#amount').focus();
 				Grocy.FrontendHelpers.ValidateForm('shoppinglist-form');
 			},

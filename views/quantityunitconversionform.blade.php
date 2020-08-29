@@ -17,7 +17,7 @@
 </div>
 <div class="row">
 	<div class="col-lg-6 col-xs-12">
-	
+
 		@if($product != null)
 		<h3 class="text-muted">{{ $__t('Override for product') }} <strong>{{ $product->name }}</strong></h3>
 		@else
