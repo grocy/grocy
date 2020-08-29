@@ -1,0 +1,85 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: http://www.transifex.com/grocy/grocy/language/en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01T17:59:17+00:00\n"
+"Language: en\n"
+"X-Domain: grocy/permissions\n"
+
+msgid "ADMIN"
+msgstr ""
+
+msgid "CREATE_USER"
+msgstr ""
+
+msgid "EDIT_USER"
+msgstr ""
+
+msgid "READ_USER"
+msgstr ""
+
+msgid "EDIT_SELF"
+msgstr ""
+
+msgid "BATTERY_UNDO_TRACK_CHARGE_CYCLE"
+msgstr ""
+
+msgid "BATTERY_TRACK_CHARGE_CYCLE"
+msgstr ""
+
+msgid "CHORE_TRACK"
+msgstr ""
+
+msgid "CHORE_TRACK_OTHERS"
+msgstr ""
+
+msgid "CHORE_EDIT"
+msgstr ""
+
+msgid "CHORE_UNDO"
+msgstr ""
+
+msgid "UPLOAD_FILE"
+msgstr ""
+
+msgid "DELETE_FILE"
+msgstr ""
+
+msgid "MASTER_DATA_EDIT"
+msgstr ""
+
+msgid "TASKS_UNDO"
+msgstr ""
+
+msgid "TASKS_MARK_COMPLETED"
+msgstr ""
+
+msgid "STOCK_EDIT"
+msgstr ""
+
+msgid "STOCK_TRANSFER"
+msgstr ""
+
+msgid "STOCK_CORRECTION"
+msgstr ""
+
+msgid "PRODUCT_CONSUME"
+msgstr ""
+
+msgid "PRODUCT_OPEN"
+msgstr ""
+
+msgid "PRODUCT_PURCHASE"
+msgstr ""
+
+msgid "SHOPPINGLIST_ITEMS_ADD"
+msgstr ""
+
+msgid "SHOPPINGLIST_ITEMS_DELETE"
+msgstr ""

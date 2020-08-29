@@ -2,6 +2,8 @@
 
 namespace Grocy\Controllers;
 
+use Grocy\Controllers\Users\User;
+
 class BatteriesApiController extends BaseApiController
 {
 	public function __construct(\DI\Container $container)
@@ -11,7 +13,9 @@ class BatteriesApiController extends BaseApiController
 
 	public function TrackChargeCycle(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$requestBody = $request->getParsedBody();
+        User::checkPermission($request, User::PERMISSION_BATTERY_TRACK_CHARGE_CYCLE);
+
+        $requestBody = $request->getParsedBody();
 
 		try
 		{
@@ -49,7 +53,9 @@ class BatteriesApiController extends BaseApiController
 
 	public function UndoChargeCycle(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		try
+        User::checkPermission($request, User::PERMISSION_BATTERY_UNDO_TRACK_CHARGE_CYCLE);
+
+        try
 		{
 			$this->ApiResponse($response, $this->getBatteriesService()->UndoChargeCycle($args['chargeCycleId']));
 			return $this->EmptyApiResponse($response);

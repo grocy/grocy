@@ -62,6 +62,7 @@
 		@if (GROCY_AUTHENTICATED)
 		Grocy.UserSettings = {!! json_encode($userSettings) !!};
 		Grocy.UserId = {{ GROCY_USER_ID }};
+		Grocy.UserPermissions = {!! json_encode($permissions) !!};
 		@else
 		Grocy.UserSettings = { };
 		Grocy.UserId = -1;
@@ -163,27 +164,27 @@
 				
 				@if(GROCY_FEATURE_FLAG_STOCK)
 				<div class="nav-item-divider"></div>
-				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Purchase') }}" data-nav-for-page="purchase">
+				<li class="nav-item nav-item-sidebar permission-PRODUCT_PURCHASE" data-toggle="tooltip" data-placement="right" title="{{ $__t('Purchase') }}" data-nav-for-page="purchase">
 					<a class="nav-link discrete-link" href="{{ $U('/purchase') }}">
 						<i class="fas fa-shopping-cart"></i>
 						<span class="nav-link-text">{{ $__t('Purchase') }}</span>
 					</a>
 				</li>
-				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Consume') }}" data-nav-for-page="consume">
+				<li class="nav-item nav-item-sidebar permission-PRODUCT_CONSUME" data-toggle="tooltip" data-placement="right" title="{{ $__t('Consume') }}" data-nav-for-page="consume">
 					<a class="nav-link discrete-link" href="{{ $U('/consume') }}">
 						<i class="fas fa-utensils"></i>
 						<span class="nav-link-text">{{ $__t('Consume') }}</span>
 					</a>
 				</li>
 				@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
-				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Transfer') }}" data-nav-for-page="transfer">
+				<li class="nav-item nav-item-sidebar permission-STOCK_TRANSFER" data-toggle="tooltip" data-placement="right" title="{{ $__t('Transfer') }}" data-nav-for-page="transfer">
 					<a class="nav-link discrete-link" href="{{ $U('/transfer') }}">
 						<i class="fas fa-exchange-alt"></i>
 						<span class="nav-link-text">{{ $__t('Transfer') }}</span>
 					</a>
 				</li>
 				@endif
-				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Inventory') }}" data-nav-for-page="inventory">
+				<li class="nav-item nav-item-sidebar permission-STOCK_CORRECTION" data-toggle="tooltip" data-placement="right" title="{{ $__t('Inventory') }}" data-nav-for-page="inventory">
 					<a class="nav-link discrete-link" href="{{ $U('/inventory') }}">
 						<i class="fas fa-list"></i>
 						<span class="nav-link-text">{{ $__t('Inventory') }}</span>
@@ -191,7 +192,7 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_CHORES)
-				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Chore tracking') }}" data-nav-for-page="choretracking">
+				<li class="nav-item nav-item-sidebar permission-CHORE_TRACK_OTHERS" data-toggle="tooltip" data-placement="right" title="{{ $__t('Chore tracking') }}" data-nav-for-page="choretracking">
 					<a class="nav-link discrete-link" href="{{ $U('/choretracking') }}">
 						<i class="fas fa-play"></i>
 						<span class="nav-link-text">{{ $__t('Chore tracking') }}</span>
@@ -199,7 +200,7 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_BATTERIES)
-				<li class="nav-item nav-item-sidebar" data-toggle="tooltip" data-placement="right" title="{{ $__t('Battery tracking') }}" data-nav-for-page="batterytracking">
+				<li class="nav-item nav-item-sidebar permission-BATTERY_TRACK_CHARGE_CYCLE" data-toggle="tooltip" data-placement="right" title="{{ $__t('Battery tracking') }}" data-nav-for-page="batterytracking">
 					<a class="nav-link discrete-link" href="{{ $U('/batterytracking') }}">
 						<i class="fas fa-fire"></i>
 						<span class="nav-link-text">{{ $__t('Battery tracking') }}</span>
@@ -417,7 +418,7 @@
 						@endif
 						<div class="dropdown-divider"></div>
 						@if(GROCY_SHOW_AUTH_VIEWS)
-						<a class="dropdown-item discrete-link" href="{{ $U('/users') }}"><i class="fas fa-users"></i>&nbsp;{{ $__t('Manage users') }}</a>
+						<a class="dropdown-item discrete-link permission-READ_USER" href="{{ $U('/users') }}"><i class="fas fa-users"></i>&nbsp;{{ $__t('Manage users') }}</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item discrete-link" href="{{ $U('/manageapikeys') }}"><i class="fas fa-handshake"></i>&nbsp;{{ $__t('Manage API keys') }}</a>
 						@endif

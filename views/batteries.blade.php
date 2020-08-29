@@ -20,7 +20,7 @@
 <hr>
 <div class="row mt-3">
 	<div class="col-xs-12 col-md-2 col-xl-1">
-		<a class="btn btn-primary btn-sm responsive-button w-100 mb-3" href="{{ $U('/battery/new') }}">
+		<a class="btn btn-primary btn-sm responsive-button w-100 mb-3 permission-MASTER_DATA_EDIT" href="{{ $U('/battery/new') }}">
 			{{ $__t('Add') }}
 		</a>
 	</div>
@@ -57,10 +57,10 @@
 				@foreach($batteries as $battery)
 				<tr>
 					<td class="fit-content border-right">
-						<a class="btn btn-info btn-sm" href="{{ $U('/battery/') }}{{ $battery->id }}">
+						<a class="btn btn-info btn-sm permission-MASTER_DATA_EDIT" href="{{ $U('/battery/') }}{{ $battery->id }}">
 							<i class="fas fa-edit"></i>
 						</a>
-						<a class="btn btn-danger btn-sm battery-delete-button" href="#" data-battery-id="{{ $battery->id }}" data-battery-name="{{ $battery->name }}">
+						<a class="btn btn-danger btn-sm battery-delete-button permission-MASTER_DATA_EDIT" href="#" data-battery-id="{{ $battery->id }}" data-battery-name="{{ $battery->name }}">
 							<i class="fas fa-trash"></i>
 						</a>
 					</td>

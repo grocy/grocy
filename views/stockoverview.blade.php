@@ -121,14 +121,14 @@
 				@foreach($currentStock as $currentStockEntry)
 				<tr id="product-{{ $currentStockEntry->product_id }}-row" class="@if(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('-1 days')) && $currentStockEntry->amount > 0) table-danger @elseif(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime("+$nextXDays days")) && $currentStockEntry->amount > 0) table-warning @elseif ($currentStockEntry->product_missing) table-info @endif">
 					<td class="fit-content border-right">
-						<a class="btn btn-success btn-sm product-consume-button @if($currentStockEntry->amount < 1 || $currentStockEntry->enable_tare_weight_handling == 1) disabled @endif" href="#" data-toggle="tooltip" data-placement="left" title="{{ $__t('Consume %1$s of %2$s', '1 ' . $currentStockEntry->qu_unit_name, $currentStockEntry->product_name) }}"
+						<a class="permission-PRODUCT_CONSUME btn btn-success btn-sm product-consume-button @if($currentStockEntry->amount < 1 || $currentStockEntry->enable_tare_weight_handling == 1) disabled @endif" href="#" data-toggle="tooltip" data-placement="left" title="{{ $__t('Consume %1$s of %2$s', '1 ' . $currentStockEntry->qu_unit_name, $currentStockEntry->product_name) }}"
 							data-product-id="{{ $currentStockEntry->product_id }}"
 							data-product-name="{{ $currentStockEntry->product_name }}"
 							data-product-qu-name="{{ $currentStockEntry->qu_unit_name }}"
 							data-consume-amount="1">
 							<i class="fas fa-utensils"></i> 1
 						</a>
-						<a id="product-{{ $currentStockEntry->product_id }}-consume-all-button" class="d-none d-sm-inline-block btn btn-danger btn-sm product-consume-button @if($currentStockEntry->amount == 0) disabled @endif" href="#" data-toggle="tooltip" data-placement="right" title="{{ $__t('Consume all %s which are currently in stock', $currentStockEntry->product_name) }}"
+						<a id="product-{{ $currentStockEntry->product_id }}-consume-all-button" class="permission-PRODUCT_CONSUME d-none d-sm-inline-block btn btn-danger btn-sm product-consume-button @if($currentStockEntry->amount == 0) disabled @endif" href="#" data-toggle="tooltip" data-placement="right" title="{{ $__t('Consume all %s which are currently in stock', $currentStockEntry->product_name) }}"
 							data-product-id="{{ $currentStockEntry->product_id }}"
 							data-product-name="{{ $currentStockEntry->product_name }}"
 							data-product-qu-name="{{ $currentStockEntry->qu_unit_name }}"
@@ -156,22 +156,22 @@
 									data-consume-amount="{{ $currentStockEntry->amount }}">
 									<span class="dropdown-item-icon"><i class="fas fa-utensils"></i></span> <span class="dropdown-item-text">{{ $__t('Consume all %s which are currently in stock', $currentStockEntry->product_name) }}</span>
 								</a>
-								<a class="dropdown-item show-as-dialog-link" type="button" href="{{ $U('/shoppinglistitem/new?embedded&updateexistingproduct&product=' . $currentStockEntry->product_id ) }}">
+								<a class="dropdown-item show-as-dialog-link permission-SHOPPINGLIST_ITEMS_ADD" type="button" href="{{ $U('/shoppinglistitem/new?embedded&updateexistingproduct&product=' . $currentStockEntry->product_id ) }}">
 									<span class="dropdown-item-icon"><i class="fas fa-shopping-cart"></i></span> <span class="dropdown-item-text">{{ $__t('Add to shopping list') }}</span>
 								</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item show-as-dialog-link" type="button" href="{{ $U('/purchase?embedded&product=' . $currentStockEntry->product_id ) }}">
+								<a class="dropdown-item show-as-dialog-link permission-PRODUCT_PURCHASE" type="button" href="{{ $U('/purchase?embedded&product=' . $currentStockEntry->product_id ) }}">
 									<span class="dropdown-item-icon"><i class="fas fa-shopping-cart"></i></span> <span class="dropdown-item-text">{{ $__t('Purchase') }}</span>
 								</a>
-								<a class="dropdown-item show-as-dialog-link" type="button" href="{{ $U('/consume?embedded&product=' . $currentStockEntry->product_id ) }}">
+								<a class="dropdown-item show-as-dialog-link permission-PRODUCT_CONSUME" type="button" href="{{ $U('/consume?embedded&product=' . $currentStockEntry->product_id ) }}">
 									<span class="dropdown-item-icon"><i class="fas fa-utensils"></i></span> <span class="dropdown-item-text">{{ $__t('Consume') }}</span>
 								</a>
 								@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
-								<a class="dropdown-item show-as-dialog-link @if($currentStockEntry->amount < 1) disabled @endif" type="button" href="{{ $U('/transfer?embedded&product=' . $currentStockEntry->product_id) }}">
+								<a class="dropdown-item show-as-dialog-link permission-STOCK_TRANSFER @if($currentStockEntry->amount < 1) disabled @endif" type="button" href="{{ $U('/transfer?embedded&product=' . $currentStockEntry->product_id) }}">
 									<span class="dropdown-item-icon"><i class="fas fa-exchange-alt"></i></span> <span class="dropdown-item-text">{{ $__t('Transfer') }}</span>
 								</a>
 								@endif
-								<a class="dropdown-item show-as-dialog-link" type="button" href="{{ $U('/inventory?embedded&product=' . $currentStockEntry->product_id ) }}">
+								<a class="dropdown-item show-as-dialog-link permission-STOCK_CORRECTION" type="button" href="{{ $U('/inventory?embedded&product=' . $currentStockEntry->product_id ) }}">
 									<span class="dropdown-item-icon"><i class="fas fa-list"></i></span> <span class="dropdown-item-text">{{ $__t('Inventory') }}</span>
 								</a>
 								<div class="dropdown-divider"></div>
@@ -185,11 +185,11 @@
 								<a class="dropdown-item" type="button" href="{{ $U('/stockjournal?product=') }}{{ $currentStockEntry->product_id }}">
 									<span class="dropdown-item-icon"><i class="fas fa-file-alt"></i></span> <span class="dropdown-item-text">{{ $__t('Stock journal for this product') }}</span>
 								</a>
-								<a class="dropdown-item" type="button" href="{{ $U('/product/') }}{{ $currentStockEntry->product_id . '?returnto=%2Fstockoverview' }}">
+								<a class="dropdown-item permission-MASTER_DATA_EDIT" type="button" href="{{ $U('/product/') }}{{ $currentStockEntry->product_id . '?returnto=%2Fstockoverview' }}">
 									<span class="dropdown-item-icon"><i class="fas fa-edit"></i></span> <span class="dropdown-item-text">{{ $__t('Edit product') }}</span>
 								</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item product-consume-button product-consume-button-spoiled @if($currentStockEntry->amount < 1) disabled @endif" type="button" href="#"
+								<a class="dropdown-item product-consume-button product-consume-button-spoiled permission-PRODUCT_CONSUME @if($currentStockEntry->amount < 1) disabled @endif" type="button" href="#"
 									data-product-id="{{ $currentStockEntry->product_id }}"
 									data-product-name="{{ $currentStockEntry->product_name }}"
 									data-product-qu-name="{{ $currentStockEntry->qu_unit_name }}"

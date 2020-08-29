@@ -82,6 +82,11 @@ Setting('DISABLE_BROWSER_BARCODE_CAMERA_SCANNING', false);
 # Needs to be a number where Sunday = 0, Monday = 1 and so forth
 Setting('MEAL_PLAN_FIRST_DAY_OF_WEEK', '');
 
+# Default permissions for new users
+# the array needs to contain the technical/constant names
+# see the file controllers/Users/User.php for possible values
+Setting('DEFAULT_PERMISSIONS', ['ADMIN']);
+
 
 # Default user settings
 # These settings can be changed per user, here the defaults

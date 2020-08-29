@@ -2,6 +2,8 @@
 
 namespace Grocy\Controllers;
 
+use Grocy\Controllers\Users\User;
+
 class RecipesApiController extends BaseApiController
 {
 	public function __construct(\DI\Container $container)
@@ -11,7 +13,9 @@ class RecipesApiController extends BaseApiController
 
 	public function AddNotFulfilledProductsToShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$requestBody = $request->getParsedBody();
+        User::checkPermission($request, User::PERMISSION_SHOPPINGLIST_ITEMS_ADD);
+
+        $requestBody = $request->getParsedBody();
 		$excludedProductIds = null;
 
 		if ($requestBody !== null && array_key_exists('excludedProductIds', $requestBody))
@@ -25,7 +29,9 @@ class RecipesApiController extends BaseApiController
 
 	public function ConsumeRecipe(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		try
+        User::checkPermission($request, User::PERMISSION_PRODUCT_CONSUME);
+
+        try
 		{
 			$this->getRecipesService()->ConsumeRecipe($args['recipeId']);
 			return $this->EmptyApiResponse($response);

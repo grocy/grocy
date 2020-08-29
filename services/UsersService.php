@@ -12,7 +12,17 @@ class UsersService extends BaseService
 			'last_name' => $lastName,
 			'password' => password_hash($password, PASSWORD_DEFAULT)
 		));
-		return $newUserRow->save();
+        $newUserRow = $newUserRow->save();
+        $permList = array();
+        foreach ($this->getDatabase()->permission_hierarchy()->where('name', GROCY_DEFAULT_PERMISSIONS)->fetchAll() as $perm) {
+            $permList[] = array(
+                'user_id' => $newUserRow->id,
+                'permission_id' => $perm->id
+            );
+        }
+        $this->getDatabase()->user_permissions()->insert($permList);
+
+        return $newUserRow;
 	}
 
 	public function EditUser(int $userId, string $username, string $firstName, string $lastName, string $password)
