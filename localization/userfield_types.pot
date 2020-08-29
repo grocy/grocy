@@ -41,3 +41,6 @@ msgstr ""
 
 msgid "link"
 msgstr ""
+
+msgid "file"
+msgstr ""

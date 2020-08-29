@@ -12,6 +12,8 @@
 			{!! str_replace(',', '<br>', $userfieldObject->value) !!}
 		@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_LINK)
 			<a href="{{ $userfieldObject->value }}" target="_blank">{{ $userfieldObject->value }}</a>
+		@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_FILE)
+			<a href="{{ $U('/files/userfiles/'. $userfieldObject->value) }}" target="_blank">{{ base64_decode(explode('_', $userfieldObject->value)[1]) }}</a>
 		@else
 			{{ $userfieldObject->value }}
 		@endif

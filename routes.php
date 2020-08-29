@@ -35,7 +35,9 @@ $app->group('', function(RouteCollectorProxy $group)
 	$group->get('/user/{userId}', '\Grocy\Controllers\UsersController:UserEditForm');
 	$group->get('/user/{userId}/permissions', '\Grocy\Controllers\UsersController:PermissionList');
 
-	// Stock routes
+    $group->get('/files/{group}/{fileName}', '\Grocy\Controllers\FilesApiController:ShowFile');
+
+    // Stock routes
 	if (GROCY_FEATURE_FLAG_STOCK)
 	{
 		$group->get('/stockoverview', '\Grocy\Controllers\StockController:Overview');
