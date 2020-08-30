@@ -69,5 +69,11 @@ $errorMiddleware = $app->addErrorMiddleware(true, false, false);
 $errorMiddleware->setDefaultErrorHandler(
 	new \Grocy\Controllers\ExceptionController($app, $container)
 );
-
+if (GROCY_MODE === 'production')
+{
+	$app->add(new \Grocy\Middleware\LocaleMiddleware($container));
+}
+else {
+	define(GROCY_LOCALE, GROCY_CULTURE);
+}
 $app->run();

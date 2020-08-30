@@ -670,3 +670,10 @@ $(Grocy.UserPermissions).each(function (index, item)
 		$('.permission-'+item.permission_name).addClass('disabled').addClass('not-allowed');
 	}
 });
+Grocy.SetLanguage = function (lang) {
+	var expires = new Date();
+	// Expires "never" (= 30 years)
+	expires.setDate(expires.getDate() + 365*30);
+	document.cookie = "LOCALE=" + lang + "; SameSite=Lax; expires="+expires.toUTCString();
+	location.reload();
+}

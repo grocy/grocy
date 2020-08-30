@@ -110,7 +110,7 @@ class BaseController
 
 	protected function getLocalizationService()
 	{
-		return LocalizationService::getInstance(GROCY_CULTURE);
+		return LocalizationService::getInstance(GROCY_LOCALE);
 	}
 
 	protected function getApplicationservice()

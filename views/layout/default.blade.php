@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ GROCY_CULTURE }}">
+<html lang="{{ GROCY_LOCALE }}">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -52,7 +52,7 @@
 		Grocy.BaseUrl = '{{ $U('/') }}';
 		Grocy.CurrentUrlRelative = "/" + window.location.href.split('?')[0].replace(Grocy.BaseUrl, "");
 		Grocy.ActiveNav = '@yield('activeNav', '')';
-		Grocy.Culture = '{{ GROCY_CULTURE }}';
+		Grocy.Culture = '{{ GROCY_LOCALE }}';
 		Grocy.Currency = '{{ GROCY_CURRENCY }}';
 		Grocy.CalendarFirstDayOfWeek = '{{ GROCY_CALENDAR_FIRST_DAY_OF_WEEK }}';
 		Grocy.CalendarShowWeekNumbers = {{ BoolToString(GROCY_CALENDAR_SHOW_WEEK_OF_YEAR) }};
