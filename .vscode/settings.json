@@ -1,3 +1,10 @@
 {
-	"phpserver.relativePath": "public"
+	"phpserver.relativePath": "public",
+	"editor.formatOnType": true,
+	"editor.formatOnPaste": true,
+	"editor.formatOnSave": true,
+	"javascript.format.placeOpenBraceOnNewLineForControlBlocks": true,
+	"javascript.format.placeOpenBraceOnNewLineForFunctions": true,
+	"javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+	"javascript.preferences.quoteStyle": "double"
 }
