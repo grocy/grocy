@@ -6,5 +6,8 @@
 	"javascript.format.placeOpenBraceOnNewLineForControlBlocks": true,
 	"javascript.format.placeOpenBraceOnNewLineForFunctions": true,
 	"javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-	"javascript.preferences.quoteStyle": "double"
+	"javascript.preferences.quoteStyle": "double",
+	"blade.format.enable": true,
+	"html.format.wrapAttributes": "force",
+	"html.format.wrapLineLength": 0
 }
