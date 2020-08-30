@@ -14,10 +14,11 @@
 				price = parseFloat(jsonForm.price).toFixed(2);
 			}
 
-			var jsonData = { };
+			var jsonData = {};
 			jsonData.new_amount = jsonForm.new_amount;
 			jsonData.best_before_date = Grocy.Components.DateTimePicker.GetValue();
-			if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) {
+			if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+			{
 				jsonData.shopping_location_id = Grocy.Components.ShoppingLocationPicker.GetValue();
 			}
 			if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
@@ -40,7 +41,7 @@
 						var jsonDataBarcode = {};
 						jsonDataBarcode.barcode = addBarcode;
 						jsonDataBarcode.product_id = jsonForm.product_id;
-						jsonDataBarcode.qu_factor_purchase_to_stock  = productDetails.product.qu_factor_purchase_to_stock;
+						jsonDataBarcode.qu_factor_purchase_to_stock = productDetails.product.qu_factor_purchase_to_stock;
 						jsonDataBarcode.shopping_location_id = jsonForm.shopping_location_id;
 
 						Grocy.Api.Post('objects/product_barcodes', jsonDataBarcode,
@@ -48,7 +49,7 @@
 							{
 								$("#flow-info-addbarcodetoselection").addClass("d-none");
 								$('#barcode-lookup-disabled-hint').addClass('d-none');
-								window.history.replaceState({ }, document.title, U("/inventory"));
+								window.history.replaceState({}, document.title, U("/inventory"));
 							},
 							function(xhr)
 							{
@@ -84,7 +85,8 @@
 								$('#price').val('');
 								Grocy.Components.DateTimePicker.Clear();
 								Grocy.Components.ProductPicker.SetValue('');
-								if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) {
+								if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+								{
 									Grocy.Components.ShoppingLocationPicker.SetValue('');
 								}
 								Grocy.Components.ProductPicker.GetInputElement().focus();
@@ -153,7 +155,8 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				}
 
 				$('#price').val(parseFloat(productDetails.last_price).toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: 2 }));
-				if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) {
+				if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+				{
 					Grocy.Components.ShoppingLocationPicker.SetId(productDetails.last_shopping_location_id);
 				}
 				if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
@@ -197,7 +200,7 @@ $('#new_amount').on('focus', function(e)
 	}
 });
 
-$('#inventory-form input').keyup(function (event)
+$('#inventory-form input').keyup(function(event)
 {
 	Grocy.FrontendHelpers.ValidateForm('inventory-form');
 });
@@ -295,7 +298,7 @@ $('#new_amount').on('keyup', function(e)
 
 function UndoStockBooking(bookingId)
 {
-	Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', { },
+	Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', {},
 		function(result)
 		{
 			toastr.success(__t("Booking successfully undone"));
@@ -309,12 +312,12 @@ function UndoStockBooking(bookingId)
 
 function UndoStockTransaction(transactionId)
 {
-	Grocy.Api.Post('stock/transactions/' + transactionId.toString() + '/undo', { },
-		function (result)
+	Grocy.Api.Post('stock/transactions/' + transactionId.toString() + '/undo', {},
+		function(result)
 		{
 			toastr.success(__t("Transaction successfully undone"));
 		},
-		function (xhr)
+		function(xhr)
 		{
 			console.error(xhr);
 		}

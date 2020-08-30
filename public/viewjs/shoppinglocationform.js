@@ -42,12 +42,12 @@
 	}
 });
 
-$('#shoppinglocation-form input').keyup(function (event)
+$('#shoppinglocation-form input').keyup(function(event)
 {
 	Grocy.FrontendHelpers.ValidateForm('shoppinglocation-form');
 });
 
-$('#shoppinglocation-form input').keydown(function (event)
+$('#shoppinglocation-form input').keydown(function(event)
 {
 	if (event.keyCode === 13) //Enter
 	{

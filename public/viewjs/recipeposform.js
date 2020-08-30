@@ -1,6 +1,6 @@
 ﻿Grocy.RecipePosFormProductChangeCount = 0;
 
-$('#save-recipe-pos-button').on('click', function (e)
+$('#save-recipe-pos-button').on('click', function(e)
 {
 	e.preventDefault();
 

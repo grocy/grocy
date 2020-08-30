@@ -1,7 +1,7 @@
 ﻿Grocy.BarCodeScannerTestingHitCount = 0;
 Grocy.BarCodeScannerTestingMissCount = 0;
 
-$("#scanned_barcode").on("blur", function (e)
+$("#scanned_barcode").on("blur", function(e)
 {
 	OnBarcodeScanned($("#scanned_barcode").val());
 });
@@ -41,7 +41,7 @@ setTimeout(function()
 if (GetUriParam("barcode") !== undefined)
 {
 	$("#expected_barcode").val(GetUriParam("barcode"));
-	setTimeout(function ()
+	setTimeout(function()
 	{
 		$("#expected_barcode").keyup();
 		$("#scanned_barcode").focus();

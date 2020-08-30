@@ -200,7 +200,8 @@ function RefreshStatistics()
 		function(result)
 		{
 			var amountSum = 0;
-			result.forEach(element => {
+			result.forEach(element =>
+			{
 				amountSum += parseInt(element.amount);
 			});
 			$("#info-current-stock").text(__n(result.length, '%s Product', '%s Products'));

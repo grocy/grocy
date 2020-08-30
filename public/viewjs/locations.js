@@ -19,7 +19,7 @@ $("#search").on("keyup", Delay(function()
 	locationsTable.search(value).draw();
 }, 200));
 
-$(document).on('click', '.location-delete-button', function (e)
+$(document).on('click', '.location-delete-button', function(e)
 {
 	var objectName = $(e.currentTarget).attr('data-location-name');
 	var objectId = $(e.currentTarget).attr('data-location-id');

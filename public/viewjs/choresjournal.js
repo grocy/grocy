@@ -45,7 +45,7 @@ $(document).on('click', '.undo-chore-execution-button', function(e)
 	var element = $(e.currentTarget);
 	var executionId = $(e.currentTarget).attr('data-execution-id');
 
-	Grocy.Api.Post('chores/executions/' + executionId.toString() + '/undo', { },
+	Grocy.Api.Post('chores/executions/' + executionId.toString() + '/undo', {},
 		function(result)
 		{
 			element.closest("tr").addClass("text-muted");

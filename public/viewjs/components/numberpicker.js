@@ -1,4 +1,4 @@
-$(".numberpicker-down-button").unbind('click').on("click", function ()
+$(".numberpicker-down-button").unbind('click').on("click", function()
 {
 	var inputElement = $(this).parent().parent().find('input[type="number"]')[0];
 	inputElement.stepDown();

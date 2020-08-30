@@ -1,4 +1,4 @@
-﻿Grocy.WakeLock = { };
+﻿Grocy.WakeLock = {};
 Grocy.WakeLock.NoSleepJsIntance = null;
 Grocy.WakeLock.InitDone = false;
 

@@ -1,4 +1,4 @@
-Grocy.UISound = { };
+Grocy.UISound = {};
 
 Grocy.UISound.Play = function(url)
 {

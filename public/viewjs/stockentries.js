@@ -43,7 +43,7 @@ $(document).on('click', '.stock-consume-button', function(e)
 
 	var wasSpoiled = $(e.currentTarget).hasClass("stock-consume-button-spoiled");
 
-	Grocy.Api.Post('stock/products/' + productId + '/consume', { 'amount': consumeAmount, 'spoiled': wasSpoiled, 'location_id': locationId, 'stock_entry_id': specificStockEntryId},
+	Grocy.Api.Post('stock/products/' + productId + '/consume', { 'amount': consumeAmount, 'spoiled': wasSpoiled, 'location_id': locationId, 'stock_entry_id': specificStockEntryId },
 		function(bookingResponse)
 		{
 			Grocy.Api.Get('stock/products/' + productId,
@@ -190,7 +190,7 @@ function RefreshStockEntryRow(stockRowId)
 						$('#stock-' + stockRowId + '-shopping-location').attr('data-shopping-location-id', result.location_id);
 						$('#stock-' + stockRowId + '-shopping-location').text(shoppingLocationName);
 					},
-					function (xhr)
+					function(xhr)
 					{
 						console.error(xhr);
 					}
@@ -236,7 +236,7 @@ Grocy.Components.ProductPicker.GetPicker().trigger('change');
 
 function UndoStockBookingEntry(bookingId, stockRowId)
 {
-	Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', { },
+	Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', {},
 		function(result)
 		{
 			window.postMessage(WindowMessageBag("StockEntryChanged", stockRowId), Grocy.BaseUrl);

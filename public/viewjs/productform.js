@@ -48,7 +48,7 @@
 					var jsonDataBarcode = {};
 					jsonDataBarcode.barcode = prefillBarcode;
 					jsonDataBarcode.product_id = result.created_object_id;
-					jsonDataBarcode.qu_factor_purchase_to_stock  = jsonData.qu_factor_purchase_to_stock;
+					jsonDataBarcode.qu_factor_purchase_to_stock = jsonData.qu_factor_purchase_to_stock;
 					jsonDataBarcode.shopping_location_id = jsonData.shopping_location_id;
 
 					Grocy.Api.Post('objects/product_barcodes', jsonDataBarcode,
@@ -82,7 +82,7 @@
 									window.location.href = redirectDestination.replace("editobjectid", Grocy.EditObjectId);;
 								}
 							},
-							function (xhr)
+							function(xhr)
 							{
 								Grocy.FrontendHelpers.EndUiBusy("product-form");
 								Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
@@ -106,7 +106,7 @@
 					}
 				});
 			},
-			function (xhr)
+			function(xhr)
 			{
 				Grocy.FrontendHelpers.EndUiBusy("product-form");
 				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
@@ -343,7 +343,7 @@ $("#allow_partial_units_in_stock").on("click", function()
 });
 
 Grocy.DeleteProductPictureOnSave = false;
-$('#delete-current-product-picture-button').on('click', function (e)
+$('#delete-current-product-picture-button').on('click', function(e)
 {
 	Grocy.DeleteProductPictureOnSave = true;
 	$("#current-product-picture").addClass("d-none");
@@ -426,7 +426,7 @@ $(document).on('click', '.qu-conversion-delete-button', function(e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Delete('objects/quantity_unit_conversions/' + objectId, { },
+				Grocy.Api.Delete('objects/quantity_unit_conversions/' + objectId, {},
 					function(result)
 					{
 						Grocy.ProductEditFormRedirectUri = "reload";
@@ -466,7 +466,7 @@ $(document).on('click', '.barcode-delete-button', function(e)
 		{
 			if (result === true)
 			{
-				Grocy.Api.Delete('objects/product_barcodes/' + objectId, { },
+				Grocy.Api.Delete('objects/product_barcodes/' + objectId, {},
 					function(result)
 					{
 						Grocy.ProductEditFormRedirectUri = "reload";
@@ -487,7 +487,8 @@ $('#qu_id_purchase').blur(function(e)
 	// Preset the stock quantity unit with the purchase quantity unit, if the stock quantity unit is unset.
 	var QuIdStock = $('#qu_id_stock');
 	var QuIdPurchase = $('#qu_id_purchase');
-	if (QuIdStock[0].selectedIndex === 0 && QuIdPurchase[0].selectedIndex !== 0) {
+	if (QuIdStock[0].selectedIndex === 0 && QuIdPurchase[0].selectedIndex !== 0)
+	{
 		QuIdStock[0].selectedIndex = QuIdPurchase[0].selectedIndex;
 		Grocy.FrontendHelpers.ValidateForm('product-form');
 	}

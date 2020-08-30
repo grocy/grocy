@@ -6,7 +6,7 @@
 	Grocy.FrontendHelpers.BeginUiBusy("batterytracking-form");
 
 	Grocy.Api.Get('batteries/' + jsonForm.battery_id,
-		function (batteryDetails)
+		function(batteryDetails)
 		{
 			Grocy.Api.Post('batteries/' + jsonForm.battery_id + '/charge', { 'tracked_time': $('#tracked_time').find('input').val() },
 				function(result)
@@ -64,7 +64,7 @@ $('#battery_id_text_input').trigger('change');
 Grocy.Components.DateTimePicker.GetInputElement().trigger('input');
 Grocy.FrontendHelpers.ValidateForm('batterytracking-form');
 
-$('#batterytracking-form input').keyup(function (event)
+$('#batterytracking-form input').keyup(function(event)
 {
 	Grocy.FrontendHelpers.ValidateForm('batterytracking-form');
 });
@@ -86,14 +86,14 @@ $('#batterytracking-form input').keydown(function(event)
 	}
 });
 
-$('#tracked_time').find('input').on('keypress', function (e)
+$('#tracked_time').find('input').on('keypress', function(e)
 {
 	Grocy.FrontendHelpers.ValidateForm('batterytracking-form');
 });
 
 function UndoChargeCycle(chargeCycleId)
 {
-	Grocy.Api.Post('batteries/charge-cycles/' + chargeCycleId.toString() + '/undo', { },
+	Grocy.Api.Post('batteries/charge-cycles/' + chargeCycleId.toString() + '/undo', {},
 		function(result)
 		{
 			toastr.success(__t("Charge cycle successfully undone"));

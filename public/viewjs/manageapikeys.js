@@ -25,7 +25,7 @@ $("#search").on("keyup", Delay(function()
 	apiKeysTable.search(value).draw();
 }, 200));
 
-$(document).on('click', '.apikey-delete-button', function (e)
+$(document).on('click', '.apikey-delete-button', function(e)
 {
 	var objectName = $(e.currentTarget).attr('data-apikey-apikey');
 	var objectId = $(e.currentTarget).attr('data-apikey-id');

@@ -27,11 +27,11 @@
 					if (jsonData.hasOwnProperty("instruction_manual_file_name") && !Grocy.DeleteInstructionManualOnSave)
 					{
 						Grocy.Api.UploadFile($("#instruction-manual")[0].files[0], 'equipmentmanuals', jsonData.instruction_manual_file_name,
-							function (result)
+							function(result)
 							{
 								window.location.href = U('/equipment');
 							},
-							function (xhr)
+							function(xhr)
 							{
 								Grocy.FrontendHelpers.EndUiBusy("equipment-form");
 								Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
@@ -125,7 +125,7 @@ $('#equipment-form input').keydown(function(event)
 });
 
 Grocy.DeleteInstructionManualOnSave = false;
-$('#delete-current-instruction-manual-button').on('click', function (e)
+$('#delete-current-instruction-manual-button').on('click', function(e)
 {
 	Grocy.DeleteInstructionManualOnSave = true;
 	$("#current-equipment-instruction-manual").addClass("d-none");

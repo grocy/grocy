@@ -30,7 +30,8 @@
 			var jsonData = {};
 			jsonData.amount = amount;
 			jsonData.best_before_date = Grocy.Components.DateTimePicker.GetValue();
-			if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) {
+			if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+			{
 				jsonData.shopping_location_id = Grocy.Components.ShoppingLocationPicker.GetValue();
 			}
 			jsonData.price = price;
@@ -54,7 +55,7 @@
 						var jsonDataBarcode = {};
 						jsonDataBarcode.barcode = addBarcode;
 						jsonDataBarcode.product_id = jsonForm.product_id;
-						jsonDataBarcode.qu_factor_purchase_to_stock  = jsonForm.qu_factor_purchase_to_stock;
+						jsonDataBarcode.qu_factor_purchase_to_stock = jsonForm.qu_factor_purchase_to_stock;
 						jsonDataBarcode.shopping_location_id = jsonForm.shopping_location_id;
 
 						Grocy.Api.Post('objects/product_barcodes', jsonDataBarcode,
@@ -62,7 +63,7 @@
 							{
 								$("#flow-info-addbarcodetoselection").addClass("d-none");
 								$('#barcode-lookup-disabled-hint').addClass('d-none');
-								window.history.replaceState({ }, document.title, U("/purchase"));
+								window.history.replaceState({}, document.title, U("/purchase"));
 							},
 							function(xhr)
 							{
@@ -100,7 +101,8 @@
 						}
 						Grocy.Components.DateTimePicker.Clear();
 						Grocy.Components.ProductPicker.SetValue('');
-						if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) {
+						if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+						{
 							Grocy.Components.ShoppingLocationPicker.SetValue('');
 						}
 						Grocy.Components.ProductPicker.GetInputElement().focus();
@@ -142,23 +144,23 @@ if (Grocy.Components.ProductPicker !== undefined)
 			{
 				Grocy.Api.Get('productbarcodedetails/' + document.getElementById("product_id").getAttribute("barcode"),
 					function(resultBarcode)
+					{
+						if (resultBarcode != null)
 						{
-							if (resultBarcode != null)
-							{
-								$('#product_id').attr("barcode-qu-factor-purchase-to-stock", resultBarcode.qu_factor_purchase_to_stock);
-								$('#product_id').attr("barcode-shopping-location-id", resultBarcode.shopping_location_id);
-							}
-							else
-							{
-								$('#product_id').attr("barcode-qu-factor-purchase-to-stock", "null");
-								$('#product_id').attr("barcode-shopping-location-id", "null");
-							}
-												},
-						function(xhr)
-						{
-							console.error(xhr);
+							$('#product_id').attr("barcode-qu-factor-purchase-to-stock", resultBarcode.qu_factor_purchase_to_stock);
+							$('#product_id').attr("barcode-shopping-location-id", resultBarcode.shopping_location_id);
 						}
-					);
+						else
+						{
+							$('#product_id').attr("barcode-qu-factor-purchase-to-stock", "null");
+							$('#product_id').attr("barcode-shopping-location-id", "null");
+						}
+					},
+					function(xhr)
+					{
+						console.error(xhr);
+					}
+				);
 			}
 			else
 			{
@@ -184,15 +186,16 @@ if (Grocy.Components.ProductPicker !== undefined)
 					{
 						if (productDetails.last_qu_factor_purchase_to_stock != null)
 						{
-													qu_factor_purchase_to_stock = productDetails.last_qu_factor_purchase_to_stock;
+							qu_factor_purchase_to_stock = productDetails.last_qu_factor_purchase_to_stock;
 						}
 						else
 						{
-													qu_factor_purchase_to_stock = productDetails.product.qu_factor_purchase_to_stock;
+							qu_factor_purchase_to_stock = productDetails.product.qu_factor_purchase_to_stock;
 						}
 					}
 
-					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) {
+					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+					{
 						if (barcode_shopping_location_id != null)
 						{
 							Grocy.Components.ShoppingLocationPicker.SetId(barcode_shopping_location_id);
@@ -401,7 +404,7 @@ $('#qu_factor_purchase_to_stock').on('change', function(e)
 {
 	var value = $(e.target).val();
 	$('#amount_qu_unit').attr("qu-factor-purchase-to-stock", value);
-	$('#amount_qu_unit').text(document.getElementById("amount_qu_unit").getAttribute("quantity-unit-purchase-name")  + " (" + __t("will be multiplied by a factor of %1$s to get %2$s", parseFloat(value).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 2 }), __n(2, document.getElementById("amount_qu_unit").getAttribute("quantity-unit-stock-name"), document.getElementById("amount_qu_unit").getAttribute("quantity-unit-stock-name-plural")) + ")"));
+	$('#amount_qu_unit').text(document.getElementById("amount_qu_unit").getAttribute("quantity-unit-purchase-name") + " (" + __t("will be multiplied by a factor of %1$s to get %2$s", parseFloat(value).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 2 }), __n(2, document.getElementById("amount_qu_unit").getAttribute("quantity-unit-stock-name"), document.getElementById("amount_qu_unit").getAttribute("quantity-unit-stock-name-plural")) + ")"));
 	refreshPriceHint();
 	Grocy.FrontendHelpers.ValidateForm('purchase-form');
 });
@@ -447,7 +450,7 @@ function refreshPriceHint()
 
 function UndoStockBooking(bookingId)
 {
-	Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', { },
+	Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', {},
 		function(result)
 		{
 			toastr.success(__t("Booking successfully undone"));
@@ -457,7 +460,7 @@ function UndoStockBooking(bookingId)
 				{
 					window.postMessage(WindowMessageBag("ProductChanged", result.product_id), Grocy.BaseUrl);
 				},
-				function (xhr)
+				function(xhr)
 				{
 					console.error(xhr);
 				}
@@ -472,7 +475,7 @@ function UndoStockBooking(bookingId)
 
 function UndoStockTransaction(transactionId)
 {
-	Grocy.Api.Post('stock/transactions/' + transactionId.toString() + '/undo', { },
+	Grocy.Api.Post('stock/transactions/' + transactionId.toString() + '/undo', {},
 		function(result)
 		{
 			toastr.success(__t("Transaction successfully undone"));
@@ -482,7 +485,7 @@ function UndoStockTransaction(transactionId)
 				{
 					window.postMessage(WindowMessageBag("ProductChanged", result[0].product_id), Grocy.BaseUrl);
 				},
-				function (xhr)
+				function(xhr)
 				{
 					console.error(xhr);
 				}

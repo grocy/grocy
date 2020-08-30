@@ -1,4 +1,4 @@
-Grocy.Components.RecipePicker = { };
+Grocy.Components.RecipePicker = {};
 
 Grocy.Components.RecipePicker.GetPicker = function()
 {

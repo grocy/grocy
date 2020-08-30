@@ -1,4 +1,4 @@
-Grocy.Components.UserPicker = { };
+Grocy.Components.UserPicker = {};
 
 Grocy.Components.UserPicker.GetPicker = function()
 {

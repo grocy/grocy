@@ -66,7 +66,7 @@ $("#search").on("keyup", Delay(function()
 	equipmentTable.search(value).draw();
 }, 200));
 
-$(document).on('click', '.equipment-delete-button', function (e)
+$(document).on('click', '.equipment-delete-button', function(e)
 {
 	var objectName = $(e.currentTarget).attr('data-equipment-name');
 	var objectId = $(e.currentTarget).attr('data-equipment-id');

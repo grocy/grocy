@@ -1,4 +1,4 @@
-Grocy.Components.ChoreCard = { };
+Grocy.Components.ChoreCard = {};
 
 Grocy.Components.ChoreCard.Refresh = function(choreId)
 {

@@ -1,4 +1,4 @@
-Grocy.Components.BatteryCard = { };
+Grocy.Components.BatteryCard = {};
 
 Grocy.Components.BatteryCard.Refresh = function(batteryId)
 {

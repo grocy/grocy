@@ -1,4 +1,4 @@
-Grocy.Components.ShoppingLocationPicker = { };
+Grocy.Components.ShoppingLocationPicker = {};
 
 Grocy.Components.ShoppingLocationPicker.GetPicker = function()
 {

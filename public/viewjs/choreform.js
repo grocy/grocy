@@ -19,11 +19,11 @@
 				Grocy.Components.UserfieldsForm.Save(function()
 				{
 					Grocy.Api.Post('chores/executions/calculate-next-assignments', { "chore_id": Grocy.EditObjectId },
-						function (result)
+						function(result)
 						{
 							window.location.href = U('/chores');
 						},
-						function (xhr)
+						function(xhr)
 						{
 							Grocy.FrontendHelpers.EndUiBusy();
 							console.error(xhr);
@@ -46,11 +46,11 @@
 				Grocy.Components.UserfieldsForm.Save(function()
 				{
 					Grocy.Api.Post('chores/executions/calculate-next-assignments', { "chore_id": Grocy.EditObjectId },
-						function (result)
+						function(result)
 						{
 							window.location.href = U('/chores');
 						},
-						function (xhr)
+						function(xhr)
 						{
 							Grocy.FrontendHelpers.EndUiBusy();
 							console.error(xhr);
@@ -145,7 +145,7 @@ $('.input-group-chore-period-type').on('change', function(e)
 	else if (periodType === 'weekly')
 	{
 		$('#chore-period-type-info').text(__t('This means the next execution of this chore is scheduled 1 day after the last execution, but only for the weekdays selected below'));
-		$("#period_config").val($(".period-type-weekly input:checkbox:checked").map(function () { return this.value; }).get().join(","));
+		$("#period_config").val($(".period-type-weekly input:checkbox:checked").map(function() { return this.value; }).get().join(","));
 		$('#chore-period-interval-info').text(__t('This means the next execution of this chore should only be scheduled every %s weeks', periodInterval.toString()));
 	}
 	else if (periodType === 'monthly')

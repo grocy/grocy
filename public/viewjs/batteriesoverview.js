@@ -122,7 +122,8 @@ function RefreshStatistics()
 			var overdueCount = 0;
 			var now = moment();
 			var nextXDaysThreshold = moment().add(nextXDays, "days");
-			result.forEach(element => {
+			result.forEach(element =>
+			{
 				var date = moment(element.next_estimated_charge_time);
 				if (date.isBefore(now))
 				{

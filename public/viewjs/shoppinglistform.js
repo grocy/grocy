@@ -40,7 +40,7 @@ $('#shopping-list-form input').keyup(function(event)
 	Grocy.FrontendHelpers.ValidateForm('shopping-list-form');
 });
 
-$('#shopping-list-form input').keydown(function (event)
+$('#shopping-list-form input').keydown(function(event)
 {
 	if (event.keyCode === 13) //Enter
 	{

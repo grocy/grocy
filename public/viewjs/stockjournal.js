@@ -51,7 +51,7 @@ $(document).on('click', '.undo-stock-booking-button', function(e)
 		correspondingBookingsRoot = $(".stock-booking-correlation-" + correlationId);
 	}
 
-	Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', { },
+	Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', {},
 		function(result)
 		{
 			correspondingBookingsRoot.addClass("text-muted");

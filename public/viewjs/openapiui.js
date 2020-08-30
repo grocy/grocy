@@ -2,7 +2,7 @@
 {
 	return {
 		components: {
-			Topbar: function () { return null }
+			Topbar: function() { return null }
 		}
 	}
 }

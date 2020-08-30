@@ -45,7 +45,7 @@ $(document).on('click', '.undo-battery-execution-button', function(e)
 	var element = $(e.currentTarget);
 	var chargeCycleId = $(e.currentTarget).attr('data-charge-cycle-id');
 
-	Grocy.Api.Post('batteries/charge-cycles/' + chargeCycleId.toString() + '/undo', { },
+	Grocy.Api.Post('batteries/charge-cycles/' + chargeCycleId.toString() + '/undo', {},
 		function(result)
 		{
 			element.closest("tr").addClass("text-muted");

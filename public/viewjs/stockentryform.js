@@ -10,11 +10,12 @@
 		price = parseFloat(jsonForm.price).toFixed(2);
 	}
 
-	var jsonData = { };
+	var jsonData = {};
 	jsonData.amount = jsonForm.amount;
 	jsonData.best_before_date = Grocy.Components.DateTimePicker.GetValue();
 	jsonData.purchased_date = Grocy.Components.DateTimePicker2.GetValue();
-	if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) {
+	if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+	{
 		jsonData.shopping_location_id = Grocy.Components.ShoppingLocationPicker.GetValue();
 	}
 	if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
@@ -52,7 +53,7 @@
 
 Grocy.FrontendHelpers.ValidateForm('stockentry-form');
 
-$('#stockentry-form input').keyup(function (event)
+$('#stockentry-form input').keyup(function(event)
 {
 	Grocy.FrontendHelpers.ValidateForm('stockentry-form');
 });
@@ -124,7 +125,7 @@ Grocy.Api.Get('stock/products/' + Grocy.EditObjectProductId,
 		}
 
 	},
-	function (xhr)
+	function(xhr)
 	{
 		console.error(xhr);
 	}

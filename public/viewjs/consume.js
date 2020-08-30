@@ -47,14 +47,14 @@
 						var jsonDataBarcode = {};
 						jsonDataBarcode.barcode = addBarcode;
 						jsonDataBarcode.product_id = jsonForm.product_id;
-						jsonDataBarcode.qu_factor_purchase_to_stock  = productDetails.product.qu_factor_purchase_to_stock;
+						jsonDataBarcode.qu_factor_purchase_to_stock = productDetails.product.qu_factor_purchase_to_stock;
 
 						Grocy.Api.Post('objects/product_barcodes', jsonDataBarcode,
 							function(result)
 							{
 								$("#flow-info-addbarcodetoselection").addClass("d-none");
 								$('#barcode-lookup-disabled-hint').addClass('d-none');
-								window.history.replaceState({ }, document.title, U("/consume"));
+								window.history.replaceState({}, document.title, U("/consume"));
 							},
 							function(xhr)
 							{
@@ -135,7 +135,7 @@ $('#save-mark-as-open-button').on('click', function(e)
 
 	var apiUrl = 'stock/products/' + jsonForm.product_id + '/open';
 
-	jsonData = { };
+	jsonData = {};
 	jsonData.amount = jsonForm.amount;
 
 	if ($("#use_specific_stock_entry").is(":checked"))
@@ -187,12 +187,12 @@ $("#location_id").on('change', function(e)
 	$("#specific_stock_entry").find("option").remove().end().append("<option></option>");
 	if ($("#use_specific_stock_entry").is(":checked"))
 	{
-			$("#use_specific_stock_entry").click();
+		$("#use_specific_stock_entry").click();
 	}
 
 	if (GetUriParam("embedded") !== undefined)
 	{
-		 stockId = GetUriParam('stockId');
+		stockId = GetUriParam('stockId');
 	}
 
 	if (locationId)
@@ -260,7 +260,7 @@ $("#location_id").on('change', function(e)
 							}
 						}
 					},
-					function (xhr)
+					function(xhr)
 					{
 						console.error(xhr);
 					}
@@ -268,7 +268,7 @@ $("#location_id").on('change', function(e)
 			},
 			function(xhr)
 			{
-					console.error(xhr);
+				console.error(xhr);
 			}
 		);
 	}
@@ -447,7 +447,7 @@ $("#specific_stock_entry").on("change", function(e)
 {
 	if ($(e.target).val() == "")
 	{
-	var sumValue = 0;
+		var sumValue = 0;
 		Grocy.Api.Get("stock/products/" + Grocy.Components.ProductPicker.GetValue() + '/entries',
 			function(stockEntries)
 			{
@@ -503,7 +503,7 @@ $("#use_specific_stock_entry").on("change", function()
 
 function UndoStockBooking(bookingId)
 {
-	Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', { },
+	Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', {},
 		function(result)
 		{
 			toastr.success(__t("Booking successfully undone"));
@@ -517,12 +517,12 @@ function UndoStockBooking(bookingId)
 
 function UndoStockTransaction(transactionId)
 {
-	Grocy.Api.Post('stock/transactions/' + transactionId.toString() + '/undo', { },
-		function (result)
+	Grocy.Api.Post('stock/transactions/' + transactionId.toString() + '/undo', {},
+		function(result)
 		{
 			toastr.success(__t("Transaction successfully undone"));
 		},
-		function (xhr)
+		function(xhr)
 		{
 			console.error(xhr);
 		}

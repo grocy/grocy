@@ -35,7 +35,7 @@
 	}
 });
 
-$('#user-form input').keyup(function (event)
+$('#user-form input').keyup(function(event)
 {
 	var element = document.getElementById("password_confirm");
 	if ($("#password").val() !== $("#password_confirm").val())
@@ -50,7 +50,7 @@ $('#user-form input').keyup(function (event)
 	Grocy.FrontendHelpers.ValidateForm('user-form');
 });
 
-$('#user-form input').keydown(function (event)
+$('#user-form input').keydown(function(event)
 {
 	if (event.keyCode === 13) //Enter
 	{

@@ -1,4 +1,4 @@
-Grocy.Components.LocationPicker = { };
+Grocy.Components.LocationPicker = {};
 
 Grocy.Components.LocationPicker.GetPicker = function()
 {

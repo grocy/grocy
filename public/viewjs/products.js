@@ -36,7 +36,7 @@ if (typeof GetUriParam("product-group") !== "undefined")
 	$("#product-group-filter").trigger("change");
 }
 
-$(document).on('click', '.product-delete-button', function (e)
+$(document).on('click', '.product-delete-button', function(e)
 {
 	var objectName = $(e.currentTarget).attr('data-product-name');
 	var objectId = $(e.currentTarget).attr('data-product-id');
@@ -61,18 +61,18 @@ $(document).on('click', '.product-delete-button', function (e)
 							className: 'btn-danger'
 						}
 					},
-					callback: function (result)
+					callback: function(result)
 					{
 						if (result === true)
 						{
 							jsonData = {};
 							jsonData.active = 0;
 							Grocy.Api.Put('objects/products/' + objectId, jsonData,
-								function (result)
+								function(result)
 								{
 									window.location.href = U('/products');
 								},
-								function (xhr)
+								function(xhr)
 								{
 									console.error(xhr);
 								}

@@ -1,4 +1,4 @@
-Grocy.Components.UserfieldsForm = { };
+Grocy.Components.UserfieldsForm = {};
 
 Grocy.Components.UserfieldsForm.Save = function(success, error)
 {
@@ -12,7 +12,7 @@ Grocy.Components.UserfieldsForm.Save = function(success, error)
 		return;
 	}
 
-	var jsonData = { };
+	var jsonData = {};
 
 	$("#userfields-form .userfield-input").not("div").each(function()
 	{

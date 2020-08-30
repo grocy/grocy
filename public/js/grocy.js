@@ -1,4 +1,4 @@
-﻿Grocy.Api = { };
+﻿Grocy.Api = {};
 Grocy.Api.Get = function(apiFunction, success, error)
 {
 	var xhr = new XMLHttpRequest();
@@ -18,7 +18,7 @@ Grocy.Api.Get = function(apiFunction, success, error)
 					}
 					else
 					{
-						success({ });
+						success({});
 					}
 				}
 			}
@@ -55,7 +55,7 @@ Grocy.Api.Post = function(apiFunction, jsonData, success, error)
 					}
 					else
 					{
-						success({ });
+						success({});
 					}
 				}
 			}
@@ -93,7 +93,7 @@ Grocy.Api.Put = function(apiFunction, jsonData, success, error)
 					}
 					else
 					{
-						success({ });
+						success({});
 					}
 				}
 			}
@@ -131,7 +131,7 @@ Grocy.Api.Delete = function(apiFunction, jsonData, success, error)
 					}
 					else
 					{
-						success({ });
+						success({});
 					}
 				}
 			}
@@ -169,7 +169,7 @@ Grocy.Api.UploadFile = function(file, group, fileName, success, error)
 					}
 					else
 					{
-						success({ });
+						success({});
 					}
 				}
 			}
@@ -207,7 +207,7 @@ Grocy.Api.DeleteFile = function(fileName, group, success, error)
 					}
 					else
 					{
-						success({ });
+						success({});
 					}
 				}
 			}
@@ -266,7 +266,7 @@ if (!Grocy.ActiveNav.isEmpty())
 			$(parentMenuSelector).collapse("show");
 			$(parentMenuSelector).prev(".nav-link-collapse").addClass("active-page");
 
-			$(parentMenuSelector).on("shown.bs.collapse", function (e)
+			$(parentMenuSelector).on("shown.bs.collapse", function(e)
 			{
 				if (!menuItem.isVisibleInViewport(75))
 				{
@@ -376,7 +376,7 @@ if (IsTouchInputDevice())
 	document.body.appendChild(css);
 }
 
-Grocy.FrontendHelpers = { };
+Grocy.FrontendHelpers = {};
 Grocy.FrontendHelpers.ValidateForm = function(formId)
 {
 	var form = document.getElementById(formId);
@@ -465,7 +465,7 @@ $(document).on("change", ".user-setting-control", function()
 
 	Grocy.UserSettings[settingKey] = value;
 
-	jsonData = { };
+	jsonData = {};
 	jsonData.value = value;
 	Grocy.Api.Put('user/settings/' + settingKey, jsonData,
 		function(result)
@@ -523,7 +523,7 @@ $("iframe").on("load", function()
 
 function WindowMessageBag(message, payload = null)
 {
-	var obj = { };
+	var obj = {};
 	obj.Message = message;
 	obj.Payload = payload;
 	return obj;
@@ -566,7 +566,7 @@ function RefreshLocaleNumberDisplay(rootSelector = "#page-content")
 		$(this).text(parseFloat($(this).text()).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 3 }));
 	});
 
-	$(rootSelector + " .locale-number.locale-number-generic").each(function ()
+	$(rootSelector + " .locale-number.locale-number-generic").each(function()
 	{
 		if (isNaN(parseFloat($(this).text())))
 		{
@@ -635,7 +635,7 @@ $(document).on("click", ".show-as-dialog-link", function(e)
 			cancel: {
 				label: __t('Cancel'),
 				className: 'btn-secondary responsive-button',
-				callback: function ()
+				callback: function()
 				{
 					bootbox.hideAll();
 				}
@@ -648,11 +648,11 @@ $(document).on("click", ".show-as-dialog-link", function(e)
 $.extend(true, $.fn.dataTable.defaults, {
 	'paginate': false,
 	'deferRender': true,
-	'language': IsJsonString(__t('datatables_localization')) ? JSON.parse(__t('datatables_localization')) : { },
+	'language': IsJsonString(__t('datatables_localization')) ? JSON.parse(__t('datatables_localization')) : {},
 	'scrollY': false,
 	'colReorder': true,
 	'stateSave': true,
-	'stateSaveParams': function (settings, data)
+	'stateSaveParams': function(settings, data)
 	{
 		data.search.search = "";
 
@@ -663,10 +663,10 @@ $.extend(true, $.fn.dataTable.defaults, {
 	}
 });
 
-$(Grocy.UserPermissions).each(function (index, item)
+$(Grocy.UserPermissions).each(function(index, item)
 {
-	if(item.has_permission == 0)
+	if (item.has_permission == 0)
 	{
-		$('.permission-'+item.permission_name).addClass('disabled').addClass('not-allowed');
+		$('.permission-' + item.permission_name).addClass('disabled').addClass('not-allowed');
 	}
 });

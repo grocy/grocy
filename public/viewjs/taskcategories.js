@@ -19,7 +19,7 @@ $("#search").on("keyup", Delay(function()
 	categoriesTable.search(value).draw();
 }, 200));
 
-$(document).on('click', '.task-category-delete-button', function (e)
+$(document).on('click', '.task-category-delete-button', function(e)
 {
 	var objectName = $(e.currentTarget).attr('data-category-name');
 	var objectId = $(e.currentTarget).attr('data-category-id');

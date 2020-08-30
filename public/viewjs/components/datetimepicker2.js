@@ -1,4 +1,4 @@
-Grocy.Components.DateTimePicker2 = { };
+Grocy.Components.DateTimePicker2 = {};
 
 Grocy.Components.DateTimePicker2.GetInputElement = function()
 {
@@ -80,45 +80,45 @@ if (Grocy.Components.DateTimePicker2.GetInputElement().data('limit-end-to-now') 
 Grocy.Components.DateTimePicker2.Init = function()
 {
 	$('.datetimepicker2').datetimepicker(
-	{
-		format: Grocy.Components.DateTimePicker2.GetInputElement().data('format'),
-		buttons: {
-			showToday: true,
-			showClose: true
-		},
-		calendarWeeks: Grocy.CalendarShowWeekNumbers,
-		maxDate: limitDate,
-		locale: moment.locale(),
-		defaultDate: startDate,
-		useCurrent: false,
-		icons: {
-			time: 'far fa-clock',
-			date: 'far fa-calendar',
-			up: 'fas fa-arrow-up',
-			down: 'fas fa-arrow-down',
-			previous: 'fas fa-chevron-left',
-			next: 'fas fa-chevron-right',
-			today: 'fas fa-calendar-check',
-			clear: 'far fa-trash-alt',
-			close: 'far fa-times-circle'
-		},
-		sideBySide: true,
-		keyBinds: {
-			up: function(widget) { },
-			down: function(widget) { },
-			'control up': function(widget) { },
-			'control down': function(widget) { },
-			left: function(widget) { },
-			right: function(widget) { },
-			pageUp: function(widget) { },
-			pageDown: function(widget) { },
-			enter: function(widget) { },
-			escape: function(widget) { },
-			'control space': function(widget) { },
-			t: function(widget) { },
-			'delete': function(widget) { }
-		}
-	});
+		{
+			format: Grocy.Components.DateTimePicker2.GetInputElement().data('format'),
+			buttons: {
+				showToday: true,
+				showClose: true
+			},
+			calendarWeeks: Grocy.CalendarShowWeekNumbers,
+			maxDate: limitDate,
+			locale: moment.locale(),
+			defaultDate: startDate,
+			useCurrent: false,
+			icons: {
+				time: 'far fa-clock',
+				date: 'far fa-calendar',
+				up: 'fas fa-arrow-up',
+				down: 'fas fa-arrow-down',
+				previous: 'fas fa-chevron-left',
+				next: 'fas fa-chevron-right',
+				today: 'fas fa-calendar-check',
+				clear: 'far fa-trash-alt',
+				close: 'far fa-times-circle'
+			},
+			sideBySide: true,
+			keyBinds: {
+				up: function(widget) { },
+				down: function(widget) { },
+				'control up': function(widget) { },
+				'control down': function(widget) { },
+				left: function(widget) { },
+				right: function(widget) { },
+				pageUp: function(widget) { },
+				pageDown: function(widget) { },
+				enter: function(widget) { },
+				escape: function(widget) { },
+				'control space': function(widget) { },
+				t: function(widget) { },
+				'delete': function(widget) { }
+			}
+		});
 }
 Grocy.Components.DateTimePicker2.Init();
 

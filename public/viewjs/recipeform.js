@@ -39,10 +39,11 @@ $('.save-recipe').on('click', function(e)
 
 	const location = $(e.currentTarget).attr('data-location') == 'return' ? '/recipes?recipe=' : '/recipe/';
 
-	if(Grocy.EditMode == 'create') {
+	if (Grocy.EditMode == 'create')
+	{
 		console.log(jsonData);
 		Grocy.Api.Post('objects/recipes', jsonData,
-		(result) => saveRecipePicture(result, location));
+			(result) => saveRecipePicture(result, location));
 		return;
 	}
 
@@ -51,11 +52,11 @@ $('.save-recipe').on('click', function(e)
 		jsonData.picture_file_name = null;
 
 		Grocy.Api.DeleteFile(Grocy.RecipePictureFileName, 'recipepictures', {},
-			function (result)
+			function(result)
 			{
 				// Nothing to do
 			},
-			function (xhr)
+			function(xhr)
 			{
 				Grocy.FrontendHelpers.EndUiBusy("recipe-form");
 				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
@@ -106,7 +107,7 @@ $('#recipe-form input').keyup(function(event)
 	Grocy.FrontendHelpers.ValidateForm('recipe-form');
 });
 
-$('#recipe-form input').keydown(function (event)
+$('#recipe-form input').keydown(function(event)
 {
 	if (event.keyCode === 13) //Enter
 	{
@@ -212,7 +213,7 @@ $(document).on('click', '.recipe-pos-edit-button', function(e)
 	var recipePosId = $(e.currentTarget).attr('data-recipe-pos-id');
 
 	bootbox.dialog({
-		message: '<iframe height="650px" class="embed-responsive" src="' + U("/recipe/") + Grocy.EditObjectId.toString() + '/pos/' + recipePosId.toString()  + '?embedded&product=' + productId.toString() + '"></iframe>',
+		message: '<iframe height="650px" class="embed-responsive" src="' + U("/recipe/") + Grocy.EditObjectId.toString() + '/pos/' + recipePosId.toString() + '?embedded&product=' + productId.toString() + '"></iframe>',
 		size: 'large',
 		backdrop: true,
 		closeButton: false,
@@ -229,7 +230,7 @@ $(document).on('click', '.recipe-pos-edit-button', function(e)
 	});
 });
 
-$(document).on('click', '.recipe-include-edit-button', function (e)
+$(document).on('click', '.recipe-include-edit-button', function(e)
 {
 	var id = $(e.currentTarget).attr('data-recipe-include-id');
 	var recipeId = $(e.currentTarget).attr('data-recipe-included-recipe-id');
@@ -338,21 +339,23 @@ $('#save-recipe-include-button').on('click', function(e)
 	}
 });
 
-$("#recipe-picture").on("change", function (e) {
-  $("#recipe-picture-label").removeClass("d-none");
-  $("#recipe-picture-label-none").addClass("d-none");
-  $("#delete-current-recipe-picture-on-save-hint").addClass("d-none");
-  $("#current-recipe-picture").addClass("d-none");
-  Grocy.DeleteRecipePictureOnSave = false;
+$("#recipe-picture").on("change", function(e)
+{
+	$("#recipe-picture-label").removeClass("d-none");
+	$("#recipe-picture-label-none").addClass("d-none");
+	$("#delete-current-recipe-picture-on-save-hint").addClass("d-none");
+	$("#current-recipe-picture").addClass("d-none");
+	Grocy.DeleteRecipePictureOnSave = false;
 });
 
 Grocy.DeleteRecipePictureOnSave = false;
-$("#delete-current-recipe-picture-button").on("click", function (e) {
-  Grocy.DeleteRecipePictureOnSave = true;
-  $("#current-recipe-picture").addClass("d-none");
-  $("#delete-current-recipe-picture-on-save-hint").removeClass("d-none");
-  $("#recipe-picture-label").addClass("d-none");
-  $("#recipe-picture-label-none").removeClass("d-none");
+$("#delete-current-recipe-picture-button").on("click", function(e)
+{
+	Grocy.DeleteRecipePictureOnSave = true;
+	$("#current-recipe-picture").addClass("d-none");
+	$("#delete-current-recipe-picture-on-save-hint").removeClass("d-none");
+	$("#recipe-picture-label").addClass("d-none");
+	$("#recipe-picture-label-none").removeClass("d-none");
 });
 
 Grocy.Components.UserfieldsForm.Load();

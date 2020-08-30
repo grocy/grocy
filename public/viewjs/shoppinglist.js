@@ -93,16 +93,16 @@ $("#delete-selected-shopping-list").on("click", function()
 				className: 'btn-danger'
 			}
 		},
-		callback: function (result)
+		callback: function(result)
 		{
 			if (result === true)
 			{
 				Grocy.Api.Delete('objects/shopping_lists/' + objectId, {},
-					function (result)
+					function(result)
 					{
 						window.location.href = U('/shoppinglist');
 					},
-					function (xhr)
+					function(xhr)
 					{
 						console.error(xhr);
 					}
@@ -123,7 +123,7 @@ $(document).on('click', '.shoppinglist-delete-button', function(e)
 	var shoppingListItemId = $(e.currentTarget).attr('data-shoppinglist-id');
 	Grocy.FrontendHelpers.BeginUiBusy();
 
-	Grocy.Api.Delete('objects/shopping_list/' + shoppingListItemId, { },
+	Grocy.Api.Delete('objects/shopping_list/' + shoppingListItemId, {},
 		function(result)
 		{
 			animateCSS("#shoppinglistitem-" + shoppingListItemId + "-row", "fadeOut", function()

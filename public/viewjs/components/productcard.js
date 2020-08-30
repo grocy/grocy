@@ -1,4 +1,4 @@
-Grocy.Components.ProductCard = { };
+Grocy.Components.ProductCard = {};
 
 Grocy.Components.ProductCard.Refresh = function(productId)
 {
@@ -95,7 +95,7 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 			{
 				if (productDetails.last_qu_factor_purchase_to_stock > 1)
 				{
-					$('#productcard-product-last-price').text(Number.parseFloat(productDetails.last_price).toLocaleString() + ' ' + Grocy.Currency + ' per 1 ' + productDetails.quantity_unit_purchase.name + ' of ' + productDetails.last_qu_factor_purchase_to_stock  + ' ' + productDetails.quantity_unit_stock.name_plural);
+					$('#productcard-product-last-price').text(Number.parseFloat(productDetails.last_price).toLocaleString() + ' ' + Grocy.Currency + ' per 1 ' + productDetails.quantity_unit_purchase.name + ' of ' + productDetails.last_qu_factor_purchase_to_stock + ' ' + productDetails.quantity_unit_stock.name_plural);
 				}
 				else
 				{
@@ -157,14 +157,16 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 							key = dataPoint.shopping_location.name
 						}
 
-						if (!datasets[key]) {
+						if (!datasets[key])
+						{
 							datasets[key] = []
 						}
 						chart.labels.push(moment(dataPoint.date).toDate());
 						datasets[key].push(dataPoint.price);
 
 					});
-					Object.keys(datasets).forEach((key) => {
+					Object.keys(datasets).forEach((key) =>
+					{
 						chart.datasets.push({
 							data: datasets[key],
 							fill: false,

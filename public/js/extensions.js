@@ -41,7 +41,7 @@ UpdateUriParam = function(key, value)
 {
 	var queryParameters = new URLSearchParams(location.search);
 	queryParameters.set(key, value);
-	window.history.replaceState({ }, "", decodeURIComponent(`${location.pathname}?${queryParameters}`));
+	window.history.replaceState({}, "", decodeURIComponent(`${location.pathname}?${queryParameters}`));
 };
 
 IsTouchInputDevice = function()
@@ -78,12 +78,12 @@ GetFileExtension = function(pathOrFileName)
 }
 
 $.extend($.expr[":"],
-{
-	"contains_case_insensitive": function(elem, i, match, array)
 	{
-		return (elem.textContent || elem.innerText || "").toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
-	}
-});
+		"contains_case_insensitive": function(elem, i, match, array)
+		{
+			return (elem.textContent || elem.innerText || "").toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+		}
+	});
 
 FindObjectInArrayByPropertyValue = function(array, propertyName, propertyValue)
 {
@@ -123,7 +123,7 @@ function IsJsonString(text)
 	try
 	{
 		JSON.parse(text);
-	} catch(e)
+	} catch (e)
 	{
 		return false;
 	}

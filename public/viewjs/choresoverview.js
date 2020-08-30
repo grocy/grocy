@@ -182,7 +182,8 @@ function RefreshStatistics()
 			var assignedToMeCount = 0;
 			var now = moment();
 			var nextXDaysThreshold = moment().add(nextXDays, "days");
-			result.forEach(element => {
+			result.forEach(element =>
+			{
 				var date = moment(element.next_estimated_execution_time);
 				if (date.isBefore(now))
 				{
