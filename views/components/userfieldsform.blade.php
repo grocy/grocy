@@ -98,6 +98,28 @@
 		<label for="name">{{ $userfield->caption }}</label>
 		<input type="link" class="form-control userfield-input" data-userfield-name="{{ $userfield->name }}">
 	</div>
+	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_FILE)
+		<div class="form-group">
+			<label for="{{ $userfield->name }}">{{ $userfield->caption }}</label>
+			<input type="file" class="form-control userfield-input" data-userfield-name="{{ $userfield->name }}">
+			<div class="d-none userfield-file">
+				<a href="" class="userfield-current-file" data-uf-name="{{ $userfield->name }}"></a>
+				<button type="button" class="userfield-current-file btn btn-danger userfield-file-delete" data-uf-name="{{ $userfield->name }}">
+					<i class="fas fa-trash"></i>
+				</button>
+			</div>
+		</div>
+	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_IMAGE)
+		<div class="form-group">
+			<label for="{{ $userfield->name }}">{{ $userfield->caption }}</label>
+			<input type="file" class="form-control userfield-input" data-userfield-name="{{ $userfield->name }}">
+			<div class="d-none userfield-file">
+				<img src="" alt="{{ $userfield->name }}" class="userfield-current-file" data-uf-name="{{ $userfield->name }}"/>
+				<button type="button" class="userfield-current-file btn btn-danger userfield-file-delete" data-uf-name="{{ $userfield->name }}">
+					<i class="fas fa-trash"></i>
+				</button>
+			</div>
+		</div>
 	@endif
 
 	@endforeach

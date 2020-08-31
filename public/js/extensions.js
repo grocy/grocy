@@ -172,3 +172,6 @@ function animateCSS(selector, animationName, callback, speed = "faster")
 
 	nodes.on('animationend', handleAnimationEnd);
 }
+function RandomString() {
+	return Math.random().toString(36).substring(2, 100) + Math.random().toString(36).substring(2, 100);
+}

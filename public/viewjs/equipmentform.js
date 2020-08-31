@@ -7,7 +7,7 @@
 
 	if ($("#instruction-manual")[0].files.length > 0)
 	{
-		var someRandomStuff = Math.random().toString(36).substring(2, 100) + Math.random().toString(36).substring(2, 100);
+		var someRandomStuff = RandomString();
 		jsonData.instruction_manual_file_name = someRandomStuff + $("#instruction-manual")[0].files[0].name;
 	}
 
