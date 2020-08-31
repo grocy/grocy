@@ -670,10 +670,14 @@ $(Grocy.UserPermissions).each(function (index, item)
 		$('.permission-'+item.permission_name).addClass('disabled').addClass('not-allowed');
 	}
 });
-Grocy.SetLanguage = function (lang) {
-	var expires = new Date();
-	// Expires "never" (= 30 years)
-	expires.setDate(expires.getDate() + 365*30);
-	document.cookie = "LOCALE=" + lang + "; SameSite=Lax; expires="+expires.toUTCString();
-	location.reload();
-}
+$('a.link-return').each(function () {
+	var base =  $(this).data('href');
+	if(base.contains('?'))
+	{
+		$(this).attr('href', base + '&returnto' + encodeURIComponent(location.pathname));
+	}
+	else{
+		$(this).attr('href', base + '?returnto=' + encodeURIComponent(location.pathname));
+	}
+
+})

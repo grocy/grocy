@@ -6,9 +6,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Slim\Routing\RouteCollectorProxy;
 
 use Grocy\Middleware\JsonMiddleware;
-use Grocy\Middleware\CorsMiddleware;
 
-$authMiddlewareClass = GROCY_AUTH_CLASS;
 
 $app->group('', function(RouteCollectorProxy $group)
 {
@@ -34,6 +32,7 @@ $app->group('', function(RouteCollectorProxy $group)
 	$group->get('/users', '\Grocy\Controllers\UsersController:UsersList');
 	$group->get('/user/{userId}', '\Grocy\Controllers\UsersController:UserEditForm');
 	$group->get('/user/{userId}/permissions', '\Grocy\Controllers\UsersController:PermissionList');
+	$group->get('/usersettings/locale', '\Grocy\Controllers\UsersController:LocaleForm');
 
 	// Stock routes
 	if (GROCY_FEATURE_FLAG_STOCK)
@@ -136,7 +135,7 @@ $app->group('', function(RouteCollectorProxy $group)
 	$group->get('/api', '\Grocy\Controllers\OpenApiController:DocumentationUi');
 	$group->get('/manageapikeys', '\Grocy\Controllers\OpenApiController:ApiKeysList');
 	$group->get('/manageapikeys/new', '\Grocy\Controllers\OpenApiController:CreateNewApiKey');
-})->add(new $authMiddlewareClass($container, $app->getResponseFactory()));
+});
 
 $app->group('/api', function(RouteCollectorProxy $group)
 {
@@ -259,11 +258,10 @@ $app->group('/api', function(RouteCollectorProxy $group)
 		$group->get('/calendar/ical', '\Grocy\Controllers\CalendarApiController:Ical')->setName('calendar-ical');
 		$group->get('/calendar/ical/sharing-link', '\Grocy\Controllers\CalendarApiController:IcalSharingLink');
 	}
-})->add(JsonMiddleware::class)
-->add(new $authMiddlewareClass($container, $app->getResponseFactory()));
+})->add(JsonMiddleware::class);
 
 // Handle CORS preflight OPTIONS requests
 $app->options('/api/{routes:.+}', function(Request $request, Response $response): Response
 {
-	return $response;
-})->add(CorsMiddleware::class);
+	return $response->withStatus(204);
+});

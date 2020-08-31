@@ -22,7 +22,7 @@ class DatabaseService
 	{
 		if (GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease')
 		{
-			return GROCY_DATAPATH . '/grocy_' . GROCY_CULTURE . '.db';
+			return GROCY_DATAPATH . '/grocy_' . GROCY_DEFAULT_LOCALE . '.db';
 		}
 
 		return GROCY_DATAPATH . '/grocy.db';

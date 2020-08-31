@@ -48,3 +48,9 @@ file_filter = localization/<lang>/permissions.po
 source_file = localization/permissions.pot
 source_lang = en
 type = PO
+
+[grocy.locales]
+file_filter = localization/<lang>/locales.po
+source_file = localization/locales.pot
+source_lang = en
+type = PO

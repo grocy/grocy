@@ -416,6 +416,9 @@
 						@if(GROCY_FEATURE_FLAG_TASKS)
 						<a class="dropdown-item discrete-link permission-TASKS" href="{{ $U('/taskssettings') }}"><i class="fas fa-tasks"></i>&nbsp;{{ $__t('Tasks settings') }}</a>
 						@endif
+						<a data-href="{{ $U('/usersettings/locale') }}" class="dropdown-item discrete-link link-return">
+							<i class="fas fa-globe"></i> {{ $__t('Language') }}
+						</a>
 						<div class="dropdown-divider"></div>
 						@if(GROCY_SHOW_AUTH_VIEWS)
 						<a class="dropdown-item discrete-link permission-USERS_READ" href="{{ $U('/users') }}"><i class="fas fa-users"></i>&nbsp;{{ $__t('Manage users') }}</a>

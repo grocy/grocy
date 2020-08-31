@@ -1,0 +1,79 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: http://www.transifex.com/grocy/grocy/language/en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01T17:59:17+00:00\n"
+"Language: en\n"
+"X-Domain: grocy/locales\n"
+
+msgid "cs"
+msgstr ""
+
+msgid "da"
+msgstr ""
+
+msgid "de"
+msgstr ""
+
+msgid "el_GR"
+msgstr ""
+
+msgid "en"
+msgstr ""
+
+msgid "en_GB"
+msgstr ""
+
+msgid "es"
+msgstr ""
+
+msgid "fr"
+msgstr ""
+
+msgid "hu"
+msgstr ""
+
+msgid "it"
+msgstr ""
+
+msgid "ja"
+msgstr ""
+
+msgid "ko_KR"
+msgstr ""
+
+msgid "nl"
+msgstr ""
+
+msgid "no"
+msgstr ""
+
+msgid "pl"
+msgstr ""
+
+msgid "pt_BR"
+msgstr ""
+
+msgid "pt_PT"
+msgstr ""
+
+msgid "ru"
+msgstr ""
+
+msgid "sk_SK"
+msgstr ""
+
+msgid "sv_SE"
+msgstr ""
+
+msgid "tr"
+msgstr ""
+
+msgid "zh_TW"
+msgstr ""

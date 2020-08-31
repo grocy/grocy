@@ -7,4 +7,5 @@ copy /Y localization\en\component_translations.po localization\en_GB\component_t
 copy /Y localization\en\chore_period_types.po localization\en_GB\chore_period_types.po
 copy /Y localization\en\chore_assignment_types.po localization\en_GB\chore_assignment_types.po
 copy /Y localization\en\permissions.po localization\en_GB\permissions.po
+copy /Y localization\en\locales.po localization\en_GB\locales.po
 popd

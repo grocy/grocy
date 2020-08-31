@@ -4,14 +4,13 @@
 namespace Grocy\Middleware;
 
 
-use Locale;
+use Grocy\Services\UsersService;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 
 class LocaleMiddleware extends BaseMiddleware
 {
-	const LOCALE_COOKIE_NAME = 'LOCALE';
 
 	public function __invoke(Request $request, RequestHandler $handler): Response
 	{
@@ -22,13 +21,16 @@ class LocaleMiddleware extends BaseMiddleware
 
 	protected function getLocale(Request $request)
 	{
-		$cookies = $request->getCookieParams();
-		if (isset($cookies[self::LOCALE_COOKIE_NAME])) {
-			$locale = $cookies[self::LOCALE_COOKIE_NAME];
-			if (in_array($locale, scandir(__DIR__ . '/../localization'))) {
-				return $locale;
+		if(GROCY_AUTHENTICATED)
+		{
+			$locale = UsersService::getInstance()->GetUserSetting(GROCY_USER_ID, 'locale');
+			if (isset($locale)) {
+				if (in_array($locale, scandir(__DIR__ . '/../localization'))) {
+					return $locale;
+				}
 			}
 		}
+
 		$langs = join(',', $request->getHeader('Accept-Language'));
 
 		// src: https://gist.github.com/spolischook/0cde9c6286415cddc088
@@ -60,6 +62,6 @@ class LocaleMiddleware extends BaseMiddleware
 				return substr($locale, 0, 2);
 			}
 		}
-		return GROCY_CULTURE;
+		return GROCY_DEFAULT_LOCALE;
 	}
 }

@@ -21,7 +21,7 @@ Setting('MODE', 'production');
 
 # Either "en" or "de" or the directory name of
 # one of the other available localization folders in the "/localization" directory
-Setting('CULTURE', 'en');
+Setting('DEFAULT_LOCALE', 'en');
 
 # This is used to define the first day of a week for calendar views in the frontend,
 # leave empty to use the locale default
