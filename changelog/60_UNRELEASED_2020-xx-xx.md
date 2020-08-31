@@ -73,6 +73,7 @@
 - Performance improvements of the `/stock/products/*` endpoints (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that the endpoint `/objects/{entity}/{objectId}` always returned successfully, even when the given object not exists (now returns `404` when the object is not found) (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that the endpoint `/stock/volatile` didn't include products which expire today (thanks @fipwmaqzufheoxq92ebc)
+- Fixed that the endpoint `/objects/{entity}` did not include Userfields for Userentities (so the effective endpoint `/objects/userobjects`)
 - Fixed (again) that CORS was broken
 
 ### General & other improvements/fixes
