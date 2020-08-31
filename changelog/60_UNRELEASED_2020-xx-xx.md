@@ -38,7 +38,6 @@
 - Fixed that the aggregated amount of parent products was wrong on the stock overview page when the child products had not the same stock quantity units
 - Fixed that edited stock entries were not considered for the price history chart on the product card
 
-
 ### Shopping list improvements
 - Decimal amounts are now allowed (for any product, rounded by two decimal places)
 - "Add products that are below defined min. stock amount" always rounded up the missing amount to an integral number, this now allows decimal numbers
@@ -77,6 +76,13 @@
 - The data path (previously fixed to the `data` folder) is now configurable, making it possible to run multiple grocy instances from the same directory (with different `config.php` files / different database, etc.) (thanks @fgrsnau)
   - Via an environment variable `GROCY_DATAPTH` (higher priority)
   - Via an FastCGI parameter (lower priority)
+- The language can now be set per user (see the new user settings page / top right corner settings menu) (thanks @fipwmaqzufheoxq92ebc)
+  - Additionally, the language is now also auto-guessed based on the browser locale (HTTP-Header `Accept-Language`)
+  - The `config.php` option `CULTURE` was renamed to `DEFAULT_LOCALE`
+  - So the used language is based on (in that order)
+    - The user setting
+	- If not set, then based on browser locale
+	- If no matching localizaton was found, `DEFAULT_LOCALE` from `config.php` is used
 - Performance improvements (page loading time) of the stock overview page (thanks @fipwmaqzufheoxq92ebc)
 - The prerequisites checker now also checks for the minimum required SQLite version (thanks @Forceu)
 - Replaced (again, added before in v2.7.0, then reverted in v2.7.1 due to some problems) [QuaggaJS](https://github.com/serratus/quaggaJS) (seems to be unmaintained) by [Quagga2](https://github.com/ericblade/quagga2)
