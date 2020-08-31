@@ -17,12 +17,16 @@
 		<div class="form-group">
 			<div class="checkbox">
 				<label for="recipe_ingredients_group_by_product_group">
-					<input type="checkbox" class="user-setting-control" id="recipe_ingredients_group_by_product_group" data-setting-key="recipe_ingredients_group_by_product_group"> {{ $__t('Group ingredients by their product group') }}
+					<input type="checkbox"
+						class="user-setting-control"
+						id="recipe_ingredients_group_by_product_group"
+						data-setting-key="recipe_ingredients_group_by_product_group"> {{ $__t('Group ingredients by their product group') }}
 				</label>
 			</div>
 		</div>
 
-		<a href="{{ $U('/recipes') }}" class="btn btn-success">{{ $__t('OK') }}</a>
+		<a href="{{ $U('/recipes') }}"
+			class="btn btn-success">{{ $__t('OK') }}</a>
 	</div>
 </div>
 @stop

@@ -15,15 +15,16 @@
 	<div class="col-lg-6 col-xs-12">
 		<h4 class="mt-2">{{ $__t('Chores overview') }}</h4>
 		@include('components.numberpicker', array(
-			'id' => 'chores_due_soon_days',
-			'additionalAttributes' => 'data-setting-key="chores_due_soon_days"',
-			'label' => 'Chores due soon days',
-			'min' => 1,
-			'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
-			'additionalCssClasses' => 'user-setting-control'
+		'id' => 'chores_due_soon_days',
+		'additionalAttributes' => 'data-setting-key="chores_due_soon_days"',
+		'label' => 'Chores due soon days',
+		'min' => 1,
+		'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
+		'additionalCssClasses' => 'user-setting-control'
 		))
 
-		<a href="{{ $U('/choresoverview') }}" class="btn btn-success">{{ $__t('OK') }}</a>
+		<a href="{{ $U('/choresoverview') }}"
+			class="btn btn-success">{{ $__t('OK') }}</a>
 	</div>
 </div>
 @stop

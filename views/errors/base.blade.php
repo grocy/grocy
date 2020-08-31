@@ -1,20 +1,20 @@
 @extends('layout.default')
 
 @section('content')
-	<div class="row">
-		<div class="col">
-			<div class="alert alert-dark py-1">
-				<h4>{{ $__t('Error source') }}</h4>
-				<pre class="my-0"><code>{!! $exception->getFile() !!}:{!! $exception->getLine() !!}</code></pre>
-			</div>
-			<div class="alert alert-dark py-1">
-				<h4>{{ $__t('Error message') }}</h4>
-				<pre class="my-0"><code>{!! $exception->getMessage() !!}</code></pre>
-			</div>
-			<div class="alert alert-dark py-1">
-				<h4>{{ $__t('Stack trace') }}</h4>
-				<pre class="my-0"><code>{!! $exception->getTraceAsString() !!}</code></pre>
-			</div>
+<div class="row">
+	<div class="col">
+		<div class="alert alert-dark py-1">
+			<h4>{{ $__t('Error source') }}</h4>
+			<pre class="my-0"><code>{!! $exception->getFile() !!}:{!! $exception->getLine() !!}</code></pre>
+		</div>
+		<div class="alert alert-dark py-1">
+			<h4>{{ $__t('Error message') }}</h4>
+			<pre class="my-0"><code>{!! $exception->getMessage() !!}</code></pre>
+		</div>
+		<div class="alert alert-dark py-1">
+			<h4>{{ $__t('Stack trace') }}</h4>
+			<pre class="my-0"><code>{!! $exception->getTraceAsString() !!}</code></pre>
 		</div>
 	</div>
+</div>
 @stop

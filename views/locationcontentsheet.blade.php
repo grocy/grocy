@@ -4,33 +4,34 @@
 @section('viewJsName', 'locationcontentsheet')
 
 @push('pageStyles')
-	<style>
-		@media print
-		{
-			.page:not(:last-child) {
-				page-break-after: always !important;
-			}
+<style>
+	@media print {
+		.page:not(:last-child) {
+			page-break-after: always !important;
+		}
 
-			.page.no-page-break {
-				page-break-after: avoid !important;
-			}
+		.page.no-page-break {
+			page-break-after: avoid !important;
+		}
 
-			/*
+		/*
 				Workaround because of Firefox bug
 				see https://github.com/twbs/bootstrap/issues/22753
 				and https://bugzilla.mozilla.org/show_bug.cgi?id=1413121
 			*/
-			.row {
-				display: inline !important;
-			}
+		.row {
+			display: inline !important;
 		}
-	</style>
+	}
+
+</style>
 @endpush
 
 @section('content')
 <h1 class="d-print-none">
 	@yield('title')
-	<a class="btn btn-outline-dark responsive-button print-all-locations-button" href="#">
+	<a class="btn btn-outline-dark responsive-button print-all-locations-button"
+		href="#">
 		<i class="fas fa-print"></i> {{ $__t('Print') . ' (' . $__t('all locations') . ')' }}
 	</a>
 </h1>
@@ -41,9 +42,12 @@
 @foreach($locations as $location)
 <div class="page">
 	<h1 class="text-center">
-		<img src="{{ $U('/img/grocy_logo.svg?v=', true) }}{{ $version }}" height="30" class="d-none d-print-flex mx-auto">
+		<img src="{{ $U('/img/grocy_logo.svg?v=', true) }}{{ $version }}"
+			height="30"
+			class="d-none d-print-flex mx-auto">
 		{{ $location->name }}
-		<a class="btn btn-outline-dark responsive-button print-single-location-button d-print-none" href="#">
+		<a class="btn btn-outline-dark responsive-button print-single-location-button d-print-none"
+			href="#">
 			<i class="fas fa-print"></i> {{ $__t('Print') . ' (' . $__t('this location') . ')' }}
 		</a>
 	</h1>

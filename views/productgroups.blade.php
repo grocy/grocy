@@ -10,7 +10,8 @@
 		<div class="title-related-links">
 			<h2 class="title">@yield('title')</h2>
 			<div class="related-links">
-				<a class="btn btn-outline-secondary" href="{{ $U('/userfields?entity=product_groups') }}">
+				<a class="btn btn-outline-secondary"
+					href="{{ $U('/userfields?entity=product_groups') }}">
 					{{ $__t('Configure userfields') }}
 				</a>
 			</div>
@@ -20,7 +21,8 @@
 <hr>
 <div class="row mt-3">
 	<div class="col-xs-12 col-md-2 col-xl-1">
-		<a class="btn btn-primary btn-sm responsive-button w-100 mb-3 show-as-dialog-link" href="{{ $U('/productgroup/new?embedded') }}">
+		<a class="btn btn-primary btn-sm responsive-button w-100 mb-3 show-as-dialog-link"
+			href="{{ $U('/productgroup/new?embedded') }}">
 			{{ $__t('Add') }}
 		</a>
 	</div>
@@ -29,16 +31,20 @@
 	<div class="col-xs-12 col-md-6 col-xl-3">
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
-					<span class="input-group-text"><i class="fas fa-search"></i></span>
+				<span class="input-group-text"><i class="fas fa-search"></i></span>
 			</div>
-			<input type="text"  id="search" class="form-control" placeholder="{{ $__t('Search') }}">
+			<input type="text"
+				id="search"
+				class="form-control"
+				placeholder="{{ $__t('Search') }}">
 		</div>
 	</div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<table id="productgroups-table" class="table table-sm table-striped dt-responsive">
+		<table id="productgroups-table"
+			class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
 					<th class="border-right"></th>
@@ -47,7 +53,7 @@
 					<th>{{ $__t('Product count') }}</th>
 
 					@include('components.userfields_thead', array(
-						'userfields' => $userfields
+					'userfields' => $userfields
 					))
 				</tr>
 			</thead>
@@ -55,10 +61,14 @@
 				@foreach($productGroups as $productGroup)
 				<tr>
 					<td class="fit-content border-right">
-						<a class="btn btn-info btn-sm show-as-dialog-link" href="{{ $U('/productgroup/') }}{{ $productGroup->id }}?embedded">
+						<a class="btn btn-info btn-sm show-as-dialog-link"
+							href="{{ $U('/productgroup/') }}{{ $productGroup->id }}?embedded">
 							<i class="fas fa-edit"></i>
 						</a>
-						<a class="btn btn-danger btn-sm product-group-delete-button" href="#" data-group-id="{{ $productGroup->id }}" data-group-name="{{ $productGroup->name }}">
+						<a class="btn btn-danger btn-sm product-group-delete-button"
+							href="#"
+							data-group-id="{{ $productGroup->id }}"
+							data-group-name="{{ $productGroup->name }}">
 							<i class="fas fa-trash"></i>
 						</a>
 					</td>
@@ -70,14 +80,15 @@
 					</td>
 					<td>
 						{{ count(FindAllObjectsInArrayByPropertyValue($products, 'product_group_id', $productGroup->id)) }}
-						<a class="btn btn-link btn-sm text-body" href="{{ $U('/products?product-group=') . $productGroup->id }}">
-						<i class="fas fa-external-link-alt"></i>
+						<a class="btn btn-link btn-sm text-body"
+							href="{{ $U('/products?product-group=') . $productGroup->id }}">
+							<i class="fas fa-external-link-alt"></i>
 						</a>
 					</td>
 
 					@include('components.userfields_tbody', array(
-						'userfields' => $userfields,
-						'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $productGroup->id)
+					'userfields' => $userfields,
+					'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $productGroup->id)
 					))
 
 				</tr>

@@ -10,10 +10,12 @@
 		<div class="title-related-links">
 			<h2 class="title">@yield('title')</h2>
 			<div class="related-links">
-				<a class="btn btn-outline-secondary mb-1" href="{{ $U('/userfields?entity=products') }}">
+				<a class="btn btn-outline-secondary mb-1"
+					href="{{ $U('/userfields?entity=products') }}">
 					{{ $__t('Configure userfields') }}
 				</a>
-				<a class="btn btn-outline-secondary mb-1" href="{{ $U('/stocksettings#productpresets') }}">
+				<a class="btn btn-outline-secondary mb-1"
+					href="{{ $U('/stocksettings#productpresets') }}">
 					{{ $__t('Presets for new products') }}
 				</a>
 			</div>
@@ -24,7 +26,8 @@
 
 <div class="row mt-3">
 	<div class="col-xs-12 col-md-2 col-xl-1">
-		<a class="btn btn-primary btn-sm responsive-button w-100 mb-3" href="{{ $U('/product/new') }}">
+		<a class="btn btn-primary btn-sm responsive-button w-100 mb-3"
+			href="{{ $U('/product/new') }}">
 			{{ $__t('Add') }}
 		</a>
 	</div>
@@ -33,20 +36,24 @@
 	<div class="col-xs-12 col-md-6 col-xl-3">
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
-					<span class="input-group-text"><i class="fas fa-search"></i></span>
+				<span class="input-group-text"><i class="fas fa-search"></i></span>
 			</div>
-			<input type="text"  id="search" class="form-control" placeholder="{{ $__t('Search') }}">
+			<input type="text"
+				id="search"
+				class="form-control"
+				placeholder="{{ $__t('Search') }}">
 		</div>
 	</div>
 	<div class="col-xs-12 col-md-6 col-xl-3">
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
-					<span class="input-group-text"><i class="fas fa-filter"></i></span>
+				<span class="input-group-text"><i class="fas fa-filter"></i></span>
 			</div>
-			<select class="form-control" id="location-filter">
+			<select class="form-control"
+				id="location-filter">
 				<option value="all">{{ $__t('All') }}</option>
 				@foreach($productGroups as $productGroup)
-					<option value="{{ $productGroup->id }}">{{ $productGroup->name }}</option>
+				<option value="{{ $productGroup->id }}">{{ $productGroup->name }}</option>
 				@endforeach
 			</select>
 		</div>
@@ -55,7 +62,8 @@
 
 <div class="row">
 	<div class="col">
-		<table id="products-table" class="table table-sm table-striped dt-responsive">
+		<table id="products-table"
+			class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
 					<th class="border-right"></th>
@@ -69,7 +77,7 @@
 					<th>{{ $__t('Barcode(s)') }}</th>
 
 					@include('components.userfields_thead', array(
-						'userfields' => $userfields
+					'userfields' => $userfields
 					))
 
 				</tr>
@@ -78,10 +86,14 @@
 				@foreach($products as $product)
 				<tr>
 					<td class="fit-content border-right">
-						<a class="btn btn-info btn-sm" href="{{ $U('/product/') }}{{ $product->id }}">
+						<a class="btn btn-info btn-sm"
+							href="{{ $U('/product/') }}{{ $product->id }}">
 							<i class="fas fa-edit"></i>
 						</a>
-						<a class="btn btn-danger btn-sm product-delete-button @if($product->active == 0) disabled @endif" href="#" data-product-id="{{ $product->id }}" data-product-name="{{ $product->name }}">
+						<a class="btn btn-danger btn-sm product-delete-button @if($product->active == 0) disabled @endif"
+							href="#"
+							data-product-id="{{ $product->id }}"
+							data-product-name="{{ $product->name }}">
 							<i class="fas fa-trash"></i>
 						</a>
 					</td>
@@ -111,8 +123,8 @@
 					</td>
 
 					@include('components.userfields_tbody', array(
-						'userfields' => $userfields,
-						'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $product->id)
+					'userfields' => $userfields,
+					'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $product->id)
 					))
 
 				</tr>

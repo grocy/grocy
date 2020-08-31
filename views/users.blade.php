@@ -13,7 +13,8 @@
 <hr>
 <div class="row mt-3">
 	<div class="col-xs-12 col-md-2 col-xl-1">
-		<a class="btn btn-primary btn-sm responsive-button w-100 mb-3" href="{{ $U('/user/new') }}">
+		<a class="btn btn-primary btn-sm responsive-button w-100 mb-3"
+			href="{{ $U('/user/new') }}">
 			{{ $__t('Add') }}
 		</a>
 	</div>
@@ -22,16 +23,20 @@
 	<div class="col-xs-12 col-md-6 col-xl-3">
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
-					<span class="input-group-text"><i class="fas fa-search"></i></span>
+				<span class="input-group-text"><i class="fas fa-search"></i></span>
 			</div>
-			<input type="text"  id="search" class="form-control" placeholder="{{ $__t('Search') }}">
+			<input type="text"
+				id="search"
+				class="form-control"
+				placeholder="{{ $__t('Search') }}">
 		</div>
 	</div>
 </div>
 
 <div class="row">
 	<div class="col">
-		<table id="users-table" class="table table-sm table-striped dt-responsive">
+		<table id="users-table"
+			class="table table-sm table-striped dt-responsive">
 			<thead>
 				<tr>
 					<th class="border-right"></th>
@@ -44,13 +49,18 @@
 				@foreach($users as $user)
 				<tr>
 					<td class="fit-content border-right">
-						<a class="btn btn-info btn-sm" href="{{ $U('/user/') }}{{ $user->id }}">
+						<a class="btn btn-info btn-sm"
+							href="{{ $U('/user/') }}{{ $user->id }}">
 							<i class="fas fa-edit"></i>
 						</a>
-						<a class="btn btn-info btn-sm" href="{{ $U('/user/' . $user->id . '/permissions') }}">
+						<a class="btn btn-info btn-sm"
+							href="{{ $U('/user/' . $user->id . '/permissions') }}">
 							<i class="fas fa-lock"></i>
 						</a>
-						<a class="btn btn-danger btn-sm user-delete-button @if($user->id == GROCY_USER_ID) disabled @endif" href="#" data-user-id="{{ $user->id }}" data-user-username="{{ $user->username }}">
+						<a class="btn btn-danger btn-sm user-delete-button @if($user->id == GROCY_USER_ID) disabled @endif"
+							href="#"
+							data-user-id="{{ $user->id }}"
+							data-user-username="{{ $user->username }}">
 							<i class="fas fa-trash"></i>
 						</a>
 					</td>

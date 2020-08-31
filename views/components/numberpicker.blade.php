@@ -1,5 +1,5 @@
 @push('componentScripts')
-	<script src="{{ $U('/viewjs/components/numberpicker.js', true) }}?v={{ $version }}"></script>
+<script src="{{ $U('/viewjs/components/numberpicker.js', true) }}?v={{ $version }}"></script>
 @endpush
 
 @php if(!isset($value)) { $value = 1; } @endphp
@@ -16,12 +16,30 @@
 @php if(!isset($isRequired)) { $isRequired = true; } @endphp
 @php if(!isset($noNameAttribute)) { $noNameAttribute = false; } @endphp
 
-<div id="group-{{ $id }}" class="form-group {{ $additionalGroupCssClasses }}">
+<div id="group-{{ $id }}"
+	class="form-group {{ $additionalGroupCssClasses }}">
 	<label for="{{ $id }}">
 		{{ $__t($label) }}&nbsp;
-		<span id="{{ $hintId }}" data-toggle="tooltip" title="{{ $hint }}"></span>{!! $additionalHtmlContextHelp !!}</label>
+		<span id="{{ $hintId }}"
+			data-toggle="tooltip"
+			title="{{ $hint }}"></span>{!! $additionalHtmlContextHelp !!}</label>
 	<div class="input-group">
-		<input {!! $additionalAttributes !!} type="number" class="form-control numberpicker {{ $additionalCssClasses }}" id="{{ $id }}" @if(!$noNameAttribute) name="{{ $id }}" @endif value="{{ $value }}" min="{{ $min }}" max="{{ $max }}" step="{{ $step }}" @if($isRequired) required @endif>
+		<input {!!
+			$additionalAttributes
+			!!}
+			type="number"
+			class="form-control numberpicker {{ $additionalCssClasses }}"
+			id="{{ $id }}"
+			@if(!$noNameAttribute)
+			name="{{ $id }}"
+			@endif
+			value="{{ $value }}"
+			min="{{ $min }}"
+			max="{{ $max }}"
+			step="{{ $step }}"
+			@if($isRequired)
+			required
+			@endif>
 		<div class="input-group-append">
 			<div class="input-group-text numberpicker-up-button"><i class="fas fa-arrow-up"></i></div>
 		</div>

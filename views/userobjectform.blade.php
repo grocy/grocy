@@ -1,9 +1,9 @@
 @extends('layout.default')
 
 @if($mode == 'edit')
-	@section('title', $__t('Edit %s', $userentity->caption))
+@section('title', $__t('Edit %s', $userentity->caption))
 @else
-	@section('title', $__t('Create %s', $userentity->caption))
+@section('title', $__t('Create %s', $userentity->caption))
 @endif
 
 @section('viewJsName', 'userobjectform')
@@ -24,17 +24,21 @@
 		</script>
 
 		@if($mode == 'edit')
-			<script>Grocy.EditObjectId = {{ $userobject->id }};</script>
+		<script>
+			Grocy.EditObjectId = {{ $userobject->id }};
+		</script>
 		@endif
 
-		<form id="userobject-form" novalidate>
+		<form id="userobject-form"
+			novalidate>
 
 			@include('components.userfieldsform', array(
-				'userfields' => $userfields,
-				'entity' => 'userentity-' . $userentity->name
+			'userfields' => $userfields,
+			'entity' => 'userentity-' . $userentity->name
 			))
 
-			<button id="save-userobject-button" class="btn btn-success">{{ $__t('Save') }}</button>
+			<button id="save-userobject-button"
+				class="btn btn-success">{{ $__t('Save') }}</button>
 
 		</form>
 	</div>

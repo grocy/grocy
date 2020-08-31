@@ -5,9 +5,9 @@
 @section('viewJsName', 'userpermissions')
 
 @push('pageScripts')
-	<script>
-		Grocy.EditObjectId = {{ $user->id }};
-	</script>
+<script>
+	Grocy.EditObjectId = {{ $user->id }};
+</script>
 @endpush
 
 @section('content')
@@ -21,14 +21,16 @@
 	<div class="col">
 		<ul>
 			@foreach($permissions as $perm)
-				<li>
-					@include('components.userpermission_select', array(
-						'permission' =>  $perm
-						))
-				</li>
+			<li>
+				@include('components.userpermission_select', array(
+				'permission' => $perm
+				))
+			</li>
 			@endforeach
 		</ul>
-		<button id="permission-save" class="btn btn-success" type="submit">{{ $__t('Save') }}</button>
+		<button id="permission-save"
+			class="btn btn-success"
+			type="submit">{{ $__t('Save') }}</button>
 	</div>
 </div>
 @endsection

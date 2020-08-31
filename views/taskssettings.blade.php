@@ -15,15 +15,16 @@
 	<div class="col-lg-6 col-xs-12">
 
 		@include('components.numberpicker', array(
-			'id' => 'tasks_due_soon_days',
-			'additionalAttributes' => 'data-setting-key="tasks_due_soon_days"',
-			'label' => 'Tasks due soon days',
-			'min' => 1,
-			'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
-			'additionalCssClasses' => 'user-setting-control'
+		'id' => 'tasks_due_soon_days',
+		'additionalAttributes' => 'data-setting-key="tasks_due_soon_days"',
+		'label' => 'Tasks due soon days',
+		'min' => 1,
+		'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
+		'additionalCssClasses' => 'user-setting-control'
 		))
 
-		<a href="{{ $U('/tasks') }}" class="btn btn-success">{{ $__t('OK') }}</a>
+		<a href="{{ $U('/tasks') }}"
+			class="btn btn-success">{{ $__t('OK') }}</a>
 	</div>
 </div>
 @stop

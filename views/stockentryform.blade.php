@@ -18,108 +18,117 @@
 <div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
 
-		<form id="stockentry-form" novalidate>
+		<form id="stockentry-form"
+			novalidate>
 			@php
 			$product = FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id);
 			@endphp
 
 			@php
-				$additionalGroupCssClasses = '';
-				if (!GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
-				{
-					$additionalGroupCssClasses = 'd-none';
-				}
+			$additionalGroupCssClasses = '';
+			if (!GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
+			{
+			$additionalGroupCssClasses = 'd-none';
+			}
 			@endphp
 			@include('components.datetimepicker', array(
-				'id' => 'best_before_date',
-				'initialValue' => $stockEntry->best_before_date,
-				'label' => 'Best before',
-				'format' => 'YYYY-MM-DD',
-				'initWithNow' => false,
-				'limitEndToNow' => false,
-				'limitStartToNow' => false,
-				'invalidFeedback' => $__t('A best before date is required'),
-				'nextInputSelector' => '#best_before_date',
-				'additionalGroupCssClasses' => 'date-only-datetimepicker',
-				'shortcutValue' => '2999-12-31',
-				'shortcutLabel' => 'Never expires',
-				'earlierThanInfoLimit' => date('Y-m-d'),
-				'earlierThanInfoText' => $__t('The given date is earlier than today, are you sure?'),
-				'additionalGroupCssClasses' => $additionalGroupCssClasses,
-				'activateNumberPad' => GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_FIELD_NUMBER_PAD
+			'id' => 'best_before_date',
+			'initialValue' => $stockEntry->best_before_date,
+			'label' => 'Best before',
+			'format' => 'YYYY-MM-DD',
+			'initWithNow' => false,
+			'limitEndToNow' => false,
+			'limitStartToNow' => false,
+			'invalidFeedback' => $__t('A best before date is required'),
+			'nextInputSelector' => '#best_before_date',
+			'additionalGroupCssClasses' => 'date-only-datetimepicker',
+			'shortcutValue' => '2999-12-31',
+			'shortcutLabel' => 'Never expires',
+			'earlierThanInfoLimit' => date('Y-m-d'),
+			'earlierThanInfoText' => $__t('The given date is earlier than today, are you sure?'),
+			'additionalGroupCssClasses' => $additionalGroupCssClasses,
+			'activateNumberPad' => GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_FIELD_NUMBER_PAD
 			))
 			@php $additionalGroupCssClasses = ''; @endphp
 
 			@include('components.numberpicker', array(
-				'id' => 'amount',
-				'value' => $stockEntry->amount,
-				'label' => 'Amount',
-				'hintId' => 'amount_qu_unit',
-				'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
-				'additionalAttributes' => 'data-not-equal="-1"',
-				'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info" class="text-small text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
+			'id' => 'amount',
+			'value' => $stockEntry->amount,
+			'label' => 'Amount',
+			'hintId' => 'amount_qu_unit',
+			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
+			'additionalAttributes' => 'data-not-equal="-1"',
+			'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info"
+				class="text-small text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
 			))
 
 			@include('components.numberpicker', array(
-				'id' => 'qu_factor_purchase_to_stock',
-				'label' => 'Factor purchase to stock quantity unit',
-				'value' => $stockEntry->qu_factor_purchase_to_stock,
-				'min' => 1,
-				'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
-				'additionalCssClasses' => 'input-group-qu',
-				'additionalHtmlElements' => '<p id="qu-conversion-info" class="form-text text-muted small d-none"></p>'
+			'id' => 'qu_factor_purchase_to_stock',
+			'label' => 'Factor purchase to stock quantity unit',
+			'value' => $stockEntry->qu_factor_purchase_to_stock,
+			'min' => 1,
+			'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
+			'additionalCssClasses' => 'input-group-qu',
+			'additionalHtmlElements' => '<p id="qu-conversion-info"
+				class="form-text text-muted small d-none"></p>'
 			))
 
 			@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 			@php
 			if (empty($stockEntry->price))
 			{
-				$price = '';
+			$price = '';
 			}
 			else
 			{
-				$price = $stockEntry->price;
+			$price = $stockEntry->price;
 			}
 			@endphp
 			@include('components.numberpicker', array(
-				'id' => 'price',
-				'value' => $price,
-				'label' => 'Price',
-				'min' => 0,
-				'step' => 0.01,
-				'hint' => $__t('in %s per purchase quantity unit', GROCY_CURRENCY),
-				'invalidFeedback' => $__t('The price cannot be lower than %s', '0'),
-				'isRequired' => false
+			'id' => 'price',
+			'value' => $price,
+			'label' => 'Price',
+			'min' => 0,
+			'step' => 0.01,
+			'hint' => $__t('in %s per purchase quantity unit', GROCY_CURRENCY),
+			'invalidFeedback' => $__t('The price cannot be lower than %s', '0'),
+			'isRequired' => false
 			))
 			@include('components.shoppinglocationpicker', array(
-				'label' => 'Store',
-				'shoppinglocations' => $shoppinglocations,
-				'prefillById' => $stockEntry->shopping_location_id
+			'label' => 'Store',
+			'shoppinglocations' => $shoppinglocations,
+			'prefillById' => $stockEntry->shopping_location_id
 			))
 			@else
-			<input type="hidden" name="price" id="price" value="0">
+			<input type="hidden"
+				name="price"
+				id="price"
+				value="0">
 			@endif
 
 			@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 			@include('components.locationpicker', array(
-				'locations' => $locations,
-				'prefillById' => $stockEntry->location_id
+			'locations' => $locations,
+			'prefillById' => $stockEntry->location_id
 			))
 			@else
-			<input type="hidden" name="location_id" id="location_id" value="1">
+			<input type="hidden"
+				name="location_id"
+				id="location_id"
+				value="1">
 			@endif
 
 			@include('components.datetimepicker2', array(
-				'id' => 'purchase_date',
-				'initialValue' => $stockEntry->purchased_date,
-				'label' => 'Purchased date',
-				'format' => 'YYYY-MM-DD',
-				'initWithNow' => false,
-				'limitEndToNow' => false,
-				'limitStartToNow' => false,
-				'invalidFeedback' => $__t('A purchased date is required'),
-				'nextInputSelector' => '#save-stockentry-button',
-				'additionalGroupCssClasses' => 'date-only-datetimepicker'
+			'id' => 'purchase_date',
+			'initialValue' => $stockEntry->purchased_date,
+			'label' => 'Purchased date',
+			'format' => 'YYYY-MM-DD',
+			'initWithNow' => false,
+			'limitEndToNow' => false,
+			'limitStartToNow' => false,
+			'invalidFeedback' => $__t('A purchased date is required'),
+			'nextInputSelector' => '#save-stockentry-button',
+			'additionalGroupCssClasses' => 'date-only-datetimepicker'
 			))
 
 			<div class="checkbox">
@@ -128,7 +137,8 @@
 				</label>
 			</div>
 
-			<button id="save-stockentry-button" class="btn btn-success">{{ $__t('OK') }}</button>
+			<button id="save-stockentry-button"
+				class="btn btn-success">{{ $__t('OK') }}</button>
 
 		</form>
 	</div>

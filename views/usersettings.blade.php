@@ -16,15 +16,21 @@
 
 		<div class="form-group">
 			<label for="locale">{{ $__t('Language') }}</label>
-			<select class="form-control user-setting-control" id="locale" data-setting-key="locale">
+			<select class="form-control user-setting-control"
+				id="locale"
+				data-setting-key="locale">
 				<option value="">{{ $__t('Default') }}</option>
 				@foreach($languages as $lang)
-					<option value="{{ $lang }}" @if(GROCY_LOCALE == $lang) checked @endif>{{ $__t($lang) }}</option>
+				<option value="{{ $lang }}"
+					@if(GROCY_LOCALE==$lang)
+					checked
+					@endif>{{ $__t($lang) }}</option>
 				@endforeach
 			</select>
 		</div>
 
-		<a href="{{ $U('/') }}" class="btn btn-success link-return">{{ $__t('OK') }}</a>
+		<a href="{{ $U('/') }}"
+			class="btn btn-success link-return">{{ $__t('OK') }}</a>
 	</div>
 </div>
 @stop
