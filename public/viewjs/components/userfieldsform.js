@@ -121,7 +121,7 @@ Grocy.Components.UserfieldsForm.Load = function()
 							.attr('href', U('/files/userfiles/' + value))
 							.text(file_name);
 						file_info.find('img.userfield-current-file')
-							.attr('src', U('/files/userfiles/' + value + '?force_serve_as=picture'))
+							.attr('src', U('/files/userfiles/' + value + '?force_serve_as=picture&best_fit_width=250&best_fit_height=250'))
 						file_info.find('button.userfield-file-delete').click(
 							function () {
 								file_info.addClass('d-none');
