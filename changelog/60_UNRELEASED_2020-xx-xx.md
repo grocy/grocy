@@ -81,8 +81,8 @@
   - The `config.php` option `CULTURE` was renamed to `DEFAULT_LOCALE`
   - So the used language is based on (in that order)
     - The user setting
-	- If not set, then based on browser locale
-	- If no matching localizaton was found, `DEFAULT_LOCALE` from `config.php` is used
+    - If not set, then based on browser locale
+    - If no matching localizaton was found, `DEFAULT_LOCALE` from `config.php` is used
 - Performance improvements (page loading time) of the stock overview page (thanks @fipwmaqzufheoxq92ebc)
 - The prerequisites checker now also checks for the minimum required SQLite version (thanks @Forceu)
 - Replaced (again, added before in v2.7.0, then reverted in v2.7.1 due to some problems) [QuaggaJS](https://github.com/serratus/quaggaJS) (seems to be unmaintained) by [Quagga2](https://github.com/ericblade/quagga2)
