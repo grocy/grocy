@@ -1,22 +1,20 @@
 <?php
 
-
 namespace Grocy\Middleware;
 
+use Grocy\Services\SessionService;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-use Grocy\Services\SessionService;
-
 class SessionAuthMiddleware extends AuthMiddleware
 {
+	protected $SessionCookieName;
+
 	public function __construct(\DI\Container $container, ResponseFactoryInterface $responseFactory)
 	{
 		parent::__construct($container, $responseFactory);
 		$this->SessionCookieName = $this->AppContainer->get('LoginControllerInstance')->GetSessionCookieName();
 	}
-
-	protected $SessionCookieName;
 
 	function authenticate(Request $request)
 	{
@@ -26,6 +24,7 @@ class SessionAuthMiddleware extends AuthMiddleware
 		}
 
 		$sessionService = SessionService::getInstance();
+
 		if (!isset($_COOKIE[$this->SessionCookieName]) || !$sessionService->IsValidSession($_COOKIE[$this->SessionCookieName]))
 		{
 			return null;
@@ -34,5 +33,7 @@ class SessionAuthMiddleware extends AuthMiddleware
 		{
 			return $sessionService->GetUserBySessionKey($_COOKIE[$this->SessionCookieName]);
 		}
+
 	}
+
 }

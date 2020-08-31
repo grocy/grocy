@@ -11,6 +11,7 @@ class DefaultAuthMiddleware extends AuthMiddleware
 		// First try to authenticate by API key
 		$auth = new ApiKeyAuthMiddleware($this->AppContainer, $this->ResponseFactory);
 		$user = $auth->authenticate($request);
+
 		if ($user !== null)
 		{
 			return $user;
@@ -21,4 +22,5 @@ class DefaultAuthMiddleware extends AuthMiddleware
 		$user = $auth->authenticate($request);
 		return $user;
 	}
+
 }

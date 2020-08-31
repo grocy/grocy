@@ -6,7 +6,79 @@ namespace Grocy\Services;
 
 class DatabaseService
 {
+	private static $DbConnection = null;
+
+	private static $DbConnectionRaw = null;
+
 	private static $instance = null;
+
+	/**
+	 * @return boolean|\PDOStatement
+	 */
+	public function ExecuteDbQuery(string $sql)
+	{
+		$pdo = $this->GetDbConnectionRaw();
+
+		if ($this->ExecuteDbStatement($sql) === true)
+		{
+			return $pdo->query($sql);
+		}
+
+		return false;
+	}
+
+	/**
+	 * @return boolean
+	 */
+	public function ExecuteDbStatement(string $sql)
+	{
+		$pdo = $this->GetDbConnectionRaw();
+
+		if ($pdo->exec($sql) === false)
+		{
+			throw new Exception($pdo->errorInfo());
+		}
+
+		return true;
+	}
+
+	public function GetDbChangedTime()
+	{
+		return date('Y-m-d H:i:s', filemtime($this->GetDbFilePath()));
+	}
+
+	/**
+	 * @return \LessQL\Database
+	 */
+	public function GetDbConnection()
+	{
+		if (self::$DbConnection == null)
+		{
+			self::$DbConnection = new \LessQL\Database($this->GetDbConnectionRaw());
+		}
+
+		return self::$DbConnection;
+	}
+
+	/**
+	 * @return \PDO
+	 */
+	public function GetDbConnectionRaw()
+	{
+		if (self::$DbConnectionRaw == null)
+		{
+			$pdo = new \PDO('sqlite:' . $this->GetDbFilePath());
+			$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+			self::$DbConnectionRaw = $pdo;
+		}
+
+		return self::$DbConnectionRaw;
+	}
+
+	public function SetDbChangedTime($dateTime)
+	{
+		touch($this->GetDbFilePath(), strtotime($dateTime));
+	}
 
 	public static function getInstance()
 	{
@@ -28,71 +100,4 @@ class DatabaseService
 		return GROCY_DATAPATH . '/grocy.db';
 	}
 
-	private static $DbConnectionRaw = null;
-	/**
-	 * @return \PDO
-	 */
-	public function GetDbConnectionRaw()
-	{
-		if (self::$DbConnectionRaw == null)
-		{
-			$pdo = new \PDO('sqlite:' . $this->GetDbFilePath());
-			$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-			self::$DbConnectionRaw = $pdo;
-		}
-
-		return self::$DbConnectionRaw;
-	}
-
-	private static $DbConnection = null;
-	/**
-	 * @return \LessQL\Database
-	 */
-	public function GetDbConnection()
-	{
-		if (self::$DbConnection == null)
-		{
-			self::$DbConnection = new \LessQL\Database($this->GetDbConnectionRaw());
-		}
-
-		return self::$DbConnection;
-	}
-
-	/**
-	 * @return boolean
-	 */
-	public function ExecuteDbStatement(string $sql)
-	{
-		$pdo = $this->GetDbConnectionRaw();
-		if ($pdo->exec($sql) === false)
-		{
-			throw new Exception($pdo->errorInfo());
-		}
-
-		return true;
-	}
-
-	/**
-	 * @return boolean|\PDOStatement
-	 */
-	public function ExecuteDbQuery(string $sql)
-	{
-		$pdo = $this->GetDbConnectionRaw();
-		if ($this->ExecuteDbStatement($sql) === true)
-		{
-			return $pdo->query($sql);
-		}
-
-		return false;
-	}
-
-	public function GetDbChangedTime()
-	{
-		return date('Y-m-d H:i:s', filemtime($this->GetDbFilePath()));
-	}
-
-	public function SetDbChangedTime($dateTime)
-	{
-		touch($this->GetDbFilePath(), strtotime($dateTime));
-	}
 }

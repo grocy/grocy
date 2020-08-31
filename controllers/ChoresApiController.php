@@ -6,40 +6,41 @@ use Grocy\Controllers\Users\User;
 
 class ChoresApiController extends BaseApiController
 {
-	public function __construct(\DI\Container $container)
+	public function CalculateNextExecutionAssignments(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		parent::__construct($container);
-	}
-
-	public function TrackChoreExecution(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
-	{
-		$requestBody = $request->getParsedBody();
-
 		try
 		{
-			User::checkPermission($request, User::PERMISSION_CHORE_TRACK_EXECUTION);
+			$requestBody = $request->getParsedBody();
 
-			$trackedTime = date('Y-m-d H:i:s');
-			if (array_key_exists('tracked_time', $requestBody) && (IsIsoDateTime($requestBody['tracked_time']) || IsIsoDate($requestBody['tracked_time'])))
+			$choreId = null;
+
+			if (array_key_exists('chore_id', $requestBody) && !empty($requestBody['chore_id']) && is_numeric($requestBody['chore_id']))
 			{
-				$trackedTime = $requestBody['tracked_time'];
+				$choreId = intval($requestBody['chore_id']);
 			}
 
-			$doneBy = GROCY_USER_ID;
-			if (array_key_exists('done_by', $requestBody) && !empty($requestBody['done_by']))
+			if ($choreId === null)
 			{
-				$doneBy = $requestBody['done_by'];
-			}
-			if($doneBy != GROCY_USER_ID)
-				User::checkPermission($request, User::PERMISSION_CHORE_TRACK_EXECUTION_EXECUTION);
+				$chores = $this->getDatabase()->chores();
 
-			$choreExecutionId = $this->getChoresService()->TrackChore($args['choreId'], $trackedTime, $doneBy);
-			return $this->ApiResponse($response, $this->getDatabase()->chores_log($choreExecutionId));
+				foreach ($chores as $chore)
+				{
+					$this->getChoresService()->CalculateNextExecutionAssignment($chore->id);
+				}
+
+			}
+			else
+			{
+				$this->getChoresService()->CalculateNextExecutionAssignment($choreId);
+			}
+
+			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
+
 	}
 
 	public function ChoreDetails(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -52,11 +53,49 @@ class ChoresApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
+
 	}
 
 	public function Current(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->ApiResponse($response, $this->getChoresService()->GetCurrent());
+	}
+
+	public function TrackChoreExecution(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		$requestBody = $request->getParsedBody();
+
+		try
+		{
+			User::checkPermission($request, User::PERMISSION_CHORE_TRACK_EXECUTION);
+
+			$trackedTime = date('Y-m-d H:i:s');
+
+			if (array_key_exists('tracked_time', $requestBody) && (IsIsoDateTime($requestBody['tracked_time']) || IsIsoDate($requestBody['tracked_time'])))
+			{
+				$trackedTime = $requestBody['tracked_time'];
+			}
+
+			$doneBy = GROCY_USER_ID;
+
+			if (array_key_exists('done_by', $requestBody) && !empty($requestBody['done_by']))
+			{
+				$doneBy = $requestBody['done_by'];
+			}
+
+			if ($doneBy != GROCY_USER_ID)
+			{
+				User::checkPermission($request, User::PERMISSION_CHORE_TRACK_EXECUTION_EXECUTION);
+			}
+
+			$choreExecutionId = $this->getChoresService()->TrackChore($args['choreId'], $trackedTime, $doneBy);
+			return $this->ApiResponse($response, $this->getDatabase()->chores_log($choreExecutionId));
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+
 	}
 
 	public function UndoChoreExecution(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -72,38 +111,12 @@ class ChoresApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
+
 	}
 
-	public function CalculateNextExecutionAssignments(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function __construct(\DI\Container $container)
 	{
-		try
-		{
-			$requestBody = $request->getParsedBody();
-
-			$choreId = null;
-			if (array_key_exists('chore_id', $requestBody) && !empty($requestBody['chore_id']) && is_numeric($requestBody['chore_id']))
-			{
-				$choreId = intval($requestBody['chore_id']);
-			}
-
-			if ($choreId === null)
-			{
-				$chores = $this->getDatabase()->chores();
-				foreach ($chores as $chore)
-				{
-					$this->getChoresService()->CalculateNextExecutionAssignment($chore->id);
-				}
-			}
-			else
-			{
-				$this->getChoresService()->CalculateNextExecutionAssignment($choreId);
-			}
-
-			return $this->EmptyApiResponse($response);
-		}
-		catch (\Exception $ex)
-		{
-			return $this->GenericErrorResponse($response, $ex->getMessage());
-		}
+		parent::__construct($container);
 	}
+
 }

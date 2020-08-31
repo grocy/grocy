@@ -6,17 +6,14 @@ namespace Grocy\Services;
 
 class DemoDataGeneratorService extends BaseService
 {
-	public function __construct()
-	{
-		parent::__construct();
-		$this->LocalizationService = new LocalizationService(GROCY_DEFAULT_LOCALE);
-	}
-
 	protected $LocalizationService;
+
+	private $LastSupermarketId = 1;
 
 	public function PopulateDemoData()
 	{
 		$rowCount = $this->getDatabaseService()->ExecuteDbQuery('SELECT COUNT(*) FROM migrations WHERE migration = -1')->fetchColumn();
+
 		if (intval($rowCount) === 0)
 		{
 			$loremIpsum = 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.';
@@ -314,14 +311,29 @@ class DemoDataGeneratorService extends BaseService
 			$this->DownloadFileIfNotAlreadyExists('https://releases.grocy.info/demoresources/chocolate_sauce.jpg', "$recipePicturesFolder/chocolate_sauce.jpg");
 			$this->DownloadFileIfNotAlreadyExists('https://releases.grocy.info/demoresources/pancakes_chocolate_sauce.jpg', "$recipePicturesFolder/pancakes_chocolate_sauce.jpg");
 		}
+
 	}
 
-	private function RandomPrice()
+	public function __construct()
 	{
-		return mt_rand(2 * 100, 25 * 100) / 100;
+		parent::__construct();
+		$this->LocalizationService = new LocalizationService(GROCY_DEFAULT_LOCALE);
 	}
 
-	private $LastSupermarketId = 1;
+	private function DownloadFileIfNotAlreadyExists($sourceUrl, $destinationPath)
+	{
+		if (!file_exists($destinationPath))
+		{
+			file_put_contents($destinationPath, file_get_contents($sourceUrl, false, stream_context_create([
+				'ssl' => [
+					'verify_peer' => false,
+					'verify_peer_name' => false
+				]
+			])));
+		}
+
+	}
+
 	private function NextSupermarketId()
 	{
 		$returnValue = $this->LastSupermarketId;
@@ -338,10 +350,9 @@ class DemoDataGeneratorService extends BaseService
 		return $returnValue;
 	}
 
-	private function __t_sql(string $text)
+	private function RandomPrice()
 	{
-		$localizedText = $this->getLocalizationService()->__t($text, null);
-		return str_replace("'", "''", $localizedText);
+		return mt_rand(2 * 100, 25 * 100) / 100;
 	}
 
 	private function __n_sql($number, string $singularForm, string $pluralForm)
@@ -350,16 +361,10 @@ class DemoDataGeneratorService extends BaseService
 		return str_replace("'", "''", $localizedText);
 	}
 
-	private function DownloadFileIfNotAlreadyExists($sourceUrl, $destinationPath)
+	private function __t_sql(string $text)
 	{
-		if (!file_exists($destinationPath))
-		{
-			file_put_contents($destinationPath, file_get_contents($sourceUrl, false, stream_context_create(array(
-				'ssl' => array(
-				'verify_peer' => false,
-				'verify_peer_name' => false,
-				),
-			))));
-		}
+		$localizedText = $this->getLocalizationService()->__t($text, null);
+		return str_replace("'", "''", $localizedText);
 	}
+
 }

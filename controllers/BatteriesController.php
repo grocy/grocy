@@ -4,9 +4,46 @@ namespace Grocy\Controllers;
 
 class BatteriesController extends BaseController
 {
-	public function __construct(\DI\Container $container)
+	public function BatteriesList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		parent::__construct($container);
+		return $this->renderPage($response, 'batteries', [
+			'batteries' => $this->getDatabase()->batteries()->orderBy('name'),
+			'userfields' => $this->getUserfieldsService()->GetFields('batteries'),
+			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('batteries')
+		]);
+	}
+
+	public function BatteriesSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		return $this->renderPage($response, 'batteriessettings');
+	}
+
+	public function BatteryEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		if ($args['batteryId'] == 'new')
+		{
+			return $this->renderPage($response, 'batteryform', [
+				'mode' => 'create',
+				'userfields' => $this->getUserfieldsService()->GetFields('batteries')
+			]);
+		}
+		else
+		{
+			return $this->renderPage($response, 'batteryform', [
+				'battery' => $this->getDatabase()->batteries($args['batteryId']),
+				'mode' => 'edit',
+				'userfields' => $this->getUserfieldsService()->GetFields('batteries')
+			]);
+		}
+
+	}
+
+	public function Journal(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		return $this->renderPage($response, 'batteriesjournal', [
+			'chargeCycles' => $this->getDatabase()->battery_charge_cycles()->orderBy('tracked_time', 'DESC'),
+			'batteries' => $this->getDatabase()->batteries()->orderBy('name')
+		]);
 	}
 
 	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -26,48 +63,13 @@ class BatteriesController extends BaseController
 	public function TrackChargeCycle(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'batterytracking', [
-			'batteries' =>  $this->getDatabase()->batteries()->orderBy('name')
-		]);
-	}
-
-	public function BatteriesList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
-	{
-		return $this->renderPage($response, 'batteries', [
-			'batteries' => $this->getDatabase()->batteries()->orderBy('name'),
-			'userfields' => $this->getUserfieldsService()->GetFields('batteries'),
-			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('batteries')
-		]);
-	}
-
-	public function BatteryEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
-	{
-		if ($args['batteryId'] == 'new')
-		{
-			return $this->renderPage($response, 'batteryform', [
-				'mode' => 'create',
-				'userfields' => $this->getUserfieldsService()->GetFields('batteries')
-			]);
-		}
-		else
-		{
-			return $this->renderPage($response, 'batteryform', [
-				'battery' =>  $this->getDatabase()->batteries($args['batteryId']),
-				'mode' => 'edit',
-				'userfields' => $this->getUserfieldsService()->GetFields('batteries')
-			]);
-		}
-	}
-
-	public function Journal(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
-	{
-		return $this->renderPage($response, 'batteriesjournal', [
-			'chargeCycles' => $this->getDatabase()->battery_charge_cycles()->orderBy('tracked_time', 'DESC'),
 			'batteries' => $this->getDatabase()->batteries()->orderBy('name')
 		]);
 	}
 
-	public function BatteriesSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function __construct(\DI\Container $container)
 	{
-		return $this->renderPage($response, 'batteriessettings');
+		parent::__construct($container);
 	}
+
 }

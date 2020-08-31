@@ -6,11 +6,6 @@ use Grocy\Controllers\Users\User;
 
 class TasksApiController extends BaseApiController
 {
-	public function __construct(\DI\Container $container)
-	{
-		parent::__construct($container);
-	}
-
 	public function Current(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->ApiResponse($response, $this->getTasksService()->GetCurrent());
@@ -25,6 +20,7 @@ class TasksApiController extends BaseApiController
 		try
 		{
 			$doneTime = date('Y-m-d H:i:s');
+
 			if (array_key_exists('done_time', $requestBody) && IsIsoDateTime($requestBody['done_time']))
 			{
 				$doneTime = $requestBody['done_time'];
@@ -37,6 +33,7 @@ class TasksApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
+
 	}
 
 	public function UndoTask(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -52,5 +49,12 @@ class TasksApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
+
 	}
+
+	public function __construct(\DI\Container $container)
+	{
+		parent::__construct($container);
+	}
+
 }

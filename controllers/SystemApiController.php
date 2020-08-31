@@ -4,18 +4,6 @@ namespace Grocy\Controllers;
 
 class SystemApiController extends BaseApiController
 {
-	public function __construct(\DI\Container $container)
-	{
-		parent::__construct($container);
-	}
-
-	public function GetDbChangedTime(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
-	{
-		return $this->ApiResponse($response, array(
-			'changed_time' => $this->getDatabaseService()->GetDbChangedTime()
-		));
-	}
-
 	public function GetConfig(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
@@ -28,13 +16,15 @@ class SystemApiController extends BaseApiController
 			unset($constants['GROCY_IS_EMBEDDED_INSTALL']);
 			unset($constants['GROCY_USER_ID']);
 
-			$returnArray = array();
+			$returnArray = [];
+
 			foreach ($constants as $constant => $value)
 			{
 				if (substr($constant, 0, 6) === 'GROCY_')
 				{
 					$returnArray[substr($constant, 6)] = $value;
 				}
+
 			}
 
 			return $this->ApiResponse($response, $returnArray);
@@ -43,6 +33,19 @@ class SystemApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
+
+	}
+
+	public function GetDbChangedTime(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		return $this->ApiResponse($response, [
+			'changed_time' => $this->getDatabaseService()->GetDbChangedTime()
+		]);
+	}
+
+	public function GetSystemInfo(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		return $this->ApiResponse($response, $this->getApplicationService()->GetSystemInfo());
 	}
 
 	public function LogMissingLocalization(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -60,11 +63,14 @@ class SystemApiController extends BaseApiController
 			{
 				return $this->GenericErrorResponse($response, $ex->getMessage());
 			}
+
 		}
+
 	}
 
-	public function GetSystemInfo(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function __construct(\DI\Container $container)
 	{
-		return $this->ApiResponse($response, $this->getApplicationService()->GetSystemInfo());
+		parent::__construct($container);
 	}
+
 }

@@ -27,16 +27,18 @@ class ExceptionController extends BaseApiController
 		$response = $this->app->getResponseFactory()->createResponse();
 
 		$isApiRoute = string_starts_with($request->getUri()->getPath(), '/api/');
+
 		if ($isApiRoute)
 		{
 			$status = 500;
+
 			if ($exception instanceof HttpException)
 			{
 				$status = $exception->getCode();
 			}
 
 			$data = [
-				'error_message' => $exception->getMessage(),
+				'error_message' => $exception->getMessage()
 			];
 
 			if ($displayErrorDetails)
@@ -44,7 +46,7 @@ class ExceptionController extends BaseApiController
 				$data['error_details'] = [
 					'stack_trace' => $exception->getTraceAsString(),
 					'file' => $exception->getFile(),
-					'line' => $exception->getLine(),
+					'line' => $exception->getLine()
 				];
 			}
 
@@ -71,4 +73,5 @@ class ExceptionController extends BaseApiController
 			'exception' => $exception
 		]);
 	}
+
 }

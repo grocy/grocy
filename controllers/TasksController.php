@@ -4,11 +4,6 @@ namespace Grocy\Controllers;
 
 class TasksController extends BaseController
 {
-	public function __construct(\DI\Container $container)
-	{
-		parent::__construct($container);
-	}
-
 	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if (isset($request->getQueryParams()['include_done']))
@@ -33,29 +28,6 @@ class TasksController extends BaseController
 		]);
 	}
 
-	public function TaskEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
-	{
-		if ($args['taskId'] == 'new')
-		{
-			return $this->renderPage($response, 'taskform', [
-				'mode' => 'create',
-				'taskCategories' => $this->getDatabase()->task_categories()->orderBy('name'),
-				'users' => $this->getDatabase()->users()->orderBy('username'),
-				'userfields' => $this->getUserfieldsService()->GetFields('tasks')
-			]);
-		}
-		else
-		{
-			return $this->renderPage($response, 'taskform', [
-				'task' =>  $this->getDatabase()->tasks($args['taskId']),
-				'mode' => 'edit',
-				'taskCategories' => $this->getDatabase()->task_categories()->orderBy('name'),
-				'users' => $this->getDatabase()->users()->orderBy('username'),
-				'userfields' => $this->getUserfieldsService()->GetFields('tasks')
-			]);
-		}
-	}
-
 	public function TaskCategoriesList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'taskcategories', [
@@ -77,15 +49,46 @@ class TasksController extends BaseController
 		else
 		{
 			return $this->renderPage($response, 'taskcategoryform', [
-				'category' =>  $this->getDatabase()->task_categories($args['categoryId']),
+				'category' => $this->getDatabase()->task_categories($args['categoryId']),
 				'mode' => 'edit',
 				'userfields' => $this->getUserfieldsService()->GetFields('task_categories')
 			]);
 		}
+
+	}
+
+	public function TaskEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		if ($args['taskId'] == 'new')
+		{
+			return $this->renderPage($response, 'taskform', [
+				'mode' => 'create',
+				'taskCategories' => $this->getDatabase()->task_categories()->orderBy('name'),
+				'users' => $this->getDatabase()->users()->orderBy('username'),
+				'userfields' => $this->getUserfieldsService()->GetFields('tasks')
+			]);
+		}
+		else
+		{
+			return $this->renderPage($response, 'taskform', [
+				'task' => $this->getDatabase()->tasks($args['taskId']),
+				'mode' => 'edit',
+				'taskCategories' => $this->getDatabase()->task_categories()->orderBy('name'),
+				'users' => $this->getDatabase()->users()->orderBy('username'),
+				'userfields' => $this->getUserfieldsService()->GetFields('tasks')
+			]);
+		}
+
 	}
 
 	public function TasksSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'taskssettings');
 	}
+
+	public function __construct(\DI\Container $container)
+	{
+		parent::__construct($container);
+	}
+
 }

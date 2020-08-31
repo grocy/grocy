@@ -2,21 +2,20 @@
 
 namespace Grocy\Middleware;
 
+use Grocy\Services\ApiKeyService;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Routing\RouteContext;
 
-use Grocy\Services\ApiKeyService;
-
 class ApiKeyAuthMiddleware extends AuthMiddleware
 {
+	protected $ApiKeyHeaderName;
+
 	public function __construct(\DI\Container $container, ResponseFactoryInterface $responseFactory)
 	{
 		parent::__construct($container, $responseFactory);
 		$this->ApiKeyHeaderName = $this->AppContainer->get('ApiKeyHeaderName');
 	}
-
-	protected $ApiKeyHeaderName;
 
 	function authenticate(Request $request)
 	{
@@ -34,7 +33,7 @@ class ApiKeyAuthMiddleware extends AuthMiddleware
 
 		$apiKeyService = new ApiKeyService();
 
-		// First check of the API key in the configured header
+// First check of the API key in the configured header
 		if (!$request->hasHeader($this->ApiKeyHeaderName) || !$apiKeyService->IsValidApiKey($request->getHeaderLine($this->ApiKeyHeaderName)))
 		{
 			$validApiKey = false;
@@ -44,14 +43,14 @@ class ApiKeyAuthMiddleware extends AuthMiddleware
 			$usedApiKey = $request->getHeaderLine($this->ApiKeyHeaderName);
 		}
 
-		// Not recommended, but it's also possible to provide the API key via a query parameter (same name as the configured header)
+// Not recommended, but it's also possible to provide the API key via a query parameter (same name as the configured header)
 		if (!$validApiKey && !empty($request->getQueryParam($this->ApiKeyHeaderName)) && $apiKeyService->IsValidApiKey($request->getQueryParam($this->ApiKeyHeaderName)))
 		{
 			$validApiKey = true;
 			$usedApiKey = $request->getQueryParam($this->ApiKeyHeaderName);
 		}
 
-		// Handling of special purpose API keys
+// Handling of special purpose API keys
 		if (!$validApiKey)
 		{
 			if ($routeName === 'calendar-ical')
@@ -60,7 +59,9 @@ class ApiKeyAuthMiddleware extends AuthMiddleware
 				{
 					$validApiKey = true;
 				}
+
 			}
+
 		}
 
 		if ($validApiKey)
@@ -72,5 +73,7 @@ class ApiKeyAuthMiddleware extends AuthMiddleware
 		{
 			return null;
 		}
+
 	}
+
 }

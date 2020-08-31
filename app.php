@@ -1,20 +1,19 @@
 <?php
 
+use Grocy\Controllers\LoginController;
+use Grocy\Helpers\UrlManager;
 use Grocy\Middleware\CorsMiddleware;
-use Psr\Http\Message\ServerRequestInterface as Request;
-use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Container\ContainerInterface as Container;
 use Slim\Factory\AppFactory;
-
-use Grocy\Helpers\UrlManager;
-use Grocy\Controllers\LoginController;
 
 // Load composer dependencies
 require_once __DIR__ . '/vendor/autoload.php';
 
 // Load config files
 require_once GROCY_DATAPATH . '/config.php';
-require_once __DIR__ . '/config-dist.php'; // For not in own config defined values we use the default ones
+require_once __DIR__ . '/config-dist.php';
+
+// For not in own config defined values we use the default ones
 
 // Definitions for dev/demo/prerelease mode
 if ((GROCY_MODE === 'dev' || GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease') && !defined('GROCY_USER_ID'))
@@ -30,6 +29,7 @@ if (GROCY_DISABLE_AUTH === true)
 	{
 		define('GROCY_USER_ID', 1);
 	}
+
 	define('GROCY_SHOW_AUTH_VIEWS', false);
 }
 
@@ -38,19 +38,19 @@ AppFactory::setContainer(new DI\Container());
 $app = AppFactory::create();
 
 $container = $app->getContainer();
-$container->set('view', function(Container $container)
+$container->set('view', function (Container $container)
 {
 	return new Slim\Views\Blade(__DIR__ . '/views', GROCY_DATAPATH . '/viewcache');
 });
-$container->set('LoginControllerInstance', function(Container $container)
+$container->set('LoginControllerInstance', function (Container $container)
 {
 	return new LoginController($container, 'grocy_session');
 });
-$container->set('UrlManager', function(Container $container)
+$container->set('UrlManager', function (Container $container)
 {
 	return new UrlManager(GROCY_BASE_URL);
 });
-$container->set('ApiKeyHeaderName', function(Container $container)
+$container->set('ApiKeyHeaderName', function (Container $container)
 {
 	return 'GROCY-API-KEY';
 });
@@ -68,7 +68,8 @@ if (GROCY_MODE === 'production' || GROCY_MODE === 'dev')
 {
 	$app->add(new \Grocy\Middleware\LocaleMiddleware($container));
 }
-else {
+else
+{
 	define('GROCY_LOCALE', GROCY_DEFAULT_LOCALE);
 }
 

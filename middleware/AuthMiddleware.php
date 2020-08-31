@@ -2,23 +2,22 @@
 
 namespace Grocy\Middleware;
 
+use Grocy\Services\SessionService;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 use Slim\Routing\RouteContext;
 
-use Grocy\Services\SessionService;
-
 abstract class AuthMiddleware extends BaseMiddleware
 {
+	protected $ResponseFactory;
+
 	public function __construct(\DI\Container $container, ResponseFactoryInterface $responseFactory)
 	{
 		parent::__construct($container);
 		$this->ResponseFactory = $responseFactory;
 	}
-
-	protected $ResponseFactory;
 
 	public function __invoke(Request $request, RequestHandler $handler): Response
 	{
@@ -31,11 +30,14 @@ abstract class AuthMiddleware extends BaseMiddleware
 		{
 			return $handler->handle($request);
 		}
-		else if ($routeName === 'login')
+		else
+
+		if ($routeName === 'login')
 		{
 			define('GROCY_AUTHENTICATED', false);
 			return $handler->handle($request);
 		}
+
 		if (GROCY_MODE === 'dev' || GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease' || GROCY_IS_EMBEDDED_INSTALL || GROCY_DISABLE_AUTH)
 		{
 			$sessionService = SessionService::getInstance();
@@ -55,6 +57,7 @@ abstract class AuthMiddleware extends BaseMiddleware
 				define('GROCY_AUTHENTICATED', false);
 
 				$response = $this->ResponseFactory->createResponse();
+
 				if ($isApiRoute)
 				{
 					return $response->withStatus(401);
@@ -63,6 +66,7 @@ abstract class AuthMiddleware extends BaseMiddleware
 				{
 					return $response->withHeader('Location', $this->AppContainer->get('UrlManager')->ConstructUrl('/login'));
 				}
+
 			}
 			else
 			{
@@ -72,7 +76,9 @@ abstract class AuthMiddleware extends BaseMiddleware
 
 				return $response = $handler->handle($request);
 			}
+
 		}
+
 	}
 
 	/**

@@ -1,9 +1,11 @@
 <?php
 
-class ERequirementNotMet extends Exception { }
+class ERequirementNotMet extends Exception
+{
+}
 
-const REQUIRED_PHP_EXTENSIONS = array('fileinfo', 'pdo_sqlite', 'gd');
-const REQUIRED_SQLITE_VERSION = "3.8.3";
+const REQUIRED_PHP_EXTENSIONS = ['fileinfo', 'pdo_sqlite', 'gd'];
+const REQUIRED_SQLITE_VERSION = '3.8.3';
 
 class PrerequisiteChecker
 {
@@ -16,13 +18,13 @@ class PrerequisiteChecker
 		self::checkForSqliteVersion();
 	}
 
-
-	private function checkForConfigFile()
+	private function checkForComposer()
 	{
-		if (!file_exists(GROCY_DATAPATH . '/config.php'))
+		if (!file_exists(__DIR__ . '/../vendor/autoload.php'))
 		{
-			throw new ERequirementNotMet('config.php in data directory (' . GROCY_DATAPATH . ') not found. Have you copied config-dist.php to the data directory and renamed it to config.php?');
+			throw new ERequirementNotMet('/vendor/autoload.php not found. Have you run Composer?');
 		}
+
 	}
 
 	private function checkForConfigDistFile()
@@ -31,42 +33,48 @@ class PrerequisiteChecker
 		{
 			throw new ERequirementNotMet('config-dist.php not found. Please do not remove this file.');
 		}
+
 	}
 
-	private function checkForComposer()
+	private function checkForConfigFile()
 	{
-		if (!file_exists(__DIR__ . '/../vendor/autoload.php'))
+		if (!file_exists(GROCY_DATAPATH . '/config.php'))
 		{
-			throw new ERequirementNotMet('/vendor/autoload.php not found. Have you run Composer?');
+			throw new ERequirementNotMet('config.php in data directory (' . GROCY_DATAPATH . ') not found. Have you copied config-dist.php to the data directory and renamed it to config.php?');
 		}
+
 	}
 
 	private function checkForPhpExtensions()
 	{
 		$loadedExtensions = get_loaded_extensions();
+
 		foreach (REQUIRED_PHP_EXTENSIONS as $extension)
 		{
 			if (!in_array($extension, $loadedExtensions))
 			{
 				throw new ERequirementNotMet("PHP module '{$extension}' not installed, but required.");
 			}
-		}
-	}
 
+		}
+
+	}
 
 	private function checkForSqliteVersion()
 	{
 		$sqliteVersion = self::getSqlVersionAsString();
+
 		if (version_compare($sqliteVersion, REQUIRED_SQLITE_VERSION, '<'))
 		{
 			throw new ERequirementNotMet('SQLite ' . REQUIRED_SQLITE_VERSION . ' is required, however you are running ' . $sqliteVersion);
 		}
+
 	}
 
-   private function getSqlVersionAsString()
-   {
-	$dbh = new PDO('sqlite::memory:');
-	return $dbh->query('select sqlite_version()')->fetch()[0];
-   }
+	private function getSqlVersionAsString()
+	{
+		$dbh = new PDO('sqlite::memory:');
+		return $dbh->query('select sqlite_version()')->fetch()[0];
+	}
 
 }

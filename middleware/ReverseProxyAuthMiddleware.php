@@ -2,10 +2,9 @@
 
 namespace Grocy\Middleware;
 
-use Psr\Http\Message\ServerRequestInterface as Request;
-
 use Grocy\Services\DatabaseService;
 use Grocy\Services\UsersService;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 class ReverseProxyAuthMiddleware extends AuthMiddleware
 {
@@ -23,7 +22,7 @@ class ReverseProxyAuthMiddleware extends AuthMiddleware
 		if (count($username) !== 1)
 		{
 			// Invalid configuration of Proxy
-			throw new \Exception("ReverseProxyAuthMiddleware: Invalid username from proxy: " . var_dump($username));
+			throw new \Exception('ReverseProxyAuthMiddleware: Invalid username from proxy: ' . var_dump($username));
 		}
 
 		$username = $username[0];
@@ -37,4 +36,5 @@ class ReverseProxyAuthMiddleware extends AuthMiddleware
 
 		return $user;
 	}
+
 }

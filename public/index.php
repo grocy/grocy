@@ -1,6 +1,7 @@
 <?php
 
 // Definitions for embedded mode
+
 if (file_exists(__DIR__ . '/../embedded.txt'))
 {
 	define('GROCY_IS_EMBEDDED_INSTALL', true);
@@ -12,6 +13,7 @@ else
 	define('GROCY_IS_EMBEDDED_INSTALL', false);
 
 	$datapath = 'data';
+
 	if (getenv('GROCY_DATAPATH') !== false)
 	{
 		$datapath = getenv('GROCY_DATAPATH');
@@ -25,6 +27,7 @@ else
 	{
 		$datapath = __DIR__ . '/../' . $datapath;
 	}
+
 	define('GROCY_DATAPATH', $datapath);
 }
 
@@ -32,11 +35,11 @@ require_once __DIR__ . '/../helpers/PrerequisiteChecker.php';
 
 try
 {
-	(new PrerequisiteChecker)->checkRequirements();
+	(new PrerequisiteChecker())->checkRequirements();
 }
 catch (ERequirementNotMet $ex)
 {
-	die('Unable to run grocy: ' . $ex->getMessage());
+	exit('Unable to run grocy: ' . $ex->getMessage());
 }
 
 require_once __DIR__ . '/../app.php';

@@ -18,10 +18,10 @@ class TasksService extends BaseService
 		}
 
 		$taskRow = $this->getDatabase()->tasks()->where('id = :1', $taskId)->fetch();
-		$taskRow->update(array(
+		$taskRow->update([
 			'done' => 1,
 			'done_timestamp' => $doneTime
-		));
+		]);
 
 		return true;
 	}
@@ -34,10 +34,10 @@ class TasksService extends BaseService
 		}
 
 		$taskRow = $this->getDatabase()->tasks()->where('id = :1', $taskId)->fetch();
-		$taskRow->update(array(
+		$taskRow->update([
 			'done' => 0,
 			'done_timestamp' => null
-		));
+		]);
 
 		return true;
 	}
@@ -47,4 +47,5 @@ class TasksService extends BaseService
 		$taskRow = $this->getDatabase()->tasks()->where('id = :1', $taskId)->fetch();
 		return $taskRow !== null;
 	}
+
 }
