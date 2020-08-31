@@ -81,5 +81,5 @@ $errorMiddleware->setDefaultErrorHandler(
 	new \Grocy\Controllers\ExceptionController($app, $container)
 );
 
-$app->add(CorsMiddleware::class);
+$app->add(new CorsMiddleware($app->getResponseFactory()));
 $app->run();
