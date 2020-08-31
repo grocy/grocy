@@ -24,7 +24,7 @@
 			</select>
 		</div>
 
-		<a href="{{ $U('/') }}" class="btn btn-success">{{ $__t('OK') }}</a>
+		<a href="{{ $U('/') }}" class="btn btn-success link-return">{{ $__t('OK') }}</a>
 	</div>
 </div>
 @stop
