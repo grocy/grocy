@@ -32,7 +32,7 @@ $app->group('', function(RouteCollectorProxy $group)
 	$group->get('/users', '\Grocy\Controllers\UsersController:UsersList');
 	$group->get('/user/{userId}', '\Grocy\Controllers\UsersController:UserEditForm');
 	$group->get('/user/{userId}/permissions', '\Grocy\Controllers\UsersController:PermissionList');
-	$group->get('/usersettings/locale', '\Grocy\Controllers\UsersController:LocaleForm');
+	$group->get('/usersettings', '\Grocy\Controllers\UsersController:UserSettings');
 
 	// Stock routes
 	if (GROCY_FEATURE_FLAG_STOCK)

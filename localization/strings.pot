@@ -1894,3 +1894,9 @@ msgstr ""
 
 msgid "Language"
 msgstr ""
+
+msgid "User settings"
+msgstr ""
+
+msgid "Default"
+msgstr ""

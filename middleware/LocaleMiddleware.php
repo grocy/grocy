@@ -24,7 +24,7 @@ class LocaleMiddleware extends BaseMiddleware
 		if(GROCY_AUTHENTICATED)
 		{
 			$locale = UsersService::getInstance()->GetUserSetting(GROCY_USER_ID, 'locale');
-			if (isset($locale)) {
+			if (isset($locale) && !empty($locale)) {
 				if (in_array($locale, scandir(__DIR__ . '/../localization'))) {
 					return $locale;
 				}

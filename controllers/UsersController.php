@@ -45,9 +45,9 @@ class UsersController extends BaseController
 		]);
 	}
 
-	public function LocaleForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function UserSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'locale', [
+		return $this->renderPage($response, 'usersettings', [
 			'languages' => array_filter(scandir(__DIR__.'/../localization'), function ($item){
 				if($item == "." || $item == "..")
 					return false;
