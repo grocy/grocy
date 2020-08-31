@@ -63,13 +63,15 @@ if (!empty(GROCY_BASE_PATH))
 {
 	$app->setBasePath(GROCY_BASE_PATH);
 }
-if (GROCY_MODE === 'production')
+
+if (GROCY_MODE === 'production' || GROCY_MODE === 'dev')
 {
 	$app->add(new \Grocy\Middleware\LocaleMiddleware($container));
 }
 else {
 	define('GROCY_LOCALE', GROCY_DEFAULT_LOCALE);
 }
+
 $authMiddlewareClass = GROCY_AUTH_CLASS;
 $app->add(new $authMiddlewareClass($container, $app->getResponseFactory()));
 // Add default middleware
