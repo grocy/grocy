@@ -44,3 +44,6 @@ msgstr ""
 
 msgid "file"
 msgstr ""
+
+msgid "image"
+msgstr ""

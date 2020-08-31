@@ -15,8 +15,9 @@ class UserfieldsService extends BaseService
 	const USERFIELD_TYPE_PRESET_CHECKLIST = 'preset-checklist';
 	const USERFIELD_TYPE_LINK = 'link';
 	const USERFIELD_TYPE_FILE = 'file';
+    const USERFIELD_TYPE_IMAGE = 'image';
 
-	public function __construct()
+    public function __construct()
 	{
 		parent::__construct();
 	}

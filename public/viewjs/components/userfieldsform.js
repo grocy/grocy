@@ -49,7 +49,6 @@ Grocy.Components.UserfieldsForm.Save = function(success, error)
 					},
 					function (xhr)
 					{
-						Grocy.FrontendHelpers.EndUiBusy("equipment-form");
 						Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 					}
 				);
@@ -121,6 +120,8 @@ Grocy.Components.UserfieldsForm.Load = function()
 						file_info.find('a.userfield-current-file')
 							.attr('href', U('/files/userfiles/' + value))
 							.text(file_name);
+						file_info.find('img.userfield-current-file')
+							.attr('src', U('/files/userfiles/' + value + '?force_serve_as=picture'))
 						file_info.find('button.userfield-file-delete').click(
 							function () {
 								file_info.addClass('d-none');
