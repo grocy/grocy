@@ -12,68 +12,90 @@ msgstr ""
 "Language: en\n"
 "X-Domain: grocy/locales\n"
 
+# Czech
 msgid "cs"
 msgstr ""
 
+# Danish
 msgid "da"
 msgstr ""
 
+# German
 msgid "de"
 msgstr ""
 
+# Greek
 msgid "el_GR"
 msgstr ""
 
+# English
 msgid "en"
 msgstr ""
 
+# English (Great Britain)
 msgid "en_GB"
 msgstr ""
 
+# Spanish
 msgid "es"
 msgstr ""
 
+# French
 msgid "fr"
 msgstr ""
 
+# Hungarian
 msgid "hu"
 msgstr ""
 
+# Italian
 msgid "it"
 msgstr ""
 
+# Japanese
 msgid "ja"
 msgstr ""
 
+# Korean
 msgid "ko_KR"
 msgstr ""
 
+# Dutch
 msgid "nl"
 msgstr ""
 
+# Norwegian
 msgid "no"
 msgstr ""
 
+# Polish
 msgid "pl"
 msgstr ""
 
+# Portuguese (Brazil)
 msgid "pt_BR"
 msgstr ""
 
+# Portuguese (Portugal)
 msgid "pt_PT"
 msgstr ""
 
+# Russian
 msgid "ru"
 msgstr ""
 
+# Slovak
 msgid "sk_SK"
 msgstr ""
 
+# Swedish
 msgid "sv_SE"
 msgstr ""
 
+# Turkish
 msgid "tr"
 msgstr ""
 
+# Chinese (Taiwan)
 msgid "zh_TW"
 msgstr ""
