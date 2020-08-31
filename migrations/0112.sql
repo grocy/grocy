@@ -8,7 +8,7 @@ BEGIN
 		AND IFNULL(value, '') = '';
 END;
 
-CREATE TRIGGER prevent_empty_userfields_UPD2 AFTER UPDATE ON userfield_values
+CREATE TRIGGER prevent_empty_userfields_UPD AFTER UPDATE ON userfield_values
 BEGIN
 	DELETE FROM userfield_values
 	WHERE id = NEW.id
