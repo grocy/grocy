@@ -44,4 +44,16 @@ class UsersController extends BaseController
 				->where('parent IS NULL')->where('user_id', $args['userId']),
 		]);
 	}
+
+	public function UserSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		return $this->renderPage($response, 'usersettings', [
+			'languages' => array_filter(scandir(__DIR__.'/../localization'), function ($item){
+				if($item == "." || $item == "..")
+					return false;
+				return is_dir(__DIR__.'/../localization/'.$item);
+			})
+
+		]);
+	}
 }

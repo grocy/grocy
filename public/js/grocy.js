@@ -670,3 +670,29 @@ $(Grocy.UserPermissions).each(function(index, item)
 		$('.permission-' + item.permission_name).addClass('disabled').addClass('not-allowed');
 	}
 });
+$('a.link-return').not(".btn").each(function () {
+	var base =  $(this).data('href');
+	if(base.contains('?'))
+	{
+		$(this).attr('href', base + '&returnto' + encodeURIComponent(location.pathname));
+	}
+	else{
+		$(this).attr('href', base + '?returnto=' + encodeURIComponent(location.pathname));
+	}
+
+})
+
+$(document).on("click", "a.btn.link-return", function(e)
+{
+	e.preventDefault();
+
+	var link = GetUriParam("returnto");
+	if (!link || !link.length > 0)
+	{
+		location.href = $(e.currentTarget).attr("href");
+	}
+	else
+	{
+		location.href = U(link);
+	}
+});

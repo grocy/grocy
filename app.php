@@ -1,5 +1,6 @@
 <?php
 
+use Grocy\Middleware\CorsMiddleware;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Container\ContainerInterface as Container;
@@ -63,6 +64,16 @@ if (!empty(GROCY_BASE_PATH))
 	$app->setBasePath(GROCY_BASE_PATH);
 }
 
+if (GROCY_MODE === 'production' || GROCY_MODE === 'dev')
+{
+	$app->add(new \Grocy\Middleware\LocaleMiddleware($container));
+}
+else {
+	define('GROCY_LOCALE', GROCY_DEFAULT_LOCALE);
+}
+
+$authMiddlewareClass = GROCY_AUTH_CLASS;
+$app->add(new $authMiddlewareClass($container, $app->getResponseFactory()));
 // Add default middleware
 $app->addRoutingMiddleware();
 $errorMiddleware = $app->addErrorMiddleware(true, false, false);
@@ -70,4 +81,5 @@ $errorMiddleware->setDefaultErrorHandler(
 	new \Grocy\Controllers\ExceptionController($app, $container)
 );
 
+$app->add(new CorsMiddleware($app->getResponseFactory()));
 $app->run();

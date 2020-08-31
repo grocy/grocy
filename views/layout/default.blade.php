@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ GROCY_CULTURE }}">
+<html lang="{{ GROCY_LOCALE }}">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -52,7 +52,7 @@
 		Grocy.BaseUrl = '{{ $U('/') }}';
 		Grocy.CurrentUrlRelative = "/" + window.location.href.split('?')[0].replace(Grocy.BaseUrl, "");
 		Grocy.ActiveNav = '@yield('activeNav', '')';
-		Grocy.Culture = '{{ GROCY_CULTURE }}';
+		Grocy.Culture = '{{ GROCY_LOCALE }}';
 		Grocy.Currency = '{{ GROCY_CURRENCY }}';
 		Grocy.CalendarFirstDayOfWeek = '{{ GROCY_CALENDAR_FIRST_DAY_OF_WEEK }}';
 		Grocy.CalendarShowWeekNumbers = {{ BoolToString(GROCY_CALENDAR_SHOW_WEEK_OF_YEAR) }};
@@ -416,6 +416,9 @@
 						@if(GROCY_FEATURE_FLAG_TASKS)
 						<a class="dropdown-item discrete-link permission-TASKS" href="{{ $U('/taskssettings') }}"><i class="fas fa-tasks"></i>&nbsp;{{ $__t('Tasks settings') }}</a>
 						@endif
+						<a data-href="{{ $U('/usersettings') }}" class="dropdown-item discrete-link link-return">
+							<i class="fas fa-user-cog"></i> {{ $__t('User settings') }}
+						</a>
 						<div class="dropdown-divider"></div>
 						@if(GROCY_SHOW_AUTH_VIEWS)
 						<a class="dropdown-item discrete-link permission-USERS_READ" href="{{ $U('/users') }}"><i class="fas fa-users"></i>&nbsp;{{ $__t('Manage users') }}</a>
