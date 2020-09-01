@@ -4,6 +4,8 @@ namespace Grocy\Services;
 
 #use \Grocy\Services\StockService;
 
+use LessQL\Result;
+
 class RecipesService extends BaseService
 {
 	const RECIPE_TYPE_MEALPLAN_DAY = 'mealplan-day';
@@ -82,10 +84,9 @@ class RecipesService extends BaseService
 		return $this->getDataBaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
 
-	public function GetRecipesResolved()
+	public function GetRecipesResolved(): Result
 	{
-		$sql = 'SELECT * FROM recipes_resolved';
-		return $this->getDataBaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
+		return $this->getDatabase()->recipes_resolved();
 	}
 
 	public function __construct()
