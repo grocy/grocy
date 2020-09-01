@@ -70,6 +70,29 @@
 - Breaking changes:
   - All prices are now related to the products **stock** quantity unit (instead the purchase QU)
   - The product object no longer has a field `barcodes` with a comma separated barcode list, instead barcodes are now stored in a separate table/entity `product_barcodes` (use the existing "Generic entity interactions" endpoints to access them)
+- The output of the following endpoints can now be filtered (by any field), ordered and paginated (thanks @fipwmaqzufheoxq92ebc)
+  - `/objects/{entity}/search`
+  - `/stock/products/{productId}/entries`
+  - `/stock/products/{productId}/locations`
+  - `/recipes/fulfillment`
+  - `/users`
+  - `/tasks`
+  - `/chores`
+  - `/batteries`
+  - There are 4 new (optional) query parameters to use that
+    - `order` The field to order by
+    - `limit` The maximum number of objects to return
+    - `offset` The number of objects to skip
+    - `query[]` An array of conditions, each of them is a string in the form of `<field><condition><value>`, where
+      - `<field>` is a field name
+      - `<condition>` is a comparison operator, one of
+        - `=` equal
+        - `~` LIKE
+        - `<` less
+        - `>` greater
+        - `>=` greater or equal
+        - `<=` less or equal
+      - `<value>` is the value to search for
 - Performance improvements of the `/stock/products/*` endpoints (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that the endpoint `/objects/{entity}/{objectId}` always returned successfully, even when the given object not exists (now returns `404` when the object is not found) (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that the endpoint `/stock/volatile` didn't include products which expire today (thanks @fipwmaqzufheoxq92ebc)
