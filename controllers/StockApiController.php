@@ -552,12 +552,12 @@ class StockApiController extends BaseApiController
 			$allowSubproductSubstitution = true;
 		}
 
-		return $this->ApiResponse($response, $this->getStockService()->GetProductStockEntries($args['productId'], false, $allowSubproductSubstitution));
+		return $this->FilteredApiResponse($response, $this->getStockService()->GetProductStockEntries($args['productId'], false, $allowSubproductSubstitution, false), $request->getQueryParams());
 	}
 
 	public function ProductStockLocations(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->ApiResponse($response, $this->getStockService()->GetProductStockLocations($args['productId']));
+		return $this->FilteredApiResponse($response, $this->getStockService()->GetProductStockLocations($args['productId']), $request->getQueryParams());
 	}
 
 	public function RemoveProductFromShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
