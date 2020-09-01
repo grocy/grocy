@@ -62,7 +62,6 @@ class UsersService extends BaseService
 		{
 			return null;
 		}
-
 	}
 
 	public function GetUserSettings($userId)
@@ -106,7 +105,6 @@ class UsersService extends BaseService
 			]);
 			$settingRow->save();
 		}
-
 	}
 
 	private function UserExists($userId)
@@ -114,5 +112,4 @@ class UsersService extends BaseService
 		$userRow = $this->getDatabase()->users()->where('id = :1', $userId)->fetch();
 		return $userRow !== null;
 	}
-
 }

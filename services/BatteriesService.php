@@ -66,5 +66,4 @@ class BatteriesService extends BaseService
 		$batteryRow = $this->getDatabase()->batteries()->where('id = :1', $batteryId)->fetch();
 		return $batteryRow !== null;
 	}
-
 }

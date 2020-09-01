@@ -34,22 +34,17 @@ class FilesService extends BaseService
 				{
 					$image->resizeToBestFit($bestFitWidth, $bestFitHeight);
 				}
-				else
-
-				if ($bestFitHeight !== null)
+				elseif ($bestFitHeight !== null)
 				{
 					$image->resizeToHeight($bestFitHeight);
 				}
-				else
-
-				if ($bestFitWidth !== null)
+				elseif ($bestFitWidth !== null)
 				{
 					$image->resizeToWidth($bestFitWidth);
 				}
 
 				$image->save($filePathDownscaled);
 			}
-
 		}
 		catch (ImageResizeException $ex)
 		{
@@ -81,7 +76,5 @@ class FilesService extends BaseService
 		{
 			mkdir($this->StoragePath);
 		}
-
 	}
-
 }

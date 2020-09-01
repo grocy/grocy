@@ -41,14 +41,12 @@ class UsersController extends BaseController
 				'mode' => 'edit'
 			]);
 		}
-
 	}
 
 	public function UserSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'usersettings', [
-			'languages' => array_filter(scandir(__DIR__ . '/../localization'), function ($item)
-			{
+			'languages' => array_filter(scandir(__DIR__ . '/../localization'), function ($item) {
 				if ($item == '.' || $item == '..')
 				{
 					return false;
@@ -56,7 +54,6 @@ class UsersController extends BaseController
 
 				return is_dir(__DIR__ . '/../localization/' . $item);
 			})
-
 		]);
 	}
 
@@ -67,5 +64,4 @@ class UsersController extends BaseController
 			'users' => $this->getDatabase()->users()->orderBy('username')
 		]);
 	}
-
 }

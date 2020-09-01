@@ -17,14 +17,14 @@ abstract class BaseBarcodeLookupPlugin
 			return $pluginOutput;
 		}
 
-// Plugin must return an associative array
+		// Plugin must return an associative array
 		if (!is_array($pluginOutput))
 		{
 			throw new \Exception('Plugin output must be an associative array');
 		}
 
-		if (!IsAssociativeArray($pluginOutput)) // $pluginOutput is at least an indexed array here
-		{
+		if (!IsAssociativeArray($pluginOutput))
+		{ // $pluginOutput is at least an indexed array here
 			throw new \Exception('Plugin output must be an associative array');
 		}
 
@@ -44,10 +44,9 @@ abstract class BaseBarcodeLookupPlugin
 			{
 				throw new \Exception("Plugin output does not provide needed property $prop");
 			}
-
 		}
 
-// $pluginOutput contains all needed properties here
+		// $pluginOutput contains all needed properties here
 
 		// Check referenced entity ids are valid
 		$locationId = $pluginOutput['location_id'];

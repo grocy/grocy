@@ -67,7 +67,6 @@ class StockController extends BaseController
 				'userfields' => $this->getUserfieldsService()->GetFields('locations')
 			]);
 		}
-
 	}
 
 	public function LocationsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -122,7 +121,6 @@ class StockController extends BaseController
 				'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name')
 			]);
 		}
-
 	}
 
 	public function ProductEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -159,7 +157,6 @@ class StockController extends BaseController
 				'quConversions' => $this->getDatabase()->quantity_unit_conversions()
 			]);
 		}
-
 	}
 
 	public function ProductGroupEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -179,7 +176,6 @@ class StockController extends BaseController
 				'userfields' => $this->getUserfieldsService()->GetFields('product_groups')
 			]);
 		}
-
 	}
 
 	public function ProductGroupsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -254,7 +250,6 @@ class StockController extends BaseController
 				'defaultQuUnit' => $defaultQuUnit
 			]);
 		}
-
 	}
 
 	public function QuantityUnitEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -282,7 +277,6 @@ class StockController extends BaseController
 				'quantityUnits' => $this->getDatabase()->quantity_units()
 			]);
 		}
-
 	}
 
 	public function QuantityUnitPluralFormTesting(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -338,7 +332,6 @@ class StockController extends BaseController
 				'mode' => 'edit'
 			]);
 		}
-
 	}
 
 	public function ShoppingListItemEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -360,7 +353,6 @@ class StockController extends BaseController
 				'mode' => 'edit'
 			]);
 		}
-
 	}
 
 	public function ShoppingListSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -385,7 +377,6 @@ class StockController extends BaseController
 				'userfields' => $this->getUserfieldsService()->GetFields('shopping_locations')
 			]);
 		}
-
 	}
 
 	public function ShoppingLocationsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -451,5 +442,4 @@ class StockController extends BaseController
 	{
 		parent::__construct($container);
 	}
-
 }

@@ -16,7 +16,7 @@ class SessionAuthMiddleware extends AuthMiddleware
 		$this->SessionCookieName = $this->AppContainer->get('LoginControllerInstance')->GetSessionCookieName();
 	}
 
-	function authenticate(Request $request)
+	public function authenticate(Request $request)
 	{
 		if (!defined('GROCY_SHOW_AUTH_VIEWS'))
 		{
@@ -33,7 +33,5 @@ class SessionAuthMiddleware extends AuthMiddleware
 		{
 			return $sessionService->GetUserBySessionKey($_COOKIE[$this->SessionCookieName]);
 		}
-
 	}
-
 }

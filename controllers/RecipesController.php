@@ -70,7 +70,6 @@ class RecipesController extends BaseController
 				$selectedRecipe = $recipe;
 				break;
 			}
-
 		}
 
 		$selectedRecipePositionsResolved = $this->getDatabase()->recipes_pos_resolved()->where('recipe_id = :1 AND is_nested_recipe_pos = 0', $selectedRecipe->id)->orderBy('ingredient_group', 'ASC', 'product_group', 'ASC');
@@ -160,7 +159,6 @@ class RecipesController extends BaseController
 				'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
 			]);
 		}
-
 	}
 
 	public function RecipesSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -172,5 +170,4 @@ class RecipesController extends BaseController
 	{
 		parent::__construct($container);
 	}
-
 }

@@ -2,7 +2,6 @@
 
 namespace Grocy\Services;
 
-#use \Grocy\Services\DatabaseService;
 use Gettext\Translation;
 use Gettext\Translations;
 use Gettext\Translator;
@@ -31,9 +30,7 @@ class LocalizationService
 				$this->PotMain[] = $translation;
 				$this->PotMain->toPoFile(__DIR__ . '/../localization/strings.pot');
 			}
-
 		}
-
 	}
 
 	public function GetPluralCount()
@@ -46,7 +43,6 @@ class LocalizationService
 		{
 			return 2;
 		}
-
 	}
 
 	public function GetPluralDefinition()
@@ -59,7 +55,6 @@ class LocalizationService
 		{
 			return '(n != 1)';
 		}
-
 	}
 
 	public function GetPoAsJsonString()
@@ -93,7 +88,6 @@ class LocalizationService
 		{
 			return vsprintf($this->Translator->gettext($text), ...$placeholderValues);
 		}
-
 	}
 
 	public static function getInstance(string $culture)
@@ -137,7 +131,6 @@ class LocalizationService
 			{
 				$this->Pot = $this->Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/demo_data.pot'));
 			}
-
 		}
 
 		$this->PoUserStrings = new Translations();
@@ -213,5 +206,4 @@ class LocalizationService
 		$this->Translator = new Translator();
 		$this->Translator->loadTranslations($this->Po);
 	}
-
 }

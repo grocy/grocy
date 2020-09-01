@@ -47,7 +47,6 @@ class CalendarApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function IcalSharingLink(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -62,12 +61,10 @@ class CalendarApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 	}
-
 }

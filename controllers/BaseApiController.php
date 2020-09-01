@@ -44,22 +44,31 @@ class BaseApiController extends BaseController
 	protected function queryData(Result $data, array $query)
 	{
 		if (isset($query['query']))
+		{
 			$data = $this->filter($data, $query['query']);
+		}
 		if (isset($query['limit']))
+		{
 			$data = $data->limit(intval($query['limit']), intval($query['offset'] ?? 0));
+		}
 		if (isset($query['order']))
+		{
 			$data = $data->orderBy($query['order']);
+		}
 		return $data;
 	}
 
 	protected function filter(Result $data, array $query): Result
 	{
-		foreach ($query as $q) {
-			$matches = array();
-			preg_match('/(?P<field>' . self::PATTERN_FIELD . ')'
+		foreach ($query as $q)
+		{
+			$matches = [];
+			preg_match(
+				'/(?P<field>' . self::PATTERN_FIELD . ')'
 				. '(?P<op>' . self::PATTERN_OPERATOR . ')'
 				. '(?P<value>' . self::PATTERN_VALUE . ')/',
-				$q, $matches
+				$q,
+				$matches
 			);
 			error_log(var_export($matches, true));
 			switch ($matches['op']) {
@@ -106,5 +115,4 @@ class BaseApiController extends BaseController
 
 		return $this->OpenApiSpec;
 	}
-
 }

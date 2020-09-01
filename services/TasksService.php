@@ -46,5 +46,4 @@ class TasksService extends BaseService
 		$taskRow = $this->getDatabase()->tasks()->where('id = :1', $taskId)->fetch();
 		return $taskRow !== null;
 	}
-
 }

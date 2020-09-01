@@ -37,7 +37,7 @@ class LoginController extends BaseController
 				$sessionKey = $this->getSessionService()->CreateSession($user->id, $stayLoggedInPermanently);
 				setcookie($this->SessionCookieName, $sessionKey, PHP_INT_SIZE == 4 ? PHP_INT_MAX : PHP_INT_MAX >> 32);
 
-// Cookie expires never, but session validity is up to SessionService
+				// Cookie expires never, but session validity is up to SessionService
 
 				if (password_needs_rehash($user->password, PASSWORD_DEFAULT))
 				{
@@ -52,13 +52,11 @@ class LoginController extends BaseController
 			{
 				return $response->withRedirect($this->AppContainer->get('UrlManager')->ConstructUrl('/login?invalid=true'));
 			}
-
 		}
 		else
 		{
 			return $response->withRedirect($this->AppContainer->get('UrlManager')->ConstructUrl('/login?invalid=true'));
 		}
-
 	}
 
 	public function __construct(\DI\Container $container, string $sessionCookieName)
@@ -66,5 +64,4 @@ class LoginController extends BaseController
 		parent::__construct($container);
 		$this->SessionCookieName = $sessionCookieName;
 	}
-
 }

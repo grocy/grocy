@@ -23,7 +23,6 @@ class EquipmentController extends BaseController
 				'userfields' => $this->getUserfieldsService()->GetFields('equipment')
 			]);
 		}
-
 	}
 
 	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -39,5 +38,4 @@ class EquipmentController extends BaseController
 	{
 		parent::__construct($container);
 	}
-
 }

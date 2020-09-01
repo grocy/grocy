@@ -32,7 +32,7 @@ class ApiKeyService extends BaseService
 		return $apiKey->id;
 	}
 
-// Returns any valid key for $keyType,
+	// Returns any valid key for $keyType,
 	// not allowed for key type "default"
 	public function GetOrCreateApiKey($keyType)
 	{
@@ -52,9 +52,7 @@ class ApiKeyService extends BaseService
 			{
 				return $this->CreateApiKey($keyType);
 			}
-
 		}
-
 	}
 
 	public function GetUserByApiKey($apiKey)
@@ -84,7 +82,7 @@ class ApiKeyService extends BaseService
 
 			if ($apiKeyRow !== null)
 			{
-// This should not change the database file modification time as this is used
+				// This should not change the database file modification time as this is used
 				// to determine if REALLY something has changed
 				$dbModTime = $this->getDatabaseService()->GetDbChangedTime();
 				$apiKeyRow->update([
@@ -98,9 +96,7 @@ class ApiKeyService extends BaseService
 			{
 				return false;
 			}
-
 		}
-
 	}
 
 	public function RemoveApiKey($apiKey)
@@ -112,5 +108,4 @@ class ApiKeyService extends BaseService
 	{
 		return RandomString(50);
 	}
-
 }

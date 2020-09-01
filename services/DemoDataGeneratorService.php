@@ -2,8 +2,6 @@
 
 namespace Grocy\Services;
 
-#use \Grocy\Services\LocalizationService;
-
 class DemoDataGeneratorService extends BaseService
 {
 	protected $LocalizationService;
@@ -311,7 +309,6 @@ class DemoDataGeneratorService extends BaseService
 			$this->DownloadFileIfNotAlreadyExists('https://releases.grocy.info/demoresources/chocolate_sauce.jpg', "$recipePicturesFolder/chocolate_sauce.jpg");
 			$this->DownloadFileIfNotAlreadyExists('https://releases.grocy.info/demoresources/pancakes_chocolate_sauce.jpg', "$recipePicturesFolder/pancakes_chocolate_sauce.jpg");
 		}
-
 	}
 
 	public function __construct()
@@ -331,7 +328,6 @@ class DemoDataGeneratorService extends BaseService
 				]
 			])));
 		}
-
 	}
 
 	private function NextSupermarketId()
@@ -366,5 +362,4 @@ class DemoDataGeneratorService extends BaseService
 		$localizedText = $this->getLocalizationService()->__t($text, null);
 		return str_replace("'", "''", $localizedText);
 	}
-
 }

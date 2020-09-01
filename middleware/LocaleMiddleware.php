@@ -28,9 +28,7 @@ class LocaleMiddleware extends BaseMiddleware
 				{
 					return $locale;
 				}
-
 			}
-
 		}
 
 		$langs = implode(',', $request->getHeader('Accept-Language'));
@@ -38,12 +36,13 @@ class LocaleMiddleware extends BaseMiddleware
 		// src: https://gist.github.com/spolischook/0cde9c6286415cddc088
 		$prefLocales = array_reduce(
 			explode(',', $langs),
-			function ($res, $el)
-			{
+			function ($res, $el) {
 				list($l, $q) = array_merge(explode(';q=', $el), [1]);
 				$res[$l] = (float) $q;
 				return $res;
-			}, []);
+			},
+			[]
+		);
 		arsort($prefLocales);
 
 		$availableLocales = scandir(__DIR__ . '/../localization');
@@ -55,25 +54,23 @@ class LocaleMiddleware extends BaseMiddleware
 				return $locale;
 			}
 
-// e.g. en_GB
+			// e.g. en_GB
 			if (in_array(substr($locale, 0, 5), $availableLocales))
 			{
 				return substr($locale, 0, 5);
 			}
 
-// e.g: cs
+			// e.g: cs
 
-// or en
+			// or en
 
-// or de
+			// or de
 			if (in_array(substr($locale, 0, 2), $availableLocales))
 			{
 				return substr($locale, 0, 2);
 			}
-
 		}
 
 		return GROCY_DEFAULT_LOCALE;
 	}
-
 }

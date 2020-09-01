@@ -54,7 +54,6 @@ class TasksController extends BaseController
 				'userfields' => $this->getUserfieldsService()->GetFields('task_categories')
 			]);
 		}
-
 	}
 
 	public function TaskEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -78,7 +77,6 @@ class TasksController extends BaseController
 				'userfields' => $this->getUserfieldsService()->GetFields('tasks')
 			]);
 		}
-
 	}
 
 	public function TasksSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -90,5 +88,4 @@ class TasksController extends BaseController
 	{
 		parent::__construct($container);
 	}
-
 }

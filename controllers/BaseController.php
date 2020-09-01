@@ -112,18 +112,15 @@ class BaseController
 		$this->View->set('releaseDate', $versionInfo->ReleaseDate);
 
 		$localizationService = $this->getLocalizationService();
-		$this->View->set('__t', function (string $text, ...$placeholderValues) use ($localizationService)
-		{
+		$this->View->set('__t', function (string $text, ...$placeholderValues) use ($localizationService) {
 			return $localizationService->__t($text, $placeholderValues);
 		});
-		$this->View->set('__n', function ($number, $singularForm, $pluralForm) use ($localizationService)
-		{
+		$this->View->set('__n', function ($number, $singularForm, $pluralForm) use ($localizationService) {
 			return $localizationService->__n($number, $singularForm, $pluralForm);
 		});
 		$this->View->set('GettextPo', $localizationService->GetPoAsJsonString());
 
-		$this->View->set('U', function ($relativePath, $isResource = false) use ($container)
-		{
+		$this->View->set('U', function ($relativePath, $isResource = false) use ($container) {
 			return $container->get('UrlManager')->ConstructUrl($relativePath, $isResource);
 		});
 
@@ -144,7 +141,6 @@ class BaseController
 			{
 				unset($constants[$constant]);
 			}
-
 		}
 
 		$this->View->set('featureFlags', $constants);
@@ -172,7 +168,6 @@ class BaseController
 			{
 				$this->View->set('userSettings', null);
 			}
-
 		}
 		catch (\Exception $ex)
 		{
@@ -181,5 +176,4 @@ class BaseController
 
 		return $this->render($response, $page, $data);
 	}
-
 }

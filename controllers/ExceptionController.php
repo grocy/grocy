@@ -73,5 +73,4 @@ class ExceptionController extends BaseApiController
 			'exception' => $exception
 		]);
 	}
-
 }

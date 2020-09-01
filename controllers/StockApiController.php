@@ -29,7 +29,6 @@ class StockApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function AddProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -99,7 +98,6 @@ class StockApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function AddProductByBarcode(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -113,7 +111,6 @@ class StockApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function AddProductToShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -161,7 +158,6 @@ class StockApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function ClearShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -186,7 +182,6 @@ class StockApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function ConsumeProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -266,7 +261,6 @@ class StockApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function CurrentStock(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -346,7 +340,6 @@ class StockApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function ExternalBarcodeLookup(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -368,7 +361,6 @@ class StockApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function InventoryProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -424,7 +416,6 @@ class StockApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function InventoryProductByBarcode(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -438,7 +429,6 @@ class StockApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function OpenProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -473,7 +463,6 @@ class StockApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function OpenProductByBarcode(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -487,7 +476,6 @@ class StockApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function ProductBarcodeDetails(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -500,7 +488,6 @@ class StockApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function ProductDetails(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -513,7 +500,6 @@ class StockApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function ProductDetailsByBarcode(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -527,7 +513,6 @@ class StockApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function ProductPriceHistory(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -540,7 +525,6 @@ class StockApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function ProductStockEntries(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -599,7 +583,6 @@ class StockApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function StockBooking(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -619,7 +602,6 @@ class StockApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function StockEntry(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -644,7 +626,6 @@ class StockApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function TransferProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -689,7 +670,6 @@ class StockApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function TransferProductByBarcode(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -703,7 +683,6 @@ class StockApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function UndoBooking(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -719,7 +698,6 @@ class StockApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function UndoTransaction(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -735,12 +713,10 @@ class StockApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 	}
-
 }

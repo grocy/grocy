@@ -30,9 +30,7 @@ abstract class AuthMiddleware extends BaseMiddleware
 		{
 			return $handler->handle($request);
 		}
-		else
-
-		if ($routeName === 'login')
+		elseif ($routeName === 'login')
 		{
 			define('GROCY_AUTHENTICATED', false);
 			return $handler->handle($request);
@@ -66,7 +64,6 @@ abstract class AuthMiddleware extends BaseMiddleware
 				{
 					return $response->withHeader('Location', $this->AppContainer->get('UrlManager')->ConstructUrl('/login'));
 				}
-
 			}
 			else
 			{
@@ -76,9 +73,7 @@ abstract class AuthMiddleware extends BaseMiddleware
 
 				return $response = $handler->handle($request);
 			}
-
 		}
-
 	}
 
 	/**
@@ -86,5 +81,5 @@ abstract class AuthMiddleware extends BaseMiddleware
 	 * @return mixed|null the user row or null if the request is not authenticated
 	 * @throws \Exception Throws an \Exception if config is invalid.
 	 */
-	protected abstract function authenticate(Request $request);
+	abstract protected function authenticate(Request $request);
 }

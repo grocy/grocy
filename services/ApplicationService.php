@@ -29,8 +29,7 @@ class ApplicationService extends BaseService
 		}
 
 		// Sort changelog items to have the changelog descending by newest version
-		usort($changelogItems, function ($a, $b)
-		{
+		usort($changelogItems, function ($a, $b) {
 			if ($a['release_number'] == $b['release_number'])
 			{
 				return 0;
@@ -59,7 +58,6 @@ class ApplicationService extends BaseService
 				$this->InstalledVersion->Version = "pre-release-$commitHash";
 				$this->InstalledVersion->ReleaseDate = substr($commitDate, 0, 19);
 			}
-
 		}
 
 		return $this->InstalledVersion;
@@ -77,5 +75,4 @@ class ApplicationService extends BaseService
 			'sqlite_version' => $sqliteVersion
 		];
 	}
-
 }

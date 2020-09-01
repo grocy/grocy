@@ -28,14 +28,13 @@ class CorsMiddleware
 		else
 		{
 			$response = $handler->handle($request);
-
 		}
 
-//$routeContext = RouteContext::fromRequest($request);
+		//$routeContext = RouteContext::fromRequest($request);
 
-//$routingResults = $routeContext->getRoutingResults();
+		//$routingResults = $routeContext->getRoutingResults();
 
-//$methods = $routingResults->getAllowedMethods();
+		//$methods = $routingResults->getAllowedMethods();
 		//$requestHeaders = $request->getHeaderLine('Access-Control-Request-Headers');
 
 		$response = $response->withHeader('Access-Control-Allow-Origin', '*');
@@ -44,5 +43,4 @@ class CorsMiddleware
 
 		return $response;
 	}
-
 }

@@ -25,7 +25,5 @@ class JsonMiddleware extends BaseMiddleware
 
 			return $response;
 		}
-
 	}
-
 }

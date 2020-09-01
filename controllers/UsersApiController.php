@@ -8,7 +8,8 @@ class UsersApiController extends BaseApiController
 {
 	public function AddPermission(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		try {
+		try
+		{
 			User::checkPermission($request, User::PERMISSION_ADMIN);
 			$requestBody = $request->getParsedBody();
 
@@ -26,7 +27,6 @@ class UsersApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function CreateUser(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -48,7 +48,6 @@ class UsersApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function DeleteUser(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -63,7 +62,6 @@ class UsersApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function EditUser(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -88,7 +86,6 @@ class UsersApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function GetUserSetting(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -102,7 +99,6 @@ class UsersApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function GetUserSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -115,7 +111,6 @@ class UsersApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function GetUsers(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -129,15 +124,16 @@ class UsersApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function ListPermissions(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		try {
+		try
+		{
 			User::checkPermission($request, User::PERMISSION_ADMIN);
 
-			return $this->ApiResponse($response,
+			return $this->ApiResponse(
+				$response,
 				$this->getDatabase()->user_permissions()->where($args['userId'])
 			);
 		}
@@ -149,12 +145,12 @@ class UsersApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function SetPermissions(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		try {
+		try
+		{
 			User::checkPermission($request, User::PERMISSION_ADMIN);
 			$requestBody = $request->getParsedBody();
 			$db = $this->getDatabase();
@@ -184,7 +180,6 @@ class UsersApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function SetUserSetting(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -200,12 +195,10 @@ class UsersApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 	}
-
 }

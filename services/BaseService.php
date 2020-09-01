@@ -61,5 +61,4 @@ class BaseService
 	{
 		return UsersService::getInstance();
 	}
-
 }

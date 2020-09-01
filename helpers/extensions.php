@@ -9,7 +9,6 @@ function FindObjectInArrayByPropertyValue($array, $propertyName, $propertyValue)
 		{
 			return $object;
 		}
-
 	}
 
 	return null;
@@ -25,7 +24,7 @@ function FindAllObjectsInArrayByPropertyValue($array, $propertyName, $propertyVa
 		{
 			case '==':
 
-				if ($object->	{$propertyName}
+				if ($object->{$propertyName}
 					== $propertyValue)
 				{
 					$returnArray[] = $object;
@@ -34,7 +33,7 @@ function FindAllObjectsInArrayByPropertyValue($array, $propertyName, $propertyVa
 				break;
 			case '>':
 
-				if ($object->	{$propertyName}
+				if ($object->{$propertyName}
 					> $propertyValue)
 				{
 					$returnArray[] = $object;
@@ -43,7 +42,7 @@ function FindAllObjectsInArrayByPropertyValue($array, $propertyName, $propertyVa
 				break;
 			case '<':
 
-				if ($object->	{$propertyName}
+				if ($object->{$propertyName}
 					< $propertyValue)
 				{
 					$returnArray[] = $object;
@@ -51,7 +50,6 @@ function FindAllObjectsInArrayByPropertyValue($array, $propertyName, $propertyVa
 
 				break;
 		}
-
 	}
 
 	return $returnArray;
@@ -90,7 +88,6 @@ function FindAllItemsInArrayByValue($array, $value, $operator = '==')
 
 				break;
 		}
-
 	}
 
 	return $returnArray;
@@ -122,7 +119,6 @@ function GetClassConstants($className, $prefix = null)
 		$matchingKeys = preg_grep('!^' . $prefix . '!', array_keys($constants));
 		return array_intersect_key($constants, array_flip($matchingKeys));
 	}
-
 }
 
 function RandomString($length, $allowedChars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
@@ -188,17 +184,15 @@ function Setting(string $name, $value)
 		{
 			define('GROCY_' . $name, ExternalSettingValue(file_get_contents($settingOverrideFile)));
 		}
-		elseif (getenv('GROCY_' . $name) !== false) // An environment variable with the same name and prefix GROCY_ overwrites the given setting
-		{
+		elseif (getenv('GROCY_' . $name) !== false)
+		{ // An environment variable with the same name and prefix GROCY_ overwrites the given setting
 			define('GROCY_' . $name, ExternalSettingValue(getenv('GROCY_' . $name)));
 		}
 		else
 		{
 			define('GROCY_' . $name, $value);
 		}
-
 	}
-
 }
 
 global $GROCY_DEFAULT_USER_SETTINGS;
@@ -211,7 +205,6 @@ function DefaultUserSetting(string $name, $value)
 	{
 		$GROCY_DEFAULT_USER_SETTINGS[$name] = $value;
 	}
-
 }
 
 function GetUserDisplayName($user)

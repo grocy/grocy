@@ -35,7 +35,6 @@ class BatteriesController extends BaseController
 				'userfields' => $this->getUserfieldsService()->GetFields('batteries')
 			]);
 		}
-
 	}
 
 	public function Journal(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -71,5 +70,4 @@ class BatteriesController extends BaseController
 	{
 		parent::__construct($container);
 	}
-
 }

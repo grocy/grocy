@@ -24,16 +24,12 @@ class DatabaseMigrationService extends BaseService
 				$migrationNumber = ltrim($migrationFile->getBasename('.php'), '0');
 				$this->ExecutePhpMigrationWhenNeeded($migrationNumber, $migrationFile->getPathname());
 			}
-			else
-
-			if ($migrationFile->getExtension() === 'sql')
+			elseif ($migrationFile->getExtension() === 'sql')
 			{
 				$migrationNumber = ltrim($migrationFile->getBasename('.sql'), '0');
 				$this->ExecuteSqlMigrationWhenNeeded($migrationNumber, file_get_contents($migrationFile->getPathname()));
 			}
-
 		}
-
 	}
 
 	private function ExecutePhpMigrationWhenNeeded(int $migrationId, string $phpFile)
@@ -45,7 +41,6 @@ class DatabaseMigrationService extends BaseService
 			include $phpFile;
 			$this->getDatabaseService()->ExecuteDbStatement('INSERT INTO migrations (migration) VALUES (' . $migrationId . ')');
 		}
-
 	}
 
 	private function ExecuteSqlMigrationWhenNeeded(int $migrationId, string $sql)
@@ -57,7 +52,5 @@ class DatabaseMigrationService extends BaseService
 			$this->getDatabaseService()->ExecuteDbStatement($sql);
 			$this->getDatabaseService()->ExecuteDbStatement('INSERT INTO migrations (migration) VALUES (' . $migrationId . ')');
 		}
-
 	}
-
 }

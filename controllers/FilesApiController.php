@@ -33,7 +33,6 @@ class FilesApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function ServeFile(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -55,13 +54,11 @@ class FilesApiController extends BaseApiController
 			{
 				throw new HttpNotFoundException($request, 'File not found');
 			}
-
 		}
 		catch (\Exception $ex)
 		{
 			throw new HttpNotFoundException($request, $ex->getMessage(), $ex);
 		}
-
 	}
 
 	public function ShowFile(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -84,13 +81,11 @@ class FilesApiController extends BaseApiController
 			{
 				throw new HttpNotFoundException($request, 'File not found');
 			}
-
 		}
 		catch (\Exception $ex)
 		{
 			throw new HttpNotFoundException($request, $ex->getMessage(), $ex);
 		}
-
 	}
 
 	public function UploadFile(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -108,7 +103,6 @@ class FilesApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function __construct(\DI\Container $container)
@@ -175,5 +169,4 @@ class FilesApiController extends BaseApiController
 
 		return $filePath;
 	}
-
 }

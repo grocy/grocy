@@ -59,37 +59,37 @@ class SystemController extends BaseController
 			$entryPage = 'stock';
 		}
 
-// Stock
+		// Stock
 		if ($entryPage === 'stock' && constant('GROCY_FEATURE_FLAG_STOCK'))
 		{
 			return '/stockoverview';
 		}
 
-// Shoppinglist
+		// Shoppinglist
 		if ($entryPage === 'shoppinglist' && constant('GROCY_FEATURE_FLAG_SHOPPINGLIST'))
 		{
 			return '/shoppinglist';
 		}
 
-// Recipes
+		// Recipes
 		if ($entryPage === 'recipes' && constant('GROCY_FEATURE_FLAG_RECIPES'))
 		{
 			return '/recipes';
 		}
 
-// Chores
+		// Chores
 		if ($entryPage === 'chores' && constant('GROCY_FEATURE_FLAG_CHORES'))
 		{
 			return '/choresoverview';
 		}
 
-// Tasks
+		// Tasks
 		if ($entryPage === 'tasks' && constant('GROCY_FEATURE_FLAG_TASKS'))
 		{
 			return '/tasks';
 		}
 
-// Batteries
+		// Batteries
 		if ($entryPage === 'batteries' && constant('GROCY_FEATURE_FLAG_BATTERIES'))
 		{
 			return '/batteriesoverview';
@@ -100,13 +100,13 @@ class SystemController extends BaseController
 			return '/equipment';
 		}
 
-// Calendar
+		// Calendar
 		if ($entryPage === 'calendar' && constant('GROCY_FEATURE_FLAG_CALENDAR'))
 		{
 			return '/calendar';
 		}
 
-// Meal Plan
+		// Meal Plan
 		if ($entryPage === 'mealplan' && constant('GROCY_FEATURE_FLAG_RECIPES'))
 		{
 			return '/mealplan';
@@ -114,5 +114,4 @@ class SystemController extends BaseController
 
 		return '/about';
 	}
-
 }

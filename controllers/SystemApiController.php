@@ -11,10 +11,7 @@ class SystemApiController extends BaseApiController
 			$constants = get_defined_constants();
 
 			// Some GROCY_* constants are not really config settings and therefore should not be exposed
-			unset($constants['GROCY_AUTHENTICATED']);
-			unset($constants['GROCY_DATAPATH']);
-			unset($constants['GROCY_IS_EMBEDDED_INSTALL']);
-			unset($constants['GROCY_USER_ID']);
+			unset($constants['GROCY_AUTHENTICATED'], $constants['GROCY_DATAPATH'], $constants['GROCY_IS_EMBEDDED_INSTALL'], $constants['GROCY_USER_ID']);
 
 			$returnArray = [];
 
@@ -24,7 +21,6 @@ class SystemApiController extends BaseApiController
 				{
 					$returnArray[substr($constant, 6)] = $value;
 				}
-
 			}
 
 			return $this->ApiResponse($response, $returnArray);
@@ -33,7 +29,6 @@ class SystemApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
 	}
 
 	public function GetDbChangedTime(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -63,14 +58,11 @@ class SystemApiController extends BaseApiController
 			{
 				return $this->GenericErrorResponse($response, $ex->getMessage());
 			}
-
 		}
-
 	}
 
 	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
 	}
-
 }

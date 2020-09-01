@@ -12,11 +12,10 @@ class UrlManager
 		{
 			return rtrim($this->BasePath, '/') . $relativePath;
 		}
-		else // Is not a resource and URL rewriting is disabled
-		{
+		else
+		{ // Is not a resource and URL rewriting is disabled
 			return rtrim($this->BasePath, '/') . '/index.php' . $relativePath;
 		}
-
 	}
 
 	public function __construct(string $basePath)
@@ -29,7 +28,6 @@ class UrlManager
 		{
 			$this->BasePath = $basePath;
 		}
-
 	}
 
 	private function GetBaseUrl()
@@ -41,5 +39,4 @@ class UrlManager
 
 		return (isset($_SERVER['HTTPS']) ? 'https' : 'http') . "://$_SERVER[HTTP_HOST]";
 	}
-
 }

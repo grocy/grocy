@@ -32,7 +32,6 @@ class ChoresController extends BaseController
 				'products' => $this->getDatabase()->products()->orderBy('name')
 			]);
 		}
-
 	}
 
 	public function ChoresList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -85,5 +84,4 @@ class ChoresController extends BaseController
 	{
 		parent::__construct($container);
 	}
-
 }

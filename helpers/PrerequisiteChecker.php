@@ -24,7 +24,6 @@ class PrerequisiteChecker
 		{
 			throw new ERequirementNotMet('/vendor/autoload.php not found. Have you run Composer?');
 		}
-
 	}
 
 	private function checkForConfigDistFile()
@@ -33,7 +32,6 @@ class PrerequisiteChecker
 		{
 			throw new ERequirementNotMet('config-dist.php not found. Please do not remove this file.');
 		}
-
 	}
 
 	private function checkForConfigFile()
@@ -42,7 +40,6 @@ class PrerequisiteChecker
 		{
 			throw new ERequirementNotMet('config.php in data directory (' . GROCY_DATAPATH . ') not found. Have you copied config-dist.php to the data directory and renamed it to config.php?');
 		}
-
 	}
 
 	private function checkForPhpExtensions()
@@ -55,9 +52,7 @@ class PrerequisiteChecker
 			{
 				throw new ERequirementNotMet("PHP module '{$extension}' not installed, but required.");
 			}
-
 		}
-
 	}
 
 	private function checkForSqliteVersion()
@@ -68,7 +63,6 @@ class PrerequisiteChecker
 		{
 			throw new ERequirementNotMet('SQLite ' . REQUIRED_SQLITE_VERSION . ' is required, however you are running ' . $sqliteVersion);
 		}
-
 	}
 
 	private function getSqlVersionAsString()
@@ -76,5 +70,4 @@ class PrerequisiteChecker
 		$dbh = new PDO('sqlite::memory:');
 		return $dbh->query('select sqlite_version()')->fetch()[0];
 	}
-
 }

@@ -8,7 +8,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 class ReverseProxyAuthMiddleware extends AuthMiddleware
 {
-	function authenticate(Request $request)
+	public function authenticate(Request $request)
 	{
 		if (!defined('GROCY_SHOW_AUTH_VIEWS'))
 		{
@@ -36,5 +36,4 @@ class ReverseProxyAuthMiddleware extends AuthMiddleware
 
 		return $user;
 	}
-
 }

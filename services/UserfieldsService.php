@@ -5,27 +5,16 @@ namespace Grocy\Services;
 class UserfieldsService extends BaseService
 {
 	const USERFIELD_TYPE_CHECKBOX = 'checkbox';
-
 	const USERFIELD_TYPE_DATE = 'date';
-
 	const USERFIELD_TYPE_DATETIME = 'datetime';
-
 	const USERFIELD_TYPE_DECIMAL_NUMBER = 'number-decimal';
-
 	const USERFIELD_TYPE_FILE = 'file';
-
 	const USERFIELD_TYPE_IMAGE = 'image';
-
 	const USERFIELD_TYPE_INTEGRAL_NUMBER = 'number-integral';
-
 	const USERFIELD_TYPE_LINK = 'link';
-
 	const USERFIELD_TYPE_PRESET_CHECKLIST = 'preset-checklist';
-
 	const USERFIELD_TYPE_PRESET_LIST = 'preset-list';
-
 	const USERFIELD_TYPE_SINGLE_LINE_TEXT = 'text-single-line';
-
 	const USERFIELD_TYPE_SINGLE_MULTILINE_TEXT = 'text-multi-line';
 
 	protected $OpenApiSpec = null;
@@ -117,14 +106,14 @@ class UserfieldsService extends BaseService
 
 			$alreadyExistingEntry = $this->getDatabase()->userfield_values()->where('field_id = :1 AND object_id = :2', $fieldId, $objectId)->fetch();
 
-			if ($alreadyExistingEntry) // Update
-			{
+			if ($alreadyExistingEntry)
+			{ // Update
 				$alreadyExistingEntry->update([
 					'value' => $value
 				]);
 			}
-			else // Insert
-			{
+			else
+			{ // Insert
 				$newRow = $this->getDatabase()->userfield_values()->createRow([
 					'field_id' => $fieldId,
 					'object_id' => $objectId,
@@ -132,9 +121,7 @@ class UserfieldsService extends BaseService
 				]);
 				$newRow->save();
 			}
-
 		}
-
 	}
 
 	public function __construct()
@@ -156,5 +143,4 @@ class UserfieldsService extends BaseService
 	{
 		return in_array($entity, $this->GetEntities());
 	}
-
 }

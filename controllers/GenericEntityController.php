@@ -26,7 +26,6 @@ class GenericEntityController extends BaseController
 				'userentity' => $this->getDatabase()->userentities($args['userentityId'])
 			]);
 		}
-
 	}
 
 	public function UserfieldEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -48,7 +47,6 @@ class GenericEntityController extends BaseController
 				'entities' => $this->getUserfieldsService()->GetEntities()
 			]);
 		}
-
 	}
 
 	public function UserfieldsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -80,7 +78,6 @@ class GenericEntityController extends BaseController
 				'userfields' => $this->getUserfieldsService()->GetFields('userentity-' . $args['userentityName'])
 			]);
 		}
-
 	}
 
 	public function UserobjectsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -99,5 +96,4 @@ class GenericEntityController extends BaseController
 	{
 		parent::__construct($container);
 	}
-
 }

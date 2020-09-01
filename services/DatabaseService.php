@@ -2,8 +2,6 @@
 
 namespace Grocy\Services;
 
-#use \Grocy\Services\ApplicationService;
-
 class DatabaseService
 {
 	private static $DbConnection = null;
@@ -99,5 +97,4 @@ class DatabaseService
 
 		return GROCY_DATAPATH . '/grocy.db';
 	}
-
 }

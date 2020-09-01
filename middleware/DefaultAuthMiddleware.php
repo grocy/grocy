@@ -22,5 +22,4 @@ class DefaultAuthMiddleware extends AuthMiddleware
 		$user = $auth->authenticate($request);
 		return $user;
 	}
-
 }

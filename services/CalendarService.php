@@ -2,14 +2,6 @@
 
 namespace Grocy\Services;
 
-#use \Grocy\Services\StockService;
-
-#use \Grocy\Services\TasksService;
-
-#use \Grocy\Services\ChoresService;
-
-#use \Grocy\Services\BatteriesService;
-#use \Grocy\Services\UsersService;
 use Grocy\Helpers\UrlManager;
 
 class CalendarService extends BaseService
@@ -34,9 +26,7 @@ class CalendarService extends BaseService
 						'link' => $this->UrlManager->ConstructUrl('/stockoverview')
 					];
 				}
-
 			}
-
 		}
 
 		$taskEvents = [];
@@ -54,7 +44,6 @@ class CalendarService extends BaseService
 					'link' => $this->UrlManager->ConstructUrl('/tasks')
 				];
 			}
-
 		}
 
 		$choreEvents = [];
@@ -85,7 +74,6 @@ class CalendarService extends BaseService
 					'allDay' => $chore->track_date_only == 1
 				];
 			}
-
 		}
 
 		$batteryEvents = [];
@@ -104,7 +92,6 @@ class CalendarService extends BaseService
 					'link' => $this->UrlManager->ConstructUrl('/batteriesoverview')
 				];
 			}
-
 		}
 
 		$mealPlanRecipeEvents = [];
@@ -129,7 +116,6 @@ class CalendarService extends BaseService
 						'link' => $this->UrlManager->ConstructUrl('/recipes' . '?recipe=' . $recipeOfCurrentDay->includes_recipe_id . '#fullscreen')
 					];
 				}
-
 			}
 
 			$mealPlanDayNotes = $this->getDatabase()->meal_plan()->where('type', 'note');
@@ -158,7 +144,6 @@ class CalendarService extends BaseService
 					'date_format' => 'date'
 				];
 			}
-
 		}
 
 		return array_merge($stockEvents, $taskEvents, $choreEvents, $batteryEvents, $mealPlanRecipeEvents, $mealPlanNotesEvents, $mealPlanProductEvents);
@@ -169,5 +154,4 @@ class CalendarService extends BaseService
 		parent::__construct();
 		$this->UrlManager = new UrlManager(GROCY_BASE_URL);
 	}
-
 }
