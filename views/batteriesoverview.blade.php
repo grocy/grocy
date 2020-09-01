@@ -80,9 +80,7 @@
 			<tbody class="d-none">
 				@foreach($current as $currentBatteryEntry)
 				<tr id="battery-{{ $currentBatteryEntry->battery_id }}-row"
-					class="@if(FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->charge_interval_days > 0 && $currentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s')) table-danger @elseif(FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->charge_interval_days > 0 && $currentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s', strtotime("
-					+$nextXDays
-					days")))
+					class="@if(FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->charge_interval_days > 0 && $currentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s')) table-danger @elseif(FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->charge_interval_days > 0 && $currentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s', strtotime("+$nextXDays days")))
 					table-warning
 					@endif">
 					<td class="fit-content border-right">
@@ -149,8 +147,7 @@
 							,
 							$currentBatteryEntry->battery_id)->charge_interval_days > 0 && $currentBatteryEntry->next_estimated_charge_time < date('Y-m-d
 								H:i:s',
-								strtotime("+$nextXDays
-								days")))
+								strtotime("+$nextXDays days")))
 								duesoon
 								@endif
 								</td>
