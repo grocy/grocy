@@ -152,7 +152,7 @@ class ChoresService extends BaseService
 
 	public function GetCurrent()
 	{
-		return $this->getDatabase()->uihelper_chores_current();
+		return $this->getDatabase()->chores_current();
 	}
 
 	public function TrackChore(int $choreId, string $trackedTime, $doneBy = GROCY_USER_ID)

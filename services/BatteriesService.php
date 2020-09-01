@@ -26,7 +26,7 @@ class BatteriesService extends BaseService
 
 	public function GetCurrent()
 	{
-		return $this->getDatabase()->uihelper_batteries_current();
+		return $this->getDatabase()->batteries_current();
 	}
 
 	public function TrackChargeCycle(int $batteryId, string $trackedTime)
