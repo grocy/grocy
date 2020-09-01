@@ -156,8 +156,7 @@
 						@if($task->done == 1) text-muted @endif @if(!empty($task->due_date) && $task->due_date < date('Y-m-d'))
 							overdue
 							@elseif(!empty($task->due_date) && $task->due_date < date('Y-m-d',
-								strtotime("+$nextXDays
-								days")))
+								strtotime("+$nextXDays days")))
 								duesoon
 								@endif
 								</td>

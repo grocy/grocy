@@ -152,8 +152,7 @@ class ChoresService extends BaseService
 
 	public function GetCurrent()
 	{
-		$sql = 'SELECT chores_current.*, chores.name AS chore_name from chores_current join chores on chores_current.chore_id = chores.id';
-		return $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
+		return $this->getDatabase()->chores_current();
 	}
 
 	public function TrackChore(int $choreId, string $trackedTime, $doneBy = GROCY_USER_ID)

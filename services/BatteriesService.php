@@ -26,8 +26,7 @@ class BatteriesService extends BaseService
 
 	public function GetCurrent()
 	{
-		$sql = 'SELECT * from batteries_current';
-		return $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
+		return $this->getDatabase()->batteries_current();
 	}
 
 	public function TrackChargeCycle(int $batteryId, string $trackedTime)

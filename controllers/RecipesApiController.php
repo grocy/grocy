@@ -44,7 +44,7 @@ class RecipesApiController extends BaseApiController
 		{
 			if (!isset($args['recipeId']))
 			{
-				return $this->ApiResponse($response, $this->getRecipesService()->GetRecipesResolved());
+				return $this->FilteredApiResponse($response, $this->getRecipesService()->GetRecipesResolved(), $request->getQueryParams());
 			}
 
 			$recipeResolved = FindObjectInArrayByPropertyValue($this->getRecipesService()->GetRecipesResolved(), 'recipe_id', $args['recipeId']);

@@ -123,7 +123,7 @@ class UsersApiController extends BaseApiController
 		User::checkPermission($request, User::PERMISSION_USERS_READ);
 		try
 		{
-			return $this->ApiResponse($response, $this->getUsersService()->GetUsersAsDto());
+			return $this->FilteredApiResponse($response, $this->getUsersService()->GetUsersAsDto(), $request->getQueryParams());
 		}
 		catch (\Exception $ex)
 		{

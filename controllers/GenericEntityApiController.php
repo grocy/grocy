@@ -3,6 +3,7 @@
 namespace Grocy\Controllers;
 
 use Grocy\Controllers\Users\User;
+use Slim\Exception\HttpBadRequestException;
 
 class GenericEntityApiController extends BaseApiController
 {
@@ -178,12 +179,13 @@ class GenericEntityApiController extends BaseApiController
 		{
 			try
 			{
-				return $this->ApiResponse($response, $this->getDatabase()->{$args['entity']}
-					()->where('name LIKE ?', '%' . $args['searchString'] . '%'));
+				return $this->FilteredApiResponse($response, $this->getDatabase()->{$args['entity']}
+					()->where('name LIKE ?', '%' . $args['searchString'] . '%'), $request->getQueryParams());
 			}
 			catch (\PDOException $ex)
 			{
-				return $this->GenericErrorResponse($response, 'The given entity has no field "name"');
+				throw new HttpBadRequestException($request, $ex->getMessage(), $ex);
+				//return $this->GenericErrorResponse($response, 'The given entity has no field "name"', $ex);
 			}
 
 		}
