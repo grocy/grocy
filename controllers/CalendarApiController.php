@@ -22,12 +22,18 @@ class CalendarApiController extends BaseApiController
 					$date->setTime(23, 59, 59);
 				}
 
+				$description = '';
+				if (isset($event['description']))
+				{
+					$description = $event['description'];
+				}
+
 				$vEvent = new \Eluceo\iCal\Component\Event();
 				$vEvent->setDtStart($date)
 					->setDtEnd($date)
 					->setSummary($event['title'])
-					->setDescription($event['description'])
-					->setNoTime($event['date_format'] === 'date')
+					->setDescription($description)
+					->setNoTime($event['date_format'] === 'date' || (isset($event['allDay']) && $event['allDay']))
 					->setUseTimezone(true);
 
 				$vCalendar->addComponent($vEvent);
