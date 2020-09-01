@@ -17,3 +17,6 @@ CREATE VIEW uihelper_chores_current AS
 SELECT chores_current.*, chores.name AS chore_name
 from chores_current
          join chores on chores_current.chore_id = chores.id;
+
+CREATE VIEW uihelper_batteries_current AS
+    SELECT battery_id AS id, * FROM batteries_current;
