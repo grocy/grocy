@@ -11,36 +11,4 @@
 	"blade.format.enable": true,
 	"html.format.wrapAttributes": "force",
 	"html.format.wrapLineLength": 0,
-	"phpfmt.passes": [
-		"AddMissingParentheses",
-		"AliasToMaster",
-		"AllmanStyleBraces",
-		"AutoSemicolon",
-		"ClassToSelf",
-		"ConvertOpenTagWithEcho",
-		"DoubleToSingleQuote",
-		"OrderAndRemoveUseClauses",
-		"OrganizeClass",
-		"ReindentSwitchBlocks",
-		"RemoveIncludeParentheses",
-		"RemoveSemicolonAfterCurly",
-		"RemoveUseLeadingSlash",
-		"ReplaceBooleanAndOr",
-		"ShortArray",
-		"SmartLnAfterCurlyOpen",
-		"SpaceAroundControlStructures",
-		"SpaceBetweenMethods",
-		"StripExtraCommaInArray",
-		"StripNewlineAfterClassOpen",
-		"StripNewlineAfterCurlyOpen",
-		"UpgradeToPreg",
-		"WrongConstructorName"
-	],
-	"phpfmt.exclude": [
-		"ReindentComments",
-		"StripNewlineWithinClassBody"
-	],
-	"phpfmt.psr2": false,
-	"phpfmt.detect_indent": true,
-	"phpfmt.smart_linebreak_after_curly": true
 }
