@@ -63,6 +63,13 @@
 							data-apikey-apikey="{{ $apiKey->api_key }}">
 							<i class="fas fa-trash"></i>
 						</a>
+						<a class="btn btn-info btn-sm apikey-show-qr-button"
+						   href="#"
+						   data-apikey-key="{{ $apiKey->api_key }}"
+						   data-apikey-type="{{ $apiKey->key_type }}"
+						>
+							<i class="fas fa-qrcode"></i>
+						</a>
 					</td>
 					<td>
 						{{ $apiKey->api_key }}
