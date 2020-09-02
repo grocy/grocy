@@ -33,10 +33,8 @@ class StockController extends BaseController
 	public function Journal(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'stockjournal', [
-			'stockLog' => $this->getDatabase()->stock_log()->orderBy('row_created_timestamp', 'DESC'),
-			'locations' => $this->getDatabase()->locations()->orderBy('name'),
+			'stockLog' => $this->getDatabase()->uihelper_stock_journal()->orderBy('row_created_timestamp', 'DESC'),
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
-			'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name')
 		]);
 	}
 

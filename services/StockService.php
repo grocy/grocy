@@ -112,7 +112,8 @@ class StockService extends BaseService
 				'location_id' => $locationId,
 				'transaction_id' => $transactionId,
 				'shopping_location_id' => $shoppingLocationId,
-				'qu_factor_purchase_to_stock' => $quFactorPurchaseToStock
+				'qu_factor_purchase_to_stock' => $quFactorPurchaseToStock,
+				'user_id' => GROCY_USER_ID
 			]);
 			$logRow->save();
 
@@ -259,7 +260,8 @@ class StockService extends BaseService
 						'price' => $stockEntry->price,
 						'opened_date' => $stockEntry->opened_date,
 						'recipe_id' => $recipeId,
-						'transaction_id' => $transactionId
+						'transaction_id' => $transactionId,
+						'user_id' => GROCY_USER_ID
 					]);
 					$logRow->save();
 
@@ -283,7 +285,8 @@ class StockService extends BaseService
 						'price' => $stockEntry->price,
 						'opened_date' => $stockEntry->opened_date,
 						'recipe_id' => $recipeId,
-						'transaction_id' => $transactionId
+						'transaction_id' => $transactionId,
+						'user_id' => GROCY_USER_ID
 					]);
 					$logRow->save();
 
@@ -328,7 +331,8 @@ class StockService extends BaseService
 			'qu_factor_purchase_to_stock' => $stockRow->qu_factor_purchase_to_stock,
 			'correlation_id' => $correlationId,
 			'transaction_id' => $transactionId,
-			'stock_row_id' => $stockRow->id
+			'stock_row_id' => $stockRow->id,
+			'user_id' => GROCY_USER_ID
 		]);
 		$logOldRowForStockUpdate->save();
 
@@ -369,7 +373,8 @@ class StockService extends BaseService
 			'qu_factor_purchase_to_stock' => $stockRow->qu_factor_purchase_to_stock,
 			'correlation_id' => $correlationId,
 			'transaction_id' => $transactionId,
-			'stock_row_id' => $stockRow->id
+			'stock_row_id' => $stockRow->id,
+			'user_id' => GROCY_USER_ID
 		]);
 		$logNewRowForStockUpdate->save();
 
@@ -738,7 +743,8 @@ class StockService extends BaseService
 					'transaction_type' => self::TRANSACTION_TYPE_PRODUCT_OPENED,
 					'price' => $stockEntry->price,
 					'opened_date' => date('Y-m-d'),
-					'transaction_id' => $transactionId
+					'transaction_id' => $transactionId,
+					'user_id' => GROCY_USER_ID
 				]);
 				$logRow->save();
 
@@ -777,7 +783,8 @@ class StockService extends BaseService
 					'transaction_type' => self::TRANSACTION_TYPE_PRODUCT_OPENED,
 					'price' => $stockEntry->price,
 					'opened_date' => date('Y-m-d'),
-					'transaction_id' => $transactionId
+					'transaction_id' => $transactionId,
+					'user_id' => GROCY_USER_ID
 				]);
 				$logRow->save();
 
@@ -914,7 +921,8 @@ class StockService extends BaseService
 					'opened_date' => $stockEntry->opened_date,
 					'location_id' => $stockEntry->location_id,
 					'correlation_id' => $correlationId,
-					'transaction_Id' => $transactionId
+					'transaction_Id' => $transactionId,
+					'user_id' => GROCY_USER_ID
 				]);
 				$logRowForLocationFrom->save();
 
@@ -930,7 +938,8 @@ class StockService extends BaseService
 					'opened_date' => $stockEntry->opened_date,
 					'location_id' => $locationIdTo,
 					'correlation_id' => $correlationId,
-					'transaction_Id' => $transactionId
+					'transaction_Id' => $transactionId,
+					'user_id' => GROCY_USER_ID
 				]);
 				$logRowForLocationTo->save();
 
@@ -957,7 +966,8 @@ class StockService extends BaseService
 					'opened_date' => $stockEntry->opened_date,
 					'location_id' => $stockEntry->location_id,
 					'correlation_id' => $correlationId,
-					'transaction_Id' => $transactionId
+					'transaction_Id' => $transactionId,
+					'user_id' => GROCY_USER_ID
 				]);
 				$logRowForLocationFrom->save();
 
@@ -973,7 +983,8 @@ class StockService extends BaseService
 					'opened_date' => $stockEntry->opened_date,
 					'location_id' => $locationIdTo,
 					'correlation_id' => $correlationId,
-					'transaction_Id' => $transactionId
+					'transaction_Id' => $transactionId,
+					'user_id' => GROCY_USER_ID
 				]);
 				$logRowForLocationTo->save();
 
