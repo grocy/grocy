@@ -2,12 +2,17 @@
 
 namespace Grocy\Controllers;
 
+use Grocy\Controllers\Users\User;
+
 class OpenApiController extends BaseApiController
 {
 	public function ApiKeysList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
+		$apiKeys = $this->getDatabase()->api_keys();
+		if(!User::hasPermissions(User::PERMISSION_ADMIN))
+			$apiKeys = $apiKeys->where('user_id', GROCY_USER_ID);
 		return $this->renderPage($response, 'manageapikeys', [
-			'apiKeys' => $this->getDatabase()->api_keys(),
+			'apiKeys' =>$apiKeys,
 			'users' => $this->getDatabase()->users()
 		]);
 	}
