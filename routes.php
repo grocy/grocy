@@ -203,6 +203,7 @@ $app->group('/api', function (RouteCollectorProxy $group) {
 		$group->post('/stock/transactions/{transactionId}/undo', '\Grocy\Controllers\StockApiController:UndoTransaction');
 		$group->get('/stock/barcodes/external-lookup/{barcode}', '\Grocy\Controllers\StockApiController:ExternalBarcodeLookup');
 		$group->get('/productbarcodedetails/{barcode}', '\Grocy\Controllers\StockApiController:ProductBarcodeDetails');
+		$group->get('/stock/journal', '\Grocy\Controllers\StockApiController:Journal');
 	}
 
 	// Shopping list
