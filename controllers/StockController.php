@@ -440,4 +440,24 @@ class StockController extends BaseController
 	{
 		parent::__construct($container);
 	}
+
+	public function JournalSummary(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		$entries = $this->getDatabase()->uihelper_stock_journal_summary();
+		if (isset($request->getQueryParams()['product_id']))
+		{
+			$entries = $entries->where('product_id', $request->getQueryParams()['product_id']);
+		}
+		if (isset($request->getQueryParams()['user_id']))
+		{
+			$entries = $entries->where('user_id', $request->getQueryParams()['user_id']);
+		}
+		if (isset($request->getQueryParams()['transaction_type']))
+		{
+			$entries = $entries->where('transaction_type', $request->getQueryParams()['transaction_type']);
+		}
+		return $this->renderPage($response, 'stockjournalsummary', [
+			'entries' => $entries
+		]);
+	}
 }

@@ -20,6 +20,10 @@
 			<h2 class="title">@yield('title')</h2>
 			<div class="related-links">
 				<a class="btn btn-outline-dark responsive-button"
+				   href="{{ $U('/stockjournal/summary') }}">
+					{{ $__t('Stock journal summary') }}
+				</a>
+				<a class="btn btn-outline-dark responsive-button"
 					href="{{ $U('/stockjournal') }}">
 					{{ $__t('Journal') }}
 				</a>
@@ -268,6 +272,11 @@
 									<span class="dropdown-item-icon"><i class="fas fa-cocktail"></i></span> <span class="dropdown-item-text">{{ $__t('Search for recipes containing this product') }}</span>
 								</a>
 								@endif
+								<a class="dropdown-item"
+								   type="button"
+								   href="{{ $U('/stockjournal/summary?product_id=') }}{{ $currentStockEntry->product_id }}">
+									<span class="dropdown-item-icon"><i class="fas fa-cocktail"></i></span> <span class="dropdown-item-text">{{ $__t('Journal-Summary') }}</span>
+								</a>
 							</div>
 						</div>
 					</td>
