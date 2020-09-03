@@ -1,53 +1,5 @@
-ALTER TABLE stock_log
-    RENAME TO stock_log_old;
-
-CREATE TABLE stock_log(
-    id                          INTEGER        not null        primary key autoincrement unique,
-    product_id                  INTEGER        not null,
-    amount                      DECIMAL(15, 2) not null,
-    best_before_date            DATE,
-    purchased_date              DATE,
-    used_date                   DATE,
-    spoiled                     INTEGER  default 0 not null,
-    stock_id                    TEXT           not null,
-    transaction_type            TEXT           not null,
-    price                       DECIMAL(15, 2),
-    undone                      TINYINT  default 0 not null     CHECK(undone IN (0, 1)),
-    undone_timestamp            DATETIME,
-    opened_date                 DATETIME,
-    row_created_timestamp       DATETIME DEFAULT (datetime('now', 'localtime')),
-    location_id                 INTEGER,
-    recipe_id                   INTEGER,
-    correlation_id              TEXT,
-    transaction_id              TEXT,
-    stock_row_id                INTEGER,
-    shopping_location_id        INTEGER,
-    qu_factor_purchase_to_stock REAL     default 1.0 not null,
-    user_id                     INTEGER        NOT NULL
-                      );
-
-
-INSERT INTO stock_log
-(product_id, amount, best_before_date, purchased_date, used_date, spoiled, stock_id, transaction_type, price, undone,
- undone_timestamp, opened_date, row_created_timestamp, user_id)
-SELECT product_id,
-       amount,
-       best_before_date,
-       purchased_date,
-       used_date,
-       spoiled,
-       stock_id,
-       transaction_type,
-       price,
-       undone,
-       undone_timestamp,
-       opened_date,
-       row_created_timestamp,
-       (SELECT id FROM users WHERE username = 'admin')
-FROM stock_log_old;
-
-DROP TABLE stock_log_old;
-
+ALTER TABLE stock_log ADD COLUMN
+    user_id INTEGER NOT NULL DEFAULT 1;
 
 CREATE VIEW uihelper_stock_journal
 AS
