@@ -61,10 +61,11 @@ $(document).on('click', '.apikey-delete-button', function(e)
 		}
 	});
 });
-$('.apikey-show-qr-button').on('click', function () {
-	var QRhtml = getQRCodeForAPIKey( $(this).data('apikey-key'),  $(this).data('apikey-type'));
+$('.apikey-show-qr-button').on('click', function()
+{
+	var QRhtml = getQRCodeForAPIKey($(this).data('apikey-key'), $(this).data('apikey-type'));
 	bootbox.alert({
-		title: __t('API-Key'),
+		title: __t('API key'),
 		message: QRhtml,
 		closeButton: false
 	});
