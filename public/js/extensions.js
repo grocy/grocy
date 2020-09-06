@@ -175,3 +175,19 @@ function animateCSS(selector, animationName, callback, speed = "faster")
 function RandomString() {
 	return Math.random().toString(36).substring(2, 100) + Math.random().toString(36).substring(2, 100);
 }
+function getQRCodeForContent(url)
+{
+	var qr = qrcode(0, 'L');
+	qr.addData(url);
+	qr.make();
+	return qr.createImgTag(10, 5);
+}
+function getQRCodeForAPIKey(apikey_type, apikey_key)
+{
+	var content = U('/api') + '|' + apikey_key;
+	if(apikey_type === 'special-purpose-calendar-ical')
+	{
+		content = U('/api/calendar/ical?secret=' + apikey_key);
+	}
+	return getQRCodeForContent(content);
+}

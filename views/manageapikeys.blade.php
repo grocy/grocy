@@ -4,6 +4,10 @@
 @section('activeNav', '')
 @section('viewJsName', 'manageapikeys')
 
+@push('pageScripts')
+<script src="{{ $U('/node_modules/qrcode-generator/qrcode.js?v=', true) }}{{ $version }}"></script>
+@endpush
+
 @push('pageStyles')
 <link href="{{ $U('/node_modules/animate.css/animate.min.css?v=', true) }}{{ $version }}"
 	rel="stylesheet">
@@ -62,6 +66,12 @@
 							data-apikey-id="{{ $apiKey->id }}"
 							data-apikey-apikey="{{ $apiKey->api_key }}">
 							<i class="fas fa-trash"></i>
+						</a>
+						<a class="btn btn-info btn-sm apikey-show-qr-button"
+							href="#"
+							data-apikey-key="{{ $apiKey->api_key }}"
+							data-apikey-type="{{ $apiKey->key_type }}">
+							<i class="fas fa-qrcode"></i>
 						</a>
 					</td>
 					<td>

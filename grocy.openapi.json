@@ -3483,6 +3483,12 @@
 					"meal_plan"
 				]
 			},
+			"EntityEditRequiresAdmin": {
+				"type": "string",
+				"enum": [
+					"api_keys"
+				]
+			},
 			"StockTransactionType": {
 				"type": "string",
 				"enum": [
