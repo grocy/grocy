@@ -9,10 +9,12 @@ class OpenApiController extends BaseApiController
 	public function ApiKeysList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$apiKeys = $this->getDatabase()->api_keys();
-		if(!User::hasPermissions(User::PERMISSION_ADMIN))
+		if (!User::hasPermissions(User::PERMISSION_ADMIN))
+		{
 			$apiKeys = $apiKeys->where('user_id', GROCY_USER_ID);
+		}
 		return $this->renderPage($response, 'manageapikeys', [
-			'apiKeys' =>$apiKeys,
+			'apiKeys' => $apiKeys,
 			'users' => $this->getDatabase()->users()
 		]);
 	}

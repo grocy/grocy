@@ -13,8 +13,10 @@ class GenericEntityApiController extends BaseApiController
 
 		if ($this->IsValidEntity($args['entity']))
 		{
-			if($this->IsEntityWithEditRequiresAdmin($args['entity']))
+			if ($this->IsEntityWithEditRequiresAdmin($args['entity']))
+			{
 				User::checkPermission($request, User::PERMISSION_ADMIN);
+			}
 
 			$requestBody = $request->getParsedBody();
 
@@ -50,8 +52,10 @@ class GenericEntityApiController extends BaseApiController
 
 		if ($this->IsValidEntity($args['entity']))
 		{
-			if($this->IsEntityWithEditRequiresAdmin($args['entity']))
+			if ($this->IsEntityWithEditRequiresAdmin($args['entity']))
+			{
 				User::checkPermission($request, User::PERMISSION_ADMIN);
+			}
 			$row = $this->getDatabase()->{$args['entity']}
 			($args['objectId']);
 			$row->delete();
@@ -70,8 +74,10 @@ class GenericEntityApiController extends BaseApiController
 
 		if ($this->IsValidEntity($args['entity']))
 		{
-			if($this->IsEntityWithEditRequiresAdmin($args['entity']))
+			if ($this->IsEntityWithEditRequiresAdmin($args['entity']))
+			{
 				User::checkPermission($request, User::PERMISSION_ADMIN);
+			}
 			$requestBody = $request->getParsedBody();
 
 			try
@@ -218,6 +224,7 @@ class GenericEntityApiController extends BaseApiController
 	{
 		parent::__construct($container);
 	}
+
 	private function IsEntityWithEditRequiresAdmin($entity)
 	{
 		return !in_array($entity, $this->getOpenApiSpec()->components->internalSchemas->EntityEditRequiresAdmin->enum);
