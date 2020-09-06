@@ -248,6 +248,11 @@
 									href="{{ $U('/stockjournal?product=') }}{{ $currentStockEntry->product_id }}">
 									<span class="dropdown-item-icon"><i class="fas fa-file-alt"></i></span> <span class="dropdown-item-text">{{ $__t('Stock journal for this product') }}</span>
 								</a>
+								<a class="dropdown-item"
+									type="button"
+									href="{{ $U('/stockjournal/summary?product_id=') }}{{ $currentStockEntry->product_id }}">
+									<span class="dropdown-item-icon"><i class="fas fa-file-archive"></i></span> <span class="dropdown-item-text">{{ $__t('Journal summary for this product') }}</span>
+								</a>
 								<a class="dropdown-item permission-MASTER_DATA_EDIT"
 									type="button"
 									href="{{ $U('/product/') }}{{ $currentStockEntry->product_id . '?returnto=%2Fstockoverview' }}">
@@ -270,11 +275,6 @@
 									<span class="dropdown-item-icon"><i class="fas fa-cocktail"></i></span> <span class="dropdown-item-text">{{ $__t('Search for recipes containing this product') }}</span>
 								</a>
 								@endif
-								<a class="dropdown-item"
-									type="button"
-									href="{{ $U('/stockjournal/summary?product_id=') }}{{ $currentStockEntry->product_id }}">
-									<span class="dropdown-item-icon"><i class="fas fa-cocktail"></i></span> <span class="dropdown-item-text">{{ $__t('Journal summary') }}</span>
-								</a>
 							</div>
 						</div>
 					</td>

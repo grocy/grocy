@@ -1906,3 +1906,6 @@ msgstr ""
 
 msgid "Journal summary"
 msgstr ""
+
+msgid "Journal summary for this product"
+msgstr ""
