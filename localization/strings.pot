@@ -1901,8 +1901,8 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-msgid "Journal-Summary"
+msgid "Stock journal summary"
 msgstr ""
 
-msgid "Stock journal summary"
+msgid "Journal summary"
 msgstr ""

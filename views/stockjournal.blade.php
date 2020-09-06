@@ -5,12 +5,15 @@
 @section('viewJsName', 'stockjournal')
 
 @section('content')
-<div class="row">
-	<div class="col">
-		<h2 class="title">@yield('title')</h2>
+<div class="title-related-links">
+	<h2 class="title">@yield('title')</h2>
+	<div class="related-links">
+		<a class="btn btn-outline-dark responsive-button"
+			href="{{ $U('/stockjournal/summary') }}">
+			{{ $__t('Journal summary') }}
+		</a>
 	</div>
 </div>
-
 <hr>
 <div class="row my-3">
 	<div class="col-xs-12 col-md-6 col-xl-3">

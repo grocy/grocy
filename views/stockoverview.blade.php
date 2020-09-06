@@ -20,10 +20,6 @@
 			<h2 class="title">@yield('title')</h2>
 			<div class="related-links">
 				<a class="btn btn-outline-dark responsive-button"
-				   href="{{ $U('/stockjournal/summary') }}">
-					{{ $__t('Stock journal summary') }}
-				</a>
-				<a class="btn btn-outline-dark responsive-button"
 					href="{{ $U('/stockjournal') }}">
 					{{ $__t('Journal') }}
 				</a>
@@ -146,7 +142,9 @@
 			<tbody class="d-none">
 				@foreach($currentStock as $currentStockEntry)
 				<tr id="product-{{ $currentStockEntry->product_id }}-row"
-					class="@if(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('-1 days')) && $currentStockEntry->amount > 0) table-danger @elseif(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime("+$nextXDays days"))
+					class="@if(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('-1 days')) && $currentStockEntry->amount > 0) table-danger @elseif(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime("
+					+$nextXDays
+					days"))
 					&&
 					$currentStockEntry->amount > 0) table-warning @elseif ($currentStockEntry->product_missing) table-info @endif">
 					<td class="fit-content border-right">
@@ -273,9 +271,9 @@
 								</a>
 								@endif
 								<a class="dropdown-item"
-								   type="button"
-								   href="{{ $U('/stockjournal/summary?product_id=') }}{{ $currentStockEntry->product_id }}">
-									<span class="dropdown-item-icon"><i class="fas fa-cocktail"></i></span> <span class="dropdown-item-text">{{ $__t('Journal-Summary') }}</span>
+									type="button"
+									href="{{ $U('/stockjournal/summary?product_id=') }}{{ $currentStockEntry->product_id }}">
+									<span class="dropdown-item-icon"><i class="fas fa-cocktail"></i></span> <span class="dropdown-item-text">{{ $__t('Journal summary') }}</span>
 								</a>
 							</div>
 						</div>
@@ -331,7 +329,8 @@
 							&&
 							$currentStockEntry->amount > 0) expired @elseif($currentStockEntry->best_before_date < date('Y-m-d
 								23:59:59',
-								strtotime("+$nextXDays days"))
+								strtotime("+$nextXDays
+								days"))
 								&&
 								$currentStockEntry->amount > 0) expiring @endif @if($currentStockEntry->product_missing) belowminstockamount @endif
 					</td>
