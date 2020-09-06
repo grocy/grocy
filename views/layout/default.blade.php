@@ -701,7 +701,6 @@
 	<script src="{{ $U('/js/grocy_wakelockhandling.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy_nightmode.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy_clock.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/js/qrcode.js?v=', true) }}{{ $version }}"></script>
 	@stack('pageScripts')
 
 	@php
