@@ -28,6 +28,7 @@
 - Improved/fixed that changing the products "Factor purchase to stock quantity unit" not longer messes up historical prices (which results for example in wrong recipe costs) (thanks @kriddles)
 - On the stock journal page, it's now visible if a consume-booking was spoiled
 - Added a "Clear filter"-button on the stock overview page to quickly reset applied filters
+- It's now tracked who made a stock change (currently logged in user, visible on the stock journal page) (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that it was not possible to leave the "Barcode(s)" on the product edit page by `TAB`
 - Fixed that when adding products through a product picker workflow and when the created products contains special characters, the product was not preselected on the previous page (thanks @Forceu)
 - Fixed that when editing a product the default store was not visible / always empty regardless if the product had one set (thanks @kriddles)
@@ -98,6 +99,7 @@
         - `>=` greater or equal
         - `<=` less or equal
       - `<value>` is the value to search for
+- New endpoints `/stock/journal` and `/stock/journal/summary` to get the stock journal (thanks @fipwmaqzufheoxq92ebc)
 - Performance improvements of the `/stock/products/*` endpoints (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that the endpoint `/objects/{entity}/{objectId}` always returned successfully, even when the given object not exists (now returns `404` when the object is not found) (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that the endpoint `/stock/volatile` didn't include products which expire today (thanks @fipwmaqzufheoxq92ebc)
