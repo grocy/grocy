@@ -5,12 +5,15 @@
 @section('viewJsName', 'stockjournal')
 
 @section('content')
-<div class="row">
-	<div class="col">
-		<h2 class="title">@yield('title')</h2>
+<div class="title-related-links">
+	<h2 class="title">@yield('title')</h2>
+	<div class="related-links">
+		<a class="btn btn-outline-dark responsive-button"
+			href="{{ $U('/stockjournal/summary') }}">
+			{{ $__t('Journal summary') }}
+		</a>
 	</div>
 </div>
-
 <hr>
 <div class="row my-3">
 	<div class="col-xs-12 col-md-6 col-xl-3">
@@ -52,6 +55,7 @@
 					<th>{{ $__t('Booking time') }}</th>
 					<th>{{ $__t('Booking type') }}</th>
 					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif">{{ $__t('Location') }}</th>
+					<th>{{ $__t('Done by') }}</th>
 				</tr>
 			</thead>
 			<tbody class="d-none">
@@ -70,7 +74,7 @@
 						</a>
 					</td>
 					<td>
-						<span class="name-anchor @if($stockLogEntry->undone == 1) text-strike-through @endif">{{ FindObjectInArrayByPropertyValue($products, 'id', $stockLogEntry->product_id)->name }}</span>
+						<span class="name-anchor @if($stockLogEntry->undone == 1) text-strike-through @endif">{{ $stockLogEntry->product_name }}</span>
 						@if($stockLogEntry->undone == 1)
 						<br>
 						{{ $__t('Undone on') . ' ' . $stockLogEntry->undone_timestamp }}
@@ -79,7 +83,7 @@
 						@endif
 					</td>
 					<td>
-						<span class="locale-number locale-number-quantity-amount">{{ $stockLogEntry->amount }}</span> {{ $__n($stockLogEntry->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockLogEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockLogEntry->product_id)->qu_id_stock)->name_plural) }}
+						<span class="locale-number locale-number-quantity-amount">{{ $stockLogEntry->amount }}</span> {{ $__n($stockLogEntry->amount, $stockLogEntry->qu_name, $stockLogEntry->qu_name_plural) }}
 					</td>
 					<td>
 						{{ $stockLogEntry->row_created_timestamp }}
@@ -93,7 +97,10 @@
 						@endif
 					</td>
 					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif">
-						{{ FindObjectInArrayByPropertyValue($locations, 'id', $stockLogEntry->location_id)->name }}
+						{{ $stockLogEntry->location_name }}
+					</td>
+					<td>
+						{{ $stockLogEntry->user_display_name }}
 					</td>
 				</tr>
 				@endforeach

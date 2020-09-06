@@ -1900,3 +1900,12 @@ msgstr ""
 
 msgid "Default"
 msgstr ""
+
+msgid "Stock journal summary"
+msgstr ""
+
+msgid "Journal summary"
+msgstr ""
+
+msgid "Journal summary for this product"
+msgstr ""

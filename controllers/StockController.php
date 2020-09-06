@@ -33,10 +33,8 @@ class StockController extends BaseController
 	public function Journal(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'stockjournal', [
-			'stockLog' => $this->getDatabase()->stock_log()->orderBy('row_created_timestamp', 'DESC'),
-			'locations' => $this->getDatabase()->locations()->orderBy('name'),
+			'stockLog' => $this->getDatabase()->uihelper_stock_journal()->orderBy('row_created_timestamp', 'DESC'),
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
-			'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name')
 		]);
 	}
 
@@ -441,5 +439,25 @@ class StockController extends BaseController
 	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
+	}
+
+	public function JournalSummary(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		$entries = $this->getDatabase()->uihelper_stock_journal_summary();
+		if (isset($request->getQueryParams()['product_id']))
+		{
+			$entries = $entries->where('product_id', $request->getQueryParams()['product_id']);
+		}
+		if (isset($request->getQueryParams()['user_id']))
+		{
+			$entries = $entries->where('user_id', $request->getQueryParams()['user_id']);
+		}
+		if (isset($request->getQueryParams()['transaction_type']))
+		{
+			$entries = $entries->where('transaction_type', $request->getQueryParams()['transaction_type']);
+		}
+		return $this->renderPage($response, 'stockjournalsummary', [
+			'entries' => $entries
+		]);
 	}
 }
