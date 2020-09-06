@@ -63,10 +63,10 @@ $(document).on('click', '.apikey-delete-button', function(e)
 });
 $('.apikey-show-qr-button').on('click', function()
 {
-	var QRhtml = getQRCodeForAPIKey($(this).data('apikey-key'), $(this).data('apikey-type'));
+	var qrcodeHtml = getQRCodeForAPIKey($(this).data('apikey-key'), $(this).data('apikey-type'));
 	bootbox.alert({
 		title: __t('API key'),
-		message: QRhtml,
+		message: "<p class='text-center'>" + qrcodeHtml + "</p>",
 		closeButton: false
 	});
 })
