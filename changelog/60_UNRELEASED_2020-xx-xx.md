@@ -10,6 +10,8 @@
 - Users can now have permissions, can be configured per user on the "Manage users" page (lock icon)
 - Default permissions for new users can be set via a new `config.php` setting `DEFAULT_PERMISSIONS` (defaults to `ADMIN`, so no changed behavior when not configured)
 - All currently existing users will get all permissions (`ADMIN`) during the update/migration
+- Creating API keys on the "Manage API keys"-page (top right corner settings menu) now requires the `ADMIN` permission
+  - Other users only see their API keys on that page
 - (Thanks @fipwmaqzufheoxq92ebc)
 
 ### New feature: Reverse proxy authenticaton support
@@ -70,6 +72,9 @@
 - Breaking changes:
   - All prices are now related to the products **stock** quantity unit (instead the purchase QU)
   - The product object no longer has a field `barcodes` with a comma separated barcode list, instead barcodes are now stored in a separate table/entity `product_barcodes` (use the existing "Generic entity interactions" endpoints to access them)
+- For better integration (apps), it's now possible to show a QR-Code for API keys (thanks @fipwmaqzufheoxq92ebc)
+  - New QR-Code button on the "Manage API keys"-page (top right corner settings menu), the QR-Codes contains `<API-Url>|<API-Key>`
+  - And on the calendar page when using the button "Share/Integrate calendar (iCal)", there the QR-Codes contains the Share-URL (which is displayed in the textbox above)
 - The output of the following endpoints can now be filtered (by any field), ordered and paginated (thanks @fipwmaqzufheoxq92ebc)
   - `/objects/{entity}/search`
   - `/stock/products/{productId}/entries`
