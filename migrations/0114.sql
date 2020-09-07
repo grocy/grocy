@@ -9,7 +9,7 @@ SELECT
 	(CASE
 		WHEN IFNULL(first_name, '') = '' AND IFNULL(last_name, '') != '' THEN last_name
 		WHEN IFNULL(last_name, '') = '' AND IFNULL(first_name, '') != '' THEN first_name
-		WHEN IFNULL(last_name, '') != '' AND IFNULL(first_name, '') != '' THEN first_name + ' ' + last_name
+		WHEN IFNULL(last_name, '') != '' AND IFNULL(first_name, '') != '' THEN first_name || ' ' || last_name
 		ELSE username
 	END
 	) AS display_name
