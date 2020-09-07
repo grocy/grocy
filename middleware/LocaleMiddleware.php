@@ -18,7 +18,7 @@ class LocaleMiddleware extends BaseMiddleware
 
 	protected function getLocale(Request $request)
 	{
-		if (GROCY_AUTHENTICATED)
+		if (defined('GROCY_AUTHENTICATED') && GROCY_AUTHENTICATED)
 		{
 			$locale = UsersService::getInstance()->GetUserSetting(GROCY_USER_ID, 'locale');
 
