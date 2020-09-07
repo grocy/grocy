@@ -58,6 +58,7 @@ class ApiKeyAuthMiddleware extends AuthMiddleware
 				if ($request->getQueryParam('secret') !== null && $apiKeyService->IsValidApiKey($request->getQueryParam('secret'), ApiKeyService::API_KEY_TYPE_SPECIAL_PURPOSE_CALENDAR_ICAL))
 				{
 					$validApiKey = true;
+					$usedApiKey = $request->getQueryParam('secret');
 				}
 			}
 		}
