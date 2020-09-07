@@ -1,4 +1,4 @@
-﻿$("#show-clock-in-header").on("change", function()
+﻿$(document).on("change", "#show-clock-in-header", function()
 {
 	CheckHeaderClockEnabled();
 });
