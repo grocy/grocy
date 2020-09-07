@@ -411,6 +411,11 @@ Grocy.FrontendHelpers.ValidateForm('product-form');
 $("#allow_partial_units_in_stock").click();
 $("#allow_partial_units_in_stock").click();
 
+$(document).on('click', '#save-product-button-continue', function () {
+	Grocy.ProductEditFormRedirectUri = "reload";
+	$('#save-product-button').click();
+});
+
 $(document).on('click', '.qu-conversion-delete-button', function(e)
 {
 	var objectId = $(e.currentTarget).attr('data-qu-conversion-id');

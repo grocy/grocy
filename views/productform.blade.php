@@ -371,8 +371,10 @@
 			'entity' => 'products'
 			))
 
+			<button id="save-product-button-continue"
+				class="save-recipe btn btn-success mb-2">{{ $__t('Save & continue') }}</button>
 			<button id="save-product-button"
-				class="btn btn-success">{{ $__t('Save') }}</button>
+				class="save-recipe btn btn-info mb-2">{{ $__t('Save') }}</button>
 		</form>
 
 	</div>
