@@ -342,6 +342,12 @@ $("#allow_partial_units_in_stock").on("click", function()
 	Grocy.FrontendHelpers.ValidateForm("product-form");
 });
 
+$('#product-picture').change(function () {
+	if ($(this).val()) {
+		Grocy.DeleteProductPictureOnSave = false;
+	}
+});
+
 Grocy.DeleteProductPictureOnSave = false;
 $('#delete-current-product-picture-button').on('click', function(e)
 {
