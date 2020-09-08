@@ -342,8 +342,10 @@ $("#allow_partial_units_in_stock").on("click", function()
 	Grocy.FrontendHelpers.ValidateForm("product-form");
 });
 
-$('#product-picture').change(function () {
-	if ($(this).val()) {
+$('#product-picture').change(function()
+{
+	if ($(this).val())
+	{
 		Grocy.DeleteProductPictureOnSave = false;
 	}
 });
@@ -411,7 +413,8 @@ Grocy.FrontendHelpers.ValidateForm('product-form');
 $("#allow_partial_units_in_stock").click();
 $("#allow_partial_units_in_stock").click();
 
-$(document).on('click', '#save-product-button-continue', function () {
+$(document).on('click', '#save-product-button-continue', function()
+{
 	Grocy.ProductEditFormRedirectUri = "reload";
 	$('#save-product-button').click();
 });
