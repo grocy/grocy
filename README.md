@@ -40,24 +40,6 @@ Just overwrite everything with the latest release while keeping the `data` direc
 
 If you run grocy on Linux, there is also `update.sh` (remember to make the script executable (`chmod +x update.sh`) and ensure that you have `unzip` installed) which does exactly this and additionally creates a backup (`.tgz` archive) of the current installation in `data/backups` (backups older than 60 days will be deleted during the update).
 
-## How to bootstrap a development environment
-
-Initialize:
-
-```
-$ npm install
-$ composer install
-$ cp config-dist.php data/config.php
-```
-
-Start the webserver:
-
-```
-$ cd public/
-$ ln -sf ../node_modules node_modules
-$ env GROCY_DATAPATH=$(pwd)/../data php -S localhost:3000
-```
-
 ## Localization
 grocy is fully localizable - the default language is English (integrated into code), a German localization is always maintained by me.
 You can easily help translating grocy at https://www.transifex.com/grocy/grocy, if your language is incomplete or not available yet.
