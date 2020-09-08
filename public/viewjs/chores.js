@@ -21,7 +21,7 @@ $("#search").on("keyup", Delay(function()
 
 $(document).on('click', '.chore-delete-button', function(e)
 {
-	var objectName = $(e.currentTarget).attr('data-chore-name');
+	var objectName = SanitizeHtml($(e.currentTarget).attr('data-chore-name'));
 	var objectId = $(e.currentTarget).attr('data-chore-id');
 
 	bootbox.confirm({

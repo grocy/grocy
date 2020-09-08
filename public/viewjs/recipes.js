@@ -81,7 +81,7 @@ $(".recipe-delete").on('click', function(e)
 {
 	e.preventDefault();
 
-	var objectName = $(e.currentTarget).attr('data-recipe-name');
+	var objectName = SanitizeHtml($(e.currentTarget).attr('data-recipe-name'));
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 
 	bootbox.confirm({
@@ -118,7 +118,7 @@ $(".recipe-delete").on('click', function(e)
 
 $(document).on('click', '.recipe-shopping-list', function(e)
 {
-	var objectName = $(e.currentTarget).attr('data-recipe-name');
+	var objectName = SanitizeHtml($(e.currentTarget).attr('data-recipe-name'));
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 
 	bootbox.confirm({
@@ -164,7 +164,7 @@ $(document).on('click', '.recipe-shopping-list', function(e)
 
 $(".recipe-consume").on('click', function(e)
 {
-	var objectName = $(e.currentTarget).attr('data-recipe-name');
+	var objectName = SanitizeHtml($(e.currentTarget).attr('data-recipe-name'));
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 
 	bootbox.confirm({

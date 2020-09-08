@@ -38,7 +38,7 @@ if (typeof GetUriParam("product-group") !== "undefined")
 
 $(document).on('click', '.product-delete-button', function(e)
 {
-	var objectName = $(e.currentTarget).attr('data-product-name');
+	var objectName = SanitizeHtml($(e.currentTarget).attr('data-product-name'));
 	var objectId = $(e.currentTarget).attr('data-product-id');
 
 	Grocy.Api.Get('stock/products/' + objectId,

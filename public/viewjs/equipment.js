@@ -68,7 +68,7 @@ $("#search").on("keyup", Delay(function()
 
 $(document).on('click', '.equipment-delete-button', function(e)
 {
-	var objectName = $(e.currentTarget).attr('data-equipment-name');
+	var objectName = SanitizeHtml($(e.currentTarget).attr('data-equipment-name'));
 	var objectId = $(e.currentTarget).attr('data-equipment-id');
 
 	bootbox.confirm({
