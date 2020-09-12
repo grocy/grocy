@@ -95,6 +95,8 @@ class CalendarService extends BaseService
 		}
 
 		$mealPlanRecipeEvents = [];
+		$mealPlanNotesEvents = [];
+		$mealPlanProductEvents = [];
 
 		if (GROCY_FEATURE_FLAG_RECIPES)
 		{
@@ -120,7 +122,7 @@ class CalendarService extends BaseService
 
 			$mealPlanDayNotes = $this->getDatabase()->meal_plan()->where('type', 'note');
 			$titlePrefix = $this->getLocalizationService()->__t('Meal plan note') . ': ';
-			$mealPlanNotesEvents = [];
+
 
 			foreach ($mealPlanDayNotes as $mealPlanDayNote)
 			{
@@ -134,7 +136,7 @@ class CalendarService extends BaseService
 			$products = $this->getDatabase()->products();
 			$mealPlanDayProducts = $this->getDatabase()->meal_plan()->where('type', 'product');
 			$titlePrefix = $this->getLocalizationService()->__t('Meal plan product') . ': ';
-			$mealPlanProductEvents = [];
+
 
 			foreach ($mealPlanDayProducts as $mealPlanDayProduct)
 			{
