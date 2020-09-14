@@ -123,7 +123,6 @@ class CalendarService extends BaseService
 			$mealPlanDayNotes = $this->getDatabase()->meal_plan()->where('type', 'note');
 			$titlePrefix = $this->getLocalizationService()->__t('Meal plan note') . ': ';
 
-
 			foreach ($mealPlanDayNotes as $mealPlanDayNote)
 			{
 				$mealPlanNotesEvents[] = [
@@ -136,7 +135,6 @@ class CalendarService extends BaseService
 			$products = $this->getDatabase()->products();
 			$mealPlanDayProducts = $this->getDatabase()->meal_plan()->where('type', 'product');
 			$titlePrefix = $this->getLocalizationService()->__t('Meal plan product') . ': ';
-
 
 			foreach ($mealPlanDayProducts as $mealPlanDayProduct)
 			{

@@ -670,13 +670,15 @@ $(Grocy.UserPermissions).each(function(index, item)
 		$('.permission-' + item.permission_name).addClass('disabled').addClass('not-allowed');
 	}
 });
-$('a.link-return').not(".btn").each(function () {
-	var base =  $(this).data('href');
-	if(base.contains('?'))
+$('a.link-return').not(".btn").each(function()
+{
+	var base = $(this).data('href');
+	if (base.contains('?'))
 	{
 		$(this).attr('href', base + '&returnto' + encodeURIComponent(location.pathname));
 	}
-	else{
+	else
+	{
 		$(this).attr('href', base + '?returnto=' + encodeURIComponent(location.pathname));
 	}
 
@@ -697,8 +699,9 @@ $(document).on("click", "a.btn.link-return", function(e)
 	}
 });
 
-$('.dropdown-item').has('.form-check input[type=checkbox]').on('click', function (e) {
-	if($(e.target).is('div.form-check') || $(e.target).is('div.dropdown-item'))
+$('.dropdown-item').has('.form-check input[type=checkbox]').on('click', function(e)
+{
+	if ($(e.target).is('div.form-check') || $(e.target).is('div.dropdown-item'))
 	{
 		$(e.target).find('input[type=checkbox]').click();
 	}

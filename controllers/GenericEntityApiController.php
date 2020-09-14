@@ -64,7 +64,7 @@ class GenericEntityApiController extends BaseApiController
 		}
 		else
 		{
-			return $this->GenericErrorResponse($response, "Invalid entity");
+			return $this->GenericErrorResponse($response, 'Invalid entity');
 		}
 	}
 

@@ -35,11 +35,11 @@
 		data-target="@productpicker">
 		<option value=""></option>
 		@foreach($products as $product)
-			@php $bc = null;
-				if(isset($barcodes)) {
-					$bc = FindObjectInArrayByPropertyValue($barcodes, 'product_id', $product->id);
-				}
-			@endphp
+		@php $bc = null;
+		if(isset($barcodes)) {
+		$bc = FindObjectInArrayByPropertyValue($barcodes, 'product_id', $product->id);
+		}
+		@endphp
 		<option data-additional-searchdata="@if(isset($bc)){{ $bc->barcodes }}@endif,"
 			value="{{ $product->id }}">{{ $product->name }}</option>
 		@endforeach

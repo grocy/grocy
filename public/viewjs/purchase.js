@@ -33,7 +33,8 @@
 			{
 				jsonData.best_before_date = Grocy.Components.DateTimePicker.GetValue();
 			}
-			else {
+			else
+			{
 				jsonData.best_before_date = null;
 			}
 
@@ -106,7 +107,7 @@
 						{
 							Grocy.Components.LocationPicker.Clear();
 						}
-						if(Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
+						if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 						{
 							Grocy.Components.DateTimePicker.Clear();
 						}
