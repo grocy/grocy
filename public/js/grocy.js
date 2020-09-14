@@ -696,3 +696,10 @@ $(document).on("click", "a.btn.link-return", function(e)
 		location.href = U(link);
 	}
 });
+
+$('.dropdown-item').has('.form-check input[type=checkbox]').on('click', function (e) {
+	if($(e.target).is('div.form-check') || $(e.target).is('div.dropdown-item'))
+	{
+		$(e.target).find('input[type=checkbox]').click();
+	}
+})

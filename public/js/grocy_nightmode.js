@@ -3,11 +3,11 @@
 	var value = $(this).is(":checked");
 	if (value)
 	{
-		$("body").addClass("night-mode");
-
 		// Force disable auto night mode when night mode is enabled
 		$("#auto-night-mode-enabled").prop("checked", false);
 		$("#auto-night-mode-enabled").trigger("change");
+
+		$("body").addClass("night-mode");
 	}
 	else
 	{

@@ -29,7 +29,14 @@
 
 			var jsonData = {};
 			jsonData.amount = amount;
-			jsonData.best_before_date = Grocy.Components.DateTimePicker.GetValue();
+			if (Grocy.Components.DateTimePicker)
+			{
+				jsonData.best_before_date = Grocy.Components.DateTimePicker.GetValue();
+			}
+			else {
+				jsonData.best_before_date = null;
+			}
+
 			if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 			{
 				jsonData.shopping_location_id = Grocy.Components.ShoppingLocationPicker.GetValue();
@@ -99,7 +106,10 @@
 						{
 							Grocy.Components.LocationPicker.Clear();
 						}
-						Grocy.Components.DateTimePicker.Clear();
+						if(Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
+						{
+							Grocy.Components.DateTimePicker.Clear();
+						}
 						Grocy.Components.ProductPicker.SetValue('');
 						if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 						{
@@ -265,23 +275,21 @@ if (Grocy.Components.ProductPicker !== undefined)
 						$("#tare-weight-handling-info").addClass("d-none");
 					}
 
-					if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
+					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 					{
-						Grocy.Components.DateTimePicker.SetValue('2999-12-31');
-					}
-
-					if (productDetails.product.default_best_before_days.toString() !== '0')
-					{
-						if (productDetails.product.default_best_before_days == -1)
+						if (productDetails.product.default_best_before_days.toString() !== '0')
 						{
-							if (!$("#datetimepicker-shortcut").is(":checked"))
+							if (productDetails.product.default_best_before_days == -1)
 							{
-								$("#datetimepicker-shortcut").click();
+								if (!$("#datetimepicker-shortcut").is(":checked"))
+								{
+									$("#datetimepicker-shortcut").click();
+								}
 							}
-						}
-						else
-						{
-							Grocy.Components.DateTimePicker.SetValue(moment().add(productDetails.product.default_best_before_days, 'days').format('YYYY-MM-DD'));
+							else
+							{
+								Grocy.Components.DateTimePicker.SetValue(moment().add(productDetails.product.default_best_before_days, 'days').format('YYYY-MM-DD'));
+							}
 						}
 					}
 

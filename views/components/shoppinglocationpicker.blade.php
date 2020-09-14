@@ -12,7 +12,7 @@
 	data-next-input-selector="{{ $nextInputSelector }}"
 	data-prefill-by-name="{{ $prefillByName }}"
 	data-prefill-by-id="{{ $prefillById }}">
-	<label for="shopping_location_id">{{ $__t($label) }}&nbsp;&nbsp;<span id="{{ $hintId }}"
+	<label for="shopping_location_id">{{ $__t($label) }}&nbsp;&nbsp;<span @if(!empty($hintId))id="{{ $hintId }}" @endif
 			class="small text-muted">{{ $hint }}</span></label>
 	<select class="form-control shopping-location-combobox"
 		id="shopping_location_id"

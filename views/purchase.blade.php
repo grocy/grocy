@@ -53,13 +53,7 @@
 				class="text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
 			))
 
-			@php
-			$additionalGroupCssClasses = '';
-			if (!GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
-			{
-			$additionalGroupCssClasses = 'd-none';
-			}
-			@endphp
+			@if(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 			@include('components.datetimepicker', array(
 			'id' => 'best_before_date',
 			'label' => 'Best before',
@@ -77,7 +71,7 @@
 			'additionalGroupCssClasses' => $additionalGroupCssClasses,
 			'activateNumberPad' => GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_FIELD_NUMBER_PAD
 			))
-			@php $additionalGroupCssClasses = ''; @endphp
+			@endif
 
 			@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 			@include('components.numberpicker', array(
