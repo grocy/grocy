@@ -144,7 +144,7 @@
 				id="gallery">
 				<div class="card-columns no-gutters">
 					@foreach($recipes as $recipe)
-					<a class="discrete-link recipe-gallery-item"
+					<a class="discrete-link recipe-gallery-item @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 1) recipe-enoughtinstock @elseif(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) recipe-enoughinstockwithshoppinglist @else recipe-notenoughinstock @endif"
 						data-recipe-id="{{ $recipe->id }}"
 						href="#">
 						<div id="RecipeGalleryCard-{{ $recipe->id }}"

@@ -75,6 +75,17 @@ $("#status-filter").on("change", function()
 	}
 
 	recipesTables.column(5).search(value).draw();
+
+	$('.recipe-gallery-item').removeClass('d-none');
+	if(value !== "")
+	{
+		if(value === 'enoughtinstock')
+			$('.recipe-gallery-item').not('.recipe-enoughtinstock').addClass('d-none');
+		if(value === 'enoughinstockwithshoppinglist')
+			$('.recipe-gallery-item').not('.recipe-enoughinstockwithshoppinglist').addClass('d-none');
+		if(value === 'notenoughinstock')
+			$('.recipe-gallery-item').not('.recipe-notenoughinstock').addClass('d-none');
+	}
 });
 
 $(".recipe-delete").on('click', function(e)
