@@ -96,6 +96,11 @@
 			href="#">
 			{{ $__t('Add products that are below defined min. stock amount') }}
 		</a>
+		<a id="add-expired-products"
+			class="btn btn-outline-primary btn-sm mb-1 responsive-button"
+			href="#">
+			{{ $__t('Add expired products') }}
+		</a>
 	</div>
 	<div class="col-xs-12 col-md-5">
 		<div class="input-group mb-3">

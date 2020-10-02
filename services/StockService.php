@@ -52,6 +52,33 @@ class StockService extends BaseService
 		}
 	}
 
+	public function AddExpiredProductsToShoppingList($listId = 1)
+	{
+		if (!$this->ShoppingListExists($listId))
+		{
+			throw new \Exception('Shopping list does not exist');
+		}
+
+		$expiredProducts = $this->GetExpiredProducts();
+
+		foreach ($expiredProducts as $expiredProduct)
+		{
+			$product = $this->getDatabase()->products()->where('id', $expiredProduct->id)->fetch();
+
+			$alreadyExistingEntry = $this->getDatabase()->shopping_list()->where('product_id', $expiredProduct->id)->fetch();
+
+			if ( ! $alreadyExistingEntry)
+			{
+				$shoppinglistRow = $this->getDatabase()->shopping_list()->createRow([
+					'product_id' => $expiredProduct->id,
+					'amount' => 1,
+					'shopping_list_id' => $listId
+				]);
+				$shoppinglistRow->save();
+			}
+		}
+	}
+
 	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $quFactorPurchaseToStock, $locationId = null, $shoppingLocationId = null, &$transactionId = null)
 	{
 		if (!$this->ProductExists($productId))
@@ -475,6 +502,13 @@ class StockService extends BaseService
 		{
 			$sql = 'SELECT * FROM stock_missing_products';
 		}
+
+		return $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
+	}
+
+	public function GetExpiredProducts()
+	{
+		$sql = 'SELECT products.* FROM stock JOIN products ON (stock.product_id = products.id) WHERE best_before_date < CURRENT_DATE';
 
 		return $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}

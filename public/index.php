@@ -1,5 +1,4 @@
 <?php
-
 // Definitions for embedded mode
 
 if (file_exists(__DIR__ . '/../embedded.txt'))

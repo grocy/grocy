@@ -1,10 +1,10 @@
-# 
+#
 # Translators:
 # Hagen Tasche <github@fvbor.de>, 2020
 # Luca RHK <luca@rhk-in.de>, 2020
 # Tobias Wolter <mumpfpuffel@gmail.com>, 2020
 # Bernd Bestel <bernd@berrnd.de>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
@@ -2035,3 +2035,6 @@ msgstr "Speichern & fortfahren"
 
 msgid "Save & return to recipes"
 msgstr "Speichern & zurück zu Rezepte"
+
+msgid "Add expired products"
+msgstr "Abgelaufene Produkte hinzufügen"
