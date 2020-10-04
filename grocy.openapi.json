@@ -357,7 +357,7 @@
 						"description": "An entity object",
 						"content": {
 							"application/json": {
-								"schema":{
+								"schema": {
 									"type": "object",
 									"oneOf": [
 										{
@@ -2832,7 +2832,7 @@
 								"properties": {
 									"excludedProductIds": {
 										"type": "array",
-										"items":{
+										"items": {
 											"type": "number",
 											"format": "integer"
 										},
@@ -4500,7 +4500,7 @@
 				"properties": {
 					"expiring_products": {
 						"type": "array",
-						"items":{
+						"items": {
 							"$ref": "#/components/schemas/CurrentStockResponse"
 						}
 					},
@@ -4606,7 +4606,7 @@
 	},
 	"security": [
 		{
-			"ApiKeyAuth": [ ]
+			"ApiKeyAuth": []
 		}
 	]
 }
