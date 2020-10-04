@@ -47,7 +47,7 @@
 					<select class="form-control"
 						id="status-filter">
 						<option value="all">{{ $__t('All') }}</option>
-						<option value="enoughtinstock">{{ $__t('Enough in stock') }}</option>
+						<option value="enoughinstock">{{ $__t('Enough in stock') }}</option>
 						<option value="enoughinstockwithshoppinglist">{{ $__t('Not enough in stock, but already on the shopping list') }}</option>
 						<option value="notenoughinstock">{{ $__t('Not enough in stock') }}</option>
 					</select>
@@ -121,7 +121,7 @@
 								{{ FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->missing_products_count }}
 							</td>
 							<td class="d-none">
-								@if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 1) enoughtinstock @elseif(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) enoughinstockwithshoppinglist @else notenoughinstock @endif
+								@if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 1) enoughinstock @elseif(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) enoughinstockwithshoppinglist @else notenoughinstock @endif
 							</td>
 							<td class="d-none">
 								@foreach(FindAllObjectsInArrayByPropertyValue($recipePositionsResolved, 'recipe_id', $recipe->id) as $recipePos)
@@ -144,7 +144,7 @@
 				id="gallery">
 				<div class="card-columns no-gutters">
 					@foreach($recipes as $recipe)
-					<a class="discrete-link recipe-gallery-item"
+					<a class="discrete-link recipe-gallery-item @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 1) recipe-enoughinstock @elseif(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) recipe-enoughinstockwithshoppinglist @else recipe-notenoughinstock @endif"
 						data-recipe-id="{{ $recipe->id }}"
 						href="#">
 						<div id="RecipeGalleryCard-{{ $recipe->id }}"
