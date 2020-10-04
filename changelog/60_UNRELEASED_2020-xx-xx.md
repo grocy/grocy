@@ -46,6 +46,7 @@
 ### Shopping list improvements
 - Decimal amounts are now allowed (for any product, rounded by two decimal places)
 - "Add products that are below defined min. stock amount" always rounded up the missing amount to an integral number, this now allows decimal numbers
+- Added a button to add all currently in-stock but expired products to the shopping list (thanks @m-byte)
 
 ### Recipe improvements/fixes
 - It's now possible to print recipes (button next to the recipe title) (thanks @zsarnett)
@@ -103,6 +104,7 @@
         - `<=` less or equal
       - `<value>` is the value to search for
 - New endpoints `/stock/journal` and `/stock/journal/summary` to get the stock journal (thanks @fipwmaqzufheoxq92ebc)
+- New endpoint `/stock/shoppinglist/add-expired-products` to add all currently in-stock but expired products to a shopping list (thanks @m-byte)
 - Performance improvements of the `/stock/products/*` endpoints (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that the endpoint `/objects/{entity}/{objectId}` always returned successfully, even when the given object not exists (now returns `404` when the object is not found) (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that the endpoint `/stock/volatile` didn't include products which expire today (thanks @fipwmaqzufheoxq92ebc)
