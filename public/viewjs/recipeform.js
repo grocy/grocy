@@ -28,6 +28,9 @@ $('.save-recipe').on('click', function(e)
 {
 	e.preventDefault();
 
+	$(".note-editable span.ingredient").removeClass(["badge", "btn", "btn-secondary"]);
+	$("#description").text($("#description").siblings(".note-editor").find(".note-editable").html());
+
 	var jsonData = $('#recipe-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("recipe-form");
 
@@ -230,6 +233,62 @@ $(document).on('click', '.recipe-pos-edit-button', function(e)
 	});
 });
 
+$(document).on('click', '.recipe-pos-insert-button', function(e)
+{
+	e.preventDefault();
+
+	var recipePosId = $(e.currentTarget).attr('data-recipe-pos-id').toString();
+	var recipePosName = $(e.currentTarget).attr('data-recipe-pos-name').toString();
+	var recipePosAmount = parseFloat($(e.currentTarget).attr('data-recipe-pos-amount').toString());
+	var recipePosQu = $(e.currentTarget).attr('data-recipe-pos-qu').toString();
+	var recipePosQuPlural = $(e.currentTarget).attr('data-recipe-pos-qu-plural').toString();
+	var range = $.summernote.range.create();
+
+	bootbox.dialog({
+		message: '<div>Factor?</div><input type="number" class="form-control" value="1" min="0" max="1">',
+		size: 'large',
+		backdrop: true,
+		closeButton: false,
+		buttons: {
+			cancel: {
+				label: __t('Cancel'),
+				className: 'btn-secondary responsive-button',
+				callback: function()
+				{
+					bootbox.hideAll();
+				}
+			},
+			ok: {
+				label: __t('Insert'),
+				className: 'btn-success responsive-button',
+				callback: function(e)
+				{
+					var factor = $(e.delegateTarget).find('input').val();
+					var amount = parseFloat(factor) * recipePosAmount;
+					amount = amount.toFixed(2).replace(/([0-9]+(\.[0-9]+[1-9])?)(\.?0+$)/,'$1');
+					var html = '&nbsp;<span class="ingredient" data-ingredient-id="' + recipePosId + '" data-ingredient-factor="' + factor + '">' + [amount, __n(amount, recipePosQu, recipePosQuPlural), recipePosName].join(' ') + '</span>&nbsp;';
+					if (range.so !== range.eo || range.sc !== range.ec)
+					{
+						range.deleteContents();
+						range = $.summernote.range.create();
+						var check = range.getWordRange(true);
+						if (check.toString().trim().length === 0)
+							check.deleteContents();
+						check = range.getWordRange(false);
+						if (check.toString().trim().length === 0)
+							check.deleteContents();
+						range = $.summernote.range.create();
+					}
+					range.pasteHTML(html);
+					updateIngredientTags();
+					bootbox.hideAll();
+					$("#description").summernote('focus');
+				}
+			}
+		}
+	});
+});
+
 $(document).on('click', '.recipe-include-edit-button', function(e)
 {
 	var id = $(e.currentTarget).attr('data-recipe-include-id');
@@ -378,6 +437,19 @@ $(window).on("message", function(e)
 		);
 	}
 });
+
+function updateIngredientTags()
+{
+	$("#description").siblings(".note-editable").find("span.ingredient").not(".badge").addClass(["badge", "btn", "btn-secondary"]).on("click", function(evt)
+	{
+		$.summernote.range.createFromNode(evt.target).select();
+	});
+}
+$(".wysiwyg-editor").on("summernote.init", function()
+{
+	updateIngredientTags();
+});
+updateIngredientTags();
 
 // Grocy.Components.RecipePicker.GetPicker().on('change', function (e)
 // {

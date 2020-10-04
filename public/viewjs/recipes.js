@@ -37,6 +37,35 @@ if (typeof recipe !== "undefined")
 		// Scroll to recipe card on mobile
 		$("#selectedRecipeCard")[0].scrollIntoView();
 	}
+
+	$("#selectedRecipeCard .ingredient").each(function(id, element)
+	{
+		var data = $(element).closest(".tab-pane").data("ingredients");
+		if (!data)
+		{
+			$(element).text('<???>');
+			return;
+		}
+		var ingredient = FindObjectInArrayByPropertyValue(data.recipePositions, 'recipe_pos_id', element.dataset.ingredientId);
+		if (!ingredient)
+		{
+			$(element).text('<???>');
+		}
+		var product = FindObjectInArrayByPropertyValue(data.products, 'id', ingredient.product_id);
+		var amount = ingredient.recipe_amount;
+		if (element.dataset.ingredientFactor && parseFloat(element.dataset.ingredientFactor))
+		{
+			amount *= parseFloat(element.dataset.ingredientFactor);
+		}
+		amount = amount.toFixed(2).replace(/([0-9]+(\.[0-9]+[1-9])?)(\.?0+$)/,'$1');
+		var qu = FindObjectInArrayByPropertyValue(data.quantityUnits, 'id', ingredient.qu_id);
+		if (!qu || !product)
+		{
+			$(element).text('<???>');
+			return;
+		}
+		$(element).text([amount, __n(amount, qu.name, qu.name_plural), product.name].join(' '));
+	});
 }
 
 if (GetUriParam("search") !== undefined)

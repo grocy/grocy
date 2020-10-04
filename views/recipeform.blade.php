@@ -192,6 +192,16 @@
 						@if($mode == "edit")
 						@foreach($recipePositions as $recipePosition)
 						<tr>
+							@php
+							$product = FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id);
+							$productQuConversions = FindAllObjectsInArrayByPropertyValue($quantityUnitConversionsResolved, 'product_id', $product->id);
+							$productQuConversions = FindAllObjectsInArrayByPropertyValue($productQuConversions, 'from_qu_id', $product->qu_id_stock);
+							$productQuConversion = FindObjectInArrayByPropertyValue($productQuConversions, 'to_qu_id', $recipePosition->qu_id);
+							if ($productQuConversion)
+							{
+							$recipePosition->amount = $recipePosition->amount * $productQuConversion->factor;
+							}
+							@endphp
 							<td class="fit-content border-right">
 								<a class="btn btn-sm btn-info recipe-pos-edit-button"
 									type="button"
@@ -199,6 +209,15 @@
 									data-recipe-pos-id="{{ $recipePosition->id }}"
 									data-product-id="{{ $recipePosition->product_id }}">
 									<i class="fas fa-edit"></i>
+								</a>
+								<a class="btn btn-sm btn-info recipe-pos-insert-button"
+									href="#"
+									data-recipe-pos-id="{{ $recipePosition->id }}"
+									data-recipe-pos-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id)->name }}"
+									data-recipe-pos-amount="{{ $recipePosition->amount }}"
+									data-recipe-pos-qu="{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', $recipePosition->qu_id)->name }}"
+									data-recipe-pos-qu-plural="{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', $recipePosition->qu_id)->name_plural }}">
+									<i class="fas fa-map-marker"></i>
 								</a>
 								<a class="btn btn-sm btn-danger recipe-pos-delete-button"
 									href="#"
@@ -211,16 +230,6 @@
 								{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id)->name }}
 							</td>
 							<td>
-								@php
-								$product = FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id);
-								$productQuConversions = FindAllObjectsInArrayByPropertyValue($quantityUnitConversionsResolved, 'product_id', $product->id);
-								$productQuConversions = FindAllObjectsInArrayByPropertyValue($productQuConversions, 'from_qu_id', $product->qu_id_stock);
-								$productQuConversion = FindObjectInArrayByPropertyValue($productQuConversions, 'to_qu_id', $recipePosition->qu_id);
-								if ($productQuConversion)
-								{
-								$recipePosition->amount = $recipePosition->amount * $productQuConversion->factor;
-								}
-								@endphp
 								@if(!empty($recipePosition->variable_amount))
 								{{ $recipePosition->variable_amount }}
 								@else

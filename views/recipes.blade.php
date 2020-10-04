@@ -394,6 +394,7 @@
 							@endif
 							<div class="tab-pane @if(count($recipePositionsFiltered) == 0) active @endif"
 								id="prep-{{ $index }}"
+								data-ingredients="{{ json_encode(array('recipePositions' => $recipePositionsFiltered, 'products' => $products, 'quantityUnits' => $quantityUnits)) }}"
 								role="tabpanel">
 								<div class="mb-2 d-none d-print-block">
 									<h3 class="mb-0">{{ $__t('Preparation') }}</h3>
