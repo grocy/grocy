@@ -1909,3 +1909,6 @@ msgstr ""
 
 msgid "Journal summary for this product"
 msgstr ""
+
+msgid "Add expired products"
+msgstr ""

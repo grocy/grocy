@@ -52,6 +52,33 @@ class StockService extends BaseService
 		}
 	}
 
+	public function AddExpiredProductsToShoppingList($listId = 1)
+	{
+		if (!$this->ShoppingListExists($listId))
+		{
+			throw new \Exception('Shopping list does not exist');
+		}
+
+		$expiredProducts = $this->GetExpiringProducts(-1);
+
+		foreach ($expiredProducts as $expiredProduct)
+		{
+			$product = $this->getDatabase()->products()->where('id', $expiredProduct->product_id)->fetch();
+
+			$alreadyExistingEntry = $this->getDatabase()->shopping_list()->where('product_id', $expiredProduct->product_id)->fetch();
+
+			if (!$alreadyExistingEntry)
+			{
+				$shoppinglistRow = $this->getDatabase()->shopping_list()->createRow([
+					'product_id' => $expiredProduct->product_id,
+					'amount' => 1,
+					'shopping_list_id' => $listId
+				]);
+				$shoppinglistRow->save();
+			}
+		}
+	}
+
 	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $quFactorPurchaseToStock, $locationId = null, $shoppingLocationId = null, &$transactionId = null)
 	{
 		if (!$this->ProductExists($productId))

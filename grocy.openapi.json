@@ -2356,6 +2356,48 @@
 				}
 			}
 		},
+		"/stock/shoppinglist/add-expired-products": {
+			"post": {
+				"summary": "Adds expired products to the given shopping list",
+				"tags": [
+					"Stock"
+				],
+				"requestBody": {
+					"required": false,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"list_id": {
+										"type": "integer",
+										"description": "The shopping list to use, when omitted, the default shopping list (with id 1) is used"
+									}
+								},
+								"example": {
+									"list_id": 2
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing shopping list)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GenericErrorResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/stock/shoppinglist/clear": {
 			"post": {
 				"summary": "Removes all items from the given shopping list",
