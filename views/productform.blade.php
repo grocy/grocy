@@ -458,7 +458,7 @@
 					<th>{{ $__t('Barcode') }}</th>
 					<th>{{ $__t('Factor purchase to stock quantity unit') }}</th>
 					@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
-						<th>{{ $__t('Store') }}</th>
+					<th>{{ $__t('Store') }}</th>
 					@endif
 				</tr>
 			</thead>
