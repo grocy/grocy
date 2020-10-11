@@ -3,6 +3,7 @@
 @section('title', $__t('Equipment'))
 @section('activeNav', 'equipment')
 @section('viewJsName', 'equipment')
+@section('DbChangHandlingEnabled', 'false')
 
 @section('content')
 <div class="row">

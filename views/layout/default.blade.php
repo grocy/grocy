@@ -82,7 +82,7 @@
 	@if(file_exists(GROCY_DATAPATH . '/custom_css.html'))
 	@php include GROCY_DATAPATH . '/custom_css.html' @endphp
 	@endif
-
+	@section('DbChangHandlingEnabled', 'true')
 	<script>
 		var Grocy = { };
 		Grocy.Components = { };
@@ -105,6 +105,7 @@
 		Grocy.UserSettings = { };
 		Grocy.UserId = -1;
 		@endif
+		const DbChangHandlingEnabled = @yield('DbChangHandlingEnabled');
 	</script>
 </head>
 
