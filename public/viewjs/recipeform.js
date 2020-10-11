@@ -1,4 +1,4 @@
-﻿function saveRecipePicture(result, location)
+﻿function saveRecipePicture(result, location, jsonData)
 {
 	$recipeId = Grocy.EditObjectId || result.created_object_id;
 	Grocy.Components.UserfieldsForm.Save(() =>
@@ -43,7 +43,7 @@ $('.save-recipe').on('click', function(e)
 	{
 		console.log(jsonData);
 		Grocy.Api.Post('objects/recipes', jsonData,
-			(result) => saveRecipePicture(result, location));
+			(result) => saveRecipePicture(result, location, jsonData));
 		return;
 	}
 
@@ -65,7 +65,7 @@ $('.save-recipe').on('click', function(e)
 	}
 
 	Grocy.Api.Put('objects/recipes/' + Grocy.EditObjectId, jsonData,
-		(result) => saveRecipePicture(result, location),
+		(result) => saveRecipePicture(result, location, jsonData),
 		function(xhr)
 		{
 			Grocy.FrontendHelpers.EndUiBusy("recipe-form");
