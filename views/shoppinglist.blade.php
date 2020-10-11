@@ -71,7 +71,7 @@
 		</div>
 		<hr>
 		<p data-status-filter="belowminstockamount"
-			class="normal-message status-filter-message responsive-button">{{ $__n(count($missingProducts), '%s product is below defined min. stock amount', '%s products are below defined min. stock amount') }}</p>
+			class="normal-message status-filter-message responsive-button @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif">{{ $__n(count($missingProducts), '%s product is below defined min. stock amount', '%s products are below defined min. stock amount') }}</p>
 	</div>
 </div>
 
@@ -87,17 +87,17 @@
 			{{ $__t('Clear list') }}
 		</a>
 		<a id="add-all-items-to-stock-button"
-			class="btn btn-outline-primary btn-sm mb-1 responsive-button"
+			class="btn btn-outline-primary btn-sm mb-1 responsive-button @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif"
 			href="#">
 			{{ $__t('Add all list items to stock') }}
 		</a>
 		<a id="add-products-below-min-stock-amount"
-			class="btn btn-outline-primary btn-sm mb-1 responsive-button"
+			class="btn btn-outline-primary btn-sm mb-1 responsive-button @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif"
 			href="#">
 			{{ $__t('Add products that are below defined min. stock amount') }}
 		</a>
 		<a id="add-expired-products"
-			class="btn btn-outline-primary btn-sm mb-1 responsive-button"
+			class="btn btn-outline-primary btn-sm mb-1 responsive-button @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif"
 			href="#">
 			{{ $__t('Add expired products') }}
 		</a>
@@ -121,7 +121,7 @@
 			<select class="form-control"
 				id="status-filter">
 				<option value="all">{{ $__t('All') }}</option>
-				<option value="belowminstockamount">{{ $__t('Below min. stock amount') }}</option>
+				<option class="@if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif" value="belowminstockamount">{{ $__t('Below min. stock amount') }}</option>
 				<option value="xxUNDONExx">{{ $__t('Only undone items') }}</option>
 			</select>
 		</div>
@@ -188,7 +188,7 @@
 							title="{{ $__t('Delete this item') }}">
 							<i class="fas fa-trash"></i>
 						</a>
-						<a class="btn btn-sm btn-primary @if(empty($listItem->product_id)) disabled @else shopping-list-stock-add-workflow-list-item-button @endif"
+						<a class="btn btn-sm btn-primary @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif @if(empty($listItem->product_id)) disabled @else shopping-list-stock-add-workflow-list-item-button @endif"
 							href="{{ $U('/purchase?embedded&flow=shoppinglistitemtostock&product=') }}{{ $listItem->product_id }}&amount={{ $listItem->amount }}&listitemid={{ $listItem->id }}"
 							@if(!empty($listItem->product_id)) data-toggle="tooltip" title="{{ $__t('Add %1$s of %2$s to stock', $listItem->amount . ' ' . $__n($listItem->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name_plural), FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->name, $listItem->amount) }}" @endif>
 							<i class="fas fa-box"></i>
