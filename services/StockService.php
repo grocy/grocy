@@ -249,16 +249,16 @@ class StockService extends BaseService
 				$potentialStockEntries = $this->GetProductStockEntriesForLocation($productId, $locationId, false, $allowSubproductSubstitution);
 			}
 
+			if ($specificStockEntryId !== 'default')
+			{
+				$potentialStockEntries = FindAllObjectsInArrayByPropertyValue($potentialStockEntries, 'stock_id', $specificStockEntryId);
+			}
+
 			$productStockAmount = SumArrayValue($potentialStockEntries, 'amount');
 
 			if ($amount > $productStockAmount)
 			{
 				throw new \Exception('Amount to be consumed cannot be > current stock amount (if supplied, at the desired location)');
-			}
-
-			if ($specificStockEntryId !== 'default')
-			{
-				$potentialStockEntries = FindAllObjectsInArrayByPropertyValue($potentialStockEntries, 'stock_id', $specificStockEntryId);
 			}
 
 			if ($transactionId === null)
