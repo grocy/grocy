@@ -529,22 +529,40 @@ class StockService extends BaseService
 
 		$product = $this->getDatabase()->products($productId);
 		$productBarcodes = $this->getDatabase()->product_barcodes()->where('product_id', $productId)->fetchAll();
-		$productLastPurchased = $this->getDatabase()->products_last_purchased()->where('product_id', $productId)->fetch();
 		$productLastUsed = $this->getDatabase()->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone', 0)->max('used_date');
 		$nextBestBeforeDate = $this->getDatabase()->stock()->where('product_id', $productId)->min('best_before_date');
 		$quPurchase = $this->getDatabase()->quantity_units($product->qu_id_purchase);
 		$quStock = $this->getDatabase()->quantity_units($product->qu_id_stock);
 		$location = $this->getDatabase()->locations($product->location_id);
 		$averageShelfLifeDays = intval($this->getDatabase()->stock_average_product_shelf_life()->where('id', $productId)->fetch()->average_shelf_life_days);
-		$lastPrice = $productLastPurchased->price;
-		$lastQuFactorPurchaseToStock = $productLastPurchased->qu_factor_purchase_to_stock;
 		$avgPrice = $this->getDatabase()->products_average_price()->where('product_id', $productId)->fetch();
 		$oldestPrice = $this->getDatabase()->products_oldest_stock_unit_price()->where('product_id', $productId)->fetch();
 		$defaultShoppingLocation = null;
-		$lastShoppingLocation = $productLastPurchased->shopping_location_id;
 
 		$consumeCount = $this->getDatabase()->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone = 0 AND spoiled = 0')->sum('amount') * -1;
 		$consumeCountSpoiled = $this->getDatabase()->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone = 0 AND spoiled = 1')->sum('amount') * -1;
+
+		$productLastPurchased = $this->getDatabase()->products_last_purchased()->where('product_id', $productId)->fetch();
+		$lastPrice = null;
+		$lastQuFactorPurchaseToStock = null;
+		$lastShoppingLocation = null;
+		$lastPurchased = null;
+		if ($productLastPurchased != null)
+		{
+			$lastPrice = $productLastPurchased->price;
+			$lastQuFactorPurchaseToStock = $productLastPurchased->qu_factor_purchase_to_stock;
+			$lastShoppingLocation = $productLastPurchased->shopping_location_id;
+			$lastPurchased= $productLastPurchased->purchased_date;
+		}
+
+		if ($avgPrice != null)
+		{
+			$avgPrice = $avgPrice->price;
+		}
+		if ($oldestPrice != null)
+		{
+			$oldestPrice = $oldestPrice->price;
+		}
 
 		if ($consumeCount == 0)
 		{
@@ -556,7 +574,7 @@ class StockService extends BaseService
 		return [
 			'product' => $product,
 			'product_barcodes' => $productBarcodes,
-			'last_purchased' => $productLastPurchased->purchased_date,
+			'last_purchased' => $lastPurchased,
 			'last_used' => $productLastUsed,
 			'stock_amount' => $stockCurrentRow->amount,
 			'stock_factor_purchase_amount' => $stockCurrentRow->factor_purchase_amount,
@@ -568,8 +586,8 @@ class StockService extends BaseService
 			'quantity_unit_stock' => $quStock,
 			'last_price' => $lastPrice,
 			'last_qu_factor_purchase_to_stock' => $lastQuFactorPurchaseToStock,
-			'avg_price' => $avgPrice->price,
-			'oldest_price' => $oldestPrice->price,
+			'avg_price' => $averagePrice,
+			'oldest_price' => $oldestPrice,
 			'last_shopping_location_id' => $lastShoppingLocation,
 			'default_shopping_location_id' => $product->shopping_location_id,
 			'next_best_before_date' => $nextBestBeforeDate,
