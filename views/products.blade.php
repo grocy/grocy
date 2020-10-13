@@ -50,7 +50,7 @@
 				<span class="input-group-text"><i class="fas fa-filter"></i></span>
 			</div>
 			<select class="form-control"
-				id="location-filter">
+				id="product-group-filter">
 				<option value="all">{{ $__t('All') }}</option>
 				@foreach($productGroups as $productGroup)
 				<option value="{{ $productGroup->id }}">{{ $productGroup->name }}</option>
