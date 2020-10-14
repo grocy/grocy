@@ -139,7 +139,7 @@ if (Grocy.EditMode === "edit")
 
 $('#amount').on('focus', function(e)
 {
-	if (Grocy.Components.ProductPicker.GetValue().length === 0)
+	if (Grocy.Components.ProductPicker.GetValue().length === 0 && Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK)
 	{
 		Grocy.Components.ProductPicker.GetInputElement().focus();
 	}

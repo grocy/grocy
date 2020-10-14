@@ -210,7 +210,7 @@ class StockService extends BaseService
 		$this->getDatabase()->shopping_list()->where('shopping_list_id = :1', $listId)->delete();
 	}
 
-	public function ConsumeProduct(int $productId, float $amount, bool $spoiled, $transactionType, $specificStockEntryId = 'default', $recipeId = null, $locationId = null, &$transactionId = null, $allowSubproductSubstitution = false)
+	public function ConsumeProduct(int $productId, float $amount, bool $spoiled, $transactionType, $specificStockEntryId = 'default', $recipeId = null, $locationId = null, &$transactionId = null, $allowSubproductSubstitution = false, $consumeExactAmount = false)
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -230,6 +230,10 @@ class StockService extends BaseService
 
 		if ($productDetails->product->enable_tare_weight_handling == 1)
 		{
+			if($consumeExactAmount)
+			{
+				$amount = floatval($productDetails->stock_amount) + floatval($productDetails->product->tare_weight) - $amount;
+			}
 			if ($amount < floatval($productDetails->product->tare_weight))
 			{
 				throw new \Exception('The amount cannot be lower than the defined tare weight');
@@ -249,16 +253,16 @@ class StockService extends BaseService
 				$potentialStockEntries = $this->GetProductStockEntriesForLocation($productId, $locationId, false, $allowSubproductSubstitution);
 			}
 
+			if ($specificStockEntryId !== 'default')
+			{
+				$potentialStockEntries = FindAllObjectsInArrayByPropertyValue($potentialStockEntries, 'stock_id', $specificStockEntryId);
+			}
+
 			$productStockAmount = SumArrayValue($potentialStockEntries, 'amount');
 
 			if ($amount > $productStockAmount)
 			{
 				throw new \Exception('Amount to be consumed cannot be > current stock amount (if supplied, at the desired location)');
-			}
-
-			if ($specificStockEntryId !== 'default')
-			{
-				$potentialStockEntries = FindAllObjectsInArrayByPropertyValue($potentialStockEntries, 'stock_id', $specificStockEntryId);
 			}
 
 			if ($transactionId === null)

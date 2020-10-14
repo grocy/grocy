@@ -50,14 +50,15 @@
 				value="1">
 			@endif
 
-			@php if($mode == 'edit') { $productId = $listItem->product_id; } else { $productId = ''; } @endphp
-			@include('components.productpicker', array(
-			'products' => $products,
-			'nextInputSelector' => '#amount',
-			'isRequired' => false,
-			'prefillById' => $productId
-			))
-
+			<div class="@if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif" >
+				@php if($mode == 'edit') { $productId = $listItem->product_id; } else { $productId = ''; } @endphp
+				@include('components.productpicker', array(
+				'products' => $products,
+				'nextInputSelector' => '#amount',
+				'isRequired' => false,
+				'prefillById' => $productId
+				))
+			</div>
 			@php if($mode == 'edit') { $value = $listItem->amount; } else { $value = 1; } @endphp
 			@include('components.numberpicker', array(
 			'id' => 'amount',
@@ -82,9 +83,10 @@
 
 		</form>
 	</div>
-
+	@if(GROCY_FEATURE_FLAG_STOCK)
 	<div class="col-xs-12 col-md-6 col-xl-4 hide-when-embedded">
 		@include('components.productcard')
 	</div>
+	@endif
 </div>
 @stop

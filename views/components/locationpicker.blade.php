@@ -6,9 +6,10 @@
 @php if(empty($prefillById)) { $prefillById = ''; } @endphp
 @php if(!isset($isRequired)) { $isRequired = true; } @endphp
 @php if(empty($hint)) { $hint = ''; } @endphp
+@php if(empty($nextInputSelector)) { $nextInputSelector = ''; } @endphp
 
 <div class="form-group"
-	@if(isset($nextInputSelector))data-next-input-selector="{{ $nextInputSelector }}" @endif
+	data-next-input-selector="{{ $nextInputSelector }}"
 	data-prefill-by-name="{{ $prefillByName }}"
 	data-prefill-by-id="{{ $prefillById }}">
 	<label for="location_id">{{ $__t('Location') }}&nbsp;&nbsp;<span @if(!empty($hintId))id="{{ $hintId }}" @endif

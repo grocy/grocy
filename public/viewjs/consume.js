@@ -9,6 +9,7 @@
 
 	var jsonData = {};
 	jsonData.amount = jsonForm.amount;
+	jsonData.exact_amount = (jsonForm.exact_amount == "on");
 	jsonData.spoiled = $('#spoiled').is(':checked');
 
 	if ($("#use_specific_stock_entry").is(":checked"))
@@ -70,7 +71,7 @@
 						$("#use_specific_stock_entry").click();
 					}
 
-					if (productDetails.product.enable_tare_weight_handling == 1)
+					if (productDetails.product.enable_tare_weight_handling == 1 && !jsonData.exact_amount)
 					{
 						var successMessage = __t('Removed %1$s of %2$s from stock', Math.abs(jsonForm.amount - (parseFloat(productDetails.product.tare_weight) + parseFloat(productDetails.stock_amount))) + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse.transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
 					}
@@ -177,11 +178,11 @@ $('#save-mark-as-open-button').on('click', function(e)
 		}
 	);
 });
-
+var sumValue = 0;
 $("#location_id").on('change', function(e)
 {
 	var locationId = $(e.target).val();
-	var sumValue = 0;
+	sumValue = 0;
 	var stockId = null;
 
 	$("#specific_stock_entry").find("option").remove().end().append("<option></option>");
@@ -228,37 +229,8 @@ $("#location_id").on('change', function(e)
 				Grocy.Api.Get('stock/products/' + Grocy.Components.ProductPicker.GetValue(),
 					function(productDetails)
 					{
-						if (productDetails.product.enable_tare_weight_handling == 1)
-						{
-							$("#amount").attr("min", productDetails.product.tare_weight);
-							$('#amount').attr('max', sumValue + parseFloat(productDetails.product.tare_weight));
-							$("#amount").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', parseFloat(productDetails.product.tare_weight).toLocaleString(), (parseFloat(productDetails.stock_amount) + parseFloat(productDetails.product.tare_weight)).toLocaleString()));
-							$("#tare-weight-handling-info").removeClass("d-none");
-						}
-						else
-						{
-							$("#tare-weight-handling-info").addClass("d-none");
-
-							if (productDetails.product.allow_partial_units_in_stock == 1)
-							{
-								$("#amount").attr("min", "0.01");
-								$("#amount").attr("step", "0.01");
-								$("#amount").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', 0.01.toLocaleString(), parseFloat(productDetails.stock_amount).toLocaleString()));
-							}
-							else
-							{
-								$("#amount").attr("min", "1");
-								$("#amount").attr("step", "1");
-								$("#amount").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', "1", parseFloat(productDetails.stock_amount).toLocaleString()));
-							}
-
-							$('#amount').attr('max', sumValue);
-
-							if (sumValue == 0)
-							{
-								$("#amount").parent().find(".invalid-feedback").text(__t('There are no units available at this location'));
-							}
-						}
+						current_productDetails = productDetails;
+						RefreshForm();
 					},
 					function(xhr)
 					{
@@ -447,7 +419,7 @@ $("#specific_stock_entry").on("change", function(e)
 {
 	if ($(e.target).val() == "")
 	{
-		var sumValue = 0;
+		sumValue = 0;
 		Grocy.Api.Get("stock/products/" + Grocy.Components.ProductPicker.GetValue() + '/entries',
 			function(stockEntries)
 			{
@@ -572,3 +544,49 @@ $("#scan-mode-button").on("click", function(e)
 		$("#scan-mode-status").text(__t("off"));
 	}
 });
+
+$('#consume-exact-amount').on('change', RefreshForm);
+var current_productDetails;
+function RefreshForm()
+{
+	var productDetails = current_productDetails;
+	if (productDetails.product.enable_tare_weight_handling == 1)
+	{
+		$("#consume-exact-amount").parent().removeClass("d-none");
+	}
+	else
+	{
+		$("#consume-exact-amount").parent().addClass("d-none");
+	}
+	if (productDetails.product.enable_tare_weight_handling == 1 && !$('#consume-exact-amount').is(':checked'))
+	{
+		$("#amount").attr("min", productDetails.product.tare_weight);
+		$('#amount').attr('max', sumValue + parseFloat(productDetails.product.tare_weight));
+		$("#amount").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', parseFloat(productDetails.product.tare_weight).toLocaleString(), (parseFloat(productDetails.stock_amount) + parseFloat(productDetails.product.tare_weight)).toLocaleString()));
+		$("#tare-weight-handling-info").removeClass("d-none");
+	}
+	else
+	{
+		$("#tare-weight-handling-info").addClass("d-none");
+
+		if (productDetails.product.allow_partial_units_in_stock == 1)
+		{
+			$("#amount").attr("min", "0.01");
+			$("#amount").attr("step", "0.01");
+			$("#amount").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', 0.01.toLocaleString(), parseFloat(productDetails.stock_amount).toLocaleString()));
+		}
+		else
+		{
+			$("#amount").attr("min", "1");
+			$("#amount").attr("step", "1");
+			$("#amount").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', "1", parseFloat(productDetails.stock_amount).toLocaleString()));
+		}
+
+		$('#amount').attr('max', sumValue);
+
+		if (sumValue == 0)
+		{
+			$("#amount").parent().find(".invalid-feedback").text(__t('There are no units available at this location'));
+		}
+	}
+}

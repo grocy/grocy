@@ -15,31 +15,34 @@
 // Check if the database has changed once a minute
 // If a change is detected, reload the current page, but only if already idling for at least 50 seconds,
 // when there is no unsaved form data and when the user enabled auto reloading
-setInterval(function()
+if (Grocy.DbChangedHandlingEnabledForPage)
 {
-	Grocy.Api.Get('system/db-changed-time',
-		function(result)
-		{
-			var newDbChangedTime = moment(result.changed_time);
-			if (newDbChangedTime.isAfter(Grocy.DatabaseChangedTime))
+	setInterval(function()
+	{
+		Grocy.Api.Get('system/db-changed-time',
+			function(result)
 			{
-				if (Grocy.IdleTime >= 50)
+				var newDbChangedTime = moment(result.changed_time);
+				if (newDbChangedTime.isAfter(Grocy.DatabaseChangedTime))
 				{
-					if (BoolVal(Grocy.UserSettings.auto_reload_on_db_change) && $("form.is-dirty").length === 0 && !$("body").hasClass("fullscreen-card"))
+					if (Grocy.IdleTime >= 50)
 					{
-						window.location.reload();
+						if (BoolVal(Grocy.UserSettings.auto_reload_on_db_change) && $("form.is-dirty").length === 0 && !$("body").hasClass("fullscreen-card"))
+						{
+							window.location.reload();
+						}
 					}
-				}
 
-				Grocy.DatabaseChangedTime = newDbChangedTime;
+					Grocy.DatabaseChangedTime = newDbChangedTime;
+				}
+			},
+			function(xhr)
+			{
+				console.error(xhr);
 			}
-		},
-		function(xhr)
-		{
-			console.error(xhr);
-		}
-	);
-}, 60000);
+		);
+	}, 60000);
+}
 
 Grocy.IdleTime = 0;
 Grocy.ResetIdleTime = function()
