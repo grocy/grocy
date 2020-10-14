@@ -15,7 +15,7 @@
 // Check if the database has changed once a minute
 // If a change is detected, reload the current page, but only if already idling for at least 50 seconds,
 // when there is no unsaved form data and when the user enabled auto reloading
-if(DbChangHandlingEnabled)
+if (Grocy.DbChangedHandlingEnabledForPage)
 {
 	setInterval(function()
 	{

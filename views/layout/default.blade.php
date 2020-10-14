@@ -82,7 +82,7 @@
 	@if(file_exists(GROCY_DATAPATH . '/custom_css.html'))
 	@php include GROCY_DATAPATH . '/custom_css.html' @endphp
 	@endif
-	@section('DbChangHandlingEnabled', 'true')
+	@section('DbChangedHandlingEnabledForPage', 'true')
 	<script>
 		var Grocy = { };
 		Grocy.Components = { };
@@ -96,6 +96,7 @@
 		Grocy.CalendarShowWeekNumbers = {{ BoolToString(GROCY_CALENDAR_SHOW_WEEK_OF_YEAR) }};
 		Grocy.GettextPo = {!! $GettextPo !!};
 		Grocy.FeatureFlags = {!! json_encode($featureFlags) !!};
+		Grocy.DbChangedHandlingEnabledForPage = @yield('DbChangedHandlingEnabledForPage');
 
 		@if (GROCY_AUTHENTICATED)
 		Grocy.UserSettings = {!! json_encode($userSettings) !!};
@@ -105,7 +106,6 @@
 		Grocy.UserSettings = { };
 		Grocy.UserId = -1;
 		@endif
-		const DbChangHandlingEnabled = @yield('DbChangHandlingEnabled');
 	</script>
 </head>
 
