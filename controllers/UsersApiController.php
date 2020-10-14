@@ -11,7 +11,7 @@ class UsersApiController extends BaseApiController
 		try
 		{
 			User::checkPermission($request, User::PERMISSION_ADMIN);
-			$requestBody = $request->getParsedBody();
+			$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 			$this->getDatabase()->user_permissions()->createRow([
 				'user_id' => $args['userId'],
@@ -32,7 +32,7 @@ class UsersApiController extends BaseApiController
 	public function CreateUser(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_USERS_CREATE);
-		$requestBody = $request->getParsedBody();
+		$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 		try
 		{
@@ -75,7 +75,7 @@ class UsersApiController extends BaseApiController
 			User::checkPermission($request, User::PERMISSION_USERS_EDIT);
 		}
 
-		$requestBody = $request->getParsedBody();
+		$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 		try
 		{
@@ -152,7 +152,7 @@ class UsersApiController extends BaseApiController
 		try
 		{
 			User::checkPermission($request, User::PERMISSION_ADMIN);
-			$requestBody = $request->getParsedBody();
+			$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 			$db = $this->getDatabase();
 			$db->user_permissions()
 				->where('user_id', $args['userId'])
@@ -186,7 +186,7 @@ class UsersApiController extends BaseApiController
 	{
 		try
 		{
-			$requestBody = $request->getParsedBody();
+			$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 			$value = $this->getUsersService()->SetUserSetting(GROCY_USER_ID, $args['settingKey'], $requestBody['value']);
 			return $this->EmptyApiResponse($response);

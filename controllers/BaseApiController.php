@@ -115,4 +115,22 @@ class BaseApiController extends BaseController
 
 		return $this->OpenApiSpec;
 	}
+
+	private static $htmlPurifierInstance = null;
+
+	protected function GetParsedAndFilteredRequestBody($request)
+	{
+		if (self::$htmlPurifierInstance == null)
+		{
+			self::$htmlPurifierInstance = new \HTMLPurifier(\HTMLPurifier_Config::createDefault());
+		}
+
+		$requestBody = $request->getParsedBody();
+		foreach ($requestBody as $key => &$value)
+		{
+			$value = self::$htmlPurifierInstance->purify($value);
+		}
+
+		return $requestBody;
+	}
 }

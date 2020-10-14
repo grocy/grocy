@@ -27,7 +27,7 @@ class BatteriesApiController extends BaseApiController
 	{
 		User::checkPermission($request, User::PERMISSION_BATTERIES_TRACK_CHARGE_CYCLE);
 
-		$requestBody = $request->getParsedBody();
+		$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 		try
 		{

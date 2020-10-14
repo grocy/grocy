@@ -10,7 +10,7 @@ class RecipesApiController extends BaseApiController
 	{
 		User::checkPermission($request, User::PERMISSION_SHOPPINGLIST_ITEMS_ADD);
 
-		$requestBody = $request->getParsedBody();
+		$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 		$excludedProductIds = null;
 
 		if ($requestBody !== null && array_key_exists('excludedProductIds', $requestBody))

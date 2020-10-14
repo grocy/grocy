@@ -13,7 +13,7 @@ class StockApiController extends BaseApiController
 
 		try
 		{
-			$requestBody = $request->getParsedBody();
+			$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 			$listId = 1;
 
@@ -37,7 +37,7 @@ class StockApiController extends BaseApiController
 
 		try
 		{
-			$requestBody = $request->getParsedBody();
+			$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 			$listId = 1;
 
@@ -59,7 +59,7 @@ class StockApiController extends BaseApiController
 	{
 		User::checkPermission($request, User::PERMISSION_STOCK_PURCHASE);
 
-		$requestBody = $request->getParsedBody();
+		$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 		try
 		{
@@ -143,7 +143,7 @@ class StockApiController extends BaseApiController
 
 		try
 		{
-			$requestBody = $request->getParsedBody();
+			$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 			$listId = 1;
 			$amount = 1;
@@ -190,7 +190,7 @@ class StockApiController extends BaseApiController
 
 		try
 		{
-			$requestBody = $request->getParsedBody();
+			$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 			$listId = 1;
 
@@ -212,7 +212,7 @@ class StockApiController extends BaseApiController
 	{
 		User::checkPermission($request, User::PERMISSION_STOCK_CONSUME);
 
-		$requestBody = $request->getParsedBody();
+		$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 		$result = null;
 
@@ -323,7 +323,7 @@ class StockApiController extends BaseApiController
 	{
 		User::checkPermission($request, User::PERMISSION_STOCK_EDIT);
 
-		$requestBody = $request->getParsedBody();
+		$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 		try
 		{
@@ -399,7 +399,7 @@ class StockApiController extends BaseApiController
 	{
 		User::checkPermission($request, User::PERMISSION_STOCK_INVENTORY);
 
-		$requestBody = $request->getParsedBody();
+		$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 		try
 		{
@@ -467,7 +467,7 @@ class StockApiController extends BaseApiController
 	{
 		User::checkPermission($request, User::PERMISSION_STOCK_OPEN);
 
-		$requestBody = $request->getParsedBody();
+		$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 		try
 		{
@@ -582,7 +582,7 @@ class StockApiController extends BaseApiController
 
 		try
 		{
-			$requestBody = $request->getParsedBody();
+			$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 			$listId = 1;
 			$amount = 1;
@@ -664,7 +664,7 @@ class StockApiController extends BaseApiController
 	{
 		User::checkPermission($request, User::PERMISSION_STOCK_TRANSFER);
 
-		$requestBody = $request->getParsedBody();
+		$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 		try
 		{

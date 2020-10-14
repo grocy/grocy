@@ -24,7 +24,7 @@ class LoginController extends BaseController
 
 	public function ProcessLogin(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$postParams = $request->getParsedBody();
+		$postParams = $this->GetParsedAndFilteredRequestBody($request);
 
 		if (isset($postParams['username']) && isset($postParams['password']))
 		{
