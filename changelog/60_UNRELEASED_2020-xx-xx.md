@@ -30,6 +30,7 @@
 - Added a "Clear filter"-button on the stock overview page to quickly reset applied filters
 - It's now tracked who made a stock change (currently logged in user, visible on the stock journal page) (thanks @fipwmaqzufheoxq92ebc)
 - Product edit page improvements ("Save & continue" button, deleting and adding a product picuture is now possible in one go) (thanks @Ma27)
+- For products with tare weight handling enabled, it's now optionally possible to consume a fixed/exact amount (just like for "normal" products) in case you don't want to weigh the whole container this time (new checkbox on the consume page) (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that it was not possible to leave the "Barcode(s)" on the product edit page by `TAB`
 - Fixed that when adding products through a product picker workflow and when the created products contains special characters, the product was not preselected on the previous page (thanks @Forceu)
 - Fixed that when editing a product the default store was not visible / always empty regardless if the product had one set (thanks @kriddles)
@@ -47,6 +48,7 @@
 - Decimal amounts are now allowed (for any product, rounded by two decimal places)
 - "Add products that are below defined min. stock amount" always rounded up the missing amount to an integral number, this now allows decimal numbers
 - Added a button to add all currently in-stock but expired products to the shopping list (thanks @m-byte)
+- Improved that when `FEATURE_FLAG_STOCK` is disabled, all product/stock related inputs and buttons are now hidden on the shopping list page (thanks @fipwmaqzufheoxq92ebc)
 
 ### Recipe improvements/fixes
 - It's now possible to print recipes (button next to the recipe title) (thanks @zsarnett)
@@ -58,11 +60,15 @@
 - Fixed that when editing a recipe ingredient the checkbox "Disable stock fulfillment checking for this ingredient" was not initaliased with the saved value
 - Fixed that when using the "+"-symbol (which appears on small screens only to expand columns which don't fit the screen) the page reloaded
 - Fixed that the status filter ("Enough in stock", etc.) on the recipes page did not filter recipes on the gallery tab (thanks @fipwmaqzufheoxq92ebc)
+- Fixed that consuming a recipe ingredient with tare weight handling enabled consumed a wrong amount (thanks @fipwmaqzufheoxq92ebc)
 
 ### Chores improvements/fixes
 - Changed that not assigned chores on the chores overview page display now just a dash instead of an ellipsis in the "Assigned to" column to make this more clear (thanks @Germs2004)
 - Fixed (again) that weekly chores, where the next execution should be in the same week, were scheduled (not) always (but sometimes) for the next week only (thanks @shadow7412)
 - Fixed that the assignment type "In alphabetic order" did not work correctly (the last person in the list was always assigned next once reached) (thanks @fipwmaqzufheoxq92ebc)
+
+### Equipment improvements
+- The equipment page now will be never automatically reloaded, even when `Auto reload on external changes` is on and a change was detected (because you most probably have that page open longer to read the manual) (thanks @fipwmaqzufheoxq92ebc)
 
 ### Calendar improvements/fixes
 - Events are now links to the corresponding page (thanks @zsarnett)
@@ -109,6 +115,7 @@
 - Fixed that the endpoint `/objects/{entity}/{objectId}` always returned successfully, even when the given object not exists (now returns `404` when the object is not found) (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that the endpoint `/stock/volatile` didn't include products which expire today (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that the endpoint `/objects/{entity}` did not include Userfields for Userentities (so the effective endpoint `/objects/userobjects`)
+- Fixed that the endpoint `/stock/consume` returned the response code `200` and an empty response body when `stock_entry_id` was set (consuming a specific stock entry) but invalid (now returns the response code `400`) (thanks @fipwmaqzufheoxq92ebc)
 - Endpoint `/calendar/ical`: Fixed that "Track date only"-chores were always set to happen at 12am (are treated as all-day events now)
 - Fixed (again) that CORS was broken
 
