@@ -563,7 +563,7 @@ $(document).on('click', '.recipe-order-missing-button', function(e)
 	// to prevent that the tooltip stays until clicked anywhere else
 	document.activeElement.blur();
 
-	var objectName = SanitizeHtml($(e.currentTarget).attr('data-recipe-name'));
+	var objectName = $(e.currentTarget).attr('data-recipe-name');
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 	var button = $(this);
 	var servings = $(e.currentTarget).attr('data-mealplan-servings');
@@ -667,7 +667,7 @@ $(document).on('click', '.recipe-consume-button', function(e)
 	// to prevent that the tooltip stays until clicked anywhere else
 	document.activeElement.blur();
 
-	var objectName = SanitizeHtml($(e.currentTarget).attr('data-recipe-name'));
+	var objectName = $(e.currentTarget).attr('data-recipe-name');
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 	var servings = $(e.currentTarget).attr('data-mealplan-servings');
 

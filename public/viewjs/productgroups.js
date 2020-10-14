@@ -21,7 +21,7 @@ $("#search").on("keyup", Delay(function()
 
 $(document).on('click', '.product-group-delete-button', function(e)
 {
-	var objectName = SanitizeHtml($(e.currentTarget).attr('data-group-name'));
+	var objectName = $(e.currentTarget).attr('data-group-name');
 	var objectId = $(e.currentTarget).attr('data-group-id');
 
 	bootbox.confirm({

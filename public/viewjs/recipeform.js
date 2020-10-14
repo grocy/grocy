@@ -126,7 +126,7 @@ $('#recipe-form input').keydown(function(event)
 
 $(document).on('click', '.recipe-pos-delete-button', function(e)
 {
-	var objectName = SanitizeHtml($(e.currentTarget).attr('data-recipe-pos-name'));
+	var objectName = $(e.currentTarget).attr('data-recipe-pos-name');
 	var objectId = $(e.currentTarget).attr('data-recipe-pos-id');
 
 	bootbox.confirm({
@@ -163,7 +163,7 @@ $(document).on('click', '.recipe-pos-delete-button', function(e)
 
 $(document).on('click', '.recipe-include-delete-button', function(e)
 {
-	var objectName = SanitizeHtml($(e.currentTarget).attr('data-recipe-include-name'));
+	var objectName = $(e.currentTarget).attr('data-recipe-include-name');
 	var objectId = $(e.currentTarget).attr('data-recipe-include-id');
 
 	bootbox.confirm({
@@ -200,7 +200,7 @@ $(document).on('click', '.recipe-include-delete-button', function(e)
 
 $(document).on('click', '.recipe-pos-show-note-button', function(e)
 {
-	var note = SanitizeHtml($(e.currentTarget).attr('data-recipe-pos-note'));
+	var note = $(e.currentTarget).attr('data-recipe-pos-note');
 
 	bootbox.alert(note);
 });

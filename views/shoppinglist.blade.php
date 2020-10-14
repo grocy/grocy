@@ -121,7 +121,8 @@
 			<select class="form-control"
 				id="status-filter">
 				<option value="all">{{ $__t('All') }}</option>
-				<option class="@if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif" value="belowminstockamount">{{ $__t('Below min. stock amount') }}</option>
+				<option class="@if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif"
+					value="belowminstockamount">{{ $__t('Below min. stock amount') }}</option>
 				<option value="xxUNDONExx">{{ $__t('Only undone items') }}</option>
 			</select>
 		</div>
@@ -195,7 +196,7 @@
 						</a>
 					</td>
 					<td>
-						@if(!empty($listItem->product_id)) {{ FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->name }}<br>@endif<em>{!! nl2br(e($listItem->note)) !!}</em>
+						@if(!empty($listItem->product_id)) {{ FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->name }}<br>@endif<em>{!! nl2br($listItem->note) !!}</em>
 					</td>
 					<td>
 						<span class="locale-number locale-number-quantity-amount">{{ $listItem->amount }}</span> @if(!empty($listItem->product_id)){{ $__n($listItem->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name_plural) }}@endif
@@ -301,7 +302,7 @@
 					@foreach($listItems as $listItem)
 					<tr>
 						<td>
-							@if(!empty($listItem->product_id)) {{ FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->name }}<br>@endif<em>{!! nl2br(e($listItem->note)) !!}</em>
+							@if(!empty($listItem->product_id)) {{ FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->name }}<br>@endif<em>{!! nl2br($listItem->note) !!}</em>
 						</td>
 						<td>
 							{{ $listItem->amount }} @if(!empty($listItem->product_id)){{ $__n($listItem->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->qu_id_purchase)->name_plural) }}@endif

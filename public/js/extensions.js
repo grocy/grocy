@@ -195,8 +195,3 @@ function getQRCodeForAPIKey(apikey_type, apikey_key)
 	}
 	return getQRCodeForContent(content);
 }
-
-function SanitizeHtml(input)
-{
-	return $("<div/>").text(input).html();
-}

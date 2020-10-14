@@ -77,7 +77,7 @@ $(".status-filter-message").on("click", function()
 
 $("#delete-selected-shopping-list").on("click", function()
 {
-	var objectName = SanitizeHtml($("#selected-shopping-list option:selected").text());
+	var objectName = $("#selected-shopping-list option:selected").text();
 	var objectId = $("#selected-shopping-list").val();
 
 	bootbox.confirm({
@@ -172,7 +172,7 @@ $(document).on('click', '#add-expired-products', function(e)
 $(document).on('click', '#clear-shopping-list', function(e)
 {
 	bootbox.confirm({
-		message: __t('Are you sure to empty shopping list "%s"?', SanitizeHtml($("#selected-shopping-list option:selected").text())),
+		message: __t('Are you sure to empty shopping list "%s"?', $("#selected-shopping-list option:selected").text()),
 		closeButton: false,
 		buttons: {
 			confirm: {
