@@ -288,6 +288,7 @@ function RefreshProductRow(productId)
 				$('#product-' + productId + '-amount').text(result.stock_amount);
 				$('#product-' + productId + '-consume-all-button').attr('data-consume-amount', result.stock_amount);
 				$('#product-' + productId + '-factor-purchase-amount').text(__t('( %s', result.stock_factor_purchase_amount));
+				$('#product-' + productId + '-value').text(result.stock_value);
 				$('#product-' + productId + '-next-best-before-date').text(result.next_best_before_date);
 				$('#product-' + productId + '-next-best-before-date-timeago').attr('datetime', result.next_best_before_date);
 
