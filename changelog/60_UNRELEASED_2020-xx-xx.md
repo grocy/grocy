@@ -31,6 +31,7 @@
 - It's now tracked who made a stock change (currently logged in user, visible on the stock journal page) (thanks @fipwmaqzufheoxq92ebc)
 - Product edit page improvements ("Save & continue" button, deleting and adding a product picuture is now possible in one go) (thanks @Ma27)
 - For products with tare weight handling enabled, it's now optionally possible to consume a fixed/exact amount (just like for "normal" products) in case you don't want to weigh the whole container this time (new checkbox on the consume page) (thanks @fipwmaqzufheoxq92ebc)
+- The stock overview page now also shows the value - new column and also the total value in the header (thanks @kriddles)
 - Fixed that it was not possible to leave the "Barcode(s)" on the product edit page by `TAB`
 - Fixed that when adding products through a product picker workflow and when the created products contains special characters, the product was not preselected on the previous page (thanks @Forceu)
 - Fixed that when editing a product the default store was not visible / always empty regardless if the product had one set (thanks @kriddles)
