@@ -1913,6 +1913,9 @@ msgstr ""
 msgid "Add expired products"
 msgstr ""
 
+msgid "Consume exact amount"
+msgstr ""
+
 msgid "Value"
 msgstr ""
 
