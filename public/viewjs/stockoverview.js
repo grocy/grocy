@@ -216,7 +216,7 @@ function RefreshStatistics()
 				{
 					valueSum += parseInt(element.value);
 				});
-				$("#info-current-stock").text(__n(result.length, '%s Product', '%s Products') + ", " + __n(valueSum, '%s Value', '%s Value'));
+				$("#info-current-stock").text(__n(result.length, '%s Product', '%s Products') + ", " + __t('%s total value', valueSum.toLocaleString(undefined, { style: "currency", currency: Grocy.Currency })));
 			}
 		},
 		function(xhr)
