@@ -15,7 +15,7 @@ class TasksApiController extends BaseApiController
 	{
 		User::checkPermission($request, User::PERMISSION_TASKS_MARK_COMPLETED);
 
-		$requestBody = $request->getParsedBody();
+		$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 		try
 		{

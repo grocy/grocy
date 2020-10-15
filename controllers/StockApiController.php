@@ -13,7 +13,7 @@ class StockApiController extends BaseApiController
 
 		try
 		{
-			$requestBody = $request->getParsedBody();
+			$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 			$listId = 1;
 
@@ -37,7 +37,7 @@ class StockApiController extends BaseApiController
 
 		try
 		{
-			$requestBody = $request->getParsedBody();
+			$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 			$listId = 1;
 
@@ -59,7 +59,7 @@ class StockApiController extends BaseApiController
 	{
 		User::checkPermission($request, User::PERMISSION_STOCK_PURCHASE);
 
-		$requestBody = $request->getParsedBody();
+		$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 		try
 		{
@@ -143,7 +143,7 @@ class StockApiController extends BaseApiController
 
 		try
 		{
-			$requestBody = $request->getParsedBody();
+			$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 			$listId = 1;
 			$amount = 1;
@@ -190,7 +190,7 @@ class StockApiController extends BaseApiController
 
 		try
 		{
-			$requestBody = $request->getParsedBody();
+			$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 			$listId = 1;
 
@@ -212,7 +212,7 @@ class StockApiController extends BaseApiController
 	{
 		User::checkPermission($request, User::PERMISSION_STOCK_CONSUME);
 
-		$requestBody = $request->getParsedBody();
+		$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 		$result = null;
 
@@ -263,7 +263,15 @@ class StockApiController extends BaseApiController
 				$recipeId = $requestBody['recipe_id'];
 			}
 
-			$bookingId = $this->getStockService()->ConsumeProduct($args['productId'], $requestBody['amount'], $spoiled, $transactionType, $specificStockEntryId, $recipeId, $locationId);
+			$consumeExact = false;
+
+			if (array_key_exists('exact_amount', $requestBody))
+			{
+				$consumeExact = $requestBody['exact_amount'];
+			}
+			$transactionId = null;
+
+			$bookingId = $this->getStockService()->ConsumeProduct($args['productId'], $requestBody['amount'], $spoiled, $transactionType, $specificStockEntryId, $recipeId, $locationId, $transactionId, false, $consumeExact);
 			return $this->ApiResponse($response, $this->getDatabase()->stock_log($bookingId));
 		}
 		catch (\Exception $ex)
@@ -315,7 +323,7 @@ class StockApiController extends BaseApiController
 	{
 		User::checkPermission($request, User::PERMISSION_STOCK_EDIT);
 
-		$requestBody = $request->getParsedBody();
+		$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 		try
 		{
@@ -391,7 +399,7 @@ class StockApiController extends BaseApiController
 	{
 		User::checkPermission($request, User::PERMISSION_STOCK_INVENTORY);
 
-		$requestBody = $request->getParsedBody();
+		$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 		try
 		{
@@ -459,7 +467,7 @@ class StockApiController extends BaseApiController
 	{
 		User::checkPermission($request, User::PERMISSION_STOCK_OPEN);
 
-		$requestBody = $request->getParsedBody();
+		$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 		try
 		{
@@ -574,7 +582,7 @@ class StockApiController extends BaseApiController
 
 		try
 		{
-			$requestBody = $request->getParsedBody();
+			$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 			$listId = 1;
 			$amount = 1;
@@ -656,7 +664,7 @@ class StockApiController extends BaseApiController
 	{
 		User::checkPermission($request, User::PERMISSION_STOCK_TRANSFER);
 
-		$requestBody = $request->getParsedBody();
+		$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 		try
 		{

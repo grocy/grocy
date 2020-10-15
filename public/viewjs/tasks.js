@@ -119,7 +119,7 @@ $(document).on('click', '.delete-task-button', function(e)
 {
 	e.preventDefault();
 
-	var objectName = SanitizeHtml($(e.currentTarget).attr('data-task-name'));
+	var objectName = $(e.currentTarget).attr('data-task-name');
 	var objectId = $(e.currentTarget).attr('data-task-id');
 
 	bootbox.confirm({

@@ -49,7 +49,7 @@ class SystemApiController extends BaseApiController
 		{
 			try
 			{
-				$requestBody = $request->getParsedBody();
+				$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 				$this->getLocalizationService()->CheckAndAddMissingTranslationToPot($requestBody['text']);
 				return $this->EmptyApiResponse($response);

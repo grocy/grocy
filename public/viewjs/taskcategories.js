@@ -21,7 +21,7 @@ $("#search").on("keyup", Delay(function()
 
 $(document).on('click', '.task-category-delete-button', function(e)
 {
-	var objectName = SanitizeHtml($(e.currentTarget).attr('data-category-name'));
+	var objectName = $(e.currentTarget).attr('data-category-name');
 	var objectId = $(e.currentTarget).attr('data-category-id');
 
 	bootbox.confirm({

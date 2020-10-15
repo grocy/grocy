@@ -162,7 +162,7 @@ $('#product_id_text_input').on('blur', function(e)
 
 			Grocy.Components.ProductPicker.PopupOpen = true;
 			bootbox.dialog({
-				message: __t('"%s" could not be resolved to a product, how do you want to proceed?', SanitizeHtml(input)),
+				message: __t('"%s" could not be resolved to a product, how do you want to proceed?', input),
 				title: __t('Create or assign product'),
 				onEscape: function()
 				{

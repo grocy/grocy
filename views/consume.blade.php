@@ -43,7 +43,10 @@
 			'nextInputSelector' => '#amount',
 			'disallowAddProductWorkflows' => true
 			))
-
+			<label for="consume-exact-amount" class="d-none">
+				<input type="checkbox" id="consume-exact-amount" name="exact_amount">
+				{{ $__t('Consume exact amount') }}
+			</label>
 			@include('components.numberpicker', array(
 			'id' => 'amount',
 			'label' => 'Amount',

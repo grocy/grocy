@@ -21,7 +21,7 @@ $("#search").on("keyup", Delay(function()
 
 $(document).on('click', '.location-delete-button', function(e)
 {
-	var objectName = SanitizeHtml($(e.currentTarget).attr('data-location-name'));
+	var objectName = $(e.currentTarget).attr('data-location-name');
 	var objectId = $(e.currentTarget).attr('data-location-id');
 
 	bootbox.confirm({

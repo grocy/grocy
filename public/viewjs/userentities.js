@@ -21,7 +21,7 @@ $("#search").on("keyup", Delay(function()
 
 $(document).on('click', '.userentity-delete-button', function(e)
 {
-	var objectName = SanitizeHtml($(e.currentTarget).attr('data-userentity-name'));
+	var objectName = $(e.currentTarget).attr('data-userentity-name');
 	var objectId = $(e.currentTarget).attr('data-userentity-id');
 
 	bootbox.confirm({
