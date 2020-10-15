@@ -1912,3 +1912,9 @@ msgstr ""
 
 msgid "Add expired products"
 msgstr ""
+
+msgid "Value"
+msgstr ""
+
+msgid "%s total value"
+msgstr ""
