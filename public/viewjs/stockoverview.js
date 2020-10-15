@@ -5,9 +5,9 @@
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 },
 		{ 'searchable': false, "targets": 0 },
-		{ 'visible': false, 'targets': 5 },
 		{ 'visible': false, 'targets': 6 },
-		{ 'visible': false, 'targets': 7 }
+		{ 'visible': false, 'targets': 7 },
+		{ 'visible': false, 'targets': 8 }
 	],
 });
 $('#stock-overview-table tbody').removeClass("d-none");
@@ -25,7 +25,7 @@ $("#location-filter").on("change", function()
 		value = "xx" + value + "xx";
 	}
 
-	stockOverviewTable.column(5).search(value).draw();
+	stockOverviewTable.column(6).search(value).draw();
 });
 
 $("#product-group-filter").on("change", function()
@@ -40,7 +40,7 @@ $("#product-group-filter").on("change", function()
 		value = "xx" + value + "xx";
 	}
 
-	stockOverviewTable.column(7).search(value).draw();
+	stockOverviewTable.column(8).search(value).draw();
 });
 
 $("#status-filter").on("change", function()
@@ -54,7 +54,7 @@ $("#status-filter").on("change", function()
 	// Transfer CSS classes of selected element to dropdown element (for background)
 	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
 
-	stockOverviewTable.column(6).search(value).draw();
+	stockOverviewTable.column(7).search(value).draw();
 });
 
 $(".status-filter-message").on("click", function()
@@ -70,9 +70,9 @@ $("#clear-filter-button").on("click", function()
 	$("#status-filter").val("all");
 	$("#product-group-filter").val("all");
 	$("#location-filter").val("all");
-	stockOverviewTable.column(5).search("").draw();
 	stockOverviewTable.column(6).search("").draw();
 	stockOverviewTable.column(7).search("").draw();
+	stockOverviewTable.column(8).search("").draw();
 	stockOverviewTable.search("").draw();
 });
 
@@ -204,7 +204,20 @@ function RefreshStatistics()
 			{
 				amountSum += parseInt(element.amount);
 			});
-			$("#info-current-stock").text(__n(result.length, '%s Product', '%s Products'));
+
+			if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+			{
+				$("#info-current-stock").text(__n(result.length, '%s Product', '%s Products'));
+			}
+			else
+			{
+				var valueSum = 0;
+				result.forEach(element =>
+				{
+					valueSum += parseInt(element.value);
+				});
+				$("#info-current-stock").text(__n(result.length, '%s Product', '%s Products') + ", " + __t('%s total value', valueSum.toLocaleString(undefined, { style: "currency", currency: Grocy.Currency })));
+			}
 		},
 		function(xhr)
 		{
@@ -276,6 +289,7 @@ function RefreshProductRow(productId)
 				$('#product-' + productId + '-amount').text(result.stock_amount);
 				$('#product-' + productId + '-consume-all-button').attr('data-consume-amount', result.stock_amount);
 				$('#product-' + productId + '-factor-purchase-amount').text(__t('( %s', result.stock_factor_purchase_amount));
+				$('#product-' + productId + '-value').text(result.stock_value);
 				$('#product-' + productId + '-next-best-before-date').text(result.next_best_before_date);
 				$('#product-' + productId + '-next-best-before-date-timeago').attr('datetime', result.next_best_before_date);
 

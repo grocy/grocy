@@ -1915,3 +1915,9 @@ msgstr ""
 
 msgid "Consume exact amount"
 msgstr ""
+
+msgid "Value"
+msgstr ""
+
+msgid "%s total value"
+msgstr ""
