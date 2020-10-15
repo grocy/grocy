@@ -183,7 +183,6 @@ if (Grocy.Components.ProductPicker !== undefined)
 				function(productDetails)
 				{
 
-					$('#price').val(parseFloat(productDetails.last_price).toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: 2 }));
 
 					var qu_factor_purchase_to_stock = null;
 					var barcode_shopping_location_id = null;
@@ -231,6 +230,8 @@ if (Grocy.Components.ProductPicker !== undefined)
 					$('#amount_qu_unit').attr("quantity-unit-stock-name", productDetails.quantity_unit_stock.name);
 					$('#amount_qu_unit').attr("quantity-unit-stock-name-plural", productDetails.quantity_unit_stock.name_plural);
 					$('#qu_factor_purchase_to_stock').val(qu_factor_purchase_to_stock);
+
+					$('#price').val(parseFloat(productDetails.last_price * qu_factor_purchase_to_stock).toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: 2 }));
 
 
 					if (qu_factor_purchase_to_stock == 1)
@@ -439,9 +440,17 @@ function refreshPriceHint()
 
 	if ($("input[name='price-type']:checked").val() == "total-price")
 	{
-		var price = parseFloat($('#price').val()) / parseFloat($('#amount').val());
+		var price = $('#price').val() / document.getElementById("amount_qu_unit").getAttribute("qu-factor-purchase-to-stock") / $('#amount').val();
+		var quprice = $('#price').val() / $('#amount').val();
 
-		$('#price-hint').text(__t('means %1$s per %2$s', price.toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: 2 }), document.getElementById("amount_qu_unit").getAttribute("quantity-unit-stock-name")));
+		if (document.getElementById("amount_qu_unit").getAttribute("qu-factor-purchase-to-stock") > 1)
+		{
+			$('#price-hint').text(__t('means %1$s per %2$s and %3$s per %4$s', price.toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: 2 }), document.getElementById("amount_qu_unit").getAttribute("quantity-unit-stock-name"), quprice.toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: 2 }),document.getElementById("amount_qu_unit").getAttribute("quantity-unit-purchase-name")));
+		}
+		else
+		{
+			$('#price-hint').text(__t('means %1$s per %2$s', price.toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: 2 }), document.getElementById("amount_qu_unit").getAttribute("quantity-unit-stock-name")));
+		}
 	}
 	else
 	{
