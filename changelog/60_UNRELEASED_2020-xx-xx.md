@@ -124,8 +124,8 @@
 ### General & other improvements/fixes
 - UI refresh / style improvements (thanks @zsarnett)
 - The data path (previously fixed to the `data` folder) is now configurable, making it possible to run multiple grocy instances from the same directory (with different `config.php` files / different database, etc.) (thanks @fgrsnau)
-  - Via an environment variable `GROCY_DATAPTH` (higher priority)
-  - Via an FastCGI parameter (lower priority)
+  - Via an environment variable `GROCY_DATAPATH` (higher priority)
+  - Via an FastCGI parameter `GROCY_DATAPATH` (lower priority)
 - The language can now be set per user (see the new user settings page / top right corner settings menu) (thanks @fipwmaqzufheoxq92ebc)
   - Additionally, the language is now also auto-guessed based on the browser locale (HTTP-Header `Accept-Language`)
   - The `config.php` option `CULTURE` was renamed to `DEFAULT_LOCALE`
