@@ -128,7 +128,12 @@ class BaseApiController extends BaseController
 		$requestBody = $request->getParsedBody();
 		foreach ($requestBody as $key => &$value)
 		{
-			$value = self::$htmlPurifierInstance->purify($value);
+			// HTMLPurifier removes boolean values (true/false), so explicitly keep them
+			// Maybe also possible through HTMLPurifier config (http://htmlpurifier.org/live/configdoc/plain.html)
+			if (!is_bool($value))
+			{
+				$value = self::$htmlPurifierInstance->purify($value);
+			}
 		}
 
 		return $requestBody;
