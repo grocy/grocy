@@ -135,7 +135,7 @@ function RefreshStockEntryRow(stockRowId)
 			}
 			else
 			{
-				var expiringThreshold = moment().add(Grocy.UserSettings.stock_expring_soon_days, "days");
+				var expiringThreshold = moment().add(Grocy.UserSettings.stock_expiring_soon_days, "days");
 				var now = moment();
 				var bestBeforeDate = moment(result.best_before_date);
 
