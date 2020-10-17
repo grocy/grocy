@@ -1921,3 +1921,6 @@ msgstr ""
 
 msgid "%s total value"
 msgstr ""
+
+msgid "Show purchased date on purchase form (otherwise the purchased date defaults to today)"
+msgstr ""

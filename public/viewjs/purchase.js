@@ -29,7 +29,12 @@
 
 			var jsonData = {};
 			jsonData.amount = amount;
-			jsonData.purchased_date = Grocy.Components.DateTimePicker2.GetValue();
+
+			if (Grocy.UserSettings.show_purchased_date_on_purchase)
+			{
+				jsonData.purchased_date = Grocy.Components.DateTimePicker2.GetValue();
+			}
+
 			if (Grocy.Components.DateTimePicker)
 			{
 				jsonData.best_before_date = Grocy.Components.DateTimePicker.GetValue();
@@ -446,7 +451,7 @@ function refreshPriceHint()
 
 		if (document.getElementById("amount_qu_unit").getAttribute("qu-factor-purchase-to-stock") > 1)
 		{
-			$('#price-hint').text(__t('means %1$s per %2$s and %3$s per %4$s', price.toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: 2 }), document.getElementById("amount_qu_unit").getAttribute("quantity-unit-stock-name"), quprice.toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: 2 }),document.getElementById("amount_qu_unit").getAttribute("quantity-unit-purchase-name")));
+			$('#price-hint').text(__t('means %1$s per %2$s and %3$s per %4$s', price.toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: 2 }), document.getElementById("amount_qu_unit").getAttribute("quantity-unit-stock-name"), quprice.toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: 2 }), document.getElementById("amount_qu_unit").getAttribute("quantity-unit-purchase-name")));
 		}
 		else
 		{

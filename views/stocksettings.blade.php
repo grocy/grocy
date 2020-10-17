@@ -95,11 +95,11 @@
 				</label>
 			</div>
 			<div class="checkbox">
-				<label for="product_display_purchased_date">
+				<label for="show_purchased_date_on_purchase">
 					<input type="checkbox"
 						class="user-setting-control"
-						id="product_display_purchased_date"
-						data-setting-key="product_display_purchased_date"> {{ $__t('Show purchased date on product purchase form to allow editing from default todays date') }}
+						id="show_purchased_date_on_purchase"
+						data-setting-key="show_purchased_date_on_purchase"> {{ $__t('Show purchased date on purchase form (otherwise the purchased date defaults to today)') }}
 				</label>
 			</div>
 		</div>

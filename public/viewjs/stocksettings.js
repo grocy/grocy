@@ -9,7 +9,7 @@ if (BoolVal(Grocy.UserSettings.show_icon_on_stock_overview_page_when_product_is_
 {
 	$("#show_icon_on_stock_overview_page_when_product_is_on_shopping_list").prop("checked", true);
 }
-if (BoolVal(Grocy.UserSettings.product_display_purchased_date))
+if (BoolVal(Grocy.UserSettings.show_purchased_date_on_purchase))
 {
-	$("#product_display_purchased_date").prop("checked", true);
+	$("#show_purchased_date_on_purchase").prop("checked", true);
 }
