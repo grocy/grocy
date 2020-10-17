@@ -53,6 +53,24 @@
 				class="text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
 			))
 
+			@if(boolval($userSettings['product_display_purchased_date']))
+			@include('components.datetimepicker2', array(
+			'id' => 'purchased_date',
+			'label' => 'Purchased date',
+			'format' => 'YYYY-MM-DD',
+			'initWithNow' => true,
+			'limitEndToNow' => false,
+			'limitStartToNow' => false,
+			'invalidFeedback' => $__t('A purchase date is required'),
+			'nextInputSelector' => '#best_before_date',
+			'additionalCssClasses' => 'date-only-datetimepicker2',
+			'earlierThanInfoLimit' => date('Y-m-d'),
+			'earlierThanInfoText' => $__t('The given date is earlier than today, are you sure?'),
+			'additionalGroupCssClasses' => $additionalGroupCssClasses,
+			'activateNumberPad' => GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_FIELD_NUMBER_PAD
+			))
+			@endif
+
 			@if(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 			@include('components.datetimepicker', array(
 			'id' => 'best_before_date',

@@ -94,6 +94,14 @@
 						data-setting-key="show_icon_on_stock_overview_page_when_product_is_on_shopping_list"> {{ $__t('Show an icon if the product is already on the shopping list') }}
 				</label>
 			</div>
+			<div class="checkbox">
+				<label for="product_display_purchased_date">
+					<input type="checkbox"
+						class="user-setting-control"
+						id="product_display_purchased_date"
+						data-setting-key="product_display_purchased_date"> {{ $__t('Show purchased date on product purchase form to allow editing from default todays date') }}
+				</label>
+			</div>
 		</div>
 
 		<a href="{{ $U('/stockoverview') }}"

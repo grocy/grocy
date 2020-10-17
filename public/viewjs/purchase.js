@@ -29,6 +29,7 @@
 
 			var jsonData = {};
 			jsonData.amount = amount;
+			jsonData.purchased_date = Grocy.Components.DateTimePicker2.GetValue();
 			if (Grocy.Components.DateTimePicker)
 			{
 				jsonData.best_before_date = Grocy.Components.DateTimePicker.GetValue();

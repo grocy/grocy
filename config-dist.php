@@ -114,6 +114,7 @@ DefaultUserSetting('stock_default_consume_amount', 1);
 DefaultUserSetting('scan_mode_consume_enabled', false);
 DefaultUserSetting('scan_mode_purchase_enabled', false);
 DefaultUserSetting('show_icon_on_stock_overview_page_when_product_is_on_shopping_list', true);
+DefaultUserSetting('product_display_purchased_date', false);
 
 # Shopping list settings
 DefaultUserSetting('shopping_list_to_stock_workflow_auto_submit_when_prefilled', false); // Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set
