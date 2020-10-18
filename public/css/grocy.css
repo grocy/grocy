@@ -318,7 +318,7 @@ input::-webkit-inner-spin-button {
 
 /* Always show modals over everything else */
 .modal {
-	z-index: 99999;
+	z-index: 99998;
 }
 
 /* Third party component customizations - DataTables */
@@ -429,6 +429,7 @@ html {
 /* Third party component customizations - Popper.js */
 .tooltip {
 	pointer-events: none;
+	z-index: 99999 !important;
 }
 
 /* Third party component customizations - QuaggaJS */
