@@ -1,13 +1,17 @@
+-- Delete stock_log rows for not existing products as this would make the rest here fail
+DELETE from stock_log
+WHERE product_id NOT IN (SELECT id from products);
+
 ALTER TABLE stock_log
 ADD qu_factor_purchase_to_stock REAL NOT NULL DEFAULT 1.0;
 
 ALTER TABLE stock
 ADD qu_factor_purchase_to_stock REAL NOT NULL DEFAULT 1.0;
 
-UPDATE stock 
+UPDATE stock
 SET qu_factor_purchase_to_stock = (SELECT qu_factor_purchase_to_stock FROM products WHERE product_id = id);
 
-UPDATE stock_log 
+UPDATE stock_log
 SET qu_factor_purchase_to_stock = (SELECT qu_factor_purchase_to_stock FROM products WHERE product_id = id);
 
 --Price is now going forward to be saved as 1 QU Stock
