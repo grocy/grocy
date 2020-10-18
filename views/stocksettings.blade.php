@@ -57,8 +57,8 @@
 
 		<h4 class="mt-2">{{ $__t('Stock overview') }}</h4>
 		@include('components.numberpicker', array(
-		'id' => 'stock_expring_soon_days',
-		'additionalAttributes' => 'data-setting-key="stock_expring_soon_days"',
+		'id' => 'stock_expiring_soon_days',
+		'additionalAttributes' => 'data-setting-key="stock_expiring_soon_days"',
 		'label' => 'Expiring soon days',
 		'min' => 1,
 		'invalidFeedback' => $__t('This cannot be lower than %s', '1'),

@@ -79,7 +79,7 @@ class StockController extends BaseController
 	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$usersService = $this->getUsersService();
-		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['stock_expring_soon_days'];
+		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['stock_expiring_soon_days'];
 
 		return $this->renderPage($response, 'stockoverview', [
 			'currentStock' => $this->getStockService()->GetCurrentStockOverview(),
@@ -408,7 +408,7 @@ class StockController extends BaseController
 	public function Stockentries(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$usersService = $this->getUsersService();
-		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['stock_expring_soon_days'];
+		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['stock_expiring_soon_days'];
 
 		return $this->renderPage($response, 'stockentries', [
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),

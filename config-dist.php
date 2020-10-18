@@ -106,7 +106,7 @@ DefaultUserSetting('keep_screen_on_when_fullscreen_card', false); // Keep the sc
 DefaultUserSetting('product_presets_location_id', -1); // Default location id for new products (-1 means no location is preset)
 DefaultUserSetting('product_presets_product_group_id', -1); // Default product group id for new products (-1 means no product group is preset)
 DefaultUserSetting('product_presets_qu_id', -1); // Default quantity unit id for new products (-1 means no quantity unit is preset)
-DefaultUserSetting('stock_expring_soon_days', 5);
+DefaultUserSetting('stock_expiring_soon_days', 5);
 DefaultUserSetting('stock_default_purchase_amount', 0);
 DefaultUserSetting('stock_default_consume_amount', 1);
 DefaultUserSetting('scan_mode_consume_enabled', false);
