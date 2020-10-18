@@ -86,11 +86,16 @@ class StockService extends BaseService
 			throw new \Exception('Product does not exist or is inactive');
 		}
 
-		// Tare weight handling
+		$productDetails = (object) $this->GetProductDetails($productId);
 
+		if ($quFactorPurchaseToStock == null)
+		{
+			$quFactorPurchaseToStock = $productDetails->product->qu_factor_purchase_to_stock;
+		}
+
+		// Tare weight handling
 		// The given amount is the new total amount including the container weight (gross)
 		// The amount to be posted needs to be the given amount - stock amount - tare weight
-		$productDetails = (object) $this->GetProductDetails($productId);
 
 		if ($productDetails->product->enable_tare_weight_handling == 1)
 		{
@@ -230,7 +235,7 @@ class StockService extends BaseService
 
 		if ($productDetails->product->enable_tare_weight_handling == 1)
 		{
-			if($consumeExactAmount)
+			if ($consumeExactAmount)
 			{
 				$amount = floatval($productDetails->stock_amount) + floatval($productDetails->product->tare_weight) - $amount;
 			}
@@ -604,7 +609,7 @@ class StockService extends BaseService
 			throw new \Exception("No product with barcode $barcode found");
 		}
 
-		return intval($potentialProduct->id);
+		return intval($potentialProduct->product_id);
 	}
 
 	public function GetProductPriceHistory(int $productId)
