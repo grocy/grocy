@@ -54,7 +54,9 @@
 			<tbody class="d-none">
 				@foreach($stockEntries as $stockEntry)
 				<tr id="stock-{{ $stockEntry->id }}-row"
-					class="@if(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $stockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('-1 days')) && $stockEntry->amount > 0) table-danger @elseif(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $stockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime("+$nextXDays days"))
+					class="@if(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $stockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('-1 days')) && $stockEntry->amount > 0) table-danger @elseif(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $stockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime("
+					+$nextXDays
+					days"))
 					&&
 					$stockEntry->amount > 0) table-warning @endif">
 					<td class="fit-content border-right">
@@ -73,7 +75,7 @@
 							<i class="fas fa-utensils"></i>
 						</a>
 						@if(GROCY_FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING)
-						<a class="btn btn-success btn-sm product-open-button @if($stockEntry->open == 1) disabled @endif"
+						<a class="btn btn-success btn-sm product-open-button @if($stockEntry->open == 1 || FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->enable_tare_weight_handling == 1) disabled @endif"
 							href="#"
 							data-toggle="tooltip"
 							data-placement="left"
