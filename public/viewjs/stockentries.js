@@ -43,7 +43,7 @@ $(document).on('click', '.stock-consume-button', function(e)
 
 	var wasSpoiled = $(e.currentTarget).hasClass("stock-consume-button-spoiled");
 
-	Grocy.Api.Post('stock/products/' + productId + '/consume', { 'amount': consumeAmount, 'spoiled': wasSpoiled, 'location_id': locationId, 'stock_entry_id': specificStockEntryId },
+	Grocy.Api.Post('stock/products/' + productId + '/consume', { 'amount': consumeAmount, 'spoiled': wasSpoiled, 'location_id': locationId, 'stock_entry_id': specificStockEntryId, 'exact_amount': true },
 		function(bookingResponse)
 		{
 			Grocy.Api.Get('stock/products/' + productId,
