@@ -143,7 +143,7 @@
 			<tbody class="d-none">
 				@foreach($currentStock as $currentStockEntry)
 				<tr id="product-{{ $currentStockEntry->product_id }}-row"
-					class="@if(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('-1 days')) && $currentStockEntry->amount > 0) table-danger @elseif(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime("+$nextXDays days"))
+					class="@if(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('-1 days')) && $currentStockEntry->amount > 0) table-danger @elseif(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('+' . $nextXDays . ' days'))
 					&&
 					$currentStockEntry->amount > 0) table-warning @elseif ($currentStockEntry->product_missing) table-info @endif">
 					<td class="fit-content border-right">
@@ -310,7 +310,8 @@
 						@endif
 					</td>
 					<td>
-						<span id="product-{{ $currentStockEntry->product_id }}-value" class="locale-number locale-number-currency">{{ $currentStockEntry->value }}</span>
+						<span id="product-{{ $currentStockEntry->product_id }}-value"
+							class="locale-number locale-number-currency">{{ $currentStockEntry->value }}</span>
 					</td>
 					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING) d-none @endif">
 						<span id="product-{{ $currentStockEntry->product_id }}-next-best-before-date">{{ $currentStockEntry->best_before_date }}</span>
@@ -329,7 +330,13 @@
 							strtotime('-1
 							days'))
 							&&
-							$currentStockEntry->amount > 0) expired @elseif($currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime("+$nextXDays days"))
+							$currentStockEntry->amount > 0) expired @elseif($currentStockEntry->best_before_date < date('Y-m-d
+								23:59:59',
+								strtotime('+'
+								.
+								$nextXDays
+								. ' days'
+								))
 								&&
 								$currentStockEntry->amount > 0) expiring @endif @if($currentStockEntry->product_missing) belowminstockamount @endif
 					</td>
