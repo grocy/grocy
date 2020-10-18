@@ -5,7 +5,6 @@
 @php if(!isset($value)) { $value = 1; } @endphp
 @php if(empty($min)) { $min = 0; } @endphp
 @php if(empty($max)) { $max = 999999; } @endphp
-@php if(empty($step)) { $step = 1; } @endphp
 @php if(empty($hint)) { $hint = ''; } @endphp
 @php if(empty($hintId)) { $hintId = ''; } @endphp
 @php if(empty($additionalCssClasses)) { $additionalCssClasses = ''; } @endphp
@@ -36,7 +35,7 @@
 			value="{{ $value }}"
 			min="{{ $min }}"
 			max="{{ $max }}"
-			step="{{ $step }}"
+			step="{{ $min }}"
 			@if($isRequired)
 			required
 			@endif>

@@ -94,7 +94,6 @@
 			'id' => 'price',
 			'label' => 'Price',
 			'min' => 0,
-			'step' => 0.01,
 			'value' => '',
 			'hintId' => 'price-hint',
 			'invalidFeedback' => $__t('The price cannot be lower than %s', '0'),

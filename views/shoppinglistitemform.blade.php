@@ -50,7 +50,7 @@
 				value="1">
 			@endif
 
-			<div class="@if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif" >
+			<div class="@if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif">
 				@php if($mode == 'edit') { $productId = $listItem->product_id; } else { $productId = ''; } @endphp
 				@include('components.productpicker', array(
 				'products' => $products,
@@ -65,7 +65,6 @@
 			'label' => 'Amount',
 			'hintId' => 'amount_qu_unit',
 			'min' => 0.01,
-			'step' => 0.01,
 			'value' => $value,
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0.01')
 			))

@@ -42,7 +42,6 @@
 	'label' => $userfield->caption,
 	'noNameAttribute' => true,
 	'min' => 0,
-	'step' => 0.01,
 	'isRequired' => false,
 	'additionalCssClasses' => 'userfield-input',
 	'additionalAttributes' => 'data-userfield-name="' . $userfield->name . '"'

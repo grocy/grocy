@@ -256,7 +256,6 @@
 			'label' => 'Amount',
 			'hintId' => 'amount_qu_unit',
 			'min' => 0.0001,
-			'step' => 0.0001,
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
 			'isRequired' => false,
 			'value' => $value

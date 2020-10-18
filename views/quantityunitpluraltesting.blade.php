@@ -39,7 +39,6 @@
 			'id' => 'amount',
 			'label' => 'Amount',
 			'min' => 0,
-			'step' => 1,
 			'isRequired' => false,
 			'value' => 1
 			))

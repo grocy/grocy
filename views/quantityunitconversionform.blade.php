@@ -82,7 +82,6 @@
 			'id' => 'factor',
 			'label' => 'Factor',
 			'min' => 0,
-			'step' => 0.001,
 			'value' => $value,
 			'invalidFeedback' => $__t('This cannot be lower than %1$s and must be a valid number with max. %2$s decimal places', '0', '3'),
 			'additionalHtmlElements' => '<p id="qu-conversion-info"
