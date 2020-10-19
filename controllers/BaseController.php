@@ -176,4 +176,27 @@ class BaseController
 
 		return $this->render($response, $page, $data);
 	}
+
+	private static $htmlPurifierInstance = null;
+
+	protected function GetParsedAndFilteredRequestBody($request)
+	{
+		if (self::$htmlPurifierInstance == null)
+		{
+			self::$htmlPurifierInstance = new \HTMLPurifier(\HTMLPurifier_Config::createDefault());
+		}
+
+		$requestBody = $request->getParsedBody();
+		foreach ($requestBody as $key => &$value)
+		{
+			// HTMLPurifier removes boolean values (true/false), so explicitly keep them
+			// Maybe also possible through HTMLPurifier config (http://htmlpurifier.org/live/configdoc/plain.html)
+			if (!is_bool($value))
+			{
+				$value = self::$htmlPurifierInstance->purify($value);
+			}
+		}
+
+		return $requestBody;
+	}
 }
