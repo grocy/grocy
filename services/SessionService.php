@@ -4,6 +4,8 @@ namespace Grocy\Services;
 
 class SessionService extends BaseService
 {
+	const SESSION_COOKIE_NAME = 'grocy_session';
+
 	/**
 	 * @return string
 	 */

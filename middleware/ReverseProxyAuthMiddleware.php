@@ -36,4 +36,9 @@ class ReverseProxyAuthMiddleware extends AuthMiddleware
 
 		return $user;
 	}
+
+	public static function ProcessLogin(array $postParams)
+	{
+		throw new \Exception('Not implemented');
+	}
 }

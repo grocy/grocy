@@ -13,9 +13,9 @@ $app->group('', function (RouteCollectorProxy $group) {
 	$group->get('/barcodescannertesting', '\Grocy\Controllers\SystemController:BarcodeScannerTesting');
 
 	// Login routes
-	$group->get('/login', 'LoginControllerInstance:LoginPage')->setName('login');
-	$group->post('/login', 'LoginControllerInstance:ProcessLogin')->setName('login');
-	$group->get('/logout', 'LoginControllerInstance:Logout');
+	$group->get('/login', '\Grocy\Controllers\LoginController:LoginPage')->setName('login');
+	$group->post('/login', '\Grocy\Controllers\LoginController:ProcessLogin')->setName('login');
+	$group->get('/logout', '\Grocy\Controllers\LoginController:Logout');
 
 	// Generic entity interaction
 	$group->get('/userfields', '\Grocy\Controllers\GenericEntityController:UserfieldsList');

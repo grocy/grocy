@@ -72,4 +72,9 @@ class ApiKeyAuthMiddleware extends AuthMiddleware
 			return null;
 		}
 	}
+
+	public static function ProcessLogin(array $postParams)
+	{
+		throw new \Exception('Not implemented');
+	}
 }

@@ -8,12 +8,9 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 class SessionAuthMiddleware extends AuthMiddleware
 {
-	protected $SessionCookieName;
-
 	public function __construct(\DI\Container $container, ResponseFactoryInterface $responseFactory)
 	{
 		parent::__construct($container, $responseFactory);
-		$this->SessionCookieName = $this->AppContainer->get('LoginControllerInstance')->GetSessionCookieName();
 	}
 
 	public function authenticate(Request $request)
@@ -25,13 +22,18 @@ class SessionAuthMiddleware extends AuthMiddleware
 
 		$sessionService = SessionService::getInstance();
 
-		if (!isset($_COOKIE[$this->SessionCookieName]) || !$sessionService->IsValidSession($_COOKIE[$this->SessionCookieName]))
+		if (!isset($_COOKIE[SessionService::SESSION_COOKIE_NAME]) || !$sessionService->IsValidSession($_COOKIE[SessionService::SESSION_COOKIE_NAME]))
 		{
 			return null;
 		}
 		else
 		{
-			return $sessionService->GetUserBySessionKey($_COOKIE[$this->SessionCookieName]);
+			return $sessionService->GetUserBySessionKey($_COOKIE[SessionService::SESSION_COOKIE_NAME]);
 		}
+	}
+
+	public static function ProcessLogin(array $postParams)
+	{
+		throw new \Exception('Not implemented');
 	}
 }

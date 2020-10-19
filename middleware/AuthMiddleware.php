@@ -76,6 +76,19 @@ abstract class AuthMiddleware extends BaseMiddleware
 		}
 	}
 
+	protected static function SetSessionCookie($sessionKey)
+	{
+		// Cookie never expires, session validity is up to SessionService
+		setcookie(SessionService::SESSION_COOKIE_NAME, $sessionKey, PHP_INT_SIZE == 4 ? PHP_INT_MAX : PHP_INT_MAX >> 32);
+	}
+
+	/**
+	 * @param array $postParams
+	 * @return bool True/False if the provided credentials were valid
+	 * @throws \Exception Throws an \Exception if an error happended during credentials processing or if this AuthMiddleware doesn't provide credentials processing (e. g. handles this externally)
+	 */
+	abstract public static function ProcessLogin(array $postParams);
+
 	/**
 	 * @param Request $request
 	 * @return mixed|null the user row or null if the request is not authenticated
