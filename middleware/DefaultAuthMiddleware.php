@@ -38,7 +38,7 @@ class DefaultAuthMiddleware extends AuthMiddleware
 			if ($user !== null && password_verify($inputPassword, $user->password))
 			{
 				$sessionKey = SessionService::getInstance()->CreateSession($user->id, $stayLoggedInPermanently);
-				parent::SetSessionCookie($sessionKey);
+				self::SetSessionCookie($sessionKey);
 
 				if (password_needs_rehash($user->password, PASSWORD_DEFAULT))
 				{
