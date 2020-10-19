@@ -5,6 +5,7 @@
 @php if(!isset($value)) { $value = 1; } @endphp
 @php if(empty($min)) { $min = 0; } @endphp
 @php if(empty($max)) { $max = 999999; } @endphp
+@php if(empty($decimals)) { $decimals = 0; } @endphp
 @php if(empty($hint)) { $hint = ''; } @endphp
 @php if(empty($hintId)) { $hintId = ''; } @endphp
 @php if(empty($additionalCssClasses)) { $additionalCssClasses = ''; } @endphp
@@ -33,9 +34,9 @@
 			name="{{ $id }}"
 			@endif
 			value="{{ $value }}"
-			min="{{ $min }}"
-			max="{{ $max }}"
-			step="{{ $min }}"
+			min="{{ number_format($min, $decimals, '.', '') }}"
+			max="{{ number_format($max, $decimals, '.', '') }}"
+			step="@if($decimals == 0){{1}}@else{{'.' . substr('0000000001', -$decimals)}}@endif"
 			@if($isRequired)
 			required
 			@endif>

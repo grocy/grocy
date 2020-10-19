@@ -65,6 +65,7 @@
 			'label' => 'Amount',
 			'hintId' => 'amount_qu_unit',
 			'min' => 0.01,
+			'decimals' => 2,
 			'value' => $value,
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0.01')
 			))

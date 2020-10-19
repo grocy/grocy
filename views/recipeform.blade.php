@@ -91,7 +91,8 @@
 			@include('components.numberpicker', array(
 			'id' => 'base_servings',
 			'label' => 'Servings',
-			'min' => 1,
+			'min' => 0.01,
+			'decimals' => 2,
 			'value' => $value,
 			'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
 			'hint' => $__t('The ingredients listed here result in this amount of servings')
@@ -333,7 +334,8 @@
 					@include('components.numberpicker', array(
 					'id' => 'includes_servings',
 					'label' => 'Servings',
-					'min' => 1,
+					'min' => 0.01,
+					'decimals' => 2,
 					'value' => '1',
 					'invalidFeedback' => $__t('This cannot be lower than %s', '1')
 					))

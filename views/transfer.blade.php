@@ -46,7 +46,8 @@
 			'id' => 'amount',
 			'label' => 'Amount',
 			'hintId' => 'amount_qu_unit',
-			'min' => 1,
+			'min' => 0.01,
+			'decimals' => 2,
 			'value' => 1,
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
 			'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info"

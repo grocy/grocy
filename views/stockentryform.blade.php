@@ -66,7 +66,8 @@
 			'id' => 'qu_factor_purchase_to_stock',
 			'label' => 'Factor purchase to stock quantity unit',
 			'value' => $stockEntry->qu_factor_purchase_to_stock,
-			'min' => 1,
+			'min' => 0.01,
+			'decimals' => 2,
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
 			'additionalCssClasses' => 'input-group-qu',
 			'additionalHtmlElements' => '<p id="qu-conversion-info"
@@ -88,7 +89,8 @@
 			'id' => 'price',
 			'value' => $price,
 			'label' => 'Price',
-			'min' => 0,
+			'min' => 0.01,
+			'decimals' => 2,
 			'hint' => $__t('in %s per purchase quantity unit', GROCY_CURRENCY),
 			'invalidFeedback' => $__t('The price cannot be lower than %s', '0'),
 			'isRequired' => false

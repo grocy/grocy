@@ -61,7 +61,8 @@
 					@include('components.numberpicker', array(
 					'id' => 'recipe_servings',
 					'label' => 'Servings',
-					'min' => 1,
+					'min' => 0.01,
+					'decimals' => 2,
 					'value' => '1',
 					'invalidFeedback' => $__t('This cannot be lower than %s', '1')
 					))

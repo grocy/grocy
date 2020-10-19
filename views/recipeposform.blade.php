@@ -106,7 +106,8 @@
 			@include('components.numberpicker', array(
 			'id' => 'price_factor',
 			'label' => 'Price factor',
-			'min' => 0,
+			'min' => 0.01,
+			'decimals' => 2,
 			'value' => '',
 			'hint' => $__t('The resulting price of this ingredient will be multiplied by this factor'),
 			'invalidFeedback' => $__t('This cannot be lower than %s', '0'),
