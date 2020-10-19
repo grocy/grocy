@@ -11,8 +11,8 @@
 			@include('components.numberpicker', array(
 			'id' => 'display_amount',
 			'label' => 'Amount',
-			'min' => 0.01,
-			'decimals' => 2,
+			'min' => 0.0001,
+			'decimals' => 4,
 			'value' => $value,
 			'invalidFeedback' => $__t('This cannot be negative and must be an integral number'),
 			'additionalGroupCssClasses' => 'col-4 mb-1',

@@ -38,8 +38,8 @@
 			@include('components.numberpicker', array(
 			'id' => 'amount',
 			'label' => 'Amount',
-			'min' => 0.01,
-			'decimals' => 2,
+			'min' => 0.0001,
+			'decimals' => 4,
 			'isRequired' => false,
 			'value' => 1
 			))

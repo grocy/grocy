@@ -132,15 +132,15 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 
 				if (productDetails.product.allow_partial_units_in_stock == 1)
 				{
-					$("#new_amount").attr("min", "0.01");
-					$("#new_amount").attr("step", "0.01");
-					$("#new_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %1$s or equal %2$s', 0.01.toLocaleString(), productDetails.stock_amount.toLocaleString()));
+					$("#new_amount").attr("min", "0.0001");
+					$("#new_amount").attr("step", ".0001");
+					$("#new_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %1$s or equal %2$s', 0.0001.toLocaleString(), productDetails.stock_amount.toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 4 })));
 				}
 				else
 				{
 					$("#new_amount").attr("min", "0");
 					$("#new_amount").attr("step", "1");
-					$("#new_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %1$s or equal %2$s', '0', productDetails.stock_amount.toLocaleString()));
+					$("#new_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %1$s or equal %2$s', '0', productDetails.stock_amount.toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 4 })));
 				}
 
 				if (productDetails.product.enable_tare_weight_handling == 1)

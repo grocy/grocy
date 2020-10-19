@@ -102,9 +102,9 @@ Grocy.Api.Get('stock/products/' + Grocy.EditObjectProductId,
 
 		if (productDetails.product.allow_partial_units_in_stock == 1)
 		{
-			$("#amount").attr("min", "0.01");
-			$("#amount").attr("step", "0.01");
-			$("#amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %1$s', 0.01.toLocaleString()));
+			$("#amount").attr("min", "0.0001");
+			$("#amount").attr("step", ".0001");
+			$("#amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %1$s', 0.0001.toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 4 })));
 		}
 		else
 		{

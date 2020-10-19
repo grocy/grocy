@@ -47,8 +47,8 @@
 			'id' => 'amount',
 			'label' => 'Amount',
 			'hintId' => 'amount_qu_unit',
-			'min' => 0.01,
-			'decimals' => 2,
+			'min' => 0.0001,
+			'decimals' => 4,
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
 			'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info"
 				class="text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
@@ -135,8 +135,8 @@
 			@include('components.numberpicker', array(
 			'id' => 'qu_factor_purchase_to_stock',
 			'label' => 'Factor purchase to stock quantity unit',
-			'min' => 0.01,
-			'decimals' => 2,
+			'min' => 0.0001,
+			'decimals' => 4,
 			'additionalGroupCssClasses' => 'd-none',
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
 			'additionalCssClasses' => 'input-group-qu',

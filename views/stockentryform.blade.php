@@ -66,8 +66,8 @@
 			'id' => 'qu_factor_purchase_to_stock',
 			'label' => 'Factor purchase to stock quantity unit',
 			'value' => $stockEntry->qu_factor_purchase_to_stock,
-			'min' => 0.01,
-			'decimals' => 2,
+			'min' => 0.0001,
+			'decimals' => 4,
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
 			'additionalCssClasses' => 'input-group-qu',
 			'additionalHtmlElements' => '<p id="qu-conversion-info"

@@ -142,8 +142,8 @@
 			@include('components.numberpicker', array(
 			'id' => 'min_stock_amount',
 			'label' => 'Minimum stock amount',
-			'min' => 0.01,
-			'decimals' => 2,
+			'min' => 0.0001,
+			'decimals' => 4,
 			'value' => $value,
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
 			'additionalGroupCssClasses' => 'mb-1'
@@ -245,8 +245,8 @@
 			@include('components.numberpicker', array(
 			'id' => 'qu_factor_purchase_to_stock',
 			'label' => 'Factor purchase to stock quantity unit',
-			'min' => 0.01,
-			'decimals' => 2,
+			'min' => 0.0001,
+			'decimals' => 4,
 			'value' => $value,
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
 			'additionalCssClasses' => 'input-group-qu',
@@ -287,8 +287,8 @@
 			@include('components.numberpicker', array(
 			'id' => 'tare_weight',
 			'label' => 'Tare weight',
-			'min' => 0.01,
-			'decimals' => 2,
+			'min' => 0.0001,
+			'decimals' => 4,
 			'value' => $value,
 			'invalidFeedback' => $__t('This cannot be lower than %s', '0'),
 			'additionalAttributes' => $additionalAttributes,
@@ -316,8 +316,8 @@
 			@include('components.numberpicker', array(
 			'id' => 'calories',
 			'label' => 'Energy (kcal)',
-			'min' => 0.01,
-			'decimals' => 2,
+			'min' => 0.0001,
+			'decimals' => 4,
 			'value' => $value,
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
 			'hint' => $__t('Per stock quantity unit'),

@@ -71,7 +71,7 @@
 		'additionalAttributes' => 'data-setting-key="stock_default_purchase_amount"',
 		'label' => 'Default amount for purchase',
 		'min' => 0,
-		'decimals' => 2,
+		'decimals' => 4,
 		'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
 		'additionalCssClasses' => 'user-setting-control'
 		))
@@ -82,7 +82,7 @@
 		'additionalAttributes' => 'data-setting-key="stock_default_consume_amount"',
 		'label' => 'Default amount for consume',
 		'min' => 0,
-		'decimals' => 2,
+		'decimals' => 4,
 		'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
 		'additionalCssClasses' => 'user-setting-control'
 		))

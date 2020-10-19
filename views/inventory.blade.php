@@ -23,7 +23,7 @@
 			'label' => 'New amount',
 			'hintId' => 'new_amount_qu_unit',
 			'min' => 0,
-			'decimals' => 2,
+			'decimals' => 4,
 			'value' => 1,
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
 			'additionalAttributes' => 'data-not-equal="-1"',

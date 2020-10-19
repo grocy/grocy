@@ -325,9 +325,9 @@ $("#allow_partial_units_in_stock").on("click", function()
 	if (this.checked)
 	{
 		$("#min_stock_amount").attr("min", "0.0000");
-		$("#min_stock_amount").attr("step", "0.0001");
+		$("#min_stock_amount").attr("step", ".0001");
 		$("#qu_factor_purchase_to_stock").attr("min", "0.0001");
-		$("#qu_factor_purchase_to_stock").attr("step", "0.0001");
+		$("#qu_factor_purchase_to_stock").attr("step", ".0001");
 		$("#qu_factor_purchase_to_stock").parent().find(".invalid-feedback").text(__t('This cannot be lower than %1$s and must be a valid number with max. %2$s decimal places', 0.0001.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 4 }), '4'));
 	}
 	else

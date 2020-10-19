@@ -55,8 +55,8 @@
 			@include('components.numberpicker', array(
 			'id' => 'qu_factor_purchase_to_stock',
 			'label' => 'Factor purchase to stock quantity unit',
-			'min' => 0.01,
-			'decimals' => 2,
+			'min' => 0.0001,
+			'decimals' => 4,
 			'value' => $value,
 			'isRequired' => true,
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
