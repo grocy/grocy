@@ -720,7 +720,7 @@ class StockService extends BaseService
 				$bookingAmount = $newAmount;
 			}
 
-			return $this->AddProduct($productId, $bookingAmount, $bestBeforeDate, self::TRANSACTION_TYPE_INVENTORY_CORRECTION, date('Y-m-d'), $price, $locationId, $shoppingLocationId);
+			return $this->AddProduct($productId, $bookingAmount, $bestBeforeDate, self::TRANSACTION_TYPE_INVENTORY_CORRECTION, date('Y-m-d'), $price, null, $locationId, $shoppingLocationId);
 		}
 		elseif ($newAmount < $productDetails->stock_amount + $containerWeight)
 		{
