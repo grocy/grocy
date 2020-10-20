@@ -141,6 +141,15 @@ $(document).on('click', '.shoppinglist-delete-button', function(e)
 	);
 });
 
+$(document).on("click", ".product-name-cell", function(e)
+{
+	if ($(e.currentTarget).attr("data-product-id") != "")
+	{
+		Grocy.Components.ProductCard.Refresh($(e.currentTarget).attr("data-product-id"));
+		$("#shoppinglist-productcard-modal").modal("show");
+	}
+});
+
 $(document).on('click', '#add-products-below-min-stock-amount', function(e)
 {
 	Grocy.Api.Post('stock/shoppinglist/add-missing-products', { "list_id": $("#selected-shopping-list").val() },
