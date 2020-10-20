@@ -41,7 +41,6 @@ $('.save-recipe').on('click', function(e)
 
 	if (Grocy.EditMode == 'create')
 	{
-		console.log(jsonData);
 		Grocy.Api.Post('objects/recipes', jsonData,
 			(result) => saveRecipePicture(result, location, jsonData));
 		return;
