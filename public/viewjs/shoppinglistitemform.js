@@ -171,8 +171,8 @@ if (GetUriParam("list") !== undefined)
 
 if (GetUriParam("amount") !== undefined)
 {
-	$("#amount").val(parseFloat(GetUriParam("amount")).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 4 }));
+	$("#amount").val(parseFloat(GetUriParam("amount")).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }));
 	Grocy.FrontendHelpers.ValidateForm('shoppinglist-form');
 }
 
-$("#amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', 0.01.toLocaleString()));
+$("#amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1"));

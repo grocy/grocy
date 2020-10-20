@@ -92,7 +92,7 @@
 						$("#amount").attr("max", "999999");
 						$("#amount").attr("step", "1");
 						$("#amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '1'));
-						$('#amount').val(parseFloat(Grocy.UserSettings.stock_default_transfer_amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 4 }));
+						$('#amount').val(parseFloat(Grocy.UserSettings.stock_default_transfer_amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }));
 						$('#amount_qu_unit').text("");
 						$("#tare-weight-handling-info").addClass("d-none");
 						Grocy.Components.ProductPicker.Clear();
@@ -187,9 +187,9 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 
 				if (productDetails.product.allow_partial_units_in_stock == 1)
 				{
-					$("#amount").attr("min", "0.0001");
-					$("#amount").attr("step", ".0001");
-					$("#amount").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', 0.0001.toLocaleString(), parseFloat(productDetails.stock_amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 4 })));
+					$("#amount").attr("min", "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
+					$("#amount").attr("step", "." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
+					$("#amount").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1"));
 				}
 				else
 				{

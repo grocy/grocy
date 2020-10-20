@@ -91,8 +91,8 @@
 			@include('components.numberpicker', array(
 			'id' => 'base_servings',
 			'label' => 'Servings',
-			'min' => 0.01,
-			'decimals' => 2,
+			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
+			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,
 			'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
 			'hint' => $__t('The ingredients listed here result in this amount of servings')
@@ -334,8 +334,8 @@
 					@include('components.numberpicker', array(
 					'id' => 'includes_servings',
 					'label' => 'Servings',
-					'min' => 0.01,
-					'decimals' => 2,
+					'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
+					'decimals' => $userSettings['stock_decimal_places_amounts'],
 					'value' => '1',
 					'invalidFeedback' => $__t('This cannot be lower than %s', '1')
 					))

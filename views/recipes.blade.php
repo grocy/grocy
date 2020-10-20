@@ -297,8 +297,8 @@
 								@include('components.numberpicker', array(
 								'id' => 'servings-scale',
 								'label' => 'Desired servings',
-								'min' => 0.01,
-								'decimals' => 2,
+								'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
+								'decimals' => $userSettings['stock_decimal_places_amounts'],
 								'value' => $recipe->desired_servings,
 								'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
 								'additionalAttributes' => 'data-recipe-id="' . $recipe->id . '"',

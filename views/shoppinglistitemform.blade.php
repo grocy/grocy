@@ -64,10 +64,10 @@
 			'id' => 'amount',
 			'label' => 'Amount',
 			'hintId' => 'amount_qu_unit',
-			'min' => 0.0001,
-			'decimals' => 4,
+			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
+			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,
-			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0.01')
+			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1')
 			))
 
 			<div class="form-group">
