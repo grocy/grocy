@@ -1933,3 +1933,6 @@ msgstr ""
 
 msgid "Decimal places allowed for prices"
 msgstr ""
+
+msgid "Stock entries for this product"
+msgstr ""
