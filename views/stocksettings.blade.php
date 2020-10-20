@@ -90,8 +90,8 @@
 		<h4 class="mt-2">{{ $__t('Common') }}</h4>
 
 		@include('components.numberpicker', array(
-		'id' => 'stock_price_decimal_amounts',
-		'additionalAttributes' => 'data-setting-key="stock_price_decimal_amounts"',
+		'id' => 'stock_decimal_places_amounts',
+		'additionalAttributes' => 'data-setting-key="stock_decimal_places_amounts"',
 		'label' => 'Decimal places allowed for amounts',
 		'min' => 0,
 		'decimals' => 0,
@@ -100,8 +100,8 @@
 		))
 
 		@include('components.numberpicker', array(
-		'id' => 'stock_price_decimal_places',
-		'additionalAttributes' => 'data-setting-key="stock_price_decimal_places"',
+		'id' => 'stock_decimal_places_prices',
+		'additionalAttributes' => 'data-setting-key="stock_decimal_places_prices"',
 		'label' => 'Decimal places allowed for prices',
 		'min' => 0,
 		'decimals' => 0,
