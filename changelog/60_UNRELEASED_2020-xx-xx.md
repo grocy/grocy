@@ -33,7 +33,7 @@
 - For products with tare weight handling enabled, it's now optionally possible to consume a fixed/exact amount (just like for "normal" products) in case you don't want to weigh the whole container this time (new checkbox on the consume page) (thanks @fipwmaqzufheoxq92ebc)
 - The stock overview page now also shows the value - new column and also the total value in the header (thanks @kriddles)
 - It's now possible to set a custom purchased date on purchase (new field on the purchase page, hidden by default - enable it by a new stock setting (top right corner settings menu)) (thanks @kriddles)
-- Improved that all amount inputs now allow 4 decimals (when the product option "Allow partial units in stock" is enabled)
+- The decimal places for all amount and price inputs can now be configured (stock settings / top right corner settings menu, both default to `4`)
 - Fixed that it was not possible to leave the "Barcode(s)" on the product edit page by `TAB`
 - Fixed that when adding products through a product picker workflow and when the created products contains special characters, the product was not preselected on the previous page (thanks @Forceu)
 - Fixed that when editing a product the default store was not visible / always empty regardless if the product had one set (thanks @kriddles)

@@ -1924,3 +1924,12 @@ msgstr ""
 
 msgid "Show purchased date on purchase form (otherwise the purchased date defaults to today)"
 msgstr ""
+
+msgid "Common"
+msgstr ""
+
+msgid "Decimal places allowed for amounts"
+msgstr ""
+
+msgid "Decimal places allowed for prices"
+msgstr ""
