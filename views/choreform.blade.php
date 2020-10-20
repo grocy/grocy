@@ -255,8 +255,8 @@
 			'id' => 'product_amount',
 			'label' => 'Amount',
 			'hintId' => 'amount_qu_unit',
-			'min' => 0.0001,
-			'decimals' => 4,
+			'min' => '',
+			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
 			'isRequired' => false,
 			'value' => $value

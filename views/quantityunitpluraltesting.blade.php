@@ -38,8 +38,8 @@
 			@include('components.numberpicker', array(
 			'id' => 'amount',
 			'label' => 'Amount',
-			'min' => 0.0001,
-			'decimals' => 4,
+			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
+			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'isRequired' => false,
 			'value' => 1
 			))

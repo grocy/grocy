@@ -862,7 +862,8 @@ class StockService extends BaseService
 		if ($productRow != null && !empty($productRow))
 		{
 			$newAmount = $productRow->amount - $amount;
-			if ($newAmount < 0.01)
+
+			if ($newAmount < floatval('0.' . str_repeat('0', intval($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'stock_decimal_places_amounts')) - 1) . '1'))
 			{
 				$productRow->delete();
 			}

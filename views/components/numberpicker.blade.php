@@ -36,7 +36,7 @@
 			value="{{ $value }}"
 			min="{{ number_format($min, $decimals, '.', '') }}"
 			max="{{ number_format($max, $decimals, '.', '') }}"
-			step="@if($decimals == 0){{1}}@else{{'.' . substr('0000000001', -$decimals)}}@endif"
+			step="@if($decimals == 0){{1}}@else{{'.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1'}}@endif"
 			@if($isRequired)
 			required
 			@endif>

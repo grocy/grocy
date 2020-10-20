@@ -47,8 +47,8 @@
 			'id' => 'amount',
 			'label' => 'Amount',
 			'hintId' => 'amount_qu_unit',
-			'min' => 0.0001,
-			'decimals' => 4,
+			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
+			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
 			'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info"
 				class="text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
@@ -85,7 +85,6 @@
 			'shortcutLabel' => 'Never expires',
 			'earlierThanInfoLimit' => date('Y-m-d'),
 			'earlierThanInfoText' => $__t('The given date is earlier than today, are you sure?'),
-			'additionalGroupCssClasses' => $additionalGroupCssClasses,
 			'activateNumberPad' => GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_FIELD_NUMBER_PAD
 			))
 			@endif
@@ -94,7 +93,7 @@
 			@include('components.numberpicker', array(
 			'id' => 'price',
 			'label' => 'Price',
-			'min' => 0.0001,
+			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_prices'] - 1) . '1',
 			'decimals' => $userSettings['stock_decimal_places_prices'],
 			'value' => '',
 			'hintId' => 'price-hint',
@@ -136,8 +135,8 @@
 			@include('components.numberpicker', array(
 			'id' => 'qu_factor_purchase_to_stock',
 			'label' => 'Factor purchase to stock quantity unit',
-			'min' => 0.0001,
-			'decimals' => 4,
+			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
+			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'additionalGroupCssClasses' => 'd-none',
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
 			'additionalCssClasses' => 'input-group-qu',

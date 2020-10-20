@@ -71,7 +71,7 @@
 		'additionalAttributes' => 'data-setting-key="stock_default_purchase_amount"',
 		'label' => 'Default amount for purchase',
 		'min' => 0,
-		'decimals' => 4,
+		'decimals' => $userSettings['stock_decimal_places_amounts'],
 		'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
 		'additionalCssClasses' => 'user-setting-control'
 		))
@@ -82,12 +82,23 @@
 		'additionalAttributes' => 'data-setting-key="stock_default_consume_amount"',
 		'label' => 'Default amount for consume',
 		'min' => 0,
-		'decimals' => 4,
+		'decimals' => $userSettings['stock_decimal_places_amounts'],
 		'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
 		'additionalCssClasses' => 'user-setting-control'
 		))
 
-		<h4 class="mt-2">{{ $__t('Price decimal places allowed') }}</h4>
+		<h4 class="mt-2">{{ $__t('Common') }}</h4>
+
+		@include('components.numberpicker', array(
+		'id' => 'stock_price_decimal_amounts',
+		'additionalAttributes' => 'data-setting-key="stock_price_decimal_amounts"',
+		'label' => 'Decimal places allowed for amounts',
+		'min' => 0,
+		'decimals' => 0,
+		'invalidFeedback' => $__t('This cannot be lower than %s', '0'),
+		'additionalCssClasses' => 'user-setting-control'
+		))
+
 		@include('components.numberpicker', array(
 		'id' => 'stock_price_decimal_places',
 		'additionalAttributes' => 'data-setting-key="stock_price_decimal_places"',
