@@ -20,6 +20,13 @@
 			title="{{ $__t('Stock journal for this product') }}">
 			<i class="fas fa-file-alt"></i>
 		</a>
+		<a id="productcard-product-stock-button"
+			class="btn btn-sm btn-outline-info py-0 float-right disabled"
+			href="#"
+			data-toggle="tooltip"
+			title="{{ $__t('Stock entries for this product') }}">
+			<i class="fas fa-boxes"></i>
+		</a>
 	</div>
 	<div class="card-body">
 		<h3><span id="productcard-product-name"></span></h3>
