@@ -553,7 +553,7 @@ function RefreshLocaleNumberDisplay(rootSelector = "#page-content")
 			return;
 		}
 
-		$(this).text(parseFloat($(this).text()).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency }));
+		$(this).text(parseFloat($(this).text()).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: 2, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices}));
 	});
 
 	$(rootSelector + " .locale-number.locale-number-quantity-amount").each(function()

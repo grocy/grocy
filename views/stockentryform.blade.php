@@ -89,8 +89,8 @@
 			'id' => 'price',
 			'value' => $price,
 			'label' => 'Price',
-			'min' => 0.01,
-			'decimals' => 2,
+			'min' => 0.0001,
+			'decimals' => $userSettings['stock_decimal_places_prices'],
 			'hint' => $__t('in %s per purchase quantity unit', GROCY_CURRENCY),
 			'invalidFeedback' => $__t('The price cannot be lower than %s', '0'),
 			'isRequired' => false

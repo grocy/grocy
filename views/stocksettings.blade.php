@@ -87,6 +87,17 @@
 		'additionalCssClasses' => 'user-setting-control'
 		))
 
+		<h4 class="mt-2">{{ $__t('Price decimal places allowed') }}</h4>
+		@include('components.numberpicker', array(
+		'id' => 'stock_price_decimal_places',
+		'additionalAttributes' => 'data-setting-key="stock_price_decimal_places"',
+		'label' => 'Decimal places allowed for prices',
+		'min' => 0,
+		'decimals' => 0,
+		'invalidFeedback' => $__t('This cannot be lower than %s', '0'),
+		'additionalCssClasses' => 'user-setting-control'
+		))
+
 		<div class="form-group">
 			<div class="checkbox">
 				<label for="show_icon_on_stock_overview_page_when_product_is_on_shopping_list">

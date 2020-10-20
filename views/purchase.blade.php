@@ -94,14 +94,15 @@
 			@include('components.numberpicker', array(
 			'id' => 'price',
 			'label' => 'Price',
-			'min' => 0.01,
-			'decimals' => 2,
+			'min' => 0.0001,
+			'decimals' => $userSettings['stock_decimal_places_prices'],
 			'value' => '',
 			'hintId' => 'price-hint',
 			'invalidFeedback' => $__t('The price cannot be lower than %s', '0'),
 			'isRequired' => false,
 			'additionalGroupCssClasses' => 'mb-1'
 			))
+
 			<div class="form-check form-check-inline mb-3">
 				<input class="form-check-input"
 					type="radio"

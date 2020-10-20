@@ -8,27 +8,22 @@
 	Grocy.Api.Get('stock/products/' + jsonForm.product_id,
 		function(productDetails)
 		{
-			var amount = jsonForm.amount * jsonForm.qu_factor_purchase_to_stock;
-
-			var price = "";
-			if (!jsonForm.price.toString().isEmpty())
-			{
-				// price is saved as 1 QU to stock
-				price = parseFloat(jsonForm.price / amount).toFixed(2);
-
-				if ($("input[name='price-type']:checked").val() == "total-price")
-				{
-					price = price / jsonForm.amount;
-				}
-			}
+			var jsonData = {};
+			jsonData.amount = jsonForm.amount * jsonForm.qu_factor_purchase_to_stock;
 
 			if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 			{
-				price = 0;
-			}
+				jsonData.price = 0;
+			} else {
+				// price is saved as 1 QU to stock
+				var price = parseFloat(jsonForm.price / jsonForm.qu_factor_purchase_to_stock).toFixed(Grocy.UserSettings.stock_decimal_places_prices);
 
-			var jsonData = {};
-			jsonData.amount = amount;
+				if ($("input[name='price-type']:checked").val() == "total-price")
+				{
+					price = parseFloat(price / jsonForm.amount).toFixed(Grocy.UserSettings.stock_decimal_places_prices);
+				}
+				jsonData.price = price;
+			}
 
 			if (Grocy.UserSettings.show_purchased_date_on_purchase)
 			{
@@ -48,7 +43,6 @@
 			{
 				jsonData.shopping_location_id = Grocy.Components.ShoppingLocationPicker.GetValue();
 			}
-			jsonData.price = price;
 			if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 			{
 				jsonData.location_id = Grocy.Components.LocationPicker.GetValue();
