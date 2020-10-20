@@ -195,7 +195,8 @@
 							<i class="fas fa-box"></i>
 						</a>
 					</td>
-					<td>
+					<td class="product-name-cell cursor-link"
+						data-product-id="{{ $listItem->product_id }}">
 						@if(!empty($listItem->product_id)) {{ FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->name }}<br>@endif<em>{!! nl2br($listItem->note) !!}</em>
 					</td>
 					<td>
@@ -323,6 +324,22 @@
 		<div class="col">
 			<h5>{{ $__t('Notes') }}</h5>
 			<p id="description-for-print"></p>
+		</div>
+	</div>
+</div>
+<div class="modal fade"
+	id="shoppinglist-productcard-modal"
+	tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content text-center">
+			<div class="modal-body">
+				@include('components.productcard')
+			</div>
+			<div class="modal-footer">
+				<button type="button"
+					class="btn btn-secondary"
+					data-dismiss="modal">{{ $__t('Close') }}</button>
+			</div>
 		</div>
 	</div>
 </div>
