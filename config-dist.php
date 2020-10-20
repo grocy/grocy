@@ -73,6 +73,11 @@ Setting('AUTH_CLASS', 'Grocy\Middleware\DefaultAuthMiddleware');
 // the name of the HTTP header which your reverse proxy uses to pass the username (on successful authentication)
 Setting('REVERSE_PROXY_AUTH_HEADER', 'REMOTE_USER');
 
+// When using LdapAuthMiddleware
+Setting('LDAP_DOMAIN', ''); // Example value "local"
+Setting('LDAP_ADDRESS', ''); // Example value "ldap://vm-dc2019.local.berrnd.net"
+Setting('LDAP_BASE_DN', ''); // Example value "OU=OU_Users,DC=local,DC=berrnd,DC=net"
+
 // Set this to true if you want to disable the ability to scan a barcode via the device camera (Browser API)
 Setting('DISABLE_BROWSER_BARCODE_CAMERA_SCANNING', false);
 

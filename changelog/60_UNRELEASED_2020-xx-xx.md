@@ -14,10 +14,15 @@
   - Other users only see their API keys on that page
 - (Thanks @fipwmaqzufheoxq92ebc)
 
-### New feature: Reverse proxy authenticaton support
-- New `config.php` settings `AUTH_CLASS` and `REVERSE_PROXY_AUTH_HEADER`
-- If you set `AUTH_CLASS` to `Grocy\Middleware\ReverseProxyAuthMiddleware` and your reverse proxy sends a username in the HTTP header `REMOTE_USER` (header name can be changed by the setting `REVERSE_PROXY_AUTH_HEADER`), the user is automatically authenticated (and will also be created, if not already present)
-- (Thanks @fipwmaqzufheoxq92ebc for the initial work on this)
+### New feature: External authentication support
+- New `config.php` setting `AUTH_CLASS` to change the used authentication provider
+- Via LDAP
+  - New `config.php` settings `LDAP_DOMAIN`, `LDAP_ADDRESS` and `LDAP_BASE_DN`
+  - If you set `AUTH_CLASS` to `Grocy\Middleware\LdapAuthMiddleware`, users will be authenticated against your directory (and will also be created (in grocy), if not already present)
+- Via a reverse proxy
+  - New `config.php` setting `REVERSE_PROXY_AUTH_HEADER`
+  - If you set `AUTH_CLASS` to `Grocy\Middleware\ReverseProxyAuthMiddleware` and your reverse proxy sends a username in the HTTP header `REMOTE_USER` (header name can be changed by the setting `REVERSE_PROXY_AUTH_HEADER`), the user is automatically authenticated (and will also be created (in grocy), if not already present)
+  - (Thanks @fipwmaqzufheoxq92ebc for the initial work on this)
 
 ### Stock improvements/fixes
 - When creating a quantity unit conversion it's now possible to automatically create the inverse conversion (thanks @kriddles)
