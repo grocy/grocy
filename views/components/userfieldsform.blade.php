@@ -41,7 +41,7 @@
 	'id' => '',
 	'label' => $userfield->caption,
 	'noNameAttribute' => true,
-	'min' => 0.0001,
+	'min' => 0,
 	'decimals' => 4,
 	'isRequired' => false,
 	'additionalCssClasses' => 'userfield-input',
