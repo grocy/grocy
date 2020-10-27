@@ -447,3 +447,13 @@ if ($(window).width() < 768 & window.location.hash !== "#compact" && !BoolVal(Gr
 {
 	$("#shopping-list-compact-view-button").click();
 }
+
+$(window).on("message", function(e)
+{
+	var data = e.originalEvent.data;
+
+	if (data.Message === "ShoppingListChanged")
+	{
+		window.location.href = U('/shoppinglist?list=' + data.Payload);
+	}
+});
