@@ -60,6 +60,7 @@
 - "Add products that are below defined min. stock amount" always rounded up the missing amount to an integral number, this now allows decimal numbers
 - Added a button to add all currently in-stock but expired products to the shopping list (thanks @m-byte)
 - Improved that when `FEATURE_FLAG_STOCK` is disabled, all product/stock related inputs and buttons are now hidden on the shopping list page (thanks @fipwmaqzufheoxq92ebc)
+- When adding/editing shopping list items a dialog is now used instead of jumping between pages (thanks @kriddles)
 
 ### Recipe improvements/fixes
 - It's now possible to print recipes (button next to the recipe title) (thanks @zsarnett)
