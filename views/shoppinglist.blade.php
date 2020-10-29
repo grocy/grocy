@@ -40,9 +40,13 @@
 					</select>
 				</div>
 				<div class="d-inline-block mb-1">
-					<a class="btn btn-outline-dark btn-sm responsive-button"
-						href="{{ $U('/shoppinglist/new') }}">
+					<a class="btn btn-outline-dark btn-sm responsive-button show-as-dialog-link"
+						href="{{ $U('/shoppinglist/new?embedded') }}">
 						{{ $__t('New shopping list') }}
+					</a>
+					<a class="btn btn-outline-dark btn-sm responsive-button show-as-dialog-link @if($selectedShoppingListId == 1) disabled @endif"
+						href="{{ $U('/shoppinglist/' . $selectedShoppingListId . '?embedded') }}">
+						{{ $__t('Edit shopping list') }}
 					</a>
 					<a id="delete-selected-shopping-list"
 						class="btn btn-outline-danger btn-sm responsive-button @if($selectedShoppingListId == 1) disabled @endif"
@@ -77,8 +81,8 @@
 
 <div class="row mt-3 d-print-none hide-on-fullscreen-card">
 	<div class="col-md-12 mb-2">
-		<a class="btn btn-primary responsive-button btn-sm mb-1"
-			href="{{ $U('/shoppinglistitem/new?list=' . $selectedShoppingListId) }}">
+		<a class="btn btn-primary responsive-button btn-sm mb-1 show-as-dialog-link"
+			href="{{ $U('/shoppinglistitem/new?embedded&list=' . $selectedShoppingListId) }}">
 			{{ $__t('Add item') }}
 		</a>
 		<a id="clear-shopping-list"
@@ -174,8 +178,8 @@
 							title="{{ $__t('Mark this item as done') }}">
 							<i class="fas fa-check"></i>
 						</a>
-						<a class="btn btn-sm btn-info"
-							href="{{ $U('/shoppinglistitem/') . $listItem->id . '?list=' . $selectedShoppingListId }}"
+						<a class="btn btn-sm btn-info show-as-dialog-link"
+							href="{{ $U('/shoppinglistitem/' . $listItem->id . '?embedded&list=' . $selectedShoppingListId ) }}"
 							data-toggle="tooltip"
 							data-placement="right"
 							title="{{ $__t('Edit this item') }}">

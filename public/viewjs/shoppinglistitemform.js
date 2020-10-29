@@ -19,6 +19,7 @@
 						function(productDetails)
 						{
 							window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", __t("Added %1$s of %2$s to the shopping list \"%3$s\"", jsonData.product_amount + " " + __n(jsonData.product_amount, productDetails.quantity_unit_purchase.name, productDetails.quantity_unit_purchase.name_plural), productDetails.product.name, $("#shopping_list_id option:selected").text())), Grocy.BaseUrl);
+							window.parent.postMessage(WindowMessageBag("ShoppingListChanged", $("#shopping_list_id").val().toString()), Grocy.BaseUrl);
 							window.parent.postMessage(WindowMessageBag("CloseAllModals"), Grocy.BaseUrl);
 						},
 						function(xhr)
@@ -51,6 +52,7 @@
 						function(productDetails)
 						{
 							window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", __t("Added %1$s of %2$s to the shopping list \"%3$s\"", jsonData.amount + " " + __n(jsonData.amount, productDetails.quantity_unit_purchase.name, productDetails.quantity_unit_purchase.name_plural), productDetails.product.name, $("#shopping_list_id option:selected").text())), Grocy.BaseUrl);
+							window.parent.postMessage(WindowMessageBag("ShoppingListChanged", $("#shopping_list_id").val().toString()), Grocy.BaseUrl);
 							window.parent.postMessage(WindowMessageBag("CloseAllModals"), Grocy.BaseUrl);
 						},
 						function(xhr)
@@ -82,6 +84,7 @@
 						function(productDetails)
 						{
 							window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", __t("Added %1$s of %2$s to the shopping list \"%3$s\"", jsonData.amount + " " + __n(jsonData.amount, productDetails.quantity_unit_purchase.name, productDetails.quantity_unit_purchase.name_plural), productDetails.product.name, $("#shopping_list_id option:selected").text())), Grocy.BaseUrl);
+							window.parent.postMessage(WindowMessageBag("ShoppingListChanged", $("#shopping_list_id").val().toString()), Grocy.BaseUrl);
 							window.parent.postMessage(WindowMessageBag("CloseAllModals"), Grocy.BaseUrl);
 						},
 						function(xhr)
