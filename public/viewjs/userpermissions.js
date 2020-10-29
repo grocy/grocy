@@ -51,3 +51,5 @@ if (Grocy.EditObjectId == Grocy.UserId)
 		}
 	})
 }
+
+check_hierachy($("input.permission-cb[name=ADMIN]").is(":checked"), "ADMIN");
