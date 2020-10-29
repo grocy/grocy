@@ -20,7 +20,7 @@
 
 			@include('components.numberpicker', array(
 			'id' => 'new_amount',
-			'label' => 'New amount',
+			'label' => 'New stock amount',
 			'hintId' => 'new_amount_qu_unit',
 			'min' => 0,
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
@@ -32,6 +32,23 @@
 			'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info"
 				class="text-small text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
 			))
+
+			@if(boolval($userSettings['show_purchased_date_on_purchase']))
+			@include('components.datetimepicker2', array(
+			'id' => 'purchased_date',
+			'label' => 'Purchased date',
+			'format' => 'YYYY-MM-DD',
+			'hint' => 'This will apply to added products',
+			'initWithNow' => true,
+			'limitEndToNow' => false,
+			'limitStartToNow' => false,
+			'invalidFeedback' => $__t('A purchased date is required'),
+			'nextInputSelector' => '#best_before_date',
+			'additionalCssClasses' => 'date-only-datetimepicker2',
+			'additionalGroupCssClasses' => $additionalGroupCssClasses,
+			'activateNumberPad' => GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_FIELD_NUMBER_PAD
+			))
+			@endif
 
 			@php
 			$additionalGroupCssClasses = '';
@@ -63,7 +80,7 @@
 			@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 			@include('components.numberpicker', array(
 			'id' => 'price',
-			'label' => 'Price',
+			'label' => 'Price per stock unit',
 			'min' => 0,
 			'decimals' => $userSettings['stock_decimal_places_prices'],
 			'value' => '',

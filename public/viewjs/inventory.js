@@ -25,6 +25,10 @@
 			{
 				jsonData.location_id = Grocy.Components.LocationPicker.GetValue();
 			}
+			if (Grocy.UserSettings.show_purchased_date_on_purchase)
+			{
+				jsonData.purchased_date = Grocy.Components.DateTimePicker2.GetValue();
+			}
 
 			jsonData.price = price;
 
