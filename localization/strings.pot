@@ -1936,3 +1936,6 @@ msgstr ""
 
 msgid "Stock entries for this product"
 msgstr ""
+
+msgid "Edit shopping list"
+msgstr ""
