@@ -1922,7 +1922,7 @@ msgstr ""
 msgid "%s total value"
 msgstr ""
 
-msgid "Show purchased date on purchase form (otherwise the purchased date defaults to today)"
+msgid "Show purchased date on purchase and inventory page (otherwise the purchased date defaults to today)"
 msgstr ""
 
 msgid "Common"
