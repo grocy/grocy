@@ -4008,10 +4008,6 @@
 						"type": "number",
 						"format": "number"
 					},
-					"barcode": {
-						"type": "string",
-						"description": "Can contain multiple barcodes separated by comma"
-					},
 					"shopping_location_id": {
 						"type": "integer"
 					}
