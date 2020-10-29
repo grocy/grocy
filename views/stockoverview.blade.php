@@ -143,9 +143,7 @@
 			<tbody class="d-none">
 				@foreach($currentStock as $currentStockEntry)
 				<tr id="product-{{ $currentStockEntry->product_id }}-row"
-					class="@if(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('-1 days')) && $currentStockEntry->amount > 0) table-danger @elseif(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('+' . $nextXDays . ' days'))
-					&&
-					$currentStockEntry->amount > 0) table-warning @elseif ($currentStockEntry->product_missing) table-info @endif">
+					class="@if(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('-1 days')) && $currentStockEntry->amount > 0) table-danger @elseif(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('+' . $nextXDays . ' days')) && $currentStockEntry->amount > 0) table-warning @elseif ($currentStockEntry->product_missing) table-info @endif">
 					<td class="fit-content border-right">
 						<a class="permission-STOCK_CONSUME btn btn-success btn-sm product-consume-button @if($currentStockEntry->amount < 1 || $currentStockEntry->enable_tare_weight_handling == 1) disabled @endif"
 							href="#"
@@ -327,8 +325,10 @@
 					<td class="d-none">
 						@if($currentStockEntry->best_before_date < date('Y-m-d
 							23:59:59',
-							strtotime('-1
-							days'))
+							strtotime('-'
+							. '1'
+							. ' days'
+							))
 							&&
 							$currentStockEntry->amount > 0) expired @elseif($currentStockEntry->best_before_date < date('Y-m-d
 								23:59:59',
@@ -338,7 +338,7 @@
 								. ' days'
 								))
 								&&
-								$currentStockEntry->amount > 0) expiring @endif @if($currentStockEntry->product_missing) belowminstockamount @endif
+								$currentStockEntry->amount > 0) expiring @elseif ($currentStockEntry->product_missing) belowminstockamount @endif"
 					</td>
 					<td class="d-none">
 						xx{{ $currentStockEntry->product_group_name }}xx
