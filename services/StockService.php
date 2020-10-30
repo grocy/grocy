@@ -79,7 +79,7 @@ class StockService extends BaseService
 		}
 	}
 
-	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $quFactorPurchaseToStock, $locationId = null, $shoppingLocationId = null, &$transactionId = null)
+	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $quFactorPurchaseToStock = null, $locationId = null, $shoppingLocationId = null, &$transactionId = null)
 	{
 		if (!$this->ProductExists($productId))
 		{
