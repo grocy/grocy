@@ -74,6 +74,9 @@
 - Fixed that the status filter ("Enough in stock", etc.) on the recipes page did not filter recipes on the gallery tab (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that consuming a recipe ingredient with tare weight handling enabled consumed a wrong amount (thanks @fipwmaqzufheoxq92ebc)
 
+### Meal plan fixes
+- Fixed that for products the quantity unit purchase was displayed instead of the products quantity unit stock (thanks @BenoitAnastay)
+
 ### Chores improvements/fixes
 - Changed that not assigned chores on the chores overview page display now just a dash instead of an ellipsis in the "Assigned to" column to make this more clear (thanks @Germs2004)
 - Fixed (again) that weekly chores, where the next execution should be in the same week, were scheduled (not) always (but sometimes) for the next week only (thanks @shadow7412)
