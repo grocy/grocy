@@ -65,7 +65,6 @@
 			'invalidFeedback' => $__t('A purchased date is required'),
 			'nextInputSelector' => '#best_before_date',
 			'additionalCssClasses' => 'date-only-datetimepicker2',
-			'additionalGroupCssClasses' => $additionalGroupCssClasses,
 			'activateNumberPad' => GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_FIELD_NUMBER_PAD
 			))
 			@endif
