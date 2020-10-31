@@ -2,6 +2,8 @@
 
 namespace Grocy\Controllers;
 
+use Grocy\Services\RecipesService;
+
 class StockController extends BaseController
 {
 	public function Consume(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -12,7 +14,7 @@ class StockController extends BaseController
 		return $this->renderPage($response, 'consume', [
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
 			'barcodes' => $productBarcodes,
-			'recipes' => $this->getDatabase()->recipes()->orderBy('name'),
+			'recipes' => $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name')
 		]);
 	}
@@ -431,7 +433,6 @@ class StockController extends BaseController
 		return $this->renderPage($response, 'transfer', [
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
 			'barcodes' => $productBarcodes,
-			'recipes' => $this->getDatabase()->recipes()->orderBy('name'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name')
 		]);
 	}
