@@ -30,7 +30,8 @@
 		</div>
 	</div>
 </div>
-<hr>
+
+<hr class="my-2 py-1">
 
 <script>
 	var fullcalendarEventSources = {!! json_encode(array($fullcalendarEventSources)) !!}

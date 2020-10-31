@@ -8,9 +8,11 @@
 <div class="row">
 	<div class="col">
 		<h2 class="title">@yield('title')</h2>
-		<hr>
 	</div>
 </div>
+
+<hr class="my-2 py-1">
+
 <div class="row">
 	<div class="col-lg-6 col-xs-12">
 		<h4 class="mt-2">{{ $__t('Batteries overview') }}</h4>

@@ -12,9 +12,11 @@
 <div class="row">
 	<div class="col">
 		<h2 class="title">@yield('title')</h2>
-		<hr>
 	</div>
 </div>
+
+<hr class="my-2 py-1">
+
 <div class="row">
 	<div class="col-lg-6 col-xs-12">
 
@@ -38,7 +40,7 @@
 				value="{{ $product->id }}">
 
 			<div class="form-group">
-				<label for="name">{{ $__t('Barcode') }}<i class="fas fa-barcode"></i></label>
+				<label for="name">{{ $__t('Barcode') }}&nbsp;<i class="fas fa-barcode"></i></label>
 				<div class="input-group">
 					<input type="text"
 						class="form-control barcodescanner-input"

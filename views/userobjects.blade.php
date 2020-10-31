@@ -8,29 +8,29 @@
 <div class="row">
 	<div class="col">
 		<div class="title-related-links">
-			<h2 class="title">@yield('title')</h2>
+			<h2 class="title">
+				@yield('title')
+				<span class="text-muted small">{{ $userentity->description }}</span>
+			</h2>
 			<div class="related-links">
+				<a class="btn btn-primary responsive-button"
+					href="{{ $U('/userobject/' . $userentity->name . '/new') }}">
+					{{ $__t('Add') }}
+				</a>
 				<a class="btn btn-outline-secondary d-print-none"
 					href="{{ $U('/userfields?entity=' . 'userentity-' . $userentity->name) }}">
 					{{ $__t('Configure fields') }}
 				</a>
 			</div>
 		</div>
-		<h5 class="text-muted">{{ $userentity->description }}</h5>
 	</div>
 </div>
-<hr>
-<div class="row mt-3">
-	<div class="col-xs-12 col-md-2 col-xl-1">
-		<a class="btn btn-primary btn-sm responsive-button w-100 mb-3"
-			href="{{ $U('/userobject/' . $userentity->name . '/new') }}">
-			{{ $__t('Add') }}
-		</a>
-	</div>
-</div>
+
+<hr class="my-2 py-1">
+
 <div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<div class="input-group mb-3">
+		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-search"></i></span>
 			</div>

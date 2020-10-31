@@ -7,27 +7,29 @@
 
 @section('content')
 <div class="row">
-
 	<div class="col-xs-12 col-md-4 pb-3">
-		<h2 class="title">@yield('title')</h2>
-		<hr>
-
-		<div class="row">
-			<div class="col-xs-12 col-md-4 col-xl-3">
-				<a class="btn btn-primary btn-sm responsive-button w-100 mb-3"
+		<div class="title-related-links border-bottom mb-2 py-1">
+			<h2 class="title">@yield('title')</h2>
+			<div class="related-links">
+				<a class="btn btn-primary responsive-button"
 					href="{{ $U('/equipment/new') }}">
 					{{ $__t('Add') }}
 				</a>
 			</div>
 		</div>
-		<div class="input-group mb-3">
-			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-search"></i></span>
+
+		<div class="row">
+			<div class="col">
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text"><i class="fas fa-search"></i></span>
+					</div>
+					<input type="text"
+						id="search"
+						class="form-control"
+						placeholder="{{ $__t('Search') }}">
+				</div>
 			</div>
-			<input type="text"
-				id="search"
-				class="form-control"
-				placeholder="{{ $__t('Search') }}">
 		</div>
 
 		<table id="equipment-table"

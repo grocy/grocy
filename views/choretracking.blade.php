@@ -8,7 +8,9 @@
 <div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
 		<h2 class="title">@yield('title')</h2>
-		<hr>
+
+		<hr class="my-2 py-1">
+
 		<form id="choretracking-form"
 			novalidate>
 

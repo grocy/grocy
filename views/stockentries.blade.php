@@ -17,14 +17,19 @@
 	<div class="col">
 		<h2 class="title">@yield('title')</h2>
 	</div>
-	<div class="col">
+</div>
+
+<hr class="my-2 py-1">
+
+<div class="row">
+	<div class="col-xs-12 col-md-6 col-xl-3">
 		@include('components.productpicker', array(
 		'products' => $products,
 		'disallowAllProductWorkflows' => true
 		))
 	</div>
 </div>
-<hr>
+
 <div class="row">
 	<div class="col">
 		<table id="stockentries-table"

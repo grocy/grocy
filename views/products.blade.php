@@ -10,31 +10,28 @@
 		<div class="title-related-links">
 			<h2 class="title">@yield('title')</h2>
 			<div class="related-links">
-				<a class="btn btn-outline-secondary mb-1"
+				<a class="btn btn-primary responsive-button"
+					href="{{ $U('/product/new') }}">
+					{{ $__t('Add') }}
+				</a>
+				<a class="btn btn-outline-secondary"
 					href="{{ $U('/userfields?entity=products') }}">
 					{{ $__t('Configure userfields') }}
 				</a>
-				<a class="btn btn-outline-secondary mb-1"
+				<a class="btn btn-outline-secondary"
 					href="{{ $U('/stocksettings#productpresets') }}">
 					{{ $__t('Presets for new products') }}
 				</a>
 			</div>
 		</div>
-		<hr>
 	</div>
 </div>
 
-<div class="row mt-3">
-	<div class="col-xs-12 col-md-2 col-xl-1">
-		<a class="btn btn-primary btn-sm responsive-button w-100 mb-3"
-			href="{{ $U('/product/new') }}">
-			{{ $__t('Add') }}
-		</a>
-	</div>
-</div>
+<hr class="my-2 py-1">
+
 <div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<div class="input-group mb-3">
+		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-search"></i></span>
 			</div>
@@ -45,9 +42,9 @@
 		</div>
 	</div>
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<div class="input-group mb-3">
+		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-filter"></i></span>
+				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Product group') }}</span>
 			</div>
 			<select class="form-control"
 				id="product-group-filter">

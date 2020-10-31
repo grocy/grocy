@@ -21,25 +21,26 @@
 				</a>
 			</div>
 		</div>
-		<hr>
-		<p id="info-due-chores"
-			data-status-filter="duesoon"
-			data-next-x-days="{{ $nextXDays }}"
-			class="warning-message status-filter-message responsive-message mr-2"></p>
-		<p id="info-overdue-chores"
-			data-status-filter="overdue"
-			class="error-message status-filter-message responsive-button mr-2"></p>
-		@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
-		<p id="info-assigned-to-me-chores"
-			data-user-filter="xx{{ GROCY_USER_ID }}xx"
-			class="normal-message user-filter-message responsive-button"></p>
-		@endif
+		<div class="border-top border-bottom my-2 py-1">
+			<div id="info-due-chores"
+				data-status-filter="duesoon"
+				data-next-x-days="{{ $nextXDays }}"
+				class="warning-message status-filter-message responsive-message mr-2"></div>
+			<div id="info-overdue-chores"
+				data-status-filter="overdue"
+				class="error-message status-filter-message responsive-button mr-2"></div>
+			@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
+			<div id="info-assigned-to-me-chores"
+				data-user-filter="xx{{ GROCY_USER_ID }}xx"
+				class="normal-message user-filter-message responsive-button"></div>
+			@endif
+		</div>
 	</div>
 </div>
 
-<div class="row mt-3">
-	<div class="col-xs-12 col-md-6 col-xl-3 d-flex align-items-end">
-		<div class="input-group mb-3">
+<div class="row">
+	<div class="col-xs-12 col-md-6 col-xl-3">
+		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-search"></i></span>
 			</div>
@@ -50,10 +51,9 @@
 		</div>
 	</div>
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="status-filter">{{ $__t('Status') }}</label>
-		<div class="input-group mb-3">
+		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-filter"></i></span>
+				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>
 			</div>
 			<select class="form-control"
 				id="status-filter">
@@ -65,10 +65,9 @@
 	</div>
 	@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<label for="user-filter">{{ $__t('Assignment') }}</label>
-		<div class="input-group mb-3">
+		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-filter"></i></span>
+				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Assignment') }}</span>
 			</div>
 			<select class="form-control"
 				id="user-filter">

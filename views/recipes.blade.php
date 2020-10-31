@@ -11,24 +11,20 @@
 </script>
 
 <div class="row">
-
-	<div class="col-xs-12 col-md-6 pb-3 d-print-none">
-		<div>
+	<div class="col-xs-12 col-md-6 d-print-none">
+		<div class="title-related-links border-bottom mb-2 py-1">
 			<h2 class="title">@yield('title')</h2>
-		</div>
-		<hr>
-
-		<div class="row">
-			<div class="col-xs-12 col-md-4 col-xl-2">
-				<a class="btn btn-primary btn-sm responsive-button w-100 mb-3"
+			<div class="related-links">
+				<a class="btn btn-primary responsive-button"
 					href="{{ $U('/recipe/new') }}">
 					{{ $__t('Add') }}
 				</a>
 			</div>
 		</div>
+
 		<div class="row">
 			<div class="col-xs-12 col-md-6 col-xl-6">
-				<div class="input-group mb-3">
+				<div class="input-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text"><i class="fas fa-search"></i></span>
 					</div>
@@ -40,9 +36,9 @@
 			</div>
 
 			<div class="col-xs-12 col-md-6 col-xl-6">
-				<div class="input-group mb-3">
+				<div class="input-group">
 					<div class="input-group-prepend">
-						<span class="input-group-text"><i class="fas fa-filter"></i></span>
+						<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>
 					</div>
 					<select class="form-control"
 						id="status-filter">
@@ -55,7 +51,7 @@
 			</div>
 		</div>
 
-		<ul class="nav nav-tabs mt-3 mb-1 grocy-tabs">
+		<ul class="nav nav-tabs grocy-tabs">
 			<li class="nav-item">
 				<a class="nav-link active"
 					id="list-tab"

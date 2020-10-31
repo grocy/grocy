@@ -14,10 +14,12 @@
 		</a>
 	</div>
 </div>
-<hr>
-<div class="row my-3">
+
+<hr class="my-2 py-1">
+
+<div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<div class="input-group mb-3">
+		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-search"></i></span>
 			</div>
@@ -28,9 +30,9 @@
 		</div>
 	</div>
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<div class="input-group mb-3">
+		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-filter"></i></span>
+				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Product') }}</span>
 			</div>
 			<select class="form-control"
 				id="product-filter">
@@ -43,7 +45,7 @@
 	</div>
 </div>
 
-<div class="row">
+<div class="row mt-2">
 	<div class="col">
 		<table id="stock-journal-table"
 			class="table table-sm table-striped dt-responsive">

@@ -58,12 +58,11 @@
 						href="#">
 						{{ $__t('Print') }}
 					</a>
-					<!--<div class="dropdown d-inline-block">
-							<button class="btn btn-outline-dark responsive-button dropdown-toggle" data-toggle="dropdown"><i class="fas fa-file-export"></i> {{ $__t('Output') }}</button>
-							<div class="dropdown-menu">
-								<a id="print-shopping-list-button" class="dropdown-item" href="#"><i class="fas fa-print"></i> {{ $__t('Print') }}</a>
-							</div>
-						</div>-->
+					<a id="shopping-list-compact-view-button"
+						class="btn btn-outline-dark btn-sm responsive-button switch-view-mode-button"
+						href="#">
+						{{ $__t('Compact view') }}
+					</a>
 				</div>
 			</div>
 			@else
@@ -73,41 +72,42 @@
 				value="1">
 			@endif
 		</div>
-		<hr>
-		<p data-status-filter="belowminstockamount"
-			class="normal-message status-filter-message responsive-button @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif">{{ $__n(count($missingProducts), '%s product is below defined min. stock amount', '%s products are below defined min. stock amount') }}</p>
+		<div class="border-top border-bottom my-2 py-1">
+			<div data-status-filter="belowminstockamount"
+				class="normal-message status-filter-message responsive-button @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif">{{ $__n(count($missingProducts), '%s product is below defined min. stock amount', '%s products are below defined min. stock amount') }}</div>
+			<div class="float-right">
+				<a class="btn btn-primary responsive-button btn-sm mb-1 show-as-dialog-link"
+					href="{{ $U('/shoppinglistitem/new?embedded&list=' . $selectedShoppingListId) }}">
+					{{ $__t('Add item') }}
+				</a>
+				<a id="clear-shopping-list"
+					class="btn btn-outline-danger btn-sm mb-1 responsive-button @if($listItems->count() == 0) disabled @endif"
+					href="#">
+					{{ $__t('Clear list') }}
+				</a>
+				<a id="add-all-items-to-stock-button"
+					class="btn btn-outline-primary btn-sm mb-1 responsive-button @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif"
+					href="#">
+					{{ $__t('Add all list items to stock') }}
+				</a>
+				<a id="add-products-below-min-stock-amount"
+					class="btn btn-outline-primary btn-sm mb-1 responsive-button @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif"
+					href="#">
+					{{ $__t('Add products that are below defined min. stock amount') }}
+				</a>
+				<a id="add-expired-products"
+					class="btn btn-outline-primary btn-sm mb-1 responsive-button @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif"
+					href="#">
+					{{ $__t('Add expired products') }}
+				</a>
+			</div>
+		</div>
 	</div>
 </div>
 
-<div class="row mt-3 d-print-none hide-on-fullscreen-card">
-	<div class="col-md-12 mb-2">
-		<a class="btn btn-primary responsive-button btn-sm mb-1 show-as-dialog-link"
-			href="{{ $U('/shoppinglistitem/new?embedded&list=' . $selectedShoppingListId) }}">
-			{{ $__t('Add item') }}
-		</a>
-		<a id="clear-shopping-list"
-			class="btn btn-outline-danger btn-sm mb-1 responsive-button @if($listItems->count() == 0) disabled @endif"
-			href="#">
-			{{ $__t('Clear list') }}
-		</a>
-		<a id="add-all-items-to-stock-button"
-			class="btn btn-outline-primary btn-sm mb-1 responsive-button @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif"
-			href="#">
-			{{ $__t('Add all list items to stock') }}
-		</a>
-		<a id="add-products-below-min-stock-amount"
-			class="btn btn-outline-primary btn-sm mb-1 responsive-button @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif"
-			href="#">
-			{{ $__t('Add products that are below defined min. stock amount') }}
-		</a>
-		<a id="add-expired-products"
-			class="btn btn-outline-primary btn-sm mb-1 responsive-button @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif"
-			href="#">
-			{{ $__t('Add expired products') }}
-		</a>
-	</div>
+<div class="row d-print-none hide-on-fullscreen-card">
 	<div class="col-xs-12 col-md-5">
-		<div class="input-group mb-3">
+		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-search"></i></span>
 			</div>
@@ -118,9 +118,9 @@
 		</div>
 	</div>
 	<div class="col-xs-12 col-md-4 col-lg-5">
-		<div class="input-group mb-3">
+		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-filter"></i></span>
+				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>
 			</div>
 			<select class="form-control"
 				id="status-filter">
@@ -130,13 +130,6 @@
 				<option value="xxUNDONExx">{{ $__t('Only undone items') }}</option>
 			</select>
 		</div>
-	</div>
-	<div class="col-xs-12 col-md-3 col-lg-2 mb-3">
-		<a id="shopping-list-compact-view-button"
-			class="btn btn-outline-dark responsive-button switch-view-mode-button w-100"
-			href="#">
-			{{ $__t('Compact view') }}
-		</a>
 	</div>
 </div>
 

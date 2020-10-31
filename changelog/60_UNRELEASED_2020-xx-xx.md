@@ -136,7 +136,7 @@
 - Fixed (again) that CORS was broken
 
 ### General & other improvements/fixes
-- UI refresh / style improvements (thanks @zsarnett)
+- UI refresh / style improvements (thanks @zsarnett for the idea and initial work on this)
 - The data path (previously fixed to the `data` folder) is now configurable, making it possible to run multiple grocy instances from the same directory (with different `config.php` files / different database, etc.) (thanks @fgrsnau)
   - Via an environment variable `GROCY_DATAPATH` (higher priority)
   - Via an FastCGI parameter `GROCY_DATAPATH` (lower priority)

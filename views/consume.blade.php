@@ -32,7 +32,8 @@
 				@endif
 			</div>
 		</div>
-		<hr>
+
+		<hr class="my-2 py-1">
 
 		<form id="consume-form"
 			novalidate>

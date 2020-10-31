@@ -17,7 +17,11 @@
 <div class="row">
 	<div class="col">
 		<div class="title-related-links">
-			<h2 class="title">@yield('title')</h2>
+			<h2 class="title">
+				@yield('title')
+				<span id="info-current-stock"
+					class="text-muted small"></span>
+			</h2>
 			<div class="related-links">
 				<a class="btn btn-outline-dark responsive-button"
 					href="{{ $U('/stockjournal') }}">
@@ -35,31 +39,32 @@
 				@endif
 			</div>
 		</div>
-		<div id="info-current-stock"
-			class="text-muted"></div>
-		<hr>
-		@if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
-		<p id="info-expiring-products"
-			data-next-x-days="{{ $nextXDays }}"
-			data-status-filter="expiring"
-			class="warning-message status-filter-message responsive-button mr-2"></p>
-		<p id="info-expired-products"
-			data-status-filter="expired"
-			class="error-message status-filter-message responsive-button mr-2"></p>
-		@endif
-		<p id="info-missing-products"
-			data-status-filter="belowminstockamount"
-			class="normal-message status-filter-message responsive-button"></p>
-		<a id="clear-filter-button"
-			class="btn btn-sm btn-outline-info float-right"
-			href="#">
-			{{ $__t('Clear filter') }}
-		</a>
+		<div class="border-top border-bottom my-2 py-1">
+			@if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
+			<div id="info-expiring-products"
+				data-next-x-days="{{ $nextXDays }}"
+				data-status-filter="expiring"
+				class="warning-message status-filter-message responsive-button mr-2"></div>
+			<div id="info-expired-products"
+				data-status-filter="expired"
+				class="error-message status-filter-message responsive-button mr-2"></div>
+			@endif
+			<div id="info-missing-products"
+				data-status-filter="belowminstockamount"
+				class="normal-message status-filter-message responsive-button"></div>
+			<div class="float-right">
+				<a id="clear-filter-button"
+					class="btn btn-sm btn-outline-info"
+					href="#">
+					{{ $__t('Clear filter') }}
+				</a>
+			</div>
+		</div>
 	</div>
 </div>
-<div class="row mt-3">
+<div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<div class="input-group mb-3">
+		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-search"></i></span>
 			</div>
@@ -71,7 +76,7 @@
 	</div>
 	@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<div class="input-group mb-3">
+		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Location') }}</span>
 			</div>
@@ -86,7 +91,7 @@
 	</div>
 	@endif
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<div class="input-group mb-3">
+		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Product group') }}</span>
 			</div>
@@ -100,7 +105,7 @@
 		</div>
 	</div>
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<div class="input-group mb-3">
+		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>
 			</div>

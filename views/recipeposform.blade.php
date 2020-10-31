@@ -12,9 +12,11 @@
 <div class="row">
 	<div class="col">
 		<h2 class="title">@yield('title')</h2>
-		<hr>
 	</div>
 </div>
+
+<hr class="my-2 py-1">
+
 <div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-5 pb-3">
 		<h3 class="text-muted">{{ $__t('Recipe') }} <strong>{{ $recipe->name }}</strong></h3>

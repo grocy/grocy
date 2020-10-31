@@ -22,7 +22,7 @@
 <div class="row">
 	<div class="col">
 		<h2 class="title">@yield('title')</h2>
-		<hr>
+
 		<script>
 			Grocy.EditMode = '{{ $mode }}';
 			Grocy.QuantityUnits = {!! json_encode($quantityunits) !!};
@@ -42,6 +42,8 @@
 		@endif
 	</div>
 </div>
+
+<hr class="my-2 py-1">
 
 <div class="row">
 	<div class="col-xs-12 col-md-7 pb-3">

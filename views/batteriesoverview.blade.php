@@ -21,20 +21,21 @@
 				</a>
 			</div>
 		</div>
-		<hr>
-		<p id="info-due-batteries"
-			data-status-filter="duesoon"
-			data-next-x-days="{{ $nextXDays }}"
-			class="warning-message status-filter-message responsive-button mr-2"></p>
-		<p id="info-overdue-batteries"
-			data-status-filter="overdue"
-			class="error-message status-filter-message responsive-button"></p>
+		<div class="border-top border-bottom my-2 py-1">
+			<div id="info-due-batteries"
+				data-status-filter="duesoon"
+				data-next-x-days="{{ $nextXDays }}"
+				class="warning-message status-filter-message responsive-button mr-2"></div>
+			<div id="info-overdue-batteries"
+				data-status-filter="overdue"
+				class="error-message status-filter-message responsive-button"></div>
+		</div>
 	</div>
 </div>
 
-<div class="row mt-3">
+<div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<div class="input-group mb-3">
+		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-search"></i></span>
 			</div>
@@ -45,9 +46,9 @@
 		</div>
 	</div>
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<div class="input-group mb-3">
+		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-filter"></i></span>
+				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>
 			</div>
 			<select class="form-control"
 				id="status-filter">

@@ -7,21 +7,23 @@
 @section('content')
 <div class="row">
 	<div class="col">
-		<h2 class="title">@yield('title')</h2>
+		<div class="title-related-links">
+			<h2 class="title">@yield('title')</h2>
+			<div class="related-links">
+				<a class="btn btn-primary responsive-button"
+					href="{{ $U('/user/new') }}">
+					{{ $__t('Add') }}
+				</a>
+			</div>
+		</div>
 	</div>
 </div>
-<hr>
-<div class="row mt-3">
-	<div class="col-xs-12 col-md-2 col-xl-1">
-		<a class="btn btn-primary btn-sm responsive-button w-100 mb-3"
-			href="{{ $U('/user/new') }}">
-			{{ $__t('Add') }}
-		</a>
-	</div>
-</div>
+
+<hr class="my-2 py-1">
+
 <div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-3">
-		<div class="input-group mb-3">
+		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-search"></i></span>
 			</div>

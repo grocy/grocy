@@ -10,6 +10,10 @@
 		<div class="title-related-links">
 			<h2 class="title">@yield('title')</h2>
 			<div class="related-links">
+				<a class="btn btn-primary responsive-button show-as-dialog-link"
+					href="{{ $U('/productgroup/new?embedded') }}">
+					{{ $__t('Add') }}
+				</a>
 				<a class="btn btn-outline-secondary"
 					href="{{ $U('/userfields?entity=product_groups') }}">
 					{{ $__t('Configure userfields') }}
@@ -18,15 +22,9 @@
 		</div>
 	</div>
 </div>
-<hr>
-<div class="row mt-3">
-	<div class="col-xs-12 col-md-2 col-xl-1">
-		<a class="btn btn-primary btn-sm responsive-button w-100 mb-3 show-as-dialog-link"
-			href="{{ $U('/productgroup/new?embedded') }}">
-			{{ $__t('Add') }}
-		</a>
-	</div>
-</div>
+
+<hr class="my-2 py-1">
+
 <div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-3">
 		<div class="input-group mb-3">

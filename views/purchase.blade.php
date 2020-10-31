@@ -10,7 +10,7 @@
 
 @section('content')
 <div class="row">
-	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
+	<div class="col-xs-12 col-md-6 col-xl-4">
 		<div class="title-related-links">
 			<h2 class="title">@yield('title')</h2>
 			<div class="related-links">
@@ -32,7 +32,8 @@
 				@endif
 			</div>
 		</div>
-		<hr>
+
+		<hr class="my-2 py-1">
 
 		<form id="purchase-form"
 			novalidate>

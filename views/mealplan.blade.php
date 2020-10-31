@@ -31,7 +31,8 @@
 		<h2 class="title">@yield('title')</h2>
 	</div>
 </div>
-<hr>
+
+<hr class="my-2 py-1">
 
 <div class="row">
 	<div class="col">
