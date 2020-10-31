@@ -54,6 +54,7 @@
 - Fixed that edited stock entries were not considered for the price history chart on the product card
 - Fixed that `FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING` is set to `false`, the purchase page validation failed (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that consuming products with enabled tare weight handling did not work on the stock entries page (also fixed that opening those products is not possible there)
+- Fixed that the recipes dropdown on the consume page also displayed internal recipes (thanks @kriddles)
 
 ### Shopping list improvements
 - Decimal amounts are now allowed (for any product, rounded by two decimal places)
