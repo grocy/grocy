@@ -1,8 +1,8 @@
-# 
 # Translators:
 # Marcin Redlica <marcin.redlica@gmail.com>, 2019
 # Maczuga <maczugapl@gmail.com>, 2019
 # Tomasz Dobrzański <verbanet@gmail.com>, 2020
+# Rafał Dadas <dadasrafal@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -297,23 +297,23 @@ msgid "Polish"
 msgstr "Polski"
 
 msgid "Milk Chocolate"
-msgstr ""
+msgstr "Czekolada mleczna"
 
 msgid "Dark Chocolate"
-msgstr ""
+msgstr "Ciemna czekolada"
 
 msgid "Slice"
 msgid_plural "Slices"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Kromka"
+msgstr[1] "Kromki"
+msgstr[2] "Kromek"
+msgstr[3] "Kromek"
 
 msgid "Example userentity"
-msgstr ""
+msgstr "Przykładowa jednostka użytkownika"
 
 msgid "This is an example user entity..."
-msgstr ""
+msgstr "To jest przykładowa jednostka użytkownika..."
 
 msgid "Custom field"
 msgstr "Pole niestandardowe"
@@ -322,7 +322,7 @@ msgid "Example field value..."
 msgstr "Przykładowa wartość pola ..."
 
 msgid "Waffle rolls"
-msgstr ""
+msgstr "Rurki waflowe"
 
 msgid "Danish"
 msgstr "Duński"
@@ -334,25 +334,25 @@ msgid "Norwegian"
 msgstr "Norweski"
 
 msgid "Demo"
-msgstr ""
+msgstr "Demo"
 
 msgid "Stable version"
-msgstr ""
+msgstr "Wersja stabilna"
 
 msgid "Preview version"
-msgstr ""
+msgstr "Wersja przedpremierowa"
 
 msgid "current release"
-msgstr ""
+msgstr "Aktualne wydanie"
 
 msgid "not yet released"
-msgstr ""
+msgstr "Jeszcze niewydane"
 
 msgid "Portuguese (Brazil)"
 msgstr "Portugalski (Brazylia)"
 
 msgid "This is a note"
-msgstr ""
+msgstr "To jest notatka"
 
 msgid "Freezer"
 msgstr "Zamrażarka"
@@ -371,11 +371,11 @@ msgstr "Portugalski (Portugalia)"
 
 # Use a in your country well known supermarket name
 msgid "DemoSupermarket1"
-msgstr ""
+msgstr "Biedronka"
 
 # Use a in your country well known supermarket name
 msgid "DemoSupermarket2"
-msgstr ""
+msgstr "Lewiatan"
 
 msgid "Japanese"
 msgstr "Japoński"

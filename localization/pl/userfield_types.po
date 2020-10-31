@@ -1,7 +1,7 @@
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # Maczuga <maczugapl@gmail.com>, 2019
-# 
+# Rafał Dadas <dadasrafal@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
@@ -42,7 +42,7 @@ msgid "preset-list"
 msgstr "Lista opcji"
 
 msgid "preset-checklist"
-msgstr ""
+msgstr "Domyślna checklista"
 
 msgid "link"
-msgstr ""
+msgstr "Łącze"

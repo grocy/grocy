@@ -1,4 +1,6 @@
-# 
+# Translators
+# Rafał Dadas <dadasrafal@gmail.com>, 2020
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
@@ -14,13 +16,13 @@ msgstr ""
 "X-Domain: grocy/chore_assignment_types\n"
 
 msgid "no-assignment"
-msgstr ""
+msgstr "Brak przydziału"
 
 msgid "who-least-did-first"
-msgstr ""
+msgstr "Kto jako ostatni nie robił"
 
 msgid "random"
-msgstr ""
+msgstr "Losowo"
 
 msgid "in-alphabetical-order"
-msgstr ""
+msgstr "W kolejności alfabetycznej"
