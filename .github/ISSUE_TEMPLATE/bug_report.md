@@ -1,7 +1,6 @@
 ---
 name: Bug report
-about: If you've found something that does not work, please report it to help improve
-  grocy
+about: If you've found something that does not work, please report it to help improve grocy
 title: 'Bug: '
 labels: bug, ui-bug
 assignees: ''
