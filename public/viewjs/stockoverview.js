@@ -229,9 +229,9 @@ function RefreshStatistics()
 	Grocy.Api.Get('stock/volatile?expiring_days=' + nextXDays,
 		function(result)
 		{
-			$("#info-expiring-products").text(__n(result.expiring_products.length, '%s product expires', '%s products expiring') + ' ' + __n(nextXDays, 'within the next day', 'within the next %s days'));
-			$("#info-expired-products").text(__n(result.expired_products.length, '%s product is already expired', '%s products are already expired'));
-			$("#info-missing-products").text(__n(result.missing_products.length, '%s product is below defined min. stock amount', '%s products are below defined min. stock amount'));
+			$("#info-expiring-products").html('<span class="d-block d-md-none">' + result.expiring_products.length + ' <i class="fas fa-clock"></i></span><span class="d-none d-md-block">' + __n(result.expiring_products.length, '%s product expires', '%s products expiring') + ' ' + __n(nextXDays, 'within the next day', 'within the next %s days') + '</span>');
+			$("#info-expired-products").html('<span class="d-block d-md-none">' + result.expired_products.length + ' <i class="fas fa-times-circle"></i></span><span class="d-none d-md-block">' + __n(result.expired_products.length, '%s product is already expired', '%s products are already expired') + '</span>');
+			$("#info-missing-products").html('<span class="d-block d-md-none">' + result.missing_products.length + ' <i class="fas fa-exclamation-circle"></i></span><span class="d-none d-md-block">' + __n(result.missing_products.length, '%s product is below defined min. stock amount', '%s products are below defined min. stock amount') + '</span>');
 		},
 		function(xhr)
 		{

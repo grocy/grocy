@@ -396,6 +396,12 @@ input::-webkit-inner-spin-button {
 	}
 }
 
+@media (max-width: 767.98px) {
+	.width-xs-sm-100 {
+		width: 100%;
+	}
+}
+
 body.fixed-nav {
 	padding-top: 54px;
 }
