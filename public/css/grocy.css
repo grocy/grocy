@@ -337,8 +337,12 @@ input::-webkit-inner-spin-button {
 	display: none;
 }
 
-.dataTables_scrollBody {
-	overflow: visible !important;
+.grab-cursor {
+	cursor: grab;
+}
+
+.grab-cursor:active {
+	cursor: grabbing;
 }
 
 /* Third party component customizations - toastr */
