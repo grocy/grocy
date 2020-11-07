@@ -9,6 +9,8 @@
 });
 $('#equipment-table tbody').removeClass("d-none");
 equipmentTable.columns.adjust().draw();
+$('.dataTables_scrollBody').addClass("dragscroll");
+dragscroll.reset();
 
 equipmentTable.on('select', function(e, dt, type, indexes)
 {
@@ -65,6 +67,12 @@ $("#search").on("keyup", Delay(function()
 
 	equipmentTable.search(value).draw();
 }, 200));
+
+$("#clear-filter-button").on("click", function()
+{
+	$("#search").val("");
+	equipmentTable.search("").draw();
+});
 
 $(document).on('click', '.equipment-delete-button', function(e)
 {

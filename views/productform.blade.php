@@ -395,7 +395,7 @@
 		<h5 id="qu-conversion-headline-info"
 			class="text-muted font-italic"></h5>
 		<table id="qu-conversions-table"
-			class="table table-sm table-striped dt-responsive">
+			class="table table-sm table-striped nowrap w-100">
 			<thead>
 				<tr>
 					<th class="border-right"></th>
@@ -455,7 +455,7 @@
 		<h5 id="barcode-headline-info"
 			class="text-muted font-italic"></h5>
 		<table id="barcode-table"
-			class="table table-sm table-striped dt-responsive">
+			class="table table-sm table-striped nowrap w-100">
 			<thead>
 				<tr>
 					<th class="border-right"></th>

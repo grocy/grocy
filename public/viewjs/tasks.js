@@ -11,6 +11,8 @@
 });
 $('#tasks-table tbody').removeClass("d-none");
 tasksTable.columns.adjust().draw();
+$('.dataTables_scrollBody').addClass("dragscroll");
+dragscroll.reset();
 
 $("#search").on("keyup", Delay(function()
 {
@@ -35,6 +37,15 @@ $("#status-filter").on("change", function()
 	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
 
 	tasksTable.column(5).search(value).draw();
+});
+
+$("#clear-filter-button").on("click", function()
+{
+	$("#search").val("");
+	$("#status-filter").val("all");
+	$("#search").trigger("keyup");
+	$("#status-filter").trigger("change");
+	$("#show-done-tasks").trigger('checked', false);
 });
 
 $(".status-filter-message").on("click", function()
@@ -198,8 +209,8 @@ function RefreshStatistics()
 				}
 			});
 
-			$("#info-due-tasks").text(__n(dueCount, '%s task is due to be done', '%s tasks are due to be done') + ' ' + __n(nextXDays, 'within the next day', 'within the next %s days'));
-			$("#info-overdue-tasks").text(__n(overdueCount, '%s task is overdue to be done', '%s tasks are overdue to be done'));
+			$("#info-due-tasks").html('<span class="d-block d-md-none">' + dueCount + ' <i class="fas fa-clock"></i></span><span class="d-none d-md-block">' + __n(dueCount, '%s task is due to be done', '%s tasks are due to be done') + ' ' + __n(nextXDays, 'within the next day', 'within the next %s days'));
+			$("#info-overdue-tasks").html('<span class="d-block d-md-none">' + overdueCount + ' <i class="fas fa-times-circle"></i></span><span class="d-none d-md-block">' + __n(overdueCount, '%s task is overdue to be done', '%s tasks are overdue to be done'));
 		},
 		function(xhr)
 		{

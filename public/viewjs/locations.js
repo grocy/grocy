@@ -7,6 +7,8 @@
 });
 $('#locations-table tbody').removeClass("d-none");
 locationsTable.columns.adjust().draw();
+$('.dataTables_scrollBody').addClass("dragscroll");
+dragscroll.reset();
 
 $("#search").on("keyup", Delay(function()
 {
@@ -18,6 +20,12 @@ $("#search").on("keyup", Delay(function()
 
 	locationsTable.search(value).draw();
 }, 200));
+
+$("#clear-filter-button").on("click", function()
+{
+	$("#search").val("");
+	locationsTable.search("").draw();
+});
 
 $(document).on('click', '.location-delete-button', function(e)
 {

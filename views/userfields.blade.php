@@ -9,7 +9,22 @@
 	<div class="col">
 		<div class="title-related-links">
 			<h2 class="title">@yield('title')</h2>
-			<div class="related-links">
+			<div class="float-right">
+				<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
+					type="button"
+					data-toggle="collapse"
+					data-target="#table-filter-row">
+					<i class="fas fa-filter"></i>
+				</button>
+				<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
+					type="button"
+					data-toggle="collapse"
+					data-target="#related-links">
+					<i class="fas fa-ellipsis-v"></i>
+				</button>
+			</div>
+			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100 m-1 mt-md-0 mb-md-0 float-right"
+				id="related-links">
 				<a class="btn btn-primary responsive-button"
 					href="{{ $U('/userfield/new') }}">
 					{{ $__t('Add') }}
@@ -21,7 +36,8 @@
 
 <hr class="my-2 py-1">
 
-<div class="row">
+<div class="row collapse d-md-flex"
+	id="table-filter-row">
 	<div class="col-xs-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
@@ -47,12 +63,21 @@
 			</select>
 		</div>
 	</div>
+	<div class="col">
+		<div class="float-right">
+			<a id="clear-filter-button"
+				class="btn btn-sm btn-outline-info"
+				href="#">
+				{{ $__t('Clear filter') }}
+			</a>
+		</div>
+	</div>
 </div>
 
 <div class="row">
 	<div class="col">
 		<table id="userfields-table"
-			class="table table-sm table-striped dt-responsive">
+			class="table table-sm table-striped nowrap w-100">
 			<thead>
 				<tr>
 					<th class="border-right"></th>

@@ -20,7 +20,14 @@
 	<div class="col">
 		<div class="title-related-links">
 			<h2 class="title">@yield('title')</h2>
-			<div class="related-links">
+			<button class="btn btn-outline-dark d-md-none mt-2 float-right order-1 order-md-3"
+				type="button"
+				data-toggle="collapse"
+				data-target="#related-links">
+				<i class="fas fa-ellipsis-v"></i>
+			</button>
+			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100 m-1 mt-md-0 mb-md-0 float-right"
+				id="related-links">
 				<a id="ical-button"
 					class="btn btn-outline-dark"
 					href="#">

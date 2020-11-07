@@ -7,6 +7,8 @@
 });
 $('#userobjects-table tbody').removeClass("d-none");
 userobjectsTable.columns.adjust().draw();
+$('.dataTables_scrollBody').addClass("dragscroll");
+dragscroll.reset();
 
 $("#search").on("keyup", Delay(function()
 {
@@ -18,6 +20,12 @@ $("#search").on("keyup", Delay(function()
 
 	userobjectsTable.search(value).draw();
 }, 200));
+
+$("#clear-filter-button").on("click", function()
+{
+	$("#search").val("");
+	userobjectsTable.search("").draw();
+});
 
 $(document).on('click', '.userobject-delete-button', function(e)
 {

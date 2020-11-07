@@ -29,6 +29,8 @@ var shoppingListTable = $('#shoppinglist-table').DataTable({
 });
 $('#shoppinglist-table tbody').removeClass("d-none");
 shoppingListTable.columns.adjust().draw();
+$('.dataTables_scrollBody').addClass("dragscroll");
+dragscroll.reset();
 
 $(document).on("click", "tr.dtrg-group", function()
 {
@@ -47,6 +49,14 @@ $("#search").on("keyup", Delay(function()
 
 	shoppingListTable.search(value).draw();
 }, 200));
+
+$("#clear-filter-button").on("click", function()
+{
+	$("#search").val("");
+	$("#status-filter").val("all");
+	$("#search").trigger("keyup");
+	$("#status-filter").trigger("change");
+});
 
 $("#status-filter").on("change", function()
 {

@@ -14,16 +14,32 @@
 	<div class="col-xs-12 col-md-6 d-print-none">
 		<div class="title-related-links border-bottom mb-2 py-1">
 			<h2 class="title">@yield('title')</h2>
-			<div class="related-links">
-				<a class="btn btn-primary responsive-button"
+			<div class="float-right">
+				<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
+					type="button"
+					data-toggle="collapse"
+					data-target="#table-filter-row">
+					<i class="fas fa-filter"></i>
+				</button>
+				<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
+					type="button"
+					data-toggle="collapse"
+					data-target="#related-links">
+					<i class="fas fa-ellipsis-v"></i>
+				</button>
+			</div>
+			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
+				id="related-links">
+				<a class="btn btn-primary responsive-button m-1 mt-md-0 mb-md-0 float-right"
 					href="{{ $U('/recipe/new') }}">
 					{{ $__t('Add') }}
 				</a>
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col-xs-12 col-md-6 col-xl-6">
+		<div class="row collapse d-md-flex"
+			id="table-filter-row">
+			<div class="col-xs-12 col-md-5 col-xl-5">
 				<div class="input-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text"><i class="fas fa-search"></i></span>
@@ -35,7 +51,7 @@
 				</div>
 			</div>
 
-			<div class="col-xs-12 col-md-6 col-xl-6">
+			<div class="col-xs-12 col-md-5 col-xl-5">
 				<div class="input-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>
@@ -47,6 +63,16 @@
 						<option value="enoughinstockwithshoppinglist">{{ $__t('Not enough in stock, but already on the shopping list') }}</option>
 						<option value="notenoughinstock">{{ $__t('Not enough in stock') }}</option>
 					</select>
+				</div>
+			</div>
+
+			<div class="col">
+				<div class="float-right">
+					<a id="clear-filter-button"
+						class="btn btn-sm btn-outline-info"
+						href="#">
+						{{ $__t('Clear filter') }}
+					</a>
 				</div>
 			</div>
 		</div>
@@ -70,7 +96,7 @@
 			<div class="tab-pane show active"
 				id="list">
 				<table id="recipes-table"
-					class="table table-sm table-striped dt-responsive">
+					class="table table-sm table-striped nowrap w-100">
 					<thead>
 						<tr>
 							<th class="border-right"></th>

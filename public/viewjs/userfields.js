@@ -7,6 +7,8 @@
 });
 $('#userfields-table tbody').removeClass("d-none");
 userfieldsTable.columns.adjust().draw();
+$('.dataTables_scrollBody').addClass("dragscroll");
+dragscroll.reset();
 
 $("#search").on("keyup", Delay(function()
 {
@@ -29,6 +31,14 @@ $("#entity-filter").on("change", function()
 
 	userfieldsTable.column(1).search(value).draw();
 	$("#new-userfield-button").attr("href", U("/userfield/new?entity=" + value));
+});
+
+$("#clear-filter-button").on("click", function()
+{
+	$("#search").val("");
+	$("#entity-filter").val("all");
+	userfieldsTable.column(1).search("").draw();
+	userfieldsTable.search("").draw();
 });
 
 $(document).on('click', '.userfield-delete-button', function(e)

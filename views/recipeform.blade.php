@@ -170,9 +170,16 @@
 					<h4>
 						{{ $__t('Ingredients list') }}
 					</h4>
-					<div class="related-links">
+					<button class="btn btn-outline-dark d-md-none mt-2 float-right order-1 order-md-3"
+						type="button"
+						data-toggle="collapse"
+						data-target="#related-links">
+						<i class="fas fa-ellipsis-v"></i>
+					</button>
+					<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
+						id="related-links">
 						<a id="recipe-pos-add-button"
-							class="btn btn-outline-primary btn-sm recipe-pos-add-button"
+							class="btn btn-outline-primary btn-sm recipe-pos-add-button m-1 mt-md-0 mb-md-0 float-right"
 							type="button"
 							href="#">
 							{{ $__t('Add') }}
@@ -181,7 +188,7 @@
 				</div>
 
 				<table id="recipes-pos-table"
-					class="table table-sm table-striped dt-responsive">
+					class="table table-sm table-striped nowrap w-100">
 					<thead>
 						<tr>
 							<th class="border-right"></th>
@@ -262,16 +269,23 @@
 					<h4>
 						{{ $__t('Included recipes') }}
 					</h4>
-					<div class="related-links">
+					<button class="btn btn-outline-dark d-md-none mt-2 float-right order-1 order-md-3"
+						type="button"
+						data-toggle="collapse"
+						data-target="#related-links">
+						<i class="fas fa-ellipsis-v"></i>
+					</button>
+					<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
+						id="related-links">
 						<a id="recipe-include-add-button"
-							class="btn btn-outline-primary btn-sm"
+							class="btn btn-outline-primary btn-sm m-1 mt-md-0 mb-md-0 float-right"
 							href="#">
 							{{ $__t('Add') }}
 						</a>
 					</div>
 				</div>
 				<table id="recipes-includes-table"
-					class="table table-sm table-striped dt-responsive">
+					class="table table-sm table-striped nowrap w-100">
 					<thead>
 						<tr>
 							<th class="border-right"></th>

@@ -8,6 +8,8 @@
 });
 $('#batteries-journal-table tbody').removeClass("d-none");
 batteriesJournalTable.columns.adjust().draw();
+$('.dataTables_scrollBody').addClass("dragscroll");
+dragscroll.reset();
 
 $("#battery-filter").on("change", function()
 {
@@ -31,6 +33,14 @@ $("#search").on("keyup", Delay(function()
 
 	batteriesJournalTable.search(value).draw();
 }, 200));
+
+$("#clear-filter-button").on("click", function()
+{
+	$("#search").val("");
+	$("#battery-filter").val("all");
+	batteriesJournalTable.column(1).search("").draw();
+	batteriesJournalTable.search("").draw();
+});
 
 if (typeof GetUriParam("battery") !== "undefined")
 {

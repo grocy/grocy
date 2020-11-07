@@ -650,6 +650,7 @@ $.extend(true, $.fn.dataTable.defaults, {
 	'deferRender': true,
 	'language': IsJsonString(__t('datatables_localization')) ? JSON.parse(__t('datatables_localization')) : {},
 	'scrollY': false,
+	'scrollX': true,
 	'colReorder': true,
 	'stateSave': true,
 	'stateSaveParams': function(settings, data)

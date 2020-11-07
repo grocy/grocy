@@ -7,6 +7,8 @@
 });
 $('#batteries-table tbody').removeClass("d-none");
 batteriesTable.columns.adjust().draw();
+$('.dataTables_scrollBody').addClass("dragscroll");
+dragscroll.reset();
 
 $("#search").on("keyup", Delay(function()
 {
@@ -18,6 +20,12 @@ $("#search").on("keyup", Delay(function()
 
 	batteriesTable.search(value).draw();
 }, 200));
+
+$("#clear-filter-button").on("click", function()
+{
+	$("#search").val("");
+	batteriesTable.search("").draw();
+});
 
 $(document).on('click', '.battery-delete-button', function(e)
 {
