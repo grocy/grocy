@@ -33,7 +33,7 @@
 <div class="row">
 	<div class="col">
 		<table id="stockentries-table"
-			class="table table-sm table-striped dt-responsive">
+			class="table table-sm table-striped nowrap w-100">
 			<thead>
 				<tr>
 					<th class="border-right"></th>

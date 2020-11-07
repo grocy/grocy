@@ -122,6 +122,8 @@ var quConversionsTable = $('#qu-conversions-table').DataTable({
 });
 $('#qu-conversions-table tbody').removeClass("d-none");
 quConversionsTable.columns.adjust().draw();
+$('.dataTables_scrollBody').addClass("dragscroll");
+dragscroll.reset();
 
 Grocy.Components.UserfieldsForm.Load();
 $("#name").trigger("keyup");

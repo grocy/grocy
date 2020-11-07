@@ -97,6 +97,8 @@ var recipesIncludesTables = $('#recipes-includes-table').DataTable({
 });
 $('#recipes-includes-table tbody').removeClass("d-none");
 recipesIncludesTables.columns.adjust().draw();
+$('.dataTables_scrollBody').addClass("dragscroll");
+dragscroll.reset();
 
 Grocy.FrontendHelpers.ValidateForm('recipe-form');
 $("#name").focus();

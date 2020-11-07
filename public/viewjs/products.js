@@ -7,6 +7,8 @@
 });
 $('#products-table tbody').removeClass("d-none");
 productsTable.columns.adjust().draw();
+$('.dataTables_scrollBody').addClass("dragscroll");
+dragscroll.reset();
 
 $("#search").on("keyup", Delay(function()
 {
@@ -28,6 +30,14 @@ $("#product-group-filter").on("change", function()
 	}
 
 	productsTable.column(7).search(value).draw();
+});
+
+$("#clear-filter-button").on("click", function()
+{
+	$("#search").val("");
+	$("#product-group-filter").val("all");
+	productsTable.column(7).search("").draw();
+	productsTable.search("").draw();
 });
 
 if (typeof GetUriParam("product-group") !== "undefined")

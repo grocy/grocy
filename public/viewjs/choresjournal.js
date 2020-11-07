@@ -8,6 +8,8 @@
 });
 $('#chores-journal-table tbody').removeClass("d-none");
 choresJournalTable.columns.adjust().draw();
+$('.dataTables_scrollBody').addClass("dragscroll");
+dragscroll.reset();
 
 $("#chore-filter").on("change", function()
 {
@@ -31,6 +33,14 @@ $("#search").on("keyup", Delay(function()
 
 	choresJournalTable.search(value).draw();
 }, 200));
+
+$("#clear-filter-button").on("click", function()
+{
+	$("#search").val("");
+	$("#chore-filter").val("all");
+	choresJournalTable.column(1).search("").draw();
+	choresJournalTable.search("").draw();
+});
 
 if (typeof GetUriParam("chore") !== "undefined")
 {

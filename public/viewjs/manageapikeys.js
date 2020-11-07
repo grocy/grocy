@@ -7,6 +7,8 @@
 });
 $('#apikeys-table tbody').removeClass("d-none");
 apiKeysTable.columns.adjust().draw();
+$('.dataTables_scrollBody').addClass("dragscroll");
+dragscroll.reset();
 
 var createdApiKeyId = GetUriParam('CreatedApiKeyId');
 if (createdApiKeyId !== undefined)
@@ -24,6 +26,12 @@ $("#search").on("keyup", Delay(function()
 
 	apiKeysTable.search(value).draw();
 }, 200));
+
+$("#clear-filter-button").on("click", function()
+{
+	$("#search").val("");
+	apiKeysTable.search("").draw();
+});
 
 $(document).on('click', '.apikey-delete-button', function(e)
 {

@@ -8,6 +8,8 @@
 });
 $('#stock-journal-table tbody').removeClass("d-none");
 stockJournalTable.columns.adjust().draw();
+$('.dataTables_scrollBody').addClass("dragscroll");
+dragscroll.reset();
 
 $("#product-filter").on("change", function()
 {
@@ -31,6 +33,12 @@ $("#search").on("keyup", Delay(function()
 
 	stockJournalTable.search(value).draw();
 }, 200));
+
+$("#clear-filter-button").on("click", function()
+{
+	$("#search").val("");
+	stockJournalTable.search("").draw();
+});
 
 if (typeof GetUriParam("product") !== "undefined")
 {

@@ -131,6 +131,15 @@
 			</select>
 		</div>
 	</div>
+	<div class="col">
+		<div class="float-right">
+			<a id="clear-filter-button"
+				class="btn btn-sm btn-outline-info"
+				href="#">
+				{{ $__t('Clear filter') }}
+			</a>
+		</div>
+	</div>
 </div>
 
 <div id="shoppinglist-main"
@@ -142,7 +151,7 @@
 			{{ $__t('Normal view') }}
 		</a>
 		<table id="shoppinglist-table"
-			class="table table-sm table-striped dt-responsive">
+			class="table table-sm table-striped nowrap w-100">
 			<thead>
 				<tr>
 					<th class="border-right"></th>

@@ -16,6 +16,8 @@
 });
 $('#recipes-table tbody').removeClass("d-none");
 recipesTables.columns.adjust().draw();
+$('.dataTables_scrollBody').addClass("dragscroll");
+dragscroll.reset();
 
 if ((typeof GetUriParam("tab") !== "undefined" && GetUriParam("tab") === "gallery") || window.localStorage.getItem("recipes_last_tab_id") == "gallery-tab")
 {
@@ -65,6 +67,14 @@ $("#search").on("keyup", Delay(function()
 
 	$(".recipe-gallery-item .card-title:not(:contains_case_insensitive(" + value + "))").parent().parent().parent().addClass("d-none");
 }, 200));
+
+$("#clear-filter-button").on("click", function()
+{
+	$("#search").val("");
+	$("#status-filter").val("all");
+	$("#search").trigger("keyup");
+	$("#status-filter").trigger("change");
+});
 
 $("#status-filter").on("change", function()
 {

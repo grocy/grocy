@@ -4,3 +4,5 @@ var journalSummaryTable = $('#journal-summary-table').DataTable({
 });
 $('#journal-summary-table tbody').removeClass("d-none");
 journalSummaryTable.columns.adjust().draw();
+$('.dataTables_scrollBody').addClass("dragscroll");
+dragscroll.reset();

@@ -7,6 +7,8 @@
 });
 $('#taskcategories-table tbody').removeClass("d-none");
 categoriesTable.columns.adjust().draw();
+$('.dataTables_scrollBody').addClass("dragscroll");
+dragscroll.reset();
 
 $("#search").on("keyup", Delay(function()
 {
@@ -18,6 +20,12 @@ $("#search").on("keyup", Delay(function()
 
 	categoriesTable.search(value).draw();
 }, 200));
+
+$("#clear-filter-button").on("click", function()
+{
+	$("#search").val("");
+	categoriesTable.search("").draw();
+});
 
 $(document).on('click', '.task-category-delete-button', function(e)
 {

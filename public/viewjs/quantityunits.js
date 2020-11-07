@@ -7,6 +7,8 @@
 });
 $('#quantityunits-table tbody').removeClass("d-none");
 quantityUnitsTable.columns.adjust().draw();
+$('.dataTables_scrollBody').addClass("dragscroll");
+dragscroll.reset();
 
 $("#search").on("keyup", Delay(function()
 {
@@ -18,6 +20,12 @@ $("#search").on("keyup", Delay(function()
 
 	quantityUnitsTable.search(value).draw();
 }, 200));
+
+$("#clear-filter-button").on("click", function()
+{
+	$("#search").val("");
+	equipmentTable.search("").draw();
+});
 
 $(document).on('click', '.quantityunit-delete-button', function(e)
 {

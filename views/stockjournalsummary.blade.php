@@ -16,7 +16,7 @@
 <div class="row">
 	<div class="col">
 		<table id="journal-summary-table"
-			class="table table-sm table-striped dt-responsive">
+			class="table table-sm table-striped nowrap w-100">
 			<thead>
 				<tr>
 					<th>{{ $__t('Product') }}</th>

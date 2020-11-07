@@ -24,10 +24,14 @@
 				<span id="info-current-stock"
 					class="text-muted small"></span>
 			</h2>
-			<button class="btn btn-outline-dark d-md-none mt-2 float-right order-1 order-md-3" type="button" data-toggle="collapse" data-target="#related-links">
+			<button class="btn btn-outline-dark d-md-none mt-2 float-right order-1 order-md-3"
+				type="button"
+				data-toggle="collapse"
+				data-target="#related-links">
 				<i class="fas fa-ellipsis-v"></i>
 			</button>
-			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100" id="related-links">
+			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
+				id="related-links">
 				<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right"
 					href="{{ $U('/stockjournal') }}">
 					{{ $__t('Journal') }}
@@ -58,8 +62,7 @@
 				data-status-filter="belowminstockamount"
 				class="normal-message status-filter-message responsive-button"></div>
 			<div class="float-right">
-				<a
-					class="btn btn-sm btn-outline-info d-md-none"
+				<a class="btn btn-sm btn-outline-info d-md-none"
 					data-toggle="collapse"
 					href="#table-filter-row"
 					role="button">
@@ -74,7 +77,8 @@
 		</div>
 	</div>
 </div>
-<div class="row collapse d-md-flex" id="table-filter-row">
+<div class="row collapse d-md-flex"
+	id="table-filter-row">
 	<div class="col-xs-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">

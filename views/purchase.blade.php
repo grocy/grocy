@@ -13,10 +13,17 @@
 	<div class="col-xs-12 col-md-6 col-xl-4">
 		<div class="title-related-links">
 			<h2 class="title">@yield('title')</h2>
-			<div class="related-links">
+			<button class="btn btn-outline-dark d-md-none mt-2 float-right order-1 order-md-3"
+				type="button"
+				data-toggle="collapse"
+				data-target="#related-links">
+				<i class="fas fa-ellipsis-v"></i>
+			</button>
+			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
+				id="related-links">
 				@if(!$embedded)
 				<button id="scan-mode-button"
-					class="btn @if(boolval($userSettings['scan_mode_purchase_enabled'])) btn-success @else btn-danger @endif"
+					class="btn @if(boolval($userSettings['scan_mode_purchase_enabled'])) btn-success @else btn-danger @endif m-1 mt-md-0 mb-md-0 float-right"
 					type="checkbox">{{ $__t('Scan mode') }} <span id="scan-mode-status">@if(boolval($userSettings['scan_mode_purchase_enabled'])) {{ $__t('on') }} @else {{ $__t('off') }} @endif</span></button>
 				<input id="scan-mode"
 					type="checkbox"
