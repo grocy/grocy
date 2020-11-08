@@ -100,9 +100,16 @@
 					<input type="hidden"
 						name="create_inverse:skip"
 						value="0">
-					<input @if($mode=='edit'
+					<input @if($mode=='create'
 						&&
-						$product->create_inverse == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="create_inverse" name="create_inverse:skip" value="1">
+						$product==null)
+						checked
+						@endif
+						class="form-check-input custom-control-input"
+						type="checkbox"
+						id="create_inverse"
+						name="create_inverse:skip"
+						value="1">
 					<label class="form-check-label custom-control-label"
 						for="create_inverse">{{ $__t('Create inverse QU conversion') }}</label>
 					<span id="qu-conversion-inverse-info"
