@@ -25,8 +25,8 @@
 			</div>
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
 				id="related-links">
-				<a class="btn btn-primary responsive-button m-1 mt-md-0 mb-md-0 float-right"
-					href="{{ $U('/taskcategory/new') }}">
+				<a class="btn btn-primary responsive-button m-1 mt-md-0 mb-md-0 float-right show-as-dialog-link"
+					href="{{ $U('/taskcategory/new?embedded') }}">
 					{{ $__t('Add') }}
 				</a>
 				<a class="btn btn-outline-secondary"
@@ -84,8 +84,8 @@
 				@foreach($taskCategories as $taskCategory)
 				<tr>
 					<td class="fit-content border-right">
-						<a class="btn btn-info btn-sm"
-							href="{{ $U('/taskcategory/') }}{{ $taskCategory->id }}">
+						<a class="btn btn-info btn-sm show-as-dialog-link"
+							href="{{ $U('/taskcategory/') }}{{ $taskCategory->id }}?embedded">
 							<i class="fas fa-edit"></i>
 						</a>
 						<a class="btn btn-danger btn-sm task-category-delete-button"

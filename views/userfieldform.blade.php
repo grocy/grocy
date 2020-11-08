@@ -97,14 +97,14 @@
 			</div>
 
 			<div class="form-group">
-				<div class="form-check">
+				<div class="custom-control custom-checkbox">
 					<input type="hidden"
 						name="show_as_column_in_tables"
 						value="0">
 					<input @if($mode=='edit'
 						&&
-						$userfield->show_as_column_in_tables == 1) checked @endif class="form-check-input" type="checkbox" id="show_as_column_in_tables" name="show_as_column_in_tables" value="1">
-					<label class="form-check-label"
+						$userfield->show_as_column_in_tables == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="show_as_column_in_tables" name="show_as_column_in_tables" value="1">
+					<label class="form-check-label custom-control-label"
 						for="show_as_column_in_tables">{{ $__t('Show as column in tables') }}</label>
 				</div>
 			</div>

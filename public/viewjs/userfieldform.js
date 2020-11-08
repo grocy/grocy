@@ -16,7 +16,14 @@
 		Grocy.Api.Post('objects/userfields', jsonData,
 			function(result)
 			{
-				window.location.href = redirectUrl;
+				if (GetUriParam("embedded") !== undefined)
+				{
+					window.parent.postMessage(WindowMessageBag("Reload"), Grocy.BaseUrl);
+				}
+				else
+				{
+					window.location.href = redirectUrl;
+				}
 			},
 			function(xhr)
 			{
@@ -30,7 +37,14 @@
 		Grocy.Api.Put('objects/userfields/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
-				window.location.href = redirectUrl;
+				if (GetUriParam("embedded") !== undefined)
+				{
+					window.parent.postMessage(WindowMessageBag("Reload"), Grocy.BaseUrl);
+				}
+				else
+				{
+					window.location.href = redirectUrl;
+				}
 			},
 			function(xhr)
 			{

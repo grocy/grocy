@@ -25,8 +25,8 @@
 			</div>
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100 m-1 mt-md-0 mb-md-0 float-right"
 				id="related-links">
-				<a class="btn btn-primary responsive-button"
-					href="{{ $U('/userentity/new') }}">
+				<a class="btn btn-primary responsive-button show-as-dialog-link"
+					href="{{ $U('/userentity/new?embedded') }}">
 					{{ $__t('Add') }}
 				</a>
 			</div>
@@ -75,8 +75,8 @@
 				@foreach($userentities as $userentity)
 				<tr>
 					<td class="fit-content border-right">
-						<a class="btn btn-info btn-sm"
-							href="{{ $U('/userentity/') }}{{ $userentity->id }}">
+						<a class="btn btn-info btn-sm show-as-dialog-link"
+							href="{{ $U('/userentity/') }}{{ $userentity->id }}?embedded">
 							<i class="fas fa-edit"></i>
 						</a>
 						<a class="btn btn-danger btn-sm userentity-delete-button"

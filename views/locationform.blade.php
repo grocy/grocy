@@ -53,16 +53,18 @@
 
 			@if(GROCY_FEATURE_FLAG_STOCK_PRODUCT_FREEZING)
 			<div class="form-group">
-				<div class="form-check">
+				<div class="custom-control custom-checkbox">
 					<input type="hidden"
 						name="is_freezer"
 						value="0">
 					<input @if($mode=='edit'
 						&&
-						$location->is_freezer == 1) checked @endif class="form-check-input" type="checkbox" id="is_freezer" name="is_freezer" value="1">
-					<label class="form-check-label"
+						$location->is_freezer == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="is_freezer" name="is_freezer" value="1">
+					<label class="form-check-label custom-control-label"
 						for="is_freezer">{{ $__t('Is freezer') }}
-						<span class="text-muted small">{{ $__t('When moving products from/to a freezer location, the products best before date is automatically adjusted according to the product settings') }}</span>
+						&nbsp;<i class="fas fa-question-circle"
+							data-toggle="tooltip"
+							title="{{ $__t('When moving products from/to a freezer location, the products best before date is automatically adjusted according to the product settings') }}"></i>
 					</label>
 				</div>
 			</div>

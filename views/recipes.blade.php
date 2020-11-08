@@ -67,7 +67,7 @@
 			</div>
 
 			<div class="col">
-				<div class="float-right">
+				<div class="float-right mt-1">
 					<a id="clear-filter-button"
 						class="btn btn-sm btn-outline-info"
 						href="#">

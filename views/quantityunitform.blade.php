@@ -82,8 +82,12 @@
 			'entity' => 'quantity_units'
 			))
 
-			<button id="save-quantityunit-button"
-				class="btn btn-success">{{ $__t('Save') }}</button>
+			<small class="my-2 form-text text-muted @if($mode == 'edit') d-none @endif">{{ $__t('Save & continue to add conversions') }}</small>
+
+			<button class="save-quantityunit-button btn btn-success mb-2"
+				data-location="continue">{{ $__t('Save & continue') }}</button>
+			<button class="save-quantityunit-button btn btn-info mb-2"
+				data-location="return">{{ $__t('Save & return to quantity units') }}</button>
 
 			@if(intval($pluralCount) > 2)
 			<button id="test-quantityunit-plural-forms-button"
@@ -93,53 +97,69 @@
 		</form>
 	</div>
 
-	<div class="col-lg-6 col-xs-12">
-		<h2>
-			{{ $__t('Default conversions') }}
-			<a id="qu-conversion-add-button"
-				class="btn btn-outline-dark"
-				href="#">
-				<i class="fas fa-plus"></i> {{ $__t('Add') }}
-			</a>
-		</h2>
-		<h5 id="qu-conversion-headline-info"
-			class="text-muted font-italic"></h5>
-		<table id="qu-conversions-table"
-			class="table table-sm table-striped nowrap w-100">
-			<thead>
-				<tr>
-					<th class="border-right"></th>
-					<th>{{ $__t('Factor') }}</th>
-					<th>{{ $__t('Unit') }}</th>
-				</tr>
-			</thead>
-			<tbody class="d-none">
-				@if($mode == "edit")
-				@foreach($defaultQuConversions as $defaultQuConversion)
-				<tr>
-					<td class="fit-content border-right">
-						<a class="btn btn-sm btn-info qu-conversion-edit-button"
-							href="#"
-							data-qu-conversion-id="{{ $defaultQuConversion->id }}">
-							<i class="fas fa-edit"></i>
+	<div class="col-lg-6 col-xs-12 @if($mode == 'create') d-none @endif">
+		<div class="row">
+			<div class="col">
+				<div class="title-related-links">
+					<h4>
+						{{ $__t('Default conversions') }}
+					</h4>
+					<button class="btn btn-outline-dark d-md-none mt-2 float-right order-1 order-md-3"
+						type="button"
+						data-toggle="collapse"
+						data-target="#related-links">
+						<i class="fas fa-ellipsis-v"></i>
+					</button>
+					<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
+						id="related-links">
+						<a class="btn btn-outline-primary btn-sm m-1 mt-md-0 mb-md-0 float-right show-as-dialog-link"
+							href="{{ $U('/quantityunitconversion/new?embedded&qu-unit=' . $quantityUnit->id ) }}">
+							{{ $__t('Add') }}
 						</a>
-						<a class="btn btn-sm btn-danger qu-conversion-delete-button"
-							href="#"
-							data-qu-conversion-id="{{ $defaultQuConversion->id }}">
-							<i class="fas fa-trash"></i>
-						</a>
-					</td>
-					<td>
-						{{ $defaultQuConversion->factor }}
-					</td>
-					<td>
-						{{ FindObjectInArrayByPropertyValue($quantityUnits, 'id', $defaultQuConversion->to_qu_id)->name }}
-					</td>
-				</tr>
-				@endforeach
-				@endif
-			</tbody>
-		</table>
+					</div>
+				</div>
+
+				<h5 id="qu-conversion-headline-info"
+					class="text-muted font-italic"></h5>
+
+				<table id="qu-conversions-table"
+					class="table table-sm table-striped nowrap w-100">
+					<thead>
+						<tr>
+							<th class="border-right"></th>
+							<th>{{ $__t('Factor') }}</th>
+							<th>{{ $__t('Unit') }}</th>
+						</tr>
+					</thead>
+					<tbody class="d-none">
+						@if($mode == "edit")
+						@foreach($defaultQuConversions as $defaultQuConversion)
+						<tr>
+							<td class="fit-content border-right">
+								<a class="btn btn-sm btn-info show-as-dialog-link"
+									href="{{ $U('/quantityunitconversion/' . $defaultQuConversion->id . '?embedded&qu-unit=' . $quantityUnit->id ) }}"
+									data-qu-conversion-id="{{ $defaultQuConversion->id }}">
+									<i class="fas fa-edit"></i>
+								</a>
+								<a class="btn btn-sm btn-danger qu-conversion-delete-button"
+									href="#"
+									data-qu-conversion-id="{{ $defaultQuConversion->id }}">
+									<i class="fas fa-trash"></i>
+								</a>
+							</td>
+							<td>
+								{{ $defaultQuConversion->factor }}
+							</td>
+							<td>
+								{{ FindObjectInArrayByPropertyValue($quantityUnits, 'id', $defaultQuConversion->to_qu_id)->name }}
+							</td>
+						</tr>
+						@endforeach
+						@endif
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 </div>
 @stop

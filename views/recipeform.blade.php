@@ -61,34 +61,6 @@
 				<div class="invalid-feedback">{{ $__t('A name is required') }}</div>
 			</div>
 
-			<div class="form-group">
-				<label for="recipe-picture">
-					{{ $__t('Picture') }}
-				</label>
-				<div class="input-group">
-					<div class="custom-file">
-						<input type="file"
-							class="custom-file-input"
-							id="recipe-picture"
-							accept="image/*">
-						<label id="recipe-picture-label"
-							class="custom-file-label @if(empty($recipe->picture_file_name)) d-none @endif"
-							for="recipe-picture">
-							{{ $recipe->picture_file_name }}
-						</label>
-						<label id="recipe-picture-label-none"
-							class="custom-file-label @if(!empty($recipe->picture_file_name)) d-none @endif"
-							for="recipe-picture">
-							{{ $__t('No file selected') }}
-						</label>
-					</div>
-					<div class="input-group-append">
-						<span class="input-group-text"><i class="fas fa-trash"
-								id="delete-current-recipe-picture-button"></i></span>
-					</div>
-				</div>
-			</div>
-
 			@php if($mode == 'edit') { $value = $recipe->base_servings; } else { $value = 1; } @endphp
 			@include('components.numberpicker', array(
 			'id' => 'base_servings',
@@ -113,7 +85,7 @@
 						{{ $__t('Do not check against the shopping list when adding missing items to it') }}&nbsp;
 						<i class="fas fa-question-circle"
 							data-toggle="tooltip"
-							title="{{ $__t('By default the amount to be added to the shopping list is `needed amount - stock amount - shopping list amount` - when this is enabled, it is only checked against the stock amount, not against what is already on the shopping list') }}"></i>
+							title="{{ $__t('By default the amount to be added to the shopping list is "needed amount - stock amount - shopping list amount" - when this is enabled, it is only checked against the stock amount, not against what is already on the shopping list') }}"></i>
 					</label>
 				</div>
 			</div>
@@ -149,21 +121,6 @@
 	</div>
 
 	<div class="col-xs-12 col-md-5 pb-3 @if($mode == 'create') d-none @endif">
-		<div class="row">
-			<div class="col">
-				@if(!empty($recipe->picture_file_name))
-				<img id="current-recipe-picture"
-					data-src="{{ $U('/api/files/recipepictures/' . base64_encode($recipe->picture_file_name) . '?force_serve_as=picture&best_fit_width=400') }}"
-					class="img-fluid img-thumbnail mt-2 lazy mb-5">
-				<p id="delete-current-recipe-picture-on-save-hint"
-					class="form-text text-muted font-italic d-none mb-5">{{ $__t('The current picture will be deleted when you save the recipe') }}</p>
-				@else
-				<p id="no-current-recipe-picture-hint"
-					class="form-text text-muted font-italic mb-5">{{ $__t('No picture available') }}</p>
-				@endif
-			</div>
-		</div>
-
 		<div class="row">
 			<div class="col">
 				<div class="title-related-links">
@@ -323,6 +280,50 @@
 						@endif
 					</tbody>
 				</table>
+			</div>
+		</div>
+
+		<div class="row mt-5">
+			<div class="col">
+				<div class="title-related-links">
+					<h4>
+						{{ $__t('Picture') }}
+					</h4>
+					<div class="form-group w-75 m-0">
+						<div class="input-group">
+							<div class="custom-file">
+								<input type="file"
+									class="custom-file-input"
+									id="recipe-picture"
+									accept="image/*">
+								<label id="recipe-picture-label"
+									class="custom-file-label @if(empty($recipe->picture_file_name)) d-none @endif"
+									for="recipe-picture">
+									{{ $recipe->picture_file_name }}
+								</label>
+								<label id="recipe-picture-label-none"
+									class="custom-file-label @if(!empty($recipe->picture_file_name)) d-none @endif"
+									for="recipe-picture">
+									{{ $__t('No file selected') }}
+								</label>
+							</div>
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-trash"
+										id="delete-current-recipe-picture-button"></i></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				@if(!empty($recipe->picture_file_name))
+				<img id="current-recipe-picture"
+					data-src="{{ $U('/api/files/recipepictures/' . base64_encode($recipe->picture_file_name) . '?force_serve_as=picture&best_fit_width=400') }}"
+					class="img-fluid img-thumbnail mt-2 lazy mb-5">
+				<p id="delete-current-recipe-picture-on-save-hint"
+					class="form-text text-muted font-italic d-none mb-5">{{ $__t('The current picture will be deleted when you save the recipe') }}</p>
+				@else
+				<p id="no-current-recipe-picture-hint"
+					class="form-text text-muted font-italic mb-5">{{ $__t('No picture available') }}</p>
+				@endif
 			</div>
 		</div>
 	</div>

@@ -1,18 +1,57 @@
-﻿$('#save-product-button').on('click', function(e)
+﻿function saveProductPicture(result, location, jsonData)
+{
+	var productId = Grocy.EditObjectId || result.created_object_id;
+	Grocy.Components.UserfieldsForm.Save(() =>
+	{
+		if (jsonData.hasOwnProperty("picture_file_name") && !Grocy.DeleteProductPictureOnSave)
+		{
+			Grocy.Api.UploadFile($("#product-picture")[0].files[0], 'productpictures', jsonData.picture_file_name,
+				(result) =>
+				{
+					var returnTo = GetUriParam('returnto');
+					if (GetUriParam("closeAfterCreation") !== undefined)
+					{
+						window.close();
+					}
+					else if (returnTo !== undefined)
+					{
+						window.location.href = U(returnTo) + '?createdproduct=' + encodeURIComponent($('#name').val());
+					}
+					else
+					{
+						window.location.href = U(location + productId);
+					}
+
+				},
+				(xhr) =>
+				{
+					Grocy.FrontendHelpers.EndUiBusy("product-form");
+					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+				}
+			);
+		}
+		else
+		{
+			var returnTo = GetUriParam('returnto');
+			if (GetUriParam("closeAfterCreation") !== undefined)
+			{
+				window.close();
+			}
+			else if (returnTo !== undefined)
+			{
+				window.location.href = U(returnTo) + '?createdproduct=' + encodeURIComponent($('#name').val());
+			}
+			else
+			{
+				window.location.href = U(location + productId);
+			}
+		}
+	});
+}
+
+$('.save-product-button').on('click', function(e)
 {
 	e.preventDefault();
-
-	var redirectDestination = U('/products');
-	var returnTo = GetUriParam('returnto');
-	if (returnTo !== undefined)
-	{
-		redirectDestination = U(returnTo) + '?createdproduct=' + encodeURIComponent($('#name').val());
-	}
-
-	if (Grocy.ProductEditFormRedirectUri !== undefined)
-	{
-		redirectDestination = Grocy.ProductEditFormRedirectUri;
-	}
 
 	var jsonData = $('#product-form').serializeJSON({ checkboxUncheckedValue: "0" });
 	var parentProductId = jsonData.product_id;
@@ -31,80 +70,23 @@
 		jsonData.picture_file_name = someRandomStuff + $("#product-picture")[0].files[0].name;
 	}
 
+	const location = $(e.currentTarget).attr('data-location') == 'return' ? '/products?product=' : '/product/';
+
+	if (Grocy.EditMode == 'create')
+	{
+		Grocy.Api.Post('objects/products', jsonData,
+			(result) => saveProductPicture(result, location, jsonData));
+		return;
+	}
+
 	if (Grocy.DeleteProductPictureOnSave)
 	{
 		jsonData.picture_file_name = null;
-	}
 
-	if (Grocy.EditMode === 'create')
-	{
-		Grocy.Api.Post('objects/products', jsonData,
+		Grocy.Api.DeleteFile(Grocy.ProductPictureFileName, 'productpictures', {},
 			function(result)
 			{
-				Grocy.EditObjectId = result.created_object_id;
-
-				if (prefillBarcode !== undefined)
-				{
-					var jsonDataBarcode = {};
-					jsonDataBarcode.barcode = prefillBarcode;
-					jsonDataBarcode.product_id = result.created_object_id;
-					jsonDataBarcode.qu_factor_purchase_to_stock = jsonData.qu_factor_purchase_to_stock;
-					jsonDataBarcode.shopping_location_id = jsonData.shopping_location_id;
-
-					Grocy.Api.Post('objects/product_barcodes', jsonDataBarcode,
-						function(result)
-						{
-						},
-						function(xhr)
-						{
-							Grocy.FrontendHelpers.EndUiBusy("barcode-form");
-							Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
-						}
-					);
-				}
-				Grocy.Components.UserfieldsForm.Save(function()
-				{
-					if (jsonData.hasOwnProperty("picture_file_name") && !Grocy.DeleteProductPictureOnSave)
-					{
-						Grocy.Api.UploadFile($("#product-picture")[0].files[0], 'productpictures', jsonData.picture_file_name,
-							function(result)
-							{
-								if (GetUriParam("closeAfterCreation") !== undefined)
-								{
-									window.close();
-								}
-								else if (redirectDestination == "reload")
-								{
-									window.location.reload();
-								}
-								else
-								{
-									window.location.href = redirectDestination.replace("editobjectid", Grocy.EditObjectId);;
-								}
-							},
-							function(xhr)
-							{
-								Grocy.FrontendHelpers.EndUiBusy("product-form");
-								Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-							}
-						);
-					}
-					else
-					{
-						if (GetUriParam("closeAfterCreation") !== undefined)
-						{
-							window.close();
-						}
-						else if (redirectDestination == "reload")
-						{
-							window.location.reload();
-						}
-						else
-						{
-							window.location.href = redirectDestination.replace("editobjectid", Grocy.EditObjectId);;
-						}
-					}
-				});
+				// Nothing to do
 			},
 			function(xhr)
 			{
@@ -113,77 +95,15 @@
 			}
 		);
 	}
-	else
-	{
-		if (Grocy.DeleteProductPictureOnSave)
+
+	Grocy.Api.Put('objects/products/' + Grocy.EditObjectId, jsonData,
+		(result) => saveProductPicture(result, location, jsonData),
+		function(xhr)
 		{
-			Grocy.Api.DeleteFile(Grocy.ProductPictureFileName, 'productpictures', {},
-				function(result)
-				{
-					// Nothing to do
-				},
-				function(xhr)
-				{
-					Grocy.FrontendHelpers.EndUiBusy("product-form");
-					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-				}
-			);
-		};
-
-		Grocy.Api.Put('objects/products/' + Grocy.EditObjectId, jsonData,
-			function(result)
-			{
-				Grocy.Components.UserfieldsForm.Save(function()
-				{
-					if (jsonData.hasOwnProperty("picture_file_name") && !Grocy.DeleteProductPictureOnSave)
-					{
-						Grocy.Api.UploadFile($("#product-picture")[0].files[0], 'productpictures', jsonData.picture_file_name,
-							function(result)
-							{
-								if (GetUriParam("closeAfterCreation") !== undefined)
-								{
-									window.close();
-								}
-								else if (redirectDestination == "reload")
-								{
-									window.location.reload();
-								}
-								else
-								{
-									window.location.href = redirectDestination.replace("editobjectid", Grocy.EditObjectId);;
-								}
-							},
-							function(xhr)
-							{
-								Grocy.FrontendHelpers.EndUiBusy("product-form");
-								Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-							}
-						);
-					}
-					else
-					{
-						if (GetUriParam("closeAfterCreation") !== undefined)
-						{
-							window.close();
-						}
-						else if (redirectDestination == "reload")
-						{
-							window.location.reload();
-						}
-						else
-						{
-							window.location.href = redirectDestination.replace("editobjectid", Grocy.EditObjectId);;
-						}
-					}
-				});
-			},
-			function(xhr)
-			{
-				Grocy.FrontendHelpers.EndUiBusy("product-form");
-				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-			}
-		);
-	}
+			Grocy.FrontendHelpers.EndUiBusy("product-form");
+			console.error(xhr);
+		}
+	);
 });
 
 Grocy.Api.Get('stock/products/' + Grocy.EditObjectId,
@@ -342,21 +262,23 @@ $("#allow_partial_units_in_stock").on("click", function()
 	Grocy.FrontendHelpers.ValidateForm("product-form");
 });
 
-$('#product-picture').change(function()
+$("#product-picture").on("change", function(e)
 {
-	if ($(this).val())
-	{
-		Grocy.DeleteProductPictureOnSave = false;
-	}
+	$("#product-picture-label").removeClass("d-none");
+	$("#product-picture-label-none").addClass("d-none");
+	$("#delete-current-product-picture-on-save-hint").addClass("d-none");
+	$("#current-product-picture").addClass("d-none");
+	Grocy.DeleteProductPictureOnSave = false;
 });
 
 Grocy.DeleteProductPictureOnSave = false;
-$('#delete-current-product-picture-button').on('click', function(e)
+$("#delete-current-product-picture-button").on("click", function(e)
 {
 	Grocy.DeleteProductPictureOnSave = true;
 	$("#current-product-picture").addClass("d-none");
 	$("#delete-current-product-picture-on-save-hint").removeClass("d-none");
-	$("#delete-current-product-picture-button").addClass("disabled");
+	$("#product-picture-label").addClass("d-none");
+	$("#product-picture-label-none").removeClass("d-none");
 });
 
 if (Grocy.EditMode === 'create')

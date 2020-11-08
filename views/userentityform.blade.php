@@ -68,14 +68,14 @@
 			</div>
 
 			<div class="form-group">
-				<div class="form-check">
+				<div class="custom-control custom-checkbox">
 					<input type="hidden"
 						name="show_in_sidebar_menu"
 						value="0">
 					<input @if($mode=='edit'
 						&&
-						$userentity->show_in_sidebar_menu == 1) checked @endif class="form-check-input" type="checkbox" id="show_in_sidebar_menu" name="show_in_sidebar_menu" value="1">
-					<label class="form-check-label"
+						$userentity->show_in_sidebar_menu == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="show_in_sidebar_menu" name="show_in_sidebar_menu" value="1">
+					<label class="form-check-label custom-control-label"
 						for="show_in_sidebar_menu">{{ $__t('Show in sidebar menu') }}</label>
 				</div>
 			</div>

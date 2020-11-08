@@ -13,7 +13,14 @@
 				Grocy.EditObjectId = result.created_object_id;
 				Grocy.Components.UserfieldsForm.Save(function()
 				{
-					window.location.href = U('/shoppinglocations');
+					if (GetUriParam("embedded") !== undefined)
+					{
+						window.parent.postMessage(WindowMessageBag("Reload"), Grocy.BaseUrl);
+					}
+					else
+					{
+						window.location.href = U('/shoppinglocations');
+					}
 				});
 			},
 			function(xhr)
@@ -30,7 +37,14 @@
 			{
 				Grocy.Components.UserfieldsForm.Save(function()
 				{
-					window.location.href = U('/shoppinglocations');
+					if (GetUriParam("embedded") !== undefined)
+					{
+						window.parent.postMessage(WindowMessageBag("Reload"), Grocy.BaseUrl);
+					}
+					else
+					{
+						window.location.href = U('/shoppinglocations');
+					}
 				});
 			},
 			function(xhr)

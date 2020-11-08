@@ -11,7 +11,12 @@
 @section('content')
 <div class="row">
 	<div class="col">
-		<h2 class="title">@yield('title')</h2>
+		<div class="title-related-links">
+			<h2 class="title">@yield('title')</h2>
+			<h2>
+				<span class="text-muted small">{{ $__t('Recipe') }} <strong>{{ $recipe->name }}</strong></span>
+			</h2>
+		</div>
 	</div>
 </div>
 
@@ -19,8 +24,6 @@
 
 <div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-5 pb-3">
-		<h3 class="text-muted">{{ $__t('Recipe') }} <strong>{{ $recipe->name }}</strong></h3>
-
 		<script>
 			Grocy.EditMode = '{{ $mode }}';
 			Grocy.EditObjectParentId = {{ $recipe->id }};
@@ -45,15 +48,17 @@
 
 			<div class="row">
 				<div class="col">
-					<div class="form-check form-group mb-1">
-						<input type="hidden"
-							name="only_check_single_unit_in_stock"
-							value="0">
-						<input @if($mode=='edit'
-							&&
-							$recipePos->only_check_single_unit_in_stock == 1) checked @endif class="form-check-input" type="checkbox" id="only_check_single_unit_in_stock" name="only_check_single_unit_in_stock" value="1">
-						<label class="form-check-label"
-							for="only_check_single_unit_in_stock">{{ $__t('Only check if a single unit is in stock (a different quantity can then be used above)') }}</label>
+					<div class="form-group">
+						<div class="custom-control custom-checkbox">
+							<input type="hidden"
+								name="only_check_single_unit_in_stock"
+								value="0">
+							<input @if($mode=='edit'
+								&&
+								$recipePos->only_check_single_unit_in_stock == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="only_check_single_unit_in_stock" name="only_check_single_unit_in_stock" value="1">
+							<label class="form-check-label custom-control-label"
+								for="only_check_single_unit_in_stock">{{ $__t('Only check if a single unit is in stock (a different quantity can then be used below)') }}</label>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -67,7 +72,9 @@
 			))
 
 			<div class="form-group">
-				<label for="variable_amount">{{ $__t('Variable amount') }}&nbsp;&nbsp;<span class="small text-muted">{{ $__t('When this is not empty, it will be shown instead of the amount entered above while the amount there will still be used for stock fulfillment checking') }}</span></label>
+				<label for="variable_amount">{{ $__t('Variable amount') }}&nbsp;<i class="fas fa-question-circle"
+						data-toggle="tooltip"
+						title="{{ $__t('When this is not empty, it will be shown instead of the amount entered above while the amount there will still be used for stock fulfillment checking') }}"></i></label>
 				<input type="text"
 					class="form-control"
 					id="variable_amount"
@@ -75,19 +82,23 @@
 					value="@if($mode == 'edit'){{ $recipePos->variable_amount }}@endif">
 			</div>
 
-			<div class="form-check mb-3">
-				<input type="hidden"
-					name="not_check_stock_fulfillment"
-					value="0">
-				<input @if($mode=='edit'
-					&&
-					($recipePos->not_check_stock_fulfillment == 1 || FindObjectInArrayByPropertyValue($products, 'id', $recipePos->product_id)->not_check_stock_fulfillment_for_recipes == 1)) checked @endif class="form-check-input" type="checkbox" id="not_check_stock_fulfillment" name="not_check_stock_fulfillment" value="1">
-				<label class="form-check-label"
-					for="not_check_stock_fulfillment">{{ $__t('Disable stock fulfillment checking for this ingredient') }}</label>
+			<div class="form-group">
+				<div class="custom-control custom-checkbox">
+					<input type="hidden"
+						name="not_check_stock_fulfillment"
+						value="0">
+					<input @if($mode=='edit'
+						&&
+						($recipePos->not_check_stock_fulfillment == 1 || FindObjectInArrayByPropertyValue($products, 'id', $recipePos->product_id)->not_check_stock_fulfillment_for_recipes == 1)) checked @endif class="form-check-input custom-control-input" type="checkbox" id="not_check_stock_fulfillment" name="not_check_stock_fulfillment" value="1">
+					<label class="form-check-label custom-control-label"
+						for="not_check_stock_fulfillment">{{ $__t('Disable stock fulfillment checking for this ingredient') }}</label>
+				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="ingredient_group">{{ $__t('Group') }}&nbsp;&nbsp;<span class="small text-muted">{{ $__t('This will be used as a headline to group ingredients together') }}</span></label>
+				<label for="ingredient_group">{{ $__t('Group') }}&nbsp;<i class="fas fa-question-circle"
+						data-toggle="tooltip"
+						title="{{ $__t('This will be used as a headline to group ingredients together') }}"></i></label>
 				<input type="text"
 					class="form-control"
 					id="ingredient_group"

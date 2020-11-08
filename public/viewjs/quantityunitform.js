@@ -1,4 +1,4 @@
-﻿$('#save-quantityunit-button').on('click', function(e)
+﻿$('.save-quantityunit-button').on('click', function(e)
 {
 	e.preventDefault();
 
@@ -14,6 +14,11 @@
 		redirectDestination = U('/quantityunits');
 	}
 
+	if ($(e.currentTarget).attr('data-location') == "continue")
+	{
+		redirectDestination = "reload";
+	}
+
 	if (Grocy.EditMode === 'create')
 	{
 		Grocy.Api.Post('objects/quantity_units', jsonData,
@@ -22,17 +27,25 @@
 				Grocy.EditObjectId = result.created_object_id;
 				Grocy.Components.UserfieldsForm.Save(function()
 				{
-					if (redirectDestination == "reload")
+					if (GetUriParam("embedded") !== undefined)
 					{
-						window.location.reload();
-					}
-					else if (redirectDestination == "stay")
-					{
-						// Do nothing
+						window.parent.postMessage(WindowMessageBag("Reload"), Grocy.BaseUrl);
 					}
 					else
 					{
-						window.location.href = redirectDestination.replace("editobjectid", Grocy.EditObjectId);
+
+						if (redirectDestination == "reload")
+						{
+							window.location.href = U("/quantityunit/" + result.created_object_id.toString());
+						}
+						else if (redirectDestination == "stay")
+						{
+							// Do nothing
+						}
+						else
+						{
+							window.location.href = redirectDestination.replace("editobjectid", Grocy.EditObjectId);
+						}
 					}
 				});
 			},
@@ -50,17 +63,25 @@
 			{
 				Grocy.Components.UserfieldsForm.Save(function()
 				{
-					if (redirectDestination == "reload")
+					if (GetUriParam("embedded") !== undefined)
 					{
-						window.location.reload();
-					}
-					else if (redirectDestination == "stay")
-					{
-						// Do nothing
+						window.parent.postMessage(WindowMessageBag("Reload"), Grocy.BaseUrl);
 					}
 					else
 					{
-						window.location.href = redirectDestination.replace("editobjectid", Grocy.EditObjectId);
+
+						if (redirectDestination == "reload")
+						{
+							window.location.reload();
+						}
+						else if (redirectDestination == "stay")
+						{
+							// Do nothing
+						}
+						else
+						{
+							window.location.href = redirectDestination.replace("editobjectid", Grocy.EditObjectId);
+						}
 					}
 				});
 			},
@@ -154,8 +175,7 @@ $(document).on('click', '.qu-conversion-delete-button', function(e)
 				Grocy.Api.Delete('objects/quantity_unit_conversions/' + objectId, {},
 					function(result)
 					{
-						Grocy.QuantityUnitEditFormRedirectUri = "reload";
-						$('#save-quantityunit-button').click();
+						window.location.reload();
 					},
 					function(xhr)
 					{
@@ -165,19 +185,6 @@ $(document).on('click', '.qu-conversion-delete-button', function(e)
 			}
 		}
 	});
-});
-
-$(document).on('click', '.qu-conversion-edit-button', function(e)
-{
-	var id = $(e.currentTarget).attr('data-qu-conversion-id');
-	Grocy.QuantityUnitEditFormRedirectUri = U("/quantityunitconversion/" + id.toString() + "?qu-unit=editobjectid");
-	$('#save-quantityunit-button').click();
-});
-
-$("#qu-conversion-add-button").on("click", function(e)
-{
-	Grocy.QuantityUnitEditFormRedirectUri = U("/quantityunitconversion/new?qu-unit=editobjectid");
-	$('#save-quantityunit-button').click();
 });
 
 $("#test-quantityunit-plural-forms-button").on("click", function(e)

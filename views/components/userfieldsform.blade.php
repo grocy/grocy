@@ -76,12 +76,12 @@
 	))
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_CHECKBOX)
 	<div class="form-group">
-		<div class="form-check">
-			<input class="form-check-input userfield-input"
+		<div class="custom-control custom-checkbox">
+			<input class="form-check-input userfield-input custom-control-input"
 				type="checkbox"
 				data-userfield-name="{{ $userfield->name }}"
 				value="1">
-			<label class="form-check-label"
+			<label class="form-check-label custom-control-label"
 				for="{{ $userfield->name }}">{{ $userfield->caption }}</label>
 		</div>
 	</div>

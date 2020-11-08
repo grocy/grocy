@@ -634,7 +634,7 @@ msgstr ""
 msgid "Quantity unit"
 msgstr ""
 
-msgid "Only check if a single unit is in stock (a different quantity can then be used above)"
+msgid "Only check if a single unit is in stock (a different quantity can then be used below)"
 msgstr ""
 
 msgid "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients marked with \"check only if a single unit is in stock\" will be ignored)?"
@@ -1784,9 +1784,6 @@ msgstr ""
 msgid "Calories"
 msgstr ""
 
-msgid "By default the amount to be added to the shopping list is `needed amount - stock amount - shopping list amount` - when this is enabled, it is only checked against the stock amount, not against what is already on the shopping list"
-msgstr ""
-
 msgid "means %1$s per %2$s"
 msgstr ""
 
@@ -1932,4 +1929,16 @@ msgid "Stock entries for this product"
 msgstr ""
 
 msgid "Edit shopping list"
+msgstr ""
+
+msgid "Save & continue to add quantity unit conversions & barcodes"
+msgstr ""
+
+msgid "Save & return to products"
+msgstr ""
+
+msgid "Save & continue to add conversions"
+msgstr ""
+
+msgid "Save & return to quantity units"
 msgstr ""

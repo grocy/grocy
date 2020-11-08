@@ -63,7 +63,6 @@ $("#search").on("keyup", Delay(function()
 	recipesTables.search(value).draw();
 
 	$(".recipe-gallery-item").removeClass("d-none");
-	console.log($(".recipe-gallery-item .card-title:not(:contains_case_insensitive(" + value + "))"));
 
 	$(".recipe-gallery-item .card-title:not(:contains_case_insensitive(" + value + "))").parent().parent().parent().addClass("d-none");
 }, 200));

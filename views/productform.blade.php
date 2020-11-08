@@ -63,7 +63,7 @@
 			</div>
 
 			<div class="form-group">
-				<div class="form-check">
+				<div class="custom-control custom-checkbox">
 					<input type="hidden"
 						name="active"
 						value="1">
@@ -72,8 +72,8 @@
 						checked
 						@elseif($mode=='edit'
 						&&
-						$product->active == 1) checked @endif class="form-check-input" type="checkbox" id="active" name="active" value="1">
-					<label class="form-check-label"
+						$product->active == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="active" name="active" value="1">
+					<label class="form-check-label custom-control-label"
 						for="active">{{ $__t('Active') }}</label>
 				</div>
 			</div>
@@ -152,16 +152,18 @@
 			))
 
 			<div class="form-group">
-				<div class="form-check">
+				<div class="custom-control custom-checkbox">
 					<input type="hidden"
 						name="cumulate_min_stock_amount_of_sub_products"
 						value="0">
 					<input @if($mode=='edit'
 						&&
-						$product->cumulate_min_stock_amount_of_sub_products == 1) checked @endif class="form-check-input" type="checkbox" id="cumulate_min_stock_amount_of_sub_products" name="cumulate_min_stock_amount_of_sub_products" value="1">
-					<label class="form-check-label"
+						$product->cumulate_min_stock_amount_of_sub_products == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="cumulate_min_stock_amount_of_sub_products" name="cumulate_min_stock_amount_of_sub_products" value="1">
+					<label class="form-check-label custom-control-label"
 						for="cumulate_min_stock_amount_of_sub_products">{{ $__t('Accumulate sub products min. stock amount') }}
-						<span class="text-muted small">{{ $__t('If enabled, the min. stock amount of sub products will be accumulated into this product, means the sub product will never be "missing", only this product') }}</span>
+						&nbsp;<i class="fas fa-question-circle"
+							data-toggle="tooltip"
+							title="{{ $__t('If enabled, the min. stock amount of sub products will be accumulated into this product, means the sub product will never be "missing", only this product') }}"></i></span>
 					</label>
 				</div>
 			</div>
@@ -257,29 +259,31 @@
 			))
 
 			<div class="form-group">
-				<div class="form-check">
+				<div class="custom-control custom-checkbox">
 					<input type="hidden"
 						name="allow_partial_units_in_stock"
 						value="0">
 					<input @if($mode=='edit'
 						&&
-						$product->allow_partial_units_in_stock == 1) checked @endif class="form-check-input" type="checkbox" id="allow_partial_units_in_stock" name="allow_partial_units_in_stock" value="1">
-					<label class="form-check-label"
+						$product->allow_partial_units_in_stock == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="allow_partial_units_in_stock" name="allow_partial_units_in_stock" value="1">
+					<label class="form-check-label custom-control-label"
 						for="allow_partial_units_in_stock">{{ $__t('Allow partial units in stock') }}</label>
 				</div>
 			</div>
 
 			<div class="form-group mb-1">
-				<div class="form-check">
+				<div class="custom-control custom-checkbox">
 					<input type="hidden"
 						name="enable_tare_weight_handling"
 						value="0">
 					<input @if($mode=='edit'
 						&&
-						$product->enable_tare_weight_handling == 1) checked @endif class="form-check-input" type="checkbox" id="enable_tare_weight_handling" name="enable_tare_weight_handling" value="1">
-					<label class="form-check-label"
+						$product->enable_tare_weight_handling == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="enable_tare_weight_handling" name="enable_tare_weight_handling" value="1">
+					<label class="form-check-label custom-control-label"
 						for="enable_tare_weight_handling">{{ $__t('Enable tare weight handling') }}
-						<span class="text-muted small">{{ $__t('This is useful e.g. for flour in jars - on purchase/consume/inventory you always weigh the whole jar, the amount to be posted is then automatically calculated based on what is in stock and the tare weight defined below') }}</span>
+						&nbsp;<i class="fas fa-question-circle"
+							data-toggle="tooltip"
+							title="{{ $__t('This is useful e.g. for flour in jars - on purchase/consume/inventory you always weigh the whole jar, the amount to be posted is then automatically calculated based on what is in stock and the tare weight defined below') }}"></i>
 					</label>
 				</div>
 			</div>
@@ -300,16 +304,18 @@
 
 			@if(GROCY_FEATURE_FLAG_RECIPES)
 			<div class="form-group">
-				<div class="form-check">
+				<div class="custom-control custom-checkbox">
 					<input type="hidden"
 						name="not_check_stock_fulfillment_for_recipes"
 						value="0">
 					<input @if($mode=='edit'
 						&&
-						$product->not_check_stock_fulfillment_for_recipes == 1) checked @endif class="form-check-input" type="checkbox" id="not_check_stock_fulfillment_for_recipes" name="not_check_stock_fulfillment_for_recipes" value="1">
-					<label class="form-check-label"
+						$product->not_check_stock_fulfillment_for_recipes == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="not_check_stock_fulfillment_for_recipes" name="not_check_stock_fulfillment_for_recipes" value="1">
+					<label class="form-check-label custom-control-label"
 						for="not_check_stock_fulfillment_for_recipes">{{ $__t('Disable stock fulfillment checking for this ingredient') }}
-						<span class="text-muted small">{{ $__t('This will be used as the default setting when adding this product as a recipe ingredient') }}</span>
+						&nbsp;<i class="fas fa-question-circle"
+							data-toggle="tooltip"
+							title="{{ $__t('This will be used as the default setting when adding this product as a recipe ingredient') }}"></i>
 					</label>
 				</div>
 			</div>
@@ -356,167 +362,217 @@
 				value="0">
 			@endif
 
-			<div class="form-group">
-				<label for="product-picture">{{ $__t('Product picture') }}
-					<span class="text-muted small">{{ $__t('If you don\'t select a file, the current picture will not be altered') }}</span>
-				</label>
-				<div class="custom-file">
-					<input type="file"
-						class="custom-file-input"
-						id="product-picture"
-						accept="image/*">
-					<label class="custom-file-label"
-						for="product-picture">{{ $__t('No file selected') }}</label>
-				</div>
-			</div>
-
 			@include('components.userfieldsform', array(
 			'userfields' => $userfields,
 			'entity' => 'products'
 			))
 
-			<button id="save-product-button"
-				class="btn btn-info mb-2">{{ $__t('Save') }}</button>
+			<small class="my-2 form-text text-muted @if($mode == 'edit') d-none @endif">{{ $__t('Save & continue to add quantity unit conversions & barcodes') }}</small>
+
+			<button class="save-product-button btn btn-success mb-2"
+				data-location="continue">{{ $__t('Save & continue') }}</button>
+			<button class="save-product-button btn btn-info mb-2"
+				data-location="return">{{ $__t('Save & return to products') }}</button>
 		</form>
 
 	</div>
 
-	<div class="col-lg-6 col-xs-12">
-		<h2>
-			{{ $__t('QU conversions') }}
-			<a class="btn btn-outline-dark show-as-dialog-link"
-				type="button"
-				href="{{ $U('/quantityunitconversion/new?embedded&product=' . $product->id ) }}">
-				<i class="fas fa-plus"></i> {{ $__t('Add') }}
-			</a>
-		</h2>
-		<h5 id="qu-conversion-headline-info"
-			class="text-muted font-italic"></h5>
-		<table id="qu-conversions-table"
-			class="table table-sm table-striped nowrap w-100">
-			<thead>
-				<tr>
-					<th class="border-right"></th>
-					<th>{{ $__t('Factor') }}</th>
-					<th>{{ $__t('Unit') }}</th>
-					<th class="d-none">Hidden group</th>
-					<th class="d-none">Hidden from_qu_id</th>
-				</tr>
-			</thead>
-			<tbody class="d-none">
-				@if($mode == "edit")
-				@foreach($quConversions as $quConversion)
-				@if($quConversion->product_id == $product->id || $quConversion->product_id == null)
-				<tr>
-					<td class="fit-content border-right">
-						<a class="btn btn-sm btn-info show-as-dialog-link @if($quConversion->product_id == null) disabled @endif"
-							href="{{ $U('/quantityunitconversion/' . $quConversion->id . '?embedded&product=' . $product->id ) }}">
-							<i class="fas fa-edit"></i>
+	<div class="col-lg-6 col-xs-12 @if($mode == 'create') d-none @endif">
+		<div class="row">
+			<div class="col">
+				<div class="title-related-links">
+					<h4>
+						{{ $__t('QU conversions') }}
+					</h4>
+					<button class="btn btn-outline-dark d-md-none mt-2 float-right order-1 order-md-3"
+						type="button"
+						data-toggle="collapse"
+						data-target="#related-links">
+						<i class="fas fa-ellipsis-v"></i>
+					</button>
+					<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
+						id="related-links">
+						<a class="btn btn-outline-primary btn-sm m-1 mt-md-0 mb-md-0 float-right show-as-dialog-link"
+							href="{{ $U('/quantityunitconversion/new?embedded&product=' . $product->id ) }}">
+							{{ $__t('Add') }}
 						</a>
-						<a class="btn btn-sm btn-danger qu-conversion-delete-button @if($quConversion->product_id == null) disabled @endif"
-							href="#"
-							data-qu-conversion-id="{{ $quConversion->id }}">
-							<i class="fas fa-trash"></i>
-						</a>
-					</td>
-					<td>
-						<span class="locale-number locale-number-quantity-amount">{{ $quConversion->factor }}</span>
-					</td>
-					<td>
-						{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', $quConversion->to_qu_id)->name }}
-					</td>
-					<td class="d-none">
-						@if($quConversion->product_id != null)
-						{{ $__t('Product overrides') }}
-						@else
-						{{ $__t('Default conversions') }}
-						@endif
-					</td>
-					<td class="d-none">
-						from_qu_id xx{{ $quConversion->from_qu_id }}xx
-					</td>
-				</tr>
-				@endif
-				@endforeach
-				@endif
-			</tbody>
-		</table>
+					</div>
+				</div>
 
-		<h2>
-			{{ $__t('Barcodes') }}
-			<a class="btn btn-outline-dark show-as-dialog-link"
-				type="button"
-				href="{{ $U('/productbarcodes/new?embedded&product=' . $product->id ) }}">
-				<i class="fas fa-plus"></i> {{ $__t('Add') }}
-			</a>
-		</h2>
-		<h5 id="barcode-headline-info"
-			class="text-muted font-italic"></h5>
-		<table id="barcode-table"
-			class="table table-sm table-striped nowrap w-100">
-			<thead>
-				<tr>
-					<th class="border-right"></th>
-					<th>{{ $__t('Barcode') }}</th>
-					<th>{{ $__t('Factor purchase to stock quantity unit') }}</th>
-					@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
-					<th>{{ $__t('Store') }}</th>
-					@endif
-				</tr>
-			</thead>
-			<tbody class="d-none">
-				@if($mode == "edit")
-				@foreach($barcodes as $barcode)
-				@if($barcode->product_id == $product->id || $barcode->product_id == null)
-				<tr>
-					<td class="fit-content border-right">
-						<a class="btn btn-sm btn-info show-as-dialog-link @if($barcode->product_id == null) disabled @endif"
-							href="{{ $U('/productbarcodes/' . $barcode->id . '?embedded&product=' . $product->id ) }}">
-							<i class="fas fa-edit"></i>
-						</a>
-						<a class="btn btn-sm btn-danger barcode-delete-button @if($barcode->product_id == null) disabled @endif"
-							href="#"
-							data-barcode-id="{{ $barcode->id }}"
-							data-barcode="{{ $barcode->barcode }}"
-							data-product-barcode="{{ $product->barcode }}"
-							data-product-id="{{ $product->id }}">
-							<i class="fas fa-trash"></i>
-						</a>
-					</td>
-					<td>
-						{{ $barcode->barcode }}
-					</td>
-					<td>
-						<span class="locale-number locale-number-quantity-amount">{{ $barcode->qu_factor_purchase_to_stock }}</span>
-					</td>
-					@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
-					<td id="barcode-shopping-location">
-						@if (FindObjectInArrayByPropertyValue($shoppinglocations, 'id', $barcode->shopping_location_id) !== null)
-						{{ FindObjectInArrayByPropertyValue($shoppinglocations, 'id', $barcode->shopping_location_id)->name }}
-						@endif
-					</td>
-					@endif
-				</tr>
-				@endif
-				@endforeach
-				@endif
-			</tbody>
-		</table>
+				<h5 id="qu-conversion-headline-info"
+					class="text-muted font-italic"></h5>
 
-		<div class="pt-5">
-			<label class="mt-2">{{ $__t('Picture') }}</label>
-			<button id="delete-current-product-picture-button"
-				class="btn btn-sm btn-danger @if(empty($product->picture_file_name)) disabled @endif"><i class="fas fa-trash"></i> {{ $__t('Delete') }}</button>
-			@if(!empty($product->picture_file_name))
-			<p><img id="current-product-picture"
+				<table id="qu-conversions-table"
+					class="table table-sm table-striped nowrap w-100">
+					<thead>
+						<tr>
+							<th class="border-right"></th>
+							<th>{{ $__t('Factor') }}</th>
+							<th>{{ $__t('Unit') }}</th>
+							<th class="d-none">Hidden group</th>
+							<th class="d-none">Hidden from_qu_id</th>
+						</tr>
+					</thead>
+					<tbody class="d-none">
+						@if($mode == "edit")
+						@foreach($quConversions as $quConversion)
+						@if($quConversion->product_id == $product->id || $quConversion->product_id == null)
+						<tr>
+							<td class="fit-content border-right">
+								<a class="btn btn-sm btn-info show-as-dialog-link @if($quConversion->product_id == null) disabled @endif"
+									href="{{ $U('/quantityunitconversion/' . $quConversion->id . '?embedded&product=' . $product->id ) }}">
+									<i class="fas fa-edit"></i>
+								</a>
+								<a class="btn btn-sm btn-danger qu-conversion-delete-button @if($quConversion->product_id == null) disabled @endif"
+									href="#"
+									data-qu-conversion-id="{{ $quConversion->id }}">
+									<i class="fas fa-trash"></i>
+								</a>
+							</td>
+							<td>
+								<span class="locale-number locale-number-quantity-amount">{{ $quConversion->factor }}</span>
+							</td>
+							<td>
+								{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', $quConversion->to_qu_id)->name }}
+							</td>
+							<td class="d-none">
+								@if($quConversion->product_id != null)
+								{{ $__t('Product overrides') }}
+								@else
+								{{ $__t('Default conversions') }}
+								@endif
+							</td>
+							<td class="d-none">
+								from_qu_id xx{{ $quConversion->from_qu_id }}xx
+							</td>
+						</tr>
+						@endif
+						@endforeach
+						@endif
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="row mt-5">
+			<div class="col">
+				<div class="title-related-links">
+					<h4>
+						{{ $__t('Barcodes') }}
+					</h4>
+					<button class="btn btn-outline-dark d-md-none mt-2 float-right order-1 order-md-3"
+						type="button"
+						data-toggle="collapse"
+						data-target="#related-links">
+						<i class="fas fa-ellipsis-v"></i>
+					</button>
+					<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
+						id="related-links">
+						<a class="btn btn-outline-primary btn-sm m-1 mt-md-0 mb-md-0 float-right show-as-dialog-link"
+							href="{{ $U('/productbarcodes/new?embedded&product=' . $product->id ) }}">
+							{{ $__t('Add') }}
+						</a>
+					</div>
+				</div>
+
+				<h5 id="barcode-headline-info"
+					class="text-muted font-italic"></h5>
+
+				<table id="barcode-table"
+					class="table table-sm table-striped nowrap w-100">
+					<thead>
+						<tr>
+							<th class="border-right"></th>
+							<th>{{ $__t('Barcode') }}</th>
+							<th>{{ $__t('Factor purchase to stock quantity unit') }}</th>
+							@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+							<th>{{ $__t('Store') }}</th>
+							@endif
+						</tr>
+					</thead>
+					<tbody class="d-none">
+						@if($mode == "edit")
+						@foreach($barcodes as $barcode)
+						@if($barcode->product_id == $product->id || $barcode->product_id == null)
+						<tr>
+							<td class="fit-content border-right">
+								<a class="btn btn-sm btn-info show-as-dialog-link @if($barcode->product_id == null) disabled @endif"
+									href="{{ $U('/productbarcodes/' . $barcode->id . '?embedded&product=' . $product->id ) }}">
+									<i class="fas fa-edit"></i>
+								</a>
+								<a class="btn btn-sm btn-danger barcode-delete-button @if($barcode->product_id == null) disabled @endif"
+									href="#"
+									data-barcode-id="{{ $barcode->id }}"
+									data-barcode="{{ $barcode->barcode }}"
+									data-product-barcode="{{ $product->barcode }}"
+									data-product-id="{{ $product->id }}">
+									<i class="fas fa-trash"></i>
+								</a>
+							</td>
+							<td>
+								{{ $barcode->barcode }}
+							</td>
+							<td>
+								<span class="locale-number locale-number-quantity-amount">{{ $barcode->qu_factor_purchase_to_stock }}</span>
+							</td>
+							@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+							<td id="barcode-shopping-location">
+								@if (FindObjectInArrayByPropertyValue($shoppinglocations, 'id', $barcode->shopping_location_id) !== null)
+								{{ FindObjectInArrayByPropertyValue($shoppinglocations, 'id', $barcode->shopping_location_id)->name }}
+								@endif
+							</td>
+							@endif
+						</tr>
+						@endif
+						@endforeach
+						@endif
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="row mt-5">
+			<div class="col">
+				<div class="title-related-links">
+					<h4>
+						{{ $__t('Picture') }}
+					</h4>
+					<div class="form-group w-75 m-0">
+						<div class="input-group">
+							<div class="custom-file">
+								<input type="file"
+									class="custom-file-input"
+									id="product-picture"
+									accept="image/*">
+								<label id="product-picture-label"
+									class="custom-file-label @if(empty($product->picture_file_name)) d-none @endif"
+									for="product-picture">
+									{{ $product->picture_file_name }}
+								</label>
+								<label id="product-picture-label-none"
+									class="custom-file-label @if(!empty($product->picture_file_name)) d-none @endif"
+									for="product-picture">
+									{{ $__t('No file selected') }}
+								</label>
+							</div>
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-trash"
+										id="delete-current-product-picture-button"></i></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				@if(!empty($product->picture_file_name))
+				<img id="current-product-picture"
 					data-src="{{ $U('/api/files/productpictures/' . base64_encode($product->picture_file_name) . '?force_serve_as=picture&best_fit_width=400') }}"
-					class="img-fluid img-thumbnail mt-2 lazy"></p>
-			<p id="delete-current-product-picture-on-save-hint"
-				class="form-text text-muted font-italic d-none">{{ $__t('The current picture will be deleted when you save the product') }}</p>
-			@else
-			<p id="no-current-product-picture-hint"
-				class="form-text text-muted font-italic">{{ $__t('No picture available') }}</p>
-			@endif
+					class="img-fluid img-thumbnail mt-2 lazy mb-5">
+				<p id="delete-current-product-picture-on-save-hint"
+					class="form-text text-muted font-italic d-none mb-5">{{ $__t('The current picture will be deleted when you save the product') }}</p>
+				@else
+				<p id="no-current-product-picture-hint"
+					class="form-text text-muted font-italic mb-5">{{ $__t('No picture available') }}</p>
+				@endif
+			</div>
 		</div>
 	</div>
 </div>

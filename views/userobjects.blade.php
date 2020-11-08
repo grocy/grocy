@@ -8,8 +8,10 @@
 <div class="row">
 	<div class="col">
 		<div class="title-related-links">
-			<h2 class="title">
+			<h2 class="title mr-2 order-0">
 				@yield('title')
+			</h2>
+			<h2 class="mb-0 mr-auto order-3 order-md-1 width-xs-sm-100">
 				<span class="text-muted small">{{ $userentity->description }}</span>
 			</h2>
 			<div class="float-right">
@@ -28,7 +30,7 @@
 			</div>
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100 m-1 mt-md-0 mb-md-0 float-right"
 				id="related-links">
-				<a class="btn btn-primary responsive-button"
+				<a class="btn btn-primary responsive-button mr-1"
 					href="{{ $U('/userobject/' . $userentity->name . '/new') }}">
 					{{ $__t('Add') }}
 				</a>

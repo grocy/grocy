@@ -11,7 +11,16 @@
 @section('content')
 <div class="row">
 	<div class="col">
-		<h2 class="title">@yield('title')</h2>
+		<div class="title-related-links">
+			<h2 class="title">@yield('title')</h2>
+			<h2>
+				@if($product != null)
+				<span class="text-muted small">{{ $__t('Override for product') }} <strong>{{ $product->name }}</strong></span>
+				@else
+				<span class="text-muted small">{{ $__t('Default for QU') }} <strong>{{ $defaultQuUnit->name }}</strong></span>
+				@endif
+			</h2>
+		</div>
 	</div>
 </div>
 
@@ -19,12 +28,6 @@
 
 <div class="row">
 	<div class="col-lg-6 col-xs-12">
-
-		@if($product != null)
-		<h3 class="text-muted">{{ $__t('Override for product') }} <strong>{{ $product->name }}</strong></h3>
-		@else
-		<h3 class="text-muted">{{ $__t('Default for QU') }} <strong>{{ $defaultQuUnit->name }}</strong></h3>
-		@endif
 
 		<script>
 			Grocy.EditMode = '{{ $mode }}';
@@ -92,15 +95,19 @@
 			'additionalCssClasses' => 'input-group-qu'
 			))
 
-			<div class="checkbox @if($mode == 'edit') d-none @endif">
-				<label for="create_inverse">
-					<input type="checkbox"
-						id="create_inverse"
+			<div class="form-group @if($mode == 'edit') d-none @endif">
+				<div class="custom-control custom-checkbox">
+					<input type="hidden"
 						name="create_inverse:skip"
-						checked> {{ $__t('Create inverse QU conversion') }}
+						value="0">
+					<input @if($mode=='edit'
+						&&
+						$product->create_inverse == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="create_inverse" name="create_inverse:skip" value="1">
+					<label class="form-check-label custom-control-label"
+						for="create_inverse">{{ $__t('Create inverse QU conversion') }}</label>
 					<span id="qu-conversion-inverse-info"
 						class="form-text text-info d-none"></span>
-				</label>
+				</div>
 			</div>
 
 			@include('components.userfieldsform', array(
