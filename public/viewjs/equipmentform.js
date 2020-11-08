@@ -137,3 +137,12 @@ ResizeResponsiveEmbeds();
 Grocy.Components.UserfieldsForm.Load();
 $('#name').focus();
 Grocy.FrontendHelpers.ValidateForm('equipment-form');
+
+$("#instruction-manual").on("change", function(e)
+{
+	$("#instruction-manual-label").removeClass("d-none");
+	$("#instruction-manual-label-none").addClass("d-none");
+	$("#delete-current-instruction-manual-on-save-hint").addClass("d-none");
+	$("#current-instruction-manuale").addClass("d-none");
+	Grocy.DeleteProductPictureOnSave = false;
+});

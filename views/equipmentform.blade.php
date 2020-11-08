@@ -50,20 +50,6 @@
 			</div>
 
 			<div class="form-group">
-				<label for="instruction-manual">{{ $__t('Instruction manual') }} (PDF)
-					<span class="text-muted small">{{ $__t('If you don\'t select a file, the current instruction manual will not be altered') }}</span>
-				</label>
-				<div class="custom-file">
-					<input type="file"
-						class="custom-file-input"
-						id="instruction-manual"
-						accept="application/pdf">
-					<label class="custom-file-label"
-						for="instruction-manual">{{ $__t('No file selected') }}</label>
-				</div>
-			</div>
-
-			<div class="form-group">
 				<label for="description">{{ $__t('Notes') }}</label>
 				<textarea class="form-control wysiwyg-editor"
 					id="description"
@@ -82,20 +68,50 @@
 	</div>
 
 	<div class="col-lg-6 col-xs-12">
-		<label class="mt-2">{{ $__t('Instruction manual') }}</label>
-		<button id="delete-current-instruction-manual-button"
-			class="btn btn-sm btn-danger mb-1 @if(empty($equipment->instruction_manual_file_name)) disabled @endif"><i class="fas fa-trash"></i> {{ $__t('Delete') }}</button>
-		@if(!empty($equipment->instruction_manual_file_name))
-		<embed id="current-equipment-instruction-manual"
-			class="embed-responsive embed-responsive-4by3"
-			src="{{ $U('/api/files/equipmentmanuals/' . base64_encode($equipment->instruction_manual_file_name)) }}"
-			type="application/pdf">
-		<p id="delete-current-instruction-manual-on-save-hint"
-			class="form-text text-muted font-italic d-none">{{ $__t('The current instruction manual will be deleted when you save the equipment') }}</p>
-		@else
-		<p id="no-current-instruction-manual-hint"
-			class="form-text text-muted font-italic">{{ $__t('No instruction manual available') }}</p>
-		@endif
+		<div class="row">
+			<div class="col">
+				<div class="title-related-links mb-3">
+					<h4>
+						{{ $__t('Instruction manual') }}
+					</h4>
+					<div class="form-group w-75 m-0">
+						<div class="input-group">
+							<div class="custom-file">
+								<input type="file"
+									class="custom-file-input"
+									id="instruction-manual"
+									accept="application/pdf">
+								<label id="instruction-manual-label"
+									class="custom-file-label @if(empty($equipment->instruction_manual_file_name)) d-none @endif"
+									for="instruction-manual">
+									{{ $equipment->instruction_manual_file_name }}
+								</label>
+								<label id="instruction-manual-label-none"
+									class="custom-file-label @if(!empty($equipment->instruction_manual_file_name)) d-none @endif"
+									for="instruction-manual">
+									{{ $__t('No file selected') }}
+								</label>
+							</div>
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-trash"
+										id="delete-current-instruction-manual-button"></i></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				@if(!empty($equipment->instruction_manual_file_name))
+				<embed id="current-equipment-instruction-manual"
+					class="embed-responsive embed-responsive-4by3"
+					src="{{ $U('/api/files/equipmentmanuals/' . base64_encode($equipment->instruction_manual_file_name)) }}"
+					type="application/pdf">
+				<p id="delete-current-instruction-manual-on-save-hint"
+					class="form-text text-muted font-italic d-none">{{ $__t('The current instruction manual will be deleted when you save the equipment') }}</p>
+				@else
+				<p id="no-current-instruction-manual-hint"
+					class="form-text text-muted font-italic">{{ $__t('No instruction manual available') }}</p>
+				@endif
+			</div>
+		</div>
 	</div>
 </div>
 @stop

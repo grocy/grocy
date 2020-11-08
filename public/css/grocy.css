@@ -239,6 +239,10 @@ input::-webkit-inner-spin-button {
 	width: 96vw; /* Set width of popup menu to screen size */
 }
 
+a:not([href]) {
+    color: inherit;
+    text-decoration: none;
+}
 
 /* Set width of popup menu to fixed value on larger devices */
 @media (min-width: 400px) {

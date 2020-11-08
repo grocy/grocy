@@ -1,6 +1,14 @@
 ﻿var equipmentTable = $('#equipment-table').DataTable({
 	'order': [[0, 'asc']],
-	'select': 'single',
+	'columnDefs': [
+		{ 'orderable': false, 'targets': 0 },
+		{ 'searchable': false, "targets": 0 },
+		{ 'orderData': 2, 'targets': 1 }
+	],
+	select: {
+		style: 'single',
+		selector: 'tr td:not(:first-child)'
+	},
 	'initComplete': function()
 	{
 		this.api().row({ order: 'current' }, 0).select();
@@ -29,8 +37,6 @@ function DisplayEquipment(id)
 			$(".selected-equipment-name").text(equipmentItem.name);
 			$("#description-tab-content").html(equipmentItem.description);
 			$(".equipment-edit-button").attr("href", U("/equipment/" + equipmentItem.id.toString()));
-			$(".equipment-delete-button").attr("data-equipment-id", equipmentItem.id);
-			$(".equipment-delete-button").attr("data-equipment-name", equipmentItem.name);
 
 			if (equipmentItem.instruction_manual_file_name !== null && !equipmentItem.instruction_manual_file_name.isEmpty())
 			{

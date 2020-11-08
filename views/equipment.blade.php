@@ -58,9 +58,10 @@
 		</div>
 
 		<table id="equipment-table"
-			class="table table-striped nowrap w-100">
+			class="table table-sm table-striped nowrap w-100">
 			<thead>
 				<tr>
+					<th class="border-right"></th>
 					<th>{{ $__t('Name') }}</th>
 
 					@include('components.userfields_thead', array(
@@ -72,6 +73,18 @@
 			<tbody class="d-none">
 				@foreach($equipment as $equipmentItem)
 				<tr data-equipment-id="{{ $equipmentItem->id }}">
+					<td class="fit-content border-right">
+						<a class="btn btn-info btn-sm hide-when-embedded hide-on-fullscreen-card"
+							href="{{ $U('/equipment/') }}{{ $equipmentItem->id }}">
+							<i class="fas fa-edit"></i>
+						</a>
+						<a class="btn btn-sm btn-danger hide-when-embedded hide-on-fullscreen-card equipment-delete-button"
+							href="#"
+							data-equipment-id="{{ $equipmentItem->id }}"
+							data-equipment-name="{{ $equipmentItem->name }}">
+							<i class="fas fa-trash"></i>
+						</a>
+					</td>
 					<td>
 						{{ $equipmentItem->name }}
 					</td>
@@ -88,7 +101,7 @@
 	</div>
 
 	<div class="col-xs-12 col-md-8">
-		<ul class="nav nav-tabs">
+		<ul class="nav nav-tabs grocy-tabs">
 			<li class="nav-item">
 				<a class="nav-link active"
 					data-toggle="tab"
@@ -100,23 +113,13 @@
 					href="#description-tab">{{ $__t('Notes') }}</a>
 			</li>
 		</ul>
-		<div class="tab-content">
+		<div class="tab-content grocy-tabs">
 			<div class="tab-pane fade show active"
 				id="instruction-manual-tab">
 				<div id="selectedEquipmentInstructionManualCard"
 					class="card">
 					<div class="card-header card-header-fullscreen">
-						<i class="fas fa-toolbox"></i> <span class="selected-equipment-name"></span>&nbsp;&nbsp;
-						<a class="btn btn-sm btn-outline-info py-0 equipment-edit-button hide-on-fullscreen-card"
-							href="#">
-							<i class="fas fa-edit"></i>
-						</a>
-						<a class="btn btn-sm btn-outline-danger py-0 equipment-delete-button hide-on-fullscreen-card"
-							href="#"
-							data-equipment-id="{{ $equipmentItem->id }}"
-							data-equipment-name="{{ $equipmentItem->name }}">
-							<i class="fas fa-trash"></i>
-						</a>
+						<span class="selected-equipment-name"></span>
 						<a id="selectedEquipmentInstructionManualToggleFullscreenButton"
 							class="btn btn-sm btn-outline-secondary py-0 float-right"
 							href="#"
@@ -140,17 +143,7 @@
 				<div id="selectedEquipmentDescriptionCard"
 					class="card">
 					<div class="card-header card-header-fullscreen">
-						<i class="fas fa-toolbox"></i> <span class="selected-equipment-name"></span>&nbsp;&nbsp;
-						<a class="btn btn-sm btn-outline-info py-0 equipment-edit-button hide-on-fullscreen-card"
-							href="#">
-							<i class="fas fa-edit"></i>
-						</a>
-						<a class="btn btn-sm btn-outline-danger py-0 equipment-delete-button hide-on-fullscreen-card"
-							href="#"
-							data-equipment-id="{{ $equipmentItem->id }}"
-							data-equipment-name="{{ $equipmentItem->name }}">
-							<i class="fas fa-trash"></i>
-						</a>
+						<span class="selected-equipment-name"></span>
 						<a id="selectedEquipmentDescriptionToggleFullscreenButton"
 							class="btn btn-sm btn-outline-secondary py-0 float-right"
 							href="#"

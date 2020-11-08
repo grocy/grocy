@@ -243,6 +243,7 @@
 										<i class="fas fa-cart-plus"></i>
 									</a>
 									<a class="recipe-fullscreen hide-when-embedded"
+										id="selectedRecipeToggleFullscreenButton"
 										href="#"
 										data-toggle="tooltip"
 										title="{{ $__t('Expand to fullscreen') }}">
