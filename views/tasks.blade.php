@@ -29,8 +29,8 @@
 			</button>
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100 m-1 mt-md-0 mb-md-0 float-right"
 				id="related-links">
-				<a class="btn btn-primary responsive-button"
-					href="{{ $U('/task/new') }}">
+				<a class="btn btn-primary responsive-button show-as-dialog-link"
+					href="{{ $U('/task/new?embedded') }}">
 					{{ $__t('Add') }}
 				</a>
 			</div>
@@ -44,14 +44,14 @@
 				data-status-filter="overdue"
 				class="error-message status-filter-message responsive-button"></div>
 			<div class="float-right">
-				<a class="btn btn-sm btn-outline-info d-md-none"
+				<a class="btn btn-sm btn-outline-info d-md-none mt-2"
 					data-toggle="collapse"
 					href="#table-filter-row"
 					role="button">
 					<i class="fas fa-filter"></i>
 				</a>
 				<a id="clear-filter-button"
-					class="btn btn-sm btn-outline-info"
+					class="btn btn-sm btn-outline-info mt-2"
 					href="#">
 					{{ $__t('Clear filter') }}
 				</a>
@@ -152,8 +152,8 @@
 							data-task-name="{{ $task->name }}">
 							<i class="fas fa-trash"></i>
 						</a>
-						<a class="btn btn-info btn-sm"
-							href="{{ $U('/task/') }}{{ $task->id }}">
+						<a class="btn btn-info btn-sm show-as-dialog-link"
+							href="{{ $U('/task/') }}{{ $task->id }}?embedded">
 							<i class="fas fa-edit"></i>
 						</a>
 					</td>

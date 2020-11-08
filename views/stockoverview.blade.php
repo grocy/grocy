@@ -62,14 +62,14 @@
 				data-status-filter="belowminstockamount"
 				class="normal-message status-filter-message responsive-button"></div>
 			<div class="float-right">
-				<a class="btn btn-sm btn-outline-info d-md-none"
+				<a class="btn btn-sm btn-outline-info d-md-none mt-2"
 					data-toggle="collapse"
 					href="#table-filter-row"
 					role="button">
 					<i class="fas fa-filter"></i>
 				</a>
 				<a id="clear-filter-button"
-					class="btn btn-sm btn-outline-info"
+					class="btn btn-sm btn-outline-info mt-2"
 					href="#">
 					{{ $__t('Clear filter') }}
 				</a>
@@ -255,20 +255,20 @@
 									href="#">
 									<span class="dropdown-item-icon"><i class="fas fa-info"></i></span> <span class="dropdown-item-text">{{ $__t('Show product details') }}</span>
 								</a>
-								<a class="dropdown-item"
+								<a class="dropdown-item show-as-dialog-link"
 									type="button"
-									href="{{ $U('/stockentries?product=') }}{{ $currentStockEntry->product_id }}"
+									href="{{ $U('/stockentries?embedded&product=') }}{{ $currentStockEntry->product_id }}"
 									data-product-id="{{ $currentStockEntry->product_id }}">
 									<span class="dropdown-item-icon"><i class="fas fa-boxes"></i></span> <span class="dropdown-item-text">{{ $__t('Show stock entries') }}</span>
 								</a>
-								<a class="dropdown-item"
+								<a class="dropdown-item show-as-dialog-link"
 									type="button"
-									href="{{ $U('/stockjournal?product=') }}{{ $currentStockEntry->product_id }}">
+									href="{{ $U('/stockjournal?embedded&product=') }}{{ $currentStockEntry->product_id }}">
 									<span class="dropdown-item-icon"><i class="fas fa-file-alt"></i></span> <span class="dropdown-item-text">{{ $__t('Stock journal for this product') }}</span>
 								</a>
-								<a class="dropdown-item"
+								<a class="dropdown-item show-as-dialog-link"
 									type="button"
-									href="{{ $U('/stockjournal/summary?product_id=') }}{{ $currentStockEntry->product_id }}">
+									href="{{ $U('/stockjournal/summary?embedded&product_id=') }}{{ $currentStockEntry->product_id }}">
 									<span class="dropdown-item-icon"><i class="fas fa-file-archive"></i></span> <span class="dropdown-item-text">{{ $__t('Journal summary for this product') }}</span>
 								</a>
 								<a class="dropdown-item permission-MASTER_DATA_EDIT"

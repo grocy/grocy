@@ -388,6 +388,12 @@ $('#amount').on('focus', function(e)
 	$(this).select();
 });
 
+$('#price').on('focus', function(e)
+{
+	$(this).select();
+});
+
+
 $('#consume-form input').keyup(function(event)
 {
 	Grocy.FrontendHelpers.ValidateForm('consume-form');

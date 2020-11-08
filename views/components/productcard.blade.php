@@ -5,7 +5,7 @@
 
 <div class="card productcard">
 	<div class="card-header">
-		<i class="fab fa-product-hunt"></i> {{ $__t('Product overview') }}
+		<span class="float-left">{{ $__t('Product overview') }}</span>
 		<a id="productcard-product-edit-button"
 			class="btn btn-sm btn-outline-info py-0 float-right disabled"
 			href="#"
@@ -14,14 +14,14 @@
 			<i class="fas fa-edit"></i>
 		</a>
 		<a id="productcard-product-journal-button"
-			class="btn btn-sm btn-outline-secondary py-0 mr-2 float-right disabled show-as-dialog-link"
+			class="btn btn-sm btn-outline-secondary py-0 mr-1 float-right disabled show-as-dialog-link"
 			href="#"
 			data-toggle="tooltip"
 			title="{{ $__t('Stock journal for this product') }}">
 			<i class="fas fa-file-alt"></i>
 		</a>
 		<a id="productcard-product-stock-button"
-			class="btn btn-sm btn-outline-info py-0 float-right disabled"
+			class="btn btn-sm btn-outline-info py-0 mr-1 float-right disabled show-as-dialog-link"
 			href="#"
 			data-toggle="tooltip"
 			title="{{ $__t('Stock entries for this product') }}">

@@ -8,7 +8,7 @@
 	<div class="col-lg-6 offset-lg-3 col-xs-12">
 		<h2 class="text-center">@yield('title')</h2>
 
-		<hr class="my-2 py-1">
+		<hr class="my-2">
 
 		<form method="post"
 			action="{{ $U('/login') }}"

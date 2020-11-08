@@ -137,7 +137,7 @@
 ### General & other improvements/fixes
 - UI refresh / style improvements (thanks @zsarnett for the idea and initial work on this)
 - Improved mobile views (thanks @4lloyd for the idea and initial work on this)
-  - The buttons on the top of each page and the filter row is now collapsed (use the ellipsis/filter button to show them)
+  - The buttons on the top of each page and the filter row is now collapsed (use the ellipsis/filter button to show them, this also superseded the shopping list compact view)
   - Tables are horizontally scrollable (instead of collapsing columns which don't fit)
 - Added a "Clear filter"-button on all pages (with filters) to quickly reset applied filters
 - The data path (previously fixed to the `data` folder) is now configurable, making it possible to run multiple grocy instances from the same directory (with different `config.php` files / different database, etc.) (thanks @fgrsnau)

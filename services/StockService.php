@@ -549,8 +549,16 @@ class StockService extends BaseService
 			$lastPrice = $productLastPurchased->price;
 			$lastQuFactorPurchaseToStock = $productLastPurchased->qu_factor_purchase_to_stock;
 			$lastShoppingLocation = $productLastPurchased->shopping_location_id;
-			$avgPrice = $this->getDatabase()->products_average_price()->where('product_id', $productId)->fetch()->price;
-			$oldestPrice = $this->getDatabase()->products_oldest_stock_unit_price()->where('product_id', $productId)->fetch()->price;
+			$avgPriceRow = $this->getDatabase()->products_average_price()->where('product_id', $productId)->fetch();
+			if ($avgPriceRow)
+			{
+				$avgPrice = $avgPriceRow->price;
+			}
+			$oldestPriceRow = $this->getDatabase()->products_oldest_stock_unit_price()->where('product_id', $productId)->fetch();
+			if ($oldestPriceRow)
+			{
+				$oldestPrice = $avgPriceRow->price;
+			}
 		}
 
 		$product = $this->getDatabase()->products($productId);

@@ -27,11 +27,28 @@
 @section('content')
 <div class="row d-print-none hide-on-fullscreen-card">
 	<div class="col">
-		<div class="row">
-			<h2 class="col-sm-12 col-md-6 mb-2 title">@yield('title')</h2>
+		<div class="title-related-links">
+			<h2 class="title mr-2 order-0">
+				@yield('title')
+			</h2>
 			@if(GROCY_FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS)
-			<div class="col-sm-12 col-md-6 d-flex align-items-end flex-wrap">
-				<div class="d-inline-block flex-grow-1 pr-1 mb-1">
+			<div class="float-right">
+				<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
+					type="button"
+					data-toggle="collapse"
+					data-target="#table-filter-row">
+					<i class="fas fa-filter"></i>
+				</button>
+				<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
+					type="button"
+					data-toggle="collapse"
+					data-target="#related-links">
+					<i class="fas fa-ellipsis-v"></i>
+				</button>
+			</div>
+			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
+				id="related-links">
+				<div class="my-auto float-right">
 					<select class="form-control form-control-sm"
 						id="selected-shopping-list">
 						@foreach($shoppingLists as $shoppingList)
@@ -39,43 +56,45 @@
 						@endforeach
 					</select>
 				</div>
-				<div class="d-inline-block mb-1">
-					<a class="btn btn-outline-dark btn-sm responsive-button show-as-dialog-link"
-						href="{{ $U('/shoppinglist/new?embedded') }}">
-						{{ $__t('New shopping list') }}
-					</a>
-					<a class="btn btn-outline-dark btn-sm responsive-button show-as-dialog-link @if($selectedShoppingListId == 1) disabled @endif"
-						href="{{ $U('/shoppinglist/' . $selectedShoppingListId . '?embedded') }}">
-						{{ $__t('Edit shopping list') }}
-					</a>
-					<a id="delete-selected-shopping-list"
-						class="btn btn-outline-danger btn-sm responsive-button @if($selectedShoppingListId == 1) disabled @endif"
-						href="#">
-						{{ $__t('Delete shopping list') }}
-					</a>
-					<a id="print-shopping-list-button"
-						class="btn btn-outline-dark btn-sm responsive-button"
-						href="#">
-						{{ $__t('Print') }}
-					</a>
-					<a id="shopping-list-compact-view-button"
-						class="btn btn-outline-dark btn-sm responsive-button switch-view-mode-button"
-						href="#">
-						{{ $__t('Compact view') }}
-					</a>
-				</div>
+				<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right show-as-dialog-link"
+					href="{{ $U('/shoppinglist/new?embedded') }}">
+					{{ $__t('New shopping list') }}
+				</a>
+				<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right show-as-dialog-link @if($selectedShoppingListId == 1) disabled @endif"
+					href="{{ $U('/shoppinglist/' . $selectedShoppingListId . '?embedded') }}">
+					{{ $__t('Edit shopping list') }}
+				</a>
+				<a id="delete-selected-shopping-list"
+					class="btn btn-outline-danger responsive-button m-1 mt-md-0 mb-md-0 float-right @if($selectedShoppingListId == 1) disabled @endif"
+					href="#">
+					{{ $__t('Delete shopping list') }}
+				</a>
+				<a id="print-shopping-list-button"
+					class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right"
+					href="#">
+					{{ $__t('Print') }}
+				</a>
 			</div>
 			@else
+			<div class="float-right">
+				<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
+					type="button"
+					data-toggle="collapse"
+					data-target="#table-filter-row">
+					<i class="fas fa-filter"></i>
+				</button>
+			</div>
 			<input type="hidden"
 				name="selected-shopping-list"
 				id="selected-shopping-list"
 				value="1">
 			@endif
 		</div>
-		<div class="border-top border-bottom my-2 py-1">
+		<div id="related-links"
+			class="border-top border-bottom my-2 py-1 collapse">
 			<div data-status-filter="belowminstockamount"
-				class="normal-message status-filter-message responsive-button @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif">{{ $__n(count($missingProducts), '%s product is below defined min. stock amount', '%s products are below defined min. stock amount') }}</div>
-			<div class="float-right">
+				class="normal-message status-filter-message responsive-button @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif"><span class="d-block d-md-none">{{count($missingProducts)}} <i class="fas fa-exclamation-circle"></i></span><span class="d-none d-md-block">{{ $__n(count($missingProducts), '%s product is below defined min. stock amount', '%s products are below defined min. stock amount') }}</span></div>
+			<div class="float-right mt-2">
 				<a class="btn btn-primary responsive-button btn-sm mb-1 show-as-dialog-link"
 					href="{{ $U('/shoppinglistitem/new?embedded&list=' . $selectedShoppingListId) }}">
 					{{ $__t('Add item') }}
@@ -105,7 +124,8 @@
 	</div>
 </div>
 
-<div class="row d-print-none hide-on-fullscreen-card">
+<div class="row collapse d-md-flex d-print-none hide-on-fullscreen-card"
+	id="table-filter-row">
 	<div class="col-xs-12 col-md-5">
 		<div class="input-group">
 			<div class="input-group-prepend">

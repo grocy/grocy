@@ -13,7 +13,7 @@
 	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
 		<div class="title-related-links">
 			<h2 class="title">@yield('title')</h2>
-			<button class="btn btn-outline-dark d-md-none mt-2 float-right order-1 order-md-3"
+			<button class="btn btn-outline-dark d-md-none mt-2 float-right order-1 order-md-3 hide-when-embedded"
 				type="button"
 				data-toggle="collapse"
 				data-target="#related-links">
@@ -40,7 +40,7 @@
 			</div>
 		</div>
 
-		<hr class="my-2 py-1">
+		<hr class="my-2">
 
 		<form id="consume-form"
 			novalidate>

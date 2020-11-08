@@ -1655,9 +1655,6 @@ msgstr ""
 msgid "per day"
 msgstr ""
 
-msgid "Compact view"
-msgstr ""
-
 msgid "Normal view"
 msgstr ""
 
@@ -1728,9 +1725,6 @@ msgid "Shopping list settings"
 msgstr ""
 
 msgid "Show a month-view calendar"
-msgstr ""
-
-msgid "Don't automatically switch to the compact view on mobile devices"
 msgstr ""
 
 msgid "Edit note on %s"

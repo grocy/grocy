@@ -32,7 +32,7 @@
 	</div>
 </div>
 
-<hr class="my-2 py-1">
+<hr class="my-2">
 
 <div class="row">
 	<div class="col">

@@ -423,40 +423,8 @@ $(document).on("click", "#clear-description-button", function(e)
 	$("#save-description-button").click();
 });
 
-$(".switch-view-mode-button").on('click', function(e)
-{
-	e.preventDefault();
-
-	$("#shoppinglist-main").toggleClass("fullscreen");
-	$(".dataTables_scrollHeadInner").width(""); // Remove absolute width on element set by DataTables
-	$(".dataTables_scrollHeadInner table").width(""); // Remove absolute width on element set by DataTables
-	$("body").toggleClass("fullscreen-card");
-	$("#shopping-list-normal-view-button").toggleClass("d-none");
-	$("#mainNav").toggleClass("d-none");
-
-	if ($("body").hasClass("fullscreen-card"))
-	{
-		window.location.hash = "#compact";
-	}
-	else
-	{
-		window.history.replaceState(null, null, " ");
-	}
-});
-
 $("#description").trigger("summernote.change");
 $("#save-description-button").addClass("disabled");
-
-if (window.location.hash === "#compact")
-{
-	$("#shopping-list-compact-view-button").click();
-}
-
-// Auto switch to compact view on mobile when enabled
-if ($(window).width() < 768 & window.location.hash !== "#compact" && !BoolVal(Grocy.UserSettings.shopping_list_disable_auto_compact_view_on_mobile))
-{
-	$("#shopping-list-compact-view-button").click();
-}
 
 $(window).on("message", function(e)
 {

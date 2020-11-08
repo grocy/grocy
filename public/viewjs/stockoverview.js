@@ -11,20 +11,6 @@
 	],
 });
 
-$('#stock-overview-table').on('column-sizing.dt', function(e, settings)
-{
-	var dtScrollWidth = $('.dataTables_scroll').width();
-	var stockTableWidth = $('#stock-overview-table').width();
-
-	if (dtScrollWidth < stockTableWidth)
-	{
-		$('.dataTables_scrollBody').addClass("grab-cursor");
-	} else
-	{
-		$('.dataTables_scrollBody').removeClass("grab-cursor");
-	}
-});
-
 $('#stock-overview-table tbody').removeClass("d-none");
 stockOverviewTable.columns.adjust().draw();
 $('.dataTables_scrollBody').addClass("dragscroll");

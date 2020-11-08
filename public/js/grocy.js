@@ -707,3 +707,27 @@ $('.dropdown-item').has('.form-check input[type=checkbox]').on('click', function
 		$(e.target).find('input[type=checkbox]').click();
 	}
 })
+
+$('.table').on('column-sizing.dt', function(e, settings)
+{
+	var dtScrollWidth = $('.dataTables_scroll').width();
+	var tableWidth = $('.table').width();
+
+	if (dtScrollWidth < tableWidth)
+	{
+		$('.dataTables_scrollBody').addClass("grab-cursor");
+	} else
+	{
+		$('.dataTables_scrollBody').removeClass("grab-cursor");
+	}
+});
+
+$(window).on("message", function(e)
+{
+	var data = e.originalEvent.data;
+
+	if (data.Message === "Reload")
+	{
+		window.location.reload();
+	}
+});

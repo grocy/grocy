@@ -42,14 +42,14 @@
 				class="normal-message user-filter-message responsive-button"></div>
 			@endif
 			<div class="float-right">
-				<a class="btn btn-sm btn-outline-info d-md-none"
+				<a class="btn btn-sm btn-outline-info d-md-none mt-2"
 					data-toggle="collapse"
 					href="#table-filter-row"
 					role="button">
 					<i class="fas fa-filter"></i>
 				</a>
 				<a id="clear-filter-button"
-					class="btn btn-sm btn-outline-info"
+					class="btn btn-sm btn-outline-info mt-2"
 					href="#">
 					{{ $__t('Clear filter') }}
 				</a>
@@ -156,9 +156,9 @@
 									href="#">
 									<span class="dropdown-item-icon"><i class="fas fa-info"></i></span> <span class="dropdown-item-text">{{ $__t('Show chore details') }}</span>
 								</a>
-								<a class="dropdown-item"
+								<a class="dropdown-item show-as-dialog-link"
 									type="button"
-									href="{{ $U('/choresjournal?chore=') }}{{ $curentChoreEntry->chore_id }}">
+									href="{{ $U('/choresjournal?embedded&chore=') }}{{ $curentChoreEntry->chore_id }}">
 									<span class="dropdown-item-icon"><i class="fas fa-file-alt"></i></span> <span class="dropdown-item-text">{{ $__t('Journal for this chore') }}</span>
 								</a>
 								<a class="dropdown-item permission-MASTER_DATA_EDIT"

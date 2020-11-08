@@ -124,7 +124,6 @@ DefaultUserSetting('show_purchased_date_on_purchase', false); // Wheter the purc
 // Shopping list settings
 DefaultUserSetting('shopping_list_to_stock_workflow_auto_submit_when_prefilled', false); // Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set
 DefaultUserSetting('shopping_list_show_calendar', false);
-DefaultUserSetting('shopping_list_disable_auto_compact_view_on_mobile', false);
 
 // Recipe settings
 DefaultUserSetting('recipe_ingredients_group_by_product_group', false); // Group recipe ingredients by their product group

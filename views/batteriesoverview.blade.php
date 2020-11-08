@@ -37,14 +37,14 @@
 				data-status-filter="overdue"
 				class="error-message status-filter-message responsive-button"></div>
 			<div class="float-right">
-				<a class="btn btn-sm btn-outline-info d-md-none"
+				<a class="btn btn-sm btn-outline-info d-md-none mt-2"
 					data-toggle="collapse"
 					href="#table-filter-row"
 					role="button">
 					<i class="fas fa-filter"></i>
 				</a>
 				<a id="clear-filter-button"
-					class="btn btn-sm btn-outline-info"
+					class="btn btn-sm btn-outline-info mt-2"
 					href="#">
 					{{ $__t('Clear filter') }}
 				</a>
@@ -89,6 +89,7 @@
 				<tr>
 					<th class="border-right"></th>
 					<th>{{ $__t('Battery') }}</th>
+					<th>{{ $__t('Used in') }}</th>
 					<th>{{ $__t('Last charged') }}</th>
 					<th>{{ $__t('Next planned charge cycle') }}</th>
 					<th class="d-none">Hidden status</th>
@@ -128,9 +129,9 @@
 									href="#">
 									<span class="dropdown-item-icon"><i class="fas fa-info"></i></span> <span class="dropdown-item-text">{{ $__t('Show battery details') }}</span>
 								</a>
-								<a class="dropdown-item"
+								<a class="dropdown-item show-as-dialog-link"
 									type="button"
-									href="{{ $U('/batteriesjournal?battery=') }}{{ $currentBatteryEntry->battery_id }}">
+									href="{{ $U('/batteriesjournal?embedded&battery=') }}{{ $currentBatteryEntry->battery_id }}">
 									<span class="dropdown-item-icon"><i class="fas fa-file-alt"></i></span> <span class="dropdown-item-text">{{ $__t('Journal for this battery') }}</span>
 								</a>
 								<a class="dropdown-item permission-MASTER_DATA_EDIT"
@@ -144,6 +145,9 @@
 					<td class="battery-name-cell cursor-link"
 						data-battery-id="{{ $currentBatteryEntry->battery_id }}">
 						{{ FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->name }}
+					</td>
+					<td class="fit-content">
+						{{ FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->used_in }}
 					</td>
 					<td>
 						<span id="battery-{{ $currentBatteryEntry->battery_id }}-last-tracked-time">{{ $currentBatteryEntry->last_tracked_time }}</span>

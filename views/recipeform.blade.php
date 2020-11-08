@@ -43,7 +43,7 @@
 	</div>
 </div>
 
-<hr class="my-2 py-1">
+<hr class="my-2">
 
 <div class="row">
 	<div class="col-xs-12 col-md-7 pb-3">

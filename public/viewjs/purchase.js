@@ -355,6 +355,11 @@ $('#amount').on('focus', function(e)
 	}
 });
 
+$('#price').on('focus', function(e)
+{
+	$(this).select();
+});
+
 $('#purchase-form input').keyup(function(event)
 {
 	Grocy.FrontendHelpers.ValidateForm('purchase-form');

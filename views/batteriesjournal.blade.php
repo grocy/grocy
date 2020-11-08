@@ -19,7 +19,7 @@
 	</div>
 </div>
 
-<hr class="my-2 py-1">
+<hr class="my-2">
 
 <div class="row collapse d-md-flex"
 	id="table-filter-row">
