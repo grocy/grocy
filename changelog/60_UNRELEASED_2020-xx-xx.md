@@ -40,6 +40,7 @@
 - The decimal places for all amount and price inputs can now be configured (stock settings / top right corner settings menu, both default to `4`)
 - When clicking the product name on the shopping list, the product card will now be displayed (like on the stock overview page) (thanks @kriddles)
 - On the product card there is now also a button to jump directly to the stock entries of the corresponding product (thanks @kriddles)
+- The product picker workflows can now also be started by `ENTER` (instead of only `TAB`)
 - Fixed that it was not possible to leave the "Barcode(s)" on the product edit page by `TAB`
 - Fixed that when adding products through a product picker workflow and when the created products contains special characters, the product was not preselected on the previous page (thanks @Forceu)
 - Fixed that when editing a product the default store was not visible / always empty regardless if the product had one set (thanks @kriddles)

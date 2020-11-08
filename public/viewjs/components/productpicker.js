@@ -257,3 +257,17 @@ $(document).on("shown.bs.modal", function(e)
 	$(".modal-footer").addClass("d-block").addClass("d-sm-flex");
 	$(".modal-footer").find("button").addClass("mt-2").addClass("mt-sm-0");
 })
+
+// Make that ENTER behaves the same like TAB (trigger blur to start workflows, but only when the dropdown is not opened)
+$('#product_id_text_input').keydown(function(event)
+{
+	if (event.keyCode === 13) // Enter
+	{
+		if (Grocy.Components.ProductPicker.GetPicker().hasClass("combobox-menu-visible"))
+		{
+			return;
+		}
+
+		$("#product_id_text_input").trigger("blur");
+	}
+});
