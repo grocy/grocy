@@ -72,7 +72,15 @@ class RecipesController extends BaseController
 			}
 		}
 
-		$selectedRecipePositionsResolved = $this->getDatabase()->recipes_pos_resolved()->where('recipe_id = :1 AND is_nested_recipe_pos = 0', $selectedRecipe->id)->orderBy('ingredient_group', 'ASC', 'product_group', 'ASC');
+		$selectedRecipePositionsResolved = null;
+		$totalCosts = null;
+		$totalCalories = null;
+		if ($selectedRecipe)
+		{
+			$selectedRecipePositionsResolved = $this->getDatabase()->recipes_pos_resolved()->where('recipe_id = :1 AND is_nested_recipe_pos = 0', $selectedRecipe->id)->orderBy('ingredient_group', 'ASC', 'product_group', 'ASC');
+			$totalCosts = FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->costs;
+			$totalCalories = FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->calories;
+		}
 
 		$renderArray = [
 			'recipes' => $recipes,
@@ -85,8 +93,8 @@ class RecipesController extends BaseController
 			'userfields' => $this->getUserfieldsService()->GetFields('recipes'),
 			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('recipes'),
 			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved(),
-			'selectedRecipeTotalCosts' => FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->costs,
-			'selectedRecipeTotalCalories' => FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->calories
+			'selectedRecipeTotalCosts' => $totalCosts,
+			'selectedRecipeTotalCalories' => $totalCalories
 		];
 
 		if ($selectedRecipe)
