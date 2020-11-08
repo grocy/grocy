@@ -44,6 +44,11 @@ class BaseService
 
 	protected function getLocalizationService()
 	{
+		if (!defined('GROCY_LOCALE'))
+		{
+			define('GROCY_LOCALE', GROCY_DEFAULT_LOCALE);
+		}
+
 		return LocalizationService::getInstance(GROCY_LOCALE);
 	}
 
