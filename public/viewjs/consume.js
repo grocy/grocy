@@ -55,6 +55,7 @@
 							{
 								$("#flow-info-addbarcodetoselection").addClass("d-none");
 								$('#barcode-lookup-disabled-hint').addClass('d-none');
+								$('#barcode-lookup-hint').removeClass('d-none');
 								window.history.replaceState({}, document.title, U("/consume"));
 							},
 							function(xhr)

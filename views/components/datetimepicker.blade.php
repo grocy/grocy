@@ -67,7 +67,7 @@
 		<div id="datetimepicker-earlier-than-info"
 			class="form-text text-info font-italic d-none">{{ $earlierThanInfoText }}</div>
 		@if(isset($shortcutValue) && isset($shortcutLabel))
-		<div class="form-group my-0">
+		<div class="form-group mt-n2 mb-0">
 			<div class="custom-control custom-checkbox">
 				<input type="hidden"
 					name="datetimepicker-shortcut"

@@ -123,6 +123,7 @@ if (addBarcode !== undefined)
 	$('#addbarcodetoselection').text(addBarcode);
 	$('#flow-info-addbarcodetoselection').removeClass('d-none');
 	$('#barcode-lookup-disabled-hint').removeClass('d-none');
+	$('#barcode-lookup-hint').addClass('d-none');
 }
 
 Grocy.Components.ProductPicker.PopupOpen = false;

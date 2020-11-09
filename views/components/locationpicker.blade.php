@@ -12,8 +12,13 @@
 	data-next-input-selector="{{ $nextInputSelector }}"
 	data-prefill-by-name="{{ $prefillByName }}"
 	data-prefill-by-id="{{ $prefillById }}">
-	<label for="location_id">{{ $__t('Location') }}&nbsp;&nbsp;<span @if(!empty($hintId))id="{{ $hintId }}" @endif
-			class="small text-muted">{{ $hint }}</span></label>
+	<label for="location_id">{{ $__t('Location') }}
+		@if(!empty($hint))
+		<i class="fas fa-question-circle"
+			data-toggle="tooltip"
+			title="{{ $hint }}"></i>
+		@endif
+	</label>
 	<select class="form-control location-combobox"
 		id="location_id"
 		name="location_id"

@@ -1076,7 +1076,7 @@ msgstr ""
 msgid "Product count"
 msgstr ""
 
-msgid "Type a new product name or barcode and hit TAB to start a workflow"
+msgid "Type a new product name or barcode and hit TAB or ENTER to start a workflow"
 msgstr ""
 
 msgid "This will be used as the default setting when adding this product as a recipe ingredient"

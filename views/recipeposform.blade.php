@@ -46,20 +46,16 @@
 			'nextInputSelector' => '#amount'
 			))
 
-			<div class="row">
-				<div class="col">
-					<div class="form-group">
-						<div class="custom-control custom-checkbox">
-							<input type="hidden"
-								name="only_check_single_unit_in_stock"
-								value="0">
-							<input @if($mode=='edit'
-								&&
-								$recipePos->only_check_single_unit_in_stock == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="only_check_single_unit_in_stock" name="only_check_single_unit_in_stock" value="1">
-							<label class="form-check-label custom-control-label"
-								for="only_check_single_unit_in_stock">{{ $__t('Only check if a single unit is in stock (a different quantity can then be used below)') }}</label>
-						</div>
-					</div>
+			<div class="form-group mb-1">
+				<div class="custom-control custom-checkbox">
+					<input type="hidden"
+						name="only_check_single_unit_in_stock"
+						value="0">
+					<input @if($mode=='edit'
+						&&
+						$recipePos->only_check_single_unit_in_stock == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="only_check_single_unit_in_stock" name="only_check_single_unit_in_stock" value="1">
+					<label class="form-check-label custom-control-label"
+						for="only_check_single_unit_in_stock">{{ $__t('Only check if a single unit is in stock (a different quantity can then be used below)') }}</label>
 				</div>
 			</div>
 

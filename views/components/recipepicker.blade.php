@@ -14,7 +14,7 @@
 	data-prefill-by-id="{{ $prefillById }}">
 	<label for="recipe_id">{{ $__t('Recipe') }}
 		@if(!empty($hint))
-		&nbsp;<i class="fas fa-question-circle"
+		<i class="fas fa-question-circle"
 			data-toggle="tooltip"
 			title="{{ $hint }}"></i>
 		@endif
