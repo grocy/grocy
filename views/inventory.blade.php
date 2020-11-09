@@ -5,6 +5,11 @@
 @section('viewJsName', 'inventory')
 
 @section('content')
+<script>
+	Grocy.QuantityUnits = {!! json_encode($quantityUnits) !!};
+	Grocy.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
+</script>
+
 <div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
 		<h2 class="title">@yield('title')</h2>
@@ -20,19 +25,14 @@
 			'nextInputSelector' => '#new_amount'
 			))
 
-			@include('components.numberpicker', array(
-			'id' => 'new_amount',
-			'label' => 'New stock amount',
-			'hintId' => 'new_amount_qu_unit',
-			'min' => 0,
-			'decimals' => $userSettings['stock_decimal_places_amounts'],
+			@include('components.productamountpicker', array(
 			'value' => 1,
-			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
+			'label' => 'New stock amount',
 			'additionalAttributes' => 'data-not-equal="-1"',
 			'additionalHtmlElements' => '<div id="inventory-change-info"
-				class="form-text text-muted small d-none"></div>',
+				class="form-text text-muted d-none ml-3 my-0 w-100"></div>',
 			'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info"
-				class="text-small text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
+				class="text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
 			))
 
 			@if(boolval($userSettings['show_purchased_date_on_purchase']))
