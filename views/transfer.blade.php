@@ -5,6 +5,11 @@
 @section('viewJsName', 'transfer')
 
 @section('content')
+<script>
+	Grocy.QuantityUnits = {!! json_encode($quantityUnits) !!};
+	Grocy.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
+</script>
+
 <div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
 		<h2 class="title">@yield('title')</h2>
@@ -21,13 +26,6 @@
 			'disallowAddProductWorkflows' => true
 			))
 
-			@php /*@include('components.locationpicker', array(
-			'id' => 'location_from',
-			'locations' => $locations,
-			'isRequired' => true,
-			'label' => 'Transfer From Location'
-			))*/ @endphp
-
 			<div class="form-group">
 				<label for="location_id_from">{{ $__t('From location') }}</label>
 				<select required
@@ -43,38 +41,36 @@
 				<div class="invalid-feedback">{{ $__t('A location is required') }}</div>
 			</div>
 
-			@include('components.numberpicker', array(
-			'id' => 'amount',
-			'label' => 'Amount',
-			'hintId' => 'amount_qu_unit',
-			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
-			'decimals' => $userSettings['stock_decimal_places_amounts'],
+			@include('components.productamountpicker', array(
 			'value' => 1,
-			'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
 			'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info"
 				class="text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
 			))
 
 			<div class="form-group">
-				<label for="use_specific_stock_entry">
-					<input type="checkbox"
+				<div class="custom-control custom-checkbox">
+					<input type="hidden"
+						name="use_specific_stock_entry"
+						value="0">
+					<input class="form-check-input custom-control-input"
+						type="checkbox"
 						id="use_specific_stock_entry"
-						name="use_specific_stock_entry"> {{ $__t('Use a specific stock item') }}
-					<span class="small text-muted">{{ $__t('The first item in this list would be picked by the default rule which is "First expiring first, then first in first out"') }}</span>
-				</label>
+						name="use_specific_stock_entry"
+						value="1">
+					<label class="form-check-label custom-control-label"
+						for="use_specific_stock_entry">{{ $__t('Use a specific stock item') }}
+						&nbsp;<i class="fas fa-question-circle"
+							data-toggle="tooltip"
+							title="{{ $__t('The first item in this list would be picked by the default rule which is "First expiring first, then first in first out"') }}"></i>
+					</label>
+				</div>
 				<select disabled
-					class="form-control"
+					class="form-control mt-2"
 					id="specific_stock_entry"
 					name="specific_stock_entry">
 					<option></option>
 				</select>
 			</div>
-
-			@php /*@include('components.locationpicker', array(
-			'locations' => $locations,
-			'isRequired' => true,
-			'label' => 'Transfer to Location'
-			))*/ @endphp
 
 			<div class="form-group">
 				<label for="location_id_to">{{ $__t('To location') }}</label>

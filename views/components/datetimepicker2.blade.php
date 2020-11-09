@@ -18,8 +18,12 @@
 <div id="datetimepicker2-wrapper"
 	class="form-group {{ $additionalGroupCssClasses }}">
 	<label for="{{ $id }}">{{ $__t($label) }}
+		@if(!empty($hint))
+		&nbsp;<i class="fas fa-question-circle"
+			data-toggle="tooltip"
+			title="{{ $hint }}"></i>
+		@endif
 		<span class="small text-muted">
-			@if(!empty($hint)){{ $__t($hint) }}@endif
 			<time id="datetimepicker2-timeago"
 				class="timeago timeago-contextual"></time>
 		</span>

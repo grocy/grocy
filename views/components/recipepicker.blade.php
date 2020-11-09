@@ -6,15 +6,19 @@
 @php if(empty($prefillById)) { $prefillById = ''; } @endphp
 @php if(!isset($isRequired)) { $isRequired = true; } @endphp
 @php if(empty($hint)) { $hint = ''; } @endphp
-@php if(empty($hintId)) { $hintId = ''; } @endphp
 @php if(empty($nextInputSelector)) { $nextInputSelector = ''; } @endphp
 
 <div class="form-group"
 	data-next-input-selector="{{ $nextInputSelector }}"
 	data-prefill-by-name="{{ $prefillByName }}"
 	data-prefill-by-id="{{ $prefillById }}">
-	<label for="recipe_id">{{ $__t('Recipe') }}&nbsp;&nbsp;<span id="{{ $hintId }}"
-			class="small text-muted">{{ $hint }}</span></label>
+	<label for="recipe_id">{{ $__t('Recipe') }}
+		@if(!empty($hint))
+		&nbsp;<i class="fas fa-question-circle"
+			data-toggle="tooltip"
+			title="{{ $hint }}"></i>
+		@endif
+	</label>
 	<select class="form-control recipe-combobox"
 		id="recipe_id"
 		name="recipe_id"

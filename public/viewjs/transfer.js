@@ -87,13 +87,13 @@
 							$("#use_specific_stock_entry").click();
 						}
 
+						Grocy.Components.ProductAmountPicker.Reset();
 						$("#location_id_from").find("option").remove().end().append("<option></option>");
-						$("#amount").attr("min", "1");
-						$("#amount").attr("max", "999999");
-						$("#amount").attr("step", "1");
-						$("#amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '1'));
-						$('#amount').val(parseFloat(Grocy.UserSettings.stock_default_transfer_amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }));
-						$('#amount_qu_unit').text("");
+						$("#display_amount").attr("min", "1");
+						$("#display_amount").attr("max", "999999");
+						$("#display_amount").attr("step", "1");
+						$("#display_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '1'));
+						$('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_transfer_amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }));
 						$("#tare-weight-handling-info").addClass("d-none");
 						Grocy.Components.ProductPicker.Clear();
 						$("#location_id_to").val("");
@@ -137,13 +137,15 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 		Grocy.Api.Get('stock/products/' + productId,
 			function(productDetails)
 			{
+				Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
+				Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.quantity_unit_purchase.id);
+
 				if (productDetails.product.enable_tare_weight_handling == 1)
 				{
 					Grocy.Components.ProductPicker.GetPicker().parent().find(".invalid-feedback").text(__t('Products with Tare weight enabled are currently not supported for Transfer. Please select another product.'));
 					Grocy.Components.ProductPicker.Clear();
 					return;
 				}
-				$('#amount_qu_unit').text(productDetails.quantity_unit_stock.name);
 
 				$("#location_id_from").find("option").remove().end().append("<option></option>");
 				Grocy.Api.Get("stock/products/" + productId + '/locations',
@@ -187,20 +189,20 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 
 				if (productDetails.product.allow_partial_units_in_stock == 1)
 				{
-					$("#amount").attr("min", "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
-					$("#amount").attr("step", "." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
-					$("#amount").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1"));
+					$("#display_amount").attr("min", "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
+					$("#display_amount").attr("step", "." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
+					$("#display_amount").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1"));
 				}
 				else
 				{
-					$("#amount").attr("min", "1");
-					$("#amount").attr("step", "1");
-					$("#amount").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', "1", parseFloat(productDetails.stock_amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 4 })));
+					$("#display_amount").attr("min", "1");
+					$("#display_amount").attr("step", "1");
+					$("#display_amount").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', "1", parseFloat(productDetails.stock_amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 4 })));
 				}
 
 				if (productDetails.product.enable_tare_weight_handling == 1)
 				{
-					$("#amount").attr("min", productDetails.product.tare_weight);
+					$("#display_amount").attr("min", productDetails.product.tare_weight);
 					$("#tare-weight-handling-info").removeClass("d-none");
 				}
 				else
@@ -219,7 +221,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				{
 					Grocy.Components.ProductPicker.HideCustomError();
 					Grocy.FrontendHelpers.ValidateForm('transfer-form');
-					$('#amount').focus();
+					$('#display_amount').focus();
 				}
 			},
 			function(xhr)
@@ -230,7 +232,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 	}
 });
 
-$('#amount').val(parseFloat(Grocy.UserSettings.stock_default_transfer_amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 4 }));
+$('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_transfer_amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: 4 }));
 Grocy.FrontendHelpers.ValidateForm('transfer-form');
 
 $("#location_id_from").on('change', function(e)
@@ -282,14 +284,14 @@ $("#location_id_from").on('change', function(e)
 						sumValue = sumValue + parseFloat(stockEntry.amount);
 					}
 				});
-				$("#amount").attr("max", sumValue);
+				$("#display_amount").attr("max", sumValue);
 				if (sumValue == 0)
 				{
-					$("#amount").parent().find(".invalid-feedback").text(__t('There are no units available at this location'));
+					$("#display_amount").parent().find(".invalid-feedback").text(__t('There are no units available at this location'));
 				}
 				else
 				{
-					$("#amount").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', "1", sumValue));
+					$("#display_amount").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', "1", sumValue));
 				}
 			},
 			function(xhr)
@@ -311,7 +313,7 @@ $("#location_id_to").on('change', function(e)
 	}
 });
 
-$('#amount').on('focus', function(e)
+$('#display_amount').on('focus', function(e)
 {
 	$(this).select();
 });
@@ -358,14 +360,14 @@ $("#specific_stock_entry").on("change", function(e)
 						sumValue = sumValue + parseFloat(stockEntry.amount);
 					}
 				});
-				$("#amount").attr("max", sumValue);
+				$("#display_amount").attr("max", sumValue);
 				if (sumValue == 0)
 				{
-					$("#amount").parent().find(".invalid-feedback").text(__t('There are no units available at this location'));
+					$("#display_amount").parent().find(".invalid-feedback").text(__t('There are no units available at this location'));
 				}
 				else
 				{
-					$("#amount").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', "1", sumValue));
+					$("#display_amount").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', "1", sumValue));
 				}
 			},
 			function(xhr)
@@ -376,8 +378,8 @@ $("#specific_stock_entry").on("change", function(e)
 	}
 	else
 	{
-		$("#amount").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', "1", $('option:selected', this).attr('amount')));
-		$("#amount").attr("max", $('option:selected', this).attr('amount'));
+		$("#display_amount").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', "1", $('option:selected', this).attr('amount')));
+		$("#display_amount").attr("max", $('option:selected', this).attr('amount'));
 	}
 });
 

@@ -65,6 +65,13 @@ Grocy.Components.ProductAmountPicker.AllowAnyQu = function(keepInitialQu = false
 	$(".input-group-productamountpicker").trigger("change");
 }
 
+Grocy.Components.ProductAmountPicker.Reset = function()
+{
+	$("#qu_id").find("option").remove();
+	$("#qu-conversion-info").addClass("d-none");
+	$("#qu-display_amount-info").val("");
+}
+
 $(".input-group-productamountpicker").on("change", function()
 {
 	var destinationQuName = $("#qu_id").attr("data-destination-qu-name");

@@ -3,10 +3,13 @@
 @endpush
 
 @php if(empty($additionalGroupCssClasses)) { $additionalGroupCssClasses = ''; } @endphp
+@php if(empty($additionalHtmlContextHelp)) { $additionalHtmlContextHelp = ''; } @endphp
 
-<div class="form-group row {{ $additionalGroupCssClasses }}">
+<div class="form-group row mb-0 {{ $additionalGroupCssClasses }}">
 	<div class="col">
-		<div class="row">
+		{!! $additionalHtmlContextHelp !!}
+
+		<div class="row my-0">
 
 			@include('components.numberpicker', array(
 			'id' => 'display_amount',
@@ -15,11 +18,12 @@
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,
 			'invalidFeedback' => $__t('This cannot be negative and must be an integral number'),
-			'additionalGroupCssClasses' => 'col-4 mb-1',
-			'additionalCssClasses' => 'input-group-productamountpicker'
+			'additionalGroupCssClasses' => 'col-5 mb-1',
+			'additionalCssClasses' => 'input-group-productamountpicker',
+			'additionalHtmlContextHelp' => ''
 			))
 
-			<div class="form-group col-8 mb-1">
+			<div class="form-group col-7 mb-1">
 				<label for="qu_id">{{ $__t('Quantity unit') }}</label>
 				<select required
 					class="form-control input-group-productamountpicker"

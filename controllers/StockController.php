@@ -15,7 +15,9 @@ class StockController extends BaseController
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
 			'barcodes' => $productBarcodes,
 			'recipes' => $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name'),
-			'locations' => $this->getDatabase()->locations()->orderBy('name')
+			'locations' => $this->getDatabase()->locations()->orderBy('name'),
+			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name'),
+			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
 		]);
 	}
 
@@ -209,7 +211,9 @@ class StockController extends BaseController
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
 			'barcodes' => $productBarcodes,
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name'),
-			'locations' => $this->getDatabase()->locations()->orderBy('name')
+			'locations' => $this->getDatabase()->locations()->orderBy('name'),
+			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name'),
+			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
 		]);
 	}
 
@@ -433,7 +437,9 @@ class StockController extends BaseController
 		return $this->renderPage($response, 'transfer', [
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
 			'barcodes' => $productBarcodes,
-			'locations' => $this->getDatabase()->locations()->orderBy('name')
+			'locations' => $this->getDatabase()->locations()->orderBy('name'),
+			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name'),
+			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
 		]);
 	}
 
