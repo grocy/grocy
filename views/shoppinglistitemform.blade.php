@@ -9,6 +9,11 @@
 @section('viewJsName', 'shoppinglistitemform')
 
 @section('content')
+<script>
+	Grocy.QuantityUnits = {!! json_encode($quantityUnits) !!};
+	Grocy.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
+</script>
+
 <div class="row">
 	<div class="col">
 		<h2 class="title">@yield('title')</h2>
@@ -62,13 +67,9 @@
 				))
 			</div>
 			@php if($mode == 'edit') { $value = $listItem->amount; } else { $value = 1; } @endphp
-			@include('components.numberpicker', array(
-			'id' => 'amount',
-			'label' => 'Amount',
-			'hintId' => 'amount_qu_unit',
-			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
-			'decimals' => $userSettings['stock_decimal_places_amounts'],
+			@include('components.productamountpicker', array(
 			'value' => $value,
+			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1')
 			))
 

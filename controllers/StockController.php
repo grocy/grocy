@@ -30,9 +30,7 @@ class StockController extends BaseController
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
 			'barcodes' => $productBarcodes,
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name'),
-			'locations' => $this->getDatabase()->locations()->orderBy('name'),
-			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name'),
-			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
+			'locations' => $this->getDatabase()->locations()->orderBy('name')
 		]);
 	}
 
@@ -347,7 +345,9 @@ class StockController extends BaseController
 			return $this->renderPage($response, 'shoppinglistitemform', [
 				'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
 				'shoppingLists' => $this->getDatabase()->shopping_lists()->orderBy('name'),
-				'mode' => 'create'
+				'mode' => 'create',
+				'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name'),
+				'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
 			]);
 		}
 		else
@@ -356,7 +356,9 @@ class StockController extends BaseController
 				'listItem' => $this->getDatabase()->shopping_list($args['itemId']),
 				'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
 				'shoppingLists' => $this->getDatabase()->shopping_lists()->orderBy('name'),
-				'mode' => 'edit'
+				'mode' => 'edit',
+				'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name'),
+				'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
 			]);
 		}
 	}

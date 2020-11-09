@@ -139,7 +139,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 			function(productDetails)
 			{
 				Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
-				Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.quantity_unit_purchase.id);
+				Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.quantity_unit_stock.id);
 
 				if (productDetails.product.enable_tare_weight_handling == 1)
 				{

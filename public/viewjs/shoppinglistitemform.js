@@ -3,6 +3,8 @@
 	e.preventDefault();
 
 	var jsonData = $('#shoppinglist-form').serializeJSON();
+	delete jsonData.display_amount;
+	delete jsonData.qu_id;
 	Grocy.FrontendHelpers.BeginUiBusy("shoppinglist-form");
 
 	if (GetUriParam("updateexistingproduct") !== undefined)
@@ -118,9 +120,10 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 		Grocy.Api.Get('stock/products/' + productId,
 			function(productDetails)
 			{
-				$('#amount_qu_unit').text(productDetails.quantity_unit_purchase.name);
+				Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_purchase.id);
+				Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.quantity_unit_purchase.id);
 
-				$('#amount').focus();
+				$('#display_amount').focus();
 				Grocy.FrontendHelpers.ValidateForm('shoppinglist-form');
 			},
 			function(xhr)
@@ -140,7 +143,7 @@ if (Grocy.EditMode === "edit")
 	Grocy.Components.ProductPicker.GetPicker().trigger('change');
 }
 
-$('#amount').on('focus', function(e)
+$('#display_amount').on('focus', function(e)
 {
 	$(this).select();
 });
@@ -174,8 +177,8 @@ if (GetUriParam("list") !== undefined)
 
 if (GetUriParam("amount") !== undefined)
 {
-	$("#amount").val(parseFloat(GetUriParam("amount")).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }));
+	$("#display_amount").val(parseFloat(GetUriParam("amount")).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }));
 	Grocy.FrontendHelpers.ValidateForm('shoppinglist-form');
 }
 
-$("#amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1"));
+$("#display_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1"));

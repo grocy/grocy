@@ -6,6 +6,7 @@
 @php if(empty($additionalHtmlContextHelp)) { $additionalHtmlContextHelp = ''; } @endphp
 @php if(empty($additionalHtmlElements)) { $additionalHtmlElements = ''; } @endphp
 @php if(empty($label)) { $label = 'Amount'; } @endphp
+@php if(empty($initialQuId)) { $initialQuId = '-1'; } @endphp
 
 <div class="form-group row {{ $additionalGroupCssClasses }}">
 	<div class="col">

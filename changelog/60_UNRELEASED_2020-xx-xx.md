@@ -25,7 +25,7 @@
   - (Thanks @fipwmaqzufheoxq92ebc for the initial work on this)
 
 ### Stock improvements/fixes
-- On the purchase/consume/transfer/inventory page any product related quantity unit can now be used
+- On the purchase/consume/transfer/inventory/shopping list item page (so everywhere) any product related quantity unit can now be used
 - When creating a quantity unit conversion it's now possible to automatically create the inverse conversion (thanks @kriddles)
 - Optimized/clarified what the total/unit price is on the purchase page (thanks @kriddles)
 - On the purchase page the amount field is now displayed above/before the best before date for better `TAB` handling (thanks @kriddles)

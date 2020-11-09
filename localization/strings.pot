@@ -1374,7 +1374,7 @@ msgstr ""
 msgid "Override for product"
 msgstr ""
 
-msgid "This equals %1$s %2$s in stock"
+msgid "This equals %1$s %2$s"
 msgstr ""
 
 msgid "Edit QU conversion"

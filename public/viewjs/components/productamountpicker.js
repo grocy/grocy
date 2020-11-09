@@ -87,7 +87,7 @@ $(".input-group-productamountpicker").on("change", function()
 	else
 	{
 		$("#qu-conversion-info").removeClass("d-none");
-		$("#qu-conversion-info").text(__t("This equals %1$s %2$s in stock", destinationAmount.toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }), destinationQuName));
+		$("#qu-conversion-info").text(__t("This equals %1$s %2$s", destinationAmount.toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }), destinationQuName));
 	}
 
 	$("#amount").val(destinationAmount.toFixed(4).replace(/0*$/g, ''));

@@ -272,7 +272,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 			function(productDetails)
 			{
 				Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
-				Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.quantity_unit_purchase.id);
+				Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.quantity_unit_stock.id);
 
 				$("#location_id").find("option").remove().end().append("<option></option>");
 				Grocy.Api.Get("stock/products/" + productId + '/locations',
