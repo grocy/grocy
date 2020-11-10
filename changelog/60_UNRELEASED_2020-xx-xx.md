@@ -6,7 +6,7 @@
 
 ### New feature: Prefill purchase data by barcodes
 - Imagine you buy for example eggs in different pack sizes and they have different barcodes
-- Each product barcode can be assigned a amount, quantity unit and store (on the product edit page), which is then automatically prefilled on the purchase page
+- Each product barcode can be assigned an amount, quantity unit and store (on the product edit page), which is then automatically prefilled on the purchase page
 - (Thanks @kriddles for the initial work on this)
 
 ### New feature: Permissions
