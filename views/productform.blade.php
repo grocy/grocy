@@ -256,7 +256,7 @@
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
 			'additionalCssClasses' => 'input-group-qu',
 			'additionalHtmlElements' => '<p id="qu-conversion-info"
-				class="form-text text-muted small d-none"></p>'
+				class="form-text text-info d-none"></p>'
 			))
 
 			<div class="form-group">
