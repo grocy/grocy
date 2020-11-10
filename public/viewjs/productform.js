@@ -8,6 +8,12 @@
 			Grocy.Api.UploadFile($("#product-picture")[0].files[0], 'productpictures', jsonData.picture_file_name,
 				(result) =>
 				{
+					if (Grocy.ProductEditFormRedirectUri == "reload")
+					{
+						window.location.reload();
+						return
+					}
+
 					var returnTo = GetUriParam('returnto');
 					if (GetUriParam("closeAfterCreation") !== undefined)
 					{
@@ -32,6 +38,12 @@
 		}
 		else
 		{
+			if (Grocy.ProductEditFormRedirectUri == "reload")
+			{
+				window.location.reload();
+				return
+			}
+
 			var returnTo = GetUriParam('returnto');
 			if (GetUriParam("closeAfterCreation") !== undefined)
 			{
@@ -144,9 +156,6 @@ $('.input-group-qu').on('change', function(e)
 	{
 		$('#qu-conversion-info').addClass('d-none');
 	}
-
-	$("#qu-conversion-headline-info").text(__t('1 %s is the same as...', $("#qu_id_stock option:selected").text()));
-	quConversionsTable.column(4).search("from_qu_id xx" + $("#qu_id_stock").val().toString() + "xx").draw();
 
 	$("#tare_weight_qu_info").text($("#qu_id_stock option:selected").text());
 
@@ -301,14 +310,14 @@ if (Grocy.EditMode === 'create')
 
 var quConversionsTable = $('#qu-conversions-table').DataTable({
 	'order': [[1, 'asc']],
-	"orderFixed": [[3, 'asc']],
+	"orderFixed": [[4, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 },
-		{ 'visible': false, 'targets': 3 }
+		{ 'visible': false, 'targets': 4 }
 	],
 	'rowGroup': {
-		dataSrc: 3
+		dataSrc: 4
 	}
 });
 $('#qu-conversions-table tbody').removeClass("d-none");

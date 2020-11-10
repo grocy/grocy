@@ -51,7 +51,6 @@
 			<div class="form-group">
 				<label for="from_qu_id">{{ $__t('Quantity unit from') }}</label>
 				<select required
-					disabled
 					class="form-control input-group-qu"
 					id="from_qu_id"
 					name="from_qu_id">
@@ -89,7 +88,7 @@
 			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,
-			'invalidFeedback' => $__t('This cannot be lower than %1$s and must be a valid number with max. %2$s decimal places', '0', '3'),
+			'invalidFeedback' => $__t('This cannot be lower than %1$s and must be a valid number with max. %2$s decimal places', '0', $userSettings['stock_decimal_places_amounts']),
 			'additionalHtmlElements' => '<p id="qu-conversion-info"
 				class="form-text text-info d-none"></p>',
 			'additionalCssClasses' => 'input-group-qu'
@@ -100,11 +99,7 @@
 					<input type="hidden"
 						name="create_inverse:skip"
 						value="0">
-					<input @if($mode=='create'
-						&&
-						$product==null)
-						checked
-						@endif
+					<input checked
 						class="form-check-input custom-control-input"
 						type="checkbox"
 						id="create_inverse"
@@ -112,9 +107,9 @@
 						value="1">
 					<label class="form-check-label custom-control-label"
 						for="create_inverse">{{ $__t('Create inverse QU conversion') }}</label>
-					<span id="qu-conversion-inverse-info"
-						class="form-text text-info d-none"></span>
 				</div>
+				<span id="qu-conversion-inverse-info"
+					class="form-text text-info d-none"></span>
 			</div>
 
 			@include('components.userfieldsform', array(

@@ -4,7 +4,6 @@ AS
 SELECT
 	pr.parent_product_id AS product_id,
 	IFNULL((SELECT SUM(amount) FROM stock WHERE product_id = pr.parent_product_id), 0) AS amount,
-	IFNULL(ROUND((SELECT SUM(amount / qu_factor_purchase_to_stock) FROM stock WHERE product_id = pr.parent_product_id), 2), 0)  as factor_purchase_amount,
 	SUM(s.amount * IFNULL(qucr.factor, 1.0)) AS amount_aggregated,
 	IFNULL(ROUND((SELECT SUM(IFNULL(price,0) * amount) FROM stock WHERE product_id = pr.parent_product_id), 2), 0)  AS value,
 	MIN(s.best_before_date) AS best_before_date,
@@ -33,7 +32,6 @@ UNION
 SELECT
 	pr.sub_product_id AS product_id,
 	SUM(s.amount) AS amount,
-	ROUND(SUM(s.amount / s.qu_factor_purchase_to_stock), 2) as factor_purchase_amount,
 	SUM(s.amount) AS amount_aggregated,
 	ROUND(SUM(IFNULL(s.price, 0) * s.amount), 2) AS value,
 	MIN(s.best_before_date) AS best_before_date,

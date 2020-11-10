@@ -94,7 +94,6 @@
 					<th>{{ $__t('Min. stock amount') }}</th>
 					<th>{{ $__t('QU purchase') }}</th>
 					<th>{{ $__t('QU stock') }}</th>
-					<th>{{ $__t('QU factor') }}</th>
 					<th>{{ $__t('Product group') }}</th>
 
 					@include('components.userfields_thead', array(
@@ -132,9 +131,6 @@
 					</td>
 					<td>
 						{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', $product->qu_id_stock)->name }}
-					</td>
-					<td>
-						<span class="locale-number locale-number-quantity-amount">{{ $product->qu_factor_purchase_to_stock }}</span>
 					</td>
 					<td>
 						@if(!empty($product->product_group_id)) {{ FindObjectInArrayByPropertyValue($productGroups, 'id', $product->product_group_id)->name }} @endif

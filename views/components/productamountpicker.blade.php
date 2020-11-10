@@ -7,6 +7,7 @@
 @php if(empty($additionalHtmlElements)) { $additionalHtmlElements = ''; } @endphp
 @php if(empty($label)) { $label = 'Amount'; } @endphp
 @php if(empty($initialQuId)) { $initialQuId = '-1'; } @endphp
+@php if(!isset($isRequired)) { $isRequired = true; } @endphp
 
 <div class="form-group row {{ $additionalGroupCssClasses }}">
 	<div class="col">
@@ -29,7 +30,9 @@
 
 			<div class="col-sm-7 col-xs-12">
 				<label for="qu_id">{{ $__t('Quantity unit') }}</label>
-				<select required
+				<select @if($isRequired)
+					required
+					@endif
 					class="form-control input-group-productamountpicker"
 					id="qu_id"
 					name="qu_id"

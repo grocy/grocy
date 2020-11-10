@@ -37,14 +37,14 @@
 				data-status-filter="overdue"
 				class="error-message status-filter-message responsive-button"></div>
 			<div class="float-right">
-				<a class="btn btn-sm btn-outline-info d-md-none mt-2"
+				<a class="btn btn-sm btn-outline-info d-md-none mt-1"
 					data-toggle="collapse"
 					href="#table-filter-row"
 					role="button">
 					<i class="fas fa-filter"></i>
 				</a>
 				<a id="clear-filter-button"
-					class="btn btn-sm btn-outline-info mt-2"
+					class="btn btn-sm btn-outline-info mt-1"
 					href="#">
 					{{ $__t('Clear filter') }}
 				</a>

@@ -2755,57 +2755,6 @@
 				}
 			}
 		},
-		"/productbarcodedetails/{barcode}": {
-			"get": {
-				"summary": "Executes a product barcode details lookoup via the configured plugin with the given barcode",
-				"tags": [
-					"Product"
-				],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "barcode",
-						"required": true,
-						"description": "The barcode to lookup up",
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"in": "query",
-						"name": "add",
-						"required": false,
-						"description": "When true, the product is added to the database on a successful lookup and the new product id is in included in the response",
-						"schema": {
-							"type": "boolean",
-							"default": false
-						}
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "An ProductBarcodeDetails object or null, when nothing was found for the given barcode",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/ProductBarcodeDetailsResponse"
-								}
-							}
-						}
-					},
-					"400": {
-						"description": "The operation was not successful (possible errors are: Plugin error)",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
-								}
-							}
-						}
-					}
-				}
-			}
-		},
 		"/recipes/{recipeId}/add-not-fulfilled-products-to-shoppinglist": {
 			"post": {
 				"summary": "Adds all missing products for the given recipe to the shopping list",
@@ -3940,8 +3889,9 @@
 							"id": "1",
 							"product_id": "13",
 							"barcode": "01321230213",
-							"qu_factor_purchase_to_stock": "10.0",
-							"shopping_location_id": "2"
+							"qu_id": "1",
+							"shopping_location_id": "2",
+							"amount": "10"
 						}
 					],
 					"last_purchased": null,
@@ -4004,12 +3954,15 @@
 					"barcode": {
 						"type": "string"
 					},
-					"qu_factor_purchase_to_stock": {
-						"type": "number",
-						"format": "number"
+					"qu_id": {
+						"type": "integer"
 					},
 					"shopping_location_id": {
 						"type": "integer"
+					},
+					"amount": {
+						"type": "number",
+						"format": "number"
 					}
 				}
 			},

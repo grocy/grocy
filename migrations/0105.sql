@@ -15,7 +15,6 @@ SELECT
     p.name AS product_name,
     (SELECT name FROM product_groups WHERE product_groups.id = product_group_id) AS product_group_name,
     EXISTS(SELECT * FROM shopping_list WHERE shopping_list.product_id = sc.product_id) AS on_shopping_list,
-    sc.factor_purchase_amount AS factor_purchase_amount,
     (SELECT name FROM quantity_units WHERE quantity_units.id = p.qu_id_purchase) AS qu_purchase_unit_name,
     (SELECT name_plural FROM quantity_units WHERE quantity_units.id = p.qu_id_purchase) AS qu_purchase_unit_name_plural,
     sc.is_aggregated_amount,
@@ -26,7 +25,7 @@ FROM (
         FROM stock_current
         WHERE best_before_date IS NOT NULL
         UNION
-        SELECT id,  0, 0, 0, 0, null, 0, 0, 0
+        SELECT id, 0, 0, 0, null, 0, 0, 0
         FROM stock_missing_products_including_opened
         WHERE id NOT IN (SELECT product_id FROM stock_current)
     ) sc
@@ -50,7 +49,6 @@ SELECT
     p.name AS product_name,
     (SELECT name FROM product_groups WHERE product_groups.id = product_group_id) AS product_group_name,
     EXISTS(SELECT * FROM shopping_list WHERE shopping_list.product_id = sc.product_id) AS on_shopping_list,
-    sc.factor_purchase_amount AS factor_purchase_amount,
     (SELECT name FROM quantity_units WHERE quantity_units.id = p.qu_id_purchase) AS qu_purchase_unit_name,
     (SELECT name_plural FROM quantity_units WHERE quantity_units.id = p.qu_id_purchase) AS qu_purchase_unit_name_plural,
     sc.is_aggregated_amount,

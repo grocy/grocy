@@ -486,6 +486,7 @@ canvas.drawingBuffer {
 .user-filter-message {
   display: inline-block;
   cursor: pointer;
+  line-height: 0.5;
 }
 
 .related-links .btn {

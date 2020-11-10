@@ -64,18 +64,6 @@
 				class="text-small text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
 			))
 
-			@include('components.numberpicker', array(
-			'id' => 'qu_factor_purchase_to_stock',
-			'label' => 'Factor purchase to stock quantity unit',
-			'value' => $stockEntry->qu_factor_purchase_to_stock,
-			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
-			'decimals' => $userSettings['stock_decimal_places_amounts'],
-			'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
-			'additionalCssClasses' => 'input-group-qu',
-			'additionalHtmlElements' => '<p id="qu-conversion-info"
-				class="form-text text-muted small d-none"></p>'
-			))
-
 			@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 			@php
 			if (empty($stockEntry->price))
@@ -134,10 +122,15 @@
 			'additionalGroupCssClasses' => 'date-only-datetimepicker'
 			))
 
-			<div class="checkbox">
-				<label for="open">
-					<input @if($stockEntry->open == 1) checked @endif type="checkbox" id="open" name="open"> {{ $__t('Opened') }}
-				</label>
+			<div class="form-group">
+				<div class="custom-control custom-checkbox">
+					<input type="hidden"
+						name="open"
+						value="1">
+					<input @if($stockEntry->open == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="open" name="open" value="1">
+					<label class="form-check-label custom-control-label"
+						for="open">{{ $__t('Opened') }}</label>
+				</div>
 			</div>
 
 			<button id="save-stockentry-button"

@@ -79,5 +79,5 @@ $('#location-form input').keydown(function(event)
 });
 
 Grocy.Components.UserfieldsForm.Load();
-$('#name').focus();
 Grocy.FrontendHelpers.ValidateForm('location-form');
+$('#name').focus();

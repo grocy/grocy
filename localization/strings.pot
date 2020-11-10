@@ -1942,3 +1942,15 @@ msgstr ""
 
 msgid "Save & return to quantity units"
 msgstr ""
+
+msgid "price"
+msgstr ""
+
+msgid "means %1$s per %2$s and %3$s per %4$s"
+msgstr ""
+
+msgid "New stock amount"
+msgstr ""
+
+msgid "Price per stock unit"
+msgstr ""

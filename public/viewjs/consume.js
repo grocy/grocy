@@ -48,7 +48,6 @@
 						var jsonDataBarcode = {};
 						jsonDataBarcode.barcode = addBarcode;
 						jsonDataBarcode.product_id = jsonForm.product_id;
-						jsonDataBarcode.qu_factor_purchase_to_stock = productDetails.product.qu_factor_purchase_to_stock;
 
 						Grocy.Api.Post('objects/product_barcodes', jsonDataBarcode,
 							function(result)

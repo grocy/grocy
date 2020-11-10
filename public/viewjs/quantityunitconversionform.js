@@ -174,12 +174,12 @@ $('.input-group-qu').on('change', function(e)
 
 	if (fromQuId && toQuId)
 	{
-		$('#qu-conversion-info').text(__t('This means 1 %1$s is the same as %2$s %3$s', $("#from_qu_id option:selected").text(), (1 * factor).toString(), __n((1 * factor).toString(), $("#to_qu_id option:selected").text(), $("#to_qu_id option:selected").data("plural-form"))));
+		$('#qu-conversion-info').text(__t('This means 1 %1$s is the same as %2$s %3$s', $("#from_qu_id option:selected").text(), parseFloat((1 * factor)).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }), __n((1 * factor).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }), $("#to_qu_id option:selected").text(), $("#to_qu_id option:selected").data("plural-form"))));
 		$('#qu-conversion-info').removeClass('d-none');
 
 		if (Grocy.EditMode === 'create')
 		{
-			$('#qu-conversion-inverse-info').text('(' + __t('This means 1 %1$s is the same as %2$s %3$s', $("#to_qu_id option:selected").text(), (1 / factor).toString(), __n((1 / factor).toString(), $("#from_qu_id option:selected").text(), $("#from_qu_id option:selected").data("plural-form"))) + ')');
+			$('#qu-conversion-inverse-info').text(__t('This means 1 %1$s is the same as %2$s %3$s', $("#to_qu_id option:selected").text(), parseFloat((1 / factor)).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }), __n((1 / factor).toString(), $("#from_qu_id option:selected").text(), $("#from_qu_id option:selected").data("plural-form"))));
 			$('#qu-conversion-inverse-info').removeClass('d-none');
 		}
 	}
@@ -196,3 +196,8 @@ Grocy.Components.UserfieldsForm.Load();
 $('.input-group-qu').trigger('change');
 $('#from_qu_id').focus();
 Grocy.FrontendHelpers.ValidateForm('quconversion-form');
+
+if (GetUriParam("qu-unit") !== undefined)
+{
+	$("#from_qu_id").attr("disabled", "");
+}

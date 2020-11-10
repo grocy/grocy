@@ -62,14 +62,14 @@
 				data-status-filter="belowminstockamount"
 				class="normal-message status-filter-message responsive-button"></div>
 			<div class="float-right">
-				<a class="btn btn-sm btn-outline-info d-md-none mt-2"
+				<a class="btn btn-sm btn-outline-info d-md-none mt-1"
 					data-toggle="collapse"
 					href="#table-filter-row"
 					role="button">
 					<i class="fas fa-filter"></i>
 				</a>
 				<a id="clear-filter-button"
-					class="btn btn-sm btn-outline-info mt-2"
+					class="btn btn-sm btn-outline-info mt-1"
 					href="#">
 					{{ $__t('Clear filter') }}
 				</a>
@@ -308,10 +308,6 @@
 							class="locale-number locale-number-quantity-amount">{{ $currentStockEntry->amount }}</span> <span id="product-{{ $currentStockEntry->product_id }}-qu-name">{{ $__n($currentStockEntry->amount, $currentStockEntry->qu_unit_name, $currentStockEntry->qu_unit_name_plural) }}</span>
 						<span id="product-{{ $currentStockEntry->product_id }}-opened-amount"
 							class="small font-italic">@if($currentStockEntry->amount_opened > 0){{ $__t('%s opened', $currentStockEntry->amount_opened) }}@endif</span>
-						@if($currentStockEntry->amount != $currentStockEntry->factor_purchase_amount)
-						<span id="product-{{ $currentStockEntry->product_id }}-factor-purchase-amount"
-							class="locale-number locale-number-quantity-amount">({{ $currentStockEntry->factor_purchase_amount }}</span> <span id="product-{{ $currentStockEntry->product_id }}-qu-purchase-name">{{ $__n($currentStockEntry->factor_purchase_amount, $currentStockEntry->qu_purchase_unit_name,$currentStockEntry->qu_purchase_unit_name_plural) }})</span>
-						@endif
 						@if($currentStockEntry->is_aggregated_amount == 1)
 						<span class="pl-1 text-secondary">
 							<i class="fas fa-custom-sigma-sign"></i> <span id="product-{{ $currentStockEntry->product_id }}-amount-aggregated"

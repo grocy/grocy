@@ -30,7 +30,9 @@ class StockController extends BaseController
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
 			'barcodes' => $productBarcodes,
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name'),
-			'locations' => $this->getDatabase()->locations()->orderBy('name')
+			'locations' => $this->getDatabase()->locations()->orderBy('name'),
+			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name'),
+			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
 		]);
 	}
 
@@ -107,20 +109,24 @@ class StockController extends BaseController
 
 		if ($args['productBarcodeId'] == 'new')
 		{
-			return $this->renderPage($response, 'productbarcodesform', [
+			return $this->renderPage($response, 'productbarcodeform', [
 				'mode' => 'create',
 				'barcodes' => $this->getDatabase()->product_barcodes()->orderBy('barcode'),
 				'product' => $product,
-				'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name')
+				'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name'),
+				'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name'),
+				'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
 			]);
 		}
 		else
 		{
-			return $this->renderPage($response, 'productbarcodesform', [
+			return $this->renderPage($response, 'productbarcodeform', [
 				'mode' => 'edit',
 				'barcode' => $this->getDatabase()->product_barcodes($args['productBarcodeId']),
 				'product' => $product,
-				'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name')
+				'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name'),
+				'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name'),
+				'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
 			]);
 		}
 	}

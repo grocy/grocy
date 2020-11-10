@@ -79,7 +79,7 @@ class StockService extends BaseService
 		}
 	}
 
-	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $quFactorPurchaseToStock = null, $locationId = null, $shoppingLocationId = null, &$transactionId = null)
+	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId = null, $shoppingLocationId = null, &$transactionId = null)
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -87,11 +87,6 @@ class StockService extends BaseService
 		}
 
 		$productDetails = (object) $this->GetProductDetails($productId);
-
-		if ($quFactorPurchaseToStock == null)
-		{
-			$quFactorPurchaseToStock = $productDetails->product->qu_factor_purchase_to_stock;
-		}
 
 		// Tare weight handling
 		// The given amount is the new total amount including the container weight (gross)
@@ -144,7 +139,6 @@ class StockService extends BaseService
 				'location_id' => $locationId,
 				'transaction_id' => $transactionId,
 				'shopping_location_id' => $shoppingLocationId,
-				'qu_factor_purchase_to_stock' => $quFactorPurchaseToStock,
 				'user_id' => GROCY_USER_ID
 			]);
 			$logRow->save();
@@ -160,7 +154,6 @@ class StockService extends BaseService
 				'price' => $price,
 				'location_id' => $locationId,
 				'shopping_location_id' => $shoppingLocationId,
-				'qu_factor_purchase_to_stock' => $quFactorPurchaseToStock
 			]);
 			$stockRow->save();
 
@@ -342,7 +335,7 @@ class StockService extends BaseService
 		}
 	}
 
-	public function EditStockEntry(int $stockRowId, float $amount, $bestBeforeDate, $locationId, $shoppingLocationId, $price, $open, $purchasedDate, $quFactorPurchaseToStock)
+	public function EditStockEntry(int $stockRowId, float $amount, $bestBeforeDate, $locationId, $shoppingLocationId, $price, $open, $purchasedDate)
 	{
 		$stockRow = $this->getDatabase()->stock()->where('id = :1', $stockRowId)->fetch();
 
@@ -364,7 +357,6 @@ class StockService extends BaseService
 			'opened_date' => $stockRow->opened_date,
 			'location_id' => $stockRow->location_id,
 			'shopping_location_id' => $stockRow->shopping_location_id,
-			'qu_factor_purchase_to_stock' => $stockRow->qu_factor_purchase_to_stock,
 			'correlation_id' => $correlationId,
 			'transaction_id' => $transactionId,
 			'stock_row_id' => $stockRow->id,
@@ -391,7 +383,6 @@ class StockService extends BaseService
 			'shopping_location_id' => $shoppingLocationId,
 			'opened_date' => $openedDate,
 			'open' => $open,
-			'qu_factor_purchase_to_stock' => $quFactorPurchaseToStock,
 			'purchased_date' => $purchasedDate
 		]);
 
@@ -406,7 +397,6 @@ class StockService extends BaseService
 			'opened_date' => $stockRow->opened_date,
 			'location_id' => $locationId,
 			'shopping_location_id' => $shoppingLocationId,
-			'qu_factor_purchase_to_stock' => $stockRow->qu_factor_purchase_to_stock,
 			'correlation_id' => $correlationId,
 			'transaction_id' => $transactionId,
 			'stock_row_id' => $stockRow->id,
@@ -528,7 +518,6 @@ class StockService extends BaseService
 		{
 			$stockCurrentRow = new \stdClass();
 			$stockCurrentRow->amount = 0;
-			$stockCurrentRow->factor_purchase_amount = 0;
 			$stockCurrentRow->value = 0;
 			$stockCurrentRow->amount_opened = 0;
 			$stockCurrentRow->amount_aggregated = 0;
@@ -539,7 +528,6 @@ class StockService extends BaseService
 		$productLastPurchased = $this->getDatabase()->products_last_purchased()->where('product_id', $productId)->fetch();
 		$lastPurchasedDate = null;
 		$lastPrice = null;
-		$lastQuFactorPurchaseToStock = null;
 		$lastShoppingLocation = null;
 		$avgPrice = null;
 		$oldestPrice = null;
@@ -547,7 +535,6 @@ class StockService extends BaseService
 		{
 			$lastPurchasedDate = $productLastPurchased->purchased_date;
 			$lastPrice = $productLastPurchased->price;
-			$lastQuFactorPurchaseToStock = $productLastPurchased->qu_factor_purchase_to_stock;
 			$lastShoppingLocation = $productLastPurchased->shopping_location_id;
 			$avgPriceRow = $this->getDatabase()->products_average_price()->where('product_id', $productId)->fetch();
 			if ($avgPriceRow)
@@ -587,7 +574,6 @@ class StockService extends BaseService
 			'last_purchased' => $lastPurchasedDate,
 			'last_used' => $productLastUsed,
 			'stock_amount' => $stockCurrentRow->amount,
-			'stock_factor_purchase_amount' => $stockCurrentRow->factor_purchase_amount,
 			'stock_value' => $stockCurrentRow->value,
 			'stock_amount_opened' => $stockCurrentRow->amount_opened,
 			'stock_amount_aggregated' => $stockCurrentRow->amount_aggregated,
@@ -595,7 +581,6 @@ class StockService extends BaseService
 			'quantity_unit_purchase' => $quPurchase,
 			'quantity_unit_stock' => $quStock,
 			'last_price' => $lastPrice,
-			'last_qu_factor_purchase_to_stock' => $lastQuFactorPurchaseToStock,
 			'avg_price' => $avgPrice,
 			'oldest_price' => $oldestPrice,
 			'last_shopping_location_id' => $lastShoppingLocation,
@@ -728,7 +713,7 @@ class StockService extends BaseService
 				$bookingAmount = $newAmount;
 			}
 
-			return $this->AddProduct($productId, $bookingAmount, $bestBeforeDate, self::TRANSACTION_TYPE_INVENTORY_CORRECTION, $purchasedDate, $price, null, $locationId, $shoppingLocationId);
+			return $this->AddProduct($productId, $bookingAmount, $bestBeforeDate, self::TRANSACTION_TYPE_INVENTORY_CORRECTION, $purchasedDate, $price, $locationId, $shoppingLocationId);
 		}
 		elseif ($newAmount < $productDetails->stock_amount + $containerWeight)
 		{
@@ -964,7 +949,8 @@ class StockService extends BaseService
 
 			$correlationId = uniqid();
 			if ($amount >= $stockEntry->amount)
-			{ // Take the whole stock entry
+			{
+				// Take the whole stock entry
 				$logRowForLocationFrom = $this->getDatabase()->stock_log()->createRow([
 					'product_id' => $stockEntry->product_id,
 					'amount' => $stockEntry->amount * -1,
@@ -973,7 +959,6 @@ class StockService extends BaseService
 					'stock_id' => $stockEntry->stock_id,
 					'transaction_type' => self::TRANSACTION_TYPE_TRANSFER_FROM,
 					'price' => $stockEntry->price,
-					'qu_factor_purchase_to_stock' => $stockEntry->qu_factor_purchase_to_stock,
 					'opened_date' => $stockEntry->opened_date,
 					'location_id' => $stockEntry->location_id,
 					'correlation_id' => $correlationId,
@@ -990,7 +975,6 @@ class StockService extends BaseService
 					'stock_id' => $stockEntry->stock_id,
 					'transaction_type' => self::TRANSACTION_TYPE_TRANSFER_TO,
 					'price' => $stockEntry->price,
-					'qu_factor_purchase_to_stock' => $stockEntry->qu_factor_purchase_to_stock,
 					'opened_date' => $stockEntry->opened_date,
 					'location_id' => $locationIdTo,
 					'correlation_id' => $correlationId,
@@ -1018,7 +1002,6 @@ class StockService extends BaseService
 					'stock_id' => $stockEntry->stock_id,
 					'transaction_type' => self::TRANSACTION_TYPE_TRANSFER_FROM,
 					'price' => $stockEntry->price,
-					'qu_factor_purchase_to_stock' => $stockEntry->qu_factor_purchase_to_stock,
 					'opened_date' => $stockEntry->opened_date,
 					'location_id' => $stockEntry->location_id,
 					'correlation_id' => $correlationId,
@@ -1035,7 +1018,6 @@ class StockService extends BaseService
 					'stock_id' => $stockEntry->stock_id,
 					'transaction_type' => self::TRANSACTION_TYPE_TRANSFER_TO,
 					'price' => $stockEntry->price,
-					'qu_factor_purchase_to_stock' => $stockEntry->qu_factor_purchase_to_stock,
 					'opened_date' => $stockEntry->opened_date,
 					'location_id' => $locationIdTo,
 					'correlation_id' => $correlationId,
@@ -1056,7 +1038,6 @@ class StockService extends BaseService
 					'best_before_date' => $newBestBeforeDate,
 					'purchased_date' => $stockEntry->purchased_date,
 					'stock_id' => $stockEntry->stock_id,
-					'qu_factor_purchase_to_stock' => $stockEntry->qu_factor_purchase_to_stock,
 					'price' => $stockEntry->price,
 					'location_id' => $locationIdTo,
 					'open' => $stockEntry->open,
@@ -1237,7 +1218,6 @@ class StockService extends BaseService
 				'best_before_date' => $logRow->best_before_date,
 				'purchased_date' => $logRow->purchased_date,
 				'price' => $logRow->price,
-				'qu_factor_purchase_to_stock' => $logRow->qu_factor_purchase_to_stock,
 				'location_id' => $logRow->location_id,
 				'open' => $open,
 				'opened_date' => $openedDate

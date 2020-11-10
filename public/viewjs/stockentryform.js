@@ -27,7 +27,6 @@
 		jsonData.location_id = 1;
 	}
 	jsonData.price = price;
-	jsonData.qu_factor_purchase_to_stock = jsonForm.qu_factor_purchase_to_stock;
 
 	jsonData.open = $("#open").is(":checked");
 

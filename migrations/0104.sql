@@ -10,7 +10,6 @@ select
 	sl.best_before_date,
 	sl.purchased_date,
 	sl.price,
-	sl.qu_factor_purchase_to_stock,
 	sl.location_id,
 	sl.shopping_location_id
 	FROM stock_log sl
@@ -53,7 +52,7 @@ SELECT
 	sw.amount,
 	sw.best_before_date,
 	sw.purchased_date,
-	sw.price, sw.qu_factor_purchase_to_stock,
+	sw.price,
 	sw.location_id,
 	sw.shopping_location_id
 	FROM stock sw

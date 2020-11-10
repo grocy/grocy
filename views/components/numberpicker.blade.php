@@ -15,6 +15,7 @@
 @php if(empty($additionalHtmlContextHelp)) { $additionalHtmlContextHelp = ''; } @endphp
 @php if(!isset($isRequired)) { $isRequired = true; } @endphp
 @php if(!isset($noNameAttribute)) { $noNameAttribute = false; } @endphp
+@php if(empty($contextInfoId)) { $additionalHtmlContextHelp = ''; } @endphp
 
 <div id="group-{{ $id }}"
 	class="form-group {{ $additionalGroupCssClasses }}">
@@ -22,7 +23,12 @@
 		{{ $__t($label) }}&nbsp;
 		<span id="{{ $hintId }}"
 			data-toggle="tooltip"
-			title="{{ $hint }}"></span>{!! $additionalHtmlContextHelp !!}</label>
+			title="{{ $hint }}"></span>{!! $additionalHtmlContextHelp !!}
+		@if(!empty($contextInfoId))
+		<span id="{{ $contextInfoId }}"
+			class="small text-muted"></span>
+		@endif
+	</label>
 	<div class="input-group">
 		<input {!!
 			$additionalAttributes

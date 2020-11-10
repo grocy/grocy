@@ -6,9 +6,14 @@
 @section('title', $__t('Create Barcode'))
 @endif
 
-@section('viewJsName', 'productbarcodesform')
+@section('viewJsName', 'productbarcodeform')
 
 @section('content')
+<script>
+	Grocy.QuantityUnits = {!! json_encode($quantityUnits) !!};
+	Grocy.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
+</script>
+
 <div class="row">
 	<div class="col">
 		<div class="title-related-links">
@@ -27,11 +32,13 @@
 
 		<script>
 			Grocy.EditMode = '{{ $mode }}';
+			Grocy.EditObjectProduct = {!! json_encode($product) !!};
 		</script>
 
 		@if($mode == 'edit')
 		<script>
 			Grocy.EditObjectId = {{ $barcode->id }};
+			Grocy.EditObject = {!! json_encode($barcode) !!};
 		</script>
 		@endif
 
@@ -56,21 +63,15 @@
 				</div>
 			</div>
 
-			@php if($mode == 'edit') { $value = $barcode->qu_factor_purchase_to_stock; } else { $value = 1; } @endphp
-			@include('components.numberpicker', array(
-			'id' => 'qu_factor_purchase_to_stock',
-			'label' => 'Factor purchase to stock quantity unit',
-			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
-			'decimals' => $userSettings['stock_decimal_places_amounts'],
+			@php if($mode == 'edit') { $value = $barcode->amount; } else { $value = ''; } @endphp
+			@include('components.productamountpicker', array(
 			'value' => $value,
-			'isRequired' => true,
-			'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
-			'additionalCssClasses' => 'input-group-qu',
+			'isRequired' => false
 			))
 
 			@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 			<div class="form-group">
-				<label for="shopping_location_id_id">{{ $__t('Default store') }}</label>
+				<label for="shopping_location_id_id">{{ $__t('Store') }}</label>
 				<select class="form-control"
 					id="shopping_location_id"
 					name="shopping_location_id">
@@ -78,7 +79,7 @@
 					@foreach($shoppinglocations as $store)
 					<option @if($mode=='edit'
 						&&
-						$store->id == $product->shopping_location_id) selected="selected" @endif value="{{ $store->id }}">{{ $store->name }}</option>
+						$store->id == $barcode->shopping_location_id) selected="selected" @endif value="{{ $store->id }}">{{ $store->name }}</option>
 					@endforeach
 				</select>
 			</div>

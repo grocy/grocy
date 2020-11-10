@@ -42,8 +42,6 @@
 
 		<strong>{{ $__t('Stock amount') }}:</strong> <span id="productcard-product-stock-amount"
 			class="locale-number locale-number-quantity-amount"></span> <span id="productcard-product-stock-qu-name"></span>
-		<span id="productcard-product-stock-factor-purchase-amount"
-			class="locale-number locale-number-quantity-amount"></span> <span id="productcard-product-stock-factor-purchase-qu-name"></span>
 		<span id="productcard-product-stock-opened-amount"
 			class="small font-italic locale-number locale-number-quantity-amount"></span><br>
 		<strong>{{ $__t('Stock value') }}:</strong> <span id="productcard-product-stock-value"

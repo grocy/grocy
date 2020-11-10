@@ -48,7 +48,6 @@
 					<th>{{ $__t('Store') }}</th>
 					<th>{{ $__t('Price') }}</th>
 					@endif
-					<th>{{ $__t('Factor purchase to stock quantity unit') }}</th>
 					<th>{{ $__t('Purchased date') }}</th>
 
 					@include('components.userfields_thead', array(
@@ -214,9 +213,6 @@
 						{{ $stockEntry->price }}
 					</td>
 					@endif
-					<td id="stock-{{ $stockEntry->id }}-qu-factor-purchase-to-stock">
-						{{ $stockEntry->qu_factor_purchase_to_stock }}
-					</td>
 					<td>
 						<span id="stock-{{ $stockEntry->id }}-purchased-date">{{ $stockEntry->purchased_date }}</span>
 						<time id="stock-{{ $stockEntry->id }}-purchased-date-timeago"

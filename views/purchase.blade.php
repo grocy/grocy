@@ -103,7 +103,7 @@
 			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_prices'] - 1) . '1',
 			'decimals' => $userSettings['stock_decimal_places_prices'],
 			'value' => '',
-			'hintId' => 'price-hint',
+			'contextInfoId' => 'price-hint',
 			'invalidFeedback' => $__t('The price cannot be lower than %s', '0'),
 			'isRequired' => false,
 			'additionalGroupCssClasses' => 'mb-1'
@@ -117,7 +117,7 @@
 					value="unit-price"
 					checked>
 				<label class="form-check-label"
-					for="price-type-unit-price">{{ $__t('Price') }}</label>
+					for="price-type-unit-price">{{ $__t('Unit price') }}</label>
 			</div>
 			<div class="form-check form-check-inline mb-3">
 				<input class="form-check-input"

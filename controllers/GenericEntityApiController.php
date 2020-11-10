@@ -116,8 +116,7 @@ class GenericEntityApiController extends BaseApiController
 				$userfields = null;
 			}
 
-			$object = $this->getDatabase()->{$args['entity']}
-			($args['objectId']);
+			$object = $this->getDatabase()->{$args['entity']}($args['objectId']);
 
 			if ($object == null)
 			{
@@ -136,8 +135,7 @@ class GenericEntityApiController extends BaseApiController
 
 	public function GetObjects(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$objects = $this->getDatabase()->{$args['entity']}
-		();
+		$objects = $this->getDatabase()->{$args['entity']}();
 		$allUserfields = $this->getUserfieldsService()->GetAllValues($args['entity']);
 
 		foreach ($objects as $object)
@@ -184,13 +182,11 @@ class GenericEntityApiController extends BaseApiController
 		{
 			try
 			{
-				return $this->FilteredApiResponse($response, $this->getDatabase()->{$args['entity']}
-					()->where('name LIKE ?', '%' . $args['searchString'] . '%'), $request->getQueryParams());
+				return $this->FilteredApiResponse($response, $this->getDatabase()->{$args['entity']}(), $request->getQueryParams());
 			}
 			catch (\PDOException $ex)
 			{
 				throw new HttpBadRequestException($request, $ex->getMessage(), $ex);
-				//return $this->GenericErrorResponse($response, 'The given entity has no field "name"', $ex);
 			}
 		}
 		else

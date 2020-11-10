@@ -108,13 +108,6 @@ class StockApiController extends BaseApiController
 				$shoppingLocationId = $requestBody['shopping_location_id'];
 			}
 
-			$quFactorPurchaseToStock = null;
-
-			if (array_key_exists('qu_factor_purchase_to_stock', $requestBody) && is_numeric($requestBody['qu_factor_purchase_to_stock']))
-			{
-				$quFactorPurchaseToStock = $requestBody['qu_factor_purchase_to_stock'];
-			}
-
 			$transactionType = StockService::TRANSACTION_TYPE_PURCHASE;
 
 			if (array_key_exists('transaction_type', $requestBody) && !empty($requestBody['transactiontype']))
@@ -122,7 +115,7 @@ class StockApiController extends BaseApiController
 				$transactionType = $requestBody['transactiontype'];
 			}
 
-			$bookingId = $this->getStockService()->AddProduct($args['productId'], $requestBody['amount'], $bestBeforeDate, $transactionType, $purchasedDate, $price, $quFactorPurchaseToStock, $locationId, $shoppingLocationId);
+			$bookingId = $this->getStockService()->AddProduct($args['productId'], $requestBody['amount'], $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId, $shoppingLocationId);
 			return $this->ApiResponse($response, $this->getDatabase()->stock_log($bookingId));
 		}
 		catch (\Exception $ex)
@@ -372,7 +365,7 @@ class StockApiController extends BaseApiController
 				$shoppingLocationId = $requestBody['shopping_location_id'];
 			}
 
-			$bookingId = $this->getStockService()->EditStockEntry($args['entryId'], $requestBody['amount'], $bestBeforeDate, $locationId, $shoppingLocationId, $price, $requestBody['open'], $requestBody['purchased_date'], $requestBody['qu_factor_purchase_to_stock']);
+			$bookingId = $this->getStockService()->EditStockEntry($args['entryId'], $requestBody['amount'], $bestBeforeDate, $locationId, $shoppingLocationId, $price, $requestBody['open'], $requestBody['purchased_date']);
 			return $this->ApiResponse($response, $this->getDatabase()->stock_log($bookingId));
 		}
 		catch (\Exception $ex)
@@ -517,18 +510,6 @@ class StockApiController extends BaseApiController
 		{
 			$args['productId'] = $this->getStockService()->GetProductIdFromBarcode($args['barcode']);
 			return $this->OpenProduct($request, $response, $args);
-		}
-		catch (\Exception $ex)
-		{
-			return $this->GenericErrorResponse($response, $ex->getMessage());
-		}
-	}
-
-	public function ProductBarcodeDetails(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
-	{
-		try
-		{
-			return $this->ApiResponse($response, $this->getDatabase()->product_barcodes()->where('barcode = :1', $args['barcode'])->fetch());
 		}
 		catch (\Exception $ex)
 		{

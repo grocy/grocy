@@ -298,7 +298,7 @@
 			'value' => $value,
 			'invalidFeedback' => $__t('This cannot be lower than %s', '0'),
 			'additionalAttributes' => $additionalAttributes,
-			'hintId' => 'tare_weight_qu_info'
+			'contextInfoId' => 'tare_weight_qu_info'
 			))
 			@php $additionalAttributes = '' @endphp
 
@@ -383,82 +383,6 @@
 			<div class="col">
 				<div class="title-related-links">
 					<h4>
-						{{ $__t('QU conversions') }}
-					</h4>
-					<button class="btn btn-outline-dark d-md-none mt-2 float-right order-1 order-md-3"
-						type="button"
-						data-toggle="collapse"
-						data-target="#related-links">
-						<i class="fas fa-ellipsis-v"></i>
-					</button>
-					<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
-						id="related-links">
-						<a class="btn btn-outline-primary btn-sm m-1 mt-md-0 mb-md-0 float-right show-as-dialog-link"
-							href="{{ $U('/quantityunitconversion/new?embedded&product=' . $product->id ) }}">
-							{{ $__t('Add') }}
-						</a>
-					</div>
-				</div>
-
-				<h5 id="qu-conversion-headline-info"
-					class="text-muted font-italic"></h5>
-
-				<table id="qu-conversions-table"
-					class="table table-sm table-striped nowrap w-100">
-					<thead>
-						<tr>
-							<th class="border-right"></th>
-							<th>{{ $__t('Factor') }}</th>
-							<th>{{ $__t('Unit') }}</th>
-							<th class="d-none">Hidden group</th>
-							<th class="d-none">Hidden from_qu_id</th>
-						</tr>
-					</thead>
-					<tbody class="d-none">
-						@if($mode == "edit")
-						@foreach($quConversions as $quConversion)
-						@if($quConversion->product_id == $product->id || $quConversion->product_id == null)
-						<tr>
-							<td class="fit-content border-right">
-								<a class="btn btn-sm btn-info show-as-dialog-link @if($quConversion->product_id == null) disabled @endif"
-									href="{{ $U('/quantityunitconversion/' . $quConversion->id . '?embedded&product=' . $product->id ) }}">
-									<i class="fas fa-edit"></i>
-								</a>
-								<a class="btn btn-sm btn-danger qu-conversion-delete-button @if($quConversion->product_id == null) disabled @endif"
-									href="#"
-									data-qu-conversion-id="{{ $quConversion->id }}">
-									<i class="fas fa-trash"></i>
-								</a>
-							</td>
-							<td>
-								<span class="locale-number locale-number-quantity-amount">{{ $quConversion->factor }}</span>
-							</td>
-							<td>
-								{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', $quConversion->to_qu_id)->name }}
-							</td>
-							<td class="d-none">
-								@if($quConversion->product_id != null)
-								{{ $__t('Product overrides') }}
-								@else
-								{{ $__t('Default conversions') }}
-								@endif
-							</td>
-							<td class="d-none">
-								from_qu_id xx{{ $quConversion->from_qu_id }}xx
-							</td>
-						</tr>
-						@endif
-						@endforeach
-						@endif
-					</tbody>
-				</table>
-			</div>
-		</div>
-
-		<div class="row mt-5">
-			<div class="col">
-				<div class="title-related-links">
-					<h4>
 						{{ $__t('Barcodes') }}
 					</h4>
 					<button class="btn btn-outline-dark d-md-none mt-2 float-right order-1 order-md-3"
@@ -485,10 +409,11 @@
 						<tr>
 							<th class="border-right"></th>
 							<th>{{ $__t('Barcode') }}</th>
-							<th>{{ $__t('Factor purchase to stock quantity unit') }}</th>
 							@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 							<th>{{ $__t('Store') }}</th>
 							@endif
+							<th>{{ $__t('Quantity unit') }}</th>
+							<th>{{ $__t('Amount') }}</th>
 						</tr>
 					</thead>
 					<tbody class="d-none">
@@ -513,9 +438,6 @@
 							<td>
 								{{ $barcode->barcode }}
 							</td>
-							<td>
-								<span class="locale-number locale-number-quantity-amount">{{ $barcode->qu_factor_purchase_to_stock }}</span>
-							</td>
 							@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 							<td id="barcode-shopping-location">
 								@if (FindObjectInArrayByPropertyValue($shoppinglocations, 'id', $barcode->shopping_location_id) !== null)
@@ -523,6 +445,96 @@
 								@endif
 							</td>
 							@endif
+							<td>
+								@if(!empty($barcode->qu_id))
+								<span class="locale-number locale-number-quantity-amount">{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', $barcode->qu_id)->name }}</span>
+								@endif
+							</td>
+							<td>
+								@if(!empty($barcode->amount))
+								{{ $barcode->amount }}
+								@endif
+							</td>
+						</tr>
+						@endif
+						@endforeach
+						@endif
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="row mt-5">
+			<div class="col">
+				<div class="title-related-links">
+					<h4>
+						{{ $__t('QU conversions') }}
+					</h4>
+					<button class="btn btn-outline-dark d-md-none mt-2 float-right order-1 order-md-3"
+						type="button"
+						data-toggle="collapse"
+						data-target="#related-links">
+						<i class="fas fa-ellipsis-v"></i>
+					</button>
+					<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
+						id="related-links">
+						<a class="btn btn-outline-primary btn-sm m-1 mt-md-0 mb-md-0 float-right show-as-dialog-link"
+							href="{{ $U('/quantityunitconversion/new?embedded&product=' . $product->id ) }}">
+							{{ $__t('Add') }}
+						</a>
+					</div>
+				</div>
+
+				<h5 id="qu-conversion-headline-info"
+					class="text-muted font-italic"></h5>
+
+				<table id="qu-conversions-table"
+					class="table table-sm table-striped nowrap w-100">
+					<thead>
+						<tr>
+							<th class="border-right"></th>
+							<th>{{ $__t('Quantity unit from') }}</th>
+							<th>{{ $__t('Quantity unit to') }}</th>
+							<th>{{ $__t('Factor') }}</th>
+							<th class="d-none">Hidden group</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody class="d-none">
+						@if($mode == "edit")
+						@foreach($quConversions as $quConversion)
+						@if($quConversion->product_id == $product->id || $quConversion->product_id == null && ($quConversion->product_id != null || $quConversion->from_qu_id == $product->qu_id_purchase || $quConversion->from_qu_id == $product->qu_id_stock || $quConversion->to_qu_id == $product->qu_id_purchase || $quConversion->to_qu_id == $product->qu_id_stock))
+						<tr>
+							<td class="fit-content border-right">
+								<a class="btn btn-sm btn-info show-as-dialog-link @if($quConversion->product_id == null) disabled @endif"
+									href="{{ $U('/quantityunitconversion/' . $quConversion->id . '?embedded&product=' . $product->id ) }}">
+									<i class="fas fa-edit"></i>
+								</a>
+								<a class="btn btn-sm btn-danger qu-conversion-delete-button @if($quConversion->product_id == null) disabled @endif"
+									href="#"
+									data-qu-conversion-id="{{ $quConversion->id }}">
+									<i class="fas fa-trash"></i>
+								</a>
+							</td>
+							<td>
+								{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', $quConversion->from_qu_id)->name }}
+							</td>
+							<td>
+								{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', $quConversion->to_qu_id)->name }}
+							</td>
+							<td>
+								<span class="locale-number locale-number-quantity-amount">{{ $quConversion->factor }}</span>
+							</td>
+							<td class="d-none">
+								@if($quConversion->product_id != null)
+								{{ $__t('Product overrides') }}
+								@else
+								{{ $__t('Default conversions') }}
+								@endif
+							</td>
+							<td class="font-italic">
+								{{ $__t('This means 1 %1$s is the same as %2$s %3$s', FindObjectInArrayByPropertyValue($quantityunits, 'id', $quConversion->from_qu_id)->name, $quConversion->factor, FindObjectInArrayByPropertyValue($quantityunits, 'id', $quConversion->to_qu_id)->name) }}
+							</td>
 						</tr>
 						@endif
 						@endforeach

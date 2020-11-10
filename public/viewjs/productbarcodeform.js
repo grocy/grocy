@@ -3,6 +3,9 @@
 	e.preventDefault();
 
 	var jsonData = $('#barcode-form').serializeJSON();
+	jsonData.amount = jsonData.display_amount;
+	delete jsonData.display_amount;
+
 	Grocy.FrontendHelpers.BeginUiBusy("barcode-form");
 
 	if (Grocy.EditMode === 'create')
@@ -36,12 +39,17 @@
 	window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/product/" + GetUriParam("product")));
 });
 
-$('#barcode').on('change', function(e)
+$('#barcode').on('keyup', function(e)
 {
 	Grocy.FrontendHelpers.ValidateForm('barcode-form');
 });
 
-$('#qu_factor_purchase_to_stock').on('change', function(e)
+$('#qu_id').on('change', function(e)
+{
+	Grocy.FrontendHelpers.ValidateForm('barcode-form');
+});
+
+$('#display_amount').on('keyup', function(e)
 {
 	Grocy.FrontendHelpers.ValidateForm('barcode-form');
 });
@@ -62,4 +70,13 @@ $('#barcode-form input').keydown(function(event)
 		}
 	}
 });
+
+Grocy.Components.ProductAmountPicker.Reload(Grocy.EditObjectProduct.id, Grocy.EditObjectProduct.qu_id_purchase);
+if (Grocy.EditMode == "edit")
+{
+	$("#display_amount").val(Grocy.EditObject.amount);
+	Grocy.Components.ProductAmountPicker.SetQuantityUnit(Grocy.EditObject.qu_id);
+}
+
 Grocy.FrontendHelpers.ValidateForm('barcode-form');
+$('#barcode').focus();
