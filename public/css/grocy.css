@@ -380,10 +380,9 @@ a:not([href]) {
 	font-weight: 900;
 }
 
-@media (max-width:992px) {
-	#mainNav .navbar-collapse .navbar-sidenav > .nav-item > .nav-link {
-		padding: 0.8em;
-	}
+#mainNav .navbar-collapse .navbar-sidenav > .nav-item > .nav-link,
+#mainNav .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level > li > a {
+	padding: 0.75em;
 }
 
 @media (min-width:992px) {
