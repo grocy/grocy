@@ -1,46 +1,22 @@
-DROP VIEW stock_current;
-CREATE VIEW stock_current
+CREATE VIEW product_price_history
 AS
 SELECT
-	pr.parent_product_id AS product_id,
-	IFNULL((SELECT SUM(amount) FROM stock WHERE product_id = pr.parent_product_id), 0) AS amount,
-	SUM(s.amount * IFNULL(qucr.factor, 1.0)) AS amount_aggregated,
-	IFNULL(ROUND((SELECT SUM(IFNULL(price,0) * amount) FROM stock WHERE product_id = pr.parent_product_id), 2), 0)  AS value,
-	MIN(s.best_before_date) AS best_before_date,
-	IFNULL((SELECT SUM(amount) FROM stock WHERE product_id = pr.parent_product_id AND open = 1), 0) AS amount_opened,
-	IFNULL((SELECT SUM(amount) FROM stock WHERE product_id IN (SELECT sub_product_id FROM products_resolved WHERE parent_product_id = pr.parent_product_id) AND open = 1), 0) * IFNULL(qucr.factor, 1) AS amount_opened_aggregated,
-	CASE WHEN p_sub.parent_product_id IS NOT NULL THEN 1 ELSE 0 END AS is_aggregated_amount
-FROM products_resolved pr
-JOIN stock s
-	ON pr.sub_product_id = s.product_id
-JOIN products p_parent
-	ON pr.parent_product_id = p_parent.id
-	AND p_parent.active = 1
-JOIN products p_sub
-	ON pr.sub_product_id = p_sub.id
-	AND p_sub.active = 1
-LEFT JOIN quantity_unit_conversions_resolved qucr
-	ON pr.sub_product_id = qucr.product_id
-	AND p_sub.qu_id_stock = qucr.from_qu_id
-	AND p_parent.qu_id_stock = qucr.to_qu_id
-GROUP BY pr.parent_product_id
-HAVING SUM(s.amount) > 0
-
-UNION
-
--- This is the same as above but sub products not rolled up (no QU conversion and column is_aggregated_amount = 0 here)
-SELECT
-	pr.sub_product_id AS product_id,
-	SUM(s.amount) AS amount,
-	SUM(s.amount) AS amount_aggregated,
-	ROUND(SUM(IFNULL(s.price, 0) * s.amount), 2) AS value,
-	MIN(s.best_before_date) AS best_before_date,
-	IFNULL((SELECT SUM(amount) FROM stock WHERE product_id = s.product_id AND open = 1), 0) AS amount_opened,
-	IFNULL((SELECT SUM(amount) FROM stock WHERE product_id = s.product_id AND open = 1), 0) AS amount_opened_aggregated,
-	0 AS is_aggregated_amount
-FROM products_resolved pr
-JOIN stock s
-	ON pr.sub_product_id = s.product_id
-WHERE pr.parent_product_id != pr.sub_product_id
-GROUP BY pr.sub_product_id
-HAVING SUM(s.amount) > 0;
+	sl.product_id AS id, -- Dummy, LessQL needs an id column
+	sl.product_id,
+	sl.price,
+	sl.purchased_date,
+	sl.shopping_location_id
+FROM stock_log sl
+WHERE sl.transaction_type IN ('purchase', 'inventory-correction', 'stock-edit-new')
+	AND sl.undone = 0
+	AND sl.price IS NOT NULL
+	AND sl.id NOT IN (
+			-- These are edited purchase and inventory-correction rows
+			SELECT sl_origin.id
+			FROM stock_log sl_origin
+			JOIN stock_log sl_edit
+				ON sl_origin.stock_id = sl_edit.stock_id
+				AND sl_edit.transaction_type = 'stock-edit-new'
+				AND sl_edit.id > sl_origin.id
+			WHERE sl_origin.transaction_type IN ('purchase', 'inventory-correction')
+		);

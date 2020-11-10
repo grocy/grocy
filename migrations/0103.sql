@@ -141,20 +141,3 @@ WHERE pr.parent_product_id != pr.sub_product_id
 GROUP BY pr.sub_product_id
 HAVING SUM(s.amount) > 0;
 
-DROP VIEW products_resolved;
-CREATE VIEW products_resolved AS
-SELECT
-	p.parent_product_id parent_product_id,
-	p.id as sub_product_id
-FROM products p
-	WHERE p.parent_product_id IS NOT NULL
-	AND p.active = 1
-
-UNION
-
-SELECT
-	p.id parent_product_id,
-	p.id as sub_product_id
-FROM products p
-	WHERE p.parent_product_id IS NULL
-	AND p.active = 1;
