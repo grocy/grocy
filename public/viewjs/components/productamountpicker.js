@@ -9,6 +9,8 @@ Grocy.Components.ProductAmountPicker.Reload = function(productId, destinationQuI
 	{
 		$("#qu_id").find("option").remove().end();
 		$("#qu_id").attr("data-destination-qu-name", FindObjectInArrayByPropertyValue(Grocy.QuantityUnits, 'id', destinationQuId).name);
+		$("#qu_id").attr("data-destination-qu-name-plural", FindObjectInArrayByPropertyValue(Grocy.QuantityUnits, 'id', destinationQuId).name_plural);
+
 		conversionsForProduct.forEach(conversion =>
 		{
 			var factor = parseFloat(conversion.factor);
@@ -86,11 +88,11 @@ Grocy.Components.ProductAmountPicker.Reset = function()
 
 $(".input-group-productamountpicker").on("change", function()
 {
-	var destinationQuName = $("#qu_id").attr("data-destination-qu-name");
 	var selectedQuName = $("#qu_id option:selected").text();
 	var quFactor = $("#qu_id option:selected").attr("data-qu-factor");
 	var amount = $("#display_amount").val();
 	var destinationAmount = amount / quFactor;
+	var destinationQuName = __n(destinationAmount, $("#qu_id").attr("data-destination-qu-name"), $("#qu_id").attr("data-destination-qu-name-plural"))
 
 	if (destinationQuName == selectedQuName || Grocy.Components.ProductAmountPicker.AllowAnyQuEnabled || amount.toString().isEmpty() || selectedQuName.toString().isEmpty())
 	{
