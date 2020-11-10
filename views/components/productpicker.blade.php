@@ -26,6 +26,11 @@
 			data-toggle="tooltip"
 			title="{{ $__t('Type a new product name or barcode and hit TAB or ENTER to start a workflow') }}"></i>
 		@endif
+		@if(!empty($hint))
+		<i class="fas fa-question-circle"
+			data-toggle="tooltip"
+			title="{{ $hint }}"></i>
+		@endif
 		<span id="barcode-lookup-disabled-hint"
 			class="small text-muted d-none float-right"> {{ $__t('Barcode lookup is disabled') }}</span>
 		<i id="barcode-lookup-hint"

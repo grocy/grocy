@@ -95,6 +95,7 @@
 			'disabled' => $isSubProductOfOthers,
 			'hint' => $hint
 			))
+			@php $hint = ''; @endphp
 
 			<div class="form-group">
 				<label for="description">{{ $__t('Description') }}</label>
