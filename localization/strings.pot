@@ -782,9 +782,6 @@ msgstr ""
 msgid "No file selected"
 msgstr ""
 
-msgid "If you don't select a file, the current picture will not be altered"
-msgstr ""
-
 msgid "Delete"
 msgstr ""
 
@@ -795,9 +792,6 @@ msgid "Select file"
 msgstr ""
 
 msgid "Image of product %s"
-msgstr ""
-
-msgid "This product cannot be deleted because it is in stock, please remove the stock amount first."
 msgstr ""
 
 msgid "Delete not possible"
@@ -819,9 +813,6 @@ msgid "Edit equipment"
 msgstr ""
 
 msgid "Create equipment"
-msgstr ""
-
-msgid "If you don't select a file, the current instruction manual will not be altered"
 msgstr ""
 
 msgid "No instruction manual available"
@@ -1944,9 +1935,6 @@ msgid "Save & return to quantity units"
 msgstr ""
 
 msgid "price"
-msgstr ""
-
-msgid "means %1$s per %2$s and %3$s per %4$s"
 msgstr ""
 
 msgid "New stock amount"
