@@ -42,7 +42,7 @@ Grocy.Components.DateTimePicker2.Clear = function()
 		$("#datetimepicker2-shortcut").click();
 	}
 
-	$('#datetimepicker-timeago').text('');
+	$('#datetimepicker2-timeago').text('');
 }
 
 Grocy.Components.DateTimePicker2.ChangeFormat = function(format)
@@ -266,8 +266,8 @@ Grocy.Components.DateTimePicker2.GetInputElement().on('keyup', function(e)
 
 Grocy.Components.DateTimePicker2.GetInputElement().on('input', function(e)
 {
-	$('#datetimepicker-timeago').attr("datetime", Grocy.Components.DateTimePicker2.GetValue());
-	EmptyElementWhenMatches('#datetimepicker-timeago', __t('timeago_nan'));
+	$('#datetimepicker2-timeago').attr("datetime", Grocy.Components.DateTimePicker2.GetValue());
+	EmptyElementWhenMatches('#datetimepicker2-timeago', __t('timeago_nan'));
 	RefreshContextualTimeago("#datetimepicker2-wrapper");
 });
 

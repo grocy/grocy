@@ -370,6 +370,21 @@ if (Grocy.Components.DateTimePicker)
 	});
 }
 
+if (Grocy.Components.DateTimePicker2)
+{
+	Grocy.Components.DateTimePicker2.GetInputElement().on('change', function(e)
+	{
+		Grocy.FrontendHelpers.ValidateForm('purchase-form');
+	});
+
+	Grocy.Components.DateTimePicker2.GetInputElement().on('keypress', function(e)
+	{
+		Grocy.FrontendHelpers.ValidateForm('purchase-form');
+	});
+
+	Grocy.Components.DateTimePicker2.GetInputElement().trigger("input");
+}
+
 $('#price').on('change', function(e)
 {
 	refreshPriceHint();
