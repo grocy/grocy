@@ -17,7 +17,10 @@ Grocy.Components.ProductAmountPicker.Reload = function(productId, destinationQuI
 				factor = 1;
 			}
 
-			$("#qu_id").append('<option value="' + conversion.to_qu_id + '" data-qu-factor="' + factor + '">' + conversion.to_qu_name + '</option>');
+			if (!$('#qu_id option[value="' + conversion.to_qu_id + '"]').length) // Don't add the destination QU multiple times
+			{
+				$("#qu_id").append('<option value="' + conversion.to_qu_id + '" data-qu-factor="' + factor + '">' + conversion.to_qu_name + '</option>');
+			}
 		});
 	}
 
