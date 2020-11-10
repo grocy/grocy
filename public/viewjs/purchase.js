@@ -163,6 +163,7 @@ if (Grocy.Components.ProductPicker !== undefined)
 				{
 					Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
 					Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.quantity_unit_purchase.id);
+					$('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_purchase_amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }));
 
 					var barcode_shopping_location_id = null;
 
@@ -270,6 +271,7 @@ if (Grocy.Components.ProductPicker !== undefined)
 									if (barcode.amount != null)
 									{
 										$("#display_amount").val(barcode.amount);
+										$("#display_amount").select();
 									}
 
 									if (barcode.qu_id != null)

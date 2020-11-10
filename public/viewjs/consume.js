@@ -272,6 +272,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 			{
 				Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
 				Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.quantity_unit_stock.id);
+				$('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_consume_amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }));
 
 				$("#location_id").find("option").remove().end().append("<option></option>");
 				Grocy.Api.Get("stock/products/" + productId + '/locations',
