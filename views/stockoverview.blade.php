@@ -160,8 +160,8 @@
 					<th class="d-none">Hidden location</th>
 					<th class="d-none">Hidden status</th>
 					<th class="d-none">Hidden product group</th>
-					<th>{{ $__t('Calories') }}</th>
 					<th>{{ $__t('Calories') }} ({{ $__t('Per stock quantity unit') }})</th>
+					<th>{{ $__t('Calories') }}</th>
 
 					@include('components.userfields_thead', array(
 					'userfields' => $userfields
