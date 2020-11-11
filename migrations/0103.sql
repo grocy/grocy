@@ -78,6 +78,14 @@ FROM products_old;
 
 DROP TABLE products_old;
 
+CREATE TRIGGER cascade_change_qu_id_stock AFTER UPDATE ON products
+BEGIN
+	UPDATE recipes_pos
+	SET qu_id = NEW.qu_id_stock
+	WHERE product_id = NEW.id
+		AND qu_id = OLD.qu_id_stock;
+END;
+
 DROP VIEW stock_current_location_content;
 CREATE VIEW stock_current_location_content
 AS
