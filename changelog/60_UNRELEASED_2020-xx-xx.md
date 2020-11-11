@@ -94,6 +94,35 @@
 - New Userfield type "File" to attach any file, will be rendered as a link to the file in tables (if enabled) (thanks @fipwmaqzufheoxq92ebc)
 - New Userfield type "Picture" to attach a picture, the picture will be rendered (small) in tables (if enabled) (thanks @fipwmaqzufheoxq92ebc)
 
+### General & other improvements/fixes
+- UI refresh / style improvements (thanks @zsarnett for the idea and initial work on this)
+- Improved mobile views (thanks @4lloyd for the idea and initial work on this)
+  - The buttons on the top of each page and the filter row is now collapsed (use the ellipsis/filter button to show them, this also superseded the shopping list compact view)
+  - Tables are horizontally scrollable (instead of collapsing columns which don't fit)
+- Table columns can now be shown/hidden (new little eye icon on the top left corner on each table)
+  - There are also new columns on some pages, hidden by default
+- Dialogs are now used everywhere where appropriate instead of jumping between pages (for exampel when adding/editing shopping list items)
+- Added a "Clear filter"-button on all pages (with filters) to quickly reset applied filters
+- The data path (previously fixed to the `data` folder) is now configurable, making it possible to run multiple grocy instances from the same directory (with different `config.php` files / different database, etc.) (thanks @fgrsnau)
+  - Via an environment variable `GROCY_DATAPATH` (higher priority)
+  - Via an FastCGI parameter `GROCY_DATAPATH` (lower priority)
+- The language can now be set per user (see the new user settings page / top right corner settings menu) (thanks @fipwmaqzufheoxq92ebc)
+  - Additionally, the language is now also auto-guessed based on the browser locale (HTTP-Header `Accept-Language`)
+  - The `config.php` option `CULTURE` was renamed to `DEFAULT_LOCALE`
+  - So the used language is based on (in that order)
+    - The user setting
+    - If not set, then based on browser locale
+    - If no matching localizaton was found, `DEFAULT_LOCALE` from `config.php` is used
+- Performance improvements (page loading time) of the stock overview page (thanks @fipwmaqzufheoxq92ebc)
+- The prerequisites checker now also checks for the minimum required SQLite version (thanks @Forceu)
+- Replaced (again, added before in v2.7.0, then reverted in v2.7.1 due to some problems) [QuaggaJS](https://github.com/serratus/quaggaJS) (seems to be unmaintained) by [Quagga2](https://github.com/ericblade/quagga2)
+- More `config.php` settings (see the section `Component configuration for Quagga2`) to tweak Quagga2 (this is the component used for device camera for barcode scanning) (thanks @andrelam)
+- Some localization string fixes (thanks @duckfullstop)
+- Fixed that XSS / HTML injection was possible through some user input fields (low severity / not really a problem as this could not be abused unauthenticated)
+- New translations: (thanks all the translators)
+  - Greek (demo available at https://el.demo.grocy.info)
+  - Korean (demo available at https://ko.demo.grocy.info)
+
 ### API improvements/fixes
 - Breaking changes:
   - All prices are now related to the products **stock** quantity unit (instead of the purchase QU)
@@ -133,30 +162,3 @@
 - Fixed that the endpoint `/stock/consume` returned the response code `200` and an empty response body when `stock_entry_id` was set (consuming a specific stock entry) but invalid (now returns the response code `400`) (thanks @fipwmaqzufheoxq92ebc)
 - Endpoint `/calendar/ical`: Fixed that "Track date only"-chores were always set to happen at 12am (are treated as all-day events now)
 - Fixed (again) that CORS was broken
-
-### General & other improvements/fixes
-- UI refresh / style improvements (thanks @zsarnett for the idea and initial work on this)
-- Improved mobile views (thanks @4lloyd for the idea and initial work on this)
-  - The buttons on the top of each page and the filter row is now collapsed (use the ellipsis/filter button to show them, this also superseded the shopping list compact view)
-  - Tables are horizontally scrollable (instead of collapsing columns which don't fit)
-- Dialogs are now used everywhere where appropriate instead of jumping between pages (for exampel when adding/editing shopping list items)
-- Added a "Clear filter"-button on all pages (with filters) to quickly reset applied filters
-- The data path (previously fixed to the `data` folder) is now configurable, making it possible to run multiple grocy instances from the same directory (with different `config.php` files / different database, etc.) (thanks @fgrsnau)
-  - Via an environment variable `GROCY_DATAPATH` (higher priority)
-  - Via an FastCGI parameter `GROCY_DATAPATH` (lower priority)
-- The language can now be set per user (see the new user settings page / top right corner settings menu) (thanks @fipwmaqzufheoxq92ebc)
-  - Additionally, the language is now also auto-guessed based on the browser locale (HTTP-Header `Accept-Language`)
-  - The `config.php` option `CULTURE` was renamed to `DEFAULT_LOCALE`
-  - So the used language is based on (in that order)
-    - The user setting
-    - If not set, then based on browser locale
-    - If no matching localizaton was found, `DEFAULT_LOCALE` from `config.php` is used
-- Performance improvements (page loading time) of the stock overview page (thanks @fipwmaqzufheoxq92ebc)
-- The prerequisites checker now also checks for the minimum required SQLite version (thanks @Forceu)
-- Replaced (again, added before in v2.7.0, then reverted in v2.7.1 due to some problems) [QuaggaJS](https://github.com/serratus/quaggaJS) (seems to be unmaintained) by [Quagga2](https://github.com/ericblade/quagga2)
-- More `config.php` settings (see the section `Component configuration for Quagga2`) to tweak Quagga2 (this is the component used for device camera for barcode scanning) (thanks @andrelam)
-- Some localization string fixes (thanks @duckfullstop)
-- Fixed that XSS / HTML injection was possible through some user input fields (low severity / not really a problem as this could not be abused unauthenticated)
-- New translations: (thanks all the translators)
-  - Greek (demo available at https://el.demo.grocy.info)
-  - Korean (demo available at https://ko.demo.grocy.info)

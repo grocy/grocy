@@ -75,7 +75,13 @@
 			class="table table-sm table-striped nowrap w-100">
 			<thead>
 				<tr>
-					<th class="border-right"></th>
+					<th class="border-right"><a id="change-table-columns-visibility"
+							class="text-muted"
+							data-toggle="tooltip"
+							title="{{ $__t('Hide/view columns') }}"
+							data-table-selector="#apikeys-table"
+							href="#"><i class="fas fa-eye"></i></a>
+					</th>
 					<th>{{ $__t('API key') }}</th>
 					<th>{{ $__t('User') }}</th>
 					<th>{{ $__t('Expires') }}</th>

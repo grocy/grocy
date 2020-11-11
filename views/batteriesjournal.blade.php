@@ -65,7 +65,13 @@
 			class="table table-sm table-striped nowrap w-100">
 			<thead>
 				<tr>
-					<th class="border-right"></th>
+					<th class="border-right"><a id="change-table-columns-visibility"
+							class="text-muted"
+							data-toggle="tooltip"
+							title="{{ $__t('Hide/view columns') }}"
+							data-table-selector="#batteries-journal-table"
+							href="#"><i class="fas fa-eye"></i></a>
+					</th>
 					<th>{{ $__t('Battery') }}</th>
 					<th>{{ $__t('Tracked time') }}</th>
 				</tr>

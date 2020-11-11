@@ -80,7 +80,13 @@
 			class="table table-sm table-striped nowrap w-100">
 			<thead>
 				<tr>
-					<th class="border-right"></th>
+					<th class="border-right"><a id="change-table-columns-visibility"
+							class="text-muted"
+							data-toggle="tooltip"
+							title="{{ $__t('Hide/view columns') }}"
+							data-table-selector="#userfields-table"
+							href="#"><i class="fas fa-eye"></i></a>
+					</th>
 					<th>{{ $__t('Entity') }}</th>
 					<th>{{ $__t('Name') }}</th>
 					<th>{{ $__t('Caption') }}</th>

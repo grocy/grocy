@@ -1942,3 +1942,6 @@ msgstr ""
 
 msgid "Price per stock unit"
 msgstr ""
+
+msgid "Hide/view columns"
+msgstr ""

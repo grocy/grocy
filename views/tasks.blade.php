@@ -105,7 +105,13 @@
 			class="table table-sm table-striped nowrap w-100">
 			<thead>
 				<tr>
-					<th class="border-right"></th>
+					<th class="border-right"><a id="change-table-columns-visibility"
+							class="text-muted"
+							data-toggle="tooltip"
+							title="{{ $__t('Hide/view columns') }}"
+							data-table-selector="#tasks-table"
+							href="#"><i class="fas fa-eye"></i></a>
+					</th>
 					<th>{{ $__t('Task') }}</th>
 					<th>{{ $__t('Due') }}</th>
 					<th class="d-none">Hidden category</th>

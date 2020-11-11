@@ -7,7 +7,9 @@
 		{ 'searchable': false, "targets": 0 },
 		{ 'visible': false, 'targets': 6 },
 		{ 'visible': false, 'targets': 7 },
-		{ 'visible': false, 'targets': 8 }
+		{ 'visible': false, 'targets': 8 },
+		{ 'visible': false, 'targets': 2 },
+		{ 'visible': false, 'targets': 4 }
 	],
 });
 

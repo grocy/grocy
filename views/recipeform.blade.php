@@ -145,11 +145,17 @@
 					class="table table-sm table-striped nowrap w-100">
 					<thead>
 						<tr>
-							<th class="border-right"></th>
+							<th class="border-right"><a id="change-table-columns-visibility"
+									class="text-muted"
+									data-toggle="tooltip"
+									title="{{ $__t('Hide/view columns') }}"
+									data-table-selector="#recipes-pos-table"
+									href="#"><i class="fas fa-eye"></i></a>
+							</th>
 							<th>{{ $__t('Product') }}</th>
 							<th>{{ $__t('Amount') }}</th>
 							<th class="fit-content">{{ $__t('Note') }}</th>
-							<th class="d-none">Hiden ingredient group</th>
+							<th class="d-none">Hidden ingredient group</th>
 						</tr>
 					</thead>
 					<tbody class="d-none">
@@ -242,7 +248,13 @@
 					class="table table-sm table-striped nowrap w-100">
 					<thead>
 						<tr>
-							<th class="border-right"></th>
+							<th class="border-right"><a id="change-table-columns-visibility"
+									class="text-muted"
+									data-toggle="tooltip"
+									title="{{ $__t('Hide/view columns') }}"
+									data-table-selector="#recipes-includes-table"
+									href="#"><i class="fas fa-eye"></i></a>
+							</th>
 							<th>{{ $__t('Recipe') }}</th>
 							<th>{{ $__t('Servings') }}</th>
 						</tr>

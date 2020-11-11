@@ -88,7 +88,13 @@
 			class="table table-sm table-striped nowrap w-100">
 			<thead>
 				<tr>
-					<th class="border-right"></th>
+					<th class="border-right"><a id="change-table-columns-visibility"
+							class="text-muted"
+							data-toggle="tooltip"
+							title="{{ $__t('Hide/view columns') }}"
+							data-table-selector="#products-table"
+							href="#"><i class="fas fa-eye"></i></a>
+					</th>
 					<th>{{ $__t('Name') }}</th>
 					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif">{{ $__t('Location') }}</th>
 					<th>{{ $__t('Min. stock amount') }}</th>

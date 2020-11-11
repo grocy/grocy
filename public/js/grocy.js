@@ -661,6 +661,16 @@ $.extend(true, $.fn.dataTable.defaults, {
 		{
 			column.search.search = "";
 		});
+	},
+	'stateSaveCallback': function(settings, data)
+	{
+		// TODO: Save/load this server side
+		localStorage.setItem('datatables_state_' + settings.sTableId, JSON.stringify(data));
+	},
+	'stateLoadCallback': function(settings, data)
+	{
+		// TODO: Save/load this server side
+		return JSON.parse(localStorage.getItem('datatables_state_' + settings.sTableId));
 	}
 });
 
@@ -750,4 +760,68 @@ $(window).on("message", function(e)
 	{
 		window.location.reload();
 	}
+});
+
+$("#change-table-columns-visibility").on("click", function(e)
+{
+	var dataTableSelector = $(e.currentTarget).attr("data-table-selector");
+	var dataTable = $(dataTableSelector).DataTable();
+
+	var columnCheckBoxesHtml = "";
+	dataTable.columns().every(function()
+	{
+		var index = this.index();
+		var title = $(this.header()).text();
+		var visible = this.visible();
+
+		if (title.isEmpty() || title.startsWith("Hidden"))
+		{
+			return;
+		}
+
+		var checked = "checked";
+		if (!visible)
+		{
+			checked = "";
+		}
+
+		columnCheckBoxesHtml += '<div class="form-group"> \
+			<div class="custom-control custom-checkbox"> \
+				<input ' + checked + ' class="form-check-input custom-control-input change-table-columns-visibility-toggle" \
+					type="checkbox" \
+					id="column-' + index.toString() + '" \
+					data-table-selector="' + dataTableSelector + '" \
+					data-column-index="' + index.toString() + '" \
+					value="1"> \
+				<label class="form-check-label custom-control-label" \
+					for="column-' + index.toString() + '">' + title + ' \
+				</label> \
+			</div> \
+		</div>'
+	});
+
+	bootbox.dialog({
+		message: '<div class="text-center"><h5>' + __t('Hide/view columns') + '</h5><hr><div class="text-left">' + columnCheckBoxesHtml + '</div></div>',
+		size: 'small',
+		backdrop: true,
+		closeButton: false,
+		buttons: {
+			cancel: {
+				label: __t('OK'),
+				className: 'btn-primary responsive-button',
+				callback: function()
+				{
+					bootbox.hideAll();
+				}
+			}
+		}
+	});
+});
+$(document).on("click", ".change-table-columns-visibility-toggle", function()
+{
+	var dataTableSelector = $(this).attr("data-table-selector");
+	var columnIndex = $(this).attr("data-column-index");
+	var dataTable = $(dataTableSelector).DataTable();
+
+	dataTable.columns(columnIndex).visible(this.checked);
 });
