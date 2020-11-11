@@ -49,9 +49,6 @@
 
 			<div class="form-group">
 				<div class="custom-control custom-checkbox">
-					<input type="hidden"
-						name="use_specific_stock_entry"
-						value="0">
 					<input class="form-check-input custom-control-input"
 						type="checkbox"
 						id="use_specific_stock_entry"

@@ -54,9 +54,6 @@
 			@if(GROCY_FEATURE_FLAG_STOCK_PRODUCT_FREEZING)
 			<div class="form-group">
 				<div class="custom-control custom-checkbox">
-					<input type="hidden"
-						name="is_freezer"
-						value="0">
 					<input @if($mode=='edit'
 						&&
 						$location->is_freezer == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="is_freezer" name="is_freezer" value="1">

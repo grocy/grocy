@@ -65,7 +65,7 @@ $('.save-product-button').on('click', function(e)
 {
 	e.preventDefault();
 
-	var jsonData = $('#product-form').serializeJSON({ checkboxUncheckedValue: "0" });
+	var jsonData = $('#product-form').serializeJSON();
 	var parentProductId = jsonData.product_id;
 	delete jsonData.product_id;
 	jsonData.parent_product_id = parentProductId;

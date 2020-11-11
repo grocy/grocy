@@ -69,9 +69,6 @@
 
 			<div class="form-group">
 				<div class="custom-control custom-checkbox">
-					<input type="hidden"
-						name="show_in_sidebar_menu"
-						value="0">
 					<input @if($mode=='edit'
 						&&
 						$userentity->show_in_sidebar_menu == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="show_in_sidebar_menu" name="show_in_sidebar_menu" value="1">

@@ -205,9 +205,6 @@
 
 			<div class="form-group">
 				<div class="custom-control custom-checkbox">
-					<input type="hidden"
-						name="track_date_only"
-						value="0">
 					<input @if($mode=='edit'
 						&&
 						$chore->track_date_only == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="track_date_only" name="track_date_only" value="1">
@@ -222,9 +219,6 @@
 
 			<div class="form-group">
 				<div class="custom-control custom-checkbox">
-					<input type="hidden"
-						name="rollover"
-						value="0">
 					<input @if($mode=='edit'
 						&&
 						$chore->rollover == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="rollover" name="rollover" value="1">
@@ -240,9 +234,6 @@
 			@if(GROCY_FEATURE_FLAG_STOCK)
 			<div class="form-group mt-4 mb-1">
 				<div class="custom-control custom-checkbox">
-					<input type="hidden"
-						name="consume_product_on_execution"
-						value="0">
 					<input @if($mode=='edit'
 						&&
 						$chore->consume_product_on_execution == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="consume_product_on_execution" name="consume_product_on_execution" value="1">

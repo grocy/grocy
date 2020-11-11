@@ -67,9 +67,6 @@
 			<div class="
 			custom-control
 			custom-checkbox">
-			<input type="hidden"
-				name="datetimepicker2-shortcut"
-				value="0">
 			<input class="form-check-input custom-control-input"
 				type="checkbox"
 				id="datetimepicker2-shortcut"

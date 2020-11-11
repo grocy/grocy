@@ -64,9 +64,6 @@
 
 			<div class="form-group">
 				<div class="custom-control custom-checkbox">
-					<input type="hidden"
-						name="active"
-						value="1">
 					<input @if($mode=='create'
 						)
 						checked
@@ -154,9 +151,6 @@
 
 			<div class="form-group">
 				<div class="custom-control custom-checkbox">
-					<input type="hidden"
-						name="cumulate_min_stock_amount_of_sub_products"
-						value="0">
 					<input @if($mode=='edit'
 						&&
 						$product->cumulate_min_stock_amount_of_sub_products == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="cumulate_min_stock_amount_of_sub_products" name="cumulate_min_stock_amount_of_sub_products" value="1">
@@ -261,9 +255,6 @@
 
 			<div class="form-group">
 				<div class="custom-control custom-checkbox">
-					<input type="hidden"
-						name="allow_partial_units_in_stock"
-						value="0">
 					<input @if($mode=='edit'
 						&&
 						$product->allow_partial_units_in_stock == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="allow_partial_units_in_stock" name="allow_partial_units_in_stock" value="1">
@@ -274,9 +265,6 @@
 
 			<div class="form-group mb-1">
 				<div class="custom-control custom-checkbox">
-					<input type="hidden"
-						name="enable_tare_weight_handling"
-						value="0">
 					<input @if($mode=='edit'
 						&&
 						$product->enable_tare_weight_handling == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="enable_tare_weight_handling" name="enable_tare_weight_handling" value="1">
@@ -306,9 +294,6 @@
 			@if(GROCY_FEATURE_FLAG_RECIPES)
 			<div class="form-group">
 				<div class="custom-control custom-checkbox">
-					<input type="hidden"
-						name="not_check_stock_fulfillment_for_recipes"
-						value="0">
 					<input @if($mode=='edit'
 						&&
 						$product->not_check_stock_fulfillment_for_recipes == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="not_check_stock_fulfillment_for_recipes" name="not_check_stock_fulfillment_for_recipes" value="1">

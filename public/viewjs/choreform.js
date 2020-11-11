@@ -2,7 +2,7 @@
 {
 	e.preventDefault();
 
-	var jsonData = $('#chore-form').serializeJSON({ checkboxUncheckedValue: "0" });
+	var jsonData = $('#chore-form').serializeJSON();
 	if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 	{
 		jsonData.assignment_config = $("#assignment_config").val().join(",");

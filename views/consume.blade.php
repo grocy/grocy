@@ -60,9 +60,6 @@
 			<div id="consume-exact-amount-group"
 				class="form-group d-none">
 				<div class="custom-control custom-checkbox">
-					<input type="hidden"
-						name="consume-exact-amount"
-						value="0">
 					<input class="form-check-input custom-control-input"
 						type="checkbox"
 						id="consume-exact-amount"
@@ -98,9 +95,6 @@
 
 			<div class="form-group">
 				<div class="custom-control custom-checkbox">
-					<input type="hidden"
-						name="use_specific_stock_entry"
-						value="0">
 					<input class="form-check-input custom-control-input"
 						type="checkbox"
 						id="use_specific_stock_entry"
@@ -123,9 +117,6 @@
 
 			<div class="form-group">
 				<div class="custom-control custom-checkbox">
-					<input type="hidden"
-						name="spoiled"
-						value="0">
 					<input class="form-check-input custom-control-input"
 						type="checkbox"
 						id="spoiled"

@@ -96,9 +96,6 @@
 
 			<div class="form-group @if($mode == 'edit') d-none @endif">
 				<div class="custom-control custom-checkbox">
-					<input type="hidden"
-						name="create_inverse:skip"
-						value="0">
 					<input checked
 						class="form-check-input custom-control-input"
 						type="checkbox"

@@ -74,9 +74,6 @@
 
 			<div class="form-group">
 				<div class="custom-control custom-checkbox">
-					<input type="hidden"
-						name="not_check_shoppinglist"
-						value="0">
 					<input @if($mode=='edit'
 						&&
 						$recipe->not_check_shoppinglist == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="not_check_shoppinglist" name="not_check_shoppinglist" value="1">

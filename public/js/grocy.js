@@ -664,6 +664,9 @@ $.extend(true, $.fn.dataTable.defaults, {
 	}
 });
 
+// serializeJSON defaults
+$.serializeJSON.defaultOptions.checkboxUncheckedValue = "0";
+
 $(Grocy.UserPermissions).each(function(index, item)
 {
 	if (item.has_permission == 0)

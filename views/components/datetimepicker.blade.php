@@ -69,9 +69,6 @@
 		@if(isset($shortcutValue) && isset($shortcutLabel))
 		<div class="form-group mt-n2 mb-0">
 			<div class="custom-control custom-checkbox">
-				<input type="hidden"
-					name="datetimepicker-shortcut"
-					value="0">
 				<input class="form-check-input custom-control-input"
 					type="checkbox"
 					id="datetimepicker-shortcut"

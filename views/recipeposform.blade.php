@@ -48,9 +48,6 @@
 
 			<div class="form-group mb-1">
 				<div class="custom-control custom-checkbox">
-					<input type="hidden"
-						name="only_check_single_unit_in_stock"
-						value="0">
 					<input @if($mode=='edit'
 						&&
 						$recipePos->only_check_single_unit_in_stock == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="only_check_single_unit_in_stock" name="only_check_single_unit_in_stock" value="1">
@@ -80,9 +77,6 @@
 
 			<div class="form-group">
 				<div class="custom-control custom-checkbox">
-					<input type="hidden"
-						name="not_check_stock_fulfillment"
-						value="0">
 					<input @if($mode=='edit'
 						&&
 						($recipePos->not_check_stock_fulfillment == 1 || FindObjectInArrayByPropertyValue($products, 'id', $recipePos->product_id)->not_check_stock_fulfillment_for_recipes == 1)) checked @endif class="form-check-input custom-control-input" type="checkbox" id="not_check_stock_fulfillment" name="not_check_stock_fulfillment" value="1">
