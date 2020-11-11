@@ -10,7 +10,8 @@
 		{ 'visible': false, 'targets': 8 },
 		{ 'visible': false, 'targets': 2 },
 		{ 'visible': false, 'targets': 4 },
-		{ 'visible': false, 'targets': 9 }
+		{ 'visible': false, 'targets': 9 },
+		{ 'visible': false, 'targets': 10 }
 	],
 });
 

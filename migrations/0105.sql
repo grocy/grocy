@@ -20,7 +20,9 @@ SELECT
     sc.is_aggregated_amount,
     sc.amount_opened_aggregated,
     sc.amount_aggregated,
-	p.calories
+	p.calories AS product_calories,
+	sc.amount * p.calories AS calories,
+	sc.amount_aggregated * p.calories AS calories_aggregated
 FROM (
         SELECT *
         FROM stock_current
@@ -55,7 +57,9 @@ SELECT
     sc.is_aggregated_amount,
     sc.amount_opened_aggregated,
     sc.amount_aggregated,
-	p.calories
+	p.calories AS product_calories,
+	sc.amount * p.calories AS calories,
+	sc.amount_aggregated * p.calories AS calories_aggregated
 FROM (
         SELECT *
         FROM stock_current
