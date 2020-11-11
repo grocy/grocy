@@ -20,10 +20,12 @@
 <div id="group-{{ $id }}"
 	class="form-group {{ $additionalGroupCssClasses }}">
 	<label for="{{ $id }}">
-		{{ $__t($label) }}&nbsp;
-		<span id="{{ $hintId }}"
+		{{ $__t($label) }}
+		<i id="{{ $hintId }}"
+			class="fas fa-question-circle"
 			data-toggle="tooltip"
-			title="{{ $hint }}"></span>{!! $additionalHtmlContextHelp !!}
+			title="{{ $hint }}"></i>
+		{!! $additionalHtmlContextHelp !!}
 		@if(!empty($contextInfoId))
 		<span id="{{ $contextInfoId }}"
 			class="small text-muted"></span>
