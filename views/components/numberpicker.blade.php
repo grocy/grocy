@@ -21,10 +21,12 @@
 	class="form-group {{ $additionalGroupCssClasses }}">
 	<label for="{{ $id }}">
 		{{ $__t($label) }}
+		@if(!empty($hint) || !empty($hintId))
 		<i id="{{ $hintId }}"
 			class="fas fa-question-circle"
 			data-toggle="tooltip"
 			title="{{ $hint }}"></i>
+		@endif
 		{!! $additionalHtmlContextHelp !!}
 		@if(!empty($contextInfoId))
 		<span id="{{ $contextInfoId }}"
