@@ -14,8 +14,7 @@
 	<a href="{{ $userfieldObject->value }}"
 		target="_blank">{{ $userfieldObject->value }}</a>
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_FILE)
-	<a class="show-as-dialog-link"
-		href="{{ $U('/files/userfiles/'. $userfieldObject->value) }}"
+	<a href="{{ $U('/files/userfiles/'. $userfieldObject->value) }}"
 		target="_blank">{{ base64_decode(explode('_', $userfieldObject->value)[1]) }}</a>
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_IMAGE)
 	<a class="show-as-dialog-link"

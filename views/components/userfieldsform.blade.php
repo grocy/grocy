@@ -119,38 +119,48 @@
 	</div>
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_FILE)
 	<div class="form-group">
-		<label for="{{ $userfield->name }}">{{ $userfield->caption }}</label>
-		<input type="file"
-			class="form-control userfield-input"
-			data-userfield-name="{{ $userfield->name }}">
-		<div class="d-none userfield-file">
-			<a href=""
-				class="userfield-current-file"
-				data-uf-name="{{ $userfield->name }}"></a>
-			<button type="button"
-				class="userfield-current-file btn btn-danger userfield-file-delete"
-				data-uf-name="{{ $userfield->name }}">
-				<i class="fas fa-trash"></i>
-			</button>
+		<label>{{ $userfield->caption }}</label>
+		<div class="input-group">
+			<div class="custom-file">
+				<input type="file"
+					class="custom-file-input userfield-input"
+					data-userfield-name="{{ $userfield->name }}">
+				<label class="custom-file-label"
+					for="{{ $userfield->name }}">
+					{{ $__t('No file selected') }}
+				</label>
+			</div>
+			<div class="input-group-append userfield-file-delete">
+				<span class="input-group-text"><i class="fas fa-trash"></i></span>
+			</div>
+			<div class="input-group-append">
+				<a href="#"
+					target="_blank"
+					class="input-group-text userfield-file-show d-none"><i class="fas fa-eye"></i></a>
+			</div>
 		</div>
 	</div>
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_IMAGE)
 	<div class="form-group">
-		<label for="{{ $userfield->name }}">{{ $userfield->caption }}</label>
-		<input type="file"
-			class="form-control userfield-input"
-			data-userfield-name="{{ $userfield->name }}">
-		<div class="d-none userfield-file">
-			<img src=""
-				alt="{{ $userfield->name }}"
-				class="userfield-current-file"
-				data-uf-name="{{ $userfield->name }}" />
-			<button type="button"
-				class="userfield-current-file btn btn-danger userfield-file-delete"
-				data-uf-name="{{ $userfield->name }}">
-				<i class="fas fa-trash"></i>
-			</button>
+		<label>{{ $userfield->caption }}</label>
+		<div class="input-group">
+			<div class="custom-file">
+				<input type="file"
+					class="custom-file-input userfield-input"
+					data-userfield-name="{{ $userfield->name }}">
+				<label class="custom-file-label"
+					for="{{ $userfield->name }}">
+					{{ $__t('No file selected') }}
+				</label>
+			</div>
+			<div class="input-group-append userfield-file-delete">
+				<span class="input-group-text"><i class="fas fa-trash"></i></span>
+			</div>
 		</div>
+		<img src=""
+			alt="{{ $userfield->name }}"
+			class="userfield-current-file userfield-file-show d-none lazy mt-1"
+			data-uf-name="{{ $userfield->name }}" />
 	</div>
 	@endif
 
