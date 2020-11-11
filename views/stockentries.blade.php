@@ -36,8 +36,8 @@
 			class="table table-sm table-striped nowrap w-100">
 			<thead>
 				<tr>
-					<th class="border-right"><a id="change-table-columns-visibility"
-							class="text-muted"
+					<th class="border-right"><a class="text-muted change-table-columns-visibility-button"
+							data-toggle="tooltip"
 							data-toggle="tooltip"
 							title="{{ $__t('Hide/view columns') }}"
 							data-table-selector="#stockentries-table"
