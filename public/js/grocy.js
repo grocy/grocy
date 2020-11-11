@@ -719,11 +719,28 @@ $('.table').on('column-sizing.dt', function(e, settings)
 	if (dtScrollWidth < tableWidth)
 	{
 		$('.dataTables_scrollBody').addClass("grab-cursor");
-	} else
+		$('.dataTables_scrollBody').removeClass("force-overflow-visible");
+	}
+	else
 	{
 		$('.dataTables_scrollBody').removeClass("grab-cursor");
+		$('.dataTables_scrollBody').addClass("force-overflow-visible");
 	}
 });
+$('td .dropdown').on('show.bs.dropdown', function(e)
+{
+	if ($('.dataTables_scrollBody').hasClass("grab-cursor"))
+	{
+		$('.dataTables_scrollBody').addClass("force-overflow-visible");
+	}
+});
+$("td .dropdown").on('hide.bs.dropdown', function(e)
+{
+	if ($('.dataTables_scrollBody').hasClass("grab-cursor"))
+	{
+		$('.dataTables_scrollBody').removeClass("force-overflow-visible");
+	}
+})
 
 $(window).on("message", function(e)
 {

@@ -341,6 +341,10 @@ a:not([href]) {
 	display: none;
 }
 
+.force-overflow-visible {
+	overflow: visible !important;
+}
+
 .grab-cursor {
 	cursor: grab;
 }
