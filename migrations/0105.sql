@@ -19,7 +19,8 @@ SELECT
     (SELECT name_plural FROM quantity_units WHERE quantity_units.id = p.qu_id_purchase) AS qu_purchase_unit_name_plural,
     sc.is_aggregated_amount,
     sc.amount_opened_aggregated,
-    sc.amount_aggregated
+    sc.amount_aggregated,
+	p.calories
 FROM (
         SELECT *
         FROM stock_current
@@ -43,7 +44,7 @@ SELECT
     sc.value as value,
     sc.product_id AS product_id,
     sc.best_before_date AS best_before_date,
-    EXISTS(SELECT id FROM stock_missing_products_including_opened WHERE id = sc.product_id) AS product_missing,
+    EXISTS(SELECT id FROM stock_missing_products WHERE id = sc.product_id) AS product_missing,
     (SELECT name FROM quantity_units WHERE quantity_units.id = p.qu_id_stock) AS qu_unit_name,
     (SELECT name_plural FROM quantity_units WHERE quantity_units.id = p.qu_id_stock) AS qu_unit_name_plural,
     p.name AS product_name,
@@ -53,13 +54,14 @@ SELECT
     (SELECT name_plural FROM quantity_units WHERE quantity_units.id = p.qu_id_purchase) AS qu_purchase_unit_name_plural,
     sc.is_aggregated_amount,
     sc.amount_opened_aggregated,
-    sc.amount_aggregated
+    sc.amount_aggregated,
+	p.calories
 FROM (
         SELECT *
         FROM stock_current
         WHERE best_before_date IS NOT NULL
         UNION
-        SELECT id,  0, 0, 0, 0, null, 0, 0, 0
+        SELECT id, 0, 0, 0, null, 0, 0, 0
         FROM stock_missing_products
         WHERE id NOT IN (SELECT product_id FROM stock_current)
     ) sc

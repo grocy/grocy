@@ -101,6 +101,7 @@
   - Tables are horizontally scrollable (instead of collapsing columns which don't fit)
 - Table columns can now be shown/hidden (new little eye icon on the top left corner on each table)
   - There are also new columns on some pages, hidden by default
+    - Stock overview: Value, product group, calories
 - Dialogs are now used everywhere where appropriate instead of jumping between pages (for exampel when adding/editing shopping list items)
 - Added a "Clear filter"-button on all pages (with filters) to quickly reset applied filters
 - The data path (previously fixed to the `data` folder) is now configurable, making it possible to run multiple grocy instances from the same directory (with different `config.php` files / different database, etc.) (thanks @fgrsnau)

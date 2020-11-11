@@ -160,6 +160,7 @@
 					<th class="d-none">Hidden location</th>
 					<th class="d-none">Hidden status</th>
 					<th class="d-none">Hidden product group</th>
+					<th>{{ $__t('Calories') }}</th>
 
 					@include('components.userfields_thead', array(
 					'userfields' => $userfields
@@ -365,6 +366,9 @@
 					</td>
 					<td class="d-none">
 						xx{{ $currentStockEntry->product_group_name }}xx
+					</td>
+					<td>
+						<span class="locale-number locale-number-generic">{{ $currentStockEntry->calories }}</span>
 					</td>
 
 					@include('components.userfields_tbody', array(
