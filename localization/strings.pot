@@ -1904,12 +1904,6 @@ msgstr ""
 msgid "Transaction time"
 msgstr ""
 
-msgid "Edit this timee"
-msgstr ""
-
-msgid "Delete this tiem"
-msgstr ""
-
 msgid "Chore journal"
 msgstr ""
 
