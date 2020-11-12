@@ -377,6 +377,7 @@
 						data-target="#related-links">
 						<i class="fas fa-ellipsis-v"></i>
 					</button>
+					@if($mode == "edit")
 					<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
 						id="related-links">
 						<a class="btn btn-outline-primary btn-sm m-1 mt-md-0 mb-md-0 float-right show-as-dialog-link"
@@ -384,6 +385,7 @@
 							{{ $__t('Add') }}
 						</a>
 					</div>
+					@endif
 				</div>
 
 				<h5 id="barcode-headline-info"
@@ -468,6 +470,7 @@
 						data-target="#related-links">
 						<i class="fas fa-ellipsis-v"></i>
 					</button>
+					@if($mode == "edit")
 					<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
 						id="related-links">
 						<a class="btn btn-outline-primary btn-sm m-1 mt-md-0 mb-md-0 float-right show-as-dialog-link"
@@ -475,6 +478,7 @@
 							{{ $__t('Add') }}
 						</a>
 					</div>
+					@endif
 				</div>
 
 				<h5 id="qu-conversion-headline-info"
@@ -554,6 +558,7 @@
 									class="custom-file-input"
 									id="product-picture"
 									accept="image/*">
+								@if($mode == "edit")
 								<label id="product-picture-label"
 									class="custom-file-label @if(empty($product->picture_file_name)) d-none @endif"
 									for="product-picture">
@@ -564,6 +569,7 @@
 									for="product-picture">
 									{{ $__t('No file selected') }}
 								</label>
+								@endif
 							</div>
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-trash"
@@ -572,7 +578,7 @@
 						</div>
 					</div>
 				</div>
-				@if(!empty($product->picture_file_name))
+				@if($mode == "edit" && !empty($product->picture_file_name))
 				<img id="current-product-picture"
 					data-src="{{ $U('/api/files/productpictures/' . base64_encode($product->picture_file_name) . '?force_serve_as=picture&best_fit_width=400') }}"
 					class="img-fluid img-thumbnail mt-2 lazy mb-5">
