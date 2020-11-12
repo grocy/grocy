@@ -87,7 +87,12 @@ $('.save-product-button').on('click', function(e)
 	if (Grocy.EditMode == 'create')
 	{
 		Grocy.Api.Post('objects/products', jsonData,
-			(result) => saveProductPicture(result, location, jsonData));
+			(result) => saveProductPicture(result, location, jsonData),
+			(xhr) =>
+			{
+				Grocy.FrontendHelpers.EndUiBusy("product-form");
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+			});
 		return;
 	}
 
