@@ -178,6 +178,7 @@ if (GetUriParam("list") !== undefined)
 if (GetUriParam("amount") !== undefined)
 {
 	$("#display_amount").val(parseFloat(GetUriParam("amount")).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }));
+	$(".input-group-productamountpicker").trigger("change");
 	Grocy.FrontendHelpers.ValidateForm('shoppinglist-form');
 }
 

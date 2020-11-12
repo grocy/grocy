@@ -86,6 +86,7 @@
 								$("#display_amount").attr("step", "1");
 								$("#display_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '0'));
 								$('#display_amount').val('');
+								$(".input-group-productamountpicker").trigger("change");
 								$('#price').val('');
 								Grocy.Components.DateTimePicker.Clear();
 								Grocy.Components.ProductPicker.SetValue('');
@@ -172,6 +173,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				}
 
 				$('#display_amount').val(productDetails.stock_amount);
+				$(".input-group-productamountpicker").trigger("change");
 				$('#display_amount').focus();
 				$('#display_amount').trigger('keyup');
 			},
@@ -184,6 +186,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 });
 
 $('#display_amount').val('');
+$(".input-group-productamountpicker").trigger("change");
 Grocy.FrontendHelpers.ValidateForm('inventory-form');
 
 if (Grocy.Components.ProductPicker.InProductAddWorkflow() === false)
