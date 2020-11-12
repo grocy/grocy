@@ -90,13 +90,17 @@
 				<tr>
 					<td class="fit-content border-right">
 						<a class="btn btn-info btn-sm"
-							href="{{ $U('/quantityunit/') }}{{ $quantityunit->id }}">
+							href="{{ $U('/quantityunit/') }}{{ $quantityunit->id }}"
+							data-toggle="tooltip"
+							title="{{ $__t('Edit this item') }}">
 							<i class="fas fa-edit"></i>
 						</a>
 						<a class="btn btn-danger btn-sm quantityunit-delete-button"
 							href="#"
 							data-quantityunit-id="{{ $quantityunit->id }}"
-							data-quantityunit-name="{{ $quantityunit->name }}">
+							data-quantityunit-name="{{ $quantityunit->name }}"
+							data-toggle="tooltip"
+							title="{{ $__t('Delete this item') }}">
 							<i class="fas fa-trash"></i>
 						</a>
 					</td>

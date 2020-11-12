@@ -85,8 +85,8 @@
 					</th>
 					<th>{{ $__t('Product') }}</th>
 					<th>{{ $__t('Amount') }}</th>
-					<th>{{ $__t('Booking time') }}</th>
-					<th>{{ $__t('Booking type') }}</th>
+					<th>{{ $__t('Transaction time') }}</th>
+					<th>{{ $__t('Transaction type') }}</th>
 					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif">{{ $__t('Location') }}</th>
 					<th>{{ $__t('Done by') }}</th>
 				</tr>
@@ -102,7 +102,7 @@
 							data-booking-id="{{ $stockLogEntry->id }}"
 							data-toggle="tooltip"
 							data-placement="left"
-							title="{{ $__t('Undo booking') }}">
+							title="{{ $__t('Undo transaction') }}">
 							<i class="fas fa-undo"></i>
 						</a>
 					</td>

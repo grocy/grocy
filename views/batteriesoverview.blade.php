@@ -117,7 +117,7 @@
 							href="#"
 							data-toggle="tooltip"
 							data-placement="left"
-							title="{{ $__t('Track charge cycle of battery %s', FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->name) }}"
+							title="{{ $__t('Track charge cycle') }}"
 							data-battery-id="{{ $currentBatteryEntry->battery_id }}"
 							data-battery-name="{{ FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->name }}">
 							<i class="fas fa-fire"></i>
@@ -133,17 +133,17 @@
 									data-battery-id="{{ $currentBatteryEntry->battery_id }}"
 									type="button"
 									href="#">
-									<span class="dropdown-item-icon"><i class="fas fa-info"></i></span> <span class="dropdown-item-text">{{ $__t('Show battery details') }}</span>
+									<span class="dropdown-item-text">{{ $__t('Battery overview') }}</span>
 								</a>
 								<a class="dropdown-item show-as-dialog-link"
 									type="button"
 									href="{{ $U('/batteriesjournal?embedded&battery=') }}{{ $currentBatteryEntry->battery_id }}">
-									<span class="dropdown-item-icon"><i class="fas fa-file-alt"></i></span> <span class="dropdown-item-text">{{ $__t('Journal for this battery') }}</span>
+									<span class="dropdown-item-text">{{ $__t('Battery journal') }}</span>
 								</a>
-								<a class="dropdown-item permission-MASTER_DATA_EDIT"
+								<a class="dropdown-item permission-MASTER_DATA_EDIT show-as-dialog-link"
 									type="button"
-									href="{{ $U('/battery/') }}{{ $currentBatteryEntry->battery_id }}">
-									<span class="dropdown-item-icon"><i class="fas fa-edit"></i></span> <span class="dropdown-item-text">{{ $__t('Edit battery') }}</span>
+									href="{{ $U('/battery/') }}{{ $currentBatteryEntry->battery_id }}?embedded">
+									<span class="dropdown-item-text">{{ $__t('Edit battery') }}</span>
 								</a>
 							</div>
 						</div>

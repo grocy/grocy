@@ -16,7 +16,7 @@
 			class="btn btn-sm btn-outline-secondary py-0 mr-1 float-right disabled show-as-dialog-link"
 			href="#"
 			data-toggle="tooltip"
-			title="{{ $__t('Journal for this chore') }}">
+			title="{{ $__t('Chore journal') }}">
 			<i class="fas fa-file-alt"></i>
 		</a>
 	</div>

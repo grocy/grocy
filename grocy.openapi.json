@@ -1233,7 +1233,7 @@
 									"price": {
 										"type": "number",
 										"format": "number",
-										"description": "The price per purchase quantity unit in configured currency"
+										"description": "The price per stock quantity unit in configured currency"
 									},
 									"open": {
 										"type": "boolean",
@@ -1549,7 +1549,7 @@
 									"price": {
 										"type": "number",
 										"format": "number",
-										"description": "The price per purchase quantity unit in configured currency"
+										"description": "The price per stock quantity unit in configured currency"
 									},
 									"location_id": {
 										"type": "number",
@@ -1977,7 +1977,7 @@
 									"price": {
 										"type": "number",
 										"format": "number",
-										"description": "The price per purchase quantity unit in configured currency"
+										"description": "The price per stock quantity unit in configured currency"
 									},
 									"location_id": {
 										"type": "number",

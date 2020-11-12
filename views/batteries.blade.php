@@ -92,13 +92,17 @@
 				<tr>
 					<td class="fit-content border-right">
 						<a class="btn btn-info btn-sm permission-MASTER_DATA_EDIT show-as-dialog-link"
-							href="{{ $U('/battery/') }}{{ $battery->id }}?embedded">
+							href="{{ $U('/battery/') }}{{ $battery->id }}?embedded"
+							data-toggle="tooltip"
+							title="{{ $__t('Edit this item') }}">
 							<i class="fas fa-edit"></i>
 						</a>
 						<a class="btn btn-danger btn-sm battery-delete-button permission-MASTER_DATA_EDIT"
 							href="#"
 							data-battery-id="{{ $battery->id }}"
-							data-battery-name="{{ $battery->name }}">
+							data-battery-name="{{ $battery->name }}"
+							data-toggle="tooltip"
+							title="{{ $__t('Delete this item') }}">
 							<i class="fas fa-trash"></i>
 						</a>
 					</td>

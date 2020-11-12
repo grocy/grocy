@@ -139,23 +139,6 @@
 									<i class="fas fa-list"></i> {{ $__t('Inventory') }}
 								</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item product-name-cell"
-									data-product-id="{{ $stockEntry->product_id }}"
-									type="button"
-									href="#">
-									<i class="fas fa-info"></i> {{ $__t('Show product details') }}
-								</a>
-								<a class="dropdown-item"
-									type="button"
-									href="{{ $U('/stockjournal?product=') }}{{ $stockEntry->product_id }}">
-									<i class="fas fa-file-alt"></i> {{ $__t('Stock journal for this product') }}
-								</a>
-								<a class="dropdown-item"
-									type="button"
-									href="{{ $U('/product/') }}{{ $stockEntry->product_id . '?returnto=/stockentries' }}">
-									<i class="fas fa-edit"></i> {{ $__t('Edit product') }}
-								</a>
-								<div class="dropdown-divider"></div>
 								<a class="dropdown-item stock-consume-button stock-consume-button-spoiled @if($stockEntry->amount < 1) disabled @endif"
 									type="button"
 									href="#"
@@ -166,15 +149,37 @@
 									data-stockrow-id="{{ $stockEntry->id }}"
 									data-location-id="{{ $stockEntry->location_id }}"
 									data-consume-amount="1">
-									<i class="fas fa-utensils"></i> {{ $__t('Consume %1$s of %2$s as spoiled', '1 ' . FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->name) }}
+									{{ $__t('Consume this stock entry as spoiled', '1 ' . FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->name) }}
 								</a>
 								@if(GROCY_FEATURE_FLAG_RECIPES)
 								<a class="dropdown-item"
 									type="button"
 									href="{{ $U('/recipes?search=') }}{{ FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->name }}">
-									<i class="fas fa-cocktail"></i> {{ $__t('Search for recipes containing this product') }}
+									{{ $__t('Search for recipes containing this product') }}
 								</a>
 								@endif
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item product-name-cell"
+									data-product-id="{{ $stockEntry->product_id }}"
+									type="button"
+									href="#">
+									{{ $__t('Product overview') }}
+								</a>
+								<a class="dropdown-item show-as-dialog-link"
+									type="button"
+									href="{{ $U('/stockjournal?embedded&product=') }}{{ $stockEntry->product_id }}">
+									{{ $__t('Stock journal') }}
+								</a>
+								<a class="dropdown-item show-as-dialog-link"
+									type="button"
+									href="{{ $U('/stockjournal/summary?embedded&product=') }}{{ $stockEntry->product_id }}">
+									{{ $__t('Stock journal summary') }}
+								</a>
+								<a class="dropdown-item"
+									type="button"
+									href="{{ $U('/product/') }}{{ $stockEntry->product_id . '?returnto=/stockentries' }}">
+									{{ $__t('Edit product') }}
+								</a>
 							</div>
 						</div>
 					</td>

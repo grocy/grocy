@@ -16,7 +16,7 @@ $(".numberpicker-up-button").unbind('click').on("click", function()
 
 $(".numberpicker").on("keyup", function()
 {
-	if ($(this).data("not-equal") && !$(this).data("not-equal").toString().isEmpty() && $(this).data("not-equal") == $(this).val())
+	if ($(this).attr("data-not-equal") && !$(this).attr("data-not-equal").toString().isEmpty() && $(this).attr("data-not-equal") == $(this).val())
 	{
 		$(this)[0].setCustomValidity("error");
 	}

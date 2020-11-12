@@ -20,7 +20,7 @@
 			<thead>
 				<tr>
 					<th>{{ $__t('Product') }}</th>
-					<th>{{ $__t('Booking type') }}</th>
+					<th>{{ $__t('Transaction type') }}</th>
 					<th>{{ $__t('User') }}</th>
 					<th>{{ $__t('Amount') }}</th>
 				</tr>

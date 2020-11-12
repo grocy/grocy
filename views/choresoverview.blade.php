@@ -144,7 +144,7 @@
 							href="#"
 							data-toggle="tooltip"
 							data-placement="left"
-							title="{{ $__t('Track execution of chore %s', FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name) }}"
+							title="{{ $__t('Track chore execution') }}"
 							data-chore-id="{{ $curentChoreEntry->chore_id }}"
 							data-chore-name="{{ FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name }}">
 							<i class="fas fa-play"></i>
@@ -160,17 +160,17 @@
 									data-chore-id="{{ $curentChoreEntry->chore_id }}"
 									type="button"
 									href="#">
-									<span class="dropdown-item-icon"><i class="fas fa-info"></i></span> <span class="dropdown-item-text">{{ $__t('Show chore details') }}</span>
+									<span class="dropdown-item-text">{{ $__t('Chore overview') }}</span>
 								</a>
 								<a class="dropdown-item show-as-dialog-link"
 									type="button"
 									href="{{ $U('/choresjournal?embedded&chore=') }}{{ $curentChoreEntry->chore_id }}">
-									<span class="dropdown-item-icon"><i class="fas fa-file-alt"></i></span> <span class="dropdown-item-text">{{ $__t('Journal for this chore') }}</span>
+									<span class="dropdown-item-text">{{ $__t('Chore journal') }}</span>
 								</a>
 								<a class="dropdown-item permission-MASTER_DATA_EDIT"
 									type="button"
 									href="{{ $U('/chore/') }}{{ $curentChoreEntry->chore_id }}">
-									<span class="dropdown-item-icon"><i class="fas fa-edit"></i></span> <span class="dropdown-item-text">{{ $__t('Edit chore') }}</span>
+									<span class="dropdown-item-text">{{ $__t('Edit chore') }}</span>
 								</a>
 							</div>
 						</div>

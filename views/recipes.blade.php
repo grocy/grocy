@@ -125,13 +125,17 @@
 							data-recipe-id="{{ $recipe->id }}">
 							<td class="fit-content border-right">
 								<a class="btn btn-info btn-sm hide-when-embedded hide-on-fullscreen-card"
-									href="{{ $U('/recipe/') }}{{ $recipe->id }}">
+									href="{{ $U('/recipe/') }}{{ $recipe->id }}"
+									data-toggle="tooltip"
+									title="{{ $__t('Edit this item') }}">
 									<i class="fas fa-edit"></i>
 								</a>
 								<a class="btn btn-sm btn-danger hide-when-embedded hide-on-fullscreen-card recipe-delete"
 									href="#"
 									data-recipe-id="{{ $recipe->id }}"
-									data-recipe-name="{{ $recipe->name }}">
+									data-recipe-name="{{ $recipe->name }}"
+									data-toggle="tooltip"
+									title="{{ $__t('Delete this item') }}">
 									<i class="fas fa-trash"></i>
 								</a>
 							</td>

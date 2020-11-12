@@ -257,34 +257,6 @@
 									<span class="dropdown-item-icon"><i class="fas fa-list"></i></span> <span class="dropdown-item-text">{{ $__t('Inventory') }}</span>
 								</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item product-name-cell"
-									data-product-id="{{ $currentStockEntry->product_id }}"
-									type="button"
-									href="#">
-									<span class="dropdown-item-icon"><i class="fas fa-info"></i></span> <span class="dropdown-item-text">{{ $__t('Show product details') }}</span>
-								</a>
-								<a class="dropdown-item show-as-dialog-link"
-									type="button"
-									href="{{ $U('/stockentries?embedded&product=') }}{{ $currentStockEntry->product_id }}"
-									data-product-id="{{ $currentStockEntry->product_id }}">
-									<span class="dropdown-item-icon"><i class="fas fa-boxes"></i></span> <span class="dropdown-item-text">{{ $__t('Show stock entries') }}</span>
-								</a>
-								<a class="dropdown-item show-as-dialog-link"
-									type="button"
-									href="{{ $U('/stockjournal?embedded&product=') }}{{ $currentStockEntry->product_id }}">
-									<span class="dropdown-item-icon"><i class="fas fa-file-alt"></i></span> <span class="dropdown-item-text">{{ $__t('Stock journal for this product') }}</span>
-								</a>
-								<a class="dropdown-item show-as-dialog-link"
-									type="button"
-									href="{{ $U('/stockjournal/summary?embedded&product_id=') }}{{ $currentStockEntry->product_id }}">
-									<span class="dropdown-item-icon"><i class="fas fa-file-archive"></i></span> <span class="dropdown-item-text">{{ $__t('Journal summary for this product') }}</span>
-								</a>
-								<a class="dropdown-item permission-MASTER_DATA_EDIT"
-									type="button"
-									href="{{ $U('/product/') }}{{ $currentStockEntry->product_id . '?returnto=%2Fstockoverview' }}">
-									<span class="dropdown-item-icon"><i class="fas fa-edit"></i></span> <span class="dropdown-item-text">{{ $__t('Edit product') }}</span>
-								</a>
-								<div class="dropdown-divider"></div>
 								<a class="dropdown-item product-consume-button product-consume-button-spoiled permission-STOCK_CONSUME @if($currentStockEntry->amount < 1) disabled @endif"
 									type="button"
 									href="#"
@@ -292,15 +264,43 @@
 									data-product-name="{{ $currentStockEntry->product_name }}"
 									data-product-qu-name="{{ $currentStockEntry->qu_unit_name }}"
 									data-consume-amount="1">
-									<span class="dropdown-item-icon"><i class="fas fa-utensils"></i></span> <span class="dropdown-item-text">{{ $__t('Consume %1$s of %2$s as spoiled', '1 ' . $currentStockEntry->qu_unit_name, $currentStockEntry->product_name) }}</span>
+									<span class="dropdown-item-text">{{ $__t('Consume %1$s of %2$s as spoiled', '1 ' . $currentStockEntry->qu_unit_name, $currentStockEntry->product_name) }}</span>
 								</a>
 								@if(GROCY_FEATURE_FLAG_RECIPES)
 								<a class="dropdown-item"
 									type="button"
 									href="{{ $U('/recipes?search=') }}{{ $currentStockEntry->product_name }}">
-									<span class="dropdown-item-icon"><i class="fas fa-cocktail"></i></span> <span class="dropdown-item-text">{{ $__t('Search for recipes containing this product') }}</span>
+									<span class="dropdown-item-text">{{ $__t('Search for recipes containing this product') }}</span>
 								</a>
 								@endif
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item product-name-cell"
+									data-product-id="{{ $currentStockEntry->product_id }}"
+									type="button"
+									href="#">
+									<span class="dropdown-item-text">{{ $__t('Product overview') }}</span>
+								</a>
+								<a class="dropdown-item show-as-dialog-link"
+									type="button"
+									href="{{ $U('/stockentries?embedded&product=') }}{{ $currentStockEntry->product_id }}"
+									data-product-id="{{ $currentStockEntry->product_id }}">
+									<span class="dropdown-item-text">{{ $__t('Stock entries') }}</span>
+								</a>
+								<a class="dropdown-item show-as-dialog-link"
+									type="button"
+									href="{{ $U('/stockjournal?embedded&product=') }}{{ $currentStockEntry->product_id }}">
+									<span class="dropdown-item-text">{{ $__t('Stock journal') }}</span>
+								</a>
+								<a class="dropdown-item show-as-dialog-link"
+									type="button"
+									href="{{ $U('/stockjournal/summary?embedded&product_id=') }}{{ $currentStockEntry->product_id }}">
+									<span class="dropdown-item-text">{{ $__t('Stock journal summary') }}</span>
+								</a>
+								<a class="dropdown-item permission-MASTER_DATA_EDIT"
+									type="button"
+									href="{{ $U('/product/') }}{{ $currentStockEntry->product_id . '?returnto=%2Fstockoverview' }}">
+									<span class="dropdown-item-text">{{ $__t('Edit product') }}</span>
+								</a>
 							</div>
 						</div>
 					</td>
@@ -326,7 +326,9 @@
 						@endif
 						@if(boolval($userSettings['show_icon_on_stock_overview_page_when_product_is_on_shopping_list']))
 						@if($currentStockEntry->on_shopping_list)
-						<span class="btn btn-link btn-sm text-muted">
+						<span class="text-muted cursor-normal"
+							data-toggle="tooltip"
+							title="{{ $__t('This product is currently on a shopping list') }}">
 							<i class="fas fa-shopping-cart"></i>
 						</span>
 						@endif

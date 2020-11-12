@@ -91,13 +91,17 @@
 				<tr>
 					<td class="fit-content border-right">
 						<a class="btn btn-info btn-sm show-as-dialog-link"
-							href="{{ $U('/productgroup/') }}{{ $productGroup->id }}?embedded">
+							href="{{ $U('/productgroup/') }}{{ $productGroup->id }}?embedded"
+							data-toggle="tooltip"
+							title="{{ $__t('Edit this item') }}">
 							<i class="fas fa-edit"></i>
 						</a>
 						<a class="btn btn-danger btn-sm product-group-delete-button"
 							href="#"
 							data-group-id="{{ $productGroup->id }}"
-							data-group-name="{{ $productGroup->name }}">
+							data-group-name="{{ $productGroup->name }}"
+							data-toggle="tooltip"
+							title="{{ $__t('Delete this item') }}">
 							<i class="fas fa-trash"></i>
 						</a>
 					</td>

@@ -91,13 +91,17 @@
 				<tr>
 					<td class="fit-content border-right">
 						<a class="btn btn-info btn-sm show-as-dialog-link"
-							href="{{ $U('/taskcategory/') }}{{ $taskCategory->id }}?embedded">
+							href="{{ $U('/taskcategory/') }}{{ $taskCategory->id }}?embedded"
+							data-toggle="tooltip"
+							title="{{ $__t('Edit this item') }}">
 							<i class="fas fa-edit"></i>
 						</a>
 						<a class="btn btn-danger btn-sm task-category-delete-button"
 							href="#"
 							data-category-id="{{ $taskCategory->id }}"
-							data-category-name="{{ $taskCategory->name }}">
+							data-category-name="{{ $taskCategory->name }}"
+							data-toggle="tooltip"
+							title="{{ $__t('Delete this item') }}">
 							<i class="fas fa-trash"></i>
 						</a>
 					</td>

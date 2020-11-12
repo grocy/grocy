@@ -113,18 +113,24 @@
 				<tr>
 					<td class="fit-content border-right">
 						<a class="btn btn-info btn-sm"
-							href="{{ $U('/product/') }}{{ $product->id }}">
+							href="{{ $U('/product/') }}{{ $product->id }}"
+							data-toggle="tooltip"
+							title="{{ $__t('Edit this item') }}">
 							<i class="fas fa-edit"></i>
 						</a>
 						<a class="btn btn-danger btn-sm product-delete-button @if($product->active == 0) disabled @endif"
 							href="#"
 							data-product-id="{{ $product->id }}"
-							data-product-name="{{ $product->name }}">
+							data-product-name="{{ $product->name }}"
+							data-toggle="tooltip"
+							title="{{ $__t('Delete this item') }}">
 							<i class="fas fa-trash"></i>
 						</a>
 					</td>
 					<td>
-						@if($product->active == 0) (deactivated) @endif {{ $product->name }}@if(!empty($product->picture_file_name)) <i class="fas fa-image text-muted"></i>@endif
+						@if($product->active == 0) (deactivated) @endif {{ $product->name }}@if(!empty($product->picture_file_name)) <i class="fas fa-image text-muted"
+							data-toggle="tooltip"
+							title="{{ $__t('This product has a picture') }}"></i>@endif
 					</td>
 					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif">
 						{{ FindObjectInArrayByPropertyValue($locations, 'id', $product->location_id)->name }}

@@ -83,17 +83,23 @@
 				<tr>
 					<td class="fit-content border-right">
 						<a class="btn btn-info btn-sm"
-							href="{{ $U('/user/') }}{{ $user->id }}">
+							href="{{ $U('/user/') }}{{ $user->id }}"
+							data-toggle="tooltip"
+							title="{{ $__t('Edit this item') }}">
 							<i class="fas fa-edit"></i>
 						</a>
 						<a class="btn btn-info btn-sm"
-							href="{{ $U('/user/' . $user->id . '/permissions') }}">
+							href="{{ $U('/user/' . $user->id . '/permissions') }}"
+							data-toggle="tooltip"
+							title="{{ $__t('Configure user permissions') }}">
 							<i class="fas fa-lock"></i>
 						</a>
 						<a class="btn btn-danger btn-sm user-delete-button @if($user->id == GROCY_USER_ID) disabled @endif"
 							href="#"
 							data-user-id="{{ $user->id }}"
-							data-user-username="{{ $user->username }}">
+							data-user-username="{{ $user->username }}"
+							data-toggle="tooltip"
+							title="{{ $__t('Delete this item') }}">
 							<i class="fas fa-trash"></i>
 						</a>
 					</td>

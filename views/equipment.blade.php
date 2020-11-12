@@ -81,13 +81,17 @@
 				<tr data-equipment-id="{{ $equipmentItem->id }}">
 					<td class="fit-content border-right">
 						<a class="btn btn-info btn-sm hide-when-embedded hide-on-fullscreen-card"
-							href="{{ $U('/equipment/') }}{{ $equipmentItem->id }}">
+							href="{{ $U('/equipment/') }}{{ $equipmentItem->id }}"
+							data-toggle="tooltip"
+							title="{{ $__t('Edit this item') }}">
 							<i class="fas fa-edit"></i>
 						</a>
 						<a class="btn btn-sm btn-danger hide-when-embedded hide-on-fullscreen-card equipment-delete-button"
 							href="#"
 							data-equipment-id="{{ $equipmentItem->id }}"
-							data-equipment-name="{{ $equipmentItem->name }}">
+							data-equipment-name="{{ $equipmentItem->name }}"
+							data-toggle="tooltip"
+							title="{{ $__t('Delete this item') }}">
 							<i class="fas fa-trash"></i>
 						</a>
 					</td>

@@ -81,11 +81,11 @@
 			@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 			@include('components.numberpicker', array(
 			'id' => 'price',
-			'label' => 'Price per stock unit',
+			'label' => 'Price',
 			'min' => 0,
 			'decimals' => $userSettings['stock_decimal_places_prices'],
 			'value' => '',
-			'hint' => $__t('in %s per purchase quantity unit', GROCY_CURRENCY),
+			'hint' => $__t('Per stock quantity unit', GROCY_CURRENCY),
 			'additionalHtmlContextHelp' => '<i class="fas fa-question-circle"
 				data-toggle="tooltip"
 				title="' . $__t('This will apply to added products') . '"></i>',

@@ -394,15 +394,6 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-msgid "Track charge cycle of battery %s"
-msgstr ""
-
-msgid "Track execution of chore %s"
-msgstr ""
-
-msgid "Filter by location"
-msgstr ""
-
 msgid "Search"
 msgstr ""
 
@@ -561,9 +552,6 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-msgid "Filter by chore"
-msgstr ""
-
 msgid "Chores journal"
 msgstr ""
 
@@ -583,9 +571,6 @@ msgid "No price history available"
 msgstr ""
 
 msgid "Price"
-msgstr ""
-
-msgid "in %s per purchase quantity unit"
 msgstr ""
 
 msgid "The price cannot be lower than %s"
@@ -824,9 +809,6 @@ msgstr ""
 msgid "No picture available"
 msgstr ""
 
-msgid "Filter by product group"
-msgstr ""
-
 msgid "Presets for new products"
 msgstr ""
 
@@ -854,25 +836,10 @@ msgstr ""
 msgid "Stock journal"
 msgstr ""
 
-msgid "Filter by product"
-msgstr ""
-
-msgid "Booking time"
-msgstr ""
-
-msgid "Booking type"
-msgstr ""
-
-msgid "Undo booking"
-msgstr ""
-
 msgid "Undone on"
 msgstr ""
 
 msgid "Batteries journal"
-msgstr ""
-
-msgid "Filter by battery"
 msgstr ""
 
 msgid "Undo charge cycle"
@@ -1034,21 +1001,6 @@ msgstr ""
 msgid "The current picture will be deleted when you save the recipe"
 msgstr ""
 
-msgid "Show product details"
-msgstr ""
-
-msgid "Stock journal for this product"
-msgstr ""
-
-msgid "Show chore details"
-msgstr ""
-
-msgid "Journal for this chore"
-msgstr ""
-
-msgid "Show battery details"
-msgstr ""
-
 msgid "Journal for this battery"
 msgstr ""
 
@@ -1143,9 +1095,6 @@ msgid "Configure userfields"
 msgstr ""
 
 msgid "Userfields"
-msgstr ""
-
-msgid "Filter by entity"
 msgstr ""
 
 msgid "Entity"
@@ -1586,9 +1535,6 @@ msgstr ""
 msgid "Transfered %1$s of %2$s from %3$s to %4$s"
 msgstr ""
 
-msgid "Show stock entries"
-msgstr ""
-
 msgid "Stock entries"
 msgstr ""
 
@@ -1944,4 +1890,49 @@ msgid "Price per stock unit"
 msgstr ""
 
 msgid "Hide/view columns"
+msgstr ""
+
+msgid "This product is currently on a shopping list"
+msgstr ""
+
+msgid "Undo transaction"
+msgstr ""
+
+msgid "Transaction type"
+msgstr ""
+
+msgid "Transaction time"
+msgstr ""
+
+msgid "Edit this timee"
+msgstr ""
+
+msgid "Delete this tiem"
+msgstr ""
+
+msgid "Chore journal"
+msgstr ""
+
+msgid "Track chore execution"
+msgstr ""
+
+msgid "Mark task as completed"
+msgstr ""
+
+msgid "Track charge cycle"
+msgstr ""
+
+msgid "Battery journal"
+msgstr ""
+
+msgid "This product has a picture"
+msgstr ""
+
+msgid "Consume this stock entry as spoiled"
+msgstr ""
+
+msgid "Configure user permissions"
+msgstr ""
+
+msgid "Show a QR-Code for this API key"
 msgstr ""

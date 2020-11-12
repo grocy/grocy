@@ -97,13 +97,17 @@
 						<a class="btn btn-danger btn-sm apikey-delete-button"
 							href="#"
 							data-apikey-id="{{ $apiKey->id }}"
-							data-apikey-apikey="{{ $apiKey->api_key }}">
+							data-apikey-apikey="{{ $apiKey->api_key }}"
+							data-toggle="tooltip"
+							title="{{ $__t('Delete this item') }}">
 							<i class="fas fa-trash"></i>
 						</a>
 						<a class="btn btn-info btn-sm apikey-show-qr-button"
 							href="#"
 							data-apikey-key="{{ $apiKey->api_key }}"
-							data-apikey-type="{{ $apiKey->key_type }}">
+							data-apikey-type="{{ $apiKey->key_type }}"
+							data-toggle="tooltip"
+							title="{{ $__t('Show a QR-Code for this API key') }}">
 							<i class="fas fa-qrcode"></i>
 						</a>
 					</td>

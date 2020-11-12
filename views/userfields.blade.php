@@ -98,13 +98,17 @@
 				<tr>
 					<td class="fit-content border-right">
 						<a class="btn btn-info btn-sm show-as-dialog-link"
-							href="{{ $U('/userfield/') }}{{ $userfield->id }}?embedded">
+							href="{{ $U('/userfield/') }}{{ $userfield->id }}?embedded"
+							data-toggle="tooltip"
+							title="{{ $__t('Edit this item') }}">
 							<i class="fas fa-edit"></i>
 						</a>
 						<a class="btn btn-danger btn-sm userfield-delete-button"
 							href="#"
 							data-userfield-id="{{ $userfield->id }}"
-							data-userfield-name="{{ $userfield->name }}">
+							data-userfield-name="{{ $userfield->name }}"
+							data-toggle="tooltip"
+							title="{{ $__t('Delete this item') }}">
 							<i class="fas fa-trash"></i>
 						</a>
 					</td>

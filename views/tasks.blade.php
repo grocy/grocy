@@ -136,7 +136,7 @@
 							href="#"
 							data-toggle="tooltip"
 							data-placement="left"
-							title="{{ $__t('Mark task "%s" as completed', $task->name) }}"
+							title="{{ $__t('Mark task as completed') }}"
 							data-task-id="{{ $task->id }}"
 							data-task-name="{{ $task->name }}">
 							<i class="fas fa-check"></i>
@@ -152,15 +152,19 @@
 							<i class="fas fa-undo"></i>
 						</a>
 						@endif
+						<a class="btn btn-info btn-sm show-as-dialog-link"
+							href="{{ $U('/task/') }}{{ $task->id }}?embedded"
+							data-toggle="tooltip"
+							title="{{ $__t('Edit this item') }}">
+							<i class="fas fa-edit"></i>
+						</a>
 						<a class="btn btn-sm btn-danger delete-task-button"
 							href="#"
 							data-task-id="{{ $task->id }}"
-							data-task-name="{{ $task->name }}">
+							data-task-name="{{ $task->name }}"
+							data-toggle="tooltip"
+							title="{{ $__t('Delete this item') }}">
 							<i class="fas fa-trash"></i>
-						</a>
-						<a class="btn btn-info btn-sm show-as-dialog-link"
-							href="{{ $U('/task/') }}{{ $task->id }}?embedded">
-							<i class="fas fa-edit"></i>
 						</a>
 					</td>
 					<td id="task-{{ $task->id }}-name"

@@ -92,13 +92,17 @@
 				<tr>
 					<td class="fit-content border-right">
 						<a class="btn btn-info btn-sm"
-							href="{{ $U('/chore/') }}{{ $chore->id }}">
+							href="{{ $U('/chore/') }}{{ $chore->id }}"
+							data-toggle="tooltip"
+							title="{{ $__t('Edit this item') }}">
 							<i class="fas fa-edit"></i>
 						</a>
 						<a class="btn btn-danger btn-sm chore-delete-button"
 							href="#"
 							data-chore-id="{{ $chore->id }}"
-							data-chore-name="{{ $chore->name }}">
+							data-chore-name="{{ $chore->name }}"
+							data-toggle="tooltip"
+							title="{{ $__t('Delete this item') }}">
 							<i class="fas fa-trash"></i>
 						</a>
 					</td>

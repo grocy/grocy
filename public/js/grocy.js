@@ -764,6 +764,8 @@ $(window).on("message", function(e)
 
 $(".change-table-columns-visibility-button").on("click", function(e)
 {
+	e.preventDefault();
+
 	var dataTableSelector = $(e.currentTarget).attr("data-table-selector");
 	var dataTable = $(dataTableSelector).DataTable();
 

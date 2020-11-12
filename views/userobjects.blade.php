@@ -88,12 +88,16 @@
 				<tr>
 					<td class="fit-content border-right d-print-none">
 						<a class="btn btn-info btn-sm"
-							href="{{ $U('/userobject/' . $userentity->name . '/') }}{{ $userobject->id }}">
+							href="{{ $U('/userobject/' . $userentity->name . '/') }}{{ $userobject->id }}"
+							data-toggle="tooltip"
+							title="{{ $__t('Edit this item') }}">
 							<i class="fas fa-edit"></i>
 						</a>
 						<a class="btn btn-danger btn-sm userobject-delete-button"
 							href="#"
-							data-userobject-id="{{ $userobject->id }}">
+							data-userobject-id="{{ $userobject->id }}"
+							data-toggle="tooltip"
+							title="{{ $__t('Delete this item') }}">
 							<i class="fas fa-trash"></i>
 						</a>
 					</td>

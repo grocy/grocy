@@ -43,6 +43,8 @@
 - When clicking the product name on the shopping list, the product card will now be displayed (like on the stock overview page) (thanks @kriddles)
 - On the product card there is now also a button to jump directly to the stock entries of the corresponding product (thanks @kriddles)
 - The product picker workflows can now also be started by `ENTER` (additionally to `TAB`)
+- Added a grouped/summarized stock journal (new button "Journal summary" at the top of the stock journal page) (thanks @fipwmaqzufheoxq92ebc)
+  - Provides an overview of summarized transactions per product, transaction type and user + summarized amount
 - Fixed that changing the products "Factor purchase to stock quantity unit" not longer messes up historical prices (which results for example in wrong recipe costs) (thanks @kriddles)
 - Fixed that when adding products through a product picker workflow and when the created products contains special characters, the product was not preselected on the previous page (thanks @Forceu)
 - Fixed that when editing a product the default store was not visible / always empty regardless if the product had one set (thanks @kriddles)

@@ -414,35 +414,30 @@ class StockApiController extends BaseApiController
 			}
 
 			$bestBeforeDate = null;
-
 			if (array_key_exists('best_before_date', $requestBody) && IsIsoDate($requestBody['best_before_date']))
 			{
 				$bestBeforeDate = $requestBody['best_before_date'];
 			}
 
 			$purchasedDate = null;
-
 			if (array_key_exists('purchased_date', $requestBody) && IsIsoDate($requestBody['purchased_date']))
 			{
-				$bestBeforeDate = $requestBody['purchased_date'];
+				$purchasedDate = $requestBody['purchased_date'];
 			}
 
 			$locationId = null;
-
 			if (array_key_exists('location_id', $requestBody) && is_numeric($requestBody['location_id']))
 			{
 				$locationId = $requestBody['location_id'];
 			}
 
 			$price = null;
-
 			if (array_key_exists('price', $requestBody) && is_numeric($requestBody['price']))
 			{
 				$price = $requestBody['price'];
 			}
 
 			$shoppingLocationId = null;
-
 			if (array_key_exists('shopping_location_id', $requestBody) && is_numeric($requestBody['shopping_location_id']))
 			{
 				$shoppingLocationId = $requestBody['shopping_location_id'];

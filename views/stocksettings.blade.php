@@ -68,12 +68,14 @@
 		))
 
 		<div class="form-group">
-			<div class="checkbox">
-				<label for="show_icon_on_stock_overview_page_when_product_is_on_shopping_list">
-					<input type="checkbox"
-						class="user-setting-control"
-						id="show_icon_on_stock_overview_page_when_product_is_on_shopping_list"
-						data-setting-key="show_icon_on_stock_overview_page_when_product_is_on_shopping_list"> {{ $__t('Show an icon if the product is already on the shopping list') }}
+			<div class="custom-control custom-checkbox">
+				<input type="checkbox"
+					class="form-check-input custom-control-input user-setting-control"
+					id="show_icon_on_stock_overview_page_when_product_is_on_shopping_list"
+					data-setting-key="show_icon_on_stock_overview_page_when_product_is_on_shopping_list">
+				<label class="form-check-label custom-control-label"
+					for="show_icon_on_stock_overview_page_when_product_is_on_shopping_list">
+					{{ $__t('Show an icon if the product is already on the shopping list') }}
 				</label>
 			</div>
 		</div>
@@ -90,12 +92,14 @@
 		))
 
 		<div class="form-group">
-			<div class="checkbox">
-				<label for="show_purchased_date_on_purchase">
-					<input type="checkbox"
-						class="user-setting-control"
-						id="show_purchased_date_on_purchase"
-						data-setting-key="show_purchased_date_on_purchase"> {{ $__t('Show purchased date on purchase and inventory page (otherwise the purchased date defaults to today)') }}
+			<div class="custom-control custom-checkbox">
+				<input type="checkbox"
+					class="form-check-input custom-control-input user-setting-control"
+					id="show_purchased_date_on_purchase"
+					data-setting-key="show_purchased_date_on_purchase">
+				<label class="form-check-label custom-control-label"
+					for="show_purchased_date_on_purchase">
+					{{ $__t('Show purchased date on purchase and inventory page (otherwise the purchased date defaults to today)') }}
 				</label>
 			</div>
 		</div>
