@@ -1922,5 +1922,5 @@ msgstr ""
 msgid "Show a QR-Code for this API key"
 msgstr ""
 
-msgid "This is the default quantity unit used when adding a product to the shopping list"
+msgid "This is the default quantity unit used when adding this product to the shopping list"
 msgstr ""

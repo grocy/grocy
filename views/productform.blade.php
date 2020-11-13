@@ -228,7 +228,7 @@
 				<label for="qu_id_purchase">{{ $__t('Default quantity unit purchase') }}</label>
 				<i class="fas fa-question-circle"
 					data-toggle="tooltip"
-					title="{{ $__t('This is the default quantity unit used when adding a product to the shopping list') }}"></i>
+					title="{{ $__t('This is the default quantity unit used when adding this product to the shopping list') }}"></i>
 				<select required
 					class="form-control input-group-qu"
 					id="qu_id_purchase"
