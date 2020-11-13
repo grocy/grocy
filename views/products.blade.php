@@ -98,8 +98,8 @@
 					<th>{{ $__t('Name') }}</th>
 					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif">{{ $__t('Location') }}</th>
 					<th>{{ $__t('Min. stock amount') }}</th>
-					<th>{{ $__t('QU purchase') }}</th>
-					<th>{{ $__t('QU stock') }}</th>
+					<th>{{ $__t('Default quantity unit purchase') }}</th>
+					<th>{{ $__t('Quantity unit stock') }}</th>
 					<th>{{ $__t('Product group') }}</th>
 
 					@include('components.userfields_thead', array(

@@ -181,15 +181,6 @@ msgstr ""
 msgid "Min. stock amount"
 msgstr ""
 
-msgid "QU purchase"
-msgstr ""
-
-msgid "QU stock"
-msgstr ""
-
-msgid "QU factor"
-msgstr ""
-
 msgid "Description"
 msgstr ""
 
@@ -205,7 +196,7 @@ msgstr ""
 msgid "Default best before days"
 msgstr ""
 
-msgid "Quantity unit purchase"
+msgid "Default quantity unit purchase"
 msgstr ""
 
 msgid "Quantity unit stock"
@@ -1929,4 +1920,7 @@ msgid "Configure user permissions"
 msgstr ""
 
 msgid "Show a QR-Code for this API key"
+msgstr ""
+
+msgid "This is the default quantity unit used when adding a product to the shopping list"
 msgstr ""

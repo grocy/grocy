@@ -3,6 +3,7 @@
 ### New feature: Use any product related quantity unit anywhere
 - Finally it's possible to use any product related quantity unit on any page
 - Products still have one quantity unit stock and one (default) quantity unit purchase, but any QU, which has a direct or indirect conversion for that product, can be used to pick an amount
+_- (Because the stock quantity unit is now the base for everything, it cannot be changed after the product was once added to stock (for now, maybe there will be a possibilty to change it in a future release))_
 
 ### New feature: Prefill purchase data by barcodes
 - Imagine you buy for example eggs in different pack sizes and they have different barcodes
@@ -127,8 +128,9 @@
   - Korean (demo available at https://ko.demo.grocy.info)
 
 ### API improvements/fixes
-- Breaking changes:
-  - All prices are now related to the products **stock** quantity unit (instead of the purchase QU)
+- **Breaking changes**:
+  - All prices are now related to the products stock quantity unit (instead of the products purchase QU)
+  - All (product) amounts are now related to the products stock quantity unit (was related to the products purchase QU for the shopping list before)
   - The product object no longer has a field `barcodes` with a comma separated barcode list, instead barcodes are now stored in a separate table/entity `product_barcodes` (use the existing "Generic entity interactions" endpoints to access them)
 - For better integration (apps), it's now possible to show a QR-Code for API keys (thanks @fipwmaqzufheoxq92ebc)
   - New QR-Code button on the "Manage API keys"-page (top right corner settings menu), the QR-Codes contains `<API-Url>|<API-Key>`

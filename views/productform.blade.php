@@ -202,22 +202,6 @@
 			</div>
 
 			<div class="form-group">
-				<label for="qu_id_purchase">{{ $__t('Quantity unit purchase') }}</label>
-				<select required
-					class="form-control input-group-qu"
-					id="qu_id_purchase"
-					name="qu_id_purchase">
-					<option></option>
-					@foreach($quantityunits as $quantityunit)
-					<option @if($mode=='edit'
-						&&
-						$quantityunit->id == $product->qu_id_purchase) selected="selected" @endif value="{{ $quantityunit->id }}">{{ $quantityunit->name }}</option>
-					@endforeach
-				</select>
-				<div class="invalid-feedback">{{ $__t('A quantity unit is required') }}</div>
-			</div>
-
-			<div class="form-group">
 				<label for="qu_id_stock">{{ $__t('Quantity unit stock') }}</label>
 				<i class="fas fa-question-circle"
 					data-toggle="tooltip"
@@ -235,6 +219,25 @@
 					<option @if($mode=='edit'
 						&&
 						$quantityunit->id == $product->qu_id_stock) selected="selected" @endif value="{{ $quantityunit->id }}" data-plural-form="{{ $quantityunit->name_plural }}">{{ $quantityunit->name }}</option>
+					@endforeach
+				</select>
+				<div class="invalid-feedback">{{ $__t('A quantity unit is required') }}</div>
+			</div>
+
+			<div class="form-group">
+				<label for="qu_id_purchase">{{ $__t('Default quantity unit purchase') }}</label>
+				<i class="fas fa-question-circle"
+					data-toggle="tooltip"
+					title="{{ $__t('This is the default quantity unit used when adding a product to the shopping list') }}"></i>
+				<select required
+					class="form-control input-group-qu"
+					id="qu_id_purchase"
+					name="qu_id_purchase">
+					<option></option>
+					@foreach($quantityunits as $quantityunit)
+					<option @if($mode=='edit'
+						&&
+						$quantityunit->id == $product->qu_id_purchase) selected="selected" @endif value="{{ $quantityunit->id }}">{{ $quantityunit->name }}</option>
 					@endforeach
 				</select>
 				<div class="invalid-feedback">{{ $__t('A quantity unit is required') }}</div>

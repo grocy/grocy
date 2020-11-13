@@ -24,11 +24,11 @@ class RecipesService extends BaseService
 			{
 				$product = $this->getDataBase()->products($recipePosition->product_id);
 
-				$toOrderAmount = round(($recipePosition->missing_amount - $recipePosition->amount_on_shopping_list) / $product->qu_factor_purchase_to_stock, 2);
+				$toOrderAmount = round(($recipePosition->missing_amount - $recipePosition->amount_on_shopping_list), 2);
 
 				if ($recipe->not_check_shoppinglist == 1)
 				{
-					$toOrderAmount = round($recipePosition->missing_amount / $product->qu_factor_purchase_to_stock, 2);
+					$toOrderAmount = round($recipePosition->missing_amount, 2);
 				}
 
 				if ($toOrderAmount > 0)
@@ -63,7 +63,6 @@ class RecipesService extends BaseService
 		}
 
 		$recipeRow = $this->getDatabase()->recipes()->where('id = :1', $recipeId)->fetch();
-
 		if (!empty($recipeRow->product_id))
 		{
 			$recipeResolvedRow = $this->getDatabase()->recipes_resolved()->where('recipe_id = :1', $recipeId)->fetch();

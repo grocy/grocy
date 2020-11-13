@@ -66,11 +66,15 @@
 				'prefillById' => $productId
 				))
 			</div>
+
 			@php if($mode == 'edit') { $value = $listItem->amount; } else { $value = 1; } @endphp
+			@php if($mode == 'edit') { $initialQuId = $listItem->qu_id; } else { $initialQuId = ''; } @endphp
 			@include('components.productamountpicker', array(
 			'value' => $value,
+			'initialQuId' => $initialQuId,
 			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
-			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1')
+			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1'),
+			'isRequired' => false
 			))
 
 			<div class="form-group">

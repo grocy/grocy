@@ -26,7 +26,7 @@ class StockService extends BaseService
 		foreach ($missingProducts as $missingProduct)
 		{
 			$product = $this->getDatabase()->products()->where('id', $missingProduct->id)->fetch();
-			$amountToAdd = round($missingProduct->amount_missing / $product->qu_factor_purchase_to_stock, 2);
+			$amountToAdd = round($missingProduct->amount_missing, 2);
 
 			$alreadyExistingEntry = $this->getDatabase()->shopping_list()->where('product_id', $missingProduct->id)->fetch();
 
@@ -577,7 +577,7 @@ class StockService extends BaseService
 			'stock_amount_opened' => $stockCurrentRow->amount_opened,
 			'stock_amount_aggregated' => $stockCurrentRow->amount_aggregated,
 			'stock_amount_opened_aggregated' => $stockCurrentRow->amount_opened_aggregated,
-			'quantity_unit_purchase' => $quPurchase,
+			'default_quantity_unit_purchase' => $quPurchase,
 			'quantity_unit_stock' => $quStock,
 			'last_price' => $lastPrice,
 			'avg_price' => $avgPrice,

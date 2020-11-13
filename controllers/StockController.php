@@ -322,6 +322,7 @@ class StockController extends BaseController
 			'productGroups' => $this->getDatabase()->product_groups()->orderBy('name'),
 			'shoppingLists' => $this->getDatabase()->shopping_lists()->orderBy('name'),
 			'selectedShoppingListId' => $listId,
+			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved(),
 			'userfields' => $this->getUserfieldsService()->GetFields('products'),
 			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('products')
 		]);

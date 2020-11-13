@@ -3811,7 +3811,7 @@
 					"product_barcodes": {
 						"$ref": "#/components/schemas/ProductBarcodeDetailsResponse"
 					},
-					"quantity_unit_purchase": {
+					"default_quantity_unit_purchase": {
 						"$ref": "#/components/schemas/QuantityUnit"
 					},
 					"quantity_unit_stock": {
@@ -3898,7 +3898,7 @@
 					"last_used": null,
 					"stock_amount": "2",
 					"stock_amount_opened": null,
-					"quantity_unit_purchase": {
+					"default_quantity_unit_purchase": {
 						"id": "3",
 						"name": "Pack",
 						"description": null,
