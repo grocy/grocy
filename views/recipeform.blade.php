@@ -92,7 +92,8 @@
 			'isRequired' => false,
 			'label' => 'Produces product',
 			'prefillById' => $mode == 'edit' ? $recipe->product_id : '',
-			'hint' => $__t('When a product is selected, one unit (per serving in purchase quantity unit) will be added to stock on consuming this recipe')
+			'hint' => $__t('When a product is selected, one unit (per serving in stock quantity unit) will be added to stock on consuming this recipe'),
+			'disallowAllProductWorkflows' => true,
 			))
 
 			@include('components.userfieldsform', array(

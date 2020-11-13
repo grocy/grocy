@@ -91,7 +91,6 @@ class StockService extends BaseService
 		// Tare weight handling
 		// The given amount is the new total amount including the container weight (gross)
 		// The amount to be posted needs to be the given amount - stock amount - tare weight
-
 		if ($productDetails->product->enable_tare_weight_handling == 1)
 		{
 			if ($amount <= floatval($productDetails->product->tare_weight) + floatval($productDetails->stock_amount))

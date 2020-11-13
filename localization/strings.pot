@@ -1568,7 +1568,7 @@ msgstr ""
 msgid "A purchased date is required"
 msgstr ""
 
-msgid "When a product is selected, one unit (per serving in purchase quantity unit) will be added to stock on consuming this recipe"
+msgid "When a product is selected, one unit (per serving in stock quantity unit) will be added to stock on consuming this recipe"
 msgstr ""
 
 msgid "Produces product"

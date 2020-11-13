@@ -61,7 +61,7 @@
 			@include('components.productamountpicker', array(
 			'value' => $value,
 			'initialQuId' => $initialQuId,
-			'additionalGroupCssClasses' => 'mb-0'
+			'additionalGroupCssClasses' => 'mb-1'
 			))
 
 			<div class="form-group">
