@@ -255,7 +255,7 @@
 			@include('components.numberpicker', array(
 			'id' => 'product_amount',
 			'label' => 'Amount',
-			'hintId' => 'amount_qu_unit',
+			'contextInfoId' => 'amount_qu_unit',
 			'min' => '',
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
