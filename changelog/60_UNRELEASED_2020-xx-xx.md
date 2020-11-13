@@ -40,7 +40,7 @@ _- (Because the stock quantity unit is now the base for everything, it cannot be
 - For products with tare weight handling enabled, it's now optionally possible to consume a fixed/exact amount (just like for "normal" products) in case you don't want to weigh the whole container this time (new checkbox on the consume page) (thanks @fipwmaqzufheoxq92ebc)
 - The stock overview page now also shows the value - new column and also the total value in the header (thanks @kriddles)
 - It's now possible to set a custom purchased date on purchase (new field on the purchase and inventory page, hidden by default - enable it by a new stock setting (top right corner settings menu)) (thanks @kriddles)
-- The decimal places for all amount and price inputs can now be configured (stock settings / top right corner settings menu, both default to `4`)
+- The decimal places for all amount and price inputs can now be configured (stock settings / top right corner settings menu, default for amounts is `4`, for prices `2`)
 - When clicking the product name on the shopping list, the product card will now be displayed (like on the stock overview page) (thanks @kriddles)
 - On the product card there is now also a button to jump directly to the stock entries of the corresponding product (thanks @kriddles)
 - The product picker workflows can now also be started by `ENTER` (additionally to `TAB`)
