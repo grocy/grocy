@@ -325,7 +325,7 @@ Grocy.FrontendHelpers.ValidateForm('purchase-form');
 
 if (Grocy.Components.ProductPicker)
 {
-	if (Grocy.Components.ProductPicker.InAnyFlow() === false)
+	if (Grocy.Components.ProductPicker.InAnyFlow() === false && GetUriParam("embedded") === undefined)
 	{
 		Grocy.Components.ProductPicker.GetInputElement().focus();
 	}

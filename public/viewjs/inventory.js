@@ -189,7 +189,7 @@ $('#display_amount').val('');
 $(".input-group-productamountpicker").trigger("change");
 Grocy.FrontendHelpers.ValidateForm('inventory-form');
 
-if (Grocy.Components.ProductPicker.InAnyFlow() === false)
+if (Grocy.Components.ProductPicker.InAnyFlow() === false && GetUriParam("embedded") === undefined)
 {
 	Grocy.Components.ProductPicker.GetInputElement().focus();
 }
