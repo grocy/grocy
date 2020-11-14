@@ -69,6 +69,8 @@ _- (Because the stock quantity unit is now the base for everything, it cannot be
 
 ### Recipe improvements/fixes
 - It's now possible to print recipes (button next to the recipe title) (thanks @zsarnett)
+- Changed that recipe costs are now based on the costs of the products picked by the default consume rule "First expiring first, then first in first out" (thanks @kriddles)
+  - Recipe costs were based on the last purchase price per product before, so this now better reflects the current real costs
 - Improved the recipe add workflow (a recipe called "New recipe" is now not automatically created when starting to add a recipe) (thanks @zsarnett)
 - Fixed that images on the recipe gallery view were not scaled correctly on larger screens (thanks @zsarnett)
 - Fixed that decimal ingredient amounts maybe resulted in wrong conversions or truncated decimal places if your locale does not use a dot as the decimal separator (thanks @m-byte)
