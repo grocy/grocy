@@ -104,6 +104,19 @@
 			</div>
 		</div>
 
+		<div class="form-group">
+			<div class="custom-control custom-checkbox">
+				<input type="checkbox"
+					class="form-check-input custom-control-input user-setting-control"
+					id="show_warning_on_purchase_when_best_before_date_is_earlier_than_next"
+					data-setting-key="show_warning_on_purchase_when_best_before_date_is_earlier_than_next">
+				<label class="form-check-label custom-control-label"
+					for="show_warning_on_purchase_when_best_before_date_is_earlier_than_next">
+					{{ $__t('Show a warning when the best before date of the purchased product is earlier than the next best before date in stock') }}
+				</label>
+			</div>
+		</div>
+
 		<h4 class="mt-2">{{ $__t('Consume') }}</h4>
 		@include('components.numberpicker', array(
 		'id' => 'stock_default_consume_amount',

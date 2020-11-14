@@ -15,3 +15,8 @@ if (BoolVal(Grocy.UserSettings.show_purchased_date_on_purchase))
 {
 	$("#show_purchased_date_on_purchase").prop("checked", true);
 }
+
+if (BoolVal(Grocy.UserSettings.show_warning_on_purchase_when_best_before_date_is_earlier_than_next))
+{
+	$("#show_warning_on_purchase_when_best_before_date_is_earlier_than_next").prop("checked", true);
+}

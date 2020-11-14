@@ -1,4 +1,6 @@
-﻿$('#save-purchase-button').on('click', function(e)
+﻿var CurrentProductDetails;
+
+$('#save-purchase-button').on('click', function(e)
 {
 	e.preventDefault();
 
@@ -97,6 +99,14 @@
 						toastr.success(successMessage);
 						Grocy.Components.ProductPicker.FinishFlow();
 
+						if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && BoolVal(Grocy.UserSettings.show_warning_on_purchase_when_best_before_date_is_earlier_than_next))
+						{
+							if (moment(jsonData.best_before_date).isBefore(CurrentProductDetails.next_best_before_date))
+							{
+								toastr.warning(__t("There are items in stock which expire earlier"));
+							}
+						}
+
 						Grocy.Components.ProductAmountPicker.Reset();
 						$("#display_amount").attr("min", "1");
 						$("#display_amount").attr("step", "1");
@@ -162,6 +172,8 @@ if (Grocy.Components.ProductPicker !== undefined)
 			Grocy.Api.Get('stock/products/' + productId,
 				function(productDetails)
 				{
+					CurrentProductDetails = productDetails;
+
 					Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
 					Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.default_quantity_unit_purchase.id);
 					$('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_purchase_amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }));

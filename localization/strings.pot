@@ -1924,3 +1924,9 @@ msgstr ""
 
 msgid "This is the default quantity unit used when adding this product to the shopping list"
 msgstr ""
+
+msgid "Show a warning when the best before date of the purchased product is earlier than the next best before date in stock"
+msgstr ""
+
+msgid "There are items in stock which expire earlier"
+msgstr ""
