@@ -60,8 +60,6 @@
 			'contextInfoId' => 'amount_qu_unit',
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
 			'additionalAttributes' => 'data-not-equal="-1"',
-			'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info"
-				class="text-small text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
 			))
 
 			@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)

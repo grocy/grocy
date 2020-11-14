@@ -58,7 +58,7 @@ _- (Because the stock quantity unit is now the base for everything, it cannot be
 - Fixed that the aggregated amount of parent products was wrong on the stock overview page when the child products had not the same stock quantity units
 - Fixed that edited stock entries were not considered for the price history chart on the product card
 - Fixed that `FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING` is set to `false`, the purchase page validation failed (thanks @fipwmaqzufheoxq92ebc)
-- Fixed that consuming products with enabled tare weight handling did not work on the stock entries page (also fixed that opening those products is not possible there)
+- Fixed that consuming (and editing the amount of) products with enabled tare weight handling did not work on the stock entries page
 - Fixed that the recipes dropdown on the consume page also displayed internal recipes (thanks @kriddles)
 - Fixed that opening tare weight handling enabled products is not possible via the UI and the API (as this makes no sense)
 

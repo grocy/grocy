@@ -109,18 +109,6 @@ Grocy.Api.Get('stock/products/' + Grocy.EditObjectProductId,
 			$("#amount").attr("step", "1");
 			$("#amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %1$s', '1'));
 		}
-
-		if (productDetails.product.enable_tare_weight_handling == 1)
-		{
-			$("#amount").attr("min", productDetails.product.tare_weight);
-			$("#amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %1$s', parseFloat(productDetails.product.tare_weight).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts })));
-			$("#tare-weight-handling-info").removeClass("d-none");
-		}
-		else
-		{
-			$("#tare-weight-handling-info").addClass("d-none");
-		}
-
 	},
 	function(xhr)
 	{
