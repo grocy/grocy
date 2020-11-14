@@ -60,6 +60,7 @@ _- (Because the stock quantity unit is now the base for everything, it cannot be
 - Fixed that `FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING` is set to `false`, the purchase page validation failed (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that consuming products with enabled tare weight handling did not work on the stock entries page (also fixed that opening those products is not possible there)
 - Fixed that the recipes dropdown on the consume page also displayed internal recipes (thanks @kriddles)
+- Fixed that opening tare weight handling enabled products is not possible via the UI and the API (as this makes no sense)
 
 ### Shopping list improvements
 - Decimal amounts are now allowed (for any product, rounded by two decimal places)

@@ -740,6 +740,11 @@ class StockService extends BaseService
 		$potentialStockEntries = $this->GetProductStockEntries($productId, true);
 		$product = $this->getDatabase()->products($productId);
 
+		if ($product->enable_tare_weight_handling == 1)
+		{
+			throw new \Exception('Opening tare weight handling enabled products is not supported');
+		}
+
 		if ($amount > $productStockAmountUnopened)
 		{
 			throw new \Exception('Amount to be opened cannot be > current unopened stock amount');
