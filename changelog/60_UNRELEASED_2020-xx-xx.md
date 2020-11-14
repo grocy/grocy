@@ -10,7 +10,7 @@ _- (Because the stock quantity unit is now the base for everything, it cannot be
 - Each product barcode can be assigned an amount, quantity unit and store (on the product edit page), which is then automatically prefilled on the purchase page
 - (Thanks @kriddles for the initial work on this)
 
-### New feature: Permissions
+### New feature: User permissions
 - Users can now have permissions, can be configured per user on the "Manage users" page (lock icon)
 - Default permissions for new users can be set via a new `config.php` setting `DEFAULT_PERMISSIONS` (defaults to `ADMIN`, so no changed behavior when not configured)
 - All currently existing users will get all permissions (`ADMIN`) during the update/migration
@@ -143,6 +143,8 @@ _- (Because the stock quantity unit is now the base for everything, it cannot be
   - `/objects/{entity}`
   - `/stock/products/{productId}/entries`
   - `/stock/products/{productId}/locations`
+  - `/stock/journal`
+  - `/stock/journal/summary`
   - `/recipes/fulfillment`
   - `/users`
   - `/tasks`
@@ -164,6 +166,7 @@ _- (Because the stock quantity unit is now the base for everything, it cannot be
       - `<value>` is the value to search for
 - New endpoints `/stock/journal` and `/stock/journal/summary` to get the stock journal (thanks @fipwmaqzufheoxq92ebc)
 - New endpoint `/stock/shoppinglist/add-expired-products` to add all currently in-stock but expired products to a shopping list (thanks @m-byte)
+- New endpoints GET/POST/PUT `/users/{userId}/permissions` for the new user permissions feature mentioned above
 - Performance improvements of the `/stock/products/*` endpoints (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that the endpoint `/objects/{entity}/{objectId}` always returned successfully, even when the given object not exists (now returns `404` when the object is not found) (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that the endpoint `/stock/volatile` didn't include products which expire today (thanks @fipwmaqzufheoxq92ebc)

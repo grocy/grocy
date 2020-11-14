@@ -138,7 +138,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -173,7 +173,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -196,6 +196,18 @@
 						"schema": {
 							"$ref": "#/components/internalSchemas/ExposedEntityButNoListing"
 						}
+					},
+					{
+						"$ref": "#/components/parameters/query"
+					},
+					{
+						"$ref": "#/components/parameters/order"
+					},
+					{
+						"$ref": "#/components/parameters/limit"
+					},
+					{
+						"$ref": "#/components/parameters/offset"
 					}
 				],
 				"responses": {
@@ -239,7 +251,17 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "The operation was not successful (possible errors are invalid field names or conditions in filter parameters provided)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error500"
 								}
 							}
 						}
@@ -318,7 +340,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -391,7 +413,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -401,7 +423,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -475,7 +497,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -516,7 +538,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -567,7 +589,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -619,7 +641,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -701,7 +723,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -753,7 +775,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -794,7 +816,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -807,6 +829,20 @@
 				"summary": "Returns all users",
 				"tags": [
 					"User management"
+				],
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/query"
+					},
+					{
+						"$ref": "#/components/parameters/order"
+					},
+					{
+						"$ref": "#/components/parameters/limit"
+					},
+					{
+						"$ref": "#/components/parameters/offset"
+					}
 				],
 				"responses": {
 					"200": {
@@ -827,7 +863,17 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "The operation was not successful (possible errors are invalid field names or conditions in filter parameters provided)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error500"
 								}
 							}
 						}
@@ -859,7 +905,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -904,7 +950,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -936,7 +982,158 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/users/{userId}/permissions": {
+			"get": {
+				"summary": "Returns the assigned permissions of the given user",
+				"tags": [
+					"User management"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "userId",
+						"required": true,
+						"description": "A valid user id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A list of user permission objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {
+											"permission_id": {
+												"type": "integer"
+											},
+											"user_id": {
+												"type": "integer"
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error400"
+								}
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"summary": "Adds a permission to the given user",
+				"tags": [
+					"User management"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "userId",
+						"required": true,
+						"description": "A valid user id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"permissions_id": {
+										"type": "integer",
+										"description": "A permission ids"
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error400"
+								}
+							}
+						}
+					}
+				}
+			},
+			"put": {
+				"summary": "Replaces the assigned permissions of the given user",
+				"tags": [
+					"User management"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "userId",
+						"required": true,
+						"description": "A valid user id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"permissions": {
+										"type": "array",
+										"items": {
+											"type": "integer"
+										},
+										"description": "A list of permission ids"
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -967,7 +1164,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -1008,7 +1205,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -1051,7 +1248,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -1115,7 +1312,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -1209,7 +1406,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -1285,7 +1482,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -1308,6 +1505,18 @@
 						"schema": {
 							"type": "integer"
 						}
+					},
+					{
+						"$ref": "#/components/parameters/query"
+					},
+					{
+						"$ref": "#/components/parameters/order"
+					},
+					{
+						"$ref": "#/components/parameters/limit"
+					},
+					{
+						"$ref": "#/components/parameters/offset"
 					}
 				],
 				"responses": {
@@ -1329,7 +1538,17 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "The operation was not successful (possible errors are invalid field names or conditions in filter parameters provided)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error500"
 								}
 							}
 						}
@@ -1361,6 +1580,18 @@
 						"schema": {
 							"type": "boolean"
 						}
+					},
+					{
+						"$ref": "#/components/parameters/query"
+					},
+					{
+						"$ref": "#/components/parameters/order"
+					},
+					{
+						"$ref": "#/components/parameters/limit"
+					},
+					{
+						"$ref": "#/components/parameters/offset"
 					}
 				],
 				"responses": {
@@ -1382,7 +1613,17 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "The operation was not successful (possible errors are invalid field names or conditions in filter parameters provided)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error500"
 								}
 							}
 						}
@@ -1426,7 +1667,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -1513,7 +1754,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -1569,6 +1810,10 @@
 										"type": "number",
 										"format": "integer",
 										"description": "A valid location id (if supplied, only stock at the given location is considered, if ommitted, stock of any location is considered)"
+									},
+									"exact_amount": {
+										"type": "boolean",
+										"description": "For tare weight handling enabled products, `true` when the given is the absolute amount to be consumed, not the amount including the container weight"
 									}
 								},
 								"example": {
@@ -1596,7 +1841,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -1672,7 +1917,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -1749,7 +1994,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -1813,7 +2058,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -1854,7 +2099,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -1936,7 +2181,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -1992,6 +2237,10 @@
 										"type": "number",
 										"format": "integer",
 										"description": "A valid location id (if supplied, only stock at the given location is considered, if ommitted, stock of any location is considered)"
+									},
+									"exact_amount": {
+										"type": "boolean",
+										"description": "For tare weight handling enabled products, `true` when the given is the absolute amount to be consumed, not the amount including the container weight"
 									}
 								},
 								"example": {
@@ -2019,7 +2268,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -2095,7 +2344,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -2167,7 +2416,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -2231,7 +2480,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -2273,7 +2522,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -2315,7 +2564,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -2357,7 +2606,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -2415,7 +2664,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -2468,7 +2717,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -2509,7 +2758,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -2543,7 +2792,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -2587,7 +2836,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -2621,7 +2870,101 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/journal": {
+			"get": {
+				"summary": "Returns the stock journal",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/query"
+					},
+					{
+						"$ref": "#/components/parameters/order"
+					},
+					{
+						"$ref": "#/components/parameters/limit"
+					},
+					{
+						"$ref": "#/components/parameters/offset"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An array of StockJournal objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/StockJournal"
+									}
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "The operation was not successful (possible errors are invalid field names or conditions in filter parameters provided)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error500"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/journal/summary": {
+			"get": {
+				"summary": "Returns the stock journal summary (summarized transactions per product, transaction type and user + summarized amount)",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/query"
+					},
+					{
+						"$ref": "#/components/parameters/order"
+					},
+					{
+						"$ref": "#/components/parameters/limit"
+					},
+					{
+						"$ref": "#/components/parameters/offset"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An array of StockJournalSummary objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/StockJournalSummary"
+									}
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "The operation was not successful (possible errors are invalid field names or conditions in filter parameters provided)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error500"
 								}
 							}
 						}
@@ -2672,7 +3015,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -2757,7 +3100,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -2795,6 +3138,20 @@
 				"tags": [
 					"Recipes"
 				],
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/query"
+					},
+					{
+						"$ref": "#/components/parameters/order"
+					},
+					{
+						"$ref": "#/components/parameters/limit"
+					},
+					{
+						"$ref": "#/components/parameters/offset"
+					}
+				],
 				"responses": {
 					"200": {
 						"description": "An array of RecipeFulfillmentResponse objects",
@@ -2814,7 +3171,17 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "The operation was not successful (possible errors are invalid field names or conditions in filter parameters provided)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error500"
 								}
 							}
 						}
@@ -2828,6 +3195,20 @@
 				"tags": [
 					"Chores"
 				],
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/query"
+					},
+					{
+						"$ref": "#/components/parameters/order"
+					},
+					{
+						"$ref": "#/components/parameters/limit"
+					},
+					{
+						"$ref": "#/components/parameters/offset"
+					}
+				],
 				"responses": {
 					"200": {
 						"description": "An array of CurrentChoreResponse objects",
@@ -2838,6 +3219,16 @@
 									"items": {
 										"$ref": "#/components/schemas/CurrentChoreResponse"
 									}
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "The operation was not successful (possible errors are invalid field names or conditions in filter parameters provided)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error500"
 								}
 							}
 						}
@@ -2878,7 +3269,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -2940,7 +3331,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -2974,7 +3365,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -3016,7 +3407,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -3030,6 +3421,20 @@
 				"tags": [
 					"Batteries"
 				],
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/query"
+					},
+					{
+						"$ref": "#/components/parameters/order"
+					},
+					{
+						"$ref": "#/components/parameters/limit"
+					},
+					{
+						"$ref": "#/components/parameters/offset"
+					}
+				],
 				"responses": {
 					"200": {
 						"description": "An array of CurrentBatteryResponse objects",
@@ -3040,6 +3445,16 @@
 									"items": {
 										"$ref": "#/components/schemas/CurrentBatteryResponse"
 									}
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "The operation was not successful (possible errors are invalid field names or conditions in filter parameters provided)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error500"
 								}
 							}
 						}
@@ -3080,7 +3495,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -3138,7 +3553,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -3172,7 +3587,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -3186,6 +3601,20 @@
 				"tags": [
 					"Tasks"
 				],
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/query"
+					},
+					{
+						"$ref": "#/components/parameters/order"
+					},
+					{
+						"$ref": "#/components/parameters/limit"
+					},
+					{
+						"$ref": "#/components/parameters/offset"
+					}
+				],
 				"responses": {
 					"200": {
 						"description": "An array of Task objects",
@@ -3196,6 +3625,16 @@
 									"items": {
 										"$ref": "#/components/schemas/Task"
 									}
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "The operation was not successful (possible errors are invalid field names or conditions in filter parameters provided)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error500"
 								}
 							}
 						}
@@ -3246,7 +3685,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -3280,7 +3719,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -3310,7 +3749,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/GenericErrorResponse"
+									"$ref": "#/components/schemas/Error400"
 								}
 							}
 						}
@@ -4292,11 +4731,141 @@
 					}
 				}
 			},
-			"GenericErrorResponse": {
+			"StockJournal": {
+				"type": "object",
+				"properties": {
+					"correlation_id": {
+						"type": "string"
+					},
+					"undone": {
+						"type": "integer"
+					},
+					"undone_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"amount": {
+						"type": "number",
+						"format": "float"
+					},
+					"location_id": {
+						"type": "integer"
+					},
+					"location_name": {
+						"type": "string"
+					},
+					"product_name": {
+						"type": "string"
+					},
+					"qu_name": {
+						"type": "string"
+					},
+					"qu_name_plural": {
+						"type": "string"
+					},
+					"user_display_name": {
+						"type": "string"
+					},
+					"spoiled": {
+						"type": "boolean",
+						"default": false
+					},
+					"transaction_type": {
+						"$ref": "#/components/internalSchemas/StockTransactionType"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"example": {
+					"id": "1",
+					"correlation_id": null,
+					"undone": "0",
+					"undone_timestamp": null,
+					"transaction_type": "purchase",
+					"spoiled": "0",
+					"amount": "1",
+					"location_id": "4",
+					"location_name": "Candy cupboard",
+					"product_name": "Gummy bears",
+					"qu_name": "Pack",
+					"qu_name_plural": "Packs",
+					"user_display_name": "Demo User",
+					"row_created_timestamp": "2020-11-14 16:42:21"
+				}
+			},
+			"StockJournalSummary": {
+				"type": "object",
+				"properties": {
+					"amount": {
+						"type": "number",
+						"format": "float"
+					},
+					"user_id": {
+						"type": "integer"
+					},
+					"product_name": {
+						"type": "string"
+					},
+					"product_id": {
+						"type": "integer"
+					},
+					"qu_name": {
+						"type": "string"
+					},
+					"qu_name_plural": {
+						"type": "string"
+					},
+					"user_display_name": {
+						"type": "string"
+					},
+					"transaction_type": {
+						"$ref": "#/components/internalSchemas/StockTransactionType"
+					}
+				},
+				"example": {
+					"id": "1",
+					"user_id": "1",
+					"user_display_name": "Demo User",
+					"product_name": "Chocolate",
+					"product_id": "2",
+					"transaction_type": "purchase",
+					"qu_name": "Pack",
+					"qu_name_plural": "Packs",
+					"amount": "1"
+				}
+			},
+			"Error400": {
 				"type": "object",
 				"properties": {
 					"error_message": {
 						"type": "string"
+					}
+				},
+				"example": {
+					"error_message": "The error message..."
+				}
+			},
+			"Error500": {
+				"type": "object",
+				"properties": {
+					"error_message": {
+						"type": "string"
+					},
+					"error_details": {
+						"type": "object",
+						"properties": {
+							"stack_trace": {
+								"type": "string"
+							},
+							"file": {
+								"type": "string"
+							},
+							"line": {
+								"type": "integer"
+							}
+						}
 					}
 				},
 				"example": {
@@ -4475,6 +5044,47 @@
 				"type": "apiKey",
 				"in": "header",
 				"name": "GROCY-API-KEY"
+			}
+		},
+		"parameters": {
+			"order": {
+				"in": "query",
+				"name": "order",
+				"required": false,
+				"description": "A valid field name by which the response should be ordered",
+				"schema": {
+					"type": "string"
+				}
+			},
+			"limit": {
+				"in": "query",
+				"name": "limit",
+				"required": false,
+				"description": "The maximum number of objects to return",
+				"schema": {
+					"type": "integer"
+				}
+			},
+			"offset": {
+				"in": "query",
+				"name": "offset",
+				"required": false,
+				"description": "The number of objects to skip",
+				"schema": {
+					"type": "integer"
+				}
+			},
+			"query": {
+				"in": "query",
+				"name": "query[]",
+				"required": false,
+				"description": "An array of filter conditions, each of them is a string in the form of `<field><condition><value>` where<br>`<field>` is a valid field name<br>`<condition>` is a comparison operator, one of<br>&nbsp;&nbsp;`=` equal<br>&nbsp;&nbsp;`~` LIKE<br>&nbsp;&nbsp;`<` less<br>&nbsp;&nbsp;`>` greater<br>&nbsp;&nbsp;`<=` less or equal<br>&nbsp;&nbsp;`>=` (reater or equal<br>`<value>` is the value to search for",
+				"schema": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				}
 			}
 		}
 	},

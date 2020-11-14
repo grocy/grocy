@@ -134,7 +134,7 @@ class UsersApiController extends BaseApiController
 
 			return $this->ApiResponse(
 				$response,
-				$this->getDatabase()->user_permissions()->where($args['userId'])
+				$this->getDatabase()->user_permissions()->where('user_id', $args['userId'])
 			);
 		}
 		catch (\Slim\Exception\HttpSpecializedException $ex)
