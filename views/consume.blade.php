@@ -97,6 +97,19 @@
 				<div class="custom-control custom-checkbox">
 					<input class="form-check-input custom-control-input"
 						type="checkbox"
+						id="spoiled"
+						name="spoiled"
+						value="1">
+					<label class="form-check-label custom-control-label"
+						for="spoiled">{{ $__t('Spoiled') }}
+					</label>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="custom-control custom-checkbox">
+					<input class="form-check-input custom-control-input"
+						type="checkbox"
 						id="use_specific_stock_entry"
 						name="use_specific_stock_entry"
 						value="1">
@@ -113,19 +126,6 @@
 					name="specific_stock_entry">
 					<option></option>
 				</select>
-			</div>
-
-			<div class="form-group">
-				<div class="custom-control custom-checkbox">
-					<input class="form-check-input custom-control-input"
-						type="checkbox"
-						id="spoiled"
-						name="spoiled"
-						value="1">
-					<label class="form-check-label custom-control-label"
-						for="spoiled">{{ $__t('Spoiled') }}
-					</label>
-				</div>
 			</div>
 
 			@if (GROCY_FEATURE_FLAG_RECIPES)

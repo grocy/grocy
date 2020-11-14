@@ -48,6 +48,21 @@
 			))
 
 			<div class="form-group">
+				<label for="location_id_to">{{ $__t('To location') }}</label>
+				<select required
+					class="form-control location-combobox"
+					id="location_id_to"
+					name="location_id_to">
+					<option></option>
+					@foreach($locations as $location)
+					<option value="{{ $location->id }}"
+						data-is-freezer="{{ $location->is_freezer }}">{{ $location->name }}</option>
+					@endforeach
+				</select>
+				<div class="invalid-feedback">{{ $__t('A location is required') }}</div>
+			</div>
+
+			<div class="form-group">
 				<div class="custom-control custom-checkbox">
 					<input class="form-check-input custom-control-input"
 						type="checkbox"
@@ -67,21 +82,6 @@
 					name="specific_stock_entry">
 					<option></option>
 				</select>
-			</div>
-
-			<div class="form-group">
-				<label for="location_id_to">{{ $__t('To location') }}</label>
-				<select required
-					class="form-control location-combobox"
-					id="location_id_to"
-					name="location_id_to">
-					<option></option>
-					@foreach($locations as $location)
-					<option value="{{ $location->id }}"
-						data-is-freezer="{{ $location->is_freezer }}">{{ $location->name }}</option>
-					@endforeach
-				</select>
-				<div class="invalid-feedback">{{ $__t('A location is required') }}</div>
 			</div>
 
 			<button id="save-transfer-button"
