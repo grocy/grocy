@@ -6,7 +6,7 @@
 	<div class="card-header">
 		<span class="float-left">{{ $__t('Chore overview') }}</span>
 		<a id="chorecard-chore-edit-button"
-			class="btn btn-sm btn-outline-info py-0 float-right disabled"
+			class="btn btn-sm btn-outline-secondary py-0 float-right disabled"
 			href="#"
 			data-toggle="tooltip"
 			title="{{ $__t('Edit chore') }}">
@@ -14,10 +14,8 @@
 		</a>
 		<a id="chorecard-chore-journal-button"
 			class="btn btn-sm btn-outline-secondary py-0 mr-1 float-right disabled show-as-dialog-link"
-			href="#"
-			data-toggle="tooltip"
-			title="{{ $__t('Chore journal') }}">
-			<i class="fas fa-file-alt"></i>
+			href="#">
+			{{ $__t('Chore journal') }}
 		</a>
 	</div>
 	<div class="card-body">

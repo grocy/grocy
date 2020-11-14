@@ -7,7 +7,7 @@
 	<div class="card-header">
 		<span class="float-left">{{ $__t('Product overview') }}</span>
 		<a id="productcard-product-edit-button"
-			class="btn btn-sm btn-outline-info py-0 float-right disabled"
+			class="btn btn-sm btn-outline-secondary py-0 float-right disabled"
 			href="#"
 			data-toggle="tooltip"
 			title="{{ $__t('Edit product') }}">
@@ -15,17 +15,13 @@
 		</a>
 		<a id="productcard-product-journal-button"
 			class="btn btn-sm btn-outline-secondary py-0 mr-1 float-right disabled show-as-dialog-link"
-			href="#"
-			data-toggle="tooltip"
-			title="{{ $__t('Stock journal') }}">
-			<i class="fas fa-file-alt"></i>
+			href="#">
+			{{ $__t('Stock journal') }}
 		</a>
 		<a id="productcard-product-stock-button"
-			class="btn btn-sm btn-outline-info py-0 mr-1 float-right disabled show-as-dialog-link"
-			href="#"
-			data-toggle="tooltip"
-			title="{{ $__t('Stock entries') }}">
-			<i class="fas fa-boxes"></i>
+			class="btn btn-sm btn-outline-secondary py-0 mr-1 float-right disabled show-as-dialog-link"
+			href="#">
+			{{ $__t('Stock entries') }}
 		</a>
 	</div>
 	<div class="card-body">
