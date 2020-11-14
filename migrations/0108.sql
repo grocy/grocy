@@ -9,7 +9,7 @@ SELECT
 	MIN(s.best_before_date) AS best_before_date,
 	IFNULL((SELECT SUM(amount) FROM stock WHERE product_id = pr.parent_product_id AND open = 1), 0) AS amount_opened,
 	IFNULL((SELECT SUM(amount) FROM stock WHERE product_id IN (SELECT sub_product_id FROM products_resolved WHERE parent_product_id = pr.parent_product_id) AND open = 1), 0) * IFNULL(qucr.factor, 1) AS amount_opened_aggregated,
-	CASE WHEN p_sub.parent_product_id IS NOT NULL THEN 1 ELSE 0 END AS is_aggregated_amount
+    CASE WHEN COUNT(p_sub.parent_product_id) > 0  THEN 1 ELSE 0 END AS is_aggregated_amount
 FROM products_resolved pr
 JOIN stock s
 	ON pr.sub_product_id = s.product_id
