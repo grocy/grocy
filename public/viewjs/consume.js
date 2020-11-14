@@ -42,17 +42,16 @@
 
 					bookingResponse = result;
 
-					var addBarcode = GetUriParam('addbarcodetoselection');
-					if (addBarcode !== undefined)
+					if (GetUriParam("flow") === "InplaceAddBarcodeToExistingProduct")
 					{
 						var jsonDataBarcode = {};
-						jsonDataBarcode.barcode = addBarcode;
+						jsonDataBarcode.barcode = GetUriParam("barcode");
 						jsonDataBarcode.product_id = jsonForm.product_id;
 
 						Grocy.Api.Post('objects/product_barcodes', jsonDataBarcode,
 							function(result)
 							{
-								$("#flow-info-addbarcodetoselection").addClass("d-none");
+								$("#flow-info-InplaceAddBarcodeToExistingProduct").addClass("d-none");
 								$('#barcode-lookup-disabled-hint').addClass('d-none');
 								$('#barcode-lookup-hint').removeClass('d-none');
 								window.history.replaceState({}, document.title, U("/consume"));
@@ -90,6 +89,7 @@
 					{
 						Grocy.FrontendHelpers.EndUiBusy("consume-form");
 						toastr.success(successMessage);
+						Grocy.Components.ProductPicker.FinishFlow();
 
 						Grocy.Components.ProductAmountPicker.Reset();
 						$("#display_amount").attr("min", "1");

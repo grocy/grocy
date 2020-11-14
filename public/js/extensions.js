@@ -44,6 +44,13 @@ UpdateUriParam = function(key, value)
 	window.history.replaceState({}, "", decodeURIComponent(`${location.pathname}?${queryParameters}`));
 };
 
+RemoveUriParam = function(key)
+{
+	var queryParameters = new URLSearchParams(location.search);
+	queryParameters.delete(key);
+	window.history.replaceState({}, "", decodeURIComponent(`${location.pathname}?${queryParameters}`));
+};
+
 IsTouchInputDevice = function()
 {
 	if (("ontouchstart" in window) || window.DocumentTouch && document instanceof DocumentTouch)

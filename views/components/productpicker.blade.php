@@ -60,8 +60,8 @@
 	<div class="invalid-feedback">{{ $__t('You have to select a product') }}</div>
 	<div id="custom-productpicker-error"
 		class="form-text text-danger d-none"></div>
-	<div id="flow-info-addbarcodetoselection"
-		class="form-text text-info small d-none"><strong><span id="addbarcodetoselection"></span></strong> {{ $__t('will be added to the list of barcodes for the selected product on submit') }}</div>
+	<div id="flow-info-InplaceAddBarcodeToExistingProduct"
+		class="form-text text-info small d-none"><strong><span id="InplaceAddBarcodeToExistingProduct"></span></strong> {{ $__t('will be added to the list of barcodes for the selected product on submit') }}</div>
 </div>
 
 @include('components.barcodescanner')

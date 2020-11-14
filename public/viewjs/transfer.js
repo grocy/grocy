@@ -25,19 +25,18 @@
 			Grocy.Api.Post(apiUrl, jsonData,
 				function(result)
 				{
-					var addBarcode = GetUriParam('addbarcodetoselection');
 					bookingResponse = result;
 
-					if (addBarcode !== undefined)
+					if (GetUriParam("flow") === "InplaceAddBarcodeToExistingProduct")
 					{
 						var jsonDataBarcode = {};
-						jsonDataBarcode.barcode = addBarcode;
+						jsonDataBarcode.barcode = GetUriParam("barcode");
 						jsonDataBarcode.product_id = jsonForm.product_id;
 
 						Grocy.Api.Post('objects/product_barcodes', jsonDataBarcode,
 							function(result)
 							{
-								$("#flow-info-addbarcodetoselection").addClass("d-none");
+								$("#flow-info-InplaceAddBarcodeToExistingProduct").addClass("d-none");
 								$('#barcode-lookup-disabled-hint').addClass('d-none');
 								$('#barcode-lookup-hint').removeClass('d-none');
 								window.history.replaceState({}, document.title, U("/transfer"));
@@ -69,6 +68,7 @@
 					{
 						Grocy.FrontendHelpers.EndUiBusy("transfer-form");
 						toastr.success(successMessage);
+						Grocy.Components.ProductPicker.FinishFlow();
 
 						if (parseInt($("#location_id_from option:selected").attr("data-is-freezer")) === 0 && parseInt($("#location_id_to option:selected").attr("data-is-freezer")) === 1) // Frozen
 						{

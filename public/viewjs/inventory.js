@@ -39,18 +39,17 @@
 				{
 					bookingResponse = result;
 
-					var addBarcode = GetUriParam('addbarcodetoselection');
-					if (addBarcode !== undefined)
+					if (GetUriParam("flow") === "InplaceAddBarcodeToExistingProduct")
 					{
 						var jsonDataBarcode = {};
-						jsonDataBarcode.barcode = addBarcode;
+						jsonDataBarcode.barcode = GetUriParam("barcode");
 						jsonDataBarcode.product_id = jsonForm.product_id;
 						jsonDataBarcode.shopping_location_id = jsonForm.shopping_location_id;
 
 						Grocy.Api.Post('objects/product_barcodes', jsonDataBarcode,
 							function(result)
 							{
-								$("#flow-info-addbarcodetoselection").addClass("d-none");
+								$("#flow-info-InplaceAddBarcodeToExistingProduct").addClass("d-none");
 								$('#barcode-lookup-disabled-hint').addClass('d-none');
 								$('#barcode-lookup-hint').removeClass('d-none');
 								window.history.replaceState({}, document.title, U("/inventory"));
@@ -78,6 +77,7 @@
 							{
 								Grocy.FrontendHelpers.EndUiBusy("inventory-form");
 								toastr.success(successMessage);
+								Grocy.Components.ProductPicker.FinishFlow();
 
 								Grocy.Components.ProductAmountPicker.Reset();
 								$('#inventory-change-info').addClass('d-none');
@@ -189,13 +189,18 @@ $('#display_amount').val('');
 $(".input-group-productamountpicker").trigger("change");
 Grocy.FrontendHelpers.ValidateForm('inventory-form');
 
-if (Grocy.Components.ProductPicker.InProductAddWorkflow() === false)
+if (Grocy.Components.ProductPicker.InAnyFlow() === false)
 {
 	Grocy.Components.ProductPicker.GetInputElement().focus();
 }
 else
 {
 	Grocy.Components.ProductPicker.GetPicker().trigger('change');
+
+	if (Grocy.Components.ProductPicker.InProductModifyWorkflow())
+	{
+		Grocy.Components.ProductPicker.GetInputElement().focus();
+	}
 }
 
 $('#display_amount').on('focus', function(e)

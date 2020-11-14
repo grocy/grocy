@@ -36,12 +36,24 @@ Grocy.Components.ProductPicker.Clear = function()
 
 Grocy.Components.ProductPicker.InProductAddWorkflow = function()
 {
-	return typeof GetUriParam('createdproduct') !== "undefined" || typeof GetUriParam('product') !== "undefined";
+	return GetUriParam('flow') == "InplaceNewProductWithName";
 }
 
 Grocy.Components.ProductPicker.InProductModifyWorkflow = function()
 {
-	return typeof GetUriParam('addbarcodetoselection') !== "undefined";
+	return GetUriParam('flow') == "InplaceAddBarcodeToExistingProduct";
+}
+
+Grocy.Components.ProductPicker.InAnyFlow = function()
+{
+	return Grocy.Components.ProductPicker.InProductAddWorkflow() || Grocy.Components.ProductPicker.InProductModifyWorkflow();
+}
+
+Grocy.Components.ProductPicker.FinishFlow = function()
+{
+	RemoveUriParam("flow");
+	RemoveUriParam("barcode");
+	RemoveUriParam("product-name");
 }
 
 Grocy.Components.ProductPicker.ShowCustomError = function(text)
@@ -76,7 +88,7 @@ $('.product-combobox').combobox({
 	clearIfNoMatch: false
 });
 
-var prefillProduct = GetUriParam('createdproduct');
+var prefillProduct = GetUriParam('product-name');
 var prefillProduct2 = Grocy.Components.ProductPicker.GetPicker().parent().data('prefill-by-name').toString();
 if (!prefillProduct2.isEmpty())
 {
@@ -117,11 +129,10 @@ if (typeof prefillProductId !== "undefined")
 	nextInputElement.focus();
 }
 
-var addBarcode = GetUriParam('addbarcodetoselection');
-if (addBarcode !== undefined)
+if (GetUriParam("flow") === "InplaceAddBarcodeToExistingProduct")
 {
-	$('#addbarcodetoselection').text(addBarcode);
-	$('#flow-info-addbarcodetoselection').removeClass('d-none');
+	$('#InplaceAddBarcodeToExistingProduct').text(GetUriParam("barcode"));
+	$('#flow-info-InplaceAddBarcodeToExistingProduct').removeClass('d-none');
 	$('#barcode-lookup-disabled-hint').removeClass('d-none');
 	$('#barcode-lookup-hint').addClass('d-none');
 }
@@ -138,7 +149,7 @@ $('#product_id_text_input').on('blur', function(e)
 	var input = $('#product_id_text_input').val().toString();
 	var possibleOptionElement = $("#product_id option[data-additional-searchdata*=\"" + input + ",\"]").first();
 
-	if (GetUriParam('addbarcodetoselection') === undefined && input.length > 0 && possibleOptionElement.length > 0)
+	if (GetUriParam('flow') === undefined && input.length > 0 && possibleOptionElement.length > 0)
 	{
 		$('#product_id').val(possibleOptionElement.val());
 		$('#product_id').attr("barcode", input);
@@ -153,7 +164,7 @@ $('#product_id_text_input').on('blur', function(e)
 		}
 
 		var optionElement = $("#product_id option:contains(\"" + input + "\")").first();
-		if (input.length > 0 && optionElement.length === 0 && typeof GetUriParam('addbarcodetoselection') === "undefined" && Grocy.Components.ProductPicker.GetPicker().parent().data('disallow-all-product-workflows').toString() === "false")
+		if (input.length > 0 && optionElement.length === 0 && GetUriParam('flow') === undefined && Grocy.Components.ProductPicker.GetPicker().parent().data('disallow-all-product-workflows').toString() === "false")
 		{
 			var addProductWorkflowsAdditionalCssClasses = "";
 			if (Grocy.Components.ProductPicker.GetPicker().parent().data('disallow-add-product-workflows').toString() === "true")
@@ -189,7 +200,7 @@ $('#product_id_text_input').on('blur', function(e)
 						callback: function()
 						{
 							Grocy.Components.ProductPicker.PopupOpen = false;
-							window.location.href = U('/product/new?prefillname=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative));
+							window.location.href = U('/product/new?flow=InplaceNewProductWithName&name=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative + "?flow=InplaceNewProductWithName"));
 						}
 					},
 					addbarcode: {
@@ -198,7 +209,7 @@ $('#product_id_text_input').on('blur', function(e)
 						callback: function()
 						{
 							Grocy.Components.ProductPicker.PopupOpen = false;
-							window.location.href = U(Grocy.CurrentUrlRelative + '?addbarcodetoselection=' + encodeURIComponent(input));
+							window.location.href = U(Grocy.CurrentUrlRelative + '?flow=InplaceAddBarcodeToExistingProduct&barcode=' + encodeURIComponent(input));
 						}
 					},
 					addnewproductwithbarcode: {
@@ -207,7 +218,7 @@ $('#product_id_text_input').on('blur', function(e)
 						callback: function()
 						{
 							Grocy.Components.ProductPicker.PopupOpen = false;
-							window.location.href = U('/product/new?prefillbarcode=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative));
+							window.location.href = U('/product/new?flow=InplaceNewProductWithBarcode&barcode=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative + "?flow=InplaceAddBarcodeToExistingProduct&barcode=" + input));
 						}
 					}
 				}

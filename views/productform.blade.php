@@ -356,7 +356,8 @@
 			'entity' => 'products'
 			))
 
-			<small class="my-2 form-text text-muted @if($mode == 'edit') d-none @endif">{{ $__t('Save & continue to add quantity unit conversions & barcodes') }}</small>
+			<small id="save-hint"
+				class="my-2 form-text text-muted @if($mode == 'edit') d-none @endif">{{ $__t('Save & continue to add quantity unit conversions & barcodes') }}</small>
 
 			<button id="save-product-button"
 				class="save-product-button btn btn-success mb-2"
