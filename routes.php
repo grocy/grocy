@@ -150,7 +150,6 @@ $app->group('/api', function (RouteCollectorProxy $group) {
 	// Generic entity interaction
 	$group->get('/objects/{entity}', '\Grocy\Controllers\GenericEntityApiController:GetObjects');
 	$group->get('/objects/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:GetObject');
-	$group->get('/objects/{entity}/search/{searchString:.*}', '\Grocy\Controllers\GenericEntityApiController:SearchObjects');
 	$group->post('/objects/{entity}', '\Grocy\Controllers\GenericEntityApiController:AddObject');
 	$group->put('/objects/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:EditObject');
 	$group->delete('/objects/{entity}/{objectId}', '\Grocy\Controllers\GenericEntityApiController:DeleteObject');

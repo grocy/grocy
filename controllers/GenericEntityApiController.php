@@ -135,7 +135,7 @@ class GenericEntityApiController extends BaseApiController
 
 	public function GetObjects(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$objects = $this->getDatabase()->{$args['entity']}();
+		$objects = $this->queryData($this->getDatabase()->{$args['entity']}(), $request->getQueryParams());
 		$allUserfields = $this->getUserfieldsService()->GetAllValues($args['entity']);
 
 		foreach ($objects as $object)
@@ -173,25 +173,6 @@ class GenericEntityApiController extends BaseApiController
 		catch (\Exception $ex)
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
-		}
-	}
-
-	public function SearchObjects(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
-	{
-		if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithPreventedListing($args['entity']))
-		{
-			try
-			{
-				return $this->FilteredApiResponse($response, $this->getDatabase()->{$args['entity']}(), $request->getQueryParams());
-			}
-			catch (\PDOException $ex)
-			{
-				throw new HttpBadRequestException($request, $ex->getMessage(), $ex);
-			}
-		}
-		else
-		{
-			return $this->GenericErrorResponse($response, 'Entity does not exist or is not exposed');
 		}
 	}
 

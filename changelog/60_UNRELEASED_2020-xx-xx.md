@@ -132,11 +132,13 @@ _- (Because the stock quantity unit is now the base for everything, it cannot be
   - All prices are now related to the products stock quantity unit (instead of the products purchase QU)
   - All (product) amounts are now related to the products stock quantity unit (was related to the products purchase QU for the shopping list before)
   - The product object no longer has a field `barcodes` with a comma separated barcode list, instead barcodes are now stored in a separate table/entity `product_barcodes` (use the existing "Generic entity interactions" endpoints to access them)
+  - The endpoint `/objects/{entity}/search` was removed (use the existing `/objects/{entity}` endpoint with new new filter capabilities mentioned below)
+  - The output / field names of `ProductDetailsResponse` have slightly changed (endpoint `/stock/products/{productId}`)
 - For better integration (apps), it's now possible to show a QR-Code for API keys (thanks @fipwmaqzufheoxq92ebc)
   - New QR-Code button on the "Manage API keys"-page (top right corner settings menu), the QR-Codes contains `<API-Url>|<API-Key>`
   - And on the calendar page when using the button "Share/Integrate calendar (iCal)", there the QR-Codes contains the Share-URL (which is displayed in the textbox above)
-- The output of the following endpoints can now be filtered (by any field), ordered and paginated (thanks @fipwmaqzufheoxq92ebc)
-  - `/objects/{entity}/search`
+- The output of the following endpoints can now be filtered (by any field), ordered and paginated (thanks for the initial work on this @fipwmaqzufheoxq92ebc)
+  - `/objects/{entity}`
   - `/stock/products/{productId}/entries`
   - `/stock/products/{productId}/locations`
   - `/recipes/fulfillment`

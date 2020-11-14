@@ -271,7 +271,7 @@ if (Grocy.Components.ProductPicker !== undefined)
 
 					if (document.getElementById("product_id").getAttribute("barcode") != "null")
 					{
-						Grocy.Api.Get('objects/product_barcodes/search/?query[]=barcode=' + document.getElementById("product_id").getAttribute("barcode"),
+						Grocy.Api.Get('objects/product_barcodes?query[]=barcode=' + document.getElementById("product_id").getAttribute("barcode"),
 							function(barcodeResult)
 							{
 								if (barcodeResult != null)
