@@ -22,7 +22,15 @@
 					}
 					else if (returnTo !== undefined)
 					{
-						window.location.href = U(returnTo) + '&product-name=' + encodeURIComponent($('#name').val());
+						if (GetUriParam("flow") !== undefined)
+						{
+							window.location.href = U(returnTo) + '&product-name=' + encodeURIComponent($('#name').val());
+						}
+						else
+						{
+							window.location.href = U(returnTo);
+						}
+
 					}
 					else
 					{
@@ -52,7 +60,14 @@
 			}
 			else if (returnTo !== undefined)
 			{
-				window.location.href = U(returnTo) + '&product-name=' + encodeURIComponent($('#name').val());
+				if (GetUriParam("flow") !== undefined)
+				{
+					window.location.href = U(returnTo) + '&product-name=' + encodeURIComponent($('#name').val());
+				}
+				else
+				{
+					window.location.href = U(returnTo);
+				}
 			}
 			else
 			{
@@ -147,7 +162,7 @@ if (GetUriParam("flow") == "InplaceNewProductWithName")
 	$('#name').focus();
 }
 
-if (GetUriParam("flow") !== undefined)
+if (GetUriParam("flow") !== undefined || GetUriParam("returnto") !== undefined)
 {
 	$("#save-hint").addClass("d-none");
 	$(".save-product-button[data-location='return']").addClass("d-none");
