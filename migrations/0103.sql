@@ -78,6 +78,16 @@ FROM products_old;
 
 DROP TABLE products_old;
 
+CREATE TRIGGER prevent_qu_stock_change_after_first_purchase AFTER UPDATE ON products
+BEGIN
+	SELECT CASE WHEN((
+        SELECT 1
+        FROM stock_log
+		WHERE product_id = NEW.id
+			AND NEW.qu_id_stock != OLD.qu_id_stock
+    ) NOTNULL) THEN RAISE(ABORT, "qu_id_stock cannot be changed when the product was once added to stock") END;
+END;
+
 DROP VIEW stock_current_location_content;
 CREATE VIEW stock_current_location_content
 AS
