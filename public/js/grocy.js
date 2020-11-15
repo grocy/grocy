@@ -698,13 +698,32 @@ $.extend(true, $.fn.dataTable.defaults, {
 	},
 	'stateSaveCallback': function(settings, data)
 	{
-		// TODO: Save/load this server side
-		localStorage.setItem('datatables_state_' + settings.sTableId, JSON.stringify(data));
+		var settingKey = 'datatables_state_' + settings.sTableId;
+		var stateData = JSON.stringify(data);
+
+		Grocy.UserSettings[settingKey] = stateData;
+
+		jsonData = {};
+		jsonData.value = stateData;
+		Grocy.Api.Put('user/settings/' + settingKey, jsonData,
+			function(result)
+			{
+				// Nothing to do...
+			},
+			function(xhr)
+			{
+				if (!xhr.statusText.isEmpty())
+				{
+					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+				}
+			}
+		);
 	},
 	'stateLoadCallback': function(settings, data)
 	{
-		// TODO: Save/load this server side
-		return JSON.parse(localStorage.getItem('datatables_state_' + settings.sTableId));
+		var settingKey = 'datatables_state_' + settings.sTableId;
+
+		return JSON.parse(Grocy.UserSettings[settingKey]);
 	}
 });
 

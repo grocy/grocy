@@ -503,7 +503,7 @@
 				<h5 id="qu-conversion-headline-info"
 					class="text-muted font-italic"></h5>
 
-				<table id="qu-conversions-table"
+				<table id="qu-conversions-table-products"
 					class="table table-sm table-striped nowrap w-100">
 					<thead>
 						<tr>
