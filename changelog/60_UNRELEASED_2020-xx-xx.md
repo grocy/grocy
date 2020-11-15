@@ -3,7 +3,7 @@
 ### New feature: Use any product related quantity unit anywhere
 - Finally it's possible to use any product related quantity unit on any page
 - Products still have one quantity unit stock and one (default) quantity unit purchase, but any QU, which has a direct or indirect conversion for that product, can be used to pick an amount
-_- (Because the stock quantity unit is now the base for everything, it cannot be changed after the product was once added to stock (for now, maybe there will be a possibilty to change it in a future release))_
+  - (Because the stock quantity unit is now the base for everything, it cannot be changed after the product was once added to stock (for now, maybe there will be a possibilty to change it in a future release))
 
 ### New feature: Prefill purchase data by barcodes
 - Imagine you buy for example eggs in different pack sizes and they have different barcodes
@@ -33,12 +33,12 @@ _- (Because the stock quantity unit is now the base for everything, it cannot be
   - New product option "Due date type" (defaults to "Best before date")
   - Wording changes:
     - All current places where "Best before date" was used now use "Due date"
-	- Products with `Due date type = Best before date` (so all existing products) are "due" or "overdue" (they don't "expire" or are "expired")
-	- Products with `Due date type = Expiration date` (new option) can "expire" or are "expired"
+    - Products with `Due date type = Best before date` (so all existing products) are "due" or "overdue" (they don't "expire" or are "expired")
+    - Products with `Due date type = Expiration date` (new option) can "expire" or are "expired"
   - Color changes:
     - Prducts which are due soon or expire soon are (still) highlighted in yellow
-	- Products which are overdue are highlighted in grey (there is is also a new filter button on the stock overview page for them)
-	- Products which are expired (new option) are highlighted in red
+    - Products which are overdue are highlighted in grey (there is also a new filter button on the stock overview page for them)
+    - Products which are expired (new option) are highlighted in red
 - When creating a quantity unit conversion it's now possible to automatically create the inverse conversion (thanks @kriddles)
 - On purchase there is now a warning shown, when the due date of the purchased product is earlier than the next due date in stock (enabled by default, can be disabled by a new stock setting (top right corner settings menu))
 - The amount to be used for the "quick consume/open buttons" on the stock overview page can now be configured per product (new product option "Quick consume amount", defaults to 1)
