@@ -723,7 +723,14 @@ $.extend(true, $.fn.dataTable.defaults, {
 	{
 		var settingKey = 'datatables_state_' + settings.sTableId;
 
-		return JSON.parse(Grocy.UserSettings[settingKey]);
+		if (Grocy.UserSettings[settingKey] == undefined)
+		{
+			return null;
+		}
+		else
+		{
+			return JSON.parse(Grocy.UserSettings[settingKey]);
+		}
 	}
 });
 
