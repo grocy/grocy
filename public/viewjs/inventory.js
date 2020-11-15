@@ -162,7 +162,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 					$("#tare-weight-handling-info").addClass("d-none");
 				}
 
-				$('#price').val(parseFloat(productDetails.last_price).toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices }));
+				$('#price').val(parseFloat(productDetails.last_price));
 				RefreshLocaleNumberInput();
 				if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 				{

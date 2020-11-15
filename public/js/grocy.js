@@ -582,32 +582,35 @@ function RefreshLocaleNumberInput(rootSelector = "#page-content")
 {
 	$(rootSelector + " .locale-number-input.locale-number-currency").each(function()
 	{
-		if (isNaN(parseFloat($(this).val())))
+		var value = $(this).val();
+		if (isNaN(value))
 		{
 			return;
 		}
 
-		$(this).val(parseFloat($(this).val()).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices }));
+		$(this).val(value.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices }));
 	});
 
 	$(rootSelector + " .locale-number-input.locale-number-quantity-amount").each(function()
 	{
-		if (isNaN(parseFloat($(this).val())))
+		var value = $(this).val();
+		if (isNaN(value))
 		{
 			return;
 		}
 
-		$(this).val(parseFloat($(this).val()).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }));
+		$(this).val(value.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }));
 	});
 
 	$(rootSelector + " .locale-number-input.locale-number-generic").each(function()
 	{
-		if (isNaN(parseFloat($(this).val())))
+		var value = $(this).val();
+		if (isNaN(value))
 		{
 			return;
 		}
 
-		$(this).val(parseFloat($(this).val()).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 2 }));
+		$(this).val(value.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 2 }));
 	});
 }
 RefreshLocaleNumberInput();

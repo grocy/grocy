@@ -376,10 +376,10 @@
 						xx{{ $currentStockEntry->product_group_name }}xx
 					</td>
 					<td>
-						<span class="locale-number locale-number-generic">{{ $currentStockEntry->product_calories }}</span>
+						<span class="locale-number locale-number-quantity-amount">{{ $currentStockEntry->product_calories }}</span>
 					</td>
 					<td>
-						<span class="locale-number locale-number-generic">{{ $currentStockEntry->calories }}</span>
+						<span class="locale-number locale-number-quantity-amount">{{ $currentStockEntry->calories }}</span>
 					</td>
 
 					@include('components.userfields_tbody', array(

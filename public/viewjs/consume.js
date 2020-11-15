@@ -96,7 +96,7 @@
 						$("#display_amount").attr("max", "999999");
 						$("#display_amount").attr("step", "1");
 						$("#display_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '1'));
-						$('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_consume_amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }));
+						$('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_consume_amount));
 						RefreshLocaleNumberInput();
 						$(".input-group-productamountpicker").trigger("change");
 						$("#tare-weight-handling-info").addClass("d-none");
@@ -162,7 +162,7 @@ $('#save-mark-as-open-button').on('click', function(e)
 					Grocy.FrontendHelpers.EndUiBusy("consume-form");
 					toastr.success(__t('Marked %1$s of %2$s as opened', jsonForm.amount + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + result.transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
 
-					$('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_consume_amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }));
+					$('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_consume_amount));
 					RefreshLocaleNumberInput();
 					$(".input-group-productamountpicker").trigger("change");
 					Grocy.Components.ProductPicker.Clear();
@@ -276,7 +276,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 			{
 				Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
 				Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.quantity_unit_stock.id);
-				$('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_consume_amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }));
+				$('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_consume_amount));
 				RefreshLocaleNumberInput();
 				$(".input-group-productamountpicker").trigger("change");
 
@@ -393,7 +393,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 	}
 });
 
-$('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_consume_amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }));
+$('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_consume_amount));
 $(".input-group-productamountpicker").trigger("change");
 Grocy.FrontendHelpers.ValidateForm('consume-form');
 

@@ -56,10 +56,10 @@
 			@include('components.numberpicker', array(
 			'id' => 'amount',
 			'value' => $stockEntry->amount,
+			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
 			'label' => 'Amount',
 			'contextInfoId' => 'amount_qu_unit',
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
-			'additionalAttributes' => 'data-not-equal="-1"',
 			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
 			))
 
