@@ -142,7 +142,7 @@ class StockController extends BaseController
 				'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name'),
 				'productgroups' => $this->getDatabase()->product_groups()->orderBy('name'),
 				'userfields' => $this->getUserfieldsService()->GetFields('products'),
-				'products' => $this->getDatabase()->products()->where('IFNULL(parent_product_id, \'\') = \'\' and active = 1')->orderBy('name'),
+				'products' => $this->getDatabase()->products()->where('parent_product_id IS NULL and active = 1')->orderBy('name'),
 				'isSubProductOfOthers' => false,
 				'mode' => 'create'
 			]);
@@ -159,7 +159,7 @@ class StockController extends BaseController
 				'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name'),
 				'productgroups' => $this->getDatabase()->product_groups()->orderBy('name'),
 				'userfields' => $this->getUserfieldsService()->GetFields('products'),
-				'products' => $this->getDatabase()->products()->where('id != :1 AND IFNULL(parent_product_id, \'\') = \'\' and active = 1', $product->id)->orderBy('name'),
+				'products' => $this->getDatabase()->products()->where('id != :1 AND parent_product_id IS NULL and active = 1', $product->id)->orderBy('name'),
 				'isSubProductOfOthers' => $this->getDatabase()->products()->where('parent_product_id = :1', $product->id)->count() !== 0,
 				'mode' => 'edit',
 				'quConversions' => $this->getDatabase()->quantity_unit_conversions()

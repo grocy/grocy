@@ -162,9 +162,10 @@ $(document).on('click', '.product-open-button', function(e)
 	var productId = $(e.currentTarget).attr('data-product-id');
 	var productName = $(e.currentTarget).attr('data-product-name');
 	var productQuName = $(e.currentTarget).attr('data-product-qu-name');
+	var amount = $(e.currentTarget).attr('data-open-amount');
 	var button = $(e.currentTarget);
 
-	Grocy.Api.Post('stock/products/' + productId + '/open', { 'amount': 1 },
+	Grocy.Api.Post('stock/products/' + productId + '/open', { 'amount': amount },
 		function(bookingResponse)
 		{
 			Grocy.Api.Get('stock/products/' + productId,
@@ -176,7 +177,7 @@ $(document).on('click', '.product-open-button', function(e)
 					}
 
 					Grocy.FrontendHelpers.EndUiBusy();
-					toastr.success(__t('Marked %1$s of %2$s as opened', 1 + " " + productQuName, productName) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse.transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
+					toastr.success(__t('Marked %1$s of %2$s as opened', amount.toString() + " " + productQuName, productName) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse.transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
 					RefreshStatistics();
 					RefreshProductRow(productId);
 				},

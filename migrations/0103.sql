@@ -68,6 +68,7 @@ CREATE TABLE products (
 	parent_product_id INT,
 	calories INTEGER,
 	cumulate_min_stock_amount_of_sub_products TINYINT DEFAULT 0,
+	quick_consume_amount REAL NOT NULL DEFAULT 1,
 	row_created_timestamp DATETIME DEFAULT (datetime('now', 'localtime'))
 );
 
@@ -86,6 +87,22 @@ BEGIN
 		WHERE product_id = NEW.id
 			AND NEW.qu_id_stock != OLD.qu_id_stock
     ) NOTNULL) THEN RAISE(ABORT, "qu_id_stock cannot be changed when the product was once added to stock") END;
+END;
+
+CREATE TRIGGER enforce_parent_product_id_null_when_empty_INS AFTER INSERT ON products
+BEGIN
+	UPDATE products
+	SET parent_product_id = NULL
+	WHERE id = NEW.id
+		AND IFNULL(parent_product_id, '') = '';
+END;
+
+CREATE TRIGGER enforce_parent_product_id_null_when_empty_UPD AFTER UPDATE ON products
+BEGIN
+	UPDATE products
+	SET parent_product_id = NULL
+	WHERE id = NEW.id
+		AND IFNULL(parent_product_id, '') = '';
 END;
 
 DROP VIEW stock_current_location_content;

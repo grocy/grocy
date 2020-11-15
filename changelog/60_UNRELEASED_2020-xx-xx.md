@@ -31,6 +31,7 @@ _- (Because the stock quantity unit is now the base for everything, it cannot be
 ### Stock improvements/fixes
 - When creating a quantity unit conversion it's now possible to automatically create the inverse conversion (thanks @kriddles)
 - On purchase there is now a warning shown, when the best before date of the purchased product is earlier than the next best before date in stock (enabled by default, can be disabled by a new stock setting (top right corner settings menu))
+- The amount to be used for the "quick consume/open buttons" on the stock overview page can now be configured per product (new product option "Quick consume amount", defaults to 1)
 - Optimized/clarified what the total/unit price is on the purchase page (thanks @kriddles)
 - On the purchase page the amount field is now displayed above/before the best before date for better `TAB` handling (thanks @kriddles)
 - Changed that when `FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING` is disabled, products now get internally a best before of "never expires" (aka `2999-12-31`) instead of today (thanks @kriddles)

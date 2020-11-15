@@ -1933,3 +1933,9 @@ msgstr ""
 
 msgid "When enabled, the amount will always be filled with 1 after changing/scanning a product and if all fields could be automatically populated (by product defaults), the transaction is automatically submitted"
 msgstr ""
+
+msgid "Quick consume amount"
+msgstr ""
+
+msgid "This amount is used for the \"quick consume/open buttons\" on the stock overview page (related to quantity unit stock)"
+msgstr ""

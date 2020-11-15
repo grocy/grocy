@@ -22,7 +22,8 @@ SELECT
     sc.amount_aggregated,
 	p.calories AS product_calories,
 	sc.amount * p.calories AS calories,
-	sc.amount_aggregated * p.calories AS calories_aggregated
+	sc.amount_aggregated * p.calories AS calories_aggregated,
+	p.quick_consume_amount
 FROM (
         SELECT *
         FROM stock_current
@@ -59,7 +60,8 @@ SELECT
     sc.amount_aggregated,
 	p.calories AS product_calories,
 	sc.amount * p.calories AS calories,
-	sc.amount_aggregated * p.calories AS calories_aggregated
+	sc.amount_aggregated * p.calories AS calories_aggregated,
+	p.quick_consume_amount
 FROM (
         SELECT *
         FROM stock_current

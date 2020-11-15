@@ -351,6 +351,17 @@
 				value="0">
 			@endif
 
+			@php if($mode == 'edit') { $value = $product->quick_consume_amount; } else { $value = 1; } @endphp
+			@include('components.numberpicker', array(
+			'id' => 'quick_consume_amount',
+			'label' => 'Quick consume amount',
+			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
+			'value' => $value,
+			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
+			'hint' => $__t('This amount is used for the "quick consume/open buttons" on the stock overview page (related to quantity unit stock)'),
+			'contextInfoId' => 'quick_consume_qu_info'
+			))
+
 			@include('components.userfieldsform', array(
 			'userfields' => $userfields,
 			'entity' => 'products'

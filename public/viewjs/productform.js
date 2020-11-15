@@ -185,6 +185,7 @@ $('.input-group-qu').on('change', function(e)
 	}
 
 	$("#tare_weight_qu_info").text($("#qu_id_stock option:selected").text());
+	$("#quick_consume_qu_info").text($("#qu_id_stock option:selected").text());
 
 	Grocy.FrontendHelpers.ValidateForm('product-form');
 });
