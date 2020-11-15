@@ -38,7 +38,7 @@
 					data-setting-key="shopping_list_to_stock_workflow_auto_submit_when_prefilled">
 				<label class="form-check-label custom-control-label"
 					for="shopping_list_to_stock_workflow_auto_submit_when_prefilled">
-					{{ $__t('Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set') }}
+					{{ $__t('Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default due days" set') }}
 				</label>
 			</div>
 		</div>

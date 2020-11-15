@@ -174,9 +174,9 @@ $(document).on('click', '#add-products-below-min-stock-amount', function(e)
 	);
 });
 
-$(document).on('click', '#add-expired-products', function(e)
+$(document).on('click', '#add-overdue-products', function(e)
 {
-	Grocy.Api.Post('stock/shoppinglist/add-expired-products', { "list_id": $("#selected-shopping-list").val() },
+	Grocy.Api.Post('stock/shoppinglist/add-overdue-products', { "list_id": $("#selected-shopping-list").val() },
 		function(result)
 		{
 			window.location.href = U('/shoppinglist?list=' + $("#selected-shopping-list").val());

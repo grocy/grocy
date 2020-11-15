@@ -70,7 +70,7 @@ The following shorthands are available:
   - Example: `20190417` will be converted to `2019-04-17`
 - `YYYYMMe` or `YYYYMM+` gets expanded to the end of the given month in the given year in proper notation
   - Example: `201807e` will be converted to `2018-07-31`
-- `x` gets expanded to `2999-12-31` (which I use for products which never expire)
+- `x` gets expanded to `2999-12-31` (which I use for products which are never overdue)
 - Down/up arrow keys will increase/decrease the date by 1 day
 - Right/left arrow keys will increase/decrease the date by 1 week
 - Shift + down/up arrow keys will increase/decrease the date by 1 month

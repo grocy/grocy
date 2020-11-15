@@ -99,11 +99,11 @@ $('#save-purchase-button').on('click', function(e)
 						toastr.success(successMessage);
 						Grocy.Components.ProductPicker.FinishFlow();
 
-						if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && BoolVal(Grocy.UserSettings.show_warning_on_purchase_when_best_before_date_is_earlier_than_next))
+						if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && BoolVal(Grocy.UserSettings.show_warning_on_purchase_when_due_date_is_earlier_than_next))
 						{
-							if (moment(jsonData.best_before_date).isBefore(CurrentProductDetails.next_best_before_date))
+							if (moment(jsonData.best_before_date).isBefore(CurrentProductDetails.next_due_date))
 							{
-								toastr.warning(__t("There are items in stock which expire earlier"));
+								toastr.warning(__t("There are items in stock which are due earlier"));
 							}
 						}
 

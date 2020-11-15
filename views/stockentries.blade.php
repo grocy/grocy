@@ -66,7 +66,7 @@
 					<th>{{ $__t('Product') }}</th>
 					<th>{{ $__t('Amount') }}</th>
 					@if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
-					<th>{{ $__t('Best before date') }}</th>
+					<th>{{ $__t('Due date') }}</th>
 					@endif
 					@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)<th>{{ $__t('Location') }}</th>@endif
 					@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
@@ -83,7 +83,8 @@
 			<tbody class="d-none">
 				@foreach($stockEntries as $stockEntry)
 				<tr id="stock-{{ $stockEntry->id }}-row"
-					class="@if(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $stockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('-1 days')) && $stockEntry->amount > 0) table-danger @elseif(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $stockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('+' . $nextXDays . ' days'))
+					data-due-type="{{ FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->due_type }}"
+					class="@if(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $stockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('-1 days')) && $stockEntry->amount > 0) @if(FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->due_type == 1) table-secondary @else table-danger @endif @elseif(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $stockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('+' . $nextXDays . ' days'))
 					&&
 					$stockEntry->amount > 0) table-warning @endif">
 					<td class="fit-content border-right">
@@ -218,8 +219,8 @@
 					</td>
 					@if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 					<td>
-						<span id="stock-{{ $stockEntry->id }}-best-before-date">{{ $stockEntry->best_before_date }}</span>
-						<time id="stock-{{ $stockEntry->id }}-best-before-date-timeago"
+						<span id="stock-{{ $stockEntry->id }}-due-date">{{ $stockEntry->best_before_date }}</span>
+						<time id="stock-{{ $stockEntry->id }}-due-date-timeago"
 							class="timeago timeago-contextual"
 							datetime="{{ $stockEntry->best_before_date }} 23:59:59"></time>
 					</td>

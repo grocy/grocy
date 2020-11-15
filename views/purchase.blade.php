@@ -81,16 +81,16 @@
 			@if(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 			@include('components.datetimepicker', array(
 			'id' => 'best_before_date',
-			'label' => 'Best before',
+			'label' => 'Due date',
 			'format' => 'YYYY-MM-DD',
 			'initWithNow' => false,
 			'limitEndToNow' => false,
 			'limitStartToNow' => false,
-			'invalidFeedback' => $__t('A best before date is required'),
+			'invalidFeedback' => $__t('A due date is required'),
 			'nextInputSelector' => '#price',
 			'additionalCssClasses' => 'date-only-datetimepicker',
 			'shortcutValue' => '2999-12-31',
-			'shortcutLabel' => 'Never expires',
+			'shortcutLabel' => 'Never overdue',
 			'earlierThanInfoLimit' => date('Y-m-d'),
 			'earlierThanInfoText' => $__t('The given date is earlier than today, are you sure?'),
 			'activateNumberPad' => GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_FIELD_NUMBER_PAD
@@ -111,23 +111,23 @@
 			'additionalCssClasses' => 'locale-number-input locale-number-currency'
 			))
 
-			<div class="form-check form-check-inline mb-3">
-				<input class="form-check-input"
+			<div class="custom-control custom-radio custom-control-inline mt-n2 mb-3">
+				<input class="custom-control-input"
 					type="radio"
 					name="price-type"
 					id="price-type-unit-price"
 					value="unit-price"
 					checked>
-				<label class="form-check-label"
+				<label class="custom-control-label"
 					for="price-type-unit-price">{{ $__t('Unit price') }}</label>
 			</div>
-			<div class="form-check form-check-inline mb-3">
-				<input class="form-check-input"
+			<div class="custom-control custom-radio custom-control-inline mt-n2 mb-3">
+				<input class="custom-control-input"
 					type="radio"
 					name="price-type"
 					id="price-type-total-price"
 					value="total-price">
-				<label class="form-check-label"
+				<label class="custom-control-label"
 					for="price-type-total-price">{{ $__t('Total price') }}</label>
 			</div>
 			@include('components.shoppinglocationpicker', array(

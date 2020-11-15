@@ -219,7 +219,7 @@ $("#location_id").on('change', function(e)
 						$("#specific_stock_entry").append($("<option>", {
 							value: stockEntry.stock_id,
 							amount: stockEntry.amount,
-							text: __t("Amount: %1$s; Expires on %2$s; Bought on %3$s", stockEntry.amount, moment(stockEntry.best_before_date).format("YYYY-MM-DD"), moment(stockEntry.purchased_date).format("YYYY-MM-DD")) + "; " + openTxt
+							text: __t("Amount: %1$s; Due on %2$s; Bought on %3$s", stockEntry.amount, moment(stockEntry.best_before_date).format("YYYY-MM-DD"), moment(stockEntry.purchased_date).format("YYYY-MM-DD")) + "; " + openTxt
 						}));
 
 						sumValue = sumValue + parseFloat(stockEntry.amount);

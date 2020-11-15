@@ -210,7 +210,7 @@ $app->group('/api', function (RouteCollectorProxy $group) {
 	if (GROCY_FEATURE_FLAG_SHOPPINGLIST)
 	{
 		$group->post('/stock/shoppinglist/add-missing-products', '\Grocy\Controllers\StockApiController:AddMissingProductsToShoppingList');
-		$group->post('/stock/shoppinglist/add-expired-products', '\Grocy\Controllers\StockApiController:AddExpiredProductsToShoppingList');
+		$group->post('/stock/shoppinglist/add-overdue-products', '\Grocy\Controllers\StockApiController:AddOverdueProductsToShoppingList');
 		$group->post('/stock/shoppinglist/clear', '\Grocy\Controllers\StockApiController:ClearShoppingList');
 		$group->post('/stock/shoppinglist/add-product', '\Grocy\Controllers\StockApiController:AddProductToShoppingList');
 		$group->post('/stock/shoppinglist/remove-product', '\Grocy\Controllers\StockApiController:RemoveProductFromShoppingList');

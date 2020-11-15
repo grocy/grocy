@@ -118,7 +118,7 @@
 						for="use_specific_stock_entry">{{ $__t('Use a specific stock item') }}
 						&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
-							title="{{ $__t('The first item in this list would be picked by the default rule which is "First expiring first, then first in first out"') }}"></i>
+							title="{{ $__t('The first item in this list would be picked by the default rule which is "First due first, then first in first out"') }}"></i>
 					</label>
 				</div>
 				<select disabled

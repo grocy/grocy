@@ -1258,7 +1258,7 @@
 		},
 		"/stock": {
 			"get": {
-				"summary": "Returns all products which are currently in stock incl. the next expiring date per product",
+				"summary": "Returns all products which are currently in stock incl. the next due date per product",
 				"tags": [
 					"Stock"
 				],
@@ -1350,7 +1350,7 @@
 									"best_before_date": {
 										"type": "string",
 										"format": "date",
-										"description": "The best before date of the product to add, when omitted, the current date is used"
+										"description": "The due date of the product to add, when omitted, the current date is used"
 									},
 									"price": {
 										"type": "number",
@@ -1416,16 +1416,16 @@
 		},
 		"/stock/volatile": {
 			"get": {
-				"summary": "Returns all products which are expiring soon, are already expired or currently missing",
+				"summary": "Returns all products which are due soon, overdue, expired or currently missing",
 				"tags": [
 					"Stock"
 				],
 				"parameters": [
 					{
 						"in": "query",
-						"name": "expiring_days",
+						"name": "due_soon_days",
 						"required": false,
-						"description": "The number of days in which products are considered expiring soon",
+						"description": "The number of days in which products are considered to be due soon",
 						"schema": {
 							"type": "integer",
 							"default": 5
@@ -1558,7 +1558,7 @@
 		},
 		"/stock/products/{productId}/entries": {
 			"get": {
-				"summary": "Returns all stock entries of the given product in order of next use (first expiring first, then first in first out)",
+				"summary": "Returns all stock entries of the given product in order of next use (first due first, then first in first out)",
 				"tags": [
 					"Stock"
 				],
@@ -1707,7 +1707,7 @@
 									"best_before_date": {
 										"type": "string",
 										"format": "date",
-										"description": "The best before date of the product to add, when omitted, the current date is used"
+										"description": "The due date of the product to add, when omitted, the current date is used"
 									},
 									"transaction_type": {
 										"$ref": "#/components/internalSchemas/StockTransactionType"
@@ -1956,7 +1956,7 @@
 									"best_before_date": {
 										"type": "string",
 										"format": "date",
-										"description": "The best before date which applies to added products"
+										"description": "The due date which applies to added products"
 									},
 									"shopping_location_id": {
 										"type": "number",
@@ -2139,7 +2139,7 @@
 									"best_before_date": {
 										"type": "string",
 										"format": "date",
-										"description": "The best before date of the product to add, when omitted, the current date is used"
+										"description": "The due date of the product to add, when omitted, the current date is used"
 									},
 									"transaction_type": {
 										"$ref": "#/components/internalSchemas/StockTransactionType"
@@ -2383,7 +2383,7 @@
 									"best_before_date": {
 										"type": "string",
 										"format": "date",
-										"description": "The best before date which applies to added products"
+										"description": "The due date which applies to added products"
 									},
 									"location_id": {
 										"type": "number",
@@ -2530,9 +2530,9 @@
 				}
 			}
 		},
-		"/stock/shoppinglist/add-expired-products": {
+		"/stock/shoppinglist/add-overdue-products": {
 			"post": {
-				"summary": "Adds expired products to the given shopping list",
+				"summary": "Adds overdue products to the given shopping list",
 				"tags": [
 					"Stock"
 				],
@@ -4195,7 +4195,7 @@
 					"stock_amount_opened": {
 						"type": "integer"
 					},
-					"next_best_before_date": {
+					"next_due_date": {
 						"type": "string",
 						"format": "date-time"
 					},
@@ -4282,7 +4282,7 @@
 					"avg_price": null,
 					"oldest_price": null,
 					"last_shopping_location_id": null,
-					"next_best_before_date": "2019-07-07",
+					"next_due_date": "2019-07-07",
 					"location": {
 						"id": "4",
 						"name": "Candy cupboard",
@@ -4893,7 +4893,7 @@
 					"best_before_date": {
 						"type": "string",
 						"format": "date",
-						"description": "The next best before date for this product"
+						"description": "The next due date for this product"
 					},
 					"is_aggregated_amount": {
 						"type": "boolean",
@@ -4941,7 +4941,13 @@
 			"CurrentVolatilStockResponse": {
 				"type": "object",
 				"properties": {
-					"expiring_products": {
+					"due_products": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/CurrentStockResponse"
+						}
+					},
+					"overdue_products": {
 						"type": "array",
 						"items": {
 							"$ref": "#/components/schemas/CurrentStockResponse"

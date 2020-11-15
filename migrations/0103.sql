@@ -68,6 +68,7 @@ CREATE TABLE products (
 	parent_product_id INT,
 	calories INTEGER,
 	cumulate_min_stock_amount_of_sub_products TINYINT DEFAULT 0,
+	due_type TINYINT NOT NULL DEFAULT 1 CHECK(due_type IN (1, 2)),
 	quick_consume_amount REAL NOT NULL DEFAULT 1,
 	row_created_timestamp DATETIME DEFAULT (datetime('now', 'localtime'))
 );

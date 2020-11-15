@@ -460,7 +460,8 @@ canvas.drawingBuffer {
 
 .warning-message,
 .error-message,
-.normal-message {
+.normal-message,
+.secondary-message {
   padding: 12px;
   font-weight: bold;
   width: fit-content;
@@ -483,6 +484,12 @@ canvas.drawingBuffer {
   background-color: #e0e8f9;
   color: #2d3a8c;
   border-top-color: #4c63b6;
+}
+
+.secondary-message {
+	background-color: #e1e4e8;
+	color: #4e575f;
+	border-top-color: #68696b;
 }
 
 .status-filter-message,

@@ -13,7 +13,7 @@ class CalendarService extends BaseService
 		if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 		{
 			$products = $this->getDatabase()->products();
-			$titlePrefix = $this->getLocalizationService()->__t('Product expires') . ': ';
+			$titlePrefix = $this->getLocalizationService()->__t('Product due') . ': ';
 
 			foreach ($this->getStockService()->GetCurrentStock() as $currentStockEntry)
 			{

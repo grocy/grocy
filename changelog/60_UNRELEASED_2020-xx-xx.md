@@ -29,13 +29,23 @@ _- (Because the stock quantity unit is now the base for everything, it cannot be
   - (Thanks @fipwmaqzufheoxq92ebc for the initial work on this)
 
 ### Stock improvements/fixes
+- Changes about best before dates: It's now possible to distinguish between best before dates and expiration dates:
+  - New product option "Due date type" (defaults to "Best before date")
+  - Wording changes:
+    - All current places where "Best before date" was used now use "Due date"
+	- Products with `Due date type = Best before date` (so all existing products) are "due" or "overdue" (they don't "expire" or are "expired")
+	- Products with `Due date type = Expiration date` (new option) can "expire" or are "expired"
+  - Color changes:
+    - Prducts which are due soon or expire soon are (still) highlighted in yellow
+	- Products which are overdue are highlighted in grey (there is is also a new filter button on the stock overview page for them)
+	- Products which are expired (new option) are highlighted in red
 - When creating a quantity unit conversion it's now possible to automatically create the inverse conversion (thanks @kriddles)
-- On purchase there is now a warning shown, when the best before date of the purchased product is earlier than the next best before date in stock (enabled by default, can be disabled by a new stock setting (top right corner settings menu))
+- On purchase there is now a warning shown, when the due date of the purchased product is earlier than the next due date in stock (enabled by default, can be disabled by a new stock setting (top right corner settings menu))
 - The amount to be used for the "quick consume/open buttons" on the stock overview page can now be configured per product (new product option "Quick consume amount", defaults to 1)
 - Products can now be duplicated (new button on the products list page, all fields will be preset from the copied product, except the name)
 - Optimized/clarified what the total/unit price is on the purchase page (thanks @kriddles)
-- On the purchase page the amount field is now displayed above/before the best before date for better `TAB` handling (thanks @kriddles)
-- Changed that when `FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING` is disabled, products now get internally a best before of "never expires" (aka `2999-12-31`) instead of today (thanks @kriddles)
+- On the purchase page the amount field is now displayed above/before the due date for better `TAB` handling (thanks @kriddles)
+- Changed that when `FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING` is disabled, products now get internally a due date of "never overdue" (aka `2999-12-31`) instead of today (thanks @kriddles)
 - Products can now be hidden instead of deleted to prevent problems / missing information on existing references (new checkbox on the product edit page) (thanks @kriddles)
 - On the stock journal page, it's now visible if a consume-booking was spoiled
 - It's now tracked who made a stock change (currently logged in user, visible on the stock journal page) (thanks @fipwmaqzufheoxq92ebc)
@@ -53,7 +63,7 @@ _- (Because the stock quantity unit is now the base for everything, it cannot be
 - Fixed that when adding products through a product picker workflow and when the created products contains special characters, the product was not preselected on the previous page (thanks @Forceu)
 - Fixed that when editing a product the default store was not visible / always empty regardless if the product had one set (thanks @kriddles)
 - Fixed that `FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT` (option to configure if opened products should be considered for minimum stock amounts) was not handled correctly (thanks @teddybeermaniac)
-- Fixed that the "Expiring soon" sum (yellow filter button) on the stock overview page didn't include products which expire today (thanks @fipwmaqzufheoxq92ebc)
+- Fixed that the "Due soon" sum (yellow filter button) on the stock overview page didn't include products which are due today (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that the shopping cart icon on the stock overview page was also shown if the product was on an already deleted shopping list (if enabled) (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that when editing a stock entry without a price, the price field was prefilled with `1`
 - Fixed that the location & product groups filter on the stock overview page used a contains search instead of an exact search
@@ -73,7 +83,7 @@ _- (Because the stock quantity unit is now the base for everything, it cannot be
 
 ### Recipe improvements/fixes
 - It's now possible to print recipes (button next to the recipe title) (thanks @zsarnett)
-- Changed that recipe costs are now based on the costs of the products picked by the default consume rule "First expiring first, then first in first out" (thanks @kriddles)
+- Changed that recipe costs are now based on the costs of the products picked by the default consume rule "First due first, then first in first out" (thanks @kriddles)
   - Recipe costs were based on the last purchase price per product before, so this now better reflects the current real costs
 - Improved the recipe add workflow (a recipe called "New recipe" is now not automatically created when starting to add a recipe) (thanks @zsarnett)
 - Fixed that images on the recipe gallery view were not scaled correctly on larger screens (thanks @zsarnett)
@@ -145,6 +155,11 @@ _- (Because the stock quantity unit is now the base for everything, it cannot be
   - The product object no longer has a field `barcodes` with a comma separated barcode list, instead barcodes are now stored in a separate table/entity `product_barcodes` (use the existing "Generic entity interactions" endpoints to access them)
   - The endpoint `/objects/{entity}/search` was removed (use the existing `/objects/{entity}` endpoint with new new filter capabilities mentioned below)
   - The output / field names of `ProductDetailsResponse` have slightly changed (endpoint `/stock/products/{productId}`)
+  - Endpoint `/stock/volatile`
+    - The query parameter `expring_days` was renamed to `due_soon_days`
+    - The field `expiring_products` was renamed to `due_products`
+    - The field `expired_products` now only contains expired products (so them with `Due date type = Expiration date`)
+    - The new field `overdue_products` contains only overdue products (so them with `Due date type = Best before date`)
 - For better integration (apps), it's now possible to show a QR-Code for API keys (thanks @fipwmaqzufheoxq92ebc)
   - New QR-Code button on the "Manage API keys"-page (top right corner settings menu), the QR-Codes contains `<API-Url>|<API-Key>`
   - And on the calendar page when using the button "Share/Integrate calendar (iCal)", there the QR-Codes contains the Share-URL (which is displayed in the textbox above)
@@ -174,7 +189,7 @@ _- (Because the stock quantity unit is now the base for everything, it cannot be
         - `<=` less or equal
       - `<value>` is the value to search for
 - New endpoints `/stock/journal` and `/stock/journal/summary` to get the stock journal (thanks @fipwmaqzufheoxq92ebc)
-- New endpoint `/stock/shoppinglist/add-expired-products` to add all currently in-stock but expired products to a shopping list (thanks @m-byte)
+- New endpoint `/stock/shoppinglist/add-overdue-products` to add all currently in-stock but overdue products to a shopping list (thanks @m-byte)
 - New endpoints GET/POST/PUT `/users/{userId}/permissions` for the new user permissions feature mentioned above
 - Performance improvements of the `/stock/products/*` endpoints (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that the endpoint `/objects/{entity}/{objectId}` always returned successfully, even when the given object not exists (now returns `404` when the object is not found) (thanks @fipwmaqzufheoxq92ebc)

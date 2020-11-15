@@ -31,7 +31,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function AddExpiredProductsToShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function AddOverdueProductsToShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_SHOPPINGLIST_ITEMS_ADD);
 
@@ -46,7 +46,7 @@ class StockApiController extends BaseApiController
 				$listId = intval($requestBody['list_id']);
 			}
 
-			$this->getStockService()->AddExpiredProductsToShoppingList($listId);
+			$this->getStockService()->AddOverdueProductsToShoppingList($listId);
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)
@@ -304,16 +304,18 @@ class StockApiController extends BaseApiController
 	{
 		$nextXDays = 5;
 
-		if (isset($request->getQueryParams()['expiring_days']) && !empty($request->getQueryParams()['expiring_days']) && is_numeric($request->getQueryParams()['expiring_days']))
+		if (isset($request->getQueryParams()['due_soon_days']) && !empty($request->getQueryParams()['due_soon_days']) && is_numeric($request->getQueryParams()['due_soon_days']))
 		{
-			$nextXDays = $request->getQueryParams()['expiring_days'];
+			$nextXDays = $request->getQueryParams()['due_soon_days'];
 		}
 
-		$expiringProducts = $this->getStockService()->GetExpiringProducts($nextXDays, true);
-		$expiredProducts = $this->getStockService()->GetExpiringProducts(-1);
+		$dueProducts = $this->getStockService()->GetDueProducts($nextXDays, true);
+		$overdueProducts = $this->getStockService()->GetDueProducts(-1);
+		$expiredProducts = $this->getStockService()->GetExpiredProducts();
 		$missingProducts = $this->getStockService()->GetMissingProducts();
 		return $this->ApiResponse($response, [
-			'expiring_products' => $expiringProducts,
+			'due_products' => $dueProducts,
+			'overdue_products' => $overdueProducts,
 			'expired_products' => $expiredProducts,
 			'missing_products' => $missingProducts
 		]);

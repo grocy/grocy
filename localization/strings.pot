@@ -20,6 +20,11 @@ msgid_plural "%s products expiring"
 msgstr[0] ""
 msgstr[1] ""
 
+msgid "%s is due"
+msgid_plural "%s are due"
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "within the next day"
 msgid_plural "within the next %s days"
 msgstr[0] ""
@@ -27,6 +32,11 @@ msgstr[1] ""
 
 msgid "%s product is already expired"
 msgid_plural "%s products are already expired"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s product is overdue"
+msgid_plural "%s products are overdue"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -44,9 +54,6 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Amount"
-msgstr ""
-
-msgid "Next best before date"
 msgstr ""
 
 msgid "Logout"
@@ -260,9 +267,6 @@ msgid "never"
 msgstr ""
 
 msgid "Add products that are below defined min. stock amount"
-msgstr ""
-
-msgid "For purchases this amount of days will be added to today for the best before date suggestion"
 msgstr ""
 
 msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
@@ -598,13 +602,7 @@ msgstr[1] ""
 msgid "in singular form"
 msgstr ""
 
-msgid "Never expires"
-msgstr ""
-
 msgid "This cannot be lower than %s"
-msgstr ""
-
-msgid "-1 means that this product never expires"
 msgstr ""
 
 msgid "Quantity unit"
@@ -869,16 +867,10 @@ msgstr ""
 msgid "Use a specific stock item"
 msgstr ""
 
-msgid "The first item in this list would be picked by the default rule which is \"First expiring first, then first in first out\""
+msgid "The first item in this list would be picked by the default rule which is \"First due first, then first in first out\""
 msgstr ""
 
 msgid "Mark %1$s of %2$s as open"
-msgstr ""
-
-msgid "When this product was marked as opened, the best before date will be replaced by today + this amount of days (a value of 0 disables this)"
-msgstr ""
-
-msgid "Default best before days after opened"
 msgstr ""
 
 msgid "Marked %1$s of %2$s as opened"
@@ -896,7 +888,7 @@ msgstr ""
 msgid "%s opened"
 msgstr ""
 
-msgid "Product expires"
+msgid "Product due"
 msgstr ""
 
 msgid "Task due"
@@ -1192,15 +1184,6 @@ msgid "Configuration"
 msgstr ""
 
 msgid "A predefined list of values, one per line"
-msgstr ""
-
-msgid "Chores due soon days"
-msgstr ""
-
-msgid "Batteries due to be charged soon days"
-msgstr ""
-
-msgid "Tasks due soon days"
 msgstr ""
 
 msgid "Products"
@@ -1520,7 +1503,7 @@ msgstr ""
 msgid "There are no units available at this location"
 msgstr ""
 
-msgid "Amount: %1$s; Expires on %2$s; Bought on %3$s"
+msgid "Amount: %1$s; Due on %2$s; Bought on %3$s"
 msgstr ""
 
 msgid "Transfered %1$s of %2$s from %3$s to %4$s"
@@ -1623,18 +1606,6 @@ msgid "Is freezer"
 msgstr ""
 
 msgid "When moving products from/to a freezer location, the products best before date is automatically adjusted according to the product settings"
-msgstr ""
-
-msgid "On moving this product to a freezer location (so when freezing it), the best before date will be replaced by today + this amount of days"
-msgstr ""
-
-msgid "Default best before days after freezing"
-msgstr ""
-
-msgid "On moving this product from a freezer location (so when thawing it), the best before date will be replaced by today + this amount of days"
-msgstr ""
-
-msgid "Default best before days after thawing"
 msgstr ""
 
 msgid "This cannot be the same as the \"From\" location"
@@ -1757,7 +1728,7 @@ msgstr ""
 msgid "Not enough in stock (not included in costs), %s ingredient missing"
 msgstr ""
 
-msgid "Based on the prices of the default consume rule which is \"First expiring first, then first in first out\""
+msgid "Based on the prices of the default consume rule which is \"First due first, then first in first out\""
 msgstr ""
 
 msgid "Not enough in stock (not included in costs), %1$s missing, %2$s already on shopping list"
@@ -1928,10 +1899,10 @@ msgstr ""
 msgid "This is the default quantity unit used when adding this product to the shopping list"
 msgstr ""
 
-msgid "Show a warning when the best before date of the purchased product is earlier than the next best before date in stock"
+msgid "Show a warning when the due date of the purchased product is earlier than the next due date in stock"
 msgstr ""
 
-msgid "There are items in stock which expire earlier"
+msgid "There are items in stock which are due earlier"
 msgstr ""
 
 msgid "When enabled, the amount will always be filled with 1 after changing/scanning a product and if all fields could be automatically populated (by product defaults), the transaction is automatically submitted"
@@ -1947,4 +1918,71 @@ msgid "Copy this item"
 msgstr ""
 
 msgid "Are you sure to remove this barcode?"
+msgstr ""
+
+msgid "Due date type"
+msgstr ""
+
+msgid "Based on the selected type, the highlighting on the stock overview page will be different"
+msgstr ""
+
+msgid "Means that the product is maybe still safe to be consumed after its due date is reached"
+msgstr ""
+
+msgid "Expiration date"
+msgstr ""
+
+msgid "Means that the product is not safe to be consumed after its due date is reached"
+msgstr ""
+
+msgid "For purchases this amount of days will be added to today for the due date suggestion"
+msgstr ""
+
+msgid "-1 means that this product wille be never overdue"
+msgstr ""
+
+msgid "Default due days"
+msgstr ""
+
+msgid "When this product was marked as opened, the expiry date will be replaced by today + this amount of days (a value of 0 disables this)"
+msgstr ""
+
+msgid "Default due days after opened"
+msgstr ""
+
+msgid "On moving this product to a freezer location (so when freezing it), the expiry date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default due days after freezing"
+msgstr ""
+
+msgid "On moving this product from a freezer location (so when thawing it), the due date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default due days after thawing"
+msgstr ""
+
+msgid "Next due date"
+msgstr ""
+
+msgid "%s product is due"
+msgid_plural "%s products are due"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Due date"
+msgstr ""
+
+msgid "Never overdue"
+msgstr ""
+
+msgid "%s product is expired"
+msgid_plural "%s products are expired"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Expired"
+msgstr ""
+
+msgid "Due soon days"
 msgstr ""

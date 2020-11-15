@@ -59,9 +59,9 @@
 
 		<h4 class="mt-2">{{ $__t('Stock overview') }}</h4>
 		@include('components.numberpicker', array(
-		'id' => 'stock_expiring_soon_days',
-		'additionalAttributes' => 'data-setting-key="stock_expiring_soon_days"',
-		'label' => 'Expiring soon days',
+		'id' => 'stock_due_soon_days',
+		'additionalAttributes' => 'data-setting-key="stock_due_soon_days"',
+		'label' => 'Due soon days',
 		'min' => 1,
 		'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
 		'additionalCssClasses' => 'user-setting-control'
@@ -108,11 +108,11 @@
 			<div class="custom-control custom-checkbox">
 				<input type="checkbox"
 					class="form-check-input custom-control-input user-setting-control"
-					id="show_warning_on_purchase_when_best_before_date_is_earlier_than_next"
-					data-setting-key="show_warning_on_purchase_when_best_before_date_is_earlier_than_next">
+					id="show_warning_on_purchase_when_due_date_is_earlier_than_next"
+					data-setting-key="show_warning_on_purchase_when_due_date_is_earlier_than_next">
 				<label class="form-check-label custom-control-label"
-					for="show_warning_on_purchase_when_best_before_date_is_earlier_than_next">
-					{{ $__t('Show a warning when the best before date of the purchased product is earlier than the next best before date in stock') }}
+					for="show_warning_on_purchase_when_due_date_is_earlier_than_next">
+					{{ $__t('Show a warning when the due date of the purchased product is earlier than the next due date in stock') }}
 				</label>
 			</div>
 		</div>

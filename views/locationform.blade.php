@@ -61,7 +61,7 @@
 						for="is_freezer">{{ $__t('Is freezer') }}
 						&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
-							title="{{ $__t('When moving products from/to a freezer location, the products best before date is automatically adjusted according to the product settings') }}"></i>
+							title="{{ $__t('When moving products from/to a freezer location, the products due date is automatically adjusted according to the product settings') }}"></i>
 					</label>
 				</div>
 			</div>

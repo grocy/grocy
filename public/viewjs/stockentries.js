@@ -148,7 +148,7 @@ function RefreshStockEntryRow(stockRowId)
 			}
 			else
 			{
-				var expiringThreshold = moment().add(Grocy.UserSettings.stock_expiring_soon_days, "days");
+				var dueThreshold = moment().add(Grocy.UserSettings.stock_due_soon_days, "days");
 				var now = moment();
 				var bestBeforeDate = moment(result.best_before_date);
 
@@ -159,9 +159,16 @@ function RefreshStockEntryRow(stockRowId)
 				stockRow.removeAttr("style");
 				if (now.isAfter(bestBeforeDate))
 				{
-					stockRow.addClass("table-danger");
+					if (stockRow.attr("data-due-type") == 1)
+					{
+						stockRow.addClass("table-secondary");
+					}
+					else
+					{
+						stockRow.addClass("table-danger");
+					}
 				}
-				else if (bestBeforeDate.isBefore(expiringThreshold))
+				else if (bestBeforeDate.isBefore(dueThreshold))
 				{
 					stockRow.addClass("table-warning");
 				}
@@ -169,8 +176,8 @@ function RefreshStockEntryRow(stockRowId)
 				animateCSS("#stock-" + stockRowId + "-row td:not(:first)", "shake");
 
 				$('#stock-' + stockRowId + '-amount').text(result.amount);
-				$('#stock-' + stockRowId + '-best-before-date').text(result.best_before_date);
-				$('#stock-' + stockRowId + '-best-before-date-timeago').attr('datetime', result.best_before_date + ' 23:59:59');
+				$('#stock-' + stockRowId + '-due-date').text(result.best_before_date);
+				$('#stock-' + stockRowId + '-due-date-timeago').attr('datetime', result.best_before_date + ' 23:59:59');
 
 				$(".stock-consume-button").attr('data-location-id', result.location_id);
 

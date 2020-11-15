@@ -233,12 +233,13 @@ function RefreshStatistics()
 		}
 	);
 
-	var nextXDays = $("#info-expiring-products").data("next-x-days");
-	Grocy.Api.Get('stock/volatile?expiring_days=' + nextXDays,
+	var nextXDays = $("#info-duesoon-products").data("next-x-days");
+	Grocy.Api.Get('stock/volatile?due_soon_days=' + nextXDays,
 		function(result)
 		{
-			$("#info-expiring-products").html('<span class="d-block d-md-none">' + result.expiring_products.length + ' <i class="fas fa-clock"></i></span><span class="d-none d-md-block">' + __n(result.expiring_products.length, '%s product expires', '%s products expiring') + ' ' + __n(nextXDays, 'within the next day', 'within the next %s days') + '</span>');
-			$("#info-expired-products").html('<span class="d-block d-md-none">' + result.expired_products.length + ' <i class="fas fa-times-circle"></i></span><span class="d-none d-md-block">' + __n(result.expired_products.length, '%s product is already expired', '%s products are already expired') + '</span>');
+			$("#info-duesoon-products").html('<span class="d-block d-md-none">' + result.due_products.length + ' <i class="fas fa-clock"></i></span><span class="d-none d-md-block">' + __n(result.due_products.length, '%s product is due', '%s products are due') + ' ' + __n(nextXDays, 'within the next day', 'within the next %s days') + '</span>');
+			$("#info-overdue-products").html('<span class="d-block d-md-none">' + result.overdue_products.length + ' <i class="fas fa-times-circle"></i></span><span class="d-none d-md-block">' + __n(result.overdue_products.length, '%s product is overdue', '%s products are overdue') + '</span>');
+			$("#info-expired-products").html('<span class="d-block d-md-none">' + result.expired_products.length + ' <i class="fas fa-times-circle"></i></span><span class="d-none d-md-block">' + __n(result.expired_products.length, '%s product is expired', '%s products are expired') + '</span>');
 			$("#info-missing-products").html('<span class="d-block d-md-none">' + result.missing_products.length + ' <i class="fas fa-exclamation-circle"></i></span><span class="d-none d-md-block">' + __n(result.missing_products.length, '%s product is below defined min. stock amount', '%s products are below defined min. stock amount') + '</span>');
 		},
 		function(xhr)
@@ -263,20 +264,28 @@ function RefreshProductRow(productId)
 			}
 
 			var productRow = $('#product-' + productId + '-row');
-			var expiringThreshold = moment().add($("#info-expiring-products").data("next-x-days"), "days");
+			var dueSoonThreshold = moment().add($("#info-duesoon-products").data("next-x-days"), "days");
 			var now = moment();
-			var nextBestBeforeDate = moment(result.next_best_before_date);
+			var nextDueDate = moment(result.next_due_date);
 
 			productRow.removeClass("table-warning");
 			productRow.removeClass("table-danger");
+			productRow.removeClass("table-secondary");
 			productRow.removeClass("table-info");
 			productRow.removeClass("d-none");
 			productRow.removeAttr("style");
-			if (now.isAfter(nextBestBeforeDate))
+			if (now.isAfter(nextDueDate))
 			{
-				productRow.addClass("table-danger");
+				if (result.product.due_type == 1)
+				{
+					productRow.addClass("table-secondary");
+				}
+				else
+				{
+					productRow.addClass("table-danger");
+				}
 			}
-			else if (nextBestBeforeDate.isBefore(expiringThreshold))
+			else if (nextDueDate.isBefore(dueSoonThreshold))
 			{
 				productRow.addClass("table-warning");
 			}
@@ -297,8 +306,8 @@ function RefreshProductRow(productId)
 				$('#product-' + productId + '-amount').text(result.stock_amount);
 				$('#product-' + productId + '-consume-all-button').attr('data-consume-amount', result.stock_amount);
 				$('#product-' + productId + '-value').text(result.stock_value);
-				$('#product-' + productId + '-next-best-before-date').text(result.next_best_before_date);
-				$('#product-' + productId + '-next-best-before-date-timeago').attr('datetime', result.next_best_before_date);
+				$('#product-' + productId + '-next-due-date').text(result.next_due_date);
+				$('#product-' + productId + '-next-due-date-timeago').attr('datetime', result.next_due_date);
 
 				var openedAmount = result.stock_amount_opened || 0;
 				if (openedAmount > 0)
@@ -316,8 +325,8 @@ function RefreshProductRow(productId)
 				}
 			}
 
-			$('#product-' + productId + '-next-best-before-date').text(result.next_best_before_date);
-			$('#product-' + productId + '-next-best-before-date-timeago').attr('datetime', result.next_best_before_date + ' 23:59:59');
+			$('#product-' + productId + '-next-due-date').text(result.next_due_date);
+			$('#product-' + productId + '-next-due-date-timeago').attr('datetime', result.next_due_date + ' 23:59:59');
 
 			if (result.stock_amount_opened > 0)
 			{

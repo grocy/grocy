@@ -52,25 +52,24 @@ class StockService extends BaseService
 		}
 	}
 
-	public function AddExpiredProductsToShoppingList($listId = 1)
+	public function AddOverdueProductsToShoppingList($listId = 1)
 	{
 		if (!$this->ShoppingListExists($listId))
 		{
 			throw new \Exception('Shopping list does not exist');
 		}
 
-		$expiredProducts = $this->GetExpiringProducts(-1);
+		$overdueProducts = $this->GetDueProducts(-1);
 
-		foreach ($expiredProducts as $expiredProduct)
+		foreach ($overdueProducts as $overdueProduct)
 		{
-			$product = $this->getDatabase()->products()->where('id', $expiredProduct->product_id)->fetch();
+			$product = $this->getDatabase()->products()->where('id', $overdueProduct->product_id)->fetch();
 
-			$alreadyExistingEntry = $this->getDatabase()->shopping_list()->where('product_id', $expiredProduct->product_id)->fetch();
-
+			$alreadyExistingEntry = $this->getDatabase()->shopping_list()->where('product_id', $overdueProduct->product_id)->fetch();
 			if (!$alreadyExistingEntry)
 			{
 				$shoppinglistRow = $this->getDatabase()->shopping_list()->createRow([
-					'product_id' => $expiredProduct->product_id,
+					'product_id' => $overdueProduct->product_id,
 					'amount' => 1,
 					'shopping_list_id' => $listId
 				]);
@@ -101,7 +100,7 @@ class StockService extends BaseService
 			$amount = $amount - floatval($productDetails->stock_amount) - floatval($productDetails->product->tare_weight);
 		}
 
-		//Sets the default best before date, if none is supplied
+		//Set the default due date, if none is supplied
 		if ($bestBeforeDate == null)
 		{
 			if (intval($productDetails->product->default_best_before_days) == -1)
@@ -479,15 +478,25 @@ class StockService extends BaseService
 		}
 	}
 
-	public function GetExpiringProducts(int $days = 5, bool $excludeExpired = false)
+	public function GetDueProducts(int $days = 5, bool $excludeOverdue = false)
 	{
 		$currentStock = $this->GetCurrentStock(false);
 		$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d 23:59:59', strtotime("+$days days")), '<');
+		$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'due_type', 1);
 
-		if ($excludeExpired)
+		if ($excludeOverdue)
 		{
 			$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d 23:59:59', strtotime('-1 days')), '>');
 		}
+
+		return $currentStock;
+	}
+
+	public function GetExpiredProducts()
+	{
+		$currentStock = $this->GetCurrentStock(false);
+		$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d 23:59:59', strtotime("-1 days")), '<');
+		$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'due_type', 2);
 
 		return $currentStock;
 	}
@@ -550,7 +559,7 @@ class StockService extends BaseService
 		$product = $this->getDatabase()->products($productId);
 		$productBarcodes = $this->getDatabase()->product_barcodes()->where('product_id', $productId)->fetchAll();
 		$productLastUsed = $this->getDatabase()->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone', 0)->max('used_date');
-		$nextBestBeforeDate = $this->getDatabase()->stock()->where('product_id', $productId)->min('best_before_date');
+		$nextDueDate = $this->getDatabase()->stock()->where('product_id', $productId)->min('best_before_date');
 		$quPurchase = $this->getDatabase()->quantity_units($product->qu_id_purchase);
 		$quStock = $this->getDatabase()->quantity_units($product->qu_id_stock);
 		$location = $this->getDatabase()->locations($product->location_id);
@@ -584,7 +593,7 @@ class StockService extends BaseService
 			'oldest_price' => $oldestPrice,
 			'last_shopping_location_id' => $lastShoppingLocation,
 			'default_shopping_location_id' => $product->shopping_location_id,
-			'next_best_before_date' => $nextBestBeforeDate,
+			'next_due_date' => $nextDueDate,
 			'location' => $location,
 			'average_shelf_life_days' => $averageShelfLifeDays,
 			'spoil_rate_percent' => $spoilRate,
@@ -630,7 +639,7 @@ class StockService extends BaseService
 	public function GetProductStockEntries($productId, $excludeOpened = false, $allowSubproductSubstitution = false, $ordered = true)
 	{
 		// In order of next use:
-		// First expiring first, then first in first out
+		// First due first, then first in first out
 
 		$sqlWhereProductId = 'product_id = :1';
 

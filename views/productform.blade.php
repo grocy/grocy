@@ -159,31 +159,72 @@
 						for="cumulate_min_stock_amount_of_sub_products">{{ $__t('Accumulate sub products min. stock amount') }}
 						&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
-							title="{{ $__t('If enabled, the min. stock amount of sub products will be accumulated into this product, means the sub product will never be "missing", only this product') }}"></i></span>
+							title="{{ $__t('If enabled, the min. stock amount of sub products will be accumulated into this product, means the sub product will never be "missing", only this product') }}"></i>
 					</label>
 				</div>
 			</div>
 
 			@if(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
+			<div class="form-group">
+				<label class="d-block my-0"
+					for="location_id">{{ $__t('Due date type') }}
+					<i class="fas fa-question-circle text-muted"
+						data-toggle="tooltip"
+						title="{{ $__t('Based on the selected type, the highlighting on the stock overview page will be different') }}"></i>
+				</label>
+				<div class="custom-control custom-radio mt-n2">
+					<input class="custom-control-input"
+						type="radio"
+						name="due_type"
+						id="due-type-bestbefore"
+						value="1"
+						@if($mode=='edit'
+						&&
+						$product->due_type == 1) checked @else checked @endif>
+					<label class="custom-control-label"
+						for="due-type-bestbefore">{{ $__t('Best before date') }}
+						<i class="fas fa-question-circle text-muted"
+							data-toggle="tooltip"
+							title="{{ $__t('Means that the product is maybe still safe to be consumed after its due date is reached') }}"></i>
+					</label>
+				</div>
+				<div class="custom-control custom-radio mt-n2">
+					<input class="custom-control-input"
+						type="radio"
+						name="due_type"
+						id="due-type-expiration"
+						value="2"
+						@if($mode=='edit'
+						&&
+						$product->due_type == 2) checked @endif>
+					<label class="custom-control-label"
+						for="due-type-expiration">{{ $__t('Expiration date') }}
+						<i class="fas fa-question-circle text-muted"
+							data-toggle="tooltip"
+							title="{{ $__t('Means that the product is not safe to be consumed after its due date is reached') }}"></i>
+					</label>
+				</div>
+			</div>
+
 			@php if($mode == 'edit') { $value = $product->default_best_before_days; } else { $value = 0; } @endphp
 			@include('components.numberpicker', array(
 			'id' => 'default_best_before_days',
-			'label' => 'Default best before days',
+			'label' => 'Default due days',
 			'min' => -1,
 			'value' => $value,
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '-1'),
-			'hint' => $__t('For purchases this amount of days will be added to today for the best before date suggestion') . ' (' . $__t('-1 means that this product never expires') . ')'
+			'hint' => $__t('For purchases this amount of days will be added to today for the due date suggestion') . ' (' . $__t('-1 means that this product wille be never overdue') . ')'
 			))
 
 			@if(GROCY_FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING)
 			@php if($mode == 'edit') { $value = $product->default_best_before_days_after_open; } else { $value = 0; } @endphp
 			@include('components.numberpicker', array(
 			'id' => 'default_best_before_days_after_open',
-			'label' => 'Default best before days after opened',
+			'label' => 'Default due days after opened',
 			'min' => 0,
 			'value' => $value,
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '-1'),
-			'hint' => $__t('When this product was marked as opened, the best before date will be replaced by today + this amount of days (a value of 0 disables this)')
+			'hint' => $__t('When this product was marked as opened, the expiry date will be replaced by today + this amount of days (a value of 0 disables this)')
 			))
 			@else
 			<input type="hidden"
@@ -195,6 +236,10 @@
 			<input type="hidden"
 				name="default_best_before_days"
 				id="default_best_before_days"
+				value="1">
+			<input type="hidden"
+				name="due_type"
+				id="due_type"
 				value="1">
 			@endif
 
@@ -344,21 +389,21 @@
 			@php if($mode == 'edit') { $value = $product->default_best_before_days_after_freezing; } else { $value = 0; } @endphp
 			@include('components.numberpicker', array(
 			'id' => 'default_best_before_days_after_freezing',
-			'label' => 'Default best before days after freezing',
+			'label' => 'Default due days after freezing',
 			'min' => -1,
 			'value' => $value,
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
-			'hint' => $__t('On moving this product to a freezer location (so when freezing it), the best before date will be replaced by today + this amount of days')
+			'hint' => $__t('On moving this product to a freezer location (so when freezing it), the expiry date will be replaced by today + this amount of days')
 			))
 
 			@php if($mode == 'edit') { $value = $product->default_best_before_days_after_thawing; } else { $value = 0; } @endphp
 			@include('components.numberpicker', array(
 			'id' => 'default_best_before_days_after_thawing',
-			'label' => 'Default best before days after thawing',
+			'label' => 'Default due days after thawing',
 			'min' => -1,
 			'value' => $value,
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
-			'hint' => $__t('On moving this product from a freezer location (so when thawing it), the best before date will be replaced by today + this amount of days')
+			'hint' => $__t('On moving this product from a freezer location (so when thawing it), the due date will be replaced by today + this amount of days')
 			))
 			@else
 			<input type="hidden"

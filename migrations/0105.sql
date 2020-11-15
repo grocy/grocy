@@ -23,15 +23,18 @@ SELECT
 	p.calories AS product_calories,
 	sc.amount * p.calories AS calories,
 	sc.amount_aggregated * p.calories AS calories_aggregated,
-	p.quick_consume_amount
+	p.quick_consume_amount,
+	p.due_type
 FROM (
         SELECT *
         FROM stock_current
         WHERE best_before_date IS NOT NULL
         UNION
-        SELECT id, 0, 0, 0, null, 0, 0, 0
-        FROM stock_missing_products_including_opened
-        WHERE id NOT IN (SELECT product_id FROM stock_current)
+        SELECT m.id, 0, 0, 0, null, 0, 0, 0, p.due_type
+        FROM stock_missing_products_including_opened m
+		JOIN products p
+			ON m.id = p.id
+        WHERE m.id NOT IN (SELECT product_id FROM stock_current)
     ) sc
 LEFT JOIN products p
     ON sc.product_id = p.id;
@@ -61,15 +64,18 @@ SELECT
 	p.calories AS product_calories,
 	sc.amount * p.calories AS calories,
 	sc.amount_aggregated * p.calories AS calories_aggregated,
-	p.quick_consume_amount
+	p.quick_consume_amount,
+	p.due_type
 FROM (
         SELECT *
         FROM stock_current
         WHERE best_before_date IS NOT NULL
         UNION
-        SELECT id, 0, 0, 0, null, 0, 0, 0
-        FROM stock_missing_products
-        WHERE id NOT IN (SELECT product_id FROM stock_current)
+        SELECT m.id, 0, 0, 0, null, 0, 0, 0, p.due_type
+        FROM stock_missing_products m
+		JOIN products p
+			ON m.id = p.id
+        WHERE m.id NOT IN (SELECT product_id FROM stock_current)
     ) sc
 LEFT JOIN products p
     ON sc.product_id = p.id;

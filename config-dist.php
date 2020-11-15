@@ -113,17 +113,17 @@ DefaultUserSetting('product_presets_product_group_id', -1); // Default product g
 DefaultUserSetting('product_presets_qu_id', -1); // Default quantity unit id for new products (-1 means no quantity unit is preset)
 DefaultUserSetting('stock_decimal_places_amounts', 4); // Default decimal places allowed for amounts
 DefaultUserSetting('stock_decimal_places_prices', 2); // Default decimal places allowed for prices
-DefaultUserSetting('stock_expiring_soon_days', 5);
+DefaultUserSetting('stock_due_soon_days', 5);
 DefaultUserSetting('stock_default_purchase_amount', 0);
 DefaultUserSetting('stock_default_consume_amount', 1);
 DefaultUserSetting('scan_mode_consume_enabled', false);
 DefaultUserSetting('scan_mode_purchase_enabled', false);
 DefaultUserSetting('show_icon_on_stock_overview_page_when_product_is_on_shopping_list', true);
 DefaultUserSetting('show_purchased_date_on_purchase', false); // Wheter the purchased date should be editable on purchase (defaults to today otherwise)
-DefaultUserSetting('show_warning_on_purchase_when_best_before_date_is_earlier_than_next', true); // Show a warning on purchase when the best before date of the purchased product is earlier than the next best before date in stock
+DefaultUserSetting('show_warning_on_purchase_when_due_date_is_earlier_than_next', true); // Show a warning on purchase when the due date of the purchased product is earlier than the next due date in stock
 
 // Shopping list settings
-DefaultUserSetting('shopping_list_to_stock_workflow_auto_submit_when_prefilled', false); // Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default best before days" set
+DefaultUserSetting('shopping_list_to_stock_workflow_auto_submit_when_prefilled', false); // Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default due days" set
 DefaultUserSetting('shopping_list_show_calendar', false);
 
 // Recipe settings
@@ -174,7 +174,7 @@ Setting('FEATURE_FLAG_STOCK_LOCATION_TRACKING', true);
 Setting('FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING', true);
 Setting('FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING', true);
 Setting('FEATURE_FLAG_STOCK_PRODUCT_FREEZING', true);
-Setting('FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_FIELD_NUMBER_PAD', true); // Activate the number pad in best-before-date fields on (supported) mobile browsers
+Setting('FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_FIELD_NUMBER_PAD', true); // Activate the number pad in due date fields on (supported) mobile browsers
 Setting('FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS', true);
 Setting('FEATURE_FLAG_CHORES_ASSIGNMENTS', true);
 

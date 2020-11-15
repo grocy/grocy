@@ -9,7 +9,8 @@ SELECT
 	MIN(s.best_before_date) AS best_before_date,
 	IFNULL((SELECT SUM(amount) FROM stock WHERE product_id = pr.parent_product_id AND open = 1), 0) AS amount_opened,
 	IFNULL((SELECT SUM(amount) FROM stock WHERE product_id IN (SELECT sub_product_id FROM products_resolved WHERE parent_product_id = pr.parent_product_id) AND open = 1), 0) * IFNULL(qucr.factor, 1) AS amount_opened_aggregated,
-    CASE WHEN COUNT(p_sub.parent_product_id) > 0  THEN 1 ELSE 0 END AS is_aggregated_amount
+    CASE WHEN COUNT(p_sub.parent_product_id) > 0  THEN 1 ELSE 0 END AS is_aggregated_amount,
+	MAX(p_parent.due_type) AS due_type
 FROM products_resolved pr
 JOIN stock s
 	ON pr.sub_product_id = s.product_id
@@ -37,10 +38,14 @@ SELECT
 	MIN(s.best_before_date) AS best_before_date,
 	IFNULL((SELECT SUM(amount) FROM stock WHERE product_id = s.product_id AND open = 1), 0) AS amount_opened,
 	IFNULL((SELECT SUM(amount) FROM stock WHERE product_id = s.product_id AND open = 1), 0) AS amount_opened_aggregated,
-	0 AS is_aggregated_amount
+	0 AS is_aggregated_amount,
+	MAX(p_sub.due_type) AS due_type
 FROM products_resolved pr
 JOIN stock s
 	ON pr.sub_product_id = s.product_id
+JOIN products p_sub
+	ON pr.sub_product_id = p_sub.id
+	AND p_sub.active = 1
 WHERE pr.parent_product_id != pr.sub_product_id
 GROUP BY pr.sub_product_id
 HAVING SUM(s.amount) > 0;

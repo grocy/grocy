@@ -50,10 +50,13 @@
 		</div>
 		<div class="border-top border-bottom my-2 py-1">
 			@if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
-			<div id="info-expiring-products"
+			<div id="info-duesoon-products"
 				data-next-x-days="{{ $nextXDays }}"
-				data-status-filter="expiring"
+				data-status-filter="duesoon"
 				class="warning-message status-filter-message responsive-button mr-2"></div>
+			<div id="info-overdue-products"
+				data-status-filter="overdue"
+				class="secondary-message status-filter-message responsive-button mr-2"></div>
 			<div id="info-expired-products"
 				data-status-filter="expired"
 				class="error-message status-filter-message responsive-button mr-2"></div>
@@ -130,8 +133,9 @@
 				<option class="bg-white"
 					value="all">{{ $__t('All') }}</option>
 				@if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
-				<option value="expiring">{{ $__t('Expiring soon') }}</option>
-				<option value="expired">{{ $__t('Already expired') }}</option>
+				<option value="duesoon">{{ $__t('Due soon') }}</option>
+				<option value="overdue">{{ $__t('Overdue') }}</option>
+				<option value="expired">{{ $__t('Expired') }}</option>
 				@endif
 				<option value="belowminstockamount">{{ $__t('Below min. stock amount') }}</option>
 			</select>
@@ -156,7 +160,7 @@
 					<th>{{ $__t('Product group') }}</th>
 					<th>{{ $__t('Amount') }}</th>
 					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Value') }}</th>
-					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING) d-none @endif">{{ $__t('Next best before date') }}</th>
+					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING) d-none @endif">{{ $__t('Next due date') }}</th>
 					<th class="d-none">Hidden location</th>
 					<th class="d-none">Hidden status</th>
 					<th class="d-none">Hidden product group</th>
@@ -172,7 +176,7 @@
 			<tbody class="d-none">
 				@foreach($currentStock as $currentStockEntry)
 				<tr id="product-{{ $currentStockEntry->product_id }}-row"
-					class="@if(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('-1 days')) && $currentStockEntry->amount > 0) table-danger @elseif(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('+' . $nextXDays . ' days')) && $currentStockEntry->amount > 0) table-warning @elseif ($currentStockEntry->product_missing) table-info @endif">
+					class="@if(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('-1 days')) && $currentStockEntry->amount > 0) @if($currentStockEntry->due_type == 1) table-secondary @else table-danger @endif @elseif(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && $currentStockEntry->best_before_date < date('Y-m-d 23:59:59', strtotime('+' . $nextXDays . ' days')) && $currentStockEntry->amount > 0) table-warning @elseif ($currentStockEntry->product_missing) table-info @endif">
 					<td class="fit-content border-right">
 						<a class="permission-STOCK_CONSUME btn btn-success btn-sm product-consume-button @if($currentStockEntry->amount < $currentStockEntry->quick_consume_amount || $currentStockEntry->enable_tare_weight_handling == 1) disabled @endif"
 							href="#"
@@ -340,8 +344,8 @@
 							class="locale-number locale-number-currency">{{ $currentStockEntry->value }}</span>
 					</td>
 					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING) d-none @endif">
-						<span id="product-{{ $currentStockEntry->product_id }}-next-best-before-date">{{ $currentStockEntry->best_before_date }}</span>
-						<time id="product-{{ $currentStockEntry->product_id }}-next-best-before-date-timeago"
+						<span id="product-{{ $currentStockEntry->product_id }}-next-due-date">{{ $currentStockEntry->best_before_date }}</span>
+						<time id="product-{{ $currentStockEntry->product_id }}-next-due-date-timeago"
 							class="timeago timeago-contextual"
 							datetime="{{ $currentStockEntry->best_before_date }} 23:59:59"></time>
 					</td>
@@ -358,7 +362,7 @@
 							. ' days'
 							))
 							&&
-							$currentStockEntry->amount > 0) expired @elseif($currentStockEntry->best_before_date < date('Y-m-d
+							$currentStockEntry->amount > 0) @if($currentStockEntry->due_type == 1) overdue @else expired @endif @elseif($currentStockEntry->best_before_date < date('Y-m-d
 								23:59:59',
 								strtotime('+'
 								.
@@ -366,7 +370,7 @@
 								. ' days'
 								))
 								&&
-								$currentStockEntry->amount > 0) expiring @elseif ($currentStockEntry->product_missing) belowminstockamount @endif"
+								$currentStockEntry->amount > 0) duesoon @elseif ($currentStockEntry->product_missing) belowminstockamount @endif"
 					</td>
 					<td class="d-none">
 						xx{{ $currentStockEntry->product_group_name }}xx

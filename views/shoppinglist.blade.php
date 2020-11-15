@@ -115,10 +115,10 @@
 					href="#">
 					{{ $__t('Add products that are below defined min. stock amount') }}
 				</a>
-				<a id="add-expired-products"
+				<a id="add-overdue-products"
 					class="btn btn-outline-primary btn-sm mb-1 responsive-button @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif"
 					href="#">
-					{{ $__t('Add expired products') }}
+					{{ $__t('Add overdue products') }}
 				</a>
 			</div>
 		</div>

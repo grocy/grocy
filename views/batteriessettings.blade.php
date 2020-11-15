@@ -19,7 +19,7 @@
 		@include('components.numberpicker', array(
 		'id' => 'batteries_due_soon_days',
 		'additionalAttributes' => 'data-setting-key="batteries_due_soon_days"',
-		'label' => 'Batteries due to be charged soon days',
+		'label' => 'Due soon days',
 		'min' => 1,
 		'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
 		'additionalCssClasses' => 'user-setting-control'
