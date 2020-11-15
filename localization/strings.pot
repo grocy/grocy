@@ -1227,7 +1227,7 @@ msgstr ""
 msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
 msgstr ""
 
-msgid "Undo task \"%s\""
+msgid "Undo task"
 msgstr ""
 
 msgid "Due date rollover"

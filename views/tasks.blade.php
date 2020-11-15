@@ -146,7 +146,7 @@
 							href="#"
 							data-toggle="tooltip"
 							data-placement="left"
-							title="{{ $__t('Undo task "%s"', $task->name) }}"
+							title="{{ $__t('Undo task', $task->name) }}"
 							data-task-id="{{ $task->id }}"
 							data-task-name="{{ $task->name }}">
 							<i class="fas fa-undo"></i>
