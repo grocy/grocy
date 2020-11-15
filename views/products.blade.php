@@ -118,6 +118,12 @@
 							title="{{ $__t('Edit this item') }}">
 							<i class="fas fa-edit"></i>
 						</a>
+						<a class="btn btn-primary btn-sm"
+							href="{{ $U('/product/new?copy-of=') }}{{ $product->id }}"
+							data-toggle="tooltip"
+							title="{{ $__t('Copy this item') }}">
+							<i class="fas fa-copy"></i>
+						</a>
 						<a class="btn btn-danger btn-sm product-delete-button @if($product->active == 0) disabled @endif"
 							href="#"
 							data-product-id="{{ $product->id }}"

@@ -390,9 +390,6 @@ $(document).on('click', '.qu-conversion-delete-button', function(e)
 $(document).on('click', '.barcode-delete-button', function(e)
 {
 	var objectId = $(e.currentTarget).attr('data-barcode-id');
-	var productId = $(e.currentTarget).attr('data-product-id');
-	var barcode = $(e.currentTarget).attr('data-barcode');
-	var productBarcode = $(e.currentTarget).attr('data-product-barcode');
 
 	bootbox.confirm({
 		message: __t('Are you sure to remove this barcode?'),
@@ -427,14 +424,15 @@ $(document).on('click', '.barcode-delete-button', function(e)
 	});
 });
 
-$('#qu_id_purchase').blur(function(e)
+$('#qu_id_stock').change(function(e)
 {
-	// Preset the stock quantity unit with the purchase quantity unit, if the stock quantity unit is unset.
-	var QuIdStock = $('#qu_id_stock');
-	var QuIdPurchase = $('#qu_id_purchase');
-	if (QuIdStock[0].selectedIndex === 0 && QuIdPurchase[0].selectedIndex !== 0)
+	// Preset QU purchase with stock QU if unset
+	var quIdStock = $('#qu_id_stock');
+	var quIdPurchase = $('#qu_id_purchase');
+
+	if (quIdPurchase[0].selectedIndex === 0 && quIdStock[0].selectedIndex !== 0)
 	{
-		QuIdStock[0].selectedIndex = QuIdPurchase[0].selectedIndex;
+		quIdPurchase[0].selectedIndex = quIdStock[0].selectedIndex;
 		Grocy.FrontendHelpers.ValidateForm('product-form');
 	}
 });
@@ -448,3 +446,65 @@ $(window).on("message", function(e)
 		window.location.reload();
 	}
 });
+
+if (Grocy.EditMode == "create" && GetUriParam("copy-of") != undefined)
+{
+	Grocy.Api.Get('objects/products/' + GetUriParam("copy-of"),
+		function(sourceProduct)
+		{
+			if (sourceProduct.parent_product_id != null)
+			{
+				Grocy.Components.ProductPicker.SetId(sourceProduct.parent_product_id);
+			}
+			if (sourceProduct.description != null)
+			{
+				$("#description").summernote("pasteHTML", sourceProduct.description);
+			}
+			$("#location_id").val(sourceProduct.location_id);
+			if (sourceProduct.shopping_location_id != null)
+			{
+				Grocy.Components.ShoppingLocationPicker.SetId(sourceProduct.shopping_location_id);
+			}
+			$("#min_stock_amount").val(sourceProduct.min_stock_amount);
+			if (BoolVal(sourceProduct.cumulate_min_stock_amount_of_sub_products))
+			{
+				$("#cumulate_min_stock_amount_of_sub_products").prop("checked", true);
+			}
+			$("#default_best_before_days").val(sourceProduct.default_best_before_days);
+			$("#default_best_before_days_after_open").val(sourceProduct.default_best_before_days_after_open);
+			if (sourceProduct.product_group_id != null)
+			{
+				$("#product_group_id").val(sourceProduct.product_group_id);
+			}
+			$("#qu_id_stock").val(sourceProduct.qu_id_stock);
+			$("#qu_id_purchase").val(sourceProduct.qu_id_purchase);
+			$("#qu_factor_purchase_to_stock").val(sourceProduct.qu_factor_purchase_to_stock);
+			if (BoolVal(sourceProduct.allow_partial_units_in_stock))
+			{
+				$("#allow_partial_units_in_stock").prop("checked", true);
+			}
+			if (BoolVal(sourceProduct.enable_tare_weight_handling))
+			{
+				$("#enable_tare_weight_handling").prop("checked", true);
+			}
+			$("#tare_weight").val(sourceProduct.tare_weight);
+			if (BoolVal(sourceProduct.not_check_stock_fulfillment_for_recipes))
+			{
+				$("#not_check_stock_fulfillment_for_recipes").prop("checked", true);
+			}
+			if (sourceProduct.calories != null)
+			{
+				$("#calories").val(sourceProduct.calories);
+			}
+			$("#default_best_before_days_after_freezing").val(sourceProduct.default_best_before_days_after_freezing);
+			$("#default_best_before_days_after_thawing").val(sourceProduct.default_best_before_days_after_thawing);
+			$("#quick_consume_amount").val(sourceProduct.quick_consume_amount);
+
+			Grocy.FrontendHelpers.ValidateForm('product-form');
+		},
+		function(xhr)
+		{
+			console.error(xhr);
+		}
+	);
+}

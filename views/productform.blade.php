@@ -185,7 +185,17 @@
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '-1'),
 			'hint' => $__t('When this product was marked as opened, the best before date will be replaced by today + this amount of days (a value of 0 disables this)')
 			))
+			@else
+			<input type="hidden"
+				name="default_best_before_days_after_open"
+				id="default_best_before_days_after_open"
+				value="1">
 			@endif
+			@else
+			<input type="hidden"
+				name="default_best_before_days"
+				id="default_best_before_days"
+				value="1">
 			@endif
 
 			<div class="form-group">
@@ -310,6 +320,12 @@
 					</label>
 				</div>
 			</div>
+			@else
+			<input type="hidden"
+				name="not_check_stock_fulfillment_for_recipes"
+				id="not_check_stock_fulfillment_for_recipes"
+				value="0">
+			@endif
 
 			@php if($mode == 'edit') { $value = $product->calories; } else { $value = 0; } @endphp
 			@include('components.numberpicker', array(
@@ -323,7 +339,6 @@
 			'isRequired' => false,
 			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
 			))
-			@endif
 
 			@if(GROCY_FEATURE_FLAG_STOCK_PRODUCT_FREEZING)
 			@php if($mode == 'edit') { $value = $product->default_best_before_days_after_freezing; } else { $value = 0; } @endphp

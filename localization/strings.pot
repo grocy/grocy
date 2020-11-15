@@ -1942,3 +1942,9 @@ msgstr ""
 
 msgid "This amount is used for the \"quick consume/open buttons\" on the stock overview page (related to quantity unit stock)"
 msgstr ""
+
+msgid "Copy this item"
+msgstr ""
+
+msgid "Are you sure to remove this barcode?"
+msgstr ""
