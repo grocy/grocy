@@ -312,7 +312,7 @@ if (Grocy.EditMode === 'create')
 	}
 }
 
-var quConversionsTable = $('#qu-conversions-table').DataTable({
+var quConversionsTable = $('#qu-conversions-table-products').DataTable({
 	'order': [[1, 'asc']],
 	"orderFixed": [[4, 'asc']],
 	'columnDefs': [

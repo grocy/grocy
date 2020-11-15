@@ -510,7 +510,7 @@
 							<th class="border-right"><a class="text-muted change-table-columns-visibility-button"
 									data-toggle="tooltip"
 									title="{{ $__t('Hide/view columns') }}"
-									data-table-selector="#qu-conversions-table"
+									data-table-selector="#qu-conversions-table-products"
 									href="#"><i class="fas fa-eye"></i></a>
 							</th>
 							<th>{{ $__t('Quantity unit from') }}</th>
