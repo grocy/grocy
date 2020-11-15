@@ -1796,6 +1796,9 @@ msgstr ""
 msgid "Stack trace"
 msgstr ""
 
+msgid "Easy error info copy & paste (for reporting)"
+msgstr ""
+
 msgid "This page does not exist"
 msgstr ""
 

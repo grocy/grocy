@@ -128,6 +128,7 @@ _- (Because the stock quantity unit is now the base for everything, it cannot be
 - Replaced (again, added before in v2.7.0, then reverted in v2.7.1 due to some problems) [QuaggaJS](https://github.com/serratus/quaggaJS) (seems to be unmaintained) by [Quagga2](https://github.com/ericblade/quagga2)
 - More `config.php` settings (see the section `Component configuration for Quagga2`) to tweak Quagga2 (this is the component used for device camera for barcode scanning) (thanks @andrelam)
 - Some localization string fixes (thanks @duckfullstop)
+- Better error pages
 - Fixed that XSS / HTML injection was possible through some user input fields (low severity / not really a problem as this could not be abused unauthenticated)
 - New translations: (thanks all the translators)
   - Greek (demo available at https://el.demo.grocy.info)
