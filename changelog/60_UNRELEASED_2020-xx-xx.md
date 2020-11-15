@@ -36,7 +36,7 @@
     - Products with `Due date type = Best before date` (so all existing products) are "due" or "overdue" (they don't "expire" or are "expired")
     - Products with `Due date type = Expiration date` (new option) can "expire" or are "expired"
   - Color changes:
-    - Prducts which are due soon or expire soon are (still) highlighted in yellow
+    - Products which are due soon or expire soon are (still) highlighted in yellow
     - Products which are overdue are highlighted in grey (there is also a new filter button on the stock overview page for them)
     - Products which are expired (new option) are highlighted in red
 - When creating a quantity unit conversion it's now possible to automatically create the inverse conversion (thanks @kriddles)
