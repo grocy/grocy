@@ -86,7 +86,7 @@
 			'decimals' => $userSettings['stock_decimal_places_prices'],
 			'value' => '',
 			'hint' => $__t('Per stock quantity unit', GROCY_CURRENCY),
-			'additionalHtmlContextHelp' => '<i class="fas fa-question-circle"
+			'additionalHtmlContextHelp' => '<i class="fas fa-question-circle text-muted"
 				data-toggle="tooltip"
 				title="' . $__t('This will apply to added products') . '"></i>',
 			'invalidFeedback' => $__t('The price cannot be lower than %s', '0'),

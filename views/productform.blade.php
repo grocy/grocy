@@ -157,7 +157,7 @@
 						$product->cumulate_min_stock_amount_of_sub_products == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="cumulate_min_stock_amount_of_sub_products" name="cumulate_min_stock_amount_of_sub_products" value="1">
 					<label class="form-check-label custom-control-label"
 						for="cumulate_min_stock_amount_of_sub_products">{{ $__t('Accumulate sub products min. stock amount') }}
-						&nbsp;<i class="fas fa-question-circle"
+						&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
 							title="{{ $__t('If enabled, the min. stock amount of sub products will be accumulated into this product, means the sub product will never be "missing", only this product') }}"></i></span>
 					</label>
@@ -204,7 +204,7 @@
 
 			<div class="form-group">
 				<label for="qu_id_stock">{{ $__t('Quantity unit stock') }}</label>
-				<i class="fas fa-question-circle"
+				<i class="fas fa-question-circle text-muted"
 					data-toggle="tooltip"
 					title="{{ $__t('Quantity unit stock cannot be changed after first purchase') }}"></i>
 				<select required
@@ -227,7 +227,7 @@
 
 			<div class="form-group">
 				<label for="qu_id_purchase">{{ $__t('Default quantity unit purchase') }}</label>
-				<i class="fas fa-question-circle"
+				<i class="fas fa-question-circle text-muted"
 					data-toggle="tooltip"
 					title="{{ $__t('This is the default quantity unit used when adding this product to the shopping list') }}"></i>
 				<select required
@@ -274,7 +274,7 @@
 						$product->enable_tare_weight_handling == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="enable_tare_weight_handling" name="enable_tare_weight_handling" value="1">
 					<label class="form-check-label custom-control-label"
 						for="enable_tare_weight_handling">{{ $__t('Enable tare weight handling') }}
-						&nbsp;<i class="fas fa-question-circle"
+						&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
 							title="{{ $__t('This is useful e.g. for flour in jars - on purchase/consume/inventory you always weigh the whole jar, the amount to be posted is then automatically calculated based on what is in stock and the tare weight defined below') }}"></i>
 					</label>
@@ -304,7 +304,7 @@
 						$product->not_check_stock_fulfillment_for_recipes == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="not_check_stock_fulfillment_for_recipes" name="not_check_stock_fulfillment_for_recipes" value="1">
 					<label class="form-check-label custom-control-label"
 						for="not_check_stock_fulfillment_for_recipes">{{ $__t('Disable stock fulfillment checking for this ingredient') }}
-						&nbsp;<i class="fas fa-question-circle"
+						&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
 							title="{{ $__t('This will be used as the default setting when adding this product as a recipe ingredient') }}"></i>
 					</label>

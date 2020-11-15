@@ -22,12 +22,12 @@
 		for="product_id">
 		{{ $__t($label) }}
 		@if(!$disallowAllProductWorkflows)
-		<i class="fas fa-question-circle"
+		<i class="fas fa-question-circle text-muted"
 			data-toggle="tooltip"
 			title="{{ $__t('Type a new product name or barcode and hit TAB or ENTER to start a workflow') }}"></i>
 		@endif
 		@if(!empty($hint))
-		<i class="fas fa-question-circle"
+		<i class="fas fa-question-circle text-muted"
 			data-toggle="tooltip"
 			title="{{ $hint }}"></i>
 		@endif

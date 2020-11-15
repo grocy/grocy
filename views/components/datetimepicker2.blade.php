@@ -19,7 +19,7 @@
 	class="form-group {{ $additionalGroupCssClasses }}">
 	<label for="{{ $id }}">{{ $__t($label) }}
 		@if(!empty($hint))
-		&nbsp;<i class="fas fa-question-circle"
+		&nbsp;<i class="fas fa-question-circle text-muted"
 			data-toggle="tooltip"
 			title="{{ $hint }}"></i>
 		@endif

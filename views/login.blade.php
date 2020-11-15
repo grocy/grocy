@@ -43,7 +43,7 @@
 					<label class="form-check-label custom-control-label"
 						for="stay_logged_in">
 						{{ $__t('Stay logged in permanently') }}
-						<i class="fas fa-question-circle"
+						<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
 							title="{{ $__t('When not set, you will get logged out at latest after 30 days') }}"></i>
 					</label>

@@ -65,7 +65,7 @@
 			))
 
 			<div class="form-group">
-				<label for="variable_amount">{{ $__t('Variable amount') }}&nbsp;<i class="fas fa-question-circle"
+				<label for="variable_amount">{{ $__t('Variable amount') }}&nbsp;<i class="fas fa-question-circle text-muted"
 						data-toggle="tooltip"
 						title="{{ $__t('When this is not empty, it will be shown instead of the amount entered above while the amount there will still be used for stock fulfillment checking') }}"></i></label>
 				<input type="text"
@@ -86,7 +86,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="ingredient_group">{{ $__t('Group') }}&nbsp;<i class="fas fa-question-circle"
+				<label for="ingredient_group">{{ $__t('Group') }}&nbsp;<i class="fas fa-question-circle text-muted"
 						data-toggle="tooltip"
 						title="{{ $__t('This will be used as a headline to group ingredients together') }}"></i></label>
 				<input type="text"

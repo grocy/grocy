@@ -23,7 +23,7 @@
 		{{ $__t($label) }}
 		@if(!empty($hint) || !empty($hintId))
 		<i id="{{ $hintId }}"
-			class="fas fa-question-circle"
+			class="fas fa-question-circle text-muted"
 			data-toggle="tooltip"
 			title="{{ $hint }}"></i>
 		@endif

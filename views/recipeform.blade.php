@@ -81,7 +81,7 @@
 					<label class="form-check-label custom-control-label"
 						for="not_check_shoppinglist">
 						{{ $__t('Do not check against the shopping list when adding missing items to it') }}&nbsp;
-						<i class="fas fa-question-circle"
+						<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
 							title="{{ $__t('By default the amount to be added to the shopping list is "needed amount - stock amount - shopping list amount" - when this is enabled, it is only checked against the stock amount, not against what is already on the shopping list') }}"></i>
 					</label>

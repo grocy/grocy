@@ -71,7 +71,7 @@
 						value="1">
 					<label class="form-check-label custom-control-label"
 						for="use_specific_stock_entry">{{ $__t('Use a specific stock item') }}
-						&nbsp;<i class="fas fa-question-circle"
+						&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
 							title="{{ $__t('The first item in this list would be picked by the default rule which is "First expiring first, then first in first out"') }}"></i>
 					</label>

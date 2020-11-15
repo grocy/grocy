@@ -14,7 +14,7 @@
 	data-prefill-by-id="{{ $prefillById }}">
 	<label for="location_id">{{ $__t('Location') }}
 		@if(!empty($hint))
-		<i class="fas fa-question-circle"
+		<i class="fas fa-question-circle text-muted"
 			data-toggle="tooltip"
 			title="{{ $hint }}"></i>
 		@endif

@@ -53,7 +53,7 @@
 
 			<div class="form-group">
 				<label for="period_type">{{ $__t('Period type') }}&nbsp;<i id="chore-period-type-info"
-						class="fas fa-question-circle"
+						class="fas fa-question-circle text-muted"
 						data-toggle="tooltip"
 						title=""></i></label>
 				<select required
@@ -159,7 +159,7 @@
 			@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 			<div class="form-group">
 				<label for="assignment_type">{{ $__t('Assignment type') }} <i id="chore-assignment-type-info"
-						class="fas fa-question-circle"
+						class="fas fa-question-circle text-muted"
 						data-toggle="tooltip"
 						title=""></i></label>
 				<select required
@@ -210,7 +210,7 @@
 						$chore->track_date_only == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="track_date_only" name="track_date_only" value="1">
 					<label class="form-check-label custom-control-label"
 						for="track_date_only">{{ $__t('Track date only') }}
-						&nbsp;<i class="fas fa-question-circle"
+						&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
 							title="{{ $__t('When enabled only the day of an execution is tracked, not the time') }}"></i>
 					</label>
@@ -224,7 +224,7 @@
 						$chore->rollover == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="rollover" name="rollover" value="1">
 					<label class="form-check-label custom-control-label"
 						for="rollover">{{ $__t('Due date rollover') }}
-						&nbsp;<i class="fas fa-question-circle"
+						&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
 							title="{{ $__t('When enabled the chore can never be overdue, the due date will shift forward each day when due') }}"></i>
 					</label>
