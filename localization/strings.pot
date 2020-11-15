@@ -20,11 +20,6 @@ msgid_plural "%s products expiring"
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "%s is due"
-msgid_plural "%s are due"
-msgstr[0] ""
-msgstr[1] ""
-
 msgid "within the next day"
 msgid_plural "within the next %s days"
 msgstr[0] ""
