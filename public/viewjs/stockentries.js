@@ -22,8 +22,18 @@ $.fn.dataTable.ext.search.push(function(settings, data, dataIndex)
 	return false;
 });
 
+$("#clear-filter-button").on("click", function()
+{
+	Grocy.Components.ProductPicker.Clear();
+	stockEntriesTable.draw();
+});
 
 Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
+{
+	stockEntriesTable.draw();
+});
+
+Grocy.Components.ProductPicker.GetInputElement().on('keyup', function(e)
 {
 	stockEntriesTable.draw();
 });

@@ -16,17 +16,36 @@
 <div class="row">
 	<div class="col">
 		<h2 class="title">@yield('title')</h2>
+		<div class="float-right">
+			<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
+				type="button"
+				data-toggle="collapse"
+				data-target="#table-filter-row">
+				<i class="fas fa-filter"></i>
+			</button>
+		</div>
 	</div>
 </div>
 
 <hr class="my-2">
 
-<div class="row">
+<div class="row collapse d-md-flex"
+	id="table-filter-row">
 	<div class="col-xs-12 col-md-6 col-xl-3">
 		@include('components.productpicker', array(
 		'products' => $products,
-		'disallowAllProductWorkflows' => true
+		'disallowAllProductWorkflows' => true,
+		'isRequired' => false
 		))
+	</div>
+	<div class="col">
+		<div class="float-right mt-3">
+			<a id="clear-filter-button"
+				class="btn btn-sm btn-outline-info"
+				href="#">
+				{{ $__t('Clear filter') }}
+			</a>
+		</div>
 	</div>
 </div>
 
