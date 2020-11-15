@@ -1930,3 +1930,6 @@ msgstr ""
 
 msgid "There are items in stock which expire earlier"
 msgstr ""
+
+msgid "When enabled, the amount will always be filled with 1 after changing/scanning a product and if all fields could be automatically populated (by product defaults), the transaction is automatically submitted"
+msgstr ""
