@@ -99,6 +99,9 @@ _- (Because the stock quantity unit is now the base for everything, it cannot be
 - Fixed a PHP warning when using the "Share/Integrate calendar (iCal)" button (thanks @tsia)
 - Fixed that "Track date only"-chores were always displayed at 12am (are now displayed as all-day events)
 
+### Tasks improvements
+- Tasks don't need to unique anymore (name field)
+
 ### Userfield improvements/fixes
 - New Userfield type "File" to attach any file, will be rendered as a link to the file in tables (if enabled) (thanks @fipwmaqzufheoxq92ebc)
 - New Userfield type "Picture" to attach a picture, the picture will be rendered (small) in tables (if enabled) (thanks @fipwmaqzufheoxq92ebc)
