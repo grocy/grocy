@@ -35,13 +35,19 @@
 					class="form-text text-danger d-none"></div>
 			</div>
 
-			<div class="checkbox">
-				<label for="stay_logged_in">
+			<div class="form-group mt-n2">
+				<div class="custom-control custom-checkbox">
 					<input type="checkbox"
-						id="stay_logged_in"
-						name="stay_logged_in"> {{ $__t('Stay logged in permanently') }}
-					<p class="form-text text-muted small my-0">{{ $__t('When not set, you will get logged out at latest after 30 days') }}</p>
-				</label>
+						class="form-check-input custom-control-input"
+						id="stay_logged_in">
+					<label class="form-check-label custom-control-label"
+						for="stay_logged_in">
+						{{ $__t('Stay logged in permanently') }}
+						<i class="fas fa-question-circle"
+							data-toggle="tooltip"
+							title="{{ $__t('When not set, you will get logged out at latest after 30 days') }}"></i>
+					</label>
+				</div>
 			</div>
 
 			<button id="login-button"
