@@ -77,7 +77,7 @@
 
 ### Shopping list improvements
 - Decimal amounts are now allowed (for any product, rounded by two decimal places)
-- Added a button to add all currently in-stock but expired products to the shopping list (thanks @m-byte)
+- Added a button to add all currently in-stock but overdue and expired products to the shopping list (thanks @m-byte)
 - Improved that when `FEATURE_FLAG_STOCK` is disabled, all product/stock related inputs and buttons are now hidden on the shopping list page (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that "Add products that are below defined min. stock amount" always rounded up the missing amount to an integral number, this now allows decimal numbers
 
@@ -190,6 +190,7 @@
       - `<value>` is the value to search for
 - New endpoints `/stock/journal` and `/stock/journal/summary` to get the stock journal (thanks @fipwmaqzufheoxq92ebc)
 - New endpoint `/stock/shoppinglist/add-overdue-products` to add all currently in-stock but overdue products to a shopping list (thanks @m-byte)
+- New endpoint `/stock/shoppinglist/add-expired-products` to add all currently in-stock but expired products to a shopping list
 - New endpoints GET/POST/PUT `/users/{userId}/permissions` for the new user permissions feature mentioned above
 - Performance improvements of the `/stock/products/*` endpoints (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that the endpoint `/objects/{entity}/{objectId}` always returned successfully, even when the given object not exists (now returns `404` when the object is not found) (thanks @fipwmaqzufheoxq92ebc)

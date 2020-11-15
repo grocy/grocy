@@ -1798,9 +1798,6 @@ msgstr ""
 msgid "Journal summary for this product"
 msgstr ""
 
-msgid "Add expired products"
-msgstr ""
-
 msgid "Consume exact amount"
 msgstr ""
 
@@ -1980,4 +1977,7 @@ msgid "Expired"
 msgstr ""
 
 msgid "Due soon days"
+msgstr ""
+
+msgid "Add overdue/expired products"
 msgstr ""

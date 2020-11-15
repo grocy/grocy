@@ -60,7 +60,6 @@ class StockService extends BaseService
 		}
 
 		$overdueProducts = $this->GetDueProducts(-1);
-
 		foreach ($overdueProducts as $overdueProduct)
 		{
 			$product = $this->getDatabase()->products()->where('id', $overdueProduct->product_id)->fetch();
@@ -70,6 +69,31 @@ class StockService extends BaseService
 			{
 				$shoppinglistRow = $this->getDatabase()->shopping_list()->createRow([
 					'product_id' => $overdueProduct->product_id,
+					'amount' => 1,
+					'shopping_list_id' => $listId
+				]);
+				$shoppinglistRow->save();
+			}
+		}
+	}
+
+	public function AddExpiredProductsToShoppingList($listId = 1)
+	{
+		if (!$this->ShoppingListExists($listId))
+		{
+			throw new \Exception('Shopping list does not exist');
+		}
+
+		$expiredProducts = $this->GetExpiredProducts();
+		foreach ($expiredProducts as $expiredProduct)
+		{
+			$product = $this->getDatabase()->products()->where('id', $expiredProduct->product_id)->fetch();
+
+			$alreadyExistingEntry = $this->getDatabase()->shopping_list()->where('product_id', $expiredProduct->product_id)->fetch();
+			if (!$alreadyExistingEntry)
+			{
+				$shoppinglistRow = $this->getDatabase()->shopping_list()->createRow([
+					'product_id' => $expiredProduct->product_id,
 					'amount' => 1,
 					'shopping_list_id' => $listId
 				]);

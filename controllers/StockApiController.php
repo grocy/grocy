@@ -55,6 +55,30 @@ class StockApiController extends BaseApiController
 		}
 	}
 
+	public function AddExpiredProductsToShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		User::checkPermission($request, User::PERMISSION_SHOPPINGLIST_ITEMS_ADD);
+
+		try
+		{
+			$requestBody = $this->GetParsedAndFilteredRequestBody($request);
+
+			$listId = 1;
+
+			if (array_key_exists('list_id', $requestBody) && !empty($requestBody['list_id']) && is_numeric($requestBody['list_id']))
+			{
+				$listId = intval($requestBody['list_id']);
+			}
+
+			$this->getStockService()->AddExpiredProductsToShoppingList($listId);
+			return $this->EmptyApiResponse($response);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
+
 	public function AddProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_STOCK_PURCHASE);
