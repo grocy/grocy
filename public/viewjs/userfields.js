@@ -30,7 +30,7 @@ $("#entity-filter").on("change", function()
 	}
 
 	userfieldsTable.column(1).search(value).draw();
-	$("#new-userfield-button").attr("href", U("/userfield/new?entity=" + value));
+	$("#new-userfield-button").attr("href", U("/userfield/new?embedded&entity=" + value));
 });
 
 $("#clear-filter-button").on("click", function()
@@ -78,8 +78,9 @@ $(document).on('click', '.userfield-delete-button', function(e)
 	});
 });
 
-if (typeof GetUriParam("entity") !== "undefined" && !GetUriParam("entity").isEmpty())
+if (GetUriParam("entity") != undefined && !GetUriParam("entity").isEmpty())
 {
 	$("#entity-filter").val(GetUriParam("entity"));
 	$("#entity-filter").trigger("change");
+	$("#name").focus();
 }

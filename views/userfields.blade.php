@@ -25,7 +25,8 @@
 			</div>
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100 m-1 mt-md-0 mb-md-0 float-right"
 				id="related-links">
-				<a class="btn btn-primary responsive-button show-as-dialog-link"
+				<a id="new-userfield-button"
+					class="btn btn-primary responsive-button show-as-dialog-link"
 					href="{{ $U('/userfield/new?embedded') }}">
 					{{ $__t('Add') }}
 				</a>

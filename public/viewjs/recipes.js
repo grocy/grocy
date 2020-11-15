@@ -88,7 +88,7 @@ $("#status-filter").on("change", function()
 	$('.recipe-gallery-item').removeClass('d-none');
 	if (value !== "")
 	{
-		if (value === 'enoughinstock')
+		if (value === 'Xenoughinstock')
 		{
 			$('.recipe-gallery-item').not('.recipe-enoughinstock').addClass('d-none');
 		}

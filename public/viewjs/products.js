@@ -29,7 +29,7 @@ $("#product-group-filter").on("change", function()
 		value = "";
 	}
 
-	productsTable.column(7).search(value).draw();
+	productsTable.column(6).search(value).draw();
 });
 
 $("#clear-filter-button").on("click", function()
