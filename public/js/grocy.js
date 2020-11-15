@@ -588,7 +588,7 @@ function RefreshLocaleNumberInput(rootSelector = "#page-content")
 			return;
 		}
 
-		$(this).val(value.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices }));
+		$(this).val(parseFloat(value).toLocaleString("en", { minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices, useGrouping: false }));
 	});
 
 	$(rootSelector + " .locale-number-input.locale-number-quantity-amount").each(function()
@@ -599,7 +599,7 @@ function RefreshLocaleNumberInput(rootSelector = "#page-content")
 			return;
 		}
 
-		$(this).val(value.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }));
+		$(this).val(parseFloat(value).toLocaleString("en", { minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts, useGrouping: false }));
 	});
 
 	$(rootSelector + " .locale-number-input.locale-number-generic").each(function()
@@ -610,7 +610,7 @@ function RefreshLocaleNumberInput(rootSelector = "#page-content")
 			return;
 		}
 
-		$(this).val(value.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 2 }));
+		$(this).val(value.toLocaleString("en", { minimumFractionDigits: 0, maximumFractionDigits: 2, useGrouping: false }));
 	});
 }
 RefreshLocaleNumberInput();
