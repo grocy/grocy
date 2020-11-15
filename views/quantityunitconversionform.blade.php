@@ -91,7 +91,7 @@
 			'invalidFeedback' => $__t('This cannot be lower than %1$s and must be a valid number with max. %2$s decimal places', '0', $userSettings['stock_decimal_places_amounts']),
 			'additionalHtmlElements' => '<p id="qu-conversion-info"
 				class="form-text text-info d-none"></p>',
-			'additionalCssClasses' => 'input-group-qu'
+			'additionalCssClasses' => 'input-group-qu locale-number-input locale-number-quantity-amount'
 			))
 
 			<div class="form-group @if($mode == 'edit') d-none @endif">

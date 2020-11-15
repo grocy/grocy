@@ -163,6 +163,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				}
 
 				$('#price').val(parseFloat(productDetails.last_price).toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices }));
+				RefreshLocaleNumberInput();
 				if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 				{
 					Grocy.Components.ShoppingLocationPicker.SetId(productDetails.last_shopping_location_id);
@@ -173,6 +174,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				}
 
 				$('#display_amount').val(productDetails.stock_amount);
+				RefreshLocaleNumberInput();
 				$(".input-group-productamountpicker").trigger("change");
 				$('#display_amount').focus();
 				$('#display_amount').trigger('keyup');

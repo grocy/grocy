@@ -20,3 +20,5 @@ if (BoolVal(Grocy.UserSettings.show_warning_on_purchase_when_best_before_date_is
 {
 	$("#show_warning_on_purchase_when_best_before_date_is_earlier_than_next").prop("checked", true);
 }
+
+RefreshLocaleNumberInput();

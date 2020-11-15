@@ -90,7 +90,8 @@
 				data-toggle="tooltip"
 				title="' . $__t('This will apply to added products') . '"></i>',
 			'invalidFeedback' => $__t('The price cannot be lower than %s', '0'),
-			'isRequired' => false
+			'isRequired' => false,
+			'additionalCssClasses' => 'locale-number-input locale-number-currency'
 			))
 
 			@include('components.shoppinglocationpicker', array(

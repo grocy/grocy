@@ -2,3 +2,5 @@
 {
 	$("#recipe_ingredients_group_by_product_group").prop("checked", true);
 }
+
+RefreshLocaleNumberInput();

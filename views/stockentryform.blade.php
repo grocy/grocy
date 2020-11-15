@@ -60,6 +60,7 @@
 			'contextInfoId' => 'amount_qu_unit',
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
 			'additionalAttributes' => 'data-not-equal="-1"',
+			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
 			))
 
 			@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
@@ -81,7 +82,8 @@
 			'decimals' => $userSettings['stock_decimal_places_prices'],
 			'hint' => $__t('Per stock quantity unit'),
 			'invalidFeedback' => $__t('The price cannot be lower than %s', '0'),
-			'isRequired' => false
+			'isRequired' => false,
+			'additionalCssClasses' => 'locale-number-input locale-number-currency'
 			))
 			@include('components.shoppinglocationpicker', array(
 			'label' => 'Store',

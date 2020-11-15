@@ -335,7 +335,8 @@
 								'value' => $recipe->desired_servings,
 								'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
 								'additionalAttributes' => 'data-recipe-id="' . $recipe->id . '"',
-								'hint' => $__t('Base: %s', $recipe->base_servings)
+								'hint' => $__t('Base: %s', $recipe->base_servings),
+								'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
 								))
 							</div>
 							@endif

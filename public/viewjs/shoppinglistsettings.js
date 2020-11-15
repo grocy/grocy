@@ -7,3 +7,5 @@ if (BoolVal(Grocy.UserSettings.shopping_list_show_calendar))
 {
 	$("#shopping-list-show-calendar").prop("checked", true);
 }
+
+RefreshLocaleNumberInput();

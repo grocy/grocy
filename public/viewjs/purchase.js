@@ -204,7 +204,15 @@ if (Grocy.Components.ProductPicker !== undefined)
 						Grocy.Components.LocationPicker.SetId(productDetails.location.id);
 					}
 
-					$('#price').val(parseFloat(productDetails.last_price / $("#qu_id option:selected").attr("data-qu-factor")).toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices }));
+					if (productDetails.last_price == null)
+					{
+						$("#price").val("")
+					}
+					else
+					{
+						$('#price').val(parseFloat(productDetails.last_price / $("#qu_id option:selected").attr("data-qu-factor")).toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices }));
+						RefreshLocaleNumberInput();
+					}
 
 					var priceTypeUnitPrice = $("#price-type-unit-price");
 					var priceTypeUnitPriceLabel = $("[for=" + priceTypeUnitPrice.attr("id") + "]");
@@ -267,6 +275,7 @@ if (Grocy.Components.ProductPicker !== undefined)
 					if (BoolVal(Grocy.UserSettings.scan_mode_purchase_enabled))
 					{
 						$("#display_amount").val(1);
+						RefreshLocaleNumberInput();
 						$(".input-group-productamountpicker").trigger("change");
 
 						Grocy.FrontendHelpers.ValidateForm("purchase-form");
@@ -332,6 +341,7 @@ if (Grocy.Components.ProductPicker !== undefined)
 }
 
 $('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_purchase_amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }));
+RefreshLocaleNumberInput();
 $(".input-group-productamountpicker").trigger("change");
 Grocy.FrontendHelpers.ValidateForm('purchase-form');
 

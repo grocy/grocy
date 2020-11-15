@@ -88,7 +88,7 @@
 		'min' => 0,
 		'decimals' => $userSettings['stock_decimal_places_amounts'],
 		'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
-		'additionalCssClasses' => 'user-setting-control'
+		'additionalCssClasses' => 'user-setting-control locale-number-input locale-number-quantity-amount',
 		))
 
 		<div class="form-group">
@@ -125,7 +125,7 @@
 		'min' => 0,
 		'decimals' => $userSettings['stock_decimal_places_amounts'],
 		'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
-		'additionalCssClasses' => 'user-setting-control'
+		'additionalCssClasses' => 'user-setting-control locale-number-input locale-number-quantity-amount'
 		))
 
 		<h4 class="mt-2">{{ $__t('Common') }}</h4>

@@ -107,7 +107,8 @@
 			'contextInfoId' => 'price-hint',
 			'invalidFeedback' => $__t('The price cannot be lower than %s', '0'),
 			'isRequired' => false,
-			'additionalGroupCssClasses' => 'mb-1'
+			'additionalGroupCssClasses' => 'mb-1',
+			'additionalCssClasses' => 'locale-number-input locale-number-currency'
 			))
 
 			<div class="form-check form-check-inline mb-3">

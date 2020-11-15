@@ -260,7 +260,8 @@
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
 			'isRequired' => false,
-			'value' => $value
+			'value' => $value,
+			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
 			))
 			@endif
 

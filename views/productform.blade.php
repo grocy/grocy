@@ -146,7 +146,8 @@
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
-			'additionalGroupCssClasses' => 'mb-1'
+			'additionalGroupCssClasses' => 'mb-1',
+			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
 			))
 
 			<div class="form-group">
@@ -251,7 +252,7 @@
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
-			'additionalCssClasses' => 'input-group-qu',
+			'additionalCssClasses' => 'input-group-qu locale-number-input locale-number-quantity-amount',
 			'additionalHtmlElements' => '<p id="qu-conversion-info"
 				class="form-text text-info d-none"></p>'
 			))
@@ -290,7 +291,8 @@
 			'value' => $value,
 			'invalidFeedback' => $__t('This cannot be lower than %s', '0'),
 			'additionalAttributes' => $additionalAttributes,
-			'contextInfoId' => 'tare_weight_qu_info'
+			'contextInfoId' => 'tare_weight_qu_info',
+			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
 			))
 			@php $additionalAttributes = '' @endphp
 
@@ -318,7 +320,8 @@
 			'value' => $value,
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
 			'hint' => $__t('Per stock quantity unit'),
-			'isRequired' => false
+			'isRequired' => false,
+			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
 			))
 			@endif
 
@@ -359,7 +362,8 @@
 			'value' => $value,
 			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
 			'hint' => $__t('This amount is used for the "quick consume/open buttons" on the stock overview page (related to quantity unit stock)'),
-			'contextInfoId' => 'quick_consume_qu_info'
+			'contextInfoId' => 'quick_consume_qu_info',
+			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
 			))
 
 			@include('components.userfieldsform', array(

@@ -109,6 +109,8 @@ Grocy.Api.Get('stock/products/' + Grocy.EditObjectProductId,
 			$("#amount").attr("step", "1");
 			$("#amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %1$s', '1'));
 		}
+
+		RefreshLocaleNumberInput();
 	},
 	function(xhr)
 	{

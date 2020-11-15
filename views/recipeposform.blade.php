@@ -115,7 +115,8 @@
 			'hint' => $__t('The resulting price of this ingredient will be multiplied by this factor'),
 			'invalidFeedback' => $__t('This cannot be lower than %s', '0'),
 			'isRequired' => true,
-			'value' => $value
+			'value' => $value,
+			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
 			))
 			@else
 			<input type="hidden"

@@ -777,6 +777,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
 
 				$('#display_amount').val(1);
+				RefreshLocaleNumberInput();
 				$(".input-group-productamountpicker").trigger("change");
 				$('#display_amount').focus();
 				$('#display_amount').select();

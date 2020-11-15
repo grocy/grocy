@@ -23,7 +23,7 @@
 			'value' => $value,
 			'invalidFeedback' => $__t('This cannot be negative and must be an integral number'),
 			'additionalGroupCssClasses' => 'col-sm-5 col-xs-12 my-0',
-			'additionalCssClasses' => 'input-group-productamountpicker',
+			'additionalCssClasses' => 'input-group-productamountpicker locale-number-input locale-number-quantity-amount',
 			'additionalHtmlContextHelp' => '',
 			'additionalHtmlElements' => ''
 			))
