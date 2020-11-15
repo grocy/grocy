@@ -667,7 +667,7 @@ $(document).on("click", ".show-as-dialog-link", function(e)
 		closeButton: false,
 		buttons: {
 			cancel: {
-				label: __t('Cancel'),
+				label: __t('Close'),
 				className: 'btn-secondary responsive-button',
 				callback: function()
 				{
