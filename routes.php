@@ -202,8 +202,6 @@ $app->group('/api', function (RouteCollectorProxy $group) {
 		$group->get('/stock/transactions/{transactionId}', '\Grocy\Controllers\StockApiController:StockTransactions');
 		$group->post('/stock/transactions/{transactionId}/undo', '\Grocy\Controllers\StockApiController:UndoTransaction');
 		$group->get('/stock/barcodes/external-lookup/{barcode}', '\Grocy\Controllers\StockApiController:ExternalBarcodeLookup');
-		$group->get('/stock/journal', '\Grocy\Controllers\StockApiController:Journal');
-		$group->get('/stock/journal/summary', '\Grocy\Controllers\StockApiController:JournalSummary');
 	}
 
 	// Shopping list

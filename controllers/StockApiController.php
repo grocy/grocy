@@ -763,16 +763,6 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function Journal(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
-	{
-		return $this->FilteredApiResponse($response, $this->getDatabase()->uihelper_stock_journal(), $request->getQueryParams());
-	}
-
-	public function JournalSummary(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
-	{
-		return $this->FilteredApiResponse($response, $this->getDatabase()->uihelper_stock_journal_summary(), $request->getQueryParams());
-	}
-
 	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
