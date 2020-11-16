@@ -170,8 +170,6 @@
   - `/objects/{entity}`
   - `/stock/products/{productId}/entries`
   - `/stock/products/{productId}/locations`
-  - `/stock/journal`
-  - `/stock/journal/summary`
   - `/recipes/fulfillment`
   - `/users`
   - `/tasks`
@@ -191,10 +189,10 @@
         - `>=` greater or equal
         - `<=` less or equal
       - `<value>` is the value to search for
-- New endpoints `/stock/journal` and `/stock/journal/summary` to get the stock journal (thanks @fipwmaqzufheoxq92ebc)
 - New endpoint `/stock/shoppinglist/add-overdue-products` to add all currently in-stock but overdue products to a shopping list (thanks @m-byte)
 - New endpoint `/stock/shoppinglist/add-expired-products` to add all currently in-stock but expired products to a shopping list
 - New endpoints GET/POST/PUT `/users/{userId}/permissions` for the new user permissions feature mentioned above
+- The stock journal (entity `stock_log`) is now also available via the endpoint `/objects/{entity}` (=> `/objects/stock_log`)
 - Performance improvements of the `/stock/products/*` endpoints (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that the endpoint `/objects/{entity}/{objectId}` always returned successfully, even when the given object not exists (now returns `404` when the object is not found) (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that the endpoint `/stock/volatile` didn't include products which expire today (thanks @fipwmaqzufheoxq92ebc)

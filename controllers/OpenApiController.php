@@ -28,14 +28,24 @@ class OpenApiController extends BaseApiController
 
 	public function DocumentationSpec(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
+		$spec = $this->getOpenApiSpec();
+
 		$applicationService = $this->getApplicationService();
-
 		$versionInfo = $applicationService->GetInstalledVersion();
-		$this->getOpenApiSpec()->info->version = $versionInfo->Version;
-		$this->getOpenApiSpec()->info->description = str_replace('PlaceHolderManageApiKeysUrl', $this->AppContainer->get('UrlManager')->ConstructUrl('/manageapikeys'), $this->getOpenApiSpec()->info->description);
-		$this->getOpenApiSpec()->servers[0]->url = $this->AppContainer->get('UrlManager')->ConstructUrl('/api');
+		$spec->info->version = $versionInfo->Version;
+		$spec->info->description = str_replace('PlaceHolderManageApiKeysUrl', $this->AppContainer->get('UrlManager')->ConstructUrl('/manageapikeys'), $spec->info->description);
+		$spec->servers[0]->url = $this->AppContainer->get('UrlManager')->ConstructUrl('/api');
 
-		return $this->ApiResponse($response, $this->getOpenApiSpec());
+		$spec->components->internalSchemas->ExposedEntity_NotIncludingNotEditable = clone $spec->components->internalSchemas->StringEnumTemplate;
+		foreach ($spec->components->internalSchemas->ExposedEntity->enum as $value)
+		{
+			if (!in_array($value, $spec->components->internalSchemas->ExposedEntityNoEdit->enum))
+			{
+				array_push($spec->components->internalSchemas->ExposedEntity_NotIncludingNotEditable->enum, $value);
+			}
+		}
+
+		return $this->ApiResponse($response, $spec);
 	}
 
 	public function DocumentationUi(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)

@@ -11,7 +11,7 @@ class GenericEntityApiController extends BaseApiController
 	{
 		User::checkPermission($request, User::PERMISSION_MASTER_DATA_EDIT);
 
-		if ($this->IsValidEntity($args['entity']))
+		if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithNoEdit($args['entity']))
 		{
 			if ($this->IsEntityWithEditRequiresAdmin($args['entity']))
 			{
@@ -27,10 +27,10 @@ class GenericEntityApiController extends BaseApiController
 					throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
 				}
 
-				$newRow = $this->getDatabase()->{$args['entity']}
-				()->createRow($requestBody);
+				$newRow = $this->getDatabase()->{$args['entity']}()->createRow($requestBody);
 				$newRow->save();
 				$success = $newRow->isClean();
+
 				return $this->ApiResponse($response, [
 					'created_object_id' => $this->getDatabase()->lastInsertId()
 				]);
@@ -50,16 +50,17 @@ class GenericEntityApiController extends BaseApiController
 	{
 		User::checkPermission($request, User::PERMISSION_MASTER_DATA_EDIT);
 
-		if ($this->IsValidEntity($args['entity']))
+		if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithNoEdit($args['entity']))
 		{
 			if ($this->IsEntityWithEditRequiresAdmin($args['entity']))
 			{
 				User::checkPermission($request, User::PERMISSION_ADMIN);
 			}
-			$row = $this->getDatabase()->{$args['entity']}
-			($args['objectId']);
+
+			$row = $this->getDatabase()->{$args['entity']}($args['objectId']);
 			$row->delete();
 			$success = $row->isClean();
+
 			return $this->EmptyApiResponse($response);
 		}
 		else
@@ -72,7 +73,7 @@ class GenericEntityApiController extends BaseApiController
 	{
 		User::checkPermission($request, User::PERMISSION_MASTER_DATA_EDIT);
 
-		if ($this->IsValidEntity($args['entity']))
+		if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithNoEdit($args['entity']))
 		{
 			if ($this->IsEntityWithEditRequiresAdmin($args['entity']))
 			{
@@ -88,10 +89,10 @@ class GenericEntityApiController extends BaseApiController
 					throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
 				}
 
-				$row = $this->getDatabase()->{$args['entity']}
-				($args['objectId']);
+				$row = $this->getDatabase()->{$args['entity']}($args['objectId']);
 				$row->update($requestBody);
 				$success = $row->isClean();
+
 				return $this->EmptyApiResponse($response);
 			}
 			catch (\Exception $ex)
@@ -211,6 +212,11 @@ class GenericEntityApiController extends BaseApiController
 	private function IsEntityWithPreventedListing($entity)
 	{
 		return !in_array($entity, $this->getOpenApiSpec()->components->internalSchemas->ExposedEntityButNoListing->enum);
+	}
+
+	private function IsEntityWithNoEdit($entity)
+	{
+		return in_array($entity, $this->getOpenApiSpec()->components->internalSchemas->ExposedEntityNoEdit->enum);
 	}
 
 	private function IsValidEntity($entity)

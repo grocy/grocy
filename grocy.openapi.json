@@ -280,7 +280,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/ExposedEntity"
+							"$ref": "#/components/internalSchemas/ExposedEntity_NotIncludingNotEditable"
 						}
 					}
 				],
@@ -442,7 +442,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/ExposedEntity"
+							"$ref": "#/components/internalSchemas/ExposedEntity_NotIncludingNotEditable"
 						}
 					},
 					{
@@ -516,7 +516,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/ExposedEntity"
+							"$ref": "#/components/internalSchemas/ExposedEntity_NotIncludingNotEditable"
 						}
 					},
 					{
@@ -608,7 +608,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/ExposedEntity"
+							"$ref": "#/components/internalSchemas/ExposedEntity_NotIncludingNotEditable"
 						}
 					},
 					{
@@ -3851,7 +3851,8 @@
 					"userfields",
 					"userentities",
 					"userobjects",
-					"meal_plan"
+					"meal_plan",
+					"stock_log"
 				]
 			},
 			"ExposedEntityButNoListing": {
@@ -3877,13 +3878,20 @@
 					"userfields",
 					"userentities",
 					"userobjects",
-					"meal_plan"
+					"meal_plan",
+					"stock_log"
 				]
 			},
 			"EntityEditRequiresAdmin": {
 				"type": "string",
 				"enum": [
 					"api_keys"
+				]
+			},
+			"ExposedEntityNoEdit": {
+				"type": "string",
+				"enum": [
+					"stock_log"
 				]
 			},
 			"StockTransactionType": {
@@ -3894,6 +3902,10 @@
 					"inventory-correction",
 					"product-opened"
 				]
+			},
+			"StringEnumTemplate": {
+				"type": "string",
+				"enum": []
 			}
 		},
 		"schemas": {
