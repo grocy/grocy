@@ -247,34 +247,6 @@ $("#enable_tare_weight_handling").on("click", function()
 	Grocy.FrontendHelpers.ValidateForm("product-form");
 });
 
-$("#allow_partial_units_in_stock").on("click", function()
-{
-	if (this.checked)
-	{
-		$("#min_stock_amount").attr("min", "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts)));
-		$("#min_stock_amount").attr("step", "." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
-		$("#qu_factor_purchase_to_stock").attr("min", "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
-		$("#qu_factor_purchase_to_stock").attr("step", "." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
-		$("#qu_factor_purchase_to_stock").parent().find(".invalid-feedback").text(__t('This cannot be lower than %1$s and must be a valid number with max. %2$s decimal places', "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1", Grocy.UserSettings.stock_decimal_places_amounts));
-		$("#quick_consume_amount").attr("min", "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
-		$("#quick_consume_amount").attr("step", "." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
-		$("#quick_consume_amount").parent().find(".invalid-feedback").text(__t('This cannot be lower than %1$s and must be a valid number with max. %2$s decimal places', "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1", Grocy.UserSettings.stock_decimal_places_amounts));
-	}
-	else
-	{
-		$("#min_stock_amount").attr("min", "0");
-		$("#min_stock_amount").attr("step", "1");
-		$("#qu_factor_purchase_to_stock").attr("min", "1");
-		$("#qu_factor_purchase_to_stock").attr("step", "1");
-		$("#qu_factor_purchase_to_stock").parent().find(".invalid-feedback").text(__t('This cannot be lower than %1$s and must be a valid number with max. %2$s decimal places', '1', '0'));
-		$("#quick_consume_amount").attr("min", "1");
-		$("#quick_consume_amount").attr("step", "1");
-		$("#quick_consume_amount").parent().find(".invalid-feedback").text(__t('This cannot be lower than %1$s and must be a valid number with max. %2$s decimal places', '1', '0'));
-	}
-
-	Grocy.FrontendHelpers.ValidateForm("product-form");
-});
-
 $("#product-picture").on("change", function(e)
 {
 	$("#product-picture-label").removeClass("d-none");
@@ -345,10 +317,6 @@ $("#name").trigger("keyup");
 $('#name').focus();
 $('.input-group-qu').trigger('change');
 Grocy.FrontendHelpers.ValidateForm('product-form');
-
-// Click twice to trigger on-click but not change the actual checked state
-$("#allow_partial_units_in_stock").click();
-$("#allow_partial_units_in_stock").click();
 
 $(document).on('click', '.qu-conversion-delete-button', function(e)
 {
@@ -479,10 +447,6 @@ if (Grocy.EditMode == "create" && GetUriParam("copy-of") != undefined)
 			$("#qu_id_stock").val(sourceProduct.qu_id_stock);
 			$("#qu_id_purchase").val(sourceProduct.qu_id_purchase);
 			$("#qu_factor_purchase_to_stock").val(sourceProduct.qu_factor_purchase_to_stock);
-			if (BoolVal(sourceProduct.allow_partial_units_in_stock))
-			{
-				$("#allow_partial_units_in_stock").prop("checked", true);
-			}
 			if (BoolVal(sourceProduct.enable_tare_weight_handling))
 			{
 				$("#enable_tare_weight_handling").prop("checked", true);

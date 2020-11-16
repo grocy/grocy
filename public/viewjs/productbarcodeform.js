@@ -81,3 +81,4 @@ if (Grocy.EditMode == "edit")
 
 Grocy.FrontendHelpers.ValidateForm('barcode-form');
 $('#barcode').focus();
+RefreshLocaleNumberInput();

@@ -68,8 +68,7 @@
 			'label' => 'Charge cycle interval (days)',
 			'value' => $value,
 			'min' => '0',
-			'hint' => $__t('0 means suggestions for the next charge cycle are disabled'),
-			'invalidFeedback' => $__t('This cannot be negative')
+			'hint' => $__t('0 means suggestions for the next charge cycle are disabled')
 			))
 
 			@include('components.userfieldsform', array(

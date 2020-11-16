@@ -15,7 +15,7 @@
 </script>
 
 <div class="row">
-	<div class="col-xs-12 col-md-6 col-xl-4">
+	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
 		<div class="title-related-links">
 			<h2 class="title">@yield('title')</h2>
 			<button class="btn btn-outline-dark d-md-none mt-2 float-right order-1 order-md-3 hide-when-embedded"
@@ -105,7 +105,6 @@
 			'decimals' => $userSettings['stock_decimal_places_prices'],
 			'value' => '',
 			'contextInfoId' => 'price-hint',
-			'invalidFeedback' => $__t('The price cannot be lower than %s', '0'),
 			'isRequired' => false,
 			'additionalGroupCssClasses' => 'mb-1',
 			'additionalCssClasses' => 'locale-number-input locale-number-currency'

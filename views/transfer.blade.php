@@ -29,7 +29,7 @@
 			<div class="form-group">
 				<label for="location_id_from">{{ $__t('From location') }}</label>
 				<select required
-					class="form-control location-combobox"
+					class="custom-control custom-select location-combobox"
 					id="location_id_from"
 					name="location_id_from">
 					<option></option>
@@ -50,7 +50,7 @@
 			<div class="form-group">
 				<label for="location_id_to">{{ $__t('To location') }}</label>
 				<select required
-					class="form-control location-combobox"
+					class="custom-control custom-select location-combobox"
 					id="location_id_to"
 					name="location_id_to">
 					<option></option>
@@ -77,7 +77,7 @@
 					</label>
 				</div>
 				<select disabled
-					class="form-control mt-2"
+					class="custom-control custom-select mt-2"
 					id="specific_stock_entry"
 					name="specific_stock_entry">
 					<option></option>

@@ -62,7 +62,7 @@
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Product group') }}</span>
 			</div>
-			<select class="form-control"
+			<select class="custom-control custom-select"
 				id="product-group-filter">
 				<option value="all">{{ $__t('All') }}</option>
 				@foreach($productGroups as $productGroup)

@@ -71,7 +71,7 @@
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>
 			</div>
-			<select class="form-control"
+			<select class="custom-control custom-select"
 				id="status-filter">
 				<option value="all">{{ $__t('All') }}</option>
 				<option value="duesoon">{{ $__t('Due soon') }}</option>

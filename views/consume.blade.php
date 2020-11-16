@@ -82,7 +82,7 @@
 			<div class="form-group">
 				<label for="location_id">{{ $__t('Location') }}</label>
 				<select required
-					class="form-control location-combobox"
+					class="custom-control custom-select location-combobox"
 					id="location_id"
 					name="location_id">
 					<option></option>
@@ -122,7 +122,7 @@
 					</label>
 				</div>
 				<select disabled
-					class="form-control mt-2"
+					class="custom-control custom-select mt-2"
 					id="specific_stock_entry"
 					name="specific_stock_entry">
 					<option></option>

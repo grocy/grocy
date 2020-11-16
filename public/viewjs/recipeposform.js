@@ -62,19 +62,6 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 					Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
 				}
 
-				if (productDetails.product.allow_partial_units_in_stock == 1)
-				{
-					$("#display_amount").attr("min", "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
-					$("#display_amount").attr("step", "." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
-					$("#display_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1"));
-				}
-				else
-				{
-					$("#display_amount").attr("min", "1");
-					$("#display_amount").attr("step", "1");
-					$("#display_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '1'));
-				}
-
 				if (Grocy.Mode == "create")
 				{
 					$("#not_check_stock_fulfillment").prop("checked", productDetails.product.not_check_stock_fulfillment_for_recipes == 1);
@@ -154,17 +141,13 @@ $("#only_check_single_unit_in_stock").on("click", function()
 	if (this.checked)
 	{
 		$("#display_amount").attr("min", "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
-		$("#display_amount").attr("step", "." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
-		$("#display_amount").parent().find(".invalid-feedback").text(__t("This cannot be negative"));
 		Grocy.Components.ProductAmountPicker.AllowAnyQu(true);
 		Grocy.FrontendHelpers.ValidateForm("recipe-pos-form");
 	}
 	else
 	{
 		$("#display_amount").attr("min", "0");
-		$("#display_amount").attr("step", "1");
 		Grocy.Components.ProductPicker.GetPicker().trigger("change"); // Selects the default quantity unit of the selected product
-		$("#display_amount").parent().find(".invalid-feedback").text(__t("This cannot be negative and must be an integral number"));
 		Grocy.Components.ProductAmountPicker.AllowAnyQuEnabled = false;
 		Grocy.FrontendHelpers.ValidateForm("recipe-pos-form");
 	}

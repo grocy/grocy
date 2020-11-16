@@ -108,9 +108,7 @@ $('#save-purchase-button').on('click', function(e)
 						}
 
 						Grocy.Components.ProductAmountPicker.Reset();
-						$("#display_amount").attr("min", "1");
-						$("#display_amount").attr("step", "1");
-						$("#display_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '1'));
+						$("#display_amount").attr("min", "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
 						$('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_purchase_amount));
 						$(".input-group-productamountpicker").trigger("change");
 						$('#price').val('');
@@ -220,29 +218,15 @@ if (Grocy.Components.ProductPicker !== undefined)
 
 					refreshPriceHint();
 
-					if (productDetails.product.allow_partial_units_in_stock == 1)
-					{
-						$("#display_amount").attr("min", "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
-						$("#display_amount").attr("step", "." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
-						$("#display_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1"));
-					}
-					else
-					{
-						$("#display_amount").attr("min", "1");
-						$("#display_amount").attr("step", "1");
-						$("#display_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', '1'));
-					}
-
 					if (productDetails.product.enable_tare_weight_handling == 1)
 					{
 						var minAmount = parseFloat(productDetails.product.tare_weight) / $("#qu_id option:selected").attr("data-qu-factor") + parseFloat(productDetails.stock_amount);
 						$("#display_amount").attr("min", minAmount);
-						$("#display_amount").attr("step", "." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
-						$("#display_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', minAmount.toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts })));
 						$("#tare-weight-handling-info").removeClass("d-none");
 					}
 					else
 					{
+						$("#display_amount").attr("min", "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
 						$("#tare-weight-handling-info").addClass("d-none");
 					}
 

@@ -105,7 +105,7 @@
 			<div class="form-group">
 				<label for="location_id">{{ $__t('Default location') }}</label>
 				<select required
-					class="form-control"
+					class="custom-control custom-select"
 					id="location_id"
 					name="location_id">
 					<option></option>
@@ -142,10 +142,9 @@
 			@include('components.numberpicker', array(
 			'id' => 'min_stock_amount',
 			'label' => 'Minimum stock amount',
-			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
+			'min' => '0.',
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,
-			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
 			'additionalGroupCssClasses' => 'mb-1',
 			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
 			))
@@ -212,7 +211,6 @@
 			'label' => 'Default due days',
 			'min' => -1,
 			'value' => $value,
-			'invalidFeedback' => $__t('The amount cannot be lower than %s', '-1'),
 			'hint' => $__t('For purchases this amount of days will be added to today for the due date suggestion') . ' (' . $__t('-1 means that this product wille be never overdue') . ')'
 			))
 
@@ -223,7 +221,6 @@
 			'label' => 'Default due days after opened',
 			'min' => 0,
 			'value' => $value,
-			'invalidFeedback' => $__t('The amount cannot be lower than %s', '-1'),
 			'hint' => $__t('When this product was marked as opened, the expiry date will be replaced by today + this amount of days (a value of 0 disables this)')
 			))
 			@else
@@ -245,7 +242,7 @@
 
 			<div class="form-group">
 				<label for="product_group_id">{{ $__t('Product group') }}</label>
-				<select class="form-control"
+				<select class="custom-control custom-select"
 					id="product_group_id"
 					name="product_group_id">
 					<option></option>
@@ -263,7 +260,7 @@
 					data-toggle="tooltip"
 					title="{{ $__t('Quantity unit stock cannot be changed after first purchase') }}"></i>
 				<select required
-					class="form-control input-group-qu"
+					class="custom-control custom-select input-group-qu"
 					id="qu_id_stock"
 					name="qu_id_stock"
 					@if($mode=='edit'
@@ -286,7 +283,7 @@
 					data-toggle="tooltip"
 					title="{{ $__t('This is the default quantity unit used when adding this product to the shopping list') }}"></i>
 				<select required
-					class="form-control input-group-qu"
+					class="custom-control custom-select input-group-qu"
 					id="qu_id_purchase"
 					name="qu_id_purchase">
 					<option></option>
@@ -306,21 +303,10 @@
 			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,
-			'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
 			'additionalCssClasses' => 'input-group-qu locale-number-input locale-number-quantity-amount',
 			'additionalHtmlElements' => '<p id="qu-conversion-info"
 				class="form-text text-info d-none"></p>'
 			))
-
-			<div class="form-group">
-				<div class="custom-control custom-checkbox">
-					<input @if($mode=='edit'
-						&&
-						$product->allow_partial_units_in_stock == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="allow_partial_units_in_stock" name="allow_partial_units_in_stock" value="1">
-					<label class="form-check-label custom-control-label"
-						for="allow_partial_units_in_stock">{{ $__t('Allow partial units in stock') }}</label>
-				</div>
-			</div>
 
 			<div class="form-group mb-1">
 				<div class="custom-control custom-checkbox">
@@ -344,7 +330,6 @@
 			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,
-			'invalidFeedback' => $__t('This cannot be lower than %s', '0'),
 			'additionalAttributes' => $additionalAttributes,
 			'contextInfoId' => 'tare_weight_qu_info',
 			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
@@ -379,7 +364,6 @@
 			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts']),
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,
-			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
 			'hint' => $__t('Per stock quantity unit'),
 			'isRequired' => false,
 			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
@@ -392,7 +376,6 @@
 			'label' => 'Default due days after freezing',
 			'min' => -1,
 			'value' => $value,
-			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
 			'hint' => $__t('On moving this product to a freezer location (so when freezing it), the expiry date will be replaced by today + this amount of days')
 			))
 
@@ -402,7 +385,6 @@
 			'label' => 'Default due days after thawing',
 			'min' => -1,
 			'value' => $value,
-			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
 			'hint' => $__t('On moving this product from a freezer location (so when thawing it), the due date will be replaced by today + this amount of days')
 			))
 			@else
@@ -419,8 +401,8 @@
 			'id' => 'quick_consume_amount',
 			'label' => 'Quick consume amount',
 			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
+			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,
-			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0'),
 			'hint' => $__t('This amount is used for the "quick consume/open buttons" on the stock overview page (related to quantity unit stock)'),
 			'contextInfoId' => 'quick_consume_qu_info',
 			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
@@ -520,12 +502,12 @@
 							@endif
 							<td>
 								@if(!empty($barcode->qu_id))
-								<span class="locale-number locale-number-quantity-amount">{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', $barcode->qu_id)->name }}</span>
+								{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', $barcode->qu_id)->name }}
 								@endif
 							</td>
 							<td>
 								@if(!empty($barcode->amount))
-								{{ $barcode->amount }}
+								<span class="locale-number locale-number-quantity-amount">{{ $barcode->amount }}</span>
 								@endif
 							</td>
 						</tr>

@@ -405,12 +405,6 @@ msgstr ""
 msgid "A location is required"
 msgstr ""
 
-msgid "The amount cannot be lower than %s"
-msgstr ""
-
-msgid "This cannot be negative"
-msgstr ""
-
 msgid "A quantity unit is required"
 msgstr ""
 
@@ -563,9 +557,6 @@ msgstr ""
 msgid "Price"
 msgstr ""
 
-msgid "The price cannot be lower than %s"
-msgstr ""
-
 msgid "Unit"
 msgstr ""
 
@@ -595,9 +586,6 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "in singular form"
-msgstr ""
-
-msgid "This cannot be lower than %s"
 msgstr ""
 
 msgid "Quantity unit"
@@ -842,9 +830,6 @@ msgid "Booking successfully undone"
 msgstr ""
 
 msgid "Charge cycle successfully undone"
-msgstr ""
-
-msgid "This cannot be negative and must be an integral number"
 msgstr ""
 
 msgid "Disable stock fulfillment checking for this ingredient"
@@ -1125,9 +1110,6 @@ msgid_plural "Not enough in stock, %s ingredients missing"
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "The amount cannot be lower than %1$s or equal %2$s"
-msgstr ""
-
 msgid "Not enough in stock, but already on the shopping list"
 msgstr ""
 
@@ -1223,7 +1205,7 @@ msgstr ""
 msgid "all locations"
 msgstr ""
 
-msgid "Here you can print a page per location with the current stock, maybe to hang it there and note the consumed things on it."
+msgid "Here you can print a page per location with the current stock, maybe to hang it there and note the consumed things on it"
 msgstr ""
 
 msgid "this location"
@@ -1263,9 +1245,6 @@ msgid "Quantity unit from"
 msgstr ""
 
 msgid "Quantity unit to"
-msgstr ""
-
-msgid "This cannot be lower than %1$s and must be a valid number with max. %2$s decimal places"
 msgstr ""
 
 msgid "This cannot be equal to %s"
@@ -1980,4 +1959,19 @@ msgid "Due soon days"
 msgstr ""
 
 msgid "Add overdue/expired products"
+msgstr ""
+
+msgid "Products with tare weight enabled are currently not supported for transfer"
+msgstr ""
+
+msgid "This cannot be lower than %1$s or equal %2$s and needs to be a valid number with max. %3$s decimal places"
+msgstr ""
+
+msgid "This must be between %1$s and %2$s, cannot equal %3$s and needs to be a valid number with max. %4$s decimal places"
+msgstr ""
+
+msgid "This cannot be lower than %1$s and needs to be a valid number with max. %2$s decimal places"
+msgstr ""
+
+msgid "This must between %1$s and %2$s and needs to be a valid number with max. %3$s decimal places"
 msgstr ""

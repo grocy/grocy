@@ -21,7 +21,6 @@
 			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,
-			'invalidFeedback' => $__t('This cannot be negative and must be an integral number'),
 			'additionalGroupCssClasses' => 'col-sm-5 col-xs-12 my-0',
 			'additionalCssClasses' => 'input-group-productamountpicker locale-number-input locale-number-quantity-amount',
 			'additionalHtmlContextHelp' => '',
@@ -33,7 +32,7 @@
 				<select @if($isRequired)
 					required
 					@endif
-					class="form-control input-group-productamountpicker"
+					class="custom-control custom-select input-group-productamountpicker"
 					id="qu_id"
 					name="qu_id"
 					data-initial-qu-id="{{ $initialQuId }}">

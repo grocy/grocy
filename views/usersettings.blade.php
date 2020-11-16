@@ -18,7 +18,7 @@
 
 		<div class="form-group">
 			<label for="locale">{{ $__t('Language') }}</label>
-			<select class="form-control user-setting-control"
+			<select class="custom-control custom-select user-setting-control"
 				id="locale"
 				data-setting-key="locale">
 				<option value="">{{ $__t('Default') }}</option>

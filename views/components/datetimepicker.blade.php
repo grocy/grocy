@@ -65,7 +65,7 @@
 			<div class="invalid-feedback">{{ $invalidFeedback }}</div>
 		</div>
 		<div id="datetimepicker-earlier-than-info"
-			class="form-text text-info font-italic d-none">{{ $earlierThanInfoText }}</div>
+			class="form-text text-info font-italic w-100 d-none">{{ $earlierThanInfoText }}</div>
 		@if(isset($shortcutValue) && isset($shortcutLabel))
 		<div class="form-group mt-n2 mb-0">
 			<div class="custom-control custom-checkbox">

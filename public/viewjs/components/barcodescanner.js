@@ -252,7 +252,7 @@ $(document).on("click", "#barcodescanner-start-button", async function(e)
 	});
 
 	// Add camera select to existing dialog
-	dialog.find('.bootbox-body').append('<div class="form-group py-0 my-1 cameraSelect-wrapper"><select class="form-control cameraSelect"><select class="form-control cameraSelect" style="display: none"></select></div>');
+	dialog.find('.bootbox-body').append('<div class="form-group py-0 my-1 cameraSelect-wrapper"><select class="custom-control custom-select cameraSelect"><select class="custom-control custom-select cameraSelect" style="display: none"></select></div>');
 	var cameraSelect = document.querySelector('.cameraSelect');
 
 	var cameras = await Quagga.CameraAccess.enumerateVideoDevices();

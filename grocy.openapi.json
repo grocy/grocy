@@ -3957,9 +3957,6 @@
 					"picture_file_name": {
 						"type": "string"
 					},
-					"allow_partial_units_in_stock": {
-						"type": "boolean"
-					},
 					"row_created_timestamp": {
 						"type": "string",
 						"format": "date-time"
@@ -3987,7 +3984,6 @@
 					"product_group_id": "1",
 					"picture_file_name": "cookies.jpg",
 					"default_best_before_days_after_open": "0",
-					"allow_partial_units_in_stock": "0",
 					"enable_tare_weight_handling": "0",
 					"tare_weight": "0.0",
 					"not_check_stock_fulfillment_for_recipes": "0",
@@ -4284,7 +4280,6 @@
 						"product_group_id": "1",
 						"picture_file_name": "cookies.jpg",
 						"default_best_before_days_after_open": "0",
-						"allow_partial_units_in_stock": "0",
 						"enable_tare_weight_handling": "0",
 						"tare_weight": "0.0",
 						"not_check_stock_fulfillment_for_recipes": "0",

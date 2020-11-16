@@ -35,7 +35,7 @@
 			<div class="form-group">
 				<label for="entity">{{ $__t('Entity') }}</label>
 				<select required
-					class="form-control"
+					class="custom-control custom-select"
 					id="entity"
 					name="entity">
 					<option></option>
@@ -74,7 +74,7 @@
 			<div class="form-group">
 				<label for="type">{{ $__t('Type') }}</label>
 				<select required
-					class="form-control"
+					class="custom-control custom-select"
 					id="type"
 					name="type">
 					<option></option>

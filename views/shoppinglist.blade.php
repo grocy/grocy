@@ -49,7 +49,7 @@
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
 				id="related-links">
 				<div class="my-auto float-right">
-					<select class="form-control form-control-sm"
+					<select class="custom-control custom-select"
 						id="selected-shopping-list">
 						@foreach($shoppingLists as $shoppingList)
 						<option @if($shoppingList->id == $selectedShoppingListId) selected="selected" @endif value="{{ $shoppingList->id }}">{{ $shoppingList->name }}</option>
@@ -143,7 +143,7 @@
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>
 			</div>
-			<select class="form-control"
+			<select class="custom-control custom-select"
 				id="status-filter">
 				<option value="all">{{ $__t('All') }}</option>
 				<option class="@if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif"

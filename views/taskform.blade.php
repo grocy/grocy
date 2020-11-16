@@ -74,7 +74,7 @@
 
 			<div class="form-group">
 				<label for="category_id">{{ $__t('Category') }}</label>
-				<select class="form-control"
+				<select class="custom-control custom-select"
 					id="category_id"
 					name="category_id">
 					<option></option>

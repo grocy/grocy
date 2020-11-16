@@ -21,7 +21,7 @@
 			@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 			<div class="form-group">
 				<label for="product_presets_location_id">{{ $__t('Location') }}</label>
-				<select class="form-control user-setting-control"
+				<select class="custom-control custom-select user-setting-control"
 					id="product_presets_location_id"
 					data-setting-key="product_presets_location_id">
 					<option value="-1"></option>
@@ -34,7 +34,7 @@
 
 			<div class="form-group">
 				<label for="product_presets_product_group_id">{{ $__t('Product group') }}</label>
-				<select class="form-control user-setting-control"
+				<select class="custom-control custom-select user-setting-control"
 					id="product_presets_product_group_id"
 					data-setting-key="product_presets_product_group_id">
 					<option value="-1"></option>
@@ -46,7 +46,7 @@
 
 			<div class="form-group">
 				<label for="product_presets_qu_id">{{ $__t('Quantity unit') }}</label>
-				<select class="form-control user-setting-control"
+				<select class="custom-control custom-select user-setting-control"
 					id="product_presets_qu_id"
 					data-setting-key="product_presets_qu_id">
 					<option value="-1"></option>
@@ -63,7 +63,6 @@
 		'additionalAttributes' => 'data-setting-key="stock_due_soon_days"',
 		'label' => 'Due soon days',
 		'min' => 1,
-		'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
 		'additionalCssClasses' => 'user-setting-control'
 		))
 
@@ -87,7 +86,6 @@
 		'label' => 'Default amount for purchase',
 		'min' => 0,
 		'decimals' => $userSettings['stock_decimal_places_amounts'],
-		'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
 		'additionalCssClasses' => 'user-setting-control locale-number-input locale-number-quantity-amount',
 		))
 
@@ -124,7 +122,6 @@
 		'label' => 'Default amount for consume',
 		'min' => 0,
 		'decimals' => $userSettings['stock_decimal_places_amounts'],
-		'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
 		'additionalCssClasses' => 'user-setting-control locale-number-input locale-number-quantity-amount'
 		))
 
@@ -135,8 +132,6 @@
 		'additionalAttributes' => 'data-setting-key="stock_decimal_places_amounts"',
 		'label' => 'Decimal places allowed for amounts',
 		'min' => 0,
-		'decimals' => 0,
-		'invalidFeedback' => $__t('This cannot be lower than %s', '0'),
 		'additionalCssClasses' => 'user-setting-control'
 		))
 
@@ -145,8 +140,6 @@
 		'additionalAttributes' => 'data-setting-key="stock_decimal_places_prices"',
 		'label' => 'Decimal places allowed for prices',
 		'min' => 0,
-		'decimals' => 0,
-		'invalidFeedback' => $__t('This cannot be lower than %s', '0'),
 		'additionalCssClasses' => 'user-setting-control'
 		))
 

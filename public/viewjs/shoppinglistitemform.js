@@ -216,5 +216,3 @@ if (GetUriParam("amount") !== undefined)
 	$(".input-group-productamountpicker").trigger("change");
 	Grocy.FrontendHelpers.ValidateForm('shoppinglist-form');
 }
-
-$("#display_amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %s', "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1"));

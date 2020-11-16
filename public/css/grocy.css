@@ -290,10 +290,18 @@ a:not([href]) {
 
 /* Hide the form validation feedback icons introduced in Bootstrap 4.2.0 - a colored border is enough */
 .form-control.is-invalid,
+.custom-control.is-invalid,
 .was-validated .form-control:invalid,
+.was-validated .custom-control:invalid,
 .form-control.is-valid,
-.was-validated .form-control:valid {
-	background-size: 0 0;
+.custom-control.is-valid,
+.was-validated .form-control:valid,
+.was-validated .custom-control:valid  {
+	background-image: none;
+}
+.was-validated .custom-select:valid,
+.was-validated .custom-select:invalid {
+	background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px;
 }
 
 /* There is a little too much padding on form inputs */

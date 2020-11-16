@@ -28,30 +28,45 @@
 @endpush
 
 @section('content')
-<h1 class="d-print-none">
-	@yield('title')
-	<a class="btn btn-outline-dark responsive-button print-all-locations-button"
-		href="#">
-		<i class="fas fa-print"></i> {{ $__t('Print') . ' (' . $__t('all locations') . ')' }}
-	</a>
-</h1>
-<h5 class="mb-5 d-print-none">
-	<small class="text-muted">{{ $__t('Here you can print a page per location with the current stock, maybe to hang it there and note the consumed things on it.') }}</small>
-</h5>
+<div class="title-related-links d-print-none">
+	<h2 class="title">
+		@yield('title')
+		<i class="fas fa-question-circle text-muted small"
+			data-toggle="tooltip"
+			title="{{ $__t('Here you can print a page per location with the current stock, maybe to hang it there and note the consumed things on it') }}"></i>
+	</h2>
+	<div class="float-right">
+		<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
+			type="button"
+			data-toggle="collapse"
+			data-target="#related-links">
+			<i class="fas fa-ellipsis-v"></i>
+		</button>
+	</div>
+	<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
+		id="related-links">
+		<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right print-all-locations-button"
+			href="#">
+			{{ $__t('Print') . ' (' . $__t('all locations') . ')' }}
+		</a>
+	</div>
+</div>
+
+<hr class="my-2 d-print-none">
 
 @foreach($locations as $location)
 <div class="page">
-	<h1 class="text-center">
+	<h1 class="pt-4">
 		<img src="{{ $U('/img/grocy_logo.svg?v=', true) }}{{ $version }}"
 			height="30"
 			class="d-none d-print-flex mx-auto">
 		{{ $location->name }}
-		<a class="btn btn-outline-dark responsive-button print-single-location-button d-print-none"
+		<a class="btn btn-outline-dark btn-sm responsive-button print-single-location-button d-print-none"
 			href="#">
-			<i class="fas fa-print"></i> {{ $__t('Print') . ' (' . $__t('this location') . ')' }}
+			{{ $__t('Print') . ' (' . $__t('this location') . ')' }}
 		</a>
 	</h1>
-	<h6 class="text-center mb-4 d-none d-print-block">
+	<h6 class="mb-4 d-none d-print-block">
 		{{ $__t('Time of printing') }}:
 		<span class="d-inline print-timestamp"></span>
 	</h6>

@@ -55,7 +55,7 @@
 					<span class="text-danger">{{ $__t('Miss') }}: <span id="miss-count"
 							class="locale-number locale-number-generic">0</span></span>
 				</div>
-				<select class="form-control"
+				<select class="custom-control custom-select"
 					id="scanned_codes"
 					name="scanned_codes"
 					multiple

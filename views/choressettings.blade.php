@@ -21,7 +21,6 @@
 		'additionalAttributes' => 'data-setting-key="chores_due_soon_days"',
 		'label' => 'Due soon days',
 		'min' => 1,
-		'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
 		'additionalCssClasses' => 'user-setting-control'
 		))
 

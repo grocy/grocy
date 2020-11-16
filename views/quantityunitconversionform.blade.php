@@ -51,7 +51,7 @@
 			<div class="form-group">
 				<label for="from_qu_id">{{ $__t('Quantity unit from') }}</label>
 				<select required
-					class="form-control input-group-qu"
+					class="custom-control custom-select input-group-qu"
 					id="from_qu_id"
 					name="from_qu_id">
 					<option></option>
@@ -68,7 +68,7 @@
 			<div class="form-group">
 				<label for="to_qu_id">{{ $__t('Quantity unit to') }}</label>
 				<select required
-					class="form-control input-group-qu"
+					class="custom-control custom-select input-group-qu"
 					id="to_qu_id"
 					name="to_qu_id">
 					<option></option>
@@ -88,7 +88,6 @@
 			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,
-			'invalidFeedback' => $__t('This cannot be lower than %1$s and must be a valid number with max. %2$s decimal places', '0', $userSettings['stock_decimal_places_amounts']),
 			'additionalHtmlElements' => '<p id="qu-conversion-info"
 				class="form-text text-info d-none"></p>',
 			'additionalCssClasses' => 'input-group-qu locale-number-input locale-number-quantity-amount'

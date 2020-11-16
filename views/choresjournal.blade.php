@@ -39,7 +39,7 @@
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Chore') }}</span>
 			</div>
-			<select class="form-control"
+			<select class="custom-control custom-select"
 				id="chore-filter">
 				<option value="all">{{ $__t('All') }}</option>
 				@foreach($chores as $chore)

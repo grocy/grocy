@@ -56,7 +56,7 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>
 					</div>
-					<select class="form-control"
+					<select class="custom-control custom-select"
 						id="status-filter">
 						<option value="all">{{ $__t('All') }}</option>
 						<option value="Xenoughinstock">{{ $__t('Enough in stock') }}</option>
@@ -333,7 +333,6 @@
 								'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
 								'decimals' => $userSettings['stock_decimal_places_amounts'],
 								'value' => $recipe->desired_servings,
-								'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
 								'additionalAttributes' => 'data-recipe-id="' . $recipe->id . '"',
 								'hint' => $__t('Base: %s', $recipe->base_servings),
 								'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'

@@ -61,7 +61,6 @@ CREATE TABLE products (
 	default_best_before_days_after_freezing INTEGER NOT NULL DEFAULT 0,
 	default_best_before_days_after_thawing INTEGER NOT NULL DEFAULT 0,
 	picture_file_name TEXT,
-	allow_partial_units_in_stock TINYINT NOT NULL DEFAULT 0,
 	enable_tare_weight_handling TINYINT NOT NULL DEFAULT 0,
 	tare_weight REAL NOT NULL DEFAULT 0,
 	not_check_stock_fulfillment_for_recipes TINYINT DEFAULT 0,
@@ -74,8 +73,8 @@ CREATE TABLE products (
 );
 
 INSERT INTO products
-	(id, name, description, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, default_best_before_days, row_created_timestamp, product_group_id, picture_file_name, default_best_before_days_after_open, allow_partial_units_in_stock, enable_tare_weight_handling, tare_weight, not_check_stock_fulfillment_for_recipes, parent_product_id, calories, cumulate_min_stock_amount_of_sub_products, default_best_before_days_after_freezing, default_best_before_days_after_thawing, shopping_location_id)
-SELECT id, name, description, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount,default_best_before_days, row_created_timestamp, product_group_id, picture_file_name, default_best_before_days_after_open, allow_partial_units_in_stock, enable_tare_weight_handling, tare_weight, not_check_stock_fulfillment_for_recipes, parent_product_id, calories, cumulate_min_stock_amount_of_sub_products, default_best_before_days_after_freezing, default_best_before_days_after_thawing, shopping_location_id
+	(id, name, description, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, default_best_before_days, row_created_timestamp, product_group_id, picture_file_name, default_best_before_days_after_open, enable_tare_weight_handling, tare_weight, not_check_stock_fulfillment_for_recipes, parent_product_id, calories, cumulate_min_stock_amount_of_sub_products, default_best_before_days_after_freezing, default_best_before_days_after_thawing, shopping_location_id)
+SELECT id, name, description, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount,default_best_before_days, row_created_timestamp, product_group_id, picture_file_name, default_best_before_days_after_open, enable_tare_weight_handling, tare_weight, not_check_stock_fulfillment_for_recipes, parent_product_id, calories, cumulate_min_stock_amount_of_sub_products, default_best_before_days_after_freezing, default_best_before_days_after_thawing, shopping_location_id
 FROM products_old;
 
 DROP TABLE products_old;

@@ -113,7 +113,6 @@
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => '',
 			'hint' => $__t('The resulting price of this ingredient will be multiplied by this factor'),
-			'invalidFeedback' => $__t('This cannot be lower than %s', '0'),
 			'isRequired' => true,
 			'value' => $value,
 			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'

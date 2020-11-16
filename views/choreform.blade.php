@@ -57,7 +57,7 @@
 						data-toggle="tooltip"
 						title=""></i></label>
 				<select required
-					class="form-control input-group-chore-period-type"
+					class="custom-control custom-select input-group-chore-period-type"
 					id="period_type"
 					name="period_type">
 					@foreach($periodTypes as $periodType)
@@ -76,7 +76,6 @@
 			'value' => $value,
 			'min' => '0',
 			'additionalCssClasses' => 'input-group-chore-period-type',
-			'invalidFeedback' => $__t('This cannot be negative'),
 			'additionalGroupCssClasses' => 'period-type-input period-type-dynamic-regular period-type-monthly'
 			))
 
@@ -151,7 +150,6 @@
 			'value' => $value,
 			'min' => '1',
 			'additionalCssClasses' => 'input-group-chore-period-type',
-			'invalidFeedback' => $__t('This cannot be lower than %s', '1'),
 			'additionalGroupCssClasses' => 'period-type-input period-type-daily period-type-weekly period-type-monthly period-type-yearly',
 			'hintId' => 'chore-period-interval-info'
 			))
@@ -163,7 +161,7 @@
 						data-toggle="tooltip"
 						title=""></i></label>
 				<select required
-					class="form-control input-group-chore-assignment-type"
+					class="custom-control custom-select input-group-chore-assignment-type"
 					id="assignment_type"
 					name="assignment_type">
 					@foreach($assignmentTypes as $assignmentType)
@@ -179,7 +177,7 @@
 				<label for="assignment_config">{{ $__t('Assign to') }}</label>
 				<select required
 					multiple
-					class="form-control input-group-chore-assignment-type selectpicker"
+					class="custom-control custom-select input-group-chore-assignment-type selectpicker"
 					id="assignment_config"
 					name="assignment_config"
 					data-actions-Box="true"
@@ -256,9 +254,8 @@
 			'id' => 'product_amount',
 			'label' => 'Amount',
 			'contextInfoId' => 'amount_qu_unit',
-			'min' => '',
+			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
-			'invalidFeedback' => $__t('The amount cannot be lower than %s', '1'),
 			'isRequired' => false,
 			'value' => $value,
 			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'

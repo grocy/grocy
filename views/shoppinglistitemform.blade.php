@@ -40,7 +40,7 @@
 			@if(GROCY_FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS)
 			<div class="form-group">
 				<label for="shopping_list_id">{{ $__t('Shopping list') }}</label>
-				<select class="form-control"
+				<select class="custom-control custom-select"
 					id="shopping_list_id"
 					name="shopping_list_id">
 					@foreach($shoppingLists as $shoppingList)
@@ -73,7 +73,6 @@
 			'value' => $value,
 			'initialQuId' => $initialQuId,
 			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
-			'invalidFeedback' => $__t('The amount cannot be lower than %s', '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1'),
 			'isRequired' => false
 			))
 

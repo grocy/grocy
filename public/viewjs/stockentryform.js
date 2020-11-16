@@ -96,19 +96,6 @@ Grocy.Api.Get('stock/products/' + Grocy.EditObjectProductId,
 	function(productDetails)
 	{
 		$('#amount_qu_unit').text(productDetails.quantity_unit_stock.name);
-
-		if (productDetails.product.allow_partial_units_in_stock == 1)
-		{
-			$("#amount").attr("min", "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
-			$("#amount").attr("step", "." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
-			$("#amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %1$s', "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1"));
-		}
-		else
-		{
-			$("#amount").attr("min", "1");
-			$("#amount").attr("step", "1");
-			$("#amount").parent().find(".invalid-feedback").text(__t('The amount cannot be lower than %1$s', '1'));
-		}
 	},
 	function(xhr)
 	{

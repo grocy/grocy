@@ -16,6 +16,7 @@
 @php if(!isset($isRequired)) { $isRequired = true; } @endphp
 @php if(!isset($noNameAttribute)) { $noNameAttribute = false; } @endphp
 @php if(empty($contextInfoId)) { $additionalHtmlContextHelp = ''; } @endphp
+@php if(!isset($invalidFeedback)) { $invalidFeedback = ''; } @endphp
 
 <div id="group-{{ $id }}"
 	class="form-group {{ $additionalGroupCssClasses }}">
@@ -47,6 +48,7 @@
 			min="{{ number_format($min, $decimals, '.', '') }}"
 			max="{{ number_format($max, $decimals, '.', '') }}"
 			step="@if($decimals == 0){{1}}@else{{'.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1'}}@endif"
+			data-decimals="{{ $decimals }}"
 			@if($isRequired)
 			required
 			@endif>

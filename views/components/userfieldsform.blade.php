@@ -89,7 +89,7 @@
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_PRESET_LIST)
 	<div class="form-group">
 		<label for="{{ $userfield->name }}">{{ $userfield->caption }}</label>
-		<select class="form-control userfield-input"
+		<select class="custom-control custom-select userfield-input"
 			data-userfield-name="{{ $userfield->name }}">
 			<option></option>
 			@foreach(preg_split('/\r\n|\r|\n/', $userfield->config) as $option)
@@ -101,7 +101,7 @@
 	<div class="form-group">
 		<label for="{{ $userfield->name }}">{{ $userfield->caption }}</label>
 		<select multiple
-			class="form-control userfield-input selectpicker"
+			class="custom-control custom-select userfield-input selectpicker"
 			data-userfield-name="{{ $userfield->name }}"
 			data-actions-Box="true"
 			data-live-search="true">

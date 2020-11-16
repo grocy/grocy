@@ -40,6 +40,7 @@
     - Products which are overdue are highlighted in grey (there is also a new filter button on the stock overview page for them)
     - Products which are expired (new option) are highlighted in red
 - When creating a quantity unit conversion it's now possible to automatically create the inverse conversion (thanks @kriddles)
+- The product option "Allow partial units in stock" was removed, partial amounts are now possible by default for all products
 - On purchase there is now a warning shown, when the due date of the purchased product is earlier than the next due date in stock (enabled by default, can be disabled by a new stock setting (top right corner settings menu))
 - The amount to be used for the "quick consume/open buttons" on the stock overview page can now be configured per product (new product option "Quick consume amount", defaults to 1)
 - Products can now be duplicated (new button on the products list page, all fields will be preset from the copied product, except the name)
@@ -127,6 +128,8 @@
 - Table states (visible columns, sorting, column order and so on) are now saved server side (in user settings) means that this stays the same when using different browsers
 - Dialogs are now used everywhere where appropriate instead of jumping between pages (for exampel when adding/editing shopping list items)
 - Added a "Clear filter"-button on all pages (with filters) to quickly reset applied filters
+- Prefilled number inputs now use sensible decimal places (max. the configured decimals while hiding trailing zeros where appropriate, means if you never use partial amounts for a product, you'll never see decimals for it)
+- Improved / more precise validation messages for number inputs
 - The data path (previously fixed to the `data` folder) is now configurable, making it possible to run multiple grocy instances from the same directory (with different `config.php` files / different database, etc.) (thanks @fgrsnau)
   - Via an environment variable `GROCY_DATAPATH` (higher priority)
   - Via an FastCGI parameter `GROCY_DATAPATH` (lower priority)

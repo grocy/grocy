@@ -28,7 +28,6 @@
 			@include('components.productamountpicker', array(
 			'value' => 1,
 			'label' => 'New stock amount',
-			'additionalAttributes' => 'data-not-equal="-1"',
 			'additionalHtmlElements' => '<div id="inventory-change-info"
 				class="form-text text-muted d-none ml-3 my-0 w-100"></div>',
 			'additionalHtmlContextHelp' => '<div id="tare-weight-handling-info"
@@ -82,14 +81,13 @@
 			@include('components.numberpicker', array(
 			'id' => 'price',
 			'label' => 'Price',
-			'min' => 0,
+			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
 			'decimals' => $userSettings['stock_decimal_places_prices'],
 			'value' => '',
 			'hint' => $__t('Per stock quantity unit', GROCY_CURRENCY),
 			'additionalHtmlContextHelp' => '<i class="fas fa-question-circle text-muted"
 				data-toggle="tooltip"
 				title="' . $__t('This will apply to added products') . '"></i>',
-			'invalidFeedback' => $__t('The price cannot be lower than %s', '0'),
 			'isRequired' => false,
 			'additionalCssClasses' => 'locale-number-input locale-number-currency'
 			))

@@ -99,7 +99,7 @@
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Location') }}</span>
 			</div>
-			<select class="form-control"
+			<select class="custom-control custom-select"
 				id="location-filter">
 				<option value="all">{{ $__t('All') }}</option>
 				@foreach($locations as $location)
@@ -114,7 +114,7 @@
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Product group') }}</span>
 			</div>
-			<select class="form-control"
+			<select class="custom-control custom-select"
 				id="product-group-filter">
 				<option value="all">{{ $__t('All') }}</option>
 				@foreach($productGroups as $productGroup)
@@ -128,7 +128,7 @@
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>
 			</div>
-			<select class="form-control"
+			<select class="custom-control custom-select"
 				id="status-filter">
 				<option class="bg-white"
 					value="all">{{ $__t('All') }}</option>
@@ -190,7 +190,7 @@
 							<i class="fas fa-utensils"></i> <span class="locale-number locale-number-quantity-amount">{{ $currentStockEntry->quick_consume_amount }}</span>
 						</a>
 						<a id="product-{{ $currentStockEntry->product_id }}-consume-all-button"
-							class="permission-STOCK_CONSUME d-none d-sm-inline-block btn btn-danger btn-sm product-consume-button @if($currentStockEntry->amount == 0) disabled @endif"
+							class="permission-STOCK_CONSUME btn btn-danger btn-sm product-consume-button @if($currentStockEntry->amount == 0) disabled @endif"
 							href="#"
 							data-toggle="tooltip"
 							data-placement="right"
@@ -222,17 +222,6 @@
 								<i class="fas fa-ellipsis-v"></i>
 							</button>
 							<div class="table-inline-menu dropdown-menu dropdown-menu-right">
-								<a id="product-{{ $currentStockEntry->product_id }}-consume-all-button"
-									class="d-inline-block d-sm-none dropdown-item show-as-dialog-link text-danger product-consume-button @if($currentStockEntry->amount == 0) disabled @endif"
-									href="#"
-									data-toggle="tooltip"
-									data-placement="right"
-									data-product-id="{{ $currentStockEntry->product_id }}"
-									data-product-name="{{ $currentStockEntry->product_name }}"
-									data-product-qu-name="{{ $currentStockEntry->qu_unit_name }}"
-									data-consume-amount="{{ $currentStockEntry->amount }}">
-									<span class="dropdown-item-icon"><i class="fas fa-utensils"></i></span> <span class="dropdown-item-text">{{ $__t('Consume all %s which are currently in stock', $currentStockEntry->product_name) }}</span>
-								</a>
 								<a class="dropdown-item show-as-dialog-link permission-SHOPPINGLIST_ITEMS_ADD"
 									type="button"
 									href="{{ $U('/shoppinglistitem/new?embedded&updateexistingproduct&product=' . $currentStockEntry->product_id ) }}">

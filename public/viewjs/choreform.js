@@ -133,8 +133,7 @@ $('.input-group-chore-period-type').on('change', function(e)
 	{
 		$("label[for='period_days']").text(__t("Period days"));
 		$("#period_days").attr("min", "0");
-		$("#period_days").attr("max", "9999");
-		$("#period_days").parent().find(".invalid-feedback").text(__t('This cannot be negative'));
+		$("#period_days").attr("max", "999999");
 		$('#chore-period-type-info').attr("data-original-title", __t('This means the next execution of this chore is scheduled %s days after the last execution', periodDays.toString()));
 	}
 	else if (periodType === 'daily')
@@ -154,7 +153,6 @@ $('.input-group-chore-period-type').on('change', function(e)
 		$("label[for='period_days']").text(__t("Day of month"));
 		$("#period_days").attr("min", "1");
 		$("#period_days").attr("max", "31");
-		$("#period_days").parent().find(".invalid-feedback").text(__t('The amount must be between %1$s and %2$s', "1", "31"));
 		$('#chore-period-interval-info').attr("data-original-title", __t('This means the next execution of this chore should only be scheduled every %s months', periodInterval.toString()));
 	}
 	else if (periodType === 'yearly')

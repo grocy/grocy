@@ -25,7 +25,7 @@
 
 			<div class="form-group">
 				<label for="qu_id">{{ $__t('Quantity unit') }}</label>
-				<select class="form-control"
+				<select class="custom-control custom-select"
 					id="qu_id"
 					name="qu_id">
 					<option></option>
