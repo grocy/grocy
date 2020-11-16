@@ -94,7 +94,9 @@ a.discrete-link:focus {
 }
 
  .form-check-input.is-valid ~ .form-check-label,
- .was-validated .form-check-input:valid ~ .form-check-label {
+ .was-validated .form-check-input:valid ~ .form-check-label,
+.custom-control-input.is-valid ~ .custom-control-label,
+ .was-validated .custom-control-input:valid ~ .custom-control-label {
 	color: inherit;
 }
 
