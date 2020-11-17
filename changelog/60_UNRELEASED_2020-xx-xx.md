@@ -119,6 +119,7 @@
 ### Userfield improvements/fixes
 - New Userfield type "File" to attach any file, will be rendered as a link to the file in tables (if enabled) (thanks @fipwmaqzufheoxq92ebc)
 - New Userfield type "Picture" to attach a picture, the picture will be rendered (small) in tables (if enabled) (thanks @fipwmaqzufheoxq92ebc)
+- Userfields can now be reordered on the input form (new field "Sort number" per Userfield, fields will be ordered by that number, if any)
 
 ### General & other improvements/fixes
 - UI refresh / style improvements (thanks @zsarnett for the idea and initial work on this)

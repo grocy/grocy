@@ -1975,3 +1975,18 @@ msgstr ""
 
 msgid "Automatically do the booking using the last price and the amount of the shopping list item, if the product has \"Default due days\" set"
 msgstr ""
+
+msgid "When moving products from/to a freezer location, the products due date is automatically adjusted according to the product settings"
+msgstr ""
+
+msgid "This is the internal field name, e. g. for the API"
+msgstr ""
+
+msgid "This is used to display the field on the frontend"
+msgstr ""
+
+msgid "Multiple Userfields will be ordered by that number on the input form"
+msgstr ""
+
+msgid "Sort number"
+msgstr ""

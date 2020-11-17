@@ -49,7 +49,12 @@
 			</div>
 
 			<div class="form-group">
-				<label for="name">{{ $__t('Name') }}</label>
+				<label for="name">
+					{{ $__t('Name') }}
+					<i class="fas fa-question-circle text-muted"
+						data-toggle="tooltip"
+						title="{{ $__t('This is the internal field name, e. g. for the API') }}"></i>
+				</label>
 				<input type="text"
 					class="form-control"
 					required
@@ -61,7 +66,12 @@
 			</div>
 
 			<div class="form-group">
-				<label for="name">{{ $__t('Caption') }}</label>
+				<label for="name">
+					{{ $__t('Caption') }}
+					<i class="fas fa-question-circle text-muted"
+						data-toggle="tooltip"
+						title="{{ $__t('This is used to display the field on the frontend') }}"></i>
+				</label>
 				<input type="text"
 					class="form-control"
 					required
@@ -70,6 +80,15 @@
 					value="@if($mode == 'edit'){{ $userfield->caption }}@endif">
 				<div class="invalid-feedback">{{ $__t('A caption is required') }}</div>
 			</div>
+
+			@include('components.numberpicker', array(
+			'id' => 'sort_number',
+			'label' => 'Sort number',
+			'min' => 0,
+			'value' => $userfield->sort_number,
+			'isRequired' => false,
+			'hint' => $__t('Multiple Userfields will be ordered by that number on the input form')
+			))
 
 			<div class="form-group">
 				<label for="type">{{ $__t('Type') }}</label>

@@ -65,7 +65,7 @@ class UserfieldsService extends BaseService
 			throw new \Exception('Entity does not exist or is not exposed');
 		}
 
-		return $this->getDatabase()->userfields()->where('entity', $entity)->orderBy('name', 'COLLATE NOCASE')->fetchAll();
+		return $this->getDatabase()->userfields()->where('entity', $entity)->orderBy('sort_number')->orderBy('name', 'COLLATE NOCASE')->fetchAll();
 	}
 
 	public function GetValues($entity, $objectId)

@@ -92,6 +92,7 @@
 					<th>{{ $__t('Name') }}</th>
 					<th>{{ $__t('Caption') }}</th>
 					<th>{{ $__t('Type') }}</th>
+					<th>{{ $__t('Sort number') }}</th>
 				</tr>
 			</thead>
 			<tbody class="d-none">
@@ -124,6 +125,9 @@
 					</td>
 					<td>
 						{{ $__t($userfield->type) }}
+					</td>
+					<td>
+						{{ $userfield->sort_number }}
 					</td>
 				</tr>
 				@endforeach
