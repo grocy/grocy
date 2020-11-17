@@ -81,11 +81,12 @@
 				<div class="invalid-feedback">{{ $__t('A caption is required') }}</div>
 			</div>
 
+			@php if($mode == 'edit' && !empty($userfield->sort_number)) { $value = $userfield->sort_number; } else { $value = ''; } @endphp
 			@include('components.numberpicker', array(
 			'id' => 'sort_number',
 			'label' => 'Sort number',
 			'min' => 0,
-			'value' => $userfield->sort_number,
+			'value' => $value,
 			'isRequired' => false,
 			'hint' => $__t('Multiple Userfields will be ordered by that number on the input form')
 			))
