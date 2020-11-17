@@ -8,8 +8,6 @@ var journalSummaryTable = $('#stock-journal-summary-table').DataTable({
 });
 $('#stock-journal-summary-table tbody').removeClass("d-none");
 journalSummaryTable.columns.adjust().draw();
-$('.dataTables_scrollBody').addClass("dragscroll");
-dragscroll.reset();
 
 $("#product-filter").on("change", function()
 {

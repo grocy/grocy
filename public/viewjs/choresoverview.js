@@ -7,8 +7,6 @@
 });
 $('#chores-overview-table tbody').removeClass("d-none");
 choresOverviewTable.columns.adjust().draw();
-$('.dataTables_scrollBody').addClass("dragscroll");
-dragscroll.reset();
 
 $("#search").on("keyup", Delay(function()
 {

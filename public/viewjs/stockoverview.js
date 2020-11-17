@@ -16,8 +16,6 @@
 
 $('#stock-overview-table tbody').removeClass("d-none");
 stockOverviewTable.columns.adjust().draw();
-$('.dataTables_scrollBody').addClass("dragscroll");
-dragscroll.reset();
 
 $("#location-filter").on("change", function()
 {

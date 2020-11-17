@@ -7,8 +7,6 @@
 });
 $('#apikeys-table tbody').removeClass("d-none");
 apiKeysTable.columns.adjust().draw();
-$('.dataTables_scrollBody').addClass("dragscroll");
-dragscroll.reset();
 
 var createdApiKeyId = GetUriParam('CreatedApiKeyId');
 if (createdApiKeyId !== undefined)

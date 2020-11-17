@@ -309,8 +309,6 @@ var barcodeTable = $('#barcode-table').DataTable({
 });
 $('#barcode-table tbody').removeClass("d-none");
 barcodeTable.columns.adjust().draw();
-$('.dataTables_scrollBody').addClass("dragscroll");
-dragscroll.reset();
 
 Grocy.Components.UserfieldsForm.Load();
 $("#name").trigger("keyup");

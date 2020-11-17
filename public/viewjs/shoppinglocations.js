@@ -7,8 +7,6 @@ var locationsTable = $('#shoppinglocations-table').DataTable({
 });
 $('#shoppinglocations-table tbody').removeClass("d-none");
 locationsTable.columns.adjust().draw();
-$('.dataTables_scrollBody').addClass("dragscroll");
-dragscroll.reset();
 
 $("#search").on("keyup", Delay(function()
 {

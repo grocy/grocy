@@ -7,8 +7,6 @@
 });
 $('#taskcategories-table tbody').removeClass("d-none");
 categoriesTable.columns.adjust().draw();
-$('.dataTables_scrollBody').addClass("dragscroll");
-dragscroll.reset();
 
 $("#search").on("keyup", Delay(function()
 {

@@ -20,7 +20,6 @@
 		"datatables.net-rowgroup-bs4": "^1.1.2",
 		"datatables.net-select": "^1.3.1",
 		"datatables.net-select-bs4": "^1.3.1",
-		"dragscroll": "^0.0.8",
 		"fullcalendar": "^3.10.1",
 		"gettext-translator": "2.1.0",
 		"jquery": "3.5.1",

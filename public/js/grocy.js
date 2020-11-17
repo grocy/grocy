@@ -802,25 +802,25 @@ $('.table').on('column-sizing.dt', function(e, settings)
 
 	if (dtScrollWidth < tableWidth)
 	{
-		$('.dataTables_scrollBody').addClass("grab-cursor");
+		$('.dataTables_scrollBody').addClass("no-force-overflow-visible");
 		$('.dataTables_scrollBody').removeClass("force-overflow-visible");
 	}
 	else
 	{
-		$('.dataTables_scrollBody').removeClass("grab-cursor");
+		$('.dataTables_scrollBody').removeClass("no-force-overflow-visible");
 		$('.dataTables_scrollBody').addClass("force-overflow-visible");
 	}
 });
 $('td .dropdown').on('show.bs.dropdown', function(e)
 {
-	if ($('.dataTables_scrollBody').hasClass("grab-cursor"))
+	if ($('.dataTables_scrollBody').hasClass("no-force-overflow-visible"))
 	{
 		$('.dataTables_scrollBody').addClass("force-overflow-visible");
 	}
 });
 $("td .dropdown").on('hide.bs.dropdown', function(e)
 {
-	if ($('.dataTables_scrollBody').hasClass("grab-cursor"))
+	if ($('.dataTables_scrollBody').hasClass("no-force-overflow-visible"))
 	{
 		$('.dataTables_scrollBody').removeClass("force-overflow-visible");
 	}

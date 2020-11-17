@@ -8,8 +8,6 @@
 });
 $('#stock-journal-table tbody').removeClass("d-none");
 stockJournalTable.columns.adjust().draw();
-$('.dataTables_scrollBody').addClass("dragscroll");
-dragscroll.reset();
 
 $("#product-filter").on("change", function()
 {

@@ -8,8 +8,6 @@
 });
 $('#chores-journal-table tbody').removeClass("d-none");
 choresJournalTable.columns.adjust().draw();
-$('.dataTables_scrollBody').addClass("dragscroll");
-dragscroll.reset();
 
 $("#chore-filter").on("change", function()
 {

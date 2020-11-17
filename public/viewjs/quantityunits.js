@@ -7,8 +7,6 @@
 });
 $('#quantityunits-table tbody').removeClass("d-none");
 quantityUnitsTable.columns.adjust().draw();
-$('.dataTables_scrollBody').addClass("dragscroll");
-dragscroll.reset();
 
 $("#search").on("keyup", Delay(function()
 {

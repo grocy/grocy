@@ -11,8 +11,6 @@
 });
 $('#tasks-table tbody').removeClass("d-none");
 tasksTable.columns.adjust().draw();
-$('.dataTables_scrollBody').addClass("dragscroll");
-dragscroll.reset();
 
 $("#search").on("keyup", Delay(function()
 {

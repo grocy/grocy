@@ -29,8 +29,6 @@ var shoppingListTable = $('#shoppinglist-table').DataTable({
 });
 $('#shoppinglist-table tbody').removeClass("d-none");
 shoppingListTable.columns.adjust().draw();
-$('.dataTables_scrollBody').addClass("dragscroll");
-dragscroll.reset();
 
 $(document).on("click", "tr.dtrg-group", function()
 {

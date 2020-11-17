@@ -7,8 +7,6 @@
 });
 $('#stockentries-table tbody').removeClass("d-none");
 stockEntriesTable.columns.adjust().draw();
-$('.dataTables_scrollBody').addClass("dragscroll");
-dragscroll.reset();
 
 $.fn.dataTable.ext.search.push(function(settings, data, dataIndex)
 {

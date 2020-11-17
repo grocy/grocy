@@ -8,8 +8,6 @@
 });
 $('#batteries-journal-table tbody').removeClass("d-none");
 batteriesJournalTable.columns.adjust().draw();
-$('.dataTables_scrollBody').addClass("dragscroll");
-dragscroll.reset();
 
 $("#battery-filter").on("change", function()
 {

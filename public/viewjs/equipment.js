@@ -17,8 +17,6 @@
 });
 $('#equipment-table tbody').removeClass("d-none");
 equipmentTable.columns.adjust().draw();
-$('.dataTables_scrollBody').addClass("dragscroll");
-dragscroll.reset();
 
 equipmentTable.on('select', function(e, dt, type, indexes)
 {
