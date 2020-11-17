@@ -8,7 +8,7 @@ class TasksController extends BaseController
 	{
 		if (isset($request->getQueryParams()['include_done']))
 		{
-			$tasks = $this->getDatabase()->tasks()->orderBy('name');
+			$tasks = $this->getDatabase()->tasks()->orderBy('name', 'COLLATE NOCASE');
 		}
 		else
 		{
@@ -21,7 +21,7 @@ class TasksController extends BaseController
 		return $this->renderPage($response, 'tasks', [
 			'tasks' => $tasks,
 			'nextXDays' => $nextXDays,
-			'taskCategories' => $this->getDatabase()->task_categories()->orderBy('name'),
+			'taskCategories' => $this->getDatabase()->task_categories()->orderBy('name', 'COLLATE NOCASE'),
 			'users' => $this->getDatabase()->users(),
 			'userfields' => $this->getUserfieldsService()->GetFields('tasks'),
 			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('tasks')
@@ -31,7 +31,7 @@ class TasksController extends BaseController
 	public function TaskCategoriesList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'taskcategories', [
-			'taskCategories' => $this->getDatabase()->task_categories()->orderBy('name'),
+			'taskCategories' => $this->getDatabase()->task_categories()->orderBy('name', 'COLLATE NOCASE'),
 			'userfields' => $this->getUserfieldsService()->GetFields('task_categories'),
 			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('task_categories')
 		]);
@@ -62,7 +62,7 @@ class TasksController extends BaseController
 		{
 			return $this->renderPage($response, 'taskform', [
 				'mode' => 'create',
-				'taskCategories' => $this->getDatabase()->task_categories()->orderBy('name'),
+				'taskCategories' => $this->getDatabase()->task_categories()->orderBy('name', 'COLLATE NOCASE'),
 				'users' => $this->getDatabase()->users()->orderBy('username'),
 				'userfields' => $this->getUserfieldsService()->GetFields('tasks')
 			]);
@@ -72,7 +72,7 @@ class TasksController extends BaseController
 			return $this->renderPage($response, 'taskform', [
 				'task' => $this->getDatabase()->tasks($args['taskId']),
 				'mode' => 'edit',
-				'taskCategories' => $this->getDatabase()->task_categories()->orderBy('name'),
+				'taskCategories' => $this->getDatabase()->task_categories()->orderBy('name', 'COLLATE NOCASE'),
 				'users' => $this->getDatabase()->users()->orderBy('username'),
 				'userfields' => $this->getUserfieldsService()->GetFields('tasks')
 			]);

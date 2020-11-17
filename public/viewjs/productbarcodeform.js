@@ -13,6 +13,11 @@
 		Grocy.Api.Post('objects/product_barcodes', jsonData,
 			function(result)
 			{
+				Grocy.EditObjectId = result.created_object_id;
+				Grocy.Components.UserfieldsForm.Save()
+
+				window.parent.postMessage(WindowMessageBag("ProductBarcodesChanged"), U("/product/" + GetUriParam("product")));
+				window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/product/" + GetUriParam("product")));
 			},
 			function(xhr)
 			{
@@ -23,9 +28,12 @@
 	}
 	else
 	{
+		Grocy.Components.UserfieldsForm.Save();
 		Grocy.Api.Put('objects/product_barcodes/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
+				window.parent.postMessage(WindowMessageBag("ProductBarcodesChanged"), U("/product/" + GetUriParam("product")));
+				window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/product/" + GetUriParam("product")));
 			},
 			function(xhr)
 			{
@@ -34,9 +42,6 @@
 			}
 		);
 	}
-
-	window.parent.postMessage(WindowMessageBag("ProductBarcodesChanged"), U("/product/" + GetUriParam("product")));
-	window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/product/" + GetUriParam("product")));
 });
 
 $('#barcode').on('keyup', function(e)
@@ -82,3 +87,4 @@ if (Grocy.EditMode == "edit")
 Grocy.FrontendHelpers.ValidateForm('barcode-form');
 $('#barcode').focus();
 RefreshLocaleNumberInput();
+Grocy.Components.UserfieldsForm.Load()

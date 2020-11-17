@@ -84,6 +84,11 @@
 					name="note">@if($mode == 'edit'){{ $listItem->note }}@endif</textarea>
 			</div>
 
+			@include('components.userfieldsform', array(
+			'userfields' => $userfields,
+			'entity' => 'shopping_list'
+			))
+
 			<button id="save-shoppinglist-button"
 				class="btn btn-success">{{ $__t('Save') }}</button>
 

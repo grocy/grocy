@@ -84,6 +84,7 @@
 								$("#tare-weight-handling-info").addClass("d-none");
 								$("#display_amount").attr("min", "0");
 								$('#display_amount').val('');
+								$('#display_amount').removeAttr("data-not-equal");
 								$(".input-group-productamountpicker").trigger("change");
 								$('#price').val('');
 								Grocy.Components.DateTimePicker.Clear();

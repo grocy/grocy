@@ -46,15 +46,15 @@ class RecipesController extends BaseController
 			'recipes' => $recipes,
 			'internalRecipes' => $this->getDatabase()->recipes()->whereNot('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll(),
 			'recipesResolved' => $this->getRecipesService()->GetRecipesResolved(),
-			'products' => $this->getDatabase()->products()->orderBy('name'),
-			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name'),
+			'products' => $this->getDatabase()->products()->orderBy('name', 'COLLATE NOCASE'),
+			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
 			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
 		]);
 	}
 
 	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$recipes = $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name');
+		$recipes = $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name', 'COLLATE NOCASE');
 		$recipesResolved = $this->getRecipesService()->GetRecipesResolved();
 
 		$selectedRecipe = null;
@@ -99,7 +99,7 @@ class RecipesController extends BaseController
 
 		if ($selectedRecipe)
 		{
-			$selectedRecipeSubRecipes = $this->getDatabase()->recipes()->where('id IN (SELECT includes_recipe_id FROM recipes_nestings_resolved WHERE recipe_id = :1 AND includes_recipe_id != :1)', $selectedRecipe->id)->orderBy('name')->fetchAll();
+			$selectedRecipeSubRecipes = $this->getDatabase()->recipes()->where('id IN (SELECT includes_recipe_id FROM recipes_nestings_resolved WHERE recipe_id = :1 AND includes_recipe_id != :1)', $selectedRecipe->id)->orderBy('name', 'COLLATE NOCASE')->fetchAll();
 
 			$includedRecipeIdsAbsolute = [];
 			$includedRecipeIdsAbsolute[] = $selectedRecipe->id;
@@ -132,11 +132,11 @@ class RecipesController extends BaseController
 			'recipe' => $this->getDatabase()->recipes($recipeId),
 			'recipePositions' => $this->getDatabase()->recipes_pos()->where('recipe_id', $recipeId),
 			'mode' => $recipeId == 'new' ? 'create' : 'edit',
-			'products' => $this->getDatabase()->products()->orderBy('name'),
+			'products' => $this->getDatabase()->products()->orderBy('name', 'COLLATE NOCASE'),
 			'quantityunits' => $this->getDatabase()->quantity_units(),
 			'recipePositionsResolved' => $this->getRecipesService()->GetRecipesPosResolved(),
 			'recipesResolved' => $this->getRecipesService()->GetRecipesResolved(),
-			'recipes' => $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name'),
+			'recipes' => $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name', 'COLLATE NOCASE'),
 			'recipeNestings' => $this->getDatabase()->recipes_nestings()->where('recipe_id', $recipeId),
 			'userfields' => $this->getUserfieldsService()->GetFields('recipes'),
 			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
@@ -151,8 +151,8 @@ class RecipesController extends BaseController
 				'mode' => 'create',
 				'recipe' => $this->getDatabase()->recipes($args['recipeId']),
 				'recipePos' => new \stdClass(),
-				'products' => $this->getDatabase()->products()->orderBy('name'),
-				'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name'),
+				'products' => $this->getDatabase()->products()->orderBy('name', 'COLLATE NOCASE'),
+				'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
 				'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
 			]);
 		}
@@ -162,8 +162,8 @@ class RecipesController extends BaseController
 				'mode' => 'edit',
 				'recipe' => $this->getDatabase()->recipes($args['recipeId']),
 				'recipePos' => $this->getDatabase()->recipes_pos($args['recipePosId']),
-				'products' => $this->getDatabase()->products()->orderBy('name'),
-				'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name'),
+				'products' => $this->getDatabase()->products()->orderBy('name', 'COLLATE NOCASE'),
+				'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
 				'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
 			]);
 		}

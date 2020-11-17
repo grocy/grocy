@@ -424,7 +424,7 @@ Grocy.FrontendHelpers.ShowGenericError = function(message, exception)
 		{
 			bootbox.alert({
 				title: __t('Error details'),
-				message: JSON.stringify(exception, null, 4),
+				message: '<pre class="my-0"><code>' + JSON.stringify(exception, null, 4) + '</code></pre>',
 				closeButton: false
 			});
 		}
@@ -447,6 +447,11 @@ $(document).on("change", ".user-setting-control", function()
 {
 	var element = $(this);
 	var settingKey = element.attr("data-setting-key");
+
+	if (!element[0].checkValidity())
+	{
+		return;
+	}
 
 	var inputType = "unknown";
 	if (typeof element.attr("type") !== typeof undefined && element.attr("type") !== false)

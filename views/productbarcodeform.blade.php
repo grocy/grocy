@@ -90,6 +90,11 @@
 				value="1">
 			@endif
 
+			@include('components.userfieldsform', array(
+			'userfields' => $userfields,
+			'entity' => 'product_barcodes'
+			))
+
 			<button id="save-barcode-button"
 				class="btn btn-success">{{ $__t('Save') }}</button>
 

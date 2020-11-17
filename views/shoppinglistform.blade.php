@@ -43,6 +43,11 @@
 				<div class="invalid-feedback">{{ $__t('A name is required') }}</div>
 			</div>
 
+			@include('components.userfieldsform', array(
+			'userfields' => $userfields,
+			'entity' => 'shopping_lists'
+			))
+
 			<button id="save-shopping-list-button"
 				class="btn btn-success">{{ $__t('Save') }}</button>
 

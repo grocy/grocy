@@ -32,30 +32,38 @@ $(".numberpicker").each(function()
 	{
 		mutations.forEach(function(mutation)
 		{
-			if (mutation.type == "attributes" && (mutation.attributeName == "min" || mutation.attributeName == "max" || mutation.attributeName == "data-not-equal"))
+			if (mutation.type == "attributes" && (mutation.attributeName == "min" || mutation.attributeName == "max" || mutation.attributeName == "data-not-equal" || mutation.attributeName == "data-initialised"))
 			{
 				var element = $(mutation.target);
 				var min = element.attr("min");
-				var max = element.attr("max");
 				var decimals = element.attr("data-decimals");
+
+				var max = "";
+				if (element.hasAttr("max"))
+				{
+					max = element.attr("max");
+				}
 
 				if (element.hasAttr("data-not-equal"))
 				{
 					var notEqual = element.attr("data-not-equal");
 
-					if (max.isEmpty() || max.startsWith("999999"))
+					if (notEqual != "NaN")
 					{
-						element.parent().find(".invalid-feedback").text(__t("This cannot be lower than %1$s or equal %2$s and needs to be a valid number with max. %3$s decimal places", parseFloat(min).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: decimals }), parseFloat(notEqual).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: decimals }), decimals));
-					}
-					else
-					{
-						element.parent().find(".invalid-feedback").text(__t("This must be between %1$s and %2$s, cannot equal %3$s and needs to be a valid number with max. %4$s decimal places", parseFloat(min).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: decimals }), parseFloat(max).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: decimals }), parseFloat(notEqual).toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals }), decimals));
-					}
+						if (max.isEmpty())
+						{
+							element.parent().find(".invalid-feedback").text(__t("This cannot be lower than %1$s or equal %2$s and needs to be a valid number with max. %3$s decimal places", parseFloat(min).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: decimals }), parseFloat(notEqual).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: decimals }), decimals));
+						}
+						else
+						{
+							element.parent().find(".invalid-feedback").text(__t("This must be between %1$s and %2$s, cannot equal %3$s and needs to be a valid number with max. %4$s decimal places", parseFloat(min).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: decimals }), parseFloat(max).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: decimals }), parseFloat(notEqual).toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals }), decimals));
+						}
 
-					return;
+						return;
+					}
 				}
 
-				if (max.isEmpty() || max.startsWith("999999"))
+				if (max.isEmpty())
 				{
 					element.parent().find(".invalid-feedback").text(__t("This cannot be lower than %1$s and needs to be a valid number with max. %2$s decimal places", parseFloat(min).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: decimals }), decimals));
 				}
@@ -69,4 +77,4 @@ $(".numberpicker").each(function()
 		attributes: true
 	});
 });
-$(".numberpicker").attr("min", $(".numberpicker").attr("min")); // Dummy change to trigger MutationObserver above once
+$(".numberpicker").attr("data-initialised", "true"); // Dummy change to trigger MutationObserver above once

@@ -101,7 +101,7 @@
 	<div class="form-group">
 		<label for="{{ $userfield->name }}">{{ $userfield->caption }}</label>
 		<select multiple
-			class="custom-control custom-select userfield-input selectpicker"
+			class="form-control userfield-input selectpicker"
 			data-userfield-name="{{ $userfield->name }}"
 			data-actions-Box="true"
 			data-live-search="true">

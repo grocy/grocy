@@ -7,7 +7,7 @@ class GenericEntityController extends BaseController
 	public function UserentitiesList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'userentities', [
-			'userentities' => $this->getDatabase()->userentities()->orderBy('name')
+			'userentities' => $this->getDatabase()->userentities()->orderBy('name', 'COLLATE NOCASE')
 		]);
 	}
 

@@ -90,7 +90,7 @@
 						Grocy.Components.ProductAmountPicker.Reset();
 						$("#location_id_from").find("option").remove().end().append("<option></option>");
 						$("#display_amount").attr("min", "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
-						$("#display_amount").attr("max", "999999");
+						$("#display_amount").removeAttr("max");
 						$('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_transfer_amount));
 						RefreshLocaleNumberInput();
 						$(".input-group-productamountpicker").trigger("change");
@@ -198,6 +198,8 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 					$("#tare-weight-handling-info").addClass("d-none");
 				}
 
+				$('#display_amount').attr("data-stock-amount", productDetails.stock_amount);
+
 				if ((parseFloat(productDetails.stock_amount) || 0) === 0)
 				{
 					Grocy.Components.ProductPicker.Clear();
@@ -274,7 +276,7 @@ $("#location_id_from").on('change', function(e)
 						sumValue = sumValue + parseFloat(stockEntry.amount);
 					}
 				});
-				$("#display_amount").attr("max", sumValue);
+				$("#display_amount").attr("max", sumValue * $("#qu_id option:selected").attr("data-qu-factor"));
 				if (sumValue == 0)
 				{
 					$("#display_amount").parent().find(".invalid-feedback").text(__t('There are no units available at this location'));
@@ -297,6 +299,11 @@ $("#location_id_to").on('change', function(e)
 		$("#location_id_to").parent().find(".invalid-feedback").text(__t('This cannot be the same as the "From" location'));
 		$("#location_id_to").val("");
 	}
+});
+
+$("#qu_id").on('change', function(e)
+{
+	$("#display_amount").attr("max", parseFloat($('#display_amount').attr("data-stock-amount")) * $("#qu_id option:selected").attr("data-qu-factor"));
 });
 
 $('#display_amount').on('focus', function(e)
@@ -346,7 +353,7 @@ $("#specific_stock_entry").on("change", function(e)
 						sumValue = sumValue + parseFloat(stockEntry.amount);
 					}
 				});
-				$("#display_amount").attr("max", sumValue);
+				$("#display_amount").attr("max", sumValue * $("#qu_id option:selected").attr("data-qu-factor"));
 				if (sumValue == 0)
 				{
 					$("#display_amount").parent().find(".invalid-feedback").text(__t('There are no units available at this location'));

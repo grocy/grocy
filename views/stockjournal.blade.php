@@ -34,7 +34,7 @@
 
 <div class="row collapse d-md-flex"
 	id="table-filter-row">
-	<div class="col-xs-12 col-md-6 col-xl-3">
+	<div class="col-xs-12 col-md-6 col-xl-2">
 		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-search"></i></span>
@@ -45,7 +45,7 @@
 				placeholder="{{ $__t('Search') }}">
 		</div>
 	</div>
-	<div class="col-xs-12 col-md-6 col-xl-3">
+	<div class="col-xs-12 col-md-6 col-xl-2">
 		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Product') }}</span>
@@ -59,8 +59,50 @@
 			</select>
 		</div>
 	</div>
+	<div class="col-xs-12 col-md-6 col-xl-3">
+		<div class="input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Transaction type') }}</span>
+			</div>
+			<select class="custom-control custom-select"
+				id="transaction-type-filter">
+				<option value="all">{{ $__t('All') }}</option>
+				@foreach($transactionTypes as $transactionType)
+				<option value="{{ $transactionType }}">{{ $__t($transactionType) }}</option>
+				@endforeach
+			</select>
+		</div>
+	</div>
+	<div class="col-xs-12 col-md-6 col-xl-2">
+		<div class="input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Location') }}</span>
+			</div>
+			<select class="custom-control custom-select"
+				id="location-filter">
+				<option value="all">{{ $__t('All') }}</option>
+				@foreach($locations as $location)
+				<option value="{{ $location->id }}">{{ $location->name }}</option>
+				@endforeach
+			</select>
+		</div>
+	</div>
+	<div class="col-xs-12 col-md-6 col-xl-2">
+		<div class="input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('User') }}</span>
+			</div>
+			<select class="custom-control custom-select"
+				id="user-filter">
+				<option value="all">{{ $__t('All') }}</option>
+				@foreach($users as $user)
+				<option value="{{ $user->id }}">{{ $user->display_name }}</option>
+				@endforeach
+			</select>
+		</div>
+	</div>
 	<div class="col">
-		<div class="float-right">
+		<div class="float-right mt-1">
 			<a id="clear-filter-button"
 				class="btn btn-sm btn-outline-info"
 				href="#">

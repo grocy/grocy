@@ -177,7 +177,7 @@
 				<label for="assignment_config">{{ $__t('Assign to') }}</label>
 				<select required
 					multiple
-					class="custom-control custom-select input-group-chore-assignment-type selectpicker"
+					class="form-control input-group-chore-assignment-type selectpicker"
 					id="assignment_config"
 					name="assignment_config"
 					data-actions-Box="true"

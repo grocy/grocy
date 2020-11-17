@@ -84,7 +84,7 @@
 		'id' => 'stock_default_purchase_amount',
 		'additionalAttributes' => 'data-setting-key="stock_default_purchase_amount"',
 		'label' => 'Default amount for purchase',
-		'min' => 0,
+		'min' => '0.',
 		'decimals' => $userSettings['stock_decimal_places_amounts'],
 		'additionalCssClasses' => 'user-setting-control locale-number-input locale-number-quantity-amount',
 		))

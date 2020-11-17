@@ -239,6 +239,9 @@
 											},
 											{
 												"$ref": "#/components/schemas/StockEntry"
+											},
+											{
+												"$ref": "#/components/schemas/ProductBarcode"
 											}
 										]
 									}
@@ -311,6 +314,9 @@
 									},
 									{
 										"$ref": "#/components/schemas/StockEntry"
+									},
+									{
+										"$ref": "#/components/schemas/ProductBarcode"
 									}
 								]
 							}
@@ -402,6 +408,9 @@
 										},
 										{
 											"$ref": "#/components/schemas/StockEntry"
+										},
+										{
+											"$ref": "#/components/schemas/ProductBarcode"
 										}
 									]
 								}
@@ -482,6 +491,9 @@
 									},
 									{
 										"$ref": "#/components/schemas/StockEntry"
+									},
+									{
+										"$ref": "#/components/schemas/ProductBarcode"
 									}
 								]
 							}
@@ -4129,7 +4141,7 @@
 						"$ref": "#/components/schemas/Product"
 					},
 					"product_barcodes": {
-						"$ref": "#/components/schemas/ProductBarcodeDetailsResponse"
+						"$ref": "#/components/schemas/ProductBarcode"
 					},
 					"default_quantity_unit_purchase": {
 						"$ref": "#/components/schemas/QuantityUnit"
@@ -4257,14 +4269,14 @@
 					},
 					"price": {
 						"type": "number",
-						"format": "number"
+						"format": "float"
 					},
 					"shopping_location": {
 						"$ref": "#/components/schemas/ShoppingLocation"
 					}
 				}
 			},
-			"ProductBarcodeDetailsResponse": {
+			"ProductBarcode": {
 				"type": "object",
 				"properties": {
 					"product_id": {
@@ -4282,6 +4294,10 @@
 					"amount": {
 						"type": "number",
 						"format": "number"
+					},
+					"last_price": {
+						"type": "number",
+						"format": "float"
 					}
 				}
 			},

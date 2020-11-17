@@ -16,6 +16,7 @@ CREATE TABLE product_barcodes (
 	qu_id INT,
 	amount REAL,
 	shopping_location_id INTEGER,
+	last_price DECIMAL(15, 2),
 	row_created_timestamp DATETIME DEFAULT (datetime('now', 'localtime'))
 );
 

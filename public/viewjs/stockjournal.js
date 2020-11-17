@@ -23,6 +23,42 @@ $("#product-filter").on("change", function()
 	stockJournalTable.column(1).search(text).draw();
 });
 
+$("#transaction-type-filter").on("change", function()
+{
+	var value = $(this).val();
+	var text = $("#transaction-type-filter option:selected").text();
+	if (value === "all")
+	{
+		text = "";
+	}
+
+	stockJournalTable.column(4).search(text).draw();
+});
+
+$("#location-filter").on("change", function()
+{
+	var value = $(this).val();
+	var text = $("#location-filter option:selected").text();
+	if (value === "all")
+	{
+		text = "";
+	}
+
+	stockJournalTable.column(5).search(text).draw();
+});
+
+$("#user-filter").on("change", function()
+{
+	var value = $(this).val();
+	var text = $("#user-filter option:selected").text();
+	if (value === "all")
+	{
+		text = "";
+	}
+
+	stockJournalTable.column(6).search(text).draw();
+});
+
 $("#search").on("keyup", Delay(function()
 {
 	var value = $(this).val();
@@ -37,6 +73,12 @@ $("#search").on("keyup", Delay(function()
 $("#clear-filter-button").on("click", function()
 {
 	$("#search").val("");
+	$("#transaction-type-filter").val("all");
+	$("#location-filter").val("all");
+	$("#user-filter").val("all");
+	stockJournalTable.column(4).search("").draw();
+	stockJournalTable.column(5).search("").draw();
+	stockJournalTable.column(6).search("").draw();
 	stockJournalTable.search("").draw();
 });
 

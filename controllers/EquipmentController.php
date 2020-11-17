@@ -28,7 +28,7 @@ class EquipmentController extends BaseController
 	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'equipment', [
-			'equipment' => $this->getDatabase()->equipment()->orderBy('name'),
+			'equipment' => $this->getDatabase()->equipment()->orderBy('name', 'COLLATE NOCASE'),
 			'userfields' => $this->getUserfieldsService()->GetFields('equipment'),
 			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('equipment')
 		]);

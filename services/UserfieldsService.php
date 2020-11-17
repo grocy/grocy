@@ -21,7 +21,7 @@ class UserfieldsService extends BaseService
 
 	public function GetAllFields()
 	{
-		return $this->getDatabase()->userfields()->orderBy('name')->fetchAll();
+		return $this->getDatabase()->userfields()->orderBy('name', 'COLLATE NOCASE')->fetchAll();
 	}
 
 	public function GetAllValues($entity)
@@ -31,7 +31,7 @@ class UserfieldsService extends BaseService
 			throw new \Exception('Entity does not exist or is not exposed');
 		}
 
-		return $this->getDatabase()->userfield_values_resolved()->where('entity', $entity)->orderBy('name')->fetchAll();
+		return $this->getDatabase()->userfield_values_resolved()->where('entity', $entity)->orderBy('name', 'COLLATE NOCASE')->fetchAll();
 	}
 
 	public function GetEntities()
@@ -40,7 +40,7 @@ class UserfieldsService extends BaseService
 
 		$userentities = [];
 
-		foreach ($this->getDatabase()->userentities()->orderBy('name') as $userentity)
+		foreach ($this->getDatabase()->userentities()->orderBy('name', 'COLLATE NOCASE') as $userentity)
 		{
 			$userentities[] = 'userentity-' . $userentity->name;
 		}
@@ -65,7 +65,7 @@ class UserfieldsService extends BaseService
 			throw new \Exception('Entity does not exist or is not exposed');
 		}
 
-		return $this->getDatabase()->userfields()->where('entity', $entity)->orderBy('name')->fetchAll();
+		return $this->getDatabase()->userfields()->where('entity', $entity)->orderBy('name', 'COLLATE NOCASE')->fetchAll();
 	}
 
 	public function GetValues($entity, $objectId)
@@ -75,7 +75,7 @@ class UserfieldsService extends BaseService
 			throw new \Exception('Entity does not exist or is not exposed');
 		}
 
-		$userfields = $this->getDatabase()->userfield_values_resolved()->where('entity = :1 AND object_id = :2', $entity, $objectId)->orderBy('name')->fetchAll();
+		$userfields = $this->getDatabase()->userfield_values_resolved()->where('entity = :1 AND object_id = :2', $entity, $objectId)->orderBy('name', 'COLLATE NOCASE')->fetchAll();
 		$userfieldKeyValuePairs = [];
 
 		foreach ($userfields as $userfield)

@@ -49,7 +49,7 @@
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
 				id="related-links">
 				<div class="my-auto float-right">
-					<select class="custom-control custom-select"
+					<select class="custom-control custom-select custom-select-sm"
 						id="selected-shopping-list">
 						@foreach($shoppingLists as $shoppingList)
 						<option @if($shoppingList->id == $selectedShoppingListId) selected="selected" @endif value="{{ $shoppingList->id }}">{{ $shoppingList->name }}</option>
@@ -190,6 +190,9 @@
 					@include('components.userfields_thead', array(
 					'userfields' => $userfields
 					))
+					@include('components.userfields_thead', array(
+					'userfields' => $productUserfields
+					))
 
 				</tr>
 			</thead>
@@ -259,6 +262,10 @@
 
 					@include('components.userfields_tbody', array(
 					'userfields' => $userfields,
+					'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $listItem->id)
+					))
+					@include('components.userfields_tbody', array(
+					'userfields' => $productUserfields,
 					'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $listItem->product_id)
 					))
 

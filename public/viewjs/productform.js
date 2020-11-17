@@ -296,7 +296,7 @@ var quConversionsTable = $('#qu-conversions-table-products').DataTable({
 		dataSrc: 4
 	}
 });
-$('#qu-conversions-table tbody').removeClass("d-none");
+$('#qu-conversions-table-products tbody').removeClass("d-none");
 quConversionsTable.columns.adjust().draw();
 
 var barcodeTable = $('#barcode-table').DataTable({

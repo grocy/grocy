@@ -4,7 +4,7 @@
 
 @php if(!isset($value)) { $value = 1; } @endphp
 @php if(empty($min)) { $min = 0; } @endphp
-@php if(empty($max)) { $max = 999999; } @endphp
+@php if(!isset($max)) { $max = ''; } @endphp
 @php if(empty($decimals)) { $decimals = 0; } @endphp
 @php if(empty($hint)) { $hint = ''; } @endphp
 @php if(empty($hintId)) { $hintId = ''; } @endphp
@@ -20,7 +20,8 @@
 
 <div id="group-{{ $id }}"
 	class="form-group {{ $additionalGroupCssClasses }}">
-	<label for="{{ $id }}">
+	<label class="w-100"
+		for="{{ $id }}">
 		{{ $__t($label) }}
 		@if(!empty($hint) || !empty($hintId))
 		<i id="{{ $hintId }}"
@@ -31,7 +32,7 @@
 		{!! $additionalHtmlContextHelp !!}
 		@if(!empty($contextInfoId))
 		<span id="{{ $contextInfoId }}"
-			class="small text-muted"></span>
+			class="small text-muted float-right mt-1"></span>
 		@endif
 	</label>
 	<div class="input-group">
@@ -46,8 +47,10 @@
 			@endif
 			value="{{ $value }}"
 			min="{{ number_format($min, $decimals, '.', '') }}"
+			@if(!empty($max))
 			max="{{ number_format($max, $decimals, '.', '') }}"
-			step="@if($decimals == 0){{1}}@else{{'.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1'}}@endif"
+			@endif
+			step="@if($decimals == 0){{1}}@else{{'.' . str_repeat('0', $decimals - 1) . '1'}}@endif"
 			data-decimals="{{ $decimals }}"
 			@if($isRequired)
 			required

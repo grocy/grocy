@@ -21,6 +21,9 @@ $('#save-shoppinglist-button').on('click', function(e)
 		Grocy.Api.Post('stock/shoppinglist/add-product', jsonData,
 			function(result)
 			{
+				Grocy.EditObjectId = result.created_object_id;
+				Grocy.Components.UserfieldsForm.Save();
+
 				if (GetUriParam("embedded") !== undefined)
 				{
 					Grocy.Api.Get('stock/products/' + jsonData.product_id,
@@ -54,6 +57,9 @@ $('#save-shoppinglist-button').on('click', function(e)
 		Grocy.Api.Post('objects/shopping_list', jsonData,
 			function(result)
 			{
+				Grocy.EditObjectId = result.created_object_id;
+				Grocy.Components.UserfieldsForm.Save();
+
 				if (GetUriParam("embedded") !== undefined)
 				{
 					if (jsonData.product_id)
@@ -94,6 +100,8 @@ $('#save-shoppinglist-button').on('click', function(e)
 		Grocy.Api.Put('objects/shopping_list/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
+				Grocy.Components.UserfieldsForm.Save();
+
 				if (GetUriParam("embedded") !== undefined)
 				{
 					if (jsonData.product_id)
@@ -216,3 +224,5 @@ if (GetUriParam("amount") !== undefined)
 	$(".input-group-productamountpicker").trigger("change");
 	Grocy.FrontendHelpers.ValidateForm('shoppinglist-form');
 }
+
+Grocy.Components.UserfieldsForm.Load();

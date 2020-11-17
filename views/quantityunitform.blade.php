@@ -103,6 +103,8 @@
 				<div class="title-related-links">
 					<h4>
 						{{ $__t('Default conversions') }}
+						<small id="qu-conversion-headline-info"
+							class="text-muted font-italic"></small>
 					</h4>
 					<button class="btn btn-outline-dark d-md-none mt-2 float-right order-1 order-md-3"
 						type="button"
@@ -118,9 +120,6 @@
 						</a>
 					</div>
 				</div>
-
-				<h5 id="qu-conversion-headline-info"
-					class="text-muted font-italic"></h5>
 
 				<table id="qu-conversions-table"
 					class="table table-sm table-striped nowrap w-100">
@@ -154,7 +153,7 @@
 								</a>
 							</td>
 							<td>
-								{{ $defaultQuConversion->factor }}
+								<span class="locale-number locale-number-quantity-amount">{{ $defaultQuConversion->factor }}</span>
 							</td>
 							<td>
 								{{ FindObjectInArrayByPropertyValue($quantityUnits, 'id', $defaultQuConversion->to_qu_id)->name }}

@@ -133,7 +133,7 @@ $('.input-group-chore-period-type').on('change', function(e)
 	{
 		$("label[for='period_days']").text(__t("Period days"));
 		$("#period_days").attr("min", "0");
-		$("#period_days").attr("max", "999999");
+		$("#period_days").removeAttr("max");
 		$('#chore-period-type-info').attr("data-original-title", __t('This means the next execution of this chore is scheduled %s days after the last execution', periodDays.toString()));
 	}
 	else if (periodType === 'daily')

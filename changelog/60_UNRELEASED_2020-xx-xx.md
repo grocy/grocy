@@ -8,6 +8,7 @@
 ### New feature: Prefill purchase data by barcodes
 - Imagine you buy for example eggs in different pack sizes and they have different barcodes
 - Each product barcode can be assigned an amount, quantity unit and store (on the product edit page), which is then automatically prefilled on the purchase page
+- Additionally, the last price per barcode will be tracked and prefilled as a "Total price" on purchase
 - (Thanks @kriddles for the initial work on this)
 
 ### New feature: User permissions
@@ -58,6 +59,7 @@
 - When clicking the product name on the shopping list, the product card will now be displayed (like on the stock overview page) (thanks @kriddles)
 - On the product card there is now also a button to jump directly to the stock entries of the corresponding product (thanks @kriddles)
 - The product picker workflows can now also be started by `ENTER` (additionally to `TAB`)
+- Added more filters on the stock journal page
 - Added a grouped/summarized stock journal (new button "Journal summary" at the top of the stock journal page) (thanks @fipwmaqzufheoxq92ebc)
   - Provides an overview of summarized transactions per product, transaction type and user + summarized amount
 - Fixed that changing the products "Factor purchase to stock quantity unit" not longer messes up historical prices (which results for example in wrong recipe costs) (thanks @kriddles)
@@ -80,6 +82,7 @@
 - Decimal amounts are now allowed (for any product, rounded by two decimal places)
 - Added a button to add all currently in-stock but overdue and expired products to the shopping list (thanks @m-byte)
 - Improved that when `FEATURE_FLAG_STOCK` is disabled, all product/stock related inputs and buttons are now hidden on the shopping list page (thanks @fipwmaqzufheoxq92ebc)
+- Shopping list items can now have their own Userfields (entity `shopping_list`), on the shopping list table those fields are rendered additionally to the product Userfields
 - Fixed that "Add products that are below defined min. stock amount" always rounded up the missing amount to an integral number, this now allows decimal numbers
 
 ### Recipe improvements/fixes
@@ -130,6 +133,7 @@
 - Added a "Clear filter"-button on all pages (with filters) to quickly reset applied filters
 - Prefilled number inputs now use sensible decimal places (max. the configured decimals while hiding trailing zeros where appropriate, means if you never use partial amounts for a product, you'll never see decimals for it)
 - Improved / more precise validation messages for number inputs
+- Ordering now happens case-insensitive
 - The data path (previously fixed to the `data` folder) is now configurable, making it possible to run multiple grocy instances from the same directory (with different `config.php` files / different database, etc.) (thanks @fgrsnau)
   - Via an environment variable `GROCY_DATAPATH` (higher priority)
   - Via an FastCGI parameter `GROCY_DATAPATH` (lower priority)

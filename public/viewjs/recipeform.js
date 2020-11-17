@@ -285,6 +285,7 @@ $("#recipe-include-add-button").on("click", function(e)
 			$("#recipe-include-editform-title").text(__t("Add included recipe"));
 			$("#recipe-include-form").data("edit-mode", "create");
 			Grocy.Components.RecipePicker.Clear();
+			Grocy.Components.RecipePicker.GetInputElement().focus();
 			$("#recipe-include-editform-modal").modal("show");
 			Grocy.FrontendHelpers.ValidateForm("recipe-include-form");
 		},

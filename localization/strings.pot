@@ -889,9 +889,6 @@ msgstr ""
 msgid "Shopping list to stock workflow"
 msgstr ""
 
-msgid "Automatically do the booking using the last price and the amount of the shopping list item, if the product has \"Default best before days\" set"
-msgstr ""
-
 msgid "Skip"
 msgstr ""
 
@@ -1974,4 +1971,7 @@ msgid "This cannot be lower than %1$s and needs to be a valid number with max. %
 msgstr ""
 
 msgid "This must between %1$s and %2$s and needs to be a valid number with max. %3$s decimal places"
+msgstr ""
+
+msgid "Automatically do the booking using the last price and the amount of the shopping list item, if the product has \"Default due days\" set"
 msgstr ""

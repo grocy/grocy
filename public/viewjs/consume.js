@@ -93,7 +93,7 @@
 
 						Grocy.Components.ProductAmountPicker.Reset();
 						$("#display_amount").attr("min", "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
-						$("#display_amount").attr("max", "999999");
+						$("#display_amount").removeAttr("max");
 						$('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_consume_amount));
 						RefreshLocaleNumberInput();
 						$(".input-group-productamountpicker").trigger("change");
@@ -272,6 +272,8 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 		Grocy.Api.Get('stock/products/' + productId,
 			function(productDetails)
 			{
+				current_productDetails = productDetails;
+
 				Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
 				Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.quantity_unit_stock.id);
 				$('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_consume_amount));
@@ -473,6 +475,11 @@ $("#use_specific_stock_entry").on("change", function()
 	Grocy.FrontendHelpers.ValidateForm("consume-form");
 });
 
+$("#qu_id").on("change", function()
+{
+	RefreshForm();
+});
+
 function UndoStockBooking(bookingId)
 {
 	Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', {},
@@ -570,7 +577,7 @@ function RefreshForm()
 		$("#tare-weight-handling-info").addClass("d-none");
 
 		$("#display_amount").attr("min", "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
-		$('#display_amount').attr('max', sumValue);
+		$('#display_amount').attr('max', sumValue * $("#qu_id option:selected").attr("data-qu-factor"));
 
 		if (sumValue == 0)
 		{

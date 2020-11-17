@@ -187,7 +187,7 @@
 								$productQuConversions = FindAllObjectsInArrayByPropertyValue($quantityUnitConversionsResolved, 'product_id', $product->id);
 								$productQuConversions = FindAllObjectsInArrayByPropertyValue($productQuConversions, 'from_qu_id', $product->qu_id_stock);
 								$productQuConversion = FindObjectInArrayByPropertyValue($productQuConversions, 'to_qu_id', $recipePosition->qu_id);
-								if ($productQuConversion)
+								if ($productQuConversion && $recipePosition->only_check_single_unit_in_stock == 0)
 								{
 								$recipePosition->amount = $recipePosition->amount * $productQuConversion->factor;
 								}

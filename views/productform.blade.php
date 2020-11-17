@@ -469,6 +469,10 @@
 							@endif
 							<th>{{ $__t('Quantity unit') }}</th>
 							<th>{{ $__t('Amount') }}</th>
+
+							@include('components.userfields_thead', array(
+							'userfields' => $productBarcodeUserfields
+							))
 						</tr>
 					</thead>
 					<tbody class="d-none">
@@ -510,6 +514,11 @@
 								<span class="locale-number locale-number-quantity-amount">{{ $barcode->amount }}</span>
 								@endif
 							</td>
+
+							@include('components.userfields_tbody', array(
+							'userfields' => $productBarcodeUserfields,
+							'userfieldValues' => FindAllObjectsInArrayByPropertyValue($productBarcodeUserfieldValues, 'object_id', $barcode->id)
+							))
 						</tr>
 						@endif
 						@endforeach
@@ -595,7 +604,7 @@
 								@endif
 							</td>
 							<td class="font-italic">
-								{{ $__t('This means 1 %1$s is the same as %2$s %3$s', FindObjectInArrayByPropertyValue($quantityunits, 'id', $quConversion->from_qu_id)->name, $quConversion->factor, FindObjectInArrayByPropertyValue($quantityunits, 'id', $quConversion->to_qu_id)->name) }}
+								{!! $__t('This means 1 %1$s is the same as %2$s %3$s', FindObjectInArrayByPropertyValue($quantityunits, 'id', $quConversion->from_qu_id)->name, '<span class="locale-number locale-number-quantity-amount">' . $quConversion->factor . '</span>', FindObjectInArrayByPropertyValue($quantityunits, 'id', $quConversion->to_qu_id)->name) !!}
 							</td>
 						</tr>
 						@endif
