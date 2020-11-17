@@ -30,8 +30,8 @@
 			</div>
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100 m-1 mt-md-0 mb-md-0 float-right"
 				id="related-links">
-				<a class="btn btn-primary responsive-button mr-1"
-					href="{{ $U('/userobject/' . $userentity->name . '/new') }}">
+				<a class="btn btn-primary responsive-button mr-1 show-as-dialog-link"
+					href="{{ $U('/userobject/' . $userentity->name . '/new?embedded') }}">
 					{{ $__t('Add') }}
 				</a>
 				<a class="btn btn-outline-secondary d-print-none"
@@ -87,8 +87,8 @@
 				@foreach($userobjects as $userobject)
 				<tr>
 					<td class="fit-content border-right d-print-none">
-						<a class="btn btn-info btn-sm"
-							href="{{ $U('/userobject/' . $userentity->name . '/') }}{{ $userobject->id }}"
+						<a class="btn btn-info btn-sm show-as-dialog-link"
+							href="{{ $U('/userobject/' . $userentity->name . '/') }}{{ $userobject->id }}?embedded"
 							data-toggle="tooltip"
 							title="{{ $__t('Edit this item') }}">
 							<i class="fas fa-edit"></i>
