@@ -106,7 +106,6 @@
 - Fixed that the assignment type "In alphabetic order" did not work correctly (the last person in the list was always assigned next once reached) (thanks @fipwmaqzufheoxq92ebc)
 
 ### Equipment improvements
-- The equipment page now will never automatically reload, even when `Auto reload on external changes` is on and a change was detected (because you most probably have that page open longer to read the manual) (thanks @fipwmaqzufheoxq92ebc)
 - There is now a button to download the instruction manual (next to the "expand to fullscreen"-button)
 
 ### Calendar improvements/fixes
