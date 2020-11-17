@@ -40,7 +40,9 @@ function DisplayEquipment(id)
 			{
 				var pdfUrl = U('/api/files/equipmentmanuals/' + btoa(equipmentItem.instruction_manual_file_name));
 				$("#selected-equipment-instruction-manual").attr("src", pdfUrl);
+				$("#selectedEquipmentInstructionManualDownloadButton").attr("href", pdfUrl);
 				$("#selected-equipment-instruction-manual").removeClass("d-none");
+				$("#selectedEquipmentInstructionManualDownloadButton").removeClass("d-none");
 				$("#selected-equipment-has-no-instruction-manual-hint").addClass("d-none");
 
 				$("a[href='#instruction-manual-tab']").tab("show");
@@ -49,6 +51,7 @@ function DisplayEquipment(id)
 			else
 			{
 				$("#selected-equipment-instruction-manual").addClass("d-none");
+				$("#selectedEquipmentInstructionManualDownloadButton").addClass("d-none");
 				$("#selected-equipment-has-no-instruction-manual-hint").removeClass("d-none");
 
 				$("a[href='#description-tab']").tab("show");

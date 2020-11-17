@@ -1990,3 +1990,6 @@ msgstr ""
 
 msgid "Sort number"
 msgstr ""
+
+msgid "Download file"
+msgstr ""

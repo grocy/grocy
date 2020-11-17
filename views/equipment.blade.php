@@ -131,11 +131,19 @@
 					<div class="card-header card-header-fullscreen">
 						<span class="selected-equipment-name"></span>
 						<a id="selectedEquipmentInstructionManualToggleFullscreenButton"
-							class="btn btn-sm btn-outline-secondary py-0 float-right"
+							class="btn btn-sm btn-outline-secondary py-0 float-right mr-1"
 							href="#"
 							data-toggle="tooltip"
 							title="{{ $__t('Expand to fullscreen') }}">
 							<i class="fas fa-expand-arrows-alt"></i>
+						</a>
+						<a id="selectedEquipmentInstructionManualDownloadButton"
+							class="btn btn-sm btn-outline-secondary py-0 float-right mr-1"
+							href="#"
+							target="_blank"
+							data-toggle="tooltip"
+							title="{{ $__t('Download file') }}">
+							<i class="fas fa-file-download"></i>
 						</a>
 					</div>
 					<div class="card-body py-0 px-0">
