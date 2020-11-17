@@ -355,14 +355,6 @@ a:not([href]) {
 	overflow: visible !important;
 }
 
-.grab-cursor {
-	cursor: grab;
-}
-
-.grab-cursor:active {
-	cursor: grabbing;
-}
-
 /* Third party component customizations - toastr */
 #toast-container > div {
 	opacity: 1;
