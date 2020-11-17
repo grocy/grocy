@@ -49,8 +49,20 @@ class DatabaseMigrationService extends BaseService
 
 		if (intval($rowCount) === 0)
 		{
-			$this->getDatabaseService()->ExecuteDbStatement($sql);
-			$this->getDatabaseService()->ExecuteDbStatement('INSERT INTO migrations (migration) VALUES (' . $migrationId . ')');
+			$this->getDatabaseService()->GetDbConnectionRaw()->beginTransaction();
+
+			try
+			{
+				$this->getDatabaseService()->ExecuteDbStatement($sql);
+				$this->getDatabaseService()->ExecuteDbStatement('INSERT INTO migrations (migration) VALUES (' . $migrationId . ')');
+			}
+			catch (Exception $ex)
+			{
+				$this->getDatabaseService()->GetDbConnectionRaw()->rollback();
+				throw $ex;
+			}
+
+			$this->getDatabaseService()->GetDbConnectionRaw()->commit();
 		}
 	}
 }
