@@ -92,7 +92,13 @@ class DatabaseService
 	{
 		if (GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease')
 		{
-			return GROCY_DATAPATH . '/grocy_' . GROCY_DEFAULT_LOCALE . '.db';
+			$dbSuffix = GROCY_DEFAULT_LOCALE;
+			if (defined('GROCY_DEMO_DB_SUFFIX'))
+			{
+				$dbSuffix = GROCY_DEMO_DB_SUFFIX;
+			}
+
+			return GROCY_DATAPATH . '/grocy_' . $dbSuffix . '.db';
 		}
 
 		return GROCY_DATAPATH . '/grocy.db';
