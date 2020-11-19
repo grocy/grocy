@@ -519,7 +519,7 @@ class StockService extends BaseService
 	public function GetExpiredProducts()
 	{
 		$currentStock = $this->GetCurrentStock(false);
-		$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d 23:59:59', strtotime("-1 days")), '<');
+		$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d 23:59:59', strtotime('-1 days')), '<');
 		$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'due_type', 2);
 
 		return $currentStock;
@@ -665,11 +665,11 @@ class StockService extends BaseService
 		// In order of next use:
 		// First due first, then first in first out
 
-		$sqlWhereProductId = 'product_id = :1';
+		$sqlWhereProductId = 'product_id = ' . $productId;
 
 		if ($allowSubproductSubstitution)
 		{
-			$sqlWhereProductId = '(product_id IN (SELECT sub_product_id FROM products_resolved WHERE parent_product_id = :1) OR product_id = :1)';
+			$sqlWhereProductId = 'product_id IN (SELECT sub_product_id FROM products_resolved WHERE parent_product_id = ' . $productId . ')';
 		}
 
 		$sqlWhereAndOpen = 'AND open IN (0, 1)';
@@ -678,7 +678,7 @@ class StockService extends BaseService
 		{
 			$sqlWhereAndOpen = 'AND open = 0';
 		}
-		$result = $this->getDatabase()->stock()->where($sqlWhereProductId . ' ' . $sqlWhereAndOpen, $productId);
+		$result = $this->getDatabase()->stock()->where($sqlWhereProductId . ' ' . $sqlWhereAndOpen);
 		if ($ordered)
 		{
 			return $result->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC');
