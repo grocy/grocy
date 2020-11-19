@@ -199,6 +199,7 @@
 - New endpoints GET/POST/PUT `/users/{userId}/permissions` for the new user permissions feature mentioned above
 - The stock journal (entity `stock_log`) is now also available via the endpoint `/objects/{entity}` (=> `/objects/stock_log`)
 - Performance improvements of the `/stock/products/*` endpoints (thanks @fipwmaqzufheoxq92ebc)
+- The endpoint `/stock/products/{productId}/locations` now also has an optional query parameter `include_sub_products` to optionally also return locations of sub products of the given product
 - Fixed that the endpoint `/objects/{entity}/{objectId}` always returned successfully, even when the given object not exists (now returns `404` when the object is not found) (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that the endpoint `/stock/volatile` didn't include products which expire today (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that the endpoint `/objects/{entity}` did not include Userfields for Userentities (so the effective endpoint `/objects/userobjects`)

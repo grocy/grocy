@@ -578,7 +578,6 @@ class StockApiController extends BaseApiController
 	public function ProductStockEntries(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$allowSubproductSubstitution = false;
-
 		if (isset($request->getQueryParams()['include_sub_products']) && filter_var($request->getQueryParams()['include_sub_products'], FILTER_VALIDATE_BOOLEAN))
 		{
 			$allowSubproductSubstitution = true;
@@ -589,7 +588,13 @@ class StockApiController extends BaseApiController
 
 	public function ProductStockLocations(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->FilteredApiResponse($response, $this->getStockService()->GetProductStockLocations($args['productId']), $request->getQueryParams());
+		$allowSubproductSubstitution = false;
+		if (isset($request->getQueryParams()['include_sub_products']) && filter_var($request->getQueryParams()['include_sub_products'], FILTER_VALIDATE_BOOLEAN))
+		{
+			$allowSubproductSubstitution = true;
+		}
+
+		return $this->FilteredApiResponse($response, $this->getStockService()->GetProductStockLocations($args['productId'], $allowSubproductSubstitution), $request->getQueryParams());
 	}
 
 	public function RemoveProductFromShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)

@@ -1519,6 +1519,15 @@
 						}
 					},
 					{
+						"in": "query",
+						"name": "include_sub_products",
+						"required": false,
+						"description": "If sub product locations should be included (if the given product is a parent product and in addition to the ones of the given product)",
+						"schema": {
+							"type": "boolean"
+						}
+					},
+					{
 						"$ref": "#/components/parameters/query"
 					},
 					{

@@ -662,27 +662,27 @@ class StockService extends BaseService
 
 	public function GetProductStockEntries($productId, $excludeOpened = false, $allowSubproductSubstitution = false, $ordered = true)
 	{
-		// In order of next use:
-		// First due first, then first in first out
-
 		$sqlWhereProductId = 'product_id = ' . $productId;
-
 		if ($allowSubproductSubstitution)
 		{
 			$sqlWhereProductId = 'product_id IN (SELECT sub_product_id FROM products_resolved WHERE parent_product_id = ' . $productId . ')';
 		}
 
 		$sqlWhereAndOpen = 'AND open IN (0, 1)';
-
 		if ($excludeOpened)
 		{
 			$sqlWhereAndOpen = 'AND open = 0';
 		}
+
 		$result = $this->getDatabase()->stock()->where($sqlWhereProductId . ' ' . $sqlWhereAndOpen);
+
+		// In order of next use:
+		// First due first, then first in first out
 		if ($ordered)
 		{
 			return $result->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC');
 		}
+
 		return $result;
 	}
 
@@ -692,9 +692,15 @@ class StockService extends BaseService
 		return FindAllObjectsInArrayByPropertyValue($stockEntries, 'location_id', $locationId);
 	}
 
-	public function GetProductStockLocations($productId)
+	public function GetProductStockLocations($productId, $allowSubproductSubstitution = false)
 	{
-		return $this->getDatabase()->stock_current_locations()->where('product_id', $productId);
+		$sqlWhereProductId = 'product_id = ' . $productId;
+		if ($allowSubproductSubstitution)
+		{
+			$sqlWhereProductId = 'product_id IN (SELECT sub_product_id FROM products_resolved WHERE parent_product_id = ' . $productId . ')';
+		}
+
+		return $this->getDatabase()->stock_current_locations()->where($sqlWhereProductId);
 	}
 
 	public function GetStockEntry($entryId)
