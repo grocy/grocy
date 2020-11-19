@@ -290,10 +290,23 @@ class DemoDataGeneratorService extends BaseService
 			$batteriesService->TrackChargeCycle(4, date('Y-m-d H:i:s', strtotime('-56 days')));
 
 			// Download demo storage data
-			$productPicturesFolder = GROCY_DATAPATH . '/storage/productpictures';
-			$equipmentManualsFolder = GROCY_DATAPATH . '/storage/equipmentmanuals';
-			$recipePicturesFolder = GROCY_DATAPATH . '/storage/recipepictures';
-			@mkdir(GROCY_DATAPATH . '/storage');
+			$storagePath = GROCY_DATAPATH . '/storage';
+			@mkdir($storagePath);
+			if (GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease')
+			{
+				$dbSuffix = GROCY_DEFAULT_LOCALE;
+				if (defined('GROCY_DEMO_DB_SUFFIX'))
+				{
+					$dbSuffix = GROCY_DEMO_DB_SUFFIX;
+				}
+
+				$storagePath = $storagePath . '/' . $dbSuffix;
+				@mkdir($storagePath);
+			}
+
+			$productPicturesFolder = $storagePath . '/productpictures';
+			$equipmentManualsFolder = $storagePath . '/equipmentmanuals';
+			$recipePicturesFolder = $storagePath . '/recipepictures';
 			@mkdir($productPicturesFolder);
 			@mkdir($equipmentManualsFolder);
 			@mkdir($recipePicturesFolder);
