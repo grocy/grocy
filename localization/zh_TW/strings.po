@@ -1358,7 +1358,7 @@ msgstr "在這裡，您可以按當前位置在每個位置打印頁面，也可
 msgid "this location"
 msgstr "這個位置"
 
-msgid "Consumend amount"
+msgid "Consumed amount"
 msgstr "消費量"
 
 msgid "Time of printing"

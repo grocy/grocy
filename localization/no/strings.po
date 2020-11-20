@@ -1420,7 +1420,7 @@ msgstr ""
 msgid "this location"
 msgstr "kun denne lokasjonen"
 
-msgid "Consumend amount"
+msgid "Consumed amount"
 msgstr "Forbrukt mengde"
 
 msgid "Time of printing"

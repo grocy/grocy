@@ -1379,7 +1379,7 @@ msgstr "이곳에서 현재 재고가 있는 위치별로 페이지를 인쇄 �
 msgid "this location"
 msgstr "이 위치"
 
-msgid "Consumend amount"
+msgid "Consumed amount"
 msgstr "소비량"
 
 msgid "Time of printing"

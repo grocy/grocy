@@ -1443,7 +1443,7 @@ msgstr ""
 msgid "this location"
 msgstr "toto umístění"
 
-msgid "Consumend amount"
+msgid "Consumed amount"
 msgstr "Spotřebované množství"
 
 msgid "Time of printing"

@@ -1462,7 +1462,7 @@ msgstr ""
 msgid "this location"
 msgstr "это место хранения"
 
-msgid "Consumend amount"
+msgid "Consumed amount"
 msgstr "Употреблённое количество"
 
 msgid "Time of printing"

@@ -1404,7 +1404,7 @@ msgstr ""
 msgid "this location"
 msgstr "ez a hely"
 
-msgid "Consumend amount"
+msgid "Consumed amount"
 msgstr "Felhasznált mennyiség"
 
 msgid "Time of printing"

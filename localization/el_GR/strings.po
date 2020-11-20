@@ -1437,7 +1437,7 @@ msgstr ""
 msgid "this location"
 msgstr "αυτήν την τοποθεσία"
 
-msgid "Consumend amount"
+msgid "Consumed amount"
 msgstr "Καταναλώστε το ποσό"
 
 msgid "Time of printing"

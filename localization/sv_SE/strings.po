@@ -1427,7 +1427,7 @@ msgstr ""
 msgid "this location"
 msgstr "Denna position"
 
-msgid "Consumend amount"
+msgid "Consumed amount"
 msgstr "Förbrukat antal"
 
 msgid "Time of printing"

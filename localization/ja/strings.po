@@ -1356,7 +1356,7 @@ msgstr ""
 msgid "this location"
 msgstr "この場所"
 
-msgid "Consumend amount"
+msgid "Consumed amount"
 msgstr "消費した量"
 
 msgid "Time of printing"

@@ -1414,8 +1414,8 @@ msgstr ""
 msgid "this location"
 msgstr "this location"
 
-msgid "Consumend amount"
-msgstr "Consumend amount"
+msgid "Consumed amount"
+msgstr "Consumed amount"
 
 msgid "Time of printing"
 msgstr "Time of printing"
