@@ -114,7 +114,7 @@
 				</label>
 			</div>
 		</div>
-
+		<?php /*
 		<h4 class="mt-2">{{ $__t('Consume') }}</h4>
 		@include('components.numberpicker', array(
 		'id' => 'stock_default_consume_amount',
@@ -124,6 +124,7 @@
 		'decimals' => $userSettings['stock_decimal_places_amounts'],
 		'additionalCssClasses' => 'user-setting-control locale-number-input locale-number-quantity-amount'
 		))
+		*/ ?>
 
 		<h4 class="mt-2">{{ $__t('Common') }}</h4>
 

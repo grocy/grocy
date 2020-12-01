@@ -399,11 +399,11 @@
 			@php if($mode == 'edit') { $value = $product->quick_consume_amount; } else { $value = 1; } @endphp
 			@include('components.numberpicker', array(
 			'id' => 'quick_consume_amount',
-			'label' => 'Quick consume amount',
+			'label' => 'Standard Consume-Amount for this Product',
 			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,
-			'hint' => $__t('This amount is used for the "quick consume/open buttons" on the stock overview page (related to quantity unit stock)'),
+			'hint' => $__t('This amount is used as the Standard Amount for Consuming'),
 			'contextInfoId' => 'quick_consume_qu_info',
 			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
 			))
