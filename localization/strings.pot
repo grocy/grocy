@@ -60,6 +60,15 @@ msgstr ""
 msgid "Batteries overview"
 msgstr ""
 
+msgid "Standard Consume-Amount for this Product"
+msgstr ""
+
+msgid "This amount is used as the Standard Amount for Consuming"
+msgstr ""
+
+msgid "Standard Consume-Amount for this Product"
+msgstr ""
+
 msgid "Purchase"
 msgstr ""
 

@@ -51,15 +51,6 @@ msgid_plural "%s Products"
 msgstr[0] "%s Produkt"
 msgstr[1] "%s Produkte"
 
-msgid "Standard Consume-Amount for this Product"
-msgstr "Standard Verbrauchsmenge für dieses Produkt"
-
-msgid "This amount is used as the Standard Amount for Consuming"
-msgstr "Dieser Betrag wird als Standardmenge für den Verbrauch genommen (inkl. dem Schnellverbrauch)."
-
-msgid "Otherwise you will be forced to make an entry before you can save"
-msgstr "Sonst wird man zu einer Eingabe gezwungen bevor man speichern kann"
-
 msgid "Amount"
 msgstr "Menge"
 

@@ -415,7 +415,6 @@ $('#consume-form input').keyup(function(event)
 	Grocy.FrontendHelpers.ValidateForm('consume-form');
 });
 
-//das Timeout wurde eingepflegt damit bei valider vorausgewaehlter Menge die Buttons von selbst aktiviert werden
 $('#consume-form select').change(function(event)
 	{setTimeout(function(){
 	Grocy.FrontendHelpers.ValidateForm('consume-form');
