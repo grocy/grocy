@@ -94,7 +94,11 @@
 						Grocy.Components.ProductAmountPicker.Reset();
 						$("#display_amount").attr("min", "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
 						$("#display_amount").removeAttr("max");
-						$('#display_amount').val(parseFloat(productDetails.product.quick_consume_amount));
+						if (Grocy.UserSettings.use_product_specify_amount == 1) {
+							$('#display_amount').val(parseFloat(productDetails.product.quick_consume_amount));
+						}
+						else {
+							$('#display_amount').val(parseFloat(0));
 						RefreshLocaleNumberInput();
 						$(".input-group-productamountpicker").trigger("change");
 						$("#tare-weight-handling-info").addClass("d-none");
@@ -160,7 +164,12 @@ $('#save-mark-as-open-button').on('click', function(e)
 					Grocy.FrontendHelpers.EndUiBusy("consume-form");
 					toastr.success(__t('Marked %1$s of %2$s as opened', jsonForm.amount + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + result.transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
 
-					$('#display_amount').val(parseFloat(productDetails.product.quick_consume_amount));
+					if (Grocy.UserSettings.use_product_specify_amount == 1) {
+						$('#display_amount').val(parseFloat(productDetails.product.quick_consume_amount));
+					}
+					else {
+						$('#display_amount').val(parseFloat(0));
+					}
 					RefreshLocaleNumberInput();
 					$(".input-group-productamountpicker").trigger("change");
 					Grocy.Components.ProductPicker.Clear();
@@ -276,7 +285,12 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 
 				Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
 				Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.quantity_unit_stock.id);
-				$('#display_amount').val(parseFloat(productDetails.product.quick_consume_amount));
+				if (Grocy.UserSettings.use_product_specify_amount == 1) {
+					$('#display_amount').val(parseFloat(productDetails.product.quick_consume_amount));
+				}
+				else {
+					$('#display_amount').val(parseFloat(0));
+				}
 				RefreshLocaleNumberInput();
 				$(".input-group-productamountpicker").trigger("change");
 

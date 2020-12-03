@@ -1,10 +1,10 @@
-# 
+#
 # Translators:
 # Hagen Tasche <github@fvbor.de>, 2020
 # Luca RHK <luca@rhk-in.de>, 2020
 # Tobias Wolter <mumpfpuffel@gmail.com>, 2020
 # Bernd Bestel <bernd@berrnd.de>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
@@ -50,6 +50,15 @@ msgid "%s Product"
 msgid_plural "%s Products"
 msgstr[0] "%s Produkt"
 msgstr[1] "%s Produkte"
+
+msgid "Standard Consume-Amount for this Product"
+msgstr "Standard Verbrauchsmenge für dieses Produkt"
+
+msgid "This amount is used as the Standard Amount for Consuming"
+msgstr "Dieser Betrag wird als Standardmenge für den Verbrauch genommen (inkl. dem Schnellverbrauch)."
+
+msgid "Otherwise you will be forced to make an entry before you can save"
+msgstr "Sonst wird man zu einer Eingabe gezwungen bevor man speichern kann"
 
 msgid "Amount"
 msgstr "Menge"

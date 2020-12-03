@@ -114,6 +114,24 @@
 				</label>
 			</div>
 		</div>
+
+		<h4 class="mt-2">{{ $__t('Consume') }}</h4>
+		<div class="form-group">
+			<div class="custom-control custom-checkbox">
+				<input type="checkbox"
+					   class="form-check-input custom-control-input user-setting-control"
+					   id="use_product_specify_amount"
+					   data-setting-key="use_product_specify_amount">
+				<label class="form-check-label custom-control-label"
+					   for="use_product_specify_amount">
+					{{ $__t('Use Product Specific Standard Amount') }}
+					<i class="fas fa-question-circle text-muted"
+					   data-toggle="tooltip"
+					   title="{{ $__t('Otherwise you will be forced to make an entry before you can save') }}"></i>
+				</label>
+				</label>
+			</div>
+		</div>
 		<?php /*
 		<h4 class="mt-2">{{ $__t('Consume') }}</h4>
 		@include('components.numberpicker', array(

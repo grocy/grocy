@@ -6,6 +6,7 @@ $("#stock_default_purchase_amount").val(Grocy.UserSettings.stock_default_purchas
 $("#stock_default_consume_amount").val(Grocy.UserSettings.stock_default_consume_amount);
 $("#stock_decimal_places_amounts").val(Grocy.UserSettings.stock_decimal_places_amounts);
 $("#stock_decimal_places_prices").val(Grocy.UserSettings.stock_decimal_places_prices);
+$("#use_product_specify_amount").val(Grocy.UserSettings.use_product_specify_amount);
 
 if (BoolVal(Grocy.UserSettings.show_icon_on_stock_overview_page_when_product_is_on_shopping_list))
 {
@@ -19,6 +20,11 @@ if (BoolVal(Grocy.UserSettings.show_purchased_date_on_purchase))
 if (BoolVal(Grocy.UserSettings.show_warning_on_purchase_when_due_date_is_earlier_than_next))
 {
 	$("#show_warning_on_purchase_when_due_date_is_earlier_than_next").prop("checked", true);
+}
+
+if (BoolVal(Grocy.UserSettings.use_product_specify_amount))
+{
+	$("#use_product_specify_amount").prop("checked", true);
 }
 
 RefreshLocaleNumberInput();

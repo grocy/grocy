@@ -116,6 +116,7 @@ DefaultUserSetting('stock_decimal_places_prices', 2); // Default decimal places 
 DefaultUserSetting('stock_due_soon_days', 5);
 DefaultUserSetting('stock_default_purchase_amount', 0);
 DefaultUserSetting('stock_default_consume_amount', 1);
+DefaultUserSetting('use_product_specify_amount', 1);
 DefaultUserSetting('scan_mode_consume_enabled', false);
 DefaultUserSetting('scan_mode_purchase_enabled', false);
 DefaultUserSetting('show_icon_on_stock_overview_page_when_product_is_on_shopping_list', true);
