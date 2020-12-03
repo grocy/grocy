@@ -99,6 +99,7 @@
 						}
 						else {
 							$('#display_amount').val(parseFloat(0));
+						}
 						RefreshLocaleNumberInput();
 						$(".input-group-productamountpicker").trigger("change");
 						$("#tare-weight-handling-info").addClass("d-none");
