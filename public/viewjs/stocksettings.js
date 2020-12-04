@@ -21,4 +21,22 @@ if (BoolVal(Grocy.UserSettings.show_warning_on_purchase_when_due_date_is_earlier
 	$("#show_warning_on_purchase_when_due_date_is_earlier_than_next").prop("checked", true);
 }
 
+if (BoolVal(Grocy.UserSettings.stock_default_consume_amount_use_quick_consume_amount))
+{
+	$("#stock_default_consume_amount_use_quick_consume_amount").prop("checked", true);
+	$("#stock_default_consume_amount").attr("disabled", "");
+}
+
 RefreshLocaleNumberInput();
+
+$("#stock_default_consume_amount_use_quick_consume_amount").on("click", function()
+{
+	if (this.checked)
+	{
+		$("#stock_default_consume_amount").attr("disabled", "");
+	}
+	else
+	{
+		$("#stock_default_consume_amount").removeAttr("disabled");
+	}
+});

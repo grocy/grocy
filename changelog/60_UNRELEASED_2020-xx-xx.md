@@ -44,6 +44,7 @@
 - The product option "Allow partial units in stock" was removed, partial amounts are now possible by default for all products
 - On purchase there is now a warning shown, when the due date of the purchased product is earlier than the next due date in stock (enabled by default, can be disabled by a new stock setting (top right corner settings menu))
 - The amount to be used for the "quick consume/open buttons" on the stock overview page can now be configured per product (new product option "Quick consume amount", defaults to 1)
+  - This "Quick consume amount" can optionally also be used as the default on the consume page (new stock setting / top right corner settings menu)
 - Products can now be duplicated (new button on the products list page, all fields will be preset from the copied product, except the name)
 - Optimized/clarified what the total/unit price is on the purchase page (thanks @kriddles)
 - On the purchase page the amount field is now displayed above/before the due date for better `TAB` handling (thanks @kriddles)

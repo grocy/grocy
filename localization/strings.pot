@@ -1993,3 +1993,6 @@ msgstr ""
 
 msgid "Download file"
 msgstr ""
+
+msgid "Use the products \"Quick consume amount\""
+msgstr ""

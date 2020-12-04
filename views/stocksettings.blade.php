@@ -122,8 +122,22 @@
 		'label' => 'Default amount for consume',
 		'min' => 0,
 		'decimals' => $userSettings['stock_decimal_places_amounts'],
-		'additionalCssClasses' => 'user-setting-control locale-number-input locale-number-quantity-amount'
+		'additionalCssClasses' => 'user-setting-control locale-number-input locale-number-quantity-amount',
+		'additionalGroupCssClasses' => 'mb-0'
 		))
+
+		<div class="form-group">
+			<div class="custom-control custom-checkbox">
+				<input type="checkbox"
+					class="form-check-input custom-control-input user-setting-control"
+					id="stock_default_consume_amount_use_quick_consume_amount"
+					data-setting-key="stock_default_consume_amount_use_quick_consume_amount">
+				<label class="form-check-label custom-control-label"
+					for="stock_default_consume_amount_use_quick_consume_amount">
+					{{ $__t('Use the products "Quick consume amount"') }}
+				</label>
+			</div>
+		</div>
 
 		<h4 class="mt-2">{{ $__t('Common') }}</h4>
 
