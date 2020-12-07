@@ -152,22 +152,32 @@ class UsersApiController extends BaseApiController
 		try
 		{
 			User::checkPermission($request, User::PERMISSION_ADMIN);
-			$requestBody = $this->GetParsedAndFilteredRequestBody($request);
+
+			$requestBody = $request->getParsedBody();
 			$db = $this->getDatabase();
 			$db->user_permissions()
 				->where('user_id', $args['userId'])
 				->delete();
 
 			$perms = [];
-
-			foreach ($requestBody['permissions'] as $perm_id)
+			if (GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease')
 			{
+				// For demo mode always all users have and keep the ADMIN permission
 				$perms[] = [
 					'user_id' => $args['userId'],
-					'permission_id' => $perm_id
+					'permission_id' => 1
 				];
 			}
-
+			else
+			{
+				foreach ($requestBody['permissions'] as $perm_id)
+				{
+					$perms[] = [
+						'user_id' => $args['userId'],
+						'permission_id' => $perm_id
+					];
+				}
+			}
 			$db->insert('user_permissions', $perms, 'batch');
 
 			return $this->EmptyApiResponse($response);

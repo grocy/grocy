@@ -3,7 +3,7 @@
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 }
-	]
+	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#userobjects-table tbody').removeClass("d-none");
 userobjectsTable.columns.adjust().draw();

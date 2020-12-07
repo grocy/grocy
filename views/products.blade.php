@@ -71,6 +71,17 @@
 			</select>
 		</div>
 	</div>
+	<div class="col-xs-12 col-md-6 col-xl-3">
+		<div class="form-check custom-control custom-checkbox">
+			<input class="form-check-input custom-control-input"
+				type="checkbox"
+				id="show-disabled-products">
+			<label class="form-check-label custom-control-label"
+				for="show-disabled-products">
+				{{ $__t('Show disabled products') }}
+			</label>
+		</div>
+	</div>
 	<div class="col">
 		<div class="float-right">
 			<a id="clear-filter-button"
@@ -124,7 +135,7 @@
 							title="{{ $__t('Copy this item') }}">
 							<i class="fas fa-copy"></i>
 						</a>
-						<a class="btn btn-danger btn-sm product-delete-button @if($product->active == 0) disabled @endif"
+						<a class="btn btn-danger btn-sm product-delete-button"
 							href="#"
 							data-product-id="{{ $product->id }}"
 							data-product-name="{{ $product->name }}"
@@ -134,9 +145,12 @@
 						</a>
 					</td>
 					<td>
-						@if($product->active == 0) (deactivated) @endif {{ $product->name }}@if(!empty($product->picture_file_name)) <i class="fas fa-image text-muted"
+						{{ $product->name }}
+						@if(!empty($product->picture_file_name))
+						<i class="fas fa-image text-muted"
 							data-toggle="tooltip"
-							title="{{ $__t('This product has a picture') }}"></i>@endif
+							title="{{ $__t('This product has a picture') }}"></i>
+						@endif
 					</td>
 					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif">
 						{{ FindObjectInArrayByPropertyValue($locations, 'id', $product->location_id)->name }}

@@ -745,7 +745,10 @@ $.extend(true, $.fn.dataTable.defaults, {
 		{
 			return JSON.parse(Grocy.UserSettings[settingKey]);
 		}
-	}
+	},
+	'columnDefs': [
+		{ type: 'chinese-string', targets: '_all' }
+	]
 });
 
 // serializeJSON defaults

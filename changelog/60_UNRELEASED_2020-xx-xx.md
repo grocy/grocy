@@ -46,10 +46,13 @@
 - The amount to be used for the "quick consume/open buttons" on the stock overview page can now be configured per product (new product option "Quick consume amount", defaults to 1)
   - This "Quick consume amount" can optionally also be used as the default on the consume page (new stock setting / top right corner settings menu)
 - Products can now be duplicated (new button on the products list page, all fields will be preset from the copied product, except the name)
+- When consuming or opening a parent product, which is currently not in stock, any in-stock sub product will now be consumed/opened (like already automatically done when consuming recipes)
 - Optimized/clarified what the total/unit price is on the purchase page (thanks @kriddles)
 - On the purchase page the amount field is now displayed above/before the due date for better `TAB` handling (thanks @kriddles)
 - Changed that when `FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING` is disabled, products now get internally a due date of "never overdue" (aka `2999-12-31`) instead of today (thanks @kriddles)
-- Products can now be hidden instead of deleted to prevent problems / missing information on existing references (new checkbox on the product edit page) (thanks @kriddles)
+- Products can now be disabled to keep the history/journal, but hide it everywhere, without deleting it (new product option "Active", deleting a product now explicitly also deletes its journal and all other references) (thanks @kriddles for the initial work on this)
+- Products can now be hidden from the stock overview page (new product option "Show on stock overview page", enabled by default, so no changed behavior when not configured)
+- The due date is now also prefilled on the inventory page based on the products "Default due days" (was only done on the purchase page before)
 - On the stock journal page, it's now visible if a consume-booking was spoiled
 - It's now tracked who made a stock change (currently logged in user, visible on the stock journal page) (thanks @fipwmaqzufheoxq92ebc)
 - Product edit page improvements ("Save & continue" button, deleting and adding a product picuture is now possible in one go) (thanks @Ma27)
@@ -60,6 +63,7 @@
 - When clicking the product name on the shopping list, the product card will now be displayed (like on the stock overview page) (thanks @kriddles)
 - On the product card there is now also a button to jump directly to the stock entries of the corresponding product (thanks @kriddles)
 - The product picker workflows can now also be started by `ENTER` (additionally to `TAB`)
+- Added a "retry camera barcode scan" button (button with camera icon, shortcut `C`) to the product picker workflow dialog
 - Added more filters on the stock journal page
 - Added a grouped/summarized stock journal (new button "Journal summary" at the top of the stock journal page) (thanks @fipwmaqzufheoxq92ebc)
   - Provides an overview of summarized transactions per product, transaction type and user + summarized amount
@@ -91,12 +95,14 @@
 - Changed that recipe costs are now based on the costs of the products picked by the default consume rule "First due first, then first in first out" (thanks @kriddles)
   - Recipe costs were based on the last purchase price per product before, so this now better reflects the current real costs
 - Improved the recipe add workflow (a recipe called "New recipe" is now not automatically created when starting to add a recipe) (thanks @zsarnett)
+- On the recipe page, the calories and costs per ingredient are now shown to get a better overview of how much each ingredient contributed
 - Fixed that images on the recipe gallery view were not scaled correctly on larger screens (thanks @zsarnett)
 - Fixed that decimal ingredient amounts maybe resulted in wrong conversions or truncated decimal places if your locale does not use a dot as the decimal separator (thanks @m-byte)
 - Fixed that a recipe cannot be included in itself (because this will cause an infinite loop) (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that when editing a recipe ingredient the checkbox "Disable stock fulfillment checking for this ingredient" was not initaliased with the saved value
 - Fixed that the status filter ("Enough in stock", etc.) on the recipes page did not filter recipes on the gallery tab (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that consuming a recipe ingredient with tare weight handling enabled consumed a wrong amount (thanks @fipwmaqzufheoxq92ebc)
+- Fixed that consuming a parent product recipe ingredient did not consider quantity unit conversion when effectively consuming a child product
 
 ### Meal plan fixes
 - Fixed that for products the quantity unit purchase was displayed instead of the products quantity unit stock (thanks @BenoitAnastay)
@@ -201,6 +207,11 @@
 - The stock journal (entity `stock_log`) is now also available via the endpoint `/objects/{entity}` (=> `/objects/stock_log`)
 - Performance improvements of the `/stock/products/*` endpoints (thanks @fipwmaqzufheoxq92ebc)
 - The endpoint `/stock/products/{productId}/locations` now also has an optional query parameter `include_sub_products` to optionally also return locations of sub products of the given product
+- The following endpoints  now have an optional request body parameter `allow_subproduct_substitution` to consume/open any child product when the given product is a parent product and currently not in stock
+  - `/stock/products/{productId}/consume`
+  - `/stock/products/by-barcode/{barcode}/consume`
+  - `/stock/products/{productId}/open`
+  - `/stock/products/by-barcode/{barcode}/open`
 - Fixed that the endpoint `/objects/{entity}/{objectId}` always returned successfully, even when the given object not exists (now returns `404` when the object is not found) (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that the endpoint `/stock/volatile` didn't include products which expire today (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that the endpoint `/objects/{entity}` did not include Userfields for Userentities (so the effective endpoint `/objects/userobjects`)

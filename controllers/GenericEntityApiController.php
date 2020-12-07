@@ -206,7 +206,7 @@ class GenericEntityApiController extends BaseApiController
 
 	private function IsEntityWithEditRequiresAdmin($entity)
 	{
-		return !in_array($entity, $this->getOpenApiSpec()->components->internalSchemas->EntityEditRequiresAdmin->enum);
+		return in_array($entity, $this->getOpenApiSpec()->components->internalSchemas->EntityEditRequiresAdmin->enum);
 	}
 
 	private function IsEntityWithPreventedListing($entity)

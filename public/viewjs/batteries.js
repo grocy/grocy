@@ -3,7 +3,7 @@
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 }
-	],
+	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#batteries-table tbody').removeClass("d-none");
 batteriesTable.columns.adjust().draw();

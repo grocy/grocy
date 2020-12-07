@@ -4,7 +4,7 @@
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 },
 		{ 'visible': false, 'targets': 3 }
-	],
+	].concat($.fn.dataTable.defaults.columnDefs),
 	'rowGroup': {
 		dataSrc: 3
 	}

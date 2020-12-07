@@ -128,7 +128,7 @@ SELECT
 			SELECT pc.permission_name
 			FROM user_permissions_resolved pc
 			WHERE pc.user_id = u.id
-			)
-		) AS has_permission,
-	   ph.parent AS parent
+		)
+	) AS has_permission,
+	ph.parent AS parent
 FROM users u, permission_hierarchy ph;

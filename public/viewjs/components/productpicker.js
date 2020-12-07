@@ -172,6 +172,59 @@ $('#product_id_text_input').on('blur', function(e)
 				addProductWorkflowsAdditionalCssClasses = "d-none";
 			}
 
+			var buttons = {
+				cancel: {
+					label: __t('Cancel'),
+					className: 'btn-secondary responsive-button',
+					callback: function()
+					{
+						Grocy.Components.ProductPicker.PopupOpen = false;
+						Grocy.Components.ProductPicker.SetValue('');
+					}
+				},
+				addnewproduct: {
+					label: '<strong>P</strong> ' + __t('Add as new product'),
+					className: 'btn-success add-new-product-dialog-button responsive-button ' + addProductWorkflowsAdditionalCssClasses,
+					callback: function()
+					{
+						Grocy.Components.ProductPicker.PopupOpen = false;
+						window.location.href = U('/product/new?flow=InplaceNewProductWithName&name=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative + "?flow=InplaceNewProductWithName"));
+					}
+				},
+				addbarcode: {
+					label: '<strong>B</strong> ' + __t('Add as barcode to existing product'),
+					className: 'btn-info add-new-barcode-dialog-button responsive-button',
+					callback: function()
+					{
+						Grocy.Components.ProductPicker.PopupOpen = false;
+						window.location.href = U(Grocy.CurrentUrlRelative + '?flow=InplaceAddBarcodeToExistingProduct&barcode=' + encodeURIComponent(input));
+					}
+				},
+				addnewproductwithbarcode: {
+					label: '<strong>A</strong> ' + __t('Add as new product and prefill barcode'),
+					className: 'btn-warning add-new-product-with-barcode-dialog-button responsive-button ' + addProductWorkflowsAdditionalCssClasses,
+					callback: function()
+					{
+						Grocy.Components.ProductPicker.PopupOpen = false;
+						window.location.href = U('/product/new?flow=InplaceNewProductWithBarcode&barcode=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative + "?flow=InplaceAddBarcodeToExistingProduct&barcode=" + input));
+					}
+				}
+			};
+
+			if (!Grocy.FeatureFlags.DISABLE_BROWSER_BARCODE_CAMERA_SCANNING)
+			{
+				buttons.retrycamerascanning = {
+					label: '<strong>C</strong> <i class="fas fa-camera"></i>',
+					className: 'btn-primary responsive-button retry-camera-scanning-button',
+					callback: function()
+					{
+						Grocy.Components.ProductPicker.PopupOpen = false;
+						Grocy.Components.ProductPicker.SetValue('');
+						$("#barcodescanner-start-button").click();
+					}
+				};
+			}
+
 			Grocy.Components.ProductPicker.PopupOpen = true;
 			bootbox.dialog({
 				message: __t('"%s" could not be resolved to a product, how do you want to proceed?', input),
@@ -184,44 +237,7 @@ $('#product_id_text_input').on('blur', function(e)
 				size: 'large',
 				backdrop: true,
 				closeButton: false,
-				buttons: {
-					cancel: {
-						label: __t('Cancel'),
-						className: 'btn-secondary responsive-button',
-						callback: function()
-						{
-							Grocy.Components.ProductPicker.PopupOpen = false;
-							Grocy.Components.ProductPicker.SetValue('');
-						}
-					},
-					addnewproduct: {
-						label: '<strong>P</strong> ' + __t('Add as new product'),
-						className: 'btn-success add-new-product-dialog-button responsive-button ' + addProductWorkflowsAdditionalCssClasses,
-						callback: function()
-						{
-							Grocy.Components.ProductPicker.PopupOpen = false;
-							window.location.href = U('/product/new?flow=InplaceNewProductWithName&name=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative + "?flow=InplaceNewProductWithName"));
-						}
-					},
-					addbarcode: {
-						label: '<strong>B</strong> ' + __t('Add as barcode to existing product'),
-						className: 'btn-info add-new-barcode-dialog-button responsive-button',
-						callback: function()
-						{
-							Grocy.Components.ProductPicker.PopupOpen = false;
-							window.location.href = U(Grocy.CurrentUrlRelative + '?flow=InplaceAddBarcodeToExistingProduct&barcode=' + encodeURIComponent(input));
-						}
-					},
-					addnewproductwithbarcode: {
-						label: '<strong>A</strong> ' + __t('Add as new product and prefill barcode'),
-						className: 'btn-warning add-new-product-with-barcode-dialog-button responsive-button ' + addProductWorkflowsAdditionalCssClasses,
-						callback: function()
-						{
-							Grocy.Components.ProductPicker.PopupOpen = false;
-							window.location.href = U('/product/new?flow=InplaceNewProductWithBarcode&barcode=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative + "?flow=InplaceAddBarcodeToExistingProduct&barcode=" + input));
-						}
-					}
-				}
+				buttons: buttons
 			}).on('keypress', function(e)
 			{
 				if (e.key === 'B' || e.key === 'b')
@@ -236,6 +252,10 @@ $('#product_id_text_input').on('blur', function(e)
 				{
 					$('.add-new-product-with-barcode-dialog-button').not(".d-none").click();
 				}
+				if (e.key === 'c' || e.key === 'C')
+				{
+					$('.retry-camera-scanning-button').not(".d-none").click();
+				}
 			});
 		}
 	}
@@ -249,7 +269,6 @@ $(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
 	}
 
 	// Don't know why the blur event does not fire immediately ... this works...
-
 	Grocy.Components.ProductPicker.GetInputElement().focusout();
 	Grocy.Components.ProductPicker.GetInputElement().focus();
 	Grocy.Components.ProductPicker.GetInputElement().blur();

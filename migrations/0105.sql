@@ -37,7 +37,8 @@ FROM (
         WHERE m.id NOT IN (SELECT product_id FROM stock_current)
     ) sc
 LEFT JOIN products p
-    ON sc.product_id = p.id;
+    ON sc.product_id = p.id
+WHERE p.show_on_stock_overview = 1;
 
 CREATE VIEW uihelper_stock_current_overview
 AS
@@ -78,4 +79,5 @@ FROM (
         WHERE m.id NOT IN (SELECT product_id FROM stock_current)
     ) sc
 LEFT JOIN products p
-    ON sc.product_id = p.id;
+    ON sc.product_id = p.id
+WHERE p.show_on_stock_overview = 1;

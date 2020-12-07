@@ -4,7 +4,7 @@
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 }
-	]
+	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#batteries-journal-table tbody').removeClass("d-none");
 batteriesJournalTable.columns.adjust().draw();

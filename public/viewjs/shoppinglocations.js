@@ -3,7 +3,7 @@ var locationsTable = $('#shoppinglocations-table').DataTable({
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 }
-	]
+	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#shoppinglocations-table tbody').removeClass("d-none");
 locationsTable.columns.adjust().draw();

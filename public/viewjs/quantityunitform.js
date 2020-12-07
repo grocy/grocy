@@ -139,7 +139,7 @@ var quConversionsTable = $('#qu-conversions-table').DataTable({
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 }
-	]
+	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#qu-conversions-table tbody').removeClass("d-none");
 quConversionsTable.columns.adjust().draw();

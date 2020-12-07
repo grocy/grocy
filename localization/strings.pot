@@ -751,7 +751,7 @@ msgstr ""
 msgid "Image of product %s"
 msgstr ""
 
-msgid "Delete not possible"
+msgid "Deletion not possible"
 msgstr ""
 
 msgid "Equipment"
@@ -1906,19 +1906,19 @@ msgstr ""
 msgid "For purchases this amount of days will be added to today for the due date suggestion"
 msgstr ""
 
-msgid "-1 means that this product wille be never overdue"
+msgid "-1 means that this product will be never overdue"
 msgstr ""
 
 msgid "Default due days"
 msgstr ""
 
-msgid "When this product was marked as opened, the expiry date will be replaced by today + this amount of days (a value of 0 disables this)"
+msgid "When this product was marked as opened, the due date will be replaced by today + this amount of days (a value of 0 disables this)"
 msgstr ""
 
 msgid "Default due days after opened"
 msgstr ""
 
-msgid "On moving this product to a freezer location (so when freezing it), the expiry date will be replaced by today + this amount of days"
+msgid "On moving this product to a freezer location (so when freezing it), the due date will be replaced by today + this amount of days"
 msgstr ""
 
 msgid "Default due days after freezing"
@@ -1995,4 +1995,16 @@ msgid "Download file"
 msgstr ""
 
 msgid "Use the products \"Quick consume amount\""
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "This also removes any stock amount, the journal and all other references of this product - consider disabling this product instead, if you want to keep that and just hide it."
+msgstr ""
+
+msgid "Show disabled products"
+msgstr ""
+
+msgid "Show on stock overview page"
 msgstr ""

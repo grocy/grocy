@@ -1835,6 +1835,10 @@
 									"exact_amount": {
 										"type": "boolean",
 										"description": "For tare weight handling enabled products, `true` when the given is the absolute amount to be consumed, not the amount including the container weight"
+									},
+									"allow_subproduct_substitution": {
+										"type": "boolean",
+										"description": "`True` when any in-stock sub product should be used when the given product is a parent product and currently not in-stock"
 									}
 								},
 								"example": {
@@ -2054,6 +2058,10 @@
 									"stock_entry_id": {
 										"type": "string",
 										"description": "A specific stock entry id to open, if used, the amount has to be 1"
+									},
+									"allow_subproduct_substitution": {
+										"type": "boolean",
+										"description": "`True` when any in-stock sub product should be used when the given product is a parent product and currently not in-stock"
 									}
 								},
 								"example": {
@@ -2262,6 +2270,10 @@
 									"exact_amount": {
 										"type": "boolean",
 										"description": "For tare weight handling enabled products, `true` when the given is the absolute amount to be consumed, not the amount including the container weight"
+									},
+									"allow_subproduct_substitution": {
+										"type": "boolean",
+										"description": "`True` when any in-stock sub product should be used when the given product is a parent product and currently not in-stock"
 									}
 								},
 								"example": {
@@ -2476,6 +2488,10 @@
 									"stock_entry_id": {
 										"type": "string",
 										"description": "A specific stock entry id to open, if used, the amount has to be 1"
+									},
+									"allow_subproduct_substitution": {
+										"type": "boolean",
+										"description": "`True` when any in-stock sub product should be used when the given product is a parent product and currently not in-stock"
 									}
 								},
 								"example": {

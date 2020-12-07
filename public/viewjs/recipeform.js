@@ -80,7 +80,7 @@ var recipesPosTables = $('#recipes-pos-table').DataTable({
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 },
 		{ 'visible': false, 'targets': 4 }
-	],
+	].concat($.fn.dataTable.defaults.columnDefs),
 	'rowGroup': {
 		dataSrc: 4
 	}
@@ -93,7 +93,7 @@ var recipesIncludesTables = $('#recipes-includes-table').DataTable({
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 }
-	]
+	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#recipes-includes-table tbody').removeClass("d-none");
 recipesIncludesTables.columns.adjust().draw();

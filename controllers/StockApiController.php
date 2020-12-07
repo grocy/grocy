@@ -238,8 +238,6 @@ class StockApiController extends BaseApiController
 
 		$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
-		$result = null;
-
 		try
 		{
 			if ($requestBody === null)
@@ -253,57 +251,55 @@ class StockApiController extends BaseApiController
 			}
 
 			$spoiled = false;
-
 			if (array_key_exists('spoiled', $requestBody))
 			{
 				$spoiled = $requestBody['spoiled'];
 			}
 
 			$transactionType = StockService::TRANSACTION_TYPE_CONSUME;
-
 			if (array_key_exists('transaction_type', $requestBody) && !empty($requestBody['transactiontype']))
 			{
 				$transactionType = $requestBody['transactiontype'];
 			}
 
 			$specificStockEntryId = 'default';
-
 			if (array_key_exists('stock_entry_id', $requestBody) && !empty($requestBody['stock_entry_id']))
 			{
 				$specificStockEntryId = $requestBody['stock_entry_id'];
 			}
 
 			$locationId = null;
-
 			if (array_key_exists('location_id', $requestBody) && !empty($requestBody['location_id']) && is_numeric($requestBody['location_id']))
 			{
 				$locationId = $requestBody['location_id'];
 			}
 
 			$recipeId = null;
-
 			if (array_key_exists('recipe_id', $requestBody) && is_numeric($requestBody['recipe_id']))
 			{
 				$recipeId = $requestBody['recipe_id'];
 			}
 
 			$consumeExact = false;
-
 			if (array_key_exists('exact_amount', $requestBody))
 			{
 				$consumeExact = $requestBody['exact_amount'];
 			}
-			$transactionId = null;
 
-			$bookingId = $this->getStockService()->ConsumeProduct($args['productId'], $requestBody['amount'], $spoiled, $transactionType, $specificStockEntryId, $recipeId, $locationId, $transactionId, false, $consumeExact);
+			$allowSubproductSubstitution = false;
+			if (array_key_exists('allow_subproduct_substitution', $requestBody))
+			{
+				$allowSubproductSubstitution = $requestBody['allow_subproduct_substitution'];
+			}
+
+			$transactionId = null;
+			$bookingId = $this->getStockService()->ConsumeProduct($args['productId'], $requestBody['amount'], $spoiled, $transactionType, $specificStockEntryId, $recipeId, $locationId, $transactionId, $allowSubproductSubstitution, $consumeExact);
 			return $this->ApiResponse($response, $this->getDatabase()->stock_log($bookingId));
 		}
 		catch (\Exception $ex)
 		{
-			$result = $this->GenericErrorResponse($response, $ex->getMessage());
+			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-
-		return $result;
 	}
 
 	public function ConsumeProductByBarcode(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -510,13 +506,20 @@ class StockApiController extends BaseApiController
 			}
 
 			$specificStockEntryId = 'default';
-
 			if (array_key_exists('stock_entry_id', $requestBody) && !empty($requestBody['stock_entry_id']))
 			{
 				$specificStockEntryId = $requestBody['stock_entry_id'];
 			}
 
-			$bookingId = $this->getStockService()->OpenProduct($args['productId'], $requestBody['amount'], $specificStockEntryId);
+			$allowSubproductSubstitution = false;
+			if (array_key_exists('allow_subproduct_substitution', $requestBody))
+			{
+				$allowSubproductSubstitution = $requestBody['allow_subproduct_substitution'];
+			}
+
+			$transactionId = null;
+
+			$bookingId = $this->getStockService()->OpenProduct($args['productId'], $requestBody['amount'], $specificStockEntryId, $transactionId, $allowSubproductSubstitution);
 			return $this->ApiResponse($response, $this->getDatabase()->stock_log($bookingId));
 		}
 		catch (\Exception $ex)

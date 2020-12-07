@@ -291,7 +291,7 @@ var quConversionsTable = $('#qu-conversions-table-products').DataTable({
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 },
 		{ 'visible': false, 'targets': 4 }
-	],
+	].concat($.fn.dataTable.defaults.columnDefs),
 	'rowGroup': {
 		dataSrc: 4
 	}
@@ -305,7 +305,7 @@ var barcodeTable = $('#barcode-table').DataTable({
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 }
-	]
+	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#barcode-table tbody').removeClass("d-none");
 barcodeTable.columns.adjust().draw();

@@ -75,6 +75,19 @@
 				</div>
 			</div>
 
+			<div class="form-group">
+				<div class="custom-control custom-checkbox">
+					<input @if($mode=='create'
+						)
+						checked
+						@elseif($mode=='edit'
+						&&
+						$product->show_on_stock_overview == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="show_on_stock_overview" name="show_on_stock_overview" value="1">
+					<label class="form-check-label custom-control-label"
+						for="show_on_stock_overview">{{ $__t('Show on stock overview page') }}</label>
+				</div>
+			</div>
+
 			@php $prefillById = ''; if($mode=='edit') { $prefillById = $product->parent_product_id; } @endphp
 			@php
 			$hint = '';
@@ -211,7 +224,7 @@
 			'label' => 'Default due days',
 			'min' => -1,
 			'value' => $value,
-			'hint' => $__t('For purchases this amount of days will be added to today for the due date suggestion') . ' (' . $__t('-1 means that this product wille be never overdue') . ')'
+			'hint' => $__t('For purchases this amount of days will be added to today for the due date suggestion') . ' (' . $__t('-1 means that this product will be never overdue') . ')'
 			))
 
 			@if(GROCY_FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING)
@@ -221,7 +234,7 @@
 			'label' => 'Default due days after opened',
 			'min' => 0,
 			'value' => $value,
-			'hint' => $__t('When this product was marked as opened, the expiry date will be replaced by today + this amount of days (a value of 0 disables this)')
+			'hint' => $__t('When this product was marked as opened, the due date will be replaced by today + this amount of days (a value of 0 disables this)')
 			))
 			@else
 			<input type="hidden"
@@ -376,7 +389,7 @@
 			'label' => 'Default due days after freezing',
 			'min' => -1,
 			'value' => $value,
-			'hint' => $__t('On moving this product to a freezer location (so when freezing it), the expiry date will be replaced by today + this amount of days')
+			'hint' => $__t('On moving this product to a freezer location (so when freezing it), the due date will be replaced by today + this amount of days')
 			))
 
 			@php if($mode == 'edit') { $value = $product->default_best_before_days_after_thawing; } else { $value = 0; } @endphp

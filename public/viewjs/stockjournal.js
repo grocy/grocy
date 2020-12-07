@@ -4,7 +4,7 @@
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 }
-	]
+	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#stock-journal-table tbody').removeClass("d-none");
 stockJournalTable.columns.adjust().draw();

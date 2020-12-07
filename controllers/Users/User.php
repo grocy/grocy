@@ -84,10 +84,6 @@ class User
 
 	public function hasPermission(string $permission): bool
 	{
-		// global $PERMISSION_CACHE;
-
-		// if(isset($PERMISSION_CACHE[$permission]))
-		//	return $PERMISSION_CACHE[$permission];
 		return $this->getPermissions()->where('permission_name', $permission)->fetch() !== null;
 	}
 

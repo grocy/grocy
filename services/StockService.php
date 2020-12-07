@@ -242,12 +242,11 @@ class StockService extends BaseService
 			throw new \Exception('Location does not exist');
 		}
 
-		// Tare weight handling
+		$productDetails = (object)$this->GetProductDetails($productId);
 
+		// Tare weight handling
 		// The given amount is the new total amount including the container weight (gross)
 		// The amount to be posted needs to be the absolute value of the given amount - stock amount - tare weight
-		$productDetails = (object) $this->GetProductDetails($productId);
-
 		if ($productDetails->product->enable_tare_weight_handling == 1)
 		{
 			if ($consumeExactAmount)
@@ -265,11 +264,13 @@ class StockService extends BaseService
 		if ($transactionType === self::TRANSACTION_TYPE_CONSUME || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
 		{
 			if ($locationId === null)
-			{ // Consume from any location
+			{
+				// Consume from any location
 				$potentialStockEntries = $this->GetProductStockEntries($productId, false, $allowSubproductSubstitution);
 			}
 			else
-			{ // Consume only from the supplied location
+			{
+				// Consume only from the supplied location
 				$potentialStockEntries = $this->GetProductStockEntriesForLocation($productId, $locationId, false, $allowSubproductSubstitution);
 			}
 
@@ -297,8 +298,20 @@ class StockService extends BaseService
 					break;
 				}
 
+				if ($allowSubproductSubstitution && $stockEntry->product_id != $productId)
+				{
+					// A sub product will be used -> use QU conversions
+					$subProduct = $this->getDatabase()->products($stockEntry->product_id);
+					$conversion = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $stockEntry->product_id, $productDetails->product->qu_id_stock, $subProduct->qu_id_stock)->fetch();
+					if ($conversion != null)
+					{
+						$amount = $amount * floatval($conversion->factor);
+					}
+				}
+
 				if ($amount >= $stockEntry->amount)
-				{ // Take the whole stock entry
+				{
+					// Take the whole stock entry
 					$logRow = $this->getDatabase()->stock_log()->createRow([
 						'product_id' => $stockEntry->product_id,
 						'amount' => $stockEntry->amount * -1,
@@ -321,7 +334,8 @@ class StockService extends BaseService
 					$amount -= $stockEntry->amount;
 				}
 				else
-				{ // Stock entry amount is > than needed amount -> split the stock entry resp. update the amount
+				{
+					// Stock entry amount is > than needed amount -> split the stock entry resp. update the amount
 					$restStockAmount = $stockEntry->amount - $amount;
 
 					$logRow = $this->getDatabase()->stock_log()->createRow([
@@ -665,7 +679,7 @@ class StockService extends BaseService
 		$sqlWhereProductId = 'product_id = ' . $productId;
 		if ($allowSubproductSubstitution)
 		{
-			$sqlWhereProductId = 'product_id IN (SELECT sub_product_id FROM products_resolved WHERE parent_product_id = ' . $productId . ')';
+			$sqlWhereProductId = '(product_id IN (SELECT sub_product_id FROM products_resolved WHERE parent_product_id = ' . $productId . ') OR product_id = ' . $productId . ')';
 		}
 
 		$sqlWhereAndOpen = 'AND open IN (0, 1)';
@@ -697,7 +711,7 @@ class StockService extends BaseService
 		$sqlWhereProductId = 'product_id = ' . $productId;
 		if ($allowSubproductSubstitution)
 		{
-			$sqlWhereProductId = 'product_id IN (SELECT sub_product_id FROM products_resolved WHERE parent_product_id = ' . $productId . ')';
+			$sqlWhereProductId = '(product_id IN (SELECT sub_product_id FROM products_resolved WHERE parent_product_id = ' . $productId . ') OR product_id = ' . $productId . ')';
 		}
 
 		return $this->getDatabase()->stock_current_locations()->where($sqlWhereProductId);
@@ -768,15 +782,16 @@ class StockService extends BaseService
 		return null;
 	}
 
-	public function OpenProduct(int $productId, float $amount, $specificStockEntryId = 'default', &$transactionId = null)
+	public function OpenProduct(int $productId, float $amount, $specificStockEntryId = 'default', &$transactionId = null, $allowSubproductSubstitution = false)
 	{
 		if (!$this->ProductExists($productId))
 		{
 			throw new \Exception('Product does not exist or is inactive');
 		}
 
-		$productStockAmountUnopened = $this->getDatabase()->stock()->where('product_id = :1 AND open = 0', $productId)->sum('amount');
-		$potentialStockEntries = $this->GetProductStockEntries($productId, true);
+		$productDetails = (object)$this->GetProductDetails($productId);
+		$productStockAmountUnopened = floatval($productDetails->stock_amount_aggregated) - floatval($productDetails->stock_amount_opened_aggregated);
+		$potentialStockEntries = $this->GetProductStockEntries($productId, true, $allowSubproductSubstitution);
 		$product = $this->getDatabase()->products($productId);
 
 		if ($product->enable_tare_weight_handling == 1)
@@ -807,14 +822,25 @@ class StockService extends BaseService
 			}
 
 			$newBestBeforeDate = $stockEntry->best_before_date;
-
 			if ($product->default_best_before_days_after_open > 0)
 			{
 				$newBestBeforeDate = date('Y-m-d', strtotime('+' . $product->default_best_before_days_after_open . ' days'));
 			}
 
+			if ($allowSubproductSubstitution && $stockEntry->product_id != $productId)
+			{
+				// A sub product will be used -> use QU conversions
+				$subProduct = $this->getDatabase()->products($stockEntry->product_id);
+				$conversion = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $stockEntry->product_id, $product->qu_id_stock, $subProduct->qu_id_stock)->fetch();
+				if ($conversion != null)
+				{
+					$amount = $amount * floatval($conversion->factor);
+				}
+			}
+
 			if ($amount >= $stockEntry->amount)
-			{ // Mark the whole stock entry as opened
+			{
+				// Mark the whole stock entry as opened
 				$logRow = $this->getDatabase()->stock_log()->createRow([
 					'product_id' => $stockEntry->product_id,
 					'amount' => $stockEntry->amount,
@@ -840,7 +866,8 @@ class StockService extends BaseService
 				$amount -= $stockEntry->amount;
 			}
 			else
-			{ // Stock entry amount is > than needed amount -> split the stock entry
+			{
+				// Stock entry amount is > than needed amount -> split the stock entry
 				$restStockAmount = $stockEntry->amount - $amount;
 
 				$newStockRow = $this->getDatabase()->stock()->createRow([

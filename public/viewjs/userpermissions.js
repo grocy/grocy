@@ -24,15 +24,16 @@ $('#permission-save').click(
 			{
 				return $(this).data('perm-id');
 			}).toArray();
-		Grocy.Api.Put('users/' + Grocy.EditObjectId + '/permissions', {
-			'permissions': permission_list,
-		}, function(result)
-		{
-			toastr.success(__t("Permissions saved"));
-		}, function(xhr)
-		{
-			toastr.error(__t(JSON.parse(xhr.response).error_message));
-		}
+
+		Grocy.Api.Put('users/' + Grocy.EditObjectId + '/permissions', { 'permissions': permission_list },
+			function(result)
+			{
+				toastr.success(__t("Permissions saved"));
+			},
+			function(xhr)
+			{
+				toastr.error(JSON.parse(xhr.response).error_message);
+			}
 		);
 	}
 );
@@ -51,5 +52,3 @@ if (Grocy.EditObjectId == Grocy.UserId)
 		}
 	})
 }
-
-check_hierachy($("input.permission-cb[name=ADMIN]").is(":checked"), "ADMIN");

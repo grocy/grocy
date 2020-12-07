@@ -159,6 +159,24 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 					Grocy.Components.LocationPicker.SetId(productDetails.location.id);
 				}
 
+				if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
+				{
+					if (productDetails.product.default_best_before_days.toString() !== '0')
+					{
+						if (productDetails.product.default_best_before_days == -1)
+						{
+							if (!$("#datetimepicker-shortcut").is(":checked"))
+							{
+								$("#datetimepicker-shortcut").click();
+							}
+						}
+						else
+						{
+							Grocy.Components.DateTimePicker.SetValue(moment().add(productDetails.product.default_best_before_days, 'days').format('YYYY-MM-DD'));
+						}
+					}
+				}
+
 				$('#display_amount').val(productDetails.stock_amount);
 				RefreshLocaleNumberInput();
 				$(".input-group-productamountpicker").trigger("change");

@@ -2,9 +2,8 @@
 	'order': [[0, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
-		{ 'searchable': false, "targets": 0 },
-		{ 'orderData': 2, 'targets': 1 }
-	],
+		{ 'searchable': false, "targets": 0 }
+	].concat($.fn.dataTable.defaults.columnDefs),
 	select: {
 		style: 'single',
 		selector: 'tr td:not(:first-child)'

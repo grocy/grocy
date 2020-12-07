@@ -11,6 +11,7 @@
 	jsonData.amount = jsonForm.amount;
 	jsonData.exact_amount = $('#consume-exact-amount').is(':checked');
 	jsonData.spoiled = $('#spoiled').is(':checked');
+	jsonData.allow_subproduct_substitution = true;
 
 	if ($("#use_specific_stock_entry").is(":checked"))
 	{
@@ -28,7 +29,6 @@
 	}
 
 	var bookingResponse = null;
-
 	Grocy.Api.Get('stock/products/' + jsonForm.product_id,
 		function(productDetails)
 		{
@@ -146,6 +146,7 @@ $('#save-mark-as-open-button').on('click', function(e)
 
 	jsonData = {};
 	jsonData.amount = jsonForm.amount;
+	jsonData.allow_subproduct_substitution = true;
 
 	if ($("#use_specific_stock_entry").is(":checked"))
 	{
@@ -215,7 +216,7 @@ $("#location_id").on('change', function(e)
 
 	if (locationId)
 	{
-		Grocy.Api.Get("stock/products/" + Grocy.Components.ProductPicker.GetValue() + '/entries',
+		Grocy.Api.Get("stock/products/" + Grocy.Components.ProductPicker.GetValue() + '/entries?include_sub_products=true',
 			function(stockEntries)
 			{
 				stockEntries.forEach(stockEntry =>
@@ -234,7 +235,7 @@ $("#location_id").on('change', function(e)
 							text: __t("Amount: %1$s; Due on %2$s; Bought on %3$s", stockEntry.amount, moment(stockEntry.best_before_date).format("YYYY-MM-DD"), moment(stockEntry.purchased_date).format("YYYY-MM-DD")) + "; " + openTxt
 						}));
 
-						sumValue = sumValue + parseFloat(stockEntry.amount);
+						sumValue = sumValue + parseFloat(stockEntry.amount_aggregated);
 
 						if (stockEntry.stock_id == stockId)
 						{
@@ -302,7 +303,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				$(".input-group-productamountpicker").trigger("change");
 
 				$("#location_id").find("option").remove().end().append("<option></option>");
-				Grocy.Api.Get("stock/products/" + productId + '/locations',
+				Grocy.Api.Get("stock/products/" + productId + '/locations?include_sub_products=true',
 					function(stockLocations)
 					{
 						var setDefault = 0;
@@ -369,7 +370,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 					$("#tare-weight-handling-info").addClass("d-none");
 				}
 
-				if ((parseFloat(productDetails.stock_amount) || 0) === 0)
+				if ((parseFloat(productDetails.stock_amount_aggregated) || 0) === 0)
 				{
 					Grocy.Components.ProductAmountPicker.Reset();
 					Grocy.Components.ProductPicker.Clear();
@@ -448,14 +449,14 @@ $("#specific_stock_entry").on("change", function(e)
 	if ($(e.target).val() == "")
 	{
 		sumValue = 0;
-		Grocy.Api.Get("stock/products/" + Grocy.Components.ProductPicker.GetValue() + '/entries',
+		Grocy.Api.Get("stock/products/" + Grocy.Components.ProductPicker.GetValue() + '/entries?include_sub_products=true',
 			function(stockEntries)
 			{
 				stockEntries.forEach(stockEntry =>
 				{
 					if (stockEntry.location_id == $("#location_id").val() || stockEntry.location_id == "")
 					{
-						sumValue = sumValue + parseFloat(stockEntry.amount);
+						sumValue = sumValue + parseFloat(stockEntry.amount_aggregated);
 					}
 				});
 				$("#display_amount").attr("max", sumValue);
