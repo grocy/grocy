@@ -2000,7 +2000,7 @@ msgstr ""
 msgid "Disabled"
 msgstr ""
 
-msgid "This also removes any stock amount, the journal and all other references of this product - consider disabling this product instead, if you want to keep that and just hide it."
+msgid "This also removes any stock amount, the journal and all other references of this product - consider disabling it instead, if you want to keep that and just hide the product."
 msgstr ""
 
 msgid "Show disabled products"

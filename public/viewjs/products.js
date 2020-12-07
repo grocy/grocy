@@ -51,7 +51,7 @@ $(document).on('click', '.product-delete-button', function(e)
 	var objectId = $(e.currentTarget).attr('data-product-id');
 
 	bootbox.confirm({
-		message: __t('Are you sure to delete product "%s"?', objectName) + '<br><br>' + __t('This also removes any stock amount, the journal and all other references of this product - consider disabling this product instead, if you want to keep that and just hide it.'),
+		message: __t('Are you sure to delete product "%s"?', objectName) + '<br><br>' + __t('This also removes any stock amount, the journal and all other references of this product - consider disabling it instead, if you want to keep that and just hide the product.'),
 		closeButton: false,
 		buttons: {
 			confirm: {
