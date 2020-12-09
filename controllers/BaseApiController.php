@@ -47,14 +47,31 @@ class BaseApiController extends BaseController
 		{
 			$data = $this->filter($data, $query['query']);
 		}
+
 		if (isset($query['limit']))
 		{
 			$data = $data->limit(intval($query['limit']), intval($query['offset'] ?? 0));
 		}
+
 		if (isset($query['order']))
 		{
-			$data = $data->orderBy($query['order']);
+			$parts = explode(':', $query['order']);
+
+			if (count($parts) == 1)
+			{
+				$data = $data->orderBy($parts[0]);
+			}
+			else
+			{
+				if ($parts[1] != 'asc' && $parts[1] != 'desc')
+				{
+					throw new \Exception('Invalid sort order ' . $parts[1]);
+				}
+
+				$data = $data->orderBy($parts[0], $parts[1]);
+			}
 		}
+
 		return $data;
 	}
 

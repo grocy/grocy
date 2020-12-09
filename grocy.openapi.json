@@ -5053,7 +5053,7 @@
 				"in": "query",
 				"name": "order",
 				"required": false,
-				"description": "A valid field name by which the response should be ordered",
+				"description": "A valid field name by which the response should be ordered, use the separator `:` to specify the sort order (`asc` or `desc`, defaults to `asc` when omitted)",
 				"schema": {
 					"type": "string"
 				}

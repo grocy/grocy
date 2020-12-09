@@ -188,7 +188,7 @@
   - `/chores`
   - `/batteries`
   - There are 4 new (optional) query parameters to utilize that
-    - `order` The field to order by
+    - `order` The field to order by (use the separator `:` to specify the sort order - `asc` or `desc`, defaults to `asc` when omitted)
     - `limit` The maximum number of objects to return
     - `offset` The number of objects to skip
     - `query[]` An array of conditions, each of them is a string in the form of `<field><condition><value>`, where
