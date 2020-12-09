@@ -171,6 +171,7 @@ $app->group('/api', function (RouteCollectorProxy $group) {
 	$group->put('/users/{userId}/permissions', '\Grocy\Controllers\UsersApiController:SetPermissions');
 
 	// User
+	$group->get('/user', '\Grocy\Controllers\UsersApiController:CurrentUser');
 	$group->get('/user/settings', '\Grocy\Controllers\UsersApiController:GetUserSettings');
 	$group->get('/user/settings/{settingKey}', '\Grocy\Controllers\UsersApiController:GetUserSetting');
 	$group->put('/user/settings/{settingKey}', '\Grocy\Controllers\UsersApiController:SetUserSetting');

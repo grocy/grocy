@@ -126,6 +126,18 @@ class UsersApiController extends BaseApiController
 		}
 	}
 
+	public function CurrentUser(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		try
+		{
+			return $this->ApiResponse($response, $this->getUsersService()->GetUsersAsDto()->where('id', GROCY_USER_ID));
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
+
 	public function ListPermissions(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		try
