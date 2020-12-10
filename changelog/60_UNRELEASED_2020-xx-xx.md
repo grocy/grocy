@@ -217,5 +217,6 @@
 - Fixed that the endpoint `/stock/volatile` didn't include products which expire today (thanks @fipwmaqzufheoxq92ebc)
 - Fixed that the endpoint `/objects/{entity}` did not include Userfields for Userentities (so the effective endpoint `/objects/userobjects`)
 - Fixed that the endpoint `/stock/consume` returned the response code `200` and an empty response body when `stock_entry_id` was set (consuming a specific stock entry) but invalid (now returns the response code `400`) (thanks @fipwmaqzufheoxq92ebc)
+- Fixed that the endpoint `/user/settings/{settingKey}` didn't return the default setting if it was not configured for the current user (same behavior as the endpoint `/user/settings` now)
 - Endpoint `/calendar/ical`: Fixed that "Track date only"-chores were always set to happen at 12am (are treated as all-day events now)
 - Fixed (again) that CORS was broken

@@ -53,14 +53,22 @@ class UsersService extends BaseService
 	public function GetUserSetting($userId, $settingKey)
 	{
 		$settingRow = $this->getDatabase()->user_settings()->where('user_id = :1 AND key = :2', $userId, $settingKey)->fetch();
-
 		if ($settingRow !== null)
 		{
 			return $settingRow->value;
 		}
 		else
 		{
-			return null;
+			// Use the configured default values for a missing setting, otherwise return NULL
+			global $GROCY_DEFAULT_USER_SETTINGS;
+			if (array_key_exists($settingKey, $GROCY_DEFAULT_USER_SETTINGS))
+			{
+				return $GROCY_DEFAULT_USER_SETTINGS[$settingKey];
+			}
+			else
+			{
+				return null;
+			}
 		}
 	}
 
@@ -69,7 +77,6 @@ class UsersService extends BaseService
 		$settings = [];
 
 		$settingRows = $this->getDatabase()->user_settings()->where('user_id = :1', $userId)->fetchAll();
-
 		foreach ($settingRows as $settingRow)
 		{
 			$settings[$settingRow->key] = $settingRow->value;
