@@ -1,3 +1,4 @@
+# 
 # Translators:
 # Michal Petříček <michal@petricek.org>, 2019
 # Ondřej Suk <ondra.suk.55@gmail.com>, 2020
@@ -75,8 +76,8 @@ msgid "Bunch"
 msgid_plural "Bunches"
 msgstr[0] "Svazek"
 msgstr[1] "Svazky"
-msgstr[2] "Svazky"
-msgstr[3] "Svazky"
+msgstr[2] "Svazků"
+msgstr[3] "Svazků"
 
 msgid "Gummy bears"
 msgstr "Gumoví medvídci"
@@ -151,7 +152,7 @@ msgid "Salami"
 msgstr "Salám"
 
 msgid "Toast"
-msgstr "Toast"
+msgstr "Toust"
 
 msgid "Minced meat"
 msgstr "Mleté maso"
@@ -363,21 +364,33 @@ msgid "Slovak"
 msgstr "Slovenština"
 
 msgid "Czech"
-msgstr ""
+msgstr "Čeština"
 
 msgid "Portuguese (Portugal)"
-msgstr ""
+msgstr "Portugalština (Portugalsko)"
 
 # Use a in your country well known supermarket name
 msgid "DemoSupermarket1"
-msgstr ""
+msgstr "UkazkovyObchod1"
 
 # Use a in your country well known supermarket name
 msgid "DemoSupermarket2"
-msgstr ""
+msgstr "UkazkovyObchod2"
 
 msgid "Japanese"
-msgstr ""
+msgstr "Japonština"
 
 msgid "Chinese (Taiwan)"
+msgstr "Čínština (Tchaj-wan)"
+
+msgid "Greek"
+msgstr "Řečtina"
+
+msgid "Korean"
+msgstr "Korejština"
+
+msgid "Chinese (China)"
+msgstr ""
+
+msgid "Hebrew (Israel)"
 msgstr ""

@@ -46,3 +46,9 @@ msgstr "preset-checklist"
 
 msgid "link"
 msgstr "link"
+
+msgid "file"
+msgstr "file"
+
+msgid "image"
+msgstr "image"

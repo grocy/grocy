@@ -1,3 +1,4 @@
+# 
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # Fredrik Hendeberg <fredrik@hendeberg.com>, 2019
@@ -49,3 +50,9 @@ msgstr "mallchecklista"
 
 msgid "link"
 msgstr "länk"
+
+msgid "file"
+msgstr ""
+
+msgid "image"
+msgstr ""

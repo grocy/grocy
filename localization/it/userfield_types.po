@@ -1,3 +1,4 @@
+# 
 # Translators:
 # Antonino Ursino <ninus_@libero.it>, 2020
 # 
@@ -17,31 +18,37 @@ msgstr ""
 "X-Domain: grocy/userfield_types\n"
 
 msgid "text-single-line"
-msgstr "Testo singola riga"
+msgstr "testo singola riga"
 
 msgid "text-multi-line"
-msgstr "Testo multi riga"
+msgstr "testo multi riga"
 
 msgid "number-integral"
-msgstr "Numero intero"
+msgstr "numero intero"
 
 msgid "number-decimal"
-msgstr "Numero decimale"
+msgstr "numero decimale"
 
 msgid "date"
-msgstr "Data"
+msgstr "data"
 
 msgid "datetime"
-msgstr "Ora"
+msgstr "ora"
 
 msgid "checkbox"
-msgstr "Casella di controllo"
+msgstr "casella di controllo"
 
 msgid "preset-list"
-msgstr "Lista predefinita"
+msgstr "lista predefinita"
 
 msgid "preset-checklist"
-msgstr "Lista di controllo predefinita"
+msgstr "lista di controllo predefinita"
 
 msgid "link"
-msgstr "Collegamento"
+msgstr "collegamento"
+
+msgid "file"
+msgstr "file"
+
+msgid "image"
+msgstr "immagine"

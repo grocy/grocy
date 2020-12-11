@@ -1,3 +1,4 @@
+# 
 # Translators:
 # Jose Riha <jose1711@gmail.com>, 2020
 # 
@@ -361,21 +362,33 @@ msgid "Slovak"
 msgstr "Slovenčina"
 
 msgid "Czech"
-msgstr ""
+msgstr "Čeština"
 
 msgid "Portuguese (Portugal)"
-msgstr ""
+msgstr "Portugalčina (Portugalsko)"
 
 # Use a in your country well known supermarket name
 msgid "DemoSupermarket1"
-msgstr ""
+msgstr "Billa"
 
 # Use a in your country well known supermarket name
 msgid "DemoSupermarket2"
-msgstr ""
+msgstr "Lidl"
 
 msgid "Japanese"
-msgstr ""
+msgstr "Japončina"
 
 msgid "Chinese (Taiwan)"
+msgstr "Čínština (Tajvan)"
+
+msgid "Greek"
+msgstr "Gréčtina"
+
+msgid "Korean"
+msgstr "Kórejčina"
+
+msgid "Chinese (China)"
+msgstr ""
+
+msgid "Hebrew (Israel)"
 msgstr ""

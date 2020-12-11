@@ -1,3 +1,4 @@
+# 
 # Translators:
 # Fernando Sánchez <fernando.l.sanchez@gmail.com>, 2019
 # Jose Rugel <joserugel@gmail.com>, 2020
@@ -46,3 +47,9 @@ msgstr "casillas-predefinidas"
 
 msgid "link"
 msgstr "enlace"
+
+msgid "file"
+msgstr ""
+
+msgid "image"
+msgstr ""

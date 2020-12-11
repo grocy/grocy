@@ -2,6 +2,7 @@
 # Translators:
 # Jonathan Adams <jonathan@connockadams.uk>, 2020
 # duck. <me@duck.me.uk>, 2020
+# John Coles <john@johncoles.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -9,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: duck. <me@duck.me.uk>, 2020\n"
+"Last-Translator: John Coles <john@johncoles.com>, 2020\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/grocy/teams/93189/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -225,10 +226,10 @@ msgid "Dishwasher"
 msgstr "Dishwasher"
 
 msgid "Liter"
-msgstr "Liter"
+msgstr "Litre"
 
 msgid "Liters"
-msgstr "Liters"
+msgstr "Litres"
 
 msgid "Bottle"
 msgstr "Bottle"
@@ -243,10 +244,10 @@ msgid "Chocolate sauce"
 msgstr "Chocolate sauce"
 
 msgid "Milliliters"
-msgstr "Milliliters"
+msgstr "Millilitres"
 
 msgid "Milliliter"
-msgstr "Milliliter"
+msgstr "Millilitre"
 
 msgid "Bottom"
 msgstr "Bottom"
@@ -365,3 +366,15 @@ msgstr "Japanese"
 
 msgid "Chinese (Taiwan)"
 msgstr "Chinese (Taiwan)"
+
+msgid "Greek"
+msgstr "Greek"
+
+msgid "Korean"
+msgstr "Korean"
+
+msgid "Chinese (China)"
+msgstr ""
+
+msgid "Hebrew (Israel)"
+msgstr ""

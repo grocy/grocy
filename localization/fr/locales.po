@@ -1,0 +1,114 @@
+# 
+# Translators:
+# Hydreliox <hydreliox@gmail.com>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-31 19:11+0000\n"
+"Last-Translator: Hydreliox <hydreliox@gmail.com>, 2020\n"
+"Language-Team: French (https://www.transifex.com/grocy/teams/93189/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Domain: grocy/locales\n"
+
+# Czech
+msgid "cs"
+msgstr "tch"
+
+# Danish
+msgid "da"
+msgstr "dan"
+
+# German
+msgid "de"
+msgstr "all"
+
+# Greek
+msgid "el_GR"
+msgstr "gre"
+
+# English
+msgid "en"
+msgstr "ang"
+
+# English (Great Britain)
+msgid "en_GB"
+msgstr "uk"
+
+# Spanish
+msgid "es"
+msgstr "esp"
+
+# French
+msgid "fr"
+msgstr "fra"
+
+# Hungarian
+msgid "hu"
+msgstr "hon"
+
+# Italian
+msgid "it"
+msgstr "ita"
+
+# Japanese
+msgid "ja"
+msgstr "jap"
+
+# Korean
+msgid "ko_KR"
+msgstr "cor"
+
+# Dutch
+msgid "nl"
+msgstr "hol"
+
+# Norwegian
+msgid "no"
+msgstr "nor"
+
+# Polish
+msgid "pl"
+msgstr "pol"
+
+# Portuguese (Brazil)
+msgid "pt_BR"
+msgstr "bre"
+
+# Portuguese (Portugal)
+msgid "pt_PT"
+msgstr "por"
+
+# Russian
+msgid "ru"
+msgstr "rus"
+
+# Slovak
+msgid "sk_SK"
+msgstr "slo"
+
+# Swedish
+msgid "sv_SE"
+msgstr "sue"
+
+# Turkish
+msgid "tr"
+msgstr "tur"
+
+# Chinese (Taiwan)
+msgid "zh_TW"
+msgstr "chi"
+
+# Chinese (China)
+msgid "zh_CN"
+msgstr ""
+
+# Hebrew (Israel)
+msgid "he_IL"
+msgstr ""

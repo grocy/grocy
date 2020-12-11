@@ -1,3 +1,4 @@
+# 
 # Translators:
 # Joao Santos <joaocpdsantos@gmail.com>, 2019
 # Ricardo Rodrigues <fenix999@gmail.com>, 2020
@@ -365,4 +366,16 @@ msgid "Japanese"
 msgstr ""
 
 msgid "Chinese (Taiwan)"
+msgstr ""
+
+msgid "Greek"
+msgstr ""
+
+msgid "Korean"
+msgstr ""
+
+msgid "Chinese (China)"
+msgstr ""
+
+msgid "Hebrew (Israel)"
 msgstr ""

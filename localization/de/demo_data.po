@@ -1,3 +1,4 @@
+# 
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2020
 # 
@@ -363,3 +364,15 @@ msgstr "Japanisch"
 
 msgid "Chinese (Taiwan)"
 msgstr "Chinesisch (Taiwan)"
+
+msgid "Greek"
+msgstr "Griechisch"
+
+msgid "Korean"
+msgstr "Koreanisch"
+
+msgid "Chinese (China)"
+msgstr "Chinesisch (China)"
+
+msgid "Hebrew (Israel)"
+msgstr "Hebräisch (Israel)"

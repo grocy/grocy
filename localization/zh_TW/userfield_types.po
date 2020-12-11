@@ -1,6 +1,8 @@
+# 
 # Translators:
 # jd615645 <jd615645@gmail.com>, 2020
 # richegg Tsai <zxp86021@gmail.com>, 2020
+# zou chung <zobuwei@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -8,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:43+0000\n"
-"Last-Translator: richegg Tsai <zxp86021@gmail.com>, 2020\n"
+"Last-Translator: zou chung <zobuwei@gmail.com>, 2020\n"
 "Language-Team: Chinese (Taiwan) (https://www.transifex.com/grocy/teams/93189/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,10 +41,16 @@ msgid "checkbox"
 msgstr "勾選"
 
 msgid "preset-list"
-msgstr "單選列表"
+msgstr "預選列表"
 
 msgid "preset-checklist"
-msgstr "多選列表"
+msgstr "預勾選列表"
 
 msgid "link"
 msgstr "連結"
+
+msgid "file"
+msgstr "檔案"
+
+msgid "image"
+msgstr "圖片"

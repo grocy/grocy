@@ -1,0 +1,45 @@
+# 
+# Translators:
+# a a <akv40402@zzrgg.com>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: a a <akv40402@zzrgg.com>, 2020\n"
+"Language-Team: Chinese (China) (https://www.transifex.com/grocy/teams/93189/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Domain: grocy/stock_transaction_types\n"
+
+msgid "purchase"
+msgstr "购买"
+
+msgid "transfer_from"
+msgstr "转自"
+
+msgid "transfer_to"
+msgstr "转给"
+
+msgid "consume"
+msgstr "消耗"
+
+msgid "inventory-correction"
+msgstr "库存更正"
+
+msgid "product-opened"
+msgstr "已开封产品"
+
+msgid "stock-edit-old"
+msgstr "旧库存修改"
+
+msgid "stock-edit-new"
+msgstr "新库存修改"
+
+msgid "self-production"
+msgstr "自我生产产品"

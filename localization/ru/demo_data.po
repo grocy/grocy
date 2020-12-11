@@ -1,3 +1,4 @@
+# 
 # Translators:
 # cool guy <eut53770@bcaoo.com>, 2019
 # Maksim Moiseikin <m.moiseikin@gmail.com>, 2020
@@ -381,3 +382,15 @@ msgstr "Японский"
 
 msgid "Chinese (Taiwan)"
 msgstr "Китайский (Тайвань)"
+
+msgid "Greek"
+msgstr ""
+
+msgid "Korean"
+msgstr ""
+
+msgid "Chinese (China)"
+msgstr ""
+
+msgid "Hebrew (Israel)"
+msgstr ""

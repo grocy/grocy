@@ -1,0 +1,47 @@
+# 
+# Translators:
+# milkfish <i@mxd.moe>, 2020
+# ba X <985096998@qq.com>, 2020
+# Bernd Bestel <bernd@berrnd.de>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2020\n"
+"Language-Team: Chinese (China) (https://www.transifex.com/grocy/teams/93189/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Domain: grocy/component_translations\n"
+
+msgid "timeago_locale"
+msgstr "zh-CN"
+
+msgid "timeago_nan"
+msgstr "NaN 年以前"
+
+msgid "moment_locale"
+msgstr "zh-CN"
+
+msgid "datatables_localization"
+msgstr ""
+"{\"sProcessing\":\"处理中...\",\"sLengthMenu\":\"显示 _MENU_ "
+"项结果\",\"sZeroRecords\":\"没有匹配结果\",\"sInfo\":\"显示第 _START_ 至 _END_ 项结果，共 "
+"_TOTAL_ 项\",\"sInfoEmpty\":\"显示第 0 至 0 项结果，共 0 项\",\"sInfoFiltered\":\"(由 "
+"_MAX_ "
+"项结果过滤)\",\"sSearch\":\"搜索:\",\"sEmptyTable\":\"表中数据为空\",\"sLoadingRecords\":\"载入中...\",\"sInfoThousands\":\",\",\"oPaginate\":{\"sFirst\":\"首页\",\"sPrevious\":\"上页\",\"sNext\":\"下页\",\"sLast\":\"末页\"},\"oAria\":{\"sSortAscending\":\":"
+" 以升序排列此列\",\"sSortDescending\":\": 以降序排列此列\"}}"
+
+msgid "summernote_locale"
+msgstr "zh-CN"
+
+msgid "fullcalendar_locale"
+msgstr "zh-cn"
+
+msgid "bootstrap-select_locale"
+msgstr "zh_CN"

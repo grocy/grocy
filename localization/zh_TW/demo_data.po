@@ -1,6 +1,8 @@
+# 
 # Translators:
 # jd615645 <jd615645@gmail.com>, 2020
 # richegg Tsai <zxp86021@gmail.com>, 2020
+# zou chung <zobuwei@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -8,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: richegg Tsai <zxp86021@gmail.com>, 2020\n"
+"Last-Translator: zou chung <zobuwei@gmail.com>, 2020\n"
 "Language-Team: Chinese (Taiwan) (https://www.transifex.com/grocy/teams/93189/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,13 +26,13 @@ msgid "Chocolate"
 msgstr "巧克力"
 
 msgid "Pantry"
-msgstr "食物儲藏室"
+msgstr "儲藏室"
 
 msgid "Candy cupboard"
 msgstr "糖果櫃"
 
 msgid "Tinned food cupboard"
-msgstr "罐頭儲藏櫃"
+msgstr "罐頭櫃"
 
 msgid "Fridge"
 msgstr "冰箱"
@@ -57,7 +59,7 @@ msgstr[0] "罐"
 
 msgid "Bunch"
 msgid_plural "Bunches"
-msgstr[0] "綑"
+msgstr[0] "捆"
 
 msgid "Gummy bears"
 msgstr "小熊軟糖"
@@ -84,7 +86,7 @@ msgid "Cheese"
 msgstr "起司"
 
 msgid "Cold cuts"
-msgstr "午餐肉"
+msgstr "冷盤肉"
 
 msgid "Paprika"
 msgstr "辣椒"
@@ -99,13 +101,13 @@ msgid "Tomato"
 msgstr "番茄"
 
 msgid "Changed towels in the bathroom"
-msgstr "浴室毛巾"
+msgstr "更換浴室毛巾"
 
 msgid "Cleaned the kitchen floor"
 msgstr "清理廚房地板"
 
 msgid "Warranty ends"
-msgstr "過保固"
+msgstr "保固過期"
 
 msgid "TV remote control"
 msgstr "電視遙控器"
@@ -141,7 +143,7 @@ msgid "Pizza"
 msgstr "披薩"
 
 msgid "Spaghetti bolognese"
-msgstr "番茄肉醬意大利麵"
+msgstr "番茄肉醬義大利麵"
 
 msgid "Sandwiches"
 msgstr "三明治"
@@ -156,10 +158,10 @@ msgid "Italian"
 msgstr "義大利文"
 
 msgid "This is the note content of the recipe ingredient"
-msgstr "這是配方表中的標示內容"
+msgstr "這是食譜食材中的備註"
 
 msgid "Demo User"
-msgstr "測試用戶"
+msgstr "測試使用者"
 
 msgid "Gram"
 msgid_plural "Grams"
@@ -169,7 +171,7 @@ msgid "Flour"
 msgstr "麵粉"
 
 msgid "Pancakes"
-msgstr "烤餅"
+msgstr "鬆餅"
 
 msgid "Sugar"
 msgstr "糖"
@@ -190,7 +192,7 @@ msgid "Fork and improve grocy"
 msgstr "協助改進 grocy"
 
 msgid "Find a solution for what to do when I forget the door keys"
-msgstr "規劃當我忘記鑰匙時的解決辦法"
+msgstr "規劃忘記鑰匙時的解決辦法"
 
 msgid "Sweets"
 msgstr "甜食"
@@ -199,10 +201,10 @@ msgid "Bakery products"
 msgstr "烘焙用品"
 
 msgid "Tinned food"
-msgstr "罐裝食品"
+msgstr "罐頭"
 
 msgid "Butchery products"
-msgstr "肉類食品"
+msgstr "肉品"
 
 msgid "Vegetables/Fruits"
 msgstr "蔬果"
@@ -281,7 +283,7 @@ msgstr "黑巧克力"
 
 msgid "Slice"
 msgid_plural "Slices"
-msgstr[0] "切片"
+msgstr[0] "片"
 
 msgid "Example userentity"
 msgstr "使用者自訂項目範例"
@@ -308,7 +310,7 @@ msgid "Norwegian"
 msgstr "挪威文"
 
 msgid "Demo"
-msgstr "範例"
+msgstr "Demo"
 
 msgid "Stable version"
 msgstr "穩定版本"
@@ -352,7 +354,19 @@ msgid "DemoSupermarket2"
 msgstr "範例超市2"
 
 msgid "Japanese"
-msgstr "日本語"
+msgstr "日文"
 
 msgid "Chinese (Taiwan)"
 msgstr "正體中文（臺灣）"
+
+msgid "Greek"
+msgstr "希臘文"
+
+msgid "Korean"
+msgstr "韓文"
+
+msgid "Chinese (China)"
+msgstr ""
+
+msgid "Hebrew (Israel)"
+msgstr ""

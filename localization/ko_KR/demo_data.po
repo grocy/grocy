@@ -356,3 +356,15 @@ msgstr "일본어"
 
 msgid "Chinese (Taiwan)"
 msgstr "중국어(대만)"
+
+msgid "Greek"
+msgstr "그리스어"
+
+msgid "Korean"
+msgstr "한국어"
+
+msgid "Chinese (China)"
+msgstr ""
+
+msgid "Hebrew (Israel)"
+msgstr ""

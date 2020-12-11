@@ -366,3 +366,15 @@ msgstr "Japonês"
 
 msgid "Chinese (Taiwan)"
 msgstr "Chinês (Taiwan)"
+
+msgid "Greek"
+msgstr ""
+
+msgid "Korean"
+msgstr ""
+
+msgid "Chinese (China)"
+msgstr ""
+
+msgid "Hebrew (Israel)"
+msgstr ""

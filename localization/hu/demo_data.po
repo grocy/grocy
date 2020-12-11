@@ -1,3 +1,4 @@
+# 
 # Translators:
 # Richard Szolár <szolar.richard@gmail.com>, 2019
 # Márk Kökény <oregapamgroup@gmail.com>, 2019
@@ -366,4 +367,16 @@ msgid "Japanese"
 msgstr ""
 
 msgid "Chinese (Taiwan)"
+msgstr ""
+
+msgid "Greek"
+msgstr ""
+
+msgid "Korean"
+msgstr ""
+
+msgid "Chinese (China)"
+msgstr ""
+
+msgid "Hebrew (Israel)"
 msgstr ""

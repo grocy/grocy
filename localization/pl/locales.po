@@ -1,0 +1,114 @@
+# 
+# Translators:
+# Pro Peller <smiglo@tuta.io>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-31 19:11+0000\n"
+"Last-Translator: Pro Peller <smiglo@tuta.io>, 2020\n"
+"Language-Team: Polish (https://www.transifex.com/grocy/teams/93189/pl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"X-Domain: grocy/locales\n"
+
+# Czech
+msgid "cs"
+msgstr "Czech"
+
+# Danish
+msgid "da"
+msgstr "Danish"
+
+# German
+msgid "de"
+msgstr "German"
+
+# Greek
+msgid "el_GR"
+msgstr "Greek"
+
+# English
+msgid "en"
+msgstr "English"
+
+# English (Great Britain)
+msgid "en_GB"
+msgstr "English (Great Britain)"
+
+# Spanish
+msgid "es"
+msgstr "Spanish"
+
+# French
+msgid "fr"
+msgstr "French"
+
+# Hungarian
+msgid "hu"
+msgstr "Hungarian"
+
+# Italian
+msgid "it"
+msgstr "Italian"
+
+# Japanese
+msgid "ja"
+msgstr "Japanese"
+
+# Korean
+msgid "ko_KR"
+msgstr "Korean"
+
+# Dutch
+msgid "nl"
+msgstr "Dutch"
+
+# Norwegian
+msgid "no"
+msgstr "Norwegian"
+
+# Polish
+msgid "pl"
+msgstr "Polish"
+
+# Portuguese (Brazil)
+msgid "pt_BR"
+msgstr "Portuguese (Brazil)"
+
+# Portuguese (Portugal)
+msgid "pt_PT"
+msgstr "Portuguese (Portugal)"
+
+# Russian
+msgid "ru"
+msgstr "Russian"
+
+# Slovak
+msgid "sk_SK"
+msgstr "Slovak"
+
+# Swedish
+msgid "sv_SE"
+msgstr "Swedish"
+
+# Turkish
+msgid "tr"
+msgstr "Turkish"
+
+# Chinese (Taiwan)
+msgid "zh_TW"
+msgstr "Chinese (Taiwan)"
+
+# Chinese (China)
+msgid "zh_CN"
+msgstr ""
+
+# Hebrew (Israel)
+msgid "he_IL"
+msgstr ""

@@ -1,3 +1,4 @@
+# 
 # Translators:
 # Márk Kökény <oregapamgroup@gmail.com>, 2019
 # Ádám Kovács <kovacsadam07@outlook.hu>, 2019
@@ -47,3 +48,9 @@ msgstr "előre beállított jelölőlista"
 
 msgid "link"
 msgstr "link"
+
+msgid "file"
+msgstr ""
+
+msgid "image"
+msgstr ""

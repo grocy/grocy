@@ -1,0 +1,114 @@
+# 
+# Translators:
+# zou chung <zobuwei@gmail.com>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-31 19:11+0000\n"
+"Last-Translator: zou chung <zobuwei@gmail.com>, 2020\n"
+"Language-Team: Chinese (Taiwan) (https://www.transifex.com/grocy/teams/93189/zh_TW/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Domain: grocy/locales\n"
+
+# Czech
+msgid "cs"
+msgstr "捷克文"
+
+# Danish
+msgid "da"
+msgstr "丹麥文"
+
+# German
+msgid "de"
+msgstr "德文"
+
+# Greek
+msgid "el_GR"
+msgstr "希臘文"
+
+# English
+msgid "en"
+msgstr "英文"
+
+# English (Great Britain)
+msgid "en_GB"
+msgstr "英文(大不列顛)"
+
+# Spanish
+msgid "es"
+msgstr "西班牙文"
+
+# French
+msgid "fr"
+msgstr "法文"
+
+# Hungarian
+msgid "hu"
+msgstr "匈牙利文"
+
+# Italian
+msgid "it"
+msgstr "義大利文"
+
+# Japanese
+msgid "ja"
+msgstr "日文"
+
+# Korean
+msgid "ko_KR"
+msgstr "韓文"
+
+# Dutch
+msgid "nl"
+msgstr "荷蘭文"
+
+# Norwegian
+msgid "no"
+msgstr "挪威文"
+
+# Polish
+msgid "pl"
+msgstr "波蘭文"
+
+# Portuguese (Brazil)
+msgid "pt_BR"
+msgstr "葡萄牙文(巴西)"
+
+# Portuguese (Portugal)
+msgid "pt_PT"
+msgstr "葡萄牙文(葡萄牙)"
+
+# Russian
+msgid "ru"
+msgstr "俄文"
+
+# Slovak
+msgid "sk_SK"
+msgstr "斯洛伐克文"
+
+# Swedish
+msgid "sv_SE"
+msgstr "瑞典文"
+
+# Turkish
+msgid "tr"
+msgstr "土耳其文"
+
+# Chinese (Taiwan)
+msgid "zh_TW"
+msgstr "正體中文(台灣)"
+
+# Chinese (China)
+msgid "zh_CN"
+msgstr ""
+
+# Hebrew (Israel)
+msgid "he_IL"
+msgstr ""

@@ -1,0 +1,103 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01T17:59:17+00:00\n"
+"Last-Translator: \n"
+"Language-Team: http://www.transifex.com/grocy/grocy/language/en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"X-Domain: grocy/permissions\n"
+
+msgid "ADMIN"
+msgstr "All permissions"
+
+msgid "USERS_CREATE"
+msgstr "Create users"
+
+msgid "USERS_EDIT"
+msgstr "Edit users (including passwords)"
+
+msgid "USERS_READ"
+msgstr "Show users"
+
+msgid "USERS_EDIT_SELF"
+msgstr "Edit own user data / change own password"
+
+msgid "BATTERIES_UNDO_CHARGE_CYCLE"
+msgstr "Undo charge cycle"
+
+msgid "BATTERIES_TRACK_CHARGE_CYCLE"
+msgstr "Track charge cycle"
+
+msgid "CHORE_TRACK_EXECUTION"
+msgstr "Track execution"
+
+msgid "CHORE_UNDO_EXECUTION"
+msgstr "Undo execution"
+
+msgid "MASTER_DATA_EDIT"
+msgstr "Edit master data"
+
+msgid "TASKS_UNDO_EXECUTION"
+msgstr "Undo execution"
+
+msgid "TASKS_MARK_COMPLETED"
+msgstr "Mark completed"
+
+msgid "STOCK_EDIT"
+msgstr "Edit stock entries"
+
+msgid "STOCK_TRANSFER"
+msgstr "Transfer"
+
+msgid "STOCK_INVENTORY"
+msgstr "Inventory"
+
+msgid "STOCK_CONSUME"
+msgstr "Consume"
+
+msgid "STOCK_OPEN"
+msgstr "Open products"
+
+msgid "STOCK_PURCHASE"
+msgstr "Purchase"
+
+msgid "SHOPPINGLIST_ITEMS_ADD"
+msgstr "Add items"
+
+msgid "SHOPPINGLIST_ITEMS_DELETE"
+msgstr "Remove items"
+
+msgid "USERS"
+msgstr "User management"
+
+msgid "STOCK"
+msgstr "Stock"
+
+msgid "SHOPPINGLIST"
+msgstr "Shopping list"
+
+msgid "CHORES"
+msgstr "Chores"
+
+msgid "BATTERIES"
+msgstr "Batteries"
+
+msgid "TASKS"
+msgstr "Tasks"
+
+msgid "RECIPES"
+msgstr "Recipes"
+
+msgid "EQUIPMENT"
+msgstr "Equipment"
+
+msgid "CALENDAR"
+msgstr "Calendar"
+
+msgid "RECIPES_MEALPLAN"
+msgstr "Meal plan"

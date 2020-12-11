@@ -1,3 +1,4 @@
+# 
 # Translators:
 # 鳥山 陽平 <kagemomiji@gmail.com>, 2020
 # 
@@ -45,3 +46,9 @@ msgstr "既定のチェックリスト"
 
 msgid "link"
 msgstr "リンク"
+
+msgid "file"
+msgstr ""
+
+msgid "image"
+msgstr ""

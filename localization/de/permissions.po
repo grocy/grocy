@@ -1,0 +1,138 @@
+# 
+# Translators:
+# Bernd Bestel <bernd@berrnd.de>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-29 16:33+0000\n"
+"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2020\n"
+"Language-Team: German (https://www.transifex.com/grocy/teams/93189/de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/permissions\n"
+
+# All permissions
+msgid "ADMIN"
+msgstr "Alle Berechtigungen"
+
+# Create users
+msgid "USERS_CREATE"
+msgstr "Benutzer erstellen"
+
+# Edit users (including passwords)
+msgid "USERS_EDIT"
+msgstr "Benutzer bearbeiten (inklusive Passwörter)"
+
+# Show users
+msgid "USERS_READ"
+msgstr "Benutzer anzeigen"
+
+# Edit own user data / change own password
+msgid "USERS_EDIT_SELF"
+msgstr "Eigene Benutzerdaten bearbeiten / eigenes Passwort ändern"
+
+# Undo charge cycle
+msgid "BATTERIES_UNDO_CHARGE_CYCLE"
+msgstr "Ladezyklus rückgängig machen"
+
+# Track charge cycle
+msgid "BATTERIES_TRACK_CHARGE_CYCLE"
+msgstr "Ladezyklus erfassen"
+
+# Track execution
+msgid "CHORE_TRACK_EXECUTION"
+msgstr "Ausführung erfassen"
+
+# Undo execution
+msgid "CHORE_UNDO_EXECUTION"
+msgstr "Ausführung rückgängig machen"
+
+# Edit master data
+msgid "MASTER_DATA_EDIT"
+msgstr "Stammdaten bearbeiten"
+
+# Undo execution
+msgid "TASKS_UNDO_EXECUTION"
+msgstr "Ausführung rückgängig machen"
+
+# Mark completed
+msgid "TASKS_MARK_COMPLETED"
+msgstr "Als erledigt markieren"
+
+# Edit stock entries
+msgid "STOCK_EDIT"
+msgstr "Bestandseinträge bearbeiten"
+
+# Transfer
+msgid "STOCK_TRANSFER"
+msgstr "Umlagern"
+
+# Inventory
+msgid "STOCK_INVENTORY"
+msgstr "Inventur"
+
+# Consume
+msgid "STOCK_CONSUME"
+msgstr "Verbrauch"
+
+# Open products
+msgid "STOCK_OPEN"
+msgstr "Produkt als geöffnet markieren"
+
+# Purchase
+msgid "STOCK_PURCHASE"
+msgstr "Einkauf"
+
+# Add items
+msgid "SHOPPINGLIST_ITEMS_ADD"
+msgstr "Eintrag hinzufügen"
+
+# Remove items
+msgid "SHOPPINGLIST_ITEMS_DELETE"
+msgstr "Eintrag entfernen"
+
+# User management
+msgid "USERS"
+msgstr "Benutzerverwaltung"
+
+# Stock
+msgid "STOCK"
+msgstr "Bestand"
+
+# Shopping list
+msgid "SHOPPINGLIST"
+msgstr "Einkaufszettel"
+
+# Chores
+msgid "CHORES"
+msgstr "Hausarbeiten"
+
+# Batteries
+msgid "BATTERIES"
+msgstr "Batterien"
+
+# Tasks
+msgid "TASKS"
+msgstr "Aufgaben"
+
+# Recipes
+msgid "RECIPES"
+msgstr "Rezepte"
+
+# Equipment
+msgid "EQUIPMENT"
+msgstr "Ausstattung"
+
+# Calendar
+msgid "CALENDAR"
+msgstr "Kalender"
+
+# Meal plan
+msgid "RECIPES_MEALPLAN"
+msgstr "Speiseplan"

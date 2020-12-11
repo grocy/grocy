@@ -1,0 +1,138 @@
+# 
+# Translators:
+# CW kim <cw2002.kim@gmail.com>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-29 16:33+0000\n"
+"Last-Translator: CW kim <cw2002.kim@gmail.com>, 2020\n"
+"Language-Team: Korean (Korea) (https://www.transifex.com/grocy/teams/93189/ko_KR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ko_KR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Domain: grocy/permissions\n"
+
+# All permissions
+msgid "ADMIN"
+msgstr "관리자"
+
+# Create users
+msgid "USERS_CREATE"
+msgstr "사용자 생성"
+
+# Edit users (including passwords)
+msgid "USERS_EDIT"
+msgstr "사용자 수정"
+
+# Show users
+msgid "USERS_READ"
+msgstr "사용자 읽기"
+
+# Edit own user data / change own password
+msgid "USERS_EDIT_SELF"
+msgstr "사용자 수정(셀프)"
+
+# Undo charge cycle
+msgid "BATTERIES_UNDO_CHARGE_CYCLE"
+msgstr "배터리 충전 실행 취소"
+
+# Track charge cycle
+msgid "BATTERIES_TRACK_CHARGE_CYCLE"
+msgstr "배터리 충전 실행 기록"
+
+# Track execution
+msgid "CHORE_TRACK_EXECUTION"
+msgstr "집안일 실행 기록"
+
+# Undo execution
+msgid "CHORE_UNDO_EXECUTION"
+msgstr "집안일 실행 취소"
+
+# Edit master data
+msgid "MASTER_DATA_EDIT"
+msgstr "기본 자료 수정"
+
+# Undo execution
+msgid "TASKS_UNDO_EXECUTION"
+msgstr "작업 실행 취소"
+
+# Mark completed
+msgid "TASKS_MARK_COMPLETED"
+msgstr "작업 실행 기록"
+
+# Edit stock entries
+msgid "STOCK_EDIT"
+msgstr "재고 수정"
+
+# Transfer
+msgid "STOCK_TRANSFER"
+msgstr "재고 이동"
+
+# Inventory
+msgid "STOCK_INVENTORY"
+msgstr "재고 목록"
+
+# Consume
+msgid "STOCK_CONSUME"
+msgstr "재고 소비"
+
+# Open products
+msgid "STOCK_OPEN"
+msgstr "재고 열기"
+
+# Purchase
+msgid "STOCK_PURCHASE"
+msgstr "재고 구매"
+
+# Add items
+msgid "SHOPPINGLIST_ITEMS_ADD"
+msgstr "구매 목록 아이템 추가"
+
+# Remove items
+msgid "SHOPPINGLIST_ITEMS_DELETE"
+msgstr "구매 목록 아이템 삭제"
+
+# User management
+msgid "USERS"
+msgstr "사용자"
+
+# Stock
+msgid "STOCK"
+msgstr "재고"
+
+# Shopping list
+msgid "SHOPPINGLIST"
+msgstr "구매 목록"
+
+# Chores
+msgid "CHORES"
+msgstr "집안일"
+
+# Batteries
+msgid "BATTERIES"
+msgstr "배터리"
+
+# Tasks
+msgid "TASKS"
+msgstr "작업"
+
+# Recipes
+msgid "RECIPES"
+msgstr "요리법"
+
+# Equipment
+msgid "EQUIPMENT"
+msgstr "장비"
+
+# Calendar
+msgid "CALENDAR"
+msgstr "달력"
+
+# Meal plan
+msgid "RECIPES_MEALPLAN"
+msgstr "식단 계획"

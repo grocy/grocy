@@ -1,0 +1,114 @@
+# 
+# Translators:
+# Bernd Bestel <bernd@berrnd.de>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-31 19:11+0000\n"
+"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2020\n"
+"Language-Team: German (https://www.transifex.com/grocy/teams/93189/de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/locales\n"
+
+# Czech
+msgid "cs"
+msgstr "Tschechisch"
+
+# Danish
+msgid "da"
+msgstr "Dänisch"
+
+# German
+msgid "de"
+msgstr "de"
+
+# Greek
+msgid "el_GR"
+msgstr "Griechisch"
+
+# English
+msgid "en"
+msgstr "de"
+
+# English (Great Britain)
+msgid "en_GB"
+msgstr "Englisch (Großbritannien)"
+
+# Spanish
+msgid "es"
+msgstr "Spanisch"
+
+# French
+msgid "fr"
+msgstr "Französisch"
+
+# Hungarian
+msgid "hu"
+msgstr "Ungarisch "
+
+# Italian
+msgid "it"
+msgstr "Italienisch"
+
+# Japanese
+msgid "ja"
+msgstr "Japanisch"
+
+# Korean
+msgid "ko_KR"
+msgstr "Koreanisch"
+
+# Dutch
+msgid "nl"
+msgstr "Niederländisch"
+
+# Norwegian
+msgid "no"
+msgstr "Norwegisch"
+
+# Polish
+msgid "pl"
+msgstr "Polnisch"
+
+# Portuguese (Brazil)
+msgid "pt_BR"
+msgstr "Portugiesisch (Brasilien)"
+
+# Portuguese (Portugal)
+msgid "pt_PT"
+msgstr "Portugiesisch (Portugal)"
+
+# Russian
+msgid "ru"
+msgstr "Russisch"
+
+# Slovak
+msgid "sk_SK"
+msgstr "Slowakisch"
+
+# Swedish
+msgid "sv_SE"
+msgstr "Schwedisch"
+
+# Turkish
+msgid "tr"
+msgstr "Türkisch"
+
+# Chinese (Taiwan)
+msgid "zh_TW"
+msgstr "Chinesisch (Taiwan)"
+
+# Chinese (China)
+msgid "zh_CN"
+msgstr "Chinesisch (China)"
+
+# Hebrew (Israel)
+msgid "he_IL"
+msgstr "Hebräisch (Israel)"

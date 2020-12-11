@@ -1,0 +1,114 @@
+# 
+# Translators:
+# Radim Kabeláč <radim.ekk@gmail.com>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-31 19:11+0000\n"
+"Last-Translator: Radim Kabeláč <radim.ekk@gmail.com>, 2020\n"
+"Language-Team: Czech (https://www.transifex.com/grocy/teams/93189/cs/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+"X-Domain: grocy/locales\n"
+
+# Czech
+msgid "cs"
+msgstr "Čeština"
+
+# Danish
+msgid "da"
+msgstr "Dánština"
+
+# German
+msgid "de"
+msgstr "Němčina"
+
+# Greek
+msgid "el_GR"
+msgstr "Řečtina"
+
+# English
+msgid "en"
+msgstr "Angličtina"
+
+# English (Great Britain)
+msgid "en_GB"
+msgstr "Angličtina (Britská)"
+
+# Spanish
+msgid "es"
+msgstr "Španělština"
+
+# French
+msgid "fr"
+msgstr "Francouzština"
+
+# Hungarian
+msgid "hu"
+msgstr "Maďarština"
+
+# Italian
+msgid "it"
+msgstr "Italština"
+
+# Japanese
+msgid "ja"
+msgstr "Japonština"
+
+# Korean
+msgid "ko_KR"
+msgstr "Korejština"
+
+# Dutch
+msgid "nl"
+msgstr "Nizozemština"
+
+# Norwegian
+msgid "no"
+msgstr "Norština"
+
+# Polish
+msgid "pl"
+msgstr "Polština"
+
+# Portuguese (Brazil)
+msgid "pt_BR"
+msgstr "Portugalština (Brazílie)"
+
+# Portuguese (Portugal)
+msgid "pt_PT"
+msgstr "Portugalština (Portugalsko)"
+
+# Russian
+msgid "ru"
+msgstr "Ruština"
+
+# Slovak
+msgid "sk_SK"
+msgstr "Slovenština"
+
+# Swedish
+msgid "sv_SE"
+msgstr "Švédština"
+
+# Turkish
+msgid "tr"
+msgstr "Turečtina"
+
+# Chinese (Taiwan)
+msgid "zh_TW"
+msgstr "Čínština (Tradiční)"
+
+# Chinese (China)
+msgid "zh_CN"
+msgstr ""
+
+# Hebrew (Israel)
+msgid "he_IL"
+msgstr ""

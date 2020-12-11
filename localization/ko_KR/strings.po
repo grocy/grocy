@@ -1,6 +1,7 @@
 # 
 # Translators:
 # CW kim <cw2002.kim@gmail.com>, 2020
+# ks <idaksha@outlook.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -8,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: CW kim <cw2002.kim@gmail.com>, 2020\n"
+"Last-Translator: ks <idaksha@outlook.com>, 2020\n"
 "Language-Team: Korean (Korea) (https://www.transifex.com/grocy/teams/93189/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,6 +33,10 @@ msgid "%s product is already expired"
 msgid_plural "%s products are already expired"
 msgstr[0] "%s 개 제품 유통기한이 이미 만료됨"
 
+msgid "%s product is overdue"
+msgid_plural "%s products are overdue"
+msgstr[0] ""
+
 msgid "%s product is below defined min. stock amount"
 msgid_plural "%s products are below defined min. stock amount"
 msgstr[0] "%s 개 제품은 재고 미달"
@@ -45,9 +50,6 @@ msgstr[0] "%s 개 제품"
 
 msgid "Amount"
 msgstr "합계"
-
-msgid "Next best before date"
-msgstr "다음 유통 기한"
 
 msgid "Logout"
 msgstr "로그아웃"
@@ -65,7 +67,7 @@ msgid "Consume"
 msgstr "소비"
 
 msgid "Inventory"
-msgstr "물품 목록"
+msgstr "재고"
 
 msgid "Shopping list"
 msgstr "구매 목록"
@@ -131,7 +133,7 @@ msgid "Last used"
 msgstr "마지막 사용"
 
 msgid "Spoiled"
-msgstr "망쳤다"
+msgstr "상한제품"
 
 msgid "Barcode lookup is disabled"
 msgstr "바코드 조회가 비활성화됨"
@@ -182,15 +184,6 @@ msgstr "위치"
 msgid "Min. stock amount"
 msgstr "최소 수량"
 
-msgid "QU purchase"
-msgstr "수량 단위 구매"
-
-msgid "QU stock"
-msgstr "수량 단위 보관"
-
-msgid "QU factor"
-msgstr "수량 단위 증가"
-
 msgid "Description"
 msgstr "설명"
 
@@ -206,8 +199,8 @@ msgstr "최소 재고 수량"
 msgid "Default best before days"
 msgstr "기본 유통기한"
 
-msgid "Quantity unit purchase"
-msgstr "수량 단위 구매"
+msgid "Default quantity unit purchase"
+msgstr ""
 
 msgid "Quantity unit stock"
 msgstr "수량 단위 보관"
@@ -271,11 +264,6 @@ msgstr "never"
 
 msgid "Add products that are below defined min. stock amount"
 msgstr "정의된 최소값 미만인 제품을 추가. 재고량"
-
-msgid ""
-"For purchases this amount of days will be added to today for the best before"
-" date suggestion"
-msgstr "구매시 설정일수를 유효기한으로 추가하여 제안한다"
 
 msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
 msgstr "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
@@ -372,10 +360,10 @@ msgstr ""
 "last execution"
 
 msgid "Removed %1$s of %2$s from stock"
-msgstr "Removed %1$s of %2$s from stock"
+msgstr "%2$s %1$s을 재고 목록에서 제거함"
 
 msgid "About grocy"
-msgstr "About grocy"
+msgstr "Grocy에 대하여"
 
 msgid "Close"
 msgstr "닫기"
@@ -384,10 +372,10 @@ msgid "Released on"
 msgstr "Released on"
 
 msgid "Added %1$s of %2$s to stock"
-msgstr "재고 %2$s 중 %1$s 추가 "
+msgstr " %2$s %1$s을 재고 목록에  추가함 "
 
 msgid "Stock amount of %1$s is now %2$s"
-msgstr "현재 재고양은  %2$s중 %1$s "
+msgstr "현재 재고량은  %1$s %2$s "
 
 msgid "Tracked execution of chore %1$s on %2$s"
 msgstr "%2$s에 %1$s집안일 추적"
@@ -400,15 +388,6 @@ msgstr "현재 재고가 있는 %s 모두 소비"
 
 msgid "All"
 msgstr "모두"
-
-msgid "Track charge cycle of battery %s"
-msgstr "배터리 %s 충전주기 추적"
-
-msgid "Track execution of chore %s"
-msgstr "집안일 %s 실행 추적"
-
-msgid "Filter by location"
-msgstr "위치별 정렬"
 
 msgid "Search"
 msgstr "검색"
@@ -430,12 +409,6 @@ msgstr "이름이 필요합니다."
 
 msgid "A location is required"
 msgstr "위치가 필요합니다."
-
-msgid "The amount cannot be lower than %s"
-msgstr "수량은 %s개 보다 작을 수 없습니다."
-
-msgid "This cannot be negative"
-msgstr "음수 일 수 없습니다."
 
 msgid "A quantity unit is required"
 msgstr "수량 단위가 필요합니다."
@@ -489,13 +462,13 @@ msgid "Put missing products on shopping list"
 msgstr "누락제품 구매목록 등록"
 
 msgid "Enough in stock"
-msgstr "재고가 충분하다"
+msgstr "재고가 충분함"
 
 msgid ""
 "Not enough in stock, %s ingredient missing but already on the shopping list"
 msgid_plural ""
 "Not enough in stock, %s ingredients missing but already on the shopping list"
-msgstr[0] "재고가 충분하지 않습니다. %s 재료가 누락되었지만 이미 쇼핑 목록에 있음"
+msgstr[0] "재고 부족. 재료 %s 개가 누락되었지만 이미 쇼핑 목록에 있음"
 
 msgid "Expand to fullscreen"
 msgstr "전체 화면으로 확장"
@@ -510,7 +483,7 @@ msgid "Recipe"
 msgstr "요리법"
 
 msgid "Not enough in stock, %1$s missing, %2$s already on shopping list"
-msgstr "재고가 충분하지 않습니다. %1$s 누락, %2$s이미 쇼핑리스트에 있습니다."
+msgstr "재고 부족. 재료%1$s개 누락, %2$s이미 쇼핑리스트에 있습니다."
 
 msgid "Show notes"
 msgstr "노트 보기"
@@ -573,9 +546,6 @@ msgstr "마지막 완료 사용자"
 msgid "Unknown"
 msgstr "Unknown"
 
-msgid "Filter by chore"
-msgstr "집안일 정렬"
-
 msgid "Chores journal"
 msgstr "집안일 일지"
 
@@ -596,12 +566,6 @@ msgstr "사용 가능한 금액 정보 없음"
 
 msgid "Price"
 msgstr "금액"
-
-msgid "in %s per purchase quantity unit"
-msgstr "in %s per purchase quantity unit"
-
-msgid "The price cannot be lower than %s"
-msgstr "가격이 %s보다 낮을 수 없음"
 
 msgid "Unit"
 msgstr "단위"
@@ -629,24 +593,13 @@ msgstr[0] "%s 배터리 충전 기한이 지났습니다."
 msgid "in singular form"
 msgstr "단수형"
 
-msgid "Never expires"
-msgstr "기한 없음"
-
-msgid "This cannot be lower than %s"
-msgstr "이것은 %s보다 낮을 수 없음"
-
-msgid "-1 means that this product never expires"
-msgstr "-1은 유통기한 없음"
-
 msgid "Quantity unit"
 msgstr "단위"
 
 msgid ""
 "Only check if a single unit is in stock (a different quantity can then be "
-"used above)"
+"used below)"
 msgstr ""
-"Only check if a single unit is in stock (a different quantity can then be "
-"used above)"
 
 msgid ""
 "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
@@ -795,9 +748,6 @@ msgstr "제품 사진"
 msgid "No file selected"
 msgstr "파일 선택 안됨"
 
-msgid "If you don't select a file, the current picture will not be altered"
-msgstr "파일을 선택하지 않으면 현재 사진이 변경되지 않음"
-
 msgid "Delete"
 msgstr "삭제"
 
@@ -810,13 +760,8 @@ msgstr "파일 선택"
 msgid "Image of product %s"
 msgstr "%s제품이미지 "
 
-msgid ""
-"This product cannot be deleted because it is in stock, please remove the "
-"stock amount first."
-msgstr "이 제품은 재고가 없어서 삭제할 수 없습니다. 재고 양을 먼저 제거하십시오."
-
-msgid "Delete not possible"
-msgstr "삭제 불가능"
+msgid "Deletion not possible"
+msgstr ""
 
 msgid "Equipment"
 msgstr "장비"
@@ -836,11 +781,6 @@ msgstr "장비 수정"
 msgid "Create equipment"
 msgstr "장비 생성"
 
-msgid ""
-"If you don't select a file, the current instruction manual will not be "
-"altered"
-msgstr "파일을 선택하지 않으면 현재 사용 설명서가 변경되지 않음"
-
 msgid "No instruction manual available"
 msgstr "사용 설명서 없음"
 
@@ -850,9 +790,6 @@ msgstr "장비를 저장하면 현재 사용자 설명서는 삭제됩니다."
 
 msgid "No picture available"
 msgstr "사용 가능한 사진 없음"
-
-msgid "Filter by product group"
-msgstr "제품 그룹별 정렬"
 
 msgid "Presets for new products"
 msgstr "새로운 제품 사전 설정"
@@ -881,26 +818,11 @@ msgstr "일지"
 msgid "Stock journal"
 msgstr "재고 일지"
 
-msgid "Filter by product"
-msgstr "제품별 정렬"
-
-msgid "Booking time"
-msgstr "시간"
-
-msgid "Booking type"
-msgstr "종류"
-
-msgid "Undo booking"
-msgstr "실행 취소"
-
 msgid "Undone on"
 msgstr "실행 취소됨"
 
 msgid "Batteries journal"
 msgstr "배터리 일지"
-
-msgid "Filter by battery"
-msgstr "배터리별 정렬"
 
 msgid "Undo charge cycle"
 msgstr "충전 주기 실행 취소"
@@ -920,9 +842,6 @@ msgstr "실행 취소 성공"
 msgid "Charge cycle successfully undone"
 msgstr "충전 주기 실행 취소 성공"
 
-msgid "This cannot be negative and must be an integral number"
-msgstr "음수는 사용할 수 없습니다. 정수여야 함"
-
 msgid "Disable stock fulfillment checking for this ingredient"
 msgstr "이 재료에 대한 재고 확인기능 비활성"
 
@@ -930,7 +849,7 @@ msgid "Add all list items to stock"
 msgstr "재고에 모든 목록 항목 추가"
 
 msgid "Add %1$s of %2$s to stock"
-msgstr "Add %1$s of %2$s to stock"
+msgstr "%2$s %1$s 을 재고 목록에 추가"
 
 msgid "Adding shopping list item %1$s of %2$s"
 msgstr "쇼핑 목록 항목 추가 %1$s of %2$s"
@@ -940,23 +859,11 @@ msgstr "특정 재고 품목 사용"
 
 msgid ""
 "The first item in this list would be picked by the default rule which is "
-"\"First expiring first, then first in first out\""
+"\"First due first, then first in first out\""
 msgstr ""
-"The first item in this list would be picked by the default rule which is "
-"\"First expiring first, then first in first out\""
 
 msgid "Mark %1$s of %2$s as open"
 msgstr "Mark %1$s of %2$s as open"
-
-msgid ""
-"When this product was marked as opened, the best before date will be "
-"replaced by today + this amount of days (a value of 0 disables this)"
-msgstr ""
-"When this product was marked as opened, the best before date will be "
-"replaced by today + this amount of days (a value of 0 disables this)"
-
-msgid "Default best before days after opened"
-msgstr "상품 개봉후 기본 유통기한"
 
 msgid "Marked %1$s of %2$s as opened"
 msgstr "Marked %1$s of %2$s as opened"
@@ -973,8 +880,8 @@ msgstr "개봉"
 msgid "%s opened"
 msgstr "%s 개봉"
 
-msgid "Product expires"
-msgstr "제품 만료"
+msgid "Product due"
+msgstr ""
 
 msgid "Task due"
 msgstr "마감 기한"
@@ -993,11 +900,6 @@ msgstr "저장소 설정"
 
 msgid "Shopping list to stock workflow"
 msgstr "구매 목록에서 재고 흐름"
-
-msgid ""
-"Automatically do the booking using the last price and the amount of the "
-"shopping list item, if the product has \"Default best before days\" set"
-msgstr "만약 제품 기본 유효기간이 설정된 경우  구매목록 아이템의 마지막 가격과 양으로 자동 기록"
 
 msgid "Skip"
 msgstr "건너뜀"
@@ -1092,21 +994,6 @@ msgstr "사진첩"
 msgid "The current picture will be deleted when you save the recipe"
 msgstr "요리법을 저장하면 현재 사진은 삭제됩니다."
 
-msgid "Show product details"
-msgstr "제품 상세 보기"
-
-msgid "Stock journal for this product"
-msgstr "제품별 재고 일지"
-
-msgid "Show chore details"
-msgstr "집안일 상세 보기"
-
-msgid "Journal for this chore"
-msgstr "해당 집안일에 대한 일지"
-
-msgid "Show battery details"
-msgstr "배터리 상세 보기"
-
 msgid "Journal for this battery"
 msgstr "해당 배터리에 대한 일지"
 
@@ -1125,8 +1012,9 @@ msgstr "지정된 날짜가 오늘보다 빠릅니다. 확실합니까?"
 msgid "Product count"
 msgstr "제품 수"
 
-msgid "Type a new product name or barcode and hit TAB to start a workflow"
-msgstr "새로운 제품 이름 또는 바코드를 입력하고 Tab 키를 눌러 작업을 시작하십시오."
+msgid ""
+"Type a new product name or barcode and hit TAB or ENTER to start a workflow"
+msgstr ""
 
 msgid ""
 "This will be used as the default setting when adding this product as a "
@@ -1176,7 +1064,7 @@ msgid "The amount must be between %1$s and %2$s"
 msgstr "The amount must be between %1$s and %2$s"
 
 msgid "Day of month"
-msgstr "Day of month"
+msgstr "매월 몇일"
 
 msgid "Monday"
 msgstr "월요일"
@@ -1204,9 +1092,6 @@ msgstr "사용자 항목 설정"
 
 msgid "Userfields"
 msgstr "사용자 항목"
-
-msgid "Filter by entity"
-msgstr "목록별 정렬"
 
 msgid "Entity"
 msgstr "목록"
@@ -1255,16 +1140,13 @@ msgstr "복수형"
 
 msgid "Not enough in stock, %s ingredient missing"
 msgid_plural "Not enough in stock, %s ingredients missing"
-msgstr[0] "Not enough in stock, %s ingredients missing"
-
-msgid "The amount cannot be lower than %1$s or equal %2$s"
-msgstr "수량은  %1$s개 보다 작거나 %2$s개와 같을 수 없습니다."
+msgstr[0] "재고 부족, 재료%s 개 누락"
 
 msgid "Not enough in stock, but already on the shopping list"
-msgstr "Not enough in stock, but already on the shopping list"
+msgstr "재고 부족, 그러나 구매 목록에 이미 있음"
 
 msgid "Not enough in stock"
-msgstr "Not enough in stock"
+msgstr "재고 부족"
 
 msgid "Expiring soon days"
 msgstr "곧 만료"
@@ -1289,10 +1171,10 @@ msgstr ""
 " while the amount there will still be used for stock fulfillment checking"
 
 msgid "Track date only"
-msgstr "Track date only"
+msgstr "날짜만 기록"
 
 msgid "When enabled only the day of an execution is tracked, not the time"
-msgstr "When enabled only the day of an execution is tracked, not the time"
+msgstr "활성화된 경우 실행 날짜만 기록되고 시간은 사용하지 않는다"
 
 msgid "Consume %1$s of %2$s"
 msgstr "Consume %1$s of %2$s"
@@ -1316,20 +1198,11 @@ msgstr "설정"
 msgid "A predefined list of values, one per line"
 msgstr "A predefined list of values, one per line"
 
-msgid "Chores due soon days"
-msgstr "Chores due soon days"
-
-msgid "Batteries due to be charged soon days"
-msgstr "Batteries due to be charged soon days"
-
-msgid "Tasks due soon days"
-msgstr "Tasks due soon days"
-
 msgid "Products"
 msgstr "제품"
 
 msgid "Marked task %s as completed on %s"
-msgstr "Marked task %s as completed on %s"
+msgstr "표시된 작업 \"%s\" 완료처리됨 %s"
 
 msgid "Booking has subsequent dependent bookings, undo not possible"
 msgstr "Booking has subsequent dependent bookings, undo not possible"
@@ -1344,13 +1217,13 @@ msgid "Today"
 msgstr "오늘"
 
 msgid "Consume %1$s of %2$s as spoiled"
-msgstr "Consume %1$s of %2$s as spoiled"
+msgstr "상한제품 %2$s%1$s을 소비"
 
 msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
 msgstr "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
 
-msgid "Undo task \"%s\""
-msgstr "Undo task \"%s\""
+msgid "Undo task"
+msgstr ""
 
 msgid "Due date rollover"
 msgstr "Due date rollover"
@@ -1373,13 +1246,13 @@ msgstr "모든 위치"
 
 msgid ""
 "Here you can print a page per location with the current stock, maybe to hang"
-" it there and note the consumed things on it."
-msgstr "이곳에서 현재 재고가 있는 위치별로 페이지를 인쇄 할 수 있고 그곳에 걸어 놓아 소비된 것을 기록 할 수 있습니다."
+" it there and note the consumed things on it"
+msgstr ""
 
 msgid "this location"
 msgstr "이 위치"
 
-msgid "Consumend amount"
+msgid "Consumed amount"
 msgstr "소비량"
 
 msgid "Time of printing"
@@ -1419,13 +1292,6 @@ msgstr "Quantity unit from"
 msgid "Quantity unit to"
 msgstr "Quantity unit to"
 
-msgid ""
-"This cannot be lower than %1$s and must be a valid number with max. %2$s "
-"decimal places"
-msgstr ""
-"This cannot be lower than %1$s and must be a valid number with max. %2$s "
-"decimal places"
-
 msgid "This cannot be equal to %s"
 msgstr "This cannot be equal to %s"
 
@@ -1441,8 +1307,8 @@ msgstr "제품 재정의"
 msgid "Override for product"
 msgstr "제품 재정의"
 
-msgid "This equals %1$s %2$s in stock"
-msgstr "This equals %1$s %2$s in stock"
+msgid "This equals %1$s %2$s"
+msgstr ""
 
 msgid "Edit QU conversion"
 msgstr "수량 단위 변환 수정"
@@ -1451,7 +1317,7 @@ msgid "An assignment type is required"
 msgstr "작업자 할당이 필요합니다."
 
 msgid "Assignment type"
-msgstr "Assignment type"
+msgstr "할당유형"
 
 msgid ""
 "This means the next execution of this chore is scheduled 1 day after the "
@@ -1464,40 +1330,32 @@ msgid ""
 "This means the next execution of this chore is scheduled 1 day after the "
 "last execution, but only for the weekdays selected below"
 msgstr ""
-"This means the next execution of this chore is scheduled 1 day after the "
-"last execution, but only for the weekdays selected below"
+"이는 이 일의 다음 실행이 마지막 실행일로부터 1일 후에 예정되어 있지만, 아래에서 선택한 평일에만 예정되어 있음을 의미한다."
 
 msgid "This means the next execution of this chore is not scheduled"
-msgstr "This means the next execution of this chore is not scheduled"
+msgstr "이것은 이 일의 다음 실행이 예정되어 있지 않다는 것을 의미한다."
 
 msgid ""
 "This means the next execution of this chore is scheduled on the below "
 "selected day of each month"
-msgstr ""
-"This means the next execution of this chore is scheduled on the below "
-"selected day of each month"
+msgstr "이것은 이 일의 다음 실행이 매월 아래 선택된 날짜에 예정되어 있음을 의미한다."
 
 msgid ""
 "This means the next execution of this chore will not be assigned to anyone"
-msgstr ""
-"This means the next execution of this chore will not be assigned to anyone"
+msgstr "이것은 이 일의 다음 실행은 어느 누구에게도 할당되지 않는다는 것을 의미한다."
 
 msgid ""
 "This means the next execution of this chore will be assigned to the one who "
 "executed it least"
-msgstr ""
-"This means the next execution of this chore will be assigned to the one who "
-"executed it least"
+msgstr "이것은 이 일의 다음 실행은 가장 적게 실행한 사람에게 할당된다는 것을 의미한다."
 
 msgid "This means the next execution of this chore will be assigned randomly"
-msgstr "This means the next execution of this chore will be assigned randomly"
+msgstr "이것의 이 일의 다음 실행은 무작위로 작업자 할당된다는 것을 의미한다."
 
 msgid ""
 "This means the next execution of this chore will be assigned to the next one"
 " in alphabetical order"
-msgstr ""
-"This means the next execution of this chore will be assigned to the next one"
-" in alphabetical order"
+msgstr "이것은 이 일의 다음 실행이 알파벳순으로 할당된다는 것을 의미한다."
 
 msgid "Assign to"
 msgstr "역할 분담"
@@ -1584,7 +1442,7 @@ msgid "Say thanks"
 msgstr "Say thanks"
 
 msgid "Search for recipes containing this product"
-msgstr "Search for recipes containing this product"
+msgstr "이 제품이 포함된 요리법 검색"
 
 msgid "Add to shopping list"
 msgstr "구매 목록 추가"
@@ -1620,7 +1478,7 @@ msgid "Miss"
 msgstr "Miss"
 
 msgid "Display recipe"
-msgstr "Display recipe"
+msgstr "요리법 보기"
 
 msgid "Accumulate sub products min. stock amount"
 msgstr "Accumulate sub products min. stock amount"
@@ -1656,7 +1514,7 @@ msgid "Are you sure to remove the included recipe \"%s\"?"
 msgstr "Are you sure to remove the included recipe \"%s\"?"
 
 msgid "Period interval"
-msgstr "Period interval"
+msgstr "기간 간격"
 
 msgid ""
 "This means the next execution of this chore should only be scheduled every "
@@ -1705,20 +1563,17 @@ msgstr "이동 후 위치"
 msgid "There are no units available at this location"
 msgstr "이 위치에서 사용가능한 단위가 없다"
 
-msgid "Amount: %1$s; Expires on %2$s; Bought on %3$s"
-msgstr "Amount: %1$s; Expires on %2$s; Bought on %3$s"
+msgid "Amount: %1$s; Due on %2$s; Bought on %3$s"
+msgstr ""
 
 msgid "Transfered %1$s of %2$s from %3$s to %4$s"
 msgstr "Transfered %1$s of %2$s from %3$s to %4$s"
-
-msgid "Show stock entries"
-msgstr "재고 항목 보기"
 
 msgid "Stock entries"
 msgstr "재고 항목"
 
 msgid "Best before date"
-msgstr "Best before date"
+msgstr "유통기한"
 
 msgid "Purchased date"
 msgstr "구매일"
@@ -1733,7 +1588,7 @@ msgid "Stock entry successfully updated"
 msgstr "Stock entry successfully updated"
 
 msgid "Edit stock entry"
-msgstr "Edit stock entry"
+msgstr "재고 목록 수정"
 
 msgid ""
 "Camera access is only possible when supported and allowed by your browser "
@@ -1752,9 +1607,9 @@ msgid "A purchased date is required"
 msgstr "구매일이 필요합니다."
 
 msgid ""
-"When a product is selected, one unit (per serving in purchase quantity unit)"
-" will be added to stock on consuming this recipe"
-msgstr "제품을 선택하면 이 레시피를 재고로 한 개(구매 수량 단위당 1개)가 추가된다."
+"When a product is selected, one unit (per serving in stock quantity unit) "
+"will be added to stock on consuming this recipe"
+msgstr ""
 
 msgid "Produces product"
 msgstr "제품 소개"
@@ -1777,9 +1632,6 @@ msgstr "%s 메모 추가"
 msgid "per day"
 msgstr "per day"
 
-msgid "Compact view"
-msgstr "Compact view"
-
 msgid "Normal view"
 msgstr "Normal view"
 
@@ -1796,7 +1648,7 @@ msgid "Consume all ingredients needed by this weeks recipes or products"
 msgstr "Consume all ingredients needed by this weeks recipes or products"
 
 msgid "Meal plan recipe"
-msgstr "신단 계획 레시피"
+msgstr "식단 계획 레시피"
 
 msgid "Meal plan note"
 msgstr "식단 계획"
@@ -1823,25 +1675,7 @@ msgstr "냉동고"
 msgid ""
 "When moving products from/to a freezer location, the products best before "
 "date is automatically adjusted according to the product settings"
-msgstr "제품을 냉동실에서 냉장소로 제품을 옮기는경우 제품 설정에 따라 유통기한 자동조정"
-
-msgid ""
-"On moving this product to a freezer location (so when freezing it), the best"
-" before date will be replaced by today + this amount of days"
-msgstr "이 제품을 냉동고 위치로 옮기면 (냉동시)  유통기한을 오늘 + 설정값으로 변경한다"
-
-msgid "Default best before days after freezing"
-msgstr "냉동보관시 기본 유통기한"
-
-msgid ""
-"On moving this product from a freezer location (so when thawing it), the "
-"best before date will be replaced by today + this amount of days"
-msgstr ""
-"On moving this product from a freezer location (so when thawing it), the "
-"best before date will be replaced by today + this amount of days"
-
-msgid "Default best before days after thawing"
-msgstr "해동 후 기본 유통기한"
+msgstr "제품을 냉동고에서 냉장고로 제품을 옮기는경우 제품 설정에 따라 유통기한 자동조정"
 
 msgid "This cannot be the same as the \"From\" location"
 msgstr "This cannot be the same as the \"From\" location"
@@ -1860,9 +1694,6 @@ msgstr "구매 목록 설정"
 
 msgid "Show a month-view calendar"
 msgstr "월간 일정 보기"
-
-msgid "Don't automatically switch to the compact view on mobile devices"
-msgstr "휴대 기기에서 컴팩트보기로 자동 전환하지 않습니다"
 
 msgid "Edit note on %s"
 msgstr " %s메모 수정"
@@ -1883,7 +1714,7 @@ msgid "Recipes settings"
 msgstr "요리법 설정"
 
 msgid "Recipe card"
-msgstr "Recipe card"
+msgstr "레시피 카드"
 
 msgid "Group ingredients by their product group"
 msgstr "Group ingredients by their product group"
@@ -1921,19 +1752,8 @@ msgstr "제품이 이미 구매 목록에 있는 경우 아이콘 표시"
 msgid "Calories"
 msgstr "칼로리"
 
-msgid ""
-"By default the amount to be added to the shopping list is `needed amount - "
-"stock amount - shopping list amount` - when this is enabled, it is only "
-"checked against the stock amount, not against what is already on the "
-"shopping list"
-msgstr ""
-"By default the amount to be added to the shopping list is `needed amount - "
-"stock amount - shopping list amount` - when this is enabled, it is only "
-"checked against the stock amount, not against what is already on the "
-"shopping list"
-
 msgid "means %1$s per %2$s"
-msgstr "means %1$s per %2$s"
+msgstr "각 %2$s당 %1$s  "
 
 msgid "Create inverse QU conversion"
 msgstr "Create inverse QU conversion"
@@ -1945,7 +1765,387 @@ msgid "Save & continue to add ingredients and included recipes"
 msgstr "재료 및 포함 된 레시피 저장 및 계속 추가"
 
 msgid "Save & continue"
-msgstr "저장 및 계속진행"
+msgstr "저장 후 계속 편집"
 
 msgid "Save & return to recipes"
-msgstr "저장 및 레시피로 돌아가기"
+msgstr "저장 후 레시피목록으로 돌아가기"
+
+msgid "Stock value"
+msgstr "재고 가치"
+
+msgid "Average price"
+msgstr "평균 가격"
+
+msgid "Active"
+msgstr "활성"
+
+msgid "Barcodes"
+msgstr "바코드"
+
+msgid "Barcode"
+msgstr "바코드"
+
+msgid "Create Barcode"
+msgstr "바코드 생성"
+
+msgid "Barcode for product"
+msgstr "제품 바코드"
+
+msgid "Edit Barcode"
+msgstr "바코드 수정"
+
+msgid "Not enough in stock (not included in costs), %s ingredient missing"
+msgstr ""
+
+msgid ""
+"Based on the prices of the default consume rule which is \"First due first, "
+"then first in first out\""
+msgstr ""
+
+msgid ""
+"Not enough in stock (not included in costs), %1$s missing, %2$s already on "
+"shopping list"
+msgstr ""
+
+msgid "Quantity unit stock cannot be changed after first purchase"
+msgstr ""
+
+msgid "Clear filter"
+msgstr "필터 초기화"
+
+msgid "Permissions for user %s"
+msgstr ""
+
+msgid "Are you sure you want to remove full permissions for yourself?"
+msgstr ""
+
+msgid "Permissions saved"
+msgstr "권한 저장됨"
+
+msgid "You are not allowed to view this page"
+msgstr ""
+
+msgid "Page not found"
+msgstr "페이지를 찾을 수 없습니다"
+
+msgid "Unauthorized"
+msgstr ""
+
+msgid "Error source"
+msgstr "오류 소스"
+
+msgid "Error message"
+msgstr "오류 메시지"
+
+msgid "Stack trace"
+msgstr ""
+
+msgid "Easy error info copy & paste (for reporting)"
+msgstr ""
+
+msgid "This page does not exist"
+msgstr "이 페이지는 존재하지 않습니다."
+
+msgid "You will be redirected to the default page in %s seconds"
+msgstr "%s초내로 기본 페이지로 이동됨"
+
+msgid "Server error"
+msgstr "서버 오류"
+
+msgid "A server error occured while processing your request"
+msgstr "요청을 처리하는 도중 서버에서 오류가 발생함"
+
+msgid "If you think this is a bug, please report it"
+msgstr "이것이 버그라고 생각한다면, 레포트 해주세요"
+
+msgid "Language"
+msgstr "언어"
+
+msgid "User settings"
+msgstr "사용자 설정"
+
+msgid "Default"
+msgstr "기본"
+
+msgid "Stock journal summary"
+msgstr ""
+
+msgid "Journal summary"
+msgstr ""
+
+msgid "Journal summary for this product"
+msgstr ""
+
+msgid "Consume exact amount"
+msgstr ""
+
+msgid "Value"
+msgstr ""
+
+msgid "%s total value"
+msgstr ""
+
+msgid ""
+"Show purchased date on purchase and inventory page (otherwise the purchased "
+"date defaults to today)"
+msgstr ""
+
+msgid "Common"
+msgstr ""
+
+msgid "Decimal places allowed for amounts"
+msgstr ""
+
+msgid "Decimal places allowed for prices"
+msgstr ""
+
+msgid "Stock entries for this product"
+msgstr ""
+
+msgid "Edit shopping list"
+msgstr ""
+
+msgid "Save & continue to add quantity unit conversions & barcodes"
+msgstr ""
+
+msgid "Save & return to products"
+msgstr ""
+
+msgid "Save & continue to add conversions"
+msgstr ""
+
+msgid "Save & return to quantity units"
+msgstr ""
+
+msgid "price"
+msgstr ""
+
+msgid "New stock amount"
+msgstr ""
+
+msgid "Price per stock unit"
+msgstr ""
+
+msgid "Hide/view columns"
+msgstr ""
+
+msgid "This product is currently on a shopping list"
+msgstr ""
+
+msgid "Undo transaction"
+msgstr ""
+
+msgid "Transaction type"
+msgstr ""
+
+msgid "Transaction time"
+msgstr ""
+
+msgid "Chore journal"
+msgstr ""
+
+msgid "Track chore execution"
+msgstr ""
+
+msgid "Mark task as completed"
+msgstr ""
+
+msgid "Track charge cycle"
+msgstr ""
+
+msgid "Battery journal"
+msgstr ""
+
+msgid "This product has a picture"
+msgstr ""
+
+msgid "Consume this stock entry as spoiled"
+msgstr ""
+
+msgid "Configure user permissions"
+msgstr ""
+
+msgid "Show a QR-Code for this API key"
+msgstr ""
+
+msgid ""
+"This is the default quantity unit used when adding this product to the "
+"shopping list"
+msgstr ""
+
+msgid ""
+"Show a warning when the due date of the purchased product is earlier than "
+"the next due date in stock"
+msgstr ""
+
+msgid "There are items in stock which are due earlier"
+msgstr ""
+
+msgid ""
+"When enabled, the amount will always be filled with 1 after "
+"changing/scanning a product and if all fields could be automatically "
+"populated (by product defaults), the transaction is automatically submitted"
+msgstr ""
+
+msgid "Quick consume amount"
+msgstr ""
+
+msgid ""
+"This amount is used for the \"quick consume/open buttons\" on the stock "
+"overview page (related to quantity unit stock)"
+msgstr ""
+
+msgid "Copy this item"
+msgstr ""
+
+msgid "Are you sure to remove this barcode?"
+msgstr ""
+
+msgid "Due date type"
+msgstr ""
+
+msgid ""
+"Based on the selected type, the highlighting on the stock overview page will"
+" be different"
+msgstr ""
+
+msgid ""
+"Means that the product is maybe still safe to be consumed after its due date"
+" is reached"
+msgstr ""
+
+msgid "Expiration date"
+msgstr ""
+
+msgid ""
+"Means that the product is not safe to be consumed after its due date is "
+"reached"
+msgstr ""
+
+msgid ""
+"For purchases this amount of days will be added to today for the due date "
+"suggestion"
+msgstr ""
+
+msgid "-1 means that this product will be never overdue"
+msgstr ""
+
+msgid "Default due days"
+msgstr ""
+
+msgid ""
+"When this product was marked as opened, the due date will be replaced by "
+"today + this amount of days (a value of 0 disables this)"
+msgstr ""
+
+msgid "Default due days after opened"
+msgstr ""
+
+msgid ""
+"On moving this product to a freezer location (so when freezing it), the due "
+"date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default due days after freezing"
+msgstr ""
+
+msgid ""
+"On moving this product from a freezer location (so when thawing it), the due"
+" date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default due days after thawing"
+msgstr ""
+
+msgid "Next due date"
+msgstr ""
+
+msgid "%s product is due"
+msgid_plural "%s products are due"
+msgstr[0] ""
+
+msgid "Due date"
+msgstr ""
+
+msgid "Never overdue"
+msgstr ""
+
+msgid "%s product is expired"
+msgid_plural "%s products are expired"
+msgstr[0] ""
+
+msgid "Expired"
+msgstr ""
+
+msgid "Due soon days"
+msgstr ""
+
+msgid "Add overdue/expired products"
+msgstr ""
+
+msgid ""
+"Products with tare weight enabled are currently not supported for transfer"
+msgstr ""
+
+msgid ""
+"This cannot be lower than %1$s or equal %2$s and needs to be a valid number "
+"with max. %3$s decimal places"
+msgstr ""
+
+msgid ""
+"This must be between %1$s and %2$s, cannot equal %3$s and needs to be a "
+"valid number with max. %4$s decimal places"
+msgstr ""
+
+msgid ""
+"This cannot be lower than %1$s and needs to be a valid number with max. %2$s"
+" decimal places"
+msgstr ""
+
+msgid ""
+"This must between %1$s and %2$s and needs to be a valid number with max. "
+"%3$s decimal places"
+msgstr ""
+
+msgid ""
+"Automatically do the booking using the last price and the amount of the "
+"shopping list item, if the product has \"Default due days\" set"
+msgstr ""
+
+msgid ""
+"When moving products from/to a freezer location, the products due date is "
+"automatically adjusted according to the product settings"
+msgstr ""
+
+msgid "This is the internal field name, e. g. for the API"
+msgstr ""
+
+msgid "This is used to display the field on the frontend"
+msgstr ""
+
+msgid "Multiple Userfields will be ordered by that number on the input form"
+msgstr ""
+
+msgid "Sort number"
+msgstr ""
+
+msgid "Download file"
+msgstr ""
+
+msgid "Use the products \"Quick consume amount\""
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid ""
+"This also removes any stock amount, the journal and all other references of "
+"this product - consider disabling it instead, if you want to keep that and "
+"just hide the product."
+msgstr ""
+
+msgid "Show disabled products"
+msgstr ""
+
+msgid "Show on stock overview page"
+msgstr ""

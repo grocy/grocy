@@ -1,0 +1,138 @@
+# 
+# Translators:
+# Radim Kabeláč <radim.ekk@gmail.com>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-29 16:33+0000\n"
+"Last-Translator: Radim Kabeláč <radim.ekk@gmail.com>, 2020\n"
+"Language-Team: Czech (https://www.transifex.com/grocy/teams/93189/cs/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+"X-Domain: grocy/permissions\n"
+
+# All permissions
+msgid "ADMIN"
+msgstr "ADMINISTRATOR"
+
+# Create users
+msgid "USERS_CREATE"
+msgstr "UZIVATELE_VYTVORIT"
+
+# Edit users (including passwords)
+msgid "USERS_EDIT"
+msgstr "UZIVATELE_EDITACE"
+
+# Show users
+msgid "USERS_READ"
+msgstr "UZIVATEL_CTENI"
+
+# Edit own user data / change own password
+msgid "USERS_EDIT_SELF"
+msgstr "UZIVATELE_EDITOVAT_SEBE"
+
+# Undo charge cycle
+msgid "BATTERIES_UNDO_CHARGE_CYCLE"
+msgstr "BATERIE_VRACENI_NABIJECI_CYKLUS"
+
+# Track charge cycle
+msgid "BATTERIES_TRACK_CHARGE_CYCLE"
+msgstr ""
+
+# Track execution
+msgid "CHORE_TRACK_EXECUTION"
+msgstr ""
+
+# Undo execution
+msgid "CHORE_UNDO_EXECUTION"
+msgstr "POVINNOST_VYKONANI_VRACENI"
+
+# Edit master data
+msgid "MASTER_DATA_EDIT"
+msgstr "ZAKLADNI_DATA_EDIT"
+
+# Undo execution
+msgid "TASKS_UNDO_EXECUTION"
+msgstr "UKOL_VYKONANI_VRACENI"
+
+# Mark completed
+msgid "TASKS_MARK_COMPLETED"
+msgstr "UKOLY_OZNACIT_HOTOVO"
+
+# Edit stock entries
+msgid "STOCK_EDIT"
+msgstr "ZASOBY_EDITACE"
+
+# Transfer
+msgid "STOCK_TRANSFER"
+msgstr "PREVOD_ZASOB"
+
+# Inventory
+msgid "STOCK_INVENTORY"
+msgstr "ZASOBA_INVENTAR"
+
+# Consume
+msgid "STOCK_CONSUME"
+msgstr "ZASOBY_SPOTREBOVAT"
+
+# Open products
+msgid "STOCK_OPEN"
+msgstr "ZASOBY_OTEVRIT"
+
+# Purchase
+msgid "STOCK_PURCHASE"
+msgstr "ZASOBA_NAKUP"
+
+# Add items
+msgid "SHOPPINGLIST_ITEMS_ADD"
+msgstr "NAKUPNISEZNAM_POLOZKA_PRIDANO"
+
+# Remove items
+msgid "SHOPPINGLIST_ITEMS_DELETE"
+msgstr "NAKUPNISEZNAM_POLOZKA_SMAZANO"
+
+# User management
+msgid "USERS"
+msgstr "UZIVATEL"
+
+# Stock
+msgid "STOCK"
+msgstr "ZASOBA"
+
+# Shopping list
+msgid "SHOPPINGLIST"
+msgstr "NAKUPNISEZNAM"
+
+# Chores
+msgid "CHORES"
+msgstr "POVINOSTI"
+
+# Batteries
+msgid "BATTERIES"
+msgstr "BATERIE"
+
+# Tasks
+msgid "TASKS"
+msgstr "UKOL"
+
+# Recipes
+msgid "RECIPES"
+msgstr "RECEPTY"
+
+# Equipment
+msgid "EQUIPMENT"
+msgstr "VYBAVENI"
+
+# Calendar
+msgid "CALENDAR"
+msgstr "KALENDAR"
+
+# Meal plan
+msgid "RECIPES_MEALPLAN"
+msgstr "RECEPTY_STRAVOVACIPLANY"

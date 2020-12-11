@@ -1,0 +1,114 @@
+# 
+# Translators:
+# Antonino Ursino <ninus_@libero.it>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-31 19:11+0000\n"
+"Last-Translator: Antonino Ursino <ninus_@libero.it>, 2020\n"
+"Language-Team: Italian (https://www.transifex.com/grocy/teams/93189/it/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/locales\n"
+
+# Czech
+msgid "cs"
+msgstr "Ceco"
+
+# Danish
+msgid "da"
+msgstr "Danese"
+
+# German
+msgid "de"
+msgstr "Tedesco"
+
+# Greek
+msgid "el_GR"
+msgstr "Greco"
+
+# English
+msgid "en"
+msgstr "Inglese"
+
+# English (Great Britain)
+msgid "en_GB"
+msgstr "Inglese (Gran Bretagna)"
+
+# Spanish
+msgid "es"
+msgstr "Spagnolo"
+
+# French
+msgid "fr"
+msgstr "Francese"
+
+# Hungarian
+msgid "hu"
+msgstr "Ungherese"
+
+# Italian
+msgid "it"
+msgstr "Italiano"
+
+# Japanese
+msgid "ja"
+msgstr "Giapponese"
+
+# Korean
+msgid "ko_KR"
+msgstr "Coreano"
+
+# Dutch
+msgid "nl"
+msgstr "Olandese"
+
+# Norwegian
+msgid "no"
+msgstr "Norvegese"
+
+# Polish
+msgid "pl"
+msgstr "Polacco"
+
+# Portuguese (Brazil)
+msgid "pt_BR"
+msgstr "Portoghese (Brasile)"
+
+# Portuguese (Portugal)
+msgid "pt_PT"
+msgstr "Portoghese (Portogallo)"
+
+# Russian
+msgid "ru"
+msgstr "Russo"
+
+# Slovak
+msgid "sk_SK"
+msgstr "Slovacco"
+
+# Swedish
+msgid "sv_SE"
+msgstr "Svedese"
+
+# Turkish
+msgid "tr"
+msgstr "Turco"
+
+# Chinese (Taiwan)
+msgid "zh_TW"
+msgstr "Cinese (Taiwan)"
+
+# Chinese (China)
+msgid "zh_CN"
+msgstr ""
+
+# Hebrew (Israel)
+msgid "he_IL"
+msgstr ""

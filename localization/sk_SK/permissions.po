@@ -1,0 +1,138 @@
+# 
+# Translators:
+# Jose Riha <jose1711@gmail.com>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-29 16:33+0000\n"
+"Last-Translator: Jose Riha <jose1711@gmail.com>, 2020\n"
+"Language-Team: Slovak (Slovakia) (https://www.transifex.com/grocy/teams/93189/sk_SK/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sk_SK\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
+"X-Domain: grocy/permissions\n"
+
+# All permissions
+msgid "ADMIN"
+msgstr "ADMIN"
+
+# Create users
+msgid "USERS_CREATE"
+msgstr "POUŽÍVATELIA_VYTVORIŤ"
+
+# Edit users (including passwords)
+msgid "USERS_EDIT"
+msgstr "POUŽÍVATELIA_UPRAVIŤ"
+
+# Show users
+msgid "USERS_READ"
+msgstr "POUŽÍVATELIA_ZOBRAZIŤ"
+
+# Edit own user data / change own password
+msgid "USERS_EDIT_SELF"
+msgstr "POUŽÍVATELIA_UPRAVIŤ_SVOJE_ÚDAJE"
+
+# Undo charge cycle
+msgid "BATTERIES_UNDO_CHARGE_CYCLE"
+msgstr "BATÉRIE_ZRUŠIŤ_NABÍJACÍ_CYKLUS"
+
+# Track charge cycle
+msgid "BATTERIES_TRACK_CHARGE_CYCLE"
+msgstr "BATÉRIE_SLEDOVAŤ_CYKLUS_NABÍJANIA"
+
+# Track execution
+msgid "CHORE_TRACK_EXECUTION"
+msgstr "POVINNOSŤ_ZAZNAMENAŤ_PLNENIE"
+
+# Undo execution
+msgid "CHORE_UNDO_EXECUTION"
+msgstr "POVINNOSŤ_ZRUŠENIE_PLNENIA"
+
+# Edit master data
+msgid "MASTER_DATA_EDIT"
+msgstr "ÚPRAVA_HLAVNÝCH_DÁT"
+
+# Undo execution
+msgid "TASKS_UNDO_EXECUTION"
+msgstr "ÚLOHY_ZRUŠENIE_PLNENIA"
+
+# Mark completed
+msgid "TASKS_MARK_COMPLETED"
+msgstr "ÚLOHY_OZNAČIŤ_AKO_SPLNENÉ"
+
+# Edit stock entries
+msgid "STOCK_EDIT"
+msgstr "ZÁSOBY_ÚPRAVY"
+
+# Transfer
+msgid "STOCK_TRANSFER"
+msgstr "ZÁSOBY_PRENOS"
+
+# Inventory
+msgid "STOCK_INVENTORY"
+msgstr "ZÁSOBY_INVENTÁR"
+
+# Consume
+msgid "STOCK_CONSUME"
+msgstr "ZÁSOBY_SPOTREBA"
+
+# Open products
+msgid "STOCK_OPEN"
+msgstr "ZÁSOBY_OTVORIŤ"
+
+# Purchase
+msgid "STOCK_PURCHASE"
+msgstr "ZÁSOBY_NÁKUP"
+
+# Add items
+msgid "SHOPPINGLIST_ITEMS_ADD"
+msgstr "NÁKUPNÝ_ZOZNAM_PRIDAŤ"
+
+# Remove items
+msgid "SHOPPINGLIST_ITEMS_DELETE"
+msgstr "NÁKUPNÝ_ZOZNAM_ODSTRÁNIŤ"
+
+# User management
+msgid "USERS"
+msgstr "POUŽÍVATELIA"
+
+# Stock
+msgid "STOCK"
+msgstr "ZÁSOBY"
+
+# Shopping list
+msgid "SHOPPINGLIST"
+msgstr "NÁKUPNÝ_ZOZNAM"
+
+# Chores
+msgid "CHORES"
+msgstr "POVINNOSTI"
+
+# Batteries
+msgid "BATTERIES"
+msgstr "BATÉRIE"
+
+# Tasks
+msgid "TASKS"
+msgstr "ÚLOHY"
+
+# Recipes
+msgid "RECIPES"
+msgstr "RECEPTY"
+
+# Equipment
+msgid "EQUIPMENT"
+msgstr "VYBAVENIE"
+
+# Calendar
+msgid "CALENDAR"
+msgstr "KALENDÁR"
+
+# Meal plan
+msgid "RECIPES_MEALPLAN"
+msgstr "RECEPTY_JEDÁLNIČEK"

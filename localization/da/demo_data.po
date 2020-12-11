@@ -1,8 +1,10 @@
+# 
 # Translators:
 # dark159123 <r.j.hansen@protonmail.com>, 2019
 # Troels Siggaard <troels@siggaard.com>, 2019
 # Rasmus Bojsen <rasmus@bojsen.cn>, 2019
 # Brian Moos Lindberg <brian@blueeel.dk>, 2019
+# Mihai Marinescu <mihai@marinescu.dk>, 2020
 # 
 msgid ""
 msgstr ""
@@ -10,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Brian Moos Lindberg <brian@blueeel.dk>, 2019\n"
+"Last-Translator: Mihai Marinescu <mihai@marinescu.dk>, 2020\n"
 "Language-Team: Danish (https://www.transifex.com/grocy/teams/93189/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -167,7 +169,7 @@ msgid "This is the note content of the recipe ingredient"
 msgstr "Dette er indholdet af opskrift-ingrediensens notefeltet"
 
 msgid "Demo User"
-msgstr "Demobruger"
+msgstr "Demo bruger"
 
 msgid "Gram"
 msgid_plural "Grams"
@@ -336,33 +338,45 @@ msgid "Portuguese (Brazil)"
 msgstr "Portugisisk (Brasilien)"
 
 msgid "This is a note"
-msgstr ""
+msgstr "Denne er en note"
 
 msgid "Freezer"
-msgstr ""
+msgstr "Fryser"
 
 msgid "Hungarian"
-msgstr ""
+msgstr "Ungarsk"
 
 msgid "Slovak"
-msgstr ""
+msgstr "Slovakisk"
 
 msgid "Czech"
-msgstr ""
+msgstr "Tjekkisk"
 
 msgid "Portuguese (Portugal)"
-msgstr ""
+msgstr "Portugisisk (Portugal)"
 
 # Use a in your country well known supermarket name
 msgid "DemoSupermarket1"
-msgstr ""
+msgstr "Netto"
 
 # Use a in your country well known supermarket name
 msgid "DemoSupermarket2"
-msgstr ""
+msgstr "Fakta"
 
 msgid "Japanese"
-msgstr ""
+msgstr "Japansk"
 
 msgid "Chinese (Taiwan)"
+msgstr "Kinesisk (Taiwan)"
+
+msgid "Greek"
+msgstr "Græsk"
+
+msgid "Korean"
+msgstr "Koreansk"
+
+msgid "Chinese (China)"
+msgstr ""
+
+msgid "Hebrew (Israel)"
 msgstr ""

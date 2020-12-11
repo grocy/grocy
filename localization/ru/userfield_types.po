@@ -1,3 +1,4 @@
+# 
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # Pavel Pletenev <cpp.create@gmail.com>, 2019
@@ -46,3 +47,9 @@ msgstr "предопределённый-список-галочек"
 
 msgid "link"
 msgstr "ссылка"
+
+msgid "file"
+msgstr ""
+
+msgid "image"
+msgstr ""

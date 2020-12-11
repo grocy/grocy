@@ -374,3 +374,15 @@ msgstr "Japans"
 
 msgid "Chinese (Taiwan)"
 msgstr "Chinees (Taiwan)"
+
+msgid "Greek"
+msgstr ""
+
+msgid "Korean"
+msgstr ""
+
+msgid "Chinese (China)"
+msgstr ""
+
+msgid "Hebrew (Israel)"
+msgstr ""

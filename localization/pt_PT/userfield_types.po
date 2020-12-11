@@ -1,3 +1,4 @@
+# 
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # Joao Santos <joaocpdsantos@gmail.com>, 2019
@@ -47,3 +48,9 @@ msgstr "lista-verificação-pré-defenida"
 
 msgid "link"
 msgstr "hiperligação"
+
+msgid "file"
+msgstr ""
+
+msgid "image"
+msgstr ""

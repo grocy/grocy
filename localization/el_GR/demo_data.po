@@ -1,6 +1,6 @@
 # 
 # Translators:
-# Anastasis Gryponisiotis <plant7@gmail.com>, 2019
+# datablitz7 <plant7@gmail.com>, 2019
 # ByteGet, 2020
 # 
 msgid ""
@@ -366,3 +366,15 @@ msgstr "Ιαπωνικά"
 
 msgid "Chinese (Taiwan)"
 msgstr "Κινέζικα (Ταϊβάν)"
+
+msgid "Greek"
+msgstr "Ελληνικά"
+
+msgid "Korean"
+msgstr "Κορεάτικα"
+
+msgid "Chinese (China)"
+msgstr ""
+
+msgid "Hebrew (Israel)"
+msgstr ""

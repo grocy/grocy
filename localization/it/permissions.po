@@ -1,0 +1,138 @@
+# 
+# Translators:
+# Antonino Ursino <ninus_@libero.it>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-29 16:33+0000\n"
+"Last-Translator: Antonino Ursino <ninus_@libero.it>, 2020\n"
+"Language-Team: Italian (https://www.transifex.com/grocy/teams/93189/it/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/permissions\n"
+
+# All permissions
+msgid "ADMIN"
+msgstr "AMMINISTRATORE"
+
+# Create users
+msgid "USERS_CREATE"
+msgstr "UTENTI_CREARE"
+
+# Edit users (including passwords)
+msgid "USERS_EDIT"
+msgstr "UTENTI_MODIFICARE"
+
+# Show users
+msgid "USERS_READ"
+msgstr "UTENTI_LEGGERE"
+
+# Edit own user data / change own password
+msgid "USERS_EDIT_SELF"
+msgstr "UTENTI_MODIFICARE_SE_STESSO"
+
+# Undo charge cycle
+msgid "BATTERIES_UNDO_CHARGE_CYCLE"
+msgstr "BATTERIE_ANNULLARE_CICLO_DI_CARICA"
+
+# Track charge cycle
+msgid "BATTERIES_TRACK_CHARGE_CYCLE"
+msgstr "BATTERIE_TRACCIARE_CICLO_DI_CARICA"
+
+# Track execution
+msgid "CHORE_TRACK_EXECUTION"
+msgstr "FACCENDA_TRACCIARE_SVOLGIMENTO"
+
+# Undo execution
+msgid "CHORE_UNDO_EXECUTION"
+msgstr "FACCENDA_ANNULLARE_SVOLGIMENTO"
+
+# Edit master data
+msgid "MASTER_DATA_EDIT"
+msgstr "DATI_PRINCIPALI_MODIFICARE"
+
+# Undo execution
+msgid "TASKS_UNDO_EXECUTION"
+msgstr "COMPITI_ANNULLARE_SVOLGIMENTO"
+
+# Mark completed
+msgid "TASKS_MARK_COMPLETED"
+msgstr "COMPITI_SEGNARE_COMPLETATO"
+
+# Edit stock entries
+msgid "STOCK_EDIT"
+msgstr "DISPENSA_MODIFICARE"
+
+# Transfer
+msgid "STOCK_TRANSFER"
+msgstr "DISPENSA_TRASFERIRE"
+
+# Inventory
+msgid "STOCK_INVENTORY"
+msgstr "DISPENSA_INVENTARIO"
+
+# Consume
+msgid "STOCK_CONSUME"
+msgstr "DISPENSA_CONSUMARE"
+
+# Open products
+msgid "STOCK_OPEN"
+msgstr "DISPENSA_APRIRE"
+
+# Purchase
+msgid "STOCK_PURCHASE"
+msgstr "DISPENSA_ACQUISTARE"
+
+# Add items
+msgid "SHOPPINGLIST_ITEMS_ADD"
+msgstr "LISTA_DELLA_SPESA_OGGETTI_AGGIUNGERE"
+
+# Remove items
+msgid "SHOPPINGLIST_ITEMS_DELETE"
+msgstr "LISTA_DELLA_SPESA_OGGETTI_CANCELLARE"
+
+# User management
+msgid "USERS"
+msgstr "UTENTI"
+
+# Stock
+msgid "STOCK"
+msgstr "DISPENSA"
+
+# Shopping list
+msgid "SHOPPINGLIST"
+msgstr "LISTA_DELLA_SPESA"
+
+# Chores
+msgid "CHORES"
+msgstr "FACCENDE"
+
+# Batteries
+msgid "BATTERIES"
+msgstr "BATTERIE"
+
+# Tasks
+msgid "TASKS"
+msgstr "COMPITI"
+
+# Recipes
+msgid "RECIPES"
+msgstr "RICETTE"
+
+# Equipment
+msgid "EQUIPMENT"
+msgstr "ATTREZZATURA"
+
+# Calendar
+msgid "CALENDAR"
+msgstr "CALENDARIO"
+
+# Meal plan
+msgid "RECIPES_MEALPLAN"
+msgstr "RICETTE_PIANO_DEI_PASTI"

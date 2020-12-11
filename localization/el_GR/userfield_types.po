@@ -47,3 +47,9 @@ msgstr "προκαθορισμένη λίστα ελέγχου"
 
 msgid "link"
 msgstr "σύνδεσμος"
+
+msgid "file"
+msgstr ""
+
+msgid "image"
+msgstr ""

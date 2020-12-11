@@ -1,0 +1,79 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: http://www.transifex.com/grocy/grocy/language/en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01T17:59:17+00:00\n"
+"Language: en\n"
+"X-Domain: grocy/locales\n"
+
+msgid "cs"
+msgstr "Czech"
+
+msgid "da"
+msgstr "Danish"
+
+msgid "de"
+msgstr "German"
+
+msgid "el_GR"
+msgstr "Greek"
+
+msgid "en"
+msgstr "English"
+
+msgid "en_GB"
+msgstr "English (Great Britain)"
+
+msgid "es"
+msgstr "Spanish"
+
+msgid "fr"
+msgstr "French"
+
+msgid "hu"
+msgstr "Hungarian"
+
+msgid "it"
+msgstr "Italian"
+
+msgid "ja"
+msgstr "Japanese"
+
+msgid "ko_KR"
+msgstr "Korean"
+
+msgid "nl"
+msgstr "Dutch"
+
+msgid "no"
+msgstr "Norwegian"
+
+msgid "pl"
+msgstr "Polish"
+
+msgid "pt_BR"
+msgstr "Portuguese (Brazil)"
+
+msgid "pt_PT"
+msgstr "Portuguese (Portugal)"
+
+msgid "ru"
+msgstr "Russian"
+
+msgid "sk_SK"
+msgstr "Slovak"
+
+msgid "sv_SE"
+msgstr "Swedish"
+
+msgid "tr"
+msgstr "Turkish"
+
+msgid "zh_TW"
+msgstr "Chinese (Taiwan)"

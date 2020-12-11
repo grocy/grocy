@@ -5,6 +5,8 @@
 # Matthieu K, 2019
 # Antonin DESFONTAINES <antonin.desfontaines@outlook.com>, 2019
 # sebastien GRANDJEAN <maluseb@hotmail.fr>, 2020
+# Jordan COUTON <couton.jordan@gmail.com>, 2020
+# patate douce <poubel125@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -12,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: sebastien GRANDJEAN <maluseb@hotmail.fr>, 2020\n"
+"Last-Translator: patate douce <poubel125@gmail.com>, 2020\n"
 "Language-Team: French (https://www.transifex.com/grocy/teams/93189/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,10 +27,10 @@ msgid "Cookies"
 msgstr "Cookies"
 
 msgid "Chocolate"
-msgstr "Chocolate"
+msgstr "Chocolat"
 
 msgid "Pantry"
-msgstr "Pantry"
+msgstr "Garde-manger"
 
 msgid "Candy cupboard"
 msgstr "Candy cupboard"
@@ -37,7 +39,7 @@ msgid "Tinned food cupboard"
 msgstr "Tinned food cupboard"
 
 msgid "Fridge"
-msgstr "Fridge"
+msgstr "Réfrigérateur"
 
 msgid "Piece"
 msgid_plural "Pieces"
@@ -62,7 +64,7 @@ msgstr[1] "Tins"
 msgid "Can"
 msgid_plural "Cans"
 msgstr[0] "Can"
-msgstr[1] "Cans"
+msgstr[1] "Canettes"
 
 msgid "Bunch"
 msgid_plural "Bunches"
@@ -79,7 +81,7 @@ msgid "Eggs"
 msgstr "Eggs"
 
 msgid "Noodles"
-msgstr "Noodles"
+msgstr "Nouilles"
 
 msgid "Pickles"
 msgstr "Pickles"
@@ -88,7 +90,7 @@ msgid "Gulash soup"
 msgstr "Gulash soup"
 
 msgid "Yogurt"
-msgstr "Yogurt"
+msgstr "Yaourt"
 
 msgid "Cheese"
 msgstr "Cheese"
@@ -100,7 +102,7 @@ msgid "Paprika"
 msgstr "Paprika"
 
 msgid "Cucumber"
-msgstr "Cucumber"
+msgstr "Concombre"
 
 msgid "Radish"
 msgstr "Radish"
@@ -118,7 +120,7 @@ msgid "Warranty ends"
 msgstr "Warranty ends"
 
 msgid "TV remote control"
-msgstr "TV remote control"
+msgstr "Télécommande de télévision"
 
 msgid "Alarm clock"
 msgstr "Alarm clock"
@@ -133,7 +135,7 @@ msgid "Some good snacks"
 msgstr "Some good snacks"
 
 msgid "Pizza dough"
-msgstr "Pizza dough"
+msgstr "Pâte à pizza"
 
 msgid "Sieved tomatoes"
 msgstr "Sieved tomatoes"
@@ -160,7 +162,7 @@ msgid "English"
 msgstr "English"
 
 msgid "German"
-msgstr "German"
+msgstr "Allemand"
 
 msgid "Italian"
 msgstr "Italian"
@@ -183,7 +185,7 @@ msgid "Pancakes"
 msgstr "Pancakes"
 
 msgid "Sugar"
-msgstr "Sugar"
+msgstr "Sucre"
 
 msgid "Home"
 msgstr "Home"
@@ -219,19 +221,19 @@ msgid "Vegetables/Fruits"
 msgstr "Vegetables/Fruits"
 
 msgid "Refrigerated products"
-msgstr "Refrigerated products"
+msgstr "Produits réfrigérés "
 
 msgid "Coffee machine"
 msgstr "Coffee machine"
 
 msgid "Dishwasher"
-msgstr "Dishwasher"
+msgstr "Lave-vaisselle"
 
 msgid "Liter"
 msgstr "Liter"
 
 msgid "Liters"
-msgstr "Liters"
+msgstr "Litres"
 
 msgid "Bottle"
 msgstr "Bottle"
@@ -240,13 +242,13 @@ msgid "Bottles"
 msgstr "Bottles"
 
 msgid "Milk"
-msgstr "Milk"
+msgstr "Lait"
 
 msgid "Chocolate sauce"
 msgstr "Chocolate sauce"
 
 msgid "Milliliters"
-msgstr "Milliliters"
+msgstr "Millilitres"
 
 msgid "Milliliter"
 msgstr "Milliliter"
@@ -258,7 +260,7 @@ msgid "Topping"
 msgstr "Topping"
 
 msgid "French"
-msgstr "French"
+msgstr "Français"
 
 msgid "Turkish"
 msgstr "Turkish"
@@ -368,3 +370,15 @@ msgstr "Japanese"
 
 msgid "Chinese (Taiwan)"
 msgstr "Chinese (Taiwan)"
+
+msgid "Greek"
+msgstr "Grec"
+
+msgid "Korean"
+msgstr "Coréen"
+
+msgid "Chinese (China)"
+msgstr ""
+
+msgid "Hebrew (Israel)"
+msgstr ""

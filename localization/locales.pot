@@ -99,3 +99,11 @@ msgstr ""
 # Chinese (Taiwan)
 msgid "zh_TW"
 msgstr ""
+
+# Chinese (China)
+msgid "zh_CN"
+msgstr ""
+
+# Hebrew (Israel)
+msgid "he_IL"
+msgstr ""

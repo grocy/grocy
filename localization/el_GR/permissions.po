@@ -1,0 +1,139 @@
+# 
+# Translators:
+# datablitz7 <plant7@gmail.com>, 2020
+# ByteGet, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-29 16:33+0000\n"
+"Last-Translator: ByteGet, 2020\n"
+"Language-Team: Greek (Greece) (https://www.transifex.com/grocy/teams/93189/el_GR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/permissions\n"
+
+# All permissions
+msgid "ADMIN"
+msgstr "ΔΙΑΧΕΙΡΙΣΤΗΣ"
+
+# Create users
+msgid "USERS_CREATE"
+msgstr "ΔΗΜΙΟΥΡΓΙΑ_ΧΡΗΣΤΩΝ"
+
+# Edit users (including passwords)
+msgid "USERS_EDIT"
+msgstr "ΕΠΕΞΕΡΓΑΣΙΑ_ΧΡΗΣΤΩΝ"
+
+# Show users
+msgid "USERS_READ"
+msgstr "ΠΡΟΒΟΛΗ_ΧΡΗΣΤΩΝ"
+
+# Edit own user data / change own password
+msgid "USERS_EDIT_SELF"
+msgstr "ΕΠΕΞΕΡΓΑΣΙΑ_ΙΔΙΟΥ_ΧΡΗΣΤΗ"
+
+# Undo charge cycle
+msgid "BATTERIES_UNDO_CHARGE_CYCLE"
+msgstr "ΔΙΑΧΕΙΡΙΣΤΗΣ"
+
+# Track charge cycle
+msgid "BATTERIES_TRACK_CHARGE_CYCLE"
+msgstr "USERS_CREATE"
+
+# Track execution
+msgid "CHORE_TRACK_EXECUTION"
+msgstr "ΧΡΗΣΤΕΣ_EDIT"
+
+# Undo execution
+msgid "CHORE_UNDO_EXECUTION"
+msgstr "USERS_READ"
+
+# Edit master data
+msgid "MASTER_DATA_EDIT"
+msgstr "USERS_EDIT_SELF"
+
+# Undo execution
+msgid "TASKS_UNDO_EXECUTION"
+msgstr "ΜΠΑΤΑΡΙΕΣ_UNDO_CHARGE_CYCLE"
+
+# Mark completed
+msgid "TASKS_MARK_COMPLETED"
+msgstr "ΜΠΑΤΑΡΙΑ_TRACK_CHARGE_CYCLE"
+
+# Edit stock entries
+msgid "STOCK_EDIT"
+msgstr "CHORE_TRACK_EXECUTION"
+
+# Transfer
+msgid "STOCK_TRANSFER"
+msgstr "CHORE_UNDO_EXECUTION"
+
+# Inventory
+msgid "STOCK_INVENTORY"
+msgstr "MASTER_DATA_EDIT"
+
+# Consume
+msgid "STOCK_CONSUME"
+msgstr "ΚΑΘΗΚΟΝΤΑ_UNDO_EXECUTION"
+
+# Open products
+msgid "STOCK_OPEN"
+msgstr "ΚΑΘΗΚΟΝΤΑ_MARK_COMPLETED"
+
+# Purchase
+msgid "STOCK_PURCHASE"
+msgstr "STOCK_EDIT"
+
+# Add items
+msgid "SHOPPINGLIST_ITEMS_ADD"
+msgstr "STOCK_TRANSFER"
+
+# Remove items
+msgid "SHOPPINGLIST_ITEMS_DELETE"
+msgstr "STOCK_INVENTORY"
+
+# User management
+msgid "USERS"
+msgstr "STOCK_CONSUME"
+
+# Stock
+msgid "STOCK"
+msgstr "STOCK_OPEN"
+
+# Shopping list
+msgid "SHOPPINGLIST"
+msgstr "STOCK_PURCHASE"
+
+# Chores
+msgid "CHORES"
+msgstr "ΑΓΟΡΑ ΛΙΣΤΑ_ITEMS_ADD"
+
+# Batteries
+msgid "BATTERIES"
+msgstr "ΑΓΟΡΑ ΛΙΣΤΑ_ITEMS_DELETE"
+
+# Tasks
+msgid "TASKS"
+msgstr "ΧΡΗΣΤΕΣ"
+
+# Recipes
+msgid "RECIPES"
+msgstr "ΣΤΟΚ"
+
+# Equipment
+msgid "EQUIPMENT"
+msgstr "ΛΙΣΤΑ ΜΕ ΤΑ ΨΩΝΙΑ"
+
+# Calendar
+msgid "CALENDAR"
+msgstr "ΜΙΚΡΟΔΟΥΛΕΙΕΣ"
+
+# Meal plan
+msgid "RECIPES_MEALPLAN"
+msgstr "ΜΠΑΤΑΡΙΕΣ"

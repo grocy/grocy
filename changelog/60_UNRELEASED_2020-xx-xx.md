@@ -162,6 +162,8 @@
 - New translations: (thanks all the translators)
   - Greek (demo available at https://el.demo.grocy.info)
   - Korean (demo available at https://ko.demo.grocy.info)
+  - Chinese (China) (demo available at https://zh-cn.demo.grocy.info)
+  - Hebrew (Israel) (demo available at https://he-il.demo.grocy.info)
 
 ### API improvements/fixes
 - **Breaking changes**:

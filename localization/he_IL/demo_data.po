@@ -1,0 +1,396 @@
+# 
+# Translators:
+# Adi Zarko <kapkapon@gmail.com>, 2020
+# Netanel Lazarovich <natylaza89@gmail.com>, 2020
+# Yaron Shahrabani <sh.yaron@gmail.com>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>, 2020\n"
+"Language-Team: Hebrew (Israel) (https://www.transifex.com/grocy/teams/93189/he_IL/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: he_IL\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
+"X-Domain: grocy/demo_data\n"
+
+msgid "Cookies"
+msgstr "עוגיות"
+
+msgid "Chocolate"
+msgstr "שוקולד"
+
+msgid "Pantry"
+msgstr "מזווה"
+
+msgid "Candy cupboard"
+msgstr "ארון הממתקים"
+
+msgid "Tinned food cupboard"
+msgstr "ארון השימורים"
+
+msgid "Fridge"
+msgstr "מקרר"
+
+msgid "Piece"
+msgid_plural "Pieces"
+msgstr[0] "חתיכה"
+msgstr[1] "חתיכות"
+msgstr[2] "חתיכות"
+msgstr[3] "חתיכות"
+
+msgid "Pack"
+msgid_plural "Packs"
+msgstr[0] "אריזה"
+msgstr[1] "אריזות"
+msgstr[2] "אריזות"
+msgstr[3] "אריזות"
+
+msgid "Glass"
+msgid_plural "Glasses"
+msgstr[0] "צנצנת"
+msgstr[1] "צנצנות"
+msgstr[2] "צנצנות"
+msgstr[3] "צנצנות"
+
+msgid "Tin"
+msgid_plural "Tins"
+msgstr[0] "קופסה"
+msgstr[1] "קופסאות"
+msgstr[2] "קופסאות"
+msgstr[3] "קופסאות"
+
+msgid "Can"
+msgid_plural "Cans"
+msgstr[0] "פחית"
+msgstr[1] "פחיות"
+msgstr[2] "פחיות"
+msgstr[3] "פחיות"
+
+msgid "Bunch"
+msgid_plural "Bunches"
+msgstr[0] "צרור"
+msgstr[1] "צרורות"
+msgstr[2] "צרורות"
+msgstr[3] "צרורות"
+
+msgid "Gummy bears"
+msgstr "דובוני גומי"
+
+msgid "Crisps"
+msgstr "חטיפים"
+
+msgid "Eggs"
+msgstr "ביצים"
+
+msgid "Noodles"
+msgstr "אטריות"
+
+msgid "Pickles"
+msgstr "חמוצים"
+
+msgid "Gulash soup"
+msgstr "מרק גולש"
+
+msgid "Yogurt"
+msgstr "יוגורט"
+
+msgid "Cheese"
+msgstr "גבינה"
+
+msgid "Cold cuts"
+msgstr "פסטרמות"
+
+msgid "Paprika"
+msgstr "פפריקה"
+
+msgid "Cucumber"
+msgstr "מלפפון"
+
+msgid "Radish"
+msgstr "צנון"
+
+msgid "Tomato"
+msgstr "עגבניה"
+
+msgid "Changed towels in the bathroom"
+msgstr "הוחלפו מגבות במקלחת"
+
+msgid "Cleaned the kitchen floor"
+msgstr "רצפת המטבח נוקתה"
+
+msgid "Warranty ends"
+msgstr "אחריות מסתיימת"
+
+msgid "TV remote control"
+msgstr "השלט של הטלוויזיה"
+
+msgid "Alarm clock"
+msgstr "שעון מעורר"
+
+msgid "Heat remote control"
+msgstr "השלט של החימום"
+
+msgid "Lawn mowed in the garden"
+msgstr "הדשא בגינה כוסח"
+
+msgid "Some good snacks"
+msgstr "חטיפים טובים"
+
+msgid "Pizza dough"
+msgstr "בצק פיצה"
+
+msgid "Sieved tomatoes"
+msgstr "עגבניות מרוסקות"
+
+msgid "Salami"
+msgstr "סלמי"
+
+msgid "Toast"
+msgstr "טוסט"
+
+msgid "Minced meat"
+msgstr "בשר קצוץ"
+
+msgid "Pizza"
+msgstr "פיצה"
+
+msgid "Spaghetti bolognese"
+msgstr "ספגטי בולונז"
+
+msgid "Sandwiches"
+msgstr "כריכים"
+
+msgid "English"
+msgstr "אנגלית"
+
+msgid "German"
+msgstr "גרמנית"
+
+msgid "Italian"
+msgstr "איטלקית"
+
+msgid "This is the note content of the recipe ingredient"
+msgstr "זה תוכן ההערה של הרכיב במתכון"
+
+msgid "Demo User"
+msgstr "משתמש לדוגמה"
+
+msgid "Gram"
+msgid_plural "Grams"
+msgstr[0] "גרם"
+msgstr[1] "גרמים"
+msgstr[2] "גרמים"
+msgstr[3] "גרמים"
+
+msgid "Flour"
+msgstr "קמח"
+
+msgid "Pancakes"
+msgstr "חביתיות"
+
+msgid "Sugar"
+msgstr "סוכר"
+
+msgid "Home"
+msgstr "בית"
+
+msgid "Life"
+msgstr "חיים"
+
+msgid "Projects"
+msgstr "מיזמים"
+
+msgid "Repair the garage door"
+msgstr "לתקן את הדלת של המחסן"
+
+msgid "Fork and improve grocy"
+msgstr "לעזור לפתח את grocy"
+
+msgid "Find a solution for what to do when I forget the door keys"
+msgstr "למצוא פתרון מה לעשות כשאני שוכח את המפתחות לדלת"
+
+msgid "Sweets"
+msgstr "ממתקים"
+
+msgid "Bakery products"
+msgstr "מוצרי מאפה"
+
+msgid "Tinned food"
+msgstr "מזון משומר"
+
+msgid "Butchery products"
+msgstr "מוצרים מהקצביה"
+
+msgid "Vegetables/Fruits"
+msgstr "ירקות/פירות"
+
+msgid "Refrigerated products"
+msgstr "מוצרים מקוררים"
+
+msgid "Coffee machine"
+msgstr "מכונת קפה"
+
+msgid "Dishwasher"
+msgstr "מדיח כלים"
+
+msgid "Liter"
+msgstr "ליטר"
+
+msgid "Liters"
+msgstr "ליטרים"
+
+msgid "Bottle"
+msgstr "בקבוק"
+
+msgid "Bottles"
+msgstr "בקבוקים"
+
+msgid "Milk"
+msgstr "חלב"
+
+msgid "Chocolate sauce"
+msgstr "רוטב שוקולד"
+
+msgid "Milliliters"
+msgstr "מיליליטרים"
+
+msgid "Milliliter"
+msgstr "מיליליטר"
+
+msgid "Bottom"
+msgstr "תחתית"
+
+msgid "Topping"
+msgstr "תוספת"
+
+msgid "French"
+msgstr "צרפתית"
+
+msgid "Turkish"
+msgstr "טורקית"
+
+msgid "Spanish"
+msgstr "ספרדית"
+
+msgid "Russian"
+msgstr "רוסית"
+
+msgid "The thing which happens on the 5th of every month"
+msgstr "מה שקורה ב־5 בכל חודש"
+
+msgid "The thing which happens daily"
+msgstr "מה שקורה כל יום"
+
+msgid "The thing which happens on Mondays and Wednesdays"
+msgstr "מה שקורה בימי שני ורביעי"
+
+msgid "Swedish"
+msgstr "שוודית"
+
+msgid "Polish"
+msgstr "פולנית"
+
+msgid "Milk Chocolate"
+msgstr "שוקולד חלב"
+
+msgid "Dark Chocolate"
+msgstr "שוקולד מריר"
+
+msgid "Slice"
+msgid_plural "Slices"
+msgstr[0] "פרוסה"
+msgstr[1] "פרוסות"
+msgstr[2] "פרוסות"
+msgstr[3] "פרוסות"
+
+msgid "Example userentity"
+msgstr "יישות משתמש לדוגמה"
+
+msgid "This is an example user entity..."
+msgstr "זו יישות משתמש לדוגמה…"
+
+msgid "Custom field"
+msgstr "שדה מותאם אישית"
+
+msgid "Example field value..."
+msgstr "ערך שדה לדוגמה…"
+
+msgid "Waffle rolls"
+msgstr "גליליות"
+
+msgid "Danish"
+msgstr "דנית"
+
+msgid "Dutch"
+msgstr "הולנדית"
+
+msgid "Norwegian"
+msgstr "נורווגית"
+
+msgid "Demo"
+msgstr "הדגמה"
+
+msgid "Stable version"
+msgstr "גרסה יציבה"
+
+msgid "Preview version"
+msgstr "גרסת תצוגה מקדימה"
+
+msgid "current release"
+msgstr "מהדורה נוכחית"
+
+msgid "not yet released"
+msgstr "טרם יצא לאור"
+
+msgid "Portuguese (Brazil)"
+msgstr "פורטוגלית ברזילאית"
+
+msgid "This is a note"
+msgstr "זאת הערה"
+
+msgid "Freezer"
+msgstr "מקפיא"
+
+msgid "Hungarian"
+msgstr "הונגרית"
+
+msgid "Slovak"
+msgstr "סלובקית"
+
+msgid "Czech"
+msgstr "צ׳כית"
+
+msgid "Portuguese (Portugal)"
+msgstr "פורטוגלית של פורטוגל"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket1"
+msgstr "שופרסל"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket2"
+msgstr "יוחננוף"
+
+msgid "Japanese"
+msgstr "יפנית"
+
+msgid "Chinese (Taiwan)"
+msgstr "סינית טייוואנית"
+
+msgid "Greek"
+msgstr "יוונית"
+
+msgid "Korean"
+msgstr "קוריאנית"
+
+msgid "Chinese (China)"
+msgstr ""
+
+msgid "Hebrew (Israel)"
+msgstr ""

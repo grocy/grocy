@@ -1,0 +1,138 @@
+# 
+# Translators:
+# Pro Peller <smiglo@tuta.io>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-29 16:33+0000\n"
+"Last-Translator: Pro Peller <smiglo@tuta.io>, 2020\n"
+"Language-Team: Polish (https://www.transifex.com/grocy/teams/93189/pl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"X-Domain: grocy/permissions\n"
+
+# All permissions
+msgid "ADMIN"
+msgstr "ADMIN"
+
+# Create users
+msgid "USERS_CREATE"
+msgstr "TWORZENIE_UZYTKOWNIKOW"
+
+# Edit users (including passwords)
+msgid "USERS_EDIT"
+msgstr "EDYCJA_UZYTKOWNIKOW"
+
+# Show users
+msgid "USERS_READ"
+msgstr "WYKAZ_UZYTKOWNIKOW"
+
+# Edit own user data / change own password
+msgid "USERS_EDIT_SELF"
+msgstr "EDYCJA_SWOICH_DANYCH"
+
+# Undo charge cycle
+msgid "BATTERIES_UNDO_CHARGE_CYCLE"
+msgstr "COFNIECIE_NALADOWANIA_BATERII"
+
+# Track charge cycle
+msgid "BATTERIES_TRACK_CHARGE_CYCLE"
+msgstr "SLEDZENIE_NALADOWANIA_BATERII"
+
+# Track execution
+msgid "CHORE_TRACK_EXECUTION"
+msgstr "SLEDZENIE_WYKONANIA_OBOWIAZKOW"
+
+# Undo execution
+msgid "CHORE_UNDO_EXECUTION"
+msgstr "COFNIECIE_WYKONANIA_OBOWIAZKOW"
+
+# Edit master data
+msgid "MASTER_DATA_EDIT"
+msgstr "EDYCJA_DANYCH_GLOWNYCH"
+
+# Undo execution
+msgid "TASKS_UNDO_EXECUTION"
+msgstr "COFNIECIE_WYKONANIA_ZADANIA"
+
+# Mark completed
+msgid "TASKS_MARK_COMPLETED"
+msgstr "OZNACZENIE_ZADANIA_WYKONANE"
+
+# Edit stock entries
+msgid "STOCK_EDIT"
+msgstr "EDYCJA_STANU_ZAPASU"
+
+# Transfer
+msgid "STOCK_TRANSFER"
+msgstr "TRASNFER_STANU_ZAPASU"
+
+# Inventory
+msgid "STOCK_INVENTORY"
+msgstr "STAN_ZAPASU"
+
+# Consume
+msgid "STOCK_CONSUME"
+msgstr "SPOZYCIE_ZE_STANU"
+
+# Open products
+msgid "STOCK_OPEN"
+msgstr "OTWORZENIE_STANU_ZAPASU"
+
+# Purchase
+msgid "STOCK_PURCHASE"
+msgstr "ZAKUP_ZAPASU"
+
+# Add items
+msgid "SHOPPINGLIST_ITEMS_ADD"
+msgstr "DODANIE_DO_ZAKUPOW"
+
+# Remove items
+msgid "SHOPPINGLIST_ITEMS_DELETE"
+msgstr "USUNIECIE_Z_ZAKUPOW"
+
+# User management
+msgid "USERS"
+msgstr "UZYTKOWNICY"
+
+# Stock
+msgid "STOCK"
+msgstr "STAN_ZAPASU"
+
+# Shopping list
+msgid "SHOPPINGLIST"
+msgstr "LISTA_ZAKUPOW"
+
+# Chores
+msgid "CHORES"
+msgstr "OBOWIĄZKI"
+
+# Batteries
+msgid "BATTERIES"
+msgstr "BATERIE"
+
+# Tasks
+msgid "TASKS"
+msgstr "ZADANIA"
+
+# Recipes
+msgid "RECIPES"
+msgstr "PRZEPISY"
+
+# Equipment
+msgid "EQUIPMENT"
+msgstr "WYPOSAZENIE"
+
+# Calendar
+msgid "CALENDAR"
+msgstr "KALENDARZ"
+
+# Meal plan
+msgid "RECIPES_MEALPLAN"
+msgstr "PLAN_POSILKOW"

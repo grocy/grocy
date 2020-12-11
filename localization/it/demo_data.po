@@ -1,3 +1,4 @@
+# 
 # Translators:
 # Sergio Zampello <seriotv88@gmail.com>, 2019
 # Bernd Bestel <bernd@berrnd.de>, 2019
@@ -177,7 +178,7 @@ msgid "Flour"
 msgstr "Farina"
 
 msgid "Pancakes"
-msgstr "Frittella"
+msgstr "Frittelle"
 
 msgid "Sugar"
 msgstr "Zucchero"
@@ -366,3 +367,15 @@ msgstr "Giapponese"
 
 msgid "Chinese (Taiwan)"
 msgstr "Cinese (Taiwan)"
+
+msgid "Greek"
+msgstr "Greco"
+
+msgid "Korean"
+msgstr "Coreano"
+
+msgid "Chinese (China)"
+msgstr ""
+
+msgid "Hebrew (Israel)"
+msgstr ""
