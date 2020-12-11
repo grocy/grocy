@@ -125,21 +125,26 @@ class BaseController
 		});
 		$this->View->set('GettextPo', $localizationService->GetPoAsJsonString());
 
+		// TODO: Better handle this generically based on the current language (header in .po file?)
+		$dir = 'ltr';
+		if (GROCY_LOCALE == 'he_IL')
+		{
+			$dir = 'rtl';
+		}
+		$this->View->set('dir', $dir);
+
 		$this->View->set('U', function ($relativePath, $isResource = false) use ($container) {
 			return $container->get('UrlManager')->ConstructUrl($relativePath, $isResource);
 		});
 
 		$embedded = false;
-
 		if (isset($_GET['embedded']))
 		{
 			$embedded = true;
 		}
-
 		$this->View->set('embedded', $embedded);
 
 		$constants = get_defined_constants();
-
 		foreach ($constants as $constant => $value)
 		{
 			if (substr($constant, 0, 19) !== 'GROCY_FEATURE_FLAG_')
@@ -149,7 +154,6 @@ class BaseController
 		}
 
 		$this->View->set('featureFlags', $constants);
-
 		if (GROCY_AUTHENTICATED)
 		{
 			$this->View->set('permissions', User::PermissionList());
