@@ -87,13 +87,23 @@ class BaseApiController extends BaseController
 				$q,
 				$matches
 			);
-			error_log(var_export($matches, true));
+
+			if (!array_key_exists('field', $matches) || !array_key_exists('op', $matches) || !array_key_exists('value', $matches))
+			{
+				throw new \Exception('Invalid query');
+			}
+
+			if (strtolower($matches['value']) == 'null')
+			{
+				$matches['value'] = '';
+			}
+
 			switch ($matches['op']) {
 				case '=':
-					$data = $data->where($matches['field'], $matches['value']);
+					$data = $data->where('IFNULL(' . $matches['field'] . ', \'\') = ?', $matches['value']);
 					break;
 				case '!=':
-					$data = $data->whereNot($matches['field'], $matches['value']);
+					$data = $data->where('IFNULL(' . $matches['field'] . ', \'\') != ?', $matches['value']);
 					break;
 				case '~':
 					$data = $data->where($matches['field'] . ' LIKE ?', '%' . $matches['value'] . '%');
@@ -101,25 +111,22 @@ class BaseApiController extends BaseController
 				case '!~':
 					$data = $data->where($matches['field'] . ' NOT LIKE ?', '%' . $matches['value'] . '%');
 					break;
-				case '!>=':
 				case '<':
 					$data = $data->where($matches['field'] . ' < ?', $matches['value']);
 					break;
-				case '!<=':
 				case '>':
 					$data = $data->where($matches['field'] . ' > ?', $matches['value']);
 					break;
-				case '!<':
 				case '>=':
 					$data = $data->where($matches['field'] . ' >= ?', $matches['value']);
 					break;
-				case '!>':
 				case '<=':
 					$data = $data->where($matches['field'] . ' <= ?', $matches['value']);
 					break;
 
 			}
 		}
+
 		return $data;
 	}
 
