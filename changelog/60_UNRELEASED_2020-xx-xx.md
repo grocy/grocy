@@ -197,6 +197,7 @@
       - `<field>` is a field name
       - `<condition>` is a comparison operator, one of
         - `=` equal
+		- `!=` not equal
         - `~` LIKE
         - `<` less
         - `>` greater
