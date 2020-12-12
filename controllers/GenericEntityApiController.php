@@ -11,7 +11,7 @@ class GenericEntityApiController extends BaseApiController
 	{
 		User::checkPermission($request, User::PERMISSION_MASTER_DATA_EDIT);
 
-		if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithNoEdit($args['entity']))
+		if ($this->IsValidExposedEntity($args['entity']) && !$this->IsEntityWithNoEdit($args['entity']))
 		{
 			if ($this->IsEntityWithEditRequiresAdmin($args['entity']))
 			{
@@ -50,7 +50,7 @@ class GenericEntityApiController extends BaseApiController
 	{
 		User::checkPermission($request, User::PERMISSION_MASTER_DATA_EDIT);
 
-		if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithNoEdit($args['entity']))
+		if ($this->IsValidExposedEntity($args['entity']) && !$this->IsEntityWithNoEdit($args['entity']))
 		{
 			if ($this->IsEntityWithEditRequiresAdmin($args['entity']))
 			{
@@ -73,7 +73,7 @@ class GenericEntityApiController extends BaseApiController
 	{
 		User::checkPermission($request, User::PERMISSION_MASTER_DATA_EDIT);
 
-		if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithNoEdit($args['entity']))
+		if ($this->IsValidExposedEntity($args['entity']) && !$this->IsEntityWithNoEdit($args['entity']))
 		{
 			if ($this->IsEntityWithEditRequiresAdmin($args['entity']))
 			{
@@ -108,7 +108,7 @@ class GenericEntityApiController extends BaseApiController
 
 	public function GetObject(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithPreventedListing($args['entity']))
+		if ($this->IsValidExposedEntity($args['entity']) && !$this->IsEntityWithNoListing($args['entity']))
 		{
 			$userfields = $this->getUserfieldsService()->GetValues($args['entity'], $args['objectId']);
 
@@ -155,7 +155,7 @@ class GenericEntityApiController extends BaseApiController
 			$object->userfields = $userfieldKeyValuePairs;
 		}
 
-		if ($this->IsValidEntity($args['entity']) && !$this->IsEntityWithPreventedListing($args['entity']))
+		if ($this->IsValidExposedEntity($args['entity']) && !$this->IsEntityWithNoListing($args['entity']))
 		{
 			return $this->ApiResponse($response, $objects);
 		}
@@ -206,12 +206,12 @@ class GenericEntityApiController extends BaseApiController
 
 	private function IsEntityWithEditRequiresAdmin($entity)
 	{
-		return in_array($entity, $this->getOpenApiSpec()->components->internalSchemas->EntityEditRequiresAdmin->enum);
+		return in_array($entity, $this->getOpenApiSpec()->components->internalSchemas->ExposedEntityEditRequiresAdmin->enum);
 	}
 
-	private function IsEntityWithPreventedListing($entity)
+	private function IsEntityWithNoListing($entity)
 	{
-		return !in_array($entity, $this->getOpenApiSpec()->components->internalSchemas->ExposedEntityButNoListing->enum);
+		return in_array($entity, $this->getOpenApiSpec()->components->internalSchemas->ExposedEntityNoListing->enum);
 	}
 
 	private function IsEntityWithNoEdit($entity)
@@ -219,7 +219,7 @@ class GenericEntityApiController extends BaseApiController
 		return in_array($entity, $this->getOpenApiSpec()->components->internalSchemas->ExposedEntityNoEdit->enum);
 	}
 
-	private function IsValidEntity($entity)
+	private function IsValidExposedEntity($entity)
 	{
 		return in_array($entity, $this->getOpenApiSpec()->components->internalSchemas->ExposedEntity->enum);
 	}

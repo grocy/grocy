@@ -26,7 +26,7 @@ class UserfieldsService extends BaseService
 
 	public function GetAllValues($entity)
 	{
-		if (!$this->IsValidEntity($entity))
+		if (!$this->IsValidExposedEntity($entity))
 		{
 			throw new \Exception('Entity does not exist or is not exposed');
 		}
@@ -60,7 +60,7 @@ class UserfieldsService extends BaseService
 
 	public function GetFields($entity)
 	{
-		if (!$this->IsValidEntity($entity))
+		if (!$this->IsValidExposedEntity($entity))
 		{
 			throw new \Exception('Entity does not exist or is not exposed');
 		}
@@ -70,7 +70,7 @@ class UserfieldsService extends BaseService
 
 	public function GetValues($entity, $objectId)
 	{
-		if (!$this->IsValidEntity($entity))
+		if (!$this->IsValidExposedEntity($entity))
 		{
 			throw new \Exception('Entity does not exist or is not exposed');
 		}
@@ -88,7 +88,7 @@ class UserfieldsService extends BaseService
 
 	public function SetValues($entity, $objectId, $userfields)
 	{
-		if (!$this->IsValidEntity($entity))
+		if (!$this->IsValidExposedEntity($entity))
 		{
 			throw new \Exception('Entity does not exist or is not exposed');
 		}
@@ -139,7 +139,7 @@ class UserfieldsService extends BaseService
 		return $this->OpenApiSpec;
 	}
 
-	private function IsValidEntity($entity)
+	private function IsValidExposedEntity($entity)
 	{
 		return in_array($entity, $this->GetEntities());
 	}

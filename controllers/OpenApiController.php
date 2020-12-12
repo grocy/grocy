@@ -45,6 +45,15 @@ class OpenApiController extends BaseApiController
 			}
 		}
 
+		$spec->components->internalSchemas->ExposedEntity_NotIncludingNotListable = clone $spec->components->internalSchemas->StringEnumTemplate;
+		foreach ($spec->components->internalSchemas->ExposedEntity->enum as $value)
+		{
+			if (!in_array($value, $spec->components->internalSchemas->ExposedEntityNoListing->enum))
+			{
+				array_push($spec->components->internalSchemas->ExposedEntity_NotIncludingNotListable->enum, $value);
+			}
+		}
+
 		return $this->ApiResponse($response, $spec);
 	}
 

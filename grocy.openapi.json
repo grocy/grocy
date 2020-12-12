@@ -194,7 +194,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/ExposedEntityButNoListing"
+							"$ref": "#/components/internalSchemas/ExposedEntity_NotIncludingNotListable"
 						}
 					},
 					{
@@ -367,7 +367,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/ExposedEntityButNoListing"
+							"$ref": "#/components/internalSchemas/ExposedEntity_NotIncludingNotListable"
 						}
 					},
 					{
@@ -3831,34 +3831,7 @@
 					"stock_log"
 				]
 			},
-			"ExposedEntityButNoListing": {
-				"type": "string",
-				"enum": [
-					"products",
-					"product_barcodes",
-					"chores",
-					"batteries",
-					"locations",
-					"quantity_units",
-					"quantity_unit_conversions",
-					"shopping_list",
-					"shopping_lists",
-					"shopping_locations",
-					"recipes",
-					"recipes_pos",
-					"recipes_nestings",
-					"tasks",
-					"task_categories",
-					"product_groups",
-					"equipment",
-					"userfields",
-					"userentities",
-					"userobjects",
-					"meal_plan",
-					"stock_log"
-				]
-			},
-			"EntityEditRequiresAdmin": {
+			"ExposedEntityNoListing": {
 				"type": "string",
 				"enum": [
 					"api_keys"
@@ -3867,7 +3840,14 @@
 			"ExposedEntityNoEdit": {
 				"type": "string",
 				"enum": [
-					"stock_log"
+					"stock_log",
+					"api_keys"
+				]
+			},
+			"ExposedEntityEditRequiresAdmin": {
+				"type": "string",
+				"enum": [
+					"api_keys"
 				]
 			},
 			"StockTransactionType": {
