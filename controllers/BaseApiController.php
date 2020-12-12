@@ -9,8 +9,8 @@ class BaseApiController extends BaseController
 	protected $OpenApiSpec = null;
 
 	const PATTERN_FIELD = '[A-Za-z_][A-Za-z0-9_]+';
-	const PATTERN_OPERATOR = '!?(=|~|<|>|(>=)|(<=))';
-	const PATTERN_VALUE = '[A-Za-z_0-9.]+';
+	const PATTERN_OPERATOR = '!?(=|~|<|>|(>=)|(<=)|(§))';
+	const PATTERN_VALUE = '[A-Za-z_0-9.$#^|]+';
 
 	public function __construct(\DI\Container $container)
 	{
@@ -122,6 +122,9 @@ class BaseApiController extends BaseController
 					break;
 				case '<=':
 					$data = $data->where($matches['field'] . ' <= ?', $matches['value']);
+					break;
+				case '§':
+					$data = $data->where($matches['field'] . ' REGEXP ?', $matches['value']);
 					break;
 
 			}

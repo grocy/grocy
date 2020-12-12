@@ -199,10 +199,12 @@
         - `=` equal
 		- `!=` not equal
         - `~` LIKE
+        - `!~` not LIKE
         - `<` less
         - `>` greater
-        - `>=` greater or equal
         - `<=` less or equal
+        - `>=` greater or equal
+        - `§` regular expression
       - `<value>` is the value to search for
 - New endpoint `/stock/shoppinglist/add-overdue-products` to add all currently in-stock but overdue products to a shopping list (thanks @m-byte)
 - New endpoint `/stock/shoppinglist/add-expired-products` to add all currently in-stock but expired products to a shopping list
