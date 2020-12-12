@@ -210,7 +210,10 @@
 - New endpoint `/stock/shoppinglist/add-expired-products` to add all currently in-stock but expired products to a shopping list
 - New endpoints GET/POST/PUT `/users/{userId}/permissions` for the new user permissions feature mentioned above
 - New endpoint '/user` to get the currently authenticated user
-- The stock journal (entity `stock_log`) is now also available via the endpoint `/objects/{entity}` (=> `/objects/stock_log`)
+- The following entities are now also available via the endpoint `/objects/{entity}` (only listing, no edit)
+  - `stock_log` (the stock journal)
+  - `stock` (the "raw" stock entries)
+  - `stock_current_locations` (info how much of each product is currently stored at which location)
 - Performance improvements of the `/stock/products/*` endpoints (thanks @fipwmaqzufheoxq92ebc)
 - The endpoint `/stock/products/{productId}/locations` now also has an optional query parameter `include_sub_products` to optionally also return locations of sub products of the given product
 - The following endpoints  now have an optional request body parameter `allow_subproduct_substitution` to consume/open any child product when the given product is a parent product and currently not in stock
