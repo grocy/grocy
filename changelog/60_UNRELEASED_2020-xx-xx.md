@@ -209,7 +209,7 @@
 - New endpoint `/stock/shoppinglist/add-overdue-products` to add all currently in-stock but overdue products to a shopping list (thanks @m-byte)
 - New endpoint `/stock/shoppinglist/add-expired-products` to add all currently in-stock but expired products to a shopping list
 - New endpoints GET/POST/PUT `/users/{userId}/permissions` for the new user permissions feature mentioned above
-- New endpoint '/user` to get the currently authenticated user
+- New endpoint `/user` to get the currently authenticated user
 - The following entities are now also available via the endpoint `/objects/{entity}` (only listing, no edit)
   - `stock_log` (the stock journal)
   - `stock` (the "raw" stock entries)
