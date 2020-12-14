@@ -332,7 +332,14 @@ class StockController extends BaseController
 			$listId = $request->getQueryParams()['list'];
 		}
 
-		return $this->renderPage($response, 'shoppinglist', [
+		$template = 'shoppinglist';
+
+		if (isset($request->getQueryParams()['print']))
+		{
+			$template = 'shoppinglistprint';
+		}
+
+		return $this->renderPage($response, $template, [
 			'listItems' => $this->getDatabase()->shopping_list()->where('shopping_list_id = :1', $listId),
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),

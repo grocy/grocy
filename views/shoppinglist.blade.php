@@ -5,23 +5,12 @@
 @section('viewJsName', 'shoppinglist')
 
 @push('pageScripts')
-<script src="{{ $U('/node_modules/datatables.net-rowgroup/js/dataTables.rowGroup.min.js?v=', true) }}{{ $version }}"></script>
-<script src="{{ $U('/node_modules/datatables.net-rowgroup-bs4/js/rowGroup.bootstrap4.min.js?v=', true) }}{{ $version }}"></script>
 <script src="{{ $U('/viewjs/purchase.js?v=', true) }}{{ $version }}"></script>
 @endpush
 
 @push('pageStyles')
 <link href="{{ $U('/node_modules/animate.css/animate.min.css?v=', true) }}{{ $version }}"
 	rel="stylesheet">
-<link href="{{ $U('/node_modules/datatables.net-rowgroup-bs4/css/rowGroup.bootstrap4.min.css?v=', true) }}{{ $version }}"
-	rel="stylesheet">
-
-<style>
-	tr.dtrg-group {
-		cursor: pointer;
-	}
-
-</style>
 @endpush
 
 @section('content')
@@ -71,7 +60,7 @@
 				</a>
 				<a id="print-shopping-list-button"
 					class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right"
-					href="#">
+					href="{{ $U('/shoppinglist?print&list=' . $selectedShoppingListId) }}">
 					{{ $__t('Print') }}
 				</a>
 			</div>
@@ -171,108 +160,20 @@
 			href="#">
 			{{ $__t('Normal view') }}
 		</a>
-		<table id="shoppinglist-table"
-			class="table table-sm table-striped nowrap w-100">
-			<thead>
-				<tr>
-					<th class="border-right"><a class="text-muted change-table-columns-visibility-button"
-							data-toggle="tooltip"
-							data-toggle="tooltip"
-							title="{{ $__t('Hide/view columns') }}"
-							data-table-selector="#shoppinglist-table"
-							href="#"><i class="fas fa-eye"></i></a>
-					</th>
-					<th>{{ $__t('Product') }} / <em>{{ $__t('Note') }}</em></th>
-					<th>{{ $__t('Amount') }}</th>
-					<th class="d-none">Hidden product group</th>
-					<th class="d-none">Hidden status</th>
-
-					@include('components.userfields_thead', array(
-					'userfields' => $userfields
-					))
-					@include('components.userfields_thead', array(
-					'userfields' => $productUserfields
-					))
-
-				</tr>
-			</thead>
-			<tbody class="d-none">
-				@foreach($listItems as $listItem)
-				<tr id="shoppinglistitem-{{ $listItem->id }}-row"
-					class="@if(FindObjectInArrayByPropertyValue($missingProducts, 'id', $listItem->product_id) !== null) table-info @endif @if($listItem->done == 1) text-muted text-strike-through @endif">
-					<td class="fit-content border-right">
-						<a class="btn btn-success btn-sm order-listitem-button"
-							href="#"
-							data-item-id="{{ $listItem->id }}"
-							data-item-done="{{ $listItem->done }}"
-							data-toggle="tooltip"
-							data-placement="right"
-							title="{{ $__t('Mark this item as done') }}">
-							<i class="fas fa-check"></i>
-						</a>
-						<a class="btn btn-sm btn-info show-as-dialog-link"
-							href="{{ $U('/shoppinglistitem/' . $listItem->id . '?embedded&list=' . $selectedShoppingListId ) }}"
-							data-toggle="tooltip"
-							data-placement="right"
-							title="{{ $__t('Edit this item') }}">
-							<i class="fas fa-edit"></i>
-						</a>
-						<a class="btn btn-sm btn-danger shoppinglist-delete-button"
-							href="#"
-							data-shoppinglist-id="{{ $listItem->id }}"
-							data-toggle="tooltip"
-							data-placement="right"
-							title="{{ $__t('Delete this item') }}">
-							<i class="fas fa-trash"></i>
-						</a>
-						<a class="btn btn-sm btn-primary @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif @if(empty($listItem->product_id)) disabled @else shopping-list-stock-add-workflow-list-item-button @endif"
-							href="{{ $U('/purchase?embedded&flow=shoppinglistitemtostock&product=') }}{{ $listItem->product_id }}&amount={{ $listItem->amount }}&listitemid={{ $listItem->id }}&quId={{ $listItem->qu_id }}"
-							@if(!empty($listItem->product_id)) data-toggle="tooltip" title="{{ $__t('Add %1$s of %2$s to stock', $listItem->amount . ' ' . $__n($listItem->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', $listItem->qu_id)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', $listItem->qu_id)->name_plural), FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->name, $listItem->amount) }}" @endif>
-							<i class="fas fa-box"></i>
-						</a>
-					</td>
-					<td class="product-name-cell cursor-link"
-						data-product-id="{{ $listItem->product_id }}">
-						@if(!empty($listItem->product_id)) {{ FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->name }}<br>@endif<em>{!! nl2br($listItem->note) !!}</em>
-					</td>
-					<td>
-						@if(!empty($listItem->product_id))
-						@php
-						$listItem->amount_origin_qu = $listItem->amount;
-						$product = FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id);
-						$productQuConversions = FindAllObjectsInArrayByPropertyValue($quantityUnitConversionsResolved, 'product_id', $product->id);
-						$productQuConversions = FindAllObjectsInArrayByPropertyValue($productQuConversions, 'from_qu_id', $product->qu_id_stock);
-						$productQuConversion = FindObjectInArrayByPropertyValue($productQuConversions, 'to_qu_id', $listItem->qu_id);
-						if ($productQuConversion)
-						{
-						$listItem->amount = $listItem->amount * $productQuConversion->factor;
-						}
-						@endphp
-						@endif
-						<span class="locale-number locale-number-quantity-amount">{{ $listItem->amount }}</span> @if(!empty($listItem->product_id)){{ $__n($listItem->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', $listItem->qu_id)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', $listItem->qu_id)->name_plural) }}@endif
-					</td>
-					<td class="d-none">
-						@if(!empty(FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->product_group_id)) {{ FindObjectInArrayByPropertyValue($productGroups, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->product_group_id)->name }} @else <span class="font-italic font-weight-light">{{ $__t('Ungrouped') }}</span> @endif
-					</td>
-					<td id="shoppinglistitem-{{ $listItem->id }}-status-info"
-						class="d-none">
-						@if(FindObjectInArrayByPropertyValue($missingProducts, 'id', $listItem->product_id) !== null) belowminstockamount @endif
-						@if($listItem->done != 1) xxUNDONExx @endif
-					</td>
-
-					@include('components.userfields_tbody', array(
-					'userfields' => $userfields,
-					'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $listItem->id)
-					))
-					@include('components.userfields_tbody', array(
-					'userfields' => $productUserfields,
-					'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $listItem->product_id)
-					))
-
-				</tr>
-				@endforeach
-			</tbody>
-		</table>
+		@include('components.shoppinglisttable', array(
+		'listItems' => $listItems,
+		'products' => $products,
+		'quantityunits' => $quantityunits,
+		'missingProducts' => $missingProducts,
+		'productGroups' => $productGroups,
+		'selectedShoppingListId' => $selectedShoppingListId,
+		'quantityUnitConversionsResolved' => $quantityUnitConversionsResolved,
+		'productUserfields' => $productUserfields,
+		'productUserfieldValues' => $productUserfieldValues,
+		'userfields' => $userfields,
+		'userfieldValues' => $userfieldValues,
+		'isPrint' => false
+		))
 	</div>
 
 	@if(boolval($userSettings['shopping_list_show_calendar']))
@@ -322,64 +223,6 @@
 	</div>
 </div>
 
-<div class="d-none d-print-block">
-	<h1 class="text-center">
-		<img src="{{ $U('/img/grocy_logo.svg?v=', true) }}{{ $version }}"
-			height="30"
-			class="d-print-flex mx-auto">
-		{{ $__t("Shopping list") }}
-	</h1>
-	@if (FindObjectInArrayByPropertyValue($shoppingLists, 'id', $selectedShoppingListId)->name != $__t("Shopping list"))
-	<h3 class="text-center">
-		{{ FindObjectInArrayByPropertyValue($shoppingLists, 'id', $selectedShoppingListId)->name }}
-	</h3>
-	@endif
-	<h6 class="text-center mb-4">
-		{{ $__t('Time of printing') }}:
-		<span class="d-inline print-timestamp"></span>
-	</h6>
-	<div class="row w-75">
-		<div class="col">
-			<table class="table">
-				<thead>
-					<tr>
-						<th>{{ $__t('Product') }} / <em>{{ $__t('Note') }}</em></th>
-						<th>{{ $__t('Amount') }}</th>
-
-						@include('components.userfields_thead', array(
-						'userfields' => $userfields
-						))
-
-					</tr>
-				</thead>
-				<tbody>
-					@foreach($listItems as $listItem)
-					<tr>
-						<td>
-							@if(!empty($listItem->product_id)) {{ FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->name }}<br>@endif<em>{!! nl2br($listItem->note) !!}</em>
-						</td>
-						<td>
-							<span class="locale-number locale-number-quantity-amount">{{ $listItem->amount }}</span> @if(!empty($listItem->product_id)){{ $__n($listItem->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', $listItem->qu_id)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', $listItem->qu_id)->name_plural) }}@endif
-						</td>
-
-						@include('components.userfields_tbody', array(
-						'userfields' => $userfields,
-						'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $listItem->product_id)
-						))
-
-					</tr>
-					@endforeach
-				</tbody>
-			</table>
-		</div>
-	</div>
-	<div class="row w-75">
-		<div class="col">
-			<h5>{{ $__t('Notes') }}</h5>
-			<p id="description-for-print"></p>
-		</div>
-	</div>
-</div>
 <div class="modal fade"
 	id="shoppinglist-productcard-modal"
 	tabindex="-1">

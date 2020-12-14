@@ -43,6 +43,9 @@
 			</div>
 		</div>
 
+		<a href="{{ $U('/shoppinglist?print=1&preview=1') }}"
+			class="btn btn-secondary">{{ $__t('Open print preview') }}</a>
+
 		<a href="{{ $U('/shoppinglist') }}"
 			class="btn btn-success">{{ $__t('OK') }}</a>
 	</div>

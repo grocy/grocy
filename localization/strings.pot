@@ -2008,3 +2008,6 @@ msgstr ""
 
 msgid "Show on stock overview page"
 msgstr ""
+
+msgid "Open print preview"
+msgstr ""

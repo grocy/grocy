@@ -1,43 +1,4 @@
-﻿var collapsedGroups = {};
-
-var shoppingListTable = $('#shoppinglist-table').DataTable({
-	'order': [[1, 'asc']],
-	"orderFixed": [[3, 'asc']],
-	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 },
-		{ 'searchable': false, "targets": 0 },
-		{ 'visible': false, 'targets': 3 }
-	].concat($.fn.dataTable.defaults.columnDefs),
-	'rowGroup': {
-		dataSrc: 3,
-		startRender: function(rows, group)
-		{
-			var collapsed = !!collapsedGroups[group];
-			var toggleClass = collapsed ? "fa-caret-right" : "fa-caret-down";
-
-			rows.nodes().each(function(row)
-			{
-				row.style.display = collapsed ? "none" : "";
-			});
-
-			return $("<tr/>")
-				.append('<td colspan="' + rows.columns()[0].length + '">' + group + ' <span class="fa fa-fw ' + toggleClass + '"/></td>')
-				.attr("data-name", group)
-				.toggleClass("collapsed", collapsed);
-		}
-	}
-});
-$('#shoppinglist-table tbody').removeClass("d-none");
-shoppingListTable.columns.adjust().draw();
-
-$(document).on("click", "tr.dtrg-group", function()
-{
-	var name = $(this).data('name');
-	collapsedGroups[name] = !collapsedGroups[name];
-	shoppingListTable.draw();
-});
-
-$("#search").on("keyup", Delay(function()
+﻿$("#search").on("keyup", Delay(function()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -382,13 +343,6 @@ function OnListItemRemoved()
 	}
 }
 OnListItemRemoved();
-
-$(document).on("click", "#print-shopping-list-button", function(e)
-{
-	$(".print-timestamp").text(moment().format("l LT"));
-	$("#description-for-print").html($("#description").val());
-	window.print();
-});
 
 $("#description").on("summernote.change", function()
 {

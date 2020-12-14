@@ -83,6 +83,37 @@
 		rel="stylesheet">
 	@stack('pageStyles')
 
+	@php
+	// @stack('componentStyles') maybe contains the components CSS file reference multiple times
+	// if the component was included more than once in the view
+	//
+	// So this is a ugly hack to keep only unique CSS file references there
+
+	// The property is normally protected, so change that
+	$reflection = new \ReflectionClass($__env);
+	$property = $reflection->getProperty('pushes');
+	$property->setAccessible(true);
+	$env = $property->getValue($__env);
+
+	if (array_key_exists('componentStyles', $env))
+	{
+	// Take every line into a new array, one element per line
+	$filteredStack = array_map(function($value)
+	{
+	return explode("#SEP#", str_replace(array("\n", "\r", "\t"), '#SEP#', trim($value)));
+	}, $env['componentStyles']);
+
+	// Flatten the array into a single one, only keep unique lines, remove empty lines, add a defined new line
+	$filteredStack = preg_filter('/$/', "\n", array_filter(array_unique(array_merge(...$filteredStack))));
+
+	// Write it back
+	$env['componentStyles'] = $filteredStack;
+	$property->setValue($__env, $env);
+	}
+	@endphp
+
+	@stack('componentStyles')
+
 	@if(file_exists(GROCY_DATAPATH . '/custom_css.html'))
 	@php include GROCY_DATAPATH . '/custom_css.html' @endphp
 	@endif
