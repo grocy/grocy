@@ -580,7 +580,7 @@
 							<th>{{ $__t('Quantity unit from') }}</th>
 							<th>{{ $__t('Quantity unit to') }}</th>
 							<th>{{ $__t('Factor') }}</th>
-							<th class="d-none">Hidden group</th>
+							<th>{{ $__('Group')}}</th>
 							<th></th>
 						</tr>
 					</thead>

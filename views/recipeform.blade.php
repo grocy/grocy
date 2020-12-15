@@ -156,7 +156,7 @@
 							<th>{{ $__t('Product') }}</th>
 							<th>{{ $__t('Amount') }}</th>
 							<th class="fit-content">{{ $__t('Note') }}</th>
-							<th class="d-none">Hidden ingredient group</th>
+							<th>{{ $__t('Ingredient group') }}</th>
 						</tr>
 					</thead>
 					<tbody class="d-none">

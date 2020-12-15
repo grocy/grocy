@@ -709,6 +709,45 @@ $.extend(true, $.fn.dataTable.defaults, {
 		{
 			column.search.search = "";
 		});
+
+		var api = new $.fn.dataTable.Api(settings);
+
+		if (typeof api.rowGroup === "function")
+		{
+			var rowGroup = {
+				enable: api.rowGroup().enabled(),
+			};
+
+			if (api.rowGroup().enabled())
+			{
+				rowGroup.dataSrc = api.rowGroup().dataSrc()
+			}
+
+			data.rowGroup = rowGroup;
+		}
+	},
+	'stateLoadParams': function(settings, data)
+	{
+		var api = new $.fn.dataTable.Api(settings);
+
+		if (typeof api.rowGroup === "function" && "rowGroup" in data)
+		{
+			api.rowGroup().enable(data.rowGroup.enable);
+
+			if ("dataSrc" in data.rowGroup)
+			{
+				api.rowGroup().dataSrc(data.rowGroup.dataSrc);
+
+				//apply fixed order for group column
+				var fixedOrder = {
+					pre: [data.rowGroup.dataSrc, 'asc']
+				};
+
+				api.order.fixed(fixedOrder);
+			}
+
+			delete data.rowGroup;
+		}
 	},
 	'stateSaveCallback': function(settings, data)
 	{
@@ -847,6 +886,28 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 	var dataTable = $(dataTableSelector).DataTable();
 
 	var columnCheckBoxesHtml = "";
+	var rowGroupRadioBoxesHtml = "";
+
+	var rowGroupDefined = typeof dataTable.rowGroup === "function";
+
+	if (rowGroupDefined)
+	{
+		var rowGroupChecked = (dataTable.rowGroup().enabled()) ? "" : "checked";
+		rowGroupRadioBoxesHtml = ' \
+			<div class="custom-control custom-radio custom-control-inline"> \
+				<input ' + rowGroupChecked + ' class="custom-control-input change-table-columns-rowgroup-toggle" \
+					type="radio" \
+					name="column-rowgroup" \
+					id="column-rowgroup-none" \
+					data-table-selector="' + dataTableSelector + '" \
+					data-column-index="-1" \
+				> \
+				<label class="custom-control-label" \
+					for="column-rowgroup-none">' + __t("None") + ' \
+				</label > \
+			</div>';
+	}
+
 	dataTable.columns().every(function()
 	{
 		var index = this.index();
@@ -864,7 +925,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 			checked = "";
 		}
 
-		columnCheckBoxesHtml += '<div class="form-group"> \
+		columnCheckBoxesHtml += ' \
 			<div class="custom-control custom-checkbox"> \
 				<input ' + checked + ' class="form-check-input custom-control-input change-table-columns-visibility-toggle" \
 					type="checkbox" \
@@ -875,12 +936,41 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 				<label class="form-check-label custom-control-label" \
 					for="column-' + index.toString() + '">' + title + ' \
 				</label> \
-			</div> \
-		</div>'
+			</div>';
+
+		if (rowGroupDefined)
+		{
+			var rowGroupChecked = "";
+			if (dataTable.rowGroup().enabled() && dataTable.rowGroup().dataSrc() == index)
+			{
+				rowGroupChecked = "checked";
+			}
+
+			rowGroupRadioBoxesHtml += ' \
+			<div class="custom-control custom-radio"> \
+				<input ' + rowGroupChecked + ' class="custom-control-input change-table-columns-rowgroup-toggle" \
+					type="radio" \
+					name="column-rowgroup" \
+					id="column-rowgroup-' + index.toString() + '" \
+					data-table-selector="' + dataTableSelector + '" \
+					data-column-index="' + index.toString() + '" \
+				> \
+				<label class="custom-control-label" \
+					for="column-rowgroup-' + index.toString() + '">' + title + ' \
+				</label > \
+			</div>';
+		}
 	});
 
+	var message = '<div class="text-center"><h4>' + __t('Hide/view columns') + '</h4><div class="text-left form-group">' + columnCheckBoxesHtml + '</div></div>';
+
+	if (rowGroupDefined)
+	{
+		message += '<hr><div class="text-center mt-1"><h4>' + __t('Group by') + '</h4><div class="text-left form-group">' + rowGroupRadioBoxesHtml + '</div></div>';
+	}
+
 	bootbox.dialog({
-		message: '<div class="text-center"><h5>' + __t('Hide/view columns') + '</h5><hr><div class="text-left">' + columnCheckBoxesHtml + '</div></div>',
+		message: message,
 		size: 'small',
 		backdrop: true,
 		closeButton: false,
@@ -896,6 +986,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 		}
 	});
 });
+
 $(document).on("click", ".change-table-columns-visibility-toggle", function()
 {
 	var dataTableSelector = $(this).attr("data-table-selector");
@@ -903,4 +994,33 @@ $(document).on("click", ".change-table-columns-visibility-toggle", function()
 	var dataTable = $(dataTableSelector).DataTable();
 
 	dataTable.columns(columnIndex).visible(this.checked);
+});
+
+
+$(document).on("click", ".change-table-columns-rowgroup-toggle", function()
+{
+	var dataTableSelector = $(this).attr("data-table-selector");
+	var columnIndex = $(this).attr("data-column-index");
+	var dataTable = $(dataTableSelector).DataTable();
+
+	if (columnIndex == -1)
+	{
+		dataTable.rowGroup().enable(false);
+
+		//remove fixed order
+		dataTable.order.fixed({});
+	}
+	else
+	{
+		dataTable.rowGroup().enable(true);
+		dataTable.rowGroup().dataSrc(columnIndex);
+
+		//apply fixed order for group column
+		var fixedOrder = {
+			pre: [columnIndex, 'asc']
+		};
+		dataTable.order.fixed(fixedOrder);
+	}
+
+	dataTable.draw();
 });

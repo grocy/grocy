@@ -20,7 +20,6 @@
 	tr.dtrg-group {
 		cursor: pointer;
 	}
-
 </style>
 @endpush
 
@@ -184,7 +183,7 @@
 					</th>
 					<th>{{ $__t('Product') }} / <em>{{ $__t('Note') }}</em></th>
 					<th>{{ $__t('Amount') }}</th>
-					<th class="d-none">Hidden product group</th>
+					<th>{{ $__t('Product group') }}</th>
 					<th class="d-none">Hidden status</th>
 
 					@include('components.userfields_thead', array(
@@ -251,7 +250,7 @@
 						@endif
 						<span class="locale-number locale-number-quantity-amount">{{ $listItem->amount }}</span> @if(!empty($listItem->product_id)){{ $__n($listItem->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', $listItem->qu_id)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', $listItem->qu_id)->name_plural) }}@endif
 					</td>
-					<td class="d-none">
+					<td>
 						@if(!empty(FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->product_group_id)) {{ FindObjectInArrayByPropertyValue($productGroups, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->product_group_id)->name }} @else <span class="font-italic font-weight-light">{{ $__t('Ungrouped') }}</span> @endif
 					</td>
 					<td id="shoppinglistitem-{{ $listItem->id }}-status-info"

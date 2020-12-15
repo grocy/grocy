@@ -114,7 +114,7 @@
 					</th>
 					<th>{{ $__t('Task') }}</th>
 					<th>{{ $__t('Due') }}</th>
-					<th class="d-none">Hidden category</th>
+					<th>{{ $__t('Category') }}</th>
 					<th>{{ $__t('Assigned to') }}</th>
 					<th class="d-none">Hidden status</th>
 
@@ -176,7 +176,7 @@
 						<time class="timeago timeago-contextual"
 							datetime="{{ $task->due_date }}"></time>
 					</td>
-					<td class="d-none">
+					<td>
 						@if($task->category_id != null) <span>{{ FindObjectInArrayByPropertyValue($taskCategories, 'id', $task->category_id)->name }}</span> @else <span class="font-italic font-weight-light">{{ $__t('Uncategorized') }}</span>@endif
 					</td>
 					<td>

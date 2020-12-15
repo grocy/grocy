@@ -2008,3 +2008,12 @@ msgstr ""
 
 msgid "Show on stock overview page"
 msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Group by"
+msgstr ""
+
+msgid "Ingredient group"
+msgstr ""
