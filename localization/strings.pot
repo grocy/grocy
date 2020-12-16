@@ -2024,8 +2024,5 @@ msgstr ""
 msgid "Are you sure to reset the table options?"
 msgstr ""
 
-msgid "Table layout configuration"
-msgstr ""
-
 msgid "Hide/view columns"
 msgstr ""
