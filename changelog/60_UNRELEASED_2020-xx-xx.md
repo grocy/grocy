@@ -135,9 +135,11 @@
 - Improved mobile views (thanks @4lloyd for the idea and initial work on this)
   - The buttons on the top of each page and the filter row is now collapsed (use the ellipsis/filter button to show them, this also superseded the shopping list compact view)
   - Tables are horizontally scrollable (instead of collapsing columns which don't fit)
-- Table columns can now be shown/hidden (new little eye icon on the top left corner on each table)
-  - There are also new columns on some pages, hidden by default
-    - Stock overview: Value, product group, calories
+- All tables are now customizable (new little eye icon on the top left corner on each table)
+  - Table columns be shown/hidden
+    - There are also new columns on some pages, hidden by default
+      - Stock overview: Value, product group, calories
+  - Row grouping can be customized to use any available column (thanks @edenhaus)
 - Table states (visible columns, sorting, column order and so on) are now saved server side (in user settings) means that this stays the same when using different browsers
 - Dialogs are now used everywhere where appropriate instead of jumping between pages (for exampel when adding/editing shopping list items)
 - Added a "Clear filter"-button on all pages (with filters) to quickly reset applied filters
