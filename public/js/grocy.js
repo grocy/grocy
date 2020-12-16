@@ -454,14 +454,17 @@ Grocy.FrontendHelpers.SaveUserSetting = function(settingsKey, value)
 	);
 }
 
-Grocy.FrontendHelpers.DeleteUserSetting = function(settingsKey)
+Grocy.FrontendHelpers.DeleteUserSetting = function(settingsKey, reloadPageOnSuccess = false)
 {
 	delete Grocy.UserSettings[settingsKey];
 
 	Grocy.Api.Delete('user/settings/' + settingsKey, {},
 		function(result)
 		{
-			// Nothing to do...
+			if (reloadPageOnSuccess)
+			{
+				location.reload();
+			}
 		},
 		function(xhr)
 		{
@@ -739,7 +742,8 @@ $.extend(true, $.fn.dataTable.defaults, {
 		var settingKey = 'datatables_state_' + settings.sTableId;
 		if ($.isEmptyObject(data))
 		{
-			Grocy.FrontendHelpers.DeleteUserSetting(settingKey);
+			//state.clear was called and unfortunately the table is not refresh, so we are reloading the page
+			Grocy.FrontendHelpers.DeleteUserSetting(settingKey, true);
 		} else
 		{
 			var stateData = JSON.stringify(data);
@@ -1017,9 +1021,6 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 
 								//Delete state settings
 								dataTable.state.clear();
-
-								//Reload page as datatable is not reseting itself
-								location.reload();
 							}
 							bootbox.hideAll();
 						}
