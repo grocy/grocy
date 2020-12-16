@@ -114,6 +114,11 @@ class UsersService extends BaseService
 		}
 	}
 
+	public function DeleteUserSetting($userId, $settingKey)
+	{
+		$this->getDatabase()->user_settings()->where('user_id = :1 AND key = :2', $userId, $settingKey)->delete();
+	}
+
 	private function UserExists($userId)
 	{
 		$userRow = $this->getDatabase()->users()->where('id = :1', $userId)->fetch();

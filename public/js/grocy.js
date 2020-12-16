@@ -433,7 +433,7 @@ Grocy.FrontendHelpers.ShowGenericError = function(message, exception)
 	console.error(exception);
 }
 
-Grocy.FrontendHelpers.SaveUserSettings = function(settingsKey, value)
+Grocy.FrontendHelpers.SaveUserSetting = function(settingsKey, value)
 {
 	Grocy.UserSettings[settingsKey] = value;
 
@@ -449,6 +449,25 @@ Grocy.FrontendHelpers.SaveUserSettings = function(settingsKey, value)
 			if (!xhr.statusText.isEmpty())
 			{
 				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+			}
+		}
+	);
+}
+
+Grocy.FrontendHelpers.DeleteUserSetting = function(settingsKey)
+{
+	delete Grocy.UserSettings[settingsKey];
+
+	Grocy.Api.Delete('user/settings/' + settingsKey, {},
+		function(result)
+		{
+			// Nothing to do...
+		},
+		function(xhr)
+		{
+			if (!xhr.statusText.isEmpty())
+			{
+				Grocy.FrontendHelpers.ShowGenericError('Error while deleting, please retry', xhr.response)
 			}
 		}
 	);
@@ -489,7 +508,7 @@ $(document).on("change", ".user-setting-control", function()
 		var value = element.val();
 	}
 
-	Grocy.FrontendHelpers.SaveUserSettings(settingKey, value);
+	Grocy.FrontendHelpers.SaveUserSetting(settingKey, value);
 });
 
 // Show file name Bootstrap custom file input
@@ -718,8 +737,14 @@ $.extend(true, $.fn.dataTable.defaults, {
 	'stateSaveCallback': function(settings, data)
 	{
 		var settingKey = 'datatables_state_' + settings.sTableId;
-		var stateData = JSON.stringify(data);
-		Grocy.FrontendHelpers.SaveUserSettings(settingKey, stateData);
+		if ($.isEmptyObject(data))
+		{
+			Grocy.FrontendHelpers.DeleteUserSetting(settingKey);
+		} else
+		{
+			var stateData = JSON.stringify(data);
+			Grocy.FrontendHelpers.SaveUserSetting(settingKey, stateData);
+		}
 	},
 	'stateLoadCallback': function(settings, data)
 	{
@@ -960,8 +985,48 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 		size: 'small',
 		backdrop: true,
 		closeButton: false,
+		onEscape: true,
 		buttons: {
-			cancel: {
+			reset: {
+				label: __t('Reset'),
+				className: 'btn-danger responsive-button',
+				callback: function()
+				{
+					bootbox.confirm({
+						swapButtonOrder: true,
+						message: __t("Are you sure, you want reset the table?"),
+						buttons: {
+							confirm: {
+								label: 'Yes',
+								className: 'btn-danger'
+							},
+							cancel: {
+								label: 'No',
+								className: 'btn-primary'
+							}
+						},
+						callback: function(result)
+						{
+							if (result)
+							{
+								var dataTable = $(dataTableSelector).DataTable();
+								var tableId = dataTable.settings()[0].sTableId;
+
+								//Delete rowgroup settings
+								Grocy.FrontendHelpers.DeleteUserSetting('datatables_rowGroup_' + tableId);
+
+								//Delete state settings
+								dataTable.state.clear();
+
+								//Reload page as datatable is not reseting itself
+								location.reload();
+							}
+							bootbox.hideAll();
+						}
+					});
+				}
+			},
+			ok: {
 				label: __t('OK'),
 				className: 'btn-primary responsive-button',
 				callback: function()
@@ -1019,7 +1084,7 @@ $(document).on("click", ".change-table-columns-rowgroup-toggle", function()
 	}
 
 	var settingKey = 'datatables_rowGroup_' + dataTable.settings()[0].sTableId;
-	Grocy.FrontendHelpers.SaveUserSettings(settingKey, JSON.stringify(rowGroup));
+	Grocy.FrontendHelpers.SaveUserSetting(settingKey, JSON.stringify(rowGroup));
 
 	dataTable.draw();
 });

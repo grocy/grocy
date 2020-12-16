@@ -2017,3 +2017,9 @@ msgstr ""
 
 msgid "Ingredient group"
 msgstr ""
+
+msgid "Reset"
+msgstr ""
+
+msgid "Are you sure, you want reset the table?"
+msgstr ""

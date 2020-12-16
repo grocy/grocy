@@ -175,6 +175,7 @@ $app->group('/api', function (RouteCollectorProxy $group) {
 	$group->get('/user/settings', '\Grocy\Controllers\UsersApiController:GetUserSettings');
 	$group->get('/user/settings/{settingKey}', '\Grocy\Controllers\UsersApiController:GetUserSetting');
 	$group->put('/user/settings/{settingKey}', '\Grocy\Controllers\UsersApiController:SetUserSetting');
+	$group->delete('/user/settings/{settingKey}', '\Grocy\Controllers\UsersApiController:DeleteUserSetting');
 
 	// Stock
 	if (GROCY_FEATURE_FLAG_STOCK)
