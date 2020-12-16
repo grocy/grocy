@@ -4,15 +4,8 @@
 @section('activeNav', 'tasks')
 @section('viewJsName', 'tasks')
 
-@push('pageScripts')
-<script src="{{ $U('/node_modules/datatables.net-rowgroup/js/dataTables.rowGroup.min.js?v=', true) }}{{ $version }}"></script>
-<script src="{{ $U('/node_modules/datatables.net-rowgroup-bs4/js/rowGroup.bootstrap4.min.js?v=', true) }}{{ $version }}"></script>
-@endpush
-
 @push('pageStyles')
 <link href="{{ $U('/node_modules/animate.css/animate.min.css?v=', true) }}{{ $version }}"
-	rel="stylesheet">
-<link href="{{ $U('/node_modules/datatables.net-rowgroup-bs4/css/rowGroup.bootstrap4.min.css?v=', true) }}{{ $version }}"
 	rel="stylesheet">
 @endpush
 
@@ -108,13 +101,13 @@
 					<th class="border-right"><a class="text-muted change-table-columns-visibility-button"
 							data-toggle="tooltip"
 							data-toggle="tooltip"
-							title="{{ $__t('Hide/view columns') }}"
+							title="{{ $__t('Table options') }}"
 							data-table-selector="#tasks-table"
 							href="#"><i class="fas fa-eye"></i></a>
 					</th>
 					<th>{{ $__t('Task') }}</th>
 					<th>{{ $__t('Due') }}</th>
-					<th class="d-none">Hidden category</th>
+					<th>{{ $__t('Category') }}</th>
 					<th>{{ $__t('Assigned to') }}</th>
 					<th class="d-none">Hidden status</th>
 
@@ -176,7 +169,7 @@
 						<time class="timeago timeago-contextual"
 							datetime="{{ $task->due_date }}"></time>
 					</td>
-					<td class="d-none">
+					<td>
 						@if($task->category_id != null) <span>{{ FindObjectInArrayByPropertyValue($taskCategories, 'id', $task->category_id)->name }}</span> @else <span class="font-italic font-weight-light">{{ $__t('Uncategorized') }}</span>@endif
 					</td>
 					<td>

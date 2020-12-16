@@ -8,16 +8,6 @@
 
 @section('viewJsName', 'recipeform')
 
-@push('pageScripts')
-<script src="{{ $U('/node_modules/datatables.net-rowgroup/js/dataTables.rowGroup.min.js?v=', true) }}{{ $version }}"></script>
-<script src="{{ $U('/node_modules/datatables.net-rowgroup-bs4/js/rowGroup.bootstrap4.min.js?v=', true) }}{{ $version }}"></script>
-@endpush
-
-@push('pageStyles')
-<link href="{{ $U('/node_modules/datatables.net-rowgroup-bs4/css/rowGroup.bootstrap4.min.css?v=', true) }}{{ $version }}"
-	rel="stylesheet">
-@endpush
-
 @section('content')
 <div class="row">
 	<div class="col">
@@ -149,14 +139,14 @@
 							<th class="border-right"><a class="text-muted change-table-columns-visibility-button"
 									data-toggle="tooltip"
 									data-toggle="tooltip"
-									title="{{ $__t('Hide/view columns') }}"
+									title="{{ $__t('Table options') }}"
 									data-table-selector="#recipes-pos-table"
 									href="#"><i class="fas fa-eye"></i></a>
 							</th>
 							<th>{{ $__t('Product') }}</th>
 							<th>{{ $__t('Amount') }}</th>
 							<th class="fit-content">{{ $__t('Note') }}</th>
-							<th class="d-none">Hidden ingredient group</th>
+							<th>{{ $__t('Ingredient group') }}</th>
 						</tr>
 					</thead>
 					<tbody class="d-none">
@@ -252,7 +242,7 @@
 							<th class="border-right"><a class="text-muted change-table-columns-visibility-button"
 									data-toggle="tooltip"
 									data-toggle="tooltip"
-									title="{{ $__t('Hide/view columns') }}"
+									title="{{ $__t('Table options') }}"
 									data-table-selector="#recipes-includes-table"
 									href="#"><i class="fas fa-eye"></i></a>
 							</th>

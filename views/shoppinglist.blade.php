@@ -5,15 +5,11 @@
 @section('viewJsName', 'shoppinglist')
 
 @push('pageScripts')
-<script src="{{ $U('/node_modules/datatables.net-rowgroup/js/dataTables.rowGroup.min.js?v=', true) }}{{ $version }}"></script>
-<script src="{{ $U('/node_modules/datatables.net-rowgroup-bs4/js/rowGroup.bootstrap4.min.js?v=', true) }}{{ $version }}"></script>
 <script src="{{ $U('/viewjs/purchase.js?v=', true) }}{{ $version }}"></script>
 @endpush
 
 @push('pageStyles')
 <link href="{{ $U('/node_modules/animate.css/animate.min.css?v=', true) }}{{ $version }}"
-	rel="stylesheet">
-<link href="{{ $U('/node_modules/datatables.net-rowgroup-bs4/css/rowGroup.bootstrap4.min.css?v=', true) }}{{ $version }}"
 	rel="stylesheet">
 
 <style>
@@ -178,13 +174,13 @@
 					<th class="border-right"><a class="text-muted change-table-columns-visibility-button"
 							data-toggle="tooltip"
 							data-toggle="tooltip"
-							title="{{ $__t('Hide/view columns') }}"
+							title="{{ $__t('Table options') }}"
 							data-table-selector="#shoppinglist-table"
 							href="#"><i class="fas fa-eye"></i></a>
 					</th>
 					<th>{{ $__t('Product') }} / <em>{{ $__t('Note') }}</em></th>
 					<th>{{ $__t('Amount') }}</th>
-					<th class="d-none">Hidden product group</th>
+					<th>{{ $__t('Product group') }}</th>
 					<th class="d-none">Hidden status</th>
 
 					@include('components.userfields_thead', array(
@@ -251,7 +247,7 @@
 						@endif
 						<span class="locale-number locale-number-quantity-amount">{{ $listItem->amount }}</span> @if(!empty($listItem->product_id)){{ $__n($listItem->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', $listItem->qu_id)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', $listItem->qu_id)->name_plural) }}@endif
 					</td>
-					<td class="d-none">
+					<td>
 						@if(!empty(FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->product_group_id)) {{ FindObjectInArrayByPropertyValue($productGroups, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->product_group_id)->name }} @else <span class="font-italic font-weight-light">{{ $__t('Ungrouped') }}</span> @endif
 					</td>
 					<td id="shoppinglistitem-{{ $listItem->id }}-status-info"

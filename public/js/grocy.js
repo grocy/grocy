@@ -433,6 +433,49 @@ Grocy.FrontendHelpers.ShowGenericError = function(message, exception)
 	console.error(exception);
 }
 
+Grocy.FrontendHelpers.SaveUserSetting = function(settingsKey, value)
+{
+	Grocy.UserSettings[settingsKey] = value;
+
+	jsonData = {};
+	jsonData.value = value;
+	Grocy.Api.Put('user/settings/' + settingsKey, jsonData,
+		function(result)
+		{
+			// Nothing to do...
+		},
+		function(xhr)
+		{
+			if (!xhr.statusText.isEmpty())
+			{
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+			}
+		}
+	);
+}
+
+Grocy.FrontendHelpers.DeleteUserSetting = function(settingsKey, reloadPageOnSuccess = false)
+{
+	delete Grocy.UserSettings[settingsKey];
+
+	Grocy.Api.Delete('user/settings/' + settingsKey, {},
+		function(result)
+		{
+			if (reloadPageOnSuccess)
+			{
+				location.reload();
+			}
+		},
+		function(xhr)
+		{
+			if (!xhr.statusText.isEmpty())
+			{
+				Grocy.FrontendHelpers.ShowGenericError('Error while deleting, please retry', xhr.response)
+			}
+		}
+	);
+}
+
 $(document).on("keyup paste change", "input, textarea", function()
 {
 	$(this).closest("form").addClass("is-dirty");
@@ -468,23 +511,7 @@ $(document).on("change", ".user-setting-control", function()
 		var value = element.val();
 	}
 
-	Grocy.UserSettings[settingKey] = value;
-
-	jsonData = {};
-	jsonData.value = value;
-	Grocy.Api.Put('user/settings/' + settingKey, jsonData,
-		function(result)
-		{
-			// Nothing to do...
-		},
-		function(xhr)
-		{
-			if (!xhr.statusText.isEmpty())
-			{
-				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-			}
-		}
-	);
+	Grocy.FrontendHelpers.SaveUserSetting(settingKey, value);
 });
 
 // Show file name Bootstrap custom file input
@@ -713,25 +740,15 @@ $.extend(true, $.fn.dataTable.defaults, {
 	'stateSaveCallback': function(settings, data)
 	{
 		var settingKey = 'datatables_state_' + settings.sTableId;
-		var stateData = JSON.stringify(data);
-
-		Grocy.UserSettings[settingKey] = stateData;
-
-		jsonData = {};
-		jsonData.value = stateData;
-		Grocy.Api.Put('user/settings/' + settingKey, jsonData,
-			function(result)
-			{
-				// Nothing to do...
-			},
-			function(xhr)
-			{
-				if (!xhr.statusText.isEmpty())
-				{
-					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-				}
-			}
-		);
+		if ($.isEmptyObject(data))
+		{
+			//state.clear was called and unfortunately the table is not refresh, so we are reloading the page
+			Grocy.FrontendHelpers.DeleteUserSetting(settingKey, true);
+		} else
+		{
+			var stateData = JSON.stringify(data);
+			Grocy.FrontendHelpers.SaveUserSetting(settingKey, stateData);
+		}
 	},
 	'stateLoadCallback': function(settings, data)
 	{
@@ -746,9 +763,45 @@ $.extend(true, $.fn.dataTable.defaults, {
 			return JSON.parse(Grocy.UserSettings[settingKey]);
 		}
 	},
+	'preDrawCallback': function(settings)
+	{
+		// Currently it is not possible to save the state of rowGroup via saveState events
+		var api = new $.fn.dataTable.Api(settings);
+		if (typeof api.rowGroup === "function")
+		{
+			var settingKey = 'datatables_rowGroup_' + settings.sTableId;
+			if (Grocy.UserSettings[settingKey] !== undefined)
+			{
+				var rowGroup = JSON.parse(Grocy.UserSettings[settingKey]);
+
+				// Check if there way changed. the draw event is called often therefore we have to check if it's really necessary
+				if (rowGroup.enable !== api.rowGroup().enabled()
+					|| ("dataSrc" in rowGroup && rowGroup.dataSrc !== api.rowGroup().dataSrc()))
+				{
+
+					api.rowGroup().enable(rowGroup.enable);
+
+					if ("dataSrc" in rowGroup)
+					{
+						api.rowGroup().dataSrc(rowGroup.dataSrc);
+
+						// Apply fixed order for group column
+						var fixedOrder = {
+							pre: [rowGroup.dataSrc, 'asc']
+						};
+
+						api.order.fixed(fixedOrder);
+					}
+				}
+			}
+		}
+	},
 	'columnDefs': [
 		{ type: 'chinese-string', targets: '_all' }
-	]
+	],
+	'rowGroup': {
+		enable: false
+	}
 });
 
 // serializeJSON defaults
@@ -847,6 +900,28 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 	var dataTable = $(dataTableSelector).DataTable();
 
 	var columnCheckBoxesHtml = "";
+	var rowGroupRadioBoxesHtml = "";
+
+	var rowGroupDefined = typeof dataTable.rowGroup === "function";
+
+	if (rowGroupDefined)
+	{
+		var rowGroupChecked = (dataTable.rowGroup().enabled()) ? "" : "checked";
+		rowGroupRadioBoxesHtml = ' \
+			<div class="custom-control custom-radio custom-control-inline"> \
+				<input ' + rowGroupChecked + ' class="custom-control-input change-table-columns-rowgroup-toggle" \
+					type="radio" \
+					name="column-rowgroup" \
+					id="column-rowgroup-none" \
+					data-table-selector="' + dataTableSelector + '" \
+					data-column-index="-1" \
+				> \
+				<label class="custom-control-label" \
+					for="column-rowgroup-none">' + __t("None") + ' \
+				</label > \
+			</div>';
+	}
+
 	dataTable.columns().every(function()
 	{
 		var index = this.index();
@@ -864,7 +939,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 			checked = "";
 		}
 
-		columnCheckBoxesHtml += '<div class="form-group"> \
+		columnCheckBoxesHtml += ' \
 			<div class="custom-control custom-checkbox"> \
 				<input ' + checked + ' class="form-check-input custom-control-input change-table-columns-visibility-toggle" \
 					type="checkbox" \
@@ -875,17 +950,82 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 				<label class="form-check-label custom-control-label" \
 					for="column-' + index.toString() + '">' + title + ' \
 				</label> \
-			</div> \
-		</div>'
+			</div>';
+
+		if (rowGroupDefined)
+		{
+			var rowGroupChecked = "";
+			if (dataTable.rowGroup().enabled() && dataTable.rowGroup().dataSrc() == index)
+			{
+				rowGroupChecked = "checked";
+			}
+
+			rowGroupRadioBoxesHtml += ' \
+			<div class="custom-control custom-radio"> \
+				<input ' + rowGroupChecked + ' class="custom-control-input change-table-columns-rowgroup-toggle" \
+					type="radio" \
+					name="column-rowgroup" \
+					id="column-rowgroup-' + index.toString() + '" \
+					data-table-selector="' + dataTableSelector + '" \
+					data-column-index="' + index.toString() + '" \
+				> \
+				<label class="custom-control-label" \
+					for="column-rowgroup-' + index.toString() + '">' + title + ' \
+				</label > \
+			</div>';
+		}
 	});
 
+	var message = '<div class="text-center"><h5>' + __t('Table options') + '</h5><hr><h5>' + __t('Hide/view columns') + '</h5><div class="text-left form-group">' + columnCheckBoxesHtml + '</div></div>';
+	if (rowGroupDefined)
+	{
+		message += '<div class="text-center mt-1"><h5>' + __t('Group by') + '</h5><div class="text-left form-group">' + rowGroupRadioBoxesHtml + '</div></div>';
+	}
+
 	bootbox.dialog({
-		message: '<div class="text-center"><h5>' + __t('Hide/view columns') + '</h5><hr><div class="text-left">' + columnCheckBoxesHtml + '</div></div>',
+		message: message,
 		size: 'small',
 		backdrop: true,
 		closeButton: false,
+		onEscape: true,
 		buttons: {
-			cancel: {
+			reset: {
+				label: __t('Reset'),
+				className: 'btn-outline-danger float-left responsive-button',
+				callback: function()
+				{
+					bootbox.confirm({
+						swapButtonOrder: true,
+						message: __t("Are you sure to reset the table options?"),
+						buttons: {
+							confirm: {
+								label: 'Yes',
+								className: 'btn-danger'
+							},
+							cancel: {
+								label: 'No',
+								className: 'btn-primary'
+							}
+						},
+						callback: function(result)
+						{
+							if (result)
+							{
+								var dataTable = $(dataTableSelector).DataTable();
+								var tableId = dataTable.settings()[0].sTableId;
+
+								// Delete rowgroup settings
+								Grocy.FrontendHelpers.DeleteUserSetting('datatables_rowGroup_' + tableId);
+
+								// Delete state settings
+								dataTable.state.clear();
+							}
+							bootbox.hideAll();
+						}
+					});
+				}
+			},
+			ok: {
 				label: __t('OK'),
 				className: 'btn-primary responsive-button',
 				callback: function()
@@ -896,6 +1036,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 		}
 	});
 });
+
 $(document).on("click", ".change-table-columns-visibility-toggle", function()
 {
 	var dataTableSelector = $(this).attr("data-table-selector");
@@ -903,4 +1044,46 @@ $(document).on("click", ".change-table-columns-visibility-toggle", function()
 	var dataTable = $(dataTableSelector).DataTable();
 
 	dataTable.columns(columnIndex).visible(this.checked);
+});
+
+
+$(document).on("click", ".change-table-columns-rowgroup-toggle", function()
+{
+	var dataTableSelector = $(this).attr("data-table-selector");
+	var columnIndex = $(this).attr("data-column-index");
+	var dataTable = $(dataTableSelector).DataTable();
+	var rowGroup;
+
+	if (columnIndex == -1)
+	{
+		rowGroup = {
+			enable: false
+		};
+
+		dataTable.rowGroup().enable(false);
+
+		//remove fixed order
+		dataTable.order.fixed({});
+	}
+	else
+	{
+		rowGroup = {
+			enable: true,
+			dataSrc: columnIndex
+		}
+
+		dataTable.rowGroup().enable(true);
+		dataTable.rowGroup().dataSrc(columnIndex);
+
+		//apply fixed order for group column
+		var fixedOrder = {
+			pre: [columnIndex, 'asc']
+		};
+		dataTable.order.fixed(fixedOrder);
+	}
+
+	var settingKey = 'datatables_rowGroup_' + dataTable.settings()[0].sTableId;
+	Grocy.FrontendHelpers.SaveUserSetting(settingKey, JSON.stringify(rowGroup));
+
+	dataTable.draw();
 });

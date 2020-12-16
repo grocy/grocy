@@ -1299,6 +1299,38 @@
 						}
 					}
 				}
+			},
+			"delete": {
+				"summary": "Deletes the given setting of the currently logged in user",
+				"tags": [
+					"Current user"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "settingKey",
+						"required": true,
+						"description": "The key of the user setting",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error400"
+								}
+							}
+						}
+					}
+				}
 			}
 		},
 		"/stock": {

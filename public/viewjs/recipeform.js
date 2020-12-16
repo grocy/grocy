@@ -82,6 +82,7 @@ var recipesPosTables = $('#recipes-pos-table').DataTable({
 		{ 'visible': false, 'targets': 4 }
 	].concat($.fn.dataTable.defaults.columnDefs),
 	'rowGroup': {
+		enable: true,
 		dataSrc: 4
 	}
 });

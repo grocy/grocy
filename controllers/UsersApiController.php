@@ -219,6 +219,19 @@ class UsersApiController extends BaseApiController
 		}
 	}
 
+	public function DeleteUserSetting(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		try
+		{
+			$value = $this->getUsersService()->DeleteUserSetting(GROCY_USER_ID, $args['settingKey']);
+			return $this->EmptyApiResponse($response);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
+
 	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);
