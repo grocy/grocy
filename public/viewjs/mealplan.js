@@ -751,7 +751,7 @@ $(document).on("click", ".recipe-popup-button", function(e)
 	);
 });
 
-$(window).on("resize", function()
+$(window).one("resize", function()
 {
 	// Automatically switch the calendar to "basicDay" view on small screens
 	// and to "basicWeek" otherwise

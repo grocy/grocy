@@ -44,7 +44,7 @@ $("#ical-button").on("click", function(e)
 	);
 });
 
-$(window).on("resize", function()
+$(window).one("resize", function()
 {
 	// Automatically switch the calendar to "basicDay" view on small screens
 	// and to "month" otherwise
