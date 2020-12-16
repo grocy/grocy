@@ -43,17 +43,3 @@ $("#ical-button").on("click", function(e)
 		}
 	);
 });
-
-$(window).on("resize", function()
-{
-	// Automatically switch the calendar to "basicDay" view on small screens
-	// and to "month" otherwise
-	if ($(window).width() < 768)
-	{
-		calendar.fullCalendar("changeView", "agendaDay");
-	}
-	else
-	{
-		calendar.fullCalendar("changeView", "month");
-	}
-});
