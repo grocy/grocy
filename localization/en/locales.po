@@ -77,3 +77,9 @@ msgstr "Turkish"
 
 msgid "zh_TW"
 msgstr "Chinese (Taiwan)"
+
+msgid "zh_CN"
+msgstr "Chinese (China)"
+
+msgid "he_IL"
+msgstr "Hebrew (Israel)"
