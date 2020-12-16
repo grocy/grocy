@@ -1,5 +1,4 @@
 ﻿var firstDay = null;
-var resized = false;
 if (!Grocy.CalendarFirstDayOfWeek.isEmpty())
 {
 	firstDay = parseInt(Grocy.CalendarFirstDayOfWeek);
