@@ -119,6 +119,7 @@
 - Events are now links to the corresponding page (thanks @zsarnett)
 - Fixed a PHP warning when using the "Share/Integrate calendar (iCal)" button (thanks @tsia)
 - Fixed that "Track date only"-chores were always displayed at 12am (are now displayed as all-day events)
+- Fixed that it was not possible to switch to an other view than the default one on mobile (thanks @PhyberApex)
 
 ### Tasks improvements
 - Tasks don't need to unique anymore (name field)
