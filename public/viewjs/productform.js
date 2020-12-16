@@ -266,24 +266,6 @@ $("#delete-current-product-picture-button").on("click", function(e)
 	$("#product-picture-label-none").removeClass("d-none");
 });
 
-if (Grocy.EditMode === 'create')
-{
-	if (Grocy.UserSettings.product_presets_location_id.toString() !== '-1')
-	{
-		$("#location_id").val(Grocy.UserSettings.product_presets_location_id);
-	}
-
-	if (Grocy.UserSettings.product_presets_product_group_id.toString() !== '-1')
-	{
-		$("#product_group_id").val(Grocy.UserSettings.product_presets_product_group_id);
-	}
-
-	if (Grocy.UserSettings.product_presets_qu_id.toString() !== '-1')
-	{
-		$("select.input-group-qu").val(Grocy.UserSettings.product_presets_qu_id);
-	}
-}
-
 var quConversionsTable = $('#qu-conversions-table-products').DataTable({
 	'order': [[1, 'asc']],
 	"orderFixed": [[4, 'asc']],
@@ -469,4 +451,21 @@ if (Grocy.EditMode == "create" && GetUriParam("copy-of") != undefined)
 			console.error(xhr);
 		}
 	);
+}
+else if (Grocy.EditMode === 'create')
+{
+	if (Grocy.UserSettings.product_presets_location_id.toString() !== '-1')
+	{
+		$("#location_id").val(Grocy.UserSettings.product_presets_location_id);
+	}
+
+	if (Grocy.UserSettings.product_presets_product_group_id.toString() !== '-1')
+	{
+		$("#product_group_id").val(Grocy.UserSettings.product_presets_product_group_id);
+	}
+
+	if (Grocy.UserSettings.product_presets_qu_id.toString() !== '-1')
+	{
+		$("select.input-group-qu").val(Grocy.UserSettings.product_presets_qu_id);
+	}
 }
