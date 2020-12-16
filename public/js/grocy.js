@@ -765,17 +765,16 @@ $.extend(true, $.fn.dataTable.defaults, {
 	},
 	'preDrawCallback': function(settings)
 	{
-		//currently it is not possible to save the state of rowGroup via saveState events
+		// Currently it is not possible to save the state of rowGroup via saveState events
 		var api = new $.fn.dataTable.Api(settings);
 		if (typeof api.rowGroup === "function")
 		{
 			var settingKey = 'datatables_rowGroup_' + settings.sTableId;
-
 			if (Grocy.UserSettings[settingKey] !== undefined)
 			{
 				var rowGroup = JSON.parse(Grocy.UserSettings[settingKey]);
 
-				//check if there way changed. the draw event is called often therefore we have to check if it's really necessary
+				// Check if there way changed. the draw event is called often therefore we have to check if it's really necessary
 				if (rowGroup.enable !== api.rowGroup().enabled()
 					|| ("dataSrc" in rowGroup && rowGroup.dataSrc !== api.rowGroup().dataSrc()))
 				{
@@ -786,7 +785,7 @@ $.extend(true, $.fn.dataTable.defaults, {
 					{
 						api.rowGroup().dataSrc(rowGroup.dataSrc);
 
-						//apply fixed order for group column
+						// Apply fixed order for group column
 						var fixedOrder = {
 							pre: [rowGroup.dataSrc, 'asc']
 						};
@@ -977,11 +976,10 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 		}
 	});
 
-	var message = '<div class="text-center"><h4>' + __t('Hide/view columns') + '</h4><div class="text-left form-group">' + columnCheckBoxesHtml + '</div></div>';
-
+	var message = '<div class="text-center"><h5>' + __t('Table options') + '</h5><hr><h5>' + __t('Hide/view columns') + '</h5><div class="text-left form-group">' + columnCheckBoxesHtml + '</div></div>';
 	if (rowGroupDefined)
 	{
-		message += '<hr><div class="text-center mt-1"><h4>' + __t('Group by') + '</h4><div class="text-left form-group">' + rowGroupRadioBoxesHtml + '</div></div>';
+		message += '<div class="text-center mt-1"><h5>' + __t('Group by') + '</h5><div class="text-left form-group">' + rowGroupRadioBoxesHtml + '</div></div>';
 	}
 
 	bootbox.dialog({
@@ -993,12 +991,12 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 		buttons: {
 			reset: {
 				label: __t('Reset'),
-				className: 'btn-danger responsive-button',
+				className: 'btn-outline-danger float-left responsive-button',
 				callback: function()
 				{
 					bootbox.confirm({
 						swapButtonOrder: true,
-						message: __t("Are you sure, you want reset the table?"),
+						message: __t("Are you sure to reset the table options?"),
 						buttons: {
 							confirm: {
 								label: 'Yes',
@@ -1016,10 +1014,10 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 								var dataTable = $(dataTableSelector).DataTable();
 								var tableId = dataTable.settings()[0].sTableId;
 
-								//Delete rowgroup settings
+								// Delete rowgroup settings
 								Grocy.FrontendHelpers.DeleteUserSetting('datatables_rowGroup_' + tableId);
 
-								//Delete state settings
+								// Delete state settings
 								dataTable.state.clear();
 							}
 							bootbox.hideAll();

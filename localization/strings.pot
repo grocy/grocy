@@ -1822,7 +1822,7 @@ msgstr ""
 msgid "Price per stock unit"
 msgstr ""
 
-msgid "Hide/view columns"
+msgid "Table options"
 msgstr ""
 
 msgid "This product is currently on a shopping list"
@@ -2021,5 +2021,11 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-msgid "Are you sure, you want reset the table?"
+msgid "Are you sure to reset the table options?"
+msgstr ""
+
+msgid "Table layout configuration"
+msgstr ""
+
+msgid "Hide/view columns"
 msgstr ""

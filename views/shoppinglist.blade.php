@@ -16,6 +16,7 @@
 	tr.dtrg-group {
 		cursor: pointer;
 	}
+
 </style>
 @endpush
 
@@ -173,7 +174,7 @@
 					<th class="border-right"><a class="text-muted change-table-columns-visibility-button"
 							data-toggle="tooltip"
 							data-toggle="tooltip"
-							title="{{ $__t('Hide/view columns') }}"
+							title="{{ $__t('Table options') }}"
 							data-table-selector="#shoppinglist-table"
 							href="#"><i class="fas fa-eye"></i></a>
 					</th>
