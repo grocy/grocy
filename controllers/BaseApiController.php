@@ -93,17 +93,18 @@ class BaseApiController extends BaseController
 				throw new \Exception('Invalid query');
 			}
 
+			$sqlOrNull = '';
 			if (strtolower($matches['value']) == 'null')
 			{
-				$matches['value'] = '';
+				$sqlOrNull = ' OR ' . $matches['field'] . ' IS NULL';
 			}
 
 			switch ($matches['op']) {
 				case '=':
-					$data = $data->where('IFNULL(' . $matches['field'] . ', \'\') = ?', $matches['value']);
+					$data = $data->where($matches['field'] . ' = ?' . $sqlOrNull, $matches['value']);
 					break;
 				case '!=':
-					$data = $data->where('IFNULL(' . $matches['field'] . ', \'\') != ?', $matches['value']);
+					$data = $data->where($matches['field'] . ' != ?' . $sqlOrNull, $matches['value']);
 					break;
 				case '~':
 					$data = $data->where($matches['field'] . ' LIKE ?', '%' . $matches['value'] . '%');
