@@ -9,6 +9,7 @@ var shoppingListTable = $('#shoppinglist-table').DataTable({
 		{ 'visible': false, 'targets': 3 }
 	].concat($.fn.dataTable.defaults.columnDefs),
 	'rowGroup': {
+		enable: true,
 		dataSrc: 3,
 		startRender: function(rows, group)
 		{

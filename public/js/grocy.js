@@ -734,7 +734,7 @@ $.extend(true, $.fn.dataTable.defaults, {
 			return JSON.parse(Grocy.UserSettings[settingKey]);
 		}
 	},
-	"preDrawCallback": function(settings)
+	'preDrawCallback': function(settings)
 	{
 		//currently it is not possible to save the state of rowGroup via saveState events
 		var api = new $.fn.dataTable.Api(settings);
@@ -770,7 +770,10 @@ $.extend(true, $.fn.dataTable.defaults, {
 	},
 	'columnDefs': [
 		{ type: 'chinese-string', targets: '_all' }
-	]
+	],
+	'rowGroup': {
+		enable: false
+	}
 });
 
 // serializeJSON defaults
