@@ -1125,7 +1125,6 @@ class StockService extends BaseService
 	public function UndoBooking($bookingId, $skipCorrelatedBookings = false)
 	{
 		$logRow = $this->getDatabase()->stock_log()->where('id = :1 AND undone = 0', $bookingId)->fetch();
-
 		if ($logRow == null)
 		{
 			throw new \Exception('Booking does not exist or was already undone');
@@ -1171,7 +1170,8 @@ class StockService extends BaseService
 				'purchased_date' => $logRow->purchased_date,
 				'stock_id' => $logRow->stock_id,
 				'price' => $logRow->price,
-				'opened_date' => $logRow->opened_date
+				'opened_date' => $logRow->opened_date,
+				'open' => $logRow->opened_date !== null
 			]);
 			$stockRow->save();
 
@@ -1184,14 +1184,12 @@ class StockService extends BaseService
 		elseif ($logRow->transaction_type === self::TRANSACTION_TYPE_TRANSFER_TO)
 		{
 			$stockRow = $this->getDatabase()->stock()->where('stock_id = :1 AND location_id = :2', $logRow->stock_id, $logRow->location_id)->fetch();
-
 			if ($stockRow === null)
 			{
 				throw new \Exception('Booking does not exist or was already undone');
 			}
 
 			$newAmount = $stockRow->amount - $logRow->amount;
-
 			if ($newAmount == 0)
 			{
 				$stockRow->delete();
@@ -1212,10 +1210,8 @@ class StockService extends BaseService
 		}
 		elseif ($logRow->transaction_type === self::TRANSACTION_TYPE_TRANSFER_FROM)
 		{
-			// Add corresponding amount back to stock or
-			// create a row if missing
+			// Add corresponding amount back to stock
 			$stockRow = $this->getDatabase()->stock()->where('stock_id = :1 AND location_id = :2', $logRow->stock_id, $logRow->location_id)->fetch();
-
 			if ($stockRow === null)
 			{
 				$stockRow = $this->getDatabase()->stock()->createRow([
@@ -1244,7 +1240,7 @@ class StockService extends BaseService
 		}
 		elseif ($logRow->transaction_type === self::TRANSACTION_TYPE_PRODUCT_OPENED)
 		{
-			// Remove opened flag from corresponding log entry
+			// Remove opened flag from corresponding stock entry
 			$stockRows = $this->getDatabase()->stock()->where('stock_id = :1 AND amount = :2 AND purchased_date = :3', $logRow->stock_id, $logRow->amount, $logRow->purchased_date)->limit(1);
 			$stockRows->update([
 				'open' => 0,
@@ -1277,7 +1273,6 @@ class StockService extends BaseService
 
 			$openedDate = $logRow->opened_date;
 			$open = true;
-
 			if ($openedDate == null)
 			{
 				$open = false;

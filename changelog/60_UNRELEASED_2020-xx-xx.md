@@ -82,6 +82,7 @@
 - Fixed that consuming (and editing the amount of) products with enabled tare weight handling did not work on the stock entries page
 - Fixed that the recipes dropdown on the consume page also displayed internal recipes (thanks @kriddles)
 - Fixed that opening tare weight handling enabled products is not possible via the UI and the API (as this makes no sense)
+- Fixed that undoing a consume transaction of an opened item added it back to stock unopened
 
 ### Shopping list improvements
 - Decimal amounts are now allowed (for any product, rounded by two decimal places)
