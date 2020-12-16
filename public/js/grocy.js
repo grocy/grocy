@@ -433,6 +433,27 @@ Grocy.FrontendHelpers.ShowGenericError = function(message, exception)
 	console.error(exception);
 }
 
+Grocy.FrontendHelpers.SaveUserSettings = function(settingsKey, value)
+{
+	Grocy.UserSettings[settingsKey] = value;
+
+	jsonData = {};
+	jsonData.value = value;
+	Grocy.Api.Put('user/settings/' + settingsKey, jsonData,
+		function(result)
+		{
+			// Nothing to do...
+		},
+		function(xhr)
+		{
+			if (!xhr.statusText.isEmpty())
+			{
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+			}
+		}
+	);
+}
+
 $(document).on("keyup paste change", "input, textarea", function()
 {
 	$(this).closest("form").addClass("is-dirty");
@@ -468,23 +489,7 @@ $(document).on("change", ".user-setting-control", function()
 		var value = element.val();
 	}
 
-	Grocy.UserSettings[settingKey] = value;
-
-	jsonData = {};
-	jsonData.value = value;
-	Grocy.Api.Put('user/settings/' + settingKey, jsonData,
-		function(result)
-		{
-			// Nothing to do...
-		},
-		function(xhr)
-		{
-			if (!xhr.statusText.isEmpty())
-			{
-				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-			}
-		}
-	);
+	Grocy.FrontendHelpers.SaveUserSettings(settingKey, value);
 });
 
 // Show file name Bootstrap custom file input
@@ -709,68 +714,12 @@ $.extend(true, $.fn.dataTable.defaults, {
 		{
 			column.search.search = "";
 		});
-
-		var api = new $.fn.dataTable.Api(settings);
-
-		if (typeof api.rowGroup === "function")
-		{
-			var rowGroup = {
-				enable: api.rowGroup().enabled(),
-			};
-
-			if (api.rowGroup().enabled())
-			{
-				rowGroup.dataSrc = api.rowGroup().dataSrc()
-			}
-
-			data.rowGroup = rowGroup;
-		}
-	},
-	'stateLoadParams': function(settings, data)
-	{
-		var api = new $.fn.dataTable.Api(settings);
-
-		if (typeof api.rowGroup === "function" && "rowGroup" in data)
-		{
-			api.rowGroup().enable(data.rowGroup.enable);
-
-			if ("dataSrc" in data.rowGroup)
-			{
-				api.rowGroup().dataSrc(data.rowGroup.dataSrc);
-
-				//apply fixed order for group column
-				var fixedOrder = {
-					pre: [data.rowGroup.dataSrc, 'asc']
-				};
-
-				api.order.fixed(fixedOrder);
-			}
-
-			delete data.rowGroup;
-		}
 	},
 	'stateSaveCallback': function(settings, data)
 	{
 		var settingKey = 'datatables_state_' + settings.sTableId;
 		var stateData = JSON.stringify(data);
-
-		Grocy.UserSettings[settingKey] = stateData;
-
-		jsonData = {};
-		jsonData.value = stateData;
-		Grocy.Api.Put('user/settings/' + settingKey, jsonData,
-			function(result)
-			{
-				// Nothing to do...
-			},
-			function(xhr)
-			{
-				if (!xhr.statusText.isEmpty())
-				{
-					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-				}
-			}
-		);
+		Grocy.FrontendHelpers.SaveUserSettings(settingKey, stateData);
 	},
 	'stateLoadCallback': function(settings, data)
 	{
@@ -783,6 +732,40 @@ $.extend(true, $.fn.dataTable.defaults, {
 		else
 		{
 			return JSON.parse(Grocy.UserSettings[settingKey]);
+		}
+	},
+	"preDrawCallback": function(settings)
+	{
+		//currently it is not possible to save the state of rowGroup via saveState events
+		var api = new $.fn.dataTable.Api(settings);
+		if (typeof api.rowGroup === "function")
+		{
+			var settingKey = 'datatables_rowGroup_' + settings.sTableId;
+
+			if (Grocy.UserSettings[settingKey] !== undefined)
+			{
+				var rowGroup = JSON.parse(Grocy.UserSettings[settingKey]);
+
+				//check if there way changed. the draw event is called often therefore we have to check if it's really necessary
+				if (rowGroup.enable !== api.rowGroup().enabled()
+					|| ("dataSrc" in rowGroup && rowGroup.dataSrc !== api.rowGroup().dataSrc()))
+				{
+
+					api.rowGroup().enable(rowGroup.enable);
+
+					if ("dataSrc" in rowGroup)
+					{
+						api.rowGroup().dataSrc(rowGroup.dataSrc);
+
+						//apply fixed order for group column
+						var fixedOrder = {
+							pre: [rowGroup.dataSrc, 'asc']
+						};
+
+						api.order.fixed(fixedOrder);
+					}
+				}
+			}
 		}
 	},
 	'columnDefs': [
@@ -1002,9 +985,14 @@ $(document).on("click", ".change-table-columns-rowgroup-toggle", function()
 	var dataTableSelector = $(this).attr("data-table-selector");
 	var columnIndex = $(this).attr("data-column-index");
 	var dataTable = $(dataTableSelector).DataTable();
+	var rowGroup;
 
 	if (columnIndex == -1)
 	{
+		rowGroup = {
+			enable: false
+		};
+
 		dataTable.rowGroup().enable(false);
 
 		//remove fixed order
@@ -1012,6 +1000,11 @@ $(document).on("click", ".change-table-columns-rowgroup-toggle", function()
 	}
 	else
 	{
+		rowGroup = {
+			enable: true,
+			dataSrc: columnIndex
+		}
+
 		dataTable.rowGroup().enable(true);
 		dataTable.rowGroup().dataSrc(columnIndex);
 
@@ -1021,6 +1014,9 @@ $(document).on("click", ".change-table-columns-rowgroup-toggle", function()
 		};
 		dataTable.order.fixed(fixedOrder);
 	}
+
+	var settingKey = 'datatables_rowGroup_' + dataTable.settings()[0].sTableId;
+	Grocy.FrontendHelpers.SaveUserSettings(settingKey, JSON.stringify(rowGroup));
 
 	dataTable.draw();
 });
