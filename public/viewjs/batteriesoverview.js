@@ -2,7 +2,9 @@
 	'order': [[2, 'desc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
-		{ 'searchable': false, "targets": 0 }
+		{ 'searchable': false, "targets": 0 },
+		{ "type": "html", "targets": 3 },
+		{ "type": "html", "targets": 4 }
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#batteries-overview-table tbody').removeClass("d-none");

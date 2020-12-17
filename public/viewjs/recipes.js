@@ -2,7 +2,8 @@
 	'order': [[1, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
-		{ 'searchable': false, "targets": 0 }
+		{ 'searchable': false, "targets": 0 },
+		{ "type": "html-num-fmt", "targets": 2 },
 	].concat($.fn.dataTable.defaults.columnDefs),
 	select: {
 		style: 'single',

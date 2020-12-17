@@ -231,20 +231,20 @@
 						data-product-id="{{ $listItem->product_id }}">
 						@if(!empty($listItem->product_id)) {{ FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->name }}<br>@endif<em>{!! nl2br($listItem->note) !!}</em>
 					</td>
-					<td>
-						@if(!empty($listItem->product_id))
-						@php
-						$listItem->amount_origin_qu = $listItem->amount;
-						$product = FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id);
-						$productQuConversions = FindAllObjectsInArrayByPropertyValue($quantityUnitConversionsResolved, 'product_id', $product->id);
-						$productQuConversions = FindAllObjectsInArrayByPropertyValue($productQuConversions, 'from_qu_id', $product->qu_id_stock);
-						$productQuConversion = FindObjectInArrayByPropertyValue($productQuConversions, 'to_qu_id', $listItem->qu_id);
-						if ($productQuConversion)
-						{
-						$listItem->amount = $listItem->amount * $productQuConversion->factor;
-						}
-						@endphp
-						@endif
+					@if(!empty($listItem->product_id))
+					@php
+					$listItem->amount_origin_qu = $listItem->amount;
+					$product = FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id);
+					$productQuConversions = FindAllObjectsInArrayByPropertyValue($quantityUnitConversionsResolved, 'product_id', $product->id);
+					$productQuConversions = FindAllObjectsInArrayByPropertyValue($productQuConversions, 'from_qu_id', $product->qu_id_stock);
+					$productQuConversion = FindObjectInArrayByPropertyValue($productQuConversions, 'to_qu_id', $listItem->qu_id);
+					if ($productQuConversion)
+					{
+					$listItem->amount = $listItem->amount * $productQuConversion->factor;
+					}
+					@endphp
+					@endif
+					<td data-order={{ $listItem->amount }}>
 						<span class="locale-number locale-number-quantity-amount">{{ $listItem->amount }}</span> @if(!empty($listItem->product_id)){{ $__n($listItem->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', $listItem->qu_id)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', $listItem->qu_id)->name_plural) }}@endif
 					</td>
 					<td>

@@ -6,7 +6,8 @@ var shoppingListTable = $('#shoppinglist-table').DataTable({
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 },
-		{ 'visible': false, 'targets': 3 }
+		{ 'visible': false, 'targets': 3 },
+		{ "type": "num", "targets": 2 }
 	].concat($.fn.dataTable.defaults.columnDefs),
 	'rowGroup': {
 		enable: true,

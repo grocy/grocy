@@ -163,6 +163,7 @@
 - More `config.php` settings (see the section `Component configuration for Quagga2`) to tweak Quagga2 (this is the component used for device camera for barcode scanning) (thanks @andrelam)
 - Some localization string fixes (thanks @duckfullstop)
 - Better error pages
+- Fixed that numeric and date-time sorting of table columns did not work correctly
 - Fixed that XSS / HTML injection was possible through some user input fields (low severity / not really a problem as this could not be abused unauthenticated)
 - New translations: (thanks all the translators)
   - Greek (demo available at https://el.demo.grocy.info)

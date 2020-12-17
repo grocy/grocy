@@ -3,7 +3,8 @@
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 },
-		{ 'visible': false, 'targets': 3 }
+		{ 'visible': false, 'targets': 3 },
+		{ "type": "html", "targets": 2 }
 	].concat($.fn.dataTable.defaults.columnDefs),
 	'rowGroup': {
 		enable: true,

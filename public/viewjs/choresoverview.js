@@ -2,7 +2,10 @@
 	'order': [[2, 'desc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
-		{ 'searchable': false, "targets": 0 }
+		{ 'searchable': false, "targets": 0 },
+		{ "type": "html", "targets": 5 },
+		{ "type": "html", "targets": 2 },
+		{ "type": "html", "targets": 3 }
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#chores-overview-table tbody').removeClass("d-none");
