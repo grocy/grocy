@@ -20,12 +20,18 @@ $('#save-purchase-button').on('click', function(e)
 			}
 			else
 			{
-				var price = parseFloat(jsonForm.price * $("#qu_id option:selected").attr("data-qu-factor")).toFixed(Grocy.UserSettings.stock_decimal_places_prices);
+				var amount = jsonForm.display_amount;
+				if (BoolVal(productDetails.product.enable_tare_weight_handling))
+				{
+					amount -= parseFloat(productDetails.product.tare_weight);
+				}
 
+				var price = parseFloat(jsonForm.price * $("#qu_id option:selected").attr("data-qu-factor")).toFixed(Grocy.UserSettings.stock_decimal_places_prices);
 				if ($("input[name='price-type']:checked").val() == "total-price")
 				{
-					price = parseFloat(price / jsonForm.display_amount).toFixed(Grocy.UserSettings.stock_decimal_places_prices);
+					price = parseFloat(price / amount).toFixed(Grocy.UserSettings.stock_decimal_places_prices);
 				}
+
 				jsonData.price = price;
 			}
 
@@ -467,10 +473,16 @@ function refreshPriceHint()
 
 	if ($("input[name='price-type']:checked").val() == "total-price" || $("#qu_id").attr("data-destination-qu-name") != $("#qu_id option:selected").text())
 	{
+		var amount = $('#display_amount').val();
+		if (BoolVal(CurrentProductDetails.product.enable_tare_weight_handling))
+		{
+			amount -= parseFloat(CurrentProductDetails.product.tare_weight);
+		}
+
 		var price = parseFloat($('#price').val() * $("#qu_id option:selected").attr("data-qu-factor")).toFixed(Grocy.UserSettings.stock_decimal_places_prices);
 		if ($("input[name='price-type']:checked").val() == "total-price")
 		{
-			price = parseFloat(price / $('#display_amount').val()).toFixed(Grocy.UserSettings.stock_decimal_places_prices);
+			price = parseFloat(price / amount).toFixed(Grocy.UserSettings.stock_decimal_places_prices);
 		}
 
 		$('#price-hint').text(__t('means %1$s per %2$s', price.toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices }), $("#qu_id").attr("data-destination-qu-name")));
