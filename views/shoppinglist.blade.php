@@ -11,13 +11,6 @@
 @push('pageStyles')
 <link href="{{ $U('/node_modules/animate.css/animate.min.css?v=', true) }}{{ $version }}"
 	rel="stylesheet">
-
-<style>
-	tr.dtrg-group {
-		cursor: pointer;
-	}
-
-</style>
 @endpush
 
 @section('content')

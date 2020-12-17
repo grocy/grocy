@@ -720,6 +720,7 @@ $(document).on("click", ".show-as-dialog-link", function(e)
 });
 
 // Default DataTables initialisation settings
+var collapsedGroups = {};
 $.extend(true, $.fn.dataTable.defaults, {
 	'paginate': false,
 	'deferRender': true,
@@ -800,8 +801,29 @@ $.extend(true, $.fn.dataTable.defaults, {
 		{ type: 'chinese-string', targets: '_all' }
 	],
 	'rowGroup': {
-		enable: false
+		enable: false,
+		startRender: function(rows, group)
+		{
+			var collapsed = !!collapsedGroups[group];
+			var toggleClass = collapsed ? "fa-caret-right" : "fa-caret-down";
+
+			rows.nodes().each(function(row)
+			{
+				row.style.display = collapsed ? "none" : "";
+			});
+
+			return $("<tr/>")
+				.append('<td colspan="' + rows.columns()[0].length + '">' + group + ' <span class="fa fa-fw ' + toggleClass + '"/></td>')
+				.attr("data-name", group)
+				.toggleClass("collapsed", collapsed);
+		}
 	}
+});
+$(document).on("click", "tr.dtrg-group", function()
+{
+	var name = $(this).data('name');
+	collapsedGroups[name] = !collapsedGroups[name];
+	$("table").DataTable().draw();
 });
 
 // serializeJSON defaults

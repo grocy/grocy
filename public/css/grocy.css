@@ -355,6 +355,10 @@ a:not([href]) {
 	overflow: visible !important;
 }
 
+tr.dtrg-group {
+	cursor: pointer;
+}
+
 /* Third party component customizations - toastr */
 #toast-container > div {
 	opacity: 1;
