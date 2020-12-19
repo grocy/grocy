@@ -20,7 +20,6 @@
 			<h2 class="title mr-2 order-0">
 				@yield('title')
 			</h2>
-			@if(GROCY_FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS)
 			<div class="float-right">
 				<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
 					type="button"
@@ -37,6 +36,7 @@
 			</div>
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
 				id="related-links">
+				@if(GROCY_FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS)
 				<div class="my-auto float-right">
 					<select class="custom-control custom-select custom-select-sm"
 						id="selected-shopping-list">
@@ -58,26 +58,18 @@
 					href="#">
 					{{ $__t('Delete shopping list') }}
 				</a>
+				@else
+				<input type="hidden"
+					name="selected-shopping-list"
+					id="selected-shopping-list"
+					value="1">
+				@endif
 				<a id="print-shopping-list-button"
 					class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right"
 					href="#">
 					{{ $__t('Print') }}
 				</a>
 			</div>
-			@else
-			<div class="float-right">
-				<button class="btn btn-outline-dark d-md-none mt-1 order-1 order-md-3"
-					type="button"
-					data-toggle="collapse"
-					data-target="#table-filter-row">
-					<i class="fas fa-filter"></i>
-				</button>
-			</div>
-			<input type="hidden"
-				name="selected-shopping-list"
-				id="selected-shopping-list"
-				value="1">
-			@endif
 		</div>
 		<div class="border-top border-bottom my-2 py-1">
 			<div id="table-filter-row"
