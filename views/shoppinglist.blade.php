@@ -147,11 +147,6 @@
 <div id="shoppinglist-main"
 	class="row d-print-none">
 	<div class="@if(boolval($userSettings['shopping_list_show_calendar'])) col-xs-12 col-md-8 @else col-12 @endif pb-3">
-		<a id="shopping-list-normal-view-button"
-			class="btn btn-outline-dark btn-block switch-view-mode-button d-none"
-			href="#">
-			{{ $__t('Normal view') }}
-		</a>
 		<table id="shoppinglist-table"
 			class="table table-sm table-striped nowrap w-100">
 			<thead>
@@ -312,28 +307,33 @@
 </div>
 
 <div class="d-none d-print-block">
-	<h1 class="text-center">
+	<div id="print-header"
+		<h1
+		class="text-center">
 		<img src="{{ $U('/img/grocy_logo.svg?v=', true) }}{{ $version }}"
 			height="30"
 			class="d-print-flex mx-auto">
 		{{ $__t("Shopping list") }}
-	</h1>
-	@if (FindObjectInArrayByPropertyValue($shoppingLists, 'id', $selectedShoppingListId)->name != $__t("Shopping list"))
-	<h3 class="text-center">
-		{{ FindObjectInArrayByPropertyValue($shoppingLists, 'id', $selectedShoppingListId)->name }}
-	</h3>
-	@endif
-	<h6 class="text-center mb-4">
-		{{ $__t('Time of printing') }}:
-		<span class="d-inline print-timestamp"></span>
-	</h6>
-	<div class="row w-75">
-		<div class="col">
-			<table class="table">
+		</h1>
+		@if (FindObjectInArrayByPropertyValue($shoppingLists, 'id', $selectedShoppingListId)->name != $__t("Shopping list"))
+		<h3 class="text-center">
+			{{ FindObjectInArrayByPropertyValue($shoppingLists, 'id', $selectedShoppingListId)->name }}
+		</h3>
+		@endif
+		<h6 class="text-center mb-4">
+			{{ $__t('Time of printing') }}:
+			<span class="d-inline print-timestamp"></span>
+		</h6>
+	</div>
+	<div class="w-75 print-layout-type-table d-none">
+		<div>
+			<table id="shopping-list-print-shadow-table"
+				class="table table-sm table-striped nowrap">
 				<thead>
 					<tr>
 						<th>{{ $__t('Product') }} / <em>{{ $__t('Note') }}</em></th>
 						<th>{{ $__t('Amount') }}</th>
+						<th>{{ $__t('Product group') }}</th>
 
 						@include('components.userfields_thead', array(
 						'userfields' => $userfields
@@ -350,6 +350,9 @@
 						<td>
 							<span class="locale-number locale-number-quantity-amount">{{ $listItem->amount }}</span> @if(!empty($listItem->product_id)){{ $__n($listItem->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', $listItem->qu_id)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', $listItem->qu_id)->name_plural) }}@endif
 						</td>
+						<td>
+							@if(!empty(FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->product_group_id)) {{ FindObjectInArrayByPropertyValue($productGroups, 'id', FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->product_group_id)->name }} @else <span class="font-italic font-weight-light">{{ $__t('Ungrouped') }}</span> @endif
+						</td>
 
 						@include('components.userfields_tbody', array(
 						'userfields' => $userfields,
@@ -362,8 +365,16 @@
 			</table>
 		</div>
 	</div>
-	<div class="row w-75">
-		<div class="col">
+	<div class="w-75 print-layout-type-list d-none">
+		@foreach($listItems as $listItem)
+		<div class="py-0">
+			<span class="locale-number locale-number-quantity-amount">{{ $listItem->amount }}</span> @if(!empty($listItem->product_id)){{ $__n($listItem->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', $listItem->qu_id)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', $listItem->qu_id)->name_plural) }}@endif
+			@if(!empty($listItem->product_id)) {{ FindObjectInArrayByPropertyValue($products, 'id', $listItem->product_id)->name }}<br>@endif<em>{!! nl2br($listItem->note) !!}</em>
+		</div><br>
+		@endforeach
+	</div>
+	<div class="w-75 pt-3">
+		<div>
 			<h5>{{ $__t('Notes') }}</h5>
 			<p id="description-for-print"></p>
 		</div>

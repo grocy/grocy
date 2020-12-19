@@ -19,6 +19,20 @@
 $('#shoppinglist-table tbody').removeClass("d-none");
 shoppingListTable.columns.adjust().draw();
 
+var shoppingListPrintShadowTable = $('#shopping-list-print-shadow-table').DataTable({
+	'order': [[1, 'asc']],
+	"orderFixed": [[2, 'asc']],
+	'columnDefs': [
+		{ 'visible': false, 'targets': 2 },
+		{ 'orderable': false, 'targets': '_all' }
+	].concat($.fn.dataTable.defaults.columnDefs),
+	'rowGroup': {
+		enable: true,
+		dataSrc: 2
+	}
+});
+shoppingListPrintShadowTable.columns.adjust().draw();
+
 $("#search").on("keyup", Delay(function()
 {
 	var value = $(this).val();
@@ -367,9 +381,99 @@ OnListItemRemoved();
 
 $(document).on("click", "#print-shopping-list-button", function(e)
 {
-	$(".print-timestamp").text(moment().format("l LT"));
-	$("#description-for-print").html($("#description").val());
-	window.print();
+	var dialogHtml = ' \
+	<div class="custom-control custom-checkbox"> \
+		<input id="print-show-header" \
+			 checked \
+			class="form-check-input custom-control-input" \
+			type="checkbox" \
+			value="1"> \
+		<label class="form-check-label custom-control-label" \
+			for="print-show-header">' + __t('Show header') + ' \
+		</label> \
+	</div> \
+	<div class="custom-control custom-checkbox"> \
+		<input id="print-group-by-product-group" \
+			 checked \
+			class="form-check-input custom-control-input" \
+			type="checkbox" \
+			value="1"> \
+		<label class="form-check-label custom-control-label" \
+			for="print-group-by-product-group">' + __t('Group by product group') + ' \
+		</label> \
+	</div> \
+	<h5 class="pt-3 pb-0">' + __t('Layout type') + '</h5> \
+	<div class="custom-control custom-radio"> \
+		<input id="print-layout-type-table" \
+			checked \
+			class="custom-control-input" \
+			type="radio" \
+			name="print-layout-type" \
+			value="print-layout-type-table"> \
+		<label class="custom-control-label" \
+			for="print-layout-type-table">' + __t('Table') + ' \
+		</label> \
+	</div> \
+	<div class="custom-control custom-radio"> \
+		<input id="print-layout-type-list" \
+			class="custom-control-input" \
+			type="radio" \
+			name="print-layout-type" \
+			value="print-layout-type-list"> \
+		<label class="custom-control-label" \
+			for="print-layout-type-list">' + __t('List') + ' \
+		</label> \
+	</div>';
+
+	bootbox.dialog({
+		message: dialogHtml,
+		size: 'small',
+		backdrop: true,
+		closeButton: false,
+		className: "d-print-none",
+		buttons: {
+			cancel: {
+				label: __t('Cancel'),
+				className: 'btn-secondary',
+				callback: function()
+				{
+					bootbox.hideAll();
+				}
+			},
+			ok: {
+				label: __t('Print'),
+				className: 'btn-primary responsive-button',
+				callback: function()
+				{
+					bootbox.hideAll();
+
+					$(".print-timestamp").text(moment().format("l LT"));
+
+					$("#description-for-print").html($("#description").val());
+					if ($("#description").text().isEmpty())
+					{
+						$("#description-for-print").parent().addClass("d-print-none");
+					}
+
+					if (!$("#print-show-header").prop("checked"))
+					{
+						$("#print-header").addClass("d-none");
+					}
+
+					if (!$("#print-group-by-product-group").prop("checked"))
+					{
+						shoppingListPrintShadowTable.rowGroup().enable(false);
+						shoppingListPrintShadowTable.order.fixed({});
+						shoppingListPrintShadowTable.draw();
+					}
+
+					$("." + $("input[name='print-layout-type']:checked").val()).removeClass("d-none");
+
+					window.print();
+				}
+			}
+		}
+	});
 });
 
 $("#description").on("summernote.change", function()

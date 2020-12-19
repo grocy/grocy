@@ -813,7 +813,7 @@ $.extend(true, $.fn.dataTable.defaults, {
 			});
 
 			return $("<tr/>")
-				.append('<td colspan="' + rows.columns()[0].length + '">' + group + ' <span class="fa fa-fw ' + toggleClass + '"/></td>')
+				.append('<td colspan="' + rows.columns()[0].length + '">' + group + ' <span class="fa fa-fw d-print-none ' + toggleClass + '"/></td>')
 				.attr("data-name", group)
 				.toggleClass("collapsed", collapsed);
 		}

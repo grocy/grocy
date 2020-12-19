@@ -1537,9 +1537,6 @@ msgstr ""
 msgid "per day"
 msgstr ""
 
-msgid "Normal view"
-msgstr ""
-
 msgid "Only undone items"
 msgstr ""
 
@@ -2034,4 +2031,16 @@ msgid "Last price (Unit)"
 msgstr ""
 
 msgid "Last price (Total)"
+msgstr ""
+
+msgid "Show header"
+msgstr ""
+
+msgid "Group by product group"
+msgstr ""
+
+msgid "Table"
+msgstr ""
+
+msgid "Layout type"
 msgstr ""
