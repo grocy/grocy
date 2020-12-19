@@ -77,6 +77,14 @@
 				name="selected-shopping-list"
 				id="selected-shopping-list"
 				value="1">
+			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
+				id="related-links">
+				<a id="print-shopping-list-button"
+					class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right"
+					href="#">
+					{{ $__t('Print') }}
+				</a>
+			</div>
 			@endif
 		</div>
 		<div class="border-top border-bottom my-2 py-1">
