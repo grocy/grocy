@@ -4372,7 +4372,10 @@
 					"last_price": {
 						"type": "number",
 						"format": "float"
-					}
+					},
+					"note": {
+						"type": "string"
+					},
 				}
 			},
 			"ExternalBarcodeLookupResponse": {

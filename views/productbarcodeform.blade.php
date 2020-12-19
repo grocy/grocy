@@ -90,6 +90,15 @@
 				value="1">
 			@endif
 
+			<div class="form-group">
+				<label for="note">{{ $__t('Note') }}</label>
+				<input type="text"
+					class="form-control"
+					id="note"
+					name="note"
+					value="@if($mode == 'edit'){{ $barcode->note }}@endif">
+			</div>
+
 			@include('components.userfieldsform', array(
 			'userfields' => $userfields,
 			'entity' => 'product_barcodes'
