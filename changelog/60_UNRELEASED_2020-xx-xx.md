@@ -47,6 +47,8 @@
   - This "Quick consume amount" can optionally also be used as the default on the consume page (new stock setting / top right corner settings menu)
 - Products can now be duplicated (new button on the products list page, all fields will be preset from the copied product, except the name)
 - When consuming or opening a parent product, which is currently not in stock, any in-stock sub product will now be consumed/opened (like already automatically done when consuming recipes)
+- Opened stock entries get now consumed first by default when no specific stock entry is used/selected
+  - So the default consume rule is now "Opened first, then first due first, then first in first out"
 - Optimized/clarified what the total/unit price is on the purchase page (thanks @kriddles)
 - On the purchase page the amount field is now displayed above/before the due date for better `TAB` handling (thanks @kriddles)
 - Changed that when `FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING` is disabled, products now get internally a due date of "never overdue" (aka `2999-12-31`) instead of today (thanks @kriddles)
@@ -94,7 +96,7 @@
 
 ### Recipe improvements/fixes
 - It's now possible to print recipes (button next to the recipe title) (thanks @zsarnett)
-- Changed that recipe costs are now based on the costs of the products picked by the default consume rule "First due first, then first in first out" (thanks @kriddles)
+- Changed that recipe costs are now based on the costs of the products picked by the default consume rule ("Opened first, then first due first, then first in first out") (thanks @kriddles)
   - Recipe costs were based on the last purchase price per product before, so this now better reflects the current real costs
 - Improved the recipe add workflow (a recipe called "New recipe" is now not automatically created when starting to add a recipe) (thanks @zsarnett)
 - On the recipe page, the calories and costs per ingredient are now shown to get a better overview of how much each ingredient contributed

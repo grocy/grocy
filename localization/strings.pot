@@ -847,7 +847,7 @@ msgstr ""
 msgid "Use a specific stock item"
 msgstr ""
 
-msgid "The first item in this list would be picked by the default rule which is \"First due first, then first in first out\""
+msgid "The first item in this list would be picked by the default rule which is \"Opened first, then first due first, then first in first out\""
 msgstr ""
 
 msgid "Mark %1$s of %2$s as open"
@@ -1699,7 +1699,7 @@ msgstr ""
 msgid "Not enough in stock (not included in costs), %s ingredient missing"
 msgstr ""
 
-msgid "Based on the prices of the default consume rule which is \"First due first, then first in first out\""
+msgid "Based on the prices of the default consume rule which is \"Opened first, then first due first, then first in first out\""
 msgstr ""
 
 msgid "Not enough in stock (not included in costs), %1$s missing, %2$s already on shopping list"

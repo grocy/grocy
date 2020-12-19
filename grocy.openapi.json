@@ -1644,7 +1644,7 @@
 		},
 		"/stock/products/{productId}/entries": {
 			"get": {
-				"summary": "Returns all stock entries of the given product in order of next use (first due first, then first in first out)",
+				"summary": "Returns all stock entries of the given product in order of next use (Opened first, then first due first, then first in first out)",
 				"tags": [
 					"Stock"
 				],

@@ -691,10 +691,10 @@ class StockService extends BaseService
 		$result = $this->getDatabase()->stock()->where($sqlWhereProductId . ' ' . $sqlWhereAndOpen);
 
 		// In order of next use:
-		// First due first, then first in first out
+		// Opened first, then first due first, then first in first out
 		if ($ordered)
 		{
-			return $result->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC');
+			return $result->orderBy('open', 'DESC')->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC');
 		}
 
 		return $result;
@@ -702,7 +702,7 @@ class StockService extends BaseService
 
 	public function GetProductStockEntriesForLocation($productId, $locationId, $excludeOpened = false, $allowSubproductSubstitution = false)
 	{
-		$stockEntries = $this->GetProductStockEntries($productId, $excludeOpened, $allowSubproductSubstitution);
+		$stockEntries = $this->GetProductStockEntries($productId, $excludeOpened, $allowSubproductSubstitution, true);
 		return FindAllObjectsInArrayByPropertyValue($stockEntries, 'location_id', $locationId);
 	}
 

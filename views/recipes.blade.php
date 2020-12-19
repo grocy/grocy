@@ -320,7 +320,7 @@
 								<label>{{ $__t('Costs') }}&nbsp;</label>
 								<i class="fas fa-question-circle text-muted"
 									data-toggle="tooltip"
-									title="{{ $__t('Based on the prices of the default consume rule which is "First due first, then first in first out"') }}"></i>
+									title="{{ $__t('Based on the prices of the default consume rule which is "Opened first, then first due first, then first in first out"') }}"></i>
 								<h3 class="locale-number locale-number-currency pt-0">{{ $costs }}</h3>
 							</div>
 							@endif
