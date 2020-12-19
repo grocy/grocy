@@ -1870,7 +1870,7 @@ msgstr ""
 msgid "Show a warning when the due date of the purchased product is earlier than the next due date in stock"
 msgstr ""
 
-msgid "There are items in stock which are due earlier"
+msgid "This is due earlier than already in-stock items"
 msgstr ""
 
 msgid "When enabled, the amount will always be filled with 1 after changing/scanning a product and if all fields could be automatically populated (by product defaults), the transaction is automatically submitted"
