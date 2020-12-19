@@ -168,6 +168,7 @@
 					<th>{{ $__t('Calories') }}</th>
 					<th>{{ $__t('Last purchased') }}</th>
 					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Last price') }}</th>
+					<th>{{ $__t('Min. stock amount') }}</th>
 
 					@include('components.userfields_thead', array(
 					'userfields' => $userfields
@@ -379,6 +380,9 @@
 					</td>
 					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">
 						<span class="locale-number locale-number-currency">{{ $currentStockEntry->last_price }}</span>
+					</td>
+					<td>
+						<span class="locale-number locale-number-quantity-amount">{{ $currentStockEntry->min_stock_amount }}</span>
 					</td>
 
 					@include('components.userfields_tbody', array(

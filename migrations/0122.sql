@@ -27,7 +27,8 @@ SELECT
 	p.quick_consume_amount,
 	p.due_type,
 	plp.purchased_date AS last_purchased,
-	plp.price AS last_price
+	plp.price AS last_price,
+	p.min_stock_amount
 FROM (
         SELECT *
         FROM stock_current
@@ -74,7 +75,8 @@ SELECT
 	p.quick_consume_amount,
 	p.due_type,
 	plp.purchased_date AS last_purchased,
-	plp.price AS last_price
+	plp.price AS last_price,
+	p.min_stock_amount
 FROM (
         SELECT *
         FROM stock_current
