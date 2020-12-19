@@ -37,13 +37,17 @@ Setting('CALENDAR_SHOW_WEEK_OF_YEAR', true);
 Setting('CURRENCY', 'USD');
 
 // When running grocy in a subdirectory, this should be set to the relative path, otherwise empty
-// Example:
-//  Webserver root directory = /var/www
-//  grocy directory = /var/www/grocy
+// It needs to be set to the part (of the URL) after the document root,
+// if URL rewriting is disabled, including index.php
+// Example with URL Rewriting support:
+//  Root URL = https://example.com/grocy
 //  => BASE_PATH = /grocy
+// Example without URL Rewriting support:
+//  Root URL = https://example.com/grocy/public/index.php/
+//  => BASE_PATH = /grocy/public/index.php
 Setting('BASE_PATH', '');
 
-// The base url of your installation,
+// The base URL of your installation,
 // should be just "/" when running directly under the root of a (sub)domain
 // or for example "https://example.com/grocy" when using a subdirectory
 Setting('BASE_URL', '/');
@@ -56,7 +60,7 @@ Setting('STOCK_BARCODE_LOOKUP_PLUGIN', 'DemoBarcodeLookupPlugin');
 // If, however, your webserver does not support URL rewriting, set this to true
 Setting('DISABLE_URL_REWRITING', false);
 
-// Specify an custom homepage if desired - by default the homepage will be set to the stock overview,
+// Specify an custom homepage if desired - by default the homepage will be set to the stock overview page,
 // this needs to be one of the following values:
 // stock, shoppinglist, recipes, chores, tasks, batteries, equipment, calendar, mealplan
 Setting('ENTRY_PAGE', 'stock');
@@ -180,5 +184,5 @@ Setting('FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS', true);
 Setting('FEATURE_FLAG_CHORES_ASSIGNMENTS', true);
 
 // Feature settings
-Setting('FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT', true); // When set to true opened items will be counted as missing from stock when calculating if a product is below its minimum.
-Setting('FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA', true); // Enables the torch automaticaly in every camera barcode scanner.
+Setting('FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT', true); // When set to true, opened items will be counted as missing for calculating if a product is below its minimum stock amount
+Setting('FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA', true); // Enables the torch automaticaly (if the device has one)
