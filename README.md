@@ -10,7 +10,7 @@ There is the [r/grocy subreddit](https://www.reddit.com/r/grocy) to connect with
 
 If you've found something that does not work or if you have an idea for an improvement or new things which you would find useful, feel free to open a request on the [issue tracker](https://github.com/grocy/grocy/issues) here.
 
-Please don't send me private messages regarding grocy help. I check the issue tracker and subreddit pretty much daily, but don't provide grocy support beyond that.
+Please don't send me private messages regarding grocy help. I check the issue tracker and the subreddit pretty much daily, but don't provide grocy support beyond that.
 
 ## Community contributions
 See the website for a list of community contributed Add-ons / Tools: [https://grocy.info/addons](https://grocy.info/addons)
