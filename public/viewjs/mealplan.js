@@ -667,7 +667,7 @@ $(document).on('click', '.recipe-consume-button', function(e)
 	var servings = $(e.currentTarget).attr('data-mealplan-servings');
 
 	bootbox.confirm({
-		message: __t('Are you sure to consume all ingredients needed by recipe "%s" (ingredients marked with "check only if a single unit is in stock" will be ignored)?', objectName),
+		message: __t('Are you sure to consume all ingredients needed by recipe "%s" (ingredients marked with "only check if any amount is in stock" will be ignored)?', objectName),
 		closeButton: false,
 		buttons: {
 			confirm: {

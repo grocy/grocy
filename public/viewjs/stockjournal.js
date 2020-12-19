@@ -74,6 +74,8 @@ $("#clear-filter-button").on("click", function()
 	$("#transaction-type-filter").val("all");
 	$("#location-filter").val("all");
 	$("#user-filter").val("all");
+	$("#product-filter").val("all");
+	stockJournalTable.column(1).search("").draw();
 	stockJournalTable.column(4).search("").draw();
 	stockJournalTable.column(5).search("").draw();
 	stockJournalTable.column(6).search("").draw();

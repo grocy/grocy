@@ -76,6 +76,8 @@ Grocy.Components.ProductAmountPicker.AllowAnyQu = function(keepInitialQu = false
 		Grocy.Components.ProductAmountPicker.SetQuantityUnit($("#qu_id").attr("data-initial-qu-id"));
 	}
 
+	$("#qu_id").removeAttr("disabled");
+
 	$(".input-group-productamountpicker").trigger("change");
 }
 

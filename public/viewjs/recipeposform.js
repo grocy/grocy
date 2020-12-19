@@ -136,7 +136,7 @@ $('#recipe-pos-form input').keydown(function(event)
 	}
 });
 
-$("#only_check_single_unit_in_stock").on("click", function()
+$("#only_check_single_unit_in_stock").on("change", function()
 {
 	if (this.checked)
 	{

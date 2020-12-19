@@ -119,13 +119,9 @@
 					<th>{{ $__t('Chore') }}</th>
 					<th>{{ $__t('Next estimated tracking') }}</th>
 					<th>{{ $__t('Last tracked') }}</th>
-					@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
-					<th>{{ $__t('Assigned to') }}</th>
-					@endif
+					<th class="@if(!GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS) d-none @endif">{{ $__t('Assigned to') }}</th>
 					<th class="d-none">Hidden status</th>
-					@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 					<th class="d-none">Hidden assigned to user id</th>
-					@endif
 
 					@include('components.userfields_thead', array(
 					'userfields' => $userfields
@@ -195,8 +191,8 @@
 							class="timeago timeago-contextual @if($curentChoreEntry->track_date_only == 1) timeago-date-only @endif"
 							datetime="{{ $curentChoreEntry->last_tracked_time }}"></time>
 					</td>
-					@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
-					<td>
+
+					<td class="@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS) d-none @endif">
 						<span id="chore-{{ $curentChoreEntry->chore_id }}-next-execution-assigned-user">
 							@if(!empty($curentChoreEntry->next_execution_assigned_to_user_id))
 							{{ FindObjectInArrayByPropertyValue($users, 'id', $curentChoreEntry->next_execution_assigned_to_user_id)->display_name }}
@@ -205,7 +201,6 @@
 							@endif
 						</span>
 					</td>
-					@endif
 					<td id="chore-{{ $curentChoreEntry->chore_id }}-due-filter-column"
 						class="d-none">
 						@if(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_PERIOD_TYPE_MANUALLY && $curentChoreEntry->next_estimated_execution_time < date('Y-m-d
@@ -223,12 +218,10 @@
 								duesoon
 								@endif
 								</td>
-								@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 								<td
 								class="d-none">
 								@if(!empty($curentChoreEntry->next_execution_assigned_to_user_id))
 								xx{{ $curentChoreEntry->next_execution_assigned_to_user_id }}xx
-								@endif
 					</td>
 					@endif
 

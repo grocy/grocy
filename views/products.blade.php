@@ -154,7 +154,12 @@
 						@endif
 					</td>
 					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif">
-						{{ FindObjectInArrayByPropertyValue($locations, 'id', $product->location_id)->name }}
+						@php
+						$location = FindObjectInArrayByPropertyValue($locations, 'id', $product->location_id);
+						@endphp
+						@if($location != null)
+						{{ $location->name }}
+						@endif
 					</td>
 					<td>
 						<span class="locale-number locale-number-quantity-amount">{{ $product->min_stock_amount }}</span>
@@ -169,8 +174,11 @@
 						@if(!empty($product->product_group_id)) {{ FindObjectInArrayByPropertyValue($productGroups, 'id', $product->product_group_id)->name }} @endif
 					</td>
 					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">
-						@if(!empty($product->shopping_location_id))
-						{{ FindObjectInArrayByPropertyValue($shoppingLocations, 'id', $product->shopping_location_id)->name }}
+						@php
+						$store = FindObjectInArrayByPropertyValue($shoppingLocations, 'id', $product->shopping_location_id);
+						@endphp
+						@if($store != null)
+						{{ $store->name }}
 						@endif
 					</td>
 

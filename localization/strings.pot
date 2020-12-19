@@ -591,10 +591,10 @@ msgstr ""
 msgid "Quantity unit"
 msgstr ""
 
-msgid "Only check if a single unit is in stock (a different quantity can then be used below)"
+msgid "Only check if any amount is in stock"
 msgstr ""
 
-msgid "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients marked with \"check only if a single unit is in stock\" will be ignored)?"
+msgid "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients marked with \"only check if any amount is in stock\" will be ignored)?"
 msgstr ""
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
@@ -2025,4 +2025,7 @@ msgid "Are you sure to reset the table options?"
 msgstr ""
 
 msgid "Hide/view columns"
+msgstr ""
+
+msgid "A different amount/unit can then be used below while for stock fulfillment checking it is sufficient when any amount of the product in stock"
 msgstr ""

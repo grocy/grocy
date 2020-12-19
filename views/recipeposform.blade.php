@@ -46,13 +46,15 @@
 			'nextInputSelector' => '#amount'
 			))
 
-			<div class="form-group mb-1">
+			<div class="form-group mb-2">
 				<div class="custom-control custom-checkbox">
 					<input @if($mode=='edit'
 						&&
 						$recipePos->only_check_single_unit_in_stock == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="only_check_single_unit_in_stock" name="only_check_single_unit_in_stock" value="1">
 					<label class="form-check-label custom-control-label"
-						for="only_check_single_unit_in_stock">{{ $__t('Only check if a single unit is in stock (a different quantity can then be used below)') }}</label>
+						for="only_check_single_unit_in_stock">{{ $__t('Only check if any amount is in stock') }}&nbsp;<i class="fas fa-question-circle text-muted"
+							data-toggle="tooltip"
+							title="{{ $__t('A different amount/unit can then be used below while for stock fulfillment checking it is sufficient when any amount of the product in stock') }}"></i></label>
 				</div>
 			</div>
 
@@ -61,7 +63,7 @@
 			@include('components.productamountpicker', array(
 			'value' => $value,
 			'initialQuId' => $initialQuId,
-			'additionalGroupCssClasses' => 'mb-1'
+			'additionalGroupCssClasses' => 'mb-2'
 			))
 
 			<div class="form-group">

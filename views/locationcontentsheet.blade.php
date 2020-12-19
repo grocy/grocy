@@ -18,7 +18,7 @@
 				Workaround because of Firefox bug
 				see https://github.com/twbs/bootstrap/issues/22753
 				and https://bugzilla.mozilla.org/show_bug.cgi?id=1413121
-			*/
+		*/
 		.row {
 			display: inline !important;
 		}
@@ -56,7 +56,7 @@
 
 @foreach($locations as $location)
 <div class="page">
-	<h1 class="pt-4">
+	<h1 class="pt-4 text-center">
 		<img src="{{ $U('/img/grocy_logo.svg?v=', true) }}{{ $version }}"
 			height="30"
 			class="d-none d-print-flex mx-auto">
@@ -66,7 +66,7 @@
 			{{ $__t('Print') . ' (' . $__t('this location') . ')' }}
 		</a>
 	</h1>
-	<h6 class="mb-4 d-none d-print-block">
+	<h6 class="mb-4 d-none d-print-block text-center">
 		{{ $__t('Time of printing') }}:
 		<span class="d-inline print-timestamp"></span>
 	</h6>

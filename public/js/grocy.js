@@ -938,7 +938,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 					data-table-selector="' + dataTableSelector + '" \
 					data-column-index="-1" \
 				> \
-				<label class="custom-control-label" \
+				<label class="custom-control-label font-italic" \
 					for="column-rowgroup-none">' + __t("None") + ' \
 				</label > \
 			</div>';
@@ -998,10 +998,10 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 		}
 	});
 
-	var message = '<div class="text-center"><h5>' + __t('Table options') + '</h5><hr><h5>' + __t('Hide/view columns') + '</h5><div class="text-left form-group">' + columnCheckBoxesHtml + '</div></div>';
+	var message = '<div class="text-center"><h5>' + __t('Table options') + '</h5><hr><h5 class="mb-0">' + __t('Hide/view columns') + '</h5><div class="text-left form-group">' + columnCheckBoxesHtml + '</div></div>';
 	if (rowGroupDefined)
 	{
-		message += '<div class="text-center mt-1"><h5>' + __t('Group by') + '</h5><div class="text-left form-group">' + rowGroupRadioBoxesHtml + '</div></div>';
+		message += '<div class="text-center mt-1"><h5 class="pt-3 mb-0">' + __t('Group by') + '</h5><div class="text-left form-group">' + rowGroupRadioBoxesHtml + '</div></div>';
 	}
 
 	bootbox.dialog({
@@ -1009,7 +1009,6 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 		size: 'small',
 		backdrop: true,
 		closeButton: false,
-		onEscape: true,
 		buttons: {
 			reset: {
 				label: __t('Reset'),
@@ -1017,16 +1016,15 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 				callback: function()
 				{
 					bootbox.confirm({
-						swapButtonOrder: true,
 						message: __t("Are you sure to reset the table options?"),
 						buttons: {
-							confirm: {
-								label: 'Yes',
-								className: 'btn-danger'
-							},
 							cancel: {
 								label: 'No',
-								className: 'btn-primary'
+								className: 'btn-danger'
+							},
+							confirm: {
+								label: 'Yes',
+								className: 'btn-success'
 							}
 						},
 						callback: function(result)
@@ -1084,7 +1082,7 @@ $(document).on("click", ".change-table-columns-rowgroup-toggle", function()
 
 		dataTable.rowGroup().enable(false);
 
-		//remove fixed order
+		// Remove fixed order
 		dataTable.order.fixed({});
 	}
 	else
@@ -1097,7 +1095,7 @@ $(document).on("click", ".change-table-columns-rowgroup-toggle", function()
 		dataTable.rowGroup().enable(true);
 		dataTable.rowGroup().dataSrc(columnIndex);
 
-		//apply fixed order for group column
+		// Apply fixed order for group column
 		var fixedOrder = {
 			pre: [columnIndex, 'asc']
 		};
