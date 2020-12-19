@@ -77,7 +77,7 @@
 		rel="stylesheet">
 	<link href="{{ $U('/node_modules/bootstrap-select/dist/css/bootstrap-select.min.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
-	<link href="{{ $U('/components_unmanaged/noto-sans-v9-latin/noto-sans-v9-latin.min.css?v=', true) }}{{ $version }}"
+	<link href="{{ $U('/components_unmanaged/noto-sans-v11-latin/noto-sans-v11-latin.min.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
 	<link href="{{ $U('/css/grocy.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
