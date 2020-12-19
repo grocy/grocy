@@ -40,7 +40,6 @@ class ChoresService extends BaseService
 		}
 
 		$nextExecutionUserId = null;
-
 		if ($chore->assignment_type == self::CHORE_ASSIGNMENT_TYPE_RANDOM)
 		{
 			// Random assignment and only 1 user in the group? Well, ok - will be hard to guess the next one...
@@ -50,11 +49,7 @@ class ChoresService extends BaseService
 			}
 			else
 			{
-				// Randomness in small groups will likely often result in the same user, so try it as long as this is the case
-				while ($nextExecutionUserId == null || $nextExecutionUserId == $lastDoneByUserId)
-				{
-					$nextExecutionUserId = $assignedUsers[array_rand($assignedUsers)]->id;
-				}
+				$nextExecutionUserId = $assignedUsers[array_rand($assignedUsers)]->id;
 			}
 		}
 		elseif ($chore->assignment_type == self::CHORE_ASSIGNMENT_TYPE_IN_ALPHABETICAL_ORDER)
