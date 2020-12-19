@@ -120,14 +120,17 @@ See https://grocy.info/#say-thanks for more ideas if you just want to say thanks
 There is none. The progress of a specific bug/enhancement is always tracked in the corresponding issue, at least by commit comment references.
 
 ## Screenshots
-#### Dashboard
-![Dashboard](https://github.com/grocy/grocy/raw/master/publication_assets/dashboard.png "Dashboard")
+#### Stock overview
+![Stock overview](https://github.com/grocy/grocy/raw/master/.github/publication_assets/stock.png "Stock overview")
 
-#### Purchase - with barcode scan
-![Purchase - with barcode scan](https://github.com/grocy/grocy/raw/master/publication_assets/purchase-with-barcode.gif "purchase-with-barcode")
+#### Shopping List
+![Shopping List](https://github.com/grocy/grocy/raw/master/.github/publication_assets/shoppinglist.png "Shopping List)
 
-#### Consume - with manual search
-![Consume - with manual search](https://github.com/grocy/grocy/raw/master/publication_assets/consume.gif "consume")
+#### Meal Plan
+![Meal Plan](https://github.com/grocy/grocy/raw/master/.github/publication_assets/mealplan.png "Meal Plan")
+
+#### Chores overview
+![Chores overview](https://github.com/grocy/grocy/raw/master/.github/publication_assets/chores.png "Chores overview")
 
 ## License
 The MIT License (MIT)

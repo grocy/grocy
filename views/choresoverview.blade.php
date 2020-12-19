@@ -192,7 +192,7 @@
 							datetime="{{ $curentChoreEntry->last_tracked_time }}"></time>
 					</td>
 
-					<td class="@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS) d-none @endif">
+					<td class="@if(!GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS) d-none @endif">
 						<span id="chore-{{ $curentChoreEntry->chore_id }}-next-execution-assigned-user">
 							@if(!empty($curentChoreEntry->next_execution_assigned_to_user_id))
 							{{ FindObjectInArrayByPropertyValue($users, 'id', $curentChoreEntry->next_execution_assigned_to_user_id)->display_name }}
