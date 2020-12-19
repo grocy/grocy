@@ -1005,9 +1005,16 @@ class StockService extends BaseService
 				$locationTo = $this->getDatabase()->locations()->where('id', $locationIdTo)->fetch();
 
 				// Product was moved from a non-freezer to freezer location -> freeze
-				if (intval($locationFrom->is_freezer) === 0 && intval($locationTo->is_freezer) === 1 && $productDetails->product->default_best_before_days_after_freezing > 0)
+				if (intval($locationFrom->is_freezer) === 0 && intval($locationTo->is_freezer) === 1 && $productDetails->product->default_best_before_days_after_freezing >= -1)
 				{
-					$newBestBeforeDate = date('Y-m-d', strtotime('+' . $productDetails->product->default_best_before_days_after_freezing . ' days'));
+					if ($productDetails->product->default_best_before_days_after_freezing == -1)
+					{
+						$newBestBeforeDate = date('2999-12-31');
+					}
+					else
+					{
+						$newBestBeforeDate = date('Y-m-d', strtotime('+' . $productDetails->product->default_best_before_days_after_freezing . ' days'));
+					}
 				}
 
 				// Product was moved from a freezer to non-freezer location -> thaw

@@ -376,14 +376,14 @@
 			'label' => 'Default due days after freezing',
 			'min' => -1,
 			'value' => $value,
-			'hint' => $__t('On moving this product to a freezer location (so when freezing it), the due date will be replaced by today + this amount of days')
+			'hint' => $__t('On moving this product to a freezer location (so when freezing it), the due date will be replaced by today + this amount of days') . ' (' . $__t('-1 means that this product will be never overdue') . ')'
 			))
 
 			@php if($mode == 'edit') { $value = $product->default_best_before_days_after_thawing; } else { $value = 0; } @endphp
 			@include('components.numberpicker', array(
 			'id' => 'default_best_before_days_after_thawing',
 			'label' => 'Default due days after thawing',
-			'min' => -1,
+			'min' => 0,
 			'value' => $value,
 			'hint' => $__t('On moving this product from a freezer location (so when thawing it), the due date will be replaced by today + this amount of days')
 			))
