@@ -175,6 +175,8 @@
 					<th>{{ $__t('Amount') }}</th>
 					<th>{{ $__t('Product group') }}</th>
 					<th class="d-none">Hidden status</th>
+					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Last price (Unit)') }}</th>
+					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Last price (Total)') }}</th>
 
 					@include('components.userfields_thead', array(
 					'userfields' => $userfields
@@ -247,6 +249,12 @@
 						class="d-none">
 						@if(FindObjectInArrayByPropertyValue($missingProducts, 'id', $listItem->product_id) !== null) belowminstockamount @endif
 						@if($listItem->done != 1) xxUNDONExx @endif
+					</td>
+					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">
+						<span class="locale-number locale-number-currency">{{ $listItem->last_price_unit }}</span>
+					</td>
+					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">
+						<span class="locale-number locale-number-currency">{{ $listItem->last_price_total }}</span>
 					</td>
 
 					@include('components.userfields_tbody', array(

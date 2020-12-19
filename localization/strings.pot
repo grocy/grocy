@@ -2029,3 +2029,9 @@ msgstr ""
 
 msgid "A different amount/unit can then be used below while for stock fulfillment checking it is sufficient when any amount of the product in stock"
 msgstr ""
+
+msgid "Last price (Unit)"
+msgstr ""
+
+msgid "Last price (Total)"
+msgstr ""

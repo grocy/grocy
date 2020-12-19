@@ -5,7 +5,11 @@
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 },
 		{ 'visible': false, 'targets': 3 },
-		{ "type": "num", "targets": 2 }
+		{ 'visible': false, 'targets': 5 },
+		{ 'visible': false, 'targets': 6 },
+		{ "type": "num", "targets": 2 },
+		{ "type": "html-num-fmt", "targets": 5 },
+		{ "type": "html-num-fmt", "targets": 6 }
 	].concat($.fn.dataTable.defaults.columnDefs),
 	'rowGroup': {
 		enable: true,
