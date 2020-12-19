@@ -141,7 +141,8 @@
 - All tables are now customizable (new little eye icon on the top left corner on each table)
   - Table columns be shown/hidden
     - There are also new columns on some pages, hidden by default
-      - Stock overview: Value, product group, calories
+      - Stock overview: Value, product group, calories, last purchased, last price
+      - Products list: Default store
   - Row grouping can be customized to use any available column (thanks @edenhaus)
 - Table states (visible columns, sorting, column order and so on) are now saved server side (in user settings) means that this stays the same when using different browsers
 - Dialogs are now used everywhere where appropriate instead of jumping between pages (for exampel when adding/editing shopping list items)

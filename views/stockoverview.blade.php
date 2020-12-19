@@ -166,6 +166,8 @@
 					<th class="d-none">Hidden product group</th>
 					<th>{{ $__t('Calories') }} ({{ $__t('Per stock quantity unit') }})</th>
 					<th>{{ $__t('Calories') }}</th>
+					<th>{{ $__t('Last purchased') }}</th>
+					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Last price') }}</th>
 
 					@include('components.userfields_thead', array(
 					'userfields' => $userfields
@@ -369,6 +371,14 @@
 					</td>
 					<td>
 						<span class="locale-number locale-number-quantity-amount">{{ $currentStockEntry->calories }}</span>
+					</td>
+					<td>
+						{{ $currentStockEntry->last_purchased }}
+						<time class="timeago timeago-contextual"
+							datetime="{{ $currentStockEntry->last_purchased }}"></time>
+					</td>
+					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">
+						<span class="locale-number locale-number-currency">{{ $currentStockEntry->last_price }}</span>
 					</td>
 
 					@include('components.userfields_tbody', array(

@@ -112,6 +112,7 @@
 					<th>{{ $__t('Default quantity unit purchase') }}</th>
 					<th>{{ $__t('Quantity unit stock') }}</th>
 					<th>{{ $__t('Product group') }}</th>
+					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Default store') }}</th>
 
 					@include('components.userfields_thead', array(
 					'userfields' => $userfields
@@ -166,6 +167,11 @@
 					</td>
 					<td>
 						@if(!empty($product->product_group_id)) {{ FindObjectInArrayByPropertyValue($productGroups, 'id', $product->product_group_id)->name }} @endif
+					</td>
+					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">
+						@if(!empty($product->shopping_location_id))
+						{{ FindObjectInArrayByPropertyValue($shoppingLocations, 'id', $product->shopping_location_id)->name }}
+						@endif
 					</td>
 
 					@include('components.userfields_tbody', array(

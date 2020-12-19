@@ -11,10 +11,14 @@
 		{ 'visible': false, 'targets': 4 },
 		{ 'visible': false, 'targets': 9 },
 		{ 'visible': false, 'targets': 10 },
+		{ 'visible': false, 'targets': 11 },
+		{ 'visible': false, 'targets': 12 },
 		{ "type": "num", "targets": 3 },
 		{ "type": "html-num-fmt", "targets": 9 },
 		{ "type": "html-num-fmt", "targets": 10 },
-		{ "type": "html", "targets": 5 }
+		{ "type": "html", "targets": 5 },
+		{ "type": "html", "targets": 11 },
+		{ "type": "html-num-fmt", "targets": 12 },
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 

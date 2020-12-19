@@ -478,6 +478,7 @@
 							@endif
 							<th>{{ $__t('Quantity unit') }}</th>
 							<th>{{ $__t('Amount') }}</th>
+							<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Last price') }}</th>
 
 							@include('components.userfields_thead', array(
 							'userfields' => $productBarcodeUserfields
@@ -522,6 +523,9 @@
 								@if(!empty($barcode->amount))
 								<span class="locale-number locale-number-quantity-amount">{{ $barcode->amount }}</span>
 								@endif
+							</td>
+							<td class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">
+								<span class="locale-number locale-number-currency">{{ $barcode->last_price }}</span>
 							</td>
 
 							@include('components.userfields_tbody', array(

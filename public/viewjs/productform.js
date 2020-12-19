@@ -287,7 +287,8 @@ var barcodeTable = $('#barcode-table').DataTable({
 	"orderFixed": [[1, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
-		{ 'searchable': false, "targets": 0 }
+		{ 'searchable': false, "targets": 0 },
+		{ 'visible': false, 'targets': 5 }
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#barcode-table tbody').removeClass("d-none");
