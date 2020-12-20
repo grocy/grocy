@@ -139,8 +139,9 @@ class StockApiController extends BaseApiController
 				$transactionType = $requestBody['transactiontype'];
 			}
 
-			$bookingId = $this->getStockService()->AddProduct($args['productId'], $requestBody['amount'], $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId, $shoppingLocationId);
-			return $this->ApiResponse($response, $this->getDatabase()->stock_log($bookingId));
+			$transactionId = $this->getStockService()->AddProduct($args['productId'], $requestBody['amount'], $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId, $shoppingLocationId);
+			$args['transactionId'] = $transactionId;
+			return $this->StockTransactions($request, $response, $args);
 		}
 		catch (\Exception $ex)
 		{
@@ -293,8 +294,9 @@ class StockApiController extends BaseApiController
 			}
 
 			$transactionId = null;
-			$bookingId = $this->getStockService()->ConsumeProduct($args['productId'], $requestBody['amount'], $spoiled, $transactionType, $specificStockEntryId, $recipeId, $locationId, $transactionId, $allowSubproductSubstitution, $consumeExact);
-			return $this->ApiResponse($response, $this->getDatabase()->stock_log($bookingId));
+			$transactionId = $this->getStockService()->ConsumeProduct($args['productId'], $requestBody['amount'], $spoiled, $transactionType, $specificStockEntryId, $recipeId, $locationId, $transactionId, $allowSubproductSubstitution, $consumeExact);
+			$args['transactionId'] = $transactionId;
+			return $this->StockTransactions($request, $response, $args);
 		}
 		catch (\Exception $ex)
 		{
@@ -387,8 +389,9 @@ class StockApiController extends BaseApiController
 				$shoppingLocationId = $requestBody['shopping_location_id'];
 			}
 
-			$bookingId = $this->getStockService()->EditStockEntry($args['entryId'], $requestBody['amount'], $bestBeforeDate, $locationId, $shoppingLocationId, $price, $requestBody['open'], $requestBody['purchased_date']);
-			return $this->ApiResponse($response, $this->getDatabase()->stock_log($bookingId));
+			$transactionId = $this->getStockService()->EditStockEntry($args['entryId'], $requestBody['amount'], $bestBeforeDate, $locationId, $shoppingLocationId, $price, $requestBody['open'], $requestBody['purchased_date']);
+			$args['transactionId'] = $transactionId;
+			return $this->StockTransactions($request, $response, $args);
 		}
 		catch (\Exception $ex)
 		{
@@ -465,8 +468,9 @@ class StockApiController extends BaseApiController
 				$shoppingLocationId = $requestBody['shopping_location_id'];
 			}
 
-			$bookingId = $this->getStockService()->InventoryProduct($args['productId'], $requestBody['new_amount'], $bestBeforeDate, $locationId, $price, $shoppingLocationId, $purchasedDate);
-			return $this->ApiResponse($response, $this->getDatabase()->stock_log($bookingId));
+			$transactionId = $this->getStockService()->InventoryProduct($args['productId'], $requestBody['new_amount'], $bestBeforeDate, $locationId, $price, $shoppingLocationId, $purchasedDate);
+			$args['transactionId'] = $transactionId;
+			return $this->StockTransactions($request, $response, $args);
 		}
 		catch (\Exception $ex)
 		{
@@ -518,9 +522,9 @@ class StockApiController extends BaseApiController
 			}
 
 			$transactionId = null;
-
-			$bookingId = $this->getStockService()->OpenProduct($args['productId'], $requestBody['amount'], $specificStockEntryId, $transactionId, $allowSubproductSubstitution);
-			return $this->ApiResponse($response, $this->getDatabase()->stock_log($bookingId));
+			$transactionId = $this->getStockService()->OpenProduct($args['productId'], $requestBody['amount'], $specificStockEntryId, $transactionId, $allowSubproductSubstitution);
+			$args['transactionId'] = $transactionId;
+			return $this->StockTransactions($request, $response, $args);
 		}
 		catch (\Exception $ex)
 		{
@@ -670,7 +674,6 @@ class StockApiController extends BaseApiController
 		try
 		{
 			$transactionRows = $this->getDatabase()->stock_log()->where('transaction_id = :1', $args['transactionId'])->fetchAll();
-
 			if (count($transactionRows) === 0)
 			{
 				throw new \Exception('No transaction was found by the given transaction id');
@@ -719,8 +722,9 @@ class StockApiController extends BaseApiController
 				$specificStockEntryId = $requestBody['stock_entry_id'];
 			}
 
-			$bookingId = $this->getStockService()->TransferProduct($args['productId'], $requestBody['amount'], $requestBody['location_id_from'], $requestBody['location_id_to'], $specificStockEntryId);
-			return $this->ApiResponse($response, $this->getDatabase()->stock_log($bookingId));
+			$transactionId = $this->getStockService()->TransferProduct($args['productId'], $requestBody['amount'], $requestBody['location_id_from'], $requestBody['location_id_to'], $specificStockEntryId);
+			$args['transactionId'] = $transactionId;
+			return $this->StockTransactions($request, $response, $args);
 		}
 		catch (\Exception $ex)
 		{

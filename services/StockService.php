@@ -165,8 +165,6 @@ class StockService extends BaseService
 			]);
 			$logRow->save();
 
-			$returnValue = $this->getDatabase()->lastInsertId();
-
 			$stockRow = $this->getDatabase()->stock()->createRow([
 				'product_id' => $productId,
 				'amount' => $amount,
@@ -179,7 +177,7 @@ class StockService extends BaseService
 			]);
 			$stockRow->save();
 
-			return $returnValue;
+			return $transactionId;
 		}
 		else
 		{
@@ -363,7 +361,7 @@ class StockService extends BaseService
 				}
 			}
 
-			return $this->getDatabase()->lastInsertId();
+			return $transactionId;
 		}
 		else
 		{
@@ -440,7 +438,7 @@ class StockService extends BaseService
 		]);
 		$logNewRowForStockUpdate->save();
 
-		return $this->getDatabase()->lastInsertId();
+		return $transactionId;
 	}
 
 	public function ExternalBarcodeLookup($barcode, $addFoundProduct)
@@ -742,7 +740,6 @@ class StockService extends BaseService
 		}
 
 		// Tare weight handling
-
 		// The given amount is the new total amount including the container weight (gross)
 		// So assume that the amount in stock is the amount also including the container weight
 		$containerWeight = 0;
@@ -909,7 +906,7 @@ class StockService extends BaseService
 			}
 		}
 
-		return $this->getDatabase()->lastInsertId();
+		return $transactionId;
 	}
 
 	public function RemoveProductFromShoppingList($productId, $amount = 1, $listId = 1)
@@ -955,7 +952,6 @@ class StockService extends BaseService
 		}
 
 		// Tare weight handling
-
 		// The given amount is the new total amount including the container weight (gross)
 		// The amount to be posted needs to be the absolute value of the given amount - stock amount - tare weight
 		$productDetails = (object) $this->GetProductDetails($productId);
@@ -1126,7 +1122,7 @@ class StockService extends BaseService
 			}
 		}
 
-		return $this->getDatabase()->lastInsertId();
+		return $transactionId;
 	}
 
 	public function UndoBooking($bookingId, $skipCorrelatedBookings = false)

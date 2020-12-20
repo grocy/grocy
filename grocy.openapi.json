@@ -1473,7 +1473,10 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/StockEntry"
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/StockLogEntry"
+									}
 								}
 							}
 						}
@@ -1830,7 +1833,10 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/StockLogEntry"
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/StockLogEntry"
+									}
 								}
 							}
 						}
@@ -1921,7 +1927,10 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/StockLogEntry"
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/StockLogEntry"
+									}
 								}
 							}
 						}
@@ -1997,7 +2006,10 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/StockLogEntry"
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/StockLogEntry"
+									}
 								}
 							}
 						}
@@ -2074,7 +2086,10 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/StockLogEntry"
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/StockLogEntry"
+									}
 								}
 							}
 						}
@@ -2142,7 +2157,10 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/StockLogEntry"
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/StockLogEntry"
+									}
 								}
 							}
 						}
@@ -2265,7 +2283,10 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/StockLogEntry"
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/StockLogEntry"
+									}
 								}
 							}
 						}
@@ -2356,7 +2377,10 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/StockLogEntry"
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/StockLogEntry"
+									}
 								}
 							}
 						}
@@ -2432,7 +2456,10 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/StockLogEntry"
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/StockLogEntry"
+									}
 								}
 							}
 						}
@@ -2504,7 +2531,10 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/StockLogEntry"
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/StockLogEntry"
+									}
 								}
 							}
 						}
@@ -2572,7 +2602,10 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/StockLogEntry"
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/StockLogEntry"
+									}
 								}
 							}
 						}
@@ -4768,6 +4801,9 @@
 						"default": false
 					},
 					"stock_id": {
+						"type": "string"
+					},
+					"transaction_id": {
 						"type": "string"
 					},
 					"transaction_type": {
