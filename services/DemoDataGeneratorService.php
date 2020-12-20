@@ -94,6 +94,10 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$this->__t_sql('Waffle rolls')}', 4, 3, 3, 1, 1); --26
 				UPDATE products SET calories = 123 WHERE IFNULL(calories, 0) = 0;
 
+				INSERT INTO product_barcodes (product_id, barcode) VALUES (8, '22111968');
+				INSERT INTO product_barcodes (product_id, barcode) VALUES (8, '22114358');
+				INSERT INTO product_barcodes (product_id, barcode) VALUES (4, '42141099');
+
 				/* Prevent invalid quantity unit assignments */
 				UPDATE products SET qu_id_stock = (SELECT MIN(id) FROM quantity_units) WHERE id IN (SELECT id FROM products WHERE qu_id_stock NOT IN (SELECT id FROM quantity_units));
 				UPDATE products SET qu_id_purchase = (SELECT MIN(id) FROM quantity_units) WHERE id IN (SELECT id FROM products WHERE qu_id_purchase NOT IN (SELECT id FROM quantity_units));

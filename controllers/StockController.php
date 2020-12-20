@@ -8,12 +8,9 @@ class StockController extends BaseController
 {
 	public function Consume(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$sql = 'select group_concat(barcode) barcodes, product_id from product_barcodes group by product_id';
-		$productBarcodes = $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
-
 		return $this->renderPage($response, 'consume', [
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
-			'barcodes' => $productBarcodes,
+			'barcodes' => $this->getDatabase()->product_barcodes_comma_separated(),
 			'recipes' => $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name', 'COLLATE NOCASE'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE'),
 			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
@@ -23,12 +20,9 @@ class StockController extends BaseController
 
 	public function Inventory(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$sql = 'select group_concat(barcode) barcodes, product_id from product_barcodes group by product_id';
-		$productBarcodes = $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
-
 		return $this->renderPage($response, 'inventory', [
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
-			'barcodes' => $productBarcodes,
+			'barcodes' => $this->getDatabase()->product_barcodes_comma_separated(),
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name', 'COLLATE NOCASE'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE'),
 			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
@@ -229,12 +223,9 @@ class StockController extends BaseController
 
 	public function Purchase(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$sql = 'select group_concat(barcode) barcodes, product_id from product_barcodes group by product_id';
-		$productBarcodes = $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
-
 		return $this->renderPage($response, 'purchase', [
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
-			'barcodes' => $productBarcodes,
+			'barcodes' => $this->getDatabase()->product_barcodes_comma_separated(),
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name', 'COLLATE NOCASE'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE'),
 			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
@@ -466,12 +457,9 @@ class StockController extends BaseController
 
 	public function Transfer(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$sql = 'select group_concat(barcode) barcodes, product_id from product_barcodes group by product_id';
-		$productBarcodes = $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
-
 		return $this->renderPage($response, 'transfer', [
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
-			'barcodes' => $productBarcodes,
+			'barcodes' => $this->getDatabase()->product_barcodes_comma_separated(),
 			'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE'),
 			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
 			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
