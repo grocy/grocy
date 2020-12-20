@@ -311,13 +311,12 @@
 </div>
 
 <div class="d-none d-print-block">
-	<div id="print-header"
-		<h1
-		class="text-center">
-		<img src="{{ $U('/img/grocy_logo.svg?v=', true) }}{{ $version }}"
-			height="30"
-			class="d-print-flex mx-auto">
-		{{ $__t("Shopping list") }}
+	<div id="print-header">
+		<h1 class="text-center">
+			<img src="{{ $U('/img/grocy_logo.svg?v=', true) }}{{ $version }}"
+				height="30"
+				class="d-print-flex mx-auto">
+			{{ $__t("Shopping list") }}
 		</h1>
 		@if (FindObjectInArrayByPropertyValue($shoppingLists, 'id', $selectedShoppingListId)->name != $__t("Shopping list"))
 		<h3 class="text-center">
