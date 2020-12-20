@@ -109,3 +109,13 @@ BEGIN
 	DELETE FROM battery_charge_cycles
 	WHERE battery_id = OLD.id;
 END;
+
+CREATE INDEX ix_chores_performance1 ON chores (
+	id,
+	active
+);
+
+CREATE INDEX ix_batteries_performance1 ON batteries (
+	id,
+	active
+);
