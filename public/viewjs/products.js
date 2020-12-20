@@ -102,3 +102,29 @@ if (GetUriParam('include_disabled'))
 {
 	$("#show-disabled").prop('checked', true);
 }
+
+
+$(".merge-products-button").on("click", function(e)
+{
+	var productId = $(e.currentTarget).attr("data-product-id");
+	$("#merge-products-keep").val(productId);
+	$("#merge-products-remove").val("");
+	$("#merge-products-modal").modal("show");
+});
+
+$("#merge-products-save-button").on("click", function()
+{
+	var productIdToKeep = $("#merge-products-keep").val();
+	var productIdToRemove = $("#merge-products-remove").val();
+
+	Grocy.Api.Post("stock/products/" + productIdToKeep.toString() + "/merge/" + productIdToRemove.toString(), {},
+		function(result)
+		{
+			window.location.href = U('/products');
+		},
+		function(xhr)
+		{
+			Grocy.FrontendHelpers.ShowGenericError('Error while merging products', xhr.response);
+		}
+	);
+});

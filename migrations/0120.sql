@@ -1,5 +1,8 @@
 CREATE TRIGGER cascade_product_removal AFTER DELETE ON products
 BEGIN
+	DELETE FROM stock
+	WHERE product_id = OLD.id;
+
 	DELETE FROM stock_log
 	WHERE product_id = OLD.id;
 

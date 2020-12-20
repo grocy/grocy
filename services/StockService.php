@@ -1318,6 +1318,53 @@ class StockService extends BaseService
 		}
 	}
 
+	public function MergeProducts(int $productIdToKeep, int $productIdToRemove)
+	{
+		if (!$this->ProductExists($productIdToKeep))
+		{
+			throw new \Exception('$productIdToKeep does not exist or is inactive');
+		}
+
+		if (!$this->ProductExists($productIdToRemove))
+		{
+			throw new \Exception('$productIdToRemove does not exist or is inactive');
+		}
+
+		if ($productIdToKeep == $productIdToRemove)
+		{
+			throw new \Exception('$productIdToKeep cannot equal $productIdToRemove');
+		}
+
+		$this->getDatabaseService()->GetDbConnectionRaw()->beginTransaction();
+		try
+		{
+			$productToKeep = $this->getDatabase()->products($productIdToKeep);
+			$productToRemove = $this->getDatabase()->products($productIdToRemove);
+			$conversion = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $productToRemove->id, $productToRemove->qu_id_stock, $productToKeep->qu_id_stock)->fetch();
+			$factor = 1.0;
+			if ($conversion != null)
+			{
+				$factor = floatval($conversion->factor);
+			}
+
+			$this->getDatabaseService()->ExecuteDbStatement('UPDATE stock SET product_id = ' . $productIdToKeep . ', amount = amount * ' . $factor . ' WHERE product_id = ' . $productIdToRemove);
+			$this->getDatabaseService()->ExecuteDbStatement('UPDATE stock_log SET product_id = ' . $productIdToKeep . ', amount = amount * ' . $factor . ' WHERE product_id = ' . $productIdToRemove);
+			$this->getDatabaseService()->ExecuteDbStatement('UPDATE product_barcodes SET product_id = ' . $productIdToKeep . ' WHERE product_id = ' . $productIdToRemove);
+			$this->getDatabaseService()->ExecuteDbStatement('UPDATE quantity_unit_conversions SET product_id = ' . $productIdToKeep . ' WHERE product_id = ' . $productIdToRemove);
+			$this->getDatabaseService()->ExecuteDbStatement('UPDATE recipes_pos SET product_id = ' . $productIdToKeep . ', amount = amount * ' . $factor . ' WHERE product_id = ' . $productIdToRemove);
+			$this->getDatabaseService()->ExecuteDbStatement('UPDATE recipes SET product_id = ' . $productIdToKeep . ' WHERE product_id = ' . $productIdToRemove);
+			$this->getDatabaseService()->ExecuteDbStatement('UPDATE meal_plan SET product_id = ' . $productIdToKeep . ', product_amount = product_amount * ' . $factor . ' WHERE product_id = ' . $productIdToRemove);
+			$this->getDatabaseService()->ExecuteDbStatement('UPDATE shopping_list SET product_id = ' . $productIdToKeep . ', amount = amount * ' . $factor . ' WHERE product_id = ' . $productIdToRemove);
+			$this->getDatabaseService()->ExecuteDbStatement('DELETE FROM products WHERE id = ' . $productIdToRemove);
+		}
+		catch (Exception $ex)
+		{
+			$this->getDatabaseService()->GetDbConnectionRaw()->rollback();
+			throw $ex;
+		}
+		$this->getDatabaseService()->GetDbConnectionRaw()->commit();
+	}
+
 	private function LoadBarcodeLookupPlugin()
 	{
 		$pluginName = defined('GROCY_STOCK_BARCODE_LOOKUP_PLUGIN') ? GROCY_STOCK_BARCODE_LOOKUP_PLUGIN : '';

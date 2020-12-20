@@ -2178,6 +2178,49 @@
 				}
 			}
 		},
+		"/stock/products/{productIdToKeep}/merge/{productIdToRemove}": {
+			"post": {
+				"summary": "Merges two products into one",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productIdToKeep",
+						"required": true,
+						"description": "A valid product id of the product to keep",
+						"schema": {
+							"type": "integer"
+						}
+					},
+					{
+						"in": "path",
+						"name": "productIdToRemove",
+						"required": true,
+						"description": "A valid product id of the product to remove",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Invalid product id)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error400"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/stock/products/by-barcode/{barcode}": {
 			"get": {
 				"summary": "Returns details of the given product by its barcode",

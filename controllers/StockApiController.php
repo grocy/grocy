@@ -775,6 +775,26 @@ class StockApiController extends BaseApiController
 		}
 	}
 
+	public function MergeProducts(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		User::checkPermission($request, User::PERMISSION_STOCK_EDIT);
+
+		try
+		{
+			if (!filter_var($args['productIdToKeep'], FILTER_VALIDATE_INT) || !filter_var($args['productIdToRemove'], FILTER_VALIDATE_INT))
+			{
+				throw new \Exception('Provided {productIdToKeep} or {productIdToRemove} is not a valid integer');
+			}
+
+			$this->ApiResponse($response, $this->getStockService()->MergeProducts($args['productIdToKeep'], $args['productIdToRemove']));
+			return $this->EmptyApiResponse($response);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
+
 	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);

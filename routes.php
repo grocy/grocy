@@ -193,6 +193,7 @@ $app->group('/api', function (RouteCollectorProxy $group) {
 		$group->post('/stock/products/{productId}/transfer', '\Grocy\Controllers\StockApiController:TransferProduct');
 		$group->post('/stock/products/{productId}/inventory', '\Grocy\Controllers\StockApiController:InventoryProduct');
 		$group->post('/stock/products/{productId}/open', '\Grocy\Controllers\StockApiController:OpenProduct');
+		$group->post('/stock/products/{productIdToKeep}/merge/{productIdToRemove}', '\Grocy\Controllers\StockApiController:MergeProducts');
 		$group->get('/stock/products/by-barcode/{barcode}', '\Grocy\Controllers\StockApiController:ProductDetailsByBarcode');
 		$group->post('/stock/products/by-barcode/{barcode}/add', '\Grocy\Controllers\StockApiController:AddProductByBarcode');
 		$group->post('/stock/products/by-barcode/{barcode}/consume', '\Grocy\Controllers\StockApiController:ConsumeProductByBarcode');
