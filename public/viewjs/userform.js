@@ -138,4 +138,5 @@ $("#delete-current-user-picture-button").on("click", function(e)
 	$("#user-picture-label-none").removeClass("d-none");
 });
 
+Grocy.Components.UserfieldsForm.Load();
 Grocy.FrontendHelpers.ValidateForm('user-form');

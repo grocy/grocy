@@ -29,6 +29,10 @@
 					href="{{ $U('/user/new') }}">
 					{{ $__t('Add') }}
 				</a>
+				<a class="btn btn-outline-secondary m-1 mt-md-0 mb-md-0 float-right"
+					href="{{ $U('/userfields?entity=users') }}">
+					{{ $__t('Configure userfields') }}
+				</a>
 			</div>
 		</div>
 	</div>
@@ -76,6 +80,10 @@
 					<th>{{ $__t('Username') }}</th>
 					<th>{{ $__t('First name') }}</th>
 					<th>{{ $__t('Last name') }}</th>
+
+					@include('components.userfields_thead', array(
+					'userfields' => $userfields
+					))
 				</tr>
 			</thead>
 			<tbody class="d-none">
@@ -112,6 +120,11 @@
 					<td>
 						{{ $user->last_name }}
 					</td>
+
+					@include('components.userfields_tbody', array(
+					'userfields' => $userfields,
+					'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $user->id)
+					))
 				</tr>
 				@endforeach
 			</tbody>
