@@ -2045,33 +2045,6 @@ msgstr ""
 msgid "Layout type"
 msgstr ""
 
-msgid "ar"
-msgstr ""
-
-msgid "bg_BG"
-msgstr ""
-
-msgid "hr"
-msgstr ""
-
-msgid "hu_HU"
-msgstr ""
-
-msgid "id"
-msgstr ""
-
-msgid "lv"
-msgstr ""
-
-msgid "ro_RO"
-msgstr ""
-
-msgid "sv"
-msgstr ""
-
-msgid "uk"
-msgstr ""
-
 msgid "Merge this product with another one"
 msgstr ""
 
