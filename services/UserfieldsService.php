@@ -37,15 +37,15 @@ class UserfieldsService extends BaseService
 	public function GetEntities()
 	{
 		$exposedDefaultEntities = $this->getOpenApiSpec()->components->internalSchemas->ExposedEntity->enum;
-
-		$userentities = [];
+		$userEntities = [];
+		$specialEntities = ['users'];
 
 		foreach ($this->getDatabase()->userentities()->orderBy('name', 'COLLATE NOCASE') as $userentity)
 		{
-			$userentities[] = 'userentity-' . $userentity->name;
+			$userEntities[] = 'userentity-' . $userentity->name;
 		}
 
-		return array_merge($exposedDefaultEntities, $userentities);
+		return array_merge($exposedDefaultEntities, $userEntities, $specialEntities);
 	}
 
 	public function GetField($fieldId)

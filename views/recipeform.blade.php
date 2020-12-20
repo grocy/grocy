@@ -319,7 +319,7 @@
 					data-src="{{ $U('/api/files/recipepictures/' . base64_encode($recipe->picture_file_name) . '?force_serve_as=picture&best_fit_width=400') }}"
 					class="img-fluid img-thumbnail mt-2 lazy mb-5">
 				<p id="delete-current-recipe-picture-on-save-hint"
-					class="form-text text-muted font-italic d-none mb-5">{{ $__t('The current picture will be deleted when you save the recipe') }}</p>
+					class="form-text text-muted font-italic d-none mb-5">{{ $__t('The current picture will be deleted on save') }}</p>
 				@else
 				<p id="no-current-recipe-picture-hint"
 					class="form-text text-muted font-italic mb-5">{{ $__t('No picture available') }}</p>

@@ -4,13 +4,14 @@ namespace Grocy\Services;
 
 class UsersService extends BaseService
 {
-	public function CreateUser(string $username, string $firstName, string $lastName, string $password)
+	public function CreateUser(string $username, string $firstName, string $lastName, string $password, string $pictureFileName = null)
 	{
 		$newUserRow = $this->getDatabase()->users()->createRow([
 			'username' => $username,
 			'first_name' => $firstName,
 			'last_name' => $lastName,
-			'password' => password_hash($password, PASSWORD_DEFAULT)
+			'password' => password_hash($password, PASSWORD_DEFAULT),
+			'picture_file_name' => $pictureFileName
 		]);
 		$newUserRow = $newUserRow->save();
 		$permList = [];
@@ -34,7 +35,7 @@ class UsersService extends BaseService
 		$row->delete();
 	}
 
-	public function EditUser(int $userId, string $username, string $firstName, string $lastName, string $password)
+	public function EditUser(int $userId, string $username, string $firstName, string $lastName, string $password, string $pictureFileName = null)
 	{
 		if (!$this->UserExists($userId))
 		{
@@ -46,7 +47,8 @@ class UsersService extends BaseService
 			'username' => $username,
 			'first_name' => $firstName,
 			'last_name' => $lastName,
-			'password' => password_hash($password, PASSWORD_DEFAULT)
+			'password' => password_hash($password, PASSWORD_DEFAULT),
+			'picture_file_name' => $pictureFileName
 		]);
 	}
 

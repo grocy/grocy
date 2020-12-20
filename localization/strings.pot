@@ -742,9 +742,6 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-msgid "The current picture will be deleted when you save the product"
-msgstr ""
-
 msgid "Select file"
 msgstr ""
 
@@ -958,7 +955,7 @@ msgstr ""
 msgid "Gallery"
 msgstr ""
 
-msgid "The current picture will be deleted when you save the recipe"
+msgid "The current picture will be deleted on save"
 msgstr ""
 
 msgid "Journal for this battery"

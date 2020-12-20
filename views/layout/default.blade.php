@@ -478,7 +478,15 @@
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle discrete-link"
 						href="#"
-						data-toggle="dropdown"><i class="fas fa-user"></i> {{ GROCY_USER_USERNAME }}</a>
+						data-toggle="dropdown">
+						@if(empty(GROCY_USER_PICTURE_FILE_NAME))
+						<i class="fas fa-user"></i>
+						@else
+						<img class="lazy rounded-circle mt-n1"
+							src="{{ $U('/files/userpictures/' . base64_encode(GROCY_USER_PICTURE_FILE_NAME) . '_' . base64_encode(GROCY_USER_PICTURE_FILE_NAME) . '?force_serve_as=picture&best_fit_width=16&best_fit_height=16') }}">
+						@endif
+						{{ GROCY_USER_USERNAME }}
+					</a>
 
 					<div class="dropdown-menu dropdown-menu-right">
 						<a class="dropdown-item logout-button discrete-link"

@@ -26,6 +26,10 @@
 		@if($mode == 'edit')
 		<script>
 			Grocy.EditObjectId = {{ $user->id }};
+
+			@if(!empty($user->picture_file_name))
+			Grocy.UserPictureFileName = '{{ $user->picture_file_name }}';
+			@endif
 		</script>
 		@endif
 
@@ -80,10 +84,57 @@
 				<div class="invalid-feedback">{{ $__t('Passwords do not match') }}</div>
 			</div>
 
+			@include('components.userfieldsform', array(
+			'userfields' => $userfields,
+			'entity' => 'users'
+			))
+
 			<button id="save-user-button"
 				class="btn btn-success">{{ $__t('Save') }}</button>
 
 		</form>
+	</div>
+
+	<div class="col-lg-6 col-xs-12">
+		<div class="title-related-links">
+			<h4>
+				{{ $__t('Picture') }}
+			</h4>
+			<div class="form-group w-75 m-0">
+				<div class="input-group">
+					<div class="custom-file">
+						<input type="file"
+							class="custom-file-input"
+							id="user-picture"
+							accept="image/*">
+						<label id="user-picture-label"
+							class="custom-file-label @if(empty($user->picture_file_name)) d-none @endif"
+							for="user-picture">
+							{{ $user->picture_file_name }}
+						</label>
+						<label id="user-picture-label-none"
+							class="custom-file-label @if(!empty($user->picture_file_name)) d-none @endif"
+							for="user-picture">
+							{{ $__t('No file selected') }}
+						</label>
+					</div>
+					<div class="input-group-append">
+						<span class="input-group-text"><i class="fas fa-trash"
+								id="delete-current-user-picture-button"></i></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		@if(!empty($user->picture_file_name))
+		<img id="current-user-picture"
+			data-src="{{ $U('/api/files/userpictures/' . base64_encode($user->picture_file_name) . '?force_serve_as=picture&best_fit_width=400') }}"
+			class="img-fluid img-thumbnail mt-2 lazy mb-5">
+		<p id="delete-current-user-picture-on-save-hint"
+			class="form-text text-muted font-italic d-none mb-5">{{ $__t('The current picture will be deleted on save') }}</p>
+		@else
+		<p id="no-current-user-picture-hint"
+			class="form-text text-muted font-italic mb-5">{{ $__t('No picture available') }}</p>
+		@endif
 	</div>
 </div>
 @stop

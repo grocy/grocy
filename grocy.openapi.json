@@ -4606,6 +4606,9 @@
 					"password": {
 						"type": "string"
 					},
+					"picture_file_name": {
+						"type": "string"
+					},
 					"row_created_timestamp": {
 						"type": "string",
 						"format": "date-time"
@@ -4629,6 +4632,9 @@
 						"type": "string"
 					},
 					"display_name": {
+						"type": "string"
+					},
+					"picture_file_name": {
 						"type": "string"
 					},
 					"row_created_timestamp": {
