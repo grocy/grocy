@@ -5,7 +5,7 @@
 @section('viewJsName', 'manageapikeys')
 
 @push('pageScripts')
-<script src="{{ $U('/node_modules/qrcode-generator/qrcode.js?v=', true) }}{{ $version }}"></script>
+<script src="{{ $U('/node_modules/bwip-js/dist/bwip-js-min.js?v=', true) }}{{ $version }}"></script>
 @endpush
 
 @push('pageStyles')

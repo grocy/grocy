@@ -185,20 +185,18 @@ function RandomString()
 	return Math.random().toString(36).substring(2, 100) + Math.random().toString(36).substring(2, 100);
 }
 
-function getQRCodeForContent(url)
+function QrCodeImgHtml(text)
 {
-	var qr = qrcode(0, 'L');
-	qr.addData(url);
-	qr.make();
-	return qr.createImgTag(10, 5);
-}
+	var dummyCanvas = document.createElement("canvas");
+	var img = document.createElement("img");
 
-function getQRCodeForAPIKey(apikey_type, apikey_key)
-{
-	var content = U('/api') + '|' + apikey_key;
-	if (apikey_type === 'special-purpose-calendar-ical')
-	{
-		content = U('/api/calendar/ical?secret=' + apikey_key);
-	}
-	return getQRCodeForContent(content);
+	bwipjs.toCanvas(dummyCanvas, {
+		bcid: "qrcode",
+		text: text,
+		scale: 4,
+		includetext: false
+	});
+	img.src = dummyCanvas.toDataURL("image/png");
+
+	return img.outerHTML;
 }

@@ -7,7 +7,7 @@
 @push('pageScripts')
 <script src="{{ $U('/node_modules/fullcalendar/dist/fullcalendar.min.js?v=', true) }}{{ $version }}"></script>
 @if(!empty($__t('fullcalendar_locale') && $__t('fullcalendar_locale') != 'x'))<script src="{{ $U('/node_modules', true) }}/fullcalendar/dist/locale/{{ $__t('fullcalendar_locale') }}.js?v={{ $version }}"></script>@endif
-<script src="{{ $U('/node_modules/qrcode-generator/qrcode.js?v=', true) }}{{ $version }}"></script>
+<script src="{{ $U('/node_modules/bwip-js/dist/bwip-js-min.js?v=', true) }}{{ $version }}"></script>
 @endpush
 
 @push('pageStyles')

@@ -67,9 +67,21 @@ $(document).on('click', '.apikey-delete-button', function(e)
 		}
 	});
 });
+
+function QrCodeForApiKey(apiKeyType, apiKey)
+{
+	var content = U('/api') + '|' + apiKey;
+	if (apiKeyType === 'special-purpose-calendar-ical')
+	{
+		content = U('/api/calendar/ical?secret=' + apiKey);
+	}
+
+	return QrCodeImgHtml(content);
+}
+
 $('.apikey-show-qr-button').on('click', function()
 {
-	var qrcodeHtml = getQRCodeForAPIKey($(this).data('apikey-type'), $(this).data('apikey-key'));
+	var qrcodeHtml = QrCodeForApiKey($(this).data('apikey-type'), $(this).data('apikey-key'));
 	bootbox.alert({
 		title: __t('API key'),
 		message: "<p class='text-center'>" + qrcodeHtml + "</p>",
