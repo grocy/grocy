@@ -7,6 +7,7 @@
 		{ 'visible': false, 'targets': 3 },
 		{ 'visible': false, 'targets': 5 },
 		{ 'visible': false, 'targets': 6 },
+		{ 'visible': false, 'targets': 7 },
 		{ "type": "num", "targets": 2 },
 		{ "type": "html-num-fmt", "targets": 5 },
 		{ "type": "html-num-fmt", "targets": 6 }

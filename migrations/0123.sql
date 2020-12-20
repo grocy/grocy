@@ -7,7 +7,8 @@ SELECT
 	sl.*,
 	p.name AS product_name,
 	plp.price * IFNULL(qucr.factor, 1.0) AS last_price_unit,
-	plp.price * IFNULL(qucr.factor, 1.0) * sl.amount AS last_price_total
+	plp.price * IFNULL(qucr.factor, 1.0) * sl.amount AS last_price_total,
+	st.name AS default_shopping_location_name
 FROM shopping_list sl
 LEFT JOIN products p
 	ON sl.product_id = p.id
@@ -16,4 +17,6 @@ LEFT JOIN quantity_unit_conversions_resolved qucr
 	AND p.qu_id_stock = qucr.from_qu_id
 	AND sl.qu_id = qucr.to_qu_id
 LEFT JOIN products_last_purchased plp
-	ON sl.product_id = plp.product_id;
+	ON sl.product_id = plp.product_id
+LEFT JOIN shopping_locations st
+	ON p.shopping_location_id = st.id;
