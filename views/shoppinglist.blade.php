@@ -5,6 +5,7 @@
 @section('viewJsName', 'shoppinglist')
 
 @push('pageScripts')
+<script src="{{ $U('/node_modules/bwip-js/dist/bwip-js-min.js?v=', true) }}{{ $version }}"></script>
 <script src="{{ $U('/viewjs/purchase.js?v=', true) }}{{ $version }}"></script>
 @endpush
 
@@ -165,6 +166,7 @@
 					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Last price (Unit)') }}</th>
 					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Last price (Total)') }}</th>
 					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Default store') }}</th>
+					<th>{{ $__t('Barcodes') }}</th>
 
 					@include('components.userfields_thead', array(
 					'userfields' => $userfields
@@ -246,6 +248,14 @@
 					</td>
 					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">
 						{{ $listItem->default_shopping_location_name }}
+					</td>
+					<td>
+						@foreach(explode(',', $listItem->product_barcodes) as $barcode)
+						@if(!empty($barcode))
+						<img class="barcode img-fluid pr-2"
+							data-barcode="{{ $barcode }}">
+						@endif
+						@endforeach
 					</td>
 
 					@include('components.userfields_tbody', array(

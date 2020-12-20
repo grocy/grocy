@@ -8,6 +8,7 @@
 		{ 'visible': false, 'targets': 5 },
 		{ 'visible': false, 'targets': 6 },
 		{ 'visible': false, 'targets': 7 },
+		{ 'visible': false, 'targets': 8 },
 		{ "type": "num", "targets": 2 },
 		{ "type": "html-num-fmt", "targets": 5 },
 		{ "type": "html-num-fmt", "targets": 6 }
@@ -528,4 +529,19 @@ $(window).on("message", function(e)
 	{
 		window.location.href = U('/shoppinglist?list=' + data.Payload);
 	}
+});
+
+var dummyCanvas = document.createElement("canvas");
+$("img.barcode").each(function()
+{
+	var img = $(this);
+
+	bwipjs.toCanvas(dummyCanvas, {
+		bcid: "ean8",
+		text: img.attr("data-barcode"),
+		height: 5,
+		includetext: false
+	});
+
+	img.attr("src", dummyCanvas.toDataURL("image/png"));
 });

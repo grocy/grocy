@@ -525,6 +525,11 @@ buffer@^5.5.0:
     base64-js "^1.3.1"
     ieee754 "^1.1.13"
 
+bwip-js@^2.0.11:
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/bwip-js/-/bwip-js-2.0.11.tgz#2152224482527c0134e572cadd9787799499b39d"
+  integrity sha512-8hAwUM+5FrGguKRaFi2QxKF9SxQM4fAfTy5TVAkeBODH6Eq3Q8MMEoBN+ymIBxiGKL+wNHB1Z1pv5f9oWGLUKQ==
+
 bytes@3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/bytes/-/bytes-3.1.0.tgz#f6cf7933a360e0588fa9fde85651cdc7f805d1f6"

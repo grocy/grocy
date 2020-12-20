@@ -10,6 +10,7 @@
 		"bootstrap": "^4.5.2",
 		"bootstrap-select": "^1.13.18",
 		"bootstrap-v4-rtl": "^4.5.2-1",
+		"bwip-js": "^2.0.11",
 		"chart.js": "^2.8.0",
 		"datatables.net": "^1.10.22",
 		"datatables.net-bs4": "^1.10.22",
