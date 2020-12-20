@@ -390,7 +390,13 @@ msgid "Korean"
 msgstr "קוריאנית"
 
 msgid "Chinese (China)"
-msgstr ""
+msgstr "סינית"
 
 msgid "Hebrew (Israel)"
+msgstr "עברית"
+
+msgid "Tamil"
+msgstr ""
+
+msgid "Finnish"
 msgstr ""

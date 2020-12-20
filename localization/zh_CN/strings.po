@@ -594,15 +594,13 @@ msgstr "单数形式"
 msgid "Quantity unit"
 msgstr "数量单位"
 
-msgid ""
-"Only check if a single unit is in stock (a different quantity can then be "
-"used below)"
-msgstr "只检查单个产品是否有库存(以下可以使用不同数量的产品)"
+msgid "Only check if any amount is in stock"
+msgstr "只检查是否有任何数量的库存"
 
 msgid ""
 "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
-" marked with \"check only if a single unit is in stock\" will be ignored)?"
-msgstr "你确定用完食谱“%s”中所需要的所有材料了吗?(那些标有“只检查一件库存”的材料将被忽略)?"
+" marked with \"only check if any amount is in stock\" will be ignored)?"
+msgstr "您确定要消耗食谱“%s”中所需的所有成分（标有“仅检查库存量”的成分将被忽略）吗？"
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
 msgstr "从库存中移除所有食谱“%s”的成分"
@@ -855,8 +853,8 @@ msgstr "使用特定的库存项目"
 
 msgid ""
 "The first item in this list would be picked by the default rule which is "
-"\"First due first, then first in first out\""
-msgstr "这个列表中的第一项将按照默认规则进行选择即“首先到期，然后先入先出”"
+"\"Opened first, then first due first, then first in first out\""
+msgstr "列表中的第一项将按照默认规则进行选择，即“先打开，然后先到期，然后先进先出”"
 
 msgid "Mark %1$s of %2$s as open"
 msgstr "标记  %2$s 中的%1$s为拆封"
@@ -1594,9 +1592,6 @@ msgstr "在%s添加注释"
 msgid "per day"
 msgstr "每天"
 
-msgid "Normal view"
-msgstr "标准视图"
-
 msgid "Only undone items"
 msgstr "仅未完成的项目"
 
@@ -1760,9 +1755,9 @@ msgid "Not enough in stock (not included in costs), %s ingredient missing"
 msgstr "库存不足(不计入成本)，%s成分缺失"
 
 msgid ""
-"Based on the prices of the default consume rule which is \"First due first, "
-"then first in first out\""
-msgstr "基于“先到期，先入先出”的默认消费规则的价格"
+"Based on the prices of the default consume rule which is \"Opened first, "
+"then first due first, then first in first out\""
+msgstr "基于默认消费规则的价格，即“先打开，然后先到期，然后先进先出”"
 
 msgid ""
 "Not enough in stock (not included in costs), %1$s missing, %2$s already on "
@@ -1888,8 +1883,8 @@ msgstr "新库存量"
 msgid "Price per stock unit"
 msgstr "每库存单位价格"
 
-msgid "Hide/view columns"
-msgstr "隐藏/查看 列"
+msgid "Table options"
+msgstr "表选项"
 
 msgid "This product is currently on a shopping list"
 msgstr "该产品目前在购物清单上"
@@ -1940,8 +1935,8 @@ msgid ""
 "the next due date in stock"
 msgstr "当所购买产品的到期日早于库存中的下一个到期日时，显示警告"
 
-msgid "There are items in stock which are due earlier"
-msgstr "有些库存是提前到期的"
+msgid "This is due earlier than already in-stock items"
+msgstr "这是由于早于已有库存的物品"
 
 msgid ""
 "When enabled, the amount will always be filled with 1 after "
@@ -2106,8 +2101,49 @@ msgid ""
 "just hide the product."
 msgstr "这也会删除该产品的任何库存量，日记帐和所有其他参考-如果您想保留该数量而只是隐藏该产品，请考虑禁用它。"
 
-msgid "Show disabled products"
-msgstr "显示禁用产品"
+msgid "Show disabled"
+msgstr ""
 
 msgid "Show on stock overview page"
 msgstr "显示在库存概览页面上"
+
+msgid "None"
+msgstr "没有"
+
+msgid "Group by"
+msgstr "分组依据"
+
+msgid "Ingredient group"
+msgstr "成分组"
+
+msgid "Reset"
+msgstr "重置"
+
+msgid "Are you sure to reset the table options?"
+msgstr "确定要重置表选项吗?"
+
+msgid "Hide/view columns"
+msgstr "隐藏/查看 列"
+
+msgid ""
+"A different amount/unit can then be used below while for stock fulfillment "
+"checking it is sufficient when any amount of the product in stock"
+msgstr "然后，可以在下面使用不同的数量/单位，而在进行库存履行检查时，只要有任意数量的库存产品就足够了"
+
+msgid "Last price (Unit)"
+msgstr "最终价格（单位）"
+
+msgid "Last price (Total)"
+msgstr "最终价格（总计）"
+
+msgid "Show header"
+msgstr "显示标题"
+
+msgid "Group by product group"
+msgstr "按产品组分组"
+
+msgid "Table"
+msgstr "表"
+
+msgid "Layout type"
+msgstr "布局类型"

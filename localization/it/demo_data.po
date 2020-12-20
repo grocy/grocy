@@ -375,7 +375,13 @@ msgid "Korean"
 msgstr "Coreano"
 
 msgid "Chinese (China)"
-msgstr ""
+msgstr "Cinese (Cina)"
 
 msgid "Hebrew (Israel)"
+msgstr "Ebraico (Israele)"
+
+msgid "Tamil"
+msgstr ""
+
+msgid "Finnish"
 msgstr ""

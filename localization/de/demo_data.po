@@ -376,3 +376,9 @@ msgstr "Chinesisch (China)"
 
 msgid "Hebrew (Israel)"
 msgstr "Hebräisch (Israel)"
+
+msgid "Tamil"
+msgstr "Tamil"
+
+msgid "Finnish"
+msgstr "Finnisch"

@@ -112,3 +112,11 @@ msgstr "Chinesisch (China)"
 # Hebrew (Israel)
 msgid "he_IL"
 msgstr "Hebräisch (Israel)"
+
+# Tamil
+msgid "ta"
+msgstr "Tamil"
+
+# Finnish
+msgid "fi"
+msgstr "Finnisch"

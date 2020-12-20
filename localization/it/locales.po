@@ -107,8 +107,16 @@ msgstr "Cinese (Taiwan)"
 
 # Chinese (China)
 msgid "zh_CN"
-msgstr ""
+msgstr "Cinese (Cina)"
 
 # Hebrew (Israel)
 msgid "he_IL"
+msgstr "Ebraico (Israele)"
+
+# Tamil
+msgid "ta"
+msgstr ""
+
+# Finnish
+msgid "fi"
 msgstr ""

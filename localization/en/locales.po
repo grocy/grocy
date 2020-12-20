@@ -83,3 +83,9 @@ msgstr "Chinese (China)"
 
 msgid "he_IL"
 msgstr "Hebrew (Israel)"
+
+msgid "ta"
+msgstr "Tamil"
+
+msgid "fi"
+msgstr "Finnish"

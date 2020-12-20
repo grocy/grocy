@@ -112,3 +112,11 @@ msgstr ""
 # Hebrew (Israel)
 msgid "he_IL"
 msgstr ""
+
+# Tamil
+msgid "ta"
+msgstr ""
+
+# Finnish
+msgid "fi"
+msgstr ""

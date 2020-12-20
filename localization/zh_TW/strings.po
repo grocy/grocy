@@ -594,15 +594,13 @@ msgstr "單數形式"
 msgid "Quantity unit"
 msgstr "數量單位"
 
-msgid ""
-"Only check if a single unit is in stock (a different quantity can then be "
-"used below)"
-msgstr "僅確認庫存中是否仍有存量(可於下方選擇另一單位)"
+msgid "Only check if any amount is in stock"
+msgstr ""
 
 msgid ""
 "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
-" marked with \"check only if a single unit is in stock\" will be ignored)?"
-msgstr "確定要消耗食譜「%s」所需的所有食材嗎？（標記為「僅確認庫存中是否仍有存量」的食材將被忽略）"
+" marked with \"only check if any amount is in stock\" will be ignored)?"
+msgstr ""
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
 msgstr "已從庫存中移除了食譜「%s」的所有食材"
@@ -855,8 +853,8 @@ msgstr "使用特定的庫存項目"
 
 msgid ""
 "The first item in this list would be picked by the default rule which is "
-"\"First due first, then first in first out\""
-msgstr "預設將選擇此列表中的第一項，採「先逾(賞味)期，然後先進先出。」"
+"\"Opened first, then first due first, then first in first out\""
+msgstr ""
 
 msgid "Mark %1$s of %2$s as open"
 msgstr "將 %2$s 的 %1$s 標記為已開封"
@@ -1594,9 +1592,6 @@ msgstr "在 %s 上新增備註"
 msgid "per day"
 msgstr "每天"
 
-msgid "Normal view"
-msgstr "標準密度"
-
 msgid "Only undone items"
 msgstr "僅未完成項目"
 
@@ -1760,9 +1755,9 @@ msgid "Not enough in stock (not included in costs), %s ingredient missing"
 msgstr "食材 %s 庫存不足(不包含在花費內)"
 
 msgid ""
-"Based on the prices of the default consume rule which is \"First due first, "
-"then first in first out\""
-msgstr "該價格乃按預設消耗規則「先逾(賞味)期，然後先進先出。」"
+"Based on the prices of the default consume rule which is \"Opened first, "
+"then first due first, then first in first out\""
+msgstr ""
 
 msgid ""
 "Not enough in stock (not included in costs), %1$s missing, %2$s already on "
@@ -1888,8 +1883,8 @@ msgstr "新庫存數量"
 msgid "Price per stock unit"
 msgstr "每庫存單位單價"
 
-msgid "Hide/view columns"
-msgstr "隱藏/顯示欄位"
+msgid "Table options"
+msgstr ""
 
 msgid "This product is currently on a shopping list"
 msgstr "此物品已在購物清單中"
@@ -1940,8 +1935,8 @@ msgid ""
 "the next due date in stock"
 msgstr "當所購買物品的到期日期比庫存物品的到期日期早時顯示警告"
 
-msgid "There are items in stock which are due earlier"
-msgstr "有些庫存項目將提前到期"
+msgid "This is due earlier than already in-stock items"
+msgstr ""
 
 msgid ""
 "When enabled, the amount will always be filled with 1 after "
@@ -2106,8 +2101,49 @@ msgid ""
 "just hide the product."
 msgstr ""
 
-msgid "Show disabled products"
+msgid "Show disabled"
 msgstr ""
 
 msgid "Show on stock overview page"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Group by"
+msgstr ""
+
+msgid "Ingredient group"
+msgstr ""
+
+msgid "Reset"
+msgstr ""
+
+msgid "Are you sure to reset the table options?"
+msgstr ""
+
+msgid "Hide/view columns"
+msgstr "隱藏/顯示欄位"
+
+msgid ""
+"A different amount/unit can then be used below while for stock fulfillment "
+"checking it is sufficient when any amount of the product in stock"
+msgstr ""
+
+msgid "Last price (Unit)"
+msgstr ""
+
+msgid "Last price (Total)"
+msgstr ""
+
+msgid "Show header"
+msgstr ""
+
+msgid "Group by product group"
+msgstr ""
+
+msgid "Table"
+msgstr ""
+
+msgid "Layout type"
 msgstr ""

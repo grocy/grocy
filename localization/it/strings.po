@@ -622,20 +622,13 @@ msgstr "in forma singolare"
 msgid "Quantity unit"
 msgstr "Unità di quantità"
 
-msgid ""
-"Only check if a single unit is in stock (a different quantity can then be "
-"used below)"
+msgid "Only check if any amount is in stock"
 msgstr ""
-"Controlla solo se una singola unità è disponibile (di seguito è possibile "
-"utilizzare una quantità diversa)"
 
 msgid ""
 "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
-" marked with \"check only if a single unit is in stock\" will be ignored)?"
+" marked with \"only check if any amount is in stock\" will be ignored)?"
 msgstr ""
-"Sei sicuro di consumare tutti gli ingredienti necessari per la ricetta "
-"\"%s\"? (Gli ingredienti contrassegnati con \"Controlla solo se è "
-"disponibile una singola unità\" saranno ignorati)"
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
 msgstr "Rimuovi tutti gli ingredienti della ricetta \"%s\" dalla dispensa"
@@ -894,11 +887,8 @@ msgstr "Usa un articolo specifico della dispensa"
 
 msgid ""
 "The first item in this list would be picked by the default rule which is "
-"\"First due first, then first in first out\""
+"\"Opened first, then first due first, then first in first out\""
 msgstr ""
-"Il primo elemento in questo elenco verrebbe scelto dalla regola predefinita "
-"che è \"Prima quello che scade prima, poi il primo entrato è il primo "
-"uscito\""
 
 msgid "Mark %1$s of %2$s as open"
 msgstr "Segna %1$s di %2$s come aperti"
@@ -1711,9 +1701,6 @@ msgstr "Aggiungi nota a %s"
 msgid "per day"
 msgstr "al giorno"
 
-msgid "Normal view"
-msgstr "Vista normale"
-
 msgid "Only undone items"
 msgstr "Solo oggetti annullati"
 
@@ -1885,11 +1872,9 @@ msgstr ""
 "Insufficiente in dispensa (non incluso nei costi), ingrediente mancante %s"
 
 msgid ""
-"Based on the prices of the default consume rule which is \"First due first, "
-"then first in first out\""
+"Based on the prices of the default consume rule which is \"Opened first, "
+"then first due first, then first in first out\""
 msgstr ""
-"In base ai prezzi della regola di consumo predefinita, che è \"Prima quello "
-"in scadenza, poi il primo entrato è il primo a uscire\""
 
 msgid ""
 "Not enough in stock (not included in costs), %1$s missing, %2$s already on "
@@ -2027,8 +2012,8 @@ msgstr "Nuova quantità in dispensa"
 msgid "Price per stock unit"
 msgstr "Prezzo per unità in dispensa"
 
-msgid "Hide/view columns"
-msgstr "Mostra/nascondi colonne"
+msgid "Table options"
+msgstr "Opzioni della tabella"
 
 msgid "This product is currently on a shopping list"
 msgstr "Questo prodotto è già in una lista della spesa"
@@ -2083,8 +2068,8 @@ msgstr ""
 "Mostra un avviso quando la data di scadenza del prodotto acquistato è "
 "precedente alla successiva data di scadenza in dispensa"
 
-msgid "There are items in stock which are due earlier"
-msgstr "Ci sono articoli in dispensa che sono scaduti prima"
+msgid "This is due earlier than already in-stock items"
+msgstr ""
 
 msgid ""
 "When enabled, the amount will always be filled with 1 after "
@@ -2296,8 +2281,49 @@ msgstr ""
 "altri riferimenti di questo prodotto: considera piuttosto di disabilitarlo, "
 "se vuoi mantenerlo e soltanto nascondere il prodotto."
 
-msgid "Show disabled products"
-msgstr "Mostra prodotti disabilitati"
+msgid "Show disabled"
+msgstr ""
 
 msgid "Show on stock overview page"
 msgstr "Mostra sulla pagina del Riepilogo della dispensa"
+
+msgid "None"
+msgstr "Nessuno"
+
+msgid "Group by"
+msgstr "Raggruppato per"
+
+msgid "Ingredient group"
+msgstr "Gruppo ingredienti"
+
+msgid "Reset"
+msgstr "Ripristinare"
+
+msgid "Are you sure to reset the table options?"
+msgstr "Sei sicuro di ripristinare le opzioni della tabella?"
+
+msgid "Hide/view columns"
+msgstr "Mostra/nascondi colonne"
+
+msgid ""
+"A different amount/unit can then be used below while for stock fulfillment "
+"checking it is sufficient when any amount of the product in stock"
+msgstr ""
+
+msgid "Last price (Unit)"
+msgstr ""
+
+msgid "Last price (Total)"
+msgstr ""
+
+msgid "Show header"
+msgstr ""
+
+msgid "Group by product group"
+msgstr ""
+
+msgid "Table"
+msgstr ""
+
+msgid "Layout type"
+msgstr ""

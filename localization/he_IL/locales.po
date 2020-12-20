@@ -107,8 +107,16 @@ msgstr "סינית טייוואנית"
 
 # Chinese (China)
 msgid "zh_CN"
-msgstr ""
+msgstr "סינית"
 
 # Hebrew (Israel)
 msgid "he_IL"
+msgstr "עברית"
+
+# Tamil
+msgid "ta"
+msgstr ""
+
+# Finnish
+msgid "fi"
 msgstr ""

@@ -7,6 +7,7 @@
 # sebastien GRANDJEAN <maluseb@hotmail.fr>, 2020
 # Jordan COUTON <couton.jordan@gmail.com>, 2020
 # patate douce <poubel125@gmail.com>, 2020
+# nerdinator <florian.dupret@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -14,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: patate douce <poubel125@gmail.com>, 2020\n"
+"Last-Translator: nerdinator <florian.dupret@gmail.com>, 2020\n"
 "Language-Team: French (https://www.transifex.com/grocy/teams/93189/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,10 +34,10 @@ msgid "Pantry"
 msgstr "Garde-manger"
 
 msgid "Candy cupboard"
-msgstr "Candy cupboard"
+msgstr "Placard à bonbons"
 
 msgid "Tinned food cupboard"
-msgstr "Tinned food cupboard"
+msgstr "Placard à conserves"
 
 msgid "Fridge"
 msgstr "Réfrigérateur"
@@ -44,7 +45,7 @@ msgstr "Réfrigérateur"
 msgid "Piece"
 msgid_plural "Pieces"
 msgstr[0] "Piece"
-msgstr[1] "Pieces"
+msgstr[1] "Unités"
 
 msgid "Pack"
 msgid_plural "Packs"
@@ -54,12 +55,12 @@ msgstr[1] "Packs"
 msgid "Glass"
 msgid_plural "Glasses"
 msgstr[0] "Glass"
-msgstr[1] "Glasses"
+msgstr[1] "Bocaux"
 
 msgid "Tin"
 msgid_plural "Tins"
 msgstr[0] "Tin"
-msgstr[1] "Tins"
+msgstr[1] "Conserve"
 
 msgid "Can"
 msgid_plural "Cans"
@@ -69,34 +70,34 @@ msgstr[1] "Canettes"
 msgid "Bunch"
 msgid_plural "Bunches"
 msgstr[0] "Bunch"
-msgstr[1] "Bunches"
+msgstr[1] "Bottes"
 
 msgid "Gummy bears"
-msgstr "Gummy bears"
+msgstr "Oursons"
 
 msgid "Crisps"
-msgstr "Crisps"
+msgstr "Chips"
 
 msgid "Eggs"
-msgstr "Eggs"
+msgstr "Oeufs"
 
 msgid "Noodles"
 msgstr "Nouilles"
 
 msgid "Pickles"
-msgstr "Pickles"
+msgstr "Cornichons"
 
 msgid "Gulash soup"
-msgstr "Gulash soup"
+msgstr "Soupe de goulache"
 
 msgid "Yogurt"
 msgstr "Yaourt"
 
 msgid "Cheese"
-msgstr "Cheese"
+msgstr "Fromage"
 
 msgid "Cold cuts"
-msgstr "Cold cuts"
+msgstr "Charcuterie"
 
 msgid "Paprika"
 msgstr "Paprika"
@@ -105,40 +106,40 @@ msgid "Cucumber"
 msgstr "Concombre"
 
 msgid "Radish"
-msgstr "Radish"
+msgstr "Radis"
 
 msgid "Tomato"
-msgstr "Tomato"
+msgstr "Tomate"
 
 msgid "Changed towels in the bathroom"
-msgstr "Changed towels in the bathroom"
+msgstr "Serviettes propres dans la salle de bain"
 
 msgid "Cleaned the kitchen floor"
-msgstr "Cleaned the kitchen floor"
+msgstr "Nettoyage du sol de la cuisine"
 
 msgid "Warranty ends"
-msgstr "Warranty ends"
+msgstr "Fin de garantie"
 
 msgid "TV remote control"
 msgstr "Télécommande de télévision"
 
 msgid "Alarm clock"
-msgstr "Alarm clock"
+msgstr "Réveil"
 
 msgid "Heat remote control"
-msgstr "Heat remote control"
+msgstr "Télécommande du chauffage"
 
 msgid "Lawn mowed in the garden"
-msgstr "Lawn mowed in the garden"
+msgstr "Jardin tondu"
 
 msgid "Some good snacks"
-msgstr "Some good snacks"
+msgstr "Quelques bons gâteaux"
 
 msgid "Pizza dough"
 msgstr "Pâte à pizza"
 
 msgid "Sieved tomatoes"
-msgstr "Sieved tomatoes"
+msgstr "Sauce tomate"
 
 msgid "Salami"
 msgstr "Salami"
@@ -147,215 +148,217 @@ msgid "Toast"
 msgstr "Toast"
 
 msgid "Minced meat"
-msgstr "Minced meat"
+msgstr "Viande hachée"
 
 msgid "Pizza"
 msgstr "Pizza"
 
 msgid "Spaghetti bolognese"
-msgstr "Spaghetti bolognese"
+msgstr "Spaghetti bolognaise"
 
 msgid "Sandwiches"
 msgstr "Sandwiches"
 
 msgid "English"
-msgstr "English"
+msgstr "Anglais"
 
 msgid "German"
 msgstr "Allemand"
 
 msgid "Italian"
-msgstr "Italian"
+msgstr "Italien"
 
 msgid "This is the note content of the recipe ingredient"
-msgstr "This is the note content of the recipe ingredient"
+msgstr "Ceci est le contenu de la note concernant l'ingrédient de la recette"
 
 msgid "Demo User"
-msgstr "Demo User"
+msgstr "Utilisateur de démo"
 
 msgid "Gram"
 msgid_plural "Grams"
 msgstr[0] "Gram"
-msgstr[1] "Grams"
+msgstr[1] "Grammes"
 
 msgid "Flour"
-msgstr "Flour"
+msgstr "Farine"
 
 msgid "Pancakes"
-msgstr "Pancakes"
+msgstr "Crêpes"
 
 msgid "Sugar"
 msgstr "Sucre"
 
 msgid "Home"
-msgstr "Home"
+msgstr "Domicile"
 
 msgid "Life"
-msgstr "Life"
+msgstr "Vie"
 
 msgid "Projects"
-msgstr "Projects"
+msgstr "Projets"
 
 msgid "Repair the garage door"
-msgstr "Repair the garage door"
+msgstr "Réparer la porte du garage"
 
 msgid "Fork and improve grocy"
-msgstr "Fork and improve grocy"
+msgstr "Forker et améliorer grocy"
 
 msgid "Find a solution for what to do when I forget the door keys"
-msgstr "Find a solution for what to do when I forget the door keys"
+msgstr ""
+"Trouver une solution pour savoir quoi faire quand j'oublie les clefs de la "
+"porte"
 
 msgid "Sweets"
-msgstr "Sweets"
+msgstr "Bonbons"
 
 msgid "Bakery products"
-msgstr "Bakery products"
+msgstr "Viennoiseries"
 
 msgid "Tinned food"
-msgstr "Tinned food"
+msgstr "Conserves"
 
 msgid "Butchery products"
-msgstr "Butchery products"
+msgstr "Viande"
 
 msgid "Vegetables/Fruits"
-msgstr "Vegetables/Fruits"
+msgstr "Fruits et légumes"
 
 msgid "Refrigerated products"
 msgstr "Produits réfrigérés "
 
 msgid "Coffee machine"
-msgstr "Coffee machine"
+msgstr "Machine à café"
 
 msgid "Dishwasher"
 msgstr "Lave-vaisselle"
 
 msgid "Liter"
-msgstr "Liter"
+msgstr "Litre"
 
 msgid "Liters"
 msgstr "Litres"
 
 msgid "Bottle"
-msgstr "Bottle"
+msgstr "Bouteille"
 
 msgid "Bottles"
-msgstr "Bottles"
+msgstr "Bouteilles"
 
 msgid "Milk"
 msgstr "Lait"
 
 msgid "Chocolate sauce"
-msgstr "Chocolate sauce"
+msgstr "Coulis de chocolat"
 
 msgid "Milliliters"
 msgstr "Millilitres"
 
 msgid "Milliliter"
-msgstr "Milliliter"
+msgstr "Millilitre"
 
 msgid "Bottom"
-msgstr "Bottom"
+msgstr "Dessous"
 
 msgid "Topping"
-msgstr "Topping"
+msgstr "Garniture"
 
 msgid "French"
 msgstr "Français"
 
 msgid "Turkish"
-msgstr "Turkish"
+msgstr "Turque"
 
 msgid "Spanish"
-msgstr "Spanish"
+msgstr "Espagnol"
 
 msgid "Russian"
-msgstr "Russian"
+msgstr "Russe"
 
 msgid "The thing which happens on the 5th of every month"
-msgstr "The thing which happens on the 5th of every month"
+msgstr "La chose qui se répète le 5 de chaque mois"
 
 msgid "The thing which happens daily"
-msgstr "The thing which happens daily"
+msgstr "La chose qui se répète chaque jour"
 
 msgid "The thing which happens on Mondays and Wednesdays"
-msgstr "The thing which happens on Mondays and Wednesdays"
+msgstr "La chose qui se répète les lundis et mercredis"
 
 msgid "Swedish"
-msgstr "Swedish"
+msgstr "Suédois"
 
 msgid "Polish"
-msgstr "Polish"
+msgstr "Polonais"
 
 msgid "Milk Chocolate"
-msgstr "Milk Chocolate"
+msgstr "Chocolat au lait"
 
 msgid "Dark Chocolate"
-msgstr "Dark Chocolate"
+msgstr "Chocolat noir"
 
 msgid "Slice"
 msgid_plural "Slices"
 msgstr[0] "Slice"
-msgstr[1] "Slices"
+msgstr[1] "Tranches"
 
 msgid "Example userentity"
-msgstr "Example userentity"
+msgstr "Exemple d'entité utilisateur"
 
 msgid "This is an example user entity..."
-msgstr "This is an example user entity..."
+msgstr "Ceci est un exemple d'entité utilisateur"
 
 msgid "Custom field"
-msgstr "Custom field"
+msgstr "Champ personnalisé"
 
 msgid "Example field value..."
-msgstr "Example field value..."
+msgstr "Exemple de valeur de champ..."
 
 msgid "Waffle rolls"
-msgstr "Waffle rolls"
+msgstr "Gaufrettes roulées"
 
 msgid "Danish"
-msgstr "Danish"
+msgstr "Danois"
 
 msgid "Dutch"
-msgstr "Dutch"
+msgstr "Néerlandais"
 
 msgid "Norwegian"
-msgstr "Norwegian"
+msgstr "Norvégien"
 
 msgid "Demo"
-msgstr "Demo"
+msgstr "Démo"
 
 msgid "Stable version"
-msgstr "Stable version"
+msgstr "Version stable"
 
 msgid "Preview version"
-msgstr "Preview version"
+msgstr "Version d'aperçu"
 
 msgid "current release"
-msgstr "current release"
+msgstr "Version actuelle"
 
 msgid "not yet released"
 msgstr "not yet released"
 
 msgid "Portuguese (Brazil)"
-msgstr "Portuguese (Brazil)"
+msgstr "Portugais (Brésil)"
 
 msgid "This is a note"
-msgstr "This is a note"
+msgstr "Ceci est une note"
 
 msgid "Freezer"
-msgstr "Freezer"
+msgstr "Congélateur"
 
 msgid "Hungarian"
-msgstr "Hungarian"
+msgstr "Hongrois"
 
 msgid "Slovak"
-msgstr "Slovak"
+msgstr "Slovaque"
 
 msgid "Czech"
-msgstr "Czech"
+msgstr "Tchèque"
 
 msgid "Portuguese (Portugal)"
-msgstr "Portuguese (Portugal)"
+msgstr "Portugais (Portugal)"
 
 # Use a in your country well known supermarket name
 msgid "DemoSupermarket1"
@@ -366,10 +369,10 @@ msgid "DemoSupermarket2"
 msgstr "DemoSupermarket2"
 
 msgid "Japanese"
-msgstr "Japanese"
+msgstr "Japonais"
 
 msgid "Chinese (Taiwan)"
-msgstr "Chinese (Taiwan)"
+msgstr "Chinois (Taïwan)"
 
 msgid "Greek"
 msgstr "Grec"
@@ -378,7 +381,13 @@ msgid "Korean"
 msgstr "Coréen"
 
 msgid "Chinese (China)"
-msgstr ""
+msgstr "Chinois (Chine)"
 
 msgid "Hebrew (Israel)"
+msgstr "Hébreux (Israël)"
+
+msgid "Tamil"
+msgstr ""
+
+msgid "Finnish"
 msgstr ""

@@ -1,0 +1,2170 @@
+# 
+# Translators:
+# Sathish K <sathishkk@sathishkumark.com>, 2019
+# Aswin Kumar, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Aswin Kumar, 2020\n"
+"Language-Team: Tamil (https://www.transifex.com/grocy/teams/93189/ta/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ta\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/strings\n"
+
+msgid "Stock overview"
+msgstr "இருப்பு கண்ணோட்டம்"
+
+msgid "%s product expires"
+msgid_plural "%s products expiring"
+msgstr[0] "%s பொருள் காலாவதியாகின்றது"
+msgstr[1] "%s பொருட்கள் காலாவதியாகின்றன"
+
+msgid "within the next day"
+msgid_plural "within the next %s days"
+msgstr[0] "நாளையிற்குள்"
+msgstr[1] "அடுத்த %s நாட்களிற்குள்"
+
+msgid "%s product is already expired"
+msgid_plural "%s products are already expired"
+msgstr[0] "%s பொருள் காலாவதியாகிவிட்டது"
+msgstr[1] "%s பொருட்கள் காலாவதியாகிவிட்டன"
+
+msgid "%s product is overdue"
+msgid_plural "%s products are overdue"
+msgstr[0] "%s பொருளை வாங்க வேண்டும்"
+msgstr[1] "%s பொருட்களை வாங்க வேண்டும்"
+
+msgid "%s product is below defined min. stock amount"
+msgid_plural "%s products are below defined min. stock amount"
+msgstr[0] "குறிப்பிட்ட கையிருப்பு அளவினை விட குறைவான %s பொருள்"
+msgstr[1] "குறிப்பிட்ட கையிருப்பு அளவினை விட குறைவான %s பொருட்கள்"
+
+msgid "Product"
+msgstr "பொருள்"
+
+msgid "%s Product"
+msgid_plural "%s Products"
+msgstr[0] "%s பொருள்"
+msgstr[1] "%s பொருட்கள்"
+
+msgid "Amount"
+msgstr "மொத்தம்"
+
+msgid "Logout"
+msgstr "வெளியேறு"
+
+msgid "Chores overview"
+msgstr "பணிகளின் கண்ணோட்டம்"
+
+msgid "Batteries overview"
+msgstr "மின்கலங்களின் கண்ணோட்டம்"
+
+msgid "Purchase"
+msgstr "வாங்கியது"
+
+msgid "Consume"
+msgstr "பயன்படுத்தியது"
+
+msgid "Inventory"
+msgstr "இருப்பு"
+
+msgid "Shopping list"
+msgstr "வாங்க வேண்டியவை"
+
+msgid "Chore tracking"
+msgstr "பணியின் கண்காணிப்பு"
+
+msgid "Battery tracking"
+msgstr "மின்கல கண்காணிப்பு"
+
+msgid "Locations"
+msgstr "இடங்கள்"
+
+msgid "Stores"
+msgstr "கடைகள்"
+
+msgid "Quantity units"
+msgstr "அளவு அலகுகள்"
+
+msgid "Chores"
+msgstr "வேலைகள்"
+
+msgid "Batteries"
+msgstr "மின்கலங்கள்"
+
+msgid "Chore"
+msgstr "வேலை"
+
+msgid "Next estimated tracking"
+msgstr "அடுத்த மதிப்பிடப்பட்ட கண்காணிப்பு"
+
+msgid "Last tracked"
+msgstr "கடைசியாக கண்காணிக்கப்பட்டது"
+
+msgid "Battery"
+msgstr "மின்கலம்"
+
+msgid "Last charged"
+msgstr "கடைசியாக  திறனேற்றப்பட்டது"
+
+msgid "Next planned charge cycle"
+msgstr "அடுத்த திட்டமிடப்பட்ட சக்தியேற்றல்"
+
+msgid "Best before"
+msgstr "நாளிற்கு முன் சிறந்தது"
+
+msgid "OK"
+msgstr "சரி"
+
+msgid "Product overview"
+msgstr "பொருளின் கண்ணோட்டம்"
+
+msgid "Stock quantity unit"
+msgstr "கையிருப்பு அளவு அலகு"
+
+msgid "Stock amount"
+msgstr "இருப்பு அளவு"
+
+msgid "Last purchased"
+msgstr "கடைசியாக வாங்கப்பட்டது"
+
+msgid "Last used"
+msgstr "கடைசியாக பயன்படுத்தப்பட்டது"
+
+msgid "Spoiled"
+msgstr "கெட்டு விட்டது"
+
+msgid "Barcode lookup is disabled"
+msgstr "பார்கோடின் தேடுதலினை செயலிழக்க செய்"
+
+msgid ""
+"will be added to the list of barcodes for the selected product on submit"
+msgstr ""
+
+msgid "New amount"
+msgstr "புதிய அளவு"
+
+msgid "Note"
+msgstr "குறிப்பு"
+
+msgid "Tracked time"
+msgstr "தடப்படுத்தப்படும் காலம்"
+
+msgid "Chore overview"
+msgstr "பணியின் கண்ணோட்டம்"
+
+msgid "Tracked count"
+msgstr "தடப்படுபவையின் எண்ணிக்கை"
+
+msgid "Battery overview"
+msgstr "மின்கலக் கண்ணோட்டம்"
+
+msgid "Charge cycles count"
+msgstr "மின்கல சக்தியேற்றலின் எண்ணிக்கை"
+
+msgid "Create shopping list item"
+msgstr "வாங்க வேண்டிய பொருளினை உருவாக்கு"
+
+msgid "Edit shopping list item"
+msgstr "வாங்க வேண்டிய பொருளினைத் தொகு"
+
+msgid "Save"
+msgstr "சேமி"
+
+msgid "Add"
+msgstr "சேர்"
+
+msgid "Name"
+msgstr "பெயர்"
+
+msgid "Location"
+msgstr "இடம்"
+
+msgid "Min. stock amount"
+msgstr "குறைந்தபட்ச இருப்பு அளவு"
+
+msgid "Description"
+msgstr "விவரணம்"
+
+msgid "Create product"
+msgstr "பொருளினை உருவாக்கு"
+
+msgid "Barcode(s)"
+msgstr "பார்கோடு(கள்)"
+
+msgid "Minimum stock amount"
+msgstr "குறைந்தபட்ச இருப்பு அளவு"
+
+msgid "Default best before days"
+msgstr "இயல்நிலை நாட்களுக்கு முன் சிறந்தது"
+
+msgid "Default quantity unit purchase"
+msgstr ""
+
+msgid "Quantity unit stock"
+msgstr "அளவு அலகு கையிருப்பு"
+
+msgid "Factor purchase to stock quantity unit"
+msgstr ""
+
+msgid "Create location"
+msgstr "இடத்தை உருவாக்கவும்"
+
+msgid "Create store"
+msgstr "கடையினை உருவாக்கு"
+
+msgid "Create quantity unit"
+msgstr "கொள்ளளவு அலகினை உருவாக்கவும்"
+
+msgid "Period type"
+msgstr "கால வகை"
+
+msgid "Period days"
+msgstr "கால நாட்கள்"
+
+msgid "Create chore"
+msgstr "வேலையினை உருவாக்கு"
+
+msgid "Used in"
+msgstr "இங்கு பயன்படுத்தப்படுகிறது"
+
+msgid "Create battery"
+msgstr "மின்கலத்தினை உருவாக்கு"
+
+msgid "Edit battery"
+msgstr "மின்கலத்தினைத் தொகு"
+
+msgid "Edit chore"
+msgstr "வேலையினைத் தொகு"
+
+msgid "Edit quantity unit"
+msgstr "கொள்ளளவு அலகினை தொகுக்கவும்"
+
+msgid "Edit product"
+msgstr "பொருளினைத் தொகு"
+
+msgid "Edit location"
+msgstr "இடத்தினைத் தொகு"
+
+msgid "Edit store"
+msgstr "கடையினைத் தொகு"
+
+msgid "Record data"
+msgstr "தரவுகளைப் பதிவிடு"
+
+msgid "Manage master data"
+msgstr "பிரதான தரவுகளை நிர்வகிக்கவும்"
+
+msgid "This will apply to added products"
+msgstr ""
+
+msgid "never"
+msgstr "ஒருபோதும் இல்லை"
+
+msgid "Add products that are below defined min. stock amount"
+msgstr ""
+
+msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
+msgstr ""
+
+msgid "Login"
+msgstr "புகுபதிகையிடு"
+
+msgid "Username"
+msgstr "பயனர்பெயர்"
+
+msgid "Password"
+msgstr "கடவுச்சொல்"
+
+msgid "Invalid credentials, please try again"
+msgstr "தவறான ஆதாரச்சான்றுகள், மீண்டும் முயற்சிக்கவும்"
+
+msgid "Are you sure to delete battery \"%s\"?"
+msgstr "\"%s\" மின்கலத்தினை நீக்க உறுதியா?"
+
+msgid "Yes"
+msgstr "ஆமாம்"
+
+msgid "No"
+msgstr "இல்லை"
+
+msgid "Are you sure to delete chore \"%s\"?"
+msgstr "\"%s\" வேலையினை நீக்க உறுதியா?"
+
+msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
+msgstr ""
+
+msgid "Create or assign product"
+msgstr "பொருளினை உருவாக்கு அல்லது நிறுவு"
+
+msgid "Cancel"
+msgstr "ரத்துசெய்"
+
+msgid "Add as new product"
+msgstr "புதிய பொருளாக சேர்"
+
+msgid "Add as barcode to existing product"
+msgstr ""
+
+msgid "Add as new product and prefill barcode"
+msgstr "புதிய பொருளாக சேர் மற்றும் பார்கோடு விவரங்களை முன்னமே பட்டியலிடு"
+
+msgid "Are you sure to delete quantity unit \"%s\"?"
+msgstr ""
+
+msgid "Are you sure to delete product \"%s\"?"
+msgstr "\"%s\" பொருளினை நீக்க உறுதியா?"
+
+msgid "Are you sure to delete location \"%s\"?"
+msgstr "\"%s\" இடத்தினை நீக்க உறுதியா?"
+
+msgid "Are you sure to delete store \"%s\"?"
+msgstr "\"%s\" கடையினை நீக்க உறுதியா?"
+
+msgid "Manage API keys"
+msgstr "API விசைகளை நிர்வகிக்கவும்"
+
+msgid "REST API & data model documentation"
+msgstr "REST API & தரவுகள் ஆவணப்படுத்துதல்"
+
+msgid "API keys"
+msgstr "API விசைகள்"
+
+msgid "Create new API key"
+msgstr "புதிய API விசையினை உருவாக்கவும்"
+
+msgid "API key"
+msgstr "API விசை"
+
+msgid "Expires"
+msgstr "காலாவதியாகும் நாள்"
+
+msgid "Created"
+msgstr "உருவாக்கப்பட்டது"
+
+msgid "This product is not in stock"
+msgstr "இந்த பொருள் இருப்பில் இல்லை"
+
+msgid "This means %s will be added to stock"
+msgstr "%s கையிருப்பில் சேர்க்கப்படும்"
+
+msgid "This means %s will be removed from stock"
+msgstr "%s கையிருப்பிலிருந்து விலக்கப்படும்"
+
+msgid ""
+"This means the next execution of this chore is scheduled %s days after the "
+"last execution"
+msgstr ""
+
+msgid "Removed %1$s of %2$s from stock"
+msgstr "கையிருப்பிலிருந்து %2$s இன் %1$s நீக்கப்பட்டது"
+
+msgid "About grocy"
+msgstr "குரோசி பற்றி"
+
+msgid "Close"
+msgstr "மூடு"
+
+msgid "Released on"
+msgstr "வெளியிடப்பட்ட நாள்"
+
+msgid "Added %1$s of %2$s to stock"
+msgstr "கையிருப்பில் %2$s இல் %1$s சேர்க்கப்பட்டது"
+
+msgid "Stock amount of %1$s is now %2$s"
+msgstr ""
+
+msgid "Tracked execution of chore %1$s on %2$s"
+msgstr ""
+
+msgid "Tracked charge cycle of battery %1$s on %2$s"
+msgstr ""
+
+msgid "Consume all %s which are currently in stock"
+msgstr "இருப்பில் உள்ள %s அனைத்தையும் உண்"
+
+msgid "All"
+msgstr "அனைத்தும்"
+
+msgid "Search"
+msgstr "தேடுங்கள்"
+
+msgid "Not logged in"
+msgstr "உள்நுழையவில்லை"
+
+msgid "You have to select a product"
+msgstr "நீங்கள் ஒரு பொருளினைத் தேர்ந்தெடுக்க வேண்டும்"
+
+msgid "You have to select a chore"
+msgstr "நீங்கள் ஒரு பணியினைத் தேர்ந்தெடுக்க வேண்டும்"
+
+msgid "You have to select a battery"
+msgstr "நீங்கள் ஒரு மின்கலத்தினைத் தேர்ந்தெடுக்க வேண்டும்"
+
+msgid "A name is required"
+msgstr "ஒரு பெயர் தேவை"
+
+msgid "A location is required"
+msgstr "ஒரு இடம் தேவை"
+
+msgid "A quantity unit is required"
+msgstr "ஒரு அளவு அலகு தேவை"
+
+msgid "A period type is required"
+msgstr "ஒரு கால வகை தேவைப்படுகிறது"
+
+msgid "A best before date is required"
+msgstr "எந்த நாளிற்கு முன் சிறந்தது என குறிப்பிடல் வேண்டும்"
+
+msgid "Settings"
+msgstr "அமைப்புகள்"
+
+msgid "This can only be before now"
+msgstr "இது முன்னராக மட்டுமே இருக்க இயலும்"
+
+msgid "Calendar"
+msgstr "நாட்காட்டி"
+
+msgid "Recipes"
+msgstr "சமையல் குறிப்புகள்"
+
+msgid "Edit recipe"
+msgstr "சமையல் குறிப்பினைத் தொகு"
+
+msgid "Ingredients list"
+msgstr "தேவையான பொருட்களின் பட்டியல்"
+
+msgid "Add recipe ingredient"
+msgstr "சமையல் குறிப்பின் மூலப்பொருளினை இணை"
+
+msgid "Edit recipe ingredient"
+msgstr "சமையல் குறிப்பின் மூலப்பொருட்களைத் தொகு"
+
+msgid "Are you sure to delete recipe \"%s\"?"
+msgstr "\"%s\" சமையல் குறிப்பினை நீக்க உறுதியா?"
+
+msgid "Are you sure to delete recipe ingredient \"%s\"?"
+msgstr ""
+
+msgid "Are you sure to empty shopping list \"%s\"?"
+msgstr "\"%s\" வாங்க வேண்டியவை பட்டியலில் உள்ளவற்றினை நீக்க உறுதியா?"
+
+msgid "Clear list"
+msgstr "பட்டியலினை முதன்மைப்படுத்து"
+
+msgid "Requirements fulfilled"
+msgstr "தேவைகள் பூர்திசெய்யப்பட்டுள்ளன"
+
+msgid "Put missing products on shopping list"
+msgstr "காலியாகிய பொருட்களினை வாங்கும் பட்டியலில் இணை"
+
+msgid "Enough in stock"
+msgstr "போதுமானதாக கையிருப்பில் உள்ளது"
+
+msgid ""
+"Not enough in stock, %s ingredient missing but already on the shopping list"
+msgid_plural ""
+"Not enough in stock, %s ingredients missing but already on the shopping list"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Expand to fullscreen"
+msgstr "முழுத்திரையிற்கு விரிவாக்கு"
+
+msgid "Ingredients"
+msgstr "தேவையான பொருட்கள்"
+
+msgid "Preparation"
+msgstr "தயாரிப்பு"
+
+msgid "Recipe"
+msgstr "சமையல் குறிப்பு"
+
+msgid "Not enough in stock, %1$s missing, %2$s already on shopping list"
+msgstr ""
+
+msgid "Show notes"
+msgstr "குறிப்புகளைக் காட்டு"
+
+msgid "Put missing amount on shopping list"
+msgstr "விடுபட்டுள்ள தொகையை வாங்க வேண்டியவை பட்டியலில் சேர்"
+
+msgid ""
+"Are you sure to put all missing ingredients for recipe \"%s\" on the "
+"shopping list?"
+msgstr ""
+
+msgid "Added for recipe %s"
+msgstr "%sசமையல் குறிப்பில் இணைக்கப்பட்டது"
+
+msgid "Manage users"
+msgstr "பயனர்களை நிர்வகிக்கவும்"
+
+msgid "User"
+msgstr "பயனர்"
+
+msgid "Users"
+msgstr "பயனர்கள்"
+
+msgid "Are you sure to delete user \"%s\"?"
+msgstr "\"%s\" பயனரினை நீக்க உறுதியா?"
+
+msgid "Create user"
+msgstr "பயனரை உருவாக்கு"
+
+msgid "Edit user"
+msgstr "பயனரை மாற்று"
+
+msgid "First name"
+msgstr "முதன்மை பெயர்"
+
+msgid "Last name"
+msgstr "விகுதி பெயர்"
+
+msgid "A username is required"
+msgstr "பயனர் பெயர் தேவை"
+
+msgid "Confirm password"
+msgstr "கடவுச் சொல் உறுதி செய்யவும்"
+
+msgid "Passwords do not match"
+msgstr "கடவுச்சொற்கள் பொருந்தவில்லை"
+
+msgid "Change password"
+msgstr "கடவுச்சொல்லை மாற்றவும்"
+
+msgid "Done by"
+msgstr "ஆல் முடிக்கப்பட்டது"
+
+msgid "Last done by"
+msgstr "கடைசியாக செய்தவர்"
+
+msgid "Unknown"
+msgstr "தெரியாதது"
+
+msgid "Chores journal"
+msgstr "பணிகளின் நாளேடு"
+
+msgid "0 means suggestions for the next charge cycle are disabled"
+msgstr ""
+
+msgid "Charge cycle interval (days)"
+msgstr "மின்கல சக்தியேற்ற இடைவெளி (நாட்கள்)"
+
+msgid "Last price"
+msgstr "முந்தைய விலை"
+
+msgid "Price history"
+msgstr "விலை வரலாறு"
+
+msgid "No price history available"
+msgstr "விலை வரலாறு இருக்கவில்லை"
+
+msgid "Price"
+msgstr "விலை"
+
+msgid "Unit"
+msgstr "அலகு"
+
+msgid "%s Unit"
+msgid_plural "%s Units"
+msgstr[0] "%s அலகு"
+msgstr[1] "%s அலகுகள்"
+
+msgid "%s chore is due to be done"
+msgid_plural "%s chores are due to be done"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s chore is overdue to be done"
+msgid_plural "%s chores are overdue to be done"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s battery is due to be charged"
+msgid_plural "%s batteries are due to be charged"
+msgstr[0] "%s மின்கலம் சக்தியேற்றப்பட வேண்டும்"
+msgstr[1] "%s மின்கலங்கள் சக்தியேற்றப்பட வேண்டும்"
+
+msgid "%s battery is overdue to be charged"
+msgid_plural "%s batteries are overdue to be charged"
+msgstr[0] "%s மின்கலம் சக்தியேற்றப்பட வேண்டும்"
+msgstr[1] "%s மின்கலங்கள் சக்தியேற்றப்பட வேண்டும்"
+
+msgid "in singular form"
+msgstr "ஒருமை வடிவத்தில்"
+
+msgid "Quantity unit"
+msgstr "அளவு அலகு"
+
+msgid "Only check if any amount is in stock"
+msgstr ""
+
+msgid ""
+"Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
+" marked with \"only check if any amount is in stock\" will be ignored)?"
+msgstr ""
+
+msgid "Removed all ingredients of recipe \"%s\" from stock"
+msgstr ""
+
+msgid "Consume all ingredients needed by this recipe"
+msgstr "சமையல் குறிப்பிலுள்ள அனைத்து பொருட்களையும் உண்"
+
+msgid "Click to show technical details"
+msgstr "நுட்ப விவரங்களைப் பார்க்க இங்கு சொடுக்கவும்"
+
+msgid "Error while saving, probably this item already exists"
+msgstr ""
+"சேமிக்கும் போது பிழை ஏற்பட்டது, இந்த பொருள் ஏற்கனவே பதிவு "
+"செய்யப்பட்டிருக்கலாம்"
+
+msgid "Error details"
+msgstr "பிழையின் விவரங்கள்"
+
+msgid "Tasks"
+msgstr "பணிகள்"
+
+msgid "Show done tasks"
+msgstr "முடிந்த பணிகளைக் காட்டு"
+
+msgid "Task"
+msgstr "பணி"
+
+msgid "Due"
+msgstr "உரிய"
+
+msgid "Assigned to"
+msgstr "இவருக்கு நிச்சியக்கப்பட்டுள்ளது"
+
+msgid "Mark task \"%s\" as completed"
+msgstr "\"%s\" பணியினை முடித்ததாகக் குறிக்கவும்"
+
+msgid "Uncategorized"
+msgstr "வகைப்படுத்தப்படவில்லை"
+
+msgid "Task categories"
+msgstr "பணி பகுப்புகள்"
+
+msgid "Create task"
+msgstr "பணியினை உருவாக்கு"
+
+msgid "A due date is required"
+msgstr "உரிய கடைசி தேதி தேவை"
+
+msgid "Category"
+msgstr "பகுப்பு"
+
+msgid "Edit task"
+msgstr "பணியினை தொகு"
+
+msgid "Are you sure to delete task \"%s\"?"
+msgstr "\"%s\" பணியினை நீக்க உறுதியா?"
+
+msgid "%s task is due to be done"
+msgid_plural "%s tasks are due to be done"
+msgstr[0] "%s வேலையினை முடிக்க வேண்டும்"
+msgstr[1] "%s வேலைகளை முடிக்க வேண்டும்"
+
+msgid "%s task is overdue to be done"
+msgid_plural "%s tasks are overdue to be done"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Edit task category"
+msgstr "பணியின் பகுப்பினைத் தொகு"
+
+msgid "Create task category"
+msgstr "பணியின் பகுப்பினை உருவாக்கு"
+
+msgid "Product groups"
+msgstr "பொருட்களின் குழுக்கள்"
+
+msgid "Ungrouped"
+msgstr "குழுவாக்கப்படாதவை"
+
+msgid "Create product group"
+msgstr "பொருட்கள் குழுவினை உருவாக்கு"
+
+msgid "Edit product group"
+msgstr "பொருட்கள் குழுவினைத் தொகு"
+
+msgid "Product group"
+msgstr "பொருட்களின் குழு"
+
+msgid "Are you sure to delete product group \"%s\"?"
+msgstr "\"%s\" பொருட்கள் குழுவினை நீக்க உறுதியா?"
+
+msgid "Stay logged in permanently"
+msgstr "என்றும் புகுபதிகையில் இரு"
+
+msgid "When not set, you will get logged out at latest after 30 days"
+msgstr ""
+
+msgid "Status"
+msgstr "நிலை"
+
+msgid "Below min. stock amount"
+msgstr "குறைந்தபட்ச இருப்பு அளவின் கீழ் உள்ளது"
+
+msgid "Expiring soon"
+msgstr "விரைவில் காலாவதியாகிறது"
+
+msgid "Already expired"
+msgstr "காலாவதியாகிவிட்டது"
+
+msgid "Due soon"
+msgstr "சீக்கிரம் முடியவுள்ளது"
+
+msgid "Overdue"
+msgstr "முடிக்கவேண்டியவை"
+
+msgid "View settings"
+msgstr "அமைப்புகளைக் காண்க"
+
+msgid "Auto reload on external changes"
+msgstr "வெளிப்புற மாற்றங்களில் தானாக மீண்டும் ஏற்றவும்"
+
+msgid "Enable night mode"
+msgstr "இரவு பயன்முறையை செயல்படுத்து"
+
+msgid "Auto enable in time range"
+msgstr ""
+
+msgid "From"
+msgstr "இங்கிருந்து"
+
+msgid "in format"
+msgstr "வடிவத்தில்"
+
+msgid "To"
+msgstr "இங்கு"
+
+msgid "Time range goes over midnight"
+msgstr "நேர வரம்பு நள்ளிரவுக்கு மேல் செல்கிறது"
+
+msgid "Product picture"
+msgstr "பொருளின் படம்"
+
+msgid "No file selected"
+msgstr "எந்த கோப்பும் தேர்வு செய்யப்படவில்லை"
+
+msgid "Delete"
+msgstr "நீக்கவும்"
+
+msgid "The current picture will be deleted when you save the product"
+msgstr ""
+
+msgid "Select file"
+msgstr "கோப்பைத் தேர்ந்தெடுக்கவும்"
+
+msgid "Image of product %s"
+msgstr "%sபொருளின் படம்"
+
+msgid "Deletion not possible"
+msgstr "நீக்க இயலாது"
+
+msgid "Equipment"
+msgstr "கருவி"
+
+msgid "Instruction manual"
+msgstr "உதவி வழிகாட்டி"
+
+msgid "The selected equipment has no instruction manual"
+msgstr "இந்தக் கருவிக்கு உதவி வழிக்காட்டி கிடைக்கவில்லை"
+
+msgid "Notes"
+msgstr "குறிப்புகள்"
+
+msgid "Edit equipment"
+msgstr "கருவியை மாற்றவும்"
+
+msgid "Create equipment"
+msgstr "கருவியை உருவாக்கவும்"
+
+msgid "No instruction manual available"
+msgstr "உதவி வழிக்காட்டிகள் கிடைக்கப் பெறவில்லை"
+
+msgid ""
+"The current instruction manual will be deleted when you save the equipment"
+msgstr ""
+
+msgid "No picture available"
+msgstr "படம் ஏதும் இல்லை"
+
+msgid "Presets for new products"
+msgstr "புதிய பொருட்களிற்கான முன்னமைவுகள்"
+
+msgid "Included recipes"
+msgstr "கொடுக்கப்பட்டுள்ள சமையல் குறிப்புகள்"
+
+msgid "A recipe is required"
+msgstr "ஒரு சமையல் குறிப்பு தேவை"
+
+msgid "Add included recipe"
+msgstr ""
+
+msgid "Edit included recipe"
+msgstr "கொடுக்கப்பட்டுள்ள சமையல் குறிப்பினைத் தொகு"
+
+msgid "Group"
+msgstr "குழு"
+
+msgid "This will be used as a headline to group ingredients together"
+msgstr ""
+
+msgid "Journal"
+msgstr "நாளேடு"
+
+msgid "Stock journal"
+msgstr "இருப்பு நாளேடு"
+
+msgid "Undone on"
+msgstr "அன்று மீளமைக்கப்பட்டது"
+
+msgid "Batteries journal"
+msgstr "மின்கல நாளேடு"
+
+msgid "Undo charge cycle"
+msgstr "சக்தியேற்றலினை மீளமை"
+
+msgid "Undo chore execution"
+msgstr "பணி முடிவினை மீளமை"
+
+msgid "Chore execution successfully undone"
+msgstr ""
+
+msgid "Undo"
+msgstr "மீளமை"
+
+msgid "Booking successfully undone"
+msgstr "பதிவு வெற்றிகரமாக மீளமைக்கப்பட்டது"
+
+msgid "Charge cycle successfully undone"
+msgstr "சக்தியேற்றம் வெற்றிகரமாக மீளமைக்கப்பட்டது"
+
+msgid "Disable stock fulfillment checking for this ingredient"
+msgstr ""
+
+msgid "Add all list items to stock"
+msgstr "பட்டியலிலுள்ள அனைத்து பொருட்களையும் இருப்பில் சேர்"
+
+msgid "Add %1$s of %2$s to stock"
+msgstr "கையிருப்பில் %2$s இன் %1$s இனைச் சேர்"
+
+msgid "Adding shopping list item %1$s of %2$s"
+msgstr ""
+
+msgid "Use a specific stock item"
+msgstr "குறிப்பிட்ட கையிருப்பு பொருளினை பயன்படுத்து"
+
+msgid ""
+"The first item in this list would be picked by the default rule which is "
+"\"Opened first, then first due first, then first in first out\""
+msgstr ""
+
+msgid "Mark %1$s of %2$s as open"
+msgstr "%2$s இல் %1$s இனை திறக்கப்பட்டதாக குறி"
+
+msgid "Marked %1$s of %2$s as opened"
+msgstr "%2$s இல் %1$s திறக்கப்பட்டதாக குறிக்கப்பட்டது"
+
+msgid "Mark as opened"
+msgstr "திறந்ததாக குறிக்கவும்"
+
+msgid "Not opened"
+msgstr "திறக்கப்படவில்லை"
+
+msgid "Opened"
+msgstr "திறக்கப்பட்டுவிட்டது"
+
+msgid "%s opened"
+msgstr "%s திறக்கப்பட்டது"
+
+msgid "Product due"
+msgstr ""
+
+msgid "Task due"
+msgstr "பணியினை முடிக்க"
+
+msgid "Chore due"
+msgstr "முடிக்க வேண்டிய வேலைகள்"
+
+msgid "Battery charge cycle due"
+msgstr ""
+
+msgid "Show clock in header"
+msgstr "தலைப்பில் கடிகாரத்தினைக் காட்டு"
+
+msgid "Stock settings"
+msgstr "இருப்பின் அமைப்புகள்"
+
+msgid "Shopping list to stock workflow"
+msgstr "வாங்க வேண்டியவை பட்டியலிலிருந்து கையிருப்பு பணிப்பாய்வு"
+
+msgid "Skip"
+msgstr "தவிர்"
+
+msgid "Servings"
+msgstr "பரிமாறல்கள்"
+
+msgid "Costs"
+msgstr "செலவுகள்"
+
+msgid "Based on the prices of the last purchase per product"
+msgstr "பொருள் வாரியாக கடைசியாக வாங்கிய விலைகளின் அடிப்படையில்"
+
+msgid "The ingredients listed here result in this amount of servings"
+msgstr ""
+
+msgid "Do not check against the shopping list when adding missing items to it"
+msgstr ""
+
+msgid ""
+"By default the amount to be added to the shopping list is \"needed amount - "
+"stock amount - shopping list amount\" - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+msgstr ""
+
+msgid "Picture"
+msgstr "படம்"
+
+msgid "Uncheck ingredients to not put them on the shopping list"
+msgstr ""
+
+msgid "This is for statistical purposes only"
+msgstr "புள்ளிவிவர நோக்கத்திற்கு மட்டுமே பயன்படுத்தப்படும்"
+
+msgid "You have to select a recipe"
+msgstr "நீங்கள் ஒரு சமையல் குறிப்பினைத் தேர்ந்தெடுக்க வேண்டும்"
+
+msgid "Key type"
+msgstr "கீ வகை"
+
+msgid "Share/Integrate calendar (iCal)"
+msgstr "நாளிதழினை பகிர்/இணை (iCal)"
+
+msgid ""
+"Use the following (public) URL to share or integrate the calendar in iCal "
+"format"
+msgstr ""
+
+msgid "Allow partial units in stock"
+msgstr "கையிருப்பில் பகுதியளவிலான அலகுகளையும் அனுமதி"
+
+msgid "Enable tare weight handling"
+msgstr ""
+
+msgid ""
+"This is useful e.g. for flour in jars - on purchase/consume/inventory you "
+"always weigh the whole jar, the amount to be posted is then automatically "
+"calculated based on what is in stock and the tare weight defined below"
+msgstr ""
+
+msgid "Tare weight"
+msgstr "எடை"
+
+msgid ""
+"Tare weight handling enabled - please weigh the whole container, the amount "
+"to be posted will be automatically calculcated"
+msgstr ""
+
+msgid "You have to select a location"
+msgstr ""
+
+msgid "You have to select a store"
+msgstr "நீங்கள் ஒரு கடையினைத் தேர்ந்தெடுக்க வேண்டும்"
+
+msgid "List"
+msgstr "பட்டியல்"
+
+msgid "Gallery"
+msgstr "படங்கள்"
+
+msgid "The current picture will be deleted when you save the recipe"
+msgstr ""
+
+msgid "Journal for this battery"
+msgstr "இந்த மின்கலத்தின் நாளேடு"
+
+msgid "System info"
+msgstr "செயலி விவரம்"
+
+msgid "Changelog"
+msgstr "மாறுபாடு பட்டியல்"
+
+msgid "will be multiplied by a factor of %1$s to get %2$s"
+msgstr ""
+
+msgid "The given date is earlier than today, are you sure?"
+msgstr ""
+"கொடுக்கப்பட்ட தேதி இன்றை விட முந்தையது, நீங்கள் உறுதியாக இருக்கிறீர்களா?"
+
+msgid "Product count"
+msgstr "பொருள் எண்ணிக்கை"
+
+msgid ""
+"Type a new product name or barcode and hit TAB or ENTER to start a workflow"
+msgstr ""
+
+msgid ""
+"This will be used as the default setting when adding this product as a "
+"recipe ingredient"
+msgstr ""
+
+msgid "Add item"
+msgstr "உருப்படியைச் சேர்க்கவும்"
+
+msgid "Selected shopping list"
+msgstr "தேர்ந்தெடுக்கப்பட்ட வாங்க வேண்டியவைப் பட்டியல்"
+
+msgid "New shopping list"
+msgstr "புதிய வாங்க வேண்டியவைப் பட்டியல்"
+
+msgid "Delete shopping list"
+msgstr "வாங்க வேண்டியவைப் பட்டியலினை நீக்கு"
+
+msgid "Chores settings"
+msgstr "பணிகளின் அமைப்புகள்"
+
+msgid "Batteries settings"
+msgstr "மின்கலங்களின் அமைப்புகள்"
+
+msgid "Tasks settings"
+msgstr "பணி அமைப்புகள்"
+
+msgid "Create shopping list"
+msgstr "வாங்க வேண்டியவைப் பட்டியலினை உருவாக்கு"
+
+msgid "Are you sure to delete shopping list \"%s\"?"
+msgstr "\"%s\" வாங்க வேண்டியவை பட்டியலினை நீக்க உறுதியா?"
+
+msgid "Average shelf life"
+msgstr "சராசரி பொருளின் வாழ்க்கை"
+
+msgid "Spoil rate"
+msgstr "கெட்டுப்போகும் வேகம்"
+
+msgid "Show more"
+msgstr "மேலும் காட்டு"
+
+msgid "Show less"
+msgstr "குறைத்து காட்டு"
+
+msgid "The amount must be between %1$s and %2$s"
+msgstr "அளவு %1$s இற்கும் %2$s இற்கும் இடையில் இருக்க வேண்டும்"
+
+msgid "Day of month"
+msgstr "மாதத்தின் நாள்"
+
+msgid "Monday"
+msgstr "திங்கட்கிழமை"
+
+msgid "Tuesday"
+msgstr "செவ்வாய்க்கிழமை"
+
+msgid "Wednesday"
+msgstr "புதன்கிழமை"
+
+msgid "Thursday"
+msgstr "வியாழக்கிழமை"
+
+msgid "Friday"
+msgstr "வெள்ளிக்கிழமை"
+
+msgid "Saturday"
+msgstr "சனிக்கிழமை"
+
+msgid "Sunday"
+msgstr "ஞாயிற்றுக்கிழமை"
+
+msgid "Configure userfields"
+msgstr "பயனர்புலங்களை அமைத்திடு"
+
+msgid "Userfields"
+msgstr "பயனர்புலங்கள்"
+
+msgid "Entity"
+msgstr "உருபொருள்"
+
+msgid "Caption"
+msgstr "தலைப்பு"
+
+msgid "Type"
+msgstr "வகை"
+
+msgid "Create userfield"
+msgstr "பயனர்புலத்தினை உருவாக்கு"
+
+msgid "A entity is required"
+msgstr "ஒரு உருபொருள் தேவைப்படுகிறது"
+
+msgid "A caption is required"
+msgstr "ஒரு குறிப்பு தேவை"
+
+msgid "A type is required"
+msgstr "ஒரு வகை தேவைப்படுகிறது"
+
+msgid "Show as column in tables"
+msgstr "இதனை பட்டியலில் ஒரு நீளணியாகக் காட்டு"
+
+msgid "This is required and can only contain letters and numbers"
+msgstr ""
+
+msgid "Edit userfield"
+msgstr "பயனர்புலத்தினைத் தொகு"
+
+msgid "Plural forms"
+msgstr "பன்மை வடிவங்கள்"
+
+msgid "One plural form per line, the current language requires"
+msgstr ""
+
+msgid "Plural count"
+msgstr "பன்மை எண்ணிக்கை"
+
+msgid "Plural rule"
+msgstr "பன்மை விதி"
+
+msgid "in plural form"
+msgstr "பன்மை வடிவத்தில்"
+
+msgid "Not enough in stock, %s ingredient missing"
+msgid_plural "Not enough in stock, %s ingredients missing"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Not enough in stock, but already on the shopping list"
+msgstr ""
+"கையிருப்பில் போதுமானதாக இல்லை, ஆனால் ஏற்கனவே வாங்க வேண்டியவை பட்டியலில் "
+"உள்ளது"
+
+msgid "Not enough in stock"
+msgstr "கையிருப்பில் போதுமானதாக இல்லை"
+
+msgid "Expiring soon days"
+msgstr "விரைவில் காலாவதியாகப்போகும் நாட்கள்"
+
+msgid "Default location"
+msgstr "இயல்புநிலை இடம்"
+
+msgid "Default amount for purchase"
+msgstr "வாங்குவதற்கான இயல்நிலை மதிப்பு"
+
+msgid "Default amount for consume"
+msgstr "உண்பதற்கான இயல்நிலை மதிப்பு"
+
+msgid "Variable amount"
+msgstr "மாறி அளவு"
+
+msgid ""
+"When this is not empty, it will be shown instead of the amount entered above"
+" while the amount there will still be used for stock fulfillment checking"
+msgstr ""
+
+msgid "Track date only"
+msgstr "தட நாள் மட்டும்"
+
+msgid "When enabled only the day of an execution is tracked, not the time"
+msgstr ""
+
+msgid "Consume %1$s of %2$s"
+msgstr "%2$s இலிருந்து %1$s இனை உண்"
+
+msgid "Meal plan"
+msgstr "உணவுத்திட்டம்"
+
+msgid "Add recipe on %s"
+msgstr "%s இல் சமையல் குறிப்பினை இணை"
+
+msgid "%s serving"
+msgid_plural "%s servings"
+msgstr[0] "%s பரிமாறல்"
+msgstr[1] "%s பரிமாறல்கள்"
+
+msgid "Week costs"
+msgstr "வார செலவுகள்"
+
+msgid "Configuration"
+msgstr "உள்ளமைவு"
+
+msgid "A predefined list of values, one per line"
+msgstr "மதிப்புகளின் முன் வரையறுக்கப்பட்ட பட்டியல், ஒரு வரிக்கு ஒன்று"
+
+msgid "Products"
+msgstr "பொருட்கள்"
+
+msgid "Marked task %s as completed on %s"
+msgstr "வேலை %s %s அன்று முடிக்கப்பட்டதாக குறிக்கப்பட்டது"
+
+msgid "Booking has subsequent dependent bookings, undo not possible"
+msgstr ""
+
+msgid "per serving"
+msgstr "ஒவ்வொரு பரிமாறலிற்கும்"
+
+msgid "Never"
+msgstr "ஒருபோதும் இல்லை"
+
+msgid "Today"
+msgstr "இன்று"
+
+msgid "Consume %1$s of %2$s as spoiled"
+msgstr ""
+
+msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
+msgstr ""
+
+msgid "Undo task"
+msgstr ""
+
+msgid "Due date rollover"
+msgstr ""
+
+msgid ""
+"When enabled the chore can never be overdue, the due date will shift forward"
+" each day when due"
+msgstr ""
+
+msgid "Location Content Sheet"
+msgstr ""
+
+msgid "Print"
+msgstr "அச்சிடு"
+
+msgid "all locations"
+msgstr "அனைத்து இடங்கள்"
+
+msgid ""
+"Here you can print a page per location with the current stock, maybe to hang"
+" it there and note the consumed things on it"
+msgstr ""
+
+msgid "this location"
+msgstr "இந்த இடம்"
+
+msgid "Consumed amount"
+msgstr "உண்ட அளவு"
+
+msgid "Time of printing"
+msgstr "அச்சிடும் நேரம்"
+
+msgid "Are you sure to delete equipment \"%s\"?"
+msgstr ""
+
+msgid "Parent product"
+msgstr "மூலப் பொருள்"
+
+msgid ""
+"Not possible because this product is already used as a parent product in "
+"another product"
+msgstr ""
+
+msgid "Default conversions"
+msgstr "இயல்புநிலை மாற்றங்கள்"
+
+msgid "Factor"
+msgstr "மடங்கு"
+
+msgid "1 %s is the same as..."
+msgstr "1 %s இரண்டும் ஒன்று..."
+
+msgid "Create QU conversion"
+msgstr ""
+
+msgid "Default for QU"
+msgstr "QU இற்கான இயல்நிலை"
+
+msgid "Quantity unit from"
+msgstr "இந்த அளவு அலகு முதல்"
+
+msgid "Quantity unit to"
+msgstr "இந்த அளவு அலகிற்கு"
+
+msgid "This cannot be equal to %s"
+msgstr ""
+
+msgid "This means 1 %1$s is the same as %2$s %3$s"
+msgstr ""
+
+msgid "QU conversions"
+msgstr "QU மாற்றங்கள்"
+
+msgid "Product overrides"
+msgstr ""
+
+msgid "Override for product"
+msgstr ""
+
+msgid "This equals %1$s %2$s"
+msgstr "அதாவது %2$s இற்கு %1$s சமம்"
+
+msgid "Edit QU conversion"
+msgstr ""
+
+msgid "An assignment type is required"
+msgstr "ஒரு நிச்சயிக்கும் வகை தேவைப்படுகிறது"
+
+msgid "Assignment type"
+msgstr "நிச்சயித்தல் வகை"
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 day after the "
+"last execution"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 day after the "
+"last execution, but only for the weekdays selected below"
+msgstr ""
+
+msgid "This means the next execution of this chore is not scheduled"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore is scheduled on the below "
+"selected day of each month"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore will not be assigned to anyone"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore will be assigned to the one who "
+"executed it least"
+msgstr ""
+
+msgid "This means the next execution of this chore will be assigned randomly"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore will be assigned to the next one"
+" in alphabetical order"
+msgstr ""
+
+msgid "Assign to"
+msgstr "இவருக்கு நிச்சியி"
+
+msgid "This assignment type requires that at least one is assigned"
+msgstr ""
+
+msgid "%s chore is assigned to me"
+msgid_plural "%s chores are assigned to me"
+msgstr[0] "%s பணி எனக்கு நிச்சியக்கப்பட்டுள்ளது"
+msgstr[1] "%s பணிகள் எனக்கு நிச்சியக்கப்பட்டுள்ளன"
+
+msgid "Assigned to me"
+msgstr "எனக்கு நிச்சியக்கப்பட்டுள்ளவை"
+
+msgid "assigned to %s"
+msgstr "%sஇற்கு நிச்சியக்கப்பட்டது"
+
+msgid "Assignment"
+msgstr "பணி"
+
+msgid "Consume product on chore execution"
+msgstr "பணியின் முடிவில் பொருளினை உண்"
+
+msgid "Are you sure to delete user field \"%s\"?"
+msgstr ""
+
+msgid "Userentities"
+msgstr "பயனர் உருபொருட்கள்"
+
+msgid "Create userentity"
+msgstr "பயனர் உருபொருளினை உருவாக்கு"
+
+msgid "Show in sidebar menu"
+msgstr ""
+
+msgid "Edit userentity"
+msgstr "பயனர் உருபொருளினைத் தொகு"
+
+msgid "Edit %s"
+msgstr "%s இனைத் தொகு"
+
+msgid "Create %s"
+msgstr "%s இனை உருவாக்கு"
+
+msgid "Are you sure to delete this userobject?"
+msgstr ""
+
+msgid "Icon CSS class"
+msgstr "Icon CSS class"
+
+msgid "For example"
+msgstr "உதாரணத்திற்கு"
+
+msgid "Configure fields"
+msgstr "புலங்களை அமைத்திடு"
+
+msgid "Quantity unit plural form testing"
+msgstr ""
+
+msgid "Result"
+msgstr "முடிவு"
+
+msgid "Test plural forms"
+msgstr "பன்மை வடிவங்களை சோதி"
+
+msgid "Scan a barcode"
+msgstr "பார்கோடினை ஸ்கேன் செய்"
+
+msgid "Error while initializing the barcode scanning library"
+msgstr ""
+
+msgid ""
+"The resulting price of this ingredient will be multiplied by this factor"
+msgstr ""
+
+msgid "Price factor"
+msgstr "விலை மடங்கு"
+
+msgid "Do you find grocy useful?"
+msgstr "தங்களுக்கு குரோசி பயனுள்ளதாக உள்ளதா?"
+
+msgid "Say thanks"
+msgstr "நன்றி கூறு"
+
+msgid "Search for recipes containing this product"
+msgstr "இந்த பொருளினைக் கொண்ட சமையல் குறிப்புகளைத் தேடு"
+
+msgid "Add to shopping list"
+msgstr "வாங்க வேண்டியற்றில் சேர்"
+
+msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
+msgstr ""
+
+msgid "Output"
+msgstr "வெளியீடு"
+
+msgid "Energy (kcal)"
+msgstr "சக்தி (கிலோ கலோரிகள்)"
+
+msgid "Per stock quantity unit"
+msgstr "ஒவ்வொரு கையிருப்பு அளவு அலகிற்கும்"
+
+msgid "Barcode scanner testing"
+msgstr "பார்கோடு ஸ்கேனர் சோதனை"
+
+msgid "Expected barcode"
+msgstr "எதிர்பார்க்கும் பார்கோடு"
+
+msgid "Scan field"
+msgstr ""
+
+msgid "Scanned barcodes"
+msgstr "ஸ்கேன் செய்யப்பட்ட பார்கோடுகள்"
+
+msgid "Hit"
+msgstr "வெற்றி"
+
+msgid "Miss"
+msgstr "தவற விடு"
+
+msgid "Display recipe"
+msgstr "சமையல் குறிப்பினைக் காட்டு"
+
+msgid "Accumulate sub products min. stock amount"
+msgstr ""
+
+msgid ""
+"If enabled, the min. stock amount of sub products will be accumulated into "
+"this product, means the sub product will never be \"missing\", only this "
+"product"
+msgstr ""
+
+msgid "Are you sure to remove this conversion?"
+msgstr "இந்த மாற்றுதலினை நீக்க உறுதியா?"
+
+msgid "Unit price"
+msgstr "அலகு விலை"
+
+msgid "Total price"
+msgstr "மொத்தச் செலவு"
+
+msgid "in %s and based on the purchase quantity unit"
+msgstr ""
+
+msgid "Unlimited"
+msgstr "அளவில்லாமல்"
+
+msgid "Clear"
+msgstr "காலியாக்கு"
+
+msgid "Are you sure to remove the included recipe \"%s\"?"
+msgstr "முன்னமே இணைக்கப்பட்டுள்ள \"%s\" சமையல் குறிப்பினை நீக்க உறுதியா?"
+
+msgid "Period interval"
+msgstr "கால இடைவெளி"
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s days"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s weeks"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s months"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore is scheduled 1 year after the "
+"last execution"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore should only be scheduled every "
+"%s years"
+msgstr ""
+
+msgid "Transfer"
+msgstr "பரிமாற்றம்"
+
+msgid "From location"
+msgstr "அனுப்பும் இடம்"
+
+msgid "To location"
+msgstr "செல்லும் இடம்"
+
+msgid "There are no units available at this location"
+msgstr "எந்த பொருளும் இந்த இடத்தில் இல்லை"
+
+msgid "Amount: %1$s; Due on %2$s; Bought on %3$s"
+msgstr ""
+
+msgid "Transfered %1$s of %2$s from %3$s to %4$s"
+msgstr ""
+
+msgid "Stock entries"
+msgstr "கையிருப்பு பதிவுகள்"
+
+msgid "Best before date"
+msgstr "நாளிற்கு முன் சிறந்தது"
+
+msgid "Purchased date"
+msgstr "வாங்கிய நாள்"
+
+msgid "Consume all %s for this stock entry"
+msgstr "இருப்பில் உள்ள %s அனைத்தையும் உண்"
+
+msgid "The amount cannot be lower than %1$s"
+msgstr "%1$s இனை விட அளவு குறைவாக இருக்க இயலாது"
+
+msgid "Stock entry successfully updated"
+msgstr "கையிருப்பு பதிவு வெற்றிகரமாக பதியப்பட்டது"
+
+msgid "Edit stock entry"
+msgstr "கையிருப்பு பதிவினைத் தொகு"
+
+msgid ""
+"Camera access is only possible when supported and allowed by your browser "
+"and when grocy is served via a secure (https://) connection"
+msgstr ""
+
+msgid "Keep screen on"
+msgstr "திரையினை செயலில் வை"
+
+msgid "Keep screen on while displaying a \"fullscreen-card\""
+msgstr ""
+
+msgid "A purchased date is required"
+msgstr "வாங்கிய நாளினை குறிப்பிட வேண்டும்"
+
+msgid ""
+"When a product is selected, one unit (per serving in stock quantity unit) "
+"will be added to stock on consuming this recipe"
+msgstr ""
+
+msgid "Produces product"
+msgstr "தயாரிக்கும் பொருள்"
+
+msgid "This booking cannot be undone"
+msgstr "இந்த பதிவினை மீளமைக்க முடியாது"
+
+msgid "Booking does not exist or was already undone"
+msgstr ""
+
+msgid "Are you sure to delete API key \"%s\"?"
+msgstr "\"%s\" API விசையினை நீக்க வேண்டுமா"
+
+msgid "Add note"
+msgstr "குறிப்பு சேர்"
+
+msgid "Add note on %s"
+msgstr "%sஇல் ஒரு குறிப்பினை இணை"
+
+msgid "per day"
+msgstr "ஒரு நாளைக்கு"
+
+msgid "Only undone items"
+msgstr "மீளமைக்கப்பட்ட பொருட்கள் மட்டும்"
+
+msgid "Add product"
+msgstr "பொருளினைச் சேர்"
+
+msgid "Add product on %s"
+msgstr "%s இல் பொருளினை இணை"
+
+msgid "Consume all ingredients needed by this weeks recipes or products"
+msgstr ""
+
+msgid "Meal plan recipe"
+msgstr "உணவுத்திட்ட சமையல் குறிப்பு"
+
+msgid "Meal plan note"
+msgstr "உணவுத்திட்ட குறிப்பு"
+
+msgid "Meal plan product"
+msgstr "உணவுத்திட்ட தயாரிப்பு"
+
+msgid "Scan mode"
+msgstr ""
+
+msgid "on"
+msgstr "செயலாக்கு"
+
+msgid "off"
+msgstr "அணை"
+
+msgid ""
+"Scan mode is on but not all required fields could be populated automatically"
+msgstr ""
+
+msgid "Is freezer"
+msgstr "உறைவிப்பான் ஆகும்"
+
+msgid ""
+"When moving products from/to a freezer location, the products best before "
+"date is automatically adjusted according to the product settings"
+msgstr ""
+
+msgid "This cannot be the same as the \"From\" location"
+msgstr ""
+
+msgid "Thawed"
+msgstr "உருகியது"
+
+msgid "Frozen"
+msgstr "உறைந்தது"
+
+msgid "Are you sure to delete userentity \"%s\"?"
+msgstr ""
+
+msgid "Shopping list settings"
+msgstr "வாங்க வேண்டியவை அமைப்புகள்"
+
+msgid "Show a month-view calendar"
+msgstr "மாத வாரியாக நாட்காட்டியனை காட்டு"
+
+msgid "Edit note on %s"
+msgstr "%s இல் குறிப்பினைத் தொகு"
+
+msgid "Edit product on %s"
+msgstr "%s இல் பொருளினைத் தொகு"
+
+msgid "Edit recipe on %s"
+msgstr "%s இன் சமையல் குறிப்பினைத் தொகு"
+
+msgid "Desired servings"
+msgstr "விருப்பமான பரிமாறல்கள்"
+
+msgid "Base: %s"
+msgstr "அடிப்படை: %s"
+
+msgid "Recipes settings"
+msgstr "சமையல் குறிப்புகளின் அமைப்புகள்"
+
+msgid "Recipe card"
+msgstr "சமையல் குறிப்பு கார்டு"
+
+msgid "Group ingredients by their product group"
+msgstr ""
+
+msgid "Unknown store"
+msgstr "அறியப்படாத கடை"
+
+msgid "Store"
+msgstr "கடை"
+
+msgid "Transaction successfully undone"
+msgstr "பரிமாற்றம் வெற்றிகரமாக மீளமைக்கப்பட்டது"
+
+msgid "Default store"
+msgstr "இயல்புநிலை கடை"
+
+msgid "Consume this stock entry"
+msgstr "இந்த கையிருப்பு பொருளினை உண்"
+
+msgid "Mark this stock entry as open"
+msgstr "கையிருப்பு பொருளினை திறந்ததாகக் குறி"
+
+msgid "Mark this item as done"
+msgstr "இதனினை முடித்ததாகக் குறி"
+
+msgid "Edit this item"
+msgstr "இதைத் தொகு"
+
+msgid "Delete this item"
+msgstr "இதை நீக்கு"
+
+msgid "Show an icon if the product is already on the shopping list"
+msgstr ""
+
+msgid "Calories"
+msgstr "கலோரிகள்"
+
+msgid "means %1$s per %2$s"
+msgstr "அதாவது %2$s இற்கு %1$s"
+
+msgid "Create inverse QU conversion"
+msgstr ""
+
+msgid "Create recipe"
+msgstr "சமையல் குறிப்பினை உருவாக்கவும்"
+
+msgid "Save & continue to add ingredients and included recipes"
+msgstr ""
+
+msgid "Save & continue"
+msgstr "சேமித்து தொடரவும்"
+
+msgid "Save & return to recipes"
+msgstr "சமையல் குறிப்புகளுக்கு சேமித்து தொடரு"
+
+msgid "Stock value"
+msgstr "கையிருப்பின் மதிப்பு"
+
+msgid "Average price"
+msgstr "சராசரி விலை"
+
+msgid "Active"
+msgstr "செயலில் உள்ளது"
+
+msgid "Barcodes"
+msgstr "பார்கோடுகள்"
+
+msgid "Barcode"
+msgstr "பார்கோடு"
+
+msgid "Create Barcode"
+msgstr "பார்கோடினை உருவாக்கு"
+
+msgid "Barcode for product"
+msgstr "பொருளிற்கான பார்கோடு"
+
+msgid "Edit Barcode"
+msgstr "பார்கோடினைத் தொகு"
+
+msgid "Not enough in stock (not included in costs), %s ingredient missing"
+msgstr ""
+
+msgid ""
+"Based on the prices of the default consume rule which is \"Opened first, "
+"then first due first, then first in first out\""
+msgstr ""
+
+msgid ""
+"Not enough in stock (not included in costs), %1$s missing, %2$s already on "
+"shopping list"
+msgstr ""
+
+msgid "Quantity unit stock cannot be changed after first purchase"
+msgstr ""
+
+msgid "Clear filter"
+msgstr "வடிகட்டியை அழி"
+
+msgid "Permissions for user %s"
+msgstr "பயனர் %s இன் அனுமதிகள்"
+
+msgid "Are you sure you want to remove full permissions for yourself?"
+msgstr ""
+
+msgid "Permissions saved"
+msgstr "சேமிக்கப்பட்டுள்ள அனுமதிகள் "
+
+msgid "You are not allowed to view this page"
+msgstr "இந்த பக்கத்தினைப் பார்க்க தங்களுக்கு அனுமதி இல்லை"
+
+msgid "Page not found"
+msgstr "பக்கம் கிடைக்கவில்லை"
+
+msgid "Unauthorized"
+msgstr "அங்கீகரிக்கப்படாதது"
+
+msgid "Error source"
+msgstr "பிழையின் மூலம்"
+
+msgid "Error message"
+msgstr "பிழைச் செய்தி"
+
+msgid "Stack trace"
+msgstr "Stack trace"
+
+msgid "Easy error info copy & paste (for reporting)"
+msgstr ""
+
+msgid "This page does not exist"
+msgstr "இந்த பக்கம் இல்லை"
+
+msgid "You will be redirected to the default page in %s seconds"
+msgstr ""
+
+msgid "Server error"
+msgstr "சேவையக பிழை"
+
+msgid "A server error occured while processing your request"
+msgstr "உங்கள் கோரிக்கையைச் செயல்படுத்தும்போது சேவையகப் பிழை ஏற்பட்டது"
+
+msgid "If you think this is a bug, please report it"
+msgstr "ஏதாவது பிழைகளை கண்டறிந்தால், தயவுகூர்ந்து அதனினை எங்களிடம் கூறுங்கள்"
+
+msgid "Language"
+msgstr "மொழி"
+
+msgid "User settings"
+msgstr "பயனர் அமைப்புகள்"
+
+msgid "Default"
+msgstr "இயல்புநிலை"
+
+msgid "Stock journal summary"
+msgstr "இருப்பு நாளேடின் சுருக்கம்"
+
+msgid "Journal summary"
+msgstr "நாளேடின் சுருக்கம்"
+
+msgid "Journal summary for this product"
+msgstr "இந்த பொருளினுடைய நாளேடின் சுருக்கம்"
+
+msgid "Consume exact amount"
+msgstr "குறிப்பிடும் அளவினை உண்"
+
+msgid "Value"
+msgstr "மதிப்பு"
+
+msgid "%s total value"
+msgstr "%s மொத்த மதிப்பு"
+
+msgid ""
+"Show purchased date on purchase and inventory page (otherwise the purchased "
+"date defaults to today)"
+msgstr ""
+
+msgid "Common"
+msgstr "பொது"
+
+msgid "Decimal places allowed for amounts"
+msgstr "தொகைகளுக்கு தசம இடங்கள் அனுமதிக்கப்படுகின்றன"
+
+msgid "Decimal places allowed for prices"
+msgstr "தசம இடங்கள் விலைகளுக்கு அனுமதிக்கப்படுகின்றன"
+
+msgid "Stock entries for this product"
+msgstr "இந்த பொருளினுடைய கையிருப்பின் பதிகைகள்"
+
+msgid "Edit shopping list"
+msgstr "வாங்க வேண்டிய பொருட்கள் பட்டியலினைத் தொகு"
+
+msgid "Save & continue to add quantity unit conversions & barcodes"
+msgstr ""
+
+msgid "Save & return to products"
+msgstr "சேமித்த பிறகு பொருட்களுக்கு செல்"
+
+msgid "Save & continue to add conversions"
+msgstr ""
+
+msgid "Save & return to quantity units"
+msgstr "சேமித்த பிறகு அளவு அலகுகளுக்கு செல்"
+
+msgid "price"
+msgstr "விலை"
+
+msgid "New stock amount"
+msgstr "புதிய இருப்பு அளவு"
+
+msgid "Price per stock unit"
+msgstr "ஒவ்வொரு கையிருப்பு அளவின் விலை"
+
+msgid "Table options"
+msgstr ""
+
+msgid "This product is currently on a shopping list"
+msgstr ""
+
+msgid "Undo transaction"
+msgstr "பரிமாற்றத்தினை மீளமை"
+
+msgid "Transaction type"
+msgstr "பரிமாற்றம் வகை"
+
+msgid "Transaction time"
+msgstr "பரிமாற்ற நேரம்"
+
+msgid "Chore journal"
+msgstr "பணிகள் பதிகை"
+
+msgid "Track chore execution"
+msgstr "பணிகள் முடித்தலினை தடமிடு"
+
+msgid "Mark task as completed"
+msgstr "வேலையினை முடித்ததாக குறிக்கவும்"
+
+msgid "Track charge cycle"
+msgstr ""
+
+msgid "Battery journal"
+msgstr ""
+
+msgid "This product has a picture"
+msgstr ""
+
+msgid "Consume this stock entry as spoiled"
+msgstr ""
+
+msgid "Configure user permissions"
+msgstr "பயனர் அனுமதிகளை அமைத்திடு"
+
+msgid "Show a QR-Code for this API key"
+msgstr ""
+
+msgid ""
+"This is the default quantity unit used when adding this product to the "
+"shopping list"
+msgstr ""
+
+msgid ""
+"Show a warning when the due date of the purchased product is earlier than "
+"the next due date in stock"
+msgstr ""
+
+msgid "This is due earlier than already in-stock items"
+msgstr ""
+
+msgid ""
+"When enabled, the amount will always be filled with 1 after "
+"changing/scanning a product and if all fields could be automatically "
+"populated (by product defaults), the transaction is automatically submitted"
+msgstr ""
+
+msgid "Quick consume amount"
+msgstr "விரைவு உண்ணும் அளவு"
+
+msgid ""
+"This amount is used for the \"quick consume/open buttons\" on the stock "
+"overview page (related to quantity unit stock)"
+msgstr ""
+
+msgid "Copy this item"
+msgstr "இந்த பொருளினை பிரதியிடு"
+
+msgid "Are you sure to remove this barcode?"
+msgstr ""
+
+msgid "Due date type"
+msgstr "உரிய தேதி வகை"
+
+msgid ""
+"Based on the selected type, the highlighting on the stock overview page will"
+" be different"
+msgstr ""
+
+msgid ""
+"Means that the product is maybe still safe to be consumed after its due date"
+" is reached"
+msgstr ""
+
+msgid "Expiration date"
+msgstr "காலாவதியாகப்போகும் நாள்"
+
+msgid ""
+"Means that the product is not safe to be consumed after its due date is "
+"reached"
+msgstr ""
+
+msgid ""
+"For purchases this amount of days will be added to today for the due date "
+"suggestion"
+msgstr ""
+
+msgid "-1 means that this product will be never overdue"
+msgstr ""
+
+msgid "Default due days"
+msgstr ""
+
+msgid ""
+"When this product was marked as opened, the due date will be replaced by "
+"today + this amount of days (a value of 0 disables this)"
+msgstr ""
+
+msgid "Default due days after opened"
+msgstr ""
+
+msgid ""
+"On moving this product to a freezer location (so when freezing it), the due "
+"date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default due days after freezing"
+msgstr ""
+
+msgid ""
+"On moving this product from a freezer location (so when thawing it), the due"
+" date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default due days after thawing"
+msgstr ""
+
+msgid "Next due date"
+msgstr "அடுத்த உரிய தேதி"
+
+msgid "%s product is due"
+msgid_plural "%s products are due"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Due date"
+msgstr "உரிய தேதி"
+
+msgid "Never overdue"
+msgstr ""
+
+msgid "%s product is expired"
+msgid_plural "%s products are expired"
+msgstr[0] "%s பொருள் காலாவதியாகிவிட்டது"
+msgstr[1] "%s பொருட்கள் காலாவதியாகிவிட்டன"
+
+msgid "Expired"
+msgstr "காலாவதியானவை"
+
+msgid "Due soon days"
+msgstr ""
+
+msgid "Add overdue/expired products"
+msgstr ""
+
+msgid ""
+"Products with tare weight enabled are currently not supported for transfer"
+msgstr ""
+
+msgid ""
+"This cannot be lower than %1$s or equal %2$s and needs to be a valid number "
+"with max. %3$s decimal places"
+msgstr ""
+
+msgid ""
+"This must be between %1$s and %2$s, cannot equal %3$s and needs to be a "
+"valid number with max. %4$s decimal places"
+msgstr ""
+
+msgid ""
+"This cannot be lower than %1$s and needs to be a valid number with max. %2$s"
+" decimal places"
+msgstr ""
+
+msgid ""
+"This must between %1$s and %2$s and needs to be a valid number with max. "
+"%3$s decimal places"
+msgstr ""
+
+msgid ""
+"Automatically do the booking using the last price and the amount of the "
+"shopping list item, if the product has \"Default due days\" set"
+msgstr ""
+
+msgid ""
+"When moving products from/to a freezer location, the products due date is "
+"automatically adjusted according to the product settings"
+msgstr ""
+
+msgid "This is the internal field name, e. g. for the API"
+msgstr ""
+
+msgid "This is used to display the field on the frontend"
+msgstr ""
+
+msgid "Multiple Userfields will be ordered by that number on the input form"
+msgstr ""
+
+msgid "Sort number"
+msgstr ""
+
+msgid "Download file"
+msgstr "கோப்பினை பதிவிறக்கு"
+
+msgid "Use the products \"Quick consume amount\""
+msgstr ""
+
+msgid "Disabled"
+msgstr "செயலிழக்கசெய்யப்பட்டுள்ளது"
+
+msgid ""
+"This also removes any stock amount, the journal and all other references of "
+"this product - consider disabling it instead, if you want to keep that and "
+"just hide the product."
+msgstr ""
+
+msgid "Show disabled"
+msgstr "செயலிழக்கசெய்யப்பட்டதினை காட்டு"
+
+msgid "Show on stock overview page"
+msgstr ""
+
+msgid "None"
+msgstr "ஏதுமில்லை"
+
+msgid "Group by"
+msgstr ""
+
+msgid "Ingredient group"
+msgstr ""
+
+msgid "Reset"
+msgstr "மீளமை"
+
+msgid "Are you sure to reset the table options?"
+msgstr ""
+
+msgid "Hide/view columns"
+msgstr "நெடுவரிசைகளை காட்டு/மறை"
+
+msgid ""
+"A different amount/unit can then be used below while for stock fulfillment "
+"checking it is sufficient when any amount of the product in stock"
+msgstr ""
+
+msgid "Last price (Unit)"
+msgstr "கடைசி விலை (அலகு)"
+
+msgid "Last price (Total)"
+msgstr "கடைசி விலை (மொத்தம்)"
+
+msgid "Show header"
+msgstr ""
+
+msgid "Group by product group"
+msgstr ""
+
+msgid "Table"
+msgstr "அட்டவணை"
+
+msgid "Layout type"
+msgstr ""

@@ -624,18 +624,13 @@ msgstr "σε μοναδική μορφή"
 msgid "Quantity unit"
 msgstr "Μονάδα ποσότητας"
 
-msgid ""
-"Only check if a single unit is in stock (a different quantity can then be "
-"used below)"
+msgid "Only check if any amount is in stock"
 msgstr ""
 
 msgid ""
 "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
-" marked with \"check only if a single unit is in stock\" will be ignored)?"
+" marked with \"only check if any amount is in stock\" will be ignored)?"
 msgstr ""
-"Επισκόπηση μικροδουλειώνΕίστε βέβαιοι ότι θα καταναλώσετε όλα τα συστατικά "
-"που απαιτούνται από τη συνταγή \"% s\" (τα συστατικά που επισημαίνονται με "
-"\"ελέγξτε μόνο εάν υπάρχει μεμονωμένη μονάδα\" θα αγνοηθούν);"
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
 msgstr "Καταργήθηκαν όλα τα συστατικά της συνταγής \"% s\" από το απόθεμα"
@@ -894,7 +889,7 @@ msgstr "Χρησιμοποιήστε ένα συγκεκριμένο είδος 
 
 msgid ""
 "The first item in this list would be picked by the default rule which is "
-"\"First due first, then first in first out\""
+"\"Opened first, then first due first, then first in first out\""
 msgstr ""
 
 msgid "Mark %1$s of %2$s as open"
@@ -1705,9 +1700,6 @@ msgstr "Προσθήκη σημείωσης στο% s"
 msgid "per day"
 msgstr "ανά μέρα"
 
-msgid "Normal view"
-msgstr "Κανονική προβολή"
-
 msgid "Only undone items"
 msgstr "Αναίρεση μόνο αντικειμένων"
 
@@ -1880,8 +1872,8 @@ msgstr ""
 " %s λείπει συστατικό"
 
 msgid ""
-"Based on the prices of the default consume rule which is \"First due first, "
-"then first in first out\""
+"Based on the prices of the default consume rule which is \"Opened first, "
+"then first due first, then first in first out\""
 msgstr ""
 
 msgid ""
@@ -2008,7 +2000,7 @@ msgstr ""
 msgid "Price per stock unit"
 msgstr ""
 
-msgid "Hide/view columns"
+msgid "Table options"
 msgstr ""
 
 msgid "This product is currently on a shopping list"
@@ -2060,7 +2052,7 @@ msgid ""
 "the next due date in stock"
 msgstr ""
 
-msgid "There are items in stock which are due earlier"
+msgid "This is due earlier than already in-stock items"
 msgstr ""
 
 msgid ""
@@ -2228,8 +2220,49 @@ msgid ""
 "just hide the product."
 msgstr ""
 
-msgid "Show disabled products"
+msgid "Show disabled"
 msgstr ""
 
 msgid "Show on stock overview page"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Group by"
+msgstr ""
+
+msgid "Ingredient group"
+msgstr ""
+
+msgid "Reset"
+msgstr ""
+
+msgid "Are you sure to reset the table options?"
+msgstr ""
+
+msgid "Hide/view columns"
+msgstr ""
+
+msgid ""
+"A different amount/unit can then be used below while for stock fulfillment "
+"checking it is sufficient when any amount of the product in stock"
+msgstr ""
+
+msgid "Last price (Unit)"
+msgstr ""
+
+msgid "Last price (Total)"
+msgstr ""
+
+msgid "Show header"
+msgstr ""
+
+msgid "Group by product group"
+msgstr ""
+
+msgid "Table"
+msgstr ""
+
+msgid "Layout type"
 msgstr ""

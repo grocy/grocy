@@ -1,0 +1,385 @@
+# 
+# Translators:
+# Aswin Kumar, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Aswin Kumar, 2020\n"
+"Language-Team: Tamil (https://www.transifex.com/grocy/teams/93189/ta/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ta\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/demo_data\n"
+
+msgid "Cookies"
+msgstr "குக்கீகள்"
+
+msgid "Chocolate"
+msgstr "சாக்லேட்"
+
+msgid "Pantry"
+msgstr "சாமான் அறை"
+
+msgid "Candy cupboard"
+msgstr "மிட்டாய் அலமாரி"
+
+msgid "Tinned food cupboard"
+msgstr "தகர குவளை உணவு அலமாரி"
+
+msgid "Fridge"
+msgstr "ஃப்ரிட்ஜ்"
+
+msgid "Piece"
+msgid_plural "Pieces"
+msgstr[0] "துண்டு"
+msgstr[1] "துண்டுகள்"
+
+msgid "Pack"
+msgid_plural "Packs"
+msgstr[0] "தொகுப்பு"
+msgstr[1] "தொகுப்புகள்"
+
+msgid "Glass"
+msgid_plural "Glasses"
+msgstr[0] "கண்ணாடி"
+msgstr[1] "கண்ணாடிகள்"
+
+msgid "Tin"
+msgid_plural "Tins"
+msgstr[0] "தகரம்"
+msgstr[1] "தகரங்கள்"
+
+msgid "Can"
+msgid_plural "Cans"
+msgstr[0] "தகர குவளை"
+msgstr[1] "தகர குவளைகள்"
+
+msgid "Bunch"
+msgid_plural "Bunches"
+msgstr[0] "கொத்து"
+msgstr[1] "கொத்துக்கள்"
+
+msgid "Gummy bears"
+msgstr "கம்மி கரடிகள்"
+
+msgid "Crisps"
+msgstr "உருளைக்கிழங்கு சில்லுகள்"
+
+msgid "Eggs"
+msgstr "முட்டைகள்"
+
+msgid "Noodles"
+msgstr "நூடுல்சு"
+
+msgid "Pickles"
+msgstr "ஊறுகாய்"
+
+msgid "Gulash soup"
+msgstr "குலாஷ் சூப்"
+
+msgid "Yogurt"
+msgstr "தயிர்"
+
+msgid "Cheese"
+msgstr "பாலாடைக்கட்டி"
+
+msgid "Cold cuts"
+msgstr "குளிர் வெட்டுக்கள்"
+
+msgid "Paprika"
+msgstr "மிளகு"
+
+msgid "Cucumber"
+msgstr "வெள்ளரிக்காய்"
+
+msgid "Radish"
+msgstr "முள்ளங்கி"
+
+msgid "Tomato"
+msgstr "தக்காளி"
+
+msgid "Changed towels in the bathroom"
+msgstr "குளியலறையில் உள்ள துண்டுகள் மாற்றப்பட்டன"
+
+msgid "Cleaned the kitchen floor"
+msgstr "சமையலறையின் தரை சுத்தம் செய்யப்பட்டது"
+
+msgid "Warranty ends"
+msgstr "உத்தரவாதம் முடிவடைகிறது"
+
+msgid "TV remote control"
+msgstr "டிவி ரிமோட் கண்ட்ரோல்"
+
+msgid "Alarm clock"
+msgstr "எழுப்பு மணி"
+
+msgid "Heat remote control"
+msgstr "சூடேற்றும் சாதன ரிமோட் கண்ட்ரோல்"
+
+msgid "Lawn mowed in the garden"
+msgstr "தோட்டத்தில் புல்வெளி வெட்டப்பட்டது"
+
+msgid "Some good snacks"
+msgstr "சில நல்ல தின்பண்டங்கள்"
+
+msgid "Pizza dough"
+msgstr "பீட்சா மாவு"
+
+msgid "Sieved tomatoes"
+msgstr "சல்லடை தக்காளி"
+
+msgid "Salami"
+msgstr "சலாமி"
+
+msgid "Toast"
+msgstr "வாட்டு"
+
+msgid "Minced meat"
+msgstr "வெட்டப்பட்ட இறைச்சி"
+
+msgid "Pizza"
+msgstr "பீட்சா"
+
+msgid "Spaghetti bolognese"
+msgstr "மாச்சேவை பொலொக்னியேசெ"
+
+msgid "Sandwiches"
+msgstr "சாண்ட்விச்சுகள்"
+
+msgid "English"
+msgstr "ஆங்கிலம்"
+
+msgid "German"
+msgstr "செருமானிய மொழி"
+
+msgid "Italian"
+msgstr "இத்தாலிய மொழி"
+
+msgid "This is the note content of the recipe ingredient"
+msgstr "இது செய்முறை மூலப்பொருளின் குறிப்பு உள்ளடக்கம் ஆகும்"
+
+msgid "Demo User"
+msgstr "செயல் விளக்க பயனர்"
+
+msgid "Gram"
+msgid_plural "Grams"
+msgstr[0] "கிராம்"
+msgstr[1] "கிராம்கள்"
+
+msgid "Flour"
+msgstr "மாவு"
+
+msgid "Pancakes"
+msgstr "பான்கேக்குகள்"
+
+msgid "Sugar"
+msgstr "சர்க்கரை"
+
+msgid "Home"
+msgstr "வீடு"
+
+msgid "Life"
+msgstr "வாழ்க்கை"
+
+msgid "Projects"
+msgstr "திட்டங்கள்"
+
+msgid "Repair the garage door"
+msgstr "கேரேஜ் கதவை சரிசெய்யவும்"
+
+msgid "Fork and improve grocy"
+msgstr "குரோசியை மேம்படுத்தவும்"
+
+msgid "Find a solution for what to do when I forget the door keys"
+msgstr ""
+"கதவு விசைகளை நான் மறக்கும்போது என்ன செய்வது என்பதற்கான தீர்வைக் கண்டறியவும்"
+
+msgid "Sweets"
+msgstr "இனிப்புகள்"
+
+msgid "Bakery products"
+msgstr "பேக்கரி பொருட்கள்"
+
+msgid "Tinned food"
+msgstr "தகர குவளை உணவு"
+
+msgid "Butchery products"
+msgstr "கசாப்பு கடை பொருட்கள்"
+
+msgid "Vegetables/Fruits"
+msgstr "காய்கறிகள் / பழங்கள்"
+
+msgid "Refrigerated products"
+msgstr "குளிரூட்டப்பட்ட பொருட்கள்"
+
+msgid "Coffee machine"
+msgstr "கொட்டைவடிநீர் இயந்திரம்"
+
+msgid "Dishwasher"
+msgstr "பாத்திரங்கழுவி"
+
+msgid "Liter"
+msgstr "லிட்டர்"
+
+msgid "Liters"
+msgstr "லிட்டர்கள்"
+
+msgid "Bottle"
+msgstr "குப்பி"
+
+msgid "Bottles"
+msgstr "குப்பிகள்"
+
+msgid "Milk"
+msgstr "பால்"
+
+msgid "Chocolate sauce"
+msgstr "சாக்லேட் குழம்பு"
+
+msgid "Milliliters"
+msgstr "மில்லிலிட்டர்கள்"
+
+msgid "Milliliter"
+msgstr "மில்லிலிட்டர்"
+
+msgid "Bottom"
+msgstr "அடிப்பறம்"
+
+msgid "Topping"
+msgstr "டாப்பிங்கு"
+
+msgid "French"
+msgstr "பிரஞ்சு"
+
+msgid "Turkish"
+msgstr "துருக்கியம்"
+
+msgid "Spanish"
+msgstr "எசுப்பானியம்"
+
+msgid "Russian"
+msgstr "உருசியம்"
+
+msgid "The thing which happens on the 5th of every month"
+msgstr "ஒவ்வொரு மாதமும் 5 ஆம் தேதி நடக்கும் விடயம்"
+
+msgid "The thing which happens daily"
+msgstr "தினசரி நடக்கும் விடயம்"
+
+msgid "The thing which happens on Mondays and Wednesdays"
+msgstr "திங்கள் மற்றும் புதன்கிழமைகளில் நடக்கும் விடயம்"
+
+msgid "Swedish"
+msgstr "சுவேக மொழி"
+
+msgid "Polish"
+msgstr "போலிய மொழி"
+
+msgid "Milk Chocolate"
+msgstr "பால் சாக்லேட்"
+
+msgid "Dark Chocolate"
+msgstr "டார்க் சாக்லேட்"
+
+msgid "Slice"
+msgid_plural "Slices"
+msgstr[0] "துண்டு"
+msgstr[1] "துண்டுகள்"
+
+msgid "Example userentity"
+msgstr "எடுத்துக்காட்டு பயனர் உருபொருள்"
+
+msgid "This is an example user entity..."
+msgstr "இது ஒரு எடுத்துக்காட்டு பயனர் உருபொருள் ஆகும் "
+
+msgid "Custom field"
+msgstr "தனிப்பயன் புலம்"
+
+msgid "Example field value..."
+msgstr "எடுத்துக்காட்டு புல மதிப்பு ..."
+
+msgid "Waffle rolls"
+msgstr "வாப்பிள் சுருள்கள்"
+
+msgid "Danish"
+msgstr "டேனிய மொழி"
+
+msgid "Dutch"
+msgstr "டச்சு மொழி"
+
+msgid "Norwegian"
+msgstr "நார்வீஜிய மொழி"
+
+msgid "Demo"
+msgstr "பார்வைக்கு"
+
+msgid "Stable version"
+msgstr "நிலையான பதிப்பு"
+
+msgid "Preview version"
+msgstr "முன்னோட்ட பதிப்பு"
+
+msgid "current release"
+msgstr "தற்போதைய பதிப்பு"
+
+msgid "not yet released"
+msgstr "இன்னும் வெளியிடப்படவில்லை"
+
+msgid "Portuguese (Brazil)"
+msgstr "போர்த்துக்கேய மொழி (பிரேசில்)"
+
+msgid "This is a note"
+msgstr "இது ஒரு குறிப்பு"
+
+msgid "Freezer"
+msgstr "உறைவிப்பான்"
+
+msgid "Hungarian"
+msgstr "ஹங்கேரிய மொழி"
+
+msgid "Slovak"
+msgstr "சுலோவாக்கிய மொழி"
+
+msgid "Czech"
+msgstr "செக் மொழி"
+
+msgid "Portuguese (Portugal)"
+msgstr "போர்த்துக்கேய மொழி (போர்த்துகல்)"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket1"
+msgstr "சூப்பர்மார்கெட்1"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket2"
+msgstr "சூப்பர்மார்கெட்2"
+
+msgid "Japanese"
+msgstr "சப்பானிய மொழி"
+
+msgid "Chinese (Taiwan)"
+msgstr "சீனம் (தைவான்)"
+
+msgid "Greek"
+msgstr "கிரேக்கம்"
+
+msgid "Korean"
+msgstr "கொரிய மொழி"
+
+msgid "Chinese (China)"
+msgstr "சீனம் (சீனா)"
+
+msgid "Hebrew (Israel)"
+msgstr "ஹீபுரு (இசுரேல்)"
+
+msgid "Tamil"
+msgstr ""
+
+msgid "Finnish"
+msgstr ""

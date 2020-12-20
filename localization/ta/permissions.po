@@ -1,0 +1,138 @@
+# 
+# Translators:
+# Aswin Kumar, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-29 16:33+0000\n"
+"Last-Translator: Aswin Kumar, 2020\n"
+"Language-Team: Tamil (https://www.transifex.com/grocy/teams/93189/ta/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ta\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/permissions\n"
+
+# All permissions
+msgid "ADMIN"
+msgstr "நிருவாகி"
+
+# Create users
+msgid "USERS_CREATE"
+msgstr "பயனர்களை_உருவாக்கு"
+
+# Edit users (including passwords)
+msgid "USERS_EDIT"
+msgstr "பயனர்களை_தொகு"
+
+# Show users
+msgid "USERS_READ"
+msgstr "பயனர்களை_பார்"
+
+# Edit own user data / change own password
+msgid "USERS_EDIT_SELF"
+msgstr "பயனர்கள்_தொகு_சுயமாக"
+
+# Undo charge cycle
+msgid "BATTERIES_UNDO_CHARGE_CYCLE"
+msgstr "BATTERIES_UNDO_CHARGE_CYCLE"
+
+# Track charge cycle
+msgid "BATTERIES_TRACK_CHARGE_CYCLE"
+msgstr "BATTERIES_TRACK_CHARGE_CYCLE"
+
+# Track execution
+msgid "CHORE_TRACK_EXECUTION"
+msgstr "பணி_TRACK_EXECUTION"
+
+# Undo execution
+msgid "CHORE_UNDO_EXECUTION"
+msgstr "பணி_UNDO_EXECUTION"
+
+# Edit master data
+msgid "MASTER_DATA_EDIT"
+msgstr "பிரதான_தரவுகள்_தொகு"
+
+# Undo execution
+msgid "TASKS_UNDO_EXECUTION"
+msgstr "வேலைகள்_UNDO_EXECUTION"
+
+# Mark completed
+msgid "TASKS_MARK_COMPLETED"
+msgstr "வேலைகள்_முடித்ததாக_குறி"
+
+# Edit stock entries
+msgid "STOCK_EDIT"
+msgstr "கையிருப்பு_தொகு"
+
+# Transfer
+msgid "STOCK_TRANSFER"
+msgstr "கையிருப்பு_பரிமாற்றம்"
+
+# Inventory
+msgid "STOCK_INVENTORY"
+msgstr "இருப்பு_கையிருப்பு"
+
+# Consume
+msgid "STOCK_CONSUME"
+msgstr "இருப்பு_உண்"
+
+# Open products
+msgid "STOCK_OPEN"
+msgstr "இருப்பு_திற"
+
+# Purchase
+msgid "STOCK_PURCHASE"
+msgstr "இருப்பு_வாங்கியவை"
+
+# Add items
+msgid "SHOPPINGLIST_ITEMS_ADD"
+msgstr "வாங்கவேண்டியவை_பொருட்கள்_சேர்"
+
+# Remove items
+msgid "SHOPPINGLIST_ITEMS_DELETE"
+msgstr "வாங்கவேண்டியவை_பொருட்கள்_நீக்கு"
+
+# User management
+msgid "USERS"
+msgstr "பயனர்கள்"
+
+# Stock
+msgid "STOCK"
+msgstr "கையிருப்பு"
+
+# Shopping list
+msgid "SHOPPINGLIST"
+msgstr "வாங்கவேண்டியவை"
+
+# Chores
+msgid "CHORES"
+msgstr "பணிகள்"
+
+# Batteries
+msgid "BATTERIES"
+msgstr "மின்கலங்கள்"
+
+# Tasks
+msgid "TASKS"
+msgstr "பணிகள்"
+
+# Recipes
+msgid "RECIPES"
+msgstr "சமையல் குறிப்புகள்"
+
+# Equipment
+msgid "EQUIPMENT"
+msgstr "உபகரணங்கள்"
+
+# Calendar
+msgid "CALENDAR"
+msgstr "நாட்காட்டி"
+
+# Meal plan
+msgid "RECIPES_MEALPLAN"
+msgstr "சமையல்குறிப்புகள்_உணவுத்திட்டம்"

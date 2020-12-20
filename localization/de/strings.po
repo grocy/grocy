@@ -621,20 +621,16 @@ msgstr "in der Einzahl"
 msgid "Quantity unit"
 msgstr "Mengeneinheit"
 
-msgid ""
-"Only check if a single unit is in stock (a different quantity can then be "
-"used below)"
-msgstr ""
-"Nur prüfen, ob eine einzelne Einheit vorrätig ist (eine abweichende "
-"Mengeneinheit kann dann unten verwendet werden)"
+msgid "Only check if any amount is in stock"
+msgstr "Nur prüfen, ob eine beliebige Menge im Bestand verfügbar ist"
 
 msgid ""
 "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
-" marked with \"check only if a single unit is in stock\" will be ignored)?"
+" marked with \"only check if any amount is in stock\" will be ignored)?"
 msgstr ""
 "Sicher, dass alle Zutaten die vom Rezept \"%s\" benötigt werden aus dem "
-"Bestand entfernt werden sollen (Zutaten markiert mit \"nur prüfen, ob eine "
-"einzelne Einheit vorrätig ist\" werden ignoriert)?"
+"Bestand entfernt werden sollen (Zutaten markiert mit \"Nur prüfen, ob eine "
+"beliebige Menge im Bestand verfügbar ist\" werden ignoriert)?"
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
 msgstr ""
@@ -896,10 +892,10 @@ msgstr "Einen bestimmten Bestandseintrag verwenden"
 
 msgid ""
 "The first item in this list would be picked by the default rule which is "
-"\"First due first, then first in first out\""
+"\"Opened first, then first due first, then first in first out\""
 msgstr ""
-"Der erste Eintrag in dieser Liste würde von der Standardregel \"Zuerst "
-"fällige zuerst, dann First In - First Out\" ausgewählt werden"
+"Der erste Eintrag in dieser Liste würde von der Standardregel \"Geöffnete "
+"zuerst, dann zuerst fällige, dann First In - First Out\" ausgewählt werden"
 
 msgid "Mark %1$s of %2$s as open"
 msgstr "%1$s %2$s als geöffnet markieren"
@@ -1711,9 +1707,6 @@ msgstr "Notiz am %s hinzufügen"
 msgid "per day"
 msgstr "pro Tag"
 
-msgid "Normal view"
-msgstr "Normale Ansicht"
-
 msgid "Only undone items"
 msgstr "Nur unerledigte Einträge"
 
@@ -1887,11 +1880,11 @@ msgstr ""
 "fehlen"
 
 msgid ""
-"Based on the prices of the default consume rule which is \"First due first, "
-"then first in first out\""
+"Based on the prices of the default consume rule which is \"Opened first, "
+"then first due first, then first in first out\""
 msgstr ""
-"Basierend auf den Preisen der Standardregel \"Zuerst fällige zuerst, dann "
-"First In - First Out\""
+"Basierend auf den Preisen der Standard-Verbrauchsregel \"Geöffnete zuerst, "
+"dann zuerst fällige, dann First In - First Out\""
 
 msgid ""
 "Not enough in stock (not included in costs), %1$s missing, %2$s already on "
@@ -2025,8 +2018,8 @@ msgstr "Neuer Bestand"
 msgid "Price per stock unit"
 msgstr "Preis pro Bestandsmengeneinheit"
 
-msgid "Hide/view columns"
-msgstr "Spalten anzeigen/ausblenden"
+msgid "Table options"
+msgstr "Tabellenoptionen"
 
 msgid "This product is currently on a shopping list"
 msgstr "Dieses Produkt ist derzeit auf einem Einkaufszettel"
@@ -2081,8 +2074,8 @@ msgstr ""
 "Eine Warnung anzeigen, wenn das Fälligkeitsdatum des eingekauften Produkts "
 "früher ist als im Bestand"
 
-msgid "There are items in stock which are due earlier"
-msgstr "Es gibt Bestandseinträge die früher fällig sind"
+msgid "This is due earlier than already in-stock items"
+msgstr "Dies ist früher fällig als bereits vorhandene Bestandseinträge"
 
 msgid ""
 "When enabled, the amount will always be filled with 1 after "
@@ -2291,8 +2284,52 @@ msgstr ""
 "dieses Produkts entfernt - ziehe stattdessen in Betracht, dieses Produkt zu "
 "deaktivieren, wenn du dies behalten und nur das Produkt ausblenden willst."
 
-msgid "Show disabled products"
-msgstr "Deaktivierte Produkte anzeigen"
+msgid "Show disabled"
+msgstr "Deaktivierte anzeigen"
 
 msgid "Show on stock overview page"
 msgstr "Auf der Bestand-Seite anzeigen"
+
+msgid "None"
+msgstr "Keine"
+
+msgid "Group by"
+msgstr "Gruppieren nach"
+
+msgid "Ingredient group"
+msgstr "Zutatengruppe"
+
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+msgid "Are you sure to reset the table options?"
+msgstr "Tabellenoptionen wirklich zurücksetzen?"
+
+msgid "Hide/view columns"
+msgstr "Spalten anzeigen/ausblenden"
+
+msgid ""
+"A different amount/unit can then be used below while for stock fulfillment "
+"checking it is sufficient when any amount of the product in stock"
+msgstr ""
+"Eine andere Menge/Einheit kann dann unten verwendet werden, wobei es für die"
+" Bestandsprüfung ausreichend ist, wenn eine beliebige Menge des Produkts "
+"verfügbar ist"
+
+msgid "Last price (Unit)"
+msgstr "Letzter Preis (Einheit)"
+
+msgid "Last price (Total)"
+msgstr "Letzter Preis (Gesamt)"
+
+msgid "Show header"
+msgstr "Kopfzeile anzeigen"
+
+msgid "Group by product group"
+msgstr "Nach Produktgruppe gruppieren"
+
+msgid "Table"
+msgstr "Tabelle"
+
+msgid "Layout type"
+msgstr "Layout"

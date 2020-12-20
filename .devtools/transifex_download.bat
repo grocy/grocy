@@ -1,5 +1,5 @@
 pushd ..
-tx pull --all --minimum-perc=80
+tx pull --all --minimum-perc=70
 tx pull --language en_GB
 copy /Y localization\en\userfield_types.po localization\en_GB\userfield_types.po
 copy /Y localization\en\stock_transaction_types.po localization\en_GB\stock_transaction_types.po

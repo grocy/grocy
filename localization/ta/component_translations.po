@@ -1,0 +1,48 @@
+# 
+# Translators:
+# Bernd Bestel <bernd@berrnd.de>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2020\n"
+"Language-Team: Tamil (https://www.transifex.com/grocy/teams/93189/ta/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ta\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/component_translations\n"
+
+msgid "timeago_locale"
+msgstr "en"
+
+msgid "timeago_nan"
+msgstr "NaN years ago"
+
+msgid "moment_locale"
+msgstr "ta"
+
+msgid "datatables_localization"
+msgstr ""
+"{\"sEmptyTable\":\"அட்டவணையில் தரவு கிடைக்கவில்லை\",\"sInfo\":\"உள்ளீடுகளை் "
+"_START_ முதல _END_ உள்ள _TOTAL_ காட்டும்\",\"sInfoEmpty\":\"0 உள்ளீடுகளை 0 0"
+" காட்டும்\",\"sInfoFiltered\":\"(_MAX_ மொத்த உள்ளீடுகளை இருந்து "
+"வடிகட்டி)\",\"sInfoThousands\":\",\",\"sLengthMenu\":\"_MENU_ "
+"காண்பி\",\"sLoadingRecords\":\"ஏற்றுகிறது ...\",\"sProcessing\":\"செயலாக்க "
+"...\",\"sSearch\":\"தேடல்:\",\"sZeroRecords\":\"பொருத்தமான பதிவுகள் "
+"இல்லை\",\"oPaginate\":{\"sFirst\":\"முதல்\",\"sLast\":\"இறுதி\",\"sNext\":\"அடுத்து\",\"sPrevious\":\"முந்தைய\"},\"oAria\":{\"sSortAscending\":\":"
+" நிரலை ஏறுவரிசையில் வரிசைப்படுத்த செயல்படுத்த\",\"sSortDescending\":\": "
+"நிரலை இறங்கு வரிசைப்படுத்த செயல்படுத்த\"}}"
+
+msgid "summernote_locale"
+msgstr "ta-IN"
+
+msgid "fullcalendar_locale"
+msgstr "x"
+
+msgid "bootstrap-select_locale"
+msgstr "x"

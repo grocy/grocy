@@ -1,0 +1,54 @@
+# 
+# Translators:
+# Aswin Kumar, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:43+0000\n"
+"Last-Translator: Aswin Kumar, 2020\n"
+"Language-Team: Tamil (https://www.transifex.com/grocy/teams/93189/ta/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ta\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/userfield_types\n"
+
+msgid "text-single-line"
+msgstr "ஒரு-வரி-உரை"
+
+msgid "text-multi-line"
+msgstr "பல்வரி-உரை"
+
+msgid "number-integral"
+msgstr "எண்-முழு"
+
+msgid "number-decimal"
+msgstr "எண்-decimal"
+
+msgid "date"
+msgstr "தேதி"
+
+msgid "datetime"
+msgstr "தேதி நேரம்"
+
+msgid "checkbox"
+msgstr "தேர்வுப்பெட்டி"
+
+msgid "preset-list"
+msgstr "preset-பட்டியல்"
+
+msgid "preset-checklist"
+msgstr "preset-checklist"
+
+msgid "link"
+msgstr "இணைப்பு"
+
+msgid "file"
+msgstr "கோப்பு"
+
+msgid "image"
+msgstr "படம்"
