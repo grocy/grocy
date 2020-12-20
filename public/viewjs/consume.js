@@ -235,7 +235,7 @@ $("#location_id").on('change', function(e)
 							text: __t("Amount: %1$s; Due on %2$s; Bought on %3$s", stockEntry.amount, moment(stockEntry.best_before_date).format("YYYY-MM-DD"), moment(stockEntry.purchased_date).format("YYYY-MM-DD")) + "; " + openTxt
 						}));
 
-						sumValue = sumValue + parseFloat(stockEntry.amount_aggregated);
+						sumValue = sumValue + parseFloat(stockEntry.amount || 0);
 
 						if (stockEntry.stock_id == stockId)
 						{
