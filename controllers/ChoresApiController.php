@@ -22,7 +22,6 @@ class ChoresApiController extends BaseApiController
 			if ($choreId === null)
 			{
 				$chores = $this->getDatabase()->chores();
-
 				foreach ($chores as $chore)
 				{
 					$this->getChoresService()->CalculateNextExecutionAssignment($chore->id);

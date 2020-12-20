@@ -50,7 +50,7 @@ CREATE TABLE products (
 	name TEXT NOT NULL UNIQUE,
 	description TEXT,
 	product_group_id INTEGER,
-	active TINYINT NOT NULL DEFAULT 1,
+	active TINYINT NOT NULL DEFAULT 1 CHECK(active IN (0, 1)),
 	location_id INTEGER NOT NULL,
 	shopping_location_id INTEGER,
 	qu_id_purchase INTEGER NOT NULL,

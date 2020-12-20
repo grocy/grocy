@@ -23,6 +23,7 @@ $("#clear-filter-button").on("click", function()
 {
 	$("#search").val("");
 	choresTable.search("").draw();
+	$("#show-disabled").prop('checked', false);
 });
 
 $(document).on('click', '.chore-delete-button', function(e)
@@ -61,3 +62,20 @@ $(document).on('click', '.chore-delete-button', function(e)
 		}
 	});
 });
+
+$("#show-disabled").change(function()
+{
+	if (this.checked)
+	{
+		window.location.href = U('/chores?include_disabled');
+	}
+	else
+	{
+		window.location.href = U('/chores');
+	}
+});
+
+if (GetUriParam('include_disabled'))
+{
+	$("#show-disabled").prop('checked', true);
+}

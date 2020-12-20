@@ -53,6 +53,17 @@
 				placeholder="{{ $__t('Search') }}">
 		</div>
 	</div>
+	<div class="col-xs-12 col-md-6 col-xl-3">
+		<div class="form-check custom-control custom-checkbox">
+			<input class="form-check-input custom-control-input"
+				type="checkbox"
+				id="show-disabled">
+			<label class="form-check-label custom-control-label"
+				for="show-disabled">
+				{{ $__t('Show disabled') }}
+			</label>
+		</div>
+	</div>
 	<div class="col">
 		<div class="float-right">
 			<a id="clear-filter-button"
@@ -89,7 +100,7 @@
 			</thead>
 			<tbody class="d-none">
 				@foreach($chores as $chore)
-				<tr>
+				<tr class="@if($chore->active == 0) text-muted @endif">
 					<td class="fit-content border-right">
 						<a class="btn btn-info btn-sm"
 							href="{{ $U('/chore/') }}{{ $chore->id }}"

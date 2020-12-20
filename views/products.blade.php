@@ -75,10 +75,10 @@
 		<div class="form-check custom-control custom-checkbox">
 			<input class="form-check-input custom-control-input"
 				type="checkbox"
-				id="show-disabled-products">
+				id="show-disabled">
 			<label class="form-check-label custom-control-label"
-				for="show-disabled-products">
-				{{ $__t('Show disabled products') }}
+				for="show-disabled">
+				{{ $__t('Show disabled') }}
 			</label>
 		</div>
 	</div>
@@ -122,7 +122,7 @@
 			</thead>
 			<tbody class="d-none">
 				@foreach($products as $product)
-				<tr>
+				<tr class="@if($product->active == 0) text-muted @endif">
 					<td class="fit-content border-right">
 						<a class="btn btn-info btn-sm"
 							href="{{ $U('/product/') }}{{ $product->id }}"

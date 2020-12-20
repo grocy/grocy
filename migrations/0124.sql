@@ -1,19 +1,14 @@
-CREATE VIEW users_dto
-AS
-SELECT
-	id,
-	username,
-	first_name,
-	last_name,
-	row_created_timestamp,
-	(CASE
-		WHEN IFNULL(first_name, '') = '' AND IFNULL(last_name, '') != '' THEN last_name
-		WHEN IFNULL(last_name, '') = '' AND IFNULL(first_name, '') != '' THEN first_name
-		WHEN IFNULL(last_name, '') != '' AND IFNULL(first_name, '') != '' THEN first_name || ' ' || last_name
-		ELSE username
-	END
-	) AS display_name
-FROM users;
+ALTER TABLE chores
+ADD active TINYINT NOT NULL DEFAULT 1 CHECK(active IN (0, 1));
+
+ALTER TABLE batteries
+ADD active TINYINT NOT NULL DEFAULT 1 CHECK(active IN (0, 1));
+
+DELETE from chores_log
+WHERE chore_id NOT IN (SELECT id from chores);
+
+DELETE from battery_charge_cycles
+WHERE battery_id NOT IN (SELECT id from batteries);
 
 DROP VIEW chores_current;
 CREATE VIEW chores_current
@@ -71,8 +66,20 @@ FROM chores h
 LEFT JOIN chores_log l
 	ON h.id = l.chore_id
 	AND l.undone = 0
+WHERE h.active = 1
 GROUP BY h.id, h.name, h.period_days
 ) x;
+
+DROP VIEW chores_assigned_users_resolved;
+CREATE VIEW chores_assigned_users_resolved
+AS
+SELECT
+	c.id AS chore_id,
+	u.id AS user_id
+FROM chores c
+JOIN users u
+	ON ',' || c.assignment_config || ',' LIKE '%,' || CAST(u.id AS TEXT) || ',%'
+WHERE c.active = 1;
 
 DROP VIEW batteries_current;
 CREATE VIEW batteries_current
@@ -88,4 +95,17 @@ SELECT
 FROM batteries b
 LEFT JOIN battery_charge_cycles l
 	ON b.id = l.battery_id
+WHERE b.active = 1
 GROUP BY b.id, b.charge_interval_days;
+
+CREATE TRIGGER cascade_chore_removal AFTER DELETE ON chores
+BEGIN
+	DELETE FROM chores_log
+	WHERE chore_id = OLD.id;
+END;
+
+CREATE TRIGGER cascade_battery_removal AFTER DELETE ON batteries
+BEGIN
+	DELETE FROM battery_charge_cycles
+	WHERE battery_id = OLD.id;
+END;

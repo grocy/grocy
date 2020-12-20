@@ -38,7 +38,7 @@ $("#clear-filter-button").on("click", function()
 	$("#product-group-filter").val("all");
 	productsTable.column(7).search("").draw();
 	productsTable.search("").draw();
-	$("#show-disabled-products").prop('checked', false);
+	$("#show-disabled").prop('checked', false);
 });
 
 if (typeof GetUriParam("product-group") !== "undefined")
@@ -86,7 +86,7 @@ $(document).on('click', '.product-delete-button', function(e)
 	});
 });
 
-$("#show-disabled-products").change(function()
+$("#show-disabled").change(function()
 {
 	if (this.checked)
 	{
@@ -100,5 +100,5 @@ $("#show-disabled-products").change(function()
 
 if (GetUriParam('include_disabled'))
 {
-	$("#show-disabled-products").prop('checked', true);
+	$("#show-disabled").prop('checked', true);
 }

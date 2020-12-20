@@ -2,7 +2,8 @@
 	'order': [[1, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
-		{ 'searchable': false, "targets": 0 }
+		{ 'searchable': false, "targets": 0 },
+		{ "type": "num", "targets": 4 }
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#batteries-table tbody').removeClass("d-none");
@@ -23,6 +24,7 @@ $("#clear-filter-button").on("click", function()
 {
 	$("#search").val("");
 	batteriesTable.search("").draw();
+	$("#show-disabled").prop('checked', false);
 });
 
 $(document).on('click', '.battery-delete-button', function(e)
@@ -61,3 +63,20 @@ $(document).on('click', '.battery-delete-button', function(e)
 		}
 	});
 });
+
+$("#show-disabled").change(function()
+{
+	if (this.checked)
+	{
+		window.location.href = U('/batteries?include_disabled');
+	}
+	else
+	{
+		window.location.href = U('/batteries');
+	}
+});
+
+if (GetUriParam('include_disabled'))
+{
+	$("#show-disabled").prop('checked', true);
+}

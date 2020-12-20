@@ -52,7 +52,7 @@ class CalendarService extends BaseService
 		{
 			$users = $this->getUsersService()->GetUsersAsDto();
 
-			$chores = $this->getDatabase()->chores();
+			$chores = $this->getDatabase()->chores()->where('active = 1');
 			$titlePrefix = $this->getLocalizationService()->__t('Chore due') . ': ';
 
 			foreach ($this->getChoresService()->GetCurrent() as $currentChoreEntry)
@@ -80,7 +80,7 @@ class CalendarService extends BaseService
 
 		if (GROCY_FEATURE_FLAG_BATTERIES)
 		{
-			$batteries = $this->getDatabase()->batteries();
+			$batteries = $this->getDatabase()->batteries()->where('active = 1');
 			$titlePrefix = $this->getLocalizationService()->__t('Battery charge cycle due') . ': ';
 
 			foreach ($this->getBatteriesService()->GetCurrent() as $currentBatteryEntry)

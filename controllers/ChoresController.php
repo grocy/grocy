@@ -36,8 +36,17 @@ class ChoresController extends BaseController
 
 	public function ChoresList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
+		if (isset($request->getQueryParams()['include_disabled']))
+		{
+			$chores = $this->getDatabase()->chores()->orderBy('name', 'COLLATE NOCASE');
+		}
+		else
+		{
+			$chores = $this->getDatabase()->chores()->where('active = 1')->orderBy('name', 'COLLATE NOCASE');
+		}
+
 		return $this->renderPage($response, 'chores', [
-			'chores' => $this->getDatabase()->chores()->orderBy('name', 'COLLATE NOCASE'),
+			'chores' => $chores,
 			'userfields' => $this->getUserfieldsService()->GetFields('chores'),
 			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('chores')
 		]);
@@ -52,7 +61,7 @@ class ChoresController extends BaseController
 	{
 		return $this->renderPage($response, 'choresjournal', [
 			'choresLog' => $this->getDatabase()->chores_log()->orderBy('tracked_time', 'DESC'),
-			'chores' => $this->getDatabase()->chores()->orderBy('name', 'COLLATE NOCASE'),
+			'chores' => $this->getDatabase()->chores()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'users' => $this->getDatabase()->users()->orderBy('username')
 		]);
 	}
@@ -75,7 +84,7 @@ class ChoresController extends BaseController
 	public function TrackChoreExecution(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'choretracking', [
-			'chores' => $this->getDatabase()->chores()->orderBy('name', 'COLLATE NOCASE'),
+			'chores' => $this->getDatabase()->chores()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'users' => $this->getDatabase()->users()->orderBy('username')
 		]);
 	}
