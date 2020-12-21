@@ -2071,3 +2071,6 @@ msgstr ""
 
 msgid "The stock overview page lists all products which are currently in-stock or below their min. stock amount - enable this to hide this product there always"
 msgstr ""
+
+msgid "Print options"
+msgstr ""

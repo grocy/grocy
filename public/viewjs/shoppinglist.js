@@ -384,6 +384,7 @@ OnListItemRemoved();
 $(document).on("click", "#print-shopping-list-button", function(e)
 {
 	var dialogHtml = ' \
+	<div class="text-center"><h5>' + __t('Print options') + '</h5><hr></div> \
 	<div class="custom-control custom-checkbox"> \
 		<input id="print-show-header" \
 			 checked \
