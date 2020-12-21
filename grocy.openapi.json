@@ -528,7 +528,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/ExposedEntity_NotIncludingNotEditable"
+							"$ref": "#/components/internalSchemas/ExposedEntity_NotIncludingNotDeletable"
 						}
 					},
 					{
@@ -3938,7 +3938,8 @@
 					"meal_plan",
 					"stock_log",
 					"stock",
-					"stock_current_locations"
+					"stock_current_locations",
+					"api_keys"
 				]
 			},
 			"ExposedEntityNoListing": {
@@ -3952,6 +3953,14 @@
 				"enum": [
 					"stock_log",
 					"api_keys",
+					"stock",
+					"stock_current_locations"
+				]
+			},
+			"ExposedEntityNoDelete": {
+				"type": "string",
+				"enum": [
+					"stock_log",
 					"stock",
 					"stock_current_locations"
 				]

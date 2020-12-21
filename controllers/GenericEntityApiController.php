@@ -50,7 +50,7 @@ class GenericEntityApiController extends BaseApiController
 	{
 		User::checkPermission($request, User::PERMISSION_MASTER_DATA_EDIT);
 
-		if ($this->IsValidExposedEntity($args['entity']) && !$this->IsEntityWithNoEdit($args['entity']))
+		if ($this->IsValidExposedEntity($args['entity']) && !$this->IsEntityWithNoDelete($args['entity']))
 		{
 			if ($this->IsEntityWithEditRequiresAdmin($args['entity']))
 			{
@@ -217,6 +217,11 @@ class GenericEntityApiController extends BaseApiController
 	private function IsEntityWithNoEdit($entity)
 	{
 		return in_array($entity, $this->getOpenApiSpec()->components->internalSchemas->ExposedEntityNoEdit->enum);
+	}
+
+	private function IsEntityWithNoDelete($entity)
+	{
+		return in_array($entity, $this->getOpenApiSpec()->components->internalSchemas->ExposedEntityNoDelete->enum);
 	}
 
 	private function IsValidExposedEntity($entity)

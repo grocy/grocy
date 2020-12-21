@@ -45,6 +45,15 @@ class OpenApiController extends BaseApiController
 			}
 		}
 
+		$spec->components->internalSchemas->ExposedEntity_NotIncludingNotDeletable = clone $spec->components->internalSchemas->StringEnumTemplate;
+		foreach ($spec->components->internalSchemas->ExposedEntity->enum as $value)
+		{
+			if (!in_array($value, $spec->components->internalSchemas->ExposedEntityNoDelete->enum))
+			{
+				array_push($spec->components->internalSchemas->ExposedEntity_NotIncludingNotDeletable->enum, $value);
+			}
+		}
+
 		$spec->components->internalSchemas->ExposedEntity_NotIncludingNotListable = clone $spec->components->internalSchemas->StringEnumTemplate;
 		foreach ($spec->components->internalSchemas->ExposedEntity->enum as $value)
 		{
