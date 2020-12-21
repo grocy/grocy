@@ -33,7 +33,7 @@ class LocaleMiddleware extends BaseMiddleware
 
 		$langs = implode(',', $request->getHeader('Accept-Language'));
 
-		// src: https://gist.github.com/spolischook/0cde9c6286415cddc088
+		// Src: https://gist.github.com/spolischook/0cde9c6286415cddc088
 		$prefLocales = array_reduce(
 			explode(',', $langs),
 			function ($res, $el) {
@@ -61,10 +61,6 @@ class LocaleMiddleware extends BaseMiddleware
 			}
 
 			// e.g: cs
-
-			// or en
-
-			// or de
 			if (in_array(substr($locale, 0, 2), $availableLocales))
 			{
 				return substr($locale, 0, 2);
