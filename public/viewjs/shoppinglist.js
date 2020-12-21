@@ -545,3 +545,8 @@ $("img.barcode").each(function()
 
 	img.attr("src", dummyCanvas.toDataURL("image/png"));
 });
+
+if ($(window).width() < 768)
+{
+	$("#filter-container").removeClass("border-bottom");
+}
