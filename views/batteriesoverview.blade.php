@@ -120,7 +120,7 @@
 							title="{{ $__t('Track charge cycle') }}"
 							data-battery-id="{{ $currentBatteryEntry->battery_id }}"
 							data-battery-name="{{ FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->name }}">
-							<i class="fas fa-fire"></i>
+							<i class="fas fa-car-battery"></i>
 						</a>
 						<div class="dropdown d-inline-block">
 							<button class="btn btn-sm btn-light text-secondary"

@@ -234,7 +234,7 @@
 								<a class="dropdown-item show-as-dialog-link permission-STOCK_PURCHASE"
 									type="button"
 									href="{{ $U('/purchase?embedded&product=' . $currentStockEntry->product_id ) }}">
-									<span class="dropdown-item-icon"><i class="fas fa-shopping-cart"></i></span> <span class="dropdown-item-text">{{ $__t('Purchase') }}</span>
+									<span class="dropdown-item-icon"><i class="fas fa-cart-plus"></i></span> <span class="dropdown-item-text">{{ $__t('Purchase') }}</span>
 								</a>
 								<a class="dropdown-item show-as-dialog-link permission-STOCK_CONSUME"
 									type="button"

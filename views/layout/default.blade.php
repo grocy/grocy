@@ -176,7 +176,7 @@
 					data-nav-for-page="recipes">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/recipes') }}">
-						<i class="fas fa-cocktail"></i>
+						<i class="fas fa-pizza-slice"></i>
 						<span class="nav-link-text">{{ $__t('Recipes') }}</span>
 					</a>
 				</li>
@@ -269,7 +269,7 @@
 					data-nav-for-page="purchase">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/purchase') }}">
-						<i class="fas fa-shopping-cart"></i>
+						<i class="fas fa-cart-plus"></i>
 						<span class="nav-link-text">{{ $__t('Purchase') }}</span>
 					</a>
 				</li>
@@ -330,7 +330,7 @@
 					data-nav-for-page="batterytracking">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/batterytracking') }}">
-						<i class="fas fa-fire"></i>
+						<i class="fas fa-car-battery"></i>
 						<span class="nav-link-text">{{ $__t('Battery tracking') }}</span>
 					</a>
 				</li>
@@ -373,7 +373,6 @@
 							data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link"
 								href="{{ $U('/products') }}">
-								<i class="fab fa-product-hunt"></i>
 								<span class="nav-link-text">{{ $__t('Products') }}</span>
 							</a>
 						</li>
@@ -382,7 +381,6 @@
 							data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link"
 								href="{{ $U('/locations') }}">
-								<i class="fas fa-map-marker-alt"></i>
 								<span class="nav-link-text">{{ $__t('Locations') }}</span>
 							</a>
 						</li>
@@ -392,7 +390,6 @@
 							data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link"
 								href="{{ $U('/shoppinglocations') }}">
-								<i class="fas fa-shopping-cart"></i>
 								<span class="nav-link-text">{{ $__t('Stores') }}</span>
 							</a>
 						</li>
@@ -401,7 +398,6 @@
 							data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link"
 								href="{{ $U('/quantityunits') }}">
-								<i class="fas fa-balance-scale"></i>
 								<span class="nav-link-text">{{ $__t('Quantity units') }}</span>
 							</a>
 						</li>
@@ -409,7 +405,6 @@
 							data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link"
 								href="{{ $U('/productgroups') }}">
-								<i class="fas fa-object-group"></i>
 								<span class="nav-link-text">{{ $__t('Product groups') }}</span>
 							</a>
 						</li>
@@ -419,7 +414,6 @@
 							data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link"
 								href="{{ $U('/chores') }}">
-								<i class="fas fa-home"></i>
 								<span class="nav-link-text">{{ $__t('Chores') }}</span>
 							</a>
 						</li>
@@ -429,7 +423,6 @@
 							data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link"
 								href="{{ $U('/batteries') }}">
-								<i class="fas fa-battery-half"></i>
 								<span class="nav-link-text">{{ $__t('Batteries') }}</span>
 							</a>
 						</li>
@@ -439,7 +432,6 @@
 							data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link"
 								href="{{ $U('/taskcategories') }}">
-								<i class="fas fa-project-diagram "></i>
 								<span class="nav-link-text">{{ $__t('Task categories') }}</span>
 							</a>
 						</li>
@@ -448,7 +440,6 @@
 							data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link"
 								href="{{ $U('/userfields') }}">
-								<i class="fas fa-bookmark "></i>
 								<span class="nav-link-text">{{ $__t('Userfields') }}</span>
 							</a>
 						</li>
@@ -456,7 +447,6 @@
 							data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link"
 								href="{{ $U('/userentities') }}">
-								<i class="fas fa-bookmark "></i>
 								<span class="nav-link-text">{{ $__t('Userentities') }}</span>
 							</a>
 						</li>
@@ -625,7 +615,7 @@
 						@endif
 						@if(GROCY_FEATURE_FLAG_RECIPES)
 						<a class="dropdown-item discrete-link permission-RECIPES"
-							href="{{ $U('/recipessettings') }}"><i class="fas fa-cocktail"></i>&nbsp;{{ $__t('Recipes settings') }}</a>
+							href="{{ $U('/recipessettings') }}"><i class="fas fa-pizza-slice"></i>&nbsp;{{ $__t('Recipes settings') }}</a>
 						@endif
 						@if(GROCY_FEATURE_FLAG_CHORES)
 						<a class="dropdown-item discrete-link permission-CHORES"

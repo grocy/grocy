@@ -139,7 +139,7 @@
 								<a class="dropdown-item show-as-dialog-link"
 									type="button"
 									href="{{ $U('/purchase?embedded&product=' . $stockEntry->product_id ) }}">
-									<i class="fas fa-shopping-cart"></i> {{ $__t('Purchase') }}
+									<i class="fas fa-cart-plus"></i> {{ $__t('Purchase') }}
 								</a>
 								<a class="dropdown-item show-as-dialog-link"
 									type="button"
