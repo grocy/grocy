@@ -389,6 +389,10 @@ tr.dtrg-group {
 	font-family: 'Font Awesome 5 Free';
 	font-weight: 900;
 }
+#mainNav .navbar-collapse .navbar-nav > .nav-item.dropdown > .nav-link.py-0:after,
+#mainNav .navbar-collapse .navbar-sidenav .nav-link-collapse.py-0:after {
+	padding-top: 8px;
+}
 
 #mainNav .navbar-collapse .navbar-sidenav > .nav-item > .nav-link,
 #mainNav .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level > li > a {

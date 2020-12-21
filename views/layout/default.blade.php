@@ -476,14 +476,14 @@
 			<ul class="navbar-nav ml-auto">
 				@if(GROCY_AUTHENTICATED === true && !GROCY_IS_EMBEDDED_INSTALL && GROCY_SHOW_AUTH_VIEWS)
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle discrete-link"
+					<a class="nav-link dropdown-toggle discrete-link @if(!empty(GROCY_USER_PICTURE_FILE_NAME)) py-0 @endif"
 						href="#"
 						data-toggle="dropdown">
 						@if(empty(GROCY_USER_PICTURE_FILE_NAME))
 						<i class="fas fa-user"></i>
 						@else
-						<img class="lazy rounded-circle mt-n1"
-							src="{{ $U('/files/userpictures/' . base64_encode(GROCY_USER_PICTURE_FILE_NAME) . '_' . base64_encode(GROCY_USER_PICTURE_FILE_NAME) . '?force_serve_as=picture&best_fit_width=16&best_fit_height=16') }}">
+						<img class="rounded-circle"
+							src="{{ $U('/files/userpictures/' . base64_encode(GROCY_USER_PICTURE_FILE_NAME) . '_' . base64_encode(GROCY_USER_PICTURE_FILE_NAME) . '?force_serve_as=picture&best_fit_width=32&best_fit_height=32') }}">
 						@endif
 						{{ GROCY_USER_USERNAME }}
 					</a>
