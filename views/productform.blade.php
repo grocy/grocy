@@ -464,9 +464,7 @@
 									href="#"><i class="fas fa-eye"></i></a>
 							</th>
 							<th>{{ $__t('Barcode') }}</th>
-							@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
-							<th>{{ $__t('Store') }}</th>
-							@endif
+							<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Store') }}</th>
 							<th>{{ $__t('Quantity unit') }}</th>
 							<th>{{ $__t('Amount') }}</th>
 							<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Last price') }}</th>
@@ -499,13 +497,12 @@
 							<td>
 								{{ $barcode->barcode }}
 							</td>
-							@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
-							<td id="barcode-shopping-location">
+							<td class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif"
+								id="barcode-shopping-location">
 								@if (FindObjectInArrayByPropertyValue($shoppinglocations, 'id', $barcode->shopping_location_id) !== null)
 								{{ FindObjectInArrayByPropertyValue($shoppinglocations, 'id', $barcode->shopping_location_id)->name }}
 								@endif
 							</td>
-							@endif
 							<td>
 								@if(!empty($barcode->qu_id))
 								{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', $barcode->qu_id)->name }}
