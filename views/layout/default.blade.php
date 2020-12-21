@@ -47,14 +47,8 @@
 		content="#ffffff">
 
 	<title>@yield('title') | grocy</title>
-
-	@if($dir == 'rtl')
-	<link href="{{ $U('/node_modules/bootstrap-v4-rtl/dist/css/bootstrap.min.css?v=', true) }}{{ $version }}"
-		rel="stylesheet">
-	@else
 	<link href="{{ $U('/node_modules/bootstrap/dist/css/bootstrap.min.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
-	@endif
 	<link href="{{ $U('/node_modules/startbootstrap-sb-admin/css/sb-admin.min.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
 	<link href="{{ $U('/node_modules/@fortawesome/fontawesome-free/css/all.css?v=', true) }}{{ $version }}"
@@ -669,11 +663,7 @@
 	</div>
 
 	<script src="{{ $U('/node_modules/jquery/dist/jquery.min.js?v=', true) }}{{ $version }}"></script>
-	@if($dir == 'rtl')
-	<script src="{{ $U('/node_modules/bootstrap-v4-rtl/dist/js/bootstrap.bundle.min.js?v=', true) }}{{ $version }}"></script>
-	@else
 	<script src="{{ $U('/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js?v=', true) }}{{ $version }}"></script>
-	@endif
 	<script src="{{ $U('/node_modules/startbootstrap-sb-admin/js/sb-admin.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/bootbox/dist/bootbox.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/jquery-serializejson/jquery.serializejson.min.js?v=', true) }}{{ $version }}"></script>
