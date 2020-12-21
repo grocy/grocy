@@ -110,7 +110,7 @@ Grocy.Components.UserfieldsForm.Load = function()
 					input.val(value.split(","));
 					$(".selectpicker").selectpicker("render");
 				}
-				if (input.attr('type') == "file")
+				else if (input.attr('type') == "file")
 				{
 					if (value != null && !value.isEmpty())
 					{
@@ -140,6 +140,19 @@ Grocy.Components.UserfieldsForm.Load = function()
 						});
 					}
 				}
+				else if (input.attr("data-userfield-type") == "link")
+				{
+					if (!value.isEmpty())
+					{
+						var data = JSON.parse(value);
+
+						var formRow = input.parent().parent();
+						formRow.find(".userfield-link-title").val(data.title);
+						formRow.find(".userfield-link-link").val(data.link);
+
+						input.val(value);
+					}
+				}
 				else
 				{
 					input.val(value);
@@ -152,3 +165,17 @@ Grocy.Components.UserfieldsForm.Load = function()
 		}
 	);
 }
+
+$(".userfield-link").keyup(function(e)
+{
+	var formRow = $(this).parent().parent();
+	var title = formRow.find(".userfield-link-title").val();
+	var link = formRow.find(".userfield-link-link").val();
+
+	var value = {
+		"title": title,
+		"link": link
+	};
+
+	formRow.find(".userfield-input").val(JSON.stringify(value));
+});

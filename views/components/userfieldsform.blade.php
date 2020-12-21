@@ -14,7 +14,7 @@
 
 	@if($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_SINGLE_LINE_TEXT)
 	<div class="form-group">
-		<label for="name">{{ $userfield->caption }}</label>
+		<label>{{ $userfield->caption }}</label>
 		<input type="text"
 			class="form-control userfield-input"
 			data-userfield-name="{{ $userfield->name }}">
@@ -112,10 +112,30 @@
 	</div>
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_LINK)
 	<div class="form-group">
-		<label for="name">{{ $userfield->caption }}</label>
+		<label>{{ $userfield->caption }}</label>
 		<input type="link"
 			class="form-control userfield-input"
 			data-userfield-name="{{ $userfield->name }}">
+	</div>
+	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_LINK_WITH_TITLE)
+	<div class="form-group">
+		<label class="d-block">{{ $userfield->caption }}</label>
+		<div class="form-row">
+			<div class="col-4">
+				<input type="text"
+					class="form-control userfield-link userfield-link-title"
+					placeholder="{{ $__t('Title') }}">
+			</div>
+			<div class="col-8">
+				<input type="link"
+					class="form-control userfield-link userfield-link-link"
+					placeholder="{{ $__t('Link') }}">
+			</div>
+			<input data-userfield-type="link"
+				type="hidden"
+				class="userfield-input"
+				data-userfield-name="{{ $userfield->name }}">
+		</div>
 	</div>
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_FILE)
 	<div class="form-group">

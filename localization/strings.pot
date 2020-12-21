@@ -2065,3 +2065,9 @@ msgstr ""
 
 msgid "Merge"
 msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Link"
+msgstr ""

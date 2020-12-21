@@ -12,38 +12,54 @@ msgstr ""
 "Language: en\n"
 "X-Domain: grocy/userfield_types\n"
 
+# Text (single line)
 msgid "text-single-line"
 msgstr ""
 
+# Text (multi line)
 msgid "text-multi-line"
 msgstr ""
 
+# Number (integral)
 msgid "number-integral"
 msgstr ""
 
+# Number (decimal)
 msgid "number-decimal"
 msgstr ""
 
+# Date (without time)
 msgid "date"
 msgstr ""
 
+# Date & time
 msgid "datetime"
 msgstr ""
 
+# Checkbox
 msgid "checkbox"
 msgstr ""
 
+# Select list (a single item can be selected)
 msgid "preset-list"
 msgstr ""
 
+# Select list (multiple items can be selected)
 msgid "preset-checklist"
 msgstr ""
 
+# Link
 msgid "link"
 msgstr ""
 
+# Link (with title)
+msgid "link-with-title"
+msgstr ""
+
+# File
 msgid "file"
 msgstr ""
 
+# Image
 msgid "image"
 msgstr ""
