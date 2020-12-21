@@ -314,7 +314,7 @@ if (Grocy.Components.ProductPicker !== undefined)
 											Grocy.Components.ProductAmountPicker.SetQuantityUnit(barcode.qu_id);
 										}
 
-										if (barcode.shopping_location_id != null)
+										if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING && barcode.shopping_location_id != null)
 										{
 											Grocy.Components.ShoppingLocationPicker.SetId(barcode.shopping_location_id);
 										}
