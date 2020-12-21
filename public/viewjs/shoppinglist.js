@@ -546,7 +546,7 @@ $("img.barcode").each(function()
 	img.attr("src", dummyCanvas.toDataURL("image/png"));
 });
 
-if ($(window).width() < 768)
+if ($(window).width() < 768 || !Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK)
 {
 	$("#filter-container").removeClass("border-bottom");
 }

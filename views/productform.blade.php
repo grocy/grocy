@@ -426,7 +426,7 @@
 	</div>
 
 	<div class="col-lg-6 col-xs-12 @if($mode == 'create') d-none @endif">
-		<div class="row">
+		<div class="row @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif">
 			<div class="col">
 				<div class="title-related-links">
 					<h4>
@@ -533,7 +533,7 @@
 			</div>
 		</div>
 
-		<div class="row mt-5">
+		<div class="row @if(GROCY_FEATURE_FLAG_STOCK) mt-5 @endif">
 			<div class="col">
 				<div class="title-related-links">
 					<h4>

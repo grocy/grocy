@@ -362,7 +362,6 @@
 					</a>
 					<ul id="top-nav-manager-master-data"
 						class="sidenav-second-level collapse">
-						@if(GROCY_FEATURE_FLAG_STOCK)
 						<li data-nav-for-page="products"
 							data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link"
@@ -370,6 +369,7 @@
 								<span class="nav-link-text">{{ $__t('Products') }}</span>
 							</a>
 						</li>
+						@if(GROCY_FEATURE_FLAG_STOCK)
 						@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 						<li data-nav-for-page="locations"
 							data-sub-menu-of="#top-nav-manager-master-data">
@@ -388,6 +388,7 @@
 							</a>
 						</li>
 						@endif
+						@endif
 						<li data-nav-for-page="quantityunits"
 							data-sub-menu-of="#top-nav-manager-master-data">
 							<a class="nav-link discrete-link"
@@ -402,7 +403,6 @@
 								<span class="nav-link-text">{{ $__t('Product groups') }}</span>
 							</a>
 						</li>
-						@endif
 						@if(GROCY_FEATURE_FLAG_CHORES)
 						<li data-nav-for-page="chores"
 							data-sub-menu-of="#top-nav-manager-master-data">

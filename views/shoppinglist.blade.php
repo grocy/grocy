@@ -76,7 +76,7 @@
 			class="border-top border-bottom my-2 py-1">
 			<div id="table-filter-row"
 				data-status-filter="belowminstockamount"
-				class="collapse d-md-inline-block normal-message status-filter-message responsive-button @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif"><span class="d-block d-md-none">{{count($missingProducts)}} <i class="fas fa-exclamation-circle"></i></span><span class="d-none d-md-block">{{ $__n(count($missingProducts), '%s product is below defined min. stock amount', '%s products are below defined min. stock amount') }}</span></div>
+				class="collapse normal-message status-filter-message responsive-button @if(!GROCY_FEATURE_FLAG_STOCK) d-none @else d-md-inline-block @endif"><span class="d-block d-md-none">{{count($missingProducts)}} <i class="fas fa-exclamation-circle"></i></span><span class="d-none d-md-block">{{ $__n(count($missingProducts), '%s product is below defined min. stock amount', '%s products are below defined min. stock amount') }}</span></div>
 			<div id="related-links"
 				class="float-right mt-1 collapse d-md-block">
 				<a class="btn btn-primary responsive-button btn-sm mb-1 show-as-dialog-link"

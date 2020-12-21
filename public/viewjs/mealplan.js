@@ -126,6 +126,12 @@ var calendar = $("#calendar").fullCalendar({
 				costsAndCaloriesPerServing = '<h5 class="small text-truncate"><span class="locale-number locale-number-generic">' + resolvedRecipe.calories + '</span> kcal ' + __t('per serving') + '<h5>';
 			}
 
+			if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK)
+			{
+				fulfillmentIconHtml = "";
+				fulfillmentInfoHtml = "";
+			}
+
 			element.html('\
 				<div> \
 					<h5 class="text-truncate">' + recipe.name + '<h5> \
@@ -273,6 +279,12 @@ var calendar = $("#calendar").fullCalendar({
 		if (GetUriParam("week") !== undefined)
 		{
 			$("#calendar").fullCalendar("gotoDate", GetUriParam("week"));
+		}
+
+		if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK)
+		{
+			$(".recipe-order-missing-button").addClass("d-none");
+			$(".recipe-consume-button").addClass("d-none");
 		}
 	},
 });

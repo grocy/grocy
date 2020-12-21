@@ -57,7 +57,7 @@
 				value="1">
 			@endif
 
-			<div class="@if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif">
+			<div>
 				@php if($mode == 'edit') { $productId = $listItem->product_id; } else { $productId = ''; } @endphp
 				@include('components.productpicker', array(
 				'products' => $products,
@@ -94,10 +94,5 @@
 
 		</form>
 	</div>
-	@if(GROCY_FEATURE_FLAG_STOCK)
-	<div class="col-xs-12 col-md-6 col-xl-4 hide-when-embedded">
-		@include('components.productcard')
-	</div>
-	@endif
 </div>
 @stop

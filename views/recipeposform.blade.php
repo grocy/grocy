@@ -46,7 +46,7 @@
 			'nextInputSelector' => '#amount'
 			))
 
-			<div class="form-group mb-2">
+			<div class="form-group mb-2 @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif">
 				<div class="custom-control custom-checkbox">
 					<input @if($mode=='edit'
 						&&
@@ -77,7 +77,7 @@
 					value="@if($mode == 'edit'){{ $recipePos->variable_amount }}@endif">
 			</div>
 
-			<div class="form-group">
+			<div class="form-group @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif">
 				<div class="custom-control custom-checkbox">
 					<input @if($mode=='edit'
 						&&
