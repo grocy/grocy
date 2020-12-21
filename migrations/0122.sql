@@ -44,7 +44,7 @@ LEFT JOIN products_last_purchased plp
 	ON sc.product_id = plp.product_id
 LEFT JOIN products p
     ON sc.product_id = p.id
-WHERE p.show_on_stock_overview = 1;
+WHERE p.hide_on_stock_overview = 0;
 
 DROP VIEW uihelper_stock_current_overview;
 CREATE VIEW uihelper_stock_current_overview
@@ -92,4 +92,4 @@ LEFT JOIN products_last_purchased plp
 	ON sc.product_id = plp.product_id
 LEFT JOIN products p
     ON sc.product_id = p.id
-WHERE p.show_on_stock_overview = 1;
+WHERE p.hide_on_stock_overview = 0;

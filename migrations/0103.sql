@@ -70,7 +70,7 @@ CREATE TABLE products (
 	cumulate_min_stock_amount_of_sub_products TINYINT DEFAULT 0,
 	due_type TINYINT NOT NULL DEFAULT 1 CHECK(due_type IN (1, 2)),
 	quick_consume_amount REAL NOT NULL DEFAULT 1,
-	show_on_stock_overview TINYINT NOT NULL DEFAULT 1 CHECK(show_on_stock_overview IN (0, 1)),
+	hide_on_stock_overview TINYINT NOT NULL DEFAULT 0 CHECK(hide_on_stock_overview IN (0, 1)),
 	row_created_timestamp DATETIME DEFAULT (datetime('now', 'localtime'))
 );
 

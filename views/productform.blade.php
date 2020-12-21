@@ -62,19 +62,6 @@
 				</div>
 			</div>
 
-			<div class="form-group">
-				<div class="custom-control custom-checkbox">
-					<input @if($mode=='create'
-						)
-						checked
-						@elseif($mode=='edit'
-						&&
-						$product->show_on_stock_overview == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="show_on_stock_overview" name="show_on_stock_overview" value="1">
-					<label class="form-check-label custom-control-label"
-						for="show_on_stock_overview">{{ $__t('Show on stock overview page') }}</label>
-				</div>
-			</div>
-
 			@php $prefillById = ''; if($mode=='edit') { $prefillById = $product->parent_product_id; } @endphp
 			@php
 			$hint = '';
@@ -412,6 +399,22 @@
 			'userfields' => $userfields,
 			'entity' => 'products'
 			))
+
+			<div class="form-group">
+				<div class="custom-control custom-checkbox">
+					<input @if($mode=='create'
+						)
+						checked
+						@elseif($mode=='edit'
+						&&
+						$product->hide_on_stock_overview == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="hide_on_stock_overview" name="hide_on_stock_overview" value="1">
+					<label class="form-check-label custom-control-label"
+						for="hide_on_stock_overview">{{ $__t('Never show on stock overview') }}&nbsp;<i class="fas fa-question-circle text-muted"
+							data-toggle="tooltip"
+							title="{{ $__t('The stock overview page lists all products which are currently in-stock or below their min. stock amount - enable this to hide this product there always') }}"></i>
+					</label>
+				</div>
+			</div>
 
 			<small id="save-hint"
 				class="my-2 form-text text-muted @if($mode == 'edit') d-none @endif">{{ $__t('Save & continue to add quantity unit conversions & barcodes') }}</small>
