@@ -105,10 +105,7 @@
 					src="{{ $U('/api/files/equipmentmanuals/' . base64_encode($equipment->instruction_manual_file_name)) }}"
 					type="application/pdf">
 				<p id="delete-current-instruction-manual-on-save-hint"
-					class="form-text text-muted font-italic d-none">{{ $__t('The current instruction manual will be deleted when you save the equipment') }}</p>
-				@else
-				<p id="no-current-instruction-manual-hint"
-					class="form-text text-muted font-italic">{{ $__t('No instruction manual available') }}</p>
+					class="form-text text-muted font-italic d-none">{{ $__t('The current file will be deleted on save') }}</p>
 				@endif
 			</div>
 		</div>

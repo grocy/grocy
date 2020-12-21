@@ -769,10 +769,7 @@ msgstr ""
 msgid "Create equipment"
 msgstr ""
 
-msgid "No instruction manual available"
-msgstr ""
-
-msgid "The current instruction manual will be deleted when you save the equipment"
+msgid "The current file will be deleted on save"
 msgstr ""
 
 msgid "No picture available"

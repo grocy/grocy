@@ -131,6 +131,8 @@ $('#delete-current-instruction-manual-button').on('click', function(e)
 	$("#current-equipment-instruction-manual").addClass("d-none");
 	$("#delete-current-instruction-manual-on-save-hint").removeClass("d-none");
 	$("#delete-current-instruction-manual-button").addClass("disabled");
+	$("#instruction-manual-label").addClass("d-none");
+	$("#instruction-manual-label-none").removeClass("d-none");
 });
 ResizeResponsiveEmbeds();
 

@@ -30,7 +30,7 @@
 					{{ $__t('Add') }}
 				</a>
 				<a class="btn btn-outline-secondary m-1 mt-md-0 mb-md-0 float-right"
-					href="{{ $U('/userfields?entity=shoppinglocations') }}">
+					href="{{ $U('/userfields?entity=shopping_locations') }}">
 					{{ $__t('Configure userfields') }}
 				</a>
 			</div>
