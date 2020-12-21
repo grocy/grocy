@@ -96,6 +96,8 @@ There is no plugin included for any service, see the reference implementation in
 ### Database migrations
 Database schema migration is automatically done when visiting the root (`/`) route (click on the logo in the left upper edge).
 
+_Please note: Database migrations are supposed to work between releases, not between every commit. If you want to run the current `master` branch (which is the development version), however, you need to handle that (and maybe more) yourself._
+
 ### Disable certain features
 If you don't use certain feature sets of grocy (for example if you don't need "Chores"), there are feature flags per major feature set to hide/disable the related UI elements (see `config-dist.php`)
 
