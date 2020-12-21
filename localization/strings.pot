@@ -1876,7 +1876,7 @@ msgstr ""
 msgid "This amount is used for the \"quick consume/open buttons\" on the stock overview page (related to quantity unit stock)"
 msgstr ""
 
-msgid "Copy this item"
+msgid "Copy"
 msgstr ""
 
 msgid "Are you sure to remove this barcode?"
@@ -2061,4 +2061,7 @@ msgid "After merging, this product will be kept"
 msgstr ""
 
 msgid "After merging, all occurences of this product will be replaced by \"Product to keep\" (means this product will not exist anymore)"
+msgstr ""
+
+msgid "Merge"
 msgstr ""

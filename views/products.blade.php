@@ -130,19 +130,6 @@
 							title="{{ $__t('Edit this item') }}">
 							<i class="fas fa-edit"></i>
 						</a>
-						<a class="btn btn-primary btn-sm"
-							href="{{ $U('/product/new?copy-of=') }}{{ $product->id }}"
-							data-toggle="tooltip"
-							title="{{ $__t('Copy this item') }}">
-							<i class="fas fa-copy"></i>
-						</a>
-						<a class="btn btn-primary btn-sm merge-products-button"
-							href="#"
-							data-product-id="{{ $product->id }}"
-							data-toggle="tooltip"
-							title="{{ $__t('Merge this product with another one') }}">
-							<i class="fas fa-compress-alt"></i>
-						</a>
 						<a class="btn btn-danger btn-sm product-delete-button"
 							href="#"
 							data-product-id="{{ $product->id }}"
@@ -151,6 +138,26 @@
 							title="{{ $__t('Delete this item') }}">
 							<i class="fas fa-trash"></i>
 						</a>
+						<div class="dropdown d-inline-block">
+							<button class="btn btn-sm btn-light text-secondary"
+								type="button"
+								data-toggle="dropdown">
+								<i class="fas fa-ellipsis-v"></i>
+							</button>
+							<div class="table-inline-menu dropdown-menu dropdown-menu-right">
+								<a class="dropdown-item"
+									type="button"
+									href="{{ $U('/product/new?copy-of=') }}{{ $product->id }}">
+									<span class="dropdown-item-text">{{ $__t('Copy') }}</span>
+								</a>
+								<a class="dropdown-item merge-products-button"
+									data-product-id="{{ $product->id }}"
+									type="button"
+									href="#">
+									<span class="dropdown-item-text">{{ $__t('Merge') }}</span>
+								</a>
+							</div>
+						</div>
 					</td>
 					<td>
 						{{ $product->name }}
