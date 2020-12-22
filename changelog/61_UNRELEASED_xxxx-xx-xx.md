@@ -1,2 +1,3 @@
 - Improved the prerequisites checker (added missing required PHP extension `ctype`) (thanks @Forceu)
 - Fixed that browser camera barcode scanning did not work on the product edit page
+- Fixed that the new product option "Never show on stock overview" was unintentionally set by default for new products

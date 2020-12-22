@@ -402,10 +402,7 @@
 
 			<div class="form-group">
 				<div class="custom-control custom-checkbox">
-					<input @if($mode=='create'
-						)
-						checked
-						@elseif($mode=='edit'
+					<input @if($mode=='edit'
 						&&
 						$product->hide_on_stock_overview == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="hide_on_stock_overview" name="hide_on_stock_overview" value="1">
 					<label class="form-check-label custom-control-label"
