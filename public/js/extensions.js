@@ -63,6 +63,11 @@ IsTouchInputDevice = function()
 
 BoolVal = function(test)
 {
+	if (!test)
+	{
+		return false;
+	}
+
 	var anything = test.toString().toLowerCase();
 	if (anything === true || anything === "true" || anything === "1" || anything === "on")
 	{
