@@ -12,7 +12,7 @@ SET price = ROUND(price / (SELECT qu_factor_purchase_to_stock FROM products WHER
 CREATE TABLE product_barcodes (
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
 	product_id INT NOT NULL,
-	barcode TEXT NOT NULL UNIQUE,
+	barcode TEXT NOT NULL,
 	qu_id INT,
 	amount REAL,
 	shopping_location_id INTEGER,
