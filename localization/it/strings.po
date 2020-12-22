@@ -624,11 +624,15 @@ msgstr "Unità di quantità"
 
 msgid "Only check if any amount is in stock"
 msgstr ""
+"Controlla soltanto se è disponibile in dispensa una qualsiasi quantità "
 
 msgid ""
 "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
 " marked with \"only check if any amount is in stock\" will be ignored)?"
 msgstr ""
+"Sei sicuro di consumare tutti gli ingredienti necessari per la ricetta "
+"\"%s\" (gli ingredienti contrassegnati con \"Controlla soltanto se è "
+"disponibile in dispensa una qualsiasi quantità\" saranno ignorati)?"
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
 msgstr "Rimuovi tutti gli ingredienti della ricetta \"%s\" dalla dispensa"
@@ -776,9 +780,6 @@ msgstr "Nessun file selezionato"
 msgid "Delete"
 msgstr "Elimina"
 
-msgid "The current picture will be deleted when you save the product"
-msgstr "L'immagine corrente verrà eliminata quando si salva il prodotto"
-
 msgid "Select file"
 msgstr "Seleziona il file"
 
@@ -806,14 +807,8 @@ msgstr "Modifica attrezzatura"
 msgid "Create equipment"
 msgstr "Crea attrezzatura"
 
-msgid "No instruction manual available"
-msgstr "Nessun manuale di istruzioni disponibile"
-
-msgid ""
-"The current instruction manual will be deleted when you save the equipment"
-msgstr ""
-"Il manuale di istruzioni corrente verrà eliminato quando si salva "
-"l'apparecchiatura"
+msgid "The current file will be deleted on save"
+msgstr "Il file corrente verrà eliminato al salvataggio"
 
 msgid "No picture available"
 msgstr "Nessuna immagine disponibile"
@@ -889,6 +884,9 @@ msgid ""
 "The first item in this list would be picked by the default rule which is "
 "\"Opened first, then first due first, then first in first out\""
 msgstr ""
+"Il primo elemento in questo elenco verrà scelto dalla regola predefinita che"
+" è \"Prima quello aperto, poi prima quello in scadenza, poi quello prima "
+"entrato è il primo uscito\""
 
 msgid "Mark %1$s of %2$s as open"
 msgstr "Segna %1$s di %2$s come aperti"
@@ -1023,8 +1021,8 @@ msgstr "Elenco"
 msgid "Gallery"
 msgstr "Galleria"
 
-msgid "The current picture will be deleted when you save the recipe"
-msgstr "L'immagine corrente verrà eliminata quando si salva la ricetta"
+msgid "The current picture will be deleted on save"
+msgstr "L'immagine corrente verrà eliminata al salvataggio"
 
 msgid "Journal for this battery"
 msgstr "Diario per questa batteria"
@@ -1875,6 +1873,9 @@ msgid ""
 "Based on the prices of the default consume rule which is \"Opened first, "
 "then first due first, then first in first out\""
 msgstr ""
+"In base ai prezzi della regola di consumo predefinita che è \"Prima quello "
+"aperto, poi prima quello in scadenza, poi il primo entrato è il primo "
+"uscito\""
 
 msgid ""
 "Not enough in stock (not included in costs), %1$s missing, %2$s already on "
@@ -2069,7 +2070,7 @@ msgstr ""
 "precedente alla successiva data di scadenza in dispensa"
 
 msgid "This is due earlier than already in-stock items"
-msgstr ""
+msgstr "Questo è scaduto prima degli articoli già in dispensa"
 
 msgid ""
 "When enabled, the amount will always be filled with 1 after "
@@ -2092,8 +2093,8 @@ msgstr ""
 "nella pagina di panoramica della dispensa (correlato alla unità quantitativa"
 " della dispensa)"
 
-msgid "Copy this item"
-msgstr "Copia questo articolo"
+msgid "Copy"
+msgstr "Copia"
 
 msgid "Are you sure to remove this barcode?"
 msgstr "Sei sicuro di rimuovere questo codice a barre?"
@@ -2282,10 +2283,10 @@ msgstr ""
 "se vuoi mantenerlo e soltanto nascondere il prodotto."
 
 msgid "Show disabled"
-msgstr ""
+msgstr "Mostra disabilitato"
 
-msgid "Show on stock overview page"
-msgstr "Mostra sulla pagina del Riepilogo della dispensa"
+msgid "Never show on stock overview"
+msgstr ""
 
 msgid "None"
 msgstr "Nessuno"
@@ -2309,21 +2310,67 @@ msgid ""
 "A different amount/unit can then be used below while for stock fulfillment "
 "checking it is sufficient when any amount of the product in stock"
 msgstr ""
+"Di seguito è possibile utilizzare una quantità/unità diversa mentre per "
+"l'esecuzione del controllo della dispensa è sufficiente quando qualsiasi "
+"quantità del prodotto è in dispensa"
 
 msgid "Last price (Unit)"
-msgstr ""
+msgstr "Ultimo prezzo (Unità)"
 
 msgid "Last price (Total)"
-msgstr ""
+msgstr "Ultimo prezzo (Totale)"
 
 msgid "Show header"
-msgstr ""
+msgstr "Mostra intestazione"
 
 msgid "Group by product group"
-msgstr ""
+msgstr "Raggruppa per gruppo di prodotti"
 
 msgid "Table"
-msgstr ""
+msgstr "Tabella"
 
 msgid "Layout type"
+msgstr "Tipo di layout"
+
+msgid "Merge this product with another one"
+msgstr "Unisci questo prodotto con un altro"
+
+msgid "Merge products"
+msgstr "Unisci i prodotti"
+
+msgid "Product to keep"
+msgstr "Prodotto da conservare"
+
+msgid "Product to remove"
+msgstr "Prodotto da rimuovere"
+
+msgid "Error while merging products"
+msgstr "Errore durante l'unione dei prodotti"
+
+msgid "After merging, this product will be kept"
+msgstr "Dopo l'unione, questo prodotto verrà mantenuto"
+
+msgid ""
+"After merging, all occurences of this product will be replaced by \"Product "
+"to keep\" (means this product will not exist anymore)"
+msgstr ""
+"Dopo l'unione, tutte le occorrenze di questo prodotto verranno sostituite da"
+" \"Prodotto da conservare\" (significa che questo prodotto non esisterà più)"
+
+msgid "Merge"
+msgstr "Unisci"
+
+msgid "Title"
+msgstr "Titolo"
+
+msgid "Link"
+msgstr "Link"
+
+msgid ""
+"The stock overview page lists all products which are currently in-stock or "
+"below their min. stock amount - enable this to hide this product there "
+"always"
+msgstr ""
+
+msgid "Print options"
 msgstr ""

@@ -2,8 +2,9 @@
 # Translators:
 # 鳥山 陽平 <kagemomiji@gmail.com>, 2020
 # EbXpJ6bp <ebxpj6bp@outlook.jp>, 2020
-# SHIGEYAMA KATSUHIKO <kshigeyama@gmail.com>, 2020
 # Cisco Benjamin <metallica@vivaldi.net>, 2020
+# Tatsuya Ueda <ml@tatsuya.info>, 2020
+# KATSUHIKO SHIGEYAMA <kshigeyama@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -11,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Cisco Benjamin <metallica@vivaldi.net>, 2020\n"
+"Last-Translator: KATSUHIKO SHIGEYAMA <kshigeyama@gmail.com>, 2020\n"
 "Language-Team: Japanese (https://www.transifex.com/grocy/teams/93189/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,6 +34,10 @@ msgstr[0] "(%s 日以内に)"
 
 msgid "%s product is already expired"
 msgid_plural "%s products are already expired"
+msgstr[0] "%s 個がすでに消費期限切れ"
+
+msgid "%s product is overdue"
+msgid_plural "%s products are overdue"
 msgstr[0] "%s 個がすでに期限切れ"
 
 msgid "%s product is below defined min. stock amount"
@@ -48,9 +53,6 @@ msgstr[0] "%s 個"
 
 msgid "Amount"
 msgstr "量"
-
-msgid "Next best before date"
-msgstr "期限"
 
 msgid "Logout"
 msgstr "ログアウト"
@@ -185,15 +187,6 @@ msgstr "場所"
 msgid "Min. stock amount"
 msgstr "最小の在庫量"
 
-msgid "QU purchase"
-msgstr "購入数量"
-
-msgid "QU stock"
-msgstr "保管数量"
-
-msgid "QU factor"
-msgstr "係数単位"
-
 msgid "Description"
 msgstr "説明"
 
@@ -209,8 +202,8 @@ msgstr "最小の在庫量"
 msgid "Default best before days"
 msgstr "デフォルトの期限日"
 
-msgid "Quantity unit purchase"
-msgstr "購入の数量単位"
+msgid "Default quantity unit purchase"
+msgstr "デフォルトの購入時の数量単位"
 
 msgid "Quantity unit stock"
 msgstr "保管の数量単位"
@@ -274,11 +267,6 @@ msgstr "該当なし"
 
 msgid "Add products that are below defined min. stock amount"
 msgstr "保管数の下限以下の製品を追加する"
-
-msgid ""
-"For purchases this amount of days will be added to today for the best before"
-" date suggestion"
-msgstr ""
 
 msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
 msgstr ""
@@ -402,15 +390,6 @@ msgstr "現在在庫にあるすべての %s を消費する"
 msgid "All"
 msgstr "すべて"
 
-msgid "Track charge cycle of battery %s"
-msgstr "電池 %s の充電サイクルを追跡"
-
-msgid "Track execution of chore %s"
-msgstr "家事 %s の実行を追跡"
-
-msgid "Filter by location"
-msgstr "場所でフィルター"
-
 msgid "Search"
 msgstr "検索"
 
@@ -431,12 +410,6 @@ msgstr "名前が必要です"
 
 msgid "A location is required"
 msgstr "場所が必要です"
-
-msgid "The amount cannot be lower than %s"
-msgstr "量は %s より小さくできません"
-
-msgid "This cannot be negative"
-msgstr ""
 
 msgid "A quantity unit is required"
 msgstr "数量単位が必要です"
@@ -572,9 +545,6 @@ msgstr "最終実行者"
 msgid "Unknown"
 msgstr "不明"
 
-msgid "Filter by chore"
-msgstr "家事でフィルター"
-
 msgid "Chores journal"
 msgstr "家事記録"
 
@@ -595,12 +565,6 @@ msgstr "価格履歴を利用できません"
 
 msgid "Price"
 msgstr "価格"
-
-msgid "in %s per purchase quantity unit"
-msgstr ""
-
-msgid "The price cannot be lower than %s"
-msgstr "価格は %s より小さくできません"
 
 msgid "Unit"
 msgstr "単位"
@@ -628,26 +592,15 @@ msgstr[0] "%s 個の交換が期限切れ"
 msgid "in singular form"
 msgstr "単数形"
 
-msgid "Never expires"
-msgstr "期限切れなし"
-
-msgid "This cannot be lower than %s"
-msgstr "%s より小さくできません"
-
-msgid "-1 means that this product never expires"
-msgstr "-1 にするとこの製品の期限が切れません"
-
 msgid "Quantity unit"
 msgstr "数量単位"
 
-msgid ""
-"Only check if a single unit is in stock (a different quantity can then be "
-"used above)"
+msgid "Only check if any amount is in stock"
 msgstr ""
 
 msgid ""
 "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
-" marked with \"check only if a single unit is in stock\" will be ignored)?"
+" marked with \"only check if any amount is in stock\" will be ignored)?"
 msgstr ""
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
@@ -743,19 +696,19 @@ msgid "When not set, you will get logged out at latest after 30 days"
 msgstr "設定しない場合、30日後にログアウトされます"
 
 msgid "Status"
-msgstr ""
+msgstr "状態"
 
 msgid "Below min. stock amount"
 msgstr "最小在庫量以下"
 
 msgid "Expiring soon"
-msgstr "まもなく期限切れ"
+msgstr "まもなく消費期限切れ"
 
 msgid "Already expired"
-msgstr "期限切れ"
+msgstr "消費期限切れ"
 
 msgid "Due soon"
-msgstr ""
+msgstr "まもなく期限切れ"
 
 msgid "Overdue"
 msgstr "期限切れ"
@@ -790,14 +743,8 @@ msgstr "製品の写真"
 msgid "No file selected"
 msgstr "ファイルが選択されていません"
 
-msgid "If you don't select a file, the current picture will not be altered"
-msgstr "ファイルを選択しない場合、現在の写真は変更されません"
-
 msgid "Delete"
 msgstr "削除"
-
-msgid "The current picture will be deleted when you save the product"
-msgstr "製品を保存するときに現在の写真は削除されます"
 
 msgid "Select file"
 msgstr "ファイル選択"
@@ -805,12 +752,7 @@ msgstr "ファイル選択"
 msgid "Image of product %s"
 msgstr "製品 %s のイメージ"
 
-msgid ""
-"This product cannot be deleted because it is in stock, please remove the "
-"stock amount first."
-msgstr "この商品は在庫があるため削除できません。最初に在庫数を削除してください。"
-
-msgid "Delete not possible"
+msgid "Deletion not possible"
 msgstr ""
 
 msgid "Equipment"
@@ -831,23 +773,11 @@ msgstr "機器を編集"
 msgid "Create equipment"
 msgstr "機器を作成"
 
-msgid ""
-"If you don't select a file, the current instruction manual will not be "
-"altered"
-msgstr "ファイルを選択しない場合、現在の取扱説明書は変更されませｎ"
-
-msgid "No instruction manual available"
-msgstr "利用可能な取扱説明書はありません"
-
-msgid ""
-"The current instruction manual will be deleted when you save the equipment"
-msgstr "保存するときに現在の取扱説明書は削除されます"
+msgid "The current file will be deleted on save"
+msgstr ""
 
 msgid "No picture available"
 msgstr "利用できる写真はありません"
-
-msgid "Filter by product group"
-msgstr "製品グループでフィルター"
 
 msgid "Presets for new products"
 msgstr "新しい製品のプリセット"
@@ -876,26 +806,11 @@ msgstr "記録"
 msgid "Stock journal"
 msgstr "在庫記録"
 
-msgid "Filter by product"
-msgstr "製品でフィルター"
-
-msgid "Booking time"
-msgstr "予約時間"
-
-msgid "Booking type"
-msgstr "予約タイプ"
-
-msgid "Undo booking"
-msgstr "予約を元に戻す"
-
 msgid "Undone on"
 msgstr ""
 
 msgid "Batteries journal"
 msgstr "電池記録"
-
-msgid "Filter by battery"
-msgstr "電池でフィルター"
 
 msgid "Undo charge cycle"
 msgstr "充電サイクルを元に戻す"
@@ -915,9 +830,6 @@ msgstr "予約を元に戻しました"
 msgid "Charge cycle successfully undone"
 msgstr "充電サイクルを元に戻しました"
 
-msgid "This cannot be negative and must be an integral number"
-msgstr "負の数にはできません。整数を指定してください"
-
 msgid "Disable stock fulfillment checking for this ingredient"
 msgstr "この材料の在庫フィルメントを無効にする"
 
@@ -935,19 +847,11 @@ msgstr "特定の在庫アイテムを使用する"
 
 msgid ""
 "The first item in this list would be picked by the default rule which is "
-"\"First expiring first, then first in first out\""
+"\"Opened first, then first due first, then first in first out\""
 msgstr ""
 
 msgid "Mark %1$s of %2$s as open"
 msgstr "%2$s の %1$s を開封済みとしてマーク"
-
-msgid ""
-"When this product was marked as opened, the best before date will be "
-"replaced by today + this amount of days (a value of 0 disables this)"
-msgstr ""
-
-msgid "Default best before days after opened"
-msgstr "開封した後のデフォルトの期限日"
 
 msgid "Marked %1$s of %2$s as opened"
 msgstr "%2$s の %1$s を開封済みとしてマークしました"
@@ -964,8 +868,8 @@ msgstr "開封済み"
 msgid "%s opened"
 msgstr "%s 個が開封済み"
 
-msgid "Product expires"
-msgstr "製品の有効期限"
+msgid "Product due"
+msgstr "製品の期限"
 
 msgid "Task due"
 msgstr "タスクの期限"
@@ -983,11 +887,6 @@ msgid "Stock settings"
 msgstr "在庫設定"
 
 msgid "Shopping list to stock workflow"
-msgstr ""
-
-msgid ""
-"Automatically do the booking using the last price and the amount of the "
-"shopping list item, if the product has \"Default best before days\" set"
 msgstr ""
 
 msgid "Skip"
@@ -1039,7 +938,7 @@ msgid ""
 msgstr "iCal 形式のカレンダーを共有/統合するには次の (公開) URL を使用してください"
 
 msgid "Allow partial units in stock"
-msgstr ""
+msgstr "部分的な在庫消費を有効にする"
 
 msgid "Enable tare weight handling"
 msgstr ""
@@ -1070,23 +969,8 @@ msgstr "リスト"
 msgid "Gallery"
 msgstr "ギャラリー"
 
-msgid "The current picture will be deleted when you save the recipe"
-msgstr "レシピを保存するときに現在の写真は削除されます"
-
-msgid "Show product details"
-msgstr "製品の詳細を表示"
-
-msgid "Stock journal for this product"
-msgstr "この製品の在庫記録"
-
-msgid "Show chore details"
-msgstr "家事の詳細を表示"
-
-msgid "Journal for this chore"
-msgstr "この家事の記録"
-
-msgid "Show battery details"
-msgstr "電池の詳細を表示"
+msgid "The current picture will be deleted on save"
+msgstr ""
 
 msgid "Journal for this battery"
 msgstr "この電池の記録"
@@ -1106,8 +990,9 @@ msgstr ""
 msgid "Product count"
 msgstr "製品数"
 
-msgid "Type a new product name or barcode and hit TAB to start a workflow"
-msgstr "新しい製品名またはバーコードを入力し、Tabキーを押してワークフローを開始します"
+msgid ""
+"Type a new product name or barcode and hit TAB or ENTER to start a workflow"
+msgstr ""
 
 msgid ""
 "This will be used as the default setting when adding this product as a "
@@ -1145,7 +1030,7 @@ msgid "Average shelf life"
 msgstr "棚保存の平均時間"
 
 msgid "Spoil rate"
-msgstr ""
+msgstr "廃棄率"
 
 msgid "Show more"
 msgstr "さらに表示"
@@ -1185,9 +1070,6 @@ msgstr "ユーザーフィールドを構成"
 
 msgid "Userfields"
 msgstr "ユーザーフィールド"
-
-msgid "Filter by entity"
-msgstr "エンティティでフィルター"
 
 msgid "Entity"
 msgstr "エンティティ"
@@ -1237,9 +1119,6 @@ msgstr ""
 msgid "Not enough in stock, %s ingredient missing"
 msgid_plural "Not enough in stock, %s ingredients missing"
 msgstr[0] "在庫不足。%s 個の材料がありません"
-
-msgid "The amount cannot be lower than %1$s or equal %2$s"
-msgstr ""
 
 msgid "Not enough in stock, but already on the shopping list"
 msgstr "在庫不足ですが、すでに買い物リストに存在します"
@@ -1295,15 +1174,6 @@ msgstr "構成"
 msgid "A predefined list of values, one per line"
 msgstr ""
 
-msgid "Chores due soon days"
-msgstr "家事の期限を何日前に知らせるか"
-
-msgid "Batteries due to be charged soon days"
-msgstr "電池の交換日を何日前に知らせるか"
-
-msgid "Tasks due soon days"
-msgstr "タスクの期限を何日前に知らせるか"
-
 msgid "Products"
 msgstr "製品"
 
@@ -1328,8 +1198,8 @@ msgstr "%2$s の %1$s を廃棄"
 msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
 msgstr ""
 
-msgid "Undo task \"%s\""
-msgstr "タスク \"%s\" を元に戻す"
+msgid "Undo task"
+msgstr ""
 
 msgid "Due date rollover"
 msgstr "期日のロールオーバー"
@@ -1350,14 +1220,14 @@ msgstr "すべての場所"
 
 msgid ""
 "Here you can print a page per location with the current stock, maybe to hang"
-" it there and note the consumed things on it."
+" it there and note the consumed things on it"
 msgstr ""
 
 msgid "this location"
 msgstr "この場所"
 
-msgid "Consumend amount"
-msgstr "消費した量"
+msgid "Consumed amount"
+msgstr "消費量"
 
 msgid "Time of printing"
 msgstr "印刷時刻"
@@ -1394,11 +1264,6 @@ msgstr ""
 msgid "Quantity unit to"
 msgstr ""
 
-msgid ""
-"This cannot be lower than %1$s and must be a valid number with max. %2$s "
-"decimal places"
-msgstr ""
-
 msgid "This cannot be equal to %s"
 msgstr "%s と同じにすることはできません"
 
@@ -1414,7 +1279,7 @@ msgstr "製品の上書き"
 msgid "Override for product"
 msgstr "製品のオーバーライド"
 
-msgid "This equals %1$s %2$s in stock"
+msgid "This equals %1$s %2$s"
 msgstr ""
 
 msgid "Edit QU conversion"
@@ -1478,7 +1343,7 @@ msgid "assigned to %s"
 msgstr "%sに割り当てる"
 
 msgid "Assignment"
-msgstr ""
+msgstr "割り当て"
 
 msgid "Consume product on chore execution"
 msgstr "家事を実行するときに製品を消費"
@@ -1653,14 +1518,11 @@ msgstr "移動先"
 msgid "There are no units available at this location"
 msgstr "この場所で利用できる単位はありません"
 
-msgid "Amount: %1$s; Expires on %2$s; Bought on %3$s"
+msgid "Amount: %1$s; Due on %2$s; Bought on %3$s"
 msgstr ""
 
 msgid "Transfered %1$s of %2$s from %3$s to %4$s"
 msgstr "%2$s の %1$s を %3$s から %4$s に移動しました"
-
-msgid "Show stock entries"
-msgstr "在庫エントリーを表示"
 
 msgid "Stock entries"
 msgstr "在庫エントリー"
@@ -1698,8 +1560,8 @@ msgid "A purchased date is required"
 msgstr "購入した日付が必要です"
 
 msgid ""
-"When a product is selected, one unit (per serving in purchase quantity unit)"
-" will be added to stock on consuming this recipe"
+"When a product is selected, one unit (per serving in stock quantity unit) "
+"will be added to stock on consuming this recipe"
 msgstr ""
 
 msgid "Produces product"
@@ -1722,12 +1584,6 @@ msgstr "ノートを%sに追加する"
 
 msgid "per day"
 msgstr "(1 日当たり)"
-
-msgid "Compact view"
-msgstr "コンパクト表示"
-
-msgid "Normal view"
-msgstr "通常表示"
 
 msgid "Only undone items"
 msgstr "未完了のアイテムのみ"
@@ -1771,22 +1627,6 @@ msgid ""
 "date is automatically adjusted according to the product settings"
 msgstr "冷凍庫の場所との間で製品を移動する場合、製品の期限はの設定に応じて自動的に調整されます"
 
-msgid ""
-"On moving this product to a freezer location (so when freezing it), the best"
-" before date will be replaced by today + this amount of days"
-msgstr ""
-
-msgid "Default best before days after freezing"
-msgstr "冷凍した後のデフォルトの期限日"
-
-msgid ""
-"On moving this product from a freezer location (so when thawing it), the "
-"best before date will be replaced by today + this amount of days"
-msgstr ""
-
-msgid "Default best before days after thawing"
-msgstr "解凍した後のデフォルトの期限日"
-
 msgid "This cannot be the same as the \"From\" location"
 msgstr "移動元と同じ場所にはできません"
 
@@ -1804,9 +1644,6 @@ msgstr "買い物リスト設定"
 
 msgid "Show a month-view calendar"
 msgstr "月表示のカレンダーを表示する"
-
-msgid "Don't automatically switch to the compact view on mobile devices"
-msgstr "モバイル デバイスで自動的にコンパクトビューに変更しない"
 
 msgid "Edit note on %s"
 msgstr "%s のノートを編集"
@@ -1865,13 +1702,6 @@ msgstr ""
 msgid "Calories"
 msgstr "カロリー"
 
-msgid ""
-"By default the amount to be added to the shopping list is `needed amount - "
-"stock amount - shopping list amount` - when this is enabled, it is only "
-"checked against the stock amount, not against what is already on the "
-"shopping list"
-msgstr ""
-
 msgid "means %1$s per %2$s"
 msgstr ""
 
@@ -1885,7 +1715,469 @@ msgid "Save & continue to add ingredients and included recipes"
 msgstr ""
 
 msgid "Save & continue"
-msgstr ""
+msgstr "保存して続ける"
 
 msgid "Save & return to recipes"
+msgstr "保存してレシピに戻る"
+
+msgid "Stock value"
+msgstr ""
+
+msgid "Average price"
+msgstr "平均価格"
+
+msgid "Active"
+msgstr "有効"
+
+msgid "Barcodes"
+msgstr "バーコード"
+
+msgid "Barcode"
+msgstr "バーコード"
+
+msgid "Create Barcode"
+msgstr "バーコードを作成"
+
+msgid "Barcode for product"
+msgstr "製品のバーコード"
+
+msgid "Edit Barcode"
+msgstr "バーコードを編集"
+
+msgid "Not enough in stock (not included in costs), %s ingredient missing"
+msgstr ""
+
+msgid ""
+"Based on the prices of the default consume rule which is \"Opened first, "
+"then first due first, then first in first out\""
+msgstr ""
+
+msgid ""
+"Not enough in stock (not included in costs), %1$s missing, %2$s already on "
+"shopping list"
+msgstr ""
+
+msgid "Quantity unit stock cannot be changed after first purchase"
+msgstr ""
+
+msgid "Clear filter"
+msgstr "フィルターをクリア"
+
+msgid "Permissions for user %s"
+msgstr ""
+
+msgid "Are you sure you want to remove full permissions for yourself?"
+msgstr ""
+
+msgid "Permissions saved"
+msgstr ""
+
+msgid "You are not allowed to view this page"
+msgstr "このページを表示することが出来ません"
+
+msgid "Page not found"
+msgstr "ページが見つかりません"
+
+msgid "Unauthorized"
+msgstr ""
+
+msgid "Error source"
+msgstr ""
+
+msgid "Error message"
+msgstr ""
+
+msgid "Stack trace"
+msgstr ""
+
+msgid "Easy error info copy & paste (for reporting)"
+msgstr ""
+
+msgid "This page does not exist"
+msgstr ""
+
+msgid "You will be redirected to the default page in %s seconds"
+msgstr ""
+
+msgid "Server error"
+msgstr ""
+
+msgid "A server error occured while processing your request"
+msgstr ""
+
+msgid "If you think this is a bug, please report it"
+msgstr ""
+
+msgid "Language"
+msgstr "言語"
+
+msgid "User settings"
+msgstr "ユーザー設定"
+
+msgid "Default"
+msgstr "デフォルト"
+
+msgid "Stock journal summary"
+msgstr ""
+
+msgid "Journal summary"
+msgstr ""
+
+msgid "Journal summary for this product"
+msgstr ""
+
+msgid "Consume exact amount"
+msgstr ""
+
+msgid "Value"
+msgstr "値"
+
+msgid "%s total value"
+msgstr "合計金額 %s"
+
+msgid ""
+"Show purchased date on purchase and inventory page (otherwise the purchased "
+"date defaults to today)"
+msgstr ""
+
+msgid "Common"
+msgstr ""
+
+msgid "Decimal places allowed for amounts"
+msgstr ""
+
+msgid "Decimal places allowed for prices"
+msgstr ""
+
+msgid "Stock entries for this product"
+msgstr ""
+
+msgid "Edit shopping list"
+msgstr ""
+
+msgid "Save & continue to add quantity unit conversions & barcodes"
+msgstr ""
+
+msgid "Save & return to products"
+msgstr "保存して製品に戻る"
+
+msgid "Save & continue to add conversions"
+msgstr ""
+
+msgid "Save & return to quantity units"
+msgstr ""
+
+msgid "price"
+msgstr "価格"
+
+msgid "New stock amount"
+msgstr "新しい在庫量"
+
+msgid "Price per stock unit"
+msgstr ""
+
+msgid "Table options"
+msgstr ""
+
+msgid "This product is currently on a shopping list"
+msgstr ""
+
+msgid "Undo transaction"
+msgstr ""
+
+msgid "Transaction type"
+msgstr ""
+
+msgid "Transaction time"
+msgstr ""
+
+msgid "Chore journal"
+msgstr ""
+
+msgid "Track chore execution"
+msgstr ""
+
+msgid "Mark task as completed"
+msgstr ""
+
+msgid "Track charge cycle"
+msgstr ""
+
+msgid "Battery journal"
+msgstr ""
+
+msgid "This product has a picture"
+msgstr ""
+
+msgid "Consume this stock entry as spoiled"
+msgstr ""
+
+msgid "Configure user permissions"
+msgstr ""
+
+msgid "Show a QR-Code for this API key"
+msgstr ""
+
+msgid ""
+"This is the default quantity unit used when adding this product to the "
+"shopping list"
+msgstr ""
+
+msgid ""
+"Show a warning when the due date of the purchased product is earlier than "
+"the next due date in stock"
+msgstr ""
+
+msgid "This is due earlier than already in-stock items"
+msgstr ""
+
+msgid ""
+"When enabled, the amount will always be filled with 1 after "
+"changing/scanning a product and if all fields could be automatically "
+"populated (by product defaults), the transaction is automatically submitted"
+msgstr ""
+
+msgid "Quick consume amount"
+msgstr ""
+
+msgid ""
+"This amount is used for the \"quick consume/open buttons\" on the stock "
+"overview page (related to quantity unit stock)"
+msgstr ""
+
+msgid "Copy"
+msgstr ""
+
+msgid "Are you sure to remove this barcode?"
+msgstr ""
+
+msgid "Due date type"
+msgstr "期限日のタイプ"
+
+msgid ""
+"Based on the selected type, the highlighting on the stock overview page will"
+" be different"
+msgstr ""
+
+msgid ""
+"Means that the product is maybe still safe to be consumed after its due date"
+" is reached"
+msgstr ""
+
+msgid "Expiration date"
+msgstr "消費期限"
+
+msgid ""
+"Means that the product is not safe to be consumed after its due date is "
+"reached"
+msgstr ""
+
+msgid ""
+"For purchases this amount of days will be added to today for the due date "
+"suggestion"
+msgstr ""
+
+msgid "-1 means that this product will be never overdue"
+msgstr ""
+
+msgid "Default due days"
+msgstr ""
+
+msgid ""
+"When this product was marked as opened, the due date will be replaced by "
+"today + this amount of days (a value of 0 disables this)"
+msgstr ""
+
+msgid "Default due days after opened"
+msgstr "デフォルトの開封後の期限"
+
+msgid ""
+"On moving this product to a freezer location (so when freezing it), the due "
+"date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default due days after freezing"
+msgstr "デフォルトの冷凍後の期限"
+
+msgid ""
+"On moving this product from a freezer location (so when thawing it), the due"
+" date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default due days after thawing"
+msgstr ""
+
+msgid "Next due date"
+msgstr "次の期日"
+
+msgid "%s product is due"
+msgid_plural "%s products are due"
+msgstr[0] ""
+
+msgid "Due date"
+msgstr ""
+
+msgid "Never overdue"
+msgstr "期限なし"
+
+msgid "%s product is expired"
+msgid_plural "%s products are expired"
+msgstr[0] ""
+
+msgid "Expired"
+msgstr ""
+
+msgid "Due soon days"
+msgstr ""
+
+msgid "Add overdue/expired products"
+msgstr ""
+
+msgid ""
+"Products with tare weight enabled are currently not supported for transfer"
+msgstr ""
+
+msgid ""
+"This cannot be lower than %1$s or equal %2$s and needs to be a valid number "
+"with max. %3$s decimal places"
+msgstr ""
+
+msgid ""
+"This must be between %1$s and %2$s, cannot equal %3$s and needs to be a "
+"valid number with max. %4$s decimal places"
+msgstr ""
+
+msgid ""
+"This cannot be lower than %1$s and needs to be a valid number with max. %2$s"
+" decimal places"
+msgstr ""
+
+msgid ""
+"This must between %1$s and %2$s and needs to be a valid number with max. "
+"%3$s decimal places"
+msgstr ""
+
+msgid ""
+"Automatically do the booking using the last price and the amount of the "
+"shopping list item, if the product has \"Default due days\" set"
+msgstr ""
+
+msgid ""
+"When moving products from/to a freezer location, the products due date is "
+"automatically adjusted according to the product settings"
+msgstr ""
+
+msgid "This is the internal field name, e. g. for the API"
+msgstr ""
+
+msgid "This is used to display the field on the frontend"
+msgstr ""
+
+msgid "Multiple Userfields will be ordered by that number on the input form"
+msgstr ""
+
+msgid "Sort number"
+msgstr ""
+
+msgid "Download file"
+msgstr ""
+
+msgid "Use the products \"Quick consume amount\""
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid ""
+"This also removes any stock amount, the journal and all other references of "
+"this product - consider disabling it instead, if you want to keep that and "
+"just hide the product."
+msgstr ""
+
+msgid "Show disabled"
+msgstr ""
+
+msgid "Never show on stock overview"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Group by"
+msgstr ""
+
+msgid "Ingredient group"
+msgstr ""
+
+msgid "Reset"
+msgstr "リセット"
+
+msgid "Are you sure to reset the table options?"
+msgstr ""
+
+msgid "Hide/view columns"
+msgstr ""
+
+msgid ""
+"A different amount/unit can then be used below while for stock fulfillment "
+"checking it is sufficient when any amount of the product in stock"
+msgstr ""
+
+msgid "Last price (Unit)"
+msgstr "最終価格(単位)"
+
+msgid "Last price (Total)"
+msgstr "最終価格(合計)"
+
+msgid "Show header"
+msgstr "ヘッダーを表示"
+
+msgid "Group by product group"
+msgstr ""
+
+msgid "Table"
+msgstr ""
+
+msgid "Layout type"
+msgstr ""
+
+msgid "Merge this product with another one"
+msgstr ""
+
+msgid "Merge products"
+msgstr ""
+
+msgid "Product to keep"
+msgstr ""
+
+msgid "Product to remove"
+msgstr ""
+
+msgid "Error while merging products"
+msgstr ""
+
+msgid "After merging, this product will be kept"
+msgstr ""
+
+msgid ""
+"After merging, all occurences of this product will be replaced by \"Product "
+"to keep\" (means this product will not exist anymore)"
+msgstr ""
+
+msgid "Merge"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Link"
+msgstr ""
+
+msgid ""
+"The stock overview page lists all products which are currently in-stock or "
+"below their min. stock amount - enable this to hide this product there "
+"always"
+msgstr ""
+
+msgid "Print options"
 msgstr ""

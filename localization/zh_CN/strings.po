@@ -745,9 +745,6 @@ msgstr "未选中文件"
 msgid "Delete"
 msgstr "删除"
 
-msgid "The current picture will be deleted when you save the product"
-msgstr "当你保存产品时当前图片会被删除"
-
 msgid "Select file"
 msgstr "选择文件"
 
@@ -775,12 +772,8 @@ msgstr "编辑设备"
 msgid "Create equipment"
 msgstr "创建设备"
 
-msgid "No instruction manual available"
-msgstr "没有可用使用手册"
-
-msgid ""
-"The current instruction manual will be deleted when you save the equipment"
-msgstr "当你保存时，当前设备的说明书将被删除"
+msgid "The current file will be deleted on save"
+msgstr "当前文件将在保存时被删除"
 
 msgid "No picture available"
 msgstr "没有可用图片"
@@ -976,8 +969,8 @@ msgstr "清单"
 msgid "Gallery"
 msgstr "陈列室"
 
-msgid "The current picture will be deleted when you save the recipe"
-msgstr "当你保存时，当前食谱的图片将被删除"
+msgid "The current picture will be deleted on save"
+msgstr "当前图片将在保存时被删除"
 
 msgid "Journal for this battery"
 msgstr "这个电池的日志"
@@ -1952,8 +1945,8 @@ msgid ""
 "overview page (related to quantity unit stock)"
 msgstr "此金额用于库存概览页面上的“快速消费/打开按钮”(与单位库存数量相关)"
 
-msgid "Copy this item"
-msgstr "复制这一项"
+msgid "Copy"
+msgstr "复制"
 
 msgid "Are you sure to remove this barcode?"
 msgstr "您确定要删除此条形码吗?"
@@ -2102,10 +2095,10 @@ msgid ""
 msgstr "这也会删除该产品的任何库存量，日记帐和所有其他参考-如果您想保留该数量而只是隐藏该产品，请考虑禁用它。"
 
 msgid "Show disabled"
-msgstr ""
+msgstr "显示已禁用"
 
-msgid "Show on stock overview page"
-msgstr "显示在库存概览页面上"
+msgid "Never show on stock overview"
+msgstr "不在库存总览显示"
 
 msgid "None"
 msgstr "没有"
@@ -2147,3 +2140,44 @@ msgstr "表"
 
 msgid "Layout type"
 msgstr "布局类型"
+
+msgid "Merge this product with another one"
+msgstr "将此产品与另一产品合并"
+
+msgid "Merge products"
+msgstr "合并产品"
+
+msgid "Product to keep"
+msgstr "保留的产品"
+
+msgid "Product to remove"
+msgstr "要删除的产品"
+
+msgid "Error while merging products"
+msgstr "合并产品时出错"
+
+msgid "After merging, this product will be kept"
+msgstr "合并后，此产品将保留"
+
+msgid ""
+"After merging, all occurences of this product will be replaced by \"Product "
+"to keep\" (means this product will not exist anymore)"
+msgstr "合并后，此产品的所有出现都将被“要保留的产品”代替（意味着该产品将不再存在）"
+
+msgid "Merge"
+msgstr "合并"
+
+msgid "Title"
+msgstr "标题"
+
+msgid "Link"
+msgstr "链接"
+
+msgid ""
+"The stock overview page lists all products which are currently in-stock or "
+"below their min. stock amount - enable this to hide this product there "
+"always"
+msgstr "库存总览页面列出了当前有库存或低于其最低库存的所有产品。库存量-启用此功能可将其始终隐藏在此处"
+
+msgid "Print options"
+msgstr "打印选项"

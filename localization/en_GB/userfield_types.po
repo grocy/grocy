@@ -42,6 +42,9 @@ msgstr "Select list (multiple items can be selected)"
 msgid "link"
 msgstr "Link"
 
+msgid "link-with-title"
+msgstr "Link (with title)"
+
 msgid "file"
 msgstr "File"
 

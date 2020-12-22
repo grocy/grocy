@@ -781,9 +781,6 @@ msgstr "No hay fichero seleccionado"
 msgid "Delete"
 msgstr "Borrar"
 
-msgid "The current picture will be deleted when you save the product"
-msgstr "Se borrará la imagen actual si grabas el producto"
-
 msgid "Select file"
 msgstr "Seleccionar fichero"
 
@@ -811,12 +808,8 @@ msgstr "Editar equipo"
 msgid "Create equipment"
 msgstr "Crear equipo"
 
-msgid "No instruction manual available"
-msgstr "No hay manual de instrucciones disponible"
-
-msgid ""
-"The current instruction manual will be deleted when you save the equipment"
-msgstr "Se borrará el manual de instrucciones si grabas el equipo"
+msgid "The current file will be deleted on save"
+msgstr ""
 
 msgid "No picture available"
 msgstr "No hay imagen disponible"
@@ -1025,8 +1018,8 @@ msgstr "Lista"
 msgid "Gallery"
 msgstr "Galería"
 
-msgid "The current picture will be deleted when you save the recipe"
-msgstr "La imagen actual se borrará cuando grabes la receta"
+msgid "The current picture will be deleted on save"
+msgstr ""
 
 msgid "Journal for this battery"
 msgstr "Diario para esta pila"
@@ -2061,7 +2054,7 @@ msgid ""
 "overview page (related to quantity unit stock)"
 msgstr ""
 
-msgid "Copy this item"
+msgid "Copy"
 msgstr ""
 
 msgid "Are you sure to remove this barcode?"
@@ -2215,7 +2208,7 @@ msgstr ""
 msgid "Show disabled"
 msgstr ""
 
-msgid "Show on stock overview page"
+msgid "Never show on stock overview"
 msgstr ""
 
 msgid "None"
@@ -2257,4 +2250,45 @@ msgid "Table"
 msgstr ""
 
 msgid "Layout type"
+msgstr ""
+
+msgid "Merge this product with another one"
+msgstr ""
+
+msgid "Merge products"
+msgstr ""
+
+msgid "Product to keep"
+msgstr ""
+
+msgid "Product to remove"
+msgstr ""
+
+msgid "Error while merging products"
+msgstr ""
+
+msgid "After merging, this product will be kept"
+msgstr ""
+
+msgid ""
+"After merging, all occurences of this product will be replaced by \"Product "
+"to keep\" (means this product will not exist anymore)"
+msgstr ""
+
+msgid "Merge"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Link"
+msgstr ""
+
+msgid ""
+"The stock overview page lists all products which are currently in-stock or "
+"below their min. stock amount - enable this to hide this product there "
+"always"
+msgstr ""
+
+msgid "Print options"
 msgstr ""

@@ -17,38 +17,54 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Domain: grocy/userfield_types\n"
 
+# Text (single line)
 msgid "text-single-line"
 msgstr "text-single-line"
 
+# Text (multi line)
 msgid "text-multi-line"
 msgstr "text-multi-line"
 
+# Number (integral)
 msgid "number-integral"
 msgstr "number-integral"
 
+# Number (decimal)
 msgid "number-decimal"
 msgstr "number-decimal"
 
+# Date (without time)
 msgid "date"
 msgstr "date"
 
+# Date & time
 msgid "datetime"
 msgstr "datetime"
 
+# Checkbox
 msgid "checkbox"
 msgstr "checkbox"
 
+# Select list (a single item can be selected)
 msgid "preset-list"
 msgstr "preset-list"
 
+# Select list (multiple items can be selected)
 msgid "preset-checklist"
 msgstr "preset-checklist"
 
+# Link
 msgid "link"
 msgstr "link"
 
+# Link (with title)
+msgid "link-with-title"
+msgstr ""
+
+# File
 msgid "file"
 msgstr "file"
 
+# Image
 msgid "image"
 msgstr "image"

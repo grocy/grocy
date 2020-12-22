@@ -19,38 +19,54 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Domain: grocy/userfield_types\n"
 
+# Text (single line)
 msgid "text-single-line"
 msgstr "egysoros szöveg"
 
+# Text (multi line)
 msgid "text-multi-line"
 msgstr "többsoros szöveg"
 
+# Number (integral)
 msgid "number-integral"
 msgstr "egész szám"
 
+# Number (decimal)
 msgid "number-decimal"
 msgstr "decimális szám"
 
+# Date (without time)
 msgid "date"
 msgstr "dátum"
 
+# Date & time
 msgid "datetime"
 msgstr "dátumidőpont"
 
+# Checkbox
 msgid "checkbox"
 msgstr "jelölőnégyzet"
 
+# Select list (a single item can be selected)
 msgid "preset-list"
 msgstr "előre beállított lista"
 
+# Select list (multiple items can be selected)
 msgid "preset-checklist"
 msgstr "előre beállított jelölőlista"
 
+# Link
 msgid "link"
 msgstr "link"
 
+# Link (with title)
+msgid "link-with-title"
+msgstr ""
+
+# File
 msgid "file"
 msgstr ""
 
+# Image
 msgid "image"
 msgstr ""

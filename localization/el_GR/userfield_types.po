@@ -18,38 +18,54 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Domain: grocy/userfield_types\n"
 
+# Text (single line)
 msgid "text-single-line"
 msgstr "κείμενο-μονή γραμμή"
 
+# Text (multi line)
 msgid "text-multi-line"
 msgstr "κείμενο-πολλαπλών γραμμών"
 
+# Number (integral)
 msgid "number-integral"
 msgstr "αριθμός-ακέραιο"
 
+# Number (decimal)
 msgid "number-decimal"
 msgstr "αριθμός-δεκαδικός"
 
+# Date (without time)
 msgid "date"
 msgstr "ημερομηνία"
 
+# Date & time
 msgid "datetime"
 msgstr "ημερομηνία ώρα"
 
+# Checkbox
 msgid "checkbox"
 msgstr "πλαίσιο ελέγχου"
 
+# Select list (a single item can be selected)
 msgid "preset-list"
 msgstr "προκαθορισμένη λίστα"
 
+# Select list (multiple items can be selected)
 msgid "preset-checklist"
 msgstr "προκαθορισμένη λίστα ελέγχου"
 
+# Link
 msgid "link"
 msgstr "σύνδεσμος"
 
+# Link (with title)
+msgid "link-with-title"
+msgstr ""
+
+# File
 msgid "file"
 msgstr ""
 
+# Image
 msgid "image"
 msgstr ""

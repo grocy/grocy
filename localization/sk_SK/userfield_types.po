@@ -17,38 +17,54 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
 "X-Domain: grocy/userfield_types\n"
 
+# Text (single line)
 msgid "text-single-line"
 msgstr "text-jeden-riadok"
 
+# Text (multi line)
 msgid "text-multi-line"
 msgstr "text-viac-riadkov"
 
+# Number (integral)
 msgid "number-integral"
 msgstr "číslo-celé"
 
+# Number (decimal)
 msgid "number-decimal"
 msgstr "číslo-desatinné"
 
+# Date (without time)
 msgid "date"
 msgstr "dátum"
 
+# Date & time
 msgid "datetime"
 msgstr "dátum a čas"
 
+# Checkbox
 msgid "checkbox"
 msgstr "zaškrtávacie políčko"
 
+# Select list (a single item can be selected)
 msgid "preset-list"
 msgstr "voľby-zoznam"
 
+# Select list (multiple items can be selected)
 msgid "preset-checklist"
 msgstr "voľby-zaškrtávací-zoznam"
 
+# Link
 msgid "link"
 msgstr "odkaz"
 
+# Link (with title)
+msgid "link-with-title"
+msgstr ""
+
+# File
 msgid "file"
 msgstr ""
 
+# Image
 msgid "image"
 msgstr ""

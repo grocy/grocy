@@ -745,9 +745,6 @@ msgstr "未選擇檔案"
 msgid "Delete"
 msgstr "刪除"
 
-msgid "The current picture will be deleted when you save the product"
-msgstr "現有圖片將會在物品存檔時被刪除"
-
 msgid "Select file"
 msgstr "選擇檔案"
 
@@ -775,12 +772,8 @@ msgstr "編輯設備"
 msgid "Create equipment"
 msgstr "新增設備"
 
-msgid "No instruction manual available"
-msgstr "沒有可用的說明書"
-
-msgid ""
-"The current instruction manual will be deleted when you save the equipment"
-msgstr "現有說明書將會在設備存檔時被刪除 "
+msgid "The current file will be deleted on save"
+msgstr ""
 
 msgid "No picture available"
 msgstr "沒有可用圖片"
@@ -976,8 +969,8 @@ msgstr "清單"
 msgid "Gallery"
 msgstr "圖庫"
 
-msgid "The current picture will be deleted when you save the recipe"
-msgstr "現有圖片將在食譜存檔時被刪除"
+msgid "The current picture will be deleted on save"
+msgstr ""
 
 msgid "Journal for this battery"
 msgstr "此電池的日誌"
@@ -1952,8 +1945,8 @@ msgid ""
 "overview page (related to quantity unit stock)"
 msgstr "此數量用於庫存總覽的「快速消耗/開封按鈕」(使用庫存數量單位)"
 
-msgid "Copy this item"
-msgstr "複製此項目"
+msgid "Copy"
+msgstr ""
 
 msgid "Are you sure to remove this barcode?"
 msgstr "確定要刪除此條碼嗎？"
@@ -2104,7 +2097,7 @@ msgstr ""
 msgid "Show disabled"
 msgstr ""
 
-msgid "Show on stock overview page"
+msgid "Never show on stock overview"
 msgstr ""
 
 msgid "None"
@@ -2146,4 +2139,45 @@ msgid "Table"
 msgstr ""
 
 msgid "Layout type"
+msgstr ""
+
+msgid "Merge this product with another one"
+msgstr ""
+
+msgid "Merge products"
+msgstr ""
+
+msgid "Product to keep"
+msgstr ""
+
+msgid "Product to remove"
+msgstr ""
+
+msgid "Error while merging products"
+msgstr ""
+
+msgid "After merging, this product will be kept"
+msgstr ""
+
+msgid ""
+"After merging, all occurences of this product will be replaced by \"Product "
+"to keep\" (means this product will not exist anymore)"
+msgstr ""
+
+msgid "Merge"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Link"
+msgstr ""
+
+msgid ""
+"The stock overview page lists all products which are currently in-stock or "
+"below their min. stock amount - enable this to hide this product there "
+"always"
+msgstr ""
+
+msgid "Print options"
 msgstr ""

@@ -18,38 +18,54 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
 "X-Domain: grocy/userfield_types\n"
 
+# Text (single line)
 msgid "text-single-line"
 msgstr "טקסט בשורה אחת"
 
+# Text (multi line)
 msgid "text-multi-line"
 msgstr "טקסט מרובה שורות"
 
+# Number (integral)
 msgid "number-integral"
 msgstr "מספר שלם"
 
+# Number (decimal)
 msgid "number-decimal"
 msgstr "מספר עשרוני"
 
+# Date (without time)
 msgid "date"
 msgstr "תאריך (בלי שעה)"
 
+# Date & time
 msgid "datetime"
 msgstr "תאריך ושעה"
 
+# Checkbox
 msgid "checkbox"
 msgstr "תיבת סימון"
 
+# Select list (a single item can be selected)
 msgid "preset-list"
 msgstr "בחירה מרשימה (ניתן לבחור בפריט אחד)"
 
+# Select list (multiple items can be selected)
 msgid "preset-checklist"
 msgstr "בחירה מרשימה (ניתן לבחור במגוון פריטים)"
 
+# Link
 msgid "link"
 msgstr "קישור"
 
+# Link (with title)
+msgid "link-with-title"
+msgstr "קישור (עם כותרת)"
+
+# File
 msgid "file"
 msgstr "קובץ"
 
+# Image
 msgid "image"
 msgstr "תמונה"

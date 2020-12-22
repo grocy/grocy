@@ -637,6 +637,8 @@ msgid ""
 "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
 " marked with \"only check if any amount is in stock\" will be ignored)?"
 msgstr ""
+"לצרוך את כל הרכיבים שנדרשים למתכון „%s” (רכיבים שמסומנים ב„לסמן רק אם קיים "
+"במלאי” לא נכללים)?"
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
 msgstr "כל הרכיבים של המתכון „%s” הוסרו מהמלאי"
@@ -787,9 +789,6 @@ msgstr "לא נבחר קובץ"
 msgid "Delete"
 msgstr "מחיקה"
 
-msgid "The current picture will be deleted when you save the product"
-msgstr "התמונה הנוכחית תימחק עם שמירת המוצר"
-
 msgid "Select file"
 msgstr "בחירת קובץ"
 
@@ -817,12 +816,8 @@ msgstr "עריכת ציוד"
 msgid "Create equipment"
 msgstr "יצירת ציוד"
 
-msgid "No instruction manual available"
-msgstr "אין הוראות הפעלה זמינות"
-
-msgid ""
-"The current instruction manual will be deleted when you save the equipment"
-msgstr "הוראות ההפעלה הנוכחיות יימחקו בעת שמירת הציוד"
+msgid "The current file will be deleted on save"
+msgstr "הקובץ הנוכחי יימחק עם השמירה"
 
 msgid "No picture available"
 msgstr "אין תמונה זמינה"
@@ -1028,8 +1023,8 @@ msgstr "רשימה"
 msgid "Gallery"
 msgstr "גלריה"
 
-msgid "The current picture will be deleted when you save the recipe"
-msgstr "התמונה הנוכחית תימחק עם שמירת המתכון"
+msgid "The current picture will be deleted on save"
+msgstr "התמונה הנוכחית תימחק עם השמירה"
 
 msgid "Journal for this battery"
 msgstr "יומן לסוללה הזו"
@@ -1844,6 +1839,8 @@ msgid ""
 "Based on the prices of the default consume rule which is \"Opened first, "
 "then first due first, then first in first out\""
 msgstr ""
+"על בסיס המחירים של כלל צריכת בררת המחדל שהוא „הראשון שנפתח, לאחר מכן הראשון "
+"שתוקפו יפוג, לאחר מכן הראשון הנכנס הוא הראשון שיוצא”"
 
 msgid ""
 "Not enough in stock (not included in costs), %1$s missing, %2$s already on "
@@ -2026,7 +2023,7 @@ msgstr ""
 "הבא במלאי"
 
 msgid "This is due earlier than already in-stock items"
-msgstr ""
+msgstr "תום התוקף קרוב מאשר פריטים שכבר במלאי."
 
 msgid ""
 "When enabled, the amount will always be filled with 1 after "
@@ -2046,8 +2043,8 @@ msgstr ""
 "כמות זו משמשת לטובת „כפתורי צריכה/פתיחה מהירה” על עמוד סקירת המלאי (קשור "
 "לכמות יחידה במלאי)"
 
-msgid "Copy this item"
-msgstr "העתקת הפריט הזה"
+msgid "Copy"
+msgstr "העתקה"
 
 msgid "Are you sure to remove this barcode?"
 msgstr "להסיר את הברקוד הזה?"
@@ -2221,10 +2218,10 @@ msgstr ""
 " אותו במקום, אם כל מה שמעניין אותך הוא להשאיר את המוצר אבל להסתיר אותו."
 
 msgid "Show disabled"
-msgstr ""
+msgstr "הצגת מושבתים"
 
-msgid "Show on stock overview page"
-msgstr "הצגה בעמוד סקירת המלאי"
+msgid "Never show on stock overview"
+msgstr "לא להציג בסקירת המלאי"
 
 msgid "None"
 msgstr "בלי"
@@ -2248,21 +2245,68 @@ msgid ""
 "A different amount/unit can then be used below while for stock fulfillment "
 "checking it is sufficient when any amount of the product in stock"
 msgstr ""
+"ניתן להשתמש ביחידה/כמות שונים להלן בעוד שלבדיקת השלמת המלאי מספיק שיש כמות "
+"כלשהי מהמוצר במלאי."
 
 msgid "Last price (Unit)"
-msgstr ""
+msgstr "מחיר אחרון (יחידה)"
 
 msgid "Last price (Total)"
-msgstr ""
+msgstr "מחיר אחרון (סך הכול)"
 
 msgid "Show header"
-msgstr ""
+msgstr "הצגת כותרת"
 
 msgid "Group by product group"
-msgstr ""
+msgstr "קיבוץ לפי קבוצת מוצרים"
 
 msgid "Table"
-msgstr ""
+msgstr "טבלה"
 
 msgid "Layout type"
+msgstr "סוג פריסה"
+
+msgid "Merge this product with another one"
+msgstr "מיזוג המוצר הזה עם אחר"
+
+msgid "Merge products"
+msgstr "מיזוג מוצרים"
+
+msgid "Product to keep"
+msgstr "מוצר להשאיר"
+
+msgid "Product to remove"
+msgstr "מוצר להסיר"
+
+msgid "Error while merging products"
+msgstr "שגיאה במיזוג מוצרים"
+
+msgid "After merging, this product will be kept"
+msgstr "לאחר המיזוג, המוצר הזה יישאר"
+
+msgid ""
+"After merging, all occurences of this product will be replaced by \"Product "
+"to keep\" (means this product will not exist anymore)"
 msgstr ""
+"לאחר המיזוג, כל מופעי המוצר הזה יוחלפו ב„מוצר לשימור” (כלומר שהמוצר הזה לא "
+"יהיה קיים עוד)"
+
+msgid "Merge"
+msgstr "מיזוג"
+
+msgid "Title"
+msgstr "כותרת"
+
+msgid "Link"
+msgstr "קישור"
+
+msgid ""
+"The stock overview page lists all products which are currently in-stock or "
+"below their min. stock amount - enable this to hide this product there "
+"always"
+msgstr ""
+"עמוד סקירת המלאי מציג את כל המוצרים שנמצאים כרגע במלאי או מתחת לכמות המזערית"
+" במלאי - יש להפעיל זאת כדי להסתיר את המוצר הזה שם תמיד"
+
+msgid "Print options"
+msgstr "אפשרויות הדפסה"

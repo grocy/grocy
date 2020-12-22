@@ -19,38 +19,54 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Domain: grocy/userfield_types\n"
 
+# Text (single line)
 msgid "text-single-line"
 msgstr "單行文字"
 
+# Text (multi line)
 msgid "text-multi-line"
 msgstr "多行文字"
 
+# Number (integral)
 msgid "number-integral"
 msgstr "整數"
 
+# Number (decimal)
 msgid "number-decimal"
 msgstr "小數"
 
+# Date (without time)
 msgid "date"
 msgstr "日期"
 
+# Date & time
 msgid "datetime"
 msgstr "日期與時間"
 
+# Checkbox
 msgid "checkbox"
 msgstr "勾選"
 
+# Select list (a single item can be selected)
 msgid "preset-list"
 msgstr "預選列表"
 
+# Select list (multiple items can be selected)
 msgid "preset-checklist"
 msgstr "預勾選列表"
 
+# Link
 msgid "link"
 msgstr "連結"
 
+# Link (with title)
+msgid "link-with-title"
+msgstr ""
+
+# File
 msgid "file"
 msgstr "檔案"
 
+# Image
 msgid "image"
 msgstr "圖片"

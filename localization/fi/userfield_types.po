@@ -19,38 +19,54 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Domain: grocy/userfield_types\n"
 
+# Text (single line)
 msgid "text-single-line"
 msgstr "teksti-yksi-rivi"
 
+# Text (multi line)
 msgid "text-multi-line"
 msgstr "teksti-monta-riviä"
 
+# Number (integral)
 msgid "number-integral"
 msgstr "numero-kokonaisluku"
 
+# Number (decimal)
 msgid "number-decimal"
 msgstr "numero-desimaali"
 
+# Date (without time)
 msgid "date"
 msgstr "päivämäärä"
 
+# Date & time
 msgid "datetime"
 msgstr "päivämäärä ja aika"
 
+# Checkbox
 msgid "checkbox"
 msgstr "valintaruutu"
 
+# Select list (a single item can be selected)
 msgid "preset-list"
 msgstr "esiasetettu luettelo"
 
+# Select list (multiple items can be selected)
 msgid "preset-checklist"
 msgstr "esiasetettu valintalista"
 
+# Link
 msgid "link"
 msgstr "linkki"
 
+# Link (with title)
+msgid "link-with-title"
+msgstr ""
+
+# File
 msgid "file"
 msgstr "tiedosto"
 
+# Image
 msgid "image"
 msgstr "kuva"

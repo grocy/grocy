@@ -8,6 +8,7 @@
 # Piotr Oleszczyk <piotr.oleszczyk@gmail.com>, 2020
 # Teiron, 2020
 # Pro Peller <smiglo@tuta.io>, 2020
+# Rafal Dadas <dadasrafal@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -15,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Pro Peller <smiglo@tuta.io>, 2020\n"
+"Last-Translator: Rafal Dadas <dadasrafal@gmail.com>, 2020\n"
 "Language-Team: Polish (https://www.transifex.com/grocy/teams/93189/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,10 +51,10 @@ msgstr[3] "Przeterminowane produkty: %s"
 
 msgid "%s product is overdue"
 msgid_plural "%s products are overdue"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%s produkt przeterminowany"
+msgstr[1] "%s produkty przeterminowane"
+msgstr[2] "%s produkty przeterminowane"
+msgstr[3] "%s produkty przeterminowane"
 
 msgid "%s product is below defined min. stock amount"
 msgid_plural "%s products are below defined min. stock amount"
@@ -226,7 +227,7 @@ msgid "Default best before days"
 msgstr "Domyślna ilość dni przydatności do spożycia "
 
 msgid "Default quantity unit purchase"
-msgstr ""
+msgstr "Domyślna jednostka zakupu"
 
 msgid "Quantity unit stock"
 msgstr "Jednostka ilości zapasów"
@@ -648,12 +649,15 @@ msgid "Quantity unit"
 msgstr "Jednostka ilości"
 
 msgid "Only check if any amount is in stock"
-msgstr ""
+msgstr "Zaznacz tylko, jeśli cokolwiek jest w zapasach"
 
 msgid ""
 "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
 " marked with \"only check if any amount is in stock\" will be ignored)?"
 msgstr ""
+"Czy jesteś pewny/pewna, by zużyć wszystkie składniki potrzebne do przepisu "
+"\"%s\" (składniki oznaczone jako \"zaznacz tylko, jeśli cokolwiek jest w "
+"zapasach\" zostaną zignorowane)?"
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
 msgstr "Usuń wszystkie składniki przepisu \"%s\" z zapasów"
@@ -804,9 +808,6 @@ msgstr "Nie wybrano pliku"
 msgid "Delete"
 msgstr "Usuń"
 
-msgid "The current picture will be deleted when you save the product"
-msgstr "Bieżące zdjęcie zostanie usunięte po zapisaniu produktu"
-
 msgid "Select file"
 msgstr "Wybierz plik"
 
@@ -814,7 +815,7 @@ msgid "Image of product %s"
 msgstr "Zdjęcie produktu %s"
 
 msgid "Deletion not possible"
-msgstr ""
+msgstr "Usunięcie niemożliwe"
 
 msgid "Equipment"
 msgstr "Wyposażenie"
@@ -834,12 +835,8 @@ msgstr "Edytuj wyposażenie"
 msgid "Create equipment"
 msgstr "Dodaj wyposażenie"
 
-msgid "No instruction manual available"
-msgstr "Brak instrukcji obsługi"
-
-msgid ""
-"The current instruction manual will be deleted when you save the equipment"
-msgstr "Obecna instrukcja obsługi zostanie usunięta po zapisaniu wyposażenia"
+msgid "The current file will be deleted on save"
+msgstr ""
 
 msgid "No picture available"
 msgstr "Brak zdjęcia"
@@ -934,7 +931,7 @@ msgid "%s opened"
 msgstr "Otwarto %s"
 
 msgid "Product due"
-msgstr ""
+msgstr "Produkt przeterminowany"
 
 msgid "Task due"
 msgstr "Termin wykonania zadania"
@@ -1045,8 +1042,8 @@ msgstr "Lista"
 msgid "Gallery"
 msgstr "Galeria"
 
-msgid "The current picture will be deleted when you save the recipe"
-msgstr "Bieżące zdjęcie zostanie usunięte po zapisaniu przepisu"
+msgid "The current picture will be deleted on save"
+msgstr ""
 
 msgid "Journal for this battery"
 msgstr "Dziennik baterii"
@@ -1287,7 +1284,7 @@ msgstr ""
 "usunięte"
 
 msgid "Undo task"
-msgstr ""
+msgstr "Cofnij zadanie"
 
 msgid "Due date rollover"
 msgstr "Przeniesienie daty wykonania"
@@ -1986,72 +1983,74 @@ msgid "Edit shopping list"
 msgstr "Edytuj listę zakupów"
 
 msgid "Save & continue to add quantity unit conversions & barcodes"
-msgstr ""
+msgstr "Zapisz i kontynuuj dodawanie jednostek konwersji i kodów kreskowych"
 
 msgid "Save & return to products"
-msgstr ""
+msgstr "Zapisz i wróć do produktów"
 
 msgid "Save & continue to add conversions"
-msgstr ""
+msgstr "Zapisz i kontynuuj dodawanie konwersji"
 
 msgid "Save & return to quantity units"
-msgstr ""
+msgstr "Zapisz i wróć do jednostek ilości"
 
 msgid "price"
-msgstr ""
+msgstr "Cena"
 
 msgid "New stock amount"
-msgstr ""
+msgstr "Nowa ilość zapasu"
 
 msgid "Price per stock unit"
-msgstr ""
+msgstr "Cena na jednostkę zapasu"
 
 msgid "Table options"
-msgstr ""
+msgstr "Opcje tabeli"
 
 msgid "This product is currently on a shopping list"
-msgstr ""
+msgstr "Produkt jest obecny na liście zakupów"
 
 msgid "Undo transaction"
-msgstr ""
+msgstr "Cofnij transakcję"
 
 msgid "Transaction type"
-msgstr ""
+msgstr "Typ transakcji"
 
 msgid "Transaction time"
-msgstr ""
+msgstr "Czas transakcji"
 
 msgid "Chore journal"
-msgstr ""
+msgstr "Dziennik obowiązków"
 
 msgid "Track chore execution"
-msgstr ""
+msgstr "Śledź postęp wykonania obowiązku"
 
 msgid "Mark task as completed"
-msgstr ""
+msgstr "Oznacz zadanie jako wykonane"
 
 msgid "Track charge cycle"
-msgstr ""
+msgstr "Śledź cykl ładowania"
 
 msgid "Battery journal"
-msgstr ""
+msgstr "Dziennik baterii"
 
 msgid "This product has a picture"
-msgstr ""
+msgstr "Ten produkt ma obraz"
 
 msgid "Consume this stock entry as spoiled"
-msgstr ""
+msgstr "Spożyj tą pozycję zapasów jako zepsuta"
 
 msgid "Configure user permissions"
-msgstr ""
+msgstr "Skonfiguruj pozwolenia użytkownika"
 
 msgid "Show a QR-Code for this API key"
-msgstr ""
+msgstr "Pokaż kod QR dla tego klucza API"
 
 msgid ""
 "This is the default quantity unit used when adding this product to the "
 "shopping list"
 msgstr ""
+"To jest domyślna jednostka używana podczas dodawania tego produktu do listy "
+"zakupów"
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -2075,14 +2074,14 @@ msgid ""
 "overview page (related to quantity unit stock)"
 msgstr ""
 
-msgid "Copy this item"
+msgid "Copy"
 msgstr ""
 
 msgid "Are you sure to remove this barcode?"
-msgstr ""
+msgstr "Czy na pewno usunąć ten kod kreskowy?"
 
 msgid "Due date type"
-msgstr ""
+msgstr "Typ daty wykonania"
 
 msgid ""
 "Based on the selected type, the highlighting on the stock overview page will"
@@ -2095,7 +2094,7 @@ msgid ""
 msgstr ""
 
 msgid "Expiration date"
-msgstr ""
+msgstr "Data ważności"
 
 msgid ""
 "Means that the product is not safe to be consumed after its due date is "
@@ -2151,7 +2150,7 @@ msgid "Due date"
 msgstr ""
 
 msgid "Never overdue"
-msgstr ""
+msgstr "Nigdy się nie przeterminuje"
 
 msgid "%s product is expired"
 msgid_plural "%s products are expired"
@@ -2161,7 +2160,7 @@ msgstr[2] ""
 msgstr[3] ""
 
 msgid "Expired"
-msgstr ""
+msgstr "Przeterminowany"
 
 msgid "Due soon days"
 msgstr ""
@@ -2216,13 +2215,13 @@ msgid "Sort number"
 msgstr ""
 
 msgid "Download file"
-msgstr ""
+msgstr "Pobierz plik"
 
 msgid "Use the products \"Quick consume amount\""
 msgstr ""
 
 msgid "Disabled"
-msgstr ""
+msgstr "Wyłączone"
 
 msgid ""
 "This also removes any stock amount, the journal and all other references of "
@@ -2231,9 +2230,9 @@ msgid ""
 msgstr ""
 
 msgid "Show disabled"
-msgstr ""
+msgstr "Pokaż wyłączone"
 
-msgid "Show on stock overview page"
+msgid "Never show on stock overview"
 msgstr ""
 
 msgid "None"
@@ -2246,13 +2245,13 @@ msgid "Ingredient group"
 msgstr ""
 
 msgid "Reset"
-msgstr ""
+msgstr "Zresetuj"
 
 msgid "Are you sure to reset the table options?"
-msgstr ""
+msgstr "Jesteś pewny/pewna, że chcesz usunąć opcje tabeli?"
 
 msgid "Hide/view columns"
-msgstr ""
+msgstr "Ukryj/pokaż kolumny"
 
 msgid ""
 "A different amount/unit can then be used below while for stock fulfillment "
@@ -2260,19 +2259,60 @@ msgid ""
 msgstr ""
 
 msgid "Last price (Unit)"
-msgstr ""
+msgstr "Ostatnia cena (Jednostka)"
 
 msgid "Last price (Total)"
-msgstr ""
+msgstr "Ostatnia cena (Suma)"
 
 msgid "Show header"
-msgstr ""
+msgstr "Pokaż nagłówek"
 
 msgid "Group by product group"
 msgstr ""
 
 msgid "Table"
-msgstr ""
+msgstr "Tabela"
 
 msgid "Layout type"
+msgstr ""
+
+msgid "Merge this product with another one"
+msgstr ""
+
+msgid "Merge products"
+msgstr ""
+
+msgid "Product to keep"
+msgstr ""
+
+msgid "Product to remove"
+msgstr ""
+
+msgid "Error while merging products"
+msgstr ""
+
+msgid "After merging, this product will be kept"
+msgstr ""
+
+msgid ""
+"After merging, all occurences of this product will be replaced by \"Product "
+"to keep\" (means this product will not exist anymore)"
+msgstr ""
+
+msgid "Merge"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Link"
+msgstr ""
+
+msgid ""
+"The stock overview page lists all products which are currently in-stock or "
+"below their min. stock amount - enable this to hide this product there "
+"always"
+msgstr ""
+
+msgid "Print options"
 msgstr ""

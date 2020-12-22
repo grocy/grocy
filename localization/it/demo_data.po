@@ -381,7 +381,7 @@ msgid "Hebrew (Israel)"
 msgstr "Ebraico (Israele)"
 
 msgid "Tamil"
-msgstr ""
+msgstr "Tamil"
 
 msgid "Finnish"
-msgstr ""
+msgstr "Finlandese"

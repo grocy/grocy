@@ -782,9 +782,6 @@ msgstr "Keine Datei ausgewählt"
 msgid "Delete"
 msgstr "Löschen"
 
-msgid "The current picture will be deleted when you save the product"
-msgstr "Das aktuelle Bild wird beim Speichern des Produkts gelöscht"
-
 msgid "Select file"
 msgstr "Datei auswählen"
 
@@ -812,14 +809,8 @@ msgstr "Ausstattung bearbeiten"
 msgid "Create equipment"
 msgstr "Ausstattung erstellen"
 
-msgid "No instruction manual available"
-msgstr "Keine Bedienungsanleitung vorhanden"
-
-msgid ""
-"The current instruction manual will be deleted when you save the equipment"
-msgstr ""
-"Die aktuelle Bedienungsanleitung wird beim Speichern der Ausstattung "
-"gelöscht"
+msgid "The current file will be deleted on save"
+msgstr "Die aktuelle Datei wird beim Speichern gelöscht "
 
 msgid "No picture available"
 msgstr "Kein Bild vorhanden"
@@ -1032,8 +1023,8 @@ msgstr "Liste"
 msgid "Gallery"
 msgstr "Galerie"
 
-msgid "The current picture will be deleted when you save the recipe"
-msgstr "Das aktuelle Bild wird beim Speichern des Rezepts gelöscht "
+msgid "The current picture will be deleted on save"
+msgstr "Das aktuelle Bild wird beim Speichern gelöscht "
 
 msgid "Journal for this battery"
 msgstr "Journal für diese Batterie"
@@ -1334,7 +1325,7 @@ msgid "Factor"
 msgstr "Faktor"
 
 msgid "1 %s is the same as..."
-msgstr "1 %s ist identisch mit..."
+msgstr "1 %s entspricht..."
 
 msgid "Create QU conversion"
 msgstr "ME-Umrechnung erstellen"
@@ -1352,7 +1343,7 @@ msgid "This cannot be equal to %s"
 msgstr "Dies darf nicht gleich sein wie %s"
 
 msgid "This means 1 %1$s is the same as %2$s %3$s"
-msgstr "Das bedeutet 1 %1$s entsprechen %2$s %3$s"
+msgstr "Das bedeutet 1 %1$s entspricht %2$s %3$s"
 
 msgid "QU conversions"
 msgstr "ME-Umrechnungen"
@@ -2097,8 +2088,8 @@ msgstr ""
 "Diese Menge wird für die \"Schnell-Verbrauch/Öffnen-Buttons\" auf der "
 "Bestandsübersicht benutzt (bezieht sich auf die Bestandsmengeneinheit)"
 
-msgid "Copy this item"
-msgstr "Diesen Eintrag kopieren"
+msgid "Copy"
+msgstr "Kopieren"
 
 msgid "Are you sure to remove this barcode?"
 msgstr "Diesen Barcode wirklich löschen?"
@@ -2287,8 +2278,8 @@ msgstr ""
 msgid "Show disabled"
 msgstr "Deaktivierte anzeigen"
 
-msgid "Show on stock overview page"
-msgstr "Auf der Bestand-Seite anzeigen"
+msgid "Never show on stock overview"
+msgstr "Nie auf der Bestand-Seite anzeigen"
 
 msgid "None"
 msgstr "Keine"
@@ -2333,3 +2324,50 @@ msgstr "Tabelle"
 
 msgid "Layout type"
 msgstr "Layout"
+
+msgid "Merge this product with another one"
+msgstr "Dieses Produkt mit einem anderen zusammenführen"
+
+msgid "Merge products"
+msgstr "Produkte zusammenführen"
+
+msgid "Product to keep"
+msgstr "Produkt, das behalten werden soll"
+
+msgid "Product to remove"
+msgstr "Produkt, das entfernt werden soll"
+
+msgid "Error while merging products"
+msgstr "Fehler beim Zusammenführen der Produkte"
+
+msgid "After merging, this product will be kept"
+msgstr "Nach der Zusammenführung wird dieses Produkt erhalten bleiben"
+
+msgid ""
+"After merging, all occurences of this product will be replaced by \"Product "
+"to keep\" (means this product will not exist anymore)"
+msgstr ""
+"Nach dem Zusammenführen werden alle Referenzen auf dieses Produkt durch das "
+"zu behaltende Produkt ersetzt (d. h. dieses Produkt existiert dann nicht "
+"mehr)"
+
+msgid "Merge"
+msgstr "Zusammenführen"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Link"
+msgstr "Link"
+
+msgid ""
+"The stock overview page lists all products which are currently in-stock or "
+"below their min. stock amount - enable this to hide this product there "
+"always"
+msgstr ""
+"Die Bestand-Seite listet alle Produkte auf, die derzeit im Bestand oder "
+"unter ihrem Mindestbestand sind - aktiviere dies, um dieses Produkt dort nie"
+" anzuzeigen"
+
+msgid "Print options"
+msgstr "Druckoptionen"

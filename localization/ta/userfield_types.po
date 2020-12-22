@@ -17,38 +17,54 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Domain: grocy/userfield_types\n"
 
+# Text (single line)
 msgid "text-single-line"
 msgstr "ஒரு-வரி-உரை"
 
+# Text (multi line)
 msgid "text-multi-line"
 msgstr "பல்வரி-உரை"
 
+# Number (integral)
 msgid "number-integral"
 msgstr "எண்-முழு"
 
+# Number (decimal)
 msgid "number-decimal"
 msgstr "எண்-decimal"
 
+# Date (without time)
 msgid "date"
 msgstr "தேதி"
 
+# Date & time
 msgid "datetime"
 msgstr "தேதி நேரம்"
 
+# Checkbox
 msgid "checkbox"
 msgstr "தேர்வுப்பெட்டி"
 
+# Select list (a single item can be selected)
 msgid "preset-list"
 msgstr "preset-பட்டியல்"
 
+# Select list (multiple items can be selected)
 msgid "preset-checklist"
 msgstr "preset-checklist"
 
+# Link
 msgid "link"
 msgstr "இணைப்பு"
 
+# Link (with title)
+msgid "link-with-title"
+msgstr ""
+
+# File
 msgid "file"
 msgstr "கோப்பு"
 
+# Image
 msgid "image"
 msgstr "படம்"

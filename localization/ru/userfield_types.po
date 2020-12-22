@@ -18,38 +18,54 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Domain: grocy/userfield_types\n"
 
+# Text (single line)
 msgid "text-single-line"
 msgstr "Текст (однострочный)"
 
+# Text (multi line)
 msgid "text-multi-line"
 msgstr "Текст (многострочный)"
 
+# Number (integral)
 msgid "number-integral"
 msgstr "Число (целочисленное)"
 
+# Number (decimal)
 msgid "number-decimal"
 msgstr "Число (дробное)"
 
+# Date (without time)
 msgid "date"
 msgstr "Дата (без времени)"
 
+# Date & time
 msgid "datetime"
 msgstr "Дата и время"
 
+# Checkbox
 msgid "checkbox"
 msgstr "Флажок"
 
+# Select list (a single item can be selected)
 msgid "preset-list"
 msgstr "предопределённый-список"
 
+# Select list (multiple items can be selected)
 msgid "preset-checklist"
 msgstr "предопределённый-список-галочек"
 
+# Link
 msgid "link"
 msgstr "ссылка"
 
+# Link (with title)
+msgid "link-with-title"
+msgstr ""
+
+# File
 msgid "file"
 msgstr ""
 
+# Image
 msgid "image"
 msgstr ""
