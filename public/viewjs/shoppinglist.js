@@ -536,10 +536,21 @@ var dummyCanvas = document.createElement("canvas");
 $("img.barcode").each(function()
 {
 	var img = $(this);
+	var barcode = img.attr("data-barcode").replace(/\D/g, "");
+
+	var barcodeType = "code128";
+	if (barcode.length == 8)
+	{
+		barcodeType = "ean8";
+	}
+	else if (barcode.length == 13)
+	{
+		barcodeType = "ean13";
+	}
 
 	bwipjs.toCanvas(dummyCanvas, {
-		bcid: "ean8",
-		text: img.attr("data-barcode"),
+		bcid: barcodeType,
+		text: barcode,
 		height: 5,
 		includetext: false
 	});
