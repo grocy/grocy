@@ -42,13 +42,32 @@ if (Grocy.EditObjectId == Grocy.UserId)
 {
 	$('input.permission-cb[name=ADMIN]').click(function()
 	{
-		if (!this.checked)
+		var element = this;
+
+		if (!element.checked)
 		{
-			if (!confirm(__t('Are you sure you want to remove full permissions for yourself?')))
-			{
-				this.checked = true;
-				check_hierachy(this.checked, this.name);
-			}
+			bootbox.confirm({
+				message: __t('Are you sure you want to remove full permissions for yourself?'),
+				closeButton: false,
+				buttons: {
+					confirm: {
+						label: __t('Yes'),
+						className: 'btn-success'
+					},
+					cancel: {
+						label: __t('No'),
+						className: 'btn-danger'
+					}
+				},
+				callback: function(result)
+				{
+					if (result == false)
+					{
+						element.checked = true;
+						check_hierachy(element.checked, element.name);
+					}
+				}
+			});
 		}
 	})
 }
