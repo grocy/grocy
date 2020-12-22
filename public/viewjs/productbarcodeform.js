@@ -88,3 +88,13 @@ Grocy.FrontendHelpers.ValidateForm('barcode-form');
 $('#barcode').focus();
 RefreshLocaleNumberInput();
 Grocy.Components.UserfieldsForm.Load()
+
+$(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
+{
+	if (target !== "#barcode")
+	{
+		return;
+	}
+
+	$("#barcode").val(barcode);
+});

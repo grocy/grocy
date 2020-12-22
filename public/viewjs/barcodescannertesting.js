@@ -87,7 +87,7 @@ function OnBarcodeScanned(barcode)
 
 $(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
 {
-	if (target !== "#scanned_barcod")
+	if (target !== "#scanned_barcode")
 	{
 		return;
 	}

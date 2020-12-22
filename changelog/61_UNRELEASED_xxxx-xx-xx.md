@@ -1,2 +1,2 @@
-### General & other improvements/fixes
 - Improved the prerequisites checker (added missing required PHP extension `ctype`) (thanks @Forceu)
+- Fixed that browser camera barcode scanning did not work on the product edit page
