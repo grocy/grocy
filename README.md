@@ -1,9 +1,14 @@
-# grocy
-ERP beyond your fridge
+<div align="center">
+<img alt="Logo" height="50" src="https://raw.githubusercontent.com/grocy/grocy/master/public/img/grocy_logo.svg?sanitize=true"/>
+<h3>ERP beyond your fridge</h3>
+<h5> grocy is a web-based self-hosted groceries & household management solution for your home</h5>
+</div>
+
+-----
 
 ## Give it a try
 - Public demo of the latest stable version (`release` branch) &rarr; [https://demo.grocy.info](https://demo.grocy.info)
-- Public demo of the latest pre-release version (`master` branch) &rarr; [https://demo-prerelease.grocy.info](https://demo-prerelease.grocy.info)
+- Public demo of the current development version (`master` branch) &rarr; [https://demo-prerelease.grocy.info](https://demo-prerelease.grocy.info)
 
 ## Questions / Help / Bug reporting / Feature requests
 There is the [r/grocy subreddit](https://www.reddit.com/r/grocy) to connect with other grocy users and getting help.
@@ -55,7 +60,7 @@ The [pre-release demo](https://demo-prerelease.grocy.info) is available for any 
 
 Also any translation which once reached a completion level of 70 % will be included in releases.
 
-(RTL languages are unfortunately not yet supported.)
+_RTL languages are unfortunately not yet supported._
 
 ## Things worth to know
 
@@ -67,7 +72,7 @@ Some fields (with a barcode icon above) also allow to select a value by scanning
 
 Additionally it's also possible to use your device camera to scan a barcode by using the camera button on the right side of the corresponding field (powered by [Quagga2](https://github.com/ericblade/quagga2), totally offline / client-side camera stream processing, please note due to browser security restrictions, this only works when serving grocy via a secure connection (`https://`)). Quick video demo: https://www.youtube.com/watch?v=Y5YH6IJFnfc
 
-My personal recommendation: Use a USB barcode laser scanner. They are cheap and work 1000 % better, faster, under any lighting condition and from any angle.
+_My personal recommendation: Use a USB barcode laser scanner. They are cheap and work 1000 % better, faster, under any lighting condition and from any angle._
 
 ### Input shorthands for date fields
 For (productivity) reasons all date (and time) input (and display) fields use the ISO-8601 format regardless of localization.
