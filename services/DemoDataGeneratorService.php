@@ -27,9 +27,12 @@ class DemoDataGeneratorService extends BaseService
 
 			$sql = "
 				UPDATE users SET username = '{$this->__t_sql('Demo User')}' WHERE id = 1;
-				INSERT INTO users (username, password) VALUES ('{$this->__t_sql('Demo User')} 2', 'x');
-				INSERT INTO users (username, password) VALUES ('{$this->__t_sql('Demo User')} 3', 'x');
-				INSERT INTO users (username, password) VALUES ('{$this->__t_sql('Demo User')} 4', 'x');
+				INSERT INTO users (username, password) VALUES ('{$this->__t_sql('Demo User')} 2', 'x'); --2
+				INSERT INTO users (username, password) VALUES ('{$this->__t_sql('Demo User')} 3', 'x'); --3
+				INSERT INTO users (username, password) VALUES ('{$this->__t_sql('Demo User')} 4', 'x'); --4
+				INSERT INTO user_permissions (permission_id, user_id) VALUES (1, 2);
+				INSERT INTO user_permissions (permission_id, user_id) VALUES (1, 3);
+				INSERT INTO user_permissions (permission_id, user_id) VALUES (1, 4);
 
 				INSERT INTO locations (name) VALUES ('{$this->__t_sql('Pantry')}'); --3
 				INSERT INTO locations (name) VALUES ('{$this->__t_sql('Candy cupboard')}'); --4
@@ -129,7 +132,7 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO recipes_pos (recipe_id, product_id, amount, qu_id, only_check_single_unit_in_stock) VALUES (4, 21, 200, 8, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount, qu_id, only_check_single_unit_in_stock) VALUES (4, 22, 200, 8, 1);
 				INSERT INTO recipes_pos (recipe_id, product_id, amount) VALUES (5, 2, 1);
-				INSERT INTO recipes_pos (recipe_id, product_id, amount, qu_id, only_check_single_unit_in_stock) VALUES (5, 23, 200, 11, 1);
+				INSERT INTO recipes_pos (recipe_id, product_id, amount, qu_id, only_check_single_unit_in_stock, price_factor) VALUES (5, 23, 200, 11, 1, 0.001);
 
 				INSERT INTO recipes_nestings(recipe_id, includes_recipe_id) VALUES (6, 4);
 				INSERT INTO recipes_nestings(recipe_id, includes_recipe_id) VALUES (6, 5);
@@ -255,8 +258,8 @@ class DemoDataGeneratorService extends BaseService
 			$stockService->AddProduct(15, 1, date('Y-m-d', strtotime('-2 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-40 days')), $this->RandomPrice(), null, $this->NextSupermarketId(), $stockTransactionId);
 			$stockService->AddProduct(15, 1, date('Y-m-d', strtotime('-2 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-50 days')), $this->RandomPrice(), null, $this->NextSupermarketId(), $stockTransactionId);
 			$stockService->AddProduct(20, 1, date('Y-m-d', strtotime('-1 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-10 days')), $this->RandomPrice(), null, $this->NextSupermarketId(), $stockTransactionId);
-			$stockService->AddProduct(21, 1500, date('Y-m-d', strtotime('+200 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-10 days')), $this->RandomPrice(), null, $this->NextSupermarketId(), $stockTransactionId);
-			$stockService->AddProduct(21, 2500, date('Y-m-d', strtotime('+200 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-20 days')), $this->RandomPrice(), null, $this->NextSupermarketId(), $stockTransactionId);
+			$stockService->AddProduct(21, 1500, date('Y-m-d', strtotime('+200 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-10 days')), null, null, $this->NextSupermarketId(), $stockTransactionId);
+			$stockService->AddProduct(21, 2500, date('Y-m-d', strtotime('+200 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-20 days')), null, null, $this->NextSupermarketId(), $stockTransactionId);
 			$stockService->AddProduct(22, 1, date('Y-m-d', strtotime('+200 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-10 days')), $this->RandomPrice(), null, $this->NextSupermarketId(), $stockTransactionId);
 			$stockService->AddProduct(22, 1, date('Y-m-d', strtotime('+200 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-20 days')), $this->RandomPrice(), null, $this->NextSupermarketId(), $stockTransactionId);
 			$stockService->AddProduct(23, 1, date('Y-m-d', strtotime('+2 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-40 days')), $this->RandomPrice(), null, $this->NextSupermarketId(), $stockTransactionId);
@@ -366,7 +369,7 @@ class DemoDataGeneratorService extends BaseService
 
 	private function RandomPrice()
 	{
-		return mt_rand(2 * 100, 25 * 100) / 100;
+		return mt_rand(2 * 100, 25 * 100) / 100 / 4;
 	}
 
 	private function __n_sql($number, string $singularForm, string $pluralForm)
