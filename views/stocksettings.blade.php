@@ -149,6 +149,7 @@
 		'additionalCssClasses' => 'user-setting-control'
 		))
 
+		@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 		@include('components.numberpicker', array(
 		'id' => 'stock_decimal_places_prices',
 		'additionalAttributes' => 'data-setting-key="stock_decimal_places_prices"',
@@ -156,6 +157,7 @@
 		'min' => 0,
 		'additionalCssClasses' => 'user-setting-control'
 		))
+		@endif
 
 		<a href="{{ $U('/stockoverview') }}"
 			class="btn btn-success">{{ $__t('OK') }}</a>
