@@ -1,5 +1,6 @@
 - Improved the prerequisites checker (added missing required PHP extension `ctype`) (thanks @Forceu)
 - Fixed that browser camera barcode scanning did not work on the product edit page
 - Fixed that the new product option "Never show on stock overview" was unintentionally set by default for new products
+- Fixed that the success message on purchase displayed not amount when `FEATURE_FLAG_STOCK_PRICE_TRACKING` was disabled
 - Fixed a problem (database migration fail) when using SQLite >= 3.8.3 < 3.9.0
   - _Just as a side note: PHP 7.2 with SQLite 3.8.3 was the currently in README mentioned minimum runtime requirement, any future release will only be tested against PHP 7.4 with SQLite 3.27.2 - supporting those ancient runtime stuff is too time consuming..._
