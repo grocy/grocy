@@ -12,6 +12,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 // Load config files
 require_once GROCY_DATAPATH . '/config.php';
 require_once __DIR__ . '/config-dist.php'; // For not in own config defined values we use the default ones
+require_once __DIR__ . '/helpers/ConfigurationValidator.php';
 
 // Definitions for dev/demo/prerelease mode
 if ((GROCY_MODE === 'dev' || GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease') && !defined('GROCY_USER_ID'))
@@ -29,6 +30,16 @@ if (GROCY_DISABLE_AUTH === true)
 	}
 
 	define('GROCY_SHOW_AUTH_VIEWS', false);
+}
+
+// Check if any invalid entries in config.php have been made
+try
+{
+	(new ConfigurationValidator())->validateConfig();
+}
+catch (EInvalidConfig $ex)
+{
+	exit('Invalid setting in config.php: ' . $ex->getMessage());
 }
 
 // Setup base application
