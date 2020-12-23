@@ -38,7 +38,7 @@ grocy is technically a pretty simple PHP application, so the basic notes to get 
 - Include `try_files $uri /index.php$is_args$query_string;` in your location block if you use nginx
   - Or disable URL rewriting (see the option `DISABLE_URL_REWRITING` in `data/config.php`)
 - Based on user reports, the minmimum required/working runtime is PHP 7.2 with SQLite 3.9.0
-  - However, I don't care about supporting old stuff, currently everything is only tested against (means 100 % works with) PHP 7.4 with SQLite 3.27.2
+  - However, I don't really care about supporting old runtime stuff, currently everything is only tested against (means 100 % works with) PHP 7.4 with SQLite 3.27.2
 - &rarr; Default login is user `admin` with password `admin`, please change the password immediately (user menu at the top right corner)
 
 Alternatively clone this repository (the `release` branch always references the latest released version, or checkout the latest tagged revision) and install Composer and Yarn dependencies manually.
