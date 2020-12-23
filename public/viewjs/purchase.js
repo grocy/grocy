@@ -99,7 +99,7 @@ $('#save-purchase-button').on('click', function(e)
 						);
 					}
 
-					var amountMessage = jsonForm.display_amount;
+					var amountMessage = parseFloat(jsonForm.amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts });
 					if (BoolVal(productDetails.product.enable_tare_weight_handling))
 					{
 						amountMessage = parseFloat(jsonForm.amount) - parseFloat(productDetails.stock_amount) - parseFloat(productDetails.product.tare_weight);
