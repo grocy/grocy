@@ -72,7 +72,7 @@ FROM (
         FROM stock_current
         WHERE best_before_date IS NOT NULL
         UNION
-        SELECT m.id, 0, 0, 0, null, 0, 0, 0, p.due_type
+        SELECT m.id, 0, 0, 0, null, 0, 0, 0
         FROM stock_missing_products m
 		JOIN products p
 			ON m.id = p.id
