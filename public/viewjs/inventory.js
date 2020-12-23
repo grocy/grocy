@@ -144,7 +144,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				}
 				else
 				{
-					$("#display_amount").attr("min", "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
+					$("#display_amount").attr("min", "0");
 					$("#tare-weight-handling-info").addClass("d-none");
 				}
 
@@ -346,3 +346,5 @@ function UndoStockTransaction(transactionId)
 		}
 	);
 };
+
+$("#display_amount").attr("min", "0");

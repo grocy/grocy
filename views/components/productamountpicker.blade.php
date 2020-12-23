@@ -18,7 +18,7 @@
 			@include('components.numberpicker', array(
 			'id' => 'display_amount',
 			'label' => $label,
-			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
+			'min' => $DEFAULT_MIN_AMOUNT,
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,
 			'additionalGroupCssClasses' => 'col-sm-5 col-xs-12 my-0',

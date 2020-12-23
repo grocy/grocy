@@ -89,7 +89,7 @@
 
 						Grocy.Components.ProductAmountPicker.Reset();
 						$("#location_id_from").find("option").remove().end().append("<option></option>");
-						$("#display_amount").attr("min", "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
+						$("#display_amount").attr("min", Grocy.DefaultMinAmount);
 						$("#display_amount").removeAttr("max");
 						$('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_transfer_amount));
 						RefreshLocaleNumberInput();
@@ -194,7 +194,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				}
 				else
 				{
-					$("#display_amount").attr("min", "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
+					$("#display_amount").attr("min", Grocy.DefaultMinAmount);
 					$("#tare-weight-handling-info").addClass("d-none");
 				}
 

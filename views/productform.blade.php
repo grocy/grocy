@@ -287,7 +287,7 @@
 			@include('components.numberpicker', array(
 			'id' => 'qu_factor_purchase_to_stock',
 			'label' => 'Factor purchase to stock quantity unit',
-			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
+			'min' => $DEFAULT_MIN_AMOUNT,
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,
 			'additionalCssClasses' => 'input-group-qu locale-number-input locale-number-quantity-amount',
@@ -314,7 +314,7 @@
 			@include('components.numberpicker', array(
 			'id' => 'tare_weight',
 			'label' => 'Tare weight',
-			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
+			'min' => $DEFAULT_MIN_AMOUNT,
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,
 			'additionalAttributes' => $additionalAttributes,
@@ -387,7 +387,7 @@
 			@include('components.numberpicker', array(
 			'id' => 'quick_consume_amount',
 			'label' => 'Quick consume amount',
-			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
+			'min' => $DEFAULT_MIN_AMOUNT,
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,
 			'hint' => $__t('This amount is used for the "quick consume/open buttons" on the stock overview page (related to quantity unit stock)'),

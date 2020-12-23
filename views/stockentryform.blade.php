@@ -56,7 +56,7 @@
 			@include('components.numberpicker', array(
 			'id' => 'amount',
 			'value' => $stockEntry->amount,
-			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
+			'min' => $DEFAULT_MIN_AMOUNT,
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'label' => 'Amount',
 			'contextInfoId' => 'amount_qu_unit',
@@ -78,7 +78,7 @@
 			'id' => 'price',
 			'value' => $price,
 			'label' => 'Price',
-			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_prices'] - 1) . '1',
+			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_prices']),
 			'decimals' => $userSettings['stock_decimal_places_prices'],
 			'hint' => $__t('Per stock quantity unit'),
 			'isRequired' => false,

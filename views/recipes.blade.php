@@ -330,7 +330,7 @@
 								@include('components.numberpicker', array(
 								'id' => 'servings-scale',
 								'label' => 'Desired servings',
-								'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
+								'min' => $DEFAULT_MIN_AMOUNT,
 								'decimals' => $userSettings['stock_decimal_places_amounts'],
 								'value' => $recipe->desired_servings,
 								'additionalAttributes' => 'data-recipe-id="' . $recipe->id . '"',

@@ -55,7 +55,7 @@
 			@include('components.numberpicker', array(
 			'id' => 'base_servings',
 			'label' => 'Servings',
-			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
+			'min' => $DEFAULT_MIN_AMOUNT,
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,
 			'hint' => $__t('The ingredients listed here result in this amount of servings'),
@@ -351,7 +351,7 @@
 					@include('components.numberpicker', array(
 					'id' => 'includes_servings',
 					'label' => 'Servings',
-					'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
+					'min' => $DEFAULT_MIN_AMOUNT,
 					'decimals' => $userSettings['stock_decimal_places_amounts'],
 					'value' => '1',
 					'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'

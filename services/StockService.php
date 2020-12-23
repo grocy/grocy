@@ -921,9 +921,9 @@ class StockService extends BaseService
 		//If no entry was found with for this product, we return gracefully
 		if ($productRow != null && !empty($productRow))
 		{
+			$decimals = intval($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'stock_decimal_places_amounts'));
 			$newAmount = $productRow->amount - $amount;
-
-			if ($newAmount < floatval('0.' . str_repeat('0', intval($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'stock_decimal_places_amounts')) - 1) . '1'))
+			if ($newAmount < floatval('0.' . str_repeat('0', $decimals - ($decimals <= 0 ? 0 : 1)) . '1'))
 			{
 				$productRow->delete();
 			}

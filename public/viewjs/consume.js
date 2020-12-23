@@ -92,7 +92,7 @@
 						Grocy.Components.ProductPicker.FinishFlow();
 
 						Grocy.Components.ProductAmountPicker.Reset();
-						$("#display_amount").attr("min", "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
+						$("#display_amount").attr("min", Grocy.DefaultMinAmount);
 						$("#display_amount").removeAttr("max");
 						if (BoolVal(Grocy.UserSettings.stock_default_consume_amount_use_quick_consume_amount))
 						{
@@ -366,7 +366,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				}
 				else
 				{
-					$("#display_amount").attr("min", "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
+					$("#display_amount").attr("min", Grocy.DefaultMinAmount);
 					$("#tare-weight-handling-info").addClass("d-none");
 				}
 
@@ -598,7 +598,7 @@ function RefreshForm()
 	{
 		$("#tare-weight-handling-info").addClass("d-none");
 
-		$("#display_amount").attr("min", "0." + "0".repeat(parseInt(Grocy.UserSettings.stock_decimal_places_amounts) - 1) + "1");
+		$("#display_amount").attr("min", Grocy.DefaultMinAmount);
 		$('#display_amount').attr('max', sumValue * $("#qu_id option:selected").attr("data-qu-factor"));
 
 		if (sumValue == 0)

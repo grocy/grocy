@@ -50,7 +50,7 @@
 			@if(!empty($max))
 			max="{{ number_format($max, $decimals, '.', '') }}"
 			@endif
-			step="@if($decimals == 0){{1}}@else{{'.' . str_repeat('0', $decimals - 1) . '1'}}@endif"
+			step="@if($decimals <= 0){{1}}@else{{'.' . str_repeat('0', $decimals - 1) . '1'}}@endif"
 			data-decimals="{{ $decimals }}"
 			@if($isRequired)
 			required

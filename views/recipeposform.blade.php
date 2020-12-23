@@ -9,6 +9,10 @@
 @section('viewJsName', 'recipeposform')
 
 @section('content')
+<script>
+	Grocy.DefaultMinAmount = '{{$DEFAULT_MIN_AMOUNT}}';
+</script>
+
 <div class="row">
 	<div class="col">
 		<div class="title-related-links">
@@ -111,7 +115,7 @@
 			@include('components.numberpicker', array(
 			'id' => 'price_factor',
 			'label' => 'Price factor',
-			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts'] - 1) . '1',
+			'min' => $DEFAULT_MIN_AMOUNT,
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => '',
 			'hint' => $__t('The resulting price of this ingredient will be multiplied by this factor'),
