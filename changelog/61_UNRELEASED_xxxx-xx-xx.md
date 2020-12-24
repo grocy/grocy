@@ -6,6 +6,7 @@
 
 - Improved the prerequisites checker (added missing required PHP extension `ctype`) (thanks @Forceu)
 - Added validation checks for most `data/config.php` settings to prevent using invalid ones (thanks @Forceu)
+- When using reverse proxy authentication (`ReverseProxyAuthMiddleware`), _additionally_ a valid key can now also be used for authentication (if you don't want to protect the API endpoints via your reverse proxy, however)
 - Fixed that some number inputs were broken when the new decimal places setting were set to `0`
 - Fixed that browser camera barcode scanning did not work on the product edit page for adding product barcodes
 - Fixed that indirect unit conversions (those between units, not product overrides) could not be used/selected
