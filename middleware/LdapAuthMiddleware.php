@@ -16,7 +16,6 @@ class LdapAuthMiddleware extends AuthMiddleware
 		// First try to authenticate by API key
 		$auth = new ApiKeyAuthMiddleware($this->AppContainer, $this->ResponseFactory);
 		$user = $auth->authenticate($request);
-
 		if ($user !== null)
 		{
 			return $user;
