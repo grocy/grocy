@@ -571,7 +571,14 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/ExposedEntity"
+							"oneOf": [
+								{
+									"$ref": "#/components/internalSchemas/ExposedEntity"
+								},
+								{
+									"$ref": "#/components/internalSchemas/ExposedUserEntity"
+								}
+							]
 						}
 					},
 					{
@@ -620,7 +627,14 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/ExposedEntity_NotIncludingNotEditable"
+							"oneOf": [
+								{
+									"$ref": "#/components/internalSchemas/ExposedEntity_NotIncludingNotEditable"
+								},
+								{
+									"$ref": "#/components/internalSchemas/ExposedUserEntity"
+								}
+							]
 						}
 					},
 					{
@@ -3941,6 +3955,10 @@
 					"stock_current_locations",
 					"api_keys"
 				]
+			},
+			"ExposedUserEntity": {
+				"type": "string",
+				"pattern": "^userentity-"
 			},
 			"ExposedEntityNoListing": {
 				"type": "string",
