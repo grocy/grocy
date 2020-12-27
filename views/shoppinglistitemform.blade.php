@@ -79,7 +79,7 @@
 			<div class="form-group">
 				<label for="note">{{ $__t('Note') }}</label>
 				<textarea class="form-control"
-					rows="2"
+					rows="10"
 					id="note"
 					name="note">@if($mode == 'edit'){{ $listItem->note }}@endif</textarea>
 			</div>

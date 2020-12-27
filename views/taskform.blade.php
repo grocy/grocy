@@ -46,7 +46,7 @@
 			<div class="form-group">
 				<label for="description">{{ $__t('Description') }}</label>
 				<textarea class="form-control"
-					rows="2"
+					rows="4"
 					id="description"
 					name="description">@if($mode == 'edit'){{ $task->description }}@endif</textarea>
 			</div>
