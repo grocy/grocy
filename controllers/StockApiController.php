@@ -585,7 +585,7 @@ class StockApiController extends BaseApiController
 	public function ProductStockEntries(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$allowSubproductSubstitution = false;
-		if (isset($request->getQueryParams()['include_sub_products']) && filter_var($request->getQueryParams()['include_sub_products'], FILTER_VALIDATE_BOOLEAN))
+		if (isset($request->getQueryParams()['include_sub_products']) && filter_var($request->getQueryParams()['include_sub_products'], FILTER_VALIDATE_BOOLEAN) !== false)
 		{
 			$allowSubproductSubstitution = true;
 		}
@@ -596,7 +596,7 @@ class StockApiController extends BaseApiController
 	public function ProductStockLocations(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$allowSubproductSubstitution = false;
-		if (isset($request->getQueryParams()['include_sub_products']) && filter_var($request->getQueryParams()['include_sub_products'], FILTER_VALIDATE_BOOLEAN))
+		if (isset($request->getQueryParams()['include_sub_products']) && filter_var($request->getQueryParams()['include_sub_products'], FILTER_VALIDATE_BOOLEAN) !== false)
 		{
 			$allowSubproductSubstitution = true;
 		}
@@ -781,7 +781,7 @@ class StockApiController extends BaseApiController
 
 		try
 		{
-			if (!filter_var($args['productIdToKeep'], FILTER_VALIDATE_INT) || !filter_var($args['productIdToRemove'], FILTER_VALIDATE_INT))
+			if (filter_var($args['productIdToKeep'], FILTER_VALIDATE_INT) === false || filter_var($args['productIdToRemove'], FILTER_VALIDATE_INT) === false)
 			{
 				throw new \Exception('Provided {productIdToKeep} or {productIdToRemove} is not a valid integer');
 			}
