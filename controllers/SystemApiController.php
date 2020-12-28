@@ -45,7 +45,10 @@ class SystemApiController extends BaseApiController
 
 	public function GetSystemTime(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->ApiResponse($response, $this->getApplicationService()->GetSystemTime());
+		$offset = 0;
+		if (isset($args['offset']))
+			$offset = $args['offset'];
+		return $this->ApiResponse($response, $this->getApplicationService()->GetSystemTime($offset));
 	}
 
 	public function LogMissingLocalization(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
