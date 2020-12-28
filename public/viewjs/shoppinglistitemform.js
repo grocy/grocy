@@ -29,7 +29,7 @@ $('#save-shoppinglist-button').on('click', function(e)
 					Grocy.Api.Get('stock/products/' + jsonData.product_id,
 						function(productDetails)
 						{
-							window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", __t("Added %1$s of %2$s to the shopping list \"%3$s\"", jsonData.product_amount + " " + __n(jsonData.product_amount, productDetails.default_quantity_unit_purchase.name, productDetails.default_.name_plural), productDetails.product.name, $("#shopping_list_id option:selected").text())), Grocy.BaseUrl);
+							window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", __t("Added %1$s of %2$s to the shopping list \"%3$s\"", parseFloat(jsonData.product_amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }) + " " + __n(jsonData.product_amount, productDetails.default_quantity_unit_purchase.name, productDetails.default_quantity_unit_purchase.name_plural), productDetails.product.name, $("#shopping_list_id option:selected").text())), Grocy.BaseUrl);
 							window.parent.postMessage(WindowMessageBag("ShoppingListChanged", $("#shopping_list_id").val().toString()), Grocy.BaseUrl);
 							window.parent.postMessage(WindowMessageBag("CloseAllModals"), Grocy.BaseUrl);
 						},
@@ -51,8 +51,7 @@ $('#save-shoppinglist-button').on('click', function(e)
 			}
 		);
 	}
-
-	if (Grocy.EditMode === 'create')
+	else if (Grocy.EditMode === 'create')
 	{
 		Grocy.Api.Post('objects/shopping_list', jsonData,
 			function(result)
@@ -67,7 +66,7 @@ $('#save-shoppinglist-button').on('click', function(e)
 						Grocy.Api.Get('stock/products/' + jsonData.product_id,
 							function(productDetails)
 							{
-								window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", __t("Added %1$s of %2$s to the shopping list \"%3$s\"", jsonData.amount + " " + __n(jsonData.amount, productDetails.default_quantity_unit_purchase.name, productDetails.default_quantity_unit_purchase.name_plural), productDetails.product.name, $("#shopping_list_id option:selected").text())), Grocy.BaseUrl);
+								window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", __t("Added %1$s of %2$s to the shopping list \"%3$s\"", parseFloat(jsonData.amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }) + " " + __n(jsonData.amount, productDetails.default_quantity_unit_purchase.name, productDetails.default_quantity_unit_purchase.name_plural), productDetails.product.name, $("#shopping_list_id option:selected").text())), Grocy.BaseUrl);
 								window.parent.postMessage(WindowMessageBag("ShoppingListChanged", $("#shopping_list_id").val().toString()), Grocy.BaseUrl);
 								window.parent.postMessage(WindowMessageBag("CloseAllModals"), Grocy.BaseUrl);
 							},
@@ -109,7 +108,7 @@ $('#save-shoppinglist-button').on('click', function(e)
 						Grocy.Api.Get('stock/products/' + jsonData.product_id,
 							function(productDetails)
 							{
-								window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", __t("Added %1$s of %2$s to the shopping list \"%3$s\"", jsonData.amount + " " + __n(jsonData.amount, productDetails.default_quantity_unit_purchase.name, productDetails.default_quantity_unit_purchase.name_plural), productDetails.product.name, $("#shopping_list_id option:selected").text())), Grocy.BaseUrl);
+								window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", __t("Added %1$s of %2$s to the shopping list \"%3$s\"", parseFloat(jsonData.amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }) + " " + __n(jsonData.amount, productDetails.default_quantity_unit_purchase.name, productDetails.default_quantity_unit_purchase.name_plural), productDetails.product.name, $("#shopping_list_id option:selected").text())), Grocy.BaseUrl);
 								window.parent.postMessage(WindowMessageBag("ShoppingListChanged", $("#shopping_list_id").val().toString()), Grocy.BaseUrl);
 								window.parent.postMessage(WindowMessageBag("CloseAllModals"), Grocy.BaseUrl);
 							},
@@ -221,6 +220,19 @@ if (GetUriParam("amount") !== undefined)
 	RefreshLocaleNumberInput();
 	$(".input-group-productamountpicker").trigger("change");
 	Grocy.FrontendHelpers.ValidateForm('shoppinglist-form');
+}
+
+if (GetUriParam("embedded") !== undefined)
+{
+	if (GetUriParam("product") !== undefined)
+	{
+		Grocy.Components.ProductPicker.GetPicker().trigger('change');
+		$("#display_amount").focus();
+	}
+	else
+	{
+		Grocy.Components.ProductPicker.GetInputElement().focus();
+	}
 }
 
 Grocy.Components.UserfieldsForm.Load();

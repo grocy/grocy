@@ -13,3 +13,4 @@
 - Fixed that indirect unit conversions (those between units, not product overrides) could not be used/selected
 - Fixed that the new product option "Never show on stock overview" was unintentionally set by default for new products
 - Fixed that the success message on purchase displayed no amount when `FEATURE_FLAG_STOCK_PRICE_TRACKING` was disabled
+- Fixed that adding items to the shopping list from the context/more menu on the stock overview page did not work
