@@ -46,8 +46,9 @@ class SystemApiController extends BaseApiController
 	public function GetSystemTime(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$offset = 0;
-		if (isset($args['offset']))
-			$offset = $args['offset'];
+		$params = $request->getQueryParams();
+		if (isset($params['offset']))
+			$offset = $params['offset'];
 		return $this->ApiResponse($response, $this->getApplicationService()->GetSystemTime($offset));
 	}
 

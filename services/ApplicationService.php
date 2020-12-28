@@ -79,7 +79,7 @@ class ApplicationService extends BaseService
 	private static function convertToUtc(int $timestamp):string
 	{
 		$timestamp = time();
-		$dt = new DateTime('now', new DateTimeZone('UTC'));
+		$dt = new \DateTime('now', new \DateTimeZone('UTC'));
 		$dt->setTimestamp($timestamp);
 		return $dt->format('Y-m-d H:i:s');
 	}
@@ -91,7 +91,7 @@ class ApplicationService extends BaseService
 	 */
 	public function GetSystemTime(int $offset = 0):array
 	{
-		$timestamp = time();
+		$timestamp = time()+$offset;
 		$timeLocal = date('Y-m-d H:i:s', $timestamp);
 		$timeUTC = self::convertToUtc($timestamp);
 		return [
