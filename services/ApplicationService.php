@@ -85,7 +85,7 @@ class ApplicationService extends BaseService
 
 	/**
 	 * Returns the response for the API call /system/time
-	 * @param int $offset an offset to be applied
+	 * @param int $offset an offset in seconds to be applied
 	 * @return array
 	 */
 	public function GetSystemTime(int $offset = 0):array
