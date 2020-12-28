@@ -145,6 +145,7 @@ $app->group('/api', function (RouteCollectorProxy $group) {
 
 	// System
 	$group->get('/system/info', '\Grocy\Controllers\SystemApiController:GetSystemInfo');
+	$group->get('/system/time', '\Grocy\Controllers\SystemApiController:GetSystemTime');
 	$group->get('/system/db-changed-time', '\Grocy\Controllers\SystemApiController:GetDbChangedTime');
 	$group->get('/system/config', '\Grocy\Controllers\SystemApiController:GetConfig');
 	$group->post('/system/log-missing-localization', '\Grocy\Controllers\SystemApiController:LogMissingLocalization');
