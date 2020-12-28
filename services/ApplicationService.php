@@ -75,4 +75,31 @@ class ApplicationService extends BaseService
 			'sqlite_version' => $sqliteVersion
 		];
 	}
+
+	private static function convertToUtc(int $timestamp):string
+	{
+		$timestamp = time();
+		$dt = new DateTime('now', new DateTimeZone('UTC'));
+		$dt->setTimestamp($timestamp);
+		return $dt->format('Y-m-d H:i:s');
+	}
+
+	/**
+	 * Returns the response for the API call /system/time
+	 * @param int $offset an offset to be applied
+	 * @return array
+	 */
+	public function GetSystemTime(int $offset = 0):array
+	{
+		$timestamp = time();
+		$timeLocal = date('Y-m-d H:i:s', $timestamp);
+		$timeUTC = self::convertToUtc($timestamp);
+		return [
+			'timezone' => date_default_timezone_get(),
+			'time_local' => $timeLocal,
+			'time_utc' => $timeUTC,
+			'timestamp' => $timestamp,
+			'offset' => $offset
+		];
+	}
 }

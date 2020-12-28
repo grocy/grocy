@@ -43,6 +43,11 @@ class SystemApiController extends BaseApiController
 		return $this->ApiResponse($response, $this->getApplicationService()->GetSystemInfo());
 	}
 
+	public function GetSystemTime(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		return $this->ApiResponse($response, $this->getApplicationService()->GetSystemTime());
+	}
+
 	public function LogMissingLocalization(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if (GROCY_MODE === 'dev')
