@@ -45,11 +45,26 @@ class SystemApiController extends BaseApiController
 
 	public function GetSystemTime(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$offset = 0;
-		$params = $request->getQueryParams();
-		if (isset($params['offset']))
-			$offset = $params['offset'];
-		return $this->ApiResponse($response, $this->getApplicationService()->GetSystemTime($offset));
+		try
+		{
+			$offset = 0;
+			$params = $request->getQueryParams();
+			if (isset($params['offset']))
+			{
+				if (!filter_var($params['offset'], FILTER_VALIDATE_INT))
+				{
+					throw new \Exception('Query parameter "offset" is not a valid integer');
+				}
+
+				$offset = $params['offset'];
+			}
+
+			return $this->ApiResponse($response, $this->getApplicationService()->GetSystemTime($offset));
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
 	}
 
 	public function LogMissingLocalization(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)

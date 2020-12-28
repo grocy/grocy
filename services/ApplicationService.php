@@ -76,21 +76,24 @@ class ApplicationService extends BaseService
 		];
 	}
 
-	private static function convertToUtc(int $timestamp):string
+	private static function convertToUtc(int $timestamp): string
 	{
 		$dt = new \DateTime('now', new \DateTimeZone('UTC'));
 		$dt->setTimestamp($timestamp);
 		return $dt->format('Y-m-d H:i:s');
 	}
 
-
-	private static function getSqliteLocaltime(int $offset):string
+	private static function getSqliteLocaltime(int $offset): string
 	{
 		$pdo = new \PDO('sqlite::memory:');
 		if ($offset > 0)
+		{
 			return $pdo->query('SELECT datetime(\'now\', \'+' . $offset . ' seconds\', \'localtime\');')->fetch()[0];
+		}
 		else
+		{
 			return $pdo->query('SELECT datetime(\'now\', \'' . $offset . ' seconds\', \'localtime\');')->fetch()[0];
+		}
 	}
 
 	/**
@@ -98,18 +101,18 @@ class ApplicationService extends BaseService
 	 * @param int $offset an offset in seconds to be applied
 	 * @return array
 	 */
-	public function GetSystemTime(int $offset = 0):array
+	public function GetSystemTime(int $offset = 0): array
 	{
 		$timestamp = time() + $offset;
 		$timeLocal = date('Y-m-d H:i:s', $timestamp);
 		$timeUTC = self::convertToUtc($timestamp);
 		return [
-			'timezone'           => date_default_timezone_get(),
-			'time_local'         => $timeLocal,
+			'timezone' => date_default_timezone_get(),
+			'time_local' => $timeLocal,
 			'time_local_sqlite3' => self::getSqliteLocaltime($offset),
-			'time_utc'           => $timeUTC,
-			'timestamp'          => $timestamp,
-			'offset'             => $offset
+			'time_utc' => $timeUTC,
+			'timestamp' => $timestamp,
+			'offset' => $offset
 		];
 	}
 }
