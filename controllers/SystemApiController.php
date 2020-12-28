@@ -51,7 +51,8 @@ class SystemApiController extends BaseApiController
 			$params = $request->getQueryParams();
 			if (isset($params['offset']))
 			{
-				if (!filter_var($params['offset'], FILTER_VALIDATE_INT))
+				//Checks if int. Without the === 0 this would return false if 0 was passed as an argument
+				if (!(filter_var($params['offset'], FILTER_VALIDATE_INT) === 0 || filter_var($params['offset'], FILTER_VALIDATE_INT)))
 				{
 					throw new \Exception('Query parameter "offset" is not a valid integer');
 				}
