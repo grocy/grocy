@@ -83,6 +83,13 @@ class ApplicationService extends BaseService
 		return $dt->format('Y-m-d H:i:s');
 	}
 
+
+	private static function getSqliteLocaltime(int $offset):string
+	{
+		$pdo = new \PDO('sqlite::memory:');
+		return $pdo->query('SELECT datetime(\'now\', \'+' . $offset . ' seconds\', \'localtime\');')->fetch()[0];
+	}
+
 	/**
 	 * Returns the response for the API call /system/time
 	 * @param int $offset an offset in seconds to be applied
@@ -90,15 +97,16 @@ class ApplicationService extends BaseService
 	 */
 	public function GetSystemTime(int $offset = 0):array
 	{
-		$timestamp = time()+$offset;
+		$timestamp = time() + $offset;
 		$timeLocal = date('Y-m-d H:i:s', $timestamp);
 		$timeUTC = self::convertToUtc($timestamp);
 		return [
-			'timezone' => date_default_timezone_get(),
-			'time_local' => $timeLocal,
-			'time_utc' => $timeUTC,
-			'timestamp' => $timestamp,
-			'offset' => $offset
+			'timezone'           => date_default_timezone_get(),
+			'time_local'         => $timeLocal,
+			'time_local_sqlite3' => self::getSqliteLocaltime($offset),
+			'time_utc'           => $timeUTC,
+			'timestamp'          => $timestamp,
+			'offset'             => $offset
 		];
 	}
 }

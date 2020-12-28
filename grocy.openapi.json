@@ -5215,6 +5215,10 @@
 						"type": "string",
 						"format": "date-time"
 					},
+					"time_local_sqlite3": {
+						"type": "string",
+						"format": "date-time"
+					},
 					"time_utc": {
 						"type": "string",
 						"format": "date-time"
