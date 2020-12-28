@@ -78,7 +78,6 @@ class ApplicationService extends BaseService
 
 	private static function convertToUtc(int $timestamp):string
 	{
-		$timestamp = time();
 		$dt = new \DateTime('now', new \DateTimeZone('UTC'));
 		$dt->setTimestamp($timestamp);
 		return $dt->format('Y-m-d H:i:s');

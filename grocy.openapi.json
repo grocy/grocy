@@ -146,6 +146,41 @@
 				}
 			}
 		},
+		"/system/time": {
+			"get": {
+				"summary": "Returns the current server time",
+				"tags": [
+					"System"
+				],
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/offsettime"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A TimeResponse object",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/TimeResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error400"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/system/log-missing-localization": {
 			"post": {
 				"summary": "Logs a missing localization string",
@@ -5170,6 +5205,28 @@
 					}
 				}
 			},
+			"TimeResponse": {
+				"type": "object",
+				"properties": {
+					"timezone": {
+						"type": "string"
+					},
+					"time_local": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"time_utc": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"timestamp": {
+						"type": "integer"
+					},
+					"offset": {
+						"type": "integer"
+					}
+				}
+			},
 			"UserSetting": {
 				"type": "object",
 				"properties": {
@@ -5218,6 +5275,15 @@
 				"name": "offset",
 				"required": false,
 				"description": "The number of objects to skip",
+				"schema": {
+					"type": "integer"
+				}
+			},
+			"offsettime": {
+				"in": "query",
+				"name": "offset",
+				"required": false,
+				"description": "Offset of timestamp in seconds. Can be positive or negative.",
 				"schema": {
 					"type": "integer"
 				}
