@@ -87,7 +87,10 @@ class ApplicationService extends BaseService
 	private static function getSqliteLocaltime(int $offset):string
 	{
 		$pdo = new \PDO('sqlite::memory:');
-		return $pdo->query('SELECT datetime(\'now\', \'+' . $offset . ' seconds\', \'localtime\');')->fetch()[0];
+		if ($offset > 0)
+			return $pdo->query('SELECT datetime(\'now\', \'+' . $offset . ' seconds\', \'localtime\');')->fetch()[0];
+		else
+			return $pdo->query('SELECT datetime(\'now\', \'' . $offset . ' seconds\', \'localtime\');')->fetch()[0];
 	}
 
 	/**
