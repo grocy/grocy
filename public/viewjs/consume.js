@@ -606,4 +606,6 @@ function RefreshForm()
 			$("#display_amount").parent().find(".invalid-feedback").text(__t('There are no units available at this location'));
 		}
 	}
+
+	Grocy.FrontendHelpers.ValidateForm("consume-form");
 }
