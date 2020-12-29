@@ -202,7 +202,12 @@ class BaseController
 	{
 		if (self::$htmlPurifierInstance == null)
 		{
-			self::$htmlPurifierInstance = new \HTMLPurifier(\HTMLPurifier_Config::createDefault());
+			$htmlPurifierConfig = \HTMLPurifier_Config::createDefault();
+			$htmlPurifierConfig->set('HTML.Allowed', 'div,b,strong,i,em,u,a[href|title],ul,ol,li,p[style],br,span[style],img[width|height|alt|src],table[border|width|style],tbody,tr,td,th,blockquote');
+			$htmlPurifierConfig->set('CSS.AllowedProperties', 'font,font-size,font-weight,font-style,font-family,text-decoration,padding-left,color,background-color,text-align');
+			$htmlPurifierConfig->set('URI.AllowedSchemes', ['data' => true]);
+
+			self::$htmlPurifierInstance = new \HTMLPurifier($htmlPurifierConfig);
 		}
 
 		$requestBody = $request->getParsedBody();

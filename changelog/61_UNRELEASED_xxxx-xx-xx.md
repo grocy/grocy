@@ -15,3 +15,4 @@
 - Fixed that the success message on purchase displayed no amount when `FEATURE_FLAG_STOCK_PRICE_TRACKING` was disabled
 - Fixed that adding items to the shopping list from the context/more menu on the stock overview page did not work
 - Fixed that consuming was not possible when `FEATURE_FLAG_STOCK_LOCATION_TRACKING` was disabled
+- Fixed that adding images in text editor fields did not work
