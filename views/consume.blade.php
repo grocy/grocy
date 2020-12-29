@@ -79,8 +79,7 @@
 				class="text-info font-italic d-none">' . $__t('Tare weight handling enabled - please weigh the whole container, the amount to be posted will be automatically calculcated') . '</div>'
 			))
 
-			@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
-			<div class="form-group">
+			<div class="form-group @if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif">
 				<label for="location_id">{{ $__t('Location') }}</label>
 				<select required
 					class="custom-control custom-select location-combobox"
@@ -93,7 +92,6 @@
 				</select>
 				<div class="invalid-feedback">{{ $__t('A location is required') }}</div>
 			</div>
-			@endif
 
 			<div class="form-group">
 				<div class="custom-control custom-checkbox">
