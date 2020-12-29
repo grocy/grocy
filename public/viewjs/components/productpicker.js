@@ -172,6 +172,12 @@ $('#product_id_text_input').on('blur', function(e)
 				addProductWorkflowsAdditionalCssClasses = "d-none";
 			}
 
+			var embedded = "";
+			if (GetUriParam("embedded") !== undefined)
+			{
+				embedded = "embedded";
+			}
+
 			var buttons = {
 				cancel: {
 					label: __t('Cancel'),
@@ -187,8 +193,9 @@ $('#product_id_text_input').on('blur', function(e)
 					className: 'btn-success add-new-product-dialog-button responsive-button ' + addProductWorkflowsAdditionalCssClasses,
 					callback: function()
 					{
+
 						Grocy.Components.ProductPicker.PopupOpen = false;
-						window.location.href = U('/product/new?flow=InplaceNewProductWithName&name=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative + "?flow=InplaceNewProductWithName"));
+						window.location.href = U('/product/new?flow=InplaceNewProductWithName&name=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative + "?flow=InplaceNewProductWithName&" + embedded) + "&" + embedded);
 					}
 				},
 				addbarcode: {
@@ -206,7 +213,7 @@ $('#product_id_text_input').on('blur', function(e)
 					callback: function()
 					{
 						Grocy.Components.ProductPicker.PopupOpen = false;
-						window.location.href = U('/product/new?flow=InplaceNewProductWithBarcode&barcode=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative + "?flow=InplaceAddBarcodeToExistingProduct&barcode=" + input));
+						window.location.href = U('/product/new?flow=InplaceNewProductWithBarcode&barcode=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative + "?flow=InplaceAddBarcodeToExistingProduct&barcode=" + input + "&" + embedded) + "&" + embedded);
 					}
 				}
 			};

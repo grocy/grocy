@@ -250,4 +250,9 @@ eitherRequiredFields.on("input", function()
 	Grocy.FrontendHelpers.ValidateForm('shoppinglist-form');
 });
 
+if (GetUriParam("product-name") != null)
+{
+	Grocy.Components.ProductPicker.GetPicker().trigger('change');
+}
+
 Grocy.Components.UserfieldsForm.Load();
