@@ -2074,3 +2074,6 @@ msgstr ""
 
 msgid "Print options"
 msgstr ""
+
+msgid "A product or a note is required"
+msgstr ""

@@ -11,6 +11,7 @@
 @php if(!isset($disabled)) { $disabled = false; } @endphp
 @php if(empty($hint)) { $hint = ''; } @endphp
 @php if(empty($nextInputSelector)) { $nextInputSelector = ''; } @endphp
+@php if(empty($validationMessage)) { $validationMessage = 'You have to select a product'; } @endphp
 
 <div class="form-group"
 	data-next-input-selector="{{ $nextInputSelector }}"
@@ -57,7 +58,7 @@
 			value="{{ $product->id }}">{{ $product->name }}</option>
 		@endforeach
 	</select>
-	<div class="invalid-feedback">{{ $__t('You have to select a product') }}</div>
+	<div class="invalid-feedback">{{ $__t($validationMessage) }}</div>
 	<div id="custom-productpicker-error"
 		class="form-text text-danger d-none"></div>
 	<div id="flow-info-InplaceAddBarcodeToExistingProduct"

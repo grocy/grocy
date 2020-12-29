@@ -62,8 +62,9 @@
 				@include('components.productpicker', array(
 				'products' => $products,
 				'nextInputSelector' => '#amount',
-				'isRequired' => false,
-				'prefillById' => $productId
+				'isRequired' => true,
+				'prefillById' => $productId,
+				'validationMessage' => 'A product or a note is required'
 				))
 			</div>
 
@@ -79,9 +80,11 @@
 			<div class="form-group">
 				<label for="note">{{ $__t('Note') }}</label>
 				<textarea class="form-control"
+					required
 					rows="10"
 					id="note"
 					name="note">@if($mode == 'edit'){{ $listItem->note }}@endif</textarea>
+				<div class="invalid-feedback">{{ $__t('A product or a note is required') }}</div>
 			</div>
 
 			@include('components.userfieldsform', array(
