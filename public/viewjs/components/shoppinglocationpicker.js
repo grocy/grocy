@@ -37,7 +37,7 @@ Grocy.Components.ShoppingLocationPicker.Clear = function()
 $('.shopping-location-combobox').combobox({
 	appendId: '_text_input',
 	bsVersion: '4',
-	clearIfNoMatch: false
+	clearIfNoMatch: true
 });
 
 var prefillByName = Grocy.Components.ShoppingLocationPicker.GetPicker().parent().data('prefill-by-name').toString();
