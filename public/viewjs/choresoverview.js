@@ -1,5 +1,5 @@
 ﻿var choresOverviewTable = $('#chores-overview-table').DataTable({
-	'order': [[2, 'desc']],
+	'order': [[2, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 },

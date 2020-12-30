@@ -1,5 +1,5 @@
 ﻿var equipmentTable = $('#equipment-table').DataTable({
-	'order': [[0, 'asc']],
+	'order': [[1, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 }

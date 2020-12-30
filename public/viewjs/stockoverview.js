@@ -1,5 +1,5 @@
 ﻿var stockOverviewTable = $('#stock-overview-table').DataTable({
-	'order': [[4, 'asc']],
+	'order': [[5, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 },

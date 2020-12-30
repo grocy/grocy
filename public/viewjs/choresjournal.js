@@ -1,6 +1,6 @@
 ﻿var choresJournalTable = $('#chores-journal-table').DataTable({
 	'paginate': true,
-	'order': [[1, 'desc']],
+	'order': [[2, 'desc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 }
