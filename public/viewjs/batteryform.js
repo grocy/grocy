@@ -2,6 +2,11 @@
 {
 	e.preventDefault();
 
+	if ($(".combobox-menu-visible").length)
+	{
+		return;
+	}
+
 	var jsonData = $('#battery-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("battery-form");
 

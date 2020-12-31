@@ -394,6 +394,11 @@ $('#save-add-recipe-button').on('click', function(e)
 {
 	e.preventDefault();
 
+	if ($(".combobox-menu-visible").length)
+	{
+		return;
+	}
+
 	if (document.getElementById("add-recipe-form").checkValidity() === false) //There is at least one validation error
 	{
 		return false;
@@ -430,6 +435,11 @@ $('#save-add-recipe-button').on('click', function(e)
 $('#save-add-note-button').on('click', function(e)
 {
 	e.preventDefault();
+
+	if ($(".combobox-menu-visible").length)
+	{
+		return;
+	}
 
 	if (document.getElementById("add-note-form").checkValidity() === false) //There is at least one validation error
 	{
@@ -471,6 +481,11 @@ $('#save-add-note-button').on('click', function(e)
 $('#save-add-product-button').on('click', function(e)
 {
 	e.preventDefault();
+
+	if ($(".combobox-menu-visible").length)
+	{
+		return;
+	}
 
 	if (document.getElementById("add-product-form").checkValidity() === false) //There is at least one validation error
 	{

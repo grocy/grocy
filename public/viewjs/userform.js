@@ -28,6 +28,11 @@ $('#save-user-button').on('click', function(e)
 {
 	e.preventDefault();
 
+	if ($(".combobox-menu-visible").length)
+	{
+		return;
+	}
+
 	var jsonData = $('#user-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("user-form");
 

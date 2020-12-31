@@ -2,6 +2,11 @@
 {
 	e.preventDefault();
 
+	if ($(".combobox-menu-visible").length)
+	{
+		return;
+	}
+
 	var jsonData = $('#quconversion-form').serializeJSON();
 	jsonData.from_qu_id = $("#from_qu_id").val();
 	Grocy.FrontendHelpers.BeginUiBusy("quconversion-form");

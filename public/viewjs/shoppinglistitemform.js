@@ -4,6 +4,11 @@ $('#save-shoppinglist-button').on('click', function(e)
 {
 	e.preventDefault();
 
+	if ($(".combobox-menu-visible").length)
+	{
+		return;
+	}
+
 	var jsonData = $('#shoppinglist-form').serializeJSON();
 	if (!jsonData.product_id)
 	{

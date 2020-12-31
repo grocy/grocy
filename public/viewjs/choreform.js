@@ -2,6 +2,11 @@
 {
 	e.preventDefault();
 
+	if ($(".combobox-menu-visible").length)
+	{
+		return;
+	}
+
 	var jsonData = $('#chore-form').serializeJSON();
 	if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 	{

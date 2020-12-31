@@ -2,6 +2,11 @@
 {
 	e.preventDefault();
 
+	if ($(".combobox-menu-visible").length)
+	{
+		return;
+	}
+
 	var jsonForm = $('#stockentry-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("stockentry-form");
 

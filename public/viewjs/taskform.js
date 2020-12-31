@@ -2,6 +2,11 @@
 {
 	e.preventDefault();
 
+	if ($(".combobox-menu-visible").length)
+	{
+		return;
+	}
+
 	var jsonData = $('#task-form').serializeJSON();
 	jsonData.assigned_to_user_id = jsonData.user_id;
 	delete jsonData.user_id;

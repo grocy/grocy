@@ -2,6 +2,11 @@
 {
 	e.preventDefault();
 
+	if ($(".combobox-menu-visible").length)
+	{
+		return;
+	}
+
 	var jsonData = $('#location-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("location-form");
 

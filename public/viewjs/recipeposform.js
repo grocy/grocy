@@ -4,6 +4,11 @@ $('#save-recipe-pos-button').on('click', function(e)
 {
 	e.preventDefault();
 
+	if ($(".combobox-menu-visible").length)
+	{
+		return;
+	}
+
 	var jsonData = $('#recipe-pos-form').serializeJSON();
 	jsonData.recipe_id = Grocy.EditObjectParentId;
 	delete jsonData.display_amount;

@@ -2,6 +2,11 @@
 {
 	e.preventDefault();
 
+	if ($(".combobox-menu-visible").length)
+	{
+		return;
+	}
+
 	var jsonData = {};
 	jsonData.userentity_id = Grocy.EditObjectParentId;
 

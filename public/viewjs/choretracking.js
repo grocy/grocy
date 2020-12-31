@@ -2,6 +2,11 @@
 {
 	e.preventDefault();
 
+	if ($(".combobox-menu-visible").length)
+	{
+		return;
+	}
+
 	var jsonForm = $('#choretracking-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("choretracking-form");
 

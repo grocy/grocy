@@ -2,6 +2,11 @@
 {
 	e.preventDefault();
 
+	if ($(".combobox-menu-visible").length)
+	{
+		return;
+	}
+
 	var jsonData = $('#userentity-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("userentity-form");
 

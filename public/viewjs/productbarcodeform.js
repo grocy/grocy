@@ -2,6 +2,11 @@
 {
 	e.preventDefault();
 
+	if ($(".combobox-menu-visible").length)
+	{
+		return;
+	}
+
 	var jsonData = $('#barcode-form').serializeJSON();
 	jsonData.amount = jsonData.display_amount;
 	delete jsonData.display_amount;

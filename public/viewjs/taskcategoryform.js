@@ -2,6 +2,11 @@
 {
 	e.preventDefault();
 
+	if ($(".combobox-menu-visible").length)
+	{
+		return;
+	}
+
 	var jsonData = $('#task-category-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("task-category-form");
 

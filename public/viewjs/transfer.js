@@ -2,6 +2,11 @@
 {
 	e.preventDefault();
 
+	if ($(".combobox-menu-visible").length)
+	{
+		return;
+	}
+
 	var jsonForm = $('#transfer-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("transfer-form");
 

@@ -4,6 +4,16 @@ $('#save-purchase-button').on('click', function(e)
 {
 	e.preventDefault();
 
+	if ($(".combobox-menu-visible").length)
+	{
+		return;
+	}
+
+	if ($(".combobox-menu-visible").length)
+	{
+		return;
+	}
+
 	var jsonForm = $('#purchase-form').serializeJSON();
 
 	Grocy.FrontendHelpers.BeginUiBusy("purchase-form");

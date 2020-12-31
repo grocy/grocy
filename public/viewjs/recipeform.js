@@ -299,6 +299,11 @@ $('#save-recipe-include-button').on('click', function(e)
 {
 	e.preventDefault();
 
+	if ($(".combobox-menu-visible").length)
+	{
+		return;
+	}
+
 	if (document.getElementById("recipe-include-form").checkValidity() === false) //There is at least one validation error
 	{
 		return false;

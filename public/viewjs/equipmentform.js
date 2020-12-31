@@ -2,6 +2,11 @@
 {
 	e.preventDefault();
 
+	if ($(".combobox-menu-visible").length)
+	{
+		return;
+	}
+
 	var jsonData = $('#equipment-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("equipment-form");
 
