@@ -84,11 +84,11 @@ $(".numberpicker").on("keydown", function(e)
 	if (e.key == "ArrowUp")
 	{
 		e.preventDefault();
-		$(".numberpicker-up-button").click();
+		$(this).parent().find(".numberpicker-up-button").click();
 	}
 	else if (e.key == "ArrowDown")
 	{
 		e.preventDefault();
-		$(".numberpicker-down-button").click();
+		$(this).parent().find(".numberpicker-down-button").click();
 	}
 });
