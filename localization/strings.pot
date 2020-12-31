@@ -832,7 +832,7 @@ msgstr ""
 msgid "Add all list items to stock"
 msgstr ""
 
-msgid "Add %1$s of %2$s to stock"
+msgid "Add this item to stock"
 msgstr ""
 
 msgid "Adding shopping list item %1$s of %2$s"
