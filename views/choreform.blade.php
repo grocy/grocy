@@ -139,7 +139,7 @@
 						id="saturday"
 						value="saturday">
 					<label class="form-check-label custom-control-label"
-						for="friday">{{ $__t('Saturday') }}</label>
+						for="saturday">{{ $__t('Saturday') }}</label>
 				</div>
 				<div class="custom-control custom-checkbox custom-control-inline">
 					<input class="form-check-input custom-control-input input-group-chore-period-type"
@@ -147,7 +147,7 @@
 						id="sunday"
 						value="sunday">
 					<label class="form-check-label custom-control-label"
-						for="friday">{{ $__t('Sunday') }}</label>
+						for="sunday">{{ $__t('Sunday') }}</label>
 				</div>
 			</div>
 
