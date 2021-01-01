@@ -277,8 +277,10 @@ class StockService extends BaseService
 				$potentialStockEntries = FindAllObjectsInArrayByPropertyValue($potentialStockEntries, 'stock_id', $specificStockEntryId);
 			}
 
-			$productStockAmount = SumArrayValue($potentialStockEntries, 'amount');
-
+			// TODO: This check doesn't really check against products only at the given location
+			// (as GetProductDetails returns the stock_amount_aggregated of all locations)
+			// However, $potentialStockEntries are filtered accordingly, so this currently isn't really a problem at the end
+			$productStockAmount = ((object)$this->GetProductDetails($productId))->stock_amount_aggregated;
 			if ($amount > $productStockAmount)
 			{
 				throw new \Exception('Amount to be consumed cannot be > current stock amount (if supplied, at the desired location)');
@@ -604,7 +606,6 @@ class StockService extends BaseService
 
 		$consumeCount = $this->getDatabase()->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone = 0 AND spoiled = 0')->sum('amount') * -1;
 		$consumeCountSpoiled = $this->getDatabase()->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone = 0 AND spoiled = 1')->sum('amount') * -1;
-
 		if ($consumeCount == 0)
 		{
 			$consumeCount = 1;
@@ -727,7 +728,7 @@ class StockService extends BaseService
 			throw new \Exception('Product does not exist or is inactive');
 		}
 
-		$productDetails = (object) $this->GetProductDetails($productId);
+		$productDetails = (object)$this->GetProductDetails($productId);
 
 		if ($price === null)
 		{
