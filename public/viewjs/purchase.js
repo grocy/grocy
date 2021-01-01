@@ -45,7 +45,7 @@ $('#save-purchase-button').on('click', function(e)
 				jsonData.price = price;
 			}
 
-			if (Grocy.UserSettings.show_purchased_date_on_purchase)
+			if (BoolVal(Grocy.UserSettings.show_purchased_date_on_purchase))
 			{
 				jsonData.purchased_date = Grocy.Components.DateTimePicker2.GetValue();
 			}
