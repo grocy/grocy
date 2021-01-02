@@ -219,6 +219,9 @@ class BaseController
 			{
 				$value = self::$htmlPurifierInstance->purify($value);
 			}
+
+			// Allow some special chars
+			$value = str_replace('&amp;', '&', $value);
 		}
 
 		return $requestBody;
