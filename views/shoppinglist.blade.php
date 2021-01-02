@@ -265,7 +265,7 @@
 					))
 					@include('components.userfields_tbody', array(
 					'userfields' => $productUserfields,
-					'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $listItem->product_id)
+					'userfieldValues' => FindAllObjectsInArrayByPropertyValue($productUserfieldValues, 'object_id', $listItem->product_id)
 					))
 
 				</tr>
@@ -352,6 +352,9 @@
 						@include('components.userfields_thead', array(
 						'userfields' => $userfields
 						))
+						@include('components.userfields_thead', array(
+						'userfields' => $productUserfields
+						))
 
 					</tr>
 				</thead>
@@ -370,7 +373,11 @@
 
 						@include('components.userfields_tbody', array(
 						'userfields' => $userfields,
-						'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $listItem->product_id)
+						'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $listItem->id)
+						))
+						@include('components.userfields_tbody', array(
+						'userfields' => $productUserfields,
+						'userfieldValues' => FindAllObjectsInArrayByPropertyValue($productUserfieldValues, 'object_id', $listItem->product_id)
 						))
 
 					</tr>
