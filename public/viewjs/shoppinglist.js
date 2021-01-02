@@ -297,7 +297,7 @@ $(window).on("message", function(e)
 			Grocy.ShoppingListToStockWorkflowCurrent++;
 			if (Grocy.ShoppingListToStockWorkflowCurrent <= Grocy.ShoppingListToStockWorkflowCount)
 			{
-				$(".shopping-list-stock-add-workflow-list-item-button")[1].click();
+				$(".shopping-list-stock-add-workflow-list-item-button")[Grocy.ShoppingListToStockWorkflowCurrent - 1].click();
 			}
 			else
 			{
