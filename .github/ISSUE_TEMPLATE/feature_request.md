@@ -1,6 +1,7 @@
 ---
 name: Feature request
-about: Ideas for improvements or new things which you would find useful are always welcome
+about: Ideas for improvements or new things which you would find useful are always
+  welcome
 title: 'Feature request: '
 labels: enhancement
 assignees: ''
