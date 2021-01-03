@@ -314,7 +314,7 @@
 			@include('components.numberpicker', array(
 			'id' => 'tare_weight',
 			'label' => 'Tare weight',
-			'min' => $DEFAULT_MIN_AMOUNT,
+			'min' => 0,
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,
 			'additionalAttributes' => $additionalAttributes,
