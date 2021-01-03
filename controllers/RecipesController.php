@@ -72,12 +72,10 @@ class RecipesController extends BaseController
 			}
 		}
 
-		$selectedRecipePositionsResolved = null;
 		$totalCosts = null;
 		$totalCalories = null;
 		if ($selectedRecipe)
 		{
-			$selectedRecipePositionsResolved = $this->getDatabase()->recipes_pos_resolved()->where('recipe_id = :1 AND is_nested_recipe_pos = 0', $selectedRecipe->id)->orderBy('ingredient_group', 'ASC', 'product_group', 'ASC');
 			$totalCosts = FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->costs;
 			$totalCalories = FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->calories;
 		}
@@ -87,7 +85,6 @@ class RecipesController extends BaseController
 			'recipesResolved' => $recipesResolved,
 			'recipePositionsResolved' => $this->getDatabase()->recipes_pos_resolved()->where('recipe_type', RecipesService::RECIPE_TYPE_NORMAL),
 			'selectedRecipe' => $selectedRecipe,
-			'selectedRecipePositionsResolved' => $selectedRecipePositionsResolved,
 			'products' => $this->getDatabase()->products(),
 			'quantityUnits' => $this->getDatabase()->quantity_units(),
 			'userfields' => $this->getUserfieldsService()->GetFields('recipes'),
@@ -103,17 +100,24 @@ class RecipesController extends BaseController
 
 			$includedRecipeIdsAbsolute = [];
 			$includedRecipeIdsAbsolute[] = $selectedRecipe->id;
-
 			foreach ($selectedRecipeSubRecipes as $subRecipe)
 			{
 				$includedRecipeIdsAbsolute[] = $subRecipe->id;
 			}
 
+			// TODO: Why not directly use recipes_pos_resolved for all recipe positions here (parent and child)?
+			// This view already correctly recolves child recipe amounts...
 			$allRecipePositions = [];
-
 			foreach ($includedRecipeIdsAbsolute as $id)
 			{
 				$allRecipePositions[$id] = $this->getDatabase()->recipes_pos_resolved()->where('recipe_id = :1 AND is_nested_recipe_pos = 0', $id)->orderBy('ingredient_group', 'ASC', 'product_group', 'ASC');
+				foreach ($allRecipePositions[$id] as $pos)
+				{
+					if ($id != $selectedRecipe->id)
+					{
+						$pos->recipe_amount = $this->getDatabase()->recipes_pos_resolved()->where('recipe_id = :1  AND recipe_pos_id = :2 AND is_nested_recipe_pos = 1', $selectedRecipe->id, $pos->recipe_pos_id)->fetch()->recipe_amount;
+					}
+				}
 			}
 
 			$renderArray['selectedRecipeSubRecipes'] = $selectedRecipeSubRecipes;
