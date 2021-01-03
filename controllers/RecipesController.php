@@ -115,7 +115,9 @@ class RecipesController extends BaseController
 				{
 					if ($id != $selectedRecipe->id)
 					{
-						$pos->recipe_amount = $this->getDatabase()->recipes_pos_resolved()->where('recipe_id = :1  AND recipe_pos_id = :2 AND is_nested_recipe_pos = 1', $selectedRecipe->id, $pos->recipe_pos_id)->fetch()->recipe_amount;
+						$pos2 = $this->getDatabase()->recipes_pos_resolved()->where('recipe_id = :1  AND recipe_pos_id = :2 AND is_nested_recipe_pos = 1', $selectedRecipe->id, $pos->recipe_pos_id)->fetch();
+						$pos->recipe_amount = $pos2->recipe_amount;
+						$pos->missing_amount = $pos2->recipe_amount;
 					}
 				}
 			}
