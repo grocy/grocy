@@ -472,3 +472,5 @@ else if (Grocy.EditMode === 'create')
 		$("select.input-group-qu").val(Grocy.UserSettings.product_presets_qu_id);
 	}
 }
+
+Grocy.FrontendHelpers.ValidateForm("product-form");
