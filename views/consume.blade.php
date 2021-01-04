@@ -31,7 +31,7 @@
 				<button id="scan-mode-button"
 					class="btn @if(boolval($userSettings['scan_mode_consume_enabled'])) btn-success @else btn-danger @endif m-1 mt-md-0 mb-md-0 float-right"
 					data-toggle="tooltip"
-					title="{{ $__t('When enabled, the amount will always be filled with 1 after changing/scanning a product and if all fields could be automatically populated (by product defaults), the transaction is automatically submitted') }}">{{ $__t('Scan mode') }} <span id="scan-mode-status">@if(boolval($userSettings['scan_mode_consume_enabled'])) {{ $__t('on') }} @else {{ $__t('off') }} @endif</span></button>
+					title="{{ $__t('When enabled, after changing/scanning a product and if all fields could be automatically populated (by product and/or barcode defaults), the transaction is automatically submitted') }}">{{ $__t('Scan mode') }} <span id="scan-mode-status">@if(boolval($userSettings['scan_mode_consume_enabled'])) {{ $__t('on') }} @else {{ $__t('off') }} @endif</span></button>
 				<input id="scan-mode"
 					type="checkbox"
 					class="d-none user-setting-control"

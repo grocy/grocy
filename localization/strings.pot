@@ -1864,7 +1864,7 @@ msgstr ""
 msgid "This is due earlier than already in-stock items"
 msgstr ""
 
-msgid "When enabled, the amount will always be filled with 1 after changing/scanning a product and if all fields could be automatically populated (by product defaults), the transaction is automatically submitted"
+msgid "When enabled, after changing/scanning a product and if all fields could be automatically populated (by product and/or barcode defaults), the transaction is automatically submitted"
 msgstr ""
 
 msgid "Quick consume amount"
