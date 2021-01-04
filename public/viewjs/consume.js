@@ -344,22 +344,45 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 							}
 						});
 
-						if (BoolVal(Grocy.UserSettings.scan_mode_consume_enabled))
+						if (document.getElementById("product_id").getAttribute("barcode") != "null")
 						{
-							$("#display_amount").val(1);
-							RefreshLocaleNumberInput();
-							$(".input-group-productamountpicker").trigger("change");
+							Grocy.Api.Get('objects/product_barcodes?query[]=barcode=' + document.getElementById("product_id").getAttribute("barcode"),
+								function(barcodeResult)
+								{
+									if (barcodeResult != null)
+									{
+										var barcode = barcodeResult[0];
 
-							Grocy.FrontendHelpers.ValidateForm("consume-form");
-							if (document.getElementById("consume-form").checkValidity() === true)
-							{
-								$('#save-consume-button').click();
-							}
-							else
-							{
-								toastr.warning(__t("Scan mode is on but not all required fields could be populated automatically"));
-								Grocy.UISound.Error();
-							}
+										if (barcode != null)
+										{
+											if (barcode.amount != null && !barcode.amount.isEmpty())
+											{
+												$("#display_amount").val(barcode.amount);
+												$("#display_amount").select();
+											}
+
+											if (barcode.qu_id != null)
+											{
+												Grocy.Components.ProductAmountPicker.SetQuantityUnit(barcode.qu_id);
+											}
+
+											$(".input-group-productamountpicker").trigger("change");
+											Grocy.FrontendHelpers.ValidateForm('consume-form');
+											RefreshLocaleNumberInput();
+										}
+									}
+
+									ScanModeSubmit(false);
+								},
+								function(xhr)
+								{
+									console.error(xhr);
+								}
+							);
+						}
+						else
+						{
+							ScanModeSubmit();
 						}
 					},
 					function(xhr)
@@ -618,4 +641,29 @@ function RefreshForm()
 	}
 
 	Grocy.FrontendHelpers.ValidateForm("consume-form");
+}
+
+function ScanModeSubmit(singleUnit = true)
+{
+	if (BoolVal(Grocy.UserSettings.scan_mode_consume_enabled))
+	{
+		if (singleUnit)
+		{
+			$("#display_amount").val(1);
+		}
+
+		RefreshLocaleNumberInput();
+		$(".input-group-productamountpicker").trigger("change");
+		Grocy.FrontendHelpers.ValidateForm("consume-form");
+
+		if (document.getElementById("consume-form").checkValidity() === true)
+		{
+			$('#save-consume-button').click();
+		}
+		else
+		{
+			toastr.warning(__t("Scan mode is on but not all required fields could be populated automatically"));
+			Grocy.UISound.Error();
+		}
+	}
 }

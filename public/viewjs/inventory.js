@@ -182,6 +182,41 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 					}
 				}
 
+				if (document.getElementById("product_id").getAttribute("barcode") != "null")
+				{
+					Grocy.Api.Get('objects/product_barcodes?query[]=barcode=' + document.getElementById("product_id").getAttribute("barcode"),
+						function(barcodeResult)
+						{
+							if (barcodeResult != null)
+							{
+								var barcode = barcodeResult[0];
+
+								if (barcode != null)
+								{
+									if (barcode.amount != null && !barcode.amount.isEmpty())
+									{
+										$("#display_amount").val(barcode.amount);
+										$("#display_amount").select();
+									}
+
+									if (barcode.qu_id != null)
+									{
+										Grocy.Components.ProductAmountPicker.SetQuantityUnit(barcode.qu_id);
+									}
+
+									$(".input-group-productamountpicker").trigger("change");
+									Grocy.FrontendHelpers.ValidateForm('inventory-form');
+									RefreshLocaleNumberInput();
+								}
+							}
+						},
+						function(xhr)
+						{
+							console.error(xhr);
+						}
+					);
+				}
+
 				$('#display_amount').val(productDetails.stock_amount);
 				RefreshLocaleNumberInput();
 				$(".input-group-productamountpicker").trigger("change");
