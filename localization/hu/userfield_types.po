@@ -61,12 +61,12 @@ msgstr "link"
 
 # Link (with title)
 msgid "link-with-title"
-msgstr ""
+msgstr "hivatkozás címmel"
 
 # File
 msgid "file"
-msgstr ""
+msgstr "fájl"
 
 # Image
 msgid "image"
-msgstr ""
+msgstr "kép"

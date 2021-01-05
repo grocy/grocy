@@ -9,6 +9,7 @@
 # Per Bäckman <fotodille@gmail.com>, 2020
 # namob <boman.d@gmail.com>, 2020
 # Andreas Olsson <basen82@protonmail.com>, 2020
+# A A <transifex@stardestroyer.se>, 2020
 # 
 msgid ""
 msgstr ""
@@ -16,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Andreas Olsson <basen82@protonmail.com>, 2020\n"
+"Last-Translator: A A <transifex@stardestroyer.se>, 2020\n"
 "Language-Team: Swedish (Sweden) (https://www.transifex.com/grocy/teams/93189/sv_SE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -215,7 +216,7 @@ msgid "Default best before days"
 msgstr "Standardantal bäst-före-dagar"
 
 msgid "Default quantity unit purchase"
-msgstr ""
+msgstr "Standard inköpsmängd"
 
 msgid "Quantity unit stock"
 msgstr "Kvantitetsenhet lager"
@@ -868,8 +869,8 @@ msgstr "Inaktivera kontroll av lageruppfyllelse för denna ingrediens"
 msgid "Add all list items to stock"
 msgstr "Lägg till alla listobjekt på lager"
 
-msgid "Add %1$s of %2$s to stock"
-msgstr "Lägg till %1$s av %2$s till lagret"
+msgid "Add this item to stock"
+msgstr ""
 
 msgid "Adding shopping list item %1$s of %2$s"
 msgstr "Lägger till %1$s av %2$s på inköpslistan"
@@ -1876,10 +1877,10 @@ msgid "Unauthorized"
 msgstr ""
 
 msgid "Error source"
-msgstr ""
+msgstr "Felkälla"
 
 msgid "Error message"
-msgstr ""
+msgstr "Felmeddelande"
 
 msgid "Stack trace"
 msgstr ""
@@ -1888,28 +1889,28 @@ msgid "Easy error info copy & paste (for reporting)"
 msgstr ""
 
 msgid "This page does not exist"
-msgstr ""
+msgstr "Sidan finns inte"
 
 msgid "You will be redirected to the default page in %s seconds"
 msgstr ""
 
 msgid "Server error"
-msgstr ""
+msgstr "Serverfel"
 
 msgid "A server error occured while processing your request"
-msgstr ""
+msgstr "Ett serverfel inträffade när din förfrågan behandlades"
 
 msgid "If you think this is a bug, please report it"
 msgstr ""
 
 msgid "Language"
-msgstr ""
+msgstr "Språk"
 
 msgid "User settings"
-msgstr ""
+msgstr "Användarinställningar"
 
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
 msgid "Stock journal summary"
 msgstr ""
@@ -1921,7 +1922,7 @@ msgid "Journal summary for this product"
 msgstr ""
 
 msgid "Consume exact amount"
-msgstr ""
+msgstr "Förbruka exakt antal"
 
 msgid "Value"
 msgstr ""
@@ -1962,7 +1963,7 @@ msgid "Save & return to quantity units"
 msgstr ""
 
 msgid "price"
-msgstr ""
+msgstr "pris"
 
 msgid "New stock amount"
 msgstr ""
@@ -2026,9 +2027,9 @@ msgid "This is due earlier than already in-stock items"
 msgstr ""
 
 msgid ""
-"When enabled, the amount will always be filled with 1 after "
-"changing/scanning a product and if all fields could be automatically "
-"populated (by product defaults), the transaction is automatically submitted"
+"When enabled, after changing/scanning a product and if all fields could be "
+"automatically populated (by product and/or barcode defaults), the "
+"transaction is automatically submitted"
 msgstr ""
 
 msgid "Quick consume amount"
@@ -2121,7 +2122,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Expired"
-msgstr ""
+msgstr "Utgått"
 
 msgid "Due soon days"
 msgstr ""
@@ -2197,16 +2198,16 @@ msgid "Never show on stock overview"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "Ingen"
 
 msgid "Group by"
-msgstr ""
+msgstr "Gruppera efter"
 
 msgid "Ingredient group"
-msgstr ""
+msgstr "Ingrediensgrupp"
 
 msgid "Reset"
-msgstr ""
+msgstr "Nollställ"
 
 msgid "Are you sure to reset the table options?"
 msgstr ""
@@ -2276,4 +2277,7 @@ msgid ""
 msgstr ""
 
 msgid "Print options"
+msgstr ""
+
+msgid "A product or a note is required"
 msgstr ""

@@ -29,6 +29,8 @@
 # Daniel Nautré <daniel.nautre@gmail.com>, 2020
 # patate douce <poubel125@gmail.com>, 2020
 # nerdinator <florian.dupret@gmail.com>, 2020
+# C P <anoxy78@gmail.com>, 2020
+# voslin <web@frugier.net>, 2021
 # 
 msgid ""
 msgstr ""
@@ -36,7 +38,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: nerdinator <florian.dupret@gmail.com>, 2020\n"
+"Last-Translator: voslin <web@frugier.net>, 2021\n"
 "Language-Team: French (https://www.transifex.com/grocy/teams/93189/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -56,7 +58,7 @@ msgstr[1] "%s produits périmés"
 msgid "within the next day"
 msgid_plural "within the next %s days"
 msgstr[0] "d'ici demain"
-msgstr[1] "d'ici  %s jours"
+msgstr[1] "d'ici %s jours"
 
 msgid "%s product is already expired"
 msgid_plural "%s products are already expired"
@@ -71,7 +73,7 @@ msgstr[1] "%s produits arrivent à échéance"
 msgid "%s product is below defined min. stock amount"
 msgid_plural "%s products are below defined min. stock amount"
 msgstr[0] "%s produit est en quantité inférieure à la limite définie"
-msgstr[1] "%s  produits sont en quantité inférieure à la limite définie"
+msgstr[1] "%s produits sont en quantité inférieure à la limite définie"
 
 msgid "Product"
 msgstr "Produit"
@@ -646,12 +648,15 @@ msgid "Quantity unit"
 msgstr "Format"
 
 msgid "Only check if any amount is in stock"
-msgstr ""
+msgstr "Vérifier seulement qu'une quantité non-nulle est en stock"
 
 msgid ""
 "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
 " marked with \"only check if any amount is in stock\" will be ignored)?"
 msgstr ""
+"Êtes-vous sûr de vouloir consommer tous les ingrédients requis pour la "
+"recette \"%s\" (les ingrédient marqués \"Vérifier seulement qu'une quantité "
+"non-nulle est en stock\" seront ignorés)"
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
 msgstr "Enlever tous les ingrédients de la recette \"%s\" du stock"
@@ -826,7 +831,7 @@ msgid "Create equipment"
 msgstr "Créer un équipement"
 
 msgid "The current file will be deleted on save"
-msgstr ""
+msgstr "Le fichier courant sera supprimé lors de la sauvegarde"
 
 msgid "No picture available"
 msgstr "Aucune photo disponible"
@@ -888,8 +893,8 @@ msgstr "Désactiver la vérification du stock pour cet ingrédient"
 msgid "Add all list items to stock"
 msgstr "Ajouter toute la liste dans le stock"
 
-msgid "Add %1$s of %2$s to stock"
-msgstr "Ajouter %1$s de %2$s au stock"
+msgid "Add this item to stock"
+msgstr ""
 
 msgid "Adding shopping list item %1$s of %2$s"
 msgstr "Ajout :%1$s de %2$s à la liste de courses"
@@ -901,6 +906,9 @@ msgid ""
 "The first item in this list would be picked by the default rule which is "
 "\"Opened first, then first due first, then first in first out\""
 msgstr ""
+"Le premier élément de cette liste est choisi par à la règle de consommation "
+"par défaut : \"Ouvert en premier, puis périme en premier, puis plus ancien "
+"ajouté\""
 
 msgid "Mark %1$s of %2$s as open"
 msgstr "Indiquer %1$s de %2$s comme ouvert"
@@ -1036,7 +1044,7 @@ msgid "Gallery"
 msgstr "Gallerie"
 
 msgid "The current picture will be deleted on save"
-msgstr ""
+msgstr "L'image courante sera supprimée lors de la sauvegarde"
 
 msgid "Journal for this battery"
 msgstr "Journal de cette pile"
@@ -1874,6 +1882,8 @@ msgid ""
 "Based on the prices of the default consume rule which is \"Opened first, "
 "then first due first, then first in first out\""
 msgstr ""
+"Basé sur le prix correspondant à la règle de consommation par défaut : "
+"\"Ouvert en premier, puis périme en premier, puis plus ancien ajouté\""
 
 msgid ""
 "Not enough in stock (not included in costs), %1$s missing, %2$s already on "
@@ -2064,15 +2074,13 @@ msgstr ""
 
 msgid "This is due earlier than already in-stock items"
 msgstr ""
+"La date de péremption est plus courte que pour les éléments déjà en stock"
 
 msgid ""
-"When enabled, the amount will always be filled with 1 after "
-"changing/scanning a product and if all fields could be automatically "
-"populated (by product defaults), the transaction is automatically submitted"
+"When enabled, after changing/scanning a product and if all fields could be "
+"automatically populated (by product and/or barcode defaults), the "
+"transaction is automatically submitted"
 msgstr ""
-"Quand cette option est activée, la quantité va être mise à 1 lors du scan si"
-" tous les champs peuvent être remplis automatiquement, la transaction est "
-"envoyée automatiquement"
 
 msgid "Quick consume amount"
 msgstr "Quantité consommée par défaut"
@@ -2085,7 +2093,7 @@ msgstr ""
 "comme ouvert\"sur la vue d'ensemble du stock"
 
 msgid "Copy"
-msgstr ""
+msgstr "Copier"
 
 msgid "Are you sure to remove this barcode?"
 msgstr "Êtes-vous sûr de vouloir supprimer ce code barre ?"
@@ -2269,10 +2277,10 @@ msgstr ""
 "cacher le produit"
 
 msgid "Show disabled"
-msgstr ""
+msgstr "Montrer désactivés"
 
 msgid "Never show on stock overview"
-msgstr ""
+msgstr "Ne jamais afficher dans l'aperçu du stock"
 
 msgid "None"
 msgstr "Aucun"
@@ -2296,62 +2304,72 @@ msgid ""
 "A different amount/unit can then be used below while for stock fulfillment "
 "checking it is sufficient when any amount of the product in stock"
 msgstr ""
+"Une quantité/unité différente peuvent être utilisées ci-dessous, mais pour "
+"la vérification du stock seule une quantité non-nulle en stock est requise"
 
 msgid "Last price (Unit)"
-msgstr ""
+msgstr "Dernier prix (Unité)"
 
 msgid "Last price (Total)"
-msgstr ""
+msgstr "Dernier prix (Total)"
 
 msgid "Show header"
-msgstr ""
+msgstr "Montrer l'en-tête"
 
 msgid "Group by product group"
-msgstr ""
+msgstr "Grouper par groupe de produit"
 
 msgid "Table"
-msgstr ""
+msgstr "Table"
 
 msgid "Layout type"
-msgstr ""
+msgstr "Type d'affichage"
 
 msgid "Merge this product with another one"
-msgstr ""
+msgstr "Fusionner ce produit avec un autre"
 
 msgid "Merge products"
-msgstr ""
+msgstr "Fusionner les produits"
 
 msgid "Product to keep"
-msgstr ""
+msgstr "Garder ce produit"
 
 msgid "Product to remove"
-msgstr ""
+msgstr "Retirer ce produit"
 
 msgid "Error while merging products"
-msgstr ""
+msgstr "Erreur lors de la fusion des produits"
 
 msgid "After merging, this product will be kept"
-msgstr ""
+msgstr "Après fusion, ce produit sera conservé"
 
 msgid ""
 "After merging, all occurences of this product will be replaced by \"Product "
 "to keep\" (means this product will not exist anymore)"
 msgstr ""
+"Après fusion, toutes les instances de ce produit seront remplacées par le "
+"\"Produit à conserver\" (ce produit aura disparu)"
 
 msgid "Merge"
-msgstr ""
+msgstr "Fusionner"
 
 msgid "Title"
-msgstr ""
+msgstr "Titre"
 
 msgid "Link"
-msgstr ""
+msgstr "Lien"
 
 msgid ""
 "The stock overview page lists all products which are currently in-stock or "
 "below their min. stock amount - enable this to hide this product there "
 "always"
 msgstr ""
+"L'aperçu du stock liste tous les produits actuellement en stock ou en-deça "
+"de leur stock mini - cette option désactive l'affichage de ce produit dans "
+"tous les cas"
 
 msgid "Print options"
+msgstr "Options d'impression"
+
+msgid "A product or a note is required"
 msgstr ""

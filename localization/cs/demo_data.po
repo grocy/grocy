@@ -390,13 +390,13 @@ msgid "Korean"
 msgstr "Korejština"
 
 msgid "Chinese (China)"
-msgstr ""
+msgstr "Čínština (Čína)"
 
 msgid "Hebrew (Israel)"
-msgstr ""
+msgstr "Hebrejsky (Izraeil)"
 
 msgid "Tamil"
 msgstr ""
 
 msgid "Finnish"
-msgstr ""
+msgstr "Finsky"

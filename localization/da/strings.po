@@ -859,8 +859,8 @@ msgstr "Deaktiver opfyldningstjek i beholdningen for denne ingrediens"
 msgid "Add all list items to stock"
 msgstr "Tilføj alle viste varer til lagerbeholdningen"
 
-msgid "Add %1$s of %2$s to stock"
-msgstr "Tilføj %1$s af %2$s til beholdningen"
+msgid "Add this item to stock"
+msgstr ""
 
 msgid "Adding shopping list item %1$s of %2$s"
 msgstr "Tilføjer indkøbsliste-punkt %1$s af %2$s"
@@ -2010,9 +2010,9 @@ msgid "This is due earlier than already in-stock items"
 msgstr ""
 
 msgid ""
-"When enabled, the amount will always be filled with 1 after "
-"changing/scanning a product and if all fields could be automatically "
-"populated (by product defaults), the transaction is automatically submitted"
+"When enabled, after changing/scanning a product and if all fields could be "
+"automatically populated (by product and/or barcode defaults), the "
+"transaction is automatically submitted"
 msgstr ""
 
 msgid "Quick consume amount"
@@ -2260,4 +2260,7 @@ msgid ""
 msgstr ""
 
 msgid "Print options"
+msgstr ""
+
+msgid "A product or a note is required"
 msgstr ""

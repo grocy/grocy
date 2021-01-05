@@ -1,0 +1,138 @@
+# 
+# Translators:
+# Gábor Szellő <gabor.szello@gmail.com>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-29 16:33+0000\n"
+"Last-Translator: Gábor Szellő <gabor.szello@gmail.com>, 2020\n"
+"Language-Team: Hungarian (https://www.transifex.com/grocy/teams/93189/hu/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/permissions\n"
+
+# All permissions
+msgid "ADMIN"
+msgstr "Összes jogosultság"
+
+# Create users
+msgid "USERS_CREATE"
+msgstr "Felhasználók létrehozása"
+
+# Edit users (including passwords)
+msgid "USERS_EDIT"
+msgstr "Felhasználók szerkesztése (jelszavakat beleértve)"
+
+# Show users
+msgid "USERS_READ"
+msgstr "Felhasználók megjelenítése"
+
+# Edit own user data / change own password
+msgid "USERS_EDIT_SELF"
+msgstr "Saját felhasználói adatok szerkesztése / saját jelszó módosítása"
+
+# Undo charge cycle
+msgid "BATTERIES_UNDO_CHARGE_CYCLE"
+msgstr "Töltési ciklus visszavonása"
+
+# Track charge cycle
+msgid "BATTERIES_TRACK_CHARGE_CYCLE"
+msgstr "Töltési ciklus követése"
+
+# Track execution
+msgid "CHORE_TRACK_EXECUTION"
+msgstr "Követés végrehajtása"
+
+# Undo execution
+msgid "CHORE_UNDO_EXECUTION"
+msgstr "Végrehajtás visszavonása"
+
+# Edit master data
+msgid "MASTER_DATA_EDIT"
+msgstr "Törzsadatok szerkesztése"
+
+# Undo execution
+msgid "TASKS_UNDO_EXECUTION"
+msgstr "Végrehajtás visszavonása"
+
+# Mark completed
+msgid "TASKS_MARK_COMPLETED"
+msgstr "Megjelölés elvégzettként"
+
+# Edit stock entries
+msgid "STOCK_EDIT"
+msgstr "Készlet bejegyzések szerkesztése"
+
+# Transfer
+msgid "STOCK_TRANSFER"
+msgstr "Áthelyezés"
+
+# Inventory
+msgid "STOCK_INVENTORY"
+msgstr "Leltár"
+
+# Consume
+msgid "STOCK_CONSUME"
+msgstr "Felhasználás"
+
+# Open products
+msgid "STOCK_OPEN"
+msgstr "Termékek megnyitása"
+
+# Purchase
+msgid "STOCK_PURCHASE"
+msgstr "Vásárlás"
+
+# Add items
+msgid "SHOPPINGLIST_ITEMS_ADD"
+msgstr "Elemek hozzáadása"
+
+# Remove items
+msgid "SHOPPINGLIST_ITEMS_DELETE"
+msgstr "Elemek eltávolítása"
+
+# User management
+msgid "USERS"
+msgstr "Felhasználók kezelése"
+
+# Stock
+msgid "STOCK"
+msgstr "Készlet"
+
+# Shopping list
+msgid "SHOPPINGLIST"
+msgstr "Bevásárlólista"
+
+# Chores
+msgid "CHORES"
+msgstr "Házimunkák"
+
+# Batteries
+msgid "BATTERIES"
+msgstr "Elemek"
+
+# Tasks
+msgid "TASKS"
+msgstr "Feladatok"
+
+# Recipes
+msgid "RECIPES"
+msgstr "Receptek"
+
+# Equipment
+msgid "EQUIPMENT"
+msgstr "Eszközök"
+
+# Calendar
+msgid "CALENDAR"
+msgstr "Naptár"
+
+# Meal plan
+msgid "RECIPES_MEALPLAN"
+msgstr "Menü terv"

@@ -3,7 +3,7 @@
 # Hagen Tasche <github@fvbor.de>, 2020
 # Luca RHK <luca@rhk-in.de>, 2020
 # Tobias Wolter <mumpfpuffel@gmail.com>, 2020
-# Bernd Bestel <bernd@berrnd.de>, 2020
+# Bernd Bestel <bernd@berrnd.de>, 2021
 # 
 msgid ""
 msgstr ""
@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2020\n"
+"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2021\n"
 "Language-Team: German (https://www.transifex.com/grocy/teams/93189/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -872,8 +872,8 @@ msgstr "Bestandsprüfung für diese Zutat deaktivieren"
 msgid "Add all list items to stock"
 msgstr "Alle Einträge zum Bestand hinzufügen"
 
-msgid "Add %1$s of %2$s to stock"
-msgstr "Füge %1$s %2$s dem Bestand hinzu"
+msgid "Add this item to stock"
+msgstr "Diesen Eintrag zum Bestand hinzufügen"
 
 msgid "Adding shopping list item %1$s of %2$s"
 msgstr "Bearbeite Einkausfzettel-Eintrag %1$s von %2$s"
@@ -2069,14 +2069,14 @@ msgid "This is due earlier than already in-stock items"
 msgstr "Dies ist früher fällig als bereits vorhandene Bestandseinträge"
 
 msgid ""
-"When enabled, the amount will always be filled with 1 after "
-"changing/scanning a product and if all fields could be automatically "
-"populated (by product defaults), the transaction is automatically submitted"
+"When enabled, after changing/scanning a product and if all fields could be "
+"automatically populated (by product and/or barcode defaults), the "
+"transaction is automatically submitted"
 msgstr ""
 "Wenn eingeschaltet, wird nach der Auswahl bzw. dem Scannen eines Produkts "
-"die Menge immer auf 1 vorbelegt und wenn auch alle anderen Felder "
-"automatisch vorbelegt werden konnten (durch Produktvorgaben), wird die "
-"Transaktion automatisch gespeichert"
+"und wenn auch alle anderen Felder automatisch vorbelegt werden konnten "
+"(durch Produkt- und/oder Barcodestandards), die Transaktion automatisch "
+"gespeichert"
 
 msgid "Quick consume amount"
 msgstr "Schnell-Verbrauchs-Menge"
@@ -2371,3 +2371,6 @@ msgstr ""
 
 msgid "Print options"
 msgstr "Druckoptionen"
+
+msgid "A product or a note is required"
+msgstr "Ein Produkt oder eine Notiz ist erforderlich"

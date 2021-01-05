@@ -1,6 +1,6 @@
 # 
 # Translators:
-# Yaron Shahrabani <sh.yaron@gmail.com>, 2020
+# Yaron Shahrabani <sh.yaron@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>, 2020\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>, 2021\n"
 "Language-Team: Hebrew (Israel) (https://www.transifex.com/grocy/teams/93189/he_IL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -879,8 +879,8 @@ msgstr "השבתת בדיקת אספקת מלאי עבור רכיב זה"
 msgid "Add all list items to stock"
 msgstr "להוסיף את כל פריטי הרשימה למלאי"
 
-msgid "Add %1$s of %2$s to stock"
-msgstr "להוסיף %1$s מתוך %2$s למלאי"
+msgid "Add this item to stock"
+msgstr "להוסיף את הפריט הזה למלאי"
 
 msgid "Adding shopping list item %1$s of %2$s"
 msgstr "מתווסף פריט %1$s מתוך %2$s לרשימת הקניות"
@@ -2026,12 +2026,12 @@ msgid "This is due earlier than already in-stock items"
 msgstr "תום התוקף קרוב מאשר פריטים שכבר במלאי."
 
 msgid ""
-"When enabled, the amount will always be filled with 1 after "
-"changing/scanning a product and if all fields could be automatically "
-"populated (by product defaults), the transaction is automatically submitted"
+"When enabled, after changing/scanning a product and if all fields could be "
+"automatically populated (by product and/or barcode defaults), the "
+"transaction is automatically submitted"
 msgstr ""
-"כאשר האפשרות פעילה, הכמות תמיד תתמלא ב־1 לאחר שינוי/סריקת מוצר ואם ניתן למלא"
-" את כל השדות אוטומטית (עם בררות המחדל של המוצר), ההעברה תוגש אוטומטית"
+"כאשר האפשרות פעילה, לאחר החלפת/סריקת פריט ואם ניתן למלא את כל השדות אוטומטית"
+" (לפי בררות המחדל למוצר ו/או לברקוד), ההעברה תוגש אוטומטית"
 
 msgid "Quick consume amount"
 msgstr "כמות לצריכה מהירה"
@@ -2310,3 +2310,6 @@ msgstr ""
 
 msgid "Print options"
 msgstr "אפשרויות הדפסה"
+
+msgid "A product or a note is required"
+msgstr "נדרש מוצר או הערה"

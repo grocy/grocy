@@ -21,7 +21,7 @@ msgid "timeago_locale"
 msgstr "el"
 
 msgid "timeago_nan"
-msgstr "NaN χρόνια"
+msgstr "πριν NaN χρόνια"
 
 msgid "moment_locale"
 msgstr "el"

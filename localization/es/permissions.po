@@ -1,0 +1,139 @@
+# 
+# Translators:
+# Enrique Lapenta <enriquelap20@gmail.com>, 2020
+# Alberto Martin <ami232@gmail.com>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-29 16:33+0000\n"
+"Last-Translator: Alberto Martin <ami232@gmail.com>, 2021\n"
+"Language-Team: Spanish (https://www.transifex.com/grocy/teams/93189/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/permissions\n"
+
+# All permissions
+msgid "ADMIN"
+msgstr "Todos los permisos"
+
+# Create users
+msgid "USERS_CREATE"
+msgstr "Crear usuarios"
+
+# Edit users (including passwords)
+msgid "USERS_EDIT"
+msgstr "Editar usuarios (incluidas contraseñas)"
+
+# Show users
+msgid "USERS_READ"
+msgstr "Mostrar usuarios"
+
+# Edit own user data / change own password
+msgid "USERS_EDIT_SELF"
+msgstr "Modificar datos del propio usuario / cambiar su propia contraseña"
+
+# Undo charge cycle
+msgid "BATTERIES_UNDO_CHARGE_CYCLE"
+msgstr "Deshacer ciclo de carga"
+
+# Track charge cycle
+msgid "BATTERIES_TRACK_CHARGE_CYCLE"
+msgstr "Monitorizar ciclo de carga"
+
+# Track execution
+msgid "CHORE_TRACK_EXECUTION"
+msgstr "Monitorizar ejecución"
+
+# Undo execution
+msgid "CHORE_UNDO_EXECUTION"
+msgstr "Deshacer ejecución"
+
+# Edit master data
+msgid "MASTER_DATA_EDIT"
+msgstr "Editar datos maestros"
+
+# Undo execution
+msgid "TASKS_UNDO_EXECUTION"
+msgstr "Deshacer ejecución"
+
+# Mark completed
+msgid "TASKS_MARK_COMPLETED"
+msgstr "Marcar completadas"
+
+# Edit stock entries
+msgid "STOCK_EDIT"
+msgstr "STOCK_EDIT"
+
+# Transfer
+msgid "STOCK_TRANSFER"
+msgstr "Transferir"
+
+# Inventory
+msgid "STOCK_INVENTORY"
+msgstr "Inventario"
+
+# Consume
+msgid "STOCK_CONSUME"
+msgstr "Consumir"
+
+# Open products
+msgid "STOCK_OPEN"
+msgstr "Abrir productos"
+
+# Purchase
+msgid "STOCK_PURCHASE"
+msgstr "Comprar"
+
+# Add items
+msgid "SHOPPINGLIST_ITEMS_ADD"
+msgstr "Añadir artículos"
+
+# Remove items
+msgid "SHOPPINGLIST_ITEMS_DELETE"
+msgstr "Quitar artículos"
+
+# User management
+msgid "USERS"
+msgstr "Gestión de usuarios"
+
+# Stock
+msgid "STOCK"
+msgstr "Inventario"
+
+# Shopping list
+msgid "SHOPPINGLIST"
+msgstr "Lista de la compra"
+
+# Chores
+msgid "CHORES"
+msgstr "Tareas del hogar"
+
+# Batteries
+msgid "BATTERIES"
+msgstr "Pilas"
+
+# Tasks
+msgid "TASKS"
+msgstr "Tareas"
+
+# Recipes
+msgid "RECIPES"
+msgstr "Recetas"
+
+# Equipment
+msgid "EQUIPMENT"
+msgstr "Equipamiento"
+
+# Calendar
+msgid "CALENDAR"
+msgstr "Calendario"
+
+# Meal plan
+msgid "RECIPES_MEALPLAN"
+msgstr "Plan de comidas"

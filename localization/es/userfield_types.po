@@ -1,7 +1,6 @@
 # 
 # Translators:
-# Fernando Sánchez <fernando.l.sanchez@gmail.com>, 2019
-# Jose Rugel <joserugel@gmail.com>, 2020
+# Alberto Martin <ami232@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -9,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:43+0000\n"
-"Last-Translator: Jose Rugel <joserugel@gmail.com>, 2020\n"
+"Last-Translator: Alberto Martin <ami232@gmail.com>, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/grocy/teams/93189/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,52 +19,52 @@ msgstr ""
 
 # Text (single line)
 msgid "text-single-line"
-msgstr "texto-unica-linea"
+msgstr "Texto (una línea)"
 
 # Text (multi line)
 msgid "text-multi-line"
-msgstr "texto-multi-linea"
+msgstr "Texto (varias líneas)"
 
 # Number (integral)
 msgid "number-integral"
-msgstr "numero-entero"
+msgstr "Número (entero)"
 
 # Number (decimal)
 msgid "number-decimal"
-msgstr "numero-decimal"
+msgstr "Número (decimal)"
 
 # Date (without time)
 msgid "date"
-msgstr "fecha"
+msgstr "Fecha"
 
 # Date & time
 msgid "datetime"
-msgstr "fecha-hora"
+msgstr "Fecha y hora"
 
 # Checkbox
 msgid "checkbox"
-msgstr "casilla-verificacion"
+msgstr "Casilla de verificación"
 
 # Select list (a single item can be selected)
 msgid "preset-list"
-msgstr "lista-predefinida"
+msgstr "Seleccionar un elemento de una lista"
 
 # Select list (multiple items can be selected)
 msgid "preset-checklist"
-msgstr "casillas-predefinidas"
+msgstr "Seleccionar uno o más elementos de una lista"
 
 # Link
 msgid "link"
-msgstr "enlace"
+msgstr "Enlace"
 
 # Link (with title)
 msgid "link-with-title"
-msgstr ""
+msgstr "Enlace (con título)"
 
 # File
 msgid "file"
-msgstr ""
+msgstr "Archivo"
 
 # Image
 msgid "image"
-msgstr ""
+msgstr "Imagen"

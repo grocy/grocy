@@ -836,8 +836,8 @@ msgstr "この材料の在庫フィルメントを無効にする"
 msgid "Add all list items to stock"
 msgstr "すべてのリスト項目をストックに追加"
 
-msgid "Add %1$s of %2$s to stock"
-msgstr "%2$s の %1$s を在庫に追加"
+msgid "Add this item to stock"
+msgstr ""
 
 msgid "Adding shopping list item %1$s of %2$s"
 msgstr "買い物リストの項目 %2$s の %1$s を追加しています"
@@ -1932,9 +1932,9 @@ msgid "This is due earlier than already in-stock items"
 msgstr ""
 
 msgid ""
-"When enabled, the amount will always be filled with 1 after "
-"changing/scanning a product and if all fields could be automatically "
-"populated (by product defaults), the transaction is automatically submitted"
+"When enabled, after changing/scanning a product and if all fields could be "
+"automatically populated (by product and/or barcode defaults), the "
+"transaction is automatically submitted"
 msgstr ""
 
 msgid "Quick consume amount"
@@ -2180,4 +2180,7 @@ msgid ""
 msgstr ""
 
 msgid "Print options"
+msgstr ""
+
+msgid "A product or a note is required"
 msgstr ""

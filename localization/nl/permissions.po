@@ -1,0 +1,140 @@
+# 
+# Translators:
+# Engelbert Mercelis <engelbertmercelis@gmail.com>, 2020
+# th p <thijs.paelman+git@hotmail.be>, 2020
+# Stan Overgauw <stan.overgauw@gmail.com>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-29 16:33+0000\n"
+"Last-Translator: Stan Overgauw <stan.overgauw@gmail.com>, 2020\n"
+"Language-Team: Dutch (https://www.transifex.com/grocy/teams/93189/nl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/permissions\n"
+
+# All permissions
+msgid "ADMIN"
+msgstr "ADMINISTRATOR"
+
+# Create users
+msgid "USERS_CREATE"
+msgstr "GEBRUIKERS_AANMAKEN"
+
+# Edit users (including passwords)
+msgid "USERS_EDIT"
+msgstr "GEBRUIKERS_BEWERKEN"
+
+# Show users
+msgid "USERS_READ"
+msgstr "GEBRUIKERS_LEZEN"
+
+# Edit own user data / change own password
+msgid "USERS_EDIT_SELF"
+msgstr "GEBRUIKERS_ZELF_AANPASSEN"
+
+# Undo charge cycle
+msgid "BATTERIES_UNDO_CHARGE_CYCLE"
+msgstr "BATTERIJEN_OPLAAD_CYCLUS_ONGEDAANMAKEN"
+
+# Track charge cycle
+msgid "BATTERIES_TRACK_CHARGE_CYCLE"
+msgstr "BATTERIJEN_OPLAAD_CYCLUS_VOLGEN"
+
+# Track execution
+msgid "CHORE_TRACK_EXECUTION"
+msgstr "TAAK_UITVOERING_VOLGEN"
+
+# Undo execution
+msgid "CHORE_UNDO_EXECUTION"
+msgstr "TAAK_UITVOERING_ONGEDAANMAKEN"
+
+# Edit master data
+msgid "MASTER_DATA_EDIT"
+msgstr "MEESTER_DATA_AANPASSEN"
+
+# Undo execution
+msgid "TASKS_UNDO_EXECUTION"
+msgstr "TAKEN_UITVOERING_ONGEDAANMAKEN"
+
+# Mark completed
+msgid "TASKS_MARK_COMPLETED"
+msgstr "TAKEN_MARKEER_COMPLEET"
+
+# Edit stock entries
+msgid "STOCK_EDIT"
+msgstr "VOORRAAD_AANPASSEN"
+
+# Transfer
+msgid "STOCK_TRANSFER"
+msgstr "VOORRAAD_VERPLAATSEN"
+
+# Inventory
+msgid "STOCK_INVENTORY"
+msgstr "VOORRAAD_INVENTARIS"
+
+# Consume
+msgid "STOCK_CONSUME"
+msgstr "VOORRAAD_CONSUMEREN"
+
+# Open products
+msgid "STOCK_OPEN"
+msgstr "VOORRAAD_OPENEN"
+
+# Purchase
+msgid "STOCK_PURCHASE"
+msgstr "VOORRAAD_AANKOOP"
+
+# Add items
+msgid "SHOPPINGLIST_ITEMS_ADD"
+msgstr "BOODSCHAPPENLIJST_ITEMS_TOEVOEGEN"
+
+# Remove items
+msgid "SHOPPINGLIST_ITEMS_DELETE"
+msgstr "BOODSCHAPPENLIJST_ITEMS_VERWIJDEREN"
+
+# User management
+msgid "USERS"
+msgstr "GEBRUIKERS"
+
+# Stock
+msgid "STOCK"
+msgstr "VOORRAAD"
+
+# Shopping list
+msgid "SHOPPINGLIST"
+msgstr "BOODSCHAPPENLIJST"
+
+# Chores
+msgid "CHORES"
+msgstr "TAKEN"
+
+# Batteries
+msgid "BATTERIES"
+msgstr "BATTERIJEN"
+
+# Tasks
+msgid "TASKS"
+msgstr "TAKEN"
+
+# Recipes
+msgid "RECIPES"
+msgstr "RECEPTEN"
+
+# Equipment
+msgid "EQUIPMENT"
+msgstr "APPARATUUR"
+
+# Calendar
+msgid "CALENDAR"
+msgstr "KALENDER"
+
+# Meal plan
+msgid "RECIPES_MEALPLAN"
+msgstr "RECEPTEN_EETPLAN"

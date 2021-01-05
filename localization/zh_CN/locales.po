@@ -115,8 +115,8 @@ msgstr "he_IL"
 
 # Tamil
 msgid "ta"
-msgstr ""
+msgstr "ta"
 
 # Finnish
 msgid "fi"
-msgstr ""
+msgstr "fi"

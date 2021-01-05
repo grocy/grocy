@@ -21,7 +21,7 @@ msgid "no-assignment"
 msgstr "할당없음"
 
 msgid "who-least-did-first"
-msgstr "제일 먼저 한 사람"
+msgstr "적게한 사람 우선"
 
 msgid "random"
 msgstr "무작위"

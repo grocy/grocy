@@ -1,3 +1,3 @@
 pushd ..
-tx push --source
+tx push --source --force
 popd

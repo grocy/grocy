@@ -1,0 +1,138 @@
+# 
+# Translators:
+# A A <transifex@stardestroyer.se>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-29 16:33+0000\n"
+"Last-Translator: A A <transifex@stardestroyer.se>, 2020\n"
+"Language-Team: Swedish (Sweden) (https://www.transifex.com/grocy/teams/93189/sv_SE/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sv_SE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/permissions\n"
+
+# All permissions
+msgid "ADMIN"
+msgstr "ADMIN"
+
+# Create users
+msgid "USERS_CREATE"
+msgstr "ANVÄNDARE_SKAPA"
+
+# Edit users (including passwords)
+msgid "USERS_EDIT"
+msgstr "ANVÄNDARE_REDIGERA"
+
+# Show users
+msgid "USERS_READ"
+msgstr "ANVÄNDARE_LÄS"
+
+# Edit own user data / change own password
+msgid "USERS_EDIT_SELF"
+msgstr "ANVÄNDARE_REDIGERA_SJÄLV"
+
+# Undo charge cycle
+msgid "BATTERIES_UNDO_CHARGE_CYCLE"
+msgstr "BATTERIER_AVBRYT_LADDNINGSCYKEL"
+
+# Track charge cycle
+msgid "BATTERIES_TRACK_CHARGE_CYCLE"
+msgstr "BATTERIER_SPÅRA_LADDNINGSCYKEL"
+
+# Track execution
+msgid "CHORE_TRACK_EXECUTION"
+msgstr "SYSSLOR_SPÅRA_UTFÖRANDE"
+
+# Undo execution
+msgid "CHORE_UNDO_EXECUTION"
+msgstr "SYSSLOR_AVBRYT_UTFÖRANDE"
+
+# Edit master data
+msgid "MASTER_DATA_EDIT"
+msgstr "MASTER_DATA_ÄNDRA"
+
+# Undo execution
+msgid "TASKS_UNDO_EXECUTION"
+msgstr "UPPGIFTER_AVBRYT_UTFÖRANDE"
+
+# Mark completed
+msgid "TASKS_MARK_COMPLETED"
+msgstr "UPPGIFTER_MARKERA_SLUTFÖRD"
+
+# Edit stock entries
+msgid "STOCK_EDIT"
+msgstr "LAGER_EDITERA"
+
+# Transfer
+msgid "STOCK_TRANSFER"
+msgstr "LAGER_ÖVERFÖR"
+
+# Inventory
+msgid "STOCK_INVENTORY"
+msgstr "LAGER_INVENTARIER"
+
+# Consume
+msgid "STOCK_CONSUME"
+msgstr "LAGER_KONSUMERA"
+
+# Open products
+msgid "STOCK_OPEN"
+msgstr "LAGER_ÖPPNA"
+
+# Purchase
+msgid "STOCK_PURCHASE"
+msgstr "LAGER_HANDLA"
+
+# Add items
+msgid "SHOPPINGLIST_ITEMS_ADD"
+msgstr "SHOPPINGLISTA_SAKER_LÄGG_TILL"
+
+# Remove items
+msgid "SHOPPINGLIST_ITEMS_DELETE"
+msgstr "SHOPPINGLISTA_SAKER_TA_BORT"
+
+# User management
+msgid "USERS"
+msgstr "ANVÄNDARE"
+
+# Stock
+msgid "STOCK"
+msgstr "LAGER"
+
+# Shopping list
+msgid "SHOPPINGLIST"
+msgstr "SHOPPINGLISTA"
+
+# Chores
+msgid "CHORES"
+msgstr "SYSSLOR"
+
+# Batteries
+msgid "BATTERIES"
+msgstr "BATTERIER"
+
+# Tasks
+msgid "TASKS"
+msgstr "UPPGIFTER"
+
+# Recipes
+msgid "RECIPES"
+msgstr "RECEPT"
+
+# Equipment
+msgid "EQUIPMENT"
+msgstr "UTRUSTNING"
+
+# Calendar
+msgid "CALENDAR"
+msgstr "KALENDER"
+
+# Meal plan
+msgid "RECIPES_MEALPLAN"
+msgstr "RECEPT_MÅLTIDSPLAN"

@@ -835,8 +835,8 @@ msgstr "停用此食材的需求庫存檢查"
 msgid "Add all list items to stock"
 msgstr "將所有列表項目加到庫存中"
 
-msgid "Add %1$s of %2$s to stock"
-msgstr "將 %2$s 的 %1$s 加到庫存中"
+msgid "Add this item to stock"
+msgstr ""
 
 msgid "Adding shopping list item %1$s of %2$s"
 msgstr "將 %2$s 的 %1$s 加到購物清單項目"
@@ -1932,10 +1932,10 @@ msgid "This is due earlier than already in-stock items"
 msgstr ""
 
 msgid ""
-"When enabled, the amount will always be filled with 1 after "
-"changing/scanning a product and if all fields could be automatically "
-"populated (by product defaults), the transaction is automatically submitted"
-msgstr "啟用後，更改/掃描物品後數量會填入 1，若所有欄位皆可自動填入(按物品預設值)，處理會自動生效。"
+"When enabled, after changing/scanning a product and if all fields could be "
+"automatically populated (by product and/or barcode defaults), the "
+"transaction is automatically submitted"
+msgstr ""
 
 msgid "Quick consume amount"
 msgstr "快速消耗數量"
@@ -2180,4 +2180,7 @@ msgid ""
 msgstr ""
 
 msgid "Print options"
+msgstr ""
+
+msgid "A product or a note is required"
 msgstr ""

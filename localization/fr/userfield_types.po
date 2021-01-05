@@ -3,6 +3,7 @@
 # Hydreliox <hydreliox@gmail.com>, 2019
 # Antonin DESFONTAINES <antonin.desfontaines@outlook.com>, 2019
 # Jordan COUTON <couton.jordan@gmail.com>, 2020
+# C P <anoxy78@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -10,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:43+0000\n"
-"Last-Translator: Jordan COUTON <couton.jordan@gmail.com>, 2020\n"
+"Last-Translator: C P <anoxy78@gmail.com>, 2020\n"
 "Language-Team: French (https://www.transifex.com/grocy/teams/93189/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,7 +62,7 @@ msgstr "lien"
 
 # Link (with title)
 msgid "link-with-title"
-msgstr ""
+msgstr "lien-avec-titre"
 
 # File
 msgid "file"

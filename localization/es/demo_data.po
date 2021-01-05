@@ -5,6 +5,7 @@
 # Igor Perez <igordiablo@hotmail.com>, 2020
 # Jose Rugel <joserugel@gmail.com>, 2020
 # Alan Pucheta <apucheta@protonmail.com>, 2020
+# Alberto Martin <ami232@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -12,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Alan Pucheta <apucheta@protonmail.com>, 2020\n"
+"Last-Translator: Alberto Martin <ami232@gmail.com>, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/grocy/teams/93189/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -85,10 +86,10 @@ msgid "Pickles"
 msgstr "Pepinillos"
 
 msgid "Gulash soup"
-msgstr "Sopa Gulash"
+msgstr "Sopa de Gulash"
 
 msgid "Yogurt"
-msgstr "Yogurt"
+msgstr "Yogur"
 
 msgid "Cheese"
 msgstr "Queso"
@@ -139,7 +140,7 @@ msgid "Sieved tomatoes"
 msgstr "Tomates triturados"
 
 msgid "Salami"
-msgstr "Salame"
+msgstr "Salami"
 
 msgid "Toast"
 msgstr "Tostada"
@@ -198,7 +199,7 @@ msgid "Repair the garage door"
 msgstr "Reparar la puerta del garaje"
 
 msgid "Fork and improve grocy"
-msgstr "Forkea y mejora grocy"
+msgstr "Forkear y mejorar grocy"
 
 msgid "Find a solution for what to do when I forget the door keys"
 msgstr "Encontrar una solución a qué hacer cuando me olvido las llaves"
@@ -276,7 +277,7 @@ msgid "The thing which happens daily"
 msgstr "Lo que ocurre diariamente"
 
 msgid "The thing which happens on Mondays and Wednesdays"
-msgstr "Lo que ocurre los Lunes y los Miércoles"
+msgstr "Lo que ocurre los lunes y los miércoles"
 
 msgid "Swedish"
 msgstr "Sueco"
@@ -292,14 +293,14 @@ msgstr "Chocolate negro"
 
 msgid "Slice"
 msgid_plural "Slices"
-msgstr[0] "Lonchas"
-msgstr[1] "Rebanadas"
+msgstr[0] "Loncha"
+msgstr[1] "Lonchas"
 
 msgid "Example userentity"
-msgstr "Entidad de usuario de ejemplo"
+msgstr "Entidad personalizada de ejemplo"
 
 msgid "This is an example user entity..."
-msgstr "Esto es un ejemplo de una entidad personalizada ..."
+msgstr "Esta es una entidad personalizada de ejemplo..."
 
 msgid "Custom field"
 msgstr "Campo personalizado"
@@ -329,10 +330,10 @@ msgid "Preview version"
 msgstr "Versión previa"
 
 msgid "current release"
-msgstr "Elaboración actual"
+msgstr "Publicación actual"
 
 msgid "not yet released"
-msgstr "Todavía no elaborado"
+msgstr "No publicada aún"
 
 msgid "Portuguese (Brazil)"
 msgstr "Portugués (Brasil)"
@@ -376,13 +377,13 @@ msgid "Korean"
 msgstr "Coreano"
 
 msgid "Chinese (China)"
-msgstr ""
+msgstr "Chino (China)"
 
 msgid "Hebrew (Israel)"
-msgstr ""
+msgstr "Hebreo (Israel)"
 
 msgid "Tamil"
-msgstr ""
+msgstr "Tamil"
 
 msgid "Finnish"
-msgstr ""
+msgstr "Finés"

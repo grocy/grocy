@@ -373,7 +373,7 @@ msgid "Hebrew (Israel)"
 msgstr "希伯来语（以色列）"
 
 msgid "Tamil"
-msgstr ""
+msgstr "泰米尔语"
 
 msgid "Finnish"
-msgstr ""
+msgstr "芬兰语"
