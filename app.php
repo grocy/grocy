@@ -42,6 +42,12 @@ catch (EInvalidConfig $ex)
 	exit('Invalid setting in config.php: ' . $ex->getMessage());
 }
 
+// Create data/viewcache folder if it doesn't exist
+if (!file_exists(GROCY_DATAPATH . '/viewcache'))
+{
+	mkdir(GROCY_DATAPATH . '/viewcache');
+}
+
 // Setup base application
 AppFactory::setContainer(new DI\Container());
 $app = AppFactory::create();
