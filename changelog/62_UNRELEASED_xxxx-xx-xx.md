@@ -1,0 +1,1 @@
+- Fixed that tracking chores with "Done by" a different user was not possible
