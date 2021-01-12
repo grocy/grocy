@@ -402,11 +402,11 @@ class StockService extends BaseService
 
 		$openedDate = $stockRow->opened_date;
 
-		if ($open && $openedDate == null)
+		if (boolval($open) && $openedDate == null)
 		{
 			$openedDate = date('Y-m-d');
 		}
-		elseif (!$open)
+		elseif (!boolval($open))
 		{
 			$openedDate = null;
 		}
@@ -418,7 +418,7 @@ class StockService extends BaseService
 			'location_id' => $locationId,
 			'shopping_location_id' => $shoppingLocationId,
 			'opened_date' => $openedDate,
-			'open' => $open,
+			'open' => BoolToInt($open),
 			'purchased_date' => $purchasedDate
 		]);
 

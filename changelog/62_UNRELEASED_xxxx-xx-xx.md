@@ -1,1 +1,2 @@
 - Fixed that tracking chores with "Done by" a different user was not possible
+- Fixed that editing stock entries was not possible

@@ -156,6 +156,11 @@ function BoolToString(bool $bool)
 	return $bool ? 'true' : 'false';
 }
 
+function BoolToInt(bool $bool)
+{
+	return $bool ? 1 : 0;
+}
+
 function ExternalSettingValue(string $value)
 {
 	$tvalue = rtrim($value, "\r\n");
