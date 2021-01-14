@@ -444,7 +444,7 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 				}
 			},
 			printtp: {
-				label: __t('Print with thermal printer'),
+				label: __t('Thermal printer'),
 				className: 'btn-secondary',
 				callback: function()
 				{
