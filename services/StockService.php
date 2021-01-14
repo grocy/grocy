@@ -1,5 +1,6 @@
 <?php
 
+// @formatter:off
 namespace Grocy\Services;
 
 class StockService extends BaseService
@@ -935,6 +936,20 @@ class StockService extends BaseService
 		}
 	}
 
+	public function GetShoppinglistInPrintableStrings($listId = 1): array {
+		if (!$this->ShoppingListExists($listId)) {
+			throw new \Exception('Shopping list does not exist');
+		}
+
+		$result                   = array();
+		$rowsShoppingListProducts = $this->getDatabase()->shopping_list()->where('shopping_list_id = :1', $listId)->fetchAll();
+		foreach ($rowsShoppingListProducts as $row) {
+			$product = $this->getDatabase()->products()->where('id = :1', $row['product_id'])->fetch();
+			array_push($result, $row["amount"] . " " . $product["name"]);
+		}
+		return $result;
+	}
+
 	public function TransferProduct(int $productId, float $amount, int $locationIdFrom, int $locationIdTo, $specificStockEntryId = 'default', &$transactionId = null)
 	{
 		if (!$this->ProductExists($productId))
@@ -1390,7 +1405,7 @@ class StockService extends BaseService
 
 	private function LocationExists($locationId)
 	{
-		$locationRow = $this->getDatabase()->locations()->where('id = :1', $locationId)->fetch();
+		$locationRow = $this->getDatabase()->locations()->where('id = :1', $locationId)->fetchAll();
 		return $locationRow !== null;
 	}
 

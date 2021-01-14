@@ -1,5 +1,4 @@
 <?php
-
 namespace Grocy\Controllers;
 
 use Grocy\Controllers\Users\User;

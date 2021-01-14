@@ -11,6 +11,7 @@ use Grocy\Services\ChoresService;
 use Grocy\Services\DatabaseService;
 use Grocy\Services\FilesService;
 use Grocy\Services\LocalizationService;
+use Grocy\Services\PrintService;
 use Grocy\Services\RecipesService;
 use Grocy\Services\SessionService;
 use Grocy\Services\StockService;
@@ -92,6 +93,12 @@ class BaseController
 	{
 		return StockService::getInstance();
 	}
+
+	protected function getPrintService()
+	{
+		return PrintService::getInstance();
+	}
+
 
 	protected function getTasksService()
 	{
