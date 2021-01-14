@@ -95,6 +95,18 @@ Setting('MEAL_PLAN_FIRST_DAY_OF_WEEK', '');
 // see the file controllers/Users/User.php for possible values
 Setting('DEFAULT_PERMISSIONS', ['ADMIN']);
 
+// When using a thermal printer (thermal printers are receipt printers, not regular printers)
+// The printer must support the ESC/POS protocol, see https://github.com/mike42/escpos-php
+Setting('TPRINTER_IS_NETWORK_PRINTER', false); // Set to true if it is a network printer
+//Configuration below for network printers. If you are using a USB/serial printer, skip to next section
+Setting('TPRINTER_IP', '127.0.0.1'); // IP of the network printer
+Setting('TPRINTER_PORT', 9100); // Port of printer, eg. 9100
+//Configuration below if you are using a USB or serial printer
+Setting('TPRINTER_CONNECTOR', '/dev/usb/lp0'); // Location of printer. For USB on Linux this is often '/dev/usb/lp0',
+                                               // for serial printers it could be similar to '/dev/ttyS0'
+                                               // Make sure that the user that runs the webserver has permissions to write to the printer!
+
+
 // Default user settings
 // These settings can be changed per user, here the defaults
 // are defined which are used when the user has not changed the setting so far

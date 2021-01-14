@@ -3,19 +3,12 @@
 namespace Grocy\Services;
 
 use Exception;
+use Mike42\Escpos\PrintConnectors\NetworkPrintConnector;
 use Mike42\Escpos\PrintConnectors\FilePrintConnector;
 use Mike42\Escpos\Printer;
 
 class PrintService extends BaseService {
 
-	/**
-	 * Checks if a thermal printer has been configured
-	 * @return bool
-	 */
-	private static function isThermalPrinterEnabled(): bool {
-		//TODO
-		return true;
-	}
 
 	/**
 	 * Initialises the printer
@@ -23,7 +16,11 @@ class PrintService extends BaseService {
 	 * @throws Exception if unable to connect to printer
 	 */
 	private static function getPrinterHandle() {
-		$connector = new FilePrintConnector("php://stdout");
+		if (GROCY_TPRINTER_IS_NETWORK_PRINTER) {
+			$connector = new NetworkPrintConnector(GROCY_TPRINTER_IP, GROCY_TPRINTER_PORT);
+		} else {
+			$connector = new FilePrintConnector(GROCY_TPRINTER_CONNECTOR);
+		}
 		return new Printer($connector);
 	}
 
@@ -42,7 +39,7 @@ class PrintService extends BaseService {
 		$printer->setTextSize(1, 1);
 		$printer->setReverseColors(false);
 		$printer->selectPrintMode();
-		$printer->feed(6);
+		$printer->feed(3);
 	}
 
 	/**
@@ -52,9 +49,6 @@ class PrintService extends BaseService {
 	 * @throws Exception
 	 */
 	public function printShoppingList(bool $printHeader, array $items): array {
-		if (!self::isThermalPrinterEnabled()) {
-			throw new Exception("Printer is not setup enabled in configuration");
-		}
 		$printer = self::getPrinterHandle();
 		if ($printer === false)
 			throw new Exception("Unable to connect to printer");
@@ -72,8 +66,7 @@ class PrintService extends BaseService {
 		$printer->cut();
 		$printer->close();
 		return [
-			'result' => "OK",
-			'printed' => $items
+			'result' => "OK"
 		];
 	}
 }

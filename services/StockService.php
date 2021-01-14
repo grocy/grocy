@@ -1,6 +1,5 @@
 <?php
 
-// @formatter:off
 namespace Grocy\Services;
 
 class StockService extends BaseService
@@ -936,6 +935,12 @@ class StockService extends BaseService
 		}
 	}
 
+	/**
+	 * Returns the shoppinglist as an array with lines for a printer
+	 * @param int $listId ID of shopping list
+	 * @return string[] Returns an array in the format "[amount] [name of product]"
+	 * @throws \Exception
+	 */
 	public function GetShoppinglistInPrintableStrings($listId = 1): array {
 		if (!$this->ShoppingListExists($listId)) {
 			throw new \Exception('Shopping list does not exist');
@@ -1405,7 +1410,7 @@ class StockService extends BaseService
 
 	private function LocationExists($locationId)
 	{
-		$locationRow = $this->getDatabase()->locations()->where('id = :1', $locationId)->fetchAll();
+		$locationRow = $this->getDatabase()->locations()->where('id = :1', $locationId)->fetch();
 		return $locationRow !== null;
 	}
 
