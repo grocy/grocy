@@ -11,7 +11,8 @@
 		"eluceo/ical": "^0.16.0",
 		"erusev/parsedown": "^1.7",
 		"gumlet/php-image-resize": "^1.9",
-		"ezyang/htmlpurifier": "^4.13"
+		"ezyang/htmlpurifier": "^4.13",
+		"mike42/escpos-php": "^3.0"
 	},
 	"autoload": {
 		"psr-4": {
