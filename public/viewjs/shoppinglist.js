@@ -430,13 +430,21 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 
 	bootbox.dialog({
 		message: dialogHtml,
-		size: 'small',
+		size: 'medium',
 		backdrop: true,
 		closeButton: false,
 		className: "d-print-none",
 		buttons: {
 			cancel: {
 				label: __t('Cancel'),
+				className: 'btn-secondary',
+				callback: function()
+				{
+					bootbox.hideAll();
+				}
+			},
+			printtp: {
+				label: __t('Print with thermal printer'),
 				className: 'btn-secondary',
 				callback: function()
 				{
