@@ -941,14 +941,13 @@ class StockService extends BaseService
 	 * @return string[] Returns an array in the format "[amount] [name of product]"
 	 * @throws \Exception
 	 */
-	public function GetShoppinglistInPrintableStrings($listId = 1): array
-	{
-		if (!$this->ShoppingListExists($listId))
-		{
+	public function GetShoppinglistInPrintableStrings($listId = 1): array {
+		if (!$this->ShoppingListExists($listId)) {
 			throw new \Exception('Shopping list does not exist');
 		}
 
-		$result                   = array();
+		$result_product           = array();
+		$result_quantity          = array();
 		$rowsShoppingListProducts = $this->getDatabase()->uihelper_shopping_list()->where('shopping_list_id = :1', $listId)->fetchAll();
 		foreach ($rowsShoppingListProducts as $row) {
 			$product    = $this->getDatabase()->products()->where('id = :1', $row->product_id)->fetch();
@@ -959,25 +958,34 @@ class StockService extends BaseService
 			}
 			$amount = round($row->amount * $factor);
 			$note   = "";
-			if (GROCY_TPRINTER_PRINT_NOTES)
-			{
+			if (GROCY_TPRINTER_PRINT_NOTES) {
 				if ($row->note != "") {
 					$note = ' (' . $row->note . ')';
 				}
 			}
-			if (GROCY_TPRINTER_PRINT_QUANTITY_NAME)
-			{
+			if (GROCY_TPRINTER_PRINT_QUANTITY_NAME) {
 				$quantityname = $row->qu_name;
-				if ($amount > 1)
-				{
+				if ($amount > 1) {
 					$quantityname = $row->qu_name_plural;
 				}
-				array_push($result, $amount . ' ' . $quantityname . ' ' . $row->product_name . $note);
+				array_push($result_quantity, $amount . ' ' . $quantityname);
+				array_push($result_product, $row->product_name . $note);
+			} else {
+				array_push($result_quantity, $amount);
+				array_push($result_product, $row->product_name . $note);
 			}
-			else
-				{
-				array_push($result, $amount . ' ' . $row->product_name . $note);
-			}
+		}
+		//Add padding to look nicer
+		$maxlength = 1;
+		foreach ($result_quantity as $quantity) {
+			if (strlen($quantity) > $maxlength)
+				$maxlength = strlen($quantity);
+		}
+		$result = array();
+		$length = count($result_quantity);
+		for ($i = 0; $i < $length; $i++) {
+			$quantity = str_pad($result_quantity[$i], $maxlength);
+			array_push($result, $quantity . ' ' . $result_product[$i]);
 		}
 		return $result;
 	}
