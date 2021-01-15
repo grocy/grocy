@@ -2,6 +2,7 @@
 
 namespace Grocy\Services;
 
+use DateTime;
 use Exception;
 use Mike42\Escpos\PrintConnectors\NetworkPrintConnector;
 use Mike42\Escpos\PrintConnectors\FilePrintConnector;
@@ -33,6 +34,9 @@ class PrintService extends BaseService
 	 */
 	private static function printHeader(Printer $printer)
 	{
+		$date = new DateTime();
+		$dateFormatted = $date->format('d/m/Y H:i');
+
 		$printer->setJustification(Printer::JUSTIFY_CENTER);
 		$printer->selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
 		$printer->setTextSize(4, 4);
@@ -41,8 +45,11 @@ class PrintService extends BaseService
 		$printer->setJustification();
 		$printer->setTextSize(1, 1);
 		$printer->setReverseColors(false);
+		$printer->feed(2);
+		$printer->text($dateFormatted);
 		$printer->selectPrintMode();
 		$printer->feed(3);
+
 	}
 
 	/**
