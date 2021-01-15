@@ -949,14 +949,20 @@ class StockService extends BaseService
 		$result                   = array();
 		$rowsShoppingListProducts = $this->getDatabase()->uihelper_shopping_list()->where('shopping_list_id = :1', $listId)->fetchAll();
 		foreach ($rowsShoppingListProducts as $row) {
+			$note = "";
+			if (GROCY_TPRINTER_PRINT_NOTES) {
+				if (isset($row["note"])) {
+					$note = ' (' . $row["note"] . ')';
+				}
+			}
 			if (GROCY_TPRINTER_PRINT_QUANTITY_NAME) {
 				$quantityname = $row["qu_name"];
 				if ($row["amount"] > 1) {
 					$quantityname = $row["qu_name_plural"];
 				}
-				array_push($result, $row["amount"] . ' ' . $quantityname . ' ' . $row["product_name"]);
+				array_push($result, $row["amount"] . ' ' . $quantityname . ' ' . $row["product_name"] . $note);
 			} else {
-				array_push($result, $row["amount"] . ' ' . $row["product_name"]);
+				array_push($result, $row["amount"] . ' ' . $row["product_name"] . $note);
 			}
 		}
 		return $result;

@@ -97,15 +97,17 @@ Setting('DEFAULT_PERMISSIONS', ['ADMIN']);
 
 // When using a thermal printer (thermal printers are receipt printers, not regular printers)
 // The printer must support the ESC/POS protocol, see https://github.com/mike42/escpos-php
-Setting('TPRINTER_IS_NETWORK_PRINTER', false); // Set to true if it is a network printer
-Setting('TPRINTER_PRINT_QUANTITY_NAME', true); // Set to true if you want to print the quantity name as well
+Setting('TPRINTER_IS_NETWORK_PRINTER', false);  // Set to true if it is a network printer
+Setting('TPRINTER_PRINT_QUANTITY_NAME', true);  // Set to false if you do not want to print the quantity names
+Setting('TPRINTER_PRINT_NOTES', true);          // Set to false if you do not want to print notes
+
 //Configuration below for network printers. If you are using a USB/serial printer, skip to next section
-Setting('TPRINTER_IP', '127.0.0.1'); // IP of the network printer
-Setting('TPRINTER_PORT', 9100); // Port of printer, eg. 9100
+Setting('TPRINTER_IP', '127.0.0.1');            // IP of the network printer
+Setting('TPRINTER_PORT', 9100);                 // Port of printer, eg. 9100
 //Configuration below if you are using a USB or serial printer
-Setting('TPRINTER_CONNECTOR', '/dev/usb/lp0'); // Location of printer. For USB on Linux this is often '/dev/usb/lp0',
-                                               // for serial printers it could be similar to '/dev/ttyS0'
-                                               // Make sure that the user that runs the webserver has permissions to write to the printer!
+Setting('TPRINTER_CONNECTOR', '/dev/usb/lp0');  // Location of printer. For USB on Linux this is often '/dev/usb/lp0',
+                                                // for serial printers it could be similar to '/dev/ttyS0'
+                                                // Make sure that the user that runs the webserver has permissions to write to the printer!
 
 
 // Default user settings
