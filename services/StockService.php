@@ -941,19 +941,23 @@ class StockService extends BaseService
 	 * @return string[] Returns an array in the format "[amount] [name of product]"
 	 * @throws \Exception
 	 */
-	public function GetShoppinglistInPrintableStrings($listId = 1): array
-	{
-		if (!$this->ShoppingListExists($listId))
-		{
+	public function GetShoppinglistInPrintableStrings($listId = 1): array {
+		if (!$this->ShoppingListExists($listId)) {
 			throw new \Exception('Shopping list does not exist');
 		}
 
 		$result                   = array();
-		$rowsShoppingListProducts = $this->getDatabase()->shopping_list()->where('shopping_list_id = :1', $listId)->fetchAll();
-		foreach ($rowsShoppingListProducts as $row)
-		{
-			$product = $this->getDatabase()->products()->where('id = :1', $row['product_id'])->fetch();
-			array_push($result, $row["amount"] . " " . $product["name"]);
+		$rowsShoppingListProducts = $this->getDatabase()->uihelper_shopping_list()->where('shopping_list_id = :1', $listId)->fetchAll();
+		foreach ($rowsShoppingListProducts as $row) {
+			if (GROCY_TPRINTER_PRINT_QUANTITY_NAME) {
+				$quantityname = $row["qu_name"];
+				if ($row["amount"] > 1) {
+					$quantityname = $row["qu_name_plural"];
+				}
+				array_push($result, $row["amount"] . ' ' . $quantityname . ' ' . $row["product_name"]);
+			} else {
+				array_push($result, $row["amount"] . ' ' . $row["product_name"]);
+			}
 		}
 		return $result;
 	}

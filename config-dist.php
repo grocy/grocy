@@ -98,6 +98,7 @@ Setting('DEFAULT_PERMISSIONS', ['ADMIN']);
 // When using a thermal printer (thermal printers are receipt printers, not regular printers)
 // The printer must support the ESC/POS protocol, see https://github.com/mike42/escpos-php
 Setting('TPRINTER_IS_NETWORK_PRINTER', false); // Set to true if it is a network printer
+Setting('TPRINTER_PRINT_QUANTITY_NAME', true); // Set to true if you want to print the quantity name as well
 //Configuration below for network printers. If you are using a USB/serial printer, skip to next section
 Setting('TPRINTER_IP', '127.0.0.1'); // IP of the network printer
 Setting('TPRINTER_PORT', 9100); // Port of printer, eg. 9100
