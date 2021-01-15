@@ -21,7 +21,7 @@ class PrintApiController extends BaseApiController {
 
 			$printHeader = true;
 			if (isset($params['printHeader'])) {
-				$printHeader = $params['printHeader'];
+				$printHeader = ($params['printHeader'] === "true");
 			}
 			$items = $this->getStockService()->GetShoppinglistInPrintableStrings($listId);
 			return $this->ApiResponse($response, $this->getPrintService()->printShoppingList($printHeader, $items));
