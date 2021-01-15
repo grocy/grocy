@@ -1,4 +1,4 @@
-﻿var shoppingListTable = $('#shoppinglist-table').DataTable({
+var shoppingListTable = $('#shoppinglist-table').DataTable({
 	'order': [[1, 'asc']],
 	"orderFixed": [[3, 'asc']],
 	'columnDefs': [
@@ -448,7 +448,17 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 				className: 'btn-secondary',
 				callback: function()
 				{
-					bootbox.hideAll();
+					Grocy.Api.Get('print/shoppinglist/thermal', { "list": $("#selected-shopping-list").val(),
+							"printHeader": $("#print-show-header").prop("checked") },
+						function(result)
+						{
+							bootbox.hideAll();
+						},
+						function(xhr)
+						{
+							console.error(xhr);
+						}
+					);
 				}
 			},
 			ok: {
