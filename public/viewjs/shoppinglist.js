@@ -428,55 +428,72 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 		</label> \
 	</div>';
 
+	var sizePrintDialog = 'medium';
 	var printButtons = {
 		cancel: {
 			label: __t('Cancel'),
 			className: 'btn-secondary',
-			callback: function()
-			{
+			callback: function () {
 				bootbox.hideAll();
 			}
 		},
 		printtp: {
 			label: __t('Thermal printer'),
 			className: 'btn-secondary',
-			callback: function()
-			{
-				Grocy.Api.Get('print/shoppinglist/thermal', { "list": $("#selected-shopping-list").val(),
-						"printHeader": $("#print-show-header").prop("checked") },
-					function(result)
-					{
-						bootbox.hideAll();
-					},
-					function(xhr)
-					{
-						console.error(xhr);
-					}
-				);
+			callback: function () {
+				bootbox.hideAll();
+				var thermalPrintDialog = bootbox.dialog({
+					title: __t('Printing'),
+					message: '<p><i class="fa fa-spin fa-spinner"></i> ' + __t('Connecting to printer...') + '</p>'
+				});
+				//Delaying for one second so that the alert can be closed
+				setTimeout(function ()
+				{
+					Grocy.Api.Get('print/shoppinglist/thermal?list=' + $("#selected-shopping-list").val() + '&printHeader=' + $("#print-show-header").prop("checked"),
+						function (result)
+						{
+							bootbox.hideAll();
+						},
+						function (xhr)
+						{
+							console.error(xhr);
+							var validResponse = true;
+							try
+							{
+								var jsonError = JSON.parse(xhr.responseText);
+							} catch (e)
+							{
+								validResponse = false;
+							}
+							if (validResponse)
+							{
+								thermalPrintDialog.find('.bootbox-body').html(__t('Unable to print: ') + jsonError.error_message);
+							} else {
+								thermalPrintDialog.find('.bootbox-body').html(__t('Unable to print: ') + xhr.responseText);
+							}
+						}
+					);
+				}, 1000);
 			}
 		},
 		ok: {
 			label: __t('Print'),
 			className: 'btn-primary responsive-button',
-			callback: function()
+			callback: function ()
 			{
 				bootbox.hideAll();
-
 				$(".print-timestamp").text(moment().format("l LT"));
 
 				$("#description-for-print").html($("#description").val());
-				if ($("#description").text().isEmpty())
-				{
+				if ($("#description").text().isEmpty()) {
 					$("#description-for-print").parent().addClass("d-print-none");
 				}
 
-				if (!$("#print-show-header").prop("checked"))
-				{
+				if (!$("#print-show-header").prop("checked")) {
 					$("#print-header").addClass("d-none");
 				}
 
-				if (!$("#print-group-by-product-group").prop("checked"))
-				{
+				if (!$("#print-group-by-product-group").prop("checked")) {
 					shoppingListPrintShadowTable.rowGroup().enable(false);
 					shoppingListPrintShadowTable.order.fixed({});
 					shoppingListPrintShadowTable.draw();
@@ -492,11 +509,12 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 	if (!Grocy.FeatureFlags["GROCY_FEATURE_FLAG_THERMAL_PRINTER"])
 	{
 		delete printButtons['printtp'];
+		sizePrintDialog = 'small';
 	}
 
 	bootbox.dialog({
 		message: dialogHtml,
-		size: 'medium',
+		size: sizePrintDialog,
 		backdrop: true,
 		closeButton: false,
 		className: "d-print-none",
