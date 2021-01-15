@@ -14,8 +14,8 @@ class PrintService extends BaseService
 
 	/**
 	 * Initialises the printer
-	 * @return Printer handle
-	 * @throws Exception if unable to connect to printer
+	 * @return Printer Printer handle
+	 * @throws Exception If unable to connect to printer, an exception is thrown
 	 */
 	private static function getPrinterHandle()
 	{
@@ -29,8 +29,8 @@ class PrintService extends BaseService
 
 
 	/**
-	 * Prints a grocy logo
-	 * @param $printer
+	 * Prints the grocy logo and date
+	 * @param Printer $printer Printer handle
 	 */
 	private static function printHeader(Printer $printer)
 	{
@@ -48,17 +48,16 @@ class PrintService extends BaseService
 		$printer->feed(2);
 		$printer->text($dateFormatted);
 		$printer->selectPrintMode();
-		$printer->feed(3);
-
+		$printer->feed(2);
 	}
 
 	/**
 	 * @param bool $printHeader Printing of Grocy logo
-	 * @param string[] $items Items to print
-	 * @return string[]
-	 * @throws Exception
+	 * @param string[] $lines Items to print
+	 * @return string[] Returns array with result OK if no exception
+	 * @throws Exception If unable to print, an exception is thrown
 	 */
-	public function printShoppingList(bool $printHeader, array $items): array
+	public function printShoppingList(bool $printHeader, array $lines): array
 	{
 		$printer = self::getPrinterHandle();
 		if ($printer === false)
@@ -69,9 +68,9 @@ class PrintService extends BaseService
 			self::printHeader($printer);
 		}
 
-		foreach ($items as $item)
+		foreach ($lines as $line)
 		{
-			$printer->text($item);
+			$printer->text($line);
 			$printer->feed();
 		}
 

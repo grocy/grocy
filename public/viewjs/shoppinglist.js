@@ -428,72 +428,79 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 		</label> \
 	</div>';
 
+	var printButtons = {
+		cancel: {
+			label: __t('Cancel'),
+			className: 'btn-secondary',
+			callback: function()
+			{
+				bootbox.hideAll();
+			}
+		},
+		printtp: {
+			label: __t('Thermal printer'),
+			className: 'btn-secondary',
+			callback: function()
+			{
+				Grocy.Api.Get('print/shoppinglist/thermal', { "list": $("#selected-shopping-list").val(),
+						"printHeader": $("#print-show-header").prop("checked") },
+					function(result)
+					{
+						bootbox.hideAll();
+					},
+					function(xhr)
+					{
+						console.error(xhr);
+					}
+				);
+			}
+		},
+		ok: {
+			label: __t('Print'),
+			className: 'btn-primary responsive-button',
+			callback: function()
+			{
+				bootbox.hideAll();
+
+				$(".print-timestamp").text(moment().format("l LT"));
+
+				$("#description-for-print").html($("#description").val());
+				if ($("#description").text().isEmpty())
+				{
+					$("#description-for-print").parent().addClass("d-print-none");
+				}
+
+				if (!$("#print-show-header").prop("checked"))
+				{
+					$("#print-header").addClass("d-none");
+				}
+
+				if (!$("#print-group-by-product-group").prop("checked"))
+				{
+					shoppingListPrintShadowTable.rowGroup().enable(false);
+					shoppingListPrintShadowTable.order.fixed({});
+					shoppingListPrintShadowTable.draw();
+				}
+
+				$("." + $("input[name='print-layout-type']:checked").val()).removeClass("d-none");
+
+				window.print();
+			}
+		}
+	}
+
+	if (!Grocy.FeatureFlags["GROCY_FEATURE_FLAG_THERMAL_PRINTER"])
+	{
+		delete printButtons['printtp'];
+	}
+
 	bootbox.dialog({
 		message: dialogHtml,
 		size: 'medium',
 		backdrop: true,
 		closeButton: false,
 		className: "d-print-none",
-		buttons: {
-			cancel: {
-				label: __t('Cancel'),
-				className: 'btn-secondary',
-				callback: function()
-				{
-					bootbox.hideAll();
-				}
-			},
-			printtp: {
-				label: __t('Thermal printer'),
-				className: 'btn-secondary',
-				callback: function()
-				{
-					Grocy.Api.Get('print/shoppinglist/thermal', { "list": $("#selected-shopping-list").val(),
-							"printHeader": $("#print-show-header").prop("checked") },
-						function(result)
-						{
-							bootbox.hideAll();
-						},
-						function(xhr)
-						{
-							console.error(xhr);
-						}
-					);
-				}
-			},
-			ok: {
-				label: __t('Print'),
-				className: 'btn-primary responsive-button',
-				callback: function()
-				{
-					bootbox.hideAll();
-
-					$(".print-timestamp").text(moment().format("l LT"));
-
-					$("#description-for-print").html($("#description").val());
-					if ($("#description").text().isEmpty())
-					{
-						$("#description-for-print").parent().addClass("d-print-none");
-					}
-
-					if (!$("#print-show-header").prop("checked"))
-					{
-						$("#print-header").addClass("d-none");
-					}
-
-					if (!$("#print-group-by-product-group").prop("checked"))
-					{
-						shoppingListPrintShadowTable.rowGroup().enable(false);
-						shoppingListPrintShadowTable.order.fixed({});
-						shoppingListPrintShadowTable.draw();
-					}
-
-					$("." + $("input[name='print-layout-type']:checked").val()).removeClass("d-none");
-
-					window.print();
-				}
-			}
-		}
+		buttons: printButtons
 	});
 });
 
