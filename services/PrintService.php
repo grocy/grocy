@@ -7,7 +7,8 @@ use Mike42\Escpos\PrintConnectors\NetworkPrintConnector;
 use Mike42\Escpos\PrintConnectors\FilePrintConnector;
 use Mike42\Escpos\Printer;
 
-class PrintService extends BaseService {
+class PrintService extends BaseService
+{
 
 
 	/**
@@ -15,7 +16,8 @@ class PrintService extends BaseService {
 	 * @return Printer handle
 	 * @throws Exception if unable to connect to printer
 	 */
-	private static function getPrinterHandle() {
+	private static function getPrinterHandle()
+	{
 		if (GROCY_TPRINTER_IS_NETWORK_PRINTER) {
 			$connector = new NetworkPrintConnector(GROCY_TPRINTER_IP, GROCY_TPRINTER_PORT);
 		} else {
@@ -29,7 +31,8 @@ class PrintService extends BaseService {
 	 * Prints a grocy logo
 	 * @param $printer
 	 */
-	private static function printHeader(Printer $printer) {
+	private static function printHeader(Printer $printer)
+	{
 		$printer->setJustification(Printer::JUSTIFY_CENTER);
 		$printer->selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
 		$printer->setTextSize(4, 4);
@@ -48,16 +51,19 @@ class PrintService extends BaseService {
 	 * @return string[]
 	 * @throws Exception
 	 */
-	public function printShoppingList(bool $printHeader, array $items): array {
+	public function printShoppingList(bool $printHeader, array $items): array
+	{
 		$printer = self::getPrinterHandle();
 		if ($printer === false)
 			throw new Exception("Unable to connect to printer");
 
-		if ($printHeader) {
+		if ($printHeader)
+		{
 			self::printHeader($printer);
 		}
 
-		foreach ($items as $item) {
+		foreach ($items as $item)
+		{
 			$printer->text($item);
 			$printer->feed();
 		}

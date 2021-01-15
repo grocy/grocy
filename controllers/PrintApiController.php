@@ -5,11 +5,13 @@ namespace Grocy\Controllers;
 use Grocy\Controllers\Users\User;
 use Grocy\Services\StockService;
 
-class PrintApiController extends BaseApiController {
+class PrintApiController extends BaseApiController
+{
 
 	public function PrintShoppingListThermal(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args) {
 
-		try {
+		try
+		{
 			User::checkPermission($request, User::PERMISSION_SHOPPINGLIST);
 
 			$params = $request->getQueryParams();
@@ -25,7 +27,9 @@ class PrintApiController extends BaseApiController {
 			}
 			$items = $this->getStockService()->GetShoppinglistInPrintableStrings($listId);
 			return $this->ApiResponse($response, $this->getPrintService()->printShoppingList($printHeader, $items));
-		} catch (\Exception $ex) {
+		}
+		catch (\Exception $ex)
+		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}

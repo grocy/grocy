@@ -941,14 +941,17 @@ class StockService extends BaseService
 	 * @return string[] Returns an array in the format "[amount] [name of product]"
 	 * @throws \Exception
 	 */
-	public function GetShoppinglistInPrintableStrings($listId = 1): array {
-		if (!$this->ShoppingListExists($listId)) {
+	public function GetShoppinglistInPrintableStrings($listId = 1): array
+	{
+		if (!$this->ShoppingListExists($listId))
+		{
 			throw new \Exception('Shopping list does not exist');
 		}
 
 		$result                   = array();
 		$rowsShoppingListProducts = $this->getDatabase()->shopping_list()->where('shopping_list_id = :1', $listId)->fetchAll();
-		foreach ($rowsShoppingListProducts as $row) {
+		foreach ($rowsShoppingListProducts as $row)
+		{
 			$product = $this->getDatabase()->products()->where('id = :1', $row['product_id'])->fetch();
 			array_push($result, $row["amount"] . " " . $product["name"]);
 		}
