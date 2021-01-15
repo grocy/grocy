@@ -74,7 +74,7 @@ class PrintService extends BaseService
 			$printer->feed();
 		}
 
-		$printer->feed(2);
+		$printer->feed(3);
 		$printer->cut();
 		$printer->close();
 		return [
