@@ -30,8 +30,6 @@ class PrintApiController extends BaseApiController {
 		}
 	}
 
-
-// @formatter:off
 	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);

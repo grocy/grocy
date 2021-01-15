@@ -52,6 +52,9 @@
 		},
 		{
 			"name": "Files"
+		},
+		{
+			"name": "Print"
 		}
 	],
 	"paths": {
@@ -3942,7 +3945,64 @@
 					}
 				}
 			}
+		},
+	   "/print/shoppinglist/thermal": {
+	      "get": {
+		"summary": "Prints the shoppinglist with a thermal printer",
+		"tags": [
+		  "Print"
+		],
+		"parameters": [
+		  {
+		    "in": "query",
+		    "name": "list",
+		    "required": false,
+		    "description": "Shopping list id",
+		    "schema": {
+		      "type": "integer",
+		      "default": 1
+		    }
+		  },
+		  {
+		    "in": "query",
+		    "name": "printHeader",
+		    "required": false,
+		    "description": "Prints grocy logo if true",
+		    "schema": {
+		      "type": "boolean",
+		      "default": true
+		    }
+		  }
+		],
+		"responses": {
+		  "200": {
+		    "description": "Returns OK if the printing was successful",
+		    "content": {
+		      "application/json": {
+		        "schema": {
+		          "type": "object",
+		          "properties": {
+		            "result": {
+		              "type": "string"
+		            }
+		          }
+		        }
+		      }
+		    }
+		  },
+		  "400": {
+		    "description": "The operation was not successful",
+		    "content": {
+		      "application/json": {
+		        "schema": {
+		          "$ref": "#/components/schemas/Error400"
+		        }
+		      }
+		    }
+		  }
 		}
+	      }
+	    }
 	},
 	"components": {
 		"internalSchemas": {
