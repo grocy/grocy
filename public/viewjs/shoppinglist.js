@@ -442,6 +442,7 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 			className: 'btn-secondary',
 			callback: function () {
 				bootbox.hideAll();
+				var printHeader = $("#print-show-header").prop("checked");
 				var thermalPrintDialog = bootbox.dialog({
 					title: __t('Printing'),
 					message: '<p><i class="fa fa-spin fa-spinner"></i> ' + __t('Connecting to printer...') + '</p>'
@@ -449,7 +450,7 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 				//Delaying for one second so that the alert can be closed
 				setTimeout(function ()
 				{
-					Grocy.Api.Get('print/shoppinglist/thermal?list=' + $("#selected-shopping-list").val() + '&printHeader=' + $("#print-show-header").prop("checked"),
+					Grocy.Api.Get('print/shoppinglist/thermal?list=' + $("#selected-shopping-list").val() + '&printHeader=' + printHeader,
 						function (result)
 						{
 							bootbox.hideAll();
