@@ -628,13 +628,11 @@
 							<i class="fas fa-user-cog"></i> {{ $__t('User settings') }}
 						</a>
 						<div class="dropdown-divider"></div>
-						@if(GROCY_SHOW_AUTH_VIEWS)
 						<a class="dropdown-item discrete-link permission-USERS_READ"
 							href="{{ $U('/users') }}"><i class="fas fa-users"></i>&nbsp;{{ $__t('Manage users') }}</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item discrete-link"
 							href="{{ $U('/manageapikeys') }}"><i class="fas fa-handshake"></i>&nbsp;{{ $__t('Manage API keys') }}</a>
-						@endif
 						<a class="dropdown-item discrete-link"
 							target="_blank"
 							href="{{ $U('/api') }}"><i class="fas fa-book"></i>&nbsp;{{ $__t('REST API & data model documentation') }}</a>
