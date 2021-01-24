@@ -449,6 +449,7 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 				callback: function()
 				{
 					bootbox.hideAll();
+					$('.modal-backdrop').remove();
 
 					$(".print-timestamp").text(moment().format("l LT"));
 
