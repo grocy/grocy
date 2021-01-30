@@ -1,3 +1,4 @@
 - Fixed that tracking chores with "Done by" a different user was not possible
 - Fixed that editing stock entries was not possible
+- Fixed that shopping list prints had a grey background (thanks @Forceu)
 - Some night mode style improvements (thanks @BlizzWave)
