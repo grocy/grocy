@@ -241,3 +241,16 @@
 .night-mode .dropdown-menu {
 	background-color: #333131;
 }
+
+.night-mode .table-secondary td,
+.night-mode .table-secondary th {
+        background-color: #4c4e50;
+}
+
+.night-mode .secondary-message {
+        border-top-color: #4c4e50;
+}
+
+.night-mode .normal-message {
+        border-top-color: #07373f;
+}
