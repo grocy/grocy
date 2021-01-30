@@ -244,16 +244,13 @@ if (GetUriParam("embedded") !== undefined)
 }
 
 var eitherRequiredFields = $("#product_id,#product_id_text_input,#note");
-eitherRequiredFields.on("input", function()
+eitherRequiredFields.prop('required',"");
+eitherRequiredFields.on('input', function ()
 {
-	eitherRequiredFields.attr("required", "");
-	if (!$(this).val().isEmpty())
-	{
-		eitherRequiredFields.not(this).removeAttr("required");
-	}
-
+	eitherRequiredFields.not(this).prop('required', !$(this).val().length);
 	Grocy.FrontendHelpers.ValidateForm('shoppinglist-form');
 });
+
 
 if (GetUriParam("product-name") != null)
 {
