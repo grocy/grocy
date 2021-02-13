@@ -3,6 +3,10 @@ body.night-mode {
 	background-color: #333131;
 }
 
+.night-mode .navbar-brand img {
+	filter: invert(0.9) hue-rotate(176deg);
+}
+
 .night-mode .table-info,
 .night-mode .table-info > td,
 .night-mode .table-info > th,
@@ -77,6 +81,10 @@ body.night-mode {
 	border: 1px solid #ced4da;
 }
 
+.night-mode ::placeholder {
+	color: #b1bac4;
+}
+
 .night-mode .content-wrapper {
 	background: #333131;
 }
@@ -114,6 +122,11 @@ body.night-mode {
 	color: #ced4da;
 	background-color: #333131;
 	border-color: #80bdff;
+}
+
+.night-mode select {
+	color: #ced4da;
+	background-color: #333131;
 }
 
 .night-mode .dropdown-item:focus,
@@ -210,7 +223,7 @@ body.night-mode {
 }
 
 .night-mode .active-page {
-	box-shadow: inset 5px 0 0 #350a0f !important;
+	box-shadow: inset 5px 0 0 #ff7585 !important;
 	background-color: #383838 !important;
 }
 
