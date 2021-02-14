@@ -483,6 +483,7 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 			callback: function ()
 			{
 				bootbox.hideAll();
+				$('.modal-backdrop').remove();
 				$(".print-timestamp").text(moment().format("l LT"));
 
 				$("#description-for-print").html($("#description").val());
@@ -500,7 +501,8 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 					shoppingListPrintShadowTable.draw();
 				}
 
-				$("." + $("input[name='print-layout-type']:checked").val()).removeClass("d-none");
+					$(".print-layout-container").addClass("d-none");
+					$("." + $("input[name='print-layout-type']:checked").val()).removeClass("d-none");
 
 				window.print();
 			}

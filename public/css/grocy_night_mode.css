@@ -1,6 +1,10 @@
-﻿body.night-mode {
+body.night-mode {
 	color: #c1c1c1;
 	background-color: #333131;
+}
+
+.night-mode .navbar-brand img {
+	filter: invert(0.9) hue-rotate(176deg);
 }
 
 .night-mode .table-info,
@@ -12,7 +16,7 @@
 }
 
 .night-mode .table {
-	color: #6c757d;
+	color: #c1c1c1;
 }
 
 .night-mode table.dataTable tr.dtrg-group td,
@@ -24,12 +28,18 @@
 .night-mode .btn,
 .night-mode .nav-link,
 .night-mode #mainNav.navbar-light .navbar-collapse .navbar-nav > .nav-item.dropdown > .nav-link::after,
+.night-mode #mainNav.navbar-light .navbar-collapse .navbar-sidenav .nav-link-collapse::after,
 .night-mode .dropdown-item {
 	color: #c1c1c1 !important;
 }
 
 .night-mode .btn-outline-dark {
 	border-color: #c1c1c1;
+}
+
+.night-mode .btn-outline-info {
+	color: #1ed1ee !important;
+	border-color: #1ed1ee !important;
 }
 
 .night-mode .btn-info {
@@ -46,14 +56,14 @@
 
 .night-mode .btn-danger {
 	color: #c1c1c1;
-	background-color: #471116;
-	border-color: #471116;
+	background-color: #6f1b23;
+	border-color: #6f1b23;
 }
 
 .night-mode .btn-success {
 	color: #c1c1c1;
-	background-color: #0d3a18;
-	border-color: #0d3a18;
+	background-color: #17642a;
+	border-color: #17642a;
 }
 
 .night-mode .btn-light,
@@ -69,6 +79,10 @@
 	color: #ced4da;
 	background-color: #333131;
 	border: 1px solid #ced4da;
+}
+
+.night-mode ::placeholder {
+	color: #b1bac4;
 }
 
 .night-mode .content-wrapper {
@@ -110,6 +124,11 @@
 	border-color: #80bdff;
 }
 
+.night-mode select {
+	color: #ced4da;
+	background-color: #333131;
+}
+
 .night-mode .dropdown-item:focus,
 .night-mode .dropdown-item:hover {
 	color: #16181b;
@@ -139,13 +158,13 @@
 }
 
 .night-mode a.discrete-link:hover {
-	color: #16354f !important;
+	color: #83c6ff !important;
 	text-decoration: none !important;
 	background-color: #333131;
 }
 
 .night-mode a.discrete-link:focus {
-	color: #3a0b0f !important;
+	color: #ffa8af !important;
 	background-color: #333131;
 }
 
@@ -204,7 +223,7 @@
 }
 
 .night-mode .active-page {
-	box-shadow: inset 5px 0 0 #350a0f !important;
+	box-shadow: inset 5px 0 0 #ff7585 !important;
 	background-color: #383838 !important;
 }
 
@@ -240,4 +259,21 @@
 
 .night-mode .dropdown-menu {
 	background-color: #333131;
+}
+
+.night-mode .table-secondary td,
+.night-mode .table-secondary th {
+	background-color: #4c4e50;
+}
+
+.night-mode .secondary-message {
+	border-top-color: #4c4e50;
+}
+
+.night-mode .normal-message {
+	border-top-color: #07373f;
+}
+
+.night-mode .text-muted {
+	color: #8f9ba5 !important;
 }

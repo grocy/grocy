@@ -1,3 +1,7 @@
 - Fixed that tracking chores with "Done by" a different user was not possible
 - Fixed that editing stock entries was not possible
-- Some night mode style improvements (thanks @BlizzWave)
+- Fixed that shopping list prints had a grey background (thanks @Forceu)
+- Improved/fixed the form validation on the shopping list item page (thanks @Forceu)
+- Fixed that consuming with Scan Mode was not possible
+- Some night mode style improvements (thanks @BlizzWave and @KTibow)
+- Recipe printing improvements (thanks @Ape)

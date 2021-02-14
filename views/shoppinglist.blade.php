@@ -339,7 +339,7 @@
 			<span class="d-inline print-timestamp"></span>
 		</h6>
 	</div>
-	<div class="w-75 print-layout-type-table d-none">
+	<div class="w-75 print-layout-container print-layout-type-table d-none">
 		<div>
 			<table id="shopping-list-print-shadow-table"
 				class="table table-sm table-striped nowrap">
@@ -386,7 +386,7 @@
 			</table>
 		</div>
 	</div>
-	<div class="w-75 print-layout-type-list d-none">
+	<div class="w-75 print-layout-container print-layout-type-list d-none">
 		@foreach($listItems as $listItem)
 		<div class="py-0">
 			<span class="locale-number locale-number-quantity-amount">{{ $listItem->amount }}</span> @if(!empty($listItem->product_id)){{ $__n($listItem->amount, $listItem->qu_name, $listItem->qu_name_plural) }}@endif
