@@ -951,24 +951,28 @@ class StockService extends BaseService
 		$result_product           = array();
 		$result_quantity          = array();
 		$rowsShoppingListProducts = $this->getDatabase()->uihelper_shopping_list()->where('shopping_list_id = :1', $listId)->fetchAll();
-		foreach ($rowsShoppingListProducts as $row) {
-			$product    = $this->getDatabase()->products()->where('id = :1', $row->product_id)->fetch();
-			$conversion = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $product->id, $product->qu_id_stock, $row->qu_id)->fetch();
-			$factor     = 1.0;
-			if ($conversion != null)
+		foreach ($rowsShoppingListProducts as $row)
+		{
+			$isValidProduct = ($row->product_id != null && $row->product_id != "");
+			if ($isValidProduct)
 			{
-				$factor = floatval($conversion->factor);
-			}
-			$amount = round($row->amount * $factor);
-			$note   = "";
-			if (GROCY_TPRINTER_PRINT_NOTES)
-			{
-				if ($row->note != "")
+				$product    = $this->getDatabase()->products()->where('id = :1', $row->product_id)->fetch();
+				$conversion = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $product->id, $product->qu_id_stock, $row->qu_id)->fetch();
+				$factor     = 1.0;
+				if ($conversion != null)
 				{
-					$note = ' (' . $row->note . ')';
+					$factor = floatval($conversion->factor);
+				}
+				$amount = round($row->amount * $factor);
+				$note   = "";
+				if (GROCY_TPRINTER_PRINT_NOTES)
+				{
+					if ($row->note != "") {
+						$note = ' (' . $row->note . ')';
+					}
 				}
 			}
-			if (GROCY_TPRINTER_PRINT_QUANTITY_NAME)
+			if (GROCY_TPRINTER_PRINT_QUANTITY_NAME && $isValidProduct)
 			{
 				$quantityname = $row->qu_name;
 				if ($amount > 1)
@@ -980,8 +984,17 @@ class StockService extends BaseService
 			}
 			else
 			{
-				array_push($result_quantity, $amount);
-				array_push($result_product, $row->product_name . $note);
+				if ($isValidProduct)
+				{
+					array_push($result_quantity, $amount);
+					array_push($result_product, $row->product_name . $note);
+				}
+				else
+				{
+					array_push($result_quantity, round($row->amount));
+					array_push($result_product, $row->note);
+				}
+
 			}
 		}
 		//Add padding to look nicer
