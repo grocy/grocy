@@ -4,3 +4,4 @@
 - Improved/fixed the form validation on the shopping list item page (thanks @Forceu)
 - Fixed that consuming with Scan Mode was not possible
 - Some night mode style improvements (thanks @BlizzWave and @KTibow)
+- Recipe printing improvements (thanks @Ape)
