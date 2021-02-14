@@ -311,7 +311,7 @@
 						<div class="row ml-1">
 							@if(!empty($calories) && intval($calories) > 0)
 							<div class="col-6 col-xl-3">
-								<label>{{ $__t('Calories') }}</label>
+								<label>{{ $__t('Energy (kcal)') }}</label>
 								<h3 class="locale-number locale-number-generic pt-0">{{ $calories }}</h3>
 							</div>
 							@endif
