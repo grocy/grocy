@@ -312,3 +312,9 @@ body.night-mode {
 .night-mode .text-muted {
 	color: #8f9ba5 !important;
 }
+
+.night-mode .qr-code {
+	background-color: #eee;
+	padding: 10px;
+	border-radius: 10px;
+}
