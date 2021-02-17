@@ -315,6 +315,6 @@ body.night-mode {
 
 .night-mode .qr-code {
 	background-color: #eee;
-	padding: 10px;
+	padding: min(1.5vw, 20px);
 	border-radius: 10px;
 }
