@@ -23,5 +23,8 @@
 		"files": [
 			"helpers/extensions.php"
 		]
+	},
+	"config": {
+		"platform-check": false
 	}
 }
