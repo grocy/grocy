@@ -3,6 +3,7 @@
 - Fixed that editing stock entries was not possible
 - Fixed that consuming with Scan Mode was not possible
 - Fixed that the current stock total value (header of the stock overview page) didn't include decimal amounts (thanks @Ape)
+- Fixed that the transfer page was not fully populated when opening it from the stock entries page
 
 ### Shopping list fixes
 - Fixed that shopping list prints had a grey background (thanks @Forceu)
