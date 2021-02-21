@@ -6,3 +6,4 @@
 - Fixed that the current stock total value (header of the stock overview page) didn't include decimal amounts (thanks @Ape)
 - Some night mode style improvements (thanks @BlizzWave and @KTibow)
 - Recipe printing improvements (thanks @Ape)
+- Fixed that due soon products with `due_type` = "Expiration date" were missing in `due_products` of the `/stock/volatile` endpoint

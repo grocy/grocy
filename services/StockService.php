@@ -520,7 +520,6 @@ class StockService extends BaseService
 	{
 		$currentStock = $this->GetCurrentStock(false);
 		$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d 23:59:59', strtotime("+$days days")), '<');
-		$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'due_type', 1);
 
 		if ($excludeOverdue)
 		{
