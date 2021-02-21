@@ -15,6 +15,9 @@
 ### Chores fixes
 - Fixed that tracking chores with "Done by" a different user was not possible
 
+### Userfield fixes
+- Fixed that numeric Userfields were initialised with `1.0`
+
 ### General & other improvements
 - Some night mode style improvements (thanks @BlizzWave and @KTibow)
 

@@ -34,7 +34,8 @@
 	'min' => 0,
 	'isRequired' => false,
 	'additionalCssClasses' => 'userfield-input',
-	'additionalAttributes' => 'data-userfield-name="' . $userfield->name . '"'
+	'additionalAttributes' => 'data-userfield-name="' . $userfield->name . '"',
+	'value' => ''
 	))
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_DECIMAL_NUMBER)
 	@include('components.numberpicker', array(
@@ -45,7 +46,8 @@
 	'decimals' => 4,
 	'isRequired' => false,
 	'additionalCssClasses' => 'userfield-input',
-	'additionalAttributes' => 'data-userfield-name="' . $userfield->name . '"'
+	'additionalAttributes' => 'data-userfield-name="' . $userfield->name . '"',
+	'value' => ''
 	))
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_DATE)
 	@include('components.datetimepicker', array(
