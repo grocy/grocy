@@ -11,6 +11,7 @@
 
 ### Recipe improvements/fixes
 - Recipe printing improvements (thanks @Ape)
+- Calories are now always displayed per single serving (on the recipe and meal plan page)
 - Fixed that "Only check if any amount is in stock" (recipe ingredient option) didn't work for stock amounts < 1
 
 ### Chores fixes
