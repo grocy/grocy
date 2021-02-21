@@ -8,8 +8,9 @@
 - Fixed that shopping list prints had a grey background (thanks @Forceu)
 - Fixed the form validation on the shopping list item page (thanks @Forceu)
 
-### Recipe improvements
+### Recipe improvements/fixes
 - Recipe printing improvements (thanks @Ape)
+- Fixed that "Only check if any amount is in stock" (recipe ingredient option) didn't work for stock amounts < 1
 
 ### Chores fixes
 - Fixed that tracking chores with "Done by" a different user was not possible
