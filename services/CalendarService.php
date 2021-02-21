@@ -37,12 +37,15 @@ class CalendarService extends BaseService
 
 			foreach ($this->getTasksService()->GetCurrent() as $currentTaskEntry)
 			{
-				$taskEvents[] = [
-					'title' => $titlePrefix . $currentTaskEntry->name,
-					'start' => $currentTaskEntry->due_date,
-					'date_format' => 'date',
-					'link' => $this->UrlManager->ConstructUrl('/tasks')
-				];
+				if (!empty($currentTaskEntry->due_date))
+				{
+					$taskEvents[] = [
+						'title' => $titlePrefix . $currentTaskEntry->name,
+						'start' => $currentTaskEntry->due_date,
+						'date_format' => 'date',
+						'link' => $this->UrlManager->ConstructUrl('/tasks')
+					];
+				}
 			}
 		}
 
