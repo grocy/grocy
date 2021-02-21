@@ -214,12 +214,6 @@ function RefreshStatistics()
 	Grocy.Api.Get('stock',
 		function(result)
 		{
-			var amountSum = 0;
-			result.forEach(element =>
-			{
-				amountSum += parseInt(element.amount);
-			});
-
 			if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 			{
 				$("#info-current-stock").text(__n(result.length, '%s Product', '%s Products'));
@@ -229,7 +223,7 @@ function RefreshStatistics()
 				var valueSum = 0;
 				result.forEach(element =>
 				{
-					valueSum += parseInt(element.value);
+					valueSum += parseFloat(element.value);
 				});
 				$("#info-current-stock").text(__n(result.length, '%s Product', '%s Products') + ", " + __t('%s total value', valueSum.toLocaleString(undefined, { style: "currency", currency: Grocy.Currency })));
 			}
