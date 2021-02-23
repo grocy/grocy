@@ -34,16 +34,33 @@ class LdapAuthMiddleware extends AuthMiddleware
 			ldap_set_option($connect, LDAP_OPT_PROTOCOL_VERSION, 3);
 			ldap_set_option($connect, LDAP_OPT_REFERRALS, 0);
 
-			if ($bind = ldap_bind($connect, GROCY_LDAP_DOMAIN . '\\' . $postParams['username'], $postParams['password']))
+			// bind with service account to retrieve user DN
+			if ($bind = ldap_bind($connect, GROCY_LDAP_BIND_DN, GROCY_LDAP_BIND_PW))
 			{
-				$fields = '(|(samaccountname=*' . $postParams['username'] . '*))';
+				$filter = '(&(' . GROCY_LDAP_UID_ATTR . '=' . $postParams['username'] . ')' . GROCY_LDAP_USER_FILTER . ')';
 
-				$search = ldap_search($connect, GROCY_LDAP_BASE_DN, $fields);
+				$search = ldap_search($connect, GROCY_LDAP_BASE_DN, $filter);
 				$result = ldap_get_entries($connect, $search);
 
 				$ldapFirstName = $result[0]['givenname'][0];
 				$ldapLastName = $result[0]['sn'][0];
-
+				$ldapDistinguishedName = $result[0]['dn'];
+				
+				if (is_null($ldapDistinguishedName))
+				{
+					// User not found
+					return false;
+				}
+			}
+			else
+			{
+				// Bind authentication failed
+				return false;
+			}
+			
+			// bind with user account to validate password
+			if ($bind = ldap_bind($connect, $ldapDistinguishedName, $postParams['password']))
+			{
 				ldap_close($connect);
 
 				$db = DatabaseService::getInstance()->GetDbConnection();
@@ -60,7 +77,9 @@ class LdapAuthMiddleware extends AuthMiddleware
 			}
 			else
 			{
-				// LDAP authentication failed
+				ldap_close($connect);
+				
+				// User authentication failed
 				return false;
 			}
 		}
