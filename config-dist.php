@@ -124,7 +124,7 @@ DefaultUserSetting('stock_default_consume_amount_use_quick_consume_amount', fals
 DefaultUserSetting('scan_mode_consume_enabled', false);
 DefaultUserSetting('scan_mode_purchase_enabled', false);
 DefaultUserSetting('show_icon_on_stock_overview_page_when_product_is_on_shopping_list', true);
-DefaultUserSetting('show_purchased_date_on_purchase', false); // Wheter the purchased date should be editable on purchase (defaults to today otherwise)
+DefaultUserSetting('show_purchased_date_on_purchase', false); // Whether the purchased date should be editable on purchase (defaults to today otherwise)
 DefaultUserSetting('show_warning_on_purchase_when_due_date_is_earlier_than_next', true); // Show a warning on purchase when the due date of the purchased product is earlier than the next due date in stock
 
 // Shopping list settings
@@ -185,4 +185,4 @@ Setting('FEATURE_FLAG_CHORES_ASSIGNMENTS', true);
 
 // Feature settings
 Setting('FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT', true); // When set to true, opened items will be counted as missing for calculating if a product is below its minimum stock amount
-Setting('FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA', true); // Enables the torch automaticaly (if the device has one)
+Setting('FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA', true); // Enables the torch automatically (if the device has one)

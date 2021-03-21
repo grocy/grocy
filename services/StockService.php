@@ -958,8 +958,8 @@ class StockService extends BaseService
 
 		if ($productDetails->product->enable_tare_weight_handling == 1)
 		{
-			// Hard fail for now, as we not yet support transfering tare weight enabled products
-			throw new \Exception('Transfering tare weight enabled products is not yet possible');
+			// Hard fail for now, as we not yet support transferring tare weight enabled products
+			throw new \Exception('Transferring tare weight enabled products is not yet possible');
 			if ($amount < floatval($productDetails->product->tare_weight))
 			{
 				throw new \Exception('The amount cannot be lower than the defined tare weight');
@@ -973,7 +973,7 @@ class StockService extends BaseService
 
 		if ($amount > $productStockAmountAtFromLocation)
 		{
-			throw new \Exception('Amount to be transfered cannot be > current stock amount at the source location');
+			throw new \Exception('Amount to be transferred cannot be > current stock amount at the source location');
 		}
 
 		if ($specificStockEntryId !== 'default')
@@ -1104,7 +1104,7 @@ class StockService extends BaseService
 					'amount' => $restStockAmount
 				]);
 
-				// The transfered amount gets into a new stock entry
+				// The transferred amount gets into a new stock entry
 				$stockEntryNew = $this->getDatabase()->stock()->createRow([
 					'product_id' => $stockEntry->product_id,
 					'amount' => $amount,
