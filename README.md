@@ -24,7 +24,7 @@ See the website for a list of community contributed Add-ons / Tools: [https://gr
 A household needs to be managed. I did this so far (almost 10 years) with my first self written software (a C# windows forms application) and with a bunch of Excel sheets. The software is a pain to use and Excel is Excel. So I searched for and tried different things for a (very) long time, nothing 100 % fitted, so this is my aim for a "complete household management"-thing. ERP your fridge!
 
 ## How to install
-> Checkout [grocy-desktop](https://github.com/grocy/grocy-desktop), if you want to run grocy without having to manage a webserver just like a normal ("indows) desktop application.
+> Checkout [grocy-desktop](https://github.com/grocy/grocy-desktop), if you want to run grocy without having to manage a webserver just like a normal (windows) desktop application.
 >
 > Directly download the [latest release](https://releases.grocy.info/latest-desktop) - the installation is nothing more than just clicking 2 times "next".
 
