@@ -40,7 +40,7 @@
 			'id' => 'purchased_date',
 			'label' => 'Purchased date',
 			'format' => 'YYYY-MM-DD',
-			'hint' => 'This will apply to added products',
+			'hint' => $__t('This will apply to added products'),
 			'initWithNow' => true,
 			'limitEndToNow' => false,
 			'limitStartToNow' => false,
@@ -61,7 +61,7 @@
 			@include('components.datetimepicker', array(
 			'id' => 'best_before_date',
 			'label' => 'Due date',
-			'hint' => 'This will apply to added products',
+			'hint' => $__t('This will apply to added products'),
 			'format' => 'YYYY-MM-DD',
 			'initWithNow' => false,
 			'limitEndToNow' => false,
