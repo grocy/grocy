@@ -87,7 +87,7 @@ abstract class AuthMiddleware extends BaseMiddleware
 	/**
 	 * @param array $postParams
 	 * @return bool True/False if the provided credentials were valid
-	 * @throws \Exception Throws an \Exception if an error happended during credentials processing or if this AuthMiddleware doesn't provide credentials processing (e. g. handles this externally)
+	 * @throws \Exception Throws an \Exception if an error happened during credentials processing or if this AuthMiddleware doesn't provide credentials processing (e. g. handles this externally)
 	 */
 	abstract public static function ProcessLogin(array $postParams);
 
