@@ -5,7 +5,8 @@
 - Fixed that the current stock total value (header of the stock overview page) didn't include decimal amounts (thanks @Ape)
 - Fixed that the transfer page was not fully populated when opening it from the stock entries page
 
-### Shopping list fixes
+### Shopping list improvements/fixes
+- The amount now defaults to `1` for adding items quicker
 - Fixed that shopping list prints had a grey background (thanks @Forceu)
 - Fixed the form validation on the shopping list item page (thanks @Forceu)
 
