@@ -21,8 +21,9 @@
 ### Userfield fixes
 - Fixed that numeric Userfields were initialised with `1.0`
 
-### General & other improvements
+### General & other improvements/fixes
 - Some night mode style improvements (thanks @BlizzWave and @KTibow)
+- Fixed that the number picker up/down buttons did not work when the input field was empty or contained an invalid number
 
 ### API fixes
 - Fixed that due soon products with `due_type` = "Expiration date" were missing in `due_products` of the `/stock/volatile` endpoint
