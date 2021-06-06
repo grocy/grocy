@@ -2077,3 +2077,26 @@ msgstr ""
 
 msgid "A product or a note is required"
 msgstr ""
+
+msgid "Grocycode"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "Download stock entry grocycode"
+msgstr ""
+
+msgid "Download product grocycode"
+msgstr ""
+
+msgid ""
+"If enabled, the min. stock amount of sub products will be accumulated into this product, means the sub product will never be \"\n"
+"\t\t\t\t\t\t\tmissing\",\n"
+"\t\t\t\t\t\t\tonly\n"
+"\t\t\t\t\t\t\tthis\n"
+"\t\t\t\t\t\t\tproduct"
+msgstr ""
+
+msgid "Grocycode is a unique referer to this product in your grocy instance. Print it onto a label and scan it like any other barcode!"
+msgstr ""

@@ -172,6 +172,34 @@ class StockController extends BaseController
 		}
 	}
 
+	public function ProductGrocycodeImage(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		$product = $this->getDatabase()->products($args['productId']);
+
+		$gc = new Grocycode(Grocycode::PRODUCT, $product->id);
+		$png = (new DatamatrixFactory())->setCode((string) $gc)->getDatamatrixPngData();
+
+		$isDownload = $request->getQueryParam('download', false);
+
+		if ($isDownload)
+		{
+			$response = $response->withHeader('Content-Type', 'application/octet-stream')
+			->withHeader('Content-Disposition', 'attachment; filename=grocycode.png')
+			->withHeader('Content-Length', strlen($png))
+			->withHeader('Cache-Control', 'no-cache')
+			->withHeader('Last-Modified', gmdate('D, d M Y H:i:s') . ' GMT');
+		}
+		else
+		{
+			$response = $response->withHeader('Content-Type', 'image/png')
+			->withHeader('Content-Length', strlen($png))
+			->withHeader('Cache-Control', 'no-cache')
+			->withHeader('Last-Modified', gmdate('D, d M Y H:i:s') . ' GMT');
+		}
+		$response->getBody()->write($png);
+		return $response;
+	}
+
 	public function ProductGroupEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($args['productGroupId'] == 'new')
@@ -436,11 +464,24 @@ class StockController extends BaseController
 		$gc = new Grocycode(Grocycode::PRODUCT, $stockEntry->product_id, [$stockEntry->stock_id]);
 		$png = (new DatamatrixFactory())->setCode((string) $gc)->getDatamatrixPngData();
 
-		$response = $response->withHeader('Content-Type', 'image/png')
+		$isDownload = $request->getQueryParam('download', false);
+
+		if ($isDownload)
+		{
+			$response = $response->withHeader('Content-Type', 'application/octet-stream')
+			->withHeader('Content-Disposition', 'attachment; filename=grocycode.png')
 			->withHeader('Content-Length', strlen($png))
 			->withHeader('Cache-Control', 'no-cache')
 			->withHeader('Last-Modified', gmdate('D, d M Y H:i:s') . ' GMT');
-		$response->getBody()->write($png);
+		}
+		else
+		{
+			$response = $response->withHeader('Content-Type', 'image/png')
+			->withHeader('Content-Length', strlen($png))
+			->withHeader('Cache-Control', 'no-cache')
+			->withHeader('Last-Modified', gmdate('D, d M Y H:i:s') . ' GMT');
+			$response->getBody()->write($png);
+		}
 		return $response;
 	}
 

@@ -23,6 +23,10 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 			}
 			$('#productcard-product-spoil-rate').text((parseFloat(productDetails.spoil_rate_percent) / 100).toLocaleString(undefined, { style: "percent" }));
 
+			// grocycode
+			$("#productcard-product-grocycode-image").attr("src", U('/product/' + productDetails.product.id + '/grocycode'));
+			$("#productcard-product-grocycode-image-link").attr("href", U('/product/' + productDetails.product.id + '/grocycode?download=true'));
+
 			if (productDetails.is_aggregated_amount == 1)
 			{
 				$('#productcard-product-stock-amount-aggregated').text(productDetails.stock_amount_aggregated);

@@ -2374,3 +2374,18 @@ msgstr "Druckoptionen"
 
 msgid "A product or a note is required"
 msgstr "Ein Produkt oder eine Notiz ist erforderlich"
+
+msgid "Grocycode"
+msgstr "Grocycode"
+
+msgid "Download"
+msgstr "Herunterladen"
+
+msgid "Download stock entry grocycode"
+msgstr "Bestandseingrags-Grocycode herunterladen"
+
+msgid "Download product grocycode"
+msgstr "Produkt-Grocycode herunterladen"
+
+msgid "Grocycode is a unique referer to this product in your grocy instance. Print it onto a label and scan it like any other barcode!"
+msgstr "Grocycode ist eine eindeutige Referenz zu diesem Produkt in dieser Grocy-Instanz. Ausgedruckt kann es wie jeder andere Barcode gescannt werden!"

@@ -25,7 +25,11 @@
 
 		@if($mode == 'edit')
 		<script>
-			Grocy.EditObjectId = {{ $product->id }};
+			Grocy.EditObjectId = {
+				{
+					$product - > id
+				}
+			};
 		</script>
 
 		@if(!empty($product->picture_file_name))
@@ -145,7 +149,12 @@
 						for="cumulate_min_stock_amount_of_sub_products">{{ $__t('Accumulate sub products min. stock amount') }}
 						&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
-							title="{{ $__t('If enabled, the min. stock amount of sub products will be accumulated into this product, means the sub product will never be "missing", only this product') }}"></i>
+							title="{{ $__t('If enabled, the min. stock amount of sub products will be accumulated into this product, means the sub product will never be "
+							missing",
+							only
+							this
+							product')
+							}}"></i>
 					</label>
 				</div>
 			</div>
@@ -426,7 +435,24 @@
 	</div>
 
 	<div class="col-lg-6 col-xs-12 @if($mode == 'create') d-none @endif">
-		<div class="row @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif">
+
+		<div class="row">
+			<div class="col clearfix">
+				<div class="title-related-links">
+					<h4>
+						{{ $__t('Grocycode') }}
+					</h4>
+					<p>
+						<img src="{{ $U('/product/' . $product->id . '/grocycode') }}"
+							class="float-lg-left mr-2">
+						{{ $__t('Grocycode is a unique referer to this product in your grocy instance. Print it onto a label and scan it like any other barcode!') }}<br>
+						<a href="{{ $U('/product/' . $product->id . '/grocycode?download=true') }}">{{ $__t('Download') }}</a>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif mt-5">
 			<div class="col">
 				<div class="title-related-links">
 					<h4>
