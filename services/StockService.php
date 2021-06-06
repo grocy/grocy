@@ -1,6 +1,7 @@
 <?php
-
 namespace Grocy\Services;
+
+use Grocy\Helpers\Grocycode;
 
 class StockService extends BaseService
 {
@@ -33,7 +34,7 @@ class StockService extends BaseService
 			if ($alreadyExistingEntry)
 			{ // Update
 				if ($alreadyExistingEntry->amount < $amountToAdd)
-				{
+			{
 					$alreadyExistingEntry->update([
 						'amount' => $amountToAdd,
 						'shopping_list_id' => $listId
@@ -173,7 +174,7 @@ class StockService extends BaseService
 				'stock_id' => $stockId,
 				'price' => $price,
 				'location_id' => $locationId,
-				'shopping_location_id' => $shoppingLocationId,
+				'shopping_location_id' => $shoppingLocationId
 			]);
 			$stockRow->save();
 
@@ -240,7 +241,7 @@ class StockService extends BaseService
 			throw new \Exception('Location does not exist');
 		}
 
-		$productDetails = (object)$this->GetProductDetails($productId);
+		$productDetails = (object) $this->GetProductDetails($productId);
 
 		// Tare weight handling
 		// The given amount is the new total amount including the container weight (gross)
@@ -280,7 +281,7 @@ class StockService extends BaseService
 			// TODO: This check doesn't really check against products only at the given location
 			// (as GetProductDetails returns the stock_amount_aggregated of all locations)
 			// However, $potentialStockEntries are filtered accordingly, so this currently isn't really a problem at the end
-			$productStockAmount = ((object)$this->GetProductDetails($productId))->stock_amount_aggregated;
+			$productStockAmount = ((object) $this->GetProductDetails($productId))->stock_amount_aggregated;
 			if ($amount > $productStockAmount)
 			{
 				throw new \Exception('Amount to be consumed cannot be > current stock amount (if supplied, at the desired location)');
@@ -451,7 +452,7 @@ class StockService extends BaseService
 		if ($pluginOutput !== null)
 		{ // Lookup was successful
 			if ($addFoundProduct === true)
-			{
+		{
 				// Add product to database and include new product id in output
 				$newRow = $this->getDatabase()->products()->createRow($pluginOutput);
 				$newRow->save();
@@ -640,6 +641,13 @@ class StockService extends BaseService
 
 	public function GetProductIdFromBarcode(string $barcode)
 	{
+		// first, try to parse this as a product grocycode
+		if (Grocycode::Validate($barcode))
+		{
+			$gc = new Grocycode($barcode);
+			return intval($gc->GetId());
+		}
+
 		$potentialProduct = $this->getDatabase()->product_barcodes()->where('barcode = :1', $barcode)->fetch();
 
 		if ($potentialProduct === null)
@@ -728,7 +736,7 @@ class StockService extends BaseService
 			throw new \Exception('Product does not exist or is inactive');
 		}
 
-		$productDetails = (object)$this->GetProductDetails($productId);
+		$productDetails = (object) $this->GetProductDetails($productId);
 
 		if ($price === null)
 		{
@@ -787,7 +795,7 @@ class StockService extends BaseService
 			throw new \Exception('Product does not exist or is inactive');
 		}
 
-		$productDetails = (object)$this->GetProductDetails($productId);
+		$productDetails = (object) $this->GetProductDetails($productId);
 		$productStockAmountUnopened = floatval($productDetails->stock_amount_aggregated) - floatval($productDetails->stock_amount_opened_aggregated);
 		$potentialStockEntries = $this->GetProductStockEntries($productId, true, $allowSubproductSubstitution);
 		$product = $this->getDatabase()->products($productId);

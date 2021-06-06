@@ -223,6 +223,18 @@ $("#location_id").on('change', function(e)
 	{
 		stockId = GetUriParam('stockId');
 	}
+	else
+	{
+		// try to get stock id from grocycode
+		if ($("#product_id").data("grocycode"))
+		{
+			var gc = $("#product_id").attr("barcode").split(":");
+			if (gc.length == 4)
+			{
+				stockId = gc[3];
+			}
+		}
+	}
 
 	if (locationId)
 	{
@@ -249,6 +261,7 @@ $("#location_id").on('change', function(e)
 
 						if (stockEntry.stock_id == stockId)
 						{
+							$("#use_specific_stock_entry").click();
 							$("#specific_stock_entry").val(stockId);
 						}
 					}
