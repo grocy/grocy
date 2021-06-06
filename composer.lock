@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6155c0eb959bd8118ce2aabce7fd8a6a",
+    "content-hash": "2f15993a36a55cfc2018969a144c73b0",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -827,6 +827,58 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2019-06-20T13:13:59+00:00"
+        },
+        {
+            "name": "jucksearm/php-barcode",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jucksearm/php-barcode.git",
+                "reference": "066a58776ec9e94dd6d5843c0fb9a3ff95e74d8b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jucksearm/php-barcode/zipball/066a58776ec9e94dd6d5843c0fb9a3ff95e74d8b",
+                "reference": "066a58776ec9e94dd6d5843c0fb9a3ff95e74d8b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "jucksearm\\barcode\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPLv3"
+            ],
+            "authors": [
+                {
+                    "name": "jucksearm",
+                    "email": "jucksearm.bkk@gmail.com"
+                }
+            ],
+            "description": "Barcode Generation Package inspired by Nicola Asuni.",
+            "keywords": [
+                "CODE 128",
+                "barcode",
+                "datamatrix",
+                "pdf417",
+                "php barcode",
+                "qr code",
+                "qrcode"
+            ],
+            "support": {
+                "issues": "https://github.com/jucksearm/php-barcode/issues",
+                "source": "https://github.com/jucksearm/php-barcode/tree/1.0.0"
+            },
+            "time": "2017-06-05T04:41:51+00:00"
         },
         {
             "name": "morris/lessql",
@@ -2528,5 +2580,5 @@
         "php": ">=7.4"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }

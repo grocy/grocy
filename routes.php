@@ -1,12 +1,12 @@
 <?php
 
-use Grocy\Middleware\AuthMiddleware;
-use Psr\Http\Message\ServerRequestInterface as Request;
-use Psr\Http\Message\ResponseInterface as Response;
-use Slim\Routing\RouteCollectorProxy;
 use Grocy\Middleware\JsonMiddleware;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
-$app->group('', function (RouteCollectorProxy $group) {
+$app->group('', function (RouteCollectorProxy $group)
+{
 	// System routes
 	$group->get('/', '\Grocy\Controllers\SystemController:Root')->setName('root');
 	$group->get('/about', '\Grocy\Controllers\SystemController:About');
@@ -60,6 +60,7 @@ $app->group('', function (RouteCollectorProxy $group) {
 		$group->get('/quantityunitpluraltesting', '\Grocy\Controllers\StockController:QuantityUnitPluralFormTesting');
 		$group->get('/stockjournal/summary', '\Grocy\Controllers\StockController:JournalSummary');
 		$group->get('/productbarcodes/{productBarcodeId}', '\Grocy\Controllers\StockController:ProductBarcodesEditForm');
+		$group->get('/stockentry/{entryId}/grocycode', '\Grocy\Controllers\StockController:StockEntryGrocycodeImage');
 	}
 
 	// Stock price tracking
@@ -139,7 +140,8 @@ $app->group('', function (RouteCollectorProxy $group) {
 	$group->get('/manageapikeys/new', '\Grocy\Controllers\OpenApiController:CreateNewApiKey');
 });
 
-$app->group('/api', function (RouteCollectorProxy $group) {
+$app->group('/api', function (RouteCollectorProxy $group)
+{
 	// OpenAPI
 	$group->get('/openapi/specification', '\Grocy\Controllers\OpenApiController:DocumentationSpec');
 
@@ -245,6 +247,7 @@ $app->group('/api', function (RouteCollectorProxy $group) {
 })->add(JsonMiddleware::class);
 
 // Handle CORS preflight OPTIONS requests
-$app->options('/api/{routes:.+}', function (Request $request, Response $response): Response {
+$app->options('/api/{routes:.+}', function (Request $request, Response $response): Response
+{
 	return $response->withStatus(204);
 });

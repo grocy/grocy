@@ -17,19 +17,20 @@ namespace Grocy\Helpers;
  */
 class Grocycode
 {
+	public const PRODUCT = 'p';
+	public const BATTERY = 'b';
+	public const CHORE = 'c';
 
-	public const PRODUCT = "p";
-	public const BATTERY = "b";
-	public const CHORE = "c";
-
-	public const MAGIC = "grcy";
+	public const MAGIC = 'grcy';
 
 	/**
 	 * An array that registers all valid grocycode types. Register yours here by appending to this array.
 	 */
 	public static $Items = [self::PRODUCT, self::BATTERY, self::CHORE];
 
-	private $type, $id, $extra_data = [];
+	private $type;
+	private $id;
+	private $extra_data = [];
 
 	/**
 	 * Validates a grocycode.
@@ -65,7 +66,7 @@ class Grocycode
 			$this->setFromCode($args[0]);
 			return;
 		}
-		else if ($argc == 2 || $argc == 3)
+		elseif ($argc == 2 || $argc == 3)
 		{
 			if ($argc == 2)
 			{
@@ -75,7 +76,7 @@ class Grocycode
 			return;
 		}
 
-		throw new \Exception("No suitable overload found.");
+		throw new \Exception('No suitable overload found.');
 	}
 
 	/**
@@ -83,20 +84,19 @@ class Grocycode
 	 */
 	private function setFromCode($code)
 	{
-		$parts = array_reverse(explode(":", $barcode));
+		$parts = array_reverse(explode(':', $barcode));
 		if (array_pop($parts) != self::MAGIC)
 		{
-			throw new \Exception("Not a grocycode");
+			throw new \Exception('Not a grocycode');
 		}
 
 		if (!in_array($this->type = array_pop($parts), self::$Items))
 		{
-			throw new \Exception("Unknown grocycode type");
+			throw new \Exception('Unknown grocycode type');
 		}
 
 		$this->id = array_pop($parts);
 		$this->extra_data = array_reverse($parse);
-
 	}
 
 	/**
@@ -106,11 +106,11 @@ class Grocycode
 	{
 		if (!is_array($extra_data))
 		{
-			throw new \Exception("Extra data must be array of string");
+			throw new \Exception('Extra data must be array of string');
 		}
 		if (!in_array($type, self::$Items))
 		{
-			throw new \Exception("Unknown grocycode type");
+			throw new \Exception('Unknown grocycode type');
 		}
 
 		$this->type = $type;
@@ -137,6 +137,6 @@ class Grocycode
 	{
 		$arr = array_merge([self::MAGIC, $this->type, $this->id], $this->extra_data);
 
-		return implode(":", $arr);
+		return implode(':', $arr);
 	}
 }

@@ -2,7 +2,9 @@
 
 namespace Grocy\Controllers;
 
+use Grocy\Helpers\Grocycode;
 use Grocy\Services\RecipesService;
+use jucksearm\barcode\lib\DatamatrixFactory;
 
 class StockController extends BaseController
 {
@@ -39,7 +41,7 @@ class StockController extends BaseController
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE'),
 			'users' => $usersService->GetUsersAsDto(),
-			'transactionTypes' => GetClassConstants('\Grocy\Services\StockService', 'TRANSACTION_TYPE_'),
+			'transactionTypes' => GetClassConstants('\Grocy\Services\StockService', 'TRANSACTION_TYPE_')
 		]);
 	}
 
@@ -426,6 +428,20 @@ class StockController extends BaseController
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name', 'COLLATE NOCASE'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE')
 		]);
+	}
+
+	public function StockEntryGrocycodeImage(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		$stockEntry = $this->getDatabase()->stock()->where('id', $args['entryId'])->fetch();
+		$gc = new Grocycode(Grocycode::PRODUCT, $stockEntry->product_id, [$stockEntry->stock_id]);
+		$png = (new DatamatrixFactory())->setCode((string) $gc)->getDatamatrixPngData();
+
+		$response = $response->withHeader('Content-Type', 'image/png')
+			->withHeader('Content-Length', strlen($png))
+			->withHeader('Cache-Control', 'no-cache')
+			->withHeader('Last-Modified', gmdate('D, d M Y H:i:s') . ' GMT');
+		$response->getBody()->write($png);
+		return $response;
 	}
 
 	public function StockSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
