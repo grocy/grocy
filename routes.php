@@ -61,6 +61,7 @@ $app->group('', function (RouteCollectorProxy $group) {
 		$group->get('/stockjournal/summary', '\Grocy\Controllers\StockController:JournalSummary');
 		$group->get('/productbarcodes/{productBarcodeId}', '\Grocy\Controllers\StockController:ProductBarcodesEditForm');
 		$group->get('/stockentry/{entryId}/grocycode', '\Grocy\Controllers\StockController:StockEntryGrocycodeImage');
+		$group->get('/stockentry/{entryId}/label', '\Grocy\Controllers\StockController:StockEntryGrocycodeLabel');
 	}
 
 	// Stock price tracking

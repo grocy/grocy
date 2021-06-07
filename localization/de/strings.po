@@ -2389,3 +2389,9 @@ msgstr "Produkt-Grocycode herunterladen"
 
 msgid "Grocycode is a unique referer to this product in your grocy instance. Print it onto a label and scan it like any other barcode!"
 msgstr "Grocycode ist eine eindeutige Referenz zu diesem Produkt in dieser Grocy-Instanz. Ausgedruckt kann es wie jeder andere Barcode gescannt werden!"
+
+msgid "Open print label in new Window"
+msgstr "Druck-Label in neuem Fenster öffnen"
+
+msgid "DD"
+msgstr "MHD"

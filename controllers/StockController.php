@@ -460,9 +460,11 @@ class StockController extends BaseController
 
 	public function StockEntryGrocycodeImage(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
+		$size = $request->getQueryParam('size', null);
+
 		$stockEntry = $this->getDatabase()->stock()->where('id', $args['entryId'])->fetch();
 		$gc = new Grocycode(Grocycode::PRODUCT, $stockEntry->product_id, [$stockEntry->stock_id]);
-		$png = (new DatamatrixFactory())->setCode((string) $gc)->getDatamatrixPngData();
+		$png = (new DatamatrixFactory())->setCode((string) $gc)->setSize($size)->getDatamatrixPngData();
 
 		$isDownload = $request->getQueryParam('download', false);
 
@@ -483,6 +485,15 @@ class StockController extends BaseController
 			$response->getBody()->write($png);
 		}
 		return $response;
+	}
+
+	public function StockEntryGrocycodeLabel(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		$stockEntry = $this->getDatabase()->stock()->where('id', $args['entryId'])->fetch();
+		return $this->renderPage($response, 'stockentrylabel', [
+			'stockEntry' => $stockEntry,
+			'product' => $this->getDatabase()->products($stockEntry->product_id),
+		]);
 	}
 
 	public function StockSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)

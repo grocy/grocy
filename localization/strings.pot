@@ -2100,3 +2100,9 @@ msgstr ""
 
 msgid "Grocycode is a unique referer to this product in your grocy instance. Print it onto a label and scan it like any other barcode!"
 msgstr ""
+
+msgid "Open print label in new Window"
+msgstr ""
+
+msgid "DD"
+msgstr ""

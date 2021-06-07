@@ -190,6 +190,12 @@
 									href="{{ $U('/stockentry/' . $stockEntry->id . '/grocycode?download=true') }}">
 									{{ $__t('Download stock entry grocycode') }}
 								</a>
+								<a class="dropdown-item stockentry-label-link"
+									type="button"
+									target="_blank"
+									href="{{ $U('/stockentry/' . $stockEntry->id . '/label') }}">
+									{{ $__t('Open print label in new Window') }}
+								</a>
 								<a class="dropdown-item show-as-dialog-link"
 									type="button"
 									href="{{ $U('/stockjournal?embedded&product=') }}{{ $stockEntry->product_id }}">
