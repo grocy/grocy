@@ -55,11 +55,6 @@
 		@if (GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)<strong>{{ $__t('Average price') }}:</strong> <span id="productcard-product-average-price"></span><br>@endif
 		@if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)<strong>{{ $__t('Average shelf life') }}:</strong> <span id="productcard-product-average-shelf-life"></span><br>@endif
 		<strong>{{ $__t('Spoil rate') }}:</strong> <span id="productcard-product-spoil-rate"></span>
-		<p><strong>{{ $__t('Grocycode') }}:</strong><br><img id="productcard-product-grocycode-image"
-				data-src=""
-				class="lazy"><br><a href="#"
-				target="_blank"
-				id="productcard-product-grocycode-image-link">{{ $__t('Download') }}</a></p>
 
 		<p class="w-75 mt-3 mx-auto"><img id="productcard-product-picture"
 				data-src=""
