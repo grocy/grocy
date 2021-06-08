@@ -4,6 +4,7 @@ namespace Grocy\Controllers;
 
 use Grocy\Controllers\Users\User;
 use Grocy\Services\StockService;
+use Grocy\Helpers\WebhookRunner;
 
 class StockApiController extends BaseApiController
 {
@@ -138,8 +139,14 @@ class StockApiController extends BaseApiController
 			{
 				$transactionType = $requestBody['transactiontype'];
 			}
+			$runPrinterWebhook = false;
+			if (array_key_exists('print_stock_label', $requestBody) && boolval($requestBody['print_stock_label']))
+			{
+				$runPrinterWebhook = true;
+			}
 
-			$transactionId = $this->getStockService()->AddProduct($args['productId'], $requestBody['amount'], $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId, $shoppingLocationId);
+			$transactionId = $this->getStockService()->AddProduct($args['productId'], $requestBody['amount'], $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId, $shoppingLocationId, $unusedTransactionId, $runPrinterWebhook);
+
 			$args['transactionId'] = $transactionId;
 			return $this->StockTransactions($request, $response, $args);
 		}

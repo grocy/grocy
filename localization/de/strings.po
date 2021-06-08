@@ -2395,3 +2395,6 @@ msgstr "Druck-Label in neuem Fenster öffnen"
 
 msgid "DD"
 msgstr "MHD"
+
+msgid "Print stock label"
+msgstr "Etikett drucken"

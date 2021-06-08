@@ -476,6 +476,16 @@ Grocy.FrontendHelpers.DeleteUserSetting = function(settingsKey, reloadPageOnSucc
 	);
 }
 
+Grocy.FrontendHelpers.RunWebhook = function(webhook, data)
+{
+	Object.assign(data, webhook.extra_data);
+
+	$.post(webhook.hook, data).fail(function(req, status, errorThrown)
+	{
+		Grocy.FrontendHelpers.ShowGenericError(__t("Unable to connect to webhook.", { "status": status, "errorThrown": errorThrown }));
+	});
+}
+
 $(document).on("keyup paste change", "input, textarea", function()
 {
 	$(this).closest("form").addClass("is-dirty");

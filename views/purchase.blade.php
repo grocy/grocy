@@ -10,9 +10,9 @@
 
 @section('content')
 <script>
-	Grocy.QuantityUnits = {!! json_encode($quantityUnits) !!};
+Grocy.QuantityUnits = {!! json_encode($quantityUnits) !!};
 	Grocy.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
-	Grocy.DefaultMinAmount = '{{$DEFAULT_MIN_AMOUNT}}';
+	Grocy.DefaultMinAmount = '{{ $DEFAULT_MIN_AMOUNT }}';
 </script>
 
 <div class="row">
@@ -146,6 +146,21 @@
 			'locations' => $locations,
 			'isRequired' => false
 			))
+			@endif
+
+			@if(GROCY_FEATURE_FLAG_LABELPRINTER)
+			<div class="form-group mt-n2">
+				<div class="custom-control custom-checkbox">
+					<input class="form-check-input custom-control-input"
+						type="checkbox"
+						id="print_stock_label"
+						name="print_stock_label"
+						value="1">
+					<label class="form-check-label custom-control-label"
+						for="print_stock_label">{{ $__t("Print stock label") }}
+					</label>
+				</div>
+			</div>
 			@endif
 
 			<button id="save-purchase-button"

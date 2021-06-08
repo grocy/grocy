@@ -2106,3 +2106,6 @@ msgstr ""
 
 msgid "DD"
 msgstr ""
+
+msgid "Print stock label"
+msgstr ""

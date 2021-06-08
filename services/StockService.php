@@ -1,7 +1,9 @@
 <?php
+
 namespace Grocy\Services;
 
 use Grocy\Helpers\Grocycode;
+use Grocy\Helpers\WebhookRunner;
 
 class StockService extends BaseService
 {
@@ -34,7 +36,7 @@ class StockService extends BaseService
 			if ($alreadyExistingEntry)
 			{ // Update
 				if ($alreadyExistingEntry->amount < $amountToAdd)
-			{
+				{
 					$alreadyExistingEntry->update([
 						'amount' => $amountToAdd,
 						'shopping_list_id' => $listId
@@ -103,7 +105,7 @@ class StockService extends BaseService
 		}
 	}
 
-	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId = null, $shoppingLocationId = null, &$transactionId = null)
+	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId = null, $shoppingLocationId = null, &$transactionId = null, $runWebhook = false, &$webhookData = null)
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -177,6 +179,17 @@ class StockService extends BaseService
 				'shopping_location_id' => $shoppingLocationId
 			]);
 			$stockRow->save();
+
+			if (GROCY_FEATURE_FLAG_LABELPRINTER && GROCY_LABEL_PRINTER_RUN_SERVER && $runWebhook)
+			{
+				$webhookData = array_merge([
+					'product' => $productDetails->product->name,
+					'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $productId, [$stockId])),
+					'duedate' => $this->getLocalizationService()->__t('DD') . ': ' . $bestBeforeDate,
+				], GROCY_LABEL_PRINTER_PARAMS);
+
+				(new WebhookRunner())->run(GROCY_LABEL_PRINTER_WEBHOOK, $webhookData, GROCY_LABEL_PRINTER_HOOK_JSON);
+			}
 
 			return $transactionId;
 		}
@@ -452,7 +465,7 @@ class StockService extends BaseService
 		if ($pluginOutput !== null)
 		{ // Lookup was successful
 			if ($addFoundProduct === true)
-		{
+			{
 				// Add product to database and include new product id in output
 				$newRow = $this->getDatabase()->products()->createRow($pluginOutput);
 				$newRow->save();

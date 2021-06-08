@@ -23,6 +23,7 @@ $('#save-purchase-button').on('click', function(e)
 		{
 			var jsonData = {};
 			jsonData.amount = jsonForm.amount;
+			jsonData.print_stock_label = jsonForm.print_stock_label
 
 			if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 			{
@@ -115,6 +116,21 @@ $('#save-purchase-button').on('click', function(e)
 						amountMessage = parseFloat(jsonForm.amount) - parseFloat(productDetails.stock_amount) - parseFloat(productDetails.product.tare_weight);
 					}
 					var successMessage = __t('Added %1$s of %2$s to stock', amountMessage + " " + __n(amountMessage, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + result[0].transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
+
+					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_LABELPRINTER)
+					{
+						if (Grocy.Webhooks.labelprinter !== undefined)
+						{
+							var post_data = {};
+							post_data.product = productDetails.product.name;
+							post_data.grocycode = 'grcy:p:' + jsonForm.product_id + ":" + result[0].stock_id
+							if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
+							{
+								post_data.duedate = __t('DD') + ': ' + result[0].best_before_date
+							}
+							Grocy.FrontendHelpers.RunWebhook(Grocy.Webhooks.labelprinter, post_data);
+						}
+					}
 
 					if (GetUriParam("embedded") !== undefined)
 					{
