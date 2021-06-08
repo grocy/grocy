@@ -282,6 +282,14 @@
 									href="{{ $U('/product/' . $currentStockEntry->product_id . '/grocycode?download=true') }}">
 									{{ $__t('Download product grocycode') }}
 								</a>
+								@if(GROCY_FEATURE_FLAG_LABELPRINTER)
+								<a class="dropdown-item stockentry-grocycode-product-label-print"
+									data-product-id="{{ $currentStockEntry->product_id }}"
+									type="button"
+									href="#">
+									{{ $__t('Print Product Label') }}
+								</a>
+								@endif
 								<a class="dropdown-item show-as-dialog-link"
 									type="button"
 									href="{{ $U('/stockentries?embedded&product=') }}{{ $currentStockEntry->product_id }}"

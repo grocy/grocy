@@ -124,6 +124,21 @@ $(document).on("click", ".stock-name-cell", function(e)
 	$("#stockentry-productcard-modal").modal("show");
 });
 
+$(document).on('click', '.stockentry-grocycode-stockentry-label-print', function(e)
+{
+	e.preventDefault();
+	document.activeElement.blur();
+
+	var stockId = $(e.currentTarget).attr('data-stock-id');
+	Grocy.Api.Get('stock/entry/' + stockId + '/printlabel', function(labelData)
+	{
+		if (Grocy.Webhooks.labelprinter !== undefined)
+		{
+			Grocy.FrontendHelpers.RunWebhook(Grocy.Webhooks.labelprinter, labelData);
+		}
+	});
+});
+
 function RefreshStockEntryRow(stockRowId)
 {
 	Grocy.Api.Get("stock/entry/" + stockRowId,

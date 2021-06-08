@@ -183,10 +183,14 @@ class StockService extends BaseService
 			if (GROCY_FEATURE_FLAG_LABELPRINTER && GROCY_LABEL_PRINTER_RUN_SERVER && $runWebhook)
 			{
 				$webhookData = array_merge([
-					'product' => $productDetails->product->name,
-					'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $productId, [$stockId])),
-					'duedate' => $this->getLocalizationService()->__t('DD') . ': ' . $bestBeforeDate,
+					'product' => $stockEntry->product()->name,
+					'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $stockEntry->product_id, [$stockEntry->stock_id])),
 				], GROCY_LABEL_PRINTER_PARAMS);
+
+				if (GROCY_FEATURE_FLAG_BEST_BEFORE_DATE_TRACKING)
+				{
+					$webhookData['duedate'] = $this->getLocalizationService()->__t('DD') . ': ' . $bestBeforeDate;
+				}
 
 				(new WebhookRunner())->run(GROCY_LABEL_PRINTER_WEBHOOK, $webhookData, GROCY_LABEL_PRINTER_HOOK_JSON);
 			}

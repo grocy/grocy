@@ -2398,3 +2398,9 @@ msgstr "MHD"
 
 msgid "Print stock label"
 msgstr "Etikett drucken"
+
+msgid "Print Product Label"
+msgstr "Produkt-Etikett drucken"
+
+msgid "Print stock entry label"
+msgstr "Etikett drucken"

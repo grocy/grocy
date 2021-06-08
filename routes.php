@@ -208,6 +208,8 @@ $app->group('/api', function (RouteCollectorProxy $group) {
 	$group->get('/stock/transactions/{transactionId}', '\Grocy\Controllers\StockApiController:StockTransactions');
 	$group->post('/stock/transactions/{transactionId}/undo', '\Grocy\Controllers\StockApiController:UndoTransaction');
 	$group->get('/stock/barcodes/external-lookup/{barcode}', '\Grocy\Controllers\StockApiController:ExternalBarcodeLookup');
+	$group->get('/stock/products/{productId}/printlabel', '\Grocy\Controllers\StockApiController:ProductPrintLabel');
+	$group->get('/stock/entry/{entryId}/printlabel', '\Grocy\Controllers\StockApiController:StockEntryPrintLabel');
 
 	// Shopping list
 	$group->post('/stock/shoppinglist/add-missing-products', '\Grocy\Controllers\StockApiController:AddMissingProductsToShoppingList');

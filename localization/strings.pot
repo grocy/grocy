@@ -2109,3 +2109,9 @@ msgstr ""
 
 msgid "Print stock label"
 msgstr ""
+
+msgid "Print Product Label"
+msgstr ""
+
+msgid "Print stock entry label"
+msgstr ""
