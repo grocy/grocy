@@ -25,11 +25,7 @@
 
 		@if($mode == 'edit')
 		<script>
-			Grocy.EditObjectId = {
-				{
-					$product - > id
-				}
-			};
+			Grocy.EditObjectId = {{ $product->id }};
 		</script>
 
 		@if(!empty($product->picture_file_name))
@@ -445,8 +441,18 @@
 					<p>
 						<img src="{{ $U('/product/' . $product->id . '/grocycode') }}"
 							class="float-lg-left mr-2">
-						{{ $__t('Grocycode is a unique referer to this product in your grocy instance. Print it onto a label and scan it like any other barcode!') }}<br>
-						<a href="{{ $U('/product/' . $product->id . '/grocycode?download=true') }}">{{ $__t('Download') }}</a>
+						{{ $__t('Grocycode is a unique referer to this product in your grocy instance. Print it onto a label and scan it like any other barcode!') }}
+					</p>
+					<p>
+						<a class="btn btn-outline-primary btn-sm"
+							href="{{ $U('/product/' . $product->id . '/grocycode?download=true') }}">{{ $__t('Download') }}</a>
+						@if(GROCY_FEATURE_FLAG_LABELPRINTER)
+						<a class="btn btn-outline-primary btn-sm stockentry-grocycode-product-label-print"
+							data-product-id="{{ $product->id }}"
+							href="#">
+							{{ $__t('Print Product Label') }}
+						</a>
+						@endif
 					</p>
 				</div>
 			</div>

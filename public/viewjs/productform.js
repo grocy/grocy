@@ -301,6 +301,21 @@ $('#name').focus();
 $('.input-group-qu').trigger('change');
 Grocy.FrontendHelpers.ValidateForm('product-form');
 
+$(document).on('click', '.stockentry-grocycode-product-label-print', function(e)
+{
+	e.preventDefault();
+	document.activeElement.blur();
+
+	var productId = $(e.currentTarget).attr('data-product-id');
+	Grocy.Api.Get('stock/products/' + productId + '/printlabel', function(labelData)
+	{
+		if (Grocy.Webhooks.labelprinter !== undefined)
+		{
+			Grocy.FrontendHelpers.RunWebhook(Grocy.Webhooks.labelprinter, labelData);
+		}
+	});
+});
+
 $(document).on('click', '.qu-conversion-delete-button', function(e)
 {
 	var objectId = $(e.currentTarget).attr('data-qu-conversion-id');
