@@ -449,6 +449,7 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 				callback: function()
 				{
 					bootbox.hideAll();
+					$('.modal-backdrop').remove();
 
 					$(".print-timestamp").text(moment().format("l LT"));
 
@@ -470,6 +471,7 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 						shoppingListPrintShadowTable.draw();
 					}
 
+					$(".print-layout-container").addClass("d-none");
 					$("." + $("input[name='print-layout-type']:checked").val()).removeClass("d-none");
 
 					window.print();

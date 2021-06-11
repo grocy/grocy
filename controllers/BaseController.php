@@ -157,18 +157,18 @@ class BaseController
 		if (GROCY_AUTHENTICATED)
 		{
 			$this->View->set('permissions', User::PermissionList());
-		}
 
-		$decimalPlacesAmounts = intval($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'stock_decimal_places_amounts'));
-		if ($decimalPlacesAmounts <= 0)
-		{
-			$defaultMinAmount = 1;
+			$decimalPlacesAmounts = intval($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'stock_decimal_places_amounts'));
+			if ($decimalPlacesAmounts <= 0)
+			{
+				$defaultMinAmount = 1;
+			}
+			else
+			{
+				$defaultMinAmount = '0.' . str_repeat('0', $decimalPlacesAmounts - 1) . '1';
+			}
+			$this->View->set('DEFAULT_MIN_AMOUNT', $defaultMinAmount);
 		}
-		else
-		{
-			$defaultMinAmount = '0.' . str_repeat('0', $decimalPlacesAmounts - 1) . '1';
-		}
-		$this->View->set('DEFAULT_MIN_AMOUNT', $defaultMinAmount);
 
 		return $this->View->render($response, $page, $data);
 	}

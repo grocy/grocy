@@ -36,7 +36,7 @@ Grocy.Components.BarcodeScanner.CheckCapabilities = async function()
 		Grocy.Components.BarcodeScanner.TorchOn(track);
 	}
 
-	// Reduce the height of the video, if it's heigher than then the viewport
+	// Reduce the height of the video, if it's higher than then the viewport
 	if (!Grocy.Components.BarcodeScanner.LiveVideoSizeAdjusted)
 	{
 		var bc = document.getElementById('barcodescanner-container');

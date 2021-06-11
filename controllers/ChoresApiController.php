@@ -81,7 +81,7 @@ class ChoresApiController extends BaseApiController
 
 			if ($doneBy != GROCY_USER_ID)
 			{
-				User::checkPermission($request, User::PERMISSION_CHORE_TRACK_EXECUTION_EXECUTION);
+				User::checkPermission($request, User::PERMISSION_CHORE_TRACK_EXECUTION);
 			}
 
 			$choreExecutionId = $this->getChoresService()->TrackChore($args['choreId'], $trackedTime, $doneBy);

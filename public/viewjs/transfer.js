@@ -126,12 +126,15 @@
 Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 {
 	$("#specific_stock_entry").find("option").remove().end().append("<option></option>");
-	if ($("#use_specific_stock_entry").is(":checked"))
+	if ($("#use_specific_stock_entry").is(":checked") && GetUriParam("stockId") == null)
 	{
 		$("#use_specific_stock_entry").click();
 	}
 	$("#location_id_to").val("");
-	$("#location_id_from").val("");
+	if (GetUriParam("stockId") == null)
+	{
+		$("#location_id_from").val("");
+	}
 
 	var productId = $(e.target).val();
 
@@ -185,6 +188,12 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 								$("#location_id_from").trigger('change');
 							}
 						});
+
+						if (GetUriParam("locationId") != null)
+						{
+							$("#location_id_from").val(GetUriParam("locationId"));
+							$("#location_id_from").trigger("change");
+						}
 					},
 					function(xhr)
 					{
@@ -284,7 +293,7 @@ $("#location_id_from").on('change', function(e)
 	}
 
 	$("#specific_stock_entry").find("option").remove().end().append("<option></option>");
-	if ($("#use_specific_stock_entry").is(":checked"))
+	if ($("#use_specific_stock_entry").is(":checked") && GetUriParam("stockId") == null)
 	{
 		$("#use_specific_stock_entry").click();
 	}
@@ -475,6 +484,7 @@ if (GetUriParam("embedded") !== undefined)
 		$("#location_id_from").trigger('change');
 		$("#use_specific_stock_entry").click();
 		$("#use_specific_stock_entry").trigger('change');
+		Grocy.Components.ProductPicker.GetPicker().trigger('change');
 	}
 }
 
