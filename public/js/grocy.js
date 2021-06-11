@@ -476,14 +476,22 @@ Grocy.FrontendHelpers.DeleteUserSetting = function(settingsKey, reloadPageOnSucc
 	);
 }
 
-Grocy.FrontendHelpers.RunWebhook = function(webhook, data)
+Grocy.FrontendHelpers.RunWebhook = function(webhook, data, repetitions = 1)
 {
 	Object.assign(data, webhook.extra_data);
+	var hasAlreadyFailed = false;
 
-	$.post(webhook.hook, data).fail(function(req, status, errorThrown)
+	for (i = 0; i < repetitions; i++)
 	{
-		Grocy.FrontendHelpers.ShowGenericError(__t("Unable to connect to webhook.", { "status": status, "errorThrown": errorThrown }));
-	});
+		$.post(webhook.hook, data).fail(function(req, status, errorThrown)
+		{
+			if (!hasAlreadyFailed)
+			{
+				hasAlreadyFailed = true;
+				Grocy.FrontendHelpers.ShowGenericError(__t("Unable to connect to webhook.", { "status": status, "errorThrown": errorThrown }));
+			}
+		});
+	}
 }
 
 $(document).on("keyup paste change", "input, textarea", function()

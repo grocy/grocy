@@ -105,7 +105,7 @@ class StockService extends BaseService
 		}
 	}
 
-	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId = null, $shoppingLocationId = null, &$transactionId = null, $runWebhook = false, &$webhookData = null)
+	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId = null, $shoppingLocationId = null, &$transactionId = null, $runWebhook = 0)
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -182,17 +182,28 @@ class StockService extends BaseService
 
 			if (GROCY_FEATURE_FLAG_LABELPRINTER && GROCY_LABEL_PRINTER_RUN_SERVER && $runWebhook)
 			{
+				$reps = 1;
+				if ($runWebhook == 2)
+				{ // 2 == run $amount times
+					$reps = intval(floor($amount));
+				}
+
 				$webhookData = array_merge([
-					'product' => $stockEntry->product()->name,
-					'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $stockEntry->product_id, [$stockEntry->stock_id])),
+					'product' => $productDetails->product->name,
+					'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $productId, [$stockId])),
 				], GROCY_LABEL_PRINTER_PARAMS);
 
-				if (GROCY_FEATURE_FLAG_BEST_BEFORE_DATE_TRACKING)
+				if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 				{
 					$webhookData['duedate'] = $this->getLocalizationService()->__t('DD') . ': ' . $bestBeforeDate;
 				}
 
-				(new WebhookRunner())->run(GROCY_LABEL_PRINTER_WEBHOOK, $webhookData, GROCY_LABEL_PRINTER_HOOK_JSON);
+				$runner = new WebhookRunner();
+
+				for ($i = 0; $i < $reps; $i++)
+				{
+					$runner->run(GROCY_LABEL_PRINTER_WEBHOOK, $webhookData, GROCY_LABEL_PRINTER_HOOK_JSON);
+				}
 			}
 
 			return $transactionId;

@@ -128,7 +128,16 @@ $('#save-purchase-button').on('click', function(e)
 							{
 								post_data.duedate = __t('DD') + ': ' + result[0].best_before_date
 							}
-							Grocy.FrontendHelpers.RunWebhook(Grocy.Webhooks.labelprinter, post_data);
+
+							if (jsonForm.print_stock_label > 0)
+							{
+								var reps = 1;
+								if (jsonForm.print_stock_label == 2)
+								{
+									reps = Math.floor(jsonData.amount);
+								}
+								Grocy.FrontendHelpers.RunWebhook(Grocy.Webhooks.labelprinter, post_data, reps);
+							}
 						}
 					}
 
@@ -292,6 +301,23 @@ if (Grocy.Components.ProductPicker !== undefined)
 							{
 								Grocy.Components.DateTimePicker.SetValue(moment().add(productDetails.product.default_best_before_days, 'days').format('YYYY-MM-DD'));
 							}
+						}
+					}
+
+					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_LABELPRINTER)
+					{
+						$("#print_stock_label").val(productDetails.product.default_print_stock_label);
+						if (productDetails.product.allow_label_per_unit)
+						{
+							if ($('#default_print_stock_label').val() == "2")
+							{
+								$("#default_print_stock_label").val("0");
+							}
+							$('#label-option-per-unit').prop("disabled", true);
+						}
+						else
+						{
+							$('#label-option-per-unit').prop("disabled", false);
 						}
 					}
 

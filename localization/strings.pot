@@ -2115,3 +2115,21 @@ msgstr ""
 
 msgid "Print stock entry label"
 msgstr ""
+
+msgid "Stock label"
+msgstr ""
+
+msgid "No Label"
+msgstr ""
+
+msgid "Single Label"
+msgstr ""
+
+msgid "Label per Unit"
+msgstr ""
+
+msgid "Allow label printing per unit"
+msgstr ""
+
+msgid "Allow printing of one label per unit in a purchase (after conversion). E.g. 1 purchased pack adding 10 pieces of stock would print 10 labels."
+msgstr ""

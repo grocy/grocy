@@ -2404,3 +2404,21 @@ msgstr "Produkt-Etikett drucken"
 
 msgid "Print stock entry label"
 msgstr "Etikett drucken"
+
+msgid "Stock label"
+msgstr "Etikett"
+
+msgid "No Label"
+msgstr "Kein Etikett"
+
+msgid "Single Label"
+msgstr "Ein Etikett pro Einkauf"
+
+msgid "Label per Unit"
+msgstr "Ein Etikett pro Mengeneinheit"
+
+msgid "Allow label printing per unit"
+msgstr "Erlaube Etikettendruck pro Mengeneinheit"
+
+msgid "Allow printing of one label per unit in a purchase (after conversion). E.g. 1 purchased pack adding 10 pieces of stock would print 10 labels."
+msgstr "Erlaube Etikettendruck pro Mengeneinheit nach Umrechnung. Beispiel: 1 gekauftes Paket, das 10 Einheiten hinzufügt, druckt 10 Etiketten."
