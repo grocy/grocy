@@ -1,10 +1,9 @@
 <?php
 
-use Grocy\Middleware\AuthMiddleware;
-use Psr\Http\Message\ServerRequestInterface as Request;
-use Psr\Http\Message\ResponseInterface as Response;
-use Slim\Routing\RouteCollectorProxy;
 use Grocy\Middleware\JsonMiddleware;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 $app->group('', function (RouteCollectorProxy $group) {
 	// System routes
@@ -41,6 +40,7 @@ $app->group('', function (RouteCollectorProxy $group) {
 	$group->get('/quantityunitconversion/{quConversionId}', '\Grocy\Controllers\StockController:QuantityUnitConversionEditForm');
 	$group->get('/productgroups', '\Grocy\Controllers\StockController:ProductGroupsList');
 	$group->get('/productgroup/{productGroupId}', '\Grocy\Controllers\StockController:ProductGroupEditForm');
+	$group->get('/product/{productId}/grocycode', '\Grocy\Controllers\StockController:ProductGrocycodeImage');
 
 	// Stock handling routes
 	if (GROCY_FEATURE_FLAG_STOCK)
@@ -60,6 +60,8 @@ $app->group('', function (RouteCollectorProxy $group) {
 		$group->get('/quantityunitpluraltesting', '\Grocy\Controllers\StockController:QuantityUnitPluralFormTesting');
 		$group->get('/stockjournal/summary', '\Grocy\Controllers\StockController:JournalSummary');
 		$group->get('/productbarcodes/{productBarcodeId}', '\Grocy\Controllers\StockController:ProductBarcodesEditForm');
+		$group->get('/stockentry/{entryId}/grocycode', '\Grocy\Controllers\StockController:StockEntryGrocycodeImage');
+		$group->get('/stockentry/{entryId}/label', '\Grocy\Controllers\StockController:StockEntryGrocycodeLabel');
 	}
 
 	// Stock price tracking
@@ -206,6 +208,8 @@ $app->group('/api', function (RouteCollectorProxy $group) {
 	$group->get('/stock/transactions/{transactionId}', '\Grocy\Controllers\StockApiController:StockTransactions');
 	$group->post('/stock/transactions/{transactionId}/undo', '\Grocy\Controllers\StockApiController:UndoTransaction');
 	$group->get('/stock/barcodes/external-lookup/{barcode}', '\Grocy\Controllers\StockApiController:ExternalBarcodeLookup');
+	$group->get('/stock/products/{productId}/printlabel', '\Grocy\Controllers\StockApiController:ProductPrintLabel');
+	$group->get('/stock/entry/{entryId}/printlabel', '\Grocy\Controllers\StockApiController:StockEntryPrintLabel');
 
 	// Shopping list
 	$group->post('/stock/shoppinglist/add-missing-products', '\Grocy\Controllers\StockApiController:AddMissingProductsToShoppingList');

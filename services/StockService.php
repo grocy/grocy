@@ -2,6 +2,9 @@
 
 namespace Grocy\Services;
 
+use Grocy\Helpers\Grocycode;
+use Grocy\Helpers\WebhookRunner;
+
 class StockService extends BaseService
 {
 	const TRANSACTION_TYPE_CONSUME = 'consume';
@@ -102,7 +105,7 @@ class StockService extends BaseService
 		}
 	}
 
-	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId = null, $shoppingLocationId = null, &$transactionId = null)
+	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId = null, $shoppingLocationId = null, &$transactionId = null, $runWebhook = 0)
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -173,9 +176,35 @@ class StockService extends BaseService
 				'stock_id' => $stockId,
 				'price' => $price,
 				'location_id' => $locationId,
-				'shopping_location_id' => $shoppingLocationId,
+				'shopping_location_id' => $shoppingLocationId
 			]);
 			$stockRow->save();
+
+			if (GROCY_FEATURE_FLAG_LABELPRINTER && GROCY_LABEL_PRINTER_RUN_SERVER && $runWebhook)
+			{
+				$reps = 1;
+				if ($runWebhook == 2)
+				{ // 2 == run $amount times
+					$reps = intval(floor($amount));
+				}
+
+				$webhookData = array_merge([
+					'product' => $productDetails->product->name,
+					'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $productId, [$stockId])),
+				], GROCY_LABEL_PRINTER_PARAMS);
+
+				if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
+				{
+					$webhookData['duedate'] = $this->getLocalizationService()->__t('DD') . ': ' . $bestBeforeDate;
+				}
+
+				$runner = new WebhookRunner();
+
+				for ($i = 0; $i < $reps; $i++)
+				{
+					$runner->run(GROCY_LABEL_PRINTER_WEBHOOK, $webhookData, GROCY_LABEL_PRINTER_HOOK_JSON);
+				}
+			}
 
 			return $transactionId;
 		}
@@ -240,7 +269,7 @@ class StockService extends BaseService
 			throw new \Exception('Location does not exist');
 		}
 
-		$productDetails = (object)$this->GetProductDetails($productId);
+		$productDetails = (object) $this->GetProductDetails($productId);
 
 		// Tare weight handling
 		// The given amount is the new total amount including the container weight (gross)
@@ -280,7 +309,7 @@ class StockService extends BaseService
 			// TODO: This check doesn't really check against products only at the given location
 			// (as GetProductDetails returns the stock_amount_aggregated of all locations)
 			// However, $potentialStockEntries are filtered accordingly, so this currently isn't really a problem at the end
-			$productStockAmount = ((object)$this->GetProductDetails($productId))->stock_amount_aggregated;
+			$productStockAmount = ((object) $this->GetProductDetails($productId))->stock_amount_aggregated;
 			if ($amount > $productStockAmount)
 			{
 				throw new \Exception('Amount to be consumed cannot be > current stock amount (if supplied, at the desired location)');
@@ -639,6 +668,13 @@ class StockService extends BaseService
 
 	public function GetProductIdFromBarcode(string $barcode)
 	{
+		// first, try to parse this as a product grocycode
+		if (Grocycode::Validate($barcode))
+		{
+			$gc = new Grocycode($barcode);
+			return intval($gc->GetId());
+		}
+
 		$potentialProduct = $this->getDatabase()->product_barcodes()->where('barcode = :1', $barcode)->fetch();
 
 		if ($potentialProduct === null)
@@ -727,7 +763,7 @@ class StockService extends BaseService
 			throw new \Exception('Product does not exist or is inactive');
 		}
 
-		$productDetails = (object)$this->GetProductDetails($productId);
+		$productDetails = (object) $this->GetProductDetails($productId);
 
 		if ($price === null)
 		{
@@ -786,7 +822,7 @@ class StockService extends BaseService
 			throw new \Exception('Product does not exist or is inactive');
 		}
 
-		$productDetails = (object)$this->GetProductDetails($productId);
+		$productDetails = (object) $this->GetProductDetails($productId);
 		$productStockAmountUnopened = floatval($productDetails->stock_amount_aggregated) - floatval($productDetails->stock_amount_opened_aggregated);
 		$potentialStockEntries = $this->GetProductStockEntries($productId, true, $allowSubproductSubstitution);
 		$product = $this->getDatabase()->products($productId);

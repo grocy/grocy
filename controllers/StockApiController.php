@@ -4,6 +4,8 @@ namespace Grocy\Controllers;
 
 use Grocy\Controllers\Users\User;
 use Grocy\Services\StockService;
+use Grocy\Helpers\WebhookRunner;
+use Grocy\Helpers\Grocycode;
 
 class StockApiController extends BaseApiController
 {
@@ -138,8 +140,14 @@ class StockApiController extends BaseApiController
 			{
 				$transactionType = $requestBody['transactiontype'];
 			}
+			$runPrinterWebhook = false;
+			if (array_key_exists('print_stock_label', $requestBody) && intval($requestBody['print_stock_label']))
+			{
+				$runPrinterWebhook = intval($requestBody['print_stock_label']);
+			}
 
-			$transactionId = $this->getStockService()->AddProduct($args['productId'], $requestBody['amount'], $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId, $shoppingLocationId);
+			$transactionId = $this->getStockService()->AddProduct($args['productId'], $requestBody['amount'], $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId, $shoppingLocationId, $unusedTransactionId, $runPrinterWebhook);
+
 			$args['transactionId'] = $transactionId;
 			return $this->StockTransactions($request, $response, $args);
 		}
@@ -602,6 +610,46 @@ class StockApiController extends BaseApiController
 		}
 
 		return $this->FilteredApiResponse($response, $this->getStockService()->GetProductStockLocations($args['productId'], $allowSubproductSubstitution), $request->getQueryParams());
+	}
+
+	public function ProductPrintLabel(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		$product = $this->getDatabase()->products()->where('id', $args['productId'])->fetch();
+
+		$webhookData = array_merge([
+			'product' => $product->name,
+			'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $product->id)),
+		], GROCY_LABEL_PRINTER_PARAMS);
+
+		if (GROCY_LABEL_PRINTER_RUN_SERVER)
+		{
+			(new WebhookRunner())->run(GROCY_LABEL_PRINTER_WEBHOOK, $webhookData, GROCY_LABEL_PRINTER_HOOK_JSON);
+		}
+
+		return $this->EmptyApiResponse($response);
+	}
+
+	public function StockEntryPrintLabel(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		$stockEntry = $this->getDatabase()->stock()->where('id', $args['entryId'])->fetch();
+		$product = $this->getDatabase()->products()->where('id', $stockEntry->product_id)->fetch();
+
+		$webhookData = array_merge([
+			'product' => $product->name,
+			'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $stockEntry->product_id, [$stockEntry->stock_id])),
+		], GROCY_LABEL_PRINTER_PARAMS);
+
+		if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
+		{
+			$webhookData['duedate'] = $this->getLocalizationService()->__t('DD') . ': ' . $stockEntry->best_before_date;
+		}
+
+		if (GROCY_LABEL_PRINTER_RUN_SERVER)
+		{
+			(new WebhookRunner())->run(GROCY_LABEL_PRINTER_WEBHOOK, $webhookData, GROCY_LABEL_PRINTER_HOOK_JSON);
+		}
+
+		return $this->EmptyApiResponse($response);
 	}
 
 	public function RemoveProductFromShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)

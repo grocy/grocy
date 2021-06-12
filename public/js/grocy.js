@@ -476,6 +476,24 @@ Grocy.FrontendHelpers.DeleteUserSetting = function(settingsKey, reloadPageOnSucc
 	);
 }
 
+Grocy.FrontendHelpers.RunWebhook = function(webhook, data, repetitions = 1)
+{
+	Object.assign(data, webhook.extra_data);
+	var hasAlreadyFailed = false;
+
+	for (i = 0; i < repetitions; i++)
+	{
+		$.post(webhook.hook, data).fail(function(req, status, errorThrown)
+		{
+			if (!hasAlreadyFailed)
+			{
+				hasAlreadyFailed = true;
+				Grocy.FrontendHelpers.ShowGenericError(__t("Error while executing WebHook", { "status": status, "errorThrown": errorThrown }));
+			}
+		});
+	}
+}
+
 $(document).on("keyup paste change", "input, textarea", function()
 {
 	$(this).closest("form").addClass("is-dirty");
