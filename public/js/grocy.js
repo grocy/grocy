@@ -488,7 +488,7 @@ Grocy.FrontendHelpers.RunWebhook = function(webhook, data, repetitions = 1)
 			if (!hasAlreadyFailed)
 			{
 				hasAlreadyFailed = true;
-				Grocy.FrontendHelpers.ShowGenericError(__t("Unable to connect to webhook.", { "status": status, "errorThrown": errorThrown }));
+				Grocy.FrontendHelpers.ShowGenericError(__t("Error while executing WebHook", { "status": status, "errorThrown": errorThrown }));
 			}
 		});
 	}

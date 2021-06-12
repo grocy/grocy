@@ -185,25 +185,6 @@
 									href="#">
 									{{ $__t('Product overview') }}
 								</a>
-								<a class="dropdown-item stockentry-grocycode-link"
-									type="button"
-									href="{{ $U('/stockentry/' . $stockEntry->id . '/grocycode?download=true') }}">
-									{{ $__t('Download stock entry grocycode') }}
-								</a>
-								@if(GROCY_FEATURE_FLAG_LABELPRINTER)
-								<a class="dropdown-item stockentry-grocycode-stockentry-label-print"
-									data-stock-id="{{ $stockEntry->id }}"
-									type="button"
-									href="#">
-									{{ $__t('Print stock entry label') }}
-								</a>
-								@endif
-								<a class="dropdown-item stockentry-label-link"
-									type="button"
-									target="_blank"
-									href="{{ $U('/stockentry/' . $stockEntry->id . '/label') }}">
-									{{ $__t('Open print label in new Window') }}
-								</a>
 								<a class="dropdown-item show-as-dialog-link"
 									type="button"
 									href="{{ $U('/stockjournal?embedded&product=') }}{{ $stockEntry->product_id }}">
@@ -218,6 +199,26 @@
 									type="button"
 									href="{{ $U('/product/') }}{{ $stockEntry->product_id . '?returnto=/stockentries' }}">
 									{{ $__t('Edit product') }}
+								</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item stockentry-grocycode-link"
+									type="button"
+									href="{{ $U('/stockentry/' . $stockEntry->id . '/grocycode?download=true') }}">
+									{{ $__t('Download stock entry grocycode') }}
+								</a>
+								@if(GROCY_FEATURE_FLAG_LABELPRINTER)
+								<a class="dropdown-item stockentry-grocycode-stockentry-label-print"
+									data-stock-id="{{ $stockEntry->id }}"
+									type="button"
+									href="#">
+									{{ $__t('Print stock entry grocycode on label printer') }}
+								</a>
+								@endif
+								<a class="dropdown-item stockentry-label-link"
+									type="button"
+									target="_blank"
+									href="{{ $U('/stockentry/' . $stockEntry->id . '/label') }}">
+									{{ $__t('Open stock entry print label in new window') }}
 								</a>
 							</div>
 						</div>

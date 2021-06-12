@@ -2078,7 +2078,7 @@ msgstr ""
 msgid "A product or a note is required"
 msgstr ""
 
-msgid "Grocycode"
+msgid "grocycode"
 msgstr ""
 
 msgid "Download"
@@ -2090,46 +2090,42 @@ msgstr ""
 msgid "Download product grocycode"
 msgstr ""
 
-msgid ""
-"If enabled, the min. stock amount of sub products will be accumulated into this product, means the sub product will never be \"\n"
-"\t\t\t\t\t\t\tmissing\",\n"
-"\t\t\t\t\t\t\tonly\n"
-"\t\t\t\t\t\t\tthis\n"
-"\t\t\t\t\t\t\tproduct"
+msgid "grocycode is a unique referer to this product in your grocy instance - print it onto a label and scan it like any other barcode"
 msgstr ""
 
-msgid "Grocycode is a unique referer to this product in your grocy instance. Print it onto a label and scan it like any other barcode!"
-msgstr ""
-
-msgid "Open print label in new Window"
-msgstr ""
-
+# Abbreviation for "due date"
 msgid "DD"
 msgstr ""
 
-msgid "Print stock label"
+msgid "Print on label printer"
 msgstr ""
 
-msgid "Print Product Label"
+msgid "Stock entry label"
 msgstr ""
 
-msgid "Print stock entry label"
+msgid "No label"
 msgstr ""
 
-msgid "Stock label"
+msgid "Single label"
 msgstr ""
 
-msgid "No Label"
-msgstr ""
-
-msgid "Single Label"
-msgstr ""
-
-msgid "Label per Unit"
+msgid "Label per unit"
 msgstr ""
 
 msgid "Allow label printing per unit"
 msgstr ""
 
-msgid "Allow printing of one label per unit in a purchase (after conversion). E.g. 1 purchased pack adding 10 pieces of stock would print 10 labels."
+msgid "Allow printing of one label per unit on purchase (after conversion) - e.g. 1 purchased pack adding 10 pieces of stock would print 10 labels"
+msgstr ""
+
+msgid "Error while executing WebHook"
+msgstr ""
+
+msgid "Print product grocycode on label printer"
+msgstr ""
+
+msgid "Print stock entry grocycode on label printer"
+msgstr ""
+
+msgid "Open stock entry print label in new window"
 msgstr ""

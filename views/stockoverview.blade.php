@@ -277,19 +277,6 @@
 									href="#">
 									<span class="dropdown-item-text">{{ $__t('Product overview') }}</span>
 								</a>
-								<a class="dropdown-item stockentry-grocycode-link"
-									type="button"
-									href="{{ $U('/product/' . $currentStockEntry->product_id . '/grocycode?download=true') }}">
-									{{ $__t('Download product grocycode') }}
-								</a>
-								@if(GROCY_FEATURE_FLAG_LABELPRINTER)
-								<a class="dropdown-item stockentry-grocycode-product-label-print"
-									data-product-id="{{ $currentStockEntry->product_id }}"
-									type="button"
-									href="#">
-									{{ $__t('Print Product Label') }}
-								</a>
-								@endif
 								<a class="dropdown-item show-as-dialog-link"
 									type="button"
 									href="{{ $U('/stockentries?embedded&product=') }}{{ $currentStockEntry->product_id }}"
@@ -311,6 +298,20 @@
 									href="{{ $U('/product/') }}{{ $currentStockEntry->product_id . '?returnto=%2Fstockoverview' }}">
 									<span class="dropdown-item-text">{{ $__t('Edit product') }}</span>
 								</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item stockentry-grocycode-link"
+									type="button"
+									href="{{ $U('/product/' . $currentStockEntry->product_id . '/grocycode?download=true') }}">
+									{{ $__t('Download product grocycode') }}
+								</a>
+								@if(GROCY_FEATURE_FLAG_LABELPRINTER)
+								<a class="dropdown-item stockentry-grocycode-product-label-print"
+									data-product-id="{{ $currentStockEntry->product_id }}"
+									type="button"
+									href="#">
+									{{ $__t('Print product grocycode on label printer') }}
+								</a>
+								@endif
 							</div>
 						</div>
 					</td>

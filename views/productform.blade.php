@@ -145,12 +145,7 @@
 						for="cumulate_min_stock_amount_of_sub_products">{{ $__t('Accumulate sub products min. stock amount') }}
 						&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
-							title="{{ $__t('If enabled, the min. stock amount of sub products will be accumulated into this product, means the sub product will never be "
-							missing",
-							only
-							this
-							product')
-							}}"></i>
+							title="{{ $__t('If enabled, the min. stock amount of sub products will be accumulated into this product, means the sub product will never be "missing", only this product') }}"></i>
 					</label>
 				</div>
 			</div>
@@ -414,7 +409,7 @@
 					<label class="form-check-label custom-control-label"
 						for="allow_label_per_unit">{{ $__t('Allow label printing per unit') }}&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
-							title="{{ $__t('Allow printing of one label per unit in a purchase (after conversion). E.g. 1 purchased pack adding 10 pieces of stock would print 10 labels.') }}"></i>
+							title="{{ $__t('Allow printing of one label per unit on purchase (after conversion) - e.g. 1 purchased pack adding 10 pieces of stock would print 10 labels') }}"></i>
 					</label>
 				</div>
 			</div>
@@ -426,28 +421,32 @@
 			$disable_per_unit = "";
 
 			if($mode == 'edit') {
-				switch($product->default_print_stock_label) {
-					case 0: $no_label = "selected"; break;
-					case 1: $single_label = "selected"; break;
-					case 2: $per_unit_label = "selected"; break;
-					default: break; // yolo
-				}
-				if($product->allow_label_per_unit == 0) {
-					$disable_per_unit="disabled";
-					$per_unit_label = "";
-				}
+			switch($product->default_print_stock_label) {
+			case 0: $no_label = "selected"; break;
+			case 1: $single_label = "selected"; break;
+			case 2: $per_unit_label = "selected"; break;
+			default: break; // yolo
+			}
+			if($product->allow_label_per_unit == 0) {
+			$disable_per_unit="disabled";
+			$per_unit_label = "";
+			}
 			}
 			@endphp
 
 			<div class="form-group">
-				<label for="default_print_stock_label">{{ $__t('Stock label') }}</label>
+				<label for="default_print_stock_label">{{ $__t('Stock entry label') }}</label>
 				<select class="form-control"
 					id="default_print_stock_label"
 					name="default_print_stock_label">
-					<option value="0" {{ $no_label }}>{{ $__t('No Label') }}</option>
-					<option value="1" {{ $single_label }}>{{ $__t('Single Label') }}</option>
-					<option value="2" {{ $per_unit_label }} {{ $disable_per_unit }}
-						id="label-option-per-unit">{{ $__t('Label per Unit') }}</option>
+					<option value="0"
+						{{ $no_label }}>{{ $__t('No label') }}</option>
+					<option value="1"
+						{{ $single_label }}>{{ $__t('Single label') }}</option>
+					<option value="2"
+						{{ $per_unit_label }}
+						{{ $disable_per_unit }}
+						id="label-option-per-unit">{{ $__t('Label per unit') }}</option>
 				</select>
 			</div>
 			@endif
@@ -479,33 +478,7 @@
 
 	<div class="col-lg-6 col-xs-12 @if($mode == 'create') d-none @endif">
 
-		<div class="row">
-			<div class="col clearfix">
-				<div class="title-related-links">
-					<h4>
-						{{ $__t('Grocycode') }}
-					</h4>
-					<p>
-						<img src="{{ $U('/product/' . $product->id . '/grocycode') }}"
-							class="float-lg-left mr-2">
-						{{ $__t('Grocycode is a unique referer to this product in your grocy instance. Print it onto a label and scan it like any other barcode!') }}
-					</p>
-					<p>
-						<a class="btn btn-outline-primary btn-sm"
-							href="{{ $U('/product/' . $product->id . '/grocycode?download=true') }}">{{ $__t('Download') }}</a>
-						@if(GROCY_FEATURE_FLAG_LABELPRINTER)
-						<a class="btn btn-outline-primary btn-sm stockentry-grocycode-product-label-print"
-							data-product-id="{{ $product->id }}"
-							href="#">
-							{{ $__t('Print Product Label') }}
-						</a>
-						@endif
-					</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="row @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif mt-5">
+		<div class="row @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif">
 			<div class="col">
 				<div class="title-related-links">
 					<h4>
@@ -609,6 +582,34 @@
 						@endif
 					</tbody>
 				</table>
+			</div>
+		</div>
+
+		<div class="row mt-2">
+			<div class="col clearfix">
+				<div class="title-related-links">
+					<h4>
+						{{ $__t('grocycode') }}
+						<i class="fas fa-question-circle text-muted"
+							data-toggle="tooltip"
+							title="{{ $__t('grocycode is a unique referer to this product in your grocy instance - print it onto a label and scan it like any other barcode') }}"></i>
+					</h4>
+					<p>
+						<img src="{{ $U('/product/' . $product->id . '/grocycode?size=60') }}"
+							class="float-lg-left">
+					</p>
+					<p>
+						<a class="btn btn-outline-primary btn-sm"
+							href="{{ $U('/product/' . $product->id . '/grocycode?download=true') }}">{{ $__t('Download') }}</a>
+						@if(GROCY_FEATURE_FLAG_LABELPRINTER)
+						<a class="btn btn-outline-primary btn-sm stockentry-grocycode-product-label-print"
+							data-product-id="{{ $product->id }}"
+							href="#">
+							{{ $__t('Print on label printer') }}
+						</a>
+						@endif
+					</p>
+				</div>
 			</div>
 		</div>
 

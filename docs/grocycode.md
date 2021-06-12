@@ -1,7 +1,7 @@
-Grocycode
+grocycode
 ==========
 
-Grocycode is, in essence, a simple way to reference to arbitrary grocy entities.
+grocycode is, in essence, a simple way to reference to arbitrary grocy entities.
 Each grocycode includes a magic, an entitiy identifier, an id and an ordered set of extra data.
 It is supported to be entered anywhere grocy expects one to read a barcode, but can also reference
 grocy-internal properties like specific stock entries, or specific batteries.
@@ -33,22 +33,22 @@ Example
 
 In this example, we encode a *Product* with ID *13*, which results in `grcy:p:13` when serialized.
 
-Product Grocycodes
+Product grocycodes
 ----
 
-Product Grocycodes extend the data format to include an optional stock id, thus may reference a specific stock entry directly.
+Product grocycodes extend the data format to include an optional stock id, thus may reference a specific stock entry directly.
 
 Example: `grcy:p:13:60bf8b5244b04`
 
-Battery Grocycodes
+Battery grocycodes
 ----
 
-Currently, Battery Grocycodes do not define any extra fields.
+Currently, Battery grocycodes do not define any extra fields.
 
-Chore Grocycodes
+Chore grocycodes
 ----
 
-Currently, Chore Grocycodes do not define any extra fields.
+Currently, Chore grocycodes do not define any extra fields.
 
 Visual Encoding
 ----
