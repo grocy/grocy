@@ -1,3 +1,18 @@
+### New feature: (Own) Product and stock entry labels/barcodes ("grocycode")
+- Print own labels/barcodes for products and/or every stock entry and then scan that code on every place a product or stock entry can be selected
+- Can be printed (or downloaded) via
+  - The product edit page
+  - The context/more menu per line on the stock overview and stock entries page
+  - Automatically on purchase (new option on the purchase page, defaults can be configured per product)
+- The used barcode type is `DataMatrix`
+- Label printer functionality can be enabled via the new feature flag `FEATURE_FLAG_LABELPRINTER` (defaults to disabled)
+- Label printer communication happens via WebHooks - see the new `LABEL_PRINTER*` `config.php` options
+- Those grocycodes can also be used without a label printer - you can view or download the pictures and print them manually
+- More information:
+  - https://github.com/grocy/grocy/blob/master/docs/grocycode.md
+  - https://github.com/grocy/grocy/blob/master/docs/label-printing.md
+- (Thanks a lot @mistressofjellyfish)
+
 ### Stock improvements/fixes
 - Product barcodes are now enforced to be unique across products
 - Fixed that editing stock entries was not possible
