@@ -203,6 +203,7 @@ class BaseController
 		if (self::$htmlPurifierInstance == null)
 		{
 			$htmlPurifierConfig = \HTMLPurifier_Config::createDefault();
+			$htmlPurifierConfig->set('Cache.SerializerPath', GROCY_DATAPATH . '/viewcache');
 			$htmlPurifierConfig->set('HTML.Allowed', 'div,b,strong,i,em,u,a[href|title],ul,ol,li,p[style],br,span[style],img[width|height|alt|src],table[border|width|style],tbody,tr,td,th,blockquote');
 			$htmlPurifierConfig->set('CSS.AllowedProperties', 'font,font-size,font-weight,font-style,font-family,text-decoration,padding-left,color,background-color,text-align');
 			$htmlPurifierConfig->set('URI.AllowedSchemes', ['data' => true]);
