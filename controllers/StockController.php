@@ -489,8 +489,8 @@ class StockController extends BaseController
 			->withHeader('Content-Length', strlen($png))
 			->withHeader('Cache-Control', 'no-cache')
 			->withHeader('Last-Modified', gmdate('D, d M Y H:i:s') . ' GMT');
-			$response->getBody()->write($png);
 		}
+		$response->getBody()->write($png);
 		return $response;
 	}
 
