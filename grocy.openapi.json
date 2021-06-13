@@ -1547,8 +1547,16 @@
 					}
 				],
 				"responses": {
-					"204": {
-						"description": "The operation was successful"
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"description": "WebHook data"
+								}
+							}
+						}
 					},
 					"400": {
 						"description": "The operation was not successful (possible errors are: Not existing stock entry, error on WebHook execution)",
@@ -2269,8 +2277,16 @@
 					}
 				],
 				"responses": {
-					"204": {
-						"description": "The operation was successful"
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"description": "WebHook data"
+								}
+							}
+						}
 					},
 					"400": {
 						"description": "The operation was not successful (possible errors are: Not existing product, error on WebHook execution)",

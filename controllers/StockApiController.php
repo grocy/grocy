@@ -626,7 +626,7 @@ class StockApiController extends BaseApiController
 			(new WebhookRunner())->run(GROCY_LABEL_PRINTER_WEBHOOK, $webhookData, GROCY_LABEL_PRINTER_HOOK_JSON);
 		}
 
-		return $this->EmptyApiResponse($response);
+		return $this->ApiResponse($response, $webhookData);
 	}
 
 	public function StockEntryPrintLabel(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -649,7 +649,7 @@ class StockApiController extends BaseApiController
 			(new WebhookRunner())->run(GROCY_LABEL_PRINTER_WEBHOOK, $webhookData, GROCY_LABEL_PRINTER_HOOK_JSON);
 		}
 
-		return $this->EmptyApiResponse($response);
+		return $this->ApiResponse($response, $webhookData);
 	}
 
 	public function RemoveProductFromShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
