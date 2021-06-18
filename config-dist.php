@@ -95,6 +95,22 @@ Setting('MEAL_PLAN_FIRST_DAY_OF_WEEK', '');
 // see the file controllers/Users/User.php for possible values
 Setting('DEFAULT_PERMISSIONS', ['ADMIN']);
 
+// When using a thermal printer (thermal printers are receipt printers, not regular printers)
+// The printer must support the ESC/POS protocol, see https://github.com/mike42/escpos-php
+Setting('TPRINTER_IS_NETWORK_PRINTER', false);  // Set to true if it is a network printer
+Setting('TPRINTER_PRINT_QUANTITY_NAME', true);  // Set to false if you do not want to print the quantity names
+Setting('TPRINTER_PRINT_NOTES', true);          // Set to false if you do not want to print notes
+
+//Configuration below for network printers. If you are using a USB/serial printer, skip to next section
+Setting('TPRINTER_IP', '127.0.0.1');            // IP of the network printer
+Setting('TPRINTER_PORT', 9100);                 // Port of printer, eg. 9100
+//Configuration below if you are using a USB or serial printer
+Setting('TPRINTER_CONNECTOR', '/dev/usb/lp0');  // Location of printer. For USB on Linux this is often '/dev/usb/lp0',
+                                                // for serial printers it could be similar to '/dev/ttyS0'
+                                                // Make sure that the user that runs the webserver has permissions to write to the printer!
+                                                // On Linux add your webserver user to the LP group with usermod -a -G lp www-data
+
+
 // Default user settings
 // These settings can be changed per user, here the defaults
 // are defined which are used when the user has not changed the setting so far
@@ -198,6 +214,7 @@ Setting('FEATURE_FLAG_STOCK_PRODUCT_FREEZING', true);
 Setting('FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_FIELD_NUMBER_PAD', true); // Activate the number pad in due date fields on (supported) mobile browsers
 Setting('FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS', true);
 Setting('FEATURE_FLAG_CHORES_ASSIGNMENTS', true);
+Setting('FEATURE_FLAG_THERMAL_PRINTER', false);
 
 // Feature settings
 Setting('FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT', true); // When set to true, opened items will be counted as missing for calculating if a product is below its minimum stock amount

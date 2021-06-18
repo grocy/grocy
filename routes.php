@@ -232,6 +232,9 @@ $app->group('/api', function (RouteCollectorProxy $group) {
 	$group->post('/chores/executions/{executionId}/undo', '\Grocy\Controllers\ChoresApiController:UndoChoreExecution');
 	$group->post('/chores/executions/calculate-next-assignments', '\Grocy\Controllers\ChoresApiController:CalculateNextExecutionAssignments');
 
+	//Printing
+	$group->get('/print/shoppinglist/thermal', '\Grocy\Controllers\PrintApiController:PrintShoppingListThermal');
+
 	// Batteries
 	$group->get('/batteries', '\Grocy\Controllers\BatteriesApiController:Current');
 	$group->get('/batteries/{batteryId}', '\Grocy\Controllers\BatteriesApiController:BatteryDetails');

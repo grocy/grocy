@@ -512,6 +512,7 @@ class StockController extends BaseController
 		]);
 	}
 
+
 	public function Stockentries(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$usersService = $this->getUsersService();
