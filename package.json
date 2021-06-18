@@ -60,6 +60,7 @@
 		"gulp-postcss": "^9.0.0",
 		"gulp-sourcemaps": "^3.0.0",
 		"gulp-uglify": "^3.0.2",
+		"gulp-zip": "^5.1.0",
 		"install": "^0.13.0",
 		"lodash.clonedeep": "^4.5.0",
 		"node-sass-tilde-importer": "^1.0.2",

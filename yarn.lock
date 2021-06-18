@@ -1979,6 +1979,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"buffer-crc32@npm:~0.2.3":
+  version: 0.2.13
+  resolution: "buffer-crc32@npm:0.2.13"
+  checksum: 0340e848d6fd87e49ef6f1067f31b2a8d2e71b433e9bb62ff3d9bc2499146f0be586b5b80b0d099c7110a226161b21cb6cd80162dd5a51d9ebdb03da58b99637
+  languageName: node
+  linkType: hard
+
 "buffer-equal@npm:^1.0.0":
   version: 1.0.0
   resolution: "buffer-equal@npm:1.0.0"
@@ -4633,7 +4640,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"get-stream@npm:^5.1.0":
+"get-stream@npm:^5.1.0, get-stream@npm:^5.2.0":
   version: 5.2.0
   resolution: "get-stream@npm:5.2.0"
   dependencies:
@@ -4973,6 +4980,7 @@ fsevents@~2.3.2:
     gulp-postcss: ^9.0.0
     gulp-sourcemaps: ^3.0.0
     gulp-uglify: ^3.0.2
+    gulp-zip: ^5.1.0
     install: ^0.13.0
     jquery: 3.5.1
     jquery-lazy: ^1.7.11
@@ -5125,6 +5133,24 @@ fsevents@~2.3.2:
     uglify-js: ^3.0.5
     vinyl-sourcemaps-apply: ^0.2.0
   checksum: 057cf26b7c10be9cc63e588f8581e103f1aa06266c180244de23a05b1aa015c1859b8ac330682b924354e7b8b28c452b4eddf8fed10a9de92512f44e05527a7d
+  languageName: node
+  linkType: hard
+
+"gulp-zip@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "gulp-zip@npm:5.1.0"
+  dependencies:
+    get-stream: ^5.2.0
+    plugin-error: ^1.0.1
+    through2: ^3.0.1
+    vinyl: ^2.1.0
+    yazl: ^2.5.1
+  peerDependencies:
+    gulp: ">=4"
+  peerDependenciesMeta:
+    gulp:
+      optional: true
+  checksum: f81961d4b5eaab5d3b4f9e3d6d11e4944a2c8d73ebbc44affc586d810864d38bb35c590640e19e1e0d322a0c50738b358ddbf73ca0c1cf45e2e7c2fed5497d19
   languageName: node
   linkType: hard
 
@@ -12151,5 +12177,14 @@ fsevents@~2.3.2:
     y18n: ^3.2.1
     yargs-parser: ^5.0.1
   checksum: 584b402e914284428224d7c6222593dc66f66fbeb6db834c8d951219c402ecb7d1124520244ce98238f314bc9dd9477301d808f77156997a9c0b8ded675e48ee
+  languageName: node
+  linkType: hard
+
+"yazl@npm:^2.5.1":
+  version: 2.5.1
+  resolution: "yazl@npm:2.5.1"
+  dependencies:
+    buffer-crc32: ~0.2.3
+  checksum: ee9bd2f57dfe1bdca333749bbb42b5a9e68a39871a31d8eed93b5606b8dfa1a1dda89af5cfd274a455c0f5f5790d743538067f2468d3bc8cd4227cdc94bc6ec3
   languageName: node
   linkType: hard

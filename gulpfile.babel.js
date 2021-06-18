@@ -15,8 +15,11 @@ import gulpif from 'gulp-if';
 import uglify from 'gulp-uglify';
 import gulpsass from 'gulp-dart-sass'; // TODO: move to gulp-sass once they removed the node-sass depenency
 import postcss from 'gulp-postcss';
+import zip from 'gulp-zip';
 import glob from 'glob';
 import path from 'path';
+import subprocess from 'child_process';
+import fs from 'fs';
 
 // css post-processing
 import cssnano from 'cssnano';
@@ -244,10 +247,50 @@ function copyLocales(cb)
 function live(cb)
 {
 	watch('./scss/**/*.scss', css);
-	watch(['./js/**/*.js', '!!./js/viewjs/**/*.js'], js);
+	watch(['./js/**/*.js', '!./js/viewjs/**/*.js'], js);
 	watch('./js/vendor.js', vendor);
 	//watch('./js/viewjs/**/*.js', viewjs);
 	viewJStasks.forEach(elem => watch(elem, series([elem])));
 }
 
-export { build, js, vendor, viewjs, css, live, clean, resourceFileCopy, copyLocales }
+function release(cb)
+{
+	return series(publish, bundle, done => { done(); cb(); })();
+}
+
+function bundle(cb)
+{
+	var version = subprocess.spawnSync('git', ['describe', '--tags'], {
+		cwd: process.cwd(),
+		stdio: 'pipe',
+	});
+	var today = new Date();
+
+	var versionObject = {
+		Version: version.output[1].toString().substring(1).replace('\n', ''),
+		ReleaseDate: today.getFullYear().toString() + "-" + today.getMonth().toString().padStart(2, "0") + "-" + today.getDay().toString().padStart(2, "0"),
+	};
+
+	fs.writeFileSync("version.json", JSON.stringify(versionObject, null, 2));
+
+	return src([
+		'**/*',
+		'!yarn.lock',
+		'!package.json',
+		'!postcss.config.js',
+		'!gulpfile.babel.js',
+		'!composer.json',
+		'!composer.lock',
+		'!node_modules/**',
+		'!js/',
+		'!scss/',
+		'!data/config.php',
+		'!data/storage/**',
+		'!data/grocy.db',
+		'data/.htaccess',
+		'public/.htaccess'
+	]).pipe(zip('grocy-' + versionObject.Version + '.zip'))
+		.pipe(dest('.release'))
+}
+
+export { build, js, vendor, viewjs, css, live, clean, resourceFileCopy, copyLocales, publish, release, bundle }
