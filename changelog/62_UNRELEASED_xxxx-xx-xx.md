@@ -13,6 +13,14 @@
   - https://github.com/grocy/grocy/blob/master/docs/label-printing.md
 - (Thanks a lot @mistressofjellyfish)
 
+### New feature: Shopping list thermal printer support
+- The shopping list can now be printed on a thermal printer
+  - The printer must compatible to the `ESC/POS` protocol and needs to be locally attached or network reachable to/by the machine hosting grocy (so the server)
+  - See the new `TPRINTER*` `config.php` options to configure the printer connection and other options
+  - => New button on the shopping list print dialog
+- Can be enabled via the new feature flag `FEATURE_FLAG_THERMAL_PRINTER` (defaults to disabled)
+- (Thanks a lot @Forceu)
+
 ### Stock improvements/fixes
 - Product barcodes are now enforced to be unique across products
 - Fixed that editing stock entries was not possible
