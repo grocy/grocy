@@ -20,17 +20,17 @@
 <div class="row">
 	<div class="col-lg-6 col-xs-12">
 		<script>
-			Grocy.EditMode = '{{ $mode }}';
+			GrocyConfig.EditMode = '{{ $mode }}';
 		</script>
 
 		@if($mode == 'edit')
 		<script>
-			Grocy.EditObjectId = {{ $product->id }};
+			GrocyConfig.EditObjectId = {{ $product->id }};
 		</script>
 
 		@if(!empty($product->picture_file_name))
 		<script>
-			Grocy.ProductPictureFileName = '{{ $product->picture_file_name }}';
+			GrocyConfig.ProductPictureFileName = '{{ $product->picture_file_name }}';
 		</script>
 		@endif
 		@endif

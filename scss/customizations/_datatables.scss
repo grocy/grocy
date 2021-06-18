@@ -1,0 +1,24 @@
+
+/* Third party component customizations - DataTables */
+.dataTable td {
+	vertical-align: middle !important;
+}
+
+.table td.fit-content,
+.table th.fit-content {
+	white-space: nowrap;
+	width: 1%;
+}
+
+.dataTables_filter,
+.dataTables_info {
+	display: none;
+}
+
+.force-overflow-visible {
+	overflow: visible !important;
+}
+
+tr.dtrg-group {
+	cursor: pointer;
+}

@@ -5,8 +5,8 @@
 
 @section('content')
 <script>
-	Grocy.EditObjectId = {{ $stockEntry->id }};
-	Grocy.EditObjectProductId = {{ $stockEntry->product_id }};
+	GrocyConfig.EditObjectId = {{ $stockEntry->id }};
+	GrocyConfig.EditObjectProductId = {{ $stockEntry->product_id }};
 </script>
 
 <div class="row">

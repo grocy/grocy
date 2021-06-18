@@ -1,4 +1,6 @@
 /public/node_modules
+node_modules
+.yarn
 /vendor
 /.release
 embedded.txt

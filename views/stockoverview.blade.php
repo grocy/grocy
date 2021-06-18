@@ -5,7 +5,7 @@
 @section('viewJsName', 'stockoverview')
 
 @push('pageStyles')
-<link href="{{ $U('/node_modules/animate.css/animate.min.css?v=', true) }}{{ $version }}"
+<link href="{{ $U('/css/viewcss/stockoverview.css?v=', true) }}{{ $version }}"
 	rel="stylesheet">
 @endpush
 

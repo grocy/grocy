@@ -5,13 +5,7 @@
 @section('viewJsName', 'shoppinglist')
 
 @push('pageScripts')
-<script src="{{ $U('/node_modules/bwip-js/dist/bwip-js-min.js?v=', true) }}{{ $version }}"></script>
 <script src="{{ $U('/viewjs/purchase.js?v=', true) }}{{ $version }}"></script>
-@endpush
-
-@push('pageStyles')
-<link href="{{ $U('/node_modules/animate.css/animate.min.css?v=', true) }}{{ $version }}"
-	rel="stylesheet">
 @endpush
 
 @section('content')

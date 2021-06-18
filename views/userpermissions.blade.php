@@ -6,7 +6,7 @@
 
 @push('pageScripts')
 <script>
-	Grocy.EditObjectId = {{ $user->id }};
+	GrocyConfig.EditObjectId = {{ $user->id }};
 </script>
 @endpush
 

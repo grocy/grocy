@@ -4,11 +4,6 @@
 
 @section('viewJsName', 'barcodescannertesting')
 
-@push('pageScripts')
-<link href="{{ $U('/node_modules/animate.css/animate.min.css?v=', true) }}{{ $version }}"
-	rel="stylesheet">
-@endpush
-
 @section('content')
 <div class="row">
 	<div class="col">

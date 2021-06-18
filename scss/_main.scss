@@ -1,0 +1,417 @@
+.content-text {
+	font-size: 0.85rem;
+	.invalid-feedback {
+		font-size: 95%;
+	}
+}
+
+.responsive-button {
+	white-space: normal;
+}
+
+.timeago-contextual {
+	font-style: italic;
+	font-size: 0.8em;
+}
+
+a.discrete-link {
+	color: inherit !important;
+	transition: all 0.3s !important;
+	&:hover {
+		color: #337ab7 !important;
+		text-decoration: none !important;
+	}
+	&:focus {
+		color: #ab2230 !important;
+		text-decoration: none !important;
+	}
+}
+
+
+.grocy-card {
+	.card-header {
+		background-color: inherit;
+	}
+	.card-title {
+		color: #495157;
+	}
+	.card-icons {
+		a {
+			font-size: 18px;
+			color: #495157;
+			padding: 2px 4px;
+			text-decoration: none;
+			text-align: center;
+		}
+		i {
+			width: 18px;
+		}
+	}
+}
+
+.fullscreen {
+	z-index: 8888;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	overflow: auto;
+	background-color: $white;
+	width: 100%;
+}
+
+ /* Fixes smooth scrolling on iOS */
+#sidebarResponsive,
+.fullscreen {
+	-webkit-overflow-scrolling: touch;
+}
+
+.fullscreen-card {
+	.card-header-fullscreen {
+		z-index: 9999;
+		width: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+	.hide-on-fullscreen-card {
+		display: none;
+	}
+	.card-img-top {
+		width: 50%;
+		margin: 0 auto;
+	}
+}
+
+ body.fullscreen-card {
+	 overflow: hidden;
+ }
+
+ .form-check-input.is-valid ~ .form-check-label,
+ .was-validated .form-check-input:valid ~ .form-check-label,
+.custom-control-input.is-valid ~ .custom-control-label,
+ .was-validated .custom-control-input:valid ~ .custom-control-label {
+	color: inherit;
+}
+
+.text-strike-through {
+	text-decoration: line-through;
+}
+
+button.disabled {
+	pointer-events: none;
+}
+
+.embedded {
+
+	.hide-when-embedded {
+		display: none;
+	}
+	.content-wrapper {
+		margin-left: 0;
+	}
+}
+
+body.embedded.fixed-nav {
+	padding-top: 0;
+}
+
+iframe {
+	border: 0;
+}
+
+/* Hide the default up/down arrow buttons for number inputs because we use our own buttons in numberpicker */
+// TODO: unify, autoprefixer
+input[type='number'] {
+	-moz-appearance: textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+
+/* Navigation style customizations */
+#mainNav {
+	line-height: 1;
+	background-color: #e5e5e5 !important;
+	border-bottom: 2px solid !important;
+	border-color: #d6d6d6 !important;
+	padding-bottom: 0.3rem;
+
+	.dropdown-menu {
+		line-height: 1.5;
+	}
+}
+
+.navbar-sidenav {
+	overflow-x: hidden;
+	overflow-y: overlay;
+	border-top: 2px solid !important;
+}
+
+.navbar-sidenav,
+.sidenav-second-level {
+	background-color: #e5e5e5 !important;
+	border-right: 2px solid !important;
+	border-color: #d6d6d6 !important;
+}
+
+.navbar-nav .dropdown-menu {
+	background-color: #e5e5e5 !important;
+	border: 0;
+	border-radius: 0;
+}
+
+.navbar-nav .dropdown-divider,
+.nav-item-divider {
+	border-top: 2px solid !important;
+	border-color: #d6d6d6 !important;
+}
+
+.sidenav-toggler {
+	background-color: #d6d6d6 !important;
+	border-right: 2px solid !important;
+	border-color: #d6d6d6 !important;
+}
+
+.navbar-sidenav > li,
+.sidenav-second-level > li {
+	transition: all 0.3s !important;
+}
+
+.navbar-sidenav > li:hover,
+.sidenav-second-level > li:hover,
+.navbar-nav .dropdown-item:hover {
+	box-shadow: inset 5px 0 0 #337ab7 !important;
+	background-color: #d6d6d6 !important;
+}
+
+.navbar-sidenav > li > a:focus,
+.sidenav-second-level > li > a:focus,
+.navbar-nav .dropdown-item:focus {
+	box-shadow: inset 5px 0 0 #ab2230 !important;
+	background-color: #d6d6d6 !important;
+}
+
+.active-page {
+	box-shadow: inset 5px 0 0 #ab2230 !important;
+	background-color: #d6d6d6 !important;
+}
+
+.navbar-brand {
+	margin-right: 0;
+}
+
+.cursor-link {
+	cursor: pointer;
+}
+
+.cursor-busy {
+	cursor: wait;
+}
+
+.expandable-text .collapse, .module .collapsing {
+	height: 2.4rem;
+}
+
+.expandable-text .collapse {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	&:before {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+	}
+	&.show {
+		height: auto;
+		&:before {
+			display: none;
+		}
+	}
+}
+
+.table-inline-menu.dropdown-menu {
+	padding-left: 12px;
+	padding-right: 12px;
+	width: 96vw; /* Set width of popup menu to screen size */
+}
+
+a:not([href]) {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Set width of popup menu to fixed value on larger devices */
+// TODO: which breakpoint is this?
+@media (min-width: 400px) {
+	.table-inline-menu.dropdown-menu {
+		width: 400px;
+	}
+}
+
+.table-inline-menu .dropdown-item {
+	width: auto;
+	text-indent: -24px;
+	.dropdown-item-icon {
+		min-width: 24px;
+		padding-left:20px;
+		text-align: center;
+		display: inline;
+	}
+	.dropdown-item-text {
+		display: inline;
+		padding: 0;
+		word-wrap: break-word;
+		white-space: pre-wrap;
+		color: inherit;
+	}
+}
+
+.warning-message,
+.error-message,
+.normal-message,
+.secondary-message {
+  padding: 12px;
+  font-weight: bold;
+  width: fit-content;
+  border-top: 6px solid;
+}
+
+.warning-message {
+  background-color: #fffaeb;
+  color: #7c5e10;
+  border-top-color: #e9b949;
+}
+
+.error-message {
+  background-color: #ffeeee;
+  color: #780a0a;
+  border-top-color: #ba2525;
+}
+
+.normal-message {
+  background-color: #e0e8f9;
+  color: #2d3a8c;
+  border-top-color: #4c63b6;
+}
+
+.secondary-message {
+	background-color: #e1e4e8;
+	color: #4e575f;
+	border-top-color: #68696b;
+}
+
+.status-filter-message,
+.user-filter-message {
+  display: inline-block;
+  cursor: pointer;
+  line-height: 0.5;
+}
+
+.related-links .btn {
+  font-size: 14px;
+}
+
+.title {
+  display: inline-block;
+  margin-bottom: 0 !important;
+}
+
+.title-related-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.form-control-lg .custom-control-label {
+  padding-top: 7px;
+  padding-left: 10px;
+}
+
+.custom-control-label {
+  padding-top: 13px;
+  padding-left: 10px;
+}
+
+.custom-control-label::before,
+.custom-control-label::after {
+  top: 0.8rem;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.recipe-servings-input {
+	width: 125px;
+}
+
+.fc-event{
+	cursor: pointer;
+}
+
+.grocy-tabs .nav-link {
+	color: #767676;
+	text-transform: uppercase;
+}
+
+ .grocy-tabs .nav-link {
+	border: 2px solid transparent;
+	transition: border-bottom-color ease-in 0.1s;
+}
+
+.grocy-tabs .nav-link.active {
+	border: 2px solid transparent;
+	border-bottom-color: #0b024c !important;
+}
+
+.grocy-tabs .nav-link:hover {
+	border: 2px solid transparent;
+	border-bottom-color: #0b024c7d;
+}
+
+.grocy-tabs .nav-item {
+	margin-bottom: -2px;
+}
+
+.grocy-tabs.card-header-tabs {
+	margin-bottom: -.65rem;
+}
+
+.grocy-tabs.tab-content > .active {
+	display: flex;
+	flex-direction: column;
+}
+
+.recipe-card img {
+	height: 14rem;
+	width: 100%;
+	object-fit: cover;
+}
+
+@media print {
+	.grocy-tabs.print.tab-content > .tab-pane {
+		display: flex !important;
+		flex-direction: column !important;
+		opacity: 1 !important;
+		visibility: visible !important;
+		overflow: visible !important;
+		width: auto !important;
+		height: auto !important;
+	}
+
+	.grocy-tabs.break > .tab-pane {
+		page-break-after: always;
+	}
+
+	.print-view {
+		width: 100%;
+		max-width: 100%;
+		flex-basis: 100%;
+	}
+}
+
+.not-allowed {
+	pointer-events: none;
+	opacity: 0.5;
+}

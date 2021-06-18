@@ -3,11 +3,6 @@
 @section('title', $__t('Stock entries'))
 @section('viewJsName', 'stockentries')
 
-@push('pageStyles')
-<link href="{{ $U('/node_modules/animate.css/animate.min.css?v=', true) }}{{ $version }}"
-	rel="stylesheet">
-@endpush
-
 @push('pageScripts')
 <script src="{{ $U('/viewjs/purchase.js?v=', true) }}{{ $version }}"></script>
 @endpush

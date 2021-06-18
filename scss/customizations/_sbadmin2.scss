@@ -1,0 +1,59 @@
+/* Third party component customizations - SB Admin 2 */
+#mainNav .navbar-collapse .navbar-nav > .nav-item.dropdown > .nav-link:after,
+#mainNav .navbar-collapse .navbar-sidenav .nav-link-collapse:after {
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+}
+#mainNav .navbar-collapse .navbar-nav > .nav-item.dropdown > .nav-link.py-0:after,
+#mainNav .navbar-collapse .navbar-sidenav .nav-link-collapse.py-0:after {
+	padding-top: 8px;
+}
+
+#mainNav .navbar-collapse .navbar-sidenav > .nav-item > .nav-link,
+#mainNav .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level > li > a {
+	padding: 0.75em;
+}
+
+@media (min-width:992px) {
+	#mainNav .navbar-collapse .navbar-sidenav {
+		margin-top: 46px;
+	}
+
+	#mainNav.fixed-top .navbar-sidenav {
+		height: calc(100vh - 94px)
+	}
+
+	#mainNav.fixed-top .sidenav-toggler {
+		margin-top:calc(100vh - 48px);
+	}
+
+	.content-wrapper {
+		margin-left: 245px;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.width-xs-sm-100 {
+		width: 100%;
+	}
+}
+
+body.fixed-nav {
+	padding-top: 54px;
+}
+
+html {
+	min-height: inherit;
+}
+
+.dropdown-toggle::after {
+	margin-left: -0.15em !important;
+}
+
+#mainNav .navbar-collapse .navbar-sidenav > .nav-item > .nav-link {
+	padding-right: 1.25em !important;
+}
+
+#sidebarResponsive .nav-item-sidebar {
+	line-height: 1;
+}

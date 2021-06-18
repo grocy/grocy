@@ -1,0 +1,60 @@
+﻿
+// import custom variables
+@import "variables";
+// import bootstrap (as a whole)
+@import "bootstrap/scss/bootstrap";
+// startbootstrap
+@import "startbootstrap-sb-admin/scss/sb-admin";
+
+// main grocy-style
+@import "main";
+
+// third-party components
+
+// fontawesome
+@import "@fortawesome/fontawesome-free/css/all.css";
+@import "customizations/fontawesome";
+
+
+@import "customizations/bootstrap";
+@import "customizations/sbadmin2";
+
+// bootstrap-combobox
+@import "@danielfarrell/bootstrap-combobox/css/bootstrap-combobox.css";
+@import "customizations/bs-combobox";
+
+// bootstrap-datatables
+@import "datatables.net-bs4/css/dataTables.bootstrap4.css";
+@import "datatables.net-colreorder-bs4/css/colReorder.bootstrap4.css";
+@import "datatables.net-rowgroup-bs4/css/rowGroup.bootstrap4.css";
+@import "datatables.net-select-bs4/css/select.bootstrap4.css";
+@import "customizations/datatables";
+
+// bootstrap-select
+@import "bootstrap-select/sass/bootstrap-select";
+
+// toastr
+@import "toastr/toastr";
+@import "customizations/toastr";
+
+// tempusdominus
+@import "tempusdominus-bootstrap-4/src/sass/tempusdominus-bootstrap-4";
+@import "customizations/tempusdominus";
+
+// summernote
+@import "summernote/src/styles/summernote-bs4";
+
+// popper.js
+@import "customizations/popperjs";
+
+// quagga2
+@import "customizations/quagga2";
+
+// animate.css
+// not used everywhere, but in multiple places and "only" 57k minified.
+@import 'animate.css/animate.css';
+
+// end third-party
+
+// TODO: does it need to be at the end?
+@import "night-mode";

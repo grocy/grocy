@@ -20,14 +20,14 @@
 <div class="row">
 	<div class="col-lg-6 col-xs-12">
 		<script>
-			Grocy.EditMode = '{{ $mode }}';
-			Grocy.EditObjectParentId = {{ $userentity->id }};
-			Grocy.EditObjectParentName = "{{ $userentity->name }}";
+			GrocyConfig.EditMode = '{{ $mode }}';
+			GrocyConfig.EditObjectParentId = {{ $userentity->id }};
+			GrocyConfig.EditObjectParentName = "{{ $userentity->name }}";
 		</script>
 
 		@if($mode == 'edit')
 		<script>
-			Grocy.EditObjectId = {{ $userobject->id }};
+			GrocyConfig.EditObjectId = {{ $userobject->id }};
 		</script>
 		@endif
 

@@ -47,35 +47,10 @@
 		content="#ffffff">
 
 	<title>@yield('title') | grocy</title>
-	<link href="{{ $U('/node_modules/bootstrap/dist/css/bootstrap.min.css?v=', true) }}{{ $version }}"
-		rel="stylesheet">
-	<link href="{{ $U('/node_modules/startbootstrap-sb-admin/css/sb-admin.min.css?v=', true) }}{{ $version }}"
-		rel="stylesheet">
-	<link href="{{ $U('/node_modules/@fortawesome/fontawesome-free/css/all.css?v=', true) }}{{ $version }}"
-		rel="stylesheet">
-	<link href="{{ $U('/node_modules/@danielfarrell/bootstrap-combobox/css/bootstrap-combobox.css?v=', true) }}{{ $version }}"
-		rel="stylesheet">
-	<link href="{{ $U('/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css?v=', true) }}{{ $version }}"
-		rel="stylesheet">
-	<link href="{{ $U('/node_modules/datatables.net-colreorder-bs4/css/colReorder.bootstrap4.min.css?v=', true) }}{{ $version }}"
-		rel="stylesheet">
-	<link href="{{ $U('/node_modules/datatables.net-rowgroup-bs4/css/rowGroup.bootstrap4.min.css?v=', true) }}{{ $version }}"
-		rel="stylesheet">
-	<link href="{{ $U('/node_modules/datatables.net-select-bs4/css/select.bootstrap4.min.css?v=', true) }}{{ $version }}"
-		rel="stylesheet">
-	<link href="{{ $U('/node_modules/toastr/build/toastr.min.css?v=', true) }}{{ $version }}"
-		rel="stylesheet">
-	<link href="{{ $U('/node_modules/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css?v=', true) }}{{ $version }}"
-		rel="stylesheet">
-	<link href="{{ $U('/node_modules/summernote/dist/summernote-bs4.css?v=', true) }}{{ $version }}"
-		rel="stylesheet">
-	<link href="{{ $U('/node_modules/bootstrap-select/dist/css/bootstrap-select.min.css?v=', true) }}{{ $version }}"
-		rel="stylesheet">
+
 	<link href="{{ $U('/components_unmanaged/noto-sans-v11-latin/noto-sans-v11-latin.min.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
 	<link href="{{ $U('/css/grocy.css?v=', true) }}{{ $version }}"
-		rel="stylesheet">
-	<link href="{{ $U('/css/grocy_night_mode.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
 	@stack('pageStyles')
 
@@ -83,35 +58,35 @@
 	@php include GROCY_DATAPATH . '/custom_css.html' @endphp
 	@endif
 	<script>
-		var Grocy = { };
-		Grocy.Components = { };
-		Grocy.Mode = '{{ GROCY_MODE }}';
-		Grocy.BaseUrl = '{{ $U('/') }}';
-		Grocy.CurrentUrlRelative = "/" + window.location.href.split('?')[0].replace(Grocy.BaseUrl, "");
-		Grocy.ActiveNav = '@yield('activeNav', '')';
-		Grocy.Culture = '{{ GROCY_LOCALE }}';
-		Grocy.Currency = '{{ GROCY_CURRENCY }}';
-		Grocy.CalendarFirstDayOfWeek = '{{ GROCY_CALENDAR_FIRST_DAY_OF_WEEK }}';
-		Grocy.CalendarShowWeekNumbers = {{ BoolToString(GROCY_CALENDAR_SHOW_WEEK_OF_YEAR) }};
-		Grocy.GettextPo = {!! $GettextPo !!};
-		Grocy.FeatureFlags = {!! json_encode($featureFlags) !!};
-		Grocy.Webhooks = {
-		@if(GROCY_FEATURE_FLAG_LABELPRINTER && !GROCY_LABEL_PRINTER_RUN_SERVER)
-			"labelprinter" : { 
-				"hook" : "{{ GROCY_LABEL_PRINTER_WEBHOOK}}", 
-				"extra_data" : {!! json_encode(GROCY_LABEL_PRINTER_PARAMS) !!}
-			}
-		@endif
+		var GrocyConfig = { 
+			Components: {},
+			Mode: '{{ GROCY_MODE }}',
+			BaseUrl: '{{ $U('/') }}',
+			CurrentUrlRelative: "/" + window.location.href.split('?')[0].replace('{{ $U('/') }}', ""),
+			ActiveNav: '@yield('activeNav', '')',
+			Culture: '{{ GROCY_LOCALE }}',
+			Currency:'{{ GROCY_CURRENCY }}',
+			CalendarFirstDayOfWeek: '{{ GROCY_CALENDAR_FIRST_DAY_OF_WEEK }}',
+			CalendarShowWeekNumbers: {{ BoolToString(GROCY_CALENDAR_SHOW_WEEK_OF_YEAR) }},
+			GettextPo: {!! $GettextPo !!},
+			FeatureFlags: {!! json_encode($featureFlags) !!},
+			Webhooks: {
+			@if(GROCY_FEATURE_FLAG_LABELPRINTER && !GROCY_LABEL_PRINTER_RUN_SERVER)
+				"labelprinter" : { 
+					"hook" : "{{ GROCY_LABEL_PRINTER_WEBHOOK}}", 
+					"extra_data" : {!! json_encode(GROCY_LABEL_PRINTER_PARAMS) !!}
+				}
+			@endif
+			},
+			@if (GROCY_AUTHENTICATED)
+			UserSettings: {!! json_encode($userSettings) !!},
+			UserId: {{ GROCY_USER_ID }},
+			UserPermissions: {!! json_encode($permissions) !!},
+			@else
+			UserSettings: { },
+			UserId: -1,
+			@endif
 		};
-
-		@if (GROCY_AUTHENTICATED)
-		Grocy.UserSettings = {!! json_encode($userSettings) !!};
-		Grocy.UserId = {{ GROCY_USER_ID }};
-		Grocy.UserPermissions = {!! json_encode($permissions) !!};
-		@else
-		Grocy.UserSettings = { };
-		Grocy.UserId = -1;
-		@endif
 	</script>
 </head>
 
@@ -669,44 +644,19 @@
 			</div>
 		</div>
 	</div>
+	
+	<script src="{{ $U('/js/vendor.js?v=', true) }}{{ $version }}"></script>
 
-	<script src="{{ $U('/node_modules/jquery/dist/jquery.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/startbootstrap-sb-admin/js/sb-admin.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/bootbox/dist/bootbox.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/jquery-serializejson/jquery.serializejson.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/moment/min/moment.min.js?v=', true) }}{{ $version }}"></script>
-	@if(!empty($__t('moment_locale') && $__t('moment_locale') != 'x'))<script src="{{ $U('/node_modules', true) }}/moment/locale/{{ $__t('moment_locale') }}.js?v={{ $version }}"></script>@endif
-	<script src="{{ $U('/node_modules/@danielfarrell/bootstrap-combobox/js/bootstrap-combobox.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/datatables.net/js/jquery.dataTables.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/datatables.net-colreorder/js/dataTables.colReorder.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/datatables.net-colreorder-bs4/js/colReorder.bootstrap4.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/datatables.net-plugins/filtering/type-based/accent-neutralise.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/datatables.net-plugins/sorting/chinese-string.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/datatables.net-rowgroup/js/dataTables.rowGroup.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/datatables.net-rowgroup-bs4/js/rowGroup.bootstrap4.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/datatables.net-select/js/dataTables.select.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/datatables.net-select-bs4/js/select.bootstrap4.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/timeago/jquery.timeago.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules', true) }}/timeago/locales/jquery.timeago.{{ $__t('timeago_locale') }}.js?v={{ $version }}"></script>
-	<script src="{{ $U('/node_modules/toastr/build/toastr.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/sprintf-js/dist/sprintf.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/gettext-translator/src/translator.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/summernote/dist/summernote-bs4.js?v=', true) }}{{ $version }}"></script>
-	@if(!empty($__t('summernote_locale') && $__t('summernote_locale') != 'x'))<script src="{{ $U('/node_modules', true) }}/summernote/dist/lang/summernote-{{ $__t('summernote_locale') }}.js?v={{ $version }}"></script>@endif
-	<script src="{{ $U('/node_modules/bootstrap-select/dist/js/bootstrap-select.min.js?v=', true) }}{{ $version }}"></script>
-	@if(!empty($__t('bootstrap-select_locale') && $__t('bootstrap-select_locale') != 'x'))<script src="{{ $U('/node_modules', true) }}/bootstrap-select/dist/js/i18n/defaults-{{ $__t('bootstrap-select_locale') }}.js?v={{ $version }}"></script>@endif
-	<script src="{{ $U('/node_modules/jquery-lazy/jquery.lazy.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/nosleep.js/dist/NoSleep.min.js?v=', true) }}{{ $version }}"></script>
+	<!-- TODO: what to do with locale detection? (these paths are currently broken) -->
+	<!-- Most probably, they need to go to their own "bundle", which handles configuration and conditional loading (thx webpack) -->
+	<script src="{{ $U('/js/locales/timeago/', true) }}jquery.timeago.{{ $__t('timeago_locale') }}.js?v={{ $version }}"></script>
+	@if(!empty($__t('summernote_locale') && $__t('summernote_locale') != 'x'))<script src="{{ $U('/js/locales/summernote/', true) }}summernote-{{ $__t('summernote_locale') }}.js?v={{ $version }}"></script>@endif
+	@if(!empty($__t('bootstrap-select_locale') && $__t('bootstrap-select_locale') != 'x'))<script src="{{ $U('/js/locales/bootstrap-select/', true) }}defaults-{{ $__t('bootstrap-select_locale') }}.js?v={{ $version }}"></script>@endif
 
-	<script src="{{ $U('/js/extensions.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/js/grocy_dbchangedhandling.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/js/grocy_wakelockhandling.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/js/grocy_nightmode.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/js/grocy_clock.js?v=', true) }}{{ $version }}"></script>
+	<script>
+		GrocyClass.createSingleton(GrocyConfig);
+	</script>
 	@stack('pageScripts')
 
 	@php

@@ -20,17 +20,17 @@
 <div class="row">
 	<div class="col-lg-6 col-xs-12">
 		<script>
-			Grocy.EditMode = '{{ $mode }}';
+			GrocyConfig.EditMode = '{{ $mode }}';
 		</script>
 
 		@if($mode == 'edit')
 		<script>
-			Grocy.EditObjectId = {{ $equipment->id }};
+			GrocyConfig.EditObjectId = {{ $equipment->id }};
 		</script>
 
 		@if(!empty($equipment->instruction_manual_file_name))
 		<script>
-			Grocy.InstructionManualFileNameName = '{{ $equipment->instruction_manual_file_name }}';
+			GrocyConfig.InstructionManualFileNameName = '{{ $equipment->instruction_manual_file_name }}';
 		</script>
 		@endif
 		@endif

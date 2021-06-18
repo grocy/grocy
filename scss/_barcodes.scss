@@ -1,0 +1,14 @@
+/* Barcodescanner Quagga */
+#barcodescanner-container {
+	max-height: 90vw;
+}
+#livestream-container {
+	max-height: 100%;
+}
+#barcodescanner-livestream video {
+	width: 100%;
+
+}
+#barcodescanner-livestream canvas {
+	width: 100%;
+}

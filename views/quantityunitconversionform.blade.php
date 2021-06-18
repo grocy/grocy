@@ -30,12 +30,12 @@
 	<div class="col-lg-6 col-xs-12">
 
 		<script>
-			Grocy.EditMode = '{{ $mode }}';
+			GrocyConfig.EditMode = '{{ $mode }}';
 		</script>
 
 		@if($mode == 'edit')
 		<script>
-			Grocy.EditObjectId = {{ $quConversion->id }};
+			GrocyConfig.EditObjectId = {{ $quConversion->id }};
 		</script>
 		@endif
 

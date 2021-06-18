@@ -10,8 +10,8 @@
 
 @section('content')
 <script>
-	Grocy.QuantityUnits = {!! json_encode($quantityUnits) !!};
-	Grocy.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
+	GrocyConfig.QuantityUnits = {!! json_encode($quantityUnits) !!};
+	GrocyConfig.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
 </script>
 
 <div class="row">
@@ -25,12 +25,12 @@
 <div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
 		<script>
-			Grocy.EditMode = '{{ $mode }}';
+			GrocyConfig.EditMode = '{{ $mode }}';
 		</script>
 
 		@if($mode == 'edit')
 		<script>
-			Grocy.EditObjectId = {{ $listItem->id }};
+			GrocyConfig.EditObjectId = {{ $listItem->id }};
 		</script>
 		@endif
 

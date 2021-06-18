@@ -1,0 +1,5 @@
+/* Third party component customizations - Popper.js */
+.tooltip {
+	pointer-events: none;
+	z-index: 99999 !important;
+}

@@ -76,6 +76,7 @@ class SystemApiController extends BaseApiController
 				$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 				$this->getLocalizationService()->CheckAndAddMissingTranslationToPot($requestBody['text']);
+				file_put_contents("php://stderr", print_r($requestBody['text'], true));
 				return $this->EmptyApiResponse($response);
 			}
 			catch (\Exception $ex)

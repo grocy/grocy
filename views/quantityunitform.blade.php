@@ -20,12 +20,12 @@
 <div class="row">
 	<div class="col-lg-6 col-xs-12">
 		<script>
-			Grocy.EditMode = '{{ $mode }}';
+			GrocyConfig.EditMode = '{{ $mode }}';
 		</script>
 
 		@if($mode == 'edit')
 		<script>
-			Grocy.EditObjectId = {{ $quantityUnit->id }};
+			GrocyConfig.EditObjectId = {{ $quantityUnit->id }};
 		</script>
 		@endif
 

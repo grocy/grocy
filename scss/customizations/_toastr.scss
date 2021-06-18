@@ -1,0 +1,17 @@
+/* Third party component customizations - toastr */
+#toast-container > div {
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+
+.toast-success {
+	background-color: #28a745;
+}
+
+.toast-error {
+	background-color: #dc3545;
+}
+
+#toast-container > div {
+	box-shadow: none;
+}

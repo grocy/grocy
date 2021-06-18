@@ -4,26 +4,21 @@
 @section('activeNav', 'mealplan')
 @section('viewJsName', 'mealplan')
 
-@push('pageScripts')
-<script src="{{ $U('/node_modules/fullcalendar/dist/fullcalendar.min.js?v=', true) }}{{ $version }}"></script>
-@if(!empty($__t('fullcalendar_locale') && $__t('fullcalendar_locale') != 'x'))<script src="{{ $U('/node_modules', true) }}/fullcalendar/dist/locale/{{ $__t('fullcalendar_locale') }}.js?v={{ $version }}"></script>@endif
-@endpush
-
 @push('pageStyles')
-<link href="{{ $U('/node_modules/fullcalendar/dist/fullcalendar.min.css?v=', true) }}{{ $version }}"
+<link href="{{ $U('/css/viewcss/mealplan.css?v=', true) }}{{ $version }}"
 	rel="stylesheet">
 @endpush
 
 @section('content')
 <script>
-	var fullcalendarEventSources = {!! json_encode(array($fullcalendarEventSources)) !!}
+	var fullcalendarEventSources = {!! json_encode([ "events" => $fullcalendarEventSources ]) !!}
 	var internalRecipes = {!! json_encode($internalRecipes) !!}
 	var recipesResolved = {!! json_encode($recipesResolved) !!}
 
-	Grocy.QuantityUnits = {!! json_encode($quantityUnits) !!};
-	Grocy.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
+	GrocyConfig.QuantityUnits = {!! json_encode($quantityUnits) !!};
+	GrocyConfig.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
 
-	Grocy.MealPlanFirstDayOfWeek = '{{ GROCY_MEAL_PLAN_FIRST_DAY_OF_WEEK }}';
+	GrocyConfig.MealPlanFirstDayOfWeek = '{{ GROCY_MEAL_PLAN_FIRST_DAY_OF_WEEK }}';
 </script>
 
 <div class="row">

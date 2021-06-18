@@ -4,16 +4,11 @@
 @section('activeNav', 'calendar')
 @section('viewJsName', 'calendar')
 
-@push('pageScripts')
-<script src="{{ $U('/node_modules/fullcalendar/dist/fullcalendar.min.js?v=', true) }}{{ $version }}"></script>
-@if(!empty($__t('fullcalendar_locale') && $__t('fullcalendar_locale') != 'x'))<script src="{{ $U('/node_modules', true) }}/fullcalendar/dist/locale/{{ $__t('fullcalendar_locale') }}.js?v={{ $version }}"></script>@endif
-<script src="{{ $U('/node_modules/bwip-js/dist/bwip-js-min.js?v=', true) }}{{ $version }}"></script>
-@endpush
-
 @push('pageStyles')
-<link href="{{ $U('/node_modules/fullcalendar/dist/fullcalendar.min.css?v=', true) }}{{ $version }}"
+<link href="{{ $U('/css/viewcss/calendar.css?v=', true) }}{{ $version }}"
 	rel="stylesheet">
 @endpush
+
 
 @section('content')
 <div class="row">
@@ -41,7 +36,7 @@
 <hr class="my-2">
 
 <script>
-	var fullcalendarEventSources = {!! json_encode(array($fullcalendarEventSources)) !!}
+	var fullcalendarEventSources = {!! json_encode([ "events" => $fullcalendarEventSources]) !!}
 </script>
 
 <div class="row">

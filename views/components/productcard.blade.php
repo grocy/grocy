@@ -1,5 +1,4 @@
 @push('componentScripts')
-<script src="{{ $U('/node_modules/chart.js/dist/Chart.min.js?v=', true) }}{{ $version }}"></script>
 <script src="{{ $U('/viewjs/components/productcard.js', true) }}?v={{ $version }}"></script>
 @endpush
 
