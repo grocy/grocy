@@ -1,3 +1,5 @@
+/* global Grocy */
+
 function RefreshLocaleNumberDisplay(rootSelector = "#page-content")
 {
 	$(rootSelector + " .locale-number.locale-number-currency").each(function()

@@ -1,3 +1,4 @@
+/* global __t */
 
 function RefreshContextualTimeago(rootSelector = "#page-content")
 {

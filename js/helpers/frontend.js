@@ -1,8 +1,9 @@
 
 class GrocyFrontendHelpers
 {
-	constructor(Api)
+	constructor(Grocy, Api)
 	{
+		this.Grocy = Grocy;
 		this.Api = Api;
 	}
 
@@ -48,11 +49,11 @@ class GrocyFrontendHelpers
 
 	ShowGenericError(message, exception)
 	{
-		toastr.error(__t(message) + '<br><br>' + __t('Click to show technical details'), '', {
+		toastr.error(this.Grocy.translate(message) + '<br><br>' + this.Grocy.translate('Click to show technical details'), '', {
 			onclick: function()
 			{
 				bootbox.alert({
-					title: __t('Error details'),
+					title: this.Grocy.translate('Error details'),
 					message: '<pre class="my-0"><code>' + JSON.stringify(exception, null, 4) + '</code></pre>',
 					closeButton: false
 				});
@@ -64,7 +65,7 @@ class GrocyFrontendHelpers
 
 	SaveUserSetting(settingsKey, value)
 	{
-		Grocy.UserSettings[settingsKey] = value;
+		this.Grocy.UserSettings[settingsKey] = value;
 
 		var jsonData = {};
 		jsonData.value = value;
@@ -84,14 +85,14 @@ class GrocyFrontendHelpers
 	}
 	DeleteUserSetting(settingsKey, reloadPageOnSuccess = false)
 	{
-		delete Grocy.UserSettings[settingsKey];
+		delete this.Grocy.UserSettings[settingsKey];
 
 		this.Delete('user/settings/' + settingsKey, {},
 			function(result)
 			{
 				if (reloadPageOnSuccess)
 				{
-					location.reload();
+					window.location.reload();
 				}
 			},
 			function(xhr)
@@ -109,14 +110,14 @@ class GrocyFrontendHelpers
 		Object.assign(data, webhook.extra_data);
 		var hasAlreadyFailed = false;
 
-		for (i = 0; i < repetitions; i++)
+		for (var i = 0; i < repetitions; i++)
 		{
 			$.post(webhook.hook, data).fail(function(req, status, errorThrown)
 			{
 				if (!hasAlreadyFailed)
 				{
 					hasAlreadyFailed = true;
-					this.ShowGenericError(__t("Error while executing WebHook", { "status": status, "errorThrown": errorThrown }));
+					this.ShowGenericError(this.Grocy.translate("Error while executing WebHook", { "status": status, "errorThrown": errorThrown }));
 				}
 			});
 		}

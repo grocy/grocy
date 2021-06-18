@@ -1,7 +1,6 @@
 import { ResizeResponsiveEmbeds } from "../helpers/embeds";
 import { IsTouchInputDevice } from "../helpers/input";
-import { BoolVal } from "../helpers/extensions";
-
+import { BoolVal, GetFileNameFromPath, GetUriParam } from "../helpers/extensions";
 
 // This function sets some global state and adds some global event listeners.
 function setInitialGlobalState(Grocy)
@@ -22,7 +21,7 @@ function setInitialGlobalState(Grocy)
 				$(parentMenuSelector).collapse("show");
 				$(parentMenuSelector).prev(".nav-link-collapse").addClass("active-page");
 
-				$(parentMenuSelector).on("shown.bs.collapse", function(e)
+				$(parentMenuSelector).on("shown.bs.collapse", function()
 				{
 					if (!menuItem.isVisibleInViewport(75))
 					{
@@ -154,7 +153,7 @@ function setInitialGlobalState(Grocy)
 	$("#about-dialog-link").on("click", function()
 	{
 		bootbox.alert({
-			message: '<iframe height="400px" class="embed-responsive" src="' + U("/about?embedded") + '"></iframe>',
+			message: '<iframe height="400px" class="embed-responsive" src="' + Grocy.FormatUrl("/about?embedded") + '"></iframe>',
 			closeButton: false,
 			size: "large"
 		});
@@ -216,11 +215,11 @@ function setInitialGlobalState(Grocy)
 		var base = $(this).data('href');
 		if (base.contains('?'))
 		{
-			$(this).attr('href', base + '&returnto' + encodeURIComponent(location.pathname));
+			$(this).attr('href', base + '&returnto' + encodeURIComponent(window.location.pathname));
 		}
 		else
 		{
-			$(this).attr('href', base + '?returnto=' + encodeURIComponent(location.pathname));
+			$(this).attr('href', base + '?returnto=' + encodeURIComponent(window.location.pathname));
 		}
 
 	})
@@ -232,11 +231,11 @@ function setInitialGlobalState(Grocy)
 		var link = GetUriParam("returnto");
 		if (!link || !link.length > 0)
 		{
-			location.href = $(e.currentTarget).attr("href");
+			window.location.href = $(e.currentTarget).attr("href");
 		}
 		else
 		{
-			location.href = U(link);
+			window.location.href = Grocy.FormatUrl(link);
 		}
 	});
 
@@ -485,7 +484,7 @@ function setInitialGlobalState(Grocy)
 
 	$(document).on("change", "#show-clock-in-header", function()
 	{
-		CheckHeaderClockEnabled();
+		Grocy.HeaderClock.CheckHeaderClockEnabled();
 	});
 
 	if (Grocy.UserId !== -1 && BoolVal(Grocy.UserSettings.auto_reload_on_db_change))

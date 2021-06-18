@@ -4,7 +4,7 @@ function EmptyElementWhenMatches(selector, text)
 	{
 		$(selector).text('');
 	}
-};
+}
 
 function GetUriParam(key)
 {
@@ -20,21 +20,21 @@ function GetUriParam(key)
 			return currentParam[1] === undefined ? true : decodeURIComponent(currentParam[1]);
 		}
 	}
-};
+}
 
 function UpdateUriParam(key, value)
 {
-	var queryParameters = new URLSearchParams(location.search);
+	var queryParameters = new URLSearchParams(window.location.search);
 	queryParameters.set(key, value);
-	window.history.replaceState({}, "", decodeURIComponent(`${location.pathname}?${queryParameters}`));
-};
+	window.history.replaceState({}, "", decodeURIComponent(`${window.location.pathname}?${queryParameters}`));
+}
 
 function RemoveUriParam(key)
 {
-	var queryParameters = new URLSearchParams(location.search);
+	var queryParameters = new URLSearchParams(window.location.search);
 	queryParameters.delete(key);
-	window.history.replaceState({}, "", decodeURIComponent(`${location.pathname}?${queryParameters}`));
-};
+	window.history.replaceState({}, "", decodeURIComponent(`${window.location.pathname}?${queryParameters}`));
+}
 
 
 function BoolVal(test)
@@ -58,11 +58,6 @@ function BoolVal(test)
 function GetFileNameFromPath(path)
 {
 	return path.split("/").pop().split("\\").pop();
-}
-
-function GetFileExtension(pathOrFileName)
-{
-	return pathOrFileName.split(".").pop();
 }
 
 $.extend($.expr[":"],
@@ -139,15 +134,6 @@ function RandomString()
 	return Math.random().toString(36).substring(2, 100) + Math.random().toString(36).substring(2, 100);
 }
 
-Date.prototype.getWeekNumber = function()
-{
-	var date = new Date(Date.UTC(this.getFullYear(), this.getMonth(), this.getDate()));
-	var dayNumber = date.getUTCDay() || 7;
-	date.setUTCDate(date.getUTCDate() + 4 - dayNumber);
-	var yearStart = new Date(Date.UTC(date.getUTCFullYear(), 0, 1));
-	return Math.ceil((((date - yearStart) / 86400000) + 1) / 7)
-};
-
 export
 {
 	RandomString,
@@ -155,7 +141,6 @@ export
 	Delay,
 	IsJsonString,
 	BoolVal,
-	GetFileExtension,
 	GetFileNameFromPath,
 	RemoveUriParam,
 	UpdateUriParam,

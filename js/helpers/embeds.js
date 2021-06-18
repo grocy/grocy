@@ -1,12 +1,13 @@
 function ResizeResponsiveEmbeds(fillEntireViewport = false)
 {
+	var maxHeight = null;
 	if (!fillEntireViewport)
 	{
-		var maxHeight = $("body").height() - $("#mainNav").outerHeight() - 62;
+		maxHeight = $("body").height() - $("#mainNav").outerHeight() - 62;
 	}
 	else
 	{
-		var maxHeight = $("body").height();
+		maxHeight = $("body").height();
 	}
 
 	$("embed.embed-responsive").attr("height", maxHeight.toString() + "px");

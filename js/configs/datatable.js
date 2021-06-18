@@ -7,7 +7,7 @@ function setDatatableDefaults(Grocy)
 	$.extend(true, $.fn.dataTable.defaults, {
 		'paginate': false,
 		'deferRender': true,
-		'language': IsJsonString(__t('datatables_localization')) ? JSON.parse(__t('datatables_localization')) : {},
+		'language': IsJsonString(Grocy.translate('datatables_localization')) ? JSON.parse(Grocy.translate('datatables_localization')) : {},
 		'scrollY': false,
 		'scrollX': true,
 		'colReorder': true,
@@ -34,7 +34,7 @@ function setDatatableDefaults(Grocy)
 				Grocy.FrontendHelpers.SaveUserSetting(settingKey, stateData);
 			}
 		},
-		'stateLoadCallback': function(settings, data)
+		'stateLoadCallback': function(settings)
 		{
 			var settingKey = 'datatables_state_' + settings.sTableId;
 

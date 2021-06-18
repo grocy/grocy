@@ -11,6 +11,7 @@ import { Nightmode } from "./lib/nightmode";
 import { HeaderClock } from "./helpers/clock";
 import { animateCSS, BoolVal, Delay, EmptyElementWhenMatches, GetUriParam, RemoveUriParam, UpdateUriParam } from "./helpers/extensions";
 import Translator from "gettext-translator";
+import { WindowMessageBag } from './helpers/messagebag';
 
 import "./helpers/string";
 
@@ -48,7 +49,7 @@ class GrocyClass
 		// Init some classes
 		this.Api = new GrocyApi(this);
 		this.Translator = new Translator(config.GettextPo);
-		this.FrontendHelpers = new GrocyFrontendHelpers(this.Api);
+		this.FrontendHelpers = new GrocyFrontendHelpers(this, this.Api);
 		this.WakeLock = new WakeLock(this);
 		this.UISound = new UISound(this);
 		this.Nightmode = new Nightmode(this);
@@ -62,7 +63,7 @@ class GrocyClass
 		{
 			moment.updateLocale(moment.locale(), {
 				week: {
-					dow: Grocy.CalendarFirstDayOfWeek
+					dow: this.CalendarFirstDayOfWeek
 				}
 			});
 		}
@@ -102,7 +103,7 @@ class GrocyClass
 			window.onscroll = grocy.ResetIdleTime;
 			window.onkeypress = grocy.ResetIdleTime;
 
-			window.__t = function(key, ...placeholder) { return grocy.translate(key, ...placeholder) };;
+			window.__t = function(key, ...placeholder) { return grocy.translate(key, ...placeholder) };
 			window.__n = function(key, ...placeholder) { return grocy.translaten(key, ...placeholder) };
 			window.U = path => grocy.FormatUrl(path);
 
@@ -195,10 +196,11 @@ class GrocyClass
 
 	UndoStockBooking(bookingId)
 	{
+		var self = this;
 		this.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', {},
-			function(result)
+			function()
 			{
-				toastr.success(__t("Booking successfully undone"));
+				toastr.success(self.translate("Booking successfully undone"));
 			},
 			function(xhr)
 			{
@@ -209,10 +211,11 @@ class GrocyClass
 
 	UndoStockTransaction(transactionId)
 	{
+		var self = this;
 		this.Api.Post('stock/transactions/' + transactionId.toString() + '/undo', {},
-			function(result)
+			function()
 			{
-				toastr.success(__t("Transaction successfully undone"));
+				toastr.success(self.translate("Transaction successfully undone"));
 			},
 			function(xhr)
 			{
@@ -223,10 +226,11 @@ class GrocyClass
 
 	UndoChoreExecution(executionId)
 	{
+		var self = this;
 		this.Api.Post('chores/executions/' + executionId.toString() + '/undo', {},
-			function(result)
+			function()
 			{
-				toastr.success(__t("Chore execution successfully undone"));
+				toastr.success(self.translate("Chore execution successfully undone"));
 			},
 			function(xhr)
 			{
@@ -237,10 +241,11 @@ class GrocyClass
 
 	UndoChargeCycle(chargeCycleId)
 	{
+		var self = this;
 		this.Api.Post('batteries/charge-cycles/' + chargeCycleId.toString() + '/undo', {},
-			function(result)
+			function()
 			{
-				toastr.success(__t("Charge cycle successfully undone"));
+				toastr.success(self.translate("Charge cycle successfully undone"));
 			},
 			function(xhr)
 			{
@@ -250,18 +255,42 @@ class GrocyClass
 	}
 	UndoStockBookingEntry(bookingId, stockRowId)
 	{
-		Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', {},
-			function(result)
+		var self = this;
+		this.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', {},
+			function()
 			{
-				window.postMessage(WindowMessageBag("StockEntryChanged", stockRowId), Grocy.BaseUrl);
-				toastr.success(__t("Booking successfully undone"));
+				window.postMessage(WindowMessageBag("StockEntryChanged", stockRowId), self.BaseUrl);
+				toastr.success(self.translate("Booking successfully undone"));
 			},
 			function(xhr)
 			{
 				console.error(xhr);
 			}
 		);
-	};
+	}
+
+	ScanModeSubmit(singleUnit = true)
+	{
+		if (BoolVal(this.UserSettings.scan_mode_purchase_enabled))
+		{
+			if (singleUnit)
+			{
+				$("#display_amount").val(1);
+				$(".input-group-productamountpicker").trigger("change");
+			}
+
+			this.FrontendHelpers.ValidateForm("purchase-form");
+			if (document.getElementById("purchase-form").checkValidity() === true)
+			{
+				$('#save-purchase-button').click();
+			}
+			else
+			{
+				toastr.warning(this.translate("Scan mode is on but not all required fields could be populated automatically"));
+				this.UISound.Error();
+			}
+		}
+	}
 }
 
 // also set on the Window object, just because.

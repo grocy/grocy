@@ -30,7 +30,7 @@ class HeaderClock
 		// Refresh the clock in the header every second when enabled
 		if (BoolVal(this.Grocy.UserSettings.show_clock_in_header))
 		{
-			RefreshHeaderClock();
+			this.RefreshHeaderClock();
 			$("#clock-container").removeClass("d-none");
 
 			this.HeaderClockInterval = setInterval(this.RefreshHeaderClock, 1000);
