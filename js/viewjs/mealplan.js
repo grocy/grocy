@@ -1,4 +1,6 @@
-﻿import { Calendar } from '@fullcalendar/core';
+﻿/* global fullcalendarEventSources, internalRecipes, recipesResolved */
+
+import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import bootstrapPlugin from '@fullcalendar/bootstrap';
 import momentPlugin from '@fullcalendar/moment/main';
@@ -107,6 +109,30 @@ var calendar = new Calendar(document.getElementById("calendar"), {
 		element.attr("data-meal-plan-entry", event.mealPlanEntry);
 
 		var mealPlanEntry = JSON.parse(event.mealPlanEntry);
+		var costsAndCaloriesPerDay = "";
+
+		if (event.type != "note")
+		{
+			var dayRecipeName = toMoment(info.event.start, calendar).format("YYYY-MM-DD");
+			var dayRecipe = internalRecipes.find(elem => elem.name == dayRecipeName);
+			var dayRecipeResolved = recipesResolved.find(elem => elem.recipe_id == dayRecipe.id);
+
+			if (!$("#day-summary-" + dayRecipeName).length) // This runs for every event/recipe, so maybe multiple times per day, so only add the day summary once
+			{
+				if (dayRecipe != null)
+				{
+					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+					{
+						costsAndCaloriesPerDay = '<h5 class="small text-truncate"><span class="locale-number locale-number-currency">' + dayRecipeResolved.costs + '</span> / <span class="locale-number locale-number-generic">' + dayRecipeResolved.calories + '</span> kcal ' + __t('per day') + '<h5>';
+					}
+					else
+					{
+						costsAndCaloriesPerDay = '<h5 class="small text-truncate"><span class="locale-number locale-number-generic">' + dayRecipeResolved.calories + '</span> kcal ' + __t('per day') + '<h5>';
+					}
+					$(".fc-day-header[data-date='" + dayRecipeName + "']").append('<h5 id="day-summary-' + dayRecipeName + '" class="small text-truncate border-top pt-1 pb-0">' + costsAndCaloriesPerDay + '</h5>');
+				}
+			}
+		}
 
 		if (event.type == "recipe")
 		{
@@ -137,9 +163,10 @@ var calendar = new Calendar(document.getElementById("calendar"), {
 			if (resolvedRecipe.need_fulfilled != 1)
 			{
 				fulfillmentInfoHtml = __t('Not enough in stock');
-				var fulfillmentIconHtml = '<i class="fas fa-times text-danger"></i>';
+				fulfillmentIconHtml = '<i class="fas fa-times text-danger"></i>';
 			}
-			var costsAndCaloriesPerServing = ""
+
+			var costsAndCaloriesPerServing = "";
 			if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 			{
 				costsAndCaloriesPerServing = '<h5 class="small text-truncate"><span class="locale-number locale-number-currency">' + resolvedRecipe.costs + '</span> / <span class="locale-number locale-number-generic">' + resolvedRecipe.calories + '</span> kcal ' + __t('per serving') + '<h5>';
@@ -174,27 +201,6 @@ var calendar = new Calendar(document.getElementById("calendar"), {
 			{
 				element.html(element.html() + '<div class="mx-auto"><img data-src="' + U("/api/files/recipepictures/") + btoa(recipe.picture_file_name) + '?force_serve_as=picture&best_fit_width=400" class="img-fluid lazy"></div>')
 			}
-
-			var dayRecipeName = toMoment(info.event.start, calendar).format("YYYY-MM-DD");
-			if (!$("#day-summary-" + dayRecipeName).length) // This runs for every event/recipe, so maybe multiple times per day, so only add the day summary once
-			{
-				var dayRecipe = internalRecipes.find(elem => elem.name == dayRecipeName);
-				if (dayRecipe != null)
-				{
-					var dayRecipeResolved = recipesResolved.find(elem => elem.recipe_id == dayRecipe.id);
-
-					var costsAndCaloriesPerDay = ""
-					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
-					{
-						costsAndCaloriesPerDay = '<h5 class="small text-truncate"><span class="locale-number locale-number-currency">' + dayRecipeResolved.costs + '</span> / <span class="locale-number locale-number-generic">' + dayRecipeResolved.calories + '</span> kcal ' + __t('per day') + '<h5>';
-					}
-					else
-					{
-						costsAndCaloriesPerDay = '<h5 class="small text-truncate"><span class="locale-number locale-number-generic">' + dayRecipeResolved.calories + '</span> kcal ' + __t('per day') + '<h5>';
-					}
-					$(".fc-day-header[data-date='" + dayRecipeName + "']").append('<h5 id="day-summary-' + dayRecipeName + '" class="small text-truncate border-top pt-1 pb-0">' + costsAndCaloriesPerDay + '</h5>');
-				}
-			}
 		}
 		if (event.type == "product")
 		{
@@ -224,14 +230,13 @@ var calendar = new Calendar(document.getElementById("calendar"), {
 			}
 
 			fulfillmentInfoHtml = __t('Not enough in stock');
-			var fulfillmentIconHtml = '<i class="fas fa-times text-danger"></i>';
+			fulfillmentIconHtml = '<i class="fas fa-times text-danger"></i>';
 			if (parseFloat(productDetails.stock_amount_aggregated) >= parseFloat(mealPlanEntry.product_amount))
 			{
-				var fulfillmentInfoHtml = __t('Enough in stock');
-				var fulfillmentIconHtml = '<i class="fas fa-check text-success"></i>';
+				fulfillmentInfoHtml = __t('Enough in stock');
+				fulfillmentIconHtml = '<i class="fas fa-check text-success"></i>';
 			}
 
-			var costsAndCaloriesPerServing = ""
 			if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 			{
 				costsAndCaloriesPerServing = '<h5 class="small text-truncate"><span class="locale-number locale-number-currency">' + productDetails.last_price * mealPlanEntry.product_amount + '</span> / <span class="locale-number locale-number-generic">' + productDetails.product.calories * mealPlanEntry.product_amount + '</span> kcal ' + '<h5>';
@@ -258,27 +263,6 @@ var calendar = new Calendar(document.getElementById("calendar"), {
 			if (productDetails.product.picture_file_name && !productDetails.product.picture_file_name.isEmpty())
 			{
 				element.html(element.html() + '<div class="mx-auto"><img data-src="' + U("/api/files/productpictures/") + btoa(productDetails.product.picture_file_name) + '?force_serve_as=picture&best_fit_width=400" class="img-fluid lazy"></div>')
-			}
-
-			var dayRecipeName = toMoment(info.event.start, calendar).format("YYYY-MM-DD");
-			if (!$("#day-summary-" + dayRecipeName).length) // This runs for every event/recipe, so maybe multiple times per day, so only add the day summary once
-			{
-				var dayRecipe = internalRecipes.find(elem => elem.name == dayRecipeName);
-				if (dayRecipe != null)
-				{
-					var dayRecipeResolved = recipesResolved.find(elem => elem.recipe_id == dayRecipe.id);
-
-					var costsAndCaloriesPerDay = ""
-					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
-					{
-						costsAndCaloriesPerDay = '<h5 class="small text-truncate"><span class="locale-number locale-number-currency">' + dayRecipeResolved.costs + '</span> / <span class="locale-number locale-number-generic">' + dayRecipeResolved.calories + '</span> kcal ' + __t('per day') + '<h5>';
-					}
-					else
-					{
-						costsAndCaloriesPerDay = '<h5 class="small text-truncate"><span class="locale-number locale-number-generic">' + dayRecipeResolved.calories + '</span> kcal ' + __t('per day') + '<h5>';
-					}
-					$(".fc-day-header[data-date='" + dayRecipeName + "']").append('<h5 id="day-summary-' + dayRecipeName + '" class="small text-truncate border-top pt-1 pb-0">' + costsAndCaloriesPerDay + '</h5>');
-				}
 			}
 		}
 		else if (event.type == "note")
@@ -597,9 +581,9 @@ $('#add-product-form input').keydown(function(event)
 	}
 });
 
-$(document).on("keydown", "#servings", function(e)
+$(document).on("keydown", "#servings", function(event)
 {
-	if (event.keyCode === 13) //Enter
+	if (event.key === 13) //Enter
 	{
 		event.preventDefault();
 
@@ -853,20 +837,6 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 		);
 	}
 });
-
-function UndoStockTransaction(transactionId)
-{
-	Grocy.Api.Post('stock/transactions/' + transactionId.toString() + '/undo', {},
-		function(result)
-		{
-			toastr.success(__t("Transaction successfully undone"));
-		},
-		function(xhr)
-		{
-			console.error(xhr);
-		}
-	);
-};
 
 Grocy.Components.RecipePicker.GetPicker().on('change', function(e)
 {
