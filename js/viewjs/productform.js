@@ -6,7 +6,7 @@ function saveProductPicture(result, location, jsonData)
 
 	Grocy.Components.UserfieldsForm.Save(() =>
 	{
-		if (jsonData.hasOwnProperty("picture_file_name") && !Grocy.DeleteProductPictureOnSave)
+		if (Object.prototype.hasOwnProperty.call(jsonData, "picture_file_name") && !Grocy.DeleteProductPictureOnSave)
 		{
 			Grocy.Api.UploadFile($("#product-picture")[0].files[0], 'productpictures', jsonData.picture_file_name,
 				(result) =>

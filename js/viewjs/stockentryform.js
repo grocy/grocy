@@ -14,7 +14,7 @@ $('#save-stockentry-button').on('click', function(e)
 
 	if (!jsonForm.price.toString().isEmpty())
 	{
-		price = parseFloat(jsonForm.price).toFixed(Grocy.UserSettings.stock_decimal_places_prices);
+		jsonData.price = parseFloat(jsonForm.price).toFixed(Grocy.UserSettings.stock_decimal_places_prices);
 	}
 
 	var jsonData = {};
@@ -33,7 +33,6 @@ $('#save-stockentry-button').on('click', function(e)
 	{
 		jsonData.location_id = 1;
 	}
-	jsonData.price = price;
 
 	jsonData.open = $("#open").is(":checked");
 

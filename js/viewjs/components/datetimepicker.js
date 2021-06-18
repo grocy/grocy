@@ -160,8 +160,8 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keyup', function(e)
 	}
 	else if (value.length === 7 && $.isNumeric(value.substring(0, 6)) && (value.substring(6, 7).toLowerCase() === "e" || value.substring(6, 7).toLowerCase() === "+"))
 	{
-		var date = moment(value.substring(0, 4) + "-" + value.substring(4, 6) + "-01").endOf("month");
-		Grocy.Components.DateTimePicker.SetValue(date.format(format));
+		var endOfMonth = moment(value.substring(0, 4) + "-" + value.substring(4, 6) + "-01").endOf("month");
+		Grocy.Components.DateTimePicker.SetValue(endOfMonth.format(format));
 		nextInputElement.focus();
 	}
 	else

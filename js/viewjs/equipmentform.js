@@ -1,4 +1,7 @@
-﻿$('#save-equipment-button').on('click', function(e)
+﻿import { RandomString } from '../helpers/extensions';
+import { ResizeResponsiveEmbeds } from '../helpers/embeds';
+
+$('#save-equipment-button').on('click', function(e)
 {
 	e.preventDefault();
 
@@ -29,7 +32,8 @@
 				Grocy.EditObjectId = result.created_object_id;
 				Grocy.Components.UserfieldsForm.Save(function()
 				{
-					if (jsonData.hasOwnProperty("instruction_manual_file_name") && !Grocy.DeleteInstructionManualOnSave)
+					// https://eslint.org/docs/rules/no-prototype-builtins
+					if (Object.prototype.hasOwnProperty.call(jsonData, "instruction_manual_file_name") && !Grocy.DeleteInstructionManualOnSave)
 					{
 						Grocy.Api.UploadFile($("#instruction-manual")[0].files[0], 'equipmentmanuals', jsonData.instruction_manual_file_name,
 							function(result)
@@ -71,19 +75,19 @@
 					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 				}
 			);
-		};
+		}
 
 		Grocy.Api.Put('objects/equipment/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				Grocy.Components.UserfieldsForm.Save(function()
 				{
-					if (jsonData.hasOwnProperty("instruction_manual_file_name") && !Grocy.DeleteInstructionManualOnSave)
+					if (Object.prototype.hasOwnProperty.call(jsonData, "instruction_manual_file_name") && !Grocy.DeleteInstructionManualOnSave)
 					{
 						Grocy.Api.UploadFile($("#instruction-manual")[0].files[0], 'equipmentmanuals', jsonData.instruction_manual_file_name,
 							function(result)
 							{
-								window.location.href = U('/equipment');;
+								window.location.href = U('/equipment');
 							},
 							function(xhr)
 							{
@@ -94,7 +98,7 @@
 					}
 					else
 					{
-						window.location.href = U('/equipment');;
+						window.location.href = U('/equipment');
 					}
 				});
 			},

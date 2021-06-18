@@ -32,6 +32,7 @@ class GrocyClass
 		this.FeatureFlags = config.FeatureFlags;
 		this.QuantityUnits = config.QuantityUnits;
 		this.QuantityUnitConversionsResolved = config.QuantityUnitConversionsResolved || [];
+		this.QuantityUnitEditFormRedirectUri = config.QuantityUnitEditFormRedirectUri;
 		this.MealPlanFirstDayOfWeek = config.MealPlanFirstDayOfWeek;
 		this.EditMode = config.EditMode;
 		this.EditObjectId = config.EditObjectId;

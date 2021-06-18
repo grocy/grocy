@@ -111,7 +111,6 @@ $(document).on('click', '.undo-task-button', function(e)
 	Grocy.FrontendHelpers.BeginUiBusy();
 
 	var taskId = $(e.currentTarget).attr('data-task-id');
-	var taskName = $(e.currentTarget).attr('data-task-name');
 
 	Grocy.Api.Post('tasks/' + taskId + '/undo', {},
 		function()

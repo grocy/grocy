@@ -39,10 +39,14 @@ $('.user-combobox').combobox({
 	bsVersion: '4'
 });
 
-var prefillUser = Grocy.Components.UserPicker.GetPicker().parent().data('prefill-by-username').toString();
+var this_user_picker = Grocy.Components.UserPicker.GetPicker();
+var user_picker_doFocus = false;
+var possibleOptionElement = null;
+
+var prefillUser = this_user_picker.parent().data('prefill-by-username').toString();
 if (typeof prefillUser !== "undefined")
 {
-	var possibleOptionElement = $("#user_id option[data-additional-searchdata*=\"" + prefillUser + "\"]").first();
+	possibleOptionElement = $("#user_id option[data-additional-searchdata*=\"" + prefillUser + "\"]").first();
 	if (possibleOptionElement.length === 0)
 	{
 		possibleOptionElement = $("#user_id option:contains(\"" + prefillUser + "\")").first();
@@ -50,26 +54,28 @@ if (typeof prefillUser !== "undefined")
 
 	if (possibleOptionElement.length > 0)
 	{
-		$('#user_id').val(possibleOptionElement.val());
-		$('#user_id').data('combobox').refresh();
-		$('#user_id').trigger('change');
+		user_picker_doFocus = true;
+		this_user_picker.val(possibleOptionElement.val());
 
-		var nextInputElement = $(Grocy.Components.UserPicker.GetPicker().parent().data('next-input-selector').toString());
-		nextInputElement.focus();
 	}
 }
 
-var prefillUserId = Grocy.Components.UserPicker.GetPicker().parent().data('prefill-by-user-id').toString();
+var prefillUserId = this_user_picker.parent().data('prefill-by-user-id').toString();
 if (typeof prefillUserId !== "undefined")
 {
-	var possibleOptionElement = $("#user_id option[value='" + prefillUserId + "']").first();
+	possibleOptionElement = $("#user_id option[value='" + prefillUserId + "']").first();
 	if (possibleOptionElement.length > 0)
 	{
-		$('#user_id').val(possibleOptionElement.val());
-		$('#user_id').data('combobox').refresh();
-		$('#user_id').trigger('change');
-
-		var nextInputElement = $(Grocy.Components.UserPicker.GetPicker().parent().data('next-input-selector').toString());
-		nextInputElement.focus();
+		user_picker_doFocus = true;
+		this_user_picker.val(possibleOptionElement.val());
 	}
+}
+
+if (user_picker_doFocus)
+{
+	this_user_picker.data('combobox').refresh();
+	this_user_picker.trigger('change');
+
+	$(this_user_picker.parent().data('next-input-selector').toString())
+		.focus();
 }

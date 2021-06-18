@@ -1,4 +1,5 @@
-﻿function HideTopbarPlugin()
+﻿/* global SwaggerUIBundle, SwaggerUIStandalonePreset */
+function HideTopbarPlugin()
 {
 	return {
 		components: {

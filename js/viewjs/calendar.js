@@ -1,4 +1,6 @@
-﻿import { Calendar } from '@fullcalendar/core';
+﻿/* global fullcalendarEventSources */
+
+import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import bootstrapPlugin from '@fullcalendar/bootstrap';
 import listPlugin from '@fullcalendar/list';
@@ -35,7 +37,7 @@ var calendarOptions = {
 	},
 	eventClick: function(info)
 	{
-		location.href = info.link;
+		window.location.href = info.link;
 	}
 };
 

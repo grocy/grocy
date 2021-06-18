@@ -69,7 +69,7 @@ $(document).on('click', '.product-delete-button', function(e)
 		{
 			if (result === true)
 			{
-				jsonData = {};
+				var jsonData = {};
 				jsonData.active = 0;
 				Grocy.Api.Delete('objects/products/' + objectId, {},
 					function(result)

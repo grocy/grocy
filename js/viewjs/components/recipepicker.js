@@ -40,29 +40,32 @@ $('.recipe-combobox').combobox({
 	clearIfNoMatch: true
 });
 
-var prefillByName = Grocy.Components.RecipePicker.GetPicker().parent().data('prefill-by-name').toString();
+var this_recipe_picker = Grocy.Components.RecipePicker.GetPicker();
+var recipe_picker_doFocus = false;
+
+var prefillByName = this_recipe_picker.parent().data('prefill-by-name').toString();
 if (typeof prefillByName !== "undefined")
 {
 	var possibleOptionElement = $("#recipe_id option:contains(\"" + prefillByName + "\")").first();
 
 	if (possibleOptionElement.length > 0)
 	{
-		$('#recipe_id').val(possibleOptionElement.val());
-		$('#recipe_id').data('combobox').refresh();
-		$('#recipe_id').trigger('change');
-
-		var nextInputElement = $(Grocy.Components.RecipePicker.GetPicker().parent().data('next-input-selector').toString());
-		nextInputElement.focus();
+		recipe_picker_doFocus = true;
+		this_recipe_picker.val(possibleOptionElement.val());
 	}
 }
 
-var prefillById = Grocy.Components.RecipePicker.GetPicker().parent().data('prefill-by-id').toString();
+var prefillById = this_recipe_picker.parent().data('prefill-by-id').toString();
 if (typeof prefillById !== "undefined")
 {
-	$('#recipe_id').val(prefillById);
-	$('#recipe_id').data('combobox').refresh();
-	$('#recipe_id').trigger('change');
+	recipe_picker_doFocus = true;
+	this_recipe_picker.val(prefillById);
+}
 
-	var nextInputElement = $(Grocy.Components.RecipePicker.GetPicker().parent().data('next-input-selector').toString());
-	nextInputElement.focus();
+if (recipe_picker_doFocus)
+{
+	this_recipe_picker.data('combobox').refresh();
+	this_recipe_picker.trigger('change');
+
+	$(this_recipe_picker.parent().data('next-input-selector').toString()).focus();
 }

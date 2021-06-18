@@ -88,8 +88,11 @@ $('.product-combobox').combobox({
 	clearIfNoMatch: false
 });
 
+var this_product_picker = Grocy.Components.ProductPicker.GetPicker();
+var productpicker_doFocus = false;
+
 var prefillProduct = GetUriParam('product-name');
-var prefillProduct2 = Grocy.Components.ProductPicker.GetPicker().parent().data('prefill-by-name').toString();
+var prefillProduct2 = this_product_picker.parent().data('prefill-by-name').toString();
 if (!prefillProduct2.isEmpty())
 {
 	prefillProduct = prefillProduct2;
@@ -104,29 +107,30 @@ if (typeof prefillProduct !== "undefined")
 
 	if (possibleOptionElement.length > 0)
 	{
-		$('#product_id').val(possibleOptionElement.val());
-		$('#product_id').data('combobox').refresh();
-		$('#product_id').trigger('change');
-
-		var nextInputElement = $(Grocy.Components.ProductPicker.GetPicker().parent().data('next-input-selector').toString());
-		nextInputElement.focus();
+		productpicker_doFocus = true;
+		this_product_picker.val(possibleOptionElement.val());
 	}
 }
 
 var prefillProductId = GetUriParam("product");
-var prefillProductId2 = Grocy.Components.ProductPicker.GetPicker().parent().data('prefill-by-id').toString();
+var prefillProductId2 = this_product_picker.parent().data('prefill-by-id').toString();
 if (!prefillProductId2.isEmpty())
 {
 	prefillProductId = prefillProductId2;
 }
 if (typeof prefillProductId !== "undefined")
 {
-	$('#product_id').val(prefillProductId);
-	$('#product_id').data('combobox').refresh();
-	$('#product_id').trigger('change');
+	this_product_picker.val(prefillProductId);
+	productpicker_doFocus = true;
+}
 
-	var nextInputElement = $(Grocy.Components.ProductPicker.GetPicker().parent().data('next-input-selector').toString());
-	nextInputElement.focus();
+if (productpicker_doFocus)
+{
+	this_product_picker.data('combobox').refresh();
+	this_product_picker.trigger('change');
+
+	$(this_product_picker.parent().data('next-input-selector').toString())
+		.focus();
 }
 
 if (GetUriParam("flow") === "InplaceAddBarcodeToExistingProduct")

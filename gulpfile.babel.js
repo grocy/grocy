@@ -42,6 +42,7 @@ var eslint_config = {
 		"clearTimeout",
 		"XMLHttpRequest",
 		"btoa",
+		"atob",
 		"Audio",
 		"MutationObserver",
 		"URLSearchParams",

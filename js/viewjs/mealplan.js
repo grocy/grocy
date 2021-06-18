@@ -298,7 +298,7 @@ var calendar = new Calendar(document.getElementById("calendar"), {
 calendar.render();
 if (setLocale)
 {
-	calendar.setLocale(__t('fullcalendar_locale'));
+	calendar.setOption("locale", __t('fullcalendar_locale'));
 }
 
 // this triggers a re-render, so we can't do that in the callback;

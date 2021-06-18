@@ -1,9 +1,8 @@
 ﻿function SaveUserPicture(result, jsonData)
 {
-	var userId = Grocy.EditObjectId || result.created_object_id;
 	Grocy.Components.UserfieldsForm.Save(() =>
 	{
-		if (jsonData.hasOwnProperty("picture_file_name") && !Grocy.DeleteUserPictureOnSave)
+		if (Object.prototype.hasOwnProperty.call(jsonData, "picture_file_name") && !Grocy.DeleteUserPictureOnSave)
 		{
 			Grocy.Api.UploadFile($("#user-picture")[0].files[0], 'userpictures', jsonData.picture_file_name,
 				(result) =>

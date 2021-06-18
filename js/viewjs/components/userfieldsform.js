@@ -1,3 +1,5 @@
+import { RandomString } from '../../helpers/extensions';
+
 Grocy.Components.UserfieldsForm = {};
 
 Grocy.Components.UserfieldsForm.Save = function(success, error)

@@ -1,6 +1,4 @@
-﻿import { WindowMessageBag } from '../helpers/messagebag';
-
-var stockEntriesTable = $('#stockentries-table').DataTable({
+﻿var stockEntriesTable = $('#stockentries-table').DataTable({
 	'order': [[2, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },

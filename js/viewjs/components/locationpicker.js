@@ -40,29 +40,35 @@ $('.location-combobox').combobox({
 	clearIfNoMatch: true
 });
 
-var prefillByName = Grocy.Components.LocationPicker.GetPicker().parent().data('prefill-by-name').toString();
+// these names seem a bit long, but as they live in global space
+// and this is a component, they need to be unique.
+var locationpicker_doFocus = false;
+var this_location_picker = Grocy.Components.LocationPicker.GetPicker();
+
+var prefillByName = this_location_picker.parent().data('prefill-by-name').toString();
 if (typeof prefillByName !== "undefined")
 {
 	var possibleOptionElement = $("#location_id option:contains(\"" + prefillByName + "\")").first();
 
 	if (possibleOptionElement.length > 0)
 	{
-		$('#location_id').val(possibleOptionElement.val());
-		$('#location_id').data('combobox').refresh();
-		$('#location_id').trigger('change');
-
-		var nextInputElement = $(Grocy.Components.LocationPicker.GetPicker().parent().data('next-input-selector').toString());
-		nextInputElement.focus();
+		locationpicker_doFocus = true;
+		this_location_picker.val(possibleOptionElement.val());
 	}
 }
 
-var prefillById = Grocy.Components.LocationPicker.GetPicker().parent().data('prefill-by-id').toString();
+var prefillById = this_location_picker.parent().data('prefill-by-id').toString();
 if (typeof prefillById !== "undefined")
 {
-	$('#location_id').val(prefillById);
-	$('#location_id').data('combobox').refresh();
-	$('#location_id').trigger('change');
+	locationpicker_doFocus = true;
+	this_location_picker.val(prefillById);
+}
 
-	var nextInputElement = $(Grocy.Components.LocationPicker.GetPicker().parent().data('next-input-selector').toString());
-	nextInputElement.focus();
+if (locationpicker_doFocus)
+{
+	this_location_picker.data('combobox').refresh();
+	this_location_picker.trigger('change');
+
+	$(this_location_picker.parent().data('next-input-selector').toString())
+		.focus();
 }

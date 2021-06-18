@@ -233,7 +233,7 @@ recipesTables.on('select', function(e, dt, type, indexes)
 	if (type === 'row')
 	{
 		var selectedRecipeId = $(recipesTables.row(indexes[0]).node()).data("recipe-id");
-		var currentRecipeId = location.search.split('recipe=')[1];
+		var currentRecipeId = window.location.search.split('recipe=')[1];
 		if (selectedRecipeId.toString() !== currentRecipeId)
 		{
 			window.location.href = U('/recipes?recipe=' + selectedRecipeId.toString());

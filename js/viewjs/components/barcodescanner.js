@@ -1,8 +1,7 @@
+/* global Quagga2DatamatrixReader */
 import Quagga from '@ericblade/quagga2/dist/quagga';
 
 Grocy.Components.BarcodeScanner = {};
-
-//import Quagga2DatamatrixReader from '../../components_unmanaged/quagga2-reader-datamatrix/index.js'
 
 Quagga.registerReader("datamatrix", Quagga2DatamatrixReader);
 

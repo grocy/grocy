@@ -1,4 +1,6 @@
-﻿var apiKeysTable = $('#apikeys-table').DataTable({
+﻿import { QrCodeImgHtml } from "../helpers/qrcode";
+
+var apiKeysTable = $('#apikeys-table').DataTable({
 	'order': [[4, 'desc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },

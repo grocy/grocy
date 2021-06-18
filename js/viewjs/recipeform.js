@@ -5,7 +5,7 @@ function saveRecipePicture(result, location, jsonData)
 	var recipeId = Grocy.EditObjectId || result.created_object_id;
 	Grocy.Components.UserfieldsForm.Save(() =>
 	{
-		if (jsonData.hasOwnProperty("picture_file_name") && !Grocy.DeleteRecipePictureOnSave)
+		if (Object.prototype.hasOwnProperty.call(jsonData, "picture_file_name") && !Grocy.DeleteRecipePictureOnSave)
 		{
 			Grocy.Api.UploadFile($("#recipe-picture")[0].files[0], 'recipepictures', jsonData.picture_file_name,
 				(result) =>

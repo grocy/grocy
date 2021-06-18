@@ -7,13 +7,10 @@ $('.save-quantityunit-button').on('click', function(e)
 	var jsonData = $('#quantityunit-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("quantityunit-form");
 
+	var redirectDestination = U('/quantityunits');
 	if (Grocy.QuantityUnitEditFormRedirectUri !== undefined)
 	{
 		redirectDestination = Grocy.QuantityUnitEditFormRedirectUri;
-	}
-	else
-	{
-		redirectDestination = U('/quantityunits');
 	}
 
 	if ($(e.currentTarget).attr('data-location') == "continue")

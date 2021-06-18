@@ -40,29 +40,33 @@ $('.shopping-location-combobox').combobox({
 	clearIfNoMatch: true
 });
 
-var prefillByName = Grocy.Components.ShoppingLocationPicker.GetPicker().parent().data('prefill-by-name').toString();
+var shoppinglocationpicker_doFocus = false;
+var this_shoppinglocation_picker = $('#shopping_location_id');
+
+var prefillByName = this_shoppinglocation_picker.parent().data('prefill-by-name').toString();
 if (typeof prefillByName !== "undefined")
 {
 	var possibleOptionElement = $("#shopping_location_id option:contains(\"" + prefillByName + "\")").first();
 
 	if (possibleOptionElement.length > 0)
 	{
-		$('#shopping_location_id').val(possibleOptionElement.val());
-		$('#shopping_location_id').data('combobox').refresh();
-		$('#shopping_location_id').trigger('change');
-
-		var nextInputElement = $(Grocy.Components.ShoppingLocationPicker.GetPicker().parent().data('next-input-selector').toString());
-		nextInputElement.focus();
+		this_shoppinglocation_picker.val(possibleOptionElement.val());
+		shoppinglocationpicker_doFocus = true;
 	}
 }
 
-var prefillById = Grocy.Components.ShoppingLocationPicker.GetPicker().parent().data('prefill-by-id').toString();
+var prefillById = this_shoppinglocation_picker.parent().data('prefill-by-id').toString();
 if (typeof prefillById !== "undefined")
 {
-	$('#shopping_location_id').val(prefillById);
-	$('#shopping_location_id').data('combobox').refresh();
-	$('#shopping_location_id').trigger('change');
+	this_shoppinglocation_picker.val(prefillById);
+	shoppinglocationpicker_doFocus = true;
+}
 
-	var nextInputElement = $(Grocy.Components.ShoppingLocationPicker.GetPicker().parent().data('next-input-selector').toString());
-	nextInputElement.focus();
+if (shoppinglocationpicker_doFocus)
+{
+	this_shoppinglocation_picker.data('combobox').refresh();
+	this_shoppinglocation_picker.trigger('change');
+
+	$(this_shoppinglocation_picker.parent().data('next-input-selector').toString())
+		.focus();
 }

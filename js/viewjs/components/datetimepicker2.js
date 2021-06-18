@@ -35,7 +35,7 @@ Grocy.Components.DateTimePicker2.Clear = function()
 
 	// "Click" the shortcut checkbox when the desired value is
 	// not the shortcut value and it is currently set
-	value = "";
+	var value = "";
 	var shortcutValue = $("#datetimepicker2-shortcut").data("datetimepicker2-shortcut-value");
 	if (value != shortcutValue && $("#datetimepicker2-shortcut").is(":checked"))
 	{
@@ -161,8 +161,8 @@ Grocy.Components.DateTimePicker2.GetInputElement().on('keyup', function(e)
 	}
 	else if (value.length === 7 && $.isNumeric(value.substring(0, 6)) && (value.substring(6, 7).toLowerCase() === "e" || value.substring(6, 7).toLowerCase() === "+"))
 	{
-		var date = moment(value.substring(0, 4) + "-" + value.substring(4, 6) + "-01").endOf("month");
-		Grocy.Components.DateTimePicker2.SetValue(date.format(format));
+		var endOfMonth = moment(value.substring(0, 4) + "-" + value.substring(4, 6) + "-01").endOf("month");
+		Grocy.Components.DateTimePicker2.SetValue(endOfMonth.format(format));
 		nextInputElement.focus();
 	}
 	else
