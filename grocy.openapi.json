@@ -1405,7 +1405,7 @@
 						"in": "path",
 						"name": "entryId",
 						"required": true,
-						"description": "A valid stock row id",
+						"description": "A valid stock entry id",
 						"schema": {
 							"type": "integer"
 						}
@@ -1444,7 +1444,7 @@
 						"in": "path",
 						"name": "entryId",
 						"required": true,
-						"description": "A valid stock row id",
+						"description": "A valid stock entry id",
 						"schema": {
 							"type": "integer"
 						}
@@ -1521,6 +1521,48 @@
 					},
 					"400": {
 						"description": "The operation was not successful (possible errors are: Not existing product, invalid transaction type)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error400"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/entry/{entryId}/printlabel": {
+			"get": {
+				"summary": "Prints the label of the given stock entry",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "entryId",
+						"required": true,
+						"description": "A valid stock entry id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"description": "WebHook data"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing stock entry, error on WebHook execution)",
 						"content": {
 							"application/json": {
 								"schema": {
@@ -1853,6 +1895,10 @@
 										"type": "number",
 										"format": "integer",
 										"description": "If omitted, no store will be affected"
+									},
+									"print_stock_label": {
+										"type": "boolean",
+										"description": "True when the stock entry label should be printed"
 									}
 								},
 								"example": {
@@ -2205,6 +2251,48 @@
 					},
 					"400": {
 						"description": "The operation was not successful (possible errors are: Not existing product, given amount > current unopened stock amount)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error400"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/stock/products/{productId}/printlabel": {
+			"get": {
+				"summary": "Prints the product label of the given product",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"description": "WebHook data"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing product, error on WebHook execution)",
 						"content": {
 							"application/json": {
 								"schema": {

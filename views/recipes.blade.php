@@ -311,16 +311,20 @@
 						<div class="row ml-1">
 							@if(!empty($calories) && intval($calories) > 0)
 							<div class="col-6 col-xl-3">
-								<label>{{ $__t('Energy (kcal)') }}</label>
+								<label>{{ $__t('Energy (kcal)') }}</label>&nbsp;
+								<i class="fas fa-question-circle text-muted d-print-none"
+									data-toggle="tooltip"
+									title="{{ $__t('per serving') }}"></i>
 								<h3 class="locale-number locale-number-generic pt-0">{{ $calories }}</h3>
 							</div>
 							@endif
 							@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 							<div class="col-5">
-								<label>{{ $__t('Costs') }}&nbsp;</label>
-								<i class="fas fa-question-circle text-muted d-print-none"
-									data-toggle="tooltip"
-									title="{{ $__t('Based on the prices of the default consume rule which is "Opened first, then first due first, then first in first out"') }}"></i>
+								<label>{{ $__t('Costs') }}&nbsp;
+									<i class="fas fa-question-circle text-muted d-print-none"
+										data-toggle="tooltip"
+										title="{{ $__t('Based on the prices of the default consume rule which is "Opened first, then first due first, then first in first out"') }}"></i>
+								</label>
 								<h3 class="locale-number locale-number-currency pt-0">{{ $costs }}</h3>
 							</div>
 							@endif

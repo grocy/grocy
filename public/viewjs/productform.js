@@ -301,6 +301,21 @@ $('#name').focus();
 $('.input-group-qu').trigger('change');
 Grocy.FrontendHelpers.ValidateForm('product-form');
 
+$(document).on('click', '.stockentry-grocycode-product-label-print', function(e)
+{
+	e.preventDefault();
+	document.activeElement.blur();
+
+	var productId = $(e.currentTarget).attr('data-product-id');
+	Grocy.Api.Get('stock/products/' + productId + '/printlabel', function(labelData)
+	{
+		if (Grocy.Webhooks.labelprinter !== undefined)
+		{
+			Grocy.FrontendHelpers.RunWebhook(Grocy.Webhooks.labelprinter, labelData);
+		}
+	});
+});
+
 $(document).on('click', '.qu-conversion-delete-button', function(e)
 {
 	var objectId = $(e.currentTarget).attr('data-qu-conversion-id');
@@ -385,6 +400,22 @@ $('#qu_id_stock').change(function(e)
 	{
 		quIdPurchase[0].selectedIndex = quIdStock[0].selectedIndex;
 		Grocy.FrontendHelpers.ValidateForm('product-form');
+	}
+});
+
+$('#allow_label_per_unit').on('change', function()
+{
+	if (this.checked)
+	{
+		$('#label-option-per-unit').prop("disabled", false);
+	}
+	else
+	{
+		if ($('#default_print_stock_label').val() == "2")
+		{
+			$("#default_print_stock_label").val("0");
+		}
+		$('#label-option-per-unit').prop("disabled", true);
 	}
 });
 

@@ -2,7 +2,9 @@
 
 namespace Grocy\Controllers;
 
+use Grocy\Helpers\Grocycode;
 use Grocy\Services\RecipesService;
+use jucksearm\barcode\lib\DatamatrixFactory;
 
 class StockController extends BaseController
 {
@@ -39,7 +41,7 @@ class StockController extends BaseController
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE'),
 			'users' => $usersService->GetUsersAsDto(),
-			'transactionTypes' => GetClassConstants('\Grocy\Services\StockService', 'TRANSACTION_TYPE_'),
+			'transactionTypes' => GetClassConstants('\Grocy\Services\StockService', 'TRANSACTION_TYPE_')
 		]);
 	}
 
@@ -168,6 +170,38 @@ class StockController extends BaseController
 				'productBarcodeUserfieldValues' => $this->getUserfieldsService()->GetAllValues('product_barcodes')
 			]);
 		}
+	}
+
+	public function ProductGrocycodeImage(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		$size = $request->getQueryParam('size', null);
+		$product = $this->getDatabase()->products($args['productId']);
+
+		$gc = new Grocycode(Grocycode::PRODUCT, $product->id);
+
+		// Explicitly suppress errors, otherwise deprecations warnings would cause invalid PNG data
+		// See also https://github.com/jucksearm/php-barcode/issues/3
+		$png = @(new DatamatrixFactory())->setCode((string) $gc)->setSize($size)->getDatamatrixPngData();
+
+		$isDownload = $request->getQueryParam('download', false);
+
+		if ($isDownload)
+		{
+			$response = $response->withHeader('Content-Type', 'application/octet-stream')
+			->withHeader('Content-Disposition', 'attachment; filename=grocycode.png')
+			->withHeader('Content-Length', strlen($png))
+			->withHeader('Cache-Control', 'no-cache')
+			->withHeader('Last-Modified', gmdate('D, d M Y H:i:s') . ' GMT');
+		}
+		else
+		{
+			$response = $response->withHeader('Content-Type', 'image/png')
+			->withHeader('Content-Length', strlen($png))
+			->withHeader('Cache-Control', 'no-cache')
+			->withHeader('Last-Modified', gmdate('D, d M Y H:i:s') . ' GMT');
+		}
+		$response->getBody()->write($png);
+		return $response;
 	}
 
 	public function ProductGroupEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -425,6 +459,47 @@ class StockController extends BaseController
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name', 'COLLATE NOCASE'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE')
+		]);
+	}
+
+	public function StockEntryGrocycodeImage(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		$size = $request->getQueryParam('size', null);
+
+		$stockEntry = $this->getDatabase()->stock()->where('id', $args['entryId'])->fetch();
+		$gc = new Grocycode(Grocycode::PRODUCT, $stockEntry->product_id, [$stockEntry->stock_id]);
+
+		// Explicitly suppress errors, otherwise deprecations warnings would cause invalid PNG data
+		// See also https://github.com/jucksearm/php-barcode/issues/3
+		$png = @(new DatamatrixFactory())->setCode((string) $gc)->setSize($size)->getDatamatrixPngData();
+
+		$isDownload = $request->getQueryParam('download', false);
+
+		if ($isDownload)
+		{
+			$response = $response->withHeader('Content-Type', 'application/octet-stream')
+			->withHeader('Content-Disposition', 'attachment; filename=grocycode.png')
+			->withHeader('Content-Length', strlen($png))
+			->withHeader('Cache-Control', 'no-cache')
+			->withHeader('Last-Modified', gmdate('D, d M Y H:i:s') . ' GMT');
+		}
+		else
+		{
+			$response = $response->withHeader('Content-Type', 'image/png')
+			->withHeader('Content-Length', strlen($png))
+			->withHeader('Cache-Control', 'no-cache')
+			->withHeader('Last-Modified', gmdate('D, d M Y H:i:s') . ' GMT');
+		}
+		$response->getBody()->write($png);
+		return $response;
+	}
+
+	public function StockEntryGrocycodeLabel(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		$stockEntry = $this->getDatabase()->stock()->where('id', $args['entryId'])->fetch();
+		return $this->renderPage($response, 'stockentrylabel', [
+			'stockEntry' => $stockEntry,
+			'product' => $this->getDatabase()->products($stockEntry->product_id),
 		]);
 	}
 

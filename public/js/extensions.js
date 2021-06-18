@@ -202,6 +202,7 @@ function QrCodeImgHtml(text)
 		includetext: false
 	});
 	img.src = dummyCanvas.toDataURL("image/png");
+	img.classList.add("qr-code");
 
 	return img.outerHTML;
 }

@@ -95,6 +95,14 @@
 		Grocy.CalendarShowWeekNumbers = {{ BoolToString(GROCY_CALENDAR_SHOW_WEEK_OF_YEAR) }};
 		Grocy.GettextPo = {!! $GettextPo !!};
 		Grocy.FeatureFlags = {!! json_encode($featureFlags) !!};
+		Grocy.Webhooks = {
+		@if(GROCY_FEATURE_FLAG_LABELPRINTER && !GROCY_LABEL_PRINTER_RUN_SERVER)
+			"labelprinter" : { 
+				"hook" : "{{ GROCY_LABEL_PRINTER_WEBHOOK}}", 
+				"extra_data" : {!! json_encode(GROCY_LABEL_PRINTER_PARAMS) !!}
+			}
+		@endif
+		};
 
 		@if (GROCY_AUTHENTICATED)
 		Grocy.UserSettings = {!! json_encode($userSettings) !!};

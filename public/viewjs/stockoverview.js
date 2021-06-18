@@ -101,6 +101,21 @@ $("#search").on("keyup", Delay(function()
 	stockOverviewTable.search(value).draw();
 }, 200));
 
+$(document).on('click', '.stockentry-grocycode-product-label-print', function(e)
+{
+	e.preventDefault();
+	document.activeElement.blur();
+
+	var productId = $(e.currentTarget).attr('data-product-id');
+	Grocy.Api.Get('stock/products/' + productId + '/printlabel', function(labelData)
+	{
+		if (Grocy.Webhooks.labelprinter !== undefined)
+		{
+			Grocy.FrontendHelpers.RunWebhook(Grocy.Webhooks.labelprinter, labelData);
+		}
+	});
+});
+
 $(document).on('click', '.product-consume-button', function(e)
 {
 	e.preventDefault();
@@ -214,12 +229,6 @@ function RefreshStatistics()
 	Grocy.Api.Get('stock',
 		function(result)
 		{
-			var amountSum = 0;
-			result.forEach(element =>
-			{
-				amountSum += parseInt(element.amount);
-			});
-
 			if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 			{
 				$("#info-current-stock").text(__n(result.length, '%s Product', '%s Products'));
@@ -229,7 +238,7 @@ function RefreshStatistics()
 				var valueSum = 0;
 				result.forEach(element =>
 				{
-					valueSum += parseInt(element.value);
+					valueSum += parseFloat(element.value);
 				});
 				$("#info-current-stock").text(__n(result.length, '%s Product', '%s Products') + ", " + __t('%s total value', valueSum.toLocaleString(undefined, { style: "currency", currency: Grocy.Currency })));
 			}

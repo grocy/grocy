@@ -298,6 +298,20 @@
 									href="{{ $U('/product/') }}{{ $currentStockEntry->product_id . '?returnto=%2Fstockoverview' }}">
 									<span class="dropdown-item-text">{{ $__t('Edit product') }}</span>
 								</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item stockentry-grocycode-link"
+									type="button"
+									href="{{ $U('/product/' . $currentStockEntry->product_id . '/grocycode?download=true') }}">
+									{{ $__t('Download product grocycode') }}
+								</a>
+								@if(GROCY_FEATURE_FLAG_LABELPRINTER)
+								<a class="dropdown-item stockentry-grocycode-product-label-print"
+									data-product-id="{{ $currentStockEntry->product_id }}"
+									type="button"
+									href="#">
+									{{ $__t('Print product grocycode on label printer') }}
+								</a>
+								@endif
 							</div>
 						</div>
 					</td>
@@ -308,7 +322,8 @@
 					<td>
 						@if($currentStockEntry->product_group_name !== null){{ $currentStockEntry->product_group_name }}@endif
 					</td>
-					<td data-order={{ $currentStockEntry->amount }}>
+					<td data-order={{
+						$currentStockEntry->amount }}>
 						<span id="product-{{ $currentStockEntry->product_id }}-amount"
 							class="locale-number locale-number-quantity-amount">{{ $currentStockEntry->amount }}</span> <span id="product-{{ $currentStockEntry->product_id }}-qu-name">{{ $__n($currentStockEntry->amount, $currentStockEntry->qu_unit_name, $currentStockEntry->qu_unit_name_plural) }}</span>
 						<span id="product-{{ $currentStockEntry->product_id }}-opened-amount"

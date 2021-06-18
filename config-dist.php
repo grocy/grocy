@@ -140,7 +140,7 @@ DefaultUserSetting('stock_default_consume_amount_use_quick_consume_amount', fals
 DefaultUserSetting('scan_mode_consume_enabled', false);
 DefaultUserSetting('scan_mode_purchase_enabled', false);
 DefaultUserSetting('show_icon_on_stock_overview_page_when_product_is_on_shopping_list', true);
-DefaultUserSetting('show_purchased_date_on_purchase', false); // Wheter the purchased date should be editable on purchase (defaults to today otherwise)
+DefaultUserSetting('show_purchased_date_on_purchase', false); // Whether the purchased date should be editable on purchase (defaults to today otherwise)
 DefaultUserSetting('show_warning_on_purchase_when_due_date_is_earlier_than_next', true); // Show a warning on purchase when the due date of the purchased product is earlier than the next due date in stock
 
 // Shopping list settings
@@ -175,6 +175,21 @@ DefaultUserSetting('quagga2_patchsize', 'medium');
 DefaultUserSetting('quagga2_frequency', 10);
 DefaultUserSetting('quagga2_debug', true);
 
+// Label Printer Settings
+// This is the URI that grocy will POST to when asked to print a label.
+Setting('LABEL_PRINTER_WEBHOOK', '');
+// This setting decides whether the webhook will be called server- or clientside.
+// If the machine grocy runs on has a network connection to the host
+// the webhook receiver is on, this is probably a good idea.
+// If, for example, grocy runs in the cloud and your printer daemon
+// runs locally to you, set this to false to let your browser call
+// the webhook instead.
+Setting('LABEL_PRINTER_RUN_SERVER', true);
+// Additional Parameters supplied to the webhook.
+Setting('LABEL_PRINTER_PARAMS', ['font_family' => 'Source Sans Pro (Regular)']);
+// Use JSON or normal POST request variables?
+Setting('LABEL_PRINTER_HOOK_JSON', false);
+
 // Feature flags
 // grocy was initially about "stock management for your household", many other things
 // came and still come by, because they are useful - here you can disable the parts
@@ -188,6 +203,7 @@ Setting('FEATURE_FLAG_TASKS', true);
 Setting('FEATURE_FLAG_BATTERIES', true);
 Setting('FEATURE_FLAG_EQUIPMENT', true);
 Setting('FEATURE_FLAG_CALENDAR', true);
+Setting('FEATURE_FLAG_LABELPRINTER', false);
 
 // Sub feature flags
 Setting('FEATURE_FLAG_STOCK_PRICE_TRACKING', true);

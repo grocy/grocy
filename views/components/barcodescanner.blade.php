@@ -6,6 +6,7 @@
 
 @push('pageScripts')
 <script src="{{ $U('/node_modules/@ericblade/quagga2/dist/quagga.min.js?v=', true) }}{{ $version }}"></script>
+<script src="{{ $U('/components_unmanaged/quagga2-reader-datamatrix/index.js', true) }}?v={{ $version }}"></script>
 @endpush
 
 @push('pageStyles')
@@ -21,7 +22,6 @@
 	.combobox-container #barcodescanner-start-button {
 		margin-right: 36px !important;
 	}
-
 </style>
 @endpush
 
