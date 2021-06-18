@@ -198,7 +198,7 @@ Setting('FEATURE_FLAG_STOCK_PRODUCT_FREEZING', true);
 Setting('FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_FIELD_NUMBER_PAD', true); // Activate the number pad in due date fields on (supported) mobile browsers
 Setting('FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS', true);
 Setting('FEATURE_FLAG_CHORES_ASSIGNMENTS', true);
-Setting('FEATURE_FLAG_THERMAL_PRINTER', true);
+Setting('FEATURE_FLAG_THERMAL_PRINTER', false);
 
 // Feature settings
 Setting('FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT', true); // When set to true, opened items will be counted as missing for calculating if a product is below its minimum stock amount
