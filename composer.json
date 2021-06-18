@@ -12,6 +12,8 @@
 		"erusev/parsedown": "^1.7",
 		"gumlet/php-image-resize": "^1.9",
 		"ezyang/htmlpurifier": "^4.13",
+		"jucksearm/php-barcode": "^1.0",
+		"guzzlehttp/guzzle": "^7.0",
 		"mike42/escpos-php": "^3.0"
 	},
 	"autoload": {
@@ -24,5 +26,8 @@
 		"files": [
 			"helpers/extensions.php"
 		]
+	},
+	"config": {
+		"platform-check": false
 	}
 }
