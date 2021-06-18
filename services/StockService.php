@@ -970,6 +970,88 @@ class StockService extends BaseService
 		}
 	}
 
+	/**
+	 * Returns the shoppinglist as an array with lines for a printer
+	 * @param int $listId ID of shopping list
+	 * @return string[] Returns an array in the format "[amount] [name of product]"
+	 * @throws \Exception
+	 */
+	public function GetShoppinglistInPrintableStrings($listId = 1): array
+	{
+		if (!$this->ShoppingListExists($listId))
+		{
+			throw new \Exception('Shopping list does not exist');
+		}
+
+		$result_product           = array();
+		$result_quantity          = array();
+		$rowsShoppingListProducts = $this->getDatabase()->uihelper_shopping_list()->where('shopping_list_id = :1', $listId)->fetchAll();
+		foreach ($rowsShoppingListProducts as $row)
+		{
+			$isValidProduct = ($row->product_id != null && $row->product_id != "");
+			if ($isValidProduct)
+			{
+				$product    = $this->getDatabase()->products()->where('id = :1', $row->product_id)->fetch();
+				$conversion = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $product->id, $product->qu_id_stock, $row->qu_id)->fetch();
+				$factor     = 1.0;
+				if ($conversion != null)
+				{
+					$factor = floatval($conversion->factor);
+				}
+				$amount = round($row->amount * $factor);
+				$note   = "";
+				if (GROCY_TPRINTER_PRINT_NOTES)
+				{
+					if ($row->note != "") {
+						$note = ' (' . $row->note . ')';
+					}
+				}
+			}
+			if (GROCY_TPRINTER_PRINT_QUANTITY_NAME && $isValidProduct)
+			{
+				$quantityname = $row->qu_name;
+				if ($amount > 1)
+				{
+					$quantityname = $row->qu_name_plural;
+				}
+				array_push($result_quantity, $amount . ' ' . $quantityname);
+				array_push($result_product, $row->product_name . $note);
+			}
+			else
+			{
+				if ($isValidProduct)
+				{
+					array_push($result_quantity, $amount);
+					array_push($result_product, $row->product_name . $note);
+				}
+				else
+				{
+					array_push($result_quantity, round($row->amount));
+					array_push($result_product, $row->note);
+				}
+
+			}
+		}
+		//Add padding to look nicer
+		$maxlength = 1;
+		foreach ($result_quantity as $quantity)
+		{
+			if (strlen($quantity) > $maxlength)
+			{
+				$maxlength = strlen($quantity);
+			}
+		}
+		$result = array();
+		$length = count($result_quantity);
+		for ($i = 0; $i < $length; $i++)
+		{
+			$quantity = str_pad($result_quantity[$i], $maxlength);
+			array_push($result, $quantity . '  ' . $result_product[$i]);
+		}
+		return $result;
+	}
+
+
 	public function TransferProduct(int $productId, float $amount, int $locationIdFrom, int $locationIdTo, $specificStockEntryId = 'default', &$transactionId = null)
 	{
 		if (!$this->ProductExists($productId))

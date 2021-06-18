@@ -66,4 +66,10 @@ class BaseService
 	{
 		return UsersService::getInstance();
 	}
+
+	protected function getPrintService()
+	{
+		return PrintService::getInstance();
+	}
+
 }

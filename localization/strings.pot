@@ -2138,3 +2138,15 @@ msgstr ""
 
 msgid "Day"
 msgstr ""
+
+msgid "Thermal printer"
+msgstr ""
+
+msgid "Printing"
+msgstr ""
+
+msgid "Connecting to printer..."
+msgstr ""
+
+msgid "Unable to print"
+msgstr ""
