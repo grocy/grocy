@@ -148,7 +148,7 @@ function clean(cb)
 function build(cb)
 {
 	// body omitted
-	return parallel(js, css, vendor, resourceFileCopy);
+	return parallel(js, css, vendor, viewjs, resourceFileCopy, copyLocales, done => { done(); cb(); })();
 }
 
 function publish(cb)
