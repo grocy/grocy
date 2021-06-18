@@ -10,7 +10,7 @@ import buffer from 'vinyl-buffer';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import eslint from '@rollup/plugin-eslint';
-import rollupCss from 'rollup-plugin-css-porter';
+import postcssPlugin from 'rollup-plugin-postcss';
 import gulpif from 'gulp-if';
 import uglify from 'gulp-uglify';
 import gulpsass from 'gulp-dart-sass'; // TODO: move to gulp-sass once they removed the node-sass depenency
@@ -100,8 +100,10 @@ files.forEach(function(target)
 			name: path.basename(target),
 			sourcemap: 'inline',
 		},
-		plugins: [resolve(), rollupCss({
-			dest: './public/css/viewcss/' + path.basename(target).replace(".js", ".css")
+		plugins: [resolve(), postcssPlugin({
+			extract: path.resolve('./public/css/viewcss/' + path.basename(target).replace(".js", ".css")),
+			minimize: minify,
+			plugins: [autoprefixer()]
 		}), commonjs(), eslint(view_eslint_config)],
 
 	})
@@ -122,8 +124,10 @@ components.forEach(function(target)
 			name: path.basename(target),
 			sourcemap: 'inline',
 		},
-		plugins: [resolve(), rollupCss({
-			dest: './public/css/components/' + path.basename(target).replace(".js", ".css")
+		plugins: [resolve(), postcssPlugin({
+			extract: path.resolve('./public/css/components/' + path.basename(target).replace(".js", ".css")),
+			minimize: minify,
+			plugins: [autoprefixer()]
 		}), commonjs(), eslint(view_eslint_config)],
 	})
 		.pipe(source(path.basename(target), "./js/viewjs/components"))
