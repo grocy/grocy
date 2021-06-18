@@ -1,5 +1,7 @@
 'use strict';
 
+import cloneDeep from 'lodash.clonedeep';
+
 import { series, parallel, dest, src, watch, task } from 'gulp';
 import rollup from '@rollup/stream';
 import sourcemaps from 'gulp-sourcemaps';
@@ -7,6 +9,7 @@ import source from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
+import eslint from '@rollup/plugin-eslint';
 import rollupCss from 'rollup-plugin-css-porter';
 import gulpif from 'gulp-if';
 import uglify from 'gulp-uglify';
@@ -27,6 +30,59 @@ var postcss_plugins = [
 	autoprefixer(),
 ];
 
+var eslint_config = {
+	"envs": ["es6"],
+	"globals": [
+		"window",
+		"console",
+		"document",
+		"setInterval",
+		"clearInterval",
+		"setTimeout",
+		"clearTimeout",
+		"XMLHttpRequest",
+		"btoa",
+		"Audio",
+		"MutationObserver",
+		"URLSearchParams",
+		// form vendor.js:
+		"NoSleep",
+		"$",
+		"moment",
+		"toastr",
+		"bootbox",
+	],
+	"parserOptions": {
+		"sourceType": "module",
+		"ecmaVersion": 2018
+	},
+	baseConfig: {
+		"extends": ["eslint:recommended"]
+	},
+	rules: {
+		"no-unused-vars": ["error", { vars: "all", args: "none" }]
+	}
+};
+
+var view_eslint_config = cloneDeep(eslint_config);
+view_eslint_config.globals = eslint_config.globals.concat([
+	"Grocy",
+	"__t",
+	"GrocyClass",
+	"__n",
+	"U",
+	"RefreshContextualTimeago",
+	"RefreshLocaleNumberDisplay",
+	"RefreshLocaleNumberInput",
+	"LoadImagesLazy",
+	"Delay",
+	"GetUriParam",
+	"UpdateUriParam",
+	"RemoveUriParam",
+	"EmptyElementWhenMatches",
+	"animateCSS"
+]);
+
 
 // viewjs handling
 var files = glob.sync('./js/viewjs/*.js');
@@ -45,7 +101,7 @@ files.forEach(function(target)
 		},
 		plugins: [resolve(), rollupCss({
 			dest: './public/css/viewcss/' + path.basename(target).replace(".js", ".css")
-		}), commonjs()],
+		}), commonjs(), eslint(view_eslint_config)],
 
 	})
 		.pipe(source(path.basename(target), "./js/viewjs"))
@@ -67,8 +123,7 @@ components.forEach(function(target)
 		},
 		plugins: [resolve(), rollupCss({
 			dest: './public/css/components/' + path.basename(target).replace(".js", ".css")
-		}), commonjs()],
-
+		}), commonjs(), eslint(view_eslint_config)],
 	})
 		.pipe(source(path.basename(target), "./js/viewjs/components"))
 		.pipe(gulpif(minify, uglify()))
@@ -111,7 +166,7 @@ function js(cb)
 			name: 'grocy.js',
 			sourcemap: 'inline',
 		},
-		plugins: [resolve(), commonjs()],
+		plugins: [resolve(), commonjs(), eslint(eslint_config)],
 
 	})
 		.pipe(source('grocy.js', "./js"))
