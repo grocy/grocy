@@ -8,6 +8,8 @@ use Gettext\Translator;
 
 class LocalizationService
 {
+	const DOMAIN = 'grocy/userstrings';
+
 	protected $Po;
 
 	protected $PoUserStrings;
@@ -62,11 +64,15 @@ class LocalizationService
 		return $this->Po->toJsonString();
 	}
 
-	public function __construct(string $culture)
+	public function __construct(string $culture, $deferLoading = false)
 	{
 		$this->Culture = $culture;
+		$this->PoUserStrings = new Translations();
+		$this->PoUserStrings->setDomain(self::DOMAIN);
 
-		$this->LoadLocalizations($culture);
+		if(!$deferLoading) {
+			$this->LoadLocalizations($culture);
+		}	
 	}
 
 	public function __n($number, $singularForm, $pluralForm)
@@ -110,7 +116,7 @@ class LocalizationService
 		return $this->getDatabaseService()->GetDbConnection();
 	}
 
-	private function LoadLocalizations()
+	public function LoadLocalizations($includeDynamic = true)
 	{
 		$culture = $this->Culture;
 
@@ -132,9 +138,6 @@ class LocalizationService
 				$this->Pot = $this->Pot->mergeWith(Translations::fromPoFile(__DIR__ . '/../localization/demo_data.pot'));
 			}
 		}
-
-		$this->PoUserStrings = new Translations();
-		$this->PoUserStrings->setDomain('grocy/userstrings');
 
 		$this->Po = Translations::fromPoFile(__DIR__ . "/../localization/$culture/strings.po");
 
@@ -178,7 +181,18 @@ class LocalizationService
 			$this->Po = $this->Po->mergeWith(Translations::fromPoFile(__DIR__ . "/../localization/$culture/demo_data.po"));
 		}
 
+		if($includeDynamic)
+		{
+			$this->LoadDynamicLocalizations();
+		}
+
+		$this->Translator = new Translator();
+		$this->Translator->loadTranslations($this->Po);
+	}
+
+	public function LoadDynamicLocalizations() {
 		$quantityUnits = null;
+		
 		try
 		{
 			$quantityUnits = $this->getDatabase()->quantity_units()->fetchAll();
@@ -200,10 +214,13 @@ class LocalizationService
 				$this->PoUserStrings[] = $translation;
 			}
 
+			if($this->Po == null)
+			{
+				$this->Po = new Translations();
+				$this->Po->setDomain(self::DOMAIN);
+			}
+
 			$this->Po = $this->Po->mergeWith($this->PoUserStrings);
 		}
-
-		$this->Translator = new Translator();
-		$this->Translator->loadTranslations($this->Po);
 	}
 }

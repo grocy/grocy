@@ -44,12 +44,25 @@ class GrocyClass
 		this.EditObjectProduct = config.EditObjectProduct;
 		this.RecipePictureFileName = config.RecipePictureFileName;
 		this.InstructionManualFileNameName = config.InstructionManualFileNameName;
+		this.Locale = config.Locale;
 
 		this.Components = {};
 
 		// Init some classes
 		this.Api = new GrocyApi(this);
-		this.Translator = new Translator(config.GettextPo);
+
+		// Merge dynamic and static locales
+		var strings = this.Api.LoadLanguageSync(this.Locale);
+		if (strings == null)
+		{
+			console.error("Could not load locale " + this.Locale + ", fallback to en.");
+			strings = this.Api.LoadLanguageSync("en");
+		}
+		Object.assign(strings.messages[""], config.GettextPo.messages[""]);
+		this.Translator = new Translator(strings);
+
+
+
 		this.FrontendHelpers = new GrocyFrontendHelpers(this, this.Api);
 		this.WakeLock = new WakeLock(this);
 		this.UISound = new UISound(this);

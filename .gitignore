@@ -1,6 +1,7 @@
 /public/node_modules
 node_modules
 .yarn
+.vagrant
 /vendor
 /.release
 embedded.txt

@@ -152,7 +152,15 @@ function clean(cb)
 function build(cb)
 {
 	// body omitted
-	return parallel(js, css, vendor, viewjs, resourceFileCopy, copyLocales, done => { done(); cb(); })();
+	return parallel(
+		js,
+		css,
+		vendor,
+		viewjs,
+		resourceFileCopy,
+		copyLocales,
+		makeLocales,
+		done => { done(); cb(); })();
 }
 
 function publish(cb)
@@ -229,6 +237,11 @@ function resourceFileCopy(cb)
 	)();
 }
 
+async function makeLocales()
+{
+	return subprocess.exec("php buildfiles/generate-locales.php");
+}
+
 function copyLocales(cb)
 {
 	return parallel(
@@ -290,4 +303,5 @@ function bundle(cb)
 		.pipe(dest('.release'))
 }
 
-export { build, js, vendor, viewjs, css, live, clean, resourceFileCopy, copyLocales, publish, release, bundle }
+
+export { build, js, vendor, viewjs, css, live, clean, resourceFileCopy, copyLocales, publish, release, bundle, makeLocales }

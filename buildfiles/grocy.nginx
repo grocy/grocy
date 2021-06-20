@@ -1,0 +1,22 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+    root /grocy/public;
+    index index.php;
+
+    server_name _;
+
+    location / {
+        try_files $uri $uri/ /index.php$is_args$query_string;
+    }
+
+	location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php7.4-fpm.sock;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+}

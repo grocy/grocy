@@ -68,6 +68,7 @@
 			Currency:'{{ GROCY_CURRENCY }}',
 			CalendarFirstDayOfWeek: '{{ GROCY_CALENDAR_FIRST_DAY_OF_WEEK }}',
 			CalendarShowWeekNumbers: {{ BoolToString(GROCY_CALENDAR_SHOW_WEEK_OF_YEAR) }},
+			Locale: '{{ $GrocyLocale }}',
 			GettextPo: {!! $GettextPo !!},
 			FeatureFlags: {!! json_encode($featureFlags) !!},
 			Webhooks: {

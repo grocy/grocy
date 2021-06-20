@@ -130,7 +130,14 @@ class BaseController
 		$this->View->set('__n', function ($number, $singularForm, $pluralForm) use ($localizationService) {
 			return $localizationService->__n($number, $singularForm, $pluralForm);
 		});
-		$this->View->set('GettextPo', $localizationService->GetPoAsJsonString());
+		$this->View->set('GrocyLocale', $localizationService->Culture);
+
+		// only inclue strings loaded from the database on every request,
+		// so that the rest can be cached and generated on build-time.
+		// TODO: figure out why this is needed in the first place.
+		$dynamicLocalizationService = new LocalizationService($localizationService->Culture, true);
+		$dynamicLocalizationService->LoadDynamicLocalizations();
+		$this->View->set('GettextPo', $dynamicLocalizationService->GetPoAsJsonString());
 
 		// TODO: Better handle this generically based on the current language (header in .po file?)
 		$dir = 'ltr';

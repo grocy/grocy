@@ -6,6 +6,28 @@ class GrocyApi
 		this.Grocy = Grocy;
 	}
 
+	// This throws a deprecation warning in the console.
+	// The "clean" solution would be to move all translations
+	// To be promise-based async stuff, but Grocy not in a shape
+	// to make this easily possible right now.
+	// The introduction of a frontend framework like react or vue
+	// will make this obsolete as well.
+	LoadLanguageSync(locale)
+	{
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.open("GET", this.Grocy.FormatUrl('/js/locales/grocy/' + locale + '.json'), false);
+		xmlhttp.send();
+		// if Status OK or NOT MODIFIED
+		if ((xmlhttp.status == 200 || xmlhttp.status == 304) && xmlhttp.readyState == 4)
+		{
+			return JSON.parse(xmlhttp.responseText);
+		}
+		else
+		{
+			return null;
+		}
+	}
+
 	Get(apiFunction, success, error)
 	{
 		var xhr = new XMLHttpRequest();
