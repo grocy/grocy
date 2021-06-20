@@ -4,9 +4,12 @@ class Nightmode
 {
 	constructor(Grocy)
 	{
-		var self = this;
 		this.Grocy = Grocy;
+	}
 
+	Initialize()
+	{
+		var self = this;
 		$("#night-mode-enabled").on("change", function()
 		{
 			var value = $(this).is(":checked");

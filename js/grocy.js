@@ -61,14 +61,40 @@ class GrocyClass
 		Object.assign(strings.messages[""], config.GettextPo.messages[""]);
 		this.Translator = new Translator(strings);
 
-
-
 		this.FrontendHelpers = new GrocyFrontendHelpers(this, this.Api);
 		this.WakeLock = new WakeLock(this);
 		this.UISound = new UISound(this);
 		this.Nightmode = new Nightmode(this);
-		this.Nightmode.StartWatchdog();
+
 		this.HeaderClock = new HeaderClock(this);
+		var self = this;
+
+		// defer some stuff until DOM content has loaded
+		document.addEventListener("DOMContentLoaded", function() 
+		{
+			self.Nightmode.Initialize();
+			self.Nightmode.StartWatchdog();
+
+			// DB Changed Handling
+			if (self.UserId !== -1)
+			{
+
+				self.Api.Get('system/db-changed-time',
+					function(result)
+					{
+						self.DatabaseChangedTime = moment(result.changed_time);
+						setInterval(self.CheckDatabase(), 60000);
+						// Increase the idle time once every second
+						// On any interaction it will be reset to 0 (see above)
+						setInterval(self.IncrementIdleTime(), 1000);
+					},
+					function(xhr)
+					{
+						console.error(xhr);
+					}
+				);
+			}
+		});
 
 		// save the config
 		this.config = config;
@@ -81,22 +107,6 @@ class GrocyClass
 				}
 			});
 		}
-
-		// DB Changed Handling
-		if (this.UserId !== -1)
-		{
-			var self = this;
-			this.Api.Get('system/db-changed-time',
-				function(result)
-				{
-					self.DatabaseChangedTime = moment(result.changed_time);
-				},
-				function(xhr)
-				{
-					console.error(xhr);
-				}
-			);
-		}
 	}
 
 	static createSingleton(config)
@@ -106,11 +116,6 @@ class GrocyClass
 			var grocy = new GrocyClass(config);
 			window.Grocy = grocy;
 			// Check if the database has changed once a minute
-
-			setInterval(grocy.CheckDatabase(), 60000);
-			// Increase the idle time once every second
-			// On any interaction it will be reset to 0 (see above)
-			setInterval(grocy.IncrementIdleTime(), 1000);
 			window.onmousemove = grocy.ResetIdleTime;
 			window.onmousedown = grocy.ResetIdleTime;
 			window.onclick = grocy.ResetIdleTime;
