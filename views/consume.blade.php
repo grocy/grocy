@@ -37,7 +37,7 @@
 					@endif>
 				@else
 				<script>
-					Grocy.UserSettings.scan_mode_consume_enabled = false;
+					GrocyConfig.UserSettings.scan_mode_consume_enabled = false;
 				</script>
 				@endif
 			</div>

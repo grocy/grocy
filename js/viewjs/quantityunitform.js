@@ -148,41 +148,14 @@ $("#name").trigger("keyup");
 $('#name').focus();
 Grocy.FrontendHelpers.ValidateForm('quantityunit-form');
 
-$(document).on('click', '.qu-conversion-delete-button', function(e)
-{
-	var objectId = $(e.currentTarget).attr('data-qu-conversion-id');
-
-	bootbox.confirm({
-		message: __t('Are you sure to remove this conversion?'),
-		closeButton: false,
-		buttons: {
-			confirm: {
-				label: __t('Yes'),
-				className: 'btn-success'
-			},
-			cancel: {
-				label: __t('No'),
-				className: 'btn-danger'
-			}
-		},
-		callback: function(result)
-		{
-			if (result === true)
-			{
-				Grocy.Api.Delete('objects/quantity_unit_conversions/' + objectId, {},
-					function(result)
-					{
-						window.location.reload();
-					},
-					function(xhr)
-					{
-						console.error(xhr);
-					}
-				);
-			}
-		}
-	});
-});
+Grocy.FrontendHelpers.MakeDeleteConfirmBox(
+	'Are you sure to remove this conversion?',
+	'.qu-conversion-delete-button',
+	'data-qu-conversion-id',
+	'data-qu-conversion-id',
+	'objects/quantity_unit_conversions/',
+	() => window.location.reload(),
+);
 
 $("#test-quantityunit-plural-forms-button").on("click", function(e)
 {

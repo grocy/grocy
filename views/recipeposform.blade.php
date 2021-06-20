@@ -29,16 +29,16 @@
 <div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-5 pb-3">
 		<script>
-			Grocy.EditMode = '{{ $mode }}';
-			Grocy.EditObjectParentId = {{ $recipe->id }};
-			Grocy.EditObject = {!! json_encode($recipePos) !!};
-			Grocy.QuantityUnits = {!! json_encode($quantityUnits) !!};
-			Grocy.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
+			GrocyConfig.EditMode = '{{ $mode }}';
+			GrocyConfig.EditObjectParentId = {{ $recipe->id }};
+			GrocyConfig.EditObject = {!! json_encode($recipePos) !!};
+			GrocyConfig.QuantityUnits = {!! json_encode($quantityUnits) !!};
+			GrocyConfig.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
 		</script>
 
 		@if($mode == 'edit')
 		<script>
-			Grocy.EditObjectId = {{ $recipePos->id }};
+			GrocyConfig.EditObjectId = {{ $recipePos->id }};
 		</script>
 		@endif
 

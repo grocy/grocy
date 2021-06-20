@@ -126,79 +126,23 @@ $('#recipe-form input').keydown(function(event)
 	}
 });
 
-$(document).on('click', '.recipe-pos-delete-button', function(e)
-{
-	var objectName = $(e.currentTarget).attr('data-recipe-pos-name');
-	var objectId = $(e.currentTarget).attr('data-recipe-pos-id');
+Grocy.FrontendHelpers.MakeDeleteConfirmBox(
+	'Are you sure to delete recipe ingredient "%s"?',
+	'.recipe-pos-delete-button',
+	'data-recipe-pos-name',
+	'data-recipe-pos-id',
+	'objects/recipes_pos/',
+	() => window.postMessage(WindowMessageBag("IngredientsChanged"), Grocy.BaseUrl)
+);
 
-	bootbox.confirm({
-		message: __t('Are you sure to delete recipe ingredient "%s"?', objectName),
-		closeButton: false,
-		buttons: {
-			confirm: {
-				label: __t('Yes'),
-				className: 'btn-success'
-			},
-			cancel: {
-				label: __t('No'),
-				className: 'btn-danger'
-			}
-		},
-		callback: function(result)
-		{
-			if (result === true)
-			{
-				Grocy.Api.Delete('objects/recipes_pos/' + objectId, {},
-					function(result)
-					{
-						window.postMessage(WindowMessageBag("IngredientsChanged"), Grocy.BaseUrl);
-					},
-					function(xhr)
-					{
-						console.error(xhr);
-					}
-				);
-			}
-		}
-	});
-});
-
-$(document).on('click', '.recipe-include-delete-button', function(e)
-{
-	var objectName = $(e.currentTarget).attr('data-recipe-include-name');
-	var objectId = $(e.currentTarget).attr('data-recipe-include-id');
-
-	bootbox.confirm({
-		message: __t('Are you sure to remove the included recipe "%s"?', objectName),
-		closeButton: false,
-		buttons: {
-			confirm: {
-				label: __t('Yes'),
-				className: 'btn-success'
-			},
-			cancel: {
-				label: __t('No'),
-				className: 'btn-danger'
-			}
-		},
-		callback: function(result)
-		{
-			if (result === true)
-			{
-				Grocy.Api.Delete('objects/recipes_nestings/' + objectId, {},
-					function(result)
-					{
-						window.postMessage(WindowMessageBag("IngredientsChanged"), Grocy.BaseUrl);
-					},
-					function(xhr)
-					{
-						console.error(xhr);
-					}
-				);
-			}
-		}
-	});
-});
+Grocy.FrontendHelpers.MakeDeleteConfirmBox(
+	'Are you sure to remove the included recipe "%s"?',
+	'.recipe-include-delete-button',
+	'data-recipe-include-name',
+	'data-recipe-include-id',
+	'objects/recipes_nesting/',
+	() => window.postMessage(WindowMessageBag("IngredientsChanged"), Grocy.BaseUrl)
+);
 
 $(document).on('click', '.recipe-pos-show-note-button', function(e)
 {

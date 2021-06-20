@@ -55,10 +55,12 @@ $(document).on('click', '.product-consume-button', function(e)
 
 	Grocy.FrontendHelpers.BeginUiBusy();
 
-	var productId = $(e.currentTarget).attr('data-product-id');
-	var consumeAmount = $(e.currentTarget).attr('data-consume-amount');
-	var originalTotalStockAmount = $(e.currentTarget).attr('data-original-total-stock-amount');
-	var wasSpoiled = $(e.currentTarget).hasClass("product-consume-button-spoiled");
+	var target = $(e.currentTarget);
+
+	var productId = target.attr('data-product-id');
+	var consumeAmount = target.attr('data-consume-amount');
+	var originalTotalStockAmount = target.attr('data-original-total-stock-amount');
+	var wasSpoiled = target.hasClass("product-consume-button-spoiled");
 
 	Grocy.Api.Post('stock/products/' + productId + '/consume', { 'amount': consumeAmount, 'spoiled': wasSpoiled, 'allow_subproduct_substitution': true },
 		function(bookingResponse)
@@ -111,11 +113,12 @@ $(document).on('click', '.product-open-button', function(e)
 
 	Grocy.FrontendHelpers.BeginUiBusy();
 
-	var productId = $(e.currentTarget).attr('data-product-id');
-	var productName = $(e.currentTarget).attr('data-product-name');
-	var productQuName = $(e.currentTarget).attr('data-product-qu-name');
-	var amount = $(e.currentTarget).attr('data-open-amount');
 	var button = $(e.currentTarget);
+
+	var productId = button.attr('data-product-id');
+	var productName = button.attr('data-product-name');
+	var productQuName = button.attr('data-product-qu-name');
+	var amount = button.attr('data-open-amount');
 
 	Grocy.Api.Post('stock/products/' + productId + '/open', { 'amount': amount, 'allow_subproduct_substitution': true },
 		function(bookingResponse)

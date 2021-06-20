@@ -7,38 +7,8 @@
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#batteries-journal-table tbody').removeClass("d-none");
-batteriesJournalTable.columns.adjust().draw();
-
-$("#battery-filter").on("change", function()
-{
-	var value = $(this).val();
-	var text = $("#battery-filter option:selected").text();
-	if (value === "all")
-	{
-		text = "";
-	}
-
-	batteriesJournalTable.column(1).search(text).draw();
-});
-
-$("#search").on("keyup", Grocy.FrontendHelpers.Delay(function()
-{
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-
-	batteriesJournalTable.search(value).draw();
-}, 200));
-
-$("#clear-filter-button").on("click", function()
-{
-	$("#search").val("");
-	$("#battery-filter").val("all");
-	batteriesJournalTable.column(1).search("").draw();
-	batteriesJournalTable.search("").draw();
-});
+Grocy.FrontendHelpers.InitDataTable(batteriesJournalTable);
+Grocy.FrontendHelpers.MakeFilterForColumn("#battery-filter", 1, batteriesJournalTable);
 
 if (typeof GetUriParam("battery") !== "undefined")
 {

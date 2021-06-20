@@ -230,6 +230,32 @@ class GrocyFrontendHelpers
 		});
 	}
 
+	MakeYesNoBox(message, selector, callback)
+	{
+		var self = this;
+
+		$(document).on('click', selector, function(e)
+		{
+			message = message instanceof Function ? message(e) : message;
+			bootbox.confirm({
+				message: message,
+				closeButton: false,
+				buttons: {
+					confirm: {
+						label: self.Grocy.translate('Yes'),
+						className: 'btn-success'
+					},
+					cancel: {
+						label: self.Grocy.translate('No'),
+						className: 'btn-danger'
+					}
+				},
+				callback: (result) => callback(result, e)
+			});
+		});
+
+	}
+
 	MakeDeleteConfirmBox(message, selector, attrName, attrId, apiEndpoint, redirectUrl)
 	{
 		if (!apiEndpoint.endsWith('/'))
@@ -245,17 +271,9 @@ class GrocyFrontendHelpers
 		$(document).on('click', selector, function(e)
 		{
 			var target = $(e.currentTarget);
-			var objectName = target.attr(attrName);
-			var objectId = target.attr(attrId);
-
-			if (message instanceof Function)
-			{
-				message = message(objectId, objectName);
-			}
-			else
-			{
-				message = self.Grocy.translate(message, objectName)
-			}
+			var objectName = attrName instanceof Function ? attrName(target) : target.attr(attrName);
+			var objectId = attrId instanceof Function ? attrId(target) : target.attr(attrId);
+			message = message instanceof Function ? message(objectId, objectName) : self.Grocy.translate(message, objectName);
 
 			bootbox.confirm({
 				message: message,

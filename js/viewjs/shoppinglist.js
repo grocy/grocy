@@ -48,42 +48,14 @@ $("#selected-shopping-list").on("change", function()
 	window.location.href = U('/shoppinglist?list=' + value);
 });
 
-$("#delete-selected-shopping-list").on("click", function()
-{
-	var objectName = $("#selected-shopping-list option:selected").text();
-	var objectId = $("#selected-shopping-list").val();
-
-	bootbox.confirm({
-		message: __t('Are you sure to delete shopping list "%s"?', objectName),
-		closeButton: false,
-		buttons: {
-			confirm: {
-				label: __t('Yes'),
-				className: 'btn-success'
-			},
-			cancel: {
-				label: __t('No'),
-				className: 'btn-danger'
-			}
-		},
-		callback: function(result)
-		{
-			if (result === true)
-			{
-				Grocy.Api.Delete('objects/shopping_lists/' + objectId, {},
-					function(result)
-					{
-						window.location.href = U('/shoppinglist');
-					},
-					function(xhr)
-					{
-						console.error(xhr);
-					}
-				);
-			}
-		}
-	});
-});
+Grocy.FrontendHelpers.MakeDeleteConfirmBox(
+	'Are you sure to delete shopping list "%s"?',
+	'#delete-selected-shopping-list',
+	() => $("#selected-shopping-list option:selected").text(),
+	() => $("#selected-shopping-list").val(),
+	'objects/shopping_lists/',
+	'/shoppinglist'
+);
 
 $(document).on('click', '.shoppinglist-delete-button', function(e)
 {
@@ -160,47 +132,34 @@ $(document).on('click', '#add-overdue-expired-products', function(e)
 	);
 });
 
-$(document).on('click', '#clear-shopping-list', function(e)
-{
-	bootbox.confirm({
-		message: __t('Are you sure to empty shopping list "%s"?', $("#selected-shopping-list option:selected").text()),
-		closeButton: false,
-		buttons: {
-			confirm: {
-				label: __t('Yes'),
-				className: 'btn-success'
-			},
-			cancel: {
-				label: __t('No'),
-				className: 'btn-danger'
-			}
-		},
-		callback: function(result)
+Grocy.FrontendHelpers.MakeYesNoBox(
+	() => __t('Are you sure to empty shopping list "%s"?', $("#selected-shopping-list option:selected").text()),
+	'#clear-shopping-list',
+	(result) =>
+	{
+		if (result === true)
 		{
-			if (result === true)
-			{
-				Grocy.FrontendHelpers.BeginUiBusy();
+			Grocy.FrontendHelpers.BeginUiBusy();
 
-				Grocy.Api.Post('stock/shoppinglist/clear', { "list_id": $("#selected-shopping-list").val() },
-					function(result)
-					{
-						animateCSS("#shoppinglist-table tbody tr", "fadeOut", function()
-						{
-							Grocy.FrontendHelpers.EndUiBusy();
-							$("#shoppinglist-table tbody tr").remove();
-							OnListItemRemoved();
-						});
-					},
-					function(xhr)
+			Grocy.Api.Post('stock/shoppinglist/clear', { "list_id": $("#selected-shopping-list").val() },
+				function(result)
+				{
+					animateCSS("#shoppinglist-table tbody tr", "fadeOut", function()
 					{
 						Grocy.FrontendHelpers.EndUiBusy();
-						console.error(xhr);
-					}
-				);
-			}
+						$("#shoppinglist-table tbody tr").remove();
+						OnListItemRemoved();
+					});
+				},
+				function(xhr)
+				{
+					Grocy.FrontendHelpers.EndUiBusy();
+					console.error(xhr);
+				}
+			);
 		}
-	});
-});
+	}
+);
 
 $(document).on('click', '.shopping-list-stock-add-workflow-list-item-button', function(e)
 {

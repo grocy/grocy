@@ -108,93 +108,77 @@ Grocy.FrontendHelpers.MakeDeleteConfirmBox(
 	'/recipes'
 );
 
-$(document).on('click', '.recipe-shopping-list', function(e)
-{
-	var objectName = $(e.currentTarget).attr('data-recipe-name');
-	var objectId = $(e.currentTarget).attr('data-recipe-id');
-
-	bootbox.confirm({
-		message: __t('Are you sure to put all missing ingredients for recipe "%s" on the shopping list?', objectName) + "<br><br>" + __t("Uncheck ingredients to not put them on the shopping list") + ":" + $("#missing-recipe-pos-list")[0].outerHTML.replace("d-none", ""),
-		closeButton: false,
-		buttons: {
-			confirm: {
-				label: __t('Yes'),
-				className: 'btn-success'
-			},
-			cancel: {
-				label: __t('No'),
-				className: 'btn-danger'
-			}
-		},
-		callback: function(result)
+Grocy.FrontendHelpers.MakeYesNoBox(
+	(e) =>
+	{
+		var objectName = $(e.currentTarget).attr('data-recipe-name');
+		return __t('Are you sure to put all missing ingredients for recipe "%s" on the shopping list?', objectName) +
+			"<br><br>" +
+			__t("Uncheck ingredients to not put them on the shopping list") +
+			":" +
+			$("#missing-recipe-pos-list")[0].outerHTML.replace("d-none", "");
+	},
+	'.recipe-shopping-list',
+	(result, e) =>
+	{
+		var objectId = $(e.currentTarget).attr('data-recipe-id');
+		if (result === true)
 		{
-			if (result === true)
-			{
-				Grocy.FrontendHelpers.BeginUiBusy();
+			Grocy.FrontendHelpers.BeginUiBusy();
 
-				var excludedProductIds = new Array();
-				$(".missing-recipe-pos-product-checkbox:checkbox:not(:checked)").each(function()
+			var excludedProductIds = new Array();
+			$(".missing-recipe-pos-product-checkbox:checkbox:not(:checked)").each(function()
+			{
+				excludedProductIds.push($(this).data("product-id"));
+			});
+
+			Grocy.Api.Post('recipes/' + objectId + '/add-not-fulfilled-products-to-shoppinglist', { "excludedProductIds": excludedProductIds },
+				function(result)
 				{
-					excludedProductIds.push($(this).data("product-id"));
-				});
-
-				Grocy.Api.Post('recipes/' + objectId + '/add-not-fulfilled-products-to-shoppinglist', { "excludedProductIds": excludedProductIds },
-					function(result)
-					{
-						window.location.href = U('/recipes');
-					},
-					function(xhr)
-					{
-						Grocy.FrontendHelpers.EndUiBusy();
-						console.error(xhr);
-					}
-				);
-			}
+					window.location.href = U('/recipes');
+				},
+				function(xhr)
+				{
+					Grocy.FrontendHelpers.EndUiBusy();
+					console.error(xhr);
+				}
+			);
 		}
-	});
-});
+	}
+);
 
-$(".recipe-consume").on('click', function(e)
-{
-	var objectName = $(e.currentTarget).attr('data-recipe-name');
-	var objectId = $(e.currentTarget).attr('data-recipe-id');
-
-	bootbox.confirm({
-		message: __t('Are you sure to consume all ingredients needed by recipe "%s" (ingredients marked with "only check if any amount is in stock" will be ignored)?', objectName),
-		closeButton: false,
-		buttons: {
-			confirm: {
-				label: __t('Yes'),
-				className: 'btn-success'
-			},
-			cancel: {
-				label: __t('No'),
-				className: 'btn-danger'
-			}
-		},
-		callback: function(result)
+Grocy.FrontendHelpers.MakeYesNoBox(
+	(e) =>
+	{
+		var objectName = $(e.currentTarget).attr('data-recipe-name');
+		return __t('Are you sure to consume all ingredients needed by recipe "%s" (ingredients marked with "only check if any amount is in stock" will be ignored)?', objectName);
+	},
+	'.recipe-consume',
+	(result, e) =>
+	{
+		var target = $(e.currentTarget);
+		var objectName = target.attr('data-recipe-name');
+		var objectId = target.attr('data-recipe-id');
+		if (result === true)
 		{
-			if (result === true)
-			{
-				Grocy.FrontendHelpers.BeginUiBusy();
+			Grocy.FrontendHelpers.BeginUiBusy();
 
-				Grocy.Api.Post('recipes/' + objectId + '/consume', {},
-					function(result)
-					{
-						Grocy.FrontendHelpers.EndUiBusy();
-						toastr.success(__t('Removed all ingredients of recipe "%s" from stock', objectName));
-					},
-					function(xhr)
-					{
-						Grocy.FrontendHelpers.EndUiBusy();
-						toastr.warning(__t('Not all ingredients of recipe "%s" are in stock, nothing removed', objectName));
-						console.error(xhr);
-					}
-				);
-			}
+			Grocy.Api.Post('recipes/' + objectId + '/consume', {},
+				function(result)
+				{
+					Grocy.FrontendHelpers.EndUiBusy();
+					toastr.success(__t('Removed all ingredients of recipe "%s" from stock', objectName));
+				},
+				function(xhr)
+				{
+					Grocy.FrontendHelpers.EndUiBusy();
+					toastr.warning(__t('Not all ingredients of recipe "%s" are in stock, nothing removed', objectName));
+					console.error(xhr);
+				}
+			);
 		}
-	});
-});
+	}
+);
 
 recipesTables.on('select', function(e, dt, type, indexes)
 {
