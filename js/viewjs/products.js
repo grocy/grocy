@@ -17,51 +17,25 @@ Grocy.FrontendHelpers.InitDataTable(productsTable, null, function()
 })
 
 Grocy.FrontendHelpers.MakeFilterForColumn("#product-group-filter", 6, productsTable);
-
 if (typeof GetUriParam("product-group") !== "undefined")
 {
 	$("#product-group-filter").val(GetUriParam("product-group"));
 	$("#product-group-filter").trigger("change");
 }
 
-$(document).on('click', '.product-delete-button', function(e)
-{
-	var objectName = $(e.currentTarget).attr('data-product-name');
-	var objectId = $(e.currentTarget).attr('data-product-id');
-
-	bootbox.confirm({
-		message: __t('Are you sure to delete product "%s"?', objectName) + '<br><br>' + __t('This also removes any stock amount, the journal and all other references of this product - consider disabling it instead, if you want to keep that and just hide the product.'),
-		closeButton: false,
-		buttons: {
-			confirm: {
-				label: __t('Yes'),
-				className: 'btn-success'
-			},
-			cancel: {
-				label: __t('No'),
-				className: 'btn-danger'
-			}
-		},
-		callback: function(result)
-		{
-			if (result === true)
-			{
-				var jsonData = {};
-				jsonData.active = 0;
-				Grocy.Api.Delete('objects/products/' + objectId, {},
-					function(result)
-					{
-						window.location.href = U('/products');
-					},
-					function(xhr)
-					{
-						console.error(xhr);
-					}
-				);
-			}
-		}
-	});
-});
+Grocy.FrontendHelpers.MakeDeleteConfirmBox(
+	(objectId, objectName) =>
+	{
+		return __t('Are you sure to delete product "%s"?', objectName) +
+			'<br><br>' +
+			__t('This also removes any stock amount, the journal and all other references of this product - consider disabling it instead, if you want to keep that and just hide the product.');
+	},
+	'.product-delete-button',
+	'data-product-name',
+	'data-product-id',
+	'objects/products/',
+	'/products'
+);
 
 $("#show-disabled").change(function()
 {

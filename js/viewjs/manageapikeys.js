@@ -16,42 +16,14 @@ if (createdApiKeyId !== undefined)
 	animateCSS("#apiKeyRow_" + createdApiKeyId, "pulse");
 }
 
-$(document).on('click', '.apikey-delete-button', function(e)
-{
-	var objectName = $(e.currentTarget).attr('data-apikey-apikey');
-	var objectId = $(e.currentTarget).attr('data-apikey-id');
-
-	bootbox.confirm({
-		message: __t('Are you sure to delete API key "%s"?', objectName),
-		closeButton: false,
-		buttons: {
-			confirm: {
-				label: __t('Yes'),
-				className: 'btn-success'
-			},
-			cancel: {
-				label: __t('No'),
-				className: 'btn-danger'
-			}
-		},
-		callback: function(result)
-		{
-			if (result === true)
-			{
-				Grocy.Api.Delete('objects/api_keys/' + objectId, {},
-					function(result)
-					{
-						window.location.href = U('/manageapikeys');
-					},
-					function(xhr)
-					{
-						console.error(xhr);
-					}
-				);
-			}
-		}
-	});
-});
+Grocy.FrontendHelpers.MakeDeleteConfirmBox(
+	'Are you sure to delete API key "%s"?',
+	'.apikey-delete-button',
+	'data-apikey-apikey',
+	'data-apikey-id',
+	'objects/api_keys/',
+	'/manageapikeys'
+);
 
 function QrCodeForApiKey(apiKeyType, apiKey)
 {

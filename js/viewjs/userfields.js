@@ -27,42 +27,14 @@ $("#entity-filter").on("change", function()
 	$("#new-userfield-button").attr("href", U("/userfield/new?embedded&entity=" + value));
 });
 
-$(document).on('click', '.userfield-delete-button', function(e)
-{
-	var objectName = $(e.currentTarget).attr('data-userfield-name');
-	var objectId = $(e.currentTarget).attr('data-userfield-id');
-
-	bootbox.confirm({
-		message: __t('Are you sure to delete user field "%s"?', objectName),
-		closeButton: false,
-		buttons: {
-			confirm: {
-				label: __t('Yes'),
-				className: 'btn-success'
-			},
-			cancel: {
-				label: __t('No'),
-				className: 'btn-danger'
-			}
-		},
-		callback: function(result)
-		{
-			if (result === true)
-			{
-				Grocy.Api.Delete('objects/userfields/' + objectId, {},
-					function(result)
-					{
-						window.location.href = U('/userfields');
-					},
-					function(xhr)
-					{
-						console.error(xhr);
-					}
-				);
-			}
-		}
-	});
-});
+Grocy.FrontendHelpers.MakeDeleteConfirmBox(
+	'Are you sure to delete user field "%s"?',
+	'.userfield-delete-button',
+	'data-userfield-name',
+	'data-userfield-id',
+	'objects/userfields/',
+	'/userfields'
+);
 
 if (GetUriParam("entity") != undefined && !GetUriParam("entity").isEmpty())
 {

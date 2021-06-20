@@ -99,44 +99,14 @@ $("#status-filter").on("change", function()
 	}
 });
 
-$(".recipe-delete").on('click', function(e)
-{
-	e.preventDefault();
-
-	var objectName = $(e.currentTarget).attr('data-recipe-name');
-	var objectId = $(e.currentTarget).attr('data-recipe-id');
-
-	bootbox.confirm({
-		message: __t('Are you sure to delete recipe "%s"?', objectName),
-		closeButton: false,
-		buttons: {
-			confirm: {
-				label: __t('Yes'),
-				className: 'btn-success'
-			},
-			cancel: {
-				label: __t('No'),
-				className: 'btn-danger'
-			}
-		},
-		callback: function(result)
-		{
-			if (result === true)
-			{
-				Grocy.Api.Delete('objects/recipes/' + objectId, {},
-					function(result)
-					{
-						window.location.href = U('/recipes');
-					},
-					function(xhr)
-					{
-						console.error(xhr);
-					}
-				);
-			}
-		}
-	});
-});
+Grocy.FrontendHelpers.MakeDeleteConfirmBox(
+	'Are you sure to delete recipe "%s"?',
+	'.recipe-delete',
+	'data-recipe-name',
+	'data-recipe-id',
+	'objects/recipes/',
+	'/recipes'
+);
 
 $(document).on('click', '.recipe-shopping-list', function(e)
 {

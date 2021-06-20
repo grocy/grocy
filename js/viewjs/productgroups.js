@@ -7,43 +7,15 @@
 });
 $('#productgroups-table tbody').removeClass("d-none");
 Grocy.FrontendHelpers.InitDataTable(groupsTable);
+Grocy.FrontendHelpers.MakeDeleteConfirmBox(
+	'Are you sure to delete product group "%s"?',
+	'.product-group-delete-button',
+	'data-group-name',
+	'data-group-id',
+	'objects/product_groups/',
+	'/productgroups'
+);
 
-$(document).on('click', '.product-group-delete-button', function(e)
-{
-	var objectName = $(e.currentTarget).attr('data-group-name');
-	var objectId = $(e.currentTarget).attr('data-group-id');
-
-	bootbox.confirm({
-		message: __t('Are you sure to delete product group "%s"?', objectName),
-		closeButton: false,
-		buttons: {
-			confirm: {
-				label: __t('Yes'),
-				className: 'btn-success'
-			},
-			cancel: {
-				label: __t('No'),
-				className: 'btn-danger'
-			}
-		},
-		callback: function(result)
-		{
-			if (result === true)
-			{
-				Grocy.Api.Delete('objects/product_groups/' + objectId, {},
-					function(result)
-					{
-						window.location.href = U('/productgroups');
-					},
-					function(xhr)
-					{
-						console.error(xhr);
-					}
-				);
-			}
-		}
-	});
-});
 $(window).on("message", function(e)
 {
 	var data = e.originalEvent.data;

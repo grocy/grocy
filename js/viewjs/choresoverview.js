@@ -9,49 +9,21 @@
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#chores-overview-table tbody').removeClass("d-none");
-Grocy.FrontendHelpers.InitDataTable(choresOverviewTable, null, function()
-{
-	$("#search").val("");
-	$("#user-filter").val("all");
-	choresOverviewTable.column(6).search("").draw();
-	choresOverviewTable.search("").draw();
-	RemoveUriParam("user");
-});
-
-
-Grocy.FrontendHelpers.MakeFilterForColumn("#status-filter", 5, choresOverviewTable, null, true);
+Grocy.FrontendHelpers.InitDataTable(choresOverviewTable);
+Grocy.FrontendHelpers.MakeValueFilter("status", 5, choresOverviewTable);
+Grocy.FrontendHelpers.MakeValueFilter("user", 6, choresOverviewTable, "");
 
 $("#user-filter").on("change", function()
 {
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-
-	// Transfer CSS classes of selected element to dropdown element (for background)
-	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
-
-	choresOverviewTable.column(6).search(value).draw();
-
-	if (!value.isEmpty())
+	var user = $(this).val();
+	if (user !== null && !user.isEmpty())
 	{
 		UpdateUriParam("user", $("#user-filter option:selected").data("user-id"));
 	}
-});
-
-$(".status-filter-message").on("click", function()
-{
-	var value = $(this).data("status-filter");
-	$("#status-filter").val(value);
-	$("#status-filter").trigger("change");
-});
-
-$(".user-filter-message").on("click", function()
-{
-	var value = $(this).data("user-filter");
-	$("#user-filter").val(value);
-	$("#user-filter").trigger("change");
+	else
+	{
+		RemoveUriParam("user")
+	}
 });
 
 $(document).on('click', '.track-chore-button', function(e)

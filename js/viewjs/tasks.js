@@ -90,48 +90,21 @@ $(document).on('click', '.undo-task-button', function(e)
 	);
 });
 
-$(document).on('click', '.delete-task-button', function(e)
-{
-	e.preventDefault();
-
-	var objectName = $(e.currentTarget).attr('data-task-name');
-	var objectId = $(e.currentTarget).attr('data-task-id');
-
-	bootbox.confirm({
-		message: __t('Are you sure to delete task "%s"?', objectName),
-		closeButton: false,
-		buttons: {
-			confirm: {
-				label: __t('Yes'),
-				className: 'btn-success'
-			},
-			cancel: {
-				label: __t('No'),
-				className: 'btn-danger'
-			}
-		},
-		callback: function(result)
+Grocy.FrontendHelpers.MakeDeleteConfirmBox(
+	'Are you sure to delete task "%s"?',
+	'.delete-task-button',
+	'data-task-name',
+	'data-task-id',
+	'objects/tasks/',
+	(result, objectId, objectName) =>
+	{
+		animateCSS("#task-" + objectId + "-row", "fadeOut", function()
 		{
-			if (result === true)
-			{
-				Grocy.Api.Delete('objects/tasks/' + objectId, {},
-					function(result)
-					{
-						animateCSS("#task-" + objectId + "-row", "fadeOut", function()
-						{
-							$("#task-" + objectId + "-row").tooltip("hide");
-							$("#task-" + objectId + "-row").remove();
-						});
-					},
-					function(xhr)
-					{
-						console.error(xhr);
-					}
-				);
-			}
-		}
-	});
-});
+			$("#task-" + objectId + "-row").tooltip("hide");
+			$("#task-" + objectId + "-row").remove();
+		});
+	}
+);
 
 $("#show-done-tasks").change(function()
 {

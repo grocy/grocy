@@ -198,7 +198,11 @@ class GrocyFrontendHelpers
 	}
 	MakeStatusFilter(dataTable, column)
 	{
-		$("#status-filter").on("change", function()
+		return this.MakeValueFilter("status", column, dataTable)
+	}
+	MakeValueFilter(key, column, dataTable, resetValue = "all")
+	{
+		$("#" + key + "-filter").on("change", function()
 		{
 			var value = $(this).val();
 			if (value === "all")
@@ -212,17 +216,84 @@ class GrocyFrontendHelpers
 			dataTable.column(column).search(value).draw();
 		});
 
-		$(".status-filter-message").on("click", function()
+		$("." + key + "-filter-message").on("click", function()
 		{
-			var value = $(this).data("status-filter");
-			$("#status-filter").val(value);
-			$("#status-filter").trigger("change");
+			var value = $(this).data(key + "-filter");
+			$("#" + key + "-filter").val(value);
+			$("#" + key + "-filter").trigger("change");
 		});
 
 		$("#clear-filter-button").on("click", function()
 		{
-			$("#status-filter").val("all");
-			$("#status-filter").trigger("change");
+			$("#" + key + "-filter").val(resetValue);
+			$("#" + key + "-filter").trigger("change");
+		});
+	}
+
+	MakeDeleteConfirmBox(message, selector, attrName, attrId, apiEndpoint, redirectUrl)
+	{
+		if (!apiEndpoint.endsWith('/'))
+		{
+			apiEndpoint += '/';
+		}
+		if (redirectUrl instanceof String && !redirectUrl.startsWith('/'))
+		{
+			redirectUrl = '/' + redirectUrl;
+		}
+
+		var self = this;
+		$(document).on('click', selector, function(e)
+		{
+			var target = $(e.currentTarget);
+			var objectName = target.attr(attrName);
+			var objectId = target.attr(attrId);
+
+			if (message instanceof Function)
+			{
+				message = message(objectId, objectName);
+			}
+			else
+			{
+				message = self.Grocy.translate(message, objectName)
+			}
+
+			bootbox.confirm({
+				message: message,
+				closeButton: false,
+				buttons: {
+					confirm: {
+						label: self.Grocy.translate('Yes'),
+						className: 'btn-success'
+					},
+					cancel: {
+						label: self.Grocy.translate('No'),
+						className: 'btn-danger'
+					}
+				},
+				callback: function(result)
+				{
+					if (result === true)
+					{
+						self.Api.Delete(apiEndpoint + objectId, {},
+							function(result)
+							{
+								if (redirectUrl instanceof Function)
+								{
+									redirectUrl(result, objectId, objectName);
+								}
+								else
+								{
+									window.location.href = self.Grocy.FormatUrl(redirectUrl);
+								}
+							},
+							function(xhr)
+							{
+								console.error(xhr);
+							}
+						);
+					}
+				}
+			});
 		});
 	}
 }
