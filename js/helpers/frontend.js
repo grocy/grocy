@@ -7,6 +7,22 @@ class GrocyFrontendHelpers
 		this.Api = Api;
 	}
 
+	Delay(callable, delayMilliseconds)
+	{
+		var timer = 0;
+		return function()
+		{
+			var context = this;
+			var args = arguments;
+
+			clearTimeout(timer);
+			timer = setTimeout(function()
+			{
+				callable.apply(context, args);
+			}, delayMilliseconds || 0);
+		};
+	}
+
 	ValidateForm(formId)
 	{
 		var form = document.getElementById(formId);
@@ -121,6 +137,93 @@ class GrocyFrontendHelpers
 				}
 			});
 		}
+	}
+
+	InitDataTable(dataTable, searchFunction = null, clearFunction = null)
+	{
+		dataTable.columns.adjust().draw();
+
+		var self = this;
+
+		var defaultSearchFunction = function()
+		{
+			var value = $(this).val();
+			if (value === "all")
+			{
+				value = "";
+			}
+
+			dataTable.search(value).draw();
+		};
+
+		var defaultClearFunction = function()
+		{
+			$("#search").val("");
+			dataTable.search("").draw();
+		};
+
+		$("#search").on("keyup", self.Delay(searchFunction || defaultSearchFunction, 200));
+
+		$("#clear-filter-button").on("click", clearFunction || defaultClearFunction);
+	}
+
+	MakeFilterForColumn(selector, column, table, filterFunction = null, transferCss = false, valueMod = null)
+	{
+		$(selector).on("change", filterFunction || function()
+		{
+			var value = $(this).val();
+			var text = $(selector + " option:selected").text();
+			if (value === "all")
+			{
+				text = "";
+			}
+			else
+			{
+				value = valueMod != null ? valueMod(value) : value;
+			}
+
+			if (transferCss)
+			{
+				// Transfer CSS classes of selected element to dropdown element (for background)
+				$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
+			}
+
+			table.column(column).search(text).draw();
+		});
+		$("#clear-filter-button").on('click', () =>
+		{
+			$(selector).val("");
+			table.column(column).search("").draw();
+		})
+	}
+	MakeStatusFilter(dataTable, column)
+	{
+		$("#status-filter").on("change", function()
+		{
+			var value = $(this).val();
+			if (value === "all")
+			{
+				value = "";
+			}
+
+			// Transfer CSS classes of selected element to dropdown element (for background)
+			$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
+
+			dataTable.column(column).search(value).draw();
+		});
+
+		$(".status-filter-message").on("click", function()
+		{
+			var value = $(this).data("status-filter");
+			$("#status-filter").val(value);
+			$("#status-filter").trigger("change");
+		});
+
+		$("#clear-filter-button").on("click", function()
+		{
+			$("#status-filter").val("all");
+			$("#status-filter").trigger("change");
+		});
 	}
 }
 

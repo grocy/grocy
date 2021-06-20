@@ -6,24 +6,7 @@
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#productgroups-table tbody').removeClass("d-none");
-groupsTable.columns.adjust().draw();
-
-$("#search").on("keyup", Delay(function()
-{
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-
-	groupsTable.search(value).draw();
-}, 200));
-
-$("#clear-filter-button").on("click", function()
-{
-	$("#search").val("");
-	groupsTable.search("").draw();
-});
+Grocy.FrontendHelpers.InitDataTable(groupsTable);
 
 $(document).on('click', '.product-group-delete-button', function(e)
 {

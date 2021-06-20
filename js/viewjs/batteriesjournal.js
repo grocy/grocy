@@ -21,7 +21,7 @@ $("#battery-filter").on("change", function()
 	batteriesJournalTable.column(1).search(text).draw();
 });
 
-$("#search").on("keyup", Delay(function()
+$("#search").on("keyup", Grocy.FrontendHelpers.Delay(function()
 {
 	var value = $(this).val();
 	if (value === "all")

@@ -8,47 +8,9 @@
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#batteries-overview-table tbody').removeClass("d-none");
-batteriesOverviewTable.columns.adjust().draw();
 
-$("#search").on("keyup", Delay(function()
-{
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-
-	batteriesOverviewTable.search(value).draw();
-}, 200));
-
-$("#clear-filter-button").on("click", function()
-{
-	$("#search").val("");
-	$("#status-filter").val("all");
-	batteriesOverviewTable.column(5).search("").draw();
-	batteriesOverviewTable.search("").draw();
-});
-
-$("#status-filter").on("change", function()
-{
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-
-	// Transfer CSS classes of selected element to dropdown element (for background)
-	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
-
-	batteriesOverviewTable.column(5).search(value).draw();
-});
-
-$(".status-filter-message").on("click", function()
-{
-	var value = $(this).data("status-filter");
-	$("#status-filter").val(value);
-	$("#status-filter").trigger("change");
-});
+Grocy.FrontendHelpers.InitDataTable(batteriesOverviewTable);
+Grocy.FrontendHelpers.MakeStatusFilter(batteriesOverviewTable, 5);
 
 $(document).on('click', '.track-charge-cycle-button', function(e)
 {

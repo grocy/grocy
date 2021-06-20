@@ -6,24 +6,7 @@
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#quantityunits-table tbody').removeClass("d-none");
-quantityUnitsTable.columns.adjust().draw();
-
-$("#search").on("keyup", Delay(function()
-{
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-
-	quantityUnitsTable.search(value).draw();
-}, 200));
-
-$("#clear-filter-button").on("click", function()
-{
-	$("#search").val("");
-	quantityUnitsTable.search("").draw();
-});
+Grocy.FrontendHelpers.InitDataTable(quantityUnitsTable);
 
 $(document).on('click', '.quantityunit-delete-button', function(e)
 {

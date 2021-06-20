@@ -24,7 +24,8 @@ var shoppingListTable = $('#shoppinglist-table').DataTable({
 	}
 });
 $('#shoppinglist-table tbody').removeClass("d-none");
-shoppingListTable.columns.adjust().draw();
+Grocy.FrontendHelpers.InitDataTable(shoppingListTable);
+Grocy.FrontendHelpers.MakeStatusFilter(shoppingListTable, 4);
 
 var shoppingListPrintShadowTable = $('#shopping-list-print-shadow-table').DataTable({
 	'order': [[1, 'asc']],
@@ -38,52 +39,13 @@ var shoppingListPrintShadowTable = $('#shopping-list-print-shadow-table').DataTa
 		dataSrc: 2
 	}
 });
-shoppingListPrintShadowTable.columns.adjust().draw();
+Grocy.FrontendHelpers.InitDataTable(shoppingListPrintShadowTable);
 
-$("#search").on("keyup", Delay(function()
-{
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-
-	shoppingListTable.search(value).draw();
-}, 200));
-
-$("#clear-filter-button").on("click", function()
-{
-	$("#search").val("");
-	$("#status-filter").val("all");
-	$("#search").trigger("keyup");
-	$("#status-filter").trigger("change");
-});
-
-$("#status-filter").on("change", function()
-{
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-
-	// Transfer CSS classes of selected element to dropdown element (for background)
-	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
-
-	shoppingListTable.column(4).search(value).draw();
-});
 
 $("#selected-shopping-list").on("change", function()
 {
 	var value = $(this).val();
 	window.location.href = U('/shoppinglist?list=' + value);
-});
-
-$(".status-filter-message").on("click", function()
-{
-	var value = $(this).data("status-filter");
-	$("#status-filter").val(value);
-	$("#status-filter").trigger("change");
 });
 
 $("#delete-selected-shopping-list").on("click", function()

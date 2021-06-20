@@ -4,11 +4,6 @@
 @section('activeNav', 'stockoverview')
 @section('viewJsName', 'stockoverview')
 
-@push('pageStyles')
-<link href="{{ $U('/css/viewcss/stockoverview.css?v=', true) }}{{ $version }}"
-	rel="stylesheet">
-@endpush
-
 @push('pageScripts')
 <script src="{{ $U('/viewjs/purchase.js?v=', true) }}{{ $version }}"></script>
 @endpush

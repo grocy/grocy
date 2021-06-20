@@ -17,7 +17,7 @@ var equipmentTable = $('#equipment-table').DataTable({
 	}
 });
 $('#equipment-table tbody').removeClass("d-none");
-equipmentTable.columns.adjust().draw();
+Grocy.FrontendHelpers.InitDataTable(equipmentTable);
 
 equipmentTable.on('select', function(e, dt, type, indexes)
 {
@@ -64,23 +64,6 @@ function DisplayEquipment(id)
 		}
 	);
 }
-
-$("#search").on("keyup", Delay(function()
-{
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-
-	equipmentTable.search(value).draw();
-}, 200));
-
-$("#clear-filter-button").on("click", function()
-{
-	$("#search").val("");
-	equipmentTable.search("").draw();
-});
 
 $(document).on('click', '.equipment-delete-button', function(e)
 {

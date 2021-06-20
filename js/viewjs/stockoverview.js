@@ -25,81 +25,10 @@
 });
 
 $('#stock-overview-table tbody').removeClass("d-none");
-stockOverviewTable.columns.adjust().draw();
-
-$("#location-filter").on("change", function()
-{
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-	else
-	{
-		value = "xx" + value + "xx";
-	}
-
-	stockOverviewTable.column(6).search(value).draw();
-});
-
-$("#product-group-filter").on("change", function()
-{
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-	else
-	{
-		value = "xx" + value + "xx";
-	}
-
-	stockOverviewTable.column(8).search(value).draw();
-});
-
-$("#status-filter").on("change", function()
-{
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-
-	// Transfer CSS classes of selected element to dropdown element (for background)
-	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
-
-	stockOverviewTable.column(7).search(value).draw();
-});
-
-$(".status-filter-message").on("click", function()
-{
-	var value = $(this).data("status-filter");
-	$("#status-filter").val(value);
-	$("#status-filter").trigger("change");
-});
-
-$("#clear-filter-button").on("click", function()
-{
-	$("#search").val("");
-	$("#status-filter").val("all");
-	$("#product-group-filter").val("all");
-	$("#location-filter").val("all");
-	stockOverviewTable.column(6).search("").draw();
-	stockOverviewTable.column(7).search("").draw();
-	stockOverviewTable.column(8).search("").draw();
-	stockOverviewTable.search("").draw();
-});
-
-$("#search").on("keyup", Delay(function()
-{
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-
-	stockOverviewTable.search(value).draw();
-}, 200));
+Grocy.FrontendHelpers.InitDataTable(stockOverviewTable);
+Grocy.FrontendHelpers.MakeFilterForColumn("#location-filter", 6, stockOverviewTable, null, false, (value) => "xx" + value + "xx");
+Grocy.FrontendHelpers.MakeFilterForColumn("#product-group-filter", 8, stockOverviewTable, null, false, (value) => "xx" + value + "xx");
+Grocy.FrontendHelpers.MakeStatusFilter(stockOverviewTable, 7);
 
 $(document).on('click', '.stockentry-grocycode-product-label-print', function(e)
 {

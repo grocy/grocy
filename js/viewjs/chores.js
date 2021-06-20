@@ -6,20 +6,7 @@
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#chores-table tbody').removeClass("d-none");
-choresTable.columns.adjust().draw();
-
-$("#search").on("keyup", Delay(function()
-{
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-
-	choresTable.search(value).draw();
-}, 200));
-
-$("#clear-filter-button").on("click", function()
+Grocy.FrontendHelpers.InitDataTable(choresTable, null, function()
 {
 	$("#search").val("");
 	choresTable.search("").draw();

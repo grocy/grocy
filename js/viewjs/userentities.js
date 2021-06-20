@@ -6,24 +6,7 @@
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#userentities-table tbody').removeClass("d-none");
-userentitiesTable.columns.adjust().draw();
-
-$("#search").on("keyup", Delay(function()
-{
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-
-	userentitiesTable.search(value).draw();
-}, 200));
-
-$("#clear-filter-button").on("click", function()
-{
-	$("#search").val("");
-	userentitiesTable.search("").draw();
-});
+Grocy.FrontendHelpers.InitDataTable(userentitiesTable);
 
 $(document).on('click', '.userentity-delete-button', function(e)
 {

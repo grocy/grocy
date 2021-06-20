@@ -7,80 +7,12 @@
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#stock-journal-table tbody').removeClass("d-none");
-stockJournalTable.columns.adjust().draw();
+Grocy.FrontendHelpers.InitDataTable(stockJournalTable);
 
-$("#product-filter").on("change", function()
-{
-	var value = $(this).val();
-	var text = $("#product-filter option:selected").text();
-	if (value === "all")
-	{
-		text = "";
-	}
-
-	stockJournalTable.column(1).search(text).draw();
-});
-
-$("#transaction-type-filter").on("change", function()
-{
-	var value = $(this).val();
-	var text = $("#transaction-type-filter option:selected").text();
-	if (value === "all")
-	{
-		text = "";
-	}
-
-	stockJournalTable.column(4).search(text).draw();
-});
-
-$("#location-filter").on("change", function()
-{
-	var value = $(this).val();
-	var text = $("#location-filter option:selected").text();
-	if (value === "all")
-	{
-		text = "";
-	}
-
-	stockJournalTable.column(5).search(text).draw();
-});
-
-$("#user-filter").on("change", function()
-{
-	var value = $(this).val();
-	var text = $("#user-filter option:selected").text();
-	if (value === "all")
-	{
-		text = "";
-	}
-
-	stockJournalTable.column(6).search(text).draw();
-});
-
-$("#search").on("keyup", Delay(function()
-{
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-
-	stockJournalTable.search(value).draw();
-}, 200));
-
-$("#clear-filter-button").on("click", function()
-{
-	$("#search").val("");
-	$("#transaction-type-filter").val("all");
-	$("#location-filter").val("all");
-	$("#user-filter").val("all");
-	$("#product-filter").val("all");
-	stockJournalTable.column(1).search("").draw();
-	stockJournalTable.column(4).search("").draw();
-	stockJournalTable.column(5).search("").draw();
-	stockJournalTable.column(6).search("").draw();
-	stockJournalTable.search("").draw();
-});
+Grocy.FrontendHelpers.MakeFilterForColumn("#product-filter", 1, stockJournalTable);
+Grocy.FrontendHelpers.MakeFilterForColumn("#transaction-type-filter", 4, stockJournalTable);
+Grocy.FrontendHelpers.MakeFilterForColumn("#location-filter", 5, stockJournalTable);
+Grocy.FrontendHelpers.MakeFilterForColumn("#user-filter", 6, stockJournalTable);
 
 if (typeof GetUriParam("product") !== "undefined")
 {

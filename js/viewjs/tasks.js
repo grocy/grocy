@@ -12,48 +12,13 @@
 	}
 });
 $('#tasks-table tbody').removeClass("d-none");
-tasksTable.columns.adjust().draw();
-
-$("#search").on("keyup", Delay(function()
-{
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-
-	tasksTable.search(value).draw();
-}, 200));
-
-$("#status-filter").on("change", function()
-{
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-
-	// Transfer CSS classes of selected element to dropdown element (for background)
-	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
-
-	tasksTable.column(5).search(value).draw();
-});
-
-$("#clear-filter-button").on("click", function()
+Grocy.FrontendHelpers.InitDataTable(tasksTable, null, function()
 {
 	$("#search").val("");
-	$("#status-filter").val("all");
 	$("#search").trigger("keyup");
-	$("#status-filter").trigger("change");
 	$("#show-done-tasks").trigger('checked', false);
 });
-
-$(".status-filter-message").on("click", function()
-{
-	var value = $(this).data("status-filter");
-	$("#status-filter").val(value);
-	$("#status-filter").trigger("change");
-});
+Grocy.FrontendHelpers.MakeStatusFilter(tasksTable, 5);
 
 $(document).on('click', '.do-task-button', function(e)
 {

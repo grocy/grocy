@@ -9,7 +9,7 @@ import { WakeLock } from "./lib/WakeLock";
 import { UISound } from "./lib/UISound";
 import { Nightmode } from "./lib/nightmode";
 import { HeaderClock } from "./helpers/clock";
-import { animateCSS, BoolVal, Delay, EmptyElementWhenMatches, GetUriParam, RemoveUriParam, UpdateUriParam } from "./helpers/extensions";
+import { animateCSS, BoolVal, EmptyElementWhenMatches, GetUriParam, RemoveUriParam, UpdateUriParam } from "./helpers/extensions";
 import Translator from "gettext-translator";
 import { WindowMessageBag } from './helpers/messagebag';
 
@@ -121,7 +121,6 @@ class GrocyClass
 			setDatatableDefaults(grocy);
 
 			// add some more functions to the global space
-			window.Delay = Delay;
 			window.GetUriParam = GetUriParam;
 			window.UpdateUriParam = UpdateUriParam;
 			window.RemoveUriParam = RemoveUriParam;

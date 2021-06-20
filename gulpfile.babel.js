@@ -10,7 +10,7 @@ import buffer from 'vinyl-buffer';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import eslint from '@rollup/plugin-eslint';
-import postcssPlugin from 'rollup-plugin-postcss';
+import rollupCss from 'rollup-plugin-css-porter';
 import gulpif from 'gulp-if';
 import uglify from 'gulp-uglify';
 import gulpsass from 'gulp-dart-sass'; // TODO: move to gulp-sass once they removed the node-sass depenency
@@ -32,7 +32,9 @@ var postcss_plugins = [
 	// always add autoprefixer
 	autoprefixer(),
 ];
-
+/*
+	eslint Configuration
+*/
 var eslint_config = {
 	"envs": ["es6"],
 	"globals": [
@@ -79,7 +81,6 @@ view_eslint_config.globals = eslint_config.globals.concat([
 	"RefreshLocaleNumberDisplay",
 	"RefreshLocaleNumberInput",
 	"LoadImagesLazy",
-	"Delay",
 	"GetUriParam",
 	"UpdateUriParam",
 	"RemoveUriParam",
@@ -103,10 +104,8 @@ files.forEach(function(target)
 			name: path.basename(target),
 			sourcemap: 'inline',
 		},
-		plugins: [resolve(), postcssPlugin({
-			extract: path.resolve('./public/css/viewcss/' + path.basename(target).replace(".js", ".css")),
-			minimize: minify,
-			plugins: [autoprefixer()]
+		plugins: [resolve(), rollupCss({
+			dest: path.resolve('./public/css/viewcss/' + path.basename(target).replace(".js", ".css")),
 		}), commonjs(), eslint(view_eslint_config)],
 
 	})
@@ -127,10 +126,8 @@ components.forEach(function(target)
 			name: path.basename(target),
 			sourcemap: 'inline',
 		},
-		plugins: [resolve(), postcssPlugin({
-			extract: path.resolve('./public/css/components/' + path.basename(target).replace(".js", ".css")),
-			minimize: minify,
-			plugins: [autoprefixer()]
+		plugins: [resolve(), rollupCss({
+			dest: path.resolve('./public/css/viewcss/' + path.basename(target).replace(".js", ".css")),
 		}), commonjs(), eslint(view_eslint_config)],
 	})
 		.pipe(source(path.basename(target), "./js/viewjs/components"))

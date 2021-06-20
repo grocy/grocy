@@ -8,38 +8,15 @@
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#products-table tbody').removeClass("d-none");
-productsTable.columns.adjust().draw();
 
-$("#search").on("keyup", Delay(function()
-{
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-
-	productsTable.search(value).draw();
-}, 200));
-
-$("#product-group-filter").on("change", function()
-{
-	var value = $("#product-group-filter option:selected").text();
-	if (value === __t("All"))
-	{
-		value = "";
-	}
-
-	productsTable.column(6).search(value).draw();
-});
-
-$("#clear-filter-button").on("click", function()
+Grocy.FrontendHelpers.InitDataTable(productsTable, null, function()
 {
 	$("#search").val("");
-	$("#product-group-filter").val("all");
-	productsTable.column(7).search("").draw();
 	productsTable.search("").draw();
 	$("#show-disabled").prop('checked', false);
-});
+})
+
+Grocy.FrontendHelpers.MakeFilterForColumn("#product-group-filter", 6, productsTable);
 
 if (typeof GetUriParam("product-group") !== "undefined")
 {

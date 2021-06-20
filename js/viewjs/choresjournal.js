@@ -7,38 +7,8 @@
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#chores-journal-table tbody').removeClass("d-none");
-choresJournalTable.columns.adjust().draw();
-
-$("#chore-filter").on("change", function()
-{
-	var value = $(this).val();
-	var text = $("#chore-filter option:selected").text();
-	if (value === "all")
-	{
-		text = "";
-	}
-
-	choresJournalTable.column(1).search(text).draw();
-});
-
-$("#search").on("keyup", Delay(function()
-{
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-
-	choresJournalTable.search(value).draw();
-}, 200));
-
-$("#clear-filter-button").on("click", function()
-{
-	$("#search").val("");
-	$("#chore-filter").val("all");
-	choresJournalTable.column(1).search("").draw();
-	choresJournalTable.search("").draw();
-});
+Grocy.FrontendHelpers.InitDataTable(choresJournalTable);
+Grocy.FrontendHelpers.MakeFilterForColumn("#chore-filter", 1, choresJournalTable);
 
 if (typeof GetUriParam("chore") !== "undefined")
 {
@@ -51,7 +21,7 @@ $(document).on('click', '.undo-chore-execution-button', function(e)
 	e.preventDefault();
 
 	var element = $(e.currentTarget);
-	var executionId = $(e.currentTarget).attr('data-execution-id');
+	var executionId = element.attr('data-execution-id');
 
 	Grocy.Api.Post('chores/executions/' + executionId.toString() + '/undo', {},
 		function(result)

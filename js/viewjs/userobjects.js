@@ -6,24 +6,7 @@
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#userobjects-table tbody').removeClass("d-none");
-userobjectsTable.columns.adjust().draw();
-
-$("#search").on("keyup", Delay(function()
-{
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-
-	userobjectsTable.search(value).draw();
-}, 200));
-
-$("#clear-filter-button").on("click", function()
-{
-	$("#search").val("");
-	userobjectsTable.search("").draw();
-});
+Grocy.FrontendHelpers.InitDataTable(userobjectsTable);
 
 $(document).on('click', '.userobject-delete-button', function(e)
 {

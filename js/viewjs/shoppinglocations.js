@@ -6,24 +6,7 @@ var locationsTable = $('#shoppinglocations-table').DataTable({
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#shoppinglocations-table tbody').removeClass("d-none");
-locationsTable.columns.adjust().draw();
-
-$("#search").on("keyup", Delay(function()
-{
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-
-	locationsTable.search(value).draw();
-}, 200));
-
-$("#clear-filter-button").on("click", function()
-{
-	$("#search").val("");
-	locationsTable.search("").draw();
-});
+Grocy.FrontendHelpers.InitDataTable(locationsTable);
 
 $(document).on('click', '.shoppinglocation-delete-button', function(e)
 {

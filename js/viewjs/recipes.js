@@ -15,7 +15,24 @@
 	}
 });
 $('#recipes-table tbody').removeClass("d-none");
-recipesTables.columns.adjust().draw();
+Grocy.FrontendHelpers.InitDataTable(recipesTables,
+	function()
+	{
+		var value = $(this).val();
+
+		recipesTables.search(value).draw();
+
+		$(".recipe-gallery-item").removeClass("d-none");
+
+		$(".recipe-gallery-item .card-title:not(:contains_case_insensitive(" + value + "))").parent().parent().parent().addClass("d-none");
+	},
+	function() // custom status filter below
+	{
+		$("#search").val("");
+		$("#status-filter").val("all");
+		$("#search").trigger("keyup");
+		$("#status-filter").trigger("change");
+	})
 
 if ((typeof GetUriParam("tab") !== "undefined" && GetUriParam("tab") === "gallery") || window.localStorage.getItem("recipes_last_tab_id") == "gallery-tab")
 {
@@ -52,25 +69,6 @@ $("a[data-toggle='tab']").on("shown.bs.tab", function(e)
 {
 	var tabId = $(e.target).attr("id");
 	window.localStorage.setItem("recipes_last_tab_id", tabId);
-});
-
-$("#search").on("keyup", Delay(function()
-{
-	var value = $(this).val();
-
-	recipesTables.search(value).draw();
-
-	$(".recipe-gallery-item").removeClass("d-none");
-
-	$(".recipe-gallery-item .card-title:not(:contains_case_insensitive(" + value + "))").parent().parent().parent().addClass("d-none");
-}, 200));
-
-$("#clear-filter-button").on("click", function()
-{
-	$("#search").val("");
-	$("#status-filter").val("all");
-	$("#search").trigger("keyup");
-	$("#status-filter").trigger("change");
 });
 
 $("#status-filter").on("change", function()

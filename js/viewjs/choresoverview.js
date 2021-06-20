@@ -9,32 +9,17 @@
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#chores-overview-table tbody').removeClass("d-none");
-choresOverviewTable.columns.adjust().draw();
-
-$("#search").on("keyup", Delay(function()
+Grocy.FrontendHelpers.InitDataTable(choresOverviewTable, null, function()
 {
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-
-	choresOverviewTable.search(value).draw();
-}, 200));
-
-$("#status-filter").on("change", function()
-{
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-
-	// Transfer CSS classes of selected element to dropdown element (for background)
-	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
-
-	choresOverviewTable.column(5).search(value).draw();
+	$("#search").val("");
+	$("#user-filter").val("all");
+	choresOverviewTable.column(6).search("").draw();
+	choresOverviewTable.search("").draw();
+	RemoveUriParam("user");
 });
+
+
+Grocy.FrontendHelpers.MakeFilterForColumn("#status-filter", 5, choresOverviewTable, null, true);
 
 $("#user-filter").on("change", function()
 {
@@ -53,16 +38,6 @@ $("#user-filter").on("change", function()
 	{
 		UpdateUriParam("user", $("#user-filter option:selected").data("user-id"));
 	}
-});
-
-$("#clear-filter-button").on("click", function()
-{
-	$("#search").val("");
-	$("#status-filter").val("all");
-	$("#user-filter").val("all");
-	choresOverviewTable.column(5).search("").draw();
-	choresOverviewTable.column(6).search("").draw();
-	choresOverviewTable.search("").draw();
 });
 
 $(".status-filter-message").on("click", function()

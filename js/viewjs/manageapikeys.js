@@ -8,30 +8,13 @@ var apiKeysTable = $('#apikeys-table').DataTable({
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#apikeys-table tbody').removeClass("d-none");
-apiKeysTable.columns.adjust().draw();
+Grocy.FrontendHelpers.InitDataTable(apiKeysTable);
 
 var createdApiKeyId = GetUriParam('CreatedApiKeyId');
 if (createdApiKeyId !== undefined)
 {
 	animateCSS("#apiKeyRow_" + createdApiKeyId, "pulse");
 }
-
-$("#search").on("keyup", Delay(function()
-{
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-
-	apiKeysTable.search(value).draw();
-}, 200));
-
-$("#clear-filter-button").on("click", function()
-{
-	$("#search").val("");
-	apiKeysTable.search("").draw();
-});
 
 $(document).on('click', '.apikey-delete-button', function(e)
 {

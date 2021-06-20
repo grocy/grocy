@@ -9,7 +9,7 @@
 $('#batteries-table tbody').removeClass("d-none");
 batteriesTable.columns.adjust().draw();
 
-$("#search").on("keyup", Delay(function()
+$("#search").on("keyup", Grocy.FrontendHelpers.Delay(function()
 {
 	var value = $(this).val();
 	if (value === "all")
