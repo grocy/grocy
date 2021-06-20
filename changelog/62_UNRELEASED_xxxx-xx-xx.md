@@ -1,3 +1,5 @@
+> ⚠️ The following PHP extensions are now additionally required: `json`, `intl`, `zlib`
+
 ### New feature: (Own) Product and stock entry labels/barcodes ("grocycode")
 - Print own labels/barcodes for products and/or every stock entry and then scan that code on every place a product or stock entry can be selected
 - Can be printed (or downloaded) via
