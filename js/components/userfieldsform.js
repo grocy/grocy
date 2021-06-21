@@ -3,8 +3,10 @@ import { LoadImagesLazy } from '../configs/lazy'
 
 function userfieldsform(Grocy)
 {
-	Grocy.Use("datetimepicker");
-
+	if (document.querySelector('.datetimepicker-input') !== null)
+	{
+		Grocy.Use("datetimepicker");
+	}
 	Grocy.Components.UserfieldsForm = {};
 
 	Grocy.Components.UserfieldsForm.Save = function(success, error)

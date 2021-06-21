@@ -303,5 +303,20 @@ function bundle(cb)
 		.pipe(dest('.release'))
 }
 
-
-export { build, js, vendor, viewjs, css, live, clean, resourceFileCopy, copyLocales, publish, release, bundle, makeLocales }
+export default publish;
+export
+{
+	build,
+	js,
+	vendor,
+	viewjs,
+	css,
+	live,
+	clean,
+	resourceFileCopy,
+	copyLocales,
+	publish,
+	release,
+	bundle,
+	makeLocales
+}
