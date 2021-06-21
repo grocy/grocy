@@ -1,3 +1,5 @@
+> ⚠️ The following PHP extensions are now additionally required: `json`, `intl`, `zlib`
+
 ### New feature: (Own) Product and stock entry labels/barcodes ("grocycode")
 - Print own labels/barcodes for products and/or every stock entry and then scan that code on every place a product or stock entry can be selected
 - Can be printed (or downloaded) via
@@ -45,6 +47,11 @@
 - Fixed that numeric Userfields were initialised with `1.0`
 
 ### General & other improvements/fixes
+- LDAP authentication improvements / OpenLDAP support (thanks @tank0226)
+  - A read only service account can now be used for binding
+  - The username attribute is now configurable
+  - Filtering of accounts is now possible
+  - => See the new `config.php` options
 - Some night mode style improvements (thanks @BlizzWave and @KTibow)
 - Fixed that the number picker up/down buttons did not work when the input field was empty or contained an invalid number
 

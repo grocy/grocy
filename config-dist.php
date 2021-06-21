@@ -78,9 +78,12 @@ Setting('AUTH_CLASS', 'Grocy\Middleware\DefaultAuthMiddleware');
 Setting('REVERSE_PROXY_AUTH_HEADER', 'REMOTE_USER');
 
 // When using LdapAuthMiddleware
-Setting('LDAP_DOMAIN', ''); // Example value "local"
 Setting('LDAP_ADDRESS', ''); // Example value "ldap://vm-dc2019.local.berrnd.net"
-Setting('LDAP_BASE_DN', ''); // Example value "OU=OU_Users,DC=local,DC=berrnd,DC=net"
+Setting('LDAP_BASE_DN', ''); // Example value "DC=local,DC=berrnd,DC=net"
+Setting('LDAP_BIND_DN', ''); // Example value "CN=grocy_bind_account,OU=service_accounts,DC=local,DC=berrnd,DC=net"
+Setting('LDAP_BIND_PW', ''); // Password for the above account
+Setting('LDAP_USER_FILTER', ''); // Example value "(OU=grocy_users)"
+Setting('LDAP_UID_ATTR', ''); // Windows AD: "sAMAccountName", OpenLDAP: "uid", Glauth: "cn"
 
 // Set this to true if you want to disable the ability to scan a barcode via the device camera (Browser API)
 Setting('DISABLE_BROWSER_BARCODE_CAMERA_SCANNING', false);
