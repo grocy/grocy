@@ -1,6 +1,8 @@
 ﻿import { RandomString } from '../helpers/extensions';
 import { ResizeResponsiveEmbeds } from '../helpers/embeds';
 
+Grocy.Use("userfieldsform");
+
 $('#save-equipment-button').on('click', function(e)
 {
 	e.preventDefault();

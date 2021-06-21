@@ -1,4 +1,7 @@
-﻿var stockEntriesTable = $('#stockentries-table').DataTable({
+﻿Grocy.Use("productcard");
+Grocy.Use("productpicker");
+
+var stockEntriesTable = $('#stockentries-table').DataTable({
 	'order': [[2, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },

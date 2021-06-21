@@ -1,5 +1,8 @@
 ﻿import { WindowMessageBag } from '../helpers/messagebag';
 
+Grocy.Use("datetimepicker");
+Grocy.Use("userfieldsform");
+
 $('#save-task-button').on('click', function(e)
 {
 	e.preventDefault();

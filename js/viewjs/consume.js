@@ -1,6 +1,11 @@
 ﻿import { BoolVal } from '../helpers/extensions';
 import { WindowMessageBag } from '../helpers/messagebag';
 
+Grocy.Use("productamountpicker");
+Grocy.Use("productcard");
+Grocy.Use("productpicker");
+Grocy.Use("recipepicker");
+
 $('#save-consume-button').on('click', function(e)
 {
 	e.preventDefault();

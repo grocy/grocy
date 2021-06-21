@@ -1,4 +1,6 @@
-﻿var batteriesOverviewTable = $('#batteries-overview-table').DataTable({
+﻿Grocy.Use("batterycard");
+
+var batteriesOverviewTable = $('#batteries-overview-table').DataTable({
 	'order': [[4, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },

@@ -1,4 +1,6 @@
-﻿var tasksTable = $('#tasks-table').DataTable({
+﻿Grocy.Use("userpicker");
+
+var tasksTable = $('#tasks-table').DataTable({
 	'order': [[2, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },

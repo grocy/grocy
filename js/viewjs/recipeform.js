@@ -1,5 +1,9 @@
 ﻿import { WindowMessageBag } from '../helpers/messagebag';
 
+Grocy.Use("numberpicker");
+Grocy.Use("recipepicker");
+Grocy.Use("userfieldsform");
+
 function saveRecipePicture(result, location, jsonData)
 {
 	var recipeId = Grocy.EditObjectId || result.created_object_id;

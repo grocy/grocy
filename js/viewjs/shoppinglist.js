@@ -3,6 +3,9 @@
 import bwipjs from '../../node_modules/bwip-js/dist/bwip-js.mjs';
 import { WindowMessageBag } from '../helpers/messagebag';
 
+Grocy.Use("calendarcard");
+Grocy.Use("productcard");
+
 var shoppingListTable = $('#shoppinglist-table').DataTable({
 	'order': [[1, 'asc']],
 	"orderFixed": [[3, 'asc']],

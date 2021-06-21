@@ -1,5 +1,7 @@
 ﻿import { WindowMessageBag } from '../helpers/messagebag';
 
+Grocy.Use("userfieldsform");
+
 $('.save-quantityunit-button').on('click', function(e)
 {
 	e.preventDefault();

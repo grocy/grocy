@@ -1,3 +1,5 @@
-﻿$("#chores_due_soon_days").val(Grocy.UserSettings.chores_due_soon_days);
+﻿Grocy.Use("numberpicker");
+
+$("#chores_due_soon_days").val(Grocy.UserSettings.chores_due_soon_days);
 
 RefreshLocaleNumberInput();

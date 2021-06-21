@@ -1,7 +1,3 @@
-@push('componentScripts')
-<script src="{{ $U('/viewjs/components/batterycard.js', true) }}?v={{ $version }}"></script>
-@endpush
-
 <div class="card batterycard">
 	<div class="card-header">
 		<span class="float-left">{{ $__t('Battery overview') }}</span>

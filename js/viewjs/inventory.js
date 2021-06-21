@@ -1,5 +1,17 @@
 ﻿import { WindowMessageBag } from '../helpers/messagebag';
 
+Grocy.Use("datetimepicker");
+if (Grocy.UserSettings.show_purchased_date_on_purchase)
+{
+	Grocy.Use("datetimepicker2");
+}
+Grocy.Use("locationpicker");
+Grocy.Use("numberpicker");
+Grocy.Use("productpicker");
+Grocy.Use("productamountpicker");
+Grocy.Use("productcard");
+Grocy.Use("shoppinglocationpicker");
+
 $('#save-inventory-button').on('click', function(e)
 {
 	e.preventDefault();

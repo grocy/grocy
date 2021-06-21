@@ -1,5 +1,7 @@
 ﻿import { WindowMessageBag } from '../helpers/messagebag';
 
+Grocy.Use("numberpicker");
+
 $('#save-userfield-button').on('click', function(e)
 {
 	e.preventDefault();

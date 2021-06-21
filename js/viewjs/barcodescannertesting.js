@@ -1,4 +1,5 @@
-﻿Grocy.BarCodeScannerTestingHitCount = 0;
+﻿Grocy.Use("barcodescanner");
+Grocy.BarCodeScannerTestingHitCount = 0;
 Grocy.BarCodeScannerTestingMissCount = 0;
 
 $("#scanned_barcode").on("blur", function(e)

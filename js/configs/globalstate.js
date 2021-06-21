@@ -18,10 +18,11 @@ function setInitialGlobalState(Grocy)
 			var parentMenuSelector = menuItem.data("sub-menu-of");
 			if (typeof parentMenuSelector !== "undefined")
 			{
-				$(parentMenuSelector).collapse("show");
-				$(parentMenuSelector).prev(".nav-link-collapse").addClass("active-page");
+				var pMenu = $(parentMenuSelector);
+				pMenu.collapse("show");
+				pMenu.prev(".nav-link-collapse").addClass("active-page");
 
-				$(parentMenuSelector).on("shown.bs.collapse", function()
+				pMenu.on("shown.bs.collapse", function()
 				{
 					if (!menuItem.isVisibleInViewport(75))
 					{

@@ -1,7 +1,3 @@
-@push('componentScripts')
-<script src="{{ $U('/viewjs/components/productcard.js', true) }}?v={{ $version }}"></script>
-@endpush
-
 <div class="card productcard">
 	<div class="card-header">
 		<span class="float-left">{{ $__t('Product overview') }}</span>

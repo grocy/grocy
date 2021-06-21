@@ -1,4 +1,7 @@
-﻿$('#save-batterytracking-button').on('click', function(e)
+﻿Grocy.Use("batterycard");
+Grocy.Use("datetimepicker");
+
+$('#save-batterytracking-button').on('click', function(e)
 {
 	e.preventDefault();
 

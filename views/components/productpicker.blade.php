@@ -1,7 +1,3 @@
-@push('componentScripts')
-<script src="{{ $U('/viewjs/components/productpicker.js', true) }}?v={{ $version }}"></script>
-@endpush
-
 @php if(empty($disallowAddProductWorkflows)) { $disallowAddProductWorkflows = false; } @endphp
 @php if(empty($disallowAllProductWorkflows)) { $disallowAllProductWorkflows = false; } @endphp
 @php if(empty($prefillByName)) { $prefillByName = ''; } @endphp

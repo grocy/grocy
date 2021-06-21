@@ -1,4 +1,6 @@
-﻿var recipesTables = $('#recipes-table').DataTable({
+﻿Grocy.Use("numberpicker");
+
+var recipesTables = $('#recipes-table').DataTable({
 	'order': [[1, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },

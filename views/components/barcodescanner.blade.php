@@ -1,13 +1,5 @@
 @if (!GROCY_DISABLE_BROWSER_BARCODE_CAMERA_SCANNING)
 
-@push('componentScripts')
-<script src="{{ $U('/viewjs/components/barcodescanner.js', true) }}?v={{ $version }}"></script>
-@endpush
-
-@push('pageScripts')
-<script src="{{ $U('/components_unmanaged/quagga2-reader-datamatrix/index.js', true) }}?v={{ $version }}"></script>
-@endpush
-
 @push('pageStyles')
 <style>
 	#barcodescanner-start-button {

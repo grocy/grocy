@@ -1,4 +1,7 @@
-﻿$('#save-chore-button').on('click', function(e)
+﻿Grocy.Use("numberpicker");
+Grocy.Use("userfieldsform");
+
+$('#save-chore-button').on('click', function(e)
 {
 	e.preventDefault();
 

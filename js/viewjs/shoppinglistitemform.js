@@ -1,5 +1,8 @@
 ﻿import { WindowMessageBag } from '../helpers/messagebag';
 
+Grocy.Use("productamountpicker");
+Grocy.Use("userfieldsform");
+
 Grocy.ShoppingListItemFormInitialLoadDone = false;
 
 $('#save-shoppinglist-button').on('click', function(e)

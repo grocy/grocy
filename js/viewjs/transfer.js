@@ -1,5 +1,9 @@
 ﻿import { WindowMessageBag } from '../helpers/messagebag';
 
+Grocy.Use("productpicker");
+Grocy.Use("productamountpicker");
+Grocy.Use("productcard");
+
 $('#save-transfer-button').on('click', function(e)
 {
 	e.preventDefault();

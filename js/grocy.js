@@ -12,6 +12,7 @@ import { HeaderClock } from "./helpers/clock";
 import { animateCSS, BoolVal, EmptyElementWhenMatches, GetUriParam, RemoveUriParam, UpdateUriParam } from "./helpers/extensions";
 import Translator from "gettext-translator";
 import { WindowMessageBag } from './helpers/messagebag';
+import * as components from './components';
 
 import "./helpers/string";
 
@@ -47,6 +48,7 @@ class GrocyClass
 		this.Locale = config.Locale;
 
 		this.Components = {};
+		this.initComponents = [];
 
 		// Init some classes
 		this.Api = new GrocyApi(this);
@@ -150,21 +152,21 @@ class GrocyClass
 
 	translate(text, ...placeholderValues)
 	{
-		if (this.Mode === "dev")
+		/*if (this.Mode === "dev")
 		{
 			var text2 = text;
 			this.Api.Post('system/log-missing-localization', { "text": text2 });
-		}
+		}*/
 
 		return this.Translator.__(text, ...placeholderValues)
 	}
 	translaten(number, singularForm, pluralForm)
 	{
-		if (this.Mode === "dev")
+		/*if (this.Mode === "dev")
 		{
 			var singularForm2 = singularForm;
 			this.Api.Post('system/log-missing-localization', { "text": singularForm2 });
-		}
+		}*/
 
 		return this.Translator.n__(singularForm, pluralForm, number, number)
 	}
@@ -210,6 +212,24 @@ class GrocyClass
 	IncrementIdleTime()
 	{
 		this.IdleTime += 1;
+	}
+
+	Use(componentName)
+	{
+		// initialize Components only once
+		if (this.initComponents.find(elem => elem == componentName))
+			return;
+
+		if (Object.prototype.hasOwnProperty.call(components, componentName))
+		{
+			// add-then-init to resolve circular dependencies
+			this.initComponents.push(componentName);
+			components[componentName](this);
+		}
+		else
+		{
+			console.error("Unable to find component " + componentName);
+		}
 	}
 
 	UndoStockBooking(bookingId)

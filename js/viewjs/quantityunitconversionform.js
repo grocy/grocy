@@ -1,5 +1,8 @@
 ﻿import { WindowMessageBag } from '../helpers/messagebag';
 
+Grocy.Use("numberpicker");
+Grocy.Use("userfieldsform");
+
 $('#save-quconversion-button').on('click', function(e)
 {
 	e.preventDefault();

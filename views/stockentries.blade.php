@@ -3,10 +3,6 @@
 @section('title', $__t('Stock entries'))
 @section('viewJsName', 'stockentries')
 
-@push('pageScripts')
-<script src="{{ $U('/viewjs/purchase.js?v=', true) }}{{ $version }}"></script>
-@endpush
-
 @section('content')
 <div class="row">
 	<div class="col">

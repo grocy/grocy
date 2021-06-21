@@ -10,6 +10,10 @@ import '@fullcalendar/core/main.css';
 import '@fullcalendar/daygrid/main.css';
 import '@fullcalendar/bootstrap/main.css';
 
+Grocy.Use("numberpicker");
+Grocy.Use("productamountpicker");
+Grocy.Use("recipepicker");
+
 var setLocale = false;
 if (__t('fullcalendar_locale').replace(" ", "") !== "" && __t('fullcalendar_locale') != 'x')
 {

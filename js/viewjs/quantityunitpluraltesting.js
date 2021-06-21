@@ -1,4 +1,6 @@
-﻿$("#qu_id").change(function(event)
+﻿Grocy.Use("numberpicker");
+
+$("#qu_id").change(function(event)
 {
 	RefreshQuPluralTestingResult();
 });

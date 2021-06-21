@@ -1,4 +1,9 @@
 ﻿import { WindowMessageBag } from '../helpers/messagebag';
+
+Grocy.Use("numberpicker");
+Grocy.Use("productamountpicker");
+Grocy.Use("productcard");
+
 Grocy.RecipePosFormInitialLoadDone = false;
 
 $('#save-recipe-pos-button').on('click', function(e)

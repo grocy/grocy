@@ -1,4 +1,6 @@
-﻿var choresOverviewTable = $('#chores-overview-table').DataTable({
+﻿Grocy.Use("chorecard");
+
+var choresOverviewTable = $('#chores-overview-table').DataTable({
 	'order': [[2, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },

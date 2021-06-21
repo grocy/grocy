@@ -1,7 +1,3 @@
-@push('componentScripts')
-<script src="{{ $U('/viewjs/components/numberpicker.js', true) }}?v={{ $version }}"></script>
-@endpush
-
 @php if(!isset($value)) { $value = 1; } @endphp
 @php if(empty($min)) { $min = 0; } @endphp
 @php if(!isset($max)) { $max = ''; } @endphp

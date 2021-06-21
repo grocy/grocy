@@ -1,7 +1,3 @@
-@push('componentScripts')
-<script src="{{ $U('/viewjs/components/datetimepicker.js', true) }}?v={{ $version }}"></script>
-@endpush
-
 @php if(!isset($isRequired)) { $isRequired = true; } @endphp
 @php if(!isset($initialValue)) { $initialValue = ''; } @endphp
 @php if(empty($earlierThanInfoLimit)) { $earlierThanInfoLimit = ''; } @endphp

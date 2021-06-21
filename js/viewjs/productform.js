@@ -1,5 +1,9 @@
 ﻿import { BoolVal } from '../helpers/extensions';
 
+Grocy.Use("numberpicker");
+Grocy.Use("shoppinglocationpicker");
+Grocy.Use("userfieldsform");
+
 function saveProductPicture(result, location, jsonData)
 {
 	var productId = Grocy.EditObjectId || result.created_object_id;

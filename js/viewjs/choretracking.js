@@ -1,4 +1,8 @@
-﻿$('#save-choretracking-button').on('click', function(e)
+﻿Grocy.Use("chorecard");
+Grocy.Use("datetimepicker");
+Grocy.Use("userpicker");
+
+$('#save-choretracking-button').on('click', function(e)
 {
 	e.preventDefault();
 

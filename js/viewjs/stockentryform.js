@@ -1,5 +1,11 @@
 ﻿import { WindowMessageBag } from '../helpers/messagebag';
 
+Grocy.Use("datetimepicker");
+Grocy.Use("datetimepicker2");
+Grocy.Use("locationpicker");
+Grocy.Use("numberpicker");
+Grocy.Use("shoppinglocationpicker");
+
 $('#save-stockentry-button').on('click', function(e)
 {
 	e.preventDefault();

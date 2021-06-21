@@ -1,7 +1,3 @@
-@push('componentScripts')
-<script src="{{ $U('/viewjs/components/shoppinglocationpicker.js', true) }}?v={{ $version }}"></script>
-@endpush
-
 @php if(empty($prefillByName)) { $prefillByName = ''; } @endphp
 @php if(empty($prefillById)) { $prefillById = ''; } @endphp
 @php if(!isset($isRequired)) { $isRequired = false; } @endphp

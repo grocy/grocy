@@ -1,7 +1,3 @@
-@push('componentScripts')
-<script src="{{ $U('/viewjs/components/userpicker.js', true) }}?v={{ $version }}"></script>
-@endpush
-
 @php if(empty($prefillByUsername)) { $prefillByUsername = ''; } @endphp
 @php if(empty($prefillByUserId)) { $prefillByUserId = ''; } @endphp
 @php if(!isset($nextInputSelector)) { $nextInputSelector = ''; } @endphp

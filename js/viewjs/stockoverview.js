@@ -1,4 +1,6 @@
-﻿var stockOverviewTable = $('#stock-overview-table').DataTable({
+﻿Grocy.Use("productcard");
+
+var stockOverviewTable = $('#stock-overview-table').DataTable({
 	'order': [[5, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },

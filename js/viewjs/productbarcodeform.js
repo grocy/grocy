@@ -1,5 +1,9 @@
 ﻿import { WindowMessageBag } from '../helpers/messagebag';
 
+Grocy.Use('barcodescanner');
+Grocy.Use("productamountpicker");
+Grocy.Use("userfieldsform");
+
 $('#save-barcode-button').on('click', function(e)
 {
 	e.preventDefault();

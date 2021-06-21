@@ -1,4 +1,6 @@
-﻿function SaveUserPicture(result, jsonData)
+﻿Grocy.Use("userfieldsform");
+
+function SaveUserPicture(result, jsonData)
 {
 	Grocy.Components.UserfieldsForm.Save(() =>
 	{
