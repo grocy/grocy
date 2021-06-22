@@ -1,93 +1,103 @@
-﻿import { WindowMessageBag } from '../helpers/messagebag';
-
-Grocy.Use("numberpicker");
-Grocy.Use("userfieldsform");
-
-$('#save-battery-button').on('click', function(e)
+﻿function batteryformView(Grocy, scope = null)
 {
-	e.preventDefault();
-
-	if ($(".combobox-menu-visible").length)
+	var $scope = $;
+	if (scope != null)
 	{
-		return;
+		$scope = $(scope).find;
 	}
 
-	var jsonData = $('#battery-form').serializeJSON();
-	Grocy.FrontendHelpers.BeginUiBusy("battery-form");
-
-	if (Grocy.EditMode === 'create')
+	import { WindowMessageBag } from '../helpers/messagebag';
+	
+	Grocy.Use("numberpicker");
+	Grocy.Use("userfieldsform");
+	
+	$('#save-battery-button').on('click', function(e)
 	{
-		Grocy.Api.Post('objects/batteries', jsonData,
-			function(result)
-			{
-				Grocy.EditObjectId = result.created_object_id;
-				Grocy.Components.UserfieldsForm.Save(function()
-				{
-					if (GetUriParam("embedded") !== undefined)
-					{
-						window.parent.postMessage(WindowMessageBag("Reload"), Grocy.BaseUrl);
-					}
-					else
-					{
-						window.location.href = U('/batteries');
-					}
-				});
-			},
-			function(xhr)
-			{
-				Grocy.FrontendHelpers.EndUiBusy("battery-form");
-				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-			}
-		);
-	}
-	else
-	{
-		Grocy.Api.Put('objects/batteries/' + Grocy.EditObjectId, jsonData,
-			function(result)
-			{
-				Grocy.Components.UserfieldsForm.Save(function()
-				{
-					if (GetUriParam("embedded") !== undefined)
-					{
-						window.parent.postMessage(WindowMessageBag("Reload"), Grocy.BaseUrl);
-					}
-					else
-					{
-						window.location.href = U('/batteries');
-					}
-				});
-			},
-			function(xhr)
-			{
-				Grocy.FrontendHelpers.EndUiBusy("battery-form");
-				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-			}
-		);
-	}
-});
-
-$('#battery-form input').keyup(function(event)
-{
-	Grocy.FrontendHelpers.ValidateForm('battery-form');
-});
-
-$('#battery-form input').keydown(function(event)
-{
-	if (event.keyCode === 13) //Enter
-	{
-		event.preventDefault();
-
-		if (document.getElementById('battery-form').checkValidity() === false) //There is at least one validation error
+		e.preventDefault();
+	
+		if ($(".combobox-menu-visible").length)
 		{
-			return false;
+			return;
+		}
+	
+		var jsonData = $('#battery-form').serializeJSON();
+		Grocy.FrontendHelpers.BeginUiBusy("battery-form");
+	
+		if (Grocy.EditMode === 'create')
+		{
+			Grocy.Api.Post('objects/batteries', jsonData,
+				function(result)
+				{
+					Grocy.EditObjectId = result.created_object_id;
+					Grocy.Components.UserfieldsForm.Save(function()
+					{
+						if (GetUriParam("embedded") !== undefined)
+						{
+							window.parent.postMessage(WindowMessageBag("Reload"), Grocy.BaseUrl);
+						}
+						else
+						{
+							window.location.href = U('/batteries');
+						}
+					});
+				},
+				function(xhr)
+				{
+					Grocy.FrontendHelpers.EndUiBusy("battery-form");
+					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+				}
+			);
 		}
 		else
 		{
-			$('#save-battery-button').click();
+			Grocy.Api.Put('objects/batteries/' + Grocy.EditObjectId, jsonData,
+				function(result)
+				{
+					Grocy.Components.UserfieldsForm.Save(function()
+					{
+						if (GetUriParam("embedded") !== undefined)
+						{
+							window.parent.postMessage(WindowMessageBag("Reload"), Grocy.BaseUrl);
+						}
+						else
+						{
+							window.location.href = U('/batteries');
+						}
+					});
+				},
+				function(xhr)
+				{
+					Grocy.FrontendHelpers.EndUiBusy("battery-form");
+					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+				}
+			);
 		}
-	}
-});
-
-Grocy.Components.UserfieldsForm.Load();
-$('#name').focus();
-Grocy.FrontendHelpers.ValidateForm('battery-form');
+	});
+	
+	$('#battery-form input').keyup(function(event)
+	{
+		Grocy.FrontendHelpers.ValidateForm('battery-form');
+	});
+	
+	$('#battery-form input').keydown(function(event)
+	{
+		if (event.keyCode === 13) //Enter
+		{
+			event.preventDefault();
+	
+			if (document.getElementById('battery-form').checkValidity() === false) //There is at least one validation error
+			{
+				return false;
+			}
+			else
+			{
+				$('#save-battery-button').click();
+			}
+		}
+	});
+	
+	Grocy.Components.UserfieldsForm.Load();
+	$('#name').focus();
+	Grocy.FrontendHelpers.ValidateForm('battery-form');
+	
+}

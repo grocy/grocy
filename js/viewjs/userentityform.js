@@ -1,105 +1,115 @@
-﻿import { WindowMessageBag } from '../helpers/messagebag';
-
-$('#save-userentity-button').on('click', function(e)
+﻿function userentityformView(Grocy, scope = null)
 {
-	e.preventDefault();
-
-	if ($(".combobox-menu-visible").length)
+	var $scope = $;
+	if (scope != null)
 	{
-		return;
+		$scope = $(scope).find;
 	}
 
-	var jsonData = $('#userentity-form').serializeJSON();
-	Grocy.FrontendHelpers.BeginUiBusy("userentity-form");
-
-	var redirectUrl = U("/userentities");
-
-	if (Grocy.EditMode === 'create')
+	import { WindowMessageBag } from '../helpers/messagebag';
+	
+	$('#save-userentity-button').on('click', function(e)
 	{
-		Grocy.Api.Post('objects/userentities', jsonData,
-			function(result)
-			{
-				if (GetUriParam("embedded") !== undefined)
-				{
-					window.parent.postMessage(WindowMessageBag("Reload"), Grocy.BaseUrl);
-				}
-				else
-				{
-					window.location.href = redirectUrl;
-				}
-			},
-			function(xhr)
-			{
-				Grocy.FrontendHelpers.EndUiBusy("userentity-form");
-				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-			}
-		);
-	}
-	else
-	{
-		Grocy.Api.Put('objects/userentities/' + Grocy.EditObjectId, jsonData,
-			function(result)
-			{
-				if (GetUriParam("embedded") !== undefined)
-				{
-					window.parent.postMessage(WindowMessageBag("Reload"), Grocy.BaseUrl);
-				}
-				else
-				{
-					window.location.href = redirectUrl;
-				}
-			},
-			function(xhr)
-			{
-				Grocy.FrontendHelpers.EndUiBusy("userentity-form");
-				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-			}
-		);
-	}
-});
-
-$('#userentity-form input').keyup(function(event)
-{
-	Grocy.FrontendHelpers.ValidateForm('userentity-form');
-});
-
-$('#userentity-form select').change(function(event)
-{
-	Grocy.FrontendHelpers.ValidateForm('userentity-form');
-});
-
-$('#userentity-form input').keydown(function(event)
-{
-	if (event.keyCode === 13) //Enter
-	{
-		event.preventDefault();
-
-		if (document.getElementById('userentity-form').checkValidity() === false) //There is at least one validation error
+		e.preventDefault();
+	
+		if ($(".combobox-menu-visible").length)
 		{
-			return false;
+			return;
+		}
+	
+		var jsonData = $('#userentity-form').serializeJSON();
+		Grocy.FrontendHelpers.BeginUiBusy("userentity-form");
+	
+		var redirectUrl = U("/userentities");
+	
+		if (Grocy.EditMode === 'create')
+		{
+			Grocy.Api.Post('objects/userentities', jsonData,
+				function(result)
+				{
+					if (GetUriParam("embedded") !== undefined)
+					{
+						window.parent.postMessage(WindowMessageBag("Reload"), Grocy.BaseUrl);
+					}
+					else
+					{
+						window.location.href = redirectUrl;
+					}
+				},
+				function(xhr)
+				{
+					Grocy.FrontendHelpers.EndUiBusy("userentity-form");
+					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+				}
+			);
 		}
 		else
 		{
-			$('#save-userentity-button').click();
+			Grocy.Api.Put('objects/userentities/' + Grocy.EditObjectId, jsonData,
+				function(result)
+				{
+					if (GetUriParam("embedded") !== undefined)
+					{
+						window.parent.postMessage(WindowMessageBag("Reload"), Grocy.BaseUrl);
+					}
+					else
+					{
+						window.location.href = redirectUrl;
+					}
+				},
+				function(xhr)
+				{
+					Grocy.FrontendHelpers.EndUiBusy("userentity-form");
+					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+				}
+			);
 		}
-	}
-});
-
-$("#show_in_sidebar_menu").on("click", function()
-{
-	if (this.checked)
+	});
+	
+	$('#userentity-form input').keyup(function(event)
 	{
-		$("#icon_css_class").removeAttr("disabled");
-	}
-	else
+		Grocy.FrontendHelpers.ValidateForm('userentity-form');
+	});
+	
+	$('#userentity-form select').change(function(event)
 	{
-		$("#icon_css_class").attr("disabled", "");
-	}
-});
-
-$('#name').focus();
-Grocy.FrontendHelpers.ValidateForm('userentity-form');
-
-// Click twice to trigger on-click but not change the actual checked state
-$("#show_in_sidebar_menu").click();
-$("#show_in_sidebar_menu").click();
+		Grocy.FrontendHelpers.ValidateForm('userentity-form');
+	});
+	
+	$('#userentity-form input').keydown(function(event)
+	{
+		if (event.keyCode === 13) //Enter
+		{
+			event.preventDefault();
+	
+			if (document.getElementById('userentity-form').checkValidity() === false) //There is at least one validation error
+			{
+				return false;
+			}
+			else
+			{
+				$('#save-userentity-button').click();
+			}
+		}
+	});
+	
+	$("#show_in_sidebar_menu").on("click", function()
+	{
+		if (this.checked)
+		{
+			$("#icon_css_class").removeAttr("disabled");
+		}
+		else
+		{
+			$("#icon_css_class").attr("disabled", "");
+		}
+	});
+	
+	$('#name').focus();
+	Grocy.FrontendHelpers.ValidateForm('userentity-form');
+	
+	// Click twice to trigger on-click but not change the actual checked state
+	$("#show_in_sidebar_menu").click();
+	$("#show_in_sidebar_menu").click();
+	
+}

@@ -1,47 +1,57 @@
-﻿import { QrCodeImgHtml } from "../helpers/qrcode";
-
-var apiKeysTable = $('#apikeys-table').DataTable({
-	'order': [[4, 'desc']],
-	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 },
-		{ 'searchable': false, "targets": 0 }
-	].concat($.fn.dataTable.defaults.columnDefs)
-});
-$('#apikeys-table tbody').removeClass("d-none");
-Grocy.FrontendHelpers.InitDataTable(apiKeysTable);
-
-var createdApiKeyId = GetUriParam('CreatedApiKeyId');
-if (createdApiKeyId !== undefined)
+﻿function manageapikeysView(Grocy, scope = null)
 {
-	animateCSS("#apiKeyRow_" + createdApiKeyId, "pulse");
-}
-
-Grocy.FrontendHelpers.MakeDeleteConfirmBox(
-	'Are you sure to delete API key "%s"?',
-	'.apikey-delete-button',
-	'data-apikey-apikey',
-	'data-apikey-id',
-	'objects/api_keys/',
-	'/manageapikeys'
-);
-
-function QrCodeForApiKey(apiKeyType, apiKey)
-{
-	var content = U('/api') + '|' + apiKey;
-	if (apiKeyType === 'special-purpose-calendar-ical')
+	var $scope = $;
+	if (scope != null)
 	{
-		content = U('/api/calendar/ical?secret=' + apiKey);
+		$scope = $(scope).find;
 	}
 
-	return QrCodeImgHtml(content);
-}
-
-$('.apikey-show-qr-button').on('click', function()
-{
-	var qrcodeHtml = QrCodeForApiKey($(this).data('apikey-type'), $(this).data('apikey-key'));
-	bootbox.alert({
-		title: __t('API key'),
-		message: "<p class='text-center'>" + qrcodeHtml + "</p>",
-		closeButton: false
+	import { QrCodeImgHtml } from "../helpers/qrcode";
+	
+	var apiKeysTable = $('#apikeys-table').DataTable({
+		'order': [[4, 'desc']],
+		'columnDefs': [
+			{ 'orderable': false, 'targets': 0 },
+			{ 'searchable': false, "targets": 0 }
+		].concat($.fn.dataTable.defaults.columnDefs)
 	});
-})
+	$('#apikeys-table tbody').removeClass("d-none");
+	Grocy.FrontendHelpers.InitDataTable(apiKeysTable);
+	
+	var createdApiKeyId = GetUriParam('CreatedApiKeyId');
+	if (createdApiKeyId !== undefined)
+	{
+		animateCSS("#apiKeyRow_" + createdApiKeyId, "pulse");
+	}
+	
+	Grocy.FrontendHelpers.MakeDeleteConfirmBox(
+		'Are you sure to delete API key "%s"?',
+		'.apikey-delete-button',
+		'data-apikey-apikey',
+		'data-apikey-id',
+		'objects/api_keys/',
+		'/manageapikeys'
+	);
+	
+	function QrCodeForApiKey(apiKeyType, apiKey)
+	{
+		var content = U('/api') + '|' + apiKey;
+		if (apiKeyType === 'special-purpose-calendar-ical')
+		{
+			content = U('/api/calendar/ical?secret=' + apiKey);
+		}
+	
+		return QrCodeImgHtml(content);
+	}
+	
+	$('.apikey-show-qr-button').on('click', function()
+	{
+		var qrcodeHtml = QrCodeForApiKey($(this).data('apikey-type'), $(this).data('apikey-key'));
+		bootbox.alert({
+			title: __t('API key'),
+			message: "<p class='text-center'>" + qrcodeHtml + "</p>",
+			closeButton: false
+		});
+	})
+	
+}

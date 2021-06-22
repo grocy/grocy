@@ -1,3 +1,13 @@
-$("#locale").val(Grocy.UserSettings.locale);
+﻿function usersettingsView(Grocy, scope = null)
+{
+	var $scope = $;
+	if (scope != null)
+	{
+		$scope = $(scope).find;
+	}
 
-RefreshLocaleNumberInput();
+	$("#locale").val(Grocy.UserSettings.locale);
+	
+	RefreshLocaleNumberInput();
+	
+}

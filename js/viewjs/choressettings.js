@@ -1,5 +1,15 @@
-﻿Grocy.Use("numberpicker");
+﻿function choressettingsView(Grocy, scope = null)
+{
+	var $scope = $;
+	if (scope != null)
+	{
+		$scope = $(scope).find;
+	}
 
-$("#chores_due_soon_days").val(Grocy.UserSettings.chores_due_soon_days);
-
-RefreshLocaleNumberInput();
+	Grocy.Use("numberpicker");
+	
+	$("#chores_due_soon_days").val(Grocy.UserSettings.chores_due_soon_days);
+	
+	RefreshLocaleNumberInput();
+	
+}
