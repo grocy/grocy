@@ -9,7 +9,9 @@ define("GROCY_DATAPATH", __DIR__ . '/../data');
 // Load composer dependencies
 require_once __DIR__ . '/../vendor/autoload.php';
 // Load config files
-require_once GROCY_DATAPATH . '/config.php';
+if(file_exists(GROCY_DATAPATH . '/config.php')) {
+	require_once GROCY_DATAPATH . '/config.php';
+}
 require_once __DIR__ . '/../config-dist.php'; // For not in own config defined values we use the default ones
 
 echo "Searching for localizations in " . __DIR__ . '/../localization/* \n';
