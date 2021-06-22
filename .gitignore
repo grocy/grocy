@@ -1,7 +1,15 @@
 /public/node_modules
 node_modules
-.yarn
 .vagrant
 /vendor
 /.release
 embedded.txt
+
+# all yarn 2 stuff
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*

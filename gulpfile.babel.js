@@ -110,6 +110,7 @@ files.forEach(function(target)
 
 	})
 		.pipe(source(path.basename(target), "./js/viewjs"))
+		.pipe(buffer())
 		.pipe(gulpif(minify, uglify()))
 		.pipe(buffer())
 		.pipe(sourcemaps.init({ loadMaps: true }))
@@ -131,6 +132,7 @@ components.forEach(function(target)
 		}), commonjs(), eslint(view_eslint_config)],
 	})
 		.pipe(source(path.basename(target), "./js/viewjs/components"))
+		.pipe(buffer())
 		.pipe(gulpif(minify, uglify()))
 		.pipe(buffer())
 		.pipe(sourcemaps.init({ loadMaps: true }))
@@ -159,15 +161,14 @@ function build(cb)
 		viewjs,
 		resourceFileCopy,
 		copyLocales,
-		makeLocales,
-		done => { done(); cb(); })();
+		makeLocales)(cb);
 }
 
 function publish(cb)
 {
 	minify = true;
 	postcss_plugins.push(cssnano())
-	return build();
+	return build(cb);
 }
 
 function js(cb)
@@ -183,6 +184,7 @@ function js(cb)
 
 	})
 		.pipe(source('grocy.js', "./js"))
+		.pipe(buffer())
 		.pipe(gulpif(minify, uglify()))
 		.pipe(buffer())
 		.pipe(sourcemaps.init({ loadMaps: true }))
@@ -192,7 +194,7 @@ function js(cb)
 
 function viewjs(cb)
 {
-	return parallel(viewJStasks, done => { done(); cb(); })();
+	return parallel(viewJStasks)(cb);
 }
 
 
@@ -208,6 +210,7 @@ function vendor(cb)
 		plugins: [resolve(), commonjs()],
 	})
 		.pipe(source('vendor.js', "./js"))
+		.pipe(buffer())
 		.pipe(gulpif(minify, uglify()))
 		.pipe(buffer())
 		.pipe(sourcemaps.init({ loadMaps: true }))
@@ -233,8 +236,7 @@ function resourceFileCopy(cb)
 			'./node_modules/@fortawesome/fontawesome-free/webfonts/*'
 		]).pipe(dest('./public/webfonts')),
 		cb => src('./node_modules/summernote/dist/font/*').pipe(dest('./public/css/font')),
-		done => { done(); cb(); }
-	)();
+	)(cb);
 }
 
 async function makeLocales()
@@ -250,8 +252,7 @@ function copyLocales(cb)
 		cb => src('./node_modules/bootstrap-select/dist/js/i18n/*').pipe(dest('./public/js/locales/bootstrap-select')),
 		cb => src('./node_modules/fullcalendar/dist/locale/*').pipe(dest('./public/js/locales/fullcalendar')),
 		cb => src('./node_modules/@fullcalendar/core/locales/*').pipe(dest('./public/js/locales/fullcalendar-core')),
-		done => { done(); cb(); }
-	)();
+	)(cb);
 }
 
 function live(cb)
@@ -265,7 +266,7 @@ function live(cb)
 
 function release(cb)
 {
-	return series(publish, bundle, done => { done(); cb(); })();
+	return series(publish, bundle)(cb);
 }
 
 function bundle(cb)
@@ -285,6 +286,16 @@ function bundle(cb)
 
 	return src([
 		'**/*',
+		'!./.*',
+		'!.git/**/*',
+		'!.yarn/**/*',
+		'!.devtools/**/*',
+		'!.github/**/*',
+		'!.tx/**/*',
+		'!.release/**/*',
+		'!public/.gitignore',
+		'!data/plugins/.gitignore',
+		'!data/.gitignore',
 		'!yarn.lock',
 		'!package.json',
 		'!postcss.config.js',
@@ -292,14 +303,12 @@ function bundle(cb)
 		'!composer.json',
 		'!composer.lock',
 		'!node_modules/**',
-		'!js/',
-		'!scss/',
+		'!js/**/*',
+		'!scss/**/*',
 		'!data/config.php',
-		'!data/storage/**',
+		'!data/storage/**/*',
 		'!data/grocy.db',
-		'data/.htaccess',
-		'public/.htaccess'
-	]).pipe(zip('grocy-' + versionObject.Version + '.zip'))
+	], { dot: true }).pipe(zip('grocy-' + versionObject.Version + '.zip'))
 		.pipe(dest('.release'))
 }
 
