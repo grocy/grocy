@@ -45,6 +45,7 @@
 
 ### Userfield fixes
 - Fixed that numeric Userfields were initialised with `1.0`
+- Fixed that shortcuts (up/down key) and the format did not work correctly when using multiple date/time Userfields per object
 
 ### General & other improvements/fixes
 - LDAP authentication improvements / OpenLDAP support (thanks @tank0226)

@@ -10,20 +10,19 @@ Grocy.Components.DateTimePicker2.GetValue = function()
 	return Grocy.Components.DateTimePicker2.GetInputElement().val();
 }
 
-Grocy.Components.DateTimePicker2.SetValue = function(value)
+Grocy.Components.DateTimePicker2.SetValue = function(value, inputElement = Grocy.Components.DateTimePicker2.GetInputElement())
 {
 	// "Click" the shortcut checkbox when the desired value is
 	// not the shortcut value and it is currently set
-	var shortcutValue = $("#datetimepicker2-shortcut").data("datetimepicker2-shortcut-value");
+	var shortcutValue = $("#datetimepicker2-shortcut").data("datetimepicker-shortcut-value");
 	if (value != shortcutValue && $("#datetimepicker2-shortcut").is(":checked"))
 	{
 		$("#datetimepicker2-shortcut").click();
 	}
+	inputElement.val(value);
+	inputElement.trigger('change');
 
-	Grocy.Components.DateTimePicker2.GetInputElement().val(value);
-	Grocy.Components.DateTimePicker2.GetInputElement().trigger('change');
-
-	Grocy.Components.DateTimePicker2.GetInputElement().keyup();
+	inputElement.keyup();
 }
 
 Grocy.Components.DateTimePicker2.Clear = function()
@@ -79,46 +78,49 @@ if (Grocy.Components.DateTimePicker2.GetInputElement().data('limit-end-to-now') 
 
 Grocy.Components.DateTimePicker2.Init = function()
 {
-	$('.datetimepicker2').datetimepicker(
-		{
-			format: Grocy.Components.DateTimePicker2.GetInputElement().data('format'),
-			buttons: {
-				showToday: true,
-				showClose: true
-			},
-			calendarWeeks: Grocy.CalendarShowWeekNumbers,
-			maxDate: limitDate,
-			locale: moment.locale(),
-			defaultDate: startDate,
-			useCurrent: false,
-			icons: {
-				time: 'far fa-clock',
-				date: 'far fa-calendar',
-				up: 'fas fa-arrow-up',
-				down: 'fas fa-arrow-down',
-				previous: 'fas fa-chevron-left',
-				next: 'fas fa-chevron-right',
-				today: 'fas fa-calendar-check',
-				clear: 'far fa-trash-alt',
-				close: 'far fa-times-circle'
-			},
-			sideBySide: true,
-			keyBinds: {
-				up: function(widget) { },
-				down: function(widget) { },
-				'control up': function(widget) { },
-				'control down': function(widget) { },
-				left: function(widget) { },
-				right: function(widget) { },
-				pageUp: function(widget) { },
-				pageDown: function(widget) { },
-				enter: function(widget) { },
-				escape: function(widget) { },
-				'control space': function(widget) { },
-				t: function(widget) { },
-				'delete': function(widget) { }
-			}
-		});
+	$(".datetimepicker2").each(function()
+	{
+		$(this).datetimepicker(
+			{
+				format: $(this).find("input").data('format'),
+				buttons: {
+					showToday: true,
+					showClose: true
+				},
+				calendarWeeks: Grocy.CalendarShowWeekNumbers,
+				maxDate: limitDate,
+				locale: moment.locale(),
+				defaultDate: startDate,
+				useCurrent: false,
+				icons: {
+					time: 'far fa-clock',
+					date: 'far fa-calendar',
+					up: 'fas fa-arrow-up',
+					down: 'fas fa-arrow-down',
+					previous: 'fas fa-chevron-left',
+					next: 'fas fa-chevron-right',
+					today: 'fas fa-calendar-check',
+					clear: 'far fa-trash-alt',
+					close: 'far fa-times-circle'
+				},
+				sideBySide: true,
+				keyBinds: {
+					up: function(widget) { },
+					down: function(widget) { },
+					'control up': function(widget) { },
+					'control down': function(widget) { },
+					left: function(widget) { },
+					right: function(widget) { },
+					pageUp: function(widget) { },
+					pageDown: function(widget) { },
+					enter: function(widget) { },
+					escape: function(widget) { },
+					'control space': function(widget) { },
+					t: function(widget) { },
+					'delete': function(widget) { }
+				}
+			});
+	});
 }
 Grocy.Components.DateTimePicker2.Init();
 
@@ -126,22 +128,23 @@ Grocy.Components.DateTimePicker2.GetInputElement().on('keyup', function(e)
 {
 	$('.datetimepicker2').datetimepicker('hide');
 
-	var value = Grocy.Components.DateTimePicker2.GetValue();
+	var inputElement = $(e.currentTarget)
+	var value = inputElement.val();
 	var now = new Date();
 	var centuryStart = Number.parseInt(now.getFullYear().toString().substring(0, 2) + '00');
 	var centuryEnd = Number.parseInt(now.getFullYear().toString().substring(0, 2) + '99');
-	var format = Grocy.Components.DateTimePicker2.GetInputElement().data('format');
-	var nextInputElement = $(Grocy.Components.DateTimePicker2.GetInputElement().data('next-input-selector'));
+	var format = inputElement.data('format');
+	var nextInputElement = $(inputElement.data('next-input-selector'));
 
 	//If input is empty and any arrow key is pressed, set date to today
 	if (value.length === 0 && (e.keyCode === 38 || e.keyCode === 40 || e.keyCode === 37 || e.keyCode === 39))
 	{
-		Grocy.Components.DateTimePicker2.SetValue(moment(new Date(), format, true).format(format));
+		Grocy.Components.DateTimePicker2.SetValue(moment(new Date(), format, true).format(format), inputElement);
 		nextInputElement.focus();
 	}
 	else if (value === 'x' || value === 'X')
 	{
-		Grocy.Components.DateTimePicker2.SetValue(moment('2999-12-31 23:59:59').format(format));
+		Grocy.Components.DateTimePicker2.SetValue(moment('2999-12-31 23:59:59').format(format), inputElement);
 		nextInputElement.focus();
 	}
 	else if (value.length === 4 && !(Number.parseInt(value) > centuryStart && Number.parseInt(value) < centuryEnd))
@@ -151,18 +154,18 @@ Grocy.Components.DateTimePicker2.GetInputElement().on('keyup', function(e)
 		{
 			date.add(1, "year");
 		}
-		Grocy.Components.DateTimePicker2.SetValue(date.format(format));
+		Grocy.Components.DateTimePicker2.SetValue(date.format(format), inputElement);
 		nextInputElement.focus();
 	}
 	else if (value.length === 8 && $.isNumeric(value))
 	{
-		Grocy.Components.DateTimePicker2.SetValue(value.replace(/(\d{4})(\d{2})(\d{2})/, '$1-$2-$3'));
+		Grocy.Components.DateTimePicker2.SetValue(value.replace(/(\d{4})(\d{2})(\d{2})/, '$1-$2-$3'), inputElement);
 		nextInputElement.focus();
 	}
 	else if (value.length === 7 && $.isNumeric(value.substring(0, 6)) && (value.substring(6, 7).toLowerCase() === "e" || value.substring(6, 7).toLowerCase() === "+"))
 	{
 		var date = moment(value.substring(0, 4) + "-" + value.substring(4, 6) + "-01").endOf("month");
-		Grocy.Components.DateTimePicker2.SetValue(date.format(format));
+		Grocy.Components.DateTimePicker2.SetValue(date.format(format), inputElement);
 		nextInputElement.focus();
 	}
 	else
@@ -176,19 +179,19 @@ Grocy.Components.DateTimePicker2.GetInputElement().on('keyup', function(e)
 
 				if (e.keyCode === 38) // Up
 				{
-					Grocy.Components.DateTimePicker2.SetValue(dateObj.add(-1, 'months').format(format));
+					Grocy.Components.DateTimePicker2.SetValue(dateObj.add(-1, 'months').format(format), inputElement);
 				}
 				else if (e.keyCode === 40) // Down
 				{
-					Grocy.Components.DateTimePicker2.SetValue(dateObj.add(1, 'months').format(format));
+					Grocy.Components.DateTimePicker2.SetValue(dateObj.add(1, 'months').format(format), inputElement);
 				}
 				else if (e.keyCode === 37) // Left
 				{
-					Grocy.Components.DateTimePicker2.SetValue(dateObj.add(-1, 'years').format(format));
+					Grocy.Components.DateTimePicker2.SetValue(dateObj.add(-1, 'years').format(format), inputElement);
 				}
 				else if (e.keyCode === 39) // Right
 				{
-					Grocy.Components.DateTimePicker2.SetValue(dateObj.add(1, 'years').format(format));
+					Grocy.Components.DateTimePicker2.SetValue(dateObj.add(1, 'years').format(format), inputElement);
 				}
 			}
 			else
@@ -197,19 +200,19 @@ Grocy.Components.DateTimePicker2.GetInputElement().on('keyup', function(e)
 
 				if (e.keyCode === 38) // Up
 				{
-					Grocy.Components.DateTimePicker2.SetValue(dateObj.add(-1, 'days').format(format));
+					Grocy.Components.DateTimePicker2.SetValue(dateObj.add(-1, 'days').format(format), inputElement);
 				}
 				else if (e.keyCode === 40) // Down
 				{
-					Grocy.Components.DateTimePicker2.SetValue(dateObj.add(1, 'days').format(format));
+					Grocy.Components.DateTimePicker2.SetValue(dateObj.add(1, 'days').format(format), inputElement);
 				}
 				else if (e.keyCode === 37) // Left
 				{
-					Grocy.Components.DateTimePicker2.SetValue(dateObj.add(-1, 'weeks').format(format));
+					Grocy.Components.DateTimePicker2.SetValue(dateObj.add(-1, 'weeks').format(format), inputElement);
 				}
 				else if (e.keyCode === 39) // Right
 				{
-					Grocy.Components.DateTimePicker2.SetValue(dateObj.add(1, 'weeks').format(format));
+					Grocy.Components.DateTimePicker2.SetValue(dateObj.add(1, 'weeks').format(format), inputElement);
 				}
 			}
 		}
