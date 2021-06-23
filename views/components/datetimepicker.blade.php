@@ -12,7 +12,7 @@
 @php if(empty($additionalGroupCssClasses)) { $additionalGroupCssClasses = ''; } @endphp
 @php if(empty($activateNumberPad)) { $activateNumberPad = false; } @endphp
 
-<div id="datetimepicker-wrapper"
+<div class="datetimepicker-wrapper"
 	class="form-group {{ $additionalGroupCssClasses }}">
 	<label for="{{ $id }}">{{ $__t($label) }}
 		@if(!empty($hint))

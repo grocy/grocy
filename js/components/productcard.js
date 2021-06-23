@@ -10,7 +10,7 @@ class productcard
 
 		this.scopeSelector = scopeSelector;
 		this.scope = scopeSelector != null ? $(scopeSelector) : $(document);
-		this.$ = scopeSelector != null ? $(scopeSelector).find : $;
+		this.$ = scopeSelector != null ? (selector) => this.scope.find(selector) : $;
 		this.PriceHistoryChart = null;
 		var self = this;
 

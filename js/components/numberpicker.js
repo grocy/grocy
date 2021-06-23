@@ -6,7 +6,7 @@ class numberpicker
 
 		this.scopeSelector = scopeSelector;
 		this.scope = scopeSelector != null ? $(scopeSelector) : $(document);
-		this.$ = scopeSelector != null ? $(scopeSelector).find : $;
+		this.$ = scopeSelector != null ? (selector) => this.scope.find(selector) : $;
 		var self = this;
 
 		this.$(".numberpicker-down-button").unbind('click').on("click", () => self.valueDownHandler(this));

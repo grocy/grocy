@@ -11,7 +11,7 @@ class userfieldsform
 
 		this.scopeSelector = scopeSelector;
 		this.scope = scopeSelector != null ? $(scopeSelector) : $(document);
-		this.$ = scopeSelector != null ? $(scopeSelector).find : $;
+		this.$ = scopeSelector != null ? (selector) => this.scope.find(selector) : $;
 
 		this.$(".userfield-link").keyup();
 
@@ -181,15 +181,16 @@ class userfieldsform
 					}
 				});
 
-				self.$('.datetimepicker-wrapper').each(() =>
+				var pickers = $('.datetimepicker-wrapper');
+				for (let elem of pickers)
 				{
-					let picker = $(this);
+					let picker = $(elem);
 
 					var scopeId = uuid.v4();
-					picker.attr('id', scopeId);
+					picker.prop('id', scopeId);
 
-					this.components.push(new datetimepicker(self.Grocy, "#" + scopeId));
-				});
+					self.components.push(new datetimepicker(self.Grocy, "#" + scopeId));
+				}
 			},
 			function(xhr)
 			{
