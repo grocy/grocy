@@ -7,7 +7,7 @@
 		$scope = $(scope).find;
 	}
 
-	Grocy.Use("productcard");
+	var productcard = Grocy.Use("productcard");
 
 	var stockOverviewTable = $scope('#stock-overview-table').DataTable({
 		'order': [[5, 'asc']],
@@ -164,7 +164,7 @@
 
 	top.on("click", ".product-name-cell", function(e)
 	{
-		Grocy.Components.ProductCard.Refresh($(e.currentTarget).attr("data-product-id"));
+		productcard.Refresh($(e.currentTarget).attr("data-product-id"));
 		$("#stockoverview-productcard-modal").modal("show");
 	});
 

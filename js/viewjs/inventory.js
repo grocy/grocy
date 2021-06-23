@@ -8,17 +8,18 @@ function inventoryView(Grocy, scope = null)
 		$scope = $(scope).find;
 	}
 
-	Grocy.Use("datetimepicker");
+	var dt1 = Grocy.Use("datetimepicker");
+	var dt2 = null;
 	if (Grocy.UserSettings.show_purchased_date_on_purchase)
 	{
-		Grocy.Use("datetimepicker2");
+		dt2 = Grocy.Use("datetimepicker2");
 	}
-	Grocy.Use("locationpicker");
+	var locationpicker = Grocy.Use("locationpicker");
 	Grocy.Use("numberpicker");
-	Grocy.Use("productpicker");
-	Grocy.Use("productamountpicker");
-	Grocy.Use("productcard");
-	Grocy.Use("shoppinglocationpicker");
+	var productpicker = Grocy.Use("productpicker");
+	var productamountpicker = Grocy.Use("productamountpicker");
+	var productcard = Grocy.Use("productcard");
+	var shoppinglocationpicker = Grocy.Use("shoppinglocationpicker");
 
 	$scope('#save-inventory-button').on('click', function(e)
 	{
@@ -43,18 +44,18 @@ function inventoryView(Grocy, scope = null)
 
 				var jsonData = {};
 				jsonData.new_amount = jsonForm.amount;
-				jsonData.best_before_date = Grocy.Components.DateTimePicker.GetValue();
+				jsonData.best_before_date = dt1.GetValue();
 				if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 				{
-					jsonData.shopping_location_id = Grocy.Components.ShoppingLocationPicker.GetValue();
+					jsonData.shopping_location_id = shoppinglocationpicker.GetValue();
 				}
 				if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 				{
-					jsonData.location_id = Grocy.Components.LocationPicker.GetValue();
+					jsonData.location_id = locationpicker.GetValue();
 				}
 				if (Grocy.UserSettings.show_purchased_date_on_purchase)
 				{
-					jsonData.purchased_date = Grocy.Components.DateTimePicker2.GetValue();
+					jsonData.purchased_date = dt2.GetValue();
 				}
 
 				jsonData.price = price;
@@ -104,9 +105,9 @@ function inventoryView(Grocy, scope = null)
 								{
 									Grocy.FrontendHelpers.EndUiBusy("inventory-form");
 									toastr.success(successMessage);
-									Grocy.Components.ProductPicker.FinishFlow();
+									productpicker.FinishFlow();
 
-									Grocy.Components.ProductAmountPicker.Reset();
+									productamountpicker.Reset();
 									$scope('#inventory-change-info').addClass('d-none');
 									$scope("#tare-weight-handling-info").addClass("d-none");
 									$scope("#display_amount").attr("min", "0");
@@ -114,14 +115,14 @@ function inventoryView(Grocy, scope = null)
 									$scope('#display_amount').removeAttr("data-not-equal");
 									$scope(".input-group-productamountpicker").trigger("change");
 									$scope('#price').val('');
-									Grocy.Components.DateTimePicker.Clear();
-									Grocy.Components.ProductPicker.SetValue('');
+									dt1.Clear();
+									productpicker.SetValue('');
 									if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 									{
-										Grocy.Components.ShoppingLocationPicker.SetValue('');
+										shoppinglocationpicker.SetValue('');
 									}
-									Grocy.Components.ProductPicker.GetInputElement().focus();
-									Grocy.Components.ProductCard.Refresh(jsonForm.product_id);
+									productpicker.GetInputElement().focus();
+									productcard.Refresh(jsonForm.product_id);
 									Grocy.FrontendHelpers.ValidateForm('inventory-form');
 								}
 							},
@@ -147,19 +148,19 @@ function inventoryView(Grocy, scope = null)
 		);
 	});
 
-	Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
+	productpicker.GetPicker().on('change', function(e)
 	{
 		var productId = $scope(e.target).val();
 
 		if (productId)
 		{
-			Grocy.Components.ProductCard.Refresh(productId);
+			productcard.Refresh(productId);
 
 			Grocy.Api.Get('stock/products/' + productId,
 				function(productDetails)
 				{
-					Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
-					Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.quantity_unit_stock.id);
+					productamountpicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
+					productamountpicker.SetQuantityUnit(productDetails.quantity_unit_stock.id);
 
 					$scope('#display_amount').attr("data-stock-amount", productDetails.stock_amount)
 					$scope('#display_amount').attr('data-not-equal', productDetails.stock_amount * $scope("#qu_id option:selected").attr("data-qu-factor"));
@@ -179,11 +180,11 @@ function inventoryView(Grocy, scope = null)
 					RefreshLocaleNumberInput();
 					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 					{
-						Grocy.Components.ShoppingLocationPicker.SetId(productDetails.last_shopping_location_id);
+						shoppinglocationpicker.SetId(productDetails.last_shopping_location_id);
 					}
 					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 					{
-						Grocy.Components.LocationPicker.SetId(productDetails.location.id);
+						locationpicker.SetId(productDetails.location.id);
 					}
 
 					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
@@ -199,7 +200,7 @@ function inventoryView(Grocy, scope = null)
 							}
 							else
 							{
-								Grocy.Components.DateTimePicker.SetValue(moment().add(productDetails.product.default_best_before_days, 'days').format('YYYY-MM-DD'));
+								dt1.SetValue(moment().add(productDetails.product.default_best_before_days, 'days').format('YYYY-MM-DD'));
 							}
 						}
 					}
@@ -223,7 +224,7 @@ function inventoryView(Grocy, scope = null)
 
 										if (barcode.qu_id != null)
 										{
-											Grocy.Components.ProductAmountPicker.SetQuantityUnit(barcode.qu_id);
+											productamountpicker.SetQuantityUnit(barcode.qu_id);
 										}
 
 										$scope(".input-group-productamountpicker").trigger("change");
@@ -257,25 +258,25 @@ function inventoryView(Grocy, scope = null)
 	$scope(".input-group-productamountpicker").trigger("change");
 	Grocy.FrontendHelpers.ValidateForm('inventory-form');
 
-	if (Grocy.Components.ProductPicker.InAnyFlow() === false && Grocy.GetUriParam("embedded") === undefined)
+	if (productpicker.InAnyFlow() === false && Grocy.GetUriParam("embedded") === undefined)
 	{
-		Grocy.Components.ProductPicker.GetInputElement().focus();
+		productpicker.GetInputElement().focus();
 	}
 	else
 	{
-		Grocy.Components.ProductPicker.GetPicker().trigger('change');
+		productpicker.GetPicker().trigger('change');
 
-		if (Grocy.Components.ProductPicker.InProductModifyWorkflow())
+		if (productpicker.InProductModifyWorkflow())
 		{
-			Grocy.Components.ProductPicker.GetInputElement().focus();
+			productpicker.GetInputElement().focus();
 		}
 	}
 
 	$scope('#display_amount').on('focus', function(e)
 	{
-		if (Grocy.Components.ProductPicker.GetValue().length === 0)
+		if (productpicker.GetValue().length === 0)
 		{
-			Grocy.Components.ProductPicker.GetInputElement().focus();
+			productpicker.GetInputElement().focus();
 		}
 		else
 		{
@@ -312,19 +313,19 @@ function inventoryView(Grocy, scope = null)
 		Grocy.FrontendHelpers.ValidateForm('inventory-form');
 	});
 
-	Grocy.Components.DateTimePicker.GetInputElement().on('change', function(e)
+	dt1.GetInputElement().on('change', function(e)
 	{
 		Grocy.FrontendHelpers.ValidateForm('inventory-form');
 	});
 
-	Grocy.Components.DateTimePicker.GetInputElement().on('keypress', function(e)
+	dt1.GetInputElement().on('keypress', function(e)
 	{
 		Grocy.FrontendHelpers.ValidateForm('inventory-form');
 	});
 
 	$scope('#display_amount').on('keyup', function(e)
 	{
-		var productId = Grocy.Components.ProductPicker.GetValue();
+		var productId = productpicker.GetValue();
 		var newAmount = parseInt($scope('#amount').val());
 
 		if (productId)
@@ -350,25 +351,25 @@ function inventoryView(Grocy, scope = null)
 					else if (newAmount > productStockAmount + containerWeight)
 					{
 						$scope('#inventory-change-info').text(__t('This means %s will be added to stock', estimatedBookingAmount.toLocaleString() + ' ' + __n(estimatedBookingAmount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)));
-						Grocy.Components.DateTimePicker.GetInputElement().attr('required', '');
+						dt1.GetInputElement().attr('required', '');
 						if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 						{
-							Grocy.Components.LocationPicker.GetInputElement().attr('required', '');
+							locationpicker.GetInputElement().attr('required', '');
 						}
 					}
 					else if (newAmount < productStockAmount + containerWeight)
 					{
 						$scope('#inventory-change-info').text(__t('This means %s will be removed from stock', estimatedBookingAmount.toLocaleString() + ' ' + __n(estimatedBookingAmount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural)));
-						Grocy.Components.DateTimePicker.GetInputElement().removeAttr('required');
+						dt1.GetInputElement().removeAttr('required');
 						if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 						{
-							Grocy.Components.LocationPicker.GetInputElement().removeAttr('required');
+							locationpicker.GetInputElement().removeAttr('required');
 						}
 					}
 
 					if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 					{
-						Grocy.Components.DateTimePicker.GetInputElement().removeAttr('required');
+						dt1.GetInputElement().removeAttr('required');
 					}
 
 					Grocy.FrontendHelpers.ValidateForm('inventory-form');

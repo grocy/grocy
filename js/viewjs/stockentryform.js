@@ -8,11 +8,11 @@ function stockentryformView(Grocy, scope = null)
 		$scope = $(scope).find;
 	}
 
-	Grocy.Use("datetimepicker");
-	Grocy.Use("datetimepicker2");
-	Grocy.Use("locationpicker");
+	var datetimepicker = Grocy.Use("datetimepicker");
+	var datetimepicker2 = Grocy.Use("datetimepicker2");
+	var locationpicker = Grocy.Use("locationpicker");
 	Grocy.Use("numberpicker");
-	Grocy.Use("shoppinglocationpicker");
+	var shoppinglocationpicker = Grocy.Use("shoppinglocationpicker");
 
 	$scope('#save-stockentry-button').on('click', function(e)
 	{
@@ -33,15 +33,15 @@ function stockentryformView(Grocy, scope = null)
 
 		var jsonData = {};
 		jsonData.amount = jsonForm.amount;
-		jsonData.best_before_date = Grocy.Components.DateTimePicker.GetValue();
-		jsonData.purchased_date = Grocy.Components.DateTimePicker2.GetValue();
+		jsonData.best_before_date = datetimepicker.GetValue();
+		jsonData.purchased_date = datetimepicker2.GetValue();
 		if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 		{
-			jsonData.shopping_location_id = Grocy.Components.ShoppingLocationPicker.GetValue();
+			jsonData.shopping_location_id = shoppinglocationpicker.GetValue();
 		}
 		if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 		{
-			jsonData.location_id = Grocy.Components.LocationPicker.GetValue();
+			jsonData.location_id = locationpicker.GetValue();
 		}
 		else
 		{
@@ -92,22 +92,22 @@ function stockentryformView(Grocy, scope = null)
 		}
 	});
 
-	Grocy.Components.DateTimePicker.GetInputElement().on('change', function(e)
+	datetimepicker.GetInputElement().on('change', function(e)
 	{
 		Grocy.FrontendHelpers.ValidateForm('stockentry-form');
 	});
 
-	Grocy.Components.DateTimePicker.GetInputElement().on('keypress', function(e)
+	datetimepicker.GetInputElement().on('keypress', function(e)
 	{
 		Grocy.FrontendHelpers.ValidateForm('stockentry-form');
 	});
 
-	Grocy.Components.DateTimePicker2.GetInputElement().on('change', function(e)
+	datetimepicker2.GetInputElement().on('change', function(e)
 	{
 		Grocy.FrontendHelpers.ValidateForm('stockentry-form');
 	});
 
-	Grocy.Components.DateTimePicker2.GetInputElement().on('keypress', function(e)
+	datetimepicker2.GetInputElement().on('keypress', function(e)
 	{
 		Grocy.FrontendHelpers.ValidateForm('stockentry-form');
 	});

@@ -11,8 +11,8 @@ function productbarcodeformView(Grocy, scope = null)
 	}
 
 	Grocy.Use('barcodescanner');
-	Grocy.Use("productamountpicker");
-	Grocy.Use("userfieldsform");
+	var productamountpicker = Grocy.Use("productamountpicker");
+	var userfields = Grocy.Use("userfieldsform");
 
 	$scope('#save-barcode-button').on('click', function(e)
 	{
@@ -35,7 +35,7 @@ function productbarcodeformView(Grocy, scope = null)
 				function(result)
 				{
 					Grocy.EditObjectId = result.created_object_id;
-					Grocy.Components.UserfieldsForm.Save()
+					userfields.Save()
 
 					window.parent.postMessage(WindowMessageBag("ProductBarcodesChanged"), U("/product/" + Grocy.GetUriParam("product")));
 					window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/product/" + Grocy.GetUriParam("product")));
@@ -49,7 +49,7 @@ function productbarcodeformView(Grocy, scope = null)
 		}
 		else
 		{
-			Grocy.Components.UserfieldsForm.Save();
+			userfields.Save();
 			Grocy.Api.Put('objects/product_barcodes/' + Grocy.EditObjectId, jsonData,
 				function(result)
 				{
@@ -97,18 +97,18 @@ function productbarcodeformView(Grocy, scope = null)
 		}
 	});
 
-	Grocy.Components.ProductAmountPicker.Reload(Grocy.EditObjectProduct.id, Grocy.EditObjectProduct.qu_id_purchase);
+	productamountpicker.Reload(Grocy.EditObjectProduct.id, Grocy.EditObjectProduct.qu_id_purchase);
 	if (Grocy.EditMode == "edit")
 	{
 		$scope("#display_amount").val(Grocy.EditObject.amount);
 		$scope(".input-group-productamountpicker").trigger("change");
-		Grocy.Components.ProductAmountPicker.SetQuantityUnit(Grocy.EditObject.qu_id);
+		productamountpicker.SetQuantityUnit(Grocy.EditObject.qu_id);
 	}
 
 	Grocy.FrontendHelpers.ValidateForm('barcode-form');
 	$scope('#barcode').focus();
 	RefreshLocaleNumberInput();
-	Grocy.Components.UserfieldsForm.Load()
+	userfields.Load()
 
 	top.on("Grocy.BarcodeScanned", function(e, barcode, target)
 	{

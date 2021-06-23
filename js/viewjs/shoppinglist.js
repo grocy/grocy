@@ -16,7 +16,7 @@ function shoppinglistView(Grocy, scope = null)
 	}
 
 	Grocy.Use("calendarcard");
-	Grocy.Use("productcard");
+	var productcard = Grocy.Use("productcard");
 
 	var shoppingListTable = $scope('#shoppinglist-table').DataTable({
 		'order': [[1, 'asc']],
@@ -105,7 +105,7 @@ function shoppinglistView(Grocy, scope = null)
 	{
 		if ($(e.currentTarget).attr("data-product-id") != "")
 		{
-			Grocy.Components.ProductCard.Refresh($(e.currentTarget).attr("data-product-id"));
+			productcard.Refresh($(e.currentTarget).attr("data-product-id"));
 			$scope("#shoppinglist-productcard-modal").modal("show");
 		}
 	});

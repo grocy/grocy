@@ -9,7 +9,7 @@ function equipmentformView(Grocy, scope = null)
 		$scope = $(scope).find;
 	}
 
-	Grocy.Use("userfieldsform");
+	var userfields = Grocy.Use("userfieldsform");
 
 	$scope('#save-equipment-button').on('click', function(e)
 	{
@@ -40,7 +40,7 @@ function equipmentformView(Grocy, scope = null)
 				function(result)
 				{
 					Grocy.EditObjectId = result.created_object_id;
-					Grocy.Components.UserfieldsForm.Save(function()
+					userfields.Save(function()
 					{
 						// https://eslint.org/docs/rules/no-prototype-builtins
 						if (Object.prototype.hasOwnProperty.call(jsonData, "instruction_manual_file_name") && !Grocy.DeleteInstructionManualOnSave)
@@ -90,7 +90,7 @@ function equipmentformView(Grocy, scope = null)
 			Grocy.Api.Put('objects/equipment/' + Grocy.EditObjectId, jsonData,
 				function(result)
 				{
-					Grocy.Components.UserfieldsForm.Save(function()
+					userfields.Save(function()
 					{
 						if (Object.prototype.hasOwnProperty.call(jsonData, "instruction_manual_file_name") && !Grocy.DeleteInstructionManualOnSave)
 						{
@@ -155,7 +155,7 @@ function equipmentformView(Grocy, scope = null)
 	});
 	ResizeResponsiveEmbeds();
 
-	Grocy.Components.UserfieldsForm.Load();
+	userfields.Load();
 	$scope('#name').focus();
 	Grocy.FrontendHelpers.ValidateForm('equipment-form');
 

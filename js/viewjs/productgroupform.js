@@ -8,7 +8,7 @@ function productgroupformView(Grocy, scope = null)
 		$scope = $(scope).find;
 	}
 
-	Grocy.Use("userfieldsform");
+	var userfields = Grocy.Use("userfieldsform");
 
 	$scope('#save-product-group-button').on('click', function(e)
 	{
@@ -28,7 +28,7 @@ function productgroupformView(Grocy, scope = null)
 				function(result)
 				{
 					Grocy.EditObjectId = result.created_object_id;
-					Grocy.Components.UserfieldsForm.Save(function()
+					userfields.Save(function()
 					{
 						window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/productgroups"));
 					});
@@ -45,7 +45,7 @@ function productgroupformView(Grocy, scope = null)
 			Grocy.Api.Put('objects/product_groups/' + Grocy.EditObjectId, jsonData,
 				function(result)
 				{
-					Grocy.Components.UserfieldsForm.Save(function()
+					userfields.Save(function()
 					{
 						window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/productgroups"));
 					});
@@ -81,7 +81,7 @@ function productgroupformView(Grocy, scope = null)
 		}
 	});
 
-	Grocy.Components.UserfieldsForm.Load();
+	userfields.Load();
 	$scope('#name').focus();
 	Grocy.FrontendHelpers.ValidateForm('product-group-form');
 

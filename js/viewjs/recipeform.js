@@ -10,13 +10,13 @@ function recipeformView(Grocy, scope = null)
 	}
 
 	Grocy.Use("numberpicker");
-	Grocy.Use("recipepicker");
-	Grocy.Use("userfieldsform");
+	var recipepicker = Grocy.Use("recipepicker");
+	var userfields = Grocy.Use("userfieldsform");
 
 	function saveRecipePicture(result, location, jsonData)
 	{
 		var recipeId = Grocy.EditObjectId || result.created_object_id;
-		Grocy.Components.UserfieldsForm.Save(() =>
+		userfields.Save(() =>
 		{
 			if (Object.prototype.hasOwnProperty.call(jsonData, "picture_file_name") && !Grocy.DeleteRecipePictureOnSave)
 			{
@@ -202,7 +202,7 @@ function recipeformView(Grocy, scope = null)
 				$scope("#recipe-include-editform-title").text(__t("Edit included recipe"));
 				$scope("#recipe-include-form").data("edit-mode", "edit");
 				$scope("#recipe-include-form").data("recipe-nesting-id", id);
-				Grocy.Components.RecipePicker.SetId(recipeId);
+				recipepicker.SetId(recipeId);
 				$scope("#includes_servings").val(recipeServings);
 				$scope("#recipe-include-editform-modal").modal("show");
 				Grocy.FrontendHelpers.ValidateForm("recipe-include-form");
@@ -243,8 +243,8 @@ function recipeformView(Grocy, scope = null)
 			{
 				$scope("#recipe-include-editform-title").text(__t("Add included recipe"));
 				$scope("#recipe-include-form").data("edit-mode", "create");
-				Grocy.Components.RecipePicker.Clear();
-				Grocy.Components.RecipePicker.GetInputElement().focus();
+				recipepicker.Clear();
+				recipepicker.GetInputElement().focus();
 				$scope("#recipe-include-editform-modal").modal("show");
 				Grocy.FrontendHelpers.ValidateForm("recipe-include-form");
 			},
@@ -273,7 +273,7 @@ function recipeformView(Grocy, scope = null)
 		var editMode = $scope("#recipe-include-form").data("edit-mode");
 
 		var jsonData = {};
-		jsonData.includes_recipe_id = Grocy.Components.RecipePicker.GetValue();
+		jsonData.includes_recipe_id = recipepicker.GetValue();
 		jsonData.servings = $scope("#includes_servings").val();
 		jsonData.recipe_id = Grocy.EditObjectId;
 
@@ -324,7 +324,7 @@ function recipeformView(Grocy, scope = null)
 		$scope("#recipe-picture-label-none").removeClass("d-none");
 	});
 
-	Grocy.Components.UserfieldsForm.Load();
+	userfields.Load();
 
 	$(window).on("message", function(e)
 	{

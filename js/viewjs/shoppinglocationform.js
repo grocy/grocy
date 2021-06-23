@@ -8,7 +8,7 @@ function shoppinglocationformView(Grocy, scope = null)
 		$scope = $(scope).find;
 	}
 
-	Grocy.Use("userfieldsform");
+	var userfields = Grocy.Use("userfieldsform");
 
 	$scope('#save-shopping-location-button').on('click', function(e)
 	{
@@ -28,7 +28,7 @@ function shoppinglocationformView(Grocy, scope = null)
 				function(result)
 				{
 					Grocy.EditObjectId = result.created_object_id;
-					Grocy.Components.UserfieldsForm.Save(function()
+					userfields.Save(function()
 					{
 						if (Grocy.GetUriParam("embedded") !== undefined)
 						{
@@ -52,7 +52,7 @@ function shoppinglocationformView(Grocy, scope = null)
 			Grocy.Api.Put('objects/shopping_locations/' + Grocy.EditObjectId, jsonData,
 				function(result)
 				{
-					Grocy.Components.UserfieldsForm.Save(function()
+					userfields.Save(function()
 					{
 						if (Grocy.GetUriParam("embedded") !== undefined)
 						{
@@ -95,7 +95,7 @@ function shoppinglocationformView(Grocy, scope = null)
 		}
 	});
 
-	Grocy.Components.UserfieldsForm.Load();
+	userfields.Load();
 	$scope('#name').focus();
 	Grocy.FrontendHelpers.ValidateForm('shoppinglocation-form');
 

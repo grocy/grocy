@@ -22,8 +22,8 @@ function mealplanView(Grocy, scope = null)
 	}
 
 	Grocy.Use("numberpicker");
-	Grocy.Use("productamountpicker");
-	Grocy.Use("recipepicker");
+	var productamountpicker = Grocy.Use("productamountpicker");
+	var recipepicker = Grocy.Use("recipepicker");
 
 	var setLocale = false;
 	if (__t('fullcalendar_locale').replace(" ", "") !== "" && __t('fullcalendar_locale') != 'x')
@@ -329,7 +329,7 @@ function mealplanView(Grocy, scope = null)
 
 		$scope("#add-recipe-modal-title").text(__t("Add recipe on %s", day.toString()));
 		$scope("#day").val(day.toString());
-		Grocy.Components.RecipePicker.Clear();
+		recipepicker.Clear();
 		$scope("#add-recipe-modal").modal("show");
 		Grocy.FrontendHelpers.ValidateForm("add-recipe-form");
 		Grocy.IsMealPlanEntryEditAction = false;
@@ -353,7 +353,7 @@ function mealplanView(Grocy, scope = null)
 
 		$scope("#add-product-modal-title").text(__t("Add product on %s", day.toString()));
 		$scope("#day").val(day.toString());
-		Grocy.Components.ProductPicker.Clear();
+		productpicker.Clear();
 		$scope("#add-product-modal").modal("show");
 		Grocy.FrontendHelpers.ValidateForm("add-product-form");
 		Grocy.IsMealPlanEntryEditAction = false;
@@ -368,7 +368,7 @@ function mealplanView(Grocy, scope = null)
 			$scope("#add-recipe-modal-title").text(__t("Edit recipe on %s", mealPlanEntry.day.toString()));
 			$scope("#day").val(mealPlanEntry.day.toString());
 			$scope("#recipe_servings").val(mealPlanEntry.recipe_servings);
-			Grocy.Components.RecipePicker.SetId(mealPlanEntry.recipe_id);
+			recipepicker.SetId(mealPlanEntry.recipe_id);
 			$scope("#add-recipe-modal").modal("show");
 			Grocy.FrontendHelpers.ValidateForm("add-recipe-form");
 		}
@@ -376,10 +376,10 @@ function mealplanView(Grocy, scope = null)
 		{
 			$scope("#add-product-modal-title").text(__t("Edit product on %s", mealPlanEntry.day.toString()));
 			$scope("#day").val(mealPlanEntry.day.toString());
-			Grocy.Components.ProductPicker.SetId(mealPlanEntry.product_id);
+			productpicker.SetId(mealPlanEntry.product_id);
 			$scope("#add-product-modal").modal("show");
 			Grocy.FrontendHelpers.ValidateForm("add-product-form");
-			Grocy.Components.ProductPicker.GetPicker().trigger("change");
+			productpicker.GetPicker().trigger("change");
 		}
 		else if (mealPlanEntry.type == "note")
 		{
@@ -395,7 +395,7 @@ function mealplanView(Grocy, scope = null)
 
 	$scope("#add-recipe-modal").on("shown.bs.modal", function(e)
 	{
-		Grocy.Components.RecipePicker.GetInputElement().focus();
+		recipepicker.GetInputElement().focus();
 	})
 
 	$scope("#add-note-modal").on("shown.bs.modal", function(e)
@@ -405,7 +405,7 @@ function mealplanView(Grocy, scope = null)
 
 	$scope("#add-product-modal").on("shown.bs.modal", function(e)
 	{
-		Grocy.Components.ProductPicker.GetInputElement().focus();
+		productpicker.GetInputElement().focus();
 	})
 
 	top.on("click", ".remove-recipe-button, .remove-note-button, .remove-product-button", function(e)
@@ -826,7 +826,7 @@ function mealplanView(Grocy, scope = null)
 		}
 	});
 
-	Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
+	productpicker.GetPicker().on('change', function(e)
 	{
 		var productId = $scope(e.target).val();
 
@@ -835,7 +835,7 @@ function mealplanView(Grocy, scope = null)
 			Grocy.Api.Get('stock/products/' + productId,
 				function(productDetails)
 				{
-					Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
+					productamountpicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
 
 					$scope('#display_amount').val(1);
 					RefreshLocaleNumberInput();
@@ -853,7 +853,7 @@ function mealplanView(Grocy, scope = null)
 		}
 	});
 
-	Grocy.Components.RecipePicker.GetPicker().on('change', function(e)
+	recipepicker.GetPicker().on('change', function(e)
 	{
 		var recipeId = $scope(e.target).val();
 

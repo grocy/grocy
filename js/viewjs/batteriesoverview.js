@@ -6,7 +6,7 @@
 		$scope = $(scope).find;
 	}
 
-	Grocy.Use("batterycard", scope);
+	var batterycard = Grocy.Use("batterycard");
 
 	var batteriesOverviewTable = $scope('#batteries-overview-table').DataTable({
 		'order': [[4, 'asc']],
@@ -94,7 +94,7 @@
 
 	top.on("click", ".battery-name-cell", function(e)
 	{
-		Grocy.Components.BatteryCard.Refresh($scope(e.currentTarget).attr("data-battery-id"));
+		batterycard.Refresh($scope(e.currentTarget).attr("data-battery-id"));
 		$scope("#batteriesoverview-batterycard-modal").modal("show");
 	});
 

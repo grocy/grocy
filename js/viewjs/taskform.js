@@ -8,8 +8,8 @@
 
 	import { WindowMessageBag } from '../helpers/messagebag';
 
-	Grocy.Use("datetimepicker");
-	Grocy.Use("userfieldsform");
+	var datetimepicker = Grocy.Use("datetimepicker");
+	var userfields = Grocy.Use("userfieldsform");
 
 	$scope('#save-task-button').on('click', function(e)
 	{
@@ -23,7 +23,7 @@
 		var jsonData = $scope('#task-form').serializeJSON();
 		jsonData.assigned_to_user_id = jsonData.user_id;
 		delete jsonData.user_id;
-		jsonData.due_date = Grocy.Components.DateTimePicker.GetValue();
+		jsonData.due_date = datetimepicker.GetValue();
 
 		Grocy.FrontendHelpers.BeginUiBusy("task-form");
 
@@ -33,7 +33,7 @@
 				function(result)
 				{
 					Grocy.EditObjectId = result.created_object_id;
-					Grocy.Components.UserfieldsForm.Save(function()
+					userfields.Save(function()
 					{
 						if (Grocy.GetUriParam("embedded") !== undefined)
 						{
@@ -57,7 +57,7 @@
 			Grocy.Api.Put('objects/tasks/' + Grocy.EditObjectId, jsonData,
 				function(result)
 				{
-					Grocy.Components.UserfieldsForm.Save(function()
+					userfields.Save(function()
 					{
 						if (Grocy.GetUriParam("embedded") !== undefined)
 						{
@@ -100,9 +100,9 @@
 		}
 	});
 
-	Grocy.Components.UserfieldsForm.Load();
+	userfields.Load();
 	$scope('#name').focus();
-	Grocy.Components.DateTimePicker.GetInputElement().trigger('input');
+	datetimepicker.GetInputElement().trigger('input');
 	Grocy.FrontendHelpers.ValidateForm('task-form');
 
 }

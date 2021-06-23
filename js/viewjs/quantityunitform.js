@@ -8,7 +8,7 @@
 
 	import { WindowMessageBag } from '../helpers/messagebag';
 
-	Grocy.Use("userfieldsform");
+	var userfields = Grocy.Use("userfieldsform");
 
 	$scope('.save-quantityunit-button').on('click', function(e)
 	{
@@ -34,7 +34,7 @@
 				function(result)
 				{
 					Grocy.EditObjectId = result.created_object_id;
-					Grocy.Components.UserfieldsForm.Save(function()
+					userfields.Save(function()
 					{
 						if (Grocy.GetUriParam("embedded") !== undefined)
 						{
@@ -70,7 +70,7 @@
 			Grocy.Api.Put('objects/quantity_units/' + Grocy.EditObjectId, jsonData,
 				function(result)
 				{
-					Grocy.Components.UserfieldsForm.Save(function()
+					userfields.Save(function()
 					{
 						if (Grocy.GetUriParam("embedded") !== undefined)
 						{
@@ -153,7 +153,7 @@
 	$scope('#qu-conversions-table tbody').removeClass("d-none");
 	quConversionsTable.columns.adjust().draw();
 
-	Grocy.Components.UserfieldsForm.Load();
+	userfields.Load();
 	$scope("#name").trigger("keyup");
 	$scope('#name').focus();
 	Grocy.FrontendHelpers.ValidateForm('quantityunit-form');

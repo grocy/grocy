@@ -8,8 +8,8 @@ function shoppinglistitemformView(Grocy, scope = null)
 		$scope = $(scope).find;
 	}
 
-	Grocy.Use("productamountpicker");
-	Grocy.Use("userfieldsform");
+	var productamountpicker = Grocy.Use("productamountpicker");
+	var userfields = Grocy.Use("userfieldsform");
 
 	Grocy.ShoppingListItemFormInitialLoadDone = false;
 
@@ -40,7 +40,7 @@ function shoppinglistitemformView(Grocy, scope = null)
 				function(result)
 				{
 					Grocy.EditObjectId = result.created_object_id;
-					Grocy.Components.UserfieldsForm.Save();
+					userfields.Save();
 
 					if (Grocy.GetUriParam("embedded") !== undefined)
 					{
@@ -75,7 +75,7 @@ function shoppinglistitemformView(Grocy, scope = null)
 				function(result)
 				{
 					Grocy.EditObjectId = result.created_object_id;
-					Grocy.Components.UserfieldsForm.Save();
+					userfields.Save();
 
 					if (Grocy.GetUriParam("embedded") !== undefined)
 					{
@@ -117,7 +117,7 @@ function shoppinglistitemformView(Grocy, scope = null)
 			Grocy.Api.Put('objects/shopping_list/' + Grocy.EditObjectId, jsonData,
 				function(result)
 				{
-					Grocy.Components.UserfieldsForm.Save();
+					userfields.Save();
 
 					if (Grocy.GetUriParam("embedded") !== undefined)
 					{
@@ -156,7 +156,7 @@ function shoppinglistitemformView(Grocy, scope = null)
 		}
 	});
 
-	Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
+	productpicker.GetPicker().on('change', function(e)
 	{
 		var productId = $scope(e.target).val();
 
@@ -167,12 +167,12 @@ function shoppinglistitemformView(Grocy, scope = null)
 				{
 					if (!Grocy.ShoppingListItemFormInitialLoadDone)
 					{
-						Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id, true);
+						productamountpicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id, true);
 					}
 					else
 					{
-						Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
-						Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.default_quantity_unit_purchase.id);
+						productamountpicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
+						productamountpicker.SetQuantityUnit(productDetails.default_quantity_unit_purchase.id);
 					}
 
 					if ($scope("#display_amount").val().toString().isEmpty())
@@ -197,11 +197,11 @@ function shoppinglistitemformView(Grocy, scope = null)
 	});
 
 	Grocy.FrontendHelpers.ValidateForm('shoppinglist-form');
-	Grocy.Components.ProductPicker.GetInputElement().focus();
+	productpicker.GetInputElement().focus();
 
 	if (Grocy.EditMode === "edit")
 	{
-		Grocy.Components.ProductPicker.GetPicker().trigger('change');
+		productpicker.GetPicker().trigger('change');
 	}
 
 	if (Grocy.EditMode == "create")
@@ -253,12 +253,12 @@ function shoppinglistitemformView(Grocy, scope = null)
 	{
 		if (Grocy.GetUriParam("product") !== undefined)
 		{
-			Grocy.Components.ProductPicker.GetPicker().trigger('change');
+			productpicker.GetPicker().trigger('change');
 			$scope("#display_amount").focus();
 		}
 		else
 		{
-			Grocy.Components.ProductPicker.GetInputElement().focus();
+			productpicker.GetInputElement().focus();
 		}
 	}
 
@@ -273,10 +273,10 @@ function shoppinglistitemformView(Grocy, scope = null)
 
 	if (Grocy.GetUriParam("product-name") != null)
 	{
-		Grocy.Components.ProductPicker.GetPicker().trigger('change');
+		productpicker.GetPicker().trigger('change');
 	}
 
-	Grocy.Components.UserfieldsForm.Load();
+	userfields.Load();
 
 }
 

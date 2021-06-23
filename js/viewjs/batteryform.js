@@ -9,7 +9,7 @@ function batteryformView(Grocy, scope = null)
 	}
 
 	Grocy.Use("numberpicker");
-	Grocy.Use("userfieldsform");
+	var userfieldsform = Grocy.Use("userfieldsform");
 
 	$scope('#save-battery-button').on('click', function(e)
 	{
@@ -29,7 +29,7 @@ function batteryformView(Grocy, scope = null)
 				function(result)
 				{
 					Grocy.EditObjectId = result.created_object_id;
-					Grocy.Components.UserfieldsForm.Save(function()
+					userfieldsform.Save(function()
 					{
 						if (Grocy.GetUriParam("embedded") !== undefined)
 						{
@@ -53,7 +53,7 @@ function batteryformView(Grocy, scope = null)
 			Grocy.Api.Put('objects/batteries/' + Grocy.EditObjectId, jsonData,
 				function(result)
 				{
-					Grocy.Components.UserfieldsForm.Save(function()
+					userfieldsform.Save(function()
 					{
 						if (Grocy.GetUriParam("embedded") !== undefined)
 						{
@@ -96,7 +96,7 @@ function batteryformView(Grocy, scope = null)
 		}
 	});
 
-	Grocy.Components.UserfieldsForm.Load();
+	userfieldsform.UserfieldsForm.Load();
 	$scope('#name').focus();
 	Grocy.FrontendHelpers.ValidateForm('battery-form');
 

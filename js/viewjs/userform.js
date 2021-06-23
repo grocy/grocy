@@ -6,11 +6,11 @@
 		$scope = $(scope).find;
 	}
 
-	Grocy.Use("userfieldsform");
+	var userfields = Grocy.Use("userfieldsform");
 
 	function SaveUserPicture(result, jsonData)
 	{
-		Grocy.Components.UserfieldsForm.Save(() =>
+		userfields.Save(() =>
 		{
 			if (Object.prototype.hasOwnProperty.call(jsonData, "picture_file_name") && !Grocy.DeleteUserPictureOnSave)
 			{
@@ -152,7 +152,7 @@
 		$scope("#user-picture-label-none").removeClass("d-none");
 	});
 
-	Grocy.Components.UserfieldsForm.Load();
+	userfields.Load();
 	Grocy.FrontendHelpers.ValidateForm('user-form');
 
 }

@@ -8,8 +8,8 @@
 		$scope = $(scope).find;
 	}
 
-	Grocy.Use("productcard");
-	Grocy.Use("productpicker");
+	var productcard = Grocy.Use("productcard");
+	var productpicker = Grocy.Use("productpicker");
 
 	var stockEntriesTable = $scope('#stockentries-table').DataTable({
 		'order': [[2, 'asc']],
@@ -23,7 +23,7 @@
 
 	$.fn.dataTable.ext.search.push(function(settings, data, dataIndex)
 	{
-		var productId = Grocy.Components.ProductPicker.GetValue();
+		var productId = productpicker.GetValue();
 
 		if ((isNaN(productId) || productId == "" || productId == data[1]))
 		{
@@ -35,16 +35,16 @@
 
 	$scope("#clear-filter-button").on("click", function()
 	{
-		Grocy.Components.ProductPicker.Clear();
+		productpicker.Clear();
 		stockEntriesTable.draw();
 	});
 
-	Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
+	productpicker.GetPicker().on('change', function(e)
 	{
 		stockEntriesTable.draw();
 	});
 
-	Grocy.Components.ProductPicker.GetInputElement().on('keyup', function(e)
+	productpicker.GetInputElement().on('keyup', function(e)
 	{
 		stockEntriesTable.draw();
 	});
@@ -136,7 +136,7 @@
 
 	top.on("click", ".stock-name-cell", function(e)
 	{
-		Grocy.Components.ProductCard.Refresh($(e.currentTarget).attr("data-stock-id"));
+		productcard.Refresh($(e.currentTarget).attr("data-stock-id"));
 		$scope("#stockentry-productcard-modal").modal("show");
 	});
 
@@ -280,11 +280,11 @@
 		}
 	});
 
-	Grocy.Components.ProductPicker.GetPicker().trigger('change');
+	productpicker.GetPicker().trigger('change');
 
 	top.on("click", ".product-name-cell", function(e)
 	{
-		Grocy.Components.ProductCard.Refresh($(e.currentTarget).attr("data-product-id"));
+		productcard.Refresh($(e.currentTarget).attr("data-product-id"));
 		$scope("#productcard-modal").modal("show");
 	});
 

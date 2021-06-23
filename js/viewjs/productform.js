@@ -11,14 +11,15 @@ function productformView(Grocy, scope = null)
 	}
 
 	Grocy.Use("numberpicker");
-	Grocy.Use("shoppinglocationpicker");
-	Grocy.Use("userfieldsform");
+	var shoppinglocationpicker = Grocy.Use("shoppinglocationpicker");
+	var userfields = Grocy.Use("userfieldsform");
+	var productpicker = Grocy.Use("productpicker");
 
 	function saveProductPicture(result, location, jsonData)
 	{
 		var productId = Grocy.EditObjectId || result.created_object_id;
 
-		Grocy.Components.UserfieldsForm.Save(() =>
+		userfields.Save(() =>
 		{
 			if (Object.prototype.hasOwnProperty.call(jsonData, "picture_file_name") && !Grocy.DeleteProductPictureOnSave)
 			{
@@ -311,7 +312,7 @@ function productformView(Grocy, scope = null)
 	$scope('#barcode-table tbody').removeClass("d-none");
 	barcodeTable.columns.adjust().draw();
 
-	Grocy.Components.UserfieldsForm.Load();
+	userfields.Load();
 	$scope("#name").trigger("keyup");
 	$scope('#name').focus();
 	$scope('.input-group-qu').trigger('change');
@@ -404,7 +405,7 @@ function productformView(Grocy, scope = null)
 			{
 				if (sourceProduct.parent_product_id != null)
 				{
-					Grocy.Components.ProductPicker.SetId(sourceProduct.parent_product_id);
+					productpicker.SetId(sourceProduct.parent_product_id);
 				}
 				if (sourceProduct.description != null)
 				{
@@ -413,7 +414,7 @@ function productformView(Grocy, scope = null)
 				$scope("#location_id").val(sourceProduct.location_id);
 				if (sourceProduct.shopping_location_id != null)
 				{
-					Grocy.Components.ShoppingLocationPicker.SetId(sourceProduct.shopping_location_id);
+					shoppinglocationpicker.SetId(sourceProduct.shopping_location_id);
 				}
 				$scope("#min_stock_amount").val(sourceProduct.min_stock_amount);
 				if (BoolVal(sourceProduct.cumulate_min_stock_amount_of_sub_products))

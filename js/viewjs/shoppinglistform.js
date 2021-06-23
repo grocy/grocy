@@ -8,7 +8,7 @@
 
 	import { WindowMessageBag } from '../helpers/messagebag';
 
-	Grocy.Use("userfieldsform");
+	var userfields = Grocy.Use("userfieldsform");
 
 	$scope('#save-shopping-list-button').on('click', function(e)
 	{
@@ -28,7 +28,7 @@
 				function(result)
 				{
 					Grocy.EditObjectId = result.created_object_id;
-					Grocy.Components.UserfieldsForm.Save(function()
+					userfields.Save(function()
 					{
 						window.parent.postMessage(WindowMessageBag("ShoppingListChanged", result.created_object_id), Grocy.BaseUrl);
 						window.parent.postMessage(WindowMessageBag("Ready"), Grocy.BaseUrl);
@@ -44,7 +44,7 @@
 		}
 		else
 		{
-			Grocy.Components.UserfieldsForm.Save(function()
+			userfields.Save(function()
 			{
 				Grocy.Api.Put('objects/shopping_lists/' + Grocy.EditObjectId, jsonData,
 					function(result)
@@ -85,7 +85,7 @@
 		}
 	});
 
-	Grocy.Components.UserfieldsForm.Load();
+	userfields.Load();
 	$scope('#name').focus();
 	Grocy.FrontendHelpers.ValidateForm('shopping-list-form');
 

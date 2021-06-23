@@ -6,8 +6,8 @@
 		$scope = $(scope).find;
 	}
 
-	Grocy.Use("batterycard");
-	Grocy.Use("datetimepicker");
+	var batterycard = Grocy.Use("batterycard");
+	var datetimepicker = Grocy.Use("datetimepicker");
 
 	$scope('#save-batterytracking-button').on('click', function(e)
 	{
@@ -29,7 +29,7 @@
 					{
 						Grocy.FrontendHelpers.EndUiBusy("batterytracking-form");
 						toastr.success(__t('Tracked charge cycle of battery %1$s on %2$s', batteryDetails.battery.name, $scope('#tracked_time').find('input').val()) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="Grocy.UndoChargeCycle(' + result.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
-						Grocy.Components.BatteryCard.Refresh($('#battery_id').val());
+						batterycard.Refresh($('#battery_id').val());
 
 						$scope('#battery_id').val('');
 						$scope('#battery_id_text_input').focus();
@@ -63,7 +63,7 @@
 		var batteryId = $scope(e.target).val();
 		if (batteryId)
 		{
-			Grocy.Components.BatteryCard.Refresh(batteryId);
+			batterycard.Refresh(batteryId);
 			$scope('#tracked_time').find('input').focus();
 			Grocy.FrontendHelpers.ValidateForm('batterytracking-form');
 		}
@@ -78,7 +78,7 @@
 	$scope('#battery_id_text_input').focus();
 	$scope('#battery_id_text_input').val('');
 	$scope('#battery_id_text_input').trigger('change');
-	Grocy.Components.DateTimePicker.GetInputElement().trigger('input');
+	datetimepicker.GetInputElement().trigger('input');
 	Grocy.FrontendHelpers.ValidateForm('batterytracking-form');
 
 	$scope('#batterytracking-form input').keyup(function(event)

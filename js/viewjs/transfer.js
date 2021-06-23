@@ -8,9 +8,9 @@ function transferView(Grocy, scope = null)
 		$scope = $(scope).find;
 	}
 
-	Grocy.Use("productpicker");
-	Grocy.Use("productamountpicker");
-	Grocy.Use("productcard");
+	var productpicker = Grocy.Use("productpicker");
+	var productamountpicker = Grocy.Use("productamountpicker");
+	var productcard = Grocy.Use("productcard");
 
 	$scope('#save-transfer-button').on('click', function(e)
 	{
@@ -101,7 +101,7 @@ function transferView(Grocy, scope = null)
 						{
 							Grocy.FrontendHelpers.EndUiBusy("transfer-form");
 							toastr.success(successMessage);
-							Grocy.Components.ProductPicker.FinishFlow();
+							productpicker.FinishFlow();
 
 							if (parseInt($scope("#location_id_from option:selected").attr("data-is-freezer")) === 0 && parseInt($scope("#location_id_to option:selected").attr("data-is-freezer")) === 1) // Frozen
 							{
@@ -120,7 +120,7 @@ function transferView(Grocy, scope = null)
 								$scope("#use_specific_stock_entry").click();
 							}
 
-							Grocy.Components.ProductAmountPicker.Reset();
+							productamountpicker.Reset();
 							$scope("#location_id_from").find("option").remove().end().append("<option></option>");
 							$scope("#display_amount").attr("min", Grocy.DefaultMinAmount);
 							$scope("#display_amount").removeAttr("max");
@@ -128,11 +128,11 @@ function transferView(Grocy, scope = null)
 							RefreshLocaleNumberInput();
 							$scope(".input-group-productamountpicker").trigger("change");
 							$scope("#tare-weight-handling-info").addClass("d-none");
-							Grocy.Components.ProductPicker.Clear();
+							productpicker.Clear();
 							$scope("#location_id_to").val("");
 							$scope("#location_id_from").val("");
-							Grocy.Components.ProductPicker.GetInputElement().focus();
-							Grocy.Components.ProductCard.Refresh(jsonForm.product_id);
+							productpicker.GetInputElement().focus();
+							productcard.Refresh(jsonForm.product_id);
 							Grocy.FrontendHelpers.ValidateForm('transfer-form');
 						}
 					},
@@ -151,7 +151,7 @@ function transferView(Grocy, scope = null)
 		);
 	});
 
-	Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
+	productpicker.GetPicker().on('change', function(e)
 	{
 		$scope("#specific_stock_entry").find("option").remove().end().append("<option></option>");
 		if ($scope("#use_specific_stock_entry").is(":checked") && Grocy.GetUriParam("stockId") == null)
@@ -168,18 +168,18 @@ function transferView(Grocy, scope = null)
 
 		if (productId)
 		{
-			Grocy.Components.ProductCard.Refresh(productId);
+			productcard.Refresh(productId);
 
 			Grocy.Api.Get('stock/products/' + productId,
 				function(productDetails)
 				{
-					Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
-					Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.quantity_unit_stock.id);
+					productamountpicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
+					productamountpicker.SetQuantityUnit(productDetails.quantity_unit_stock.id);
 
 					if (productDetails.product.enable_tare_weight_handling == 1)
 					{
-						Grocy.Components.ProductPicker.GetPicker().parent().find(".invalid-feedback").text(__t('Products with tare weight enabled are currently not supported for transfer'));
-						Grocy.Components.ProductPicker.Clear();
+						productpicker.GetPicker().parent().find(".invalid-feedback").text(__t('Products with tare weight enabled are currently not supported for transfer'));
+						productpicker.Clear();
 						return;
 					}
 
@@ -248,7 +248,7 @@ function transferView(Grocy, scope = null)
 
 										if (barcode.qu_id != null)
 										{
-											Grocy.Components.ProductAmountPicker.SetQuantityUnit(barcode.qu_id);
+											productamountpicker.SetQuantityUnit(barcode.qu_id);
 										}
 
 										$scope(".input-group-productamountpicker").trigger("change");
@@ -279,14 +279,14 @@ function transferView(Grocy, scope = null)
 
 					if ((parseFloat(productDetails.stock_amount) || 0) === 0)
 					{
-						Grocy.Components.ProductPicker.Clear();
+						productpicker.Clear();
 						Grocy.FrontendHelpers.ValidateForm('transfer-form');
-						Grocy.Components.ProductPicker.ShowCustomError(__t('This product is not in stock'));
-						Grocy.Components.ProductPicker.GetInputElement().focus();
+						productpicker.ShowCustomError(__t('This product is not in stock'));
+						productpicker.GetInputElement().focus();
 					}
 					else
 					{
-						Grocy.Components.ProductPicker.HideCustomError();
+						productpicker.HideCustomError();
 						Grocy.FrontendHelpers.ValidateForm('transfer-form');
 						$scope('#display_amount').focus();
 					}
@@ -328,7 +328,7 @@ function transferView(Grocy, scope = null)
 
 		if (locationId)
 		{
-			Grocy.Api.Get("stock/products/" + Grocy.Components.ProductPicker.GetValue() + '/entries',
+			Grocy.Api.Get("stock/products/" + productpicker.GetValue() + '/entries',
 				function(stockEntries)
 				{
 					stockEntries.forEach(stockEntry =>
@@ -420,7 +420,7 @@ function transferView(Grocy, scope = null)
 		if ($(e.target).val() == "")
 		{
 			var sumValue = 0;
-			Grocy.Api.Get("stock/products/" + Grocy.Components.ProductPicker.GetValue() + '/entries',
+			Grocy.Api.Get("stock/products/" + productpicker.GetValue() + '/entries',
 				function(stockEntries)
 				{
 					stockEntries.forEach(stockEntry =>
@@ -475,8 +475,8 @@ function transferView(Grocy, scope = null)
 
 		if (typeof locationId === 'undefined')
 		{
-			Grocy.Components.ProductPicker.GetPicker().trigger('change');
-			Grocy.Components.ProductPicker.GetInputElement().focus();
+			productpicker.GetPicker().trigger('change');
+			productpicker.GetInputElement().focus();
 		}
 		else
 		{
@@ -485,12 +485,12 @@ function transferView(Grocy, scope = null)
 			$scope("#location_id_from").trigger('change');
 			$scope("#use_specific_stock_entry").click();
 			$scope("#use_specific_stock_entry").trigger('change');
-			Grocy.Components.ProductPicker.GetPicker().trigger('change');
+			productpicker.GetPicker().trigger('change');
 		}
 	}
 
 	// Default input field
-	Grocy.Components.ProductPicker.GetInputElement().focus();
+	productpicker.GetInputElement().focus();
 
 }
 

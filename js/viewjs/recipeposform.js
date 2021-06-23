@@ -9,8 +9,8 @@ function recipeposformView(Grocy, scope = null)
 	}
 
 	Grocy.Use("numberpicker");
-	Grocy.Use("productamountpicker");
-	Grocy.Use("productcard");
+	var productamountpicker = Grocy.Use("productamountpicker");
+	var productcard = Grocy.Use("productcard");
 
 	Grocy.RecipePosFormInitialLoadDone = false;
 
@@ -61,24 +61,24 @@ function recipeposformView(Grocy, scope = null)
 		}
 	});
 
-	Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
+	productpicker.GetPicker().on('change', function(e)
 	{
 		var productId = $scope(e.target).val();
 
 		if (productId)
 		{
-			Grocy.Components.ProductCard.Refresh(productId);
+			productcard.Refresh(productId);
 
 			Grocy.Api.Get('stock/products/' + productId,
 				function(productDetails)
 				{
 					if (!Grocy.RecipePosFormInitialLoadDone)
 					{
-						Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id, true);
+						productamountpicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id, true);
 					}
 					else
 					{
-						Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
+						productamountpicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
 					}
 
 					if (Grocy.Mode == "create")
@@ -88,7 +88,7 @@ function recipeposformView(Grocy, scope = null)
 
 					if (!$scope("#only_check_single_unit_in_stock").prop("checked") && Grocy.RecipePosFormInitialLoadDone)
 					{
-						Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.quantity_unit_stock.id);
+						productamountpicker.SetQuantityUnit(productDetails.quantity_unit_stock.id);
 					}
 
 					$scope('#display_amount').focus();
@@ -105,11 +105,11 @@ function recipeposformView(Grocy, scope = null)
 
 	Grocy.FrontendHelpers.ValidateForm('recipe-pos-form');
 
-	if (Grocy.Components.ProductPicker.InProductAddWorkflow() === false)
+	if (productpicker.InProductAddWorkflow() === false)
 	{
-		Grocy.Components.ProductPicker.GetInputElement().focus();
+		productpicker.GetInputElement().focus();
 	}
-	Grocy.Components.ProductPicker.GetPicker().trigger('change');
+	productpicker.GetPicker().trigger('change');
 
 	if (Grocy.EditMode == "create")
 	{
@@ -118,9 +118,9 @@ function recipeposformView(Grocy, scope = null)
 
 	$scope('#display_amount').on('focus', function(e)
 	{
-		if (Grocy.Components.ProductPicker.GetValue().length === 0)
+		if (productpicker.GetValue().length === 0)
 		{
-			Grocy.Components.ProductPicker.GetInputElement().focus();
+			productpicker.GetInputElement().focus();
 		}
 		else
 		{
@@ -160,21 +160,21 @@ function recipeposformView(Grocy, scope = null)
 		if (this.checked)
 		{
 			$scope("#display_amount").attr("min", Grocy.DefaultMinAmount);
-			Grocy.Components.ProductAmountPicker.AllowAnyQu(true);
+			productamountpicker.AllowAnyQu(true);
 			Grocy.FrontendHelpers.ValidateForm("recipe-pos-form");
 		}
 		else
 		{
 			$scope("#display_amount").attr("min", "0");
-			Grocy.Components.ProductPicker.GetPicker().trigger("change"); // Selects the default quantity unit of the selected product
-			Grocy.Components.ProductAmountPicker.AllowAnyQuEnabled = false;
+			productpicker.GetPicker().trigger("change"); // Selects the default quantity unit of the selected product
+			productamountpicker.AllowAnyQuEnabled = false;
 			Grocy.FrontendHelpers.ValidateForm("recipe-pos-form");
 		}
 	});
 
 	if ($scope("#only_check_single_unit_in_stock").prop("checked"))
 	{
-		Grocy.Components.ProductAmountPicker.AllowAnyQu(true);
+		productamountpicker.AllowAnyQu(true);
 	}
 
 }

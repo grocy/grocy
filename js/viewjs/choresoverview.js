@@ -8,7 +8,7 @@
 		$scope = $(scope).find;
 	}
 
-	Grocy.Use("chorecard");
+	var chorecard = Grocy.Use("chorecard");
 
 	var choresOverviewTable = $scope('#chores-overview-table').DataTable({
 		'order': [[2, 'asc']],
@@ -139,7 +139,7 @@
 
 	top.on("click", ".chore-name-cell", function(e)
 	{
-		Grocy.Components.ChoreCard.Refresh($scope(e.currentTarget).attr("data-chore-id"));
+		chorecard.Refresh($scope(e.currentTarget).attr("data-chore-id"));
 		$scope("#choresoverview-chorecard-modal").modal("show");
 	});
 

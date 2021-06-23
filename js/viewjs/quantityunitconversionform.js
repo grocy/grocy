@@ -9,7 +9,7 @@ function quantityunitconversionformView(Grocy, scope = null)
 	}
 
 	Grocy.Use("numberpicker");
-	Grocy.Use("userfieldsform");
+	var userfields = Grocy.Use("userfieldsform");
 
 	$scope('#save-quconversion-button').on('click', function(e)
 	{
@@ -35,7 +35,7 @@ function quantityunitconversionformView(Grocy, scope = null)
 				function(result)
 				{
 					Grocy.EditObjectId = result.created_object_id;
-					Grocy.Components.UserfieldsForm.Save(function()
+					userfields.Save(function()
 					{
 						if ($scope("#create_inverse").is(":checked"))
 						{
@@ -48,7 +48,7 @@ function quantityunitconversionformView(Grocy, scope = null)
 								function(result)
 								{
 									Grocy.EditObjectId = result.created_object_id;
-									Grocy.Components.UserfieldsForm.Save(function()
+									userfields.Save(function()
 									{
 										if (typeof Grocy.GetUriParam("qu-unit") !== "undefined")
 										{
@@ -108,7 +108,7 @@ function quantityunitconversionformView(Grocy, scope = null)
 			Grocy.Api.Put('objects/quantity_unit_conversions/' + Grocy.EditObjectId, jsonData,
 				function(result)
 				{
-					Grocy.Components.UserfieldsForm.Save(function()
+					userfields.Save(function()
 					{
 						if (typeof Grocy.GetUriParam("qu-unit") !== "undefined")
 						{
@@ -210,7 +210,7 @@ function quantityunitconversionformView(Grocy, scope = null)
 		Grocy.FrontendHelpers.ValidateForm('quconversion-form');
 	});
 
-	Grocy.Components.UserfieldsForm.Load();
+	userfields.Load();
 	$scope('.input-group-qu').trigger('change');
 	$scope('#from_qu_id').focus();
 	Grocy.FrontendHelpers.ValidateForm('quconversion-form');

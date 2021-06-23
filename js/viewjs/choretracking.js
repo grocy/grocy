@@ -6,8 +6,8 @@
 		$scope = $(scope).find;
 	}
 
-	Grocy.Use("chorecard");
-	Grocy.Use("datetimepicker");
+	var chorecard = Grocy.Use("chorecard");
+	var datetimepicker = Grocy.Use("datetimepicker");
 	Grocy.Use("userpicker");
 
 	$scope('#save-choretracking-button').on('click', function(e)
@@ -25,17 +25,17 @@
 		Grocy.Api.Get('chores/' + jsonForm.chore_id,
 			function(choreDetails)
 			{
-				Grocy.Api.Post('chores/' + jsonForm.chore_id + '/execute', { 'tracked_time': Grocy.Components.DateTimePicker.GetValue(), 'done_by': $scope("#user_id").val() },
+				Grocy.Api.Post('chores/' + jsonForm.chore_id + '/execute', { 'tracked_time': datetimepicker.GetValue(), 'done_by': $scope("#user_id").val() },
 					function(result)
 					{
 						Grocy.FrontendHelpers.EndUiBusy("choretracking-form");
-						toastr.success(__t('Tracked execution of chore %1$s on %2$s', choreDetails.chore.name, Grocy.Components.DateTimePicker.GetValue()) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="Grocy.UndoChoreExecution(' + result.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
-						Grocy.Components.ChoreCard.Refresh($scope('#chore_id').val());
+						toastr.success(__t('Tracked execution of chore %1$s on %2$s', choreDetails.chore.name, datetimepicker.GetValue()) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="Grocy.UndoChoreExecution(' + result.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
+						chorecard.Refresh($scope('#chore_id').val());
 
 						$scope('#chore_id').val('');
 						$scope('#chore_id_text_input').focus();
 						$scope('#chore_id_text_input').val('');
-						Grocy.Components.DateTimePicker.SetValue(moment().format('YYYY-MM-DD HH:mm:ss'));
+						datetimepicker.SetValue(moment().format('YYYY-MM-DD HH:mm:ss'));
 						$scope('#chore_id_text_input').trigger('change');
 						Grocy.FrontendHelpers.ValidateForm('choretracking-form');
 					},
@@ -68,13 +68,13 @@
 				{
 					if (chore.track_date_only == 1)
 					{
-						Grocy.Components.DateTimePicker.ChangeFormat("YYYY-MM-DD");
-						Grocy.Components.DateTimePicker.SetValue(moment().format("YYYY-MM-DD"));
+						datetimepicker.ChangeFormat("YYYY-MM-DD");
+						datetimepicker.SetValue(moment().format("YYYY-MM-DD"));
 					}
 					else
 					{
-						Grocy.Components.DateTimePicker.ChangeFormat("YYYY-MM-DD HH:mm:ss");
-						Grocy.Components.DateTimePicker.SetValue(moment().format("YYYY-MM-DD HH:mm:ss"));
+						datetimepicker.ChangeFormat("YYYY-MM-DD HH:mm:ss");
+						datetimepicker.SetValue(moment().format("YYYY-MM-DD HH:mm:ss"));
 					}
 				},
 				function(xhr)
@@ -83,8 +83,8 @@
 				}
 			);
 
-			Grocy.Components.ChoreCard.Refresh(choreId);
-			Grocy.Components.DateTimePicker.GetInputElement().focus();
+			chorecard.Refresh(choreId);
+			datetimepicker.GetInputElement().focus();
 			Grocy.FrontendHelpers.ValidateForm('choretracking-form');
 		}
 	});
@@ -96,7 +96,7 @@
 
 	$scope('#chore_id_text_input').focus();
 	$scope('#chore_id_text_input').trigger('change');
-	Grocy.Components.DateTimePicker.GetInputElement().trigger('input');
+	datetimepicker.GetInputElement().trigger('input');
 	Grocy.FrontendHelpers.ValidateForm('choretracking-form');
 
 	$scope('#choretracking-form input').keyup(function(event)
@@ -121,7 +121,7 @@
 		}
 	});
 
-	Grocy.Components.DateTimePicker.GetInputElement().on('keypress', function(e)
+	datetimepicker.GetInputElement().on('keypress', function(e)
 	{
 		Grocy.FrontendHelpers.ValidateForm('choretracking-form');
 	});

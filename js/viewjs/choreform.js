@@ -7,7 +7,8 @@
 	}
 
 	Grocy.Use("numberpicker");
-	Grocy.Use("userfieldsform");
+	var userfieldsform = Grocy.Use("userfieldsform");
+	var productPicker = Grocy.Use("productpicker");
 
 	$scope('#save-chore-button').on('click', function(e)
 	{
@@ -32,7 +33,7 @@
 				function(result)
 				{
 					Grocy.EditObjectId = result.created_object_id;
-					Grocy.Components.UserfieldsForm.Save(function()
+					userfieldsform.Save(function()
 					{
 						Grocy.Api.Post('chores/executions/calculate-next-assignments', { "chore_id": Grocy.EditObjectId },
 							function(result)
@@ -59,7 +60,7 @@
 			Grocy.Api.Put('objects/chores/' + Grocy.EditObjectId, jsonData,
 				function(result)
 				{
-					Grocy.Components.UserfieldsForm.Save(function()
+					userfieldsform.Save(function()
 					{
 						Grocy.Api.Post('chores/executions/calculate-next-assignments', { "chore_id": Grocy.EditObjectId },
 							function(result)
@@ -114,7 +115,7 @@
 		}
 	}
 
-	Grocy.Components.UserfieldsForm.Load();
+	userfieldsform.Load();
 	$scope('#name').focus();
 	Grocy.FrontendHelpers.ValidateForm('chore-form');
 
@@ -127,7 +128,7 @@
 		$scope("#consume_product_on_execution").click();
 		$scope("#consume_product_on_execution").click();
 
-		Grocy.Components.ProductPicker.GetPicker().trigger('change');
+		productPicker.GetPicker().trigger('change');
 	}, 100);
 
 	$scope('.input-group-chore-period-type').on('change', function(e)
@@ -218,19 +219,19 @@
 	{
 		if (this.checked)
 		{
-			Grocy.Components.ProductPicker.Enable();
+			productPicker.Enable();
 			$scope("#product_amount").removeAttr("disabled");
 		}
 		else
 		{
-			Grocy.Components.ProductPicker.Disable();
+			productPicker.Disable();
 			$scope("#product_amount").attr("disabled", "");
 		}
 
 		Grocy.FrontendHelpers.ValidateForm("chore-form");
 	});
 
-	Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
+	productPicker.GetPicker().on('change', function(e)
 	{
 		var productId = $scope(e.target).val();
 
