@@ -9,7 +9,7 @@ class batterycard
 
 		this.scopeSelector = scopeSelector;
 		this.scope = scopeSelector != null ? $(scopeSelector) : $(document);
-		this.$ = scopeSelector != null ? (selector) => this.scope.find(selector) : $;
+		var jScope = this.scope; \n\tthis.$ = scopeSelector != null ? (selector) => jScope.find(selector) : $;
 	}
 
 	Refresh(batteryId)

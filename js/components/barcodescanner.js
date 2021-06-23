@@ -8,7 +8,8 @@ class barcodescanner
 
 		this.scopeSelector = scopeSelector;
 		this.scope = scopeSelector != null ? $(scopeSelector) : $(document);
-		this.$ = scopeSelector != null ? (selector) => this.scope.find(selector) : $;
+		var jScope = this.scope;
+		this.$ = scopeSelector != null ? (selector) => jScope.find(selector) : $;
 
 		// init component
 		this.LiveVideoSizeAdjusted = false;

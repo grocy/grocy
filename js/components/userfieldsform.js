@@ -11,7 +11,8 @@ class userfieldsform
 
 		this.scopeSelector = scopeSelector;
 		this.scope = scopeSelector != null ? $(scopeSelector) : $(document);
-		this.$ = scopeSelector != null ? (selector) => this.scope.find(selector) : $;
+		var jScope = this.scope;
+		this.$ = scopeSelector != null ? (selector) => jScope.find(selector) : $;
 
 		this.$(".userfield-link").keyup();
 
