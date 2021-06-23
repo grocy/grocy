@@ -114,4 +114,6 @@ function userentityformView(Grocy, scope = null)
 
 }
 
-window.userentityformView = userentityformView;
+
+
+window.userentityformView = userentityformView

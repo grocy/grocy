@@ -11,3 +11,6 @@
 	RefreshLocaleNumberInput();
 
 }
+
+
+window.usersettingsView = usersettingsView

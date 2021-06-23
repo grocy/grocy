@@ -1,6 +1,6 @@
 import { ResizeResponsiveEmbeds } from "../helpers/embeds";
 import { IsTouchInputDevice } from "../helpers/input";
-import { BoolVal, GetFileNameFromPath, GetUriParam } from "../helpers/extensions";
+import { BoolVal, GetFileNameFromPath } from "../helpers/extensions";
 
 // This function sets some global state and adds some global event listeners.
 function setInitialGlobalState(Grocy)
@@ -229,7 +229,7 @@ function setInitialGlobalState(Grocy)
 	{
 		e.preventDefault();
 
-		var link = GetUriParam("returnto");
+		var link = Grocy.GetUriParam("returnto");
 		if (!link || !link.length > 0)
 		{
 			window.location.href = $(e.currentTarget).attr("href");

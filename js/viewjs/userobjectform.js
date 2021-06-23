@@ -80,4 +80,6 @@ function userobjectformView(Grocy, scope = null)
 
 }
 
-window.userobjectformView = userobjectformView;
+
+
+window.userobjectformView = userobjectformView

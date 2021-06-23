@@ -592,4 +592,6 @@ function purchaseView(Grocy, scope = null)
 
 }
 
+
+
 window.purchaseView = purchaseView

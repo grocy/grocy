@@ -17,4 +17,6 @@ function recipessettingsView(Grocy, scope = null)
 
 }
 
+
+
 window.recipessettingsView = recipessettingsView

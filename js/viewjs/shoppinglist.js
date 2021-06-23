@@ -558,4 +558,6 @@ function shoppinglistView(Grocy, scope = null)
 
 }
 
+
+
 window.shoppinglistView = shoppinglistView

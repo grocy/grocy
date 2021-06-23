@@ -231,19 +231,19 @@ class productpicker extends BasePicker
 								'/product/new?flow=InplaceNewProductWithName' +
 								'&name=' + encodeURIComponent(input) +
 								'&returnto=' + encodeURIComponent(
-									Grocy.CurrentUrlRelative +
+									self.Grocy.CurrentUrlRelative +
 									"?flow=InplaceNewProductWithName" +
 									"&" + self.embedded) +
 								"&" + self.embedded);
 						}
 					},
 					addbarcode: {
-						label: '<strong>B</strong> ' + Grocy.translate('Add as barcode to existing product'),
+						label: '<strong>B</strong> ' + self.Grocy.translate('Add as barcode to existing product'),
 						className: 'btn-info add-new-barcode-dialog-button responsive-button',
 						callback: function()
 						{
 							self.PopupOpen = false;
-							window.location.href = Grocy.FormatUrl(
+							window.location.href = self.Grocy.FormatUrl(
 								self.Grocy.CurrentUrlRelative +
 								'?flow=InplaceAddBarcodeToExistingProduct' +
 								'&barcode=' + encodeURIComponent(input)
@@ -251,12 +251,12 @@ class productpicker extends BasePicker
 						}
 					},
 					addnewproductwithbarcode: {
-						label: '<strong>A</strong> ' + Grocy.translate('Add as new product and prefill barcode'),
+						label: '<strong>A</strong> ' + self.Grocy.translate('Add as new product and prefill barcode'),
 						className: 'btn-warning add-new-product-with-barcode-dialog-button responsive-button ' + addProductWorkflowsAdditionalCssClasses,
 						callback: function()
 						{
 							self.PopupOpen = false;
-							window.location.href = Grocy.FormatUrl(
+							window.location.href = self.Grocy.FormatUrl(
 								'/product/new' +
 								'?flow=InplaceNewProductWithBarcode' +
 								'&barcode=' + encodeURIComponent(input) +
@@ -271,7 +271,7 @@ class productpicker extends BasePicker
 					}
 				};
 
-				if (!Grocy.FeatureFlags.DISABLE_BROWSER_BARCODE_CAMERA_SCANNING)
+				if (!this.Grocy.FeatureFlags.DISABLE_BROWSER_BARCODE_CAMERA_SCANNING)
 				{
 					buttons.retrycamerascanning = {
 						label: '<strong>C</strong> <i class="fas fa-camera"></i>',

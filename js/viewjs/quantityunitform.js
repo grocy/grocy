@@ -1,12 +1,12 @@
-﻿function quantityunitformView(Grocy, scope = null)
+﻿import { WindowMessageBag } from '../helpers/messagebag';
+
+function quantityunitformView(Grocy, scope = null)
 {
 	var $scope = $;
 	if (scope != null)
 	{
 		$scope = $(scope).find;
 	}
-
-	import { WindowMessageBag } from '../helpers/messagebag';
 
 	var userfields = Grocy.Use("userfieldsform");
 
@@ -188,3 +188,6 @@
 	});
 
 }
+
+
+window.quantityunitformView = quantityunitformView

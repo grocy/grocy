@@ -25,3 +25,6 @@
 		'/userentities'
 	);
 }
+
+
+window.userentitiesView = userentitiesView

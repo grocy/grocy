@@ -22,3 +22,6 @@
 	Grocy.FrontendHelpers.MakeFilterForColumn("#transaction-type-filter", 2, journalSummaryTable);
 	Grocy.FrontendHelpers.MakeFilterForColumn("#user-filter", 3, journalSummaryTable);
 }
+
+
+window.stockjournalsummaryView = stockjournalsummaryView

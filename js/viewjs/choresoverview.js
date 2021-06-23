@@ -192,3 +192,6 @@
 	RefreshStatistics();
 
 }
+
+
+window.choresoverviewView = choresoverviewView

@@ -23,3 +23,6 @@
 	});
 
 }
+
+
+window.locationcontentsheetView = locationcontentsheetView

@@ -105,3 +105,6 @@
 	});
 
 }
+
+
+window.barcodescannertestingView = barcodescannertestingView

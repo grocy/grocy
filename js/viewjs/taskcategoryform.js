@@ -1,4 +1,6 @@
-﻿function taskcategoryformView(Grocy, scope = null)
+﻿import { WindowMessageBag } from '../helpers/messagebag';
+
+function taskcategoryformView(Grocy, scope = null)
 {
 	var $scope = $;
 	if (scope != null)
@@ -6,7 +8,7 @@
 		$scope = $(scope).find;
 	}
 
-	import { WindowMessageBag } from '../helpers/messagebag';
+	var userfields = Grocy.Use("userfieldsform");
 
 	$scope('#save-task-category-button').on('click', function(e)
 	{
@@ -98,3 +100,6 @@
 	Grocy.FrontendHelpers.ValidateForm('task-category-form');
 
 }
+
+
+window.taskcategoryformView = taskcategoryformView

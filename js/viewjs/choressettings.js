@@ -13,3 +13,6 @@
 	RefreshLocaleNumberInput();
 
 }
+
+
+window.choressettingsView = choressettingsView

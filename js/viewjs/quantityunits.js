@@ -24,3 +24,6 @@
 		'/quantityunits'
 	);
 }
+
+
+window.quantityunitsView = quantityunitsView

@@ -48,3 +48,6 @@
 	}
 
 }
+
+
+window.choresView = choresView

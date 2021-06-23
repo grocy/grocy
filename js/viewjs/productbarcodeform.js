@@ -122,4 +122,6 @@ function productbarcodeformView(Grocy, scope = null)
 
 }
 
+
+
 window.productbarcodeformView = productbarcodeformView

@@ -60,3 +60,6 @@
 	});
 
 }
+
+
+window.stockjournalView = stockjournalView

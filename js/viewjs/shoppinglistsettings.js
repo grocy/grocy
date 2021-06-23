@@ -22,4 +22,6 @@ function shoppinglistsettingsView(Grocy, scope = null)
 
 }
 
+
+
 window.shoppinglistsettingsView = shoppinglistsettingsView

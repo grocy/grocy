@@ -156,3 +156,6 @@
 	Grocy.FrontendHelpers.ValidateForm('user-form');
 
 }
+
+
+window.userformView = userformView

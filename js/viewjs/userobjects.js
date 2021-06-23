@@ -25,3 +25,6 @@
 		() => window.location.reload()
 	);
 }
+
+
+window.userobjectsView = userobjectsView

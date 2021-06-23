@@ -5,8 +5,8 @@ class calendarcard
 		this.Grocy = Grocy;
 
 		this.scopeSelector = scopeSelector;
-		this.scope = scopeSelector != null ? $(scope) : $(document);
-		this.$ = scopeSelector != null ? $(scope).find : $;
+		this.scope = scopeSelector != null ? $(scopeSelector) : $(document);
+		this.$ = scopeSelector != null ? $(scopeSelector).find : $;
 
 		this.$('#calendar').datetimepicker(
 			{

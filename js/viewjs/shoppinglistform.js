@@ -1,12 +1,12 @@
-﻿function shoppinglistformView(Grocy, scope = null)
+﻿import { WindowMessageBag } from '../helpers/messagebag';
+
+function shoppinglistformView(Grocy, scope = null)
 {
 	var $scope = $;
 	if (scope != null)
 	{
 		$scope = $(scope).find;
 	}
-
-	import { WindowMessageBag } from '../helpers/messagebag';
 
 	var userfields = Grocy.Use("userfieldsform");
 
@@ -90,3 +90,6 @@
 	Grocy.FrontendHelpers.ValidateForm('shopping-list-form');
 
 }
+
+
+window.shoppinglistformView = shoppinglistformView

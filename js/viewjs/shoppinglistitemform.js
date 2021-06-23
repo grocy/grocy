@@ -10,6 +10,7 @@ function shoppinglistitemformView(Grocy, scope = null)
 
 	var productamountpicker = Grocy.Use("productamountpicker");
 	var userfields = Grocy.Use("userfieldsform");
+	var productpicker = Grocy.Use("productpicker");
 
 	Grocy.ShoppingListItemFormInitialLoadDone = false;
 
@@ -279,6 +280,8 @@ function shoppinglistitemformView(Grocy, scope = null)
 	userfields.Load();
 
 }
+
+
 
 
 window.shoppinglistitemformView = shoppinglistitemformView

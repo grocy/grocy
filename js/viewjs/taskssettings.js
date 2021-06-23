@@ -13,3 +13,6 @@
 	RefreshLocaleNumberInput();
 
 }
+
+
+window.taskssettingsView = taskssettingsView

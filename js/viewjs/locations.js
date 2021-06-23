@@ -25,3 +25,6 @@
 		'/locations'
 	);
 }
+
+
+window.locationsView = locationsView

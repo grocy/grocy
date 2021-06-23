@@ -655,4 +655,6 @@ function consumeView(Grocy, scope = null)
 	}
 }
 
-window.consumeViw = consumeView;
+
+
+window.consumeView = consumeView

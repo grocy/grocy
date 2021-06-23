@@ -56,4 +56,6 @@ function stocksettingsView(Grocy, scope = null)
 
 }
 
-window.stocksettingsView = stocksettingsView;
+
+
+window.stocksettingsView = stocksettingsView

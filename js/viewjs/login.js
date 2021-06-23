@@ -15,3 +15,6 @@
 	}
 
 }
+
+
+window.loginView = loginView

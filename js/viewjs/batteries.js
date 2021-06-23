@@ -49,3 +49,6 @@
 	}
 
 }
+
+
+window.batteriesView = batteriesView

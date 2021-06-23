@@ -52,3 +52,6 @@
 	}
 
 }
+
+
+window.userfieldsView = userfieldsView

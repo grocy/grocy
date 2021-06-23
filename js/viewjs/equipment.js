@@ -101,4 +101,6 @@ function equipmentView(Grocy, scope = null)
 
 }
 
+
+
 window.equipmentView = equipmentView

@@ -101,4 +101,6 @@ function shoppinglocationformView(Grocy, scope = null)
 
 }
 
-window.shoppinglocationformView = shoppinglocationformView;
+
+
+window.shoppinglocationformView = shoppinglocationformView

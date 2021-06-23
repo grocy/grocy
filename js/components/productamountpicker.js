@@ -5,8 +5,8 @@ class productamountpicker
 		this.Grocy = Grocy;
 
 		this.scopeSelector = scopeSelector;
-		this.scope = scopeSelector != null ? $(scope) : $(document);
-		this.$ = scopeSelector != null ? $(scope).find : $;
+		this.scope = scopeSelector != null ? $(scopeSelector) : $(document);
+		this.$ = scopeSelector != null ? $(scopeSelector).find : $;
 
 		Grocy.Use("numberpicker");
 		this.AllowAnyQuEnabled = false;
@@ -26,7 +26,7 @@ class productamountpicker
 
 		if (!this.AllowAnyQuEnabled)
 		{
-			var qu = thisGrocy.QuantityUnits.find(elem => elem.id == destinationQuId);
+			var qu = this.Grocy.QuantityUnits.find(elem => elem.id == destinationQuId);
 			this.qu_id.find("option").remove().end();
 			this.qu_id.attr("data-destination-qu-name", qu.name);
 			this.qu_id.attr("data-destination-qu-name-plural", qu.name_plural);
@@ -43,7 +43,7 @@ class productamountpicker
 				{
 					this.qu_id.append('<option value="' + conversion.to_qu_id + '" data-qu-factor="' + factor + '">' + conversion.to_qu_name + '</option>');
 				}
-			};
+			}
 		}
 
 		if (!this.InitialValueSet || forceInitialDisplayQu)

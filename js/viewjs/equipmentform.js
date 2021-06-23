@@ -169,3 +169,6 @@ function equipmentformView(Grocy, scope = null)
 	});
 
 }
+
+
+window.equipmentformView = equipmentformView

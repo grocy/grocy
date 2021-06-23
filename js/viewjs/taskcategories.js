@@ -25,3 +25,6 @@
 		'/taskcategories'
 	);
 }
+
+
+window.taskcategoriesView = taskcategoriesView

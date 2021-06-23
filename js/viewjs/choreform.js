@@ -251,3 +251,6 @@
 	});
 
 }
+
+
+window.choreformView = choreformView

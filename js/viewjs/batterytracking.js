@@ -108,3 +108,6 @@
 		Grocy.FrontendHelpers.ValidateForm('batterytracking-form');
 	});
 }
+
+
+window.batterytrackingView = batterytrackingView

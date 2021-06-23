@@ -13,3 +13,6 @@
 	RefreshLocaleNumberInput();
 
 }
+
+
+window.batteriessettingsView = batteriessettingsView

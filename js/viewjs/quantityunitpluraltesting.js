@@ -47,3 +47,6 @@
 	$scope("#amount").focus();
 
 }
+
+
+window.quantityunitpluraltestingView = quantityunitpluraltestingView

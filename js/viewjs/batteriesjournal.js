@@ -50,3 +50,6 @@
 	});
 
 }
+
+
+window.batteriesjournalView = batteriesjournalView

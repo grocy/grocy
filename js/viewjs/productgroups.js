@@ -34,3 +34,6 @@
 		}
 	});
 }
+
+
+window.productgroupsView = productgroupsView

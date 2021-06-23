@@ -132,4 +132,6 @@ function stockentryformView(Grocy, scope = null)
 
 }
 
-window.stockentryformView = stockentryformView;
+
+
+window.stockentryformView = stockentryformView

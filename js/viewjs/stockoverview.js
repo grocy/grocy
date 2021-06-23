@@ -338,3 +338,6 @@
 	});
 
 }
+
+
+window.stockoverviewView = stockoverviewView

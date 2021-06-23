@@ -386,4 +386,6 @@ function inventoryView(Grocy, scope = null)
 
 }
 
+
+
 window.inventoryView = inventoryView

@@ -347,4 +347,6 @@ function recipeformView(Grocy, scope = null)
 
 }
 
+
+
 window.recipeformView = recipeformView

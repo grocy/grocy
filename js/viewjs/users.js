@@ -25,3 +25,6 @@
 		'/users'
 	);
 }
+
+
+window.usersView = usersView

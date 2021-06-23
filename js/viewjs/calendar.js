@@ -105,4 +105,6 @@ function calendarView(Grocy, scope = null)
 
 }
 
-window.calendarView = calendarView;
+
+
+window.calendarView = calendarView

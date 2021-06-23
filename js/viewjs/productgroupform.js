@@ -87,4 +87,6 @@ function productgroupformView(Grocy, scope = null)
 
 }
 
+
+
 window.productgroupformView = productgroupformView

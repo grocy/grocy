@@ -495,4 +495,6 @@ function transferView(Grocy, scope = null)
 }
 
 
-window.transferView = transferView;
+
+
+window.transferView = transferView

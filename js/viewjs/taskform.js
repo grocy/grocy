@@ -1,12 +1,12 @@
-﻿function taskformView(Grocy, scope = null)
+﻿import { WindowMessageBag } from '../helpers/messagebag';
+
+function taskformView(Grocy, scope = null)
 {
 	var $scope = $;
 	if (scope != null)
 	{
 		$scope = $(scope).find;
 	}
-
-	import { WindowMessageBag } from '../helpers/messagebag';
 
 	var datetimepicker = Grocy.Use("datetimepicker");
 	var userfields = Grocy.Use("userfieldsform");
@@ -106,3 +106,6 @@
 	Grocy.FrontendHelpers.ValidateForm('task-form');
 
 }
+
+
+window.taskformView = taskformView

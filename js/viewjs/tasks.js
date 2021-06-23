@@ -172,3 +172,6 @@
 	RefreshStatistics();
 
 }
+
+
+window.tasksView = tasksView

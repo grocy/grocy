@@ -11,6 +11,7 @@ function recipeposformView(Grocy, scope = null)
 	Grocy.Use("numberpicker");
 	var productamountpicker = Grocy.Use("productamountpicker");
 	var productcard = Grocy.Use("productcard");
+	var productpicker = Grocy.Use("productpicker");
 
 	Grocy.RecipePosFormInitialLoadDone = false;
 
@@ -178,5 +179,7 @@ function recipeposformView(Grocy, scope = null)
 	}
 
 }
+
+
 
 window.recipeposformView = recipeposformView

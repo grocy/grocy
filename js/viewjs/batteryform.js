@@ -101,3 +101,6 @@ function batteryformView(Grocy, scope = null)
 	Grocy.FrontendHelpers.ValidateForm('battery-form');
 
 }
+
+
+window.batteryformView = batteryformView

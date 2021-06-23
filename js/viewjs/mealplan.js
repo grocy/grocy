@@ -24,6 +24,7 @@ function mealplanView(Grocy, scope = null)
 	Grocy.Use("numberpicker");
 	var productamountpicker = Grocy.Use("productamountpicker");
 	var recipepicker = Grocy.Use("recipepicker");
+	var productpicker = Grocy.Use("productpicker");
 
 	var setLocale = false;
 	if (__t('fullcalendar_locale').replace(" ", "") !== "" && __t('fullcalendar_locale') != 'x')
@@ -875,3 +876,6 @@ function mealplanView(Grocy, scope = null)
 	});
 
 }
+
+
+window.mealplanView = mealplanView

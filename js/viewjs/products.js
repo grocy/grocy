@@ -89,3 +89,6 @@
 	});
 
 }
+
+
+window.productsView = productsView

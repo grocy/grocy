@@ -289,3 +289,6 @@
 	});
 
 }
+
+
+window.stockentriesView = stockentriesView

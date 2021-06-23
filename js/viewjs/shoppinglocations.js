@@ -25,3 +25,6 @@
 		'/shoppinglocations'
 	);
 }
+
+
+window.shoppinglocationsView = shoppinglocationsView

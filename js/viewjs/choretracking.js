@@ -127,3 +127,6 @@
 	});
 
 }
+
+
+window.choretrackingView = choretrackingView

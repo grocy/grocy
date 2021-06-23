@@ -18,3 +18,6 @@
 	}
 
 }
+
+
+window.aboutView = aboutView

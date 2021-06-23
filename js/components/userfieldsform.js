@@ -1,6 +1,6 @@
 import { RandomString } from '../helpers/extensions';
 import { LoadImagesLazy } from '../configs/lazy'
-import uuid from 'uuid';
+import * as uuid from 'uuid';
 import { datetimepicker } from "./datetimepicker";
 
 class userfieldsform
@@ -10,8 +10,8 @@ class userfieldsform
 		this.Grocy = Grocy;
 
 		this.scopeSelector = scopeSelector;
-		this.scope = scopeSelector != null ? $(scope) : $(document);
-		this.$ = scopeSelector != null ? $(scope).find : $;
+		this.scope = scopeSelector != null ? $(scopeSelector) : $(document);
+		this.$ = scopeSelector != null ? $(scopeSelector).find : $;
 
 		this.$(".userfield-link").keyup();
 
@@ -116,7 +116,7 @@ class userfieldsform
 		}
 		var self = this;
 
-		Grocy.Api.Get('userfields/' + this.$("#userfields-form").data("entity") + '/' + this.Grocy.EditObjectId,
+		this.Grocy.Api.Get('userfields/' + this.$("#userfields-form").data("entity") + '/' + this.Grocy.EditObjectId,
 			function(result)
 			{
 				$.each(result, function(key, value)

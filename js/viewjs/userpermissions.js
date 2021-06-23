@@ -81,3 +81,6 @@
 	}
 
 }
+
+
+window.userpermissionsView = userpermissionsView

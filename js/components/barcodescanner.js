@@ -7,8 +7,8 @@ class barcodescanner
 		this.Grocy = Grocy;
 
 		this.scopeSelector = scopeSelector;
-		this.scope = scopeSelector != null ? $(scope) : $(document);
-		this.$ = scopeSelector != null ? $(scope).find : $;
+		this.scope = scopeSelector != null ? $(scopeSelector) : $(document);
+		this.$ = scopeSelector != null ? $(scopeSelector).find : $;
 
 		// init component
 		this.LiveVideoSizeAdjusted = false;
@@ -79,7 +79,7 @@ class barcodescanner
 
 			var dialog = bootbox.dialog({
 				message: '<div id="barcodescanner-container" class="col"><div id="barcodescanner-livestream"></div><div id="debug"></div></div>',
-				title: Grocy.translate('Scan a barcode'),
+				title: self.Grocy.translate('Scan a barcode'),
 				onEscape: function()
 				{
 					self.StopScanning();
@@ -98,7 +98,7 @@ class barcodescanner
 						}
 					},
 					cancel: {
-						label: Grocy.translate('Cancel'),
+						label: self.Grocy.translate('Cancel'),
 						className: 'btn-secondary responsive-button',
 						callback: function()
 						{
@@ -228,25 +228,25 @@ class barcodescanner
 				}
 			},
 			locator: {
-				patchSize: Grocy.UserSettings.quagga2_patchsize,
-				halfSample: Grocy.UserSettings.quagga2_halfsample,
+				patchSize: self.Grocy.UserSettings.quagga2_patchsize,
+				halfSample: self.Grocy.UserSettings.quagga2_halfsample,
 				debug: {
-					showCanvas: Grocy.UserSettings.quagga2_debug,
-					showPatches: Grocy.UserSettings.quagga2_debug,
-					showFoundPatches: Grocy.UserSettings.quagga2_debug,
-					showSkeleton: Grocy.UserSettings.quagga2_debug,
-					showLabels: Grocy.UserSettings.quagga2_debug,
-					showPatchLabels: Grocy.UserSettings.quagga2_debug,
-					showRemainingPatchLabels: Grocy.UserSettings.quagga2_debug,
+					showCanvas: self.Grocy.UserSettings.quagga2_debug,
+					showPatches: self.Grocy.UserSettings.quagga2_debug,
+					showFoundPatches: self.Grocy.UserSettings.quagga2_debug,
+					showSkeleton: self.Grocy.UserSettings.quagga2_debug,
+					showLabels: self.Grocy.UserSettings.quagga2_debug,
+					showPatchLabels: self.Grocy.UserSettings.quagga2_debug,
+					showRemainingPatchLabels: self.Grocy.UserSettings.quagga2_debug,
 					boxFromPatches: {
-						showTransformed: Grocy.UserSettings.quagga2_debug,
-						showTransformedBox: Grocy.UserSettings.quagga2_debug,
-						showBB: Grocy.UserSettings.quagga2_debug
+						showTransformed: self.Grocy.UserSettings.quagga2_debug,
+						showTransformedBox: self.Grocy.UserSettings.quagga2_debug,
+						showBB: self.Grocy.UserSettings.quagga2_debug
 					}
 				}
 			},
-			numOfWorkers: Grocy.UserSettings.quagga2_numofworkers,
-			frequency: Grocy.UserSettings.quagga2_frequency,
+			numOfWorkers: self.Grocy.UserSettings.quagga2_numofworkers,
+			frequency: self.Grocy.UserSettings.quagga2_frequency,
 			decoder: {
 				readers: [
 					"ean_reader",
@@ -254,17 +254,17 @@ class barcodescanner
 					"code_128_reader"
 				],
 				debug: {
-					showCanvas: Grocy.UserSettings.quagga2_debug,
-					showPatches: Grocy.UserSettings.quagga2_debug,
-					showFoundPatches: Grocy.UserSettings.quagga2_debug,
-					showSkeleton: Grocy.UserSettings.quagga2_debug,
-					showLabels: Grocy.UserSettings.quagga2_debug,
-					showPatchLabels: Grocy.UserSettings.quagga2_debug,
-					showRemainingPatchLabels: Grocy.UserSettings.quagga2_debug,
+					showCanvas: self.Grocy.UserSettings.quagga2_debug,
+					showPatches: self.Grocy.UserSettings.quagga2_debug,
+					showFoundPatches: self.Grocy.UserSettings.quagga2_debug,
+					showSkeleton: self.Grocy.UserSettings.quagga2_debug,
+					showLabels: self.Grocy.UserSettings.quagga2_debug,
+					showPatchLabels: self.Grocy.UserSettings.quagga2_debug,
+					showRemainingPatchLabels: self.Grocy.UserSettings.quagga2_debug,
 					boxFromPatches: {
-						showTransformed: Grocy.UserSettings.quagga2_debug,
-						showTransformedBox: Grocy.UserSettings.quagga2_debug,
-						showBB: Grocy.UserSettings.quagga2_debug
+						showTransformed: self.Grocy.UserSettings.quagga2_debug,
+						showTransformedBox: self.Grocy.UserSettings.quagga2_debug,
+						showBB: self.Grocy.UserSettings.quagga2_debug
 					}
 				}
 			},

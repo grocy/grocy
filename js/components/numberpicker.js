@@ -5,8 +5,8 @@ class numberpicker
 		this.Grocy = Grocy;
 
 		this.scopeSelector = scopeSelector;
-		this.scope = scopeSelector != null ? $(scope) : $(document);
-		this.$ = scopeSelector != null ? $(scope).find : $;
+		this.scope = scopeSelector != null ? $(scopeSelector) : $(document);
+		this.$ = scopeSelector != null ? $(scopeSelector).find : $;
 		var self = this;
 
 		this.$(".numberpicker-down-button").unbind('click').on("click", () => self.valueDownHandler(this));
@@ -14,7 +14,7 @@ class numberpicker
 
 		this.$(".numberpicker").on("keyup", function()
 		{
-			$this = $(this)
+			let $this = $(this)
 			if ($this.attr("data-not-equal") && !$this.attr("data-not-equal").toString().isEmpty() && $this.attr("data-not-equal") == $this.val())
 			{
 				$this[0].setCustomValidity("error");
@@ -136,7 +136,7 @@ class numberpicker
 			if (max.isEmpty())
 			{
 				element.parent().find(".invalid-feedback").text(
-					Grocy.translate("This cannot be lower than %1$s and needs to be a valid number with max. %2$s decimal places",
+					this.Grocy.translate("This cannot be lower than %1$s and needs to be a valid number with max. %2$s decimal places",
 						parseFloat(min).toLocaleString(undefined, {
 							minimumFractionDigits: 0,
 							maximumFractionDigits: decimals
@@ -146,7 +146,7 @@ class numberpicker
 			else
 			{
 				element.parent().find(".invalid-feedback").text(
-					Grocy.translate("This must between %1$s and %2$s and needs to be a valid number with max. %3$s decimal places",
+					this.Grocy.translate("This must between %1$s and %2$s and needs to be a valid number with max. %3$s decimal places",
 						parseFloat(min).toLocaleString(undefined, {
 							minimumFractionDigits: 0,
 							maximumFractionDigits: decimals

@@ -9,8 +9,8 @@ class productcard
 		this.Grocy = Grocy;
 
 		this.scopeSelector = scopeSelector;
-		this.scope = scopeSelector != null ? $(scope) : $(document);
-		this.$ = scopeSelector != null ? $(scope).find : $;
+		this.scope = scopeSelector != null ? $(scopeSelector) : $(document);
+		this.$ = scopeSelector != null ? $(scopeSelector).find : $;
 		this.PriceHistoryChart = null;
 		var self = this;
 
@@ -133,7 +133,7 @@ class productcard
 				if (productDetails.product.picture_file_name !== null && !productDetails.product.picture_file_name.isEmpty())
 				{
 					self.$("#productcard-product-picture").removeClass("d-none");
-					self.$("#productcard-product-picture").attr("src", Grocy.FormatUrl('/api/files/productpictures/' + btoa(productDetails.product.picture_file_name) + '?force_serve_as=picture&best_fit_width=400'));
+					self.$("#productcard-product-picture").attr("src", self.Grocy.FormatUrl('/api/files/productpictures/' + btoa(productDetails.product.picture_file_name) + '?force_serve_as=picture&best_fit_width=400'));
 				}
 				else
 				{
@@ -165,7 +165,7 @@ class productcard
 						var chart = self.PriceHistoryChart.data;
 						for (let dataPoint of priceHistoryDataPoints)
 						{
-							let key = Grocy.translate("Unknown store");
+							let key = self.Grocy.translate("Unknown store");
 							if (dataPoint.shopping_location)
 							{
 								key = dataPoint.shopping_location.name

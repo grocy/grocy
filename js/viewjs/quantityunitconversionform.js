@@ -222,4 +222,7 @@ function quantityunitconversionformView(Grocy, scope = null)
 
 }
 
+
+
+
 window.quantityunitconversionformView = quantityunitconversionformView

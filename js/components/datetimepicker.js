@@ -8,8 +8,8 @@ class datetimepicker
 		this.Grocy = Grocy;
 
 		this.scopeSelector = scopeSelector;
-		this.scope = scopeSelector != null ? $(scope) : $(document);
-		this.$ = scopeSelector != null ? $(scope).find : $;
+		this.scope = scopeSelector != null ? $(scopeSelector) : $(document);
+		this.$ = scopeSelector != null ? $(scopeSelector).find : $;
 
 		this.basename = basename;
 
@@ -202,19 +202,19 @@ class datetimepicker
 
 					if (e.keyCode === 38) // Up
 					{
-						Grocy.Components.DateTimePicker.SetValue(dateObj.add(-1, 'months').format(format));
+						this.SetValue(dateObj.add(-1, 'months').format(format));
 					}
 					else if (e.keyCode === 40) // Down
 					{
-						Grocy.Components.DateTimePicker.SetValue(dateObj.add(1, 'months').format(format));
+						this.SetValue(dateObj.add(1, 'months').format(format));
 					}
 					else if (e.keyCode === 37) // Left
 					{
-						Grocy.Components.DateTimePicker.SetValue(dateObj.add(-1, 'years').format(format));
+						this.SetValue(dateObj.add(-1, 'years').format(format));
 					}
 					else if (e.keyCode === 39) // Right
 					{
-						Grocy.Components.DateTimePicker.SetValue(dateObj.add(1, 'years').format(format));
+						this.SetValue(dateObj.add(1, 'years').format(format));
 					}
 				}
 				else
@@ -223,19 +223,19 @@ class datetimepicker
 
 					if (e.keyCode === 38) // Up
 					{
-						Grocy.Components.DateTimePicker.SetValue(dateObj.add(-1, 'days').format(format));
+						this.SetValue(dateObj.add(-1, 'days').format(format));
 					}
 					else if (e.keyCode === 40) // Down
 					{
-						Grocy.Components.DateTimePicker.SetValue(dateObj.add(1, 'days').format(format));
+						this.SetValue(dateObj.add(1, 'days').format(format));
 					}
 					else if (e.keyCode === 37) // Left
 					{
-						Grocy.Components.DateTimePicker.SetValue(dateObj.add(-1, 'weeks').format(format));
+						this.SetValue(dateObj.add(-1, 'weeks').format(format));
 					}
 					else if (e.keyCode === 39) // Right
 					{
-						Grocy.Components.DateTimePicker.SetValue(dateObj.add(1, 'weeks').format(format));
+						this.SetValue(dateObj.add(1, 'weeks').format(format));
 					}
 				}
 			}

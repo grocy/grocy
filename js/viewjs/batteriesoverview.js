@@ -134,3 +134,6 @@
 	RefreshStatistics();
 
 }
+
+
+window.batteriesoverviewView = batteriesoverviewView

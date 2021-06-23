@@ -277,3 +277,6 @@
 	}
 
 }
+
+
+window.recipesView = recipesView

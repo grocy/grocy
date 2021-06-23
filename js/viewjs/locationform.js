@@ -101,4 +101,6 @@ function locationformView(Grocy, scope = null)
 
 }
 
+
+
 window.locationformView = locationformView

@@ -129,4 +129,6 @@ function userfieldformView(Grocy, scope = null)
 
 }
 
-window.userfieldformView = userfieldformView;
+
+
+window.userfieldformView = userfieldformView

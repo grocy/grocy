@@ -56,4 +56,6 @@ function manageapikeysView(Grocy, scope = null)
 
 }
 
-window.manageapikeysView = manageapikeysView;
+
+
+window.manageapikeysView = manageapikeysView

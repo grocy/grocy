@@ -8,8 +8,8 @@ class chorecard
 		this.Grocy = Grocy;
 
 		this.scopeSelector = scopeSelector;
-		this.scope = scopeSelector != null ? $(scope) : $(document);
-		this.$ = scopeSelector != null ? $(scope).find : $;
+		this.scope = scopeSelector != null ? $(scopeSelector) : $(document);
+		this.$ = scopeSelector != null ? $(scopeSelector).find : $;
 	}
 
 	Refresh(choreId)
@@ -46,6 +46,6 @@ class chorecard
 				console.error(xhr);
 			}
 		);
-	};
+	}
 }
 export { chorecard }
