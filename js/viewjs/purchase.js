@@ -109,10 +109,10 @@ function purchaseView(Grocy, scope = null)
 							Grocy.UISound.Success();
 						}
 
-						if (GetUriParam("flow") == "InplaceAddBarcodeToExistingProduct")
+						if (Grocy.GetUriParam("flow") == "InplaceAddBarcodeToExistingProduct")
 						{
 							var jsonDataBarcode = {};
-							jsonDataBarcode.barcode = GetUriParam("barcode");
+							jsonDataBarcode.barcode = Grocy.GetUriParam("barcode");
 							jsonDataBarcode.product_id = jsonForm.product_id;
 							jsonDataBarcode.shopping_location_id = jsonForm.shopping_location_id;
 
@@ -163,10 +163,10 @@ function purchaseView(Grocy, scope = null)
 							}
 						}
 
-						if (GetUriParam("embedded") !== undefined)
+						if (Grocy.GetUriParam("embedded") !== undefined)
 						{
 							window.parent.postMessage(WindowMessageBag("ProductChanged", jsonForm.product_id), Grocy.BaseUrl);
-							window.parent.postMessage(WindowMessageBag("AfterItemAdded", GetUriParam("listitemid")), Grocy.BaseUrl);
+							window.parent.postMessage(WindowMessageBag("AfterItemAdded", Grocy.GetUriParam("listitemid")), Grocy.BaseUrl);
 							window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", successMessage), Grocy.BaseUrl);
 							window.parent.postMessage(WindowMessageBag("Ready"), Grocy.BaseUrl);
 							window.parent.postMessage(WindowMessageBag("CloseAllModals"), Grocy.BaseUrl);
@@ -256,10 +256,10 @@ function purchaseView(Grocy, scope = null)
 						$scope('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_purchase_amount));
 						$scope(".input-group-productamountpicker").trigger("change");
 
-						if (GetUriParam("flow") === "shoppinglistitemtostock")
+						if (Grocy.GetUriParam("flow") === "shoppinglistitemtostock")
 						{
-							Grocy.Components.ProductAmountPicker.SetQuantityUnit(GetUriParam("quId"));
-							$scope('#display_amount').val(parseFloat(GetUriParam("amount") * $scope("#qu_id option:selected").attr("data-qu-factor")));
+							Grocy.Components.ProductAmountPicker.SetQuantityUnit(Grocy.GetUriParam("quId"));
+							$scope('#display_amount').val(parseFloat(Grocy.GetUriParam("amount") * $scope("#qu_id option:selected").attr("data-qu-factor")));
 						}
 
 						$scope(".input-group-productamountpicker").trigger("change");
@@ -346,7 +346,7 @@ function purchaseView(Grocy, scope = null)
 						$scope("#display_amount").focus();
 
 						Grocy.FrontendHelpers.ValidateForm('purchase-form');
-						if (GetUriParam("flow") === "shoppinglistitemtostock" && BoolVal(Grocy.UserSettings.shopping_list_to_stock_workflow_auto_submit_when_prefilled) && document.getElementById("purchase-form").checkValidity() === true)
+						if (Grocy.GetUriParam("flow") === "shoppinglistitemtostock" && BoolVal(Grocy.UserSettings.shopping_list_to_stock_workflow_auto_submit_when_prefilled) && document.getElementById("purchase-form").checkValidity() === true)
 						{
 							$scope("#save-purchase-button").click();
 						}
@@ -425,7 +425,7 @@ function purchaseView(Grocy, scope = null)
 
 	if (Grocy.Components.ProductPicker)
 	{
-		if (Grocy.Components.ProductPicker.InAnyFlow() === false && GetUriParam("embedded") === undefined)
+		if (Grocy.Components.ProductPicker.InAnyFlow() === false && Grocy.GetUriParam("embedded") === undefined)
 		{
 			Grocy.Components.ProductPicker.GetInputElement().focus();
 		}

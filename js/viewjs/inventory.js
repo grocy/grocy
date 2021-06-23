@@ -66,10 +66,10 @@ function inventoryView(Grocy, scope = null)
 					{
 						bookingResponse = result;
 
-						if (GetUriParam("flow") === "InplaceAddBarcodeToExistingProduct")
+						if (Grocy.GetUriParam("flow") === "InplaceAddBarcodeToExistingProduct")
 						{
 							var jsonDataBarcode = {};
-							jsonDataBarcode.barcode = GetUriParam("barcode");
+							jsonDataBarcode.barcode = Grocy.GetUriParam("barcode");
 							jsonDataBarcode.product_id = jsonForm.product_id;
 							jsonDataBarcode.shopping_location_id = jsonForm.shopping_location_id;
 
@@ -94,7 +94,7 @@ function inventoryView(Grocy, scope = null)
 							{
 								var successMessage = __t('Stock amount of %1$s is now %2$s', result.product.name, result.stock_amount + " " + __n(result.stock_amount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural)) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="Grocy.UndoStockTransaction(\'' + bookingResponse[0].transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
 
-								if (GetUriParam("embedded") !== undefined)
+								if (Grocy.GetUriParam("embedded") !== undefined)
 								{
 									window.parent.postMessage(WindowMessageBag("ProductChanged", jsonForm.product_id), Grocy.BaseUrl);
 									window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", successMessage), Grocy.BaseUrl);
@@ -257,7 +257,7 @@ function inventoryView(Grocy, scope = null)
 	$scope(".input-group-productamountpicker").trigger("change");
 	Grocy.FrontendHelpers.ValidateForm('inventory-form');
 
-	if (Grocy.Components.ProductPicker.InAnyFlow() === false && GetUriParam("embedded") === undefined)
+	if (Grocy.Components.ProductPicker.InAnyFlow() === false && Grocy.GetUriParam("embedded") === undefined)
 	{
 		Grocy.Components.ProductPicker.GetInputElement().focus();
 	}

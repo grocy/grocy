@@ -124,7 +124,7 @@
 		}
 	});
 
-	if (GetUriParam("changepw") === "true")
+	if (Grocy.GetUriParam("changepw") === "true")
 	{
 		$scope('#password').focus();
 	}

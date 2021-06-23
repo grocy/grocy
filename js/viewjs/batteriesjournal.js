@@ -18,9 +18,9 @@
 	Grocy.FrontendHelpers.InitDataTable(batteriesJournalTable);
 	Grocy.FrontendHelpers.MakeFilterForColumn("#battery-filter", 1, batteriesJournalTable);
 
-	if (typeof GetUriParam("battery") !== "undefined")
+	if (typeof Grocy.GetUriParam("battery") !== "undefined")
 	{
-		$scope("#battery-filter").val(GetUriParam("battery"));
+		$scope("#battery-filter").val(Grocy.GetUriParam("battery"));
 		$scope("#battery-filter").trigger("change");
 	}
 

@@ -50,21 +50,21 @@ function quantityunitconversionformView(Grocy, scope = null)
 									Grocy.EditObjectId = result.created_object_id;
 									Grocy.Components.UserfieldsForm.Save(function()
 									{
-										if (typeof GetUriParam("qu-unit") !== "undefined")
+										if (typeof Grocy.GetUriParam("qu-unit") !== "undefined")
 										{
-											if (GetUriParam("embedded") !== undefined)
+											if (Grocy.GetUriParam("embedded") !== undefined)
 											{
 												window.parent.postMessage(WindowMessageBag("Reload"), Grocy.BaseUrl);
 											}
 											else
 											{
-												window.location.href = U("/quantityunit/" + GetUriParam("qu-unit"));
+												window.location.href = U("/quantityunit/" + Grocy.GetUriParam("qu-unit"));
 											}
 										}
 										else
 										{
-											window.parent.postMessage(WindowMessageBag("ProductQUConversionChanged"), U("/product/" + GetUriParam("product")));
-											window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/product/" + GetUriParam("product")));
+											window.parent.postMessage(WindowMessageBag("ProductQUConversionChanged"), U("/product/" + Grocy.GetUriParam("product")));
+											window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/product/" + Grocy.GetUriParam("product")));
 										}
 									});
 								},
@@ -77,21 +77,21 @@ function quantityunitconversionformView(Grocy, scope = null)
 						}
 						else
 						{
-							if (typeof GetUriParam("qu-unit") !== "undefined")
+							if (typeof Grocy.GetUriParam("qu-unit") !== "undefined")
 							{
-								if (GetUriParam("embedded") !== undefined)
+								if (Grocy.GetUriParam("embedded") !== undefined)
 								{
 									window.parent.postMessage(WindowMessageBag("Reload"), Grocy.BaseUrl);
 								}
 								else
 								{
-									window.location.href = U("/quantityunit/" + GetUriParam("qu-unit"));
+									window.location.href = U("/quantityunit/" + Grocy.GetUriParam("qu-unit"));
 								}
 							}
 							else
 							{
-								window.parent.postMessage(WindowMessageBag("ProductQUConversionChanged"), U("/product/" + GetUriParam("product")));
-								window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/product/" + GetUriParam("product")));
+								window.parent.postMessage(WindowMessageBag("ProductQUConversionChanged"), U("/product/" + Grocy.GetUriParam("product")));
+								window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/product/" + Grocy.GetUriParam("product")));
 							}
 						}
 					});
@@ -110,21 +110,21 @@ function quantityunitconversionformView(Grocy, scope = null)
 				{
 					Grocy.Components.UserfieldsForm.Save(function()
 					{
-						if (typeof GetUriParam("qu-unit") !== "undefined")
+						if (typeof Grocy.GetUriParam("qu-unit") !== "undefined")
 						{
-							if (GetUriParam("embedded") !== undefined)
+							if (Grocy.GetUriParam("embedded") !== undefined)
 							{
 								window.parent.postMessage(WindowMessageBag("Reload"), Grocy.BaseUrl);
 							}
 							else
 							{
-								window.location.href = U("/quantityunit/" + GetUriParam("qu-unit"));
+								window.location.href = U("/quantityunit/" + Grocy.GetUriParam("qu-unit"));
 							}
 						}
 						else
 						{
-							window.parent.postMessage(WindowMessageBag("ProductQUConversionChanged"), U("/product/" + GetUriParam("product")));
-							window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/product/" + GetUriParam("product")));
+							window.parent.postMessage(WindowMessageBag("ProductQUConversionChanged"), U("/product/" + Grocy.GetUriParam("product")));
+							window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/product/" + Grocy.GetUriParam("product")));
 						}
 					});
 				},
@@ -215,7 +215,7 @@ function quantityunitconversionformView(Grocy, scope = null)
 	$scope('#from_qu_id').focus();
 	Grocy.FrontendHelpers.ValidateForm('quconversion-form');
 
-	if (GetUriParam("qu-unit") !== undefined)
+	if (Grocy.GetUriParam("qu-unit") !== undefined)
 	{
 		$scope("#from_qu_id").attr("disabled", "");
 	}

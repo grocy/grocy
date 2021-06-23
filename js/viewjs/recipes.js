@@ -46,12 +46,12 @@
 			$scope("#status-filter").trigger("change");
 		})
 
-	if ((typeof GetUriParam("tab") !== "undefined" && GetUriParam("tab") === "gallery") || window.localStorage.getItem("recipes_last_tab_id") == "gallery-tab")
+	if ((typeof Grocy.GetUriParam("tab") !== "undefined" && Grocy.GetUriParam("tab") === "gallery") || window.localStorage.getItem("recipes_last_tab_id") == "gallery-tab")
 	{
 		$scope(".nav-tabs a[href='#gallery']").tab("show");
 	}
 
-	var recipe = GetUriParam("recipe");
+	var recipe = Grocy.GetUriParam("recipe");
 	if (typeof recipe !== "undefined")
 	{
 		$scope("#recipes-table tr").removeClass("selected");
@@ -68,9 +68,9 @@
 		}
 	}
 
-	if (GetUriParam("search") !== undefined)
+	if (Grocy.GetUriParam("search") !== undefined)
 	{
-		$scope("#search").val(GetUriParam("search"));
+		$scope("#search").val(Grocy.GetUriParam("search"));
 		setTimeout(function()
 		{
 			$scope("#search").keyup();

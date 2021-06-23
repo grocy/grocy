@@ -25,9 +25,9 @@
 	})
 
 	Grocy.FrontendHelpers.MakeFilterForColumn("#product-group-filter", 6, productsTable);
-	if (typeof GetUriParam("product-group") !== "undefined")
+	if (typeof Grocy.GetUriParam("product-group") !== "undefined")
 	{
-		$scope("#product-group-filter").val(GetUriParam("product-group"));
+		$scope("#product-group-filter").val(Grocy.GetUriParam("product-group"));
 		$scope("#product-group-filter").trigger("change");
 	}
 
@@ -57,7 +57,7 @@
 		}
 	});
 
-	if (GetUriParam('include_disabled'))
+	if (Grocy.GetUriParam('include_disabled'))
 	{
 		$scope("#show-disabled").prop('checked', true);
 	}

@@ -18,9 +18,9 @@
 	Grocy.FrontendHelpers.InitDataTable(choresJournalTable);
 	Grocy.FrontendHelpers.MakeFilterForColumn("#chore-filter", 1, choresJournalTable);
 
-	if (typeof GetUriParam("chore") !== "undefined")
+	if (typeof Grocy.GetUriParam("chore") !== "undefined")
 	{
-		$scope("#chore-filter").val(GetUriParam("chore"));
+		$scope("#chore-filter").val(Grocy.GetUriParam("chore"));
 		$scope("#chore-filter").trigger("change");
 	}
 

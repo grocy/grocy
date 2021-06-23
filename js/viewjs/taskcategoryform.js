@@ -28,7 +28,7 @@
 					Grocy.EditObjectId = result.created_object_id;
 					Grocy.Components.UserfieldsForm.Save(function()
 					{
-						if (GetUriParam("embedded") !== undefined)
+						if (Grocy.GetUriParam("embedded") !== undefined)
 						{
 							window.parent.postMessage(WindowMessageBag("Reload"), Grocy.BaseUrl);
 						}
@@ -52,7 +52,7 @@
 				{
 					Grocy.Components.UserfieldsForm.Save(function()
 					{
-						if (GetUriParam("embedded") !== undefined)
+						if (Grocy.GetUriParam("embedded") !== undefined)
 						{
 							window.parent.postMessage(WindowMessageBag("Reload"), Grocy.BaseUrl);
 						}

@@ -38,9 +38,9 @@
 		$scope("#result").text(__n(amount, singularForm, pluralForm));
 	}
 
-	if (GetUriParam("qu") !== undefined)
+	if (Grocy.GetUriParam("qu") !== undefined)
 	{
-		$scope("#qu_id").val(GetUriParam("qu"));
+		$scope("#qu_id").val(Grocy.GetUriParam("qu"));
 		$scope("#qu_id").trigger("change");
 	}
 

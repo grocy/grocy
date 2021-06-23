@@ -37,8 +37,8 @@ function productbarcodeformView(Grocy, scope = null)
 					Grocy.EditObjectId = result.created_object_id;
 					Grocy.Components.UserfieldsForm.Save()
 
-					window.parent.postMessage(WindowMessageBag("ProductBarcodesChanged"), U("/product/" + GetUriParam("product")));
-					window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/product/" + GetUriParam("product")));
+					window.parent.postMessage(WindowMessageBag("ProductBarcodesChanged"), U("/product/" + Grocy.GetUriParam("product")));
+					window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/product/" + Grocy.GetUriParam("product")));
 				},
 				function(xhr)
 				{
@@ -53,8 +53,8 @@ function productbarcodeformView(Grocy, scope = null)
 			Grocy.Api.Put('objects/product_barcodes/' + Grocy.EditObjectId, jsonData,
 				function(result)
 				{
-					window.parent.postMessage(WindowMessageBag("ProductBarcodesChanged"), U("/product/" + GetUriParam("product")));
-					window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/product/" + GetUriParam("product")));
+					window.parent.postMessage(WindowMessageBag("ProductBarcodesChanged"), U("/product/" + Grocy.GetUriParam("product")));
+					window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/product/" + Grocy.GetUriParam("product")));
 				},
 				function(xhr)
 				{

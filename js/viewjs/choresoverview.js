@@ -30,11 +30,11 @@
 		var user = $(this).val();
 		if (user !== null && !user.isEmpty())
 		{
-			UpdateUriParam("user", $scope("#user-filter option:selected").data("user-id"));
+			Grocy.UpdateUriParam("user", $scope("#user-filter option:selected").data("user-id"));
 		}
 		else
 		{
-			RemoveUriParam("user")
+			Grocy.RemoveUriParam("user")
 		}
 	});
 
@@ -183,9 +183,9 @@
 		);
 	}
 
-	if (GetUriParam("user") !== undefined)
+	if (Grocy.GetUriParam("user") !== undefined)
 	{
-		$scope("#user-filter").val("xx" + GetUriParam("user") + "xx");
+		$scope("#user-filter").val("xx" + Grocy.GetUriParam("user") + "xx");
 		$scope("#user-filter").trigger("change");
 	}
 

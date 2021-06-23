@@ -23,9 +23,9 @@
 	Grocy.FrontendHelpers.MakeFilterForColumn("#location-filter", 5, stockJournalTable);
 	Grocy.FrontendHelpers.MakeFilterForColumn("#user-filter", 6, stockJournalTable);
 
-	if (typeof GetUriParam("product") !== "undefined")
+	if (typeof Grocy.GetUriParam("product") !== "undefined")
 	{
-		$scope("#product-filter").val(GetUriParam("product"));
+		$scope("#product-filter").val(Grocy.GetUriParam("product"));
 		$scope("#product-filter").trigger("change");
 	}
 

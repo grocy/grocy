@@ -31,7 +31,7 @@ function shoppinglistitemformView(Grocy, scope = null)
 
 		Grocy.FrontendHelpers.BeginUiBusy("shoppinglist-form");
 
-		if (GetUriParam("updateexistingproduct") !== undefined)
+		if (Grocy.GetUriParam("updateexistingproduct") !== undefined)
 		{
 			jsonData.product_amount = jsonData.amount;
 			delete jsonData.amount;
@@ -42,7 +42,7 @@ function shoppinglistitemformView(Grocy, scope = null)
 					Grocy.EditObjectId = result.created_object_id;
 					Grocy.Components.UserfieldsForm.Save();
 
-					if (GetUriParam("embedded") !== undefined)
+					if (Grocy.GetUriParam("embedded") !== undefined)
 					{
 						Grocy.Api.Get('stock/products/' + jsonData.product_id,
 							function(productDetails)
@@ -77,7 +77,7 @@ function shoppinglistitemformView(Grocy, scope = null)
 					Grocy.EditObjectId = result.created_object_id;
 					Grocy.Components.UserfieldsForm.Save();
 
-					if (GetUriParam("embedded") !== undefined)
+					if (Grocy.GetUriParam("embedded") !== undefined)
 					{
 						if (jsonData.product_id)
 						{
@@ -119,7 +119,7 @@ function shoppinglistitemformView(Grocy, scope = null)
 				{
 					Grocy.Components.UserfieldsForm.Save();
 
-					if (GetUriParam("embedded") !== undefined)
+					if (Grocy.GetUriParam("embedded") !== undefined)
 					{
 						if (jsonData.product_id)
 						{
@@ -236,22 +236,22 @@ function shoppinglistitemformView(Grocy, scope = null)
 		}
 	});
 
-	if (GetUriParam("list") !== undefined)
+	if (Grocy.GetUriParam("list") !== undefined)
 	{
-		$scope("#shopping_list_id").val(GetUriParam("list"));
+		$scope("#shopping_list_id").val(Grocy.GetUriParam("list"));
 	}
 
-	if (GetUriParam("amount") !== undefined)
+	if (Grocy.GetUriParam("amount") !== undefined)
 	{
-		$scope("#display_amount").val(parseFloat(GetUriParam("amount")));
+		$scope("#display_amount").val(parseFloat(Grocy.GetUriParam("amount")));
 		RefreshLocaleNumberInput();
 		$scope(".input-group-productamountpicker").trigger("change");
 		Grocy.FrontendHelpers.ValidateForm('shoppinglist-form');
 	}
 
-	if (GetUriParam("embedded") !== undefined)
+	if (Grocy.GetUriParam("embedded") !== undefined)
 	{
-		if (GetUriParam("product") !== undefined)
+		if (Grocy.GetUriParam("product") !== undefined)
 		{
 			Grocy.Components.ProductPicker.GetPicker().trigger('change');
 			$scope("#display_amount").focus();
@@ -271,7 +271,7 @@ function shoppinglistitemformView(Grocy, scope = null)
 	});
 
 
-	if (GetUriParam("product-name") != null)
+	if (Grocy.GetUriParam("product-name") != null)
 	{
 		Grocy.Components.ProductPicker.GetPicker().trigger('change');
 	}

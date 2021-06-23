@@ -43,7 +43,7 @@
 		}
 	});
 
-	if (GetUriParam('include_disabled'))
+	if (Grocy.GetUriParam('include_disabled'))
 	{
 		$scope("#show-disabled").prop('checked', true);
 	}

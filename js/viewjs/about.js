@@ -12,7 +12,7 @@
 		$(this).parent().next().collapse("toggle");
 	});
 
-	if ((typeof GetUriParam("tab") !== "undefined" && GetUriParam("tab") === "changelog"))
+	if ((typeof Grocy.GetUriParam("tab") !== "undefined" && Grocy.GetUriParam("tab") === "changelog"))
 	{
 		$scope(".nav-tabs a[href='#changelog']").tab("show");
 	}

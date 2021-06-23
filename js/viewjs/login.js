@@ -8,7 +8,7 @@
 
 	$scope('#username').focus();
 
-	if (GetUriParam('invalid') === 'true')
+	if (Grocy.GetUriParam('invalid') === 'true')
 	{
 		$scope('#login-error').text(__t('Invalid credentials, please try again'));
 		$scope('#login-error').removeClass('d-none');

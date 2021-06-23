@@ -6,35 +6,6 @@ function EmptyElementWhenMatches(selector, text)
 	}
 }
 
-function GetUriParam(key)
-{
-	var currentUri = window.location.search.substring(1);
-	var vars = currentUri.split('&');
-
-	for (var i = 0; i < vars.length; i++)
-	{
-		var currentParam = vars[i].split('=');
-
-		if (currentParam[0] === key)
-		{
-			return currentParam[1] === undefined ? true : decodeURIComponent(currentParam[1]);
-		}
-	}
-}
-
-function UpdateUriParam(key, value)
-{
-	var queryParameters = new URLSearchParams(window.location.search);
-	queryParameters.set(key, value);
-	window.history.replaceState({}, "", decodeURIComponent(`${window.location.pathname}?${queryParameters}`));
-}
-
-function RemoveUriParam(key)
-{
-	var queryParameters = new URLSearchParams(window.location.search);
-	queryParameters.delete(key);
-	window.history.replaceState({}, "", decodeURIComponent(`${window.location.pathname}?${queryParameters}`));
-}
 
 
 function BoolVal(test)

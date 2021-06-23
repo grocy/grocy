@@ -1,5 +1,3 @@
-import { GetUriParam, RemoveUriParam } from '../helpers/extensions';
-
 function productpicker(Grocy)
 {
 	Grocy.Use('barcodescanner');
@@ -41,12 +39,12 @@ function productpicker(Grocy)
 
 	Grocy.Components.ProductPicker.InProductAddWorkflow = function()
 	{
-		return GetUriParam('flow') == "InplaceNewProductWithName";
+		return Grocy.GetUriParam('flow') == "InplaceNewProductWithName";
 	}
 
 	Grocy.Components.ProductPicker.InProductModifyWorkflow = function()
 	{
-		return GetUriParam('flow') == "InplaceAddBarcodeToExistingProduct";
+		return Grocy.GetUriParam('flow') == "InplaceAddBarcodeToExistingProduct";
 	}
 
 	Grocy.Components.ProductPicker.InAnyFlow = function()
@@ -56,9 +54,9 @@ function productpicker(Grocy)
 
 	Grocy.Components.ProductPicker.FinishFlow = function()
 	{
-		RemoveUriParam("flow");
-		RemoveUriParam("barcode");
-		RemoveUriParam("product-name");
+		Grocy.RemoveUriParam("flow");
+		Grocy.RemoveUriParam("barcode");
+		Grocy.RemoveUriParam("product-name");
 	}
 
 	Grocy.Components.ProductPicker.ShowCustomError = function(text)
@@ -96,7 +94,7 @@ function productpicker(Grocy)
 	var this_product_picker = Grocy.Components.ProductPicker.GetPicker();
 	var productpicker_doFocus = false;
 
-	var prefillProduct = GetUriParam('product-name');
+	var prefillProduct = Grocy.GetUriParam('product-name');
 	var prefillProduct2 = this_product_picker.parent().data('prefill-by-name').toString();
 	if (!prefillProduct2.isEmpty())
 	{
@@ -117,7 +115,7 @@ function productpicker(Grocy)
 		}
 	}
 
-	var prefillProductId = GetUriParam("product");
+	var prefillProductId = Grocy.GetUriParam("product");
 	var prefillProductId2 = this_product_picker.parent().data('prefill-by-id').toString();
 	if (!prefillProductId2.isEmpty())
 	{
@@ -138,9 +136,9 @@ function productpicker(Grocy)
 			.focus();
 	}
 
-	if (GetUriParam("flow") === "InplaceAddBarcodeToExistingProduct")
+	if (Grocy.GetUriParam("flow") === "InplaceAddBarcodeToExistingProduct")
 	{
-		$('#InplaceAddBarcodeToExistingProduct').text(GetUriParam("barcode"));
+		$('#InplaceAddBarcodeToExistingProduct').text(Grocy.GetUriParam("barcode"));
 		$('#flow-info-InplaceAddBarcodeToExistingProduct').removeClass('d-none');
 		$('#barcode-lookup-disabled-hint').removeClass('d-none');
 		$('#barcode-lookup-hint').addClass('d-none');
@@ -174,7 +172,7 @@ function productpicker(Grocy)
 			possibleOptionElement = $("#product_id option[data-additional-searchdata*=\"" + input + ",\"]").first();
 		}
 
-		if (GetUriParam('flow') === undefined && input.length > 0 && possibleOptionElement.length > 0)
+		if (Grocy.GetUriParam('flow') === undefined && input.length > 0 && possibleOptionElement.length > 0)
 		{
 			$('#product_id').val(possibleOptionElement.val());
 			$('#product_id').attr("barcode", input);
@@ -189,7 +187,7 @@ function productpicker(Grocy)
 			}
 
 			var optionElement = $("#product_id option:contains(\"" + input + "\")").first();
-			if (input.length > 0 && optionElement.length === 0 && GetUriParam('flow') === undefined && Grocy.Components.ProductPicker.GetPicker().parent().data('disallow-all-product-workflows').toString() === "false")
+			if (input.length > 0 && optionElement.length === 0 && Grocy.GetUriParam('flow') === undefined && Grocy.Components.ProductPicker.GetPicker().parent().data('disallow-all-product-workflows').toString() === "false")
 			{
 				var addProductWorkflowsAdditionalCssClasses = "";
 				if (Grocy.Components.ProductPicker.GetPicker().parent().data('disallow-add-product-workflows').toString() === "true")
@@ -198,7 +196,7 @@ function productpicker(Grocy)
 				}
 
 				var embedded = "";
-				if (GetUriParam("embedded") !== undefined)
+				if (Grocy.GetUriParam("embedded") !== undefined)
 				{
 					embedded = "embedded";
 				}

@@ -27,7 +27,7 @@ function userentityformView(Grocy, scope = null)
 			Grocy.Api.Post('objects/userentities', jsonData,
 				function(result)
 				{
-					if (GetUriParam("embedded") !== undefined)
+					if (Grocy.GetUriParam("embedded") !== undefined)
 					{
 						window.parent.postMessage(WindowMessageBag("Reload"), Grocy.BaseUrl);
 					}
@@ -48,7 +48,7 @@ function userentityformView(Grocy, scope = null)
 			Grocy.Api.Put('objects/userentities/' + Grocy.EditObjectId, jsonData,
 				function(result)
 				{
-					if (GetUriParam("embedded") !== undefined)
+					if (Grocy.GetUriParam("embedded") !== undefined)
 					{
 						window.parent.postMessage(WindowMessageBag("Reload"), Grocy.BaseUrl);
 					}

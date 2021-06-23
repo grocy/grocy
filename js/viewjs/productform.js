@@ -31,14 +31,14 @@ function productformView(Grocy, scope = null)
 							return
 						}
 
-						var returnTo = GetUriParam('returnto');
-						if (GetUriParam("closeAfterCreation") !== undefined)
+						var returnTo = Grocy.GetUriParam('returnto');
+						if (Grocy.GetUriParam("closeAfterCreation") !== undefined)
 						{
 							window.close();
 						}
 						else if (returnTo !== undefined)
 						{
-							if (GetUriParam("flow") !== undefined)
+							if (Grocy.GetUriParam("flow") !== undefined)
 							{
 								window.location.href = U(returnTo) + '&product-name=' + encodeURIComponent($scope('#name').val());
 							}
@@ -69,14 +69,14 @@ function productformView(Grocy, scope = null)
 					return
 				}
 
-				var returnTo = GetUriParam('returnto');
-				if (GetUriParam("closeAfterCreation") !== undefined)
+				var returnTo = Grocy.GetUriParam('returnto');
+				if (Grocy.GetUriParam("closeAfterCreation") !== undefined)
 				{
 					window.close();
 				}
 				else if (returnTo !== undefined)
 				{
-					if (GetUriParam("flow") !== undefined)
+					if (Grocy.GetUriParam("flow") !== undefined)
 					{
 						window.location.href = U(returnTo) + '&product-name=' + encodeURIComponent($scope('#name').val());
 					}
@@ -172,13 +172,13 @@ function productformView(Grocy, scope = null)
 		);
 	}
 
-	if (GetUriParam("flow") == "InplaceNewProductWithName")
+	if (Grocy.GetUriParam("flow") == "InplaceNewProductWithName")
 	{
-		$scope('#name').val(GetUriParam("name"));
+		$scope('#name').val(Grocy.GetUriParam("name"));
 		$scope('#name').focus();
 	}
 
-	if (GetUriParam("flow") !== undefined || GetUriParam("returnto") !== undefined)
+	if (Grocy.GetUriParam("flow") !== undefined || Grocy.GetUriParam("returnto") !== undefined)
 	{
 		$scope("#save-hint").addClass("d-none");
 		$scope(".save-product-button[data-location='return']").addClass("d-none");
@@ -397,9 +397,9 @@ function productformView(Grocy, scope = null)
 		}
 	});
 
-	if (Grocy.EditMode == "create" && GetUriParam("copy-of") != undefined)
+	if (Grocy.EditMode == "create" && Grocy.GetUriParam("copy-of") != undefined)
 	{
-		Grocy.Api.Get('objects/products/' + GetUriParam("copy-of"),
+		Grocy.Api.Get('objects/products/' + Grocy.GetUriParam("copy-of"),
 			function(sourceProduct)
 			{
 				if (sourceProduct.parent_product_id != null)

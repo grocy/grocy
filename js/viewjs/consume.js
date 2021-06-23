@@ -65,10 +65,10 @@ function consumeView(Grocy, scope = null)
 
 						bookingResponse = result;
 
-						if (GetUriParam("flow") === "InplaceAddBarcodeToExistingProduct")
+						if (Grocy.GetUriParam("flow") === "InplaceAddBarcodeToExistingProduct")
 						{
 							var jsonDataBarcode = {};
-							jsonDataBarcode.barcode = GetUriParam("barcode");
+							jsonDataBarcode.barcode = Grocy.GetUriParam("barcode");
 							jsonDataBarcode.product_id = jsonForm.product_id;
 
 							Grocy.Api.Post('objects/product_barcodes', jsonDataBarcode,
@@ -103,7 +103,7 @@ function consumeView(Grocy, scope = null)
 							successMessage = __t('Removed %1$s of %2$s from stock', Math.abs(jsonForm.amount) + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="Grocy.UndoStockTransaction(\'' + bookingResponse[0].transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
 						}
 
-						if (GetUriParam("embedded") !== undefined)
+						if (Grocy.GetUriParam("embedded") !== undefined)
 						{
 							window.parent.postMessage(WindowMessageBag("ProductChanged", jsonForm.product_id), Grocy.BaseUrl);
 							window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", successMessage), Grocy.BaseUrl);
@@ -238,9 +238,9 @@ function consumeView(Grocy, scope = null)
 			$scope("#use_specific_stock_entry").click();
 		}
 
-		if (GetUriParam("embedded") !== undefined)
+		if (Grocy.GetUriParam("embedded") !== undefined)
 		{
-			stockId = GetUriParam('stockId');
+			stockId = Grocy.GetUriParam('stockId');
 		}
 		else
 		{
@@ -568,9 +568,9 @@ function consumeView(Grocy, scope = null)
 		RefreshForm();
 	});
 
-	if (GetUriParam("embedded") !== undefined)
+	if (Grocy.GetUriParam("embedded") !== undefined)
 	{
-		var locationId = GetUriParam('locationId');
+		var locationId = Grocy.GetUriParam('locationId');
 
 		if (typeof locationId === 'undefined')
 		{

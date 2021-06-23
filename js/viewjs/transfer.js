@@ -46,10 +46,10 @@ function transferView(Grocy, scope = null)
 					{
 						bookingResponse = result;
 
-						if (GetUriParam("flow") === "InplaceAddBarcodeToExistingProduct")
+						if (Grocy.GetUriParam("flow") === "InplaceAddBarcodeToExistingProduct")
 						{
 							var jsonDataBarcode = {};
-							jsonDataBarcode.barcode = GetUriParam("barcode");
+							jsonDataBarcode.barcode = Grocy.GetUriParam("barcode");
 							jsonDataBarcode.product_id = jsonForm.product_id;
 
 							Grocy.Api.Post('objects/product_barcodes', jsonDataBarcode,
@@ -91,7 +91,7 @@ function transferView(Grocy, scope = null)
 							$scope('option:selected', "#location_id_to").text()
 						) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="Grocy.UndoStockTransaction(\'' + bookingResponse[0].transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
 
-						if (GetUriParam("embedded") !== undefined)
+						if (Grocy.GetUriParam("embedded") !== undefined)
 						{
 							window.parent.postMessage(WindowMessageBag("ProductChanged", jsonForm.product_id), Grocy.BaseUrl);
 							window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", successMessage), Grocy.BaseUrl);
@@ -154,12 +154,12 @@ function transferView(Grocy, scope = null)
 	Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 	{
 		$scope("#specific_stock_entry").find("option").remove().end().append("<option></option>");
-		if ($scope("#use_specific_stock_entry").is(":checked") && GetUriParam("stockId") == null)
+		if ($scope("#use_specific_stock_entry").is(":checked") && Grocy.GetUriParam("stockId") == null)
 		{
 			$scope("#use_specific_stock_entry").click();
 		}
 		$scope("#location_id_to").val("");
-		if (GetUriParam("stockId") == null)
+		if (Grocy.GetUriParam("stockId") == null)
 		{
 			$scope("#location_id_from").val("");
 		}
@@ -217,9 +217,9 @@ function transferView(Grocy, scope = null)
 								}
 							});
 
-							if (GetUriParam("locationId") != null)
+							if (Grocy.GetUriParam("locationId") != null)
 							{
-								$scope("#location_id_from").val(GetUriParam("locationId"));
+								$scope("#location_id_from").val(Grocy.GetUriParam("locationId"));
 								$scope("#location_id_from").trigger("change");
 							}
 						},
@@ -315,13 +315,13 @@ function transferView(Grocy, scope = null)
 			$scope("#location_id_to").val("");
 		}
 
-		if (GetUriParam("embedded") !== undefined)
+		if (Grocy.GetUriParam("embedded") !== undefined)
 		{
-			stockId = GetUriParam('stockId');
+			stockId = Grocy.GetUriParam('stockId');
 		}
 
 		$scope("#specific_stock_entry").find("option").remove().end().append("<option></option>");
-		if ($scope("#use_specific_stock_entry").is(":checked") && GetUriParam("stockId") == null)
+		if ($scope("#use_specific_stock_entry").is(":checked") && Grocy.GetUriParam("stockId") == null)
 		{
 			$scope("#use_specific_stock_entry").click();
 		}
@@ -469,9 +469,9 @@ function transferView(Grocy, scope = null)
 	});
 
 
-	if (GetUriParam("embedded") !== undefined)
+	if (Grocy.GetUriParam("embedded") !== undefined)
 	{
-		var locationId = GetUriParam('locationId');
+		var locationId = Grocy.GetUriParam('locationId');
 
 		if (typeof locationId === 'undefined')
 		{

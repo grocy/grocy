@@ -23,9 +23,9 @@ function userfieldformView(Grocy, scope = null)
 		Grocy.FrontendHelpers.BeginUiBusy("userfield-form");
 
 		var redirectUrl = U("/userfields");
-		if (typeof GetUriParam("entity") !== "undefined" && !GetUriParam("entity").isEmpty())
+		if (typeof Grocy.GetUriParam("entity") !== "undefined" && !Grocy.GetUriParam("entity").isEmpty())
 		{
-			redirectUrl = U("/userfields?entity=" + GetUriParam("entity"));
+			redirectUrl = U("/userfields?entity=" + Grocy.GetUriParam("entity"));
 		}
 
 		if (Grocy.EditMode === 'create')
@@ -33,7 +33,7 @@ function userfieldformView(Grocy, scope = null)
 			Grocy.Api.Post('objects/userfields', jsonData,
 				function(result)
 				{
-					if (GetUriParam("embedded") !== undefined)
+					if (Grocy.GetUriParam("embedded") !== undefined)
 					{
 						window.parent.postMessage(WindowMessageBag("Reload"), Grocy.BaseUrl);
 					}
@@ -54,7 +54,7 @@ function userfieldformView(Grocy, scope = null)
 			Grocy.Api.Put('objects/userfields/' + Grocy.EditObjectId, jsonData,
 				function(result)
 				{
-					if (GetUriParam("embedded") !== undefined)
+					if (Grocy.GetUriParam("embedded") !== undefined)
 					{
 						window.parent.postMessage(WindowMessageBag("Reload"), Grocy.BaseUrl);
 					}
@@ -117,9 +117,9 @@ function userfieldformView(Grocy, scope = null)
 
 	$scope('#entity').focus();
 
-	if (typeof GetUriParam("entity") !== "undefined" && !GetUriParam("entity").isEmpty())
+	if (typeof Grocy.GetUriParam("entity") !== "undefined" && !Grocy.GetUriParam("entity").isEmpty())
 	{
-		$scope("#entity").val(GetUriParam("entity"));
+		$scope("#entity").val(Grocy.GetUriParam("entity"));
 		$scope("#entity").trigger("change");
 		$scope('#name').focus();
 	}

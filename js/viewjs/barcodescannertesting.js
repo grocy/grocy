@@ -47,9 +47,9 @@
 		$scope("#barcodescanner-start-button").addClass("disabled");
 	}, 200);
 
-	if (GetUriParam("barcode") !== undefined)
+	if (Grocy.GetUriParam("barcode") !== undefined)
 	{
-		$scope("#expected_barcode").val(GetUriParam("barcode"));
+		$scope("#expected_barcode").val(Grocy.GetUriParam("barcode"));
 		setTimeout(function()
 		{
 			$scope("#expected_barcode").keyup();

@@ -18,7 +18,7 @@ function manageapikeysView(Grocy, scope = null)
 	$scope('#apikeys-table tbody').removeClass("d-none");
 	Grocy.FrontendHelpers.InitDataTable(apiKeysTable);
 
-	var createdApiKeyId = GetUriParam('CreatedApiKeyId');
+	var createdApiKeyId = Grocy.GetUriParam('CreatedApiKeyId');
 	if (createdApiKeyId !== undefined)
 	{
 		animateCSS("#apiKeyRow_" + createdApiKeyId, "pulse");

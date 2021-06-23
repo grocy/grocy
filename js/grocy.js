@@ -111,7 +111,7 @@ class GrocyClass
 		}
 	}
 
-	static createSingleton(config)
+	static createSingleton(config, view)
 	{
 		if (window.Grocy === undefined)
 		{
@@ -146,27 +146,30 @@ class GrocyClass
 			window.RemoveUriParam = RemoveUriParam;
 			window.EmptyElementWhenMatches = EmptyElementWhenMatches;
 			window.animateCSS = animateCSS;
+
+			// load the view
+			grocy.LoadView(view);
 		}
 		return window.Grocy;
 	}
 
 	translate(text, ...placeholderValues)
 	{
-		/*if (this.Mode === "dev")
+		if (this.Mode === "dev")
 		{
 			var text2 = text;
 			this.Api.Post('system/log-missing-localization', { "text": text2 });
-		}*/
+		}
 
 		return this.Translator.__(text, ...placeholderValues)
 	}
 	translaten(number, singularForm, pluralForm)
 	{
-		/*if (this.Mode === "dev")
+		if (this.Mode === "dev")
 		{
 			var singularForm2 = singularForm;
 			this.Api.Post('system/log-missing-localization', { "text": singularForm2 });
-		}*/
+		}
 
 		return this.Translator.n__(singularForm, pluralForm, number, number)
 	}
@@ -224,12 +227,26 @@ class GrocyClass
 		{
 			// add-then-init to resolve circular dependencies
 			this.initComponents.push(componentName);
-			components[componentName](this);
+			var component = components[componentName](this);
+			this.components[component.key] = component;
 		}
 		else
 		{
 			console.error("Unable to find component " + componentName);
 		}
+	}
+
+	LoadView(viewName)
+	{
+		if (Object.prototype.hasOwnProperty.call(window, viewName + "View"))
+		{
+			window[viewName + "View"](this);
+		}
+	}
+
+	PreloadView(viewName)
+	{
+		$.getScript(this.FormatUrl('/viewjs/' + viewName + '.js'));
 	}
 
 	UndoStockBooking(bookingId)
@@ -328,6 +345,36 @@ class GrocyClass
 				this.UISound.Error();
 			}
 		}
+	}
+
+	GetUriParam(key)
+	{
+		var currentUri = window.location.search.substring(1);
+		var vars = currentUri.split('&');
+
+		for (var i = 0; i < vars.length; i++)
+		{
+			var currentParam = vars[i].split('=');
+
+			if (currentParam[0] === key)
+			{
+				return currentParam[1] === undefined ? true : decodeURIComponent(currentParam[1]);
+			}
+		}
+	}
+
+	UpdateUriParam(key, value)
+	{
+		var queryParameters = new URLSearchParams(window.location.search);
+		queryParameters.set(key, value);
+		window.history.replaceState({}, "", decodeURIComponent(`${window.location.pathname}?${queryParameters}`));
+	}
+
+	RemoveUriParam(key)
+	{
+		var queryParameters = new URLSearchParams(window.location.search);
+		queryParameters.delete(key);
+		window.history.replaceState({}, "", decodeURIComponent(`${window.location.pathname}?${queryParameters}`));
 	}
 }
 

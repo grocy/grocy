@@ -131,7 +131,7 @@
 		}
 	});
 
-	if (GetUriParam('include_done'))
+	if (Grocy.GetUriParam('include_done'))
 	{
 		$scope("#show-done-tasks").prop('checked', true);
 	}

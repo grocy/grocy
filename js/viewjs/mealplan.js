@@ -70,7 +70,7 @@ function mealplanView(Grocy, scope = null)
 			}
 			else
 			{
-				UpdateUriParam("week", start.format("YYYY-MM-DD"));
+				Grocy.UpdateUriParam("week", start.format("YYYY-MM-DD"));
 			}
 
 			$scope(".fc-day-header").prepend('\
@@ -318,9 +318,9 @@ function mealplanView(Grocy, scope = null)
 
 	// this triggers a re-render, so we can't do that in the callback;
 	// but it works here no problem.
-	if (GetUriParam("week") !== undefined)
+	if (Grocy.GetUriParam("week") !== undefined)
 	{
-		calendar.gotoDate(GetUriParam("week"));
+		calendar.gotoDate(Grocy.GetUriParam("week"));
 	}
 
 	top.on("click", ".add-recipe-button", function(e)

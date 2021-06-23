@@ -44,9 +44,9 @@
 		'/userfields'
 	);
 
-	if (GetUriParam("entity") != undefined && !GetUriParam("entity").isEmpty())
+	if (Grocy.GetUriParam("entity") != undefined && !Grocy.GetUriParam("entity").isEmpty())
 	{
-		$scope("#entity-filter").val(GetUriParam("entity"));
+		$scope("#entity-filter").val(Grocy.GetUriParam("entity"));
 		$scope("#entity-filter").trigger("change");
 		$scope("#name").focus();
 	}

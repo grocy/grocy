@@ -1,10 +1,21 @@
 
 class GrocyFrontendHelpers
 {
-	constructor(Grocy, Api)
+	constructor(Grocy, Api, scope = null)
 	{
 		this.Grocy = Grocy;
 		this.Api = Api;
+		if (scope != null)
+		{
+			this.$scope = $(scope).find;
+			this.scope = $(scope);
+			this.scopeSelector = scope;
+		}
+		else
+		{
+			this.$scope = $;
+			this.scope = $(document);
+		}
 	}
 
 	Delay(callable, delayMilliseconds)
@@ -25,22 +36,23 @@ class GrocyFrontendHelpers
 
 	ValidateForm(formId)
 	{
-		var form = document.getElementById(formId);
-		if (form === null || form === undefined)
+
+		var form = this.$scope("#" + formId);
+		if (form.length == 0)
 		{
 			return;
 		}
 
-		if (form.checkValidity() === true)
+		if (form[0].checkValidity() === true)
 		{
-			$(form).find(':submit').removeClass('disabled');
+			form.find(':submit').removeClass('disabled');
 		}
 		else
 		{
-			$(form).find(':submit').addClass('disabled');
+			form.find(':submit').addClass('disabled');
 		}
 
-		$(form).addClass('was-validated');
+		form.addClass('was-validated');
 	}
 
 	BeginUiBusy(formId = null)
@@ -49,7 +61,7 @@ class GrocyFrontendHelpers
 
 		if (formId !== null)
 		{
-			$("#" + formId + " :input").attr("disabled", true);
+			this.$scope("#" + formId + " :input").attr("disabled", true);
 		}
 	}
 
@@ -59,7 +71,7 @@ class GrocyFrontendHelpers
 
 		if (formId !== null)
 		{
-			$("#" + formId + " :input").attr("disabled", false);
+			this.$scope("#" + formId + " :input").attr("disabled", false);
 		}
 	}
 
@@ -158,21 +170,22 @@ class GrocyFrontendHelpers
 
 		var defaultClearFunction = function()
 		{
-			$("#search").val("");
+			self.$scope("#search").val("");
 			dataTable.search("").draw();
 		};
 
-		$("#search").on("keyup", self.Delay(searchFunction || defaultSearchFunction, 200));
+		self.$scope("#search").on("keyup", self.Delay(searchFunction || defaultSearchFunction, 200));
 
-		$("#clear-filter-button").on("click", clearFunction || defaultClearFunction);
+		self.$scope("#clear-filter-button").on("click", clearFunction || defaultClearFunction);
 	}
 
 	MakeFilterForColumn(selector, column, table, filterFunction = null, transferCss = false, valueMod = null)
 	{
-		$(selector).on("change", filterFunction || function()
+		var self = this;
+		this.$scope(selector).on("change", filterFunction || function()
 		{
 			var value = $(this).val();
-			var text = $(selector + " option:selected").text();
+			var text = self.$scope(selector + " option:selected").text();
 			if (value === "all")
 			{
 				text = "";
@@ -185,14 +198,14 @@ class GrocyFrontendHelpers
 			if (transferCss)
 			{
 				// Transfer CSS classes of selected element to dropdown element (for background)
-				$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
+				$(this).attr("class", self.$scope("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
 			}
 
 			table.column(column).search(text).draw();
 		});
-		$("#clear-filter-button").on('click', () =>
+		self.$scope("#clear-filter-button").on('click', () =>
 		{
-			$(selector).val("");
+			self.$scope(selector).val("");
 			table.column(column).search("").draw();
 		})
 	}
@@ -202,7 +215,8 @@ class GrocyFrontendHelpers
 	}
 	MakeValueFilter(key, column, dataTable, resetValue = "all")
 	{
-		$("#" + key + "-filter").on("change", function()
+		var self = this;
+		this.$scope("#" + key + "-filter").on("change", function()
 		{
 			var value = $(this).val();
 			if (value === "all")
@@ -211,22 +225,22 @@ class GrocyFrontendHelpers
 			}
 
 			// Transfer CSS classes of selected element to dropdown element (for background)
-			$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
+			$(this).attr("class", self.$scope("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
 
 			dataTable.column(column).search(value).draw();
 		});
 
-		$("." + key + "-filter-message").on("click", function()
+		this.$scope("." + key + "-filter-message").on("click", function()
 		{
 			var value = $(this).data(key + "-filter");
-			$("#" + key + "-filter").val(value);
-			$("#" + key + "-filter").trigger("change");
+			self.$scope("#" + key + "-filter").val(value);
+			self.$scope("#" + key + "-filter").trigger("change");
 		});
 
-		$("#clear-filter-button").on("click", function()
+		this.$scope("#clear-filter-button").on("click", function()
 		{
-			$("#" + key + "-filter").val(resetValue);
-			$("#" + key + "-filter").trigger("change");
+			self.$scope("#" + key + "-filter").val(resetValue);
+			self.$scope("#" + key + "-filter").trigger("change");
 		});
 	}
 
@@ -234,7 +248,7 @@ class GrocyFrontendHelpers
 	{
 		var self = this;
 
-		$(document).on('click', selector, function(e)
+		this.scope.on('click', selector, function(e)
 		{
 			message = message instanceof Function ? message(e) : message;
 			bootbox.confirm({
@@ -268,7 +282,7 @@ class GrocyFrontendHelpers
 		}
 
 		var self = this;
-		$(document).on('click', selector, function(e)
+		this.scope.on('click', selector, function(e)
 		{
 			var target = $(e.currentTarget);
 			var objectName = attrName instanceof Function ? attrName(target) : target.attr(attrName);
