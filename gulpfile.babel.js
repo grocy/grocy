@@ -81,9 +81,6 @@ view_eslint_config.globals = eslint_config.globals.concat([
 	"RefreshLocaleNumberDisplay",
 	"RefreshLocaleNumberInput",
 	"LoadImagesLazy",
-	"GetUriParam",
-	"UpdateUriParam",
-	"RemoveUriParam",
 	"EmptyElementWhenMatches",
 	"animateCSS"
 ]);

@@ -237,17 +237,33 @@ class GrocyClass
 		}
 	}
 
-	LoadView(viewName)
+	LoadView(viewName, scope = null)
 	{
 		if (Object.prototype.hasOwnProperty.call(window, viewName + "View"))
 		{
-			window[viewName + "View"](this);
+			window[viewName + "View"](this, scope);
+		}
+		else
+		{
+			console.error("Could not load view " + viewName + ', not loaded yet.');
 		}
 	}
 
-	PreloadView(viewName)
+	PreloadView(viewName, cb = () => { })
 	{
-		$.getScript(this.FormatUrl('/viewjs/' + viewName + '.js'));
+		if (!Object.prototype.hasOwnProperty.call(window, viewName + "View"))
+		{
+			$.ajax({
+				dataType: "script",
+				cache: true,
+				url: this.FormatUrl('/viewjs/' + viewName + '.js'),
+				success: cb
+			});
+		}
+		else
+		{
+			cb();
+		}
 	}
 
 	UndoStockBooking(bookingId)

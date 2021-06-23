@@ -655,8 +655,13 @@
 	@if(!empty($__t('bootstrap-select_locale') && $__t('bootstrap-select_locale') != 'x'))<script src="{{ $U('/js/locales/bootstrap-select/', true) }}defaults-{{ $__t('bootstrap-select_locale') }}.js?v={{ $version }}"></script>@endif
 
 	<script src="{{ $U('/js/grocy.js?v=', true) }}{{ $version }}"></script>
+	@hasSection('viewJsName')<script src="{{ $U('/viewjs', true) }}/@yield('viewJsName').js?v={{ $version }}"></script>@endif
 	<script>
-		GrocyClass.createSingleton(GrocyConfig);
+		let viewjsname = null;
+		@hasSection('viewJsName')
+			viejsname = "@yield('viewJsName')";
+		@endif
+		GrocyClass.createSingleton(GrocyConfig, viewjsname);
 	</script>
 	@stack('pageScripts')
 
@@ -690,7 +695,7 @@
 	@endphp
 
 	@stack('componentScripts')
-	@hasSection('viewJsName')<script src="{{ $U('/viewjs', true) }}/@yield('viewJsName').js?v={{ $version }}"></script>@endif
+	
 
 	@if(file_exists(GROCY_DATAPATH . '/custom_js.html'))
 	@php include GROCY_DATAPATH . '/custom_js.html' @endphp
