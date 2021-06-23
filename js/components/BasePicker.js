@@ -10,7 +10,7 @@ class BasePicker
 		this.$ = scopeSelector != null ? $(scopeSelector).find : $;
 
 		this.picker = null;
-		this.input_element;
+		this.input_element = null;
 
 		this.basename = basename;
 	}

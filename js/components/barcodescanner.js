@@ -139,7 +139,7 @@ class barcodescanner
 
 		setTimeout(function()
 		{
-			this.$scope(".barcodescanner-input:visible").each(function()
+			self.$(".barcodescanner-input:visible").each(function()
 			{
 				if ($(this).hasAttr("disabled"))
 				{

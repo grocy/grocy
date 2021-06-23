@@ -10,7 +10,7 @@ class productpicker extends BasePicker
 		this.Grocy.Use('barcodescanner');
 
 		this.picker = this.$('#product_id');
-		this.inputElement = this.$('#product_id_text_input');
+		this.input_element = this.$('#product_id_text_input');
 
 		var self = this;
 
@@ -142,14 +142,14 @@ class productpicker extends BasePicker
 
 	Disable()
 	{
-		this.inputElement.attr("disabled", "");
+		this.input_element.attr("disabled", "");
 		this.$("#barcodescanner-start-button").attr("disabled", "");
 		this.$("#barcodescanner-start-button").addClass("disabled");
 	}
 
 	Enable()
 	{
-		this.inputElement.removeAttr("disabled");
+		this.input_element.removeAttr("disabled");
 		this.$("#barcodescanner-start-button").removeAttr("disabled");
 		this.$("#barcodescanner-start-button").removeClass("disabled");
 	}
@@ -330,16 +330,16 @@ class productpicker extends BasePicker
 		}
 
 		// Don't know why the blur event does not fire immediately ... this works...
-		this.inputElement
+		this.input_element
 			.focusout()
 			.focus()
 			.blur();
 
-		this.inputElement.val(barcode);
+		this.input_element.val(barcode);
 
 		setTimeout(function()
 		{
-			self.inputElement
+			self.input_element
 				.focusout()
 				.focus()
 				.blur();

@@ -585,6 +585,7 @@
 			</div>
 		</div>
 
+		@if($mode == 'edit')
 		<div class="row mt-2">
 			<div class="col clearfix">
 				<div class="title-related-links">
@@ -612,6 +613,7 @@
 				</div>
 			</div>
 		</div>
+		@endif
 
 		<div class="row @if(GROCY_FEATURE_FLAG_STOCK) mt-5 @endif">
 			<div class="col">

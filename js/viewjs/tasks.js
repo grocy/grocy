@@ -8,8 +8,6 @@
 		$scope = $(scope).find;
 	}
 
-	Grocy.Use("userpicker");
-
 	var tasksTable = $scope('#tasks-table').DataTable({
 		'order': [[2, 'asc']],
 		'columnDefs': [

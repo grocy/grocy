@@ -9,7 +9,7 @@ class userpicker extends BasePicker
 		this.picker = this.$(this.basename);
 		this.input_element = this.$(this.basename + '_text_input');
 
-		this.initCombobox('.recipe-combobox');
+		this.initCombobox('.user-combobox');
 		this.prefill();
 	}
 

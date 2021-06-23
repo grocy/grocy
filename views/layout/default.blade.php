@@ -659,7 +659,7 @@
 	<script>
 		let viewjsname = null;
 		@hasSection('viewJsName')
-			viejsname = "@yield('viewJsName')";
+		viewjsname = "@yield('viewJsName')";
 		@endif
 		GrocyClass.createSingleton(GrocyConfig, viewjsname);
 	</script>

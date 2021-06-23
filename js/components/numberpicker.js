@@ -41,9 +41,11 @@ class numberpicker
 
 		var observer = new MutationObserver((mutations) => self.handleObservedChange(mutations));
 
-		this.$(".numberpicker").each(() => observer.observe(this, {
-			attributes: true
-		}));
+		var elements = this.$(".numberpicker");
+		for (let element of elements)
+		{
+			observer.observe(element, { attributes: true });
+		}
 
 		this.$(".numberpicker").attr("data-initialised", "true"); // Dummy change to trigger MutationObserver above once
 	}

@@ -221,14 +221,14 @@ class GrocyClass
 		let scopeName = scope || "";
 		// initialize Components only once per scope
 		if (this.initComponents.find(elem => elem == componentName + scopeName))
-			return this.components[componentName + scopeName];
+			return this.Components[componentName + scopeName];
 
 		if (Object.prototype.hasOwnProperty.call(components, componentName))
 		{
 			// add-then-init to resolve circular dependencies
 			this.initComponents.push(componentName);
-			var component = components[componentName](this, scope);
-			this.components[componentName + scopeName] = component;
+			var component = new components[componentName](this, scope);
+			this.Components[componentName + scopeName] = component;
 			return component;
 		}
 		else
