@@ -7,7 +7,7 @@ class GrocyProxy
 
 	constructor(RootGrocy, scopeSelector, config, url)
 	{
-		this.rootGrocy = RootGrocy;
+		this.RootGrocy = RootGrocy;
 
 		// proxy-local members, because they might not be set globally.
 		this.QuantityUnits = config.QuantityUnits;
@@ -38,9 +38,6 @@ class GrocyProxy
 
 		this.config = config;
 
-		// scoped variants of some helpers
-		this.FrontendHelpers = new GrocyFrontendHelpers(this, this.Api, this.scopeSelector);
-
 		this.configProxy = Proxy.revocable(this.config, {
 			get: function(target, prop, receiver)
 			{
@@ -56,11 +53,9 @@ class GrocyProxy
 		})
 
 		// This is where the magic happens!
-		// basically, this Proxy object checks if a member
-		// is defined in this proxy class, and returns it
-		// if so.
-		// If not, the prop is handed over to the root
-		// grocy instance.
+		// basically, this Proxy object checks if a member is defined in this proxy class, 
+		// and returns it if so.
+		// If not, the prop is handed over to the root grocy instance.
 		this.grocyProxy = Proxy.revocable(this, {
 			get: function(target, prop, receiver)
 			{
@@ -74,6 +69,9 @@ class GrocyProxy
 				}
 			}
 		});
+
+		// scoped variants of some helpers
+		this.FrontendHelpers = new GrocyFrontendHelpers(this, RootGrocy.Api, this.scopeSelector);
 	}
 
 	Unload()
@@ -82,18 +80,20 @@ class GrocyProxy
 		this.configProxy.revoke();
 	}
 
-	Use(componentName)
+	Use(componentName, scope = null)
 	{
-		// initialize Components only once
-		if (this.initComponents.find(elem => elem == componentName))
-			return;
+		let scopeName = scope || "";
+		// initialize Components only once per scope
+		if (this.initComponents.find(elem => elem == componentName + scopeName))
+			return this.components[componentName + scopeName];
 
 		if (Object.prototype.hasOwnProperty.call(components, componentName))
 		{
 			// add-then-init to resolve circular dependencies
 			this.initComponents.push(componentName);
-			var component = components[componentName](this, this.scopeSelector);
-			this.components[component.key] = component;
+			var component = components[componentName](this, scope);
+			this.components[componentName + scopeName] = component;
+			return component;
 		}
 		else
 		{
@@ -125,6 +125,7 @@ class GrocyProxy
 				return currentParam[1] === undefined ? true : decodeURIComponent(currentParam[1]);
 			}
 		}
+		return undefined;
 	}
 
 	UpdateUriParam(key, value)
@@ -182,3 +183,5 @@ class GrocyProxy
 		this.virtualUrl = vurl.substring(1); // remove leading &
 	}
 }
+
+export { GrocyProxy }

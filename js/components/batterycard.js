@@ -1,28 +1,37 @@
 import { EmptyElementWhenMatches } from '../helpers/extensions'
 import { RefreshContextualTimeago } from '../configs/timeago'
 
-function batterycard(Grocy)
+class batterycard
 {
-
-	Grocy.Components.BatteryCard = {};
-
-	Grocy.Components.BatteryCard.Refresh = function(batteryId)
+	constructor(Grocy, scopeSelector = null)
 	{
-		Grocy.Api.Get('batteries/' + batteryId,
+		this.Grocy = Grocy;
+
+		this.scopeSelector = scopeSelector;
+		this.scope = scopeSelector != null ? $(scope) : $(document);
+		this.$ = scopeSelector != null ? $(scope).find : $;
+	}
+
+	Refresh(batteryId)
+	{
+		var self = this;
+		this.Grocy.Api.Get('batteries/' + batteryId,
 			function(batteryDetails)
 			{
-				$('#batterycard-battery-name').text(batteryDetails.battery.name);
-				$('#batterycard-battery-used_in').text(batteryDetails.battery.used_in);
-				$('#batterycard-battery-last-charged').text((batteryDetails.last_charged || Grocy.translate('never')));
-				$('#batterycard-battery-last-charged-timeago').attr("datetime", batteryDetails.last_charged || '');
-				$('#batterycard-battery-charge-cycles-count').text((batteryDetails.charge_cycles_count || '0'));
+				self.$('#batterycard-battery-name').text(batteryDetails.battery.name);
+				self.$('#batterycard-battery-used_in').text(batteryDetails.battery.used_in);
+				self.$('#batterycard-battery-last-charged').text((batteryDetails.last_charged || self.Grocy.translate('never')));
+				self.$('#batterycard-battery-last-charged-timeago').attr("datetime", batteryDetails.last_charged || '');
+				self.$('#batterycard-battery-charge-cycles-count').text((batteryDetails.charge_cycles_count || '0'));
 
-				$('#batterycard-battery-edit-button').attr("href", Grocy.FormatUrl("/battery/" + batteryDetails.battery.id.toString()));
-				$('#batterycard-battery-journal-button').attr("href", Grocy.FormatUrl("/batteriesjournal?embedded&battery=" + batteryDetails.battery.id.toString()));
-				$('#batterycard-battery-edit-button').removeClass("disabled");
-				$('#batterycard-battery-journal-button').removeClass("disabled");
+				self.$('#batterycard-battery-edit-button').attr("href", self.Grocy.FormatUrl("/battery/" + batteryDetails.battery.id.toString()));
+				self.$('#batterycard-battery-journal-button').attr("href", self.Grocy.FormatUrl("/batteriesjournal?embedded&battery=" + batteryDetails.battery.id.toString()));
+				self.$('#batterycard-battery-edit-button').removeClass("disabled");
+				self.$('#batterycard-battery-journal-button').removeClass("disabled");
 
-				EmptyElementWhenMatches('#batterycard-battery-last-charged-timeago', Grocy.translate('timeago_nan'));
+				EmptyElementWhenMatches(self.$('#batterycard-battery-last-charged-timeago'), self.Grocy.translate('timeago_nan'));
+
+				// ToDo: Unscoped
 				RefreshContextualTimeago(".batterycard");
 			},
 			function(xhr)

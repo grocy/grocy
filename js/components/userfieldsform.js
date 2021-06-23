@@ -1,17 +1,28 @@
 import { RandomString } from '../helpers/extensions';
 import { LoadImagesLazy } from '../configs/lazy'
+import uuid from 'uuid';
+import { datetimepicker } from "./datetimepicker";
 
-function userfieldsform(Grocy)
+class userfieldsform
 {
-	if (document.querySelector('.datetimepicker-input') !== null)
+	constructor(Grocy, scopeSelector = null)
 	{
-		Grocy.Use("datetimepicker");
-	}
-	Grocy.Components.UserfieldsForm = {};
+		this.Grocy = Grocy;
 
-	Grocy.Components.UserfieldsForm.Save = function(success, error)
+		this.scopeSelector = scopeSelector;
+		this.scope = scopeSelector != null ? $(scope) : $(document);
+		this.$ = scopeSelector != null ? $(scope).find : $;
+
+		this.$(".userfield-link").keyup();
+
+		// We need to further scope some of the embedded components.
+		// Store those instances here.
+		this.components = []
+	}
+
+	Save(success, error)
 	{
-		if (!$("#userfields-form").length)
+		if (!this.$("#userfields-form").length)
 		{
 			if (success)
 			{
@@ -22,8 +33,9 @@ function userfieldsform(Grocy)
 		}
 
 		var jsonData = {};
+		var self = this;
 
-		$("#userfields-form .userfield-input").not("div").each(function()
+		this.$("#userfields-form .userfield-input").not("div").each(function()
 		{
 			var input = $(this);
 			var fieldName = input.attr("data-userfield-name");
@@ -42,10 +54,10 @@ function userfieldsform(Grocy)
 				var oldFile = input.data('old-file')
 				if (oldFile)
 				{
-					Grocy.Api.Delete('files/userfiles/' + oldFile, null, null,
+					self.Grocy.Api.Delete('files/userfiles/' + oldFile, null, null,
 						function(xhr)
 						{
-							Grocy.FrontendHelpers.ShowGenericError('Could not delete file', xhr);
+							self.Grocy.FrontendHelpers.ShowGenericError('Could not delete file', xhr);
 						});
 					jsonData[fieldName] = "";
 				}
@@ -56,7 +68,7 @@ function userfieldsform(Grocy)
 					var fileName = RandomString() + '.' + input[0].files[0].name.split('.').reverse()[0];
 
 					jsonData[fieldName] = btoa(fileName) + '_' + btoa(input[0].files[0].name);
-					Grocy.Api.UploadFile(input[0].files[0], 'userfiles', fileName,
+					self.Grocy.Api.UploadFile(input[0].files[0], 'userfiles', fileName,
 						function(result)
 						{
 						},
@@ -78,7 +90,7 @@ function userfieldsform(Grocy)
 			}
 		});
 
-		Grocy.Api.Put('userfields/' + $("#userfields-form").data("entity") + '/' + Grocy.EditObjectId, jsonData,
+		this.Grocy.Api.Put('userfields/' + $("#userfields-form").data("entity") + '/' + this.Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				if (success)
@@ -96,19 +108,20 @@ function userfieldsform(Grocy)
 		);
 	}
 
-	Grocy.Components.UserfieldsForm.Load = function()
+	Load()
 	{
-		if (!$("#userfields-form").length)
+		if (!this.$("#userfields-form").length)
 		{
 			return;
 		}
+		var self = this;
 
-		Grocy.Api.Get('userfields/' + $("#userfields-form").data("entity") + '/' + Grocy.EditObjectId,
+		Grocy.Api.Get('userfields/' + this.$("#userfields-form").data("entity") + '/' + this.Grocy.EditObjectId,
 			function(result)
 			{
 				$.each(result, function(key, value)
 				{
-					var input = $(".userfield-input[data-userfield-name='" + key + "']");
+					var input = self.$(".userfield-input[data-userfield-name='" + key + "']");
 
 					if (input.attr("type") == "checkbox" && value == 1)
 					{
@@ -117,7 +130,7 @@ function userfieldsform(Grocy)
 					else if (input.hasAttr("multiple"))
 					{
 						input.val(value.split(","));
-						$(".selectpicker").selectpicker("render");
+						self.$(".selectpicker").selectpicker("render");
 					}
 					else if (input.attr('type') == "file")
 					{
@@ -128,16 +141,16 @@ function userfieldsform(Grocy)
 							var formGroup = input.parent().parent().parent();
 
 							formGroup.find("label.custom-file-label").text(fileName);
-							formGroup.find(".userfield-file-show").attr('href', Grocy.FormatUrl('/files/userfiles/' + value));
+							formGroup.find(".userfield-file-show").attr('href', self.Grocy.FormatUrl('/files/userfiles/' + value));
 							formGroup.find('.userfield-file-show').removeClass('d-none');
 							formGroup.find('img.userfield-current-file')
-								.attr('src', Grocy.FormatUrl('/files/userfiles/' + value + '?force_serve_as=picture&best_fit_width=250&best_fit_height=250'));
+								.attr('src', self.Grocy.FormatUrl('/files/userfiles/' + value + '?force_serve_as=picture&best_fit_width=250&best_fit_height=250'));
 							LoadImagesLazy();
 
 							formGroup.find('.userfield-file-delete').click(
 								function()
 								{
-									formGroup.find("label.custom-file-label").text(Grocy.translate("No file selected"));
+									formGroup.find("label.custom-file-label").text(self.Grocy.translate("No file selected"));
 									formGroup.find(".userfield-file-show").addClass('d-none');
 									input.attr('data-old-file', fileSrc);
 								}
@@ -167,6 +180,16 @@ function userfieldsform(Grocy)
 						input.val(value);
 					}
 				});
+
+				self.$('.datetimepicker-wrapper').each(() =>
+				{
+					let picker = $(this);
+
+					var scopeId = uuid.v4();
+					picker.attr('id', scopeId);
+
+					this.components.push(new datetimepicker(self.Grocy, "#" + scopeId));
+				});
 			},
 			function(xhr)
 			{
@@ -175,9 +198,10 @@ function userfieldsform(Grocy)
 		);
 	}
 
-	$(".userfield-link").keyup(function(e)
+	onUserfieldInputKeyUp(_this)
 	{
-		var formRow = $(this).parent().parent();
+
+		var formRow = this.$(_this).parent().parent();
 		var title = formRow.find(".userfield-link-title").val();
 		var link = formRow.find(".userfield-link-link").val();
 
@@ -187,7 +211,8 @@ function userfieldsform(Grocy)
 		};
 
 		formRow.find(".userfield-input").val(JSON.stringify(value));
-	});
+
+	}
 }
 
 export { userfieldsform }

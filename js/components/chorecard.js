@@ -1,36 +1,44 @@
 import { EmptyElementWhenMatches } from '../helpers/extensions'
 import { RefreshContextualTimeago } from '../configs/timeago'
 
-function chorecard(Grocy)
+class chorecard
 {
-	Grocy.Components.ChoreCard = {};
-
-	Grocy.Components.ChoreCard.Refresh = function(choreId)
+	constructor(Grocy, scopeSelector = null)
 	{
-		Grocy.Api.Get('chores/' + choreId,
+		this.Grocy = Grocy;
+
+		this.scopeSelector = scopeSelector;
+		this.scope = scopeSelector != null ? $(scope) : $(document);
+		this.$ = scopeSelector != null ? $(scope).find : $;
+	}
+
+	Refresh(choreId)
+	{
+		var self = this;
+		this.Grocy.Api.Get('chores/' + choreId,
 			function(choreDetails)
 			{
-				$('#chorecard-chore-name').text(choreDetails.chore.name);
-				$('#chorecard-chore-last-tracked').text((choreDetails.last_tracked || Grocy.translate('never')));
-				$('#chorecard-chore-last-tracked-timeago').attr("datetime", choreDetails.last_tracked || '');
-				$('#chorecard-chore-tracked-count').text((choreDetails.tracked_count || '0'));
-				$('#chorecard-chore-last-done-by').text((choreDetails.last_done_by.display_name || Grocy.translate('Unknown')));
+				self.$('#chorecard-chore-name').text(choreDetails.chore.name);
+				self.$('#chorecard-chore-last-tracked').text((choreDetails.last_tracked || self.Grocy.translate('never')));
+				self.$('#chorecard-chore-last-tracked-timeago').attr("datetime", choreDetails.last_tracked || '');
+				self.$('#chorecard-chore-tracked-count').text((choreDetails.tracked_count || '0'));
+				self.$('#chorecard-chore-last-done-by').text((choreDetails.last_done_by.display_name || self.Grocy.translate('Unknown')));
 
-				$('#chorecard-chore-edit-button').attr("href", Grocy.FormatUrl("/chore/" + choreDetails.chore.id.toString()));
-				$('#chorecard-chore-journal-button').attr("href", Grocy.FormatUrl("/choresjournal?embedded&chore=" + choreDetails.chore.id.toString()));
-				$('#chorecard-chore-edit-button').removeClass("disabled");
-				$('#chorecard-chore-journal-button').removeClass("disabled");
+				self.$('#chorecard-chore-edit-button').attr("href", self.Grocy.FormatUrl("/chore/" + choreDetails.chore.id.toString()));
+				self.$('#chorecard-chore-journal-button').attr("href", self.Grocy.FormatUrl("/choresjournal?embedded&chore=" + choreDetails.chore.id.toString()));
+				self.$('#chorecard-chore-edit-button').removeClass("disabled");
+				self.$('#chorecard-chore-journal-button').removeClass("disabled");
 
 				if (choreDetails.chore.track_date_only == 1)
 				{
-					$("#chorecard-chore-last-tracked-timeago").addClass("timeago-date-only");
+					self.$("#chorecard-chore-last-tracked-timeago").addClass("timeago-date-only");
 				}
 				else
 				{
-					$("#chorecard-chore-last-tracked-timeago").removeClass("timeago-date-only");
+					self.$("#chorecard-chore-last-tracked-timeago").removeClass("timeago-date-only");
 				}
 
-				EmptyElementWhenMatches('#chorecard-chore-last-tracked-timeago', Grocy.translate('timeago_nan'));
+				EmptyElementWhenMatches(self.$('#chorecard-chore-last-tracked-timeago'), self.Grocy.translate('timeago_nan'));
 				RefreshContextualTimeago(".chorecard");
 			},
 			function(xhr)

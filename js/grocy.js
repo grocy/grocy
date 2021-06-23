@@ -50,6 +50,8 @@ class GrocyClass
 		this.Components = {};
 		this.initComponents = [];
 
+		this.RootGrocy = null;
+
 		// Init some classes
 		this.Api = new GrocyApi(this);
 
@@ -217,18 +219,20 @@ class GrocyClass
 		this.IdleTime += 1;
 	}
 
-	Use(componentName)
+	Use(componentName, scope = null)
 	{
-		// initialize Components only once
-		if (this.initComponents.find(elem => elem == componentName))
-			return;
+		let scopeName = scope || "";
+		// initialize Components only once per scope
+		if (this.initComponents.find(elem => elem == componentName + scopeName))
+			return this.components[componentName + scopeName];
 
 		if (Object.prototype.hasOwnProperty.call(components, componentName))
 		{
 			// add-then-init to resolve circular dependencies
 			this.initComponents.push(componentName);
-			var component = components[componentName](this);
-			this.components[component.key] = component;
+			var component = components[componentName](this, scope);
+			this.components[componentName + scopeName] = component;
+			return component;
 		}
 		else
 		{

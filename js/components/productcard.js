@@ -2,123 +2,146 @@ import Chart from 'chart.js';
 import { EmptyElementWhenMatches } from '../helpers/extensions'
 import { RefreshContextualTimeago } from '../configs/timeago'
 
-function productcard(Grocy)
+class productcard
 {
-
-	Grocy.Components.ProductCard = {};
-
-	Grocy.Components.ProductCard.Refresh = function(productId)
+	constructor(Grocy, scopeSelector = null)
 	{
-		Grocy.Api.Get('stock/products/' + productId,
+		this.Grocy = Grocy;
+
+		this.scopeSelector = scopeSelector;
+		this.scope = scopeSelector != null ? $(scope) : $(document);
+		this.$ = scopeSelector != null ? $(scope).find : $;
+		this.PriceHistoryChart = null;
+		var self = this;
+
+		this.$("#productcard-product-description").on("shown.bs.collapse", function()
+		{
+			self.$(".expandable-text")
+				.find("a[data-toggle='collapse']")
+				.text(self.Grocy.translate("Show less"));
+		})
+
+		this.$("#productcard-product-description").on("hidden.bs.collapse", function()
+		{
+			self.$(".expandable-text")
+				.find("a[data-toggle='collapse']")
+				.text(self.Grocy.translate("Show more"));
+		})
+	}
+
+	Refresh(productId)
+	{
+		var self = this;
+		this.Grocy.Api.Get('stock/products/' + productId,
 			function(productDetails)
 			{
 				var stockAmount = productDetails.stock_amount || '0';
 				var stockValue = productDetails.stock_value || '0';
 				var stockAmountOpened = productDetails.stock_amount_opened || '0';
-				$('#productcard-product-name').text(productDetails.product.name);
-				$('#productcard-product-description').html(productDetails.product.description);
-				$('#productcard-product-stock-amount').text(stockAmount);
-				$('#productcard-product-stock-qu-name').text(Grocy.translaten(stockAmount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural));
-				$('#productcard-product-stock-value').text(stockValue + ' ' + Grocy.Currency);
-				$('#productcard-product-last-purchased').text((productDetails.last_purchased || '2999-12-31').substring(0, 10));
-				$('#productcard-product-last-purchased-timeago').attr("datetime", productDetails.last_purchased || '2999-12-31');
-				$('#productcard-product-last-used').text((productDetails.last_used || '2999-12-31').substring(0, 10));
-				$('#productcard-product-last-used-timeago').attr("datetime", productDetails.last_used || '2999-12-31');
+				self.$('#productcard-product-name').text(productDetails.product.name);
+				self.$('#productcard-product-description').html(productDetails.product.description);
+				self.$('#productcard-product-stock-amount').text(stockAmount);
+				self.$('#productcard-product-stock-qu-name').text(self.Grocy.translaten(stockAmount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural));
+				self.$('#productcard-product-stock-value').text(stockValue + ' ' + self.Grocy.Currency);
+				self.$('#productcard-product-last-purchased').text((productDetails.last_purchased || '2999-12-31').substring(0, 10));
+				self.$('#productcard-product-last-purchased-timeago').attr("datetime", productDetails.last_purchased || '2999-12-31');
+				self.$('#productcard-product-last-used').text((productDetails.last_used || '2999-12-31').substring(0, 10));
+				self.$('#productcard-product-last-used-timeago').attr("datetime", productDetails.last_used || '2999-12-31');
 				if (productDetails.location != null)
 				{
-					$('#productcard-product-location').text(productDetails.location.name);
+					self.$('#productcard-product-location').text(productDetails.location.name);
 				}
-				$('#productcard-product-spoil-rate').text((parseFloat(productDetails.spoil_rate_percent) / 100).toLocaleString(undefined, { style: "percent" }));
+				self.$('#productcard-product-spoil-rate').text((parseFloat(productDetails.spoil_rate_percent) / 100).toLocaleString(undefined, { style: "percent" }));
 
 				if (productDetails.is_aggregated_amount == 1)
 				{
-					$('#productcard-product-stock-amount-aggregated').text(productDetails.stock_amount_aggregated);
-					$('#productcard-product-stock-qu-name-aggregated').text(Grocy.translaten(productDetails.stock_amount_aggregated, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural));
+					self.$('#productcard-product-stock-amount-aggregated').text(productDetails.stock_amount_aggregated);
+					self.$('#productcard-product-stock-qu-name-aggregated').text(self.Grocy.translaten(productDetails.stock_amount_aggregated, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural));
 
 					if (productDetails.stock_amount_opened_aggregated > 0)
 					{
-						$('#productcard-product-stock-opened-amount-aggregated').text(Grocy.translate('%s opened', productDetails.stock_amount_opened_aggregated));
+						self.$('#productcard-product-stock-opened-amount-aggregated').text(self.Grocy.translate('%s opened', productDetails.stock_amount_opened_aggregated));
 					}
 					else
 					{
-						$('#productcard-product-stock-opened-amount-aggregated').text("");
+						self.$('#productcard-product-stock-opened-amount-aggregated').text("");
 					}
 
-					$("#productcard-aggregated-amounts").removeClass("d-none");
+					self.$("#productcard-aggregated-amounts").removeClass("d-none");
 				}
 				else
 				{
-					$("#productcard-aggregated-amounts").addClass("d-none");
+					self.$("#productcard-aggregated-amounts").addClass("d-none");
 				}
 
 				if (productDetails.product.description != null && !productDetails.product.description.isEmpty())
 				{
-					$("#productcard-product-description-wrapper").removeClass("d-none");
+					self.$("#productcard-product-description-wrapper").removeClass("d-none");
 				}
 				else
 				{
-					$("#productcard-product-description-wrapper").addClass("d-none");
+					self.$("#productcard-product-description-wrapper").addClass("d-none");
 				}
 
 				if (productDetails.average_shelf_life_days == -1)
 				{
-					$('#productcard-product-average-shelf-life').text(Grocy.translate("Unknown"));
+					self.$('#productcard-product-average-shelf-life').text(self.Grocy.translate("Unknown"));
 				}
 				else if (parseInt(productDetails.average_shelf_life_days) > 73000) // > 200 years aka forever
 				{
-					$('#productcard-product-average-shelf-life').text(Grocy.translate("Unlimited"));
+					self.$('#productcard-product-average-shelf-life').text(self.Grocy.translate("Unlimited"));
 				}
 				else
 				{
-					$('#productcard-product-average-shelf-life').text(moment.duration(productDetails.average_shelf_life_days, "days").humanize());
+					self.$('#productcard-product-average-shelf-life').text(moment.duration(productDetails.average_shelf_life_days, "days").humanize());
 				}
 
 				if (stockAmountOpened > 0)
 				{
-					$('#productcard-product-stock-opened-amount').text(Grocy.translate('%s opened', stockAmountOpened));
+					self.$('#productcard-product-stock-opened-amount').text(self.Grocy.translate('%s opened', stockAmountOpened));
 				}
 				else
 				{
-					$('#productcard-product-stock-opened-amount').text("");
+					self.$('#productcard-product-stock-opened-amount').text("");
 				}
 
-				$('#productcard-product-edit-button').attr("href", Grocy.FormatUrl("/product/" + productDetails.product.id.toString() + '?' + 'returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative)));
-				$('#productcard-product-journal-button').attr("href", Grocy.FormatUrl("/stockjournal?embedded&product=" + productDetails.product.id.toString()));
-				$('#productcard-product-stock-button').attr("href", Grocy.FormatUrl("/stockentries?embedded&product=" + productDetails.product.id.toString()));
-				$('#productcard-product-stock-button').removeClass("disabled");
-				$('#productcard-product-edit-button').removeClass("disabled");
-				$('#productcard-product-journal-button').removeClass("disabled");
+				self.$('#productcard-product-edit-button').attr("href", self.Grocy.FormatUrl("/product/" + productDetails.product.id.toString() + '?' + 'returnto=' + encodeURIComponent(self.Grocy.CurrentUrlRelative)));
+				self.$('#productcard-product-journal-button').attr("href", self.Grocy.FormatUrl("/stockjournal?embedded&product=" + productDetails.product.id.toString()));
+				self.$('#productcard-product-stock-button').attr("href", self.Grocy.FormatUrl("/stockentries?embedded&product=" + productDetails.product.id.toString()));
+				self.$('#productcard-product-stock-button').removeClass("disabled");
+				self.$('#productcard-product-edit-button').removeClass("disabled");
+				self.$('#productcard-product-journal-button').removeClass("disabled");
 
 				if (productDetails.last_price !== null)
 				{
-					$('#productcard-product-last-price').text(Number.parseFloat(productDetails.last_price).toLocaleString() + ' ' + Grocy.Currency + ' per ' + productDetails.quantity_unit_stock.name);
+					self.$('#productcard-product-last-price').text(Number.parseFloat(productDetails.last_price).toLocaleString() + ' ' + self.Grocy.Currency + ' per ' + productDetails.quantity_unit_stock.name);
 				}
 				else
 				{
-					$('#productcard-product-last-price').text(Grocy.translate('Unknown'));
+					self.$('#productcard-product-last-price').text(self.Grocy.translate('Unknown'));
 				}
 
 				if (productDetails.avg_price !== null)
 				{
-					$('#productcard-product-average-price').text(Number.parseFloat(productDetails.avg_price).toLocaleString() + ' ' + Grocy.Currency + ' per ' + productDetails.quantity_unit_stock.name);
+					self.$('#productcard-product-average-price').text(Number.parseFloat(productDetails.avg_price).toLocaleString() + ' ' + self.Grocy.Currency + ' per ' + productDetails.quantity_unit_stock.name);
 				}
 				else
 				{
-					$('#productcard-product-average-price').text(Grocy.translate('Unknown'));
+					self.$('#productcard-product-average-price').text(self.Grocy.translate('Unknown'));
 				}
 
 				if (productDetails.product.picture_file_name !== null && !productDetails.product.picture_file_name.isEmpty())
 				{
-					$("#productcard-product-picture").removeClass("d-none");
-					$("#productcard-product-picture").attr("src", Grocy.FormatUrl('/api/files/productpictures/' + btoa(productDetails.product.picture_file_name) + '?force_serve_as=picture&best_fit_width=400'));
+					self.$("#productcard-product-picture").removeClass("d-none");
+					self.$("#productcard-product-picture").attr("src", Grocy.FormatUrl('/api/files/productpictures/' + btoa(productDetails.product.picture_file_name) + '?force_serve_as=picture&best_fit_width=400'));
 				}
 				else
 				{
-					$("#productcard-product-picture").addClass("d-none");
+					self.$("#productcard-product-picture").addClass("d-none");
 				}
 
-				EmptyElementWhenMatches('#productcard-product-last-purchased-timeago', Grocy.translate('timeago_nan'));
-				EmptyElementWhenMatches('#productcard-product-last-used-timeago', Grocy.translate('timeago_nan'));
+				EmptyElementWhenMatches(self.$('#productcard-product-last-purchased-timeago'), self.Grocy.translate('timeago_nan'));
+				EmptyElementWhenMatches(self.$('#productcard-product-last-used-timeago'), self.Grocy.translate('timeago_nan'));
 				RefreshContextualTimeago(".productcard");
 			},
 			function(xhr)
@@ -127,22 +150,22 @@ function productcard(Grocy)
 			}
 		);
 
-		if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+		if (this.Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 		{
-			Grocy.Api.Get('stock/products/' + productId + '/price-history',
+			this.Grocy.Api.Get('stock/products/' + productId + '/price-history',
 				function(priceHistoryDataPoints)
 				{
 					if (priceHistoryDataPoints.length > 0)
 					{
-						$("#productcard-product-price-history-chart").removeClass("d-none");
-						$("#productcard-no-price-data-hint").addClass("d-none");
+						self.$("#productcard-product-price-history-chart").removeClass("d-none");
+						self.$("#productcard-no-price-data-hint").addClass("d-none");
 
-						Grocy.Components.ProductCard.ReInitPriceHistoryChart();
+						self.ReInitPriceHistoryChart();
 						var datasets = {};
-						var chart = Grocy.Components.ProductCard.PriceHistoryChart.data;
-						priceHistoryDataPoints.forEach((dataPoint) =>
+						var chart = self.PriceHistoryChart.data;
+						for (let dataPoint of priceHistoryDataPoints)
 						{
-							var key = Grocy.translate("Unknown store");
+							let key = Grocy.translate("Unknown store");
 							if (dataPoint.shopping_location)
 							{
 								key = dataPoint.shopping_location.name
@@ -154,9 +177,9 @@ function productcard(Grocy)
 							}
 							chart.labels.push(moment(dataPoint.date).toDate());
 							datasets[key].push(dataPoint.price);
+						}
 
-						});
-						Object.keys(datasets).forEach((key) =>
+						for (let key of Object.keys(datasets))
 						{
 							chart.datasets.push({
 								data: datasets[key],
@@ -164,13 +187,13 @@ function productcard(Grocy)
 								borderColor: "HSL(" + (129 * chart.datasets.length) + ",100%,50%)",
 								label: key,
 							});
-						});
-						Grocy.Components.ProductCard.PriceHistoryChart.update();
+						}
+						self.PriceHistoryChart.update();
 					}
 					else
 					{
-						$("#productcard-product-price-history-chart").addClass("d-none");
-						$("#productcard-no-price-data-hint").removeClass("d-none");
+						self.$("#productcard-product-price-history-chart").addClass("d-none");
+						self.$("#productcard-no-price-data-hint").removeClass("d-none");
 					}
 				},
 				function(xhr)
@@ -179,17 +202,17 @@ function productcard(Grocy)
 				}
 			);
 		}
-	};
+	}
 
-	Grocy.Components.ProductCard.ReInitPriceHistoryChart = function()
+	ReInitPriceHistoryChart()
 	{
-		if (typeof Grocy.Components.ProductCard.PriceHistoryChart !== "undefined")
+		if (this.PriceHistoryChart !== null)
 		{
-			Grocy.Components.ProductCard.PriceHistoryChart.destroy();
+			this.PriceHistoryChart.destroy();
 		}
 
 		var format = 'YYYY-MM-DD';
-		Grocy.Components.ProductCard.PriceHistoryChart = new Chart(document.getElementById("productcard-product-price-history-chart"), {
+		this.PriceHistoryChart = new Chart(this.$("#productcard-product-price-history-chart")[0], {
 			type: "line",
 			data: {
 				labels: [ //Date objects
@@ -230,16 +253,6 @@ function productcard(Grocy)
 			}
 		});
 	}
-
-	$("#productcard-product-description").on("shown.bs.collapse", function()
-	{
-		$(".expandable-text").find("a[data-toggle='collapse']").text(Grocy.translate("Show less"));
-	})
-
-	$("#productcard-product-description").on("hidden.bs.collapse", function()
-	{
-		$(".expandable-text").find("a[data-toggle='collapse']").text(Grocy.translate("Show more"));
-	})
 }
 
 export { productcard }

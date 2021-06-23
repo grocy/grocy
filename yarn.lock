@@ -4755,6 +4755,7 @@ fsevents@~2.3.2:
     tempusdominus-bootstrap-4: "https://github.com/mistressofjellyfish/bootstrap-4.git#master"
     timeago: ^1.6.7
     toastr: ^2.1.4
+    uuid: ^8.3.2
     vinyl-buffer: ^1.0.1
     vinyl-source-stream: ^2.0.0
   languageName: unknown
@@ -10818,7 +10819,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"uuid@npm:^8.2.0, uuid@npm:^8.3.0":
+"uuid@npm:^8.2.0, uuid@npm:^8.3.0, uuid@npm:^8.3.2":
   version: 8.3.2
   resolution: "uuid@npm:8.3.2"
   bin:

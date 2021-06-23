@@ -96,8 +96,5 @@ export
 	IsJsonString,
 	BoolVal,
 	GetFileNameFromPath,
-	RemoveUriParam,
-	UpdateUriParam,
-	GetUriParam,
 	EmptyElementWhenMatches
 }
