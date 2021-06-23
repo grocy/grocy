@@ -3,7 +3,7 @@
 	var $scope = $;
 	if (scope != null)
 	{
-		$scope = $(scope).find;
+		$scope = (scope) => $(scope).find(scope);
 	}
 
 	var groupsTable = $scope('#productgroups-table').DataTable({

@@ -3,7 +3,7 @@
 	var $scope = $;
 	if (scope != null)
 	{
-		$scope = $(scope).find;
+		$scope = (scope) => $(scope).find(scope);
 	}
 
 	var batteriesJournalTable = $scope('#batteries-journal-table').DataTable({

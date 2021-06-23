@@ -12,7 +12,7 @@ function shoppinglistView(Grocy, scope = null)
 
 	if (scope != null)
 	{
-		$scope = $(scope).find;
+		$scope = (scope) => $(scope).find(scope);
 	}
 
 	Grocy.Use("calendarcard");

@@ -3,7 +3,7 @@
 	var $scope = $;
 	if (scope != null)
 	{
-		$scope = $(scope).find;
+		$scope = (scope) => $(scope).find(scope);
 	}
 
 	$scope('[data-toggle="collapse-next"]').on("click", function(e)

@@ -5,7 +5,7 @@ function transferView(Grocy, scope = null)
 	var $scope = $;
 	if (scope != null)
 	{
-		$scope = $(scope).find;
+		$scope = (scope) => $(scope).find(scope);
 	}
 
 	var productpicker = Grocy.Use("productpicker");

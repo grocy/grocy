@@ -8,7 +8,7 @@ function consumeView(Grocy, scope = null)
 
 	if (scope != null)
 	{
-		$scope = $(scope).find;
+		$scope = (scope) => $(scope).find(scope);
 	}
 
 	var productamountpicker = Grocy.Use("productamountpicker");

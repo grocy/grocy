@@ -3,7 +3,7 @@
 	var $scope = $;
 	if (scope != null)
 	{
-		$scope = $(scope).find;
+		$scope = (scope) => $(scope).find(scope);
 	}
 
 	var quantityUnitsTable = $scope('#quantityunits-table').DataTable({

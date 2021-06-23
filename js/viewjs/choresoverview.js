@@ -5,7 +5,7 @@
 
 	if (scope != null)
 	{
-		$scope = $(scope).find;
+		$scope = (scope) => $(scope).find(scope);
 	}
 
 	var chorecard = Grocy.Use("chorecard");

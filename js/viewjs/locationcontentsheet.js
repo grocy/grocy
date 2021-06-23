@@ -4,7 +4,7 @@
 	var top = scope != null ? $(scope) : $(document);
 	if (scope != null)
 	{
-		$scope = $(scope).find;
+		$scope = (scope) => $(scope).find(scope);
 	}
 
 	top.on("click", ".print-all-locations-button", function(e)

@@ -5,7 +5,7 @@
 	var top = scope != null ? $(scope) : $(document)
 	if (scope != null)
 	{
-		$scope = $(scope).find;
+		$scope = (scope) => $(scope).find(scope);
 	}
 
 	Grocy.Use("numberpicker");
