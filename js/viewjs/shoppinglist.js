@@ -1,20 +1,24 @@
-﻿function shoppinglistView(Grocy, scope = null)
+﻿
+// this needs to be explicitly imported for some reason,
+// otherwise rollup complains.
+import bwipjs from '../../node_modules/bwip-js/dist/bwip-js.mjs';
+import { WindowMessageBag } from '../helpers/messagebag';
+
+function shoppinglistView(Grocy, scope = null)
 {
 	var $scope = $;
+	var top = scope != null ? $(scope) : top;
+	var viewport = scope != null ? $(scope) : $(window);
+
 	if (scope != null)
 	{
 		$scope = $(scope).find;
 	}
 
-	// this needs to be explicitly imported for some reason,
-	// otherwise rollup complains.
-	import bwipjs from '../../node_modules/bwip-js/dist/bwip-js.mjs';
-	import { WindowMessageBag } from '../helpers/messagebag';
-	
 	Grocy.Use("calendarcard");
 	Grocy.Use("productcard");
-	
-	var shoppingListTable = $('#shoppinglist-table').DataTable({
+
+	var shoppingListTable = $scope('#shoppinglist-table').DataTable({
 		'order': [[1, 'asc']],
 		"orderFixed": [[3, 'asc']],
 		'columnDefs': [
@@ -34,11 +38,11 @@
 			dataSrc: 3
 		}
 	});
-	$('#shoppinglist-table tbody').removeClass("d-none");
+	$scope('#shoppinglist-table tbody').removeClass("d-none");
 	Grocy.FrontendHelpers.InitDataTable(shoppingListTable);
 	Grocy.FrontendHelpers.MakeStatusFilter(shoppingListTable, 4);
-	
-	var shoppingListPrintShadowTable = $('#shopping-list-print-shadow-table').DataTable({
+
+	var shoppingListPrintShadowTable = $scope('#shopping-list-print-shadow-table').DataTable({
 		'order': [[1, 'asc']],
 		"orderFixed": [[2, 'asc']],
 		'columnDefs': [
@@ -51,41 +55,41 @@
 		}
 	});
 	Grocy.FrontendHelpers.InitDataTable(shoppingListPrintShadowTable);
-	
-	
-	$("#selected-shopping-list").on("change", function()
+
+
+	$scope("#selected-shopping-list").on("change", function()
 	{
 		var value = $(this).val();
 		window.location.href = U('/shoppinglist?list=' + value);
 	});
-	
+
 	Grocy.FrontendHelpers.MakeDeleteConfirmBox(
 		'Are you sure to delete shopping list "%s"?',
 		'#delete-selected-shopping-list',
-		() => $("#selected-shopping-list option:selected").text(),
-		() => $("#selected-shopping-list").val(),
+		() => $scope("#selected-shopping-list option:selected").text(),
+		() => $scope("#selected-shopping-list").val(),
 		'objects/shopping_lists/',
 		'/shoppinglist'
 	);
-	
-	$(document).on('click', '.shoppinglist-delete-button', function(e)
+
+	top.on('click', '.shoppinglist-delete-button', function(e)
 	{
 		e.preventDefault();
-	
+
 		// Remove the focus from the current button
 		// to prevent that the tooltip stays until clicked anywhere else
 		document.activeElement.blur();
-	
+
 		var shoppingListItemId = $(e.currentTarget).attr('data-shoppinglist-id');
 		Grocy.FrontendHelpers.BeginUiBusy();
-	
+
 		Grocy.Api.Delete('objects/shopping_list/' + shoppingListItemId, {},
 			function(result)
 			{
 				animateCSS("#shoppinglistitem-" + shoppingListItemId + "-row", "fadeOut", function()
 				{
 					Grocy.FrontendHelpers.EndUiBusy();
-					$("#shoppinglistitem-" + shoppingListItemId + "-row").remove();
+					$scope("#shoppinglistitem-" + shoppingListItemId + "-row").remove();
 					OnListItemRemoved();
 				});
 			},
@@ -96,22 +100,22 @@
 			}
 		);
 	});
-	
-	$(document).on("click", ".product-name-cell", function(e)
+
+	top.on("click", ".product-name-cell", function(e)
 	{
 		if ($(e.currentTarget).attr("data-product-id") != "")
 		{
 			Grocy.Components.ProductCard.Refresh($(e.currentTarget).attr("data-product-id"));
-			$("#shoppinglist-productcard-modal").modal("show");
+			$scope("#shoppinglist-productcard-modal").modal("show");
 		}
 	});
-	
-	$(document).on('click', '#add-products-below-min-stock-amount', function(e)
+
+	top.on('click', '#add-products-below-min-stock-amount', function(e)
 	{
-		Grocy.Api.Post('stock/shoppinglist/add-missing-products', { "list_id": $("#selected-shopping-list").val() },
+		Grocy.Api.Post('stock/shoppinglist/add-missing-products', { "list_id": $scope("#selected-shopping-list").val() },
 			function(result)
 			{
-				window.location.href = U('/shoppinglist?list=' + $("#selected-shopping-list").val());
+				window.location.href = U('/shoppinglist?list=' + $scope("#selected-shopping-list").val());
 			},
 			function(xhr)
 			{
@@ -119,8 +123,8 @@
 			}
 		);
 	});
-	
-	$(document).on('click', '#add-overdue-expired-products', function(e)
+
+	top.on('click', '#add-overdue-expired-products', function(e)
 	{
 		Grocy.Api.Post('stock/shoppinglist/add-overdue-products', { "list_id": $("#selected-shopping-list").val() },
 			function(result)
@@ -142,23 +146,23 @@
 			}
 		);
 	});
-	
+
 	Grocy.FrontendHelpers.MakeYesNoBox(
-		() => __t('Are you sure to empty shopping list "%s"?', $("#selected-shopping-list option:selected").text()),
+		() => __t('Are you sure to empty shopping list "%s"?', $scope("#selected-shopping-list option:selected").text()),
 		'#clear-shopping-list',
 		(result) =>
 		{
 			if (result === true)
 			{
 				Grocy.FrontendHelpers.BeginUiBusy();
-	
-				Grocy.Api.Post('stock/shoppinglist/clear', { "list_id": $("#selected-shopping-list").val() },
+
+				Grocy.Api.Post('stock/shoppinglist/clear', { "list_id": $scope("#selected-shopping-list").val() },
 					function(result)
 					{
 						animateCSS("#shoppinglist-table tbody tr", "fadeOut", function()
 						{
 							Grocy.FrontendHelpers.EndUiBusy();
-							$("#shoppinglist-table tbody tr").remove();
+							$scope("#shoppinglist-table tbody tr").remove();
 							OnListItemRemoved();
 						});
 					},
@@ -171,120 +175,120 @@
 			}
 		}
 	);
-	
-	$(document).on('click', '.shopping-list-stock-add-workflow-list-item-button', function(e)
+
+	top.on('click', '.shopping-list-stock-add-workflow-list-item-button', function(e)
 	{
 		e.preventDefault();
-	
+
 		// Remove the focus from the current button
 		// to prevent that the tooltip stays until clicked anywhere else
 		document.activeElement.blur();
-	
-		var href = $(e.currentTarget).attr('href');
-	
-		$("#shopping-list-stock-add-workflow-purchase-form-frame").attr("src", href);
-		$("#shopping-list-stock-add-workflow-modal").modal("show");
-	
+
+		var href = $scope(e.currentTarget).attr('href');
+
+		$scope("#shopping-list-stock-add-workflow-purchase-form-frame").attr("src", href);
+		$scope("#shopping-list-stock-add-workflow-modal").modal("show");
+
 		if (Grocy.ShoppingListToStockWorkflowAll)
 		{
-			$("#shopping-list-stock-add-workflow-purchase-item-count").removeClass("d-none");
-			$("#shopping-list-stock-add-workflow-purchase-item-count").text(__t("Adding shopping list item %1$s of %2$s", Grocy.ShoppingListToStockWorkflowCurrent, Grocy.ShoppingListToStockWorkflowCount));
-			$("#shopping-list-stock-add-workflow-skip-button").removeClass("d-none");
+			$scope("#shopping-list-stock-add-workflow-purchase-item-count").removeClass("d-none");
+			$scope("#shopping-list-stock-add-workflow-purchase-item-count").text(__t("Adding shopping list item %1$s of %2$s", Grocy.ShoppingListToStockWorkflowCurrent, Grocy.ShoppingListToStockWorkflowCount));
+			$scope("#shopping-list-stock-add-workflow-skip-button").removeClass("d-none");
 		}
 		else
 		{
-			$("#shopping-list-stock-add-workflow-skip-button").addClass("d-none");
+			$scope("#shopping-list-stock-add-workflow-skip-button").addClass("d-none");
 		}
 	});
-	
+
 	Grocy.ShoppingListToStockWorkflowAll = false;
 	Grocy.ShoppingListToStockWorkflowCount = 0;
 	Grocy.ShoppingListToStockWorkflowCurrent = 0;
-	$(document).on('click', '#add-all-items-to-stock-button', function(e)
+	top.on('click', '#add-all-items-to-stock-button', function(e)
 	{
 		Grocy.ShoppingListToStockWorkflowAll = true;
-		Grocy.ShoppingListToStockWorkflowCount = $(".shopping-list-stock-add-workflow-list-item-button").length;
+		Grocy.ShoppingListToStockWorkflowCount = $scope(".shopping-list-stock-add-workflow-list-item-button").length;
 		Grocy.ShoppingListToStockWorkflowCurrent++;
-		$(".shopping-list-stock-add-workflow-list-item-button").first().click();
+		$scope(".shopping-list-stock-add-workflow-list-item-button").first().click();
 	});
-	
-	$("#shopping-list-stock-add-workflow-modal").on("hidden.bs.modal", function(e)
+
+	$scope("#shopping-list-stock-add-workflow-modal").on("hidden.bs.modal", function(e)
 	{
 		Grocy.ShoppingListToStockWorkflowAll = false;
 		Grocy.ShoppingListToStockWorkflowCount = 0;
 		Grocy.ShoppingListToStockWorkflowCurrent = 0;
 	})
-	
+
 	$(window).on("message", function(e)
 	{
 		var data = e.originalEvent.data;
-	
+
 		if (data.Message === "AfterItemAdded")
 		{
-			$(".shoppinglist-delete-button[data-shoppinglist-id='" + data.Payload + "']").click();
+			$scope(".shoppinglist-delete-button[data-shoppinglist-id='" + data.Payload + "']").click();
 		}
 		else if (data.Message === "Ready")
 		{
 			if (!Grocy.ShoppingListToStockWorkflowAll)
 			{
-				$("#shopping-list-stock-add-workflow-modal").modal("hide");
+				$scope("#shopping-list-stock-add-workflow-modal").modal("hide");
 			}
 			else
 			{
 				Grocy.ShoppingListToStockWorkflowCurrent++;
 				if (Grocy.ShoppingListToStockWorkflowCurrent <= Grocy.ShoppingListToStockWorkflowCount)
 				{
-					$(".shopping-list-stock-add-workflow-list-item-button")[Grocy.ShoppingListToStockWorkflowCurrent - 1].click();
+					$scope(".shopping-list-stock-add-workflow-list-item-button")[Grocy.ShoppingListToStockWorkflowCurrent - 1].click();
 				}
 				else
 				{
-					$("#shopping-list-stock-add-workflow-modal").modal("hide");
+					$scope("#shopping-list-stock-add-workflow-modal").modal("hide");
 				}
 			}
 		}
 	});
-	
-	$(document).on('click', '#shopping-list-stock-add-workflow-skip-button', function(e)
+
+	top.on('click', '#shopping-list-stock-add-workflow-skip-button', function(e)
 	{
 		e.preventDefault();
-	
+
 		window.postMessage(WindowMessageBag("Ready"), Grocy.BaseUrl);
 	});
-	
-	$(document).on('click', '.order-listitem-button', function(e)
+
+	top.on('click', '.order-listitem-button', function(e)
 	{
 		e.preventDefault();
-	
+
 		// Remove the focus from the current button
 		// to prevent that the tooltip stays until clicked anywhere else
 		document.activeElement.blur();
-	
+
 		Grocy.FrontendHelpers.BeginUiBusy();
-	
+
 		var listItemId = $(e.currentTarget).attr('data-item-id');
-	
+
 		var done = 1;
 		if ($(e.currentTarget).attr('data-item-done') == 1)
 		{
 			done = 0;
 		}
-	
+
 		$(e.currentTarget).attr('data-item-done', done);
-	
+
 		Grocy.Api.Put('objects/shopping_list/' + listItemId, { 'done': done },
 			function()
 			{
 				if (done == 1)
 				{
-					$('#shoppinglistitem-' + listItemId + '-row').addClass("text-muted");
-					$('#shoppinglistitem-' + listItemId + '-row').addClass("text-strike-through");
+					$scope('#shoppinglistitem-' + listItemId + '-row').addClass("text-muted");
+					$scope('#shoppinglistitem-' + listItemId + '-row').addClass("text-strike-through");
 				}
 				else
 				{
-					$('#shoppinglistitem-' + listItemId + '-row').removeClass("text-muted");
-					$('#shoppinglistitem-' + listItemId + '-row').removeClass("text-strike-through");
+					$scope('#shoppinglistitem-' + listItemId + '-row').removeClass("text-muted");
+					$scope('#shoppinglistitem-' + listItemId + '-row').removeClass("text-strike-through");
 				}
-	
+
 				Grocy.FrontendHelpers.EndUiBusy();
 			},
 			function(xhr)
@@ -293,9 +297,9 @@
 				console.error(xhr);
 			}
 		);
-	
-	
-		var statusInfoCell = $("#shoppinglistitem-" + listItemId + "-status-info");
+
+
+		var statusInfoCell = $scope("#shoppinglistitem-" + listItemId + "-status-info");
 		if (done == 1)
 		{
 			statusInfoCell.text(statusInfoCell.text().replace("xxUNDONExx", ""));
@@ -305,20 +309,20 @@
 			statusInfoCell.text(statusInfoCell.text() + " xxUNDONExx");
 		}
 		shoppingListTable.rows().invalidate().draw(false);
-	
-		$("#status-filter").trigger("change");
+
+		$scope("#status-filter").trigger("change");
 	});
-	
+
 	function OnListItemRemoved()
 	{
-		if ($(".shopping-list-stock-add-workflow-list-item-button").length === 0)
+		if ($scope(".shopping-list-stock-add-workflow-list-item-button").length === 0)
 		{
-			$("#add-all-items-to-stock-button").addClass("disabled");
+			$scope("#add-all-items-to-stock-button").addClass("disabled");
 		}
 	}
 	OnListItemRemoved();
-	
-	$(document).on("click", "#print-shopping-list-button", function(e)
+
+	top.on("click", "#print-shopping-list-button", function(e)
 	{
 		var dialogHtml = ' \
 		<div class="text-center"><h5>' + __t('Print options') + '</h5><hr></div> \
@@ -364,7 +368,7 @@
 				for="print-layout-type-list">' + __t('List') + ' \
 			</label> \
 		</div>';
-	
+
 		var sizePrintDialog = 'medium';
 		var printButtons = {
 			cancel: {
@@ -381,7 +385,7 @@
 				callback: function()
 				{
 					bootbox.hideAll();
-					var printHeader = $("#print-show-header").prop("checked");
+					var printHeader = $scope("#print-show-header").prop("checked");
 					var thermalPrintDialog = bootbox.dialog({
 						title: __t('Printing'),
 						message: '<p><i class="fa fa-spin fa-spinner"></i> ' + __t('Connecting to printer...') + '</p>'
@@ -389,7 +393,7 @@
 					//Delaying for one second so that the alert can be closed
 					setTimeout(function()
 					{
-						Grocy.Api.Get('print/shoppinglist/thermal?list=' + $("#selected-shopping-list").val() + '&printHeader=' + printHeader,
+						Grocy.Api.Get('print/shoppinglist/thermal?list=' + $scope("#selected-shopping-list").val() + '&printHeader=' + printHeader,
 							function(result)
 							{
 								bootbox.hideAll();
@@ -423,41 +427,41 @@
 				callback: function()
 				{
 					bootbox.hideAll();
-					$('.modal-backdrop').remove();
-					$(".print-timestamp").text(moment().format("l LT"));
-	
-					$("#description-for-print").html($("#description").val());
-					if ($("#description").text().isEmpty())
+					$scope('.modal-backdrop').remove();
+					$scope(".print-timestamp").text(moment().format("l LT"));
+
+					$scope("#description-for-print").html($scope("#description").val());
+					if ($scope("#description").text().isEmpty())
 					{
-						$("#description-for-print").parent().addClass("d-print-none");
+						$scope("#description-for-print").parent().addClass("d-print-none");
 					}
-	
-					if (!$("#print-show-header").prop("checked"))
+
+					if (!$scope("#print-show-header").prop("checked"))
 					{
-						$("#print-header").addClass("d-none");
+						$scope("#print-header").addClass("d-none");
 					}
-	
-					if (!$("#print-group-by-product-group").prop("checked"))
+
+					if (!$scope("#print-group-by-product-group").prop("checked"))
 					{
 						shoppingListPrintShadowTable.rowGroup().enable(false);
 						shoppingListPrintShadowTable.order.fixed({});
 						shoppingListPrintShadowTable.draw();
 					}
-	
-					$(".print-layout-container").addClass("d-none");
-					$("." + $("input[name='print-layout-type']:checked").val()).removeClass("d-none");
-	
+
+					$scope(".print-layout-container").addClass("d-none");
+					$scope("." + $scope("input[name='print-layout-type']:checked").val()).removeClass("d-none");
+
 					window.print();
 				}
 			}
 		}
-	
+
 		if (!Grocy.FeatureFlags["GROCY_FEATURE_FLAG_THERMAL_PRINTER"])
 		{
 			delete printButtons['printtp'];
 			sizePrintDialog = 'small';
 		}
-	
+
 		bootbox.dialog({
 			message: dialogHtml,
 			size: sizePrintDialog,
@@ -467,30 +471,30 @@
 			buttons: printButtons
 		});
 	});
-	
-	$("#description").on("summernote.change", function()
+
+	$scope("#description").on("summernote.change", function()
 	{
-		$("#save-description-button").removeClass("disabled");
-	
-		if ($("#description").summernote("isEmpty"))
+		$scope("#save-description-button").removeClass("disabled");
+
+		if ($scope("#description").summernote("isEmpty"))
 		{
-			$("#clear-description-button").addClass("disabled");
+			$scope("#clear-description-button").addClass("disabled");
 		}
 		else
 		{
-			$("#clear-description-button").removeClass("disabled");
+			$scope("#clear-description-button").removeClass("disabled");
 		}
 	});
-	
-	$(document).on("click", "#save-description-button", function(e)
+
+	top.on("click", "#save-description-button", function(e)
 	{
 		e.preventDefault();
 		document.activeElement.blur();
-	
-		Grocy.Api.Put('objects/shopping_lists/' + $("#selected-shopping-list").val(), { description: $("#description").val() },
+
+		Grocy.Api.Put('objects/shopping_lists/' + $scope("#selected-shopping-list").val(), { description: $scope("#description").val() },
 			function(result)
 			{
-				$("#save-description-button").addClass("disabled");
+				$scope("#save-description-button").addClass("disabled");
 			},
 			function(xhr)
 			{
@@ -498,35 +502,35 @@
 			}
 		);
 	});
-	
-	$(document).on("click", "#clear-description-button", function(e)
+
+	top.on("click", "#clear-description-button", function(e)
 	{
 		e.preventDefault();
 		document.activeElement.blur();
-	
-		$("#description").summernote("reset");
-		$("#save-description-button").click();
+
+		$scope("#description").summernote("reset");
+		$scope("#save-description-button").click();
 	});
-	
-	$("#description").trigger("summernote.change");
-	$("#save-description-button").addClass("disabled");
-	
+
+	$scope("#description").trigger("summernote.change");
+	$scope("#save-description-button").addClass("disabled");
+
 	$(window).on("message", function(e)
 	{
 		var data = e.originalEvent.data;
-	
+
 		if (data.Message === "ShoppingListChanged")
 		{
 			window.location.href = U('/shoppinglist?list=' + data.Payload);
 		}
 	});
-	
+
 	var dummyCanvas = document.createElement("canvas");
-	$("img.barcode").each(function()
+	$scope("img.barcode").each(function()
 	{
 		var img = $(this);
 		var barcode = img.attr("data-barcode").replace(/\D/g, "");
-	
+
 		var barcodeType = "code128";
 		if (barcode.length == 8)
 		{
@@ -536,20 +540,22 @@
 		{
 			barcodeType = "ean13";
 		}
-	
+
 		bwipjs.toCanvas(dummyCanvas, {
 			bcid: barcodeType,
 			text: barcode,
 			height: 5,
 			includetext: false
 		});
-	
+
 		img.attr("src", dummyCanvas.toDataURL("image/png"));
 	});
-	
-	if ($(window).width() < 768 || !Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK)
+
+	if (viewport.width() < 768 || !Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK)
 	{
-		$("#filter-container").removeClass("border-bottom");
+		$scope("#filter-container").removeClass("border-bottom");
 	}
-	
+
 }
+
+window.shoppinglistView = shoppinglistView

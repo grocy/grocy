@@ -6,16 +6,16 @@
 		$scope = $(scope).find;
 	}
 
-	var categoriesTable = $('#taskcategories-table').DataTable({
+	var categoriesTable = $scope('#taskcategories-table').DataTable({
 		'order': [[1, 'asc']],
 		'columnDefs': [
 			{ 'orderable': false, 'targets': 0 },
 			{ 'searchable': false, "targets": 0 }
 		].concat($.fn.dataTable.defaults.columnDefs)
 	});
-	$('#taskcategories-table tbody').removeClass("d-none");
+	$scope('#taskcategories-table tbody').removeClass("d-none");
 	Grocy.FrontendHelpers.InitDataTable(categoriesTable);
-	
+
 	Grocy.FrontendHelpers.MakeDeleteConfirmBox(
 		'Are you sure to delete task category "%s"?',
 		'.task-category-delete-button',

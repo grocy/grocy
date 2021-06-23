@@ -1,4 +1,6 @@
-﻿function batteryformView(Grocy, scope = null)
+﻿import { WindowMessageBag } from '../helpers/messagebag';
+
+function batteryformView(Grocy, scope = null)
 {
 	var $scope = $;
 	if (scope != null)
@@ -6,23 +8,21 @@
 		$scope = $(scope).find;
 	}
 
-	import { WindowMessageBag } from '../helpers/messagebag';
-	
 	Grocy.Use("numberpicker");
 	Grocy.Use("userfieldsform");
-	
-	$('#save-battery-button').on('click', function(e)
+
+	$scope('#save-battery-button').on('click', function(e)
 	{
 		e.preventDefault();
-	
+
 		if ($(".combobox-menu-visible").length)
 		{
 			return;
 		}
-	
-		var jsonData = $('#battery-form').serializeJSON();
+
+		var jsonData = $scope('#battery-form').serializeJSON();
 		Grocy.FrontendHelpers.BeginUiBusy("battery-form");
-	
+
 		if (Grocy.EditMode === 'create')
 		{
 			Grocy.Api.Post('objects/batteries', jsonData,
@@ -73,18 +73,18 @@
 			);
 		}
 	});
-	
-	$('#battery-form input').keyup(function(event)
+
+	$scope('#battery-form input').keyup(function(event)
 	{
 		Grocy.FrontendHelpers.ValidateForm('battery-form');
 	});
-	
-	$('#battery-form input').keydown(function(event)
+
+	$scope('#battery-form input').keydown(function(event)
 	{
 		if (event.keyCode === 13) //Enter
 		{
 			event.preventDefault();
-	
+
 			if (document.getElementById('battery-form').checkValidity() === false) //There is at least one validation error
 			{
 				return false;
@@ -95,9 +95,9 @@
 			}
 		}
 	});
-	
+
 	Grocy.Components.UserfieldsForm.Load();
-	$('#name').focus();
+	$scope('#name').focus();
 	Grocy.FrontendHelpers.ValidateForm('battery-form');
-	
+
 }

@@ -6,7 +6,7 @@
 		$scope = $(scope).find;
 	}
 
-	var batteriesTable = $('#batteries-table').DataTable({
+	var batteriesTable = $scope('#batteries-table').DataTable({
 		'order': [[1, 'asc']],
 		'columnDefs': [
 			{ 'orderable': false, 'targets': 0 },
@@ -14,14 +14,14 @@
 			{ "type": "num", "targets": 4 }
 		].concat($.fn.dataTable.defaults.columnDefs)
 	});
-	$('#batteries-table tbody').removeClass("d-none");
+	$scope('#batteries-table tbody').removeClass("d-none");
 	Grocy.FrontendHelpers.InitDataTable(batteriesTable, null, function()
 	{
-		$("#search").val("");
+		$scope("#search").val("");
 		batteriesTable.search("").draw();
-		$("#show-disabled").prop('checked', false);
+		$scope("#show-disabled").prop('checked', false);
 	});
-	
+
 	Grocy.FrontendHelpers.MakeDeleteConfirmBox(
 		'Are you sure to delete battery "%s"?',
 		'.battery-delete-button',
@@ -30,8 +30,8 @@
 		'objects/batteries/',
 		'/batteries'
 	);
-	
-	$("#show-disabled").change(function()
+
+	$scope("#show-disabled").change(function()
 	{
 		if (this.checked)
 		{
@@ -42,10 +42,10 @@
 			window.location.href = U('/batteries');
 		}
 	});
-	
+
 	if (GetUriParam('include_disabled'))
 	{
-		$("#show-disabled").prop('checked', true);
+		$scope("#show-disabled").prop('checked', true);
 	}
-	
+
 }

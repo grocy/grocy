@@ -6,7 +6,7 @@
 		$scope = $(scope).find;
 	}
 
-	var productsTable = $('#products-table').DataTable({
+	var productsTable = $scope('#products-table').DataTable({
 		'order': [[1, 'asc']],
 		'columnDefs': [
 			{ 'orderable': false, 'targets': 0 },
@@ -15,22 +15,22 @@
 			{ "type": "html-num-fmt", "targets": 3 }
 		].concat($.fn.dataTable.defaults.columnDefs)
 	});
-	$('#products-table tbody').removeClass("d-none");
-	
+	$scope('#products-table tbody').removeClass("d-none");
+
 	Grocy.FrontendHelpers.InitDataTable(productsTable, null, function()
 	{
-		$("#search").val("");
+		$scope("#search").val("");
 		productsTable.search("").draw();
-		$("#show-disabled").prop('checked', false);
+		$scope("#show-disabled").prop('checked', false);
 	})
-	
+
 	Grocy.FrontendHelpers.MakeFilterForColumn("#product-group-filter", 6, productsTable);
 	if (typeof GetUriParam("product-group") !== "undefined")
 	{
-		$("#product-group-filter").val(GetUriParam("product-group"));
-		$("#product-group-filter").trigger("change");
+		$scope("#product-group-filter").val(GetUriParam("product-group"));
+		$scope("#product-group-filter").trigger("change");
 	}
-	
+
 	Grocy.FrontendHelpers.MakeDeleteConfirmBox(
 		(objectId, objectName) =>
 		{
@@ -44,8 +44,8 @@
 		'objects/products/',
 		'/products'
 	);
-	
-	$("#show-disabled").change(function()
+
+	$scope("#show-disabled").change(function()
 	{
 		if (this.checked)
 		{
@@ -56,26 +56,26 @@
 			window.location.href = U('/products');
 		}
 	});
-	
+
 	if (GetUriParam('include_disabled'))
 	{
-		$("#show-disabled").prop('checked', true);
+		$scope("#show-disabled").prop('checked', true);
 	}
-	
-	
-	$(".merge-products-button").on("click", function(e)
+
+
+	$scope(".merge-products-button").on("click", function(e)
 	{
-		var productId = $(e.currentTarget).attr("data-product-id");
-		$("#merge-products-keep").val(productId);
-		$("#merge-products-remove").val("");
-		$("#merge-products-modal").modal("show");
+		var productId = $scope(e.currentTarget).attr("data-product-id");
+		$scope("#merge-products-keep").val(productId);
+		$scope("#merge-products-remove").val("");
+		$scope("#merge-products-modal").modal("show");
 	});
-	
-	$("#merge-products-save-button").on("click", function()
+
+	$scope("#merge-products-save-button").on("click", function()
 	{
-		var productIdToKeep = $("#merge-products-keep").val();
-		var productIdToRemove = $("#merge-products-remove").val();
-	
+		var productIdToKeep = $scope("#merge-products-keep").val();
+		var productIdToRemove = $scope("#merge-products-remove").val();
+
 		Grocy.Api.Post("stock/products/" + productIdToKeep.toString() + "/merge/" + productIdToRemove.toString(), {},
 			function(result)
 			{
@@ -87,5 +87,5 @@
 			}
 		);
 	});
-	
+
 }

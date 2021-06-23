@@ -1,4 +1,6 @@
-﻿function stockentryformView(Grocy, scope = null)
+﻿import { WindowMessageBag } from '../helpers/messagebag';
+
+function stockentryformView(Grocy, scope = null)
 {
 	var $scope = $;
 	if (scope != null)
@@ -6,31 +8,29 @@
 		$scope = $(scope).find;
 	}
 
-	import { WindowMessageBag } from '../helpers/messagebag';
-	
 	Grocy.Use("datetimepicker");
 	Grocy.Use("datetimepicker2");
 	Grocy.Use("locationpicker");
 	Grocy.Use("numberpicker");
 	Grocy.Use("shoppinglocationpicker");
-	
-	$('#save-stockentry-button').on('click', function(e)
+
+	$scope('#save-stockentry-button').on('click', function(e)
 	{
 		e.preventDefault();
-	
-		if ($(".combobox-menu-visible").length)
+
+		if ($scope(".combobox-menu-visible").length)
 		{
 			return;
 		}
-	
-		var jsonForm = $('#stockentry-form').serializeJSON();
+
+		var jsonForm = $scope('#stockentry-form').serializeJSON();
 		Grocy.FrontendHelpers.BeginUiBusy("stockentry-form");
-	
+
 		if (!jsonForm.price.toString().isEmpty())
 		{
 			jsonData.price = parseFloat(jsonForm.price).toFixed(Grocy.UserSettings.stock_decimal_places_prices);
 		}
-	
+
 		var jsonData = {};
 		jsonData.amount = jsonForm.amount;
 		jsonData.best_before_date = Grocy.Components.DateTimePicker.GetValue();
@@ -47,14 +47,14 @@
 		{
 			jsonData.location_id = 1;
 		}
-	
-		jsonData.open = $("#open").is(":checked");
-	
+
+		jsonData.open = $scope("#open").is(":checked");
+
 		Grocy.Api.Put("stock/entry/" + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
 				var successMessage = __t('Stock entry successfully updated') + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="Grocy.UndoStockBookingEntry(\'' + result.id + '\',\'' + Grocy.EditObjectId + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
-	
+
 				window.parent.postMessage(WindowMessageBag("StockEntryChanged", Grocy.EditObjectId), Grocy.BaseUrl);
 				window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", successMessage), Grocy.BaseUrl);
 				window.parent.postMessage(WindowMessageBag("Ready"), Grocy.BaseUrl);
@@ -67,67 +67,69 @@
 			}
 		);
 	});
-	
+
 	Grocy.FrontendHelpers.ValidateForm('stockentry-form');
-	
-	$('#stockentry-form input').keyup(function(event)
+
+	$scope('#stockentry-form input').keyup(function(event)
 	{
 		Grocy.FrontendHelpers.ValidateForm('stockentry-form');
 	});
-	
-	$('#stockentry-form input').keydown(function(event)
+
+	$scope('#stockentry-form input').keydown(function(event)
 	{
 		if (event.keyCode === 13) //Enter
 		{
 			event.preventDefault();
-	
+
 			if (document.getElementById('stockentry-form').checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}
 			else
 			{
-				$('#save-stockentry-button').click();
+				$scope('#save-stockentry-button').click();
 			}
 		}
 	});
-	
+
 	Grocy.Components.DateTimePicker.GetInputElement().on('change', function(e)
 	{
 		Grocy.FrontendHelpers.ValidateForm('stockentry-form');
 	});
-	
+
 	Grocy.Components.DateTimePicker.GetInputElement().on('keypress', function(e)
 	{
 		Grocy.FrontendHelpers.ValidateForm('stockentry-form');
 	});
-	
+
 	Grocy.Components.DateTimePicker2.GetInputElement().on('change', function(e)
 	{
 		Grocy.FrontendHelpers.ValidateForm('stockentry-form');
 	});
-	
+
 	Grocy.Components.DateTimePicker2.GetInputElement().on('keypress', function(e)
 	{
 		Grocy.FrontendHelpers.ValidateForm('stockentry-form');
 	});
-	
+
 	Grocy.Api.Get('stock/products/' + Grocy.EditObjectProductId,
 		function(productDetails)
 		{
-			$('#amount_qu_unit').text(productDetails.quantity_unit_stock.name);
+			$scope('#amount_qu_unit').text(productDetails.quantity_unit_stock.name);
 		},
 		function(xhr)
 		{
 			console.error(xhr);
 		}
 	);
-	
-	$("#amount").on("focus", function(e)
+
+	$scope("#amount").on("focus", function(e)
 	{
 		$(this).select();
 	});
-	$("#amount").focus();
+	$scope("#amount").focus();
 	Grocy.FrontendHelpers.ValidateForm("stockentry-form");
-	
+
 }
+
+window.stockentryformView = stockentryformView;

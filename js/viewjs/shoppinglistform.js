@@ -7,21 +7,21 @@
 	}
 
 	import { WindowMessageBag } from '../helpers/messagebag';
-	
+
 	Grocy.Use("userfieldsform");
-	
-	$('#save-shopping-list-button').on('click', function(e)
+
+	$scope('#save-shopping-list-button').on('click', function(e)
 	{
 		e.preventDefault();
-	
-		if ($(".combobox-menu-visible").length)
+
+		if ($scope(".combobox-menu-visible").length)
 		{
 			return;
 		}
-	
-		var jsonData = $('#shopping-list-form').serializeJSON();
+
+		var jsonData = $scope('#shopping-list-form').serializeJSON();
 		Grocy.FrontendHelpers.BeginUiBusy("shopping-list-form");
-	
+
 		if (Grocy.EditMode === 'create')
 		{
 			Grocy.Api.Post('objects/shopping_lists', jsonData,
@@ -62,31 +62,31 @@
 			});
 		}
 	});
-	
-	$('#shopping-list-form input').keyup(function(event)
+
+	$scope('#shopping-list-form input').keyup(function(event)
 	{
 		Grocy.FrontendHelpers.ValidateForm('shopping-list-form');
 	});
-	
-	$('#shopping-list-form input').keydown(function(event)
+
+	$scope('#shopping-list-form input').keydown(function(event)
 	{
 		if (event.keyCode === 13) //Enter
 		{
 			event.preventDefault();
-	
+
 			if (document.getElementById('shopping-list-form').checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}
 			else
 			{
-				$('#save-shopping-list-button').click();
+				$scope('#save-shopping-list-button').click();
 			}
 		}
 	});
-	
+
 	Grocy.Components.UserfieldsForm.Load();
-	$('#name').focus();
+	$scope('#name').focus();
 	Grocy.FrontendHelpers.ValidateForm('shopping-list-form');
-	
+
 }

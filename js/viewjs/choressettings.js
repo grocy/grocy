@@ -7,9 +7,9 @@
 	}
 
 	Grocy.Use("numberpicker");
-	
-	$("#chores_due_soon_days").val(Grocy.UserSettings.chores_due_soon_days);
-	
+
+	$scope("#chores_due_soon_days").val(Grocy.UserSettings.chores_due_soon_days);
+
 	RefreshLocaleNumberInput();
-	
+
 }

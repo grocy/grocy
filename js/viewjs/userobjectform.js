@@ -1,4 +1,6 @@
-﻿function userobjectformView(Grocy, scope = null)
+﻿import { WindowMessageBag } from '../helpers/messagebag';
+
+function userobjectformView(Grocy, scope = null)
 {
 	var $scope = $;
 	if (scope != null)
@@ -6,24 +8,22 @@
 		$scope = $(scope).find;
 	}
 
-	import { WindowMessageBag } from '../helpers/messagebag';
-	
 	Grocy.Use("userfieldsform");
-	
-	$('#save-userobject-button').on('click', function(e)
+
+	$scope('#save-userobject-button').on('click', function(e)
 	{
 		e.preventDefault();
-	
-		if ($(".combobox-menu-visible").length)
+
+		if ($scope(".combobox-menu-visible").length)
 		{
 			return;
 		}
-	
+
 		var jsonData = {};
 		jsonData.userentity_id = Grocy.EditObjectParentId;
-	
+
 		Grocy.FrontendHelpers.BeginUiBusy("userobject-form");
-	
+
 		if (Grocy.EditMode === 'create')
 		{
 			Grocy.Api.Post('objects/userobjects', jsonData,
@@ -74,8 +74,10 @@
 			);
 		}
 	});
-	
+
 	Grocy.Components.UserfieldsForm.Load();
-	$("#userfields-form").removeClass("border").removeClass("border-info").removeClass("p-2").find("h2").addClass("d-none");
-	
+	$scope("#userfields-form").removeClass("border").removeClass("border-info").removeClass("p-2").find("h2").addClass("d-none");
+
 }
+
+window.userobjectformView = userobjectformView;

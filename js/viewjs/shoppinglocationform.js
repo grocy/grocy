@@ -1,4 +1,6 @@
-﻿function shoppinglocationformView(Grocy, scope = null)
+﻿import { WindowMessageBag } from '../helpers/messagebag';
+
+function shoppinglocationformView(Grocy, scope = null)
 {
 	var $scope = $;
 	if (scope != null)
@@ -6,22 +8,20 @@
 		$scope = $(scope).find;
 	}
 
-	import { WindowMessageBag } from '../helpers/messagebag';
-	
 	Grocy.Use("userfieldsform");
-	
-	$('#save-shopping-location-button').on('click', function(e)
+
+	$scope('#save-shopping-location-button').on('click', function(e)
 	{
 		e.preventDefault();
-	
-		if ($(".combobox-menu-visible").length)
+
+		if ($scope(".combobox-menu-visible").length)
 		{
 			return;
 		}
-	
-		var jsonData = $('#shoppinglocation-form').serializeJSON();
+
+		var jsonData = $scope('#shoppinglocation-form').serializeJSON();
 		Grocy.FrontendHelpers.BeginUiBusy("shoppinglocation-form");
-	
+
 		if (Grocy.EditMode === 'create')
 		{
 			Grocy.Api.Post('objects/shopping_locations', jsonData,
@@ -72,31 +72,33 @@
 			);
 		}
 	});
-	
-	$('#shoppinglocation-form input').keyup(function(event)
+
+	$scope('#shoppinglocation-form input').keyup(function(event)
 	{
 		Grocy.FrontendHelpers.ValidateForm('shoppinglocation-form');
 	});
-	
-	$('#shoppinglocation-form input').keydown(function(event)
+
+	$scope('#shoppinglocation-form input').keydown(function(event)
 	{
 		if (event.keyCode === 13) //Enter
 		{
 			event.preventDefault();
-	
+
 			if (document.getElementById('shoppinglocation-form').checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}
 			else
 			{
-				$('#save-shopping-location-button').click();
+				$scope('#save-shopping-location-button').click();
 			}
 		}
 	});
-	
+
 	Grocy.Components.UserfieldsForm.Load();
-	$('#name').focus();
+	$scope('#name').focus();
 	Grocy.FrontendHelpers.ValidateForm('shoppinglocation-form');
-	
+
 }
+
+window.shoppinglocationformView = shoppinglocationformView;

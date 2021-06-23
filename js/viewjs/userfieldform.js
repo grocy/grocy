@@ -1,4 +1,6 @@
-﻿function userfieldformView(Grocy, scope = null)
+﻿import { WindowMessageBag } from '../helpers/messagebag';
+
+function userfieldformView(Grocy, scope = null)
 {
 	var $scope = $;
 	if (scope != null)
@@ -6,28 +8,26 @@
 		$scope = $(scope).find;
 	}
 
-	import { WindowMessageBag } from '../helpers/messagebag';
-	
 	Grocy.Use("numberpicker");
-	
-	$('#save-userfield-button').on('click', function(e)
+
+	$scope('#save-userfield-button').on('click', function(e)
 	{
 		e.preventDefault();
-	
-		if ($(".combobox-menu-visible").length)
+
+		if ($scope(".combobox-menu-visible").length)
 		{
 			return;
 		}
-	
-		var jsonData = $('#userfield-form').serializeJSON();
+
+		var jsonData = $scope('#userfield-form').serializeJSON();
 		Grocy.FrontendHelpers.BeginUiBusy("userfield-form");
-	
+
 		var redirectUrl = U("/userfields");
 		if (typeof GetUriParam("entity") !== "undefined" && !GetUriParam("entity").isEmpty())
 		{
 			redirectUrl = U("/userfields?entity=" + GetUriParam("entity"));
 		}
-	
+
 		if (Grocy.EditMode === 'create')
 		{
 			Grocy.Api.Post('objects/userfields', jsonData,
@@ -71,60 +71,62 @@
 			);
 		}
 	});
-	
-	$('#userfield-form input').keyup(function(event)
+
+	$scope('#userfield-form input').keyup(function(event)
 	{
 		Grocy.FrontendHelpers.ValidateForm('userfield-form');
 	});
-	
-	$('#userfield-form select').change(function(event)
+
+	$scope('#userfield-form select').change(function(event)
 	{
 		Grocy.FrontendHelpers.ValidateForm('userfield-form');
 	});
-	
-	$('#userfield-form input').keydown(function(event)
+
+	$scope('#userfield-form input').keydown(function(event)
 	{
 		if (event.keyCode === 13) //Enter
 		{
 			event.preventDefault();
-	
+
 			if (document.getElementById('userfield-form').checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}
 			else
 			{
-				$('#save-userfield-button').click();
+				$scope('#save-userfield-button').click();
 			}
 		}
 	});
-	
-	$("#type").on("change", function(e)
+
+	$scope("#type").on("change", function(e)
 	{
 		var value = $(this).val();
-	
+
 		if (value === "preset-list" || value === "preset-checklist")
 		{
-			$("#config").parent().removeClass("d-none");
-			$("#config-hint").text(__t("A predefined list of values, one per line"));
+			$scope("#config").parent().removeClass("d-none");
+			$scope("#config-hint").text(__t("A predefined list of values, one per line"));
 		}
 		else
 		{
-			$("#config").parent().addClass("d-none");
-			$("#config-hint").text("");
+			$scope("#config").parent().addClass("d-none");
+			$scope("#config-hint").text("");
 		}
 	});
-	
-	$('#entity').focus();
-	
+
+	$scope('#entity').focus();
+
 	if (typeof GetUriParam("entity") !== "undefined" && !GetUriParam("entity").isEmpty())
 	{
-		$("#entity").val(GetUriParam("entity"));
-		$("#entity").trigger("change");
-		$('#name').focus();
+		$scope("#entity").val(GetUriParam("entity"));
+		$scope("#entity").trigger("change");
+		$scope('#name').focus();
 	}
-	
-	$("#type").trigger("change");
+
+	$scope("#type").trigger("change");
 	Grocy.FrontendHelpers.ValidateForm('userfield-form');
-	
+
 }
+
+window.userfieldformView = userfieldformView;

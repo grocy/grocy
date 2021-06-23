@@ -1,4 +1,6 @@
-﻿function quantityunitconversionformView(Grocy, scope = null)
+﻿import { WindowMessageBag } from '../helpers/messagebag';
+
+function quantityunitconversionformView(Grocy, scope = null)
 {
 	var $scope = $;
 	if (scope != null)
@@ -6,29 +8,27 @@
 		$scope = $(scope).find;
 	}
 
-	import { WindowMessageBag } from '../helpers/messagebag';
-	
 	Grocy.Use("numberpicker");
 	Grocy.Use("userfieldsform");
-	
-	$('#save-quconversion-button').on('click', function(e)
+
+	$scope('#save-quconversion-button').on('click', function(e)
 	{
 		e.preventDefault();
-	
-		if ($(".combobox-menu-visible").length)
+
+		if ($scope(".combobox-menu-visible").length)
 		{
 			return;
 		}
-	
-		var jsonData = $('#quconversion-form').serializeJSON();
-		jsonData.from_qu_id = $("#from_qu_id").val();
+
+		var jsonData = $scope('#quconversion-form').serializeJSON();
+		jsonData.from_qu_id = $scope("#from_qu_id").val();
 		Grocy.FrontendHelpers.BeginUiBusy("quconversion-form");
-		if ($("#create_inverse").is(":checked"))
+		if ($scope("#create_inverse").is(":checked"))
 		{
-			var inverse_to_qu_id = $("#from_qu_id").val();
-			var inverse_from_qu_id = $("#to_qu_id").val();
+			var inverse_to_qu_id = $scope("#from_qu_id").val();
+			var inverse_from_qu_id = $scope("#to_qu_id").val();
 		}
-	
+
 		if (Grocy.EditMode === 'create')
 		{
 			Grocy.Api.Post('objects/quantity_unit_conversions', jsonData,
@@ -37,12 +37,12 @@
 					Grocy.EditObjectId = result.created_object_id;
 					Grocy.Components.UserfieldsForm.Save(function()
 					{
-						if ($("#create_inverse").is(":checked"))
+						if ($scope("#create_inverse").is(":checked"))
 						{
 							jsonData.to_qu_id = inverse_to_qu_id;
 							jsonData.from_qu_id = inverse_from_qu_id;
 							jsonData.factor = 1 / jsonData.factor;
-	
+
 							//Create Inverse
 							Grocy.Api.Post('objects/quantity_unit_conversions', jsonData,
 								function(result)
@@ -136,88 +136,90 @@
 			);
 		}
 	});
-	
-	$('#quconversion-form input').keyup(function(event)
+
+	$scope('#quconversion-form input').keyup(function(event)
 	{
-		$('.input-group-qu').trigger('change');
+		$scope('.input-group-qu').trigger('change');
 		Grocy.FrontendHelpers.ValidateForm('quconversion-form');
 	});
-	
-	$('#quconversion-form input').keydown(function(event)
+
+	$scope('#quconversion-form input').keydown(function(event)
 	{
 		if (event.keyCode === 13) //Enter
 		{
 			event.preventDefault();
-	
+
 			if (document.getElementById('quconversion-form').checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}
 			else
 			{
-				$('#save-quconversion-button').click();
+				$scope('#save-quconversion-button').click();
 			}
 		}
 	});
-	
-	$("#create_inverse").on("change", function()
+
+	$scope("#create_inverse").on("change", function()
 	{
 		var value = $(this).is(":checked");
-	
+
 		if (value)
 		{
-			$('#qu-conversion-inverse-info').removeClass('d-none');
+			$scope('#qu-conversion-inverse-info').removeClass('d-none');
 		}
 		else
 		{
-			$('#qu-conversion-inverse-info').addClass('d-none');
+			$scope('#qu-conversion-inverse-info').addClass('d-none');
 		}
 	});
-	
-	$('.input-group-qu').on('change', function(e)
+
+	$scope('.input-group-qu').on('change', function(e)
 	{
-		var fromQuId = $("#from_qu_id").val();
-		var toQuId = $("#to_qu_id").val();
-		var factor = $('#factor').val();
-	
+		var fromQuId = $scope("#from_qu_id").val();
+		var toQuId = $scope("#to_qu_id").val();
+		var factor = $scope('#factor').val();
+
 		if (fromQuId == toQuId)
 		{
-			$("#to_qu_id").parent().find(".invalid-feedback").text(__t('This cannot be equal to %s', $("#from_qu_id option:selected").text()));
-			$("#to_qu_id")[0].setCustomValidity("error");
+			$scope("#to_qu_id").parent().find(".invalid-feedback").text(__t('This cannot be equal to %s', $scope("#from_qu_id option:selected").text()));
+			$scope("#to_qu_id")[0].setCustomValidity("error");
 		}
 		else
 		{
-			$("#to_qu_id")[0].setCustomValidity("");
+			$scope("#to_qu_id")[0].setCustomValidity("");
 		}
-	
+
 		if (fromQuId && toQuId)
 		{
-			$('#qu-conversion-info').text(__t('This means 1 %1$s is the same as %2$s %3$s', $("#from_qu_id option:selected").text(), parseFloat((1 * factor)).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }), __n((1 * factor).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }), $("#to_qu_id option:selected").text(), $("#to_qu_id option:selected").data("plural-form"))));
-			$('#qu-conversion-info').removeClass('d-none');
-	
+			$scope('#qu-conversion-info').text(__t('This means 1 %1$s is the same as %2$s %3$s', $scope("#from_qu_id option:selected").text(), parseFloat((1 * factor)).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }), __n((1 * factor).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }), $scope("#to_qu_id option:selected").text(), $scope("#to_qu_id option:selected").data("plural-form"))));
+			$scope('#qu-conversion-info').removeClass('d-none');
+
 			if (Grocy.EditMode === 'create')
 			{
-				$('#qu-conversion-inverse-info').text(__t('This means 1 %1$s is the same as %2$s %3$s', $("#to_qu_id option:selected").text(), parseFloat((1 / factor)).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }), __n((1 / factor).toString(), $("#from_qu_id option:selected").text(), $("#from_qu_id option:selected").data("plural-form"))));
-				$('#qu-conversion-inverse-info').removeClass('d-none');
+				$scope('#qu-conversion-inverse-info').text(__t('This means 1 %1$s is the same as %2$s %3$s', $scope("#to_qu_id option:selected").text(), parseFloat((1 / factor)).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }), __n((1 / factor).toString(), $scope("#from_qu_id option:selected").text(), $scope("#from_qu_id option:selected").data("plural-form"))));
+				$scope('#qu-conversion-inverse-info').removeClass('d-none');
 			}
 		}
 		else
 		{
-			$('#qu-conversion-info').addClass('d-none');
-			$('#qu-conversion-inverse-info').addClass('d-none');
+			$scope('#qu-conversion-info').addClass('d-none');
+			$scope('#qu-conversion-inverse-info').addClass('d-none');
 		}
-	
+
 		Grocy.FrontendHelpers.ValidateForm('quconversion-form');
 	});
-	
+
 	Grocy.Components.UserfieldsForm.Load();
-	$('.input-group-qu').trigger('change');
-	$('#from_qu_id').focus();
+	$scope('.input-group-qu').trigger('change');
+	$scope('#from_qu_id').focus();
 	Grocy.FrontendHelpers.ValidateForm('quconversion-form');
-	
+
 	if (GetUriParam("qu-unit") !== undefined)
 	{
-		$("#from_qu_id").attr("disabled", "");
+		$scope("#from_qu_id").attr("disabled", "");
 	}
-	
+
 }
+
+window.quantityunitconversionformView = quantityunitconversionformView

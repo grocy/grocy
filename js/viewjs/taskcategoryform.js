@@ -7,19 +7,19 @@
 	}
 
 	import { WindowMessageBag } from '../helpers/messagebag';
-	
-	$('#save-task-category-button').on('click', function(e)
+
+	$scope('#save-task-category-button').on('click', function(e)
 	{
 		e.preventDefault();
-	
-		if ($(".combobox-menu-visible").length)
+
+		if ($scope(".combobox-menu-visible").length)
 		{
 			return;
 		}
-	
-		var jsonData = $('#task-category-form').serializeJSON();
+
+		var jsonData = $scope('#task-category-form').serializeJSON();
 		Grocy.FrontendHelpers.BeginUiBusy("task-category-form");
-	
+
 		if (Grocy.EditMode === 'create')
 		{
 			Grocy.Api.Post('objects/task_categories', jsonData,
@@ -70,31 +70,31 @@
 			);
 		}
 	});
-	
-	$('#task-category-form input').keyup(function(event)
+
+	$scope('#task-category-form input').keyup(function(event)
 	{
 		Grocy.FrontendHelpers.ValidateForm('task-category-form');
 	});
-	
-	$('#task-category-form input').keydown(function(event)
+
+	$scope('#task-category-form input').keydown(function(event)
 	{
 		if (event.keyCode === 13) //Enter
 		{
 			event.preventDefault();
-	
+
 			if (document.getElementById('task-category-form').checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}
 			else
 			{
-				$('#save-task-category-button').click();
+				$scope('#save-task-category-button').click();
 			}
 		}
 	});
-	
+
 	Grocy.Components.UserfieldsForm.Load();
-	$('#name').focus();
+	$scope('#name').focus();
 	Grocy.FrontendHelpers.ValidateForm('task-category-form');
-	
+
 }

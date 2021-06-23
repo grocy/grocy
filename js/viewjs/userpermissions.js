@@ -6,25 +6,25 @@
 		$scope = $(scope).find;
 	}
 
-	$('input.permission-cb').click(
+	$scope('input.permission-cb').click(
 		function()
 		{
 			check_hierachy(this.checked, this.name);
 		}
 	);
-	
+
 	function check_hierachy(checked, name)
 	{
 		var disabled = checked;
-		$('#permission-sub-' + name).find('input.permission-cb')
+		$scope('#permission-sub-' + name).find('input.permission-cb')
 			.prop('checked', disabled)
 			.attr('disabled', disabled);
 	}
-	
-	$('#permission-save').click(
+
+	$scope('#permission-save').click(
 		function()
 		{
-			var permission_list = $('input.permission-cb')
+			var permission_list = $scope('input.permission-cb')
 				.filter(function()
 				{
 					return $(this).prop('checked') && !$(this).attr('disabled');
@@ -32,7 +32,7 @@
 				{
 					return $(this).data('perm-id');
 				}).toArray();
-	
+
 			Grocy.Api.Put('users/' + Grocy.EditObjectId + '/permissions', { 'permissions': permission_list },
 				function(result)
 				{
@@ -45,13 +45,13 @@
 			);
 		}
 	);
-	
+
 	if (Grocy.EditObjectId == Grocy.UserId)
 	{
-		$('input.permission-cb[name=ADMIN]').click(function()
+		$scope('input.permission-cb[name=ADMIN]').click(function()
 		{
 			var element = this;
-	
+
 			if (!element.checked)
 			{
 				bootbox.confirm({
@@ -79,5 +79,5 @@
 			}
 		})
 	}
-	
+
 }

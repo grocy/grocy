@@ -6,7 +6,7 @@
 		$scope = $(scope).find;
 	}
 
-	var batteriesJournalTable = $('#batteries-journal-table').DataTable({
+	var batteriesJournalTable = $scope('#batteries-journal-table').DataTable({
 		'paginate': true,
 		'order': [[2, 'desc']],
 		'columnDefs': [
@@ -14,23 +14,25 @@
 			{ 'searchable': false, "targets": 0 }
 		].concat($.fn.dataTable.defaults.columnDefs)
 	});
-	$('#batteries-journal-table tbody').removeClass("d-none");
+	$scope('#batteries-journal-table tbody').removeClass("d-none");
 	Grocy.FrontendHelpers.InitDataTable(batteriesJournalTable);
 	Grocy.FrontendHelpers.MakeFilterForColumn("#battery-filter", 1, batteriesJournalTable);
-	
+
 	if (typeof GetUriParam("battery") !== "undefined")
 	{
-		$("#battery-filter").val(GetUriParam("battery"));
-		$("#battery-filter").trigger("change");
+		$scope("#battery-filter").val(GetUriParam("battery"));
+		$scope("#battery-filter").trigger("change");
 	}
-	
-	$(document).on('click', '.undo-battery-execution-button', function(e)
+
+	var top = scope != null ? $(scope) : $(document);
+
+	top.on('click', '.undo-battery-execution-button', function(e)
 	{
 		e.preventDefault();
-	
+
 		var element = $(e.currentTarget);
 		var chargeCycleId = $(e.currentTarget).attr('data-charge-cycle-id');
-	
+
 		Grocy.Api.Post('batteries/charge-cycles/' + chargeCycleId.toString() + '/undo', {},
 			function(result)
 			{
@@ -46,5 +48,5 @@
 			}
 		);
 	});
-	
+
 }

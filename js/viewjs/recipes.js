@@ -1,14 +1,16 @@
 ﻿function recipesView(Grocy, scope = null)
 {
 	var $scope = $;
+	var viewport = scope != null ? $(scope) : $(window);
+	var top = scope != null ? $(scope) : $(document)
 	if (scope != null)
 	{
 		$scope = $(scope).find;
 	}
 
 	Grocy.Use("numberpicker");
-	
-	var recipesTables = $('#recipes-table').DataTable({
+
+	var recipesTables = $scope('#recipes-table').DataTable({
 		'order': [[1, 'asc']],
 		'columnDefs': [
 			{ 'orderable': false, 'targets': 0 },
@@ -24,91 +26,91 @@
 			this.api().row({ order: 'current' }, 0).select();
 		}
 	});
-	$('#recipes-table tbody').removeClass("d-none");
-	Grocy.FrontendHelpers.InitDataTable(recipesTables,
+	$scope('#recipes-table tbody').removeClass("d-none");
+	Grocy.FrontendHelpers.InitDataTable(recipesTables, $scope,
 		function()
 		{
 			var value = $(this).val();
-	
+
 			recipesTables.search(value).draw();
-	
-			$(".recipe-gallery-item").removeClass("d-none");
-	
-			$(".recipe-gallery-item .card-title:not(:contains_case_insensitive(" + value + "))").parent().parent().parent().addClass("d-none");
+
+			$scope(".recipe-gallery-item").removeClass("d-none");
+
+			$scope(".recipe-gallery-item .card-title:not(:contains_case_insensitive(" + value + "))").parent().parent().parent().addClass("d-none");
 		},
 		function() // custom status filter below
 		{
-			$("#search").val("");
-			$("#status-filter").val("all");
-			$("#search").trigger("keyup");
-			$("#status-filter").trigger("change");
+			$scope("#search").val("");
+			$scope("#status-filter").val("all");
+			$scope("#search").trigger("keyup");
+			$scope("#status-filter").trigger("change");
 		})
-	
+
 	if ((typeof GetUriParam("tab") !== "undefined" && GetUriParam("tab") === "gallery") || window.localStorage.getItem("recipes_last_tab_id") == "gallery-tab")
 	{
-		$(".nav-tabs a[href='#gallery']").tab("show");
+		$scope(".nav-tabs a[href='#gallery']").tab("show");
 	}
-	
+
 	var recipe = GetUriParam("recipe");
 	if (typeof recipe !== "undefined")
 	{
-		$("#recipes-table tr").removeClass("selected");
+		$scope("#recipes-table tr").removeClass("selected");
 		var rowId = "#recipe-row-" + recipe;
-		$(rowId).addClass("selected")
-	
+		$scope(rowId).addClass("selected")
+
 		var cardId = "#RecipeGalleryCard-" + recipe;
-		$(cardId).addClass("border-primary");
-	
-		if ($(window).width() < 768)
+		$scope(cardId).addClass("border-primary");
+
+		if (viewport.width() < 768)
 		{
 			// Scroll to recipe card on mobile
-			$("#selectedRecipeCard")[0].scrollIntoView();
+			$scope("#selectedRecipeCard")[0].scrollIntoView();
 		}
 	}
-	
+
 	if (GetUriParam("search") !== undefined)
 	{
-		$("#search").val(GetUriParam("search"));
+		$scope("#search").val(GetUriParam("search"));
 		setTimeout(function()
 		{
-			$("#search").keyup();
+			$scope("#search").keyup();
 		}, 50);
 	}
-	
-	$("a[data-toggle='tab']").on("shown.bs.tab", function(e)
+
+	$scope("a[data-toggle='tab']").on("shown.bs.tab", function(e)
 	{
 		var tabId = $(e.target).attr("id");
 		window.localStorage.setItem("recipes_last_tab_id", tabId);
 	});
-	
-	$("#status-filter").on("change", function()
+
+	$scope("#status-filter").on("change", function()
 	{
 		var value = $(this).val();
 		if (value === "all")
 		{
 			value = "";
 		}
-	
+
 		recipesTables.column(5).search(value).draw();
-	
-		$('.recipe-gallery-item').removeClass('d-none');
+
+		$scope('.recipe-gallery-item').removeClass('d-none');
 		if (value !== "")
 		{
 			if (value === 'Xenoughinstock')
 			{
-				$('.recipe-gallery-item').not('.recipe-enoughinstock').addClass('d-none');
+				$scope('.recipe-gallery-item').not('.recipe-enoughinstock').addClass('d-none');
 			}
 			else if (value === 'enoughinstockwithshoppinglist')
 			{
-				$('.recipe-gallery-item').not('.recipe-enoughinstockwithshoppinglist').addClass('d-none');
+				$scope('.recipe-gallery-item').not('.recipe-enoughinstockwithshoppinglist').addClass('d-none');
 			}
 			if (value === 'notenoughinstock')
 			{
-				$('.recipe-gallery-item').not('.recipe-notenoughinstock').addClass('d-none');
+				$scope('.recipe-gallery-item').not('.recipe-notenoughinstock').addClass('d-none');
 			}
 		}
 	});
-	
+
 	Grocy.FrontendHelpers.MakeDeleteConfirmBox(
 		'Are you sure to delete recipe "%s"?',
 		'.recipe-delete',
@@ -117,7 +119,7 @@
 		'objects/recipes/',
 		'/recipes'
 	);
-	
+
 	Grocy.FrontendHelpers.MakeYesNoBox(
 		(e) =>
 		{
@@ -126,7 +128,7 @@
 				"<br><br>" +
 				__t("Uncheck ingredients to not put them on the shopping list") +
 				":" +
-				$("#missing-recipe-pos-list")[0].outerHTML.replace("d-none", "");
+				$scope("#missing-recipe-pos-list")[0].outerHTML.replace("d-none", "");
 		},
 		'.recipe-shopping-list',
 		(result, e) =>
@@ -135,13 +137,13 @@
 			if (result === true)
 			{
 				Grocy.FrontendHelpers.BeginUiBusy();
-	
+
 				var excludedProductIds = new Array();
-				$(".missing-recipe-pos-product-checkbox:checkbox:not(:checked)").each(function()
+				$scope(".missing-recipe-pos-product-checkbox:checkbox:not(:checked)").each(function()
 				{
 					excludedProductIds.push($(this).data("product-id"));
 				});
-	
+
 				Grocy.Api.Post('recipes/' + objectId + '/add-not-fulfilled-products-to-shoppinglist', { "excludedProductIds": excludedProductIds },
 					function(result)
 					{
@@ -156,7 +158,7 @@
 			}
 		}
 	);
-	
+
 	Grocy.FrontendHelpers.MakeYesNoBox(
 		(e) =>
 		{
@@ -172,7 +174,7 @@
 			if (result === true)
 			{
 				Grocy.FrontendHelpers.BeginUiBusy();
-	
+
 				Grocy.Api.Post('recipes/' + objectId + '/consume', {},
 					function(result)
 					{
@@ -189,12 +191,12 @@
 			}
 		}
 	);
-	
+
 	recipesTables.on('select', function(e, dt, type, indexes)
 	{
 		if (type === 'row')
 		{
-			var selectedRecipeId = $(recipesTables.row(indexes[0]).node()).data("recipe-id");
+			var selectedRecipeId = $scope(recipesTables.row(indexes[0]).node()).data("recipe-id");
 			var currentRecipeId = window.location.search.split('recipe=')[1];
 			if (selectedRecipeId.toString() !== currentRecipeId)
 			{
@@ -202,24 +204,24 @@
 			}
 		}
 	});
-	
-	$(".recipe-gallery-item").on("click", function(e)
+
+	$scope(".recipe-gallery-item").on("click", function(e)
 	{
 		e.preventDefault();
-	
+
 		window.location.href = U('/recipes?tab=gallery&recipe=' + $(this).data("recipe-id"));
 	});
-	
-	$(".recipe-fullscreen").on('click', function(e)
+
+	$scope(".recipe-fullscreen").on('click', function(e)
 	{
 		e.preventDefault();
-	
-		$("#selectedRecipeCard").toggleClass("fullscreen");
-		$("body").toggleClass("fullscreen-card");
-		$("#selectedRecipeCard .card-header").toggleClass("fixed-top");
-		$("#selectedRecipeCard .card-body").toggleClass("mt-5");
-	
-		if ($("body").hasClass("fullscreen-card"))
+
+		$scope("#selectedRecipeCard").toggleClass("fullscreen");
+		$scope("body").toggleClass("fullscreen-card");
+		$scope("#selectedRecipeCard .card-header").toggleClass("fixed-top");
+		$scope("#selectedRecipeCard .card-body").toggleClass("mt-5");
+
+		if ($scope("body").hasClass("fullscreen-card"))
 		{
 			window.location.hash = "#fullscreen";
 		}
@@ -228,25 +230,25 @@
 			window.history.replaceState(null, null, " ");
 		}
 	});
-	
-	$(".recipe-print").on('click', function(e)
+
+	$scope(".recipe-print").on('click', function(e)
 	{
 		e.preventDefault();
-	
-		$("#selectedRecipeCard").removeClass("fullscreen");
-		$("body").removeClass("fullscreen-card");
-		$("#selectedRecipeCard .card-header").removeClass("fixed-top");
-		$("#selectedRecipeCard .card-body").removeClass("mt-5");
-	
+
+		$scope("#selectedRecipeCard").removeClass("fullscreen");
+		$scope("body").removeClass("fullscreen-card");
+		$scope("#selectedRecipeCard .card-header").removeClass("fixed-top");
+		$scope("#selectedRecipeCard .card-body").removeClass("mt-5");
+
 		window.history.replaceState(null, null, " ");
 		window.print();
 	});
-	
-	$('#servings-scale').keyup(function(event)
+
+	$scope('#servings-scale').keyup(function(event)
 	{
 		var data = {};
 		data.desired_servings = $(this).val();
-	
+
 		Grocy.Api.Put('objects/recipes/' + $(this).data("recipe-id"), data,
 			function(result)
 			{
@@ -258,20 +260,20 @@
 			}
 		);
 	});
-	
-	$(document).on("click", ".missing-recipe-pos-select-button", function(e)
+
+	top.on("click", ".missing-recipe-pos-select-button", function(e)
 	{
 		e.preventDefault();
-	
+
 		var checkbox = $(this).find(".form-check-input");
 		checkbox.prop("checked", !checkbox.prop("checked"));
-	
+
 		$(this).toggleClass("list-group-item-primary");
 	});
-	
+
 	if (window.location.hash === "#fullscreen")
 	{
-		$("#selectedRecipeToggleFullscreenButton").click();
+		$scope("#selectedRecipeToggleFullscreenButton").click();
 	}
-	
+
 }

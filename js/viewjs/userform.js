@@ -7,14 +7,14 @@
 	}
 
 	Grocy.Use("userfieldsform");
-	
+
 	function SaveUserPicture(result, jsonData)
 	{
 		Grocy.Components.UserfieldsForm.Save(() =>
 		{
 			if (Object.prototype.hasOwnProperty.call(jsonData, "picture_file_name") && !Grocy.DeleteUserPictureOnSave)
 			{
-				Grocy.Api.UploadFile($("#user-picture")[0].files[0], 'userpictures', jsonData.picture_file_name,
+				Grocy.Api.UploadFile($scope("#user-picture")[0].files[0], 'userpictures', jsonData.picture_file_name,
 					(result) =>
 					{
 						window.location.href = U('/users');
@@ -32,25 +32,25 @@
 			}
 		});
 	}
-	
-	$('#save-user-button').on('click', function(e)
+
+	$scope('#save-user-button').on('click', function(e)
 	{
 		e.preventDefault();
-	
-		if ($(".combobox-menu-visible").length)
+
+		if ($scope(".combobox-menu-visible").length)
 		{
 			return;
 		}
-	
-		var jsonData = $('#user-form').serializeJSON();
+
+		var jsonData = $scope('#user-form').serializeJSON();
 		Grocy.FrontendHelpers.BeginUiBusy("user-form");
-	
-		if ($("#user-picture")[0].files.length > 0)
+
+		if ($scope("#user-picture")[0].files.length > 0)
 		{
 			var someRandomStuff = Math.random().toString(36).substring(2, 100) + Math.random().toString(36).substring(2, 100);
-			jsonData.picture_file_name = someRandomStuff + $("#user-picture")[0].files[0].name;
+			jsonData.picture_file_name = someRandomStuff + $scope("#user-picture")[0].files[0].name;
 		}
-	
+
 		if (Grocy.EditMode === 'create')
 		{
 			Grocy.Api.Post('users', jsonData,
@@ -67,7 +67,7 @@
 			if (Grocy.DeleteUserPictureOnSave)
 			{
 				jsonData.picture_file_name = null;
-	
+
 				Grocy.Api.DeleteFile(Grocy.UserPictureFileName, 'userpictures', {},
 					function(result)
 					{
@@ -80,7 +80,7 @@
 					}
 				);
 			}
-	
+
 			Grocy.Api.Put('users/' + Grocy.EditObjectId, jsonData,
 				(result) => SaveUserPicture(result, jsonData),
 				function(xhr)
@@ -91,11 +91,11 @@
 			);
 		}
 	});
-	
-	$('#user-form input').keyup(function(event)
+
+	$scope('#user-form input').keyup(function(event)
 	{
 		var element = document.getElementById("password_confirm");
-		if ($("#password").val() !== $("#password_confirm").val())
+		if ($scope("#password").val() !== $scope("#password_confirm").val())
 		{
 			element.setCustomValidity("error");
 		}
@@ -103,56 +103,56 @@
 		{
 			element.setCustomValidity("");
 		}
-	
+
 		Grocy.FrontendHelpers.ValidateForm('user-form');
 	});
-	
-	$('#user-form input').keydown(function(event)
+
+	$scope('#user-form input').keydown(function(event)
 	{
 		if (event.keyCode === 13) //Enter
 		{
 			event.preventDefault();
-	
+
 			if (document.getElementById('user-form').checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}
 			else
 			{
-				$('#save-user-button').click();
+				$scope('#save-user-button').click();
 			}
 		}
 	});
-	
+
 	if (GetUriParam("changepw") === "true")
 	{
-		$('#password').focus();
+		$scope('#password').focus();
 	}
 	else
 	{
-		$('#username').focus();
+		$scope('#username').focus();
 	}
-	
-	$("#user-picture").on("change", function(e)
+
+	$scope("#user-picture").on("change", function(e)
 	{
-		$("#user-picture-label").removeClass("d-none");
-		$("#user-picture-label-none").addClass("d-none");
-		$("#delete-current-user-picture-on-save-hint").addClass("d-none");
-		$("#current-user-picture").addClass("d-none");
+		$scope("#user-picture-label").removeClass("d-none");
+		$scope("#user-picture-label-none").addClass("d-none");
+		$scope("#delete-current-user-picture-on-save-hint").addClass("d-none");
+		$scope("#current-user-picture").addClass("d-none");
 		Grocy.DeleteUserePictureOnSave = false;
 	});
-	
+
 	Grocy.DeleteUserPictureOnSave = false;
-	$("#delete-current-user-picture-button").on("click", function(e)
+	$scope("#delete-current-user-picture-button").on("click", function(e)
 	{
 		Grocy.DeleteUserPictureOnSave = true;
-		$("#current-user-picture").addClass("d-none");
-		$("#delete-current-user-picture-on-save-hint").removeClass("d-none");
-		$("#user-picture-label").addClass("d-none");
-		$("#user-picture-label-none").removeClass("d-none");
+		$scope("#current-user-picture").addClass("d-none");
+		$scope("#delete-current-user-picture-on-save-hint").removeClass("d-none");
+		$scope("#user-picture-label").addClass("d-none");
+		$scope("#user-picture-label-none").removeClass("d-none");
 	});
-	
+
 	Grocy.Components.UserfieldsForm.Load();
 	Grocy.FrontendHelpers.ValidateForm('user-form');
-	
+
 }

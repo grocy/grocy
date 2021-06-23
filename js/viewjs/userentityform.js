@@ -1,4 +1,6 @@
-﻿function userentityformView(Grocy, scope = null)
+﻿import { WindowMessageBag } from '../helpers/messagebag';
+
+function userentityformView(Grocy, scope = null)
 {
 	var $scope = $;
 	if (scope != null)
@@ -6,22 +8,20 @@
 		$scope = $(scope).find;
 	}
 
-	import { WindowMessageBag } from '../helpers/messagebag';
-	
-	$('#save-userentity-button').on('click', function(e)
+	$scope('#save-userentity-button').on('click', function(e)
 	{
 		e.preventDefault();
-	
-		if ($(".combobox-menu-visible").length)
+
+		if ($scope(".combobox-menu-visible").length)
 		{
 			return;
 		}
-	
-		var jsonData = $('#userentity-form').serializeJSON();
+
+		var jsonData = $scope('#userentity-form').serializeJSON();
 		Grocy.FrontendHelpers.BeginUiBusy("userentity-form");
-	
+
 		var redirectUrl = U("/userentities");
-	
+
 		if (Grocy.EditMode === 'create')
 		{
 			Grocy.Api.Post('objects/userentities', jsonData,
@@ -65,51 +65,53 @@
 			);
 		}
 	});
-	
-	$('#userentity-form input').keyup(function(event)
+
+	$scope('#userentity-form input').keyup(function(event)
 	{
 		Grocy.FrontendHelpers.ValidateForm('userentity-form');
 	});
-	
-	$('#userentity-form select').change(function(event)
+
+	$scope('#userentity-form select').change(function(event)
 	{
 		Grocy.FrontendHelpers.ValidateForm('userentity-form');
 	});
-	
-	$('#userentity-form input').keydown(function(event)
+
+	$scope('#userentity-form input').keydown(function(event)
 	{
 		if (event.keyCode === 13) //Enter
 		{
 			event.preventDefault();
-	
+
 			if (document.getElementById('userentity-form').checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}
 			else
 			{
-				$('#save-userentity-button').click();
+				$scope('#save-userentity-button').click();
 			}
 		}
 	});
-	
-	$("#show_in_sidebar_menu").on("click", function()
+
+	$scope("#show_in_sidebar_menu").on("click", function()
 	{
 		if (this.checked)
 		{
-			$("#icon_css_class").removeAttr("disabled");
+			$scope("#icon_css_class").removeAttr("disabled");
 		}
 		else
 		{
-			$("#icon_css_class").attr("disabled", "");
+			$scope("#icon_css_class").attr("disabled", "");
 		}
 	});
-	
-	$('#name').focus();
+
+	$scope('#name').focus();
 	Grocy.FrontendHelpers.ValidateForm('userentity-form');
-	
+
 	// Click twice to trigger on-click but not change the actual checked state
-	$("#show_in_sidebar_menu").click();
-	$("#show_in_sidebar_menu").click();
-	
+	$scope("#show_in_sidebar_menu").click();
+	$scope("#show_in_sidebar_menu").click();
+
 }
+
+window.userentityformView = userentityformView;

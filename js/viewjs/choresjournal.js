@@ -6,7 +6,7 @@
 		$scope = $(scope).find;
 	}
 
-	var choresJournalTable = $('#chores-journal-table').DataTable({
+	var choresJournalTable = $scope('#chores-journal-table').DataTable({
 		'paginate': true,
 		'order': [[2, 'desc']],
 		'columnDefs': [
@@ -14,23 +14,25 @@
 			{ 'searchable': false, "targets": 0 }
 		].concat($.fn.dataTable.defaults.columnDefs)
 	});
-	$('#chores-journal-table tbody').removeClass("d-none");
+	$scope('#chores-journal-table tbody').removeClass("d-none");
 	Grocy.FrontendHelpers.InitDataTable(choresJournalTable);
 	Grocy.FrontendHelpers.MakeFilterForColumn("#chore-filter", 1, choresJournalTable);
-	
+
 	if (typeof GetUriParam("chore") !== "undefined")
 	{
-		$("#chore-filter").val(GetUriParam("chore"));
-		$("#chore-filter").trigger("change");
+		$scope("#chore-filter").val(GetUriParam("chore"));
+		$scope("#chore-filter").trigger("change");
 	}
-	
-	$(document).on('click', '.undo-chore-execution-button', function(e)
+
+	var top = scope != null ? $(scope) : $(document);
+
+	top.on('click', '.undo-chore-execution-button', function(e)
 	{
 		e.preventDefault();
-	
-		var element = $(e.currentTarget);
+
+		var element = $scope(e.currentTarget);
 		var executionId = element.attr('data-execution-id');
-	
+
 		Grocy.Api.Post('chores/executions/' + executionId.toString() + '/undo', {},
 			function(result)
 			{
@@ -46,5 +48,5 @@
 			}
 		);
 	});
-	
+
 }

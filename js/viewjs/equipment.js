@@ -1,4 +1,6 @@
-﻿function equipmentView(Grocy, scope = null)
+﻿import { ResizeResponsiveEmbeds } from "../helpers/embeds";
+
+function equipmentView(Grocy, scope = null)
 {
 	var $scope = $;
 	if (scope != null)
@@ -6,9 +8,7 @@
 		$scope = $(scope).find;
 	}
 
-	import { ResizeResponsiveEmbeds } from "../helpers/embeds";
-	
-	var equipmentTable = $('#equipment-table').DataTable({
+	var equipmentTable = $scope('#equipment-table').DataTable({
 		'order': [[1, 'asc']],
 		'columnDefs': [
 			{ 'orderable': false, 'targets': 0 },
@@ -21,49 +21,49 @@
 		'initComplete': function()
 		{
 			this.api().row({ order: 'current' }, 0).select();
-			DisplayEquipment($('#equipment-table tbody tr:eq(0)').data("equipment-id"));
+			DisplayEquipment($scope('#equipment-table tbody tr:eq(0)').data("equipment-id"));
 		}
 	});
-	$('#equipment-table tbody').removeClass("d-none");
+	$scope('#equipment-table tbody').removeClass("d-none");
 	Grocy.FrontendHelpers.InitDataTable(equipmentTable);
-	
+
 	equipmentTable.on('select', function(e, dt, type, indexes)
 	{
 		if (type === 'row')
 		{
-			var selectedEquipmentId = $(equipmentTable.row(indexes[0]).node()).data("equipment-id");
+			var selectedEquipmentId = $scope(equipmentTable.row(indexes[0]).node()).data("equipment-id");
 			DisplayEquipment(selectedEquipmentId)
 		}
 	});
-	
+
 	function DisplayEquipment(id)
 	{
 		Grocy.Api.Get('objects/equipment/' + id,
 			function(equipmentItem)
 			{
-				$(".selected-equipment-name").text(equipmentItem.name);
-				$("#description-tab-content").html(equipmentItem.description);
-				$(".equipment-edit-button").attr("href", U("/equipment/" + equipmentItem.id.toString()));
-	
+				$scope(".selected-equipment-name").text(equipmentItem.name);
+				$scope("#description-tab-content").html(equipmentItem.description);
+				$scope(".equipment-edit-button").attr("href", U("/equipment/" + equipmentItem.id.toString()));
+
 				if (equipmentItem.instruction_manual_file_name !== null && !equipmentItem.instruction_manual_file_name.isEmpty())
 				{
 					var pdfUrl = U('/api/files/equipmentmanuals/' + btoa(equipmentItem.instruction_manual_file_name));
-					$("#selected-equipment-instruction-manual").attr("src", pdfUrl);
-					$("#selectedEquipmentInstructionManualDownloadButton").attr("href", pdfUrl);
-					$("#selected-equipment-instruction-manual").removeClass("d-none");
-					$("#selectedEquipmentInstructionManualDownloadButton").removeClass("d-none");
-					$("#selected-equipment-has-no-instruction-manual-hint").addClass("d-none");
-	
-					$("a[href='#instruction-manual-tab']").tab("show");
+					$scope("#selected-equipment-instruction-manual").attr("src", pdfUrl);
+					$scope("#selectedEquipmentInstructionManualDownloadButton").attr("href", pdfUrl);
+					$scope("#selected-equipment-instruction-manual").removeClass("d-none");
+					$scope("#selectedEquipmentInstructionManualDownloadButton").removeClass("d-none");
+					$scope("#selected-equipment-has-no-instruction-manual-hint").addClass("d-none");
+
+					$scope("a[href='#instruction-manual-tab']").tab("show");
 					ResizeResponsiveEmbeds();
 				}
 				else
 				{
-					$("#selected-equipment-instruction-manual").addClass("d-none");
-					$("#selectedEquipmentInstructionManualDownloadButton").addClass("d-none");
-					$("#selected-equipment-has-no-instruction-manual-hint").removeClass("d-none");
-	
-					$("a[href='#description-tab']").tab("show");
+					$scope("#selected-equipment-instruction-manual").addClass("d-none");
+					$scope("#selectedEquipmentInstructionManualDownloadButton").addClass("d-none");
+					$scope("#selected-equipment-has-no-instruction-manual-hint").removeClass("d-none");
+
+					$scope("a[href='#description-tab']").tab("show");
 				}
 			},
 			function(xhr)
@@ -72,7 +72,7 @@
 			}
 		);
 	}
-	
+
 	Grocy.FrontendHelpers.MakeDeleteConfirmBox(
 		'Are you sure to delete equipment "%s"?',
 		'.equipment-delete-button',
@@ -81,22 +81,24 @@
 		'objects/equipment/',
 		'/equipment'
 	);
-	
-	$("#selectedEquipmentInstructionManualToggleFullscreenButton").on('click', function(e)
+
+	$scope("#selectedEquipmentInstructionManualToggleFullscreenButton").on('click', function(e)
 	{
-		$("#selectedEquipmentInstructionManualCard").toggleClass("fullscreen");
-		$("#selectedEquipmentInstructionManualCard .card-header").toggleClass("fixed-top");
-		$("#selectedEquipmentInstructionManualCard .card-body").toggleClass("mt-5");
-		$("body").toggleClass("fullscreen-card");
+		$scope("#selectedEquipmentInstructionManualCard").toggleClass("fullscreen");
+		$scope("#selectedEquipmentInstructionManualCard .card-header").toggleClass("fixed-top");
+		$scope("#selectedEquipmentInstructionManualCard .card-body").toggleClass("mt-5");
+		$scope("body").toggleClass("fullscreen-card");
 		ResizeResponsiveEmbeds(true);
 	});
-	
-	$("#selectedEquipmentDescriptionToggleFullscreenButton").on('click', function(e)
+
+	$scope("#selectedEquipmentDescriptionToggleFullscreenButton").on('click', function(e)
 	{
-		$("#selectedEquipmentDescriptionCard").toggleClass("fullscreen");
-		$("#selectedEquipmentDescriptionCard .card-header").toggleClass("fixed-top");
-		$("#selectedEquipmentDescriptionCard .card-body").toggleClass("mt-5");
-		$("body").toggleClass("fullscreen-card");
+		$scope("#selectedEquipmentDescriptionCard").toggleClass("fullscreen");
+		$scope("#selectedEquipmentDescriptionCard .card-header").toggleClass("fixed-top");
+		$scope("#selectedEquipmentDescriptionCard .card-body").toggleClass("mt-5");
+		$scope("body").toggleClass("fullscreen-card");
 	});
-	
+
 }
+
+window.equipmentView = equipmentView

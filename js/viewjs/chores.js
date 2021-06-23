@@ -6,21 +6,21 @@
 		$scope = $(scope).find;
 	}
 
-	var choresTable = $('#chores-table').DataTable({
+	var choresTable = $scope('#chores-table').DataTable({
 		'order': [[1, 'asc']],
 		'columnDefs': [
 			{ 'orderable': false, 'targets': 0 },
 			{ 'searchable': false, "targets": 0 }
 		].concat($.fn.dataTable.defaults.columnDefs)
 	});
-	$('#chores-table tbody').removeClass("d-none");
+	$scope('#chores-table tbody').removeClass("d-none");
 	Grocy.FrontendHelpers.InitDataTable(choresTable, null, function()
 	{
-		$("#search").val("");
+		$scope("#search").val("");
 		choresTable.search("").draw();
-		$("#show-disabled").prop('checked', false);
+		$scope("#show-disabled").prop('checked', false);
 	});
-	
+
 	Grocy.FrontendHelpers.MakeDeleteConfirmBox(
 		'Are you sure to delete chore "%s"?',
 		'.core-delete-button',
@@ -29,7 +29,7 @@
 		'objects/chores/',
 		'/chroes'
 	);
-	
+
 	$("#show-disabled").change(function()
 	{
 		if (this.checked)
@@ -41,10 +41,10 @@
 			window.location.href = U('/chores');
 		}
 	});
-	
+
 	if (GetUriParam('include_disabled'))
 	{
-		$("#show-disabled").prop('checked', true);
+		$scope("#show-disabled").prop('checked', true);
 	}
-	
+
 }

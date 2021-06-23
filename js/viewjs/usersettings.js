@@ -6,8 +6,8 @@
 		$scope = $(scope).find;
 	}
 
-	$("#locale").val(Grocy.UserSettings.locale);
-	
+	$scope("#locale").val(Grocy.UserSettings.locale);
+
 	RefreshLocaleNumberInput();
-	
+
 }

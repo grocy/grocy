@@ -1,4 +1,6 @@
-﻿function productgroupformView(Grocy, scope = null)
+﻿import { WindowMessageBag } from '../helpers/messagebag';
+
+function productgroupformView(Grocy, scope = null)
 {
 	var $scope = $;
 	if (scope != null)
@@ -6,22 +8,20 @@
 		$scope = $(scope).find;
 	}
 
-	import { WindowMessageBag } from '../helpers/messagebag';
-	
 	Grocy.Use("userfieldsform");
-	
-	$('#save-product-group-button').on('click', function(e)
+
+	$scope('#save-product-group-button').on('click', function(e)
 	{
 		e.preventDefault();
-	
-		if ($(".combobox-menu-visible").length)
+
+		if ($scope(".combobox-menu-visible").length)
 		{
 			return;
 		}
-	
-		var jsonData = $('#product-group-form').serializeJSON();
+
+		var jsonData = $scope('#product-group-form').serializeJSON();
 		Grocy.FrontendHelpers.BeginUiBusy("product-group-form");
-	
+
 		if (Grocy.EditMode === 'create')
 		{
 			Grocy.Api.Post('objects/product_groups', jsonData,
@@ -58,31 +58,33 @@
 			);
 		}
 	});
-	
-	$('#product-group-form input').keyup(function(event)
+
+	$scope('#product-group-form input').keyup(function(event)
 	{
 		Grocy.FrontendHelpers.ValidateForm('product-group-form');
 	});
-	
-	$('#product-group-form input').keydown(function(event)
+
+	$scope('#product-group-form input').keydown(function(event)
 	{
 		if (event.keyCode === 13) //Enter
 		{
 			event.preventDefault();
-	
+
 			if (document.getElementById('product-group-form').checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}
 			else
 			{
-				$('#save-product-group-button').click();
+				$scope('#save-product-group-button').click();
 			}
 		}
 	});
-	
+
 	Grocy.Components.UserfieldsForm.Load();
-	$('#name').focus();
+	$scope('#name').focus();
 	Grocy.FrontendHelpers.ValidateForm('product-group-form');
-	
+
 }
+
+window.productgroupformView = productgroupformView

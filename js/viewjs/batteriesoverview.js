@@ -6,9 +6,9 @@
 		$scope = $(scope).find;
 	}
 
-	Grocy.Use("batterycard");
-	
-	var batteriesOverviewTable = $('#batteries-overview-table').DataTable({
+	Grocy.Use("batterycard", scope);
+
+	var batteriesOverviewTable = $scope('#batteries-overview-table').DataTable({
 		'order': [[4, 'asc']],
 		'columnDefs': [
 			{ 'orderable': false, 'targets': 0 },
@@ -17,36 +17,38 @@
 			{ "type": "html", "targets": 4 }
 		].concat($.fn.dataTable.defaults.columnDefs)
 	});
-	$('#batteries-overview-table tbody').removeClass("d-none");
-	
+	$scope('#batteries-overview-table tbody').removeClass("d-none");
+
 	Grocy.FrontendHelpers.InitDataTable(batteriesOverviewTable);
 	Grocy.FrontendHelpers.MakeStatusFilter(batteriesOverviewTable, 5);
-	
-	$(document).on('click', '.track-charge-cycle-button', function(e)
+
+	var top = scope != null ? $(scope) : $(document);
+
+	top.on('click', '.track-charge-cycle-button', function(e)
 	{
 		e.preventDefault();
-	
+
 		// Remove the focus from the current button
 		// to prevent that the tooltip stays until clicked anywhere else
 		document.activeElement.blur();
-	
+
 		Grocy.FrontendHelpers.BeginUiBusy();
-	
-		var batteryId = $(e.currentTarget).attr('data-battery-id');
-		var batteryName = $(e.currentTarget).attr('data-battery-name');
+
+		var batteryId = $scope(e.currentTarget).attr('data-battery-id');
+		var batteryName = $scope(e.currentTarget).attr('data-battery-name');
 		var trackedTime = moment().format('YYYY-MM-DD HH:mm:ss');
-	
+
 		Grocy.Api.Post('batteries/' + batteryId + '/charge', { 'tracked_time': trackedTime },
 			function()
 			{
 				Grocy.Api.Get('batteries/' + batteryId,
 					function(result)
 					{
-						var batteryRow = $('#battery-' + batteryId + '-row');
+						var batteryRow = $scope('#battery-' + batteryId + '-row');
 						var nextXDaysThreshold = moment().add($("#info-due-batteries").data("next-x-days"), "days");
 						var now = moment();
 						var nextExecutionTime = moment(result.next_estimated_charge_time);
-	
+
 						batteryRow.removeClass("table-warning");
 						batteryRow.removeClass("table-danger");
 						if (nextExecutionTime.isBefore(now))
@@ -57,17 +59,17 @@
 						{
 							batteryRow.addClass("table-warning");
 						}
-	
+
 						animateCSS("#battery-" + batteryId + "-row td:not(:first)", "shake");
-	
-						$('#battery-' + batteryId + '-last-tracked-time').text(trackedTime);
-						$('#battery-' + batteryId + '-last-tracked-time-timeago').attr('datetime', trackedTime);
+
+						$scope('#battery-' + batteryId + '-last-tracked-time').text(trackedTime);
+						$scope('#battery-' + batteryId + '-last-tracked-time-timeago').attr('datetime', trackedTime);
 						if (result.battery.charge_interval_days != 0)
 						{
-							$('#battery-' + batteryId + '-next-charge-time').text(result.next_estimated_charge_time);
-							$('#battery-' + batteryId + '-next-charge-time-timeago').attr('datetime', result.next_estimated_charge_time);
+							$scope('#battery-' + batteryId + '-next-charge-time').text(result.next_estimated_charge_time);
+							$scope('#battery-' + batteryId + '-next-charge-time-timeago').attr('datetime', result.next_estimated_charge_time);
 						}
-	
+
 						Grocy.FrontendHelpers.EndUiBusy();
 						toastr.success(__t('Tracked charge cycle of battery %1$s on %2$s', batteryName, trackedTime));
 						RefreshContextualTimeago("#battery-" + batteryId + "-row");
@@ -87,16 +89,18 @@
 			}
 		);
 	});
-	
-	$(document).on("click", ".battery-name-cell", function(e)
+
+
+
+	top.on("click", ".battery-name-cell", function(e)
 	{
-		Grocy.Components.BatteryCard.Refresh($(e.currentTarget).attr("data-battery-id"));
-		$("#batteriesoverview-batterycard-modal").modal("show");
+		Grocy.Components.BatteryCard.Refresh($scope(e.currentTarget).attr("data-battery-id"));
+		$scope("#batteriesoverview-batterycard-modal").modal("show");
 	});
-	
+
 	function RefreshStatistics()
 	{
-		var nextXDays = $("#info-due-batteries").data("next-x-days");
+		var nextXDays = $scope("#info-due-batteries").data("next-x-days");
 		Grocy.Api.Get('batteries',
 			function(result)
 			{
@@ -116,9 +120,9 @@
 						dueCount++;
 					}
 				});
-	
-				$("#info-due-batteries").html('<span class="d-block d-md-none">' + dueCount + ' <i class="fas fa-clock"></i></span><span class="d-none d-md-block">' + __n(dueCount, '%s battery is due to be charged', '%s batteries are due to be charged') + ' ' + __n(nextXDays, 'within the next day', 'within the next %s days'));
-				$("#info-overdue-batteries").html('<span class="d-block d-md-none">' + overdueCount + ' <i class="fas fa-times-circle"></i></span><span class="d-none d-md-block">' + __n(overdueCount, '%s battery is overdue to be charged', '%s batteries are overdue to be charged'));
+
+				$scope("#info-due-batteries").html('<span class="d-block d-md-none">' + dueCount + ' <i class="fas fa-clock"></i></span><span class="d-none d-md-block">' + __n(dueCount, '%s battery is due to be charged', '%s batteries are due to be charged') + ' ' + __n(nextXDays, 'within the next day', 'within the next %s days'));
+				$scope("#info-overdue-batteries").html('<span class="d-block d-md-none">' + overdueCount + ' <i class="fas fa-times-circle"></i></span><span class="d-none d-md-block">' + __n(overdueCount, '%s battery is overdue to be charged', '%s batteries are overdue to be charged'));
 			},
 			function(xhr)
 			{
@@ -126,7 +130,7 @@
 			}
 		);
 	}
-	
+
 	RefreshStatistics();
-	
+
 }

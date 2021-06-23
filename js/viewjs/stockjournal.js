@@ -1,12 +1,13 @@
 ﻿function stockjournalView(Grocy, scope = null)
 {
 	var $scope = $;
+	var top = scope != null ? $(scope) : $(document);
 	if (scope != null)
 	{
 		$scope = $(scope).find;
 	}
 
-	var stockJournalTable = $('#stock-journal-table').DataTable({
+	var stockJournalTable = $scope('#stock-journal-table').DataTable({
 		'paginate': true,
 		'order': [[3, 'desc']],
 		'columnDefs': [
@@ -14,33 +15,33 @@
 			{ 'searchable': false, "targets": 0 }
 		].concat($.fn.dataTable.defaults.columnDefs)
 	});
-	$('#stock-journal-table tbody').removeClass("d-none");
+	$scope('#stock-journal-table tbody').removeClass("d-none");
 	Grocy.FrontendHelpers.InitDataTable(stockJournalTable);
-	
+
 	Grocy.FrontendHelpers.MakeFilterForColumn("#product-filter", 1, stockJournalTable);
 	Grocy.FrontendHelpers.MakeFilterForColumn("#transaction-type-filter", 4, stockJournalTable);
 	Grocy.FrontendHelpers.MakeFilterForColumn("#location-filter", 5, stockJournalTable);
 	Grocy.FrontendHelpers.MakeFilterForColumn("#user-filter", 6, stockJournalTable);
-	
+
 	if (typeof GetUriParam("product") !== "undefined")
 	{
-		$("#product-filter").val(GetUriParam("product"));
-		$("#product-filter").trigger("change");
+		$scope("#product-filter").val(GetUriParam("product"));
+		$scope("#product-filter").trigger("change");
 	}
-	
-	$(document).on('click', '.undo-stock-booking-button', function(e)
+
+	top.on('click', '.undo-stock-booking-button', function(e)
 	{
 		e.preventDefault();
-	
-		var bookingId = $(e.currentTarget).attr('data-booking-id');
-		var correlationId = $("#stock-booking-" + bookingId + "-row").attr("data-correlation-id");
-	
-		var correspondingBookingsRoot = $("#stock-booking-" + bookingId + "-row");
+
+		var bookingId = $scope(e.currentTarget).attr('data-booking-id');
+		var correlationId = $scope("#stock-booking-" + bookingId + "-row").attr("data-correlation-id");
+
+		var correspondingBookingsRoot = $scope("#stock-booking-" + bookingId + "-row");
 		if (!correlationId.isEmpty())
 		{
-			correspondingBookingsRoot = $(".stock-booking-correlation-" + correlationId);
+			correspondingBookingsRoot = $scope(".stock-booking-correlation-" + correlationId);
 		}
-	
+
 		Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', {},
 			function(result)
 			{
@@ -57,5 +58,5 @@
 			}
 		);
 	});
-	
+
 }

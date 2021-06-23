@@ -1,4 +1,6 @@
-﻿function manageapikeysView(Grocy, scope = null)
+﻿import { QrCodeImgHtml } from "../helpers/qrcode";
+
+function manageapikeysView(Grocy, scope = null)
 {
 	var $scope = $;
 	if (scope != null)
@@ -6,24 +8,22 @@
 		$scope = $(scope).find;
 	}
 
-	import { QrCodeImgHtml } from "../helpers/qrcode";
-	
-	var apiKeysTable = $('#apikeys-table').DataTable({
+	var apiKeysTable = $scope('#apikeys-table').DataTable({
 		'order': [[4, 'desc']],
 		'columnDefs': [
 			{ 'orderable': false, 'targets': 0 },
 			{ 'searchable': false, "targets": 0 }
 		].concat($.fn.dataTable.defaults.columnDefs)
 	});
-	$('#apikeys-table tbody').removeClass("d-none");
+	$scope('#apikeys-table tbody').removeClass("d-none");
 	Grocy.FrontendHelpers.InitDataTable(apiKeysTable);
-	
+
 	var createdApiKeyId = GetUriParam('CreatedApiKeyId');
 	if (createdApiKeyId !== undefined)
 	{
 		animateCSS("#apiKeyRow_" + createdApiKeyId, "pulse");
 	}
-	
+
 	Grocy.FrontendHelpers.MakeDeleteConfirmBox(
 		'Are you sure to delete API key "%s"?',
 		'.apikey-delete-button',
@@ -32,7 +32,7 @@
 		'objects/api_keys/',
 		'/manageapikeys'
 	);
-	
+
 	function QrCodeForApiKey(apiKeyType, apiKey)
 	{
 		var content = U('/api') + '|' + apiKey;
@@ -40,11 +40,11 @@
 		{
 			content = U('/api/calendar/ical?secret=' + apiKey);
 		}
-	
+
 		return QrCodeImgHtml(content);
 	}
-	
-	$('.apikey-show-qr-button').on('click', function()
+
+	$scope('.apikey-show-qr-button').on('click', function()
 	{
 		var qrcodeHtml = QrCodeForApiKey($(this).data('apikey-type'), $(this).data('apikey-key'));
 		bootbox.alert({
@@ -53,5 +53,7 @@
 			closeButton: false
 		});
 	})
-	
+
 }
+
+window.manageapikeysView = manageapikeysView;

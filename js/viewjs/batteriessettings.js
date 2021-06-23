@@ -7,9 +7,9 @@
 	}
 
 	Grocy.Use("numberpicker");
-	
-	$("#batteries_due_soon_days").val(Grocy.UserSettings.batteries_due_soon_days);
-	
+
+	$scope("#batteries_due_soon_days").val(Grocy.UserSettings.batteries_due_soon_days);
+
 	RefreshLocaleNumberInput();
-	
+
 }

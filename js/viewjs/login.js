@@ -6,12 +6,12 @@
 		$scope = $(scope).find;
 	}
 
-	$('#username').focus();
-	
+	$scope('#username').focus();
+
 	if (GetUriParam('invalid') === 'true')
 	{
-		$('#login-error').text(__t('Invalid credentials, please try again'));
-		$('#login-error').removeClass('d-none');
+		$scope('#login-error').text(__t('Invalid credentials, please try again'));
+		$scope('#login-error').removeClass('d-none');
 	}
-	
+
 }

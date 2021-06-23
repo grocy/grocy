@@ -7,26 +7,26 @@
 	}
 
 	import { WindowMessageBag } from '../helpers/messagebag';
-	
+
 	Grocy.Use("datetimepicker");
 	Grocy.Use("userfieldsform");
-	
-	$('#save-task-button').on('click', function(e)
+
+	$scope('#save-task-button').on('click', function(e)
 	{
 		e.preventDefault();
-	
-		if ($(".combobox-menu-visible").length)
+
+		if ($scope(".combobox-menu-visible").length)
 		{
 			return;
 		}
-	
-		var jsonData = $('#task-form').serializeJSON();
+
+		var jsonData = $scope('#task-form').serializeJSON();
 		jsonData.assigned_to_user_id = jsonData.user_id;
 		delete jsonData.user_id;
 		jsonData.due_date = Grocy.Components.DateTimePicker.GetValue();
-	
+
 		Grocy.FrontendHelpers.BeginUiBusy("task-form");
-	
+
 		if (Grocy.EditMode === 'create')
 		{
 			Grocy.Api.Post('objects/tasks', jsonData,
@@ -77,32 +77,32 @@
 			);
 		}
 	});
-	
-	$('#task-form input').keyup(function(event)
+
+	$scope('#task-form input').keyup(function(event)
 	{
 		Grocy.FrontendHelpers.ValidateForm('task-form');
 	});
-	
-	$('#task-form input').keydown(function(event)
+
+	$scope('#task-form input').keydown(function(event)
 	{
 		if (event.keyCode === 13) //Enter
 		{
 			event.preventDefault();
-	
+
 			if (document.getElementById('task-form').checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}
 			else
 			{
-				$('#save-task-button').click();
+				$scope('#save-task-button').click();
 			}
 		}
 	});
-	
+
 	Grocy.Components.UserfieldsForm.Load();
-	$('#name').focus();
+	$scope('#name').focus();
 	Grocy.Components.DateTimePicker.GetInputElement().trigger('input');
 	Grocy.FrontendHelpers.ValidateForm('task-form');
-	
+
 }
