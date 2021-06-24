@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="row">
-	<div class="col-xs-12 col-md-4 pb-3">
+	<div class="col-12 col-md-4 pb-3">
 		<div class="title-related-links border-bottom mb-2 py-1">
 			<h2 class="title">@yield('title')</h2>
 			<div class="float-right">
@@ -109,7 +109,7 @@
 		</table>
 	</div>
 
-	<div class="col-xs-12 col-md-8">
+	<div class="col-12 col-md-8">
 		<ul class="nav nav-tabs grocy-tabs">
 			<li class="nav-item">
 				<a class="nav-link active"

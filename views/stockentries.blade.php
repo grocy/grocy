@@ -31,7 +31,7 @@
 
 <div class="row collapse d-md-flex"
 	id="table-filter-row">
-	<div class="col-xs-12 col-md-6 col-xl-3">
+	<div class="col-12 col-md-6 col-xl-3">
 		@include('components.productpicker', array(
 		'products' => $products,
 		'disallowAllProductWorkflows' => true,

@@ -11,7 +11,7 @@
 </script>
 
 <div class="row">
-	<div class="col-xs-12 col-md-6 d-print-none">
+	<div class="col-12 col-md-6 d-print-none">
 		<div class="title-related-links border-bottom mb-2 py-1">
 			<h2 class="title">@yield('title')</h2>
 			<div class="float-right">
@@ -39,7 +39,7 @@
 
 		<div class="row collapse d-md-flex"
 			id="table-filter-row">
-			<div class="col-xs-12 col-md-5 col-xl-5">
+			<div class="col-12 col-md-5 col-xl-5">
 				<div class="input-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text"><i class="fas fa-search"></i></span>
@@ -51,7 +51,7 @@
 				</div>
 			</div>
 
-			<div class="col-xs-12 col-md-5 col-xl-5">
+			<div class="col-12 col-md-5 col-xl-5">
 				<div class="input-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>
@@ -205,7 +205,7 @@
 	$allRecipes = $selectedRecipeSubRecipes;
 	array_unshift($allRecipes, $selectedRecipe);
 	@endphp
-	<div class="col-xs-12 col-md-6 print-view">
+	<div class="col-12 col-md-6 print-view">
 		<div id="selectedRecipeCard"
 			class="card grocy-card">
 			@if(count($allRecipes) > 1)

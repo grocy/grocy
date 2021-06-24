@@ -46,7 +46,7 @@
 
 <div class="row collapse d-md-flex"
 	id="table-filter-row">
-	<div class="col-xs-12 col-md-6 col-xl-3">
+	<div class="col-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-search"></i></span>
@@ -57,7 +57,7 @@
 				placeholder="{{ $__t('Search') }}">
 		</div>
 	</div>
-	<div class="col-xs-12 col-md-6 col-xl-3">
+	<div class="col-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Product group') }}</span>
@@ -71,7 +71,7 @@
 			</select>
 		</div>
 	</div>
-	<div class="col-xs-12 col-md-6 col-xl-3">
+	<div class="col-12 col-md-6 col-xl-3">
 		<div class="form-check custom-control custom-checkbox">
 			<input class="form-check-input custom-control-input"
 				type="checkbox"

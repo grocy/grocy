@@ -11,7 +11,7 @@
 </script>
 
 <div class="row">
-	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
+	<div class="col-12 col-md-6 col-xl-4 pb-3">
 		<h2 class="title">@yield('title')</h2>
 
 		<hr class="my-2">
@@ -90,7 +90,7 @@
 		</form>
 	</div>
 
-	<div class="col-xs-12 col-md-6 col-xl-4 hide-when-embedded">
+	<div class="col-12 col-md-6 col-xl-4 hide-when-embedded">
 		@include('components.productcard')
 	</div>
 </div>
