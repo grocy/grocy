@@ -18,7 +18,7 @@
 <hr class="my-2">
 
 <div class="row">
-	<div class="col-lg-6 col-xs-12">
+	<div class="col-lg-6 col-12">
 		<script>
 			Grocy.EditMode = '{{ $mode }}';
 		</script>
@@ -67,7 +67,7 @@
 		</form>
 	</div>
 
-	<div class="col-lg-6 col-xs-12">
+	<div class="col-lg-6 col-12">
 		<div class="row">
 			<div class="col">
 				<div class="title-related-links mb-3">

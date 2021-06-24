@@ -14,7 +14,7 @@
 <hr class="my-2">
 
 <div class="row">
-	<div class="col-lg-6 col-xs-12">
+	<div class="col-lg-6 col-12">
 		<h4 class="mt-2">{{ $__t('Chores overview') }}</h4>
 		@include('components.numberpicker', array(
 		'id' => 'chores_due_soon_days',
