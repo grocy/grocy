@@ -13,6 +13,8 @@ import { animateCSS, BoolVal, EmptyElementWhenMatches } from "./helpers/extensio
 import Translator from "gettext-translator";
 import { WindowMessageBag } from './helpers/messagebag';
 import * as components from './components';
+import * as uuid from 'uuid';
+import { GrocyProxy } from "./lib/proxy";
 
 import "./helpers/string";
 
@@ -54,6 +56,8 @@ class GrocyClass
 		this.initComponents = [];
 
 		this.RootGrocy = null;
+		this.documentReady = false;
+		this.preloadViews = [];
 
 		// Init some classes
 		this.Api = new GrocyApi(this);
@@ -114,6 +118,18 @@ class GrocyClass
 				}
 			});
 		}
+
+		$(document).on('ready', () =>
+		{
+			this.documentReady = true;
+			var element = self.preloadViews.pop();
+			while (element !== undefined)
+			{
+				self.preloadViews(element.viewName, element.loadCss, element.cb);
+
+				element = self.preloadViews.pop();
+			}
+		})
 	}
 
 	static createSingleton(config, view)
@@ -240,11 +256,19 @@ class GrocyClass
 		}
 	}
 
-	LoadView(viewName, scope = null)
+	LoadView(viewName, scope = null, grocy = null)
 	{
 		if (Object.prototype.hasOwnProperty.call(window, viewName + "View"))
 		{
-			window[viewName + "View"](this, scope);
+			if (scope != null && grocy == null)
+			{
+				console.warn("scoped view set but non-scoped grocy is used. Results are undefined!");
+			}
+			if (scope == null)
+			{
+				grocy = this;
+			}
+			window[viewName + "View"](grocy, scope);
 		}
 		else
 		{
@@ -254,6 +278,12 @@ class GrocyClass
 
 	PreloadView(viewName, loadCSS = false, cb = () => { })
 	{
+		if (!this.documentReady)
+		{
+			this.preloadViews.push({ viewName: viewName, loadCss: loadCss, cb: cb });
+			return;
+		}
+
 		if (!Object.prototype.hasOwnProperty.call(window, viewName + "View"))
 		{
 			$.ajax({
@@ -275,6 +305,46 @@ class GrocyClass
 		{
 			cb();
 		}
+	}
+
+	OpenSubView(link)
+	{
+		var self = this;
+		$.ajax({
+			dataType: "json",
+			link,
+			success: (data) =>
+			{
+				let scopeId = uuid.v4()
+				var proxy = new GrocyProxy(this, "#" + scopeId, data.config, link);
+
+				bootbox.dialog({
+					message: '<div id="' + scopeId + '">' + data.template + '</div>',
+					size: 'large',
+					backdrop: true,
+					closeButton: false,
+					buttons: {
+						cancel: {
+							label: self.translate('Close'),
+							className: 'btn-secondary responsive-button',
+							callback: function()
+							{
+								proxy.Unload();
+								bootbox.hideAll();
+							}
+						}
+					},
+					onShow: () =>
+					{
+						// dialog div is alive, init view.
+						// this occurs before the view is shown.
+						self.LoadView(data.viewJsName, "#" + scopeId, proxy);
+					}
+				});
+			}
+		})
+
+
 	}
 
 	UndoStockBooking(bookingId)

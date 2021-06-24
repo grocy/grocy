@@ -31,12 +31,20 @@ class GrocyProxy
 
 		// scoping
 		this.scopeSelector = scopeSelector;
-		this.scope = $(scope);
-		this.$scope = this.scope.find;
+		this.scope = $(scopeSelector);
+		var jScope = this.scope;
+		this.$scope = (selector) => jScope.find(selector);
 		var queryString = url.split('?', 2);
 		this.virtualUrl = queryString.length == 2 ? queryString[1] : ""; // maximum two parts
 
 		this.config = config;
+		if (Object.prototype.hasOwnProperty.call(this.config, "UserSettings"))
+		{
+			// if we need to override UserSettings, we need to copy the object.
+			// not great, but eh.
+			Object.assign(this.config.UserSettings, RootGrocy.UserSettings);
+			this.UserSettings = config.UserSettings;
+		}
 
 		this.configProxy = Proxy.revocable(this.config, {
 			get: function(target, prop, receiver)
@@ -47,7 +55,7 @@ class GrocyProxy
 				}
 				else
 				{
-					return Reflect.get(rootGrocy.config, prop, target);
+					return Reflect.get(RootGrocy.config, prop, target);
 				}
 			}
 		})
@@ -130,10 +138,10 @@ class GrocyProxy
 
 	UpdateUriParam(key, value)
 	{
-		params = {}
+		var params = {}
 		var vars = this.virtualUrl.split("&");
 
-		for (part of vars)
+		for (let part of vars)
 		{
 			var lkey, lvalue;
 			[lkey, lvalue = null] = part.split('=');
@@ -144,6 +152,7 @@ class GrocyProxy
 		params[key] = value;
 
 		var vurl = ""
+
 		for ([key, value] of params)
 		{
 			vurl += "&" + key
@@ -157,10 +166,10 @@ class GrocyProxy
 
 	RemoveUriParam(key)
 	{
-		params = {}
+		var params = {}
 		var vars = this.virtualUrl.split("&");
 
-		for (part of vars)
+		for (let part of vars)
 		{
 			var lkey, lvalue;
 			[lkey, lvalue = null] = part.split('=');
@@ -172,6 +181,7 @@ class GrocyProxy
 		}
 
 		var vurl = ""
+		let value;
 		for ([key, value] of params)
 		{
 			vurl += "&" + key

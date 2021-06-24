@@ -9,6 +9,19 @@
 
 	var productcard = Grocy.Use("productcard");
 
+	// preload some views.
+
+	Grocy.PreloadView("stockentries");
+	Grocy.PreloadView("shoppinglistitemform");
+	Grocy.PreloadView("purchase");
+	Grocy.PreloadView("conusme");
+	Grocy.PreloadView("inventory");
+	Grocy.PreloadView("stockjournal");
+	Grocy.PreloadView("stockjournalsummary");
+
+	if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
+		Grocy.PreloadView("transfer");
+
 	var stockOverviewTable = $scope('#stock-overview-table').DataTable({
 		'order': [[5, 'asc']],
 		'columnDefs': [

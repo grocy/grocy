@@ -10,6 +10,11 @@ function quantityunitformView(Grocy, scope = null)
 
 	var userfields = Grocy.Use("userfieldsform");
 
+	// preload some views.
+
+	Grocy.PreloadView("quantityunitconversionform");
+
+
 	$scope('.save-quantityunit-button').on('click', function(e)
 	{
 		e.preventDefault();

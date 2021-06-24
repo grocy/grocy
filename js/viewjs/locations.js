@@ -6,6 +6,12 @@
 		$scope = (scope) => $(scope).find(scope);
 	}
 
+	// preload some views.
+	top.on('load', () =>
+	{
+		Grocy.PreloadView("locationform");
+	});
+
 	var locationsTable = $scope('#locations-table').DataTable({
 		'order': [[1, 'asc']],
 		'columnDefs': [

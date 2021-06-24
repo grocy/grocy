@@ -15,6 +15,12 @@ function shoppinglistView(Grocy, scope = null)
 		$scope = (scope) => $(scope).find(scope);
 	}
 
+	// preload some views.
+
+	Grocy.PreloadView("shoppinglistform");
+	Grocy.PreloadView("shoppinglistitemform");
+
+
 	Grocy.Use("calendarcard");
 	var productcard = Grocy.Use("productcard");
 

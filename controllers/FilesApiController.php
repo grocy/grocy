@@ -72,6 +72,7 @@ class FilesApiController extends BaseApiController
 
 			if (file_exists($filePath))
 			{
+				// TODO: ACCEPT JSON
 				$response->write(file_get_contents($filePath));
 				$response = $response->withHeader('Cache-Control', 'max-age=2592000');
 				$response = $response->withHeader('Content-Type', mime_content_type($filePath));

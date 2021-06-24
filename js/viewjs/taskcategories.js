@@ -6,6 +6,11 @@
 		$scope = (scope) => $(scope).find(scope);
 	}
 
+	// preload some views.
+
+	Grocy.PreloadView("taskcategoryform");
+
+
 	var categoriesTable = $scope('#taskcategories-table').DataTable({
 		'order': [[1, 'asc']],
 		'columnDefs': [

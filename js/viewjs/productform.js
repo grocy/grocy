@@ -11,6 +11,13 @@ function productformView(Grocy, scope = null)
 	}
 
 	Grocy.Use("numberpicker");
+
+	// preload some views.
+	top.on('load', () =>
+	{
+		Grocy.PreloadView("productgroupform");
+	});
+
 	var shoppinglocationpicker = Grocy.Use("shoppinglocationpicker");
 	var userfields = Grocy.Use("userfieldsform");
 	var productpicker = Grocy.Use("productpicker");

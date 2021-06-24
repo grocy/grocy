@@ -6,6 +6,10 @@
 		$scope = (scope) => $(scope).find(scope);
 	}
 
+	// preload some views.
+	Grocy.PreloadView("productgroupform");
+
+
 	var groupsTable = $scope('#productgroups-table').DataTable({
 		'order': [[1, 'asc']],
 		'columnDefs': [

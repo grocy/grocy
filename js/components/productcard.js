@@ -28,6 +28,10 @@ class productcard
 				.find("a[data-toggle='collapse']")
 				.text(self.Grocy.translate("Show more"));
 		})
+
+		// preload some views.
+		this.Grocy.PreloadView("stockentries");
+		this.Grocy.PreloadView("stockjournal");
 	}
 
 	Refresh(productId)

@@ -190,22 +190,7 @@ function setInitialGlobalState(Grocy)
 
 		var link = $(e.currentTarget).attr("href");
 
-		bootbox.dialog({
-			message: '<iframe height="650px" class="embed-responsive" src="' + link + '"></iframe>',
-			size: 'large',
-			backdrop: true,
-			closeButton: false,
-			buttons: {
-				cancel: {
-					label: __t('Close'),
-					className: 'btn-secondary responsive-button',
-					callback: function()
-					{
-						bootbox.hideAll();
-					}
-				}
-			}
-		});
+		Grocy.OpenSubView(link);
 	});
 
 	// serializeJSON defaults
