@@ -9,6 +9,9 @@
 	rel="stylesheet">
 @endpush
 
+@section('grocyConfigProps')
+	fullcalendarEventSources: {!! json_encode([ "events" => $fullcalendarEventSources]) !!},
+@endsection
 
 @section('content')
 <div class="row">
@@ -34,10 +37,6 @@
 </div>
 
 <hr class="my-2">
-
-<script>
-	var fullcalendarEventSources = {!! json_encode([ "events" => $fullcalendarEventSources]) !!}
-</script>
 
 <div class="row">
 	<div class="col">

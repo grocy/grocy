@@ -1,6 +1,4 @@
 ﻿
-/* global fullcalendarEventSources */
-
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import bootstrapPlugin from '@fullcalendar/bootstrap';
@@ -38,7 +36,7 @@ function calendarView(Grocy, scope = null)
 		firstDay: firstDay,
 		eventLimit: false,
 		height: "auto",
-		events: fullcalendarEventSources,
+		events: Grocy.fullcalendarEventSources,
 		// fullcalendar 4 doesn't translate the default view names (?)
 		// so we have to supply our own.
 		views: {

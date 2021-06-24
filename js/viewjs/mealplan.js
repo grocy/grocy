@@ -1,6 +1,4 @@
-﻿/* global fullcalendarEventSources, internalRecipes, recipesResolved */
-
-import { Calendar } from '@fullcalendar/core';
+﻿import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import bootstrapPlugin from '@fullcalendar/bootstrap';
 import momentPlugin from '@fullcalendar/moment/main';
@@ -57,7 +55,7 @@ function mealplanView(Grocy, scope = null)
 		},
 		weekNumbers: false,
 		eventLimit: false,
-		events: fullcalendarEventSources,
+		events: Grocy.fullcalendarEventSources,
 		defaultView: (viewport.width() < 768) ? "dayGridDay" : "dayGridWeek",
 		firstDay: firstDay,
 		height: "auto",
@@ -85,7 +83,7 @@ function mealplanView(Grocy, scope = null)
 				</div>');
 
 			var weekRecipeName = start.year() + "-" + ((start.week() - 1).toString().padStart(2, "0")).toString();
-			var weekRecipe = internalRecipes.find(elem => elem.name == weekRecipeName);
+			var weekRecipe = Grocy.internalRecipes.find(elem => elem.name == weekRecipeName);
 
 			var weekCosts = 0;
 			var weekRecipeOrderMissingButtonHtml = "";
@@ -93,7 +91,7 @@ function mealplanView(Grocy, scope = null)
 			var weekCostsHtml = "";
 			if (weekRecipe !== null && weekRecipe !== undefined) // Array.prototype.find returns undefined if not found.
 			{
-				var recipes = recipesResolved.find(elem => elem.recipe_id == weekRecipe.id);
+				var recipes = Grocy.recipesResolved.find(elem => elem.recipe_id == weekRecipe.id);
 				if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 				{
 					weekCosts = recipes.costs;
@@ -130,8 +128,8 @@ function mealplanView(Grocy, scope = null)
 			if (event.type != "note")
 			{
 				var dayRecipeName = toMoment(info.event.start, calendar).format("YYYY-MM-DD");
-				var dayRecipe = internalRecipes.find(elem => elem.name == dayRecipeName);
-				var dayRecipeResolved = recipesResolved.find(elem => elem.recipe_id == dayRecipe.id);
+				var dayRecipe = Grocy.internalRecipes.find(elem => elem.name == dayRecipeName);
+				var dayRecipeResolved = Grocy.recipesResolved.find(elem => elem.recipe_id == dayRecipe.id);
 
 				if (!$scope("#day-summary-" + dayRecipeName).length) // This runs for every event/recipe, so maybe multiple times per day, so only add the day summary once
 				{
@@ -158,7 +156,7 @@ function mealplanView(Grocy, scope = null)
 					return false;
 				}
 
-				var resolvedRecipe = recipesResolved.find(elem => elem.recipe_id == recipe.id);
+				var resolvedRecipe = Grocy.recipesResolved.find(elem => elem.recipe_id == recipe.id);
 
 				element.attr("data-recipe", event.recipe);
 

@@ -88,6 +88,17 @@
 			UserId: -1,
 			@endif
 		};
+		@hasSection('grocyConfigProps')
+		Object.assign(GrocyConfig, {
+			@yield('grocyConfigProps')
+		});
+		@endif
+
+		@hasSection('forceUserSettings')
+		Object.assign(GrocyConfig.UserSettings, {
+			@yield('forceUserSettings')
+		});
+		@endif
 	</script>
 </head>
 

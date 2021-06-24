@@ -8,6 +8,15 @@
 
 @section('viewJsName', 'userobjectform')
 
+@section('grocyConfigProps')
+EditMode: '{{ $mode }}',
+EditObjectParentId: {{ $userentity->id }},
+EditObjectParentName: "{{ $userentity->name }}",
+@if($mode == 'edit')	
+EditObjectId: {{ $userobject->id }},
+@endif
+@endsection
+
 @section('content')
 <div class="row">
 	<div class="col">
@@ -19,18 +28,6 @@
 
 <div class="row">
 	<div class="col-lg-6 col-xs-12">
-		<script>
-			GrocyConfig.EditMode = '{{ $mode }}';
-			GrocyConfig.EditObjectParentId = {{ $userentity->id }};
-			GrocyConfig.EditObjectParentName = "{{ $userentity->name }}";
-		</script>
-
-		@if($mode == 'edit')
-		<script>
-			GrocyConfig.EditObjectId = {{ $userobject->id }};
-		</script>
-		@endif
-
 		<form id="userobject-form"
 			novalidate>
 

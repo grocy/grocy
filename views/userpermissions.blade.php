@@ -4,11 +4,10 @@
 @section('activeNav', '')
 @section('viewJsName', 'userpermissions')
 
-@push('pageScripts')
-<script>
-	GrocyConfig.EditObjectId = {{ $user->id }};
-</script>
-@endpush
+@section('grocyConfigProps')
+EditMode: '{{ $mode }}',
+EditObjectId: {{ $user->id }},
+@endsection
 
 @push('pageStyles')
 <style>

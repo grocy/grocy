@@ -8,11 +8,24 @@
 
 @section('viewJsName', 'recipeposform')
 
-@section('content')
-<script>
-	GrocyConfig.DefaultMinAmount = '{{$DEFAULT_MIN_AMOUNT}}';
-</script>
+@section('grocyConfigProps')
+	EditMode: '{{ $mode }}',
+	EditObjectParentId: {{ $recipe->id }},
+	EditObject: {!! json_encode($recipePos) !!},
+@if($mode == 'edit')	
+	GrocyConfig.EditObjectId: {{ $recipePos->id }},
+@endif
+	QuantityUnits: {!! json_encode($quantityUnits) !!},
+	QuantityUnitConversionsResolved: {!! json_encode($quantityUnitConversionsResolved) !!},
+	DefaultMinAmount: '{{$DEFAULT_MIN_AMOUNT}}',
 
+@if(!empty($recipe->picture_file_name))
+	RecipePictureFileName: '{{ $recipe->picture_file_name }}',
+@endif
+
+@endsection
+
+@section('content')
 <div class="row">
 	<div class="col">
 		<div class="title-related-links">
@@ -28,20 +41,6 @@
 
 <div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-5 pb-3">
-		<script>
-			GrocyConfig.EditMode = '{{ $mode }}';
-			GrocyConfig.EditObjectParentId = {{ $recipe->id }};
-			GrocyConfig.EditObject = {!! json_encode($recipePos) !!};
-			GrocyConfig.QuantityUnits = {!! json_encode($quantityUnits) !!};
-			GrocyConfig.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
-		</script>
-
-		@if($mode == 'edit')
-		<script>
-			GrocyConfig.EditObjectId = {{ $recipePos->id }};
-		</script>
-		@endif
-
 		<form id="recipe-pos-form"
 			novalidate>
 

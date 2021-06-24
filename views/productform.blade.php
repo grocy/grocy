@@ -8,6 +8,18 @@
 
 @section('viewJsName', 'productform')
 
+@section('grocyConfigProps')
+EditMode: '{{ $mode }}',
+
+@if($mode == 'edit')
+		EditObjectId: {{ $product->id }},
+
+		@if(!empty($product->picture_file_name))
+			ProductPictureFileName: '{{ $product->picture_file_name }}',
+		@endif
+@endif
+@endsection
+
 @section('content')
 <div class="row">
 	<div class="col">
@@ -19,22 +31,6 @@
 
 <div class="row">
 	<div class="col-lg-6 col-xs-12">
-		<script>
-			GrocyConfig.EditMode = '{{ $mode }}';
-		</script>
-
-		@if($mode == 'edit')
-		<script>
-			GrocyConfig.EditObjectId = {{ $product->id }};
-		</script>
-
-		@if(!empty($product->picture_file_name))
-		<script>
-			GrocyConfig.ProductPictureFileName = '{{ $product->picture_file_name }}';
-		</script>
-		@endif
-		@endif
-
 		<form id="product-form"
 			novalidate>
 

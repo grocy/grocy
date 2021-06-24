@@ -3,12 +3,13 @@
 @section('title', $__t('Edit stock entry'))
 @section('viewJsName', 'stockentryform')
 
-@section('content')
-<script>
-	GrocyConfig.EditObjectId = {{ $stockEntry->id }};
-	GrocyConfig.EditObjectProductId = {{ $stockEntry->product_id }};
-</script>
+@section('grocyConfigProps')
+EditMode: '{{ $mode }}',
+EditObjectId: {{ $stockEntry->id }},
+EditObjectProductId: {{ $stockEntry->product_id },
+@endsection
 
+@section('content')
 <div class="row">
 	<div class="col">
 		<h2 class="title">@yield('title')</h2>

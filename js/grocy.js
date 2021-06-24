@@ -46,6 +46,9 @@ class GrocyClass
 		this.RecipePictureFileName = config.RecipePictureFileName;
 		this.InstructionManualFileNameName = config.InstructionManualFileNameName;
 		this.Locale = config.Locale;
+		this.fullcalendarEventSources = config.fullcalendarEventSources;
+		this.internalRecipes = config.internalRecipes;
+		this.recipesResolved = config.recipesResolved;
 
 		this.Components = {};
 		this.initComponents = [];

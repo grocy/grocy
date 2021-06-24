@@ -4,11 +4,12 @@
 @section('activeNav', 'recipes')
 @section('viewJsName', 'recipes')
 
+@section('grocyConfigProps')
+	QuantityUnits: {!! json_encode($quantityUnits) !!},
+	QuantityUnitConversionsResolved: {!! json_encode($quantityUnitConversionsResolved) !!},
+@endsection
+
 @section('content')
-<script>
-	GrocyConfig.QuantityUnits = {!! json_encode($quantityUnits) !!};
-	GrocyConfig.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
-</script>
 
 <div class="row">
 	<div class="col-xs-12 col-md-6 d-print-none">

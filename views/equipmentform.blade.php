@@ -8,6 +8,16 @@
 
 @section('viewJsName', 'equipmentform')
 
+@section('grocyConfigProps')
+EditMode: '{{ $mode }}',
+@if($mode == 'edit')	
+EditObjectId: {{ $equipment->id }},
+	@if(!empty($equipment->instruction_manual_file_name))
+InstructionManualFileNameName: '{{ $equipment->instruction_manual_file_name }}',
+	@endif
+@endif
+@endsection
+
 @section('content')
 <div class="row">
 	<div class="col">
@@ -19,22 +29,6 @@
 
 <div class="row">
 	<div class="col-lg-6 col-xs-12">
-		<script>
-			GrocyConfig.EditMode = '{{ $mode }}';
-		</script>
-
-		@if($mode == 'edit')
-		<script>
-			GrocyConfig.EditObjectId = {{ $equipment->id }};
-		</script>
-
-		@if(!empty($equipment->instruction_manual_file_name))
-		<script>
-			GrocyConfig.InstructionManualFileNameName = '{{ $equipment->instruction_manual_file_name }}';
-		</script>
-		@endif
-		@endif
-
 		<form id="equipment-form"
 			novalidate>
 

@@ -9,18 +9,18 @@
 	rel="stylesheet">
 @endpush
 
+@section('grocyConfigProps')
+	fullcalendarEventSources: {!! json_encode([ "events" => $fullcalendarEventSources ]) !!},
+	internalRecipes: {!! json_encode($internalRecipes) !!},
+	recipesResolved: {!! json_encode($recipesResolved) !!},
+
+	QuantityUnits: {!! json_encode($quantityUnits) !!},
+	QuantityUnitConversionsResolved: {!! json_encode($quantityUnitConversionsResolved) !!},
+
+	MealPlanFirstDayOfWeek: '{{ GROCY_MEAL_PLAN_FIRST_DAY_OF_WEEK }}',
+@endsection
+
 @section('content')
-<script>
-	var fullcalendarEventSources = {!! json_encode([ "events" => $fullcalendarEventSources ]) !!}
-	var internalRecipes = {!! json_encode($internalRecipes) !!}
-	var recipesResolved = {!! json_encode($recipesResolved) !!}
-
-	GrocyConfig.QuantityUnits = {!! json_encode($quantityUnits) !!};
-	GrocyConfig.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
-
-	GrocyConfig.MealPlanFirstDayOfWeek = '{{ GROCY_MEAL_PLAN_FIRST_DAY_OF_WEEK }}';
-</script>
-
 <div class="row">
 	<div class="col">
 		<h2 class="title">@yield('title')</h2>

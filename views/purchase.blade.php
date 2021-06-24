@@ -4,13 +4,19 @@
 @section('activeNav', 'purchase')
 @section('viewJsName', 'purchase')
 
-@section('content')
-<script>
-	GrocyConfig.QuantityUnits = {!! json_encode($quantityUnits) !!};
-	GrocyConfig.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
-	GrocyConfig.DefaultMinAmount = '{{ $DEFAULT_MIN_AMOUNT }}';
-</script>
+@section('grocyConfigProps')
+	QuantityUnits: {!! json_encode($quantityUnits) !!},
+	QuantityUnitConversionsResolved: {!! json_encode($quantityUnitConversionsResolved) !!},
+	DefaultMinAmount: '{{$DEFAULT_MIN_AMOUNT}}',
+@endsection
 
+@section('forceUserSettings')
+	@if($embedded)
+	scan_mode_consume_enabled: false,
+	@endif
+@endsection
+
+@section('content')
 <div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
 		<div class="title-related-links">
@@ -35,10 +41,6 @@
 					@if(boolval($userSettings['scan_mode_purchase_enabled']))
 					checked
 					@endif>
-				@else
-				<script>
-					GrocyConfig.UserSettings.scan_mode_purchase_enabled = false;
-				</script>
 				@endif
 			</div>
 		</div>

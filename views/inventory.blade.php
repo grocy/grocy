@@ -4,13 +4,13 @@
 @section('activeNav', 'inventory')
 @section('viewJsName', 'inventory')
 
-@section('content')
-<script>
-	GrocyConfig.QuantityUnits = {!! json_encode($quantityUnits) !!};
-	GrocyConfig.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
-	GrocyConfig.DefaultMinAmount = '{{$DEFAULT_MIN_AMOUNT}}';
-</script>
+@section('grocyConfigProps')
+	QuantityUnits: {!! json_encode($quantityUnits) !!},
+	QuantityUnitConversionsResolved: {!! json_encode($quantityUnitConversionsResolved) !!},
+	DefaultMinAmount: '{{$DEFAULT_MIN_AMOUNT}}',
+@endsection
 
+@section('content')
 <div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
 		<h2 class="title">@yield('title')</h2>

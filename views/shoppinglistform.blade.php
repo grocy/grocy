@@ -8,6 +8,13 @@
 
 @section('viewJsName', 'shoppinglistform')
 
+@section('grocyConfigProps')
+EditMode: '{{ $mode }}',
+@if($mode == 'edit')	
+GrocyConfig.EditObjectId: {{ $shoppingList->id }},
+@endif
+@endsection
+
 @section('content')
 <div class="row">
 	<div class="col">
@@ -19,16 +26,6 @@
 
 <div class="row">
 	<div class="col-lg-6 col-xs-12">
-		<script>
-			GrocyConfig.EditMode = '{{ $mode }}';
-		</script>
-
-		@if($mode == 'edit')
-		<script>
-			GrocyConfig.EditObjectId = {{ $shoppingList->id }};
-		</script>
-		@endif
-
 		<form id="shopping-list-form"
 			novalidate>
 

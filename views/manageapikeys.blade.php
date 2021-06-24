@@ -4,10 +4,6 @@
 @section('activeNav', '')
 @section('viewJsName', 'manageapikeys')
 
-@push('pageScripts')
-<script src="{{ $U('/node_modules/bwip-js/dist/bwip-js-min.js?v=', true) }}{{ $version }}"></script>
-@endpush
-
 @section('content')
 <div class="row">
 	<div class="col">

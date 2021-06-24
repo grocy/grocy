@@ -8,12 +8,18 @@
 
 @section('viewJsName', 'productbarcodeform')
 
-@section('content')
-<script>
-	GrocyConfig.QuantityUnits = {!! json_encode($quantityUnits) !!};
-	GrocyConfig.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
-</script>
+@section('grocyConfigProps')
+	QuantityUnits: {!! json_encode($quantityUnits) !!},
+	QuantityUnitConversionsResolved: {!! json_encode($quantityUnitConversionsResolved) !!},
+	EditMode: '{{ $mode }}',
+@if($mode == 'edit')	
+	EditObjectId: {{ $barcode->id }},
+	EditObject: {!! json_encode($barcode) !!},
+@endif
+	EditObjectProduct: {!! json_encode($product) !!},
+@endsection
 
+@section('content')
 <div class="row">
 	<div class="col">
 		<div class="title-related-links">
@@ -29,19 +35,6 @@
 
 <div class="row">
 	<div class="col-lg-6 col-xs-12">
-
-		<script>
-			GrocyConfig.EditMode = '{{ $mode }}';
-			GrocyConfig.EditObjectProduct = {!! json_encode($product) !!};
-		</script>
-
-		@if($mode == 'edit')
-		<script>
-			GrocyConfig.EditObjectId = {{ $barcode->id }};
-			GrocyConfig.EditObject = {!! json_encode($barcode) !!};
-		</script>
-		@endif
-
 		<form id="barcode-form"
 			novalidate>
 

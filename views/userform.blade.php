@@ -8,6 +8,16 @@
 
 @section('viewJsName', 'userform')
 
+@section('grocyConfigProps')
+EditMode: '{{ $mode }}',
+@if($mode == 'edit')	
+	EditObjectId: {{ $user->id }},
+	@if(!empty($user->picture_file_name))
+		UserPictureFileName: '{{ $user->picture_file_name }}',
+	@endif
+@endif
+@endsection
+
 @section('content')
 <div class="row">
 	<div class="col">
@@ -22,17 +32,6 @@
 		<script>
 			GrocyConfig.EditMode = '{{ $mode }}';
 		</script>
-
-		@if($mode == 'edit')
-		<script>
-			GrocyConfig.EditObjectId = {{ $user->id }};
-
-			@if(!empty($user->picture_file_name))
-			GrocyConfig.UserPictureFileName = '{{ $user->picture_file_name }}';
-			@endif
-		</script>
-		@endif
-
 		<form id="user-form"
 			novalidate>
 

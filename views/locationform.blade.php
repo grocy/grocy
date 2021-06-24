@@ -8,6 +8,13 @@
 
 @section('viewJsName', 'locationform')
 
+@section('grocyConfigProps')
+EditMode: '{{ $mode }}',
+@if($mode == 'edit')	
+EditObjectId: {{ $location->id }},
+@endif
+@endsection
+
 @section('content')
 <div class="row">
 	<div class="col">
@@ -19,15 +26,6 @@
 
 <div class="row">
 	<div class="col-lg-6 col-xs-12">
-		<script>
-			GrocyConfig.EditMode = '{{ $mode }}';
-		</script>
-
-		@if($mode == 'edit')
-		<script>
-			GrocyConfig.EditObjectId = {{ $location->id }};
-		</script>
-		@endif
 
 		<form id="location-form"
 			novalidate>

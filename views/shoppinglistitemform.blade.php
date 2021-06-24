@@ -8,12 +8,16 @@
 
 @section('viewJsName', 'shoppinglistitemform')
 
+@section('grocyConfigProps')
+	EditMode: '{{ $mode }}',
+@if($mode == 'edit')	
+	GrocyConfig.EditObjectId: {{ $listItem->id }},
+@endif
+	QuantityUnits: {!! json_encode($quantityUnits) !!},
+	QuantityUnitConversionsResolved: {!! json_encode($quantityUnitConversionsResolved) !!},
+@endsection
+	
 @section('content')
-<script>
-	GrocyConfig.QuantityUnits = {!! json_encode($quantityUnits) !!};
-	GrocyConfig.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
-</script>
-
 <div class="row">
 	<div class="col">
 		<h2 class="title">@yield('title')</h2>
@@ -24,15 +28,6 @@
 
 <div class="row">
 	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
-		<script>
-			GrocyConfig.EditMode = '{{ $mode }}';
-		</script>
-
-		@if($mode == 'edit')
-		<script>
-			GrocyConfig.EditObjectId = {{ $listItem->id }};
-		</script>
-		@endif
 
 		<form id="shoppinglist-form"
 			novalidate>

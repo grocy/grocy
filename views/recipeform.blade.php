@@ -8,28 +8,25 @@
 
 @section('viewJsName', 'recipeform')
 
+@section('grocyConfigProps')
+	EditMode: '{{ $mode }}',
+@if($mode == 'edit')	
+	GrocyConfig.EditObjectId: {{ $recipe->id }},
+@endif
+	QuantityUnits: {!! json_encode($quantityUnits) !!},
+	QuantityUnitConversionsResolved: {!! json_encode($quantityUnitConversionsResolved) !!},
+	DefaultMinAmount: '{{$DEFAULT_MIN_AMOUNT}}',
+
+@if(!empty($recipe->picture_file_name))
+	RecipePictureFileName: '{{ $recipe->picture_file_name }}',
+@endif
+
+@stop
+
 @section('content')
 <div class="row">
 	<div class="col">
 		<h2 class="title">@yield('title')</h2>
-
-		<script>
-			GrocyConfig.EditMode = '{{ $mode }}';
-			GrocyConfig.QuantityUnits = {!! json_encode($quantityunits) !!};
-			GrocyConfig.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
-		</script>
-
-		@if($mode == 'edit')
-		<script>
-			GrocyConfig.EditObjectId = {{ $recipe->id }};
-		</script>
-
-		@if(!empty($recipe->picture_file_name))
-		<script>
-			GrocyConfig.RecipePictureFileName = '{{ $recipe->picture_file_name }}';
-		</script>
-		@endif
-		@endif
 	</div>
 </div>
 
