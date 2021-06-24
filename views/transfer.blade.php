@@ -11,8 +11,12 @@
 @endsection
 
 @section('content')
+@php
+$classes = $embedded ? '' : 'col-md-6 col-xl-4';
+@endphp
+
 <div class="row">
-	<div class="col-xs-12 col-md-6 col-xl-4 pb-3">
+	<div class="col-12 {{ $classes }} pb-3">
 		<h2 class="title">@yield('title')</h2>
 
 		<hr class="my-2">

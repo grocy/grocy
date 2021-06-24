@@ -248,7 +248,7 @@ class GrocyClass
 		if (Object.prototype.hasOwnProperty.call(components, componentName))
 		{
 			// add-then-init to resolve circular dependencies
-			this.initComponents.push(componentName);
+			this.initComponents.push(componentName + scopeName);
 			var component = new components[componentName](this, scope);
 			this.Components[componentName + scopeName] = component;
 			return component;
@@ -377,6 +377,14 @@ class GrocyClass
 						// this occurs before the view is shown.
 						grocyProxy.Initialize(proxy);
 						self.LoadView(data.viewJsName, "#" + scopeId, proxy);
+					},
+					onHide: () =>
+					{
+						grocyProxy.Unload();
+					},
+					onHidden: () =>
+					{
+						self.FrontendHelpers.EndUiBusy();
 					}
 				});
 			},

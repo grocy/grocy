@@ -3,7 +3,7 @@
 	var $scope = $;
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	Grocy.Use("numberpicker");
@@ -95,7 +95,7 @@
 		{
 			event.preventDefault();
 
-			if (document.getElementById('chore-form').checkValidity() === false) //There is at least one validation error
+			if ($scope('#chore-form')[0].checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}

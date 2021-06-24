@@ -5,7 +5,7 @@ function transferView(Grocy, scope = null)
 	var $scope = $;
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	var productpicker = Grocy.Use("productpicker");
@@ -192,7 +192,7 @@ function transferView(Grocy, scope = null)
 							{
 								if (productDetails.location.id == stockLocation.location_id)
 								{
-									$scope("#location_id_from").append($scope("<option>", {
+									$scope("#location_id_from").append($("<option>", {
 										value: stockLocation.location_id,
 										text: stockLocation.location_name + " (" + __t("Default location") + ")",
 										"data-is-freezer": stockLocation.location_is_freezer
@@ -203,7 +203,7 @@ function transferView(Grocy, scope = null)
 								}
 								else
 								{
-									$scope("#location_id_from").append($scope("<option>", {
+									$scope("#location_id_from").append($("<option>", {
 										value: stockLocation.location_id,
 										text: stockLocation.location_name,
 										"data-is-freezer": stockLocation.location_is_freezer
@@ -229,9 +229,9 @@ function transferView(Grocy, scope = null)
 						}
 					);
 
-					if (document.getElementById("product_id").getAttribute("barcode") != "null")
+					if ($scope('#product_id').attr("barcode") != "null")
 					{
-						Grocy.Api.Get('objects/product_barcodes?query[]=barcode=' + document.getElementById("product_id").getAttribute("barcode"),
+						Grocy.Api.Get('objects/product_barcodes?query[]=barcode=' + $scope('#product_id').attr("barcode"),
 							function(barcodeResult)
 							{
 								if (barcodeResult != null)
@@ -404,7 +404,7 @@ function transferView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if (document.getElementById('transfer-form').checkValidity() === false) //There is at least one validation error
+			if ($scope('#transfer-form')[0].checkValidity()() === false) //There is at least one validation error
 			{
 				return false;
 			}

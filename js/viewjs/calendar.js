@@ -19,7 +19,7 @@ function calendarView(Grocy, scope = null)
 
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 		$viewport = $(scope);
 	}
 
@@ -63,7 +63,7 @@ function calendarView(Grocy, scope = null)
 		firstDay = parseInt(Grocy.CalendarFirstDayOfWeek);
 	}
 
-	var calendar = new Calendar(document.getElementById("calendar"), calendarOptions);
+	var calendar = new Calendar($scope("#calendar")[0], calendarOptions);
 	calendar.render();
 
 	$scope("#ical-button").on("click", function(e)

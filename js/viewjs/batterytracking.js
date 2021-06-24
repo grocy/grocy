@@ -3,7 +3,7 @@
 	var $scope = $;
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	var batterycard = Grocy.Use("batterycard");
@@ -92,7 +92,7 @@
 		{
 			event.preventDefault();
 
-			if (document.getElementById('batterytracking-form').checkValidity() === false) //There is at least one validation error
+			if ($scope('#batterytracking-form')[0].checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}

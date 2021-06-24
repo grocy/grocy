@@ -5,7 +5,7 @@ function quantityunitconversionformView(Grocy, scope = null)
 	var $scope = $;
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	Grocy.Use("numberpicker");
@@ -149,7 +149,7 @@ function quantityunitconversionformView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if (document.getElementById('quconversion-form').checkValidity() === false) //There is at least one validation error
+			if ($scope('#quconversion-form')[0].checkValidity()() === false) //There is at least one validation error
 			{
 				return false;
 			}

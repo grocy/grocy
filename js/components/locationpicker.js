@@ -7,7 +7,7 @@ class locationpicker extends BasePicker
 		super(Grocy, "#location_id", scopeSelector);
 
 		this.picker = this.$(this.basename);
-		this.inputElement = this.$('#location_id_text_input');
+		this.input_element = this.$(this.basename + '_text_input');
 
 		this.initCombobox('.location-combobox');
 

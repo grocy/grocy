@@ -3,7 +3,7 @@
 	var $scope = $;
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	var chorecard = Grocy.Use("chorecard");
@@ -110,7 +110,7 @@
 		{
 			event.preventDefault();
 
-			if (document.getElementById('choretracking-form').checkValidity() === false) //There is at least one validation error
+			if ($scope('#choretracking-form')[0].checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}

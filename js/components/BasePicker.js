@@ -14,6 +14,7 @@ class BasePicker
 		this.input_element = null;
 
 		this.basename = basename;
+		this.hasCombobox = false;
 	}
 
 	prefill()
@@ -55,6 +56,7 @@ class BasePicker
 
 	initCombobox(selector)
 	{
+		this.hasCombobox = true;
 		this.$(selector).combobox({
 			appendId: '_text_input',
 			bsVersion: '4',
@@ -79,15 +81,27 @@ class BasePicker
 
 	SetValue(value)
 	{
-		this.input_element.val(value);
-		this.input_element.trigger('change');
+		if (this.input_element != null)
+		{
+			this.input_element.val(value);
+			this.input_element.trigger('change');
+		}
+		else
+		{
+			this.picker.val(value);
+			this.picker.trigger("change");
+		}
 	}
 
 	SetId(value)
 	{
 		this.picker.val(value);
-		this.picker.data('combobox').refresh();
-		this.input_element.trigger('change');
+		if (this.hasCombobox)
+			this.picker.data('combobox').refresh();
+		if (this.input_element != null)
+			this.input_element.trigger('change');
+		else
+			this.picker.trigger("change");
 	}
 
 	Clear()

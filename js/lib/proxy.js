@@ -48,10 +48,23 @@ class GrocyProxy
 
 	Initialize(proxy)
 	{
+		this.proxy = proxy;
 		this.scope = $(this.scopeSelector);
 		var jScope = this.scope;
 		this.$scope = (selector) => jScope.find(selector);
 		this.FrontendHelpers = new GrocyFrontendHelpers(proxy, this.RootGrocy.Api, this.scopeSelector);
+	}
+
+	Unload()
+	{
+		for (let component in this.Components)
+		{
+			var comp = this.Components[component];
+			if (Object.prototype.hasOwnProperty.call(comp, "Unload"))
+			{
+				comp.Unload();
+			}
+		}
 	}
 
 	Use(componentName, scope = null)
@@ -64,8 +77,8 @@ class GrocyProxy
 		if (Object.prototype.hasOwnProperty.call(components, componentName))
 		{
 			// add-then-init to resolve circular dependencies
-			this.initComponents.push(componentName);
-			var component = new components[componentName](this, scope);
+			this.initComponents.push(componentName + scopeName);
+			var component = new components[componentName](this.proxy, scope);
 			this.Components[componentName + scopeName] = component;
 			return component;
 		}

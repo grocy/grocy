@@ -5,7 +5,7 @@ function equipmentView(Grocy, scope = null)
 	var $scope = $;
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	var equipmentTable = $scope('#equipment-table').DataTable({

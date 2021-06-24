@@ -5,7 +5,7 @@ function recipeposformView(Grocy, scope = null)
 	var $scope = $;
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	Grocy.Use("numberpicker");
@@ -145,7 +145,7 @@ function recipeposformView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if (document.getElementById('recipe-pos-form').checkValidity() === false) //There is at least one validation error
+			if ($scope('#recipe-pos-form')[0].checkValidity()() === false) //There is at least one validation error
 			{
 				return false;
 			}

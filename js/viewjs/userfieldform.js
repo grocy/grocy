@@ -5,7 +5,7 @@ function userfieldformView(Grocy, scope = null)
 	var $scope = $;
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	Grocy.Use("numberpicker");
@@ -88,7 +88,7 @@ function userfieldformView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if (document.getElementById('userfield-form').checkValidity() === false) //There is at least one validation error
+			if ($scope('#userfield-form')[0].checkValidity()() === false) //There is at least one validation error
 			{
 				return false;
 			}

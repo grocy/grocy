@@ -5,7 +5,7 @@ function inventoryView(Grocy, scope = null)
 	var $scope = $;
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	var dt1 = Grocy.Use("datetimepicker");
@@ -176,7 +176,7 @@ function inventoryView(Grocy, scope = null)
 						$scope("#tare-weight-handling-info").addClass("d-none");
 					}
 
-					$scope('#price').val(parseFloat(productDetails.last_price));
+					$scope('#price').val(parseFloat(productDetails.last_price).toFixed(Grocy.UserSettings.stock_decimal_places_prices));
 					RefreshLocaleNumberInput();
 					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 					{
@@ -205,9 +205,9 @@ function inventoryView(Grocy, scope = null)
 						}
 					}
 
-					if (document.getElementById("product_id").getAttribute("barcode") != "null")
+					if ($scope('#product_id').attr("barcode") != "null")
 					{
-						Grocy.Api.Get('objects/product_barcodes?query[]=barcode=' + document.getElementById("product_id").getAttribute("barcode"),
+						Grocy.Api.Get('objects/product_barcodes?query[]=barcode=' + $scope('#product_id').attr("barcode"),
 							function(barcodeResult)
 							{
 								if (barcodeResult != null)
@@ -295,7 +295,7 @@ function inventoryView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if (document.getElementById('inventory-form').checkValidity() === false) //There is at least one validation error
+			if ($scope('#inventory-form')[0].checkValidity()() === false) //There is at least one validation error
 			{
 				return false;
 			}

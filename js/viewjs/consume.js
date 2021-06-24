@@ -8,11 +8,13 @@ function consumeView(Grocy, scope = null)
 
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	var productamountpicker = Grocy.Use("productamountpicker");
-	var productcard = Grocy.Use("productcard");
+	var productcard = null;
+	if (!Grocy.GetUriParam("embedded"))
+		productcard = Grocy.Use("productcard");
 	var productpicker = Grocy.Use("productpicker");
 	var recipepicker = Grocy.Use("recipepicker");
 
@@ -139,7 +141,7 @@ function consumeView(Grocy, scope = null)
 								$scope("#location_id").find("option").remove().end().append("<option></option>");
 							}
 							productpicker.GetInputElement().focus();
-							productcard.Refresh(jsonForm.product_id);
+							if (productcard != null) productcard.Refresh(jsonForm.product_id);
 							Grocy.FrontendHelpers.ValidateForm('consume-form');
 							$scope("#consume-exact-amount-group").addClass("d-none");
 						}
@@ -298,7 +300,7 @@ function consumeView(Grocy, scope = null)
 						}
 					);
 
-					if (document.getElementById("product_id").getAttribute("barcode") == "null")
+					if ($scope('#product_id').attr("barcode") == "null")
 					{
 						Grocy.ScanModeSubmit();
 					}
@@ -329,7 +331,7 @@ function consumeView(Grocy, scope = null)
 
 		if (productId)
 		{
-			productcard.Refresh(productId);
+			if (productcard != null) productcard.Refresh(productId);
 
 			Grocy.Api.Get('stock/products/' + productId,
 				function(productDetails)
@@ -382,9 +384,9 @@ function consumeView(Grocy, scope = null)
 								}
 							});
 
-							if (document.getElementById("product_id").getAttribute("barcode") != "null")
+							if ($scope('#product_id').attr("barcode") != "null")
 							{
-								Grocy.Api.Get('objects/product_barcodes?query[]=barcode=' + document.getElementById("product_id").getAttribute("barcode"),
+								Grocy.Api.Get('objects/product_barcodes?query[]=barcode=' + $scope('#product_id').attr("barcode"),
 									function(barcodeResult)
 									{
 										if (barcodeResult != null)
@@ -499,7 +501,7 @@ function consumeView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if (document.getElementById('consume-form').checkValidity() === false) //There is at least one validation error
+			if ($scope('#consume-form')[0].checkValidity()() === false) //There is at least one validation error
 			{
 				return false;
 			}

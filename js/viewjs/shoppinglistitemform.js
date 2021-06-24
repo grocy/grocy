@@ -5,7 +5,7 @@ function shoppinglistitemformView(Grocy, scope = null)
 	var $scope = $;
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	var productamountpicker = Grocy.Use("productamountpicker");
@@ -226,7 +226,7 @@ function shoppinglistitemformView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if (document.getElementById('shoppinglist-form').checkValidity() === false) //There is at least one validation error
+			if ($scope('#shoppinglist-form')[0].checkValidity()() === false) //There is at least one validation error
 			{
 				return false;
 			}

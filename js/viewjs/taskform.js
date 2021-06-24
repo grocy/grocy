@@ -5,7 +5,7 @@ function taskformView(Grocy, scope = null)
 	var $scope = $;
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	var datetimepicker = Grocy.Use("datetimepicker");
@@ -89,7 +89,7 @@ function taskformView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if (document.getElementById('task-form').checkValidity() === false) //There is at least one validation error
+			if ($scope('#task-form')[0].checkValidity()() === false) //There is at least one validation error
 			{
 				return false;
 			}

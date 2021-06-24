@@ -16,7 +16,7 @@ function mealplanView(Grocy, scope = null)
 
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	Grocy.Use("numberpicker");
@@ -45,7 +45,7 @@ function mealplanView(Grocy, scope = null)
 		firstDay = parseInt(Grocy.MealPlanFirstDayOfWeek);
 	}
 
-	var calendar = new Calendar(document.getElementById("calendar"), {
+	var calendar = new Calendar($scope('#calendar')[0], {
 		plugins: [dayGridPlugin, bootstrapPlugin, momentPlugin],
 		themeSystem: "bootstrap",
 		header: {
@@ -432,7 +432,7 @@ function mealplanView(Grocy, scope = null)
 			return;
 		}
 
-		if (document.getElementById("add-recipe-form").checkValidity() === false) //There is at least one validation error
+		if ($scope('#add-recipe-form')[0].checkValidity()() === false) //There is at least one validation error
 		{
 			return false;
 		}
@@ -474,7 +474,7 @@ function mealplanView(Grocy, scope = null)
 			return;
 		}
 
-		if (document.getElementById("add-note-form").checkValidity() === false) //There is at least one validation error
+		if ($scope('#add-note-form')[0].checkValidity()() === false) //There is at least one validation error
 		{
 			return false;
 		}
@@ -520,7 +520,7 @@ function mealplanView(Grocy, scope = null)
 			return;
 		}
 
-		if (document.getElementById("add-product-form").checkValidity() === false) //There is at least one validation error
+		if ($scope('#add-product-form')[0].checkValidity()() === false) //There is at least one validation error
 		{
 			return false;
 		}
@@ -567,7 +567,7 @@ function mealplanView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if (document.getElementById("add-recipe-form").checkValidity() === false) //There is at least one validation error
+			if ($scope('#add-recipe-form')[0].checkValidity()() === false) //There is at least one validation error
 			{
 				return false;
 			}
@@ -584,7 +584,7 @@ function mealplanView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if (document.getElementById("add-product-form").checkValidity() === false) //There is at least one validation error
+			if ($scope('#add-product-form')[0].checkValidity()() === false) //There is at least one validation error
 			{
 				return false;
 			}
@@ -601,7 +601,7 @@ function mealplanView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if (document.getElementById("add-recipe-form").checkValidity() === false) //There is at least one validation error
+			if ($scope('#add-recipe-form')[0].checkValidity()() === false) //There is at least one validation error
 			{
 				return false;
 			}

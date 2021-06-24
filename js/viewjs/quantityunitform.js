@@ -5,7 +5,7 @@ function quantityunitformView(Grocy, scope = null)
 	var $scope = $;
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	var userfields = Grocy.Use("userfieldsform");

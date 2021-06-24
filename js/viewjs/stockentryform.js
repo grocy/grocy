@@ -5,7 +5,7 @@ function stockentryformView(Grocy, scope = null)
 	var $scope = $;
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	var datetimepicker = Grocy.Use("datetimepicker");
@@ -81,7 +81,7 @@ function stockentryformView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if (document.getElementById('stockentry-form').checkValidity() === false) //There is at least one validation error
+			if ($scope('#stockentry-form')[0].checkValidity()() === false) //There is at least one validation error
 			{
 				return false;
 			}

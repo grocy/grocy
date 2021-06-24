@@ -5,7 +5,7 @@ function userentityformView(Grocy, scope = null)
 	var $scope = $;
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	$scope('#save-userentity-button').on('click', function(e)
@@ -82,7 +82,7 @@ function userentityformView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if (document.getElementById('userentity-form').checkValidity() === false) //There is at least one validation error
+			if ($scope('#userentity-form')[0].checkValidity()() === false) //There is at least one validation error
 			{
 				return false;
 			}

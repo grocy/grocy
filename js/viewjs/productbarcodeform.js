@@ -7,7 +7,7 @@ function productbarcodeformView(Grocy, scope = null)
 
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	Grocy.Use('barcodescanner');
@@ -86,7 +86,7 @@ function productbarcodeformView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if (document.getElementById('barcode-form').checkValidity() === false) //There is at least one validation error
+			if ($scope('#barcode-form')[0].checkValidity()() === false) //There is at least one validation error
 			{
 				return false;
 			}

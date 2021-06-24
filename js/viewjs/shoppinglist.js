@@ -12,7 +12,7 @@ function shoppinglistView(Grocy, scope = null)
 
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	// preload some views.

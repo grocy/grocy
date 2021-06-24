@@ -233,37 +233,6 @@ function setInitialGlobalState(Grocy)
 		}
 	})
 
-	$('.table').on('column-sizing.dt', function(e, settings)
-	{
-		var dtScrollWidth = $('.dataTables_scroll').width();
-		var tableWidth = $('.table').width();
-
-		if (dtScrollWidth < tableWidth)
-		{
-			$('.dataTables_scrollBody').addClass("no-force-overflow-visible");
-			$('.dataTables_scrollBody').removeClass("force-overflow-visible");
-		}
-		else
-		{
-			$('.dataTables_scrollBody').removeClass("no-force-overflow-visible");
-			$('.dataTables_scrollBody').addClass("force-overflow-visible");
-		}
-	});
-	$('td .dropdown').on('show.bs.dropdown', function(e)
-	{
-		if ($('.dataTables_scrollBody').hasClass("no-force-overflow-visible"))
-		{
-			$('.dataTables_scrollBody').addClass("force-overflow-visible");
-		}
-	});
-	$("td .dropdown").on('hide.bs.dropdown', function(e)
-	{
-		if ($('.dataTables_scrollBody').hasClass("no-force-overflow-visible"))
-		{
-			$('.dataTables_scrollBody').removeClass("force-overflow-visible");
-		}
-	})
-
 	$(window).on("message", function(e)
 	{
 		var data = e.originalEvent.data;

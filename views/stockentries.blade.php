@@ -3,15 +3,20 @@
 @section('title', $__t('Stock entries'))
 @section('viewJsName', 'stockentries')
 
+@php 
+$collapsed_none = $embedded ? '' : 'd-md-none';
+$collapsed_flex = $embedded ? '' : 'd-md-flex';
+@endphp
+
 @section('content')
 <div class="row">
 	<div class="col">
 		<h2 class="title">@yield('title')</h2>
 		<div class="float-right">
-			<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
+			<button class="btn btn-outline-dark {{ $collapsed_none }} mt-2 order-1 order-md-3"
 				type="button"
 				data-toggle="collapse"
-				data-target="#table-filter-row">
+				data-target="#stockentry-table-filter-row">
 				<i class="fas fa-filter"></i>
 			</button>
 		</div>
@@ -20,8 +25,8 @@
 
 <hr class="my-2">
 
-<div class="row collapse d-md-flex"
-	id="table-filter-row">
+<div class="row collapse {{ $collaped_flex }}"
+	id="stockentry-table-filter-row">
 	<div class="col-xs-12 col-md-6 col-xl-3">
 		@include('components.productpicker', array(
 		'products' => $products,
@@ -117,7 +122,8 @@
 						<div class="dropdown d-inline-block">
 							<button class="btn btn-sm btn-light text-secondary"
 								type="button"
-								data-toggle="dropdown">
+								data-toggle="dropdown"
+								data-boundary="viewport">
 								<i class="fas fa-ellipsis-v"></i>
 							</button>
 							<div class="dropdown-menu">

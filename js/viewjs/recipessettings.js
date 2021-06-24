@@ -5,7 +5,7 @@ function recipessettingsView(Grocy, scope = null)
 	var $scope = $;
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	if (BoolVal(Grocy.UserSettings.recipe_ingredients_group_by_product_group))

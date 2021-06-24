@@ -3,7 +3,7 @@
 	var $scope = $;
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	var userfields = Grocy.Use("userfieldsform");
@@ -94,7 +94,7 @@
 
 	$scope('#user-form input').keyup(function(event)
 	{
-		var element = document.getElementById("password_confirm");
+		var element = $scope('#password_confirm')[0];
 		if ($scope("#password").val() !== $scope("#password_confirm").val())
 		{
 			element.setCustomValidity("error");
@@ -113,7 +113,7 @@
 		{
 			event.preventDefault();
 
-			if (document.getElementById('user-form').checkValidity() === false) //There is at least one validation error
+			if ($scope('#user-form')[0].checkValidity()() === false) //There is at least one validation error
 			{
 				return false;
 			}

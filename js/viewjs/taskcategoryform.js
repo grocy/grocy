@@ -5,7 +5,7 @@ function taskcategoryformView(Grocy, scope = null)
 	var $scope = $;
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	var userfields = Grocy.Use("userfieldsform");
@@ -84,7 +84,7 @@ function taskcategoryformView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if (document.getElementById('task-category-form').checkValidity() === false) //There is at least one validation error
+			if ($scope('#task-category-form')[0].checkValidity()() === false) //There is at least one validation error
 			{
 				return false;
 			}

@@ -9,7 +9,7 @@ $content = $__env->yieldContent('content');
 $config = "{\n" . $__env->yieldContent('grocyConfigProps') . '}';
 $config = preg_replace('/(\n[\t ]*)([a-zA-Z0-9]+):/','${1}"${2}":', $config);
 $config = preg_replace('/: *\'(.*?)\',?\n/', ':"${1}",', $config);
-$config = preg_replace('/,}$/', '}', $config);
+$config = preg_replace('/,\n?}$/', '}', $config);
 $grocy_options = json_decode($config, true);
 
 $usersettings = $__env->yieldContent('forceUserSettings');

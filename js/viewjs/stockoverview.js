@@ -4,7 +4,7 @@
 	var top = scope != null ? $(scope) : $(document);
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	var productcard = Grocy.Use("productcard");

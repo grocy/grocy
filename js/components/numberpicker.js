@@ -10,8 +10,8 @@ class numberpicker
 		this.$ = scopeSelector != null ? (selector) => jScope.find(selector) : $;
 		var self = this;
 
-		this.$(".numberpicker-down-button").unbind('click').on("click", () => self.valueDownHandler(this));
-		this.$(".numberpicker-up-button").unbind('click').on("click", () => self.valueUpHandler(this));
+		this.$(".numberpicker-down-button").unbind('click').on("click", function() { self.valueDownHandler(this) });
+		this.$(".numberpicker-up-button").unbind('click').on("click", function() { self.valueUpHandler(this) });
 
 		this.$(".numberpicker").on("keyup", function()
 		{
@@ -40,15 +40,26 @@ class numberpicker
 			}
 		});
 
-		var observer = new MutationObserver((mutations) => self.handleObservedChange(mutations));
+		this.observer = new MutationObserver((mutations) =>
+		{
+			for (let mutation of mutations)
+			{
+				self.handleObservedChange(mutation)
+			}
+		});
 
 		var elements = this.$(".numberpicker");
 		for (let element of elements)
 		{
-			observer.observe(element, { attributes: true });
+			this.observer.observe(element, { attributes: true });
 		}
 
 		this.$(".numberpicker").attr("data-initialised", "true"); // Dummy change to trigger MutationObserver above once
+	}
+
+	Unload()
+	{
+		this.observer.disconnect();
 	}
 
 	modifyValueHandler(_this, newValue)

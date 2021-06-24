@@ -6,7 +6,7 @@ function recipeformView(Grocy, scope = null)
 	var top = scope != null ? $(scope) : $(document);
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	Grocy.Use("numberpicker");
@@ -128,7 +128,7 @@ function recipeformView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if (document.getElementById('recipe-form').checkValidity() === false) //There is at least one validation error
+			if ($scope('#recipe-form')[0].checkValidity()() === false) //There is at least one validation error
 			{
 				return false;
 			}
@@ -264,7 +264,7 @@ function recipeformView(Grocy, scope = null)
 			return;
 		}
 
-		if (document.getElementById("recipe-include-form").checkValidity() === false) //There is at least one validation error
+		if ($scope('#recipe-include-form')[0].checkValidity()() === false) //There is at least one validation error
 		{
 			return false;
 		}

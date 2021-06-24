@@ -5,7 +5,7 @@ function batteryformView(Grocy, scope = null)
 	var $scope = $;
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	Grocy.Use("numberpicker");
@@ -85,7 +85,7 @@ function batteryformView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if (document.getElementById('battery-form').checkValidity() === false) //There is at least one validation error
+			if ($scope('#battery-form')[0].checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}

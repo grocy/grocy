@@ -5,7 +5,7 @@ function productgroupformView(Grocy, scope = null)
 	var $scope = $;
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	var userfields = Grocy.Use("userfieldsform");
@@ -70,7 +70,7 @@ function productgroupformView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if (document.getElementById('product-group-form').checkValidity() === false) //There is at least one validation error
+			if ($scope('#product-group-form')[0].checkValidity()() === false) //There is at least one validation error
 			{
 				return false;
 			}

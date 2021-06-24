@@ -7,7 +7,7 @@ function productformView(Grocy, scope = null)
 
 	if (scope != null)
 	{
-		$scope = (scope) => $(scope).find(scope);
+		$scope = (selector) => $(scope).find(selector);
 	}
 
 	Grocy.Use("numberpicker");
@@ -217,7 +217,7 @@ function productformView(Grocy, scope = null)
 		$scope(".input-group-qu").trigger("change");
 		$scope("#product-form select").trigger("select");
 
-		if (document.getElementById('product-form').checkValidity() === false) //There is at least one validation error
+		if ($scope('#product-form')[0].checkValidity()() === false) //There is at least one validation error
 		{
 			$scope("#qu-conversion-add-button").addClass("disabled");
 		}
@@ -226,7 +226,7 @@ function productformView(Grocy, scope = null)
 			$scope("#qu-conversion-add-button").removeClass("disabled");
 		}
 
-		if (document.getElementById('product-form').checkValidity() === false) //There is at least one validation error
+		if ($scope('#product-form')[0].checkValidity()() === false) //There is at least one validation error
 		{
 			$scope("#barcode-add-button").addClass("disabled");
 		}
@@ -243,7 +243,7 @@ function productformView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if (document.getElementById('product-form').checkValidity() === false) //There is at least one validation error
+			if ($scope('#product-form')[0].checkValidity()() === false) //There is at least one validation error
 			{
 				return false;
 			}
