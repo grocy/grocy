@@ -115,7 +115,7 @@ class BaseController
 		return UsersService::getInstance();
 	}
 
-	protected function render($response, $page, $data = [])
+	protected function render($request, $response, $page, $data = [])
 	{
 		$container = $this->AppContainer;
 
@@ -151,12 +151,22 @@ class BaseController
 			return $container->get('UrlManager')->ConstructUrl($relativePath, $isResource);
 		});
 
+		$rootLayout = 'layout.default';
 		$embedded = false;
 		if (isset($_GET['embedded']))
 		{
 			$embedded = true;
+			$accepts = $request->getHeader('Accept');
+			foreach($accepts as $accept) {
+				if(strpos($accept, "json") !== false || strpos($accept, "javascript") !== false) {
+					$rootLayout = 'layout.json';
+					break;
+				}
+			}
+
 		}
 		$this->View->set('embedded', $embedded);
+		$this->View->set('rootLayout', $rootLayout);
 
 		$constants = get_defined_constants();
 		foreach ($constants as $constant => $value)

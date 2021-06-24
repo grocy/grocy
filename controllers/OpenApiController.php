@@ -13,7 +13,7 @@ class OpenApiController extends BaseApiController
 		{
 			$apiKeys = $apiKeys->where('user_id', GROCY_USER_ID);
 		}
-		return $this->renderPage($response, 'manageapikeys', [
+		return $this->renderPage($request, $response, 'manageapikeys', [
 			'apiKeys' => $apiKeys,
 			'users' => $this->getDatabase()->users()
 		]);

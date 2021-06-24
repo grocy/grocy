@@ -1,4 +1,4 @@
-@extends('layout.default')
+@extends($rootLayout)
 
 @section('content')
 <div class="row">

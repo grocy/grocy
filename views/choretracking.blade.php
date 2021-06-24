@@ -1,4 +1,4 @@
-@extends('layout.default')
+@extends($rootLayout)
 
 @section('title', $__t('Chore tracking'))
 @section('activeNav', 'choretracking')

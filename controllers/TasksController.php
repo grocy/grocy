@@ -18,7 +18,7 @@ class TasksController extends BaseController
 		$usersService = $this->getUsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['tasks_due_soon_days'];
 
-		return $this->renderPage($response, 'tasks', [
+		return $this->renderPage($request, $response, 'tasks', [
 			'tasks' => $tasks,
 			'nextXDays' => $nextXDays,
 			'taskCategories' => $this->getDatabase()->task_categories()->orderBy('name', 'COLLATE NOCASE'),
@@ -30,7 +30,7 @@ class TasksController extends BaseController
 
 	public function TaskCategoriesList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'taskcategories', [
+		return $this->renderPage($request, $response, 'taskcategories', [
 			'taskCategories' => $this->getDatabase()->task_categories()->orderBy('name', 'COLLATE NOCASE'),
 			'userfields' => $this->getUserfieldsService()->GetFields('task_categories'),
 			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('task_categories')
@@ -41,14 +41,14 @@ class TasksController extends BaseController
 	{
 		if ($args['categoryId'] == 'new')
 		{
-			return $this->renderPage($response, 'taskcategoryform', [
+			return $this->renderPage($request, $response, 'taskcategoryform', [
 				'mode' => 'create',
 				'userfields' => $this->getUserfieldsService()->GetFields('task_categories')
 			]);
 		}
 		else
 		{
-			return $this->renderPage($response, 'taskcategoryform', [
+			return $this->renderPage($request, $response, 'taskcategoryform', [
 				'category' => $this->getDatabase()->task_categories($args['categoryId']),
 				'mode' => 'edit',
 				'userfields' => $this->getUserfieldsService()->GetFields('task_categories')
@@ -60,7 +60,7 @@ class TasksController extends BaseController
 	{
 		if ($args['taskId'] == 'new')
 		{
-			return $this->renderPage($response, 'taskform', [
+			return $this->renderPage($request, $response, 'taskform', [
 				'mode' => 'create',
 				'taskCategories' => $this->getDatabase()->task_categories()->orderBy('name', 'COLLATE NOCASE'),
 				'users' => $this->getDatabase()->users()->orderBy('username'),
@@ -69,7 +69,7 @@ class TasksController extends BaseController
 		}
 		else
 		{
-			return $this->renderPage($response, 'taskform', [
+			return $this->renderPage($request, $response, 'taskform', [
 				'task' => $this->getDatabase()->tasks($args['taskId']),
 				'mode' => 'edit',
 				'taskCategories' => $this->getDatabase()->task_categories()->orderBy('name', 'COLLATE NOCASE'),
@@ -81,7 +81,7 @@ class TasksController extends BaseController
 
 	public function TasksSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'taskssettings');
+		return $this->renderPage($request, $response, 'taskssettings');
 	}
 
 	public function __construct(\DI\Container $container)

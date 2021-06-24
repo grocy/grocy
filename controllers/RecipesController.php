@@ -41,7 +41,7 @@ class RecipesController extends BaseController
 			];
 		}
 
-		return $this->renderPage($response, 'mealplan', [
+		return $this->renderPage($request, $response, 'mealplan', [
 			'fullcalendarEventSources' => $events,
 			'recipes' => $recipes,
 			'internalRecipes' => $this->getDatabase()->recipes()->whereNot('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll(),
@@ -127,14 +127,14 @@ class RecipesController extends BaseController
 			$renderArray['allRecipePositions'] = $allRecipePositions;
 		}
 
-		return $this->renderPage($response, 'recipes', $renderArray);
+		return $this->renderPage($request, $response, 'recipes', $renderArray);
 	}
 
 	public function RecipeEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$recipeId = $args['recipeId'];
 
-		return $this->renderPage($response, 'recipeform', [
+		return $this->renderPage($request, $response, 'recipeform', [
 			'recipe' => $this->getDatabase()->recipes($recipeId),
 			'recipePositions' => $this->getDatabase()->recipes_pos()->where('recipe_id', $recipeId),
 			'mode' => $recipeId == 'new' ? 'create' : 'edit',
@@ -153,7 +153,7 @@ class RecipesController extends BaseController
 	{
 		if ($args['recipePosId'] == 'new')
 		{
-			return $this->renderPage($response, 'recipeposform', [
+			return $this->renderPage($request, $response, 'recipeposform', [
 				'mode' => 'create',
 				'recipe' => $this->getDatabase()->recipes($args['recipeId']),
 				'recipePos' => new \stdClass(),
@@ -164,7 +164,7 @@ class RecipesController extends BaseController
 		}
 		else
 		{
-			return $this->renderPage($response, 'recipeposform', [
+			return $this->renderPage($request, $response, 'recipeposform', [
 				'mode' => 'edit',
 				'recipe' => $this->getDatabase()->recipes($args['recipeId']),
 				'recipePos' => $this->getDatabase()->recipes_pos($args['recipePosId']),
@@ -177,7 +177,7 @@ class RecipesController extends BaseController
 
 	public function RecipesSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'recipessettings');
+		return $this->renderPage($request, $response, 'recipessettings');
 	}
 
 	public function __construct(\DI\Container $container)

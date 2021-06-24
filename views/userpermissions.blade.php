@@ -1,4 +1,4 @@
-@extends('layout.default')
+@extends($rootLayout)
 
 @section('title', $__t('Permissions for user %s', GetUserDisplayName($user)))
 @section('activeNav', '')

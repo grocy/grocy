@@ -9,7 +9,7 @@ class SystemController extends BaseController
 {
 	public function About(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'about', [
+		return $this->renderPage($request, $response, 'about', [
 			'system_info' => $this->getApplicationService()->GetSystemInfo(),
 			'changelog' => $this->getApplicationService()->GetChangelog()
 		]);
@@ -17,7 +17,7 @@ class SystemController extends BaseController
 
 	public function BarcodeScannerTesting(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'barcodescannertesting');
+		return $this->renderPage($request, $response, 'barcodescannertesting');
 	}
 
 	public function Root(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)

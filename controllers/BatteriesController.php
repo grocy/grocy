@@ -15,7 +15,7 @@ class BatteriesController extends BaseController
 			$batteries = $this->getDatabase()->batteries()->where('active = 1')->orderBy('name', 'COLLATE NOCASE');
 		}
 
-		return $this->renderPage($response, 'batteries', [
+		return $this->renderPage($request, $response, 'batteries', [
 			'batteries' => $batteries,
 			'userfields' => $this->getUserfieldsService()->GetFields('batteries'),
 			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('batteries')
@@ -24,21 +24,21 @@ class BatteriesController extends BaseController
 
 	public function BatteriesSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'batteriessettings');
+		return $this->renderPage($request, $response, 'batteriessettings');
 	}
 
 	public function BatteryEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($args['batteryId'] == 'new')
 		{
-			return $this->renderPage($response, 'batteryform', [
+			return $this->renderPage($request, $response, 'batteryform', [
 				'mode' => 'create',
 				'userfields' => $this->getUserfieldsService()->GetFields('batteries')
 			]);
 		}
 		else
 		{
-			return $this->renderPage($response, 'batteryform', [
+			return $this->renderPage($request, $response, 'batteryform', [
 				'battery' => $this->getDatabase()->batteries($args['batteryId']),
 				'mode' => 'edit',
 				'userfields' => $this->getUserfieldsService()->GetFields('batteries')
@@ -48,7 +48,7 @@ class BatteriesController extends BaseController
 
 	public function Journal(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'batteriesjournal', [
+		return $this->renderPage($request, $response, 'batteriesjournal', [
 			'chargeCycles' => $this->getDatabase()->battery_charge_cycles()->orderBy('tracked_time', 'DESC'),
 			'batteries' => $this->getDatabase()->batteries()->where('active = 1')->orderBy('name', 'COLLATE NOCASE')
 		]);
@@ -59,7 +59,7 @@ class BatteriesController extends BaseController
 		$usersService = $this->getUsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['batteries_due_soon_days'];
 
-		return $this->renderPage($response, 'batteriesoverview', [
+		return $this->renderPage($request, $response, 'batteriesoverview', [
 			'batteries' => $this->getDatabase()->batteries()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'current' => $this->getBatteriesService()->GetCurrent(),
 			'nextXDays' => $nextXDays,
@@ -70,7 +70,7 @@ class BatteriesController extends BaseController
 
 	public function TrackChargeCycle(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'batterytracking', [
+		return $this->renderPage($request, $response, 'batterytracking', [
 			'batteries' => $this->getDatabase()->batteries()->where('active = 1')->orderBy('name', 'COLLATE NOCASE')
 		]);
 	}

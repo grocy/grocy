@@ -61,19 +61,19 @@ class ExceptionController extends BaseApiController
 		{
 			define('GROCY_AUTHENTICATED', false);
 
-			return $this->renderPage($response->withStatus(404), 'errors/404', [
+			return $this->renderPage($request, $response->withStatus(404), 'errors/404', [
 				'exception' => $exception
 			]);
 		}
 
 		if ($exception instanceof HttpForbiddenException)
 		{
-			return $this->renderPage($response->withStatus(403), 'errors/403', [
+			return $this->renderPage($request, $response->withStatus(403), 'errors/403', [
 				'exception' => $exception
 			]);
 		}
 
-		return $this->renderPage($response->withStatus(500), 'errors/500', [
+		return $this->renderPage($request, $response->withStatus(500), 'errors/500', [
 			'exception' => $exception
 		]);
 	}

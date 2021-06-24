@@ -10,14 +10,14 @@ class EquipmentController extends BaseController
 	{
 		if ($args['equipmentId'] == 'new')
 		{
-			return $this->renderPage($response, 'equipmentform', [
+			return $this->renderPage($request, $response, 'equipmentform', [
 				'mode' => 'create',
 				'userfields' => $this->getUserfieldsService()->GetFields('equipment')
 			]);
 		}
 		else
 		{
-			return $this->renderPage($response, 'equipmentform', [
+			return $this->renderPage($request, $response, 'equipmentform', [
 				'equipment' => $this->getDatabase()->equipment($args['equipmentId']),
 				'mode' => 'edit',
 				'userfields' => $this->getUserfieldsService()->GetFields('equipment')
@@ -27,7 +27,7 @@ class EquipmentController extends BaseController
 
 	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'equipment', [
+		return $this->renderPage($request, $response, 'equipment', [
 			'equipment' => $this->getDatabase()->equipment()->orderBy('name', 'COLLATE NOCASE'),
 			'userfields' => $this->getUserfieldsService()->GetFields('equipment'),
 			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('equipment')

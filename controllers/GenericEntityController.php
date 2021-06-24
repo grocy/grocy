@@ -6,7 +6,7 @@ class GenericEntityController extends BaseController
 {
 	public function UserentitiesList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'userentities', [
+		return $this->renderPage($request, $response, 'userentities', [
 			'userentities' => $this->getDatabase()->userentities()->orderBy('name', 'COLLATE NOCASE')
 		]);
 	}
@@ -15,13 +15,13 @@ class GenericEntityController extends BaseController
 	{
 		if ($args['userentityId'] == 'new')
 		{
-			return $this->renderPage($response, 'userentityform', [
+			return $this->renderPage($request, $response, 'userentityform', [
 				'mode' => 'create'
 			]);
 		}
 		else
 		{
-			return $this->renderPage($response, 'userentityform', [
+			return $this->renderPage($request, $response, 'userentityform', [
 				'mode' => 'edit',
 				'userentity' => $this->getDatabase()->userentities($args['userentityId'])
 			]);
@@ -32,7 +32,7 @@ class GenericEntityController extends BaseController
 	{
 		if ($args['userfieldId'] == 'new')
 		{
-			return $this->renderPage($response, 'userfieldform', [
+			return $this->renderPage($request, $response, 'userfieldform', [
 				'mode' => 'create',
 				'userfieldTypes' => $this->getUserfieldsService()->GetFieldTypes(),
 				'entities' => $this->getUserfieldsService()->GetEntities()
@@ -40,7 +40,7 @@ class GenericEntityController extends BaseController
 		}
 		else
 		{
-			return $this->renderPage($response, 'userfieldform', [
+			return $this->renderPage($request, $response, 'userfieldform', [
 				'mode' => 'edit',
 				'userfield' => $this->getUserfieldsService()->GetField($args['userfieldId']),
 				'userfieldTypes' => $this->getUserfieldsService()->GetFieldTypes(),
@@ -51,7 +51,7 @@ class GenericEntityController extends BaseController
 
 	public function UserfieldsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'userfields', [
+		return $this->renderPage($request, $response, 'userfields', [
 			'userfields' => $this->getUserfieldsService()->GetAllFields(),
 			'entities' => $this->getUserfieldsService()->GetEntities()
 		]);
@@ -63,7 +63,7 @@ class GenericEntityController extends BaseController
 
 		if ($args['userobjectId'] == 'new')
 		{
-			return $this->renderPage($response, 'userobjectform', [
+			return $this->renderPage($request, $response, 'userobjectform', [
 				'userentity' => $userentity,
 				'mode' => 'create',
 				'userfields' => $this->getUserfieldsService()->GetFields('userentity-' . $args['userentityName'])
@@ -71,7 +71,7 @@ class GenericEntityController extends BaseController
 		}
 		else
 		{
-			return $this->renderPage($response, 'userobjectform', [
+			return $this->renderPage($request, $response, 'userobjectform', [
 				'userentity' => $userentity,
 				'mode' => 'edit',
 				'userobject' => $this->getDatabase()->userobjects($args['userobjectId']),
@@ -84,7 +84,7 @@ class GenericEntityController extends BaseController
 	{
 		$userentity = $this->getDatabase()->userentities()->where('name = :1', $args['userentityName'])->fetch();
 
-		return $this->renderPage($response, 'userobjects', [
+		return $this->renderPage($request, $response, 'userobjects', [
 			'userentity' => $userentity,
 			'userobjects' => $this->getDatabase()->userobjects()->where('userentity_id = :1', $userentity->id),
 			'userfields' => $this->getUserfieldsService()->GetFields('userentity-' . $args['userentityName']),

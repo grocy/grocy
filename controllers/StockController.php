@@ -10,7 +10,7 @@ class StockController extends BaseController
 {
 	public function Consume(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'consume', [
+		return $this->renderPage($request, $response, 'consume', [
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name'),
 			'barcodes' => $this->getDatabase()->product_barcodes_comma_separated(),
 			'recipes' => $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name', 'COLLATE NOCASE'),
@@ -22,7 +22,7 @@ class StockController extends BaseController
 
 	public function Inventory(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'inventory', [
+		return $this->renderPage($request, $response, 'inventory', [
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'barcodes' => $this->getDatabase()->product_barcodes_comma_separated(),
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name', 'COLLATE NOCASE'),
@@ -36,7 +36,7 @@ class StockController extends BaseController
 	{
 		$usersService = $this->getUsersService();
 
-		return $this->renderPage($response, 'stockjournal', [
+		return $this->renderPage($request, $response, 'stockjournal', [
 			'stockLog' => $this->getDatabase()->uihelper_stock_journal()->orderBy('row_created_timestamp', 'DESC'),
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE'),
@@ -47,7 +47,7 @@ class StockController extends BaseController
 
 	public function LocationContentSheet(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'locationcontentsheet', [
+		return $this->renderPage($request, $response, 'locationcontentsheet', [
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE'),
@@ -59,14 +59,14 @@ class StockController extends BaseController
 	{
 		if ($args['locationId'] == 'new')
 		{
-			return $this->renderPage($response, 'locationform', [
+			return $this->renderPage($request, $response, 'locationform', [
 				'mode' => 'create',
 				'userfields' => $this->getUserfieldsService()->GetFields('locations')
 			]);
 		}
 		else
 		{
-			return $this->renderPage($response, 'locationform', [
+			return $this->renderPage($request, $response, 'locationform', [
 				'location' => $this->getDatabase()->locations($args['locationId']),
 				'mode' => 'edit',
 				'userfields' => $this->getUserfieldsService()->GetFields('locations')
@@ -76,7 +76,7 @@ class StockController extends BaseController
 
 	public function LocationsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'locations', [
+		return $this->renderPage($request, $response, 'locations', [
 			'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE'),
 			'userfields' => $this->getUserfieldsService()->GetFields('locations'),
 			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('locations')
@@ -88,7 +88,7 @@ class StockController extends BaseController
 		$usersService = $this->getUsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['stock_due_soon_days'];
 
-		return $this->renderPage($response, 'stockoverview', [
+		return $this->renderPage($request, $response, 'stockoverview', [
 			'currentStock' => $this->getStockService()->GetCurrentStockOverview(),
 			'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE'),
 			'currentStockLocations' => $this->getStockService()->GetCurrentStockLocations(),
@@ -110,7 +110,7 @@ class StockController extends BaseController
 
 		if ($args['productBarcodeId'] == 'new')
 		{
-			return $this->renderPage($response, 'productbarcodeform', [
+			return $this->renderPage($request, $response, 'productbarcodeform', [
 				'mode' => 'create',
 				'barcodes' => $this->getDatabase()->product_barcodes()->orderBy('barcode'),
 				'product' => $product,
@@ -122,7 +122,7 @@ class StockController extends BaseController
 		}
 		else
 		{
-			return $this->renderPage($response, 'productbarcodeform', [
+			return $this->renderPage($request, $response, 'productbarcodeform', [
 				'mode' => 'edit',
 				'barcode' => $this->getDatabase()->product_barcodes($args['productBarcodeId']),
 				'product' => $product,
@@ -138,7 +138,7 @@ class StockController extends BaseController
 	{
 		if ($args['productId'] == 'new')
 		{
-			return $this->renderPage($response, 'productform', [
+			return $this->renderPage($request, $response, 'productform', [
 				'locations' => $this->getDatabase()->locations()->orderBy('name'),
 				'barcodes' => $this->getDatabase()->product_barcodes()->orderBy('barcode'),
 				'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
@@ -154,7 +154,7 @@ class StockController extends BaseController
 		{
 			$product = $this->getDatabase()->products($args['productId']);
 
-			return $this->renderPage($response, 'productform', [
+			return $this->renderPage($request, $response, 'productform', [
 				'product' => $product,
 				'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE'),
 				'barcodes' => $this->getDatabase()->product_barcodes()->orderBy('barcode'),
@@ -208,14 +208,14 @@ class StockController extends BaseController
 	{
 		if ($args['productGroupId'] == 'new')
 		{
-			return $this->renderPage($response, 'productgroupform', [
+			return $this->renderPage($request, $response, 'productgroupform', [
 				'mode' => 'create',
 				'userfields' => $this->getUserfieldsService()->GetFields('product_groups')
 			]);
 		}
 		else
 		{
-			return $this->renderPage($response, 'productgroupform', [
+			return $this->renderPage($request, $response, 'productgroupform', [
 				'group' => $this->getDatabase()->product_groups($args['productGroupId']),
 				'mode' => 'edit',
 				'userfields' => $this->getUserfieldsService()->GetFields('product_groups')
@@ -225,7 +225,7 @@ class StockController extends BaseController
 
 	public function ProductGroupsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'productgroups', [
+		return $this->renderPage($request, $response, 'productgroups', [
 			'productGroups' => $this->getDatabase()->product_groups()->orderBy('name', 'COLLATE NOCASE'),
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'userfields' => $this->getUserfieldsService()->GetFields('product_groups'),
@@ -244,7 +244,7 @@ class StockController extends BaseController
 			$products = $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE');
 		}
 
-		return $this->renderPage($response, 'products', [
+		return $this->renderPage($request, $response, 'products', [
 			'products' => $products,
 			'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE'),
 			'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
@@ -257,7 +257,7 @@ class StockController extends BaseController
 
 	public function Purchase(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'purchase', [
+		return $this->renderPage($request, $response, 'purchase', [
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'barcodes' => $this->getDatabase()->product_barcodes_comma_separated(),
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name', 'COLLATE NOCASE'),
@@ -285,7 +285,7 @@ class StockController extends BaseController
 
 		if ($args['quConversionId'] == 'new')
 		{
-			return $this->renderPage($response, 'quantityunitconversionform', [
+			return $this->renderPage($request, $response, 'quantityunitconversionform', [
 				'mode' => 'create',
 				'userfields' => $this->getUserfieldsService()->GetFields('quantity_unit_conversions'),
 				'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
@@ -295,7 +295,7 @@ class StockController extends BaseController
 		}
 		else
 		{
-			return $this->renderPage($response, 'quantityunitconversionform', [
+			return $this->renderPage($request, $response, 'quantityunitconversionform', [
 				'quConversion' => $this->getDatabase()->quantity_unit_conversions($args['quConversionId']),
 				'mode' => 'edit',
 				'userfields' => $this->getUserfieldsService()->GetFields('quantity_unit_conversions'),
@@ -310,7 +310,7 @@ class StockController extends BaseController
 	{
 		if ($args['quantityunitId'] == 'new')
 		{
-			return $this->renderPage($response, 'quantityunitform', [
+			return $this->renderPage($request, $response, 'quantityunitform', [
 				'mode' => 'create',
 				'userfields' => $this->getUserfieldsService()->GetFields('quantity_units'),
 				'pluralCount' => $this->getLocalizationService()->GetPluralCount(),
@@ -321,7 +321,7 @@ class StockController extends BaseController
 		{
 			$quantityUnit = $this->getDatabase()->quantity_units($args['quantityunitId']);
 
-			return $this->renderPage($response, 'quantityunitform', [
+			return $this->renderPage($request, $response, 'quantityunitform', [
 				'quantityUnit' => $quantityUnit,
 				'mode' => 'edit',
 				'userfields' => $this->getUserfieldsService()->GetFields('quantity_units'),
@@ -335,14 +335,14 @@ class StockController extends BaseController
 
 	public function QuantityUnitPluralFormTesting(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'quantityunitpluraltesting', [
+		return $this->renderPage($request, $response, 'quantityunitpluraltesting', [
 			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE')
 		]);
 	}
 
 	public function QuantityUnitsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'quantityunits', [
+		return $this->renderPage($request, $response, 'quantityunits', [
 			'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
 			'userfields' => $this->getUserfieldsService()->GetFields('quantity_units'),
 			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('quantity_units')
@@ -358,7 +358,7 @@ class StockController extends BaseController
 			$listId = $request->getQueryParams()['list'];
 		}
 
-		return $this->renderPage($response, 'shoppinglist', [
+		return $this->renderPage($request, $response, 'shoppinglist', [
 			'listItems' => $this->getDatabase()->uihelper_shopping_list()->where('shopping_list_id = :1', $listId),
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
@@ -377,14 +377,14 @@ class StockController extends BaseController
 	{
 		if ($args['listId'] == 'new')
 		{
-			return $this->renderPage($response, 'shoppinglistform', [
+			return $this->renderPage($request, $response, 'shoppinglistform', [
 				'mode' => 'create',
 				'userfields' => $this->getUserfieldsService()->GetFields('shopping_lists')
 			]);
 		}
 		else
 		{
-			return $this->renderPage($response, 'shoppinglistform', [
+			return $this->renderPage($request, $response, 'shoppinglistform', [
 				'shoppingList' => $this->getDatabase()->shopping_lists($args['listId']),
 				'mode' => 'edit',
 				'userfields' => $this->getUserfieldsService()->GetFields('shopping_lists')
@@ -396,7 +396,7 @@ class StockController extends BaseController
 	{
 		if ($args['itemId'] == 'new')
 		{
-			return $this->renderPage($response, 'shoppinglistitemform', [
+			return $this->renderPage($request, $response, 'shoppinglistitemform', [
 				'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 				'shoppingLists' => $this->getDatabase()->shopping_lists()->orderBy('name', 'COLLATE NOCASE'),
 				'mode' => 'create',
@@ -407,7 +407,7 @@ class StockController extends BaseController
 		}
 		else
 		{
-			return $this->renderPage($response, 'shoppinglistitemform', [
+			return $this->renderPage($request, $response, 'shoppinglistitemform', [
 				'listItem' => $this->getDatabase()->shopping_list($args['itemId']),
 				'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 				'shoppingLists' => $this->getDatabase()->shopping_lists()->orderBy('name', 'COLLATE NOCASE'),
@@ -421,21 +421,21 @@ class StockController extends BaseController
 
 	public function ShoppingListSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'shoppinglistsettings');
+		return $this->renderPage($request, $response, 'shoppinglistsettings');
 	}
 
 	public function ShoppingLocationEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if ($args['shoppingLocationId'] == 'new')
 		{
-			return $this->renderPage($response, 'shoppinglocationform', [
+			return $this->renderPage($request, $response, 'shoppinglocationform', [
 				'mode' => 'create',
 				'userfields' => $this->getUserfieldsService()->GetFields('shopping_locations')
 			]);
 		}
 		else
 		{
-			return $this->renderPage($response, 'shoppinglocationform', [
+			return $this->renderPage($request, $response, 'shoppinglocationform', [
 				'shoppinglocation' => $this->getDatabase()->shopping_locations($args['shoppingLocationId']),
 				'mode' => 'edit',
 				'userfields' => $this->getUserfieldsService()->GetFields('shopping_locations')
@@ -445,7 +445,7 @@ class StockController extends BaseController
 
 	public function ShoppingLocationsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'shoppinglocations', [
+		return $this->renderPage($request, $response, 'shoppinglocations', [
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name', 'COLLATE NOCASE'),
 			'userfields' => $this->getUserfieldsService()->GetFields('shopping_locations'),
 			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('shopping_locations')
@@ -454,7 +454,7 @@ class StockController extends BaseController
 
 	public function StockEntryEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'stockentryform', [
+		return $this->renderPage($request, $response, 'stockentryform', [
 			'stockEntry' => $this->getDatabase()->stock()->where('id', $args['entryId'])->fetch(),
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name', 'COLLATE NOCASE'),
@@ -497,7 +497,7 @@ class StockController extends BaseController
 	public function StockEntryGrocycodeLabel(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$stockEntry = $this->getDatabase()->stock()->where('id', $args['entryId'])->fetch();
-		return $this->renderPage($response, 'stockentrylabel', [
+		return $this->renderPage($request, $response, 'stockentrylabel', [
 			'stockEntry' => $stockEntry,
 			'product' => $this->getDatabase()->products($stockEntry->product_id),
 		]);
@@ -505,7 +505,7 @@ class StockController extends BaseController
 
 	public function StockSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'stocksettings', [
+		return $this->renderPage($request, $response, 'stocksettings', [
 			'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE'),
 			'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
 			'productGroups' => $this->getDatabase()->product_groups()->orderBy('name', 'COLLATE NOCASE')
@@ -518,7 +518,7 @@ class StockController extends BaseController
 		$usersService = $this->getUsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['stock_due_soon_days'];
 
-		return $this->renderPage($response, 'stockentries', [
+		return $this->renderPage($request, $response, 'stockentries', [
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE'),
@@ -533,7 +533,7 @@ class StockController extends BaseController
 
 	public function Transfer(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'transfer', [
+		return $this->renderPage($request, $response, 'transfer', [
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'barcodes' => $this->getDatabase()->product_barcodes_comma_separated(),
 			'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE'),
@@ -564,7 +564,7 @@ class StockController extends BaseController
 		}
 
 		$usersService = $this->getUsersService();
-		return $this->renderPage($response, 'stockjournalsummary', [
+		return $this->renderPage($request, $response, 'stockjournalsummary', [
 			'entries' => $entries,
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'users' => $usersService->GetUsersAsDto(),

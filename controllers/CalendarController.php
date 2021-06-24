@@ -6,7 +6,7 @@ class CalendarController extends BaseController
 {
 	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'calendar', [
+		return $this->renderPage($request, $response, 'calendar', [
 			'fullcalendarEventSources' => $this->getCalendarService()->GetEvents()
 		]);
 	}

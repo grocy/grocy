@@ -13,7 +13,7 @@ class LoginController extends BaseController
 
 	public function LoginPage(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'login');
+		return $this->renderPage($request, $response, 'login');
 	}
 
 	public function Logout(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)

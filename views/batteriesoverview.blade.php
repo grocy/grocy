@@ -1,4 +1,4 @@
-@extends('layout.default')
+@extends($rootLayout)
 
 @section('title', $__t('Batteries overview'))
 @section('activeNav', 'batteriesoverview')

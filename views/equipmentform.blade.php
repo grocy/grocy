@@ -1,4 +1,4 @@
-@extends('layout.default')
+@extends($rootLayout)
 
 @if($mode == 'edit')
 @section('title', $__t('Edit equipment'))

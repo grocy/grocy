@@ -1,4 +1,4 @@
-@extends('layout.default')
+@extends($rootLayout)
 
 @section('title', $userentity->caption)
 @section('activeNav', 'userentity-' . $userentity->name)
