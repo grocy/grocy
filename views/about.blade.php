@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="row">
-	<div class="col-xs-12 col-md-6 text-center">
+	<div class="col-12 col-md-6 text-center">
 		<h2 class="title">@yield('title')</h2>
 
 		<ul class="nav nav-tabs justify-content-center mt-3">

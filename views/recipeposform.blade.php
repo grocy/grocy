@@ -40,7 +40,7 @@
 <hr class="my-2">
 
 <div class="row">
-	<div class="col-xs-12 col-md-6 col-xl-5 pb-3">
+	<div class="col-12 col-md-6 col-xl-5 pb-3">
 		<form id="recipe-pos-form"
 			novalidate>
 
@@ -135,7 +135,7 @@
 		</form>
 	</div>
 
-	<div class="col-xs-12 col-md-6 col-xl-4 hide-when-embedded">
+	<div class="col-12 col-md-6 col-xl-4 hide-when-embedded">
 		@include('components.productcard')
 	</div>
 </div>

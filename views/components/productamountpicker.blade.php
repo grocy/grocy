@@ -18,13 +18,13 @@
 			'min' => $DEFAULT_MIN_AMOUNT,
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,
-			'additionalGroupCssClasses' => 'col-sm-5 col-xs-12 my-0',
+			'additionalGroupCssClasses' => 'col-sm-5 col-12 my-0',
 			'additionalCssClasses' => 'input-group-productamountpicker locale-number-input locale-number-quantity-amount',
 			'additionalHtmlContextHelp' => '',
 			'additionalHtmlElements' => ''
 			))
 
-			<div class="col-sm-7 col-xs-12">
+			<div class="col-sm-7 col-12">
 				<label for="qu_id">{{ $__t('Quantity unit') }}</label>
 				<select @if($isRequired)
 					required

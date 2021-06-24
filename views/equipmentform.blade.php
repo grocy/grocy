@@ -28,7 +28,7 @@ InstructionManualFileNameName: '{{ $equipment->instruction_manual_file_name }}',
 <hr class="my-2">
 
 <div class="row">
-	<div class="col-lg-6 col-xs-12">
+	<div class="col-lg-6 col-12">
 		<form id="equipment-form"
 			novalidate>
 
@@ -61,7 +61,7 @@ InstructionManualFileNameName: '{{ $equipment->instruction_manual_file_name }}',
 		</form>
 	</div>
 
-	<div class="col-lg-6 col-xs-12">
+	<div class="col-lg-6 col-12">
 		<div class="row">
 			<div class="col">
 				<div class="title-related-links mb-3">

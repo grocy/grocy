@@ -35,7 +35,7 @@ EditObjectId: {{ $quConversion->id }},
 <hr class="my-2">
 
 <div class="row">
-	<div class="col-lg-6 col-xs-12">
+	<div class="col-lg-6 col-12">
 		<form id="quconversion-form"
 			novalidate>
 

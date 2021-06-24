@@ -27,7 +27,7 @@ $collapsed_flex = $embedded ? '' : 'd-md-flex';
 
 <div class="row collapse {{ $collaped_flex }}"
 	id="stockentry-table-filter-row">
-	<div class="col-xs-12 col-md-6 col-xl-3">
+	<div class="col-12 col-md-6 col-xl-3">
 		@include('components.productpicker', array(
 		'products' => $products,
 		'disallowAllProductWorkflows' => true,

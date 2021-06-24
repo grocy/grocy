@@ -100,7 +100,7 @@
 
 <div class="row collapse d-md-flex d-print-none hide-on-fullscreen-card"
 	id="table-filter-row">
-	<div class="col-xs-12 col-md-5">
+	<div class="col-12 col-md-5">
 		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-search"></i></span>
@@ -111,7 +111,7 @@
 				placeholder="{{ $__t('Search') }}">
 		</div>
 	</div>
-	<div class="col-xs-12 col-md-4 col-lg-5">
+	<div class="col-12 col-md-4 col-lg-5">
 		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>
@@ -138,7 +138,7 @@
 
 <div id="shoppinglist-main"
 	class="row d-print-none">
-	<div class="@if(boolval($userSettings['shopping_list_show_calendar'])) col-xs-12 col-md-8 @else col-12 @endif pb-3">
+	<div class="@if(boolval($userSettings['shopping_list_show_calendar'])) col-12 col-md-8 @else col-12 @endif pb-3">
 		<table id="shoppinglist-table"
 			class="table table-sm table-striped nowrap w-100">
 			<thead>
@@ -265,12 +265,12 @@
 	</div>
 
 	@if(boolval($userSettings['shopping_list_show_calendar']))
-	<div class="col-xs-12 col-md-4 mt-md-2 d-print-none">
+	<div class="col-12 col-md-4 mt-md-2 d-print-none">
 		@include('components.calendarcard')
 	</div>
 	@endif
 
-	<div class="@if(boolval($userSettings['shopping_list_show_calendar'])) col-xs-12 col-md-8 @else col-12 @endif d-print-none pt-2">
+	<div class="@if(boolval($userSettings['shopping_list_show_calendar'])) col-12 col-md-8 @else col-12 @endif d-print-none pt-2">
 		<div class="form-group">
 			<label class="text-larger font-weight-bold"
 				for="notes">{{ $__t('Notes') }}</label>

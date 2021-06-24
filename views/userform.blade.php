@@ -28,7 +28,7 @@ EditMode: '{{ $mode }}',
 <hr class="my-2">
 
 <div class="row">
-	<div class="col-lg-6 col-xs-12">
+	<div class="col-lg-6 col-12">
 		<script>
 			GrocyConfig.EditMode = '{{ $mode }}';
 		</script>
@@ -94,7 +94,7 @@ EditMode: '{{ $mode }}',
 		</form>
 	</div>
 
-	<div class="col-lg-6 col-xs-12">
+	<div class="col-lg-6 col-12">
 		<div class="title-related-links">
 			<h4>
 				{{ $__t('Picture') }}
