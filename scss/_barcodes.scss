@@ -12,3 +12,15 @@
 #barcodescanner-livestream canvas {
 	width: 100%;
 }
+
+#barcodescanner-start-button {
+	position: absolute;
+	right: 0;
+	margin-top: 4px;
+	margin-right: 5px;
+	cursor: pointer;
+}
+
+.combobox-container #barcodescanner-start-button {
+	margin-right: 36px !important;
+}

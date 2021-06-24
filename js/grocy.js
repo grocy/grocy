@@ -252,7 +252,7 @@ class GrocyClass
 		}
 	}
 
-	PreloadView(viewName, cb = () => { })
+	PreloadView(viewName, loadCSS = false, cb = () => { })
 	{
 		if (!Object.prototype.hasOwnProperty.call(window, viewName + "View"))
 		{
@@ -262,6 +262,14 @@ class GrocyClass
 				url: this.FormatUrl('/viewjs/' + viewName + '.js'),
 				success: cb
 			});
+			if (loadCSS)
+			{
+				$("<link/>", {
+					rel: "stylesheet",
+					type: "text/css",
+					href: this.FormatUrl('/css/viewcss/' + viewName + '.cs')
+				}).appendTo("head");
+			}
 		}
 		else
 		{

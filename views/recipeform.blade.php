@@ -21,7 +21,7 @@
 	RecipePictureFileName: '{{ $recipe->picture_file_name }}',
 @endif
 
-@stop
+@endsection
 
 @section('content')
 <div class="row">
