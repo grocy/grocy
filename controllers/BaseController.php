@@ -197,7 +197,7 @@ class BaseController
 		return $this->View->render($response, $page, $data);
 	}
 
-	protected function renderPage($response, $page, $data = [])
+	protected function renderPage($request, $response, $page, $data = [])
 	{
 		$this->View->set('userentitiesForSidebar', $this->getDatabase()->userentities()->where('show_in_sidebar_menu = 1')->orderBy('name'));
 		try
@@ -217,7 +217,7 @@ class BaseController
 			// Happens when database is not initialised or migrated...
 		}
 
-		return $this->render($response, $page, $data);
+		return $this->render($request, $response, $page, $data);
 	}
 
 	private static $htmlPurifierInstance = null;

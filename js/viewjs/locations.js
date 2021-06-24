@@ -7,10 +7,7 @@
 	}
 
 	// preload some views.
-	top.on('load', () =>
-	{
-		Grocy.PreloadView("locationform");
-	});
+	Grocy.PreloadView("locationform");
 
 	var locationsTable = $scope('#locations-table').DataTable({
 		'order': [[1, 'asc']],

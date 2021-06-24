@@ -11,10 +11,8 @@
 	var chorecard = Grocy.Use("chorecard");
 
 	// preload some views.
-	top.on('load', () =>
-	{
-		Grocy.PreloadView("choresjournal");
-	});
+	Grocy.PreloadView("choresjournal");
+
 
 	var choresOverviewTable = $scope('#chores-overview-table').DataTable({
 		'order': [[2, 'asc']],

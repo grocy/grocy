@@ -9,11 +9,9 @@
 	var batterycard = Grocy.Use("batterycard");
 
 	// preload some views.
-	top.on('load', () =>
-	{
-		Grocy.PreloadView("batteriesjournal");
-		Grocy.PreloadView("batteryform");
-	});
+	Grocy.PreloadView("batteriesjournal");
+	Grocy.PreloadView("batteryform");
+
 
 	var batteriesOverviewTable = $scope('#batteries-overview-table').DataTable({
 		'order': [[4, 'asc']],

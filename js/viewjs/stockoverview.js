@@ -14,7 +14,7 @@
 	Grocy.PreloadView("stockentries");
 	Grocy.PreloadView("shoppinglistitemform");
 	Grocy.PreloadView("purchase");
-	Grocy.PreloadView("conusme");
+	Grocy.PreloadView("consume");
 	Grocy.PreloadView("inventory");
 	Grocy.PreloadView("stockjournal");
 	Grocy.PreloadView("stockjournalsummary");

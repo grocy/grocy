@@ -5,11 +5,11 @@ class GrocyFrontendHelpers
 	{
 		this.Grocy = Grocy;
 		this.Api = Api;
-		var self = this;
 		if (scope != null)
 		{
 			this.scope = $(scope);
-			this.$scope = (selector) => self.scope.find(selector);
+			var jScope = this.scope;
+			this.$scope = (selector) => jScope.find(selector);
 			this.scopeSelector = scope;
 		}
 		else

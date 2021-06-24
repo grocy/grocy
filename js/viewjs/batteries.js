@@ -7,10 +7,8 @@
 	}
 
 	// preload some views.
-	top.on('load', () =>
-	{
-		Grocy.PreloadView("batteryform");
-	});
+	Grocy.PreloadView("batteryform");
+
 
 	var batteriesTable = $scope('#batteries-table').DataTable({
 		'order': [[1, 'asc']],

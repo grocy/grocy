@@ -107,6 +107,21 @@ class GrocyClass
 			}
 		});
 
+		window.addEventListener('load', function()
+		{
+			if (self.documentReady) return;
+
+			// preload views
+			self.documentReady = true;
+			var element = self.preloadViews.pop();
+			while (element !== undefined)
+			{
+				self.PreloadView(element.viewName, element.loadCss, element.cb);
+
+				element = self.preloadViews.pop();
+			}
+		});
+
 		// save the config
 		this.config = config;
 
@@ -118,18 +133,6 @@ class GrocyClass
 				}
 			});
 		}
-
-		$(document).on('ready', () =>
-		{
-			this.documentReady = true;
-			var element = self.preloadViews.pop();
-			while (element !== undefined)
-			{
-				self.preloadViews(element.viewName, element.loadCss, element.cb);
-
-				element = self.preloadViews.pop();
-			}
-		})
 	}
 
 	static createSingleton(config, view)
@@ -280,7 +283,7 @@ class GrocyClass
 	{
 		if (!this.documentReady)
 		{
-			this.preloadViews.push({ viewName: viewName, loadCss: loadCss, cb: cb });
+			this.preloadViews.push({ viewName: viewName, loadCss: loadCSS, cb: cb });
 			return;
 		}
 
@@ -297,7 +300,7 @@ class GrocyClass
 				$("<link/>", {
 					rel: "stylesheet",
 					type: "text/css",
-					href: this.FormatUrl('/css/viewcss/' + viewName + '.cs')
+					href: this.FormatUrl('/css/viewcss/' + viewName + '.css')
 				}).appendTo("head");
 			}
 		}
@@ -310,16 +313,51 @@ class GrocyClass
 	OpenSubView(link)
 	{
 		var self = this;
+		console.log("loading subview " + link);
 		$.ajax({
 			dataType: "json",
-			link,
+			url: link,
 			success: (data) =>
 			{
 				let scopeId = uuid.v4()
-				var proxy = new GrocyProxy(this, "#" + scopeId, data.config, link);
+				var grocyProxy = new GrocyProxy(this, "#" + scopeId, data.config, link);
+				var proxy = new Proxy(grocyProxy, {
+					get: function(target, prop, receiver)
+					{
+						if (prop in grocyProxy)
+						{
+							return grocyProxy[prop];
+						}
+						else
+						{
+							return self[prop];
+						}
+					},
+					apply: function(target, thisArg, args)
+					{
+						if (target in grocyProxy)
+						{
+							return grocyProxy[target](...args);
+						}
+						else
+						{
+							return self[target](...args);
+						}
+					},
+					ownKeys: function(oTarget, sKey)
+					{
+						let root = Reflect.ownKeys(self);
+						Array.concat(root, Reflect.ownKeys(grocyProxy));
+						return root;
+					},
+					has: function(oTarget, sKey)
+					{
+						return sKey in self || sKey in grocyProxy;
+					},
+				});
 
 				bootbox.dialog({
-					message: '<div id="' + scopeId + '">' + data.template + '</div>',
+					message: '<div class="embedded" id="' + scopeId + '">' + data.template + '</div>',
 					size: 'large',
 					backdrop: true,
 					closeButton: false,
@@ -329,7 +367,6 @@ class GrocyClass
 							className: 'btn-secondary responsive-button',
 							callback: function()
 							{
-								proxy.Unload();
 								bootbox.hideAll();
 							}
 						}
@@ -338,10 +375,12 @@ class GrocyClass
 					{
 						// dialog div is alive, init view.
 						// this occurs before the view is shown.
+						grocyProxy.Initialize(proxy);
 						self.LoadView(data.viewJsName, "#" + scopeId, proxy);
 					}
 				});
-			}
+			},
+			error: (xhr, text, data) => { console.error(text); }
 		})
 
 

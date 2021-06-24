@@ -4,14 +4,13 @@ import * as components from '../components';
 
 class GrocyProxy
 {
-
 	constructor(RootGrocy, scopeSelector, config, url)
 	{
 		this.RootGrocy = RootGrocy;
 
 		// proxy-local members, because they might not be set globally.
 		this.QuantityUnits = config.QuantityUnits;
-		this.QuantityUnitConversionsResolved = config.QuantityUnitConversionsResolved || [];
+		this.QuantityUnitConversionsResolved = config.QuantityUnitConversionsResolved;
 		this.QuantityUnitEditFormRedirectUri = config.QuantityUnitEditFormRedirectUri;
 		this.MealPlanFirstDayOfWeek = config.MealPlanFirstDayOfWeek;
 		this.EditMode = config.EditMode;
@@ -31,9 +30,9 @@ class GrocyProxy
 
 		// scoping
 		this.scopeSelector = scopeSelector;
-		this.scope = $(scopeSelector);
-		var jScope = this.scope;
-		this.$scope = (selector) => jScope.find(selector);
+		this.scope = null;
+		this.$scope = null;
+
 		var queryString = url.split('?', 2);
 		this.virtualUrl = queryString.length == 2 ? queryString[1] : ""; // maximum two parts
 
@@ -45,52 +44,19 @@ class GrocyProxy
 			Object.assign(this.config.UserSettings, RootGrocy.UserSettings);
 			this.UserSettings = config.UserSettings;
 		}
-
-		this.configProxy = Proxy.revocable(this.config, {
-			get: function(target, prop, receiver)
-			{
-				if (Object.prototype.hasOwnProperty.call(target, prop))
-				{
-					return Reflect.get(...arguments);
-				}
-				else
-				{
-					return Reflect.get(RootGrocy.config, prop, target);
-				}
-			}
-		})
-
-		// This is where the magic happens!
-		// basically, this Proxy object checks if a member is defined in this proxy class, 
-		// and returns it if so.
-		// If not, the prop is handed over to the root grocy instance.
-		this.grocyProxy = Proxy.revocable(this, {
-			get: function(target, prop, receiver)
-			{
-				if (Object.prototype.hasOwnProperty.call(target, prop))
-				{
-					return Reflect.get(...arguments)
-				}
-				else
-				{
-					return Reflect.get(RootGrocy, prop, receiver);
-				}
-			}
-		});
-
-		// scoped variants of some helpers
-		this.FrontendHelpers = new GrocyFrontendHelpers(this, RootGrocy.Api, this.scopeSelector);
 	}
 
-	Unload()
+	Initialize(proxy)
 	{
-		this.grocyProxy.revoke();
-		this.configProxy.revoke();
+		this.scope = $(this.scopeSelector);
+		var jScope = this.scope;
+		this.$scope = (selector) => jScope.find(selector);
+		this.FrontendHelpers = new GrocyFrontendHelpers(proxy, this.RootGrocy.Api, this.scopeSelector);
 	}
 
 	Use(componentName, scope = null)
 	{
-		let scopeName = scope || "";
+		let scopeName = scope || this.scopeSelector;
 		// initialize Components only once per scope
 		if (this.initComponents.find(elem => elem == componentName + scopeName))
 			return this.Components[componentName + scopeName];
@@ -106,14 +72,6 @@ class GrocyProxy
 		else
 		{
 			console.error("Unable to find component " + componentName);
-		}
-	}
-
-	LoadView(viewName)
-	{
-		if (Object.prototype.hasOwnProperty.call(window, viewName + "View"))
-		{
-			window[viewName + "View"](this, this.scopeSelector);
 		}
 	}
 

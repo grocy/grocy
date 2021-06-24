@@ -88,7 +88,6 @@ view_eslint_config.globals = eslint_config.globals.concat([
 
 // viewjs handling
 var files = glob.sync('./js/viewjs/*.js');
-var components = glob.sync('./js/viewjs/components/*.js');
 
 var viewJStasks = [];
 
@@ -111,30 +110,8 @@ files.forEach(function(target)
 		.pipe(gulpif(minify, uglify()))
 		.pipe(buffer())
 		.pipe(sourcemaps.init({ loadMaps: true }))
-		.pipe(sourcemaps.write('.'))
+		.pipe(sourcemaps.write('.', { sourceMappingURLPrefix: '/viewjs' }))
 		.pipe(dest('./public/viewjs')));
-	viewJStasks.push(target);
-});
-components.forEach(function(target)
-{
-	task(target, cb => rollup({
-		input: target,
-		output: {
-			format: 'umd',
-			name: path.basename(target),
-			sourcemap: 'inline',
-		},
-		plugins: [resolve(), rollupCss({
-			dest: path.resolve('./public/css/viewcss/' + path.basename(target).replace(".js", ".css")),
-		}), commonjs(), eslint(view_eslint_config)],
-	})
-		.pipe(source(path.basename(target), "./js/viewjs/components"))
-		.pipe(buffer())
-		.pipe(gulpif(minify, uglify()))
-		.pipe(buffer())
-		.pipe(sourcemaps.init({ loadMaps: true }))
-		.pipe(sourcemaps.write('.'))
-		.pipe(dest('./public/viewjs/components')));
 	viewJStasks.push(target);
 });
 

@@ -68,7 +68,7 @@ class OpenApiController extends BaseApiController
 
 	public function DocumentationUi(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->render($response, 'openapiui');
+		return $this->render($request, $response, 'openapiui');
 	}
 
 	public function __construct(\DI\Container $container)
