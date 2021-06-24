@@ -11,7 +11,7 @@
 @php if(empty($additionalAttributes)) { $additionalAttributes = ''; } @endphp
 @php if(empty($additionalGroupCssClasses)) { $additionalGroupCssClasses = ''; } @endphp
 
-<div id="datetimepicker2-wrapper"
+<div class="datetimepicker2-wrapper"
 	class="form-group {{ $additionalGroupCssClasses }}">
 	<label for="{{ $id }}">{{ $__t($label) }}
 		@if(!empty($hint))

@@ -297,7 +297,7 @@ class datetimepicker
 		EmptyElementWhenMatches(this.$('#' + this.basename + '-timeago'), this.Grocy.translate('timeago_nan'));
 
 		// TODO: scoping
-		RefreshContextualTimeago("#" + this.basename + "-wrapper");
+		RefreshContextualTimeago("." + this.basename + "-wrapper");
 	}
 
 	stateTrigger()
