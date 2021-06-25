@@ -451,6 +451,18 @@ class GrocyClass
 			function()
 			{
 				toastr.success(self.translate("Transaction successfully undone"));
+
+				self.Api.Get('stock/transactions/' + transactionId.toString(),
+					function(result)
+					{
+						if (result[0].product_id !== undefined)
+							window.postMessage(WindowMessageBag("ProductChanged", result[0].product_id), self.BaseUrl);
+					},
+					function(xhr)
+					{
+						console.error(xhr);
+					}
+				);
 			},
 			function(xhr)
 			{
