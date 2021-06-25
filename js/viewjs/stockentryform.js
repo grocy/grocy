@@ -26,12 +26,12 @@ function stockentryformView(Grocy, scope = null)
 		var jsonForm = $scope('#stockentry-form').serializeJSON();
 		Grocy.FrontendHelpers.BeginUiBusy("stockentry-form");
 
+		var jsonData = {};
 		if (!jsonForm.price.toString().isEmpty())
 		{
 			jsonData.price = parseFloat(jsonForm.price).toFixed(Grocy.UserSettings.stock_decimal_places_prices);
 		}
 
-		var jsonData = {};
 		jsonData.amount = jsonForm.amount;
 		jsonData.best_before_date = datetimepicker.GetValue();
 		jsonData.purchased_date = datetimepicker2.GetValue();

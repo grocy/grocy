@@ -4,9 +4,9 @@
 @section('viewJsName', 'stockentryform')
 
 @section('grocyConfigProps')
-EditMode: '{{ $mode }}',
+EditMode: "edit",
 EditObjectId: {{ $stockEntry->id }},
-EditObjectProductId: {{ $stockEntry->product_id },
+EditObjectProductId: {{ $stockEntry->product_id }},
 @endsection
 
 @section('content')
@@ -18,8 +18,12 @@ EditObjectProductId: {{ $stockEntry->product_id },
 
 <hr class="my-2">
 
+@php
+$classes = $embedded ? '' : 'col-md-6 col-xl-4'
+@endphp
+
 <div class="row">
-	<div class="col-12 col-md-6 col-xl-4 pb-3">
+	<div class="col-12 {{ $classes }} pb-3">
 
 		<form id="stockentry-form"
 			novalidate>
