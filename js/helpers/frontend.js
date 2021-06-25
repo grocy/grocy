@@ -209,11 +209,12 @@ class GrocyFrontendHelpers
 
 	ShowGenericError(message, exception)
 	{
+		var self = this;
 		toastr.error(this.Grocy.translate(message) + '<br><br>' + this.Grocy.translate('Click to show technical details'), '', {
 			onclick: function()
 			{
 				bootbox.alert({
-					title: this.Grocy.translate('Error details'),
+					title: self.Grocy.translate('Error details'),
 					message: '<pre class="my-0"><code>' + JSON.stringify(exception, null, 4) + '</code></pre>',
 					closeButton: false
 				});

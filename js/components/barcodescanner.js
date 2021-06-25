@@ -144,11 +144,11 @@ class barcodescanner
 			{
 				if ($(this).hasAttr("disabled"))
 				{
-					$(this).after('<a id="barcodescanner-start-button" class="btn btn-sm btn-primary text-white disabled" data-target="' + $(this).attr("data-target") + '"><i class="fas fa-camera"></i></a>');
+					$(this).after('<a id="barcodescanner-start-button" class="btn btn-sm btn-primary text-white disabled barcodescanner-start-button" data-target="' + $(this).attr("data-target") + '"><i class="fas fa-camera"></i></a>');
 				}
 				else
 				{
-					$(this).after('<a id="barcodescanner-start-button" class="btn btn-sm btn-primary text-white" data-target="' + $(this).attr("data-target") + '"><i class="fas fa-camera"></i></a>');
+					$(this).after('<a id="barcodescanner-start-button" class="btn btn-sm btn-primary text-white barcodescanner-start-button" data-target="' + $(this).attr("data-target") + '"><i class="fas fa-camera"></i></a>');
 				}
 			});
 		}, 50);
