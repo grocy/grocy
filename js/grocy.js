@@ -70,6 +70,7 @@ class GrocyClass
 			strings = this.Api.LoadLanguageSync("en");
 		}
 		Object.assign(strings.messages[""], config.GettextPo.messages[""]);
+		this.strings = strings;
 		this.Translator = new Translator(strings);
 
 		this.FrontendHelpers = new GrocyFrontendHelpers(this, this.Api);
@@ -85,6 +86,21 @@ class GrocyClass
 		{
 			self.Nightmode.Initialize();
 			self.Nightmode.StartWatchdog();
+		});
+
+		window.addEventListener('load', function()
+		{
+			if (self.documentReady) return;
+
+			// preload views
+			self.documentReady = true;
+			var element = self.preloadViews.pop();
+			while (element !== undefined)
+			{
+				self.PreloadView(element.viewName, element.loadCss, element.cb);
+
+				element = self.preloadViews.pop();
+			}
 
 			// DB Changed Handling
 			if (self.UserId !== -1)
@@ -104,21 +120,6 @@ class GrocyClass
 						console.error(xhr);
 					}
 				);
-			}
-		});
-
-		window.addEventListener('load', function()
-		{
-			if (self.documentReady) return;
-
-			// preload views
-			self.documentReady = true;
-			var element = self.preloadViews.pop();
-			while (element !== undefined)
-			{
-				self.PreloadView(element.viewName, element.loadCss, element.cb);
-
-				element = self.preloadViews.pop();
 			}
 		});
 
@@ -176,24 +177,27 @@ class GrocyClass
 
 	translate(text, ...placeholderValues)
 	{
-		if (this.Mode === "dev")
-		{
-			var text2 = text;
-			this.Api.Post('system/log-missing-localization', { "text": text2 });
-		}
+		this.logTranslation(text);
 
 		return this.Translator.__(text, ...placeholderValues)
 	}
 	translaten(number, singularForm, pluralForm)
 	{
-		if (this.Mode === "dev")
-		{
-			var singularForm2 = singularForm;
-			this.Api.Post('system/log-missing-localization', { "text": singularForm2 });
-		}
-
+		this.logTranslation(singularForm);
 		return this.Translator.n__(singularForm, pluralForm, number, number)
 	}
+
+	logTranslation(text)
+	{
+		if (this.Mode === "dev")
+		{
+			if (!(text in this.strings.messages[""]))
+			{
+				this.Api.Post('system/log-missing-localization', { "text": text });
+			}
+		}
+	}
+
 	FormatUrl(relativePath)
 	{
 		return this.BaseUrl.replace(/\/$/, '') + relativePath;
@@ -397,6 +401,11 @@ class GrocyClass
 				console.error(text);
 			}
 		})
+	}
+
+	RegisterUnload(cb)
+	{
+		return;
 	}
 
 	Unload()

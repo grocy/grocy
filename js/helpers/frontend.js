@@ -23,6 +23,33 @@ class GrocyFrontendHelpers
 		this.dataTables = [];
 
 		this.InitDropdowns();
+
+		this.deferredPutCalls = [];
+		var self = this;
+		window.addEventListener('load', function()
+		{
+			if (self.Grocy.documentReady && self.deferredPutCalls.length == 0) return;
+
+			// save user settings
+			var putcall = self.deferredPutCalls.pop();
+			while (putcall !== undefined)
+			{
+				self.Api.Put(putcall.uri, putcall.data,
+					function(result)
+					{
+						// Nothing to do...
+					},
+					function(xhr)
+					{
+						if (!xhr.statusText.isEmpty())
+						{
+							this.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+						}
+					}
+				);
+				putcall = self.deferredPutCalls.pop();
+			}
+		});
 	}
 
 	_ApplyTemplate(data, template)
@@ -194,7 +221,15 @@ class GrocyFrontendHelpers
 
 		var jsonData = {};
 		jsonData.value = value;
-		this.Api.Put('user/settings/' + settingsKey, jsonData,
+
+		let api = 'user/settings/' + settingsKey;
+		if (!this.Grocy.documentReady)
+		{
+			this.deferredPutCalls.push({ uri: api, data: jsonData });
+			return;
+		}
+
+		this.Api.Put(api, jsonData,
 			function(result)
 			{
 				// Nothing to do...
