@@ -17,4 +17,3 @@ import "sprintf-js/src/sprintf";
 import "summernote/dist/summernote-bs4";
 import "bootstrap-select";
 import "jquery-lazy";
-import "nosleep.js";

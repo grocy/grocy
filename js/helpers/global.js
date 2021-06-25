@@ -12,6 +12,8 @@ window.toastr = require("toastr");
 
 window.bootbox = require("bootbox");
 
+window.NoSleep = require("nosleep.js");
+
 // we need to fix these to use the global jquery we included.
 var dt = require('datatables.net')(window, jquery);
 var dts = require('datatables.net-select')(window, jquery);
