@@ -11,7 +11,7 @@
 @section('grocyConfigProps')
 EditMode: '{{ $mode }}',
 @if($mode == 'edit')	
-GrocyConfig.EditObjectId: {{ $shoppingList->id }},
+EditObjectId: {{ $shoppingList->id }},
 @endif
 @endsection
 

@@ -286,7 +286,7 @@ class barcodescanner
 				return;
 			}
 
-			this.CheckCapabilities();
+			self.CheckCapabilities();
 
 			Quagga.start();
 		});

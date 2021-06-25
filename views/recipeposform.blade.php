@@ -13,7 +13,7 @@
 	EditObjectParentId: {{ $recipe->id }},
 	EditObject: {!! json_encode($recipePos) !!},
 @if($mode == 'edit')	
-	GrocyConfig.EditObjectId: {{ $recipePos->id }},
+	EditObjectId: {{ $recipePos->id }},
 @endif
 	QuantityUnits: {!! json_encode($quantityUnits) !!},
 	QuantityUnitConversionsResolved: {!! json_encode($quantityUnitConversionsResolved) !!},

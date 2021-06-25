@@ -11,9 +11,9 @@
 @section('grocyConfigProps')
 	EditMode: '{{ $mode }}',
 @if($mode == 'edit')	
-	GrocyConfig.EditObjectId: {{ $recipe->id }},
+	EditObjectId: {{ $recipe->id }},
 @endif
-	QuantityUnits: {!! json_encode($quantityUnits) !!},
+	QuantityUnits: {!! json_encode($quantityunits) !!},
 	QuantityUnitConversionsResolved: {!! json_encode($quantityUnitConversionsResolved) !!},
 	DefaultMinAmount: '{{$DEFAULT_MIN_AMOUNT}}',
 

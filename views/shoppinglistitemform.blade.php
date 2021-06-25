@@ -11,7 +11,7 @@
 @section('grocyConfigProps')
 	EditMode: '{{ $mode }}',
 @if($mode == 'edit')	
-	GrocyConfig.EditObjectId: {{ $listItem->id }},
+	EditObjectId: {{ $listItem->id }},
 @endif
 	QuantityUnits: {!! json_encode($quantityUnits) !!},
 	QuantityUnitConversionsResolved: {!! json_encode($quantityUnitConversionsResolved) !!},
@@ -26,8 +26,12 @@
 
 <hr class="my-2">
 
+@php
+$classes = $embedded ? '' : 'col-md-6 col-xl-4';
+@endphp
+
 <div class="row">
-	<div class="col-12 col-md-6 col-xl-4 pb-3">
+	<div class="col-12 {{ $classes }} pb-3">
 
 		<form id="shoppinglist-form"
 			novalidate>
