@@ -398,8 +398,8 @@ function purchaseView(Grocy, scope = null)
 										RefreshLocaleNumberInput();
 									}
 								}
-
-								Grocy.ScanModeSubmit(false);
+								if (BoolVal(Grocy.UserSettings.scan_mode_purchase_enabled))
+									Grocy.FrontendHelpers.ScanModeSubmit(false);
 							},
 							function(xhr)
 							{
@@ -410,7 +410,8 @@ function purchaseView(Grocy, scope = null)
 					else
 					{
 						$scope("#purchase-form").removeAttr("data-used-barcode");
-						Grocy.ScanModeSubmit();
+						if (BoolVal(Grocy.UserSettings.scan_mode_purchase_enabled))
+							Grocy.FrontendHelpers.ScanModeSubmit();
 					}
 
 					$scope('#display_amount').trigger("keyup");

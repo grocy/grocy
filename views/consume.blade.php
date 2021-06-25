@@ -51,7 +51,7 @@ $classes = $embedded ? '' : 'col-md-6 col-xl-4';
 
 		<hr class="my-2">
 
-		<form id="consume-form"
+		<form id="consume-form" data-scanmode="enabled"
 			novalidate>
 
 			@include('components.productpicker', array(
@@ -138,7 +138,7 @@ $classes = $embedded ? '' : 'col-md-6 col-xl-4';
 			))
 			@endif
 
-			<button id="save-consume-button"
+			<button id="save-consume-button" data-scanmode="submit"
 				class="btn btn-success">{{ $__t('OK') }}</button>
 
 			@if(GROCY_FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING)

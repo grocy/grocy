@@ -160,8 +160,14 @@ class GrocyFrontendHelpers
 
 	ValidateForm(formId)
 	{
+		var form = null;
+		var ret = false;
 
-		var form = this.$scope("#" + formId);
+		if (formId instanceof $)
+			form = formId;
+		else
+			form = this.$scope("#" + formId);
+
 		if (form.length == 0)
 		{
 			return;
@@ -170,6 +176,7 @@ class GrocyFrontendHelpers
 		if (form[0].checkValidity() === true)
 		{
 			form.find(':submit').removeClass('disabled');
+			ret = true;
 		}
 		else
 		{
@@ -177,6 +184,7 @@ class GrocyFrontendHelpers
 		}
 
 		form.addClass('was-validated');
+		return ret;
 	}
 
 	BeginUiBusy(formId = null)
@@ -470,6 +478,33 @@ class GrocyFrontendHelpers
 				}
 			});
 		});
+	}
+
+	ScanModeSubmit(singleUnit = true)
+	{
+		if (singleUnit)
+		{
+			this.$scope("#display_amount").val(1);
+			this.$scope(".input-group-productamountpicker").trigger("change");
+		}
+
+		var form = this.$scope('form[data-scanmode="enabled"]');
+
+		if (form.length == 0)
+		{
+			console.warn("ScanModeSubmit was triggered but no form[data-scanmode=\"enabled\"] was found in scope " + this.scopeSelector);
+			return;
+		}
+
+		if (this.ValidateForm(form) === true)
+		{
+			form.find('button[data-scanmode="submit"]').click();
+		}
+		else
+		{
+			toastr.warning(this.translate("Scan mode is on but not all required fields could be populated automatically"));
+			this.UISound.Error();
+		}
 	}
 }
 

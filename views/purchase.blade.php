@@ -51,7 +51,7 @@ $classes = $embedded ? '' : 'col-md-6 col-xl-4';
 
 		<hr class="my-2">
 
-		<form id="purchase-form"
+		<form id="purchase-form" data-scanmode="enabled"
 			novalidate>
 
 			@include('components.productpicker', array(
@@ -165,7 +165,7 @@ $classes = $embedded ? '' : 'col-md-6 col-xl-4';
 			</div>
 			@endif
 
-			<button id="save-purchase-button"
+			<button id="save-purchase-button" data-scanmode="submit"
 				class="btn btn-success d-block">{{ $__t('OK') }}</button>
 
 		</form>

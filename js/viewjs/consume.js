@@ -300,9 +300,11 @@ function consumeView(Grocy, scope = null)
 						}
 					);
 
-					if ($scope('#product_id').attr("barcode") == "null")
+					if (BoolVal(Grocy.UserSettings.scan_mode_consume_enabled) &&
+						$scope('#product_id').attr("barcode") == "null")
 					{
-						Grocy.ScanModeSubmit();
+
+						Grocy.FrontendHelpers.ScanModeSubmit();
 					}
 				},
 				function(xhr)
@@ -409,7 +411,8 @@ function consumeView(Grocy, scope = null)
 												$scope(".input-group-productamountpicker").trigger("change");
 												Grocy.FrontendHelpers.ValidateForm('consume-form');
 												RefreshLocaleNumberInput();
-												Grocy.ScanModeSubmit(false);
+												if (BoolVal(Grocy.UserSettings.scan_mode_consume_enabled))
+													Grocy.FrontendHelpers.ScanModeSubmit(false);
 											}
 										}
 									},

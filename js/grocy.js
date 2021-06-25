@@ -503,29 +503,6 @@ class GrocyClass
 		);
 	}
 
-	ScanModeSubmit(singleUnit = true)
-	{
-		if (BoolVal(this.UserSettings.scan_mode_purchase_enabled))
-		{
-			if (singleUnit)
-			{
-				$("#display_amount").val(1);
-				$(".input-group-productamountpicker").trigger("change");
-			}
-
-			this.FrontendHelpers.ValidateForm("purchase-form");
-			if (document.getElementById("purchase-form").checkValidity() === true)
-			{
-				$('#save-purchase-button').click();
-			}
-			else
-			{
-				toastr.warning(this.translate("Scan mode is on but not all required fields could be populated automatically"));
-				this.UISound.Error();
-			}
-		}
-	}
-
 	GetUriParam(key)
 	{
 		var currentUri = window.location.search.substring(1);
@@ -540,6 +517,7 @@ class GrocyClass
 				return currentParam[1] === undefined ? true : decodeURIComponent(currentParam[1]);
 			}
 		}
+		return undefined;
 	}
 
 	UpdateUriParam(key, value)
