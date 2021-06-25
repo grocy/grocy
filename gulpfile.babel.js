@@ -128,7 +128,6 @@ function clean(cb)
 // It can also be used within the `series()` composition.
 function build(cb)
 {
-	// body omitted
 	return parallel(
 		js,
 		css,
@@ -136,7 +135,9 @@ function build(cb)
 		viewjs,
 		resourceFileCopy,
 		copyLocales,
-		makeLocales)(cb);
+		makeLocales,
+		openApi,
+	)(cb);
 }
 
 function publish(cb)
@@ -230,6 +231,14 @@ function copyLocales(cb)
 	)(cb);
 }
 
+function openApi(cb)
+{
+	return parallel(
+		icb => src(['./node_modules/swagger-ui-dist/*.js', './node_modules/swagger-ui-dist/*.js.map']).pipe(dest('./public/js')),
+		icb => src(['./node_modules/swagger-ui-dist/*.css', './node_modules/swagger-ui-dist/*.css.map']).pipe(dest('./public/css')),
+	)(cb);
+}
+
 function live(cb)
 {
 	watch('./scss/**/*.scss', css);
@@ -302,5 +311,6 @@ export
 	publish,
 	release,
 	bundle,
-	makeLocales
+	makeLocales,
+	openApi
 }

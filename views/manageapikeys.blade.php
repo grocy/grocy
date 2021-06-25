@@ -90,6 +90,7 @@
 							data-apikey-id="{{ $apiKey->id }}"
 							data-apikey-apikey="{{ $apiKey->api_key }}"
 							data-toggle="tooltip"
+							data-boundary="viewport"
 							title="{{ $__t('Delete this item') }}">
 							<i class="fas fa-trash"></i>
 						</a>
@@ -98,6 +99,7 @@
 							data-apikey-key="{{ $apiKey->api_key }}"
 							data-apikey-type="{{ $apiKey->key_type }}"
 							data-toggle="tooltip"
+							data-boundary="viewport"
 							title="{{ $__t('Show a QR-Code for this API key') }}">
 							<i class="fas fa-qrcode"></i>
 						</a>

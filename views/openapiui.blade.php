@@ -20,7 +20,7 @@
 
 	<title>{{ $__t('REST API & data model documentation') }} | grocy</title>
 
-	<link href="{{ $U('/node_modules/swagger-ui-dist/swagger-ui.css?v=', true) }}{{ $version }}"
+	<link href="{{ $U('/css/swagger-ui.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
 
 	@if(file_exists(GROCY_DATAPATH . '/custom_css.html'))
@@ -60,9 +60,9 @@
 <body>
 	<div id="swagger-ui"></div>
 
-	<script src="{{ $U('/node_modules/swagger-ui-dist/swagger-ui.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/swagger-ui-dist/swagger-ui-bundle.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/swagger-ui-dist/swagger-ui-standalone-preset.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/js/swagger-ui.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/js/swagger-ui-bundle.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/js/swagger-ui-standalone-preset.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/viewjs', true) }}/openapiui.js?v={{ $version }}"></script>
 
 	@if(file_exists(GROCY_DATAPATH . '/custom_js.html'))

@@ -25,4 +25,3 @@ const swaggerUi = SwaggerUIBundle({
 });
 
 window.ui = swaggerUi;
-
