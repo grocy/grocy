@@ -21,6 +21,7 @@ class GrocyProxy
 		this.EditObjectParentName = config.EditObjectParentName;
 		this.EditObject = config.EditObject;
 		this.EditObjectProduct = config.EditObjectProduct;
+		this.EditObjectProductId = config.EditObjectProductId;
 		this.RecipePictureFileName = config.RecipePictureFileName;
 		this.InstructionManualFileNameName = config.InstructionManualFileNameName;
 
