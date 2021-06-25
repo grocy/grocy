@@ -311,6 +311,11 @@
 		$scope("#productcard-modal").modal("show");
 	});
 
+	top.on("click", "#kill-productcard-modal", function(e)
+	{
+		$scope("#productcard-modal").modal("hide");
+	});
+
 }
 
 

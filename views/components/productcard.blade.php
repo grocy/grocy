@@ -8,16 +8,20 @@
 			title="{{ $__t('Edit product') }}">
 			<i class="fas fa-edit"></i>
 		</a>
+		@if(!isset($noStockJournalButton))
 		<a id="productcard-product-journal-button"
 			class="btn btn-sm btn-outline-secondary py-0 mr-1 float-right disabled show-as-dialog-link"
 			href="#">
 			{{ $__t('Stock journal') }}
 		</a>
+		@endif
+		@if(!isset($noStockEntryButton))
 		<a id="productcard-product-stock-button"
 			class="btn btn-sm btn-outline-secondary py-0 mr-1 float-right disabled show-as-dialog-link"
 			href="#">
 			{{ $__t('Stock entries') }}
 		</a>
+		@endif
 	</div>
 	<div class="card-body">
 		<h3><span id="productcard-product-name"></span></h3>

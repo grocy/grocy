@@ -364,7 +364,7 @@ function purchaseView(Grocy, scope = null)
 						Grocy.Api.Get('objects/product_barcodes?query[]=barcode=' + elem.getAttribute("barcode"),
 							function(barcodeResult)
 							{
-								if (barcodeResult != null)
+								if (barcodeResult != null && barcodeResult !== undefined)
 								{
 									var barcode = barcodeResult[0];
 									$scope("#purchase-form").attr("data-used-barcode", barcode.id);

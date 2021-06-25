@@ -153,7 +153,9 @@ function equipmentformView(Grocy, scope = null)
 		$scope("#instruction-manual-label").addClass("d-none");
 		$scope("#instruction-manual-label-none").removeClass("d-none");
 	});
+
 	ResizeResponsiveEmbeds();
+	$scope("embed").attr("src", $scope("embed").data("src"));
 
 	userfields.Load();
 	$scope('#name').focus();

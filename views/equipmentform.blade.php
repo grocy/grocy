@@ -96,7 +96,7 @@ InstructionManualFileNameName: '{{ $equipment->instruction_manual_file_name }}',
 				@if(!empty($equipment->instruction_manual_file_name))
 				<embed id="current-equipment-instruction-manual"
 					class="embed-responsive embed-responsive-4by3"
-					src="{{ $U('/api/files/equipmentmanuals/' . base64_encode($equipment->instruction_manual_file_name)) }}"
+					data-src="{{ $U('/api/files/equipmentmanuals/' . base64_encode($equipment->instruction_manual_file_name)) }}"
 					type="application/pdf">
 				<p id="delete-current-instruction-manual-on-save-hint"
 					class="form-text text-muted font-italic d-none">{{ $__t('The current file will be deleted on save') }}</p>

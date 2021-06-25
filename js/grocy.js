@@ -31,6 +31,7 @@ class GrocyClass
 		this.DatabaseChangedTime = null;
 		this.IdleTime = 0;
 		this.BaseUrl = config.BaseUrl;
+		this.CurrentUrlRelative = config.CurrentUrlRelative;
 		this.Currency = config.Currency;
 		this.FeatureFlags = config.FeatureFlags;
 		this.QuantityUnits = config.QuantityUnits;
@@ -325,6 +326,7 @@ class GrocyClass
 			{
 				let scopeId = uuid.v4()
 				var grocyProxy = new GrocyProxy(this, "#" + scopeId, data.config, link);
+
 				var proxy = new Proxy(grocyProxy, {
 					get: function(target, prop, receiver)
 					{
@@ -360,7 +362,7 @@ class GrocyClass
 					},
 				});
 
-				bootbox.dialog({
+				var dialog = bootbox.dialog({
 					message: '<div class="embedded" id="' + scopeId + '">' + data.template + '</div>',
 					size: 'large',
 					backdrop: true,
@@ -371,28 +373,41 @@ class GrocyClass
 							className: 'btn-secondary responsive-button',
 							callback: function()
 							{
-								bootbox.hideAll();
+								dialog.modal("hide");
 							}
 						}
 					},
-					onShow: () =>
+					onShow: (e) =>
 					{
-						// dialog div is alive, init view.
-						// this occurs before the view is shown.
-						grocyProxy.Initialize(proxy);
-						self.LoadView(data.viewJsName, "#" + scopeId, proxy);
+						if ($(e.target).find("#" + scopeId).length)
+						{
+							// dialog div is alive, init view.
+							// this occurs before the view is shown.
+							grocyProxy.Initialize(proxy);
+							self.LoadView(data.viewJsName, "#" + scopeId, proxy);
+						}
+
 					},
-					onShown: () =>
+					onShown: (e) =>
 					{
-						grocyProxy.FrontendHelpers.OnShown();
+						if ($(e.target).find("#" + scopeId).length)
+						{
+							grocyProxy.FrontendHelpers.OnShown();
+						}
 					},
-					onHide: () =>
+					onHide: (e) =>
 					{
-						grocyProxy.Unload();
+						if ($(e.target).find("#" + scopeId).length)
+						{
+							grocyProxy.Unload();
+						}
 					},
-					onHidden: () =>
+					onHidden: (e) =>
 					{
-						self.FrontendHelpers.EndUiBusy();
+						if ($(e.target).find("#" + scopeId).length)
+						{
+							self.FrontendHelpers.EndUiBusy();
+						}
 					}
 				});
 			},

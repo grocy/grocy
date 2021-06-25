@@ -92,7 +92,7 @@ class GrocyProxy
 		{
 			// add-then-init to resolve circular dependencies
 			this.initComponents.push(componentName + scopeName);
-			var component = new components[componentName](this.proxy, scope);
+			var component = new components[componentName](this.proxy, scopeName);
 			this.Components[componentName + scopeName] = component;
 			return component;
 		}

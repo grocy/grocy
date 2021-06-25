@@ -229,12 +229,12 @@ $dt_uniq = uniqid();
 	<div class="modal-dialog">
 		<div class="modal-content text-center">
 			<div class="modal-body">
-				@include('components.productcard')
+				@include('components.productcard', [ 'noStockEntryButton' => true, 'noStockJournalButton' => $embedded ])
 			</div>
 			<div class="modal-footer">
 				<button type="button"
 					class="btn btn-secondary"
-					data-dismiss="modal">{{ $__t('Close') }}</button>
+					id="kill-productcard-modal">{{ $__t('Close') }}</button>
 			</div>
 		</div>
 	</div>
