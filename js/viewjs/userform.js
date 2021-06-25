@@ -113,7 +113,7 @@
 		{
 			event.preventDefault();
 
-			if ($scope('#user-form')[0].checkValidity()() === false) //There is at least one validation error
+			if ($scope('#user-form')[0].checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}

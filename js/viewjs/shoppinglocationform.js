@@ -84,7 +84,7 @@ function shoppinglocationformView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if ($scope('#shoppinglocation-form')[0].checkValidity()() === false) //There is at least one validation error
+			if ($scope('#shoppinglocation-form')[0].checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}

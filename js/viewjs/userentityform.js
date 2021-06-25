@@ -82,7 +82,7 @@ function userentityformView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if ($scope('#userentity-form')[0].checkValidity()() === false) //There is at least one validation error
+			if ($scope('#userentity-form')[0].checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}

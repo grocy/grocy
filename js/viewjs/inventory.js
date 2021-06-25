@@ -295,7 +295,7 @@ function inventoryView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if ($scope('#inventory-form')[0].checkValidity()() === false) //There is at least one validation error
+			if ($scope('#inventory-form')[0].checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}

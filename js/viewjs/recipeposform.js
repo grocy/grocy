@@ -145,7 +145,7 @@ function recipeposformView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if ($scope('#recipe-pos-form')[0].checkValidity()() === false) //There is at least one validation error
+			if ($scope('#recipe-pos-form')[0].checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}

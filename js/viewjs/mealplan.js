@@ -432,7 +432,7 @@ function mealplanView(Grocy, scope = null)
 			return;
 		}
 
-		if ($scope('#add-recipe-form')[0].checkValidity()() === false) //There is at least one validation error
+		if ($scope('#add-recipe-form')[0].checkValidity() === false) //There is at least one validation error
 		{
 			return false;
 		}
@@ -474,7 +474,7 @@ function mealplanView(Grocy, scope = null)
 			return;
 		}
 
-		if ($scope('#add-note-form')[0].checkValidity()() === false) //There is at least one validation error
+		if ($scope('#add-note-form')[0].checkValidity() === false) //There is at least one validation error
 		{
 			return false;
 		}
@@ -520,7 +520,7 @@ function mealplanView(Grocy, scope = null)
 			return;
 		}
 
-		if ($scope('#add-product-form')[0].checkValidity()() === false) //There is at least one validation error
+		if ($scope('#add-product-form')[0].checkValidity() === false) //There is at least one validation error
 		{
 			return false;
 		}
@@ -567,7 +567,7 @@ function mealplanView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if ($scope('#add-recipe-form')[0].checkValidity()() === false) //There is at least one validation error
+			if ($scope('#add-recipe-form')[0].checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}
@@ -584,7 +584,7 @@ function mealplanView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if ($scope('#add-product-form')[0].checkValidity()() === false) //There is at least one validation error
+			if ($scope('#add-product-form')[0].checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}
@@ -601,7 +601,7 @@ function mealplanView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if ($scope('#add-recipe-form')[0].checkValidity()() === false) //There is at least one validation error
+			if ($scope('#add-recipe-form')[0].checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}

@@ -86,7 +86,7 @@ function productbarcodeformView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if ($scope('#barcode-form')[0].checkValidity()() === false) //There is at least one validation error
+			if ($scope('#barcode-form')[0].checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}

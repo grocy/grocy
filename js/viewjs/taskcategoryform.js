@@ -84,7 +84,7 @@ function taskcategoryformView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if ($scope('#task-category-form')[0].checkValidity()() === false) //There is at least one validation error
+			if ($scope('#task-category-form')[0].checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}

@@ -226,7 +226,7 @@ function shoppinglistitemformView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if ($scope('#shoppinglist-form')[0].checkValidity()() === false) //There is at least one validation error
+			if ($scope('#shoppinglist-form')[0].checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}

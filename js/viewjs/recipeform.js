@@ -128,7 +128,7 @@ function recipeformView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if ($scope('#recipe-form')[0].checkValidity()() === false) //There is at least one validation error
+			if ($scope('#recipe-form')[0].checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}
@@ -264,7 +264,7 @@ function recipeformView(Grocy, scope = null)
 			return;
 		}
 
-		if ($scope('#recipe-include-form')[0].checkValidity()() === false) //There is at least one validation error
+		if ($scope('#recipe-include-form')[0].checkValidity() === false) //There is at least one validation error
 		{
 			return false;
 		}

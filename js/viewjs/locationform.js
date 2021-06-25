@@ -84,7 +84,7 @@ function locationformView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if ($scope('#location-form')[0].checkValidity()() === false) //There is at least one validation error
+			if ($scope('#location-form')[0].checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}

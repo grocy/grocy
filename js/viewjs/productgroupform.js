@@ -70,7 +70,7 @@ function productgroupformView(Grocy, scope = null)
 		{
 			event.preventDefault();
 
-			if ($scope('#product-group-form')[0].checkValidity()() === false) //There is at least one validation error
+			if ($scope('#product-group-form')[0].checkValidity() === false) //There is at least one validation error
 			{
 				return false;
 			}
