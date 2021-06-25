@@ -2150,3 +2150,9 @@ msgstr ""
 
 msgid "Unable to print"
 msgstr ""
+
+msgid "Datum 1"
+msgstr ""
+
+msgid "Datum ohne Zeit"
+msgstr ""

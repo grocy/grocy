@@ -4,12 +4,17 @@
 @section('activeNav', '')
 @section('viewJsName', 'stockjournalsummary')
 
+@php 
+$collapsed_none = $embedded ? '' : 'd-md-none';
+$collapsed_flex = $embedded ? '' : 'd-md-flex';
+@endphp
+
 @section('content')
 <div class="row">
 	<div class="col">
 		<h2 class="title">@yield('title')</h2>
 		<div class="float-right">
-			<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
+			<button class="btn btn-outline-dark {{ $collapsed_none }} mt-2 order-1 order-md-3"
 				type="button"
 				data-toggle="collapse"
 				data-target="#table-filter-row">
@@ -21,7 +26,7 @@
 
 <hr class="my-2">
 
-<div class="row collapse d-md-flex"
+<div class="row collapse {{ $collapsed_flex }}"
 	id="table-filter-row">
 	<div class="col-12 col-md-6 col-xl-2">
 		<div class="input-group">

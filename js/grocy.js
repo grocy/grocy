@@ -378,6 +378,10 @@ class GrocyClass
 						grocyProxy.Initialize(proxy);
 						self.LoadView(data.viewJsName, "#" + scopeId, proxy);
 					},
+					onShown: () =>
+					{
+						grocyProxy.FrontendHelpers.OnShown();
+					},
 					onHide: () =>
 					{
 						grocyProxy.Unload();
@@ -388,10 +392,16 @@ class GrocyClass
 					}
 				});
 			},
-			error: (xhr, text, data) => { console.error(text); }
+			error: (xhr, text, data) =>
+			{
+				console.error(text);
+			}
 		})
+	}
 
-
+	Unload()
+	{
+		return; // root grocy instances never get unloaded.
 	}
 
 	UndoStockBooking(bookingId)

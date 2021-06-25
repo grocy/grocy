@@ -34,7 +34,7 @@
 	$scope('#stockentries-table tbody').removeClass("d-none");
 	stockEntriesTable.columns.adjust().draw();
 
-	$.fn.dataTable.ext.search.push(function(settings, data, dataIndex)
+	var moreSearch = function(settings, data, dataIndex)
 	{
 		var productId = productpicker.GetValue();
 
@@ -44,6 +44,16 @@
 		}
 
 		return false;
+	};
+
+	$.fn.dataTable.ext.search.push(moreSearch);
+
+
+	Grocy.RegisterUnload(() =>
+	{
+		var funcIdx = $.fn.dataTable.ext.search.indexOf(moreSearch);
+		if (funcIdx !== -1)
+			$.fn.dataTable.ext.search.splice(funcIdx);
 	});
 
 	$scope("#clear-filter-button").on("click", function()

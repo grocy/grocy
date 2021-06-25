@@ -20,6 +20,7 @@ class GrocyFrontendHelpers
 		}
 
 		this.dropdowns = {}
+		this.dataTables = [];
 
 		this.InitDropdowns();
 	}
@@ -249,6 +250,7 @@ class GrocyFrontendHelpers
 
 	InitDataTable(dataTable, searchFunction = null, clearFunction = null)
 	{
+		this.dataTables.push(dataTable);
 		dataTable.columns.adjust().draw();
 
 		var self = this;
@@ -273,6 +275,16 @@ class GrocyFrontendHelpers
 		self.$scope("#search").on("keyup", self.Delay(searchFunction || defaultSearchFunction, 200));
 
 		self.$scope("#clear-filter-button").on("click", clearFunction || defaultClearFunction);
+	}
+
+	// This method is called if this FrontendHelper is scoped to a modal
+	// and the modal is acutally shown.
+	OnShown()
+	{
+		for (let table of this.dataTables)
+		{
+			table.columns.adjust();
+		}
 	}
 
 	MakeFilterForColumn(selector, column, table, filterFunction = null, transferCss = false, valueMod = null)

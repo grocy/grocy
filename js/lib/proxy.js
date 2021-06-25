@@ -44,6 +44,8 @@ class GrocyProxy
 			Object.assign(this.config.UserSettings, RootGrocy.UserSettings);
 			this.UserSettings = config.UserSettings;
 		}
+
+		this.unloaders = [];
 	}
 
 	Initialize(proxy)
@@ -55,6 +57,11 @@ class GrocyProxy
 		this.FrontendHelpers = new GrocyFrontendHelpers(proxy, this.RootGrocy.Api, this.scopeSelector);
 	}
 
+	RegisterUnload(cb)
+	{
+		this.unloaders.push(cb);
+	}
+
 	Unload()
 	{
 		for (let component in this.Components)
@@ -64,6 +71,13 @@ class GrocyProxy
 			{
 				comp.Unload();
 			}
+		}
+
+		let unloader = this.unloaders.pop();
+		while (unloader !== undefined)
+		{
+			unloader();
+			unloader = this.unloaders.pop();
 		}
 	}
 
