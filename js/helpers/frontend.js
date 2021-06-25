@@ -1,3 +1,4 @@
+import { DetachedDropdown } from './dropdown';
 
 class GrocyFrontendHelpers
 {
@@ -5,18 +6,112 @@ class GrocyFrontendHelpers
 	{
 		this.Grocy = Grocy;
 		this.Api = Api;
+		this.scopeSelector = scope;
 		if (scope != null)
 		{
 			this.scope = $(scope);
 			var jScope = this.scope;
 			this.$scope = (selector) => jScope.find(selector);
-			this.scopeSelector = scope;
 		}
 		else
 		{
 			this.$scope = $;
 			this.scope = $(document);
 		}
+
+		this.dropdowns = {}
+
+		this.InitDropdowns();
+	}
+
+	_ApplyTemplate(data, template)
+	{
+		for (let key in data)
+		{
+			// transforms data-product-id to PRODUCT_ID
+			let param = key.replace('data-', '').toUpperCase().replaceAll('-', '_');
+			template = template.replaceAll(param, data[key]);
+		}
+
+		return template.replace('RETURNTO', '?returnto=' + encodeURIComponent(window.location.pathname));
+	}
+
+	InitDropdowns()
+	{
+		var self = this;
+		this.$scope('[data-toggle="dropdown-detached"]').on('click', function(event)
+		{
+			event.preventDefault()
+			event.stopPropagation()
+			var button = this;
+			var selector = button.getAttribute('data-target');
+			var $dropdown = self.$scope(selector);
+
+			let dropper = self.dropdowns[button.id];
+			if (dropper !== undefined)
+			{
+				if (dropper.isActive())
+				{
+					dropper.hide();
+					if (dropper.target.id == button.id)
+						return;
+				}
+			}
+
+			var elements = $dropdown.find('*');
+			var source_data = {};
+
+			for (let i = button.attributes.length - 1; i >= 0; i--)
+			{
+				let attr = button.attributes[i];
+				if (attr.name.startsWith("data-"))
+				{
+					source_data[attr.name] = attr.value;
+				}
+			}
+
+			for (let elem of elements)
+			{
+				for (let i = elem.attributes.length - 1; i >= 0; i--)
+				{
+					// copy over data-* attributes
+					let attr = elem.attributes[i];
+					if (source_data[attr.name] !== undefined)
+					{
+						elem.setAttribute(attr.name, source_data[attr.name]);
+					}
+				}
+
+				if (elem.hasAttribute('data-href'))
+				{
+					elem.setAttribute("href", self._ApplyTemplate(source_data, elem.getAttribute('data-href')))
+				}
+
+				if (elem.hasAttribute("data-compute"))
+				{
+					let tArgs = JSON.parse(self._ApplyTemplate(source_data, elem.getAttribute("data-compute")))
+					elem.innerText = self.Grocy.translate(...tArgs);
+				}
+
+				if (elem.hasAttribute("data-disable") &&
+					source_data["data-" + elem.getAttribute("data-disable")] !== undefined &&
+					source_data["data-" + elem.getAttribute("data-disable")] === "1")
+				{
+					elem.classList.add("disabled");
+				}
+				else
+				{
+					elem.classList.remove("disabled");
+				}
+			}
+
+			if (dropper === undefined)
+			{
+				dropper = new DetachedDropdown(button, null, this.scopeSelector);
+				self.dropdowns[button.id] = dropper;
+			}
+			dropper.toggle();
+		});
 	}
 
 	Delay(callable, delayMilliseconds)

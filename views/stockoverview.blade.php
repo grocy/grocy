@@ -136,6 +136,27 @@
 
 <div class="row">
 	<div class="col">
+		<div class="dropdown">
+			<div class="table-inline-menu dropdown-menu detached-dropdown-menu dropdown-menu-right" id="datatable-dropdown">
+				@include('components.stockentrydropdowncommon')
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item stockentry-grocycode-link"
+					type="button"
+					data-href="{{ $U('/product/PRODUCT_ID/grocycode?download=true') }}">
+					{{ $__t('Download product grocycode') }}
+				</a>
+				@if(GROCY_FEATURE_FLAG_LABELPRINTER)
+				<a class="dropdown-item stockentry-grocycode-product-label-print"
+					data-product-id="xxx"
+					type="button"
+					href="#">
+					{{ $__t('Print product grocycode on label printer') }}
+				</a>
+				@endif
+			</div>
+		</div>
+	
+
 		<table id="stock-overview-table"
 			class="table table-sm table-striped nowrap w-100">
 			<thead>
@@ -209,102 +230,19 @@
 							<i class="fas fa-box-open"></i> <span class="locale-number locale-number-quantity-amount">{{ $currentStockEntry->quick_consume_amount }}</span>
 						</a>
 						@endif
-						<div class="dropdown d-inline-block">
-							<button class="btn btn-sm btn-light text-secondary"
-								type="button"
-								data-toggle="dropdown">
-								<i class="fas fa-ellipsis-v"></i>
-							</button>
-							<div class="table-inline-menu dropdown-menu dropdown-menu-right">
-								<a class="dropdown-item show-as-dialog-link permission-SHOPPINGLIST_ITEMS_ADD"
-									type="button"
-									href="{{ $U('/shoppinglistitem/new?embedded&updateexistingproduct&product=' . $currentStockEntry->product_id ) }}">
-									<span class="dropdown-item-icon"><i class="fas fa-shopping-cart"></i></span> <span class="dropdown-item-text">{{ $__t('Add to shopping list') }}</span>
-								</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item show-as-dialog-link permission-STOCK_PURCHASE"
-									type="button"
-									href="{{ $U('/purchase?embedded&product=' . $currentStockEntry->product_id ) }}">
-									<span class="dropdown-item-icon"><i class="fas fa-cart-plus"></i></span> <span class="dropdown-item-text">{{ $__t('Purchase') }}</span>
-								</a>
-								<a class="dropdown-item show-as-dialog-link permission-STOCK_CONSUME"
-									type="button"
-									href="{{ $U('/consume?embedded&product=' . $currentStockEntry->product_id ) }}">
-									<span class="dropdown-item-icon"><i class="fas fa-utensils"></i></span> <span class="dropdown-item-text">{{ $__t('Consume') }}</span>
-								</a>
-								@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
-								<a class="dropdown-item show-as-dialog-link permission-STOCK_TRANSFER @if($currentStockEntry->amount < 1) disabled @endif"
-									type="button"
-									href="{{ $U('/transfer?embedded&product=' . $currentStockEntry->product_id) }}">
-									<span class="dropdown-item-icon"><i class="fas fa-exchange-alt"></i></span> <span class="dropdown-item-text">{{ $__t('Transfer') }}</span>
-								</a>
-								@endif
-								<a class="dropdown-item show-as-dialog-link permission-STOCK_INVENTORY"
-									type="button"
-									href="{{ $U('/inventory?embedded&product=' . $currentStockEntry->product_id ) }}">
-									<span class="dropdown-item-icon"><i class="fas fa-list"></i></span> <span class="dropdown-item-text">{{ $__t('Inventory') }}</span>
-								</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item product-consume-button product-consume-button-spoiled permission-STOCK_CONSUME @if($currentStockEntry->amount_aggregated < 1) disabled @endif"
-									type="button"
-									href="#"
-									data-product-id="{{ $currentStockEntry->product_id }}"
-									data-product-name="{{ $currentStockEntry->product_name }}"
-									data-product-qu-name="{{ $currentStockEntry->qu_unit_name }}"
-									data-consume-amount="1">
-									<span class="dropdown-item-text">{{ $__t('Consume %1$s of %2$s as spoiled', '1 ' . $currentStockEntry->qu_unit_name, $currentStockEntry->product_name) }}</span>
-								</a>
-								@if(GROCY_FEATURE_FLAG_RECIPES)
-								<a class="dropdown-item"
-									type="button"
-									href="{{ $U('/recipes?search=') }}{{ $currentStockEntry->product_name }}">
-									<span class="dropdown-item-text">{{ $__t('Search for recipes containing this product') }}</span>
-								</a>
-								@endif
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item product-name-cell"
-									data-product-id="{{ $currentStockEntry->product_id }}"
-									type="button"
-									href="#">
-									<span class="dropdown-item-text">{{ $__t('Product overview') }}</span>
-								</a>
-								<a class="dropdown-item show-as-dialog-link"
-									type="button"
-									href="{{ $U('/stockentries?embedded&product=') }}{{ $currentStockEntry->product_id }}"
-									data-product-id="{{ $currentStockEntry->product_id }}">
-									<span class="dropdown-item-text">{{ $__t('Stock entries') }}</span>
-								</a>
-								<a class="dropdown-item show-as-dialog-link"
-									type="button"
-									href="{{ $U('/stockjournal?embedded&product=') }}{{ $currentStockEntry->product_id }}">
-									<span class="dropdown-item-text">{{ $__t('Stock journal') }}</span>
-								</a>
-								<a class="dropdown-item show-as-dialog-link"
-									type="button"
-									href="{{ $U('/stockjournal/summary?embedded&product_id=') }}{{ $currentStockEntry->product_id }}">
-									<span class="dropdown-item-text">{{ $__t('Stock journal summary') }}</span>
-								</a>
-								<a class="dropdown-item permission-MASTER_DATA_EDIT"
-									type="button"
-									href="{{ $U('/product/') }}{{ $currentStockEntry->product_id . '?returnto=%2Fstockoverview' }}">
-									<span class="dropdown-item-text">{{ $__t('Edit product') }}</span>
-								</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item stockentry-grocycode-link"
-									type="button"
-									href="{{ $U('/product/' . $currentStockEntry->product_id . '/grocycode?download=true') }}">
-									{{ $__t('Download product grocycode') }}
-								</a>
-								@if(GROCY_FEATURE_FLAG_LABELPRINTER)
-								<a class="dropdown-item stockentry-grocycode-product-label-print"
-									data-product-id="{{ $currentStockEntry->product_id }}"
-									type="button"
-									href="#">
-									{{ $__t('Print product grocycode on label printer') }}
-								</a>
-								@endif
-							</div>
-						</div>
+						<button class="btn btn-sm btn-light text-secondary"
+							type="button"
+							id="detached-dropdown-{!! uniqid() !!}"
+							data-toggle="dropdown-detached"
+							data-target="#datatable-dropdown"
+							data-product-id="{{ $currentStockEntry->product_id }}"
+							data-product-name="{{ $currentStockEntry->product_name }}"
+							data-product-qu-name="{{ $currentStockEntry->qu_unit_name }}"
+							data-transfer="{{ ($currentStockEntry->amount < 1 ? 1 : 0) }}"
+							data-consume="{{ ($currentStockEntry->amount < 1 ? 1 : 0) }}"
+							data-location-id="">
+							<i class="fas fa-ellipsis-v"></i>
+						</button>
 					</td>
 					<td class="product-name-cell cursor-link"
 						data-product-id="{{ $currentStockEntry->product_id }}">

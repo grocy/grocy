@@ -57,6 +57,7 @@ var eslint_config = {
 		"moment",
 		"toastr",
 		"bootbox",
+		"Popper",
 	],
 	"parserOptions": {
 		"sourceType": "module",

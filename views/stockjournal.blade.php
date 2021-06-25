@@ -4,25 +4,30 @@
 @section('activeNav', 'stockjournal')
 @section('viewJsName', 'stockjournal')
 
+@php 
+$collapsed_none = $embedded ? '' : 'd-md-none';
+$collapsed_flex = $embedded ? '' : 'd-md-flex';
+@endphp
+
 @section('content')
 <div class="title-related-links">
 	<h2 class="title">@yield('title')</h2>
 	<div class="float-right">
-		<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
+		<button class="btn btn-outline-dark {{ $collapsed_none }} mt-2 order-1 order-md-3"
 			type="button"
 			data-toggle="collapse"
-			data-target="#table-filter-row">
+			data-target="#stockjournal-table-filter-row">
 			<i class="fas fa-filter"></i>
 		</button>
-		<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
+		<button class="btn btn-outline-dark {{ $collapsed_none }} mt-2 order-1 order-md-3"
 			type="button"
 			data-toggle="collapse"
-			data-target="#related-links">
+			data-target="#stockjournal-related-links">
 			<i class="fas fa-ellipsis-v"></i>
 		</button>
 	</div>
-	<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
-		id="related-links">
+	<div class="related-links collapse {{ $collapsed_flex }} order-2 width-xs-sm-100"
+		id="stockjournal-related-links">
 		<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right"
 			href="{{ $U('/stockjournal/summary') }}">
 			{{ $__t('Journal summary') }}
@@ -32,8 +37,8 @@
 
 <hr class="my-2">
 
-<div class="row collapse d-md-flex"
-	id="table-filter-row">
+<div class="row collapse {{ $collapsed_flex }}"
+	id="stockjournal-table-filter-row">
 	<div class="col-12 col-md-6 col-xl-2">
 		<div class="input-group">
 			<div class="input-group-prepend">

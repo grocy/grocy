@@ -45,8 +45,37 @@ $collapsed_flex = $embedded ? '' : 'd-md-flex';
 	</div>
 </div>
 
+@php
+$dt_uniq = uniqid();
+@endphp
+
 <div class="row">
 	<div class="col">
+		<div class="dropdown">
+			<div class="table-inline-menu dropdown-menu detached-dropdown-menu dropdown-menu-right" id="datatable-dropdown{{ $dt_uniq }}">
+				@include('components.stockentrydropdowncommon', [ 'skipStockEntries' => true])
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item stockentry-grocycode-link"
+					type="button"
+					data-href="{{ $U('/stockentry/STOCK_ENTRY_ID/grocycode?download=true') }}">
+					{{ $__t('Download stock entry grocycode') }}
+				</a>
+				@if(GROCY_FEATURE_FLAG_LABELPRINTER)
+				<a class="dropdown-item stockentry-grocycode-stockentry-label-print"
+					data-stock-id=""
+					type="button"
+					href="#">
+					{{ $__t('Print stock entry grocycode on label printer') }}
+				</a>
+				@endif
+				<a class="dropdown-item stockentry-label-link"
+					type="button"
+					target="_blank"
+					data-href="{{ $U('/stockentry/STOCK_ENTRY_ID/label') }}">
+					{{ $__t('Open stock entry print label in new window') }}
+				</a>
+			</div>
+		</div>
 		<table id="stockentries-table"
 			class="table table-sm table-striped nowrap w-100">
 			<thead>
@@ -119,106 +148,20 @@ $collapsed_flex = $embedded ? '' : 'd-md-flex';
 							title="{{ $__t('Edit stock entry') }}">
 							<i class="fas fa-edit"></i>
 						</a>
-						<div class="dropdown d-inline-block">
-							<button class="btn btn-sm btn-light text-secondary"
-								type="button"
-								data-toggle="dropdown"
-								data-boundary="viewport">
-								<i class="fas fa-ellipsis-v"></i>
-							</button>
-							<div class="dropdown-menu">
-								<a class="dropdown-item show-as-dialog-link"
-									type="button"
-									href="{{ $U('/shoppinglistitem/new?embedded&updateexistingproduct&product=' . $stockEntry->product_id ) }}">
-									<i class="fas fa-shopping-cart"></i> {{ $__t('Add to shopping list') }}
-								</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item show-as-dialog-link"
-									type="button"
-									href="{{ $U('/purchase?embedded&product=' . $stockEntry->product_id ) }}">
-									<i class="fas fa-cart-plus"></i> {{ $__t('Purchase') }}
-								</a>
-								<a class="dropdown-item show-as-dialog-link"
-									type="button"
-									href="{{ $U('/consume?embedded&product=' . $stockEntry->product_id . '&locationId=' . $stockEntry->location_id . '&stockId=' . $stockEntry->stock_id) }}">
-									<i class="fas fa-utensils"></i> {{ $__t('Consume') }}
-								</a>
-								@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
-								<a class="dropdown-item show-as-dialog-link"
-									type="button"
-									href="{{ $U('/transfer?embedded&product=' . $stockEntry->product_id . '&locationId=' . $stockEntry->location_id . '&stockId=' . $stockEntry->stock_id) }}">
-									<i class="fas fa-exchange-alt"></i> {{ $__t('Transfer') }}
-								</a>
-								@endif
-								<a class="dropdown-item show-as-dialog-link"
-									type="button"
-									href="{{ $U('/inventory?embedded&product=' . $stockEntry->product_id ) }}">
-									<i class="fas fa-list"></i> {{ $__t('Inventory') }}
-								</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item stock-consume-button stock-consume-button-spoiled @if($stockEntry->amount < 1) disabled @endif"
-									type="button"
-									href="#"
-									data-product-id="{{ $stockEntry->product_id }}"
-									data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->name }}"
-									data-product-qu-name="{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_stock)->name }}"
-									data-stock-id="{{ $stockEntry->stock_id }}"
-									data-stockrow-id="{{ $stockEntry->id }}"
-									data-location-id="{{ $stockEntry->location_id }}"
-									data-consume-amount="1">
-									{{ $__t('Consume this stock entry as spoiled', '1 ' . FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->name) }}
-								</a>
-								@if(GROCY_FEATURE_FLAG_RECIPES)
-								<a class="dropdown-item"
-									type="button"
-									href="{{ $U('/recipes?search=') }}{{ FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->name }}">
-									{{ $__t('Search for recipes containing this product') }}
-								</a>
-								@endif
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item product-name-cell"
-									data-product-id="{{ $stockEntry->product_id }}"
-									type="button"
-									href="#">
-									{{ $__t('Product overview') }}
-								</a>
-								<a class="dropdown-item show-as-dialog-link"
-									type="button"
-									href="{{ $U('/stockjournal?embedded&product=') }}{{ $stockEntry->product_id }}">
-									{{ $__t('Stock journal') }}
-								</a>
-								<a class="dropdown-item show-as-dialog-link"
-									type="button"
-									href="{{ $U('/stockjournal/summary?embedded&product=') }}{{ $stockEntry->product_id }}">
-									{{ $__t('Stock journal summary') }}
-								</a>
-								<a class="dropdown-item"
-									type="button"
-									href="{{ $U('/product/') }}{{ $stockEntry->product_id . '?returnto=/stockentries' }}">
-									{{ $__t('Edit product') }}
-								</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item stockentry-grocycode-link"
-									type="button"
-									href="{{ $U('/stockentry/' . $stockEntry->id . '/grocycode?download=true') }}">
-									{{ $__t('Download stock entry grocycode') }}
-								</a>
-								@if(GROCY_FEATURE_FLAG_LABELPRINTER)
-								<a class="dropdown-item stockentry-grocycode-stockentry-label-print"
-									data-stock-id="{{ $stockEntry->id }}"
-									type="button"
-									href="#">
-									{{ $__t('Print stock entry grocycode on label printer') }}
-								</a>
-								@endif
-								<a class="dropdown-item stockentry-label-link"
-									type="button"
-									target="_blank"
-									href="{{ $U('/stockentry/' . $stockEntry->id . '/label') }}">
-									{{ $__t('Open stock entry print label in new window') }}
-								</a>
-							</div>
-						</div>
+						<button class="btn btn-sm btn-light text-secondary"
+							type="button"
+							id="detached-dropdown-{!! uniqid() !!}"
+							data-toggle="dropdown-detached"
+							data-target="#datatable-dropdown{{ $dt_uniq }}"
+							data-product-id="{{ $stockEntry->product_id }}"
+							data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->name }}"
+							data-product-qu-name="{{ $__n($stockEntry->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_stock)->name_plural) }}"
+							data-transfer="{{ ($currentStockEntry->amount < 1 ? 1 : 0) }}"
+							data-consume="{{ ($currentStockEntry->amount < 1 ? 1 : 0) }}"
+							data-location-id="{{ $stockEntry->location_id }}"
+							data-stock-id="{{ $stockEntry->stock_id }}">
+							<i class="fas fa-ellipsis-v"></i>
+						</button>
 					</td>
 					<td class="d-none"
 						data-product-id="{{ $stockEntry->product_id }}">
