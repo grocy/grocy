@@ -27,7 +27,7 @@
 		}
 	});
 	$scope('#recipes-table tbody').removeClass("d-none");
-	Grocy.FrontendHelpers.InitDataTable(recipesTables, $scope,
+	Grocy.FrontendHelpers.InitDataTable(recipesTables,
 		function()
 		{
 			var value = $(this).val();
