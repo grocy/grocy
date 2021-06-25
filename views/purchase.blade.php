@@ -12,7 +12,7 @@
 
 @section('forceUserSettings')
 	@if($embedded)
-	scan_mode_consume_enabled: false,
+	scan_mode_purchase_enabled: false,
 	@endif
 @endsection
 

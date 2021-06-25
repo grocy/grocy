@@ -7,7 +7,7 @@ import { WindowMessageBag } from '../helpers/messagebag';
 function shoppinglistView(Grocy, scope = null)
 {
 	var $scope = $;
-	var top = scope != null ? $(scope) : top;
+	var top = scope != null ? $(scope) : $(document);
 	var viewport = scope != null ? $(scope) : $(window);
 
 	if (scope != null)

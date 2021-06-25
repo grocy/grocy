@@ -395,13 +395,14 @@ class GrocyFrontendHelpers
 		});
 	}
 
-	MakeYesNoBox(message, selector, callback)
+	MakeYesNoBox(message, selector, cb)
 	{
 		var self = this;
 
 		this.scope.on('click', selector, function(e)
 		{
-			message = message instanceof Function ? message(e) : message;
+			var target = e.currentTarget;
+			message = message instanceof Function ? message(target) : message;
 			bootbox.confirm({
 				message: message,
 				closeButton: false,
@@ -415,7 +416,7 @@ class GrocyFrontendHelpers
 						className: 'btn-danger'
 					}
 				},
-				callback: (result) => callback(result, e)
+				callback: (result) => cb(result, target)
 			});
 		});
 

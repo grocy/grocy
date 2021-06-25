@@ -41,7 +41,10 @@ class GrocyProxy
 		{
 			// if we need to override UserSettings, we need to copy the object.
 			// not great, but eh.
+			let tempUs = {}
+			Object.assign(tempUs, this.config.UserSettings);
 			Object.assign(this.config.UserSettings, RootGrocy.UserSettings);
+			Object.assign(this.config.UserSettings, tempUs);
 			this.UserSettings = config.UserSettings;
 		}
 

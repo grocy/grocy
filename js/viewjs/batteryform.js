@@ -96,7 +96,7 @@ function batteryformView(Grocy, scope = null)
 		}
 	});
 
-	userfieldsform.UserfieldsForm.Load();
+	userfieldsform.Load();
 	$scope('#name').focus();
 	Grocy.FrontendHelpers.ValidateForm('battery-form');
 

@@ -84,6 +84,7 @@
 						<a class="btn btn-info btn-sm show-as-dialog-link"
 							href="{{ $U('/userentity/') }}{{ $userentity->id }}?embedded"
 							data-toggle="tooltip"
+							data-boundary="viewport"
 							title="{{ $__t('Edit this item') }}">
 							<i class="fas fa-edit"></i>
 						</a>
@@ -92,6 +93,7 @@
 							data-userentity-id="{{ $userentity->id }}"
 							data-userentity-name="{{ $userentity->name }}"
 							data-toggle="tooltip"
+							data-boundary="viewport"
 							title="{{ $__t('Delete this item') }}">
 							<i class="fas fa-trash"></i>
 						</a>

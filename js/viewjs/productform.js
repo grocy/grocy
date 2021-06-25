@@ -15,6 +15,7 @@ function productformView(Grocy, scope = null)
 	// preload some views.
 	Grocy.PreloadView("productgroupform");
 	Grocy.PreloadView("productbarcodeform");
+	Grocy.PreloadView("quantityunitconversionform");
 
 	var shoppinglocationpicker = Grocy.Use("shoppinglocationpicker");
 	var userfields = Grocy.Use("userfieldsform");

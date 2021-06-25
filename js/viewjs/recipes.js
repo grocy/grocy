@@ -121,9 +121,9 @@
 	);
 
 	Grocy.FrontendHelpers.MakeYesNoBox(
-		(e) =>
+		(target) =>
 		{
-			var objectName = $(e.currentTarget).attr('data-recipe-name');
+			var objectName = $(target).attr('data-recipe-name');
 			return __t('Are you sure to put all missing ingredients for recipe "%s" on the shopping list?', objectName) +
 				"<br><br>" +
 				__t("Uncheck ingredients to not put them on the shopping list") +
@@ -131,9 +131,9 @@
 				$scope("#missing-recipe-pos-list")[0].outerHTML.replace("d-none", "");
 		},
 		'.recipe-shopping-list',
-		(result, e) =>
+		(result, target) =>
 		{
-			var objectId = $(e.currentTarget).attr('data-recipe-id');
+			var objectId = $(target).attr('data-recipe-id');
 			if (result === true)
 			{
 				Grocy.FrontendHelpers.BeginUiBusy();
@@ -160,15 +160,15 @@
 	);
 
 	Grocy.FrontendHelpers.MakeYesNoBox(
-		(e) =>
+		(target) =>
 		{
-			var objectName = $(e.currentTarget).attr('data-recipe-name');
+			var objectName = $(target).attr('data-recipe-name');
 			return __t('Are you sure to consume all ingredients needed by recipe "%s" (ingredients marked with "only check if any amount is in stock" will be ignored)?', objectName);
 		},
 		'.recipe-consume',
-		(result, e) =>
+		(result, targetElement) =>
 		{
-			var target = $(e.currentTarget);
+			var target = $(targetElement);
 			var objectName = target.attr('data-recipe-name');
 			var objectId = target.attr('data-recipe-id');
 			if (result === true)

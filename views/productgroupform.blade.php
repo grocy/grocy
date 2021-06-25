@@ -23,9 +23,12 @@ EditObjectId: {{ $group->id }},
 </div>
 
 <hr class="my-2">
+@php
+$classes = $embedded ? '' : 'col-lg-6';
+@endphp
 
 <div class="row">
-	<div class="col-lg-6 col-12">
+	<div class="{{ $classes }} col-12">
 		<form id="product-group-form"
 			novalidate>
 
