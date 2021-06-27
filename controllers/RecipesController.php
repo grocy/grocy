@@ -157,7 +157,7 @@ class RecipesController extends BaseController
 				'mode' => 'create',
 				'recipe' => $this->getDatabase()->recipes($args['recipeId']),
 				'recipePos' => new \stdClass(),
-				'products' => $this->getDatabase()->products()->orderBy('name', 'COLLATE NOCASE'),
+				'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 				'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
 				'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
 			]);
