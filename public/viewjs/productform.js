@@ -141,10 +141,10 @@ $('.save-product-button').on('click', function(e)
 
 if (Grocy.EditMode == "edit")
 {
-	Grocy.Api.Get('stock/products/' + Grocy.EditObjectId,
-		function(productDetails)
+	Grocy.Api.Get('objects/stock_log?query[]=product_id=' + Grocy.EditObjectId,
+		function(productJournalEntries)
 		{
-			if (productDetails.last_purchased == null)
+			if (productJournalEntries.length == 0)
 			{
 				$('#qu_id_stock').removeAttr("disabled");
 			}
