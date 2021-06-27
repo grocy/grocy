@@ -23,6 +23,9 @@ $('#save-shoppinglist-button').on('click', function(e)
 		jsonData.product_amount = jsonData.amount;
 		delete jsonData.amount;
 
+		jsonData.list_id = jsonData.shopping_list_id;
+		delete jsonData.shopping_list_id;
+
 		Grocy.Api.Post('stock/shoppinglist/add-product', jsonData,
 			function(result)
 			{
