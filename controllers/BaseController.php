@@ -99,7 +99,6 @@ class BaseController
 		return PrintService::getInstance();
 	}
 
-
 	protected function getTasksService()
 	{
 		return TasksService::getInstance();
@@ -211,9 +210,11 @@ class BaseController
 		{
 			$htmlPurifierConfig = \HTMLPurifier_Config::createDefault();
 			$htmlPurifierConfig->set('Cache.SerializerPath', GROCY_DATAPATH . '/viewcache');
-			$htmlPurifierConfig->set('HTML.Allowed', 'div,b,strong,i,em,u,a[href|title],ul,ol,li,p[style],br,span[style],img[width|height|alt|src],table[border|width|style],tbody,tr,td,th,blockquote');
+			$htmlPurifierConfig->set('HTML.Allowed', 'div,b,strong,i,em,u,a[href|title|target],iframe[src|width|height|frameborder],ul,ol,li,p[style],br,span[style],img[width|height|alt|src],table[border|width|style],tbody,tr,td,th,blockquote');
+			$htmlPurifierConfig->set('HTML.SafeIframe', true);
 			$htmlPurifierConfig->set('CSS.AllowedProperties', 'font,font-size,font-weight,font-style,font-family,text-decoration,padding-left,color,background-color,text-align');
-			$htmlPurifierConfig->set('URI.AllowedSchemes', ['data' => true]);
+			$htmlPurifierConfig->set('URI.AllowedSchemes', ['data' => true, 'http' => true, 'https' => true]);
+			$htmlPurifierConfig->set('URI.SafeIframeRegexp', '%^.*%'); //allow YouTube and Vimeo
 
 			self::$htmlPurifierInstance = new \HTMLPurifier($htmlPurifierConfig);
 		}
