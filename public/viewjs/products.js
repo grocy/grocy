@@ -36,7 +36,7 @@ $("#clear-filter-button").on("click", function()
 {
 	$("#search").val("");
 	$("#product-group-filter").val("all");
-	productsTable.column(7).search("").draw();
+	productsTable.column(6).search("").draw();
 	productsTable.search("").draw();
 	$("#show-disabled").prop('checked', false);
 });
