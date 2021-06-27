@@ -63,6 +63,7 @@ $("#clear-filter-button").on("click", function()
 	choresOverviewTable.column(5).search("").draw();
 	choresOverviewTable.column(6).search("").draw();
 	choresOverviewTable.search("").draw();
+	RemoveUriParam("user");
 });
 
 $(".status-filter-message").on("click", function()
