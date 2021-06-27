@@ -22,7 +22,7 @@ $("#search").on("keyup", Delay(function()
 $("#clear-filter-button").on("click", function()
 {
 	$("#search").val("");
-	equipmentTable.search("").draw();
+	quantityUnitsTable.search("").draw();
 });
 
 $(document).on('click', '.quantityunit-delete-button', function(e)
