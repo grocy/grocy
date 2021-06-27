@@ -236,7 +236,7 @@
 									href="{{ $U('/purchase?embedded&product=' . $currentStockEntry->product_id ) }}">
 									<span class="dropdown-item-icon"><i class="fas fa-cart-plus"></i></span> <span class="dropdown-item-text">{{ $__t('Purchase') }}</span>
 								</a>
-								<a class="dropdown-item show-as-dialog-link permission-STOCK_CONSUME"
+								<a class="dropdown-item show-as-dialog-link permission-STOCK_CONSUME @if($currentStockEntry->amount_aggregated < 1) disabled @endif"
 									type="button"
 									href="{{ $U('/consume?embedded&product=' . $currentStockEntry->product_id ) }}">
 									<span class="dropdown-item-icon"><i class="fas fa-utensils"></i></span> <span class="dropdown-item-text">{{ $__t('Consume') }}</span>
