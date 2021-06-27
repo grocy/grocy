@@ -29,6 +29,7 @@
 - Fixed that consuming with Scan Mode was not possible
 - Fixed that the current stock total value (header of the stock overview page) didn't include decimal amounts (thanks @Ape)
 - Fixed that the transfer page was not fully populated when opening it from the stock entries page
+- Fixed that undoing a consume/open action from the success notification on the stock entries page was not possible
 
 ### Shopping list improvements/fixes
 - The amount now defaults to `1` for adding items quicker
