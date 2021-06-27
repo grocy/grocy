@@ -48,6 +48,15 @@ if (GetUriParam("search") !== undefined)
 	}, 50);
 }
 
+if (GetUriParam("status") !== undefined)
+{
+	$("#status-filter").val(GetUriParam("status"));
+	setTimeout(function()
+	{
+		$("#status-filter").trigger("change");
+	}, 50);
+}
+
 $("a[data-toggle='tab']").on("shown.bs.tab", function(e)
 {
 	var tabId = $(e.target).attr("id");
@@ -60,8 +69,16 @@ $("#search").on("keyup", Delay(function()
 
 	recipesTables.search(value).draw();
 
-	$(".recipe-gallery-item").removeClass("d-none");
+	if (value.isEmpty())
+	{
+		RemoveUriParam("search");
+	}
+	else
+	{
+		UpdateUriParam("search", value);
+	}
 
+	$(".recipe-gallery-item").removeClass("d-none");
 	$(".recipe-gallery-item .card-title:not(:contains_case_insensitive(" + value + "))").parent().parent().parent().addClass("d-none");
 }, 200));
 
@@ -98,6 +115,15 @@ $("#status-filter").on("change", function()
 		{
 			$('.recipe-gallery-item').not('.recipe-notenoughinstock').addClass('d-none');
 		}
+	}
+
+	if (value.isEmpty())
+	{
+		RemoveUriParam("status");
+	}
+	else
+	{
+		UpdateUriParam("status", value);
 	}
 });
 
@@ -236,7 +262,8 @@ recipesTables.on('select', function(e, dt, type, indexes)
 		var currentRecipeId = location.search.split('recipe=')[1];
 		if (selectedRecipeId.toString() !== currentRecipeId)
 		{
-			window.location.href = U('/recipes?recipe=' + selectedRecipeId.toString());
+			UpdateUriParam("recipe", selectedRecipeId.toString());
+			window.location.reload();
 		}
 	}
 });
