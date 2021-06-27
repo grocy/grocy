@@ -343,6 +343,10 @@ $('#display_amount').on('keyup', function(e)
 						Grocy.Components.LocationPicker.GetInputElement().removeAttr('required');
 					}
 				}
+				else if (newAmount == productStockAmount)
+				{
+					$('#inventory-change-info').addClass('d-none');
+				}
 
 				if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 				{
