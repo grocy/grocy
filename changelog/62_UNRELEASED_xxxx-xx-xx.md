@@ -30,6 +30,7 @@
 - Fixed that the current stock total value (header of the stock overview page) didn't include decimal amounts (thanks @Ape)
 - Fixed that the transfer page was not fully populated when opening it from the stock entries page
 - Fixed that undoing a consume/open action from the success notification on the stock entries page was not possible
+- Fixed that adding a barcode to a product didn't save the selected quantity unit when the product only has a single one
 
 ### Shopping list improvements/fixes
 - The amount now defaults to `1` for adding items quicker

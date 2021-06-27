@@ -10,6 +10,7 @@
 	var jsonData = $('#barcode-form').serializeJSON();
 	jsonData.amount = jsonData.display_amount;
 	delete jsonData.display_amount;
+	jsonData.qu_id = $("#qu_id").val();
 
 	Grocy.FrontendHelpers.BeginUiBusy("barcode-form");
 
