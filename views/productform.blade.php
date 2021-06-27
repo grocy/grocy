@@ -145,6 +145,7 @@
 						for="cumulate_min_stock_amount_of_sub_products">{{ $__t('Accumulate sub products min. stock amount') }}
 						&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
+							data-trigger="hover click"
 							title="{{ $__t('If enabled, the min. stock amount of sub products will be accumulated into this product, means the sub product will never be "missing", only this product') }}"></i>
 					</label>
 				</div>
@@ -156,6 +157,7 @@
 					for="location_id">{{ $__t('Due date type') }}
 					<i class="fas fa-question-circle text-muted"
 						data-toggle="tooltip"
+						data-trigger="hover click"
 						title="{{ $__t('Based on the selected type, the highlighting on the stock overview page will be different') }}"></i>
 				</label>
 				<div class="custom-control custom-radio mt-n2">
@@ -171,6 +173,7 @@
 						for="due-type-bestbefore">{{ $__t('Best before date') }}
 						<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
+							data-trigger="hover click"
 							title="{{ $__t('Means that the product is maybe still safe to be consumed after its due date is reached') }}"></i>
 					</label>
 				</div>
@@ -187,6 +190,7 @@
 						for="due-type-expiration">{{ $__t('Expiration date') }}
 						<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
+							data-trigger="hover click"
 							title="{{ $__t('Means that the product is not safe to be consumed after its due date is reached') }}"></i>
 					</label>
 				</div>
@@ -245,6 +249,7 @@
 				<label for="qu_id_stock">{{ $__t('Quantity unit stock') }}</label>
 				<i class="fas fa-question-circle text-muted"
 					data-toggle="tooltip"
+					data-trigger="hover click"
 					title="{{ $__t('Quantity unit stock cannot be changed after first purchase') }}"></i>
 				<select required
 					class="custom-control custom-select input-group-qu"
@@ -268,6 +273,7 @@
 				<label for="qu_id_purchase">{{ $__t('Default quantity unit purchase') }}</label>
 				<i class="fas fa-question-circle text-muted"
 					data-toggle="tooltip"
+					data-trigger="hover click"
 					title="{{ $__t('This is the default quantity unit used when adding this product to the shopping list') }}"></i>
 				<select required
 					class="custom-control custom-select input-group-qu"
@@ -304,6 +310,7 @@
 						for="enable_tare_weight_handling">{{ $__t('Enable tare weight handling') }}
 						&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
+							data-trigger="hover click"
 							title="{{ $__t('This is useful e.g. for flour in jars - on purchase/consume/inventory you always weigh the whole jar, the amount to be posted is then automatically calculated based on what is in stock and the tare weight defined below') }}"></i>
 					</label>
 				</div>
@@ -333,6 +340,7 @@
 						for="not_check_stock_fulfillment_for_recipes">{{ $__t('Disable stock fulfillment checking for this ingredient') }}
 						&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
+							data-trigger="hover click"
 							title="{{ $__t('This will be used as the default setting when adding this product as a recipe ingredient') }}"></i>
 					</label>
 				</div>
@@ -409,6 +417,7 @@
 					<label class="form-check-label custom-control-label"
 						for="allow_label_per_unit">{{ $__t('Allow label printing per unit') }}&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
+							data-trigger="hover click"
 							title="{{ $__t('Allow printing of one label per unit on purchase (after conversion) - e.g. 1 purchased pack adding 10 pieces of stock would print 10 labels') }}"></i>
 					</label>
 				</div>
@@ -459,6 +468,7 @@
 					<label class="form-check-label custom-control-label"
 						for="hide_on_stock_overview">{{ $__t('Never show on stock overview') }}&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
+							data-trigger="hover click"
 							title="{{ $__t('The stock overview page lists all products which are currently in-stock or below their min. stock amount - enable this to hide this product there always') }}"></i>
 					</label>
 				</div>
@@ -592,6 +602,7 @@
 						{{ $__t('grocycode') }}
 						<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
+							data-trigger="hover click"
 							title="{{ $__t('grocycode is a unique referer to this product in your grocy instance - print it onto a label and scan it like any other barcode') }}"></i>
 					</h4>
 					<p>

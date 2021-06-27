@@ -25,11 +25,13 @@
 		@if(!$disallowAllProductWorkflows)
 		<i class="fas fa-question-circle text-muted"
 			data-toggle="tooltip"
+			data-trigger="hover click"
 			title="{{ $__t('Type a new product name or barcode and hit TAB or ENTER to start a workflow') }}"></i>
 		@endif
 		@if(!empty($hint))
 		<i class="fas fa-question-circle text-muted"
 			data-toggle="tooltip"
+			data-trigger="hover click"
 			title="{{ $hint }}"></i>
 		@endif
 		<span id="barcode-lookup-disabled-hint"

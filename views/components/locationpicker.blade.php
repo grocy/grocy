@@ -16,6 +16,7 @@
 		@if(!empty($hint))
 		<i class="fas fa-question-circle text-muted"
 			data-toggle="tooltip"
+			data-trigger="hover click"
 			title="{{ $hint }}"></i>
 		@endif
 	</label>

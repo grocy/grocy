@@ -220,6 +220,7 @@
 				<div class="form-group">
 					<label for="merge-products-keep">{{ $__t('Product to keep') }}&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
+							data-trigger="hover click"
 							title="{{ $__t('After merging, this product will be kept') }}"></i>
 					</label>
 					<select class="custom-control custom-select"
@@ -233,6 +234,7 @@
 				<div class="form-group">
 					<label for="merge-products-remove">{{ $__t('Product to remove') }}&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
+							data-trigger="hover click"
 							title="{{ $__t('After merging, all occurences of this product will be replaced by "Product to keep" (means this product will not exist anymore)') }}"></i>
 					</label>
 					<select class="custom-control custom-select"

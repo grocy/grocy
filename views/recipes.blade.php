@@ -314,6 +314,7 @@
 								<label>{{ $__t('Energy (kcal)') }}</label>&nbsp;
 								<i class="fas fa-question-circle text-muted d-print-none"
 									data-toggle="tooltip"
+									data-trigger="hover click"
 									title="{{ $__t('per serving') }}"></i>
 								<h3 class="locale-number locale-number-generic pt-0">{{ $calories }}</h3>
 							</div>
@@ -323,6 +324,7 @@
 								<label>{{ $__t('Costs') }}&nbsp;
 									<i class="fas fa-question-circle text-muted d-print-none"
 										data-toggle="tooltip"
+										data-trigger="hover click"
 										title="{{ $__t('Based on the prices of the default consume rule which is "Opened first, then first due first, then first in first out"') }}"></i>
 								</label>
 								<h3 class="locale-number locale-number-currency pt-0">{{ $costs }}</h3>

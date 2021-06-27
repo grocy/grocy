@@ -51,16 +51,6 @@ RemoveUriParam = function(key)
 	window.history.replaceState({}, "", decodeURIComponent(`${location.pathname}?${queryParameters}`));
 };
 
-IsTouchInputDevice = function()
-{
-	if (("ontouchstart" in window) || window.DocumentTouch && document instanceof DocumentTouch)
-	{
-		return true;
-	}
-
-	return false;
-}
-
 BoolVal = function(test)
 {
 	if (!test)

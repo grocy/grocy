@@ -368,14 +368,6 @@ window.FontAwesomeConfig = {
 	searchPseudoElements: true
 }
 
-// Don't show tooltips on touch input devices
-if (IsTouchInputDevice())
-{
-	var css = document.createElement("style");
-	css.innerHTML = ".tooltip { display: none; }";
-	document.body.appendChild(css);
-}
-
 Grocy.FrontendHelpers = {};
 Grocy.FrontendHelpers.ValidateForm = function(formId)
 {

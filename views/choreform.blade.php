@@ -68,6 +68,7 @@
 				<label for="period_type">{{ $__t('Period type') }}&nbsp;<i id="chore-period-type-info"
 						class="fas fa-question-circle text-muted"
 						data-toggle="tooltip"
+						data-trigger="hover click"
 						title=""></i></label>
 				<select required
 					class="custom-control custom-select input-group-chore-period-type"
@@ -172,6 +173,7 @@
 				<label for="assignment_type">{{ $__t('Assignment type') }} <i id="chore-assignment-type-info"
 						class="fas fa-question-circle text-muted"
 						data-toggle="tooltip"
+						data-trigger="hover click"
 						title=""></i></label>
 				<select required
 					class="custom-control custom-select input-group-chore-assignment-type"
@@ -223,6 +225,7 @@
 						for="track_date_only">{{ $__t('Track date only') }}
 						&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
+							data-trigger="hover click"
 							title="{{ $__t('When enabled only the day of an execution is tracked, not the time') }}"></i>
 					</label>
 				</div>
@@ -237,6 +240,7 @@
 						for="rollover">{{ $__t('Due date rollover') }}
 						&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
+							data-trigger="hover click"
 							title="{{ $__t('When enabled the chore can never be overdue, the due date will shift forward each day when due') }}"></i>
 					</label>
 				</div>

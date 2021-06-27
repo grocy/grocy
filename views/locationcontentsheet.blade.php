@@ -33,6 +33,7 @@
 		@yield('title')
 		<i class="fas fa-question-circle text-muted small"
 			data-toggle="tooltip"
+			data-trigger="hover click"
 			title="{{ $__t('Here you can print a page per location with the current stock, maybe to hang it there and note the consumed things on it') }}"></i>
 	</h2>
 	<div class="float-right">

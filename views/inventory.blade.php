@@ -88,6 +88,7 @@
 			'hint' => $__t('Per stock quantity unit', GROCY_CURRENCY),
 			'additionalHtmlContextHelp' => '<i class="fas fa-question-circle text-muted"
 				data-toggle="tooltip"
+				data-trigger="hover click"
 				title="' . $__t('This will apply to added products') . '"></i>',
 			'isRequired' => false,
 			'additionalCssClasses' => 'locale-number-input locale-number-currency'

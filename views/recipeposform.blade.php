@@ -58,6 +58,7 @@
 					<label class="form-check-label custom-control-label"
 						for="only_check_single_unit_in_stock">{{ $__t('Only check if any amount is in stock') }}&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
+							data-trigger="hover click"
 							title="{{ $__t('A different amount/unit can then be used below while for stock fulfillment checking it is sufficient when any amount of the product in stock') }}"></i></label>
 				</div>
 			</div>
@@ -73,6 +74,7 @@
 			<div class="form-group">
 				<label for="variable_amount">{{ $__t('Variable amount') }}&nbsp;<i class="fas fa-question-circle text-muted"
 						data-toggle="tooltip"
+						data-trigger="hover click"
 						title="{{ $__t('When this is not empty, it will be shown instead of the amount entered above while the amount there will still be used for stock fulfillment checking') }}"></i></label>
 				<input type="text"
 					class="form-control"
@@ -94,6 +96,7 @@
 			<div class="form-group">
 				<label for="ingredient_group">{{ $__t('Group') }}&nbsp;<i class="fas fa-question-circle text-muted"
 						data-toggle="tooltip"
+						data-trigger="hover click"
 						title="{{ $__t('This will be used as a headline to group ingredients together') }}"></i></label>
 				<input type="text"
 					class="form-control"

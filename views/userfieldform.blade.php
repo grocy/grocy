@@ -53,6 +53,7 @@
 					{{ $__t('Name') }}
 					<i class="fas fa-question-circle text-muted"
 						data-toggle="tooltip"
+						data-trigger="hover click"
 						title="{{ $__t('This is the internal field name, e. g. for the API') }}"></i>
 				</label>
 				<input type="text"
@@ -70,6 +71,7 @@
 					{{ $__t('Caption') }}
 					<i class="fas fa-question-circle text-muted"
 						data-toggle="tooltip"
+						data-trigger="hover click"
 						title="{{ $__t('This is used to display the field on the frontend') }}"></i>
 				</label>
 				<input type="text"
