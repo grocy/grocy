@@ -983,26 +983,27 @@ class StockService extends BaseService
 			throw new \Exception('Shopping list does not exist');
 		}
 
-		$result_product           = array();
-		$result_quantity          = array();
+		$result_product = [];
+		$result_quantity = [];
 		$rowsShoppingListProducts = $this->getDatabase()->uihelper_shopping_list()->where('shopping_list_id = :1', $listId)->fetchAll();
 		foreach ($rowsShoppingListProducts as $row)
 		{
-			$isValidProduct = ($row->product_id != null && $row->product_id != "");
+			$isValidProduct = ($row->product_id != null && $row->product_id != '');
 			if ($isValidProduct)
 			{
-				$product    = $this->getDatabase()->products()->where('id = :1', $row->product_id)->fetch();
+				$product = $this->getDatabase()->products()->where('id = :1', $row->product_id)->fetch();
 				$conversion = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $product->id, $product->qu_id_stock, $row->qu_id)->fetch();
-				$factor     = 1.0;
+				$factor = 1.0;
 				if ($conversion != null)
 				{
 					$factor = floatval($conversion->factor);
 				}
 				$amount = round($row->amount * $factor);
-				$note   = "";
+				$note = '';
 				if (GROCY_TPRINTER_PRINT_NOTES)
 				{
-					if ($row->note != "") {
+					if ($row->note != '')
+					{
 						$note = ' (' . $row->note . ')';
 					}
 				}
@@ -1029,7 +1030,6 @@ class StockService extends BaseService
 					array_push($result_quantity, round($row->amount));
 					array_push($result_product, $row->note);
 				}
-
 			}
 		}
 		//Add padding to look nicer
@@ -1041,7 +1041,7 @@ class StockService extends BaseService
 				$maxlength = strlen($quantity);
 			}
 		}
-		$result = array();
+		$result = [];
 		$length = count($result_quantity);
 		for ($i = 0; $i < $length; $i++)
 		{
@@ -1050,7 +1050,6 @@ class StockService extends BaseService
 		}
 		return $result;
 	}
-
 
 	public function TransferProduct(int $productId, float $amount, int $locationIdFrom, int $locationIdTo, $specificStockEntryId = 'default', &$transactionId = null)
 	{
@@ -1152,6 +1151,7 @@ class StockService extends BaseService
 					'price' => $stockEntry->price,
 					'opened_date' => $stockEntry->opened_date,
 					'location_id' => $stockEntry->location_id,
+					'shopping_location_id' => $stockEntry->shopping_location_id,
 					'correlation_id' => $correlationId,
 					'transaction_Id' => $transactionId,
 					'user_id' => GROCY_USER_ID
@@ -1168,6 +1168,7 @@ class StockService extends BaseService
 					'price' => $stockEntry->price,
 					'opened_date' => $stockEntry->opened_date,
 					'location_id' => $locationIdTo,
+					'shopping_location_id' => $stockEntry->shopping_location_id,
 					'correlation_id' => $correlationId,
 					'transaction_Id' => $transactionId,
 					'user_id' => GROCY_USER_ID
@@ -1195,6 +1196,7 @@ class StockService extends BaseService
 					'price' => $stockEntry->price,
 					'opened_date' => $stockEntry->opened_date,
 					'location_id' => $stockEntry->location_id,
+					'shopping_location_id' => $stockEntry->shopping_location_id,
 					'correlation_id' => $correlationId,
 					'transaction_Id' => $transactionId,
 					'user_id' => GROCY_USER_ID
@@ -1211,6 +1213,7 @@ class StockService extends BaseService
 					'price' => $stockEntry->price,
 					'opened_date' => $stockEntry->opened_date,
 					'location_id' => $locationIdTo,
+					'shopping_location_id' => $stockEntry->shopping_location_id,
 					'correlation_id' => $correlationId,
 					'transaction_Id' => $transactionId,
 					'user_id' => GROCY_USER_ID
@@ -1231,6 +1234,7 @@ class StockService extends BaseService
 					'stock_id' => $stockEntry->stock_id,
 					'price' => $stockEntry->price,
 					'location_id' => $locationIdTo,
+					'shopping_location_id' => $stockEntry->shopping_location_id,
 					'open' => $stockEntry->open,
 					'opened_date' => $stockEntry->opened_date
 				]);
