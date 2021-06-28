@@ -965,6 +965,12 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 			return;
 		}
 
+		var shadowColumnIndex = $(this.header()).attr("data-shodow-rowgroup-column");
+		if (shadowColumnIndex)
+		{
+			index = shadowColumnIndex;
+		}
+
 		var checked = "checked";
 		if (!visible)
 		{
