@@ -101,7 +101,8 @@ Grocy.Components.BarcodeScanner.StartScanning = function()
 				"ean_reader",
 				"ean_8_reader",
 				"code_128_reader",
-				"datamatrix"
+				"datamatrix",
+				"code_39_reader"
 			],
 			debug: {
 				showCanvas: Grocy.UserSettings.quagga2_debug,
@@ -174,7 +175,8 @@ Quagga.onDetected(function(result)
 		}
 	});
 
-	if (Grocy.Components.BarcodeScanner.DecodedCodesErrorCount / Grocy.Components.BarcodeScanner.DecodedCodesCount < 0.15)
+	if ((Grocy.Components.BarcodeScanner.DecodedCodesErrorCount / Grocy.Components.BarcodeScanner.DecodedCodesCount < 0.15) ||
+		(Grocy.Components.BarcodeScanner.DecodedCodesErrorCount == 0 && Grocy.Components.BarcodeScanner.DecodedCodesCount == 0 && result.codeResult.code.length != 0))
 	{
 		Grocy.Components.BarcodeScanner.StopScanning();
 		$(document).trigger("Grocy.BarcodeScanned", [result.codeResult.code, Grocy.Components.BarcodeScanner.CurrentTarget]);
