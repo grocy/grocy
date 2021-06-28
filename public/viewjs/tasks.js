@@ -3,13 +3,8 @@
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 },
-		{ 'visible': false, 'targets': 3 },
 		{ "type": "html", "targets": 2 }
-	].concat($.fn.dataTable.defaults.columnDefs),
-	'rowGroup': {
-		enable: true,
-		dataSrc: 3
-	}
+	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#tasks-table tbody').removeClass("d-none");
 tasksTable.columns.adjust().draw();

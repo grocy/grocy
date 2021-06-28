@@ -965,7 +965,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 			return;
 		}
 
-		var shadowColumnIndex = $(this.header()).attr("data-shodow-rowgroup-column");
+		var shadowColumnIndex = $(this.header()).attr("data-shadow-rowgroup-column");
 		if (shadowColumnIndex)
 		{
 			index = shadowColumnIndex;

@@ -69,7 +69,7 @@
 					<th class="@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif">{{ $__t('Location') }}</th>
 					<th class="@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Store') }}</th>
 					<th class="@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Price') }}</th>
-					<th data-shodow-rowgroup-column="9">{{ $__t('Purchased date') }}</th>
+					<th data-shadow-rowgroup-column="9">{{ $__t('Purchased date') }}</th>
 					<th class="d-none">Hidden purchased_date</th>
 
 					@include('components.userfields_thead', array(

@@ -107,9 +107,10 @@
 					</th>
 					<th>{{ $__t('Task') }}</th>
 					<th>{{ $__t('Due') }}</th>
-					<th>{{ $__t('Category') }}</th>
+					<th data-shadow-rowgroup-column="6">{{ $__t('Category') }}</th>
 					<th>{{ $__t('Assigned to') }}</th>
 					<th class="d-none">Hidden status</th>
+					<th class="d-none">Hidden category_id</th>
 
 					@include('components.userfields_thead', array(
 					'userfields' => $userfields
@@ -187,10 +188,14 @@
 								duesoon
 								@endif
 								</td>
-								@include('components.userfields_tbody',
-								array( 'userfields'=> $userfields,
-								'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $task->id)
-								))
+								<td
+								class="d-none">
+								@if($task->category_id != null) {{ FindObjectInArrayByPropertyValue($taskCategories, 'id', $task->category_id)->name }} @else {{ $__t('Uncategorized') }} @endif
+					</td>
+					@include('components.userfields_tbody',
+					array( 'userfields'=> $userfields,
+					'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $task->id)
+					))
 
 				</tr>
 				@endforeach
