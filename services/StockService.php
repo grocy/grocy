@@ -632,14 +632,14 @@ class StockService extends BaseService
 		$averageShelfLifeDays = intval($this->getDatabase()->stock_average_product_shelf_life()->where('id', $productId)->fetch()->average_shelf_life_days);
 		$defaultShoppingLocation = null;
 
-		$consumeCount = $this->getDatabase()->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone = 0 AND spoiled = 0')->sum('amount') * -1;
+		$consumeCount = $this->getDatabase()->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone = 0')->sum('amount') * -1;
 		$consumeCountSpoiled = $this->getDatabase()->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone = 0 AND spoiled = 1')->sum('amount') * -1;
-		if ($consumeCount == 0)
+		if ($consumeCount == 0 || $consumeCount == null)
 		{
 			$consumeCount = 1;
 		}
 
-		$spoilRate = ($consumeCountSpoiled * 100) / $consumeCount;
+		$spoilRate = ($consumeCountSpoiled * 100.0) / $consumeCount;
 
 		return [
 			'product' => $product,
