@@ -609,7 +609,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/ExposedEntity"
+							"$ref": "#/components/internalSchemas/ExposedEntity_IncludingUserEntities"
 						}
 					},
 					{
@@ -658,7 +658,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/ExposedEntity_NotIncludingNotEditable"
+							"$ref": "#/components/internalSchemas/ExposedEntity_IncludingUserEntities_NotIncludingNotEditable"
 						}
 					},
 					{

@@ -58,6 +58,11 @@ class GenericEntityApiController extends BaseApiController
 			}
 
 			$row = $this->getDatabase()->{$args['entity']}($args['objectId']);
+			if ($row == null)
+			{
+				return $this->GenericErrorResponse($response, 'Object not found', 400);
+			}
+
 			$row->delete();
 			$success = $row->isClean();
 
@@ -90,6 +95,11 @@ class GenericEntityApiController extends BaseApiController
 				}
 
 				$row = $this->getDatabase()->{$args['entity']}($args['objectId']);
+				if ($row == null)
+				{
+					return $this->GenericErrorResponse($response, 'Object not found', 400);
+				}
+
 				$row->update($requestBody);
 				$success = $row->isClean();
 

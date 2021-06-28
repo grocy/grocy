@@ -2,7 +2,7 @@
 
 <head>
 	<title>{{ $product->name }}</title>
-	<link href="{{ $U('/components_unmanaged/noto-sans-v11-latin/noto-sans-v11-latin.min.css?v=', true) }}{{ $version }}"
+	<link href="{{ $U('/node_modules/@fontsource/noto-sans/latin.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
 	<style>
 		body {
@@ -22,12 +22,13 @@
 			display: inline-block;
 			font-weight: bold;
 		}
+
 	</style>
 </head>
 
 <body>
 	<p>
-		<!-- Size gets determined by CSS, so printing works better (more pixels = sharper printed image). 
+		<!-- Size gets determined by CSS, so printing works better (more pixels = sharper printed image).
 	         Unfortunately, this also means the code is blurred on screen. -->
 		<img src="{{ $U('/stockentry/'. $stockEntry->id . '/grocycode?size=100') }}">
 		<span class="productname">{{ $product->name }}</span><br>

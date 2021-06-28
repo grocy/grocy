@@ -71,7 +71,7 @@
 		rel="stylesheet">
 	<link href="{{ $U('/node_modules/bootstrap-select/dist/css/bootstrap-select.min.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
-	<link href="{{ $U('/components_unmanaged/noto-sans-v11-latin/noto-sans-v11-latin.min.css?v=', true) }}{{ $version }}"
+	<link href="{{ $U('/node_modules/@fontsource/noto-sans/latin.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
 	<link href="{{ $U('/css/grocy.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
@@ -97,8 +97,8 @@
 		Grocy.FeatureFlags = {!! json_encode($featureFlags) !!};
 		Grocy.Webhooks = {
 		@if(GROCY_FEATURE_FLAG_LABELPRINTER && !GROCY_LABEL_PRINTER_RUN_SERVER)
-			"labelprinter" : { 
-				"hook" : "{{ GROCY_LABEL_PRINTER_WEBHOOK}}", 
+			"labelprinter" : {
+				"hook" : "{{ GROCY_LABEL_PRINTER_WEBHOOK}}",
 				"extra_data" : {!! json_encode(GROCY_LABEL_PRINTER_PARAMS) !!}
 			}
 		@endif

@@ -220,11 +220,12 @@ class BaseController
 		}
 
 		$requestBody = $request->getParsedBody();
+		return $requestBody;
 		foreach ($requestBody as $key => &$value)
 		{
-			// HTMLPurifier removes boolean values (true/false), so explicitly keep them
+			// HTMLPurifier removes boolean values (true/false) and arrays, so explicitly keep them
 			// Maybe also possible through HTMLPurifier config (http://htmlpurifier.org/live/configdoc/plain.html)
-			if (!is_bool($value))
+			if (!is_bool($value) && !is_array($value))
 			{
 				$value = self::$htmlPurifierInstance->purify($value);
 			}

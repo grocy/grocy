@@ -36,12 +36,27 @@ class OpenApiController extends BaseApiController
 		$spec->info->description = str_replace('PlaceHolderManageApiKeysUrl', $this->AppContainer->get('UrlManager')->ConstructUrl('/manageapikeys'), $spec->info->description);
 		$spec->servers[0]->url = $this->AppContainer->get('UrlManager')->ConstructUrl('/api');
 
+		$spec->components->internalSchemas->ExposedEntity_IncludingUserEntities = clone $spec->components->internalSchemas->ExposedEntity;
+		foreach ($this->getUserfieldsService()->GetEntities() as $userEntity)
+		{
+			array_push($spec->components->internalSchemas->ExposedEntity_IncludingUserEntities->enum, $userEntity);
+		}
+
 		$spec->components->internalSchemas->ExposedEntity_NotIncludingNotEditable = clone $spec->components->internalSchemas->StringEnumTemplate;
 		foreach ($spec->components->internalSchemas->ExposedEntity->enum as $value)
 		{
 			if (!in_array($value, $spec->components->internalSchemas->ExposedEntityNoEdit->enum))
 			{
 				array_push($spec->components->internalSchemas->ExposedEntity_NotIncludingNotEditable->enum, $value);
+			}
+		}
+
+		$spec->components->internalSchemas->ExposedEntity_IncludingUserEntities_NotIncludingNotEditable = clone $spec->components->internalSchemas->StringEnumTemplate;
+		foreach ($spec->components->internalSchemas->ExposedEntity_IncludingUserEntities->enum as $value)
+		{
+			if (!in_array($value, $spec->components->internalSchemas->ExposedEntityNoEdit->enum))
+			{
+				array_push($spec->components->internalSchemas->ExposedEntity_IncludingUserEntities_NotIncludingNotEditable->enum, $value);
 			}
 		}
 

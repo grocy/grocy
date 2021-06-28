@@ -42,6 +42,7 @@
 - Recipe printing improvements (thanks @Ape)
 - Calories are now always displayed per single serving (on the recipe and meal plan page)
 - Fixed that "Only check if any amount is in stock" (recipe ingredient option) didn't work for stock amounts < 1
+- Fixed that when adding missing items to the shopping list, on the popup deselected items got also added
 
 ### Chores fixes
 - Fixed that tracking chores with "Done by" a different user was not possible
@@ -49,6 +50,7 @@
 ### Userfield fixes
 - Fixed that numeric Userfields were initialised with `1.0`
 - Fixed that shortcuts (up/down key) and the format did not work correctly when using multiple date/time Userfields per object
+- Fixed that Userfields were not saved when adding a product or a recipe (only on editing)
 
 ### General & other improvements/fixes
 - LDAP authentication improvements / OpenLDAP support (thanks @tank0226)
@@ -63,3 +65,4 @@
 
 ### API fixes
 - Fixed that due soon products with `due_type` = "Expiration date" were missing in `due_products` of the `/stock/volatile` endpoint
+- Fixed that `PUT/DELETE /objects/{entity}/{objectId}` produced an internal server error when the given object id was invalid (now returns `400 Bad Request`)

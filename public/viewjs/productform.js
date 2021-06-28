@@ -1,6 +1,7 @@
 ﻿function saveProductPicture(result, location, jsonData)
 {
 	var productId = Grocy.EditObjectId || result.created_object_id;
+	Grocy.EditObjectId = productId; // Grocy.EditObjectId is not yet set when adding a product
 
 	Grocy.Components.UserfieldsForm.Save(() =>
 	{

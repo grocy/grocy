@@ -1,6 +1,8 @@
 ﻿function saveRecipePicture(result, location, jsonData)
 {
 	var recipeId = Grocy.EditObjectId || result.created_object_id;
+	Grocy.EditObjectId = recipeId; // Grocy.EditObjectId is not yet set when adding a recipe
+
 	Grocy.Components.UserfieldsForm.Save(() =>
 	{
 		if (jsonData.hasOwnProperty("picture_file_name") && !Grocy.DeleteRecipePictureOnSave)

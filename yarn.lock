@@ -29,6 +29,11 @@
     ndarray-linear-interpolate "^1.0.0"
     snyk "^1.419.0"
 
+"@fontsource/noto-sans@^4.4.5":
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/@fontsource/noto-sans/-/noto-sans-4.4.5.tgz#0053bf374f8d5222908c825aa1db6a3078a79cf6"
+  integrity sha512-1P+AMhUvjfpMwuDsLHG1F95ij1SULGM8IiW/4RmdP7+ZHJuvBsSG465Ujps34IDio5bcv6OaLpGyU1YBVTTe+Q==
+
 "@fortawesome/fontawesome-free@^5.14.0":
   version "5.15.1"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.15.1.tgz#ccfef6ddbe59f8fe8f694783e1d3eb88902dc5eb"

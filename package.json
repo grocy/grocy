@@ -4,6 +4,7 @@
 	"dependencies": {
 		"@danielfarrell/bootstrap-combobox": "https://github.com/berrnd/bootstrap-combobox.git#master",
 		"@ericblade/quagga2": "^1.2.1",
+		"@fontsource/noto-sans": "^4.4.5",
 		"@fortawesome/fontawesome-free": "^5.14.0",
 		"animate.css": "^3.7.2",
 		"bootbox": "^5.3.2",

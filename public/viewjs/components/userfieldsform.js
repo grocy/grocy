@@ -89,7 +89,7 @@ Grocy.Components.UserfieldsForm.Save = function(success, error)
 
 Grocy.Components.UserfieldsForm.Load = function()
 {
-	if (!$("#userfields-form").length)
+	if (!$("#userfields-form").length || typeof Grocy.EditObjectId == "undefined")
 	{
 		return;
 	}
