@@ -85,6 +85,11 @@ class SystemApiController extends BaseApiController
 		}
 	}
 
+	public function GetLocalizationStrings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		return $this->ApiResponse($response, json_decode($this->getLocalizationService()->GetPoAsJsonString()), true);
+	}
+
 	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);

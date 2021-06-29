@@ -65,6 +65,7 @@
 - Fixed that the number picker up/down buttons did not work when the input field was empty or contained an invalid number
 - Fixed that links and embeds (e.g. YouTube videos) did not work in the text editor
 
-### API fixes
+### API improvements/fixes
+- Added a new API endpoint `/system/localization-strings` to get the localization strings (gettext JSON representation; in the by the user desired language)
 - Fixed that due soon products with `due_type` = "Expiration date" were missing in `due_products` of the `/stock/volatile` endpoint
 - Fixed that `PUT/DELETE /objects/{entity}/{objectId}` produced an internal server error when the given object id was invalid (now returns `400 Bad Request`)

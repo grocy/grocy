@@ -226,7 +226,22 @@ Grocy.Api.DeleteFile = function(fileName, group, success, error)
 	xhr.send();
 };
 
-Grocy.Translator = new Translator(Grocy.GettextPo);
+U = function(relativePath)
+{
+	return Grocy.BaseUrl.replace(/\/$/, '') + relativePath;
+}
+
+Grocy.Translator = new Translator(); // Dummy, real instance is loaded async below
+Grocy.Api.Get("system/localization-strings?v=" + Grocy.Version,
+	function(response)
+	{
+		Grocy.Translator = new Translator(response);
+	},
+	function(xhr)
+	{
+		console.error(xhr);
+	}
+);
 __t = function(text, ...placeholderValues)
 {
 	if (Grocy.Mode === "dev")
@@ -246,11 +261,6 @@ __n = function(number, singularForm, pluralForm)
 	}
 
 	return Grocy.Translator.n__(singularForm, pluralForm, number, number)
-}
-
-U = function(relativePath)
-{
-	return Grocy.BaseUrl.replace(/\/$/, '') + relativePath;
 }
 
 if (!Grocy.ActiveNav.isEmpty())

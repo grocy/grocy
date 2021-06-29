@@ -17,8 +17,13 @@ class BaseApiController extends BaseController
 		parent::__construct($container);
 	}
 
-	protected function ApiResponse(\Psr\Http\Message\ResponseInterface $response, $data)
+	protected function ApiResponse(\Psr\Http\Message\ResponseInterface $response, $data, $cache = false)
 	{
+		if ($cache)
+		{
+			$response = $response->withHeader('Cache-Control', 'max-age=2592000');
+		}
+
 		$response->getBody()->write(json_encode($data));
 		return $response;
 	}

@@ -184,6 +184,27 @@
 				}
 			}
 		},
+		"/system/localization-strings": {
+			"get": {
+				"summary": "Returns all localization strings (in the by the user desired language)",
+				"tags": [
+					"System"
+				],
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"description": "A gettext JSON representation"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/system/log-missing-localization": {
 			"post": {
 				"summary": "Logs a missing localization string",
