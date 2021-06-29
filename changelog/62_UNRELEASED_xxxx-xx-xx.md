@@ -61,6 +61,7 @@
   - => See the new `config.php` options
 - Some night mode style improvements (thanks @BlizzWave and @KTibow)
 - Help tooltips are now additionally also triggered by clicking on them (instead of only hovering them, which doesn't work on mobile / touch devices)
+- The camera barcode scanner now also supports Code 39 barcodes (used for example in Germany on pharma products (PZN)) (thanks @andreheuer)
 - Fixed that the number picker up/down buttons did not work when the input field was empty or contained an invalid number
 - Fixed that links and embeds (e.g. YouTube videos) did not work in the text editor
 
