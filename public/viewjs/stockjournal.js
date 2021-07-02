@@ -15,10 +15,12 @@ $("#product-filter").on("change", function()
 	var text = $("#product-filter option:selected").text();
 	if (value === "all")
 	{
-		text = "";
+		stockJournalTable.column(1).search("").draw();
 	}
-
-	stockJournalTable.column(1).search(text).draw();
+	else
+	{
+		stockJournalTable.column(1).search(">" + text + "<").draw();
+	}
 });
 
 $("#transaction-type-filter").on("change", function()
