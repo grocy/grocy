@@ -213,7 +213,7 @@ class BaseController
 			$htmlPurifierConfig->set('HTML.SafeIframe', true);
 			$htmlPurifierConfig->set('CSS.AllowedProperties', 'font,font-size,font-weight,font-style,font-family,text-decoration,padding-left,color,background-color,text-align');
 			$htmlPurifierConfig->set('URI.AllowedSchemes', ['data' => true, 'http' => true, 'https' => true]);
-			$htmlPurifierConfig->set('URI.SafeIframeRegexp', '%^.*%'); //allow YouTube and Vimeo
+			$htmlPurifierConfig->set('URI.SafeIframeRegexp', '%^.*%'); // Allow any iframe source
 
 			self::$htmlPurifierInstance = new \HTMLPurifier($htmlPurifierConfig);
 		}
