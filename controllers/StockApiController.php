@@ -180,6 +180,7 @@ class StockApiController extends BaseApiController
 
 			$listId = 1;
 			$amount = 1;
+			$quId = -1;
 			$productId = null;
 			$note = null;
 
@@ -203,12 +204,17 @@ class StockApiController extends BaseApiController
 				$note = $requestBody['note'];
 			}
 
+			if (array_key_exists('qu_id', $requestBody) && !empty($requestBody['qu_id']))
+			{
+				$quId = $requestBody['qu_id'];
+			}
+
 			if ($productId == null)
 			{
 				throw new \Exception('No product id was supplied');
 			}
 
-			$this->getStockService()->AddProductToShoppingList($productId, $amount, $note, $listId);
+			$this->getStockService()->AddProductToShoppingList($productId, $amount, $quId, $note, $listId);
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)

@@ -214,7 +214,7 @@ class StockService extends BaseService
 		}
 	}
 
-	public function AddProductToShoppingList($productId, $amount = 1, $note = null, $listId = 1)
+	public function AddProductToShoppingList($productId, $amount = 1, $quId = -1, $note = null, $listId = 1)
 	{
 		if (!$this->ShoppingListExists($listId))
 		{
@@ -226,9 +226,15 @@ class StockService extends BaseService
 			throw new \Exception('Product does not exist or is inactive');
 		}
 
+		if ($quId == -1)
+		{
+			$quId = $this->getDatabase()->products($productId)->qu_id_purchase;
+		}
+
 		$alreadyExistingEntry = $this->getDatabase()->shopping_list()->where('product_id = :1 AND shopping_list_id = :2', $productId, $listId)->fetch();
 		if ($alreadyExistingEntry)
-		{ // Update
+		{
+			// Update
 			$alreadyExistingEntry->update([
 				'amount' => ($alreadyExistingEntry->amount + $amount),
 				'shopping_list_id' => $listId,
@@ -236,10 +242,12 @@ class StockService extends BaseService
 			]);
 		}
 		else
-		{ // Insert
+		{
+			// Insert
 			$shoppinglistRow = $this->getDatabase()->shopping_list()->createRow([
 				'product_id' => $productId,
 				'amount' => $amount,
+				'qu_id' => $quId,
 				'shopping_list_id' => $listId,
 				'note' => $note
 			]);
