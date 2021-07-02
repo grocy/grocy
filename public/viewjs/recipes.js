@@ -334,6 +334,14 @@ $(document).on("click", ".missing-recipe-pos-select-button", function(e)
 	$(this).toggleClass("list-group-item-primary");
 });
 
+$(document).on("click", ".missing-recipe-pos-product-checkbox", function(e)
+{
+	e.stopPropagation();
+
+	$(this).prop("checked", !$(this).prop("checked"));
+	$(this).parent().parent().click();
+});
+
 if (window.location.hash === "#fullscreen")
 {
 	$("#selectedRecipeToggleFullscreenButton").click();
