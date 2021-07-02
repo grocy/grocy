@@ -11,6 +11,11 @@ class FilesApiController extends BaseApiController
 	{
 		try
 		{
+			if(!in_array($args['group'], $this->getOpenApiSpec()->components->internalSchemas->FileGroups->enum))
+			{
+				throw new \Exception('Invalid file group');
+			}
+
 			if (IsValidFileName(base64_decode($args['fileName'])))
 			{
 				$fileName = base64_decode($args['fileName']);
@@ -39,8 +44,12 @@ class FilesApiController extends BaseApiController
 	{
 		try
 		{
-			$fileName = $this->checkFileName($args['fileName']);
+			if(!in_array($args['group'], $this->getOpenApiSpec()->components->internalSchemas->FileGroups->enum))
+			{
+				throw new \Exception('Invalid file group');
+			}
 
+			$fileName = $this->checkFileName($args['fileName']);
 			$filePath = $this->getFilePath($args['group'], $fileName, $request->getQueryParams());
 
 			if (file_exists($filePath))
@@ -65,9 +74,13 @@ class FilesApiController extends BaseApiController
 	{
 		try
 		{
+			if(!in_array($args['group'], $this->getOpenApiSpec()->components->internalSchemas->FileGroups->enum))
+			{
+				throw new \Exception('Invalid file group');
+			}
+
 			$fileInfo = explode('_', $args['fileName']);
 			$fileName = $this->checkFileName($fileInfo[1]);
-
 			$filePath = $this->getFilePath($args['group'], base64_decode($fileInfo[0]), $request->getQueryParams());
 
 			if (file_exists($filePath))
@@ -92,9 +105,14 @@ class FilesApiController extends BaseApiController
 	{
 		try
 		{
-			$fileName = $this->checkFileName($args['fileName']);
+			if(!in_array($args['group'], $this->getOpenApiSpec()->components->internalSchemas->FileGroups->enum))
+			{
+				throw new \Exception('Invalid file group');
+			}
 
+			$fileName = $this->checkFileName($args['fileName']);
 			$data = $request->getBody()->getContents();
+
 			file_put_contents($this->getFilesService()->GetFilePath($args['group'], $fileName), $data);
 
 			return $this->EmptyApiResponse($response);

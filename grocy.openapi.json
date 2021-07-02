@@ -734,7 +734,7 @@
 						"required": true,
 						"description": "The file group",
 						"schema": {
-							"type": "string"
+							"$ref": "#/components/internalSchemas/FileGroups"
 						}
 					},
 					{
@@ -814,7 +814,7 @@
 						"required": true,
 						"description": "The file group",
 						"schema": {
-							"type": "string"
+							"$ref": "#/components/internalSchemas/FileGroups"
 						}
 					},
 					{
@@ -865,7 +865,7 @@
 						"required": true,
 						"description": "The file group",
 						"schema": {
-							"type": "string"
+							"$ref": "#/components/internalSchemas/FileGroups"
 						}
 					},
 					{
@@ -4182,6 +4182,16 @@
 					"consume",
 					"inventory-correction",
 					"product-opened"
+				]
+			},
+			"FileGroups": {
+				"type": "string",
+				"enum": [
+					"equipmentmanuals",
+					"recipepictures",
+					"productpictures",
+					"userfiles",
+					"userpictures"
 				]
 			},
 			"StringEnumTemplate": {
