@@ -25,12 +25,7 @@ class FilesApiController extends BaseApiController
 				throw new \Exception('Invalid filename');
 			}
 
-			$filePath = $this->getFilesService()->GetFilePath($args['group'], $fileName);
-
-			if (file_exists($filePath))
-			{
-				unlink($filePath);
-			}
+			$this->getFilesService()->DeleteFile($args['group'], $fileName);
 
 			return $this->EmptyApiResponse($response);
 		}

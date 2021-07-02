@@ -19,11 +19,6 @@ class FilesService extends BaseService
 		$fileNameDownscaled = $fileNameWithoutExtension . '__downscaledto' . ($bestFitHeight ? $bestFitHeight : 'auto') . 'x' . ($bestFitWidth ? $bestFitWidth : 'auto') . '.' . $fileExtension;
 		$filePathDownscaled = $this->GetFilePath($group, $fileNameDownscaled);
 
-		if (!extension_loaded('gd'))
-		{
-			return $filePath;
-		}
-
 		try
 		{
 			if (!file_exists($filePathDownscaled))
@@ -52,6 +47,33 @@ class FilesService extends BaseService
 		}
 
 		return $filePathDownscaled;
+	}
+
+	public function DeleteFile($group, $fileName)
+	{
+		$filePath = $this->GetFilePath($group, $fileName);
+
+		if (file_exists($filePath))
+		{
+			$fileNameWithoutExtension = pathinfo($filePath, PATHINFO_FILENAME);
+			$fileExtension = pathinfo($filePath, PATHINFO_EXTENSION);
+
+			if (getimagesize($filePath) !== false) // Then the file is an image
+			{
+				// Also delete all corresponding "__downscaledto" files when deleting an image
+				$groupFolderPath = $this->StoragePath . '/' . $group;
+				$files = scandir($groupFolderPath);
+				foreach($files as $file)
+				{
+					if (string_starts_with($file, $fileNameWithoutExtension . '__downscaledto'))
+					{
+						unlink($this->GetFilePath($group, $file));
+					}
+				}
+			}
+
+			unlink($filePath);
+		}
 	}
 
 	public function GetFilePath($group, $fileName)
