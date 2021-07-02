@@ -313,15 +313,20 @@ $("#location_id_from").on('change', function(e)
 
 					if (stockEntry.location_id == locationId)
 					{
-						$("#specific_stock_entry").append($("<option>", {
-							value: stockEntry.stock_id,
-							amount: stockEntry.amount,
-							text: __t("Amount: %1$s; Due on %2$s; Bought on %3$s", stockEntry.amount, moment(stockEntry.best_before_date).format("YYYY-MM-DD"), moment(stockEntry.purchased_date).format("YYYY-MM-DD")) + "; " + openTxt
-						}));
+						if ($("#specific_stock_entry option[value='" + stockEntry.stock_id + "']").length == 0)
+						{
+							$("#specific_stock_entry").append($("<option>", {
+								value: stockEntry.stock_id,
+								amount: stockEntry.amount,
+								text: __t("Amount: %1$s; Due on %2$s; Bought on %3$s", stockEntry.amount, moment(stockEntry.best_before_date).format("YYYY-MM-DD"), moment(stockEntry.purchased_date).format("YYYY-MM-DD")) + "; " + openTxt
+							}));
+						}
+
 						if (stockEntry.stock_id == stockId)
 						{
 							$("#specific_stock_entry").val(stockId);
 						}
+
 						sumValue = sumValue + parseFloat(stockEntry.amount);
 					}
 				});
