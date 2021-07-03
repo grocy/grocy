@@ -113,7 +113,7 @@ class StockService extends BaseService
 		}
 	}
 
-	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId = null, $shoppingLocationId = null, &$transactionId = null, $runWebhook = 0)
+	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId = null, $shoppingLocationId = null, &$transactionId = null, $runWebhook = 0, $addExactAmount = false)
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -127,6 +127,11 @@ class StockService extends BaseService
 		// The amount to be posted needs to be the given amount - stock amount - tare weight
 		if ($productDetails->product->enable_tare_weight_handling == 1)
 		{
+			if ($addExactAmount)
+			{
+				$amount = floatval($productDetails->stock_amount) + floatval($productDetails->product->tare_weight) + $amount;
+			}
+
 			if ($amount <= floatval($productDetails->product->tare_weight) + floatval($productDetails->stock_amount))
 			{
 				throw new \Exception('The amount cannot be lower or equal than the defined tare weight + current stock amount');
