@@ -40,6 +40,7 @@
 - Fixed that shopping list prints had a grey background (thanks @Forceu)
 - Fixed the form validation on the shopping list item page (thanks @Forceu)
 - Fixed that when adding products to the shopping list from the stock overview page, the used quantity unit was always the products default purchase QU (and not the selected one)
+- Fixed that the displayed last unit/total price was wrong when the used quantity unit was not the products stock QU
 
 ### Recipe improvements/fixes
 - Recipe printing improvements (thanks @Ape)
