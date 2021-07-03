@@ -5,7 +5,9 @@ namespace Grocy\Services;
 class DatabaseService
 {
 	private static $DbConnection = null;
+
 	private static $DbConnectionRaw = null;
+
 	private static $instance = null;
 
 	/**

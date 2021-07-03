@@ -58,12 +58,12 @@ class FilesService extends BaseService
 			$fileNameWithoutExtension = pathinfo($filePath, PATHINFO_FILENAME);
 			$fileExtension = pathinfo($filePath, PATHINFO_EXTENSION);
 
-			if (getimagesize($filePath) !== false) // Then the file is an image
-			{
+			if (getimagesize($filePath) !== false)
+			{ // Then the file is an image
 				// Also delete all corresponding "__downscaledto" files when deleting an image
 				$groupFolderPath = $this->StoragePath . '/' . $group;
 				$files = scandir($groupFolderPath);
-				foreach($files as $file)
+				foreach ($files as $file)
 				{
 					if (string_starts_with($file, $fileNameWithoutExtension . '__downscaledto'))
 					{

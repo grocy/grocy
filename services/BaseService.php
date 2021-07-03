@@ -71,5 +71,4 @@ class BaseService
 	{
 		return PrintService::getInstance();
 	}
-
 }

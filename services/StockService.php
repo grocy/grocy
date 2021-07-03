@@ -8,13 +8,21 @@ use Grocy\Helpers\WebhookRunner;
 class StockService extends BaseService
 {
 	const TRANSACTION_TYPE_CONSUME = 'consume';
+
 	const TRANSACTION_TYPE_INVENTORY_CORRECTION = 'inventory-correction';
+
 	const TRANSACTION_TYPE_PRODUCT_OPENED = 'product-opened';
+
 	const TRANSACTION_TYPE_PURCHASE = 'purchase';
+
 	const TRANSACTION_TYPE_SELF_PRODUCTION = 'self-production';
+
 	const TRANSACTION_TYPE_STOCK_EDIT_NEW = 'stock-edit-new';
+
 	const TRANSACTION_TYPE_STOCK_EDIT_OLD = 'stock-edit-old';
+
 	const TRANSACTION_TYPE_TRANSFER_FROM = 'transfer_from';
+
 	const TRANSACTION_TYPE_TRANSFER_TO = 'transfer_to';
 
 	public function AddMissingProductsToShoppingList($listId = 1)

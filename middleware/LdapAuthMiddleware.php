@@ -45,7 +45,7 @@ class LdapAuthMiddleware extends AuthMiddleware
 				$ldapFirstName = $result[0]['givenname'][0];
 				$ldapLastName = $result[0]['sn'][0];
 				$ldapDistinguishedName = $result[0]['dn'];
-				
+
 				if (is_null($ldapDistinguishedName))
 				{
 					// User not found
@@ -57,7 +57,7 @@ class LdapAuthMiddleware extends AuthMiddleware
 				// Bind authentication failed
 				return false;
 			}
-			
+
 			// bind with user account to validate password
 			if ($bind = ldap_bind($connect, $ldapDistinguishedName, $postParams['password']))
 			{
@@ -78,7 +78,7 @@ class LdapAuthMiddleware extends AuthMiddleware
 			else
 			{
 				ldap_close($connect);
-				
+
 				// User authentication failed
 				return false;
 			}

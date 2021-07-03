@@ -109,9 +109,9 @@ Setting('TPRINTER_IP', '127.0.0.1');            // IP of the network printer
 Setting('TPRINTER_PORT', 9100);                 // Port of printer, eg. 9100
 //Configuration below if you are using a USB or serial printer
 Setting('TPRINTER_CONNECTOR', '/dev/usb/lp0');  // Location of printer. For USB on Linux this is often '/dev/usb/lp0',
-                                                // for serial printers it could be similar to '/dev/ttyS0'
-                                                // Make sure that the user that runs the webserver has permissions to write to the printer!
-                                                // On Linux add your webserver user to the LP group with usermod -a -G lp www-data
+												// for serial printers it could be similar to '/dev/ttyS0'
+												// Make sure that the user that runs the webserver has permissions to write to the printer!
+												// On Linux add your webserver user to the LP group with usermod -a -G lp www-data
 
 
 // Default user settings

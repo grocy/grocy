@@ -10,8 +10,6 @@ use Mike42\Escpos\Printer;
 
 class PrintService extends BaseService
 {
-
-
 	/**
 	 * Initialises the printer
 	 * @return Printer Printer handle
@@ -19,14 +17,16 @@ class PrintService extends BaseService
 	 */
 	private static function getPrinterHandle()
 	{
-		if (GROCY_TPRINTER_IS_NETWORK_PRINTER) {
+		if (GROCY_TPRINTER_IS_NETWORK_PRINTER)
+		{
 			$connector = new NetworkPrintConnector(GROCY_TPRINTER_IP, GROCY_TPRINTER_PORT);
-		} else {
+		}
+		else
+		{
 			$connector = new FilePrintConnector(GROCY_TPRINTER_CONNECTOR);
 		}
 		return new Printer($connector);
 	}
-
 
 	/**
 	 * Prints the grocy logo and date
@@ -41,7 +41,7 @@ class PrintService extends BaseService
 		$printer->selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
 		$printer->setTextSize(4, 4);
 		$printer->setReverseColors(true);
-		$printer->text("grocy");
+		$printer->text('grocy');
 		$printer->setJustification();
 		$printer->setTextSize(1, 1);
 		$printer->setReverseColors(false);
@@ -61,7 +61,9 @@ class PrintService extends BaseService
 	{
 		$printer = self::getPrinterHandle();
 		if ($printer === false)
-			throw new Exception("Unable to connect to printer");
+		{
+			throw new Exception('Unable to connect to printer');
+		}
 
 		if ($printHeader)
 		{
@@ -78,7 +80,7 @@ class PrintService extends BaseService
 		$printer->cut();
 		$printer->close();
 		return [
-			'result' => "OK"
+			'result' => 'OK'
 		];
 	}
 }

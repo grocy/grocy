@@ -5,15 +5,23 @@ namespace Grocy\Services;
 class ChoresService extends BaseService
 {
 	const CHORE_ASSIGNMENT_TYPE_IN_ALPHABETICAL_ORDER = 'in-alphabetical-order';
+
 	const CHORE_ASSIGNMENT_TYPE_NO_ASSIGNMENT = 'no-assignment';
+
 	const CHORE_ASSIGNMENT_TYPE_RANDOM = 'random';
+
 	const CHORE_ASSIGNMENT_TYPE_WHO_LEAST_DID_FIRST = 'who-least-did-first';
 
 	const CHORE_PERIOD_TYPE_DAILY = 'daily';
+
 	const CHORE_PERIOD_TYPE_DYNAMIC_REGULAR = 'dynamic-regular';
+
 	const CHORE_PERIOD_TYPE_MANUALLY = 'manually';
+
 	const CHORE_PERIOD_TYPE_MONTHLY = 'monthly';
+
 	const CHORE_PERIOD_TYPE_WEEKLY = 'weekly';
+
 	const CHORE_PERIOD_TYPE_YEARLY = 'yearly';
 
 	public function CalculateNextExecutionAssignment($choreId)
