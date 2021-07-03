@@ -68,7 +68,7 @@ Grocy.Components.ProductAmountPicker.AllowAnyQu = function(keepInitialQu = false
 	$("#qu_id").find("option").remove().end();
 	Grocy.QuantityUnits.forEach(qu =>
 	{
-		$("#qu_id").append('<option value="' + qu.id + '" data-qu-factor="1" data-qu-name-plural="' + qu.name_plural + '>' + qu.name + '</option>');
+		$("#qu_id").append('<option value="' + qu.id + '" data-qu-factor="1" data-qu-name-plural="' + qu.name_plural + '">' + qu.name + '</option>');
 	});
 
 	if (keepInitialQu)
