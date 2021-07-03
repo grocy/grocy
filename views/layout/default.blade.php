@@ -466,7 +466,7 @@
 			</ul>
 
 			<ul class="navbar-nav ml-auto">
-				@if(GROCY_AUTHENTICATED === true && !GROCY_IS_EMBEDDED_INSTALL && GROCY_SHOW_AUTH_VIEWS)
+				@if(GROCY_AUTHENTICATED === true && !GROCY_IS_EMBEDDED_INSTALL && !GROCY_DISABLE_AUTH)
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle discrete-link @if(!empty(GROCY_USER_PICTURE_FILE_NAME)) py-0 @endif"
 						href="#"
@@ -481,11 +481,16 @@
 					</a>
 
 					<div class="dropdown-menu dropdown-menu-right">
+						@if(!defined('GROCY_EXTERNALLY_MANAGED_AUTHENTICATION'))
 						<a class="dropdown-item logout-button discrete-link"
 							href="{{ $U('/logout') }}"><i class="fas fa-sign-out-alt"></i>&nbsp;{{ $__t('Logout') }}</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item logout-button discrete-link"
 							href="{{ $U('/user/' . GROCY_USER_ID . '?changepw=true') }}"><i class="fas fa-key"></i>&nbsp;{{ $__t('Change password') }}</a>
+						@else
+						<a class="dropdown-item logout-button discrete-link"
+							href="{{ $U('/user/' . GROCY_USER_ID) }}"><i class="fas fa-key"></i>&nbsp;{{ $__t('Edit user') }}</a>
+						@endif
 					</div>
 				</li>
 				@endif
@@ -635,11 +640,13 @@
 							class="dropdown-item discrete-link link-return">
 							<i class="fas fa-user-cog"></i> {{ $__t('User settings') }}
 						</a>
+						@if(!GROCY_IS_EMBEDDED_INSTALL && !GROCY_DISABLE_AUTH)
 						<div class="dropdown-divider"></div>
-						@if(GROCY_SHOW_AUTH_VIEWS)
 						<a class="dropdown-item discrete-link permission-USERS_READ"
 							href="{{ $U('/users') }}"><i class="fas fa-users"></i>&nbsp;{{ $__t('Manage users') }}</a>
+						@endif
 						<div class="dropdown-divider"></div>
+						@if(!GROCY_DISABLE_AUTH)
 						<a class="dropdown-item discrete-link"
 							href="{{ $U('/manageapikeys') }}"><i class="fas fa-handshake"></i>&nbsp;{{ $__t('Manage API keys') }}</a>
 						@endif

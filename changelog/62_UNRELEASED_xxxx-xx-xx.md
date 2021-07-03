@@ -68,6 +68,7 @@
 - The camera barcode scanner now also supports Code 39 barcodes (used for example in Germany on pharma products (PZN)) (thanks @andreheuer)
 - Fixed that the number picker up/down buttons did not work when the input field was empty or contained an invalid number
 - Fixed that links and embeds (e.g. YouTube videos) did not work in the text editor
+- Fixed that the "Manage users" and "Manage API keys" menu was not shown when using reverse proxy authentication
 
 ### API improvements/fixes
 - Added a new API endpoint `/system/localization-strings` to get the localization strings (gettext JSON representation; in the by the user desired language)

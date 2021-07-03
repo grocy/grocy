@@ -11,6 +11,8 @@ class LdapAuthMiddleware extends AuthMiddleware
 {
 	public function authenticate(Request $request)
 	{
+		define('GROCY_EXTERNALLY_MANAGED_AUTHENTICATION', true);
+
 		// TODO: Reuse DefaultAuthMiddleware->authenticate somehow
 
 		// First try to authenticate by API key

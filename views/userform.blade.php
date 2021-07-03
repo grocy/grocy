@@ -65,6 +65,7 @@
 					value="@if($mode == 'edit'){{ $user->last_name }}@endif">
 			</div>
 
+			@if(!defined('GROCY_EXTERNALLY_MANAGED_AUTHENTICATION'))
 			<div class="form-group">
 				<label for="password">{{ $__t('Password') }}</label>
 				<input type="password"
@@ -83,6 +84,16 @@
 					name="password_confirm">
 				<div class="invalid-feedback">{{ $__t('Passwords do not match') }}</div>
 			</div>
+			@else
+			<input type="hidden"
+				name="password"
+				id="password"
+				value="x">
+			<input type="hidden"
+				name="password_confirm"
+				id="password_confirm"
+				value="x">
+			@endif
 
 			@include('components.userfieldsform', array(
 			'userfields' => $userfields,

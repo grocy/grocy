@@ -19,11 +19,6 @@ class ApiKeyAuthMiddleware extends AuthMiddleware
 
 	public function authenticate(Request $request)
 	{
-		if (!defined('GROCY_SHOW_AUTH_VIEWS'))
-		{
-			define('GROCY_SHOW_AUTH_VIEWS', true);
-		}
-
 		$routeContext = RouteContext::fromRequest($request);
 		$route = $routeContext->getRoute();
 		$routeName = $route->getName();

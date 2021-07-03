@@ -10,12 +10,9 @@ class ReverseProxyAuthMiddleware extends AuthMiddleware
 {
 	public function authenticate(Request $request)
 	{
-		$db = DatabaseService::getInstance()->GetDbConnection();
+		define('GROCY_EXTERNALLY_MANAGED_AUTHENTICATION', true);
 
-		if (!defined('GROCY_SHOW_AUTH_VIEWS'))
-		{
-			define('GROCY_SHOW_AUTH_VIEWS', false);
-		}
+		$db = DatabaseService::getInstance()->GetDbConnection();
 
 		// API key authentication is also ok
 		$auth = new ApiKeyAuthMiddleware($this->AppContainer, $this->ResponseFactory);

@@ -18,7 +18,6 @@ require_once __DIR__ . '/helpers/ConfigurationValidator.php';
 if ((GROCY_MODE === 'dev' || GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease') && !defined('GROCY_USER_ID'))
 {
 	define('GROCY_USER_ID', 1);
-	define('GROCY_SHOW_AUTH_VIEWS', true);
 }
 
 // Definitions for disabled authentication mode
@@ -28,8 +27,6 @@ if (GROCY_DISABLE_AUTH === true)
 	{
 		define('GROCY_USER_ID', 1);
 	}
-
-	define('GROCY_SHOW_AUTH_VIEWS', false);
 }
 
 // Check if any invalid entries in config.php have been made
