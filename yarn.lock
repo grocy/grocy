@@ -1716,12 +1716,10 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
-gettext-translator@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/gettext-translator/-/gettext-translator-2.1.0.tgz#946047649b7df4ef00522787bb78792667e4de2f"
-  integrity sha512-RD9HifZKtlRtFScA0VWESzLKQxxRmaRU0IFg6cFZgMP0MMgzfHpWO7MipUyRbMxDFm8adbQqCcFLBV47tjT6Ug==
-  dependencies:
-    sprintf-js "^1.0.3"
+gettext-translator@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/gettext-translator/-/gettext-translator-3.0.1.tgz#6e315a24f2baea56f86a215abb5be0ff2e641baa"
+  integrity sha512-rqCbHfglrIL/Siinsylwc2eAbgrSPvGL5Dofo3WPoCQkxljoafDzw0n91TuTGmaYPkrp8S1fIDxOmX5fkpsNeQ==
 
 gl-mat2@^1.0.1:
   version "1.0.1"
@@ -3755,7 +3753,7 @@ split-ca@^1.0.1:
   resolved "https://registry.yarnpkg.com/split-ca/-/split-ca-1.0.1.tgz#6c83aff3692fa61256e0cd197e05e9de157691a6"
   integrity sha1-bIOv82kvphJW4M0ZfgXp3hV2kaY=
 
-sprintf-js@^1.0.3, sprintf-js@^1.1.2:
+sprintf-js@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.1.2.tgz#da1765262bf8c0f571749f2ad6c26300207ae673"
   integrity sha512-VE0SOVEHCk7Qc8ulkWw3ntAzXuqf7S2lvwQaDLRnUeIEaKNQJzV6BwmLKhOqT61aGhfUMrXeaBk+oDGCzvhcug==
