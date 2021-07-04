@@ -232,7 +232,7 @@ U = function(relativePath)
 }
 
 Grocy.Translator = new Translator(); // Dummy, real instance is loaded async below
-Grocy.Api.Get("system/localization-strings?v=" + Grocy.Version,
+Grocy.Api.Get("system/localization-strings?v=" + Grocy.Version + "&language=" + Grocy.Culture,
 	function(response)
 	{
 		Grocy.Translator = new Translator(response);
