@@ -896,7 +896,7 @@ $('.dropdown-item').has('.form-check input[type=checkbox]').on('click', function
 $('.table').on('column-sizing.dt', function(e, settings)
 {
 	var dtScrollWidth = $('.dataTables_scroll').width();
-	var tableWidth = $('.table').width();
+	var tableWidth = $('.table').width() + 100; // Some extra padding, otherwise the scrollbar maybe only appears after a column is already completely out of the viewport
 
 	if (dtScrollWidth < tableWidth)
 	{
