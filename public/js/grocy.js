@@ -231,11 +231,11 @@ U = function(relativePath)
 	return Grocy.BaseUrl.replace(/\/$/, '') + relativePath;
 }
 
-Grocy.Translator = new window.translator.default(); // Dummy, real instance is loaded async below
+Grocy.Translator = new Translator(); // Dummy, real instance is loaded async below
 Grocy.Api.Get("system/localization-strings?v=" + Grocy.Version,
 	function(response)
 	{
-		Grocy.Translator = new window.translator.default(response);
+		Grocy.Translator = new Translator(response);
 	},
 	function(xhr)
 	{
@@ -250,7 +250,7 @@ __t = function(text, ...placeholderValues)
 		Grocy.Api.Post('system/log-missing-localization', { "text": text2 });
 	}
 
-	return Grocy.Translator.gettext(text, ...placeholderValues);
+	return Grocy.Translator.__(text, ...placeholderValues)
 }
 __n = function(number, singularForm, pluralForm)
 {
@@ -260,7 +260,7 @@ __n = function(number, singularForm, pluralForm)
 		Grocy.Api.Post('system/log-missing-localization', { "text": singularForm2 });
 	}
 
-	return Grocy.Translator.ngettext(singularForm, pluralForm, number, number);
+	return Grocy.Translator.n__(singularForm, pluralForm, number, number)
 }
 
 if (!Grocy.ActiveNav.isEmpty())

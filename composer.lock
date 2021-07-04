@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d057a6ab1ad847ba7cb44de95f05a97f",
+    "content-hash": "35840e48e78e30b63f589addfdb50f92",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -328,28 +328,35 @@
         },
         {
             "name": "gettext/gettext",
-            "version": "v5.5.4",
+            "version": "v4.8.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-gettext/Gettext.git",
-                "reference": "77baf40326b4eac0230cd11ee75680969dcbe72a"
+                "reference": "58bc0f7f37e78efb0f9758f93d4a0f669f0f84a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-gettext/Gettext/zipball/77baf40326b4eac0230cd11ee75680969dcbe72a",
-                "reference": "77baf40326b4eac0230cd11ee75680969dcbe72a",
+                "url": "https://api.github.com/repos/php-gettext/Gettext/zipball/58bc0f7f37e78efb0f9758f93d4a0f669f0f84a1",
+                "reference": "58bc0f7f37e78efb0f9758f93d4a0f669f0f84a1",
                 "shasum": ""
             },
             "require": {
                 "gettext/languages": "^2.3",
-                "php": "^7.2|^8.0"
+                "php": ">=5.4.0"
             },
             "require-dev": {
-                "brick/varexporter": "^0.2.1",
-                "friendsofphp/php-cs-fixer": "^2.15",
-                "oscarotero/php-cs-fixer-config": "^1.0",
-                "phpunit/phpunit": "^8.0",
-                "squizlabs/php_codesniffer": "^3.0"
+                "illuminate/view": "*",
+                "phpunit/phpunit": "^4.8|^5.7|^6.5",
+                "squizlabs/php_codesniffer": "^3.0",
+                "symfony/yaml": "~2",
+                "twig/extensions": "*",
+                "twig/twig": "^1.31|^2.0"
+            },
+            "suggest": {
+                "illuminate/view": "Is necessary if you want to use the Blade extractor",
+                "symfony/yaml": "Is necessary if you want to use the Yaml extractor/generator",
+                "twig/extensions": "Is necessary if you want to use the Twig extractor",
+                "twig/twig": "Is necessary if you want to use the Twig extractor"
             },
             "type": "library",
             "autoload": {
@@ -370,7 +377,7 @@
                 }
             ],
             "description": "PHP gettext manager",
-            "homepage": "https://github.com/php-gettext/Gettext",
+            "homepage": "https://github.com/oscarotero/Gettext",
             "keywords": [
                 "JS",
                 "gettext",
@@ -381,68 +388,24 @@
             ],
             "support": {
                 "email": "oom@oscarotero.com",
-                "issues": "https://github.com/php-gettext/Gettext/issues",
-                "source": "https://github.com/php-gettext/Gettext/tree/v5.5.4"
+                "issues": "https://github.com/oscarotero/Gettext/issues",
+                "source": "https://github.com/php-gettext/Gettext/tree/v4.8.4"
             },
-            "time": "2020-12-20T13:37:30+00:00"
-        },
-        {
-            "name": "gettext/json",
-            "version": "v1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-gettext/Json.git",
-                "reference": "13f0d7c8cdd1fe80515d5c40722e18f568225891"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-gettext/Json/zipball/13f0d7c8cdd1fe80515d5c40722e18f568225891",
-                "reference": "13f0d7c8cdd1fe80515d5c40722e18f568225891",
-                "shasum": ""
-            },
-            "require": {
-                "gettext/gettext": "^5.0.0",
-                "php": "^7.2|^8.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.15",
-                "oscarotero/php-cs-fixer-config": "^1.0",
-                "phpunit/phpunit": "^8.0",
-                "squizlabs/php_codesniffer": "^3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Gettext\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
+            "funding": [
                 {
-                    "name": "Oscar Otero",
-                    "email": "oom@oscarotero.com",
-                    "homepage": "http://oscarotero.com",
-                    "role": "Developer"
+                    "url": "https://paypal.me/oscarotero",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/oscarotero",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/misteroom",
+                    "type": "patreon"
                 }
             ],
-            "description": "Json format for gettext",
-            "homepage": "https://github.com/php-gettext/Json",
-            "keywords": [
-                "gettext",
-                "i18n",
-                "json",
-                "loader",
-                "translation"
-            ],
-            "support": {
-                "email": "oom@oscarotero.com",
-                "issues": "https://github.com/php-gettext/Json/issues",
-                "source": "https://github.com/php-gettext/Json/tree/v1.0.1"
-            },
-            "time": "2021-01-22T17:59:51+00:00"
+            "time": "2021-03-10T19:35:49+00:00"
         },
         {
             "name": "gettext/languages",
@@ -508,66 +471,6 @@
                 "source": "https://github.com/php-gettext/Languages/tree/2.6.0"
             },
             "time": "2019-11-13T10:30:21+00:00"
-        },
-        {
-            "name": "gettext/translator",
-            "version": "v1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-gettext/Translator.git",
-                "reference": "0a80844789e6a4ffad417d2053bbb56c83b02803"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-gettext/Translator/zipball/0a80844789e6a4ffad417d2053bbb56c83b02803",
-                "reference": "0a80844789e6a4ffad417d2053bbb56c83b02803",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.2|^8.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.15",
-                "gettext/gettext": "^5.0.0",
-                "oscarotero/php-cs-fixer-config": "^1.0",
-                "phpunit/phpunit": "^8.0",
-                "squizlabs/php_codesniffer": "^3.0"
-            },
-            "suggest": {
-                "gettext/gettext": "Is necessary to load and generate array files used by the translator"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Gettext\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Oscar Otero",
-                    "email": "oom@oscarotero.com",
-                    "homepage": "http://oscarotero.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Gettext translator functions",
-            "homepage": "https://github.com/php-gettext/Translator",
-            "keywords": [
-                "gettext",
-                "i18n",
-                "php",
-                "translator"
-            ],
-            "support": {
-                "email": "oom@oscarotero.com",
-                "issues": "https://github.com/php-gettext/Translator/issues",
-                "source": "https://github.com/php-gettext/Translator/tree/v1.0.1"
-            },
-            "time": "2020-12-01T18:51:46+00:00"
         },
         {
             "name": "gumlet/php-image-resize",
