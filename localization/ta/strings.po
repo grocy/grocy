@@ -1,7 +1,7 @@
 # 
 # Translators:
 # Sathish K <sathishkk@sathishkumark.com>, 2019
-# Aswin Kumar, 2020
+# Aswin Kumar, 2021
 # 
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Aswin Kumar, 2020\n"
+"Last-Translator: Aswin Kumar, 2021\n"
 "Language-Team: Tamil (https://www.transifex.com/grocy/teams/93189/ta/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1896,7 +1896,7 @@ msgid "Price per stock unit"
 msgstr "ஒவ்வொரு கையிருப்பு அளவின் விலை"
 
 msgid "Table options"
-msgstr ""
+msgstr "அட்டவணை அமைப்புகள்"
 
 msgid "This product is currently on a shopping list"
 msgstr ""
@@ -1965,7 +1965,7 @@ msgid ""
 msgstr ""
 
 msgid "Copy"
-msgstr ""
+msgstr "பிரதியிடு"
 
 msgid "Are you sure to remove this barcode?"
 msgstr ""
@@ -2166,13 +2166,13 @@ msgid "Merge this product with another one"
 msgstr ""
 
 msgid "Merge products"
-msgstr ""
+msgstr "பொருட்களினை இணை"
 
 msgid "Product to keep"
-msgstr ""
+msgstr "வைத்துக்கொள்ளவேண்டிய பொருள்"
 
 msgid "Product to remove"
-msgstr ""
+msgstr "நீக்கவேண்டிய பொருள்"
 
 msgid "Error while merging products"
 msgstr ""
@@ -2186,13 +2186,13 @@ msgid ""
 msgstr ""
 
 msgid "Merge"
-msgstr ""
+msgstr "இணைத்திடு"
 
 msgid "Title"
-msgstr ""
+msgstr "தலைப்பு"
 
 msgid "Link"
-msgstr ""
+msgstr "இணைப்பு"
 
 msgid ""
 "The stock overview page lists all products which are currently in-stock or "
@@ -2204,4 +2204,72 @@ msgid "Print options"
 msgstr ""
 
 msgid "A product or a note is required"
+msgstr ""
+
+msgid "grocycode"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "Download stock entry grocycode"
+msgstr ""
+
+msgid "Download product grocycode"
+msgstr ""
+
+msgid ""
+"grocycode is a unique referer to this product in your grocy instance - print"
+" it onto a label and scan it like any other barcode"
+msgstr ""
+
+# Abbreviation for "due date"
+msgid "DD"
+msgstr ""
+
+msgid "Print on label printer"
+msgstr ""
+
+msgid "Stock entry label"
+msgstr ""
+
+msgid "No label"
+msgstr ""
+
+msgid "Single label"
+msgstr ""
+
+msgid "Label per unit"
+msgstr ""
+
+msgid "Allow label printing per unit"
+msgstr ""
+
+msgid ""
+"Allow printing of one label per unit on purchase (after conversion) - e.g. 1"
+" purchased pack adding 10 pieces of stock would print 10 labels"
+msgstr ""
+
+msgid "Error while executing WebHook"
+msgstr ""
+
+msgid "Print product grocycode on label printer"
+msgstr ""
+
+msgid "Print stock entry grocycode on label printer"
+msgstr ""
+
+msgid "Open stock entry print label in new window"
+msgstr ""
+
+msgid "Thermal printer"
+msgstr ""
+
+msgid "Printing"
+msgstr ""
+
+msgid "Connecting to printer..."
+msgstr ""
+
+msgid "Unable to print"
 msgstr ""

@@ -1,7 +1,7 @@
 # 
 # Translators:
 # Juraj Smieško <juraj.smiesko@gmail.com>, 2020
-# Jose Riha <jose1711@gmail.com>, 2020
+# Jose Riha <jose1711@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Jose Riha <jose1711@gmail.com>, 2020\n"
+"Last-Translator: Jose Riha <jose1711@gmail.com>, 2021\n"
 "Language-Team: Slovak (Slovakia) (https://www.transifex.com/grocy/teams/93189/sk_SK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,10 +44,10 @@ msgstr[3] "%s výrobkov je po záruke"
 
 msgid "%s product is overdue"
 msgid_plural "%s products are overdue"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%s výrobok je po záruke"
+msgstr[1] "%s výrobky sú po záruke"
+msgstr[2] "%s výrobkov je po záruke"
+msgstr[3] "%s výrobkov je po záruke"
 
 msgid "%s product is below defined min. stock amount"
 msgid_plural "%s products are below defined min. stock amount"
@@ -1836,7 +1836,7 @@ msgid "Save & return to recipes"
 msgstr ""
 
 msgid "Stock value"
-msgstr ""
+msgstr "Hodnota zásob"
 
 msgid "Average price"
 msgstr ""
@@ -1860,7 +1860,7 @@ msgid "Edit Barcode"
 msgstr ""
 
 msgid "Not enough in stock (not included in costs), %s ingredient missing"
-msgstr ""
+msgstr "Nedostatočná zásoba (nezahrnuté v nákupoch), %s ingrediencií chýba"
 
 msgid ""
 "Based on the prices of the default consume rule which is \"Opened first, "
@@ -1871,12 +1871,14 @@ msgid ""
 "Not enough in stock (not included in costs), %1$s missing, %2$s already on "
 "shopping list"
 msgstr ""
+"Nedostatočná zásoba (nezahrnuté v náupoch), %1$s chýba %2$s už v nákupnom "
+"zozname"
 
 msgid "Quantity unit stock cannot be changed after first purchase"
 msgstr ""
 
 msgid "Clear filter"
-msgstr ""
+msgstr "Vyčistiť filter"
 
 msgid "Permissions for user %s"
 msgstr ""
@@ -1986,13 +1988,13 @@ msgid "price"
 msgstr ""
 
 msgid "New stock amount"
-msgstr ""
+msgstr "Nová hodnota zásob"
 
 msgid "Price per stock unit"
 msgstr ""
 
 msgid "Table options"
-msgstr ""
+msgstr "Nastavenia tabuľky"
 
 msgid "This product is currently on a shopping list"
 msgstr ""
@@ -2152,7 +2154,7 @@ msgid "Due soon days"
 msgstr ""
 
 msgid "Add overdue/expired products"
-msgstr ""
+msgstr "Pridať trvanlivosť/expiráciu výrobku"
 
 msgid ""
 "Products with tare weight enabled are currently not supported for transfer"
@@ -2234,10 +2236,10 @@ msgid "Reset"
 msgstr ""
 
 msgid "Are you sure to reset the table options?"
-msgstr ""
+msgstr "Naozaj chcete resetovať nastavenie tabuľky?"
 
 msgid "Hide/view columns"
-msgstr ""
+msgstr "Skryť/zobraziť stĺpce"
 
 msgid ""
 "A different amount/unit can then be used below while for stock fulfillment "
@@ -2304,4 +2306,72 @@ msgid "Print options"
 msgstr ""
 
 msgid "A product or a note is required"
+msgstr ""
+
+msgid "grocycode"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "Download stock entry grocycode"
+msgstr ""
+
+msgid "Download product grocycode"
+msgstr ""
+
+msgid ""
+"grocycode is a unique referer to this product in your grocy instance - print"
+" it onto a label and scan it like any other barcode"
+msgstr ""
+
+# Abbreviation for "due date"
+msgid "DD"
+msgstr ""
+
+msgid "Print on label printer"
+msgstr ""
+
+msgid "Stock entry label"
+msgstr ""
+
+msgid "No label"
+msgstr ""
+
+msgid "Single label"
+msgstr ""
+
+msgid "Label per unit"
+msgstr ""
+
+msgid "Allow label printing per unit"
+msgstr ""
+
+msgid ""
+"Allow printing of one label per unit on purchase (after conversion) - e.g. 1"
+" purchased pack adding 10 pieces of stock would print 10 labels"
+msgstr ""
+
+msgid "Error while executing WebHook"
+msgstr ""
+
+msgid "Print product grocycode on label printer"
+msgstr ""
+
+msgid "Print stock entry grocycode on label printer"
+msgstr ""
+
+msgid "Open stock entry print label in new window"
+msgstr ""
+
+msgid "Thermal printer"
+msgstr ""
+
+msgid "Printing"
+msgstr ""
+
+msgid "Connecting to printer..."
+msgstr ""
+
+msgid "Unable to print"
 msgstr ""

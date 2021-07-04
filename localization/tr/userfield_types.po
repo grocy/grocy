@@ -1,10 +1,14 @@
 # 
+# Translators:
+# Yigit Sever <yigit@ceng.metu.edu.tr>, 2021
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:43+0000\n"
+"Last-Translator: Yigit Sever <yigit@ceng.metu.edu.tr>, 2021\n"
 "Language-Team: Turkish (https://www.transifex.com/grocy/teams/93189/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,23 +17,54 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Domain: grocy/userfield_types\n"
 
+# Text (single line)
 msgid "text-single-line"
-msgstr ""
+msgstr "tek-satir-metin"
 
+# Text (multi line)
 msgid "text-multi-line"
-msgstr ""
+msgstr "coklu-satir-metin"
 
+# Number (integral)
 msgid "number-integral"
-msgstr ""
+msgstr "tam-sayi"
 
+# Number (decimal)
 msgid "number-decimal"
-msgstr ""
+msgstr "ondalik-sayi"
 
+# Date (without time)
 msgid "date"
-msgstr ""
+msgstr "tarih"
 
+# Date & time
 msgid "datetime"
-msgstr ""
+msgstr "tarihsaat"
 
+# Checkbox
 msgid "checkbox"
-msgstr ""
+msgstr "isaret-kutucugu"
+
+# Select list (a single item can be selected)
+msgid "preset-list"
+msgstr "onayarli-tekli-liste"
+
+# Select list (multiple items can be selected)
+msgid "preset-checklist"
+msgstr "onayarli-coklu-liste"
+
+# Link
+msgid "link"
+msgstr "link"
+
+# Link (with title)
+msgid "link-with-title"
+msgstr "baslik-ve-link"
+
+# File
+msgid "file"
+msgstr "dosya"
+
+# Image
+msgid "image"
+msgstr "resim"

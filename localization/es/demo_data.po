@@ -119,13 +119,13 @@ msgid "Warranty ends"
 msgstr "Final de la garantía"
 
 msgid "TV remote control"
-msgstr "Control remoto del televisor"
+msgstr "Mando a distancia de la televisión"
 
 msgid "Alarm clock"
 msgstr "Despertador"
 
 msgid "Heat remote control"
-msgstr "Control remoto de la calefacción"
+msgstr "Mando a distancia de la calefacción"
 
 msgid "Lawn mowed in the garden"
 msgstr "Cortar el césped del jardín"

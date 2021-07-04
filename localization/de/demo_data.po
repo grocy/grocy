@@ -1,6 +1,7 @@
 # 
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2020
+# @RubenKelevra <ruben@freifunk-nrw.de>, 2021
 # 
 msgid ""
 msgstr ""
@@ -8,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2020\n"
+"Last-Translator: @RubenKelevra <ruben@freifunk-nrw.de>, 2021\n"
 "Language-Team: German (https://www.transifex.com/grocy/teams/93189/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +19,7 @@ msgstr ""
 "X-Domain: grocy/demo_data\n"
 
 msgid "Cookies"
-msgstr "Cookies"
+msgstr "Kekse"
 
 msgid "Chocolate"
 msgstr "Schokolade"
@@ -90,7 +91,7 @@ msgid "Cheese"
 msgstr "Käse"
 
 msgid "Cold cuts"
-msgstr "Aufschnitt"
+msgstr "Wurst-Aufschnitt"
 
 msgid "Paprika"
 msgstr "Paprika"
@@ -114,19 +115,19 @@ msgid "Warranty ends"
 msgstr "Garantie endet"
 
 msgid "TV remote control"
-msgstr "TV Fernbedienung"
+msgstr "TV-Fernbedienung"
 
 msgid "Alarm clock"
 msgstr "Wecker"
 
 msgid "Heat remote control"
-msgstr "Fernbedienung Heizung"
+msgstr "Fernbedienung der Heizung"
 
 msgid "Lawn mowed in the garden"
 msgstr "Rasen im Garten gemäht"
 
 msgid "Some good snacks"
-msgstr "Paar gute Snacks"
+msgstr "Gutes Knabberzeug"
 
 msgid "Pizza dough"
 msgstr "Pizzateig"
@@ -162,10 +163,10 @@ msgid "Italian"
 msgstr "Italienisch"
 
 msgid "This is the note content of the recipe ingredient"
-msgstr "Dies ist der Inhalt der Notiz der Zutat"
+msgstr "Dies ist die Notiz zur Zutat"
 
 msgid "Demo User"
-msgstr "Demo Benutzer"
+msgstr "Demo-Benutzer"
 
 msgid "Gram"
 msgid_plural "Grams"
@@ -197,13 +198,14 @@ msgid "Fork and improve grocy"
 msgstr "grocy forken und verbessern"
 
 msgid "Find a solution for what to do when I forget the door keys"
-msgstr "Eine Lösung für \"Haustürschlüssel vergessen\" finden"
+msgstr ""
+"Eine Lösung finden, was zu tun ist, wenn ich die Türschlüssel vergesse"
 
 msgid "Sweets"
 msgstr "Süßigkeiten"
 
 msgid "Bakery products"
-msgstr "Bäckerei Produkte"
+msgstr "Bäckerei-Produkte"
 
 msgid "Tinned food"
 msgstr "Konservern"
@@ -212,7 +214,7 @@ msgid "Butchery products"
 msgstr "Metzgerei"
 
 msgid "Vegetables/Fruits"
-msgstr "Obst/Gemüse"
+msgstr "Obst und Gemüse"
 
 msgid "Refrigerated products"
 msgstr "Kühlregal"
@@ -292,7 +294,7 @@ msgstr[0] "Scheibe"
 msgstr[1] "Scheiben"
 
 msgid "Example userentity"
-msgstr "Beispiel Benutzerentität"
+msgstr "Beispiel-Benutzerentität"
 
 msgid "This is an example user entity..."
 msgstr "Dies ist eine Beispiel-Benutzerentität"
@@ -301,7 +303,7 @@ msgid "Custom field"
 msgstr "Benutzerdefiniertes Feld"
 
 msgid "Example field value..."
-msgstr "Beispiel Feldwert..."
+msgstr "Beispiel-Feldwert..."
 
 msgid "Waffle rolls"
 msgstr "Waffelröllchen"
@@ -328,7 +330,7 @@ msgid "current release"
 msgstr "aktuelles Release"
 
 msgid "not yet released"
-msgstr "noch nicht freigegeben"
+msgstr "noch nicht erschienen"
 
 msgid "Portuguese (Brazil)"
 msgstr "Portugiesisch (Brasilien)"

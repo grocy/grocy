@@ -1,8 +1,8 @@
 # 
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2019
-# Joao Santos <joaocpdsantos@gmail.com>, 2019
 # Ricardo Rodrigues <fenix999@gmail.com>, 2020
+# Joao Santos <joaocpdsantos@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:43+0000\n"
-"Last-Translator: Ricardo Rodrigues <fenix999@gmail.com>, 2020\n"
+"Last-Translator: Joao Santos <joaocpdsantos@gmail.com>, 2021\n"
 "Language-Team: Portuguese (Portugal) (https://www.transifex.com/grocy/teams/93189/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -57,16 +57,16 @@ msgstr "lista-verificação-pré-defenida"
 
 # Link
 msgid "link"
-msgstr "hiperligação"
+msgstr "Hiperligação"
 
 # Link (with title)
 msgid "link-with-title"
-msgstr ""
+msgstr "Hiperligação (com título)"
 
 # File
 msgid "file"
-msgstr ""
+msgstr "Ficheiro"
 
 # Image
 msgid "image"
-msgstr ""
+msgstr "Imagem"

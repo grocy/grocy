@@ -1935,7 +1935,7 @@ msgid ""
 "When enabled, after changing/scanning a product and if all fields could be "
 "automatically populated (by product and/or barcode defaults), the "
 "transaction is automatically submitted"
-msgstr ""
+msgstr "当启用时，在更改/扫描产品之后，如果所有字段都可以自动填充(按产品和/或条形码默认值)，事务将自动提交"
 
 msgid "Quick consume amount"
 msgstr "快速消费的金额"
@@ -2184,3 +2184,71 @@ msgstr "打印选项"
 
 msgid "A product or a note is required"
 msgstr "需要一件产品或一张便条"
+
+msgid "grocycode"
+msgstr "grocy码"
+
+msgid "Download"
+msgstr "下载"
+
+msgid "Download stock entry grocycode"
+msgstr "下载库存条目grocy码"
+
+msgid "Download product grocycode"
+msgstr "下载产品grocy码"
+
+msgid ""
+"grocycode is a unique referer to this product in your grocy instance - print"
+" it onto a label and scan it like any other barcode"
+msgstr "Grocycode是一个独特的参考本产品在您的grocy实例-打印到标签和扫描它就像任何其他条码"
+
+# Abbreviation for "due date"
+msgid "DD"
+msgstr "‎期限‎"
+
+msgid "Print on label printer"
+msgstr "标签打印机打印"
+
+msgid "Stock entry label"
+msgstr "库存条目标签"
+
+msgid "No label"
+msgstr "无标签"
+
+msgid "Single label"
+msgstr "单一标签"
+
+msgid "Label per unit"
+msgstr "标签单位"
+
+msgid "Allow label printing per unit"
+msgstr "允许标签打印每单位"
+
+msgid ""
+"Allow printing of one label per unit on purchase (after conversion) - e.g. 1"
+" purchased pack adding 10 pieces of stock would print 10 labels"
+msgstr "允许打印一个标签每单位购买(转换后)-例如1购买包装增加10件库存将打印10个标签"
+
+msgid "Error while executing WebHook"
+msgstr "执行WebHook时出错"
+
+msgid "Print product grocycode on label printer"
+msgstr "在标签打印机上打印产品grocycode"
+
+msgid "Print stock entry grocycode on label printer"
+msgstr "在标签打印机上打印库存条目grocy码"
+
+msgid "Open stock entry print label in new window"
+msgstr "在新窗口中打开库存条目打印标签"
+
+msgid "Thermal printer"
+msgstr "热感打印机"
+
+msgid "Printing"
+msgstr "印刷"
+
+msgid "Connecting to printer..."
+msgstr "连接到打印机……"
+
+msgid "Unable to print"
+msgstr "无法打印"

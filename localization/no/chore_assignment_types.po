@@ -1,6 +1,6 @@
 # 
 # Translators:
-# Marius Borø <blizzwave@gmail.com>, 2019
+# Marius Borø <blizzwave@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-09-17 10:45+0000\n"
-"Last-Translator: Marius Borø <blizzwave@gmail.com>, 2019\n"
+"Last-Translator: Marius Borø <blizzwave@gmail.com>, 2021\n"
 "Language-Team: Norwegian (https://www.transifex.com/grocy/teams/93189/no/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,13 +18,13 @@ msgstr ""
 "X-Domain: grocy/chore_assignment_types\n"
 
 msgid "no-assignment"
-msgstr "Ingen tildeling"
+msgstr "no-assignment"
 
 msgid "who-least-did-first"
-msgstr "  Hvem gjorde minst først"
+msgstr "who-least-did-first"
 
 msgid "random"
-msgstr "Tilfeldig"
+msgstr "random"
 
 msgid "in-alphabetical-order"
-msgstr "I alfabetisk rekkefølge"
+msgstr "in-alphabetical-order"

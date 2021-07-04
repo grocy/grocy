@@ -4,6 +4,7 @@
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # Matteo Piotto <matteo.piotto@welaika.com>, 2019
 # 42d76af3cd20bc399c7e8a413695959f, 2019
+# Matteo Piccina <altermatte@gmail.com>, 2021
 # Antonino Ursino <ninus_@libero.it>, 2021
 # 
 msgid ""
@@ -71,10 +72,10 @@ msgid "Batteries overview"
 msgstr "Riepilogo delle batterie"
 
 msgid "Purchase"
-msgstr "Acquisti"
+msgstr "Acquista"
 
 msgid "Consume"
-msgstr "Consumi"
+msgstr "Consuma"
 
 msgid "Inventory"
 msgstr "Inventario"
@@ -733,7 +734,7 @@ msgid "Status"
 msgstr "Stato"
 
 msgid "Below min. stock amount"
-msgstr "Sotto min. quantità in dispensa"
+msgstr "Sotto quantità min. in dispensa"
 
 msgid "Expiring soon"
 msgstr "In scadenza a breve"
@@ -742,7 +743,7 @@ msgid "Already expired"
 msgstr "Già scaduto"
 
 msgid "Due soon"
-msgstr "Da fare subito"
+msgstr "In scadenza"
 
 msgid "Overdue"
 msgstr "In ritardo"
@@ -1615,7 +1616,7 @@ msgstr ""
 "essere programmata solo ogni %s anni"
 
 msgid "Transfer"
-msgstr "Trasferire"
+msgstr "Trasferisci"
 
 msgid "From location"
 msgstr "Dalla posizione"
@@ -2077,6 +2078,9 @@ msgid ""
 "automatically populated (by product and/or barcode defaults), the "
 "transaction is automatically submitted"
 msgstr ""
+"Quando abilitato, dopo aver modificato/scansionato un prodotto e se tutti i "
+"campi possono essere riempiti automaticamente (per prodotto e/o per codice a"
+" barre predefiniti), la transazione è inviata automaticamente"
 
 msgid "Quick consume amount"
 msgstr "Quantità di consumo rapida"
@@ -2376,3 +2380,79 @@ msgstr "Opzioni di stampa"
 
 msgid "A product or a note is required"
 msgstr "È richiesto un prodotto o una nota"
+
+msgid "grocycode"
+msgstr "codicegrocy"
+
+msgid "Download"
+msgstr "Scarica"
+
+msgid "Download stock entry grocycode"
+msgstr "Scarica il codicegrocy della voce di dispensa  "
+
+msgid "Download product grocycode"
+msgstr "Scarica il codicegrocy di prodotto"
+
+msgid ""
+"grocycode is a unique referer to this product in your grocy instance - print"
+" it onto a label and scan it like any other barcode"
+msgstr ""
+"Il codicegrocy è un referente univoco per questo prodotto nella tua istanza "
+"grocy: stampalo su un'etichetta e scansionalo come qualsiasi altro codice a "
+"barre "
+
+# Abbreviation for "due date"
+msgid "DD"
+msgstr "Scad."
+
+msgid "Print on label printer"
+msgstr "Stampa su stampante per etichette"
+
+msgid "Stock entry label"
+msgstr "Etichetta della voce di dispensa"
+
+msgid "No label"
+msgstr "Senza etichetta"
+
+msgid "Single label"
+msgstr "Etichetta singola"
+
+msgid "Label per unit"
+msgstr "Etichetta per unità"
+
+msgid "Allow label printing per unit"
+msgstr "Consenti la stampa di etichette per unità"
+
+msgid ""
+"Allow printing of one label per unit on purchase (after conversion) - e.g. 1"
+" purchased pack adding 10 pieces of stock would print 10 labels"
+msgstr ""
+"Consenti la stampa di un'etichetta per unità al momento dell'acquisto (dopo "
+"la conversione) - ad es. 1 confezione acquistata aggiungendo 10 pezzi in "
+"dispensa stamperebbe 10 etichette"
+
+msgid "Error while executing WebHook"
+msgstr "Errore durante l'esecuzione di WebHook"
+
+msgid "Print product grocycode on label printer"
+msgstr "Stampa il codicegrocy del prodotto sulla stampante per etichette"
+
+msgid "Print stock entry grocycode on label printer"
+msgstr ""
+"Stampa il codicegrocy della voce di dispensa sulla stampante per etichette"
+
+msgid "Open stock entry print label in new window"
+msgstr ""
+"Apri l'etichetta di stampa della voce di dispensa in una nuova finestra"
+
+msgid "Thermal printer"
+msgstr "Stampante termica"
+
+msgid "Printing"
+msgstr "In stampa"
+
+msgid "Connecting to printer..."
+msgstr "Connessione alla stampante..."
+
+msgid "Unable to print"
+msgstr "Impossibile stampare"

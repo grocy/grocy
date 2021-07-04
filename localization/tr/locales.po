@@ -1,6 +1,6 @@
 # 
 # Translators:
-# Aswin Kumar, 2021
+# Yigit Sever <yigit@ceng.metu.edu.tr>, 2021
 # 
 msgid ""
 msgstr ""
@@ -8,115 +8,115 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2020-08-31 19:11+0000\n"
-"Last-Translator: Aswin Kumar, 2021\n"
-"Language-Team: Tamil (https://www.transifex.com/grocy/teams/93189/ta/)\n"
+"Last-Translator: Yigit Sever <yigit@ceng.metu.edu.tr>, 2021\n"
+"Language-Team: Turkish (https://www.transifex.com/grocy/teams/93189/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ta\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: tr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Domain: grocy/locales\n"
 
 # Czech
 msgid "cs"
-msgstr "cs"
+msgstr "Çekçe"
 
 # Danish
 msgid "da"
-msgstr "da"
+msgstr "Danca"
 
 # German
 msgid "de"
-msgstr "de"
+msgstr "Almanca"
 
 # Greek
 msgid "el_GR"
-msgstr "el_GR"
+msgstr "Yunanca"
 
 # English
 msgid "en"
-msgstr "en"
+msgstr "İngilizce"
 
 # English (Great Britain)
 msgid "en_GB"
-msgstr "en_GB"
+msgstr "İngilizce (Büyük Britanya)"
 
 # Spanish
 msgid "es"
-msgstr "es"
+msgstr "İspanyolca"
 
 # French
 msgid "fr"
-msgstr "fr"
+msgstr "Fransızca"
 
 # Hungarian
 msgid "hu"
-msgstr "hu"
+msgstr "Macarca"
 
 # Italian
 msgid "it"
-msgstr "it"
+msgstr "İtalyanca"
 
 # Japanese
 msgid "ja"
-msgstr "ja"
+msgstr "Japonca"
 
 # Korean
 msgid "ko_KR"
-msgstr "ko_KR"
+msgstr "Korece"
 
 # Dutch
 msgid "nl"
-msgstr "nl"
+msgstr "Flemenkçe"
 
 # Norwegian
 msgid "no"
-msgstr "no"
+msgstr "Norveççe"
 
 # Polish
 msgid "pl"
-msgstr "pl"
+msgstr "Lehçe"
 
 # Portuguese (Brazil)
 msgid "pt_BR"
-msgstr "pt_BR"
+msgstr "Portekizce (Brezilya)"
 
 # Portuguese (Portugal)
 msgid "pt_PT"
-msgstr "pt_PT"
+msgstr "Portekizce (Portekiz)"
 
 # Russian
 msgid "ru"
-msgstr "ru"
+msgstr "Rusça"
 
 # Slovak
 msgid "sk_SK"
-msgstr "sk_SK"
+msgstr "Slovak Dili"
 
 # Swedish
 msgid "sv_SE"
-msgstr "sv_SE"
+msgstr "İsveççe"
 
 # Turkish
 msgid "tr"
-msgstr "tr"
+msgstr "Türkçe"
 
 # Chinese (Taiwan)
 msgid "zh_TW"
-msgstr "zh_TW"
+msgstr "Çince (Tayvan)"
 
 # Chinese (China)
 msgid "zh_CN"
-msgstr "zh_CN"
+msgstr "Çince (Çin)"
 
 # Hebrew (Israel)
 msgid "he_IL"
-msgstr "he_IL"
+msgstr "İbranice (İsrail)"
 
 # Tamil
 msgid "ta"
-msgstr "ta"
+msgstr "Tamil Dili"
 
 # Finnish
 msgid "fi"
-msgstr "fi"
+msgstr "Fince"

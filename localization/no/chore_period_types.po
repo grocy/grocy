@@ -1,7 +1,6 @@
 # 
 # Translators:
-# Bernd Bestel <bernd@berrnd.de>, 2019
-# Marius Borø <blizzwave@gmail.com>, 2019
+# Tor Eirik Trandal <teitrand@hotmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -9,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Marius Borø <blizzwave@gmail.com>, 2019\n"
+"Last-Translator: Tor Eirik Trandal <teitrand@hotmail.com>, 2021\n"
 "Language-Team: Norwegian (https://www.transifex.com/grocy/teams/93189/no/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,19 +18,19 @@ msgstr ""
 "X-Domain: grocy/chore_types\n"
 
 msgid "manually"
-msgstr "Manuell"
+msgstr "manuelt"
 
 msgid "dynamic-regular"
-msgstr "Automatisk"
+msgstr "dynamisk-vanlig"
 
 msgid "daily"
-msgstr "Daglig"
+msgstr "daglig"
 
 msgid "weekly"
-msgstr "Ukentlig"
+msgstr "ukentlig"
 
 msgid "monthly"
-msgstr "Månedlig"
+msgstr "månedlig"
 
 msgid "yearly"
 msgstr "årlig"

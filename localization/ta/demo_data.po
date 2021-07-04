@@ -1,6 +1,6 @@
 # 
 # Translators:
-# Aswin Kumar, 2020
+# Aswin Kumar, 2021
 # 
 msgid ""
 msgstr ""
@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Aswin Kumar, 2020\n"
+"Last-Translator: Aswin Kumar, 2021\n"
 "Language-Team: Tamil (https://www.transifex.com/grocy/teams/93189/ta/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -379,7 +379,7 @@ msgid "Hebrew (Israel)"
 msgstr "ஹீபுரு (இசுரேல்)"
 
 msgid "Tamil"
-msgstr ""
+msgstr "தமிழ்"
 
 msgid "Finnish"
-msgstr ""
+msgstr "பின்னிய மொழி"

@@ -8,6 +8,7 @@
 # Jukka-Pekka Kokkonen <jukkapekka.kokkonen@gmail.com>, 2020
 # Matias Käkelä <matias.kakela@gmail.com>, 2020
 # Matti Koskimies <matti@apulanta.fi>, 2021
+# Lauri Niskanen <ape3000@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -15,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Matti Koskimies <matti@apulanta.fi>, 2021\n"
+"Last-Translator: Lauri Niskanen <ape3000@gmail.com>, 2021\n"
 "Language-Team: Finnish (https://www.transifex.com/grocy/teams/93189/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,32 +26,32 @@ msgstr ""
 "X-Domain: grocy/strings\n"
 
 msgid "Stock overview"
-msgstr "Varaston yleiskatsaus"
+msgstr "Varasto"
 
 msgid "%s product expires"
 msgid_plural "%s products expiring"
-msgstr[0] "%stuote vanhentuu"
-msgstr[1] "%s tuotetta vanhentumassa"
+msgstr[0] "%s tuote pilaantuu"
+msgstr[1] "%s tuotetta pilaantuu"
 
 msgid "within the next day"
 msgid_plural "within the next %s days"
-msgstr[0] "seuraavan päivän sisällä"
-msgstr[1] "%späivän sisällä"
+msgstr[0] "päivän sisällä"
+msgstr[1] "%s päivän sisällä"
 
 msgid "%s product is already expired"
 msgid_plural "%s products are already expired"
-msgstr[0] "%stuotetta on jo vanhentunut"
-msgstr[1] "%stuotetta on jo vanhentunut"
+msgstr[0] "%s tuote on pilaantunut"
+msgstr[1] "%s tuotetta on pilaantunut"
 
 msgid "%s product is overdue"
 msgid_plural "%s products are overdue"
-msgstr[0] "%s tuote on myöhässä"
-msgstr[1] "%s tuotetta on myöhässä"
+msgstr[0] "%s tuote on vanhentunut"
+msgstr[1] "%s tuotetta on vanhentunut"
 
 msgid "%s product is below defined min. stock amount"
 msgid_plural "%s products are below defined min. stock amount"
-msgstr[0] "%stuote on alle varaston minimirajan"
-msgstr[1] "%stuotetta on alle minimirajan varastossa"
+msgstr[0] "%s tuotetta on alle varaston minimirajan"
+msgstr[1] "%s tuotetta on alle varaston minimirajan"
 
 msgid "Product"
 msgstr "Tuote"
@@ -58,7 +59,7 @@ msgstr "Tuote"
 msgid "%s Product"
 msgid_plural "%s Products"
 msgstr[0] "%sTuote"
-msgstr[1] "%sTuotetta"
+msgstr[1] "%s Tuotetta"
 
 msgid "Amount"
 msgstr "Määrä"
@@ -67,28 +68,28 @@ msgid "Logout"
 msgstr "Kirjaudu ulos"
 
 msgid "Chores overview"
-msgstr "Kotityö yleiskatsaus"
+msgstr "Kotityölista"
 
 msgid "Batteries overview"
-msgstr "Pattereiden yleiskatsaus"
+msgstr "Akkulista"
 
 msgid "Purchase"
 msgstr "Osta"
 
 msgid "Consume"
-msgstr "Käytä"
+msgstr "Kuluta"
 
 msgid "Inventory"
-msgstr "Tavaraluettelo"
+msgstr "Inventoi"
 
 msgid "Shopping list"
 msgstr "Ostoslista"
 
 msgid "Chore tracking"
-msgstr "Kotityön seuranta"
+msgstr "Suorita kotityö"
 
 msgid "Battery tracking"
-msgstr "Pattereiden seuranta"
+msgstr "Lataa akku"
 
 msgid "Locations"
 msgstr "Sijainnit"
@@ -97,31 +98,31 @@ msgid "Stores"
 msgstr "Myymälät"
 
 msgid "Quantity units"
-msgstr "Määrän yksiköt"
+msgstr "Yksiköt"
 
 msgid "Chores"
 msgstr "Kotityöt"
 
 msgid "Batteries"
-msgstr "Patterit"
+msgstr "Akut"
 
 msgid "Chore"
 msgstr "Kotityö"
 
 msgid "Next estimated tracking"
-msgstr "Seuraava arvioitu seuranta"
+msgstr "Seuraava arvioitu suoritus"
 
 msgid "Last tracked"
-msgstr "Viimeksi seurattu"
+msgstr "Viimeksi suoritettu"
 
 msgid "Battery"
-msgstr "Patteri"
+msgstr "Akku"
 
 msgid "Last charged"
 msgstr "Viimeksi ladattu"
 
 msgid "Next planned charge cycle"
-msgstr "Seuraavaksi suunniteltu lataussykli"
+msgstr "Seuraavaksi suunniteltu lataus"
 
 msgid "Best before"
 msgstr "Parasta ennen"
@@ -130,13 +131,13 @@ msgid "OK"
 msgstr "OK"
 
 msgid "Product overview"
-msgstr "Tuote yleisnäkymä"
+msgstr "Tuotteen tiedot"
 
 msgid "Stock quantity unit"
-msgstr "Varaston määrän yksikkö"
+msgstr "Varastoyksikkö"
 
 msgid "Stock amount"
-msgstr "Varaston määrä"
+msgstr "Varastomäärä"
 
 msgid "Last purchased"
 msgstr "Viimeksi ostettu"
@@ -161,19 +162,19 @@ msgid "Note"
 msgstr "Merkintä"
 
 msgid "Tracked time"
-msgstr "Seurattu aika"
+msgstr "Suoritusaika"
 
 msgid "Chore overview"
-msgstr "Kotitöiden yleisnäkymä"
+msgstr "Kotityön tiedot"
 
 msgid "Tracked count"
-msgstr "Seurattujen määrä"
+msgstr "Suoritusmäärä"
 
 msgid "Battery overview"
-msgstr "Patterien yleisnäkymä"
+msgstr "Akun tiedot"
 
 msgid "Charge cycles count"
-msgstr "Lataussyklien määrä"
+msgstr "Latausten määrä"
 
 msgid "Create shopping list item"
 msgstr "Luo ostoslistalle tuote"
@@ -194,7 +195,7 @@ msgid "Location"
 msgstr "Sijainti"
 
 msgid "Min. stock amount"
-msgstr "Min. varastomäärä"
+msgstr "Varastominimi"
 
 msgid "Description"
 msgstr "Kuvaus"
@@ -206,16 +207,16 @@ msgid "Barcode(s)"
 msgstr "Viivakoodi(t)"
 
 msgid "Minimum stock amount"
-msgstr "Minimi varastomäärä"
+msgstr "Varaston minimimäärä"
 
 msgid "Default best before days"
 msgstr "Parasta ennen -päivien oletusmäärä"
 
 msgid "Default quantity unit purchase"
-msgstr "Oletusyksikkö ostettaessa"
+msgstr "Oletusostoyksikkö"
 
 msgid "Quantity unit stock"
-msgstr "Yksikkö varastossa"
+msgstr "Varastoyksikkö"
 
 msgid "Factor purchase to stock quantity unit"
 msgstr "Kerroin ostoyksiköistä varastoyksiköihin"
@@ -227,7 +228,7 @@ msgid "Create store"
 msgstr "Luo myymälä"
 
 msgid "Create quantity unit"
-msgstr "Luo maaräyksikkö"
+msgstr "Luo yksikkö"
 
 msgid "Period type"
 msgstr "Ajanjakso tyyppi"
@@ -239,19 +240,19 @@ msgid "Create chore"
 msgstr "Luo kotityö"
 
 msgid "Used in"
-msgstr "Käytössä"
+msgstr "Käyttökohde"
 
 msgid "Create battery"
-msgstr "Lisää paristo"
+msgstr "Lisää akku"
 
 msgid "Edit battery"
-msgstr "Muokkaa paristoa"
+msgstr "Muokkaa akkua"
 
 msgid "Edit chore"
 msgstr "Muokkaa kotityötä"
 
 msgid "Edit quantity unit"
-msgstr "Muokkaa määrän yksikköä"
+msgstr "Muokkaa yksikköä"
 
 msgid "Edit product"
 msgstr "Muokkaa tuotetta"
@@ -293,7 +294,7 @@ msgid "Invalid credentials, please try again"
 msgstr "Virheelliset tunnukset. Yritä uudelleen"
 
 msgid "Are you sure to delete battery \"%s\"?"
-msgstr "Haluatko poistaa pariston \"%s\"?"
+msgstr "Haluatko poistaa akun \"%s\"?"
 
 msgid "Yes"
 msgstr "Kyllä"
@@ -323,7 +324,7 @@ msgid "Add as new product and prefill barcode"
 msgstr "Lisää uutena tuotteena ja täytä viivakoodi"
 
 msgid "Are you sure to delete quantity unit \"%s\"?"
-msgstr "Haluatko varmasti poistaa määräyksikön \"%s\"?"
+msgstr "Haluatko varmasti poistaa yksikön \"%s\"?"
 
 msgid "Are you sure to delete product \"%s\"?"
 msgstr "Haluatko varmasti poistaa tuotteen \"%s\"?"
@@ -335,19 +336,19 @@ msgid "Are you sure to delete store \"%s\"?"
 msgstr "Haluatko varmasti poistaa myymälän \"%s\"?"
 
 msgid "Manage API keys"
-msgstr "Hallitse API tunnuksia"
+msgstr "Hallitse API-tunnuksia"
 
 msgid "REST API & data model documentation"
-msgstr "REST API & data model dokumentaatio"
+msgstr "REST API & tietomalli -dokumentaatio"
 
 msgid "API keys"
-msgstr "API tunnukset"
+msgstr "API-tunnukset"
 
 msgid "Create new API key"
-msgstr "Luo API tunnus"
+msgstr "Luo API-tunnus"
 
 msgid "API key"
-msgstr "API tunnus"
+msgstr "API-tunnus"
 
 msgid "Expires"
 msgstr "Vanhenee"
@@ -372,10 +373,10 @@ msgstr ""
 "jälkeen"
 
 msgid "Removed %1$s of %2$s from stock"
-msgstr "Poistettiin %1$skpl tuotetta %2$s varastosta "
+msgstr "Poistettiin %1$s tuotetta %2$s varastosta "
 
 msgid "About grocy"
-msgstr "Grocysta"
+msgstr "Tietoja grocysta"
 
 msgid "Close"
 msgstr "Sulje"
@@ -384,7 +385,7 @@ msgid "Released on"
 msgstr "Julkaistu"
 
 msgid "Added %1$s of %2$s to stock"
-msgstr "Lisättiin %1$skpl tuotetta %2$svarastoon"
+msgstr "Lisättiin %1$s tuotetta %2$svarastoon"
 
 msgid "Stock amount of %1$s is now %2$s"
 msgstr "%1$s varastomäärä on nyt %2$s"
@@ -393,10 +394,10 @@ msgid "Tracked execution of chore %1$s on %2$s"
 msgstr "Kotityö %1$s on suoritettu %2$s"
 
 msgid "Tracked charge cycle of battery %1$s on %2$s"
-msgstr "Paristoa %1$s ladattu %2$s"
+msgstr "Akkua %1$s ladattu %2$s"
 
 msgid "Consume all %s which are currently in stock"
-msgstr "Käytä kaikki varastossa olevat %s "
+msgstr "Kuluta kaikki varastossa olevat %s "
 
 msgid "All"
 msgstr "Kaikki"
@@ -487,10 +488,10 @@ msgid "Expand to fullscreen"
 msgstr "Käytä kokonäytön tilaa"
 
 msgid "Ingredients"
-msgstr "Ainesosat"
+msgstr "Ainekset"
 
 msgid "Preparation"
-msgstr "Valmistelu"
+msgstr "Valmistus"
 
 msgid "Recipe"
 msgstr "Resepti"
@@ -560,17 +561,17 @@ msgid "Unknown"
 msgstr "Tuntematon"
 
 msgid "Chores journal"
-msgstr "Kotityölistaus"
+msgstr "Kotityöpäiväkirja"
 
 msgid "0 means suggestions for the next charge cycle are disabled"
 msgstr ""
 "0 tarkoittaa, että ehdotukset seuraavalle lataukselle on pois käytöstä"
 
 msgid "Charge cycle interval (days)"
-msgstr "Lataussyklin aikaväli (päivää)"
+msgstr "Latausaikaväli (päivää)"
 
 msgid "Last price"
-msgstr "Viimeinen hinta"
+msgstr "Viimeisin hinta"
 
 msgid "Price history"
 msgstr "Hintahistoria"
@@ -592,28 +593,28 @@ msgstr[1] "%s kappaletta"
 msgid "%s chore is due to be done"
 msgid_plural "%s chores are due to be done"
 msgstr[0] "%s kotityön määräpäivä"
-msgstr[1] "%s kotitöiden määräpäivä"
+msgstr[1] "%s kotityön määräpäivää"
 
 msgid "%s chore is overdue to be done"
 msgid_plural "%s chores are overdue to be done"
-msgstr[0] "%s myöhästynyt kotityö"
-msgstr[1] "%s kotityö myöhässä"
+msgstr[0] "%s kotityö myöhässä"
+msgstr[1] "%s kotityötä myöhässä"
 
 msgid "%s battery is due to be charged"
 msgid_plural "%s batteries are due to be charged"
-msgstr[0] "%s paristo on lataamatta"
-msgstr[1] "%s paristoa lataamatta"
+msgstr[0] "%s akun lataus"
+msgstr[1] "%s akun lataus"
 
 msgid "%s battery is overdue to be charged"
 msgid_plural "%s batteries are overdue to be charged"
-msgstr[0] "%s pariston lataus myöhässä"
-msgstr[1] "%s pariston latausta myöhässä"
+msgstr[0] "%s akun lataus myöhässä"
+msgstr[1] "%s akun latausta myöhässä"
 
 msgid "in singular form"
-msgstr "yksikössä"
+msgstr "yksikön partitiivissa"
 
 msgid "Quantity unit"
-msgstr "Määräyksikkö"
+msgstr "Yksikkö"
 
 msgid "Only check if any amount is in stock"
 msgstr "Tarkista vain onko varastossa ollenkaan"
@@ -630,7 +631,7 @@ msgid "Removed all ingredients of recipe \"%s\" from stock"
 msgstr "Poistettu kaikki reseptin \"%s\" ainesosat varastosta"
 
 msgid "Consume all ingredients needed by this recipe"
-msgstr "Käytä kaikki tämän reseptin ainesosat"
+msgstr "Kuluta kaikki tämän reseptin ainesosat"
 
 msgid "Click to show technical details"
 msgstr "Klikkaa nähdäksesi yksityiskohdat"
@@ -642,7 +643,7 @@ msgid "Error details"
 msgstr "Virheen tiedot"
 
 msgid "Tasks"
-msgstr "Tehtävät"
+msgstr "Tehtävälista"
 
 msgid "Show done tasks"
 msgstr "Näytä tehdyt tehtävät"
@@ -682,8 +683,8 @@ msgstr "Haluatko varmasti poistaa tehtävän \"%s\"?"
 
 msgid "%s task is due to be done"
 msgid_plural "%s tasks are due to be done"
-msgstr[0] "%s tehtävän määräpäivä "
-msgstr[1] "%s tehtävän määräpäivä "
+msgstr[0] "%s tehtävän määräpäivä"
+msgstr[1] "%s tehtävän määräpäivää"
 
 msgid "%s task is overdue to be done"
 msgid_plural "%s tasks are overdue to be done"
@@ -725,13 +726,13 @@ msgid "Status"
 msgstr "Tila"
 
 msgid "Below min. stock amount"
-msgstr "Alle vähimmäis varastomäärän."
+msgstr "Alle varaston minimimäärän"
 
 msgid "Expiring soon"
 msgstr "Viimeinen käyttöpäivä lähellä"
 
 msgid "Already expired"
-msgstr "Vanhentunut"
+msgstr "Pilaantunut"
 
 msgid "Due soon"
 msgstr "Määräpäivä pian"
@@ -740,7 +741,7 @@ msgid "Overdue"
 msgstr "Myöhässä"
 
 msgid "View settings"
-msgstr "Katso asetukset"
+msgstr "Näkymäasetukset"
 
 msgid "Auto reload on external changes"
 msgstr "Automaattinen uudelleenlataus ulkoisten muutosten johdosta"
@@ -776,13 +777,13 @@ msgid "Select file"
 msgstr "Valitse tiedosto"
 
 msgid "Image of product %s"
-msgstr "Tuoteen \"%s\" kuva"
+msgstr "Tuotteen \"%s\" kuva"
 
 msgid "Deletion not possible"
 msgstr "Poistaminen ei ole mahdollista"
 
 msgid "Equipment"
-msgstr "Väline"
+msgstr "Välineet"
 
 msgid "Instruction manual"
 msgstr "Ohjekirja"
@@ -827,19 +828,19 @@ msgid "This will be used as a headline to group ingredients together"
 msgstr "Tätä käytetään aineosien ryhmittelyyn"
 
 msgid "Journal"
-msgstr "Listaus"
+msgstr "Päiväkirja"
 
 msgid "Stock journal"
-msgstr "Varastolistaus"
+msgstr "Varastopäiväkirja"
 
 msgid "Undone on"
 msgstr "Kumottu"
 
 msgid "Batteries journal"
-msgstr "Paristolistaus"
+msgstr "Akkupäiväkirja"
 
 msgid "Undo charge cycle"
-msgstr "Kumoa lataussykli"
+msgstr "Kumoa lataus"
 
 msgid "Undo chore execution"
 msgstr "Kumoa kotityön suoritus"
@@ -854,7 +855,7 @@ msgid "Booking successfully undone"
 msgstr "Kirjaus onnistuneesti kumottu"
 
 msgid "Charge cycle successfully undone"
-msgstr "Lataussyklit onnistuneesti kumottu"
+msgstr "Lataukset onnistuneesti kumottu"
 
 msgid "Disable stock fulfillment checking for this ingredient"
 msgstr "Poista varaston täyttötarkastus tälle ainesosalle"
@@ -863,7 +864,7 @@ msgid "Add all list items to stock"
 msgstr "Lisää kaikki listalta varastoon"
 
 msgid "Add this item to stock"
-msgstr "Lisää tämä kohde varastoon"
+msgstr "Lisää varastoon"
 
 msgid "Adding shopping list item %1$s of %2$s"
 msgstr "Lisätään ostoslistalta %1$skpl tuotetta %2$s"
@@ -897,16 +898,16 @@ msgid "%s opened"
 msgstr "%s avattu"
 
 msgid "Product due"
-msgstr "Tuote vanhenee"
+msgstr "Vanhenee"
 
 msgid "Task due"
-msgstr "Tehtävän määräpäivä"
+msgstr "Tehtävä"
 
 msgid "Chore due"
-msgstr "Kotityön määräpäivä"
+msgstr "Kotityö"
 
 msgid "Battery charge cycle due"
-msgstr "Pariston lataussyklin määräaika"
+msgstr "Akun lataus"
 
 msgid "Show clock in header"
 msgstr "Näytä kello otsikossa"
@@ -924,7 +925,7 @@ msgid "Servings"
 msgstr "Annosta"
 
 msgid "Costs"
-msgstr "Kulut"
+msgstr "Kustannukset"
 
 msgid "Based on the prices of the last purchase per product"
 msgstr "Pohjautuu viimeisiin ostohintoihin per tuote"
@@ -941,8 +942,8 @@ msgid ""
 "checked against the stock amount, not against what is already on the "
 "shopping list"
 msgstr ""
-"Oletus määrä ostoslistan lisäyksille on \" tarvittava määrä - varastomäärä -"
-" kauppalistan määrä\", kun tämä on valittuna määriä verrataan vain "
+"Oletus määrä ostoslistan lisäyksille on \"tarvittava määrä - varastomäärä - "
+"kauppalistan määrä\", kun tämä on valittuna määriä verrataan vain "
 "varastomäärään, ei ostoslistaan."
 
 msgid "Picture"
@@ -1038,7 +1039,7 @@ msgstr ""
 msgid ""
 "This will be used as the default setting when adding this product as a "
 "recipe ingredient"
-msgstr "Tätä käytetään oletusasetuksena kun tämä tuote lisätään ainesosiin"
+msgstr "Tätä käytetään oletuksena kun tämä tuote lisätään reseptin ainesosiin"
 
 msgid "Add item"
 msgstr "Lisää tuote"
@@ -1053,13 +1054,13 @@ msgid "Delete shopping list"
 msgstr "Poista kauppalista"
 
 msgid "Chores settings"
-msgstr "Kotitöiden asetukset"
+msgstr "Kotityöasetukset"
 
 msgid "Batteries settings"
-msgstr "Paristo asetukset"
+msgstr "Akkuasetukset"
 
 msgid "Tasks settings"
-msgstr "Tehtävä asetukset"
+msgstr "Tehtäväasetukset"
 
 msgid "Create shopping list"
 msgstr "Luo kauppalista"
@@ -1068,7 +1069,7 @@ msgid "Are you sure to delete shopping list \"%s\"?"
 msgstr "Oletko varma, että haluat poistaa kauppalistan \"%s\" ?"
 
 msgid "Average shelf life"
-msgstr "Keskimääräinen hyllyaika"
+msgstr "Keskimääräinen säilymisaika"
 
 msgid "Spoil rate"
 msgstr "Pilaantumisaste"
@@ -1155,7 +1156,7 @@ msgid "Plural rule"
 msgstr "Monikkosääntö"
 
 msgid "in plural form"
-msgstr "monikossa"
+msgstr "monikon partitiivissa"
 
 msgid "Not enough in stock, %s ingredient missing"
 msgid_plural "Not enough in stock, %s ingredients missing"
@@ -1172,13 +1173,13 @@ msgid "Expiring soon days"
 msgstr "Viimeiset käyttöpäivät"
 
 msgid "Default location"
-msgstr "Oletus sijainti"
+msgstr "Oletussijainti"
 
 msgid "Default amount for purchase"
-msgstr "Oletus ostomäärä"
+msgstr "Oletusostomäärä"
 
 msgid "Default amount for consume"
-msgstr "Oletusmäärä käytettäessä"
+msgstr "Oletuskulutusmäärä"
 
 msgid "Variable amount"
 msgstr "Muuttuva määrä"
@@ -1197,7 +1198,7 @@ msgid "When enabled only the day of an execution is tracked, not the time"
 msgstr "Tämä valittuna vain suorittamisen päivämäärää seurataan, ei aikaa."
 
 msgid "Consume %1$s of %2$s"
-msgstr "Käytä %1$s tuotteesta %2$s"
+msgstr "Kuluta %1$s tuotteesta %2$s"
 
 msgid "Meal plan"
 msgstr "Ateriasuunnitelma"
@@ -1223,7 +1224,7 @@ msgid "Products"
 msgstr "Tuotteet"
 
 msgid "Marked task %s as completed on %s"
-msgstr "Merkitty tehtävä %ssuoritetuksi %s"
+msgstr "Merkitty tehtävä %s suoritetuksi %s"
 
 msgid "Booking has subsequent dependent bookings, undo not possible"
 msgstr ""
@@ -1239,7 +1240,7 @@ msgid "Today"
 msgstr "Tänään"
 
 msgid "Consume %1$s of %2$s as spoiled"
-msgstr "Käytä %1$s tuotteesta %2$s pilaantuneena"
+msgstr "Kuluta %1$s tuotteesta %2$s pilaantuneena"
 
 msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
 msgstr "Reseptin \"%s\"  kaikkia ainesosia ei ole varastossa, ei poistettu mitään"
@@ -1258,7 +1259,7 @@ msgstr ""
 "päivittäin eteenpäin"
 
 msgid "Location Content Sheet"
-msgstr "Sijainnin sisältösivu"
+msgstr "Sijaintien sisältölistaus"
 
 msgid "Print"
 msgstr "Tulosta"
@@ -1270,14 +1271,14 @@ msgid ""
 "Here you can print a page per location with the current stock, maybe to hang"
 " it there and note the consumed things on it"
 msgstr ""
-"Tästä voit tulostaa kunkin sijainnin sisällön, vaikkapa sen läheisyyteen "
-"sijoitettavaksi helpottamaan käytettyjen tuotteiden kirjaamista"
+"Tästä voit tulostaa eri sijaintien sisällöt vaikkapa niiden läheisyyteen "
+"helpottamaan kulutettujen tuotteiden kirjaamista"
 
 msgid "this location"
 msgstr "tämä sijainti"
 
 msgid "Consumed amount"
-msgstr "Käytetty määrä"
+msgstr "Kulutettu määrä"
 
 msgid "Time of printing"
 msgstr "Tulostusaika"
@@ -1286,7 +1287,7 @@ msgid "Are you sure to delete equipment \"%s\"?"
 msgstr "Haluatko varmasti poistaa välineen \"%s\"?"
 
 msgid "Parent product"
-msgstr "Päätuote"
+msgstr "Ylätuote"
 
 msgid ""
 "Not possible because this product is already used as a parent product in "
@@ -1305,10 +1306,10 @@ msgid "1 %s is the same as..."
 msgstr "1 %s on sama kuin..."
 
 msgid "Create QU conversion"
-msgstr "Luo muunnos määrän yksiköille"
+msgstr "Luo yksikkömuunnos"
 
 msgid "Default for QU"
-msgstr "Oletusarvo määrän yksiköille"
+msgstr "Oletusarvo yksiköille"
 
 msgid "Quantity unit from"
 msgstr "Lähdeyksikkö"
@@ -1323,7 +1324,7 @@ msgid "This means 1 %1$s is the same as %2$s %3$s"
 msgstr "Tämä tarkoittaa, että 1 %1$s on sama kuin %2$s %3$s"
 
 msgid "QU conversions"
-msgstr "Määrän yksiköiden muunnokset"
+msgstr "Yksikkömuunnokset"
 
 msgid "Product overrides"
 msgstr "Tuotteen korvaukset"
@@ -1335,7 +1336,7 @@ msgid "This equals %1$s %2$s"
 msgstr "Tämä on sama kuin %1$s %2$s"
 
 msgid "Edit QU conversion"
-msgstr "Muokkaa määrän yksikön muunnosta"
+msgstr "Muokkaa yksikkömuunnosta"
 
 msgid "An assignment type is required"
 msgstr "Toimeksiannon tapa on pakollinen"
@@ -1407,13 +1408,13 @@ msgid "Assigned to me"
 msgstr "Toimeksiannettu minulle"
 
 msgid "assigned to %s"
-msgstr "Annetty toimeksi tekijälle: %s"
+msgstr "tekijä: %s"
 
 msgid "Assignment"
 msgstr "Toimeksianto"
 
 msgid "Consume product on chore execution"
-msgstr "Käytä tuote kotityötä tehdessä"
+msgstr "Kuluta tuote kotityötä tehdessä"
 
 msgid "Are you sure to delete user field \"%s\"?"
 msgstr "Haluatko varmasti poistaa oman kentän \"%s\"?"
@@ -1492,19 +1493,19 @@ msgid "Energy (kcal)"
 msgstr "Energia (kcal)"
 
 msgid "Per stock quantity unit"
-msgstr "Varaston määräyksikköä kohti"
+msgstr "Varastoyksikköä kohti"
 
 msgid "Barcode scanner testing"
-msgstr "Testaa viivakoodilukija"
+msgstr "Viivakoodilukijan testaus"
 
 msgid "Expected barcode"
 msgstr "Odotettu viivakoodi"
 
 msgid "Scan field"
-msgstr "Skannaa kenttä"
+msgstr "Skannauskenttä"
 
 msgid "Scanned barcodes"
-msgstr "Skannaa viivakoodit"
+msgstr "Skannatut viivakoodit"
 
 msgid "Hit"
 msgstr "Osuma"
@@ -1523,9 +1524,9 @@ msgid ""
 "this product, means the sub product will never be \"missing\", only this "
 "product"
 msgstr ""
-"Jos tämä valitaan, niin niin alatuotteiden minimivarastömäärät lisätään "
-"tähän tuotteeseen, jolloin alatuote ei koskaan ole \"lopussa\", vaan vain "
-"tämä tuote."
+"Jos tämä valitaan, niin alatuotteiden minimivarastömäärät lisätään tähän "
+"tuotteeseen, jolloin alatuote ei koskaan ole \"lopussa\", vaan vain tämä "
+"tuote."
 
 msgid "Are you sure to remove this conversion?"
 msgstr "Haluatko varmasti poistaa tämän muunnoksen?"
@@ -1537,7 +1538,7 @@ msgid "Total price"
 msgstr "Yhteishinta"
 
 msgid "in %s and based on the purchase quantity unit"
-msgstr "%s perustuen oston määräyksikköön"
+msgstr "%s perustuen ostoyksikköön"
 
 msgid "Unlimited"
 msgstr "Rajoittamaton"
@@ -1587,7 +1588,7 @@ msgstr ""
 "vain joka %s. vuotena"
 
 msgid "Transfer"
-msgstr "Siirto"
+msgstr "Siirrä"
 
 msgid "From location"
 msgstr "Paikasta"
@@ -1608,13 +1609,13 @@ msgid "Stock entries"
 msgstr "Varastomerkinnät"
 
 msgid "Best before date"
-msgstr "Parasta ennen päivä"
+msgstr "Parasta ennen -päivä"
 
 msgid "Purchased date"
 msgstr "Hankintapäivä"
 
 msgid "Consume all %s for this stock entry"
-msgstr "Käytä kaikki %s tälle varastomerkinnälle"
+msgstr "Kuluta kaikki %s tälle varastomerkinnälle"
 
 msgid "The amount cannot be lower than %1$s"
 msgstr "Määrä ei voi olla pienempi kuin %1$s"
@@ -1645,8 +1646,8 @@ msgid ""
 "When a product is selected, one unit (per serving in stock quantity unit) "
 "will be added to stock on consuming this recipe"
 msgstr ""
-"Kun tuote on valittuna, yksi yksikkö (per annos varaston määräyksiköissä) "
-"lisätään varastoon reseptin käytön yhteydessä"
+"Kun tuote on valittuna, yksi yksikkö (per annos varastoyksiköissä) lisätään "
+"varastoon reseptin käytön yhteydessä"
 
 msgid "Produces product"
 msgstr "Tuottaa tuotteen"
@@ -1658,7 +1659,7 @@ msgid "Booking does not exist or was already undone"
 msgstr "Merkintää ei löydy tai se on jo kumottu"
 
 msgid "Are you sure to delete API key \"%s\"?"
-msgstr "Haluatko varmasti poistaa API-avaimen \"%s\"?"
+msgstr "Haluatko varmasti poistaa API-tunnuksen \"%s\"?"
 
 msgid "Add note"
 msgstr "Lisää huomautus"
@@ -1684,7 +1685,7 @@ msgstr ""
 "tuotteisiin"
 
 msgid "Meal plan recipe"
-msgstr "Ateriasuunnitelman resepti"
+msgstr "Ateriasuunnitelma"
 
 msgid "Meal plan note"
 msgstr "Ateriasuunnitelman merkintä"
@@ -1696,10 +1697,10 @@ msgid "Scan mode"
 msgstr "Skannaustila"
 
 msgid "on"
-msgstr "Päällä"
+msgstr "päällä"
 
 msgid "off"
-msgstr "Pois päältä"
+msgstr "pois päältä"
 
 msgid ""
 "Scan mode is on but not all required fields could be populated automatically"
@@ -1730,7 +1731,7 @@ msgid "Are you sure to delete userentity \"%s\"?"
 msgstr "Haluatko varmasti poistaa oman olion \"%s\"?"
 
 msgid "Shopping list settings"
-msgstr "Ostoslistan asetukset"
+msgstr "Ostoslista-asetukset"
 
 msgid "Show a month-view calendar"
 msgstr "Näytä kalenterin kuukausinäkymä"
@@ -1760,16 +1761,16 @@ msgid "Group ingredients by their product group"
 msgstr "Ryhmittele ainekset tuoteryhmän mukaan"
 
 msgid "Unknown store"
-msgstr "Tuntematon kauppa"
+msgstr "Tuntematon myymälä"
 
 msgid "Store"
-msgstr "Kauppa"
+msgstr "Myymälä"
 
 msgid "Transaction successfully undone"
 msgstr "Tapahtuman peruminen onnistui"
 
 msgid "Default store"
-msgstr "Oletuskauppa"
+msgstr "Oletusmyymälä"
 
 msgid "Consume this stock entry"
 msgstr "Kuluta tämä varastomerkintä"
@@ -1781,22 +1782,22 @@ msgid "Mark this item as done"
 msgstr "Merkitse tehdyksi"
 
 msgid "Edit this item"
-msgstr "Muokkaa kohdetta"
+msgstr "Muokkaa"
 
 msgid "Delete this item"
-msgstr "Tuhota kohde"
+msgstr "Poista"
 
 msgid "Show an icon if the product is already on the shopping list"
 msgstr "Näytä kuvake, jos tuote on jo ostoslistalla"
 
 msgid "Calories"
-msgstr "Kaloria"
+msgstr "kcal"
 
 msgid "means %1$s per %2$s"
 msgstr "tarkoittaa %1$s per %2$s"
 
 msgid "Create inverse QU conversion"
-msgstr "Luo käänteinen muunnos määrän yksikölle"
+msgstr "Luo käänteinen yksikkömuunnos"
 
 msgid "Create recipe"
 msgstr "Luo resepti"
@@ -1853,7 +1854,7 @@ msgstr ""
 " ostoslistalla"
 
 msgid "Quantity unit stock cannot be changed after first purchase"
-msgstr "Määrän yksikköä varastossa ei voi muuttaa ensimmäisen oston jälkeen"
+msgstr "Varastoyksikköä ei voi muuttaa ensimmäisen oston jälkeen"
 
 msgid "Clear filter"
 msgstr "Tyhjennä filtterit"
@@ -1877,7 +1878,7 @@ msgid "Unauthorized"
 msgstr "Käyttö estetty"
 
 msgid "Error source"
-msgstr "Oletuskauppa"
+msgstr "Virheen lähde"
 
 msgid "Error message"
 msgstr "Virheviesti"
@@ -1914,7 +1915,7 @@ msgid "Default"
 msgstr "Oletus"
 
 msgid "Stock journal summary"
-msgstr "Varaston päiväkirjan tiivistelmä"
+msgstr "Varastopäiväkirjan tiivistelmä"
 
 msgid "Journal summary"
 msgstr "Päiväkirjan tiivistelmä"
@@ -1954,8 +1955,7 @@ msgid "Edit shopping list"
 msgstr "Muokkaa ostoslistaa"
 
 msgid "Save & continue to add quantity unit conversions & barcodes"
-msgstr ""
-"Talleta ja jatka määrän yksiköiden muunnoksien ja viivakoodien lisäämistä"
+msgstr "Tallenna ja jatka lisäämään yksikkömuunnoksia ja viivakoodeja"
 
 msgid "Save & return to products"
 msgstr "Tallenna & palaa tuotteisiin"
@@ -1964,7 +1964,7 @@ msgid "Save & continue to add conversions"
 msgstr "Tallenna & jatka muuntamisen lisäämisiä"
 
 msgid "Save & return to quantity units"
-msgstr "Tallenna ja palaa yksikkömääriin"
+msgstr "Tallenna ja palaa yksiköihin"
 
 msgid "price"
 msgstr "hinta"
@@ -1973,7 +1973,7 @@ msgid "New stock amount"
 msgstr "Uusi varastomäärä"
 
 msgid "Price per stock unit"
-msgstr "Hinta / varastoyksikkö"
+msgstr "Hinta per varastoyksikkö"
 
 msgid "Table options"
 msgstr "Taulukon vaihtoehdot"
@@ -1991,19 +1991,19 @@ msgid "Transaction time"
 msgstr "Tapahtuman aika"
 
 msgid "Chore journal"
-msgstr "Kotitöiden päiväkirja"
+msgstr "Kotityöpäiväkirja"
 
 msgid "Track chore execution"
-msgstr "Seuraa kotityön suorittamista"
+msgstr "Merkitse suoritus"
 
 msgid "Mark task as completed"
 msgstr "Merkitse tehtävä suoritetuksi"
 
 msgid "Track charge cycle"
-msgstr "Seuraa lataussykliä"
+msgstr "Merkitse lataus"
 
 msgid "Battery journal"
-msgstr "Paristojen päiväkirja"
+msgstr "Akkupäiväkirja"
 
 msgid "This product has a picture"
 msgstr "Tuotteesta löytyy kuva"
@@ -2015,14 +2015,13 @@ msgid "Configure user permissions"
 msgstr "Määritä käyttäjäoikeudet"
 
 msgid "Show a QR-Code for this API key"
-msgstr "Näytä QR-koodi tälle API-avaimelle"
+msgstr "Näytä QR-koodi tälle API-tunnukselle"
 
 msgid ""
 "This is the default quantity unit used when adding this product to the "
 "shopping list"
 msgstr ""
-"Tätä määrän yksikköä käytetään oletuksena, kun tätä tuotetta lisätään "
-"ostoslistalle"
+"Tätä yksikköä käytetään oletuksena, kun tätä tuotetta lisätään ostoslistalle"
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -2039,6 +2038,9 @@ msgid ""
 "automatically populated (by product and/or barcode defaults), the "
 "transaction is automatically submitted"
 msgstr ""
+"Kun käytössä, niin muutoksen tai skannauksen jälkeen ja jos kaikki kentät "
+"voidaan automaattisesti täyttää (tuotteen tai viivakoodin oletusarvoilla), "
+"tapahtuma lähetetään automaattisesti"
 
 msgid "Quick consume amount"
 msgstr "Pikakulutusmäärä"
@@ -2047,8 +2049,8 @@ msgid ""
 "This amount is used for the \"quick consume/open buttons\" on the stock "
 "overview page (related to quantity unit stock)"
 msgstr ""
-"Tätä määrää käytetään \"pikakulutus/-avaus -napeille\" varaston yleiskatsaus"
-" -sivulla (liittyy varaston määräyksikköön)"
+"Tätä määrää käytetään \"pikakulutus/-avaus -napeille\" varastosivulla "
+"(varastoyksikössä)"
 
 msgid "Copy"
 msgstr "Kopioi"
@@ -2062,26 +2064,23 @@ msgstr "Parasta ennen -päiväyksen tyyppi"
 msgid ""
 "Based on the selected type, the highlighting on the stock overview page will"
 " be different"
-msgstr ""
-"Korostus varaston yleiskatsaus -sivulla muuttuu perustuen valittuun tyyppiin"
-" "
+msgstr "Korostus varastosivulla muuttuu perustuen valittuun tyyppiin "
 
 msgid ""
 "Means that the product is maybe still safe to be consumed after its due date"
 " is reached"
 msgstr ""
-"Tarkoittaa, että tuotetta voi mahdollisesti vielä turvallisesti kuluttaa "
-"parasta ennen -päivän jälkeen "
+"Tuotetta voi mahdollisesti vielä turvallisesti käyttää parasta ennen -päivän"
+" jälkeen "
 
 msgid "Expiration date"
-msgstr "Vanhenemispäivä"
+msgstr "Viimeinen käyttöpäivä"
 
 msgid ""
 "Means that the product is not safe to be consumed after its due date is "
 "reached"
 msgstr ""
-"Tarkoittaa, että tuotetta ei voi enää turvallisesti kuluttaa parasta ennen "
-"-päivän jälkeen"
+"Tuotetta ei voi enää turvallisesti käyttää viimeisen käyttöpäivän jälkeen"
 
 msgid ""
 "For purchases this amount of days will be added to today for the due date "
@@ -2094,7 +2093,7 @@ msgid "-1 means that this product will be never overdue"
 msgstr "-1 tarkoittaa, että tämä tuote ei vanhene koskaan"
 
 msgid "Default due days"
-msgstr "Oletusmäärä vanhenemispäiviä"
+msgstr "Oletusmäärä päiviä vanhenemiseen"
 
 msgid ""
 "When this product was marked as opened, the due date will be replaced by "
@@ -2104,7 +2103,7 @@ msgstr ""
 "tänään + tämä määrä päiviä (arvo 0 poistaa tämän käytöstä)"
 
 msgid "Default due days after opened"
-msgstr "Oletusmäärä vanhenemispäiviä avauksen jälkeen"
+msgstr "Oletusmäärä päiviä vanhenemiseen avauksen jälkeen"
 
 msgid ""
 "On moving this product to a freezer location (so when freezing it), the due "
@@ -2131,8 +2130,8 @@ msgstr "Seuraava parasta ennen -päivä"
 
 msgid "%s product is due"
 msgid_plural "%s products are due"
-msgstr[0] "%s tuote on vanhenemassa"
-msgstr[1] "%s tuotetta on vanhenemassa"
+msgstr[0] "%s tuote vanhenee"
+msgstr[1] "%s tuotetta vanhenee"
 
 msgid "Due date"
 msgstr "Parasta ennen -päivä"
@@ -2142,17 +2141,17 @@ msgstr "Ei vanhene koskaan"
 
 msgid "%s product is expired"
 msgid_plural "%s products are expired"
-msgstr[0] "%s tuote on vanhentunut"
-msgstr[1] "%s tuotetta on vanhentunut"
+msgstr[0] "%s tuote on pilaantunut"
+msgstr[1] "%s tuotetta on pilaantunut"
 
 msgid "Expired"
-msgstr "Vanhentunut"
+msgstr "Pilaantunut"
 
 msgid "Due soon days"
 msgstr "Pian vanhenemassa -päiviä"
 
 msgid "Add overdue/expired products"
-msgstr "Lisää vanhenevat/vanhentuneet tuotteet"
+msgstr "Lisää vanhentuneet tuotteet"
 
 msgid ""
 "Products with tare weight enabled are currently not supported for transfer"
@@ -2191,7 +2190,8 @@ msgid ""
 "shopping list item, if the product has \"Default due days\" set"
 msgstr ""
 "Tee varaus automaattisesti käyttäen viimeisintä hintaa sekä määrää "
-"ostoslistalla, jos tuotteella on \"Oletusmäärä vanhenemispäiviä\" asetettuna"
+"ostoslistalla, jos tuotteella on \"Oletusmäärä päiviä vanhenemiseen\" "
+"asetettuna"
 
 msgid ""
 "When moving products from/to a freezer location, the products due date is "
@@ -2235,7 +2235,7 @@ msgid "Show disabled"
 msgstr "Näytä käytöstä poistetut"
 
 msgid "Never show on stock overview"
-msgstr "Älä koskaan näytä varaston yleiskatsauksessa"
+msgstr "Älä koskaan näytä varastosivulla"
 
 msgid "None"
 msgstr "Ei mitään"
@@ -2320,12 +2320,80 @@ msgid ""
 "below their min. stock amount - enable this to hide this product there "
 "always"
 msgstr ""
-"Varaston yleiskatsaus -sivu luettelee kaikki tuotteet, jotka ovat tällä "
-"hetkellä varastossa tai niiden minimivarastomärä on alitettuna – käytä tätä "
-"piilottaaksesi tuotteen aina sieltä"
+"Varastosivu luettelee kaikki tuotteet, jotka ovat tällä hetkellä varastossa "
+"tai niiden minimivarastomärä on alitettuna – käytä tätä piilottaaksesi "
+"tuotteen aina sieltä"
 
 msgid "Print options"
 msgstr "Tulostusasetukset"
 
 msgid "A product or a note is required"
 msgstr "Tuote tai merkintä vaaditaan"
+
+msgid "grocycode"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "Download stock entry grocycode"
+msgstr ""
+
+msgid "Download product grocycode"
+msgstr ""
+
+msgid ""
+"grocycode is a unique referer to this product in your grocy instance - print"
+" it onto a label and scan it like any other barcode"
+msgstr ""
+
+# Abbreviation for "due date"
+msgid "DD"
+msgstr ""
+
+msgid "Print on label printer"
+msgstr ""
+
+msgid "Stock entry label"
+msgstr ""
+
+msgid "No label"
+msgstr ""
+
+msgid "Single label"
+msgstr ""
+
+msgid "Label per unit"
+msgstr ""
+
+msgid "Allow label printing per unit"
+msgstr ""
+
+msgid ""
+"Allow printing of one label per unit on purchase (after conversion) - e.g. 1"
+" purchased pack adding 10 pieces of stock would print 10 labels"
+msgstr ""
+
+msgid "Error while executing WebHook"
+msgstr ""
+
+msgid "Print product grocycode on label printer"
+msgstr ""
+
+msgid "Print stock entry grocycode on label printer"
+msgstr ""
+
+msgid "Open stock entry print label in new window"
+msgstr ""
+
+msgid "Thermal printer"
+msgstr ""
+
+msgid "Printing"
+msgstr ""
+
+msgid "Connecting to printer..."
+msgstr ""
+
+msgid "Unable to print"
+msgstr ""

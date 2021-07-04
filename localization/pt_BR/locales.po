@@ -1,6 +1,6 @@
 # 
 # Translators:
-# Aswin Kumar, 2021
+# Jefferson Brito Passos dos Santos <jeffersantoss@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -8,13 +8,13 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2020-08-31 19:11+0000\n"
-"Last-Translator: Aswin Kumar, 2021\n"
-"Language-Team: Tamil (https://www.transifex.com/grocy/teams/93189/ta/)\n"
+"Last-Translator: Jefferson Brito Passos dos Santos <jeffersantoss@gmail.com>, 2021\n"
+"Language-Team: Portuguese (Brazil) (https://www.transifex.com/grocy/teams/93189/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ta\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Domain: grocy/locales\n"
 
 # Czech
@@ -35,7 +35,7 @@ msgstr "el_GR"
 
 # English
 msgid "en"
-msgstr "en"
+msgstr "ptbr"
 
 # English (Great Britain)
 msgid "en_GB"

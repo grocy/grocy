@@ -2313,3 +2313,75 @@ msgstr "אפשרויות הדפסה"
 
 msgid "A product or a note is required"
 msgstr "נדרש מוצר או הערה"
+
+msgid "grocycode"
+msgstr "קוד grocy"
+
+msgid "Download"
+msgstr "הורדה"
+
+msgid "Download stock entry grocycode"
+msgstr "הורדת קוד grocy של רשומת מלאי"
+
+msgid "Download product grocycode"
+msgstr "הורדת קוד grocy של מוצר"
+
+msgid ""
+"grocycode is a unique referer to this product in your grocy instance - print"
+" it onto a label and scan it like any other barcode"
+msgstr ""
+"קוד grocy הוא ייחוס ייחודי למוצר הזה בעותק ה־grocy שלך - יש להדפיס אותו על "
+"תווית ולסרוק אותו כמו כל ברקוד אחד."
+
+# Abbreviation for "due date"
+msgid "DD"
+msgstr "פג"
+
+msgid "Print on label printer"
+msgstr "הדפסה במדפסת מדבקות"
+
+msgid "Stock entry label"
+msgstr "תווית רשומת מלאי"
+
+msgid "No label"
+msgstr "ללא תווית"
+
+msgid "Single label"
+msgstr "תווית בודדה"
+
+msgid "Label per unit"
+msgstr "תווית לכל יחידה"
+
+msgid "Allow label printing per unit"
+msgstr "לאפשר הדפסת תוויות ליחידה"
+
+msgid ""
+"Allow printing of one label per unit on purchase (after conversion) - e.g. 1"
+" purchased pack adding 10 pieces of stock would print 10 labels"
+msgstr ""
+"לאפשר הדפסה של תווית אחת ליחידה ברכישה (לאחר המרה) - למשל: אריזה אחת שנרכשה "
+"ומוסיפה 10 יחידות למלאי תוביל להדפסת 10 תוויות"
+
+msgid "Error while executing WebHook"
+msgstr "שגיאה בהפעלת התליית רשת"
+
+msgid "Print product grocycode on label printer"
+msgstr "הדפסת קוד grocy של המוצר במדפסת מדבקות"
+
+msgid "Print stock entry grocycode on label printer"
+msgstr "הדפסת קוד grocy של רשומת מלאי במדפסת מדבקות"
+
+msgid "Open stock entry print label in new window"
+msgstr "פתיחת תווית מודפסת לרשומת מלאי בחלון חדש"
+
+msgid "Thermal printer"
+msgstr "מדפסת תרמית"
+
+msgid "Printing"
+msgstr "מתבצעת הדפסה"
+
+msgid "Connecting to printer..."
+msgstr "מתבצעת התחברות למדפסת…"
+
+msgid "Unable to print"
+msgstr "לא ניתן להדפיס"
