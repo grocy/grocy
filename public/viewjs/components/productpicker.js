@@ -220,7 +220,7 @@ $('#product_id_text_input').on('blur', function(e)
 					callback: function()
 					{
 						Grocy.Components.ProductPicker.PopupOpen = false;
-						window.location.href = U(Grocy.CurrentUrlRelative + '?flow=InplaceAddBarcodeToExistingProduct&barcode=' + encodeURIComponent(input));
+						window.location.href = U(Grocy.CurrentUrlRelative + '?flow=InplaceAddBarcodeToExistingProduct&barcode=' + encodeURIComponent(input) + "&" + embedded);
 					}
 				},
 				addnewproductwithbarcode: {

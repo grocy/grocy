@@ -19,6 +19,27 @@ $('#save-shoppinglist-button').on('click', function(e)
 
 	Grocy.FrontendHelpers.BeginUiBusy("shoppinglist-form");
 
+	if (GetUriParam("flow") === "InplaceAddBarcodeToExistingProduct")
+	{
+		var jsonDataBarcode = {};
+		jsonDataBarcode.barcode = GetUriParam("barcode");
+		jsonDataBarcode.product_id = jsonData.product_id;
+
+		Grocy.Api.Post('objects/product_barcodes', jsonDataBarcode,
+			function(result)
+			{
+				$("#flow-info-InplaceAddBarcodeToExistingProduct").addClass("d-none");
+				$('#barcode-lookup-disabled-hint').addClass('d-none');
+				$('#barcode-lookup-hint').removeClass('d-none');
+			},
+			function(xhr)
+			{
+				Grocy.FrontendHelpers.EndUiBusy("shoppinglist-form");
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
+			}
+		);
+	}
+
 	if (GetUriParam("updateexistingproduct") !== undefined)
 	{
 		jsonData.product_amount = jsonData.amount;
