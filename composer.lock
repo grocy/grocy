@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e17584947a63f049cc9c381a91bf05e8",
+    "content-hash": "752e3bce7717a95d922fbeaae8ece908",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -474,16 +474,16 @@
         },
         {
             "name": "gumlet/php-image-resize",
-            "version": "1.9.2",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/gumlet/php-image-resize.git",
-                "reference": "06339a9c1b167acd58173db226f57957a6617547"
+                "reference": "de6dc92d8ddf65e508b088202e5de6f3fb0621a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gumlet/php-image-resize/zipball/06339a9c1b167acd58173db226f57957a6617547",
-                "reference": "06339a9c1b167acd58173db226f57957a6617547",
+                "url": "https://api.github.com/repos/gumlet/php-image-resize/zipball/de6dc92d8ddf65e508b088202e5de6f3fb0621a2",
+                "reference": "de6dc92d8ddf65e508b088202e5de6f3fb0621a2",
                 "shasum": ""
             },
             "require": {
@@ -527,9 +527,9 @@
             ],
             "support": {
                 "issues": "https://github.com/gumlet/php-image-resize/issues",
-                "source": "https://github.com/gumlet/php-image-resize/tree/master"
+                "source": "https://github.com/gumlet/php-image-resize/tree/2.0.0"
             },
-            "time": "2019-01-01T13:53:00+00:00"
+            "time": "2020-07-04T21:04:16+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",

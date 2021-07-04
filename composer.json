@@ -10,7 +10,7 @@
 		"gettext/gettext": "^4.8",
 		"eluceo/ical": "^2.2.0",
 		"erusev/parsedown": "^1.7",
-		"gumlet/php-image-resize": "^1.9",
+		"gumlet/php-image-resize": "^2.0",
 		"ezyang/htmlpurifier": "^4.13",
 		"jucksearm/php-barcode": "^1.0",
 		"guzzlehttp/guzzle": "^7.0",
