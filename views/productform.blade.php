@@ -606,8 +606,10 @@
 							title="{{ $__t('grocycode is a unique referer to this product in your grocy instance - print it onto a label and scan it like any other barcode') }}"></i>
 					</h4>
 					<p>
+						@if($mode == 'edit')
 						<img src="{{ $U('/product/' . $product->id . '/grocycode?size=60') }}"
 							class="float-lg-left">
+						@endif
 					</p>
 					<p>
 						<a class="btn btn-outline-primary btn-sm"

@@ -505,4 +505,36 @@ else if (Grocy.EditMode === 'create')
 	}
 }
 
+Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
+{
+	var parentProductId = $(e.target).val();
+
+	if (parentProductId)
+	{
+		Grocy.Api.Get('objects/products/' + parentProductId,
+			function(parentProduct)
+			{
+				if (BoolVal(parentProduct.cumulate_min_stock_amount_of_sub_products))
+				{
+
+					$("#min_stock_amount").attr("disabled", "");
+				}
+				else
+				{
+					$('#min_stock_amount').removeAttr("disabled");
+				}
+			},
+			function(xhr)
+			{
+				console.error(xhr);
+			}
+		);
+	}
+	else
+	{
+		$('#min_stock_amount').removeAttr("disabled");
+	}
+});
+
 Grocy.FrontendHelpers.ValidateForm("product-form");
+Grocy.Components.ProductPicker.GetPicker().trigger("change");
