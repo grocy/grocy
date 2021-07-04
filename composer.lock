@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "752e3bce7717a95d922fbeaae8ece908",
+    "content-hash": "35840e48e78e30b63f589addfdb50f92",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -1249,30 +1249,29 @@
         },
         {
             "name": "morris/lessql",
-            "version": "v0.4.1",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/morris/lessql.git",
-                "reference": "f4150517f6492a761ed1ccb8dd180769e1f89e54"
+                "reference": "86eff1d9faef067bd6682f5d291ee08a4b61e7b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/morris/lessql/zipball/f4150517f6492a761ed1ccb8dd180769e1f89e54",
-                "reference": "f4150517f6492a761ed1ccb8dd180769e1f89e54",
+                "url": "https://api.github.com/repos/morris/lessql/zipball/86eff1d9faef067bd6682f5d291ee08a4b61e7b8",
+                "reference": "86eff1d9faef067bd6682f5d291ee08a4b61e7b8",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.4"
             },
             "require-dev": {
-                "codeclimate/php-test-reporter": "dev-master",
-                "friendsofphp/php-cs-fixer": "v2.2.20",
+                "friendsofphp/php-cs-fixer": "^2.16",
                 "phpunit/phpunit": "~4.6|~5|~6|~7"
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "": "src"
+                "psr-4": {
+                    "LessQL\\": "src/LessQL"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1285,7 +1284,7 @@
                     "homepage": "https://morrisbrodersen.de"
                 }
             ],
-            "description": "LessQL: The agile PHP ORM alternative",
+            "description": "LessQL: A lightweight and performant PHP ORM alternative",
             "homepage": "https://github.com/morris/lessql",
             "keywords": [
                 "database",
@@ -1296,9 +1295,9 @@
             ],
             "support": {
                 "issues": "https://github.com/morris/lessql/issues",
-                "source": "https://github.com/morris/lessql/tree/master"
+                "source": "https://github.com/morris/lessql/tree/1.0.0"
             },
-            "time": "2019-05-03T23:46:26+00:00"
+            "time": "2020-05-09T16:42:12+00:00"
         },
         {
             "name": "nesbot/carbon",
