@@ -12,7 +12,7 @@ class BaseApiController extends BaseController
 
 	const PATTERN_OPERATOR = '!?(=|~|<|>|(>=)|(<=)|(§))';
 
-	const PATTERN_VALUE = '[A-Za-z_0-9.$#^|]+';
+	const PATTERN_VALUE = '[A-Za-z_0-9.$#^|-]+';
 
 	public function __construct(\DI\Container $container)
 	{
