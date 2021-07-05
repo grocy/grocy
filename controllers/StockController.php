@@ -179,9 +179,7 @@ class StockController extends BaseController
 
 		$gc = new Grocycode(Grocycode::PRODUCT, $product->id);
 
-		// Explicitly suppress errors, otherwise deprecations warnings would cause invalid PNG data
-		// See also https://github.com/jucksearm/php-barcode/issues/3
-		$png = @(new DatamatrixFactory())->setCode((string) $gc)->setSize($size)->getDatamatrixPngData();
+		$png = (new DatamatrixFactory())->setCode((string) $gc)->setSize($size)->getDatamatrixPngData();
 
 		$isDownload = $request->getQueryParam('download', false);
 
@@ -469,9 +467,7 @@ class StockController extends BaseController
 		$stockEntry = $this->getDatabase()->stock()->where('id', $args['entryId'])->fetch();
 		$gc = new Grocycode(Grocycode::PRODUCT, $stockEntry->product_id, [$stockEntry->stock_id]);
 
-		// Explicitly suppress errors, otherwise deprecations warnings would cause invalid PNG data
-		// See also https://github.com/jucksearm/php-barcode/issues/3
-		$png = @(new DatamatrixFactory())->setCode((string) $gc)->setSize($size)->getDatamatrixPngData();
+		$png = (new DatamatrixFactory())->setCode((string) $gc)->setSize($size)->getDatamatrixPngData();
 
 		$isDownload = $request->getQueryParam('download', false);
 
