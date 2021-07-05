@@ -1,6 +1,8 @@
+@once
 @push('componentScripts')
 <script src="{{ $U('/viewjs/components/locationpicker.js', true) }}?v={{ $version }}"></script>
 @endpush
+@endonce
 
 @php if(empty($prefillByName)) { $prefillByName = ''; } @endphp
 @php if(empty($prefillById)) { $prefillById = ''; } @endphp

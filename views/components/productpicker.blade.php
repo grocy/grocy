@@ -1,6 +1,8 @@
+@once
 @push('componentScripts')
 <script src="{{ $U('/viewjs/components/productpicker.js', true) }}?v={{ $version }}"></script>
 @endpush
+@endonce
 
 @php if(empty($disallowAddProductWorkflows)) { $disallowAddProductWorkflows = false; } @endphp
 @php if(empty($disallowAllProductWorkflows)) { $disallowAllProductWorkflows = false; } @endphp

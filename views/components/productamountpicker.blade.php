@@ -1,6 +1,8 @@
+@once
 @push('componentScripts')
 <script src="{{ $U('/viewjs/components/productamountpicker.js', true) }}?v={{ $version }}"></script>
 @endpush
+@endonce
 
 @php if(empty($additionalGroupCssClasses)) { $additionalGroupCssClasses = ''; } @endphp
 @php if(empty($additionalHtmlContextHelp)) { $additionalHtmlContextHelp = ''; } @endphp

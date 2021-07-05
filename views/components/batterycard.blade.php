@@ -1,6 +1,8 @@
+@once
 @push('componentScripts')
 <script src="{{ $U('/viewjs/components/batterycard.js', true) }}?v={{ $version }}"></script>
 @endpush
+@endonce
 
 <div class="card batterycard">
 	<div class="card-header">

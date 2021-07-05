@@ -1,6 +1,8 @@
+@once
 @push('componentScripts')
 <script src="{{ $U('/viewjs/components/datetimepicker2.js', true) }}?v={{ $version }}"></script>
 @endpush
+@endonce
 
 @php if(!isset($isRequired)) { $isRequired = true; } @endphp
 @php if(!isset($initialValue)) { $initialValue = ''; } @endphp

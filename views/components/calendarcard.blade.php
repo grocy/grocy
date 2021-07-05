@@ -1,6 +1,8 @@
+@once
 @push('componentScripts')
 <script src="{{ $U('/viewjs/components/calendarcard.js', true) }}?v={{ $version }}"></script>
 @endpush
+@endonce
 
 <div class="card">
 	<div class="card-header">

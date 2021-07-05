@@ -1,13 +1,17 @@
 @if (!GROCY_DISABLE_BROWSER_BARCODE_CAMERA_SCANNING)
 
+@once
 @push('componentScripts')
 <script src="{{ $U('/viewjs/components/barcodescanner.js', true) }}?v={{ $version }}"></script>
 @endpush
+@endonce
 
+@once
 @push('pageScripts')
 <script src="{{ $U('/node_modules/@ericblade/quagga2/dist/quagga.min.js?v=', true) }}{{ $version }}"></script>
 <script src="{{ $U('/components_unmanaged/quagga2-reader-datamatrix/index.js', true) }}?v={{ $version }}"></script>
 @endpush
+@endonce
 
 @push('pageStyles')
 <style>
@@ -22,6 +26,7 @@
 	.combobox-container #barcodescanner-start-button {
 		margin-right: 36px !important;
 	}
+
 </style>
 @endpush
 

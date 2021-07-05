@@ -1,6 +1,8 @@
+@once
 @push('componentScripts')
 <script src="{{ $U('/viewjs/components/userfieldsform.js', true) }}?v={{ $version }}"></script>
 @endpush
+@endonce
 
 @if(count($userfields) > 0)
 

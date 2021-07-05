@@ -1,6 +1,8 @@
+@once
 @push('componentScripts')
 <script src="{{ $U('/viewjs/components/numberpicker.js', true) }}?v={{ $version }}"></script>
 @endpush
+@endonce
 
 @php if(!isset($value)) { $value = 1; } @endphp
 @php if(empty($min)) { $min = 0; } @endphp
