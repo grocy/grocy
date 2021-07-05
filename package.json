@@ -35,5 +35,12 @@
 		"tempusdominus-bootstrap-4": "https://github.com/berrnd/tempusdominus-bootstrap-4.git#master",
 		"timeago": "^1.6.7",
 		"toastr": "^2.1.4"
+	},
+	"scripts": {
+		"create_release_package": "./.devtools/create_release_package.bat",
+		"install_dependencies": "./.devtools/install_dependencies.bat",
+		"transifex_download": "./.devtools/transifex_download.bat",
+		"transifex_upload": "./.devtools/transifex_upload.bat",
+		"update_dependencies": "./.devtools/update_dependencies.bat"
 	}
 }
