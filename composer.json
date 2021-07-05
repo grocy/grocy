@@ -5,7 +5,7 @@
 		"slim/psr7": "^1.0",
 		"slim/http": "^1.0",
 		"php-di/php-di": "^6.0",
-		"rubellum/slim-blade-view": "^0.1.1",
+		"berrnd/slim-blade-view": "^1.0.0",
 		"morris/lessql": "^1.0",
 		"gettext/gettext": "^4.8",
 		"eluceo/ical": "^2.2.0",

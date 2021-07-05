@@ -5,6 +5,7 @@ use Grocy\Helpers\UrlManager;
 use Grocy\Middleware\CorsMiddleware;
 use Psr\Container\ContainerInterface as Container;
 use Slim\Factory\AppFactory;
+use Slim\Views\Blade;
 
 // Load composer dependencies
 require_once __DIR__ . '/vendor/autoload.php';
@@ -51,11 +52,13 @@ $app = AppFactory::create();
 
 $container = $app->getContainer();
 $container->set('view', function (Container $container) {
-	return new Slim\Views\Blade(__DIR__ . '/views', GROCY_DATAPATH . '/viewcache');
+	return new Blade(__DIR__ . '/views', GROCY_DATAPATH . '/viewcache');
 });
+
 $container->set('UrlManager', function (Container $container) {
 	return new UrlManager(GROCY_BASE_URL);
 });
+
 $container->set('ApiKeyHeaderName', function (Container $container) {
 	return 'GROCY-API-KEY';
 });
