@@ -15,6 +15,16 @@ require_once GROCY_DATAPATH . '/config.php';
 require_once __DIR__ . '/config-dist.php'; // For not in own config defined values we use the default ones
 require_once __DIR__ . '/helpers/ConfigurationValidator.php';
 
+// Error reporting definitions
+if (GROCY_MODE === 'dev')
+{
+	error_reporting(E_ALL);
+}
+else
+{
+	error_reporting(E_ALL ^ (E_NOTICE | E_WARNING | E_DEPRECATED));
+}
+
 // Definitions for dev/demo/prerelease mode
 if ((GROCY_MODE === 'dev' || GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease') && !defined('GROCY_USER_ID'))
 {
