@@ -20,7 +20,8 @@ const swaggerUi = SwaggerUIBundle({
 		HideTopbarPlugin
 	],
 	layout: 'StandaloneLayout',
-	docExpansion: "list"
+	docExpansion: "list",
+	defaultModelsExpandDepth: -1
 });
 
 window.ui = swaggerUi;

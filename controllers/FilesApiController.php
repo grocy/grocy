@@ -11,7 +11,7 @@ class FilesApiController extends BaseApiController
 	{
 		try
 		{
-			if (!in_array($args['group'], $this->getOpenApiSpec()->components->internalSchemas->FileGroups->enum))
+			if (!in_array($args['group'], $this->getOpenApiSpec()->components->schemas->FileGroups->enum))
 			{
 				throw new \Exception('Invalid file group');
 			}
@@ -39,7 +39,7 @@ class FilesApiController extends BaseApiController
 	{
 		try
 		{
-			if (!in_array($args['group'], $this->getOpenApiSpec()->components->internalSchemas->FileGroups->enum))
+			if (!in_array($args['group'], $this->getOpenApiSpec()->components->schemas->FileGroups->enum))
 			{
 				throw new \Exception('Invalid file group');
 			}
@@ -69,7 +69,7 @@ class FilesApiController extends BaseApiController
 	{
 		try
 		{
-			if (!in_array($args['group'], $this->getOpenApiSpec()->components->internalSchemas->FileGroups->enum))
+			if (!in_array($args['group'], $this->getOpenApiSpec()->components->schemas->FileGroups->enum))
 			{
 				throw new \Exception('Invalid file group');
 			}
@@ -100,7 +100,7 @@ class FilesApiController extends BaseApiController
 	{
 		try
 		{
-			if (!in_array($args['group'], $this->getOpenApiSpec()->components->internalSchemas->FileGroups->enum))
+			if (!in_array($args['group'], $this->getOpenApiSpec()->components->schemas->FileGroups->enum))
 			{
 				throw new \Exception('Invalid file group');
 			}

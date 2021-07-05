@@ -652,7 +652,7 @@
 						@endif
 						<a class="dropdown-item discrete-link"
 							target="_blank"
-							href="{{ $U('/api') }}"><i class="fas fa-book"></i>&nbsp;{{ $__t('REST API & data model documentation') }}</a>
+							href="{{ $U('/api') }}"><i class="fas fa-book"></i>&nbsp;{{ $__t('REST API browser') }}</a>
 						<a class="dropdown-item discrete-link"
 							href="{{ $U('/barcodescannertesting') }}"><i class="fas fa-barcode"></i>&nbsp;{{ $__t('Barcode scanner testing') }}</a>
 						<div class="dropdown-divider"></div>

@@ -324,7 +324,7 @@ msgstr ""
 msgid "Manage API keys"
 msgstr ""
 
-msgid "REST API & data model documentation"
+msgid "REST API browser"
 msgstr ""
 
 msgid "API keys"

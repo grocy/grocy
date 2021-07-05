@@ -49,7 +49,7 @@ class UserfieldsService extends BaseService
 
 	public function GetEntities()
 	{
-		$exposedDefaultEntities = $this->getOpenApiSpec()->components->internalSchemas->ExposedEntity->enum;
+		$exposedDefaultEntities = $this->getOpenApiSpec()->components->schemas->ExposedEntity->enum;
 		$userEntities = [];
 		$specialEntities = ['users'];
 

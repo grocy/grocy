@@ -36,45 +36,45 @@ class OpenApiController extends BaseApiController
 		$spec->info->description = str_replace('PlaceHolderManageApiKeysUrl', $this->AppContainer->get('UrlManager')->ConstructUrl('/manageapikeys'), $spec->info->description);
 		$spec->servers[0]->url = $this->AppContainer->get('UrlManager')->ConstructUrl('/api');
 
-		$spec->components->internalSchemas->ExposedEntity_IncludingUserEntities = clone $spec->components->internalSchemas->ExposedEntity;
+		$spec->components->schemas->ExposedEntity_IncludingUserEntities = clone $spec->components->schemas->ExposedEntity;
 		foreach ($this->getUserfieldsService()->GetEntities() as $userEntity)
 		{
-			array_push($spec->components->internalSchemas->ExposedEntity_IncludingUserEntities->enum, $userEntity);
+			array_push($spec->components->schemas->ExposedEntity_IncludingUserEntities->enum, $userEntity);
 		}
 
-		$spec->components->internalSchemas->ExposedEntity_NotIncludingNotEditable = clone $spec->components->internalSchemas->StringEnumTemplate;
-		foreach ($spec->components->internalSchemas->ExposedEntity->enum as $value)
+		$spec->components->schemas->ExposedEntity_NotIncludingNotEditable = clone $spec->components->schemas->StringEnumTemplate;
+		foreach ($spec->components->schemas->ExposedEntity->enum as $value)
 		{
-			if (!in_array($value, $spec->components->internalSchemas->ExposedEntityNoEdit->enum))
+			if (!in_array($value, $spec->components->schemas->ExposedEntityNoEdit->enum))
 			{
-				array_push($spec->components->internalSchemas->ExposedEntity_NotIncludingNotEditable->enum, $value);
+				array_push($spec->components->schemas->ExposedEntity_NotIncludingNotEditable->enum, $value);
 			}
 		}
 
-		$spec->components->internalSchemas->ExposedEntity_IncludingUserEntities_NotIncludingNotEditable = clone $spec->components->internalSchemas->StringEnumTemplate;
-		foreach ($spec->components->internalSchemas->ExposedEntity_IncludingUserEntities->enum as $value)
+		$spec->components->schemas->ExposedEntity_IncludingUserEntities_NotIncludingNotEditable = clone $spec->components->schemas->StringEnumTemplate;
+		foreach ($spec->components->schemas->ExposedEntity_IncludingUserEntities->enum as $value)
 		{
-			if (!in_array($value, $spec->components->internalSchemas->ExposedEntityNoEdit->enum))
+			if (!in_array($value, $spec->components->schemas->ExposedEntityNoEdit->enum))
 			{
-				array_push($spec->components->internalSchemas->ExposedEntity_IncludingUserEntities_NotIncludingNotEditable->enum, $value);
+				array_push($spec->components->schemas->ExposedEntity_IncludingUserEntities_NotIncludingNotEditable->enum, $value);
 			}
 		}
 
-		$spec->components->internalSchemas->ExposedEntity_NotIncludingNotDeletable = clone $spec->components->internalSchemas->StringEnumTemplate;
-		foreach ($spec->components->internalSchemas->ExposedEntity->enum as $value)
+		$spec->components->schemas->ExposedEntity_NotIncludingNotDeletable = clone $spec->components->schemas->StringEnumTemplate;
+		foreach ($spec->components->schemas->ExposedEntity->enum as $value)
 		{
-			if (!in_array($value, $spec->components->internalSchemas->ExposedEntityNoDelete->enum))
+			if (!in_array($value, $spec->components->schemas->ExposedEntityNoDelete->enum))
 			{
-				array_push($spec->components->internalSchemas->ExposedEntity_NotIncludingNotDeletable->enum, $value);
+				array_push($spec->components->schemas->ExposedEntity_NotIncludingNotDeletable->enum, $value);
 			}
 		}
 
-		$spec->components->internalSchemas->ExposedEntity_NotIncludingNotListable = clone $spec->components->internalSchemas->StringEnumTemplate;
-		foreach ($spec->components->internalSchemas->ExposedEntity->enum as $value)
+		$spec->components->schemas->ExposedEntity_NotIncludingNotListable = clone $spec->components->schemas->StringEnumTemplate;
+		foreach ($spec->components->schemas->ExposedEntity->enum as $value)
 		{
-			if (!in_array($value, $spec->components->internalSchemas->ExposedEntityNoListing->enum))
+			if (!in_array($value, $spec->components->schemas->ExposedEntityNoListing->enum))
 			{
-				array_push($spec->components->internalSchemas->ExposedEntity_NotIncludingNotListable->enum, $value);
+				array_push($spec->components->schemas->ExposedEntity_NotIncludingNotListable->enum, $value);
 			}
 		}
 

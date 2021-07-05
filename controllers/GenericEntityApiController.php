@@ -216,26 +216,26 @@ class GenericEntityApiController extends BaseApiController
 
 	private function IsEntityWithEditRequiresAdmin($entity)
 	{
-		return in_array($entity, $this->getOpenApiSpec()->components->internalSchemas->ExposedEntityEditRequiresAdmin->enum);
+		return in_array($entity, $this->getOpenApiSpec()->components->schemas->ExposedEntityEditRequiresAdmin->enum);
 	}
 
 	private function IsEntityWithNoListing($entity)
 	{
-		return in_array($entity, $this->getOpenApiSpec()->components->internalSchemas->ExposedEntityNoListing->enum);
+		return in_array($entity, $this->getOpenApiSpec()->components->schemas->ExposedEntityNoListing->enum);
 	}
 
 	private function IsEntityWithNoEdit($entity)
 	{
-		return in_array($entity, $this->getOpenApiSpec()->components->internalSchemas->ExposedEntityNoEdit->enum);
+		return in_array($entity, $this->getOpenApiSpec()->components->schemas->ExposedEntityNoEdit->enum);
 	}
 
 	private function IsEntityWithNoDelete($entity)
 	{
-		return in_array($entity, $this->getOpenApiSpec()->components->internalSchemas->ExposedEntityNoDelete->enum);
+		return in_array($entity, $this->getOpenApiSpec()->components->schemas->ExposedEntityNoDelete->enum);
 	}
 
 	private function IsValidExposedEntity($entity)
 	{
-		return in_array($entity, $this->getOpenApiSpec()->components->internalSchemas->ExposedEntity->enum);
+		return in_array($entity, $this->getOpenApiSpec()->components->schemas->ExposedEntity->enum);
 	}
 }

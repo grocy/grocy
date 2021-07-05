@@ -253,7 +253,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/ExposedEntity_NotIncludingNotListable"
+							"$ref": "#/components/schemas/ExposedEntity_NotIncludingNotListable"
 						}
 					},
 					{
@@ -342,7 +342,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/ExposedEntity_NotIncludingNotEditable"
+							"$ref": "#/components/schemas/ExposedEntity_NotIncludingNotEditable"
 						}
 					}
 				],
@@ -426,7 +426,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/ExposedEntity_NotIncludingNotListable"
+							"$ref": "#/components/schemas/ExposedEntity_NotIncludingNotListable"
 						}
 					},
 					{
@@ -510,7 +510,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/ExposedEntity_NotIncludingNotEditable"
+							"$ref": "#/components/schemas/ExposedEntity_NotIncludingNotEditable"
 						}
 					},
 					{
@@ -587,7 +587,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/ExposedEntity_NotIncludingNotDeletable"
+							"$ref": "#/components/schemas/ExposedEntity_NotIncludingNotDeletable"
 						}
 					},
 					{
@@ -630,7 +630,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/ExposedEntity_IncludingUserEntities"
+							"$ref": "#/components/schemas/ExposedEntity_IncludingUserEntities"
 						}
 					},
 					{
@@ -679,7 +679,7 @@
 						"required": true,
 						"description": "A valid entity name",
 						"schema": {
-							"$ref": "#/components/internalSchemas/ExposedEntity_IncludingUserEntities_NotIncludingNotEditable"
+							"$ref": "#/components/schemas/ExposedEntity_IncludingUserEntities_NotIncludingNotEditable"
 						}
 					},
 					{
@@ -734,7 +734,7 @@
 						"required": true,
 						"description": "The file group",
 						"schema": {
-							"$ref": "#/components/internalSchemas/FileGroups"
+							"$ref": "#/components/schemas/FileGroups"
 						}
 					},
 					{
@@ -814,7 +814,7 @@
 						"required": true,
 						"description": "The file group",
 						"schema": {
-							"$ref": "#/components/internalSchemas/FileGroups"
+							"$ref": "#/components/schemas/FileGroups"
 						}
 					},
 					{
@@ -865,7 +865,7 @@
 						"required": true,
 						"description": "The file group",
 						"schema": {
-							"$ref": "#/components/internalSchemas/FileGroups"
+							"$ref": "#/components/schemas/FileGroups"
 						}
 					},
 					{
@@ -1900,7 +1900,7 @@
 										"description": "The due date of the product to add, when omitted, the current date is used"
 									},
 									"transaction_type": {
-										"$ref": "#/components/internalSchemas/StockTransactionType"
+										"$ref": "#/components/schemas/StockTransactionType"
 									},
 									"price": {
 										"type": "number",
@@ -1988,7 +1988,7 @@
 										"description": "The amount to remove - please note that when tare weight handling for the product is enabled, this needs to be the amount including the container weight (gross), the amount to be posted will be automatically calculated based on what is in stock and the defined tare weight"
 									},
 									"transaction_type": {
-										"$ref": "#/components/internalSchemas/StockTransactionType"
+										"$ref": "#/components/schemas/StockTransactionType"
 									},
 									"spoiled": {
 										"type": "boolean",
@@ -2444,7 +2444,7 @@
 										"description": "The due date of the product to add, when omitted, the current date is used"
 									},
 									"transaction_type": {
-										"$ref": "#/components/internalSchemas/StockTransactionType"
+										"$ref": "#/components/schemas/StockTransactionType"
 									},
 									"price": {
 										"type": "number",
@@ -2523,7 +2523,7 @@
 										"description": "The amount to remove - please note that when tare weight handling for the product is enabled, this needs to be the amount including the container weight (gross), the amount to be posted will be automatically calculated based on what is in stock and the defined tare weight"
 									},
 									"transaction_type": {
-										"$ref": "#/components/internalSchemas/StockTransactionType"
+										"$ref": "#/components/schemas/StockTransactionType"
 									},
 									"spoiled": {
 										"type": "boolean",
@@ -4114,91 +4114,6 @@
 		}
 	},
 	"components": {
-		"internalSchemas": {
-			"ExposedEntity": {
-				"type": "string",
-				"enum": [
-					"products",
-					"chores",
-					"product_barcodes",
-					"batteries",
-					"locations",
-					"quantity_units",
-					"quantity_unit_conversions",
-					"shopping_list",
-					"shopping_lists",
-					"shopping_locations",
-					"recipes",
-					"recipes_pos",
-					"recipes_nestings",
-					"tasks",
-					"task_categories",
-					"product_groups",
-					"equipment",
-					"api_keys",
-					"userfields",
-					"userentities",
-					"userobjects",
-					"meal_plan",
-					"stock_log",
-					"stock",
-					"stock_current_locations",
-					"api_keys"
-				]
-			},
-			"ExposedEntityNoListing": {
-				"type": "string",
-				"enum": [
-					"api_keys"
-				]
-			},
-			"ExposedEntityNoEdit": {
-				"type": "string",
-				"enum": [
-					"stock_log",
-					"api_keys",
-					"stock",
-					"stock_current_locations"
-				]
-			},
-			"ExposedEntityNoDelete": {
-				"type": "string",
-				"enum": [
-					"stock_log",
-					"stock",
-					"stock_current_locations"
-				]
-			},
-			"ExposedEntityEditRequiresAdmin": {
-				"type": "string",
-				"enum": [
-					"api_keys"
-				]
-			},
-			"StockTransactionType": {
-				"type": "string",
-				"enum": [
-					"purchase",
-					"consume",
-					"inventory-correction",
-					"product-opened"
-				]
-			},
-			"FileGroups": {
-				"type": "string",
-				"enum": [
-					"equipmentmanuals",
-					"recipepictures",
-					"productpictures",
-					"userfiles",
-					"userpictures"
-				]
-			},
-			"StringEnumTemplate": {
-				"type": "string",
-				"enum": []
-			}
-		},
 		"schemas": {
 			"Product": {
 				"type": "object",
@@ -5082,7 +4997,7 @@
 						"type": "string"
 					},
 					"transaction_type": {
-						"$ref": "#/components/internalSchemas/StockTransactionType"
+						"$ref": "#/components/schemas/StockTransactionType"
 					},
 					"row_created_timestamp": {
 						"type": "string",
@@ -5130,7 +5045,7 @@
 						"default": false
 					},
 					"transaction_type": {
-						"$ref": "#/components/internalSchemas/StockTransactionType"
+						"$ref": "#/components/schemas/StockTransactionType"
 					},
 					"row_created_timestamp": {
 						"type": "string",
@@ -5180,7 +5095,7 @@
 						"type": "string"
 					},
 					"transaction_type": {
-						"$ref": "#/components/internalSchemas/StockTransactionType"
+						"$ref": "#/components/schemas/StockTransactionType"
 					}
 				},
 				"example": {
@@ -5428,6 +5343,91 @@
 						"type": "string"
 					}
 				}
+			},
+			"ExposedEntity": {
+				"type": "string",
+				"enum": [
+					"products",
+					"chores",
+					"product_barcodes",
+					"batteries",
+					"locations",
+					"quantity_units",
+					"quantity_unit_conversions",
+					"shopping_list",
+					"shopping_lists",
+					"shopping_locations",
+					"recipes",
+					"recipes_pos",
+					"recipes_nestings",
+					"tasks",
+					"task_categories",
+					"product_groups",
+					"equipment",
+					"api_keys",
+					"userfields",
+					"userentities",
+					"userobjects",
+					"meal_plan",
+					"stock_log",
+					"stock",
+					"stock_current_locations",
+					"api_keys"
+				]
+			},
+			"ExposedEntityNoListing": {
+				"type": "string",
+				"enum": [
+					"api_keys"
+				]
+			},
+			"ExposedEntityNoEdit": {
+				"type": "string",
+				"enum": [
+					"stock_log",
+					"api_keys",
+					"stock",
+					"stock_current_locations"
+				]
+			},
+			"ExposedEntityNoDelete": {
+				"type": "string",
+				"enum": [
+					"stock_log",
+					"stock",
+					"stock_current_locations"
+				]
+			},
+			"ExposedEntityEditRequiresAdmin": {
+				"type": "string",
+				"enum": [
+					"api_keys"
+				]
+			},
+			"StockTransactionType": {
+				"type": "string",
+				"enum": [
+					"purchase",
+					"consume",
+					"inventory-correction",
+					"product-opened"
+				]
+			},
+			"FileGroups": {
+				"type": "string",
+				"enum": [
+					"equipmentmanuals",
+					"recipepictures",
+					"productpictures",
+					"userfiles",
+					"userpictures"
+				]
+			},
+			"StringEnumTemplate": {
+				"type": "string",
+				"enum": [
+					""
+				]
 			}
 		},
 		"securitySchemes": {

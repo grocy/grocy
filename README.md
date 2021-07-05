@@ -65,7 +65,7 @@ _RTL languages are unfortunately not yet supported._
 
 ## Things worth to know
 
-### REST API & data model documentation
+### REST API
 See the integrated Swagger UI instance on [/api](https://demo.grocy.info/api).
 
 ### Barcode readers & camera scanning
