@@ -86,7 +86,14 @@ class LocalizationService
 		}
 		else
 		{
-			return vsprintf($this->Translator->gettext($text), ...$placeholderValues);
+			if (is_array(...$placeholderValues))
+			{
+				return vsprintf($this->Translator->gettext($text), ...$placeholderValues);
+			}
+			else
+			{
+				return sprintf($this->Translator->gettext($text), array_shift($placeholderValues));
+			}
 		}
 	}
 

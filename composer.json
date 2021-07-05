@@ -1,6 +1,6 @@
 {
 	"require": {
-		"php": ">=7.4",
+		"php": ">=8.0",
 		"slim/slim": "^4.0",
 		"slim/psr7": "^1.0",
 		"slim/http": "^1.0",
@@ -12,7 +12,7 @@
 		"erusev/parsedown": "^1.7",
 		"gumlet/php-image-resize": "^2.0",
 		"ezyang/htmlpurifier": "^4.13",
-		"jucksearm/php-barcode": "^1.0",
+		"interficieis/php-barcode": "^2.0.2",
 		"guzzlehttp/guzzle": "^7.0",
 		"mike42/escpos-php": "^3.0"
 	},

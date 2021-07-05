@@ -777,7 +777,7 @@ class StockService extends BaseService
 		return $this->getDatabase()->stock()->where('id', $entryId)->fetch();
 	}
 
-	public function InventoryProduct(int $productId, float $newAmount, $bestBeforeDate, $locationId = null, $price = null, $shoppingLocationId = null, $purchasedDate)
+	public function InventoryProduct(int $productId, float $newAmount, $bestBeforeDate, $locationId = null, $price = null, $shoppingLocationId = null, $purchasedDate = null)
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -794,6 +794,11 @@ class StockService extends BaseService
 		if ($shoppingLocationId === null)
 		{
 			$shoppingLocationId = $productDetails->last_shopping_location_id;
+		}
+
+		if ($purchasedDate == null)
+		{
+			$purchasedDate = date('Y-m-d');
 		}
 
 		// Tare weight handling

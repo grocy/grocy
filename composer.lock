@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c7a5c489ba3fd76ced0829ff004909c0",
+    "content-hash": "733105b1e5f4a01701131e045bc01be9",
     "packages": [
         {
             "name": "berrnd/slim-blade-view",
@@ -1421,6 +1421,57 @@
             "time": "2021-06-15T17:58:52+00:00"
         },
         {
+            "name": "interficieis/php-barcode",
+            "version": "v2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/InterficieIS/php-barcode.git",
+                "reference": "99326664e7c23780f8b4ce47859215537a41bd0d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/InterficieIS/php-barcode/zipball/99326664e7c23780f8b4ce47859215537a41bd0d",
+                "reference": "99326664e7c23780f8b4ce47859215537a41bd0d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "jucksearm\\barcode\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "David Martínez",
+                    "email": "david.martinez@interficie.com"
+                }
+            ],
+            "description": "Barcode Generation Package inspired by Nicola Asuni.",
+            "keywords": [
+                "CODE 128",
+                "barcode",
+                "datamatrix",
+                "pdf417",
+                "php barcode",
+                "qr code",
+                "qrcode"
+            ],
+            "support": {
+                "source": "https://github.com/InterficieIS/php-barcode/tree/v2.0.2"
+            },
+            "time": "2021-02-23T13:25:22+00:00"
+        },
+        {
             "name": "jenssegers/blade",
             "version": "v1.4.0",
             "source": {
@@ -1481,58 +1532,6 @@
                 }
             ],
             "time": "2020-09-17T08:25:26+00:00"
-        },
-        {
-            "name": "jucksearm/php-barcode",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jucksearm/php-barcode.git",
-                "reference": "066a58776ec9e94dd6d5843c0fb9a3ff95e74d8b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jucksearm/php-barcode/zipball/066a58776ec9e94dd6d5843c0fb9a3ff95e74d8b",
-                "reference": "066a58776ec9e94dd6d5843c0fb9a3ff95e74d8b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^6.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "jucksearm\\barcode\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPLv3"
-            ],
-            "authors": [
-                {
-                    "name": "jucksearm",
-                    "email": "jucksearm.bkk@gmail.com"
-                }
-            ],
-            "description": "Barcode Generation Package inspired by Nicola Asuni.",
-            "keywords": [
-                "CODE 128",
-                "barcode",
-                "datamatrix",
-                "pdf417",
-                "php barcode",
-                "qr code",
-                "qrcode"
-            ],
-            "support": {
-                "issues": "https://github.com/jucksearm/php-barcode/issues",
-                "source": "https://github.com/jucksearm/php-barcode/tree/1.0.0"
-            },
-            "time": "2017-06-05T04:41:51+00:00"
         },
         {
             "name": "mike42/escpos-php",
@@ -3606,7 +3605,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.4"
+        "php": ">=8.0"
     },
     "platform-dev": [],
     "plugin-api-version": "2.1.0"
