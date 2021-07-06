@@ -3890,13 +3890,13 @@
 				],
 				"responses": {
 					"200": {
-						"description": "An array of Task objects",
+						"description": "An array of CurrentTaskResponse objects",
 						"content": {
 							"application/json": {
 								"schema": {
 									"type": "array",
 									"items": {
-										"$ref": "#/components/schemas/Task"
+										"$ref": "#/components/schemas/CurrentTaskResponse"
 									}
 								}
 							}
@@ -5184,14 +5184,26 @@
 					"chore_id": {
 						"type": "integer"
 					},
+					"chore_name": {
+						"type": "string"
+					},
 					"last_tracked_time": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"track_date_only": {
+						"type": "boolean"
 					},
 					"next_estimated_execution_time": {
 						"type": "string",
 						"format": "date-time",
 						"description": "The next estimated execution time of this chore, 2999-12-31 23:59:59 when the given chore has a period_type of manually"
+					},
+					"next_execution_assigned_to_user_id": {
+						"type": "integer"
+					},
+					"next_execution_assigned_user": {
+						"$ref": "#/components/schemas/UserDto"
 					}
 				}
 			},
@@ -5290,6 +5302,65 @@
 					"userfields": {
 						"type": "object",
 						"description": "Key/value pairs of userfields"
+					}
+				}
+			},
+			"TaskCategory": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"name": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					}
+				}
+			},
+			"CurrentTaskResponse": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"name": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"due_date": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"done": {
+						"type": "integer"
+					},
+					"done_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"category_id": {
+						"type": "integer"
+					},
+					"assigned_to_user_id": {
+						"type": "integer"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"assigned_to_user": {
+						"$ref": "#/components/schemas/UserDto"
+					},
+					"category": {
+						"$ref": "#/components/schemas/TaskCategory"
 					}
 				}
 			},
