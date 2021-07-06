@@ -140,7 +140,22 @@ class ChoresService extends BaseService
 
 	public function GetCurrent()
 	{
-		return $this->getDatabase()->chores_current();
+		$users = $this->getUsersService()->GetUsersAsDto();
+
+		$chores = $this->getDatabase()->chores_current();
+		foreach ($chores as $chore)
+		{
+			if (!empty($chore->next_execution_assigned_to_user_id))
+			{
+				$chore->next_execution_assigned_user = FindObjectInArrayByPropertyValue($users, 'id', $chore->next_execution_assigned_to_user_id);
+			}
+			else
+			{
+				$chore->next_execution_assigned_user = null;
+			}
+		}
+
+		return $chores;
 	}
 
 	public function TrackChore(int $choreId, string $trackedTime, $doneBy = GROCY_USER_ID)

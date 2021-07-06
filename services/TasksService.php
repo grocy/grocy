@@ -6,7 +6,32 @@ class TasksService extends BaseService
 {
 	public function GetCurrent(): \LessQL\Result
 	{
-		return $this->getDatabase()->tasks_current();
+		$users = $this->getUsersService()->GetUsersAsDto();
+		$categories = $this->getDatabase()->task_categories();
+
+		$tasks = $this->getDatabase()->tasks_current();
+		foreach ($tasks as $task)
+		{
+			if (!empty($task->assigned_to_user_id))
+			{
+				$task->assigned_to_user = FindObjectInArrayByPropertyValue($users, 'id', $task->assigned_to_user_id);
+			}
+			else
+			{
+				$task->assigned_to_user = null;
+			}
+
+			if (!empty($task->category_id))
+			{
+				$task->category = FindObjectInArrayByPropertyValue($categories, 'id', $task->category_id);
+			}
+			else
+			{
+				$task->category = null;
+			}
+		}
+
+		return $tasks;
 	}
 
 	public function MarkTaskAsCompleted($taskId, $doneTime)

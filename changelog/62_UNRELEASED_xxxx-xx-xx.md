@@ -75,6 +75,8 @@
 
 ### API improvements/fixes
 - Added a new API endpoint `/system/localization-strings` to get the localization strings (gettext JSON representation; in the by the user desired language)
+- The `GET /chores` endpoint now also returns the `next_execution_assigned_user` per chore (like the endpoint `GET /chores​/{choreId}` already did for a single chore)
+- The `GET /tasks` endpoint now also returns the assigned user and category object per task
 - Fixed that due soon products with `due_type` = "Expiration date" were missing in `due_products` of the `/stock/volatile` endpoint
 - Fixed that `PUT/DELETE /objects/{entity}/{objectId}` produced an internal server error when the given object id was invalid (now returns `400 Bad Request`)
 - Fixed that hyphens in filter values did not work
