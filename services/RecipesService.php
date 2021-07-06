@@ -15,7 +15,6 @@ class RecipesService extends BaseService
 	public function AddNotFulfilledProductsToShoppingList($recipeId, $excludedProductIds = null)
 	{
 		$recipe = $this->getDataBase()->recipes($recipeId);
-
 		$recipePositions = $this->GetRecipesPosResolved();
 
 		foreach ($recipePositions as $recipePosition)
@@ -23,7 +22,6 @@ class RecipesService extends BaseService
 			if ($recipePosition->recipe_id == $recipeId && !in_array($recipePosition->product_id, $excludedProductIds))
 			{
 				$product = $this->getDataBase()->products($recipePosition->product_id);
-
 				$toOrderAmount = round(($recipePosition->missing_amount - $recipePosition->amount_on_shopping_list), 2);
 
 				if ($recipe->not_check_shoppinglist == 1)
@@ -33,10 +31,16 @@ class RecipesService extends BaseService
 
 				if ($toOrderAmount > 0)
 				{
+					$note = $this->getLocalizationService()->__t('Added for recipe %s', $recipe->name);
+					if (!empty($recipePosition->note))
+					{
+						$note .= "\n" . $recipePosition->note;
+					}
+
 					$shoppinglistRow = $this->getDataBase()->shopping_list()->createRow([
 						'product_id' => $recipePosition->product_id,
 						'amount' => $toOrderAmount,
-						'note' => $this->getLocalizationService()->__t('Added for recipe %s', $recipe->name)
+						'note' => $note
 					]);
 					$shoppinglistRow->save();
 				}
