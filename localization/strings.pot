@@ -2144,3 +2144,6 @@ msgstr ""
 
 msgid "Only done items"
 msgstr ""
+
+msgid "Show only in-stock products"
+msgstr ""

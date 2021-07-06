@@ -233,14 +233,18 @@ class StockController extends BaseController
 
 	public function ProductsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		if (isset($request->getQueryParams()['include_disabled']))
+		$products = $this->getDatabase()->products();
+		if (!isset($request->getQueryParams()['include_disabled']))
 		{
-			$products = $this->getDatabase()->products()->orderBy('name', 'COLLATE NOCASE');
+			$products = $products->where('active = 1');
 		}
-		else
+
+		if (isset($request->getQueryParams()['only_in_stock']))
 		{
-			$products = $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE');
+			$products = $products->where('id IN (SELECT product_id from stock_current WHERE amount_aggregated > 0)');
 		}
+
+		$products = $products->orderBy('name', 'COLLATE NOCASE');
 
 		return $this->renderPage($response, 'products', [
 			'products' => $products,

@@ -38,7 +38,14 @@ $("#clear-filter-button").on("click", function()
 	$("#product-group-filter").val("all");
 	productsTable.column(6).search("").draw();
 	productsTable.search("").draw();
-	$("#show-disabled").prop('checked', false);
+	if ($("#show-disabled").is(":checked") || $("#show-only-in-stock").is(":checked"))
+	{
+		$("#show-disabled").prop("checked", false);
+		$("#show-only-in-stock").prop("checked", false);
+		RemoveUriParam("include_disabled");
+		RemoveUriParam("only_in_stock");
+		window.location.reload();
+	}
 });
 
 if (typeof GetUriParam("product-group") !== "undefined")
@@ -90,12 +97,28 @@ $("#show-disabled").change(function()
 {
 	if (this.checked)
 	{
-		window.location.href = U('/products?include_disabled');
+		UpdateUriParam("include_disabled", "true");
 	}
 	else
 	{
-		window.location.href = U('/products');
+		RemoveUriParam("include_disabled");
 	}
+
+	window.location.reload();
+});
+
+$("#show-only-in-stock").change(function()
+{
+	if (this.checked)
+	{
+		UpdateUriParam("only_in_stock", "true");
+	}
+	else
+	{
+		RemoveUriParam("only_in_stock");
+	}
+
+	window.location.reload();
 });
 
 if (GetUriParam('include_disabled'))

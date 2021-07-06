@@ -71,7 +71,7 @@
 			</select>
 		</div>
 	</div>
-	<div class="col-12 col-md-6 col-xl-3">
+	<div class="col-12 col-md-6 col-xl-2">
 		<div class="form-check custom-control custom-checkbox">
 			<input class="form-check-input custom-control-input"
 				type="checkbox"
@@ -79,6 +79,17 @@
 			<label class="form-check-label custom-control-label"
 				for="show-disabled">
 				{{ $__t('Show disabled') }}
+			</label>
+		</div>
+	</div>
+	<div class="col-12 col-md-6 col-xl-2">
+		<div class="form-check custom-control custom-checkbox">
+			<input class="form-check-input custom-control-input"
+				type="checkbox"
+				id="show-only-in-stock">
+			<label class="form-check-label custom-control-label"
+				for="show-only-in-stock">
+				{{ $__t('Show only in-stock products') }}
 			</label>
 		</div>
 	</div>
