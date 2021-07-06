@@ -318,6 +318,7 @@
 					<td class="product-name-cell cursor-link"
 						data-product-id="{{ $currentStockEntry->product_id }}">
 						{{ $currentStockEntry->product_name }}
+						<span class="d-none">{{ $currentStockEntry->product_barcodes }}</span>
 					</td>
 					<td>
 						@if($currentStockEntry->product_group_name !== null){{ $currentStockEntry->product_group_name }}@endif
