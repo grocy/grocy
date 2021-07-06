@@ -131,6 +131,7 @@
 				<option value="all">{{ $__t('All') }}</option>
 				<option class="@if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif"
 					value="belowminstockamount">{{ $__t('Below min. stock amount') }}</option>
+				<option value="xxDONExx">{{ $__t('Only done items') }}</option>
 				<option value="xxUNDONExx">{{ $__t('Only undone items') }}</option>
 			</select>
 		</div>
@@ -239,7 +240,7 @@
 					<td id="shoppinglistitem-{{ $listItem->id }}-status-info"
 						class="d-none">
 						@if(FindObjectInArrayByPropertyValue($missingProducts, 'id', $listItem->product_id) !== null) belowminstockamount @endif
-						@if($listItem->done != 1) xxUNDONExx @endif
+						@if($listItem->done == 1) xxDONExx @else xxUNDONExx @endif
 					</td>
 					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">
 						<span class="locale-number locale-number-currency">{{ $listItem->last_price_unit }}</span>

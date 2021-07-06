@@ -361,11 +361,11 @@ $(document).on('click', '.order-listitem-button', function(e)
 	var statusInfoCell = $("#shoppinglistitem-" + listItemId + "-status-info");
 	if (done == 1)
 	{
-		statusInfoCell.text(statusInfoCell.text().replace("xxUNDONExx", ""));
+		statusInfoCell.text(statusInfoCell.text().replace("xxUNDONExx", "xxDONExx"));
 	}
 	else
 	{
-		statusInfoCell.text(statusInfoCell.text() + " xxUNDONExx");
+		statusInfoCell.text(statusInfoCell.text().replace("xxDONExx", "xxUNDONExx"));
 	}
 	shoppingListTable.rows().invalidate().draw(false);
 

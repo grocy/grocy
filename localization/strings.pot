@@ -2142,3 +2142,5 @@ msgstr ""
 msgid "Unable to print"
 msgstr ""
 
+msgid "Only done items"
+msgstr ""
