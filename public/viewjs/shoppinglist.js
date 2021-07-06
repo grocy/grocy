@@ -531,6 +531,19 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 	});
 });
 
+$(document).on("change", "input[name='print-layout-type']", function(e)
+{
+	if (this.value == "print-layout-type-list")
+	{
+		$("#print-group-by-product-group").prop("checked", false);
+		$("#print-group-by-product-group").attr("disabled", "");
+	}
+	else
+	{
+		$("#print-group-by-product-group").removeAttr("disabled");
+	}
+});
+
 $("#description").on("summernote.change", function()
 {
 	$("#save-description-button").removeClass("disabled");
