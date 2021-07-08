@@ -121,14 +121,12 @@ class GenericEntityApiController extends BaseApiController
 		if ($this->IsValidExposedEntity($args['entity']) && !$this->IsEntityWithNoListing($args['entity']))
 		{
 			$userfields = $this->getUserfieldsService()->GetValues($args['entity'], $args['objectId']);
-
 			if (count($userfields) === 0)
 			{
 				$userfields = null;
 			}
 
 			$object = $this->getDatabase()->{$args['entity']}($args['objectId']);
-
 			if ($object == null)
 			{
 				return $this->GenericErrorResponse($response, 'Object not found', 404);
@@ -146,33 +144,39 @@ class GenericEntityApiController extends BaseApiController
 
 	public function GetObjects(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$objects = $this->queryData($this->getDatabase()->{$args['entity']}(), $request->getQueryParams());
-		$allUserfields = $this->getUserfieldsService()->GetAllValues($args['entity']);
-
-		foreach ($objects as $object)
-		{
-			$userfields = FindAllObjectsInArrayByPropertyValue($allUserfields, 'object_id', $object->id);
-			$userfieldKeyValuePairs = null;
-
-			if (count($userfields) > 0)
-			{
-				foreach ($userfields as $userfield)
-				{
-					$userfieldKeyValuePairs[$userfield->name] = $userfield->value;
-				}
-			}
-
-			$object->userfields = $userfieldKeyValuePairs;
-		}
-
-		if ($this->IsValidExposedEntity($args['entity']) && !$this->IsEntityWithNoListing($args['entity']))
-		{
-			return $this->ApiResponse($response, $objects);
-		}
-		else
+		if (!$this->IsValidExposedEntity($args['entity']) || $this->IsEntityWithNoListing($args['entity']))
 		{
 			return $this->GenericErrorResponse($response, 'Entity does not exist or is not exposed');
 		}
+
+		$objects = $this->queryData($this->getDatabase()->{$args['entity']}(), $request->getQueryParams());
+		$userfields = $this->getUserfieldsService()->GetFields($args['entity']);
+
+		if (count($userfields) > 0)
+		{
+			$allUserfieldValues = $this->getUserfieldsService()->GetAllValues($args['entity']);
+
+			foreach ($objects as $object)
+			{
+				$userfieldKeyValuePairs = null;
+				foreach ($userfields as $userfield)
+				{
+					$value = FindObjectInArrayByPropertyValue($allUserfieldValues, 'object_id', $object->id);
+					if ($value)
+					{
+						$userfieldKeyValuePairs[$userfield->name] = $value->value;
+					}
+					else
+					{
+						$userfieldKeyValuePairs[$userfield->name] = null;
+					}
+				}
+
+				$object->userfields = $userfieldKeyValuePairs;
+			}
+		}
+
+		return $this->ApiResponse($response, $objects);
 	}
 
 	public function GetUserfields(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)

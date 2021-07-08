@@ -44,6 +44,7 @@ class UserfieldsService extends BaseService
 			throw new \Exception('Entity does not exist or is not exposed');
 		}
 
+		$userfields = $this->GetFields($entity);
 		return $this->getDatabase()->userfield_values_resolved()->where('entity', $entity)->orderBy('name', 'COLLATE NOCASE')->fetchAll();
 	}
 
@@ -88,12 +89,21 @@ class UserfieldsService extends BaseService
 			throw new \Exception('Entity does not exist or is not exposed');
 		}
 
-		$userfields = $this->getDatabase()->userfield_values_resolved()->where('entity = :1 AND object_id = :2', $entity, $objectId)->orderBy('name', 'COLLATE NOCASE')->fetchAll();
-		$userfieldKeyValuePairs = [];
+		$userfields = $this->GetFields($entity);
+		$userfieldValues = $this->getDatabase()->userfield_values_resolved()->where('entity = :1 AND object_id = :2', $entity, $objectId)->orderBy('name', 'COLLATE NOCASE')->fetchAll();
 
+		$userfieldKeyValuePairs = [];
 		foreach ($userfields as $userfield)
 		{
-			$userfieldKeyValuePairs[$userfield->name] = $userfield->value;
+			$value = FindObjectInArrayByPropertyValue($userfieldValues, 'name', $userfield->name);
+			if ($value)
+			{
+				$userfieldKeyValuePairs[$userfield->name] = $value->value;
+			}
+			else
+			{
+				$userfieldKeyValuePairs[$userfield->name] = null;
+			}
 		}
 
 		return $userfieldKeyValuePairs;
