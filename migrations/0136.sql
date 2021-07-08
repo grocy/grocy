@@ -14,7 +14,7 @@ SELECT
     (SELECT name FROM quantity_units WHERE quantity_units.id = p.qu_id_stock) AS qu_unit_name,
     (SELECT name_plural FROM quantity_units WHERE quantity_units.id = p.qu_id_stock) AS qu_unit_name_plural,
     p.name AS product_name,
-    (SELECT name FROM product_groups WHERE product_groups.id = product_group_id) AS product_group_name,
+    (SELECT name FROM product_groups WHERE product_groups.id = p.product_group_id) AS product_group_name,
     EXISTS(SELECT * FROM shopping_list WHERE shopping_list.product_id = sc.product_id) AS on_shopping_list,
     (SELECT name FROM quantity_units WHERE quantity_units.id = p.qu_id_purchase) AS qu_purchase_unit_name,
     (SELECT name_plural FROM quantity_units WHERE quantity_units.id = p.qu_id_purchase) AS qu_purchase_unit_name_plural,
@@ -30,7 +30,10 @@ SELECT
 	plp.price AS last_price,
 	p.min_stock_amount,
 	pbcs.barcodes AS product_barcodes,
-	p.description as product_description
+	p.description as product_description,
+	l.name AS product_default_location_name,
+	p_parent.id AS parent_product_id,
+	p_parent.name AS parent_product_name
 FROM (
 	SELECT *
 	FROM stock_current
@@ -48,6 +51,10 @@ LEFT JOIN products p
     ON sc.product_id = p.id
 LEFT JOIN product_barcodes_comma_separated pbcs
 	ON sc.product_id = pbcs.product_id
+LEFT JOIN products p_parent
+	ON p.parent_product_id = p_parent.id
+LEFT JOIN locations l
+	ON p.location_id = l.id
 WHERE p.hide_on_stock_overview = 0;
 
 DROP VIEW uihelper_stock_current_overview;
@@ -66,7 +73,7 @@ SELECT
     (SELECT name FROM quantity_units WHERE quantity_units.id = p.qu_id_stock) AS qu_unit_name,
     (SELECT name_plural FROM quantity_units WHERE quantity_units.id = p.qu_id_stock) AS qu_unit_name_plural,
     p.name AS product_name,
-    (SELECT name FROM product_groups WHERE product_groups.id = product_group_id) AS product_group_name,
+    (SELECT name FROM product_groups WHERE product_groups.id = p.product_group_id) AS product_group_name,
     EXISTS(SELECT * FROM shopping_list WHERE shopping_list.product_id = sc.product_id) AS on_shopping_list,
     (SELECT name FROM quantity_units WHERE quantity_units.id = p.qu_id_purchase) AS qu_purchase_unit_name,
     (SELECT name_plural FROM quantity_units WHERE quantity_units.id = p.qu_id_purchase) AS qu_purchase_unit_name_plural,
@@ -82,7 +89,10 @@ SELECT
 	plp.price AS last_price,
 	p.min_stock_amount,
 	pbcs.barcodes AS product_barcodes,
-	p.description as product_description
+	p.description AS product_description,
+	l.name AS product_default_location_name,
+	p_parent.id AS parent_product_id,
+	p_parent.name AS parent_product_name
 FROM (
 	SELECT *
 	FROM stock_current
@@ -100,4 +110,8 @@ LEFT JOIN products p
     ON sc.product_id = p.id
 LEFT JOIN product_barcodes_comma_separated pbcs
 	ON sc.product_id = pbcs.product_id
+LEFT JOIN products p_parent
+	ON p.parent_product_id = p_parent.id
+LEFT JOIN locations l
+	ON p.location_id = l.id
 WHERE p.hide_on_stock_overview = 0;

@@ -170,6 +170,8 @@
 					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Last price') }}</th>
 					<th>{{ $__t('Min. stock amount') }}</th>
 					<th>{{ $__t('Product description') }}</th>
+					<th>{{ $__t('Parent product') }}</th>
+					<th>{{ $__t('Default location') }}</th>
 
 					@include('components.userfields_thead', array(
 					'userfields' => $userfields
@@ -402,6 +404,13 @@
 					</td>
 					<td>
 						{{ $currentStockEntry->product_description }}
+					</td>
+					<td class="product-name-cell cursor-link"
+						data-product-id="{{ $currentStockEntry->parent_product_id }}">
+						{{ $currentStockEntry->parent_product_name }}
+					</td>
+					<td>
+						{{ $currentStockEntry->product_default_location_name }}
 					</td>
 
 					@include('components.userfields_tbody', array(

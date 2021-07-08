@@ -30,6 +30,7 @@
 - On the stock overview page it's now also possible to search/filter by product barcodes (via the general search field)
 - The product picker on the consume page now only shows products which are currently in stock
 - Added a filter option to only show in-stock products on the products list page (master data)
+- Added new columns on the stock overview page (hidden by default): Product description, product default location, parent product
 - Fixed that editing stock entries was not possible
 - Fixed that consuming with Scan Mode was not possible
 - Fixed that the current stock total value (header of the stock overview page) didn't include decimal amounts (thanks @Ape)
