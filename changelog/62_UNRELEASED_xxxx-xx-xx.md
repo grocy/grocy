@@ -79,6 +79,7 @@
 - Fixed that the "Manage users" and "Manage API keys" menu was not shown when using reverse proxy authentication
 
 ### API improvements/fixes
+> ❗ Numbers are now returned as numbers (so technically without quotes around them, were strings for nearly all endpoints before - should practically be no real difference)
 - Added a new API endpoint `/system/localization-strings` to get the localization strings (gettext JSON representation; in the by the user desired language)
 - The `GET /chores` endpoint now also returns the `next_execution_assigned_user` per chore (like the endpoint `GET /chores​/{choreId}` already did for a single chore)
 - The `GET /tasks` endpoint now also returns the assigned user and category object per task
