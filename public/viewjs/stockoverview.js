@@ -14,6 +14,7 @@
 		{ 'visible': false, 'targets': 11 },
 		{ 'visible': false, 'targets': 12 },
 		{ 'visible': false, 'targets': 13 },
+		{ 'visible': false, 'targets': 14 },
 		{ "type": "num", "targets": 3 },
 		{ "type": "html-num-fmt", "targets": 9 },
 		{ "type": "html-num-fmt", "targets": 10 },

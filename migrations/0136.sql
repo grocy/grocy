@@ -29,7 +29,8 @@ SELECT
 	plp.purchased_date AS last_purchased,
 	plp.price AS last_price,
 	p.min_stock_amount,
-	pbcs.barcodes AS product_barcodes
+	pbcs.barcodes AS product_barcodes,
+	p.description as product_description
 FROM (
 	SELECT *
 	FROM stock_current
@@ -80,7 +81,8 @@ SELECT
 	plp.purchased_date AS last_purchased,
 	plp.price AS last_price,
 	p.min_stock_amount,
-	pbcs.barcodes AS product_barcodes
+	pbcs.barcodes AS product_barcodes,
+	p.description as product_description
 FROM (
 	SELECT *
 	FROM stock_current

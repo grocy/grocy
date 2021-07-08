@@ -2147,3 +2147,6 @@ msgstr ""
 
 msgid "Show only in-stock products"
 msgstr ""
+
+msgid "Product description"
+msgstr ""
