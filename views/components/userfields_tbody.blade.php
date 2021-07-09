@@ -1,4 +1,4 @@
-@if(count($userfields) > 0)
+@if($userfields && count($userfields) > 0)
 
 @foreach($userfields as $userfield)
 
