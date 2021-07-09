@@ -4,6 +4,7 @@ namespace Grocy\Controllers;
 
 use Grocy\Helpers\Grocycode;
 use Grocy\Services\RecipesService;
+use jucksearm\barcode\lib\BarcodeFactory;
 use jucksearm\barcode\lib\DatamatrixFactory;
 
 class StockController extends BaseController
@@ -179,7 +180,14 @@ class StockController extends BaseController
 
 		$gc = new Grocycode(Grocycode::PRODUCT, $product->id);
 
-		$png = (new DatamatrixFactory())->setCode((string) $gc)->setSize($size)->getDatamatrixPngData();
+		if (GROCY_GROCYCODE_TYPE == '2D')
+		{
+			$png = (new DatamatrixFactory())->setCode((string) $gc)->setSize($size)->getDatamatrixPngData();
+		}
+		else
+		{
+			$png = (new BarcodeFactory())->setType('C128')->setCode((string) $gc)->setHeight($size)->getBarcodePngData();
+		}
 
 		$isDownload = $request->getQueryParam('download', false);
 
@@ -471,7 +479,14 @@ class StockController extends BaseController
 		$stockEntry = $this->getDatabase()->stock()->where('id', $args['entryId'])->fetch();
 		$gc = new Grocycode(Grocycode::PRODUCT, $stockEntry->product_id, [$stockEntry->stock_id]);
 
-		$png = (new DatamatrixFactory())->setCode((string) $gc)->setSize($size)->getDatamatrixPngData();
+		if (GROCY_GROCYCODE_TYPE == '2D')
+		{
+			$png = (new DatamatrixFactory())->setCode((string) $gc)->setSize($size)->getDatamatrixPngData();
+		}
+		else
+		{
+			$png = (new BarcodeFactory())->setType('C128')->setCode((string) $gc)->setHeight($size)->getBarcodePngData();
+		}
 
 		$isDownload = $request->getQueryParam('download', false);
 

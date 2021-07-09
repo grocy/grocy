@@ -1,9 +1,5 @@
 Grocy.Components.BarcodeScanner = {};
 
-//import Quagga2DatamatrixReader from '../../components_unmanaged/quagga2-reader-datamatrix/index.js'
-
-Quagga.registerReader("datamatrix", Quagga2DatamatrixReader);
-
 Grocy.Components.BarcodeScanner.LiveVideoSizeAdjusted = false;
 Grocy.Components.BarcodeScanner.CheckCapabilities = async function()
 {
@@ -101,7 +97,6 @@ Grocy.Components.BarcodeScanner.StartScanning = function()
 				"ean_reader",
 				"ean_8_reader",
 				"code_128_reader",
-				"datamatrix",
 				"code_39_reader"
 			],
 			debug: {

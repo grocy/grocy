@@ -193,6 +193,10 @@ Setting('LABEL_PRINTER_PARAMS', ['font_family' => 'Source Sans Pro (Regular)']);
 // Use JSON or normal POST request variables?
 Setting('LABEL_PRINTER_HOOK_JSON', false);
 
+// 1D (=> Code128) or 2D (=> DataMatrix)
+Setting('GROCYCODE_TYPE', '1D');
+
+
 // Feature flags
 // grocy was initially about "stock management for your household", many other things
 // came and still come by, because they are useful - here you can disable the parts

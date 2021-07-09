@@ -53,7 +53,7 @@ Currently, Chore grocycodes do not define any extra fields.
 Visual Encoding
 ----
 
-Grocy uses DataMatrix 2D Barcodes to encode grocycodes into a visual representation. In principle, there is no problem with using
+Grocy uses DataMatrix 2D (or alternatively Code128 1D) Barcodes to encode grocycodes into a visual representation. In principle, there is no problem with using
 other encoding formats like QR codes; however DataMatrix uses less space for the same information and redundancy and is a bit
 easier read by 2D barcode scanners, especially on non-flat surfaces.
 

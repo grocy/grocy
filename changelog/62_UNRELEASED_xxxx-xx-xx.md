@@ -8,7 +8,9 @@
   - The product edit page
   - The context/more menu per line on the stock overview and stock entries page
   - Automatically on purchase (new option on the purchase page, defaults can be configured per product)
-- The used barcode type is `DataMatrix`
+- The used barcode type can be configured via the `config.php` option `GROCYCODE_TYPE`:
+  - `1D` (default) will produce a `Code128` 1D barcode (supported by the integrated camera barcode scanner)
+  - `2D` will produce a `DataMatrix` 2D barcode (currently not supported by the integrated camera barcode scanner, but can be probably printed smaller)
 - Label printer functionality can be enabled via the new feature flag `FEATURE_FLAG_LABELPRINTER` (defaults to disabled)
 - Label printer communication happens via WebHooks - see the new `LABEL_PRINTER*` `config.php` options
 - Those grocycodes can also be used without a label printer - you can view or download the pictures and print them manually
