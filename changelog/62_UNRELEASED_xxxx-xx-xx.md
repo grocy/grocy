@@ -28,7 +28,7 @@
 ### Stock improvements/fixes
 - Product barcodes are now enforced to be unique across products
 - On the stock overview page it's now also possible to search/filter by product barcodes (via the general search field)
-- The product picker on the consume page now only shows products which are currently in stock
+- The product picker on the consume and transfer page now only shows products which are currently in stock
 - Added a filter option to only show in-stock products on the products list page (master data)
 - Added new columns on the stock overview page (hidden by default): Product description, product default location, parent product
 - Fixed that editing stock entries was not possible

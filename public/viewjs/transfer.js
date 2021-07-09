@@ -249,19 +249,9 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 
 				$('#display_amount').attr("data-stock-amount", productDetails.stock_amount);
 
-				if ((parseFloat(productDetails.stock_amount) || 0) === 0)
-				{
-					Grocy.Components.ProductPicker.Clear();
-					Grocy.FrontendHelpers.ValidateForm('transfer-form');
-					Grocy.Components.ProductPicker.ShowCustomError(__t('This product is not in stock'));
-					Grocy.Components.ProductPicker.GetInputElement().focus();
-				}
-				else
-				{
-					Grocy.Components.ProductPicker.HideCustomError();
-					Grocy.FrontendHelpers.ValidateForm('transfer-form');
-					$('#display_amount').focus();
-				}
+				Grocy.Components.ProductPicker.HideCustomError();
+				Grocy.FrontendHelpers.ValidateForm('transfer-form');
+				$('#display_amount').focus();
 			},
 			function(xhr)
 			{

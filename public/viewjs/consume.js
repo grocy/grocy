@@ -419,20 +419,9 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 					$("#tare-weight-handling-info").addClass("d-none");
 				}
 
-				if ((parseFloat(productDetails.stock_amount_aggregated) || 0) === 0)
-				{
-					Grocy.Components.ProductAmountPicker.Reset();
-					Grocy.Components.ProductPicker.Clear();
-					Grocy.FrontendHelpers.ValidateForm('consume-form');
-					Grocy.Components.ProductPicker.ShowCustomError(__t('This product is not in stock'));
-					Grocy.Components.ProductPicker.GetInputElement().focus();
-				}
-				else
-				{
-					Grocy.Components.ProductPicker.HideCustomError();
-					Grocy.FrontendHelpers.ValidateForm('consume-form');
-					$('#display_amount').focus();
-				}
+				Grocy.Components.ProductPicker.HideCustomError();
+				Grocy.FrontendHelpers.ValidateForm('consume-form');
+				$('#display_amount').focus();
 
 				if (productDetails.stock_amount == productDetails.stock_amount_opened || productDetails.product.enable_tare_weight_handling == 1)
 				{

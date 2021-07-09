@@ -248,38 +248,83 @@ $('#product_id_text_input').on('blur', function(e)
 				};
 			}
 
-			Grocy.Components.ProductPicker.PopupOpen = true;
-			bootbox.dialog({
-				message: __t('"%s" could not be resolved to a product, how do you want to proceed?', input),
-				title: __t('Create or assign product'),
-				onEscape: function()
+			// The product picker contains only in-stock products on some pages,
+			// so only show the workflow dialog when the entered input
+			// does not match in existing product (name) or barcode,
+			// otherwise an error validation message that the product is not in stock
+			var existsAsProduct = false;
+			var existsAsBarcode = false;
+			Grocy.Api.Get('objects/product_barcodes?query[]=barcode=' + input,
+				function(barcodeResult)
 				{
-					Grocy.Components.ProductPicker.PopupOpen = false;
-					Grocy.Components.ProductPicker.SetValue('');
+					if (barcodeResult.length > 0)
+					{
+						existsAsProduct = true;
+					}
+
+					Grocy.Api.Get('objects/products?query[]=name=' + input,
+						function(productResult)
+						{
+							if (productResult.length > 0)
+							{
+								existsAsProduct = true;
+							}
+
+							if (!existsAsBarcode && !existsAsProduct)
+							{
+								Grocy.Components.ProductPicker.PopupOpen = true;
+								bootbox.dialog({
+									message: __t('"%s" could not be resolved to a product, how do you want to proceed?', input),
+									title: __t('Create or assign product'),
+									onEscape: function()
+									{
+										Grocy.Components.ProductPicker.PopupOpen = false;
+										Grocy.Components.ProductPicker.SetValue('');
+									},
+									size: 'large',
+									backdrop: true,
+									closeButton: false,
+									buttons: buttons
+								}).on('keypress', function(e)
+								{
+									if (e.key === 'B' || e.key === 'b')
+									{
+										$('.add-new-barcode-dialog-button').not(".d-none").click();
+									}
+									if (e.key === 'p' || e.key === 'P')
+									{
+										$('.add-new-product-dialog-button').not(".d-none").click();
+									}
+									if (e.key === 'a' || e.key === 'A')
+									{
+										$('.add-new-product-with-barcode-dialog-button').not(".d-none").click();
+									}
+									if (e.key === 'c' || e.key === 'C')
+									{
+										$('.retry-camera-scanning-button').not(".d-none").click();
+									}
+								});
+							}
+							else
+							{
+								Grocy.Components.ProductAmountPicker.Reset();
+								Grocy.Components.ProductPicker.Clear();
+								Grocy.FrontendHelpers.ValidateForm('consume-form');
+								Grocy.Components.ProductPicker.ShowCustomError(__t('This product is not in stock'));
+								Grocy.Components.ProductPicker.GetInputElement().focus();
+							}
+						},
+						function(xhr)
+						{
+							console.error(xhr);
+						}
+					);
 				},
-				size: 'large',
-				backdrop: true,
-				closeButton: false,
-				buttons: buttons
-			}).on('keypress', function(e)
-			{
-				if (e.key === 'B' || e.key === 'b')
+				function(xhr)
 				{
-					$('.add-new-barcode-dialog-button').not(".d-none").click();
+					console.error(xhr);
 				}
-				if (e.key === 'p' || e.key === 'P')
-				{
-					$('.add-new-product-dialog-button').not(".d-none").click();
-				}
-				if (e.key === 'a' || e.key === 'A')
-				{
-					$('.add-new-product-with-barcode-dialog-button').not(".d-none").click();
-				}
-				if (e.key === 'c' || e.key === 'C')
-				{
-					$('.retry-camera-scanning-button').not(".d-none").click();
-				}
-			});
+			);
 		}
 	}
 });
