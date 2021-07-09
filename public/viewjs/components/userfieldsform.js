@@ -44,9 +44,9 @@ Grocy.Components.UserfieldsForm.Save = function(success, error)
 			if (input[0].files.length > 0)
 			{
 				// Files service requires an extension
-				var fileName = RandomString() + '.' + input[0].files[0].name.split('.').reverse()[0];
+				var fileName = RandomString() + '.' + CleanFileName(input[0].files[0].name.split('.').reverse()[0]);
 
-				jsonData[fieldName] = btoa(fileName) + '_' + btoa(input[0].files[0].name);
+				jsonData[fieldName] = btoa(fileName) + '_' + btoa(CleanFileName(input[0].files[0].name));
 				Grocy.Api.UploadFile(input[0].files[0], 'userfiles', fileName,
 					function(result)
 					{

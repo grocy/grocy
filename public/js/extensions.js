@@ -196,3 +196,9 @@ function QrCodeImgHtml(text)
 
 	return img.outerHTML;
 }
+
+function CleanFileName(fileName)
+{
+	// Umlaute seem to cause problems on Linux...
+	return fileName.toLowerCase().replaceAll(/ä/g, 'ae').replaceAll(/ö/g, 'oe').replaceAll(/ü/g, 'ue').replaceAll(/ß/g, 'ss');
+}

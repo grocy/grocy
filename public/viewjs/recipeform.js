@@ -36,7 +36,7 @@ $('.save-recipe').on('click', function(e)
 	if ($("#recipe-picture")[0].files.length > 0)
 	{
 		var someRandomStuff = Math.random().toString(36).substring(2, 100) + Math.random().toString(36).substring(2, 100);
-		jsonData.picture_file_name = someRandomStuff + $("#recipe-picture")[0].files[0].name;
+		jsonData.picture_file_name = someRandomStuff + CleanFileName($("#recipe-picture")[0].files[0].name);
 	}
 
 	const location = $(e.currentTarget).attr('data-location') == 'return' ? '/recipes?recipe=' : '/recipe/';

@@ -96,7 +96,7 @@ $('.save-product-button').on('click', function(e)
 	if ($("#product-picture")[0].files.length > 0)
 	{
 		var someRandomStuff = Math.random().toString(36).substring(2, 100) + Math.random().toString(36).substring(2, 100);
-		jsonData.picture_file_name = someRandomStuff + $("#product-picture")[0].files[0].name;
+		jsonData.picture_file_name = someRandomStuff + CleanFileName($("#product-picture")[0].files[0].name);
 	}
 
 	const location = $(e.currentTarget).attr('data-location') == 'return' ? '/products?product=' : '/product/';
