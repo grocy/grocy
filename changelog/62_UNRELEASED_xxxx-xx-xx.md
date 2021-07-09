@@ -88,3 +88,4 @@
 - Fixed that due soon products with `due_type` = "Expiration date" were missing in `due_products` of the `/stock/volatile` endpoint
 - Fixed that `PUT/DELETE /objects/{entity}/{objectId}` produced an internal server error when the given object id was invalid (now returns `400 Bad Request`)
 - Fixed that hyphens in filter values did not work
+- Fixed that cyrillic letters were not allowed in filter values

@@ -12,7 +12,7 @@ class BaseApiController extends BaseController
 
 	const PATTERN_OPERATOR = '!?(=|~|<|>|(>=)|(<=)|(§))';
 
-	const PATTERN_VALUE = '[A-Za-z_0-9.$#^|-]+';
+	const PATTERN_VALUE = '[A-Za-z\x{0400}-\x{04FF}_0-9.$#^|-]+';
 
 	public function __construct(\DI\Container $container)
 	{
@@ -90,7 +90,7 @@ class BaseApiController extends BaseController
 			preg_match(
 				'/(?P<field>' . self::PATTERN_FIELD . ')'
 				. '(?P<op>' . self::PATTERN_OPERATOR . ')'
-				. '(?P<value>' . self::PATTERN_VALUE . ')/',
+				. '(?P<value>' . self::PATTERN_VALUE . ')/u',
 				$q,
 				$matches
 			);
