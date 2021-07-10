@@ -59,6 +59,7 @@
 - Fixed that "Only check if any amount is in stock" (recipe ingredient option) didn't work for stock amounts < 1
 - Fixed that when adding missing items to the shopping list, on the popup deselected items got also added
 - Fixed that the amount of self produced products with tare weight handling enabled was wrong ("Produces product" recipe option)
+- Fixed that the ingredient amount calculation for included/nested recipes was (for most cases) wrong
 
 ### Chores fixes
 - Fixed that tracking chores with "Done by" a different user was not possible
