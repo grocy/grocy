@@ -4,6 +4,16 @@
 @section('activeNav', 'recipes')
 @section('viewJsName', 'recipes')
 
+@push('pageStyles')
+<style>
+	.card-img-top {
+		max-height: 250px !important;
+		object-fit: cover !important;
+	}
+
+</style>
+@endpush
+
 @section('content')
 <script>
 	Grocy.QuantityUnits = {!! json_encode($quantityUnits) !!};
@@ -190,6 +200,22 @@
 								<p class="card-text">
 									@if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 1)<i class="fas fa-check text-success"></i>@elseif(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1)<i class="fas fa-exclamation text-warning"></i>@else<i class="fas fa-times text-danger"></i>@endif
 									<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 1){{ $__t('Enough in stock') }}@elseif(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1){{ $__n(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->missing_products_count, 'Not enough in stock, %s ingredient missing but already on the shopping list', 'Not enough in stock, %s ingredients missing but already on the shopping list') }}@else{{ $__n(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->missing_products_count, 'Not enough in stock (not included in costs), %s ingredient missing', 'Not enough in stock (not included in costs), %s ingredients missing') }}@endif</span>
+								</p>
+								<p class="card-text mt-2">
+									<a class="btn btn-xs btn-outline-danger hide-when-embedded hide-on-fullscreen-card recipe-delete"
+										href="#"
+										data-recipe-id="{{ $recipe->id }}"
+										data-recipe-name="{{ $recipe->name }}"
+										data-toggle="tooltip"
+										title="{{ $__t('Delete this item') }}">
+										<i class="fas fa-trash"></i>
+									</a>
+									<a class="btn btn-outline-info btn-xs hide-when-embedded hide-on-fullscreen-card"
+										href="{{ $U('/recipe/') }}{{ $recipe->id }}"
+										data-toggle="tooltip"
+										title="{{ $__t('Edit this item') }}">
+										<i class="fas fa-edit"></i>
+									</a>
 								</p>
 							</div>
 						</div>
