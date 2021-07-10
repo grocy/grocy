@@ -87,9 +87,29 @@ class RecipesService extends BaseService
 		return $this->getDataBaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
 
-	public function GetRecipesResolved(): Result
+	public function GetRecipesResolved($customWhere = null): Result
 	{
-		return $this->getDatabase()->recipes_resolved();
+		if ($customWhere == null)
+		{
+			return $this->getDatabase()->recipes_resolved();
+		}
+		else
+		{
+			return $this->getDatabase()->recipes_resolved()->where($customWhere);
+		}
+	}
+
+	// The same as GetRecipesResolved but without the column "missing_products_count" to improve performance when this is not needed
+	public function GetRecipesResolved2($customWhere = null): Result
+	{
+		if ($customWhere == null)
+		{
+			return $this->getDatabase()->recipes_resolved2();
+		}
+		else
+		{
+			return $this->getDatabase()->recipes_resolved2()->where($customWhere);
+		}
 	}
 
 	public function __construct()

@@ -25,17 +25,9 @@ var calendar = $("#calendar").fullCalendar({
 	"defaultView": ($(window).width() < 768) ? "basicDay" : "basicWeek",
 	"firstDay": firstDay,
 	"height": "auto",
+	"defaultDate": GetUriParam("week"),
 	"viewRender": function(view)
 	{
-		if (firstRender)
-		{
-			firstRender = false
-		}
-		else
-		{
-			UpdateUriParam("week", view.start.format("YYYY-MM-DD"));
-		}
-
 		$(".fc-day-header").prepend('\
 			<div class="btn-group mr-2 my-1"> \
 				<button type="button" class="btn btn-outline-dark btn-xs add-recipe-button""><i class="fas fa-plus"></i></a></button> \
@@ -273,14 +265,20 @@ var calendar = $("#calendar").fullCalendar({
 	},
 	"eventAfterAllRender": function(view)
 	{
+		UpdateUriParam("week", view.start.format("YYYY-MM-DD"));
+
+		if (firstRender)
+		{
+			firstRender = false
+		}
+		else
+		{
+			window.location.reload();
+		}
+
 		RefreshLocaleNumberDisplay();
 		LoadImagesLazy();
 		$('[data-toggle="tooltip"]').tooltip();
-
-		if (GetUriParam("week") !== undefined)
-		{
-			$("#calendar").fullCalendar("gotoDate", GetUriParam("week"));
-		}
 
 		if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK)
 		{
@@ -498,7 +496,7 @@ $('#save-add-product-button').on('click', function(e)
 	delete jsonData.display_amount;
 	jsonData.product_amount = jsonData.amount;
 	delete jsonData.amount;
-	jsonData.product_qu_id = jsonData.qu_id;
+	jsonData.product_qu_id = $("#qu_id").val();;
 	delete jsonData.qu_id;
 
 	if (Grocy.IsMealPlanEntryEditAction)
@@ -803,10 +801,10 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 			function(productDetails)
 			{
 				Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
+				Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.quantity_unit_stock.id);
 
 				$('#display_amount').val(1);
 				RefreshLocaleNumberInput();
-				$(".input-group-productamountpicker").trigger("change");
 				$('#display_amount').focus();
 				$('#display_amount').select();
 				$(".input-group-productamountpicker").trigger("change");

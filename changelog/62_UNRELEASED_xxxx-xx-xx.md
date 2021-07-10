@@ -57,6 +57,7 @@
 - Recipe printing improvements (thanks @Ape)
 - Calories are now always displayed per single serving (on the recipe and meal plan page)
 - The note of an ingredient will now also be added to the corresponding shopping list item when using "Put missing products on the shopping list"
+- Fixed that the recipe page was slow when there were a lot meal plan recipe entries
 - Fixed that "Only check if any amount is in stock" (recipe ingredient option) didn't work for stock amounts < 1
 - Fixed that when adding missing items to the shopping list, on the popup deselected items got also added
 - Fixed that the amount of self produced products with tare weight handling enabled was wrong ("Produces product" recipe option)
@@ -64,6 +65,7 @@
 - Fixed that the ingredient amount was wrong when using a to the product indirectly related quantity unit
 
 ### Meal plan fixes
+- Improved the meal plan page loading time (drastically when having a big history of meal plan entries)
 - Fixed that stock fulfillment checking used the desired servings of the recipe (those selected on the recipes page, not them from the meal plan entry)
 
 ### Chores fixes

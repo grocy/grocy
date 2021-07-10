@@ -8,11 +8,22 @@ class RecipesController extends BaseController
 {
 	public function MealPlan(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
+		// Load +- 8 days to always include week boundaries
+
+		if (isset($request->getQueryParams()['week']) && IsIsoDate($request->getQueryParams()['week']))
+		{
+			$week = $request->getQueryParams()['week'];
+			$mealPlanWhereTimespan = "day BETWEEN DATE('$week', '-8 day') AND DATE('$week', '+8 day')";
+		}
+		else
+		{
+			$mealPlanWhereTimespan = "day BETWEEN DATE(DATE('now', 'localtime'), '-8 day') AND DATE(DATE('now', 'localtime'), '+8 day')";
+		}
+
 		$recipes = $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll();
 
 		$events = [];
-
-		foreach ($this->getDatabase()->meal_plan() as $mealPlanEntry)
+		foreach ($this->getDatabase()->meal_plan()->where($mealPlanWhereTimespan) as $mealPlanEntry)
 		{
 			$recipe = FindObjectInArrayByPropertyValue($recipes, 'id', $mealPlanEntry['recipe_id']);
 			$title = '';
@@ -23,7 +34,6 @@ class RecipesController extends BaseController
 			}
 
 			$productDetails = null;
-
 			if ($mealPlanEntry['product_id'] !== null)
 			{
 				$productDetails = $this->getStockService()->GetProductDetails($mealPlanEntry['product_id']);
@@ -44,8 +54,8 @@ class RecipesController extends BaseController
 		return $this->renderPage($response, 'mealplan', [
 			'fullcalendarEventSources' => $events,
 			'recipes' => $recipes,
-			'internalRecipes' => $this->getDatabase()->recipes()->whereNot('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll(),
-			'recipesResolved' => $this->getRecipesService()->GetRecipesResolved(),
+			'internalRecipes' => $this->getDatabase()->recipes()->where("id IN (SELECT recipe_id FROM meal_plan_internal_recipe_relation WHERE $mealPlanWhereTimespan)")->fetchAll(),
+			'recipesResolved' => $this->getRecipesService()->GetRecipesResolved2("recipe_id IN (SELECT recipe_id FROM meal_plan_internal_recipe_relation WHERE $mealPlanWhereTimespan)"),
 			'products' => $this->getDatabase()->products()->orderBy('name', 'COLLATE NOCASE'),
 			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
 			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
@@ -55,7 +65,7 @@ class RecipesController extends BaseController
 	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$recipes = $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name', 'COLLATE NOCASE');
-		$recipesResolved = $this->getRecipesService()->GetRecipesResolved();
+		$recipesResolved = $this->getRecipesService()->GetRecipesResolved('recipe_id > 0');
 
 		$selectedRecipe = null;
 
