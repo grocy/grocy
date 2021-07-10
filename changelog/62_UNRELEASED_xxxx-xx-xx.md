@@ -42,6 +42,7 @@
 - Fixed that the store information on a stock entry was lost when transferring a partial amount to a different location
 - Fixed that the "Spoil rate" on the product card was wrong in some cases
 - Fixed that the stock journal showed always the products default location (instead of the location of the transaction)
+ - Fixed that the aggregated amount of parent products was wrong when indirect quantity unit conversions were used
 
 ### Shopping list improvements/fixes
 - The amount now defaults to `1` for adding items quicker
@@ -60,6 +61,7 @@
 - Fixed that when adding missing items to the shopping list, on the popup deselected items got also added
 - Fixed that the amount of self produced products with tare weight handling enabled was wrong ("Produces product" recipe option)
 - Fixed that the ingredient amount calculation for included/nested recipes was (for most cases) wrong
+- Fixed that the ingredient amount was wrong when using a to the product indirectly related quantity unit
 
 ### Meal plan fixes
 - Fixed that stock fulfillment checking used the desired servings of the recipe (those selected on the recipes page, not them from the meal plan entry)
