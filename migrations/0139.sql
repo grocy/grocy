@@ -162,7 +162,7 @@ BEGIN
 	-- Remove shadow recipes per meal plan recipe
 	DELETE FROM recipes
 	WHERE type = 'mealplan-shadow'
-		AND name NOT IN (SELECT CAST(OLD.day AS TEXT) || '#' || CAST(id AS TEXT) FROM meal_plan WHERE type = 'recipe');
+		AND name NOT IN (SELECT CAST(day AS TEXT) || '#' || CAST(id AS TEXT) FROM meal_plan WHERE type = 'recipe');
 END;
 
 CREATE TRIGGER update_internal_recipe AFTER UPDATE ON meal_plan
