@@ -93,7 +93,8 @@ var calendar = $("#calendar").fullCalendar({
 				return false;
 			}
 
-			var resolvedRecipe = FindObjectInArrayByPropertyValue(recipesResolved, "recipe_id", recipe.id);
+			var internalShadowRecipe = FindObjectInArrayByPropertyValue(internalRecipes, "name", mealPlanEntry.day + "#" + mealPlanEntry.id);
+			var resolvedRecipe = FindObjectInArrayByPropertyValue(recipesResolved, "recipe_id", internalShadowRecipe.id);
 
 			element.attr("data-recipe", event.recipe);
 

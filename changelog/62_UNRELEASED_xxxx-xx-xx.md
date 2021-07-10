@@ -61,6 +61,9 @@
 - Fixed that the amount of self produced products with tare weight handling enabled was wrong ("Produces product" recipe option)
 - Fixed that the ingredient amount calculation for included/nested recipes was (for most cases) wrong
 
+### Meal plan fixes
+- Fixed that stock fulfillment checking used the desired servings of the recipe (those selected on the recipes page, not them from the meal plan entry)
+
 ### Chores fixes
 - Fixed that tracking chores with "Done by" a different user was not possible
 
