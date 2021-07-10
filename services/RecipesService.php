@@ -19,6 +19,11 @@ class RecipesService extends BaseService
 		$recipe = $this->getDataBase()->recipes($recipeId);
 		$recipePositions = $this->GetRecipesPosResolved();
 
+		if ($excludedProductIds == null)
+		{
+			$excludedProductIds = [];
+		}
+
 		foreach ($recipePositions as $recipePosition)
 		{
 			if ($recipePosition->recipe_id == $recipeId && !in_array($recipePosition->product_id, $excludedProductIds))
