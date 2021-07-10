@@ -114,7 +114,7 @@ AS
 SELECT
 	pr.parent_product_id AS product_id,
 	IFNULL((SELECT SUM(amount) FROM stock WHERE product_id = pr.parent_product_id), 0) AS amount,
-	SUM(s.amount) * IFNULL(qucr.factor, 1.0) AS amount_aggregated,
+	SUM(s.amount * IFNULL(qucr.factor, 1.0)) AS amount_aggregated,
 	IFNULL(ROUND((SELECT SUM(IFNULL(price,0) * amount) FROM stock WHERE product_id = pr.parent_product_id), 2), 0)  AS value,
 	MIN(s.best_before_date) AS best_before_date,
 	IFNULL((SELECT SUM(amount) FROM stock WHERE product_id = pr.parent_product_id AND open = 1), 0) AS amount_opened,
