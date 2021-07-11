@@ -64,8 +64,10 @@
 - Fixed that the ingredient amount calculation for included/nested recipes was (for most cases) wrong
 - Fixed that the ingredient amount was wrong when using a to the product indirectly related quantity unit
 
-### Meal plan fixes
+### Meal plan improvements/fixes
 - Improved the meal plan page loading time (drastically when having a big history of meal plan entries)
+- Meal plan entries can now be visually marked as "done" (new button per entry)
+  - This happens automatically on consuming a recipe/product from the meal plan page
 - Fixed that stock fulfillment checking used the desired servings of the recipe (those selected on the recipes page, not them from the meal plan entry)
 
 ### Chores fixes

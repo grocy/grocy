@@ -77,6 +77,14 @@ var calendar = $("#calendar").fullCalendar({
 
 		var mealPlanEntry = JSON.parse(event.mealPlanEntry);
 
+		var additionalTitleCssClasses = "";
+		var doneButtonHtml = '<a class="ml-1 btn btn-outline-secondary btn-xs mealplan-entry-done-button" href="#" data-toggle="tooltip" title="' + __t("Mark this item as done") + '" data-mealplan-entry-id="' + mealPlanEntry.id.toString() + '"><i class="fas fa-check"></i></a>';
+		if (BoolVal(mealPlanEntry.done))
+		{
+			additionalTitleCssClasses = "text-strike-through text-muted";
+			doneButtonHtml = '<a class="ml-1 btn btn-outline-secondary btn-xs mealplan-entry-undone-button" href="#" data-toggle="tooltip" title="' + __t("Mark this item as undone") + '" data-mealplan-entry-id="' + mealPlanEntry.id.toString() + '"><i class="fas fa-undo"></i></a>';
+		}
+
 		if (event.type == "recipe")
 		{
 			var recipe = JSON.parse(event.recipe);
@@ -127,16 +135,17 @@ var calendar = $("#calendar").fullCalendar({
 
 			element.html('\
 				<div> \
-					<h5 class="text-truncate">' + recipe.name + '<h5> \
+					<h5 class="text-truncate ' + additionalTitleCssClasses + '">' + recipe.name + '<h5> \
 					<h5 class="small text-truncate">' + __n(mealPlanEntry.recipe_servings, "%s serving", "%s servings") + '</h5> \
 					<h5 class="small timeago-contextual text-truncate">' + fulfillmentIconHtml + " " + fulfillmentInfoHtml + '</h5> \
 					' + costsAndCaloriesPerServing + ' \
 					<h5> \
 						<a class="ml-1 btn btn-outline-info btn-xs edit-meal-plan-entry-button" href="#" data-toggle="tooltip" title="' + __t("Edit this item") + '"><i class="fas fa-edit"></i></a> \
-						<a class="ml-1 btn btn-outline-danger btn-xs remove-recipe-button" href="#" data-toggle="tooltip" title="' + __t("Delete this item") + '"><i class="fas fa-trash"></i></a> \
+						<a class="btn btn-outline-danger btn-xs remove-recipe-button" href="#" data-toggle="tooltip" title="' + __t("Delete this item") + '"><i class="fas fa-trash"></i></a> \
 						<a class="ml-1 btn btn-outline-primary btn-xs recipe-order-missing-button ' + recipeOrderMissingButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Put missing products on shopping list") + '" data-recipe-id="' + recipe.id.toString() + '" data-mealplan-servings="' + mealPlanEntry.recipe_servings + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-cart-plus"></i></a> \
-						<a class="ml-1 btn btn-outline-success btn-xs recipe-consume-button ' + recipeConsumeButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Consume all ingredients needed by this recipe") + '" data-recipe-id="' + recipe.id.toString() + '" data-mealplan-servings="' + mealPlanEntry.recipe_servings + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-utensils"></i></a> \
+						<a class="btn btn-outline-success btn-xs recipe-consume-button ' + recipeConsumeButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Consume all ingredients needed by this recipe") + '" data-recipe-id="' + internalShadowRecipe.id.toString() + '" data-mealplan-entry-id="' + mealPlanEntry.id.toString() + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-utensils"></i></a> \
 						<a class="ml-1 btn btn-outline-secondary btn-xs recipe-popup-button" href="#" data-toggle="tooltip" title="' + __t("Display recipe") + '" data-recipe-id="' + recipe.id.toString() + '" data-recipe-name="' + recipe.name + '" data-mealplan-servings="' + mealPlanEntry.recipe_servings + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-eye"></i></a> \
+						' + doneButtonHtml + ' \
 					</h5> \
 				</div>');
 
@@ -213,15 +222,16 @@ var calendar = $("#calendar").fullCalendar({
 
 			element.html('\
 				<div> \
-					<h5 class="text-truncate">' + productDetails.product.name + '<h5> \
+					<h5 class="text-truncate ' + additionalTitleCssClasses + '">' + productDetails.product.name + '<h5> \
 					<h5 class="small text-truncate"><span class="locale-number locale-number-quantity-amount">' + mealPlanEntry.product_amount + "</span> " + __n(mealPlanEntry.product_amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural) + '</h5> \
 					<h5 class="small timeago-contextual text-truncate">' + fulfillmentIconHtml + " " + fulfillmentInfoHtml + '</h5> \
 					' + costsAndCaloriesPerServing + ' \
 					<h5> \
 						<a class="ml-1 btn btn-outline-danger btn-xs remove-product-button" href="#" data-toggle="tooltip" title="' + __t("Delete this item") + '"><i class="fas fa-trash"></i></a> \
-						<a class="ml-1 btn btn-outline-info btn-xs edit-meal-plan-entry-button" href="#" data-toggle="tooltip" title="' + __t("Edit this item") + '"><i class="fas fa-edit"></i></a> \
-						<a class="ml-1 btn btn-outline-success btn-xs product-consume-button ' + productConsumeButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Consume %1$s of %2$s", parseFloat(mealPlanEntry.product_amount).toLocaleString() + ' ' + __n(mealPlanEntry.product_amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '" data-product-id="' + productDetails.product.id.toString() + '" data-product-name="' + productDetails.product.name + '" data-product-amount="' + mealPlanEntry.product_amount + '"><i class="fas fa-utensils"></i></a> \
-						<a class="ml-1 btn btn-outline-primary btn-xs show-as-dialog-link ' + productOrderMissingButtonDisabledClasses + '" href="' + U("/shoppinglistitem/new?embedded&updateexistingproduct&product=") + mealPlanEntry.product_id + '&amount=' + mealPlanEntry.product_amount + '" data-toggle="tooltip" title="' + __t("Add to shopping list") + '" data-product-id="' + productDetails.product.id.toString() + '" data-product-name="' + productDetails.product.name + '" data-product-amount="' + mealPlanEntry.product_amount + '"><i class="fas fa-cart-plus"></i></a> \
+						<a class="btn btn-outline-info btn-xs edit-meal-plan-entry-button" href="#" data-toggle="tooltip" title="' + __t("Edit this item") + '"><i class="fas fa-edit"></i></a> \
+						<a class="ml-1 btn btn-outline-success btn-xs product-consume-button ' + productConsumeButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Consume %1$s of %2$s", parseFloat(mealPlanEntry.product_amount).toLocaleString() + ' ' + __n(mealPlanEntry.product_amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '" data-product-id="' + productDetails.product.id.toString() + '" data-product-name="' + productDetails.product.name + '" data-product-amount="' + mealPlanEntry.product_amount + '" data-mealplan-entry-id="' + mealPlanEntry.id.toString() + '"><i class="fas fa-utensils"></i></a> \
+						<a class="btn btn-outline-primary btn-xs show-as-dialog-link ' + productOrderMissingButtonDisabledClasses + '" href="' + U("/shoppinglistitem/new?embedded&updateexistingproduct&product=") + mealPlanEntry.product_id + '&amount=' + mealPlanEntry.product_amount + '" data-toggle="tooltip" title="' + __t("Add to shopping list") + '" data-product-id="' + productDetails.product.id.toString() + '" data-product-name="' + productDetails.product.name + '" data-product-amount="' + mealPlanEntry.product_amount + '"><i class="fas fa-cart-plus"></i></a> \
+						' + doneButtonHtml + ' \
 					</h5> \
 				</div>');
 
@@ -255,10 +265,11 @@ var calendar = $("#calendar").fullCalendar({
 		{
 			element.html('\
 				<div> \
-					<h5 class="text-wrap text-break">' + mealPlanEntry.note + '<h5> \
+					<h5 class="text-wrap text-break ' + additionalTitleCssClasses + '">' + mealPlanEntry.note + '<h5> \
 					<h5> \
 						<a class="ml-1 btn btn-outline-danger btn-xs remove-note-button" href="#" data-toggle="tooltip" title="' + __t("Delete this item") + '"><i class="fas fa-trash"></i></a> \
-						<a class="ml-1 btn btn-outline-info btn-xs edit-meal-plan-entry-button" href="#" data-toggle="tooltip" title="' + __t("Delete this item") + '"><i class="fas fa-edit"></i></a> \
+						<a class="btn btn-outline-info btn-xs edit-meal-plan-entry-button" href="#" data-toggle="tooltip" title="' + __t("Delete this item") + '"><i class="fas fa-edit"></i></a> \
+						' + doneButtonHtml + ' \
 					</h5> \
 				</div>');
 		}
@@ -654,6 +665,7 @@ $(document).on('click', '.product-consume-button', function(e)
 
 	var productId = $(e.currentTarget).attr('data-product-id');
 	var consumeAmount = parseFloat($(e.currentTarget).attr('data-product-amount'));
+	var mealPlanEntryId = $(e.currentTarget).attr('data-mealplan-entry-id');
 
 	Grocy.Api.Post('stock/products/' + productId + '/consume', { 'amount': consumeAmount, 'spoiled': false },
 		function(bookingResponse)
@@ -663,9 +675,18 @@ $(document).on('click', '.product-consume-button', function(e)
 				{
 					var toastMessage = __t('Removed %1$s of %2$s from stock', consumeAmount.toString() + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural), result.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse[0].transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
 
-					Grocy.FrontendHelpers.EndUiBusy();
-					toastr.success(toastMessage);
-					window.location.reload();
+					Grocy.Api.Put('objects/meal_plan/' + mealPlanEntryId, { "done": 1 },
+						function(result)
+						{
+							Grocy.FrontendHelpers.EndUiBusy();
+							toastr.success(toastMessage);
+							window.location.reload();
+						},
+						function(xhr)
+						{
+							Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+						}
+					);
 				},
 				function(xhr)
 				{
@@ -690,7 +711,7 @@ $(document).on('click', '.recipe-consume-button', function(e)
 
 	var objectName = $(e.currentTarget).attr('data-recipe-name');
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
-	var servings = $(e.currentTarget).attr('data-mealplan-servings');
+	var mealPlanEntryId = $(e.currentTarget).attr('data-mealplan-entry-id');
 
 	bootbox.confirm({
 		message: __t('Are you sure to consume all ingredients needed by recipe "%s" (ingredients marked with "only check if any amount is in stock" will be ignored)?', objectName),
@@ -711,11 +732,10 @@ $(document).on('click', '.recipe-consume-button', function(e)
 			{
 				Grocy.FrontendHelpers.BeginUiBusy();
 
-				// Set the recipes desired_servings so that the "recipes resolved"-views resolve correctly based on the meal plan entry servings
-				Grocy.Api.Put('objects/recipes/' + objectId, { "desired_servings": servings },
+				Grocy.Api.Post('recipes/' + objectId + '/consume', {},
 					function(result)
 					{
-						Grocy.Api.Post('recipes/' + objectId + '/consume', {},
+						Grocy.Api.Put('objects/meal_plan/' + mealPlanEntryId, { "done": 1 },
 							function(result)
 							{
 								Grocy.FrontendHelpers.EndUiBusy();
@@ -724,14 +744,14 @@ $(document).on('click', '.recipe-consume-button', function(e)
 							},
 							function(xhr)
 							{
-								toastr.warning(__t('Not all ingredients of recipe "%s" are in stock, nothing removed', objectName));
-								Grocy.FrontendHelpers.EndUiBusy();
-								console.error(xhr);
+								Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 							}
 						);
 					},
 					function(xhr)
 					{
+						toastr.warning(__t('Not all ingredients of recipe "%s" are in stock, nothing removed', objectName));
+						Grocy.FrontendHelpers.EndUiBusy();
 						console.error(xhr);
 					}
 				);
@@ -773,6 +793,48 @@ $(document).on("click", ".recipe-popup-button", function(e)
 		function(xhr)
 		{
 			console.error(xhr);
+		}
+	);
+});
+
+$(document).on("click", ".mealplan-entry-done-button", function(e)
+{
+	e.preventDefault();
+
+	// Remove the focus from the current button
+	// to prevent that the tooltip stays until clicked anywhere else
+	document.activeElement.blur();
+
+	var mealPlanEntryId = $(e.currentTarget).attr("data-mealplan-entry-id");
+	Grocy.Api.Put("objects/meal_plan/" + mealPlanEntryId, { "done": 1 },
+		function(result)
+		{
+			window.location.reload();
+		},
+		function(xhr)
+		{
+			Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+		}
+	);
+});
+
+$(document).on("click", ".mealplan-entry-undone-button", function(e)
+{
+	e.preventDefault();
+
+	// Remove the focus from the current button
+	// to prevent that the tooltip stays until clicked anywhere else
+	document.activeElement.blur();
+
+	var mealPlanEntryId = $(e.currentTarget).attr("data-mealplan-entry-id");
+	Grocy.Api.Put("objects/meal_plan/" + mealPlanEntryId, { "done": 0 },
+		function(result)
+		{
+			window.location.reload();
+		},
+		function(xhr)
+		{
+			Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
 		}
 	);
 });

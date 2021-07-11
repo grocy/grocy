@@ -2154,3 +2154,6 @@ msgstr ""
 # Example: *3.21 USD* per *Pack*
 msgid "%1$s per %2$s"
 msgstr ""
+
+msgid "Mark this item as undone"
+msgstr ""
