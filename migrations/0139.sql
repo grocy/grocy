@@ -165,6 +165,47 @@ BEGIN
 		AND name NOT IN (SELECT CAST(day AS TEXT) || '#' || CAST(id AS TEXT) FROM meal_plan WHERE type = 'recipe');
 END;
 
+CREATE TRIGGER TEMPORARY_update_internal_recipe AFTER UPDATE ON meal_plan
+BEGIN
+	/*
+	Temporary trigger (only needed for migration, will be dropped again below),
+	basically the same as update_internal_recipe,
+	but only contains the part for generating the new mealplan-shadow recipes
+	*/
+
+	-- Create a shadow recipe per meal plan recipe
+	INSERT OR REPLACE INTO recipes
+		(id, name, type)
+	SELECT (SELECT MIN(id) - 1 FROM recipes), CAST(NEW.day AS TEXT) || '#' || CAST(id AS TEXT), 'mealplan-shadow'
+	FROM meal_plan
+	WHERE id = NEW.id
+		AND type = 'recipe'
+		AND recipe_id IS NOT NULL;
+
+	DELETE FROM recipes_nestings
+	WHERE recipe_id IN (SELECT id FROM recipes WHERE name IN (SELECT CAST(NEW.day AS TEXT) || '#' || CAST(id AS TEXT) FROM meal_plan WHERE day = NEW.day) AND type = 'mealplan-shadow');
+
+	INSERT INTO recipes_nestings
+		(recipe_id, includes_recipe_id, servings)
+	SELECT (SELECT id FROM recipes WHERE name = CAST(NEW.day AS TEXT) || '#' || CAST(meal_plan.id AS TEXT) AND type = 'mealplan-shadow'), recipe_id, recipe_servings
+	FROM meal_plan
+	WHERE id = NEW.id
+		AND type = 'recipe'
+		AND recipe_id IS NOT NULL;
+END;
+
+/*
+Dummy update over all existing meal-plan recipe entries
+to generate the new internal mealplan-shadow recipes
+(by the trigger TEMPORARY_update_internal_recipe)
+*/
+UPDATE meal_plan
+SET day = day
+WHERE type = 'recipe'
+	AND recipe_id IS NOT NULL;
+
+DROP TRIGGER TEMPORARY_update_internal_recipe;
+
 CREATE TRIGGER update_internal_recipe AFTER UPDATE ON meal_plan
 BEGIN
 	/* This contains practically the same logic as the trigger create_internal_recipe */
@@ -254,9 +295,3 @@ BEGIN
 		AND type = 'recipe'
 		AND recipe_id IS NOT NULL;
 END;
-
--- Dummy update over all existing meal-plan recipe entries to generate the new internal mealplan-shadow recipes
-UPDATE meal_plan
-SET day = day
-WHERE type = 'recipe'
-	AND recipe_id IS NOT NULL;
