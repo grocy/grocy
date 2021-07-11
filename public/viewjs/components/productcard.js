@@ -84,7 +84,7 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 
 			if (productDetails.last_price !== null)
 			{
-				$('#productcard-product-last-price').text(Number.parseFloat(productDetails.last_price).toLocaleString() + ' ' + Grocy.Currency + ' per ' + productDetails.quantity_unit_stock.name);
+				$('#productcard-product-last-price').text(__t("%1$s per %2$s", Number.parseFloat(productDetails.last_price).toLocaleString() + ' ' + Grocy.Currency, productDetails.quantity_unit_stock.name));
 			}
 			else
 			{
@@ -93,7 +93,7 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 
 			if (productDetails.avg_price !== null)
 			{
-				$('#productcard-product-average-price').text(Number.parseFloat(productDetails.avg_price).toLocaleString() + ' ' + Grocy.Currency + ' per ' + productDetails.quantity_unit_stock.name);
+				$('#productcard-product-average-price').text(__t("%1$s per %2$s", Number.parseFloat(productDetails.avg_price).toLocaleString() + ' ' + Grocy.Currency, productDetails.quantity_unit_stock.name));
 			}
 			else
 			{
