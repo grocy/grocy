@@ -285,6 +285,7 @@ var calendar = $("#calendar").fullCalendar({
 		else
 		{
 			window.location.reload();
+			return false;
 		}
 
 		RefreshLocaleNumberDisplay();
