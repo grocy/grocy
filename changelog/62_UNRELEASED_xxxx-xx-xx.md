@@ -70,7 +70,7 @@
   - This happens automatically on consuming a recipe/product from the meal plan page
 - Fixed that stock fulfillment checking used the desired servings of the recipe (those selected on the recipes page, not them from the meal plan entry)
 
-### Chores improvements(fixes
+### Chores improvements/fixes
 - It's now possible to track any addtional info on a chore execution by using Userfields
   - => Configure the desired Userfields for the entity `chores_log`
   - => The on chore execution tracking entered information is then visible on the corresponding chore journal entry
