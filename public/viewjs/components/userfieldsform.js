@@ -158,6 +158,11 @@ Grocy.Components.UserfieldsForm.Load = function()
 					input.val(value);
 				}
 			});
+
+			$("form").each(function()
+			{
+				Grocy.FrontendHelpers.ValidateForm(this.id);
+			});
 		},
 		function(xhr)
 		{
@@ -178,4 +183,12 @@ $(".userfield-link").keyup(function(e)
 	};
 
 	formRow.find(".userfield-input").val(JSON.stringify(value));
+});
+
+$(".userfield-input").change(function(e)
+{
+	$("form").each(function()
+	{
+		Grocy.FrontendHelpers.ValidateForm(this.id);
+	});
 });

@@ -76,7 +76,8 @@
   - => The on chore execution tracking entered information is then visible on the corresponding chore journal entry
 - Fixed that tracking chores with "Done by" a different user was not possible
 
-### Userfield fixes
+### Userfield improvements/fixes
+- Userfields can now be configured as mandatory (new Userfield option, defaults to disabled)
 - Fixed that numeric Userfields were initialised with `1.0`
 - Fixed that shortcuts (up/down key) and the format did not work correctly when using multiple date/time Userfields per object
 - Fixed that Userfields were not saved when adding a product or a recipe (only on editing)

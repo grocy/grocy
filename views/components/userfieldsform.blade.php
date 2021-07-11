@@ -19,14 +19,18 @@
 		<label>{{ $userfield->caption }}</label>
 		<input type="text"
 			class="form-control userfield-input"
-			data-userfield-name="{{ $userfield->name }}">
+			data-userfield-name="{{ $userfield->name }}"
+			@if($userfield->input_required == 1) required @endif>
+		<div class="invalid-feedback">{{ $__t('Mandatory Userfield') }}</div>
 	</div>
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_SINGLE_MULTILINE_TEXT)
 	<div class="form-group">
 		<label for="description">{{ $userfield->caption }}</label>
 		<textarea class="form-control userfield-input"
 			rows="4"
-			data-userfield-name="{{ $userfield->name }}"></textarea>
+			data-userfield-name="{{ $userfield->name }}"
+			@if($userfield->input_required == 1) required @endif></textarea>
+		<div class="invalid-feedback">{{ $__t('Mandatory Userfield') }}</div>
 	</div>
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_INTEGRAL_NUMBER)
 	@include('components.numberpicker', array(
@@ -34,7 +38,7 @@
 	'label' => $userfield->caption,
 	'noNameAttribute' => true,
 	'min' => 0,
-	'isRequired' => false,
+	'isRequired' => $userfield->input_required == 1,
 	'additionalCssClasses' => 'userfield-input',
 	'additionalAttributes' => 'data-userfield-name="' . $userfield->name . '"',
 	'value' => ''
@@ -46,7 +50,7 @@
 	'noNameAttribute' => true,
 	'min' => 0,
 	'decimals' => 4,
-	'isRequired' => false,
+	'isRequired' => $userfield->input_required == 1,
 	'additionalCssClasses' => 'userfield-input',
 	'additionalAttributes' => 'data-userfield-name="' . $userfield->name . '"',
 	'value' => ''
@@ -61,7 +65,7 @@
 	'limitEndToNow' => false,
 	'limitStartToNow' => false,
 	'additionalGroupCssClasses' => 'date-only-datetimepicker',
-	'isRequired' => false,
+	'isRequired' => $userfield->input_required == 1,
 	'additionalCssClasses' => 'userfield-input',
 	'additionalAttributes' => 'data-userfield-name="' . $userfield->name . '"'
 	))
@@ -74,7 +78,7 @@
 	'initWithNow' => false,
 	'limitEndToNow' => false,
 	'limitStartToNow' => false,
-	'isRequired' => false,
+	'isRequired' => $userfield->input_required == 1,
 	'additionalCssClasses' => 'userfield-input',
 	'additionalAttributes' => 'data-userfield-name="' . $userfield->name . '"'
 	))
@@ -85,21 +89,25 @@
 				type="checkbox"
 				id="userfield-{{ $userfield->name }}"
 				data-userfield-name="{{ $userfield->name }}"
-				value="1">
+				value="1"
+				@if($userfield->input_required == 1) required @endif>
 			<label class="form-check-label custom-control-label"
 				for="userfield-{{ $userfield->name }}">{{ $userfield->caption }}</label>
+			<div class="invalid-feedback">{{ $__t('Mandatory Userfield') }}</div>
 		</div>
 	</div>
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_PRESET_LIST)
 	<div class="form-group">
 		<label for="{{ $userfield->name }}">{{ $userfield->caption }}</label>
 		<select class="custom-control custom-select userfield-input"
-			data-userfield-name="{{ $userfield->name }}">
+			data-userfield-name="{{ $userfield->name }}"
+			@if($userfield->input_required == 1) required @endif>
 			<option></option>
 			@foreach(preg_split('/\r\n|\r|\n/', $userfield->config) as $option)
 			<option value="{{ $option }}">{{ $option }}</option>
 			@endforeach
 		</select>
+		<div class="invalid-feedback">{{ $__t('Mandatory Userfield') }}</div>
 	</div>
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_PRESET_CHECKLIST)
 	<div class="form-group">
@@ -108,18 +116,21 @@
 			class="form-control userfield-input selectpicker"
 			data-userfield-name="{{ $userfield->name }}"
 			data-actions-Box="true"
-			data-live-search="true">
+			data-live-search="true"
+			@if($userfield->input_required == 1) required @endif>
 			@foreach(preg_split('/\r\n|\r|\n/', $userfield->config) as $option)
 			<option value="{{ $option }}">{{ $option }}</option>
 			@endforeach
 		</select>
+		<div class="invalid-feedback">{{ $__t('Mandatory Userfield') }}</div>
 	</div>
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_LINK)
 	<div class="form-group">
 		<label>{{ $userfield->caption }}</label>
 		<input type="link"
 			class="form-control userfield-input"
-			data-userfield-name="{{ $userfield->name }}">
+			data-userfield-name="{{ $userfield->name }}"
+			@if($userfield->input_required == 1) required @endif>
 	</div>
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_LINK_WITH_TITLE)
 	<div class="form-group">
@@ -128,13 +139,16 @@
 			<div class="col-4">
 				<input type="text"
 					class="form-control userfield-link userfield-link-title"
-					placeholder="{{ $__t('Title') }}">
+					placeholder="{{ $__t('Title') }}"
+					@if($userfield->input_required == 1) required @endif>
 			</div>
 			<div class="col-8">
 				<input type="link"
 					class="form-control userfield-link userfield-link-link"
-					placeholder="{{ $__t('Link') }}">
+					placeholder="{{ $__t('Link') }}"
+					@if($userfield->input_required == 1) required @endif>
 			</div>
+			<div class="invalid-feedback">{{ $__t('Mandatory Userfield') }}</div>
 			<input data-userfield-type="link"
 				type="hidden"
 				class="userfield-input"
@@ -148,11 +162,13 @@
 			<div class="custom-file">
 				<input type="file"
 					class="custom-file-input userfield-input"
-					data-userfield-name="{{ $userfield->name }}">
+					data-userfield-name="{{ $userfield->name }}"
+					@if($userfield->input_required == 1) required @endif>
 				<label class="custom-file-label"
 					for="{{ $userfield->name }}">
 					{{ $__t('No file selected') }}
 				</label>
+				<div class="invalid-feedback">{{ $__t('Mandatory Userfield') }}</div>
 			</div>
 			<div class="input-group-append userfield-file-delete">
 				<span class="input-group-text"><i class="fas fa-trash"></i></span>
@@ -171,11 +187,13 @@
 			<div class="custom-file">
 				<input type="file"
 					class="custom-file-input userfield-input"
-					data-userfield-name="{{ $userfield->name }}">
+					data-userfield-name="{{ $userfield->name }}"
+					@if($userfield->input_required == 1) required @endif>
 				<label class="custom-file-label"
 					for="{{ $userfield->name }}">
 					{{ $__t('No file selected') }}
 				</label>
+				<div class="invalid-feedback">{{ $__t('Mandatory Userfield') }}</div>
 			</div>
 			<div class="input-group-append userfield-file-delete">
 				<span class="input-group-text"><i class="fas fa-trash"></i></span>

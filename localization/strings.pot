@@ -2157,3 +2157,12 @@ msgstr ""
 
 msgid "Mark this item as undone"
 msgstr ""
+
+msgid "Mandatory"
+msgstr ""
+
+msgid "Mandatory Userfield"
+msgstr ""
+
+msgid "When enabled, then this field must be filled on the destination form"
+msgstr ""

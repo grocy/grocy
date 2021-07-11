@@ -128,6 +128,22 @@
 				</div>
 			</div>
 
+			<div class="form-group">
+				<div class="custom-control custom-checkbox">
+					<input @if($mode=='edit'
+						&&
+						$userfield->input_required == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="input_required" name="input_required" value="1">
+					<label class="form-check-label custom-control-label"
+						for="input_required">
+						{{ $__t('Mandatory') }}
+						&nbsp;<i class="fas fa-question-circle text-muted"
+							data-toggle="tooltip"
+							data-trigger="hover click"
+							title="{{ $__t('When enabled, then this field must be filled on the destination form') }}"></i>
+					</label>
+				</div>
+			</div>
+
 			<button id="save-userfield-button"
 				class="btn btn-success">{{ $__t('Save') }}</button>
 
