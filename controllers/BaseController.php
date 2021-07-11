@@ -229,7 +229,10 @@ class BaseController
 			}
 
 			// Allow some special chars
-			$value = str_replace('&amp;', '&', $value);
+			if (!is_array($value))
+			{
+				$value = str_replace('&amp;', '&', $value);
+			}
 		}
 
 		return $requestBody;

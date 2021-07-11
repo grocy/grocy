@@ -219,6 +219,8 @@ class StockService extends BaseService
 				}
 			}
 
+			$this->CompactStockEntries($productId);
+
 			return $transactionId;
 		}
 		else
@@ -413,6 +415,8 @@ class StockService extends BaseService
 				}
 			}
 
+			$this->CompactStockEntries($productId);
+
 			return $transactionId;
 		}
 		else
@@ -489,6 +493,8 @@ class StockService extends BaseService
 			'user_id' => GROCY_USER_ID
 		]);
 		$logNewRowForStockUpdate->save();
+
+		$this->CompactStockEntries($stockRow->product_id);
 
 		return $transactionId;
 	}
@@ -1294,7 +1300,7 @@ class StockService extends BaseService
 			return;
 		}
 
-		$hasSubsequentBookings = $this->getDatabase()->stock_log()->where('stock_id = :1 AND id != :2 AND (correlation_id is not null OR correlation_id != :3) AND id > :2 AND undone = 0', $logRow->stock_id, $logRow->id, $logRow->correlation_id)->count() > 0;
+		$hasSubsequentBookings = $this->getDatabase()->stock_log()->where('stock_id = :1 AND id != :2 AND (correlation_id IS NOT NULL OR correlation_id != :3) AND id > :2 AND undone = 0', $logRow->stock_id, $logRow->id, $logRow->correlation_id)->count() > 0;
 		if ($hasSubsequentBookings)
 		{
 			throw new \Exception('Booking has subsequent dependent bookings, undo not possible');
@@ -1512,6 +1518,54 @@ class StockService extends BaseService
 			throw $ex;
 		}
 		$this->getDatabaseService()->GetDbConnectionRaw()->commit();
+	}
+
+	public function CompactStockEntries($productId = null)
+	{
+		if ($productId == null)
+		{
+			$splittedStockEntries = $this->getDatabase()->stock_splits();
+		}
+		else
+		{
+			$splittedStockEntries = $this->getDatabase()->stock_splits()->where('product_id = :1', $productId);
+		}
+
+		foreach ($splittedStockEntries as $splittedStockEntry)
+		{
+			$this->getDatabaseService()->GetDbConnectionRaw()->beginTransaction();
+			try
+			{
+				$stockIds = explode(',', $splittedStockEntry->stock_id_group);
+				foreach ($stockIds as $stockId)
+				{
+					if ($stockId != $splittedStockEntry->stock_id_to_keep)
+					{
+						$this->getDatabaseService()->ExecuteDbStatement('UPDATE stock SET stock_id = \'' . $splittedStockEntry->stock_id_to_keep . '\' WHERE stock_id = \'' . $stockId . '\'');
+						$this->getDatabaseService()->ExecuteDbStatement('UPDATE stock_log SET stock_id = \'' . $splittedStockEntry->stock_id_to_keep . '\' WHERE stock_id = \'' . $stockId . '\'');
+					}
+				}
+
+				$stockEntryIds = explode(',', $splittedStockEntry->id_group);
+				foreach ($stockEntryIds as $stockEntryId)
+				{
+					if ($stockEntryId != $splittedStockEntry->id_to_keep)
+					{
+						$this->getDatabaseService()->ExecuteDbStatement('DELETE FROM stock WHERE id = ' . $stockEntryId);
+					}
+					else
+					{
+						$this->getDatabaseService()->ExecuteDbStatement('UPDATE stock SET amount = ' . $splittedStockEntry->total_amount . ' WHERE id = ' . $splittedStockEntry->id_to_keep);
+					}
+				}
+			}
+			catch (Exception $ex)
+			{
+				$this->getDatabaseService()->GetDbConnectionRaw()->rollback();
+				throw $ex;
+			}
+			$this->getDatabaseService()->GetDbConnectionRaw()->commit();
+		}
 	}
 
 	private function LoadBarcodeLookupPlugin()
