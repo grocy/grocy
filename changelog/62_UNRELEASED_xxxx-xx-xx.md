@@ -81,7 +81,7 @@
   - A read only service account can now be used for binding
   - The username attribute is now configurable
   - Filtering of accounts is now possible
-  - => See the new `config.php` options
+  - => See the new `LDAP*` `config.php` options
 - Some night mode style improvements (thanks @BlizzWave and @KTibow)
 - Help tooltips are now additionally also triggered by clicking on them (instead of only hovering them, which doesn't work on mobile / touch devices)
 - The camera barcode scanner now also supports Code 39 barcodes (used for example in Germany on pharma products (PZN)) (thanks @andreheuer)

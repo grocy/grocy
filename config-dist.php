@@ -77,13 +77,13 @@ Setting('AUTH_CLASS', 'Grocy\Middleware\DefaultAuthMiddleware');
 // the name of the HTTP header which your reverse proxy uses to pass the username (on successful authentication)
 Setting('REVERSE_PROXY_AUTH_HEADER', 'REMOTE_USER');
 
-// When using LdapAuthMiddleware
+// LDAP options when using LdapAuthMiddleware
 Setting('LDAP_ADDRESS', ''); // Example value "ldap://vm-dc2019.local.berrnd.net"
 Setting('LDAP_BASE_DN', ''); // Example value "DC=local,DC=berrnd,DC=net"
 Setting('LDAP_BIND_DN', ''); // Example value "CN=grocy_bind_account,OU=service_accounts,DC=local,DC=berrnd,DC=net"
 Setting('LDAP_BIND_PW', ''); // Password for the above account
 Setting('LDAP_USER_FILTER', ''); // Example value "(OU=grocy_users)"
-Setting('LDAP_UID_ATTR', ''); // Windows AD: "sAMAccountName", OpenLDAP: "uid", Glauth: "cn"
+Setting('LDAP_UID_ATTR', ''); // Windows AD: "sAMAccountName", OpenLDAP: "uid", GLAuth: "cn"
 
 // Set this to true if you want to disable the ability to scan a barcode via the device camera (Browser API)
 Setting('DISABLE_BROWSER_BARCODE_CAMERA_SCANNING', false);
@@ -98,20 +98,32 @@ Setting('MEAL_PLAN_FIRST_DAY_OF_WEEK', '');
 // see the file controllers/Users/User.php for possible values
 Setting('DEFAULT_PERMISSIONS', ['ADMIN']);
 
-// When using a thermal printer (thermal printers are receipt printers, not regular printers)
-// The printer must support the ESC/POS protocol, see https://github.com/mike42/escpos-php
-Setting('TPRINTER_IS_NETWORK_PRINTER', false);  // Set to true if it is a network printer
-Setting('TPRINTER_PRINT_QUANTITY_NAME', true);  // Set to false if you do not want to print the quantity names
-Setting('TPRINTER_PRINT_NOTES', true);          // Set to false if you do not want to print notes
+// 1D (=> Code128) or 2D (=> DataMatrix)
+Setting('GROCYCODE_TYPE', '1D');
 
-//Configuration below for network printers. If you are using a USB/serial printer, skip to next section
-Setting('TPRINTER_IP', '127.0.0.1');            // IP of the network printer
-Setting('TPRINTER_PORT', 9100);                 // Port of printer, eg. 9100
-//Configuration below if you are using a USB or serial printer
-Setting('TPRINTER_CONNECTOR', '/dev/usb/lp0');  // Location of printer. For USB on Linux this is often '/dev/usb/lp0',
-												// for serial printers it could be similar to '/dev/ttyS0'
-												// Make sure that the user that runs the webserver has permissions to write to the printer!
-												// On Linux add your webserver user to the LP group with usermod -a -G lp www-data
+// Label printer settings
+// This is the URI that grocy will POST to when asked to print a label
+Setting('LABEL_PRINTER_WEBHOOK', '');
+// This setting decides whether the webhook will be called server- or clientside
+// If the machine grocy runs on has a network connection to the host the webhook receiver is on, this is probably a good idea
+// If, for example, grocy runs in the cloud and your printer daemon runs locally to you, set this to false to let your browser call the webhook instead
+Setting('LABEL_PRINTER_RUN_SERVER', true);
+// Additional parameters supplied to the webhook
+Setting('LABEL_PRINTER_PARAMS', ['font_family' => 'Source Sans Pro (Regular)']);
+// TRUE to use JSON or FALSE to use normal POST request variables
+Setting('LABEL_PRINTER_HOOK_JSON', false);
+
+// Thermal printer options
+// Thermal printers are receipt printers, not regular printers,
+// the printer must support the ESC/POS protocol, see https://github.com/mike42/escpos-php
+Setting('TPRINTER_IS_NETWORK_PRINTER', false); // Set to true if it's' a network printer
+Setting('TPRINTER_PRINT_QUANTITY_NAME', true); // Set to false if you do not want to print the quantity names (related to the shopping list)
+Setting('TPRINTER_PRINT_NOTES', true); // Set to false if you do not want to print notes (related to the shopping list)
+Setting('TPRINTER_IP', '127.0.0.1'); // IP of the network printer (does only matter if it's a network printer)
+Setting('TPRINTER_PORT', 9100); // Port of the network printer
+Setting('TPRINTER_CONNECTOR', '/dev/usb/lp0'); // Printer device (does only matter if you use a locally attached printer)
+// For USB on Linux this is often '/dev/usb/lp0', for serial printers it could be similar to '/dev/ttyS0'
+// Make sure that the user that runs the webserver has permissions to write to the printer - on Linux add your webserver user to the LP group with usermod -a -G lp www-data
 
 
 // Default user settings
@@ -177,24 +189,6 @@ DefaultUserSetting('quagga2_halfsample', false);
 DefaultUserSetting('quagga2_patchsize', 'medium');
 DefaultUserSetting('quagga2_frequency', 10);
 DefaultUserSetting('quagga2_debug', true);
-
-// Label Printer Settings
-// This is the URI that grocy will POST to when asked to print a label.
-Setting('LABEL_PRINTER_WEBHOOK', '');
-// This setting decides whether the webhook will be called server- or clientside.
-// If the machine grocy runs on has a network connection to the host
-// the webhook receiver is on, this is probably a good idea.
-// If, for example, grocy runs in the cloud and your printer daemon
-// runs locally to you, set this to false to let your browser call
-// the webhook instead.
-Setting('LABEL_PRINTER_RUN_SERVER', true);
-// Additional Parameters supplied to the webhook.
-Setting('LABEL_PRINTER_PARAMS', ['font_family' => 'Source Sans Pro (Regular)']);
-// Use JSON or normal POST request variables?
-Setting('LABEL_PRINTER_HOOK_JSON', false);
-
-// 1D (=> Code128) or 2D (=> DataMatrix)
-Setting('GROCYCODE_TYPE', '1D');
 
 
 // Feature flags
