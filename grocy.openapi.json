@@ -4480,6 +4480,10 @@
 					"spoil_rate_percent": {
 						"type": "number",
 						"format": "number"
+					},
+					"has_childs": {
+						"type": "boolean",
+						"description": "True when the product is a parent products of others"
 					}
 				},
 				"example": {

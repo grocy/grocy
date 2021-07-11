@@ -683,7 +683,8 @@ class StockService extends BaseService
 			'location' => $location,
 			'average_shelf_life_days' => $averageShelfLifeDays,
 			'spoil_rate_percent' => $spoilRate,
-			'is_aggregated_amount' => $stockCurrentRow->is_aggregated_amount
+			'is_aggregated_amount' => $stockCurrentRow->is_aggregated_amount,
+			'has_childs' => $this->getDatabase()->products()->where('parent_product_id = :1', $product->id)->count() !== 0,
 		];
 	}
 

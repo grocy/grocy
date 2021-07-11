@@ -127,6 +127,7 @@
 				},
 				function(xhr)
 				{
+					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 					Grocy.FrontendHelpers.EndUiBusy("consume-form");
 					console.error(xhr);
 				}
@@ -648,6 +649,11 @@ function RefreshForm()
 		{
 			$("#display_amount").parent().find(".invalid-feedback").text(__t('There are no units available at this location'));
 		}
+	}
+
+	if (productDetails.has_childs)
+	{
+		$("#display_amount").removeAttr("max");
 	}
 
 	Grocy.FrontendHelpers.ValidateForm("consume-form");
