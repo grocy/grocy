@@ -73,7 +73,7 @@ BEGIN
 		(id, name, type)
 	SELECT (SELECT MIN(id) - 1 FROM recipes), CAST(NEW.day AS TEXT) || '#' || CAST(id AS TEXT), 'mealplan-shadow'
 	FROM meal_plan
-	WHERE day = NEW.day
+	WHERE id = NEW.id
 		AND type = 'recipe'
 		AND recipe_id IS NOT NULL;
 
@@ -84,7 +84,7 @@ BEGIN
 		(recipe_id, includes_recipe_id, servings)
 	SELECT (SELECT id FROM recipes WHERE name = CAST(NEW.day AS TEXT) || '#' || CAST(meal_plan.id AS TEXT) AND type = 'mealplan-shadow'), recipe_id, recipe_servings
 	FROM meal_plan
-	WHERE day = NEW.day
+	WHERE id = NEW.id
 		AND type = 'recipe'
 		AND recipe_id IS NOT NULL;
 END;
@@ -239,7 +239,7 @@ BEGIN
 		(id, name, type)
 	SELECT (SELECT MIN(id) - 1 FROM recipes), CAST(NEW.day AS TEXT) || '#' || CAST(id AS TEXT), 'mealplan-shadow'
 	FROM meal_plan
-	WHERE day = NEW.day
+	WHERE id = NEW.id
 		AND type = 'recipe'
 		AND recipe_id IS NOT NULL;
 
@@ -250,7 +250,13 @@ BEGIN
 		(recipe_id, includes_recipe_id, servings)
 	SELECT (SELECT id FROM recipes WHERE name = CAST(NEW.day AS TEXT) || '#' || CAST(meal_plan.id AS TEXT) AND type = 'mealplan-shadow'), recipe_id, recipe_servings
 	FROM meal_plan
-	WHERE day = NEW.day
+	WHERE id = NEW.id
 		AND type = 'recipe'
 		AND recipe_id IS NOT NULL;
 END;
+
+-- Dummy update over all existing meal-plan recipe entries to generate the new internal mealplan-shadow recipes
+UPDATE meal_plan
+SET day = day
+WHERE type = 'recipe'
+	AND recipe_id IS NOT NULL;
