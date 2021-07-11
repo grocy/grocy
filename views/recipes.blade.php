@@ -118,10 +118,12 @@
 							</th>
 							<th>{{ $__t('Name') }}</th>
 							<th>{{ $__t('Desired servings') }}</th>
-							<th class="@if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif">{{ $__t('Requirements fulfilled') }}</th>
+							<th data-shadow-rowgroup-column="7"
+								class="@if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif">{{ $__t('Requirements fulfilled') }}</th>
 							<th class="d-none">Hidden status for sorting of "Requirements fulfilled" column</th>
 							<th class="d-none">Hidden status for filtering by status</th>
 							<th class="d-none">Hidden recipe ingredient product names</th>
+							<th class="d-none">Hidden status for grouping by status</th>
 
 							@include('components.userfields_thead', array(
 							'userfields' => $userfields
@@ -169,6 +171,9 @@
 								@foreach(FindAllObjectsInArrayByPropertyValue($recipePositionsResolved, 'recipe_id', $recipe->id) as $recipePos)
 								{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePos->product_id)->name . ' ' }}
 								@endforeach
+							</td>
+							<td class="d-none">
+								@if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 1) {{ $__t('Enough in stock') }} @elseif(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) {{ $__t('Not enough in stock, but already on the shopping list') }} @else {{ $__t('Not enough in stock') }} @endif
 							</td>
 
 							@include('components.userfields_tbody', array(
