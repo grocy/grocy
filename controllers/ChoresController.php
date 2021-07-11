@@ -62,7 +62,9 @@ class ChoresController extends BaseController
 		return $this->renderPage($response, 'choresjournal', [
 			'choresLog' => $this->getDatabase()->chores_log()->orderBy('tracked_time', 'DESC'),
 			'chores' => $this->getDatabase()->chores()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
-			'users' => $this->getDatabase()->users()->orderBy('username')
+			'users' => $this->getDatabase()->users()->orderBy('username'),
+			'userfields' => $this->getUserfieldsService()->GetFields('chores_log'),
+			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('chores_log')
 		]);
 	}
 
@@ -85,7 +87,8 @@ class ChoresController extends BaseController
 	{
 		return $this->renderPage($response, 'choretracking', [
 			'chores' => $this->getDatabase()->chores()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
-			'users' => $this->getDatabase()->users()->orderBy('username')
+			'users' => $this->getDatabase()->users()->orderBy('username'),
+			'userfields' => $this->getUserfieldsService()->GetFields('chores_log'),
 		]);
 	}
 

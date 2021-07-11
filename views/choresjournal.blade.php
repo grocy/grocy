@@ -77,6 +77,10 @@
 					@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 					<th>{{ $__t('Done by') }}</th>
 					@endif
+
+					@include('components.userfields_thead', array(
+					'userfields' => $userfields
+					))
 				</tr>
 			</thead>
 			<tbody class="d-none">
@@ -116,6 +120,11 @@
 						@endif
 					</td>
 					@endif
+
+					@include('components.userfields_tbody', array(
+					'userfields' => $userfields,
+					'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $choreLogEntry->id)
+					))
 				</tr>
 				@endforeach
 			</tbody>

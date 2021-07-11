@@ -52,6 +52,11 @@
 				value="{{ GROCY_USER_ID }}">
 			@endif
 
+			@include('components.userfieldsform', array(
+			'userfields' => $userfields,
+			'entity' => 'chores_log'
+			))
+
 			<button id="save-choretracking-button"
 				class="btn btn-success">{{ $__t('OK') }}</button>
 

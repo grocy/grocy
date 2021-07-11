@@ -5447,7 +5447,7 @@
 					"stock_log",
 					"stock",
 					"stock_current_locations",
-					"api_keys"
+					"chores_log"
 				]
 			},
 			"ExposedEntityNoListing": {
@@ -5462,7 +5462,8 @@
 					"stock_log",
 					"api_keys",
 					"stock",
-					"stock_current_locations"
+					"stock_current_locations",
+					"chores_log"
 				]
 			},
 			"ExposedEntityNoDelete": {
@@ -5470,7 +5471,8 @@
 				"enum": [
 					"stock_log",
 					"stock",
-					"stock_current_locations"
+					"stock_current_locations",
+					"chores_log"
 				]
 			},
 			"ExposedEntityEditRequiresAdmin": {

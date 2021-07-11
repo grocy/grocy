@@ -59,7 +59,9 @@ class UserfieldsService extends BaseService
 			$userEntities[] = 'userentity-' . $userentity->name;
 		}
 
-		return array_merge($exposedDefaultEntities, $userEntities, $specialEntities);
+		$entitiesSorted = array_merge($exposedDefaultEntities, $userEntities, $specialEntities);
+		sort($entitiesSorted);
+		return $entitiesSorted;
 	}
 
 	public function GetField($fieldId)

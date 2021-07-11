@@ -16,16 +16,20 @@
 			Grocy.Api.Post('chores/' + jsonForm.chore_id + '/execute', { 'tracked_time': Grocy.Components.DateTimePicker.GetValue(), 'done_by': $("#user_id").val() },
 				function(result)
 				{
-					Grocy.FrontendHelpers.EndUiBusy("choretracking-form");
-					toastr.success(__t('Tracked execution of chore %1$s on %2$s', choreDetails.chore.name, Grocy.Components.DateTimePicker.GetValue()) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoChoreExecution(' + result.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
-					Grocy.Components.ChoreCard.Refresh($('#chore_id').val());
+					Grocy.EditObjectId = result.id;
+					Grocy.Components.UserfieldsForm.Save(function()
+					{
+						Grocy.FrontendHelpers.EndUiBusy("choretracking-form");
+						toastr.success(__t('Tracked execution of chore %1$s on %2$s', choreDetails.chore.name, Grocy.Components.DateTimePicker.GetValue()) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoChoreExecution(' + result.id + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
+						Grocy.Components.ChoreCard.Refresh($('#chore_id').val());
 
-					$('#chore_id').val('');
-					$('#chore_id_text_input').focus();
-					$('#chore_id_text_input').val('');
-					Grocy.Components.DateTimePicker.SetValue(moment().format('YYYY-MM-DD HH:mm:ss'));
-					$('#chore_id_text_input').trigger('change');
-					Grocy.FrontendHelpers.ValidateForm('choretracking-form');
+						$('#chore_id').val('');
+						$('#chore_id_text_input').focus();
+						$('#chore_id_text_input').val('');
+						Grocy.Components.DateTimePicker.SetValue(moment().format('YYYY-MM-DD HH:mm:ss'));
+						$('#chore_id_text_input').trigger('change');
+						Grocy.FrontendHelpers.ValidateForm('choretracking-form');
+					});
 				},
 				function(xhr)
 				{
