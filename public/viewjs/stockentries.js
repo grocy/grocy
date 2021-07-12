@@ -3,7 +3,7 @@
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 },
-		{ 'visible': false, 'targets': 10 },
+		{ 'visible': false, 'targets': 10 }
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#stockentries-table tbody').removeClass("d-none");

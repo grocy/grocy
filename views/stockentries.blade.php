@@ -65,10 +65,10 @@
 					<th class="d-none">Hidden product_id</th> <!-- This must be in the first column for searching -->
 					<th>{{ $__t('Product') }}</th>
 					<th>{{ $__t('Amount') }}</th>
-					<th class="@if(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING) d-none @endif">{{ $__t('Due date') }}</th>
-					<th class="@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif">{{ $__t('Location') }}</th>
-					<th class="@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Store') }}</th>
-					<th class="@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Price') }}</th>
+					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING) d-none @endif">{{ $__t('Due date') }}</th>
+					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif">{{ $__t('Location') }}</th>
+					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Store') }}</th>
+					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Price') }}</th>
 					<th data-shadow-rowgroup-column="9">{{ $__t('Purchased date') }}</th>
 					<th class="d-none">Hidden purchased_date</th>
 					<th>{{ $__t('Timestamp') }}</th>
@@ -235,26 +235,26 @@
 						<span id="stock-{{ $stockEntry->id }}-opened-amount"
 							class="small font-italic">@if($stockEntry->open == 1){{ $__t('Opened') }}@endif</span>
 					</td>
-					<td class="@if(GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING) d-none @endif">
+					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING) d-none @endif">
 						<span id="stock-{{ $stockEntry->id }}-due-date">{{ $stockEntry->best_before_date }}</span>
 						<time id="stock-{{ $stockEntry->id }}-due-date-timeago"
 							class="timeago timeago-contextual"
 							datetime="{{ $stockEntry->best_before_date }} 23:59:59"></time>
 					</td>
 					<td id="stock-{{ $stockEntry->id }}-location"
-						class="@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif"
+						class="@if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif"
 						data-location-id="{{ $stockEntry->location_id }}">
 						{{ FindObjectInArrayByPropertyValue($locations, 'id', $stockEntry->location_id)->name }}
 					</td>
 					<td id="stock-{{ $stockEntry->id }}-shopping-location"
-						class="@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif"
+						class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif"
 						data-shopping-location-id="{{ $stockEntry->shopping_location_id }}">
 						@if (FindObjectInArrayByPropertyValue($shoppinglocations, 'id', $stockEntry->shopping_location_id) !== null)
 						{{ FindObjectInArrayByPropertyValue($shoppinglocations, 'id', $stockEntry->shopping_location_id)->name }}
 						@endif
 					</td>
 					<td id="stock-{{ $stockEntry->id }}-price"
-						class="@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif"
+						class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif"
 						class="locale-number locale-number-currency"
 						data-price-id="{{ $stockEntry->price }}">
 						{{ $stockEntry->price }}
