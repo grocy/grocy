@@ -49,7 +49,6 @@ class FilesApiController extends BaseApiController
 
 			if (file_exists($filePath))
 			{
-				ob_clean(); // Make sure to ONLY return the file
 				$response->write(file_get_contents($filePath));
 				$response = $response->withHeader('Cache-Control', 'max-age=2592000');
 				$response = $response->withHeader('Content-Type', mime_content_type($filePath));
@@ -81,7 +80,6 @@ class FilesApiController extends BaseApiController
 
 			if (file_exists($filePath))
 			{
-				ob_clean(); // Make sure to ONLY return the file
 				$response->write(file_get_contents($filePath));
 				$response = $response->withHeader('Cache-Control', 'max-age=2592000');
 				$response = $response->withHeader('Content-Type', mime_content_type($filePath));

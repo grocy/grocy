@@ -101,4 +101,6 @@ $errorMiddleware->setDefaultErrorHandler(
 );
 
 $app->add(new CorsMiddleware($app->getResponseFactory()));
+
+ob_clean(); // No response output before here
 $app->run();
