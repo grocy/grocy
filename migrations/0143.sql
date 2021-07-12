@@ -9,7 +9,7 @@ SELECT
 	product_id,
 	SUM(amount) AS total_amount,
 	MIN(stock_id) AS stock_id_to_keep,
-	MIN(id) AS id_to_keep,
+	MAX(id) AS id_to_keep,
 	GROUP_CONCAT(id) AS id_group,
 	GROUP_CONCAT(stock_id) AS stock_id_group,
 	id -- Dummy
