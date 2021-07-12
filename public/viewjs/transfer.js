@@ -78,6 +78,11 @@
 						if (parseInt($("#location_id_from option:selected").attr("data-is-freezer")) === 0 && parseInt($("#location_id_to option:selected").attr("data-is-freezer")) === 1) // Frozen
 						{
 							toastr.info('<span>' + __t("Frozen") + "</span> <i class='fas fa-snowflake'></i>");
+
+							if (BoolVal(productDetails.product.should_not_be_frozen))
+							{
+								toastr.warning(__t("This product shouldn't be frozen"));
+							}
 						}
 						if (parseInt($("#location_id_from option:selected").attr("data-is-freezer")) === 1 && parseInt($("#location_id_to option:selected").attr("data-is-freezer")) === 0) // Thawed
 						{

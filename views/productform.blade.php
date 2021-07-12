@@ -231,6 +231,50 @@
 				value="1">
 			@endif
 
+			@if(GROCY_FEATURE_FLAG_STOCK_PRODUCT_FREEZING)
+			@php if($mode == 'edit') { $value = $product->default_best_before_days_after_freezing; } else { $value = 0; } @endphp
+			@include('components.numberpicker', array(
+			'id' => 'default_best_before_days_after_freezing',
+			'label' => 'Default due days after freezing',
+			'min' => -1,
+			'value' => $value,
+			'hint' => $__t('On moving this product to a freezer location (so when freezing it), the due date will be replaced by today + this amount of days') . ' (' . $__t('-1 means that this product will be never overdue') . ')'
+			))
+
+			@php if($mode == 'edit') { $value = $product->default_best_before_days_after_thawing; } else { $value = 0; } @endphp
+			@include('components.numberpicker', array(
+			'id' => 'default_best_before_days_after_thawing',
+			'label' => 'Default due days after thawing',
+			'min' => 0,
+			'value' => $value,
+			'hint' => $__t('On moving this product from a freezer location (so when thawing it), the due date will be replaced by today + this amount of days')
+			))
+
+			<div class="form-group">
+				<div class="custom-control custom-checkbox">
+					<input @if($mode=='edit'
+						&&
+						$product->should_not_be_frozen == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="should_not_be_frozen" name="should_not_be_frozen" value="1">
+					<label class="form-check-label custom-control-label"
+						for="should_not_be_frozen">{{ $__t('Should not be frozen') }}&nbsp;<i class="fas fa-question-circle text-muted"
+							data-toggle="tooltip"
+							data-trigger="hover click"
+							title="{{ $__t('When enabled, on moving this product to a freezer location (so when freezing it), a warning will be shown') }}"></i>
+					</label>
+				</div>
+			</div>
+			@else
+			<input type="hidden"
+				name="default_best_before_days_after_freezing"
+				value="0">
+			<input type="hidden"
+				name="default_best_before_days_after_thawing"
+				value="0">
+			<input type="hidden"
+				name="should_not_be_frozen"
+				value="0">
+			@endif
+
 			<div class="form-group">
 				<label for="product_group_id">{{ $__t('Product group') }}</label>
 				<select class="custom-control custom-select"
@@ -363,33 +407,6 @@
 			'isRequired' => false,
 			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
 			))
-
-			@if(GROCY_FEATURE_FLAG_STOCK_PRODUCT_FREEZING)
-			@php if($mode == 'edit') { $value = $product->default_best_before_days_after_freezing; } else { $value = 0; } @endphp
-			@include('components.numberpicker', array(
-			'id' => 'default_best_before_days_after_freezing',
-			'label' => 'Default due days after freezing',
-			'min' => -1,
-			'value' => $value,
-			'hint' => $__t('On moving this product to a freezer location (so when freezing it), the due date will be replaced by today + this amount of days') . ' (' . $__t('-1 means that this product will be never overdue') . ')'
-			))
-
-			@php if($mode == 'edit') { $value = $product->default_best_before_days_after_thawing; } else { $value = 0; } @endphp
-			@include('components.numberpicker', array(
-			'id' => 'default_best_before_days_after_thawing',
-			'label' => 'Default due days after thawing',
-			'min' => 0,
-			'value' => $value,
-			'hint' => $__t('On moving this product from a freezer location (so when thawing it), the due date will be replaced by today + this amount of days')
-			))
-			@else
-			<input type="hidden"
-				name="default_best_before_days_after_freezing"
-				value="0">
-			<input type="hidden"
-				name="default_best_before_days_after_thawing"
-				value="0">
-			@endif
 
 			@php if($mode == 'edit') { $value = $product->quick_consume_amount; } else { $value = 1; } @endphp
 			@include('components.numberpicker', array(

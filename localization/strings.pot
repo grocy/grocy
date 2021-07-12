@@ -2172,3 +2172,12 @@ msgstr ""
 
 msgid "Timestamp"
 msgstr ""
+
+msgid "Should not be frozen"
+msgstr ""
+
+msgid "When enabled, on moving this product to a freezer location (so when freezing it), a warning will be shown"
+msgstr ""
+
+msgid "This product shouldn't be frozen"
+msgstr ""
