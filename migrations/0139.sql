@@ -88,7 +88,7 @@ BEGIN
 		AND type = 'recipe'
 		AND recipe_id IS NOT NULL;
 
-	-- Enforce "when null then empty" for certain columns
+	-- Enforce "when empty then null" for certain columns
 	UPDATE meal_plan
 	SET recipe_id = NULL
 	WHERE id = NEW.id
@@ -311,7 +311,7 @@ BEGIN
 		AND type = 'recipe'
 		AND recipe_id IS NOT NULL;
 
-	-- Enforce "when null then empty" for certain columns
+	-- Enforce "when empty then null" for certain columns
 	UPDATE meal_plan
 	SET recipe_id = NULL
 	WHERE id = NEW.id
