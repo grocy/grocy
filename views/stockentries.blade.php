@@ -71,6 +71,7 @@
 					<th class="@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Price') }}</th>
 					<th data-shadow-rowgroup-column="9">{{ $__t('Purchased date') }}</th>
 					<th class="d-none">Hidden purchased_date</th>
+					<th>{{ $__t('Timestamp') }}</th>
 
 					@include('components.userfields_thead', array(
 					'userfields' => $userfields
@@ -265,6 +266,11 @@
 							datetime="{{ $stockEntry->purchased_date }} 23:59:59"></time>
 					</td>
 					<td class="d-none">{{ $stockEntry->purchased_date }}</td>
+					<td>
+						<span>{{ $stockEntry->row_created_timestamp }}</span>
+						<time class="timeago timeago-contextual"
+							datetime="{{ $stockEntry->row_created_timestamp }}"></time>
+					</td>
 
 					@include('components.userfields_tbody', array(
 					'userfields' => $userfields,
