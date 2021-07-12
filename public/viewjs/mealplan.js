@@ -151,7 +151,7 @@ var calendar = $("#calendar").fullCalendar({
 
 			if (recipe.picture_file_name && !recipe.picture_file_name.isEmpty())
 			{
-				element.html(element.html() + '<div class="mx-auto"><img data-src="' + U("/api/files/recipepictures/") + btoa(recipe.picture_file_name) + '?force_serve_as=picture&best_fit_width=400" class="img-fluid lazy"></div>')
+				element.prepend('<div class="mx-auto mb-1"><img data-src="' + U("/api/files/recipepictures/") + btoa(recipe.picture_file_name) + '?force_serve_as=picture&best_fit_width=400" class="img-fluid rounded-circle lazy"></div>')
 			}
 
 			var dayRecipeName = event.start.format("YYYY-MM-DD");
@@ -237,7 +237,7 @@ var calendar = $("#calendar").fullCalendar({
 
 			if (productDetails.product.picture_file_name && !productDetails.product.picture_file_name.isEmpty())
 			{
-				element.html(element.html() + '<div class="mx-auto"><img data-src="' + U("/api/files/productpictures/") + btoa(productDetails.product.picture_file_name) + '?force_serve_as=picture&best_fit_width=400" class="img-fluid lazy"></div>')
+				element.prepend('<div class="mx-auto mb-1"><img data-src="' + U("/api/files/productpictures/") + btoa(productDetails.product.picture_file_name) + '?force_serve_as=picture&best_fit_width=400" class="img-fluid rounded-circle lazy"></div>')
 			}
 
 			var dayRecipeName = event.start.format("YYYY-MM-DD");

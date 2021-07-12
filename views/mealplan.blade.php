@@ -12,6 +12,18 @@
 @push('pageStyles')
 <link href="{{ $U('/node_modules/fullcalendar/dist/fullcalendar.min.css?v=', true) }}{{ $version }}"
 	rel="stylesheet">
+
+<style>
+	.fc-event-container:not(:last-child) {
+		border-bottom: 1px solid !important;
+		border-color: #d6d6d6 !important;
+	}
+
+	.img-fluid {
+		max-width: 90%;
+	}
+
+</style>
 @endpush
 
 @section('content')
