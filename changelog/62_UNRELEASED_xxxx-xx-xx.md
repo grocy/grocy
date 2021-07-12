@@ -71,6 +71,7 @@
 - Improved the meal plan page loading time (drastically when having a big history of meal plan entries)
 - Meal plan entries can now be visually marked as "done" (new button per entry)
   - This happens automatically on consuming a recipe/product from the meal plan page
+- It's now possible to copy all entries of a day to another day (in the dropdown of the add button in the header of each day column)
 - Fixed that stock fulfillment checking used the desired servings of the recipe (those selected on the recipes page, not them from the meal plan entry)
 
 ### Chores improvements/fixes

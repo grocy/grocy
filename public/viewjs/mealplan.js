@@ -30,11 +30,12 @@ var calendar = $("#calendar").fullCalendar({
 	{
 		$(".fc-day-header").prepend('\
 			<div class="btn-group mr-2 my-1"> \
-				<button type="button" class="btn btn-outline-dark btn-xs add-recipe-button""><i class="fas fa-plus"></i></a></button> \
+				<button type="button" class="btn btn-outline-dark btn-xs add-recipe-button" data-toggle="tooltip" title="' + __t('Add recipe') + '"><i class="fas fa-plus"></i></a></button> \
 				<button type="button" class="btn btn-outline-dark btn-xs dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button> \
 				<div class="dropdown-menu"> \
 					<a class="dropdown-item add-note-button" href="#">' + __t('Add note') + '</a> \
 					<a class="dropdown-item add-product-button" href="#">' + __t('Add product') + '</a> \
+					<a class="dropdown-item copy-day-button" href="#">' + __t('Copy this day') + '</a> \
 				</div> \
 			</div>');
 
@@ -370,6 +371,18 @@ $(document).on("click", ".edit-meal-plan-entry-button", function(e)
 	Grocy.MealPlanEntryEditObjectId = mealPlanEntry.id;
 });
 
+$(document).on("click", ".copy-day-button", function(e)
+{
+	var day = $(this).parent().parent().parent().data("date");
+
+	$("#copy-day-modal-title").text(__t("Copy all meal plan entries of %s", day.toString()));
+	$("#day").val(day.toString());
+	Grocy.Components.DateTimePicker.Clear();
+	$("#copy-day-modal").modal("show");
+	Grocy.FrontendHelpers.ValidateForm("copy-day-form");
+	Grocy.IsMealPlanEntryEditAction = false;
+});
+
 $("#add-recipe-modal").on("shown.bs.modal", function(e)
 {
 	Grocy.Components.RecipePicker.GetInputElement().focus();
@@ -383,6 +396,11 @@ $("#add-note-modal").on("shown.bs.modal", function(e)
 $("#add-product-modal").on("shown.bs.modal", function(e)
 {
 	Grocy.Components.ProductPicker.GetInputElement().focus();
+})
+
+$("#copy-day-modal").on("shown.bs.modal", function(e)
+{
+	Grocy.Components.DateTimePicker.GetInputElement().focus();
 })
 
 $(document).on("click", ".remove-recipe-button, .remove-note-button, .remove-product-button", function(e)
@@ -537,6 +555,58 @@ $('#save-add-product-button').on('click', function(e)
 			}
 		);
 	}
+});
+
+var itemsToCopy = 0;
+var itemsCopied = 0;
+$('#save-copy-day-button').on('click', function(e)
+{
+	e.preventDefault();
+
+	if (document.getElementById("copy-day-form").checkValidity() === false) //There is at least one validation error
+	{
+		return false;
+	}
+
+	var dayFrom = $("#day").val();
+	var dayTo = Grocy.Components.DateTimePicker.GetValue();
+
+	Grocy.Api.Get('objects/meal_plan?query[]=day=' + dayFrom,
+		function(sourceMealPlanEntries)
+		{
+			itemsToCopy = sourceMealPlanEntries.length;
+
+			sourceMealPlanEntries.forEach((item) =>
+			{
+				item.day = dayTo;
+				item.done = 0;
+				delete item.id;
+				delete item.row_created_timestamp;
+
+				Grocy.Api.Post("objects/meal_plan", item,
+					function(result)
+					{
+						itemsCopied++;
+
+						if (itemsCopied == itemsToCopy)
+						{
+							window.location.reload();
+						}
+					},
+					function(xhr)
+					{
+						Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
+					}
+				);
+			});
+
+			//window.location.reload();
+		},
+		function(xhr)
+		{
+			console.error(xhr);
+		}
+	);
 });
 
 $('#add-recipe-form input').keydown(function(event)

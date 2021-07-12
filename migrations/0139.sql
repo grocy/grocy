@@ -87,6 +87,22 @@ BEGIN
 	WHERE id = NEW.id
 		AND type = 'recipe'
 		AND recipe_id IS NOT NULL;
+
+	-- Enforce "when null then empty" for certain columns
+	UPDATE meal_plan
+	SET recipe_id = NULL
+	WHERE id = NEW.id
+		AND IFNULL(recipe_id, '') = '';
+
+	UPDATE meal_plan
+	SET product_id = NULL
+	WHERE id = NEW.id
+		AND IFNULL(product_id, '') = '';
+
+	UPDATE meal_plan
+	SET product_qu_id = NULL
+	WHERE id = NEW.id
+		AND IFNULL(product_qu_id, '') = '';
 END;
 
 DROP TRIGGER remove_internal_recipe;
@@ -294,4 +310,20 @@ BEGIN
 	WHERE id = NEW.id
 		AND type = 'recipe'
 		AND recipe_id IS NOT NULL;
+
+	-- Enforce "when null then empty" for certain columns
+	UPDATE meal_plan
+	SET recipe_id = NULL
+	WHERE id = NEW.id
+		AND IFNULL(recipe_id, '') = '';
+
+	UPDATE meal_plan
+	SET product_id = NULL
+	WHERE id = NEW.id
+		AND IFNULL(product_id, '') = '';
+
+	UPDATE meal_plan
+	SET product_qu_id = NULL
+	WHERE id = NEW.id
+		AND IFNULL(product_qu_id, '') = '';
 END;

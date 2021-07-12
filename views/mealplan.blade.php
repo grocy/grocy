@@ -14,7 +14,7 @@
 	rel="stylesheet">
 
 <style>
-	.fc-event-container:not(:last-child) {
+	.fc-event-container {
 		border-bottom: 1px solid !important;
 		border-color: #d6d6d6 !important;
 	}
@@ -177,6 +177,45 @@
 				<button id="save-add-product-button"
 					data-dismiss="modal"
 					class="btn btn-success">{{ $__t('Save') }}</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade"
+	id="copy-day-modal"
+	tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 id="copy-day-modal-title"
+					class="modal-title w-100"></h4>
+			</div>
+			<div class="modal-body">
+				<form id="copy-day-form"
+					novalidate>
+
+					@include('components.datetimepicker', array(
+					'id' => 'copy_to_date',
+					'label' => 'Day',
+					'format' => 'YYYY-MM-DD',
+					'initWithNow' => false,
+					'limitEndToNow' => false,
+					'limitStartToNow' => false,
+					'isRequired' => true,
+					'additionalCssClasses' => 'date-only-datetimepicker',
+					'invalidFeedback' => $__t('A date is required')
+					))
+
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button"
+					class="btn btn-secondary"
+					data-dismiss="modal">{{ $__t('Cancel') }}</button>
+				<button id="save-copy-day-button"
+					data-dismiss="modal"
+					class="btn btn-primary">{{ $__t('Copy') }}</button>
 			</div>
 		</div>
 	</div>

@@ -2181,3 +2181,12 @@ msgstr ""
 
 msgid "This product shouldn't be frozen"
 msgstr ""
+
+msgid "Copy all meal plan entries of %s"
+msgstr ""
+
+msgid "A date is required"
+msgstr ""
+
+msgid "Day"
+msgstr ""
