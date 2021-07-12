@@ -49,6 +49,7 @@ class CalendarApiController extends BaseApiController
 				$vCalendar->addEvent($vEvent);
 			}
 
+			ob_clean(); // Make sure to ONLY return the file
 			$response->write((new CalendarFactory())->createCalendar($vCalendar));
 			$response = $response->withHeader('Content-Type', 'text/calendar; charset=utf-8');
 			return $response->withHeader('Content-Disposition', 'attachment; filename="grocy.ics"');
