@@ -231,28 +231,13 @@ U = function(relativePath)
 	return Grocy.BaseUrl.replace(/\/$/, '') + relativePath;
 }
 
-Grocy.Translator = new Translator(); // Dummy, real instance is loaded async below
-Grocy.Api.Get("system/localization-strings?v=" + Grocy.Version + "&language=" + Grocy.Culture,
-	function(response)
-	{
-		Grocy.Translator = new Translator(response);
-
-		if (Grocy.Mode === "dev")
-		{
-			Grocy.LocalizationStrings = response.messages[""];
-		}
-	},
-	function(xhr)
-	{
-		console.error(xhr);
-	}
-);
+Grocy.Translator = new Translator(Grocy.LocalizationStrings);
 __t = function(text, ...placeholderValues)
 {
 	if (Grocy.Mode === "dev")
 	{
 		var text2 = text;
-		if (Grocy.LocalizationStrings && !Grocy.LocalizationStrings.hasOwnProperty(text2))
+		if (Grocy.LocalizationStrings && !Grocy.LocalizationStrings.messages[""].hasOwnProperty(text2))
 		{
 			Grocy.Api.Post('system/log-missing-localization', { "text": text2 });
 		}
@@ -265,7 +250,7 @@ __n = function(number, singularForm, pluralForm)
 	if (Grocy.Mode === "dev")
 	{
 		var singularForm2 = singularForm;
-		if (Grocy.LocalizationStrings && !Grocy.LocalizationStrings.hasOwnProperty(singularForm2))
+		if (Grocy.LocalizationStrings && !Grocy.LocalizationStrings.messages[""].hasOwnProperty(singularForm2))
 		{
 			Grocy.Api.Post('system/log-missing-localization', { "text": singularForm2 });
 		}

@@ -94,6 +94,7 @@
 		Grocy.Currency = '{{ GROCY_CURRENCY }}';
 		Grocy.CalendarFirstDayOfWeek = '{{ GROCY_CALENDAR_FIRST_DAY_OF_WEEK }}';
 		Grocy.CalendarShowWeekNumbers = {{ BoolToString(GROCY_CALENDAR_SHOW_WEEK_OF_YEAR) }};
+		Grocy.LocalizationStrings = {!! $LocalizationStrings !!};
 		Grocy.FeatureFlags = {!! json_encode($featureFlags) !!};
 		Grocy.Webhooks = {
 		@if(GROCY_FEATURE_FLAG_LABELPRINTER && !GROCY_LABEL_PRINTER_RUN_SERVER)
