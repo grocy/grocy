@@ -229,7 +229,7 @@ $('#product-form input').keydown(function(event)
 		}
 		else
 		{
-			$('#save-product-button').click();
+			$('.default-submit-button').click();
 		}
 	}
 });
@@ -538,3 +538,8 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 
 Grocy.FrontendHelpers.ValidateForm("product-form");
 Grocy.Components.ProductPicker.GetPicker().trigger("change");
+
+if (Grocy.EditMode == "edit")
+{
+	$(".save-product-button").toggleClass("default-submit-button");
+}

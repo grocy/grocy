@@ -478,7 +478,7 @@
 				class="my-2 form-text text-muted @if($mode == 'edit') d-none @endif">{{ $__t('Save & continue to add quantity unit conversions & barcodes') }}</small>
 
 			<button id="save-product-button"
-				class="save-product-button btn btn-success mb-2"
+				class="save-product-button btn btn-success mb-2 default-submit-button"
 				data-location="continue">{{ $__t('Save & continue') }}</button>
 			<button class="save-product-button btn btn-info mb-2"
 				data-location="return">{{ $__t('Save & return to products') }}</button>
