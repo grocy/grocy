@@ -138,6 +138,7 @@
 				<option value="expired">{{ $__t('Expired') }}</option>
 				@endif
 				<option value="belowminstockamount">{{ $__t('Below min. stock amount') }}</option>
+				<option value="instockX">{{ $__t('In-stock products') }}</option>
 			</select>
 		</div>
 	</div>
@@ -380,7 +381,8 @@
 								. ' days'
 								))
 								&&
-								$currentStockEntry->amount > 0) duesoon @elseif ($currentStockEntry->product_missing) belowminstockamount @endif"
+								$currentStockEntry->amount > 0) duesoon @elseif ($currentStockEntry->product_missing) belowminstockamount @endif
+								@if($currentStockEntry->amount_aggregated > 0) instockX @endif
 					</td>
 					<td class="d-none">
 						xx{{ $currentStockEntry->product_group_name }}xx

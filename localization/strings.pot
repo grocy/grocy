@@ -2166,3 +2166,6 @@ msgstr ""
 
 msgid "When enabled, then this field must be filled on the destination form"
 msgstr ""
+
+msgid "In-stock products"
+msgstr ""

@@ -31,7 +31,7 @@
 - Product barcodes are now enforced to be unique across products
 - On the stock overview page it's now also possible to search/filter by product barcodes (via the general search field)
 - The product picker on the consume and transfer page now only shows products which are currently in stock
-- Added a filter option to only show in-stock products on the products list page (master data)
+- Added a filter option to only show in-stock products on the stock overview and products list page (master data)
 - Added new columns on the stock overview page (hidden by default): Product description, product default location, parent product
 - Optimized that when opening a product which has "Default due days after opened" set, the resulting date now never extends the original due date
 - Fixed that editing stock entries was not possible
