@@ -1903,7 +1903,7 @@ msgstr ""
 msgid "Default due days"
 msgstr ""
 
-msgid "When this product was marked as opened, the due date will be replaced by today + this amount of days (a value of 0 disables this)"
+msgid "When this product was marked as opened, the due date will be replaced by today + this amount of days, but only if the resulting date is not after the original due date (a value of 0 disables this)"
 msgstr ""
 
 msgid "Default due days after opened"

@@ -212,7 +212,7 @@
 			'label' => 'Default due days after opened',
 			'min' => 0,
 			'value' => $value,
-			'hint' => $__t('When this product was marked as opened, the due date will be replaced by today + this amount of days (a value of 0 disables this)')
+			'hint' => $__t('When this product was marked as opened, the due date will be replaced by today + this amount of days, but only if the resulting date is not after the original due date (a value of 0 disables this)')
 			))
 			@else
 			<input type="hidden"

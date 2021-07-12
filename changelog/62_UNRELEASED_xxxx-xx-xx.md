@@ -33,6 +33,7 @@
 - The product picker on the consume and transfer page now only shows products which are currently in stock
 - Added a filter option to only show in-stock products on the products list page (master data)
 - Added new columns on the stock overview page (hidden by default): Product description, product default location, parent product
+- Optimized that when opening a product which has "Default due days after opened" set, the resulting date now never extends the original due date
 - Fixed that editing stock entries was not possible
 - Fixed that consuming with Scan Mode was not possible
 - Fixed that the current stock total value (header of the stock overview page) didn't include decimal amounts (thanks @Ape)

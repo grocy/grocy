@@ -891,6 +891,12 @@ class StockService extends BaseService
 			if ($product->default_best_before_days_after_open > 0)
 			{
 				$newBestBeforeDate = date('Y-m-d', strtotime('+' . $product->default_best_before_days_after_open . ' days'));
+
+				// The new due date should be never > the original due date
+				if (strtotime($newBestBeforeDate) > strtotime($stockEntry->best_before_date))
+				{
+					$newBestBeforeDate = $stockEntry->best_before_date;
+				}
 			}
 
 			if ($allowSubproductSubstitution && $stockEntry->product_id != $productId)
