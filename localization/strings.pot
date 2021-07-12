@@ -2190,3 +2190,6 @@ msgstr ""
 
 msgid "Day"
 msgstr ""
+
+msgid "Add recipe"
+msgstr ""
