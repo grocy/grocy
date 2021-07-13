@@ -128,12 +128,14 @@
 								<i class="fas fa-ellipsis-v"></i>
 							</button>
 							<div class="dropdown-menu">
+								@if(GROCY_FEATURE_FLAG_SHOPPINGLIST)
 								<a class="dropdown-item show-as-dialog-link"
 									type="button"
 									href="{{ $U('/shoppinglistitem/new?embedded&updateexistingproduct&product=' . $stockEntry->product_id ) }}">
 									<i class="fas fa-shopping-cart"></i> {{ $__t('Add to shopping list') }}
 								</a>
 								<div class="dropdown-divider"></div>
+								@endif
 								<a class="dropdown-item show-as-dialog-link"
 									type="button"
 									href="{{ $U('/purchase?embedded&product=' . $stockEntry->product_id ) }}">
