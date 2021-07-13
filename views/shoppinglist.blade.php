@@ -21,6 +21,11 @@
 			<h2 class="title mr-2 order-0">
 				@yield('title')
 			</h2>
+			@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+			<h2 class="mb-0 mr-auto order-3 order-md-1 width-xs-sm-100">
+				<span class="text-muted small">{!! $__t('%s total value', '<span class="locale-number locale-number-currency">' . SumArrayValue($listItems, 'last_price_total') . '</span>') !!}</span>
+			</h2>
+			@endif
 			<div class="float-right">
 				<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
 					type="button"
@@ -313,7 +318,7 @@
 					class="d-none mr-auto"></span>
 				<button id="shopping-list-stock-add-workflow-skip-button"
 					type="button"
-					class="btn btn-primary"><i class="fas fa-angle-double-right"></i> {{ $__t('Skip') }}</button>
+					class="btn btn-primary">{{ $__t('Skip') }}</button>
 				<button type="button"
 					class="btn btn-secondary"
 					data-dismiss="modal">{{ $__t('Close') }}</button>

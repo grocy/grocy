@@ -157,6 +157,23 @@
 		'min' => 0,
 		'additionalCssClasses' => 'user-setting-control'
 		))
+
+		<div class="form-group mt-n3">
+			<div class="custom-control custom-checkbox">
+				<input type="checkbox"
+					class="form-check-input custom-control-input user-setting-control"
+					id="stock_auto_decimal_separator_prices"
+					data-setting-key="stock_auto_decimal_separator_prices">
+				<label class="form-check-label custom-control-label"
+					for="stock_auto_decimal_separator_prices">
+					{{ $__t('Add decimal separator automatically for price inputs') }}
+					<i class="fas fa-question-circle text-muted"
+						data-toggle="tooltip"
+						data-trigger="hover click"
+						title="{{ $__t('When enabled, you always have to enter the value including decimal places, the decimal separator will be automatically added based on the amount of allowed decimal places') }}"></i>
+				</label>
+			</div>
+		</div>
 		@endif
 
 		<a href="{{ $U('/stockoverview') }}"

@@ -33,7 +33,8 @@ SELECT
 	p.description as product_description,
 	l.name AS product_default_location_name,
 	p_parent.id AS parent_product_id,
-	p_parent.name AS parent_product_name
+	p_parent.name AS parent_product_name,
+	p.picture_file_name AS product_picture_file_name
 FROM (
 	SELECT *
 	FROM stock_current
@@ -92,7 +93,8 @@ SELECT
 	p.description AS product_description,
 	l.name AS product_default_location_name,
 	p_parent.id AS parent_product_id,
-	p_parent.name AS parent_product_name
+	p_parent.name AS parent_product_name,
+	p.picture_file_name AS product_picture_file_name
 FROM (
 	SELECT *
 	FROM stock_current

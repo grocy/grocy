@@ -148,6 +148,7 @@ DefaultUserSetting('product_presets_product_group_id', -1); // Default product g
 DefaultUserSetting('product_presets_qu_id', -1); // Default quantity unit id for new products (-1 means no quantity unit is preset)
 DefaultUserSetting('stock_decimal_places_amounts', 4); // Default decimal places allowed for amounts
 DefaultUserSetting('stock_decimal_places_prices', 2); // Default decimal places allowed for prices
+DefaultUserSetting('stock_auto_decimal_separator_prices', false);
 DefaultUserSetting('stock_due_soon_days', 5);
 DefaultUserSetting('stock_default_purchase_amount', 0);
 DefaultUserSetting('stock_default_consume_amount', 1);
@@ -204,7 +205,7 @@ Setting('FEATURE_FLAG_TASKS', true);
 Setting('FEATURE_FLAG_BATTERIES', true);
 Setting('FEATURE_FLAG_EQUIPMENT', true);
 Setting('FEATURE_FLAG_CALENDAR', true);
-Setting('FEATURE_FLAG_LABELPRINTER', false);
+Setting('FEATURE_FLAG_LABEL_PRINTER', false);
 
 // Sub feature flags
 Setting('FEATURE_FLAG_STOCK_PRICE_TRACKING', true);

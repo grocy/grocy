@@ -145,6 +145,20 @@
 									href="{{ $U('/battery/') }}{{ $currentBatteryEntry->battery_id }}?embedded">
 									<span class="dropdown-item-text">{{ $__t('Edit battery') }}</span>
 								</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item stockentry-grocycode-link"
+									type="button"
+									href="{{ $U('/battery/' . $currentBatteryEntry->battery_id . '/grocycode?download=true') }}">
+									{!! str_replace('grocycode', '<span class="ls-n1">grocycode</span>', $__t('Download %s grocycode', $__t('Battery'))) !!}
+								</a>
+								@if(GROCY_FEATURE_FLAG_LABEL_PRINTER)
+								<a class="dropdown-item battery-grocycode-label-print"
+									data-battery-id="{{ $currentBatteryEntry->battery_id }}"
+									type="button"
+									href="#">
+									{!! str_replace('grocycode', '<span class="ls-n1">grocycode</span>', $__t('Print %s grocycode on label printer', $__t('Battery'))) !!}
+								</a>
+								@endif
 							</div>
 						</div>
 					</td>

@@ -99,6 +99,7 @@ $app->group('', function (RouteCollectorProxy $group) {
 		$group->get('/chores', '\Grocy\Controllers\ChoresController:ChoresList');
 		$group->get('/chore/{choreId}', '\Grocy\Controllers\ChoresController:ChoreEditForm');
 		$group->get('/choressettings', '\Grocy\Controllers\ChoresController:ChoresSettings');
+		$group->get('/chore/{choreId}/grocycode', '\Grocy\Controllers\ChoresController:ChoreGrocycodeImage');
 	}
 
 	// Battery routes
@@ -110,6 +111,7 @@ $app->group('', function (RouteCollectorProxy $group) {
 		$group->get('/batteries', '\Grocy\Controllers\BatteriesController:BatteriesList');
 		$group->get('/battery/{batteryId}', '\Grocy\Controllers\BatteriesController:BatteryEditForm');
 		$group->get('/batteriessettings', '\Grocy\Controllers\BatteriesController:BatteriesSettings');
+		$group->get('/battery/{batteryId}/grocycode', '\Grocy\Controllers\BatteriesController:BatteryGrocycodeImage');
 	}
 
 	// Task routes
@@ -225,6 +227,7 @@ $app->group('/api', function (RouteCollectorProxy $group) {
 	$group->get('/recipes/{recipeId}/fulfillment', '\Grocy\Controllers\RecipesApiController:GetRecipeFulfillment');
 	$group->post('/recipes/{recipeId}/consume', '\Grocy\Controllers\RecipesApiController:ConsumeRecipe');
 	$group->get('/recipes/fulfillment', '\Grocy\Controllers\RecipesApiController:GetRecipeFulfillment');
+	$group->Post('/recipes/{recipeId}/copy', '\Grocy\Controllers\RecipesApiController:CopyRecipe');
 
 	// Chores
 	$group->get('/chores', '\Grocy\Controllers\ChoresApiController:Current');
@@ -232,6 +235,7 @@ $app->group('/api', function (RouteCollectorProxy $group) {
 	$group->post('/chores/{choreId}/execute', '\Grocy\Controllers\ChoresApiController:TrackChoreExecution');
 	$group->post('/chores/executions/{executionId}/undo', '\Grocy\Controllers\ChoresApiController:UndoChoreExecution');
 	$group->post('/chores/executions/calculate-next-assignments', '\Grocy\Controllers\ChoresApiController:CalculateNextExecutionAssignments');
+	$group->get('/chores/{choreId}/printlabel', '\Grocy\Controllers\ChoresApiController:ChorePrintLabel');
 
 	//Printing
 	$group->get('/print/shoppinglist/thermal', '\Grocy\Controllers\PrintApiController:PrintShoppingListThermal');
@@ -241,6 +245,7 @@ $app->group('/api', function (RouteCollectorProxy $group) {
 	$group->get('/batteries/{batteryId}', '\Grocy\Controllers\BatteriesApiController:BatteryDetails');
 	$group->post('/batteries/{batteryId}/charge', '\Grocy\Controllers\BatteriesApiController:TrackChargeCycle');
 	$group->post('/batteries/charge-cycles/{chargeCycleId}/undo', '\Grocy\Controllers\BatteriesApiController:UndoChargeCycle');
+	$group->get('/batteries/{batteryId}/printlabel', '\Grocy\Controllers\BatteriesApiController:BatteryPrintLabel');
 
 	// Tasks
 	$group->get('/tasks', '\Grocy\Controllers\TasksApiController:Current');

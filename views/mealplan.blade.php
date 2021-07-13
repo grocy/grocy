@@ -21,6 +21,13 @@
 
 	.img-fluid {
 		max-width: 90%;
+		max-height: 140px;
+	}
+
+	@media (min-width: 400px) {
+		.table-inline-menu.dropdown-menu {
+			width: 200px !important;
+		}
 	}
 
 </style>
@@ -216,6 +223,23 @@
 				<button id="save-copy-day-button"
 					data-dismiss="modal"
 					class="btn btn-primary">{{ $__t('Copy') }}</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade"
+	id="mealplan-productcard-modal"
+	tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content text-center">
+			<div class="modal-body">
+				@include('components.productcard')
+			</div>
+			<div class="modal-footer">
+				<button type="button"
+					class="btn btn-secondary"
+					data-dismiss="modal">{{ $__t('Close') }}</button>
 			</div>
 		</div>
 	</div>

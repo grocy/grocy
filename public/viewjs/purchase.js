@@ -117,7 +117,7 @@ $('#save-purchase-button').on('click', function(e)
 					}
 					var successMessage = __t('Added %1$s of %2$s to stock', amountMessage + " " + __n(amountMessage, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + result[0].transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
 
-					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_LABELPRINTER)
+					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_LABEL_PRINTER)
 					{
 						if (Grocy.Webhooks.labelprinter !== undefined)
 						{
@@ -126,7 +126,7 @@ $('#save-purchase-button').on('click', function(e)
 							post_data.grocycode = 'grcy:p:' + jsonForm.product_id + ":" + result[0].stock_id
 							if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 							{
-								post_data.duedate = __t('DD') + ': ' + result[0].best_before_date
+								post_data.due_date = __t('DD') + ': ' + result[0].best_before_date
 							}
 
 							if (jsonForm.print_stock_label > 0)
@@ -304,7 +304,7 @@ if (Grocy.Components.ProductPicker !== undefined)
 						}
 					}
 
-					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_LABELPRINTER)
+					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_LABEL_PRINTER)
 					{
 						$("#print_stock_label").val(productDetails.product.default_print_stock_label);
 						if (productDetails.product.allow_label_per_unit)

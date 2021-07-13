@@ -3,6 +3,8 @@
 namespace Grocy\Controllers;
 
 use Grocy\Controllers\Users\User;
+use Grocy\Helpers\WebhookRunner;
+use Grocy\Helpers\Grocycode;
 
 class BatteriesApiController extends BaseApiController
 {
@@ -55,6 +57,30 @@ class BatteriesApiController extends BaseApiController
 		{
 			$this->ApiResponse($response, $this->getBatteriesService()->UndoChargeCycle($args['chargeCycleId']));
 			return $this->EmptyApiResponse($response);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
+
+	public function BatteryPrintLabel(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		try
+		{
+			$battery = $this->getDatabase()->batteries()->where('id', $args['batteryId'])->fetch();
+
+			$webhookData = array_merge([
+				'battery' => $battery->name,
+				'grocycode' => (string)(new Grocycode(Grocycode::BATTERY, $args['batteryId'])),
+			], GROCY_LABEL_PRINTER_PARAMS);
+
+			if (GROCY_LABEL_PRINTER_RUN_SERVER)
+			{
+				(new WebhookRunner())->run(GROCY_LABEL_PRINTER_WEBHOOK, $webhookData, GROCY_LABEL_PRINTER_HOOK_JSON);
+			}
+
+			return $this->ApiResponse($response, $webhookData);
 		}
 		catch (\Exception $ex)
 		{

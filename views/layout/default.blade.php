@@ -97,7 +97,7 @@
 		Grocy.LocalizationStrings = {!! $LocalizationStrings !!};
 		Grocy.FeatureFlags = {!! json_encode($featureFlags) !!};
 		Grocy.Webhooks = {
-		@if(GROCY_FEATURE_FLAG_LABELPRINTER && !GROCY_LABEL_PRINTER_RUN_SERVER)
+		@if(GROCY_FEATURE_FLAG_LABEL_PRINTER && !GROCY_LABEL_PRINTER_RUN_SERVER)
 			"labelprinter" : {
 				"hook" : "{{ GROCY_LABEL_PRINTER_WEBHOOK}}",
 				"extra_data" : {!! json_encode(GROCY_LABEL_PRINTER_PARAMS) !!}

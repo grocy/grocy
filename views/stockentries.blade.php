@@ -202,21 +202,21 @@
 								<a class="dropdown-item stockentry-grocycode-link"
 									type="button"
 									href="{{ $U('/stockentry/' . $stockEntry->id . '/grocycode?download=true') }}">
-									{{ $__t('Download stock entry grocycode') }}
+									{!! str_replace('grocycode', '<span class="ls-n1">grocycode</span>', $__t('Download %s grocycode', $__t('Stock entry'))) !!}
 								</a>
-								@if(GROCY_FEATURE_FLAG_LABELPRINTER)
-								<a class="dropdown-item stockentry-grocycode-stockentry-label-print"
+								@if(GROCY_FEATURE_FLAG_LABEL_PRINTER)
+								<a class="dropdown-item stockentry-grocycode-label-print"
 									data-stock-id="{{ $stockEntry->id }}"
 									type="button"
 									href="#">
-									{{ $__t('Print stock entry grocycode on label printer') }}
+									{!! str_replace('grocycode', '<span class="ls-n1">grocycode</span>', $__t('Print %s grocycode on label printer', $__t('Stock entry'))) !!}
 								</a>
 								@endif
 								<a class="dropdown-item stockentry-label-link"
 									type="button"
 									target="_blank"
 									href="{{ $U('/stockentry/' . $stockEntry->id . '/label') }}">
-									{{ $__t('Open stock entry print label in new window') }}
+									{{ $__t('Open stock entry label in new window') }}
 								</a>
 							</div>
 						</div>

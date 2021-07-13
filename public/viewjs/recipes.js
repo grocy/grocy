@@ -61,6 +61,7 @@ $("a[data-toggle='tab']").on("shown.bs.tab", function(e)
 {
 	var tabId = $(e.target).attr("id");
 	window.localStorage.setItem("recipes_last_tab_id", tabId);
+	LoadImagesLazy();
 });
 
 $("#search").on("keyup", Delay(function()
@@ -164,6 +165,24 @@ $(".recipe-delete").on('click', function(e)
 			}
 		}
 	});
+});
+
+$(".recipe-copy").on('click', function(e)
+{
+	e.preventDefault();
+
+	var objectId = $(e.currentTarget).attr('data-recipe-id');
+
+	Grocy.Api.Post("recipes/" + objectId.toString() + "/copy", {},
+		function(result)
+		{
+			window.location.href = U('/recipes?recipe=' + result.created_object_id.toString());
+		},
+		function(xhr)
+		{
+			Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
+		}
+	);
 });
 
 $(document).on('click', '.recipe-shopping-list', function(e)
@@ -346,3 +365,5 @@ if (window.location.hash === "#fullscreen")
 {
 	$("#selectedRecipeToggleFullscreenButton").click();
 }
+
+LoadImagesLazy();

@@ -63,6 +63,20 @@ class RecipesApiController extends BaseApiController
 		}
 	}
 
+	public function CopyRecipe(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		try
+		{
+			return $this->ApiResponse($response, [
+				'created_object_id' => $this->getRecipesService()->CopyRecipe($args['recipeId'])
+			]);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
+
 	public function __construct(\DI\Container $container)
 	{
 		parent::__construct($container);

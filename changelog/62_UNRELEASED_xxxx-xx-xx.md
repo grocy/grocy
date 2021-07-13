@@ -1,27 +1,27 @@
 > ⚠️ The following PHP extensions are now additionally required: `json`, `intl`, `zlib`
 
-> ⚠️ PHP 8 is now supported and from now on the only tested runtime version (but as of now, PHP 7.2 should still work).
+> ⚠️ PHP 8 is now supported and from now on the only tested runtime version (although currently PHP 7.2 should still work).
 
-### New feature: (Own) Product and stock entry labels/barcodes ("grocycode")
-- Print own labels/barcodes for products and/or every stock entry and then scan that code on every place a product or stock entry can be selected
+### New feature: (Own) Product/stock entry/chores/batteries labels/barcodes ("grocycode")
+- Print own labels/barcodes for products/stock entries/chores/batteries and then scan that code on every place a product/stock entry/chore/battery can be selected
 - Can be printed (or downloaded) via
-  - The product edit page
-  - The context/more menu per line on the stock overview and stock entries page
-  - Automatically on purchase (new option on the purchase page, defaults can be configured per product)
+  - The product/chore/battery edit page
+  - The context/more menu per line on the overview pages and for stock entries on the stock entries page
+  - Automatically on purchase (new option on the purchase page, defaults can be configured per product) for stock entries
 - The used barcode type can be configured via the `config.php` option `GROCYCODE_TYPE`:
   - `1D` (default) will produce a `Code128` 1D barcode (supported by the integrated camera barcode scanner)
   - `2D` will produce a `DataMatrix` 2D barcode (currently not supported by the integrated camera barcode scanner, but can be probably printed smaller)
-- Label printer functionality can be enabled via the new feature flag `FEATURE_FLAG_LABELPRINTER` (defaults to disabled)
+- Label printer functionality can be enabled via the new feature flag `FEATURE_FLAG_LABEL_PRINTER` (defaults to disabled)
 - Label printer communication happens via WebHooks - see the new `LABEL_PRINTER*` `config.php` options
-- Those grocycodes can also be used without a label printer - you can view or download the pictures and print them manually
+- grocycodes can also be used without a label printer - you can view or download thm as pictures and print them manually
 - More information:
   - https://github.com/grocy/grocy/blob/master/docs/grocycode.md
   - https://github.com/grocy/grocy/blob/master/docs/label-printing.md
-- (Thanks a lot @mistressofjellyfish)
+- (Thanks a lot @mistressofjellyfish for the initial work on this)
 
 ### New feature: Shopping list thermal printer support
 - The shopping list can now be printed on a thermal printer
-  - The printer must compatible to the `ESC/POS` protocol and needs to be locally attached or network reachable to/by the machine hosting grocy (so the server)
+  - The printer must be compatible to the `ESC/POS` protocol and needs to be locally attached or network reachable to/by the machine hosting grocy (so the server)
   - See the new `TPRINTER*` `config.php` options to configure the printer connection and other options
   - => New button on the shopping list print dialog
 - Can be enabled via the new feature flag `FEATURE_FLAG_THERMAL_PRINTER` (defaults to disabled)
@@ -31,11 +31,13 @@
 - Product barcodes are now enforced to be unique across products
 - On the stock overview page it's now also possible to search/filter by product barcodes (via the general search field)
 - The product picker on the consume and transfer page now only shows products which are currently in stock
-- Added a filter option to only show in-stock products on the stock overview and products list page (master data)
-- Added new columns on the stock overview page (hidden by default): Product description, product default location, parent product
+- Added a filter option to only show in-stock products on the stock overview and products list (master data) page
+- Added new columns on the stock overview page (hidden by default): Product description, product default location, parent product, product picture
 - Added a new product option "Should not be frozen" (defaults to disabled and only visible when `FEATURE_FLAG_STOCK_PRODUCT_FREEZING` is enabled)
   - When enabled, on moving the product to a freezer location (so when freezing it), a corresponding warning will be shown
 - Optimized that when opening a product which has "Default due days after opened" set, the resulting date now never extends the original due date
+- Added a new stock setting (top right corner settings menu) "Add decimal separator automatically for price inputs" (defaults to disabled)
+  - When enabled, you always have to enter the value including decimal places, the decimal separator will be automatically added based on the amount of allowed decimal places
 - Fixed that editing stock entries was not possible
 - Fixed that consuming with Scan Mode was not possible
 - Fixed that the current stock total value (header of the stock overview page) didn't include decimal amounts (thanks @Ape)
@@ -50,6 +52,7 @@
 ### Shopping list improvements/fixes
 - The amount now defaults to `1` for adding items quicker
 - Added a status filter for only _done_ items
+- The total value is now also shown (based on "Last price (Total)" per item, displayed on the page header and only when `FEATURE_FLAG_STOCK_PRICE_TRACKING` is enabled)
 - Fixed that shopping list prints had a grey background (thanks @Forceu)
 - Fixed the form validation on the shopping list item page (thanks @Forceu)
 - Fixed that when adding products to the shopping list from the stock overview page, the used quantity unit was always the products default purchase QU (and not the selected one)
@@ -60,6 +63,7 @@
 - Recipe printing improvements (thanks @Ape)
 - Calories are now always displayed per single serving (on the recipe and meal plan page)
 - The note of an ingredient will now also be added to the corresponding shopping list item when using "Put missing products on the shopping list"
+- It's now possible to copy a recipe (button/dropdown menu item per recipe)
 - Fixed that the recipe page was slow when there were a lot meal plan recipe entries
 - Fixed that "Only check if any amount is in stock" (recipe ingredient option) didn't work for stock amounts < 1
 - Fixed that when adding missing items to the shopping list, on the popup deselected items got also added
@@ -72,6 +76,7 @@
 - Meal plan entries can now be visually marked as "done" (new button per entry)
   - This happens automatically on consuming a recipe/product from the meal plan page
 - It's now possible to copy all entries of a day to another day (in the dropdown of the add button in the header of each day column)
+- The "Display recipe" button was removed, instead clicking the recipe title now displays the recipe (and this now also works for products; shows the product card)
 - Fixed that stock fulfillment checking used the desired servings of the recipe (those selected on the recipes page, not them from the meal plan entry)
 
 ### Chores improvements/fixes
@@ -92,6 +97,7 @@
   - The username attribute is now configurable
   - Filtering of accounts is now possible
   - => See the new `LDAP*` `config.php` options
+- Improved the page loading time of all journal pages (stock/chores/batteries) by adding a new date range filter
 - Some night mode style improvements (thanks @BlizzWave and @KTibow)
 - Help tooltips are now additionally also triggered by clicking on them (instead of only hovering them, which doesn't work on mobile / touch devices)
 - The camera barcode scanner now also supports Code 39 barcodes (used for example in Germany on pharma products (PZN)) (thanks @andreheuer)
@@ -101,8 +107,9 @@
 
 ### API improvements/fixes
 > ❗ Numbers are now returned as numbers (so technically without quotes around them, were strings for nearly all endpoints before - should practically be no real difference)
-- Added a new API endpoint `/system/localization-strings` to get the localization strings (gettext JSON representation; in the by the user desired language)
-- The `GET /chores` endpoint now also returns the `next_execution_assigned_user` per chore (like the endpoint `GET /chores​/{choreId}` already did for a single chore)
+- Added a new endpoint `/system/localization-strings` to get the localization strings (gettext JSON representation; in the by the user desired language)
+- Added a new endpoint `/recipes/{recipeId}/copy` to copy a recipe
+- The `GET /chores` endpoint now also returns the `next_execution_assigned_user` object per chore (like the endpoint `GET /chores​/{choreId}` already did for a single chore)
 - The `GET /tasks` endpoint now also returns the assigned user and category object per task
 - Empty Userfields are now also returned (were previously omitted, endpoint `GET /objects/{entity}` and `GET /objects/{entity}/{objectId}`)
 - Fixed that due soon products with `due_type` = "Expiration date" were missing in `due_products` of the `/stock/volatile` endpoint

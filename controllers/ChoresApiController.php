@@ -3,6 +3,8 @@
 namespace Grocy\Controllers;
 
 use Grocy\Controllers\Users\User;
+use Grocy\Helpers\WebhookRunner;
+use Grocy\Helpers\Grocycode;
 
 class ChoresApiController extends BaseApiController
 {
@@ -101,6 +103,30 @@ class ChoresApiController extends BaseApiController
 
 			$this->ApiResponse($response, $this->getChoresService()->UndoChoreExecution($args['executionId']));
 			return $this->EmptyApiResponse($response);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
+
+	public function ChorePrintLabel(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		try
+		{
+			$chore = $this->getDatabase()->chores()->where('id', $args['choreId'])->fetch();
+
+			$webhookData = array_merge([
+				'chore' => $chore->name,
+				'grocycode' => (string)(new Grocycode(Grocycode::CHORE, $args['choreId'])),
+			], GROCY_LABEL_PRINTER_PARAMS);
+
+			if (GROCY_LABEL_PRINTER_RUN_SERVER)
+			{
+				(new WebhookRunner())->run(GROCY_LABEL_PRINTER_WEBHOOK, $webhookData, GROCY_LABEL_PRINTER_HOOK_JSON);
+			}
+
+			return $this->ApiResponse($response, $webhookData);
 		}
 		catch (\Exception $ex)
 		{

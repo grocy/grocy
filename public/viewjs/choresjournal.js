@@ -1,5 +1,4 @@
 ﻿var choresJournalTable = $('#chores-journal-table').DataTable({
-	'paginate': true,
 	'order': [[2, 'desc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
@@ -12,13 +11,22 @@ choresJournalTable.columns.adjust().draw();
 $("#chore-filter").on("change", function()
 {
 	var value = $(this).val();
-	var text = $("#chore-filter option:selected").text();
 	if (value === "all")
 	{
-		text = "";
+		RemoveUriParam("chore");
+	}
+	else
+	{
+		UpdateUriParam("chore", value);
 	}
 
-	choresJournalTable.column(1).search(text).draw();
+	window.location.reload();
+});
+
+$("#daterange-filter").on("change", function()
+{
+	UpdateUriParam("months", $(this).val());
+	window.location.reload();
 });
 
 $("#search").on("keyup", Delay(function()
@@ -36,14 +44,21 @@ $("#clear-filter-button").on("click", function()
 {
 	$("#search").val("");
 	$("#chore-filter").val("all");
-	choresJournalTable.column(1).search("").draw();
-	choresJournalTable.search("").draw();
+	$("#daterange-filter").val("24");
+
+	RemoveUriParam("months");
+	RemoveUriParam("chore");
+	window.location.reload();
 });
 
 if (typeof GetUriParam("chore") !== "undefined")
 {
 	$("#chore-filter").val(GetUriParam("chore"));
-	$("#chore-filter").trigger("change");
+}
+
+if (typeof GetUriParam("months") !== "undefined")
+{
+	$("#daterange-filter").val(GetUriParam("months"));
 }
 
 $(document).on('click', '.undo-chore-execution-button', function(e)

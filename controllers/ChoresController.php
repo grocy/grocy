@@ -2,6 +2,10 @@
 
 namespace Grocy\Controllers;
 
+use Grocy\Helpers\Grocycode;
+use jucksearm\barcode\lib\BarcodeFactory;
+use jucksearm\barcode\lib\DatamatrixFactory;
+
 class ChoresController extends BaseController
 {
 	public function ChoreEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
@@ -59,8 +63,25 @@ class ChoresController extends BaseController
 
 	public function Journal(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
+		if (isset($request->getQueryParams()['months']) && filter_var($request->getQueryParams()['months'], FILTER_VALIDATE_INT) !== false)
+		{
+			$months = $request->getQueryParams()['months'];
+			$where = "tracked_time > DATE(DATE('now', 'localtime'), '-$months months')";
+		}
+		else
+		{
+			// Default 1 year
+			$where = "tracked_time > DATE(DATE('now', 'localtime'), '-12 months')";
+		}
+
+		if (isset($request->getQueryParams()['chore']) && filter_var($request->getQueryParams()['chore'], FILTER_VALIDATE_INT) !== false)
+		{
+			$choreId = $request->getQueryParams()['chore'];
+			$where .= " AND chore_id = $choreId";
+		}
+
 		return $this->renderPage($response, 'choresjournal', [
-			'choresLog' => $this->getDatabase()->chores_log()->orderBy('tracked_time', 'DESC'),
+			'choresLog' => $this->getDatabase()->chores_log()->where($where)->orderBy('tracked_time', 'DESC'),
 			'chores' => $this->getDatabase()->chores()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'users' => $this->getDatabase()->users()->orderBy('username'),
 			'userfields' => $this->getUserfieldsService()->GetFields('chores_log'),
@@ -90,6 +111,40 @@ class ChoresController extends BaseController
 			'users' => $this->getDatabase()->users()->orderBy('username'),
 			'userfields' => $this->getUserfieldsService()->GetFields('chores_log'),
 		]);
+	}
+
+	public function ChoreGrocycodeImage(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		$size = $request->getQueryParam('size', null);
+		$gc = new Grocycode(Grocycode::CHORE, $args['choreId']);
+
+		if (GROCY_GROCYCODE_TYPE == '2D')
+		{
+			$png = (new DatamatrixFactory())->setCode((string) $gc)->setSize($size)->getDatamatrixPngData();
+		}
+		else
+		{
+			$png = (new BarcodeFactory())->setType('C128')->setCode((string) $gc)->setHeight($size)->getBarcodePngData();
+		}
+
+		$isDownload = $request->getQueryParam('download', false);
+		if ($isDownload)
+		{
+			$response = $response->withHeader('Content-Type', 'application/octet-stream')
+			->withHeader('Content-Disposition', 'attachment; filename=grocycode.png')
+			->withHeader('Content-Length', strlen($png))
+			->withHeader('Cache-Control', 'no-cache')
+			->withHeader('Last-Modified', gmdate('D, d M Y H:i:s') . ' GMT');
+		}
+		else
+		{
+			$response = $response->withHeader('Content-Type', 'image/png')
+			->withHeader('Content-Length', strlen($png))
+			->withHeader('Cache-Control', 'no-cache')
+			->withHeader('Last-Modified', gmdate('D, d M Y H:i:s') . ' GMT');
+		}
+		$response->getBody()->write($png);
+		return $response;
 	}
 
 	public function __construct(\DI\Container $container)

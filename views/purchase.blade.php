@@ -148,7 +148,7 @@
 			))
 			@endif
 
-			@if(GROCY_FEATURE_FLAG_LABELPRINTER)
+			@if(GROCY_FEATURE_FLAG_LABEL_PRINTER)
 			<div class="form-group">
 				<label for="print_stock_label">{{ $__t('Stock entry label') }}</label>
 				<select class="form-control"

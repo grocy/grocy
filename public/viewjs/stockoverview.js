@@ -17,6 +17,7 @@
 		{ 'visible': false, 'targets': 14 },
 		{ 'visible': false, 'targets': 15 },
 		{ 'visible': false, 'targets': 16 },
+		{ 'visible': false, 'targets': 17 },
 		{ "type": "num", "targets": 3 },
 		{ "type": "html-num-fmt", "targets": 9 },
 		{ "type": "html-num-fmt", "targets": 10 },
@@ -29,6 +30,7 @@
 
 $('#stock-overview-table tbody').removeClass("d-none");
 stockOverviewTable.columns.adjust().draw();
+LoadImagesLazy();
 
 $("#location-filter").on("change", function()
 {
@@ -104,7 +106,7 @@ $("#search").on("keyup", Delay(function()
 	stockOverviewTable.search(value).draw();
 }, 200));
 
-$(document).on('click', '.stockentry-grocycode-product-label-print', function(e)
+$(document).on('click', '.product-grocycode-label-print', function(e)
 {
 	e.preventDefault();
 	document.activeElement.blur();

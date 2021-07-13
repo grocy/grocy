@@ -1,7 +1,7 @@
 Label printing
 ====
 
-To enable label printing, set `FEATURE_FLAG_LABELPRINTER` to `true`in your `config.php`. You also need to provide a webhook target that is responsible for printing.
+To enable label printing, set `FEATURE_FLAG_LABEL_PRINTER` to `true`in your `config.php`. You also need to provide a webhook target that is responsible for printing.
 
 Why webhook?
 ---
@@ -28,7 +28,7 @@ Both methods fire this request upon printing:
 ```
 POST /your/printing/api/endpoint HTTP/1.1
 
-product=<productname>&grocycode=grocy:x:xxx&duedate=DD:%2021-06-09&...
+product=<productname>&grocycode=grocy:x:xxx&due_date=DD:%2021-06-09&...
 
 ```
 

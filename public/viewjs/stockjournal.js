@@ -1,5 +1,4 @@
 ﻿var stockJournalTable = $('#stock-journal-table').DataTable({
-	'paginate': true,
 	'order': [[3, 'desc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
@@ -12,15 +11,16 @@ stockJournalTable.columns.adjust().draw();
 $("#product-filter").on("change", function()
 {
 	var value = $(this).val();
-	var text = $("#product-filter option:selected").text();
 	if (value === "all")
 	{
-		stockJournalTable.column(1).search("").draw();
+		RemoveUriParam("product");
 	}
 	else
 	{
-		stockJournalTable.column(1).search(">" + text + "<").draw();
+		UpdateUriParam("product", value);
 	}
+
+	window.location.reload();
 });
 
 $("#transaction-type-filter").on("change", function()
@@ -59,6 +59,12 @@ $("#user-filter").on("change", function()
 	stockJournalTable.column(6).search(text).draw();
 });
 
+$("#daterange-filter").on("change", function()
+{
+	UpdateUriParam("months", $(this).val());
+	window.location.reload();
+});
+
 $("#search").on("keyup", Delay(function()
 {
 	var value = $(this).val();
@@ -77,17 +83,21 @@ $("#clear-filter-button").on("click", function()
 	$("#location-filter").val("all");
 	$("#user-filter").val("all");
 	$("#product-filter").val("all");
-	stockJournalTable.column(1).search("").draw();
-	stockJournalTable.column(4).search("").draw();
-	stockJournalTable.column(5).search("").draw();
-	stockJournalTable.column(6).search("").draw();
-	stockJournalTable.search("").draw();
+	$("#daterange-filter").val("6");
+
+	RemoveUriParam("months");
+	RemoveUriParam("product");
+	window.location.reload();
 });
 
 if (typeof GetUriParam("product") !== "undefined")
 {
 	$("#product-filter").val(GetUriParam("product"));
-	$("#product-filter").trigger("change");
+}
+
+if (typeof GetUriParam("months") !== "undefined")
+{
+	$("#daterange-filter").val(GetUriParam("months"));
 }
 
 $(document).on('click', '.undo-stock-booking-button', function(e)

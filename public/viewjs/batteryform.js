@@ -83,6 +83,21 @@ $('#battery-form input').keydown(function(event)
 	}
 });
 
+$(document).on('click', '.battery-grocycode-label-print', function(e)
+{
+	e.preventDefault();
+	document.activeElement.blur();
+
+	var batteryId = $(e.currentTarget).attr('data-chore-id');
+	Grocy.Api.Get('batteries/' + batteryId + '/printlabel', function(labelData)
+	{
+		if (Grocy.Webhooks.labelprinter !== undefined)
+		{
+			Grocy.FrontendHelpers.RunWebhook(Grocy.Webhooks.labelprinter, labelData);
+		}
+	});
+});
+
 Grocy.Components.UserfieldsForm.Load();
 $('#name').focus();
 Grocy.FrontendHelpers.ValidateForm('battery-form');

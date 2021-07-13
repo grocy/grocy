@@ -185,6 +185,21 @@ $(document).on("click", ".chore-name-cell", function(e)
 	$("#choresoverview-chorecard-modal").modal("show");
 });
 
+$(document).on('click', '.chore-grocycode-label-print', function(e)
+{
+	e.preventDefault();
+	document.activeElement.blur();
+
+	var choreId = $(e.currentTarget).attr('data-chore-id');
+	Grocy.Api.Get('chores/' + choreId + '/printlabel', function(labelData)
+	{
+		if (Grocy.Webhooks.labelprinter !== undefined)
+		{
+			Grocy.FrontendHelpers.RunWebhook(Grocy.Webhooks.labelprinter, labelData);
+		}
+	});
+});
+
 function RefreshStatistics()
 {
 	var nextXDays = $("#info-due-chores").data("next-x-days");

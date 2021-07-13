@@ -1555,7 +1555,7 @@
 		},
 		"/stock/entry/{entryId}/printlabel": {
 			"get": {
-				"summary": "Prints the label of the given stock entry",
+				"summary": "Prints the grocycode / stock entry label of the given entry on the configured label printer",
 				"tags": [
 					"Stock"
 				],
@@ -2285,7 +2285,7 @@
 		},
 		"/stock/products/{productId}/printlabel": {
 			"get": {
-				"summary": "Prints the product label of the given product",
+				"summary": "Prints the grocycode label of the given product on the configured label printer",
 				"tags": [
 					"Stock"
 				],
@@ -3462,6 +3462,54 @@
 				}
 			}
 		},
+		"/recipes/{recipeId}/copy": {
+			"post": {
+				"summary": "Copies a recipe",
+				"tags": [
+					"Recipes"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "recipeId",
+						"required": true,
+						"description": "A valid recipe id of the recipe to copy",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"created_object_id": {
+											"type": "number",
+											"format": "integer",
+											"description": "The id of the created recipe"
+										}
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Invalid recipe id)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error400"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/chores": {
 			"get": {
 				"summary": "Returns all chores incl. the next estimated execution time per chore",
@@ -3688,6 +3736,48 @@
 				}
 			}
 		},
+		"/chores/{choreId}/printlabel": {
+			"get": {
+				"summary": "Prints the grocycode label of the given chore on the configured label printer",
+				"tags": [
+					"Chores"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "choreId",
+						"required": true,
+						"description": "A valid chore id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"description": "WebHook data"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing chore, error on WebHook execution)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error400"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/batteries": {
 			"get": {
 				"summary": "Returns all batteries incl. the next estimated charge time per battery",
@@ -3857,6 +3947,48 @@
 					},
 					"400": {
 						"description": "The operation was not successful (possible errors are: Not existing booking)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error400"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/batteries/{batteryId}/printlabel": {
+			"get": {
+				"summary": "Prints the grocycode label of the given battery on the configured label printer",
+				"tags": [
+					"Batteries"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "batteryId",
+						"required": true,
+						"description": "A valid battery id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"description": "WebHook data"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing battery, error on WebHook execution)",
 						"content": {
 							"application/json": {
 								"schema": {

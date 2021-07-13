@@ -15,11 +15,17 @@
 			novalidate>
 
 			<div class="form-group">
-				<label for="chore_id">{{ $__t('Chore') }}</label>
-				<select class="form-control combobox"
+				<label class="w-100"
+					for="chore_id">
+					{{ $__t('Chore') }}
+					<i id="barcode-lookup-hint"
+						class="fas fa-barcode float-right mt-1"></i>
+				</label>
+				<select class="form-control combobox barcodescanner-input"
 					id="chore_id"
 					name="chore_id"
-					required>
+					required
+					data-target="@chorepicker">
 					<option value=""></option>
 					@foreach($chores as $chore)
 					<option value="{{ $chore->id }}">{{ $chore->name }}</option>
@@ -67,4 +73,6 @@
 		@include('components.chorecard')
 	</div>
 </div>
+
+@include('components.barcodescanner')
 @stop

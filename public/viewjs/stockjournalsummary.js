@@ -1,5 +1,4 @@
 var journalSummaryTable = $('#stock-journal-summary-table').DataTable({
-	'paginate': true,
 	'order': [[1, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },

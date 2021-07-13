@@ -289,5 +289,38 @@
 
 		</form>
 	</div>
+
+	<div class="col-lg-6 col-12 @if($mode == 'create') d-none @endif">
+		<div class="row">
+			<div class="col clearfix">
+				<div class="title-related-links">
+					<h4>
+						<span class="ls-n1">{{ $__t('grocycode') }}</span>
+						<i class="fas fa-question-circle text-muted"
+							data-toggle="tooltip"
+							data-trigger="hover click"
+							title="{{ $__t('grocycode is a unique referer to this %s in your grocy instance - print it onto a label and scan it like any other barcode', $__t('Chore')) }}"></i>
+					</h4>
+					<p>
+						@if($mode == 'edit')
+						<img src="{{ $U('/chore/' . $chore->id . '/grocycode?size=60') }}"
+							class="float-lg-left">
+						@endif
+					</p>
+					<p>
+						<a class="btn btn-outline-primary btn-sm"
+							href="{{ $U('/chore/' . $chore->id . '/grocycode?download=true') }}">{{ $__t('Download') }}</a>
+						@if(GROCY_FEATURE_FLAG_LABEL_PRINTER)
+						<a class="btn btn-outline-primary btn-sm chore-grocycode-label-print"
+							data-chore-id="{{ $chore->id }}"
+							href="#">
+							{{ $__t('Print on label printer') }}
+						</a>
+						@endif
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 @stop

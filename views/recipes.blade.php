@@ -142,14 +142,28 @@
 									title="{{ $__t('Edit this item') }}">
 									<i class="fas fa-edit"></i>
 								</a>
-								<a class="btn btn-sm btn-danger hide-when-embedded hide-on-fullscreen-card recipe-delete"
-									href="#"
-									data-recipe-id="{{ $recipe->id }}"
-									data-recipe-name="{{ $recipe->name }}"
-									data-toggle="tooltip"
-									title="{{ $__t('Delete this item') }}">
-									<i class="fas fa-trash"></i>
-								</a>
+								<div class="dropdown d-inline-block">
+									<button class="btn btn-sm btn-light text-secondary"
+										type="button"
+										data-toggle="dropdown">
+										<i class="fas fa-ellipsis-v"></i>
+									</button>
+									<div class="table-inline-menu dropdown-menu dropdown-menu-right hide-on-fullscreen-card hide-when-embedded">
+										<a class="dropdown-item recipe-delete"
+											type="button"
+											href="#"
+											data-recipe-id="{{ $recipe->id }}"
+											data-recipe-name="{{ $recipe->name }}">
+											<span class="dropdown-item-text">{{ $__t('Delete this item') }}</span>
+										</a>
+										<a class="dropdown-item recipe-copy"
+											type="button"
+											href="#"
+											data-recipe-id="{{ $recipe->id }}">
+											<span class="dropdown-item-text">{{ $__t('Copy recipe') }}</span>
+										</a>
+									</div>
+								</div>
 							</td>
 							<td>
 								{{ $recipe->name }}

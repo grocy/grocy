@@ -60,7 +60,8 @@ $('#battery_id').on('change', function(e)
 
 $('.combobox').combobox({
 	appendId: '_text_input',
-	bsVersion: '4'
+	bsVersion: '4',
+	clearIfNoMatch: false
 });
 
 $('#battery_id').val('');
@@ -97,6 +98,16 @@ $('#tracked_time').find('input').on('keypress', function(e)
 	Grocy.FrontendHelpers.ValidateForm('batterytracking-form');
 });
 
+$(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
+{
+	if (!(target == "@batterypicker" || target == "undefined" || target == undefined)) // Default target
+	{
+		return;
+	}
+
+	$('#battery_id_text_input').val(barcode).trigger('change');
+});
+
 function UndoChargeCycle(chargeCycleId)
 {
 	Grocy.Api.Post('batteries/charge-cycles/' + chargeCycleId.toString() + '/undo', {},
@@ -110,3 +121,38 @@ function UndoChargeCycle(chargeCycleId)
 		}
 	);
 };
+
+$('#battery_id_text_input').on('blur', function(e)
+{
+	if ($('#battery_id').hasClass("combobox-menu-visible"))
+	{
+		return;
+	}
+
+	var input = $('#battery_id_text_input').val().toString();
+	var possibleOptionElement = [];
+
+	// grocycode handling
+	if (input.startsWith("grcy"))
+	{
+		var gc = input.split(":");
+		if (gc[1] == "b")
+		{
+			possibleOptionElement = $("#battery_id option[value=\"" + gc[2] + "\"]").first();
+		}
+	}
+
+	if (possibleOptionElement.length > 0)
+	{
+		$('#battery_id').val(possibleOptionElement.val());
+		$('#battery_id').data('combobox').refresh();
+		$('#battery_id').trigger('change');
+	}
+	else
+	{
+		$('#battery_id').val(null);
+		$('#battery_id_text_input').val("");
+		$('#battery_id').data('combobox').refresh();
+		$('#battery_id').trigger('change');
+	}
+});

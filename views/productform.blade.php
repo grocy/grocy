@@ -425,7 +425,7 @@
 			'entity' => 'products'
 			))
 
-			@if(GROCY_FEATURE_FLAG_LABELPRINTER)
+			@if(GROCY_FEATURE_FLAG_LABEL_PRINTER)
 			<div class="form-group">
 				<div class="custom-control custom-checkbox">
 					<input @if($mode=='edit'
@@ -616,11 +616,11 @@
 			<div class="col clearfix">
 				<div class="title-related-links">
 					<h4>
-						{{ $__t('grocycode') }}
+						<span class="ls-n1">{{ $__t('grocycode') }}</span>
 						<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
-							title="{{ $__t('grocycode is a unique referer to this product in your grocy instance - print it onto a label and scan it like any other barcode') }}"></i>
+							title="{{ $__t('grocycode is a unique referer to this %s in your grocy instance - print it onto a label and scan it like any other barcode', $__t('Product')) }}"></i>
 					</h4>
 					<p>
 						@if($mode == 'edit')
@@ -631,8 +631,8 @@
 					<p>
 						<a class="btn btn-outline-primary btn-sm"
 							href="{{ $U('/product/' . $product->id . '/grocycode?download=true') }}">{{ $__t('Download') }}</a>
-						@if(GROCY_FEATURE_FLAG_LABELPRINTER)
-						<a class="btn btn-outline-primary btn-sm stockentry-grocycode-product-label-print"
+						@if(GROCY_FEATURE_FLAG_LABEL_PRINTER)
+						<a class="btn btn-outline-primary btn-sm product-grocycode-label-print"
 							data-product-id="{{ $product->id }}"
 							href="#">
 							{{ $__t('Print on label printer') }}

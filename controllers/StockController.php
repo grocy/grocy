@@ -35,10 +35,27 @@ class StockController extends BaseController
 
 	public function Journal(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
+		if (isset($request->getQueryParams()['months']) && filter_var($request->getQueryParams()['months'], FILTER_VALIDATE_INT) !== false)
+		{
+			$months = $request->getQueryParams()['months'];
+			$where = "row_created_timestamp > DATE(DATE('now', 'localtime'), '-$months months')";
+		}
+		else
+		{
+			// Default 6 months
+			$where = "row_created_timestamp > DATE(DATE('now', 'localtime'), '-6 months')";
+		}
+
+		if (isset($request->getQueryParams()['product']) && filter_var($request->getQueryParams()['product'], FILTER_VALIDATE_INT) !== false)
+		{
+			$productId = $request->getQueryParams()['product'];
+			$where .= " AND product_id = $productId";
+		}
+
 		$usersService = $this->getUsersService();
 
 		return $this->renderPage($response, 'stockjournal', [
-			'stockLog' => $this->getDatabase()->uihelper_stock_journal()->orderBy('row_created_timestamp', 'DESC'),
+			'stockLog' => $this->getDatabase()->uihelper_stock_journal()->where($where)->orderBy('row_created_timestamp', 'DESC'),
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE'),
 			'users' => $usersService->GetUsersAsDto(),
@@ -176,9 +193,7 @@ class StockController extends BaseController
 	public function ProductGrocycodeImage(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$size = $request->getQueryParam('size', null);
-		$product = $this->getDatabase()->products($args['productId']);
-
-		$gc = new Grocycode(Grocycode::PRODUCT, $product->id);
+		$gc = new Grocycode(Grocycode::PRODUCT, $args['productId']);
 
 		if (GROCY_GROCYCODE_TYPE == '2D')
 		{
@@ -190,7 +205,6 @@ class StockController extends BaseController
 		}
 
 		$isDownload = $request->getQueryParam('download', false);
-
 		if ($isDownload)
 		{
 			$response = $response->withHeader('Content-Type', 'application/octet-stream')
@@ -489,7 +503,6 @@ class StockController extends BaseController
 		}
 
 		$isDownload = $request->getQueryParam('download', false);
-
 		if ($isDownload)
 		{
 			$response = $response->withHeader('Content-Type', 'application/octet-stream')

@@ -270,7 +270,6 @@ a:not([href]) {
 	padding: 0;
 	word-wrap: break-word;
 	white-space: pre-wrap;
-	color: inherit;
 }
 
 /* Barcodescanner Quagga */
@@ -316,6 +315,10 @@ a:not([href]) {
 	font-size : 0.875rem;
 	line-height : 0.5;
 	border-radius: 0.2rem;
+}
+
+.ls-n1 {
+	letter-spacing: -0.1rem;
 }
 
 .text-larger {

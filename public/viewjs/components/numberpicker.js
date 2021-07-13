@@ -92,3 +92,20 @@ $(".numberpicker").on("keydown", function(e)
 		$(this).parent().find(".numberpicker-down-button").click();
 	}
 });
+
+$(".numberpicker.locale-number-input.locale-number-currency").on("blur", function()
+{
+	if (BoolVal(Grocy.UserSettings.stock_auto_decimal_separator_prices))
+	{
+		var value = this.value.toString();
+		var decimalPlaces = parseInt(Grocy.UserSettings.stock_decimal_places_prices);
+
+		if (value.length <= decimalPlaces)
+		{
+			return;
+		}
+
+		var valueNew = parseFloat(value.substring(0, value.length - decimalPlaces) + '.' + value.slice(decimalPlaces * -1)).toLocaleString(undefined, { minimumFractionDigits: decimalPlaces, maximumFractionDigits: decimalPlaces });
+		$(this).val(valueNew);
+	}
+});

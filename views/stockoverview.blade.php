@@ -173,6 +173,7 @@
 					<th>{{ $__t('Product description') }}</th>
 					<th>{{ $__t('Parent product') }}</th>
 					<th>{{ $__t('Default location') }}</th>
+					<th>{{ $__t('Product picture') }}</th>
 
 					@include('components.userfields_thead', array(
 					'userfields' => $userfields
@@ -306,14 +307,14 @@
 								<a class="dropdown-item stockentry-grocycode-link"
 									type="button"
 									href="{{ $U('/product/' . $currentStockEntry->product_id . '/grocycode?download=true') }}">
-									{{ $__t('Download product grocycode') }}
+									{!! str_replace('grocycode', '<span class="ls-n1">grocycode</span>', $__t('Download %s grocycode', $__t('Product'))) !!}
 								</a>
-								@if(GROCY_FEATURE_FLAG_LABELPRINTER)
-								<a class="dropdown-item stockentry-grocycode-product-label-print"
+								@if(GROCY_FEATURE_FLAG_LABEL_PRINTER)
+								<a class="dropdown-item product-grocycode-label-print"
 									data-product-id="{{ $currentStockEntry->product_id }}"
 									type="button"
 									href="#">
-									{{ $__t('Print product grocycode on label printer') }}
+									{!! str_replace('grocycode', '<span class="ls-n1">grocycode</span>', $__t('Print %s grocycode on label printer', $__t('Product'))) !!}
 								</a>
 								@endif
 							</div>
@@ -413,6 +414,12 @@
 					</td>
 					<td>
 						{{ $currentStockEntry->product_default_location_name }}
+					</td>
+					<td>
+						@if(!empty($currentStockEntry->product_picture_file_name))
+						<img data-src="{{ $U('/api/files/productpictures/' . base64_encode($currentStockEntry->product_picture_file_name) . '?force_serve_as=picture&best_fit_width=64&best_fit_height=64') }}"
+							class="lazy">
+						@endif
 					</td>
 
 					@include('components.userfields_tbody', array(

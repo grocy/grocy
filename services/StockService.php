@@ -193,7 +193,7 @@ class StockService extends BaseService
 			]);
 			$stockRow->save();
 
-			if (GROCY_FEATURE_FLAG_LABELPRINTER && GROCY_LABEL_PRINTER_RUN_SERVER && $runWebhook)
+			if (GROCY_FEATURE_FLAG_LABEL_PRINTER && GROCY_LABEL_PRINTER_RUN_SERVER && $runWebhook)
 			{
 				$reps = 1;
 				if ($runWebhook == 2)
@@ -208,7 +208,7 @@ class StockService extends BaseService
 
 				if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 				{
-					$webhookData['duedate'] = $this->getLocalizationService()->__t('DD') . ': ' . $bestBeforeDate;
+					$webhookData['due_date'] = $this->getLocalizationService()->__t('DD') . ': ' . $bestBeforeDate;
 				}
 
 				$runner = new WebhookRunner();

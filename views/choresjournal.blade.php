@@ -48,6 +48,22 @@
 			</select>
 		</div>
 	</div>
+	<div class="col-12 col-md-6 col-xl-3">
+		<div class="input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text"><i class="fas fa-clock"></i>&nbsp;{{ $__t('Date range') }}</span>
+			</div>
+			<select class="custom-control custom-select"
+				id="daterange-filter">
+				<option value="1">{{ $__n(1, '%s month', '%s months') }}</option>
+				<option value="6">{{ $__n(6, '%s month', '%s months') }}</option>
+				<option value="12"
+					selected>{{ $__n(1, '%s year', '%s years') }}</option>
+				<option value="24">{{ $__n(2, '%s month', '%s years') }}</option>
+				<option value="9999">{{ $__t('All') }}</option>
+			</select>
+		</div>
+	</div>
 	<div class="col">
 		<div class="float-right">
 			<a id="clear-filter-button"
@@ -88,7 +104,7 @@
 				<tr id="chore-execution-{{ $choreLogEntry->id }}-row"
 					class="@if($choreLogEntry->undone == 1) text-muted @endif">
 					<td class="fit-content border-right">
-						<a class="btn btn-secondary btn-sm undo-chore-execution-button permission-CHORE_UNDO_EXECUTION @if($choreLogEntry->undone == 1) disabled @endif"
+						<a class="btn btn-secondary btn-xs undo-chore-execution-button permission-CHORE_UNDO_EXECUTION @if($choreLogEntry->undone == 1) disabled @endif"
 							href="#"
 							data-execution-id="{{ $choreLogEntry->id }}"
 							data-toggle="tooltip"

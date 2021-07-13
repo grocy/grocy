@@ -21,7 +21,8 @@ const swaggerUi = SwaggerUIBundle({
 	],
 	layout: 'StandaloneLayout',
 	docExpansion: "list",
-	defaultModelsExpandDepth: -1
+	defaultModelsExpandDepth: -1,
+	validatorUrl: false
 });
 
 window.ui = swaggerUi;

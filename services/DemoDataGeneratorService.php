@@ -145,6 +145,7 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO meal_plan(day, recipe_id) VALUES ('{$saturdayThisWeek}', 2);
 				INSERT INTO meal_plan(day, recipe_id) VALUES ('{$sundayThisWeek}', 4);
 				INSERT INTO meal_plan(day, type, note) VALUES ('{$tuesdayThisWeek}', 'note', '{$this->__t_sql('This is a note')}');
+				INSERT INTO meal_plan(day, type, product_id, product_amount) VALUES (DATE('{$mondayThisWeek}', '-1 days'), 'product', 3, 1);
 
 				INSERT INTO chores (name, period_type, period_days) VALUES ('{$this->__t_sql('Changed towels in the bathroom')}', 'manually', 5); --1
 				INSERT INTO chores (name, period_type, period_days, assignment_type, assignment_config, next_execution_assigned_to_user_id) VALUES ('{$this->__t_sql('Cleaned the kitchen floor')}', 'dynamic-regular', 7, 'random', '1,2,3,4', 1); --2

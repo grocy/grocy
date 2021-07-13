@@ -112,6 +112,23 @@ class RecipesService extends BaseService
 		}
 	}
 
+	public function CopyRecipe($recipeId)
+	{
+		if (!$this->RecipeExists($recipeId))
+		{
+			throw new \Exception('Recipe does not exist');
+		}
+
+		$newName = $this->getLocalizationService()->__t('Copy of %s', $this->getDataBase()->recipes($recipeId)->name);
+
+		$this->getDatabaseService()->ExecuteDbStatement('INSERT INTO recipes (name, description, picture_file_name, base_servings, desired_servings, not_check_shoppinglist, type, product_id) SELECT \'' . $newName . '\', description, picture_file_name, base_servings, desired_servings, not_check_shoppinglist, type, product_id FROM recipes WHERE id = ' . $recipeId);
+		$lastInsertId = $this->getDatabase()->lastInsertId();
+		$this->getDatabaseService()->ExecuteDbStatement('INSERT INTO recipes_pos (recipe_id, product_id, amount, note, qu_id, only_check_single_unit_in_stock, ingredient_group, not_check_stock_fulfillment, variable_amount, price_factor) SELECT ' . $lastInsertId . ', product_id, amount, note, qu_id, only_check_single_unit_in_stock, ingredient_group, not_check_stock_fulfillment, variable_amount, price_factor FROM recipes_pos WHERE recipe_id = ' . $recipeId);
+		$this->getDatabaseService()->ExecuteDbStatement('INSERT INTO recipes_nestings (recipe_id, includes_recipe_id, servings) SELECT ' . $lastInsertId . ', includes_recipe_id, servings FROM recipes_nestings WHERE recipe_id = ' . $recipeId);
+
+		return $lastInsertId;
+	}
+
 	public function __construct()
 	{
 		parent::__construct();

@@ -125,7 +125,7 @@ $(document).on("click", ".stock-name-cell", function(e)
 	$("#stockentry-productcard-modal").modal("show");
 });
 
-$(document).on('click', '.stockentry-grocycode-stockentry-label-print', function(e)
+$(document).on('click', '.stockentry-grocycode-label-print', function(e)
 {
 	e.preventDefault();
 	document.activeElement.blur();

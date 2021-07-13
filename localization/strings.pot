@@ -2084,13 +2084,11 @@ msgstr ""
 msgid "Download"
 msgstr ""
 
-msgid "Download stock entry grocycode"
+# Example: Download *Product* grocycode
+msgid "Download %s grocycode"
 msgstr ""
 
-msgid "Download product grocycode"
-msgstr ""
-
-msgid "grocycode is a unique referer to this product in your grocy instance - print it onto a label and scan it like any other barcode"
+msgid "grocycode is a unique referer to this %s in your grocy instance - print it onto a label and scan it like any other barcode"
 msgstr ""
 
 # Abbreviation for "due date"
@@ -2121,13 +2119,11 @@ msgstr ""
 msgid "Error while executing WebHook"
 msgstr ""
 
-msgid "Print product grocycode on label printer"
+# Example: Print *Product* grocycode on label printer
+msgid "Print %s grocycode on label printer"
 msgstr ""
 
-msgid "Print stock entry grocycode on label printer"
-msgstr ""
-
-msgid "Open stock entry print label in new window"
+msgid "Open stock entry label in new window"
 msgstr ""
 
 msgid "Thermal printer"
@@ -2192,4 +2188,38 @@ msgid "Day"
 msgstr ""
 
 msgid "Add recipe"
+msgstr ""
+
+msgid "Copy this day"
+msgstr ""
+
+msgid "Date range"
+msgstr ""
+
+msgid "%s month"
+msgid_plural "%s months"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s year"
+msgid_plural "%s years"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Display product"
+msgstr ""
+
+msgid "Copy recipe"
+msgstr ""
+
+msgid "Copy of %s"
+msgstr ""
+
+msgid "Add decimal separator automatically for price inputs"
+msgstr ""
+
+msgid "When enabled, you always have to enter the value including decimal places, the decimal separator will be automatically added based on the amount of allowed decimal places"
+msgstr ""
+
+msgid "Stock entry"
 msgstr ""

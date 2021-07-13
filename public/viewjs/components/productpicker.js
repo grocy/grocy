@@ -149,18 +149,17 @@ $('#product_id_text_input').on('blur', function(e)
 	var input = $('#product_id_text_input').val().toString();
 	var possibleOptionElement = [];
 
-	// did we enter a grocycode?
+	// grocycode handling
 	if (input.startsWith("grcy"))
 	{
 		var gc = input.split(":");
 		if (gc[1] == "p")
 		{
-			// find product id
 			possibleOptionElement = $("#product_id option[value=\"" + gc[2] + "\"]").first();
 			$("#product_id").data("grocycode", true);
 		}
 	}
-	else // process barcode as usual
+	else // Normal product barcode handling
 	{
 		possibleOptionElement = $("#product_id option[data-additional-searchdata*=\"" + input + ",\"]").first();
 	}

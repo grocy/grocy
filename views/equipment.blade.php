@@ -85,14 +85,22 @@
 							title="{{ $__t('Edit this item') }}">
 							<i class="fas fa-edit"></i>
 						</a>
-						<a class="btn btn-sm btn-danger hide-when-embedded hide-on-fullscreen-card equipment-delete-button"
-							href="#"
-							data-equipment-id="{{ $equipmentItem->id }}"
-							data-equipment-name="{{ $equipmentItem->name }}"
-							data-toggle="tooltip"
-							title="{{ $__t('Delete this item') }}">
-							<i class="fas fa-trash"></i>
-						</a>
+						<div class="dropdown d-inline-block">
+							<button class="btn btn-sm btn-light text-secondary"
+								type="button"
+								data-toggle="dropdown">
+								<i class="fas fa-ellipsis-v"></i>
+							</button>
+							<div class="table-inline-menu dropdown-menu dropdown-menu-right hide-on-fullscreen-card hide-when-embedded">
+								<a class="dropdown-item equipment-delete-button"
+									type="button"
+									href="#"
+									data-equipment-id="{{ $equipmentItem->id }}"
+									data-equipment-name="{{ $equipmentItem->name }}">
+									<span class="dropdown-item-text">{{ $__t('Delete this item') }}</span>
+								</a>
+							</div>
+						</div>
 					</td>
 					<td>
 						{{ $equipmentItem->name }}

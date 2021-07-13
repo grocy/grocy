@@ -27,6 +27,11 @@ if (BoolVal(Grocy.UserSettings.stock_default_consume_amount_use_quick_consume_am
 	$("#stock_default_consume_amount").attr("disabled", "");
 }
 
+if (BoolVal(Grocy.UserSettings.stock_auto_decimal_separator_prices))
+{
+	$("#stock_auto_decimal_separator_prices").prop("checked", true);
+}
+
 RefreshLocaleNumberInput();
 
 $("#stock_default_consume_amount_use_quick_consume_amount").on("click", function()

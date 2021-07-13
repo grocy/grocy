@@ -95,4 +95,35 @@
 		</form>
 	</div>
 </div>
+
+<div class="row mt-2 border-top">
+	<div class="col clearfix mt-2">
+		<div class="title-related-links">
+			<h4>
+				<span class="ls-n1">{{ $__t('grocycode') }}</span>
+				<i class="fas fa-question-circle text-muted"
+					data-toggle="tooltip"
+					data-trigger="hover click"
+					title="{{ $__t('grocycode is a unique referer to this %s in your grocy instance - print it onto a label and scan it like any other barcode', $__t('Battery')) }}"></i>
+			</h4>
+			<p>
+				@if($mode == 'edit')
+				<img src="{{ $U('/battery/' . $battery->id . '/grocycode?size=60') }}"
+					class="float-lg-left">
+				@endif
+			</p>
+			<p>
+				<a class="btn btn-outline-primary btn-sm"
+					href="{{ $U('/battery/' . $battery->id . '/grocycode?download=true') }}">{{ $__t('Download') }}</a>
+				@if(GROCY_FEATURE_FLAG_LABEL_PRINTER)
+				<a class="btn btn-outline-primary btn-sm battery-grocycode-label-print"
+					data-battery-id="{{ $battery->id }}"
+					href="#">
+					{{ $__t('Print on label printer') }}
+				</a>
+				@endif
+			</p>
+		</div>
+	</div>
+</div>
 @stop

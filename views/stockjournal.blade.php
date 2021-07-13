@@ -14,7 +14,7 @@
 			data-target="#table-filter-row">
 			<i class="fas fa-filter"></i>
 		</button>
-		<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
+		<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3 hide-when-embedded"
 			type="button"
 			data-toggle="collapse"
 			data-target="#related-links">
@@ -45,7 +45,7 @@
 				placeholder="{{ $__t('Search') }}">
 		</div>
 	</div>
-	<div class="col-12 col-md-6 col-xl-2">
+	<div class="col-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Product') }}</span>
@@ -73,7 +73,7 @@
 			</select>
 		</div>
 	</div>
-	<div class="col-12 col-md-6 col-xl-2">
+	<div class="col-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Location') }}</span>
@@ -87,7 +87,7 @@
 			</select>
 		</div>
 	</div>
-	<div class="col-12 col-md-6 col-xl-2">
+	<div class="col-12 col-md-6 col-xl-2 mt-1">
 		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('User') }}</span>
@@ -98,6 +98,22 @@
 				@foreach($users as $user)
 				<option value="{{ $user->id }}">{{ $user->display_name }}</option>
 				@endforeach
+			</select>
+		</div>
+	</div>
+	<div class="col-12 col-md-6 col-xl-3 mt-1">
+		<div class="input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text"><i class="fas fa-clock"></i>&nbsp;{{ $__t('Date range') }}</span>
+			</div>
+			<select class="custom-control custom-select"
+				id="daterange-filter">
+				<option value="1">{{ $__n(1, '%s month', '%s months') }}</option>
+				<option value="6"
+					selected>{{ $__n(6, '%s month', '%s months') }}</option>
+				<option value="12">{{ $__n(1, '%s year', '%s years') }}</option>
+				<option value="24">{{ $__n(2, '%s month', '%s years') }}</option>
+				<option value="9999">{{ $__t('All') }}</option>
 			</select>
 		</div>
 	</div>
@@ -139,7 +155,7 @@
 					class="@if($stockLogEntry->undone == 1) text-muted @endif stock-booking-correlation-{{ $stockLogEntry->correlation_id }}"
 					data-correlation-id="{{ $stockLogEntry->correlation_id }}">
 					<td class="fit-content border-right">
-						<a class="btn btn-secondary btn-sm undo-stock-booking-button @if($stockLogEntry->undone == 1) disabled @endif"
+						<a class="btn btn-secondary btn-xs undo-stock-booking-button @if($stockLogEntry->undone == 1) disabled @endif"
 							href="#"
 							data-booking-id="{{ $stockLogEntry->id }}"
 							data-toggle="tooltip"

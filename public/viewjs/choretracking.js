@@ -83,7 +83,8 @@ $('#chore_id').on('change', function(e)
 
 $('.combobox').combobox({
 	appendId: '_text_input',
-	bsVersion: '4'
+	bsVersion: '4',
+	clearIfNoMatch: false
 });
 
 $('#chore_id_text_input').focus();
@@ -113,6 +114,16 @@ $('#choretracking-form input').keydown(function(event)
 	}
 });
 
+$(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
+{
+	if (!(target == "@chorepicker" || target == "undefined" || target == undefined)) // Default target
+	{
+		return;
+	}
+
+	$('#chore_id_text_input').val(barcode).trigger('change');
+});
+
 Grocy.Components.DateTimePicker.GetInputElement().on('keypress', function(e)
 {
 	Grocy.FrontendHelpers.ValidateForm('choretracking-form');
@@ -131,3 +142,38 @@ function UndoChoreExecution(executionId)
 		}
 	);
 };
+
+$('#chore_id_text_input').on('blur', function(e)
+{
+	if ($('#chore_id').hasClass("combobox-menu-visible"))
+	{
+		return;
+	}
+
+	var input = $('#chore_id_text_input').val().toString();
+	var possibleOptionElement = [];
+
+	// grocycode handling
+	if (input.startsWith("grcy"))
+	{
+		var gc = input.split(":");
+		if (gc[1] == "c")
+		{
+			possibleOptionElement = $("#chore_id option[value=\"" + gc[2] + "\"]").first();
+		}
+	}
+
+	if (possibleOptionElement.length > 0)
+	{
+		$('#chore_id').val(possibleOptionElement.val());
+		$('#chore_id').data('combobox').refresh();
+		$('#chore_id').trigger('change');
+	}
+	else
+	{
+		$('#chore_id').val(null);
+		$('#chore_id_text_input').val("");
+		$('#chore_id').data('combobox').refresh();
+		$('#chore_id').trigger('change');
+	}
+});

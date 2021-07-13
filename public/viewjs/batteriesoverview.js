@@ -122,6 +122,21 @@ $(document).on("click", ".battery-name-cell", function(e)
 	$("#batteriesoverview-batterycard-modal").modal("show");
 });
 
+$(document).on('click', '.battery-grocycode-label-print', function(e)
+{
+	e.preventDefault();
+	document.activeElement.blur();
+
+	var batteryId = $(e.currentTarget).attr('data-battery-id');
+	Grocy.Api.Get('batteries/' + batteryId + '/printlabel', function(labelData)
+	{
+		if (Grocy.Webhooks.labelprinter !== undefined)
+		{
+			Grocy.FrontendHelpers.RunWebhook(Grocy.Webhooks.labelprinter, labelData);
+		}
+	});
+});
+
 function RefreshStatistics()
 {
 	var nextXDays = $("#info-due-batteries").data("next-x-days");
