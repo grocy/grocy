@@ -36,7 +36,7 @@ JOIN quantity_units qu_from
 	ON p.qu_id_purchase = qu_from.id
 JOIN quantity_units qu_to
 	ON p.qu_id_stock = qu_to.id
-WHERE p.qu_id_stock != p.qu_id_purchase -- => Only when QU stock ist not the same as QU purchase
+WHERE p.qu_id_stock != p.qu_id_purchase -- => Only when QU stock st not the same as QU purchase
 
 UNION
 
