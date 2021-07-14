@@ -90,8 +90,8 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$this->__t_sql('Toast')}', 3, 5, 5, 1, 2); --19
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, default_best_before_days_after_freezing, default_best_before_days_after_thawing, due_type) VALUES ('{$this->__t_sql('Minced meat')}', 2, 3, 3, 1, 4, 180, 2, 2); --20
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, enable_tare_weight_handling, tare_weight, calories) VALUES ('{$this->__t_sql('Flour')}', 3, 8, 8, 1, 3, 1, 500, 2); --21
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, calories) VALUES ('{$this->__t_sql('Sugar')}', 3, 3, 3, 1, 3, 4); --22
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, calories) VALUES ('{$this->__t_sql('Milk')}', 2, 10, 10, 1, 6, 1); --23
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, calories) VALUES ('{$this->__t_sql('Sugar')}', 3, 3, 3, 1, 3, 3870); --22
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, calories) VALUES ('{$this->__t_sql('Milk')}', 2, 10, 10, 1, 6, 418); --23
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, parent_product_id) VALUES ('{$this->__t_sql('Milk Chocolate')}', 4, 3, 3, 1, 1, 2); --24
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id, parent_product_id) VALUES ('{$this->__t_sql('Dark Chocolate')}', 4, 3, 3, 1, 1, 2); --25
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, product_group_id) VALUES ('{$this->__t_sql('Waffle rolls')}', 4, 3, 3, 1, 1); --26
@@ -106,6 +106,9 @@ class DemoDataGeneratorService extends BaseService
 				UPDATE products SET qu_id_purchase = (SELECT MIN(id) FROM quantity_units) WHERE id IN (SELECT id FROM products WHERE qu_id_purchase NOT IN (SELECT id FROM quantity_units));
 
 				INSERT INTO quantity_unit_conversions (from_qu_id, to_qu_id, factor, product_id) VALUES (3, 12, 10, 10);
+				INSERT INTO quantity_unit_conversions (from_qu_id, to_qu_id, factor, product_id) VALUES (12, 3, 0.1, 10);
+				INSERT INTO quantity_unit_conversions (from_qu_id, to_qu_id, factor, product_id) VALUES (3, 8, 1000, 22);
+				INSERT INTO quantity_unit_conversions (from_qu_id, to_qu_id, factor, product_id) VALUES (8, 3, 0.001, 22);
 
 				INSERT INTO shopping_list (note, amount) VALUES ('{$this->__t_sql('Some good snacks')}', 1);
 				INSERT INTO shopping_list (product_id, amount) VALUES (20, 1);
