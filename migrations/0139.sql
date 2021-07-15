@@ -69,16 +69,13 @@ BEGIN
 	GROUP BY product_id, product_qu_id;
 
 	-- Create a shadow recipe per meal plan recipe
-	INSERT OR REPLACE INTO recipes
+	INSERT INTO recipes
 		(id, name, type)
 	SELECT (SELECT MIN(id) - 1 FROM recipes), CAST(NEW.day AS TEXT) || '#' || CAST(id AS TEXT), 'mealplan-shadow'
 	FROM meal_plan
 	WHERE id = NEW.id
 		AND type = 'recipe'
 		AND recipe_id IS NOT NULL;
-
-	DELETE FROM recipes_nestings
-	WHERE recipe_id IN (SELECT id FROM recipes WHERE name IN (SELECT CAST(NEW.day AS TEXT) || '#' || CAST(id AS TEXT) FROM meal_plan WHERE day = NEW.day) AND type = 'mealplan-shadow');
 
 	INSERT INTO recipes_nestings
 		(recipe_id, includes_recipe_id, servings)
@@ -190,7 +187,7 @@ BEGIN
 	*/
 
 	-- Create a shadow recipe per meal plan recipe
-	INSERT OR REPLACE INTO recipes
+	INSERT INTO recipes
 		(id, name, type)
 	SELECT (SELECT MIN(id) - 1 FROM recipes), CAST(NEW.day AS TEXT) || '#' || CAST(id AS TEXT), 'mealplan-shadow'
 	FROM meal_plan
@@ -292,16 +289,20 @@ BEGIN
 	GROUP BY product_id, product_qu_id;
 
 	-- Create a shadow recipe per meal plan recipe
-	INSERT OR REPLACE INTO recipes
+	DELETE FROM recipes_nestings
+	WHERE recipe_id IN (SELECT id FROM recipes WHERE name IN (SELECT CAST(NEW.day AS TEXT) || '#' || CAST(NEW.id AS TEXT) FROM meal_plan WHERE day = NEW.day) AND type = 'mealplan-shadow');
+
+	DELETE FROM recipes
+	WHERE type = 'mealplan-shadow'
+		AND name = CAST(NEW.day AS TEXT) || '#' || CAST(NEW.id AS TEXT);
+
+	INSERT INTO recipes
 		(id, name, type)
 	SELECT (SELECT MIN(id) - 1 FROM recipes), CAST(NEW.day AS TEXT) || '#' || CAST(id AS TEXT), 'mealplan-shadow'
 	FROM meal_plan
 	WHERE id = NEW.id
 		AND type = 'recipe'
 		AND recipe_id IS NOT NULL;
-
-	DELETE FROM recipes_nestings
-	WHERE recipe_id IN (SELECT id FROM recipes WHERE name IN (SELECT CAST(NEW.day AS TEXT) || '#' || CAST(id AS TEXT) FROM meal_plan WHERE day = NEW.day) AND type = 'mealplan-shadow');
 
 	INSERT INTO recipes_nestings
 		(recipe_id, includes_recipe_id, servings)

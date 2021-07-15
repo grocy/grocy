@@ -1116,3 +1116,5 @@ $(document).on("click", ".change-table-columns-rowgroup-toggle", function()
 
 	dataTable.draw();
 });
+
+$("#meal-plan-nav-link").attr("href", $("#meal-plan-nav-link").attr("href") + "?week=" + moment().startOf("week").format("YYYY-MM-DD"));

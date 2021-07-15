@@ -24,6 +24,39 @@
 		max-height: 140px;
 	}
 
+	.fc-time-grid-container,
+	hr.fc-divider {
+		display: none;
+	}
+
+	.fc-axis {
+		width: 25px !important;
+	}
+
+	.fc-axis div {
+		transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+		font-weight: bold;
+		font-size: 1.8em;
+		letter-spacing: 0.1em;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		margin-left: 15px;
+	}
+
+	.fc-content-skeleton {
+		padding-bottom: 0 !important;
+	}
+
+	.calendar[data-primary-section='false'] .fc-toolbar.fc-header-toolbar,
+	.calendar[data-primary-section='false'] .fc-head {
+		display: none;
+	}
+
+	.calendar[data-primary-section='false'] {
+		border-top: #d6d6d6 solid 5px;
+	}
+
 	@media (min-width: 400px) {
 		.table-inline-menu.dropdown-menu {
 			width: 200px !important;
@@ -47,17 +80,56 @@
 
 <div class="row">
 	<div class="col">
-		<h2 class="title">@yield('title')</h2>
+		<div class="title-related-links">
+			<h2 class="title">@yield('title')</h2>
+			<div class="float-right">
+				<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
+					type="button"
+					data-toggle="collapse"
+					data-target="#related-links">
+					<i class="fas fa-ellipsis-v"></i>
+				</button>
+			</div>
+			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
+				id="related-links">
+				<a class="btn btn-outline-secondary m-1 mt-md-0 mb-md-0 float-right"
+					href="{{ $U('/mealplansections') }}">
+					{{ $__t('Configure sections') }}
+				</a>
+			</div>
+		</div>
 	</div>
 </div>
 
 <hr class="my-2">
 
+@foreach($usedMealplanSections as $mealplanSection)
 <div class="row">
 	<div class="col">
-		<div id="calendar"></div>
+		<div class="calendar"
+			data-section-id="{{ $mealplanSection->id }}"
+			data-section-name="{{ $mealplanSection->name }}"
+			data-primary-section="{{ BoolToString($loop->first) }}"
+			{{-- $loop->last doesn't work however, is always null... --}}
+			data-last-section="{{ BoolToString(array_values(array_slice($usedMealplanSections->fetchAll(), -1))[0]->id == $mealplanSection->id) }}">
+		</div>
 	</div>
 </div>
+@endforeach
+
+{{-- Default empty calendar/section when no single meal plan entry is in the given date range --}}
+@if($usedMealplanSections->count() === 0)
+<div class="row">
+	<div class="col">
+		<div class="calendar"
+			data-section-id="-1"
+			data-section-name=""
+			data-primary-section="true"
+			data-last-section="true">
+		</div>
+	</div>
+</div>
+@endif
 
 <div class="modal fade"
 	id="add-recipe-modal"
@@ -86,6 +158,18 @@
 					'value' => '1',
 					'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
 					))
+
+					<div class="form-group">
+						<label for="period_type">{{ $__t('Section') }}</label>
+						<select class="custom-control custom-select"
+							id="section_id_recipe"
+							name="section_id_recipe"
+							required>
+							@foreach($mealplanSections as $mealplanSection)
+							<option value="{{ $mealplanSection->id }}">{{ $mealplanSection->name }}</option>
+							@endforeach
+						</select>
+					</div>
 
 					<input type="hidden"
 						id="day"
@@ -130,6 +214,18 @@
 							name="note"></textarea>
 					</div>
 
+					<div class="form-group">
+						<label for="period_type">{{ $__t('Section') }}</label>
+						<select class="custom-control custom-select"
+							id="section_id_note"
+							name="section_id_note"
+							required>
+							@foreach($mealplanSections as $mealplanSection)
+							<option value="{{ $mealplanSection->id }}">{{ $mealplanSection->name }}</option>
+							@endforeach
+						</select>
+					</div>
+
 					<input type="hidden"
 						name="type"
 						value="note">
@@ -170,6 +266,18 @@
 					'value' => 1,
 					'additionalGroupCssClasses' => 'mb-0'
 					))
+
+					<div class="form-group">
+						<label for="period_type">{{ $__t('Section') }}</label>
+						<select class="custom-control custom-select"
+							id="section_id_product"
+							name="section_id_product"
+							required>
+							@foreach($mealplanSections as $mealplanSection)
+							<option value="{{ $mealplanSection->id }}">{{ $mealplanSection->name }}</option>
+							@endforeach
+						</select>
+					</div>
 
 					<input type="hidden"
 						name="type"

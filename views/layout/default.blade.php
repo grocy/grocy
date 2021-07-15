@@ -188,7 +188,8 @@
 					data-placement="right"
 					title="{{ $__t('Meal plan') }}"
 					data-nav-for-page="mealplan">
-					<a class="nav-link discrete-link"
+					<a id="meal-plan-nav-link"
+						class="nav-link discrete-link"
 						href="{{ $U('/mealplan') }}">
 						<i class="fas fa-paper-plane"></i>
 						<span class="nav-link-text">{{ $__t('Meal plan') }}</span>

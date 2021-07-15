@@ -12,23 +12,50 @@ if (!Grocy.MealPlanFirstDayOfWeek.isEmpty())
 	firstDay = parseInt(Grocy.MealPlanFirstDayOfWeek);
 }
 
-var calendar = $("#calendar").fullCalendar({
-	"themeSystem": "bootstrap4",
-	"header": {
+$(".calendar").each(function()
+{
+	var container = $(this);
+	var sectionId = container.attr("data-section-id");
+	var sectionName = container.attr("data-section-name");
+	var isPrimarySection = BoolVal(container.attr("data-primary-section"));
+	var isLastSection = BoolVal(container.attr("data-last-section"));
+
+	var headerConfig = {
 		"left": "title",
 		"center": "",
 		"right": "prev,today,next"
-	},
-	"weekNumbers": false,
-	"eventLimit": false,
-	"eventSources": fullcalendarEventSources,
-	"defaultView": ($(window).width() < 768) ? "basicDay" : "basicWeek",
-	"firstDay": firstDay,
-	"height": "auto",
-	"defaultDate": GetUriParam("week"),
-	"viewRender": function(view)
+	};
+	if (!isPrimarySection)
 	{
-		$(".fc-day-header").prepend('\
+		headerConfig = {
+			"left": "",
+			"center": "",
+			"right": ""
+		};
+	}
+
+	container.fullCalendar({
+		"themeSystem": "bootstrap4",
+		"header": headerConfig,
+		"weekNumbers": false,
+		"eventLimit": false,
+		"eventSources": fullcalendarEventSources,
+		"defaultView": ($(window).width() < 768) ? "agendaDay" : "agendaWeek",
+		"allDayText": sectionName,
+		"minTime": "00:00:00",
+		"maxTime": "00:00:01",
+		"scrollTime": "00:00:00",
+		"firstDay": firstDay,
+		"height": "auto",
+		"defaultDate": GetUriParam("week"),
+		"viewRender": function(view)
+		{
+			if (!isPrimarySection)
+			{
+				return;
+			}
+
+			$(".calendar[data-primary-section='true'] .fc-day-header").prepend('\
 			<div class="btn-group mr-2 my-1"> \
 				<button type="button" class="btn btn-outline-dark btn-xs add-recipe-button" data-toggle="tooltip" title="' + __t('Add recipe') + '"><i class="fas fa-plus"></i></a></button> \
 				<button type="button" class="btn btn-outline-dark btn-xs dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button> \
@@ -39,114 +66,119 @@ var calendar = $("#calendar").fullCalendar({
 				</div> \
 			</div>');
 
-		var weekRecipeName = view.start.year().toString() + "-" + ((view.start.week() - 1).toString().padStart(2, "0")).toString();
-		var weekRecipe = FindObjectInArrayByPropertyValue(internalRecipes, "name", weekRecipeName);
+			var weekRecipeName = view.start.year().toString() + "-" + ((view.start.week() - 1).toString().padStart(2, "0")).toString();
+			var weekRecipe = FindObjectInArrayByPropertyValue(internalRecipes, "name", weekRecipeName);
 
-		var weekCosts = 0;
-		var weekRecipeOrderMissingButtonHtml = "";
-		var weekRecipeConsumeButtonHtml = "";
-		var weekCostsHtml = "";
-		if (weekRecipe !== null)
-		{
-			if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
-			{
-				weekCosts = FindObjectInArrayByPropertyValue(recipesResolved, "recipe_id", weekRecipe.id).costs;
-				weekCostsHtml = __t("Week costs") + ': <span class="locale-number locale-number-currency">' + weekCosts.toString() + "</span> ";
-			}
-
-			var weekRecipeOrderMissingButtonDisabledClasses = "";
-			if (FindObjectInArrayByPropertyValue(recipesResolved, "recipe_id", weekRecipe.id).need_fulfilled_with_shopping_list == 1)
-			{
-				weekRecipeOrderMissingButtonDisabledClasses = "disabled";
-			}
-
-			var weekRecipeConsumeButtonDisabledClasses = "";
-			if (FindObjectInArrayByPropertyValue(recipesResolved, "recipe_id", weekRecipe.id).need_fulfilled == 0 || weekCosts == 0)
-			{
-				weekRecipeConsumeButtonDisabledClasses = "disabled";
-			}
-
+			var weekCosts = 0;
 			var weekRecipeOrderMissingButtonHtml = "";
-			if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_SHOPPINGLIST)
+			var weekRecipeConsumeButtonHtml = "";
+			var weekCostsHtml = "";
+			if (weekRecipe !== null)
 			{
-				weekRecipeOrderMissingButtonHtml = '<a class="ml-1 btn btn-outline-primary btn-xs recipe-order-missing-button ' + weekRecipeOrderMissingButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Put missing products on shopping list") + '" data-recipe-id="' + weekRecipe.id.toString() + '" data-recipe-name="' + weekRecipe.name + '" data-recipe-type="' + weekRecipe.type + '"><i class="fas fa-cart-plus"></i></a>';
+				if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+				{
+					weekCosts = FindObjectInArrayByPropertyValue(recipesResolved, "recipe_id", weekRecipe.id).costs;
+					weekCostsHtml = __t("Week costs") + ': <span class="locale-number locale-number-currency">' + weekCosts.toString() + "</span> ";
+				}
+
+				var weekRecipeOrderMissingButtonDisabledClasses = "";
+				if (FindObjectInArrayByPropertyValue(recipesResolved, "recipe_id", weekRecipe.id).need_fulfilled_with_shopping_list == 1)
+				{
+					weekRecipeOrderMissingButtonDisabledClasses = "disabled";
+				}
+
+				var weekRecipeConsumeButtonDisabledClasses = "";
+				if (FindObjectInArrayByPropertyValue(recipesResolved, "recipe_id", weekRecipe.id).need_fulfilled == 0 || weekCosts == 0)
+				{
+					weekRecipeConsumeButtonDisabledClasses = "disabled";
+				}
+
+				var weekRecipeOrderMissingButtonHtml = "";
+				if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_SHOPPINGLIST)
+				{
+					weekRecipeOrderMissingButtonHtml = '<a class="ml-1 btn btn-outline-primary btn-xs recipe-order-missing-button ' + weekRecipeOrderMissingButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Put missing products on shopping list") + '" data-recipe-id="' + weekRecipe.id.toString() + '" data-recipe-name="' + weekRecipe.name + '" data-recipe-type="' + weekRecipe.type + '"><i class="fas fa-cart-plus"></i></a>';
+				}
+
+				weekRecipeConsumeButtonHtml = '<a class="ml-1 btn btn-outline-success btn-xs recipe-consume-button ' + weekRecipeConsumeButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Consume all ingredients needed by this weeks recipes or products") + '" data-recipe-id="' + weekRecipe.id.toString() + '" data-recipe-name="' + weekRecipe.name + '" data-recipe-type="' + weekRecipe.type + '"><i class="fas fa-utensils"></i></a>'
 			}
-
-			weekRecipeConsumeButtonHtml = '<a class="ml-1 btn btn-outline-success btn-xs recipe-consume-button ' + weekRecipeConsumeButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Consume all ingredients needed by this weeks recipes or products") + '" data-recipe-id="' + weekRecipe.id.toString() + '" data-recipe-name="' + weekRecipe.name + '" data-recipe-type="' + weekRecipe.type + '"><i class="fas fa-utensils"></i></a>'
-		}
-		$(".fc-header-toolbar .fc-center").html("<h4>" + weekCostsHtml + weekRecipeOrderMissingButtonHtml + weekRecipeConsumeButtonHtml + "</h4>");
-	},
-	"eventRender": function(event, element)
-	{
-		element.removeClass("fc-event");
-		element.addClass("text-center");
-		element.attr("data-meal-plan-entry", event.mealPlanEntry);
-
-		var mealPlanEntry = JSON.parse(event.mealPlanEntry);
-
-		var additionalTitleCssClasses = "";
-		var doneButtonHtml = '<a class="ml-1 btn btn-outline-secondary btn-xs mealplan-entry-done-button" href="#" data-toggle="tooltip" title="' + __t("Mark this item as done") + '" data-mealplan-entry-id="' + mealPlanEntry.id.toString() + '"><i class="fas fa-check"></i></a>';
-		if (BoolVal(mealPlanEntry.done))
+			$(".calendar[data-primary-section='true'] .fc-header-toolbar .fc-center").html("<h4>" + weekCostsHtml + weekRecipeOrderMissingButtonHtml + weekRecipeConsumeButtonHtml + "</h4>");
+		},
+		"eventRender": function(event, element)
 		{
-			additionalTitleCssClasses = "text-strike-through text-muted";
-			doneButtonHtml = '<a class="ml-1 btn btn-outline-secondary btn-xs mealplan-entry-undone-button" href="#" data-toggle="tooltip" title="' + __t("Mark this item as undone") + '" data-mealplan-entry-id="' + mealPlanEntry.id.toString() + '"><i class="fas fa-undo"></i></a>';
-		}
+			element.removeClass("fc-event");
+			element.addClass("text-center");
+			element.attr("data-meal-plan-entry", event.mealPlanEntry);
 
-		if (event.type == "recipe")
-		{
-			var recipe = JSON.parse(event.recipe);
-			if (recipe === null || recipe === undefined)
+			var mealPlanEntry = JSON.parse(event.mealPlanEntry);
+
+			if (sectionId != mealPlanEntry.section_id)
 			{
 				return false;
 			}
 
-			var internalShadowRecipe = FindObjectInArrayByPropertyValue(internalRecipes, "name", mealPlanEntry.day + "#" + mealPlanEntry.id);
-			var resolvedRecipe = FindObjectInArrayByPropertyValue(recipesResolved, "recipe_id", internalShadowRecipe.id);
-
-			element.attr("data-recipe", event.recipe);
-
-			var recipeOrderMissingButtonDisabledClasses = "";
-			if (resolvedRecipe.need_fulfilled_with_shopping_list == 1)
+			var additionalTitleCssClasses = "";
+			var doneButtonHtml = '<a class="ml-1 btn btn-outline-secondary btn-xs mealplan-entry-done-button" href="#" data-toggle="tooltip" title="' + __t("Mark this item as done") + '" data-mealplan-entry-id="' + mealPlanEntry.id.toString() + '"><i class="fas fa-check"></i></a>';
+			if (BoolVal(mealPlanEntry.done))
 			{
-				recipeOrderMissingButtonDisabledClasses = "disabled";
+				additionalTitleCssClasses = "text-strike-through text-muted";
+				doneButtonHtml = '<a class="ml-1 btn btn-outline-secondary btn-xs mealplan-entry-undone-button" href="#" data-toggle="tooltip" title="' + __t("Mark this item as undone") + '" data-mealplan-entry-id="' + mealPlanEntry.id.toString() + '"><i class="fas fa-undo"></i></a>';
 			}
 
-			var recipeConsumeButtonDisabledClasses = "";
-			if (resolvedRecipe.need_fulfilled == 0)
+			if (event.type == "recipe")
 			{
-				recipeConsumeButtonDisabledClasses = "disabled";
-			}
+				var recipe = JSON.parse(event.recipe);
+				if (recipe === null || recipe === undefined)
+				{
+					return false;
+				}
 
-			var fulfillmentInfoHtml = __t('Enough in stock');
-			var fulfillmentIconHtml = '<i class="fas fa-check text-success"></i>';
-			if (resolvedRecipe.need_fulfilled != 1)
-			{
-				fulfillmentInfoHtml = __t('Not enough in stock');
-				var fulfillmentIconHtml = '<i class="fas fa-times text-danger"></i>';
-			}
-			var costsAndCaloriesPerServing = ""
-			if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
-			{
-				costsAndCaloriesPerServing = '<h5 class="small text-truncate mb-1"><span class="locale-number locale-number-currency">' + resolvedRecipe.costs + '</span> / <span class="locale-number locale-number-generic">' + resolvedRecipe.calories + '</span> kcal ' + __t('per serving') + '</h5>';
-			}
-			else
-			{
-				costsAndCaloriesPerServing = '<h5 class="small text-truncate mb-1"><span class="locale-number locale-number-generic">' + resolvedRecipe.calories + '</span> kcal ' + __t('per serving') + '</h5>';
-			}
+				var internalShadowRecipe = FindObjectInArrayByPropertyValue(internalRecipes, "name", mealPlanEntry.day + "#" + mealPlanEntry.id);
+				var resolvedRecipe = FindObjectInArrayByPropertyValue(recipesResolved, "recipe_id", internalShadowRecipe.id);
 
-			if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK)
-			{
-				fulfillmentIconHtml = "";
-				fulfillmentInfoHtml = "";
-			}
+				element.attr("data-recipe", event.recipe);
 
-			var shoppingListButtonHtml = "";
-			if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_SHOPPINGLIST)
-			{
-				shoppingListButtonHtml = '<a class="ml-1 btn btn-outline-primary btn-xs recipe-order-missing-button ' + recipeOrderMissingButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Put missing products on shopping list") + '" data-recipe-id="' + recipe.id.toString() + '" data-mealplan-servings="' + mealPlanEntry.recipe_servings + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-cart-plus"></i></a>';
-			}
+				var recipeOrderMissingButtonDisabledClasses = "";
+				if (resolvedRecipe.need_fulfilled_with_shopping_list == 1)
+				{
+					recipeOrderMissingButtonDisabledClasses = "disabled";
+				}
 
-			element.html('\
+				var recipeConsumeButtonDisabledClasses = "";
+				if (resolvedRecipe.need_fulfilled == 0)
+				{
+					recipeConsumeButtonDisabledClasses = "disabled";
+				}
+
+				var fulfillmentInfoHtml = __t('Enough in stock');
+				var fulfillmentIconHtml = '<i class="fas fa-check text-success"></i>';
+				if (resolvedRecipe.need_fulfilled != 1)
+				{
+					fulfillmentInfoHtml = __t('Not enough in stock');
+					var fulfillmentIconHtml = '<i class="fas fa-times text-danger"></i>';
+				}
+				var costsAndCaloriesPerServing = ""
+				if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+				{
+					costsAndCaloriesPerServing = '<h5 class="small text-truncate mb-1"><span class="locale-number locale-number-currency">' + resolvedRecipe.costs + '</span> / <span class="locale-number locale-number-generic">' + resolvedRecipe.calories + '</span> kcal ' + __t('per serving') + '</h5>';
+				}
+				else
+				{
+					costsAndCaloriesPerServing = '<h5 class="small text-truncate mb-1"><span class="locale-number locale-number-generic">' + resolvedRecipe.calories + '</span> kcal ' + __t('per serving') + '</h5>';
+				}
+
+				if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK)
+				{
+					fulfillmentIconHtml = "";
+					fulfillmentInfoHtml = "";
+				}
+
+				var shoppingListButtonHtml = "";
+				if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_SHOPPINGLIST)
+				{
+					shoppingListButtonHtml = '<a class="ml-1 btn btn-outline-primary btn-xs recipe-order-missing-button ' + recipeOrderMissingButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Put missing products on shopping list") + '" data-recipe-id="' + recipe.id.toString() + '" data-mealplan-servings="' + mealPlanEntry.recipe_servings + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fas fa-cart-plus"></i></a>';
+				}
+
+				element.html('\
 				<div> \
 					<h5 class="text-truncate mb-1 cursor-link display-recipe-button ' + additionalTitleCssClasses + '" data-toggle="tooltip" title="' + __t("Display recipe") + '" data-recipe-id="' + recipe.id.toString() + '" data-recipe-name="' + recipe.name + '" data-mealplan-servings="' + mealPlanEntry.recipe_servings + '" data-recipe-type="' + recipe.type + '">' + recipe.name + '</h5> \
 					<h5 class="small text-truncate mb-1">' + __n(mealPlanEntry.recipe_servings, "%s serving", "%s servings") + '</h5> \
@@ -161,84 +193,63 @@ var calendar = $("#calendar").fullCalendar({
 					</h5> \
 				</div>');
 
-			if (recipe.picture_file_name && !recipe.picture_file_name.isEmpty())
-			{
-				element.prepend('<div class="mx-auto mb-1"><img data-src="' + U("/api/files/recipepictures/") + btoa(recipe.picture_file_name) + '?force_serve_as=picture&best_fit_width=400" class="img-fluid rounded-circle lazy"></div>')
-			}
-
-			var dayRecipeName = event.start.format("YYYY-MM-DD");
-			if (!$("#day-summary-" + dayRecipeName).length) // This runs for every event/recipe, so maybe multiple times per day, so only add the day summary once
-			{
-				var dayRecipe = FindObjectInArrayByPropertyValue(internalRecipes, "name", dayRecipeName);
-				if (dayRecipe != null)
+				if (recipe.picture_file_name && !recipe.picture_file_name.isEmpty())
 				{
-					var dayRecipeResolved = FindObjectInArrayByPropertyValue(recipesResolved, "recipe_id", dayRecipe.id);
-
-					var costsAndCaloriesPerDay = ""
-					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
-					{
-						costsAndCaloriesPerDay = '<h5 class="small text-truncate"><span class="locale-number locale-number-currency">' + dayRecipeResolved.costs + '</span> / <span class="locale-number locale-number-generic">' + dayRecipeResolved.calories + '</span> kcal ' + __t('per day') + '</h5>';
-					}
-					else
-					{
-						costsAndCaloriesPerDay = '<h5 class="small text-truncate"><span class="locale-number locale-number-generic">' + dayRecipeResolved.calories + '</span> kcal ' + __t('per day') + '</h5>';
-					}
-					$(".fc-day-header[data-date='" + dayRecipeName + "']").append('<h5 id="day-summary-' + dayRecipeName + '" class="small text-truncate border-top pt-1 pb-0">' + costsAndCaloriesPerDay + '</h5>');
+					element.prepend('<div class="mx-auto mb-1"><img data-src="' + U("/api/files/recipepictures/") + btoa(recipe.picture_file_name) + '?force_serve_as=picture&best_fit_width=400" class="img-fluid rounded-circle lazy"></div>')
 				}
 			}
-		}
-		if (event.type == "product")
-		{
-			var productDetails = JSON.parse(event.productDetails);
-			if (productDetails === null || productDetails === undefined)
+			else if (event.type == "product")
 			{
-				return false;
-			}
+				var productDetails = JSON.parse(event.productDetails);
+				if (productDetails === null || productDetails === undefined)
+				{
+					return false;
+				}
 
-			if (productDetails.last_price === null)
-			{
-				productDetails.last_price = 0;
-			}
+				if (productDetails.last_price === null)
+				{
+					productDetails.last_price = 0;
+				}
 
-			element.attr("data-product-details", event.productDetails);
+				element.attr("data-product-details", event.productDetails);
 
-			var productOrderMissingButtonDisabledClasses = "disabled";
-			if (parseFloat(productDetails.stock_amount_aggregated) < parseFloat(mealPlanEntry.product_amount))
-			{
-				productOrderMissingButtonDisabledClasses = "";
-			}
+				var productOrderMissingButtonDisabledClasses = "disabled";
+				if (parseFloat(productDetails.stock_amount_aggregated) < parseFloat(mealPlanEntry.product_amount))
+				{
+					productOrderMissingButtonDisabledClasses = "";
+				}
 
-			var productConsumeButtonDisabledClasses = "disabled";
-			if (parseFloat(productDetails.stock_amount_aggregated) >= parseFloat(mealPlanEntry.product_amount))
-			{
-				productConsumeButtonDisabledClasses = "";
-			}
+				var productConsumeButtonDisabledClasses = "disabled";
+				if (parseFloat(productDetails.stock_amount_aggregated) >= parseFloat(mealPlanEntry.product_amount))
+				{
+					productConsumeButtonDisabledClasses = "";
+				}
 
-			fulfillmentInfoHtml = __t('Not enough in stock');
-			var fulfillmentIconHtml = '<i class="fas fa-times text-danger"></i>';
-			if (parseFloat(productDetails.stock_amount_aggregated) >= parseFloat(mealPlanEntry.product_amount))
-			{
-				var fulfillmentInfoHtml = __t('Enough in stock');
-				var fulfillmentIconHtml = '<i class="fas fa-check text-success"></i>';
-			}
+				fulfillmentInfoHtml = __t('Not enough in stock');
+				var fulfillmentIconHtml = '<i class="fas fa-times text-danger"></i>';
+				if (parseFloat(productDetails.stock_amount_aggregated) >= parseFloat(mealPlanEntry.product_amount))
+				{
+					var fulfillmentInfoHtml = __t('Enough in stock');
+					var fulfillmentIconHtml = '<i class="fas fa-check text-success"></i>';
+				}
 
-			var costsAndCaloriesPerServing = ""
-			if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
-			{
-				costsAndCaloriesPerServing = '<h5 class="small text-truncate mb-1"><span class="locale-number locale-number-currency">' + productDetails.last_price * mealPlanEntry.product_amount + '</span> / <span class="locale-number locale-number-generic">' + productDetails.product.calories * mealPlanEntry.product_amount + '</span> kcal ' + '</h5>';
-			}
-			else
-			{
-				costsAndCaloriesPerServing = '<h5 class="small text-truncate mb-1"><span class="locale-number locale-number-generic">' + productDetails.product.calories * mealPlanEntry.product_amount + '</span> kcal ' + '</h5>';
-			}
+				var costsAndCaloriesPerServing = ""
+				if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+				{
+					costsAndCaloriesPerServing = '<h5 class="small text-truncate mb-1"><span class="locale-number locale-number-currency">' + productDetails.last_price * mealPlanEntry.product_amount + '</span> / <span class="locale-number locale-number-generic">' + productDetails.product.calories * mealPlanEntry.product_amount + '</span> kcal ' + '</h5>';
+				}
+				else
+				{
+					costsAndCaloriesPerServing = '<h5 class="small text-truncate mb-1"><span class="locale-number locale-number-generic">' + productDetails.product.calories * mealPlanEntry.product_amount + '</span> kcal ' + '</h5>';
+				}
 
-			var shoppingListButtonHtml = "";
-			if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_SHOPPINGLIST)
-			{
-				shoppingListButtonHtml = '<a class="btn btn-outline-primary btn-xs show-as-dialog-link ' + productOrderMissingButtonDisabledClasses + '" href="' + U("/shoppinglistitem/new?embedded&updateexistingproduct&product=") + mealPlanEntry.product_id + '&amount=' + mealPlanEntry.product_amount + '" data-toggle="tooltip" title="' + __t("Add to shopping list") + '" data-product-id="' + productDetails.product.id.toString() + '" data-product-name="' + productDetails.product.name + '" data-product-amount="' + mealPlanEntry.product_amount + '"><i class="fas fa-cart-plus"></i></a>';
-			}
+				var shoppingListButtonHtml = "";
+				if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_SHOPPINGLIST)
+				{
+					shoppingListButtonHtml = '<a class="btn btn-outline-primary btn-xs show-as-dialog-link ' + productOrderMissingButtonDisabledClasses + '" href="' + U("/shoppinglistitem/new?embedded&updateexistingproduct&product=") + mealPlanEntry.product_id + '&amount=' + mealPlanEntry.product_amount + '" data-toggle="tooltip" title="' + __t("Add to shopping list") + '" data-product-id="' + productDetails.product.id.toString() + '" data-product-name="' + productDetails.product.name + '" data-product-amount="' + mealPlanEntry.product_amount + '"><i class="fas fa-cart-plus"></i></a>';
+				}
 
-			element.html('\
+				element.html('\
 				<div> \
 					<h5 class="text-truncate mb-1 cursor-link display-product-button ' + additionalTitleCssClasses + '" data-toggle="tooltip" title="' + __t("Display product") + '" data-product-id="' + productDetails.product.id.toString() + '">' + productDetails.product.name + '</h5> \
 					<h5 class="small text-truncate mb-1"><span class="locale-number locale-number-quantity-amount">' + mealPlanEntry.product_amount + "</span> " + __n(mealPlanEntry.product_amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural) + '</h5> \
@@ -253,9 +264,22 @@ var calendar = $("#calendar").fullCalendar({
 					</h5> \
 				</div>');
 
-			if (productDetails.product.picture_file_name && !productDetails.product.picture_file_name.isEmpty())
+				if (productDetails.product.picture_file_name && !productDetails.product.picture_file_name.isEmpty())
+				{
+					element.prepend('<div class="mx-auto mb-1"><img data-src="' + U("/api/files/productpictures/") + btoa(productDetails.product.picture_file_name) + '?force_serve_as=picture&best_fit_width=400" class="img-fluid rounded-circle lazy"></div>')
+				}
+			}
+			else if (event.type == "note")
 			{
-				element.prepend('<div class="mx-auto mb-1"><img data-src="' + U("/api/files/productpictures/") + btoa(productDetails.product.picture_file_name) + '?force_serve_as=picture&best_fit_width=400" class="img-fluid rounded-circle lazy"></div>')
+				element.html('\
+				<div> \
+					<h5 class="text-wrap text-break mb-1 ' + additionalTitleCssClasses + '">' + mealPlanEntry.note + '</h5> \
+					<h5> \
+						<a class="ml-1 btn btn-outline-danger btn-xs remove-note-button" href="#" data-toggle="tooltip" title="' + __t("Delete this item") + '"><i class="fas fa-trash"></i></a> \
+						<a class="btn btn-outline-info btn-xs edit-meal-plan-entry-button" href="#" data-toggle="tooltip" title="' + __t("Delete this item") + '"><i class="fas fa-edit"></i></a> \
+						' + doneButtonHtml + ' \
+					</h5> \
+				</div>');
 			}
 
 			var dayRecipeName = event.start.format("YYYY-MM-DD");
@@ -275,47 +299,48 @@ var calendar = $("#calendar").fullCalendar({
 					{
 						costsAndCaloriesPerDay = '<h5 class="small text-truncate"><span class="locale-number locale-number-generic">' + dayRecipeResolved.calories + '</span> kcal ' + __t('per day') + '</h5>';
 					}
-					$(".fc-day-header[data-date='" + dayRecipeName + "']").append('<h5 id="day-summary-' + dayRecipeName + '" class="small text-truncate border-top pt-1 pb-0">' + costsAndCaloriesPerDay + '</h5>');
+
+					$(".calendar[data-primary-section='true'] .fc-day-header[data-date='" + dayRecipeName + "']").append('<h5 id="day-summary-' + dayRecipeName + '" class="small text-truncate border-top pt-1 pb-0">' + costsAndCaloriesPerDay + '</h5>');
+				}
+			}
+		},
+		"eventAfterAllRender": function(view)
+		{
+			if (isPrimarySection)
+			{
+				UpdateUriParam("week", view.start.format("YYYY-MM-DD"));
+
+				if (firstRender)
+				{
+					firstRender = false
+				}
+				else
+				{
+					$(".calendar").addClass("d-none");
+					window.location.reload();
+					return false;
+				}
+			}
+
+			if (isLastSection)
+			{
+				$(".fc-axis span").replaceWith(function()
+				{
+					return $("<div />", { html: $(this).html() });
+				});
+
+				RefreshLocaleNumberDisplay();
+				LoadImagesLazy();
+				$('[data-toggle="tooltip"]').tooltip();
+
+				if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK)
+				{
+					$(".recipe-order-missing-button").addClass("d-none");
+					$(".recipe-consume-button").addClass("d-none");
 				}
 			}
 		}
-		else if (event.type == "note")
-		{
-			element.html('\
-				<div> \
-					<h5 class="text-wrap text-break mb-1 ' + additionalTitleCssClasses + '">' + mealPlanEntry.note + '</h5> \
-					<h5> \
-						<a class="ml-1 btn btn-outline-danger btn-xs remove-note-button" href="#" data-toggle="tooltip" title="' + __t("Delete this item") + '"><i class="fas fa-trash"></i></a> \
-						<a class="btn btn-outline-info btn-xs edit-meal-plan-entry-button" href="#" data-toggle="tooltip" title="' + __t("Delete this item") + '"><i class="fas fa-edit"></i></a> \
-						' + doneButtonHtml + ' \
-					</h5> \
-				</div>');
-		}
-	},
-	"eventAfterAllRender": function(view)
-	{
-		UpdateUriParam("week", view.start.format("YYYY-MM-DD"));
-
-		if (firstRender)
-		{
-			firstRender = false
-		}
-		else
-		{
-			window.location.reload();
-			return false;
-		}
-
-		RefreshLocaleNumberDisplay();
-		LoadImagesLazy();
-		$('[data-toggle="tooltip"]').tooltip();
-
-		if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK)
-		{
-			$(".recipe-order-missing-button").addClass("d-none");
-			$(".recipe-consume-button").addClass("d-none");
-		}
-	},
+	});
 });
 
 $(document).on("click", ".add-recipe-button", function(e)
@@ -325,6 +350,7 @@ $(document).on("click", ".add-recipe-button", function(e)
 	$("#add-recipe-modal-title").text(__t("Add recipe on %s", day.toString()));
 	$("#day").val(day.toString());
 	Grocy.Components.RecipePicker.Clear();
+	$("#section_id_note").val(-1);
 	$("#add-recipe-modal").modal("show");
 	Grocy.FrontendHelpers.ValidateForm("add-recipe-form");
 	Grocy.IsMealPlanEntryEditAction = false;
@@ -337,6 +363,7 @@ $(document).on("click", ".add-note-button", function(e)
 	$("#add-note-modal-title").text(__t("Add note on %s", day.toString()));
 	$("#day").val(day.toString());
 	$("#note").val("");
+	$("#section_id_note").val(-1);
 	$("#add-note-modal").modal("show");
 	Grocy.FrontendHelpers.ValidateForm("add-note-form");
 	Grocy.IsMealPlanEntryEditAction = false;
@@ -349,6 +376,7 @@ $(document).on("click", ".add-product-button", function(e)
 	$("#add-product-modal-title").text(__t("Add product on %s", day.toString()));
 	$("#day").val(day.toString());
 	Grocy.Components.ProductPicker.Clear();
+	$("#section_id_note").val(-1);
 	$("#add-product-modal").modal("show");
 	Grocy.FrontendHelpers.ValidateForm("add-product-form");
 	Grocy.IsMealPlanEntryEditAction = false;
@@ -365,6 +393,7 @@ $(document).on("click", ".edit-meal-plan-entry-button", function(e)
 		$("#recipe_servings").val(mealPlanEntry.recipe_servings);
 		Grocy.Components.RecipePicker.SetId(mealPlanEntry.recipe_id);
 		$("#add-recipe-modal").modal("show");
+		$("#section_id_recipe").val(mealPlanEntry.section_id);
 		Grocy.FrontendHelpers.ValidateForm("add-recipe-form");
 	}
 	else if (mealPlanEntry.type == "product")
@@ -373,6 +402,7 @@ $(document).on("click", ".edit-meal-plan-entry-button", function(e)
 		$("#day").val(mealPlanEntry.day.toString());
 		Grocy.Components.ProductPicker.SetId(mealPlanEntry.product_id);
 		$("#add-product-modal").modal("show");
+		$("#section_id_product").val(mealPlanEntry.section_id);
 		Grocy.FrontendHelpers.ValidateForm("add-product-form");
 		Grocy.Components.ProductPicker.GetPicker().trigger("change");
 	}
@@ -382,6 +412,7 @@ $(document).on("click", ".edit-meal-plan-entry-button", function(e)
 		$("#day").val(mealPlanEntry.day.toString());
 		$("#note").val(mealPlanEntry.note);
 		$("#add-note-modal").modal("show");
+		$("#section_id_note").val(mealPlanEntry.section_id);
 		Grocy.FrontendHelpers.ValidateForm("add-note-form");
 	}
 	Grocy.IsMealPlanEntryEditAction = true;
@@ -450,9 +481,13 @@ $('#save-add-recipe-button').on('click', function(e)
 		return false;
 	}
 
+	var formData = $('#add-recipe-form').serializeJSON();
+	formData.section_id = formData.section_id_recipe;
+	delete formData.section_id_recipe;
+
 	if (Grocy.IsMealPlanEntryEditAction)
 	{
-		Grocy.Api.Put('objects/meal_plan/' + Grocy.MealPlanEntryEditObjectId.toString(), $('#add-recipe-form').serializeJSON(),
+		Grocy.Api.Put('objects/meal_plan/' + Grocy.MealPlanEntryEditObjectId.toString(), formData,
 			function(result)
 			{
 				window.location.reload();
@@ -465,7 +500,7 @@ $('#save-add-recipe-button').on('click', function(e)
 	}
 	else
 	{
-		Grocy.Api.Post('objects/meal_plan', $('#add-recipe-form').serializeJSON(),
+		Grocy.Api.Post('objects/meal_plan', formData,
 			function(result)
 			{
 				window.location.reload();
@@ -494,6 +529,8 @@ $('#save-add-note-button').on('click', function(e)
 
 	var jsonData = $('#add-note-form').serializeJSON();
 	jsonData.day = $("#day").val();
+	jsonData.section_id = formData.section_id_note;
+	delete formData.section_id_note;
 
 	if (Grocy.IsMealPlanEntryEditAction)
 	{
@@ -545,6 +582,8 @@ $('#save-add-product-button').on('click', function(e)
 	delete jsonData.amount;
 	jsonData.product_qu_id = $("#qu_id").val();;
 	delete jsonData.qu_id;
+	jsonData.section_id = jsonData.section_id_product;
+	delete jsonData.section_id_product;
 
 	if (Grocy.IsMealPlanEntryEditAction)
 	{
@@ -939,16 +978,19 @@ $(document).on("click", ".mealplan-entry-undone-button", function(e)
 
 $(window).one("resize", function()
 {
-	// Automatically switch the calendar to "basicDay" view on small screens
-	// and to "basicWeek" otherwise
-	if ($(window).width() < 768)
+	// Automatically switch the calendar to "agendaDay" view on small screens and to "agendaWeek" otherwise
+	var windowWidth = $(window).width();
+	$(".calendar").each(function()
 	{
-		calendar.fullCalendar("changeView", "basicDay");
-	}
-	else
-	{
-		calendar.fullCalendar("changeView", "basicWeek");
-	}
+		if (windowWidth < 768)
+		{
+			$(this).fullCalendar("changeView", "agendaDay");
+		}
+		else
+		{
+			$(this).fullCalendar("changeView", "agendaWeek");
+		}
+	});
 });
 
 Grocy.Components.ProductPicker.GetPicker().on('change', function(e)

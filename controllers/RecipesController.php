@@ -8,16 +8,15 @@ class RecipesController extends BaseController
 {
 	public function MealPlan(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		// Load +- 8 days to always include week boundaries
-
+		// Given date is always the first day of the week => load the coming week / 7 days
 		if (isset($request->getQueryParams()['week']) && IsIsoDate($request->getQueryParams()['week']))
 		{
 			$week = $request->getQueryParams()['week'];
-			$mealPlanWhereTimespan = "day BETWEEN DATE('$week', '-8 day') AND DATE('$week', '+8 day')";
+			$mealPlanWhereTimespan = "day BETWEEN DATE('$week') AND DATE('$week', '+7 days')";
 		}
 		else
 		{
-			$mealPlanWhereTimespan = "day BETWEEN DATE(DATE('now', 'localtime'), '-8 day') AND DATE(DATE('now', 'localtime'), '+8 day')";
+			$mealPlanWhereTimespan = "day BETWEEN DATE('now', 'localtime', 'weekday 0', '-7 days') AND DATE(DATE('now', 'localtime', 'weekday 0', '-7 days'), '+7 days')";
 		}
 
 		$recipes = $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll();
@@ -58,7 +57,9 @@ class RecipesController extends BaseController
 			'recipesResolved' => $this->getRecipesService()->GetRecipesResolved2("recipe_id IN (SELECT recipe_id FROM meal_plan_internal_recipe_relation WHERE $mealPlanWhereTimespan)"),
 			'products' => $this->getDatabase()->products()->orderBy('name', 'COLLATE NOCASE'),
 			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
-			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
+			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved(),
+			'mealplanSections' => $this->getDatabase()->meal_plan_sections()->orderBy('sort_number'),
+			'usedMealplanSections' => $this->getDatabase()->meal_plan_sections()->where("id IN (SELECT section_id FROM meal_plan WHERE $mealPlanWhereTimespan)")->orderBy('sort_number')
 		]);
 	}
 
@@ -188,6 +189,30 @@ class RecipesController extends BaseController
 	public function RecipesSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'recipessettings');
+	}
+
+	public function MealPlanSectionEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		if ($args['sectionId'] == 'new')
+		{
+			return $this->renderPage($response, 'mealplansectionform', [
+				'mode' => 'create'
+			]);
+		}
+		else
+		{
+			return $this->renderPage($response, 'mealplansectionform', [
+				'mealplanSection' => $this->getDatabase()->meal_plan_sections($args['sectionId']),
+				'mode' => 'edit'
+			]);
+		}
+	}
+
+	public function MealPlanSectionsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		return $this->renderPage($response, 'mealplansections', [
+			'mealplanSections' => $this->getDatabase()->meal_plan_sections()->where('id > 0')->orderBy('sort_number')
+		]);
 	}
 
 	public function __construct(\DI\Container $container)

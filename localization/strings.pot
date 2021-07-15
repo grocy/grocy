@@ -2223,3 +2223,24 @@ msgstr ""
 
 msgid "Stock entry"
 msgstr ""
+
+msgid "Configure sections"
+msgstr ""
+
+msgid "Meal plan sections"
+msgstr ""
+
+msgid "Create meal plan section"
+msgstr ""
+
+msgid "Sections will be ordered by that number on the meal plan"
+msgstr ""
+
+msgid "Edit meal plan section"
+msgstr ""
+
+msgid "Are you sure to delete meal plan section \"%s\"?"
+msgstr ""
+
+msgid "Section"
+msgstr ""

@@ -140,15 +140,22 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO recipes_nestings(recipe_id, includes_recipe_id) VALUES (6, 4);
 				INSERT INTO recipes_nestings(recipe_id, includes_recipe_id) VALUES (6, 5);
 
-				INSERT INTO meal_plan(day, recipe_id) VALUES ('{$mondayThisWeek}', 1);
-				INSERT INTO meal_plan(day, recipe_id) VALUES ('{$tuesdayThisWeek}', 2);
-				INSERT INTO meal_plan(day, recipe_id) VALUES ('{$wednesdayThisWeek}', 3);
-				INSERT INTO meal_plan(day, recipe_id) VALUES ('{$thursdayThisWeek}', 4);
-				INSERT INTO meal_plan(day, recipe_id) VALUES ('{$fridayThisWeek}', 1);
-				INSERT INTO meal_plan(day, recipe_id) VALUES ('{$saturdayThisWeek}', 2);
-				INSERT INTO meal_plan(day, recipe_id) VALUES ('{$sundayThisWeek}', 4);
-				INSERT INTO meal_plan(day, type, note) VALUES ('{$tuesdayThisWeek}', 'note', '{$this->__t_sql('This is a note')}');
-				INSERT INTO meal_plan(day, type, product_id, product_amount) VALUES (DATE('{$mondayThisWeek}', '-1 days'), 'product', 3, 1);
+				INSERT INTO meal_plan_sections (name, sort_number) VALUES ('{$this->__t_sql('Breakfast')}', 10);
+				INSERT INTO meal_plan_sections (name, sort_number) VALUES ('{$this->__t_sql('Lunch')}', 20);
+				INSERT INTO meal_plan_sections (name, sort_number) VALUES ('{$this->__t_sql('Dinner')}', 30);
+
+				INSERT INTO meal_plan(day, recipe_id, section_id) VALUES ('{$mondayThisWeek}', 1, 2);
+				INSERT INTO meal_plan(day, recipe_id, section_id) VALUES ('{$tuesdayThisWeek}', 2, 2);
+				INSERT INTO meal_plan(day, recipe_id, section_id) VALUES ('{$wednesdayThisWeek}', 3, 3);
+				INSERT INTO meal_plan(day, recipe_id, section_id) VALUES ('{$thursdayThisWeek}', 4, 1);
+				INSERT INTO meal_plan(day, recipe_id, section_id) VALUES ('{$fridayThisWeek}', 2, 2);
+				INSERT INTO meal_plan(day, recipe_id, section_id) VALUES ('{$saturdayThisWeek}', 1, 2);
+				INSERT INTO meal_plan(day, recipe_id, section_id) VALUES ('{$sundayThisWeek}', 4, 2);
+				INSERT INTO meal_plan(day, type, note, section_id) VALUES ('{$tuesdayThisWeek}', 'note', '{$this->__t_sql('This is a note')}', 1);
+				INSERT INTO meal_plan(day, type, product_id, product_amount, section_id) VALUES (DATE('{$mondayThisWeek}', '-1 days'), 'product', 3, 1, 3);
+				INSERT INTO meal_plan(day, type, product_id, product_amount, section_id) VALUES (DATE('{$tuesdayThisWeek}', '-1 days'), 'product', 9, 1, 1);
+				INSERT INTO meal_plan(day, type, product_id, product_amount, section_id) VALUES (DATE('{$thursdayThisWeek}', '-1 days'), 'product', 25, 1, 1);
+				INSERT INTO meal_plan(day, type, note, section_id) VALUES ('{$saturdayThisWeek}', 'note', '{$this->__t_sql('Some good snacks')}', 3);
 
 				INSERT INTO chores (name, period_type, period_days) VALUES ('{$this->__t_sql('Changed towels in the bathroom')}', 'manually', 5); --1
 				INSERT INTO chores (name, period_type, period_days, assignment_type, assignment_config, next_execution_assigned_to_user_id) VALUES ('{$this->__t_sql('Cleaned the kitchen floor')}', 'dynamic-regular', 7, 'random', '1,2,3,4', 1); --2

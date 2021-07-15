@@ -5579,7 +5579,8 @@
 					"stock_log",
 					"stock",
 					"stock_current_locations",
-					"chores_log"
+					"chores_log",
+					"meal_plan_sections"
 				]
 			},
 			"ExposedEntityNoListing": {

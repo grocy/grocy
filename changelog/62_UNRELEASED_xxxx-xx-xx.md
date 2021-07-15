@@ -2,7 +2,8 @@
 
 > ⚠️ PHP 8 is now supported and from now on the only tested runtime version (although currently PHP 7.2 should still work).
 
-### New feature: (Own) Product/stock entry/chores/batteries labels/barcodes ("grocycode")
+### New feature: grocycode
+#### (Own) Product/stock entry/chores/batteries labels/barcodes
 - Print own labels/barcodes for products/stock entries/chores/batteries and then scan that code on every place a product/stock entry/chore/battery can be selected
 - Can be printed (or downloaded) via
   - The product/chore/battery edit page
@@ -18,6 +19,11 @@
   - https://github.com/grocy/grocy/blob/master/docs/grocycode.md
   - https://github.com/grocy/grocy/blob/master/docs/label-printing.md
 - (Thanks a lot @mistressofjellyfish for the initial work on this)
+
+### New feature: Meal plan sections
+- Split the meal plan into sections like Breakfast/Lunch/Dinner
+  - => New button "Configure sections" on the meal plan page to configure the sections (top right corner)
+  - => Each meal plan entry can be assigned to a section
 
 ### New feature: Shopping list thermal printer support
 - The shopping list can now be printed on a thermal printer
