@@ -386,3 +386,12 @@ msgstr "Tamil"
 
 msgid "Finnish"
 msgstr "Finn"
+
+msgid "Breakfast"
+msgstr ""
+
+msgid "Lunch"
+msgstr ""
+
+msgid "Dinner"
+msgstr ""

@@ -2541,3 +2541,24 @@ msgstr ""
 
 msgid "Stock entry"
 msgstr "Bestandseintrag"
+
+msgid "Configure sections"
+msgstr "Abschnitte konfigurieren"
+
+msgid "Meal plan sections"
+msgstr "Speiseplan-Abschnitte"
+
+msgid "Create meal plan section"
+msgstr "Speiseplan-Abschnitt erstellen"
+
+msgid "Sections will be ordered by that number on the meal plan"
+msgstr "Die Abschnitte werden nach dieser Nummer auf dem Speiseplan sortiert"
+
+msgid "Edit meal plan section"
+msgstr "Speiseplan-Abschnitt bearbeiten"
+
+msgid "Are you sure to delete meal plan section \"%s\"?"
+msgstr "Speiseplan-Abschnitt \"%s\" wirklich löschen?"
+
+msgid "Section"
+msgstr "Abschnitt"

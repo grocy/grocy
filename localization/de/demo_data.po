@@ -382,3 +382,12 @@ msgstr "Tamil"
 
 msgid "Finnish"
 msgstr "Finnisch"
+
+msgid "Breakfast"
+msgstr "Frühstück"
+
+msgid "Lunch"
+msgstr "Mittagessen"
+
+msgid "Dinner"
+msgstr "Abendessen"

@@ -377,3 +377,12 @@ msgstr "泰米尔语"
 
 msgid "Finnish"
 msgstr "芬兰语"
+
+msgid "Breakfast"
+msgstr ""
+
+msgid "Lunch"
+msgstr ""
+
+msgid "Dinner"
+msgstr ""

@@ -374,3 +374,12 @@ msgstr ""
 
 msgid "Finnish"
 msgstr ""
+
+msgid "Breakfast"
+msgstr ""
+
+msgid "Lunch"
+msgstr ""
+
+msgid "Dinner"
+msgstr ""

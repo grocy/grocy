@@ -402,3 +402,12 @@ msgstr "Тамильский"
 
 msgid "Finnish"
 msgstr "Финский"
+
+msgid "Breakfast"
+msgstr ""
+
+msgid "Lunch"
+msgstr ""
+
+msgid "Dinner"
+msgstr ""

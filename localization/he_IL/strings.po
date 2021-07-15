@@ -343,8 +343,8 @@ msgstr "למחוק את החנות „%s”?"
 msgid "Manage API keys"
 msgstr "ניהול מפתחות API"
 
-msgid "REST API & data model documentation"
-msgstr "תיעוד דגם נתונים ו־REST API"
+msgid "REST API browser"
+msgstr "דפדפן REST API"
 
 msgid "API keys"
 msgstr "מפתחות API"
@@ -2085,10 +2085,11 @@ msgstr "ימים בתוקף עד כבררת מחדל"
 
 msgid ""
 "When this product was marked as opened, the due date will be replaced by "
-"today + this amount of days (a value of 0 disables this)"
+"today + this amount of days, but only if the resulting date is not after the"
+" original due date (a value of 0 disables this)"
 msgstr ""
-"כאשר המוצר הזה סומן כפתור, מועד בתוקף עד יוחלף ביום הנוכחי + כמות כזו של "
-"ימים (0 משבית את ההתנהגות הזאת)"
+"כאשר המוצר הזה מסומן כפתוח, תאריך התפוגה יוחלף ביום הנוכחי + כמות כזאת של "
+"ימים, אך רק אם התאריך שמתקבל אינו מאוחר מתאריך התפוגה המקורי (0 ישבית את זה)"
 
 msgid "Default due days after opened"
 msgstr "ימים לתום התוקף לאחר הפתיחה כבררת מחדל"
@@ -2320,17 +2321,15 @@ msgstr "קוד grocy"
 msgid "Download"
 msgstr "הורדה"
 
-msgid "Download stock entry grocycode"
-msgstr "הורדת קוד grocy של רשומת מלאי"
-
-msgid "Download product grocycode"
-msgstr "הורדת קוד grocy של מוצר"
+# Example: Download *Product* grocycode
+msgid "Download %s grocycode"
+msgstr "הורדת קוד grocy של %s"
 
 msgid ""
-"grocycode is a unique referer to this product in your grocy instance - print"
-" it onto a label and scan it like any other barcode"
+"grocycode is a unique referer to this %s in your grocy instance - print it "
+"onto a label and scan it like any other barcode"
 msgstr ""
-"קוד grocy הוא ייחוס ייחודי למוצר הזה בעותק ה־grocy שלך - יש להדפיס אותו על "
+"קוד grocy הוא ייחוס ייחודי עבור %s בעותק ה־grocy שלך - יש להדפיס אותו על "
 "תווית ולסרוק אותו כמו כל ברקוד אחד."
 
 # Abbreviation for "due date"
@@ -2365,14 +2364,12 @@ msgstr ""
 msgid "Error while executing WebHook"
 msgstr "שגיאה בהפעלת התליית רשת"
 
-msgid "Print product grocycode on label printer"
-msgstr "הדפסת קוד grocy של המוצר במדפסת מדבקות"
+# Example: Print *Product* grocycode on label printer
+msgid "Print %s grocycode on label printer"
+msgstr "הדפסת קוד grocy של %s במדפסת מדבקות"
 
-msgid "Print stock entry grocycode on label printer"
-msgstr "הדפסת קוד grocy של רשומת מלאי במדפסת מדבקות"
-
-msgid "Open stock entry print label in new window"
-msgstr "פתיחת תווית מודפסת לרשומת מלאי בחלון חדש"
+msgid "Open stock entry label in new window"
+msgstr "פתיחת תווית רשומת מלאי בחלון חדש"
 
 msgid "Thermal printer"
 msgstr "מדפסת תרמית"
@@ -2385,3 +2382,121 @@ msgstr "מתבצעת התחברות למדפסת…"
 
 msgid "Unable to print"
 msgstr "לא ניתן להדפיס"
+
+msgid "Only done items"
+msgstr "רק פריטים שהושלמו"
+
+msgid "Show only in-stock products"
+msgstr "להציג מוצרים מהמלאי בלבד"
+
+msgid "Product description"
+msgstr "תיאור מוצר"
+
+# Example: *3.21 USD* per *Pack*
+msgid "%1$s per %2$s"
+msgstr "%1$s ל%2$s"
+
+msgid "Mark this item as undone"
+msgstr "סימון הביטול הזה כלא בוצע"
+
+msgid "Mandatory"
+msgstr "חובה"
+
+msgid "Mandatory Userfield"
+msgstr "שדה משתמש חובה"
+
+msgid "When enabled, then this field must be filled on the destination form"
+msgstr "כאשר פעיל, חובה למלא את השדה הזה בטופס היעד"
+
+msgid "In-stock products"
+msgstr "מוצרים במלאי"
+
+msgid "Timestamp"
+msgstr "חותמת זמן"
+
+msgid "Should not be frozen"
+msgstr "לא אמור להיות קפוא"
+
+msgid ""
+"When enabled, on moving this product to a freezer location (so when freezing"
+" it), a warning will be shown"
+msgstr "כאשר פעיל, בהעברת המוצר הזה להקפאה, תופיע אזהרה"
+
+msgid "This product shouldn't be frozen"
+msgstr "מוצר זה לא אמור להיות קפוא"
+
+msgid "Copy all meal plan entries of %s"
+msgstr "העתקת כל רשומות תכנית הארוחות של %s"
+
+msgid "A date is required"
+msgstr "נדרש תאריך"
+
+msgid "Day"
+msgstr "יום"
+
+msgid "Add recipe"
+msgstr "הוספת מתכון"
+
+msgid "Copy this day"
+msgstr "העתקת היום הזה"
+
+msgid "Date range"
+msgstr "טווח תאריכים"
+
+msgid "%s month"
+msgid_plural "%s months"
+msgstr[0] "חודש"
+msgstr[1] "חודשיים"
+msgstr[2] "%s חודשים"
+msgstr[3] "%s חודשים"
+
+msgid "%s year"
+msgid_plural "%s years"
+msgstr[0] "שנה"
+msgstr[1] "שנתיים"
+msgstr[2] "%s שנים"
+msgstr[3] "%s שנים"
+
+msgid "Display product"
+msgstr "הצגת מוצר"
+
+msgid "Copy recipe"
+msgstr "העתקת מתכון"
+
+msgid "Copy of %s"
+msgstr "עותק של %s"
+
+msgid "Add decimal separator automatically for price inputs"
+msgstr "יש להוסיף נקודה עשרונית לקלט של מחיר"
+
+msgid ""
+"When enabled, you always have to enter the value including decimal places, "
+"the decimal separator will be automatically added based on the amount of "
+"allowed decimal places"
+msgstr ""
+"כאשר האפשרות פעילה, עליך תמיד למלא את הערך כולל הספרות אחרי הנקודה, הנקודה "
+"העשרונית תתווסף אוטומטית בהתאם לכמות המקומות העשרוניים האפשריים."
+
+msgid "Stock entry"
+msgstr "רשומה במלאי"
+
+msgid "Configure sections"
+msgstr ""
+
+msgid "Meal plan sections"
+msgstr ""
+
+msgid "Create meal plan section"
+msgstr ""
+
+msgid "Sections will be ordered by that number on the meal plan"
+msgstr ""
+
+msgid "Edit meal plan section"
+msgstr ""
+
+msgid "Are you sure to delete meal plan section \"%s\"?"
+msgstr ""
+
+msgid "Section"
+msgstr ""

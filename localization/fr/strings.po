@@ -366,8 +366,8 @@ msgstr "Voulez-vous vraiment supprimer le magasin \"%s\" ?"
 msgid "Manage API keys"
 msgstr "Gérer les clefs API"
 
-msgid "REST API & data model documentation"
-msgstr "Documentation sur l'API REST & le modèle des données"
+msgid "REST API browser"
+msgstr ""
 
 msgid "API keys"
 msgstr "Clefs API"
@@ -2143,11 +2143,9 @@ msgstr "Date de péremption par défaut"
 
 msgid ""
 "When this product was marked as opened, the due date will be replaced by "
-"today + this amount of days (a value of 0 disables this)"
+"today + this amount of days, but only if the resulting date is not after the"
+" original due date (a value of 0 disables this)"
 msgstr ""
-"Lorsque ce produit est marqué comme ouvert, la date \"À consommer de "
-"préférence avant\" sera remplacée par aujourd'hui + le nombre de jours (une "
-"valeur de 0 désactive ceci)"
 
 msgid "Default due days after opened"
 msgstr "Date de péremption après ouverture par défaut"
@@ -2385,18 +2383,14 @@ msgstr "grocycode"
 msgid "Download"
 msgstr "Télécharger"
 
-msgid "Download stock entry grocycode"
-msgstr ""
-
-msgid "Download product grocycode"
+# Example: Download *Product* grocycode
+msgid "Download %s grocycode"
 msgstr ""
 
 msgid ""
-"grocycode is a unique referer to this product in your grocy instance - print"
-" it onto a label and scan it like any other barcode"
+"grocycode is a unique referer to this %s in your grocy instance - print it "
+"onto a label and scan it like any other barcode"
 msgstr ""
-"Le grocycode est un identifiant unique de ce produit dans votre instance "
-"grocy. Imprimez-le et scannez-le comme n'importe quel autre code abrre"
 
 # Abbreviation for "due date"
 msgid "DD"
@@ -2430,13 +2424,11 @@ msgstr ""
 msgid "Error while executing WebHook"
 msgstr "Erreur lors de l'exécution de WebHook"
 
-msgid "Print product grocycode on label printer"
-msgstr "Imprimer le grocycode du produit sur une imprimante d'étiquette"
-
-msgid "Print stock entry grocycode on label printer"
+# Example: Print *Product* grocycode on label printer
+msgid "Print %s grocycode on label printer"
 msgstr ""
 
-msgid "Open stock entry print label in new window"
+msgid "Open stock entry label in new window"
 msgstr ""
 
 msgid "Thermal printer"
@@ -2449,4 +2441,116 @@ msgid "Connecting to printer..."
 msgstr ""
 
 msgid "Unable to print"
+msgstr ""
+
+msgid "Only done items"
+msgstr ""
+
+msgid "Show only in-stock products"
+msgstr ""
+
+msgid "Product description"
+msgstr ""
+
+# Example: *3.21 USD* per *Pack*
+msgid "%1$s per %2$s"
+msgstr ""
+
+msgid "Mark this item as undone"
+msgstr ""
+
+msgid "Mandatory"
+msgstr ""
+
+msgid "Mandatory Userfield"
+msgstr ""
+
+msgid "When enabled, then this field must be filled on the destination form"
+msgstr ""
+
+msgid "In-stock products"
+msgstr ""
+
+msgid "Timestamp"
+msgstr ""
+
+msgid "Should not be frozen"
+msgstr ""
+
+msgid ""
+"When enabled, on moving this product to a freezer location (so when freezing"
+" it), a warning will be shown"
+msgstr ""
+
+msgid "This product shouldn't be frozen"
+msgstr ""
+
+msgid "Copy all meal plan entries of %s"
+msgstr ""
+
+msgid "A date is required"
+msgstr ""
+
+msgid "Day"
+msgstr ""
+
+msgid "Add recipe"
+msgstr ""
+
+msgid "Copy this day"
+msgstr ""
+
+msgid "Date range"
+msgstr ""
+
+msgid "%s month"
+msgid_plural "%s months"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s year"
+msgid_plural "%s years"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Display product"
+msgstr ""
+
+msgid "Copy recipe"
+msgstr ""
+
+msgid "Copy of %s"
+msgstr ""
+
+msgid "Add decimal separator automatically for price inputs"
+msgstr ""
+
+msgid ""
+"When enabled, you always have to enter the value including decimal places, "
+"the decimal separator will be automatically added based on the amount of "
+"allowed decimal places"
+msgstr ""
+
+msgid "Stock entry"
+msgstr ""
+
+msgid "Configure sections"
+msgstr ""
+
+msgid "Meal plan sections"
+msgstr ""
+
+msgid "Create meal plan section"
+msgstr ""
+
+msgid "Sections will be ordered by that number on the meal plan"
+msgstr ""
+
+msgid "Edit meal plan section"
+msgstr ""
+
+msgid "Are you sure to delete meal plan section \"%s\"?"
+msgstr ""
+
+msgid "Section"
 msgstr ""

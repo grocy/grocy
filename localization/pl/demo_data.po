@@ -402,3 +402,12 @@ msgstr "Tamilski"
 
 msgid "Finnish"
 msgstr "Fiński"
+
+msgid "Breakfast"
+msgstr ""
+
+msgid "Lunch"
+msgstr ""
+
+msgid "Dinner"
+msgstr ""

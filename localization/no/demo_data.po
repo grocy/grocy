@@ -384,3 +384,12 @@ msgstr "Tamilsk"
 
 msgid "Finnish"
 msgstr "Finsk"
+
+msgid "Breakfast"
+msgstr ""
+
+msgid "Lunch"
+msgstr ""
+
+msgid "Dinner"
+msgstr ""

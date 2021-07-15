@@ -393,3 +393,12 @@ msgstr "Tamil"
 
 msgid "Finnish"
 msgstr "Fins"
+
+msgid "Breakfast"
+msgstr ""
+
+msgid "Lunch"
+msgstr ""
+
+msgid "Dinner"
+msgstr ""

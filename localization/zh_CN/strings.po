@@ -327,8 +327,8 @@ msgstr "确定删除商店%s"
 msgid "Manage API keys"
 msgstr "管理API 秘钥"
 
-msgid "REST API & data model documentation"
-msgstr "REST API 和数据模型文档"
+msgid "REST API browser"
+msgstr ""
 
 msgid "API keys"
 msgstr "API 秘钥"
@@ -1985,8 +1985,9 @@ msgstr "默认到期日"
 
 msgid ""
 "When this product was marked as opened, the due date will be replaced by "
-"today + this amount of days (a value of 0 disables this)"
-msgstr "当此产品标记为已打开时，到期日期将替换为今天+该天数（值0会禁用此日期）"
+"today + this amount of days, but only if the resulting date is not after the"
+" original due date (a value of 0 disables this)"
+msgstr ""
 
 msgid "Default due days after opened"
 msgstr "开封后默认到期日"
@@ -2191,16 +2192,14 @@ msgstr "grocy码"
 msgid "Download"
 msgstr "下载"
 
-msgid "Download stock entry grocycode"
-msgstr "下载库存条目grocy码"
-
-msgid "Download product grocycode"
-msgstr "下载产品grocy码"
+# Example: Download *Product* grocycode
+msgid "Download %s grocycode"
+msgstr ""
 
 msgid ""
-"grocycode is a unique referer to this product in your grocy instance - print"
-" it onto a label and scan it like any other barcode"
-msgstr "Grocycode是一个独特的参考本产品在您的grocy实例-打印到标签和扫描它就像任何其他条码"
+"grocycode is a unique referer to this %s in your grocy instance - print it "
+"onto a label and scan it like any other barcode"
+msgstr ""
 
 # Abbreviation for "due date"
 msgid "DD"
@@ -2232,14 +2231,12 @@ msgstr "允许打印一个标签每单位购买(转换后)-例如1购买包装�
 msgid "Error while executing WebHook"
 msgstr "执行WebHook时出错"
 
-msgid "Print product grocycode on label printer"
-msgstr "在标签打印机上打印产品grocycode"
+# Example: Print *Product* grocycode on label printer
+msgid "Print %s grocycode on label printer"
+msgstr ""
 
-msgid "Print stock entry grocycode on label printer"
-msgstr "在标签打印机上打印库存条目grocy码"
-
-msgid "Open stock entry print label in new window"
-msgstr "在新窗口中打开库存条目打印标签"
+msgid "Open stock entry label in new window"
+msgstr ""
 
 msgid "Thermal printer"
 msgstr "热感打印机"
@@ -2252,3 +2249,113 @@ msgstr "连接到打印机……"
 
 msgid "Unable to print"
 msgstr "无法打印"
+
+msgid "Only done items"
+msgstr ""
+
+msgid "Show only in-stock products"
+msgstr ""
+
+msgid "Product description"
+msgstr ""
+
+# Example: *3.21 USD* per *Pack*
+msgid "%1$s per %2$s"
+msgstr ""
+
+msgid "Mark this item as undone"
+msgstr ""
+
+msgid "Mandatory"
+msgstr ""
+
+msgid "Mandatory Userfield"
+msgstr ""
+
+msgid "When enabled, then this field must be filled on the destination form"
+msgstr ""
+
+msgid "In-stock products"
+msgstr ""
+
+msgid "Timestamp"
+msgstr ""
+
+msgid "Should not be frozen"
+msgstr ""
+
+msgid ""
+"When enabled, on moving this product to a freezer location (so when freezing"
+" it), a warning will be shown"
+msgstr ""
+
+msgid "This product shouldn't be frozen"
+msgstr ""
+
+msgid "Copy all meal plan entries of %s"
+msgstr ""
+
+msgid "A date is required"
+msgstr ""
+
+msgid "Day"
+msgstr ""
+
+msgid "Add recipe"
+msgstr ""
+
+msgid "Copy this day"
+msgstr ""
+
+msgid "Date range"
+msgstr ""
+
+msgid "%s month"
+msgid_plural "%s months"
+msgstr[0] ""
+
+msgid "%s year"
+msgid_plural "%s years"
+msgstr[0] ""
+
+msgid "Display product"
+msgstr ""
+
+msgid "Copy recipe"
+msgstr ""
+
+msgid "Copy of %s"
+msgstr ""
+
+msgid "Add decimal separator automatically for price inputs"
+msgstr ""
+
+msgid ""
+"When enabled, you always have to enter the value including decimal places, "
+"the decimal separator will be automatically added based on the amount of "
+"allowed decimal places"
+msgstr ""
+
+msgid "Stock entry"
+msgstr ""
+
+msgid "Configure sections"
+msgstr ""
+
+msgid "Meal plan sections"
+msgstr ""
+
+msgid "Create meal plan section"
+msgstr ""
+
+msgid "Sections will be ordered by that number on the meal plan"
+msgstr ""
+
+msgid "Edit meal plan section"
+msgstr ""
+
+msgid "Are you sure to delete meal plan section \"%s\"?"
+msgstr ""
+
+msgid "Section"
+msgstr ""

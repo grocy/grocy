@@ -385,3 +385,12 @@ msgstr "Tâmil"
 
 msgid "Finnish"
 msgstr "Filandês"
+
+msgid "Breakfast"
+msgstr ""
+
+msgid "Lunch"
+msgstr ""
+
+msgid "Dinner"
+msgstr ""

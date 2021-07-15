@@ -392,3 +392,12 @@ msgstr "Tamoul"
 
 msgid "Finnish"
 msgstr "Finnois"
+
+msgid "Breakfast"
+msgstr ""
+
+msgid "Lunch"
+msgstr ""
+
+msgid "Dinner"
+msgstr ""

@@ -383,3 +383,12 @@ msgstr "Tamil Dili"
 
 msgid "Finnish"
 msgstr "Fince"
+
+msgid "Breakfast"
+msgstr ""
+
+msgid "Lunch"
+msgstr ""
+
+msgid "Dinner"
+msgstr ""

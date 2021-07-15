@@ -400,3 +400,12 @@ msgstr ""
 
 msgid "Finnish"
 msgstr "Finsky"
+
+msgid "Breakfast"
+msgstr ""
+
+msgid "Lunch"
+msgstr ""
+
+msgid "Dinner"
+msgstr ""

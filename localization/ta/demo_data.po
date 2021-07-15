@@ -383,3 +383,12 @@ msgstr "தமிழ்"
 
 msgid "Finnish"
 msgstr "பின்னிய மொழி"
+
+msgid "Breakfast"
+msgstr ""
+
+msgid "Lunch"
+msgstr ""
+
+msgid "Dinner"
+msgstr ""
