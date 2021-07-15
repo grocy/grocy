@@ -530,8 +530,8 @@ $('#save-add-note-button').on('click', function(e)
 
 	var jsonData = $('#add-note-form').serializeJSON();
 	jsonData.day = $("#day").val();
-	jsonData.section_id = formData.section_id_note;
-	delete formData.section_id_note;
+	jsonData.section_id = jsonData.section_id_note;
+	delete jsonData.section_id_note;
 
 	if (Grocy.IsMealPlanEntryEditAction)
 	{
