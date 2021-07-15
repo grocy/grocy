@@ -1096,9 +1096,6 @@ $(document).on("click", ".change-table-columns-rowgroup-toggle", function()
 		};
 
 		dataTable.rowGroup().enable(false);
-
-		// Remove fixed order
-		//dataTable.order.fixed({});
 	}
 	else
 	{
@@ -1117,4 +1114,7 @@ $(document).on("click", ".change-table-columns-rowgroup-toggle", function()
 	dataTable.draw();
 });
 
-$("#meal-plan-nav-link").attr("href", $("#meal-plan-nav-link").attr("href") + "?week=" + moment().startOf("week").format("YYYY-MM-DD"));
+if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_RECIPES)
+{
+	$("#meal-plan-nav-link").attr("href", $("#meal-plan-nav-link").attr("href") + "?week=" + moment().startOf("week").format("YYYY-MM-DD"));
+}
