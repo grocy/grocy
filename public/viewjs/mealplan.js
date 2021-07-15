@@ -42,6 +42,7 @@ $(".calendar").each(function()
 		"eventSources": fullcalendarEventSources,
 		"defaultView": ($(window).width() < 768) ? "agendaDay" : "agendaWeek",
 		"allDayText": sectionName,
+		"allDayHtml": sectionName,
 		"minTime": "00:00:00",
 		"maxTime": "00:00:01",
 		"scrollTime": "00:00:00",
