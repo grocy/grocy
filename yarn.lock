@@ -910,10 +910,10 @@ buffer@^5.5.0:
     base64-js "^1.3.1"
     ieee754 "^1.1.13"
 
-bwip-js@^2.0.11:
-  version "2.1.3"
-  resolved "https://registry.yarnpkg.com/bwip-js/-/bwip-js-2.1.3.tgz#f9c09b15caae50a406c5a8de5c2ae4ad4a931584"
-  integrity sha512-1Jf5eB+o6AzpwkHZPj63+/kGesLH30XLL0EC2PUrX+d0+4kMwCYMeqCuytlG318S/lcw27a2JOnZ9I8RO83Krg==
+bwip-js@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/bwip-js/-/bwip-js-3.0.1.tgz#13cbfbea186f038308635624e9db17796eda047e"
+  integrity sha512-3kC5orAnLaRnXhW6tmH+pZL9nmKBPPzPHFsBi8rDMr68JapkwN0I2CqJKFUT9c1THN/dfLq95R2t3nE4jgNQPw==
 
 cacheable-lookup@^5.0.3:
   version "5.0.4"
