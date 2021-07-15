@@ -630,20 +630,20 @@
 						<a class="dropdown-item discrete-link permission-CHORES"
 							href="{{ $U('/choressettings') }}"><i class="fas fa-home"></i>&nbsp;{{ $__t('Chores settings') }}</a>
 						@endif
-						@if(GROCY_FEATURE_FLAG_BATTERIES)
-						<a class="dropdown-item discrete-link permission-BATTERIES"
-							href="{{ $U('/batteriessettings') }}"><i class="fas fa-battery-half"></i>&nbsp;{{ $__t('Batteries settings') }}</a>
-						@endif
 						@if(GROCY_FEATURE_FLAG_TASKS)
 						<a class="dropdown-item discrete-link permission-TASKS"
 							href="{{ $U('/taskssettings') }}"><i class="fas fa-tasks"></i>&nbsp;{{ $__t('Tasks settings') }}</a>
 						@endif
+						@if(GROCY_FEATURE_FLAG_BATTERIES)
+						<a class="dropdown-item discrete-link permission-BATTERIES"
+							href="{{ $U('/batteriessettings') }}"><i class="fas fa-battery-half"></i>&nbsp;{{ $__t('Batteries settings') }}</a>
+						@endif
+						<div class="dropdown-divider"></div>
 						<a data-href="{{ $U('/usersettings') }}"
 							class="dropdown-item discrete-link link-return">
 							<i class="fas fa-user-cog"></i> {{ $__t('User settings') }}
 						</a>
 						@if(!GROCY_IS_EMBEDDED_INSTALL && !GROCY_DISABLE_AUTH)
-						<div class="dropdown-divider"></div>
 						<a class="dropdown-item discrete-link permission-USERS_READ"
 							href="{{ $U('/users') }}"><i class="fas fa-users"></i>&nbsp;{{ $__t('Manage users') }}</a>
 						@endif
