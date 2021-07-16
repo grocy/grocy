@@ -102,7 +102,7 @@ $(".numberpicker.locale-number-input.locale-number-currency").on("blur", functio
 
 		if (value.length <= decimalPlaces)
 		{
-			return;
+			value = value.padStart(Grocy.UserSettings.stock_decimal_places_prices, "0");
 		}
 
 		var valueNew = parseFloat(value.substring(0, value.length - decimalPlaces) + '.' + value.slice(decimalPlaces * -1)).toLocaleString(undefined, { minimumFractionDigits: decimalPlaces, maximumFractionDigits: decimalPlaces });
