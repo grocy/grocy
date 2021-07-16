@@ -2481,22 +2481,22 @@ msgid "Stock entry"
 msgstr "רשומה במלאי"
 
 msgid "Configure sections"
-msgstr ""
+msgstr "הגדרת סעיפים"
 
 msgid "Meal plan sections"
-msgstr ""
+msgstr "סעיפי תכנית ארוחות"
 
 msgid "Create meal plan section"
-msgstr ""
+msgstr "יצירת סעיף תכנית ארוחות"
 
 msgid "Sections will be ordered by that number on the meal plan"
-msgstr ""
+msgstr "הסעיפים יסודרו לפי המספר על תכנית הארוחות"
 
 msgid "Edit meal plan section"
-msgstr ""
+msgstr "עריכת סעיף תכנית ארוחות"
 
 msgid "Are you sure to delete meal plan section \"%s\"?"
-msgstr ""
+msgstr "למחוק את הסעיף „%s” מתכנית הארוחות?"
 
 msgid "Section"
-msgstr ""
+msgstr "סעיף"

@@ -21,13 +21,13 @@ use Grocy\Services\UsersService;
 
 class BaseController
 {
-	protected $AppContainer;
-
 	public function __construct(\DI\Container $container)
 	{
 		$this->AppContainer = $container;
 		$this->View = $container->get('view');
 	}
+
+	protected $AppContainer;
 
 	protected function getApiKeyService()
 	{

@@ -67,6 +67,11 @@ class User
 
 	const PERMISSION_USERS_READ = 'USERS_READ';
 
+	public function __construct()
+	{
+		$this->db = DatabaseService::getInstance()->GetDbConnection();
+	}
+
 	/**
 	 * @var \LessQL\Database|null
 	 */
@@ -76,11 +81,6 @@ class User
 	{
 		$user = new self();
 		return $user->getPermissionList();
-	}
-
-	public function __construct()
-	{
-		$this->db = DatabaseService::getInstance()->GetDbConnection();
 	}
 
 	public static function checkPermission($request, string ...$permissions): void

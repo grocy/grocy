@@ -1116,5 +1116,12 @@ $(document).on("click", ".change-table-columns-rowgroup-toggle", function()
 
 if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_RECIPES)
 {
-	$("#meal-plan-nav-link").attr("href", $("#meal-plan-nav-link").attr("href") + "?week=" + moment().startOf("week").format("YYYY-MM-DD"));
+	if ($(window).width() < 768)
+	{
+		$("#meal-plan-nav-link").attr("href", $("#meal-plan-nav-link").attr("href") + "?start=" + moment().format("YYYY-MM-DD") + "&days=0");
+	}
+	else
+	{
+		$("#meal-plan-nav-link").attr("href", $("#meal-plan-nav-link").attr("href") + "?start=" + moment().startOf("week").format("YYYY-MM-DD"));
+	}
 }

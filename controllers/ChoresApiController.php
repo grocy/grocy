@@ -68,14 +68,12 @@ class ChoresApiController extends BaseApiController
 			User::checkPermission($request, User::PERMISSION_CHORE_TRACK_EXECUTION);
 
 			$trackedTime = date('Y-m-d H:i:s');
-
 			if (array_key_exists('tracked_time', $requestBody) && (IsIsoDateTime($requestBody['tracked_time']) || IsIsoDate($requestBody['tracked_time'])))
 			{
 				$trackedTime = $requestBody['tracked_time'];
 			}
 
 			$doneBy = GROCY_USER_ID;
-
 			if (array_key_exists('done_by', $requestBody) && !empty($requestBody['done_by']))
 			{
 				$doneBy = $requestBody['done_by'];
@@ -132,10 +130,5 @@ class ChoresApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-	}
-
-	public function __construct(\DI\Container $container)
-	{
-		parent::__construct($container);
 	}
 }

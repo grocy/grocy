@@ -48,7 +48,7 @@ $(".calendar").each(function()
 		"scrollTime": "00:00:00",
 		"firstDay": firstDay,
 		"height": "auto",
-		"defaultDate": GetUriParam("week"),
+		"defaultDate": GetUriParam("start"),
 		"viewRender": function(view)
 		{
 			if (!isPrimarySection)
@@ -309,7 +309,7 @@ $(".calendar").each(function()
 		{
 			if (isPrimarySection)
 			{
-				UpdateUriParam("week", view.start.format("YYYY-MM-DD"));
+				UpdateUriParam("start", view.start.format("YYYY-MM-DD"));
 
 				if (firstRender)
 				{

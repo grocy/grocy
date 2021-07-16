@@ -8,6 +8,13 @@ use Gettext\Translator;
 
 class LocalizationService
 {
+	public function __construct(string $culture)
+	{
+		$this->Culture = $culture;
+
+		$this->LoadLocalizations($culture);
+	}
+
 	protected $Po;
 
 	protected $PoUserStrings;
@@ -60,13 +67,6 @@ class LocalizationService
 	public function GetPoAsJsonString()
 	{
 		return $this->Po->toJsonString();
-	}
-
-	public function __construct(string $culture)
-	{
-		$this->Culture = $culture;
-
-		$this->LoadLocalizations($culture);
 	}
 
 	public function __n($number, $singularForm, $pluralForm)

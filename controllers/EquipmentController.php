@@ -33,9 +33,4 @@ class EquipmentController extends BaseController
 			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('equipment')
 		]);
 	}
-
-	public function __construct(\DI\Container $container)
-	{
-		parent::__construct($container);
-	}
 }

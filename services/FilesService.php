@@ -8,6 +8,30 @@ class FilesService extends BaseService
 {
 	const FILE_SERVE_TYPE_PICTURE = 'picture';
 
+	public function __construct()
+	{
+		$this->StoragePath = GROCY_DATAPATH . '/storage';
+		if (!file_exists($this->StoragePath))
+		{
+			mkdir($this->StoragePath);
+		}
+
+		if (GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease')
+		{
+			$dbSuffix = GROCY_DEFAULT_LOCALE;
+			if (defined('GROCY_DEMO_DB_SUFFIX'))
+			{
+				$dbSuffix = GROCY_DEMO_DB_SUFFIX;
+			}
+
+			$this->StoragePath = $this->StoragePath . '/' . $dbSuffix;
+			if (!file_exists($this->StoragePath))
+			{
+				mkdir($this->StoragePath);
+			}
+		}
+	}
+
 	private $StoragePath;
 
 	public function DownscaleImage($group, $fileName, $bestFitHeight = null, $bestFitWidth = null)
@@ -58,8 +82,9 @@ class FilesService extends BaseService
 			$fileNameWithoutExtension = pathinfo($filePath, PATHINFO_FILENAME);
 			$fileExtension = pathinfo($filePath, PATHINFO_EXTENSION);
 
+			// Then the file is an image
 			if (getimagesize($filePath) !== false)
-			{ // Then the file is an image
+			{
 				// Also delete all corresponding "__downscaledto" files when deleting an image
 				$groupFolderPath = $this->StoragePath . '/' . $group;
 				$files = scandir($groupFolderPath);
@@ -86,33 +111,5 @@ class FilesService extends BaseService
 		}
 
 		return $groupFolderPath . '/' . $fileName;
-	}
-
-	public function __construct()
-	{
-		parent::__construct();
-
-		$this->StoragePath = GROCY_DATAPATH . '/storage';
-
-		if (!file_exists($this->StoragePath))
-		{
-			mkdir($this->StoragePath);
-		}
-
-		if (GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease')
-		{
-			$dbSuffix = GROCY_DEFAULT_LOCALE;
-			if (defined('GROCY_DEMO_DB_SUFFIX'))
-			{
-				$dbSuffix = GROCY_DEMO_DB_SUFFIX;
-			}
-
-			$this->StoragePath = $this->StoragePath . '/' . $dbSuffix;
-
-			if (!file_exists($this->StoragePath))
-			{
-				mkdir($this->StoragePath);
-			}
-		}
 	}
 }

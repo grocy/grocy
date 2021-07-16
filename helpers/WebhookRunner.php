@@ -8,12 +8,12 @@ use Psr\Http\Message\ResponseInterface;
 
 class WebhookRunner
 {
-	private $client;
-
 	public function __construct()
 	{
 		$this->client = new Client(['timeout' => 2.0]);
 	}
+
+	private $client;
 
 	public function run($url, $args, $json = false)
 	{

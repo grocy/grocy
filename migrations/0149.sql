@@ -12,3 +12,13 @@ VALUES
 
 ALTER TABLE meal_plan
 ADD section_id INTEGER NOT NULL DEFAULT -1;
+
+CREATE TRIGGER prevent_internal_meal_plan_section_removal BEFORE DELETE ON meal_plan_sections
+BEGIN
+	SELECT CASE WHEN((
+		SELECT 1
+		FROM meal_plan_sections
+		WHERE id = OLD.id
+			AND id = -1
+	) NOTNULL) THEN RAISE(ABORT, "This is an internally used/required default section and therefore can't be deleted") END;
+END;

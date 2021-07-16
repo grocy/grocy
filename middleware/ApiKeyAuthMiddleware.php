@@ -9,13 +9,13 @@ use Slim\Routing\RouteContext;
 
 class ApiKeyAuthMiddleware extends AuthMiddleware
 {
-	protected $ApiKeyHeaderName;
-
 	public function __construct(\DI\Container $container, ResponseFactoryInterface $responseFactory)
 	{
 		parent::__construct($container, $responseFactory);
 		$this->ApiKeyHeaderName = $this->AppContainer->get('ApiKeyHeaderName');
 	}
+
+	protected $ApiKeyHeaderName;
 
 	public function authenticate(Request $request)
 	{

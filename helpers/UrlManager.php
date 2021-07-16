@@ -4,6 +4,18 @@ namespace Grocy\Helpers;
 
 class UrlManager
 {
+	public function __construct(string $basePath)
+	{
+		if ($basePath === '/')
+		{
+			$this->BasePath = $this->GetBaseUrl();
+		}
+		else
+		{
+			$this->BasePath = $basePath;
+		}
+	}
+
 	protected $BasePath;
 
 	public function ConstructUrl($relativePath, $isResource = false)
@@ -15,18 +27,6 @@ class UrlManager
 		else
 		{ // Is not a resource and URL rewriting is disabled
 			return rtrim($this->BasePath, '/') . '/index.php' . $relativePath;
-		}
-	}
-
-	public function __construct(string $basePath)
-	{
-		if ($basePath === '/')
-		{
-			$this->BasePath = $this->GetBaseUrl();
-		}
-		else
-		{
-			$this->BasePath = $basePath;
 		}
 	}
 

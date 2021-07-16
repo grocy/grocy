@@ -10,9 +10,4 @@ class CalendarController extends BaseController
 			'fullcalendarEventSources' => $this->getCalendarService()->GetEvents()
 		]);
 	}
-
-	public function __construct(\DI\Container $container)
-	{
-		parent::__construct($container);
-	}
 }

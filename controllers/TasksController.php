@@ -83,9 +83,4 @@ class TasksController extends BaseController
 	{
 		return $this->renderPage($response, 'taskssettings');
 	}
-
-	public function __construct(\DI\Container $container)
-	{
-		parent::__construct($container);
-	}
 }

@@ -4,6 +4,11 @@ namespace Grocy\Services;
 
 class DemoDataGeneratorService extends BaseService
 {
+	public function __construct()
+	{
+		$this->LocalizationService = new LocalizationService(GROCY_DEFAULT_LOCALE);
+	}
+
 	protected $LocalizationService;
 
 	private $LastSupermarketId = 1;
@@ -341,12 +346,6 @@ class DemoDataGeneratorService extends BaseService
 			$this->DownloadFileIfNotAlreadyExists('https://releases.grocy.info/demoresources/chocolate_sauce.jpg', "$recipePicturesFolder/chocolate_sauce.jpg");
 			$this->DownloadFileIfNotAlreadyExists('https://releases.grocy.info/demoresources/pancakes_chocolate_sauce.jpg', "$recipePicturesFolder/pancakes_chocolate_sauce.jpg");
 		}
-	}
-
-	public function __construct()
-	{
-		parent::__construct();
-		$this->LocalizationService = new LocalizationService(GROCY_DEFAULT_LOCALE);
 	}
 
 	private function DownloadFileIfNotAlreadyExists($sourceUrl, $destinationPath)

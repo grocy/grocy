@@ -9,7 +9,6 @@ class ApplicationService extends BaseService
 	public function GetChangelog()
 	{
 		$changelogItems = [];
-
 		foreach (glob(__DIR__ . '/../changelog/*.md') as $file)
 		{
 			$fileName = basename($file);

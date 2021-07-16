@@ -34,7 +34,6 @@ class BatteriesApiController extends BaseApiController
 		try
 		{
 			$trackedTime = date('Y-m-d H:i:s');
-
 			if (array_key_exists('tracked_time', $requestBody) && IsIsoDateTime($requestBody['tracked_time']))
 			{
 				$trackedTime = $requestBody['tracked_time'];
@@ -86,10 +85,5 @@ class BatteriesApiController extends BaseApiController
 		{
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
-	}
-
-	public function __construct(\DI\Container $container)
-	{
-		parent::__construct($container);
 	}
 }

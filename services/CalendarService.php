@@ -6,6 +6,13 @@ use Grocy\Helpers\UrlManager;
 
 class CalendarService extends BaseService
 {
+	public function __construct()
+	{
+		$this->UrlManager = new UrlManager(GROCY_BASE_URL);
+	}
+
+	private $UrlManager;
+
 	public function GetEvents()
 	{
 		$stockEvents = [];
@@ -147,11 +154,5 @@ class CalendarService extends BaseService
 		}
 
 		return array_merge($stockEvents, $taskEvents, $choreEvents, $batteryEvents, $mealPlanRecipeEvents, $mealPlanNotesEvents, $mealPlanProductEvents);
-	}
-
-	public function __construct()
-	{
-		parent::__construct();
-		$this->UrlManager = new UrlManager(GROCY_BASE_URL);
 	}
 }

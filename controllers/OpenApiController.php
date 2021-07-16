@@ -85,9 +85,4 @@ class OpenApiController extends BaseApiController
 	{
 		return $this->render($response, 'openapiui');
 	}
-
-	public function __construct(\DI\Container $container)
-	{
-		parent::__construct($container);
-	}
 }

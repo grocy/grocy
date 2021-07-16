@@ -35,11 +35,6 @@ class SystemController extends BaseController
 		return $response->withRedirect($this->AppContainer->get('UrlManager')->ConstructUrl($this->GetEntryPageRelative()));
 	}
 
-	public function __construct(\DI\Container $container)
-	{
-		parent::__construct($container);
-	}
-
 	/**
 	 * Get the entry page of the application based on the value of the entry page setting.
 	 *

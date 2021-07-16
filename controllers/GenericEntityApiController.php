@@ -213,11 +213,6 @@ class GenericEntityApiController extends BaseApiController
 		}
 	}
 
-	public function __construct(\DI\Container $container)
-	{
-		parent::__construct($container);
-	}
-
 	private function IsEntityWithEditRequiresAdmin($entity)
 	{
 		return in_array($entity, $this->getOpenApiSpec()->components->schemas->ExposedEntityEditRequiresAdmin->enum);

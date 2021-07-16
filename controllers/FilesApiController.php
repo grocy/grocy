@@ -118,11 +118,6 @@ class FilesApiController extends BaseApiController
 		}
 	}
 
-	public function __construct(\DI\Container $container)
-	{
-		parent::__construct($container);
-	}
-
 	/**
 	 * @param string $fileName base64-encoded file-name
 	 * @return false|string the decoded file-name
@@ -151,7 +146,6 @@ class FilesApiController extends BaseApiController
 	protected function getFilePath(string $group, string $fileName, array $queryParams = [])
 	{
 		$forceServeAs = null;
-
 		if (isset($queryParams['force_serve_as']) && !empty($queryParams['force_serve_as']))
 		{
 			$forceServeAs = $queryParams['force_serve_as'];
@@ -160,14 +154,12 @@ class FilesApiController extends BaseApiController
 		if ($forceServeAs == FilesService::FILE_SERVE_TYPE_PICTURE)
 		{
 			$bestFitHeight = null;
-
 			if (isset($queryParams['best_fit_height']) && !empty($queryParams['best_fit_height']) && is_numeric($queryParams['best_fit_height']))
 			{
 				$bestFitHeight = $queryParams['best_fit_height'];
 			}
 
 			$bestFitWidth = null;
-
 			if (isset($queryParams['best_fit_width']) && !empty($queryParams['best_fit_width']) && is_numeric($queryParams['best_fit_width']))
 			{
 				$bestFitWidth = $queryParams['best_fit_width'];

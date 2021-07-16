@@ -12,7 +12,6 @@ class SessionService extends BaseService
 	public function CreateSession($userId, $stayLoggedInPermanently = false)
 	{
 		$newSessionKey = $this->GenerateSessionKey();
-
 		$expires = date('Y-m-d H:i:s', intval(time() + 2592000));
 
 		// Default is that sessions expire in 30 days
@@ -39,7 +38,6 @@ class SessionService extends BaseService
 	public function GetUserBySessionKey($sessionKey)
 	{
 		$sessionRow = $this->getDatabase()->sessions()->where('session_key', $sessionKey)->fetch();
-
 		if ($sessionRow !== null)
 		{
 			return $this->getDatabase()->users($sessionRow->user_id);
@@ -60,7 +58,6 @@ class SessionService extends BaseService
 		else
 		{
 			$sessionRow = $this->getDatabase()->sessions()->where('session_key = :1 AND expires > :2', $sessionKey, date('Y-m-d H:i:s', time()))->fetch();
-
 			if ($sessionRow !== null)
 			{
 				// This should not change the database file modification time as this is used

@@ -97,7 +97,6 @@ class UsersService extends BaseService
 	public function SetUserSetting($userId, $settingKey, $settingValue)
 	{
 		$settingRow = $this->getDatabase()->user_settings()->where('user_id = :1 AND key = :2', $userId, $settingKey)->fetch();
-
 		if ($settingRow !== null)
 		{
 			$settingRow->update([

@@ -11,13 +11,13 @@ use Slim\Routing\RouteContext;
 
 abstract class AuthMiddleware extends BaseMiddleware
 {
-	protected $ResponseFactory;
-
 	public function __construct(\DI\Container $container, ResponseFactoryInterface $responseFactory)
 	{
 		parent::__construct($container);
 		$this->ResponseFactory = $responseFactory;
 	}
+
+	protected $ResponseFactory;
 
 	public function __invoke(Request $request, RequestHandler $handler): Response
 	{

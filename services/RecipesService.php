@@ -63,8 +63,8 @@ class RecipesService extends BaseService
 		}
 
 		$transactionId = uniqid();
-		$recipePositions = $this->getDatabase()->recipes_pos_resolved()->where('recipe_id', $recipeId)->fetchAll();
 
+		$recipePositions = $this->getDatabase()->recipes_pos_resolved()->where('recipe_id', $recipeId)->fetchAll();
 		foreach ($recipePositions as $recipePosition)
 		{
 			if ($recipePosition->only_check_single_unit_in_stock == 0)
@@ -127,11 +127,6 @@ class RecipesService extends BaseService
 		$this->getDatabaseService()->ExecuteDbStatement('INSERT INTO recipes_nestings (recipe_id, includes_recipe_id, servings) SELECT ' . $lastInsertId . ', includes_recipe_id, servings FROM recipes_nestings WHERE recipe_id = ' . $recipeId);
 
 		return $lastInsertId;
-	}
-
-	public function __construct()
-	{
-		parent::__construct();
 	}
 
 	private function RecipeExists($recipeId)

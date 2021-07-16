@@ -11,16 +11,16 @@ use Throwable;
 
 class ExceptionController extends BaseApiController
 {
-	/**
-	 * @var \Slim\App
-	 */
-	private $app;
-
 	public function __construct(\Slim\App $app, \DI\Container $container)
 	{
 		parent::__construct($container);
 		$this->app = $app;
 	}
+
+	/**
+	 * @var \Slim\App
+	 */
+	private $app;
 
 	public function __invoke(ServerRequestInterface $request, Throwable $exception, bool $displayErrorDetails, bool $logErrors, bool $logErrorDetails, ?LoggerInterface $logger = null)
 	{
@@ -59,7 +59,10 @@ class ExceptionController extends BaseApiController
 
 		if ($exception instanceof HttpNotFoundException)
 		{
-			define('GROCY_AUTHENTICATED', false);
+			if (!defined('GROCY_AUTHENTICATED'))
+			{
+				define('GROCY_AUTHENTICATED', false);
+			}
 
 			return $this->renderPage($response->withStatus(404), 'errors/404', [
 				'exception' => $exception

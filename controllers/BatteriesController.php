@@ -3,11 +3,11 @@
 namespace Grocy\Controllers;
 
 use Grocy\Helpers\Grocycode;
-use jucksearm\barcode\lib\BarcodeFactory;
-use jucksearm\barcode\lib\DatamatrixFactory;
 
 class BatteriesController extends BaseController
 {
+	use GrocycodeTrait;
+
 	public function BatteriesList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		if (isset($request->getQueryParams()['include_disabled']))
@@ -98,40 +98,7 @@ class BatteriesController extends BaseController
 
 	public function BatteryGrocycodeImage(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		$size = $request->getQueryParam('size', null);
 		$gc = new Grocycode(Grocycode::BATTERY, $args['batteryId']);
-
-		if (GROCY_GROCYCODE_TYPE == '2D')
-		{
-			$png = (new DatamatrixFactory())->setCode((string) $gc)->setSize($size)->getDatamatrixPngData();
-		}
-		else
-		{
-			$png = (new BarcodeFactory())->setType('C128')->setCode((string) $gc)->setHeight($size)->getBarcodePngData();
-		}
-
-		$isDownload = $request->getQueryParam('download', false);
-		if ($isDownload)
-		{
-			$response = $response->withHeader('Content-Type', 'application/octet-stream')
-			->withHeader('Content-Disposition', 'attachment; filename=grocycode.png')
-			->withHeader('Content-Length', strlen($png))
-			->withHeader('Cache-Control', 'no-cache')
-			->withHeader('Last-Modified', gmdate('D, d M Y H:i:s') . ' GMT');
-		}
-		else
-		{
-			$response = $response->withHeader('Content-Type', 'image/png')
-			->withHeader('Content-Length', strlen($png))
-			->withHeader('Cache-Control', 'no-cache')
-			->withHeader('Last-Modified', gmdate('D, d M Y H:i:s') . ' GMT');
-		}
-		$response->getBody()->write($png);
-		return $response;
-	}
-
-	public function __construct(\DI\Container $container)
-	{
-		parent::__construct($container);
+		return $this->ServeGrocycodeImage($request, $response, $gc);
 	}
 }

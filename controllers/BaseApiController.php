@@ -6,18 +6,13 @@ use LessQL\Result;
 
 class BaseApiController extends BaseController
 {
-	protected $OpenApiSpec = null;
-
 	const PATTERN_FIELD = '[A-Za-z_][A-Za-z0-9_]+';
 
 	const PATTERN_OPERATOR = '!?(=|~|<|>|(>=)|(<=)|(§))';
 
 	const PATTERN_VALUE = '[A-Za-z\x{0400}-\x{04FF}_0-9.$#^|-]+';
 
-	public function __construct(\DI\Container $container)
-	{
-		parent::__construct($container);
-	}
+	protected $OpenApiSpec = null;
 
 	protected function ApiResponse(\Psr\Http\Message\ResponseInterface $response, $data, $cache = false)
 	{

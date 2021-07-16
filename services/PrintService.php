@@ -11,6 +11,39 @@ use Mike42\Escpos\Printer;
 class PrintService extends BaseService
 {
 	/**
+	 * @param bool $printHeader Printing of Grocy logo
+	 * @param string[] $lines Items to print
+	 * @return string[] Returns array with result OK if no exception
+	 * @throws Exception If unable to print, an exception is thrown
+	 */
+	public function printShoppingList(bool $printHeader, array $lines): array
+	{
+		$printer = self::getPrinterHandle();
+		if ($printer === false)
+		{
+			throw new Exception('Unable to connect to printer');
+		}
+
+		if ($printHeader)
+		{
+			self::printHeader($printer);
+		}
+
+		foreach ($lines as $line)
+		{
+			$printer->text($line);
+			$printer->feed();
+		}
+
+		$printer->feed(3);
+		$printer->cut();
+		$printer->close();
+		return [
+			'result' => 'OK'
+		];
+	}
+
+	/**
 	 * Initialises the printer
 	 * @return Printer Printer handle
 	 * @throws Exception If unable to connect to printer, an exception is thrown
@@ -49,38 +82,5 @@ class PrintService extends BaseService
 		$printer->text($dateFormatted);
 		$printer->selectPrintMode();
 		$printer->feed(2);
-	}
-
-	/**
-	 * @param bool $printHeader Printing of Grocy logo
-	 * @param string[] $lines Items to print
-	 * @return string[] Returns array with result OK if no exception
-	 * @throws Exception If unable to print, an exception is thrown
-	 */
-	public function printShoppingList(bool $printHeader, array $lines): array
-	{
-		$printer = self::getPrinterHandle();
-		if ($printer === false)
-		{
-			throw new Exception('Unable to connect to printer');
-		}
-
-		if ($printHeader)
-		{
-			self::printHeader($printer);
-		}
-
-		foreach ($lines as $line)
-		{
-			$printer->text($line);
-			$printer->feed();
-		}
-
-		$printer->feed(3);
-		$printer->cut();
-		$printer->close();
-		return [
-			'result' => 'OK'
-		];
 	}
 }

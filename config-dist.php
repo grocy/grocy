@@ -175,9 +175,8 @@ DefaultUserSetting('batteries_due_soon_days', 5);
 // Tasks settings
 DefaultUserSetting('tasks_due_soon_days', 5);
 
-// If the page should be automatically reloaded when there was
-// an external change
-DefaultUserSetting('auto_reload_on_db_change', true);
+// If the page should be automatically reloaded when there was an external change
+DefaultUserSetting('auto_reload_on_db_change', false);
 
 // Show a clock in the header next to the logo or not
 DefaultUserSetting('show_clock_in_header', false);

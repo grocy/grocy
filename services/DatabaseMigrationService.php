@@ -4,6 +4,9 @@ namespace Grocy\Services;
 
 class DatabaseMigrationService extends BaseService
 {
+	// This migration will be always execute, can be used to fix things manually
+	const EMERGENCY_MIGRATION_ID = 9999;
+
 	public function MigrateDatabase()
 	{
 		$this->getDatabaseService()->ExecuteDbStatement("CREATE TABLE IF NOT EXISTS migrations (migration INTEGER NOT NULL PRIMARY KEY UNIQUE, execution_time_timestamp DATETIME DEFAULT (datetime('now', 'localtime')))");
@@ -36,10 +39,14 @@ class DatabaseMigrationService extends BaseService
 	{
 		$rowCount = $this->getDatabaseService()->ExecuteDbQuery('SELECT COUNT(*) FROM migrations WHERE migration = ' . $migrationId)->fetchColumn();
 
-		if (intval($rowCount) === 0)
+		if (intval($rowCount) === 0 || $migrationId == self::EMERGENCY_MIGRATION_ID)
 		{
 			include $phpFile;
-			$this->getDatabaseService()->ExecuteDbStatement('INSERT INTO migrations (migration) VALUES (' . $migrationId . ')');
+
+			if ($migrationId != self::EMERGENCY_MIGRATION_ID)
+			{
+				$this->getDatabaseService()->ExecuteDbStatement('INSERT INTO migrations (migration) VALUES (' . $migrationId . ')');
+			}
 		}
 	}
 
@@ -47,14 +54,18 @@ class DatabaseMigrationService extends BaseService
 	{
 		$rowCount = $this->getDatabaseService()->ExecuteDbQuery('SELECT COUNT(*) FROM migrations WHERE migration = ' . $migrationId)->fetchColumn();
 
-		if (intval($rowCount) === 0)
+		if (intval($rowCount) === 0 || $migrationId == self::EMERGENCY_MIGRATION_ID)
 		{
 			$this->getDatabaseService()->GetDbConnectionRaw()->beginTransaction();
 
 			try
 			{
 				$this->getDatabaseService()->ExecuteDbStatement($sql);
-				$this->getDatabaseService()->ExecuteDbStatement('INSERT INTO migrations (migration) VALUES (' . $migrationId . ')');
+
+				if ($migrationId != self::EMERGENCY_MIGRATION_ID)
+				{
+					$this->getDatabaseService()->ExecuteDbStatement('INSERT INTO migrations (migration) VALUES (' . $migrationId . ')');
+				}
 			}
 			catch (Exception $ex)
 			{

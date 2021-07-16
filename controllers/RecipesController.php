@@ -8,19 +8,21 @@ class RecipesController extends BaseController
 {
 	public function MealPlan(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		// Given date is always the first day of the week => load the coming week / 7 days
-		if (isset($request->getQueryParams()['week']) && IsIsoDate($request->getQueryParams()['week']))
+		$start = date('Y-m-d');
+		if (isset($request->getQueryParams()['start']) && IsIsoDate($request->getQueryParams()['start']))
 		{
-			$week = $request->getQueryParams()['week'];
-			$mealPlanWhereTimespan = "day BETWEEN DATE('$week') AND DATE('$week', '+7 days')";
+			$start = $request->getQueryParams()['start'];
 		}
-		else
+
+		$days = 6;
+		if (isset($request->getQueryParams()['days']) && filter_var($request->getQueryParams()['days'], FILTER_VALIDATE_INT) !== false)
 		{
-			$mealPlanWhereTimespan = "day BETWEEN DATE('now', 'localtime', 'weekday 0', '-7 days') AND DATE(DATE('now', 'localtime', 'weekday 0', '-7 days'), '+7 days')";
+			$days = $request->getQueryParams()['days'];
 		}
+
+		$mealPlanWhereTimespan = "day BETWEEN DATE('$start') AND DATE('$start', '+$days days')";
 
 		$recipes = $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll();
-
 		$events = [];
 		foreach ($this->getDatabase()->meal_plan()->where($mealPlanWhereTimespan) as $mealPlanEntry)
 		{
@@ -213,10 +215,5 @@ class RecipesController extends BaseController
 		return $this->renderPage($response, 'mealplansections', [
 			'mealplanSections' => $this->getDatabase()->meal_plan_sections()->where('id > 0')->orderBy('sort_number')
 		]);
-	}
-
-	public function __construct(\DI\Container $container)
-	{
-		parent::__construct($container);
 	}
 }

@@ -33,7 +33,6 @@ class StockService extends BaseService
 		}
 
 		$missingProducts = $this->GetMissingProducts();
-
 		foreach ($missingProducts as $missingProduct)
 		{
 			$product = $this->getDatabase()->products()->where('id', $missingProduct->id)->fetch();
@@ -42,7 +41,8 @@ class StockService extends BaseService
 			$alreadyExistingEntry = $this->getDatabase()->shopping_list()->where('product_id', $missingProduct->id)->fetch();
 
 			if ($alreadyExistingEntry)
-			{ // Update
+			{
+				// Update
 				if ($alreadyExistingEntry->amount < $amountToAdd)
 				{
 					$alreadyExistingEntry->update([
@@ -52,7 +52,8 @@ class StockService extends BaseService
 				}
 			}
 			else
-			{ // Insert
+			{
+				// Insert
 				$shoppinglistRow = $this->getDatabase()->shopping_list()->createRow([
 					'product_id' => $missingProduct->id,
 					'amount' => $amountToAdd,
@@ -197,7 +198,8 @@ class StockService extends BaseService
 			{
 				$reps = 1;
 				if ($runWebhook == 2)
-				{ // 2 == run $amount times
+				{
+					// 2 == run $amount times
 					$reps = intval(floor($amount));
 				}
 
@@ -428,7 +430,6 @@ class StockService extends BaseService
 	public function EditStockEntry(int $stockRowId, float $amount, $bestBeforeDate, $locationId, $shoppingLocationId, $price, $open, $purchasedDate)
 	{
 		$stockRow = $this->getDatabase()->stock()->where('id = :1', $stockRowId)->fetch();
-
 		if ($stockRow === null)
 		{
 			throw new \Exception('Stock does not exist');
@@ -455,7 +456,6 @@ class StockService extends BaseService
 		$logOldRowForStockUpdate->save();
 
 		$openedDate = $stockRow->opened_date;
-
 		if (boolval($open) && $openedDate == null)
 		{
 			$openedDate = date('Y-m-d');
@@ -505,7 +505,8 @@ class StockService extends BaseService
 		$pluginOutput = $plugin->Lookup($barcode);
 
 		if ($pluginOutput !== null)
-		{ // Lookup was successful
+		{
+			// Lookup was successful
 			if ($addFoundProduct === true)
 			{
 				// Add product to database and include new product id in output
@@ -522,7 +523,6 @@ class StockService extends BaseService
 	public function GetCurrentStock($includeNotInStockButMissingProducts = false)
 	{
 		$sql = 'SELECT * FROM stock_current';
-
 		if ($includeNotInStockButMissingProducts)
 		{
 			$missingProductsView = 'stock_missing_products_including_opened';
@@ -538,7 +538,6 @@ class StockService extends BaseService
 		$currentStockMapped = $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_GROUP | \PDO::FETCH_OBJ);
 
 		$relevantProducts = $this->getDatabase()->products()->where('id IN (SELECT product_id FROM (' . $sql . ') x)');
-
 		foreach ($relevantProducts as $product)
 		{
 			$currentStockMapped[$product->id][0]->product_id = $product->id;
@@ -614,7 +613,6 @@ class StockService extends BaseService
 		}
 
 		$stockCurrentRow = FindObjectinArrayByPropertyValue($this->GetCurrentStock(), 'product_id', $productId);
-
 		if ($stockCurrentRow == null)
 		{
 			$stockCurrentRow = new \stdClass();
@@ -665,7 +663,6 @@ class StockService extends BaseService
 		{
 			$consumeCount = 1;
 		}
-
 		$spoilRate = ($consumeCountSpoiled * 100.0) / $consumeCount;
 
 		return [
@@ -704,7 +701,6 @@ class StockService extends BaseService
 		}
 
 		$potentialProduct = $this->getDatabase()->product_barcodes()->where('barcode = :1', $barcode)->fetch();
-
 		if ($potentialProduct === null)
 		{
 			throw new \Exception("No product with barcode $barcode found");
@@ -722,8 +718,8 @@ class StockService extends BaseService
 
 		$returnData = [];
 		$shoppingLocations = $this->getDatabase()->shopping_locations();
-		$rows = $this->getDatabase()->product_price_history()->where('product_id = :1', $productId)->orderBy('purchased_date', 'DESC');
 
+		$rows = $this->getDatabase()->product_price_history()->where('product_id = :1', $productId)->orderBy('purchased_date', 'DESC');
 		foreach ($rows as $row)
 		{
 			$returnData[] = [
@@ -998,6 +994,7 @@ class StockService extends BaseService
 		{
 			$decimals = intval($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'stock_decimal_places_amounts'));
 			$newAmount = $productRow->amount - $amount;
+
 			if ($newAmount < floatval('0.' . str_repeat('0', $decimals - ($decimals <= 0 ? 0 : 1)) . '1'))
 			{
 				$productRow->delete();
@@ -1032,13 +1029,16 @@ class StockService extends BaseService
 			{
 				$product = $this->getDatabase()->products()->where('id = :1', $row->product_id)->fetch();
 				$conversion = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $product->id, $product->qu_id_stock, $row->qu_id)->fetch();
+
 				$factor = 1.0;
 				if ($conversion != null)
 				{
 					$factor = floatval($conversion->factor);
 				}
+
 				$amount = round($row->amount * $factor);
 				$note = '';
+
 				if (GROCY_TPRINTER_PRINT_NOTES)
 				{
 					if ($row->note != '')
@@ -1047,6 +1047,7 @@ class StockService extends BaseService
 					}
 				}
 			}
+
 			if (GROCY_TPRINTER_PRINT_QUANTITY_NAME && $isValidProduct)
 			{
 				$quantityname = $row->qu_name;
@@ -1054,6 +1055,7 @@ class StockService extends BaseService
 				{
 					$quantityname = $row->qu_name_plural;
 				}
+
 				array_push($result_quantity, $amount . ' ' . $quantityname);
 				array_push($result_product, $row->product_name . $note);
 			}
@@ -1071,6 +1073,7 @@ class StockService extends BaseService
 				}
 			}
 		}
+
 		//Add padding to look nicer
 		$maxlength = 1;
 		foreach ($result_quantity as $quantity)
@@ -1080,6 +1083,7 @@ class StockService extends BaseService
 				$maxlength = strlen($quantity);
 			}
 		}
+
 		$result = [];
 		$length = count($result_quantity);
 		for ($i = 0; $i < $length; $i++)
@@ -1087,6 +1091,7 @@ class StockService extends BaseService
 			$quantity = str_pad($result_quantity[$i], $maxlength);
 			array_push($result, $quantity . '  ' . $result_product[$i]);
 		}
+
 		return $result;
 	}
 
@@ -1222,7 +1227,8 @@ class StockService extends BaseService
 				$amount -= $stockEntry->amount;
 			}
 			else
-			{ // Stock entry amount is > than needed amount -> split the stock entry resp. update the amount
+			{
+				// Stock entry amount is > than needed amount -> split the stock entry resp. update the amount
 				$restStockAmount = $stockEntry->amount - $amount;
 
 				$logRowForLocationFrom = $this->getDatabase()->stock_log()->createRow([

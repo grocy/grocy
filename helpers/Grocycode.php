@@ -26,6 +26,33 @@ class Grocycode
 	public const MAGIC = 'grcy';
 
 	/**
+	 * Constructs a new instance of the Grocycode class.
+	 *
+	 * Because php doesn't support overloading, this is a proxy
+	 * to either setFromCode($code) or setFromData($type, $id, $extra_data = []).
+	 */
+	public function __construct(...$args)
+	{
+		$argc = count($args);
+		if ($argc == 1)
+		{
+			$this->setFromCode($args[0]);
+			return;
+		}
+		elseif ($argc == 2 || $argc == 3)
+		{
+			if ($argc == 2)
+			{
+				$args[] = [];
+			}
+			$this->setFromData($args[0], $args[1], $args[2]);
+			return;
+		}
+
+		throw new \Exception('No suitable overload found.');
+	}
+
+	/**
 	 * An array that registers all valid grocycode types. Register yours here by appending to this array.
 	 */
 	public static $Items = [self::PRODUCT, self::BATTERY, self::CHORE];
@@ -56,31 +83,26 @@ class Grocycode
 		}
 	}
 
-	/**
-	 * Constructs a new instance of the Grocycode class.
-	 *
-	 * Because php doesn't support overloading, this is a proxy
-	 * to either setFromCode($code) or setFromData($type, $id, $extra_data = []).
-	 */
-	public function __construct(...$args)
+	public function GetId()
 	{
-		$argc = count($args);
-		if ($argc == 1)
-		{
-			$this->setFromCode($args[0]);
-			return;
-		}
-		elseif ($argc == 2 || $argc == 3)
-		{
-			if ($argc == 2)
-			{
-				$args[] = [];
-			}
-			$this->setFromData($args[0], $args[1], $args[2]);
-			return;
-		}
+		return $this->id;
+	}
 
-		throw new \Exception('No suitable overload found.');
+	public function GetExtraData()
+	{
+		return $this->extra_data;
+	}
+
+	public function GetType()
+	{
+		return $this->type;
+	}
+
+	public function __toString(): string
+	{
+		$arr = array_merge([self::MAGIC, $this->type, $this->id], $this->extra_data);
+
+		return implode(':', $arr);
 	}
 
 	/**
@@ -120,27 +142,5 @@ class Grocycode
 		$this->type = $type;
 		$this->id = $id;
 		$this->extra_data = $extra_data;
-	}
-
-	public function GetId()
-	{
-		return $this->id;
-	}
-
-	public function GetExtraData()
-	{
-		return $this->extra_data;
-	}
-
-	public function GetType()
-	{
-		return $this->type;
-	}
-
-	public function __toString(): string
-	{
-		$arr = array_merge([self::MAGIC, $this->type, $this->id], $this->extra_data);
-
-		return implode(':', $arr);
 	}
 }

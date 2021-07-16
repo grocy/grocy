@@ -4,8 +4,7 @@ function FindObjectInArrayByPropertyValue($array, $propertyName, $propertyValue)
 {
 	foreach ($array as $object)
 	{
-		if ($object->{$propertyName}
-			== $propertyValue)
+		if ($object->{$propertyName} == $propertyValue)
 		{
 			return $object;
 		}
@@ -17,37 +16,28 @@ function FindObjectInArrayByPropertyValue($array, $propertyName, $propertyValue)
 function FindAllObjectsInArrayByPropertyValue($array, $propertyName, $propertyValue, $operator = '==')
 {
 	$returnArray = [];
-
 	foreach ($array as $object)
 	{
 		switch ($operator)
 		{
 			case '==':
-
-				if ($object->{$propertyName}
-					== $propertyValue)
+				if ($object->{$propertyName} == $propertyValue)
 				{
 					$returnArray[] = $object;
 				}
-
 				break;
 			case '>':
-
-				if ($object->{$propertyName}
-					> $propertyValue)
+				if ($object->{$propertyName} > $propertyValue)
 				{
 					$returnArray[] = $object;
 				}
-
 				break;
 			case '<':
 
-				if ($object->{$propertyName}
-					< $propertyValue)
+				if ($object->{$propertyName} < $propertyValue)
 				{
 					$returnArray[] = $object;
 				}
-
 				break;
 		}
 	}
@@ -58,7 +48,6 @@ function FindAllObjectsInArrayByPropertyValue($array, $propertyName, $propertyVa
 function FindAllItemsInArrayByValue($array, $value, $operator = '==')
 {
 	$returnArray = [];
-
 	foreach ($array as $item)
 	{
 		switch ($operator)
@@ -69,7 +58,6 @@ function FindAllItemsInArrayByValue($array, $value, $operator = '==')
 				{
 					$returnArray[] = $item;
 				}
-
 				break;
 			case '>':
 
@@ -77,7 +65,6 @@ function FindAllItemsInArrayByValue($array, $value, $operator = '==')
 				{
 					$returnArray[] = $item;
 				}
-
 				break;
 			case '<':
 
@@ -85,7 +72,6 @@ function FindAllItemsInArrayByValue($array, $value, $operator = '==')
 				{
 					$returnArray[] = $item;
 				}
-
 				break;
 		}
 	}
@@ -96,7 +82,6 @@ function FindAllItemsInArrayByValue($array, $value, $operator = '==')
 function SumArrayValue($array, $propertyName)
 {
 	$sum = 0;
-
 	foreach ($array as $object)
 	{
 		$sum += floatval($object->{$propertyName});
@@ -124,7 +109,6 @@ function GetClassConstants($className, $prefix = null)
 function RandomString($length, $allowedChars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
 {
 	$randomString = '';
-
 	for ($i = 0; $i < $length; $i++)
 	{
 		$randomString .= $allowedChars[rand(0, strlen($allowedChars) - 1)];
@@ -190,7 +174,8 @@ function Setting(string $name, $value)
 			define('GROCY_' . $name, ExternalSettingValue(file_get_contents($settingOverrideFile)));
 		}
 		elseif (getenv('GROCY_' . $name) !== false)
-		{ // An environment variable with the same name and prefix GROCY_ overwrites the given setting
+		{
+			// An environment variable with the same name and prefix GROCY_ overwrites the given setting
 			define('GROCY_' . $name, ExternalSettingValue(getenv('GROCY_' . $name)));
 		}
 		else

@@ -6,11 +6,6 @@ use Grocy\Services\SessionService;
 
 class LoginController extends BaseController
 {
-	public function __construct(\DI\Container $container)
-	{
-		parent::__construct($container);
-	}
-
 	public function LoginPage(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'login');

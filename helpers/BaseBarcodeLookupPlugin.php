@@ -4,6 +4,12 @@ namespace Grocy\Helpers;
 
 abstract class BaseBarcodeLookupPlugin
 {
+	final public function __construct($locations, $quantityUnits)
+	{
+		$this->Locations = $locations;
+		$this->QuantityUnits = $quantityUnits;
+	}
+
 	protected $Locations;
 
 	protected $QuantityUnits;
@@ -50,40 +56,30 @@ abstract class BaseBarcodeLookupPlugin
 
 		// Check referenced entity ids are valid
 		$locationId = $pluginOutput['location_id'];
-
 		if (FindObjectInArrayByPropertyValue($this->Locations, 'id', $locationId) === null)
 		{
 			throw new \Exception("Location $locationId is not a valid location id");
 		}
 
 		$quIdPurchase = $pluginOutput['qu_id_purchase'];
-
 		if (FindObjectInArrayByPropertyValue($this->QuantityUnits, 'id', $quIdPurchase) === null)
 		{
 			throw new \Exception("Location $quIdPurchase is not a valid quantity unit id");
 		}
 
 		$quIdStock = $pluginOutput['qu_id_stock'];
-
 		if (FindObjectInArrayByPropertyValue($this->QuantityUnits, 'id', $quIdStock) === null)
 		{
 			throw new \Exception("Location $quIdStock is not a valid quantity unit id");
 		}
 
 		$quFactor = $pluginOutput['qu_factor_purchase_to_stock'];
-
 		if (empty($quFactor) || !is_numeric($quFactor))
 		{
 			throw new \Exception('Quantity unit factor is empty or not a number');
 		}
 
 		return $pluginOutput;
-	}
-
-	final public function __construct($locations, $quantityUnits)
-	{
-		$this->Locations = $locations;
-		$this->QuantityUnits = $quantityUnits;
 	}
 
 	abstract protected function ExecuteLookup($barcode);

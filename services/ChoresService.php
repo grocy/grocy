@@ -38,7 +38,6 @@ class ChoresService extends BaseService
 
 		$users = $this->getUsersService()->GetUsersAsDto();
 		$assignedUsers = [];
-
 		foreach ($users as $user)
 		{
 			if (in_array($user->id, explode(',', $chore->assignment_config)))
@@ -208,11 +207,6 @@ class ChoresService extends BaseService
 			'undone' => 1,
 			'undone_timestamp' => date('Y-m-d H:i:s')
 		]);
-	}
-
-	public function __construct()
-	{
-		parent::__construct();
 	}
 
 	private function ChoreExists($choreId)
