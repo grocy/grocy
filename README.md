@@ -13,7 +13,7 @@
 ## Questions / Help / Bug reporting / Feature requests
 There is the [r/grocy subreddit](https://www.reddit.com/r/grocy) to connect with other grocy users and getting help.
 
-If you've found something that does not work or if you have an idea for an improvement or new things which you would find useful, feel free to open a request on the [issue tracker](https://github.com/grocy/grocy/issues) here.
+If you've found something that does not work or if you have an idea for an improvement or new things which you would find useful, feel free to open a request on the [issue tracker](https://github.com/grocy/grocy/issues/new/choose) here.
 
 Please don't send me private messages regarding grocy help. I check the issue tracker and the subreddit pretty much daily, but don't provide grocy support beyond that.
 
@@ -48,18 +48,22 @@ Alternatively clone this repository (the `release` branch always references the 
 See [grocy/grocy-docker](https://github.com/grocy/grocy-docker) or [linuxserver/docker-grocy](https://github.com/linuxserver/docker-grocy) for instructions.
 
 ## How to update
-Just overwrite everything with the latest release while keeping the `data` directory, check `config-dist.php` for new configuration options and add them to your `data/config.php` where appropriate (the default values from `config-dist.php` will be used for not in `data/config.php` defined settings). Just to be sure, please empty `data/viewcache`.
+- Overwrite everything with the [latest release](https://releases.grocy.info/latest) while keeping the `data` directory
+- Check `config-dist.php` for new configuration options and add them to your `data/config.php` where appropriate (the default values from `config-dist.php` will be used for not in `data/config.php` defined settings)
+- Empty the `data/viewcache` directory
 
 If you run grocy on Linux, there is also `update.sh` (remember to make the script executable (`chmod +x update.sh`) and ensure that you have `unzip` installed) which does exactly this and additionally creates a backup (`.tgz` archive) of the current installation in `data/backups` (backups older than 60 days will be deleted during the update).
 
 ## Localization
 grocy is fully localizable - the default language is English (integrated into code), a German localization is always maintained by me.
-You can easily help translating grocy at https://www.transifex.com/grocy/grocy, if your language is incomplete or not available yet.
-(The default language can be set in `data/config.php`, e. g. `Setting('DEFAULT_LOCALE', 'it');` and there is also a user setting (see the user settings page) to set a different language per user).
+
+You can easily help translating grocy on [Transfifex](https://www.transifex.com/grocy/grocy/dashboard/) if your language is incomplete or not available yet.
+
+The default language can be set in `data/config.php`, e. g. `Setting('DEFAULT_LOCALE', 'it');` and there is also a user setting (see the user settings page) to set a different language per user.
 
 The [pre-release demo](https://demo-prerelease.grocy.info) is available for any translation which is at least 70 % complete and will pull the translations from Transifex 10 minutes past every hour, so you can have a kind of instant preview of your contributed translations. Thank you!
 
-Also any translation which once reached a completion level of 70 % will be included in releases.
+Also any translation which once reached a completion level of 70 % ([`strings` resource](https://www.transifex.com/grocy/grocy/strings/)) will be included in releases.
 
 _RTL languages are unfortunately not yet supported._
 
@@ -79,12 +83,12 @@ _My personal recommendation: Use a USB barcode laser scanner. They are cheap and
 For (productivity) reasons all date (and time) input (and display) fields use the ISO-8601 format regardless of localization.
 The following shorthands are available:
 - `MMDD` gets expanded to the given day on the current year, if > today, or to the given day next year, if < today, in proper notation
-  - Example: `0517` will be converted to `2018-05-17`
+  - Example: `0517` will be converted to `2021-05-17`
 - `YYYYMMDD` gets expanded to the proper ISO-8601 notation
-  - Example: `20190417` will be converted to `2019-04-17`
+  - Example: `20210417` will be converted to `2021-04-17`
 - `YYYYMMe` or `YYYYMM+` gets expanded to the end of the given month in the given year in proper notation
-  - Example: `201807e` will be converted to `2018-07-31`
-- `x` gets expanded to `2999-12-31` (which I use for products which are never overdue)
+  - Example: `202107e` will be converted to `2021-07-31`
+- `x` gets expanded to `2999-12-31` (which is an alias for "never overdue")
 - Down/up arrow keys will increase/decrease the date by 1 day
 - Right/left arrow keys will increase/decrease the date by 1 week
 - Shift + down/up arrow keys will increase/decrease the date by 1 month
@@ -105,7 +109,7 @@ Database schema migration is automatically done when visiting the root (`/`) rou
 _Please note: Database migrations are supposed to work between releases, not between every commit. If you want to run the current `master` branch (which is the development version), however, you need to handle that (and maybe more) yourself._
 
 ### Disable certain features
-If you don't use certain feature sets of grocy (for example if you don't need "Chores"), there are feature flags per major feature set to hide/disable the related UI elements (see `config-dist.php`)
+If you don't use certain feature sets of grocy (for example if you don't need "Chores"), there are feature flags per major feature set to hide/disable the related UI elements (see `config-dist.php`).
 
 ### Adding your own CSS or JS without to have to modify the application itself
 - When the file `data/custom_js.html` exists, the contents of the file will be added just before `</body>` (end of body) on every page
