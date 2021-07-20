@@ -4,7 +4,7 @@ class ERequirementNotMet extends Exception
 {
 }
 
-const REQUIRED_PHP_EXTENSIONS = ['fileinfo', 'pdo_sqlite', 'gd', 'ctype', 'json', 'intl', 'zlib'];
+const REQUIRED_PHP_EXTENSIONS = ['fileinfo', 'pdo_sqlite', 'gd', 'ctype', 'json', 'intl', 'zlib', 'filter', 'iconv', 'tokenizer'];
 const REQUIRED_SQLITE_VERSION = '3.9.0';
 
 class PrerequisiteChecker
