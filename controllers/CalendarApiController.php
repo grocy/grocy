@@ -30,7 +30,7 @@ class CalendarApiController extends BaseApiController
 				if ($event['date_format'] === 'date' || (isset($event['allDay']) && $event['allDay']))
 				{
 					// All-day event
-					$date = new Date(\DateTimeImmutable::createFromFormat('Y-m-d', $event['start']));
+					$date = new Date(\DateTimeImmutable::createFromFormat('Y-m-d', substr($event['start'], 0, 10)));
 					$vEventOccurrence = new SingleDay($date);
 				}
 				else
