@@ -1,2 +1,4 @@
 - Fixed that the upgrade failed when having "> 2 times duplicate" (means the same barcode was added more than 2 times) product barcodes
 - Fixed that when having any "Track date only" chore on the calendar, the iCal export was broken
+- Fixed that the upgrade failed when having unsupported parent/child product nesting levels
+  - More information on this: Only 1 level is currently supported; creating > 1 level nestings was _never_ possible via the UI/frontend, but not checked/enforced by the backend before `v3.0.0` - so it was potentially possible via the API (or any third party app/tool which utilizes it) to create such a nesting which then made this upgrade to fail
