@@ -51,6 +51,7 @@ See [grocy/grocy-docker](https://github.com/grocy/grocy-docker) or [linuxserver/
 - Overwrite everything with the [latest release](https://releases.grocy.info/latest) while keeping the `data` directory
 - Check `config-dist.php` for new configuration options and add them to your `data/config.php` where appropriate (the default values from `config-dist.php` will be used for not in `data/config.php` defined settings)
 - Empty the `data/viewcache` directory
+- Visit the main route once to apply database migrations ([see below](https://github.com/grocy/grocy#database-migrations))
 
 If you run grocy on Linux, there is also `update.sh` (remember to make the script executable (`chmod +x update.sh`) and ensure that you have `unzip` installed) which does exactly this and additionally creates a backup (`.tgz` archive) of the current installation in `data/backups` (backups older than 60 days will be deleted during the update).
 
