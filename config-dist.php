@@ -146,6 +146,7 @@ DefaultUserSetting('keep_screen_on_when_fullscreen_card', false); // Keep the sc
 DefaultUserSetting('product_presets_location_id', -1); // Default location id for new products (-1 means no location is preset)
 DefaultUserSetting('product_presets_product_group_id', -1); // Default product group id for new products (-1 means no product group is preset)
 DefaultUserSetting('product_presets_qu_id', -1); // Default quantity unit id for new products (-1 means no quantity unit is preset)
+DefaultUserSetting('product_presets_default_best_before_days', 0); // Default best before time in days for a new product (-1 means the product does not expire)
 DefaultUserSetting('stock_decimal_places_amounts', 4); // Default decimal places allowed for amounts
 DefaultUserSetting('stock_decimal_places_prices', 2); // Default decimal places allowed for prices
 DefaultUserSetting('stock_auto_decimal_separator_prices', false);
