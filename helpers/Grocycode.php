@@ -77,7 +77,7 @@ class Grocycode
 			$gc = new self($code);
 			return true;
 		}
-		catch (Exception $e)
+		catch (\Exception $e)
 		{
 			return false;
 		}
@@ -110,7 +110,7 @@ class Grocycode
 	 */
 	private function setFromCode($code)
 	{
-		$parts = array_reverse(explode(':', $barcode));
+		$parts = array_reverse(explode(':', $code));
 		if (array_pop($parts) != self::MAGIC)
 		{
 			throw new \Exception('Not a grocycode');
@@ -122,7 +122,7 @@ class Grocycode
 		}
 
 		$this->id = array_pop($parts);
-		$this->extra_data = array_reverse($parse);
+		$this->extra_data = array_reverse($parts);
 	}
 
 	/**
