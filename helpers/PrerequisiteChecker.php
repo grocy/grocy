@@ -4,7 +4,11 @@ class ERequirementNotMet extends Exception
 {
 }
 
-const REQUIRED_PHP_EXTENSIONS = ['fileinfo', 'pdo_sqlite', 'gd', 'ctype', 'json', 'intl', 'zlib'];
+const REQUIRED_PHP_EXTENSIONS = ['fileinfo', 'pdo_sqlite', 'gd', 'ctype', 'json', 'intl', 'zlib',
+	// These are core extensions, so normally can't be missing, but seems to be the case, however, on FreeBSD
+	'filter', 'iconv', 'tokenizer'
+];
+
 const REQUIRED_SQLITE_VERSION = '3.9.0';
 
 class PrerequisiteChecker
