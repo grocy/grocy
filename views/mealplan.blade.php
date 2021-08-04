@@ -90,7 +90,7 @@
 					<i class="fas fa-ellipsis-v"></i>
 				</button>
 			</div>
-			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
+			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100 d-print-none"
 				id="related-links">
 				<a class="btn btn-outline-secondary m-1 mt-md-0 mb-md-0 float-right"
 					href="{{ $U('/mealplansections') }}">

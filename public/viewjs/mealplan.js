@@ -57,7 +57,7 @@ $(".calendar").each(function()
 			}
 
 			$(".calendar[data-primary-section='true'] .fc-day-header").prepend('\
-			<div class="btn-group mr-2 my-1"> \
+			<div class="btn-group mr-2 my-1 d-print-none"> \
 				<button type="button" class="btn btn-outline-dark btn-xs add-recipe-button" data-toggle="tooltip" title="' + __t('Add recipe') + '"><i class="fas fa-plus"></i></a></button> \
 				<button type="button" class="btn btn-outline-dark btn-xs dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button> \
 				<div class="table-inline-menu dropdown-menu"> \
@@ -185,7 +185,7 @@ $(".calendar").each(function()
 					<h5 class="small text-truncate mb-1">' + __n(mealPlanEntry.recipe_servings, "%s serving", "%s servings") + '</h5> \
 					<h5 class="small timeago-contextual text-truncate mb-1">' + fulfillmentIconHtml + " " + fulfillmentInfoHtml + '</h5> \
 					' + costsAndCaloriesPerServing + ' \
-					<h5> \
+					<h5 class="d-print-none"> \
 						<a class="ml-1 btn btn-outline-info btn-xs edit-meal-plan-entry-button" href="#" data-toggle="tooltip" title="' + __t("Edit this item") + '"><i class="fas fa-edit"></i></a> \
 						<a class="btn btn-outline-danger btn-xs remove-recipe-button" href="#" data-toggle="tooltip" title="' + __t("Delete this item") + '"><i class="fas fa-trash"></i></a> \
 						' + shoppingListButtonHtml + ' \
