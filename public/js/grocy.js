@@ -801,6 +801,13 @@ $.extend(true, $.fn.dataTable.defaults, {
 					if ("dataSrc" in rowGroup)
 					{
 						api.rowGroup().dataSrc(rowGroup.dataSrc);
+
+						// Apply fixed order for group column
+						var fixedOrder = {
+							pre: [rowGroup.dataSrc, 'asc']
+						};
+
+						api.order.fixed(fixedOrder);
 					}
 				}
 			}
@@ -1096,6 +1103,9 @@ $(document).on("click", ".change-table-columns-rowgroup-toggle", function()
 		};
 
 		dataTable.rowGroup().enable(false);
+
+		// Remove fixed order
+		dataTable.order.fixed({});
 	}
 	else
 	{
@@ -1106,6 +1116,12 @@ $(document).on("click", ".change-table-columns-rowgroup-toggle", function()
 
 		dataTable.rowGroup().enable(true);
 		dataTable.rowGroup().dataSrc(columnIndex);
+
+		// Apply fixed order for group column
+		var fixedOrder = {
+			pre: [columnIndex, 'asc']
+		};
+		dataTable.order.fixed(fixedOrder);
 	}
 
 	var settingKey = 'datatables_rowGroup_' + dataTable.settings()[0].sTableId;
