@@ -161,19 +161,19 @@ $('#chore_id_text_input').on('blur', function(e)
 		{
 			possibleOptionElement = $("#chore_id option[value=\"" + gc[2] + "\"]").first();
 		}
-	}
 
-	if (possibleOptionElement.length > 0)
-	{
-		$('#chore_id').val(possibleOptionElement.val());
-		$('#chore_id').data('combobox').refresh();
-		$('#chore_id').trigger('change');
-	}
-	else
-	{
-		$('#chore_id').val(null);
-		$('#chore_id_text_input').val("");
-		$('#chore_id').data('combobox').refresh();
-		$('#chore_id').trigger('change');
+		if (possibleOptionElement.length > 0)
+		{
+			$('#chore_id').val(possibleOptionElement.val());
+			$('#chore_id').data('combobox').refresh();
+			$('#chore_id').trigger('change');
+		}
+		else
+		{
+			$('#chore_id').val(null);
+			$('#chore_id_text_input').val("");
+			$('#chore_id').data('combobox').refresh();
+			$('#chore_id').trigger('change');
+		}
 	}
 });
