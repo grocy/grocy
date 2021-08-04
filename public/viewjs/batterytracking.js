@@ -122,10 +122,8 @@ function UndoChargeCycle(chargeCycleId)
 	);
 };
 
-$('#battery_id_text_input').on('blur', function(e)
-{
-	if ($('#battery_id').hasClass("combobox-menu-visible"))
-	{
+$('#battery_id_text_input').on('blur', function(e) {
+	if ($('#battery_id').hasClass("combobox-menu-visible")) {
 		return;
 	}
 
@@ -133,26 +131,21 @@ $('#battery_id_text_input').on('blur', function(e)
 	var possibleOptionElement = [];
 
 	// grocycode handling
-	if (input.startsWith("grcy"))
-	{
+	if (input.startsWith("grcy")) {
 		var gc = input.split(":");
-		if (gc[1] == "b")
-		{
+		if (gc[1] == "b") {
 			possibleOptionElement = $("#battery_id option[value=\"" + gc[2] + "\"]").first();
 		}
-	}
 
-	if (possibleOptionElement.length > 0)
-	{
-		$('#battery_id').val(possibleOptionElement.val());
-		$('#battery_id').data('combobox').refresh();
-		$('#battery_id').trigger('change');
-	}
-	else
-	{
-		$('#battery_id').val(null);
-		$('#battery_id_text_input').val("");
-		$('#battery_id').data('combobox').refresh();
-		$('#battery_id').trigger('change');
+		if (possibleOptionElement.length > 0) {
+			$('#battery_id').val(possibleOptionElement.val());
+			$('#battery_id').data('combobox').refresh();
+			$('#battery_id').trigger('change');
+		} else {
+			$('#battery_id').val(null);
+			$('#battery_id_text_input').val("");
+			$('#battery_id').data('combobox').refresh();
+			$('#battery_id').trigger('change');
+		}
 	}
 });
