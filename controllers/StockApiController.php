@@ -161,7 +161,7 @@ class StockApiController extends BaseApiController
 	{
 		try
 		{
-			$args['productId'] = $this->getStockService()->GetProductIdFromBarcode($args['barcode']);
+			$args['productId'] = $this->getStockService()->GetProductIdFromBarcode(urldecode($args['barcode']));
 			return $this->AddProduct($request, $response, $args);
 		}
 		catch (\Exception $ex)
@@ -322,7 +322,7 @@ class StockApiController extends BaseApiController
 	{
 		try
 		{
-			$args['productId'] = $this->getStockService()->GetProductIdFromBarcode($args['barcode']);
+			$args['productId'] = $this->getStockService()->GetProductIdFromBarcode(urldecode($args['barcode']));
 			return $this->ConsumeProduct($request, $response, $args);
 		}
 		catch (\Exception $ex)
@@ -496,7 +496,7 @@ class StockApiController extends BaseApiController
 	{
 		try
 		{
-			$args['productId'] = $this->getStockService()->GetProductIdFromBarcode($args['barcode']);
+			$args['productId'] = $this->getStockService()->GetProductIdFromBarcode(urldecode($args['barcode']));
 			return $this->InventoryProduct($request, $response, $args);
 		}
 		catch (\Exception $ex)
@@ -550,7 +550,7 @@ class StockApiController extends BaseApiController
 	{
 		try
 		{
-			$args['productId'] = $this->getStockService()->GetProductIdFromBarcode($args['barcode']);
+			$args['productId'] = $this->getStockService()->GetProductIdFromBarcode(urldecode($args['barcode']));
 			return $this->OpenProduct($request, $response, $args);
 		}
 		catch (\Exception $ex)
@@ -575,7 +575,7 @@ class StockApiController extends BaseApiController
 	{
 		try
 		{
-			$productId = $this->getStockService()->GetProductIdFromBarcode($args['barcode']);
+			$productId = $this->getStockService()->GetProductIdFromBarcode(urldecode($args['barcode']));
 			return $this->ApiResponse($response, $this->getStockService()->GetProductDetails($productId));
 		}
 		catch (\Exception $ex)
@@ -804,7 +804,7 @@ class StockApiController extends BaseApiController
 	{
 		try
 		{
-			$args['productId'] = $this->getStockService()->GetProductIdFromBarcode($args['barcode']);
+			$args['productId'] = $this->getStockService()->GetProductIdFromBarcode(urldecode($args['barcode']));
 			return $this->TransferProduct($request, $response, $args);
 		}
 		catch (\Exception $ex)
