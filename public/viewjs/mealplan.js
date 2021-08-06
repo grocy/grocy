@@ -1055,3 +1055,8 @@ Grocy.Components.RecipePicker.GetPicker().on('change', function(e)
 		);
 	}
 });
+
+$("#print-meal-plan-button").on("click", function(e)
+{
+	window.print();
+});

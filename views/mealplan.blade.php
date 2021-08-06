@@ -92,6 +92,10 @@
 			</div>
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100 d-print-none"
 				id="related-links">
+				<a id="print-meal-plan-button"
+					class="btn btn-outline-dark m-1 mt-md-0 mb-md-0 float-right">
+					{{ $__t('Print') }}
+				</a>
 				<a class="btn btn-outline-secondary m-1 mt-md-0 mb-md-0 float-right"
 					href="{{ $U('/mealplansections') }}">
 					{{ $__t('Configure sections') }}
