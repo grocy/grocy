@@ -5,3 +5,4 @@
 - Fixed that the "Stock by-barcode" API routes were broken (thanks @larsverp)
 - Fixed that it was not possible to select a chore/battery on the corresponding tracking pages by mouse/touch
 - Fixed that grouping by columns in tables may caused duplicate groups
+- Optimized the meal plan page to be properly printable (thanks @MrKrisKrisu)
