@@ -165,7 +165,27 @@ class StockService extends BaseService
 				$transactionId = uniqid();
 			}
 
-			$stockId = uniqid();
+            // uniqid() basically returns a clock-like counter,
+            // so the characters in the string do not contribute
+            // equally to the uniqueness, so we can't just take
+            // a prefix or suffix of the value to get shorter codes.
+            // Instead, we hash it, and take a prefix. Because we're
+            // using a strong hash algorithm, the hash values will
+            // be very uniform, so a quite short prefix is enough
+            // to give a pretty good guarantee of uniqueness.
+            //
+            // Further, when we lookup stock entries, e.g. to
+            // consume them, we first lookup by product id,
+            // so the product id forms a distict namespace,
+            // and the collisions can only occur within entries
+            // for a product id.
+            //
+            $stockIdLength = 16;
+            if (GROCY_STOCK_ID_LENGTH)
+            {
+                $stockIdLength = GROCY_STOCK_ID_LENGTH;
+            }
+			$stockId = substr(hash("sha256", uniqid()), 0, $stockIdLength);
 
 			$logRow = $this->getDatabase()->stock_log()->createRow([
 				'product_id' => $productId,

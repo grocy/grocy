@@ -101,6 +101,19 @@ Setting('DEFAULT_PERMISSIONS', ['ADMIN']);
 // 1D (=> Code128) or 2D (=> DataMatrix)
 Setting('GROCYCODE_TYPE', '1D');
 
+// Length for stock id tags. Stock id values are unique
+// to their product, so the same value for two different
+// products is fine. The values are generated using
+// a strong hash, so for most instances 6 or 8 digits
+// is enough to make the likelyhood of collisions
+// acceptably tiny, a value like 16 means we could
+// generate unique entries for every tin of tomatoes
+// ever made.
+//
+// Why make it shorter? So you can print shorter
+// grocycode barcodes. But probably not shorter than 6.
+Setting('STOCK_ID_LENGTH', 16);
+
 // Label printer settings
 // This is the URI that grocy will POST to when asked to print a label
 Setting('LABEL_PRINTER_WEBHOOK', '');
