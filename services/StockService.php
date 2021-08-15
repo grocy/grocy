@@ -697,10 +697,10 @@ class StockService extends BaseService
 		if (Grocycode::Validate($barcode))
 		{
 			$gc = new Grocycode($barcode);
-            if ($gc->GetType() != Grocycode::PRODUCT)
-            {
-                throw new \Exception("Grocycode $barcode is not a product code");
-            }
+			if ($gc->GetType() != Grocycode::PRODUCT)
+			{
+				throw new \Exception("Grocycode $barcode is not a product code");
+			}
 			return intval($gc->GetId());
 		}
 
