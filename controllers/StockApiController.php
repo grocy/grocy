@@ -282,6 +282,10 @@ class StockApiController extends BaseApiController
 			{
 				$specificStockEntryId = $requestBody['stock_entry_id'];
 			}
+            else if (array_key_exists('stock_id', $args) && !empty($args['stock_id']))
+            {
+				$specificStockEntryId = $args['stock_id'];
+            }
 
 			$locationId = null;
 			if (array_key_exists('location_id', $requestBody) && !empty($requestBody['location_id']) && is_numeric($requestBody['location_id']))
@@ -322,7 +326,23 @@ class StockApiController extends BaseApiController
 	{
 		try
 		{
-			$args['productId'] = $this->getStockService()->GetProductIdFromBarcode($args['barcode']);
+	    if (Grocycode::Validate($barcode))
+	    {
+	        $gc = new Grocycode($barcode);
+	        if ($gc->GetType() != Grocycode::PRODUCT)
+	        {
+	            throw new \Exception("Invalid grocycode type");
+	        }
+	        $args['productId'] = $gc->GetId();
+	        if ($gc->GetExtraData())
+	        {
+	            $args['stock_id'] = $gc->GetExtraData()[0];
+	        }
+	    }
+	    else
+	    {
+	        $args['productId'] = $this->getStockService()->GetProductIdFromBarcode($args['barcode']);
+	    }
 			return $this->ConsumeProduct($request, $response, $args);
 		}
 		catch (\Exception $ex)
