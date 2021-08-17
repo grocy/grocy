@@ -8,4 +8,5 @@
 - Fixed that grouping by columns in tables may caused duplicate groups
 - Fixed that grocycode camera barcode scanning didn't recognize the scanned code for chore/battery tracking
 - Fixed that `missing_products` of the `/stock/volatile` endpoint also returned incactive products
+- Fixed that when having multiple Userfields for an entity, the `/objects/{entity}` endpoint returned wrong Userfield values
 - Optimized the meal plan page to be properly printable (thanks @MrKrisKrisu)
