@@ -195,8 +195,14 @@ $(document).on('click', '#add-overdue-expired-products', function(e)
 
 $(document).on('click', '#clear-shopping-list', function(e)
 {
+	var confirmMessage = __t('Are you sure to empty shopping list "%s"?', $("#selected-shopping-list option:selected").text());
+	if (!BoolVal(Grocy.FeatureFlags.GROCY_FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS))
+	{
+		confirmMessage = __t('Are you sure to empty the shopping list?');
+	}
+
 	bootbox.confirm({
-		message: __t('Are you sure to empty shopping list "%s"?', $("#selected-shopping-list option:selected").text()),
+		message: confirmMessage,
 		closeButton: false,
 		buttons: {
 			confirm: {
