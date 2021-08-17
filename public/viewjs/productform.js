@@ -269,6 +269,7 @@ $("#delete-current-product-picture-button").on("click", function(e)
 
 var quConversionsTable = $('#qu-conversions-table-products').DataTable({
 	'order': [[1, 'asc']],
+	"orderFixed": [[4, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 },
@@ -284,6 +285,7 @@ quConversionsTable.columns.adjust().draw();
 
 var barcodeTable = $('#barcode-table').DataTable({
 	'order': [[1, 'asc']],
+	"orderFixed": [[1, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 },
