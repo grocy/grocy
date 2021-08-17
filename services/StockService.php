@@ -596,7 +596,6 @@ class StockService extends BaseService
 	public function GetMissingProducts()
 	{
 		$sql = 'SELECT * FROM stock_missing_products_including_opened';
-
 		if (!GROCY_FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT)
 		{
 			$sql = 'SELECT * FROM stock_missing_products';

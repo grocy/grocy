@@ -7,4 +7,5 @@
 - Fixed that it was not possible to select a chore/battery on the corresponding tracking pages by mouse/touch
 - Fixed that grouping by columns in tables may caused duplicate groups
 - Fixed that grocycode camera barcode scanning didn't recognize the scanned code for chore/battery tracking
+- Fixed that `missing_products` of the `/stock/volatile` endpoint also returned incactive products
 - Optimized the meal plan page to be properly printable (thanks @MrKrisKrisu)
