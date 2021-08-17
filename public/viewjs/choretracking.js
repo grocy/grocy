@@ -121,7 +121,20 @@ $(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
 		return;
 	}
 
-	$('#chore_id_text_input').val(barcode).trigger('change');
+	// Don't know why the blur event does not fire immediately ... this works...
+	$("#chore_id_text_input").focusout();
+	$("#chore_id_text_input").focus();
+	$("#chore_id_text_input").blur();
+
+	$("#chore_id_text_input").val(barcode);
+
+	setTimeout(function()
+	{
+		$("#chore_id_text_input").focusout();
+		$("#chore_id_text_input").focus();
+		$("#chore_id_text_input").blur();
+		Grocy.Components.DateTimePicker.GetInputElement().focus();
+	}, 200);
 });
 
 Grocy.Components.DateTimePicker.GetInputElement().on('keypress', function(e)

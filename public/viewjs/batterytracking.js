@@ -105,7 +105,20 @@ $(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
 		return;
 	}
 
-	$('#battery_id_text_input').val(barcode).trigger('change');
+	// Don't know why the blur event does not fire immediately ... this works...
+	$("#battery_id_text_input").focusout();
+	$("#battery_id_text_input").focus();
+	$("#battery_id_text_input").blur();
+
+	$("#battery_id_text_input").val(barcode);
+
+	setTimeout(function()
+	{
+		$("#battery_id_text_input").focusout();
+		$("#battery_id_text_input").focus();
+		$("#battery_id_text_input").blur();
+		Grocy.Components.DateTimePicker.GetInputElement().focus();
+	}, 200);
 });
 
 function UndoChargeCycle(chargeCycleId)

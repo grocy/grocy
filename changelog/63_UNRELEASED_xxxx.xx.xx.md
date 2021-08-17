@@ -6,4 +6,5 @@
 - Fixed that the "Stock by-barcode" API routes also accepted chore or battery grocycodes (thanks @lowlee)
 - Fixed that it was not possible to select a chore/battery on the corresponding tracking pages by mouse/touch
 - Fixed that grouping by columns in tables may caused duplicate groups
+- Fixed that grocycode camera barcode scanning didn't recognize the scanned code for chore/battery tracking
 - Optimized the meal plan page to be properly printable (thanks @MrKrisKrisu)
