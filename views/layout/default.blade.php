@@ -639,7 +639,7 @@
 							href="{{ $U('/batteriessettings') }}"><i class="fas fa-battery-half"></i>&nbsp;{{ $__t('Batteries settings') }}</a>
 						@endif
 						<div class="dropdown-divider"></div>
-						<a data-href="{{ $U('/usersettings') }}"
+						<a href="{{ $U('/usersettings') }}"
 							class="dropdown-item discrete-link link-return">
 							<i class="fas fa-user-cog"></i> {{ $__t('User settings') }}
 						</a>
