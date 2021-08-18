@@ -278,13 +278,13 @@ class StockApiController extends BaseApiController
 			}
 
 			$specificStockEntryId = 'default';
-			if (array_key_exists('stock_entry_id', $requestBody) && !empty($requestBody['stock_entry_id']))
-			{
-				$specificStockEntryId = $requestBody['stock_entry_id'];
-			}
-			elseif (array_key_exists('stock_id', $args) && !empty($args['stock_id']))
+			if (array_key_exists('stock_id', $args) && !empty($args['stock_id']))
 			{
 				$specificStockEntryId = $args['stock_id'];
+			}
+			elseif (array_key_exists('stock_entry_id', $requestBody) && !empty($requestBody['stock_entry_id']))
+			{
+				$specificStockEntryId = $requestBody['stock_entry_id'];
 			}
 
 			$locationId = null;
@@ -326,6 +326,7 @@ class StockApiController extends BaseApiController
 	{
 		try
 		{
+			$barcode = $args['barcode'];
 			if (Grocycode::Validate($barcode))
 			{
 				$gc = new Grocycode($barcode);
