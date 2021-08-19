@@ -323,6 +323,18 @@ class StockApiController extends BaseApiController
 		try
 		{
 			$args['productId'] = $this->getStockService()->GetProductIdFromBarcode($args['barcode']);
+
+			if (Grocycode::Validate($args['barcode']))
+			{
+				$gc = new Grocycode($args['barcode']);
+				if ($gc->GetExtraData())
+				{
+					$requestBody = $request->getParsedBody();
+					$requestBody['stock_entry_id'] = $gc->GetExtraData()[0];
+					$request = $request->withParsedBody($requestBody);
+				}
+			}
+
 			return $this->ConsumeProduct($request, $response, $args);
 		}
 		catch (\Exception $ex)
@@ -805,6 +817,18 @@ class StockApiController extends BaseApiController
 		try
 		{
 			$args['productId'] = $this->getStockService()->GetProductIdFromBarcode($args['barcode']);
+
+			if (Grocycode::Validate($args['barcode']))
+			{
+				$gc = new Grocycode($args['barcode']);
+				if ($gc->GetExtraData())
+				{
+					$requestBody = $request->getParsedBody();
+					$requestBody['stock_entry_id'] = $gc->GetExtraData()[0];
+					$request = $request->withParsedBody($requestBody);
+				}
+			}
+
 			return $this->TransferProduct($request, $response, $args);
 		}
 		catch (\Exception $ex)
