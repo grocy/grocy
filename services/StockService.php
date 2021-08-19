@@ -510,10 +510,16 @@ class StockService extends BaseService
 			if ($addFoundProduct === true)
 			{
 				// Add product to database and include new product id in output
-				$newRow = $this->getDatabase()->products()->createRow($pluginOutput);
-				$newRow->save();
+				$productData = $pluginOutput;
+				unset($productData['barcode']);
+				$newProductRow = $this->getDatabase()->products()->createRow($productData);
+				$newProductRow->save();
+				$this->getDatabase()->product_barcodes()->createRow([
+					'product_id' => $newProductRow->id,
+					'barcode' => $pluginOutput['barcode']
+				])->save();
 
-				$pluginOutput['id'] = $newRow->id;
+				$pluginOutput['id'] = $newProductRow->id;
 			}
 		}
 
