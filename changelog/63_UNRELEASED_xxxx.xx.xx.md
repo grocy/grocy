@@ -9,4 +9,5 @@
 - Fixed that grocycode camera barcode scanning didn't recognize the scanned code for chore/battery tracking
 - Fixed that `missing_products` of the `/stock/volatile` endpoint also returned incactive products
 - Fixed that when having multiple Userfields for an entity, the `/objects/{entity}` endpoint returned wrong Userfield values
+- Fixed that the `/stock/products/by-barcode/{barcode}/consume` and `/stock/products/by-barcode/{barcode}/transfer` haven't used the stock entry given by a stock entry grocycode (thanks @lowlee for the initial work on this)
 - Optimized the meal plan page to be properly printable (thanks @MrKrisKrisu)
