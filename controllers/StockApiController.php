@@ -278,11 +278,7 @@ class StockApiController extends BaseApiController
 			}
 
 			$specificStockEntryId = 'default';
-			if (array_key_exists('stock_id', $args) && !empty($args['stock_id']))
-			{
-				$specificStockEntryId = $args['stock_id'];
-			}
-			elseif (array_key_exists('stock_entry_id', $requestBody) && !empty($requestBody['stock_entry_id']))
+			if (array_key_exists('stock_entry_id', $requestBody) && !empty($requestBody['stock_entry_id']))
 			{
 				$specificStockEntryId = $requestBody['stock_entry_id'];
 			}
@@ -326,24 +322,19 @@ class StockApiController extends BaseApiController
 	{
 		try
 		{
-			$barcode = $args['barcode'];
-			if (Grocycode::Validate($barcode))
+			$args['productId'] = $this->getStockService()->GetProductIdFromBarcode($args['barcode']);
+
+			if (Grocycode::Validate($args['barcode']))
 			{
-				$gc = new Grocycode($barcode);
-				if ($gc->GetType() != Grocycode::PRODUCT)
-				{
-					throw new \Exception('Invalid grocycode type');
-				}
-				$args['productId'] = $gc->GetId();
+				$gc = new Grocycode($args['barcode']);
 				if ($gc->GetExtraData())
 				{
-					$args['stock_id'] = $gc->GetExtraData()[0];
+					$requestBody = $request->getParsedBody();
+					$requestBody['stock_entry_id'] = $gc->GetExtraData()[0];
+					$request = $request->withParsedBody($requestBody);
 				}
 			}
-			else
-			{
-				$args['productId'] = $this->getStockService()->GetProductIdFromBarcode($args['barcode']);
-			}
+
 			return $this->ConsumeProduct($request, $response, $args);
 		}
 		catch (\Exception $ex)
