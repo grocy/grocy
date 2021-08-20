@@ -21,7 +21,7 @@ class BaseApiController extends BaseController
 			$response = $response->withHeader('Cache-Control', 'max-age=2592000');
 		}
 
-		$response->getBody()->write(json_encode($data, JSON_NUMERIC_CHECK));
+		$response->getBody()->write(json_encode($data));
 		return $response;
 	}
 
