@@ -310,6 +310,10 @@ function RefreshProductRow(productId)
 			{
 				productRow.addClass("table-warning");
 			}
+			else if (parseFloat(result.product.min_stock_amount) > 0 && parseFloat(result.stock_amount_aggregated) < parseFloat(result.product.min_stock_amount))
+			{
+				productRow.addClass("table-info");
+			}
 
 			if (result.stock_amount == 0 && result.stock_amount_aggregated == 0 && result.product.min_stock_amount == 0)
 			{
@@ -338,11 +342,6 @@ function RefreshProductRow(productId)
 				else
 				{
 					$('#product-' + productId + '-opened-amount').text("");
-				}
-
-				if (result.stock_amount == 0 && result.product.min_stock_amount > 0)
-				{
-					productRow.addClass("table-info");
 				}
 			}
 
