@@ -1,13 +1,13 @@
 # 
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2019
-# Pavel Pletenev <cpp.create@gmail.com>, 2019
 # cool guy <eut53770@bcaoo.com>, 2019
 # First Name Second Name <greentail@protonmail.ch>, 2019
 # Maksim Moiseikin <m.moiseikin@gmail.com>, 2020
 # unwarkz <git@unwar.kz>, 2021
 # J K <su1ka.box@gmail.com>, 2021
 # Sergey Kodolov, 2021
+# Pavel Pletenev <cpp.create@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Sergey Kodolov, 2021\n"
+"Last-Translator: Pavel Pletenev <cpp.create@gmail.com>, 2021\n"
 "Language-Team: Russian (https://www.transifex.com/grocy/teams/93189/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2539,3 +2539,6 @@ msgstr ""
 
 msgid "Section"
 msgstr ""
+
+msgid "Are you sure to empty the shopping list?"
+msgstr "Вы уверены, что нужно очистить список покупок?"

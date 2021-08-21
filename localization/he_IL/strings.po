@@ -2500,3 +2500,6 @@ msgstr "למחוק את הסעיף „%s” מתכנית הארוחות?"
 
 msgid "Section"
 msgstr "סעיף"
+
+msgid "Are you sure to empty the shopping list?"
+msgstr "לרוקן את רשימת הקניות?"

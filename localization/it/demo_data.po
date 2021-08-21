@@ -2,7 +2,7 @@
 # Translators:
 # Sergio Zampello <seriotv88@gmail.com>, 2019
 # Bernd Bestel <bernd@berrnd.de>, 2019
-# Antonino Ursino <ninus_@libero.it>, 2020
+# Antonino Ursino <ninus_@libero.it>, 2021
 # 
 msgid ""
 msgstr ""
@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Antonino Ursino <ninus_@libero.it>, 2020\n"
+"Last-Translator: Antonino Ursino <ninus_@libero.it>, 2021\n"
 "Language-Team: Italian (https://www.transifex.com/grocy/teams/93189/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -387,10 +387,10 @@ msgid "Finnish"
 msgstr "Finlandese"
 
 msgid "Breakfast"
-msgstr ""
+msgstr "Prima colazione"
 
 msgid "Lunch"
-msgstr ""
+msgstr "Pranzo"
 
 msgid "Dinner"
-msgstr ""
+msgstr "Cena"

@@ -2,7 +2,6 @@
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # Ankue <ankue.spam@gmail.com>, 2019
-# Fernando Sánchez <fernando.l.sanchez@gmail.com>, 2019
 # Igor Perez <igordiablo@hotmail.com>, 2020
 # Jose Rugel <joserugel@gmail.com>, 2020
 # Christian Cotillas <marril01@gmail.com>, 2020
@@ -11,6 +10,8 @@
 # Enrique Lapenta <enriquelap20@gmail.com>, 2020
 # Alberto Martin <ami232@gmail.com>, 2021
 # Adrián R.G. <adrirgrillo@gmail.com>, 2021
+# victormce <victormce@gmail.com>, 2021
+# Fernando Sánchez <fernando.l.sanchez@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -18,7 +19,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Adrián R.G. <adrirgrillo@gmail.com>, 2021\n"
+"Last-Translator: Fernando Sánchez <fernando.l.sanchez@gmail.com>, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/grocy/teams/93189/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2380,14 +2381,14 @@ msgid "A product or a note is required"
 msgstr "Hace falta un producto o una nota"
 
 msgid "grocycode"
-msgstr ""
+msgstr "grocycode"
 
 msgid "Download"
-msgstr ""
+msgstr "Descargar"
 
 # Example: Download *Product* grocycode
 msgid "Download %s grocycode"
-msgstr ""
+msgstr "Descargar %s grocycode"
 
 msgid ""
 "grocycode is a unique referer to this %s in your grocy instance - print it "
@@ -2450,20 +2451,20 @@ msgid "Show only in-stock products"
 msgstr ""
 
 msgid "Product description"
-msgstr ""
+msgstr "Descripción del producto"
 
 # Example: *3.21 USD* per *Pack*
 msgid "%1$s per %2$s"
-msgstr ""
+msgstr "%1$s por %2$s"
 
 msgid "Mark this item as undone"
 msgstr ""
 
 msgid "Mandatory"
-msgstr ""
+msgstr "Obligatorio"
 
 msgid "Mandatory Userfield"
-msgstr ""
+msgstr "Campo de usuario obligatorio"
 
 msgid "When enabled, then this field must be filled on the destination form"
 msgstr ""
@@ -2475,7 +2476,7 @@ msgid "Timestamp"
 msgstr ""
 
 msgid "Should not be frozen"
-msgstr ""
+msgstr "No debe congelarse"
 
 msgid ""
 "When enabled, on moving this product to a freezer location (so when freezing"
@@ -2483,19 +2484,19 @@ msgid ""
 msgstr ""
 
 msgid "This product shouldn't be frozen"
-msgstr ""
+msgstr "Este producto no debe congelarse"
 
 msgid "Copy all meal plan entries of %s"
 msgstr ""
 
 msgid "A date is required"
-msgstr ""
+msgstr "Se requiere una fecha"
 
 msgid "Day"
-msgstr ""
+msgstr "Día"
 
 msgid "Add recipe"
-msgstr ""
+msgstr "Agregar receta"
 
 msgid "Copy this day"
 msgstr ""
@@ -2517,10 +2518,10 @@ msgid "Display product"
 msgstr ""
 
 msgid "Copy recipe"
-msgstr ""
+msgstr "Copiar receta"
 
 msgid "Copy of %s"
-msgstr ""
+msgstr "Copia de %s"
 
 msgid "Add decimal separator automatically for price inputs"
 msgstr ""
@@ -2535,7 +2536,7 @@ msgid "Stock entry"
 msgstr ""
 
 msgid "Configure sections"
-msgstr ""
+msgstr "Configurar secciones"
 
 msgid "Meal plan sections"
 msgstr ""
@@ -2544,7 +2545,7 @@ msgid "Create meal plan section"
 msgstr ""
 
 msgid "Sections will be ordered by that number on the meal plan"
-msgstr ""
+msgstr "Las secciones se ordenarán por su número en el plan de comida"
 
 msgid "Edit meal plan section"
 msgstr ""
@@ -2554,3 +2555,6 @@ msgstr ""
 
 msgid "Section"
 msgstr ""
+
+msgid "Are you sure to empty the shopping list?"
+msgstr "¿Estás seguro de querer borrar la lista de la compra?"

@@ -2,7 +2,6 @@
 # Translators:
 # Llewy <carlvanoene@gmail.com>, 2019
 # Adriaan Peeters <apeeters@lashout.net>, 2019
-# Grocy NL, 2019
 # Seppe <van.winkel.seppe@me.com>, 2019
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # Jelte L <jelte@ollavogala.org>, 2019
@@ -25,6 +24,8 @@
 # Anne Gerben van Assen <annegerben+transifex@vanassen.eu>, 2021
 # Sebastiaan Ammerlaan <steelbas@gmail.com>, 2021
 # Mark Peters <forkless@gmail.com>, 2021
+# Daan Breur <daanbreur@gmail.com>, 2021
+# Grocy NL, 2021
 # 
 msgid ""
 msgstr ""
@@ -32,7 +33,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Mark Peters <forkless@gmail.com>, 2021\n"
+"Last-Translator: Grocy NL, 2021\n"
 "Language-Team: Dutch (https://www.transifex.com/grocy/teams/93189/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -102,7 +103,7 @@ msgid "Shopping list"
 msgstr "Boodschappenlijst"
 
 msgid "Chore tracking"
-msgstr "Klusjes invoeren"
+msgstr "Klusjes volgen"
 
 msgid "Battery tracking"
 msgstr "Batterij volgen"
@@ -2386,14 +2387,14 @@ msgid "A product or a note is required"
 msgstr "Een product of notitie is nodig"
 
 msgid "grocycode"
-msgstr ""
+msgstr "grocycode"
 
 msgid "Download"
-msgstr ""
+msgstr "Download"
 
 # Example: Download *Product* grocycode
 msgid "Download %s grocycode"
-msgstr ""
+msgstr "Download %s grocycode"
 
 msgid ""
 "grocycode is a unique referer to this %s in your grocy instance - print it "
@@ -2428,11 +2429,11 @@ msgid ""
 msgstr ""
 
 msgid "Error while executing WebHook"
-msgstr ""
+msgstr "Fout tijdens het uitvoeren van WebHook"
 
 # Example: Print *Product* grocycode on label printer
 msgid "Print %s grocycode on label printer"
-msgstr ""
+msgstr "Print %s grocycode op een label printer"
 
 msgid "Open stock entry label in new window"
 msgstr ""
@@ -2444,13 +2445,13 @@ msgid "Printing"
 msgstr ""
 
 msgid "Connecting to printer..."
-msgstr ""
+msgstr "Verbinden met printer..."
 
 msgid "Unable to print"
-msgstr ""
+msgstr "Kan niet afdrukken"
 
 msgid "Only done items"
-msgstr ""
+msgstr "Alleen afgehandelde items"
 
 msgid "Show only in-stock products"
 msgstr ""
@@ -2463,10 +2464,10 @@ msgid "%1$s per %2$s"
 msgstr ""
 
 msgid "Mark this item as undone"
-msgstr ""
+msgstr "Markeer dit item als ongedaan"
 
 msgid "Mandatory"
-msgstr ""
+msgstr "Verplicht"
 
 msgid "Mandatory Userfield"
 msgstr ""
@@ -2498,10 +2499,10 @@ msgid "A date is required"
 msgstr ""
 
 msgid "Day"
-msgstr ""
+msgstr "Dag"
 
 msgid "Add recipe"
-msgstr ""
+msgstr "Voeg recept toe"
 
 msgid "Copy this day"
 msgstr ""
@@ -2511,19 +2512,19 @@ msgstr ""
 
 msgid "%s month"
 msgid_plural "%s months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s maand"
+msgstr[1] "%s maanden"
 
 msgid "%s year"
 msgid_plural "%s years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s jaar"
+msgstr[1] "%s jaren"
 
 msgid "Display product"
-msgstr ""
+msgstr "Toon product"
 
 msgid "Copy recipe"
-msgstr ""
+msgstr "Kopieer recept"
 
 msgid "Copy of %s"
 msgstr ""
@@ -2560,3 +2561,6 @@ msgstr ""
 
 msgid "Section"
 msgstr ""
+
+msgid "Are you sure to empty the shopping list?"
+msgstr "Ben je zeker dat je de boodschappenlijst leeg wilt maken?"

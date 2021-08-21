@@ -2520,3 +2520,6 @@ msgstr ""
 
 msgid "Section"
 msgstr ""
+
+msgid "Are you sure to empty the shopping list?"
+msgstr ""

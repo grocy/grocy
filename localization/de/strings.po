@@ -2562,3 +2562,6 @@ msgstr "Speiseplan-Abschnitt \"%s\" wirklich löschen?"
 
 msgid "Section"
 msgstr "Abschnitt"
+
+msgid "Are you sure to empty the shopping list?"
+msgstr "Sicher, dass der Einkaufszettel geleert werden soll?"

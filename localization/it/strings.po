@@ -1,11 +1,11 @@
 # 
 # Translators:
-# Sergio Zampello <seriotv88@gmail.com>, 2019
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # Matteo Piotto <matteo.piotto@welaika.com>, 2019
 # 42d76af3cd20bc399c7e8a413695959f, 2019
 # Matteo Piccina <altermatte@gmail.com>, 2021
 # Antonino Ursino <ninus_@libero.it>, 2021
+# Sergio Zampello <seriotv88@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Antonino Ursino <ninus_@libero.it>, 2021\n"
+"Last-Translator: Sergio Zampello <seriotv88@gmail.com>, 2021\n"
 "Language-Team: Italian (https://www.transifex.com/grocy/teams/93189/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -340,7 +340,7 @@ msgid "Manage API keys"
 msgstr "Gestisci le chiavi API"
 
 msgid "REST API browser"
-msgstr ""
+msgstr "Browser API REST"
 
 msgid "API keys"
 msgstr "Chiavi API"
@@ -2144,6 +2144,10 @@ msgid ""
 "today + this amount of days, but only if the resulting date is not after the"
 " original due date (a value of 0 disables this)"
 msgstr ""
+"Quando questo prodotto è stato contrassegnato come aperto, la data di "
+"scadenza verrà sostituita da oggi + questo numero di giorni, ma solo se la "
+"data risultante non è successiva alla data di scadenza originale (un valore "
+"di 0 lo disabilita)"
 
 msgid "Default due days after opened"
 msgstr "Giorni di scadenza predefiniti dopo l'apertura"
@@ -2387,12 +2391,14 @@ msgstr "Scarica"
 
 # Example: Download *Product* grocycode
 msgid "Download %s grocycode"
-msgstr ""
+msgstr "Scarica il grocycode %s "
 
 msgid ""
 "grocycode is a unique referer to this %s in your grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
+"grocycode è un riferimento univoco per questo %s nella tua istanza grocy - "
+"stampalo su un'etichetta e scansionalo come qualsiasi altro codice a barre"
 
 # Abbreviation for "due date"
 msgid "DD"
@@ -2429,10 +2435,10 @@ msgstr "Errore durante l'esecuzione di WebHook"
 
 # Example: Print *Product* grocycode on label printer
 msgid "Print %s grocycode on label printer"
-msgstr ""
+msgstr "Stampa il grocycode %s sulla stampante per etichette"
 
 msgid "Open stock entry label in new window"
-msgstr ""
+msgstr "Apri l'etichetta della dispensa in una nuova finestra"
 
 msgid "Thermal printer"
 msgstr "Stampante termica"
@@ -2447,113 +2453,123 @@ msgid "Unable to print"
 msgstr "Impossibile stampare"
 
 msgid "Only done items"
-msgstr ""
+msgstr "Solo oggetti finiti"
 
 msgid "Show only in-stock products"
-msgstr ""
+msgstr "Mostra solo i prodotti in dispensa"
 
 msgid "Product description"
-msgstr ""
+msgstr "Descrizione del prodotto"
 
 # Example: *3.21 USD* per *Pack*
 msgid "%1$s per %2$s"
-msgstr ""
+msgstr "%1$s per ogni %2$s"
 
 msgid "Mark this item as undone"
-msgstr ""
+msgstr "Contrassegna questo elemento come annullato"
 
 msgid "Mandatory"
-msgstr ""
+msgstr "Obbligatorio"
 
 msgid "Mandatory Userfield"
-msgstr ""
+msgstr "Campo utente obbligatorio"
 
 msgid "When enabled, then this field must be filled on the destination form"
 msgstr ""
+"Se abilitato, questo campo deve essere compilato nel modulo di destinazione"
 
 msgid "In-stock products"
-msgstr ""
+msgstr "Prodotti in dispensa"
 
 msgid "Timestamp"
-msgstr ""
+msgstr "Marca temporale"
 
 msgid "Should not be frozen"
-msgstr ""
+msgstr "Non dovrebbe essere congelato"
 
 msgid ""
 "When enabled, on moving this product to a freezer location (so when freezing"
 " it), a warning will be shown"
 msgstr ""
+"Se abilitato, quando si sposta questo prodotto in un congelatore (quindi "
+"quando lo si congela), verrà mostrato un avviso"
 
 msgid "This product shouldn't be frozen"
-msgstr ""
+msgstr "Questo prodotto non deve essere congelato"
 
 msgid "Copy all meal plan entries of %s"
-msgstr ""
+msgstr "Copia tutte le voci del piano pasti di %s"
 
 msgid "A date is required"
-msgstr ""
+msgstr "È necessaria una data"
 
 msgid "Day"
-msgstr ""
+msgstr "Giorno"
 
 msgid "Add recipe"
-msgstr ""
+msgstr "Aggiungi ricetta"
 
 msgid "Copy this day"
-msgstr ""
+msgstr "Copia questo giorno"
 
 msgid "Date range"
-msgstr ""
+msgstr "Intervallo di date"
 
 msgid "%s month"
 msgid_plural "%s months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s mese"
+msgstr[1] "%s mesi"
 
 msgid "%s year"
 msgid_plural "%s years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s anno"
+msgstr[1] "%s anni"
 
 msgid "Display product"
-msgstr ""
+msgstr "Visualizza prodotto"
 
 msgid "Copy recipe"
-msgstr ""
+msgstr "Copia ricetta"
 
 msgid "Copy of %s"
-msgstr ""
+msgstr "Copia di %s"
 
 msgid "Add decimal separator automatically for price inputs"
 msgstr ""
+"Aggiungi automaticamente il separatore decimale per l'inserimento dei prezzi"
 
 msgid ""
 "When enabled, you always have to enter the value including decimal places, "
 "the decimal separator will be automatically added based on the amount of "
 "allowed decimal places"
 msgstr ""
+"Quando abilitato, devi sempre inserire il valore con le cifre decimali, il "
+"separatore decimale verrà aggiunto automaticamente in base alla quantità di "
+"cifre decimali consentite"
 
 msgid "Stock entry"
-msgstr ""
+msgstr "Entrata in dispensa"
 
 msgid "Configure sections"
-msgstr ""
+msgstr "Configura sezioni"
 
 msgid "Meal plan sections"
-msgstr ""
+msgstr "Sezioni del piano pasti"
 
 msgid "Create meal plan section"
-msgstr ""
+msgstr "Crea la sezione del piano pasti"
 
 msgid "Sections will be ordered by that number on the meal plan"
-msgstr ""
+msgstr "Le sezioni saranno ordinate da quel numero sul piano pasti"
 
 msgid "Edit meal plan section"
-msgstr ""
+msgstr "Modifica la sezione del piano pasti"
 
 msgid "Are you sure to delete meal plan section \"%s\"?"
-msgstr ""
+msgstr "Sei sicuro di eliminare la sezione del piano pasti \"%s\"?"
 
 msgid "Section"
-msgstr ""
+msgstr "Sezione"
+
+msgid "Are you sure to empty the shopping list?"
+msgstr "Sei sicuro di svuotare la lista della spesa?"

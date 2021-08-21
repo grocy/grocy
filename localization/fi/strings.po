@@ -1976,7 +1976,7 @@ msgid "Price per stock unit"
 msgstr "Hinta per varastoyksikkö"
 
 msgid "Table options"
-msgstr "Taulukon vaihtoehdot"
+msgstr "Taulukon asetukset"
 
 msgid "This product is currently on a shopping list"
 msgstr "Tämä tuote on tällä hetkellä ostoslistalla"
@@ -2240,7 +2240,7 @@ msgid "None"
 msgstr "Ei mitään"
 
 msgid "Group by"
-msgstr "Ryhmittele"
+msgstr "Ryhmittely"
 
 msgid "Ingredient group"
 msgstr "Ainesosaryhmä"
@@ -2252,7 +2252,7 @@ msgid "Are you sure to reset the table options?"
 msgstr "Haluatko varmasti nollata taulukon valinnat?"
 
 msgid "Hide/view columns"
-msgstr "Piilota/näytä kolumneja"
+msgstr "Sarakkeet"
 
 msgid ""
 "A different amount/unit can then be used below while for stock fulfillment "
@@ -2330,14 +2330,14 @@ msgid "A product or a note is required"
 msgstr "Tuote tai merkintä vaaditaan"
 
 msgid "grocycode"
-msgstr ""
+msgstr "grocykoodi"
 
 msgid "Download"
-msgstr ""
+msgstr "Lataa"
 
 # Example: Download *Product* grocycode
 msgid "Download %s grocycode"
-msgstr ""
+msgstr "Lataa %s grocykoodi"
 
 msgid ""
 "grocycode is a unique referer to this %s in your grocy instance - print it "
@@ -2349,7 +2349,7 @@ msgid "DD"
 msgstr ""
 
 msgid "Print on label printer"
-msgstr ""
+msgstr "Tulosta tarratulostimella"
 
 msgid "Stock entry label"
 msgstr ""
@@ -2376,56 +2376,56 @@ msgstr ""
 
 # Example: Print *Product* grocycode on label printer
 msgid "Print %s grocycode on label printer"
-msgstr ""
+msgstr "Tulosta %s grocykoodi tarratulostimella"
 
 msgid "Open stock entry label in new window"
 msgstr ""
 
 msgid "Thermal printer"
-msgstr ""
+msgstr "Kuittitulostin"
 
 msgid "Printing"
-msgstr ""
+msgstr "Tulostaminen"
 
 msgid "Connecting to printer..."
-msgstr ""
+msgstr "Yhdistetään tulostimeen..."
 
 msgid "Unable to print"
-msgstr ""
+msgstr "Ei voida tulostaa"
 
 msgid "Only done items"
 msgstr ""
 
 msgid "Show only in-stock products"
-msgstr ""
+msgstr "Näytä vain varastossa olevat"
 
 msgid "Product description"
-msgstr ""
+msgstr "Tuotekuvaus"
 
 # Example: *3.21 USD* per *Pack*
 msgid "%1$s per %2$s"
-msgstr ""
+msgstr "%1$s per %2$s"
 
 msgid "Mark this item as undone"
 msgstr ""
 
 msgid "Mandatory"
-msgstr ""
+msgstr "Pakollinen"
 
 msgid "Mandatory Userfield"
-msgstr ""
+msgstr "Pakollinen käyttäjäkenttä"
 
 msgid "When enabled, then this field must be filled on the destination form"
 msgstr ""
 
 msgid "In-stock products"
-msgstr ""
+msgstr "Varastossa olevat tuotteet"
 
 msgid "Timestamp"
-msgstr ""
+msgstr "Aikaleima"
 
 msgid "Should not be frozen"
-msgstr ""
+msgstr "Ei saa pakastaa"
 
 msgid ""
 "When enabled, on moving this product to a freezer location (so when freezing"
@@ -2433,59 +2433,62 @@ msgid ""
 msgstr ""
 
 msgid "This product shouldn't be frozen"
-msgstr ""
+msgstr "Tätä tuotetta ei pitäisi pakastaa"
 
 msgid "Copy all meal plan entries of %s"
 msgstr ""
 
 msgid "A date is required"
-msgstr ""
+msgstr "Päivämäärä tarvitaan"
 
 msgid "Day"
-msgstr ""
+msgstr "Päivä"
 
 msgid "Add recipe"
-msgstr ""
+msgstr "Lisää resepti"
 
 msgid "Copy this day"
-msgstr ""
+msgstr "Kopioi tämä päivä"
 
 msgid "Date range"
 msgstr ""
 
 msgid "%s month"
 msgid_plural "%s months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s kuukausi"
+msgstr[1] "%s kuukautta"
 
 msgid "%s year"
 msgid_plural "%s years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s vuosi"
+msgstr[1] "%s vuotta"
 
 msgid "Display product"
-msgstr ""
+msgstr "Näytä tuote"
 
 msgid "Copy recipe"
-msgstr ""
+msgstr "Kopioi resepti"
 
 msgid "Copy of %s"
 msgstr ""
 
 msgid "Add decimal separator automatically for price inputs"
-msgstr ""
+msgstr "Lisää desimaalierotin automaattisesti syötettyihin hintoihin"
 
 msgid ""
 "When enabled, you always have to enter the value including decimal places, "
 "the decimal separator will be automatically added based on the amount of "
 "allowed decimal places"
 msgstr ""
+"Kun tämä asetus on käytössä, täytyy hintoja syötettäessä aina syöttää myös "
+"desimaalinumerot. Desimaalierotin lisätään automaattisesti hintojen "
+"desimaalimääräaasetuksen mukaisesti."
 
 msgid "Stock entry"
-msgstr ""
+msgstr "Varastomerkintä"
 
 msgid "Configure sections"
-msgstr ""
+msgstr "Määrittele osiot"
 
 msgid "Meal plan sections"
 msgstr ""
@@ -2503,4 +2506,7 @@ msgid "Are you sure to delete meal plan section \"%s\"?"
 msgstr ""
 
 msgid "Section"
+msgstr "Osio"
+
+msgid "Are you sure to empty the shopping list?"
 msgstr ""
