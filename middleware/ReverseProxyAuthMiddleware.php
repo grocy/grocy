@@ -26,7 +26,7 @@ class ReverseProxyAuthMiddleware extends AuthMiddleware
 		if (count($username) !== 1)
 		{
 			// Invalid configuration of Proxy
-			throw new \Exception('ReverseProxyAuthMiddleware: Invalid username from proxy: ' . var_dump($username));
+			throw new \Exception('ReverseProxyAuthMiddleware: ' . GROCY_REVERSE_PROXY_AUTH_HEADER . ' header is missing or invalid');
 		}
 		$username = $username[0];
 
