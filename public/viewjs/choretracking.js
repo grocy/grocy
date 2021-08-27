@@ -76,7 +76,12 @@ $('#chore_id').on('change', function(e)
 		);
 
 		Grocy.Components.ChoreCard.Refresh(choreId);
-		Grocy.Components.DateTimePicker.GetInputElement().focus();
+
+		setTimeout(function()
+		{
+			Grocy.Components.DateTimePicker.GetInputElement().focus();
+		}, 200);
+
 		Grocy.FrontendHelpers.ValidateForm('choretracking-form');
 	}
 });
@@ -133,7 +138,7 @@ $(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
 		$("#chore_id_text_input").focusout();
 		$("#chore_id_text_input").focus();
 		$("#chore_id_text_input").blur();
-		Grocy.Components.DateTimePicker.GetInputElement().focus();
+		$('#tracked_time').find('input').focus();
 	}, 200);
 });
 
@@ -189,4 +194,9 @@ $('#chore_id_text_input').on('blur', function(e)
 			$('#chore_id').trigger('change');
 		}
 	}
+});
+
+$("#tracked_time").find("input").on("focus", function(e)
+{
+	$(this).select();
 });

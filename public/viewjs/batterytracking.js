@@ -53,7 +53,12 @@ $('#battery_id').on('change', function(e)
 	if (batteryId)
 	{
 		Grocy.Components.BatteryCard.Refresh(batteryId);
-		$('#tracked_time').find('input').focus();
+
+		setTimeout(function()
+		{
+			$('#tracked_time').find('input').focus();
+		}, 200);
+
 		Grocy.FrontendHelpers.ValidateForm('batterytracking-form');
 	}
 });
@@ -117,7 +122,7 @@ $(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
 		$("#battery_id_text_input").focusout();
 		$("#battery_id_text_input").focus();
 		$("#battery_id_text_input").blur();
-		Grocy.Components.DateTimePicker.GetInputElement().focus();
+		$('#tracked_time').find('input').focus();
 	}, 200);
 });
 
@@ -169,4 +174,9 @@ $('#battery_id_text_input').on('blur', function(e)
 			$('#battery_id').trigger('change');
 		}
 	}
+});
+
+$("#tracked_time").find("input").on("focus", function(e)
+{
+	$(this).select();
 });
