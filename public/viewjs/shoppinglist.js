@@ -223,12 +223,7 @@ $(document).on('click', '#clear-shopping-list', function(e)
 				Grocy.Api.Post('stock/shoppinglist/clear', { "list_id": $("#selected-shopping-list").val() },
 					function(result)
 					{
-						animateCSS("#shoppinglist-table tbody tr", "fadeOut", function()
-						{
-							Grocy.FrontendHelpers.EndUiBusy();
-							$("#shoppinglist-table tbody tr").remove();
-							OnListItemRemoved();
-						});
+						window.location.reload();
 					},
 					function(xhr)
 					{
