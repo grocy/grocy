@@ -264,10 +264,12 @@ $(document).on('click', '.shopping-list-stock-add-workflow-list-item-button', fu
 Grocy.ShoppingListToStockWorkflowAll = false;
 Grocy.ShoppingListToStockWorkflowCount = 0;
 Grocy.ShoppingListToStockWorkflowCurrent = 0;
+Grocy.ShoppingListAddToStockButtonList = [];
 $(document).on('click', '#add-all-items-to-stock-button', function(e)
 {
 	Grocy.ShoppingListToStockWorkflowAll = true;
-	Grocy.ShoppingListToStockWorkflowCount = $(".shopping-list-stock-add-workflow-list-item-button").length;
+	Grocy.ShoppingListAddToStockButtonList = $(".shopping-list-stock-add-workflow-list-item-button");
+	Grocy.ShoppingListToStockWorkflowCount = Grocy.ShoppingListAddToStockButtonList.length;
 	Grocy.ShoppingListToStockWorkflowCurrent++;
 	$(".shopping-list-stock-add-workflow-list-item-button").first().click();
 });
@@ -277,6 +279,7 @@ $("#shopping-list-stock-add-workflow-modal").on("hidden.bs.modal", function(e)
 	Grocy.ShoppingListToStockWorkflowAll = false;
 	Grocy.ShoppingListToStockWorkflowCount = 0;
 	Grocy.ShoppingListToStockWorkflowCurrent = 0;
+	Grocy.ShoppingListAddToStockButtonList = [];
 })
 
 $(window).on("message", function(e)
@@ -298,7 +301,7 @@ $(window).on("message", function(e)
 			Grocy.ShoppingListToStockWorkflowCurrent++;
 			if (Grocy.ShoppingListToStockWorkflowCurrent <= Grocy.ShoppingListToStockWorkflowCount)
 			{
-				$(".shopping-list-stock-add-workflow-list-item-button")[Grocy.ShoppingListToStockWorkflowCurrent - 1].click();
+				Grocy.ShoppingListAddToStockButtonList[Grocy.ShoppingListToStockWorkflowCurrent - 1].click();
 			}
 			else
 			{
