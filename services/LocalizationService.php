@@ -73,7 +73,7 @@ class LocalizationService
 	{
 		$this->CheckAndAddMissingTranslationToPot($singularForm);
 
-		return sprintf($this->Translator->ngettext($singularForm, $pluralForm, $number), $number);
+		return sprintf($this->Translator->ngettext($singularForm, $pluralForm, GROCY_TREAT_MINUS_ONE_AS_SINGULAR ? abs($number) : $number), $number);
 	}
 
 	public function __t($text, ...$placeholderValues)

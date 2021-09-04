@@ -22,6 +22,9 @@ Setting('MODE', 'production');
 // one of the other available localization folders in the "/localization" directory
 Setting('DEFAULT_LOCALE', 'en');
 
+// For most languages it might be a good idea to treat -1 as singular
+Setting('TREAT_MINUS_ONE_AS_SINGULAR', true);
+
 // This is used to define the first day of a week for calendar views in the frontend,
 // leave empty to use the locale default
 // Needs to be a number where Sunday = 0, Monday = 1 and so forth
