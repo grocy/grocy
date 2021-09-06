@@ -256,7 +256,7 @@ __n = function(number, singularForm, pluralForm)
 		}
 	}
 
-	return Grocy.Translator.n__(singularForm, pluralForm, number, number)
+	return Grocy.Translator.n__(singularForm, pluralForm, Math.abs(number), Math.abs(number))
 }
 
 if (!Grocy.ActiveNav.isEmpty())
