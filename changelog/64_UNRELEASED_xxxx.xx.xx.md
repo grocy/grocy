@@ -1,1 +1,5 @@
 - Fixed that the "Add all list items to stock" shopping list workflow did not work for more than ~6 items (thanks @tjhowse)
+- Fixed that plural form handling (e.g. for quantity units) was wrong for negative numbers
+
+### API
+- Fixed that international characters were not allowed in API query filters
