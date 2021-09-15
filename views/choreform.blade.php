@@ -30,6 +30,7 @@
 		@endif
 
 		<form id="chore-form"
+			class="has-sticky-form-footer"
 			novalidate>
 
 			<div class="form-group">
@@ -284,8 +285,10 @@
 			'entity' => 'chores'
 			))
 
-			<button id="save-chore-button"
-				class="btn btn-success">{{ $__t('Save') }}</button>
+			<div class="sticky-form-footer pt-1">
+				<button id="save-chore-button"
+					class="btn btn-success">{{ $__t('Save') }}</button>
+			</div>
 
 		</form>
 	</div>
@@ -293,7 +296,7 @@
 	<div class="col-lg-6 col-12 @if($mode == 'create') d-none @endif">
 		<div class="row">
 			<div class="col clearfix">
-				<div class="title-related-links">
+				<div class="title-related-links pb-4">
 					<h4>
 						<span class="ls-n1">{{ $__t('grocycode') }}</span>
 						<i class="fas fa-question-circle text-muted"

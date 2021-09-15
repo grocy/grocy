@@ -1,4 +1,5 @@
-body.night-mode {
+body.night-mode,
+.night-mode .sticky-form-footer {
 	color: #c1c1c1;
 	background-color: #333131;
 }

@@ -36,6 +36,7 @@
 		@endif
 
 		<form id="product-form"
+			class="has-sticky-form-footer"
 			novalidate>
 
 			<div class="form-group">
@@ -420,11 +421,6 @@
 			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
 			))
 
-			@include('components.userfieldsform', array(
-			'userfields' => $userfields,
-			'entity' => 'products'
-			))
-
 			@if(GROCY_FEATURE_FLAG_LABEL_PRINTER)
 			<div class="form-group">
 				<div class="custom-control custom-checkbox">
@@ -477,6 +473,11 @@
 			</div>
 			@endif
 
+			@include('components.userfieldsform', array(
+			'userfields' => $userfields,
+			'entity' => 'products'
+			))
+
 			<div class="form-group">
 				<div class="custom-control custom-checkbox">
 					<input @if($mode=='edit'
@@ -491,14 +492,16 @@
 				</div>
 			</div>
 
-			<small id="save-hint"
-				class="my-2 form-text text-muted @if($mode == 'edit') d-none @endif">{{ $__t('Save & continue to add quantity unit conversions & barcodes') }}</small>
+			<div class="sticky-form-footer pt-1">
+				<small id="save-hint"
+					class="my-1 form-text text-muted @if($mode == 'edit') d-none @endif">{{ $__t('Save & continue to add quantity unit conversions & barcodes') }}</small>
 
-			<button id="save-product-button"
-				class="save-product-button btn btn-success mb-2 default-submit-button"
-				data-location="continue">{{ $__t('Save & continue') }}</button>
-			<button class="save-product-button btn btn-info mb-2"
-				data-location="return">{{ $__t('Save & return to products') }}</button>
+				<button id="save-product-button"
+					class="save-product-button btn btn-success mb-2 default-submit-button"
+					data-location="continue">{{ $__t('Save & continue') }}</button>
+				<button class="save-product-button btn btn-info mb-2"
+					data-location="return">{{ $__t('Save & return to products') }}</button>
+			</div>
 		</form>
 
 	</div>

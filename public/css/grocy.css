@@ -134,6 +134,19 @@ input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 }
 
+.sticky-form-footer {
+	border-top: 1px solid #d6d6d6;
+	background-color: white;
+	bottom: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 5000;
+}
+
+form.has-sticky-form-footer .form-group:nth-last-child(2) {
+	padding-bottom: 2rem;
+}
+
 /* Navigation style customizations */
 #mainNav {
 	line-height: 1;
