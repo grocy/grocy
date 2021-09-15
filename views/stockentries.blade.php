@@ -159,7 +159,7 @@
 									<i class="fas fa-list"></i> {{ $__t('Inventory') }}
 								</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item stock-consume-button stock-consume-button-spoiled @if($stockEntry->amount < 1) disabled @endif"
+								<a class="dropdown-item stock-consume-button stock-consume-button-spoiled"
 									type="button"
 									href="#"
 									data-product-id="{{ $stockEntry->product_id }}"

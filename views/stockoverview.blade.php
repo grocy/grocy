@@ -243,13 +243,13 @@
 									href="{{ $U('/purchase?embedded&product=' . $currentStockEntry->product_id ) }}">
 									<span class="dropdown-item-icon"><i class="fas fa-cart-plus"></i></span> <span class="dropdown-item-text">{{ $__t('Purchase') }}</span>
 								</a>
-								<a class="dropdown-item show-as-dialog-link permission-STOCK_CONSUME @if($currentStockEntry->amount_aggregated < 1) disabled @endif"
+								<a class="dropdown-item show-as-dialog-link permission-STOCK_CONSUME @if($currentStockEntry->amount_aggregated <= 0) disabled @endif"
 									type="button"
 									href="{{ $U('/consume?embedded&product=' . $currentStockEntry->product_id ) }}">
 									<span class="dropdown-item-icon"><i class="fas fa-utensils"></i></span> <span class="dropdown-item-text">{{ $__t('Consume') }}</span>
 								</a>
 								@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
-								<a class="dropdown-item show-as-dialog-link permission-STOCK_TRANSFER @if($currentStockEntry->amount < 1) disabled @endif"
+								<a class="dropdown-item show-as-dialog-link permission-STOCK_TRANSFER @if($currentStockEntry->amount <= 0) disabled @endif"
 									type="button"
 									href="{{ $U('/transfer?embedded&product=' . $currentStockEntry->product_id) }}">
 									<span class="dropdown-item-icon"><i class="fas fa-exchange-alt"></i></span> <span class="dropdown-item-text">{{ $__t('Transfer') }}</span>
@@ -259,16 +259,6 @@
 									type="button"
 									href="{{ $U('/inventory?embedded&product=' . $currentStockEntry->product_id ) }}">
 									<span class="dropdown-item-icon"><i class="fas fa-list"></i></span> <span class="dropdown-item-text">{{ $__t('Inventory') }}</span>
-								</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item product-consume-button product-consume-button-spoiled permission-STOCK_CONSUME @if($currentStockEntry->amount_aggregated < 1) disabled @endif"
-									type="button"
-									href="#"
-									data-product-id="{{ $currentStockEntry->product_id }}"
-									data-product-name="{{ $currentStockEntry->product_name }}"
-									data-product-qu-name="{{ $currentStockEntry->qu_unit_name }}"
-									data-consume-amount="1">
-									<span class="dropdown-item-text">{{ $__t('Consume %1$s of %2$s as spoiled', '1 ' . $currentStockEntry->qu_unit_name, $currentStockEntry->product_name) }}</span>
 								</a>
 								@if(GROCY_FEATURE_FLAG_RECIPES)
 								<a class="dropdown-item"
