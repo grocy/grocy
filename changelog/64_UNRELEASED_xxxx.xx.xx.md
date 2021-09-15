@@ -1,0 +1,1 @@
+- Fixed that the "Add all list items to stock" shopping list workflow did not work for more than ~6 items (thanks @tjhowse)
