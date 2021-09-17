@@ -5120,7 +5120,7 @@
 					},
 					"used_date": {
 						"type": "string",
-						"format": "date-time"
+						"format": "date"
 					},
 					"spoiled": {
 						"type": "boolean",
