@@ -140,7 +140,7 @@ input::-webkit-inner-spin-button {
 	bottom: 0;
 	position: fixed;
 	width: 100%;
-	z-index: 5000;
+	z-index: 1030;
 }
 
 form.has-sticky-form-footer .form-group:nth-last-child(2) {
