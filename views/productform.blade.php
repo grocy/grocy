@@ -506,9 +506,9 @@
 
 	</div>
 
-	<div class="col-lg-6 col-12 @if($mode == 'create') d-none @endif">
+	<div class="col-lg-6 col-12">
 
-		<div class="row @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif">
+		<div class="row @if($mode == 'create' || !GROCY_FEATURE_FLAG_STOCK) d-none @endif">
 			<div class="col">
 				<div class="title-related-links">
 					<h4>
@@ -615,7 +615,7 @@
 			</div>
 		</div>
 
-		<div class="row mt-2">
+		<div class="row mt-2 @if($mode == 'create') d-none @endif">
 			<div class="col clearfix">
 				<div class="title-related-links">
 					<h4>
@@ -646,7 +646,7 @@
 			</div>
 		</div>
 
-		<div class="row @if(GROCY_FEATURE_FLAG_STOCK) mt-5 @endif">
+		<div class="row @if(GROCY_FEATURE_FLAG_STOCK) mt-5 @endif @if($mode == 'create') d-none @endif">
 			<div class="col">
 				<div class="title-related-links">
 					<h4>
@@ -733,7 +733,7 @@
 			</div>
 		</div>
 
-		<div class="row mt-5">
+		<div class="row @if($mode == 'edit') mt-5 @endif">
 			<div class="col">
 				<div class="title-related-links">
 					<h4>
@@ -746,7 +746,6 @@
 									class="custom-file-input"
 									id="product-picture"
 									accept="image/*">
-								@if($mode == "edit")
 								<label id="product-picture-label"
 									class="custom-file-label @if(empty($product->picture_file_name)) d-none @endif"
 									for="product-picture">
@@ -757,7 +756,6 @@
 									for="product-picture">
 									{{ $__t('No file selected') }}
 								</label>
-								@endif
 							</div>
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-trash"
