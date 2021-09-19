@@ -349,7 +349,7 @@ if (Grocy.Components.ProductPicker !== undefined)
 											$("#display_amount").select();
 										}
 
-										if (barcode.qu_id != null)
+										if (barcode.qu_id != null && !barcode.qu_id.isEmpty())
 										{
 											Grocy.Components.ProductAmountPicker.SetQuantityUnit(barcode.qu_id);
 										}

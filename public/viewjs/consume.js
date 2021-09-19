@@ -383,7 +383,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 												$("#display_amount").select();
 											}
 
-											if (barcode.qu_id != null)
+											if (barcode.qu_id != null && !barcode.qu_id.isEmpty())
 											{
 												Grocy.Components.ProductAmountPicker.SetQuantityUnit(barcode.qu_id);
 											}
