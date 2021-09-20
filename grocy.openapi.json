@@ -60,7 +60,7 @@
 	"paths": {
 		"/system/info": {
 			"get": {
-				"summary": "Returns information about the installed grocy, PHP and SQLite version",
+				"summary": "Returns information about the installed grocy version, PHP runtime and OS",
 				"tags": [
 					"System"
 				],

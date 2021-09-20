@@ -71,7 +71,9 @@ class ApplicationService extends BaseService
 		return [
 			'grocy_version' => $this->GetInstalledVersion(),
 			'php_version' => phpversion(),
-			'sqlite_version' => $sqliteVersion
+			'sqlite_version' => $sqliteVersion,
+			'os' => php_uname('s') . ' ' . php_uname('r') . ' ' . php_uname('v') . ' ' . php_uname('m'),
+			'client' => isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'unknown'
 		];
 	}
 

@@ -35,7 +35,9 @@
 
 				<p>
 					PHP Version <code>{{ $system_info['php_version'] }}</code><br>
-					SQLite Version <code>{{ $system_info['sqlite_version'] }}</code>
+					SQLite Version <code>{{ $system_info['sqlite_version'] }}</code><br>
+					OS <code>{{ $system_info['os'] }}</code><br>
+					Client <code>{{ $system_info['client'] }}</code>
 				</p>
 
 				<p>

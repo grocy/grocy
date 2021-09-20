@@ -33,6 +33,11 @@ Stack trace:
 ```
 {!! $exception->getTraceAsString() !!}
 ```
+
+System info:
+```
+{!! json_encode($system_info, JSON_PRETTY_PRINT) !!}
+```
 			</textarea>
 		</div>
 	</div>
