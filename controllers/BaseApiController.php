@@ -10,7 +10,7 @@ class BaseApiController extends BaseController
 
 	const PATTERN_OPERATOR = '!?(=|~|<|>|(>=)|(<=)|(§))';
 
-	const PATTERN_VALUE = '[A-Za-z\p{L}\p{M}*_0-9.$#^|-]+';
+	const PATTERN_VALUE = '[A-Za-z\p{L}\p{M}*_0-9.$#^| -]+';
 
 	protected $OpenApiSpec = null;
 

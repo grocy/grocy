@@ -5,4 +5,4 @@
 - A product picture can now be added when creating a product (was currently only possible when editing a product)
 
 ### API
-- Fixed that international characters were not allowed in API query filters
+- Fixed that international characters and spaces were not allowed in API query filters
