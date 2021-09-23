@@ -645,3 +645,23 @@ canvas.drawingBuffer {
 	pointer-events: none;
 	opacity: 0.5;
 }
+
+@media only screen and (min-width: 60rem) {
+    /* See ingredients and recipe side by side */
+
+    .fullscreen .tab-content > .tab-pane {
+        display: inline;
+    }
+
+    .fullscreen #ingredients-0 {
+        min-width: 20rem;
+        max-width: 20rem;
+    }
+    .fullscreen .nav-link[href="#ingredients-0"] {
+        width: 20rem;
+    }
+
+    .fullscreen .tab-content {
+        display: flex;
+    }
+}
