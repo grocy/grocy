@@ -21,6 +21,11 @@ class CalendarApiController extends BaseApiController
 			$vCalendar = new Calendar();
 			foreach ($events as $event)
 			{
+				if (!isset($event['start']))
+				{
+					continue;
+				}
+
 				$description = '';
 				if (isset($event['description']))
 				{
