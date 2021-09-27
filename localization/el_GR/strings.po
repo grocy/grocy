@@ -3,6 +3,7 @@
 # Stathis Stamoulis <sstamoulis2010@gmail.com>, 2020
 # Dionysios Gkotsis <bloodsak4@yahoo.gr>, 2020
 # ByteGet, 2020
+# Thodoris Kalatzis <teo.kal@hotmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -10,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: ByteGet, 2020\n"
+"Last-Translator: Thodoris Kalatzis <teo.kal@hotmail.com>, 2021\n"
 "Language-Team: Greek (Greece) (https://www.transifex.com/grocy/teams/93189/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -784,7 +785,7 @@ msgid "Image of product %s"
 msgstr "Εικόνα του προϊόντος% s"
 
 msgid "Deletion not possible"
-msgstr ""
+msgstr "Δεν είναι δυνατή η διαγραφή"
 
 msgid "Equipment"
 msgstr "Εξοπλισμός"
@@ -1924,10 +1925,10 @@ msgid "If you think this is a bug, please report it"
 msgstr "Επεξεργασία τοποθεσίας"
 
 msgid "Language"
-msgstr ""
+msgstr "Γλώσσα"
 
 msgid "User settings"
-msgstr ""
+msgstr "Ρυθμίσεις χρήστη"
 
 msgid "Default"
 msgstr ""
@@ -1945,10 +1946,10 @@ msgid "Consume exact amount"
 msgstr ""
 
 msgid "Value"
-msgstr ""
+msgstr "Αξία"
 
 msgid "%s total value"
-msgstr ""
+msgstr "%s συνολική αξία"
 
 msgid ""
 "Show purchased date on purchase and inventory page (otherwise the purchased "
@@ -1974,7 +1975,7 @@ msgid "Save & continue to add quantity unit conversions & barcodes"
 msgstr ""
 
 msgid "Save & return to products"
-msgstr ""
+msgstr "Αποθήκευση & επιστροφή στα προϊόντα"
 
 msgid "Save & continue to add conversions"
 msgstr ""
@@ -1983,7 +1984,7 @@ msgid "Save & return to quantity units"
 msgstr ""
 
 msgid "price"
-msgstr ""
+msgstr "τιμή"
 
 msgid "New stock amount"
 msgstr ""
@@ -1998,13 +1999,13 @@ msgid "This product is currently on a shopping list"
 msgstr ""
 
 msgid "Undo transaction"
-msgstr ""
+msgstr "Αναίρεση συναλλαγής"
 
 msgid "Transaction type"
-msgstr ""
+msgstr "Τύπος συναλλαγής"
 
 msgid "Transaction time"
-msgstr ""
+msgstr "Χρόνος συναλλαγής"
 
 msgid "Chore journal"
 msgstr ""
@@ -2022,7 +2023,7 @@ msgid "Battery journal"
 msgstr ""
 
 msgid "This product has a picture"
-msgstr ""
+msgstr "Αυτό το προϊόν έχει φωτογραφία"
 
 msgid "Consume this stock entry as spoiled"
 msgstr ""
@@ -2061,7 +2062,7 @@ msgid ""
 msgstr ""
 
 msgid "Copy"
-msgstr ""
+msgstr "Αντιγραφή"
 
 msgid "Are you sure to remove this barcode?"
 msgstr ""
@@ -2198,7 +2199,7 @@ msgid "Sort number"
 msgstr ""
 
 msgid "Download file"
-msgstr ""
+msgstr "Λήψη αρχείου"
 
 msgid "Use the products \"Quick consume amount\""
 msgstr ""
@@ -2283,13 +2284,13 @@ msgid ""
 msgstr ""
 
 msgid "Merge"
-msgstr ""
+msgstr "Συγχώνευση"
 
 msgid "Title"
-msgstr ""
+msgstr "Τίτλος"
 
 msgid "Link"
-msgstr ""
+msgstr "Σύνδεση"
 
 msgid ""
 "The stock overview page lists all products which are currently in-stock or "
@@ -2298,20 +2299,20 @@ msgid ""
 msgstr ""
 
 msgid "Print options"
-msgstr ""
+msgstr "Επιλογές εκτύπωσης"
 
 msgid "A product or a note is required"
-msgstr ""
+msgstr "Ένα προϊόν ή μία σημείωση απατείται"
 
 msgid "grocycode"
-msgstr ""
+msgstr "grocycode"
 
 msgid "Download"
-msgstr ""
+msgstr "Λήψη"
 
 # Example: Download *Product* grocycode
 msgid "Download %s grocycode"
-msgstr ""
+msgstr "Λήψη %sgrocycode"
 
 msgid ""
 "grocycode is a unique referer to this %s in your grocy instance - print it "
@@ -2323,7 +2324,7 @@ msgid "DD"
 msgstr ""
 
 msgid "Print on label printer"
-msgstr ""
+msgstr "Εκτύπωση σε εκτυπωτή ετικετών"
 
 msgid "Stock entry label"
 msgstr ""
@@ -2356,16 +2357,16 @@ msgid "Open stock entry label in new window"
 msgstr ""
 
 msgid "Thermal printer"
-msgstr ""
+msgstr "Θερμικός εκτυπωτής"
 
 msgid "Printing"
-msgstr ""
+msgstr "Εκτυπώνεται"
 
 msgid "Connecting to printer..."
-msgstr ""
+msgstr "Σύνδεση με τον εκτυπωτή..."
 
 msgid "Unable to print"
-msgstr ""
+msgstr "Η εκτύπωση δεν είναι δυνατή"
 
 msgid "Only done items"
 msgstr ""
@@ -2374,17 +2375,17 @@ msgid "Show only in-stock products"
 msgstr ""
 
 msgid "Product description"
-msgstr ""
+msgstr "Περιγραφή προϊόντος"
 
 # Example: *3.21 USD* per *Pack*
 msgid "%1$s per %2$s"
-msgstr ""
+msgstr "%1$s ανά %2$s"
 
 msgid "Mark this item as undone"
 msgstr ""
 
 msgid "Mandatory"
-msgstr ""
+msgstr "Υποχρεωτικό"
 
 msgid "Mandatory Userfield"
 msgstr ""
@@ -2396,10 +2397,10 @@ msgid "In-stock products"
 msgstr ""
 
 msgid "Timestamp"
-msgstr ""
+msgstr "Χρονοσήμανση"
 
 msgid "Should not be frozen"
-msgstr ""
+msgstr "Δεν πρέπει να καταψύχεται"
 
 msgid ""
 "When enabled, on moving this product to a freezer location (so when freezing"
@@ -2407,7 +2408,7 @@ msgid ""
 msgstr ""
 
 msgid "This product shouldn't be frozen"
-msgstr ""
+msgstr "Το προϊόν δεν πρέπει να καταψύχεται"
 
 msgid "Copy all meal plan entries of %s"
 msgstr ""
@@ -2416,32 +2417,32 @@ msgid "A date is required"
 msgstr ""
 
 msgid "Day"
-msgstr ""
+msgstr "Ημέρα"
 
 msgid "Add recipe"
-msgstr ""
+msgstr "Προσθήκη συνταγής"
 
 msgid "Copy this day"
-msgstr ""
+msgstr "Αντιγραφή της ημέρας"
 
 msgid "Date range"
-msgstr ""
+msgstr "Εύρος ημερομηνίας"
 
 msgid "%s month"
 msgid_plural "%s months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s μήνας"
+msgstr[1] "%s μήνες"
 
 msgid "%s year"
 msgid_plural "%s years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s χρόνος"
+msgstr[1] "%sχρόνια"
 
 msgid "Display product"
-msgstr ""
+msgstr "Προβολή προϊόντος"
 
 msgid "Copy recipe"
-msgstr ""
+msgstr "Αντιγραφή συνταγής"
 
 msgid "Copy of %s"
 msgstr ""
@@ -2477,7 +2478,7 @@ msgid "Are you sure to delete meal plan section \"%s\"?"
 msgstr ""
 
 msgid "Section"
-msgstr ""
+msgstr "Τμήμα"
 
 msgid "Are you sure to empty the shopping list?"
 msgstr ""

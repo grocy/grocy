@@ -3,8 +3,8 @@
 # Andreas Henden <chairman2s.ah@gmail.com>, 2019
 # Ruben Sperre <ruben@rsperre.net>, 2020
 # Marius Borø <blizzwave@gmail.com>, 2021
-# Tor Eirik Trandal <teitrand@hotmail.com>, 2021
 # Bernd Bestel <bernd@berrnd.de>, 2021
+# Tor Eirik Trandal <teitrand@hotmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -12,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2021\n"
+"Last-Translator: Tor Eirik Trandal <teitrand@hotmail.com>, 2021\n"
 "Language-Team: Norwegian (https://www.transifex.com/grocy/teams/93189/no/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -336,7 +336,7 @@ msgid "Manage API keys"
 msgstr "Administrer API-Keys"
 
 msgid "REST API browser"
-msgstr ""
+msgstr "REST API nettleser"
 
 msgid "API keys"
 msgstr "API-Keys"
@@ -2102,6 +2102,9 @@ msgid ""
 "today + this amount of days, but only if the resulting date is not after the"
 " original due date (a value of 0 disables this)"
 msgstr ""
+"Når dette produktet blir merket som åpnet, vil utløpsdato bli erstattet med "
+"dagens dato + dette antall dager, men bare dersom datoen ikke ender etter "
+"original utløpsdato (sett verdien til 0 for å deaktivere dette)"
 
 msgid "Default due days after opened"
 msgstr "Standard forfallsdager etter åpning"
@@ -2329,180 +2332,192 @@ msgid "A product or a note is required"
 msgstr "Et produkt eller en merknad kreves"
 
 msgid "grocycode"
-msgstr ""
+msgstr "grocykode"
 
 msgid "Download"
-msgstr ""
+msgstr "Last ned"
 
 # Example: Download *Product* grocycode
 msgid "Download %s grocycode"
-msgstr ""
+msgstr "Last ned %s grocykode"
 
 msgid ""
 "grocycode is a unique referer to this %s in your grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
+"grocykode er en unik referanse til denne %s i din grocy forekomst - print "
+"den på en etikett og bruk den som en hvilken som helst annen strekkode"
 
 # Abbreviation for "due date"
 msgid "DD"
-msgstr ""
+msgstr "UD"
 
 msgid "Print on label printer"
-msgstr ""
+msgstr "Skriv ut på etikettskriver"
 
 msgid "Stock entry label"
-msgstr ""
+msgstr "Lageroppføringsetikett"
 
 msgid "No label"
-msgstr ""
+msgstr "Ingen etikett"
 
 msgid "Single label"
-msgstr ""
+msgstr "Enkelt etikett"
 
 msgid "Label per unit"
-msgstr ""
+msgstr "Etikett per enhet"
 
 msgid "Allow label printing per unit"
-msgstr ""
+msgstr "Tillat etikettskriving per enhet"
 
 msgid ""
 "Allow printing of one label per unit on purchase (after conversion) - e.g. 1"
 " purchased pack adding 10 pieces of stock would print 10 labels"
 msgstr ""
+"Tillat printing av en etikett per enhet ved kjøp (etter konvertering) - "
+"f.eks. kjøp av 1 pakke som legger til 10 biter i lager vil printe 10 "
+"etiketter"
 
 msgid "Error while executing WebHook"
-msgstr ""
+msgstr "Feil ved kjøring av WebHook"
 
 # Example: Print *Product* grocycode on label printer
 msgid "Print %s grocycode on label printer"
-msgstr ""
+msgstr "Print %s grocykode på etikettskriver"
 
 msgid "Open stock entry label in new window"
-msgstr ""
+msgstr "Åpne lageroppføringsetikett i nytt vindu"
 
 msgid "Thermal printer"
-msgstr ""
+msgstr "Termisk skriver"
 
 msgid "Printing"
-msgstr ""
+msgstr "Skriver ut"
 
 msgid "Connecting to printer..."
-msgstr ""
+msgstr "Kobler til skriver..."
 
 msgid "Unable to print"
-msgstr ""
+msgstr "Kan ikke skrive ut"
 
 msgid "Only done items"
-msgstr ""
+msgstr "Bare ferdige elementer"
 
 msgid "Show only in-stock products"
-msgstr ""
+msgstr "Vis bare produkter på lager"
 
 msgid "Product description"
-msgstr ""
+msgstr "Produktbeskrivelse"
 
 # Example: *3.21 USD* per *Pack*
 msgid "%1$s per %2$s"
-msgstr ""
+msgstr "%1$s per %2$s"
 
 msgid "Mark this item as undone"
-msgstr ""
+msgstr "Merk dette elementet som ferdig"
 
 msgid "Mandatory"
-msgstr ""
+msgstr "Påkrevd"
 
 msgid "Mandatory Userfield"
-msgstr ""
+msgstr "Påkrevd brukerfelt"
 
 msgid "When enabled, then this field must be filled on the destination form"
 msgstr ""
+"Når dette feltet er aktivert, må dette feltet fylles ut på "
+"destinasjonsskjemaet"
 
 msgid "In-stock products"
-msgstr ""
+msgstr "Produkter på lager"
 
 msgid "Timestamp"
-msgstr ""
+msgstr "Tidsstempel"
 
 msgid "Should not be frozen"
-msgstr ""
+msgstr "Bør ikke fryses"
 
 msgid ""
 "When enabled, on moving this product to a freezer location (so when freezing"
 " it), a warning will be shown"
 msgstr ""
+"Når aktivert, vises en advarsel når du flytter dette produktet til en "
+"fryserlokasjon (når du fryser det)"
 
 msgid "This product shouldn't be frozen"
-msgstr ""
+msgstr "Dette produktet bør ikke fryses"
 
 msgid "Copy all meal plan entries of %s"
-msgstr ""
+msgstr "Kopier alle måltidsoppføringer av %s"
 
 msgid "A date is required"
-msgstr ""
+msgstr "En dato er nødvendig"
 
 msgid "Day"
-msgstr ""
+msgstr "Dag"
 
 msgid "Add recipe"
-msgstr ""
+msgstr "Legg til oppskrift"
 
 msgid "Copy this day"
-msgstr ""
+msgstr "Kopier denne dagen"
 
 msgid "Date range"
-msgstr ""
+msgstr "Datointervall"
 
 msgid "%s month"
 msgid_plural "%s months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s måned"
+msgstr[1] "%s måneder"
 
 msgid "%s year"
 msgid_plural "%s years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s år"
+msgstr[1] "%s år"
 
 msgid "Display product"
-msgstr ""
+msgstr "Vis produkt"
 
 msgid "Copy recipe"
-msgstr ""
+msgstr "Kopier oppskrift"
 
 msgid "Copy of %s"
-msgstr ""
+msgstr "Kopi av %s"
 
 msgid "Add decimal separator automatically for price inputs"
-msgstr ""
+msgstr "Legg til desimalseparator automatisk for prisinntasting"
 
 msgid ""
 "When enabled, you always have to enter the value including decimal places, "
 "the decimal separator will be automatically added based on the amount of "
 "allowed decimal places"
 msgstr ""
+"Når aktivert, må du alltid angi verdien inkludert desimaler, "
+"desimalseparatoren legges til automatisk basert på mengden tillatte "
+"desimaler"
 
 msgid "Stock entry"
-msgstr ""
+msgstr "Lageroppføring"
 
 msgid "Configure sections"
-msgstr ""
+msgstr "Konfigurer seksjoner"
 
 msgid "Meal plan sections"
-msgstr ""
+msgstr "Måltidsplanseksjon"
 
 msgid "Create meal plan section"
-msgstr ""
+msgstr "Opprett måltidsplanseksjon"
 
 msgid "Sections will be ordered by that number on the meal plan"
-msgstr ""
+msgstr "Seksjoner vil bli sortert av det nummeret på måltidsplanen"
 
 msgid "Edit meal plan section"
-msgstr ""
+msgstr "Rediger måltidplanseksjonen"
 
 msgid "Are you sure to delete meal plan section \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette måltidsplanseksjonen \"%s\"?"
 
 msgid "Section"
-msgstr ""
+msgstr "Seksjon"
 
 msgid "Are you sure to empty the shopping list?"
 msgstr "Er du sikker du ønsker å slette handlelisten?"

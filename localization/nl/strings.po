@@ -26,6 +26,7 @@
 # Mark Peters <forkless@gmail.com>, 2021
 # Daan Breur <daanbreur@gmail.com>, 2021
 # Grocy NL, 2021
+# mc bloch <transifex@mcbloch.dev>, 2021
 # 
 msgid ""
 msgstr ""
@@ -33,7 +34,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Grocy NL, 2021\n"
+"Last-Translator: mc bloch <transifex@mcbloch.dev>, 2021\n"
 "Language-Team: Dutch (https://www.transifex.com/grocy/teams/93189/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2152,6 +2153,9 @@ msgid ""
 "today + this amount of days, but only if the resulting date is not after the"
 " original due date (a value of 0 disables this)"
 msgstr ""
+"Toen dit product als geopend werd gemarkeerd, wordt de vervaldatum vervangen"
+" door vandaag + dit aantal dagen, maar alleen als de resulterende datum niet"
+" na de originele vervaldatum valt (een waarde van 0 schakelt dit uit) "
 
 msgid "Default due days after opened"
 msgstr "Standaard houdbaarheidsdatum na openen"
@@ -2406,7 +2410,7 @@ msgid "DD"
 msgstr ""
 
 msgid "Print on label printer"
-msgstr ""
+msgstr "Print op een label printer"
 
 msgid "Stock entry label"
 msgstr ""
@@ -2496,7 +2500,7 @@ msgid "Copy all meal plan entries of %s"
 msgstr ""
 
 msgid "A date is required"
-msgstr ""
+msgstr "Een datum is vereist"
 
 msgid "Day"
 msgstr "Dag"
@@ -2505,10 +2509,10 @@ msgid "Add recipe"
 msgstr "Voeg recept toe"
 
 msgid "Copy this day"
-msgstr ""
+msgstr "Kopieer deze dag"
 
 msgid "Date range"
-msgstr ""
+msgstr "Datumbereik"
 
 msgid "%s month"
 msgid_plural "%s months"
@@ -2527,7 +2531,7 @@ msgid "Copy recipe"
 msgstr "Kopieer recept"
 
 msgid "Copy of %s"
-msgstr ""
+msgstr "Kopie van %s"
 
 msgid "Add decimal separator automatically for price inputs"
 msgstr ""
@@ -2539,28 +2543,29 @@ msgid ""
 msgstr ""
 
 msgid "Stock entry"
-msgstr ""
+msgstr "Voorraad item"
 
 msgid "Configure sections"
-msgstr ""
+msgstr "Secties configureren"
 
 msgid "Meal plan sections"
-msgstr ""
+msgstr "Maaltijdplan secties"
 
 msgid "Create meal plan section"
-msgstr ""
+msgstr "Maak een maaltijdplan-sectie"
 
 msgid "Sections will be ordered by that number on the meal plan"
 msgstr ""
+"Secties zullen gesorteerd worden door het nummer bij het maaltijdplan."
 
 msgid "Edit meal plan section"
-msgstr ""
+msgstr "Sectie maaltijdplan bewerken"
 
 msgid "Are you sure to delete meal plan section \"%s\"?"
 msgstr ""
 
 msgid "Section"
-msgstr ""
+msgstr "Sectie"
 
 msgid "Are you sure to empty the shopping list?"
 msgstr "Ben je zeker dat je de boodschappenlijst leeg wilt maken?"

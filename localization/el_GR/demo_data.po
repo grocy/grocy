@@ -2,6 +2,7 @@
 # Translators:
 # datablitz7 <plant7@gmail.com>, 2019
 # ByteGet, 2020
+# Thodoris Kalatzis <teo.kal@hotmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -9,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: ByteGet, 2020\n"
+"Last-Translator: Thodoris Kalatzis <teo.kal@hotmail.com>, 2021\n"
 "Language-Team: Greek (Greece) (https://www.transifex.com/grocy/teams/93189/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -374,22 +375,22 @@ msgid "Korean"
 msgstr "Κορεάτικα"
 
 msgid "Chinese (China)"
-msgstr ""
+msgstr "Κινεζικά (Κίνα)"
 
 msgid "Hebrew (Israel)"
-msgstr ""
+msgstr "Εβραϊκά (Ισραήλ)"
 
 msgid "Tamil"
-msgstr ""
+msgstr "Ταμίλ"
 
 msgid "Finnish"
-msgstr ""
+msgstr "Φινλανδικά"
 
 msgid "Breakfast"
-msgstr ""
+msgstr "Πρωϊνό"
 
 msgid "Lunch"
-msgstr ""
+msgstr "Γεύμα"
 
 msgid "Dinner"
-msgstr ""
+msgstr "Δείπνο"

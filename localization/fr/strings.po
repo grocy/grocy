@@ -33,6 +33,7 @@
 # Zkryvix <angelo.frangione@gmail.com>, 2021
 # patate douce <poubel125@gmail.com>, 2021
 # Cedric Octave <transifex@octvcdrc.fr>, 2021
+# Alexandre Mechineau <admin@alexsaphir.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -40,7 +41,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Cedric Octave <transifex@octvcdrc.fr>, 2021\n"
+"Last-Translator: Alexandre Mechineau <admin@alexsaphir.com>, 2021\n"
 "Language-Team: French (https://www.transifex.com/grocy/teams/93189/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2450,7 +2451,7 @@ msgid "Show only in-stock products"
 msgstr ""
 
 msgid "Product description"
-msgstr ""
+msgstr "Description du produit"
 
 # Example: *3.21 USD* per *Pack*
 msgid "%1$s per %2$s"
@@ -2475,7 +2476,7 @@ msgid "Timestamp"
 msgstr ""
 
 msgid "Should not be frozen"
-msgstr ""
+msgstr "Ne doit pas être congelé"
 
 msgid ""
 "When enabled, on moving this product to a freezer location (so when freezing"
@@ -2483,7 +2484,7 @@ msgid ""
 msgstr ""
 
 msgid "This product shouldn't be frozen"
-msgstr ""
+msgstr "Ce produit ne doit pas être congelé"
 
 msgid "Copy all meal plan entries of %s"
 msgstr ""
@@ -2495,7 +2496,7 @@ msgid "Day"
 msgstr ""
 
 msgid "Add recipe"
-msgstr ""
+msgstr "Ajouter recette"
 
 msgid "Copy this day"
 msgstr ""
@@ -2517,7 +2518,7 @@ msgid "Display product"
 msgstr ""
 
 msgid "Copy recipe"
-msgstr ""
+msgstr "Copier la recette"
 
 msgid "Copy of %s"
 msgstr ""
