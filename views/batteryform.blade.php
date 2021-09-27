@@ -96,6 +96,7 @@
 	</div>
 </div>
 
+@if($mode == 'edit')
 <div class="row mt-2 border-top">
 	<div class="col clearfix mt-2">
 		<div class="title-related-links">
@@ -126,4 +127,5 @@
 		</div>
 	</div>
 </div>
+@endif
 @stop
