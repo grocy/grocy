@@ -15,12 +15,12 @@
   resolved "https://github.com/berrnd/bootstrap-combobox.git#fcf0110146f4daab94888234c57d198b4ca5f129"
 
 "@ericblade/quagga2@^1.2.1":
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/@ericblade/quagga2/-/quagga2-1.4.1.tgz#60e2441fecbab34d8c9a0ced0e5f2af6a17afe4f"
-  integrity sha512-F7q898llifXw5UQ8Ws1+i7pH5TR1biE9E9wfjvzZr2SnTND/8I4OimTOZgrS1cChJAXnBrK7PTZrZWijkbpb2g==
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/@ericblade/quagga2/-/quagga2-1.4.2.tgz#caaa8793f52ef4a99ea703de95c15731aa41e60e"
+  integrity sha512-MZXX8Sh5wHNLrB+1qfMi0c8tz+LJibOJv/c6WoSc5SbGdqWBMAMZv6p1N8Wu/JtFlhlXtw7RzvIz3I3ZMuaJjw==
   dependencies:
     "@babel/polyfill" "^7.12.1"
-    get-pixels "^3.3.2"
+    get-pixels "^3.3.3"
     gl-mat2 "^1.0.1"
     gl-vec2 "^1.3.0"
     gl-vec3 "^1.1.3"
@@ -29,9 +29,9 @@
     ndarray-linear-interpolate "^1.0.0"
 
 "@fontsource/noto-sans@^4.4.5":
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/@fontsource/noto-sans/-/noto-sans-4.5.0.tgz#179c71178678bf17e6018919c33b48ea895a86dd"
-  integrity sha512-pYg1hJtdRJFVPkp8zCVuk5Gy42PTEeQUZSqYZHac412qV3MgOnvregHVa8Og38Z16rM61ZYwxDpuseJqS08Ifw==
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/@fontsource/noto-sans/-/noto-sans-4.5.1.tgz#b0674a0b903adccb2cdafcc61b7a7f48805b826f"
+  integrity sha512-2Piw8UHz4XNomZgIUdurkv7cLcDOQvzZ8lagHF+Q7faYTukVCXZhdRLcVJ7qXMcsgYxg0wYYUYrF5sdnh6CzSQ==
 
 "@fortawesome/fontawesome-free@^5.14.0":
   version "5.15.4"
@@ -107,9 +107,9 @@ bootstrap@4.0.0:
   integrity sha512-gulJE5dGFo6Q61V/whS6VM4WIyrlydXfCgkE+Gxe5hjrJ8rXLLZlALq7zq2RPhOc45PSwQpJkrTnc2KgD6cvmA==
 
 bootstrap@>=4.1.2:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.1.0.tgz#543ef8f44f4b9af67b0230f19508542fec38ef55"
-  integrity sha512-bs74WNI9BgBo3cEovmdMHikSKoXnDgA6VQjJ7TyTotU6L7d41ZyCEEelPwkYEzsG/Zjv3ie9IE3EMAje0W9Xew==
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.1.1.tgz#9d6eed81e08feaccedf3adaca51fe4b73a2871df"
+  integrity sha512-/jUa4sSuDZWlDLQ1gwQQR8uoYSvLJzDd8m5o6bPKh3asLAMYVZKdRCjb1joUd5WXf0WwCNzd2EjwQQhupou0dA==
 
 bootstrap@^4.4.0, bootstrap@^4.5.2:
   version "4.6.0"
@@ -239,11 +239,11 @@ datatables.net-bs4@1.10.16:
     jquery ">=1.7"
 
 datatables.net-bs4@^1.10.15, datatables.net-bs4@^1.10.22:
-  version "1.10.25"
-  resolved "https://registry.yarnpkg.com/datatables.net-bs4/-/datatables.net-bs4-1.10.25.tgz#4474d6738bf55a25d20da79afe18e1e654cfca42"
-  integrity sha512-leoiWJWxoPKHBNC9dkFRE84PRybQcAI2Aw4UiS5zisROcYRx8YG1uQOTtID4jbqakmbwwXap/c2eH+sdVP5t2w==
+  version "1.11.3"
+  resolved "https://registry.yarnpkg.com/datatables.net-bs4/-/datatables.net-bs4-1.11.3.tgz#04817c5d9457f1b9807a1330f12c37a541596328"
+  integrity sha512-UPT2F1nvZZzKJSSHb+3+bTeQy1ULLMT1BexBHCkh5PhMnAZNPbTEZD+6To1RCBfUF1rtPwIJTwJ+Jjjxy86xRw==
   dependencies:
-    datatables.net "1.10.25"
+    datatables.net ">=1.10.25"
     jquery ">=1.7"
 
 datatables.net-colreorder-bs4@^1.5.2:
@@ -309,10 +309,10 @@ datatables.net@1.10.16:
   dependencies:
     jquery ">=1.7"
 
-datatables.net@1.10.25, datatables.net@^1.10.15, datatables.net@^1.10.22:
-  version "1.10.25"
-  resolved "https://registry.yarnpkg.com/datatables.net/-/datatables.net-1.10.25.tgz#fc03a239e08f91d1d64ba101aa54daf4086d162c"
-  integrity sha512-y0+C7all+MC/h1acwnjErhaJPjYGKpWTvbXrfEUbR8+P+nnhgjNn5nL1udgsTwBObMhlj1KITNBRrM/ZLSoj+Q==
+datatables.net@>=1.10.25, datatables.net@^1.10.15, datatables.net@^1.10.22:
+  version "1.11.3"
+  resolved "https://registry.yarnpkg.com/datatables.net/-/datatables.net-1.11.3.tgz#80e691036efcd62467558ee64c07dd566cb761b4"
+  integrity sha512-VMj5qEaTebpNurySkM6jy6sGpl+s6onPK8xJhYr296R/vUBnz1+id16NVqNf9z5aR076OGcpGHCuiTuy4E05oQ==
   dependencies:
     jquery ">=1.7"
 
@@ -378,7 +378,7 @@ fullcalendar@^3.10.1:
   resolved "https://registry.yarnpkg.com/fullcalendar/-/fullcalendar-3.10.2.tgz#9b1ba84bb02803621b761d1bba91a4f18affafb7"
   integrity sha512-YWZaHdp8ZLBqhPz615PoXdA49ymsBTUF+MGDM6H3vyz71Pv/ZW9Pm9/Mj3x6n822k6bs2txFO7muRTSvBhsqKg==
 
-get-pixels@^3.3.2:
+get-pixels@^3.3.3:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/get-pixels/-/get-pixels-3.3.3.tgz#71e2dfd4befb810b5478a61c6354800976ce01c7"
   integrity sha512-5kyGBn90i9tSMUVHTqkgCHsoWoR+/lGbl4yC83Gefyr0HLIhgSWEx/2F/3YgsZ7UpYNuM6pDhDK7zebrUJ5nXg==
@@ -724,9 +724,9 @@ summernote@^0.8.18:
   integrity sha512-VlwBaNm9vSYMYXvO2f3UCUmY0Gm8jxLcBn+D08aX3pKs4x2vAoyQ4DcDQ6D+PchQiLrf86AGQVfVu56F4aP3ug==
 
 swagger-ui-dist@^3.32.1:
-  version "3.52.0"
-  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-3.52.0.tgz#cb16ec6dcdf134ff47cbfe57cba7be7748429142"
-  integrity sha512-SGfhW8FCih00QG59PphdeAUtTNw7HS5k3iPqDZowerPw9mcbhKchUb12kbROk99c1X6RTWW1gB1kqgfnYGuCSg==
+  version "3.52.3"
+  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-3.52.3.tgz#a09b5cdccac69e3f5f1cbd258654a110119a7f0e"
+  integrity sha512-7QSY4milmYx5O8dbzU5tTftiaoZt+4JGxahTTBiLAnbTvhTyzum9rsjDIJjC+xeT8Tt1KfB38UuQQjmrh2THDQ==
 
 "tempusdominus-bootstrap-4@https://github.com/berrnd/tempusdominus-bootstrap-4.git#master":
   version "5.1.2"
