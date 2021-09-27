@@ -3,6 +3,7 @@
 - Fixed that the context menu entries Consume and Transfer on the stock overview page were disabled when the amount in stock was < 1
 - Fixed that when there was any chore with a schedule, but without a "next estimated tracking" date/time, the iCal export was broken
 - Fixed that on consuming a product from not the products default location, the products default location was recorded in the stock journal
+- Fixed that on undoing a stock consume transaction from not the products default location, the corresponding amount was always added back to to the products defaullt location
 - The product and chore edit pages now have bottom-sticky save buttons
 - A product picture can now be added when creating a product (was currently only possible when editing a product)
 

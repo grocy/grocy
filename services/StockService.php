@@ -1352,7 +1352,8 @@ class StockService extends BaseService
 				'stock_id' => $logRow->stock_id,
 				'price' => $logRow->price,
 				'opened_date' => $logRow->opened_date,
-				'open' => $logRow->opened_date !== null
+				'open' => $logRow->opened_date !== null,
+				'location_id' => $logRow->location_id
 			]);
 			$stockRow->save();
 
