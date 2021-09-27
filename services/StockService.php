@@ -379,7 +379,8 @@ class StockService extends BaseService
 						'opened_date' => $stockEntry->opened_date,
 						'recipe_id' => $recipeId,
 						'transaction_id' => $transactionId,
-						'user_id' => GROCY_USER_ID
+						'user_id' => GROCY_USER_ID,
+						'location_id' => $stockEntry->location_id
 					]);
 					$logRow->save();
 
@@ -405,7 +406,8 @@ class StockService extends BaseService
 						'opened_date' => $stockEntry->opened_date,
 						'recipe_id' => $recipeId,
 						'transaction_id' => $transactionId,
-						'user_id' => GROCY_USER_ID
+						'user_id' => GROCY_USER_ID,
+						'location_id' => $stockEntry->location_id
 					]);
 					$logRow->save();
 
