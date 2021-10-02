@@ -654,11 +654,12 @@ canvas.drawingBuffer {
     }
 
     .fullscreen #ingredients-0 {
-        min-width: 20rem;
-        max-width: 20rem;
-    }
-    .fullscreen .nav-link[href="#ingredients-0"] {
         width: 20rem;
+        padding-right: 3rem;
+    }
+
+    .fullscreen .grocy-tabs {
+        display: none;
     }
 
     .fullscreen .tab-content {
