@@ -4,6 +4,7 @@ namespace Grocy\Controllers;
 
 use Eluceo\iCal\Domain\Entity\Calendar;
 use Eluceo\iCal\Domain\Entity\Event;
+use Eluceo\iCal\Domain\Entity\TimeZone;
 use Eluceo\iCal\Domain\ValueObject\Date;
 use Eluceo\iCal\Domain\ValueObject\DateTime;
 use Eluceo\iCal\Domain\ValueObject\SingleDay;
@@ -17,8 +18,12 @@ class CalendarApiController extends BaseApiController
 		try
 		{
 			$events = $this->getCalendarService()->GetEvents();
+			$minDate = null;
+			$maxDate = null;
 
 			$vCalendar = new Calendar();
+			$vCalendar->setProductIdentifier('grocy');
+
 			foreach ($events as $event)
 			{
 				if (!isset($event['start']))
@@ -37,13 +42,17 @@ class CalendarApiController extends BaseApiController
 					// All-day event
 					$date = new Date(\DateTimeImmutable::createFromFormat('Y-m-d', substr($event['start'], 0, 10)));
 					$vEventOccurrence = new SingleDay($date);
+
+					$compareDate = \DateTimeImmutable::createFromFormat('Y-m-d', substr($event['start'], 0, 10));
 				}
 				else
 				{
 					// Time-point event
-					$start = new DateTime(\DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $event['start']), false);
-					$end = new DateTime(\DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $event['start']), false);
+					$start = new DateTime(\DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $event['start']), true);
+					$end = new DateTime(\DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $event['start']), true);
 					$vEventOccurrence = new TimeSpan($start, $end);
+
+					$compareDate = \DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $event['start']);
 				}
 
 				$vEvent = new Event();
@@ -52,6 +61,20 @@ class CalendarApiController extends BaseApiController
 					->setDescription($description);
 
 				$vCalendar->addEvent($vEvent);
+
+				if ($minDate == null || $compareDate < $minDate)
+				{
+					$minDate = $compareDate;
+				}
+				if ($maxDate == null || $compareDate > $maxDate)
+				{
+					$maxDate = $compareDate;
+				}
+			}
+
+			if ($minDate != null && $maxDate != null)
+			{
+				$vCalendar->addTimeZone(TimeZone::createFromPhpDateTimeZone(new \DateTimeZone(date_default_timezone_get()), $minDate, $maxDate));
 			}
 
 			$response->write((new CalendarFactory())->createCalendar($vCalendar));
