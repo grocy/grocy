@@ -313,11 +313,11 @@ if (Grocy.Components.ProductPicker !== undefined)
 							{
 								$("#default_print_stock_label").val("0");
 							}
-							$('#label-option-per-unit').prop("disabled", true);
+							$('#label-option-per-unit').prop("disabled", false);
 						}
 						else
 						{
-							$('#label-option-per-unit').prop("disabled", false);
+							$('#label-option-per-unit').prop("disabled", true);
 						}
 					}
 
