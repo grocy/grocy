@@ -39,7 +39,8 @@
 				<div class="custom-control custom-checkbox">
 					<input type="checkbox"
 						class="form-check-input custom-control-input"
-						id="stay_logged_in">
+						id="stay_logged_in"
+						name="stay_logged_in">
 					<label class="form-check-label custom-control-label"
 						for="stay_logged_in">
 						{{ $__t('Stay logged in permanently') }}
