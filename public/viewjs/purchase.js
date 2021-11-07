@@ -288,9 +288,19 @@ if (Grocy.Components.ProductPicker !== undefined)
 
 					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 					{
-						if (productDetails.product.default_best_before_days.toString() !== '0')
+						var best_before;
+						if (productDetails.location.is_freezer.toString() == "1")
 						{
-							if (productDetails.product.default_best_before_days == -1)
+							best_before = productDetails.product.default_best_before_days_after_freezing;
+						}
+						else
+						{
+							best_before = productDetails.product.default_best_before_days;
+						}
+
+						if (best_before.toString() !== '0')
+						{
+							if (best_before == -1)
 							{
 								if (!$("#datetimepicker-shortcut").is(":checked"))
 								{
@@ -299,7 +309,7 @@ if (Grocy.Components.ProductPicker !== undefined)
 							}
 							else
 							{
-								Grocy.Components.DateTimePicker.SetValue(moment().add(productDetails.product.default_best_before_days, 'days').format('YYYY-MM-DD'));
+								Grocy.Components.DateTimePicker.SetValue(moment().add(best_before, 'days').format('YYYY-MM-DD'));
 							}
 						}
 					}

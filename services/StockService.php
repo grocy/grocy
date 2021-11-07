@@ -144,7 +144,24 @@ class StockService extends BaseService
 		//Set the default due date, if none is supplied
 		if ($bestBeforeDate == null)
 		{
-			if (intval($productDetails->product->default_best_before_days) == -1)
+			if ($locationId !== null && !$this->LocationExists($locationId))
+			{
+				throw new \Exception('Location does not exist');
+			} else {
+				$location = $this->getDatabase()->locations()->where('id', $locationId)->fetch();
+			}
+
+			if (GROCY_FEATURE_FLAG_STOCK_PRODUCT_FREEZING && $locationId !== null && intval($location->is_freezer) === 1 && $productDetails->product->default_best_before_days_after_freezing >= -1)
+			{
+				if ($productDetails->product->default_best_before_days_after_freezing == -1)
+				{
+					$bestBeforeDate = date('2999-12-31');
+				}
+				else
+				{
+					$bestBeforeDate = date('Y-m-d', strtotime('+' . $productDetails->product->default_best_before_days_after_freezing . ' days'));
+				}
+			} elseif (intval($productDetails->product->default_best_before_days) == -1)
 			{
 				$bestBeforeDate = date('2999-12-31');
 			}
