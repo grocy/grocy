@@ -208,6 +208,12 @@ $('#product_id_text_input').on('blur', function(e)
 					className: 'btn-success add-new-product-dialog-button responsive-button ' + addProductWorkflowsAdditionalCssClasses,
 					callback: function()
 					{
+						// Not the best place here - this is only relevant when this flow is started from the shopping list item form
+						// (to select the correct shopping list on return)
+						if (GetUriParam("list") !== undefined)
+						{
+							embedded += "&list=" + GetUriParam("list");
+						}
 
 						Grocy.Components.ProductPicker.PopupOpen = false;
 						window.location.href = U('/product/new?flow=InplaceNewProductWithName&name=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative + "?flow=InplaceNewProductWithName&" + embedded) + "&" + embedded);
