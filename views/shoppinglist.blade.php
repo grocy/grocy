@@ -55,7 +55,7 @@
 					href="{{ $U('/shoppinglist/new?embedded') }}">
 					{{ $__t('New shopping list') }}
 				</a>
-				<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right show-as-dialog-link @if($selectedShoppingListId == 1) disabled @endif"
+				<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right show-as-dialog-link"
 					href="{{ $U('/shoppinglist/' . $selectedShoppingListId . '?embedded') }}">
 					{{ $__t('Edit shopping list') }}
 				</a>
@@ -236,7 +236,8 @@
 					}
 					@endphp
 					@endif
-					<td data-order={{ $listItem->amount }}>
+					<td data-order={{
+						$listItem->amount }}>
 						<span class="locale-number locale-number-quantity-amount">{{ $listItem->amount }}</span> @if(!empty($listItem->product_id)){{ $__n($listItem->amount, $listItem->qu_name, $listItem->qu_name_plural) }}@endif
 					</td>
 					<td>
