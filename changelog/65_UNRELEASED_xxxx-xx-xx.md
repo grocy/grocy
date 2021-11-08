@@ -1,1 +1,2 @@
+- The "Below min. stock amount" filter on the stock overview page now also includes due-soon, overdue or already expired products
 - Fixed that the "Stay logged in permanently" checkbox on the login page had no effect (thanks @0)
