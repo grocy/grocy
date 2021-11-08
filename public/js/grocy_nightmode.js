@@ -89,7 +89,7 @@ function CheckNightMode()
 		end.add(1, "day");
 	}
 
-	if (start.isSameOrBefore(now) && end.isSameOrAfter(now)) // We're INSIDE of night mode time range
+	if (now.isBetween(start, end)) // We're INSIDE of night mode time range
 	{
 		if (!$("body").hasClass("night-mode"))
 		{

@@ -2,3 +2,4 @@
 - The default shopping list (named "Shopping list"; localized) can now be renamed
 - Fixed that the "Stay logged in permanently" checkbox on the login page had no effect (thanks @0)
 - Fixed that the labels of context-/more-menu items were not readable in Night Mode (thanks @corbolais)
+- Fixed that auto night mode over midnight did not always work
