@@ -209,7 +209,10 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 });
 
 Grocy.FrontendHelpers.ValidateForm('shoppinglist-form');
-Grocy.Components.ProductPicker.GetInputElement().focus();
+setTimeout(function()
+{
+	Grocy.Components.ProductPicker.GetInputElement().focus();
+}, 250);
 
 if (Grocy.EditMode === "edit")
 {

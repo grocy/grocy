@@ -99,5 +99,8 @@ $(document).on('click', '.battery-grocycode-label-print', function(e)
 });
 
 Grocy.Components.UserfieldsForm.Load();
-$('#name').focus();
+setTimeout(function()
+{
+	$('#name').focus();
+}, 250);
 Grocy.FrontendHelpers.ValidateForm('battery-form');

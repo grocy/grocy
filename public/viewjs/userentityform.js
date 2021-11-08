@@ -95,7 +95,10 @@ $("#show_in_sidebar_menu").on("click", function()
 	}
 });
 
-$('#name').focus();
+setTimeout(function()
+{
+	$('#name').focus();
+}, 250);
 Grocy.FrontendHelpers.ValidateForm('userentity-form');
 
 // Click twice to trigger on-click but not change the actual checked state

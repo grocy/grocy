@@ -91,7 +91,10 @@ if (Grocy.EditMode == "edit")
 }
 
 Grocy.FrontendHelpers.ValidateForm('barcode-form');
-$('#barcode').focus();
+setTimeout(function()
+{
+	$('#barcode').focus();
+}, 250);
 RefreshLocaleNumberInput();
 Grocy.Components.UserfieldsForm.Load()
 

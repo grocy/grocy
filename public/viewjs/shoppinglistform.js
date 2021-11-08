@@ -74,5 +74,8 @@ $('#shopping-list-form input').keydown(function(event)
 });
 
 Grocy.Components.UserfieldsForm.Load();
-$('#name').focus();
+setTimeout(function()
+{
+	$('#name').focus();
+}, 250);
 Grocy.FrontendHelpers.ValidateForm('shopping-list-form');
