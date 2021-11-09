@@ -174,6 +174,7 @@
 					<th>{{ $__t('Parent product') }}</th>
 					<th>{{ $__t('Default location') }}</th>
 					<th>{{ $__t('Product picture') }}</th>
+					<th>{{ $__t('Average price') }}</th>
 
 					@include('components.userfields_thead', array(
 					'userfields' => $userfields
@@ -413,6 +414,9 @@
 						<img data-src="{{ $U('/api/files/productpictures/' . base64_encode($currentStockEntry->product_picture_file_name) . '?force_serve_as=picture&best_fit_width=64&best_fit_height=64') }}"
 							class="lazy">
 						@endif
+					</td>
+					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">
+						<span class="locale-number locale-number-currency">{{ $currentStockEntry->average_price }}</span>
 					</td>
 
 					@include('components.userfields_tbody', array(

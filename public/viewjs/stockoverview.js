@@ -18,6 +18,7 @@
 		{ 'visible': false, 'targets': 15 },
 		{ 'visible': false, 'targets': 16 },
 		{ 'visible': false, 'targets': 17 },
+		{ 'visible': false, 'targets': 18 },
 		{ "type": "num", "targets": 3 },
 		{ "type": "html-num-fmt", "targets": 9 },
 		{ "type": "html-num-fmt", "targets": 10 },
