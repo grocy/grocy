@@ -14,11 +14,11 @@ $("#product-filter").on("change", function()
 	var text = $("#product-filter option:selected").text();
 	if (value === "all")
 	{
-		journalSummaryTable.column(1).search("").draw();
+		journalSummaryTable.column(journalSummaryTable.colReorder.transpose(1)).search("").draw();
 	}
 	else
 	{
-		journalSummaryTable.column(1).search("^" + text + "$", true, false).draw();
+		journalSummaryTable.column(journalSummaryTable.colReorder.transpose(1)).search("^" + text + "$", true, false).draw();
 	}
 });
 
@@ -31,7 +31,7 @@ $("#transaction-type-filter").on("change", function()
 		text = "";
 	}
 
-	journalSummaryTable.column(2).search(text).draw();
+	journalSummaryTable.column(journalSummaryTable.colReorder.transpose(2)).search(text).draw();
 });
 
 $("#user-filter").on("change", function()
@@ -43,7 +43,7 @@ $("#user-filter").on("change", function()
 		text = "";
 	}
 
-	journalSummaryTable.column(3).search(text).draw();
+	journalSummaryTable.column(journalSummaryTable.colReorder.transpose(3)).search(text).draw();
 });
 
 $("#search").on("keyup", Delay(function()
@@ -64,8 +64,8 @@ $("#clear-filter-button").on("click", function()
 	$("#location-filter").val("all");
 	$("#user-filter").val("all");
 	$("#product-filter").val("all");
-	journalSummaryTable.column(1).search("").draw();
-	journalSummaryTable.column(2).search("").draw();
-	journalSummaryTable.column(3).search("").draw();
+	journalSummaryTable.column(journalSummaryTable.colReorder.transpose(1)).search("").draw();
+	journalSummaryTable.column(journalSummaryTable.colReorder.transpose(2)).search("").draw();
+	journalSummaryTable.column(journalSummaryTable.colReorder.transpose(3)).search("").draw();
 	journalSummaryTable.search("").draw();
 });

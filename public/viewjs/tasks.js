@@ -31,7 +31,7 @@ $("#status-filter").on("change", function()
 	// Transfer CSS classes of selected element to dropdown element (for background)
 	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
 
-	tasksTable.column(5).search(value).draw();
+	tasksTable.column(tasksTable.colReorder.transpose(5)).search(value).draw();
 });
 
 $("#clear-filter-button").on("click", function()

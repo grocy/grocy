@@ -27,7 +27,7 @@ $("#entity-filter").on("change", function()
 		value = "";
 	}
 
-	userfieldsTable.column(1).search(value).draw();
+	userfieldsTable.column(userfieldsTable.colReorder.transpose(1)).search(value).draw();
 	$("#new-userfield-button").attr("href", U("/userfield/new?embedded&entity=" + value));
 });
 
@@ -35,7 +35,7 @@ $("#clear-filter-button").on("click", function()
 {
 	$("#search").val("");
 	$("#entity-filter").val("all");
-	userfieldsTable.column(1).search("").draw();
+	userfieldsTable.column(userfieldsTable.colReorder.transpose(1)).search("").draw();
 	userfieldsTable.search("").draw();
 });
 

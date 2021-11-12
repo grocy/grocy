@@ -25,7 +25,7 @@ $("#clear-filter-button").on("click", function()
 {
 	$("#search").val("");
 	$("#status-filter").val("all");
-	batteriesOverviewTable.column(5).search("").draw();
+	batteriesOverviewTable.column(batteriesOverviewTable.colReorder.transpose(5)).search("").draw();
 	batteriesOverviewTable.search("").draw();
 });
 
@@ -40,7 +40,7 @@ $("#status-filter").on("change", function()
 	// Transfer CSS classes of selected element to dropdown element (for background)
 	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
 
-	batteriesOverviewTable.column(5).search(value).draw();
+	batteriesOverviewTable.column(batteriesOverviewTable.colReorder.transpose(5)).search(value).draw();
 });
 
 $(".status-filter-message").on("click", function()

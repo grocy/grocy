@@ -33,7 +33,7 @@ $("#status-filter").on("change", function()
 	// Transfer CSS classes of selected element to dropdown element (for background)
 	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
 
-	choresOverviewTable.column(5).search(value).draw();
+	choresOverviewTable.column(choresOverviewTable.colReorder.transpose(5)).search(value).draw();
 });
 
 $("#user-filter").on("change", function()
@@ -47,7 +47,7 @@ $("#user-filter").on("change", function()
 	// Transfer CSS classes of selected element to dropdown element (for background)
 	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
 
-	choresOverviewTable.column(6).search(value).draw();
+	choresOverviewTable.column(choresOverviewTable.colReorder.transpose(6)).search(value).draw();
 
 	if (!value.isEmpty())
 	{
@@ -60,8 +60,8 @@ $("#clear-filter-button").on("click", function()
 	$("#search").val("");
 	$("#status-filter").val("all");
 	$("#user-filter").val("all");
-	choresOverviewTable.column(5).search("").draw();
-	choresOverviewTable.column(6).search("").draw();
+	choresOverviewTable.column(choresOverviewTable.colReorder.transpose(5)).search("").draw();
+	choresOverviewTable.column(choresOverviewTable.colReorder.transpose(6)).search("").draw();
 	choresOverviewTable.search("").draw();
 	RemoveUriParam("user");
 });

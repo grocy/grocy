@@ -45,7 +45,7 @@ $("#location-filter").on("change", function()
 		value = "xx" + value + "xx";
 	}
 
-	stockOverviewTable.column(6).search(value).draw();
+	stockOverviewTable.column(stockOverviewTable.colReorder.transpose(6)).search(value).draw();
 });
 
 $("#product-group-filter").on("change", function()
@@ -60,7 +60,7 @@ $("#product-group-filter").on("change", function()
 		value = "xx" + value + "xx";
 	}
 
-	stockOverviewTable.column(8).search(value).draw();
+	stockOverviewTable.column(stockOverviewTable.colReorder.transpose(8)).search(value).draw();
 });
 
 $("#status-filter").on("change", function()
@@ -74,7 +74,7 @@ $("#status-filter").on("change", function()
 	// Transfer CSS classes of selected element to dropdown element (for background)
 	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
 
-	stockOverviewTable.column(7).search(value).draw();
+	stockOverviewTable.column(stockOverviewTable.colReorder.transpose(7)).search(value).draw();
 });
 
 $(".status-filter-message").on("click", function()
@@ -90,9 +90,9 @@ $("#clear-filter-button").on("click", function()
 	$("#status-filter").val("all");
 	$("#product-group-filter").val("all");
 	$("#location-filter").val("all");
-	stockOverviewTable.column(6).search("").draw();
-	stockOverviewTable.column(7).search("").draw();
-	stockOverviewTable.column(8).search("").draw();
+	stockOverviewTable.column(stockOverviewTable.colReorder.transpose(6)).search("").draw();
+	stockOverviewTable.column(stockOverviewTable.colReorder.transpose(7)).search("").draw();
+	stockOverviewTable.column(stockOverviewTable.colReorder.transpose(8)).search("").draw();
 	stockOverviewTable.search("").draw();
 });
 

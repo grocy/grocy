@@ -32,7 +32,7 @@ $("#transaction-type-filter").on("change", function()
 		text = "";
 	}
 
-	stockJournalTable.column(4).search(text).draw();
+	stockJournalTable.column(stockJournalTable.colReorder.transpose(4)).search(text).draw();
 });
 
 $("#location-filter").on("change", function()
@@ -44,7 +44,7 @@ $("#location-filter").on("change", function()
 		text = "";
 	}
 
-	stockJournalTable.column(5).search(text).draw();
+	stockJournalTable.column(stockJournalTable.colReorder.transpose(5)).search(text).draw();
 });
 
 $("#user-filter").on("change", function()
@@ -56,7 +56,7 @@ $("#user-filter").on("change", function()
 		text = "";
 	}
 
-	stockJournalTable.column(6).search(text).draw();
+	stockJournalTable.column(stockJournalTable.colReorder.transpose(6)).search(text).draw();
 });
 
 $("#daterange-filter").on("change", function()

@@ -7,6 +7,7 @@
 - Fixed that the "Add as new product" productpicker workflow, started from the shopping list item form, always selected the default shopping list after finishing the flow
 - Fixed that when undoing a product opened transaction and when the product has "Default due days after opened", the original due date wasn't restored
 - Fixed that "Track date only"-chores were shown as overdue on the due day on the chores overview page
+- Fixed that dropdown filters for tables maybe did not work after reordering columns
 
 ### API
 - Fixed that backslashes were not allowed in API query filters

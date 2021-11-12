@@ -29,14 +29,14 @@ $("#product-group-filter").on("change", function()
 		value = "";
 	}
 
-	productsTable.column(6).search(value).draw();
+	productsTable.column(productsTable.colReorder.transpose(6)).search(value).draw();
 });
 
 $("#clear-filter-button").on("click", function()
 {
 	$("#search").val("");
 	$("#product-group-filter").val("all");
-	productsTable.column(6).search("").draw();
+	productsTable.column(productsTable.colReorder.transpose(6)).search("").draw();
 	productsTable.search("").draw();
 	if ($("#show-disabled").is(":checked") || $("#show-only-in-stock").is(":checked"))
 	{
