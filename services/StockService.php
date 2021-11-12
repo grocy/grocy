@@ -1426,7 +1426,8 @@ class StockService extends BaseService
 			$stockRows = $this->getDatabase()->stock()->where('stock_id = :1 AND amount = :2 AND purchased_date = :3', $logRow->stock_id, $logRow->amount, $logRow->purchased_date)->limit(1);
 			$stockRows->update([
 				'open' => 0,
-				'opened_date' => null
+				'opened_date' => null,
+				'best_before_date' => $logRow->best_before_date // Is only relevant when the product has "Default due days after opened", but also doesn't hurt for other products
 			]);
 
 			// Update log entry
