@@ -5,6 +5,7 @@
 - Fixed that the labels of context-/more-menu items were not readable in Night Mode (thanks @corbolais)
 - Fixed that auto night mode over midnight did not always work
 - Fixed that the "Add as new product" productpicker workflow, started from the shopping list item form, always selected the default shopping list after finishing the flow
+- Fixed that "Track date only"-chores were shown as overdue on the due day on the chores overview page
 
 ### API
 - Fixed that backslashes were not allowed in API query filters
