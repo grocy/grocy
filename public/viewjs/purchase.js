@@ -286,23 +286,7 @@ if (Grocy.Components.ProductPicker !== undefined)
 						$("#tare-weight-handling-info").addClass("d-none");
 					}
 
-					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
-					{
-						if (productDetails.product.default_best_before_days.toString() !== '0')
-						{
-							if (productDetails.product.default_best_before_days == -1)
-							{
-								if (!$("#datetimepicker-shortcut").is(":checked"))
-								{
-									$("#datetimepicker-shortcut").click();
-								}
-							}
-							else
-							{
-								Grocy.Components.DateTimePicker.SetValue(moment().add(productDetails.product.default_best_before_days, 'days').format('YYYY-MM-DD'));
-							}
-						}
-					}
+					PrefillBestBeforeDate(productDetails.product, productDetails.location);
 
 					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_LABEL_PRINTER)
 					{
@@ -395,6 +379,53 @@ if (Grocy.Components.ProductPicker !== undefined)
 		}
 	});
 }
+
+function PrefillBestBeforeDate(product, location)
+{
+	if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
+	{
+		var dueDays;
+		if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRODUCT_FREEZING && BoolVal(location.is_freezer))
+		{
+			dueDays = product.default_best_before_days_after_freezing;
+		}
+		else
+		{
+			dueDays = product.default_best_before_days;
+		}
+
+		dueDays = parseFloat(dueDays);
+		if (dueDays != 0)
+		{
+			if (dueDays == -1)
+			{
+				if (!$("#datetimepicker-shortcut").is(":checked"))
+				{
+					$("#datetimepicker-shortcut").click();
+				}
+			}
+			else
+			{
+				Grocy.Components.DateTimePicker.SetValue(moment().add(dueDays, 'days').format('YYYY-MM-DD'));
+			}
+		}
+	}
+}
+
+Grocy.Components.LocationPicker.GetPicker().on('change', function(e)
+{
+	if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRODUCT_FREEZING)
+	{
+		Grocy.Api.Get('objects/locations/' + Grocy.Components.LocationPicker.GetValue(),
+			function(location)
+			{
+				PrefillBestBeforeDate(CurrentProductDetails.product, location);
+			},
+			function(xhr)
+			{ }
+		);
+	}
+});
 
 $('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_purchase_amount));
 RefreshLocaleNumberInput();
