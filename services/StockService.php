@@ -147,13 +147,15 @@ class StockService extends BaseService
 			if ($locationId !== null && !$this->LocationExists($locationId))
 			{
 				throw new \Exception('Location does not exist');
-			} else {
+			}
+			else
+			{
 				$location = $this->getDatabase()->locations()->where('id', $locationId)->fetch();
 			}
 
-			if (GROCY_FEATURE_FLAG_STOCK_PRODUCT_FREEZING && $locationId !== null && intval($location->is_freezer) === 1 && $productDetails->product->default_best_before_days_after_freezing >= -1)
+			if (GROCY_FEATURE_FLAG_STOCK_PRODUCT_FREEZING && $locationId !== null && intval($location->is_freezer) === 1 && intval($productDetails->product->default_best_before_days_after_freezing) >= -1)
 			{
-				if ($productDetails->product->default_best_before_days_after_freezing == -1)
+				if (intval($productDetails->product->default_best_before_days_after_freezing) == -1)
 				{
 					$bestBeforeDate = date('2999-12-31');
 				}
@@ -161,7 +163,8 @@ class StockService extends BaseService
 				{
 					$bestBeforeDate = date('Y-m-d', strtotime('+' . $productDetails->product->default_best_before_days_after_freezing . ' days'));
 				}
-			} elseif (intval($productDetails->product->default_best_before_days) == -1)
+			}
+			elseif (intval($productDetails->product->default_best_before_days) == -1)
 			{
 				$bestBeforeDate = date('2999-12-31');
 			}
