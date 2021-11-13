@@ -2,6 +2,7 @@
 - The default shopping list (named "Shopping list"; localized) can now be renamed
 - Added the products average price as a (hidden by default) column on the stock overview page
 - Added a new "Presets for new products" stock setting for the "Default due days" option of new products
+- When adding (purchase) a product with "Default due days after freezing" set directly to a freezer location, the due date is now prefilled by that (instead of the normal "Default due days") (thanks @grahamc for the initial work on this)
 - Fixed that the "Stay logged in permanently" checkbox on the login page had no effect (thanks @0)
 - Fixed that the labels of context-/more-menu items were not readable in Night Mode (thanks @corbolais)
 - Fixed that auto night mode over midnight did not always work
