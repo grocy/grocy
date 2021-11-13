@@ -1411,7 +1411,7 @@ msgstr ""
 msgid "Accumulate sub products min. stock amount"
 msgstr ""
 
-msgid "If enabled, the min. stock amount of sub products will be accumulated into this product, means the sub product will never be \"missing\", only this product"
+msgid "If enabled, the min. stock amount of sub products will be accumulated into this product, means the sub product will never be missing, only this product"
 msgstr ""
 
 msgid "Are you sure to remove this conversion?"

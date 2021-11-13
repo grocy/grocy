@@ -170,7 +170,7 @@
 						&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
-							title="{{ $__t('If enabled, the min. stock amount of sub products will be accumulated into this product, means the sub product will never be "missing", only this product') }}"></i>
+							title="{{ $__t('If enabled, the min. stock amount of sub products will be accumulated into this product, means the sub product will never be missing, only this product') }}"></i>
 					</label>
 				</div>
 			</div>
@@ -428,6 +428,7 @@
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,
 			'hint' => $__t('Per stock quantity unit'),
+			'contextInfoId' => 'energy_qu_info',
 			'isRequired' => false,
 			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
 			))
@@ -485,12 +486,20 @@
 					id="default_print_stock_label"
 					name="default_print_stock_label">
 					<option value="0"
-						{{ $no_label }}>{{ $__t('No label') }}</option>
+						{{
+						$no_label
+						}}>{{ $__t('No label') }}</option>
 					<option value="1"
-						{{ $single_label }}>{{ $__t('Single label') }}</option>
+						{{
+						$single_label
+						}}>{{ $__t('Single label') }}</option>
 					<option value="2"
-						{{ $per_unit_label }}
-						{{ $disable_per_unit }}
+						{{
+						$per_unit_label
+						}}
+						{{
+						$disable_per_unit
+						}}
 						id="label-option-per-unit">{{ $__t('Label per unit') }}</option>
 				</select>
 			</div>
