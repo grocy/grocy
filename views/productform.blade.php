@@ -447,60 +447,23 @@
 
 			@if(GROCY_FEATURE_FLAG_LABEL_PRINTER)
 			<div class="form-group">
-				<div class="custom-control custom-checkbox">
-					<input @if($mode=='edit'
-						&&
-						$product->allow_label_per_unit == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="allow_label_per_unit" name="allow_label_per_unit" value="1">
-					<label class="form-check-label custom-control-label"
-						for="allow_label_per_unit">{{ $__t('Allow label printing per unit') }}&nbsp;<i class="fas fa-question-circle text-muted"
-							data-toggle="tooltip"
-							data-trigger="hover click"
-							title="{{ $__t('Allow printing of one label per unit on purchase (after conversion) - e.g. 1 purchased pack adding 10 pieces of stock would print 10 labels') }}"></i>
-					</label>
-				</div>
-			</div>
-
-			@php
-			$no_label = "";
-			$single_label = "";
-			$per_unit_label = "";
-			$disable_per_unit = "";
-
-			if($mode == 'edit') {
-			switch($product->default_print_stock_label) {
-			case 0: $no_label = "selected"; break;
-			case 1: $single_label = "selected"; break;
-			case 2: $per_unit_label = "selected"; break;
-			default: break; // yolo
-			}
-			if($product->allow_label_per_unit == 0) {
-			$disable_per_unit="disabled";
-			$per_unit_label = "";
-			}
-			}
-			@endphp
-
-			<div class="form-group">
-				<label for="default_print_stock_label">{{ $__t('Stock entry label') }}</label>
+				<label for="default_print_stock_label">{{ $__t('Default stock entry label') }}</label>
+				<i class="fas fa-question-circle text-muted"
+					data-toggle="tooltip"
+					data-trigger="hover click"
+					title="{{ $__t('This is the default which will be prefilled on purchase') }}"></i>
 				<select class="form-control"
 					id="default_print_stock_label"
 					name="default_print_stock_label">
-					<option value="0"
-						{{
-						$no_label
-						}}>{{ $__t('No label') }}</option>
-					<option value="1"
-						{{
-						$single_label
-						}}>{{ $__t('Single label') }}</option>
-					<option value="2"
-						{{
-						$per_unit_label
-						}}
-						{{
-						$disable_per_unit
-						}}
-						id="label-option-per-unit">{{ $__t('Label per unit') }}</option>
+					<option @if($mode=='edit'
+						&&
+						intval($product->default_print_stock_label) == 0 ) selected="selected" @endif value="0">{{ $__t('No label') }}</option>
+					<option @if($mode=='edit'
+						&&
+						intval($product->default_print_stock_label) == 1 ) selected="selected" @endif value="1">{{ $__t('Single label') }}</option>
+					<option @if($mode=='edit'
+						&&
+						intval($product->default_print_stock_label) == 2 ) selected="selected" @endif value="2">{{ $__t('Label per unit') }}</option>
 				</select>
 			</div>
 			@endif

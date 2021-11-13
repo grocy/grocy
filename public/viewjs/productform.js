@@ -405,22 +405,6 @@ $('#qu_id_stock').change(function(e)
 	}
 });
 
-$('#allow_label_per_unit').on('change', function()
-{
-	if (this.checked)
-	{
-		$('#label-option-per-unit').prop("disabled", false);
-	}
-	else
-	{
-		if ($('#default_print_stock_label').val() == "2")
-		{
-			$("#default_print_stock_label").val("0");
-		}
-		$('#label-option-per-unit').prop("disabled", true);
-	}
-});
-
 $(window).on("message", function(e)
 {
 	var data = e.originalEvent.data;

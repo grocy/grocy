@@ -2095,6 +2095,9 @@ msgstr ""
 msgid "Print on label printer"
 msgstr ""
 
+msgid "Default stock entry label"
+msgstr ""
+
 msgid "Stock entry label"
 msgstr ""
 
@@ -2105,12 +2108,6 @@ msgid "Single label"
 msgstr ""
 
 msgid "Label per unit"
-msgstr ""
-
-msgid "Allow label printing per unit"
-msgstr ""
-
-msgid "Allow printing of one label per unit on purchase (after conversion) - e.g. 1 purchased pack adding 10 pieces of stock would print 10 labels"
 msgstr ""
 
 msgid "Error while executing WebHook"
@@ -2243,4 +2240,7 @@ msgid "Section"
 msgstr ""
 
 msgid "Are you sure to empty the shopping list?"
+msgstr ""
+
+msgid "This is the default which will be prefilled on purchase"
 msgstr ""

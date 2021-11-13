@@ -185,6 +185,10 @@ $('#save-purchase-button').on('click', function(e)
 						}
 						Grocy.Components.ProductPicker.GetInputElement().focus();
 						Grocy.Components.ProductCard.Refresh(jsonForm.product_id);
+						if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_LABEL_PRINTER)
+						{
+							$("#print_stock_label").val(0);
+						}
 
 						$('#price-hint').text("");
 						var priceTypeUnitPrice = $("#price-type-unit-price");
@@ -291,18 +295,6 @@ if (Grocy.Components.ProductPicker !== undefined)
 					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_LABEL_PRINTER)
 					{
 						$("#print_stock_label").val(productDetails.product.default_print_stock_label);
-						if (productDetails.product.allow_label_per_unit)
-						{
-							if ($('#default_print_stock_label').val() == "2")
-							{
-								$("#default_print_stock_label").val("0");
-							}
-							$('#label-option-per-unit').prop("disabled", true);
-						}
-						else
-						{
-							$('#label-option-per-unit').prop("disabled", false);
-						}
 					}
 
 					$("#display_amount").focus();
