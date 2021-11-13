@@ -504,6 +504,11 @@ else if (Grocy.EditMode === 'create')
 	{
 		$("select.input-group-qu").val(Grocy.UserSettings.product_presets_qu_id);
 	}
+
+	if (Grocy.UserSettings.product_presets_default_due_days.toString() !== '0')
+	{
+		$("#default_best_before_days").val(Grocy.UserSettings.product_presets_default_due_days);
+	}
 }
 
 Grocy.Components.ProductPicker.GetPicker().on('change', function(e)

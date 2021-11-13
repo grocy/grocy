@@ -1,6 +1,7 @@
 ﻿$("#product_presets_location_id").val(Grocy.UserSettings.product_presets_location_id);
 $("#product_presets_product_group_id").val(Grocy.UserSettings.product_presets_product_group_id);
 $("#product_presets_qu_id").val(Grocy.UserSettings.product_presets_qu_id);
+$("#product_presets_default_due_days").val(Grocy.UserSettings.product_presets_default_due_days);
 $("#stock_due_soon_days").val(Grocy.UserSettings.stock_due_soon_days);
 $("#stock_default_purchase_amount").val(Grocy.UserSettings.stock_default_purchase_amount);
 $("#stock_default_consume_amount").val(Grocy.UserSettings.stock_default_consume_amount);

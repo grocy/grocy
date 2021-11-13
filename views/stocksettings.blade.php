@@ -55,6 +55,14 @@
 					@endforeach
 				</select>
 			</div>
+
+			@include('components.numberpicker', array(
+			'id' => 'product_presets_default_due_days',
+			'additionalAttributes' => 'data-setting-key="product_presets_default_due_days"',
+			'label' => 'Default due days',
+			'min' => -1,
+			'additionalCssClasses' => 'user-setting-control'
+			))
 		</div>
 
 		<h4 class="mt-2">{{ $__t('Stock overview') }}</h4>
