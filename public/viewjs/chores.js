@@ -79,3 +79,28 @@ if (GetUriParam('include_disabled'))
 {
 	$("#show-disabled").prop('checked', true);
 }
+
+$(".merge-chores-button").on("click", function(e)
+{
+	var choreId = $(e.currentTarget).attr("data-chore-id");
+	$("#merge-chores-keep").val(choreId);
+	$("#merge-chores-remove").val("");
+	$("#merge-chores-modal").modal("show");
+});
+
+$("#merge-chores-save-button").on("click", function()
+{
+	var choreIdToKeep = $("#merge-chores-keep").val();
+	var choreIdToRemove = $("#merge-chores-remove").val();
+
+	Grocy.Api.Post("chores/" + choreIdToKeep.toString() + "/merge/" + choreIdToRemove.toString(), {},
+		function(result)
+		{
+			window.location.href = U('/chores');
+		},
+		function(xhr)
+		{
+			Grocy.FrontendHelpers.ShowGenericError('Error while merging', xhr.response);
+		}
+	);
+});

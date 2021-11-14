@@ -3779,6 +3779,49 @@
 				}
 			}
 		},
+		"/chores/{choreIdToKeep}/merge/{choreIdToRemove}": {
+			"post": {
+				"summary": "Merges two chores into one",
+				"tags": [
+					"Chores"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "choreIdToKeep",
+						"required": true,
+						"description": "A valid chore id of the chore to keep",
+						"schema": {
+							"type": "integer"
+						}
+					},
+					{
+						"in": "path",
+						"name": "choreIdToRemove",
+						"required": true,
+						"description": "A valid chore id of the chore to remove",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"204": {
+						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Invalid chore id)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error400"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/batteries": {
 			"get": {
 				"summary": "Returns all batteries incl. the next estimated charge time per battery",

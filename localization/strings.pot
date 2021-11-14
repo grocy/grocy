@@ -2048,7 +2048,7 @@ msgstr ""
 msgid "Product to remove"
 msgstr ""
 
-msgid "Error while merging products"
+msgid "Error while merging"
 msgstr ""
 
 msgid "After merging, this product will be kept"
@@ -2243,4 +2243,19 @@ msgid "Are you sure to empty the shopping list?"
 msgstr ""
 
 msgid "This is the default which will be prefilled on purchase"
+msgstr ""
+
+msgid "Merge chores"
+msgstr ""
+
+msgid "Chore to keep"
+msgstr ""
+
+msgid "After merging, this chore will be kept"
+msgstr ""
+
+msgid "Chore to remove"
+msgstr ""
+
+msgid "After merging, all occurences of this chore will be replaced by the kept chore (means this chore will not exist anymore)"
 msgstr ""

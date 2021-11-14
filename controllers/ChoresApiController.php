@@ -131,4 +131,24 @@ class ChoresApiController extends BaseApiController
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
+
+	public function MergeChores(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		User::checkPermission($request, User::PERMISSION_MASTER_DATA_EDIT);
+
+		try
+		{
+			if (filter_var($args['choreIdToKeep'], FILTER_VALIDATE_INT) === false || filter_var($args['choreIdToRemove'], FILTER_VALIDATE_INT) === false)
+			{
+				throw new \Exception('Provided {choreIdToKeep} or {choreIdToRemove} is not a valid integer');
+			}
+
+			$this->ApiResponse($response, $this->getChoresService()->MergeChores($args['choreIdToKeep'], $args['choreIdToRemove']));
+			return $this->EmptyApiResponse($response);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
 }

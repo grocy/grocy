@@ -238,6 +238,7 @@ $app->group('/api', function (RouteCollectorProxy $group) {
 	$group->post('/chores/executions/{executionId}/undo', '\Grocy\Controllers\ChoresApiController:UndoChoreExecution');
 	$group->post('/chores/executions/calculate-next-assignments', '\Grocy\Controllers\ChoresApiController:CalculateNextExecutionAssignments');
 	$group->get('/chores/{choreId}/printlabel', '\Grocy\Controllers\ChoresApiController:ChorePrintLabel');
+	$group->post('/chores/{choreIdToKeep}/merge/{choreIdToRemove}', '\Grocy\Controllers\ChoresApiController:MergeChores');
 
 	//Printing
 	$group->get('/print/shoppinglist/thermal', '\Grocy\Controllers\PrintApiController:PrintShoppingListThermal');

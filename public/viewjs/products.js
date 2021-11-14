@@ -147,7 +147,7 @@ $("#merge-products-save-button").on("click", function()
 		},
 		function(xhr)
 		{
-			Grocy.FrontendHelpers.ShowGenericError('Error while merging products', xhr.response);
+			Grocy.FrontendHelpers.ShowGenericError('Error while merging', xhr.response);
 		}
 	);
 });

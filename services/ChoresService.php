@@ -209,6 +209,40 @@ class ChoresService extends BaseService
 		]);
 	}
 
+	public function MergeChores(int $choreIdToKeep, int $choreIdToRemove)
+	{
+		if (!$this->ChoreExists($choreIdToKeep))
+		{
+			throw new \Exception('$choreIdToKeep does not exist or is inactive');
+		}
+
+		if (!$this->ChoreExists($choreIdToRemove))
+		{
+			throw new \Exception('$choreIdToRemove does not exist or is inactive');
+		}
+
+		if ($choreIdToKeep == $choreIdToRemove)
+		{
+			throw new \Exception('$choreIdToKeep cannot equal $choreIdToRemove');
+		}
+
+		$this->getDatabaseService()->GetDbConnectionRaw()->beginTransaction();
+		try
+		{
+			$choreToKeep = $this->getDatabase()->chores($choreIdToKeep);
+			$choreToRemove = $this->getDatabase()->chores($choreIdToRemove);
+
+			$this->getDatabaseService()->ExecuteDbStatement('UPDATE chores_log SET chore_id = ' . $choreIdToKeep . ' WHERE chore_id = ' . $choreIdToRemove);
+			$this->getDatabaseService()->ExecuteDbStatement('DELETE FROM chores WHERE id = ' . $choreIdToRemove);
+		}
+		catch (Exception $ex)
+		{
+			$this->getDatabaseService()->GetDbConnectionRaw()->rollback();
+			throw $ex;
+		}
+		$this->getDatabaseService()->GetDbConnectionRaw()->commit();
+	}
+
 	private function ChoreExists($choreId)
 	{
 		$choreRow = $this->getDatabase()->chores()->where('id = :1', $choreId)->fetch();
