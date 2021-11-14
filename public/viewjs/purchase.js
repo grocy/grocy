@@ -23,7 +23,7 @@ $('#save-purchase-button').on('click', function(e)
 		{
 			var jsonData = {};
 			jsonData.amount = jsonForm.amount;
-			jsonData.stock_label_type = jsonForm.stock_label_type
+			jsonData.stock_label_type = jsonForm.stock_label_type;
 
 			if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 			{
@@ -128,7 +128,7 @@ $('#save-purchase-button').on('click', function(e)
 								webhookData.grocycode = 'grcy:p:' + jsonForm.product_id + ":" + result[0].stock_id;
 								if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 								{
-									webhookData.due_date = __t('DD') + ': ' + result[0].best_before_date
+									webhookData.due_date = __t('DD') + ': ' + result[0].best_before_date;
 								}
 
 								Grocy.FrontendHelpers.RunWebhook(Grocy.Webhooks.labelprinter, webhookData);
@@ -145,7 +145,7 @@ $('#save-purchase-button').on('click', function(e)
 											webhookData.grocycode = 'grcy:p:' + jsonForm.product_id + ":" + stockEntry.stock_id;
 											if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 											{
-												webhookData.due_date = __t('DD') + ': ' + result[0].best_before_date
+												webhookData.due_date = __t('DD') + ': ' + result[0].best_before_date;
 											}
 
 											Grocy.FrontendHelpers.RunWebhook(Grocy.Webhooks.labelprinter, webhookData);
