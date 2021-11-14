@@ -1239,9 +1239,6 @@ msgstr "Ei koskaan"
 msgid "Today"
 msgstr "Tänään"
 
-msgid "Consume %1$s of %2$s as spoiled"
-msgstr "Kuluta %1$s tuotteesta %2$s pilaantuneena"
-
 msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
 msgstr "Reseptin \"%s\"  kaikkia ainesosia ei ole varastossa, ei poistettu mitään"
 
@@ -1521,12 +1518,8 @@ msgstr "Lisää alatuotteiden varaston minimimäärät"
 
 msgid ""
 "If enabled, the min. stock amount of sub products will be accumulated into "
-"this product, means the sub product will never be \"missing\", only this "
-"product"
+"this product, means the sub product will never be missing, only this product"
 msgstr ""
-"Jos tämä valitaan, niin alatuotteiden minimivarastömäärät lisätään tähän "
-"tuotteeseen, jolloin alatuote ei koskaan ole \"lopussa\", vaan vain tämä "
-"tuote."
 
 msgid "Are you sure to remove this conversion?"
 msgstr "Haluatko varmasti poistaa tämän muunnoksen?"
@@ -2292,8 +2285,8 @@ msgstr "Säilytettävä tuote"
 msgid "Product to remove"
 msgstr "Poistettava tuote"
 
-msgid "Error while merging products"
-msgstr "Virhe yhdistettäessä tuotteita"
+msgid "Error while merging"
+msgstr ""
 
 msgid "After merging, this product will be kept"
 msgstr "Yhdistämisen jälkeen tämä tuote säilytetään"
@@ -2351,6 +2344,9 @@ msgstr ""
 msgid "Print on label printer"
 msgstr "Tulosta tarratulostimella"
 
+msgid "Default stock entry label"
+msgstr ""
+
 msgid "Stock entry label"
 msgstr ""
 
@@ -2361,14 +2357,6 @@ msgid "Single label"
 msgstr ""
 
 msgid "Label per unit"
-msgstr ""
-
-msgid "Allow label printing per unit"
-msgstr ""
-
-msgid ""
-"Allow printing of one label per unit on purchase (after conversion) - e.g. 1"
-" purchased pack adding 10 pieces of stock would print 10 labels"
 msgstr ""
 
 msgid "Error while executing WebHook"
@@ -2509,4 +2497,24 @@ msgid "Section"
 msgstr "Osio"
 
 msgid "Are you sure to empty the shopping list?"
+msgstr ""
+
+msgid "This is the default which will be prefilled on purchase"
+msgstr ""
+
+msgid "Merge chores"
+msgstr ""
+
+msgid "Chore to keep"
+msgstr ""
+
+msgid "After merging, this chore will be kept"
+msgstr ""
+
+msgid "Chore to remove"
+msgstr ""
+
+msgid ""
+"After merging, all occurences of this chore will be replaced by the kept "
+"chore (means this chore will not exist anymore)"
 msgstr ""

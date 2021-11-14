@@ -1256,9 +1256,6 @@ msgstr "אף פעם"
 msgid "Today"
 msgstr "היום"
 
-msgid "Consume %1$s of %2$s as spoiled"
-msgstr "%1$s מתוך %2$s נצרכו כמקולקלים"
-
 msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
 msgstr "לא כל הרכיבים של המתכון „%s” נמצאים במלאי, לא הוסר דבר"
 
@@ -1532,11 +1529,10 @@ msgstr "צבירת תת־מוצרים עם כמות מלאי מזערית"
 
 msgid ""
 "If enabled, the min. stock amount of sub products will be accumulated into "
-"this product, means the sub product will never be \"missing\", only this "
-"product"
+"this product, means the sub product will never be missing, only this product"
 msgstr ""
 "אם האפשרות פעילה, הכמות המזערית במלאי של תת־מוצרים תצטבר לכדי המוצר הזה, "
-"משמעות הדבר היא שתת־המוצר הזה אף פעם לא „יחסר”, רק המוצר הזה"
+"משמעות הדבר היא שתת־המוצר הזה אף פעם לא יחסר, רק המוצר הזה"
 
 msgid "Are you sure to remove this conversion?"
 msgstr "להסיר את ההמרה הזאת?"
@@ -2279,8 +2275,8 @@ msgstr "מוצר להשאיר"
 msgid "Product to remove"
 msgstr "מוצר להסיר"
 
-msgid "Error while merging products"
-msgstr "שגיאה במיזוג מוצרים"
+msgid "Error while merging"
+msgstr ""
 
 msgid "After merging, this product will be kept"
 msgstr "לאחר המיזוג, המוצר הזה יישאר"
@@ -2339,6 +2335,9 @@ msgstr "פג"
 msgid "Print on label printer"
 msgstr "הדפסה במדפסת מדבקות"
 
+msgid "Default stock entry label"
+msgstr "תווית רשומת מלאי כבררת מחדל"
+
 msgid "Stock entry label"
 msgstr "תווית רשומת מלאי"
 
@@ -2350,16 +2349,6 @@ msgstr "תווית בודדה"
 
 msgid "Label per unit"
 msgstr "תווית לכל יחידה"
-
-msgid "Allow label printing per unit"
-msgstr "לאפשר הדפסת תוויות ליחידה"
-
-msgid ""
-"Allow printing of one label per unit on purchase (after conversion) - e.g. 1"
-" purchased pack adding 10 pieces of stock would print 10 labels"
-msgstr ""
-"לאפשר הדפסה של תווית אחת ליחידה ברכישה (לאחר המרה) - למשל: אריזה אחת שנרכשה "
-"ומוסיפה 10 יחידות למלאי תוביל להדפסת 10 תוויות"
 
 msgid "Error while executing WebHook"
 msgstr "שגיאה בהפעלת התליית רשת"
@@ -2503,3 +2492,23 @@ msgstr "סעיף"
 
 msgid "Are you sure to empty the shopping list?"
 msgstr "לרוקן את רשימת הקניות?"
+
+msgid "This is the default which will be prefilled on purchase"
+msgstr "זו בררת המחדש שתמולא מראש בעת הרכישה"
+
+msgid "Merge chores"
+msgstr ""
+
+msgid "Chore to keep"
+msgstr ""
+
+msgid "After merging, this chore will be kept"
+msgstr ""
+
+msgid "Chore to remove"
+msgstr ""
+
+msgid ""
+"After merging, all occurences of this chore will be replaced by the kept "
+"chore (means this chore will not exist anymore)"
+msgstr ""

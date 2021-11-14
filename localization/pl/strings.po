@@ -11,6 +11,7 @@
 # Marcin Radoszewski <moriturius@gmail.com>, 2021
 # Konrad Mazurczak <konrad.mazurczak@gmail.com>, 2021
 # Marcin Redlica <marcin.redlica@gmail.com>, 2021
+# Jakub Kluba <jakub.kluba@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -18,7 +19,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Marcin Redlica <marcin.redlica@gmail.com>, 2021\n"
+"Last-Translator: Jakub Kluba <jakub.kluba@gmail.com>, 2021\n"
 "Language-Team: Polish (https://www.transifex.com/grocy/teams/93189/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -356,7 +357,7 @@ msgid "Manage API keys"
 msgstr "Zarządzaj kluczami API"
 
 msgid "REST API browser"
-msgstr ""
+msgstr "Przeglądarka REST API"
 
 msgid "API keys"
 msgstr "Klucze API"
@@ -838,7 +839,7 @@ msgid "Create equipment"
 msgstr "Dodaj wyposażenie"
 
 msgid "The current file will be deleted on save"
-msgstr ""
+msgstr "Bieżący plik zostanie usunięty podczas zapisu"
 
 msgid "No picture available"
 msgstr "Brak zdjęcia"
@@ -1279,9 +1280,6 @@ msgstr "Nigdy"
 msgid "Today"
 msgstr "Dzisiaj"
 
-msgid "Consume %1$s of %2$s as spoiled"
-msgstr "%2$s - %1$s - oznacz jako zepsute"
-
 msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
 msgstr ""
 "Nie wszystkie składniki przepisu \"%s\" są dostępne, nic nie zostało "
@@ -1563,12 +1561,8 @@ msgstr "Sumuj min. ilość dla produktów podrzędnych"
 
 msgid ""
 "If enabled, the min. stock amount of sub products will be accumulated into "
-"this product, means the sub product will never be \"missing\", only this "
-"product"
+"this product, means the sub product will never be missing, only this product"
 msgstr ""
-"Jeżeli włączone, minimalna ilość produktów podrzędnych będzie sumowana w tym"
-" produkcie. Oznacza to, że produktu podrzędnego nigdy nie będzie brakować; "
-"jedynie tego produktu."
 
 msgid "Are you sure to remove this conversion?"
 msgstr "Czy na pewno chcesz usunąć tą konwersję?"
@@ -1639,7 +1633,7 @@ msgid "There are no units available at this location"
 msgstr "Nie ma żadnych jednostek dostępnych dla tej lokalizacji"
 
 msgid "Amount: %1$s; Due on %2$s; Bought on %3$s"
-msgstr ""
+msgstr "Ilość: %1$s; Ważna do %2$s; Kupiona %3$s"
 
 msgid "Transfered %1$s of %2$s from %3$s to %4$s"
 msgstr "Przeniesiono %1$s z %2$s od %3$s do %4$s"
@@ -2082,7 +2076,7 @@ msgid ""
 msgstr ""
 
 msgid "Copy"
-msgstr ""
+msgstr "Kopiuj"
 
 msgid "Are you sure to remove this barcode?"
 msgstr "Czy na pewno usunąć ten kod kreskowy?"
@@ -2296,7 +2290,7 @@ msgstr "Produkt do zachowania"
 msgid "Product to remove"
 msgstr "Produkt do usunięcia"
 
-msgid "Error while merging products"
+msgid "Error while merging"
 msgstr ""
 
 msgid "After merging, this product will be kept"
@@ -2350,6 +2344,9 @@ msgstr ""
 msgid "Print on label printer"
 msgstr ""
 
+msgid "Default stock entry label"
+msgstr ""
+
 msgid "Stock entry label"
 msgstr ""
 
@@ -2360,14 +2357,6 @@ msgid "Single label"
 msgstr ""
 
 msgid "Label per unit"
-msgstr ""
-
-msgid "Allow label printing per unit"
-msgstr ""
-
-msgid ""
-"Allow printing of one label per unit on purchase (after conversion) - e.g. 1"
-" purchased pack adding 10 pieces of stock would print 10 labels"
 msgstr ""
 
 msgid "Error while executing WebHook"
@@ -2381,16 +2370,16 @@ msgid "Open stock entry label in new window"
 msgstr ""
 
 msgid "Thermal printer"
-msgstr ""
+msgstr "Drukarka termiczna"
 
 msgid "Printing"
-msgstr ""
+msgstr "Drukowanie"
 
 msgid "Connecting to printer..."
 msgstr ""
 
 msgid "Unable to print"
-msgstr ""
+msgstr "Nie można wydrukować"
 
 msgid "Only done items"
 msgstr ""
@@ -2399,7 +2388,7 @@ msgid "Show only in-stock products"
 msgstr ""
 
 msgid "Product description"
-msgstr ""
+msgstr "Opis produktu"
 
 # Example: *3.21 USD* per *Pack*
 msgid "%1$s per %2$s"
@@ -2441,10 +2430,10 @@ msgid "A date is required"
 msgstr ""
 
 msgid "Day"
-msgstr ""
+msgstr "Dzień"
 
 msgid "Add recipe"
-msgstr ""
+msgstr "Dodaj przepis"
 
 msgid "Copy this day"
 msgstr ""
@@ -2470,7 +2459,7 @@ msgid "Display product"
 msgstr ""
 
 msgid "Copy recipe"
-msgstr ""
+msgstr "Kopiuj przepis"
 
 msgid "Copy of %s"
 msgstr ""
@@ -2510,3 +2499,23 @@ msgstr ""
 
 msgid "Are you sure to empty the shopping list?"
 msgstr "Czy na pewno chcesz wyczyścić listę zakupów?"
+
+msgid "This is the default which will be prefilled on purchase"
+msgstr ""
+
+msgid "Merge chores"
+msgstr ""
+
+msgid "Chore to keep"
+msgstr ""
+
+msgid "After merging, this chore will be kept"
+msgstr ""
+
+msgid "Chore to remove"
+msgstr ""
+
+msgid ""
+"After merging, all occurences of this chore will be replaced by the kept "
+"chore (means this chore will not exist anymore)"
+msgstr ""

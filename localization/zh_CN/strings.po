@@ -1192,9 +1192,6 @@ msgstr "从不"
 msgid "Today"
 msgstr "今天"
 
-msgid "Consume %1$s of %2$s as spoiled"
-msgstr "消耗%2$s中的%1$s作为被损坏的"
-
 msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
 msgstr "并不是所有的食谱“%s”的成分在库存，没有删除"
 
@@ -1453,9 +1450,8 @@ msgstr "累积子产品的最小库存数量"
 
 msgid ""
 "If enabled, the min. stock amount of sub products will be accumulated into "
-"this product, means the sub product will never be \"missing\", only this "
-"product"
-msgstr "如果启用，子产品的最小库存数量将累计到此产品中，意味着子产品将永远不会“丢失”，只有此产品"
+"this product, means the sub product will never be missing, only this product"
+msgstr ""
 
 msgid "Are you sure to remove this conversion?"
 msgstr "您确定要删除此转换吗?"
@@ -2154,8 +2150,8 @@ msgstr "保留的产品"
 msgid "Product to remove"
 msgstr "要删除的产品"
 
-msgid "Error while merging products"
-msgstr "合并产品时出错"
+msgid "Error while merging"
+msgstr ""
 
 msgid "After merging, this product will be kept"
 msgstr "合并后，此产品将保留"
@@ -2208,6 +2204,9 @@ msgstr "‎期限‎"
 msgid "Print on label printer"
 msgstr "标签打印机打印"
 
+msgid "Default stock entry label"
+msgstr ""
+
 msgid "Stock entry label"
 msgstr "库存条目标签"
 
@@ -2219,14 +2218,6 @@ msgstr "单一标签"
 
 msgid "Label per unit"
 msgstr "标签单位"
-
-msgid "Allow label printing per unit"
-msgstr "允许标签打印每单位"
-
-msgid ""
-"Allow printing of one label per unit on purchase (after conversion) - e.g. 1"
-" purchased pack adding 10 pieces of stock would print 10 labels"
-msgstr "允许打印一个标签每单位购买(转换后)-例如1购买包装增加10件库存将打印10个标签"
 
 msgid "Error while executing WebHook"
 msgstr "执行WebHook时出错"
@@ -2361,4 +2352,24 @@ msgid "Section"
 msgstr ""
 
 msgid "Are you sure to empty the shopping list?"
+msgstr ""
+
+msgid "This is the default which will be prefilled on purchase"
+msgstr ""
+
+msgid "Merge chores"
+msgstr ""
+
+msgid "Chore to keep"
+msgstr ""
+
+msgid "After merging, this chore will be kept"
+msgstr ""
+
+msgid "Chore to remove"
+msgstr ""
+
+msgid ""
+"After merging, all occurences of this chore will be replaced by the kept "
+"chore (means this chore will not exist anymore)"
 msgstr ""

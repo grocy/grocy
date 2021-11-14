@@ -1264,9 +1264,6 @@ msgstr "Nunca"
 msgid "Today"
 msgstr "Hoy"
 
-msgid "Consume %1$s of %2$s as spoiled"
-msgstr "Consumir %1$s de %2$s como dañado"
-
 msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
 msgstr ""
 "No todos los ingredientes de la receta \"%s\" están en el inventario, nada "
@@ -1553,12 +1550,8 @@ msgstr "Acumular mínimos de existencias de subproductos"
 
 msgid ""
 "If enabled, the min. stock amount of sub products will be accumulated into "
-"this product, means the sub product will never be \"missing\", only this "
-"product"
+"this product, means the sub product will never be missing, only this product"
 msgstr ""
-"Si está activado, los mínimos de existencias de los subproductos se "
-"acumularán en este producto. Los subproductos nunca faltarán, solo este "
-"producto"
 
 msgid "Are you sure to remove this conversion?"
 msgstr "¿Está seguro de querer eliminar esta conversión?"
@@ -2343,8 +2336,8 @@ msgstr "Productos a mantener"
 msgid "Product to remove"
 msgstr "Productos a eliminar"
 
-msgid "Error while merging products"
-msgstr "Error al combinar productos"
+msgid "Error while merging"
+msgstr ""
 
 msgid "After merging, this product will be kept"
 msgstr "Después de combinar, este producto se mantendrá"
@@ -2402,6 +2395,9 @@ msgstr ""
 msgid "Print on label printer"
 msgstr ""
 
+msgid "Default stock entry label"
+msgstr ""
+
 msgid "Stock entry label"
 msgstr ""
 
@@ -2412,14 +2408,6 @@ msgid "Single label"
 msgstr ""
 
 msgid "Label per unit"
-msgstr ""
-
-msgid "Allow label printing per unit"
-msgstr ""
-
-msgid ""
-"Allow printing of one label per unit on purchase (after conversion) - e.g. 1"
-" purchased pack adding 10 pieces of stock would print 10 labels"
 msgstr ""
 
 msgid "Error while executing WebHook"
@@ -2558,3 +2546,23 @@ msgstr ""
 
 msgid "Are you sure to empty the shopping list?"
 msgstr "¿Estás seguro de querer borrar la lista de la compra?"
+
+msgid "This is the default which will be prefilled on purchase"
+msgstr ""
+
+msgid "Merge chores"
+msgstr ""
+
+msgid "Chore to keep"
+msgstr ""
+
+msgid "After merging, this chore will be kept"
+msgstr ""
+
+msgid "Chore to remove"
+msgstr ""
+
+msgid ""
+"After merging, all occurences of this chore will be replaced by the kept "
+"chore (means this chore will not exist anymore)"
+msgstr ""

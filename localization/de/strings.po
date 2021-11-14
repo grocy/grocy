@@ -1258,9 +1258,6 @@ msgstr "Nie"
 msgid "Today"
 msgstr "Heute"
 
-msgid "Consume %1$s of %2$s as spoiled"
-msgstr "Verbrauche %1$s %2$s als verdorben"
-
 msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
 msgstr ""
 "Nicht alle Zutaten, die vom Rezept \"%s\" benötigt werden, sind vorrätig, es"
@@ -1546,12 +1543,10 @@ msgstr "Mindestbestände von untergeordneten Produkten aufsummieren"
 
 msgid ""
 "If enabled, the min. stock amount of sub products will be accumulated into "
-"this product, means the sub product will never be \"missing\", only this "
-"product"
+"this product, means the sub product will never be missing, only this product"
 msgstr ""
 "Wenn aktiviert, werden die Mindestbestände von untergeordneten Produkten "
-"aufsummiert, heißt das untergeordnete Produkt wird nie \"fehlen\", nur "
-"dieses"
+"aufsummiert, heißt das untergeordnete Produkt wird nie fehlen, nur dieses"
 
 msgid "Are you sure to remove this conversion?"
 msgstr "Diese Umrechnung wirklich löschen?"
@@ -2339,8 +2334,8 @@ msgstr "Produkt, das behalten werden soll"
 msgid "Product to remove"
 msgstr "Produkt, das entfernt werden soll"
 
-msgid "Error while merging products"
-msgstr "Fehler beim Zusammenführen der Produkte"
+msgid "Error while merging"
+msgstr "Fehler beim Zusammenführen"
 
 msgid "After merging, this product will be kept"
 msgstr "Nach der Zusammenführung wird dieses Produkt erhalten bleiben"
@@ -2401,6 +2396,9 @@ msgstr "MHD"
 msgid "Print on label printer"
 msgstr "Auf Etikettendrucker drucken"
 
+msgid "Default stock entry label"
+msgstr "Standard Bestandseintrag-Etikett"
+
 msgid "Stock entry label"
 msgstr "Bestandseintrag-Etikett"
 
@@ -2412,16 +2410,6 @@ msgstr "Ein Etikett pro Einkauf"
 
 msgid "Label per unit"
 msgstr "Ein Etikett pro Einheit"
-
-msgid "Allow label printing per unit"
-msgstr "Erlaube Etikettendruck pro Einheit"
-
-msgid ""
-"Allow printing of one label per unit on purchase (after conversion) - e.g. 1"
-" purchased pack adding 10 pieces of stock would print 10 labels"
-msgstr ""
-"Erlaube Etikettendruck pro Einheit nach Umrechnung - Beispiel: 1 gekaufte "
-"Packung, die 10 Einheiten hinzufügt, druckt 10 Etiketten"
 
 msgid "Error while executing WebHook"
 msgstr "Fehler bei WebHook-Ausführung"
@@ -2565,3 +2553,26 @@ msgstr "Abschnitt"
 
 msgid "Are you sure to empty the shopping list?"
 msgstr "Sicher, dass der Einkaufszettel geleert werden soll?"
+
+msgid "This is the default which will be prefilled on purchase"
+msgstr "Dies ist die Standardeinstellung, die beim Einkauf vorbelegt wird"
+
+msgid "Merge chores"
+msgstr "Hausarbeiten zusammenführen"
+
+msgid "Chore to keep"
+msgstr "Hausarbeit, die behalten werden soll"
+
+msgid "After merging, this chore will be kept"
+msgstr "Nach der Zusammenführung wird diese Hausarbeit erhalten bleiben"
+
+msgid "Chore to remove"
+msgstr "Hausarbeit, die entfernt werden soll"
+
+msgid ""
+"After merging, all occurences of this chore will be replaced by the kept "
+"chore (means this chore will not exist anymore)"
+msgstr ""
+"Nach dem Zusammenführen werden alle Referenzen auf diese Hausarbeit durch "
+"die zu behaltende Hausarbeit ersetzt (d. h. diese Hausarbeit existiert dann "
+"nicht mehr)"

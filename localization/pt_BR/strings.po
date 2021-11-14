@@ -1255,9 +1255,6 @@ msgstr "Nunca"
 msgid "Today"
 msgstr "Hoje"
 
-msgid "Consume %1$s of %2$s as spoiled"
-msgstr "Consumir %1$s de %2$s como estragado"
-
 msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
 msgstr ""
 "Nem todos os ingredientes da receita \"%s\" estão no estoque, nada foi "
@@ -1542,12 +1539,8 @@ msgstr "Acumular valor mínimo do estoque de subprodutos"
 
 msgid ""
 "If enabled, the min. stock amount of sub products will be accumulated into "
-"this product, means the sub product will never be \"missing\", only this "
-"product"
+"this product, means the sub product will never be missing, only this product"
 msgstr ""
-"Se ativado, a quantidade mínima de estoque de subprodutos será acumulada "
-"neste produto, significa que o subproduto nunca estará \"ausente\", somente "
-"este produto"
 
 msgid "Are you sure to remove this conversion?"
 msgstr "Você tem certeza que quer remover esta conversão?"
@@ -2316,8 +2309,8 @@ msgstr "Produto para ser mantido"
 msgid "Product to remove"
 msgstr "Produto para ser removido"
 
-msgid "Error while merging products"
-msgstr "Erro durante a combinação de produtos"
+msgid "Error while merging"
+msgstr ""
 
 msgid "After merging, this product will be kept"
 msgstr "Após a combinação, este produto será mantido"
@@ -2375,6 +2368,9 @@ msgstr ""
 msgid "Print on label printer"
 msgstr ""
 
+msgid "Default stock entry label"
+msgstr ""
+
 msgid "Stock entry label"
 msgstr ""
 
@@ -2386,17 +2382,6 @@ msgstr ""
 
 msgid "Label per unit"
 msgstr "Etiqueta por unidade"
-
-msgid "Allow label printing per unit"
-msgstr "Permitir imprimir etiqueta por unidade"
-
-msgid ""
-"Allow printing of one label per unit on purchase (after conversion) - e.g. 1"
-" purchased pack adding 10 pieces of stock would print 10 labels"
-msgstr ""
-"Permitir imprimir uma etiqueta por unidade na compra (após conversão) - p. "
-"ex. 1 pacote comprado que adiciona 10 unidades ao estoque imprimirá 10 "
-"etiquetas"
 
 msgid "Error while executing WebHook"
 msgstr "Erro ao executar WebHook"
@@ -2533,4 +2518,24 @@ msgid "Section"
 msgstr ""
 
 msgid "Are you sure to empty the shopping list?"
+msgstr ""
+
+msgid "This is the default which will be prefilled on purchase"
+msgstr ""
+
+msgid "Merge chores"
+msgstr ""
+
+msgid "Chore to keep"
+msgstr ""
+
+msgid "After merging, this chore will be kept"
+msgstr ""
+
+msgid "Chore to remove"
+msgstr ""
+
+msgid ""
+"After merging, all occurences of this chore will be replaced by the kept "
+"chore (means this chore will not exist anymore)"
 msgstr ""

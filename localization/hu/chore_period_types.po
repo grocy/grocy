@@ -1,6 +1,7 @@
 # 
 # Translators:
 # Ádám Kovács <kovacsadam07@outlook.hu>, 2019
+# Tallyrald Tallyrald, 2021
 # 
 msgid ""
 msgstr ""
@@ -8,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Ádám Kovács <kovacsadam07@outlook.hu>, 2019\n"
+"Last-Translator: Tallyrald Tallyrald, 2021\n"
 "Language-Team: Hungarian (https://www.transifex.com/grocy/teams/93189/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgid "manually"
 msgstr "manuálisan"
 
 msgid "dynamic-regular"
-msgstr "változó gyakorisággal"
+msgstr "egyéni gyakorisággal"
 
 msgid "daily"
 msgstr "naponta"

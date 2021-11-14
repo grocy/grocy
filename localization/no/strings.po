@@ -1242,9 +1242,6 @@ msgstr "Aldri"
 msgid "Today"
 msgstr "I dag"
 
-msgid "Consume %1$s of %2$s as spoiled"
-msgstr "Forbruk %1$s av %2$s som har gått ut på dato"
-
 msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
 msgstr ""
 "Ikke alle ingrediensene i oppskriften \"%s\" er på lager, så ingenting er "
@@ -1524,12 +1521,8 @@ msgstr "Akkumuler underordnede produkter i minimum beholdningsnivå"
 
 msgid ""
 "If enabled, the min. stock amount of sub products will be accumulated into "
-"this product, means the sub product will never be \"missing\", only this "
-"product"
+"this product, means the sub product will never be missing, only this product"
 msgstr ""
-"Hvis aktivert vil minimum beholdningsnivå av underordnede produkter bli "
-"akkumulert inn i dette produktet. Dette betyr at det underordnede produktet "
-"aldri vil \"mangle\", kunne dette produktet."
 
 msgid "Are you sure to remove this conversion?"
 msgstr "Er du sikker på at du ønsker å fjerne denne konverteringen?"
@@ -2295,8 +2288,8 @@ msgstr "Produkt som skal beholdes"
 msgid "Product to remove"
 msgstr "Produkt som skal fjernes"
 
-msgid "Error while merging products"
-msgstr "Feil under sammenslåing av produkter"
+msgid "Error while merging"
+msgstr ""
 
 msgid "After merging, this product will be kept"
 msgstr "Etter sammenslåing så vil dette produktet bli beholdt"
@@ -2355,6 +2348,9 @@ msgstr "UD"
 msgid "Print on label printer"
 msgstr "Skriv ut på etikettskriver"
 
+msgid "Default stock entry label"
+msgstr ""
+
 msgid "Stock entry label"
 msgstr "Lageroppføringsetikett"
 
@@ -2366,17 +2362,6 @@ msgstr "Enkelt etikett"
 
 msgid "Label per unit"
 msgstr "Etikett per enhet"
-
-msgid "Allow label printing per unit"
-msgstr "Tillat etikettskriving per enhet"
-
-msgid ""
-"Allow printing of one label per unit on purchase (after conversion) - e.g. 1"
-" purchased pack adding 10 pieces of stock would print 10 labels"
-msgstr ""
-"Tillat printing av en etikett per enhet ved kjøp (etter konvertering) - "
-"f.eks. kjøp av 1 pakke som legger til 10 biter i lager vil printe 10 "
-"etiketter"
 
 msgid "Error while executing WebHook"
 msgstr "Feil ved kjøring av WebHook"
@@ -2521,3 +2506,23 @@ msgstr "Seksjon"
 
 msgid "Are you sure to empty the shopping list?"
 msgstr "Er du sikker du ønsker å slette handlelisten?"
+
+msgid "This is the default which will be prefilled on purchase"
+msgstr ""
+
+msgid "Merge chores"
+msgstr ""
+
+msgid "Chore to keep"
+msgstr ""
+
+msgid "After merging, this chore will be kept"
+msgstr ""
+
+msgid "Chore to remove"
+msgstr ""
+
+msgid ""
+"After merging, all occurences of this chore will be replaced by the kept "
+"chore (means this chore will not exist anymore)"
+msgstr ""

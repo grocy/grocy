@@ -1205,9 +1205,6 @@ msgstr "Never"
 msgid "Today"
 msgstr "오늘"
 
-msgid "Consume %1$s of %2$s as spoiled"
-msgstr "상한제품 %2$s%1$s을 소비"
-
 msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
 msgstr "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
 
@@ -1474,12 +1471,8 @@ msgstr "Accumulate sub products min. stock amount"
 
 msgid ""
 "If enabled, the min. stock amount of sub products will be accumulated into "
-"this product, means the sub product will never be \"missing\", only this "
-"product"
+"this product, means the sub product will never be missing, only this product"
 msgstr ""
-"If enabled, the min. stock amount of sub products will be accumulated into "
-"this product, means the sub product will never be \"missing\", only this "
-"product"
 
 msgid "Are you sure to remove this conversion?"
 msgstr "이 변환을 제거하시겠습니까?"
@@ -2190,7 +2183,7 @@ msgstr ""
 msgid "Product to remove"
 msgstr ""
 
-msgid "Error while merging products"
+msgid "Error while merging"
 msgstr ""
 
 msgid "After merging, this product will be kept"
@@ -2244,6 +2237,9 @@ msgstr ""
 msgid "Print on label printer"
 msgstr ""
 
+msgid "Default stock entry label"
+msgstr ""
+
 msgid "Stock entry label"
 msgstr ""
 
@@ -2254,14 +2250,6 @@ msgid "Single label"
 msgstr ""
 
 msgid "Label per unit"
-msgstr ""
-
-msgid "Allow label printing per unit"
-msgstr ""
-
-msgid ""
-"Allow printing of one label per unit on purchase (after conversion) - e.g. 1"
-" purchased pack adding 10 pieces of stock would print 10 labels"
 msgstr ""
 
 msgid "Error while executing WebHook"
@@ -2397,4 +2385,24 @@ msgid "Section"
 msgstr ""
 
 msgid "Are you sure to empty the shopping list?"
+msgstr ""
+
+msgid "This is the default which will be prefilled on purchase"
+msgstr ""
+
+msgid "Merge chores"
+msgstr ""
+
+msgid "Chore to keep"
+msgstr ""
+
+msgid "After merging, this chore will be kept"
+msgstr ""
+
+msgid "Chore to remove"
+msgstr ""
+
+msgid ""
+"After merging, all occurences of this chore will be replaced by the kept "
+"chore (means this chore will not exist anymore)"
 msgstr ""

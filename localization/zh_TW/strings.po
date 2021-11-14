@@ -1192,9 +1192,6 @@ msgstr "從未"
 msgid "Today"
 msgstr "今天"
 
-msgid "Consume %1$s of %2$s as spoiled"
-msgstr "將 %2$s 的 %1$s 設為報廢"
-
 msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
 msgstr "食譜「%s」並非所有食材都有庫存，未處理。"
 
@@ -1453,9 +1450,8 @@ msgstr "累計子物品的最小庫存數量"
 
 msgid ""
 "If enabled, the min. stock amount of sub products will be accumulated into "
-"this product, means the sub product will never be \"missing\", only this "
-"product"
-msgstr "啟用後，子物品的最小庫存數量將累計到該物品中，這代表子物品將永遠不會「不足」。"
+"this product, means the sub product will never be missing, only this product"
+msgstr ""
 
 msgid "Are you sure to remove this conversion?"
 msgstr "確定要刪除此單位轉換嗎？"
@@ -2154,7 +2150,7 @@ msgstr ""
 msgid "Product to remove"
 msgstr ""
 
-msgid "Error while merging products"
+msgid "Error while merging"
 msgstr ""
 
 msgid "After merging, this product will be kept"
@@ -2208,6 +2204,9 @@ msgstr ""
 msgid "Print on label printer"
 msgstr ""
 
+msgid "Default stock entry label"
+msgstr ""
+
 msgid "Stock entry label"
 msgstr ""
 
@@ -2218,14 +2217,6 @@ msgid "Single label"
 msgstr ""
 
 msgid "Label per unit"
-msgstr ""
-
-msgid "Allow label printing per unit"
-msgstr ""
-
-msgid ""
-"Allow printing of one label per unit on purchase (after conversion) - e.g. 1"
-" purchased pack adding 10 pieces of stock would print 10 labels"
 msgstr ""
 
 msgid "Error while executing WebHook"
@@ -2361,4 +2352,24 @@ msgid "Section"
 msgstr ""
 
 msgid "Are you sure to empty the shopping list?"
+msgstr ""
+
+msgid "This is the default which will be prefilled on purchase"
+msgstr ""
+
+msgid "Merge chores"
+msgstr ""
+
+msgid "Chore to keep"
+msgstr ""
+
+msgid "After merging, this chore will be kept"
+msgstr ""
+
+msgid "Chore to remove"
+msgstr ""
+
+msgid ""
+"After merging, all occurences of this chore will be replaced by the kept "
+"chore (means this chore will not exist anymore)"
 msgstr ""

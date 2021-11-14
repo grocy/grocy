@@ -1258,9 +1258,6 @@ msgstr "Mai"
 msgid "Today"
 msgstr "Oggi"
 
-msgid "Consume %1$s of %2$s as spoiled"
-msgstr "Consumare %1$s di %2$s come avariato"
-
 msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
 msgstr ""
 "Non tutti gli ingredienti della ricetta \"%s\" sono disponibili in dispensa,"
@@ -1549,12 +1546,8 @@ msgstr "Quantità in dispensa minima di sottoprodotti accumulati"
 
 msgid ""
 "If enabled, the min. stock amount of sub products will be accumulated into "
-"this product, means the sub product will never be \"missing\", only this "
-"product"
+"this product, means the sub product will never be missing, only this product"
 msgstr ""
-"Se abilitato,. la quantità  min. di sottoprodotti sarà accumulata in questo "
-"prodotto, il che significa che il sottoprodotto non sarà mai \"mancante\", "
-"solo questo prodotto"
 
 msgid "Are you sure to remove this conversion?"
 msgstr "Sei sicuro di rimuovere questa conversione?"
@@ -2346,8 +2339,8 @@ msgstr "Prodotto da conservare"
 msgid "Product to remove"
 msgstr "Prodotto da rimuovere"
 
-msgid "Error while merging products"
-msgstr "Errore durante l'unione dei prodotti"
+msgid "Error while merging"
+msgstr ""
 
 msgid "After merging, this product will be kept"
 msgstr "Dopo l'unione, questo prodotto verrà mantenuto"
@@ -2407,6 +2400,9 @@ msgstr "Scad."
 msgid "Print on label printer"
 msgstr "Stampa su stampante per etichette"
 
+msgid "Default stock entry label"
+msgstr ""
+
 msgid "Stock entry label"
 msgstr "Etichetta della voce di dispensa"
 
@@ -2418,17 +2414,6 @@ msgstr "Etichetta singola"
 
 msgid "Label per unit"
 msgstr "Etichetta per unità"
-
-msgid "Allow label printing per unit"
-msgstr "Consenti la stampa di etichette per unità"
-
-msgid ""
-"Allow printing of one label per unit on purchase (after conversion) - e.g. 1"
-" purchased pack adding 10 pieces of stock would print 10 labels"
-msgstr ""
-"Consenti la stampa di un'etichetta per unità al momento dell'acquisto (dopo "
-"la conversione) - ad es. 1 confezione acquistata aggiungendo 10 pezzi in "
-"dispensa stamperebbe 10 etichette"
 
 msgid "Error while executing WebHook"
 msgstr "Errore durante l'esecuzione di WebHook"
@@ -2573,3 +2558,23 @@ msgstr "Sezione"
 
 msgid "Are you sure to empty the shopping list?"
 msgstr "Sei sicuro di svuotare la lista della spesa?"
+
+msgid "This is the default which will be prefilled on purchase"
+msgstr ""
+
+msgid "Merge chores"
+msgstr ""
+
+msgid "Chore to keep"
+msgstr ""
+
+msgid "After merging, this chore will be kept"
+msgstr ""
+
+msgid "Chore to remove"
+msgstr ""
+
+msgid ""
+"After merging, all occurences of this chore will be replaced by the kept "
+"chore (means this chore will not exist anymore)"
+msgstr ""

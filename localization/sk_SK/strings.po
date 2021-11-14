@@ -1265,9 +1265,6 @@ msgstr "Nikdy"
 msgid "Today"
 msgstr "Dnes"
 
-msgid "Consume %1$s of %2$s as spoiled"
-msgstr "Spotrebovať %1$s %2$s ako pokazené"
-
 msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
 msgstr ""
 "Nie všetky ingredience v recepte \"%s\" sú v zásobe, nič nebude odstránené"
@@ -1549,12 +1546,8 @@ msgstr "Sčítavať min. skladové množstvá podriadených výrobkov"
 
 msgid ""
 "If enabled, the min. stock amount of sub products will be accumulated into "
-"this product, means the sub product will never be \"missing\", only this "
-"product"
+"this product, means the sub product will never be missing, only this product"
 msgstr ""
-"Ak je povolené, min. skladové množstvá podvýrobkov budú sčítané do tohto "
-"výrobku, to znamená, že podvýrobky nikdy nebudú \"chýbať\", iba tento "
-"výrobok"
 
 msgid "Are you sure to remove this conversion?"
 msgstr "Naozaj si prajete odstrániť tento prevod?"
@@ -2277,7 +2270,7 @@ msgstr ""
 msgid "Product to remove"
 msgstr ""
 
-msgid "Error while merging products"
+msgid "Error while merging"
 msgstr ""
 
 msgid "After merging, this product will be kept"
@@ -2331,6 +2324,9 @@ msgstr ""
 msgid "Print on label printer"
 msgstr ""
 
+msgid "Default stock entry label"
+msgstr ""
+
 msgid "Stock entry label"
 msgstr ""
 
@@ -2341,14 +2337,6 @@ msgid "Single label"
 msgstr ""
 
 msgid "Label per unit"
-msgstr ""
-
-msgid "Allow label printing per unit"
-msgstr ""
-
-msgid ""
-"Allow printing of one label per unit on purchase (after conversion) - e.g. 1"
-" purchased pack adding 10 pieces of stock would print 10 labels"
 msgstr ""
 
 msgid "Error while executing WebHook"
@@ -2490,4 +2478,24 @@ msgid "Section"
 msgstr ""
 
 msgid "Are you sure to empty the shopping list?"
+msgstr ""
+
+msgid "This is the default which will be prefilled on purchase"
+msgstr ""
+
+msgid "Merge chores"
+msgstr ""
+
+msgid "Chore to keep"
+msgstr ""
+
+msgid "After merging, this chore will be kept"
+msgstr ""
+
+msgid "Chore to remove"
+msgstr ""
+
+msgid ""
+"After merging, all occurences of this chore will be replaced by the kept "
+"chore (means this chore will not exist anymore)"
 msgstr ""

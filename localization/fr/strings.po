@@ -34,6 +34,7 @@
 # patate douce <poubel125@gmail.com>, 2021
 # Cedric Octave <transifex@octvcdrc.fr>, 2021
 # Alexandre Mechineau <admin@alexsaphir.com>, 2021
+# Pierre Penninckx <ibizapeanut@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -41,7 +42,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Alexandre Mechineau <admin@alexsaphir.com>, 2021\n"
+"Last-Translator: Pierre Penninckx <ibizapeanut@gmail.com>, 2021\n"
 "Language-Team: French (https://www.transifex.com/grocy/teams/93189/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -90,7 +91,7 @@ msgid "Amount"
 msgstr "Quantité"
 
 msgid "Logout"
-msgstr "Déconnexion"
+msgstr "Déconnecter"
 
 msgid "Chores overview"
 msgstr "Aperçu des corvées"
@@ -368,7 +369,7 @@ msgid "Manage API keys"
 msgstr "Gérer les clefs API"
 
 msgid "REST API browser"
-msgstr ""
+msgstr "Navigateur d'API REST"
 
 msgid "API keys"
 msgstr "Clefs API"
@@ -1278,9 +1279,6 @@ msgstr "Jamais"
 msgid "Today"
 msgstr "Aujourd'hui"
 
-msgid "Consume %1$s of %2$s as spoiled"
-msgstr "Consommer %1$s de %2$s comme périmée"
-
 msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
 msgstr ""
 "Des ingrédients de la recette \"%s\" sont manquants,\n"
@@ -1562,12 +1560,8 @@ msgstr "Accumuler le stock minimal des sous produits"
 
 msgid ""
 "If enabled, the min. stock amount of sub products will be accumulated into "
-"this product, means the sub product will never be \"missing\", only this "
-"product"
+"this product, means the sub product will never be missing, only this product"
 msgstr ""
-"Si activé, la somme du stock minimal des sous produits sera accumulé sur ce "
-"produit, signifiant que le sous produit ne sera jamais \"en manque\", "
-"seulement ce produit"
 
 msgid "Are you sure to remove this conversion?"
 msgstr "Êtes-vous sûr de vouloir supprimer cette conversion ?"
@@ -2147,6 +2141,10 @@ msgid ""
 "today + this amount of days, but only if the resulting date is not after the"
 " original due date (a value of 0 disables this)"
 msgstr ""
+"Quand ce produit est marqué comme ouvert, la date d'échéance sera remplacée "
+"par la date d'aujourd'hui plus ce nombre de jour, mais seulement si la "
+"nouvelle date ne se trouve pas après la date d'échéance originale (une "
+"valeur de 0 désactive ce comportement)"
 
 msgid "Default due days after opened"
 msgstr "Date de péremption après ouverture par défaut"
@@ -2341,8 +2339,8 @@ msgstr "Garder ce produit"
 msgid "Product to remove"
 msgstr "Retirer ce produit"
 
-msgid "Error while merging products"
-msgstr "Erreur lors de la fusion des produits"
+msgid "Error while merging"
+msgstr ""
 
 msgid "After merging, this product will be kept"
 msgstr "Après fusion, ce produit sera conservé"
@@ -2386,94 +2384,89 @@ msgstr "Télécharger"
 
 # Example: Download *Product* grocycode
 msgid "Download %s grocycode"
-msgstr ""
+msgstr "Télécharger les grocycode %s "
 
 msgid ""
 "grocycode is a unique referer to this %s in your grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
+"grocycode est une référence unique à ce %s dans grocy. Imprimez-le sur une "
+"étiquette et scannez-le comme tout autre code barre"
 
 # Abbreviation for "due date"
 msgid "DD"
-msgstr ""
+msgstr "dp."
 
 msgid "Print on label printer"
-msgstr "Imprimer sur une imprimante d'étiquette"
+msgstr "Imprimer sur une étiquette"
+
+msgid "Default stock entry label"
+msgstr ""
 
 msgid "Stock entry label"
-msgstr ""
+msgstr "Étiquette d'élément en stock"
 
 msgid "No label"
 msgstr "Pas d'étiquette"
 
 msgid "Single label"
-msgstr "Etiquette unique"
+msgstr "Étiquette unique"
 
 msgid "Label per unit"
-msgstr "Etiquette par unité"
-
-msgid "Allow label printing per unit"
-msgstr "Permettre l'impression d'étiquette par unité"
-
-msgid ""
-"Allow printing of one label per unit on purchase (after conversion) - e.g. 1"
-" purchased pack adding 10 pieces of stock would print 10 labels"
-msgstr ""
-"Permettre l'impression d'une étiquette par unité (après conversion). 1 achat"
-" qui ajoute 10 produits imprime 10 étiquettes"
+msgstr "Étiquette par unité"
 
 msgid "Error while executing WebHook"
-msgstr "Erreur lors de l'exécution de WebHook"
+msgstr "Erreur lors de l'exécution du WebHook"
 
 # Example: Print *Product* grocycode on label printer
 msgid "Print %s grocycode on label printer"
-msgstr ""
+msgstr "Imprimer %s grocycode sur l'étiquette"
 
 msgid "Open stock entry label in new window"
-msgstr ""
+msgstr "Ouvrir le label du stock dans une nouvelle fenêtre"
 
 msgid "Thermal printer"
-msgstr ""
+msgstr "Imprimante thermique"
 
 msgid "Printing"
-msgstr ""
+msgstr "Impression en cours"
 
 msgid "Connecting to printer..."
-msgstr ""
+msgstr "Connexion à l'imprimante..."
 
 msgid "Unable to print"
-msgstr ""
+msgstr "Impossible d'imprimer"
 
 msgid "Only done items"
-msgstr ""
+msgstr "Seulement les éléments faits"
 
 msgid "Show only in-stock products"
-msgstr ""
+msgstr "Ne montrer que les produits en stock"
 
 msgid "Product description"
 msgstr "Description du produit"
 
 # Example: *3.21 USD* per *Pack*
 msgid "%1$s per %2$s"
-msgstr ""
+msgstr "%1$s par %2$s"
 
 msgid "Mark this item as undone"
-msgstr ""
+msgstr "Marquer l'élément comme défait"
 
 msgid "Mandatory"
-msgstr ""
+msgstr "Requis"
 
 msgid "Mandatory Userfield"
-msgstr ""
+msgstr "Champ utilisateur requis"
 
 msgid "When enabled, then this field must be filled on the destination form"
-msgstr ""
+msgstr "Lorsque activé, ce champ est requis dans le formulaire de destination"
 
 msgid "In-stock products"
-msgstr ""
+msgstr "Produits en stock"
 
 msgid "Timestamp"
-msgstr ""
+msgstr "Horodatage"
 
 msgid "Should not be frozen"
 msgstr "Ne doit pas être congelé"
@@ -2482,79 +2475,104 @@ msgid ""
 "When enabled, on moving this product to a freezer location (so when freezing"
 " it), a warning will be shown"
 msgstr ""
+"Lorsque activé, une alerte sera émise lorsque ce produit sera placé dans le "
+"congélateur"
 
 msgid "This product shouldn't be frozen"
 msgstr "Ce produit ne doit pas être congelé"
 
 msgid "Copy all meal plan entries of %s"
-msgstr ""
+msgstr "Copier toutes les entrées du régime %s"
 
 msgid "A date is required"
-msgstr ""
+msgstr "Une date est requise"
 
 msgid "Day"
-msgstr ""
+msgstr "Jour"
 
 msgid "Add recipe"
 msgstr "Ajouter recette"
 
 msgid "Copy this day"
-msgstr ""
+msgstr "Copier ce jour"
 
 msgid "Date range"
-msgstr ""
+msgstr "Période"
 
 msgid "%s month"
 msgid_plural "%s months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s mois"
+msgstr[1] "%s mois"
 
 msgid "%s year"
 msgid_plural "%s years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s an"
+msgstr[1] "%s ans"
 
 msgid "Display product"
-msgstr ""
+msgstr "Afficher le produit"
 
 msgid "Copy recipe"
 msgstr "Copier la recette"
 
 msgid "Copy of %s"
-msgstr ""
+msgstr "Copie de %s"
 
 msgid "Add decimal separator automatically for price inputs"
-msgstr ""
+msgstr "Ajout automatique du séparateur de décimales pour les prix"
 
 msgid ""
 "When enabled, you always have to enter the value including decimal places, "
 "the decimal separator will be automatically added based on the amount of "
 "allowed decimal places"
 msgstr ""
+"Lorsque activé, vous devez toujours entrer les valeurs en incluant les "
+"décimales, le séparateur de décimal sera automatiquement ajouté après le "
+"nombre requis de décimales"
 
 msgid "Stock entry"
-msgstr ""
+msgstr "Entrée dans le stock"
 
 msgid "Configure sections"
-msgstr ""
+msgstr "Configurer les sections"
 
 msgid "Meal plan sections"
-msgstr ""
+msgstr "Sections du régime"
 
 msgid "Create meal plan section"
-msgstr ""
+msgstr "Créer un section de régime"
 
 msgid "Sections will be ordered by that number on the meal plan"
-msgstr ""
+msgstr "Les sections seront triées par ce numéro dans le régime"
 
 msgid "Edit meal plan section"
-msgstr ""
+msgstr "Modifier la section du régime"
 
 msgid "Are you sure to delete meal plan section \"%s\"?"
-msgstr ""
+msgstr "Êtes-vous sûr de supprimer la section \"%s\" du régime?"
 
 msgid "Section"
-msgstr ""
+msgstr "Section"
 
 msgid "Are you sure to empty the shopping list?"
 msgstr "Voulez-vous vraiment vider la liste de courses ?"
+
+msgid "This is the default which will be prefilled on purchase"
+msgstr ""
+
+msgid "Merge chores"
+msgstr ""
+
+msgid "Chore to keep"
+msgstr ""
+
+msgid "After merging, this chore will be kept"
+msgstr ""
+
+msgid "Chore to remove"
+msgstr ""
+
+msgid ""
+"After merging, all occurences of this chore will be replaced by the kept "
+"chore (means this chore will not exist anymore)"
+msgstr ""
