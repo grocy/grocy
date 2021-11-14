@@ -13,4 +13,5 @@
 - Fixed that "Label per unit" stock entry labels (on purchase) weren't unique per unit
 
 ### API
+- Endpoint `/stock/products/{productId}/add` API endpoint`: The (optional) request body parameter `print_stock_label` was renamed to `stock_label_type`
 - Fixed that backslashes were not allowed in API query filters
