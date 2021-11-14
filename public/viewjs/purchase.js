@@ -23,7 +23,7 @@ $('#save-purchase-button').on('click', function(e)
 		{
 			var jsonData = {};
 			jsonData.amount = jsonForm.amount;
-			jsonData.print_stock_label = jsonForm.print_stock_label
+			jsonData.stock_label_type = jsonForm.stock_label_type
 
 			if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 			{
@@ -121,22 +121,41 @@ $('#save-purchase-button').on('click', function(e)
 					{
 						if (Grocy.Webhooks.labelprinter !== undefined)
 						{
-							var post_data = {};
-							post_data.product = productDetails.product.name;
-							post_data.grocycode = 'grcy:p:' + jsonForm.product_id + ":" + result[0].stock_id
-							if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
+							if (jsonForm.stock_label_type == 1) // Single label
 							{
-								post_data.due_date = __t('DD') + ': ' + result[0].best_before_date
-							}
-
-							if (jsonForm.print_stock_label > 0)
-							{
-								var reps = 1;
-								if (jsonForm.print_stock_label == 2)
+								var webhookData = {};
+								webhookData.product = productDetails.product.name;
+								webhookData.grocycode = 'grcy:p:' + jsonForm.product_id + ":" + result[0].stock_id;
+								if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 								{
-									reps = Math.floor(jsonData.amount);
+									webhookData.due_date = __t('DD') + ': ' + result[0].best_before_date
 								}
-								Grocy.FrontendHelpers.RunWebhook(Grocy.Webhooks.labelprinter, post_data, reps);
+
+								Grocy.FrontendHelpers.RunWebhook(Grocy.Webhooks.labelprinter, webhookData);
+							}
+							else if (jsonForm.stock_label_type == 2) // Label per unit
+							{
+								Grocy.Api.Get('stock/transactions/' + result[0].transaction_id,
+									function(stockEntries)
+									{
+										stockEntries.forEach(stockEntry =>
+										{
+											var webhookData = {};
+											webhookData.product = productDetails.product.name;
+											webhookData.grocycode = 'grcy:p:' + jsonForm.product_id + ":" + stockEntry.stock_id;
+											if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
+											{
+												webhookData.due_date = __t('DD') + ': ' + result[0].best_before_date
+											}
+
+											Grocy.FrontendHelpers.RunWebhook(Grocy.Webhooks.labelprinter, webhookData);
+										});
+									},
+									function(xhr)
+									{
+										console.error(xhr);
+									}
+								);
 							}
 						}
 					}
@@ -187,7 +206,7 @@ $('#save-purchase-button').on('click', function(e)
 						Grocy.Components.ProductCard.Refresh(jsonForm.product_id);
 						if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_LABEL_PRINTER)
 						{
-							$("#print_stock_label").val(0);
+							$("#stock_label_type").val(0);
 						}
 
 						$('#price-hint').text("");
@@ -294,7 +313,7 @@ if (Grocy.Components.ProductPicker !== undefined)
 
 					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_LABEL_PRINTER)
 					{
-						$("#print_stock_label").val(productDetails.product.default_print_stock_label);
+						$("#stock_label_type").val(productDetails.product.default_stock_label_type);
 					}
 
 					$("#display_amount").focus();
@@ -404,20 +423,23 @@ function PrefillBestBeforeDate(product, location)
 	}
 }
 
-Grocy.Components.LocationPicker.GetPicker().on('change', function(e)
+if (Grocy.Components.LocationPicker !== undefined)
 {
-	if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRODUCT_FREEZING)
+	Grocy.Components.LocationPicker.GetPicker().on('change', function(e)
 	{
-		Grocy.Api.Get('objects/locations/' + Grocy.Components.LocationPicker.GetValue(),
-			function(location)
-			{
-				PrefillBestBeforeDate(CurrentProductDetails.product, location);
-			},
-			function(xhr)
-			{ }
-		);
-	}
-});
+		if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRODUCT_FREEZING)
+		{
+			Grocy.Api.Get('objects/locations/' + Grocy.Components.LocationPicker.GetValue(),
+				function(location)
+				{
+					PrefillBestBeforeDate(CurrentProductDetails.product, location);
+				},
+				function(xhr)
+				{ }
+			);
+		}
+	});
+}
 
 $('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_purchase_amount));
 RefreshLocaleNumberInput();

@@ -2,6 +2,7 @@ PRAGMA legacy_alter_table = ON;
 ALTER TABLE products RENAME TO products_old;
 
 -- Remove allow_label_per_unit column
+-- Rename default_print_stock_label column to default_stock_label_type
 CREATE TABLE products (
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
 	name TEXT NOT NULL UNIQUE,
@@ -28,13 +29,13 @@ CREATE TABLE products (
 	due_type TINYINT NOT NULL DEFAULT 1 CHECK(due_type IN (1, 2)),
 	quick_consume_amount REAL NOT NULL DEFAULT 1,
 	hide_on_stock_overview TINYINT NOT NULL DEFAULT 0 CHECK(hide_on_stock_overview IN (0, 1)),
-	default_print_stock_label INTEGER NOT NULL DEFAULT 0,
+	default_stock_label_type INTEGER NOT NULL DEFAULT 0,
 	should_not_be_frozen TINYINT NOT NULL DEFAULT 0 CHECK(should_not_be_frozen IN (0, 1)),
 	row_created_timestamp DATETIME DEFAULT (datetime('now', 'localtime'))
 );
 
 INSERT INTO products
-	(id, name, description, product_group_id, active, location_id, shopping_location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, default_best_before_days, default_best_before_days_after_open, default_best_before_days_after_freezing, default_best_before_days_after_thawing, picture_file_name, enable_tare_weight_handling, tare_weight, not_check_stock_fulfillment_for_recipes, parent_product_id, calories, cumulate_min_stock_amount_of_sub_products, due_type, quick_consume_amount, hide_on_stock_overview, default_print_stock_label, should_not_be_frozen, row_created_timestamp)
+	(id, name, description, product_group_id, active, location_id, shopping_location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, default_best_before_days, default_best_before_days_after_open, default_best_before_days_after_freezing, default_best_before_days_after_thawing, picture_file_name, enable_tare_weight_handling, tare_weight, not_check_stock_fulfillment_for_recipes, parent_product_id, calories, cumulate_min_stock_amount_of_sub_products, due_type, quick_consume_amount, hide_on_stock_overview, default_stock_label_type, should_not_be_frozen, row_created_timestamp)
 SELECT id, name, description, product_group_id, active, location_id, shopping_location_id, qu_id_purchase, qu_id_stock, qu_factor_purchase_to_stock, min_stock_amount, default_best_before_days, default_best_before_days_after_open, default_best_before_days_after_freezing, default_best_before_days_after_thawing, picture_file_name, enable_tare_weight_handling, tare_weight, not_check_stock_fulfillment_for_recipes, parent_product_id, calories, cumulate_min_stock_amount_of_sub_products, due_type, quick_consume_amount, hide_on_stock_overview, default_print_stock_label, should_not_be_frozen, row_created_timestamp
 FROM products_old;
 

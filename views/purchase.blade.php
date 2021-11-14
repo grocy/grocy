@@ -150,10 +150,10 @@
 
 			@if(GROCY_FEATURE_FLAG_LABEL_PRINTER)
 			<div class="form-group">
-				<label for="print_stock_label">{{ $__t('Stock entry label') }}</label>
+				<label for="stock_label_type">{{ $__t('Stock entry label') }}</label>
 				<select class="form-control"
-					id="print_stock_label"
-					name="print_stock_label">
+					id="stock_label_type"
+					name="stock_label_type">
 					<option value="0">{{ $__t('No label') }}</option>
 					<option value="1">{{ $__t('Single label') }}</option>
 					<option value="2">{{ $__t('Label per unit') }}</option>

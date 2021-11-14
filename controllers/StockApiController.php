@@ -140,13 +140,14 @@ class StockApiController extends BaseApiController
 			{
 				$transactionType = $requestBody['transactiontype'];
 			}
-			$runPrinterWebhook = false;
-			if (array_key_exists('print_stock_label', $requestBody) && intval($requestBody['print_stock_label']))
+
+			$stockLabelType = 0;
+			if (array_key_exists('stock_label_type', $requestBody) && is_numeric($requestBody['stock_label_type']))
 			{
-				$runPrinterWebhook = intval($requestBody['print_stock_label']);
+				$stockLabelType = intval($requestBody['stock_label_type']);
 			}
 
-			$transactionId = $this->getStockService()->AddProduct($args['productId'], $requestBody['amount'], $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId, $shoppingLocationId, $unusedTransactionId, $runPrinterWebhook);
+			$transactionId = $this->getStockService()->AddProduct($args['productId'], $requestBody['amount'], $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId, $shoppingLocationId, $unusedTransactionId, $stockLabelType);
 
 			$args['transactionId'] = $transactionId;
 			return $this->StockTransactions($request, $response, $args);

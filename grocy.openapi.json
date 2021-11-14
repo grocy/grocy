@@ -1917,9 +1917,10 @@
 										"format": "integer",
 										"description": "If omitted, no store will be affected"
 									},
-									"print_stock_label": {
-										"type": "boolean",
-										"description": "True when the stock entry label should be printed"
+									"stock_label_type": {
+										"type": "number",
+										"format": "integer",
+										"description": "`1` = No label, `2` = Single label, `3` = Label per unit"
 									}
 								},
 								"example": {

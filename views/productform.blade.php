@@ -447,23 +447,23 @@
 
 			@if(GROCY_FEATURE_FLAG_LABEL_PRINTER)
 			<div class="form-group">
-				<label for="default_print_stock_label">{{ $__t('Default stock entry label') }}</label>
+				<label for="default_stock_label_type">{{ $__t('Default stock entry label') }}</label>
 				<i class="fas fa-question-circle text-muted"
 					data-toggle="tooltip"
 					data-trigger="hover click"
 					title="{{ $__t('This is the default which will be prefilled on purchase') }}"></i>
 				<select class="form-control"
-					id="default_print_stock_label"
-					name="default_print_stock_label">
+					id="default_stock_label_type"
+					name="default_stock_label_type">
 					<option @if($mode=='edit'
 						&&
-						intval($product->default_print_stock_label) == 0 ) selected="selected" @endif value="0">{{ $__t('No label') }}</option>
+						intval($product->default_stock_label_type) == 0 ) selected="selected" @endif value="0">{{ $__t('No label') }}</option>
 					<option @if($mode=='edit'
 						&&
-						intval($product->default_print_stock_label) == 1 ) selected="selected" @endif value="1">{{ $__t('Single label') }}</option>
+						intval($product->default_stock_label_type) == 1 ) selected="selected" @endif value="1">{{ $__t('Single label') }}</option>
 					<option @if($mode=='edit'
 						&&
-						intval($product->default_print_stock_label) == 2 ) selected="selected" @endif value="2">{{ $__t('Label per unit') }}</option>
+						intval($product->default_stock_label_type) == 2 ) selected="selected" @endif value="2">{{ $__t('Label per unit') }}</option>
 				</select>
 			</div>
 			@endif

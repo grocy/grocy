@@ -114,7 +114,7 @@ class StockService extends BaseService
 		}
 	}
 
-	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId = null, $shoppingLocationId = null, &$transactionId = null, $runWebhook = 0, $addExactAmount = false)
+	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId = null, $shoppingLocationId = null, &$transactionId = null, $stockLabelType = 0, $addExactAmount = false)
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -185,58 +185,102 @@ class StockService extends BaseService
 				$transactionId = uniqid();
 			}
 
-			$stockId = uniqid();
-
-			$logRow = $this->getDatabase()->stock_log()->createRow([
-				'product_id' => $productId,
-				'amount' => $amount,
-				'best_before_date' => $bestBeforeDate,
-				'purchased_date' => $purchasedDate,
-				'stock_id' => $stockId,
-				'transaction_type' => $transactionType,
-				'price' => $price,
-				'location_id' => $locationId,
-				'transaction_id' => $transactionId,
-				'shopping_location_id' => $shoppingLocationId,
-				'user_id' => GROCY_USER_ID
-			]);
-			$logRow->save();
-
-			$stockRow = $this->getDatabase()->stock()->createRow([
-				'product_id' => $productId,
-				'amount' => $amount,
-				'best_before_date' => $bestBeforeDate,
-				'purchased_date' => $purchasedDate,
-				'stock_id' => $stockId,
-				'price' => $price,
-				'location_id' => $locationId,
-				'shopping_location_id' => $shoppingLocationId
-			]);
-			$stockRow->save();
-
-			if (GROCY_FEATURE_FLAG_LABEL_PRINTER && GROCY_LABEL_PRINTER_RUN_SERVER && $runWebhook)
+			if ($stockLabelType == 2)
 			{
-				$reps = 1;
-				if ($runWebhook == 2)
+				// Label per unit => single stock entry per unit
+
+				for ($i = 1; $i <= $amount; $i++)
 				{
-					// 2 == run $amount times
-					$reps = intval(floor($amount));
+					$stockId = uniqid('x');
+					$logRow = $this->getDatabase()->stock_log()->createRow([
+						'product_id' => $productId,
+						'amount' => 1,
+						'best_before_date' => $bestBeforeDate,
+						'purchased_date' => $purchasedDate,
+						'stock_id' => $stockId,
+						'transaction_type' => $transactionType,
+						'price' => $price,
+						'location_id' => $locationId,
+						'transaction_id' => $transactionId,
+						'shopping_location_id' => $shoppingLocationId,
+						'user_id' => GROCY_USER_ID
+					]);
+					$logRow->save();
+
+					$stockRow = $this->getDatabase()->stock()->createRow([
+						'product_id' => $productId,
+						'amount' => 1,
+						'best_before_date' => $bestBeforeDate,
+						'purchased_date' => $purchasedDate,
+						'stock_id' => $stockId,
+						'price' => $price,
+						'location_id' => $locationId,
+						'shopping_location_id' => $shoppingLocationId
+					]);
+					$stockRow->save();
+
+					if (GROCY_FEATURE_FLAG_LABEL_PRINTER && GROCY_LABEL_PRINTER_RUN_SERVER)
+					{
+						$webhookData = array_merge([
+							'product' => $productDetails->product->name,
+							'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $productId, [$stockId])),
+						], GROCY_LABEL_PRINTER_PARAMS);
+
+						if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
+						{
+							$webhookData['due_date'] = $this->getLocalizationService()->__t('DD') . ': ' . $bestBeforeDate;
+						}
+
+						$runner = new WebhookRunner();
+						$runner->run(GROCY_LABEL_PRINTER_WEBHOOK, $webhookData, GROCY_LABEL_PRINTER_HOOK_JSON);
+					}
 				}
+			}
+			else
+			{
+				// No or single label => one stock entry
 
-				$webhookData = array_merge([
-					'product' => $productDetails->product->name,
-					'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $productId, [$stockId])),
-				], GROCY_LABEL_PRINTER_PARAMS);
+				$stockId = uniqid();
+				$logRow = $this->getDatabase()->stock_log()->createRow([
+					'product_id' => $productId,
+					'amount' => $amount,
+					'best_before_date' => $bestBeforeDate,
+					'purchased_date' => $purchasedDate,
+					'stock_id' => $stockId,
+					'transaction_type' => $transactionType,
+					'price' => $price,
+					'location_id' => $locationId,
+					'transaction_id' => $transactionId,
+					'shopping_location_id' => $shoppingLocationId,
+					'user_id' => GROCY_USER_ID
+				]);
+				$logRow->save();
 
-				if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
+				$stockRow = $this->getDatabase()->stock()->createRow([
+					'product_id' => $productId,
+					'amount' => $amount,
+					'best_before_date' => $bestBeforeDate,
+					'purchased_date' => $purchasedDate,
+					'stock_id' => $stockId,
+					'price' => $price,
+					'location_id' => $locationId,
+					'shopping_location_id' => $shoppingLocationId
+				]);
+				$stockRow->save();
+
+				if (GROCY_FEATURE_FLAG_LABEL_PRINTER && GROCY_LABEL_PRINTER_RUN_SERVER)
 				{
-					$webhookData['due_date'] = $this->getLocalizationService()->__t('DD') . ': ' . $bestBeforeDate;
-				}
+					$webhookData = array_merge([
+						'product' => $productDetails->product->name,
+						'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $productId, [$stockId])),
+					], GROCY_LABEL_PRINTER_PARAMS);
 
-				$runner = new WebhookRunner();
+					if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
+					{
+						$webhookData['due_date'] = $this->getLocalizationService()->__t('DD') . ': ' . $bestBeforeDate;
+					}
 
-				for ($i = 0; $i < $reps; $i++)
-				{
+					$runner = new WebhookRunner();
 					$runner->run(GROCY_LABEL_PRINTER_WEBHOOK, $webhookData, GROCY_LABEL_PRINTER_HOOK_JSON);
 				}
 			}
