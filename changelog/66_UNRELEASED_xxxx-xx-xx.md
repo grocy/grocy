@@ -1,0 +1,1 @@
+- Fixed that stock entry labels on purchase were printed, even when "No label" was selected (was only a problem when running label printer WebHooks server side)
