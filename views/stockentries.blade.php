@@ -241,7 +241,7 @@
 						<span id="stock-{{ $stockEntry->id }}-due-date">{{ $stockEntry->best_before_date }}</span>
 						<time id="stock-{{ $stockEntry->id }}-due-date-timeago"
 							class="timeago timeago-contextual"
-							datetime="{{ $stockEntry->best_before_date }} 23:59:59"></time>
+							@if($stockEntry->best_before_date != "") datetime="{{ $stockEntry->best_before_date }} 23:59:59" @endif></time>
 					</td>
 					<td id="stock-{{ $stockEntry->id }}-location"
 						class="@if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif"
@@ -265,7 +265,7 @@
 						<span id="stock-{{ $stockEntry->id }}-purchased-date">{{ $stockEntry->purchased_date }}</span>
 						<time id="stock-{{ $stockEntry->id }}-purchased-date-timeago"
 							class="timeago timeago-contextual"
-							datetime="{{ $stockEntry->purchased_date }} 23:59:59"></time>
+							@if(!empty($stockEntry->purchased_date)) datetime="{{ $stockEntry->purchased_date }} 23:59:59" @endif></time>
 					</td>
 					<td class="d-none">{{ $stockEntry->purchased_date }}</td>
 					<td>

@@ -16,7 +16,6 @@ Grocy.Components.BatteryCard.Refresh = function(batteryId)
 			$('#batterycard-battery-edit-button').removeClass("disabled");
 			$('#batterycard-battery-journal-button').removeClass("disabled");
 
-			EmptyElementWhenMatches('#batterycard-battery-last-charged-timeago', __t('timeago_nan'));
 			RefreshContextualTimeago(".batterycard");
 		},
 		function(xhr)

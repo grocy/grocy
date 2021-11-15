@@ -25,7 +25,6 @@ Grocy.Components.ChoreCard.Refresh = function(choreId)
 				$("#chorecard-chore-last-tracked-timeago").removeClass("timeago-date-only");
 			}
 
-			EmptyElementWhenMatches('#chorecard-chore-last-tracked-timeago', __t('timeago_nan'));
 			RefreshContextualTimeago(".chorecard");
 		},
 		function(xhr)
