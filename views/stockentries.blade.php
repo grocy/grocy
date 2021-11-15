@@ -265,7 +265,7 @@
 						<span id="stock-{{ $stockEntry->id }}-purchased-date">{{ $stockEntry->purchased_date }}</span>
 						<time id="stock-{{ $stockEntry->id }}-purchased-date-timeago"
 							class="timeago timeago-contextual"
-							@if($stockEntry->purchased_date != "") datetime="{{ $stockEntry->purchased_date }} 23:59:59" @endif></time>
+							@if(!empty($stockEntry->purchased_date)) datetime="{{ $stockEntry->purchased_date }} 23:59:59" @endif></time>
 					</td>
 					<td class="d-none">{{ $stockEntry->purchased_date }}</td>
 					<td>
