@@ -110,8 +110,6 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 				$("#productcard-product-picture").addClass("d-none");
 			}
 
-			EmptyElementWhenMatches('#productcard-product-last-purchased-timeago', __t('timeago_nan'));
-			EmptyElementWhenMatches('#productcard-product-last-used-timeago', __t('timeago_nan'));
 			RefreshContextualTimeago(".productcard");
 		},
 		function(xhr)
