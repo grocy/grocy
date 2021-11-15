@@ -268,7 +268,7 @@ class StockService extends BaseService
 				]);
 				$stockRow->save();
 
-				if (GROCY_FEATURE_FLAG_LABEL_PRINTER && GROCY_LABEL_PRINTER_RUN_SERVER)
+				if (GROCY_FEATURE_FLAG_LABEL_PRINTER && GROCY_LABEL_PRINTER_RUN_SERVER && $stockLabelType == 1)
 				{
 					$webhookData = array_merge([
 						'product' => $productDetails->product->name,
