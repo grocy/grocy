@@ -316,7 +316,6 @@ if (window.localStorage.getItem("sidebar_state") === "collapsed")
 	$("#sidenavToggler").click();
 }
 
-$.timeago.settings.allowFuture = true;
 RefreshContextualTimeago = function(rootSelector = "#page-content")
 {
 	$(rootSelector + " time.timeago").each(function()
@@ -352,7 +351,7 @@ RefreshContextualTimeago = function(rootSelector = "#page-content")
 		}
 		else
 		{
-			element.timeago("update", timestamp);
+			element.text(moment(timestamp).fromNow());
 		}
 
 		if (isDateWithoutTime)
