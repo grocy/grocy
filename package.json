@@ -33,7 +33,6 @@
 		"summernote": "^0.8.18",
 		"swagger-ui-dist": "^3.32.1",
 		"tempusdominus-bootstrap-4": "https://github.com/berrnd/tempusdominus-bootstrap-4.git#master",
-		"timeago": "^1.6.7",
 		"toastr": "^2.1.4"
 	},
 	"scripts": {
