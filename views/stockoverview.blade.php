@@ -352,7 +352,7 @@
 						<span id="product-{{ $currentStockEntry->product_id }}-next-due-date">{{ $currentStockEntry->best_before_date }}</span>
 						<time id="product-{{ $currentStockEntry->product_id }}-next-due-date-timeago"
 							class="timeago timeago-contextual"
-							datetime="{{ $currentStockEntry->best_before_date }} 23:59:59"></time>
+							@if($currentStockEntry->best_before_date != "") datetime="{{ $currentStockEntry->best_before_date }} 23:59:59" @endif></time>
 					</td>
 					<td class="d-none">
 						@foreach(FindAllObjectsInArrayByPropertyValue($currentStockLocations, 'product_id', $currentStockEntry->product_id) as $locationsForProduct)
