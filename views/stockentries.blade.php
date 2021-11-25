@@ -231,7 +231,7 @@
 						data-product-id="{{ $stockEntry->product_id }}">
 						{{ FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->name }}
 					</td>
-					<td>
+					<td data-order="{{ $stockEntry->amount }}">
 						<span id="stock-{{ $stockEntry->id }}-amount"
 							class="locale-number locale-number-quantity-amount">{{ $stockEntry->amount }}</span> <span id="product-{{ $stockEntry->product_id }}-qu-name">{{ $__n($stockEntry->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_stock)->name_plural) }}</span>
 						<span id="stock-{{ $stockEntry->id }}-opened-amount"

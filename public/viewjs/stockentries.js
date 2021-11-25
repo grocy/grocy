@@ -3,7 +3,13 @@
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 },
-		{ 'visible': false, 'targets': 10 }
+		{ 'visible': false, 'targets': 10 },
+		{ "type": "num", "targets": 1},
+		{ "type": "num", "targets": 3 },
+		{ "type": "html", "targets": 4 },
+		{ "type": "html-num-fmt", "targets": 7},
+		{ "type": "html", "targets": 8},
+		{ "type": "html", "targets": 9}
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#stockentries-table tbody').removeClass("d-none");
