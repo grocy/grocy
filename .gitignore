@@ -2,3 +2,6 @@
 /vendor
 /.release
 embedded.txt
+/.idea
+/.env
+/docker-compose.override.yml

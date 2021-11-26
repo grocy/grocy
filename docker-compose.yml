@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  apache-php:
+    build: .docker/apache-php
+    environment:
+      DOCKER: "true"
+      COMPOSER_HOME: /tmp
+      XDEBUG_CONFIG: "client_host=host.docker.internal"
+    user: ${USER_ID:-1000}:${GROUP_ID:-1000}
+    volumes:
+      - .:/var/www/html
+    extra_hosts:
+      - host.docker.internal:host-gateway
