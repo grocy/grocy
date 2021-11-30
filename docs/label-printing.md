@@ -13,7 +13,7 @@ should print, a POST request to a configured URL is made. The target then is res
 Reference implementation
 ---
 
-The webhook was developed and tested against a Brother QL-600 label printer, using endless 62mm label paper. The webhook provider implementation was
+The webhook was developed and tested against a Brother QL-600 label printer, using Brother DK-2205 endless 62mm label paper. The webhook provider implementation was
 implemented into [a fork of brother_ql_web](https://github.com/mistressofjellyfish/brother_ql_web).
 
 Webhook request
