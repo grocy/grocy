@@ -47,6 +47,7 @@ class LdapAuthMiddleware extends AuthMiddleware
 				$ldapFirstName = $result[0]['givenname'][0];
 				$ldapLastName = $result[0]['sn'][0];
 				$ldapDistinguishedName = $result[0]['dn'];
+				$ldapUidAttribute = $result[0][strtolower(GROCY_LDAP_UID_ATTR)][0];
 
 				if (is_null($ldapDistinguishedName))
 				{
@@ -66,10 +67,10 @@ class LdapAuthMiddleware extends AuthMiddleware
 				ldap_close($connect);
 
 				$db = DatabaseService::getInstance()->GetDbConnection();
-				$user = $db->users()->where('username', $postParams['username'])->fetch();
+				$user = $db->users()->where('username', $ldapUidAttribute)->fetch();
 				if ($user == null)
 				{
-					$user = UsersService::getInstance()->CreateUser($postParams['username'], $ldapFirstName, $ldapLastName, '');
+					$user = UsersService::getInstance()->CreateUser($ldapUidAttribute, $ldapFirstName, $ldapLastName, '');
 				}
 
 				$sessionKey = SessionService::getInstance()->CreateSession($user->id, $postParams['stay_logged_in'] == 'on');
