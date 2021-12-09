@@ -112,6 +112,26 @@
 			))
 			@endif
 
+			@if(GROCY_FEATURE_FLAG_LABEL_PRINTER)
+			<div class="form-group">
+				<label for="stock_label_type">
+					{{ $__t('Stock entry label') }}
+					<i class="fas fa-question-circle text-muted"
+						data-toggle="tooltip"
+						data-trigger="hover click"
+						title="{{ $__t('This will apply to added products') }}"></i>
+				</label>
+				<select class="form-control"
+					id="stock_label_type"
+					name="stock_label_type">
+					<option value="0">{{ $__t('No label') }}</option>
+					<option value="1">{{ $__t('Single label') }}</option>
+					<option value="2">{{ $__t('Label per unit') }}</option>
+				</select>
+				<div class="invalid-feedback">{{ $__t('A quantity unit is required') }}</div>
+			</div>
+			@endif
+
 			<button id="save-inventory-button"
 				class="btn btn-success">{{ $__t('OK') }}</button>
 

@@ -2180,6 +2180,11 @@
 										"type": "number",
 										"format": "number",
 										"description": "If omitted, the last price of the product is used (only applies to added products)"
+									},
+									"stock_label_type": {
+										"type": "number",
+										"format": "integer",
+										"description": "`1` = No label, `2` = Single label, `3` = Label per unit (only applies to added products)"
 									}
 								}
 							}

@@ -495,7 +495,13 @@ class StockApiController extends BaseApiController
 				$shoppingLocationId = $requestBody['shopping_location_id'];
 			}
 
-			$transactionId = $this->getStockService()->InventoryProduct($args['productId'], $requestBody['new_amount'], $bestBeforeDate, $locationId, $price, $shoppingLocationId, $purchasedDate);
+			$stockLabelType = 0;
+			if (array_key_exists('stock_label_type', $requestBody) && is_numeric($requestBody['stock_label_type']))
+			{
+				$stockLabelType = intval($requestBody['stock_label_type']);
+			}
+
+			$transactionId = $this->getStockService()->InventoryProduct($args['productId'], $requestBody['new_amount'], $bestBeforeDate, $locationId, $price, $shoppingLocationId, $purchasedDate, $stockLabelType);
 			$args['transactionId'] = $transactionId;
 			return $this->StockTransactions($request, $response, $args);
 		}

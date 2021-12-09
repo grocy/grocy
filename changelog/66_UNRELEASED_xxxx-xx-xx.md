@@ -1,3 +1,4 @@
+- Stock entry labels get now also printed on inventory (only when adding products, same option "Stock entry label" like on the purchase page)
 - Optimized relative time display (also fixed a phrasing problem for some languages, e.g. Hungarian) (thanks @Tallyrald)
 - When using LDAP authentication, the configured `LDAP_UID_ATTR` is now used to compare if the user already exists instead of the username entered on the login page (that prevents creating multiple users if you entere the username in different notations) (thanks @FloSet)
 - Fixed that stock entry labels on purchase were printed, even when "No label" was selected (was only a problem when running label printer WebHooks server side)
