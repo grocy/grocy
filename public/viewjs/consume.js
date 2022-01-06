@@ -597,7 +597,6 @@ if (GetUriParam("embedded") !== undefined)
 	if (typeof locationId === 'undefined')
 	{
 		Grocy.Components.ProductPicker.GetPicker().trigger('change');
-		Grocy.Components.ProductPicker.GetInputElement().focus();
 	}
 	else
 	{
@@ -605,6 +604,7 @@ if (GetUriParam("embedded") !== undefined)
 		$("#location_id").trigger('change');
 		$("#use_specific_stock_entry").click();
 		$("#use_specific_stock_entry").trigger('change');
+		Grocy.Components.ProductPicker.GetPicker().trigger('change');
 	}
 }
 
