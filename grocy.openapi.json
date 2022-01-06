@@ -2961,10 +2961,15 @@
 									"list_id": {
 										"type": "integer",
 										"description": "The shopping list id to clear, when omitted, the default shopping list (with id 1) is used"
+									},
+									"done_only": {
+										"type": "boolean",
+										"description": "When `true`, only done items will be removed (defaults to `false` when ommited)"
 									}
 								},
 								"example": {
-									"list_id": 2
+									"list_id": 2,
+									"done_only": false
 								}
 							}
 						}

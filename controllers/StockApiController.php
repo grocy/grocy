@@ -233,13 +233,18 @@ class StockApiController extends BaseApiController
 			$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 			$listId = 1;
-
 			if (array_key_exists('list_id', $requestBody) && !empty($requestBody['list_id']) && is_numeric($requestBody['list_id']))
 			{
 				$listId = intval($requestBody['list_id']);
 			}
 
-			$this->getStockService()->ClearShoppingList($listId);
+			$doneOnly = false;
+			if (array_key_exists('done_only', $requestBody) && filter_var($requestBody['done_only'], FILTER_VALIDATE_BOOLEAN) !== false)
+			{
+				$doneOnly = boolval($requestBody['done_only']);
+			}
+
+			$this->getStockService()->ClearShoppingList($listId, $doneOnly);
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)

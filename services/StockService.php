@@ -336,14 +336,21 @@ class StockService extends BaseService
 		}
 	}
 
-	public function ClearShoppingList($listId = 1)
+	public function ClearShoppingList($listId = 1, $doneOnly = false)
 	{
 		if (!$this->ShoppingListExists($listId))
 		{
 			throw new \Exception('Shopping list does not exist');
 		}
 
-		$this->getDatabase()->shopping_list()->where('shopping_list_id = :1', $listId)->delete();
+		if ($doneOnly)
+		{
+			$this->getDatabase()->shopping_list()->where('shopping_list_id = :1 AND IFNULL(done, 0) = 1', $listId)->delete();
+		}
+		else
+		{
+			$this->getDatabase()->shopping_list()->where('shopping_list_id = :1', $listId)->delete();
+		}
 	}
 
 	public function ConsumeProduct(int $productId, float $amount, bool $spoiled, $transactionType, $specificStockEntryId = 'default', $recipeId = null, $locationId = null, &$transactionId = null, $allowSubproductSubstitution = false, $consumeExactAmount = false)
