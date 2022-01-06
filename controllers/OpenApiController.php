@@ -41,6 +41,7 @@ class OpenApiController extends BaseApiController
 		{
 			array_push($spec->components->schemas->ExposedEntity_IncludingUserEntities->enum, $userEntity);
 		}
+		sort($spec->components->schemas->ExposedEntity_IncludingUserEntities->enum);
 
 		$spec->components->schemas->ExposedEntity_NotIncludingNotEditable = clone $spec->components->schemas->StringEnumTemplate;
 		foreach ($spec->components->schemas->ExposedEntity->enum as $value)
@@ -50,6 +51,7 @@ class OpenApiController extends BaseApiController
 				array_push($spec->components->schemas->ExposedEntity_NotIncludingNotEditable->enum, $value);
 			}
 		}
+		sort($spec->components->schemas->ExposedEntity_NotIncludingNotEditable->enum);
 
 		$spec->components->schemas->ExposedEntity_IncludingUserEntities_NotIncludingNotEditable = clone $spec->components->schemas->StringEnumTemplate;
 		foreach ($spec->components->schemas->ExposedEntity_IncludingUserEntities->enum as $value)
@@ -59,6 +61,7 @@ class OpenApiController extends BaseApiController
 				array_push($spec->components->schemas->ExposedEntity_IncludingUserEntities_NotIncludingNotEditable->enum, $value);
 			}
 		}
+		sort($spec->components->schemas->ExposedEntity_IncludingUserEntities_NotIncludingNotEditable->enum);
 
 		$spec->components->schemas->ExposedEntity_NotIncludingNotDeletable = clone $spec->components->schemas->StringEnumTemplate;
 		foreach ($spec->components->schemas->ExposedEntity->enum as $value)
@@ -68,6 +71,7 @@ class OpenApiController extends BaseApiController
 				array_push($spec->components->schemas->ExposedEntity_NotIncludingNotDeletable->enum, $value);
 			}
 		}
+		sort($spec->components->schemas->ExposedEntity_NotIncludingNotDeletable->enum);
 
 		$spec->components->schemas->ExposedEntity_NotIncludingNotListable = clone $spec->components->schemas->StringEnumTemplate;
 		foreach ($spec->components->schemas->ExposedEntity->enum as $value)
@@ -77,6 +81,7 @@ class OpenApiController extends BaseApiController
 				array_push($spec->components->schemas->ExposedEntity_NotIncludingNotListable->enum, $value);
 			}
 		}
+		sort($spec->components->schemas->ExposedEntity_NotIncludingNotListable->enum);
 
 		return $this->ApiResponse($response, $spec);
 	}
