@@ -32,7 +32,7 @@ class SessionService extends BaseService
 
 	public function GetDefaultUser()
 	{
-		return $this->getDatabase()->users(1);
+		return $this->getDatabase()->users()->orderBy('id')->limit(1)->fetch();
 	}
 
 	public function GetUserBySessionKey($sessionKey)

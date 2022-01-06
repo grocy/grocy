@@ -7,4 +7,5 @@
 - Fixed that the barcode lookup for the "Stock by-barcode" API endpoints was case sensitive
 - Fixed that the logout button/menu was missing when using external authentication (e.g. LDAP)
 - Fixed that the consume page/dialog wasn't properly initialized when opening it from the stock entries page
+- Fixed that entries for not existing users were missing on the stock journal
 - The API endpoint `/stock/shoppinglist/clear` has now a new optional request body parameter `done_only` (to only remove done items from the given shopping list, defaults to `false`)
