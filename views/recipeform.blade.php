@@ -174,6 +174,15 @@
 							</td>
 							<td>
 								@php
+								// The amount can't be non-numeric when using the frontend,
+								// but some users decide to edit the database manually and
+								// enter something like "4 or 5" in the amount column (brilliant)
+								// => So at least don't crash this view by just assuming 0 if that's the case
+								if (!is_numeric($recipePosition->amount))
+								{
+									$recipePosition->amount = 0;
+								}
+								
 								$product = FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id);
 								$productQuConversions = FindAllObjectsInArrayByPropertyValue($quantityUnitConversionsResolved, 'product_id', $product->id);
 								$productQuConversions = FindAllObjectsInArrayByPropertyValue($productQuConversions, 'from_qu_id', $product->qu_id_stock);
