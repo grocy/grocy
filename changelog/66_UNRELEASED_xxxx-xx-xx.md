@@ -4,3 +4,4 @@
 - Fixed that stock entry labels on purchase were printed, even when "No label" was selected (was only a problem when running label printer WebHooks server side)
 - Fixed that formatted (HTML) text for the (hidden by default) product description column on the stock overview page was not correctly displayed
 - Fixed that numeric and date-time sorting of table columns on the stock entries page did not work correctly (thanks @MasterofJOKers)
+- Fixed that the barcode lookup for the "Stock by-barcode" API endpoints was case sensitive

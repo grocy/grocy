@@ -775,7 +775,7 @@ class StockService extends BaseService
 			return intval($gc->GetId());
 		}
 
-		$potentialProduct = $this->getDatabase()->product_barcodes()->where('barcode = :1', $barcode)->fetch();
+		$potentialProduct = $this->getDatabase()->product_barcodes()->where('barcode = :1 COLLATE NOCASE', $barcode)->fetch();
 		if ($potentialProduct === null)
 		{
 			throw new \Exception("No product with barcode $barcode found");
