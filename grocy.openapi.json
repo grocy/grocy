@@ -5634,7 +5634,9 @@
 					"stock",
 					"stock_current_locations",
 					"chores_log",
-					"meal_plan_sections"
+					"meal_plan_sections",
+					"products_last_purchased",
+					"products_average_price"
 				]
 			},
 			"ExposedEntityNoListing": {
@@ -5650,7 +5652,9 @@
 					"api_keys",
 					"stock",
 					"stock_current_locations",
-					"chores_log"
+					"chores_log",
+					"products_last_purchased",
+					"products_average_price"
 				]
 			},
 			"ExposedEntityNoDelete": {
@@ -5659,7 +5663,9 @@
 					"stock_log",
 					"stock",
 					"stock_current_locations",
-					"chores_log"
+					"chores_log",
+					"products_last_purchased",
+					"products_average_price"
 				]
 			},
 			"ExposedEntityEditRequiresAdmin": {
