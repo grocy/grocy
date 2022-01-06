@@ -400,7 +400,7 @@
 						<span class="locale-number locale-number-quantity-amount">{{ $currentStockEntry->min_stock_amount }}</span>
 					</td>
 					<td>
-						{{ $currentStockEntry->product_description }}
+						{!! $currentStockEntry->product_description !!}
 					</td>
 					<td class="product-name-cell cursor-link"
 						data-product-id="{{ $currentStockEntry->parent_product_id }}">
