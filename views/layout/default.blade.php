@@ -483,10 +483,10 @@
 					</a>
 
 					<div class="dropdown-menu dropdown-menu-right">
-						@if(!defined('GROCY_EXTERNALLY_MANAGED_AUTHENTICATION'))
 						<a class="dropdown-item logout-button discrete-link"
 							href="{{ $U('/logout') }}"><i class="fas fa-sign-out-alt"></i>&nbsp;{{ $__t('Logout') }}</a>
 						<div class="dropdown-divider"></div>
+						@if(!defined('GROCY_EXTERNALLY_MANAGED_AUTHENTICATION'))
 						<a class="dropdown-item logout-button discrete-link"
 							href="{{ $U('/user/' . GROCY_USER_ID . '?changepw=true') }}"><i class="fas fa-key"></i>&nbsp;{{ $__t('Change password') }}</a>
 						@else

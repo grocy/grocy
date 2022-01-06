@@ -5,3 +5,4 @@
 - Fixed that formatted (HTML) text for the (hidden by default) product description column on the stock overview page was not correctly displayed
 - Fixed that numeric and date-time sorting of table columns on the stock entries page did not work correctly (thanks @MasterofJOKers)
 - Fixed that the barcode lookup for the "Stock by-barcode" API endpoints was case sensitive
+- Fixed that the logout button/menu was missing when using external authentication (e.g. LDAP)
