@@ -3008,7 +3008,11 @@
 								"properties": {
 									"product_id": {
 										"type": "integer",
-										"description": "A valid product id of the item on the shopping list"
+										"description": "A valid product id of the product to be added"
+									},
+									"qu_id": {
+										"type": "integer",
+										"description": "A valid quantity unit id (used only for display; the amount needs to be related to the products stock QU), when omitted, the products stock QU is used"
 									},
 									"list_id": {
 										"type": "integer",
@@ -3016,7 +3020,7 @@
 									},
 									"product_amount": {
 										"type": "integer",
-										"description": "The amount of product units to add, when omitted, the default amount of 1 is used"
+										"description": "The amount (related to the products stock QU) to add, when omitted, the default amount of 1 is used"
 									},
 									"note": {
 										"type": "string",
