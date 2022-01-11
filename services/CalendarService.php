@@ -16,7 +16,6 @@ class CalendarService extends BaseService
 	public function GetEvents()
 	{
 		$stockEvents = [];
-
 		if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 		{
 			$products = $this->getDatabase()->products();
@@ -37,7 +36,6 @@ class CalendarService extends BaseService
 		}
 
 		$taskEvents = [];
-
 		if (GROCY_FEATURE_FLAG_TASKS)
 		{
 			$titlePrefix = $this->getLocalizationService()->__t('Task due') . ': ';
@@ -54,11 +52,9 @@ class CalendarService extends BaseService
 		}
 
 		$choreEvents = [];
-
 		if (GROCY_FEATURE_FLAG_CHORES)
 		{
 			$users = $this->getUsersService()->GetUsersAsDto();
-
 			$chores = $this->getDatabase()->chores()->where('active = 1');
 			$titlePrefix = $this->getLocalizationService()->__t('Chore due') . ': ';
 
@@ -67,7 +63,6 @@ class CalendarService extends BaseService
 				$chore = FindObjectInArrayByPropertyValue($chores, 'id', $currentChoreEntry->chore_id);
 
 				$assignedToText = '';
-
 				if (!empty($currentChoreEntry->next_execution_assigned_to_user_id))
 				{
 					$assignedToText = ' (' . $this->getLocalizationService()->__t('assigned to %s', FindObjectInArrayByPropertyValue($users, 'id', $currentChoreEntry->next_execution_assigned_to_user_id)->display_name) . ')';
@@ -84,7 +79,6 @@ class CalendarService extends BaseService
 		}
 
 		$batteryEvents = [];
-
 		if (GROCY_FEATURE_FLAG_BATTERIES)
 		{
 			$batteries = $this->getDatabase()->batteries()->where('active = 1');
@@ -104,7 +98,6 @@ class CalendarService extends BaseService
 		$mealPlanRecipeEvents = [];
 		$mealPlanNotesEvents = [];
 		$mealPlanProductEvents = [];
-
 		if (GROCY_FEATURE_FLAG_RECIPES)
 		{
 			$recipes = $this->getDatabase()->recipes();

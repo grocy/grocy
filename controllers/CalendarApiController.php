@@ -26,7 +26,7 @@ class CalendarApiController extends BaseApiController
 
 			foreach ($events as $event)
 			{
-				if (!isset($event['start']))
+				if (!isset($event['start']) || empty($event['start']))
 				{
 					continue;
 				}
