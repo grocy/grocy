@@ -22,13 +22,25 @@ class ReverseProxyAuthMiddleware extends AuthMiddleware
 			return $user;
 		}
 
-		$username = $request->getHeader(GROCY_REVERSE_PROXY_AUTH_HEADER);
-		if (count($username) !== 1)
+		if (GROCY_REVERSE_PROXY_AUTH_USE_ENV)
 		{
-			// Invalid configuration of Proxy
-			throw new \Exception('ReverseProxyAuthMiddleware: ' . GROCY_REVERSE_PROXY_AUTH_HEADER . ' header is missing or invalid');
+			$username = $_SERVER[GROCY_REVERSE_PROXY_AUTH_HEADER];
+			if (strlen($username) === 0)
+			{
+				// Invalid configuration of Proxy
+				throw new \Exception('ReverseProxyAuthMiddleware: ' . GROCY_REVERSE_PROXY_AUTH_HEADER . ' header is missing or invalid');
+			}
+		} else {
+			$username = $request->getHeader(GROCY_REVERSE_PROXY_AUTH_HEADER);
+			if (count($username) !== 1)
+			{
+				// Invalid configuration of Proxy
+				throw new \Exception('ReverseProxyAuthMiddleware: ' . GROCY_REVERSE_PROXY_AUTH_HEADER . ' header is missing or invalid');
+			}
+			$username = $username[0];
 		}
-		$username = $username[0];
+		
+		
 
 		$user = $db->users()->where('username', $username)->fetch();
 		if ($user == null)
