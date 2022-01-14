@@ -24,12 +24,19 @@ class ReverseProxyAuthMiddleware extends AuthMiddleware
 
 		if (GROCY_REVERSE_PROXY_AUTH_USE_ENV)
 		{
+			if (!isset($_SERVER[GROCY_REVERSE_PROXY_AUTH_HEADER]))
+			{
+				// Variable is not set
+				throw new \Exception('ReverseProxyAuthMiddleware: ' . GROCY_REVERSE_PROXY_AUTH_HEADER . ' env variable is missing, could not be found in $_SERVER array.');
+			}
+			
 			$username = $_SERVER[GROCY_REVERSE_PROXY_AUTH_HEADER];
 			if (strlen($username) === 0)
 			{
-				// Invalid configuration of Proxy
-				throw new \Exception('ReverseProxyAuthMiddleware: ' . GROCY_REVERSE_PROXY_AUTH_HEADER . ' header is missing or invalid');
+				// Variable is empty
+				throw new \Exception('ReverseProxyAuthMiddleware: ' . GROCY_REVERSE_PROXY_AUTH_HEADER . ' env variable is invalid');
 			}
+			
 		} else {
 			$username = $request->getHeader(GROCY_REVERSE_PROXY_AUTH_HEADER);
 			if (count($username) !== 1)
