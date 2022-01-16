@@ -432,6 +432,11 @@ Grocy.FrontendHelpers.ShowGenericError = function(message, exception)
 
 Grocy.FrontendHelpers.SaveUserSetting = function(settingsKey, value)
 {
+	if (Grocy.UserSettings[settingsKey] == value)
+	{
+		return;
+	}
+
 	Grocy.UserSettings[settingsKey] = value;
 
 	jsonData = {};
@@ -443,10 +448,7 @@ Grocy.FrontendHelpers.SaveUserSetting = function(settingsKey, value)
 		},
 		function(xhr)
 		{
-			if (!xhr.statusText.isEmpty())
-			{
-				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
-			}
+			console.error(xhr);
 		}
 	);
 }
