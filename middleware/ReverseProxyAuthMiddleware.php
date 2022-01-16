@@ -27,17 +27,18 @@ class ReverseProxyAuthMiddleware extends AuthMiddleware
 			if (!isset($_SERVER[GROCY_REVERSE_PROXY_AUTH_HEADER]))
 			{
 				// Variable is not set
-				throw new \Exception('ReverseProxyAuthMiddleware: ' . GROCY_REVERSE_PROXY_AUTH_HEADER . ' env variable is missing, could not be found in $_SERVER array.');
+				throw new \Exception('ReverseProxyAuthMiddleware: ' . GROCY_REVERSE_PROXY_AUTH_HEADER . ' env variable is missing (could not be found in $_SERVER array)');
 			}
-			
+
 			$username = $_SERVER[GROCY_REVERSE_PROXY_AUTH_HEADER];
 			if (strlen($username) === 0)
 			{
 				// Variable is empty
 				throw new \Exception('ReverseProxyAuthMiddleware: ' . GROCY_REVERSE_PROXY_AUTH_HEADER . ' env variable is invalid');
 			}
-			
-		} else {
+		}
+		else
+		{
 			$username = $request->getHeader(GROCY_REVERSE_PROXY_AUTH_HEADER);
 			if (count($username) !== 1)
 			{
@@ -46,8 +47,6 @@ class ReverseProxyAuthMiddleware extends AuthMiddleware
 			}
 			$username = $username[0];
 		}
-		
-		
 
 		$user = $db->users()->where('username', $username)->fetch();
 		if ($user == null)
