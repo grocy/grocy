@@ -99,19 +99,6 @@ class RecipesService extends BaseService
 		}
 	}
 
-	// The same as GetRecipesResolved but without the column "missing_products_count" to improve performance when this is not needed
-	public function GetRecipesResolved2($customWhere = null): Result
-	{
-		if ($customWhere == null)
-		{
-			return $this->getDatabase()->recipes_resolved2();
-		}
-		else
-		{
-			return $this->getDatabase()->recipes_resolved2()->where($customWhere);
-		}
-	}
-
 	public function CopyRecipe($recipeId)
 	{
 		if (!$this->RecipeExists($recipeId))
