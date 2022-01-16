@@ -1,6 +1,7 @@
 - Stock entry labels get now also printed on inventory (only when adding products, same option "Stock entry label" like on the purchase page)
 - Optimized relative time display (also fixed a phrasing problem for some languages, e.g. Hungarian) (thanks @Tallyrald)
 - When using LDAP authentication, the configured `LDAP_UID_ATTR` is now used to compare if the user already exists instead of the username entered on the login page (that prevents creating multiple users if you entere the username in different notations) (thanks @FloSet)
+- When using reverse proxy authentication (`ReverseProxyAuthMiddleware`), it's now also possible to pass the username in an environment variable instead of an HTTP header (new `config.php` option `REVERSE_PROXY_AUTH_USE_ENV`) (thanks @Forceu)
 - Fixed that stock entry labels on purchase were printed, even when "No label" was selected (was only a problem when running label printer WebHooks server side)
 - Fixed that formatted (HTML) text for the (hidden by default) product description column on the stock overview page was not correctly displayed
 - Fixed that numeric and date-time sorting of table columns on the stock entries page did not work correctly (thanks @MasterofJOKers)
