@@ -71,7 +71,6 @@ class RecipesController extends BaseController
 		$recipesResolved = $this->getRecipesService()->GetRecipesResolved('recipe_id > 0');
 
 		$selectedRecipe = null;
-
 		if (isset($request->getQueryParams()['recipe']))
 		{
 			$selectedRecipe = $this->getDatabase()->recipes($request->getQueryParams()['recipe']);
@@ -96,7 +95,7 @@ class RecipesController extends BaseController
 		$renderArray = [
 			'recipes' => $recipes,
 			'recipesResolved' => $recipesResolved,
-			'recipePositionsResolved' => $this->getDatabase()->recipes_pos_resolved()->where('recipe_type', RecipesService::RECIPE_TYPE_NORMAL),
+			'recipePositionsResolved' => $this->getDatabase()->recipes_pos_resolved()->where('recipe_id', $selectedRecipe->id),
 			'selectedRecipe' => $selectedRecipe,
 			'products' => $this->getDatabase()->products(),
 			'quantityUnits' => $this->getDatabase()->quantity_units(),
@@ -153,8 +152,6 @@ class RecipesController extends BaseController
 			'mode' => $recipeId == 'new' ? 'create' : 'edit',
 			'products' => $this->getDatabase()->products()->orderBy('name', 'COLLATE NOCASE'),
 			'quantityunits' => $this->getDatabase()->quantity_units(),
-			'recipePositionsResolved' => $this->getRecipesService()->GetRecipesPosResolved(),
-			'recipesResolved' => $this->getRecipesService()->GetRecipesResolved(),
 			'recipes' => $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name', 'COLLATE NOCASE'),
 			'recipeNestings' => $this->getDatabase()->recipes_nestings()->where('recipe_id', $recipeId),
 			'userfields' => $this->getUserfieldsService()->GetFields('recipes'),
