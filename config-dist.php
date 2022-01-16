@@ -76,6 +76,8 @@ Setting('AUTH_CLASS', 'Grocy\Middleware\DefaultAuthMiddleware');
 // When using ReverseProxyAuthMiddleware,
 // the name of the HTTP header which your reverse proxy uses to pass the username (on successful authentication)
 Setting('REVERSE_PROXY_AUTH_HEADER', 'REMOTE_USER');
+// When using ReverseProxyAuthMiddleware, set to true if the username is passed as environment variable
+Setting('REVERSE_PROXY_AUTH_USE_ENV', false);
 
 // LDAP options when using LdapAuthMiddleware
 Setting('LDAP_ADDRESS', ''); // Example value "ldap://vm-dc2019.local.berrnd.net"
