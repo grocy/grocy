@@ -6,6 +6,7 @@ Grocy.Components.ChoreCard.Refresh = function(choreId)
 		function(choreDetails)
 		{
 			$('#chorecard-chore-name').text(choreDetails.chore.name);
+			$('#chorecard-chore-description').html(nl2br(choreDetails.chore.description));
 			$('#chorecard-chore-last-tracked').text((choreDetails.last_tracked || __t('never')));
 			$('#chorecard-chore-last-tracked-timeago').attr("datetime", choreDetails.last_tracked || '');
 			$('#chorecard-chore-tracked-count').text((choreDetails.tracked_count || '0'));

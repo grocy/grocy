@@ -22,6 +22,10 @@
 	</div>
 	<div class="card-body">
 		<h3><span id="chorecard-chore-name"></span></h3>
+
+		<p id="chorecard-chore-description"
+			class="text-muted mt-0"></p>
+
 		<strong>{{ $__t('Tracked count') }}:</strong> <span id="chorecard-chore-tracked-count"
 			class="locale-number locale-number-generic"></span><br>
 		<strong>{{ $__t('Last tracked') }}:</strong> <span id="chorecard-chore-last-tracked"></span> <time id="chorecard-chore-last-tracked-timeago"
