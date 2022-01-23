@@ -677,7 +677,23 @@ $(document).on("click", ".easy-link-copy-textbox", function()
 
 $("textarea.wysiwyg-editor").summernote({
 	minHeight: "300px",
-	lang: __t("summernote_locale")
+	lang: __t("summernote_locale"),
+	callbacks: {
+		onImageLinkInsert: function(url)
+		{
+			// Summernote workaround: Make images responsive
+			// By adding the "img-fluid" class to the img tag
+			$img = $('<img>').attr({ src: url, class: "img-fluid" })
+			$(this).summernote("insertNode", $img[0]);
+		}
+	}
+});
+
+// Summernote workaround: Make embeds responsive
+// By wrapping any embeded video in a container with class "embed-responsive"
+$(".note-video-clip").each(function()
+{
+	$(this).parent().html('<div class="embed-responsive embed-responsive-16by9">' + $(this).wrap("<p/>").parent().html() + "</div>");
 });
 
 function LoadImagesLazy()
