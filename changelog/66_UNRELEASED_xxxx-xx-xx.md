@@ -4,6 +4,7 @@
 - When using reverse proxy authentication (`ReverseProxyAuthMiddleware`), it's now also possible to pass the username in an environment variable instead of an HTTP header (new `config.php` option `REVERSE_PROXY_AUTH_USE_ENV`) (thanks @Forceu)
 - Performance improvements (page loading time) of the recipes page
 - Fixed that stock entry labels on purchase were printed, even when "No label" was selected (was only a problem when running label printer WebHooks server side)
+- Fixed that when adding missing recipe ingredients, with the option "Only check if any amount is in stock" enabled, to the shopping list, unit conversions (if any) weren't considered
 - Fixed that the meal plan showed the total calories per recipe (instead of per serving as stated by the suffix)
 - Fixed that formatted (HTML) text for the (hidden by default) product description column on the stock overview page was not correctly displayed
 - Fixed that numeric and date-time sorting of table columns on the stock entries page did not work correctly (thanks @MasterofJOKers)
