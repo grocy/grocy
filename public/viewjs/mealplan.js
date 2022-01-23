@@ -1,6 +1,5 @@
 ﻿var firstRender = true;
 Grocy.IsMealPlanEntryEditAction = false;
-Grocy.MealPlanEntryEditObjectId = -1;
 
 var firstDay = null;
 if (!Grocy.CalendarFirstDayOfWeek.isEmpty())
@@ -417,7 +416,7 @@ $(document).on("click", ".edit-meal-plan-entry-button", function(e)
 		Grocy.FrontendHelpers.ValidateForm("add-note-form");
 	}
 	Grocy.IsMealPlanEntryEditAction = true;
-	Grocy.MealPlanEntryEditObjectId = mealPlanEntry.id;
+	Grocy.MealPlanEntryEditObject = mealPlanEntry;
 });
 
 $(document).on("click", ".copy-day-button", function(e)
@@ -488,7 +487,7 @@ $('#save-add-recipe-button').on('click', function(e)
 
 	if (Grocy.IsMealPlanEntryEditAction)
 	{
-		Grocy.Api.Put('objects/meal_plan/' + Grocy.MealPlanEntryEditObjectId.toString(), formData,
+		Grocy.Api.Put('objects/meal_plan/' + Grocy.MealPlanEntryEditObject.id, formData,
 			function(result)
 			{
 				window.location.reload();
@@ -535,7 +534,7 @@ $('#save-add-note-button').on('click', function(e)
 
 	if (Grocy.IsMealPlanEntryEditAction)
 	{
-		Grocy.Api.Put('objects/meal_plan/' + Grocy.MealPlanEntryEditObjectId.toString(), jsonData,
+		Grocy.Api.Put('objects/meal_plan/' + Grocy.MealPlanEntryEditObject.id, jsonData,
 			function(result)
 			{
 				window.location.reload();
@@ -588,7 +587,7 @@ $('#save-add-product-button').on('click', function(e)
 
 	if (Grocy.IsMealPlanEntryEditAction)
 	{
-		Grocy.Api.Put('objects/meal_plan/' + Grocy.MealPlanEntryEditObjectId.toString(), jsonData,
+		Grocy.Api.Put('objects/meal_plan/' + Grocy.MealPlanEntryEditObject.id, jsonData,
 			function(result)
 			{
 				window.location.reload();
@@ -1006,7 +1005,15 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
 				Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.quantity_unit_stock.id);
 
-				$('#display_amount').val(1);
+				if (Grocy.IsMealPlanEntryEditAction)
+				{
+					$('#display_amount').val(Grocy.MealPlanEntryEditObject.product_amount);
+				}
+				else
+				{
+					$('#display_amount').val(1);
+				}
+
 				RefreshLocaleNumberInput();
 				$('#display_amount').focus();
 				$('#display_amount').select();
