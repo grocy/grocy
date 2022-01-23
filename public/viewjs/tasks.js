@@ -183,28 +183,38 @@ if (GetUriParam('include_done'))
 
 function RefreshStatistics()
 {
-	var nextXDays = $("#info-due-tasks").data("next-x-days");
+	var nextXDays = $("#info-due-soon-tasks").data("next-x-days");
 	Grocy.Api.Get('tasks',
 		function(result)
 		{
-			var dueCount = 0;
+			var dueTodayCount = 0;
+			var dueSoonCount = 0;
 			var overdueCount = 0;
-			var now = moment();
-			var nextXDaysThreshold = moment().add(nextXDays, "days");
+			var overdueThreshold = moment().subtract(1, "days").endOf("day");
+			var nextXDaysThreshold = moment().endOf("day").add(nextXDays, "days");
+			var todayThreshold = moment().endOf("day");
+
 			result.forEach(element =>
 			{
-				var date = moment(element.due_date);
-				if (date.isBefore(now))
+				var date = moment(element.due_date + " 23:59:59").endOf("day");
+
+				if (date.isSameOrBefore(overdueThreshold))
 				{
 					overdueCount++;
 				}
-				else if (date.isBefore(nextXDaysThreshold))
+				else if (date.isSameOrBefore(todayThreshold))
 				{
-					dueCount++;
+					dueTodayCount++;
+					dueSoonCount++;
+				}
+				else if (date.isSameOrBefore(nextXDaysThreshold))
+				{
+					dueSoonCount++;
 				}
 			});
 
-			$("#info-due-tasks").html('<span class="d-block d-md-none">' + dueCount + ' <i class="fas fa-clock"></i></span><span class="d-none d-md-block">' + __n(dueCount, '%s task is due to be done', '%s tasks are due to be done') + ' ' + __n(nextXDays, 'within the next day', 'within the next %s days'));
+			$("#info-due-today-tasks").html('<span class="d-block d-md-none">' + dueTodayCount + ' <i class="fas fa-clock"></i></span><span class="d-none d-md-block">' + __n(dueTodayCount, '%s task is due to be done today', '%s tasks are due to be done today'));
+			$("#info-due-soon-tasks").html('<span class="d-block d-md-none">' + dueSoonCount + ' <i class="fas fa-clock"></i></span><span class="d-none d-md-block">' + __n(dueSoonCount, '%s task is due to be done', '%s tasks are due to be done') + ' ' + __n(nextXDays, 'within the next day', 'within the next %s days'));
 			$("#info-overdue-tasks").html('<span class="d-block d-md-none">' + overdueCount + ' <i class="fas fa-times-circle"></i></span><span class="d-none d-md-block">' + __n(overdueCount, '%s task is overdue to be done', '%s tasks are overdue to be done'));
 		},
 		function(xhr)

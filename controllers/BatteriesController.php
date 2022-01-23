@@ -80,9 +80,30 @@ class BatteriesController extends BaseController
 		$usersService = $this->getUsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['batteries_due_soon_days'];
 
+		$batteries = $this->getDatabase()->batteries()->where('active = 1')->orderBy('name', 'COLLATE NOCASE');
+		$currentBatteries = $this->getBatteriesService()->GetCurrent();
+		foreach ($currentBatteries as $currentBattery)
+		{
+			if (FindObjectInArrayByPropertyValue($batteries, 'id', $currentBattery->battery_id)->charge_interval_days > 0)
+			{
+				if ($currentBattery->next_estimated_charge_time < date('Y-m-d H:i:s'))
+				{
+					$currentBattery->due_type = 'overdue';
+				}
+				elseif ($currentBattery->next_estimated_charge_time <= date('Y-m-d 23:59:59'))
+				{
+					$currentBattery->due_type = 'duetoday';
+				}
+				elseif ($currentBattery->next_estimated_charge_time <= date('Y-m-d H:i:s', strtotime('+' . $nextXDays . ' days')))
+				{
+					$currentBattery->due_type = 'duesoon';
+				}
+			}
+		}
+
 		return $this->renderPage($response, 'batteriesoverview', [
-			'batteries' => $this->getDatabase()->batteries()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
-			'current' => $this->getBatteriesService()->GetCurrent(),
+			'batteries' => $batteries,
+			'current' => $currentBatteries,
 			'nextXDays' => $nextXDays,
 			'userfields' => $this->getUserfieldsService()->GetFields('batteries'),
 			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('batteries')

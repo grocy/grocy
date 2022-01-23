@@ -29,13 +29,16 @@
 			</div>
 		</div>
 		<div class="border-top border-bottom my-2 py-1">
-			<div id="info-due-batteries"
-				data-status-filter="duesoon"
-				data-next-x-days="{{ $nextXDays }}"
-				class="warning-message status-filter-message responsive-button mr-2"></div>
 			<div id="info-overdue-batteries"
 				data-status-filter="overdue"
-				class="error-message status-filter-message responsive-button"></div>
+				class="error-message status-filter-message responsive-button mr-2"></div>
+			<div id="info-due-today-batteries"
+				data-status-filter="duetoday"
+				class="normal-message status-filter-message responsive-button mr-2"></div>
+			<div id="info-due-soon-batteries"
+				data-status-filter="duesoon"
+				data-next-x-days="{{ $nextXDays }}"
+				class="warning-message status-filter-message responsive-button"></div>
 			<div class="float-right">
 				<a class="btn btn-sm btn-outline-info d-md-none mt-1"
 					data-toggle="collapse"
@@ -74,8 +77,9 @@
 			<select class="custom-control custom-select"
 				id="status-filter">
 				<option value="all">{{ $__t('All') }}</option>
-				<option value="duesoon">{{ $__t('Due soon') }}</option>
 				<option value="overdue">{{ $__t('Overdue') }}</option>
+				<option value="duetoday">{{ $__t('Due today') }}</option>
+				<option value="duesoon">{{ $__t('Due soon') }}</option>
 			</select>
 		</div>
 	</div>
@@ -109,9 +113,7 @@
 			<tbody class="d-none">
 				@foreach($current as $currentBatteryEntry)
 				<tr id="battery-{{ $currentBatteryEntry->battery_id }}-row"
-					class="@if(FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->charge_interval_days > 0 && $currentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s')) table-danger @elseif(FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->charge_interval_days > 0 && $currentBatteryEntry->next_estimated_charge_time < date('Y-m-d H:i:s', strtotime('+' . $nextXDays . ' days')))
-					table-warning
-					@endif">
+					class="@if($currentBatteryEntry->due_type == 'overdue') table-danger @elseif($currentBatteryEntry->due_type == 'duetoday') table-info @elseif($currentBatteryEntry->due_type == 'duesoon') table-warning @endif">
 					<td class="fit-content border-right">
 						<a class="btn btn-success btn-sm track-charge-cycle-button permission-BATTERIES_TRACK_CHARGE_CYCLE"
 							href="#"
@@ -186,25 +188,10 @@
 						@endif
 					</td>
 					<td class="d-none">
-						"@if(FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->charge_interval_days > 0 && $currentBatteryEntry->next_estimated_charge_time < date('Y-m-d
-							H:i:s'))
-							overdue
-							@elseif(FindObjectInArrayByPropertyValue($batteries, 'id'
-							,
-							$currentBatteryEntry->battery_id)->charge_interval_days > 0 && $currentBatteryEntry->next_estimated_charge_time < date('Y-m-d
-								H:i:s',
-								strtotime('+'
-								.
-								$nextXDays
-								. ' days'
-								)))
-								duesoon
-								@endif
-								</td>
-								@include('components.userfields_tbody',
-								array( 'userfields'=> $userfields,
-								'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $currentBatteryEntry->battery_id)
-								))
+						{{ $currentBatteryEntry->due_type }}
+						@if($currentBatteryEntry->due_type == 'duetoday')
+						duesoon
+						@endif
 
 				</tr>
 				@endforeach

@@ -71,7 +71,7 @@ $(document).on('click', '.track-charge-cycle-button', function(e)
 				function(result)
 				{
 					var batteryRow = $('#battery-' + batteryId + '-row');
-					var nextXDaysThreshold = moment().add($("#info-due-batteries").data("next-x-days"), "days");
+					var nextXDaysThreshold = moment().add($("#info-due-soon-batteries").data("next-x-days"), "days");
 					var now = moment();
 					var nextExecutionTime = moment(result.next_estimated_charge_time);
 
@@ -139,28 +139,38 @@ $(document).on('click', '.battery-grocycode-label-print', function(e)
 
 function RefreshStatistics()
 {
-	var nextXDays = $("#info-due-batteries").data("next-x-days");
+	var nextXDays = $("#info-due-soon-batteries").data("next-x-days");
 	Grocy.Api.Get('batteries',
 		function(result)
 		{
-			var dueCount = 0;
+			var dueTodayCount = 0;
+			var dueSoonCount = 0;
 			var overdueCount = 0;
-			var now = moment();
+			var overdueThreshold = moment();
 			var nextXDaysThreshold = moment().add(nextXDays, "days");
+			var todayThreshold = moment().endOf("day");
+
 			result.forEach(element =>
 			{
 				var date = moment(element.next_estimated_charge_time);
-				if (date.isBefore(now))
+
+				if (date.isBefore(overdueThreshold))
 				{
 					overdueCount++;
 				}
-				else if (date.isBefore(nextXDaysThreshold))
+				else if (date.isSameOrBefore(todayThreshold))
 				{
-					dueCount++;
+					dueTodayCount++;
+					dueSoonCount++;
+				}
+				else if (date.isSameOrBefore(nextXDaysThreshold))
+				{
+					dueSoonCount++;
 				}
 			});
 
-			$("#info-due-batteries").html('<span class="d-block d-md-none">' + dueCount + ' <i class="fas fa-clock"></i></span><span class="d-none d-md-block">' + __n(dueCount, '%s battery is due to be charged', '%s batteries are due to be charged') + ' ' + __n(nextXDays, 'within the next day', 'within the next %s days'));
+			$("#info-due-today-batteries").html('<span class="d-block d-md-none">' + dueTodayCount + ' <i class="fas fa-clock"></i></span><span class="d-none d-md-block">' + __n(dueTodayCount, '%s battery is due to be charged today', '%s batteries are due to be charged today'));
+			$("#info-due-soon-batteries").html('<span class="d-block d-md-none">' + dueSoonCount + ' <i class="fas fa-clock"></i></span><span class="d-none d-md-block">' + __n(dueSoonCount, '%s battery is due to be charged', '%s batteries are due to be charged') + ' ' + __n(nextXDays, 'within the next day', 'within the next %s days'));
 			$("#info-overdue-batteries").html('<span class="d-block d-md-none">' + overdueCount + ' <i class="fas fa-times-circle"></i></span><span class="d-none d-md-block">' + __n(overdueCount, '%s battery is overdue to be charged', '%s batteries are overdue to be charged'));
 		},
 		function(xhr)

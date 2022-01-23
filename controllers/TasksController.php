@@ -6,6 +6,9 @@ class TasksController extends BaseController
 {
 	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
+		$usersService = $this->getUsersService();
+		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['tasks_due_soon_days'];
+
 		if (isset($request->getQueryParams()['include_done']))
 		{
 			$tasks = $this->getDatabase()->tasks()->orderBy('name', 'COLLATE NOCASE');
@@ -15,8 +18,21 @@ class TasksController extends BaseController
 			$tasks = $this->getTasksService()->GetCurrent();
 		}
 
-		$usersService = $this->getUsersService();
-		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['tasks_due_soon_days'];
+		foreach ($tasks as $task)
+		{
+			if ($task->due_date < date('Y-m-d 23:59:59', strtotime('-1 days')))
+			{
+				$task->due_type = 'overdue';
+			}
+			elseif ($task->due_date <= date('Y-m-d 23:59:59'))
+			{
+				$task->due_type = 'duetoday';
+			}
+			elseif ($task->due_date <= date('Y-m-d 23:59:59', strtotime('+' . $nextXDays . ' days')))
+			{
+				$task->due_type = 'duesoon';
+			}
+		}
 
 		return $this->renderPage($response, 'tasks', [
 			'tasks' => $tasks,

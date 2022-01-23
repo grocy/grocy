@@ -2259,3 +2259,15 @@ msgstr ""
 
 msgid "After merging, all occurences of this chore will be replaced by the kept chore (means this chore will not exist anymore)"
 msgstr ""
+
+msgid "Due today"
+msgstr ""
+
+msgid "%s chore is due to be done today"
+msgstr ""
+
+msgid "%s task is due to be done today"
+msgstr ""
+
+msgid "%s battery is due to be charged today"
+msgstr ""

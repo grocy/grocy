@@ -94,9 +94,30 @@ class ChoresController extends BaseController
 		$usersService = $this->getUsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['chores_due_soon_days'];
 
+		$chores = $this->getDatabase()->chores()->orderBy('name', 'COLLATE NOCASE');
+		$currentChores = $this->getChoresService()->GetCurrent();
+		foreach ($currentChores as $currentChore)
+		{
+			if (FindObjectInArrayByPropertyValue($chores, 'id', $currentChore->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_PERIOD_TYPE_MANUALLY)
+			{
+				if ($currentChore->next_estimated_execution_time < date('Y-m-d H:i:s'))
+				{
+					$currentChore->due_type = 'overdue';
+				}
+				elseif ($currentChore->next_estimated_execution_time <= date('Y-m-d 23:59:59'))
+				{
+					$currentChore->due_type = 'duetoday';
+				}
+				elseif ($currentChore->next_estimated_execution_time <= date('Y-m-d H:i:s', strtotime('+' . $nextXDays . ' days')))
+				{
+					$currentChore->due_type = 'duesoon';
+				}
+			}
+		}
+
 		return $this->renderPage($response, 'choresoverview', [
-			'chores' => $this->getDatabase()->chores()->orderBy('name', 'COLLATE NOCASE'),
-			'currentChores' => $this->getChoresService()->GetCurrent(),
+			'chores' => $chores,
+			'currentChores' => $currentChores,
 			'nextXDays' => $nextXDays,
 			'userfields' => $this->getUserfieldsService()->GetFields('chores'),
 			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('chores'),

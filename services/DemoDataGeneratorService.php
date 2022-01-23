@@ -169,7 +169,7 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO chores (name, period_type) VALUES ('{$this->__t_sql('The thing which happens daily')}', 'daily'); --5
 				INSERT INTO chores (name, period_type, period_config) VALUES ('{$this->__t_sql('The thing which happens on Mondays and Wednesdays')}', 'weekly', 'monday,wednesday'); --6
 
-				INSERT INTO batteries (name, description, used_in) VALUES ('{$this->__t_sql('Battery')}1', '{$this->__t_sql('Warranty ends')} 2023', '{$this->__t_sql('TV remote control')}'); --1
+				INSERT INTO batteries (name, description, used_in, charge_interval_days) VALUES ('{$this->__t_sql('Battery')}1', '{$this->__t_sql('Warranty ends')} 2023', '{$this->__t_sql('TV remote control')}', 180); --1
 				INSERT INTO batteries (name, description, used_in) VALUES ('{$this->__t_sql('Battery')}2', '{$this->__t_sql('Warranty ends')} 2022', '{$this->__t_sql('Alarm clock')}'); --2
 				INSERT INTO batteries (name, description, used_in, charge_interval_days) VALUES ('{$this->__t_sql('Battery')}3', '{$this->__t_sql('Warranty ends')} 2022', '{$this->__t_sql('Heat remote control')}', 60); --3
 				INSERT INTO batteries (name, description, used_in, charge_interval_days) VALUES ('{$this->__t_sql('Battery')}4', '{$this->__t_sql('Warranty ends')} 2028', '{$this->__t_sql('Heat remote control')}', 60); --4
@@ -178,7 +178,7 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO task_categories (name) VALUES ('{$this->__t_sql('Life')}'); --2
 				INSERT INTO task_categories (name) VALUES ('{$this->__t_sql('Projects')}'); --3
 
-				INSERT INTO tasks (name, category_id, due_date, assigned_to_user_id) VALUES ('{$this->__t_sql('Repair the garage door')}', 1, date(datetime('now', 'localtime'), '+14 day'), 1);
+				INSERT INTO tasks (name, category_id, due_date, assigned_to_user_id) VALUES ('{$this->__t_sql('Repair the garage door')}', 1, date(datetime('now', 'localtime')), 1);
 				INSERT INTO tasks (name, category_id, due_date, assigned_to_user_id) VALUES ('{$this->__t_sql('Fork and improve grocy')}', 3, date(datetime('now', 'localtime'), '+30 day'), 1);
 				INSERT INTO tasks (name, category_id, due_date, assigned_to_user_id) VALUES ('{$this->__t_sql('Task')}1', 2, date(datetime('now', 'localtime'), '-1 day'), 1);
 				INSERT INTO tasks (name, category_id, due_date, assigned_to_user_id) VALUES ('{$this->__t_sql('Task')}2', 2, date(datetime('now', 'localtime'), '-1 day'), 1);
@@ -293,18 +293,19 @@ class DemoDataGeneratorService extends BaseService
 			$choresService->TrackChore(1, date('Y-m-d H:i:s', strtotime('-5 days')));
 			$choresService->TrackChore(1, date('Y-m-d H:i:s', strtotime('-10 days')));
 			$choresService->TrackChore(1, date('Y-m-d H:i:s', strtotime('-15 days')));
-			$choresService->TrackChore(2, date('Y-m-d H:i:s', strtotime('-10 days')));
-			$choresService->TrackChore(2, date('Y-m-d H:i:s', strtotime('-20 days')));
+			$choresService->TrackChore(2, date('Y-m-d 23:59:59', strtotime('-7 days')));
+			$choresService->TrackChore(2, date('Y-m-d H:i:s', strtotime('-14 days')));
+			$choresService->TrackChore(2, date('Y-m-d H:i:s', strtotime('-21 days')));
 			$choresService->TrackChore(3, date('Y-m-d H:i:s', strtotime('-17 days')));
 			$choresService->TrackChore(4, date('Y-m-d H:i:s', strtotime('-10 days')));
 			$choresService->TrackChore(5, date('Y-m-d H:i:s', strtotime('+0 days')));
 			$choresService->TrackChore(6, date('Y-m-d H:i:s', strtotime('-10 days')));
 
 			$batteriesService = new BatteriesService();
-			$batteriesService->TrackChargeCycle(1, date('Y-m-d H:i:s', strtotime('-200 days')));
-			$batteriesService->TrackChargeCycle(1, date('Y-m-d H:i:s', strtotime('-150 days')));
-			$batteriesService->TrackChargeCycle(1, date('Y-m-d H:i:s', strtotime('-100 days')));
-			$batteriesService->TrackChargeCycle(1, date('Y-m-d H:i:s', strtotime('-50 days')));
+			$batteriesService->TrackChargeCycle(1, date('Y-m-d H:i:s', strtotime('-720 days')));
+			$batteriesService->TrackChargeCycle(1, date('Y-m-d H:i:s', strtotime('-540 days')));
+			$batteriesService->TrackChargeCycle(1, date('Y-m-d H:i:s', strtotime('-360 days')));
+			$batteriesService->TrackChargeCycle(1, date('Y-m-d 23:59:59', strtotime('-180 days')));
 			$batteriesService->TrackChargeCycle(2, date('Y-m-d H:i:s', strtotime('-200 days')));
 			$batteriesService->TrackChargeCycle(2, date('Y-m-d H:i:s', strtotime('-150 days')));
 			$batteriesService->TrackChargeCycle(2, date('Y-m-d H:i:s', strtotime('-100 days')));

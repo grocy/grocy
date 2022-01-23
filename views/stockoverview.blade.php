@@ -50,16 +50,16 @@
 		</div>
 		<div class="border-top border-bottom my-2 py-1">
 			@if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
+			<div id="info-expired-products"
+				data-status-filter="expired"
+				class="error-message status-filter-message responsive-button mr-2"></div>
+			<div id="info-overdue-products"
+				data-status-filter="overdue"
+				class="secondary-message status-filter-message responsive-button mr-2"></div>
 			<div id="info-duesoon-products"
 				data-next-x-days="{{ $nextXDays }}"
 				data-status-filter="duesoon"
 				class="warning-message status-filter-message responsive-button mr-2"></div>
-			<div id="info-overdue-products"
-				data-status-filter="overdue"
-				class="secondary-message status-filter-message responsive-button mr-2"></div>
-			<div id="info-expired-products"
-				data-status-filter="expired"
-				class="error-message status-filter-message responsive-button mr-2"></div>
 			@endif
 			<div id="info-missing-products"
 				data-status-filter="belowminstockamount"

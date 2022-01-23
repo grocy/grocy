@@ -29,13 +29,16 @@
 			</div>
 		</div>
 		<div class="border-top border-bottom my-2 py-1">
-			<div id="info-due-tasks"
+			<div id="info-overdue-tasks"
+				data-status-filter="overdue"
+				class="error-message status-filter-message responsive-button mr-2"></div>
+			<div id="info-due-today-tasks"
+				data-status-filter="duetoday"
+				class="normal-message status-filter-message responsive-button mr-2"></div>
+			<div id="info-due-soon-tasks"
 				data-status-filter="duesoon"
 				data-next-x-days="{{ $nextXDays }}"
 				class="warning-message status-filter-message responsive-button mr-2"></div>
-			<div id="info-overdue-tasks"
-				data-status-filter="overdue"
-				class="error-message status-filter-message responsive-button"></div>
 			<div class="float-right">
 				<a class="btn btn-sm btn-outline-info d-md-none mt-1"
 					data-toggle="collapse"
@@ -74,8 +77,9 @@
 			<select class="custom-control custom-select"
 				id="status-filter">
 				<option value="all">{{ $__t('All') }}</option>
-				<option value="duesoon">{{ $__t('Due soon') }}</option>
 				<option value="overdue">{{ $__t('Overdue') }}</option>
+				<option value="duetoday">{{ $__t('Due today') }}</option>
+				<option value="duesoon">{{ $__t('Due soon') }}</option>
 			</select>
 		</div>
 	</div>
@@ -121,9 +125,7 @@
 			<tbody class="d-none">
 				@foreach($tasks as $task)
 				<tr id="task-{{ $task->id }}-row"
-					class="@if($task->done == 1) text-muted @endif @if(!empty($task->due_date) && $task->due_date < date('Y-m-d')) table-danger @elseif(!empty($task->due_date) && $task->due_date < date('Y-m-d', strtotime('+' . $nextXDays . ' days')))
-					table-warning
-					@endif">
+					class="@if($task->due_type == 'overdue') table-danger @elseif($task->due_type == 'duetoday') table-info @elseif($task->due_type == 'duesoon') table-warning @endif">
 					<td class="fit-content border-right">
 						@if($task->done == 0)
 						<a class="btn btn-success btn-sm do-task-button"
@@ -177,20 +179,13 @@
 						@if($task->assigned_to_user_id != null) <span>{{ GetUserDisplayName(FindObjectInArrayByPropertyValue($users, 'id', $task->assigned_to_user_id)) }}</span> @endif
 					</td>
 					<td class="d-none">
-						@if($task->done == 1) text-muted @endif @if(!empty($task->due_date) && $task->due_date < date('Y-m-d'))
-							overdue
-							@elseif(!empty($task->due_date) && $task->due_date < date('Y-m-d',
-								strtotime('+'
-								.
-								$nextXDays
-								. ' days'
-								)))
-								duesoon
-								@endif
-								</td>
-								<td
-								class="d-none">
-								@if($task->category_id != null) {{ FindObjectInArrayByPropertyValue($taskCategories, 'id', $task->category_id)->name }} @else {{ $__t('Uncategorized') }} @endif
+						{{ $task->due_type }}
+						@if($task->due_type == 'duetoday')
+						duesoon
+						@endif
+					</td>
+					<td class="d-none">
+						@if($task->category_id != null) {{ FindObjectInArrayByPropertyValue($taskCategories, 'id', $task->category_id)->name }} @else {{ $__t('Uncategorized') }} @endif
 					</td>
 					@include('components.userfields_tbody',
 					array( 'userfields'=> $userfields,

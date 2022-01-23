@@ -109,7 +109,7 @@ $(document).on('click', '.track-chore-button', function(e)
 						function(result)
 						{
 							var choreRow = $('#chore-' + choreId + '-row');
-							var nextXDaysThreshold = moment().add($("#info-due-chores").data("next-x-days"), "days");
+							var nextXDaysThreshold = moment().add($("#info-due-soon-chores").data("next-x-days"), "days");
 							var now = moment();
 							var nextExecutionTime = moment(result.next_estimated_execution_time);
 
@@ -202,25 +202,34 @@ $(document).on('click', '.chore-grocycode-label-print', function(e)
 
 function RefreshStatistics()
 {
-	var nextXDays = $("#info-due-chores").data("next-x-days");
+	var nextXDays = $("#info-due-soon-chores").data("next-x-days");
 	Grocy.Api.Get('chores',
 		function(result)
 		{
-			var dueCount = 0;
+			var dueTodayCount = 0;
+			var dueSoonCount = 0;
 			var overdueCount = 0;
 			var assignedToMeCount = 0;
-			var now = moment();
+			var overdueThreshold = moment();
 			var nextXDaysThreshold = moment().add(nextXDays, "days");
+			var todayThreshold = moment().endOf("day");
+
 			result.forEach(element =>
 			{
 				var date = moment(element.next_estimated_execution_time);
-				if (date.isBefore(now))
+
+				if (date.isBefore(overdueThreshold))
 				{
 					overdueCount++;
 				}
-				else if (date.isBefore(nextXDaysThreshold))
+				else if (date.isSameOrBefore(todayThreshold))
 				{
-					dueCount++;
+					dueTodayCount++;
+					dueSoonCount++;
+				}
+				else if (date.isSameOrBefore(nextXDaysThreshold))
+				{
+					dueSoonCount++;
 				}
 
 				if (parseInt(element.next_execution_assigned_to_user_id) == Grocy.UserId)
@@ -229,7 +238,8 @@ function RefreshStatistics()
 				}
 			});
 
-			$("#info-due-chores").html('<span class="d-block d-md-none">' + dueCount + ' <i class="fas fa-clock"></i></span><span class="d-none d-md-block">' + __n(dueCount, '%s chore is due to be done', '%s chores are due to be done') + ' ' + __n(nextXDays, 'within the next day', 'within the next %s days'));
+			$("#info-due-today-chores").html('<span class="d-block d-md-none">' + dueTodayCount + ' <i class="fas fa-clock"></i></span><span class="d-none d-md-block">' + __n(dueTodayCount, '%s chore is due to be done today', '%s chores are due to be done today'));
+			$("#info-due-soon-chores").html('<span class="d-block d-md-none">' + dueSoonCount + ' <i class="fas fa-clock"></i></span><span class="d-none d-md-block">' + __n(dueSoonCount, '%s chore is due to be done', '%s chores are due to be done') + ' ' + __n(nextXDays, 'within the next day', 'within the next %s days'));
 			$("#info-overdue-chores").html('<span class="d-block d-md-none">' + overdueCount + ' <i class="fas fa-times-circle"></i></span><span class="d-none d-md-block">' + __n(overdueCount, '%s chore is overdue to be done', '%s chores are overdue to be done'));
 			$("#info-assigned-to-me-chores").html('<span class="d-block d-md-none">' + assignedToMeCount + ' <i class="fas fa-exclamation-circle"></i></span><span class="d-none d-md-block">' + __n(assignedToMeCount, '%s chore is assigned to me', '%s chores are assigned to me'));
 		},
