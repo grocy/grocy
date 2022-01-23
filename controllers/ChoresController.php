@@ -108,7 +108,7 @@ class ChoresController extends BaseController
 				{
 					$currentChore->due_type = 'duetoday';
 				}
-				elseif ($currentChore->next_estimated_execution_time <= date('Y-m-d H:i:s', strtotime('+' . $nextXDays . ' days')))
+				elseif ($nextXDays > 0 && $currentChore->next_estimated_execution_time <= date('Y-m-d H:i:s', strtotime('+' . $nextXDays . ' days')))
 				{
 					$currentChore->due_type = 'duesoon';
 				}

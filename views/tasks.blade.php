@@ -38,7 +38,7 @@
 			<div id="info-due-soon-tasks"
 				data-status-filter="duesoon"
 				data-next-x-days="{{ $nextXDays }}"
-				class="warning-message status-filter-message responsive-button mr-2"></div>
+				class="warning-message status-filter-message responsive-button @if($nextXDays == 0) d-none @endif"></div>
 			<div class="float-right">
 				<a class="btn btn-sm btn-outline-info d-md-none mt-1"
 					data-toggle="collapse"
@@ -79,7 +79,9 @@
 				<option value="all">{{ $__t('All') }}</option>
 				<option value="overdue">{{ $__t('Overdue') }}</option>
 				<option value="duetoday">{{ $__t('Due today') }}</option>
+				@if($nextXDays > 0)
 				<option value="duesoon">{{ $__t('Due soon') }}</option>
+				@endif
 			</select>
 		</div>
 	</div>

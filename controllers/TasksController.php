@@ -28,7 +28,7 @@ class TasksController extends BaseController
 			{
 				$task->due_type = 'duetoday';
 			}
-			elseif ($task->due_date <= date('Y-m-d 23:59:59', strtotime('+' . $nextXDays . ' days')))
+			elseif ($nextXDays > 0 && $task->due_date <= date('Y-m-d 23:59:59', strtotime('+' . $nextXDays . ' days')))
 			{
 				$task->due_type = 'duesoon';
 			}

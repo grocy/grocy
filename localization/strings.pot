@@ -2277,3 +2277,6 @@ msgid "%s battery is due to be charged today"
 msgid_plural "%s batteries are due to be charged today"
 msgstr[0] ""
 msgstr[1] ""
+
+msgid "Set to 0 to hide due soon filters/highlighting"
+msgstr ""

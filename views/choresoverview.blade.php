@@ -38,7 +38,7 @@
 			<div id="info-due-soon-chores"
 				data-status-filter="duesoon"
 				data-next-x-days="{{ $nextXDays }}"
-				class="warning-message status-filter-message responsive-message mr-2"></div>
+				class="warning-message status-filter-message responsive-message mr-2 @if($nextXDays == 0) d-none @endif"></div>
 			@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 			<div id="info-assigned-to-me-chores"
 				data-user-filter="xx{{ GROCY_USER_ID }}xx"
@@ -84,7 +84,9 @@
 				<option value="all">{{ $__t('All') }}</option>
 				<option value="overdue">{{ $__t('Overdue') }}</option>
 				<option value="duetoday">{{ $__t('Due today') }}</option>
+				@if($nextXDays > 0)
 				<option value="duesoon">{{ $__t('Due soon') }}</option>
+				@endif
 			</select>
 		</div>
 	</div>

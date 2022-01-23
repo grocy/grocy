@@ -16,12 +16,14 @@
 <div class="row">
 	<div class="col-lg-6 col-12">
 		<h4 class="mt-2">{{ $__t('Chores overview') }}</h4>
+
 		@include('components.numberpicker', array(
 		'id' => 'chores_due_soon_days',
 		'additionalAttributes' => 'data-setting-key="chores_due_soon_days"',
 		'label' => 'Due soon days',
-		'min' => 1,
-		'additionalCssClasses' => 'user-setting-control'
+		'min' => 0,
+		'additionalCssClasses' => 'user-setting-control',
+		'hint' => $__t('Set to 0 to hide due soon filters/highlighting')
 		))
 
 		<a href="{{ $U('/choresoverview') }}"

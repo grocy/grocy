@@ -1,5 +1,6 @@
 - Stock entry labels get now also printed on inventory (only when adding products, same option "Stock entry label" like on the purchase page)
 - Added a separate status filter and table row highlighting (blue) on the chores, tasks and batteries overview pages for items due today
+  - Additionally, the "due soon" days of chores/tasks/batteries (top right corner settings menu) can be set to `0` to disable that filter/highlighting
 - Optimized relative time display (also fixed a phrasing problem for some languages, e.g. Hungarian) (thanks @Tallyrald)
 - When using LDAP authentication, the configured `LDAP_UID_ATTR` is now used to compare if the user already exists instead of the username entered on the login page (that prevents creating multiple users if you entere the username in different notations) (thanks @FloSet)
 - When using reverse proxy authentication (`ReverseProxyAuthMiddleware`), it's now also possible to pass the username in an environment variable instead of an HTTP header (new `config.php` option `REVERSE_PROXY_AUTH_USE_ENV`) (thanks @Forceu)

@@ -94,7 +94,7 @@ class BatteriesController extends BaseController
 				{
 					$currentBattery->due_type = 'duetoday';
 				}
-				elseif ($currentBattery->next_estimated_charge_time <= date('Y-m-d H:i:s', strtotime('+' . $nextXDays . ' days')))
+				elseif ($nextXDays > 0 && $currentBattery->next_estimated_charge_time <= date('Y-m-d H:i:s', strtotime('+' . $nextXDays . ' days')))
 				{
 					$currentBattery->due_type = 'duesoon';
 				}
