@@ -132,6 +132,7 @@
 				class="d-none d-sm-inline"></span>
 		</span>
 
+		@if(GROCY_AUTHENTICATED)
 		<button class="navbar-toggler navbar-toggler-right"
 			type="button"
 			data-toggle="collapse"
@@ -139,7 +140,6 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		@if(GROCY_AUTHENTICATED)
 		<div id="sidebarResponsive"
 			class="collapse navbar-collapse">
 			<ul class="navbar-nav navbar-sidenav">
@@ -468,7 +468,7 @@
 			</ul>
 
 			<ul class="navbar-nav ml-auto">
-				@if(GROCY_AUTHENTICATED === true && !GROCY_IS_EMBEDDED_INSTALL && !GROCY_DISABLE_AUTH)
+				@if(GROCY_AUTHENTICATED && !GROCY_IS_EMBEDDED_INSTALL && !GROCY_DISABLE_AUTH)
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle discrete-link @if(!empty(GROCY_USER_PICTURE_FILE_NAME)) py-0 @endif"
 						href="#"
@@ -497,7 +497,7 @@
 				</li>
 				@endif
 
-				@if(GROCY_AUTHENTICATED === true)
+				@if(GROCY_AUTHENTICATED)
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle discrete-link"
 						href="#"
@@ -668,8 +668,8 @@
 	</nav>
 	@endif
 
-	<div class="content-wrapper pt-0">
-		<div class="container-fluid pr-1 pl-md-3 pl-1">
+	<div class="@if(GROCY_AUTHENTICATED) content-wrapper @endif pt-0">
+		<div class="container-fluid @if(GROCY_AUTHENTICATED) pr-1 pl-md-3 pl-1 @endif">
 			<div class="row mb-3">
 				<div id="page-content"
 					class="col content-text">
