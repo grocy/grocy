@@ -145,11 +145,11 @@ $(document).on('click', '.product-consume-button', function(e)
 				{
 					if (result.product.enable_tare_weight_handling == 1)
 					{
-						var toastMessage = __t('Removed %1$s of %2$s from stock', parseFloat(originalTotalStockAmount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }) + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural), result.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse[0].transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
+						var toastMessage = __t('Removed %1$s of %2$s from stock', parseFloat(originalTotalStockAmount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }) + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural, true), result.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse[0].transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
 					}
 					else
 					{
-						var toastMessage = __t('Removed %1$s of %2$s from stock', parseFloat(consumeAmount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }) + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural), result.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse[0].transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
+						var toastMessage = __t('Removed %1$s of %2$s from stock', parseFloat(consumeAmount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }) + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural, true), result.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse[0].transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
 					}
 
 					if (wasSpoiled)
@@ -328,7 +328,7 @@ function RefreshProductRow(productId)
 			{
 				animateCSS("#product-" + productId + "-row td:not(:first)", "shake");
 
-				$('#product-' + productId + '-qu-name').text(__n(result.stock_amount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural));
+				$('#product-' + productId + '-qu-name').text(__n(result.stock_amount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural, true));
 				$('#product-' + productId + '-amount').text(result.stock_amount);
 				$('#product-' + productId + '-consume-all-button').attr('data-consume-amount', result.stock_amount);
 				$('#product-' + productId + '-value').text(result.stock_value);

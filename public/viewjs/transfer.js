@@ -56,11 +56,11 @@
 
 					if (productDetails.product.enable_tare_weight_handling == 1)
 					{
-						var successMessage = __t('Transfered %1$s of %2$s from %3$s to %4$s', Math.abs(jsonForm.amount - parseFloat(productDetails.product.tare_weight)) + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name, $('option:selected', "#location_id_from").text(), $('option:selected', "#location_id_to").text()) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse[0].transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
+						var successMessage = __t('Transfered %1$s of %2$s from %3$s to %4$s', Math.abs(jsonForm.amount - parseFloat(productDetails.product.tare_weight)) + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural, true), productDetails.product.name, $('option:selected', "#location_id_from").text(), $('option:selected', "#location_id_to").text()) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse[0].transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
 					}
 					else
 					{
-						var successMessage = __t('Transfered %1$s of %2$s from %3$s to %4$s', Math.abs(jsonForm.amount) + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name, $('option:selected', "#location_id_from").text(), $('option:selected', "#location_id_to").text()) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse[0].transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
+						var successMessage = __t('Transfered %1$s of %2$s from %3$s to %4$s', Math.abs(jsonForm.amount) + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural, true), productDetails.product.name, $('option:selected', "#location_id_from").text(), $('option:selected', "#location_id_to").text()) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse[0].transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
 					}
 
 					if (GetUriParam("embedded") !== undefined)

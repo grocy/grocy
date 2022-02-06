@@ -94,7 +94,7 @@ $(".input-group-productamountpicker").on("change", function()
 	var quFactor = $("#qu_id option:selected").attr("data-qu-factor");
 	var amount = $("#display_amount").val();
 	var destinationAmount = amount / quFactor;
-	var destinationQuName = __n(destinationAmount, $("#qu_id").attr("data-destination-qu-name"), $("#qu_id").attr("data-destination-qu-name-plural"))
+	var destinationQuName = __n(destinationAmount, $("#qu_id").attr("data-destination-qu-name"), $("#qu_id").attr("data-destination-qu-name-plural"), true);
 
 	if ($("#qu_id").attr("data-destination-qu-name") == selectedQuName || Grocy.Components.ProductAmountPicker.AllowAnyQuEnabled || amount.toString().isEmpty() || selectedQuName.toString().isEmpty())
 	{

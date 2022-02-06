@@ -25,7 +25,7 @@ function RefreshQuPluralTestingResult()
 	}
 
 	animateCSS("h2", "shake");
-	$("#result").text(__n(amount, singularForm, pluralForm));
+	$("#result").text(__n(amount, singularForm, pluralForm, true));
 }
 
 if (GetUriParam("qu") !== undefined)

@@ -4,12 +4,12 @@
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 },
 		{ 'visible': false, 'targets': 10 },
-		{ "type": "num", "targets": 1},
+		{ "type": "num", "targets": 1 },
 		{ "type": "num", "targets": 3 },
 		{ "type": "html", "targets": 4 },
-		{ "type": "html-num-fmt", "targets": 7},
-		{ "type": "html", "targets": 8},
-		{ "type": "html", "targets": 9}
+		{ "type": "html-num-fmt", "targets": 7 },
+		{ "type": "html", "targets": 8 },
+		{ "type": "html", "targets": 9 }
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#stockentries-table tbody').removeClass("d-none");
@@ -67,7 +67,7 @@ $(document).on('click', '.stock-consume-button', function(e)
 			Grocy.Api.Get('stock/products/' + productId,
 				function(result)
 				{
-					var toastMessage = __t('Removed %1$s of %2$s from stock', parseFloat(consumeAmount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }) + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural), result.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBookingEntry(' + bookingResponse[0].id + ',' + stockRowId + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
+					var toastMessage = __t('Removed %1$s of %2$s from stock', parseFloat(consumeAmount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }) + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural, true), result.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBookingEntry(' + bookingResponse[0].id + ',' + stockRowId + ')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
 					if (wasSpoiled)
 					{
 						toastMessage += " (" + __t("Spoiled") + ")";

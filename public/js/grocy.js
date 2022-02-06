@@ -232,6 +232,7 @@ U = function(relativePath)
 }
 
 Grocy.Translator = new Translator(Grocy.LocalizationStrings);
+Grocy.TranslatorQu = new Translator(Grocy.LocalizationStringsQu);
 __t = function(text, ...placeholderValues)
 {
 	if (Grocy.Mode === "dev")
@@ -245,7 +246,7 @@ __t = function(text, ...placeholderValues)
 
 	return Grocy.Translator.__(text, ...placeholderValues)
 }
-__n = function(number, singularForm, pluralForm)
+__n = function(number, singularForm, pluralForm, isQu = false)
 {
 	if (Grocy.Mode === "dev")
 	{
@@ -256,7 +257,14 @@ __n = function(number, singularForm, pluralForm)
 		}
 	}
 
-	return Grocy.Translator.n__(singularForm, pluralForm, Math.abs(number), Math.abs(number))
+	if (isQu)
+	{
+		return Grocy.TranslatorQu.n__(singularForm, pluralForm, Math.abs(number), Math.abs(number))
+	}
+	else
+	{
+		return Grocy.Translator.n__(singularForm, pluralForm, Math.abs(number), Math.abs(number))
+	}
 }
 
 if (!Grocy.ActiveNav.isEmpty())

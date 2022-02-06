@@ -174,7 +174,7 @@
 						@endif
 					</td>
 					<td>
-						<span class="locale-number locale-number-quantity-amount">{{ $stockLogEntry->amount }}</span> {{ $__n($stockLogEntry->amount, $stockLogEntry->qu_name, $stockLogEntry->qu_name_plural) }}
+						<span class="locale-number locale-number-quantity-amount">{{ $stockLogEntry->amount }}</span> {{ $__n($stockLogEntry->amount, $stockLogEntry->qu_name, $stockLogEntry->qu_name_plural, true) }}
 					</td>
 					<td>
 						{{ $stockLogEntry->row_created_timestamp }}

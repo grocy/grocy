@@ -120,7 +120,7 @@
 						{{ $journalEntry->user_display_name }}
 					</td>
 					<td>
-						<span class="locale-number locale-number-quantity-amount">{{ $journalEntry->amount }}</span> {{ $__n($journalEntry->amount, $journalEntry->qu_name, $journalEntry->qu_name_plural) }}
+						<span class="locale-number locale-number-quantity-amount">{{ $journalEntry->amount }}</span> {{ $__n($journalEntry->amount, $journalEntry->qu_name, $journalEntry->qu_name_plural, true) }}
 					</td>
 				</tr>
 				@endforeach

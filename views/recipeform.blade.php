@@ -197,7 +197,7 @@
 								@else
 								<span class="locale-number locale-number-quantity-amount">@if($recipePosition->amount == round($recipePosition->amount)){{ round($recipePosition->amount) }}@else{{ $recipePosition->amount }}@endif</span>
 								@endif
-								{{ $__n($recipePosition->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', $recipePosition->qu_id)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', $recipePosition->qu_id)->name_plural) }}
+								{{ $__n($recipePosition->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', $recipePosition->qu_id)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', $recipePosition->qu_id)->name_plural, true) }}
 
 								@if(!empty($recipePosition->variable_amount))
 								<div class="small text-muted font-italic">{{ $__t('Variable amount') }}</div>

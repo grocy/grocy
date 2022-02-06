@@ -126,10 +126,11 @@ class BaseController
 		$this->View->set('__t', function (string $text, ...$placeholderValues) use ($localizationService) {
 			return $localizationService->__t($text, $placeholderValues);
 		});
-		$this->View->set('__n', function ($number, $singularForm, $pluralForm) use ($localizationService) {
-			return $localizationService->__n($number, $singularForm, $pluralForm);
+		$this->View->set('__n', function ($number, $singularForm, $pluralForm, $isQu = false) use ($localizationService) {
+			return $localizationService->__n($number, $singularForm, $pluralForm, $isQu);
 		});
 		$this->View->set('LocalizationStrings', $localizationService->GetPoAsJsonString());
+		$this->View->set('LocalizationStringsQu', $localizationService->GetPoAsJsonStringQu());
 
 		// TODO: Better handle this generically based on the current language (header in .po file?)
 		$dir = 'ltr';

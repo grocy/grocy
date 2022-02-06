@@ -252,13 +252,13 @@ $(".calendar").each(function()
 				element.html('\
 				<div> \
 					<h5 class="text-truncate mb-1 cursor-link display-product-button ' + additionalTitleCssClasses + '" data-toggle="tooltip" title="' + __t("Display product") + '" data-product-id="' + productDetails.product.id.toString() + '">' + productDetails.product.name + '</h5> \
-					<h5 class="small text-truncate mb-1"><span class="locale-number locale-number-quantity-amount">' + mealPlanEntry.product_amount + "</span> " + __n(mealPlanEntry.product_amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural) + '</h5> \
+					<h5 class="small text-truncate mb-1"><span class="locale-number locale-number-quantity-amount">' + mealPlanEntry.product_amount + "</span> " + __n(mealPlanEntry.product_amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural, true) + '</h5> \
 					<h5 class="small timeago-contextual text-truncate mb-1">' + fulfillmentIconHtml + " " + fulfillmentInfoHtml + '</h5> \
 					' + costsAndCaloriesPerServing + ' \
 					<h5 class="d-print-none"> \
 						<a class="ml-1 btn btn-outline-danger btn-xs remove-product-button" href="#" data-toggle="tooltip" title="' + __t("Delete this item") + '"><i class="fas fa-trash"></i></a> \
 						<a class="btn btn-outline-info btn-xs edit-meal-plan-entry-button" href="#" data-toggle="tooltip" title="' + __t("Edit this item") + '"><i class="fas fa-edit"></i></a> \
-						<a class="ml-1 btn btn-outline-success btn-xs product-consume-button ' + productConsumeButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Consume %1$s of %2$s", parseFloat(mealPlanEntry.product_amount).toLocaleString() + ' ' + __n(mealPlanEntry.product_amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural), productDetails.product.name) + '" data-product-id="' + productDetails.product.id.toString() + '" data-product-name="' + productDetails.product.name + '" data-product-amount="' + mealPlanEntry.product_amount + '" data-mealplan-entry-id="' + mealPlanEntry.id.toString() + '"><i class="fas fa-utensils"></i></a> \
+						<a class="ml-1 btn btn-outline-success btn-xs product-consume-button ' + productConsumeButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Consume %1$s of %2$s", parseFloat(mealPlanEntry.product_amount).toLocaleString() + ' ' + __n(mealPlanEntry.product_amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural, true), productDetails.product.name) + '" data-product-id="' + productDetails.product.id.toString() + '" data-product-name="' + productDetails.product.name + '" data-product-amount="' + mealPlanEntry.product_amount + '" data-mealplan-entry-id="' + mealPlanEntry.id.toString() + '"><i class="fas fa-utensils"></i></a> \
 						' + shoppingListButtonHtml + ' \
 						' + doneButtonHtml + ' \
 					</h5> \
@@ -800,7 +800,7 @@ $(document).on('click', '.product-consume-button', function(e)
 			Grocy.Api.Get('stock/products/' + productId,
 				function(result)
 				{
-					var toastMessage = __t('Removed %1$s of %2$s from stock', consumeAmount.toString() + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural), result.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse[0].transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
+					var toastMessage = __t('Removed %1$s of %2$s from stock', consumeAmount.toString() + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural, true), result.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse[0].transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
 
 					Grocy.Api.Put('objects/meal_plan/' + mealPlanEntryId, { "done": 1 },
 						function(result)

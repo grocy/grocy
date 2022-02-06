@@ -11,7 +11,7 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 			$('#productcard-product-name').text(productDetails.product.name);
 			$('#productcard-product-description').html(productDetails.product.description);
 			$('#productcard-product-stock-amount').text(stockAmount);
-			$('#productcard-product-stock-qu-name').text(__n(stockAmount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural));
+			$('#productcard-product-stock-qu-name').text(__n(stockAmount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural, true));
 			$('#productcard-product-stock-value').text(stockValue + ' ' + Grocy.Currency);
 			$('#productcard-product-last-purchased').text((productDetails.last_purchased || '2999-12-31').substring(0, 10));
 			$('#productcard-product-last-purchased-timeago').attr("datetime", productDetails.last_purchased || '2999-12-31');
@@ -26,7 +26,7 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 			if (productDetails.is_aggregated_amount == 1)
 			{
 				$('#productcard-product-stock-amount-aggregated').text(productDetails.stock_amount_aggregated);
-				$('#productcard-product-stock-qu-name-aggregated').text(__n(productDetails.stock_amount_aggregated, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural));
+				$('#productcard-product-stock-qu-name-aggregated').text(__n(productDetails.stock_amount_aggregated, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural, true));
 
 				if (productDetails.stock_amount_opened_aggregated > 0)
 				{

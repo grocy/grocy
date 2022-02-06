@@ -11,6 +11,7 @@
 - Fixed that when adding missing recipe ingredients, with the option "Only check if any amount is in stock" enabled, to the shopping list, unit conversions (if any) weren't considered
 - Fixed that the recipe stock fulfillment information about shopping list amounts was not correct when the ingredient had a decimal amount
 - Fixed that the meal plan showed the total calories per recipe (instead of per serving as stated by the suffix)
+- Fixed that when having a quantity unit matching any application string, the translation of that string was used to display that unit
 - Fixed that formatted (HTML) text for the (hidden by default) product description column on the stock overview page was not correctly displayed
 - Fixed that numeric and date-time sorting of table columns on the stock entries page did not work correctly (thanks @MasterofJOKers)
 - Fixed that the barcode lookup for the "Stock by-barcode" API endpoints was case sensitive
