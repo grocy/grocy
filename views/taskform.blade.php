@@ -53,7 +53,7 @@
 
 			@php
 			$initialDueDate = null;
-			if ($mode == 'edit')
+			if ($mode == 'edit' && !empty($task->due_date))
 			{
 			$initialDueDate = date('Y-m-d', strtotime($task->due_date));
 			}
