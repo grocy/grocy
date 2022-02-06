@@ -6,6 +6,7 @@
 - When using reverse proxy authentication (`ReverseProxyAuthMiddleware`), it's now also possible to pass the username in an environment variable instead of an HTTP header (new `config.php` option `REVERSE_PROXY_AUTH_USE_ENV`) (thanks @Forceu)
 - Performance improvements (page loading time) of the recipes page
 - New input shorthand `[+/-]n[d/m/y]` for date fields to quickly input a date relative to today (adding `+` or subtracting `-` the number of days/months/years, see the full list of available shorthands [here](https://github.com/grocy/grocy#input-shorthands-for-date-fields))
+- Added a "Save & add another task"-button on the add task dialog to quickly create multiple tasks without having to close/reopen the dialog
 - Fixed that stock entry labels on purchase were printed, even when "No label" was selected (was only a problem when running label printer WebHooks server side)
 - Fixed that when adding missing recipe ingredients, with the option "Only check if any amount is in stock" enabled, to the shopping list, unit conversions (if any) weren't considered
 - Fixed that the meal plan showed the total calories per recipe (instead of per serving as stated by the suffix)

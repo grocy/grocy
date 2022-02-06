@@ -104,9 +104,12 @@
 			'entity' => 'tasks'
 			))
 
-			<button id="save-task-button"
-				class="btn btn-success">{{ $__t('Save') }}</button>
-
+			@if($mode == 'edit')
+			<button class="btn btn-success save-task-button">{{ $__t('Save') }}</button>
+			@else
+			<button class="btn btn-success save-task-button">{{ $__t('Save & close') }}</button>
+			<button class="btn btn-primary save-task-button add-another">{{ $__t('Save & add another task') }}</button>
+			@endif
 		</form>
 	</div>
 </div>

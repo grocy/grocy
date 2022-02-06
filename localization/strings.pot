@@ -2280,3 +2280,9 @@ msgstr[1] ""
 
 msgid "Set to 0 to hide due soon filters/highlighting"
 msgstr ""
+
+msgid "Save & close"
+msgstr ""
+
+msgid "Save & add another task"
+msgstr ""
