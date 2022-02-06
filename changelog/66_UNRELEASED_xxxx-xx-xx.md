@@ -9,6 +9,7 @@
 - Added a "Save & add another task"-button on the add task dialog to quickly create multiple tasks without having to close/reopen the dialog
 - Fixed that stock entry labels on purchase were printed, even when "No label" was selected (was only a problem when running label printer WebHooks server side)
 - Fixed that when adding missing recipe ingredients, with the option "Only check if any amount is in stock" enabled, to the shopping list, unit conversions (if any) weren't considered
+- Fixed that the recipe stock fulfillment information about shopping list amounts was not correct when the ingredient had a decimal amount
 - Fixed that the meal plan showed the total calories per recipe (instead of per serving as stated by the suffix)
 - Fixed that formatted (HTML) text for the (hidden by default) product description column on the stock overview page was not correctly displayed
 - Fixed that numeric and date-time sorting of table columns on the stock entries page did not work correctly (thanks @MasterofJOKers)
