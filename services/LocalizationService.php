@@ -23,7 +23,7 @@ class LocalizationService
 
 	protected $Translator;
 
-	protected $TranslatorQU;
+	protected $TranslatorQu;
 
 	private static $instanceMap = [];
 
@@ -80,7 +80,7 @@ class LocalizationService
 
 		if ($isQu)
 		{
-			return sprintf($this->TranslatorQU->ngettext($singularForm, $pluralForm, abs(floatval($number))), $number);
+			return sprintf($this->TranslatorQu->ngettext($singularForm, $pluralForm, abs(floatval($number))), $number);
 		}
 		else
 		{
@@ -210,6 +210,7 @@ class LocalizationService
 		if ($quantityUnits !== null)
 		{
 			$this->PoQu = new Translations();
+			$this->PoQu->setHeader(Translations::HEADER_PLURAL, $this->Po->getHeader(Translations::HEADER_PLURAL));
 
 			foreach ($quantityUnits as $quantityUnit)
 			{
@@ -221,8 +222,8 @@ class LocalizationService
 				$this->PoQu[] = $translation;
 			}
 
-			$this->TranslatorQU = new Translator();
-			$this->TranslatorQU->loadTranslations($this->PoQu);
+			$this->TranslatorQu = new Translator();
+			$this->TranslatorQu->loadTranslations($this->PoQu);
 		};
 	}
 }
