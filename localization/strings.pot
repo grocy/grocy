@@ -2286,3 +2286,9 @@ msgstr ""
 
 msgid "Save & add another task"
 msgstr ""
+
+msgid "Treat opened as out of stock"
+msgstr ""
+
+msgid "When enabled, opened items will be counted as missing for calculating if this product is below its minimum stock amount"
+msgstr ""

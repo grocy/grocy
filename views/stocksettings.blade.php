@@ -63,6 +63,21 @@
 			'min' => -1,
 			'additionalCssClasses' => 'user-setting-control'
 			))
+
+			@if(GROCY_FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING)
+			<div class="form-group">
+				<div class="custom-control custom-checkbox">
+					<input type="checkbox"
+						class="form-check-input custom-control-input user-setting-control"
+						id="product_presets_treat_opened_as_out_of_stock"
+						data-setting-key="product_presets_treat_opened_as_out_of_stock">
+					<label class="form-check-label custom-control-label"
+						for="product_presets_treat_opened_as_out_of_stock">
+						{{ $__t('Treat opened as out of stock') }}
+					</label>
+				</div>
+			</div>
+			@endif
 		</div>
 
 		<h4 class="mt-2">{{ $__t('Stock overview') }}</h4>

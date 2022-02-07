@@ -604,14 +604,7 @@ class StockService extends BaseService
 		$sql = 'SELECT * FROM stock_current';
 		if ($includeNotInStockButMissingProducts)
 		{
-			$missingProductsView = 'stock_missing_products_including_opened';
-
-			if (!GROCY_FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT)
-			{
-				$missingProductsView = 'stock_missing_products';
-			}
-
-			$sql = 'SELECT * FROM stock_current WHERE best_before_date IS NOT NULL UNION SELECT id, 0, 0, 0, 0, null, 0, 0, 0 FROM ' . $missingProductsView . ' WHERE id NOT IN (SELECT product_id FROM stock_current)';
+			$sql = 'SELECT * FROM stock_current WHERE best_before_date IS NOT NULL UNION SELECT id, 0, 0, 0, 0, null, 0, 0, 0 FROM stock_missing_products WHERE id NOT IN (SELECT product_id FROM stock_current)';
 		}
 
 		$currentStockMapped = $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_GROUP | \PDO::FETCH_OBJ);
@@ -640,14 +633,7 @@ class StockService extends BaseService
 
 	public function GetCurrentStockOverview()
 	{
-		if (!GROCY_FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT)
-		{
-			return $this->getDatabase()->uihelper_stock_current_overview();
-		}
-		else
-		{
-			return $this->getDatabase()->uihelper_stock_current_overview_including_opened();
-		}
+		return $this->getDatabase()->uihelper_stock_current_overview();
 	}
 
 	public function GetDueProducts(int $days = 5, bool $excludeOverdue = false)
@@ -674,13 +660,7 @@ class StockService extends BaseService
 
 	public function GetMissingProducts()
 	{
-		$sql = 'SELECT * FROM stock_missing_products_including_opened';
-		if (!GROCY_FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT)
-		{
-			$sql = 'SELECT * FROM stock_missing_products';
-		}
-
-		return $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
+		return $this->getDatabaseService()->ExecuteDbQuery('SELECT * FROM stock_missing_products')->fetchAll(\PDO::FETCH_OBJ);
 	}
 
 	public function GetProductDetails(int $productId)

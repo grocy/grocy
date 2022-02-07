@@ -2,6 +2,10 @@
 $("#product_presets_product_group_id").val(Grocy.UserSettings.product_presets_product_group_id);
 $("#product_presets_qu_id").val(Grocy.UserSettings.product_presets_qu_id);
 $("#product_presets_default_due_days").val(Grocy.UserSettings.product_presets_default_due_days);
+if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING && BoolVal(Grocy.UserSettings.product_presets_treat_opened_as_out_of_stock))
+{
+	$("#product_presets_treat_opened_as_out_of_stock").prop("checked", true);
+}
 $("#stock_due_soon_days").val(Grocy.UserSettings.stock_due_soon_days);
 $("#stock_default_purchase_amount").val(Grocy.UserSettings.stock_default_purchase_amount);
 $("#stock_default_consume_amount").val(Grocy.UserSettings.stock_default_consume_amount);

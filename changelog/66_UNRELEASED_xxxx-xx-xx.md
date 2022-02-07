@@ -1,6 +1,9 @@
 - Stock entry labels get now also printed on inventory (only when adding products, same option "Stock entry label" like on the purchase page)
 - Added a separate status filter and table row highlighting (blue) on the chores, tasks and batteries overview pages for items due today
   - Additionally, the "due soon" days of chores/tasks/batteries (top right corner settings menu) can be set to `0` to disable that filter/highlighting
+- The `config.php` option `FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT` was removed and is now a new product option `Treat opened as out of stock`, means, if opened items will be counted as missing for calculating if a product is below its minimum stock amount, can now be configured per product
+  - The existing option will be migrated to all existing products, so no changed behavior after the update
+  - There is also a new stock setting (section "Presets for new products") which can be used to configure the default when adding products (also that will be set based on the old setting on migration)
 - Optimized relative time display (also fixed a phrasing problem for some languages, e.g. Hungarian) (thanks @Tallyrald)
 - When using LDAP authentication, the configured `LDAP_UID_ATTR` is now used to compare if the user already exists instead of the username entered on the login page (that prevents creating multiple users if you entere the username in different notations) (thanks @FloSet)
 - When using reverse proxy authentication (`ReverseProxyAuthMiddleware`), it's now also possible to pass the username in an environment variable instead of an HTTP header (new `config.php` option `REVERSE_PROXY_AUTH_USE_ENV`) (thanks @Forceu)
