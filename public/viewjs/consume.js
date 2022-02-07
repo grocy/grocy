@@ -234,6 +234,7 @@ $("#location_id").on('change', function(e)
 					function(stockEntries)
 					{
 						OnLocationChange(stockEntries[0].location_id, gc[3]);
+						$('#display_amount').val(stockEntries[0].amount);
 					},
 					function(xhr)
 					{
