@@ -169,6 +169,25 @@
 			'hintId' => 'chore-period-interval-info'
 			))
 
+			@php
+			$value = date('Y-m-d H:i:s');
+			if ($mode == 'edit')
+			{
+			$value = date('Y-m-d', strtotime($chore->start_date));
+			}
+			@endphp
+			@include('components.datetimepicker', array(
+			'id' => 'start',
+			'label' => 'Start date',
+			'initialValue' => $value,
+			'format' => 'YYYY-MM-DD HH:mm:ss',
+			'initWithNow' => true,
+			'limitEndToNow' => false,
+			'limitStartToNow' => false,
+			'invalidFeedback' => $__t('A start date is required'),
+			'hint' => 'The start date cannot be changed when the chore was once tracked'
+			))
+
 			@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 			<div class="form-group">
 				<label for="assignment_type">{{ $__t('Assignment type') }} <i id="chore-assignment-type-info"

@@ -8,6 +8,8 @@
 	}
 
 	var jsonData = $('#chore-form').serializeJSON();
+	jsonData.start_date = Grocy.Components.DateTimePicker.GetValue();
+
 	if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 	{
 		jsonData.assignment_config = $("#assignment_config").val().join(",");
@@ -106,6 +108,23 @@ for (var i = 0; i < checkboxValues.length; i++)
 Grocy.Components.UserfieldsForm.Load();
 $('#name').focus();
 Grocy.FrontendHelpers.ValidateForm('chore-form');
+
+if (Grocy.EditMode == "edit")
+{
+	Grocy.Api.Get('objects/chores_log?limit=1&query[]=chore_id=' + Grocy.EditObjectId,
+		function(journalEntries)
+		{
+			if (journalEntries.length > 0)
+			{
+				$(".datetimepicker-input").attr("disabled", "");
+			}
+		},
+		function(xhr)
+		{
+			console.error(xhr);
+		}
+	);
+}
 
 setTimeout(function()
 {

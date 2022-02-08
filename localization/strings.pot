@@ -2301,3 +2301,9 @@ msgstr ""
 
 msgid "Time"
 msgstr ""
+
+msgid "A start date is required"
+msgstr ""
+
+msgid "Start date"
+msgstr ""

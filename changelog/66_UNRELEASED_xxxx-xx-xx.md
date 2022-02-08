@@ -43,6 +43,9 @@
 - Chore schedules can now be skipped
   - New button on the chores overview and chore tracking page
   - Skipped schedules will be highlighted accordingly on the chore journal
+- Added a new chore option "Start date" which is used as a schedule starting point when the chore was never tracked
+  - Until now, the schedule starting point was the first tracked execution
+  - For all existing chores, the start date will be set to the first tracked execution time (or today, for chores which were never tracked) on migration
 
 ### Calendar
 

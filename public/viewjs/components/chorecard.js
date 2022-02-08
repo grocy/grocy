@@ -5,6 +5,11 @@ Grocy.Components.ChoreCard.Refresh = function(choreId)
 	Grocy.Api.Get('chores/' + choreId,
 		function(choreDetails)
 		{
+			if (choreDetails.last_done_by == null)
+			{
+				choreDetails.last_done_by = {};
+			}
+
 			$('#chorecard-chore-name').text(choreDetails.chore.name);
 			$('#chorecard-chore-description').html(nl2br(choreDetails.chore.description));
 			$('#chorecard-chore-last-tracked').text((choreDetails.last_tracked || __t('never')));
