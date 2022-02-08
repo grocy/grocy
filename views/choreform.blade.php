@@ -185,7 +185,7 @@
 			'limitEndToNow' => false,
 			'limitStartToNow' => false,
 			'invalidFeedback' => $__t('A start date is required'),
-			'hint' => 'The start date cannot be changed when the chore was once tracked'
+			'hint' => $__t('The start date cannot be changed when the chore was once tracked')
 			))
 
 			@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
