@@ -5094,6 +5094,10 @@
 					"next_execution_assigned_to_user_id": {
 						"type": "integer"
 					},
+					"start_date": {
+						"type": "string",
+						"format": "date-time"
+					},
 					"row_created_timestamp": {
 						"type": "string",
 						"format": "date-time"
