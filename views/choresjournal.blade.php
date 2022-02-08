@@ -102,7 +102,7 @@
 			<tbody class="d-none">
 				@foreach($choresLog as $choreLogEntry)
 				<tr id="chore-execution-{{ $choreLogEntry->id }}-row"
-					class="@if($choreLogEntry->undone == 1) text-muted @endif">
+					class="@if($choreLogEntry->undone == 1) text-muted @endif @if($choreLogEntry->skipped == 1) font-italic @endif">
 					<td class="fit-content border-right">
 						<a class="btn btn-secondary btn-xs undo-chore-execution-button permission-CHORE_UNDO_EXECUTION @if($choreLogEntry->undone == 1) disabled @endif"
 							href="#"
@@ -126,6 +126,9 @@
 						<span>{{ $choreLogEntry->tracked_time }}</span>
 						<time class="timeago timeago-contextual @if(FindObjectInArrayByPropertyValue($chores, 'id', $choreLogEntry->chore_id)->track_date_only == 1) timeago-date-only @endif"
 							datetime="{{ $choreLogEntry->tracked_time }}"></time>
+						@if($choreLogEntry->skipped == 1)
+						<span class="text-muted">{{ $__t('Skipped') }}</span>
+						@endif
 					</td>
 					@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 					<td>

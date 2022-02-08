@@ -100,48 +100,75 @@ class CalendarService extends BaseService
 		$mealPlanProductEvents = [];
 		if (GROCY_FEATURE_FLAG_RECIPES)
 		{
-			$recipes = $this->getDatabase()->recipes();
-			$mealPlanDayRecipes = $this->getDatabase()->recipes()->where('type', 'mealplan-day');
-			$titlePrefix = $this->getLocalizationService()->__t('Meal plan recipe') . ': ';
+			$mealPlanSections = $this->getDatabase()->meal_plan_sections();
 
+			$recipes = $this->getDatabase()->recipes()->where('type', 'normal');
+			$mealPlanDayRecipes = $this->getDatabase()->meal_plan()->where('type', 'recipe');
+			$titlePrefix = $this->getLocalizationService()->__t('Meal plan recipe') . ': ';
 			foreach ($mealPlanDayRecipes as $mealPlanDayRecipe)
 			{
-				$recipesOfCurrentDay = $this->getDatabase()->recipes_nestings_resolved()->where('recipe_id = :1 AND includes_recipe_id != :1', $mealPlanDayRecipe->id);
-
-				foreach ($recipesOfCurrentDay as $recipeOfCurrentDay)
+				$start = $mealPlanDayRecipe->day;
+				$dateFormat = 'date';
+				$section = FindObjectInArrayByPropertyValue($mealPlanSections, 'id', $mealPlanDayRecipe->section_id);
+				if (!empty($section->time_info))
 				{
-					$mealPlanRecipeEvents[] = [
-						'title' => $titlePrefix . FindObjectInArrayByPropertyValue($recipes, 'id', $recipeOfCurrentDay->includes_recipe_id)->name,
-						'start' => FindObjectInArrayByPropertyValue($recipes, 'id', $recipeOfCurrentDay->recipe_id)->name,
-						'date_format' => 'date',
-						'description' => $this->UrlManager->ConstructUrl('/mealplan' . '?week=' . FindObjectInArrayByPropertyValue($recipes, 'id', $recipeOfCurrentDay->recipe_id)->name),
-						'link' => $this->UrlManager->ConstructUrl('/recipes' . '?recipe=' . $recipeOfCurrentDay->includes_recipe_id . '#fullscreen')
-					];
+					$start = $mealPlanDayRecipe->day . ' ' . $section->time_info . ':00';
+					$dateFormat = 'datetime';
 				}
+
+				$titlePrefix2 = '';
+				if (!empty($section->name))
+				{
+					$titlePrefix2 = $section->name . ': ';
+				}
+
+				$mealPlanRecipeEvents[] = [
+					'title' => $titlePrefix . $titlePrefix2 . FindObjectInArrayByPropertyValue($recipes, 'id', $mealPlanDayRecipe->recipe_id)->name,
+					'start' => $start,
+					'date_format' => $dateFormat,
+					'description' => $this->UrlManager->ConstructUrl('/mealplan' . '?week=' . $mealPlanDayRecipe->day),
+					'link' => $this->UrlManager->ConstructUrl('/recipes' . '?recipe=' . $mealPlanDayRecipe->recipe_id . '#fullscreen')
+				];
 			}
 
 			$mealPlanDayNotes = $this->getDatabase()->meal_plan()->where('type', 'note');
 			$titlePrefix = $this->getLocalizationService()->__t('Meal plan note') . ': ';
-
 			foreach ($mealPlanDayNotes as $mealPlanDayNote)
 			{
+				$start = $mealPlanDayNote->day;
+				$dateFormat = 'date';
+				$section = FindObjectInArrayByPropertyValue($mealPlanSections, 'id', $mealPlanDayNote->section_id);
+				if (!empty($section->time_info))
+				{
+					$start = $mealPlanDayNote->day . ' ' . $section->time_info . ':00';
+					$dateFormat = 'datetime';
+				}
+
 				$mealPlanNotesEvents[] = [
 					'title' => $titlePrefix . $mealPlanDayNote->note,
-					'start' => $mealPlanDayNote->day,
-					'date_format' => 'date'
+					'start' => $start,
+					'date_format' => $dateFormat
 				];
 			}
 
 			$products = $this->getDatabase()->products();
 			$mealPlanDayProducts = $this->getDatabase()->meal_plan()->where('type', 'product');
 			$titlePrefix = $this->getLocalizationService()->__t('Meal plan product') . ': ';
-
 			foreach ($mealPlanDayProducts as $mealPlanDayProduct)
 			{
+				$start = $mealPlanDayProduct->day;
+				$dateFormat = 'date';
+				$section = FindObjectInArrayByPropertyValue($mealPlanSections, 'id', $mealPlanDayProduct->section_id);
+				if (!empty($section->time_info))
+				{
+					$start = $mealPlanDayProduct->day . ' ' . $section->time_info . ':00';
+					$dateFormat = 'datetime';
+				}
+
 				$mealPlanProductEvents[] = [
 					'title' => $titlePrefix . FindObjectInArrayByPropertyValue($products, 'id', $mealPlanDayProduct->product_id)->name,
-					'start' => $mealPlanDayProduct->day,
-					'date_format' => 'date'
+					'start' => $start,
+					'date_format' => $dateFormat
 				];
 			}
 		}

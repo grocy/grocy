@@ -149,6 +149,15 @@
 							data-chore-name="{{ FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name }}">
 							<i class="fas fa-play"></i>
 						</a>
+						<a class="btn btn-secondary btn-sm track-chore-button skip permission-CHORE_TRACK_EXECUTION @if(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type == \Grocy\Services\ChoresService::CHORE_PERIOD_TYPE_MANUALLY) disabled @endif"
+							href="#"
+							data-toggle="tooltip"
+							data-placement="left"
+							title="{{ $__t('Skip next chore schedule') }}"
+							data-chore-id="{{ $curentChoreEntry->chore_id }}"
+							data-chore-name="{{ FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name }}">
+							<i class="fas fa-forward"></i>
+						</a>
 						<div class="dropdown d-inline-block">
 							<button class="btn btn-sm btn-light text-secondary"
 								type="button"

@@ -19,11 +19,18 @@ $(".calendar").each(function()
 	var isPrimarySection = BoolVal(container.attr("data-primary-section"));
 	var isLastSection = BoolVal(container.attr("data-last-section"));
 
+	var rightButtonList = "agendaWeek,agendaDay,prev,today,next";
+	if ($(window).width() < 768)
+	{
+		var rightButtonList = "prev,today,next";
+	}
+
 	var headerConfig = {
 		"left": "title",
 		"center": "",
-		"right": "prev,today,next"
+		"right": rightButtonList
 	};
+
 	if (!isPrimarySection)
 	{
 		headerConfig = {
@@ -39,7 +46,7 @@ $(".calendar").each(function()
 		"weekNumbers": false,
 		"eventLimit": false,
 		"eventSources": fullcalendarEventSources,
-		"defaultView": ($(window).width() < 768) ? "agendaDay" : "agendaWeek",
+		"defaultView": ($(window).width() < 768 || GetUriParam("days") == "0") ? "agendaDay" : "agendaWeek",
 		"allDayText": sectionName,
 		"allDayHtml": sectionName,
 		"minTime": "00:00:00",
@@ -309,6 +316,15 @@ $(".calendar").each(function()
 			if (isPrimarySection)
 			{
 				UpdateUriParam("start", view.start.format("YYYY-MM-DD"));
+
+				if (view.name == "agendaDay")
+				{
+					UpdateUriParam("days", "0");
+				}
+				else
+				{
+					RemoveUriParam("days");
+				}
 
 				if (firstRender)
 				{

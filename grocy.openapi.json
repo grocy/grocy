@@ -2003,7 +2003,7 @@
 									},
 									"allow_subproduct_substitution": {
 										"type": "boolean",
-										"description": "`True` when any in-stock sub product should be used when the given product is a parent product and currently not in-stock"
+										"description": "`true` when any in-stock sub product should be used when the given product is a parent product and currently not in-stock"
 									}
 								},
 								"example": {
@@ -2234,7 +2234,7 @@
 									},
 									"allow_subproduct_substitution": {
 										"type": "boolean",
-										"description": "`True` when any in-stock sub product should be used when the given product is a parent product and currently not in-stock"
+										"description": "`true` when any in-stock sub product should be used when the given product is a parent product and currently not in-stock"
 									}
 								},
 								"example": {
@@ -2532,7 +2532,7 @@
 									},
 									"allow_subproduct_substitution": {
 										"type": "boolean",
-										"description": "`True` when any in-stock sub product should be used when the given product is a parent product and currently not in-stock"
+										"description": "`rue` when any in-stock sub product should be used when the given product is a parent product and currently not in-stock"
 									}
 								},
 								"example": {
@@ -2755,7 +2755,7 @@
 									},
 									"allow_subproduct_substitution": {
 										"type": "boolean",
-										"description": "`True` when any in-stock sub product should be used when the given product is a parent product and currently not in-stock"
+										"description": "`rue` when any in-stock sub product should be used when the given product is a parent product and currently not in-stock"
 									}
 								},
 								"example": {
@@ -3616,6 +3616,11 @@
 									"done_by": {
 										"type": "integer",
 										"description": "A valid user id of who executed this chore, when omitted, the currently authenticated user will be used"
+									},
+									"skipped": {
+										"type": "boolean",
+										"default": false,
+										"description": "`true` when the execution should be tracked as skipped, defaults to `false` when omitted"
 									}
 								}
 							}
@@ -4339,6 +4344,9 @@
 						"format": "date-time"
 					},
 					"shopping_location_id": {
+						"type": "integer"
+					},
+					"treat_opened_as_out_of_stock": {
 						"type": "integer"
 					},
 					"userfields": {

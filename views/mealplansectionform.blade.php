@@ -53,6 +53,15 @@
 			'hint' => $__t('Sections will be ordered by that number on the meal plan')
 			))
 
+			<div class="form-group">
+				<label for="time_info">{{ $__t('Time') }}</label>
+				<input type="time"
+					class="form-control"
+					id="time_info"
+					name="time_info"
+					value="@if($mode == 'edit'){{ $mealplanSection->time_info }}@endif">
+			</div>
+
 			<button id="save-mealplansection-button"
 				class="btn btn-success">{{ $__t('Save') }}</button>
 

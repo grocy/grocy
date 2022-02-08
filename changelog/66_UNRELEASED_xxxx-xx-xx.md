@@ -1,27 +1,83 @@
+> ⚠️ xxxBREAKING CHANGESxxx
+
+> ❗ xxxImportant upgrade informationXXX
+
+### New feature: xxxx
+
+- xxx
+
+### Stock
+
 - Stock entry labels get now also printed on inventory (only when adding products, same option "Stock entry label" like on the purchase page)
-- Added a separate status filter and table row highlighting (blue) on the chores, tasks and batteries overview pages for items due today
-  - Additionally, the "due soon" days of chores/tasks/batteries (top right corner settings menu) can be set to `0` to disable that filter/highlighting
-- The `config.php` option `FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT` was removed and is now a new product option `Treat opened as out of stock`, means, if opened items will be counted as missing for calculating if a product is below its minimum stock amount, can now be configured per product
+- The `config.php` option `FEATURE_SETTING_STOCK_COUNT_OPENED_PRODUCTS_AGAINST_MINIMUM_STOCK_AMOUNT` was removed and is now a new product option `Treat opened as out of stock`, means, if opened stock entries will be counted as missing for calculating if a product is below its minimum stock amount, can now be configured per product
   - The existing option will be migrated to all existing products, so no changed behavior after the update
   - There is also a new stock setting (section "Presets for new products") which can be used to configure the default when adding products (also that will be set based on the old setting on migration)
 - When using/scanning a stock entry grocycode on the consume page, the amount is now prefilled by the stock entry amount (making it essentially possible to consume the corresponding stock entry in one go)
-- Optimized relative time display (also fixed a phrasing problem for some languages, e.g. Hungarian) (thanks @Tallyrald)
-- When using LDAP authentication, the configured `LDAP_UID_ATTR` is now used to compare if the user already exists instead of the username entered on the login page (that prevents creating multiple users if you entere the username in different notations) (thanks @FloSet)
-- When using reverse proxy authentication (`ReverseProxyAuthMiddleware`), it's now also possible to pass the username in an environment variable instead of an HTTP header (new `config.php` option `REVERSE_PROXY_AUTH_USE_ENV`) (thanks @Forceu)
-- Performance improvements (page loading time) of the recipes page
-- New input shorthand `[+/-]n[d/m/y]` for date fields to quickly input a date relative to today (adding `+` or subtracting `-` the number of days/months/years, see the full list of available shorthands [here](https://github.com/grocy/grocy#input-shorthands-for-date-fields))
-- Added a "Save & add another task"-button on the add task dialog to quickly create multiple tasks without having to close/reopen the dialog
 - Fixed that stock entry labels on purchase were printed, even when "No label" was selected (was only a problem when running label printer WebHooks server side)
-- Fixed that when adding missing recipe ingredients, with the option "Only check if any amount is in stock" enabled, to the shopping list, unit conversions (if any) weren't considered
-- Fixed that the recipe stock fulfillment information about shopping list amounts was not correct when the ingredient had a decimal amount
-- Fixed that the meal plan showed the total calories per recipe (instead of per serving as stated by the suffix)
-- Fixed that when having a quantity unit matching any application string, the translation of that string was used to display that unit
 - Fixed that formatted (HTML) text for the (hidden by default) product description column on the stock overview page was not correctly displayed
 - Fixed that numeric and date-time sorting of table columns on the stock entries page did not work correctly (thanks @MasterofJOKers)
-- Fixed that the barcode lookup for the "Stock by-barcode" API endpoints was case sensitive
-- Fixed that the logout button/menu was missing when using external authentication (e.g. LDAP)
 - Fixed that the consume page/dialog wasn't properly initialized when opening it from the stock entries page
 - Fixed that entries for not existing users were missing on the stock journal
+
+### Shopping list
+
+- xxx
+
+### Recipes
+
+- Performance improvements (page loading time) of the recipes page
+- Fixed that when adding missing recipe ingredients, with the option "Only check if any amount is in stock" enabled, to the shopping list, unit conversions (if any) weren't considered
+- Fixed that the recipe stock fulfillment information about shopping list amounts was not correct when the ingredient had a decimal amount
+
+### Meal plan
+
+- Meal plan sections can now (optionally) define a time, which will then be displayed on the meal plan section header and used for the corresponding calendar events
+  - Additionally the correspnding calendar event now also mentions the meal plan section name
+- The day/week view can now be toggled
+  - New button on top right corner of the meal plan (only visible on bigger screens)
+  - On smaller screen the day view is still the default (no change)
+- Fixed that the meal plan showed the total calories per recipe (instead of per serving as stated by the suffix)
+
+### Chores
+
+- Chore schedules can now be skipped
+  - New button on the chores overview and chore tracking page
+  - Skipped schedules will be highlighted accordingly on the chore journal
+
+### Calendar
+
 - Fixed that when having a task without a due date, the iCal export was broken
+
+### Tasks
+
+- Added a "Save & add another task"-button on the add task dialog to quickly create multiple tasks without having to close/reopen the dialog
 - Fixed that when editing a task without a due date, `1970-01-01` was shown
+
+### Batteries
+
+- xxx
+
+### Equipment
+
+- xxx
+
+### Userfields
+
+- xxx
+
+### General
+
+- Added a separate status filter and table row highlighting (blue) on the chores, tasks and batteries overview pages for items due today
+  - Additionally, the "due soon" days of chores/tasks/batteries (top right corner settings menu) can be set to `0` to disable that filter/highlighting
+- Optimized relative time display (also fixed a phrasing problem for some languages, e.g. Hungarian) (thanks @Tallyrald)
+- When using LDAP authentication, the configured `LDAP_UID_ATTR` is now used to compare if the user already exists instead of the username entered on the login page (that prevents creating multiple users if you enter the username in different notations) (thanks @FloSet)
+- When using reverse proxy authentication (`ReverseProxyAuthMiddleware`), it's now also possible to pass the username in an environment variable instead of an HTTP header (new `config.php` option `REVERSE_PROXY_AUTH_USE_ENV`) (thanks @Forceu)
+- New input shorthand `[+/-]n[d/m/y]` for date fields to quickly input a date relative to today (adding (**+**) or subtracting (**-**) the **n**umber of **d**ays/**m**onths/**y**ears, see the full list of available shorthands [here](https://github.com/grocy/grocy#input-shorthands-for-date-fields))
+- Fixed that when having a quantity unit matching any application string, the translation of that string was used to display that unit
+- Fixed that the logout button/menu was missing when using external authentication (e.g. LDAP)
+
+### API
+
 - The API endpoint `/stock/shoppinglist/clear` has now a new optional request body parameter `done_only` (to only remove done items from the given shopping list, defaults to `false`)
+- The API endpoint `/chores/{choreId}/execute` has now a new optional request body parameter `skipped` (to skip the next chore schedule)
+- Fixed that the barcode lookup for the "Stock by-barcode" API endpoints was case sensitive

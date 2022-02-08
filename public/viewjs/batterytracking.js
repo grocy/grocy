@@ -24,7 +24,6 @@
 					$('#battery_id_text_input').focus();
 					$('#battery_id_text_input').val('');
 					$('#tracked_time').find('input').val(moment().format('YYYY-MM-DD HH:mm:ss'));
-					$('#tracked_time').find('input').trigger('change');
 					$('#battery_id_text_input').trigger('change');
 					Grocy.FrontendHelpers.ValidateForm('batterytracking-form');
 				},

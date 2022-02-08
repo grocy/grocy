@@ -14,6 +14,11 @@ class ApplicationService extends BaseService
 			$fileName = basename($file);
 			$fileNameParts = explode('_', $fileName);
 
+			if ($fileName == '__TEMPLATE.md')
+			{
+				continue;
+			}
+
 			$fileContent = file_get_contents($file);
 			$version = $fileNameParts[1];
 			$releaseDate = explode('.', $fileNameParts[2])[0];

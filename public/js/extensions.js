@@ -205,5 +205,10 @@ function CleanFileName(fileName)
 
 function nl2br(s)
 {
+	if (s == null || s === undefined)
+	{
+		return "";
+	}
+
 	return s.replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, "$1<br>$2");
 }

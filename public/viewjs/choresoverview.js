@@ -92,6 +92,7 @@ $(document).on('click', '.track-chore-button', function(e)
 
 	var choreId = $(e.currentTarget).attr('data-chore-id');
 	var choreName = $(e.currentTarget).attr('data-chore-name');
+	var skipped = $(e.currentTarget).hasClass("skip");
 
 	Grocy.Api.Get('objects/chores/' + choreId,
 		function(chore)
@@ -102,7 +103,7 @@ $(document).on('click', '.track-chore-button', function(e)
 				trackedTime = moment().format('YYYY-MM-DD');
 			}
 
-			Grocy.Api.Post('chores/' + choreId + '/execute', { 'tracked_time': trackedTime },
+			Grocy.Api.Post('chores/' + choreId + '/execute', { 'tracked_time': trackedTime, 'skipped': skipped },
 				function()
 				{
 					Grocy.Api.Get('chores/' + choreId,
@@ -132,7 +133,7 @@ $(document).on('click', '.track-chore-button', function(e)
 							$('#chore-' + choreId + '-last-tracked-time').text(trackedTime);
 							$('#chore-' + choreId + '-last-tracked-time-timeago').attr('datetime', trackedTime);
 
-							if (result.chore.period_type == "dynamic-regular")
+							if (result.chore.period_type != "manually")
 							{
 								$('#chore-' + choreId + '-next-execution-time').text(result.next_estimated_execution_time);
 								$('#chore-' + choreId + '-next-execution-time-timeago').attr('datetime', result.next_estimated_execution_time);

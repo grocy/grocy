@@ -73,6 +73,12 @@ class ChoresApiController extends BaseApiController
 				$trackedTime = $requestBody['tracked_time'];
 			}
 
+			$skipped = false;
+			if (array_key_exists('skipped', $requestBody) && filter_var($requestBody['skipped'], FILTER_VALIDATE_BOOLEAN) !== false)
+			{
+				$skipped = $requestBody['skipped'];
+			}
+
 			$doneBy = GROCY_USER_ID;
 			if (array_key_exists('done_by', $requestBody) && !empty($requestBody['done_by']))
 			{
@@ -84,7 +90,7 @@ class ChoresApiController extends BaseApiController
 				User::checkPermission($request, User::PERMISSION_CHORE_TRACK_EXECUTION);
 			}
 
-			$choreExecutionId = $this->getChoresService()->TrackChore($args['choreId'], $trackedTime, $doneBy);
+			$choreExecutionId = $this->getChoresService()->TrackChore($args['choreId'], $trackedTime, $doneBy, $skipped);
 			return $this->ApiResponse($response, $this->getDatabase()->chores_log($choreExecutionId));
 		}
 		catch (\Exception $ex)

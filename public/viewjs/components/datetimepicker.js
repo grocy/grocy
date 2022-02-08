@@ -20,8 +20,6 @@ Grocy.Components.DateTimePicker.SetValue = function(value, inputElement = Grocy.
 		$("#datetimepicker-shortcut").click();
 	}
 	inputElement.val(value);
-	inputElement.trigger('change');
-
 	inputElement.keyup();
 }
 

@@ -75,6 +75,7 @@
 					</th>
 					<th>{{ $__t('Name') }}</th>
 					<th>{{ $__t('Sort number') }}</th>
+					<th>{{ $__t('Time') }}</th>
 				</tr>
 			</thead>
 			<tbody class="d-none">
@@ -101,6 +102,9 @@
 					</td>
 					<td>
 						{{ $mealplanSection->sort_number }}
+					</td>
+					<td>
+						{{ $mealplanSection->time_info }}
 					</td>
 				</tr>
 				@endforeach

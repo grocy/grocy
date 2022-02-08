@@ -1,4 +1,4 @@
-﻿$('#save-choretracking-button').on('click', function(e)
+﻿$('.save-choretracking-button').on('click', function(e)
 {
 	e.preventDefault();
 
@@ -7,13 +7,15 @@
 		return;
 	}
 
+	var skipped = $(e.currentTarget).hasClass("skip");
+
 	var jsonForm = $('#choretracking-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("choretracking-form");
 
 	Grocy.Api.Get('chores/' + jsonForm.chore_id,
 		function(choreDetails)
 		{
-			Grocy.Api.Post('chores/' + jsonForm.chore_id + '/execute', { 'tracked_time': Grocy.Components.DateTimePicker.GetValue(), 'done_by': $("#user_id").val() },
+			Grocy.Api.Post('chores/' + jsonForm.chore_id + '/execute', { 'tracked_time': Grocy.Components.DateTimePicker.GetValue(), 'done_by': $("#user_id").val(), 'skipped': skipped },
 				function(result)
 				{
 					Grocy.EditObjectId = result.id;
@@ -58,6 +60,7 @@ $('#chore_id').on('change', function(e)
 		Grocy.Api.Get('objects/chores/' + choreId,
 			function(chore)
 			{
+
 				if (chore.track_date_only == 1)
 				{
 					Grocy.Components.DateTimePicker.ChangeFormat("YYYY-MM-DD");
@@ -68,6 +71,17 @@ $('#chore_id').on('change', function(e)
 					Grocy.Components.DateTimePicker.ChangeFormat("YYYY-MM-DD HH:mm:ss");
 					Grocy.Components.DateTimePicker.SetValue(moment().format("YYYY-MM-DD HH:mm:ss"));
 				}
+
+				if (chore.period_type == "manually")
+				{
+					$(".save-choretracking-button.skip").addClass("keep-disabled");
+				}
+				else
+				{
+					$(".save-choretracking-button.skip").removeClass("keep-disabled");
+				}
+
+				Grocy.FrontendHelpers.ValidateForm('choretracking-form');
 			},
 			function(xhr)
 			{
@@ -114,7 +128,7 @@ $('#choretracking-form input').keydown(function(event)
 		}
 		else
 		{
-			$('#save-choretracking-button').click();
+			$('.save-choretracking-button').first().click();
 		}
 	}
 });

@@ -36,12 +36,20 @@
 	.fc-axis div {
 		transform: translateX(-50%) translateY(-50%) rotate(-90deg);
 		font-weight: bold;
-		font-size: 1.8em;
+		font-size: 1.75em;
 		letter-spacing: 0.1em;
 		position: absolute;
 		top: 50%;
 		left: 0;
-		margin-left: 15px;
+		margin-left: 17px;
+		min-width: 100px;
+		line-height: 0.55;
+		text-align: center;
+	}
+
+	.fc-axis .small {
+		font-size: 60%;
+		letter-spacing: normal;
 	}
 
 	.fc-content-skeleton {
@@ -112,9 +120,11 @@
 	<div class="col">
 		<div class="calendar"
 			data-section-id="{{ $mealplanSection->id }}"
-			data-section-name="{{ $mealplanSection->name }}"
+			data-section-name="{{ $mealplanSection->name }}<br><span class='small text-muted'>{{ $mealplanSection->time_info }}</span>"
 			data-primary-section="{{ BoolToString($loop->first) }}"
-			{{-- $loop->last doesn't work however, is always null... --}}
+			{{--
+			$loop->last doesn't work however, is always null...
+			--}}
 			data-last-section="{{ BoolToString(array_values(array_slice($usedMealplanSections->fetchAll(), -1))[0]->id == $mealplanSection->id) }}">
 		</div>
 	</div>

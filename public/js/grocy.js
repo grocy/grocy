@@ -393,6 +393,7 @@ Grocy.FrontendHelpers.ValidateForm = function(formId)
 	if (form.checkValidity() === true)
 	{
 		$(form).find(':submit').removeClass('disabled');
+		$(form).find('.keep-disabled').addClass('disabled');
 	}
 	else
 	{
