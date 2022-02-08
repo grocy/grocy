@@ -79,5 +79,5 @@
 ### API
 
 - The API endpoint `/stock/shoppinglist/clear` has now a new optional request body parameter `done_only` (to only remove done items from the given shopping list, defaults to `false`)
-- The API endpoint `/chores/{choreId}/execute` has now a new optional request body parameter `skipped` (to skip the next chore schedule)
+- The API endpoint `/chores/{choreId}/execute` has now a new optional request body parameter `skipped` (to skip the next chore schedule, defaults to `false`)
 - Fixed that the barcode lookup for the "Stock by-barcode" API endpoints was case sensitive

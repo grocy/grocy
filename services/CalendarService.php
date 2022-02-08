@@ -144,8 +144,15 @@ class CalendarService extends BaseService
 					$dateFormat = 'datetime';
 				}
 
+				$titlePrefix2 = '';
+				if (!empty($section->name))
+				{
+					$titlePrefix2 = $section->name . ': ';
+				}
+
+
 				$mealPlanNotesEvents[] = [
-					'title' => $titlePrefix . $mealPlanDayNote->note,
+					'title' => $titlePrefix . $titlePrefix2 . $mealPlanDayNote->note,
 					'start' => $start,
 					'date_format' => $dateFormat
 				];
@@ -165,8 +172,14 @@ class CalendarService extends BaseService
 					$dateFormat = 'datetime';
 				}
 
+				$titlePrefix2 = '';
+				if (!empty($section->name))
+				{
+					$titlePrefix2 = $section->name . ': ';
+				}
+
 				$mealPlanProductEvents[] = [
-					'title' => $titlePrefix . FindObjectInArrayByPropertyValue($products, 'id', $mealPlanDayProduct->product_id)->name,
+					'title' => $titlePrefix . $titlePrefix2 . FindObjectInArrayByPropertyValue($products, 'id', $mealPlanDayProduct->product_id)->name,
 					'start' => $start,
 					'date_format' => $dateFormat
 				];
