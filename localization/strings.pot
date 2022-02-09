@@ -1261,6 +1261,11 @@ msgid_plural "This means the next execution of this chore is scheduled %s days a
 msgstr[0] ""
 msgstr[1] ""
 
+msgid "This means the next execution of this chore is scheduled %s hour after the last execution"
+msgid_plural "This means the next execution of this chore is scheduled %s hours after the last execution"
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "This means the next execution of this chore is scheduled every week on the selected weekdays"
 msgid_plural "This means the next execution of this chore is scheduled every %s weeks on the selected weekdays"
 msgstr[0] ""

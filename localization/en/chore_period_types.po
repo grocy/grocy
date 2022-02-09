@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
@@ -30,3 +30,6 @@ msgstr "Monthly"
 
 msgid "yearly"
 msgstr "Yearly"
+
+msgid "hourly"
+msgstr "Hourly"

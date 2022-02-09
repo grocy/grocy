@@ -29,3 +29,6 @@ msgstr ""
 
 msgid "yearly"
 msgstr ""
+
+msgid "hourly"
+msgstr ""
