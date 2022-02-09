@@ -87,7 +87,7 @@
 			'value' => $value,
 			'min' => '0',
 			'additionalCssClasses' => 'input-group-chore-period-type',
-			'additionalGroupCssClasses' => 'period-type-input period-type-dynamic-regular period-type-monthly'
+			'additionalGroupCssClasses' => 'period-type-input period-type-monthly'
 			))
 
 			<div class="form-group period-type-input period-type-weekly">

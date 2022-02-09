@@ -1,3 +1,8 @@
+UPDATE chores
+SET period_type = 'daily',
+period_interval = period_days
+WHERE period_type = 'dynamic-regular';
+
 DROP VIEW chores_current;
 CREATE VIEW chores_current
 AS
@@ -32,7 +37,6 @@ SELECT
 	ELSE
 		CASE h.period_type
 			WHEN 'manually' THEN '2999-12-31 23:59:59'
-			WHEN 'dynamic-regular' THEN DATETIME(MAX(l.tracked_time), '+' || CAST(h.period_days AS TEXT) || ' day')
 			WHEN 'hourly' THEN DATETIME(MAX(l.tracked_time), '+' || CAST(h.period_interval AS TEXT) || ' hour')
 			WHEN 'daily' THEN DATETIME(MAX(l.tracked_time), '+' || CAST(h.period_interval AS TEXT) || ' day')
 			WHEN 'weekly' THEN (

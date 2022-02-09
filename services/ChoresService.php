@@ -16,8 +16,6 @@ class ChoresService extends BaseService
 
 	const CHORE_PERIOD_TYPE_DAILY = 'daily';
 
-	const CHORE_PERIOD_TYPE_DYNAMIC_REGULAR = 'dynamic-regular';
-
 	const CHORE_PERIOD_TYPE_MANUALLY = 'manually';
 
 	const CHORE_PERIOD_TYPE_MONTHLY = 'monthly';

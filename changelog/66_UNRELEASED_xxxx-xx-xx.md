@@ -51,8 +51,10 @@
   - Until now, the schedule starting point was the first tracked execution
   - For all existing chores, the start date will be set to the first tracked execution time (or today, for chores which were never tracked) on migration
 - The `Yearly` period type has been changed to be schedule the chore on the _same day_ each year
-  - This period type scheduled chores 1 year _after the last execution_ before, which is also possible by using the `Daily` period type and a period interval of 365 days - all existing `Yearly` schedules will be converted to that on migration
+  - This period type scheduled chores 1 year _after the last execution_ before, which is also possible by using the `Daily` period type and a period interval of 365 days - All existing `Yearly` schedules will be converted to that on migration
 - Added a new `Hourly` period type (to schedule chores every `x` hours)
+- Removed the period type `Dynamic regular`, since it's the same as `Daily`
+  - All existing `Dynamic regular` schedules will be converted to that on migration
 
 ### Calendar
 

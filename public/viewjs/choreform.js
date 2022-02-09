@@ -152,13 +152,6 @@ $('.input-group-chore-period-type').on('change keyup', function(e)
 	{
 		$('#chore-schedule-info').text(__t('This means the next execution of this chore is not scheduled'));
 	}
-	else if (periodType === 'dynamic-regular')
-	{
-		$("label[for='period_days']").text(__t("Period days"));
-		$("#period_days").attr("min", "0");
-		$("#period_days").removeAttr("max");
-		$('#chore-schedule-info').text(__n(periodDays, "This means the next execution of this chore is scheduled %s day after the last execution", "This means the next execution of this chore is scheduled %s days after the last execution"));
-	}
 	else if (periodType === 'hourly')
 	{
 		$('#chore-schedule-info').text(__n(periodInterval, "This means the next execution of this chore is scheduled %s hour after the last execution", "This means the next execution of this chore is scheduled %s hours after the last execution"));

@@ -16,9 +16,6 @@ msgstr ""
 msgid "manually"
 msgstr "Manually"
 
-msgid "dynamic-regular"
-msgstr "Dynamic regular"
-
 msgid "daily"
 msgstr "Daily"
 
