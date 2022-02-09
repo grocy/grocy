@@ -1,6 +1,7 @@
 UPDATE chores
 SET period_type = 'daily',
-period_interval = period_days
+period_interval = period_days,
+period_days = null
 WHERE period_type = 'dynamic-regular';
 
 DROP VIEW chores_current;
