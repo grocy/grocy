@@ -21,7 +21,7 @@
 </script>
 
 <div class="row">
-	<div class="col-12 col-md-6 d-print-none">
+	<div class="@if(boolval($userSettings['recipes_show_list_side_by_side']) || $embedded) col-12 col-md-6 @else col @endif d-print-none">
 		<div class="title-related-links border-bottom mb-2 py-1">
 			<h2 class="title">@yield('title')</h2>
 			<div class="float-right">
@@ -218,7 +218,7 @@
 								<h5 class="card-title mb-1">{{ $recipe->name }}</h5>
 								<p class="card-text">
 									@if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 1)<i class="fas fa-check text-success"></i>@elseif(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1)<i class="fas fa-exclamation text-warning"></i>@else<i class="fas fa-times text-danger"></i>@endif
-									<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 1){{ $__t('Enough in stock') }}@elseif(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1){{ $__n(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->missing_products_count, 'Not enough in stock, %s ingredient missing but already on the shopping list', 'Not enough in stock, %s ingredients missing but already on the shopping list') }}@else{{ $__n(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->missing_products_count, 'Not enough in stock (not included in costs), %s ingredient missing', 'Not enough in stock (not included in costs), %s ingredients missing') }}@endif</span>
+									<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 1){{ $__t('Enough in stock') }}@elseif(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1){{ $__n(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->missing_products_count, 'Not enough in stock, %s ingredient missing but already on the shopping list', 'Not enough in stock, %s ingredients missing but already on the shopping list') }}@else{{ $__n(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->missing_products_count, 'Not enough in stock, %s ingredient missing', 'Not enough in stock, %s ingredients missing') }}@endif</span>
 								</p>
 								<p class="card-text mt-2">
 									<a class="btn btn-xs btn-outline-danger hide-when-embedded hide-on-fullscreen-card recipe-delete"
@@ -245,7 +245,7 @@
 		</div>
 	</div>
 
-	@if($selectedRecipe !== null)
+	@if($selectedRecipe !== null && (boolval($userSettings['recipes_show_list_side_by_side']) || $embedded))
 	@php
 	$allRecipes = $selectedRecipeSubRecipes;
 	array_unshift($allRecipes, $selectedRecipe);
@@ -370,7 +370,7 @@
 									<i class="fas fa-question-circle text-muted d-print-none"
 										data-toggle="tooltip"
 										data-trigger="hover click"
-										title="{{ $__t('Based on the prices of the default consume rule which is "Opened first, then first due first, then first in first out"') }}"></i>
+										title="{{ $__t('Based on the prices of the default consume rule (Opened first, then first due first, then first in first out) for in-stock ingredients and on the last price for missing ones') }}"></i>
 								</label>
 								<h3 class="locale-number locale-number-currency pt-0">{{ $costs }}</h3>
 							</div>
@@ -463,7 +463,7 @@
 										@if(GROCY_FEATURE_FLAG_STOCK)
 										<span class="d-print-none">
 											@if($selectedRecipePosition->need_fulfilled == 1)<i class="fas fa-check text-success"></i>@elseif($selectedRecipePosition->need_fulfilled_with_shopping_list == 1)<i class="fas fa-exclamation text-warning"></i>@else<i class="fas fa-times text-danger"></i>@endif
-											<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipePositionsResolved, 'recipe_pos_id', $selectedRecipePosition->id)->need_fulfilled == 1) {{ $__t('Enough in stock') }} @else {{ $__t('Not enough in stock (not included in costs), %1$s missing, %2$s already on shopping list', round($selectedRecipePosition->missing_amount, 2), round($selectedRecipePosition->amount_on_shopping_list, 2)) }} @endif</span>
+											<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipePositionsResolved, 'recipe_pos_id', $selectedRecipePosition->id)->need_fulfilled == 1) {{ $__t('Enough in stock') }} @else {{ $__t('Not enough in stock, %1$s missing, %2$s already on shopping list', round($selectedRecipePosition->missing_amount, 2), round($selectedRecipePosition->amount_on_shopping_list, 2)) }} @endif</span>
 										</span>
 										@endif
 										@if($selectedRecipePosition->need_fulfilled == 1 && GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) <span class="float-right font-italic ml-2 locale-number locale-number-currency">{{ $selectedRecipePosition->costs }}</span> @endif

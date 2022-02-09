@@ -169,6 +169,7 @@ DefaultUserSetting('shopping_list_show_calendar', false);
 
 // Recipe settings
 DefaultUserSetting('recipe_ingredients_group_by_product_group', false); // Group recipe ingredients by their product group
+DefaultUserSetting('recipes_show_list_side_by_side', true); // If the recipe should be displayed next to recipe list on the recipes page
 
 // Chores settings
 DefaultUserSetting('chores_due_soon_days', 5);

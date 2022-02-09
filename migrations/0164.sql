@@ -10,6 +10,27 @@ UPDATE chores
 SET start_date = DATETIME('now', 'localtime')
 WHERE start_date IS NULL;
 
+CREATE TRIGGER default_start_date_when_empty_INS AFTER INSERT ON chores
+BEGIN
+	UPDATE chores
+	SET start_date =  DATETIME('now', 'localtime')
+	WHERE id = NEW.id
+		AND IFNULL(start_date, '') = '';
+END;
+
+CREATE TRIGGER default_start_date_when_empty_UPD AFTER UPDATE ON chores
+BEGIN
+	UPDATE chores
+	SET start_date =  DATETIME('now', 'localtime')
+	WHERE id = NEW.id
+		AND IFNULL(start_date, '') = '';
+END;
+
+UPDATE chores
+SET period_type = 'daily',
+period_interval = IFNULL(period_interval, 1) * 365
+WHERE period_type = 'yearly';
+
 DROP VIEW chores_current;
 CREATE VIEW chores_current
 AS
@@ -39,33 +60,37 @@ SELECT
 	h.id AS chore_id,
 	h.name AS chore_name,
 	MAX(l.tracked_time) AS last_tracked_time,
-	CASE h.period_type
-		WHEN 'manually' THEN '2999-12-31 23:59:59'
-		WHEN 'dynamic-regular' THEN DATETIME(MAX(l.tracked_time), '+' || CAST(h.period_days AS TEXT) || ' day')
-		WHEN 'daily' THEN DATETIME(IFNULL(MAX(l.tracked_time), h.start_date), '+' || CAST(h.period_interval AS TEXT) || ' day')
-		WHEN 'weekly' THEN (
-			SELECT next
-        		FROM (
-				SELECT 'sunday' AS day, DATETIME(COALESCE((SELECT tracked_time FROM chores_log WHERE chore_id = h.id ORDER BY tracked_time DESC LIMIT 1), h.start_date), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 0') AS next
-				UNION
-				SELECT 'monday' AS day, DATETIME(COALESCE((SELECT tracked_time FROM chores_log WHERE chore_id = h.id ORDER BY tracked_time DESC LIMIT 1), h.start_date), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 1') AS next
-				UNION
-				SELECT 'tuesday' AS day, DATETIME(COALESCE((SELECT tracked_time FROM chores_log WHERE chore_id = h.id ORDER BY tracked_time DESC LIMIT 1), h.start_date), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 2') AS next
-				UNION
-				SELECT 'wednesday' AS day, DATETIME(COALESCE((SELECT tracked_time FROM chores_log WHERE chore_id = h.id ORDER BY tracked_time DESC LIMIT 1), h.start_date), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 3') AS next
-				UNION
-				SELECT 'thursday' AS day, DATETIME(COALESCE((SELECT tracked_time FROM chores_log WHERE chore_id = h.id ORDER BY tracked_time DESC LIMIT 1), h.start_date), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 4') AS next
-				UNION
-				SELECT 'friday' AS day, DATETIME(COALESCE((SELECT tracked_time FROM chores_log WHERE chore_id = h.id ORDER BY tracked_time DESC LIMIT 1), h.start_date), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 5') AS next
-				UNION
-				SELECT 'saturday' AS day, DATETIME(COALESCE((SELECT tracked_time FROM chores_log WHERE chore_id = h.id ORDER BY tracked_time DESC LIMIT 1), h.start_date), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 6') AS next
+	CASE WHEN MAX(l.tracked_time) IS NULL THEN
+		h.start_date
+	ELSE
+		CASE h.period_type
+			WHEN 'manually' THEN '2999-12-31 23:59:59'
+			WHEN 'dynamic-regular' THEN DATETIME(MAX(l.tracked_time), '+' || CAST(h.period_days AS TEXT) || ' day')
+			WHEN 'daily' THEN DATETIME(MAX(l.tracked_time), '+' || CAST(h.period_interval AS TEXT) || ' day')
+			WHEN 'weekly' THEN (
+				SELECT next
+					FROM (
+					SELECT 'sunday' AS day, DATETIME((SELECT tracked_time FROM chores_log WHERE chore_id = h.id ORDER BY tracked_time DESC LIMIT 1), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 0') AS next
+					UNION
+					SELECT 'monday' AS day, DATETIME((SELECT tracked_time FROM chores_log WHERE chore_id = h.id ORDER BY tracked_time DESC LIMIT 1), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 1') AS next
+					UNION
+					SELECT 'tuesday' AS day, DATETIME((SELECT tracked_time FROM chores_log WHERE chore_id = h.id ORDER BY tracked_time DESC LIMIT 1), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 2') AS next
+					UNION
+					SELECT 'wednesday' AS day, DATETIME((SELECT tracked_time FROM chores_log WHERE chore_id = h.id ORDER BY tracked_time DESC LIMIT 1), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 3') AS next
+					UNION
+					SELECT 'thursday' AS day, DATETIME((SELECT tracked_time FROM chores_log WHERE chore_id = h.id ORDER BY tracked_time DESC LIMIT 1), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 4') AS next
+					UNION
+					SELECT 'friday' AS day, DATETIME((SELECT tracked_time FROM chores_log WHERE chore_id = h.id ORDER BY tracked_time DESC LIMIT 1), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 5') AS next
+					UNION
+					SELECT 'saturday' AS day, DATETIME((SELECT tracked_time FROM chores_log WHERE chore_id = h.id ORDER BY tracked_time DESC LIMIT 1), '1 days', '+' || CAST((h.period_interval - 1) * 7 AS TEXT) || ' days', 'weekday 6') AS next
+				)
+				WHERE INSTR(period_config, day) > 0
+				ORDER BY next
+				LIMIT 1
 			)
-			WHERE INSTR(period_config, day) > 0
-			ORDER BY next
-			LIMIT 1
-		)
-		WHEN 'monthly' THEN DATETIME(IFNULL(MAX(l.tracked_time), h.start_date), 'start of month', '+' || CAST(h.period_interval AS TEXT) || ' month', '+' || CAST(h.period_days - 1 AS TEXT) || ' day')
-		WHEN 'yearly' THEN DATETIME(IFNULL(MAX(l.tracked_time), h.start_date), '+' || CAST(h.period_interval AS TEXT) || ' years')
+			WHEN 'monthly' THEN DATETIME(MAX(l.tracked_time), 'start of month', '+' || CAST(h.period_interval AS TEXT) || ' month', '+' || CAST(h.period_days - 1 AS TEXT) || ' day')
+			WHEN 'yearly' THEN DATETIME(SUBSTR(CAST(DATETIME(MAX(l.tracked_time), '+' || CAST(h.period_interval AS TEXT) || ' years') AS TEXT), 1, 4) || SUBSTR(CAST(h.start_date AS TEXT), 5, 6) || SUBSTR(CAST(DATETIME(MAX(l.tracked_time), '+' || CAST(h.period_interval AS TEXT) || ' years') AS TEXT), -9))
+		END
 	END AS next_estimated_execution_time,
 	h.track_date_only,
 	h.rollover,

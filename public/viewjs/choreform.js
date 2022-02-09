@@ -181,7 +181,7 @@ $('.input-group-chore-period-type').on('change', function(e)
 	}
 	else if (periodType === 'yearly')
 	{
-		$('#chore-period-type-info').attr("data-original-title", __t('This means the next execution of this chore is scheduled 1 year after the last execution'));
+		$('#chore-period-type-info').attr("data-original-title", __t('This means the next execution of this chore is scheduled each year on the same day (based on the start date)'));
 		$('#chore-period-interval-info').attr("data-original-title", __t('This means the next execution of this chore should only be scheduled every %s years', periodInterval.toString()));
 	}
 

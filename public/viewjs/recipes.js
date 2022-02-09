@@ -279,10 +279,33 @@ recipesTables.on('select', function(e, dt, type, indexes)
 	{
 		var selectedRecipeId = $(recipesTables.row(indexes[0]).node()).data("recipe-id");
 		var currentRecipeId = location.search.split('recipe=')[1];
-		if (selectedRecipeId.toString() !== currentRecipeId)
+
+		if (BoolVal(Grocy.UserSettings.recipes_show_list_side_by_side))
 		{
-			UpdateUriParam("recipe", selectedRecipeId.toString());
-			window.location.reload();
+			if (selectedRecipeId.toString() !== currentRecipeId)
+			{
+				UpdateUriParam("recipe", selectedRecipeId.toString());
+				window.location.reload();
+			}
+		}
+		else
+		{
+			bootbox.dialog({
+				message: '<iframe height="650px" class="embed-responsive" src="' + U("/recipes?embedded&recipe=") + selectedRecipeId + '#fullscreen"></iframe>',
+				size: 'extra-large',
+				backdrop: true,
+				closeButton: false,
+				buttons: {
+					cancel: {
+						label: __t('Close'),
+						className: 'btn-secondary responsive-button',
+						callback: function()
+						{
+							bootbox.hideAll();
+						}
+					}
+				}
+			});
 		}
 	}
 });
@@ -291,7 +314,31 @@ $(".recipe-gallery-item").on("click", function(e)
 {
 	e.preventDefault();
 
-	window.location.href = U('/recipes?tab=gallery&recipe=' + $(this).data("recipe-id"));
+	var selectedRecipeId = $(this).data("recipe-id");
+
+	if (BoolVal(Grocy.UserSettings.recipes_show_list_side_by_side))
+	{
+		window.location.href = U('/recipes?tab=gallery&recipe=' + selectedRecipeId);
+	}
+	else
+	{
+		bootbox.dialog({
+			message: '<iframe height="650px" class="embed-responsive" src="' + U("/recipes?embedded&recipe=") + selectedRecipeId + '#fullscreen"></iframe>',
+			size: 'extra-large',
+			backdrop: true,
+			closeButton: false,
+			buttons: {
+				cancel: {
+					label: __t('Close'),
+					className: 'btn-secondary responsive-button',
+					callback: function()
+					{
+						bootbox.hideAll();
+					}
+				}
+			}
+		});
+	}
 });
 
 $(".recipe-fullscreen").on('click', function(e)

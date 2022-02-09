@@ -25,6 +25,10 @@
 
 ### Recipes
 
+- Optimized recipe costs calculation to better reflect the current real costs: Out of stock ingredients now use the last price
+  - Background: Before v3.0.0 recipe costs were only based on the last price per product and since v3.0.0 the "real costs" (based on the default consume rule "Opened first, then first due first, then first in first out") are used, means out of stock items have no price - so using the last price for out of stock items should reflect the current real costs better
+- Added a new recipes setting (top right corner settings menu) "Show the recipe list and the recipe side by side" (defaults to enabled, so no changed behaviour when not configured)
+  - When disabled, on the recipes page, the recipe list is displayed full-width and the recipe will be shown in a popup instead of on the right side
 - Performance improvements (page loading time) of the recipes page
 - Fixed that when adding missing recipe ingredients, with the option "Only check if any amount is in stock" enabled, to the shopping list, unit conversions (if any) weren't considered
 - Fixed that the recipe stock fulfillment information about shopping list amounts was not correct when the ingredient had a decimal amount
@@ -46,6 +50,8 @@
 - Added a new chore option "Start date" which is used as a schedule starting point when the chore was never tracked
   - Until now, the schedule starting point was the first tracked execution
   - For all existing chores, the start date will be set to the first tracked execution time (or today, for chores which were never tracked) on migration
+- The `Yearly` period type has been changed to be schedule the chore on the _same day_ each year
+  - This period type scheduled chores 1 year _after the last execution_ before, which is also possible by using the `Daily` period type and a period interval of 365 days - all existing `Yearly` schedules will be converted to that on migration
 
 ### Calendar
 
