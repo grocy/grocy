@@ -66,11 +66,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="period_type">{{ $__t('Period type') }}&nbsp;<i id="chore-period-type-info"
-						class="fas fa-question-circle text-muted"
-						data-toggle="tooltip"
-						data-trigger="hover click"
-						title=""></i></label>
+				<label for="period_type">{{ $__t('Period type') }}</label>
 				<select required
 					class="custom-control custom-select input-group-chore-period-type"
 					id="period_type"
@@ -165,9 +161,11 @@
 			'value' => $value,
 			'min' => '1',
 			'additionalCssClasses' => 'input-group-chore-period-type',
-			'additionalGroupCssClasses' => 'period-type-input period-type-daily period-type-weekly period-type-monthly period-type-yearly',
-			'hintId' => 'chore-period-interval-info'
+			'additionalGroupCssClasses' => 'period-type-input period-type-daily period-type-weekly period-type-monthly period-type-yearly'
 			))
+
+			<p id="chore-schedule-info"
+				class="form-text text-info mt-n2"></p>
 
 			@php
 			$value = date('Y-m-d H:i:s');

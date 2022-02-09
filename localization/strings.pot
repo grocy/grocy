@@ -351,9 +351,6 @@ msgstr ""
 msgid "This means %s will be removed from stock"
 msgstr ""
 
-msgid "This means the next execution of this chore is scheduled %s days after the last execution"
-msgstr ""
-
 msgid "Removed %1$s of %2$s from stock"
 msgstr ""
 
@@ -1259,16 +1256,22 @@ msgstr ""
 msgid "Assignment type"
 msgstr ""
 
-msgid "This means the next execution of this chore is scheduled 1 day after the last execution"
-msgstr ""
+msgid "This means the next execution of this chore is scheduled %s day after the last execution"
+msgid_plural "This means the next execution of this chore is scheduled %s days after the last execution"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "This means the next execution of this chore is scheduled 1 day after the last execution, but only for the weekdays selected below"
-msgstr ""
+msgid "This means the next execution of this chore is scheduled every week on the selected weekdays"
+msgid_plural "This means the next execution of this chore is scheduled every %s weeks on the selected weekdays"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "This means the next execution of this chore is scheduled on the selected day every month"
+msgid_plural "This means the next execution of this chore is scheduled on the selected day every %s months"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "This means the next execution of this chore is not scheduled"
-msgstr ""
-
-msgid "This means the next execution of this chore is scheduled on the below selected day of each month"
 msgstr ""
 
 msgid "This means the next execution of this chore will not be assigned to anyone"
@@ -1435,20 +1438,10 @@ msgstr ""
 msgid "Period interval"
 msgstr ""
 
-msgid "This means the next execution of this chore should only be scheduled every %s days"
-msgstr ""
-
-msgid "This means the next execution of this chore should only be scheduled every %s weeks"
-msgstr ""
-
-msgid "This means the next execution of this chore should only be scheduled every %s months"
-msgstr ""
-
-msgid "This means the next execution of this chore is scheduled each year on the same day (based on the start date)"
-msgstr ""
-
-msgid "This means the next execution of this chore should only be scheduled every %s years"
-msgstr ""
+msgid "This means the next execution of this chore is scheduled every year on the same day (based on the start date)"
+msgid_plural "This means the next execution of this chore is scheduled every %s years on the same day (based on the start date)"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Transfer"
 msgstr ""

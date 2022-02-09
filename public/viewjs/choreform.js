@@ -138,7 +138,7 @@ setTimeout(function()
 	Grocy.Components.ProductPicker.GetPicker().trigger('change');
 }, 100);
 
-$('.input-group-chore-period-type').on('change', function(e)
+$('.input-group-chore-period-type').on('change keyup', function(e)
 {
 	var periodType = $('#period_type').val();
 	var periodDays = $('#period_days').val();
@@ -146,43 +146,38 @@ $('.input-group-chore-period-type').on('change', function(e)
 
 	$(".period-type-input").addClass("d-none");
 	$(".period-type-" + periodType).removeClass("d-none");
-	$('#chore-period-type-info').attr("data-original-title", "");
 	$("#period_config").val("");
 
 	if (periodType === 'manually')
 	{
-		$('#chore-period-type-info').attr("data-original-title", __t('This means the next execution of this chore is not scheduled'));
+		$('#chore-schedule-info').text(__t('This means the next execution of this chore is not scheduled'));
 	}
 	else if (periodType === 'dynamic-regular')
 	{
 		$("label[for='period_days']").text(__t("Period days"));
 		$("#period_days").attr("min", "0");
 		$("#period_days").removeAttr("max");
-		$('#chore-period-type-info').attr("data-original-title", __t('This means the next execution of this chore is scheduled %s days after the last execution', periodDays.toString()));
+		$('#chore-schedule-info').text(__n(periodDays, "This means the next execution of this chore is scheduled %s day after the last execution", "This means the next execution of this chore is scheduled %s days after the last execution"));
 	}
 	else if (periodType === 'daily')
 	{
-		$('#chore-period-type-info').attr("data-original-title", __t('This means the next execution of this chore is scheduled 1 day after the last execution'));
-		$('#chore-period-interval-info').attr("data-original-title", __t('This means the next execution of this chore should only be scheduled every %s days', periodInterval.toString()));
+		$('#chore-schedule-info').text(__n(periodInterval, "This means the next execution of this chore is scheduled %s day after the last execution", "This means the next execution of this chore is scheduled %s days after the last execution"));
 	}
 	else if (periodType === 'weekly')
 	{
-		$('#chore-period-type-info').attr("data-original-title", __t('This means the next execution of this chore is scheduled 1 day after the last execution, but only for the weekdays selected below'));
+		$('#chore-schedule-info').text(__n(periodInterval, "This means the next execution of this chore is scheduled every week on the selected weekdays", "This means the next execution of this chore is scheduled every %s weeks on the selected weekdays"));
 		$("#period_config").val($(".period-type-weekly input:checkbox:checked").map(function() { return this.value; }).get().join(","));
-		$('#chore-period-interval-info').attr("data-original-title", __t('This means the next execution of this chore should only be scheduled every %s weeks', periodInterval.toString()));
 	}
 	else if (periodType === 'monthly')
 	{
-		$('#chore-period-type-info').attr("data-original-title", __t('This means the next execution of this chore is scheduled on the below selected day of each month'));
+		$('#chore-schedule-info').text(__n(periodInterval, "This means the next execution of this chore is scheduled on the selected day every month", "This means the next execution of this chore is scheduled on the selected day every %s months"));
 		$("label[for='period_days']").text(__t("Day of month"));
 		$("#period_days").attr("min", "1");
 		$("#period_days").attr("max", "31");
-		$('#chore-period-interval-info').attr("data-original-title", __t('This means the next execution of this chore should only be scheduled every %s months', periodInterval.toString()));
 	}
 	else if (periodType === 'yearly')
 	{
-		$('#chore-period-type-info').attr("data-original-title", __t('This means the next execution of this chore is scheduled each year on the same day (based on the start date)'));
-		$('#chore-period-interval-info').attr("data-original-title", __t('This means the next execution of this chore should only be scheduled every %s years', periodInterval.toString()));
+		$('#chore-schedule-info').text(__n(periodInterval, 'This means the next execution of this chore is scheduled every year on the same day (based on the start date)', 'This means the next execution of this chore is scheduled every %s years on the same day (based on the start date)'));
 	}
 
 	Grocy.FrontendHelpers.ValidateForm('chore-form');
