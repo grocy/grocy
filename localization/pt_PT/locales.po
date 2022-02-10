@@ -120,3 +120,7 @@ msgstr "Tâmil"
 # Finnish
 msgid "fi"
 msgstr "Filandês"
+
+# Catalan
+msgid "ca"
+msgstr ""

@@ -1,0 +1,2526 @@
+# 
+# Translators:
+# Joan Rodas <joanrc93@gmail.com>, 2020
+# Carles Riera <blauigris@gmail.com>, 2021
+# jorclaret, 2022
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: jorclaret, 2022\n"
+"Language-Team: Catalan (https://www.transifex.com/grocy/teams/93189/ca/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ca\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/strings\n"
+
+msgid "Stock overview"
+msgstr "Resum d'existències"
+
+msgid "%s product expires"
+msgid_plural "%s products expiring"
+msgstr[0] "%s producte caduca aviat"
+msgstr[1] "%s productes caduquen aviat"
+
+msgid "within the next day"
+msgid_plural "within the next %s days"
+msgstr[0] "al dia següent"
+msgstr[1] "en els propers %s dies"
+
+msgid "%s product is already expired"
+msgid_plural "%s products are already expired"
+msgstr[0] "%s producte ha caducat"
+msgstr[1] "%s  productes han caducat"
+
+msgid "%s product is overdue"
+msgid_plural "%s products are overdue"
+msgstr[0] "%s producte ha superat la data de consum preferent"
+msgstr[1] "%s productes han superat la data de consum preferent"
+
+msgid "%s product is below defined min. stock amount"
+msgid_plural "%s products are below defined min. stock amount"
+msgstr[0] "%s producte està per sota de les existències mínimes definides"
+msgstr[1] "%s productes estan per sota de les existències mínimes"
+
+msgid "Product"
+msgstr "Producte"
+
+msgid "%s Product"
+msgid_plural "%s Products"
+msgstr[0] "%s Producte"
+msgstr[1] "%s Productes"
+
+msgid "Amount"
+msgstr "Quantitat"
+
+msgid "Logout"
+msgstr "Tancar sessió"
+
+msgid "Chores overview"
+msgstr "Resum de feines de casa"
+
+msgid "Batteries overview"
+msgstr "Resum de bateries"
+
+msgid "Purchase"
+msgstr "Compra"
+
+msgid "Consume"
+msgstr "Consum"
+
+msgid "Inventory"
+msgstr "Inventari"
+
+msgid "Shopping list"
+msgstr "Llista de la compra"
+
+msgid "Chore tracking"
+msgstr "Seguiment de feines de casa"
+
+msgid "Battery tracking"
+msgstr "Seguiment de bateries"
+
+msgid "Locations"
+msgstr "Ubicacions"
+
+msgid "Stores"
+msgstr "Botigues"
+
+msgid "Quantity units"
+msgstr "Unitats"
+
+msgid "Chores"
+msgstr "Feines de casa"
+
+msgid "Batteries"
+msgstr "Bateries"
+
+msgid "Chore"
+msgstr "Feina de casa"
+
+msgid "Next estimated tracking"
+msgstr "Pròxima data prevista"
+
+msgid "Last tracked"
+msgstr "Última data"
+
+msgid "Battery"
+msgstr "Bateria"
+
+msgid "Last charged"
+msgstr "Última càrrega"
+
+msgid "Next planned charge cycle"
+msgstr "Pròxim cicle de càrrega previst"
+
+msgid "Best before"
+msgstr "Consumir preferentment"
+
+msgid "OK"
+msgstr "D'acord"
+
+msgid "Product overview"
+msgstr "Resum de productes"
+
+msgid "Stock quantity unit"
+msgstr "Unitat d'inventari"
+
+msgid "Stock amount"
+msgstr "Existències"
+
+msgid "Last purchased"
+msgstr "Última compra"
+
+msgid "Last used"
+msgstr "Últim ús"
+
+msgid "Spoiled"
+msgstr "Fet malbé"
+
+msgid "Barcode lookup is disabled"
+msgstr "La detecció de codis de barres està desactivada"
+
+msgid ""
+"will be added to the list of barcodes for the selected product on submit"
+msgstr ""
+"S'afegirà a la llista de codis de barres associats al producte seleccionat a"
+" l'enviar"
+
+msgid "New amount"
+msgstr "Nova quantitat"
+
+msgid "Note"
+msgstr "Nota"
+
+msgid "Tracked time"
+msgstr "Temps registrat"
+
+msgid "Chore overview"
+msgstr "Resum de feines de casa"
+
+msgid "Tracked count"
+msgstr "Nombre de vegades"
+
+msgid "Battery overview"
+msgstr "Resum de bateries"
+
+msgid "Charge cycles count"
+msgstr "Nombre de cicles de càrrega"
+
+msgid "Create shopping list item"
+msgstr "Afegir article a la llista de la compra"
+
+msgid "Edit shopping list item"
+msgstr "Editar article de llista de la compra"
+
+msgid "Save"
+msgstr "Desar"
+
+msgid "Add"
+msgstr "Afegir"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "Location"
+msgstr "Ubicació"
+
+msgid "Min. stock amount"
+msgstr "Quantitat mínima d'existències"
+
+msgid "Description"
+msgstr "Descripció"
+
+msgid "Create product"
+msgstr "Afegir producte"
+
+msgid "Barcode(s)"
+msgstr "Codi(s) de barres"
+
+msgid "Minimum stock amount"
+msgstr "Quantitat mínima d'existències"
+
+msgid "Default best before days"
+msgstr "Dies predeterminats de consum preferent  "
+
+msgid "Default quantity unit purchase"
+msgstr "Unitat predeterminada"
+
+msgid "Quantity unit stock"
+msgstr "Unitat d'inventari"
+
+msgid "Factor purchase to stock quantity unit"
+msgstr "Factor d'unitat de compra a unitat d'inteventari"
+
+msgid "Create location"
+msgstr "Afegir ubicació"
+
+msgid "Create store"
+msgstr "Afegir establiment"
+
+msgid "Create quantity unit"
+msgstr "Afegir unitat"
+
+msgid "Period type"
+msgstr "Tipus de període"
+
+msgid "Period days"
+msgstr "Dies de període "
+
+msgid "Create chore"
+msgstr "Afegir feina de casa"
+
+msgid "Used in"
+msgstr "Usat en"
+
+msgid "Create battery"
+msgstr "Afegir bateria"
+
+msgid "Edit battery"
+msgstr "Editar"
+
+msgid "Edit chore"
+msgstr "Editar feina de casa"
+
+msgid "Edit quantity unit"
+msgstr "Editar unitat"
+
+msgid "Edit product"
+msgstr "Editar producte"
+
+msgid "Edit location"
+msgstr "Editar ubicació"
+
+msgid "Edit store"
+msgstr "Editar botiga"
+
+msgid "Record data"
+msgstr "Enregistrar dades"
+
+msgid "Manage master data"
+msgstr "Gestionar dades mestres"
+
+msgid "This will apply to added products"
+msgstr "S'aplicarà als productes afegits"
+
+msgid "never"
+msgstr "mai"
+
+msgid "Add products that are below defined min. stock amount"
+msgstr "Afegeix productes que estan per sota de les existències mínimes"
+
+msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
+msgstr ""
+"Això significa que 1 %1$s comprat es convertiran en %2$s %3$s en l'inventari"
+
+msgid "Login"
+msgstr "Iniciar sessió"
+
+msgid "Username"
+msgstr "Nom d'usuari"
+
+msgid "Password"
+msgstr "Clau d'accés"
+
+msgid "Invalid credentials, please try again"
+msgstr "Credencials invàlides, sius-plau torna-ho a intentar"
+
+msgid "Are you sure to delete battery \"%s\"?"
+msgstr "Segur que vols eliminar la bateria \"%s\"?"
+
+msgid "Yes"
+msgstr "Sí"
+
+msgid "No"
+msgstr "No"
+
+msgid "Are you sure to delete chore \"%s\"?"
+msgstr "Segur que vols eliminar la feina de casa  \"%s\"?"
+
+msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
+msgstr "no s'ha pogut identificar com a producte, com vols procedir?"
+
+msgid "Create or assign product"
+msgstr "Afegir o assignar producte"
+
+msgid "Cancel"
+msgstr "Cancel·lar"
+
+msgid "Add as new product"
+msgstr "Afegir com a nou producte"
+
+msgid "Add as barcode to existing product"
+msgstr "Afegir com a codi de barres a un producte existent"
+
+msgid "Add as new product and prefill barcode"
+msgstr "Afegir com a nou producte amb el codi de barres"
+
+msgid "Are you sure to delete quantity unit \"%s\"?"
+msgstr "Segur que vols eliminar la unitat \"%s\"?"
+
+msgid "Are you sure to delete product \"%s\"?"
+msgstr "Segur que vols eliminar el producte \"%s\"?"
+
+msgid "Are you sure to delete location \"%s\"?"
+msgstr "Segur que vols eliminar la ubicació \"%s\"?"
+
+msgid "Are you sure to delete store \"%s\"?"
+msgstr "Segur que vols eliminar l'establiment \"%s\"?"
+
+msgid "Manage API keys"
+msgstr "Gestiona les claus de l'API"
+
+msgid "REST API browser"
+msgstr "Navegador API REST"
+
+msgid "API keys"
+msgstr "Claus de l'API"
+
+msgid "Create new API key"
+msgstr "Crear una clau de l'API nova"
+
+msgid "API key"
+msgstr "Clau de l'API"
+
+msgid "Expires"
+msgstr "Caduca"
+
+msgid "Created"
+msgstr "Creat"
+
+msgid "This product is not in stock"
+msgstr "Producte sense existències"
+
+msgid "This means %s will be added to stock"
+msgstr "Això vol dir que s'afegiran %s a l'inventari"
+
+msgid "This means %s will be removed from stock"
+msgstr "Això vol dir que s'eliminaran %s de l'inventari"
+
+msgid "Removed %1$s of %2$s from stock"
+msgstr "%1$s de %2$s eliminats de l'inventari"
+
+msgid "About grocy"
+msgstr "Sobre el grocy"
+
+msgid "Close"
+msgstr "Tancar"
+
+msgid "Released on"
+msgstr "Publicat el"
+
+msgid "Added %1$s of %2$s to stock"
+msgstr "%1$s de %2$s afegits a l'inventari"
+
+msgid "Stock amount of %1$s is now %2$s"
+msgstr "Les existències de %1$s son ara %2$s"
+
+msgid "Tracked execution of chore %1$s on %2$s"
+msgstr "Feina de casa enregistrada el %1$s a les %2$s"
+
+msgid "Tracked charge cycle of battery %1$s on %2$s"
+msgstr "Cicle de càrrega de bateria enregistrat el %1$s a les %2$s"
+
+msgid "Consume all %s which are currently in stock"
+msgstr "Consumir tots els %s de l'inventari"
+
+msgid "All"
+msgstr "Tot"
+
+msgid "Search"
+msgstr "Cercar"
+
+msgid "Not logged in"
+msgstr "Sessió no iniciada"
+
+msgid "You have to select a product"
+msgstr "Cal seleccionar un producte"
+
+msgid "You have to select a chore"
+msgstr "Cal seleccionar una feina de casa"
+
+msgid "You have to select a battery"
+msgstr "Cal seleccionar una bateria"
+
+msgid "A name is required"
+msgstr "Es requereix un nom"
+
+msgid "A location is required"
+msgstr "Es requereix una ubicaci"
+
+msgid "A quantity unit is required"
+msgstr "Es requereix una unitat"
+
+msgid "A period type is required"
+msgstr "Es requereix un periode"
+
+msgid "A best before date is required"
+msgstr "Es requereix una data de consum preferent"
+
+msgid "Settings"
+msgstr "Ajustaments"
+
+msgid "This can only be before now"
+msgstr "Només pot ser abans d'aquest moment"
+
+msgid "Calendar"
+msgstr "Calendari"
+
+msgid "Recipes"
+msgstr "Receptes"
+
+msgid "Edit recipe"
+msgstr "Editar recepta"
+
+msgid "Ingredients list"
+msgstr "Llista d'ingredients"
+
+msgid "Add recipe ingredient"
+msgstr "Afegir ingredient a la recepta"
+
+msgid "Edit recipe ingredient"
+msgstr "Editar ingredient de la recepta"
+
+msgid "Are you sure to delete recipe \"%s\"?"
+msgstr "Segur que vols eliminar la recepta \"%s\"?"
+
+msgid "Are you sure to delete recipe ingredient \"%s\"?"
+msgstr "Segur que vols eliminar l'ingredient \"%s\" de la recepta?"
+
+msgid "Are you sure to empty shopping list \"%s\"?"
+msgstr "Segur que vols buidar la llista de la compra \"%s\"?"
+
+msgid "Clear list"
+msgstr "Buidar llista"
+
+msgid "Requirements fulfilled"
+msgstr "Requeriments complets"
+
+msgid "Put missing products on shopping list"
+msgstr "Afegeix els productes que falten a la llista de la compra"
+
+msgid "Enough in stock"
+msgstr "Existències suficients"
+
+msgid ""
+"Not enough in stock, %s ingredient missing but already on the shopping list"
+msgid_plural ""
+"Not enough in stock, %s ingredients missing but already on the shopping list"
+msgstr[0] ""
+"Existències insuficients,  falta %s ingredient però ja està afegit a la "
+"llista de la compra"
+msgstr[1] ""
+"Existències insuficients, falten %s ingredients però ja estan afegits a la "
+"llista de la compra"
+
+msgid "Expand to fullscreen"
+msgstr "Expandir a pantalla completa"
+
+msgid "Ingredients"
+msgstr "Ingredients"
+
+msgid "Preparation"
+msgstr "Preparació"
+
+msgid "Recipe"
+msgstr "Recepta"
+
+msgid "Not enough in stock, %1$s missing, %2$s already on shopping list"
+msgstr ""
+"Existències insuficients, falta %1$s, %2$s ja afegits a la llista de la "
+"compra"
+
+msgid "Show notes"
+msgstr "Mostra les notes"
+
+msgid "Put missing amount on shopping list"
+msgstr "Afegeix els que falten a la llista de la compra"
+
+msgid ""
+"Are you sure to put all missing ingredients for recipe \"%s\" on the "
+"shopping list?"
+msgstr ""
+"Segur que vols afegir tots els ingredients que falten per a la recepta "
+"\"%s\" a la llista de la compra?"
+
+msgid "Added for recipe %s"
+msgstr "Afegit per a la recepta  %s"
+
+msgid "Manage users"
+msgstr "Gestiona els usuaris"
+
+msgid "User"
+msgstr "Usuari"
+
+msgid "Users"
+msgstr "Usuaris"
+
+msgid "Are you sure to delete user \"%s\"?"
+msgstr "Segur que vols eliminar l'usuari \"%s\"?"
+
+msgid "Create user"
+msgstr "Afegir usuari"
+
+msgid "Edit user"
+msgstr "Editar usuari"
+
+msgid "First name"
+msgstr "Nom"
+
+msgid "Last name"
+msgstr "Cognoms"
+
+msgid "A username is required"
+msgstr "Es requereix un nom d'usuari"
+
+msgid "Confirm password"
+msgstr "Confirma la contrasenya"
+
+msgid "Passwords do not match"
+msgstr "Les contrasenyes no concorden"
+
+msgid "Change password"
+msgstr "Canviar contrasenya"
+
+msgid "Done by"
+msgstr "Fet per"
+
+msgid "Last done by"
+msgstr "Últim cop fet per"
+
+msgid "Unknown"
+msgstr "Desconegut"
+
+msgid "Chores journal"
+msgstr "Registre de feines de casa"
+
+msgid "0 means suggestions for the next charge cycle are disabled"
+msgstr ""
+"0 vol dir que els suggeriments per al proper cicle de càrrega estan "
+"desactivats"
+
+msgid "Charge cycle interval (days)"
+msgstr "Interval de cicle de càrrega (dies)"
+
+msgid "Last price"
+msgstr "Últim preu"
+
+msgid "Price history"
+msgstr "Historial de preus"
+
+msgid "No price history available"
+msgstr "Historial de preus no disponible"
+
+msgid "Price"
+msgstr "Preu"
+
+msgid "Unit"
+msgstr "Unitat"
+
+msgid "%s Unit"
+msgid_plural "%s Units"
+msgstr[0] "%s Unitat"
+msgstr[1] "%s Unitats"
+
+msgid "%s chore is due to be done"
+msgid_plural "%s chores are due to be done"
+msgstr[0] "%s feina de casa programada"
+msgstr[1] "%s feines de casa per fer"
+
+msgid "%s chore is overdue to be done"
+msgid_plural "%s chores are overdue to be done"
+msgstr[0] "%s feina de casa que s'hauria d'haver fet"
+msgstr[1] "%s feines de casa que s'haurien d'haver fet"
+
+msgid "%s battery is due to be charged"
+msgid_plural "%s batteries are due to be charged"
+msgstr[0] "%s bateria s'ha de carregar"
+msgstr[1] "%s bateries per carregar"
+
+msgid "%s battery is overdue to be charged"
+msgid_plural "%s batteries are overdue to be charged"
+msgstr[0] "%s bateria s'hauria d'haver carregat"
+msgstr[1] "%s bateries s'haurien d'haver carregat"
+
+msgid "in singular form"
+msgstr "en forma singular"
+
+msgid "Quantity unit"
+msgstr "Unitat"
+
+msgid "Only check if any amount is in stock"
+msgstr "Només comprovar si hi ha existències"
+
+msgid ""
+"Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
+" marked with \"only check if any amount is in stock\" will be ignored)?"
+msgstr ""
+"Segur que vols consumir tots els ingredients requerits per fer la recepta "
+"\"%s\" (Els ingredients marcats amb \"només comprovar si hi ha "
+"existències\") s'ignoraran?"
+
+msgid "Removed all ingredients of recipe \"%s\" from stock"
+msgstr " Tots els ingredients de la recepta \"%s\" s'han eliminat de l'inventari"
+
+msgid "Consume all ingredients needed by this recipe"
+msgstr "Consumir tots els ingredients requerits per aquesta recepta"
+
+msgid "Click to show technical details"
+msgstr "Clica aquí per mostrar els detalls técnics"
+
+msgid "Error while saving, probably this item already exists"
+msgstr "Error al desar, probablement aquest ítem ja existeix"
+
+msgid "Error details"
+msgstr "Detalls de l'error"
+
+msgid "Tasks"
+msgstr "Tasques"
+
+msgid "Show done tasks"
+msgstr "Mostra tasques fetes"
+
+msgid "Task"
+msgstr "Tasca"
+
+msgid "Due"
+msgstr "Data"
+
+msgid "Assigned to"
+msgstr "Assignat a "
+
+msgid "Mark task \"%s\" as completed"
+msgstr "Marca tasca \"%s\" com completada"
+
+msgid "Uncategorized"
+msgstr "Sense categoria"
+
+msgid "Task categories"
+msgstr "Categories de tasca"
+
+msgid "Create task"
+msgstr "Afegir tasca"
+
+msgid "A due date is required"
+msgstr "Es requereix una data de venciment"
+
+msgid "Category"
+msgstr "Categoria"
+
+msgid "Edit task"
+msgstr "Editar tasca"
+
+msgid "Are you sure to delete task \"%s\"?"
+msgstr "Segur que vols eliminar la tasca \"%s\"?"
+
+msgid "%s task is due to be done"
+msgid_plural "%s tasks are due to be done"
+msgstr[0] "%s tasca per fer"
+msgstr[1] "%s tasques per fer"
+
+msgid "%s task is overdue to be done"
+msgid_plural "%s tasks are overdue to be done"
+msgstr[0] "%s tasca s'hauria d'haver fet"
+msgstr[1] "%s tasques s'haurien d'haver fer"
+
+msgid "Edit task category"
+msgstr "Editar categoria de tasca"
+
+msgid "Create task category"
+msgstr "Afegir categoria de tasca"
+
+msgid "Product groups"
+msgstr "Grups de productes"
+
+msgid "Ungrouped"
+msgstr "Sense grup"
+
+msgid "Create product group"
+msgstr "Afegir grup de productes"
+
+msgid "Edit product group"
+msgstr "Editar grup de productes"
+
+msgid "Product group"
+msgstr "Grup de productes"
+
+msgid "Are you sure to delete product group \"%s\"?"
+msgstr "Estàs segur d'eliminar el grup de producte \"%s\"?"
+
+msgid "Stay logged in permanently"
+msgstr "Mantenir-se connectat permanentment"
+
+msgid "When not set, you will get logged out at latest after 30 days"
+msgstr ""
+
+msgid "Status"
+msgstr "Estat"
+
+msgid "Below min. stock amount"
+msgstr "Per sota de la quantitat mínima d'existències"
+
+msgid "Expiring soon"
+msgstr "Caduca aviat"
+
+msgid "Already expired"
+msgstr "Caducat"
+
+msgid "Due soon"
+msgstr "Caduca aviat"
+
+msgid "Overdue"
+msgstr "Caducat"
+
+msgid "View settings"
+msgstr "Configuració de visualització"
+
+msgid "Auto reload on external changes"
+msgstr "Recarrega automàticament en canvis externs"
+
+msgid "Enable night mode"
+msgstr "Activa mode nocturn"
+
+msgid "Auto enable in time range"
+msgstr "Activa automàticament en un rang de temps"
+
+msgid "From"
+msgstr "De"
+
+msgid "in format"
+msgstr "en format"
+
+msgid "To"
+msgstr "A"
+
+msgid "Time range goes over midnight"
+msgstr ""
+
+msgid "Product picture"
+msgstr "Imatge del producte"
+
+msgid "No file selected"
+msgstr "No s'ha seleccionat arxiu"
+
+msgid "Delete"
+msgstr "Esborrar"
+
+msgid "Select file"
+msgstr "Sel·lecciona arxiu"
+
+msgid "Image of product %s"
+msgstr "Imatge del producte %s"
+
+msgid "Deletion not possible"
+msgstr "No es pot eliminar"
+
+msgid "Equipment"
+msgstr ""
+
+msgid "Instruction manual"
+msgstr "Manual d'instruccions"
+
+msgid "The selected equipment has no instruction manual"
+msgstr ""
+
+msgid "Notes"
+msgstr "Notes"
+
+msgid "Edit equipment"
+msgstr ""
+
+msgid "Create equipment"
+msgstr ""
+
+msgid "The current file will be deleted on save"
+msgstr "L'arxiu actual serà eliminat al guardar"
+
+msgid "No picture available"
+msgstr "Imatge no disponible"
+
+msgid "Presets for new products"
+msgstr ""
+
+msgid "Included recipes"
+msgstr "Receptes incloses"
+
+msgid "A recipe is required"
+msgstr "Es requereix una recepta"
+
+msgid "Add included recipe"
+msgstr "Afegeix recepta inclosa"
+
+msgid "Edit included recipe"
+msgstr "Edita recepta inclosa"
+
+msgid "Group"
+msgstr "Grup"
+
+msgid "This will be used as a headline to group ingredients together"
+msgstr "Això serà utilitzat de capçalera per a agrupar ingredients"
+
+msgid "Journal"
+msgstr ""
+
+msgid "Stock journal"
+msgstr ""
+
+msgid "Undone on"
+msgstr "Desfet a "
+
+msgid "Batteries journal"
+msgstr ""
+
+msgid "Undo charge cycle"
+msgstr "Desfer cicle de càrrega"
+
+msgid "Undo chore execution"
+msgstr "Desfer execució de tasca"
+
+msgid "Chore execution successfully undone"
+msgstr "Execució de tasca desfeta correctament"
+
+msgid "Undo"
+msgstr "Desfer"
+
+msgid "Booking successfully undone"
+msgstr ""
+
+msgid "Charge cycle successfully undone"
+msgstr "Cicle de càrrrega desfet correctament"
+
+msgid "Disable stock fulfillment checking for this ingredient"
+msgstr ""
+
+msgid "Add all list items to stock"
+msgstr "Afegeix tots els elements de la llista a les existències"
+
+msgid "Add this item to stock"
+msgstr "Afegeix aquest element a les existències"
+
+msgid "Adding shopping list item %1$s of %2$s"
+msgstr "Afegint l'element de la llista de la compra %1$s de %2$s"
+
+msgid "Use a specific stock item"
+msgstr "Utilitza un element específic d'estoc"
+
+msgid ""
+"The first item in this list would be picked by the default rule which is "
+"\"Opened first, then first due first, then first in first out\""
+msgstr ""
+"El primer element d'aquesta llista serà utilitzat per la regla per defecte "
+"que és \"El primer obert, després el que caduca primer, després el primer "
+"que entra el primer que surt\""
+
+msgid "Mark %1$s of %2$s as open"
+msgstr "Marcar %1$s de %2$s com a obert"
+
+msgid "Marked %1$s of %2$s as opened"
+msgstr "Marcat %1$s de %2$s com a obert"
+
+msgid "Mark as opened"
+msgstr "Marcar com a obert"
+
+msgid "Not opened"
+msgstr "No obert"
+
+msgid "Opened"
+msgstr "Obert"
+
+msgid "%s opened"
+msgstr "%s obert"
+
+msgid "Product due"
+msgstr ""
+
+msgid "Task due"
+msgstr ""
+
+msgid "Chore due"
+msgstr ""
+
+msgid "Battery charge cycle due"
+msgstr ""
+
+msgid "Show clock in header"
+msgstr "Mostra la hora a la capçalera"
+
+msgid "Stock settings"
+msgstr "Configuració d'existències"
+
+msgid "Shopping list to stock workflow"
+msgstr "Llista de la compra al fluxe d'existències"
+
+msgid "Skip"
+msgstr "Saltar"
+
+msgid "Servings"
+msgstr "Racions"
+
+msgid "Costs"
+msgstr "Costs"
+
+msgid "The ingredients listed here result in this amount of servings"
+msgstr ""
+"Els ingredients llistats aquí resulten en aquesta quantitat de racions"
+
+msgid "Do not check against the shopping list when adding missing items to it"
+msgstr ""
+"No comprovar contra la llista de la compra quan s'hi afegeixin elements "
+"faltants"
+
+msgid ""
+"By default the amount to be added to the shopping list is \"needed amount - "
+"stock amount - shopping list amount\" - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+msgstr ""
+
+msgid "Picture"
+msgstr "Imatge"
+
+msgid "Uncheck ingredients to not put them on the shopping list"
+msgstr "Desmarcar ingredients per a no afegir-los a la llista de la compra"
+
+msgid "This is for statistical purposes only"
+msgstr "Només per raons estadístiques"
+
+msgid "You have to select a recipe"
+msgstr "Cal seleccionar una recepta"
+
+msgid "Key type"
+msgstr "Tipus de clau"
+
+msgid "Share/Integrate calendar (iCal)"
+msgstr "Compartir/integrar calendari (iCal)"
+
+msgid ""
+"Use the following (public) URL to share or integrate the calendar in iCal "
+"format"
+msgstr ""
+"Utilitzar la següent URL (pública) per compartir o integrar el calendari en "
+"format iCal"
+
+msgid "Allow partial units in stock"
+msgstr "Permet unitats parcials en les existències"
+
+msgid "Enable tare weight handling"
+msgstr ""
+
+msgid ""
+"This is useful e.g. for flour in jars - on purchase/consume/inventory you "
+"always weigh the whole jar, the amount to be posted is then automatically "
+"calculated based on what is in stock and the tare weight defined below"
+msgstr ""
+
+msgid "Tare weight"
+msgstr "Tara"
+
+msgid ""
+"Tare weight handling enabled - please weigh the whole container, the amount "
+"to be posted will be automatically calculcated"
+msgstr ""
+
+msgid "You have to select a location"
+msgstr "Cal seleccionar una ubicació"
+
+msgid "You have to select a store"
+msgstr "Cal seleccionar una botiga"
+
+msgid "List"
+msgstr "Llista"
+
+msgid "Gallery"
+msgstr "Galeria"
+
+msgid "The current picture will be deleted on save"
+msgstr "La imathe actual serà eliminada al guardar"
+
+msgid "Journal for this battery"
+msgstr ""
+
+msgid "System info"
+msgstr "Informació de sistema"
+
+msgid "Changelog"
+msgstr "Historial de canvis"
+
+msgid "will be multiplied by a factor of %1$s to get %2$s"
+msgstr "serà multiplicat per un factor de %1$s per obtenir %2$s"
+
+msgid "The given date is earlier than today, are you sure?"
+msgstr "La data introduïda és posterior a avui, estàs segur?"
+
+msgid "Product count"
+msgstr "Quantitat de productes"
+
+msgid ""
+"Type a new product name or barcode and hit TAB or ENTER to start a workflow"
+msgstr ""
+
+msgid ""
+"This will be used as the default setting when adding this product as a "
+"recipe ingredient"
+msgstr ""
+"Serà utilitzat com a configuració per defecte quan s'afegeixi aquest "
+"producte com a ingredient de recepta"
+
+msgid "Add item"
+msgstr "Afegir element"
+
+msgid "Selected shopping list"
+msgstr "Llista de la compra escollida"
+
+msgid "New shopping list"
+msgstr "Nova llista de la compra"
+
+msgid "Delete shopping list"
+msgstr "Eliminar llista de la compra"
+
+msgid "Chores settings"
+msgstr "Configuració de tasques"
+
+msgid "Batteries settings"
+msgstr "Configuració de bateries"
+
+msgid "Tasks settings"
+msgstr "Configuració de tasques"
+
+msgid "Create shopping list"
+msgstr "Crear llista de la compra"
+
+msgid "Are you sure to delete shopping list \"%s\"?"
+msgstr ""
+
+msgid "Average shelf life"
+msgstr "Temps de vida mitjà de l'inventari"
+
+msgid "Spoil rate"
+msgstr "Taxa de fet malbé"
+
+msgid "Show more"
+msgstr "Mostra més"
+
+msgid "Show less"
+msgstr "Mostra menys"
+
+msgid "The amount must be between %1$s and %2$s"
+msgstr "La quantitat ha de ser entre%1$s i %2$s"
+
+msgid "Day of month"
+msgstr "Dia del mes"
+
+msgid "Monday"
+msgstr "Dilluns"
+
+msgid "Tuesday"
+msgstr "Dimarts"
+
+msgid "Wednesday"
+msgstr "Dimecres"
+
+msgid "Thursday"
+msgstr "Dijous"
+
+msgid "Friday"
+msgstr "Divendres"
+
+msgid "Saturday"
+msgstr "Dissabte"
+
+msgid "Sunday"
+msgstr "Diumenge"
+
+msgid "Configure userfields"
+msgstr "Configurar camps d'usuari"
+
+msgid "Userfields"
+msgstr "Camp d'usuari"
+
+msgid "Entity"
+msgstr "Entitat"
+
+msgid "Caption"
+msgstr ""
+
+msgid "Type"
+msgstr "Tipus"
+
+msgid "Create userfield"
+msgstr "Crear camps d'usuari"
+
+msgid "A entity is required"
+msgstr "Es requereix una entitat"
+
+msgid "A caption is required"
+msgstr ""
+
+msgid "A type is required"
+msgstr "Es requereix un tipus"
+
+msgid "Show as column in tables"
+msgstr "Mostra com a columna a les taules"
+
+msgid "This is required and can only contain letters and numbers"
+msgstr "És obligatori i només pot contenir lletres i números"
+
+msgid "Edit userfield"
+msgstr "Editar camp d'usuari"
+
+msgid "Plural forms"
+msgstr "Formes plurals"
+
+msgid "One plural form per line, the current language requires"
+msgstr ""
+
+msgid "Plural count"
+msgstr ""
+
+msgid "Plural rule"
+msgstr "Norma de plural"
+
+msgid "in plural form"
+msgstr "en plural"
+
+msgid "Not enough in stock, %s ingredient missing"
+msgid_plural "Not enough in stock, %s ingredients missing"
+msgstr[0] "No hi ha existències suficients, falta %s ingredient"
+msgstr[1] "No hi ha existències suficients, falten %s ingredients"
+
+msgid "Not enough in stock, but already on the shopping list"
+msgstr ""
+"No hi ha existències suficients, però ja està afegit a la llista de la "
+"compra"
+
+msgid "Not enough in stock"
+msgstr "No hi ha existències suficients"
+
+msgid "Expiring soon days"
+msgstr "Dies per a la caducitat"
+
+msgid "Default location"
+msgstr "Ubicació per defecte"
+
+msgid "Default amount for purchase"
+msgstr "Quantitat per defecte per a la compra"
+
+msgid "Default amount for consume"
+msgstr "Quantitat per defecte per al consum"
+
+msgid "Variable amount"
+msgstr "Quantitat variable"
+
+msgid ""
+"When this is not empty, it will be shown instead of the amount entered above"
+" while the amount there will still be used for stock fulfillment checking"
+msgstr ""
+
+msgid "Track date only"
+msgstr "Només seguiment de data"
+
+msgid "When enabled only the day of an execution is tracked, not the time"
+msgstr ""
+
+msgid "Consume %1$s of %2$s"
+msgstr "Consumir %1$s de %2$s"
+
+msgid "Meal plan"
+msgstr "Calendari de menús"
+
+msgid "Add recipe on %s"
+msgstr "Afegir recepta a %s"
+
+msgid "%s serving"
+msgid_plural "%s servings"
+msgstr[0] "%s ració"
+msgstr[1] "%s racions"
+
+msgid "Week costs"
+msgstr "Costos setmanals"
+
+msgid "Configuration"
+msgstr "Configuració"
+
+msgid "A predefined list of values, one per line"
+msgstr "Una llista de valors predefinits, una per línia"
+
+msgid "Products"
+msgstr "Productes"
+
+msgid "Marked task %s as completed on %s"
+msgstr "Tasca %s marcada com a completada en %s"
+
+msgid "Booking has subsequent dependent bookings, undo not possible"
+msgstr ""
+
+msgid "per serving"
+msgstr "per ració"
+
+msgid "Never"
+msgstr "Mai"
+
+msgid "Today"
+msgstr "Avui"
+
+msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
+msgstr ""
+"No tots els ingredients de la recepta \"%s\" tenen existències, no s'ha "
+"eliminat res"
+
+msgid "Undo task"
+msgstr "Desfer tasca"
+
+msgid "Due date rollover"
+msgstr ""
+
+msgid ""
+"When enabled the chore can never be overdue, the due date will shift forward"
+" each day when due"
+msgstr ""
+
+msgid "Location Content Sheet"
+msgstr "Full de continguts d'ubicació"
+
+msgid "Print"
+msgstr "Imprimir"
+
+msgid "all locations"
+msgstr "totes les ubicacions"
+
+msgid ""
+"Here you can print a page per location with the current stock, maybe to hang"
+" it there and note the consumed things on it"
+msgstr ""
+"Aquí pots imprimir una pàgina per ubicació amb les existències actuals, per "
+"exemple per a penjar-lo a la paret i apuntar-hi els elements consumits"
+
+msgid "this location"
+msgstr "Aquesta ubicació"
+
+msgid "Consumed amount"
+msgstr "Quantitat consumida"
+
+msgid "Time of printing"
+msgstr "Hora d'impressi"
+
+msgid "Are you sure to delete equipment \"%s\"?"
+msgstr ""
+
+msgid "Parent product"
+msgstr "Producte pare"
+
+msgid ""
+"Not possible because this product is already used as a parent product in "
+"another product"
+msgstr ""
+"No és possible degut a que aquest producte ja s'ha utilitzat com a producte "
+"pare en un altre producte"
+
+msgid "Default conversions"
+msgstr "Conversions per defecte"
+
+msgid "Factor"
+msgstr "Factor"
+
+msgid "1 %s is the same as..."
+msgstr "1 %s és el mateix que..."
+
+msgid "Create QU conversion"
+msgstr "Crea una conversió QU"
+
+msgid "Default for QU"
+msgstr "QU per defecte"
+
+msgid "Quantity unit from"
+msgstr "Unitats des de"
+
+msgid "Quantity unit to"
+msgstr "Unitats a"
+
+msgid "This cannot be equal to %s"
+msgstr "No pot ser igual a %s"
+
+msgid "This means 1 %1$s is the same as %2$s %3$s"
+msgstr "Significa que 1 %1$s equival a %2$s %3$s"
+
+msgid "QU conversions"
+msgstr "Conversions QU"
+
+msgid "Product overrides"
+msgstr ""
+
+msgid "Override for product"
+msgstr ""
+
+msgid "This equals %1$s %2$s"
+msgstr "Equival %1$s %2$s"
+
+msgid "Edit QU conversion"
+msgstr "Edita conversió QU"
+
+msgid "An assignment type is required"
+msgstr ""
+
+msgid "Assignment type"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore is scheduled %s day after the "
+"last execution"
+msgid_plural ""
+"This means the next execution of this chore is scheduled %s days after the "
+"last execution"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid ""
+"This means the next execution of this chore is scheduled %s hour after the "
+"last execution"
+msgid_plural ""
+"This means the next execution of this chore is scheduled %s hours after the "
+"last execution"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid ""
+"This means the next execution of this chore is scheduled every week on the "
+"selected weekdays"
+msgid_plural ""
+"This means the next execution of this chore is scheduled every %s weeks on "
+"the selected weekdays"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid ""
+"This means the next execution of this chore is scheduled on the selected day"
+" every month"
+msgid_plural ""
+"This means the next execution of this chore is scheduled on the selected day"
+" every %s months"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "This means the next execution of this chore is not scheduled"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore will not be assigned to anyone"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore will be assigned to the one who "
+"executed it least"
+msgstr ""
+
+msgid "This means the next execution of this chore will be assigned randomly"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore will be assigned to the next one"
+" in alphabetical order"
+msgstr ""
+
+msgid "Assign to"
+msgstr ""
+
+msgid "This assignment type requires that at least one is assigned"
+msgstr ""
+
+msgid "%s chore is assigned to me"
+msgid_plural "%s chores are assigned to me"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Assigned to me"
+msgstr "Assignat a mi"
+
+msgid "assigned to %s"
+msgstr "assignat a %s"
+
+msgid "Assignment"
+msgstr "Assignació"
+
+msgid "Consume product on chore execution"
+msgstr "Consumir producte al executar la tasca"
+
+msgid "Are you sure to delete user field \"%s\"?"
+msgstr "Segur que vols eliminar el camp d'usuari \"%s\"?"
+
+msgid "Userentities"
+msgstr "Entitat d'usuari"
+
+msgid "Create userentity"
+msgstr "Crear entitat d'usuari"
+
+msgid "Show in sidebar menu"
+msgstr "Mostrar al menú lateral"
+
+msgid "Edit userentity"
+msgstr "Editar entitat d'usuari"
+
+msgid "Edit %s"
+msgstr "Editar %s"
+
+msgid "Create %s"
+msgstr "Crear %s"
+
+msgid "Are you sure to delete this userobject?"
+msgstr "Segur que vols eliminar aquest objecte d'usuari?"
+
+msgid "Icon CSS class"
+msgstr "Icona classe CSS"
+
+msgid "For example"
+msgstr "Per exemple"
+
+msgid "Configure fields"
+msgstr "Configurar camps"
+
+msgid "Quantity unit plural form testing"
+msgstr ""
+
+msgid "Result"
+msgstr "Resultat"
+
+msgid "Test plural forms"
+msgstr "Comprova formes plurals"
+
+msgid "Scan a barcode"
+msgstr "Escanejar codi de barres"
+
+msgid "Error while initializing the barcode scanning library"
+msgstr "Error inicialitzant la llibreria d'escàner de codi de barres"
+
+msgid ""
+"The resulting price of this ingredient will be multiplied by this factor"
+msgstr ""
+"El preu resultant d'aquest ingredient serà multiplicat per aquest factor"
+
+msgid "Price factor"
+msgstr "Factor de preu"
+
+msgid "Do you find grocy useful?"
+msgstr "Trobes grocy útil?"
+
+msgid "Say thanks"
+msgstr "Dir gràcies"
+
+msgid "Search for recipes containing this product"
+msgstr "Busca receptes que continguin aquest producte"
+
+msgid "Add to shopping list"
+msgstr "Afegir a la llista de la compra"
+
+msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
+msgstr "Afegit %1$s de %2$s a la llista de la compra \"%3$s\""
+
+msgid "Output"
+msgstr "Resultat"
+
+msgid "Energy (kcal)"
+msgstr "Energia (kcal)"
+
+msgid "Per stock quantity unit"
+msgstr "Per unitat d'existències"
+
+msgid "Barcode scanner testing"
+msgstr "Test d'escàner de codi de barres"
+
+msgid "Expected barcode"
+msgstr "S'esperava codi de barres"
+
+msgid "Scan field"
+msgstr "Escanejar camp"
+
+msgid "Scanned barcodes"
+msgstr "Codis de barres escanejats"
+
+msgid "Hit"
+msgstr ""
+
+msgid "Miss"
+msgstr ""
+
+msgid "Display recipe"
+msgstr "Mostrar recepta"
+
+msgid "Accumulate sub products min. stock amount"
+msgstr "Acumular existències min. de subproductes"
+
+msgid ""
+"If enabled, the min. stock amount of sub products will be accumulated into "
+"this product, means the sub product will never be missing, only this product"
+msgstr ""
+
+msgid "Are you sure to remove this conversion?"
+msgstr "Estas segur d'eliminar aquesta conversió?"
+
+msgid "Unit price"
+msgstr "Preu unitari"
+
+msgid "Total price"
+msgstr "Preu total"
+
+msgid "in %s and based on the purchase quantity unit"
+msgstr "en %s i basat en la unitat de compra"
+
+msgid "Unlimited"
+msgstr "Il·limitat"
+
+msgid "Clear"
+msgstr "Neteja"
+
+msgid "Are you sure to remove the included recipe \"%s\"?"
+msgstr "Segur que vols eliminar la recepta inclosa \"%s\"?"
+
+msgid "Period interval"
+msgstr "Interval"
+
+msgid ""
+"This means the next execution of this chore is scheduled every year on the "
+"same day (based on the start date)"
+msgid_plural ""
+"This means the next execution of this chore is scheduled every %s years on "
+"the same day (based on the start date)"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Transfer"
+msgstr ""
+
+msgid "From location"
+msgstr "D'ubicació"
+
+msgid "To location"
+msgstr "A ubicació"
+
+msgid "There are no units available at this location"
+msgstr "No hi ha unitats disponibles en aquesta ubicació"
+
+msgid "Amount: %1$s; Due on %2$s; Bought on %3$s"
+msgstr "Quantitat: %1$s; Caducitat el %2$s; Comprat el %3$s"
+
+msgid "Transfered %1$s of %2$s from %3$s to %4$s"
+msgstr "Transferit %1$s de %2$s de%3$s a %4$s"
+
+msgid "Stock entries"
+msgstr "Entrades d'existències"
+
+msgid "Best before date"
+msgstr "Consum preferent"
+
+msgid "Purchased date"
+msgstr "Data de compra"
+
+msgid "Consume all %s for this stock entry"
+msgstr ""
+
+msgid "The amount cannot be lower than %1$s"
+msgstr "La quantitat no pot ser inferior a %1$s"
+
+msgid "Stock entry successfully updated"
+msgstr ""
+
+msgid "Edit stock entry"
+msgstr ""
+
+msgid ""
+"Camera access is only possible when supported and allowed by your browser "
+"and when grocy is served via a secure (https://) connection"
+msgstr ""
+"L'accés a la càmera només és possible quan és suportat i permès per el teu "
+"navegador i quan Grocy és servit a través d'una connexió segura (https)"
+
+msgid "Keep screen on"
+msgstr "Mantenir la pantalla activa"
+
+msgid "Keep screen on while displaying a \"fullscreen-card\""
+msgstr ""
+"Mantenir la pantalla activa quan es mostra una \"targeta a pantalla "
+"completa\""
+
+msgid "A purchased date is required"
+msgstr "Es requereix una data de compra"
+
+msgid ""
+"When a product is selected, one unit (per serving in stock quantity unit) "
+"will be added to stock on consuming this recipe"
+msgstr ""
+
+msgid "Produces product"
+msgstr "Genera producte"
+
+msgid "This booking cannot be undone"
+msgstr ""
+
+msgid "Booking does not exist or was already undone"
+msgstr ""
+
+msgid "Are you sure to delete API key \"%s\"?"
+msgstr "Segur que vols eliminar la clau API \"%s\"?"
+
+msgid "Add note"
+msgstr "Afegir nota"
+
+msgid "Add note on %s"
+msgstr "Afegir nota a %s"
+
+msgid "per day"
+msgstr "per dia"
+
+msgid "Only undone items"
+msgstr ""
+
+msgid "Add product"
+msgstr "Afegir producte"
+
+msgid "Add product on %s"
+msgstr "Afegir producte a%s"
+
+msgid "Consume all ingredients needed by this weeks recipes or products"
+msgstr ""
+"Consumir tots els ingredients requerits per les receptes o productes "
+"d'aquesta setmana"
+
+msgid "Meal plan recipe"
+msgstr ""
+
+msgid "Meal plan note"
+msgstr ""
+
+msgid "Meal plan product"
+msgstr ""
+
+msgid "Scan mode"
+msgstr "Mode escàner"
+
+msgid "on"
+msgstr ""
+
+msgid "off"
+msgstr ""
+
+msgid ""
+"Scan mode is on but not all required fields could be populated automatically"
+msgstr ""
+
+msgid "Is freezer"
+msgstr "És congelador"
+
+msgid ""
+"When moving products from/to a freezer location, the products best before "
+"date is automatically adjusted according to the product settings"
+msgstr ""
+"Quan moguis productes de/des de una ubicació congelador, els prodctes amb "
+"data preferent s'actualitzen automàticament d'acord a la configuració del "
+"producte"
+
+msgid "This cannot be the same as the \"From\" location"
+msgstr "No pot ser el mateix que la ubiacació \"des de\""
+
+msgid "Thawed"
+msgstr "Descongelat"
+
+msgid "Frozen"
+msgstr "Congelat"
+
+msgid "Are you sure to delete userentity \"%s\"?"
+msgstr "Segur que vols eliminar l'entitat d'usuari \"%s\"?"
+
+msgid "Shopping list settings"
+msgstr "Configuració de la llista de la compra"
+
+msgid "Show a month-view calendar"
+msgstr "Mostra la vista mensual de calendari"
+
+msgid "Edit note on %s"
+msgstr "Editar nota a %s"
+
+msgid "Edit product on %s"
+msgstr "Editar producte a %s"
+
+msgid "Edit recipe on %s"
+msgstr "Editar recepta a %s"
+
+msgid "Desired servings"
+msgstr "Racions desitjades"
+
+msgid "Base: %s"
+msgstr "Base: %s"
+
+msgid "Recipes settings"
+msgstr "Configuració de receptes"
+
+msgid "Recipe card"
+msgstr "Targeta de recepta"
+
+msgid "Group ingredients by their product group"
+msgstr "Agrupa ingredients per grup de producte"
+
+msgid "Unknown store"
+msgstr "Botiga desconeguda"
+
+msgid "Store"
+msgstr "Botiga"
+
+msgid "Transaction successfully undone"
+msgstr "Transacció desfetacorectament"
+
+msgid "Default store"
+msgstr "Botiga per defecte"
+
+msgid "Consume this stock entry"
+msgstr "Consumir aquest element"
+
+msgid "Mark this stock entry as open"
+msgstr "Marcar aquest element com a obert"
+
+msgid "Mark this item as done"
+msgstr "Marcar aquest element com a fet"
+
+msgid "Edit this item"
+msgstr "Editar aquest element"
+
+msgid "Delete this item"
+msgstr "Eliminar aquest element"
+
+msgid "Show an icon if the product is already on the shopping list"
+msgstr "Mostra una icona si el producte ja és a la llista de la compra"
+
+msgid "Calories"
+msgstr "Calories"
+
+msgid "means %1$s per %2$s"
+msgstr "significa %1$s per %2$s"
+
+msgid "Create inverse QU conversion"
+msgstr "Crear conversió QU inversa"
+
+msgid "Create recipe"
+msgstr "Crear recepta"
+
+msgid "Save & continue to add ingredients and included recipes"
+msgstr "Guardar i continuar a afegir ingredients i receptes incloses"
+
+msgid "Save & continue"
+msgstr "Guardar i continuar"
+
+msgid "Save & return to recipes"
+msgstr "Guardar i tornar a receptes"
+
+msgid "Stock value"
+msgstr "Valor d'existències"
+
+msgid "Average price"
+msgstr "Preu mig"
+
+msgid "Active"
+msgstr "Actiu"
+
+msgid "Barcodes"
+msgstr "Codis de barres"
+
+msgid "Barcode"
+msgstr "Codi de barres"
+
+msgid "Create Barcode"
+msgstr "Crear codi de barres"
+
+msgid "Barcode for product"
+msgstr "Codi de barres per producte"
+
+msgid "Edit Barcode"
+msgstr "Editar codi de barres"
+
+msgid ""
+"Based on the prices of the default consume rule (Opened first, then first "
+"due first, then first in first out) for in-stock ingredients and on the last"
+" price for missing ones"
+msgstr ""
+
+msgid "Quantity unit stock cannot be changed after first purchase"
+msgstr ""
+
+msgid "Clear filter"
+msgstr "Buidar filtre"
+
+msgid "Permissions for user %s"
+msgstr "Permisos per usuari %s"
+
+msgid "Are you sure you want to remove full permissions for yourself?"
+msgstr "Segur que vols eliminar els permisos totals per a tu?"
+
+msgid "Permissions saved"
+msgstr "Permisos guardats"
+
+msgid "You are not allowed to view this page"
+msgstr "No estàs autoritzat a veure aquesta pàgina"
+
+msgid "Page not found"
+msgstr "No s'ha trobat la pàgina"
+
+msgid "Unauthorized"
+msgstr "No autoritzat "
+
+msgid "Error source"
+msgstr "Font d'error"
+
+msgid "Error message"
+msgstr "Missatge d'error"
+
+msgid "Stack trace"
+msgstr ""
+
+msgid "Easy error info copy & paste (for reporting)"
+msgstr ""
+
+msgid "This page does not exist"
+msgstr "Aquesta pàgina no existeix"
+
+msgid "You will be redirected to the default page in %s seconds"
+msgstr "Seràs redirigit a la pàgina per defecte en %s segons"
+
+msgid "Server error"
+msgstr "Error de servidor"
+
+msgid "A server error occured while processing your request"
+msgstr ""
+"Ha ocorregut un error de servidor quan s'estava processant la seva petició"
+
+msgid "If you think this is a bug, please report it"
+msgstr "Si creus que és un error, si us plau, reporti-ho"
+
+msgid "Language"
+msgstr "Idioma"
+
+msgid "User settings"
+msgstr "Configuració d'usuari"
+
+msgid "Default"
+msgstr "Per defecte"
+
+msgid "Stock journal summary"
+msgstr ""
+
+msgid "Journal summary"
+msgstr ""
+
+msgid "Journal summary for this product"
+msgstr ""
+
+msgid "Consume exact amount"
+msgstr "Consumir quantitat exacta"
+
+msgid "Value"
+msgstr "Valor"
+
+msgid "%s total value"
+msgstr "%s valor total"
+
+msgid ""
+"Show purchased date on purchase and inventory page (otherwise the purchased "
+"date defaults to today)"
+msgstr ""
+
+msgid "Common"
+msgstr "Comú"
+
+msgid "Decimal places allowed for amounts"
+msgstr "Decimals permesos per a les quantitats"
+
+msgid "Decimal places allowed for prices"
+msgstr "Decimals permesos per als preus"
+
+msgid "Stock entries for this product"
+msgstr ""
+
+msgid "Edit shopping list"
+msgstr "Editar llista de la compra"
+
+msgid "Save & continue to add quantity unit conversions & barcodes"
+msgstr "Guardar i continuar per afegir conversió d'unitats i codis de barres"
+
+msgid "Save & return to products"
+msgstr "Guardar i tornar a productes"
+
+msgid "Save & continue to add conversions"
+msgstr "Guardar i continuar per afegir conversions"
+
+msgid "Save & return to quantity units"
+msgstr "Guardar i tornar a unitats"
+
+msgid "price"
+msgstr "preu"
+
+msgid "New stock amount"
+msgstr "Nova quantitat d'existències"
+
+msgid "Price per stock unit"
+msgstr "Preu per unitat d'existències"
+
+msgid "Table options"
+msgstr "Opcions de la taula"
+
+msgid "This product is currently on a shopping list"
+msgstr "Aquest producte és actualment en una llista de la compra"
+
+msgid "Undo transaction"
+msgstr "Desfer transacció"
+
+msgid "Transaction type"
+msgstr "Tipus de transacció"
+
+msgid "Transaction time"
+msgstr "Hora de la transacció"
+
+msgid "Chore journal"
+msgstr ""
+
+msgid "Track chore execution"
+msgstr "Seguiment d'execució de tasques"
+
+msgid "Mark task as completed"
+msgstr "Marcar tasca com a completada"
+
+msgid "Track charge cycle"
+msgstr "Seguiment de cicle de càrrega"
+
+msgid "Battery journal"
+msgstr ""
+
+msgid "This product has a picture"
+msgstr "Aquest producte té imatge"
+
+msgid "Consume this stock entry as spoiled"
+msgstr "Consumir aquest element com a fet malbé"
+
+msgid "Configure user permissions"
+msgstr "Configurar permisos d'usuai"
+
+msgid "Show a QR-Code for this API key"
+msgstr "Mostra codi QR per a aquesta clau API"
+
+msgid ""
+"This is the default quantity unit used when adding this product to the "
+"shopping list"
+msgstr ""
+"La unitat per defecte quan s'afegeix aquest producte a la llista de la "
+"compra"
+
+msgid ""
+"Show a warning when the due date of the purchased product is earlier than "
+"the next due date in stock"
+msgstr ""
+"Mostra una advertència quan la data de caducitat del producte comprat és més"
+" propera que la de les existències"
+
+msgid "This is due earlier than already in-stock items"
+msgstr ""
+"Aquesta data de caducitat és més propera que la que ja tens en existències"
+
+msgid ""
+"When enabled, after changing/scanning a product and if all fields could be "
+"automatically populated (by product and/or barcode defaults), the "
+"transaction is automatically submitted"
+msgstr ""
+
+msgid "Quick consume amount"
+msgstr "Consumir ràpidament"
+
+msgid ""
+"This amount is used for the \"quick consume/open buttons\" on the stock "
+"overview page (related to quantity unit stock)"
+msgstr ""
+"Aquesta quantitat és utilitzada per els botons \"consumir/obrir ràpidament\""
+" en la pàgina principal de revisió d'existències (relacionada amb la "
+"quantitat d'existències)"
+
+msgid "Copy"
+msgstr "Copiar"
+
+msgid "Are you sure to remove this barcode?"
+msgstr "Segur que vols eliminar aquest codi de barres?"
+
+msgid "Due date type"
+msgstr "Tipus de data de caducitat"
+
+msgid ""
+"Based on the selected type, the highlighting on the stock overview page will"
+" be different"
+msgstr ""
+"Basat en el tipus seleccionat, el destacat en la pàgina de revisió "
+"d'existències serà diferent"
+
+msgid ""
+"Means that the product is maybe still safe to be consumed after its due date"
+" is reached"
+msgstr ""
+"Significa que el producte probablement encara sigui segur per al consum "
+"després de la data"
+
+msgid "Expiration date"
+msgstr "Data de caducitat"
+
+msgid ""
+"Means that the product is not safe to be consumed after its due date is "
+"reached"
+msgstr ""
+"Significa que el producte no és segur per al consum després de la data de "
+"caducitat"
+
+msgid ""
+"For purchases this amount of days will be added to today for the due date "
+"suggestion"
+msgstr ""
+"Per a compres, aquesta quantitat de dies serà afegida a la data d'avui per a"
+" la suggerència de data de consum"
+
+msgid "-1 means that this product will be never overdue"
+msgstr "-1 significa que aquest producte no caducarà mai"
+
+msgid "Default due days"
+msgstr "Dies per al consum per defecte"
+
+msgid ""
+"When this product was marked as opened, the due date will be replaced by "
+"today + this amount of days, but only if the resulting date is not after the"
+" original due date (a value of 0 disables this)"
+msgstr ""
+"Quan aquest producte es marqui com a obert, la data de consum serà "
+"substituida per la data del dia + aquesta quantitat de dies, pero només si "
+"la data resultant no és més tard de la data de consum original (el valor 0 "
+"desactiva aquesta opció)"
+
+msgid "Default due days after opened"
+msgstr "Dies per al consum després d'obrir per defecte"
+
+msgid ""
+"On moving this product to a freezer location (so when freezing it), the due "
+"date will be replaced by today + this amount of days"
+msgstr ""
+"Quan es mou aquest producte a una ubicació congelador (és a dir, quan es "
+"congela), la data de consum serà substituïda per avui + aquesta quantitat de"
+" dies"
+
+msgid "Default due days after freezing"
+msgstr "Dies per al consum després de congelar per defecte"
+
+msgid ""
+"On moving this product from a freezer location (so when thawing it), the due"
+" date will be replaced by today + this amount of days"
+msgstr ""
+"Quan es mou aquest producte des d'una ubicació congelador (és a dir, quan es"
+" descongela), la data de consum serà substituïda per avui + aquesta "
+"quantitat de dies"
+
+msgid "Default due days after thawing"
+msgstr "Dies per al consum després de descongelar per defecte"
+
+msgid "Next due date"
+msgstr "Propera data límit de consum"
+
+msgid "%s product is due"
+msgid_plural "%s products are due"
+msgstr[0] "%s producte és a la data de consum preferent"
+msgstr[1] "%s han superat la data de consum preferent"
+
+msgid "Due date"
+msgstr "Data de consum preferent"
+
+msgid "Never overdue"
+msgstr "No caducar mai"
+
+msgid "%s product is expired"
+msgid_plural "%s products are expired"
+msgstr[0] "%s  producte ha caducat"
+msgstr[1] "%s  productes han caducat"
+
+msgid "Expired"
+msgstr "Caducat"
+
+msgid "Due soon days"
+msgstr "Dies per al consum"
+
+msgid "Add overdue/expired products"
+msgstr "Afegeix productes caducats"
+
+msgid ""
+"Products with tare weight enabled are currently not supported for transfer"
+msgstr ""
+
+msgid ""
+"This cannot be lower than %1$s or equal %2$s and needs to be a valid number "
+"with max. %3$s decimal places"
+msgstr ""
+
+msgid ""
+"This must be between %1$s and %2$s, cannot equal %3$s and needs to be a "
+"valid number with max. %4$s decimal places"
+msgstr ""
+
+msgid ""
+"This cannot be lower than %1$s and needs to be a valid number with max. %2$s"
+" decimal places"
+msgstr ""
+
+msgid ""
+"This must between %1$s and %2$s and needs to be a valid number with max. "
+"%3$s decimal places"
+msgstr ""
+
+msgid ""
+"Automatically do the booking using the last price and the amount of the "
+"shopping list item, if the product has \"Default due days\" set"
+msgstr ""
+
+msgid ""
+"When moving products from/to a freezer location, the products due date is "
+"automatically adjusted according to the product settings"
+msgstr ""
+"Quan es mou aquest producte a/des de una ubicació congelador, la data de "
+"consum serà ajustada automàticament segons la confguració del producte"
+
+msgid "This is the internal field name, e. g. for the API"
+msgstr ""
+
+msgid "This is used to display the field on the frontend"
+msgstr ""
+
+msgid "Multiple Userfields will be ordered by that number on the input form"
+msgstr ""
+
+msgid "Sort number"
+msgstr "Ordenar número"
+
+msgid "Download file"
+msgstr "Descarregar arxiu"
+
+msgid "Use the products \"Quick consume amount\""
+msgstr ""
+
+msgid "Disabled"
+msgstr "Desactivat"
+
+msgid ""
+"This also removes any stock amount, the journal and all other references of "
+"this product - consider disabling it instead, if you want to keep that and "
+"just hide the product."
+msgstr ""
+
+msgid "Show disabled"
+msgstr "Mostra desactivats"
+
+msgid "Never show on stock overview"
+msgstr "No mostrar mai a la revisió d'existències"
+
+msgid "None"
+msgstr "Ca"
+
+msgid "Group by"
+msgstr "Agrupar per"
+
+msgid "Ingredient group"
+msgstr "Grup d'ingredients"
+
+msgid "Reset"
+msgstr "Reiniciar"
+
+msgid "Are you sure to reset the table options?"
+msgstr "Segur que vols reiniciar les opcions de la taula?"
+
+msgid "Hide/view columns"
+msgstr "Ocultar/mostrar columnes"
+
+msgid ""
+"A different amount/unit can then be used below while for stock fulfillment "
+"checking it is sufficient when any amount of the product in stock"
+msgstr ""
+
+msgid "Last price (Unit)"
+msgstr "Últim preu (unitat)"
+
+msgid "Last price (Total)"
+msgstr "Últim preu (Total)"
+
+msgid "Show header"
+msgstr "Mostrar capçalera"
+
+msgid "Group by product group"
+msgstr "Agrupar per grup de producte"
+
+msgid "Table"
+msgstr "Taula"
+
+msgid "Layout type"
+msgstr ""
+
+msgid "Merge this product with another one"
+msgstr "Unir aquest producte amb un altre"
+
+msgid "Merge products"
+msgstr "Unir productes"
+
+msgid "Product to keep"
+msgstr "Producte a mantenir"
+
+msgid "Product to remove"
+msgstr "Producte a eliminar"
+
+msgid "Error while merging"
+msgstr "Error al unir"
+
+msgid "After merging, this product will be kept"
+msgstr "Després de la unió, aquest producte es mantindrà"
+
+msgid ""
+"After merging, all occurences of this product will be replaced by \"Product "
+"to keep\" (means this product will not exist anymore)"
+msgstr ""
+
+msgid "Merge"
+msgstr "Unir"
+
+msgid "Title"
+msgstr "Títol"
+
+msgid "Link"
+msgstr "Enllaç"
+
+msgid ""
+"The stock overview page lists all products which are currently in-stock or "
+"below their min. stock amount - enable this to hide this product there "
+"always"
+msgstr ""
+
+msgid "Print options"
+msgstr "Opcions d'impressió"
+
+msgid "A product or a note is required"
+msgstr "Es requereix un producte o nota"
+
+msgid "grocycode"
+msgstr "grocycode"
+
+msgid "Download"
+msgstr "Descàrrega"
+
+# Example: Download *Product* grocycode
+msgid "Download %s grocycode"
+msgstr "Descarregar grocycode %s"
+
+msgid ""
+"grocycode is a unique referer to this %s in your grocy instance - print it "
+"onto a label and scan it like any other barcode"
+msgstr ""
+"grocycode és una referència única a aquest %s en la teva instància de grocy "
+"-  imprimeix-la en una etiqueta i escaneja-la com qualsevol altre codi de "
+"barres"
+
+# Abbreviation for "due date"
+msgid "DD"
+msgstr ""
+
+msgid "Print on label printer"
+msgstr "Imprimir en una impressora d'etiquetes"
+
+msgid "Default stock entry label"
+msgstr ""
+
+msgid "Stock entry label"
+msgstr ""
+
+msgid "No label"
+msgstr "Sense etiqueta"
+
+msgid "Single label"
+msgstr "Etiqueta simple"
+
+msgid "Label per unit"
+msgstr "Etiqueta per unitat"
+
+msgid "Error while executing WebHook"
+msgstr "Error a l'executar el WebHook"
+
+# Example: Print *Product* grocycode on label printer
+msgid "Print %s grocycode on label printer"
+msgstr "Imprimir el grocycode %s en una impressora d'etiquetes"
+
+msgid "Open stock entry label in new window"
+msgstr ""
+
+msgid "Thermal printer"
+msgstr "Impressora tèrmica"
+
+msgid "Printing"
+msgstr "Imprimint"
+
+msgid "Connecting to printer..."
+msgstr "Connectant a impressora..."
+
+msgid "Unable to print"
+msgstr "No s'ha pogut imprimir"
+
+msgid "Only done items"
+msgstr "Només elements completats"
+
+msgid "Show only in-stock products"
+msgstr "Mostra només productes en existències"
+
+msgid "Product description"
+msgstr "Descripció de producte"
+
+# Example: *3.21 USD* per *Pack*
+msgid "%1$s per %2$s"
+msgstr "%1$s per %2$s"
+
+msgid "Mark this item as undone"
+msgstr "Marcar aquest item com a no fet"
+
+msgid "Mandatory"
+msgstr "Obligatori"
+
+msgid "Mandatory Userfield"
+msgstr "Camp d'usuari obligatori"
+
+msgid "When enabled, then this field must be filled on the destination form"
+msgstr "Quan activat, aquest camp s'ha d'omplir en el formulari de dest"
+
+msgid "In-stock products"
+msgstr "Productes en existències"
+
+msgid "Timestamp"
+msgstr "Marca de temps"
+
+msgid "Should not be frozen"
+msgstr "No es pot congelar"
+
+msgid ""
+"When enabled, on moving this product to a freezer location (so when freezing"
+" it), a warning will be shown"
+msgstr ""
+"Quan s'activa, al moure aquest producte a una ubicació congelador (és a dir,"
+" quan es congela), es mostra una alerta"
+
+msgid "This product shouldn't be frozen"
+msgstr "Aquest producte no es pot congelar"
+
+msgid "Copy all meal plan entries of %s"
+msgstr ""
+
+msgid "A date is required"
+msgstr "Es requereix una data"
+
+msgid "Day"
+msgstr "Dia"
+
+msgid "Add recipe"
+msgstr "Afegir recepta"
+
+msgid "Copy this day"
+msgstr "Copiar aquest dia"
+
+msgid "Date range"
+msgstr "Rang de dates"
+
+msgid "%s month"
+msgid_plural "%s months"
+msgstr[0] "%s mes"
+msgstr[1] "%s mesos"
+
+msgid "%s year"
+msgid_plural "%s years"
+msgstr[0] "%s any"
+msgstr[1] "%s anys"
+
+msgid "Display product"
+msgstr "Mostrar producte"
+
+msgid "Copy recipe"
+msgstr "Copiar recepta"
+
+msgid "Copy of %s"
+msgstr "Copia de %s"
+
+msgid "Add decimal separator automatically for price inputs"
+msgstr "Afegir separador decimal automàticament per als preus"
+
+msgid ""
+"When enabled, you always have to enter the value including decimal places, "
+"the decimal separator will be automatically added based on the amount of "
+"allowed decimal places"
+msgstr ""
+
+msgid "Stock entry"
+msgstr ""
+
+msgid "Configure sections"
+msgstr "Configurar seccions"
+
+msgid "Meal plan sections"
+msgstr ""
+
+msgid "Create meal plan section"
+msgstr ""
+
+msgid "Sections will be ordered by that number on the meal plan"
+msgstr ""
+
+msgid "Edit meal plan section"
+msgstr ""
+
+msgid "Are you sure to delete meal plan section \"%s\"?"
+msgstr ""
+
+msgid "Section"
+msgstr "Secció"
+
+msgid "Are you sure to empty the shopping list?"
+msgstr ""
+
+msgid "This is the default which will be prefilled on purchase"
+msgstr ""
+
+msgid "Merge chores"
+msgstr "Unir tasques"
+
+msgid "Chore to keep"
+msgstr "Tasca a mantenir"
+
+msgid "After merging, this chore will be kept"
+msgstr "Després d'unir, aquesta tasca es mantindrà"
+
+msgid "Chore to remove"
+msgstr "Tasca a eliminar"
+
+msgid ""
+"After merging, all occurences of this chore will be replaced by the kept "
+"chore (means this chore will not exist anymore)"
+msgstr ""
+
+msgid "Due today"
+msgstr ""
+
+msgid "%s task is due to be done today"
+msgid_plural "%s tasks are due to be done today"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s chore is due to be done today"
+msgid_plural "%s chores are due to be done today"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s battery is due to be charged today"
+msgid_plural "%s batteries are due to be charged today"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Set to 0 to hide due soon filters/highlighting"
+msgstr ""
+
+msgid "Save & close"
+msgstr ""
+
+msgid "Save & add another task"
+msgstr ""
+
+msgid "Treat opened as out of stock"
+msgstr ""
+
+msgid ""
+"When enabled, opened items will be counted as missing for calculating if "
+"this product is below its minimum stock amount"
+msgstr ""
+
+msgid "Skipped"
+msgstr ""
+
+msgid "Skip next chore schedule"
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+msgid "A start date is required"
+msgstr ""
+
+msgid "Start date"
+msgstr ""
+
+msgid "The start date cannot be changed when the chore was once tracked"
+msgstr ""
+
+msgid "Show the recipe list and the recipe side by side"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore is scheduled dynamically based "
+"on the past average execution frequency"
+msgstr ""
+
+msgid "Average execution frequency"
+msgstr ""

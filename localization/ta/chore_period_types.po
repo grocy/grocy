@@ -20,9 +20,6 @@ msgstr ""
 msgid "manually"
 msgstr "கைமுறையாக"
 
-msgid "dynamic-regular"
-msgstr "டைனமிக்-வழக்கம்"
-
 msgid "daily"
 msgstr "தினந்தோறும்"
 
@@ -34,3 +31,9 @@ msgstr "மாதந்தோறும்"
 
 msgid "yearly"
 msgstr "ஆண்டுதோறும்"
+
+msgid "hourly"
+msgstr ""
+
+msgid "adaptive"
+msgstr ""

@@ -1,0 +1,138 @@
+# 
+# Translators:
+# gimy16 <gimy16@hotmail.com>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-29 16:33+0000\n"
+"Last-Translator: gimy16 <gimy16@hotmail.com>, 2021\n"
+"Language-Team: Catalan (https://www.transifex.com/grocy/teams/93189/ca/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ca\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/permissions\n"
+
+# All permissions
+msgid "ADMIN"
+msgstr "ADMIN"
+
+# Create users
+msgid "USERS_CREATE"
+msgstr "USUARIS_CREACIÓ"
+
+# Edit users (including passwords)
+msgid "USERS_EDIT"
+msgstr "USUARIS_EDICIÓ"
+
+# Show users
+msgid "USERS_READ"
+msgstr "USUARIS_LECTURA"
+
+# Edit own user data / change own password
+msgid "USERS_EDIT_SELF"
+msgstr "USUARIS_EDICIÓ_PRÒPIA"
+
+# Undo charge cycle
+msgid "BATTERIES_UNDO_CHARGE_CYCLE"
+msgstr "PILES-SENSE-CICLE-DE-CÀRREGA"
+
+# Track charge cycle
+msgid "BATTERIES_TRACK_CHARGE_CYCLE"
+msgstr "CICLE DE CÀRREGA DE PILES"
+
+# Track execution
+msgid "CHORE_TRACK_EXECUTION"
+msgstr "SEGUIMENT-D'EXECUCIÓ-DE-LA-FEINA"
+
+# Undo execution
+msgid "CHORE_UNDO_EXECUTION"
+msgstr "EXECUCIÓ-NO-REALITZADA-DE-LA-FEINA"
+
+# Edit master data
+msgid "MASTER_DATA_EDIT"
+msgstr ""
+
+# Undo execution
+msgid "TASKS_UNDO_EXECUTION"
+msgstr "EXECUCIÓ-NO-REALITZADA-DE-LES-TASQUES"
+
+# Mark completed
+msgid "TASKS_MARK_COMPLETED"
+msgstr "TASQUES_COMPLETADES"
+
+# Edit stock entries
+msgid "STOCK_EDIT"
+msgstr "EDITAR_ESTOC"
+
+# Transfer
+msgid "STOCK_TRANSFER"
+msgstr "TRANSFERÈNCIA_D'ESTOC"
+
+# Inventory
+msgid "STOCK_INVENTORY"
+msgstr "ESTOC_A_L'INVENTARI"
+
+# Consume
+msgid "STOCK_CONSUME"
+msgstr "ESTOC_CONSUMIT"
+
+# Open products
+msgid "STOCK_OPEN"
+msgstr "ESTOC_OBERT"
+
+# Purchase
+msgid "STOCK_PURCHASE"
+msgstr "COMPRA_ESTOCS"
+
+# Add items
+msgid "SHOPPINGLIST_ITEMS_ADD"
+msgstr "ELEMENTS_AFEGITS_DE_LA_LLISTA_DE_LA_COMPRA"
+
+# Remove items
+msgid "SHOPPINGLIST_ITEMS_DELETE"
+msgstr ""
+
+# User management
+msgid "USERS"
+msgstr "USUARIS"
+
+# Stock
+msgid "STOCK"
+msgstr "ESTOC"
+
+# Shopping list
+msgid "SHOPPINGLIST"
+msgstr "LLISTA DE LA COMPRA"
+
+# Chores
+msgid "CHORES"
+msgstr "FEINES"
+
+# Batteries
+msgid "BATTERIES"
+msgstr "PILES"
+
+# Tasks
+msgid "TASKS"
+msgstr "TASQUES"
+
+# Recipes
+msgid "RECIPES"
+msgstr "RECEPTES"
+
+# Equipment
+msgid "EQUIPMENT"
+msgstr "EQUIP"
+
+# Calendar
+msgid "CALENDAR"
+msgstr "CALENDARI"
+
+# Meal plan
+msgid "RECIPES_MEALPLAN"
+msgstr "RECEPTES_MENÚ"

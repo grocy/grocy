@@ -411,3 +411,6 @@ msgstr "Обед"
 
 msgid "Dinner"
 msgstr "Ужин"
+
+msgid "Catalan"
+msgstr ""

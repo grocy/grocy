@@ -8,6 +8,7 @@
 # Michael Winkel <mbw@mbw.dk>, 2021
 # klavslund <klavslund@gmail.com>, 2021
 # dark159123 <r.j.hansen@protonmail.com>, 2021
+# Jesper Donnis, 2021
 # 
 msgid ""
 msgstr ""
@@ -15,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: dark159123 <r.j.hansen@protonmail.com>, 2021\n"
+"Last-Translator: Jesper Donnis, 2021\n"
 "Language-Team: Danish (https://www.transifex.com/grocy/teams/93189/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -293,7 +294,7 @@ msgid "Invalid credentials, please try again"
 msgstr "Ugyldig brugernavn og/eller adgangskode, prøv igen"
 
 msgid "Are you sure to delete battery \"%s\"?"
-msgstr "Er du sikker på du vil slette batteriet \"%s\"?"
+msgstr "Er du sikker på du vil slette batteri \"%s\"?"
 
 msgid "Yes"
 msgstr "Ja"
@@ -338,7 +339,7 @@ msgid "Manage API keys"
 msgstr "Administrer API nøgler"
 
 msgid "REST API browser"
-msgstr ""
+msgstr "REST API browser"
 
 msgid "API keys"
 msgstr "API nøgler"
@@ -363,13 +364,6 @@ msgstr "Dette betyder %s bliver tilføjet til beholdningen"
 
 msgid "This means %s will be removed from stock"
 msgstr "Dette betyder at %s bliver fjernet fra beholdningen"
-
-msgid ""
-"This means the next execution of this chore is scheduled %s days after the "
-"last execution"
-msgstr ""
-"Det betyder at næste udførelse af dette gøremål er planlagt %sdage efter "
-"sidste udførelse."
 
 msgid "Removed %1$s of %2$s from stock"
 msgstr "Fjerede %1$s af %2$s fra beholdningen"
@@ -543,7 +537,7 @@ msgid "Last name"
 msgstr "Efternavn"
 
 msgid "A username is required"
-msgstr "Brugernavnet er påkrævet"
+msgstr "Et brugernavn er påkrævet"
 
 msgid "Confirm password"
 msgstr "Gentag adgangskoden"
@@ -927,9 +921,6 @@ msgstr "Portioner"
 
 msgid "Costs"
 msgstr "Omkostninger"
-
-msgid "Based on the prices of the last purchase per product"
-msgstr "Baseret på prisen af sidste køb per vare"
 
 msgid "The ingredients listed here result in this amount of servings"
 msgstr "Ingredienslisten vist her resulterer i følgende antal portioner"
@@ -1349,28 +1340,43 @@ msgid "Assignment type"
 msgstr "Opgavetype"
 
 msgid ""
-"This means the next execution of this chore is scheduled 1 day after the "
+"This means the next execution of this chore is scheduled %s day after the "
 "last execution"
-msgstr ""
-"Det betyder at den næste udførelse af dette gøremål er planlagt 1 dag efter "
-"sidste udførelse"
+msgid_plural ""
+"This means the next execution of this chore is scheduled %s days after the "
+"last execution"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid ""
-"This means the next execution of this chore is scheduled 1 day after the "
-"last execution, but only for the weekdays selected below"
-msgstr ""
-"Det betyder at den næste udførelse af dette gøremål er planlagt 1 dag efter "
-"sidste udførelse, men kun på de dage der er valgt herunder"
+"This means the next execution of this chore is scheduled %s hour after the "
+"last execution"
+msgid_plural ""
+"This means the next execution of this chore is scheduled %s hours after the "
+"last execution"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid ""
+"This means the next execution of this chore is scheduled every week on the "
+"selected weekdays"
+msgid_plural ""
+"This means the next execution of this chore is scheduled every %s weeks on "
+"the selected weekdays"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid ""
+"This means the next execution of this chore is scheduled on the selected day"
+" every month"
+msgid_plural ""
+"This means the next execution of this chore is scheduled on the selected day"
+" every %s months"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "This means the next execution of this chore is not scheduled"
 msgstr "Det betyder at næste udførelse af dette gøremål ikke er planlagt"
-
-msgid ""
-"This means the next execution of this chore is scheduled on the below "
-"selected day of each month"
-msgstr ""
-"Det betyder at næste udførelse af dette gøremål er planlagt på den nedenfor "
-"valgte dag i hver måned"
 
 msgid ""
 "This means the next execution of this chore will not be assigned to anyone"
@@ -1553,38 +1559,13 @@ msgid "Period interval"
 msgstr "Periodeinterval"
 
 msgid ""
-"This means the next execution of this chore should only be scheduled every "
-"%s days"
-msgstr ""
-"Det betyder at den næste udførelse af dette gøremål kun bør planlægges hver "
-"%s dage"
-
-msgid ""
-"This means the next execution of this chore should only be scheduled every "
-"%s weeks"
-msgstr ""
-"Det betyder at den næste udførelse af dette gøremål kun bør planlægges hver "
-"%s uger"
-
-msgid ""
-"This means the next execution of this chore should only be scheduled every "
-"%s months"
-msgstr ""
-"Det betyder at den næste udførsel af dette gøremål kun bør planlægges hver "
-"%s måneder"
-
-msgid ""
-"This means the next execution of this chore is scheduled 1 year after the "
-"last execution"
-msgstr ""
-"Det betyder at næste udførsel af dette gøremål er planlagt 1 år efter sidste"
-" udførsel"
-
-msgid ""
-"This means the next execution of this chore should only be scheduled every "
-"%s years"
-msgstr ""
-"Det betyder at næste udførsel af dette gøremål kun bør planlægges hver %s år"
+"This means the next execution of this chore is scheduled every year on the "
+"same day (based on the start date)"
+msgid_plural ""
+"This means the next execution of this chore is scheduled every %s years on "
+"the same day (based on the start date)"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Transfer"
 msgstr "Skift placering"
@@ -1702,7 +1683,7 @@ msgstr "fra"
 msgid ""
 "Scan mode is on but not all required fields could be populated automatically"
 msgstr ""
-"Vare-skanning er slået til, men ikke allle felter kunne opdateres "
+"Vare-skanning er slået til, men alle krævede felter kunne ikke opdateres "
 "automatisk."
 
 msgid "Is freezer"
@@ -1755,7 +1736,7 @@ msgid "Recipe card"
 msgstr "Opskrift"
 
 msgid "Group ingredients by their product group"
-msgstr "Grupper ingridienser efter varegruppe"
+msgstr "Grupper ingredienser efter varegruppe"
 
 msgid "Unknown store"
 msgstr "Ubekendt butik"
@@ -1779,10 +1760,10 @@ msgid "Mark this item as done"
 msgstr "Marker dette punkt som færdigt"
 
 msgid "Edit this item"
-msgstr "Rediger denne emne"
+msgstr "Rediger dette emne"
 
 msgid "Delete this item"
-msgstr "Slette dette punkt"
+msgstr "Slet dette punkt"
 
 msgid "Show an icon if the product is already on the shopping list"
 msgstr "Vis hvis denne vare allerede findes i indkøbslisten"
@@ -1832,23 +1813,11 @@ msgstr "Stregkode for vare"
 msgid "Edit Barcode"
 msgstr "Rediger stregkode"
 
-msgid "Not enough in stock (not included in costs), %s ingredient missing"
-msgstr ""
-"Ikke nok på lager, (ikke inkuderet i prisberegning). %s ingrediens mangler"
-
 msgid ""
-"Based on the prices of the default consume rule which is \"Opened first, "
-"then first due first, then first in first out\""
+"Based on the prices of the default consume rule (Opened first, then first "
+"due first, then first in first out) for in-stock ingredients and on the last"
+" price for missing ones"
 msgstr ""
-"Prisen nedskrives efter følgende regel: 1. Allerede åbnet, 2. Bedst før "
-"dato, 3. Først indkøbt "
-
-msgid ""
-"Not enough in stock (not included in costs), %1$s missing, %2$s already on "
-"shopping list"
-msgstr ""
-"Der er ikke nok på lager, (ikke inkluderet i priberegningen). %1$s mangler. "
-"%2$s er i indkøbslisten"
 
 msgid "Quantity unit stock cannot be changed after first purchase"
 msgstr "Lagerenhed kan ikke ændres efter første indkøb"
@@ -1905,7 +1874,7 @@ msgid "Language"
 msgstr "Sprog"
 
 msgid "User settings"
-msgstr "Bruger indstillinger"
+msgstr "Brugerindstillinger"
 
 msgid "Default"
 msgstr "Standard"
@@ -2008,7 +1977,7 @@ msgid "Consume this stock entry as spoiled"
 msgstr "Nedskriv denne vare som kasseret"
 
 msgid "Configure user permissions"
-msgstr "Tilpas bruger rettigheder"
+msgstr "Tilpas brugerrettigheder"
 
 msgid "Show a QR-Code for this API key"
 msgstr "Vis QR kode for API nøglen"
@@ -2114,7 +2083,7 @@ msgid "Default due days after thawing"
 msgstr "Bedst før dage efter optøning"
 
 msgid "Next due date"
-msgstr "Næste forfaldsdato"
+msgstr "Næste udløbsdato"
 
 msgid "%s product is due"
 msgid_plural "%s products are due"
@@ -2280,7 +2249,7 @@ msgid "Product to remove"
 msgstr "Vare der slettes"
 
 msgid "Error while merging"
-msgstr ""
+msgstr "Fejl i sammenlægning"
 
 msgid "After merging, this product will be kept"
 msgstr "Efter sammenlægning bibeholdes denne vare"
@@ -2317,26 +2286,28 @@ msgid "A product or a note is required"
 msgstr "Der behøves en vare eller en note"
 
 msgid "grocycode"
-msgstr ""
+msgstr "grocycode"
 
 msgid "Download"
-msgstr ""
+msgstr "Download"
 
 # Example: Download *Product* grocycode
 msgid "Download %s grocycode"
-msgstr ""
+msgstr "Download %s grocycode"
 
 msgid ""
 "grocycode is a unique referer to this %s in your grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
+"grocycode er en unik reference til %s i din grocy installation - print den "
+"på en label og skan den som enhver anden stregkode"
 
 # Abbreviation for "due date"
 msgid "DD"
 msgstr ""
 
 msgid "Print on label printer"
-msgstr ""
+msgstr "Print på labelprinter"
 
 msgid "Default stock entry label"
 msgstr ""
@@ -2345,7 +2316,7 @@ msgid "Stock entry label"
 msgstr ""
 
 msgid "No label"
-msgstr ""
+msgstr "Ingen label"
 
 msgid "Single label"
 msgstr ""
@@ -2358,7 +2329,7 @@ msgstr ""
 
 # Example: Print *Product* grocycode on label printer
 msgid "Print %s grocycode on label printer"
-msgstr ""
+msgstr "Print %s grocycode på labelprinter"
 
 msgid "Open stock entry label in new window"
 msgstr ""
@@ -2367,22 +2338,22 @@ msgid "Thermal printer"
 msgstr ""
 
 msgid "Printing"
-msgstr ""
+msgstr "Printer"
 
 msgid "Connecting to printer..."
-msgstr ""
+msgstr "Forbinder til printer..."
 
 msgid "Unable to print"
-msgstr ""
+msgstr "Kan ikke printe"
 
 msgid "Only done items"
 msgstr ""
 
 msgid "Show only in-stock products"
-msgstr ""
+msgstr "Vis kun varer på lager"
 
 msgid "Product description"
-msgstr ""
+msgstr "Produktbeskrivelse"
 
 # Example: *3.21 USD* per *Pack*
 msgid "%1$s per %2$s"
@@ -2392,67 +2363,70 @@ msgid "Mark this item as undone"
 msgstr ""
 
 msgid "Mandatory"
-msgstr ""
+msgstr "Obligatorisk"
 
 msgid "Mandatory Userfield"
-msgstr ""
+msgstr "Obligatorisk brugerfelt"
 
 msgid "When enabled, then this field must be filled on the destination form"
 msgstr ""
+"Når dette felt er aktiveret, skal dette felt udfyldes i destinationsskemaet"
 
 msgid "In-stock products"
-msgstr ""
+msgstr "Varer på lager"
 
 msgid "Timestamp"
 msgstr ""
 
 msgid "Should not be frozen"
-msgstr ""
+msgstr "Bør ikke fryses"
 
 msgid ""
 "When enabled, on moving this product to a freezer location (so when freezing"
 " it), a warning will be shown"
 msgstr ""
+"Når aktiveret vil der blive vist en advarsel når denne vare flyttes til en "
+"fryser (dvs fryses)."
 
 msgid "This product shouldn't be frozen"
-msgstr ""
+msgstr "Dette produkt bør ikke fryses"
 
 msgid "Copy all meal plan entries of %s"
 msgstr ""
 
 msgid "A date is required"
-msgstr ""
+msgstr "En dato er påkrævet"
 
 msgid "Day"
-msgstr ""
+msgstr "Dag"
 
 msgid "Add recipe"
-msgstr ""
+msgstr "Tilføj opskrift"
 
 msgid "Copy this day"
 msgstr ""
 
 msgid "Date range"
-msgstr ""
+msgstr "Datointerval"
 
 msgid "%s month"
 msgid_plural "%s months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s måned"
+msgstr[1] "%s måneder"
 
 msgid "%s year"
 msgid_plural "%s years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s år"
+msgstr[1] "%s år"
 
 msgid "Display product"
-msgstr ""
+msgstr "Vis vare"
 
 msgid "Copy recipe"
-msgstr ""
+msgstr "Kopier opskrift"
 
 msgid "Copy of %s"
-msgstr ""
+msgstr "Kopi af %s"
 
 msgid "Add decimal separator automatically for price inputs"
 msgstr ""
@@ -2462,30 +2436,32 @@ msgid ""
 "the decimal separator will be automatically added based on the amount of "
 "allowed decimal places"
 msgstr ""
+"Når aktiveret, skal du altid angive værdien med decimaler, "
+"decimalseparatoren sættes automatisk ud fra det tilladte antal decimaler"
 
 msgid "Stock entry"
-msgstr ""
+msgstr "Lagerpostering"
 
 msgid "Configure sections"
-msgstr ""
+msgstr "Konfigurér sektioner"
 
 msgid "Meal plan sections"
-msgstr ""
+msgstr "Madplanssektioner"
 
 msgid "Create meal plan section"
-msgstr ""
+msgstr "Opret madplanssektion"
 
 msgid "Sections will be ordered by that number on the meal plan"
-msgstr ""
+msgstr "Sektioner bliver sorteret efter dette nummer i madplanen"
 
 msgid "Edit meal plan section"
-msgstr ""
+msgstr "Rediger madplanssektion"
 
 msgid "Are you sure to delete meal plan section \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette madplanssektionen \"%s\"?"
 
 msgid "Section"
-msgstr ""
+msgstr "Sektion"
 
 msgid "Are you sure to empty the shopping list?"
 msgstr "Er du sikker på du vil tømme indkøbslisten?"
@@ -2494,18 +2470,82 @@ msgid "This is the default which will be prefilled on purchase"
 msgstr ""
 
 msgid "Merge chores"
-msgstr ""
+msgstr "Sammenlæg gøremål"
 
 msgid "Chore to keep"
-msgstr ""
+msgstr "Gøremål der skal beholdes"
 
 msgid "After merging, this chore will be kept"
 msgstr ""
 
 msgid "Chore to remove"
-msgstr ""
+msgstr "Gøremål der skal fjernes"
 
 msgid ""
 "After merging, all occurences of this chore will be replaced by the kept "
 "chore (means this chore will not exist anymore)"
+msgstr ""
+
+msgid "Due today"
+msgstr ""
+
+msgid "%s task is due to be done today"
+msgid_plural "%s tasks are due to be done today"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s chore is due to be done today"
+msgid_plural "%s chores are due to be done today"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s battery is due to be charged today"
+msgid_plural "%s batteries are due to be charged today"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Set to 0 to hide due soon filters/highlighting"
+msgstr ""
+
+msgid "Save & close"
+msgstr ""
+
+msgid "Save & add another task"
+msgstr ""
+
+msgid "Treat opened as out of stock"
+msgstr ""
+
+msgid ""
+"When enabled, opened items will be counted as missing for calculating if "
+"this product is below its minimum stock amount"
+msgstr ""
+
+msgid "Skipped"
+msgstr ""
+
+msgid "Skip next chore schedule"
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+msgid "A start date is required"
+msgstr ""
+
+msgid "Start date"
+msgstr ""
+
+msgid "The start date cannot be changed when the chore was once tracked"
+msgstr ""
+
+msgid "Show the recipe list and the recipe side by side"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore is scheduled dynamically based "
+"on the past average execution frequency"
+msgstr ""
+
+msgid "Average execution frequency"
 msgstr ""

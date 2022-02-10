@@ -17,12 +17,6 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Domain: grocy/component_translations\n"
 
-msgid "timeago_locale"
-msgstr "ko"
-
-msgid "timeago_nan"
-msgstr "NaN년"
-
 msgid "moment_locale"
 msgstr "ko"
 

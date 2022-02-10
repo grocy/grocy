@@ -120,3 +120,7 @@ msgstr "Tamils"
 # Finnish
 msgid "fi"
 msgstr "Fins"
+
+# Catalan
+msgid "ca"
+msgstr ""

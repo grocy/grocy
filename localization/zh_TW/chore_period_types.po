@@ -21,9 +21,6 @@ msgstr ""
 msgid "manually"
 msgstr "手動"
 
-msgid "dynamic-regular"
-msgstr "自訂週期"
-
 msgid "daily"
 msgstr "每日"
 
@@ -35,3 +32,9 @@ msgstr "每月"
 
 msgid "yearly"
 msgstr "每年"
+
+msgid "hourly"
+msgstr ""
+
+msgid "adaptive"
+msgstr ""

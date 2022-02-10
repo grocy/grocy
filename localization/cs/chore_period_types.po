@@ -21,9 +21,6 @@ msgstr ""
 msgid "manually"
 msgstr "Manuální"
 
-msgid "dynamic-regular"
-msgstr "Dynamický"
-
 msgid "daily"
 msgstr "Denní"
 
@@ -35,3 +32,9 @@ msgstr "Měsíčně"
 
 msgid "yearly"
 msgstr "Ročně"
+
+msgid "hourly"
+msgstr ""
+
+msgid "adaptive"
+msgstr ""

@@ -2,6 +2,7 @@
 # Translators:
 # Juraj Smieško <juraj.smiesko@gmail.com>, 2020
 # Jose Riha <jose1711@gmail.com>, 2021
+# Miroslav Ďurian, 2022
 # 
 msgid ""
 msgstr ""
@@ -9,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Jose Riha <jose1711@gmail.com>, 2021\n"
+"Last-Translator: Miroslav Ďurian, 2022\n"
 "Language-Team: Slovak (Slovakia) (https://www.transifex.com/grocy/teams/93189/sk_SK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -103,7 +104,7 @@ msgid "Stores"
 msgstr "Obchody"
 
 msgid "Quantity units"
-msgstr "Merné jednotky"
+msgstr "Jednotky množstva"
 
 msgid "Chores"
 msgstr "Povinnosti"
@@ -139,7 +140,7 @@ msgid "Product overview"
 msgstr "Prehľad výrobkov"
 
 msgid "Stock quantity unit"
-msgstr "Jednotka množstva zásoby"
+msgstr "Jednotka množstva v zásobe"
 
 msgid "Stock amount"
 msgstr "Množstvo zásoby"
@@ -218,13 +219,13 @@ msgid "Default best before days"
 msgstr "Predvolený dátum spotreby"
 
 msgid "Default quantity unit purchase"
-msgstr ""
+msgstr "Predvolená jednotka množstva pri nákupe"
 
 msgid "Quantity unit stock"
-msgstr "Merná jednotka zásoby"
+msgstr "Jednotka množstva v zásobe"
 
 msgid "Factor purchase to stock quantity unit"
-msgstr "Faktor množstva jednotiek zásoby pri nákupe jedného kusu výrobku"
+msgstr "Zohľadniť nákup do jednotkového množstva v zásobe"
 
 msgid "Create location"
 msgstr "Vytvoriť umiestnenie"
@@ -233,7 +234,7 @@ msgid "Create store"
 msgstr "Vytvoriť obchod"
 
 msgid "Create quantity unit"
-msgstr "Vytvoriť mernú jednotku"
+msgstr "Vytvoriť jednotku množstva"
 
 msgid "Period type"
 msgstr "Typ opakovania"
@@ -257,7 +258,7 @@ msgid "Edit chore"
 msgstr "Upraviť povinnosť"
 
 msgid "Edit quantity unit"
-msgstr "Upraviť mernú jednotku"
+msgstr "Upraviť jednotku množstva"
 
 msgid "Edit product"
 msgstr "Upraviť výrobok"
@@ -329,7 +330,7 @@ msgid "Add as new product and prefill barcode"
 msgstr "Pridať ako nový výrobok a predvyplniť čiarový kód"
 
 msgid "Are you sure to delete quantity unit \"%s\"?"
-msgstr "Naozaj si prajete odstrániť mernú jednotku \"%s\"?"
+msgstr "Naozaj si prajete odstrániť jednotku množstva \"%s\"?"
 
 msgid "Are you sure to delete product \"%s\"?"
 msgstr "Naozaj si prajete odstrániť výrobok \"%s\"?"
@@ -344,7 +345,7 @@ msgid "Manage API keys"
 msgstr "Spravovať API kľúče"
 
 msgid "REST API browser"
-msgstr ""
+msgstr "REST API prehliadač"
 
 msgid "API keys"
 msgstr "API kľúče"
@@ -369,13 +370,6 @@ msgstr "To znamená, že výrobok %s bude pridaný do zásoby"
 
 msgid "This means %s will be removed from stock"
 msgstr "To znamená, že výrobok %s bude odobraný zo zásoby"
-
-msgid ""
-"This means the next execution of this chore is scheduled %s days after the "
-"last execution"
-msgstr ""
-"To znamená, že ďalšie vykonanie tejto povinnosti je naplánované na %s dní po"
-" jej poslednom vykonaní"
 
 msgid "Removed %1$s of %2$s from stock"
 msgstr "Odobrané %1$s %2$s zo zásoby"
@@ -429,7 +423,7 @@ msgid "A location is required"
 msgstr "Je vyžadované umiestnenie"
 
 msgid "A quantity unit is required"
-msgstr "Je vyžadovaná merná jednotka"
+msgstr "Je vyžadovaná jednotka množstva"
 
 msgid "A period type is required"
 msgstr "Je vyžadovaný typ opakovania"
@@ -453,19 +447,19 @@ msgid "Edit recipe"
 msgstr "Upraviť recept"
 
 msgid "Ingredients list"
-msgstr "Zoznam ingrediencií"
+msgstr "Zoznam surovín"
 
 msgid "Add recipe ingredient"
-msgstr "Pridať ingrediencu"
+msgstr "Pridať surovinu"
 
 msgid "Edit recipe ingredient"
-msgstr "Upraviť ingredienciu"
+msgstr "Upraviť surovinu"
 
 msgid "Are you sure to delete recipe \"%s\"?"
 msgstr "Naozaj si prajete odstrániť recept \"%s\"?"
 
 msgid "Are you sure to delete recipe ingredient \"%s\"?"
-msgstr "Naozaj si prajete odstrániť ingredienciu \"%s\"?"
+msgstr "Naozaj si prajete odstrániť surovinu \"%s\"?"
 
 msgid "Are you sure to empty shopping list \"%s\"?"
 msgstr "Naozaj si prajete vyprázdniť nákupný zoznam \"%s\"?"
@@ -487,23 +481,19 @@ msgid ""
 msgid_plural ""
 "Not enough in stock, %s ingredients missing but already on the shopping list"
 msgstr[0] ""
-"Nedostatočná zásoba, chýba %s ingrediencia, ktorá už ale je v nákupnom "
-"zozname"
+"Nedostatočná zásoba, chýba %s surovina, ktorá už ale je v nákupnom zozname"
 msgstr[1] ""
-"Nedostatočná zásoba, chýbajú %s ingrediencie, ktoré už ale sú v nákupnom "
-"zozname"
+"Nedostatočná zásoba, chýbajú %s suroviny, ktoré už ale sú v nákupnom zozname"
 msgstr[2] ""
-"Nedostatočná zásoba, chýba %s ingrediencií, ktoré už ale sú v nákupnom "
-"zozname"
+"Nedostatočná zásoba, chýba %s surovín, ktoré už ale sú v nákupnom zozname"
 msgstr[3] ""
-"Nedostatočná zásoba, chýba %s ingrediencií, ktoré už ale sú v nákupnom "
-"zozname"
+"Nedostatočná zásoba, chýba %s surovín, ktoré už ale sú v nákupnom zozname"
 
 msgid "Expand to fullscreen"
 msgstr "Rozšíriť na celú obrazovku"
 
 msgid "Ingredients"
-msgstr "Ingrediencie"
+msgstr "Suroviny"
 
 msgid "Preparation"
 msgstr "Príprava"
@@ -524,7 +514,7 @@ msgid ""
 "Are you sure to put all missing ingredients for recipe \"%s\" on the "
 "shopping list?"
 msgstr ""
-"Naozaj si prajete pridať všetky chýbajúce ingrediencie z receptu \"%s\" do "
+"Naozaj si prajete pridať všetky chýbajúce suroviny z receptu \"%s\" do "
 "nákupného zoznamu?"
 
 msgid "Added for recipe %s"
@@ -638,7 +628,7 @@ msgid "in singular form"
 msgstr "v jednotnom čísle"
 
 msgid "Quantity unit"
-msgstr "Merná jednotka"
+msgstr "Jednotka množstva"
 
 msgid "Only check if any amount is in stock"
 msgstr ""
@@ -649,10 +639,10 @@ msgid ""
 msgstr ""
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
-msgstr "Všetky ingrediencie z receptu \"%s\" boli odobraté zo zásoby"
+msgstr "Všetky suroviny z receptu \"%s\" boli odobraté zo zásoby"
 
 msgid "Consume all ingredients needed by this recipe"
-msgstr "Spotrebovať všetky ingredience použité v tomto recepte"
+msgstr "Spotrebovať všetky suroviny použité v tomto recepte"
 
 msgid "Click to show technical details"
 msgstr "Kliknite pre zobrazenie technických podrobností"
@@ -804,7 +794,7 @@ msgid "Image of product %s"
 msgstr "Obrázok výrobku %s"
 
 msgid "Deletion not possible"
-msgstr ""
+msgstr "Odstraňovanie nie je možné"
 
 msgid "Equipment"
 msgstr "Vybavenie"
@@ -882,13 +872,13 @@ msgid "Charge cycle successfully undone"
 msgstr "Nabíjanie batérie úspešne zrušené"
 
 msgid "Disable stock fulfillment checking for this ingredient"
-msgstr "Vypnúť kontrolu stavu zásob pre túto ingredienciu"
+msgstr "Vypnúť kontrolu stavu zásob pre túto surovinu"
 
 msgid "Add all list items to stock"
 msgstr "Pridať všetky položky zoznamu do zásob"
 
 msgid "Add this item to stock"
-msgstr ""
+msgstr "Pridať túto položku do zásob"
 
 msgid "Adding shopping list item %1$s of %2$s"
 msgstr "Pridávam položku nákupného zoznamu %1$s %2$s"
@@ -949,11 +939,8 @@ msgstr "Porcie"
 msgid "Costs"
 msgstr "Náklady"
 
-msgid "Based on the prices of the last purchase per product"
-msgstr "Založené na cenách výrobkov pri ich poslednom nákupe"
-
 msgid "The ingredients listed here result in this amount of servings"
-msgstr "Zobrazené ingrediencie zodpovedajú takémuto množstvu porcií"
+msgstr "Zobrazené suroviny zodpovedajú takémuto množstvu porcií"
 
 msgid "Do not check against the shopping list when adding missing items to it"
 msgstr "Nekontrolovať nákupný zoznam pri pridávaní chýbajúcich položiek"
@@ -972,7 +959,7 @@ msgid "Picture"
 msgstr "Obrázok"
 
 msgid "Uncheck ingredients to not put them on the shopping list"
-msgstr "Odznačte ingrediencie, ktoré nechcete pridať do nákupného zoznamu"
+msgstr "Odznačte suroviny, ktoré nechcete pridať do nákupného zoznamu"
 
 msgid "This is for statistical purposes only"
 msgstr "Toto je iba pre účely štatistík"
@@ -1060,13 +1047,13 @@ msgid ""
 "recipe ingredient"
 msgstr ""
 "Toto bude použité ako predvolené nastavenie pri pridávaní tohto výrobku ako "
-"ingrediencie"
+"suroviny"
 
 msgid "Add item"
 msgstr "Pridať položku"
 
 msgid "Selected shopping list"
-msgstr "Vybrať nákupný zoznam"
+msgstr "Zvolený nákupný zoznam"
 
 msgid "New shopping list"
 msgstr "Nový nákupný zoznam"
@@ -1184,7 +1171,7 @@ msgid_plural "Not enough in stock, %s ingredients missing"
 msgstr[0] "Nedostatočná zásoba, chýba %s ingrediencia"
 msgstr[1] "Nedostatočná zásoba, chýbajú %s ingrediencie"
 msgstr[2] "Nedostatočná zásoba, chýba %s ingrediencií"
-msgstr[3] "Nedostatočná zásoba, chýba %s ingrediencií"
+msgstr[3] "Nedostatočná zásoba, chýba %s surovín"
 
 msgid "Not enough in stock, but already on the shopping list"
 msgstr "Nedostatočná zásoba, ale už je v nákupnom zozname"
@@ -1266,11 +1253,10 @@ msgid "Today"
 msgstr "Dnes"
 
 msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr ""
-"Nie všetky ingredience v recepte \"%s\" sú v zásobe, nič nebude odstránené"
+msgstr "Nie všetky suroviny v recepte \"%s\" sú v zásobe, nič nebude odstránené"
 
 msgid "Undo task"
-msgstr ""
+msgstr "Zrušiť úlohu"
 
 msgid "Due date rollover"
 msgstr "Posunutie termínu"
@@ -1309,14 +1295,14 @@ msgid "Are you sure to delete equipment \"%s\"?"
 msgstr "Naozaj si prajete odstrániť zariadenie \"%s\"?"
 
 msgid "Parent product"
-msgstr "Rodičovský výrobok"
+msgstr "Nadradený výrobok"
 
 msgid ""
 "Not possible because this product is already used as a parent product in "
 "another product"
 msgstr ""
-"Toto sa nedá, pretože tento výrobok je už použitý ako rodičovský výrobok pre"
-" iný výrobok"
+"Toto sa nedá, pretože tento výrobok je už použitý ako nadradený výrobok pre "
+"iný výrobok"
 
 msgid "Default conversions"
 msgstr "Predvolené prevody"
@@ -1334,10 +1320,10 @@ msgid "Default for QU"
 msgstr "Predvolená jednotka"
 
 msgid "Quantity unit from"
-msgstr "Z množstevných jednotiek"
+msgstr "Z jednotky množstva"
 
 msgid "Quantity unit to"
-msgstr "Na množstevné jednotky"
+msgstr "Na jednotku množstva"
 
 msgid "This cannot be equal to %s"
 msgstr "Hodnota sa nemôže rovnať %s"
@@ -1367,29 +1353,52 @@ msgid "Assignment type"
 msgstr "Typ priradenia"
 
 msgid ""
-"This means the next execution of this chore is scheduled 1 day after the "
+"This means the next execution of this chore is scheduled %s day after the "
 "last execution"
-msgstr ""
-"Toto znamená, že ďalšie vykonávanie tejto povinnosti je naplánované 1 deň po"
-" jej poslednom vykonaní"
+msgid_plural ""
+"This means the next execution of this chore is scheduled %s days after the "
+"last execution"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 msgid ""
-"This means the next execution of this chore is scheduled 1 day after the "
-"last execution, but only for the weekdays selected below"
-msgstr ""
-"Toto znamená, že ďalšie vykonávanie tejto povinnosti je naplánované jeden "
-"deň po jej poslednom vykonaní, ale iba vo vybraných dňoch v týždni"
+"This means the next execution of this chore is scheduled %s hour after the "
+"last execution"
+msgid_plural ""
+"This means the next execution of this chore is scheduled %s hours after the "
+"last execution"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid ""
+"This means the next execution of this chore is scheduled every week on the "
+"selected weekdays"
+msgid_plural ""
+"This means the next execution of this chore is scheduled every %s weeks on "
+"the selected weekdays"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid ""
+"This means the next execution of this chore is scheduled on the selected day"
+" every month"
+msgid_plural ""
+"This means the next execution of this chore is scheduled on the selected day"
+" every %s months"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 msgid "This means the next execution of this chore is not scheduled"
 msgstr ""
 "Toto znamená, že ďalšie vykonávanie tejto povinnosti nie je naplánované"
-
-msgid ""
-"This means the next execution of this chore is scheduled on the below "
-"selected day of each month"
-msgstr ""
-"Toto znamená, že ďalšie vykonávanie tejto povinnosti je naplánované vo "
-"vybraný deň každého mesiaca"
 
 msgid ""
 "This means the next execution of this chore will not be assigned to anyone"
@@ -1475,7 +1484,7 @@ msgid "Configure fields"
 msgstr "Nastavenia polí"
 
 msgid "Quantity unit plural form testing"
-msgstr "Testovanie tvarov množných čísiel množstevných jednotiek"
+msgstr "Množné číslo jednotky množstva z testovania"
 
 msgid "Result"
 msgstr "Výsledok"
@@ -1484,14 +1493,14 @@ msgid "Test plural forms"
 msgstr "Otestovať množné čísla"
 
 msgid "Scan a barcode"
-msgstr "Naskenovať čiarový kód"
+msgstr "Nasnímať čiarový kód"
 
 msgid "Error while initializing the barcode scanning library"
-msgstr "Chyba pri inicializácii knižnice skenovania čiarových kódov"
+msgstr "Chyba pri inicializácii knižnice snímania čiarových kódov"
 
 msgid ""
 "The resulting price of this ingredient will be multiplied by this factor"
-msgstr "Konečná cena tejto ingrediencie bude vynásobená týmto faktorom"
+msgstr "Konečná cena tejto suroviny bude vynásobená týmto faktorom"
 
 msgid "Price factor"
 msgstr "Cenový faktor"
@@ -1521,16 +1530,16 @@ msgid "Per stock quantity unit"
 msgstr "Na jednotku množstva zásoby"
 
 msgid "Barcode scanner testing"
-msgstr "Testovanie skenera čiarových kódov"
+msgstr "Testovanie snímača čiarových kódov"
 
 msgid "Expected barcode"
 msgstr "Očakávaný čiarový kód"
 
 msgid "Scan field"
-msgstr "Skenovacie pole"
+msgstr "Snímacie pole"
 
 msgid "Scanned barcodes"
-msgstr "Naskenované čiarové kódy"
+msgstr "Nasnímané čiarové kódy"
 
 msgid "Hit"
 msgstr "Zásah"
@@ -1559,7 +1568,7 @@ msgid "Total price"
 msgstr "Celková cena"
 
 msgid "in %s and based on the purchase quantity unit"
-msgstr "v %s a založené na merných jednotkách nákupu"
+msgstr "v %s a založené na jednotke množstva z nákupu"
 
 msgid "Unlimited"
 msgstr "Neobmedzene"
@@ -1574,39 +1583,15 @@ msgid "Period interval"
 msgstr "Interval opakovania"
 
 msgid ""
-"This means the next execution of this chore should only be scheduled every "
-"%s days"
-msgstr ""
-"Toto znamená, že ďalšie vykonávanie tejto povinnosti by malo byť naplánované"
-" každých %s dní"
-
-msgid ""
-"This means the next execution of this chore should only be scheduled every "
-"%s weeks"
-msgstr ""
-"Toto znamená, že ďalšie vykonávanie tejto povinnosti by malo byť naplánované"
-" každých %s týždňov"
-
-msgid ""
-"This means the next execution of this chore should only be scheduled every "
-"%s months"
-msgstr ""
-"Toto znamená, že ďalšie vykonávanie tejto povinnosti by malo byť naplánované"
-" každých %s mesiacov"
-
-msgid ""
-"This means the next execution of this chore is scheduled 1 year after the "
-"last execution"
-msgstr ""
-"Toto znamená, že ďalšie vykonávanie tejto povinnosti je naplánované 1 rok po"
-" jej poslednom vykonaní"
-
-msgid ""
-"This means the next execution of this chore should only be scheduled every "
-"%s years"
-msgstr ""
-"Toto znamená, že ďalšie vykonávanie tejto povinnosti by malo byť naplánované"
-" každých %s rokov"
+"This means the next execution of this chore is scheduled every year on the "
+"same day (based on the start date)"
+msgid_plural ""
+"This means the next execution of this chore is scheduled every %s years on "
+"the same day (based on the start date)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 msgid "Transfer"
 msgstr "Presun"
@@ -1698,8 +1683,7 @@ msgstr "Pridať výrobok na %s"
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
 msgstr ""
-"Spotrebovať všetky ingrediencie potrebné pre recepty a výrobky na tento "
-"týždeň"
+"Spotrebovať všetky suroviny potrebné pre recepty a výrobky na tento týždeň"
 
 msgid "Meal plan recipe"
 msgstr "Recept pre jedálniček"
@@ -1711,7 +1695,7 @@ msgid "Meal plan product"
 msgstr "Výrobok pre jedálniček"
 
 msgid "Scan mode"
-msgstr "Režim skenovania"
+msgstr "Režim snímania"
 
 msgid "on"
 msgstr "zap"
@@ -1722,7 +1706,7 @@ msgstr "vyp"
 msgid ""
 "Scan mode is on but not all required fields could be populated automatically"
 msgstr ""
-"Režim skenovania je zapnutý, ale nepodarilo sa automaticky vyplniť všetky "
+"Režim snímania je zapnutý, ale nepodarilo sa automaticky vyplniť všetky "
 "polia+"
 
 msgid "Is freezer"
@@ -1775,7 +1759,7 @@ msgid "Recipe card"
 msgstr "Karta s receptom"
 
 msgid "Group ingredients by their product group"
-msgstr "Zoskupiť ingrediencie podľa skupiny výrobkov"
+msgstr "Zoskupiť suroviny podľa skupiny výrobkov"
 
 msgid "Unknown store"
 msgstr "Neznámy obchod"
@@ -1814,58 +1798,49 @@ msgid "means %1$s per %2$s"
 msgstr ""
 
 msgid "Create inverse QU conversion"
-msgstr ""
+msgstr "Vytvoriť opačný prevod jednotiek"
 
 msgid "Create recipe"
 msgstr "Vytvoriť recept"
 
 msgid "Save & continue to add ingredients and included recipes"
-msgstr ""
+msgstr "Uložiť a pokračovať na pridávanie surovín a zahrnutých receptov"
 
 msgid "Save & continue"
-msgstr ""
+msgstr "Uložiť a pokračovať"
 
 msgid "Save & return to recipes"
-msgstr ""
+msgstr "Uložiť a vrátiť sa na recepty"
 
 msgid "Stock value"
 msgstr "Hodnota zásob"
 
 msgid "Average price"
-msgstr ""
+msgstr "Priemerná cena"
 
 msgid "Active"
-msgstr ""
+msgstr "Aktívne"
 
 msgid "Barcodes"
-msgstr ""
+msgstr "Čiarové kódy"
 
 msgid "Barcode"
-msgstr ""
+msgstr "Čiarový kód"
 
 msgid "Create Barcode"
-msgstr ""
+msgstr "Vytvoriť čiarový kód"
 
 msgid "Barcode for product"
-msgstr ""
+msgstr "Čiarový kód pre výrobok"
 
 msgid "Edit Barcode"
-msgstr ""
-
-msgid "Not enough in stock (not included in costs), %s ingredient missing"
-msgstr "Nedostatočná zásoba (nezahrnuté v nákupoch), %s ingrediencií chýba"
+msgstr "Upraviť čiarový kód"
 
 msgid ""
-"Based on the prices of the default consume rule which is \"Opened first, "
-"then first due first, then first in first out\""
+"Based on the prices of the default consume rule (Opened first, then first "
+"due first, then first in first out) for in-stock ingredients and on the last"
+" price for missing ones"
 msgstr ""
-
-msgid ""
-"Not enough in stock (not included in costs), %1$s missing, %2$s already on "
-"shopping list"
-msgstr ""
-"Nedostatočná zásoba (nezahrnuté v náupoch), %1$s chýba %2$s už v nákupnom "
-"zozname"
 
 msgid "Quantity unit stock cannot be changed after first purchase"
 msgstr ""
@@ -1874,16 +1849,16 @@ msgid "Clear filter"
 msgstr "Vyčistiť filter"
 
 msgid "Permissions for user %s"
-msgstr ""
+msgstr "Oprávnenia pre používateľa 1%s"
 
 msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr ""
 
 msgid "Permissions saved"
-msgstr ""
+msgstr "Oprávnania boli uložené"
 
 msgid "You are not allowed to view this page"
-msgstr ""
+msgstr "Nemáte oprávnenie na zobrazenie tejto stránky"
 
 msgid "Page not found"
 msgstr "Stránka nebola nájdená"
@@ -1919,31 +1894,31 @@ msgid "If you think this is a bug, please report it"
 msgstr "Ak si myslíte, že ide o chybu, nahláste ju prosím"
 
 msgid "Language"
-msgstr ""
+msgstr "Jazyk"
 
 msgid "User settings"
-msgstr ""
+msgstr "Nastavenia používateľa"
 
 msgid "Default"
-msgstr ""
+msgstr "Predvolené"
 
 msgid "Stock journal summary"
-msgstr ""
+msgstr "Sumár denníka zásob"
 
 msgid "Journal summary"
-msgstr ""
+msgstr "Sumár denníka"
 
 msgid "Journal summary for this product"
-msgstr ""
+msgstr "Sumár denníka pre tento výrobok"
 
 msgid "Consume exact amount"
-msgstr ""
+msgstr "Spotrebovať presné množstvo"
 
 msgid "Value"
-msgstr ""
+msgstr "Hodnota"
 
 msgid "%s total value"
-msgstr ""
+msgstr "Celková hodnota %s"
 
 msgid ""
 "Show purchased date on purchase and inventory page (otherwise the purchased "
@@ -1954,55 +1929,55 @@ msgid "Common"
 msgstr ""
 
 msgid "Decimal places allowed for amounts"
-msgstr ""
+msgstr "Desatinné miesta pre množstvá sú povolené"
 
 msgid "Decimal places allowed for prices"
-msgstr ""
+msgstr "Desatinné miesta pre ceny sú povolené"
 
 msgid "Stock entries for this product"
-msgstr ""
+msgstr "Záznamy zásob tohto výrobku"
 
 msgid "Edit shopping list"
-msgstr ""
+msgstr "Upraviť nákupný zoznam"
 
 msgid "Save & continue to add quantity unit conversions & barcodes"
 msgstr ""
 
 msgid "Save & return to products"
-msgstr ""
+msgstr "Uložiť a vrátiť sa k výrobkom"
 
 msgid "Save & continue to add conversions"
-msgstr ""
+msgstr "Uložiť a pokračovať na pridanie prevodov"
 
 msgid "Save & return to quantity units"
-msgstr ""
+msgstr "Uložiť a vrátiť sa na jednotky množstva"
 
 msgid "price"
-msgstr ""
+msgstr "cena"
 
 msgid "New stock amount"
 msgstr "Nová hodnota zásob"
 
 msgid "Price per stock unit"
-msgstr ""
+msgstr "Cena za jednotku v zásobe"
 
 msgid "Table options"
 msgstr "Nastavenia tabuľky"
 
 msgid "This product is currently on a shopping list"
-msgstr ""
+msgstr "Tento výrobok je akurát na nákupnom zozname"
 
 msgid "Undo transaction"
-msgstr ""
+msgstr "Vrátiť späť úkon"
 
 msgid "Transaction type"
-msgstr ""
+msgstr "Druh úkonu"
 
 msgid "Transaction time"
-msgstr ""
+msgstr "Čas úkonu"
 
 msgid "Chore journal"
-msgstr ""
+msgstr "Záznam o povinnosti"
 
 msgid "Track chore execution"
 msgstr ""
@@ -2017,21 +1992,23 @@ msgid "Battery journal"
 msgstr ""
 
 msgid "This product has a picture"
-msgstr ""
+msgstr "Tento výrobok obsahuje obrázok"
 
 msgid "Consume this stock entry as spoiled"
-msgstr ""
+msgstr "Spotrebovať túto položku zo zásob ako pokazenú"
 
 msgid "Configure user permissions"
-msgstr ""
+msgstr "Nastaviť oprávenia používateľov"
 
 msgid "Show a QR-Code for this API key"
-msgstr ""
+msgstr "Zobraziť QR kód pre tento API kľúč"
 
 msgid ""
 "This is the default quantity unit used when adding this product to the "
 "shopping list"
 msgstr ""
+"Toto je prednastavená jednotka množstva, ktorá sa používa, pri pridaní tohto"
+" výrobku do nákupného zoznamu"
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -2056,96 +2033,104 @@ msgid ""
 msgstr ""
 
 msgid "Copy"
-msgstr ""
+msgstr "Skopírovať"
 
 msgid "Are you sure to remove this barcode?"
-msgstr ""
+msgstr "Naozaj chcete odstrániť tento čiarový kód?"
 
 msgid "Due date type"
-msgstr ""
+msgstr "Typ dátumu spotreby"
 
 msgid ""
 "Based on the selected type, the highlighting on the stock overview page will"
 " be different"
 msgstr ""
+"Odlišné zvýrazňovanie na prehľadovej stránke v závislosti od zvoleného typu"
 
 msgid ""
 "Means that the product is maybe still safe to be consumed after its due date"
 " is reached"
-msgstr ""
+msgstr "Znamená, že tento výrobok môže byť požívateľný aj po dátume spotreby"
 
 msgid "Expiration date"
-msgstr ""
+msgstr "Dátum exspirácie"
 
 msgid ""
 "Means that the product is not safe to be consumed after its due date is "
 "reached"
-msgstr ""
+msgstr "Zanmená, že tento výrobok je po dátume spotreby nepožívateľný"
 
 msgid ""
 "For purchases this amount of days will be added to today for the due date "
 "suggestion"
-msgstr ""
+msgstr "Tento počet dní bude pridaný k návrhu dátumu spotreby pri nákupoch"
 
 msgid "-1 means that this product will be never overdue"
-msgstr ""
+msgstr "-1 znamená, že tento výrobok sa nikdy nepokazí"
 
 msgid "Default due days"
-msgstr ""
+msgstr "Predvolený počet dní na spotrebu"
 
 msgid ""
 "When this product was marked as opened, the due date will be replaced by "
 "today + this amount of days, but only if the resulting date is not after the"
 " original due date (a value of 0 disables this)"
 msgstr ""
+"Keď je tento výrobok označený ako otvorený, dátum spotreby bude nahradený "
+"dnešným dátumom + tento počet dní, ale len ak výsledný dátum nepresiahne "
+"pôvodný dátum spotreby (zadaním 0, toto vypnete)"
 
 msgid "Default due days after opened"
-msgstr ""
+msgstr "Predvolený počet dní na spotrebu po otvorení"
 
 msgid ""
 "On moving this product to a freezer location (so when freezing it), the due "
 "date will be replaced by today + this amount of days"
 msgstr ""
+"Presunutím tohto výrobku do mrazničky (a teda jeho zazmrazením), bude jeho "
+"dátum spotreby nahradený dnešným dátumom + tento počet dní"
 
 msgid "Default due days after freezing"
-msgstr ""
+msgstr "Predvolený počet dní na spotrebu po zmrazení"
 
 msgid ""
 "On moving this product from a freezer location (so when thawing it), the due"
 " date will be replaced by today + this amount of days"
 msgstr ""
+"Presunutím tohto výrobku z mrazničky (a teda jeho rozmrazením), bude jeho "
+"dátum spotreby nahradený dnešným dátumom + tento počet dní"
 
 msgid "Default due days after thawing"
-msgstr ""
+msgstr "Predvolený počet dní na spotrebu po rozmrazení"
 
 msgid "Next due date"
-msgstr ""
+msgstr "Nasledujúci dátum spotreby"
 
 msgid "%s product is due"
 msgid_plural "%s products are due"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "1%s výrobok je po záruke"
+msgstr[1] "1%s výrobky sú po záruke"
+msgstr[2] " %s výrobkov je po záruke"
+msgstr[3] "%s výrobkov je po záruke"
 
 msgid "Due date"
-msgstr ""
+msgstr "Dátum spotreby"
 
 msgid "Never overdue"
-msgstr ""
+msgstr "Nekazí sa"
 
 msgid "%s product is expired"
 msgid_plural "%s products are expired"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%s výrobok exspiroval"
+msgstr[1] "%s vyrobky exspirovali"
+msgstr[2] "%s výrobkov exspirovalo"
+msgstr[3] "%s výrobkov exspirovalo"
 
 msgid "Expired"
-msgstr ""
+msgstr "Exspirované"
 
 msgid "Due soon days"
-msgstr ""
+msgstr "Počet dní do blížiaceho sa konca záruky"
 
 msgid "Add overdue/expired products"
 msgstr "Pridať trvanlivosť/expiráciu výrobku"
@@ -2498,4 +2483,74 @@ msgstr ""
 msgid ""
 "After merging, all occurences of this chore will be replaced by the kept "
 "chore (means this chore will not exist anymore)"
+msgstr ""
+
+msgid "Due today"
+msgstr ""
+
+msgid "%s task is due to be done today"
+msgid_plural "%s tasks are due to be done today"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "%s chore is due to be done today"
+msgid_plural "%s chores are due to be done today"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "%s battery is due to be charged today"
+msgid_plural "%s batteries are due to be charged today"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "Set to 0 to hide due soon filters/highlighting"
+msgstr ""
+
+msgid "Save & close"
+msgstr ""
+
+msgid "Save & add another task"
+msgstr ""
+
+msgid "Treat opened as out of stock"
+msgstr ""
+
+msgid ""
+"When enabled, opened items will be counted as missing for calculating if "
+"this product is below its minimum stock amount"
+msgstr ""
+
+msgid "Skipped"
+msgstr ""
+
+msgid "Skip next chore schedule"
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+msgid "A start date is required"
+msgstr ""
+
+msgid "Start date"
+msgstr ""
+
+msgid "The start date cannot be changed when the chore was once tracked"
+msgstr ""
+
+msgid "Show the recipe list and the recipe side by side"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore is scheduled dynamically based "
+"on the past average execution frequency"
+msgstr ""
+
+msgid "Average execution frequency"
 msgstr ""

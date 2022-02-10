@@ -354,11 +354,6 @@ msgstr "这意味着%s将被添加到库存中"
 msgid "This means %s will be removed from stock"
 msgstr "这意味着%s将从库存中删除"
 
-msgid ""
-"This means the next execution of this chore is scheduled %s days after the "
-"last execution"
-msgstr "这意味着这个家务的下次执行被安排在上一次执行后的%s天"
-
 msgid "Removed %1$s of %2$s from stock"
 msgstr "从库存的%2$s中删除%1$s"
 
@@ -897,9 +892,6 @@ msgstr "份量"
 msgid "Costs"
 msgstr "费用"
 
-msgid "Based on the prices of the last purchase per product"
-msgstr "基于上一次购买每个产品的价格"
-
 msgid "The ingredients listed here result in this amount of servings"
 msgstr "这里列出的成分导致份量如此"
 
@@ -1289,22 +1281,39 @@ msgid "Assignment type"
 msgstr "分配类型"
 
 msgid ""
-"This means the next execution of this chore is scheduled 1 day after the "
+"This means the next execution of this chore is scheduled %s day after the "
 "last execution"
-msgstr "这意味着该差事的下一次执行安排在上次执行之后的1天"
+msgid_plural ""
+"This means the next execution of this chore is scheduled %s days after the "
+"last execution"
+msgstr[0] ""
 
 msgid ""
-"This means the next execution of this chore is scheduled 1 day after the "
-"last execution, but only for the weekdays selected below"
-msgstr "这意味着此差事的下一次执行安排在最后一次执行之后的1天，但仅针对下面选择的工作日"
+"This means the next execution of this chore is scheduled %s hour after the "
+"last execution"
+msgid_plural ""
+"This means the next execution of this chore is scheduled %s hours after the "
+"last execution"
+msgstr[0] ""
+
+msgid ""
+"This means the next execution of this chore is scheduled every week on the "
+"selected weekdays"
+msgid_plural ""
+"This means the next execution of this chore is scheduled every %s weeks on "
+"the selected weekdays"
+msgstr[0] ""
+
+msgid ""
+"This means the next execution of this chore is scheduled on the selected day"
+" every month"
+msgid_plural ""
+"This means the next execution of this chore is scheduled on the selected day"
+" every %s months"
+msgstr[0] ""
 
 msgid "This means the next execution of this chore is not scheduled"
 msgstr "这意味着没有计划此差事的下一次执行"
-
-msgid ""
-"This means the next execution of this chore is scheduled on the below "
-"selected day of each month"
-msgstr "这意味着此任务的下一次执行安排在每月的以下选定日期"
 
 msgid ""
 "This means the next execution of this chore will not be assigned to anyone"
@@ -1478,29 +1487,12 @@ msgid "Period interval"
 msgstr "时间间隔"
 
 msgid ""
-"This means the next execution of this chore should only be scheduled every "
-"%s days"
-msgstr "这意味着该家务的下一次执行应该每%s天安排一次"
-
-msgid ""
-"This means the next execution of this chore should only be scheduled every "
-"%s weeks"
-msgstr "这意味着该家务的下一次执行应该只安排每%s个星期执行一次"
-
-msgid ""
-"This means the next execution of this chore should only be scheduled every "
-"%s months"
-msgstr "这意味着该家务的下一次执行应该每%s个月安排一次"
-
-msgid ""
-"This means the next execution of this chore is scheduled 1 year after the "
-"last execution"
-msgstr "这意味着该差事的下一次执行安排在上次执行之后的1年"
-
-msgid ""
-"This means the next execution of this chore should only be scheduled every "
-"%s years"
-msgstr "这意味着该家务的下一次执行应该每%s年计划一次"
+"This means the next execution of this chore is scheduled every year on the "
+"same day (based on the start date)"
+msgid_plural ""
+"This means the next execution of this chore is scheduled every %s years on "
+"the same day (based on the start date)"
+msgstr[0] ""
 
 msgid "Transfer"
 msgstr "迁移"
@@ -1740,18 +1732,11 @@ msgstr "产品条形码"
 msgid "Edit Barcode"
 msgstr "编辑条形码"
 
-msgid "Not enough in stock (not included in costs), %s ingredient missing"
-msgstr "库存不足(不计入成本)，%s成分缺失"
-
 msgid ""
-"Based on the prices of the default consume rule which is \"Opened first, "
-"then first due first, then first in first out\""
-msgstr "基于默认消费规则的价格，即“先打开，然后先到期，然后先进先出”"
-
-msgid ""
-"Not enough in stock (not included in costs), %1$s missing, %2$s already on "
-"shopping list"
-msgstr "库存不足(不计入成本)，%1$s缺失，%2$s已在购物清单上"
+"Based on the prices of the default consume rule (Opened first, then first "
+"due first, then first in first out) for in-stock ingredients and on the last"
+" price for missing ones"
+msgstr ""
 
 msgid "Quantity unit stock cannot be changed after first purchase"
 msgstr "首次购买后不能更改数量单位库存"
@@ -2372,4 +2357,65 @@ msgstr ""
 msgid ""
 "After merging, all occurences of this chore will be replaced by the kept "
 "chore (means this chore will not exist anymore)"
+msgstr ""
+
+msgid "Due today"
+msgstr ""
+
+msgid "%s task is due to be done today"
+msgid_plural "%s tasks are due to be done today"
+msgstr[0] ""
+
+msgid "%s chore is due to be done today"
+msgid_plural "%s chores are due to be done today"
+msgstr[0] ""
+
+msgid "%s battery is due to be charged today"
+msgid_plural "%s batteries are due to be charged today"
+msgstr[0] ""
+
+msgid "Set to 0 to hide due soon filters/highlighting"
+msgstr ""
+
+msgid "Save & close"
+msgstr ""
+
+msgid "Save & add another task"
+msgstr ""
+
+msgid "Treat opened as out of stock"
+msgstr ""
+
+msgid ""
+"When enabled, opened items will be counted as missing for calculating if "
+"this product is below its minimum stock amount"
+msgstr ""
+
+msgid "Skipped"
+msgstr ""
+
+msgid "Skip next chore schedule"
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+msgid "A start date is required"
+msgstr ""
+
+msgid "Start date"
+msgstr ""
+
+msgid "The start date cannot be changed when the chore was once tracked"
+msgstr ""
+
+msgid "Show the recipe list and the recipe side by side"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore is scheduled dynamically based "
+"on the past average execution frequency"
+msgstr ""
+
+msgid "Average execution frequency"
 msgstr ""

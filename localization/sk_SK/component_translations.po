@@ -18,12 +18,6 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
 "X-Domain: grocy/component_translations\n"
 
-msgid "timeago_locale"
-msgstr "sk"
-
-msgid "timeago_nan"
-msgstr "pred NaN rokmi"
-
 msgid "moment_locale"
 msgstr "sk"
 

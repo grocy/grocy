@@ -403,3 +403,6 @@ msgstr "Lunch"
 
 msgid "Dinner"
 msgstr "Avondeten"
+
+msgid "Catalan"
+msgstr ""

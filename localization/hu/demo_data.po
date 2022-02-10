@@ -396,3 +396,6 @@ msgstr "Ebéd"
 
 msgid "Dinner"
 msgstr "Vacsora"
+
+msgid "Catalan"
+msgstr ""

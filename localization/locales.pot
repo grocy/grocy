@@ -115,3 +115,7 @@ msgstr ""
 # Finnish
 msgid "fi"
 msgstr ""
+
+# Catalan
+msgid "ca"
+msgstr ""

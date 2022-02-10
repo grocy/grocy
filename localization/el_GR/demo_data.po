@@ -394,3 +394,6 @@ msgstr "Γεύμα"
 
 msgid "Dinner"
 msgstr "Δείπνο"
+
+msgid "Catalan"
+msgstr ""

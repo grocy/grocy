@@ -20,9 +20,6 @@ msgstr ""
 msgid "manually"
 msgstr "manuellement"
 
-msgid "dynamic-regular"
-msgstr "dynamique normal"
-
 msgid "daily"
 msgstr "journalier"
 
@@ -34,3 +31,9 @@ msgstr "mensuel"
 
 msgid "yearly"
 msgstr "annuel"
+
+msgid "hourly"
+msgstr ""
+
+msgid "adaptive"
+msgstr ""

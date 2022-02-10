@@ -352,13 +352,6 @@ msgstr "이것은 %s 이 저장소에 추가됩니다."
 msgid "This means %s will be removed from stock"
 msgstr "이것은 %s 이 저장소에 제거됩니다."
 
-msgid ""
-"This means the next execution of this chore is scheduled %s days after the "
-"last execution"
-msgstr ""
-"This means the next execution of this chore is scheduled %s days after the "
-"last execution"
-
 msgid "Removed %1$s of %2$s from stock"
 msgstr "%2$s %1$s을 재고 목록에서 제거함"
 
@@ -899,9 +892,6 @@ msgstr "1인분"
 msgid "Costs"
 msgstr "비용"
 
-msgid "Based on the prices of the last purchase per product"
-msgstr "제품별 마지막 구매가격 기준"
-
 msgid "The ingredients listed here result in this amount of servings"
 msgstr "여기에 나열된 재료는몇 인분의 제공합니다"
 
@@ -1306,25 +1296,39 @@ msgid "Assignment type"
 msgstr "할당유형"
 
 msgid ""
-"This means the next execution of this chore is scheduled 1 day after the "
+"This means the next execution of this chore is scheduled %s day after the "
 "last execution"
-msgstr ""
-"This means the next execution of this chore is scheduled 1 day after the "
+msgid_plural ""
+"This means the next execution of this chore is scheduled %s days after the "
 "last execution"
+msgstr[0] ""
 
 msgid ""
-"This means the next execution of this chore is scheduled 1 day after the "
-"last execution, but only for the weekdays selected below"
-msgstr ""
-"이는 이 일의 다음 실행이 마지막 실행일로부터 1일 후에 예정되어 있지만, 아래에서 선택한 평일에만 예정되어 있음을 의미한다."
+"This means the next execution of this chore is scheduled %s hour after the "
+"last execution"
+msgid_plural ""
+"This means the next execution of this chore is scheduled %s hours after the "
+"last execution"
+msgstr[0] ""
+
+msgid ""
+"This means the next execution of this chore is scheduled every week on the "
+"selected weekdays"
+msgid_plural ""
+"This means the next execution of this chore is scheduled every %s weeks on "
+"the selected weekdays"
+msgstr[0] ""
+
+msgid ""
+"This means the next execution of this chore is scheduled on the selected day"
+" every month"
+msgid_plural ""
+"This means the next execution of this chore is scheduled on the selected day"
+" every %s months"
+msgstr[0] ""
 
 msgid "This means the next execution of this chore is not scheduled"
 msgstr "이것은 이 일의 다음 실행이 예정되어 있지 않다는 것을 의미한다."
-
-msgid ""
-"This means the next execution of this chore is scheduled on the below "
-"selected day of each month"
-msgstr "이것은 이 일의 다음 실행이 매월 아래 선택된 날짜에 예정되어 있음을 의미한다."
 
 msgid ""
 "This means the next execution of this chore will not be assigned to anyone"
@@ -1499,39 +1503,12 @@ msgid "Period interval"
 msgstr "기간 간격"
 
 msgid ""
-"This means the next execution of this chore should only be scheduled every "
-"%s days"
-msgstr ""
-"This means the next execution of this chore should only be scheduled every "
-"%s days"
-
-msgid ""
-"This means the next execution of this chore should only be scheduled every "
-"%s weeks"
-msgstr ""
-"This means the next execution of this chore should only be scheduled every "
-"%s weeks"
-
-msgid ""
-"This means the next execution of this chore should only be scheduled every "
-"%s months"
-msgstr ""
-"This means the next execution of this chore should only be scheduled every "
-"%s months"
-
-msgid ""
-"This means the next execution of this chore is scheduled 1 year after the "
-"last execution"
-msgstr ""
-"This means the next execution of this chore is scheduled 1 year after the "
-"last execution"
-
-msgid ""
-"This means the next execution of this chore should only be scheduled every "
-"%s years"
-msgstr ""
-"This means the next execution of this chore should only be scheduled every "
-"%s years"
+"This means the next execution of this chore is scheduled every year on the "
+"same day (based on the start date)"
+msgid_plural ""
+"This means the next execution of this chore is scheduled every %s years on "
+"the same day (based on the start date)"
+msgstr[0] ""
 
 msgid "Transfer"
 msgstr "위치이동"
@@ -1773,17 +1750,10 @@ msgstr "제품 바코드"
 msgid "Edit Barcode"
 msgstr "바코드 수정"
 
-msgid "Not enough in stock (not included in costs), %s ingredient missing"
-msgstr ""
-
 msgid ""
-"Based on the prices of the default consume rule which is \"Opened first, "
-"then first due first, then first in first out\""
-msgstr ""
-
-msgid ""
-"Not enough in stock (not included in costs), %1$s missing, %2$s already on "
-"shopping list"
+"Based on the prices of the default consume rule (Opened first, then first "
+"due first, then first in first out) for in-stock ingredients and on the last"
+" price for missing ones"
 msgstr ""
 
 msgid "Quantity unit stock cannot be changed after first purchase"
@@ -2405,4 +2375,65 @@ msgstr ""
 msgid ""
 "After merging, all occurences of this chore will be replaced by the kept "
 "chore (means this chore will not exist anymore)"
+msgstr ""
+
+msgid "Due today"
+msgstr ""
+
+msgid "%s task is due to be done today"
+msgid_plural "%s tasks are due to be done today"
+msgstr[0] ""
+
+msgid "%s chore is due to be done today"
+msgid_plural "%s chores are due to be done today"
+msgstr[0] ""
+
+msgid "%s battery is due to be charged today"
+msgid_plural "%s batteries are due to be charged today"
+msgstr[0] ""
+
+msgid "Set to 0 to hide due soon filters/highlighting"
+msgstr ""
+
+msgid "Save & close"
+msgstr ""
+
+msgid "Save & add another task"
+msgstr ""
+
+msgid "Treat opened as out of stock"
+msgstr ""
+
+msgid ""
+"When enabled, opened items will be counted as missing for calculating if "
+"this product is below its minimum stock amount"
+msgstr ""
+
+msgid "Skipped"
+msgstr ""
+
+msgid "Skip next chore schedule"
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+msgid "A start date is required"
+msgstr ""
+
+msgid "Start date"
+msgstr ""
+
+msgid "The start date cannot be changed when the chore was once tracked"
+msgstr ""
+
+msgid "Show the recipe list and the recipe side by side"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore is scheduled dynamically based "
+"on the past average execution frequency"
+msgstr ""
+
+msgid "Average execution frequency"
 msgstr ""

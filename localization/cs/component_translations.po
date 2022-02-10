@@ -1,7 +1,6 @@
 # 
 # Translators:
 # Tomas Reznicek <tomas.reznicek@gmail.com>, 2019
-# Radim Kabeláč <radim.ekk@gmail.com>, 2020
 # Bernd Bestel <bernd@berrnd.de>, 2020
 # 
 msgid ""
@@ -18,12 +17,6 @@ msgstr ""
 "Language: cs\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 "X-Domain: grocy/component_translations\n"
-
-msgid "timeago_locale"
-msgstr "cs"
-
-msgid "timeago_nan"
-msgstr "před NaN lety"
 
 msgid "moment_locale"
 msgstr "cs"

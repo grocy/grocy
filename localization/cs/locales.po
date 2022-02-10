@@ -121,3 +121,7 @@ msgstr "Tamilština"
 # Finnish
 msgid "fi"
 msgstr "Finština"
+
+# Catalan
+msgid "ca"
+msgstr ""

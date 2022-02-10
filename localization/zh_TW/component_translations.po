@@ -18,12 +18,6 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Domain: grocy/component_translations\n"
 
-msgid "timeago_locale"
-msgstr "zh-TW"
-
-msgid "timeago_nan"
-msgstr "NaN 年以前"
-
 msgid "moment_locale"
 msgstr "zh-tw"
 

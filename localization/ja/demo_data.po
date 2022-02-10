@@ -385,3 +385,6 @@ msgstr ""
 
 msgid "Dinner"
 msgstr ""
+
+msgid "Catalan"
+msgstr ""

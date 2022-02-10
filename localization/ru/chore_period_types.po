@@ -22,9 +22,6 @@ msgstr ""
 msgid "manually"
 msgstr "вручную"
 
-msgid "dynamic-regular"
-msgstr "регулярно"
-
 msgid "daily"
 msgstr "ежедневно"
 
@@ -36,3 +33,9 @@ msgstr "ежемесячно"
 
 msgid "yearly"
 msgstr "ежегодно"
+
+msgid "hourly"
+msgstr ""
+
+msgid "adaptive"
+msgstr ""

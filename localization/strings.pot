@@ -2308,3 +2308,60 @@ msgstr ""
 
 msgid "Average execution frequency"
 msgstr ""
+
+msgid "ar"
+msgstr ""
+
+msgid "bg_BG"
+msgstr ""
+
+msgid "da_DK"
+msgstr ""
+
+msgid "es_419"
+msgstr ""
+
+msgid "fr_FR"
+msgstr ""
+
+msgid "hi"
+msgstr ""
+
+msgid "hr"
+msgstr ""
+
+msgid "hu_HU"
+msgstr ""
+
+msgid "id"
+msgstr ""
+
+msgid "lv"
+msgstr ""
+
+msgid "nb_NO"
+msgstr ""
+
+msgid "nl_NL"
+msgstr ""
+
+msgid "pl_PL"
+msgstr ""
+
+msgid "pt"
+msgstr ""
+
+msgid "ro_RO"
+msgstr ""
+
+msgid "sr"
+msgstr ""
+
+msgid "sv"
+msgstr ""
+
+msgid "uk"
+msgstr ""
+
+msgid "yue"
+msgstr ""

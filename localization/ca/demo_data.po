@@ -1,0 +1,397 @@
+# 
+# Translators:
+# Joan Rodas <joanrc93@gmail.com>, 2020
+# gimy16 <gimy16@hotmail.com>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: gimy16 <gimy16@hotmail.com>, 2021\n"
+"Language-Team: Catalan (https://www.transifex.com/grocy/teams/93189/ca/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ca\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/demo_data\n"
+
+msgid "Cookies"
+msgstr "Galetes"
+
+msgid "Chocolate"
+msgstr "Xocolata"
+
+msgid "Pantry"
+msgstr "rebost"
+
+msgid "Candy cupboard"
+msgstr ""
+
+msgid "Tinned food cupboard"
+msgstr ""
+
+msgid "Fridge"
+msgstr "Nevera"
+
+msgid "Piece"
+msgid_plural "Pieces"
+msgstr[0] "Peces"
+msgstr[1] "Trossos"
+
+msgid "Pack"
+msgid_plural "Packs"
+msgstr[0] "Paquet"
+msgstr[1] "Paquets"
+
+msgid "Glass"
+msgid_plural "Glasses"
+msgstr[0] "Got"
+msgstr[1] "Gots"
+
+msgid "Tin"
+msgid_plural "Tins"
+msgstr[0] "Pot"
+msgstr[1] "Pots"
+
+msgid "Can"
+msgid_plural "Cans"
+msgstr[0] "Llauna"
+msgstr[1] "Llaunes"
+
+msgid "Bunch"
+msgid_plural "Bunches"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Gummy bears"
+msgstr ""
+
+msgid "Crisps"
+msgstr ""
+
+msgid "Eggs"
+msgstr "Ous"
+
+msgid "Noodles"
+msgstr "Fideus"
+
+msgid "Pickles"
+msgstr "Encurtits"
+
+msgid "Gulash soup"
+msgstr "Gulash"
+
+msgid "Yogurt"
+msgstr "iogurt"
+
+msgid "Cheese"
+msgstr "Formatge"
+
+msgid "Cold cuts"
+msgstr "Embotits"
+
+msgid "Paprika"
+msgstr "Pebrot"
+
+msgid "Cucumber"
+msgstr "Cogombre"
+
+msgid "Radish"
+msgstr "Rave"
+
+msgid "Tomato"
+msgstr "Tomàquet"
+
+msgid "Changed towels in the bathroom"
+msgstr "Tovalloles del lavabo canviades"
+
+msgid "Cleaned the kitchen floor"
+msgstr "Terra de la cuina netejat"
+
+msgid "Warranty ends"
+msgstr "S'acaba la garantia"
+
+msgid "TV remote control"
+msgstr "Comandament a distància"
+
+msgid "Alarm clock"
+msgstr "Alarma"
+
+msgid "Heat remote control"
+msgstr ""
+
+msgid "Lawn mowed in the garden"
+msgstr ""
+
+msgid "Some good snacks"
+msgstr "Uns bons aperitius"
+
+msgid "Pizza dough"
+msgstr "Massa de pizza"
+
+msgid "Sieved tomatoes"
+msgstr ""
+
+msgid "Salami"
+msgstr "Salami"
+
+msgid "Toast"
+msgstr "Torrada"
+
+msgid "Minced meat"
+msgstr "Carn picada"
+
+msgid "Pizza"
+msgstr "Pizza"
+
+msgid "Spaghetti bolognese"
+msgstr "Espaguetis a la bolonyesa"
+
+msgid "Sandwiches"
+msgstr "Entrepans"
+
+msgid "English"
+msgstr "Anglès"
+
+msgid "German"
+msgstr "Alemany"
+
+msgid "Italian"
+msgstr "Italià"
+
+msgid "This is the note content of the recipe ingredient"
+msgstr ""
+
+msgid "Demo User"
+msgstr "Usuari de prova"
+
+msgid "Gram"
+msgid_plural "Grams"
+msgstr[0] "Gram"
+msgstr[1] "Grams"
+
+msgid "Flour"
+msgstr "Farina"
+
+msgid "Pancakes"
+msgstr ""
+
+msgid "Sugar"
+msgstr "Sucre"
+
+msgid "Home"
+msgstr "Casa"
+
+msgid "Life"
+msgstr "VIda"
+
+msgid "Projects"
+msgstr "Projectes"
+
+msgid "Repair the garage door"
+msgstr "Reparar la porta del garatge"
+
+msgid "Fork and improve grocy"
+msgstr ""
+
+msgid "Find a solution for what to do when I forget the door keys"
+msgstr "Trobar una solució sobre el què fer quan em deixo les claus de casa"
+
+msgid "Sweets"
+msgstr "Llaminadures"
+
+msgid "Bakery products"
+msgstr "Productes de fleca"
+
+msgid "Tinned food"
+msgstr "Menjar en conserva"
+
+msgid "Butchery products"
+msgstr "Productes de carnisseria"
+
+msgid "Vegetables/Fruits"
+msgstr "Verdures / Fruites"
+
+msgid "Refrigerated products"
+msgstr "Productes refrigerats"
+
+msgid "Coffee machine"
+msgstr "Màquina de cafè"
+
+msgid "Dishwasher"
+msgstr "Rentaplats"
+
+msgid "Liter"
+msgstr "Litre"
+
+msgid "Liters"
+msgstr "Litres"
+
+msgid "Bottle"
+msgstr "Ampolla"
+
+msgid "Bottles"
+msgstr "Ampolles"
+
+msgid "Milk"
+msgstr "Llet"
+
+msgid "Chocolate sauce"
+msgstr ""
+
+msgid "Milliliters"
+msgstr "Mil·lilitres"
+
+msgid "Milliliter"
+msgstr "Mil·lilitre"
+
+msgid "Bottom"
+msgstr "Fons"
+
+msgid "Topping"
+msgstr "Cobertura"
+
+msgid "French"
+msgstr "Francès"
+
+msgid "Turkish"
+msgstr "Turc"
+
+msgid "Spanish"
+msgstr "Espanyol"
+
+msgid "Russian"
+msgstr "Rus"
+
+msgid "The thing which happens on the 5th of every month"
+msgstr "El que passa el dia 5 de cada mes"
+
+msgid "The thing which happens daily"
+msgstr "El que passa diàriament"
+
+msgid "The thing which happens on Mondays and Wednesdays"
+msgstr "El que passa els dilluns i els dimecres"
+
+msgid "Swedish"
+msgstr "Suec"
+
+msgid "Polish"
+msgstr "Polonès"
+
+msgid "Milk Chocolate"
+msgstr "Xocolata amb llet"
+
+msgid "Dark Chocolate"
+msgstr "Xocolata negra"
+
+msgid "Slice"
+msgid_plural "Slices"
+msgstr[0] "Tall"
+msgstr[1] "Talls"
+
+msgid "Example userentity"
+msgstr "Identitat d'usuari d'exemple"
+
+msgid "This is an example user entity..."
+msgstr "Aquest és una identitat d'usuari d'exemple"
+
+msgid "Custom field"
+msgstr "Camp personalitzat"
+
+msgid "Example field value..."
+msgstr "Exemple de valor de camp"
+
+msgid "Waffle rolls"
+msgstr "Gofres"
+
+msgid "Danish"
+msgstr "Danès"
+
+msgid "Dutch"
+msgstr "Holandès"
+
+msgid "Norwegian"
+msgstr "Noruec"
+
+msgid "Demo"
+msgstr "Demostració"
+
+msgid "Stable version"
+msgstr "Versió estable"
+
+msgid "Preview version"
+msgstr "Versió prèvia"
+
+msgid "current release"
+msgstr "Versió actual"
+
+msgid "not yet released"
+msgstr "Encara no publicat"
+
+msgid "Portuguese (Brazil)"
+msgstr "Portuguès (Brasil)"
+
+msgid "This is a note"
+msgstr "Això és una nota"
+
+msgid "Freezer"
+msgstr "Congelador"
+
+msgid "Hungarian"
+msgstr "Hongarès"
+
+msgid "Slovak"
+msgstr "Eslovac"
+
+msgid "Czech"
+msgstr "Txec"
+
+msgid "Portuguese (Portugal)"
+msgstr "Portuguès (Portugal)"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket1"
+msgstr "Supermercat de prova 1"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket2"
+msgstr "Supermercat de prova 2"
+
+msgid "Japanese"
+msgstr "Japonès"
+
+msgid "Chinese (Taiwan)"
+msgstr "Xinès (Taiwan)"
+
+msgid "Greek"
+msgstr "Grec"
+
+msgid "Korean"
+msgstr "Coreà"
+
+msgid "Chinese (China)"
+msgstr "Xinès (Xina)"
+
+msgid "Hebrew (Israel)"
+msgstr "Hebreu (Israel)"
+
+msgid "Tamil"
+msgstr "Tàmil"
+
+msgid "Finnish"
+msgstr "Finès"
+
+msgid "Breakfast"
+msgstr ""
+
+msgid "Lunch"
+msgstr ""
+
+msgid "Dinner"
+msgstr ""
+
+msgid "Catalan"
+msgstr ""

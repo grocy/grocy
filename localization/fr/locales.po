@@ -122,3 +122,7 @@ msgstr "ta"
 # Finnish
 msgid "fi"
 msgstr "fi"
+
+# Catalan
+msgid "ca"
+msgstr ""

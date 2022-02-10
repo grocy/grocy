@@ -21,9 +21,6 @@ msgstr ""
 msgid "manually"
 msgstr "Manuel"
 
-msgid "dynamic-regular"
-msgstr "Dinamik düzenli"
-
 msgid "daily"
 msgstr "her gün"
 
@@ -35,3 +32,9 @@ msgstr "her ay"
 
 msgid "yearly"
 msgstr "her yıl"
+
+msgid "hourly"
+msgstr ""
+
+msgid "adaptive"
+msgstr ""

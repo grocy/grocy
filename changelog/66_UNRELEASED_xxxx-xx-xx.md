@@ -89,6 +89,8 @@
 - New input shorthand `[+/-]n[d/m/y]` for date fields to quickly input a date relative to today (adding (**+**) or subtracting (**-**) the **n**umber of **d**ays/**m**onths/**y**ears, see the full list of available shorthands [here](https://github.com/grocy/grocy#input-shorthands-for-date-fields))
 - Fixed that when having a quantity unit matching any application string, the translation of that string was used to display that unit
 - Fixed that the logout button/menu was missing when using external authentication (e.g. LDAP)
+- New translations: (thanks all the translators)
+  - Catalan (demo available at https://ca.demo.grocy.info)
 
 ### API
 

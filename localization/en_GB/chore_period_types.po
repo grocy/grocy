@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
@@ -16,9 +16,6 @@ msgstr ""
 msgid "manually"
 msgstr "Manually"
 
-msgid "dynamic-regular"
-msgstr "Dynamic regular"
-
 msgid "daily"
 msgstr "Daily"
 
@@ -30,3 +27,9 @@ msgstr "Monthly"
 
 msgid "yearly"
 msgstr "Yearly"
+
+msgid "hourly"
+msgstr "Hourly"
+
+msgid "adaptive"
+msgstr "Adaptive"

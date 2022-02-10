@@ -89,3 +89,6 @@ msgstr "Tamil"
 
 msgid "fi"
 msgstr "Finnish"
+
+msgid "ca"
+msgstr "Catalan"

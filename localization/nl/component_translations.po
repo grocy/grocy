@@ -17,12 +17,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Domain: grocy/component_translations\n"
 
-msgid "timeago_locale"
-msgstr "nl"
-
-msgid "timeago_nan"
-msgstr "NaN jaar geleden"
-
 msgid "moment_locale"
 msgstr "nl"
 

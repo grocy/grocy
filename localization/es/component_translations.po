@@ -18,12 +18,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Domain: grocy/component_translations\n"
 
-msgid "timeago_locale"
-msgstr "es"
-
-msgid "timeago_nan"
-msgstr "Hace NaN años"
-
 msgid "moment_locale"
 msgstr "es"
 

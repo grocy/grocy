@@ -120,3 +120,7 @@ msgstr "Tamil Dili"
 # Finnish
 msgid "fi"
 msgstr "Fince"
+
+# Catalan
+msgid "ca"
+msgstr ""

@@ -20,9 +20,6 @@ msgstr ""
 msgid "manually"
 msgstr "수동"
 
-msgid "dynamic-regular"
-msgstr "주기적"
-
 msgid "daily"
 msgstr "매일"
 
@@ -34,3 +31,9 @@ msgstr "월간"
 
 msgid "yearly"
 msgstr "매년"
+
+msgid "hourly"
+msgstr ""
+
+msgid "adaptive"
+msgstr ""

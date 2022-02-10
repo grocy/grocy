@@ -395,3 +395,6 @@ msgstr "Lunch"
 
 msgid "Dinner"
 msgstr "Dinner"
+
+msgid "Catalan"
+msgstr ""

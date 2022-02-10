@@ -409,3 +409,6 @@ msgstr "ארוחת צהריים"
 
 msgid "Dinner"
 msgstr "ארוחת ערב"
+
+msgid "Catalan"
+msgstr ""
