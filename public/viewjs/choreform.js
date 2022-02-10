@@ -176,6 +176,10 @@ $('.input-group-chore-period-type').on('change keyup', function(e)
 	{
 		$('#chore-schedule-info').text(__n(periodInterval, 'This means the next execution of this chore is scheduled every year on the same day (based on the start date)', 'This means the next execution of this chore is scheduled every %s years on the same day (based on the start date)'));
 	}
+	else if (periodType === 'adaptive')
+	{
+		$('#chore-schedule-info').text(__t('This means the next execution of this chore is scheduled dynamically based on the past average execution frequency'));
+	}
 
 	Grocy.FrontendHelpers.ValidateForm('chore-form');
 });
@@ -190,23 +194,23 @@ $('.input-group-chore-assignment-type').on('change', function(e)
 
 	if (assignmentType === 'no-assignment')
 	{
-		$('#chore-assignment-type-info').attr("data-original-title", __t('This means the next execution of this chore will not be assigned to anyone'));
+		$('#chore-assignment-type-info').text(__t('This means the next execution of this chore will not be assigned to anyone'));
 	}
 	else if (assignmentType === 'who-least-did-first')
 	{
-		$('#chore-assignment-type-info').attr("data-original-title", __t('This means the next execution of this chore will be assigned to the one who executed it least'));
+		$('#chore-assignment-type-info').text(__t('This means the next execution of this chore will be assigned to the one who executed it least'));
 		$("#assignment_config").attr("required", "");
 		$("#assignment_config").removeAttr("disabled");
 	}
 	else if (assignmentType === 'random')
 	{
-		$('#chore-assignment-type-info').attr("data-original-title", __t('This means the next execution of this chore will be assigned randomly'));
+		$('#chore-assignment-type-info').text(__t('This means the next execution of this chore will be assigned randomly'));
 		$("#assignment_config").attr("required", "");
 		$("#assignment_config").removeAttr("disabled");
 	}
 	else if (assignmentType === 'in-alphabetical-order')
 	{
-		$('#chore-assignment-type-info').attr("data-original-title", __t('This means the next execution of this chore will be assigned to the next one in alphabetical order'));
+		$('#chore-assignment-type-info').text(__t('This means the next execution of this chore will be assigned to the next one in alphabetical order'));
 		$("#assignment_config").attr("required", "");
 		$("#assignment_config").removeAttr("disabled");
 	}

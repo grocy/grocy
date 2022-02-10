@@ -31,6 +31,15 @@ Grocy.Components.ChoreCard.Refresh = function(choreId)
 				$("#chorecard-chore-last-tracked-timeago").removeClass("timeago-date-only");
 			}
 
+			if (choreDetails.average_execution_frequency_hours == null)
+			{
+				$('#chorecard-average-execution-frequency').text(__t("Unknown"));
+			}
+			else
+			{
+				$('#chorecard-average-execution-frequency').text(moment.duration(parseInt(choreDetails.average_execution_frequency_hours) / 24, "days").humanize());
+			}
+
 			RefreshContextualTimeago(".chorecard");
 		},
 		function(xhr)

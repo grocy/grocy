@@ -4806,6 +4806,10 @@
 					},
 					"next_execution_assigned_user": {
 						"$ref": "#/components/schemas/UserDto"
+					},
+					"average_execution_frequency_hours": {
+						"type": "integer",
+						"description": "Contains the average past execution frequency in hours or `null`, when the chore was never executed before"
 					}
 				},
 				"example": {

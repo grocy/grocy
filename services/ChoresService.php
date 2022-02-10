@@ -24,6 +24,8 @@ class ChoresService extends BaseService
 
 	const CHORE_PERIOD_TYPE_YEARLY = 'yearly';
 
+	const CHORE_PERIOD_TYPE_ADAPTIVE = 'adaptive';
+
 	public function CalculateNextExecutionAssignment($choreId)
 	{
 		if (!$this->ChoreExists($choreId))
@@ -113,6 +115,7 @@ class ChoresService extends BaseService
 		$choreTrackedCount = $this->getDatabase()->chores_log()->where('chore_id = :1 AND undone = 0 AND skipped = 0', $choreId)->count();
 		$choreLastTrackedTime = $this->getDatabase()->chores_log()->where('chore_id = :1 AND undone = 0 AND skipped = 0', $choreId)->max('tracked_time');
 		$nextExecutionTime = $this->getDatabase()->chores_current()->where('chore_id', $choreId)->min('next_estimated_execution_time');
+		$averageExecutionFrequency = $this->getDatabase()->chores_execution_average_frequency()->where('chore_id', $choreId)->min('average_frequency_hours');
 
 		$lastChoreLogRow = $this->getDatabase()->chores_log()->where('chore_id = :1 AND tracked_time = :2 AND undone = 0', $choreId, $choreLastTrackedTime)->fetch();
 		$lastDoneByUser = null;
@@ -133,7 +136,8 @@ class ChoresService extends BaseService
 			'tracked_count' => $choreTrackedCount,
 			'last_done_by' => $lastDoneByUser,
 			'next_estimated_execution_time' => $nextExecutionTime,
-			'next_execution_assigned_user' => $nextExecutionAssignedUser
+			'next_execution_assigned_user' => $nextExecutionAssignedUser,
+			'average_execution_frequency_hours' => $averageExecutionFrequency
 		];
 	}
 

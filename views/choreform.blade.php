@@ -188,11 +188,7 @@
 
 			@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 			<div class="form-group">
-				<label for="assignment_type">{{ $__t('Assignment type') }} <i id="chore-assignment-type-info"
-						class="fas fa-question-circle text-muted"
-						data-toggle="tooltip"
-						data-trigger="hover click"
-						title=""></i></label>
+				<label for="assignment_type">{{ $__t('Assignment type') }}</label>
 				<select required
 					class="custom-control custom-select input-group-chore-assignment-type"
 					id="assignment_type"
@@ -223,6 +219,9 @@
 				</select>
 				<div class="invalid-feedback">{{ $__t('This assignment type requires that at least one is assigned') }}</div>
 			</div>
+
+			<p id="chore-assignment-type-info"
+				class="form-text text-info mt-n2"></p>
 			@else
 			<input type="hidden"
 				id="assignment_type"

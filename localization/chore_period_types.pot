@@ -29,3 +29,6 @@ msgstr ""
 
 msgid "hourly"
 msgstr ""
+
+msgid "adaptive"
+msgstr ""

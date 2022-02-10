@@ -47,12 +47,14 @@
 - Chore schedules can now be skipped
   - New button on the chores overview and chore tracking page
   - Skipped schedules will be highlighted accordingly on the chore journal
+- The chorecard now also shows the average execution frequency (how often the chore was executed in the past on average)
 - Added a new chore option "Start date" which is used as a schedule starting point when the chore was never tracked
   - Until now, the schedule starting point was the first tracked execution
   - For all existing chores, the start date will be set to the first tracked execution time (or today, for chores which were never tracked) on migration
 - The `Yearly` period type has been changed to be schedule the chore on the _same day_ each year
-  - This period type scheduled chores 1 year _after the last execution_ before, which is also possible by using the `Daily` period type and a period interval of 365 days - All existing `Yearly` schedules will be converted to that on migration
+  - This period type scheduled chores 1 year _after the last execution_ before, which is also possible by using the `Daily` period type and a period interval of 365 days; all existing `Yearly` schedules will be converted to that on migration
 - Added a new `Hourly` period type (to schedule chores every `x` hours)
+- Added a new `Adaptive` period type (to schedule chores dynamically based on the past average execution frequency)
 - Removed the period type `Dynamic regular`, since it's the same as `Daily`
   - All existing `Dynamic regular` schedules will be converted to that on migration
 
@@ -92,4 +94,5 @@
 
 - The API endpoint `/stock/shoppinglist/clear` has now a new optional request body parameter `done_only` (to only remove done items from the given shopping list, defaults to `false`)
 - The API endpoint `/chores/{choreId}/execute` has now a new optional request body parameter `skipped` (to skip the next chore schedule, defaults to `false`)
+- The API endpoint `/chores/{choreId}` has new response field/property `average_execution_frequency_hours` (contains the average past execution frequency in hours or `null`, when the chore was never executed before)
 - Fixed that the barcode lookup for the "Stock by-barcode" API endpoints was case sensitive

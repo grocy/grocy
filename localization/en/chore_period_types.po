@@ -30,3 +30,6 @@ msgstr "Yearly"
 
 msgid "hourly"
 msgstr "Hourly"
+
+msgid "adaptive"
+msgstr "Adaptive"

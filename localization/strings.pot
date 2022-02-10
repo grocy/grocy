@@ -2302,3 +2302,9 @@ msgstr ""
 
 msgid "Show the recipe list and the recipe side by side"
 msgstr ""
+
+msgid "This means the next execution of this chore is scheduled dynamically based on the past average execution frequency"
+msgstr ""
+
+msgid "Average execution frequency"
+msgstr ""
