@@ -24,9 +24,10 @@
 		@endif
 		<i class="fas fa-barcode float-right mt-1"></i>
 	</label>
-	<select class="form-control recipe-combobox"
+	<select class="form-control recipe-combobox barcodescanner-input"
 		id="recipe_id"
 		name="recipe_id"
+		data-target="@recipepicker"
 		@if($isRequired)
 		required
 		@endif>
@@ -37,3 +38,5 @@
 	</select>
 	<div class="invalid-feedback">{{ $__t('You have to select a recipe') }}</div>
 </div>
+
+@include('components.barcodescanner')

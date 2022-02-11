@@ -449,6 +449,11 @@ $(document).on("click", ".copy-day-button", function(e)
 
 $("#add-recipe-modal").on("shown.bs.modal", function(e)
 {
+	if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_DISABLE_BROWSER_BARCODE_CAMERA_SCANNING)
+	{
+		Grocy.Components.BarcodeScanner.Init();
+	}
+
 	Grocy.Components.RecipePicker.GetInputElement().focus();
 })
 
@@ -459,6 +464,11 @@ $("#add-note-modal").on("shown.bs.modal", function(e)
 
 $("#add-product-modal").on("shown.bs.modal", function(e)
 {
+	if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_DISABLE_BROWSER_BARCODE_CAMERA_SCANNING)
+	{
+		Grocy.Components.BarcodeScanner.Init();
+	}
+
 	Grocy.Components.ProductPicker.GetInputElement().focus();
 })
 

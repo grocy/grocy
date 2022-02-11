@@ -279,8 +279,14 @@ $(document).on("click", "#barcodescanner-start-button", async function(e)
 	Grocy.Components.BarcodeScanner.StartScanning();
 });
 
-setTimeout(function()
+Grocy.Components.BarcodeScanner.InitDone = false;
+Grocy.Components.BarcodeScanner.Init = function()
 {
+	if (Grocy.Components.BarcodeScanner.InitDone)
+	{
+		return;
+	}
+
 	$(".barcodescanner-input:visible").each(function()
 	{
 		if ($(this).hasAttr("disabled"))
@@ -291,5 +297,12 @@ setTimeout(function()
 		{
 			$(this).after('<a id="barcodescanner-start-button" class="btn btn-sm btn-primary text-white" data-target="' + $(this).attr("data-target") + '"><i class="fas fa-camera"></i></a>');
 		}
+
+		Grocy.Components.BarcodeScanner.InitDone = true;
 	});
+}
+
+setTimeout(function()
+{
+	Grocy.Components.BarcodeScanner.Init();
 }, 50);

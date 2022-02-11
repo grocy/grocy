@@ -90,9 +90,6 @@ Setting('LDAP_BIND_PW', ''); // Password for the above account
 Setting('LDAP_USER_FILTER', ''); // Example value "(OU=grocy_users)"
 Setting('LDAP_UID_ATTR', ''); // Windows AD: "sAMAccountName", OpenLDAP: "uid", GLAuth: "cn"
 
-// Set this to true if you want to disable the ability to scan a barcode via the device camera (Browser API)
-Setting('DISABLE_BROWSER_BARCODE_CAMERA_SCANNING', false);
-
 // Default permissions for new users
 // the array needs to contain the technical/constant names
 // See the file controllers/Users/User.php for possible values
@@ -147,6 +144,7 @@ Setting('FEATURE_FLAG_CHORES_ASSIGNMENTS', true);
 Setting('FEATURE_FLAG_THERMAL_PRINTER', false);
 
 // Feature settings
+Setting('FEATURE_FLAG_DISABLE_BROWSER_BARCODE_CAMERA_SCANNING', false); // Set this to true if you want to disable the ability to scan a barcode via the device camera (Browser API)
 Setting('FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA', true); // Enables the torch automatically (if the device has one)
 
 
