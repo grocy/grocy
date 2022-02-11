@@ -634,9 +634,19 @@ canvas.drawingBuffer {
 		flex-basis: 100%;
 	}
 
+	.content-wrapper {
+		margin-left: 0;
+	}
+
+	body.fixed-nav {
+		padding-top: 0;
+	}
+
 	.calendar button.fc-prev-button,
 	.calendar button.fc-today-button,
-	.calendar button.fc-next-button {
+	.calendar button.fc-next-button,
+	.calendar button.fc-agendaWeek-button,
+	.calendar button.fc-agendaDay-button {
 		display: none;
 	}
 }
