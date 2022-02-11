@@ -96,4 +96,4 @@ msgid "fullcalendar_locale"
 msgstr "ca"
 
 msgid "bootstrap-select_locale"
-msgstr "x"
+msgstr "en_US"
