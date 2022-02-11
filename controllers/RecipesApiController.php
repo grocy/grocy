@@ -3,6 +3,8 @@
 namespace Grocy\Controllers;
 
 use Grocy\Controllers\Users\User;
+use Grocy\Helpers\WebhookRunner;
+use Grocy\Helpers\Grocycode;
 
 class RecipesApiController extends BaseApiController
 {
@@ -70,6 +72,30 @@ class RecipesApiController extends BaseApiController
 			return $this->ApiResponse($response, [
 				'created_object_id' => $this->getRecipesService()->CopyRecipe($args['recipeId'])
 			]);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
+
+	public function RecipePrintLabel(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		try
+		{
+			$recipe = $this->getDatabase()->recipes()->where('id', $args['recipeId'])->fetch();
+
+			$webhookData = array_merge([
+				'recipe' => $recipe->name,
+				'grocycode' => (string)(new Grocycode(Grocycode::RECIPE, $args['recipeId'])),
+			], GROCY_LABEL_PRINTER_PARAMS);
+
+			if (GROCY_LABEL_PRINTER_RUN_SERVER)
+			{
+				(new WebhookRunner())->run(GROCY_LABEL_PRINTER_WEBHOOK, $webhookData, GROCY_LABEL_PRINTER_HOOK_JSON);
+			}
+
+			return $this->ApiResponse($response, $webhookData);
 		}
 		catch (\Exception $ex)
 		{

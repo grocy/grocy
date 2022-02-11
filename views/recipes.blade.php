@@ -162,6 +162,20 @@
 											data-recipe-id="{{ $recipe->id }}">
 											<span class="dropdown-item-text">{{ $__t('Copy recipe') }}</span>
 										</a>
+										<div class="dropdown-divider"></div>
+										<a class="dropdown-item"
+											type="button"
+											href="{{ $U('/recipe/' . $recipe->id . '/grocycode?download=true') }}">
+											<span class="dropdown-item-text">{!! str_replace('grocycode', '<span class="ls-n1">grocycode</span>', $__t('Download %s grocycode', $__t('Recipe'))) !!}</span>
+										</a>
+										@if(GROCY_FEATURE_FLAG_LABEL_PRINTER)
+										<a class="dropdown-item recipe-grocycode-label-print"
+											data-recipe-id="{{ $recipe->id }}"
+											type="button"
+											href="#">
+											<span class="dropdown-item-text">{!! str_replace('grocycode', '<span class="ls-n1">grocycode</span>', $__t('Print %s grocycode on label printer', $__t('Recipe'))) !!}</span>
+										</a>
+										@endif
 									</div>
 								</div>
 							</td>
@@ -281,7 +295,7 @@
 							<div class="d-flex justify-content-between align-items-center">
 								<h3 class="card-title mb-0">{{ $recipe->name }}</h3>
 								<div class="card-icons d-flex flex-wrap justify-content-end flex-shrink-1">
-									<a class="@if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif recipe-consume hide-when-embedded @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 0) disabled @endif"
+									<a class="@if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif recipe-consume @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 0) disabled @endif"
 										href="#"
 										data-toggle="tooltip"
 										title="{{ $__t('Consume all ingredients needed by this recipe') }}"
@@ -289,7 +303,7 @@
 										data-recipe-name="{{ $recipe->name }}">
 										<i class="fas fa-utensils"></i>
 									</a>
-									<a class="@if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif recipe-shopping-list hide-when-embedded @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif"
+									<a class="@if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif recipe-shopping-list @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif"
 										href="#"
 										data-toggle="tooltip"
 										title="{{ $__t('Put missing products on shopping list') }}"
@@ -304,7 +318,7 @@
 										title="{{ $__t('Expand to fullscreen') }}">
 										<i class="fas fa-expand-arrows-alt"></i>
 									</a>
-									<a class="recipe-print hide-when-embedded"
+									<a class="recipe-print"
 										href="#"
 										data-toggle="tooltip"
 										title="{{ $__t('Print') }}">
@@ -317,7 +331,7 @@
 						<div class="mb-4 @if(!empty($recipe->picture_file_name)) d-none @else d-flex @endif d-print-block justify-content-between align-items-center">
 							<h1 class="card-title mb-0">{{ $recipe->name }}</h1>
 							<div class="card-icons d-flex flex-wrap justify-content-end flex-shrink-1 d-print-none">
-								<a class="recipe-consume hide-when-embedded @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 0) disabled @endif"
+								<a class="recipe-consume @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 0) disabled @endif"
 									href="#"
 									data-toggle="tooltip"
 									title="{{ $__t('Consume all ingredients needed by this recipe') }}"
@@ -325,7 +339,7 @@
 									data-recipe-name="{{ $recipe->name }}">
 									<i class="fas fa-utensils"></i>
 								</a>
-								<a class="recipe-shopping-list hide-when-embedded @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif"
+								<a class="recipe-shopping-list @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif"
 									href="#"
 									data-toggle="tooltip"
 									title="{{ $__t('Put missing products on shopping list') }}"
@@ -339,7 +353,7 @@
 									title="{{ $__t('Expand to fullscreen') }}">
 									<i class="fas fa-expand-arrows-alt"></i>
 								</a>
-								<a class="recipe-print hide-when-embedded PrintRecipe"
+								<a class="recipe-print PrintRecipe"
 									href="#"
 									data-toggle="tooltip"
 									title="{{ $__t('Print') }}">
@@ -355,7 +369,7 @@
 
 						<div class="row ml-1">
 							@if(!empty($calories) && intval($calories) > 0)
-							<div class="col-6 col-xl-3">
+							<div class="col-4">
 								<label>{{ $__t('Energy (kcal)') }}</label>&nbsp;
 								<i class="fas fa-question-circle text-muted d-print-none"
 									data-toggle="tooltip"
@@ -365,7 +379,7 @@
 							</div>
 							@endif
 							@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
-							<div class="col-5">
+							<div class="col-4">
 								<label>{{ $__t('Costs') }}&nbsp;
 									<i class="fas fa-question-circle text-muted d-print-none"
 										data-toggle="tooltip"
@@ -377,7 +391,7 @@
 							@endif
 
 							@if($index == 0)
-							<div class="col-12 col-xl-4 d-print-none">
+							<div class="col-4 d-print-none">
 								@include('components.numberpicker', array(
 								'id' => 'servings-scale',
 								'label' => 'Desired servings',

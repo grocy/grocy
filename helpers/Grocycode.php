@@ -23,6 +23,8 @@ class Grocycode
 
 	public const CHORE = 'c';
 
+	public const RECIPE = 'r';
+
 	public const MAGIC = 'grcy';
 
 	/**
@@ -55,7 +57,7 @@ class Grocycode
 	/**
 	 * An array that registers all valid grocycode types. Register yours here by appending to this array.
 	 */
-	public static $Items = [self::PRODUCT, self::BATTERY, self::CHORE];
+	public static $Items = [self::PRODUCT, self::BATTERY, self::CHORE, self::RECIPE];
 
 	private $type;
 

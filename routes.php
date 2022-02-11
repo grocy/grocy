@@ -90,6 +90,7 @@ $app->group('', function (RouteCollectorProxy $group) {
 		$group->get('/mealplansections', '\Grocy\Controllers\RecipesController:MealPlanSectionsList');
 		$group->get('/mealplansection/{sectionId}', '\Grocy\Controllers\RecipesController:MealPlanSectionEditForm');
 		$group->get('/recipessettings', '\Grocy\Controllers\RecipesController:RecipesSettings');
+		$group->get('/recipe/{recipeId}/grocycode', '\Grocy\Controllers\RecipesController:RecipeGrocycodeImage');
 	}
 
 	// Chore routes
@@ -230,6 +231,8 @@ $app->group('/api', function (RouteCollectorProxy $group) {
 	$group->post('/recipes/{recipeId}/consume', '\Grocy\Controllers\RecipesApiController:ConsumeRecipe');
 	$group->get('/recipes/fulfillment', '\Grocy\Controllers\RecipesApiController:GetRecipeFulfillment');
 	$group->Post('/recipes/{recipeId}/copy', '\Grocy\Controllers\RecipesApiController:CopyRecipe');
+	$group->get('/recipes/{recipeId}/printlabel', '\Grocy\Controllers\RecipesApiController:RecipePrintLabel');
+
 
 	// Chores
 	$group->get('/chores', '\Grocy\Controllers\ChoresApiController:Current');

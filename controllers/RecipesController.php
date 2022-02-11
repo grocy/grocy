@@ -3,9 +3,12 @@
 namespace Grocy\Controllers;
 
 use Grocy\Services\RecipesService;
+use Grocy\Helpers\Grocycode;
 
 class RecipesController extends BaseController
 {
+	use GrocycodeTrait;
+
 	public function MealPlan(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$start = date('Y-m-d');
@@ -212,5 +215,11 @@ class RecipesController extends BaseController
 		return $this->renderPage($response, 'mealplansections', [
 			'mealplanSections' => $this->getDatabase()->meal_plan_sections()->where('id > 0')->orderBy('sort_number')
 		]);
+	}
+
+	public function RecipeGrocycodeImage(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		$gc = new Grocycode(Grocycode::RECIPE, $args['recipeId']);
+		return $this->ServeGrocycodeImage($request, $response, $gc);
 	}
 }

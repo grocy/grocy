@@ -3496,6 +3496,48 @@
 				}
 			}
 		},
+		"/recipes/{recipeId}/printlabel": {
+			"get": {
+				"summary": "Prints the grocycode label of the given recipe on the configured label printer",
+				"tags": [
+					"Recipes"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "recipeId",
+						"required": true,
+						"description": "A valid recipe id",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"description": "WebHook data"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing recipe, error on WebHook execution)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error400"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/chores": {
 			"get": {
 				"summary": "Returns all chores incl. the next estimated execution time per chore",

@@ -414,3 +414,18 @@ if (window.location.hash === "#fullscreen")
 }
 
 LoadImagesLazy();
+
+$(document).on('click', '.recipe-grocycode-label-print', function(e)
+{
+	e.preventDefault();
+	document.activeElement.blur();
+
+	var recipeId = $(e.currentTarget).attr('data-recipe-id');
+	Grocy.Api.Get('recipes/' + recipeId + '/printlabel', function(labelData)
+	{
+		if (Grocy.Webhooks.labelprinter !== undefined)
+		{
+			Grocy.FrontendHelpers.RunWebhook(Grocy.Webhooks.labelprinter, labelData);
+		}
+	});
+});

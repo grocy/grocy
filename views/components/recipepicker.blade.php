@@ -14,13 +14,15 @@
 	data-next-input-selector="{{ $nextInputSelector }}"
 	data-prefill-by-name="{{ $prefillByName }}"
 	data-prefill-by-id="{{ $prefillById }}">
-	<label for="recipe_id">{{ $__t('Recipe') }}
+	<label class="w-100"
+		for="recipe_id">{{ $__t('Recipe') }}
 		@if(!empty($hint))
 		<i class="fas fa-question-circle text-muted"
 			data-toggle="tooltip"
 			data-trigger="hover click"
 			title="{{ $hint }}"></i>
 		@endif
+		<i class="fas fa-barcode float-right mt-1"></i>
 	</label>
 	<select class="form-control recipe-combobox"
 		id="recipe_id"

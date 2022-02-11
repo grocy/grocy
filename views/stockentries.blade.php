@@ -201,7 +201,7 @@
 									{{ $__t('Edit product') }}
 								</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item stockentry-grocycode-link"
+								<a class="dropdown-item"
 									type="button"
 									href="{{ $U('/stockentry/' . $stockEntry->id . '/grocycode?download=true') }}">
 									{!! str_replace('grocycode', '<span class="ls-n1">grocycode</span>', $__t('Download %s grocycode', $__t('Stock entry'))) !!}
