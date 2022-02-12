@@ -3388,6 +3388,16 @@
 				"responses": {
 					"204": {
 						"description": "The operation was successful"
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Invalid recipe id, recipe need is not fulfilled)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error400"
+								}
+							}
+						}
 					}
 				}
 			}

@@ -74,6 +74,12 @@ class RecipesService extends BaseService
 			throw new \Exception('Recipe does not exist');
 		}
 
+		$recipeResolved = $this->getDatabase()->recipes_resolved()->where('recipe_id', $recipeId)->fetch();
+		if ($recipeResolved->need_fulfilled == 0)
+		{
+			throw new \Exception('Recipe need is not fulfilled, consuming not possible');
+		}
+
 		$transactionId = uniqid();
 
 		$recipePositions = $this->getDatabase()->recipes_pos_resolved()->where('recipe_id', $recipeId)->fetchAll();

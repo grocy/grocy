@@ -295,7 +295,7 @@
 							<div class="d-flex justify-content-between align-items-center">
 								<h3 class="card-title mb-0">{{ $recipe->name }}</h3>
 								<div class="card-icons d-flex flex-wrap justify-content-end flex-shrink-1">
-									<a class="@if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif recipe-consume @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 0) disabled @endif"
+									<a class="btn @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif recipe-consume @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 0) disabled @endif"
 										href="#"
 										data-toggle="tooltip"
 										title="{{ $__t('Consume all ingredients needed by this recipe') }}"
@@ -303,7 +303,7 @@
 										data-recipe-name="{{ $recipe->name }}">
 										<i class="fas fa-utensils"></i>
 									</a>
-									<a class="@if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif recipe-shopping-list @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif"
+									<a class="btn @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif recipe-shopping-list @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif"
 										href="#"
 										data-toggle="tooltip"
 										title="{{ $__t('Put missing products on shopping list') }}"
@@ -311,14 +311,14 @@
 										data-recipe-name="{{ $recipe->name }}">
 										<i class="fas fa-cart-plus"></i>
 									</a>
-									<a class="recipe-fullscreen hide-when-embedded"
+									<a class="btn recipe-fullscreen hide-when-embedded"
 										id="selectedRecipeToggleFullscreenButton"
 										href="#"
 										data-toggle="tooltip"
 										title="{{ $__t('Expand to fullscreen') }}">
 										<i class="fas fa-expand-arrows-alt"></i>
 									</a>
-									<a class="recipe-print"
+									<a class="btn recipe-print"
 										href="#"
 										data-toggle="tooltip"
 										title="{{ $__t('Print') }}">
@@ -331,7 +331,7 @@
 						<div class="mb-4 @if(!empty($recipe->picture_file_name)) d-none @else d-flex @endif d-print-block justify-content-between align-items-center">
 							<h1 class="card-title mb-0">{{ $recipe->name }}</h1>
 							<div class="card-icons d-flex flex-wrap justify-content-end flex-shrink-1 d-print-none">
-								<a class="recipe-consume @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 0) disabled @endif"
+								<a class="btn recipe-consume @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 0) disabled @endif"
 									href="#"
 									data-toggle="tooltip"
 									title="{{ $__t('Consume all ingredients needed by this recipe') }}"
@@ -339,7 +339,7 @@
 									data-recipe-name="{{ $recipe->name }}">
 									<i class="fas fa-utensils"></i>
 								</a>
-								<a class="recipe-shopping-list @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif"
+								<a class="btn recipe-shopping-list @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif"
 									href="#"
 									data-toggle="tooltip"
 									title="{{ $__t('Put missing products on shopping list') }}"
@@ -347,13 +347,13 @@
 									data-recipe-name="{{ $recipe->name }}">
 									<i class="fas fa-cart-plus"></i>
 								</a>
-								<a class="recipe-fullscreen hide-when-embedded"
+								<a class=" btnrecipe-fullscreen hide-when-embedded"
 									href="#"
 									data-toggle="tooltip"
 									title="{{ $__t('Expand to fullscreen') }}">
 									<i class="fas fa-expand-arrows-alt"></i>
 								</a>
-								<a class="recipe-print PrintRecipe"
+								<a class="btn recipe-print PrintRecipe"
 									href="#"
 									data-toggle="tooltip"
 									title="{{ $__t('Print') }}">
