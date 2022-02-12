@@ -197,6 +197,8 @@ class LocalizationService
 		$this->Translator = new Translator();
 		$this->Translator->loadTranslations($this->Po);
 
+		$this->PoQu = new Translations();
+
 		$quantityUnits = null;
 		try
 		{
@@ -209,7 +211,6 @@ class LocalizationService
 
 		if ($quantityUnits !== null)
 		{
-			$this->PoQu = new Translations();
 			$this->PoQu->setHeader(Translations::HEADER_PLURAL, $this->Po->getHeader(Translations::HEADER_PLURAL));
 
 			foreach ($quantityUnits as $quantityUnit)

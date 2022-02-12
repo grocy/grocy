@@ -48,7 +48,7 @@
 
 ### General
 
-- xxx
+- Fixed an server error (on every page) when not having any quantity unit
 
 ### API
 
