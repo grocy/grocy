@@ -2792,6 +2792,72 @@
 				}
 			}
 		},
+		"/stock/locations/{locationId}/entries": {
+			"get": {
+				"summary": "Returns all stock entries of the given location",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "locationId",
+						"required": true,
+						"description": "A valid location id",
+						"schema": {
+							"type": "integer"
+						}
+					},
+					{
+						"$ref": "#/components/parameters/query"
+					},
+					{
+						"$ref": "#/components/parameters/order"
+					},
+					{
+						"$ref": "#/components/parameters/limit"
+					},
+					{
+						"$ref": "#/components/parameters/offset"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "An array of StockEntry objects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/StockEntry"
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Not existing location)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error400"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "The operation was not successful (possible errors are invalid field names or conditions in filter parameters provided)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error500"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/stock/shoppinglist/add-missing-products": {
 			"post": {
 				"summary": "Adds currently missing products (below defined min. stock amount) to the given shopping list",

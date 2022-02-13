@@ -631,6 +631,11 @@ class StockApiController extends BaseApiController
 		return $this->FilteredApiResponse($response, $this->getStockService()->GetProductStockEntries($args['productId'], false, $allowSubproductSubstitution, true), $request->getQueryParams());
 	}
 
+	public function LocationStockEntries(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		return $this->FilteredApiResponse($response, $this->getStockService()->GetLocationStockEntries($args['locationId']), $request->getQueryParams());
+	}
+
 	public function ProductStockLocations(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$allowSubproductSubstitution = false;

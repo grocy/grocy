@@ -820,6 +820,16 @@ class StockService extends BaseService
 		return $result;
 	}
 
+	public function GetLocationStockEntries($locationId)
+	{
+		if (!$this->LocationExists($locationId))
+		{
+			throw new \Exception('Location does not exist');
+		}
+
+		return $this->getDatabase()->stock()->where('location_id', $locationId);
+	}
+
 	public function GetProductStockEntriesForLocation($productId, $locationId, $excludeOpened = false, $allowSubproductSubstitution = false)
 	{
 		$stockEntries = $this->GetProductStockEntries($productId, $excludeOpened, $allowSubproductSubstitution, true);

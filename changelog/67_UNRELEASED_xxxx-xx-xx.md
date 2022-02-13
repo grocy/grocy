@@ -52,4 +52,5 @@
 
 ### API
 
+- Added a new endpoint `/stock/locations/{locationId}/entries` to get all stock entries of a given location (similiar to the already existing endpoint `/stock/products/{productId}/entries`)
 - Endpoint `/recipes/{recipeId}/consume`: Fixed that consuming partially fulfilled recipes was possible, although an error was already returned in that case (and potentially some of the in-stock ingredients were consumed in fact)
