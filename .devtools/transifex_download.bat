@@ -1,6 +1,9 @@
 pushd ..
-tx pull --all --minimum-perc=70 --force
-tx pull --language en_GB --force
+for /d %%d in (localization\*) do (
+	if %%~nxd neq en (
+		tx pull --languages %%~nxd --force
+	)
+)
 copy /Y localization\en\userfield_types.po localization\en_GB\userfield_types.po
 copy /Y localization\en\stock_transaction_types.po localization\en_GB\stock_transaction_types.po
 copy /Y localization\en\component_translations.po localization\en_GB\component_translations.po

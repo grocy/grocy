@@ -1,56 +1,56 @@
 [main]
 host = https://www.transifex.com
 
-[grocy.chore_period_types]
-file_filter = localization/<lang>/chore_period_types.po
-source_file = localization/chore_period_types.pot
-source_lang = en
-type = PO
-
-[grocy.chore_assignment_types]
+[o:grocy:p:grocy:r:chore_assignment_types]
 file_filter = localization/<lang>/chore_assignment_types.po
 source_file = localization/chore_assignment_types.pot
 source_lang = en
-type = PO
+type        = PO
 
-[grocy.component_translations]
+[o:grocy:p:grocy:r:chore_period_types]
+file_filter = localization/<lang>/chore_period_types.po
+source_file = localization/chore_period_types.pot
+source_lang = en
+type        = PO
+
+[o:grocy:p:grocy:r:component_translations]
 file_filter = localization/<lang>/component_translations.po
 source_file = localization/component_translations.pot
 source_lang = en
-type = PO
+type        = PO
 
-[grocy.demo_data]
+[o:grocy:p:grocy:r:demo_data]
 file_filter = localization/<lang>/demo_data.po
 source_file = localization/demo_data.pot
 source_lang = en
-type = PO
+type        = PO
 
-[grocy.stock_transaction_types]
-file_filter = localization/<lang>/stock_transaction_types.po
-source_file = localization/stock_transaction_types.pot
-source_lang = en
-type = PO
-
-[grocy.strings]
-file_filter = localization/<lang>/strings.po
-source_file = localization/strings.pot
-source_lang = en
-type = PO
-
-[grocy.userfield_types]
-file_filter = localization/<lang>/userfield_types.po
-source_file = localization/userfield_types.pot
-source_lang = en
-type = PO
-
-[grocy.permissions]
-file_filter = localization/<lang>/permissions.po
-source_file = localization/permissions.pot
-source_lang = en
-type = PO
-
-[grocy.locales]
+[o:grocy:p:grocy:r:locales]
 file_filter = localization/<lang>/locales.po
 source_file = localization/locales.pot
 source_lang = en
-type = PO
+type        = PO
+
+[o:grocy:p:grocy:r:permissions]
+file_filter = localization/<lang>/permissions.po
+source_file = localization/permissions.pot
+source_lang = en
+type        = PO
+
+[o:grocy:p:grocy:r:stock_transaction_types]
+file_filter = localization/<lang>/stock_transaction_types.po
+source_file = localization/stock_transaction_types.pot
+source_lang = en
+type        = PO
+
+[o:grocy:p:grocy:r:strings]
+file_filter = localization/<lang>/strings.po
+source_file = localization/strings.pot
+source_lang = en
+type        = PO
+
+[o:grocy:p:grocy:r:userfield_types]
+file_filter = localization/<lang>/userfield_types.po
+source_file = localization/userfield_types.pot
+source_lang = en
+type        = PO
