@@ -883,11 +883,11 @@ $('a.link-return').not(".btn").each(function()
 	var base = $(this).data('href');
 	if (base.contains('?'))
 	{
-		$(this).attr('href', base + '&returnto' + encodeURIComponent(location.pathname));
+		$(this).attr('href', base + '&returnto' + encodeURIComponent(Grocy.CurrentUrlRelative));
 	}
 	else
 	{
-		$(this).attr('href', base + '?returnto=' + encodeURIComponent(location.pathname));
+		$(this).attr('href', base + '?returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative));
 	}
 
 })

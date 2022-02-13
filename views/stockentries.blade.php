@@ -195,9 +195,9 @@
 									href="{{ $U('/stockjournal/summary?embedded&product=') }}{{ $stockEntry->product_id }}">
 									{{ $__t('Stock journal summary') }}
 								</a>
-								<a class="dropdown-item"
+								<a class="dropdown-item link-return"
 									type="button"
-									href="{{ $U('/product/') }}{{ $stockEntry->product_id . '?returnto=/stockentries' }}">
+									data-href="{{ $U('/product/') }}{{ $stockEntry->product_id }}">
 									{{ $__t('Edit product') }}
 								</a>
 								<div class="dropdown-divider"></div>
