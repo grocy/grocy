@@ -194,6 +194,12 @@
 						@if($currentBatteryEntry->due_type == 'duetoday')
 						duesoon
 						@endif
+					</td>
+
+					@include('components.userfields_tbody',
+					array( 'userfields'=> $userfields,
+					'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $currentBatteryEntry->battery_id)
+					))
 
 				</tr>
 				@endforeach

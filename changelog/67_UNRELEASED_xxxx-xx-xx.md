@@ -36,7 +36,7 @@
 
 ### Batteries
 
-- xxx
+- Fixed that the batteries overview page was broken when there was any battery Userfields with enabled "Show as column in tables" option
 
 ### Equipment
 
