@@ -9,5 +9,8 @@ assignees: ''
 ---
 
 <!--
-Please describe what you would find useful and please also check (by searching open requests here) if that was maybe already requested.
+Please make sure to:
+
+- Describe what you would find useful
+- Check if your idea was maybe already requested by searching open requests here
 -->

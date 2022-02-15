@@ -9,9 +9,13 @@ assignees: ''
 ---
 
 <!--
-Please describe the bug as detailed as possible, provide the steps how to reproduce it and maybe attach screenshots where useful.
+Please make sure to:
 
-Please also check if your bug was maybe already fixed by searching closed issues here or by trying to reproduce your problem on the pre-release demo (=> https://demo-prerelease.grocy.info) (use a *private demo instance* if you want to make your example persistent).
+- Describe the bug as detailed as possible by providing the exact steps how to reproduce it
+- Attach screenshots where useful
+- Check if the problem was maybe already reported or fixed by searching open and closed issues here
 
-If your problem is not reproducible, it's most likely not a bug - please use the r/grocy subreddit (=> https://www.reddit.com/r/grocy) for general questions / help.
+Please also try to reproduce the problem on the pre-release demo: => https://demo-prerelease.grocy.info
+- Use a private demo instance to make your example persistent
+- If the problem is not reproducible there, it's most likely not a bug - please use the r/grocy subreddit for general questions / help: => https://www.reddit.com/r/grocy
 -->
