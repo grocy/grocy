@@ -246,18 +246,7 @@
 					<label for="merge-products-remove">{{ $__t('Product to remove') }}&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
-							title="{{ $__t('After merging, all occurences of this product will be replaced by "
-							Product
-							to
-							keep"
-							(means
-							this
-							product
-							will
-							not
-							exist
-							anymore)')
-							}}"></i>
+							title="{{ $__t('After merging, all occurences of this product will be replaced by "Product to keep" (means this product will not exist anymore)') }}"></i>
 					</label>
 					<select class="custom-control custom-select"
 						id="merge-products-remove">
