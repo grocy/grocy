@@ -989,7 +989,8 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 	dataTable.columns().every(function()
 	{
 		var index = this.index();
-		var title = $(this.header()).text();
+		var headerCell = $(this.header());
+		var title = headerCell.text();
 		var visible = this.visible();
 
 		if (title.isEmpty() || title.startsWith("Hidden"))
@@ -997,7 +998,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 			return;
 		}
 
-		var shadowColumnIndex = $(this.header()).attr("data-shadow-rowgroup-column");
+		var shadowColumnIndex = headerCell.attr("data-shadow-rowgroup-column");
 		if (shadowColumnIndex)
 		{
 			index = shadowColumnIndex;
@@ -1022,7 +1023,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 				</label> \
 			</div>';
 
-		if (rowGroupDefined)
+		if (rowGroupDefined && headerCell.hasClass("allow-grouping"))
 		{
 			var rowGroupChecked = "";
 			if (dataTable.rowGroup().enabled() && dataTable.rowGroup().dataSrc() == index)
@@ -1046,10 +1047,25 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 		}
 	});
 
-	var message = '<div class="text-center"><h5>' + __t('Table options') + '</h5><hr><h5 class="mb-0">' + __t('Hide/view columns') + '</h5><div class="text-left form-group">' + columnCheckBoxesHtml + '</div></div>';
+	var message = '\
+		<div class="text-center"> \
+			<h5>' + __t('Table options') + '</h5> \
+			<hr> \
+			<h5 class="mb-0">' + __t('Hide/view columns') + '</h5> \
+			<div class="text-left form-group"> \
+				' + columnCheckBoxesHtml + ' \
+			</div> \
+		</div>';
+
 	if (rowGroupDefined)
 	{
-		message += '<div class="text-center mt-1"><h5 class="pt-3 mb-0">' + __t('Group by') + '</h5><div class="text-left form-group">' + rowGroupRadioBoxesHtml + '</div></div>';
+		message += ' \
+			<div class="text-center mt-1"> \
+				<h5 class="pt-3 mb-0">' + __t('Group by') + '</h5> \
+				<div class="text-left form-group"> \
+					' + rowGroupRadioBoxesHtml + ' \
+				</div> \
+			</div>';
 	}
 
 	bootbox.dialog({

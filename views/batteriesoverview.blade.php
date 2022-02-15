@@ -101,7 +101,7 @@
 							href="#"><i class="fas fa-eye"></i></a>
 					</th>
 					<th>{{ $__t('Battery') }}</th>
-					<th>{{ $__t('Used in') }}</th>
+					<th class="allow-grouping">{{ $__t('Used in') }}</th>
 					<th>{{ $__t('Last charged') }}</th>
 					<th>{{ $__t('Next planned charge cycle') }}</th>
 					<th class="d-none">Hidden status</th>

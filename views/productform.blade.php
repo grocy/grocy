@@ -557,8 +557,8 @@
 									href="#"><i class="fas fa-eye"></i></a>
 							</th>
 							<th>{{ $__t('Barcode') }}</th>
-							<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Store') }}</th>
-							<th>{{ $__t('Quantity unit') }}</th>
+							<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif allow-grouping">{{ $__t('Store') }}</th>
+							<th class="allow-grouping">{{ $__t('Quantity unit') }}</th>
 							<th>{{ $__t('Amount') }}</th>
 							<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Last price') }}</th>
 							<th>{{ $__t('Note') }}</th>
@@ -693,10 +693,10 @@
 									data-table-selector="#qu-conversions-table-products"
 									href="#"><i class="fas fa-eye"></i></a>
 							</th>
-							<th>{{ $__t('Quantity unit from') }}</th>
-							<th>{{ $__t('Quantity unit to') }}</th>
+							<th class="allow-grouping">{{ $__t('Quantity unit from') }}</th>
+							<th class="allow-grouping">{{ $__t('Quantity unit to') }}</th>
 							<th>{{ $__t('Factor') }}</th>
-							<th>{{ $__t('Group')}}</th>
+							<th class="allow-grouping">{{ $__t('Group')}}</th>
 							<th></th>
 						</tr>
 					</thead>

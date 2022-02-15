@@ -158,21 +158,21 @@
 							href="#"><i class="fas fa-eye"></i></a>
 					</th>
 					<th>{{ $__t('Product') }}</th>
-					<th>{{ $__t('Product group') }}</th>
+					<th class="allow-grouping">{{ $__t('Product group') }}</th>
 					<th>{{ $__t('Amount') }}</th>
 					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Value') }}</th>
-					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING) d-none @endif">{{ $__t('Next due date') }}</th>
+					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING) d-none @endif allow-grouping">{{ $__t('Next due date') }}</th>
 					<th class="d-none">Hidden location</th>
 					<th class="d-none">Hidden status</th>
 					<th class="d-none">Hidden product group</th>
 					<th>{{ $__t('Calories') }} ({{ $__t('Per stock quantity unit') }})</th>
 					<th>{{ $__t('Calories') }}</th>
-					<th>{{ $__t('Last purchased') }}</th>
+					<th class="allow-grouping">{{ $__t('Last purchased') }}</th>
 					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Last price') }}</th>
-					<th>{{ $__t('Min. stock amount') }}</th>
+					<th class="allow-grouping">{{ $__t('Min. stock amount') }}</th>
 					<th>{{ $__t('Product description') }}</th>
-					<th>{{ $__t('Parent product') }}</th>
-					<th>{{ $__t('Default location') }}</th>
+					<th class="allow-grouping">{{ $__t('Parent product') }}</th>
+					<th class="allow-grouping">{{ $__t('Default location') }}</th>
 					<th>{{ $__t('Product picture') }}</th>
 					<th>{{ $__t('Average price') }}</th>
 

@@ -141,12 +141,12 @@
 							data-table-selector="#stock-journal-table"
 							href="#"><i class="fas fa-eye"></i></a>
 					</th>
-					<th>{{ $__t('Product') }}</th>
+					<th class="allow-grouping">{{ $__t('Product') }}</th>
 					<th>{{ $__t('Amount') }}</th>
 					<th>{{ $__t('Transaction time') }}</th>
-					<th>{{ $__t('Transaction type') }}</th>
-					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif">{{ $__t('Location') }}</th>
-					<th>{{ $__t('Done by') }}</th>
+					<th class="allow-grouping">{{ $__t('Transaction type') }}</th>
+					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif allow-grouping">{{ $__t('Location') }}</th>
+					<th class="allow-grouping">{{ $__t('Done by') }}</th>
 				</tr>
 			</thead>
 			<tbody class="d-none">

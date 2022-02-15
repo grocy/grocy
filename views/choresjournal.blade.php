@@ -88,10 +88,10 @@
 							data-table-selector="#chores-journal-table"
 							href="#"><i class="fas fa-eye"></i></a>
 					</th>
-					<th>{{ $__t('Chore') }}</th>
+					<th class="allow-grouping">{{ $__t('Chore') }}</th>
 					<th>{{ $__t('Tracked time') }}</th>
 					@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
-					<th>{{ $__t('Done by') }}</th>
+					<th class="allow-grouping">{{ $__t('Done by') }}</th>
 					@endif
 
 					@include('components.userfields_thead', array(

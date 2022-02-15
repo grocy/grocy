@@ -170,13 +170,13 @@
 							data-table-selector="#shoppinglist-table"
 							href="#"><i class="fas fa-eye"></i></a>
 					</th>
-					<th>{{ $__t('Product') }} / <em>{{ $__t('Note') }}</em></th>
+					<th class="allow-grouping">{{ $__t('Product') }} / <em>{{ $__t('Note') }}</em></th>
 					<th>{{ $__t('Amount') }}</th>
-					<th>{{ $__t('Product group') }}</th>
+					<th class="allow-grouping">{{ $__t('Product group') }}</th>
 					<th class="d-none">Hidden status</th>
 					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Last price (Unit)') }}</th>
 					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Last price (Total)') }}</th>
-					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Default store') }}</th>
+					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif allow-grouping">{{ $__t('Default store') }}</th>
 					<th>{{ $__t('Barcodes') }}</th>
 
 					@include('components.userfields_thead', array(

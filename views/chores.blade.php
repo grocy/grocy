@@ -89,7 +89,7 @@
 							href="#"><i class="fas fa-eye"></i></a>
 					</th>
 					<th>{{ $__t('Name') }}</th>
-					<th>{{ $__t('Period type') }}</th>
+					<th class="allow-grouping">{{ $__t('Period type') }}</th>
 					<th>{{ $__t('Description') }}</th>
 
 					@include('components.userfields_thead', array(

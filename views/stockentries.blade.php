@@ -63,13 +63,14 @@
 							href="#"><i class="fas fa-eye"></i></a>
 					</th>
 					<th class="d-none">Hidden product_id</th> <!-- This must be in the first column for searching -->
-					<th>{{ $__t('Product') }}</th>
+					<th class="allow-grouping">{{ $__t('Product') }}</th>
 					<th>{{ $__t('Amount') }}</th>
-					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING) d-none @endif">{{ $__t('Due date') }}</th>
-					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif">{{ $__t('Location') }}</th>
-					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Store') }}</th>
+					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING) d-none @endif allow-grouping">{{ $__t('Due date') }}</th>
+					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif allow-grouping">{{ $__t('Location') }}</th>
+					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif allow-grouping">{{ $__t('Store') }}</th>
 					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Price') }}</th>
-					<th data-shadow-rowgroup-column="9">{{ $__t('Purchased date') }}</th>
+					<th class="allow-grouping"
+						data-shadow-rowgroup-column="9">{{ $__t('Purchased date') }}</th>
 					<th class="d-none">Hidden purchased_date</th>
 					<th>{{ $__t('Timestamp') }}</th>
 

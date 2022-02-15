@@ -112,9 +112,10 @@
 							href="#"><i class="fas fa-eye"></i></a>
 					</th>
 					<th>{{ $__t('Task') }}</th>
-					<th>{{ $__t('Due') }}</th>
-					<th data-shadow-rowgroup-column="6">{{ $__t('Category') }}</th>
-					<th>{{ $__t('Assigned to') }}</th>
+					<th class="allow-grouping">{{ $__t('Due') }}</th>
+					<th class="allow-grouping"
+						data-shadow-rowgroup-column="6">{{ $__t('Category') }}</th>
+					<th class="allow-grouping">{{ $__t('Assigned to') }}</th>
 					<th class="d-none">Hidden status</th>
 					<th class="d-none">Hidden category_id</th>
 

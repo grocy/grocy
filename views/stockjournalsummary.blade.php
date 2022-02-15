@@ -100,9 +100,9 @@
 							data-table-selector="#stock-journal-summary-table"
 							href="#"><i class="fas fa-eye"></i></a>
 					</th>
-					<th>{{ $__t('Product') }}</th>
-					<th>{{ $__t('Transaction type') }}</th>
-					<th>{{ $__t('User') }}</th>
+					<th class="allow-grouping">{{ $__t('Product') }}</th>
+					<th class="allow-grouping">{{ $__t('Transaction type') }}</th>
+					<th class="allow-grouping">{{ $__t('User') }}</th>
 					<th>{{ $__t('Amount') }}</th>
 				</tr>
 			</thead>

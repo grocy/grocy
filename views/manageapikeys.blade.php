@@ -83,11 +83,11 @@
 							href="#"><i class="fas fa-eye"></i></a>
 					</th>
 					<th>{{ $__t('API key') }}</th>
-					<th>{{ $__t('User') }}</th>
+					<th class="allow-grouping">{{ $__t('User') }}</th>
 					<th>{{ $__t('Expires') }}</th>
 					<th>{{ $__t('Last used') }}</th>
 					<th>{{ $__t('Created') }}</th>
-					<th>{{ $__t('Key type') }}</th>
+					<th class="allow-grouping">{{ $__t('Key type') }}</th>
 				</tr>
 			</thead>
 			<tbody class="d-none">

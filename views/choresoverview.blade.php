@@ -125,7 +125,7 @@
 					<th>{{ $__t('Chore') }}</th>
 					<th>{{ $__t('Next estimated tracking') }}</th>
 					<th>{{ $__t('Last tracked') }}</th>
-					<th class="@if(!GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS) d-none @endif">{{ $__t('Assigned to') }}</th>
+					<th class="@if(!GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS) d-none @endif allow-grouping">{{ $__t('Assigned to') }}</th>
 					<th class="d-none">Hidden status</th>
 					<th class="d-none">Hidden assigned to user id</th>
 

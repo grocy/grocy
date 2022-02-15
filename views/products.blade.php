@@ -118,12 +118,12 @@
 							href="#"><i class="fas fa-eye"></i></a>
 					</th>
 					<th>{{ $__t('Name') }}</th>
-					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif">{{ $__t('Location') }}</th>
-					<th>{{ $__t('Min. stock amount') }}</th>
-					<th>{{ $__t('Default quantity unit purchase') }}</th>
-					<th>{{ $__t('Quantity unit stock') }}</th>
-					<th>{{ $__t('Product group') }}</th>
-					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Default store') }}</th>
+					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif allow-grouping">{{ $__t('Location') }}</th>
+					<th class="allow-grouping">{{ $__t('Min. stock amount') }}</th>
+					<th class="">{{ $__t('Default quantity unit purchase') }}</th>
+					<th class="allow-grouping">{{ $__t('Quantity unit stock') }}</th>
+					<th class="">{{ $__t('Product group') }}</th>
+					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif allow-grouping">{{ $__t('Default store') }}</th>
 
 					@include('components.userfields_thead', array(
 					'userfields' => $userfields
@@ -246,7 +246,18 @@
 					<label for="merge-products-remove">{{ $__t('Product to remove') }}&nbsp;<i class="fas fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
-							title="{{ $__t('After merging, all occurences of this product will be replaced by "Product to keep" (means this product will not exist anymore)') }}"></i>
+							title="{{ $__t('After merging, all occurences of this product will be replaced by "
+							Product
+							to
+							keep"
+							(means
+							this
+							product
+							will
+							not
+							exist
+							anymore)')
+							}}"></i>
 					</label>
 					<select class="custom-control custom-select"
 						id="merge-products-remove">

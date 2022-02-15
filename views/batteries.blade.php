@@ -89,8 +89,8 @@
 					</th>
 					<th>{{ $__t('Name') }}</th>
 					<th>{{ $__t('Description') }}</th>
-					<th>{{ $__t('Used in') }}</th>
-					<th>{{ $__t('Charge cycle interval (days)') }}</th>
+					<th class="allow-grouping">{{ $__t('Used in') }}</th>
+					<th class="allow-grouping">{{ $__t('Charge cycle interval (days)') }}</th>
 
 					@include('components.userfields_thead', array(
 					'userfields' => $userfields

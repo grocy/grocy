@@ -117,9 +117,9 @@
 									href="#"><i class="fas fa-eye"></i></a>
 							</th>
 							<th>{{ $__t('Name') }}</th>
-							<th>{{ $__t('Desired servings') }}</th>
+							<th class="allow-grouping">{{ $__t('Desired servings') }}</th>
 							<th data-shadow-rowgroup-column="7"
-								class="@if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif">{{ $__t('Requirements fulfilled') }}</th>
+								class="@if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif allow-grouping">{{ $__t('Requirements fulfilled') }}</th>
 							<th class="d-none">Hidden status for sorting of "Requirements fulfilled" column</th>
 							<th class="d-none">Hidden status for filtering by status</th>
 							<th class="d-none">Hidden recipe ingredient product names</th>

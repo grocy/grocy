@@ -88,7 +88,7 @@
 							data-table-selector="#batteries-journal-table"
 							href="#"><i class="fas fa-eye"></i></a>
 					</th>
-					<th>{{ $__t('Battery') }}</th>
+					<th class="allow-grouping">{{ $__t('Battery') }}</th>
 					<th>{{ $__t('Tracked time') }}</th>
 				</tr>
 			</thead>

@@ -88,10 +88,10 @@
 							data-table-selector="#userfields-table"
 							href="#"><i class="fas fa-eye"></i></a>
 					</th>
-					<th>{{ $__t('Entity') }}</th>
+					<th class="allow-grouping">{{ $__t('Entity') }}</th>
 					<th>{{ $__t('Name') }}</th>
 					<th>{{ $__t('Caption') }}</th>
-					<th>{{ $__t('Type') }}</th>
+					<th class="allow-grouping">{{ $__t('Type') }}</th>
 					<th>{{ $__t('Sort number') }}</th>
 				</tr>
 			</thead>
