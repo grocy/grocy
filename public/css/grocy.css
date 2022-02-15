@@ -40,15 +40,16 @@ a.discrete-link:focus {
 }
 
 .grocy-card .card-icons a {
-	font-size: 18px;
+	font-size: 22px;
 	color: #495157;
 	padding: 2px 4px;
 	text-decoration: none;
 	text-align: center;
+	margin-left: 2px;
 }
 
 .grocy-card .card-icons i {
-	width: 18px;
+	width: 22px;
 }
 
 .content-text .invalid-feedback {
