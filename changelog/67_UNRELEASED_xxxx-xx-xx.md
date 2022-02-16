@@ -37,6 +37,7 @@
 ### Batteries
 
 - Fixed that the batteries overview page was broken when there was any battery Userfields with enabled "Show as column in tables" option
+- Fixed that grocycode label printer printing didn't work from the battery edit page (master data) (thanks @andreheuer)
 
 ### Equipment
 
