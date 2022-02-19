@@ -95,7 +95,7 @@ class RecipesService extends BaseService
 		if (!empty($recipeRow->product_id))
 		{
 			$recipeResolvedRow = $this->getDatabase()->recipes_resolved()->where('recipe_id = :1', $recipeId)->fetch();
-			$this->getStockService()->AddProduct($recipeRow->product_id, floatval($recipeRow->desired_servings), null, StockService::TRANSACTION_TYPE_SELF_PRODUCTION, date('Y-m-d'), floatval($recipeResolvedRow->costs), null, null, $dummyTransactionId, 0, true);
+			$this->getStockService()->AddProduct($recipeRow->product_id, floatval($recipeRow->desired_servings), null, StockService::TRANSACTION_TYPE_SELF_PRODUCTION, date('Y-m-d'), floatval($recipeResolvedRow->costs_per_serving), null, null, $dummyTransactionId, 0, true);
 		}
 	}
 
