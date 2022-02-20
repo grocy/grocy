@@ -171,7 +171,7 @@
 			$value = date('Y-m-d H:i:s');
 			if ($mode == 'edit')
 			{
-			$value = date('Y-m-d', strtotime($chore->start_date));
+			$value = date('Y-m-d H:i:s', strtotime($chore->start_date));
 			}
 			@endphp
 			@include('components.datetimepicker', array(

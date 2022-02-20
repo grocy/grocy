@@ -1256,8 +1256,8 @@ msgstr ""
 msgid "Assignment type"
 msgstr ""
 
-msgid "This means the next execution of this chore is scheduled %s day after the last execution"
-msgid_plural "This means the next execution of this chore is scheduled %s days after the last execution"
+msgid "This means the next execution of this chore is scheduled at the same time (based on the start date) every day"
+msgid_plural "This means the next execution of this chore is scheduled at the same time (based on the start date) every %s days"
 msgstr[0] ""
 msgstr[1] ""
 

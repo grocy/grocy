@@ -25,7 +25,8 @@
 
 ### Chores
 
-- xxx
+- The `Daily` period type has been changed to be schedule the chore at the _same time_ each `n` days
+  - This period type scheduled chores `n` days _after the last execution_ before, which is also possible by using the `Hourly` period type and a corresponding period interval; all existing `Daily` schedules will be converted to that on migration
 
 ### Calendar
 

@@ -158,7 +158,7 @@ $('.input-group-chore-period-type').on('change keyup', function(e)
 	}
 	else if (periodType === 'daily')
 	{
-		$('#chore-schedule-info').text(__n(periodInterval, "This means the next execution of this chore is scheduled %s day after the last execution", "This means the next execution of this chore is scheduled %s days after the last execution"));
+		$('#chore-schedule-info').text(__n(periodInterval, "This means the next execution of this chore is scheduled at the same time (based on the start date) every day", "This means the next execution of this chore is scheduled at the same time (based on the start date) every %s days"));
 	}
 	else if (periodType === 'weekly')
 	{
