@@ -253,7 +253,15 @@ if (Grocy.Components.ProductPicker !== undefined)
 					CurrentProductDetails = productDetails;
 
 					Grocy.Components.ProductAmountPicker.Reload(productDetails.product.id, productDetails.quantity_unit_stock.id);
-					Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.default_quantity_unit_purchase.id);
+					if (productDetails.product.enable_tare_weight_handling == 1)
+					{
+						Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.quantity_unit_stock.id);
+						$("#qu_id").attr("disabled", "");
+					}
+					else
+					{
+						Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.default_quantity_unit_purchase.id);
+					}
 					$('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_purchase_amount));
 					$(".input-group-productamountpicker").trigger("change");
 
