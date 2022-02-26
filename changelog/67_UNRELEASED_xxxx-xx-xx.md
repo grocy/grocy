@@ -40,6 +40,7 @@
 
 - Fixed that the batteries overview page was broken when there was any battery Userfields with enabled "Show as column in tables" option
 - Fixed that grocycode label printer printing didn't work from the battery edit page (master data) (thanks @andreheuer)
+- Fixed that undoing a battery charge cycle had no effect on "Last charged" and "Next planned charge cycle" of the corresponding battery
 
 ### Equipment
 
