@@ -637,7 +637,7 @@ function RefreshLocaleNumberDisplay(rootSelector = "#page-content")
 		}
 
 		var value = parseFloat(text);
-		$(this).text(value.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 2 }));
+		$(this).text(value.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }));
 	});
 }
 RefreshLocaleNumberDisplay();

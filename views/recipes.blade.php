@@ -481,7 +481,7 @@
 										</span>
 										@endif
 										@if($selectedRecipePosition->need_fulfilled == 1 && GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) <span class="float-right font-italic ml-2 locale-number locale-number-currency">{{ $selectedRecipePosition->costs }}</span> @endif
-										<span class="float-right font-italic"><span class="locale-number locale-number-quantity-amount">{{ $selectedRecipePosition->calories }} {{ $__t('Calories') }}</span></span>
+										<span class="float-right font-italic"><span class="locale-number locale-number-generic">{{ $selectedRecipePosition->calories }}</span> {{ $__t('Calories') }}</span>
 										@if(!empty($selectedRecipePosition->recipe_variable_amount))
 										<div class="small text-muted font-italic">{{ $__t('Variable amount') }}</div>
 										@endif
