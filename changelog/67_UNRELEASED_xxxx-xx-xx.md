@@ -12,7 +12,7 @@
 
 ### Shopping list
 
-- xxx
+- Fixed that when using "Add products that are below defined min. stock amount", the calculated missing amount was wrong for products which had the new product option `Treat opened as out of stock` set and when having at least one opened stock entry
 
 ### Recipes
 
