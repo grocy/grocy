@@ -173,6 +173,43 @@ $('.input-group-qu').on('change', function(e)
 {
 	var quIdPurchase = $("#qu_id_purchase").val();
 	var quIdStock = $("#qu_id_stock").val();
+
+	if (Grocy.EditMode == "create" && !quIdPurchase.toString().isEmpty() && !quIdStock.toString().isEmpty() && quIdPurchase != quIdStock)
+	{
+		Grocy.Api.Get("objects/quantity_unit_conversions?query[]=product_id=null&query[]=from_qu_id=" + quIdPurchase + "&query[]=to_qu_id=" + quIdStock,
+			function(response)
+			{
+				if (response != null && response.length > 0)
+				{
+					var conversion = response[0];
+
+					$("#qu_factor_purchase_to_stock").val(conversion.factor);
+					RefreshLocaleNumberInput("#qu_factor_purchase_to_stock");
+					RefreshQuConversionInfo();
+				}
+			},
+			function(xhr)
+			{
+				console.error(xhr);
+			}
+		);
+	}
+	else
+	{
+		RefreshQuConversionInfo();
+	}
+
+	$("#tare_weight_qu_info").text($("#qu_id_stock option:selected").text());
+	$("#quick_consume_qu_info").text($("#qu_id_stock option:selected").text());
+	$("#energy_qu_info").text($("#qu_id_stock option:selected").text());
+
+	Grocy.FrontendHelpers.ValidateForm('product-form');
+});
+
+function RefreshQuConversionInfo()
+{
+	var quIdPurchase = $("#qu_id_purchase").val();
+	var quIdStock = $("#qu_id_stock").val();
 	var factor = $('#qu_factor_purchase_to_stock').val();
 
 	if (factor > 1 || quIdPurchase != quIdStock)
@@ -184,13 +221,7 @@ $('.input-group-qu').on('change', function(e)
 	{
 		$('#qu-conversion-info').addClass('d-none');
 	}
-
-	$("#tare_weight_qu_info").text($("#qu_id_stock option:selected").text());
-	$("#quick_consume_qu_info").text($("#qu_id_stock option:selected").text());
-	$("#energy_qu_info").text($("#qu_id_stock option:selected").text());
-
-	Grocy.FrontendHelpers.ValidateForm('product-form');
-});
+}
 
 $('#product-form input').keyup(function(event)
 {
@@ -403,6 +434,8 @@ $('#qu_id_stock').change(function(e)
 		quIdPurchase[0].selectedIndex = quIdStock[0].selectedIndex;
 		Grocy.FrontendHelpers.ValidateForm('product-form');
 	}
+
+	RefreshQuConversionInfo();
 });
 
 $(window).on("message", function(e)
