@@ -238,6 +238,9 @@ Grocy.Components.DateTimePicker2.GetInputElement().on('keyup', function(e)
 		}
 	}
 
+	$('#datetimepicker2-timeago').attr("datetime", Grocy.Components.DateTimePicker2.GetValue());
+	RefreshContextualTimeago(".datetimepicker2-wrapper");
+
 	//Custom validation
 	value = Grocy.Components.DateTimePicker2.GetValue();
 	dateObj = moment(value, format, true);

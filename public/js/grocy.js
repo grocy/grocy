@@ -338,7 +338,7 @@ RefreshContextualTimeago = function(rootSelector = "#page-content")
 
 		var timestamp = element.attr("datetime");
 
-		if (timestamp.isEmpty())
+		if (timestamp.isEmpty() || timestamp.length < 10)
 		{
 			element.text("")
 			return
