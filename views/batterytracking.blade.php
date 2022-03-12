@@ -11,21 +11,15 @@
 
 		<hr class="my-2">
 
-		<form id="batterytracking-form"
-			novalidate>
+		<form id="batterytracking-form" novalidate>
 
 			<div class="form-group">
-				<label class="w-100"
-					for="battery_id">
+				<label class="w-100" for="battery_id">
 					{{ $__t('Battery') }}
-					<i id="barcode-lookup-hint"
-						class="fas fa-barcode float-right mt-1"></i>
+					<i id="barcode-lookup-hint" class="fas fa-barcode float-right mt-1"></i>
 				</label>
-				<select class="form-control combobox barcodescanner-input"
-					id="battery_id"
-					name="battery_id"
-					required
-					data-target="@batterypicker">
+				{{-- TODO: Select2: dynamic data: batteries --}}
+				<select class="form-control combobox barcodescanner-input" id="battery_id" name="battery_id" required data-target="@batterypicker">
 					<option value=""></option>
 					@foreach($batteries as $battery)
 					<option value="{{ $battery->id }}">{{ $battery->name }}</option>
@@ -44,8 +38,7 @@
 			'invalidFeedback' => $__t('This can only be before now')
 			))
 
-			<button id="save-batterytracking-button"
-				class="btn btn-success">{{ $__t('OK') }}</button>
+			<button id="save-batterytracking-button" class="btn btn-success">{{ $__t('OK') }}</button>
 
 		</form>
 	</div>

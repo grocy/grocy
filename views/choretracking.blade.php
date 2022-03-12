@@ -11,21 +11,15 @@
 
 		<hr class="my-2">
 
-		<form id="choretracking-form"
-			novalidate>
+		<form id="choretracking-form" novalidate>
 
 			<div class="form-group">
-				<label class="w-100"
-					for="chore_id">
+				<label class="w-100" for="chore_id">
 					{{ $__t('Chore') }}
-					<i id="barcode-lookup-hint"
-						class="fas fa-barcode float-right mt-1"></i>
+					<i id="barcode-lookup-hint" class="fas fa-barcode float-right mt-1"></i>
 				</label>
-				<select class="form-control combobox barcodescanner-input"
-					id="chore_id"
-					name="chore_id"
-					required
-					data-target="@chorepicker">
+				{{-- TODO: Select2: dynamic data: chores --}}
+				<select class="form-control combobox barcodescanner-input" id="chore_id" name="chore_id" required data-target="@chorepicker">
 					<option value=""></option>
 					@foreach($chores as $chore)
 					<option value="{{ $chore->id }}">{{ $chore->name }}</option>
@@ -52,10 +46,7 @@
 			'prefillByUserId' => GROCY_USER_ID
 			))
 			@else
-			<input type="hidden"
-				id="user_id"
-				name="user_id"
-				value="{{ GROCY_USER_ID }}">
+			<input type="hidden" id="user_id" name="user_id" value="{{ GROCY_USER_ID }}">
 			@endif
 
 			@include('components.userfieldsform', array(

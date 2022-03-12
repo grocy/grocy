@@ -82,12 +82,12 @@
 
 			@php if($mode == 'edit') { $value = $chore->period_days; } else { $value = 0; } @endphp
 			@include('components.numberpicker', array(
-			'id' => 'period_days',
-			'label' => 'Period days',
-			'value' => $value,
-			'min' => '0',
-			'additionalCssClasses' => 'input-group-chore-period-type',
-			'additionalGroupCssClasses' => 'period-type-input period-type-monthly'
+				'id' => 'period_days',
+				'label' => 'Period days',
+				'value' => $value,
+				'min' => '0',
+				'additionalCssClasses' => 'input-group-chore-period-type',
+				'additionalGroupCssClasses' => 'period-type-input period-type-monthly'
 			))
 
 			<div class="form-group period-type-input period-type-weekly">
@@ -156,12 +156,12 @@
 
 			@php if($mode == 'edit') { $value = $chore->period_interval; } else { $value = 1; } @endphp
 			@include('components.numberpicker', array(
-			'id' => 'period_interval',
-			'label' => 'Period interval',
-			'value' => $value,
-			'min' => '1',
-			'additionalCssClasses' => 'input-group-chore-period-type',
-			'additionalGroupCssClasses' => 'period-type-input period-type-hourly period-type-daily period-type-weekly period-type-monthly period-type-yearly'
+				'id' => 'period_interval',
+				'label' => 'Period interval',
+				'value' => $value,
+				'min' => '1',
+				'additionalCssClasses' => 'input-group-chore-period-type',
+				'additionalGroupCssClasses' => 'period-type-input period-type-hourly period-type-daily period-type-weekly period-type-monthly period-type-yearly'
 			))
 
 			<p id="chore-schedule-info"
@@ -175,15 +175,15 @@
 			}
 			@endphp
 			@include('components.datetimepicker', array(
-			'id' => 'start',
-			'label' => 'Start date',
-			'initialValue' => $value,
-			'format' => 'YYYY-MM-DD HH:mm:ss',
-			'initWithNow' => true,
-			'limitEndToNow' => false,
-			'limitStartToNow' => false,
-			'invalidFeedback' => $__t('A start date is required'),
-			'hint' => $__t('The start date cannot be changed when the chore was once tracked')
+				'id' => 'start',
+				'label' => 'Start date',
+				'initialValue' => $value,
+				'format' => 'YYYY-MM-DD HH:mm:ss',
+				'initWithNow' => true,
+				'limitEndToNow' => false,
+				'limitStartToNow' => false,
+				'invalidFeedback' => $__t('A start date is required'),
+				'hint' => $__t('The start date cannot be changed when the chore was once tracked')
 			))
 
 			@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
@@ -276,29 +276,29 @@
 
 			@php $prefillById = ''; if($mode=='edit' && !empty($chore->product_id)) { $prefillById = $chore->product_id; } @endphp
 			@include('components.productpicker', array(
-			'products' => $products,
-			'nextInputSelector' => '#product_amount',
-			'isRequired' => false,
-			'disallowAllProductWorkflows' => true,
-			'prefillById' => $prefillById
+				'productsQuery' => 'order=name%3Acollate%20nocase',
+				'nextInputSelector' => '#product_amount',
+				'isRequired' => false,
+				'disallowAllProductWorkflows' => true,
+				'prefillById' => $prefillById
 			))
 
 			@php if($mode == 'edit') { $value = $chore->product_amount; } else { $value = ''; } @endphp
 			@include('components.numberpicker', array(
-			'id' => 'product_amount',
-			'label' => 'Amount',
-			'contextInfoId' => 'amount_qu_unit',
-			'min' => $DEFAULT_MIN_AMOUNT,
-			'decimals' => $userSettings['stock_decimal_places_amounts'],
-			'isRequired' => false,
-			'value' => $value,
-			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
+				'id' => 'product_amount',
+				'label' => 'Amount',
+				'contextInfoId' => 'amount_qu_unit',
+				'min' => $DEFAULT_MIN_AMOUNT,
+				'decimals' => $userSettings['stock_decimal_places_amounts'],
+				'isRequired' => false,
+				'value' => $value,
+				'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
 			))
 			@endif
 
 			@include('components.userfieldsform', array(
-			'userfields' => $userfields,
-			'entity' => 'chores'
+				'userfields' => $userfields,
+				'entity' => 'chores'
 			))
 
 			<div class="sticky-form-footer pt-1">

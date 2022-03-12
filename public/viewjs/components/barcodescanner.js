@@ -1,20 +1,17 @@
 Grocy.Components.BarcodeScanner = {};
 
 Grocy.Components.BarcodeScanner.LiveVideoSizeAdjusted = false;
-Grocy.Components.BarcodeScanner.CheckCapabilities = async function()
-{
+Grocy.Components.BarcodeScanner.CheckCapabilities = async function() {
 	var track = Quagga.CameraAccess.getActiveTrack();
 	var capabilities = {};
-	if (typeof track.getCapabilities === 'function')
-	{
+	if (typeof track.getCapabilities === 'function') {
 		capabilities = track.getCapabilities();
 	}
 
 	// If there is more than 1 camera, show the camera selection
 	var cameras = await Quagga.CameraAccess.enumerateVideoDevices();
 	var cameraSelect = document.querySelector('.cameraSelect-wrapper');
-	if (cameraSelect)
-	{
+	if (cameraSelect) {
 		cameraSelect.style.display = cameras.length > 1 ? 'inline-block' : 'none';
 	}
 
@@ -22,29 +19,23 @@ Grocy.Components.BarcodeScanner.CheckCapabilities = async function()
 	var canTorch = typeof capabilities.torch === 'boolean' && capabilities.torch
 	// Remove the torch button, if either the device can not torch or AutoTorchOn is set.
 	var node = document.querySelector('.torch');
-	if (node)
-	{
+	if (node) {
 		node.style.display = canTorch && !Grocy.FeatureFlags.GROCY_FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA ? 'inline-block' : 'none';
 	}
 	// If AutoTorchOn is set, turn on the torch.
-	if (canTorch && Grocy.FeatureFlags.GROCY_FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA)
-	{
+	if (canTorch && Grocy.FeatureFlags.GROCY_FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA) {
 		Grocy.Components.BarcodeScanner.TorchOn(track);
 	}
 
 	// Reduce the height of the video, if it's higher than then the viewport
-	if (!Grocy.Components.BarcodeScanner.LiveVideoSizeAdjusted)
-	{
+	if (!Grocy.Components.BarcodeScanner.LiveVideoSizeAdjusted) {
 		var bc = document.getElementById('barcodescanner-container');
-		if (bc)
-		{
+		if (bc) {
 			var bcAspectRatio = bc.offsetWidth / bc.offsetHeight;
 			var settings = track.getSettings();
-			if (bcAspectRatio > settings.aspectRatio)
-			{
+			if (bcAspectRatio > settings.aspectRatio) {
 				var v = document.querySelector('#barcodescanner-livestream video')
-				if (v)
-				{
+				if (v) {
 					var c = document.querySelector('#barcodescanner-livestream canvas')
 					var newWidth = v.clientWidth / bcAspectRatio * settings.aspectRatio + 'px';
 					v.style.width = newWidth;
@@ -57,8 +48,7 @@ Grocy.Components.BarcodeScanner.CheckCapabilities = async function()
 	}
 }
 
-Grocy.Components.BarcodeScanner.StartScanning = function()
-{
+Grocy.Components.BarcodeScanner.StartScanning = function() {
 	Grocy.Components.BarcodeScanner.DecodedCodesCount = 0;
 	Grocy.Components.BarcodeScanner.DecodedCodesErrorCount = 0;
 
@@ -69,7 +59,9 @@ Grocy.Components.BarcodeScanner.StartScanning = function()
 			target: document.querySelector("#barcodescanner-livestream"),
 			constraints: {
 				facingMode: "environment",
-				...(window.localStorage.getItem('cameraId') && { deviceId: window.localStorage.getItem('cameraId') }) // If preferred cameraId is set, request to use that specific camera
+				...(window.localStorage.getItem('cameraId') && {
+					deviceId: window.localStorage.getItem('cameraId')
+				}) // If preferred cameraId is set, request to use that specific camera
 			}
 		},
 		locator: {
@@ -115,15 +107,12 @@ Grocy.Components.BarcodeScanner.StartScanning = function()
 			}
 		},
 		locate: true
-	}, function(error)
-	{
-		if (error)
-		{
+	}, function(error) {
+		if (error) {
 			Grocy.FrontendHelpers.ShowGenericError("Error while initializing the barcode scanning library", error.message);
 			toastr.info(__t("Camera access is only possible when supported and allowed by your browser and when grocy is served via a secure (https://) connection"));
 			window.localStorage.removeItem("cameraId");
-			setTimeout(function()
-			{
+			setTimeout(function() {
 				bootbox.hideAll();
 			}, 500);
 			return;
@@ -135,8 +124,7 @@ Grocy.Components.BarcodeScanner.StartScanning = function()
 	});
 }
 
-Grocy.Components.BarcodeScanner.StopScanning = function()
-{
+Grocy.Components.BarcodeScanner.StopScanning = function() {
 	Quagga.stop();
 
 	Grocy.Components.BarcodeScanner.DecodedCodesCount = 0;
@@ -145,76 +133,77 @@ Grocy.Components.BarcodeScanner.StopScanning = function()
 	bootbox.hideAll();
 }
 
-Grocy.Components.BarcodeScanner.TorchOn = function(track)
-{
-	if (track)
-	{
+Grocy.Components.BarcodeScanner.TorchOn = function(track) {
+	if (track) {
 		track.applyConstraints({
-			advanced: [
-				{
-					torch: true
-				}
-			]
+			advanced: [{
+				torch: true
+			}]
 		});
 	}
 }
 
-Quagga.onDetected(function(result)
-{
-	$.each(result.codeResult.decodedCodes, function(id, error)
-	{
-		if (error.error != undefined)
-		{
+Quagga.onDetected(function(result) {
+	$.each(result.codeResult.decodedCodes, function(id, error) {
+		if (error.error != undefined) {
 			Grocy.Components.BarcodeScanner.DecodedCodesCount++;
 			Grocy.Components.BarcodeScanner.DecodedCodesErrorCount += parseFloat(error.error);
 		}
 	});
 
 	if ((Grocy.Components.BarcodeScanner.DecodedCodesErrorCount / Grocy.Components.BarcodeScanner.DecodedCodesCount < 0.15) ||
-		(Grocy.Components.BarcodeScanner.DecodedCodesErrorCount == 0 && Grocy.Components.BarcodeScanner.DecodedCodesCount == 0 && result.codeResult.code.length != 0))
-	{
+		(Grocy.Components.BarcodeScanner.DecodedCodesErrorCount == 0 && Grocy.Components.BarcodeScanner.DecodedCodesCount == 0 && result.codeResult.code.length != 0)) {
 		Grocy.Components.BarcodeScanner.StopScanning();
 		$(document).trigger("Grocy.BarcodeScanned", [result.codeResult.code, Grocy.Components.BarcodeScanner.CurrentTarget]);
 	}
 });
 
-Quagga.onProcessed(function(result)
-{
+Quagga.onProcessed(function(result) {
 	var drawingCtx = Quagga.canvas.ctx.overlay;
 	var drawingCanvas = Quagga.canvas.dom.overlay;
 
-	if (result)
-	{
-		if (result.boxes)
-		{
+	if (result) {
+		if (result.boxes) {
 			drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute("width")), parseInt(drawingCanvas.getAttribute("height")));
-			result.boxes.filter(function(box)
-			{
+			result.boxes.filter(function(box) {
 				return box !== result.box;
-			}).forEach(function(box)
-			{
-				Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, { color: "yellow", lineWidth: 4 });
+			}).forEach(function(box) {
+				Quagga.ImageDebug.drawPath(box, {
+					x: 0,
+					y: 1
+				}, drawingCtx, {
+					color: "yellow",
+					lineWidth: 4
+				});
 			});
 		}
 
-		if (result.box)
-		{
-			Quagga.ImageDebug.drawPath(result.box, { x: 0, y: 1 }, drawingCtx, { color: "green", lineWidth: 4 });
+		if (result.box) {
+			Quagga.ImageDebug.drawPath(result.box, {
+				x: 0,
+				y: 1
+			}, drawingCtx, {
+				color: "green",
+				lineWidth: 4
+			});
 		}
 
-		if (result.codeResult && result.codeResult.code)
-		{
-			Quagga.ImageDebug.drawPath(result.line, { x: 'x', y: 'y' }, drawingCtx, { color: "red", lineWidth: 4 });
+		if (result.codeResult && result.codeResult.code) {
+			Quagga.ImageDebug.drawPath(result.line, {
+				x: 'x',
+				y: 'y'
+			}, drawingCtx, {
+				color: "red",
+				lineWidth: 4
+			});
 		}
 	}
 });
 
-$(document).on("click", "#barcodescanner-start-button", async function(e)
-{
+$(document).on("click", "#barcodescanner-start-button", async function(e) {
 	e.preventDefault();
 	var inputElement = $(e.currentTarget).prev();
-	if (inputElement.hasAttr("disabled"))
-	{
+	if (inputElement.hasAttr("disabled")) {
 		// Do nothing and disable the barcode scanner start button
 		$(e.currentTarget).addClass("disabled");
 		return;
@@ -225,8 +214,7 @@ $(document).on("click", "#barcodescanner-start-button", async function(e)
 	var dialog = bootbox.dialog({
 		message: '<div id="barcodescanner-container" class="col"><div id="barcodescanner-livestream"></div></div>',
 		title: __t('Scan a barcode'),
-		onEscape: function()
-		{
+		onEscape: function() {
 			Grocy.Components.BarcodeScanner.StopScanning();
 		},
 		size: 'big',
@@ -236,8 +224,7 @@ $(document).on("click", "#barcodescanner-start-button", async function(e)
 			torch: {
 				label: '<i class="far fa-lightbulb"></i>',
 				className: 'btn-warning responsive-button torch',
-				callback: function()
-				{
+				callback: function() {
 					Grocy.Components.BarcodeScanner.TorchOn(Quagga.CameraAccess.getActiveTrack());
 					return false;
 				}
@@ -245,8 +232,7 @@ $(document).on("click", "#barcodescanner-start-button", async function(e)
 			cancel: {
 				label: __t('Cancel'),
 				className: 'btn-secondary responsive-button',
-				callback: function()
-				{
+				callback: function() {
 					Grocy.Components.BarcodeScanner.StopScanning();
 				}
 			}
@@ -258,8 +244,7 @@ $(document).on("click", "#barcodescanner-start-button", async function(e)
 	var cameraSelect = document.querySelector('.cameraSelect');
 
 	var cameras = await Quagga.CameraAccess.enumerateVideoDevices();
-	cameras.forEach(camera =>
-	{
+	cameras.forEach(camera => {
 		var option = document.createElement("option");
 		option.text = camera.label ? camera.label : camera.deviceId; // Use camera label if it exists, else show device id
 		option.value = camera.deviceId;
@@ -269,8 +254,7 @@ $(document).on("click", "#barcodescanner-start-button", async function(e)
 	// Set initial value to preferred camera if one exists - and if not, start out empty
 	cameraSelect.value = window.localStorage.getItem('cameraId');
 
-	cameraSelect.onchange = function()
-	{
+	cameraSelect.onchange = function() {
 		window.localStorage.setItem('cameraId', cameraSelect.value);
 		Quagga.stop();
 		Grocy.Components.BarcodeScanner.StartScanning();
@@ -280,29 +264,25 @@ $(document).on("click", "#barcodescanner-start-button", async function(e)
 });
 
 Grocy.Components.BarcodeScanner.InitDone = false;
-Grocy.Components.BarcodeScanner.Init = function()
-{
-	if (Grocy.Components.BarcodeScanner.InitDone)
-	{
+Grocy.Components.BarcodeScanner.Init = function() {
+	if (Grocy.Components.BarcodeScanner.InitDone) {
 		return;
 	}
 
-	$(".barcodescanner-input:visible").each(function()
-	{
-		if ($(this).hasAttr("disabled"))
-		{
-			$(this).after('<a id="barcodescanner-start-button" class="btn btn-sm btn-primary text-white disabled" data-target="' + $(this).attr("data-target") + '"><i class="fas fa-camera"></i></a>');
-		}
-		else
-		{
-			$(this).after('<a id="barcodescanner-start-button" class="btn btn-sm btn-primary text-white" data-target="' + $(this).attr("data-target") + '"><i class="fas fa-camera"></i></a>');
+	$(".barcodescanner-input:visible").each(function() {
+		var isSelect2 = $(this).hasClass('select2') && $(this).parent().hasClass('input-group');
+		var html = '<a id="barcodescanner-start-button" class="btn' + (isSelect2 ? '' : ' btn-sm') + ' btn-primary text-white' + ($(this).hasAttr("disabled") ? ' disabled' : '') + '" data-target="' + $(this).attr("data-target") + '"><i class="fas fa-camera"></i></a>';
+		if (isSelect2) {
+			html = '<div class="input-group-prepend" id="barcodescanner-start-button-container">' + html + '</div>'
+			$(this).parent().prepend(html);
+		} else {
+			$(this).after(html);
 		}
 
 		Grocy.Components.BarcodeScanner.InitDone = true;
 	});
 }
 
-setTimeout(function()
-{
+setTimeout(function() {
 	Grocy.Components.BarcodeScanner.Init();
 }, 50);

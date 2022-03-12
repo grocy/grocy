@@ -73,6 +73,10 @@
 		rel="stylesheet">
 	<link href="{{ $U('/node_modules/@fontsource/noto-sans/latin.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
+	<link href="{{ $U('/node_modules/select2/dist/css/select2.min.css?v=', true) }}{{ $version }}"
+		rel="stylesheet">
+	<link href="{{ $U('/node_modules/select2-theme-bootstrap4/dist/select2-bootstrap.min.css?v=', true) }}{{ $version }}"
+		rel="stylesheet">
 	<link href="{{ $U('/css/grocy.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
 	<link href="{{ $U('/css/grocy_night_mode.css?v=', true) }}{{ $version }}"
@@ -706,6 +710,7 @@
 	@if(!empty($__t('bootstrap-select_locale') && $__t('bootstrap-select_locale') != 'x'))<script src="{{ $U('/node_modules', true) }}/bootstrap-select/dist/js/i18n/defaults-{{ $__t('bootstrap-select_locale') }}.js?v={{ $version }}"></script>@endif
 	<script src="{{ $U('/node_modules/jquery-lazy/jquery.lazy.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/nosleep.js/dist/NoSleep.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/select2/dist/js/select2.min.js?v=', true) }}{{ $version }}"></script>
 
 	<script src="{{ $U('/js/extensions.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy.js?v=', true) }}{{ $version }}"></script>

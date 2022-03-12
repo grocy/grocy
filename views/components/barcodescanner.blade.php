@@ -26,6 +26,17 @@
 		margin-right: 36px !important;
 	}
 
+	.input-group-prepend #barcodescanner-start-button {
+		position: static;
+		right: unset;
+		margin: unset;
+	}
+
+	.input-group>#barcodescanner-start-button-container+.select2-hidden-accessible+.select2-container--bootstrap>.selection>.select2-selection, .input-group>#barcodescanner-start-button-container+.select2-hidden-accessible+.select2-container--bootstrap>.selection>.select2-selection.form-control {
+		border-top-right-radius: .25rem;
+		border-bottom-right-radius: .25rem;
+	}
+
 </style>
 @endpush
 

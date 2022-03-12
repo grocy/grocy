@@ -12,14 +12,12 @@ class RecipesController extends BaseController
 	public function MealPlan(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$start = date('Y-m-d');
-		if (isset($request->getQueryParams()['start']) && IsIsoDate($request->getQueryParams()['start']))
-		{
+		if (isset($request->getQueryParams()['start']) && IsIsoDate($request->getQueryParams()['start'])) {
 			$start = $request->getQueryParams()['start'];
 		}
 
 		$days = 6;
-		if (isset($request->getQueryParams()['days']) && filter_var($request->getQueryParams()['days'], FILTER_VALIDATE_INT) !== false)
-		{
+		if (isset($request->getQueryParams()['days']) && filter_var($request->getQueryParams()['days'], FILTER_VALIDATE_INT) !== false) {
 			$days = $request->getQueryParams()['days'];
 		}
 
@@ -27,19 +25,16 @@ class RecipesController extends BaseController
 
 		$recipes = $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll();
 		$events = [];
-		foreach ($this->getDatabase()->meal_plan()->where($mealPlanWhereTimespan) as $mealPlanEntry)
-		{
+		foreach ($this->getDatabase()->meal_plan()->where($mealPlanWhereTimespan) as $mealPlanEntry) {
 			$recipe = FindObjectInArrayByPropertyValue($recipes, 'id', $mealPlanEntry['recipe_id']);
 			$title = '';
 
-			if ($recipe !== null)
-			{
+			if ($recipe !== null) {
 				$title = $recipe->name;
 			}
 
 			$productDetails = null;
-			if ($mealPlanEntry['product_id'] !== null)
-			{
+			if ($mealPlanEntry['product_id'] !== null) {
 				$productDetails = $this->getStockService()->GetProductDetails($mealPlanEntry['product_id']);
 			}
 
@@ -60,7 +55,6 @@ class RecipesController extends BaseController
 			'recipes' => $recipes,
 			'internalRecipes' => $this->getDatabase()->recipes()->where("id IN (SELECT recipe_id FROM meal_plan_internal_recipe_relation WHERE $mealPlanWhereTimespan)")->fetchAll(),
 			'recipesResolved' => $this->getRecipesService()->GetRecipesResolved("recipe_id IN (SELECT recipe_id FROM meal_plan_internal_recipe_relation WHERE $mealPlanWhereTimespan)"),
-			'products' => $this->getDatabase()->products()->orderBy('name', 'COLLATE NOCASE'),
 			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
 			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved(),
 			'mealplanSections' => $this->getDatabase()->meal_plan_sections()->orderBy('sort_number'),
@@ -74,14 +68,10 @@ class RecipesController extends BaseController
 		$recipesResolved = $this->getRecipesService()->GetRecipesResolved('recipe_id > 0');
 
 		$selectedRecipe = null;
-		if (isset($request->getQueryParams()['recipe']))
-		{
+		if (isset($request->getQueryParams()['recipe'])) {
 			$selectedRecipe = $this->getDatabase()->recipes($request->getQueryParams()['recipe']);
-		}
-		else
-		{
-			foreach ($recipes as $recipe)
-			{
+		} else {
+			foreach ($recipes as $recipe) {
 				$selectedRecipe = $recipe;
 				break;
 			}
@@ -89,8 +79,7 @@ class RecipesController extends BaseController
 
 		$totalCosts = null;
 		$totalCalories = null;
-		if ($selectedRecipe)
-		{
+		if ($selectedRecipe) {
 			$totalCosts = FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->costs;
 			$totalCalories = FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->calories;
 		}
@@ -109,27 +98,22 @@ class RecipesController extends BaseController
 			'selectedRecipeTotalCalories' => $totalCalories
 		];
 
-		if ($selectedRecipe)
-		{
+		if ($selectedRecipe) {
 			$selectedRecipeSubRecipes = $this->getDatabase()->recipes()->where('id IN (SELECT includes_recipe_id FROM recipes_nestings_resolved WHERE recipe_id = :1 AND includes_recipe_id != :1)', $selectedRecipe->id)->orderBy('name', 'COLLATE NOCASE')->fetchAll();
 
 			$includedRecipeIdsAbsolute = [];
 			$includedRecipeIdsAbsolute[] = $selectedRecipe->id;
-			foreach ($selectedRecipeSubRecipes as $subRecipe)
-			{
+			foreach ($selectedRecipeSubRecipes as $subRecipe) {
 				$includedRecipeIdsAbsolute[] = $subRecipe->id;
 			}
 
 			// TODO: Why not directly use recipes_pos_resolved for all recipe positions here (parent and child)?
 			// This view already correctly recolves child recipe amounts...
 			$allRecipePositions = [];
-			foreach ($includedRecipeIdsAbsolute as $id)
-			{
+			foreach ($includedRecipeIdsAbsolute as $id) {
 				$allRecipePositions[$id] = $this->getDatabase()->recipes_pos_resolved()->where('recipe_id = :1 AND is_nested_recipe_pos = 0', $id)->orderBy('ingredient_group', 'ASC', 'product_group', 'ASC');
-				foreach ($allRecipePositions[$id] as $pos)
-				{
-					if ($id != $selectedRecipe->id)
-					{
+				foreach ($allRecipePositions[$id] as $pos) {
+					if ($id != $selectedRecipe->id) {
 						$pos2 = $this->getDatabase()->recipes_pos_resolved()->where('recipe_id = :1  AND recipe_pos_id = :2 AND is_nested_recipe_pos = 1', $selectedRecipe->id, $pos->recipe_pos_id)->fetch();
 						$pos->recipe_amount = $pos2->recipe_amount;
 						$pos->missing_amount = $pos2->missing_amount;
@@ -153,6 +137,7 @@ class RecipesController extends BaseController
 			'recipe' => $this->getDatabase()->recipes($recipeId),
 			'recipePositions' => $this->getDatabase()->recipes_pos()->where('recipe_id', $recipeId),
 			'mode' => $recipeId == 'new' ? 'create' : 'edit',
+			// TODO: remove 'products' after converting DataTable
 			'products' => $this->getDatabase()->products()->orderBy('name', 'COLLATE NOCASE'),
 			'quantityunits' => $this->getDatabase()->quantity_units(),
 			'recipes' => $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name', 'COLLATE NOCASE'),
@@ -164,24 +149,21 @@ class RecipesController extends BaseController
 
 	public function RecipePosEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		if ($args['recipePosId'] == 'new')
-		{
+		if ($args['recipePosId'] == 'new') {
 			return $this->renderPage($response, 'recipeposform', [
 				'mode' => 'create',
 				'recipe' => $this->getDatabase()->recipes($args['recipeId']),
 				'recipePos' => new \stdClass(),
-				'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
+				'recipePosId' => $args['recipePosId'],
 				'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
 				'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
 			]);
-		}
-		else
-		{
+		} else {
 			return $this->renderPage($response, 'recipeposform', [
 				'mode' => 'edit',
 				'recipe' => $this->getDatabase()->recipes($args['recipeId']),
 				'recipePos' => $this->getDatabase()->recipes_pos($args['recipePosId']),
-				'products' => $this->getDatabase()->products()->orderBy('name', 'COLLATE NOCASE'),
+				'recipePosId' => $args['recipePosId'],
 				'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
 				'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
 			]);
@@ -195,14 +177,11 @@ class RecipesController extends BaseController
 
 	public function MealPlanSectionEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		if ($args['sectionId'] == 'new')
-		{
+		if ($args['sectionId'] == 'new') {
 			return $this->renderPage($response, 'mealplansectionform', [
 				'mode' => 'create'
 			]);
-		}
-		else
-		{
+		} else {
 			return $this->renderPage($response, 'mealplansectionform', [
 				'mealplanSection' => $this->getDatabase()->meal_plan_sections($args['sectionId']),
 				'mode' => 'edit'

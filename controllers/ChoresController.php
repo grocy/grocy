@@ -13,19 +13,15 @@ class ChoresController extends BaseController
 		$usersService = $this->getUsersService();
 		$users = $usersService->GetUsersAsDto();
 
-		if ($args['choreId'] == 'new')
-		{
+		if ($args['choreId'] == 'new') {
 			return $this->renderPage($response, 'choreform', [
 				'periodTypes' => GetClassConstants('\Grocy\Services\ChoresService', 'CHORE_PERIOD_TYPE_'),
 				'mode' => 'create',
 				'userfields' => $this->getUserfieldsService()->GetFields('chores'),
 				'assignmentTypes' => GetClassConstants('\Grocy\Services\ChoresService', 'CHORE_ASSIGNMENT_TYPE_'),
 				'users' => $users,
-				'products' => $this->getDatabase()->products()->orderBy('name', 'COLLATE NOCASE')
 			]);
-		}
-		else
-		{
+		} else {
 			return $this->renderPage($response, 'choreform', [
 				'chore' => $this->getDatabase()->chores($args['choreId']),
 				'periodTypes' => GetClassConstants('\Grocy\Services\ChoresService', 'CHORE_PERIOD_TYPE_'),
@@ -33,19 +29,15 @@ class ChoresController extends BaseController
 				'userfields' => $this->getUserfieldsService()->GetFields('chores'),
 				'assignmentTypes' => GetClassConstants('\Grocy\Services\ChoresService', 'CHORE_ASSIGNMENT_TYPE_'),
 				'users' => $users,
-				'products' => $this->getDatabase()->products()->orderBy('name', 'COLLATE NOCASE')
 			]);
 		}
 	}
 
 	public function ChoresList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		if (isset($request->getQueryParams()['include_disabled']))
-		{
+		if (isset($request->getQueryParams()['include_disabled'])) {
 			$chores = $this->getDatabase()->chores()->orderBy('name', 'COLLATE NOCASE');
-		}
-		else
-		{
+		} else {
 			$chores = $this->getDatabase()->chores()->where('active = 1')->orderBy('name', 'COLLATE NOCASE');
 		}
 
@@ -63,19 +55,15 @@ class ChoresController extends BaseController
 
 	public function Journal(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		if (isset($request->getQueryParams()['months']) && filter_var($request->getQueryParams()['months'], FILTER_VALIDATE_INT) !== false)
-		{
+		if (isset($request->getQueryParams()['months']) && filter_var($request->getQueryParams()['months'], FILTER_VALIDATE_INT) !== false) {
 			$months = $request->getQueryParams()['months'];
 			$where = "tracked_time > DATE(DATE('now', 'localtime'), '-$months months')";
-		}
-		else
-		{
+		} else {
 			// Default 1 year
 			$where = "tracked_time > DATE(DATE('now', 'localtime'), '-12 months')";
 		}
 
-		if (isset($request->getQueryParams()['chore']) && filter_var($request->getQueryParams()['chore'], FILTER_VALIDATE_INT) !== false)
-		{
+		if (isset($request->getQueryParams()['chore']) && filter_var($request->getQueryParams()['chore'], FILTER_VALIDATE_INT) !== false) {
 			$choreId = $request->getQueryParams()['chore'];
 			$where .= " AND chore_id = $choreId";
 		}
@@ -96,20 +84,13 @@ class ChoresController extends BaseController
 
 		$chores = $this->getDatabase()->chores()->orderBy('name', 'COLLATE NOCASE');
 		$currentChores = $this->getChoresService()->GetCurrent();
-		foreach ($currentChores as $currentChore)
-		{
-			if (FindObjectInArrayByPropertyValue($chores, 'id', $currentChore->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_PERIOD_TYPE_MANUALLY)
-			{
-				if ($currentChore->next_estimated_execution_time < date('Y-m-d H:i:s'))
-				{
+		foreach ($currentChores as $currentChore) {
+			if (FindObjectInArrayByPropertyValue($chores, 'id', $currentChore->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_PERIOD_TYPE_MANUALLY) {
+				if ($currentChore->next_estimated_execution_time < date('Y-m-d H:i:s')) {
 					$currentChore->due_type = 'overdue';
-				}
-				elseif ($currentChore->next_estimated_execution_time <= date('Y-m-d 23:59:59'))
-				{
+				} elseif ($currentChore->next_estimated_execution_time <= date('Y-m-d 23:59:59')) {
 					$currentChore->due_type = 'duetoday';
-				}
-				elseif ($nextXDays > 0 && $currentChore->next_estimated_execution_time <= date('Y-m-d H:i:s', strtotime('+' . $nextXDays . ' days')))
-				{
+				} elseif ($nextXDays > 0 && $currentChore->next_estimated_execution_time <= date('Y-m-d H:i:s', strtotime('+' . $nextXDays . ' days'))) {
 					$currentChore->due_type = 'duesoon';
 				}
 			}

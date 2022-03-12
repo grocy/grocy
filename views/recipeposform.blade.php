@@ -46,8 +46,8 @@
 			novalidate>
 
 			@include('components.productpicker', array(
-			'products' => $products,
-			'nextInputSelector' => '#amount'
+				'productsQuery' => ($recipePosId === 'new' ? 'query%5B%5D=active%3D1&' : '') . 'order=name%3Acollate%20nocase',
+				'nextInputSelector' => '#amount'
 			))
 
 			<div class="form-group mb-2 @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif">
@@ -66,9 +66,9 @@
 			@php if($mode == 'edit') { $value = $recipePos->amount; } else { $value = 1; } @endphp
 			@php if($mode == 'edit') { $initialQuId = $recipePos->qu_id; } else { $initialQuId = ''; } @endphp
 			@include('components.productamountpicker', array(
-			'value' => $value,
-			'initialQuId' => $initialQuId,
-			'additionalGroupCssClasses' => 'mb-2'
+				'value' => $value,
+				'initialQuId' => $initialQuId,
+				'additionalGroupCssClasses' => 'mb-2'
 			))
 
 			<div class="form-group">
@@ -116,15 +116,15 @@
 			@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 			@php if($mode == 'edit') { $value = $recipePos->price_factor; } else { $value = 1; } @endphp
 			@include('components.numberpicker', array(
-			'id' => 'price_factor',
-			'label' => 'Price factor',
-			'min' => $DEFAULT_MIN_AMOUNT,
-			'decimals' => $userSettings['stock_decimal_places_amounts'],
-			'value' => '',
-			'hint' => $__t('The resulting price of this ingredient will be multiplied by this factor'),
-			'isRequired' => true,
-			'value' => $value,
-			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
+				'id' => 'price_factor',
+				'label' => 'Price factor',
+				'min' => $DEFAULT_MIN_AMOUNT,
+				'decimals' => $userSettings['stock_decimal_places_amounts'],
+				'value' => '',
+				'hint' => $__t('The resulting price of this ingredient will be multiplied by this factor'),
+				'isRequired' => true,
+				'value' => $value,
+				'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
 			))
 			@else
 			<input type="hidden"

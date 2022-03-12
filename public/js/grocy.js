@@ -1,31 +1,23 @@
 ﻿Grocy.Api = {};
-Grocy.Api.Get = function(apiFunction, success, error)
-{
+Grocy.Api.Get = function(apiFunction, success, error) {
 	var xhr = new XMLHttpRequest();
 	var url = U('/api/' + apiFunction);
 
-	xhr.onreadystatechange = function()
-	{
-		if (xhr.readyState === XMLHttpRequest.DONE)
-		{
-			if (xhr.status === 200 || xhr.status === 204)
-			{
-				if (success)
-				{
-					if (xhr.status === 200)
-					{
-						success(JSON.parse(xhr.responseText));
-					}
-					else
-					{
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === XMLHttpRequest.DONE) {
+			if (xhr.status === 200 || xhr.status === 204) {
+				if (success) {
+					if (xhr.status === 200) {
+						success(JSON.parse(xhr.responseText), {
+							recordsTotal: xhr.getResponseHeader('x-rowcount-total'),
+							recordsFiltered: xhr.getResponseHeader('x-rowcount-filtered'),
+						});
+					} else {
 						success({});
 					}
 				}
-			}
-			else
-			{
-				if (error)
-				{
+			} else {
+				if (error) {
 					error(xhr);
 				}
 			}
@@ -34,35 +26,26 @@ Grocy.Api.Get = function(apiFunction, success, error)
 
 	xhr.open('GET', url, true);
 	xhr.send();
+
+	return xhr;
 };
 
-Grocy.Api.Post = function(apiFunction, jsonData, success, error)
-{
+Grocy.Api.Post = function(apiFunction, jsonData, success, error) {
 	var xhr = new XMLHttpRequest();
 	var url = U('/api/' + apiFunction);
 
-	xhr.onreadystatechange = function()
-	{
-		if (xhr.readyState === XMLHttpRequest.DONE)
-		{
-			if (xhr.status === 200 || xhr.status === 204)
-			{
-				if (success)
-				{
-					if (xhr.status === 200)
-					{
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === XMLHttpRequest.DONE) {
+			if (xhr.status === 200 || xhr.status === 204) {
+				if (success) {
+					if (xhr.status === 200) {
 						success(JSON.parse(xhr.responseText));
-					}
-					else
-					{
+					} else {
 						success({});
 					}
 				}
-			}
-			else
-			{
-				if (error)
-				{
+			} else {
+				if (error) {
 					error(xhr);
 				}
 			}
@@ -72,35 +55,26 @@ Grocy.Api.Post = function(apiFunction, jsonData, success, error)
 	xhr.open('POST', url, true);
 	xhr.setRequestHeader('Content-type', 'application/json');
 	xhr.send(JSON.stringify(jsonData));
+
+	return xhr;
 };
 
-Grocy.Api.Put = function(apiFunction, jsonData, success, error)
-{
+Grocy.Api.Put = function(apiFunction, jsonData, success, error) {
 	var xhr = new XMLHttpRequest();
 	var url = U('/api/' + apiFunction);
 
-	xhr.onreadystatechange = function()
-	{
-		if (xhr.readyState === XMLHttpRequest.DONE)
-		{
-			if (xhr.status === 200 || xhr.status === 204)
-			{
-				if (success)
-				{
-					if (xhr.status === 200)
-					{
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === XMLHttpRequest.DONE) {
+			if (xhr.status === 200 || xhr.status === 204) {
+				if (success) {
+					if (xhr.status === 200) {
 						success(JSON.parse(xhr.responseText));
-					}
-					else
-					{
+					} else {
 						success({});
 					}
 				}
-			}
-			else
-			{
-				if (error)
-				{
+			} else {
+				if (error) {
 					error(xhr);
 				}
 			}
@@ -110,35 +84,26 @@ Grocy.Api.Put = function(apiFunction, jsonData, success, error)
 	xhr.open('PUT', url, true);
 	xhr.setRequestHeader('Content-type', 'application/json');
 	xhr.send(JSON.stringify(jsonData));
+
+	return xhr;
 };
 
-Grocy.Api.Delete = function(apiFunction, jsonData, success, error)
-{
+Grocy.Api.Delete = function(apiFunction, jsonData, success, error) {
 	var xhr = new XMLHttpRequest();
 	var url = U('/api/' + apiFunction);
 
-	xhr.onreadystatechange = function()
-	{
-		if (xhr.readyState === XMLHttpRequest.DONE)
-		{
-			if (xhr.status === 200 || xhr.status === 204)
-			{
-				if (success)
-				{
-					if (xhr.status === 200)
-					{
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === XMLHttpRequest.DONE) {
+			if (xhr.status === 200 || xhr.status === 204) {
+				if (success) {
+					if (xhr.status === 200) {
 						success(JSON.parse(xhr.responseText));
-					}
-					else
-					{
+					} else {
 						success({});
 					}
 				}
-			}
-			else
-			{
-				if (error)
-				{
+			} else {
+				if (error) {
 					error(xhr);
 				}
 			}
@@ -148,35 +113,26 @@ Grocy.Api.Delete = function(apiFunction, jsonData, success, error)
 	xhr.open('DELETE', url, true);
 	xhr.setRequestHeader('Content-type', 'application/json');
 	xhr.send(JSON.stringify(jsonData));
+
+	return xhr;
 };
 
-Grocy.Api.UploadFile = function(file, group, fileName, success, error)
-{
+Grocy.Api.UploadFile = function(file, group, fileName, success, error) {
 	var xhr = new XMLHttpRequest();
 	var url = U('/api/files/' + group + '/' + btoa(fileName));
 
-	xhr.onreadystatechange = function()
-	{
-		if (xhr.readyState === XMLHttpRequest.DONE)
-		{
-			if (xhr.status === 200 || xhr.status === 204)
-			{
-				if (success)
-				{
-					if (xhr.status === 200)
-					{
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === XMLHttpRequest.DONE) {
+			if (xhr.status === 200 || xhr.status === 204) {
+				if (success) {
+					if (xhr.status === 200) {
 						success(JSON.parse(xhr.responseText));
-					}
-					else
-					{
+					} else {
 						success({});
 					}
 				}
-			}
-			else
-			{
-				if (error)
-				{
+			} else {
+				if (error) {
 					error(xhr);
 				}
 			}
@@ -186,35 +142,26 @@ Grocy.Api.UploadFile = function(file, group, fileName, success, error)
 	xhr.open('PUT', url, true);
 	xhr.setRequestHeader('Content-type', 'application/octet-stream');
 	xhr.send(file);
+
+	return xhr;
 };
 
-Grocy.Api.DeleteFile = function(fileName, group, success, error)
-{
+Grocy.Api.DeleteFile = function(fileName, group, success, error) {
 	var xhr = new XMLHttpRequest();
 	var url = U('/api/files/' + group + '/' + btoa(fileName));
 
-	xhr.onreadystatechange = function()
-	{
-		if (xhr.readyState === XMLHttpRequest.DONE)
-		{
-			if (xhr.status === 200 || xhr.status === 204)
-			{
-				if (success)
-				{
-					if (xhr.status === 200)
-					{
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === XMLHttpRequest.DONE) {
+			if (xhr.status === 200 || xhr.status === 204) {
+				if (success) {
+					if (xhr.status === 200) {
 						success(JSON.parse(xhr.responseText));
-					}
-					else
-					{
+					} else {
 						success({});
 					}
 				}
-			}
-			else
-			{
-				if (error)
-				{
+			} else {
+				if (error) {
 					error(xhr);
 				}
 			}
@@ -224,93 +171,75 @@ Grocy.Api.DeleteFile = function(fileName, group, success, error)
 	xhr.open('DELETE', url, true);
 	xhr.setRequestHeader('Content-type', 'application/json');
 	xhr.send();
+
+	return xhr;
 };
 
-U = function(relativePath)
-{
+U = function(relativePath) {
 	return Grocy.BaseUrl.replace(/\/$/, '') + relativePath;
 }
 
 Grocy.Translator = new Translator(Grocy.LocalizationStrings);
 Grocy.TranslatorQu = new Translator(Grocy.LocalizationStringsQu);
-__t = function(text, ...placeholderValues)
-{
-	if (Grocy.Mode === "dev")
-	{
+__t = function(text, ...placeholderValues) {
+	if (Grocy.Mode === "dev") {
 		var text2 = text;
-		if (Grocy.LocalizationStrings && !Grocy.LocalizationStrings.messages[""].hasOwnProperty(text2))
-		{
-			Grocy.Api.Post('system/log-missing-localization', { "text": text2 });
+		if (Grocy.LocalizationStrings && !Grocy.LocalizationStrings.messages[""].hasOwnProperty(text2)) {
+			Grocy.Api.Post('system/log-missing-localization', {
+				"text": text2
+			});
 		}
 	}
 
 	return Grocy.Translator.__(text, ...placeholderValues)
 }
-__n = function(number, singularForm, pluralForm, isQu = false)
-{
-	if (Grocy.Mode === "dev")
-	{
+__n = function(number, singularForm, pluralForm, isQu = false) {
+	if (Grocy.Mode === "dev") {
 		var singularForm2 = singularForm;
-		if (Grocy.LocalizationStrings && !Grocy.LocalizationStrings.messages[""].hasOwnProperty(singularForm2))
-		{
-			Grocy.Api.Post('system/log-missing-localization', { "text": singularForm2 });
+		if (Grocy.LocalizationStrings && !Grocy.LocalizationStrings.messages[""].hasOwnProperty(singularForm2)) {
+			Grocy.Api.Post('system/log-missing-localization', {
+				"text": singularForm2
+			});
 		}
 	}
 
-	if (isQu)
-	{
+	if (isQu) {
 		return Grocy.TranslatorQu.n__(singularForm, pluralForm, Math.abs(number), Math.abs(number))
-	}
-	else
-	{
+	} else {
 		return Grocy.Translator.n__(singularForm, pluralForm, Math.abs(number), Math.abs(number))
 	}
 }
 
-if (!Grocy.ActiveNav.isEmpty())
-{
+if (!Grocy.ActiveNav.isEmpty()) {
 	var menuItem = $('#sidebarResponsive').find("[data-nav-for-page='" + Grocy.ActiveNav + "']");
 	menuItem.addClass('active-page');
 
-	if (menuItem.length)
-	{
+	if (menuItem.length) {
 		var parentMenuSelector = menuItem.data("sub-menu-of");
-		if (typeof parentMenuSelector !== "undefined")
-		{
+		if (typeof parentMenuSelector !== "undefined") {
 			$(parentMenuSelector).collapse("show");
 			$(parentMenuSelector).prev(".nav-link-collapse").addClass("active-page");
 
-			$(parentMenuSelector).on("shown.bs.collapse", function(e)
-			{
-				if (!menuItem.isVisibleInViewport(75))
-				{
+			$(parentMenuSelector).on("shown.bs.collapse", function(e) {
+				if (!menuItem.isVisibleInViewport(75)) {
 					menuItem[0].scrollIntoView();
 				}
 			})
-		}
-		else
-		{
-			if (!menuItem.isVisibleInViewport(75))
-			{
+		} else {
+			if (!menuItem.isVisibleInViewport(75)) {
 				menuItem[0].scrollIntoView();
 			}
 		}
 	}
 }
 
-var observer = new MutationObserver(function(mutations)
-{
-	mutations.forEach(function(mutation)
-	{
-		if (mutation.attributeName === "class")
-		{
+var observer = new MutationObserver(function(mutations) {
+	mutations.forEach(function(mutation) {
+		if (mutation.attributeName === "class") {
 			var attributeValue = $(mutation.target).prop(mutation.attributeName);
-			if (attributeValue.contains("sidenav-toggled"))
-			{
+			if (attributeValue.contains("sidenav-toggled")) {
 				window.localStorage.setItem("sidebar_state", "collapsed");
-			}
-			else
-			{
+			} else {
 				window.localStorage.setItem("sidebar_state", "expanded");
 			}
 		}
@@ -319,27 +248,22 @@ var observer = new MutationObserver(function(mutations)
 observer.observe(document.body, {
 	attributes: true
 });
-if (window.localStorage.getItem("sidebar_state") === "collapsed")
-{
+if (window.localStorage.getItem("sidebar_state") === "collapsed") {
 	$("#sidenavToggler").click();
 }
 
-RefreshContextualTimeago = function(rootSelector = "#page-content")
-{
-	$(rootSelector + " time.timeago").each(function()
-	{
+RefreshContextualTimeago = function(rootSelector = "#page-content") {
+	$(rootSelector + " time.timeago").each(function() {
 		var element = $(this);
 
-		if (!element.hasAttr("datetime"))
-		{
+		if (!element.hasAttr("datetime")) {
 			element.text("")
 			return
 		}
 
 		var timestamp = element.attr("datetime");
 
-		if (timestamp.isEmpty() || timestamp.length < 10)
-		{
+		if (timestamp.isEmpty() || timestamp.length < 10) {
 			element.text("")
 			return
 		}
@@ -348,22 +272,16 @@ RefreshContextualTimeago = function(rootSelector = "#page-content")
 		var isToday = timestamp && timestamp.substring(0, 10) == moment().format("YYYY-MM-DD");
 		var isDateWithoutTime = element.hasClass("timeago-date-only");
 
-		if (isNever)
-		{
+		if (isNever) {
 			element.prev().text(__t("Never"));
 			element.text("");
-		}
-		else if (isToday)
-		{
+		} else if (isToday) {
 			element.text(__t("Today"));
-		}
-		else
-		{
+		} else {
 			element.text(moment(timestamp).fromNow());
 		}
 
-		if (isDateWithoutTime)
-		{
+		if (isDateWithoutTime) {
 			element.prev().text(element.prev().text().substring(0, 10));
 		}
 	});
@@ -382,52 +300,41 @@ window.FontAwesomeConfig = {
 }
 
 Grocy.FrontendHelpers = {};
-Grocy.FrontendHelpers.ValidateForm = function(formId)
-{
+Grocy.FrontendHelpers.ValidateForm = function(formId) {
 	var form = document.getElementById(formId);
-	if (form === null || form === undefined)
-	{
+	if (form === null || form === undefined) {
 		return;
 	}
 
-	if (form.checkValidity() === true)
-	{
+	if (form.checkValidity() === true) {
 		$(form).find(':submit').removeClass('disabled');
 		$(form).find('.keep-disabled').addClass('disabled');
-	}
-	else
-	{
+	} else {
 		$(form).find(':submit').addClass('disabled');
 	}
 
 	$(form).addClass('was-validated');
 }
 
-Grocy.FrontendHelpers.BeginUiBusy = function(formId = null)
-{
+Grocy.FrontendHelpers.BeginUiBusy = function(formId = null) {
 	$("body").addClass("cursor-busy");
 
-	if (formId !== null)
-	{
+	if (formId !== null) {
 		$("#" + formId + " :input").attr("disabled", true);
 	}
 }
 
-Grocy.FrontendHelpers.EndUiBusy = function(formId = null)
-{
+Grocy.FrontendHelpers.EndUiBusy = function(formId = null) {
 	$("body").removeClass("cursor-busy");
 
-	if (formId !== null)
-	{
+	if (formId !== null) {
 		$("#" + formId + " :input").attr("disabled", false);
 	}
 }
 
-Grocy.FrontendHelpers.ShowGenericError = function(message, exception)
-{
+Grocy.FrontendHelpers.ShowGenericError = function(message, exception) {
 	toastr.error(__t(message) + '<br><br>' + __t('Click to show technical details'), '', {
-		onclick: function()
-		{
+		onclick: function() {
 			bootbox.alert({
 				title: __t('Error details'),
 				message: '<pre class="my-0"><code>' + JSON.stringify(exception, null, 4) + '</code></pre>',
@@ -439,10 +346,8 @@ Grocy.FrontendHelpers.ShowGenericError = function(message, exception)
 	console.error(exception);
 }
 
-Grocy.FrontendHelpers.SaveUserSetting = function(settingsKey, value)
-{
-	if (Grocy.UserSettings[settingsKey] == value)
-	{
+Grocy.FrontendHelpers.SaveUserSetting = function(settingsKey, value) {
+	if (Grocy.UserSettings[settingsKey] == value) {
 		return;
 	}
 
@@ -451,89 +356,73 @@ Grocy.FrontendHelpers.SaveUserSetting = function(settingsKey, value)
 	jsonData = {};
 	jsonData.value = value;
 	Grocy.Api.Put('user/settings/' + settingsKey, jsonData,
-		function(result)
-		{
+		function(result) {
 			// Nothing to do...
 		},
-		function(xhr)
-		{
+		function(xhr) {
 			console.error(xhr);
 		}
 	);
 }
 
-Grocy.FrontendHelpers.DeleteUserSetting = function(settingsKey, reloadPageOnSuccess = false)
-{
+Grocy.FrontendHelpers.DeleteUserSetting = function(settingsKey, reloadPageOnSuccess = false) {
 	delete Grocy.UserSettings[settingsKey];
 
 	Grocy.Api.Delete('user/settings/' + settingsKey, {},
-		function(result)
-		{
-			if (reloadPageOnSuccess)
-			{
+		function(result) {
+			if (reloadPageOnSuccess) {
 				location.reload();
 			}
 		},
-		function(xhr)
-		{
-			if (!xhr.statusText.isEmpty())
-			{
+		function(xhr) {
+			if (!xhr.statusText.isEmpty()) {
 				Grocy.FrontendHelpers.ShowGenericError('Error while deleting, please retry', xhr.response)
 			}
 		}
 	);
 }
 
-Grocy.FrontendHelpers.RunWebhook = function(webhook, data, repetitions = 1)
-{
+Grocy.FrontendHelpers.RunWebhook = function(webhook, data, repetitions = 1) {
 	Object.assign(data, webhook.extra_data);
 	var hasAlreadyFailed = false;
 
-	for (i = 0; i < repetitions; i++)
-	{
-		$.post(webhook.hook, data).fail(function(req, status, errorThrown)
-		{
-			if (!hasAlreadyFailed)
-			{
+	for (i = 0; i < repetitions; i++) {
+		$.post(webhook.hook, data).fail(function(req, status, errorThrown) {
+			if (!hasAlreadyFailed) {
 				hasAlreadyFailed = true;
-				Grocy.FrontendHelpers.ShowGenericError(__t("Error while executing WebHook", { "status": status, "errorThrown": errorThrown }));
+				Grocy.FrontendHelpers.ShowGenericError(__t("Error while executing WebHook", {
+					"status": status,
+					"errorThrown": errorThrown
+				}));
 			}
 		});
 	}
 }
 
-$(document).on("keyup paste change", "input, textarea", function()
-{
+$(document).on("keyup paste change", "input, textarea", function() {
 	$(this).closest("form").addClass("is-dirty");
 });
-$(document).on("click", "select", function()
-{
+$(document).on("click", "select", function() {
 	$(this).closest("form").addClass("is-dirty");
 });
 
 // Auto saving user setting controls
-$(document).on("change", ".user-setting-control", function()
-{
+$(document).on("change", ".user-setting-control", function() {
 	var element = $(this);
 	var settingKey = element.attr("data-setting-key");
 
-	if (!element[0].checkValidity())
-	{
+	if (!element[0].checkValidity()) {
 		return;
 	}
 
 	var inputType = "unknown";
-	if (typeof element.attr("type") !== typeof undefined && element.attr("type") !== false)
-	{
+	if (typeof element.attr("type") !== typeof undefined && element.attr("type") !== false) {
 		inputType = element.attr("type").toLowerCase();
 	}
 
-	if (inputType === "checkbox")
-	{
+	if (inputType === "checkbox") {
 		value = element.is(":checked");
-	}
-	else
-	{
+	} else {
 		var value = element.val();
 	}
 
@@ -541,46 +430,36 @@ $(document).on("change", ".user-setting-control", function()
 });
 
 // Show file name Bootstrap custom file input
-$('input.custom-file-input').on('change', function()
-{
+$('input.custom-file-input').on('change', function() {
 	$(this).next('.custom-file-label').html(GetFileNameFromPath($(this).val()));
 });
 
 // Translation of "Browse"-button of Bootstrap custom file input
-if ($(".custom-file-label").length > 0)
-{
+if ($(".custom-file-label").length > 0) {
 	$("<style>").html('.custom-file-label::after { content: "' + __t("Select file") + '"; }').appendTo("head");
 }
 
-ResizeResponsiveEmbeds = function(fillEntireViewport = false)
-{
-	if (!fillEntireViewport)
-	{
+ResizeResponsiveEmbeds = function(fillEntireViewport = false) {
+	if (!fillEntireViewport) {
 		var maxHeight = $("body").height() - $("#mainNav").outerHeight() - 62;
-	}
-	else
-	{
+	} else {
 		var maxHeight = $("body").height();
 	}
 
 	$("embed.embed-responsive").attr("height", maxHeight.toString() + "px");
 
-	$("iframe.embed-responsive").each(function()
-	{
+	$("iframe.embed-responsive").each(function() {
 		$(this).attr("height", $(this)[0].contentWindow.document.body.scrollHeight.toString() + "px");
 	});
 }
-$(window).on('resize', function()
-{
+$(window).on('resize', function() {
 	ResizeResponsiveEmbeds($("body").hasClass("fullscreen-card"));
 });
-$("iframe").on("load", function()
-{
+$("iframe").on("load", function() {
 	ResizeResponsiveEmbeds($("body").hasClass("fullscreen-card"));
 });
 
-function WindowMessageBag(message, payload = null)
-{
+function WindowMessageBag(message, payload = null) {
 	var obj = {};
 	obj.Message = message;
 	obj.Payload = payload;
@@ -588,13 +467,11 @@ function WindowMessageBag(message, payload = null)
 }
 
 // Add border around anchor link section
-if (window.location.hash)
-{
+if (window.location.hash) {
 	$(window.location.hash).addClass("p-2 border border-info rounded");
 }
 
-$("#about-dialog-link").on("click", function()
-{
+$("#about-dialog-link").on("click", function() {
 	bootbox.alert({
 		message: '<iframe height="400px" class="embed-responsive" src="' + U("/about?embedded") + '"></iframe>',
 		closeButton: false,
@@ -602,85 +479,93 @@ $("#about-dialog-link").on("click", function()
 	});
 });
 
-function RefreshLocaleNumberDisplay(rootSelector = "#page-content")
-{
-	$(rootSelector + " .locale-number.locale-number-currency").each(function()
-	{
+function RefreshLocaleNumberDisplay(rootSelector = "#page-content") {
+	$(rootSelector + " .locale-number.locale-number-currency").each(function() {
 		var text = $(this).text();
-		if (isNaN(text) || text.isEmpty())
-		{
+		if (isNaN(text) || text.isEmpty()) {
 			return;
 		}
 
 		var value = parseFloat(text);
-		$(this).text(value.toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices }));
+		$(this).text(value.toLocaleString(undefined, {
+			style: "currency",
+			currency: Grocy.Currency,
+			minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices,
+			maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices
+		}));
 	});
 
-	$(rootSelector + " .locale-number.locale-number-quantity-amount").each(function()
-	{
+	$(rootSelector + " .locale-number.locale-number-quantity-amount").each(function() {
 		var text = $(this).text();
-		if (isNaN(text) || text.isEmpty())
-		{
+		if (isNaN(text) || text.isEmpty()) {
 			return;
 		}
 
 		var value = parseFloat(text);
-		$(this).text(value.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }));
+		$(this).text(value.toLocaleString(undefined, {
+			minimumFractionDigits: 0,
+			maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts
+		}));
 	});
 
-	$(rootSelector + " .locale-number.locale-number-generic").each(function()
-	{
+	$(rootSelector + " .locale-number.locale-number-generic").each(function() {
 		var text = $(this).text();
-		if (isNaN(text) || text.isEmpty())
-		{
+		if (isNaN(text) || text.isEmpty()) {
 			return;
 		}
 
 		var value = parseFloat(text);
-		$(this).text(value.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }));
+		$(this).text(value.toLocaleString(undefined, {
+			minimumFractionDigits: 0,
+			maximumFractionDigits: 0
+		}));
 	});
 }
 RefreshLocaleNumberDisplay();
 
-function RefreshLocaleNumberInput(rootSelector = "#page-content")
-{
-	$(rootSelector + " .locale-number-input.locale-number-currency").each(function()
-	{
+function RefreshLocaleNumberInput(rootSelector = "#page-content") {
+	$(rootSelector + " .locale-number-input.locale-number-currency").each(function() {
 		var value = $(this).val();
-		if (isNaN(value) || value.toString().isEmpty())
-		{
+		if (isNaN(value) || value.toString().isEmpty()) {
 			return;
 		}
 
-		$(this).val(parseFloat(value).toLocaleString("en", { minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices, useGrouping: false }));
+		$(this).val(parseFloat(value).toLocaleString("en", {
+			minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices,
+			maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices,
+			useGrouping: false
+		}));
 	});
 
-	$(rootSelector + " .locale-number-input.locale-number-quantity-amount").each(function()
-	{
+	$(rootSelector + " .locale-number-input.locale-number-quantity-amount").each(function() {
 		var value = $(this).val();
-		if (isNaN(value) || value.toString().isEmpty())
-		{
+		if (isNaN(value) || value.toString().isEmpty()) {
 			return;
 		}
 
-		$(this).val(parseFloat(value).toLocaleString("en", { minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts, useGrouping: false }));
+		$(this).val(parseFloat(value).toLocaleString("en", {
+			minimumFractionDigits: 0,
+			maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts,
+			useGrouping: false
+		}));
 	});
 
-	$(rootSelector + " .locale-number-input.locale-number-generic").each(function()
-	{
+	$(rootSelector + " .locale-number-input.locale-number-generic").each(function() {
 		var value = $(this).val();
-		if (isNaN(value) || value.toString().isEmpty())
-		{
+		if (isNaN(value) || value.toString().isEmpty()) {
 			return;
 		}
 
-		$(this).val(value.toLocaleString("en", { minimumFractionDigits: 0, maximumFractionDigits: 2, useGrouping: false }));
+		$(this).val(value.toLocaleString("en", {
+			minimumFractionDigits: 0,
+			maximumFractionDigits: 2,
+			useGrouping: false
+		}));
 	});
 }
 RefreshLocaleNumberInput();
 
-$(document).on("click", ".easy-link-copy-textbox", function()
-{
+$(document).on("click", ".easy-link-copy-textbox", function() {
 	$(this).select();
 });
 
@@ -688,11 +573,13 @@ $("textarea.wysiwyg-editor").summernote({
 	minHeight: "300px",
 	lang: __t("summernote_locale"),
 	callbacks: {
-		onImageLinkInsert: function(url)
-		{
+		onImageLinkInsert: function(url) {
 			// Summernote workaround: Make images responsive
 			// By adding the "img-fluid" class to the img tag
-			$img = $('<img>').attr({ src: url, class: "img-fluid" })
+			$img = $('<img>').attr({
+				src: url,
+				class: "img-fluid"
+			})
 			$(this).summernote("insertNode", $img[0]);
 		}
 	}
@@ -700,13 +587,11 @@ $("textarea.wysiwyg-editor").summernote({
 
 // Summernote workaround: Make embeds responsive
 // By wrapping any embeded video in a container with class "embed-responsive"
-$(".note-video-clip").each(function()
-{
+$(".note-video-clip").each(function() {
 	$(this).parent().html('<div class="embed-responsive embed-responsive-16by9">' + $(this).wrap("<p/>").parent().html() + "</div>");
 });
 
-function LoadImagesLazy()
-{
+function LoadImagesLazy() {
 	$(".lazy:visible").Lazy({
 		enableThrottle: true,
 		throttle: 500
@@ -714,8 +599,7 @@ function LoadImagesLazy()
 }
 LoadImagesLazy();
 
-if (!Grocy.CalendarFirstDayOfWeek.isEmpty())
-{
+if (!Grocy.CalendarFirstDayOfWeek.isEmpty()) {
 	moment.updateLocale(moment.locale(), {
 		week: {
 			dow: Grocy.CalendarFirstDayOfWeek
@@ -723,22 +607,17 @@ if (!Grocy.CalendarFirstDayOfWeek.isEmpty())
 	});
 }
 
-$(window).on("message", function(e)
-{
+$(window).on("message", function(e) {
 	var data = e.originalEvent.data;
 
-	if (data.Message === "ShowSuccessMessage")
-	{
+	if (data.Message === "ShowSuccessMessage") {
 		toastr.success(data.Payload);
-	}
-	else if (data.Message === "CloseAllModals")
-	{
+	} else if (data.Message === "CloseAllModals") {
 		bootbox.hideAll();
 	}
 });
 
-$(document).on("click", ".show-as-dialog-link", function(e)
-{
+$(document).on("click", ".show-as-dialog-link", function(e) {
 	e.preventDefault();
 
 	var link = $(e.currentTarget).attr("href");
@@ -752,8 +631,7 @@ $(document).on("click", ".show-as-dialog-link", function(e)
 			cancel: {
 				label: __t('Close'),
 				className: 'btn-secondary responsive-button',
-				callback: function()
-				{
+				callback: function() {
 					bootbox.hideAll();
 				}
 			}
@@ -761,7 +639,10 @@ $(document).on("click", ".show-as-dialog-link", function(e)
 	});
 });
 
-// Default DataTables initialisation settings
+// Default Select2 initialization settings
+$.fn.select2.defaults.set("theme", "bootstrap");
+
+// Default DataTables initialization settings
 var collapsedGroups = {};
 $.extend(true, $.fn.dataTable.defaults, {
 	'paginate': false,
@@ -771,61 +652,47 @@ $.extend(true, $.fn.dataTable.defaults, {
 	'scrollX': true,
 	'colReorder': true,
 	'stateSave': true,
-	'stateSaveParams': function(settings, data)
-	{
+	'stateSaveParams': function(settings, data) {
 		data.search.search = "";
 
-		data.columns.forEach(column =>
-		{
+		data.columns.forEach(column => {
 			column.search.search = "";
 		});
 	},
-	'stateSaveCallback': function(settings, data)
-	{
+	'stateSaveCallback': function(settings, data) {
 		var settingKey = 'datatables_state_' + settings.sTableId;
-		if ($.isEmptyObject(data))
-		{
+		if ($.isEmptyObject(data)) {
 			//state.clear was called and unfortunately the table is not refresh, so we are reloading the page
 			Grocy.FrontendHelpers.DeleteUserSetting(settingKey, true);
-		} else
-		{
+		} else {
 			var stateData = JSON.stringify(data);
 			Grocy.FrontendHelpers.SaveUserSetting(settingKey, stateData);
 		}
 	},
-	'stateLoadCallback': function(settings, data)
-	{
+	'stateLoadCallback': function(settings, data) {
 		var settingKey = 'datatables_state_' + settings.sTableId;
 
-		if (Grocy.UserSettings[settingKey] == undefined)
-		{
+		if (Grocy.UserSettings[settingKey] == undefined) {
 			return null;
-		}
-		else
-		{
+		} else {
 			return JSON.parse(Grocy.UserSettings[settingKey]);
 		}
 	},
-	'preDrawCallback': function(settings)
-	{
+	'preDrawCallback': function(settings) {
 		// Currently it is not possible to save the state of rowGroup via saveState events
 		var api = new $.fn.dataTable.Api(settings);
-		if (typeof api.rowGroup === "function")
-		{
+		if (typeof api.rowGroup === "function") {
 			var settingKey = 'datatables_rowGroup_' + settings.sTableId;
-			if (Grocy.UserSettings[settingKey] !== undefined)
-			{
+			if (Grocy.UserSettings[settingKey] !== undefined) {
 				var rowGroup = JSON.parse(Grocy.UserSettings[settingKey]);
 
 				// Check if there way changed. the draw event is called often therefore we have to check if it's really necessary
-				if (rowGroup.enable !== api.rowGroup().enabled()
-					|| ("dataSrc" in rowGroup && rowGroup.dataSrc !== api.rowGroup().dataSrc()))
-				{
+				if (rowGroup.enable !== api.rowGroup().enabled() ||
+					("dataSrc" in rowGroup && rowGroup.dataSrc !== api.rowGroup().dataSrc())) {
 
 					api.rowGroup().enable(rowGroup.enable);
 
-					if ("dataSrc" in rowGroup)
-					{
+					if ("dataSrc" in rowGroup) {
 						api.rowGroup().dataSrc(rowGroup.dataSrc);
 
 						// Apply fixed order for group column
@@ -839,18 +706,17 @@ $.extend(true, $.fn.dataTable.defaults, {
 			}
 		}
 	},
-	'columnDefs': [
-		{ type: 'chinese-string', targets: '_all' }
-	],
+	'columnDefs': [{
+		type: 'chinese-string',
+		targets: '_all'
+	}],
 	'rowGroup': {
 		enable: false,
-		startRender: function(rows, group)
-		{
+		startRender: function(rows, group) {
 			var collapsed = !!collapsedGroups[group];
 			var toggleClass = collapsed ? "fa-caret-right" : "fa-caret-down";
 
-			rows.nodes().each(function(row)
-			{
+			rows.nodes().each(function(row) {
 				row.style.display = collapsed ? "none" : "";
 			});
 
@@ -861,8 +727,7 @@ $.extend(true, $.fn.dataTable.defaults, {
 		}
 	}
 });
-$(document).on("click", "tr.dtrg-group", function()
-{
+$(document).on("click", "tr.dtrg-group", function() {
 	var name = $(this).data('name');
 	collapsedGroups[name] = !collapsedGroups[name];
 	$("table").DataTable().draw();
@@ -871,93 +736,70 @@ $(document).on("click", "tr.dtrg-group", function()
 // serializeJSON defaults
 $.serializeJSON.defaultOptions.checkboxUncheckedValue = "0";
 
-$(Grocy.UserPermissions).each(function(index, item)
-{
-	if (item.has_permission == 0)
-	{
+$(Grocy.UserPermissions).each(function(index, item) {
+	if (item.has_permission == 0) {
 		$('.permission-' + item.permission_name).addClass('disabled').addClass('not-allowed');
 	}
 });
-$('a.link-return').not(".btn").each(function()
-{
+$('a.link-return').not(".btn").each(function() {
 	var base = $(this).data('href');
-	if (base.contains('?'))
-	{
+	if (base.contains('?')) {
 		$(this).attr('href', base + '&returnto' + encodeURIComponent(Grocy.CurrentUrlRelative));
-	}
-	else
-	{
+	} else {
 		$(this).attr('href', base + '?returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative));
 	}
 
 })
 
-$(document).on("click", "a.btn.link-return", function(e)
-{
+$(document).on("click", "a.btn.link-return", function(e) {
 	e.preventDefault();
 
 	var link = GetUriParam("returnto");
-	if (!link || !link.length > 0)
-	{
+	if (!link || !link.length > 0) {
 		location.href = $(e.currentTarget).attr("href");
-	}
-	else
-	{
+	} else {
 		location.href = U(link);
 	}
 });
 
-$('.dropdown-item').has('.form-check input[type=checkbox]').on('click', function(e)
-{
-	if ($(e.target).is('div.form-check') || $(e.target).is('div.dropdown-item'))
-	{
+$('.dropdown-item').has('.form-check input[type=checkbox]').on('click', function(e) {
+	if ($(e.target).is('div.form-check') || $(e.target).is('div.dropdown-item')) {
 		$(e.target).find('input[type=checkbox]').click();
 	}
 })
 
-$('.table').on('column-sizing.dt', function(e, settings)
-{
+$('.table').on('column-sizing.dt', function(e, settings) {
 	var dtScrollWidth = $('.dataTables_scroll').width();
 	var tableWidth = $('.table').width() + 100; // Some extra padding, otherwise the scrollbar maybe only appears after a column is already completely out of the viewport
 
-	if (dtScrollWidth < tableWidth)
-	{
+	if (dtScrollWidth < tableWidth) {
 		$('.dataTables_scrollBody').addClass("no-force-overflow-visible");
 		$('.dataTables_scrollBody').removeClass("force-overflow-visible");
-	}
-	else
-	{
+	} else {
 		$('.dataTables_scrollBody').removeClass("no-force-overflow-visible");
 		$('.dataTables_scrollBody').addClass("force-overflow-visible");
 	}
 });
-$('td .dropdown').on('show.bs.dropdown', function(e)
-{
-	if ($('.dataTables_scrollBody').hasClass("no-force-overflow-visible"))
-	{
+$('td .dropdown').on('show.bs.dropdown', function(e) {
+	if ($('.dataTables_scrollBody').hasClass("no-force-overflow-visible")) {
 		$('.dataTables_scrollBody').addClass("force-overflow-visible");
 	}
 });
-$("td .dropdown").on('hide.bs.dropdown', function(e)
-{
-	if ($('.dataTables_scrollBody').hasClass("no-force-overflow-visible"))
-	{
+$("td .dropdown").on('hide.bs.dropdown', function(e) {
+	if ($('.dataTables_scrollBody').hasClass("no-force-overflow-visible")) {
 		$('.dataTables_scrollBody').removeClass("force-overflow-visible");
 	}
 })
 
-$(window).on("message", function(e)
-{
+$(window).on("message", function(e) {
 	var data = e.originalEvent.data;
 
-	if (data.Message === "Reload")
-	{
+	if (data.Message === "Reload") {
 		window.location.reload();
 	}
 });
 
-$(".change-table-columns-visibility-button").on("click", function(e)
-{
+$(".change-table-columns-visibility-button").on("click", function(e) {
 	e.preventDefault();
 
 	var dataTableSelector = $(e.currentTarget).attr("data-table-selector");
@@ -968,8 +810,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 
 	var rowGroupDefined = typeof dataTable.rowGroup === "function";
 
-	if (rowGroupDefined)
-	{
+	if (rowGroupDefined) {
 		var rowGroupChecked = (dataTable.rowGroup().enabled()) ? "" : "checked";
 		rowGroupRadioBoxesHtml = ' \
 			<div class="custom-control custom-radio custom-control-inline"> \
@@ -986,27 +827,23 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 			</div>';
 	}
 
-	dataTable.columns().every(function()
-	{
+	dataTable.columns().every(function() {
 		var index = this.index();
 		var headerCell = $(this.header());
 		var title = headerCell.text();
 		var visible = this.visible();
 
-		if (title.isEmpty() || title.startsWith("Hidden"))
-		{
+		if (title.isEmpty() || title.startsWith("Hidden")) {
 			return;
 		}
 
 		var shadowColumnIndex = headerCell.attr("data-shadow-rowgroup-column");
-		if (shadowColumnIndex)
-		{
+		if (shadowColumnIndex) {
 			index = shadowColumnIndex;
 		}
 
 		var checked = "checked";
-		if (!visible)
-		{
+		if (!visible) {
 			checked = "";
 		}
 
@@ -1023,11 +860,9 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 				</label> \
 			</div>';
 
-		if (rowGroupDefined && headerCell.hasClass("allow-grouping"))
-		{
+		if (rowGroupDefined && headerCell.hasClass("allow-grouping")) {
 			var rowGroupChecked = "";
-			if (dataTable.rowGroup().enabled() && dataTable.rowGroup().dataSrc() == index)
-			{
+			if (dataTable.rowGroup().enabled() && dataTable.rowGroup().dataSrc() == index) {
 				rowGroupChecked = "checked";
 			}
 
@@ -1057,8 +892,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 			</div> \
 		</div>';
 
-	if (rowGroupDefined)
-	{
+	if (rowGroupDefined) {
 		message += ' \
 			<div class="text-center mt-1"> \
 				<h5 class="pt-3 mb-0">' + __t('Group by') + '</h5> \
@@ -1077,8 +911,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 			reset: {
 				label: __t('Reset'),
 				className: 'btn-outline-danger float-left responsive-button',
-				callback: function()
-				{
+				callback: function() {
 					bootbox.confirm({
 						message: __t("Are you sure to reset the table options?"),
 						buttons: {
@@ -1091,10 +924,8 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 								className: 'btn-success'
 							}
 						},
-						callback: function(result)
-						{
-							if (result)
-							{
+						callback: function(result) {
+							if (result) {
 								var dataTable = $(dataTableSelector).DataTable();
 								var tableId = dataTable.settings()[0].sTableId;
 
@@ -1112,8 +943,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 			ok: {
 				label: __t('OK'),
 				className: 'btn-primary responsive-button',
-				callback: function()
-				{
+				callback: function() {
 					bootbox.hideAll();
 				}
 			}
@@ -1121,8 +951,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 	});
 });
 
-$(document).on("click", ".change-table-columns-visibility-toggle", function()
-{
+$(document).on("click", ".change-table-columns-visibility-toggle", function() {
 	var dataTableSelector = $(this).attr("data-table-selector");
 	var columnIndex = $(this).attr("data-column-index");
 	var dataTable = $(dataTableSelector).DataTable();
@@ -1131,15 +960,13 @@ $(document).on("click", ".change-table-columns-visibility-toggle", function()
 });
 
 
-$(document).on("click", ".change-table-columns-rowgroup-toggle", function()
-{
+$(document).on("click", ".change-table-columns-rowgroup-toggle", function() {
 	var dataTableSelector = $(this).attr("data-table-selector");
 	var columnIndex = $(this).attr("data-column-index");
 	var dataTable = $(dataTableSelector).DataTable();
 	var rowGroup;
 
-	if (columnIndex == -1)
-	{
+	if (columnIndex == -1) {
 		rowGroup = {
 			enable: false
 		};
@@ -1148,9 +975,7 @@ $(document).on("click", ".change-table-columns-rowgroup-toggle", function()
 
 		// Remove fixed order
 		dataTable.order.fixed({});
-	}
-	else
-	{
+	} else {
 		rowGroup = {
 			enable: true,
 			dataSrc: columnIndex
@@ -1172,14 +997,10 @@ $(document).on("click", ".change-table-columns-rowgroup-toggle", function()
 	dataTable.draw();
 });
 
-if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_RECIPES)
-{
-	if ($(window).width() < 768)
-	{
+if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_RECIPES) {
+	if ($(window).width() < 768) {
 		$("#meal-plan-nav-link").attr("href", $("#meal-plan-nav-link").attr("href") + "?start=" + moment().format("YYYY-MM-DD") + "&days=0");
-	}
-	else
-	{
+	} else {
 		$("#meal-plan-nav-link").attr("href", $("#meal-plan-nav-link").attr("href") + "?start=" + moment().startOf("week").format("YYYY-MM-DD"));
 	}
 }

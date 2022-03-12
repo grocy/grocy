@@ -2308,3 +2308,18 @@ msgstr ""
 
 msgid "Average execution frequency"
 msgstr ""
+
+msgid "Pakke"
+msgstr ""
+
+msgid "Del"
+msgstr ""
+
+msgid "Boks"
+msgstr ""
+
+msgid "Bunt"
+msgstr ""
+
+msgid "Flaske"
+msgstr ""
