@@ -91,6 +91,10 @@ Grocy.Components.ProductPicker.Enable = function() {
 	return this;
 }
 
+Grocy.Components.ProductPicker.IsRequired = function() {
+	return this.GetPicker().prop("required");
+}
+
 Grocy.Components.ProductPicker.Require = function() {
 	this.GetPicker().prop("required", true);
 	return this;
@@ -147,7 +151,10 @@ Grocy.Components.ProductPicker.IsOpen = function() {
 // initialize Select2 product picker
 var lastProductSearchTerm = '';
 Grocy.Components.ProductPicker.GetPicker().select2({
-	selectOnClose: true,
+	placeholder: Grocy.Components.ProductPicker.IsRequired() ? null : __t('All'),
+	placeholderOption: 'all',
+	selectOnClose: Grocy.Components.ProductPicker.IsRequired(),
+	allowClear: !Grocy.Components.ProductPicker.IsRequired(),
 	ajax: {
 		delay: 150,
 		transport: function(params, success, failure) {
@@ -189,7 +196,10 @@ Grocy.Components.ProductPicker.GetPicker().select2({
 			var handleEmptyResponse = function() {
 				if (responded || complete < xhrs.length) return;
 				success({
-					results: [],
+					results: Grocy.Components.ProductPicker.IsRequired() ? [] : [{
+						id: 'all',
+						text: __t('All'),
+					}],
 					pagination: {
 						more: false
 					}
@@ -221,12 +231,15 @@ Grocy.Components.ProductPicker.GetPicker().select2({
 				Grocy.Components.ProductPicker.SetState('barcode', term);
 
 				success({
-					results: results.map(function(result) {
+					results: (Grocy.Components.ProductPicker.IsRequired() ? [] : [{
+						id: 'all',
+						text: __t('All'),
+					}]).concat(results.map(function(result) {
 						return {
 							id: result.id,
 							text: result.name
 						};
-					}),
+					})),
 					pagination: {
 						more: page * results_per_page < meta.recordsFiltered
 					}

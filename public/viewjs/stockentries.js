@@ -46,7 +46,7 @@ stockEntriesTable.columns.adjust().draw();
 $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
 	var productId = Grocy.Components.ProductPicker.GetValue();
 
-	if ((isNaN(productId) || productId == "" || productId == data[1])) {
+	if ((isNaN(productId) || productId == "" || productId == data[1] || productId === null || productId === 'all')) {
 		return true;
 	}
 
