@@ -331,20 +331,12 @@
 
 			<div class="form-group">
 				<label for="qu_id_stock">{{ $__t('Quantity unit stock') }}</label>
-				<i class="fas fa-question-circle text-muted"
-					data-toggle="tooltip"
-					data-trigger="hover click"
-					title="{{ $__t('Quantity unit stock cannot be changed after first purchase') }}"></i>
 				<select required
 					class="custom-control custom-select input-group-qu"
 					id="qu_id_stock"
-					name="qu_id_stock"
-					@if($mode=='edit'
-					)
-					disabled
-					@endif>
+					name="qu_id_stock">
 					<option></option>
-					@foreach($quantityunits as $quantityunit)
+					@foreach($quantityunitsStock as $quantityunit)
 					<option @if($mode=='edit'
 						&&
 						$quantityunit->id == $product->qu_id_stock) selected="selected" @endif value="{{ $quantityunit->id }}" data-plural-form="{{ $quantityunit->name_plural }}">{{ $quantityunit->name }}</option>

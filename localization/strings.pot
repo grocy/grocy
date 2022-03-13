@@ -1682,9 +1682,6 @@ msgstr ""
 msgid "Based on the prices of the default consume rule (Opened first, then first due first, then first in first out) for in-stock ingredients and on the last price for missing ones"
 msgstr ""
 
-msgid "Quantity unit stock cannot be changed after first purchase"
-msgstr ""
-
 msgid "Clear filter"
 msgstr ""
 

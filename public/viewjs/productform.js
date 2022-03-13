@@ -140,23 +140,6 @@ $('.save-product-button').on('click', function(e)
 	);
 });
 
-if (Grocy.EditMode == "edit")
-{
-	Grocy.Api.Get('objects/stock_log?limit=1&query[]=product_id=' + Grocy.EditObjectId,
-		function(productJournalEntries)
-		{
-			if (productJournalEntries.length == 0)
-			{
-				$('#qu_id_stock').removeAttr("disabled");
-			}
-		},
-		function(xhr)
-		{
-			console.error(xhr);
-		}
-	);
-}
-
 if (GetUriParam("flow") == "InplaceNewProductWithName")
 {
 	$('#name').val(GetUriParam("name"));

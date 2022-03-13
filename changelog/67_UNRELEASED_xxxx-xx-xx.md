@@ -8,7 +8,8 @@
 
 ### Stock
 
-- xxx
+- It's now possible to change a products stock QU, even after it was once added to stock
+  - When the product was once added to stock, there needs to exist a corresponding unit conversion for the new QU
 
 ### Shopping list
 
