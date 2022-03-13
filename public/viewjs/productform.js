@@ -62,7 +62,7 @@ $('.save-product-button').on('click', function(e) {
 	jsonData.parent_product_id = parentProductId;
 	Grocy.FrontendHelpers.BeginUiBusy("product-form");
 
-	if (jsonData.parent_product_id.toString().isEmpty()) {
+	if ((jsonData.parent_product_id || '').toString().isEmpty()) {
 		jsonData.parent_product_id = null;
 	}
 
