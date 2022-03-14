@@ -656,3 +656,7 @@ canvas.drawingBuffer {
 	pointer-events: none;
 	opacity: 0.5;
 }
+
+@page {
+	size: auto
+}
