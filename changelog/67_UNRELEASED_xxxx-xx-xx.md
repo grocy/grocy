@@ -25,7 +25,7 @@
 
 ### Meal plan
 
-- xxx
+- Fixed that it was not possible to print the meal plan (and other pages) in landscape (thanks @miguelangel-nubla)
 
 ### Chores
 
