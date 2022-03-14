@@ -650,13 +650,13 @@ canvas.drawingBuffer {
 	.calendar button.fc-agendaDay-button {
 		display: none;
 	}
+
+	@page {
+		size: auto
+	}
 }
 
 .not-allowed {
 	pointer-events: none;
 	opacity: 0.5;
-}
-
-@page {
-	size: auto
 }
