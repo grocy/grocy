@@ -650,6 +650,10 @@ canvas.drawingBuffer {
 	.calendar button.fc-agendaDay-button {
 		display: none;
 	}
+
+	@page {
+		size: auto
+	}
 }
 
 .not-allowed {
