@@ -4,11 +4,13 @@
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 },
 		{ 'visible': false, 'targets': 7 },
+		{ 'visible': false, 'targets': 8 },
 		{ "type": "html-num-fmt", "targets": 3 }
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#products-table tbody').removeClass("d-none");
 productsTable.columns.adjust().draw();
+LoadImagesLazy();
 
 $("#search").on("keyup", Delay(function()
 {

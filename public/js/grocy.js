@@ -1128,6 +1128,7 @@ $(document).on("click", ".change-table-columns-visibility-toggle", function()
 	var dataTable = $(dataTableSelector).DataTable();
 
 	dataTable.columns(columnIndex).visible(this.checked);
+	LoadImagesLazy();
 });
 
 
