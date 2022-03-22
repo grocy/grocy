@@ -22,6 +22,7 @@
 - Fixed that the price of the "Produces product"-product, which is added to stock on consuming a recipe, was wrong (was the recipe total costs multiplied by the serving amount instead of only the recipe total costs)
 - Fixed that calories of recipe ingredients were displayed with an indefinite number of decimal places
 - Fixed that ingredient amounts were wrong for multi-nested (> 2 levels) recipes, when the included recipe used an serving amount other than 1
+- Fixed that searching/filtering the recipe gallery view did not work correctly
 
 ### Meal plan
 
