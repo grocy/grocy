@@ -401,6 +401,11 @@ if (Grocy.Components.ProductPicker !== undefined)
 
 function PrefillBestBeforeDate(product, location)
 {
+	if (location == null)
+	{
+		location = {}
+	}
+
 	if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 	{
 		var dueDays;

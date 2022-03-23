@@ -4,8 +4,11 @@ namespace Grocy\Services;
 
 class DatabaseMigrationService extends BaseService
 {
-	// This migration will be always execute, can be used to fix things manually
+	// This migration will be always executed, can be used to fix things manually (will never be shipped)
 	const EMERGENCY_MIGRATION_ID = 9999;
+
+	// This migration will be always executed, is used for things which need to be checked always
+	const DOALWAYS_MIGRATION_ID = 8888;
 
 	public function MigrateDatabase()
 	{
@@ -39,11 +42,11 @@ class DatabaseMigrationService extends BaseService
 	{
 		$rowCount = $this->getDatabaseService()->ExecuteDbQuery('SELECT COUNT(*) FROM migrations WHERE migration = ' . $migrationId)->fetchColumn();
 
-		if (intval($rowCount) === 0 || $migrationId == self::EMERGENCY_MIGRATION_ID)
+		if (intval($rowCount) === 0 || $migrationId == self::EMERGENCY_MIGRATION_ID || $migrationId == self::DOALWAYS_MIGRATION_ID)
 		{
 			include $phpFile;
 
-			if ($migrationId != self::EMERGENCY_MIGRATION_ID)
+			if ($migrationId != self::EMERGENCY_MIGRATION_ID && $migrationId != self::DOALWAYS_MIGRATION_ID)
 			{
 				$this->getDatabaseService()->ExecuteDbStatement('INSERT INTO migrations (migration) VALUES (' . $migrationId . ')');
 			}
@@ -54,7 +57,7 @@ class DatabaseMigrationService extends BaseService
 	{
 		$rowCount = $this->getDatabaseService()->ExecuteDbQuery('SELECT COUNT(*) FROM migrations WHERE migration = ' . $migrationId)->fetchColumn();
 
-		if (intval($rowCount) === 0 || $migrationId == self::EMERGENCY_MIGRATION_ID)
+		if (intval($rowCount) === 0 || $migrationId == self::EMERGENCY_MIGRATION_ID || $migrationId == self::DOALWAYS_MIGRATION_ID)
 		{
 			$this->getDatabaseService()->GetDbConnectionRaw()->beginTransaction();
 
@@ -62,7 +65,7 @@ class DatabaseMigrationService extends BaseService
 			{
 				$this->getDatabaseService()->ExecuteDbStatement($sql);
 
-				if ($migrationId != self::EMERGENCY_MIGRATION_ID)
+				if ($migrationId != self::EMERGENCY_MIGRATION_ID && $migrationId != self::DOALWAYS_MIGRATION_ID)
 				{
 					$this->getDatabaseService()->ExecuteDbStatement('INSERT INTO migrations (migration) VALUES (' . $migrationId . ')');
 				}

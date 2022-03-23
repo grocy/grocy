@@ -11,6 +11,7 @@
 - It's now possible to change a products stock QU, even after it was once added to stock
   - When the product was once added to stock, there needs to exist a corresponding unit conversion for the new QU
 - Added the product grocycode as a (hidden by default) column to the products list (master data)
+- Fixed that consuming via the consume page was not possible when `FEATURE_FLAG_STOCK_LOCATION_TRACKING` was disabled
 
 ### Shopping list
 
