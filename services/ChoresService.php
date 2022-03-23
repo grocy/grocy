@@ -186,8 +186,6 @@ class ChoresService extends BaseService
 			{
 				throw new \Exception('Chores without a schedule can\'t be skipped');
 			}
-
-			$trackedTime = $this->getDatabase()->chores_current()->where('chore_id', $choreId)->min('next_estimated_execution_time');
 		}
 
 		$logRow = $this->getDatabase()->chores_log()->createRow([
