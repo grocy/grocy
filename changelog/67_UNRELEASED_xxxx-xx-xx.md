@@ -43,7 +43,7 @@
 
 ### Tasks
 
-- xxx
+- Fixed that tasks without a due date were highlighted in red (like overdue tasks)
 
 ### Batteries
 

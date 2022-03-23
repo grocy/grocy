@@ -20,7 +20,11 @@ class TasksController extends BaseController
 
 		foreach ($tasks as $task)
 		{
-			if ($task->due_date < date('Y-m-d 23:59:59', strtotime('-1 days')))
+			if (empty($task->due_date))
+			{
+				$task->due_type = '';
+			}
+			elseif ($task->due_date < date('Y-m-d 23:59:59', strtotime('-1 days')))
 			{
 				$task->due_type = 'overdue';
 			}
