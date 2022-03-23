@@ -94,13 +94,25 @@ $(document).on('click', '.track-chore-button', function(e)
 	var choreName = $(e.currentTarget).attr('data-chore-name');
 	var skipped = $(e.currentTarget).hasClass("skip");
 
-	Grocy.Api.Get('objects/chores/' + choreId,
-		function(chore)
+	Grocy.Api.Get('chores/' + choreId,
+		function(choreDetails)
 		{
 			var trackedTime = moment().format('YYYY-MM-DD HH:mm:ss');
-			if (chore.track_date_only == 1)
+			if (skipped)
 			{
-				trackedTime = moment().format('YYYY-MM-DD');
+				trackedTime = moment(choreDetails.next_estimated_execution_time).format('YYYY-MM-DD HH:mm:ss');
+			}
+
+			if (choreDetails.chore.track_date_only == 1)
+			{
+				if (skipped)
+				{
+					trackedTime = moment(choreDetails.next_estimated_execution_time).format('YYYY-MM-DD');
+				}
+				else
+				{
+					trackedTime = moment().format('YYYY-MM-DD');
+				}
 			}
 
 			Grocy.Api.Post('chores/' + choreId + '/execute', { 'tracked_time': trackedTime, 'skipped': skipped },
