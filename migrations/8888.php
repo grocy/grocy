@@ -13,7 +13,6 @@ if (!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 
 	if ($db->locations()->where('id', 1)->count() === 0)
 	{
-		// Create 2 default quantity units
 		$defaultLocation = $db->locations()->createRow([
 			'id' => 1,
 			'name' => 'Default'
