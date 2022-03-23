@@ -1,6 +1,6 @@
 UPDATE chores
 SET period_type = 'daily',
-period_interval = period_days,
+period_interval = CASE WHEN IFNULL(period_days, 0) = 0 THEN 1 ELSE period_days END,
 period_days = null
 WHERE period_type = 'dynamic-regular';
 
