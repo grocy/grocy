@@ -57,7 +57,8 @@
 			data-decimals="{{ $decimals }}"
 			@if($isRequired)
 			required
-			@endif>
+			@endif
+			autocomplete="off">
 		<div class="input-group-append">
 			<div class="input-group-text numberpicker-up-button"><i class="fas fa-arrow-up"></i></div>
 		</div>
