@@ -233,34 +233,41 @@
 				<h4 class="modal-title w-100">{{ $__t('Merge products') }}</h4>
 			</div>
 			<div class="modal-body">
-				<div class="form-group">
-					<label for="merge-products-keep">{{ $__t('Product to keep') }}&nbsp;<i class="fas fa-question-circle text-muted"
-							data-toggle="tooltip"
-							data-trigger="hover click"
-							title="{{ $__t('After merging, this product will be kept') }}"></i>
-					</label>
-					<select class="custom-control custom-select"
-						id="merge-products-keep">
-						<option></option>
-						@foreach($products as $product)
-						<option value="{{ $product->id }}">{{ $product->name }}</option>
-						@endforeach
-					</select>
-				</div>
-				<div class="form-group">
-					<label for="merge-products-remove">{{ $__t('Product to remove') }}&nbsp;<i class="fas fa-question-circle text-muted"
-							data-toggle="tooltip"
-							data-trigger="hover click"
-							title="{{ $__t('After merging, all occurences of this product will be replaced by "Product to keep" (means this product will not exist anymore)') }}"></i>
-					</label>
-					<select class="custom-control custom-select"
-						id="merge-products-remove">
-						<option></option>
-						@foreach($products as $product)
-						<option value="{{ $product->id }}">{{ $product->name }}</option>
-						@endforeach
-					</select>
-				</div>
+				<form id="merge-products-form"
+					novalidate>
+
+					<div class="form-group">
+						<label for="merge-products-keep">{{ $__t('Product to keep') }}&nbsp;<i class="fas fa-question-circle text-muted"
+								data-toggle="tooltip"
+								data-trigger="hover click"
+								title="{{ $__t('After merging, this product will be kept') }}"></i>
+						</label>
+						<select class="custom-control custom-select"
+							id="merge-products-keep"
+							required>
+							<option></option>
+							@foreach($products as $product)
+							<option value="{{ $product->id }}">{{ $product->name }}</option>
+							@endforeach
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="merge-products-remove">{{ $__t('Product to remove') }}&nbsp;<i class="fas fa-question-circle text-muted"
+								data-toggle="tooltip"
+								data-trigger="hover click"
+								title="{{ $__t('After merging, all occurences of this product will be replaced by the kept product (means this product will not exist anymore)') }}"></i>
+						</label>
+						<select class="custom-control custom-select"
+							id="merge-products-remove"
+							required>
+							<option></option>
+							@foreach($products as $product)
+							<option value="{{ $product->id }}">{{ $product->name }}</option>
+							@endforeach
+						</select>
+					</div>
+
+				</form>
 			</div>
 			<div class="modal-footer">
 				<button type="button"
@@ -268,8 +275,7 @@
 					data-dismiss="modal">{{ $__t('Cancel') }}</button>
 				<button id="merge-products-save-button"
 					type="button"
-					class="btn btn-primary"
-					data-dismiss="modal">{{ $__t('OK') }}</button>
+					class="btn btn-primary">{{ $__t('OK') }}</button>
 			</div>
 		</div>
 	</div>

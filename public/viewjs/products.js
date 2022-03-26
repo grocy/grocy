@@ -137,8 +137,15 @@ $(".merge-products-button").on("click", function(e)
 	$("#merge-products-modal").modal("show");
 });
 
-$("#merge-products-save-button").on("click", function()
+$("#merge-products-save-button").on("click", function(e)
 {
+	e.preventDefault();
+
+	if (!Grocy.FrontendHelpers.ValidateForm("merge-products-form", true))
+	{
+		return;
+	}
+
 	var productIdToKeep = $("#merge-products-keep").val();
 	var productIdToRemove = $("#merge-products-remove").val();
 

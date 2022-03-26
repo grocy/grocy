@@ -163,34 +163,41 @@
 				<h4 class="modal-title w-100">{{ $__t('Merge chores') }}</h4>
 			</div>
 			<div class="modal-body">
-				<div class="form-group">
-					<label for="merge-chores-keep">{{ $__t('Chore to keep') }}&nbsp;<i class="fas fa-question-circle text-muted"
-							data-toggle="tooltip"
-							data-trigger="hover click"
-							title="{{ $__t('After merging, this chore will be kept') }}"></i>
-					</label>
-					<select class="custom-control custom-select"
-						id="merge-chores-keep">
-						<option></option>
-						@foreach($chores as $chore)
-						<option value="{{ $chore->id }}">{{ $chore->name }}</option>
-						@endforeach
-					</select>
-				</div>
-				<div class="form-group">
-					<label for="merge-chores-remove">{{ $__t('Chore to remove') }}&nbsp;<i class="fas fa-question-circle text-muted"
-							data-toggle="tooltip"
-							data-trigger="hover click"
-							title="{{ $__t('After merging, all occurences of this chore will be replaced by the kept chore (means this chore will not exist anymore)') }}"></i>
-					</label>
-					<select class="custom-control custom-select"
-						id="merge-chores-remove">
-						<option></option>
-						@foreach($chores as $chore)
-						<option value="{{ $chore->id }}">{{ $chore->name }}</option>
-						@endforeach
-					</select>
-				</div>
+				<form id="merge-chores-form"
+					novalidate>
+
+					<div class="form-group">
+						<label for="merge-chores-keep">{{ $__t('Chore to keep') }}&nbsp;<i class="fas fa-question-circle text-muted"
+								data-toggle="tooltip"
+								data-trigger="hover click"
+								title="{{ $__t('After merging, this chore will be kept') }}"></i>
+						</label>
+						<select class="custom-control custom-select"
+							id="merge-chores-keep"
+							required>
+							<option></option>
+							@foreach($chores as $chore)
+							<option value="{{ $chore->id }}">{{ $chore->name }}</option>
+							@endforeach
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="merge-chores-remove">{{ $__t('Chore to remove') }}&nbsp;<i class="fas fa-question-circle text-muted"
+								data-toggle="tooltip"
+								data-trigger="hover click"
+								title="{{ $__t('After merging, all occurences of this chore will be replaced by the kept chore (means this chore will not exist anymore)') }}"></i>
+						</label>
+						<select class="custom-control custom-select"
+							id="merge-chores-remove"
+							required>
+							<option></option>
+							@foreach($chores as $chore)
+							<option value="{{ $chore->id }}">{{ $chore->name }}</option>
+							@endforeach
+						</select>
+					</div>
+
+				</form>
 			</div>
 			<div class="modal-footer">
 				<button type="button"
@@ -198,8 +205,7 @@
 					data-dismiss="modal">{{ $__t('Cancel') }}</button>
 				<button id="merge-chores-save-button"
 					type="button"
-					class="btn btn-primary"
-					data-dismiss="modal">{{ $__t('OK') }}</button>
+					class="btn btn-primary">{{ $__t('OK') }}</button>
 			</div>
 		</div>
 	</div>

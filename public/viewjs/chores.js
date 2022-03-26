@@ -88,8 +88,15 @@ $(".merge-chores-button").on("click", function(e)
 	$("#merge-chores-modal").modal("show");
 });
 
-$("#merge-chores-save-button").on("click", function()
+$("#merge-chores-save-button").on("click", function(e)
 {
+	e.preventDefault();
+
+	if (!Grocy.FrontendHelpers.ValidateForm("merge-chores-form", true))
+	{
+		return;
+	}
+
 	var choreIdToKeep = $("#merge-chores-keep").val();
 	var choreIdToRemove = $("#merge-chores-remove").val();
 
