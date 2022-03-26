@@ -289,11 +289,10 @@
 	tabindex="-1">
 	<div class="modal-dialog">
 		<div class="modal-content text-center">
-			<div class="modal-header">
-				<h4 class="modal-title w-100">{{ $__t('Reschedule next execution') }}<br>
-					<span id="reschedule-chore-modal-title"
-						class="small text-muted"></span>
-				</h4>
+			<div class="modal-header d-block">
+				<h4 class="modal-title">{{ $__t('Reschedule next execution') }}</h4>
+				<h5 id="reschedule-chore-modal-title"
+					class="text-muted"></h5>
 			</div>
 			<div class="modal-body">
 				<form id="reschedule-chore-form"
@@ -312,12 +311,12 @@
 				</form>
 			</div>
 			<div class="modal-footer">
+				<button id="reschedule-chore-clear-button"
+					type="button"
+					class="btn btn-success mr-auto">{{ $__t('Reset') }}</button>
 				<button type="button"
 					class="btn btn-secondary"
 					data-dismiss="modal">{{ $__t('Cancel') }}</button>
-				<button id="reschedule-chore-clear-button"
-					type="button"
-					class="btn btn-success">{{ $__t('Clear') }}</button>
 				<button id="reschedule-chore-save-button"
 					type="button"
 					class="btn btn-primary">{{ $__t('OK') }}</button>
