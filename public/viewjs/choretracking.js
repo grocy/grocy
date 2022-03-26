@@ -79,11 +79,11 @@ $('#chore_id').on('change', function(e)
 
 				if (chore.period_type == "manually")
 				{
-					$(".save-choretracking-button.skip").addClass("keep-disabled");
+					$(".save-choretracking-button.skip").addClass("disabled");
 				}
 				else
 				{
-					$(".save-choretracking-button.skip").removeClass("keep-disabled");
+					$(".save-choretracking-button.skip").removeClass("disabled");
 				}
 
 				Grocy.FrontendHelpers.ValidateForm('choretracking-form');
