@@ -382,7 +382,7 @@ window.FontAwesomeConfig = {
 }
 
 Grocy.FrontendHelpers = {};
-Grocy.FrontendHelpers.ValidateForm = function(formId)
+Grocy.FrontendHelpers.ValidateForm = function(formId, reportValidity = false)
 {
 	var form = document.getElementById(formId);
 	if (form === null || form === undefined)
@@ -390,17 +390,14 @@ Grocy.FrontendHelpers.ValidateForm = function(formId)
 		return;
 	}
 
-	if (form.checkValidity() === true)
+	$(form).addClass('was-validated');
+
+	if (reportValidity)
 	{
-		$(form).find(':submit').removeClass('disabled');
-		$(form).find('.keep-disabled').addClass('disabled');
-	}
-	else
-	{
-		$(form).find(':submit').addClass('disabled');
+		form.reportValidity();
 	}
 
-	$(form).addClass('was-validated');
+	return form.checkValidity();
 }
 
 Grocy.FrontendHelpers.BeginUiBusy = function(formId = null)

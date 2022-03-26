@@ -405,7 +405,6 @@
 					class="btn btn-secondary"
 					data-dismiss="modal">{{ $__t('Cancel') }}</button>
 				<button id="save-recipe-include-button"
-					data-dismiss="modal"
 					class="btn btn-success">{{ $__t('Save') }}</button>
 			</div>
 		</div>

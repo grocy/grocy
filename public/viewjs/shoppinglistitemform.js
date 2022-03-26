@@ -4,6 +4,11 @@ $('#save-shoppinglist-button').on('click', function(e)
 {
 	e.preventDefault();
 
+	if (!Grocy.FrontendHelpers.ValidateForm("shoppinglist-form", true))
+	{
+		return;
+	}
+
 	if ($(".combobox-menu-visible").length)
 	{
 		return;
@@ -284,7 +289,7 @@ eitherRequiredFields.on('input', function()
 	eitherRequiredFields.not(this).prop('required', !$(this).val().length);
 	Grocy.FrontendHelpers.ValidateForm('shoppinglist-form');
 });
-
+eitherRequiredFields.trigger("input");
 
 if (GetUriParam("product-name") != null)
 {

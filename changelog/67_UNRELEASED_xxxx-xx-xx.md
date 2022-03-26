@@ -61,6 +61,7 @@
 
 ### General
 
+- Optimized form validation: Save / submit buttons are now not disabled when the form is invalid, the invalid / missing fields are instead highlighted when trying to submit / save the form (making it more obvous which fields are invalid / missing exactly)
 - Fixed an server error (on every page) when not having any quantity unit
 
 ### API

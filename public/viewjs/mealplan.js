@@ -497,6 +497,11 @@ $('#save-add-recipe-button').on('click', function(e)
 {
 	e.preventDefault();
 
+	if (!Grocy.FrontendHelpers.ValidateForm("add-recipe-form", true))
+	{
+		return;
+	}
+
 	if ($(".combobox-menu-visible").length)
 	{
 		return;
@@ -542,6 +547,11 @@ $('#save-add-recipe-button').on('click', function(e)
 $('#save-add-note-button').on('click', function(e)
 {
 	e.preventDefault();
+
+	if (!Grocy.FrontendHelpers.ValidateForm("add-note-form", true))
+	{
+		return;
+	}
 
 	if ($(".combobox-menu-visible").length)
 	{
@@ -590,6 +600,11 @@ $('#save-add-note-button').on('click', function(e)
 $('#save-add-product-button').on('click', function(e)
 {
 	e.preventDefault();
+
+	if (!Grocy.FrontendHelpers.ValidateForm("add-product-form", true))
+	{
+		return;
+	}
 
 	if ($(".combobox-menu-visible").length)
 	{
@@ -644,6 +659,11 @@ var itemsCopied = 0;
 $('#save-copy-day-button').on('click', function(e)
 {
 	e.preventDefault();
+
+	if (!Grocy.FrontendHelpers.ValidateForm("copy-day-form", true))
+	{
+		return;
+	}
 
 	if (document.getElementById("copy-day-form").checkValidity() === false) //There is at least one validation error
 	{
@@ -727,9 +747,9 @@ $('#add-product-form input').keydown(function(event)
 
 $(document).on("keydown", "#servings", function(e)
 {
-	if (event.keyCode === 13) //Enter
+	if (e.keyCode === 13) //Enter
 	{
-		event.preventDefault();
+		e.preventDefault();
 
 		if (document.getElementById("add-recipe-form").checkValidity() === false) //There is at least one validation error
 		{

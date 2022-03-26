@@ -82,6 +82,11 @@ $('.save-product-button').on('click', function(e)
 {
 	e.preventDefault();
 
+	if (!Grocy.FrontendHelpers.ValidateForm("product-form", true))
+	{
+		return;
+	}
+
 	var jsonData = $('#product-form').serializeJSON();
 	var parentProductId = jsonData.product_id;
 	delete jsonData.product_id;

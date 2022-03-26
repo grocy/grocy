@@ -30,6 +30,11 @@ $('.save-recipe').on('click', function(e)
 {
 	e.preventDefault();
 
+	if (!Grocy.FrontendHelpers.ValidateForm("recipe-form", true))
+	{
+		return;
+	}
+
 	var jsonData = $('#recipe-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("recipe-form");
 
@@ -300,6 +305,11 @@ $("#recipe-include-add-button").on("click", function(e)
 $('#save-recipe-include-button').on('click', function(e)
 {
 	e.preventDefault();
+
+	if (!Grocy.FrontendHelpers.ValidateForm("recipe-include-form", true))
+	{
+		return;
+	}
 
 	if ($(".combobox-menu-visible").length)
 	{

@@ -2,6 +2,11 @@
 {
 	e.preventDefault();
 
+	if (!Grocy.FrontendHelpers.ValidateForm("mealplansection-form", true))
+	{
+		return;
+	}
+
 	var jsonData = $('#mealplansection-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("mealplansection-form");
 

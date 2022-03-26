@@ -200,7 +200,6 @@
 					class="btn btn-secondary"
 					data-dismiss="modal">{{ $__t('Cancel') }}</button>
 				<button id="save-add-recipe-button"
-					data-dismiss="modal"
 					class="btn btn-success">{{ $__t('Save') }}</button>
 			</div>
 		</div>
@@ -251,7 +250,6 @@
 					class="btn btn-secondary"
 					data-dismiss="modal">{{ $__t('Cancel') }}</button>
 				<button id="save-add-note-button"
-					data-dismiss="modal"
 					class="btn btn-success">{{ $__t('Save') }}</button>
 			</div>
 		</div>
@@ -304,7 +302,6 @@
 					class="btn btn-secondary"
 					data-dismiss="modal">{{ $__t('Cancel') }}</button>
 				<button id="save-add-product-button"
-					data-dismiss="modal"
 					class="btn btn-success">{{ $__t('Save') }}</button>
 			</div>
 		</div>
@@ -343,7 +340,6 @@
 					class="btn btn-secondary"
 					data-dismiss="modal">{{ $__t('Cancel') }}</button>
 				<button id="save-copy-day-button"
-					data-dismiss="modal"
 					class="btn btn-primary">{{ $__t('Copy') }}</button>
 			</div>
 		</div>

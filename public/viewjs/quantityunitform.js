@@ -2,6 +2,11 @@
 {
 	e.preventDefault();
 
+	if (!Grocy.FrontendHelpers.ValidateForm("quantityunit-form", true))
+	{
+		return;
+	}
+
 	var jsonData = $('#quantityunit-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("quantityunit-form");
 
