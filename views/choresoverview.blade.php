@@ -165,6 +165,13 @@
 								<i class="fas fa-ellipsis-v"></i>
 							</button>
 							<div class="table-inline-menu dropdown-menu dropdown-menu-right">
+								<a class="dropdown-item reschedule-chore-button @if(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type == \Grocy\Services\ChoresService::CHORE_PERIOD_TYPE_MANUALLY) disabled @endif"
+									data-chore-id="{{ $curentChoreEntry->chore_id }}"
+									type="button"
+									href="#">
+									<span>{{ $__t('Reschedule next execution') }}</span>
+								</a>
+								<div class="dropdown-divider"></div>
 								<a class="dropdown-item chore-name-cell"
 									data-chore-id="{{ $curentChoreEntry->chore_id }}"
 									type="button"
@@ -210,6 +217,13 @@
 							datetime="{{ $curentChoreEntry->next_estimated_execution_time }}"></time>
 						@else
 						<span>-</span>
+						@endif
+						@if($curentChoreEntry->is_rescheduled == 1)
+						<span class="text-muted"
+							data-toggle="tooltip"
+							title="{{ $__t('Rescheduled') }}">
+							<i class="far fa-clock"></i>
+						</span>
 						@endif
 					</td>
 					<td>
@@ -265,6 +279,48 @@
 				<button type="button"
 					class="btn btn-secondary"
 					data-dismiss="modal">{{ $__t('Close') }}</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade"
+	id="reschedule-chore-modal"
+	tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content text-center">
+			<div class="modal-header">
+				<h4 class="modal-title w-100">{{ $__t('Reschedule next execution') }}<br>
+					<span id="reschedule-chore-modal-title"
+						class="small text-muted"></span>
+				</h4>
+			</div>
+			<div class="modal-body">
+				<form id="reschedule-chore-form"
+					novalidate>
+
+					@include('components.datetimepicker', array(
+					'id' => 'reschedule_time',
+					'label' => 'Next estimated tracking',
+					'format' => 'YYYY-MM-DD HH:mm:ss',
+					'initWithNow' => false,
+					'limitEndToNow' => false,
+					'limitStartToNow' => true,
+					'invalidFeedback' => $__t('This can only be in the future')
+					))
+
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button"
+					class="btn btn-secondary"
+					data-dismiss="modal">{{ $__t('Cancel') }}</button>
+				<button id="reschedule-chore-clear-button"
+					type="button"
+					class="btn btn-success">{{ $__t('Clear') }}</button>
+				<button id="reschedule-chore-save-button"
+					type="button"
+					class="btn btn-primary">{{ $__t('OK') }}</button>
 			</div>
 		</div>
 	</div>

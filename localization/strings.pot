@@ -2305,3 +2305,12 @@ msgstr ""
 
 msgid "Average execution frequency"
 msgstr ""
+
+msgid "Reschedule next execution"
+msgstr ""
+
+msgid "This can only be in the future"
+msgstr ""
+
+msgid "Rescheduled"
+msgstr ""

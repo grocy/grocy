@@ -263,6 +263,74 @@ function RefreshStatistics()
 	);
 }
 
+$(document).on("click", ".reschedule-chore-button", function(e)
+{
+	e.preventDefault();
+
+	var choreId = $(e.currentTarget).attr("data-chore-id");
+	Grocy.EditObjectId = choreId;
+	Grocy.Api.Get("chores/" + choreId, function(choreDetails)
+	{
+		var prefillDate = choreDetails.next_estimated_execution_time;
+		if (choreDetails.chore.rescheduled_date != null && !choreDetails.chore.rescheduled_date.isEmpty())
+		{
+			prefillDate = choreDetails.chore.rescheduled_date;
+		}
+
+		if (choreDetails.chore.track_date_only == 1)
+		{
+			Grocy.Components.DateTimePicker.ChangeFormat("YYYY-MM-DD");
+			Grocy.Components.DateTimePicker.SetValue(moment(prefillDate).format("YYYY-MM-DD"));
+		}
+		else
+		{
+			Grocy.Components.DateTimePicker.ChangeFormat("YYYY-MM-DD HH:mm:ss");
+			Grocy.Components.DateTimePicker.SetValue(moment(prefillDate).format("YYYY-MM-DD HH:mm:ss"));
+		}
+
+		$("#reschedule-chore-modal-title").text(choreDetails.chore.name);
+		$("#reschedule-chore-modal").modal("show");
+	});
+});
+
+$("#reschedule-chore-save-button").on("click", function(e)
+{
+	e.preventDefault();
+
+	if (!Grocy.FrontendHelpers.ValidateForm("reschedule-chore-form", true))
+	{
+		return;
+	}
+
+	Grocy.Api.Put('objects/chores/' + Grocy.EditObjectId, { "rescheduled_date": Grocy.Components.DateTimePicker.GetValue() },
+		function(result)
+		{
+			window.location.reload();
+		},
+		function(xhr)
+		{
+			Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+		}
+	);
+});
+
+$("#reschedule-chore-clear-button").on("click", function(e)
+{
+	e.preventDefault();
+
+	Grocy.Api.Put('objects/chores/' + Grocy.EditObjectId, { "rescheduled_date": null },
+		function(result)
+		{
+			window.location.reload();
+		},
+		function(xhr)
+		{
+			Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+		}
+	);
+});
+
+
 if (GetUriParam("user") !== undefined)
 {
 	$("#user-filter").val("xx" + GetUriParam("user") + "xx");

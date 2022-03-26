@@ -33,6 +33,10 @@
 
 - The `Daily` period type has been changed to schedule the chore at the _same time_ (based on the start date) each `n` days
   - This period type scheduled chores `n` days _after the last execution_ before, which is also possible by using the `Hourly` period type and a corresponding period interval; all existing `Daily` schedules will be converted to that on migration
+- It's now possible to manually reschedule chores
+  - New entry "Reschedule next execution" in the context/more menu on the chores overview page
+  - If you have rescheduled a chore and want to continue the normal schedule instead, use the "Clear" button in the dialog
+  - Rescheduled chores will be highlighted with an corresponding icon next to the "next estiamted tracking date"
 - Optimized that when skipping chores via the chore tracking page, the given time is used as the "skipped time", not the scheduled next estimated tracking time of the corresponding chore (essentially making it possible to skip more then one schedule at once)
 - Fixed that when consuming a parent product on chore execution (chore option "Consume product on chore execution"), no child products were used if the parent product itself is not in-stock
 - Fixed that the upgrade to v3.2.0 failed when having any former "Dynamic Regular" chore with a "Period interval" of `0` (which makes absolutely no sense in reality)
