@@ -162,28 +162,30 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO meal_plan(day, type, product_id, product_amount, section_id) VALUES (DATE('{$thursdayThisWeek}', '-1 days'), 'product', 25, 1, 1);
 				INSERT INTO meal_plan(day, type, note, section_id) VALUES ('{$saturdayThisWeek}', 'note', '{$this->__t_sql('Some good snacks')}', 3);
 
-				INSERT INTO chores (name, period_type, period_days) VALUES ('{$this->__t_sql('Changed towels in the bathroom')}', 'manually', 5); --1
-				INSERT INTO chores (name, period_type, period_interval, assignment_type, assignment_config, next_execution_assigned_to_user_id) VALUES ('{$this->__t_sql('Cleaned the kitchen floor')}', 'daily', 7, 'random', '1,2,3,4', 1); --2
-				INSERT INTO chores (name, period_type, period_interval, assignment_type, assignment_config, next_execution_assigned_to_user_id) VALUES ('{$this->__t_sql('Lawn mowed in the garden')}', 'daily', 21, 'random', '1,2,3,4', 1); --3
-				INSERT INTO chores (name, period_type, period_days) VALUES ('{$this->__t_sql('The thing which happens on the 5th of every month')}', 'monthly', 5); --4
-				INSERT INTO chores (name, period_type) VALUES ('{$this->__t_sql('The thing which happens daily')}', 'daily'); --5
-				INSERT INTO chores (name, period_type, period_config) VALUES ('{$this->__t_sql('The thing which happens on Mondays and Wednesdays')}', 'weekly', 'monday,wednesday'); --6
+				INSERT INTO chores (name, period_type, period_interval, track_date_only, assignment_type, assignment_config, next_execution_assigned_to_user_id) VALUES ('{$this->__t_sql('Change towels in the bathroom')}', 'hourly', 3*24, 1, 'random', '1,2,3,4', 2); --1
+				INSERT INTO chores (name, period_type, period_interval, track_date_only, period_config, assignment_type, assignment_config, next_execution_assigned_to_user_id) VALUES ('{$this->__t_sql('Mop the kitchen floor')}', 'weekly', 1, 1, 'monday,thursday', 'random', '1,2,3,4', 1); --2
+				INSERT INTO chores (name, period_type, period_interval, assignment_type, assignment_config, next_execution_assigned_to_user_id, track_date_only) VALUES ('{$this->__t_sql('Take out the trash')}', 'hourly', 2*24, 'random', '1,2,3,4', 1, 1); --3
+				INSERT INTO chores (name, period_type, period_interval, period_config, track_date_only, assignment_type) VALUES ('{$this->__t_sql('Vacuum the living room floor')}', 'weekly', 1, 'saturday', 1, 'no-assignment'); --4
+				INSERT INTO chores (name, period_type, period_interval, track_date_only, assignment_type, assignment_config, next_execution_assigned_to_user_id) VALUES ('{$this->__t_sql('Clean the litter box')}', 'hourly', 1*24, 1, 'random', '1,2,3,4', 3); --5
+				INSERT INTO chores (name, period_type, period_interval, period_config, track_date_only, assignment_type) VALUES ('{$this->__t_sql('Change the bed sheets')}', 'weekly', 3, 'monday', 1, 'no-assignment'); --6
+				UPDATE chores SET start_date = DATE((CAST(STRFTIME('%Y', DATE('now')) AS INT) - 1) || '-01-01');
 
 				INSERT INTO batteries (name, description, used_in, charge_interval_days) VALUES ('{$this->__t_sql('Battery')}1', '{$this->__t_sql('Warranty ends')} 2023', '{$this->__t_sql('TV remote control')}', 180); --1
 				INSERT INTO batteries (name, description, used_in) VALUES ('{$this->__t_sql('Battery')}2', '{$this->__t_sql('Warranty ends')} 2022', '{$this->__t_sql('Alarm clock')}'); --2
 				INSERT INTO batteries (name, description, used_in, charge_interval_days) VALUES ('{$this->__t_sql('Battery')}3', '{$this->__t_sql('Warranty ends')} 2022', '{$this->__t_sql('Heat remote control')}', 60); --3
 				INSERT INTO batteries (name, description, used_in, charge_interval_days) VALUES ('{$this->__t_sql('Battery')}4', '{$this->__t_sql('Warranty ends')} 2028', '{$this->__t_sql('Heat remote control')}', 60); --4
 
-				INSERT INTO task_categories (name) VALUES ('{$this->__t_sql('Home')}'); --1
-				INSERT INTO task_categories (name) VALUES ('{$this->__t_sql('Life')}'); --2
-				INSERT INTO task_categories (name) VALUES ('{$this->__t_sql('Projects')}'); --3
+				INSERT INTO task_categories (name) VALUES ('{$this->__t_sql('Category')}1'); --1
+				INSERT INTO task_categories (name) VALUES ('{$this->__t_sql('Category')}2'); --2
+				INSERT INTO task_categories (name) VALUES ('{$this->__t_sql('Category')}3'); --3
 
-				INSERT INTO tasks (name, category_id, due_date, assigned_to_user_id) VALUES ('{$this->__t_sql('Repair the garage door')}', 1, date(datetime('now', 'localtime')), 1);
-				INSERT INTO tasks (name, category_id, due_date, assigned_to_user_id) VALUES ('{$this->__t_sql('Fork and improve grocy')}', 3, date(datetime('now', 'localtime'), '+30 day'), 1);
-				INSERT INTO tasks (name, category_id, due_date, assigned_to_user_id) VALUES ('{$this->__t_sql('Task')}1', 2, date(datetime('now', 'localtime'), '-1 day'), 1);
-				INSERT INTO tasks (name, category_id, due_date, assigned_to_user_id) VALUES ('{$this->__t_sql('Task')}2', 2, date(datetime('now', 'localtime'), '-1 day'), 1);
-				INSERT INTO tasks (name, due_date, assigned_to_user_id) VALUES ('{$this->__t_sql('Find a solution for what to do when I forget the door keys')}', date(datetime('now', 'localtime'), '+3 day'), 1);
-				INSERT INTO tasks (name, due_date, assigned_to_user_id) VALUES ('{$this->__t_sql('Task')}3', date(datetime('now', 'localtime'), '+4 day'), 1);
+				INSERT INTO tasks (name) VALUES ('{$this->__t_sql('Task')}1');
+				INSERT INTO tasks (name, category_id, due_date, assigned_to_user_id) VALUES ('{$this->__t_sql('Task')}2', 1, date(datetime('now', 'localtime'), '-1 day'), 1);
+				INSERT INTO tasks (name, category_id, due_date, assigned_to_user_id) VALUES ('{$this->__t_sql('Task')}3', 1, date(datetime('now', 'localtime')), 1);
+				INSERT INTO tasks (name, due_date, assigned_to_user_id) VALUES ('{$this->__t_sql('Task')}4', date(datetime('now', 'localtime'), '+4 day'), 1);
+				INSERT INTO tasks (name, due_date) VALUES ('{$this->__t_sql('Task')}5', date(datetime('now', 'localtime'), '+20 day'));
+				INSERT INTO tasks (name, due_date, done) VALUES ('{$this->__t_sql('Task')}6', date(datetime('now', 'localtime'), '-10 day'), 1);
+				INSERT INTO tasks (name, due_date, done) VALUES ('{$this->__t_sql('Task')}7', date(datetime('now', 'localtime'), '-20 day'), 1);
 
 				INSERT INTO equipment (name, description, instruction_manual_file_name) VALUES ('{$this->__t_sql('Coffee machine')}', '{$loremIpsumWithHtmlFormattings}', 'loremipsum.pdf'); --1
 				INSERT INTO equipment (name, description) VALUES ('{$this->__t_sql('Dishwasher')}', '{$loremIpsumWithHtmlFormattings}'); --2
@@ -203,7 +205,6 @@ class DemoDataGeneratorService extends BaseService
 
 				INSERT INTO migrations (migration) VALUES (-1);
 			";
-
 			$this->getDatabaseService()->ExecuteDbStatement($sql);
 
 			$stockTransactionId = uniqid();
@@ -290,16 +291,27 @@ class DemoDataGeneratorService extends BaseService
 			$stockService->ConsumeProduct(11, 1, true, StockService::TRANSACTION_TYPE_CONSUME);
 
 			$choresService = new ChoresService();
-			$choresService->TrackChore(1, date('Y-m-d H:i:s', strtotime('-5 days')));
-			$choresService->TrackChore(1, date('Y-m-d H:i:s', strtotime('-10 days')));
-			$choresService->TrackChore(1, date('Y-m-d H:i:s', strtotime('-15 days')));
-			$choresService->TrackChore(2, date('Y-m-d 23:59:59', strtotime('-7 days')));
-			$choresService->TrackChore(2, date('Y-m-d H:i:s', strtotime('-14 days')));
-			$choresService->TrackChore(2, date('Y-m-d H:i:s', strtotime('-21 days')));
-			$choresService->TrackChore(3, date('Y-m-d H:i:s', strtotime('-17 days')));
-			$choresService->TrackChore(4, date('Y-m-d H:i:s', strtotime('-10 days')));
-			$choresService->TrackChore(5, date('Y-m-d H:i:s', strtotime('+0 days')));
-			$choresService->TrackChore(6, date('Y-m-d H:i:s', strtotime('-10 days')));
+			for ($i = 1; $i <= 25; $i++)
+			{
+				foreach ($this->getDatabase()->chores() as $chore)
+				{
+					$hours = intval($chore->period_interval);
+					if ($chore->period_type == 'weekly')
+					{
+						$hours *= 7 * 24;
+					}
+					$hours *= $i;
+
+					$executionId = $choresService->TrackChore($chore->id, date('Y-m-d', strtotime("-$hours hours")), array_rand([1, 2, 3, 4]) + 1, ($i % 10 == 0 || $i == 2));
+					if ($i % 8 == 0)
+					{
+						$choresService->UndoChoreExecution($executionId);
+					}
+				}
+			}
+			$choresService->TrackChore(1, date('Y-m-d'), array_rand([1, 2, 3, 4]) + 1);
+			$choresService->TrackChore(4, date('Y-m-d'), array_rand([1, 2, 3, 4]) + 1);
+			$this->getDatabaseService()->ExecuteDbStatement("UPDATE chores SET rescheduled_date = DATE(DATE('now', 'localtime'), '+10 days') WHERE id = 6");
 
 			$batteriesService = new BatteriesService();
 			$batteriesService->TrackChargeCycle(1, date('Y-m-d H:i:s', strtotime('-720 days')));
