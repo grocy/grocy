@@ -205,6 +205,13 @@ class ChoresService extends BaseService
 			$this->getStockService()->ConsumeProduct($chore->product_id, $chore->product_amount, false, StockService::TRANSACTION_TYPE_CONSUME, 'default', null, null, $transactionId, true);
 		}
 
+		if (!empty($chore->rescheduled_date))
+		{
+			$chore->update([
+				'rescheduled_date' => null
+			]);
+		}
+
 		return $lastInsertId;
 	}
 

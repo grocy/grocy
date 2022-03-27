@@ -156,6 +156,8 @@ $(document).on('click', '.track-chore-button', function(e)
 								$('#chore-' + choreId + '-next-execution-assigned-user').text(result.next_execution_assigned_user.display_name);
 							}
 
+							$('#chore-' + choreId + '-reschedule-icon').remove();
+
 							Grocy.FrontendHelpers.EndUiBusy();
 							toastr.success(__t('Tracked execution of chore %1$s on %2$s', choreName, trackedTime));
 							RefreshStatistics();

@@ -219,7 +219,8 @@
 						<span>-</span>
 						@endif
 						@if($curentChoreEntry->is_rescheduled == 1)
-						<span class="text-muted"
+						<span id="chore-{{ $curentChoreEntry->chore_id }}-reschedule-icon"
+							class="text-muted"
 							data-toggle="tooltip"
 							title="{{ $__t('Rescheduled') }}">
 							<i class="far fa-clock"></i>
