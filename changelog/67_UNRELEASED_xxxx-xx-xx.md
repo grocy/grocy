@@ -5,7 +5,7 @@
 ### New feature: Recipes "Due score"
 
 - A number (new column on the recipes page) which represents a score which is higher the more ingredients, of the corresponding recipe, currently in stock are due soon, overdue or already expired
-  - Or in other words: A score to see which recipes to cook to not waste already due/expired or due soon products
+  - Or in other words: A score to see which recipes to cook to not waste already overdue/expired or due soon products
 - The score is in detail based on:
   - 1 point for each due soon ingredient (based on the stock setting "Due soon days")
   - 10 points per overdue ingredient
