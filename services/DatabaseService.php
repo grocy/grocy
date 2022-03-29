@@ -2,6 +2,8 @@
 
 namespace Grocy\Services;
 
+use Grocy\Services\UsersService;
+
 class DatabaseService
 {
 	private static $DbConnection = null;
@@ -71,6 +73,11 @@ class DatabaseService
 			$pdo->sqliteCreateFunction('regexp', function ($pattern, $value) {
 				mb_regex_encoding('UTF-8');
 				return (false !== mb_ereg($pattern, $value)) ? 1 : 0;
+			});
+
+			$pdo->sqliteCreateFunction('grocy_user_setting', function ($value) {
+				$usersService = new UsersService();
+				return $usersService->GetUserSetting(GROCY_USER_ID, $value);
 			});
 
 			self::$DbConnectionRaw = $pdo;
