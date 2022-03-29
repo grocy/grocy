@@ -118,7 +118,14 @@
 							</th>
 							<th>{{ $__t('Name') }}</th>
 							<th class="allow-grouping">{{ $__t('Desired servings') }}</th>
-							<th data-shadow-rowgroup-column="7"
+							<th class="allow-grouping">
+								{{ $__t('Due score') }}
+								<i class="fas fa-question-circle text-muted small"
+									data-toggle="tooltip"
+									data-trigger="hover click"
+									title="{{ $__t('The higher this number is, the more ingredients currently in stock are due soon, overdue or already expired') }}"></i>
+							</th>
+							<th data-shadow-rowgroup-column="8"
 								class="@if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif allow-grouping">{{ $__t('Requirements fulfilled') }}</th>
 							<th class="d-none">Hidden status for sorting of "Requirements fulfilled" column</th>
 							<th class="d-none">Hidden status for filtering by status</th>
@@ -184,6 +191,9 @@
 							</td>
 							<td>
 								{{ $recipe->desired_servings }}
+							</td>
+							<td>
+								{{ FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->due_score }}
 							</td>
 							<td class="@if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif">
 								@if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 1)<i class="fas fa-check text-success"></i>@elseif(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1)<i class="fas fa-exclamation text-warning"></i>@else<i class="fas fa-times text-danger"></i>@endif

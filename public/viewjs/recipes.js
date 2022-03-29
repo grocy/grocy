@@ -3,7 +3,9 @@
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 },
+		{ 'visible': false, 'targets': 2 },
 		{ "type": "html-num-fmt", "targets": 2 },
+		{ "type": "html-num-fmt", "targets": 3 }
 	].concat($.fn.dataTable.defaults.columnDefs),
 	select: {
 		style: 'single',

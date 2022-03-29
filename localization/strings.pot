@@ -2314,3 +2314,9 @@ msgstr ""
 
 msgid "Rescheduled"
 msgstr ""
+
+msgid "Due score"
+msgstr ""
+
+msgid "The higher this number is, the more ingredients currently in stock are due soon, overdue or already expired"
+msgstr ""
