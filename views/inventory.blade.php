@@ -132,6 +132,27 @@
 			</div>
 			@endif
 
+			<div class="form-group">
+				<label for="note">
+					{{ $__t('Note') }}
+					<i class="fas fa-question-circle text-muted"
+						data-toggle="tooltip"
+						data-trigger="hover click"
+						title="{{ $__t('This will apply to added products') }}"></i>
+				</label>
+				<div class="input-group">
+					<input type="text"
+						class="form-control"
+						id="note"
+						name="note">
+				</div>
+			</div>
+
+			@include('components.userfieldsform', array(
+			'userfields' => $userfields,
+			'entity' => 'stock'
+			))
+
 			<button id="save-inventory-button"
 				class="btn btn-success">{{ $__t('OK') }}</button>
 

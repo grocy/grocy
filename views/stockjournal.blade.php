@@ -147,6 +147,11 @@
 					<th class="allow-grouping">{{ $__t('Transaction type') }}</th>
 					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING) d-none @endif allow-grouping">{{ $__t('Location') }}</th>
 					<th class="allow-grouping">{{ $__t('Done by') }}</th>
+					<th>{{ $__t('Note') }}</th>
+
+					@include('components.userfields_thead', array(
+					'userfields' => $userfieldsStock
+					))
 				</tr>
 			</thead>
 			<tbody class="d-none">
@@ -193,6 +198,14 @@
 					<td>
 						{{ $stockLogEntry->user_display_name }}
 					</td>
+					<td>
+						{{ $stockLogEntry->note }}
+					</td>
+
+					@include('components.userfields_tbody', array(
+					'userfields' => $userfieldsStock,
+					'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValuesStock, 'object_id', $stockLogEntry->stock_id)
+					))
 				</tr>
 				@endforeach
 			</tbody>

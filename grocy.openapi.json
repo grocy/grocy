@@ -1911,6 +1911,10 @@
 									"stock_label_type": {
 										"type": "integer",
 										"description": "`1` = No label, `2` = Single label, `3` = Label per unit"
+									},
+									"note": {
+										"type": "string",
+										"description": "An optional note for the corresponding stock entry"
 									}
 								},
 								"example": {
@@ -2167,6 +2171,10 @@
 									"stock_label_type": {
 										"type": "integer",
 										"description": "`1` = No label, `2` = Single label, `3` = Label per unit (only applies to added products)"
+									},
+									"note": {
+										"type": "string",
+										"description": "An optional note for the corresponding stock entry (only applies to added products)"
 									}
 								}
 							}
@@ -4659,6 +4667,9 @@
 						"type": "string",
 						"format": "date"
 					},
+					"note": {
+						"type": "string"
+					},
 					"row_created_timestamp": {
 						"type": "string",
 						"format": "date-time"
@@ -5285,6 +5296,9 @@
 					},
 					"transaction_type": {
 						"$ref": "#/components/schemas/StockTransactionType"
+					},
+					"note": {
+						"type": "string"
 					},
 					"row_created_timestamp": {
 						"type": "string",

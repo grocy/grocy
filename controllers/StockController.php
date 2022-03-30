@@ -29,7 +29,8 @@ class StockController extends BaseController
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name', 'COLLATE NOCASE'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE'),
 			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
-			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
+			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved(),
+			'userfields' => $this->getUserfieldsService()->GetFields('stock')
 		]);
 	}
 
@@ -59,7 +60,9 @@ class StockController extends BaseController
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE'),
 			'users' => $usersService->GetUsersAsDto(),
-			'transactionTypes' => GetClassConstants('\Grocy\Services\StockService', 'TRANSACTION_TYPE_')
+			'transactionTypes' => GetClassConstants('\Grocy\Services\StockService', 'TRANSACTION_TYPE_'),
+			'userfieldsStock' => $this->getUserfieldsService()->GetFields('stock'),
+			'userfieldValuesStock' => $this->getUserfieldsService()->GetAllValues('stock')
 		]);
 	}
 
@@ -261,7 +264,8 @@ class StockController extends BaseController
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->orderBy('name', 'COLLATE NOCASE'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE'),
 			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
-			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
+			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved(),
+			'userfields' => $this->getUserfieldsService()->GetFields('stock')
 		]);
 	}
 
@@ -498,8 +502,10 @@ class StockController extends BaseController
 			'stockEntries' => $this->getDatabase()->stock()->orderBy('product_id'),
 			'currentStockLocations' => $this->getStockService()->GetCurrentStockLocations(),
 			'nextXDays' => $nextXDays,
-			'userfields' => $this->getUserfieldsService()->GetFields('products'),
-			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('products')
+			'userfieldsProducts' => $this->getUserfieldsService()->GetFields('products'),
+			'userfieldValuesProducts' => $this->getUserfieldsService()->GetAllValues('products'),
+			'userfieldsStock' => $this->getUserfieldsService()->GetFields('stock'),
+			'userfieldValuesStock' => $this->getUserfieldsService()->GetAllValues('stock')
 		]);
 	}
 

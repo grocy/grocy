@@ -73,9 +73,14 @@
 						data-shadow-rowgroup-column="9">{{ $__t('Purchased date') }}</th>
 					<th class="d-none">Hidden purchased_date</th>
 					<th>{{ $__t('Timestamp') }}</th>
+					<th>{{ $__t('Note') }}</th>
 
 					@include('components.userfields_thead', array(
-					'userfields' => $userfields
+					'userfields' => $userfieldsProducts
+					))
+
+					@include('components.userfields_thead', array(
+					'userfields' => $userfieldsStock
 					))
 				</tr>
 			</thead>
@@ -274,10 +279,18 @@
 						<time class="timeago timeago-contextual"
 							datetime="{{ $stockEntry->row_created_timestamp }}"></time>
 					</td>
+					<td>
+						<span id="stock-{{ $stockEntry->id }}-note">{{ $stockEntry->note }}</span>
+					</td>
 
 					@include('components.userfields_tbody', array(
-					'userfields' => $userfields,
-					'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $stockEntry->product_id)
+					'userfields' => $userfieldsProducts,
+					'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValuesProducts, 'object_id', $stockEntry->product_id)
+					))
+
+					@include('components.userfields_tbody', array(
+					'userfields' => $userfieldsStock,
+					'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValuesStock, 'object_id', $stockEntry->stock_id)
 					))
 
 				</tr>

@@ -286,10 +286,16 @@ function OnLocationChange(locationId, stockId)
 					{
 						if ($("#specific_stock_entry option[value='" + stockEntry.stock_id + "']").length == 0)
 						{
+							var noteTxt = "";
+							if (stockEntry.note != null && !stockEntry.note.isEmpty())
+							{
+								noteTxt = " " + stockEntry.note;
+							}
+
 							$("#specific_stock_entry").append($("<option>", {
 								value: stockEntry.stock_id,
 								amount: stockEntry.amount,
-								text: __t("Amount: %1$s; Due on %2$s; Bought on %3$s", stockEntry.amount, moment(stockEntry.best_before_date).format("YYYY-MM-DD"), moment(stockEntry.purchased_date).format("YYYY-MM-DD")) + "; " + openTxt
+								text: __t("Amount: %1$s; Due on %2$s; Bought on %3$s", stockEntry.amount, moment(stockEntry.best_before_date).format("YYYY-MM-DD"), moment(stockEntry.purchased_date).format("YYYY-MM-DD")) + "; " + openTxt + noteTxt
 							}));
 						}
 

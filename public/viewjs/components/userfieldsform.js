@@ -171,6 +171,80 @@ Grocy.Components.UserfieldsForm.Load = function()
 	);
 }
 
+Grocy.Components.UserfieldsForm.Clear = function()
+{
+	if (!$("#userfields-form").length)
+	{
+		return;
+	}
+
+	Grocy.Api.Get('objects/userfields?query[]=entity=' + $("#userfields-form").data("entity"),
+		function(result)
+		{
+			$.each(result, function(key, userfield)
+			{
+				var input = $(".userfield-input[data-userfield-name='" + userfield.name + "']");
+
+				if (input.attr("type") == "checkbox")
+				{
+					input.prop("checked", false);
+				}
+				else if (input.hasAttr("multiple"))
+				{
+					input.val("");
+					$(".selectpicker").selectpicker("render");
+				}
+				else if (input.attr('type') == "file")
+				{
+					var formGroup = input.parent().parent().parent();
+
+					formGroup.find("label.custom-file-label").text("");
+					formGroup.find(".userfield-file-show").attr('href', U('/files/userfiles/' + value));
+					formGroup.find('.userfield-file-show').removeClass('d-none');
+					formGroup.find('img.userfield-current-file')
+						.attr('src', U('/files/userfiles/' + value + '?force_serve_as=picture&best_fit_width=250&best_fit_height=250'));
+					LoadImagesLazy();
+
+					formGroup.find('.userfield-file-delete').click(
+						function()
+						{
+							formGroup.find("label.custom-file-label").text(__t("No file selected"));
+							formGroup.find(".userfield-file-show").addClass('d-none');
+							input.attr('data-old-file', "");
+						}
+					);
+
+					input.on("change", function(e)
+					{
+						formGroup.find(".userfield-file-show").addClass('d-none');
+					});
+				}
+				else if (input.attr("data-userfield-type") == "link")
+				{
+					var formRow = input.parent().parent();
+					formRow.find(".userfield-link-title").val(data.title);
+					formRow.find(".userfield-link-link").val(data.link);
+
+					input.val("");
+				}
+				else
+				{
+					input.val("");
+				}
+			});
+
+			$("form").each(function()
+			{
+				Grocy.FrontendHelpers.ValidateForm(this.id);
+			});
+		},
+		function(xhr)
+		{
+			console.error(xhr);
+		}
+	);
+}
+
 $(".userfield-link").keyup(function(e)
 {
 	var formRow = $(this).parent().parent();

@@ -2,6 +2,17 @@
 
 > ❗ xxxImportant upgrade informationXXX
 
+### New feature: Notes and Userfields for stock entries
+
+- Stock entries can now have notes
+  - For example to distinguish between same, yet different products (e.g. having only a generic product "Chocolate" and note in that field what special one it is exactly this time)
+  - => New field on the purchase and inventory page
+  - => New column on the stock entries and stock journal page
+  - => Visible also in the "Use a specific stock item" dropdown on the consume and transfer page
+- Additionally it's also possible to add arbitrary own fields by using Userfields
+  - => Configure the desired Userfields for the entity `stock`
+  - => Those Userfields are then visible on the same places as mentioned above for the built-in "Note" field
+
 ### New feature: Recipes "Due score"
 
 - A number (new column on the recipes page) which represents a score which is higher the more ingredients, of the corresponding recipe, currently in stock are due soon, overdue or already expired

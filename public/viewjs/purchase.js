@@ -28,6 +28,7 @@ $('#save-purchase-button').on('click', function(e)
 		{
 			var jsonData = {};
 			jsonData.amount = jsonForm.amount;
+			jsonData.note = jsonForm.note;
 			jsonData.stock_label_type = jsonForm.stock_label_type;
 
 			if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
@@ -165,61 +166,70 @@ $('#save-purchase-button').on('click', function(e)
 						}
 					}
 
+					Grocy.EditObjectId = result[0].transaction_id;
 					if (GetUriParam("embedded") !== undefined)
 					{
-						window.parent.postMessage(WindowMessageBag("ProductChanged", jsonForm.product_id), Grocy.BaseUrl);
-						window.parent.postMessage(WindowMessageBag("AfterItemAdded", GetUriParam("listitemid")), Grocy.BaseUrl);
-						window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", successMessage), Grocy.BaseUrl);
-						window.parent.postMessage(WindowMessageBag("Ready"), Grocy.BaseUrl);
-						window.parent.postMessage(WindowMessageBag("CloseAllModals"), Grocy.BaseUrl);
+						Grocy.Components.UserfieldsForm.Save(function()
+						{
+							window.parent.postMessage(WindowMessageBag("ProductChanged", jsonForm.product_id), Grocy.BaseUrl);
+							window.parent.postMessage(WindowMessageBag("AfterItemAdded", GetUriParam("listitemid")), Grocy.BaseUrl);
+							window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", successMessage), Grocy.BaseUrl);
+							window.parent.postMessage(WindowMessageBag("Ready"), Grocy.BaseUrl);
+							window.parent.postMessage(WindowMessageBag("CloseAllModals"), Grocy.BaseUrl);
+						});
 					}
 					else
 					{
-						Grocy.FrontendHelpers.EndUiBusy("purchase-form");
-						toastr.success(successMessage);
-						Grocy.Components.ProductPicker.FinishFlow();
-
-						if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && BoolVal(Grocy.UserSettings.show_warning_on_purchase_when_due_date_is_earlier_than_next))
+						Grocy.Components.UserfieldsForm.Save(function()
 						{
-							if (moment(jsonData.best_before_date).isBefore(CurrentProductDetails.next_due_date))
+							Grocy.FrontendHelpers.EndUiBusy("purchase-form");
+							toastr.success(successMessage);
+							Grocy.Components.ProductPicker.FinishFlow();
+
+							if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING && BoolVal(Grocy.UserSettings.show_warning_on_purchase_when_due_date_is_earlier_than_next))
 							{
-								toastr.warning(__t("This is due earlier than already in-stock items"));
+								if (moment(jsonData.best_before_date).isBefore(CurrentProductDetails.next_due_date))
+								{
+									toastr.warning(__t("This is due earlier than already in-stock items"));
+								}
 							}
-						}
 
-						Grocy.Components.ProductAmountPicker.Reset();
-						$("#purchase-form").removeAttr("data-used-barcode");
-						$("#display_amount").attr("min", Grocy.DefaultMinAmount);
-						$('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_purchase_amount));
-						$(".input-group-productamountpicker").trigger("change");
-						$('#price').val('');
-						$("#tare-weight-handling-info").addClass("d-none");
-						if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
-						{
-							Grocy.Components.LocationPicker.Clear();
-						}
-						if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
-						{
-							Grocy.Components.DateTimePicker.Clear();
-						}
-						Grocy.Components.ProductPicker.SetValue('');
-						if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
-						{
-							Grocy.Components.ShoppingLocationPicker.SetValue('');
-						}
-						Grocy.Components.ProductPicker.GetInputElement().focus();
-						Grocy.Components.ProductCard.Refresh(jsonForm.product_id);
-						if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_LABEL_PRINTER)
-						{
-							$("#stock_label_type").val(0);
-						}
+							Grocy.Components.ProductAmountPicker.Reset();
+							$("#purchase-form").removeAttr("data-used-barcode");
+							$("#display_amount").attr("min", Grocy.DefaultMinAmount);
+							$('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_purchase_amount));
+							$(".input-group-productamountpicker").trigger("change");
+							$('#price').val('');
+							$("#tare-weight-handling-info").addClass("d-none");
+							if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
+							{
+								Grocy.Components.LocationPicker.Clear();
+							}
+							if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
+							{
+								Grocy.Components.DateTimePicker.Clear();
+							}
+							Grocy.Components.ProductPicker.SetValue('');
+							if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+							{
+								Grocy.Components.ShoppingLocationPicker.SetValue('');
+							}
+							Grocy.Components.ProductPicker.GetInputElement().focus();
+							Grocy.Components.ProductCard.Refresh(jsonForm.product_id);
+							if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_LABEL_PRINTER)
+							{
+								$("#stock_label_type").val(0);
+							}
 
-						$('#price-hint').text("");
-						var priceTypeUnitPrice = $("#price-type-unit-price");
-						var priceTypeUnitPriceLabel = $("[for=" + priceTypeUnitPrice.attr("id") + "]");
-						priceTypeUnitPriceLabel.text(__t("Unit price"));
+							$('#price-hint').text("");
+							$('#note').val("");
+							var priceTypeUnitPrice = $("#price-type-unit-price");
+							var priceTypeUnitPriceLabel = $("[for=" + priceTypeUnitPrice.attr("id") + "]");
+							priceTypeUnitPriceLabel.text(__t("Unit price"));
+							Grocy.Components.UserfieldsForm.Clear();
 
-						Grocy.FrontendHelpers.ValidateForm('purchase-form');
+							Grocy.FrontendHelpers.ValidateForm('purchase-form');
+						});
 					}
 				},
 				function(xhr)

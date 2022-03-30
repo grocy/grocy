@@ -114,7 +114,7 @@ class StockService extends BaseService
 		}
 	}
 
-	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId = null, $shoppingLocationId = null, &$transactionId = null, $stockLabelType = 0, $addExactAmount = false)
+	public function AddProduct(int $productId, float $amount, $bestBeforeDate, $transactionType, $purchasedDate, $price, $locationId = null, $shoppingLocationId = null, &$transactionId = null, $stockLabelType = 0, $addExactAmount = false, $note = null)
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -203,7 +203,8 @@ class StockService extends BaseService
 						'location_id' => $locationId,
 						'transaction_id' => $transactionId,
 						'shopping_location_id' => $shoppingLocationId,
-						'user_id' => GROCY_USER_ID
+						'user_id' => GROCY_USER_ID,
+						'note' => $note
 					]);
 					$logRow->save();
 
@@ -215,7 +216,8 @@ class StockService extends BaseService
 						'stock_id' => $stockId,
 						'price' => $price,
 						'location_id' => $locationId,
-						'shopping_location_id' => $shoppingLocationId
+						'shopping_location_id' => $shoppingLocationId,
+						'note' => $note
 					]);
 					$stockRow->save();
 
@@ -252,7 +254,8 @@ class StockService extends BaseService
 					'location_id' => $locationId,
 					'transaction_id' => $transactionId,
 					'shopping_location_id' => $shoppingLocationId,
-					'user_id' => GROCY_USER_ID
+					'user_id' => GROCY_USER_ID,
+					'note' => $note
 				]);
 				$logRow->save();
 
@@ -264,7 +267,8 @@ class StockService extends BaseService
 					'stock_id' => $stockId,
 					'price' => $price,
 					'location_id' => $locationId,
-					'shopping_location_id' => $shoppingLocationId
+					'shopping_location_id' => $shoppingLocationId,
+					'note' => $note
 				]);
 				$stockRow->save();
 
@@ -451,7 +455,8 @@ class StockService extends BaseService
 						'recipe_id' => $recipeId,
 						'transaction_id' => $transactionId,
 						'user_id' => GROCY_USER_ID,
-						'location_id' => $stockEntry->location_id
+						'location_id' => $stockEntry->location_id,
+						'note' => $stockEntry->note
 					]);
 					$logRow->save();
 
@@ -478,7 +483,8 @@ class StockService extends BaseService
 						'recipe_id' => $recipeId,
 						'transaction_id' => $transactionId,
 						'user_id' => GROCY_USER_ID,
-						'location_id' => $stockEntry->location_id
+						'location_id' => $stockEntry->location_id,
+						'note' => $stockEntry->note
 					]);
 					$logRow->save();
 
@@ -500,7 +506,7 @@ class StockService extends BaseService
 		}
 	}
 
-	public function EditStockEntry(int $stockRowId, float $amount, $bestBeforeDate, $locationId, $shoppingLocationId, $price, $open, $purchasedDate)
+	public function EditStockEntry(int $stockRowId, float $amount, $bestBeforeDate, $locationId, $shoppingLocationId, $price, $open, $purchasedDate, $note = null)
 	{
 		$stockRow = $this->getDatabase()->stock()->where('id = :1', $stockRowId)->fetch();
 		if ($stockRow === null)
@@ -524,7 +530,8 @@ class StockService extends BaseService
 			'correlation_id' => $correlationId,
 			'transaction_id' => $transactionId,
 			'stock_row_id' => $stockRow->id,
-			'user_id' => GROCY_USER_ID
+			'user_id' => GROCY_USER_ID,
+			'note' => $stockRow->note
 		]);
 		$logOldRowForStockUpdate->save();
 
@@ -546,7 +553,8 @@ class StockService extends BaseService
 			'shopping_location_id' => $shoppingLocationId,
 			'opened_date' => $openedDate,
 			'open' => BoolToInt($open),
-			'purchased_date' => $purchasedDate
+			'purchased_date' => $purchasedDate,
+			'note' => $note
 		]);
 
 		$logNewRowForStockUpdate = $this->getDatabase()->stock_log()->createRow([
@@ -563,7 +571,8 @@ class StockService extends BaseService
 			'correlation_id' => $correlationId,
 			'transaction_id' => $transactionId,
 			'stock_row_id' => $stockRow->id,
-			'user_id' => GROCY_USER_ID
+			'user_id' => GROCY_USER_ID,
+			'note' => $stockRow->note
 		]);
 		$logNewRowForStockUpdate->save();
 
@@ -852,7 +861,7 @@ class StockService extends BaseService
 		return $this->getDatabase()->stock()->where('id', $entryId)->fetch();
 	}
 
-	public function InventoryProduct(int $productId, float $newAmount, $bestBeforeDate, $locationId = null, $price = null, $shoppingLocationId = null, $purchasedDate = null, $stockLabelType = 0)
+	public function InventoryProduct(int $productId, float $newAmount, $bestBeforeDate, $locationId = null, $price = null, $shoppingLocationId = null, $purchasedDate = null, $stockLabelType = 0, $note = null)
 	{
 		if (!$this->ProductExists($productId))
 		{
@@ -899,7 +908,7 @@ class StockService extends BaseService
 				$bookingAmount = $newAmount;
 			}
 
-			return $this->AddProduct($productId, $bookingAmount, $bestBeforeDate, self::TRANSACTION_TYPE_INVENTORY_CORRECTION, $purchasedDate, $price, $locationId, $shoppingLocationId, $unusedTransactionId, $stockLabelType);
+			return $this->AddProduct($productId, $bookingAmount, $bestBeforeDate, self::TRANSACTION_TYPE_INVENTORY_CORRECTION, $purchasedDate, $price, $locationId, $shoppingLocationId, $unusedTransactionId, $stockLabelType, false, $note);
 		}
 		elseif ($newAmount < $productDetails->stock_amount + $containerWeight)
 		{
@@ -1629,6 +1638,7 @@ class StockService extends BaseService
 					{
 						$this->getDatabaseService()->ExecuteDbStatement('UPDATE stock SET stock_id = \'' . $splittedStockEntry->stock_id_to_keep . '\' WHERE stock_id = \'' . $stockId . '\'');
 						$this->getDatabaseService()->ExecuteDbStatement('UPDATE stock_log SET stock_id = \'' . $splittedStockEntry->stock_id_to_keep . '\' WHERE stock_id = \'' . $stockId . '\'');
+						$this->getDatabaseService()->ExecuteDbStatement('UPDATE userfield_values SET object_id = \'' . $splittedStockEntry->stock_id_to_keep . '\' WHERE field_id IN (SELECT id FROM userfields WHERE entity = \'stock\') AND object_id = \'' . $stockId . '\'');
 					}
 				}
 

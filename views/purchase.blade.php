@@ -162,6 +162,21 @@
 			</div>
 			@endif
 
+			<div class="form-group">
+				<label for="note">{{ $__t('Note') }}</label>
+				<div class="input-group">
+					<input type="text"
+						class="form-control"
+						id="note"
+						name="note">
+				</div>
+			</div>
+
+			@include('components.userfieldsform', array(
+			'userfields' => $userfields,
+			'entity' => 'stock'
+			))
+
 			<button id="save-purchase-button"
 				class="btn btn-success d-block">{{ $__t('OK') }}</button>
 
