@@ -101,7 +101,7 @@ $("#status-filter").on("change", function()
 		value = "";
 	}
 
-	recipesTables.column(recipesTables.colReorder.transpose(5)).search(value).draw();
+	recipesTables.column(recipesTables.colReorder.transpose(6)).search(value).draw();
 
 	$('.recipe-gallery-item').removeClass('d-none');
 	if (value !== "")
