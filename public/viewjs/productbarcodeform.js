@@ -72,11 +72,11 @@ $('#display_amount').on('keyup', function(e)
 
 $('#barcode-form input').keydown(function(event)
 {
-	if (event.keyCode === 13) //Enter
+	if (event.keyCode === 13) // Enter
 	{
 		event.preventDefault();
 
-		if (document.getElementById('barcode-form').checkValidity() === false) //There is at least one validation error
+		if (!Grocy.FrontendHelpers.ValidateForm('barcode-form'))
 		{
 			return false;
 		}

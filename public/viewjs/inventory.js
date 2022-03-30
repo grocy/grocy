@@ -339,11 +339,11 @@ $('#inventory-form input').keyup(function(event)
 
 $('#inventory-form input').keydown(function(event)
 {
-	if (event.keyCode === 13) //Enter
+	if (event.keyCode === 13) // Enter
 	{
 		event.preventDefault();
 
-		if (document.getElementById('inventory-form').checkValidity() === false) //There is at least one validation error
+		if (!Grocy.FrontendHelpers.ValidateForm('inventory-form'))
 		{
 			return false;
 		}

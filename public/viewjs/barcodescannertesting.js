@@ -8,7 +8,7 @@ $("#scanned_barcode").on("blur", function(e)
 
 $("#scanned_barcode").keydown(function(event)
 {
-	if (event.keyCode === 13) //Enter
+	if (event.keyCode === 13) // Enter
 	{
 		event.preventDefault();
 		OnBarcodeScanned($("#scanned_barcode").val());

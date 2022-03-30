@@ -105,11 +105,11 @@ $('#user-form input').keyup(function(event)
 
 $('#user-form input').keydown(function(event)
 {
-	if (event.keyCode === 13) //Enter
+	if (event.keyCode === 13) // Enter
 	{
 		event.preventDefault();
 
-		if (document.getElementById('user-form').checkValidity() === false) //There is at least one validation error
+		if (!Grocy.FrontendHelpers.ValidateForm('user-form'))
 		{
 			return false;
 		}

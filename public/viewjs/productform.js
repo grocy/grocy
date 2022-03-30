@@ -217,18 +217,14 @@ $('#product-form input').keyup(function(event)
 	$(".input-group-qu").trigger("change");
 	$("#product-form select").trigger("select");
 
-	if (document.getElementById('product-form').checkValidity() === false) //There is at least one validation error
+	if (!Grocy.FrontendHelpers.ValidateForm('product-form'))
 	{
 		$("#qu-conversion-add-button").addClass("disabled");
+		$("#barcode-add-button").addClass("disabled");
 	}
 	else
 	{
 		$("#qu-conversion-add-button").removeClass("disabled");
-	}
-
-	if (document.getElementById('product-form').checkValidity() === false) //There is at least one validation error
-	{
-		$("#barcode-add-button").addClass("disabled");
 	}
 });
 
@@ -239,11 +235,11 @@ $('#location_id').change(function(event)
 
 $('#product-form input').keydown(function(event)
 {
-	if (event.keyCode === 13) //Enter
+	if (event.keyCode === 13) // Enter
 	{
 		event.preventDefault();
 
-		if (document.getElementById('product-form').checkValidity() === false) //There is at least one validation error
+		if (!Grocy.FrontendHelpers.ValidateForm('product-form'))
 		{
 			return false;
 		}

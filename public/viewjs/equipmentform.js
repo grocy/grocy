@@ -119,11 +119,11 @@ $('#equipment-form input').keyup(function(event)
 
 $('#equipment-form input').keydown(function(event)
 {
-	if (event.keyCode === 13) //Enter
+	if (event.keyCode === 13) // Enter
 	{
 		event.preventDefault();
 
-		if (document.getElementById('equipment-form').checkValidity() === false) //There is at least one validation error
+		if (!Grocy.FrontendHelpers.ValidateForm('equipment-form'))
 		{
 			return false;
 		}

@@ -87,11 +87,11 @@ $('#batterytracking-form input').keyup(function(event)
 
 $('#batterytracking-form input').keydown(function(event)
 {
-	if (event.keyCode === 13) //Enter
+	if (event.keyCode === 13) // Enter
 	{
 		event.preventDefault();
 
-		if (document.getElementById('batterytracking-form').checkValidity() === false) //There is at least one validation error
+		if (!Grocy.FrontendHelpers.ValidateForm('batterytracking-form'))
 		{
 			return false;
 		}

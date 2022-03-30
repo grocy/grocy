@@ -241,11 +241,11 @@ $('#shoppinglist-form input').keyup(function(event)
 
 $('#shoppinglist-form input').keydown(function(event)
 {
-	if (event.keyCode === 13) //Enter
+	if (event.keyCode === 13) // Enter
 	{
 		event.preventDefault();
 
-		if (document.getElementById('shoppinglist-form').checkValidity() === false) //There is at least one validation error
+		if (!Grocy.FrontendHelpers.ValidateForm('shoppinglist-form'))
 		{
 			return false;
 		}

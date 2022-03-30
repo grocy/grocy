@@ -507,7 +507,7 @@ $('#save-add-recipe-button').on('click', function(e)
 		return;
 	}
 
-	if (document.getElementById("add-recipe-form").checkValidity() === false) //There is at least one validation error
+	if (!Grocy.FrontendHelpers.ValidateForm('add-recipe-form'))
 	{
 		return false;
 	}
@@ -558,7 +558,7 @@ $('#save-add-note-button').on('click', function(e)
 		return;
 	}
 
-	if (document.getElementById("add-note-form").checkValidity() === false) //There is at least one validation error
+	if (!Grocy.FrontendHelpers.ValidateForm('add-note-form'))
 	{
 		return false;
 	}
@@ -611,7 +611,7 @@ $('#save-add-product-button').on('click', function(e)
 		return;
 	}
 
-	if (document.getElementById("add-product-form").checkValidity() === false) //There is at least one validation error
+	if (!Grocy.FrontendHelpers.ValidateForm('add-product-form'))
 	{
 		return false;
 	}
@@ -665,7 +665,7 @@ $('#save-copy-day-button').on('click', function(e)
 		return;
 	}
 
-	if (document.getElementById("copy-day-form").checkValidity() === false) //There is at least one validation error
+	if (!Grocy.FrontendHelpers.ValidateForm('copy-day-form'))
 	{
 		return false;
 	}
@@ -713,11 +713,11 @@ $('#save-copy-day-button').on('click', function(e)
 
 $('#add-recipe-form input').keydown(function(event)
 {
-	if (event.keyCode === 13) //Enter
+	if (event.keyCode === 13) // Enter
 	{
 		event.preventDefault();
 
-		if (document.getElementById("add-recipe-form").checkValidity() === false) //There is at least one validation error
+		if (!Grocy.FrontendHelpers.ValidateForm('add-recipe-form'))
 		{
 			return false;
 		}
@@ -730,11 +730,11 @@ $('#add-recipe-form input').keydown(function(event)
 
 $('#add-product-form input').keydown(function(event)
 {
-	if (event.keyCode === 13) //Enter
+	if (event.keyCode === 13) // Enter
 	{
 		event.preventDefault();
 
-		if (document.getElementById("add-product-form").checkValidity() === false) //There is at least one validation error
+		if (!Grocy.FrontendHelpers.ValidateForm('add-product-form'))
 		{
 			return false;
 		}
@@ -747,11 +747,11 @@ $('#add-product-form input').keydown(function(event)
 
 $(document).on("keydown", "#servings", function(e)
 {
-	if (e.keyCode === 13) //Enter
+	if (e.keyCode === 13) // Enter
 	{
 		e.preventDefault();
 
-		if (document.getElementById("add-recipe-form").checkValidity() === false) //There is at least one validation error
+		if (!Grocy.FrontendHelpers.ValidateForm('add-recipe-form'))
 		{
 			return false;
 		}

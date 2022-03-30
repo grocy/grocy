@@ -131,11 +131,11 @@ $('#qu_id').change(function(event)
 
 $('#recipe-pos-form input').keydown(function(event)
 {
-	if (event.keyCode === 13) //Enter
+	if (event.keyCode === 13) // Enter
 	{
 		event.preventDefault();
 
-		if (document.getElementById('recipe-pos-form').checkValidity() === false) //There is at least one validation error
+		if (!Grocy.FrontendHelpers.ValidateForm('recipe-pos-form'))
 		{
 			return false;
 		}

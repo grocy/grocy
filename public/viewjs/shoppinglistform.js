@@ -63,11 +63,11 @@ $('#shopping-list-form input').keyup(function(event)
 
 $('#shopping-list-form input').keydown(function(event)
 {
-	if (event.keyCode === 13) //Enter
+	if (event.keyCode === 13) // Enter
 	{
 		event.preventDefault();
 
-		if (document.getElementById('shopping-list-form').checkValidity() === false) //There is at least one validation error
+		if (!Grocy.FrontendHelpers.ValidateForm('shopping-list-form'))
 		{
 			return false;
 		}

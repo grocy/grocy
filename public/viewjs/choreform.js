@@ -86,11 +86,11 @@ $('#chore-form input').keyup(function(event)
 
 $('#chore-form input').keydown(function(event)
 {
-	if (event.keyCode === 13) //Enter
+	if (event.keyCode === 13) // Enter
 	{
 		event.preventDefault();
 
-		if (document.getElementById('chore-form').checkValidity() === false) //There is at least one validation error
+		if (!Grocy.FrontendHelpers.ValidateForm('chore-form'))
 		{
 			return false;
 		}

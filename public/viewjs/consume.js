@@ -506,11 +506,11 @@ $('#consume-form select').change(function(event)
 
 $('#consume-form input').keydown(function(event)
 {
-	if (event.keyCode === 13) //Enter
+	if (event.keyCode === 13) // Enter
 	{
 		event.preventDefault();
 
-		if (document.getElementById('consume-form').checkValidity() === false) //There is at least one validation error
+		if (!Grocy.FrontendHelpers.ValidateForm('consume-form'))
 		{
 			return false;
 		}
@@ -707,8 +707,7 @@ function ScanModeSubmit(singleUnit = true)
 			$(".input-group-productamountpicker").trigger("change");
 		}
 
-		Grocy.FrontendHelpers.ValidateForm("consume-form");
-		if (document.getElementById("consume-form").checkValidity() === true)
+		if (Grocy.FrontendHelpers.ValidateForm('consume-form'))
 		{
 			$('#save-consume-button').click();
 		}

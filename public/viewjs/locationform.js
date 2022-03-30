@@ -73,11 +73,11 @@ $('#location-form input').keyup(function(event)
 
 $('#location-form input').keydown(function(event)
 {
-	if (event.keyCode === 13) //Enter
+	if (event.keyCode === 13) // Enter
 	{
 		event.preventDefault();
 
-		if (document.getElementById('location-form').checkValidity() === false) //There is at least one validation error
+		if (!Grocy.FrontendHelpers.ValidateForm('location-form'))
 		{
 			return false;
 		}

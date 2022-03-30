@@ -73,11 +73,11 @@ $('#task-category-form input').keyup(function(event)
 
 $('#task-category-form input').keydown(function(event)
 {
-	if (event.keyCode === 13) //Enter
+	if (event.keyCode === 13) // Enter
 	{
 		event.preventDefault();
 
-		if (document.getElementById('task-category-form').checkValidity() === false) //There is at least one validation error
+		if (!Grocy.FrontendHelpers.ValidateForm('task-category-form'))
 		{
 			return false;
 		}
