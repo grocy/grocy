@@ -5231,6 +5231,10 @@
 						"type": "string",
 						"format": "date-time"
 					},
+					"rescheduled_date": {
+						"type": "string",
+						"format": "date-time"
+					},
 					"row_created_timestamp": {
 						"type": "string",
 						"format": "date-time"
