@@ -5,7 +5,7 @@
 ### New feature: Notes and Userfields for stock entries
 
 - Stock entries can now have notes
-  - For example to distinguish between same, yet different products (e.g. having only a generic product "Chocolate" and note in that field what special one it is exactly this time)
+  - For example to distinguish between same, yet different products (e.g. having only a generic product "Chocolate" and note in that field what special one it is exactly this time - an alternative to have sub products)
   - => New field on the purchase and inventory page
   - => New column on the stock entries and stock journal page
   - => Visible also in the "Use a specific stock item" dropdown on the consume and transfer page
@@ -22,6 +22,7 @@
   - 10 points per overdue ingredient
   - 20 points per expired ingredient
   - (or else 0)
+- The corresponding ingredient is also highlighted in red/yellow/grey (same colors as on the stock overview page)
 
 ### Stock
 
@@ -89,3 +90,4 @@
 
 - Added a new endpoint `GET /stock/locations/{locationId}/entries` to get all stock entries of a given location (similar to the already existing endpoint `GET /stock/products/{productId}/entries`)
 - Endpoint `/recipes/{recipeId}/consume`: Fixed that consuming partially fulfilled recipes was possible, although an error was already returned in that case (and potentially some of the in-stock ingredients were consumed in fact)
+- Endpoint `/stock/products/{productId}`: The property/field `oldest_price` has been removed (as this had no real sense)

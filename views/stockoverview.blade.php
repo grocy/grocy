@@ -330,8 +330,12 @@
 						<span class="pl-1 text-secondary">
 							<i class="fas fa-custom-sigma-sign"></i> <span id="product-{{ $currentStockEntry->product_id }}-amount-aggregated"
 								class="locale-number locale-number-quantity-amount">{{ $currentStockEntry->amount_aggregated }}</span> {{ $__n($currentStockEntry->amount_aggregated, $currentStockEntry->qu_unit_name, $currentStockEntry->qu_unit_name_plural, true) }}
-							@if($currentStockEntry->amount_opened_aggregated > 0)<span id="product-{{ $currentStockEntry->product_id }}-opened-amount-aggregated"
-								class="small font-italic">{{ $__t('%s opened', $currentStockEntry->amount_opened_aggregated) }}</span>@endif
+							@if($currentStockEntry->amount_opened_aggregated > 0)
+							<span id="product-{{ $currentStockEntry->product_id }}-opened-amount-aggregated"
+								class="small font-italic">
+								{!! $__t('%s opened', '<span class="locale-number locale-number-quantity-amount">' . $currentStockEntry->amount_opened_aggregated . '</span>') !!}
+							</span>
+							@endif
 						</span>
 						@endif
 						@if(boolval($userSettings['show_icon_on_stock_overview_page_when_product_is_on_shopping_list']))

@@ -123,16 +123,23 @@ $(document).on('click', '.track-chore-button', function(e)
 						{
 							var choreRow = $('#chore-' + choreId + '-row');
 							var nextXDaysThreshold = moment().add($("#info-due-soon-chores").data("next-x-days"), "days");
+							var todayThreshold = moment().endOf("day");
 							var now = moment();
 							var nextExecutionTime = moment(result.next_estimated_execution_time);
 
 							choreRow.removeClass("table-warning");
 							choreRow.removeClass("table-danger");
+							choreRow.removeClass("table-info");
 							$('#chore-' + choreId + '-due-filter-column').html("");
 							if (nextExecutionTime.isBefore(now))
 							{
 								choreRow.addClass("table-danger");
 								$('#chore-' + choreId + '-due-filter-column').html("overdue");
+							}
+							else if (nextExecutionTime.isSameOrBefore(todayThreshold))
+							{
+								choreRow.addClass("table-info");
+								$('#chore-' + choreId + '-due-filter-column').html("duetoday");
 							}
 							else if (nextExecutionTime.isBefore(nextXDaysThreshold))
 							{
@@ -331,7 +338,6 @@ $("#reschedule-chore-clear-button").on("click", function(e)
 		}
 	);
 });
-
 
 if (GetUriParam("user") !== undefined)
 {

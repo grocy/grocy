@@ -696,7 +696,6 @@ class StockService extends BaseService
 		$lastPrice = null;
 		$lastShoppingLocation = null;
 		$avgPrice = null;
-		$oldestPrice = null;
 		if ($productLastPurchased)
 		{
 			$lastPurchasedDate = $productLastPurchased->purchased_date;
@@ -706,11 +705,6 @@ class StockService extends BaseService
 			if ($avgPriceRow)
 			{
 				$avgPrice = $avgPriceRow->price;
-			}
-			$oldestPriceRow = $this->getDatabase()->products_oldest_stock_unit_price()->where('product_id', $productId)->fetch();
-			if ($oldestPriceRow)
-			{
-				$oldestPrice = $avgPriceRow->price;
 			}
 		}
 
@@ -746,7 +740,6 @@ class StockService extends BaseService
 			'quantity_unit_stock' => $quStock,
 			'last_price' => $lastPrice,
 			'avg_price' => $avgPrice,
-			'oldest_price' => $oldestPrice,
 			'last_shopping_location_id' => $lastShoppingLocation,
 			'default_shopping_location_id' => $product->shopping_location_id,
 			'next_due_date' => $nextDueDate,

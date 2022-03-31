@@ -4756,9 +4756,6 @@
 					"avg_price": {
 						"type": "number"
 					},
-					"oldest_price": {
-						"type": "number"
-					},
 					"last_shopping_location_id": {
 						"type": "integer"
 					},
@@ -4829,7 +4826,6 @@
 					},
 					"last_price": null,
 					"avg_price": null,
-					"oldest_price": null,
 					"last_shopping_location_id": null,
 					"next_due_date": "2019-07-07",
 					"location": {
