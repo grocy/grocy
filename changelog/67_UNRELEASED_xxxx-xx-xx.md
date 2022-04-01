@@ -90,4 +90,6 @@
 
 - Added a new endpoint `GET /stock/locations/{locationId}/entries` to get all stock entries of a given location (similar to the already existing endpoint `GET /stock/products/{productId}/entries`)
 - Endpoint `/recipes/{recipeId}/consume`: Fixed that consuming partially fulfilled recipes was possible, although an error was already returned in that case (and potentially some of the in-stock ingredients were consumed in fact)
-- Endpoint `/stock/products/{productId}`: The property/field `oldest_price` has been removed (as this had no real sense)
+- Endpoint `/stock/products/{productId}`:
+  - New field/property `current_price` which returns the current price of the corresponding products based on the stock entry to use next defined by the default consume rule (Opened first, then first due first, then first in first out)
+  - The field/property  `oldest_price` is deprecated and will be removed in a future version (this had no real sense, currently returns the same as `current_price`)

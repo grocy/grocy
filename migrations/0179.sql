@@ -6,12 +6,12 @@ AS
 	Opened first, then first due first, then first in first out
 
 	This orders the stock entries by that
-	=> Lowest "priority" per product = the stock entry to use next
+	=> Highest "priority" per product = the stock entry to use next
 */
 
 SELECT
-	-1, -- Dummy
-	ROW_NUMBER() OVER(PARTITION BY product_id ORDER BY open DESC, best_before_date ASC, purchased_date ASC) AS priority,
+	-1 AS id, -- Dummy
+	(ROW_NUMBER() OVER(PARTITION BY product_id ORDER BY open DESC, best_before_date ASC, purchased_date ASC)) * -1 AS priority,
 	product_id,
 	stock_id,
 	price
@@ -27,14 +27,14 @@ AS
 */
 
 SELECT
-	-1, -- Dummy,
+	-1 AS id, -- Dummy,
 	p.id AS product_id,
 	IFNULL(snu.price, plp.price) AS price
 FROM products p
 LEFT JOIN (
 	SELECT
 		product_id,
-		MIN(priority),
+		MAX(priority),
 		price -- Bare column, ref https://www.sqlite.org/lang_select.html#bare_columns_in_an_aggregate_query
 	FROM stock_next_use
 	GROUP BY product_id

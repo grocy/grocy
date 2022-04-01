@@ -4751,10 +4751,21 @@
 						"format": "date-time"
 					},
 					"last_price": {
-						"type": "number"
+						"type": "number",
+						"description": "The price of the last purchase of the corresponding product"
 					},
 					"avg_price": {
-						"type": "number"
+						"type": "number",
+						"description": "The average price af all items currently in stock of the corresponding product"
+					},
+					"current_price": {
+						"type": "number",
+						"description": "The current price of the corresponding products, based on the stock entry to use next defined by the default consume rule (Opened first, then first due first, then first in first out)"
+					},
+					"oldest_price": {
+						"type": "number",
+						"description": "This field is deprecated and will be removed in a future version (currently returns the same as `current_price`)",
+						"deprecated": true
 					},
 					"last_shopping_location_id": {
 						"type": "integer"
@@ -4826,6 +4837,7 @@
 					},
 					"last_price": null,
 					"avg_price": null,
+					"current_price": null,
 					"last_shopping_location_id": null,
 					"next_due_date": "2019-07-07",
 					"location": {
