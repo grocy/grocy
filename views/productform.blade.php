@@ -495,6 +495,20 @@
 				</div>
 			</div>
 
+			<div class="form-group">
+				<div class="custom-control custom-checkbox">
+					<input @if($mode=='edit'
+						&&
+						$product->no_own_stock == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="no_own_stock" name="no_own_stock" value="1">
+					<label class="form-check-label custom-control-label"
+						for="no_own_stock">{{ $__t('Disable own stock') }}&nbsp;<i class="fas fa-question-circle text-muted"
+							data-toggle="tooltip"
+							data-trigger="hover click"
+							title="{{ $__t('When enabled, this product can\'t have own stock, means it will not be selectable on purchase (useful for parent products which are just used as a summary/total view of the child products)') }}"></i>
+					</label>
+				</div>
+			</div>
+
 			<div class="sticky-form-footer pt-1">
 				<small id="save-hint"
 					class="my-1 form-text text-muted @if($mode == 'edit') d-none @endif">{{ $__t('Save & continue to add quantity unit conversions & barcodes') }}</small>

@@ -38,8 +38,11 @@
 				href="#productcard-product-description">{{ $__t('Show more') }}</a>
 		</div>
 
-		<strong>{{ $__t('Stock amount') }}:</strong> <span id="productcard-product-stock-amount"
-			class="locale-number locale-number-quantity-amount"></span> <span id="productcard-product-stock-qu-name"></span>
+		<strong>{{ $__t('Stock amount') }}:</strong>
+		<span id="productcard-product-stock-amount-wrapper">
+			<span id="productcard-product-stock-amount"
+				class="locale-number locale-number-quantity-amount"></span> <span id="productcard-product-stock-qu-name"></span>
+		</span>
 		<span id="productcard-product-stock-opened-amount"
 			class="small font-italic locale-number locale-number-quantity-amount"></span>
 		<span id="productcard-aggregated-amounts"

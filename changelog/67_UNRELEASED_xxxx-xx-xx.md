@@ -28,6 +28,8 @@
 
 - It's now possible to change a products stock QU, even after it was once added to stock
   - When the product was once added to stock, there needs to exist a corresponding unit conversion for the new QU
+- New product option "Disable own stock" (defaults to disabled)
+  - When enabled, the corresponding product can't have own stock, means it will not be selectable on purchase (useful for parent products which are just used as a summary/total view of the child products)
 - Added the product grocycode as a (hidden by default) column to the products list (master data)
 - Fixed that consuming via the consume page was not possible when `FEATURE_FLAG_STOCK_LOCATION_TRACKING` was disabled
 
@@ -91,5 +93,5 @@
 - Added a new endpoint `GET /stock/locations/{locationId}/entries` to get all stock entries of a given location (similar to the already existing endpoint `GET /stock/products/{productId}/entries`)
 - Endpoint `/recipes/{recipeId}/consume`: Fixed that consuming partially fulfilled recipes was possible, although an error was already returned in that case (and potentially some of the in-stock ingredients were consumed in fact)
 - Endpoint `/stock/products/{productId}`:
-  - New field/property `current_price` which returns the current price of the corresponding products based on the stock entry to use next defined by the default consume rule (Opened first, then first due first, then first in first out)
+  - New field/property `current_price` which returns the current price of the corresponding product, based on the stock entry to use next (defined by the default consume rule "Opened first, then first due first, then first in first out") or on the last price if the product is currently not in stock
   - The field/property  `oldest_price` is deprecated and will be removed in a future version (this had no real sense, currently returns the same as `current_price`)

@@ -110,7 +110,16 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 				$("#productcard-product-picture").addClass("d-none");
 			}
 
+			$("#productcard-product-stock-amount-wrapper").removeClass("d-none");
+			$("#productcard-aggregated-amounts").addClass("pl-2");
+			if (productDetails.product.no_own_stock == 1)
+			{
+				$("#productcard-product-stock-amount-wrapper").addClass("d-none");
+				$("#productcard-aggregated-amounts").removeClass("pl-2");
+			}
+
 			RefreshContextualTimeago(".productcard");
+			RefreshLocaleNumberDisplay(".productcard");
 		},
 		function(xhr)
 		{

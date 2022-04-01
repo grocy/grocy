@@ -122,11 +122,19 @@ if (!prefillProductId2.isEmpty())
 if (typeof prefillProductId !== "undefined")
 {
 	$('#product_id').val(prefillProductId);
-	$('#product_id').data('combobox').refresh();
-	$('#product_id').trigger('change');
 
-	var nextInputElement = $(Grocy.Components.ProductPicker.GetPicker().parent().data('next-input-selector').toString());
-	nextInputElement.focus();
+	if ($('#product_id').val() != null)
+	{
+		$('#product_id').data('combobox').refresh();
+		$('#product_id').trigger('change');
+
+		var nextInputElement = $(Grocy.Components.ProductPicker.GetPicker().parent().data('next-input-selector').toString());
+		nextInputElement.focus();
+	}
+	else
+	{
+		Grocy.Components.ProductPicker.GetInputElement().focus();
+	}
 }
 
 if (GetUriParam("flow") === "InplaceAddBarcodeToExistingProduct")

@@ -4475,6 +4475,9 @@
 					"treat_opened_as_out_of_stock": {
 						"type": "integer"
 					},
+					"no_own_stock": {
+						"type": "integer"
+					},
 					"userfields": {
 						"type": "object",
 						"description": "Key/value pairs of userfields"
@@ -4756,11 +4759,11 @@
 					},
 					"avg_price": {
 						"type": "number",
-						"description": "The average price af all items currently in stock of the corresponding product"
+						"description": "The average price af all stock entries currently in stock of the corresponding product"
 					},
 					"current_price": {
 						"type": "number",
-						"description": "The current price of the corresponding products, based on the stock entry to use next defined by the default consume rule (Opened first, then first due first, then first in first out)"
+						"description": "The current price of the corresponding product, based on the stock entry to use next (defined by the default consume rule \"Opened first, then first due first, then first in first out\") or on the last price if the product is currently not in stock"
 					},
 					"oldest_price": {
 						"type": "number",
@@ -4781,7 +4784,7 @@
 					},
 					"has_childs": {
 						"type": "boolean",
-						"description": "True when the product is a parent products of others"
+						"description": "True when the product is a parent product of others"
 					}
 				},
 				"example": {
