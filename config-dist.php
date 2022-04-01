@@ -191,6 +191,7 @@ DefaultUserSetting('shopping_list_show_calendar', false); // When enabled, a sma
 // Recipe settings
 DefaultUserSetting('recipe_ingredients_group_by_product_group', false); // Group recipe ingredients by their product group
 DefaultUserSetting('recipes_show_list_side_by_side', true); // If the recipe should be displayed next to recipe list on the recipes page
+DefaultUserSetting('recipes_show_ingredient_checkbox', false); // When enabled, a little checkbox will be shown next to each ingredient to mark it as done
 
 // Chores settings
 DefaultUserSetting('chores_due_soon_days', 5); // The "due soon" days

@@ -40,6 +40,8 @@
 
 ### Recipes
 
+- Added a new recipes setting (top right corner settings menu) "Show a little checkbox next to each ingredient to mark it as done" (defaults to disabled)
+  - When enabled, next to each ingredient a little checkbox will be shown, when clicked, the ingredient is crossed out (the status is not saved, means reset when the page is reloaded)
 - Fixed that consuming recipes was possible when not all ingredients were in-stock (and this potentially consumed some of the in-stock ingredients; not matching the message "nothing removed")
 - Fixed that the price of the "Produces product"-product, which is added to stock on consuming a recipe, was wrong (was the recipe total costs multiplied by the serving amount instead of only the recipe total costs)
 - Fixed that calories of recipe ingredients were displayed with an indefinite number of decimal places

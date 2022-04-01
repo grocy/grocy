@@ -2329,3 +2329,9 @@ msgstr ""
 
 msgid "Out of stock items will be shown at the products default location"
 msgstr ""
+
+msgid "Show a little checkbox next to each ingredient to mark it as done"
+msgstr ""
+
+msgid "The ingredient is crossed out when clicked, the status is not saved, means reset when the page is reloaded"
+msgstr ""

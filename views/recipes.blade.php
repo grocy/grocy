@@ -468,6 +468,15 @@
 										@if($selectedRecipePosition->product_active == 0)
 										<div class="small text-muted font-italic">{{ $__t('Disabled') }}</div>
 										@endif
+										@if($userSettings['recipes_show_ingredient_checkbox'])
+										<a class="btn btn-link btn-xs cursor-pointer ingredient-done-button"
+											href="#"
+											data-toggle="tooltip"
+											data-placement="right"
+											title="{{ $__t('Mark this item as done') }}">
+											<i class="far fa-check-circle"></i>
+										</a>
+										@endif
 										@php
 										$product = FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id);
 										$productQuConversions = FindAllObjectsInArrayByPropertyValue($quantityUnitConversionsResolved, 'product_id', $product->id);

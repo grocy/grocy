@@ -431,3 +431,14 @@ $(document).on('click', '.recipe-grocycode-label-print', function(e)
 		}
 	});
 });
+
+$(document).on('click', '.ingredient-done-button', function(e)
+{
+	e.preventDefault();
+
+	// Remove the focus from the current button
+	// to prevent that the tooltip stays until clicked anywhere else
+	document.activeElement.blur();
+
+	$(e.currentTarget).parent().toggleClass("text-strike-through");
+});
