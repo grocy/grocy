@@ -64,3 +64,13 @@ LEFT JOIN products p_parent
 LEFT JOIN locations l
 	ON p.location_id = l.id
 WHERE p.hide_on_stock_overview = 0;
+
+CREATE TRIGGER prevent_adding_no_own_stock_products_to_stock AFTER INSERT ON stock
+BEGIN
+	SELECT CASE WHEN((
+		SELECT 1
+		FROM products p
+		WHERE id = NEW.product_id
+			AND no_own_stock = 1
+	) NOTNULL) THEN RAISE(ABORT, "no_own_stock=1 products can't be added to stock") END;
+END;
