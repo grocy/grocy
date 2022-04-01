@@ -36,6 +36,20 @@
 			data-trigger="hover click"
 			title="{{ $__t('Here you can print a page per location with the current stock, maybe to hang it there and note the consumed things on it') }}"></i>
 	</h2>
+	<div class="form-check custom-control custom-checkbox">
+		<input class="form-check-input custom-control-input"
+			type="checkbox"
+			id="include-out-of-stock"
+			checked>
+		<label class="form-check-label custom-control-label"
+			for="include-out-of-stock">
+			{{ $__t('Show only in-stock products') }}
+			<i class="fas fa-question-circle text-muted"
+				data-toggle="tooltip"
+				data-trigger="hover click"
+				title="{{ $__t('Out of stock items will be shown at the products default location') }}"></i>
+		</label>
+	</div>
 	<div class="float-right">
 		<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
 			type="button"

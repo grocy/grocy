@@ -12,3 +12,18 @@ $(document).on("click", ".print-single-location-button", function(e)
 	$(".print-timestamp").text(moment().format("l LT"));
 	window.print();
 });
+
+$("#include-out-of-stock").change(function()
+{
+	if (this.checked)
+	{
+		RemoveUriParam("include_out_of_stock");
+	}
+	else
+	{
+		UpdateUriParam("include_out_of_stock", true);
+	}
+
+	window.location.reload();
+});
+

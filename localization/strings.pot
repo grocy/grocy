@@ -2326,3 +2326,6 @@ msgstr ""
 
 msgid "When enabled, this product can't have own stock, means it will not be selectable on purchase (useful for parent products which are just used as a summary/total view of the child products)"
 msgstr ""
+
+msgid "Out of stock items will be shown at the products default location"
+msgstr ""

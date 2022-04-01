@@ -628,9 +628,15 @@ class StockService extends BaseService
 		return array_column($currentStockMapped, 0);
 	}
 
-	public function GetCurrentStockLocationContent()
+	public function GetCurrentStockLocationContent($includeOutOfStockProductsAtTheDefaultLocation = false)
 	{
-		$sql = 'SELECT sclc.* FROM stock_current_location_content sclc JOIN products p ON sclc.product_id = p.id ORDER BY p.name';
+		$leftJoin = '';
+		if ($includeOutOfStockProductsAtTheDefaultLocation)
+		{
+			$leftJoin = 'LEFT';
+		}
+
+		$sql = 'SELECT IFNULL(sclc.location_id, p.location_id) AS location_id, p.id AS product_id, IFNULL(sclc.amount, 0) AS amount, IFNULL(sclc.amount_opened, 0) AS amount_opened FROM products p ' . $leftJoin . ' JOIN stock_current_location_content sclc ON sclc.product_id = p.id WHERE p.active = 1 ORDER BY p.name';
 		return $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
 
