@@ -1,6 +1,17 @@
+@php
+if (!isset($excludeFieldTypes))
+{
+$excludeFieldTypes = [];
+}
+@endphp
+
 @if($userfields && count($userfields) > 0)
 
 @foreach($userfields as $userfield)
+
+@if(in_array($userfield->type, $excludeFieldTypes))
+@continue
+@endif
 
 @if($userfield->show_as_column_in_tables == 1)
 @php $userfieldObject = FindObjectInArrayByPropertyValue($userfieldValues, 'name', $userfield->name) @endphp
@@ -26,10 +37,10 @@
 	@endphp
 	<a href="{{ $link }}"
 		target="_blank">{{ $title }}</a>
-	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_FILE)
+	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_FILE && !empty($userfieldObject->value))
 	<a href="{{ $U('/files/userfiles/'. $userfieldObject->value) }}"
 		target="_blank">{{ base64_decode(explode('_', $userfieldObject->value)[1]) }}</a>
-	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_IMAGE)
+	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_IMAGE && !empty($userfieldObject->value))
 	<a class="show-as-dialog-link"
 		href="{{ $U('/files/userfiles/'. $userfieldObject->value . '?force_serve_as=picture') }}">
 		<img src="{{ $U('/files/userfiles/'. $userfieldObject->value . '?force_serve_as=picture&best_fit_width=32&best_fit_height=32') }}"

@@ -55,6 +55,39 @@ function DisplayEquipment(id)
 
 				$("a[href='#description-tab']").tab("show");
 			}
+
+			if (equipmentItem.userfields != null)
+			{
+				Grocy.Api.Get('objects/userfields?query[]=entity=equipment&query[]=type=file',
+					function(result)
+					{
+						$.each(result, function(key, userfield)
+						{
+							var userfieldFile = equipmentItem.userfields[userfield.name];
+							if (userfieldFile != null && !userfieldFile.isEmpty())
+							{
+								var pdfUrl = U('/files/userfiles/' + userfieldFile);
+								$("#file-userfield-" + userfield.name + "-embed").attr("src", pdfUrl);
+								$("#file-userfield-" + userfield.name + "-download-button").attr("href", pdfUrl);
+								$("#file-userfield-" + userfield.name + "-embed").removeClass("d-none");
+								$("#file-userfield-" + userfield.name + "-download-button").removeClass("d-none");
+								$("#file-userfield-" + userfield.name + "-empty-hint").addClass("d-none");
+								ResizeResponsiveEmbeds();
+							}
+							else
+							{
+								$("#file-userfield-" + userfield.name + "-embed").addClass("d-none");
+								$("#file-userfield-" + userfield.name + "-download-button").addClass("d-none");
+								$("#file-userfield-" + userfield.name + "-empty-hint").removeClass("d-none");
+							}
+						});;
+					},
+					function(xhr)
+					{
+						console.error(xhr);
+					}
+				);
+			}
 		},
 		function(xhr)
 		{
@@ -117,11 +150,14 @@ $(document).on('click', '.equipment-delete-button', function(e)
 	});
 });
 
-$("#selectedEquipmentInstructionManualToggleFullscreenButton").on('click', function(e)
+$(".selectedEquipmentInstructionManualToggleFullscreenButton").on('click', function(e)
 {
-	$("#selectedEquipmentInstructionManualCard").toggleClass("fullscreen");
-	$("#selectedEquipmentInstructionManualCard .card-header").toggleClass("fixed-top");
-	$("#selectedEquipmentInstructionManualCard .card-body").toggleClass("mt-5");
+	var button = $(e.currentTarget);
+	var card = button.closest(".selectedEquipmentInstructionManualCard");
+
+	card.toggleClass("fullscreen");
+	card.find(".card-header").toggleClass("fixed-top");
+	card.find(".card-body").toggleClass("mt-5");
 	$("body").toggleClass("fullscreen-card");
 	ResizeResponsiveEmbeds(true);
 });

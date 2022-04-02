@@ -80,7 +80,9 @@
 
 ### Equipment
 
-- xxx
+- It's now possible to add multiple files (PDFs / manuals) to each equipment
+  - Define as many Userfields for the entity `equipment` and use the type `File`
+  - => Each of those File-Userfields will be shown as a separate tab on the equipment page
 
 ### Userfields
 

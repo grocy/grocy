@@ -176,7 +176,7 @@
 			<div class="input-group-append">
 				<a href="#"
 					target="_blank"
-					class="input-group-text userfield-file-show d-none"><i class="fas fa-eye"></i></a>
+					class="input-group-text userfield-file-show d-none discrete-link"><i class="fas fa-eye"></i></a>
 			</div>
 		</div>
 	</div>
@@ -201,7 +201,7 @@
 		</div>
 		<img src=""
 			alt="{{ $userfield->name }}"
-			class="userfield-current-file userfield-file-show d-none lazy mt-1"
+			class="userfield-current-file userfield-file-show d-none lazy mt-1 discrete-link"
 			data-uf-name="{{ $userfield->name }}" />
 	</div>
 	@endif

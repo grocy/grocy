@@ -70,7 +70,8 @@
 					<th>{{ $__t('Name') }}</th>
 
 					@include('components.userfields_thead', array(
-					'userfields' => $userfields
+					'userfields' => $userfields,
+					'excludeFieldTypes' => [\Grocy\Services\UserfieldsService::USERFIELD_TYPE_FILE]
 					))
 
 				</tr>
@@ -108,7 +109,8 @@
 
 					@include('components.userfields_tbody', array(
 					'userfields' => $userfields,
-					'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $equipmentItem->id)
+					'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $equipmentItem->id),
+					'excludeFieldTypes' => [\Grocy\Services\UserfieldsService::USERFIELD_TYPE_FILE]
 					))
 
 				</tr>
@@ -129,16 +131,23 @@
 					data-toggle="tab"
 					href="#description-tab">{{ $__t('Notes') }}</a>
 			</li>
+			@foreach($userfields as $userfield)
+			@if($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_FILE)
+			<li class="nav-item">
+				<a class="nav-link"
+					data-toggle="tab"
+					href="#file-userfield-{{$userfield->name}}-tab">{{ $userfield->caption }}</a>
+			</li>
+			@endif
+			@endforeach
 		</ul>
 		<div class="tab-content grocy-tabs">
 			<div class="tab-pane fade show active"
 				id="instruction-manual-tab">
-				<div id="selectedEquipmentInstructionManualCard"
-					class="card">
+				<div class="card selectedEquipmentInstructionManualCard">
 					<div class="card-header card-header-fullscreen">
 						<span class="selected-equipment-name"></span>
-						<a id="selectedEquipmentInstructionManualToggleFullscreenButton"
-							class="btn btn-sm btn-outline-secondary py-0 float-right mr-1"
+						<a class="btn btn-sm btn-outline-secondary py-0 float-right mr-1 selectedEquipmentInstructionManualToggleFullscreenButton"
 							href="#"
 							data-toggle="tooltip"
 							title="{{ $__t('Expand to fullscreen') }}">
@@ -163,6 +172,40 @@
 					</div>
 				</div>
 			</div>
+			@foreach($userfields as $userfield)
+			@if($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_FILE)
+			<div class="tab-pane fade"
+				id="file-userfield-{{$userfield->name}}-tab">
+				<div class="card selectedEquipmentInstructionManualCard">
+					<div class="card-header card-header-fullscreen">
+						<span class="selected-equipment-name"></span>
+						<a class="btn btn-sm btn-outline-secondary py-0 float-right mr-1 selectedEquipmentInstructionManualToggleFullscreenButton"
+							href="#"
+							data-toggle="tooltip"
+							title="{{ $__t('Expand to fullscreen') }}">
+							<i class="fas fa-expand-arrows-alt"></i>
+						</a>
+						<a id="file-userfield-{{$userfield->name}}-download-button"
+							class="btn btn-sm btn-outline-secondary py-0 float-right mr-1"
+							href="#"
+							target="_blank"
+							data-toggle="tooltip"
+							title="{{ $__t('Download file') }}">
+							<i class="fas fa-file-download"></i>
+						</a>
+					</div>
+					<div class="card-body py-0 px-0">
+						<p id="file-userfield-{{$userfield->name}}-empty-hint"
+							class="text-muted font-italic d-none pt-3 pl-3"></p>
+						<embed id="file-userfield-{{$userfield->name}}-embed"
+							class="embed-responsive embed-responsive-4by3"
+							src=""
+							type="application/pdf">
+					</div>
+				</div>
+			</div>
+			@endif
+			@endforeach
 			<div class="tab-pane fade"
 				id="description-tab">
 				<div id="selectedEquipmentDescriptionCard"
