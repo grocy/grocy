@@ -122,7 +122,7 @@ $userSettings['night_mode_enabled_internal'] = false;
 }
 @endphp
 
-<body class="fixed-nav @if(boolval($userSettings['night_mode_enabled_internal']) || (boolval($userSettings['auto_night_mode_enabled']) && boolval($userSettings['currently_inside_night_mode_range']))) night-mode @endif @if($embedded) embedded @endif">
+<body class="fixed-nav @if(boolval($userSettings['night_mode_enabled_internal'])) night-mode @endif @if($embedded) embedded @endif">
 	@if(!($embedded))
 	<nav id="mainNav"
 		class="navbar navbar-expand-lg navbar-light fixed-top">
