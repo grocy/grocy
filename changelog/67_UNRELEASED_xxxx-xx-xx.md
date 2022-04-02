@@ -40,6 +40,7 @@
 
 ### Recipes
 
+- When a parent product is used as an ingredient, which is currently not in stock itself, the substituted product (so the one which was already taken into account when consuming the recipe) is now displayed below the ingredient and the costs (and calories) are taken from that one, to reflect the current real costs even better
 - Added a new recipes setting (top right corner settings menu) "Show a little checkbox next to each ingredient to mark it as done" (defaults to disabled)
   - When enabled, next to each ingredient a little checkbox will be shown, when clicked, the ingredient is crossed out (the status is not saved, means reset when the page is reloaded)
 - Fixed that consuming recipes was possible when not all ingredients were in-stock (and this potentially consumed some of the in-stock ingredients; not matching the message "nothing removed")
