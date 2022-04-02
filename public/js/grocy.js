@@ -436,9 +436,9 @@ Grocy.FrontendHelpers.ShowGenericError = function(message, exception)
 	console.error(exception);
 }
 
-Grocy.FrontendHelpers.SaveUserSetting = function(settingsKey, value)
+Grocy.FrontendHelpers.SaveUserSetting = function(settingsKey, value, force = false)
 {
-	if (Grocy.UserSettings[settingsKey] == value)
+	if (Grocy.UserSettings[settingsKey] == value && !force)
 	{
 		return;
 	}

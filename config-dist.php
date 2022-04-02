@@ -153,7 +153,7 @@ Setting('FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA', true); // Enables the torch au
 // which are used when the user has not changed the setting so far
 
 // Night mode related
-DefaultUserSetting('night_mode_enabled', false); // If night mode is enabled always
+DefaultUserSetting('night_mode', 'follow-system'); // "on" = Night mode is always on ; "off" = Night mode is always off / "follow-system" = System preferred color schema is used
 DefaultUserSetting('auto_night_mode_enabled', false); // If night mode is enabled automatically when inside a given time range (see the two settings below)
 DefaultUserSetting('auto_night_mode_time_range_from', '20:00'); // Format HH:mm
 DefaultUserSetting('auto_night_mode_time_range_to', '07:00'); // Format HH:mm

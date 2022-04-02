@@ -115,7 +115,14 @@
 	</script>
 </head>
 
-<body class="fixed-nav @if(boolval($userSettings['night_mode_enabled']) || (boolval($userSettings['auto_night_mode_enabled']) && boolval($userSettings['currently_inside_night_mode_range']))) night-mode @endif @if($embedded) embedded @endif">
+@php
+if (!isset($userSettings['night_mode_enabled_internal']))
+{
+$userSettings['night_mode_enabled_internal'] = false;
+}
+@endphp
+
+<body class="fixed-nav @if(boolval($userSettings['night_mode_enabled_internal']) || (boolval($userSettings['auto_night_mode_enabled']) && boolval($userSettings['currently_inside_night_mode_range']))) night-mode @endif @if($embedded) embedded @endif">
 	@if(!($embedded))
 	<nav id="mainNav"
 		class="navbar navbar-expand-lg navbar-light fixed-top">
@@ -528,16 +535,39 @@
 							</div>
 						</div>
 						<div class="dropdown-divider"></div>
-						<div class="dropdown-item">
-							<div class="form-check">
-								<input class="form-check-input user-setting-control"
-									type="checkbox"
-									id="night-mode-enabled"
-									data-setting-key="night_mode_enabled">
-								<label class="form-check-label"
-									for="night-mode-enabled">
-									{{ $__t('Enable night mode') }}
-								</label>
+						<div class="dropdown-item pt-0">
+							<div>
+								{{ $__t('Night mode') }}
+							</div>
+							<div class="custom-control custom-radio custom-control-inline">
+								<input class="custom-control-input user-setting-control"
+									type="radio"
+									name="night-mode"
+									id="night-mode-on"
+									value="on"
+									data-setting-key="night_mode">
+								<label class="custom-control-label"
+									for="night-mode-on">{{ $__t('On') }}</label>
+							</div>
+							<div class="custom-control custom-radio custom-control-inline">
+								<input class="custom-control-input user-setting-control"
+									type="radio"
+									name="night-mode"
+									id="night-mode-follow-system"
+									value="follow-system"
+									data-setting-key="night_mode">
+								<label class="custom-control-label"
+									for="night-mode-follow-system">{{ $__t('Use system setting') }}</label>
+							</div>
+							<div class="custom-control custom-radio custom-control-inline">
+								<input class="custom-control-input user-setting-control"
+									type="radio"
+									name="night-mode"
+									id="night-mode-off"
+									value="off"
+									data-setting-key="night_mode">
+								<label class="custom-control-label"
+									for="night-mode-off">{{ $__t('Off') }}</label>
 							</div>
 						</div>
 						<div class="dropdown-item">
@@ -575,10 +605,6 @@
 									{{ $__t('Time range goes over midnight') }}
 								</label>
 							</div>
-							<input class="form-check-input d-none user-setting-control"
-								type="checkbox"
-								id="currently-inside-night-mode-range"
-								data-setting-key="currently_inside_night_mode_range">
 						</div>
 						<div class="dropdown-divider"></div>
 						<div class="dropdown-item">

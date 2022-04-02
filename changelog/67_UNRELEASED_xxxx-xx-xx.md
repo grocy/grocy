@@ -95,6 +95,8 @@
 ### General
 
 - Optimized form validation: Save / submit buttons are now not disabled when the form is invalid, the invalid / missing fields are instead highlighted when trying to submit / save the form (making it more obvious which fields are invalid / missing exactly)
+- Night mode can now use / follow the system preferred color scheme
+  - The user setting `night_mode_enabled` has been removed and replaced by `night_mode` which now defaults to `follow-system` (which uses the system preferred color scheme)
 - Fixed an server error (on every page) when not having any quantity unit
 
 ### API
