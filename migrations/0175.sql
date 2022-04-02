@@ -46,10 +46,12 @@ BEGIN
 		AND product_id IS NOT NULL;
 
 	UPDATE stock
-	SET amount = amount * IFNULL((SELECT factor FROM quantity_unit_conversions_resolved WHERE product_id = NEW.id AND from_qu_id = OLD.qu_id_stock AND to_qu_id = NEW.qu_id_stock AND source NOT LIKE '1%'), 1.0)
+	SET amount = amount * IFNULL((SELECT factor FROM quantity_unit_conversions_resolved WHERE product_id = NEW.id AND from_qu_id = OLD.qu_id_stock AND to_qu_id = NEW.qu_id_stock AND source NOT LIKE '1%'), 1.0),
+	price = price / IFNULL((SELECT factor FROM quantity_unit_conversions_resolved WHERE product_id = NEW.id AND from_qu_id = OLD.qu_id_stock AND to_qu_id = NEW.qu_id_stock AND source NOT LIKE '1%'), 1.0)
 	WHERE product_id = NEW.id;
 
 	UPDATE stock_log
-	SET amount = amount * IFNULL((SELECT factor FROM quantity_unit_conversions_resolved WHERE product_id = NEW.id AND from_qu_id = OLD.qu_id_stock AND to_qu_id = NEW.qu_id_stock AND source NOT LIKE '1%'), 1.0)
+	SET amount = amount * IFNULL((SELECT factor FROM quantity_unit_conversions_resolved WHERE product_id = NEW.id AND from_qu_id = OLD.qu_id_stock AND to_qu_id = NEW.qu_id_stock AND source NOT LIKE '1%'), 1.0),
+	price = price / IFNULL((SELECT factor FROM quantity_unit_conversions_resolved WHERE product_id = NEW.id AND from_qu_id = OLD.qu_id_stock AND to_qu_id = NEW.qu_id_stock AND source NOT LIKE '1%'), 1.0)
 	WHERE product_id = NEW.id;
 END;
