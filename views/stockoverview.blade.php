@@ -399,8 +399,16 @@
 						<time class="timeago timeago-contextual"
 							datetime="{{ $currentStockEntry->last_purchased }}"></time>
 					</td>
-					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">
-						<span class="locale-number locale-number-currency">{{ $currentStockEntry->last_price }}</span>
+					<td data-order="{{$currentStockEntry->last_price}}"
+						class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">
+						@if(!empty($currentStockEntry->last_price))
+						<span data-toggle="tooltip"
+							data-trigger="hover click"
+							data-html="true"
+							title="{!! $__t('%1$s per %2$s', '<span class=\'locale-number locale-number-currency\'>' . $currentStockEntry->last_price . '</span>', $currentStockEntry->qu_unit_name) !!}">
+							{!! $__t('%1$s per %2$s', '<span class="locale-number locale-number-currency">' . floatval($currentStockEntry->last_price) * floatval($currentStockEntry->product_qu_factor_purchase_to_stock) . '</span>', $currentStockEntry->qu_purchase_unit_name) !!}
+						</span>
+						@endif
 					</td>
 					<td>
 						<span class="locale-number locale-number-quantity-amount">{{ $currentStockEntry->min_stock_amount }}</span>
@@ -421,8 +429,16 @@
 							class="lazy">
 						@endif
 					</td>
-					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">
-						<span class="locale-number locale-number-currency">{{ $currentStockEntry->average_price }}</span>
+					<td data-order="{{$currentStockEntry->average_price}}"
+						class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">
+						@if(!empty($currentStockEntry->average_price))
+						<span data-toggle="tooltip"
+							data-trigger="hover click"
+							data-html="true"
+							title="{!! $__t('%1$s per %2$s', '<span class=\'locale-number locale-number-currency\'>' . $currentStockEntry->average_price . '</span>', $currentStockEntry->qu_unit_name) !!}">
+							{!! $__t('%1$s per %2$s', '<span class="locale-number locale-number-currency">' . floatval($currentStockEntry->average_price) * floatval($currentStockEntry->product_qu_factor_purchase_to_stock) . '</span>', $currentStockEntry->qu_purchase_unit_name) !!}
+						</span>
+						@endif
 					</td>
 
 					@include('components.userfields_tbody', array(

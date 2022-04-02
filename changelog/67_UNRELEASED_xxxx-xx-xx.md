@@ -28,6 +28,9 @@
 
 - It's now possible to change a products stock QU, even after it was once added to stock
   - When the product was once added to stock, there needs to exist a corresponding unit conversion for the new QU
+- Product card, stock overiew and stock entries page optimizations regarding displaying prices:
+  - Prices are now shown per default purchase quantity unit, instead of per stock QU and when clicking/hovering, a tooltip shows the price per stock QU
+  - The price history chart is now based on the value per purchase QU, instead of per stock QU
 - New product option "Disable own stock" (defaults to disabled)
   - When enabled, the corresponding product can't have own stock, means it will not be selectable on purchase (useful for parent products which are just used as a summary/total view of the child products)
 - The location content sheet can now optionally list also out of stock products (at the products default location, new checkbox "Show only in-stock products " at the top of the page, defaults to enabled)

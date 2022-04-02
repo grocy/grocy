@@ -1181,3 +1181,8 @@ if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_RECIPES)
 		$("#meal-plan-nav-link").attr("href", $("#meal-plan-nav-link").attr("href") + "?start=" + moment().startOf("week").format("YYYY-MM-DD"));
 	}
 }
+
+$('[data-toggle="tooltip"][data-html="true"]').on("shown.bs.tooltip", function()
+{
+	RefreshLocaleNumberDisplay(".tooltip");
+})

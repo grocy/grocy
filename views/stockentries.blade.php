@@ -261,11 +261,15 @@
 						{{ FindObjectInArrayByPropertyValue($shoppinglocations, 'id', $stockEntry->shopping_location_id)->name }}
 						@endif
 					</td>
-					<td id="stock-{{ $stockEntry->id }}-price"
-						class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif"
-						class="locale-number locale-number-currency"
-						data-price-id="{{ $stockEntry->price }}">
-						{{ $stockEntry->price }}
+					<td data-order="{{$stockEntry->price}}"
+						class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">
+						<span id="stock-{{ $stockEntry->id }}-price"
+							data-toggle="tooltip"
+							data-trigger="hover click"
+							data-html="true"
+							title="{!! $__t('%1$s per %2$s', '<span class=\'locale-number locale-number-currency\'>' . $stockEntry->price . '</span>', FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_stock)->name) !!}">
+							{!! $__t('%1$s per %2$s', '<span class="locale-number locale-number-currency">' . floatval($stockEntry->price) * floatval(FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_factor_purchase_to_stock) . '</span>', FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_purchase)->name) !!}
+						</span>
 					</td>
 					<td>
 						<span id="stock-{{ $stockEntry->id }}-purchased-date">{{ $stockEntry->purchased_date }}</span>
