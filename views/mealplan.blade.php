@@ -158,6 +158,18 @@
 				<form id="add-recipe-form"
 					novalidate>
 
+					@include('components.datetimepicker', array(
+					'id' => 'day',
+					'label' => 'Day',
+					'format' => 'YYYY-MM-DD',
+					'initWithNow' => false,
+					'limitEndToNow' => false,
+					'limitStartToNow' => false,
+					'isRequired' => true,
+					'additionalCssClasses' => 'date-only-datetimepicker',
+					'invalidFeedback' => $__t('A date is required')
+					))
+
 					@include('components.recipepicker', array(
 					'recipes' => $recipes,
 					'isRequired' => true,
@@ -321,7 +333,7 @@
 				<form id="copy-day-form"
 					novalidate>
 
-					@include('components.datetimepicker', array(
+					@include('components.datetimepicker2', array(
 					'id' => 'copy_to_date',
 					'label' => 'Day',
 					'format' => 'YYYY-MM-DD',
@@ -329,7 +341,7 @@
 					'limitEndToNow' => false,
 					'limitStartToNow' => false,
 					'isRequired' => true,
-					'additionalCssClasses' => 'date-only-datetimepicker',
+					'additionalCssClasses' => 'date-only-datetimepicker2',
 					'invalidFeedback' => $__t('A date is required')
 					))
 

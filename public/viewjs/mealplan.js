@@ -363,8 +363,11 @@ $(document).on("click", ".add-recipe-button", function(e)
 {
 	var day = $(this).parent().parent().data("date");
 
-	$("#add-recipe-modal-title").text(__t("Add recipe on %s", day.toString()));
-	$("#day").val(day.toString());
+	$("#add-recipe-modal-title").text(__t("Add recipe meal plan entry"));
+	$(".datetimepicker-wrapper").detach().prependTo("#add-recipe-form");
+	$("input#day").detach().appendTo("#add-recipe-form");
+	Grocy.Components.DateTimePicker.Init(true);
+	Grocy.Components.DateTimePicker.SetValue(day);
 	Grocy.Components.RecipePicker.Clear();
 	$("#section_id_note").val(-1);
 	$("#add-recipe-modal").modal("show");
@@ -376,8 +379,11 @@ $(document).on("click", ".add-note-button", function(e)
 {
 	var day = $(this).parent().parent().parent().data("date");
 
-	$("#add-note-modal-title").text(__t("Add note on %s", day.toString()));
-	$("#day").val(day.toString());
+	$("#add-note-modal-title").text(__t("Add note meal plan entry"));
+	$(".datetimepicker-wrapper").detach().prependTo("#add-note-form");
+	$("input#day").detach().appendTo("#add-note-form")
+	Grocy.Components.DateTimePicker.Init(true);
+	Grocy.Components.DateTimePicker.SetValue(day);
 	$("#note").val("");
 	$("#section_id_note").val(-1);
 	$("#add-note-modal").modal("show");
@@ -389,8 +395,11 @@ $(document).on("click", ".add-product-button", function(e)
 {
 	var day = $(this).parent().parent().parent().data("date");
 
-	$("#add-product-modal-title").text(__t("Add product on %s", day.toString()));
-	$("#day").val(day.toString());
+	$("#add-product-modal-title").text(__t("Add product meal plan entry"));
+	$(".datetimepicker-wrapper").detach().prependTo("#add-product-form");
+	$("input#day").detach().appendTo("#add-product-form")
+	Grocy.Components.DateTimePicker.Init(true);
+	Grocy.Components.DateTimePicker.SetValue(day);
 	Grocy.Components.ProductPicker.Clear();
 	$("#section_id_note").val(-1);
 	$("#add-product-modal").modal("show");
@@ -404,8 +413,11 @@ $(document).on("click", ".edit-meal-plan-entry-button", function(e)
 
 	if (mealPlanEntry.type == "recipe")
 	{
-		$("#add-recipe-modal-title").text(__t("Edit recipe on %s", mealPlanEntry.day.toString()));
-		$("#day").val(mealPlanEntry.day.toString());
+		$(".datetimepicker-wrapper").detach().prependTo("#add-recipe-form");
+		$("input#day").detach().appendTo("#add-recipe-form")
+		Grocy.Components.DateTimePicker.Init(true);
+		Grocy.Components.DateTimePicker.SetValue(mealPlanEntry.day);
+		$("#add-recipe-modal-title").text(__t("Edit recipe meal plan entry"));
 		$("#recipe_servings").val(mealPlanEntry.recipe_servings);
 		Grocy.Components.RecipePicker.SetId(mealPlanEntry.recipe_id);
 		$("#add-recipe-modal").modal("show");
@@ -414,8 +426,11 @@ $(document).on("click", ".edit-meal-plan-entry-button", function(e)
 	}
 	else if (mealPlanEntry.type == "product")
 	{
-		$("#add-product-modal-title").text(__t("Edit product on %s", mealPlanEntry.day.toString()));
-		$("#day").val(mealPlanEntry.day.toString());
+		$(".datetimepicker-wrapper").detach().prependTo("#add-product-form");
+		$("input#day").detach().appendTo("#add-product-form")
+		Grocy.Components.DateTimePicker.Init(true);
+		Grocy.Components.DateTimePicker.SetValue(mealPlanEntry.day);
+		$("#add-product-modal-title").text(__t("Edit product meal plan entry"));
 		Grocy.Components.ProductPicker.SetId(mealPlanEntry.product_id);
 		$("#add-product-modal").modal("show");
 		$("#section_id_product").val(mealPlanEntry.section_id);
@@ -424,8 +439,11 @@ $(document).on("click", ".edit-meal-plan-entry-button", function(e)
 	}
 	else if (mealPlanEntry.type == "note")
 	{
-		$("#add-note-modal-title").text(__t("Edit note on %s", mealPlanEntry.day.toString()));
-		$("#day").val(mealPlanEntry.day.toString());
+		$(".datetimepicker-wrapper").detach().prependTo("#add-note-form");
+		$("input#day").detach().appendTo("#add-note-form");
+		Grocy.Components.DateTimePicker.Init(true);
+		Grocy.Components.DateTimePicker.SetValue(mealPlanEntry.day);
+		$("#add-note-modal-title").text(__t("Edit note meal plan entry"));
 		$("#note").val(mealPlanEntry.note);
 		$("#add-note-modal").modal("show");
 		$("#section_id_note").val(mealPlanEntry.section_id);
@@ -440,8 +458,8 @@ $(document).on("click", ".copy-day-button", function(e)
 	var day = $(this).parent().parent().parent().data("date");
 
 	$("#copy-day-modal-title").text(__t("Copy all meal plan entries of %s", day.toString()));
-	$("#day").val(day.toString());
-	Grocy.Components.DateTimePicker.Clear();
+	Grocy.Components.DateTimePicker.SetValue(day);
+	Grocy.Components.DateTimePicker2.Clear();
 	$("#copy-day-modal").modal("show");
 	Grocy.FrontendHelpers.ValidateForm("copy-day-form");
 	Grocy.IsMealPlanEntryEditAction = false;
@@ -474,7 +492,7 @@ $("#add-product-modal").on("shown.bs.modal", function(e)
 
 $("#copy-day-modal").on("shown.bs.modal", function(e)
 {
-	Grocy.Components.DateTimePicker.GetInputElement().focus();
+	Grocy.Components.DateTimePicker2.GetInputElement().focus();
 })
 
 $(document).on("click", ".remove-recipe-button, .remove-note-button, .remove-product-button", function(e)
@@ -497,17 +515,7 @@ $('#save-add-recipe-button').on('click', function(e)
 {
 	e.preventDefault();
 
-	if (!Grocy.FrontendHelpers.ValidateForm("add-recipe-form", true))
-	{
-		return;
-	}
-
-	if ($(".combobox-menu-visible").length)
-	{
-		return;
-	}
-
-	if (!Grocy.FrontendHelpers.ValidateForm('add-recipe-form'))
+	if (!Grocy.FrontendHelpers.ValidateForm("add-recipe-form", true) || $(".combobox-menu-visible").length)
 	{
 		return false;
 	}
@@ -515,6 +523,7 @@ $('#save-add-recipe-button').on('click', function(e)
 	var formData = $('#add-recipe-form').serializeJSON();
 	formData.section_id = formData.section_id_recipe;
 	delete formData.section_id_recipe;
+	formData.day = Grocy.Components.DateTimePicker.GetValue();
 
 	if (Grocy.IsMealPlanEntryEditAction)
 	{
@@ -548,23 +557,13 @@ $('#save-add-note-button').on('click', function(e)
 {
 	e.preventDefault();
 
-	if (!Grocy.FrontendHelpers.ValidateForm("add-note-form", true))
-	{
-		return;
-	}
-
-	if ($(".combobox-menu-visible").length)
-	{
-		return;
-	}
-
-	if (!Grocy.FrontendHelpers.ValidateForm('add-note-form'))
+	if (!Grocy.FrontendHelpers.ValidateForm("add-note-form", true) || $(".combobox-menu-visible").length)
 	{
 		return false;
 	}
 
 	var jsonData = $('#add-note-form').serializeJSON();
-	jsonData.day = $("#day").val();
+	jsonData.day = Grocy.Components.DateTimePicker.GetValue();
 	jsonData.section_id = jsonData.section_id_note;
 	delete jsonData.section_id_note;
 
@@ -601,23 +600,13 @@ $('#save-add-product-button').on('click', function(e)
 {
 	e.preventDefault();
 
-	if (!Grocy.FrontendHelpers.ValidateForm("add-product-form", true))
-	{
-		return;
-	}
-
-	if ($(".combobox-menu-visible").length)
-	{
-		return;
-	}
-
-	if (!Grocy.FrontendHelpers.ValidateForm('add-product-form'))
+	if (!Grocy.FrontendHelpers.ValidateForm("add-product-form", true) || $(".combobox-menu-visible").length)
 	{
 		return false;
 	}
 
 	var jsonData = $('#add-product-form').serializeJSON();
-	jsonData.day = $("#day").val();
+	jsonData.day = Grocy.Components.DateTimePicker.GetValue();;
 	delete jsonData.display_amount;
 	jsonData.product_amount = jsonData.amount;
 	delete jsonData.amount;
@@ -662,16 +651,11 @@ $('#save-copy-day-button').on('click', function(e)
 
 	if (!Grocy.FrontendHelpers.ValidateForm("copy-day-form", true))
 	{
-		return;
-	}
-
-	if (!Grocy.FrontendHelpers.ValidateForm('copy-day-form'))
-	{
 		return false;
 	}
 
-	var dayFrom = $("#day").val();
-	var dayTo = Grocy.Components.DateTimePicker.GetValue();
+	var dayFrom = Grocy.Components.DateTimePicker.GetValue();
+	var dayTo = Grocy.Components.DateTimePicker2.GetValue();
 
 	Grocy.Api.Get('objects/meal_plan?query[]=day=' + dayFrom,
 		function(sourceMealPlanEntries)

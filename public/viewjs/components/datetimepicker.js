@@ -25,8 +25,7 @@ Grocy.Components.DateTimePicker.SetValue = function(value, inputElement = Grocy.
 
 Grocy.Components.DateTimePicker.Clear = function()
 {
-	$(".datetimepicker").datetimepicker("destroy");
-	Grocy.Components.DateTimePicker.Init();
+	Grocy.Components.DateTimePicker.Init(true);
 
 	Grocy.Components.DateTimePicker.GetInputElement().val("");
 
@@ -74,8 +73,13 @@ if (Grocy.Components.DateTimePicker.GetInputElement().data('limit-end-to-now') =
 	limitDate = moment();
 }
 
-Grocy.Components.DateTimePicker.Init = function()
+Grocy.Components.DateTimePicker.Init = function(reInit = false)
 {
+	if (reInit)
+	{
+		$(".datetimepicker").datetimepicker("destroy");
+	}
+
 	$(".datetimepicker").each(function()
 	{
 		$(this).datetimepicker(

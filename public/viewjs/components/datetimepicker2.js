@@ -25,8 +25,7 @@ Grocy.Components.DateTimePicker2.SetValue = function(value, inputElement = Grocy
 
 Grocy.Components.DateTimePicker2.Clear = function()
 {
-	$(".datetimepicker2").datetimepicker("destroy");
-	Grocy.Components.DateTimePicker2.Init();
+	Grocy.Components.DateTimePicker2.Init(true);
 
 	Grocy.Components.DateTimePicker2.GetInputElement().val("");
 
@@ -50,11 +49,11 @@ Grocy.Components.DateTimePicker2.ChangeFormat = function(format)
 
 	if (format == "YYYY-MM-DD")
 	{
-		Grocy.Components.DateTimePicker2.GetInputElement().addClass("date-only-datetimepicker");
+		Grocy.Components.DateTimePicker2.GetInputElement().addClass("date-only-datetimepicker2");
 	}
 	else
 	{
-		Grocy.Components.DateTimePicker2.GetInputElement().removeClass("date-only-datetimepicker");
+		Grocy.Components.DateTimePicker2.GetInputElement().removeClass("date-only-datetimepicker2");
 	}
 }
 
@@ -74,8 +73,13 @@ if (Grocy.Components.DateTimePicker2.GetInputElement().data('limit-end-to-now') 
 	limitDate = moment();
 }
 
-Grocy.Components.DateTimePicker2.Init = function()
+Grocy.Components.DateTimePicker2.Init = function(reInit = false)
 {
+	if (reInit)
+	{
+		$(".datetimepicker2").datetimepicker("destroy");
+	}
+
 	$(".datetimepicker2").each(function()
 	{
 		$(this).datetimepicker(
