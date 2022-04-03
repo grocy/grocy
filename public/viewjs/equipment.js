@@ -80,7 +80,7 @@ function DisplayEquipment(id)
 								$("#file-userfield-" + userfield.name + "-download-button").addClass("d-none");
 								$("#file-userfield-" + userfield.name + "-empty-hint").removeClass("d-none");
 							}
-						});;
+						});
 					},
 					function(xhr)
 					{

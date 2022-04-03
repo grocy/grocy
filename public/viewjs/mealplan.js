@@ -606,11 +606,11 @@ $('#save-add-product-button').on('click', function(e)
 	}
 
 	var jsonData = $('#add-product-form').serializeJSON();
-	jsonData.day = Grocy.Components.DateTimePicker.GetValue();;
+	jsonData.day = Grocy.Components.DateTimePicker.GetValue();
 	delete jsonData.display_amount;
 	jsonData.product_amount = jsonData.amount;
 	delete jsonData.amount;
-	jsonData.product_qu_id = $("#qu_id").val();;
+	jsonData.product_qu_id = $("#qu_id").val();
 	delete jsonData.qu_id;
 	jsonData.section_id = jsonData.section_id_product;
 	delete jsonData.section_id_product;

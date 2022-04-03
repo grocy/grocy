@@ -88,7 +88,7 @@
 						Grocy.Api.UploadFile($("#instruction-manual")[0].files[0], 'equipmentmanuals', jsonData.instruction_manual_file_name,
 							function(result)
 							{
-								window.location.href = U('/equipment');;
+								window.location.href = U('/equipment');
 							},
 							function(xhr)
 							{
@@ -99,7 +99,7 @@
 					}
 					else
 					{
-						window.location.href = U('/equipment');;
+						window.location.href = U('/equipment');
 					}
 				});
 			},
