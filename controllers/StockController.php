@@ -423,7 +423,9 @@ class StockController extends BaseController
 
 	public function ShoppingListSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		return $this->renderPage($response, 'shoppinglistsettings');
+		return $this->renderPage($response, 'shoppinglistsettings', [
+			'shoppingLists' => $this->getDatabase()->shopping_lists()->orderBy('name', 'COLLATE NOCASE')
+		]);
 	}
 
 	public function ShoppingLocationEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)

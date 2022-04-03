@@ -39,6 +39,7 @@
 
 ### Shopping list
 
+- Added a new shopping list setting (top right corner settings menu) to automatically add products, that are below their defined min. stock amount, to the shopping list
 - Fixed that when using "Add products that are below defined min. stock amount", the calculated missing amount was wrong for products which had the new product option `Treat opened as out of stock` set and when having at least one opened stock entry
 
 ### Recipes

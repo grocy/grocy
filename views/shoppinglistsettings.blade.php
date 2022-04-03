@@ -27,6 +27,27 @@
 					{{ $__t('Show a month-view calendar') }}
 				</label>
 			</div>
+
+			<div class="custom-control custom-checkbox">
+				<input type="checkbox"
+					class="form-check-input custom-control-input user-setting-control"
+					id="stock_auto_add_below_min_stock_amount_to_shopping_list"
+					data-setting-key="stock_auto_add_below_min_stock_amount_to_shopping_list">
+				<label class="form-check-label custom-control-label"
+					for="stock_auto_add_below_min_stock_amount_to_shopping_list">
+					{{ $__t('Automatically add products that are below their defined min. stock amount to the shopping list') }}
+					<select class="custom-control custom-select user-setting-control"
+						id="stock_auto_add_below_min_stock_amount_to_shopping_list_id"
+						data-setting-key="stock_auto_add_below_min_stock_amount_to_shopping_list_id"
+						@if(!boolval($userSettings['stock_auto_add_below_min_stock_amount_to_shopping_list']))
+						disabled
+						@endif>
+						@foreach($shoppingLists as $shoppingList)
+						<option value="{{ $shoppingList->id }}">{{ $shoppingList->name }}</option>
+						@endforeach
+					</select>
+				</label>
+			</div>
 		</div>
 
 		<h4 class="mt-2">{{ $__t('Shopping list to stock workflow') }}</h4>
