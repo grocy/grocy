@@ -16,6 +16,7 @@
 @php if(!isset($nextInputSelector)) { $nextInputSelector = false; } @endphp
 @php if(empty($additionalAttributes)) { $additionalAttributes = ''; } @endphp
 @php if(empty($additionalGroupCssClasses)) { $additionalGroupCssClasses = ''; } @endphp
+@php if(empty($activateNumberPad)) { $activateNumberPad = false; } @endphp
 
 <div class="datetimepicker2-wrapper form-group {{ $additionalGroupCssClasses }}">
 	<label for="{{ $id }}">{{ $__t($label) }}
@@ -41,10 +42,11 @@
 				$additionalAttributes
 				!!}
 				type="text"
-				@if($isRequired)
+				@if($activateNumberPad)
+				inputmode="numeric"
+				@endif
 				@if($isRequired)
 				required
-				@endif
 				@endif
 				class="form-control datetimepicker2-input @if(!empty($additionalCssClasses)){{ $additionalCssClasses }}@endif"
 				data-target="#{{ $id }}"

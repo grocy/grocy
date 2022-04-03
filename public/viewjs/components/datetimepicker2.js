@@ -86,7 +86,7 @@ Grocy.Components.DateTimePicker2.Init = function(reInit = false)
 			{
 				format: $(this).find("input").data('format'),
 				buttons: {
-					showToday: true,
+					showToday: Grocy.Components.DateTimePicker2.GetInputElement().data('limit-end-to-now') !== true,
 					showClose: true
 				},
 				calendarWeeks: Grocy.CalendarShowWeekNumbers,
@@ -101,9 +101,9 @@ Grocy.Components.DateTimePicker2.Init = function(reInit = false)
 					down: 'fas fa-arrow-down',
 					previous: 'fas fa-chevron-left',
 					next: 'fas fa-chevron-right',
-					today: 'fas fa-calendar-check',
+					today: 'fas fa-calendar-day',
 					clear: 'far fa-trash-alt',
-					close: 'far fa-times-circle'
+					close: 'fas fa-check'
 				},
 				sideBySide: true,
 				keyBinds: {

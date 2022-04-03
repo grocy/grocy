@@ -46,9 +46,7 @@
 				inputmode="numeric"
 				@endif
 				@if($isRequired)
-				@if($isRequired)
 				required
-				@endif
 				@endif
 				class="form-control datetimepicker-input @if(!empty($additionalCssClasses)){{ $additionalCssClasses }}@endif"
 				data-target="#{{ $id }}"
