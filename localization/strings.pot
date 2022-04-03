@@ -1131,9 +1131,6 @@ msgstr ""
 msgid "Meal plan"
 msgstr ""
 
-msgid "Add recipe on %s"
-msgstr ""
-
 msgid "%s serving"
 msgid_plural "%s servings"
 msgstr[0] ""
@@ -1517,9 +1514,6 @@ msgstr ""
 msgid "Add note"
 msgstr ""
 
-msgid "Add note on %s"
-msgstr ""
-
 msgid "per day"
 msgstr ""
 
@@ -1527,9 +1521,6 @@ msgid "Only undone items"
 msgstr ""
 
 msgid "Add product"
-msgstr ""
-
-msgid "Add product on %s"
 msgstr ""
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
@@ -1578,15 +1569,6 @@ msgid "Shopping list settings"
 msgstr ""
 
 msgid "Show a month-view calendar"
-msgstr ""
-
-msgid "Edit note on %s"
-msgstr ""
-
-msgid "Edit product on %s"
-msgstr ""
-
-msgid "Edit recipe on %s"
 msgstr ""
 
 msgid "Desired servings"
