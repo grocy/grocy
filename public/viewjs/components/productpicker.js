@@ -51,6 +51,11 @@ Grocy.Components.ProductPicker.InAnyFlow = function()
 
 Grocy.Components.ProductPicker.FinishFlow = function()
 {
+	if (GetUriParam("flow") == "InplaceAddBarcodeToExistingProduct")
+	{
+		$("#product_id option[value=\"" + Grocy.Components.ProductPicker.GetValue() + "\"]").attr("data-additional-searchdata", (i, value) => `${value || ""}${GetUriParam("barcode")},`);
+	}
+
 	RemoveUriParam("flow");
 	RemoveUriParam("barcode");
 	RemoveUriParam("product-name");
