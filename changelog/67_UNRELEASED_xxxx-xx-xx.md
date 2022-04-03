@@ -63,8 +63,8 @@
   - This period type scheduled chores `n` days _after the last execution_ before, which is also possible by using the `Hourly` period type and a corresponding period interval; all existing `Daily` schedules will be converted to that on migration
 - It's now possible to manually reschedule / assign chores
   - New entry "Reschedule next execution" in the context/more menu on the chores overview page
-  - If you have rescheduled a chore and want to continue the normal schedule instead, use the "Clear" button in the dialog
-  - Rescheduled chores will be highlighted with an corresponding icon next to the "next estiamted tracking date"
+  - If you have rescheduled a chore and want to continue the normal schedule/assignment instead, use the "Clear" button in the dialog
+  - Rescheduled/reassigned chores will be highlighted with an corresponding icon next to the "Next estimated tracking date" / "Assigned to"
 - Optimized that when skipping chores via the chore tracking page, the given time is used as the "skipped time", not the scheduled next estimated tracking time of the corresponding chore (essentially making it possible to skip more then one schedule at once)
 - Fixed that when consuming a parent product on chore execution (chore option "Consume product on chore execution"), no child products were used if the parent product itself is not in-stock
 - Fixed that the upgrade to v3.2.0 failed when having any former "Dynamic Regular" chore with a "Period interval" of `0` (which makes absolutely no sense in reality)
@@ -91,13 +91,13 @@
 
 ### Userfields
 
-- xxx
+- Userfields of type "Date & time" and "Date (without time)" have now the option to default to now / today for new objects (new Userfield option "Default value")
 
 ### General
 
 - Optimized form validation: Save / submit buttons are now not disabled when the form is invalid, the invalid / missing fields are instead highlighted when trying to submit / save the form (making it more obvious which fields are invalid / missing exactly)
 - Night mode can now use / follow the system preferred color scheme
-  - The user setting `night_mode_enabled` has been removed and replaced by `night_mode` which now defaults to `follow-system` (which uses the system preferred color scheme)
+  - The view/user setting "Enable night mode" has been removed and replaced by "Night mode" which now defaults to "Use system setting" (which uses the system preferred color scheme, "On" and "Off" are other possible options to always enable/disable night mode)
 - Fixed an server error (on every page) when not having any quantity unit
 
 ### API

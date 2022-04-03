@@ -2356,3 +2356,9 @@ msgstr ""
 
 msgid "Reassigned"
 msgstr ""
+
+msgid "Default value"
+msgstr ""
+
+msgid "Now / today"
+msgstr ""

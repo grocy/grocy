@@ -106,6 +106,9 @@ $("#type").on("change", function(e)
 		$("#config").parent().addClass("d-none");
 		$("#config-hint").text("");
 	}
+
+	$("#default-value-group").addClass("d-none");
+	$("#default-value-group.userfield-type-" + value).removeClass("d-none");
 });
 
 $('#entity').focus();

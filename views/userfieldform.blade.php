@@ -118,6 +118,20 @@
 					name="config">@if($mode == 'edit'){{ $userfield->config }}@endif</textarea>
 			</div>
 
+			<div id="default-value-group"
+				class="form-group d-none userfield-type-date userfield-type-datetime">
+				<label for="entity">{{ $__t('Default value') }}</label>
+				<select class="custom-control custom-select"
+					id="default_value"
+					name="default_value">
+					<option></option>
+					<option value="now"
+						@if($mode=='edit'
+						&&
+						$userfield->default_value == 'now') selected="selected" @endif>{{ $__t('Now / today') }}</option>
+				</select>
+			</div>
+
 			<div class="form-group">
 				<div class="custom-control custom-checkbox">
 					<input @if($mode=='edit'
