@@ -2345,20 +2345,8 @@ msgstr ""
 msgid "Now / today"
 msgstr ""
 
-msgid "Add recipe meal plan entry"
+msgid "Add meal plan entry"
 msgstr ""
 
-msgid "Add note meal plan entry"
-msgstr ""
-
-msgid "Add product meal plan entry"
-msgstr ""
-
-msgid "Edit note meal plan entry"
-msgstr ""
-
-msgid "Edit product meal plan entry"
-msgstr ""
-
-msgid "Edit recipe meal plan entry"
+msgid "Edit meal plan entry"
 msgstr ""

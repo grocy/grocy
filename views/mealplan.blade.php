@@ -151,8 +151,10 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h4 id="add-recipe-modal-title"
-					class="modal-title w-100"></h4>
+				<h4 class="modal-title w-100">
+					<span id="add-recipe-modal-title"></span>
+					<span class="text-muted float-right">{{ $__t('Recipe') }}</span>
+				</h4>
 			</div>
 			<div class="modal-body">
 				<form id="add-recipe-form"
@@ -224,8 +226,10 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h4 id="add-note-modal-title"
-					class="modal-title w-100"></h4>
+				<h4 class="modal-title w-100">
+					<span id="add-note-modal-title"></span>
+					<span class="text-muted float-right">{{ $__t('Note') }}</span>
+				</h4>
 			</div>
 			<div class="modal-body">
 				<form id="add-note-form"
@@ -274,8 +278,10 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h4 id="add-product-modal-title"
-					class="modal-title w-100"></h4>
+				<h4 class="modal-title w-100">
+					<span id="add-product-modal-title"></span>
+					<span class="text-muted float-right">{{ $__t('Product') }}</span>
+				</h4>
 			</div>
 			<div class="modal-body">
 				<form id="add-product-form"

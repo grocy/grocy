@@ -363,7 +363,7 @@ $(document).on("click", ".add-recipe-button", function(e)
 {
 	var day = $(this).parent().parent().data("date");
 
-	$("#add-recipe-modal-title").text(__t("Add recipe meal plan entry"));
+	$("#add-recipe-modal-title").text(__t("Add meal plan entry"));
 	$(".datetimepicker-wrapper").detach().prependTo("#add-recipe-form");
 	$("input#day").detach().appendTo("#add-recipe-form");
 	Grocy.Components.DateTimePicker.Init(true);
@@ -379,7 +379,7 @@ $(document).on("click", ".add-note-button", function(e)
 {
 	var day = $(this).parent().parent().parent().data("date");
 
-	$("#add-note-modal-title").text(__t("Add note meal plan entry"));
+	$("#add-note-modal-title").text(__t("Add meal plan entry"));
 	$(".datetimepicker-wrapper").detach().prependTo("#add-note-form");
 	$("input#day").detach().appendTo("#add-note-form")
 	Grocy.Components.DateTimePicker.Init(true);
@@ -395,7 +395,7 @@ $(document).on("click", ".add-product-button", function(e)
 {
 	var day = $(this).parent().parent().parent().data("date");
 
-	$("#add-product-modal-title").text(__t("Add product meal plan entry"));
+	$("#add-product-modal-title").text(__t("Add meal plan entry"));
 	$(".datetimepicker-wrapper").detach().prependTo("#add-product-form");
 	$("input#day").detach().appendTo("#add-product-form")
 	Grocy.Components.DateTimePicker.Init(true);
@@ -417,7 +417,7 @@ $(document).on("click", ".edit-meal-plan-entry-button", function(e)
 		$("input#day").detach().appendTo("#add-recipe-form")
 		Grocy.Components.DateTimePicker.Init(true);
 		Grocy.Components.DateTimePicker.SetValue(mealPlanEntry.day);
-		$("#add-recipe-modal-title").text(__t("Edit recipe meal plan entry"));
+		$("#add-recipe-modal-title").text(__t("Edit meal plan entry"));
 		$("#recipe_servings").val(mealPlanEntry.recipe_servings);
 		Grocy.Components.RecipePicker.SetId(mealPlanEntry.recipe_id);
 		$("#add-recipe-modal").modal("show");
@@ -430,7 +430,7 @@ $(document).on("click", ".edit-meal-plan-entry-button", function(e)
 		$("input#day").detach().appendTo("#add-product-form")
 		Grocy.Components.DateTimePicker.Init(true);
 		Grocy.Components.DateTimePicker.SetValue(mealPlanEntry.day);
-		$("#add-product-modal-title").text(__t("Edit product meal plan entry"));
+		$("#add-product-modal-title").text(__t("Edit meal plan entry"));
 		Grocy.Components.ProductPicker.SetId(mealPlanEntry.product_id);
 		$("#add-product-modal").modal("show");
 		$("#section_id_product").val(mealPlanEntry.section_id);
@@ -443,7 +443,7 @@ $(document).on("click", ".edit-meal-plan-entry-button", function(e)
 		$("input#day").detach().appendTo("#add-note-form");
 		Grocy.Components.DateTimePicker.Init(true);
 		Grocy.Components.DateTimePicker.SetValue(mealPlanEntry.day);
-		$("#add-note-modal-title").text(__t("Edit note meal plan entry"));
+		$("#add-note-modal-title").text(__t("Edit meal plan entry"));
 		$("#note").val(mealPlanEntry.note);
 		$("#add-note-modal").modal("show");
 		$("#section_id_note").val(mealPlanEntry.section_id);
