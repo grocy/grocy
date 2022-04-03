@@ -34,6 +34,7 @@
 - New product option "Disable own stock" (defaults to disabled)
   - When enabled, the corresponding product can't have own stock, means it will not be selectable on purchase (useful for parent products which are just used as a summary/total view of the child products)
 - The location content sheet can now optionally list also out of stock products (at the products default location, new checkbox "Show only in-stock products " at the top of the page, defaults to enabled)
+- Added a location filter to the stock entries page
 - Added the product grocycode as a (hidden by default) column to the products list (master data)
 - Fixed that consuming via the consume page was not possible when `FEATURE_FLAG_STOCK_LOCATION_TRACKING` was disabled
 

@@ -35,10 +35,27 @@
 		@include('components.productpicker', array(
 		'products' => $products,
 		'disallowAllProductWorkflows' => true,
-		'isRequired' => false
+		'isRequired' => false,
+		'additionalGroupCssClasses' => 'mb-0'
 		))
 	</div>
-	<div class="col">
+	@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
+	<div class="col-12 col-md-6 col-xl-3 mt-auto">
+		<div class="input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Location') }}</span>
+			</div>
+			<select class="custom-control custom-select"
+				id="location-filter">
+				<option value="all">{{ $__t('All') }}</option>
+				@foreach($locations as $location)
+				<option value="{{ $location->id }}">{{ $location->name }}</option>
+				@endforeach
+			</select>
+		</div>
+	</div>
+	@endif
+	<div class="col mt-auto">
 		<div class="float-right mt-3">
 			<a id="clear-filter-button"
 				class="btn btn-sm btn-outline-info"

@@ -29,8 +29,22 @@ $.fn.dataTable.ext.search.push(function(settings, data, dataIndex)
 
 $("#clear-filter-button").on("click", function()
 {
+	$("#location-filter").val("all");
+	$("#location-filter").trigger("change");
 	Grocy.Components.ProductPicker.Clear();
 	stockEntriesTable.draw();
+});
+
+$("#location-filter").on("change", function()
+{
+	var value = $(this).val();
+	var text = $("#location-filter option:selected").text();
+	if (value === "all")
+	{
+		text = "";
+	}
+
+	stockEntriesTable.column(stockEntriesTable.colReorder.transpose(5)).search(text).draw();
 });
 
 Grocy.Components.ProductPicker.GetPicker().on('change', function(e)

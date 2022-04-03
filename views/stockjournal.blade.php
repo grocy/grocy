@@ -73,6 +73,7 @@
 			</select>
 		</div>
 	</div>
+	@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 	<div class="col-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
@@ -87,6 +88,7 @@
 			</select>
 		</div>
 	</div>
+	@endif
 	<div class="col-12 col-md-6 col-xl-2 mt-1">
 		<div class="input-group">
 			<div class="input-group-prepend">

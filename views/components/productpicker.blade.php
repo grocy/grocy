@@ -14,8 +14,9 @@
 @php if(empty($hint)) { $hint = ''; } @endphp
 @php if(empty($nextInputSelector)) { $nextInputSelector = ''; } @endphp
 @php if(empty($validationMessage)) { $validationMessage = 'You have to select a product'; } @endphp
+@php if(empty($additionalGroupCssClasses)) { $additionalGroupCssClasses = ''; } @endphp
 
-<div class="form-group"
+<div class="form-group {{ $additionalGroupCssClasses }}"
 	data-next-input-selector="{{ $nextInputSelector }}"
 	data-disallow-add-product-workflows="{{ BoolToString($disallowAddProductWorkflows) }}"
 	data-disallow-all-product-workflows="{{ BoolToString($disallowAllProductWorkflows) }}"
