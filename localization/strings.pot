@@ -2353,3 +2353,6 @@ msgstr ""
 
 msgid "Automatically add products that are below their defined min. stock amount to the shopping list"
 msgstr ""
+
+msgid "Reassigned"
+msgstr ""

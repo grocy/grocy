@@ -152,18 +152,28 @@ $(document).on('click', '.track-chore-button', function(e)
 							$('#chore-' + choreId + '-last-tracked-time').text(trackedTime);
 							$('#chore-' + choreId + '-last-tracked-time-timeago').attr('datetime', trackedTime);
 
-							if (result.chore.period_type != "manually")
+							if (result.next_estimated_execution_time != null && !result.next_estimated_execution_time.isEmpty())
 							{
 								$('#chore-' + choreId + '-next-execution-time').text(result.next_estimated_execution_time);
 								$('#chore-' + choreId + '-next-execution-time-timeago').attr('datetime', result.next_estimated_execution_time);
+							}
+							else
+							{
+								$('#chore-' + choreId + '-next-execution-time').text("-");
+								$('#chore-' + choreId + '-next-execution-time-timeago').removeAttr('datetime');
 							}
 
 							if (result.chore.next_execution_assigned_to_user_id != null)
 							{
 								$('#chore-' + choreId + '-next-execution-assigned-user').text(result.next_execution_assigned_user.display_name);
 							}
+							else
+							{
+								$('#chore-' + choreId + '-next-execution-assigned-user').text("-");
+							}
 
-							$('#chore-' + choreId + '-reschedule-icon').remove();
+							$('#chore-' + choreId + '-rescheduled-icon').remove();
+							$('#chore-' + choreId + '-reassigned-icon').remove();
 
 							Grocy.FrontendHelpers.EndUiBusy();
 							toastr.success(__t('Tracked execution of chore %1$s on %2$s', choreName, trackedTime));
@@ -280,7 +290,7 @@ $(document).on("click", ".reschedule-chore-button", function(e)
 	Grocy.EditObjectId = choreId;
 	Grocy.Api.Get("chores/" + choreId, function(choreDetails)
 	{
-		var prefillDate = choreDetails.next_estimated_execution_time;
+		var prefillDate = choreDetails.next_estimated_execution_time || moment().format("YYYY-MM-DD HH:mm:ss");
 		if (choreDetails.chore.rescheduled_date != null && !choreDetails.chore.rescheduled_date.isEmpty())
 		{
 			prefillDate = choreDetails.chore.rescheduled_date;
@@ -297,6 +307,16 @@ $(document).on("click", ".reschedule-chore-button", function(e)
 			Grocy.Components.DateTimePicker.SetValue(moment(prefillDate).format("YYYY-MM-DD HH:mm:ss"));
 		}
 
+		if (choreDetails.chore.next_execution_assigned_to_user_id != null && !choreDetails.chore.next_execution_assigned_to_user_id.isEmpty())
+		{
+			Grocy.Components.UserPicker.SetId(choreDetails.chore.next_execution_assigned_to_user_id)
+		}
+		else
+		{
+			Grocy.Components.UserPicker.SetValue("");
+			Grocy.Components.UserPicker.SetId(null);
+		}
+
 		$("#reschedule-chore-modal-title").text(choreDetails.chore.name);
 		$("#reschedule-chore-modal").modal("show");
 	});
@@ -311,10 +331,19 @@ $("#reschedule-chore-save-button").on("click", function(e)
 		return;
 	}
 
-	Grocy.Api.Put('objects/chores/' + Grocy.EditObjectId, { "rescheduled_date": Grocy.Components.DateTimePicker.GetValue() },
+	Grocy.Api.Put('objects/chores/' + Grocy.EditObjectId, { "rescheduled_date": Grocy.Components.DateTimePicker.GetValue(), "rescheduled_next_execution_assigned_to_user_id": Grocy.Components.UserPicker.GetValue() },
 		function(result)
 		{
-			window.location.reload();
+			Grocy.Api.Post('chores/executions/calculate-next-assignments', { "chore_id": Grocy.EditObjectId },
+				function(result)
+				{
+					window.location.reload();
+				},
+				function(xhr)
+				{
+					console.error(xhr);
+				}
+			);
 		},
 		function(xhr)
 		{
@@ -327,10 +356,19 @@ $("#reschedule-chore-clear-button").on("click", function(e)
 {
 	e.preventDefault();
 
-	Grocy.Api.Put('objects/chores/' + Grocy.EditObjectId, { "rescheduled_date": null },
+	Grocy.Api.Put('objects/chores/' + Grocy.EditObjectId, { "rescheduled_date": null, "rescheduled_next_execution_assigned_to_user_id": null },
 		function(result)
 		{
-			window.location.reload();
+			Grocy.Api.Post('chores/executions/calculate-next-assignments', { "chore_id": Grocy.EditObjectId },
+				function(result)
+				{
+					window.location.reload();
+				},
+				function(xhr)
+				{
+					console.error(xhr);
+				}
+			);
 		},
 		function(xhr)
 		{

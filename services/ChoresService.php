@@ -34,66 +34,74 @@ class ChoresService extends BaseService
 		}
 
 		$chore = $this->getDatabase()->chores($choreId);
-		$choreLastTrackedTime = $this->getDatabase()->chores_log()->where('chore_id = :1 AND undone = 0', $choreId)->max('tracked_time');
-		$lastChoreLogRow = $this->getDatabase()->chores_log()->where('chore_id = :1 AND tracked_time = :2 AND undone = 0', $choreId, $choreLastTrackedTime)->orderBy('row_created_timestamp', 'DESC')->fetch();
-		$lastDoneByUserId = $lastChoreLogRow->done_by_user_id;
 
-		$users = $this->getUsersService()->GetUsersAsDto();
-		$assignedUsers = [];
-		foreach ($users as $user)
+		if (!empty($chore->rescheduled_next_execution_assigned_to_user_id))
 		{
-			if (in_array($user->id, explode(',', $chore->assignment_config)))
-			{
-				$assignedUsers[] = $user;
-			}
+			$nextExecutionUserId = $chore->rescheduled_next_execution_assigned_to_user_id;
 		}
-
-		$nextExecutionUserId = null;
-		if ($chore->assignment_type == self::CHORE_ASSIGNMENT_TYPE_RANDOM)
+		else
 		{
-			// Random assignment and only 1 user in the group? Well, ok - will be hard to guess the next one...
-			if (count($assignedUsers) == 1)
-			{
-				$nextExecutionUserId = array_shift($assignedUsers)->id;
-			}
-			else
-			{
-				$nextExecutionUserId = $assignedUsers[array_rand($assignedUsers)]->id;
-			}
-		}
-		elseif ($chore->assignment_type == self::CHORE_ASSIGNMENT_TYPE_IN_ALPHABETICAL_ORDER)
-		{
-			usort($assignedUsers, function ($a, $b) {
-				return strcmp($a->display_name, $b->display_name);
-			});
+			$choreLastTrackedTime = $this->getDatabase()->chores_log()->where('chore_id = :1 AND undone = 0', $choreId)->max('tracked_time');
+			$lastChoreLogRow = $this->getDatabase()->chores_log()->where('chore_id = :1 AND tracked_time = :2 AND undone = 0', $choreId, $choreLastTrackedTime)->orderBy('row_created_timestamp', 'DESC')->fetch();
+			$lastDoneByUserId = $lastChoreLogRow->done_by_user_id;
 
-			$nextRoundMatches = false;
-			foreach ($assignedUsers as $user)
+			$users = $this->getUsersService()->GetUsersAsDto();
+			$assignedUsers = [];
+			foreach ($users as $user)
 			{
-				if ($nextRoundMatches)
+				if (in_array($user->id, explode(',', $chore->assignment_config)))
 				{
-					$nextExecutionUserId = $user->id;
-					break;
-				}
-
-				if ($user->id == $lastDoneByUserId)
-				{
-					$nextRoundMatches = true;
+					$assignedUsers[] = $user;
 				}
 			}
 
-			// If nothing has matched, probably it was the last user in the sorted list -> the first one is the next one
-			if ($nextExecutionUserId == null)
+			$nextExecutionUserId = null;
+			if ($chore->assignment_type == self::CHORE_ASSIGNMENT_TYPE_RANDOM)
 			{
-				$nextExecutionUserId = array_shift($assignedUsers)->id;
+				// Random assignment and only 1 user in the group? Well, ok - will be hard to guess the next one...
+				if (count($assignedUsers) == 1)
+				{
+					$nextExecutionUserId = array_shift($assignedUsers)->id;
+				}
+				else
+				{
+					$nextExecutionUserId = $assignedUsers[array_rand($assignedUsers)]->id;
+				}
 			}
-		}
-		elseif ($chore->assignment_type == self::CHORE_ASSIGNMENT_TYPE_WHO_LEAST_DID_FIRST)
-		{
-			$row = $this->getDatabase()->chores_execution_users_statistics()->where('chore_id = :1', $choreId)->orderBy('execution_count')->limit(1)->fetch();
-			if ($row != null)
+			elseif ($chore->assignment_type == self::CHORE_ASSIGNMENT_TYPE_IN_ALPHABETICAL_ORDER)
 			{
-				$nextExecutionUserId = $row->user_id;
+				usort($assignedUsers, function ($a, $b) {
+					return strcmp($a->display_name, $b->display_name);
+				});
+
+				$nextRoundMatches = false;
+				foreach ($assignedUsers as $user)
+				{
+					if ($nextRoundMatches)
+					{
+						$nextExecutionUserId = $user->id;
+						break;
+					}
+
+					if ($user->id == $lastDoneByUserId)
+					{
+						$nextRoundMatches = true;
+					}
+				}
+
+				// If nothing has matched, probably it was the last user in the sorted list -> the first one is the next one
+				if ($nextExecutionUserId == null)
+				{
+					$nextExecutionUserId = array_shift($assignedUsers)->id;
+				}
+			}
+			elseif ($chore->assignment_type == self::CHORE_ASSIGNMENT_TYPE_WHO_LEAST_DID_FIRST)
+			{
+				$row = $this->getDatabase()->chores_execution_users_statistics()->where('chore_id = :1', $choreId)->orderBy('execution_count')->limit(1)->fetch();
+				if ($row != null)
+				{
+					$nextExecutionUserId = $row->user_id;
+				}
 			}
 		}
 
@@ -197,8 +205,6 @@ class ChoresService extends BaseService
 		$logRow->save();
 		$lastInsertId = $this->getDatabase()->lastInsertId();
 
-		$this->CalculateNextExecutionAssignment($choreId);
-
 		if ($chore->consume_product_on_execution == 1 && !empty($chore->product_id))
 		{
 			$transactionId = uniqid();
@@ -211,6 +217,15 @@ class ChoresService extends BaseService
 				'rescheduled_date' => null
 			]);
 		}
+
+		if (!empty($chore->rescheduled_next_execution_assigned_to_user_id))
+		{
+			$chore->update([
+				'rescheduled_next_execution_assigned_to_user_id' => null
+			]);
+		}
+
+		$this->CalculateNextExecutionAssignment($choreId);
 
 		return $lastInsertId;
 	}

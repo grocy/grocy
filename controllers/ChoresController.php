@@ -98,7 +98,7 @@ class ChoresController extends BaseController
 		$currentChores = $this->getChoresService()->GetCurrent();
 		foreach ($currentChores as $currentChore)
 		{
-			if (FindObjectInArrayByPropertyValue($chores, 'id', $currentChore->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_PERIOD_TYPE_MANUALLY)
+			if (!empty($currentChore->next_estimated_execution_time))
 			{
 				if ($currentChore->next_estimated_execution_time < date('Y-m-d H:i:s'))
 				{

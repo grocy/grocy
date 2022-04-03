@@ -165,7 +165,7 @@
 								<i class="fas fa-ellipsis-v"></i>
 							</button>
 							<div class="table-inline-menu dropdown-menu dropdown-menu-right">
-								<a class="dropdown-item reschedule-chore-button @if(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type == \Grocy\Services\ChoresService::CHORE_PERIOD_TYPE_MANUALLY) disabled @endif"
+								<a class="dropdown-item reschedule-chore-button"
 									data-chore-id="{{ $curentChoreEntry->chore_id }}"
 									type="button"
 									href="#">
@@ -210,16 +210,18 @@
 						{{ FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name }}
 					</td>
 					<td>
-						@if(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type !== \Grocy\Services\ChoresService::CHORE_PERIOD_TYPE_MANUALLY)
+						@if(!empty($curentChoreEntry->next_estimated_execution_time))
 						<span id="chore-{{ $curentChoreEntry->chore_id }}-next-execution-time">{{ $curentChoreEntry->next_estimated_execution_time }}</span>
 						<time id="chore-{{ $curentChoreEntry->chore_id }}-next-execution-time-timeago"
 							class="timeago timeago-contextual @if($curentChoreEntry->track_date_only == 1) timeago-date-only @endif"
 							datetime="{{ $curentChoreEntry->next_estimated_execution_time }}"></time>
 						@else
-						<span>-</span>
+						<span id="chore-{{ $curentChoreEntry->chore_id }}-next-execution-time">-</span>
+						<time id="chore-{{ $curentChoreEntry->chore_id }}-next-execution-time-timeago"
+							class="timeago timeago-contextual @if($curentChoreEntry->track_date_only == 1) timeago-date-only @endif"></time>
 						@endif
 						@if($curentChoreEntry->is_rescheduled == 1)
-						<span id="chore-{{ $curentChoreEntry->chore_id }}-reschedule-icon"
+						<span id="chore-{{ $curentChoreEntry->chore_id }}-rescheduled-icon"
 							class="text-muted"
 							data-toggle="tooltip"
 							title="{{ $__t('Rescheduled') }}">
@@ -228,10 +230,16 @@
 						@endif
 					</td>
 					<td>
+						@if(!empty($curentChoreEntry->last_tracked_time))
 						<span id="chore-{{ $curentChoreEntry->chore_id }}-last-tracked-time">{{ $curentChoreEntry->last_tracked_time }}</span>
 						<time id="chore-{{ $curentChoreEntry->chore_id }}-last-tracked-time-timeago"
 							class="timeago timeago-contextual @if($curentChoreEntry->track_date_only == 1) timeago-date-only @endif"
 							datetime="{{ $curentChoreEntry->last_tracked_time }}"></time>
+						@else
+						<span id="chore-{{ $curentChoreEntry->chore_id }}-last-tracked-time">-</span>
+						<time id="chore-{{ $curentChoreEntry->chore_id }}-last-tracked-time-timeago"
+							class="timeago timeago-contextual @if($curentChoreEntry->track_date_only == 1) timeago-date-only @endif"></time>
+						@endif
 					</td>
 
 					<td class="@if(!GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS) d-none @endif">
@@ -240,6 +248,14 @@
 							{{ FindObjectInArrayByPropertyValue($users, 'id', $curentChoreEntry->next_execution_assigned_to_user_id)->display_name }}
 							@else
 							<span>-</span>
+							@endif
+							@if($curentChoreEntry->is_reassigned == 1)
+							<span id="chore-{{ $curentChoreEntry->chore_id }}-reassigned-icon"
+								class="text-muted"
+								data-toggle="tooltip"
+								title="{{ $__t('Reassigned') }}">
+								<i class="fas fa-exchange-alt"></i>
+							</span>
 							@endif
 						</span>
 					</td>
@@ -307,6 +323,11 @@
 					'limitEndToNow' => false,
 					'limitStartToNow' => true,
 					'invalidFeedback' => $__t('This can only be in the future')
+					))
+
+					@include('components.userpicker', array(
+					'label' => 'Assigned to',
+					'users' => $users
 					))
 
 				</form>

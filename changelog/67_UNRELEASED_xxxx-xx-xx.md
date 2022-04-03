@@ -39,7 +39,7 @@
 
 ### Shopping list
 
-- Added a new shopping list setting (top right corner settings menu) to automatically add products, that are below their defined min. stock amount, to the shopping list
+- Added a new shopping list setting (top right corner settings menu) to automatically add products, that are below their defined min. stock amount, to the shopping list (defaults to disabled)
 - Fixed that when using "Add products that are below defined min. stock amount", the calculated missing amount was wrong for products which had the new product option `Treat opened as out of stock` set and when having at least one opened stock entry
 
 ### Recipes
@@ -61,7 +61,7 @@
 
 - The `Daily` period type has been changed to schedule the chore at the _same time_ (based on the start date) each `n` days
   - This period type scheduled chores `n` days _after the last execution_ before, which is also possible by using the `Hourly` period type and a corresponding period interval; all existing `Daily` schedules will be converted to that on migration
-- It's now possible to manually reschedule chores
+- It's now possible to manually reschedule / assign chores
   - New entry "Reschedule next execution" in the context/more menu on the chores overview page
   - If you have rescheduled a chore and want to continue the normal schedule instead, use the "Clear" button in the dialog
   - Rescheduled chores will be highlighted with an corresponding icon next to the "next estiamted tracking date"

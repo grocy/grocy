@@ -5246,6 +5246,9 @@
 						"type": "string",
 						"format": "date-time"
 					},
+					"rescheduled_next_execution_assigned_to_user_id": {
+						"type": "integer"
+					},
 					"row_created_timestamp": {
 						"type": "string",
 						"format": "date-time"
@@ -5515,6 +5518,12 @@
 					},
 					"next_execution_assigned_to_user_id": {
 						"type": "integer"
+					},
+					"is_rescheduled": {
+						"type": "boolean"
+					},
+					"is_reassigned": {
+						"type": "boolean"
 					},
 					"next_execution_assigned_user": {
 						"$ref": "#/components/schemas/UserDto"
