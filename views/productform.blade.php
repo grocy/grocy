@@ -128,10 +128,33 @@
 				</select>
 				<div class="invalid-feedback">{{ $__t('A location is required') }}</div>
 			</div>
+			<div class="form-group">
+				<label for="default_consume_location_id">
+					{{ $__t('Default consume location') }}
+					<i class="fas fa-question-circle text-muted"
+						data-toggle="tooltip"
+						data-trigger="hover click"
+						title="{{ $__t('Stock entries at this location will be consumed first') }}"></i>
+				</label>
+				<select class="custom-control custom-select"
+					id="default_consume_location_id"
+					name="default_consume_location_id">
+					<option></option>
+					@foreach($locations as $location)
+					<option @if($mode=='edit'
+						&&
+						$location->id == $product->default_consume_location_id) selected="selected" @endif value="{{ $location->id }}">{{ $location->name }}</option>
+					@endforeach
+				</select>
+			</div>
 			@else
 			<input type="hidden"
 				name="location_id"
 				id="location_id"
+				value="1">
+			<input type="hidden"
+				name="default_consume_location_id"
+				id="default_consume_location_id"
 				value="1">
 			@endif
 

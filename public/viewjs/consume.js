@@ -372,22 +372,30 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				RefreshLocaleNumberInput();
 				$(".input-group-productamountpicker").trigger("change");
 
+				var defaultLocationId = productDetails.location.id;
+				if (productDetails.product.default_consume_location_id != null && !productDetails.product.default_consume_location_id.isEmpty())
+				{
+					defaultLocationId = productDetails.product.default_consume_location_id;
+				}
+
 				$("#location_id").find("option").remove().end().append("<option></option>");
 				Grocy.Api.Get("stock/products/" + productId + '/locations?include_sub_products=true',
 					function(stockLocations)
 					{
 						var setDefault = 0;
+						var stockAmountAtDefaultLocation = 0;
 						stockLocations.forEach(stockLocation =>
 						{
-							if (productDetails.location.id == stockLocation.location_id)
+							if (stockLocation.location_id == defaultLocationId)
 							{
 								$("#location_id").append($("<option>", {
 									value: stockLocation.location_id,
 									text: stockLocation.location_name + " (" + __t("Default location") + ")"
 								}));
-								$("#location_id").val(productDetails.location.id);
+								$("#location_id").val(defaultLocationId);
 								$("#location_id").trigger('change');
 								setDefault = 1;
+								stockAmountAtDefaultLocation += Number.parseFloat(stockLocation.amount);
 							}
 							else
 							{
@@ -399,10 +407,16 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 
 							if (setDefault == 0)
 							{
-								$("#location_id").val(stockLocation.location_id);
+								$("#location_id").val(defaultLocationId);
 								$("#location_id").trigger('change');
 							}
 						});
+
+						if (stockAmountAtDefaultLocation == 0)
+						{
+							$("#location_id option")[1].selected = true;
+							$("#location_id").trigger('change');
+						}
 
 						if (document.getElementById("product_id").getAttribute("barcode") != "null")
 						{

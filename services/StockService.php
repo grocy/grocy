@@ -406,10 +406,7 @@ class StockService extends BaseService
 				$potentialStockEntries = FindAllObjectsInArrayByPropertyValue($potentialStockEntries, 'stock_id', $specificStockEntryId);
 			}
 
-			// TODO: This check doesn't really check against products only at the given location
-			// (as GetProductDetails returns the stock_amount_aggregated of all locations)
-			// However, $potentialStockEntries are filtered accordingly, so this currently isn't really a problem at the end
-			$productStockAmount = ((object) $this->GetProductDetails($productId))->stock_amount_aggregated;
+			$productStockAmount = SumArrayValue($potentialStockEntries, 'amount');
 			if ($amount > $productStockAmount)
 			{
 				throw new \Exception('Amount to be consumed cannot be > current stock amount (if supplied, at the desired location)');
@@ -823,13 +820,11 @@ class StockService extends BaseService
 			$sqlWhereAndOpen = 'AND open = 0';
 		}
 
-		$result = $this->getDatabase()->stock()->where($sqlWhereProductId . ' ' . $sqlWhereAndOpen);
+		$result = $this->getDatabase()->stock_next_use()->where($sqlWhereProductId . ' ' . $sqlWhereAndOpen);
 
-		// In order of next use:
-		// Opened first, then first due first, then first in first out
 		if ($ordered)
 		{
-			return $result->orderBy('open', 'DESC')->orderBy('best_before_date', 'ASC')->orderBy('purchased_date', 'ASC');
+			return $result->orderBy('product_id', 'ASC')->orderBy('priority', 'DESC');
 		}
 
 		return $result;

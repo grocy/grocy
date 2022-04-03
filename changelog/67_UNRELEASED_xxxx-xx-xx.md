@@ -31,6 +31,13 @@
 - Product card, stock overiew and stock entries page optimizations regarding displaying prices:
   - Prices are now shown per default purchase quantity unit, instead of per stock QU and when clicking/hovering, a tooltip shows the price per stock QU
   - The price history chart is now based on the value per purchase QU, instead of per stock QU
+- New product option "Default consume location" (not mandatory, defaults to not set / empty)
+  - When set, stock entries at that location will be consumed first
+  - => This will be automatically taken into account when consuming from the stock overview page and all other places where no specific location can be selected
+  - => On the consume page the location is preselected in the following order:
+    - 1. The new default consume location, if the product currently has any stock there, otherwise
+    - 2. The products default location, if the product currently has any stock there, otherwise
+    - 3. The first location where the product currently has any stock
 - New product option "Disable own stock" (defaults to disabled)
   - When enabled, the corresponding product can't have own stock, means it will not be selectable on purchase (useful for parent products which are just used as a summary/total view of the child products)
 - The location content sheet can now optionally list also out of stock products (at the products default location, new checkbox "Show only in-stock products " at the top of the page, defaults to enabled)
