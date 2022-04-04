@@ -13,4 +13,5 @@ Please make sure to:
 
 - Describe what you would find useful
 - Check if your idea was maybe already requested by searching open requests here
+- Keep it to one topic per request
 -->
