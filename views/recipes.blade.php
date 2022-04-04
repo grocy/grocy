@@ -78,13 +78,12 @@
 
 			<div class="col">
 				<div class="float-right mt-1">
-					<a id="clear-filter-button"
+					<button id="clear-filter-button"
 						class="btn btn-sm btn-outline-info"
-						href="#"
 						data-toggle="tooltip"
 						title="{{ $__t('Clear filter') }}">
 						<i class="fa-solid fa-filter-circle-xmark"></i>
-					</a>
+					</button>
 				</div>
 			</div>
 		</div>
