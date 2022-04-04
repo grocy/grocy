@@ -6,6 +6,7 @@
 
 - Stock entries can now have notes
   - For example to distinguish between same, yet different products (e.g. having only a generic product "Chocolate" and note in that field what special one it is exactly this time - an alternative to have sub products)
+  - Or for example to track ownership of stock items when sharing the fridge with your flatmates
   - => New field on the purchase and inventory page
   - => New column on the stock entries and stock journal page
   - => Visible also in the "Use a specific stock item" dropdown on the consume and transfer page
@@ -107,6 +108,7 @@
 - Optimized form validation: Save / submit buttons are now not disabled when the form is invalid, the invalid / missing fields are instead highlighted when trying to submit / save the form (making it more obvious which fields are invalid / missing exactly)
 - Night mode can now use / follow the system preferred color scheme
   - The view/user setting "Enable night mode" has been removed and replaced by "Night mode" which now defaults to "Use system setting" (which uses the system preferred color scheme, "On" and "Off" are other possible options to always enable/disable night mode)
+- Some night mode style refinements
 - Fixed an server error (on every page) when not having any quantity unit
 
 ### API

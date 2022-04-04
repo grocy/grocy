@@ -9,8 +9,8 @@ body.night-mode,
 }
 
 .navbar-light .navbar-toggler {
-    color: rgba(255, 255, 255, .5);
-    border-color: rgba(255, 255, 255,.1);
+	color: rgba(255, 255, 255, .5);
+	border-color: rgba(255, 255, 255, .1);
 }
 
 .night-mode .navbar-light .navbar-toggler-icon {
@@ -18,11 +18,16 @@ body.night-mode,
 }
 
 .night-mode .table-info,
-.night-mode .table-info > td,
-.night-mode .table-info > th,
+.night-mode .table-info>td,
+.night-mode .table-info>th,
 .night-mode .alert-info {
 	background-color: #07373f;
 	color: #6c757d;
+}
+
+.night-mode .table-info>td,
+.night-mode .alert-info {
+	color: #c1c1c1;
 }
 
 .night-mode .table {
@@ -37,7 +42,7 @@ body.night-mode,
 
 .night-mode .btn,
 .night-mode .nav-link,
-.night-mode #mainNav.navbar-light .navbar-collapse .navbar-nav > .nav-item.dropdown > .nav-link::after,
+.night-mode #mainNav.navbar-light .navbar-collapse .navbar-nav>.nav-item.dropdown>.nav-link::after,
 .night-mode #mainNav.navbar-light .navbar-collapse .navbar-sidenav .nav-link-collapse::after,
 .night-mode .dropdown-item {
 	color: #c1c1c1 !important;
@@ -68,7 +73,8 @@ body.night-mode,
 	border-color: #a9810a;
 }
 
-.night-mode .btn-danger {
+.night-mode .btn-danger,
+.night-mode .alert-danger {
 	color: #c1c1c1;
 	background-color: #6f1b23;
 	border-color: #6f1b23;
@@ -109,14 +115,14 @@ body.night-mode,
 }
 
 .night-mode .table-danger,
-.night-mode .table-danger > td,
-.night-mode .table-danger > th {
+.night-mode .table-danger>td,
+.night-mode .table-danger>th {
 	background-color: #471116;
 }
 
 .night-mode .table-warning,
-.night-mode .table-warning > td,
-.night-mode .table-warning > th {
+.night-mode .table-warning>td,
+.night-mode .table-warning>th {
 	background-color: #473604;
 }
 
@@ -155,6 +161,19 @@ body.night-mode,
 	background-color: #333131;
 }
 
+.night-mode .custom-select:disabled {
+	color: #c1c1c1;
+	background-color: #292b2a;
+	border-color: #292b2a;
+}
+
+.night-mode .custom-file-input,
+.night-mode .custom-file-label,
+.night-mode .custom-file-label::after {
+	background-color: #333131;
+	color: #c1c1c1;
+}
+
 .night-mode .dropdown-item:focus,
 .night-mode .dropdown-item:hover {
 	color: #16181b;
@@ -176,8 +195,17 @@ body.night-mode,
 }
 
 .night-mode .modal-content {
-	background-color: #1a1919;
+	background-color: #333131;
 	border: 1px solid rgba(186, 189, 189, 0.66);
+}
+
+.night-mode .card-body .shadow {
+	background-color: #333131 !important;
+	box-shadow: 0 .5rem 1rem rgba(56, 56, 56, 0.705) !important;
+}
+
+.night-mode .card-title {
+	color: #c1c1c1;
 }
 
 .night-mode .modal-footer {
@@ -237,20 +265,24 @@ body.night-mode,
 	border-color: #383838 !important;
 }
 
-.night-mode .navbar-sidenav > li:hover,
-.night-mode .sidenav-second-level > li:hover,
+.night-mode .navbar-sidenav>li:hover,
+.night-mode .sidenav-second-level>li:hover,
 .night-mode .navbar-nav .dropdown-item:hover {
 	box-shadow: inset 5px 0 0 #92bee2 !important;
 	background-color: #383838 !important;
 	color: #c1c1c1 !important;
 }
 
-.night-mode .navbar-sidenav > li > a:focus,
-.night-mode .sidenav-second-level > li > a:focus,
+.night-mode .navbar-sidenav>li>a:focus,
+.night-mode .sidenav-second-level>li>a:focus,
 .night-mode .navbar-nav .dropdown-item:focus {
 	box-shadow: inset 5px 0 0 #ff7585 !important;
 	background-color: #383838 !important;
 	color: #c1c1c1 !important;
+}
+
+#mainNav.fixed-top.navbar-light .sidenav-toggler a i {
+	color: #c1c1c1;
 }
 
 .night-mode .active-page {
@@ -277,15 +309,18 @@ body.night-mode,
 
 .night-mode .bootstrap-datetimepicker-widget table td.day {
 	background-color: #333131;
+	color: #c1c1c1;
 }
 
 .night-mode .bootstrap-datetimepicker-widget table td {
 	background-color: #333131;
+	color: #c1c1c1;
 }
 
 .night-mode .bootstrap-datetimepicker-widget table td,
 .night-mode .bootstrap-datetimepicker-widget table th {
 	background-color: #333131;
+	color: #c1c1c1;
 }
 
 .night-mode .dropdown-menu {
@@ -312,6 +347,14 @@ body.night-mode,
 	color: #d1d1d1;
 }
 
+.night-mode a.text-dark {
+	color: #8f9ba5 !important;
+}
+
+.night-mode a.text-dark:hover {
+	color: #d1d1d1 !important;
+}
+
 .night-mode .normal-message {
 	background-color: #2d3a8c;
 	color: #d1d1d1;
@@ -325,4 +368,8 @@ body.night-mode,
 	background-color: #eee;
 	padding: min(1.5vw, 20px);
 	border-radius: 10px;
+}
+
+.night-mode .custom-control-label:before {
+	background-color: #333131;
 }
