@@ -21,7 +21,7 @@
 <div class="datetimepicker-wrapper form-group {{ $additionalGroupCssClasses }}">
 	<label for="{{ $id }}">{{ $__t($label) }}
 		@if(!empty($hint))
-		&nbsp;<i class="fas fa-question-circle text-muted"
+		&nbsp;<i class="fa-solid fa-question-circle text-muted"
 			data-toggle="tooltip"
 			data-trigger="hover click"
 			title="{{ $hint }}"></i>
@@ -60,7 +60,7 @@
 			<div class="input-group-append"
 				data-target="#{{ $id }}"
 				data-toggle="datetimepicker">
-				<div class="input-group-text"><i class="fas fa-calendar"></i></div>
+				<div class="input-group-text"><i class="fa-solid fa-calendar"></i></div>
 			</div>
 			<div class="invalid-feedback">{{ $invalidFeedback }}</div>
 		</div>

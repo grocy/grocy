@@ -12,7 +12,7 @@
 			href="#"
 			data-toggle="tooltip"
 			title="{{ $__t('Edit battery') }}">
-			<i class="fas fa-edit"></i>
+			<i class="fa-solid fa-edit"></i>
 		</a>
 		<a id="batterycard-battery-journal-button"
 			class="btn btn-sm btn-outline-secondary py-0 mr-1 float-right disabled show-as-dialog-link"

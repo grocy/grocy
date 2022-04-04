@@ -110,7 +110,7 @@
 						type="button"
 						data-toggle="collapse"
 						data-target="#related-links">
-						<i class="fas fa-ellipsis-v"></i>
+						<i class="fa-solid fa-ellipsis-v"></i>
 					</button>
 					<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
 						id="related-links">
@@ -130,7 +130,7 @@
 									data-toggle="tooltip"
 									title="{{ $__t('Table options') }}"
 									data-table-selector="#qu-conversions-table"
-									href="#"><i class="fas fa-eye"></i></a>
+									href="#"><i class="fa-solid fa-eye"></i></a>
 							</th>
 							<th>{{ $__t('Factor') }}</th>
 							<th>{{ $__t('Unit') }}</th>
@@ -144,12 +144,12 @@
 								<a class="btn btn-sm btn-info show-as-dialog-link"
 									href="{{ $U('/quantityunitconversion/' . $defaultQuConversion->id . '?embedded&qu-unit=' . $quantityUnit->id ) }}"
 									data-qu-conversion-id="{{ $defaultQuConversion->id }}">
-									<i class="fas fa-edit"></i>
+									<i class="fa-solid fa-edit"></i>
 								</a>
 								<a class="btn btn-sm btn-danger qu-conversion-delete-button"
 									href="#"
 									data-qu-conversion-id="{{ $defaultQuConversion->id }}">
-									<i class="fas fa-trash"></i>
+									<i class="fa-solid fa-trash"></i>
 								</a>
 							</td>
 							<td>

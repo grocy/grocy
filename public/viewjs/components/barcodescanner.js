@@ -234,7 +234,7 @@ $(document).on("click", "#barcodescanner-start-button", async function(e)
 		closeButton: true,
 		buttons: {
 			torch: {
-				label: '<i class="far fa-lightbulb"></i>',
+				label: '<i class="fa-regular fa-lightbulb"></i>',
 				className: 'btn-warning responsive-button torch',
 				callback: function()
 				{
@@ -291,11 +291,11 @@ Grocy.Components.BarcodeScanner.Init = function()
 	{
 		if ($(this).hasAttr("disabled"))
 		{
-			$(this).after('<a id="barcodescanner-start-button" class="btn btn-sm btn-primary text-white disabled" data-target="' + $(this).attr("data-target") + '"><i class="fas fa-camera"></i></a>');
+			$(this).after('<a id="barcodescanner-start-button" class="btn btn-sm btn-primary text-white disabled" data-target="' + $(this).attr("data-target") + '"><i class="fa-solid fa-camera"></i></a>');
 		}
 		else
 		{
-			$(this).after('<a id="barcodescanner-start-button" class="btn btn-sm btn-primary text-white" data-target="' + $(this).attr("data-target") + '"><i class="fas fa-camera"></i></a>');
+			$(this).after('<a id="barcodescanner-start-button" class="btn btn-sm btn-primary text-white" data-target="' + $(this).attr("data-target") + '"><i class="fa-solid fa-camera"></i></a>');
 		}
 
 		Grocy.Components.BarcodeScanner.InitDone = true;

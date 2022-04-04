@@ -13,7 +13,7 @@
 			href="#"
 			data-toggle="tooltip"
 			title="{{ $__t('Edit product') }}">
-			<i class="fas fa-edit"></i>
+			<i class="fa-solid fa-edit"></i>
 		</a>
 		<a id="productcard-product-journal-button"
 			class="btn btn-sm btn-outline-secondary py-0 mr-1 float-right disabled show-as-dialog-link"
@@ -46,7 +46,7 @@
 		<span id="productcard-product-stock-opened-amount"
 			class="small font-italic locale-number locale-number-quantity-amount"></span>
 		<span id="productcard-aggregated-amounts"
-			class="pl-2 text-secondary d-none"><i class="fas fa-custom-sigma-sign"></i> <span id="productcard-product-stock-amount-aggregated"
+			class="pl-2 text-secondary d-none"><i class="fa-solid fa-custom-sigma-sign"></i> <span id="productcard-product-stock-amount-aggregated"
 				class="locale-number locale-number-quantity-amount"></span> <span id="productcard-product-stock-qu-name-aggregated"></span> <span id="productcard-product-stock-opened-amount-aggregated locale-number locale-number-quantity-amount"
 				class="small font-italic"></span></span><br>
 

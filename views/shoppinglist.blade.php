@@ -35,13 +35,13 @@
 					type="button"
 					data-toggle="collapse"
 					data-target="#table-filter-row">
-					<i class="fas fa-filter"></i>
+					<i class="fa-solid fa-filter"></i>
 				</button>
 				<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
 					type="button"
 					data-toggle="collapse"
 					data-target="#related-links">
-					<i class="fas fa-ellipsis-v"></i>
+					<i class="fa-solid fa-ellipsis-v"></i>
 				</button>
 			</div>
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
@@ -85,7 +85,7 @@
 			class="border-top border-bottom my-2 py-1">
 			<div id="table-filter-row"
 				data-status-filter="belowminstockamount"
-				class="collapse normal-message status-filter-message responsive-button @if(!GROCY_FEATURE_FLAG_STOCK) d-none @else d-md-inline-block @endif"><span class="d-block d-md-none">{{count($missingProducts)}} <i class="fas fa-exclamation-circle"></i></span><span class="d-none d-md-block">{{ $__n(count($missingProducts), '%s product is below defined min. stock amount', '%s products are below defined min. stock amount') }}</span></div>
+				class="collapse normal-message status-filter-message responsive-button @if(!GROCY_FEATURE_FLAG_STOCK) d-none @else d-md-inline-block @endif"><span class="d-block d-md-none">{{count($missingProducts)}} <i class="fa-solid fa-exclamation-circle"></i></span><span class="d-none d-md-block">{{ $__n(count($missingProducts), '%s product is below defined min. stock amount', '%s products are below defined min. stock amount') }}</span></div>
 			<div id="related-links"
 				class="float-right mt-1 collapse d-md-block">
 				<a class="btn btn-primary responsive-button btn-sm mb-1 show-as-dialog-link d-none d-md-inline-block"
@@ -122,7 +122,7 @@
 	<div class="col-12 col-md-5">
 		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-search"></i></span>
+				<span class="input-group-text"><i class="fa-solid fa-search"></i></span>
 			</div>
 			<input type="text"
 				id="search"
@@ -133,7 +133,7 @@
 	<div class="col-12 col-md-4 col-lg-5">
 		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>
+				<span class="input-group-text"><i class="fa-solid fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>
 			</div>
 			<select class="custom-control custom-select"
 				id="status-filter">
@@ -168,7 +168,7 @@
 							data-toggle="tooltip"
 							title="{{ $__t('Table options') }}"
 							data-table-selector="#shoppinglist-table"
-							href="#"><i class="fas fa-eye"></i></a>
+							href="#"><i class="fa-solid fa-eye"></i></a>
 					</th>
 					<th class="allow-grouping">{{ $__t('Product') }} / <em>{{ $__t('Note') }}</em></th>
 					<th>{{ $__t('Amount') }}</th>
@@ -200,14 +200,14 @@
 							data-toggle="tooltip"
 							data-placement="right"
 							title="{{ $__t('Mark this item as done') }}">
-							<i class="fas fa-check"></i>
+							<i class="fa-solid fa-check"></i>
 						</a>
 						<a class="btn btn-sm btn-info show-as-dialog-link"
 							href="{{ $U('/shoppinglistitem/' . $listItem->id . '?embedded&list=' . $selectedShoppingListId ) }}"
 							data-toggle="tooltip"
 							data-placement="right"
 							title="{{ $__t('Edit this item') }}">
-							<i class="fas fa-edit"></i>
+							<i class="fa-solid fa-edit"></i>
 						</a>
 						<a class="btn btn-sm btn-danger shoppinglist-delete-button"
 							href="#"
@@ -215,12 +215,12 @@
 							data-toggle="tooltip"
 							data-placement="right"
 							title="{{ $__t('Delete this item') }}">
-							<i class="fas fa-trash"></i>
+							<i class="fa-solid fa-trash"></i>
 						</a>
 						<a class="btn btn-sm btn-primary @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif @if(empty($listItem->product_id)) disabled @else shopping-list-stock-add-workflow-list-item-button @endif"
 							href="{{ $U('/purchase?embedded&flow=shoppinglistitemtostock&product=') }}{{ $listItem->product_id }}&amount={{ $listItem->amount }}&listitemid={{ $listItem->id }}&quId={{ $listItem->qu_id }}"
 							@if(!empty($listItem->product_id)) data-toggle="tooltip" title="{{ $__t('Add this item to stock') }}" @endif>
-							<i class="fas fa-box"></i>
+							<i class="fa-solid fa-box"></i>
 						</a>
 					</td>
 					<td class="product-name-cell cursor-link"

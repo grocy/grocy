@@ -19,7 +19,7 @@
 					for="battery_id">
 					{{ $__t('Battery') }}
 					<i id="barcode-lookup-hint"
-						class="fas fa-barcode float-right mt-1"></i>
+						class="fa-solid fa-barcode float-right mt-1"></i>
 				</label>
 				<select class="form-control combobox barcodescanner-input"
 					id="battery_id"

@@ -84,11 +84,16 @@
 					id="icon_css_class"
 					name="icon_css_class"
 					value="@if($mode == 'edit'){{ $userentity->icon_css_class }}@endif"
-					placeholder='{{ $__t('For example') }} "fas fa-smile"'>
+					placeholder='{{ $__t('
+					For
+					example')
+					}} "fa-solid fa-smile"'>
 			</div>
 
 			<button id="save-userentity-button"
-				class="btn btn-success">{{ $__t('Save') }}</button>
+				class="btn btn-success">{{ $__t('
+					Save')
+					}}</button>
 
 		</form>
 	</div>

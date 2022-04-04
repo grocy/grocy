@@ -14,13 +14,13 @@
 					type="button"
 					data-toggle="collapse"
 					data-target="#table-filter-row">
-					<i class="fas fa-filter"></i>
+					<i class="fa-solid fa-filter"></i>
 				</button>
 				<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
 					type="button"
 					data-toggle="collapse"
 					data-target="#related-links">
-					<i class="fas fa-ellipsis-v"></i>
+					<i class="fa-solid fa-ellipsis-v"></i>
 				</button>
 			</div>
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100 m-1 mt-md-0 mb-md-0 float-right"
@@ -45,7 +45,7 @@
 	<div class="col-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-search"></i></span>
+				<span class="input-group-text"><i class="fa-solid fa-search"></i></span>
 			</div>
 			<input type="text"
 				id="search"
@@ -75,7 +75,7 @@
 							data-toggle="tooltip"
 							title="{{ $__t('Table options') }}"
 							data-table-selector="#users-table"
-							href="#"><i class="fas fa-eye"></i></a>
+							href="#"><i class="fa-solid fa-eye"></i></a>
 					</th>
 					<th>{{ $__t('Username') }}</th>
 					<th>{{ $__t('First name') }}</th>
@@ -94,13 +94,13 @@
 							href="{{ $U('/user/') }}{{ $user->id }}"
 							data-toggle="tooltip"
 							title="{{ $__t('Edit this item') }}">
-							<i class="fas fa-edit"></i>
+							<i class="fa-solid fa-edit"></i>
 						</a>
 						<a class="btn btn-info btn-sm"
 							href="{{ $U('/user/' . $user->id . '/permissions') }}"
 							data-toggle="tooltip"
 							title="{{ $__t('Configure user permissions') }}">
-							<i class="fas fa-lock"></i>
+							<i class="fa-solid fa-lock"></i>
 						</a>
 						<a class="btn btn-danger btn-sm user-delete-button @if($user->id == GROCY_USER_ID) disabled @endif"
 							href="#"
@@ -108,7 +108,7 @@
 							data-user-username="{{ $user->username }}"
 							data-toggle="tooltip"
 							title="{{ $__t('Delete this item') }}">
-							<i class="fas fa-trash"></i>
+							<i class="fa-solid fa-trash"></i>
 						</a>
 					</td>
 					<td>

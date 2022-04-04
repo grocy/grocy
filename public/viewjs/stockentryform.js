@@ -44,7 +44,7 @@
 	Grocy.Api.Put("stock/entry/" + Grocy.EditObjectId, jsonData,
 		function(result)
 		{
-			var successMessage = __t('Stock entry successfully updated') + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBookingEntry(\'' + result.id + '\',\'' + Grocy.EditObjectId + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
+			var successMessage = __t('Stock entry successfully updated') + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBookingEntry(\'' + result.id + '\',\'' + Grocy.EditObjectId + '\')"><i class="fa-solid fa-undo"></i> ' + __t("Undo") + '</a>';
 
 			window.parent.postMessage(WindowMessageBag("StockEntryChanged", Grocy.EditObjectId), Grocy.BaseUrl);
 			window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", successMessage), Grocy.BaseUrl);

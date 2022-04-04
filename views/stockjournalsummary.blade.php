@@ -13,7 +13,7 @@
 				type="button"
 				data-toggle="collapse"
 				data-target="#table-filter-row">
-				<i class="fas fa-filter"></i>
+				<i class="fa-solid fa-filter"></i>
 			</button>
 		</div>
 	</div>
@@ -26,7 +26,7 @@
 	<div class="col-12 col-md-6 col-xl-2">
 		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-search"></i></span>
+				<span class="input-group-text"><i class="fa-solid fa-search"></i></span>
 			</div>
 			<input type="text"
 				id="search"
@@ -37,7 +37,7 @@
 	<div class="col-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Product') }}</span>
+				<span class="input-group-text"><i class="fa-solid fa-filter"></i>&nbsp;{{ $__t('Product') }}</span>
 			</div>
 			<select class="custom-control custom-select"
 				id="product-filter">
@@ -51,7 +51,7 @@
 	<div class="col-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Transaction type') }}</span>
+				<span class="input-group-text"><i class="fa-solid fa-filter"></i>&nbsp;{{ $__t('Transaction type') }}</span>
 			</div>
 			<select class="custom-control custom-select"
 				id="transaction-type-filter">
@@ -65,7 +65,7 @@
 	<div class="col-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('User') }}</span>
+				<span class="input-group-text"><i class="fa-solid fa-filter"></i>&nbsp;{{ $__t('User') }}</span>
 			</div>
 			<select class="custom-control custom-select"
 				id="user-filter">
@@ -98,7 +98,7 @@
 							data-toggle="tooltip"
 							title="{{ $__t('Table options') }}"
 							data-table-selector="#stock-journal-summary-table"
-							href="#"><i class="fas fa-eye"></i></a>
+							href="#"><i class="fa-solid fa-eye"></i></a>
 					</th>
 					<th class="allow-grouping">{{ $__t('Product') }}</th>
 					<th class="allow-grouping">{{ $__t('Transaction type') }}</th>

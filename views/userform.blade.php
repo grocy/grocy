@@ -130,7 +130,7 @@
 						</label>
 					</div>
 					<div class="input-group-append">
-						<span class="input-group-text"><i class="fas fa-trash"
+						<span class="input-group-text"><i class="fa-solid fa-trash"
 								id="delete-current-user-picture-button"></i></span>
 					</div>
 				</div>

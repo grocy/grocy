@@ -26,13 +26,13 @@
 		for="product_id">
 		{{ $__t($label) }}
 		@if(!$disallowAllProductWorkflows)
-		<i class="fas fa-question-circle text-muted"
+		<i class="fa-solid fa-question-circle text-muted"
 			data-toggle="tooltip"
 			data-trigger="hover click"
 			title="{{ $__t('Type a new product name or barcode and hit TAB or ENTER to start a workflow') }}"></i>
 		@endif
 		@if(!empty($hint))
-		<i class="fas fa-question-circle text-muted"
+		<i class="fa-solid fa-question-circle text-muted"
 			data-toggle="tooltip"
 			data-trigger="hover click"
 			title="{{ $hint }}"></i>
@@ -40,7 +40,7 @@
 		<span id="barcode-lookup-disabled-hint"
 			class="small text-muted d-none float-right"> {{ $__t('Barcode lookup is disabled') }}</span>
 		<i id="barcode-lookup-hint"
-			class="fas fa-barcode float-right mt-1"></i>
+			class="fa-solid fa-barcode float-right mt-1"></i>
 	</label>
 	<select class="form-control product-combobox barcodescanner-input"
 		id="product_id"

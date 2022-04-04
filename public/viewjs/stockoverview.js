@@ -147,11 +147,11 @@ $(document).on('click', '.product-consume-button', function(e)
 				{
 					if (result.product.enable_tare_weight_handling == 1)
 					{
-						var toastMessage = __t('Removed %1$s of %2$s from stock', parseFloat(originalTotalStockAmount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }) + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural, true), result.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse[0].transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
+						var toastMessage = __t('Removed %1$s of %2$s from stock', parseFloat(originalTotalStockAmount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }) + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural, true), result.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse[0].transaction_id + '\')"><i class="fa-solid fa-undo"></i> ' + __t("Undo") + '</a>';
 					}
 					else
 					{
-						var toastMessage = __t('Removed %1$s of %2$s from stock', parseFloat(consumeAmount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }) + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural, true), result.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse[0].transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>';
+						var toastMessage = __t('Removed %1$s of %2$s from stock', parseFloat(consumeAmount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }) + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural, true), result.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse[0].transaction_id + '\')"><i class="fa-solid fa-undo"></i> ' + __t("Undo") + '</a>';
 					}
 
 					if (wasSpoiled)
@@ -207,7 +207,7 @@ $(document).on('click', '.product-open-button', function(e)
 					}
 
 					Grocy.FrontendHelpers.EndUiBusy();
-					toastr.success(__t('Marked %1$s of %2$s as opened', parseFloat(amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }) + " " + productQuName, productName) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse[0].transaction_id + '\')"><i class="fas fa-undo"></i> ' + __t("Undo") + '</a>');
+					toastr.success(__t('Marked %1$s of %2$s as opened', parseFloat(amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }) + " " + productQuName, productName) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse[0].transaction_id + '\')"><i class="fa-solid fa-undo"></i> ' + __t("Undo") + '</a>');
 					RefreshStatistics();
 					RefreshProductRow(productId);
 				},
@@ -261,10 +261,10 @@ function RefreshStatistics()
 	Grocy.Api.Get('stock/volatile?due_soon_days=' + nextXDays,
 		function(result)
 		{
-			$("#info-duesoon-products").html('<span class="d-block d-md-none">' + result.due_products.length + ' <i class="fas fa-clock"></i></span><span class="d-none d-md-block">' + __n(result.due_products.length, '%s product is due', '%s products are due') + ' ' + __n(nextXDays, 'within the next day', 'within the next %s days') + '</span>');
-			$("#info-overdue-products").html('<span class="d-block d-md-none">' + result.overdue_products.length + ' <i class="fas fa-times-circle"></i></span><span class="d-none d-md-block">' + __n(result.overdue_products.length, '%s product is overdue', '%s products are overdue') + '</span>');
-			$("#info-expired-products").html('<span class="d-block d-md-none">' + result.expired_products.length + ' <i class="fas fa-times-circle"></i></span><span class="d-none d-md-block">' + __n(result.expired_products.length, '%s product is expired', '%s products are expired') + '</span>');
-			$("#info-missing-products").html('<span class="d-block d-md-none">' + result.missing_products.length + ' <i class="fas fa-exclamation-circle"></i></span><span class="d-none d-md-block">' + __n(result.missing_products.length, '%s product is below defined min. stock amount', '%s products are below defined min. stock amount') + '</span>');
+			$("#info-duesoon-products").html('<span class="d-block d-md-none">' + result.due_products.length + ' <i class="fa-solid fa-clock"></i></span><span class="d-none d-md-block">' + __n(result.due_products.length, '%s product is due', '%s products are due') + ' ' + __n(nextXDays, 'within the next day', 'within the next %s days') + '</span>');
+			$("#info-overdue-products").html('<span class="d-block d-md-none">' + result.overdue_products.length + ' <i class="fa-solid fa-times-circle"></i></span><span class="d-none d-md-block">' + __n(result.overdue_products.length, '%s product is overdue', '%s products are overdue') + '</span>');
+			$("#info-expired-products").html('<span class="d-block d-md-none">' + result.expired_products.length + ' <i class="fa-solid fa-times-circle"></i></span><span class="d-none d-md-block">' + __n(result.expired_products.length, '%s product is expired', '%s products are expired') + '</span>');
+			$("#info-missing-products").html('<span class="d-block d-md-none">' + result.missing_products.length + ' <i class="fa-solid fa-exclamation-circle"></i></span><span class="d-none d-md-block">' + __n(result.missing_products.length, '%s product is below defined min. stock amount', '%s products are below defined min. stock amount') + '</span>');
 		},
 		function(xhr)
 		{

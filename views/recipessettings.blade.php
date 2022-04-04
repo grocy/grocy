@@ -37,7 +37,7 @@
 				<label class="form-check-label custom-control-label"
 					for="recipes_show_ingredient_checkbox">
 					{{ $__t('Show a little checkbox next to each ingredient to mark it as done') }}
-					<i class="fas fa-question-circle text-muted"
+					<i class="fa-solid fa-question-circle text-muted"
 						data-toggle="tooltip"
 						data-trigger="hover click"
 						title="{{ $__t('The ingredient is crossed out when clicked, the status is not saved, means reset when the page is reloaded') }}"></i>

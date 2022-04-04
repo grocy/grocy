@@ -44,7 +44,7 @@
 					{{ $__t('Do you find grocy useful?') }}<br>
 					<a class="btn btn-sm btn-primary text-white mt-1"
 						href="https://grocy.info/#say-thanks"
-						target="_blank">{{ $__t('Say thanks') }} <i class="fas fa-heart"></i></a>
+						target="_blank">{{ $__t('Say thanks') }} <i class="fa-solid fa-heart"></i></a>
 				</p>
 			</div>
 
@@ -84,7 +84,7 @@
 			<a href="https://github.com/grocy/grocy"
 				class="text-dark"
 				target="_blank">
-				<i class="fab fa-github"></i>
+				<i class="fa-brands fa-github"></i>
 			</a>
 		</p>
 	</div>

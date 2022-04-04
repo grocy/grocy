@@ -18,7 +18,7 @@
 				type="button"
 				data-toggle="collapse"
 				data-target="#related-links">
-				<i class="fas fa-ellipsis-v"></i>
+				<i class="fa-solid fa-ellipsis-v"></i>
 			</button>
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
 				id="related-links">
@@ -49,7 +49,7 @@
 					data-toggle="collapse"
 					href="#table-filter-row"
 					role="button">
-					<i class="fas fa-filter"></i>
+					<i class="fa-solid fa-filter"></i>
 				</a>
 				<a id="clear-filter-button"
 					class="btn btn-sm btn-outline-info mt-1"
@@ -66,7 +66,7 @@
 	<div class="col-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-search"></i></span>
+				<span class="input-group-text"><i class="fa-solid fa-search"></i></span>
 			</div>
 			<input type="text"
 				id="search"
@@ -77,7 +77,7 @@
 	<div class="col-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>
+				<span class="input-group-text"><i class="fa-solid fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>
 			</div>
 			<select class="custom-control custom-select"
 				id="status-filter">
@@ -94,7 +94,7 @@
 	<div class="col-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Assignment') }}</span>
+				<span class="input-group-text"><i class="fa-solid fa-filter"></i>&nbsp;{{ $__t('Assignment') }}</span>
 			</div>
 			<select class="custom-control custom-select"
 				id="user-filter">
@@ -120,7 +120,7 @@
 							data-toggle="tooltip"
 							title="{{ $__t('Table options') }}"
 							data-table-selector="#chores-overview-table"
-							href="#"><i class="fas fa-eye"></i></a>
+							href="#"><i class="fa-solid fa-eye"></i></a>
 					</th>
 					<th>{{ $__t('Chore') }}</th>
 					<th>{{ $__t('Next estimated tracking') }}</th>
@@ -147,7 +147,7 @@
 							title="{{ $__t('Track chore execution') }}"
 							data-chore-id="{{ $curentChoreEntry->chore_id }}"
 							data-chore-name="{{ FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name }}">
-							<i class="fas fa-play"></i>
+							<i class="fa-solid fa-play"></i>
 						</a>
 						<a class="btn btn-secondary btn-sm track-chore-button skip permission-CHORE_TRACK_EXECUTION @if(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type == \Grocy\Services\ChoresService::CHORE_PERIOD_TYPE_MANUALLY) disabled @endif"
 							href="#"
@@ -156,13 +156,13 @@
 							title="{{ $__t('Skip next chore schedule') }}"
 							data-chore-id="{{ $curentChoreEntry->chore_id }}"
 							data-chore-name="{{ FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name }}">
-							<i class="fas fa-forward"></i>
+							<i class="fa-solid fa-forward"></i>
 						</a>
 						<div class="dropdown d-inline-block">
 							<button class="btn btn-sm btn-light text-secondary"
 								type="button"
 								data-toggle="dropdown">
-								<i class="fas fa-ellipsis-v"></i>
+								<i class="fa-solid fa-ellipsis-v"></i>
 							</button>
 							<div class="table-inline-menu dropdown-menu dropdown-menu-right">
 								<a class="dropdown-item reschedule-chore-button"
@@ -225,7 +225,7 @@
 							class="text-muted"
 							data-toggle="tooltip"
 							title="{{ $__t('Rescheduled') }}">
-							<i class="far fa-clock"></i>
+							<i class="fa-regular fa-clock"></i>
 						</span>
 						@endif
 					</td>
@@ -254,7 +254,7 @@
 								class="text-muted"
 								data-toggle="tooltip"
 								title="{{ $__t('Reassigned') }}">
-								<i class="fas fa-exchange-alt"></i>
+								<i class="fa-solid fa-exchange-alt"></i>
 							</span>
 							@endif
 						</span>

@@ -19,7 +19,7 @@
 					type="button"
 					data-toggle="collapse"
 					data-target="#related-links">
-					<i class="fas fa-ellipsis-v"></i>
+					<i class="fa-solid fa-ellipsis-v"></i>
 				</button>
 			</div>
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
@@ -131,7 +131,7 @@
 			<div class="form-group">
 				<label for="default_consume_location_id">
 					{{ $__t('Default consume location') }}
-					<i class="fas fa-question-circle text-muted"
+					<i class="fa-solid fa-question-circle text-muted"
 						data-toggle="tooltip"
 						data-trigger="hover click"
 						title="{{ $__t('Stock entries at this location will be consumed first') }}"></i>
@@ -190,7 +190,7 @@
 						$product->cumulate_min_stock_amount_of_sub_products == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="cumulate_min_stock_amount_of_sub_products" name="cumulate_min_stock_amount_of_sub_products" value="1">
 					<label class="form-check-label custom-control-label"
 						for="cumulate_min_stock_amount_of_sub_products">{{ $__t('Accumulate sub products min. stock amount') }}
-						&nbsp;<i class="fas fa-question-circle text-muted"
+						&nbsp;<i class="fa-solid fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
 							title="{{ $__t('If enabled, the min. stock amount of sub products will be accumulated into this product, means the sub product will never be missing, only this product') }}"></i>
@@ -205,7 +205,7 @@
 						&&
 						$product->treat_opened_as_out_of_stock == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="treat_opened_as_out_of_stock" name="treat_opened_as_out_of_stock" value="1">
 					<label class="form-check-label custom-control-label"
-						for="treat_opened_as_out_of_stock">{{ $__t('Treat opened as out of stock') }}&nbsp;<i class="fas fa-question-circle text-muted"
+						for="treat_opened_as_out_of_stock">{{ $__t('Treat opened as out of stock') }}&nbsp;<i class="fa-solid fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
 							title="{{ $__t('When enabled, opened items will be counted as missing for calculating if this product is below its minimum stock amount') }}"></i>
@@ -218,7 +218,7 @@
 			<div class="form-group">
 				<label class="d-block my-0"
 					for="location_id">{{ $__t('Due date type') }}
-					<i class="fas fa-question-circle text-muted"
+					<i class="fa-solid fa-question-circle text-muted"
 						data-toggle="tooltip"
 						data-trigger="hover click"
 						title="{{ $__t('Based on the selected type, the highlighting on the stock overview page will be different') }}"></i>
@@ -234,7 +234,7 @@
 						$product->due_type == 1) checked @else checked @endif>
 					<label class="custom-control-label"
 						for="due-type-bestbefore">{{ $__t('Best before date') }}
-						<i class="fas fa-question-circle text-muted"
+						<i class="fa-solid fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
 							title="{{ $__t('Means that the product is maybe still safe to be consumed after its due date is reached') }}"></i>
@@ -251,7 +251,7 @@
 						$product->due_type == 2) checked @endif>
 					<label class="custom-control-label"
 						for="due-type-expiration">{{ $__t('Expiration date') }}
-						<i class="fas fa-question-circle text-muted"
+						<i class="fa-solid fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
 							title="{{ $__t('Means that the product is not safe to be consumed after its due date is reached') }}"></i>
@@ -319,7 +319,7 @@
 						&&
 						$product->should_not_be_frozen == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="should_not_be_frozen" name="should_not_be_frozen" value="1">
 					<label class="form-check-label custom-control-label"
-						for="should_not_be_frozen">{{ $__t('Should not be frozen') }}&nbsp;<i class="fas fa-question-circle text-muted"
+						for="should_not_be_frozen">{{ $__t('Should not be frozen') }}&nbsp;<i class="fa-solid fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
 							title="{{ $__t('When enabled, on moving this product to a freezer location (so when freezing it), a warning will be shown') }}"></i>
@@ -370,7 +370,7 @@
 
 			<div class="form-group">
 				<label for="qu_id_purchase">{{ $__t('Default quantity unit purchase') }}</label>
-				<i class="fas fa-question-circle text-muted"
+				<i class="fa-solid fa-question-circle text-muted"
 					data-toggle="tooltip"
 					data-trigger="hover click"
 					title="{{ $__t('This is the default quantity unit used when adding this product to the shopping list') }}"></i>
@@ -407,7 +407,7 @@
 						$product->enable_tare_weight_handling == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="enable_tare_weight_handling" name="enable_tare_weight_handling" value="1">
 					<label class="form-check-label custom-control-label"
 						for="enable_tare_weight_handling">{{ $__t('Enable tare weight handling') }}
-						&nbsp;<i class="fas fa-question-circle text-muted"
+						&nbsp;<i class="fa-solid fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
 							title="{{ $__t('This is useful e.g. for flour in jars - on purchase/consume/inventory you always weigh the whole jar, the amount to be posted is then automatically calculated based on what is in stock and the tare weight defined below') }}"></i>
@@ -437,7 +437,7 @@
 						$product->not_check_stock_fulfillment_for_recipes == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="not_check_stock_fulfillment_for_recipes" name="not_check_stock_fulfillment_for_recipes" value="1">
 					<label class="form-check-label custom-control-label"
 						for="not_check_stock_fulfillment_for_recipes">{{ $__t('Disable stock fulfillment checking for this ingredient') }}
-						&nbsp;<i class="fas fa-question-circle text-muted"
+						&nbsp;<i class="fa-solid fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
 							title="{{ $__t('This will be used as the default setting when adding this product as a recipe ingredient') }}"></i>
@@ -479,7 +479,7 @@
 			@if(GROCY_FEATURE_FLAG_LABEL_PRINTER)
 			<div class="form-group">
 				<label for="default_stock_label_type">{{ $__t('Default stock entry label') }}</label>
-				<i class="fas fa-question-circle text-muted"
+				<i class="fa-solid fa-question-circle text-muted"
 					data-toggle="tooltip"
 					data-trigger="hover click"
 					title="{{ $__t('This is the default which will be prefilled on purchase') }}"></i>
@@ -510,7 +510,7 @@
 						&&
 						$product->hide_on_stock_overview == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="hide_on_stock_overview" name="hide_on_stock_overview" value="1">
 					<label class="form-check-label custom-control-label"
-						for="hide_on_stock_overview">{{ $__t('Never show on stock overview') }}&nbsp;<i class="fas fa-question-circle text-muted"
+						for="hide_on_stock_overview">{{ $__t('Never show on stock overview') }}&nbsp;<i class="fa-solid fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
 							title="{{ $__t('The stock overview page lists all products which are currently in-stock or below their min. stock amount - enable this to hide this product there always') }}"></i>
@@ -524,7 +524,7 @@
 						&&
 						$product->no_own_stock == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="no_own_stock" name="no_own_stock" value="1">
 					<label class="form-check-label custom-control-label"
-						for="no_own_stock">{{ $__t('Disable own stock') }}&nbsp;<i class="fas fa-question-circle text-muted"
+						for="no_own_stock">{{ $__t('Disable own stock') }}&nbsp;<i class="fa-solid fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
 							title="{{ $__t('When enabled, this product can\'t have own stock, means it will not be selectable on purchase (useful for parent products which are just used as a summary/total view of the child products)') }}"></i>
@@ -558,7 +558,7 @@
 						type="button"
 						data-toggle="collapse"
 						data-target="#related-links">
-						<i class="fas fa-ellipsis-v"></i>
+						<i class="fa-solid fa-ellipsis-v"></i>
 					</button>
 					@if($mode == "edit")
 					<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
@@ -583,7 +583,7 @@
 									data-toggle="tooltip"
 									title="{{ $__t('Table options') }}"
 									data-table-selector="#barcode-table"
-									href="#"><i class="fas fa-eye"></i></a>
+									href="#"><i class="fa-solid fa-eye"></i></a>
 							</th>
 							<th>{{ $__t('Barcode') }}</th>
 							<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif allow-grouping">{{ $__t('Store') }}</th>
@@ -605,7 +605,7 @@
 							<td class="fit-content border-right">
 								<a class="btn btn-sm btn-info show-as-dialog-link @if($barcode->product_id == null) disabled @endif"
 									href="{{ $U('/productbarcodes/' . $barcode->id . '?embedded&product=' . $product->id ) }}">
-									<i class="fas fa-edit"></i>
+									<i class="fa-solid fa-edit"></i>
 								</a>
 								<a class="btn btn-sm btn-danger barcode-delete-button @if($barcode->product_id == null) disabled @endif"
 									href="#"
@@ -613,7 +613,7 @@
 									data-barcode="{{ $barcode->barcode }}"
 									data-product-barcode="{{ $product->barcode }}"
 									data-product-id="{{ $product->id }}">
-									<i class="fas fa-trash"></i>
+									<i class="fa-solid fa-trash"></i>
 								</a>
 							</td>
 							<td>
@@ -660,7 +660,7 @@
 				<div class="title-related-links">
 					<h4>
 						<span class="ls-n1">{{ $__t('grocycode') }}</span>
-						<i class="fas fa-question-circle text-muted"
+						<i class="fa-solid fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
 							title="{{ $__t('grocycode is a unique referer to this %s in your grocy instance - print it onto a label and scan it like any other barcode', $__t('Product')) }}"></i>
@@ -696,7 +696,7 @@
 						type="button"
 						data-toggle="collapse"
 						data-target="#related-links">
-						<i class="fas fa-ellipsis-v"></i>
+						<i class="fa-solid fa-ellipsis-v"></i>
 					</button>
 					@if($mode == "edit")
 					<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
@@ -720,7 +720,7 @@
 									data-toggle="tooltip"
 									title="{{ $__t('Table options') }}"
 									data-table-selector="#qu-conversions-table-products"
-									href="#"><i class="fas fa-eye"></i></a>
+									href="#"><i class="fa-solid fa-eye"></i></a>
 							</th>
 							<th class="allow-grouping">{{ $__t('Quantity unit from') }}</th>
 							<th class="allow-grouping">{{ $__t('Quantity unit to') }}</th>
@@ -737,12 +737,12 @@
 							<td class="fit-content border-right">
 								<a class="btn btn-sm btn-info show-as-dialog-link @if($quConversion->product_id == null) disabled @endif"
 									href="{{ $U('/quantityunitconversion/' . $quConversion->id . '?embedded&product=' . $product->id ) }}">
-									<i class="fas fa-edit"></i>
+									<i class="fa-solid fa-edit"></i>
 								</a>
 								<a class="btn btn-sm btn-danger qu-conversion-delete-button @if($quConversion->product_id == null) disabled @endif"
 									href="#"
 									data-qu-conversion-id="{{ $quConversion->id }}">
-									<i class="fas fa-trash"></i>
+									<i class="fa-solid fa-trash"></i>
 								</a>
 							</td>
 							<td>
@@ -798,7 +798,7 @@
 								</label>
 							</div>
 							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-trash"
+								<span class="input-group-text"><i class="fa-solid fa-trash"
 										id="delete-current-product-picture-button"></i></span>
 							</div>
 						</div>

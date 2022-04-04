@@ -86,7 +86,7 @@
 			'decimals' => $userSettings['stock_decimal_places_prices'],
 			'value' => '',
 			'hint' => $__t('Per stock quantity unit', GROCY_CURRENCY),
-			'additionalHtmlContextHelp' => '<i class="fas fa-question-circle text-muted"
+			'additionalHtmlContextHelp' => '<i class="fa-solid fa-question-circle text-muted"
 				data-toggle="tooltip"
 				data-trigger="hover click"
 				title="' . $__t('This will apply to added products') . '"></i>',
@@ -116,7 +116,7 @@
 			<div class="form-group">
 				<label for="stock_label_type">
 					{{ $__t('Stock entry label') }}
-					<i class="fas fa-question-circle text-muted"
+					<i class="fa-solid fa-question-circle text-muted"
 						data-toggle="tooltip"
 						data-trigger="hover click"
 						title="{{ $__t('This will apply to added products') }}"></i>
@@ -135,7 +135,7 @@
 			<div class="form-group">
 				<label for="note">
 					{{ $__t('Note') }}
-					<i class="fas fa-question-circle text-muted"
+					<i class="fa-solid fa-question-circle text-muted"
 						data-toggle="tooltip"
 						data-trigger="hover click"
 						title="{{ $__t('This will apply to added products') }}"></i>

@@ -18,7 +18,7 @@
 				type="button"
 				data-toggle="collapse"
 				data-target="#related-links">
-				<i class="fas fa-ellipsis-v"></i>
+				<i class="fa-solid fa-ellipsis-v"></i>
 			</button>
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
 				id="related-links">
@@ -44,7 +44,7 @@
 					data-toggle="collapse"
 					href="#table-filter-row"
 					role="button">
-					<i class="fas fa-filter"></i>
+					<i class="fa-solid fa-filter"></i>
 				</a>
 				<a id="clear-filter-button"
 					class="btn btn-sm btn-outline-info mt-1"
@@ -61,7 +61,7 @@
 	<div class="col-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-search"></i></span>
+				<span class="input-group-text"><i class="fa-solid fa-search"></i></span>
 			</div>
 			<input type="text"
 				id="search"
@@ -72,7 +72,7 @@
 	<div class="col-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>
+				<span class="input-group-text"><i class="fa-solid fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>
 			</div>
 			<select class="custom-control custom-select"
 				id="status-filter">
@@ -98,7 +98,7 @@
 							data-toggle="tooltip"
 							title="{{ $__t('Table options') }}"
 							data-table-selector="#batteries-overview-table"
-							href="#"><i class="fas fa-eye"></i></a>
+							href="#"><i class="fa-solid fa-eye"></i></a>
 					</th>
 					<th>{{ $__t('Battery') }}</th>
 					<th class="allow-grouping">{{ $__t('Used in') }}</th>
@@ -124,13 +124,13 @@
 							title="{{ $__t('Track charge cycle') }}"
 							data-battery-id="{{ $currentBatteryEntry->battery_id }}"
 							data-battery-name="{{ FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->name }}">
-							<i class="fas fa-car-battery"></i>
+							<i class="fa-solid fa-car-battery"></i>
 						</a>
 						<div class="dropdown d-inline-block">
 							<button class="btn btn-sm btn-light text-secondary"
 								type="button"
 								data-toggle="dropdown">
-								<i class="fas fa-ellipsis-v"></i>
+								<i class="fa-solid fa-ellipsis-v"></i>
 							</button>
 							<div class="table-inline-menu dropdown-menu dropdown-menu-right">
 								<a class="dropdown-item battery-name-cell"

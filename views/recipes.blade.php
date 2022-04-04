@@ -29,13 +29,13 @@
 					type="button"
 					data-toggle="collapse"
 					data-target="#table-filter-row">
-					<i class="fas fa-filter"></i>
+					<i class="fa-solid fa-filter"></i>
 				</button>
 				<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
 					type="button"
 					data-toggle="collapse"
 					data-target="#related-links">
-					<i class="fas fa-ellipsis-v"></i>
+					<i class="fa-solid fa-ellipsis-v"></i>
 				</button>
 			</div>
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
@@ -52,7 +52,7 @@
 			<div class="col-12 col-md-5 col-xl-5">
 				<div class="input-group">
 					<div class="input-group-prepend">
-						<span class="input-group-text"><i class="fas fa-search"></i></span>
+						<span class="input-group-text"><i class="fa-solid fa-search"></i></span>
 					</div>
 					<input type="text"
 						id="search"
@@ -64,7 +64,7 @@
 			<div class="col-12 col-md-5 col-xl-5">
 				<div class="input-group">
 					<div class="input-group-prepend">
-						<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>
+						<span class="input-group-text"><i class="fa-solid fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>
 					</div>
 					<select class="custom-control custom-select"
 						id="status-filter">
@@ -114,13 +114,13 @@
 									data-toggle="tooltip"
 									title="{{ $__t('Table options') }}"
 									data-table-selector="#recipes-table"
-									href="#"><i class="fas fa-eye"></i></a>
+									href="#"><i class="fa-solid fa-eye"></i></a>
 							</th>
 							<th>{{ $__t('Name') }}</th>
 							<th class="allow-grouping">{{ $__t('Desired servings') }}</th>
 							<th class="allow-grouping">
 								{{ $__t('Due score') }}
-								<i class="fas fa-question-circle text-muted small"
+								<i class="fa-solid fa-question-circle text-muted small"
 									data-toggle="tooltip"
 									data-trigger="hover click"
 									title="{{ $__t('The higher this number is, the more ingredients currently in stock are due soon, overdue or already expired') }}"></i>
@@ -147,13 +147,13 @@
 									href="{{ $U('/recipe/') }}{{ $recipe->id }}"
 									data-toggle="tooltip"
 									title="{{ $__t('Edit this item') }}">
-									<i class="fas fa-edit"></i>
+									<i class="fa-solid fa-edit"></i>
 								</a>
 								<div class="dropdown d-inline-block">
 									<button class="btn btn-sm btn-light text-secondary"
 										type="button"
 										data-toggle="dropdown">
-										<i class="fas fa-ellipsis-v"></i>
+										<i class="fa-solid fa-ellipsis-v"></i>
 									</button>
 									<div class="table-inline-menu dropdown-menu dropdown-menu-right hide-on-fullscreen-card hide-when-embedded">
 										<a class="dropdown-item recipe-delete"
@@ -196,7 +196,7 @@
 								{{ FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->due_score }}
 							</td>
 							<td class="@if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif">
-								@if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 1)<i class="fas fa-check text-success"></i>@elseif(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1)<i class="fas fa-exclamation text-warning"></i>@else<i class="fas fa-times text-danger"></i>@endif
+								@if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 1)<i class="fa-solid fa-check text-success"></i>@elseif(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1)<i class="fa-solid fa-exclamation text-warning"></i>@else<i class="fa-solid fa-times text-danger"></i>@endif
 								<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 1){{ $__t('Enough in stock') }}@elseif(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1){{ $__n(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->missing_products_count, 'Not enough in stock, %s ingredient missing but already on the shopping list', 'Not enough in stock, %s ingredients missing but already on the shopping list') }}@else{{ $__n(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->missing_products_count, 'Not enough in stock, %s ingredient missing', 'Not enough in stock, %s ingredients missing') }}@endif</span>
 							</td>
 							<td class="d-none">
@@ -241,7 +241,7 @@
 							<div class="card-body text-center">
 								<h5 class="card-title mb-1">{{ $recipe->name }}</h5>
 								<p class="card-text">
-									@if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 1)<i class="fas fa-check text-success"></i>@elseif(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1)<i class="fas fa-exclamation text-warning"></i>@else<i class="fas fa-times text-danger"></i>@endif
+									@if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 1)<i class="fa-solid fa-check text-success"></i>@elseif(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1)<i class="fa-solid fa-exclamation text-warning"></i>@else<i class="fa-solid fa-times text-danger"></i>@endif
 									<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 1){{ $__t('Enough in stock') }}@elseif(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1){{ $__n(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->missing_products_count, 'Not enough in stock, %s ingredient missing but already on the shopping list', 'Not enough in stock, %s ingredients missing but already on the shopping list') }}@else{{ $__n(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->missing_products_count, 'Not enough in stock, %s ingredient missing', 'Not enough in stock, %s ingredients missing') }}@endif</span>
 								</p>
 								<p class="card-text mt-2">
@@ -251,13 +251,13 @@
 										data-recipe-name="{{ $recipe->name }}"
 										data-toggle="tooltip"
 										title="{{ $__t('Delete this item') }}">
-										<i class="fas fa-trash"></i>
+										<i class="fa-solid fa-trash"></i>
 									</a>
 									<a class="btn btn-outline-info btn-xs hide-when-embedded hide-on-fullscreen-card"
 										href="{{ $U('/recipe/') }}{{ $recipe->id }}"
 										data-toggle="tooltip"
 										title="{{ $__t('Edit this item') }}">
-										<i class="fas fa-edit"></i>
+										<i class="fa-solid fa-edit"></i>
 									</a>
 								</p>
 							</div>
@@ -311,7 +311,7 @@
 										title="{{ $__t('Consume all ingredients needed by this recipe') }}"
 										data-recipe-id="{{ $recipe->id }}"
 										data-recipe-name="{{ $recipe->name }}">
-										<i class="fas fa-utensils"></i>
+										<i class="fa-solid fa-utensils"></i>
 									</a>
 									<a class="btn @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif recipe-shopping-list @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif"
 										href="#"
@@ -319,20 +319,20 @@
 										title="{{ $__t('Put missing products on shopping list') }}"
 										data-recipe-id="{{ $recipe->id }}"
 										data-recipe-name="{{ $recipe->name }}">
-										<i class="fas fa-cart-plus"></i>
+										<i class="fa-solid fa-cart-plus"></i>
 									</a>
 									<a class="btn recipe-fullscreen hide-when-embedded"
 										id="selectedRecipeToggleFullscreenButton"
 										href="#"
 										data-toggle="tooltip"
 										title="{{ $__t('Expand to fullscreen') }}">
-										<i class="fas fa-expand-arrows-alt"></i>
+										<i class="fa-solid fa-expand-arrows-alt"></i>
 									</a>
 									<a class="btn recipe-print"
 										href="#"
 										data-toggle="tooltip"
 										title="{{ $__t('Print') }}">
-										<i class="fas fa-print"></i>
+										<i class="fa-solid fa-print"></i>
 									</a>
 								</div>
 							</div>
@@ -347,7 +347,7 @@
 									title="{{ $__t('Consume all ingredients needed by this recipe') }}"
 									data-recipe-id="{{ $recipe->id }}"
 									data-recipe-name="{{ $recipe->name }}">
-									<i class="fas fa-utensils"></i>
+									<i class="fa-solid fa-utensils"></i>
 								</a>
 								<a class="btn recipe-shopping-list @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif"
 									href="#"
@@ -355,19 +355,19 @@
 									title="{{ $__t('Put missing products on shopping list') }}"
 									data-recipe-id="{{ $recipe->id }}"
 									data-recipe-name="{{ $recipe->name }}">
-									<i class="fas fa-cart-plus"></i>
+									<i class="fa-solid fa-cart-plus"></i>
 								</a>
 								<a class=" btnrecipe-fullscreen hide-when-embedded"
 									href="#"
 									data-toggle="tooltip"
 									title="{{ $__t('Expand to fullscreen') }}">
-									<i class="fas fa-expand-arrows-alt"></i>
+									<i class="fa-solid fa-expand-arrows-alt"></i>
 								</a>
 								<a class="btn recipe-print PrintRecipe"
 									href="#"
 									data-toggle="tooltip"
 									title="{{ $__t('Print') }}">
-									<i class="fas fa-print"></i>
+									<i class="fa-solid fa-print"></i>
 								</a>
 							</div>
 						</div>
@@ -381,7 +381,7 @@
 							@if(!empty($calories) && intval($calories) > 0)
 							<div class="col-4">
 								<label>{{ $__t('Energy (kcal)') }}</label>&nbsp;
-								<i class="fas fa-question-circle text-muted d-print-none"
+								<i class="fa-solid fa-question-circle text-muted d-print-none"
 									data-toggle="tooltip"
 									data-trigger="hover click"
 									title="{{ $__t('per serving') }}"></i>
@@ -391,7 +391,7 @@
 							@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 							<div class="col-4">
 								<label>{{ $__t('Costs') }}&nbsp;
-									<i class="fas fa-question-circle text-muted d-print-none"
+									<i class="fa-solid fa-question-circle text-muted d-print-none"
 										data-toggle="tooltip"
 										data-trigger="hover click"
 										title="{{ $__t('Based on the prices of the default consume rule (Opened first, then first due first, then first in first out) for in-stock ingredients and on the last price for missing ones') }}"></i>
@@ -474,7 +474,7 @@
 											data-toggle="tooltip"
 											data-placement="right"
 											title="{{ $__t('Mark this item as done') }}">
-											<i class="far fa-check-circle"></i>
+											<i class="fa-regular fa-check-circle"></i>
 										</a>
 										@endif
 										@php
@@ -497,7 +497,7 @@
 										</span>
 										@if(GROCY_FEATURE_FLAG_STOCK)
 										<span class="d-print-none">
-											@if($selectedRecipePosition->need_fulfilled == 1)<i class="fas fa-check text-success"></i>@elseif($selectedRecipePosition->need_fulfilled_with_shopping_list == 1)<i class="fas fa-exclamation text-warning"></i>@else<i class="fas fa-times text-danger"></i>@endif
+											@if($selectedRecipePosition->need_fulfilled == 1)<i class="fa-solid fa-check text-success"></i>@elseif($selectedRecipePosition->need_fulfilled_with_shopping_list == 1)<i class="fa-solid fa-exclamation text-warning"></i>@else<i class="fa-solid fa-times text-danger"></i>@endif
 											<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipePositionsResolved, 'recipe_pos_id', $selectedRecipePosition->id)->need_fulfilled == 1) {{ $__t('Enough in stock') }} @else {{ $__t('Not enough in stock, %1$s missing, %2$s already on shopping list', round($selectedRecipePosition->missing_amount, 2), round($selectedRecipePosition->amount_on_shopping_list, 2)) }} @endif</span>
 										</span>
 										@endif
@@ -507,7 +507,7 @@
 											data-toggle="tooltip"
 											data-trigger="hover click"
 											title="{{ $__t('The parent product %1$s is currently not in stock, %2$s is the current next sub product based on the default consume rule (Opened first, then first due first, then first in first out)', FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id)->name, FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id_effective)->name) }}">
-											<i class="fas fa-exchange-alt"></i> {{ FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id_effective)->name }}
+											<i class="fa-solid fa-exchange-alt"></i> {{ FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id_effective)->name }}
 										</span>
 										@endif
 										@if($selectedRecipePosition->need_fulfilled == 1 && GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) <span class="float-right font-italic ml-2 locale-number locale-number-currency">{{ $selectedRecipePosition->costs }}</span> @endif

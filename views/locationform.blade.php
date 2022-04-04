@@ -59,7 +59,7 @@
 						$location->is_freezer == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="is_freezer" name="is_freezer" value="1">
 					<label class="form-check-label custom-control-label"
 						for="is_freezer">{{ $__t('Is freezer') }}
-						&nbsp;<i class="fas fa-question-circle text-muted"
+						&nbsp;<i class="fa-solid fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
 							title="{{ $__t('When moving products from/to a freezer location, the products due date is automatically adjusted according to the product settings') }}"></i>

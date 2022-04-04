@@ -14,13 +14,13 @@
 					type="button"
 					data-toggle="collapse"
 					data-target="#table-filter-row">
-					<i class="fas fa-filter"></i>
+					<i class="fa-solid fa-filter"></i>
 				</button>
 				<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
 					type="button"
 					data-toggle="collapse"
 					data-target="#related-links">
-					<i class="fas fa-ellipsis-v"></i>
+					<i class="fa-solid fa-ellipsis-v"></i>
 				</button>
 			</div>
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
@@ -45,7 +45,7 @@
 	<div class="col-12 col-md-6 col-xl-3">
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-search"></i></span>
+				<span class="input-group-text"><i class="fa-solid fa-search"></i></span>
 			</div>
 			<input type="text"
 				id="search"
@@ -75,7 +75,7 @@
 							data-toggle="tooltip"
 							title="{{ $__t('Table options') }}"
 							data-table-selector="#productgroups-table"
-							href="#"><i class="fas fa-eye"></i></a>
+							href="#"><i class="fa-solid fa-eye"></i></a>
 					</th>
 					<th>{{ $__t('Name') }}</th>
 					<th>{{ $__t('Description') }}</th>
@@ -94,7 +94,7 @@
 							href="{{ $U('/productgroup/') }}{{ $productGroup->id }}?embedded"
 							data-toggle="tooltip"
 							title="{{ $__t('Edit this item') }}">
-							<i class="fas fa-edit"></i>
+							<i class="fa-solid fa-edit"></i>
 						</a>
 						<a class="btn btn-danger btn-sm product-group-delete-button"
 							href="#"
@@ -102,7 +102,7 @@
 							data-group-name="{{ $productGroup->name }}"
 							data-toggle="tooltip"
 							title="{{ $__t('Delete this item') }}">
-							<i class="fas fa-trash"></i>
+							<i class="fa-solid fa-trash"></i>
 						</a>
 					</td>
 					<td>
@@ -115,7 +115,7 @@
 						{{ count(FindAllObjectsInArrayByPropertyValue($products, 'product_group_id', $productGroup->id)) }}
 						<a class="btn btn-link btn-sm text-body"
 							href="{{ $U('/products?product-group=') . $productGroup->id }}">
-							<i class="fas fa-external-link-alt"></i>
+							<i class="fa-solid fa-external-link-alt"></i>
 						</a>
 					</td>
 

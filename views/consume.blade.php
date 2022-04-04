@@ -23,7 +23,7 @@
 				type="button"
 				data-toggle="collapse"
 				data-target="#related-links">
-				<i class="fas fa-ellipsis-v"></i>
+				<i class="fa-solid fa-ellipsis-v"></i>
 			</button>
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
 				id="related-links">
@@ -115,10 +115,22 @@
 						value="1">
 					<label class="form-check-label custom-control-label"
 						for="use_specific_stock_entry">{{ $__t('Use a specific stock item') }}
-						&nbsp;<i class="fas fa-question-circle text-muted"
+						&nbsp;<i class="fa-solid fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
-							title="{{ $__t('The first item in this list would be picked by the default rule which is "Opened first, then first due first, then first in first out"') }}"></i>
+							title="{{ $__t('The first item in this list would be picked by the default rule which is "
+							Opened
+							first,
+							then
+							first
+							due
+							first,
+							then
+							first
+							in
+							first
+							out"')
+							}}"></i>
 					</label>
 				</div>
 				<select disabled

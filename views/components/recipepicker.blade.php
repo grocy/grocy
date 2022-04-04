@@ -17,12 +17,12 @@
 	<label class="w-100"
 		for="recipe_id">{{ $__t('Recipe') }}
 		@if(!empty($hint))
-		<i class="fas fa-question-circle text-muted"
+		<i class="fa-solid fa-question-circle text-muted"
 			data-toggle="tooltip"
 			data-trigger="hover click"
 			title="{{ $hint }}"></i>
 		@endif
-		<i class="fas fa-barcode float-right mt-1"></i>
+		<i class="fa-solid fa-barcode float-right mt-1"></i>
 	</label>
 	<select class="form-control recipe-combobox barcodescanner-input"
 		id="recipe_id"

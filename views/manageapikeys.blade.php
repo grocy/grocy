@@ -23,13 +23,13 @@
 					type="button"
 					data-toggle="collapse"
 					data-target="#table-filter-row">
-					<i class="fas fa-filter"></i>
+					<i class="fa-solid fa-filter"></i>
 				</button>
 				<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
 					type="button"
 					data-toggle="collapse"
 					data-target="#related-links">
-					<i class="fas fa-ellipsis-v"></i>
+					<i class="fa-solid fa-ellipsis-v"></i>
 				</button>
 			</div>
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
@@ -50,7 +50,7 @@
 	<div class="col-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-search"></i></span>
+				<span class="input-group-text"><i class="fa-solid fa-search"></i></span>
 			</div>
 			<input type="text"
 				id="search"
@@ -80,7 +80,7 @@
 							data-toggle="tooltip"
 							title="{{ $__t('Table options') }}"
 							data-table-selector="#apikeys-table"
-							href="#"><i class="fas fa-eye"></i></a>
+							href="#"><i class="fa-solid fa-eye"></i></a>
 					</th>
 					<th>{{ $__t('API key') }}</th>
 					<th class="allow-grouping">{{ $__t('User') }}</th>
@@ -100,7 +100,7 @@
 							data-apikey-apikey="{{ $apiKey->api_key }}"
 							data-toggle="tooltip"
 							title="{{ $__t('Delete this item') }}">
-							<i class="fas fa-trash"></i>
+							<i class="fa-solid fa-trash"></i>
 						</a>
 						<a class="btn btn-info btn-sm apikey-show-qr-button"
 							href="#"
@@ -108,7 +108,7 @@
 							data-apikey-type="{{ $apiKey->key_type }}"
 							data-toggle="tooltip"
 							title="{{ $__t('Show a QR-Code for this API key') }}">
-							<i class="fas fa-qrcode"></i>
+							<i class="fa-solid fa-qrcode"></i>
 						</a>
 					</td>
 					<td>

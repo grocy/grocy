@@ -240,7 +240,7 @@
 						$chore->track_date_only == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="track_date_only" name="track_date_only" value="1">
 					<label class="form-check-label custom-control-label"
 						for="track_date_only">{{ $__t('Track date only') }}
-						&nbsp;<i class="fas fa-question-circle text-muted"
+						&nbsp;<i class="fa-solid fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
 							title="{{ $__t('When enabled only the day of an execution is tracked, not the time') }}"></i>
@@ -255,7 +255,7 @@
 						$chore->rollover == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="rollover" name="rollover" value="1">
 					<label class="form-check-label custom-control-label"
 						for="rollover">{{ $__t('Due date rollover') }}
-						&nbsp;<i class="fas fa-question-circle text-muted"
+						&nbsp;<i class="fa-solid fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
 							title="{{ $__t('When enabled the chore can never be overdue, the due date will shift forward each day when due') }}"></i>
@@ -315,7 +315,7 @@
 				<div class="title-related-links pb-4">
 					<h4>
 						<span class="ls-n1">{{ $__t('grocycode') }}</span>
-						<i class="fas fa-question-circle text-muted"
+						<i class="fa-solid fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
 							title="{{ $__t('grocycode is a unique referer to this %s in your grocy instance - print it onto a label and scan it like any other barcode', $__t('Chore')) }}"></i>

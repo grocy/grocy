@@ -255,7 +255,7 @@ $('#product_id_text_input').on('blur', function(e)
 			if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_DISABLE_BROWSER_BARCODE_CAMERA_SCANNING)
 			{
 				buttons.retrycamerascanning = {
-					label: '<strong>C</strong> <i class="fas fa-camera"></i>',
+					label: '<strong>C</strong> <i class="fa-solid fa-camera"></i>',
 					className: 'btn-primary responsive-button retry-camera-scanning-button',
 					callback: function()
 					{

@@ -18,7 +18,7 @@
 				type="button"
 				data-toggle="collapse"
 				data-target="#related-links">
-				<i class="fas fa-ellipsis-v"></i>
+				<i class="fa-solid fa-ellipsis-v"></i>
 			</button>
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100 m-1 mt-md-0 mb-md-0 float-right"
 				id="related-links">
@@ -44,7 +44,7 @@
 					data-toggle="collapse"
 					href="#table-filter-row"
 					role="button">
-					<i class="fas fa-filter"></i>
+					<i class="fa-solid fa-filter"></i>
 				</a>
 				<a id="clear-filter-button"
 					class="btn btn-sm btn-outline-info mt-1"
@@ -61,7 +61,7 @@
 	<div class="col-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-search"></i></span>
+				<span class="input-group-text"><i class="fa-solid fa-search"></i></span>
 			</div>
 			<input type="text"
 				id="search"
@@ -72,7 +72,7 @@
 	<div class="col-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>
+				<span class="input-group-text"><i class="fa-solid fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>
 			</div>
 			<select class="custom-control custom-select"
 				id="status-filter">
@@ -109,7 +109,7 @@
 							data-toggle="tooltip"
 							title="{{ $__t('Table options') }}"
 							data-table-selector="#tasks-table"
-							href="#"><i class="fas fa-eye"></i></a>
+							href="#"><i class="fa-solid fa-eye"></i></a>
 					</th>
 					<th>{{ $__t('Task') }}</th>
 					<th class="allow-grouping">{{ $__t('Due') }}</th>
@@ -138,7 +138,7 @@
 							title="{{ $__t('Mark task as completed') }}"
 							data-task-id="{{ $task->id }}"
 							data-task-name="{{ $task->name }}">
-							<i class="fas fa-check"></i>
+							<i class="fa-solid fa-check"></i>
 						</a>
 						@else
 						<a class="btn btn-secondary btn-sm undo-task-button"
@@ -148,14 +148,14 @@
 							title="{{ $__t('Undo task', $task->name) }}"
 							data-task-id="{{ $task->id }}"
 							data-task-name="{{ $task->name }}">
-							<i class="fas fa-undo"></i>
+							<i class="fa-solid fa-undo"></i>
 						</a>
 						@endif
 						<a class="btn btn-info btn-sm show-as-dialog-link"
 							href="{{ $U('/task/') }}{{ $task->id }}?embedded"
 							data-toggle="tooltip"
 							title="{{ $__t('Edit this item') }}">
-							<i class="fas fa-edit"></i>
+							<i class="fa-solid fa-edit"></i>
 						</a>
 						<a class="btn btn-sm btn-danger delete-task-button"
 							href="#"
@@ -163,7 +163,7 @@
 							data-task-name="{{ $task->name }}"
 							data-toggle="tooltip"
 							title="{{ $__t('Delete this item') }}">
-							<i class="fas fa-trash"></i>
+							<i class="fa-solid fa-trash"></i>
 						</a>
 					</td>
 					<td id="task-{{ $task->id }}-name"

@@ -70,10 +70,42 @@
 					<label class="form-check-label custom-control-label"
 						for="not_check_shoppinglist">
 						{{ $__t('Do not check against the shopping list when adding missing items to it') }}&nbsp;
-						<i class="fas fa-question-circle text-muted"
+						<i class="fa-solid fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
-							title="{{ $__t('By default the amount to be added to the shopping list is "needed amount - stock amount - shopping list amount" - when this is enabled, it is only checked against the stock amount, not against what is already on the shopping list') }}"></i>
+							title="{{ $__t('By default the amount to be added to the shopping list is "
+							needed
+							amount
+							-
+							stock
+							amount
+							-
+							shopping
+							list
+							amount"
+							-
+							when
+							this
+							is
+							enabled,
+							it
+							is
+							only
+							checked
+							against
+							the
+							stock
+							amount,
+							not
+							against
+							what
+							is
+							already
+							on
+							the
+							shopping
+							list')
+							}}"></i>
 					</label>
 				</div>
 			</div>
@@ -120,7 +152,7 @@
 						type="button"
 						data-toggle="collapse"
 						data-target="#related-links">
-						<i class="fas fa-ellipsis-v"></i>
+						<i class="fa-solid fa-ellipsis-v"></i>
 					</button>
 					<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
 						id="related-links">
@@ -142,7 +174,7 @@
 									data-toggle="tooltip"
 									title="{{ $__t('Table options') }}"
 									data-table-selector="#recipes-pos-table"
-									href="#"><i class="fas fa-eye"></i></a>
+									href="#"><i class="fa-solid fa-eye"></i></a>
 							</th>
 							<th>{{ $__t('Product') }}</th>
 							<th>{{ $__t('Amount') }}</th>
@@ -160,13 +192,13 @@
 									href="#"
 									data-recipe-pos-id="{{ $recipePosition->id }}"
 									data-product-id="{{ $recipePosition->product_id }}">
-									<i class="fas fa-edit"></i>
+									<i class="fa-solid fa-edit"></i>
 								</a>
 								<a class="btn btn-sm btn-danger recipe-pos-delete-button"
 									href="#"
 									data-recipe-pos-id="{{ $recipePosition->id }}"
 									data-recipe-pos-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id)->name }}">
-									<i class="fas fa-trash"></i>
+									<i class="fa-solid fa-trash"></i>
 								</a>
 							</td>
 							<td>
@@ -180,9 +212,9 @@
 								// => So at least don't crash this view by just assuming 0 if that's the case
 								if (!is_numeric($recipePosition->amount))
 								{
-									$recipePosition->amount = 0;
+								$recipePosition->amount = 0;
 								}
-								
+
 								$product = FindObjectInArrayByPropertyValue($products, 'id', $recipePosition->product_id);
 								$productQuConversions = FindAllObjectsInArrayByPropertyValue($quantityUnitConversionsResolved, 'product_id', $product->id);
 								$productQuConversions = FindAllObjectsInArrayByPropertyValue($productQuConversions, 'from_qu_id', $product->qu_id_stock);
@@ -210,7 +242,7 @@
 									data-placement="top"
 									title="{{ $__t('Show notes') }}"
 									data-recipe-pos-note="{{ $recipePosition->note }}">
-									<i class="fas fa-eye"></i>
+									<i class="fa-solid fa-eye"></i>
 								</a>
 							</td>
 							<td>
@@ -234,7 +266,7 @@
 						type="button"
 						data-toggle="collapse"
 						data-target="#related-links">
-						<i class="fas fa-ellipsis-v"></i>
+						<i class="fa-solid fa-ellipsis-v"></i>
 					</button>
 					<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
 						id="related-links">
@@ -254,7 +286,7 @@
 									data-toggle="tooltip"
 									title="{{ $__t('Table options') }}"
 									data-table-selector="#recipes-includes-table"
-									href="#"><i class="fas fa-eye"></i></a>
+									href="#"><i class="fa-solid fa-eye"></i></a>
 							</th>
 							<th>{{ $__t('Recipe') }}</th>
 							<th>{{ $__t('Servings') }}</th>
@@ -270,13 +302,13 @@
 									data-recipe-include-id="{{ $recipeNesting->id }}"
 									data-recipe-included-recipe-id="{{ $recipeNesting->includes_recipe_id }}"
 									data-recipe-included-recipe-servings="{{ $recipeNesting->servings }}">
-									<i class="fas fa-edit"></i>
+									<i class="fa-solid fa-edit"></i>
 								</a>
 								<a class="btn btn-sm btn-danger recipe-include-delete-button"
 									href="#"
 									data-recipe-include-id="{{ $recipeNesting->id }}"
 									data-recipe-include-name="{{ FindObjectInArrayByPropertyValue($recipes, 'id', $recipeNesting->includes_recipe_id)->name }}">
-									<i class="fas fa-trash"></i>
+									<i class="fa-solid fa-trash"></i>
 								</a>
 							</td>
 							<td>
@@ -318,7 +350,7 @@
 								</label>
 							</div>
 							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-trash"
+								<span class="input-group-text"><i class="fa-solid fa-trash"
 										id="delete-current-recipe-picture-button"></i></span>
 							</div>
 						</div>
@@ -336,13 +368,13 @@
 				@endif
 			</div>
 		</div>
-		
+
 		<div class="row">
 			<div class="col">
 				<div class="title-related-links">
 					<h4>
 						<span class="ls-n1">{{ $__t('grocycode') }}</span>
-						<i class="fas fa-question-circle text-muted"
+						<i class="fa-solid fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
 							title="{{ $__t('grocycode is a unique referer to this %s in your grocy instance - print it onto a label and scan it like any other barcode', $__t('Recipe')) }}"></i>

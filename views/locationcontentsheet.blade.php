@@ -31,7 +31,7 @@
 <div class="title-related-links d-print-none">
 	<h2 class="title">
 		@yield('title')
-		<i class="fas fa-question-circle text-muted small"
+		<i class="fa-solid fa-question-circle text-muted small"
 			data-toggle="tooltip"
 			data-trigger="hover click"
 			title="{{ $__t('Here you can print a page per location with the current stock, maybe to hang it there and note the consumed things on it') }}"></i>
@@ -44,7 +44,7 @@
 		<label class="form-check-label custom-control-label"
 			for="include-out-of-stock">
 			{{ $__t('Show only in-stock products') }}
-			<i class="fas fa-question-circle text-muted"
+			<i class="fa-solid fa-question-circle text-muted"
 				data-toggle="tooltip"
 				data-trigger="hover click"
 				title="{{ $__t('Out of stock items will be shown at the products default location') }}"></i>
@@ -55,7 +55,7 @@
 			type="button"
 			data-toggle="collapse"
 			data-target="#related-links">
-			<i class="fas fa-ellipsis-v"></i>
+			<i class="fa-solid fa-ellipsis-v"></i>
 		</button>
 	</div>
 	<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"

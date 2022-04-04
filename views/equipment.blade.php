@@ -14,13 +14,13 @@
 					type="button"
 					data-toggle="collapse"
 					data-target="#table-filter-row">
-					<i class="fas fa-filter"></i>
+					<i class="fa-solid fa-filter"></i>
 				</button>
 				<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
 					type="button"
 					data-toggle="collapse"
 					data-target="#related-links">
-					<i class="fas fa-ellipsis-v"></i>
+					<i class="fa-solid fa-ellipsis-v"></i>
 				</button>
 			</div>
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
@@ -37,7 +37,7 @@
 			<div class="col">
 				<div class="input-group">
 					<div class="input-group-prepend">
-						<span class="input-group-text"><i class="fas fa-search"></i></span>
+						<span class="input-group-text"><i class="fa-solid fa-search"></i></span>
 					</div>
 					<input type="text"
 						id="search"
@@ -65,7 +65,7 @@
 							data-toggle="tooltip"
 							title="{{ $__t('Table options') }}"
 							data-table-selector="#equipment-table"
-							href="#"><i class="fas fa-eye"></i></a>
+							href="#"><i class="fa-solid fa-eye"></i></a>
 					</th>
 					<th>{{ $__t('Name') }}</th>
 
@@ -84,13 +84,13 @@
 							href="{{ $U('/equipment/') }}{{ $equipmentItem->id }}"
 							data-toggle="tooltip"
 							title="{{ $__t('Edit this item') }}">
-							<i class="fas fa-edit"></i>
+							<i class="fa-solid fa-edit"></i>
 						</a>
 						<div class="dropdown d-inline-block">
 							<button class="btn btn-sm btn-light text-secondary"
 								type="button"
 								data-toggle="dropdown">
-								<i class="fas fa-ellipsis-v"></i>
+								<i class="fa-solid fa-ellipsis-v"></i>
 							</button>
 							<div class="table-inline-menu dropdown-menu dropdown-menu-right hide-on-fullscreen-card hide-when-embedded">
 								<a class="dropdown-item equipment-delete-button"
@@ -151,7 +151,7 @@
 							href="#"
 							data-toggle="tooltip"
 							title="{{ $__t('Expand to fullscreen') }}">
-							<i class="fas fa-expand-arrows-alt"></i>
+							<i class="fa-solid fa-expand-arrows-alt"></i>
 						</a>
 						<a id="selectedEquipmentInstructionManualDownloadButton"
 							class="btn btn-sm btn-outline-secondary py-0 float-right mr-1"
@@ -159,7 +159,7 @@
 							target="_blank"
 							data-toggle="tooltip"
 							title="{{ $__t('Download file') }}">
-							<i class="fas fa-file-download"></i>
+							<i class="fa-solid fa-file-download"></i>
 						</a>
 					</div>
 					<div class="card-body py-0 px-0">
@@ -183,7 +183,7 @@
 							href="#"
 							data-toggle="tooltip"
 							title="{{ $__t('Expand to fullscreen') }}">
-							<i class="fas fa-expand-arrows-alt"></i>
+							<i class="fa-solid fa-expand-arrows-alt"></i>
 						</a>
 						<a id="file-userfield-{{$userfield->name}}-download-button"
 							class="btn btn-sm btn-outline-secondary py-0 float-right mr-1"
@@ -191,7 +191,7 @@
 							target="_blank"
 							data-toggle="tooltip"
 							title="{{ $__t('Download file') }}">
-							<i class="fas fa-file-download"></i>
+							<i class="fa-solid fa-file-download"></i>
 						</a>
 					</div>
 					<div class="card-body py-0 px-0">
@@ -217,7 +217,7 @@
 							href="#"
 							data-toggle="tooltip"
 							title="{{ $__t('Expand to fullscreen') }}">
-							<i class="fas fa-expand-arrows-alt"></i>
+							<i class="fa-solid fa-expand-arrows-alt"></i>
 						</a>
 					</div>
 					<div class="card-body">

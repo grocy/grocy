@@ -50,7 +50,7 @@
 				value="{{ $product->id }}">
 
 			<div class="form-group">
-				<label for="name">{{ $__t('Barcode') }}&nbsp;<i class="fas fa-barcode"></i></label>
+				<label for="name">{{ $__t('Barcode') }}&nbsp;<i class="fa-solid fa-barcode"></i></label>
 				<div class="input-group">
 					<input type="text"
 						class="form-control barcodescanner-input"
