@@ -91,6 +91,7 @@ $('.save-product-button').on('click', function(e)
 	var parentProductId = jsonData.product_id;
 	delete jsonData.product_id;
 	jsonData.parent_product_id = parentProductId;
+	jsonData.qu_factor_purchase_to_stock = $("#qu_factor_purchase_to_stock").val(); // Set manually due to input could be disabled
 	Grocy.FrontendHelpers.BeginUiBusy("product-form");
 
 	if (jsonData.parent_product_id.toString().isEmpty())
@@ -182,10 +183,8 @@ $('.input-group-qu').on('change', function(e)
 			}
 		);
 	}
-	else
-	{
-		RefreshQuConversionInfo();
-	}
+
+	RefreshQuConversionInfo();
 
 	$("#tare_weight_qu_info").text($("#qu_id_stock option:selected").text());
 	$("#quick_consume_qu_info").text($("#qu_id_stock option:selected").text());
@@ -200,7 +199,7 @@ function RefreshQuConversionInfo()
 	var quIdStock = $("#qu_id_stock").val();
 	var factor = $('#qu_factor_purchase_to_stock').val();
 
-	if (factor > 1 || quIdPurchase != quIdStock)
+	if (factor > 1 && quIdPurchase != quIdStock)
 	{
 		$('#qu-conversion-info').text(__t('This means 1 %1$s purchased will be converted into %2$s %3$s in stock', $("#qu_id_purchase option:selected").text(), (1 * factor).toString(), __n((1 * factor).toString(), $("#qu_id_stock option:selected").text(), $("#qu_id_stock option:selected").data("plural-form"), true)));
 		$('#qu-conversion-info').removeClass('d-none');
@@ -208,6 +207,15 @@ function RefreshQuConversionInfo()
 	else
 	{
 		$('#qu-conversion-info').addClass('d-none');
+	}
+
+	if (quIdStock == quIdPurchase)
+	{
+		$("#qu_factor_purchase_to_stock").attr("disabled", "");
+	}
+	else
+	{
+		$("#qu_factor_purchase_to_stock").removeAttr("disabled");
 	}
 }
 
