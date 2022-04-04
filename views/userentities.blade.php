@@ -97,7 +97,7 @@
 						</a>
 						<a class="btn btn-secondary btn-sm"
 							href="{{ $U('/userfields?entity=userentity-') }}{{ $userentity->name }}">
-							<i class="fas fa-th-list"></i> {{ $__t('Configure fields') }}
+							{{ $__t('Configure fields') }}
 						</a>
 					</td>
 					<td>

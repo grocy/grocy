@@ -15,8 +15,6 @@
 
 <div class="row">
 	<div class="col-lg-6 col-12">
-		<h4 class="mt-2">{{ $__t('Chores overview') }}</h4>
-
 		@include('components.numberpicker', array(
 		'id' => 'chores_due_soon_days',
 		'additionalAttributes' => 'data-setting-key="chores_due_soon_days"',
