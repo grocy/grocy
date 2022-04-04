@@ -1192,5 +1192,4 @@ $(document).on("click", "#clear-filter-button", function(e)
 	// Remove the focus from the current button
 	// to prevent that the tooltip stays until clicked anywhere else
 	document.activeElement.blur();
-	console.log("x")
 });
