@@ -13,7 +13,7 @@
 				type="button"
 				data-toggle="collapse"
 				data-target="#table-filter-row">
-				<i class="fas fa-filter"></i>
+				<i class="fa-solid fa-filter"></i>
 			</button>
 		</div>
 	</div>
@@ -26,7 +26,7 @@
 	<div class="col-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-search"></i></span>
+				<span class="input-group-text"><i class="fa-solid fa-search"></i></span>
 			</div>
 			<input type="text"
 				id="search"
@@ -37,7 +37,7 @@
 	<div class="col-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-filter"></i>&nbsp;{{ $__t('Battery') }}</span>
+				<span class="input-group-text"><i class="fa-solid fa-filter"></i>&nbsp;{{ $__t('Battery') }}</span>
 			</div>
 			<select class="custom-control custom-select"
 				id="battery-filter">
@@ -51,7 +51,7 @@
 	<div class="col-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-clock"></i>&nbsp;{{ $__t('Date range') }}</span>
+				<span class="input-group-text"><i class="fa-solid fa-clock"></i>&nbsp;{{ $__t('Date range') }}</span>
 			</div>
 			<select class="custom-control custom-select"
 				id="daterange-filter">
@@ -88,7 +88,7 @@
 							data-toggle="tooltip"
 							title="{{ $__t('Table options') }}"
 							data-table-selector="#batteries-journal-table"
-							href="#"><i class="fas fa-eye"></i></a>
+							href="#"><i class="fa-solid fa-eye"></i></a>
 					</th>
 					<th class="allow-grouping">{{ $__t('Battery') }}</th>
 					<th>{{ $__t('Tracked time') }}</th>
@@ -105,7 +105,7 @@
 							data-toggle="tooltip"
 							data-placement="left"
 							title="{{ $__t('Undo charge cycle') }}">
-							<i class="fas fa-undo"></i>
+							<i class="fa-solid fa-undo"></i>
 						</a>
 					</td>
 					<td>
