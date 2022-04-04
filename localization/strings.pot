@@ -249,9 +249,6 @@ msgstr ""
 msgid "Edit store"
 msgstr ""
 
-msgid "Record data"
-msgstr ""
-
 msgid "Manage master data"
 msgstr ""
 
@@ -694,12 +691,6 @@ msgstr ""
 msgid "Below min. stock amount"
 msgstr ""
 
-msgid "Expiring soon"
-msgstr ""
-
-msgid "Already expired"
-msgstr ""
-
 msgid "Due soon"
 msgstr ""
 
@@ -710,9 +701,6 @@ msgid "View settings"
 msgstr ""
 
 msgid "Auto reload on external changes"
-msgstr ""
-
-msgid "Enable night mode"
 msgstr ""
 
 msgid "Auto enable in time range"
@@ -919,9 +907,6 @@ msgstr ""
 msgid "Use the following (public) URL to share or integrate the calendar in iCal format"
 msgstr ""
 
-msgid "Allow partial units in stock"
-msgstr ""
-
 msgid "Enable tare weight handling"
 msgstr ""
 
@@ -1099,9 +1084,6 @@ msgid "Not enough in stock, but already on the shopping list"
 msgstr ""
 
 msgid "Not enough in stock"
-msgstr ""
-
-msgid "Expiring soon days"
 msgstr ""
 
 msgid "Default location"
@@ -1550,9 +1532,6 @@ msgstr ""
 msgid "Is freezer"
 msgstr ""
 
-msgid "When moving products from/to a freezer location, the products best before date is automatically adjusted according to the product settings"
-msgstr ""
-
 msgid "This cannot be the same as the \"From\" location"
 msgstr ""
 
@@ -1727,9 +1706,6 @@ msgstr ""
 msgid "Journal summary"
 msgstr ""
 
-msgid "Journal summary for this product"
-msgstr ""
-
 msgid "Consume exact amount"
 msgstr ""
 
@@ -1749,9 +1725,6 @@ msgid "Decimal places allowed for amounts"
 msgstr ""
 
 msgid "Decimal places allowed for prices"
-msgstr ""
-
-msgid "Stock entries for this product"
 msgstr ""
 
 msgid "Edit shopping list"
