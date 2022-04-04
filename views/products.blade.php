@@ -97,8 +97,10 @@
 		<div class="float-right">
 			<a id="clear-filter-button"
 				class="btn btn-sm btn-outline-info"
-				href="#">
-				{{ $__t('Clear filter') }}
+				href="#"
+				data-toggle="tooltip"
+				title="{{ $__t('Clear filter') }}">
+				<i class="fa-solid fa-filter-circle-xmark"></i>
 			</a>
 		</div>
 	</div>

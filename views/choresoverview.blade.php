@@ -44,17 +44,19 @@
 				data-user-filter="xx{{ GROCY_USER_ID }}xx"
 				class="secondary-message user-filter-message responsive-button"></div>
 			@endif
-			<div class="float-right">
-				<a class="btn btn-sm btn-outline-info d-md-none mt-1"
+			<div class="float-right mt-1">
+				<a class="btn btn-sm btn-outline-info d-md-none"
 					data-toggle="collapse"
 					href="#table-filter-row"
 					role="button">
 					<i class="fa-solid fa-filter"></i>
 				</a>
 				<a id="clear-filter-button"
-					class="btn btn-sm btn-outline-info mt-1"
-					href="#">
-					{{ $__t('Clear filter') }}
+					class="btn btn-sm btn-outline-info"
+					href="#"
+					data-toggle="tooltip"
+					title="{{ $__t('Clear filter') }}">
+					<i class="fa-solid fa-filter-circle-xmark"></i>
 				</a>
 			</div>
 		</div>

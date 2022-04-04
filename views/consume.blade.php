@@ -118,19 +118,7 @@
 						&nbsp;<i class="fa-solid fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
-							title="{{ $__t('The first item in this list would be picked by the default rule which is "
-							Opened
-							first,
-							then
-							first
-							due
-							first,
-							then
-							first
-							in
-							first
-							out"')
-							}}"></i>
+							title="{{ $__t('The first item in this list would be picked by the default rule consume rule (Opened first, then first due first, then first in first out)') }}"></i>
 					</label>
 				</div>
 				<select disabled

@@ -826,7 +826,7 @@ msgstr ""
 msgid "Use a specific stock item"
 msgstr ""
 
-msgid "The first item in this list would be picked by the default rule which is \"Opened first, then first due first, then first in first out\""
+msgid "The first item in this list would be picked by the default rule consume rule (Opened first, then first due first, then first in first out)"
 msgstr ""
 
 msgid "Mark %1$s of %2$s as open"

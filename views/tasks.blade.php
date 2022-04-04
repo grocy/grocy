@@ -39,17 +39,19 @@
 				data-status-filter="duesoon"
 				data-next-x-days="{{ $nextXDays }}"
 				class="warning-message status-filter-message responsive-button @if($nextXDays == 0) d-none @endif"></div>
-			<div class="float-right">
-				<a class="btn btn-sm btn-outline-info d-md-none mt-1"
+			<div class="float-right mt-1">
+				<a class="btn btn-sm btn-outline-info d-md-none"
 					data-toggle="collapse"
 					href="#table-filter-row"
 					role="button">
 					<i class="fa-solid fa-filter"></i>
 				</a>
 				<a id="clear-filter-button"
-					class="btn btn-sm btn-outline-info mt-1"
-					href="#">
-					{{ $__t('Clear filter') }}
+					class="btn btn-sm btn-outline-info"
+					href="#"
+					data-toggle="tooltip"
+					title="{{ $__t('Clear filter') }}">
+					<i class="fa-solid fa-filter-circle-xmark"></i>
 				</a>
 			</div>
 		</div>
