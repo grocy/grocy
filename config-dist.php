@@ -158,6 +158,7 @@ DefaultUserSetting('auto_night_mode_enabled', false); // If night mode is enable
 DefaultUserSetting('auto_night_mode_time_range_from', '20:00'); // Format HH:mm
 DefaultUserSetting('auto_night_mode_time_range_to', '07:00'); // Format HH:mm
 DefaultUserSetting('auto_night_mode_time_range_goes_over_midnight', true); // If the time range above goes over midnight
+DefaultUserSetting('night_mode_enabled_internal', false); // Internal setting if night mode is actually enabled (based on the other settings)
 
 // Generic settings
 DefaultUserSetting('auto_reload_on_db_change', false); // If the page should be automatically reloaded when there was an external change

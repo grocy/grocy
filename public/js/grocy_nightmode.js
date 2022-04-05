@@ -47,18 +47,6 @@ $("#auto-night-mode-time-range-goes-over-midgnight").on("change", function()
 	CheckNightMode();
 });
 
-if (Grocy.UserId !== -1)
-{
-	$("input.user-setting-control:radio[name=night-mode][value=" + Grocy.UserSettings.night_mode + "]").prop("checked", true);
-	$("#auto-night-mode-enabled").prop("checked", BoolVal(Grocy.UserSettings.auto_night_mode_enabled));
-	$("#auto-night-mode-time-range-goes-over-midgnight").prop("checked", BoolVal(Grocy.UserSettings.auto_night_mode_time_range_goes_over_midnight));
-	$("#auto-night-mode-enabled").trigger("change");
-	$("#auto-night-mode-time-range-from").val(Grocy.UserSettings.auto_night_mode_time_range_from);
-	$("#auto-night-mode-time-range-from").trigger("keyup");
-	$("#auto-night-mode-time-range-to").val(Grocy.UserSettings.auto_night_mode_time_range_to);
-	$("#auto-night-mode-time-range-to").trigger("keyup");
-}
-
 function CheckNightMode()
 {
 	if (Grocy.UserId === -1)
@@ -116,6 +104,16 @@ function CheckNightMode()
 
 	if (BoolVal(Grocy.UserSettings.night_mode_enabled_internal))
 	{
+		if (!$("#night-mode-stylesheet").length)
+		{
+			$("<link>")
+				.appendTo("head")
+				.attr({
+					rel: "stylesheet",
+					href: U("/css/grocy_night_mode.css")
+				});
+		}
+
 		$("body").addClass("night-mode");
 	}
 	else
@@ -123,8 +121,18 @@ function CheckNightMode()
 		$("body").removeClass("night-mode");
 	}
 }
+
 if (Grocy.UserId !== -1)
 {
+	$("input.user-setting-control:radio[name=night-mode][value=" + Grocy.UserSettings.night_mode + "]").prop("checked", true);
+	$("#auto-night-mode-enabled").prop("checked", BoolVal(Grocy.UserSettings.auto_night_mode_enabled));
+	$("#auto-night-mode-time-range-goes-over-midgnight").prop("checked", BoolVal(Grocy.UserSettings.auto_night_mode_time_range_goes_over_midnight));
+	$("#auto-night-mode-enabled").trigger("change");
+	$("#auto-night-mode-time-range-from").val(Grocy.UserSettings.auto_night_mode_time_range_from);
+	$("#auto-night-mode-time-range-from").trigger("keyup");
+	$("#auto-night-mode-time-range-to").val(Grocy.UserSettings.auto_night_mode_time_range_to);
+	$("#auto-night-mode-time-range-to").trigger("keyup");
+
 	CheckNightMode();
 }
 

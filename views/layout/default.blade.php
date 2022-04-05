@@ -75,8 +75,13 @@
 		rel="stylesheet">
 	<link href="{{ $U('/css/grocy.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
-	<link href="{{ $U('/css/grocy_night_mode.css?v=', true) }}{{ $version }}"
+
+	@if(boolval($userSettings['night_mode_enabled_internal']))
+	<link id="night-mode-stylesheet"
+		href="{{ $U('/css/grocy_night_mode.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
+	@endif
+
 	@stack('pageStyles')
 
 	@if(file_exists(GROCY_DATAPATH . '/custom_css.html'))
@@ -114,13 +119,6 @@
 		@endif
 	</script>
 </head>
-
-@php
-if (!isset($userSettings['night_mode_enabled_internal']))
-{
-$userSettings['night_mode_enabled_internal'] = false;
-}
-@endphp
 
 <body class="fixed-nav @if(boolval($userSettings['night_mode_enabled_internal'])) night-mode @endif @if($embedded) embedded @endif">
 	@if(!($embedded))
