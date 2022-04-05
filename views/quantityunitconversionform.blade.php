@@ -56,10 +56,32 @@
 					name="from_qu_id">
 					<option></option>
 					@foreach($quantityunits as $quantityunit)
-					<option @if(($product
-						!=null
-						&&
-						$quantityunit->id == $product->qu_id_stock) || ($defaultQuUnit != null && $quantityunit->id == $defaultQuUnit->id))) selected="selected" @endif value="{{ $quantityunit->id }}" data-plural-form="{{ $quantityunit->name_plural }}">{{ $quantityunit->name }}</option>
+					@php
+					$selected = false;
+					if ($mode == 'edit' && $quantityunit->id == $quConversion->from_qu_id)
+					{
+					$selected = true;
+					}
+					else
+					{
+					if ($product != null && $quantityunit->id == $product->qu_id_stock)
+					{
+					$selected = true;
+					}
+					else
+					{
+					if ($quantityunit->id == $defaultQuUnit->id)
+					{
+					$selected = true;
+					}
+					}
+					}
+					@endphp
+					<option @if($selected)
+						selected="selected"
+						@endif
+						value="{{ $quantityunit->id }}"
+						data-plural-form="{{ $quantityunit->name_plural }}">{{ $quantityunit->name }}</option>
 					@endforeach
 				</select>
 				<div class="invalid-feedback">{{ $__t('A quantity unit is required') }}</div>
