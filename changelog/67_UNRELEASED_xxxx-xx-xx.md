@@ -61,6 +61,7 @@
 - Fixed that calories of recipe ingredients were displayed with an indefinite number of decimal places
 - Fixed that ingredient amounts were wrong for multi-nested (> 2 levels) recipes, when the included recipe used an serving amount other than 1
 - Fixed that searching/filtering the recipe gallery view did not work correctly
+- Fixed that searching/filtering recipes by products did not work (e.g. via the context-/more menu option "Search for recipes containing this product" on the stock overview page)
 
 ### Meal plan
 
