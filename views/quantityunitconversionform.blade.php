@@ -58,9 +58,12 @@
 					@foreach($quantityunits as $quantityunit)
 					@php
 					$selected = false;
-					if ($mode == 'edit' && $quantityunit->id == $quConversion->from_qu_id)
+					if ($mode == 'edit')
+					{
+					if ($quantityunit->id == $quConversion->from_qu_id)
 					{
 					$selected = true;
+					}
 					}
 					else
 					{
