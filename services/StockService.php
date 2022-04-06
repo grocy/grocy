@@ -1639,7 +1639,6 @@ class StockService extends BaseService
 					{
 						$this->getDatabaseService()->ExecuteDbStatement('UPDATE stock SET stock_id = \'' . $splittedStockEntry->stock_id_to_keep . '\' WHERE stock_id = \'' . $stockId . '\'');
 						$this->getDatabaseService()->ExecuteDbStatement('UPDATE stock_log SET stock_id = \'' . $splittedStockEntry->stock_id_to_keep . '\' WHERE stock_id = \'' . $stockId . '\'');
-						$this->getDatabaseService()->ExecuteDbStatement('UPDATE userfield_values SET object_id = \'' . $splittedStockEntry->stock_id_to_keep . '\' WHERE field_id IN (SELECT id FROM userfields WHERE entity = \'stock\') AND object_id = \'' . $stockId . '\'');
 					}
 				}
 

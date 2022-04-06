@@ -25,7 +25,21 @@ FROM userfield_values_old;
 
 DROP TABLE userfield_values_old;
 
-CREATE TRIGGER userfield_values_special_handling AFTER INSERT ON userfield_values
+CREATE TRIGGER prevent_empty_userfields_INS AFTER INSERT ON userfield_values
+BEGIN
+	DELETE FROM userfield_values
+	WHERE id = NEW.id
+		AND IFNULL(value, '') = '';
+END;
+
+CREATE TRIGGER prevent_empty_userfields_UPD AFTER UPDATE ON userfield_values
+BEGIN
+	DELETE FROM userfield_values
+	WHERE id = NEW.id
+		AND IFNULL(value, '') = '';
+END;
+
+CREATE TRIGGER userfield_values_special_handling_INS AFTER INSERT ON userfield_values
 BEGIN
 	-- Entity stock:
 	-- object_id is the transaction_id on insert -> replace it by the corresponding stock_id
@@ -52,20 +66,28 @@ AS
 
 /*
 	Helper view which shows splitted stock rows which could be compacted
-	(a stock_id starting with "x" indicates that this entry shouldn't be compacted)
+
+	Stock entries with a stock_id starting with "x"
+	and those with userfields shouldn't be compacted
 */
 
 SELECT
-	product_id,
-	SUM(amount) AS total_amount,
-	MIN(stock_id) AS stock_id_to_keep,
-	MAX(id) AS id_to_keep,
-	GROUP_CONCAT(id) AS id_group,
-	GROUP_CONCAT(stock_id) AS stock_id_group,
-	id -- Dummy
-FROM stock
-WHERE stock_id NOT LIKE 'x%'
-GROUP BY product_id, best_before_date, purchased_date, price, open, opened_date, location_id, shopping_location_id, IFNULL(note, '')
+	s.product_id,
+	SUM(s.amount) AS total_amount,
+	MIN(s.stock_id) AS stock_id_to_keep,
+	MAX(s.id) AS id_to_keep,
+	GROUP_CONCAT(s.id) AS id_group,
+	GROUP_CONCAT(s.stock_id) AS stock_id_group,
+	s.id -- Dummy
+FROM stock s
+WHERE s.stock_id NOT LIKE 'x%'
+	AND NOT EXISTS(
+		SELECT 1 FROM userfield_values
+		WHERE object_id = s.stock_id
+			AND field_id IN (SELECT id FROM userfields WHERE entity = 'stock')
+			AND IFNULL(value, '') != ''
+		)
+GROUP BY s.product_id, s.best_before_date, s.purchased_date, s.price, s.open, s.opened_date, s.location_id, s.shopping_location_id, IFNULL(s.note, '')
 HAVING COUNT(*) > 1;
 
 DROP VIEW uihelper_stock_journal;
