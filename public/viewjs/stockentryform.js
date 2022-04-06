@@ -41,15 +41,18 @@
 
 	jsonData.open = $("#open").is(":checked");
 
-	Grocy.Api.Put("stock/entry/" + Grocy.EditObjectId, jsonData,
+	Grocy.Api.Put("stock/entry/" + Grocy.EditObjectRowId, jsonData,
 		function(result)
 		{
-			var successMessage = __t('Stock entry successfully updated') + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBookingEntry(\'' + result.id + '\',\'' + Grocy.EditObjectId + '\')"><i class="fa-solid fa-undo"></i> ' + __t("Undo") + '</a>';
+			Grocy.Components.UserfieldsForm.Save(function()
+			{
+				var successMessage = __t('Stock entry successfully updated') + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBookingEntry(\'' + result.id + '\',\'' + Grocy.EditObjectRowId + '\')"><i class="fa-solid fa-undo"></i> ' + __t("Undo") + '</a>';
 
-			window.parent.postMessage(WindowMessageBag("StockEntryChanged", Grocy.EditObjectId), Grocy.BaseUrl);
-			window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", successMessage), Grocy.BaseUrl);
-			window.parent.postMessage(WindowMessageBag("Ready"), Grocy.BaseUrl);
-			window.parent.postMessage(WindowMessageBag("CloseAllModals"), Grocy.BaseUrl);
+				window.parent.postMessage(WindowMessageBag("StockEntryChanged", Grocy.EditObjectRowId), Grocy.BaseUrl);
+				window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", successMessage), Grocy.BaseUrl);
+				window.parent.postMessage(WindowMessageBag("Ready"), Grocy.BaseUrl);
+				window.parent.postMessage(WindowMessageBag("CloseAllModals"), Grocy.BaseUrl);
+			});
 		},
 		function(xhr)
 		{
@@ -118,5 +121,7 @@ $("#amount").on("focus", function(e)
 {
 	$(this).select();
 });
+
+Grocy.Components.UserfieldsForm.Load();
 $("#amount").focus();
 Grocy.FrontendHelpers.ValidateForm("stockentry-form");

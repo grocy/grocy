@@ -5,7 +5,8 @@
 
 @section('content')
 <script>
-	Grocy.EditObjectId = {{ $stockEntry->id }};
+	Grocy.EditObjectId = "{{ $stockEntry->stock_id }}";
+	Grocy.EditObjectRowId = {{ $stockEntry->id }};
 	Grocy.EditObjectProductId = {{ $stockEntry->product_id }};
 </script>
 
@@ -139,6 +140,11 @@
 						value="{{ $stockEntry->note }}">
 				</div>
 			</div>
+
+			@include('components.userfieldsform', array(
+			'userfields' => $userfields,
+			'entity' => 'stock'
+			))
 
 			<button id="save-stockentry-button"
 				class="btn btn-success">{{ $__t('OK') }}</button>
