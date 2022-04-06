@@ -85,11 +85,8 @@
 			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_prices']),
 			'decimals' => $userSettings['stock_decimal_places_prices'],
 			'value' => '',
-			'hint' => $__t('Per stock quantity unit', GROCY_CURRENCY),
-			'additionalHtmlContextHelp' => '<i class="fa-solid fa-question-circle text-muted"
-				data-toggle="tooltip"
-				data-trigger="hover click"
-				title="' . $__t('This will apply to added products') . '"></i>',
+			'contextInfoId' => 'price-hint',
+			'hint' => $__t('This will apply to added products'),
 			'isRequired' => false,
 			'additionalCssClasses' => 'locale-number-input locale-number-currency'
 			))

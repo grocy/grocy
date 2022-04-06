@@ -44,6 +44,7 @@
 - The location content sheet can now optionally list also out of stock products (at the products default location, new checkbox "Show only in-stock products " at the top of the page, defaults to enabled)
 - Added a location filter to the stock entries page
 - Added the product grocycode as a (hidden by default) column to the products list (master data)
+- The price entered on the inventory page is now related to the selected quantity unit (like on the purchase page, was always related to the products stock QU before)
 - Fixed that consuming via the consume page was not possible when `FEATURE_FLAG_STOCK_LOCATION_TRACKING` was disabled
 
 ### Shopping list
