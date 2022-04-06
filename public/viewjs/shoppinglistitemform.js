@@ -275,7 +275,7 @@ if (GetUriParam("amount") !== undefined)
 
 if (GetUriParam("embedded") !== undefined)
 {
-	if (GetUriParam("product") !== undefined)
+	if (GetUriParam("product") !== undefined || Grocy.EditMode == "edit")
 	{
 		Grocy.Components.ProductPicker.GetPicker().trigger('change');
 		$("#display_amount").focus();
