@@ -27,6 +27,29 @@
 			$product = FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id);
 			@endphp
 
+			@include('components.numberpicker', array(
+			'id' => 'amount',
+			'value' => $stockEntry->amount,
+			'min' => $DEFAULT_MIN_AMOUNT,
+			'decimals' => $userSettings['stock_decimal_places_amounts'],
+			'label' => 'Amount',
+			'contextInfoId' => 'amount_qu_unit',
+			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
+			))
+
+			@include('components.datetimepicker2', array(
+			'id' => 'purchase_date',
+			'initialValue' => $stockEntry->purchased_date,
+			'label' => 'Purchased date',
+			'format' => 'YYYY-MM-DD',
+			'initWithNow' => false,
+			'limitEndToNow' => false,
+			'limitStartToNow' => false,
+			'invalidFeedback' => $__t('A purchased date is required'),
+			'nextInputSelector' => '#save-stockentry-button',
+			'additionalGroupCssClasses' => 'date-only-datetimepicker'
+			))
+
 			@php
 			$additionalGroupCssClasses = '';
 			if (!GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
@@ -53,16 +76,6 @@
 			'activateNumberPad' => GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_FIELD_NUMBER_PAD
 			))
 			@php $additionalGroupCssClasses = ''; @endphp
-
-			@include('components.numberpicker', array(
-			'id' => 'amount',
-			'value' => $stockEntry->amount,
-			'min' => $DEFAULT_MIN_AMOUNT,
-			'decimals' => $userSettings['stock_decimal_places_amounts'],
-			'label' => 'Amount',
-			'contextInfoId' => 'amount_qu_unit',
-			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
-			))
 
 			@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 			@php
@@ -109,27 +122,6 @@
 				value="1">
 			@endif
 
-			@include('components.datetimepicker2', array(
-			'id' => 'purchase_date',
-			'initialValue' => $stockEntry->purchased_date,
-			'label' => 'Purchased date',
-			'format' => 'YYYY-MM-DD',
-			'initWithNow' => false,
-			'limitEndToNow' => false,
-			'limitStartToNow' => false,
-			'invalidFeedback' => $__t('A purchased date is required'),
-			'nextInputSelector' => '#save-stockentry-button',
-			'additionalGroupCssClasses' => 'date-only-datetimepicker'
-			))
-
-			<div class="form-group">
-				<div class="custom-control custom-checkbox">
-					<input @if($stockEntry->open == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="open" name="open" value="1">
-					<label class="form-check-label custom-control-label"
-						for="open">{{ $__t('Opened') }}</label>
-				</div>
-			</div>
-
 			<div class="form-group">
 				<label for="note">{{ $__t('Note') }}</label>
 				<div class="input-group">
@@ -138,6 +130,14 @@
 						id="note"
 						name="note"
 						value="{{ $stockEntry->note }}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="custom-control custom-checkbox">
+					<input @if($stockEntry->open == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="open" name="open" value="1">
+					<label class="form-check-label custom-control-label"
+						for="open">{{ $__t('Opened') }}</label>
 				</div>
 			</div>
 
