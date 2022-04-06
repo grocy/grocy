@@ -39,6 +39,9 @@
     - 1. The new default consume location, if the product currently has any stock there, otherwise
     - 2. The products default location, if the product currently has any stock there, otherwise
     - 3. The first location where the product currently has any stock
+- Optimized quantity unit conversion handling:
+  - The option "Create inverse QU conversion" was removed when creating a QU conversion
+  - => Instead the corresponding inverse conversion is now always created/updated/deleted automatically
 - New product option "Disable own stock" (defaults to disabled)
   - When enabled, the corresponding product can't have own stock, means it will not be selectable on purchase (useful for parent products which are just used as a summary/total view of the child products)
 - The location content sheet can now optionally list also out of stock products (at the products default location, new checkbox "Show only in-stock products " at the top of the page, defaults to enabled)
