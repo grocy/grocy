@@ -110,12 +110,13 @@ $('.input-group-qu').on('change', function(e)
 {
 	var fromQuId = $("#from_qu_id").val();
 	var toQuId = $("#to_qu_id").val();
-	var factor = $('#factor').val();
+	var factor = Number.parseFloat($('#factor').val());
 
 	if (fromQuId == toQuId)
 	{
-		$("#to_qu_id").parent().find(".invalid-feedback").text(__t('This cannot be equal to %s', $("#from_qu_id option:selected").text()));
-		$("#to_qu_id")[0].setCustomValidity("error");
+		var validationMessage = __t('This cannot be equal to %s', $("#from_qu_id option:selected").text());
+		$("#to_qu_id").parent().find(".invalid-feedback").text(validationMessage);
+		$("#to_qu_id")[0].setCustomValidity(validationMessage);
 	}
 	else
 	{
@@ -124,10 +125,10 @@ $('.input-group-qu').on('change', function(e)
 
 	if (fromQuId && toQuId)
 	{
-		$('#qu-conversion-info').text(__t('This means 1 %1$s is the same as %2$s %3$s', $("#from_qu_id option:selected").text(), parseFloat((1 * factor)).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }), __n((1 * factor).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }), $("#to_qu_id option:selected").text(), $("#to_qu_id option:selected").data("plural-form"), true)));
+		$('#qu-conversion-info').text(__t('This means 1 %1$s is the same as %2$s %3$s', $("#from_qu_id option:selected").text(), (1.0 * factor).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }), __n((1.0 * factor).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }), $("#to_qu_id option:selected").text(), $("#to_qu_id option:selected").data("plural-form"), true)));
 		$('#qu-conversion-info').removeClass('d-none');
 		$('#qu-conversion-inverse-info').removeClass('d-none');
-		$('#qu-conversion-inverse-info').text(__t('This means 1 %1$s is the same as %2$s %3$s', $("#to_qu_id option:selected").text(), parseFloat((1 / factor)).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }), __n((1 / factor).toString(), $("#from_qu_id option:selected").text(), $("#from_qu_id option:selected").data("plural-form"), true)));
+		$('#qu-conversion-inverse-info').text(__t('This means 1 %1$s is the same as %2$s %3$s', $("#to_qu_id option:selected").text(), (1.0 / factor).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }), __n((1.0 / factor), $("#from_qu_id option:selected").text(), $("#from_qu_id option:selected").data("plural-form"), true)));
 	}
 	else
 	{
