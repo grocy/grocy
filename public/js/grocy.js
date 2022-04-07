@@ -1002,7 +1002,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 		var title = headerCell.text();
 		var visible = this.visible();
 
-		if (title.isEmpty() || title.startsWith("Hidden"))
+		if (title.isEmpty() || title.startsWith("Hidden") || headerCell.hasClass("d-none"))
 		{
 			return;
 		}

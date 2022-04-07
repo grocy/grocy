@@ -175,7 +175,7 @@
 					<th class="allow-grouping">{{ $__t('Parent product') }}</th>
 					<th class="allow-grouping">{{ $__t('Default location') }}</th>
 					<th>{{ $__t('Product picture') }}</th>
-					<th>{{ $__t('Average price') }}</th>
+					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Average price') }}</th>
 
 					@include('components.userfields_thead', array(
 					'userfields' => $userfields
