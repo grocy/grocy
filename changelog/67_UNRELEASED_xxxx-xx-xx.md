@@ -1,13 +1,9 @@
-> ⚠️ xxxBREAKING CHANGESxxx
-
-> ❗ xxxImportant upgrade informationXXX
-
 ### New feature: Notes and Userfields for stock entries
 
 - Stock entries can now have notes
-  - For example to distinguish between same, yet different products (e.g. having only a generic product "Chocolate" and note in that field what special one it is exactly this time - an alternative to have sub products)
+  - For example to distinguish between same, yet different products (e.g. having only a generic product "Chocolate" and note in that field what special one it is exactly this time - as an alternative to have sub products)
   - Or for example to track ownership of stock items when sharing the fridge with your flatmates
-  - => New field on the purchase and inventory page
+  - => New field on the purchase and inventory (and stock entry edit) page
   - => New column on the stock entries and stock journal page
   - => Visible also in the "Use a specific stock item" dropdown on the consume and transfer page
 - Additionally it's also possible to add arbitrary own fields by using Userfields
@@ -36,15 +32,15 @@
   - When set, stock entries at that location will be consumed first
   - => This will be automatically taken into account when consuming from the stock overview page and all other places where no specific location can be selected
   - => On the consume page the location is preselected in the following order:
-    - 1. The new default consume location, if the product currently has any stock there, otherwise
-    - 2. The products default location, if the product currently has any stock there, otherwise
-    - 3. The first location where the product currently has any stock
+    1. The new default consume location, if the product currently has any stock there, otherwise
+    2. The products default location, if the product currently has any stock there, otherwise
+    3. The first location where the product currently has any stock
 - Optimized quantity unit conversion handling:
   - The option "Create inverse QU conversion" was removed when creating a QU conversion
   - => Instead the corresponding inverse conversion is now always created/updated/deleted automatically
 - New product option "Disable own stock" (defaults to disabled)
-  - When enabled, the corresponding product can't have own stock, means it will not be selectable on purchase (useful for parent products which are just used as a summary/total view of the child products)
-- The location content sheet can now optionally list also out of stock products (at the products default location, new checkbox "Show only in-stock products " at the top of the page, defaults to enabled)
+  - When enabled, the corresponding product can't have own stock, means it will not be selectable on purchase (useful for parent products which are just used as a summary/total view of the sub products)
+- The location content sheet can now optionally list also out of stock products (at the products default location, new checkbox "Show only in-stock products" at the top of the page, defaults to enabled)
 - Added a location filter to the stock entries page
 - Added the product grocycode as a (hidden by default) column to the products list (master data)
 - The price entered on the inventory page is now related to the selected quantity unit (like on the purchase page, was always related to the products stock QU before)
@@ -59,8 +55,10 @@
 
 - When a parent product is used as an ingredient, which is currently not in stock itself, the substituted product (so the one which was already taken into account when consuming the recipe) is now displayed below the ingredient and the costs (and calories) are taken from that one, to reflect the current real costs even better
 - Added a new recipes setting (top right corner settings menu) "Show a little checkbox next to each ingredient to mark it as done" (defaults to disabled)
-  - When enabled, next to each ingredient a little checkbox will be shown, when clicked, the ingredient is crossed out (the status is not saved, means reset when the page is reloaded)
-- Fixed that consuming recipes was possible when not all ingredients were in-stock (and this potentially consumed some of the in-stock ingredients; not matching the message "nothing removed")
+  - When enabled, next to each ingredient a little checkbox will be shown
+  - When clicked, the ingredient is crossed out
+  - This status is not saved, means reset when the page is reloaded
+- Fixed that consuming recipes was possible when not all ingredients were in stock (and this potentially consumed some of the in stock ingredients; not matching the message "nothing removed")
 - Fixed that the price of the "Produces product"-product, which is added to stock on consuming a recipe, was wrong (was the recipe total costs multiplied by the serving amount instead of only the recipe total costs)
 - Fixed that calories of recipe ingredients were displayed with an indefinite number of decimal places
 - Fixed that ingredient amounts were wrong for multi-nested (> 2 levels) recipes, when the included recipe used an serving amount other than 1
@@ -78,15 +76,11 @@
   - This period type scheduled chores `n` days _after the last execution_ before, which is also possible by using the `Hourly` period type and a corresponding period interval; all existing `Daily` schedules will be converted to that on migration
 - It's now possible to manually reschedule / assign chores
   - New entry "Reschedule next execution" in the context/more menu on the chores overview page
-  - If you have rescheduled a chore and want to continue the normal schedule/assignment instead, use the "Clear" button in the dialog
+  - If you have rescheduled a chore and want to continue the normal schedule/assignment instead, use the "Clear" button in the same dialog
   - Rescheduled/reassigned chores will be highlighted with an corresponding icon next to the "Next estimated tracking date" / "Assigned to"
-- Optimized that when skipping chores via the chore tracking page, the given time is used as the "skipped time", not the scheduled next estimated tracking time of the corresponding chore (essentially making it possible to skip more then one schedule at once)
-- Fixed that when consuming a parent product on chore execution (chore option "Consume product on chore execution"), no child products were used if the parent product itself is not in-stock
+- Optimized that when skipping chores via the chore tracking page, the given time is used as the "skipped time", not the scheduled next estimated tracking time of the corresponding chore (making it essentially possible to skip more then one schedule at once)
+- Fixed that when consuming a parent product on chore execution (chore option "Consume product on chore execution"), no child products were used if the parent product itself is not in stock
 - Fixed that the upgrade to v3.2.0 failed when having any former "Dynamic Regular" chore with a "Period interval" of `0` (which makes absolutely no sense in reality)
-
-### Calendar
-
-- xxx
 
 ### Tasks
 
@@ -94,7 +88,7 @@
 
 ### Batteries
 
-- Fixed that the batteries overview page was broken when there was any battery Userfields with enabled "Show as column in tables" option
+- Fixed that the batteries overview page was broken when there was any battery Userfield with enabled "Show as column in tables" option
 - Fixed that grocycode label printer printing didn't work from the battery edit page (master data) (thanks @andreheuer)
 - Fixed that undoing a battery charge cycle had no effect on "Last charged" and "Next planned charge cycle" of the corresponding battery
 
@@ -121,7 +115,7 @@
 ### API
 
 - Added a new endpoint `GET /stock/locations/{locationId}/entries` to get all stock entries of a given location (similar to the already existing endpoint `GET /stock/products/{productId}/entries`)
-- Endpoint `/recipes/{recipeId}/consume`: Fixed that consuming partially fulfilled recipes was possible, although an error was already returned in that case (and potentially some of the in-stock ingredients were consumed in fact)
+- Endpoint `/recipes/{recipeId}/consume`: Fixed that consuming partially fulfilled recipes was possible, although an error was already returned in that case (and potentially some of the in stock ingredients were consumed in fact)
 - Endpoint `/stock/products/{productId}`:
   - New field/property `current_price` which returns the current price of the corresponding product, based on the stock entry to use next (defined by the default consume rule "Opened first, then first due first, then first in first out") or on the last price if the product is currently not in stock
   - The field/property  `oldest_price` is deprecated and will be removed in a future version (this had no real sense, currently returns the same as `current_price`)
