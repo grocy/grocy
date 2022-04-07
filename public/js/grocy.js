@@ -344,6 +344,12 @@ RefreshContextualTimeago = function(rootSelector = "#page-content")
 			return
 		}
 
+		if (!moment(timestamp).isValid())
+		{
+			element.text("")
+			return
+		}
+
 		var isNever = timestamp && timestamp.substring(0, 10) == "2999-12-31";
 		var isToday = timestamp && timestamp.substring(0, 10) == moment().format("YYYY-MM-DD");
 		var isDateWithoutTime = element.hasClass("timeago-date-only");
@@ -425,9 +431,15 @@ Grocy.FrontendHelpers.ShowGenericError = function(message, exception)
 	toastr.error(__t(message) + '<br><br>' + __t('Click to show technical details'), '', {
 		onclick: function()
 		{
+			var errorDetails = JSON.stringify(exception, null, 4);
+			if (typeof exception === "object" && exception !== null && exception.hasOwnProperty("error_message"))
+			{
+				errorDetails = exception.error_message;
+			}
+
 			bootbox.alert({
 				title: __t('Error details'),
-				message: '<pre class="my-0"><code>' + JSON.stringify(exception, null, 4) + '</code></pre>',
+				message: '<p class="text-monospace my-0">' + errorDetails + '</p>',
 				closeButton: false
 			});
 		}
