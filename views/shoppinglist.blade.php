@@ -102,11 +102,13 @@
 					href="#">
 					{{ $__t('Add all list items to stock') }}
 				</a>
+				@if(!boolval($userSettings['shopping_list_auto_add_below_min_stock_amount']))
 				<a id="add-products-below-min-stock-amount"
 					class="btn btn-outline-primary btn-sm mb-1 responsive-button @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif"
 					href="#">
 					{{ $__t('Add products that are below defined min. stock amount') }}
 				</a>
+				@endif
 				<a id="add-overdue-expired-products"
 					class="btn btn-outline-primary btn-sm mb-1 responsive-button @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif"
 					href="#">

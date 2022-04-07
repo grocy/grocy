@@ -184,12 +184,12 @@ DefaultUserSetting('scan_mode_purchase_enabled', false); // If scan mode on the 
 DefaultUserSetting('show_icon_on_stock_overview_page_when_product_is_on_shopping_list', true); // When enabled, an icon is shown on the stock overview page (next to the product name) when the prodcut is currently on a shopping list
 DefaultUserSetting('show_purchased_date_on_purchase', false); // Whether the purchased date should be editable on purchase (defaults to today otherwise)
 DefaultUserSetting('show_warning_on_purchase_when_due_date_is_earlier_than_next', true); // Show a warning on purchase when the due date of the purchased product is earlier than the next due date in stock
-DefaultUserSetting('stock_auto_add_below_min_stock_amount_to_shopping_list', false); // If products should be automatically added to the shopping list when they are below their min. stock amount
-DefaultUserSetting('stock_auto_add_below_min_stock_amount_to_shopping_list_id', 1); // When the above setting is enabled, the id of the shopping list to which the products will be added
 
 // Shopping list settings
 DefaultUserSetting('shopping_list_to_stock_workflow_auto_submit_when_prefilled', false); // Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default due days" set
 DefaultUserSetting('shopping_list_show_calendar', false); // When enabled, a small (month view) calendar will be shown on the shopping list page
+DefaultUserSetting('shopping_list_auto_add_below_min_stock_amount', false); // If products should be automatically added to the shopping list when they are below their min. stock amount
+DefaultUserSetting('shopping_list_auto_add_below_min_stock_amount_list_id', 1); // When the above setting is enabled, the id of the shopping list to which the products will be added
 
 // Recipe settings
 DefaultUserSetting('recipe_ingredients_group_by_product_group', false); // Group recipe ingredients by their product group

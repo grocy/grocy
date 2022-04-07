@@ -31,15 +31,15 @@
 			<div class="custom-control custom-checkbox">
 				<input type="checkbox"
 					class="form-check-input custom-control-input user-setting-control"
-					id="stock_auto_add_below_min_stock_amount_to_shopping_list"
-					data-setting-key="stock_auto_add_below_min_stock_amount_to_shopping_list">
+					id="shopping_list_auto_add_below_min_stock_amount"
+					data-setting-key="shopping_list_auto_add_below_min_stock_amount">
 				<label class="form-check-label custom-control-label"
-					for="stock_auto_add_below_min_stock_amount_to_shopping_list">
+					for="shopping_list_auto_add_below_min_stock_amount">
 					{{ $__t('Automatically add products that are below their defined min. stock amount to the shopping list') }}
 					<select class="custom-control custom-select user-setting-control"
-						id="stock_auto_add_below_min_stock_amount_to_shopping_list_id"
-						data-setting-key="stock_auto_add_below_min_stock_amount_to_shopping_list_id"
-						@if(!boolval($userSettings['stock_auto_add_below_min_stock_amount_to_shopping_list']))
+						id="shopping_list_auto_add_below_min_stock_amount_list_id"
+						data-setting-key="shopping_list_auto_add_below_min_stock_amount_list_id"
+						@if(!boolval($userSettings['shopping_list_auto_add_below_min_stock_amount']))
 						disabled
 						@endif>
 						@foreach($shoppingLists as $shoppingList)
