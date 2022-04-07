@@ -267,9 +267,6 @@ msgstr "עריכת מיקום"
 msgid "Edit store"
 msgstr "עריכת חנות"
 
-msgid "Record data"
-msgstr "הקלטת נתונים"
-
 msgid "Manage master data"
 msgstr "ניהול נתוני על"
 
@@ -737,12 +734,6 @@ msgstr "מצב"
 msgid "Below min. stock amount"
 msgstr "מתחת לכמות המלאי המזערית"
 
-msgid "Expiring soon"
-msgstr "תפוגה מתקרבת"
-
-msgid "Already expired"
-msgstr "התוקף כבר פג"
-
 msgid "Due soon"
 msgstr "מועד הסיום מתקרב"
 
@@ -754,9 +745,6 @@ msgstr "הצגת ההגדרות"
 
 msgid "Auto reload on external changes"
 msgstr "לרענן אוטומטית עם שינויים חיצוניים"
-
-msgid "Enable night mode"
-msgstr "הפעלת מצב לילה"
 
 msgid "Auto enable in time range"
 msgstr "להפעיל אוטומטית בטווח זמן"
@@ -882,11 +870,11 @@ msgid "Use a specific stock item"
 msgstr "להשתמש בפריט מלאי מסוים"
 
 msgid ""
-"The first item in this list would be picked by the default rule which is "
-"\"Opened first, then first due first, then first in first out\""
+"The first item in this list would be picked by the default rule consume rule"
+" (Opened first, then first due first, then first in first out)"
 msgstr ""
-"הפריט הראשון ברשימה הזאת ייבחר לפי כלל בררת המחדל שהוא „הראשון שנפתח, לאחר "
-"מכן הראשון שתוקפו יפוג, לאחר מכן הראשון שנכנס הוא הראשון שיוצא”"
+"הפריט הראשון ברשימה הזאת ייבחר על ידי כלל הצריכה כברירת מחדל (נפתחו קודם, "
+"לאחר מכן תום תוקף קרוב ראשון ואז הראשון שנכנס הוא הראשון שיוצא)"
 
 msgid "Mark %1$s of %2$s as open"
 msgstr "לסמן %1$s מתוך %2$s כפתוחים"
@@ -975,9 +963,6 @@ msgid ""
 "format"
 msgstr ""
 "ניתן להשתמש בכתובת (הציבורית) הבאה כדי לשתף או לשלב את לוח השנה בתצורת iCal"
-
-msgid "Allow partial units in stock"
-msgstr "לאפשר יחידות חלקיות במלאי"
 
 msgid "Enable tare weight handling"
 msgstr "לאפשר טיפול במשקל טרה"
@@ -1175,9 +1160,6 @@ msgstr "אין מספיק במלאי, אבל כבר מופיע ברשימת הק
 msgid "Not enough in stock"
 msgstr "אין מספיק במלאי"
 
-msgid "Expiring soon days"
-msgstr "ימים לתפוגה בקרוב"
-
 msgid "Default location"
 msgstr "מיקום בררת מחדל"
 
@@ -1208,9 +1190,6 @@ msgstr "צריכה של %1$s מתוך %2$s"
 
 msgid "Meal plan"
 msgstr "תכנית ארוחות"
-
-msgid "Add recipe on %s"
-msgstr "הוספת מתכון תחת %s"
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1347,15 +1326,23 @@ msgid "Assignment type"
 msgstr "סוג הקצאה"
 
 msgid ""
-"This means the next execution of this chore is scheduled %s day after the "
-"last execution"
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every day"
 msgid_plural ""
-"This means the next execution of this chore is scheduled %s days after the "
-"last execution"
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every %s days"
 msgstr[0] ""
+"משמעות הדבר היא שהוצאת המשימה הבאה לפועל מתוזמנת לאותו הזמן (לפי מועד "
+"ההתחלה) כל יום"
 msgstr[1] ""
+"משמעות הדבר היא שהוצאת המשימה הבאה לפועל מתוזמנת לאותו הזמן (לפי מועד "
+"ההתחלה) כל יומיים"
 msgstr[2] ""
+"משמעות הדבר היא שהוצאת המשימה הבאה לפועל מתוזמנת לאותו הזמן (לפי מועד "
+"ההתחלה) כל %s ימים"
 msgstr[3] ""
+"משמעות הדבר היא שהוצאת המשימה הבאה לפועל מתוזמנת לאותו הזמן (לפי מועד "
+"ההתחלה) כל %s ימים"
 
 msgid ""
 "This means the next execution of this chore is scheduled %s hour after the "
@@ -1364,9 +1351,17 @@ msgid_plural ""
 "This means the next execution of this chore is scheduled %s hours after the "
 "last execution"
 msgstr[0] ""
+"משמעות הדבר היא שהוצאת המשימה הבאה לפועל מתוזמנת כל שעה לאחר ההוצאה האחרונה "
+"לפועל"
 msgstr[1] ""
+"משמעות הדבר היא שהוצאת המשימה הבאה לפועל מתוזמנת כל שעתיים לאחר ההוצאה "
+"האחרונה לפועל"
 msgstr[2] ""
+"משמעות הדבר היא שהוצאת המשימה הבאה לפועל מתוזמנת כל %s שעות לאחר ההוצאה "
+"האחרונה לפועל"
 msgstr[3] ""
+"משמעות הדבר היא שהוצאת המשימה הבאה לפועל מתוזמנת כל %s שעות לאחר ההוצאה "
+"האחרונה לפועל"
 
 msgid ""
 "This means the next execution of this chore is scheduled every week on the "
@@ -1375,9 +1370,16 @@ msgid_plural ""
 "This means the next execution of this chore is scheduled every %s weeks on "
 "the selected weekdays"
 msgstr[0] ""
+"משמעות הדבר היא שהוצאת המשימה הבאה לפועל מתוזמנת כל שבוע בימי השבוע הנבחרים"
 msgstr[1] ""
+"משמעות הדבר היא שהוצאת המשימה הבאה לפועל מתוזמנת כל שבועיים בימי השבוע "
+"הנבחרים"
 msgstr[2] ""
+"משמעות הדבר היא שהוצאת המשימה הבאה לפועל מתוזמנת כל %s שבועות בימי השבוע "
+"הנבחרים"
 msgstr[3] ""
+"משמעות הדבר היא שהוצאת המשימה הבאה לפועל מתוזמנת כל %s שבועות בימי השבוע "
+"הנבחרים"
 
 msgid ""
 "This means the next execution of this chore is scheduled on the selected day"
@@ -1386,9 +1388,13 @@ msgid_plural ""
 "This means the next execution of this chore is scheduled on the selected day"
 " every %s months"
 msgstr[0] ""
+"משמעות הדבר היא שהוצאת המשימה הבאה לפועל מתוזמנת ליום הנבחר כל חודש"
 msgstr[1] ""
+"משמעות הדבר היא שהוצאת המשימה הבאה לפועל מתוזמנת ליום הנבחר כל חודשיים"
 msgstr[2] ""
+"משמעות הדבר היא שהוצאת המשימה הבאה לפועל מתוזמנת ליום הנבחר כל %s חודשים"
 msgstr[3] ""
+"משמעות הדבר היא שהוצאת המשימה הבאה לפועל מתוזמנת ליום הנבחר כל %s חודשים"
 
 msgid "This means the next execution of this chore is not scheduled"
 msgstr "משמעות הדבר היא שההוצאה לפועל של המטלה הזאת לא תתוזמן"
@@ -1579,9 +1585,17 @@ msgid_plural ""
 "This means the next execution of this chore is scheduled every %s years on "
 "the same day (based on the start date)"
 msgstr[0] ""
+"משמעות הדבר היא שהוצאת המשימה הבאה לפועל מתוזמנת כל שנה באותו היום (לפי "
+"תאריך ההתחלה)"
 msgstr[1] ""
+"משמעות הדבר היא שהוצאת המשימה הבאה לפועל מתוזמנת כל שנתיים באותו היום (לפי "
+"תאריך ההתחלה)"
 msgstr[2] ""
+"משמעות הדבר היא שהוצאת המשימה הבאה לפועל מתוזמנת כל %s שנים באותו היום (לפי "
+"תאריך ההתחלה)"
 msgstr[3] ""
+"משמעות הדבר היא שהוצאת המשימה הבאה לפועל מתוזמנת כל %s שנים באותו היום (לפי "
+"תאריך ההתחלה)"
 
 msgid "Transfer"
 msgstr "העברה"
@@ -1660,9 +1674,6 @@ msgstr "למחוק את מפתח ה־API „%s”?"
 msgid "Add note"
 msgstr "הוספת הערה"
 
-msgid "Add note on %s"
-msgstr "הוספת הערה על %s"
-
 msgid "per day"
 msgstr "ליום"
 
@@ -1671,9 +1682,6 @@ msgstr "רק פריטים שלא הסתיימו"
 
 msgid "Add product"
 msgstr "הוספת מוצר"
-
-msgid "Add product on %s"
-msgstr "הוספת מוצר תחת %s"
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
 msgstr "צורך את כל הרכיבים שנדרשים על ידי המתכונים או המוצרים של השבוע הזה"
@@ -1703,13 +1711,6 @@ msgstr "מצב סריקה פעיל אבל אין אפשרות למלא את כל
 msgid "Is freezer"
 msgstr "הקפאה"
 
-msgid ""
-"When moving products from/to a freezer location, the products best before "
-"date is automatically adjusted according to the product settings"
-msgstr ""
-"כאשר מוצר מועבר לתוך או מחוץ למקפיא, מועד התוקף של המוצרים מכוון בהתאם "
-"להגדרות המוצר"
-
 msgid "This cannot be the same as the \"From\" location"
 msgstr "לא יכול להיות כמו מיקום המוצא"
 
@@ -1727,15 +1728,6 @@ msgstr "הגדרות רשימת קניות"
 
 msgid "Show a month-view calendar"
 msgstr "לוח שנה בתצוגת חודש"
-
-msgid "Edit note on %s"
-msgstr "עריכת הערה על %s"
-
-msgid "Edit product on %s"
-msgstr "עריכת מוצר על %s"
-
-msgid "Edit recipe on %s"
-msgstr "עריכת מתכון על %s"
 
 msgid "Desired servings"
 msgstr "גודל מנה מבוקשת"
@@ -1788,9 +1780,6 @@ msgstr "קלוריות"
 msgid "means %1$s per %2$s"
 msgstr "כלומר %1$s לכל %2$s"
 
-msgid "Create inverse QU conversion"
-msgstr "יצירת המרת יחידות כמות הפוכה"
-
 msgid "Create recipe"
 msgstr "יצירת מתכון"
 
@@ -1832,9 +1821,8 @@ msgid ""
 "due first, then first in first out) for in-stock ingredients and on the last"
 " price for missing ones"
 msgstr ""
-
-msgid "Quantity unit stock cannot be changed after first purchase"
-msgstr "לא ניתן לשנות את היחידה במלאי לאחר הרכישה הראשונה"
+"לפי מחירי כלל הצריכה כברירת המחדל (קודם נפתח, אחר כך סיום תוקף בהתחלה, ואז "
+"הראשון שנכנס הוא הראשון שיוצא) לרכיבים במלאי ובמחיר האחרון לחסרים"
 
 msgid "Clear filter"
 msgstr "לבטל את הסינון"
@@ -1899,9 +1887,6 @@ msgstr "תקציר יומן מלאי"
 msgid "Journal summary"
 msgstr "תקציר יומן"
 
-msgid "Journal summary for this product"
-msgstr "תקציר יומן למוצר הזה"
-
 msgid "Consume exact amount"
 msgstr "צריכת כמות מדויקת"
 
@@ -1925,9 +1910,6 @@ msgstr "מקומות עשרוניים מותרים לכמויות"
 
 msgid "Decimal places allowed for prices"
 msgstr "מקומות עשרוניים מותרים למחירים"
-
-msgid "Stock entries for this product"
-msgstr "רשומות מלאי למוצר הזה"
 
 msgid "Edit shopping list"
 msgstr "עריכת רשימת הקניות"
@@ -2272,11 +2254,11 @@ msgid "After merging, this product will be kept"
 msgstr "לאחר המיזוג, המוצר הזה יישאר"
 
 msgid ""
-"After merging, all occurences of this product will be replaced by \"Product "
-"to keep\" (means this product will not exist anymore)"
+"After merging, all occurences of this product will be replaced by the kept "
+"product (means this product will not exist anymore)"
 msgstr ""
-"לאחר המיזוג, כל מופעי המוצר הזה יוחלפו ב„מוצר לשימור” (כלומר שהמוצר הזה לא "
-"יהיה קיים עוד)"
+"לאחר המיזוג, כל העותקים של המוצר הזה יוחלפו על ידי המוצר שנשמר (כלומר שהמוצר"
+" הזה לא יהיה קיים עוד)"
 
 msgid "Merge"
 msgstr "מיזוג"
@@ -2573,6 +2555,98 @@ msgid ""
 "This means the next execution of this chore is scheduled dynamically based "
 "on the past average execution frequency"
 msgstr ""
+"משמעות הדבר היא שההוצאה הבאה של המטלה הזאת לפועל מתוזמנת דינמית לפי תדירות "
+"ההוצאה לפועל הממוצעת מהעבר"
 
 msgid "Average execution frequency"
+msgstr "תדירות ממוצאת להוצאה לפועל"
+
+msgid "Reschedule next execution"
+msgstr "תזמון ההפעילות הבאה מחדש"
+
+msgid "This can only be in the future"
+msgstr "יכול להיות רק בעתיד"
+
+msgid "Rescheduled"
+msgstr "תוזמן מחדש"
+
+msgid "Due score"
+msgstr "ניקוד תפוגה"
+
+msgid ""
+"The higher this number is, the more ingredients currently in stock are due "
+"soon, overdue or already expired"
 msgstr ""
+"ככל שהמספר הזה גבוה יותר, כך תוקפם של יותר רכיבים במלאי עומד לפוג בהקדם, "
+"יפוג היום או פג"
+
+msgid "Disable own stock"
+msgstr "השבתת המלאי העצמי"
+
+msgid ""
+"When enabled, this product can't have own stock, means it will not be "
+"selectable on purchase (useful for parent products which are just used as a "
+"summary/total view of the child products)"
+msgstr ""
+"כאשר האפשרות פעילה, למוצר זה לא יכול להיות מלאי משלו, המשמעות היא שאי אפשר "
+"יהיה לבחור אותו ברכישה (שימוש למוצרי אב שמשמשים לתצוגת תקציר/סך הכול של "
+"המוצרים הצאצאים)"
+
+msgid "Out of stock items will be shown at the products default location"
+msgstr "פריטים שאינם במלאי יופיעו במיקום ברירת המחדל של המוצרים"
+
+msgid "Show a little checkbox next to each ingredient to mark it as done"
+msgstr "להציג תיבת סימון קטנה ליד כל רכיב כדי לסיים שבוצע"
+
+msgid ""
+"The ingredient is crossed out when clicked, the status is not saved, means "
+"reset when the page is reloaded"
+msgstr ""
+"הרכיב יורד מהרשימה בלחיצה עליו, המצב לא נשמר, כלומר זה יאופס עם רענון העמוד"
+
+msgid ""
+"The parent product %1$s is currently not in stock, %2$s is the current next "
+"sub product based on the default consume rule (Opened first, then first due "
+"first, then first in first out)"
+msgstr ""
+"מוצר ההורה %1$s אינו במלאי, %2$s הוא תת־המוצר הנוכחי המבוסס על כלל הצריכה "
+"כברירת מחדל (נפתח תחילה, לאחר מכן סיום תוקף תחילה ולאחר מכן הראשון שנכנס הוא"
+" הראשון שיוצא)"
+
+msgid "Night mode"
+msgstr "מצב לילה"
+
+msgid "On"
+msgstr "פעיל"
+
+msgid "Use system setting"
+msgstr "להשתמש בהגדרת המערכת"
+
+msgid "Off"
+msgstr "כבוי"
+
+msgid ""
+"Automatically add products that are below their defined min. stock amount to"
+" the shopping list"
+msgstr "להוסיף אוטומטית מוצרים שמתחת לכמות המלאי המזערית שלהם לרשימת הקניות"
+
+msgid "Reassigned"
+msgstr "מוקצה מחדש"
+
+msgid "Default value"
+msgstr "ערך ברירת מחדל"
+
+msgid "Now / today"
+msgstr "עכשיו / היום"
+
+msgid "Add meal plan entry"
+msgstr "הוספת רשומת תוכנית ארוחות"
+
+msgid "Edit meal plan entry"
+msgstr "עריכת רשומת תוכנית ארוחות"
+
+msgid "Default consume location"
+msgstr "מיקום ברירת המחדל לצריכה"
+
+msgid "Stock entries at this location will be consumed first"
+msgstr "רשומות המלאי במיקום זה תיצרכנה תחילה"

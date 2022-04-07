@@ -256,9 +256,6 @@ msgstr "இடத்தினைத் தொகு"
 msgid "Edit store"
 msgstr "கடையினைத் தொகு"
 
-msgid "Record data"
-msgstr "தரவுகளைப் பதிவிடு"
-
 msgid "Manage master data"
 msgstr "பிரதான தரவுகளை நிர்வகிக்கவும்"
 
@@ -331,8 +328,8 @@ msgstr "\"%s\" கடையினை நீக்க உறுதியா?"
 msgid "Manage API keys"
 msgstr "API விசைகளை நிர்வகிக்கவும்"
 
-msgid "REST API & data model documentation"
-msgstr "REST API & தரவுகள் ஆவணப்படுத்துதல்"
+msgid "REST API browser"
+msgstr ""
 
 msgid "API keys"
 msgstr "API விசைகள்"
@@ -357,11 +354,6 @@ msgstr "%s கையிருப்பில் சேர்க்கப்ப�
 
 msgid "This means %s will be removed from stock"
 msgstr "%s கையிருப்பிலிருந்து விலக்கப்படும்"
-
-msgid ""
-"This means the next execution of this chore is scheduled %s days after the "
-"last execution"
-msgstr ""
 
 msgid "Removed %1$s of %2$s from stock"
 msgstr "கையிருப்பிலிருந்து %2$s இன் %1$s நீக்கப்பட்டது"
@@ -714,12 +706,6 @@ msgstr "நிலை"
 msgid "Below min. stock amount"
 msgstr "குறைந்தபட்ச இருப்பு அளவின் கீழ் உள்ளது"
 
-msgid "Expiring soon"
-msgstr "விரைவில் காலாவதியாகிறது"
-
-msgid "Already expired"
-msgstr "காலாவதியாகிவிட்டது"
-
 msgid "Due soon"
 msgstr "சீக்கிரம் முடியவுள்ளது"
 
@@ -731,9 +717,6 @@ msgstr "அமைப்புகளைக் காண்க"
 
 msgid "Auto reload on external changes"
 msgstr "வெளிப்புற மாற்றங்களில் தானாக மீண்டும் ஏற்றவும்"
-
-msgid "Enable night mode"
-msgstr "இரவு பயன்முறையை செயல்படுத்து"
 
 msgid "Auto enable in time range"
 msgstr ""
@@ -859,8 +842,8 @@ msgid "Use a specific stock item"
 msgstr "குறிப்பிட்ட கையிருப்பு பொருளினை பயன்படுத்து"
 
 msgid ""
-"The first item in this list would be picked by the default rule which is "
-"\"Opened first, then first due first, then first in first out\""
+"The first item in this list would be picked by the default rule consume rule"
+" (Opened first, then first due first, then first in first out)"
 msgstr ""
 
 msgid "Mark %1$s of %2$s as open"
@@ -911,9 +894,6 @@ msgstr "பரிமாறல்கள்"
 msgid "Costs"
 msgstr "செலவுகள்"
 
-msgid "Based on the prices of the last purchase per product"
-msgstr "பொருள் வாரியாக கடைசியாக வாங்கிய விலைகளின் அடிப்படையில்"
-
 msgid "The ingredients listed here result in this amount of servings"
 msgstr ""
 
@@ -949,9 +929,6 @@ msgid ""
 "Use the following (public) URL to share or integrate the calendar in iCal "
 "format"
 msgstr ""
-
-msgid "Allow partial units in stock"
-msgstr "கையிருப்பில் பகுதியளவிலான அலகுகளையும் அனுமதி"
 
 msgid "Enable tare weight handling"
 msgstr ""
@@ -1143,9 +1120,6 @@ msgstr ""
 msgid "Not enough in stock"
 msgstr "கையிருப்பில் போதுமானதாக இல்லை"
 
-msgid "Expiring soon days"
-msgstr "விரைவில் காலாவதியாகப்போகும் நாட்கள்"
-
 msgid "Default location"
 msgstr "இயல்புநிலை இடம்"
 
@@ -1174,9 +1148,6 @@ msgstr "%2$s இலிருந்து %1$s இனை உண்"
 
 msgid "Meal plan"
 msgstr "உணவுத்திட்டம்"
-
-msgid "Add recipe on %s"
-msgstr "%s இல் சமையல் குறிப்பினை இணை"
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1209,9 +1180,6 @@ msgstr "ஒருபோதும் இல்லை"
 
 msgid "Today"
 msgstr "இன்று"
-
-msgid "Consume %1$s of %2$s as spoiled"
-msgstr ""
 
 msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
 msgstr ""
@@ -1310,21 +1278,42 @@ msgid "Assignment type"
 msgstr "நிச்சயித்தல் வகை"
 
 msgid ""
-"This means the next execution of this chore is scheduled 1 day after the "
-"last execution"
-msgstr ""
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every day"
+msgid_plural ""
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every %s days"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid ""
-"This means the next execution of this chore is scheduled 1 day after the "
-"last execution, but only for the weekdays selected below"
-msgstr ""
+"This means the next execution of this chore is scheduled %s hour after the "
+"last execution"
+msgid_plural ""
+"This means the next execution of this chore is scheduled %s hours after the "
+"last execution"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid ""
+"This means the next execution of this chore is scheduled every week on the "
+"selected weekdays"
+msgid_plural ""
+"This means the next execution of this chore is scheduled every %s weeks on "
+"the selected weekdays"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid ""
+"This means the next execution of this chore is scheduled on the selected day"
+" every month"
+msgid_plural ""
+"This means the next execution of this chore is scheduled on the selected day"
+" every %s months"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "This means the next execution of this chore is not scheduled"
-msgstr ""
-
-msgid ""
-"This means the next execution of this chore is scheduled on the below "
-"selected day of each month"
 msgstr ""
 
 msgid ""
@@ -1472,8 +1461,7 @@ msgstr ""
 
 msgid ""
 "If enabled, the min. stock amount of sub products will be accumulated into "
-"this product, means the sub product will never be \"missing\", only this "
-"product"
+"this product, means the sub product will never be missing, only this product"
 msgstr ""
 
 msgid "Are you sure to remove this conversion?"
@@ -1501,29 +1489,13 @@ msgid "Period interval"
 msgstr "கால இடைவெளி"
 
 msgid ""
-"This means the next execution of this chore should only be scheduled every "
-"%s days"
-msgstr ""
-
-msgid ""
-"This means the next execution of this chore should only be scheduled every "
-"%s weeks"
-msgstr ""
-
-msgid ""
-"This means the next execution of this chore should only be scheduled every "
-"%s months"
-msgstr ""
-
-msgid ""
-"This means the next execution of this chore is scheduled 1 year after the "
-"last execution"
-msgstr ""
-
-msgid ""
-"This means the next execution of this chore should only be scheduled every "
-"%s years"
-msgstr ""
+"This means the next execution of this chore is scheduled every year on the "
+"same day (based on the start date)"
+msgid_plural ""
+"This means the next execution of this chore is scheduled every %s years on "
+"the same day (based on the start date)"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Transfer"
 msgstr "பரிமாற்றம்"
@@ -1598,9 +1570,6 @@ msgstr "\"%s\" API விசையினை நீக்க வேண்டு�
 msgid "Add note"
 msgstr "குறிப்பு சேர்"
 
-msgid "Add note on %s"
-msgstr "%sஇல் ஒரு குறிப்பினை இணை"
-
 msgid "per day"
 msgstr "ஒரு நாளைக்கு"
 
@@ -1609,9 +1578,6 @@ msgstr "மீளமைக்கப்பட்ட பொருட்கள் �
 
 msgid "Add product"
 msgstr "பொருளினைச் சேர்"
-
-msgid "Add product on %s"
-msgstr "%s இல் பொருளினை இணை"
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
 msgstr ""
@@ -1641,11 +1607,6 @@ msgstr ""
 msgid "Is freezer"
 msgstr "உறைவிப்பான் ஆகும்"
 
-msgid ""
-"When moving products from/to a freezer location, the products best before "
-"date is automatically adjusted according to the product settings"
-msgstr ""
-
 msgid "This cannot be the same as the \"From\" location"
 msgstr ""
 
@@ -1663,15 +1624,6 @@ msgstr "வாங்க வேண்டியவை அமைப்புகள�
 
 msgid "Show a month-view calendar"
 msgstr "மாத வாரியாக நாட்காட்டியனை காட்டு"
-
-msgid "Edit note on %s"
-msgstr "%s இல் குறிப்பினைத் தொகு"
-
-msgid "Edit product on %s"
-msgstr "%s இல் பொருளினைத் தொகு"
-
-msgid "Edit recipe on %s"
-msgstr "%s இன் சமையல் குறிப்பினைத் தொகு"
 
 msgid "Desired servings"
 msgstr "விருப்பமான பரிமாறல்கள்"
@@ -1724,9 +1676,6 @@ msgstr "கலோரிகள்"
 msgid "means %1$s per %2$s"
 msgstr "அதாவது %2$s இற்கு %1$s"
 
-msgid "Create inverse QU conversion"
-msgstr ""
-
 msgid "Create recipe"
 msgstr "சமையல் குறிப்பினை உருவாக்கவும்"
 
@@ -1763,20 +1712,10 @@ msgstr "பொருளிற்கான பார்கோடு"
 msgid "Edit Barcode"
 msgstr "பார்கோடினைத் தொகு"
 
-msgid "Not enough in stock (not included in costs), %s ingredient missing"
-msgstr ""
-
 msgid ""
-"Based on the prices of the default consume rule which is \"Opened first, "
-"then first due first, then first in first out\""
-msgstr ""
-
-msgid ""
-"Not enough in stock (not included in costs), %1$s missing, %2$s already on "
-"shopping list"
-msgstr ""
-
-msgid "Quantity unit stock cannot be changed after first purchase"
+"Based on the prices of the default consume rule (Opened first, then first "
+"due first, then first in first out) for in-stock ingredients and on the last"
+" price for missing ones"
 msgstr ""
 
 msgid "Clear filter"
@@ -1842,9 +1781,6 @@ msgstr "இருப்பு நாளேடின் சுருக்கம�
 msgid "Journal summary"
 msgstr "நாளேடின் சுருக்கம்"
 
-msgid "Journal summary for this product"
-msgstr "இந்த பொருளினுடைய நாளேடின் சுருக்கம்"
-
 msgid "Consume exact amount"
 msgstr "குறிப்பிடும் அளவினை உண்"
 
@@ -1867,9 +1803,6 @@ msgstr "தொகைகளுக்கு தசம இடங்கள் அன
 
 msgid "Decimal places allowed for prices"
 msgstr "தசம இடங்கள் விலைகளுக்கு அனுமதிக்கப்படுகின்றன"
-
-msgid "Stock entries for this product"
-msgstr "இந்த பொருளினுடைய கையிருப்பின் பதிகைகள்"
 
 msgid "Edit shopping list"
 msgstr "வாங்க வேண்டிய பொருட்கள் பட்டியலினைத் தொகு"
@@ -2004,7 +1937,8 @@ msgstr ""
 
 msgid ""
 "When this product was marked as opened, the due date will be replaced by "
-"today + this amount of days (a value of 0 disables this)"
+"today + this amount of days, but only if the resulting date is not after the"
+" original due date (a value of 0 disables this)"
 msgstr ""
 
 msgid "Default due days after opened"
@@ -2174,15 +2108,15 @@ msgstr "வைத்துக்கொள்ளவேண்டிய பொர�
 msgid "Product to remove"
 msgstr "நீக்கவேண்டிய பொருள்"
 
-msgid "Error while merging products"
+msgid "Error while merging"
 msgstr ""
 
 msgid "After merging, this product will be kept"
 msgstr ""
 
 msgid ""
-"After merging, all occurences of this product will be replaced by \"Product "
-"to keep\" (means this product will not exist anymore)"
+"After merging, all occurences of this product will be replaced by the kept "
+"product (means this product will not exist anymore)"
 msgstr ""
 
 msgid "Merge"
@@ -2212,15 +2146,13 @@ msgstr ""
 msgid "Download"
 msgstr ""
 
-msgid "Download stock entry grocycode"
-msgstr ""
-
-msgid "Download product grocycode"
+# Example: Download *Product* grocycode
+msgid "Download %s grocycode"
 msgstr ""
 
 msgid ""
-"grocycode is a unique referer to this product in your grocy instance - print"
-" it onto a label and scan it like any other barcode"
+"grocycode is a unique referer to this %s in your grocy instance - print it "
+"onto a label and scan it like any other barcode"
 msgstr ""
 
 # Abbreviation for "due date"
@@ -2228,6 +2160,9 @@ msgid "DD"
 msgstr ""
 
 msgid "Print on label printer"
+msgstr ""
+
+msgid "Default stock entry label"
 msgstr ""
 
 msgid "Stock entry label"
@@ -2242,24 +2177,14 @@ msgstr ""
 msgid "Label per unit"
 msgstr ""
 
-msgid "Allow label printing per unit"
-msgstr ""
-
-msgid ""
-"Allow printing of one label per unit on purchase (after conversion) - e.g. 1"
-" purchased pack adding 10 pieces of stock would print 10 labels"
-msgstr ""
-
 msgid "Error while executing WebHook"
 msgstr ""
 
-msgid "Print product grocycode on label printer"
+# Example: Print *Product* grocycode on label printer
+msgid "Print %s grocycode on label printer"
 msgstr ""
 
-msgid "Print stock entry grocycode on label printer"
-msgstr ""
-
-msgid "Open stock entry print label in new window"
+msgid "Open stock entry label in new window"
 msgstr ""
 
 msgid "Thermal printer"
@@ -2272,4 +2197,284 @@ msgid "Connecting to printer..."
 msgstr ""
 
 msgid "Unable to print"
+msgstr ""
+
+msgid "Only done items"
+msgstr ""
+
+msgid "Show only in-stock products"
+msgstr ""
+
+msgid "Product description"
+msgstr ""
+
+# Example: *3.21 USD* per *Pack*
+msgid "%1$s per %2$s"
+msgstr ""
+
+msgid "Mark this item as undone"
+msgstr ""
+
+msgid "Mandatory"
+msgstr ""
+
+msgid "Mandatory Userfield"
+msgstr ""
+
+msgid "When enabled, then this field must be filled on the destination form"
+msgstr ""
+
+msgid "In-stock products"
+msgstr ""
+
+msgid "Timestamp"
+msgstr ""
+
+msgid "Should not be frozen"
+msgstr ""
+
+msgid ""
+"When enabled, on moving this product to a freezer location (so when freezing"
+" it), a warning will be shown"
+msgstr ""
+
+msgid "This product shouldn't be frozen"
+msgstr ""
+
+msgid "Copy all meal plan entries of %s"
+msgstr ""
+
+msgid "A date is required"
+msgstr ""
+
+msgid "Day"
+msgstr ""
+
+msgid "Add recipe"
+msgstr ""
+
+msgid "Copy this day"
+msgstr ""
+
+msgid "Date range"
+msgstr ""
+
+msgid "%s month"
+msgid_plural "%s months"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s year"
+msgid_plural "%s years"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Display product"
+msgstr ""
+
+msgid "Copy recipe"
+msgstr ""
+
+msgid "Copy of %s"
+msgstr ""
+
+msgid "Add decimal separator automatically for price inputs"
+msgstr ""
+
+msgid ""
+"When enabled, you always have to enter the value including decimal places, "
+"the decimal separator will be automatically added based on the amount of "
+"allowed decimal places"
+msgstr ""
+
+msgid "Stock entry"
+msgstr ""
+
+msgid "Configure sections"
+msgstr ""
+
+msgid "Meal plan sections"
+msgstr ""
+
+msgid "Create meal plan section"
+msgstr ""
+
+msgid "Sections will be ordered by that number on the meal plan"
+msgstr ""
+
+msgid "Edit meal plan section"
+msgstr ""
+
+msgid "Are you sure to delete meal plan section \"%s\"?"
+msgstr ""
+
+msgid "Section"
+msgstr ""
+
+msgid "Are you sure to empty the shopping list?"
+msgstr ""
+
+msgid "This is the default which will be prefilled on purchase"
+msgstr ""
+
+msgid "Merge chores"
+msgstr ""
+
+msgid "Chore to keep"
+msgstr ""
+
+msgid "After merging, this chore will be kept"
+msgstr ""
+
+msgid "Chore to remove"
+msgstr ""
+
+msgid ""
+"After merging, all occurences of this chore will be replaced by the kept "
+"chore (means this chore will not exist anymore)"
+msgstr ""
+
+msgid "Due today"
+msgstr ""
+
+msgid "%s task is due to be done today"
+msgid_plural "%s tasks are due to be done today"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s chore is due to be done today"
+msgid_plural "%s chores are due to be done today"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s battery is due to be charged today"
+msgid_plural "%s batteries are due to be charged today"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Set to 0 to hide due soon filters/highlighting"
+msgstr ""
+
+msgid "Save & close"
+msgstr ""
+
+msgid "Save & add another task"
+msgstr ""
+
+msgid "Treat opened as out of stock"
+msgstr ""
+
+msgid ""
+"When enabled, opened items will be counted as missing for calculating if "
+"this product is below its minimum stock amount"
+msgstr ""
+
+msgid "Skipped"
+msgstr ""
+
+msgid "Skip next chore schedule"
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+msgid "A start date is required"
+msgstr ""
+
+msgid "Start date"
+msgstr ""
+
+msgid "The start date cannot be changed when the chore was once tracked"
+msgstr ""
+
+msgid "Show the recipe list and the recipe side by side"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore is scheduled dynamically based "
+"on the past average execution frequency"
+msgstr ""
+
+msgid "Average execution frequency"
+msgstr ""
+
+msgid "Reschedule next execution"
+msgstr ""
+
+msgid "This can only be in the future"
+msgstr ""
+
+msgid "Rescheduled"
+msgstr ""
+
+msgid "Due score"
+msgstr ""
+
+msgid ""
+"The higher this number is, the more ingredients currently in stock are due "
+"soon, overdue or already expired"
+msgstr ""
+
+msgid "Disable own stock"
+msgstr ""
+
+msgid ""
+"When enabled, this product can't have own stock, means it will not be "
+"selectable on purchase (useful for parent products which are just used as a "
+"summary/total view of the child products)"
+msgstr ""
+
+msgid "Out of stock items will be shown at the products default location"
+msgstr ""
+
+msgid "Show a little checkbox next to each ingredient to mark it as done"
+msgstr ""
+
+msgid ""
+"The ingredient is crossed out when clicked, the status is not saved, means "
+"reset when the page is reloaded"
+msgstr ""
+
+msgid ""
+"The parent product %1$s is currently not in stock, %2$s is the current next "
+"sub product based on the default consume rule (Opened first, then first due "
+"first, then first in first out)"
+msgstr ""
+
+msgid "Night mode"
+msgstr ""
+
+msgid "On"
+msgstr ""
+
+msgid "Use system setting"
+msgstr ""
+
+msgid "Off"
+msgstr ""
+
+msgid ""
+"Automatically add products that are below their defined min. stock amount to"
+" the shopping list"
+msgstr ""
+
+msgid "Reassigned"
+msgstr ""
+
+msgid "Default value"
+msgstr ""
+
+msgid "Now / today"
+msgstr ""
+
+msgid "Add meal plan entry"
+msgstr ""
+
+msgid "Edit meal plan entry"
+msgstr ""
+
+msgid "Default consume location"
+msgstr ""
+
+msgid "Stock entries at this location will be consumed first"
 msgstr ""

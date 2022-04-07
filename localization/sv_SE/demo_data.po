@@ -5,6 +5,7 @@
 # Peter Wickenberg <peter@wickenberg.nu>, 2019
 # Sebastian Backman <valtkor@hotmail.com>, 2020
 # Per Bäckman <fotodille@gmail.com>, 2020
+# Robert Johansson, 2022
 # 
 msgid ""
 msgstr ""
@@ -12,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Per Bäckman <fotodille@gmail.com>, 2020\n"
+"Last-Translator: Robert Johansson, 2022\n"
 "Language-Team: Swedish (Sweden) (https://www.transifex.com/grocy/teams/93189/sv_SE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -108,11 +109,11 @@ msgstr "Rädisa"
 msgid "Tomato"
 msgstr "Tomat"
 
-msgid "Changed towels in the bathroom"
-msgstr "Byta handdukar i badrummet"
+msgid "Change towels in the bathroom"
+msgstr ""
 
-msgid "Cleaned the kitchen floor"
-msgstr "Rengjorde köksgolvet"
+msgid "Mop the kitchen floor"
+msgstr ""
 
 msgid "Warranty ends"
 msgstr "Garantin upphör"
@@ -126,8 +127,8 @@ msgstr "Väckarklocka"
 msgid "Heat remote control"
 msgstr "Klimat fjärrkontroll"
 
-msgid "Lawn mowed in the garden"
-msgstr "Gräset klippt i trädgården"
+msgid "Take out the trash"
+msgstr ""
 
 msgid "Some good snacks"
 msgstr "Några bra tilltugg"
@@ -184,24 +185,6 @@ msgstr "Pannkakor"
 
 msgid "Sugar"
 msgstr "Socker"
-
-msgid "Home"
-msgstr "Hem"
-
-msgid "Life"
-msgstr "Liv"
-
-msgid "Projects"
-msgstr "Projekt"
-
-msgid "Repair the garage door"
-msgstr "Reparera garagedörren"
-
-msgid "Fork and improve grocy"
-msgstr "Starta ny gren och förbättra grocy"
-
-msgid "Find a solution for what to do when I forget the door keys"
-msgstr "Hitta en lösning för vad man ska göra när jag glömmer dörrnycklarna"
 
 msgid "Sweets"
 msgstr "Sötsaker"
@@ -269,14 +252,14 @@ msgstr "Spanska"
 msgid "Russian"
 msgstr "Ryska"
 
-msgid "The thing which happens on the 5th of every month"
-msgstr "Saken som händer den 5:e varje månad"
+msgid "Vacuum the living room floor"
+msgstr ""
 
-msgid "The thing which happens daily"
-msgstr "Saken som händer dagligen"
+msgid "Clean the litter box"
+msgstr ""
 
-msgid "The thing which happens on Mondays and Wednesdays"
-msgstr "Saken som händer på måndagar och onsdagar"
+msgid "Change the bed sheets"
+msgstr ""
 
 msgid "Swedish"
 msgstr "Svenska"
@@ -370,31 +353,34 @@ msgid "Chinese (Taiwan)"
 msgstr "Kinesiska (Taiwan)"
 
 msgid "Greek"
-msgstr ""
+msgstr "Grekiska"
 
 msgid "Korean"
-msgstr ""
+msgstr "Koreanska"
 
 msgid "Chinese (China)"
-msgstr ""
+msgstr "Kinesiska (Kina)"
 
 msgid "Hebrew (Israel)"
-msgstr ""
+msgstr "Hebreiska (Israel)"
 
 msgid "Tamil"
-msgstr ""
+msgstr "Tamil"
 
 msgid "Finnish"
-msgstr ""
+msgstr "Finska"
 
 msgid "Breakfast"
-msgstr ""
+msgstr "Frukost"
 
 msgid "Lunch"
-msgstr ""
+msgstr "Lunch"
 
 msgid "Dinner"
-msgstr ""
+msgstr "Middag"
 
 msgid "Catalan"
+msgstr "Katalanska"
+
+msgid "Slovenian"
 msgstr ""

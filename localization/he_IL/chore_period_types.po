@@ -37,4 +37,4 @@ msgid "hourly"
 msgstr "שעתי"
 
 msgid "adaptive"
-msgstr ""
+msgstr "מסתגל"

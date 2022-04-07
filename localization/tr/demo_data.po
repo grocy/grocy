@@ -105,11 +105,11 @@ msgstr "Turp"
 msgid "Tomato"
 msgstr "Domates"
 
-msgid "Changed towels in the bathroom"
-msgstr "Banyo havluları değiştirildi"
+msgid "Change towels in the bathroom"
+msgstr ""
 
-msgid "Cleaned the kitchen floor"
-msgstr "Mutfak zemini temizlendi"
+msgid "Mop the kitchen floor"
+msgstr ""
 
 msgid "Warranty ends"
 msgstr "Garantisi bitiyor"
@@ -123,8 +123,8 @@ msgstr "Alarm saati"
 msgid "Heat remote control"
 msgstr "Uzaktan ısı kontrolü"
 
-msgid "Lawn mowed in the garden"
-msgstr "Bahçenin çimleri biçildi"
+msgid "Take out the trash"
+msgstr ""
 
 msgid "Some good snacks"
 msgstr "Bazı iyi atıştırmalıklar"
@@ -181,24 +181,6 @@ msgstr "Pankek"
 
 msgid "Sugar"
 msgstr "Şeker"
-
-msgid "Home"
-msgstr "Ev"
-
-msgid "Life"
-msgstr "Yaşam"
-
-msgid "Projects"
-msgstr "Projeler"
-
-msgid "Repair the garage door"
-msgstr "Garaj kapısını tamir et"
-
-msgid "Fork and improve grocy"
-msgstr "grocy'i forkla ve geliştir"
-
-msgid "Find a solution for what to do when I forget the door keys"
-msgstr "Anahtarları unuttuğumda ne yapmam gerektiğine dair bir çözüm bul"
 
 msgid "Sweets"
 msgstr "Tatlı"
@@ -266,14 +248,14 @@ msgstr "İspanyolca"
 msgid "Russian"
 msgstr "Rusça"
 
-msgid "The thing which happens on the 5th of every month"
-msgstr "Her ayın 5'inde olan şey"
+msgid "Vacuum the living room floor"
+msgstr ""
 
-msgid "The thing which happens daily"
-msgstr "Her gün olan şey"
+msgid "Clean the litter box"
+msgstr ""
 
-msgid "The thing which happens on Mondays and Wednesdays"
-msgstr "Pazartesileri ve Çarşambaları olan şey"
+msgid "Change the bed sheets"
+msgstr ""
 
 msgid "Swedish"
 msgstr "İsveççe"
@@ -394,4 +376,7 @@ msgid "Dinner"
 msgstr ""
 
 msgid "Catalan"
+msgstr ""
+
+msgid "Slovenian"
 msgstr ""

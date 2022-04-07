@@ -115,6 +115,8 @@
   - The view/user setting "Enable night mode" has been removed and replaced by "Night mode" which now defaults to "Use system setting" (which uses the system preferred color scheme, "On" and "Off" are other possible options to always enable/disable night mode)
 - Some night mode style refinements
 - Fixed an server error (on every page) when not having any quantity unit
+- New translations: (thanks all the translators)
+  - Slovenian (demo available at <https://sl.demo.grocy.info>)
 
 ### API
 

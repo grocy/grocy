@@ -4,6 +4,7 @@
 # jarkko hämäläinen <zeik@iki.fi>, 2020
 # Jukka-Pekka Kokkonen <jukkapekka.kokkonen@gmail.com>, 2020
 # Matti Koskimies <matti@apulanta.fi>, 2021
+# Markus Laaksonen, 2022
 # 
 msgid ""
 msgstr ""
@@ -11,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Matti Koskimies <matti@apulanta.fi>, 2021\n"
+"Last-Translator: Markus Laaksonen, 2022\n"
 "Language-Team: Finnish (https://www.transifex.com/grocy/teams/93189/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -107,11 +108,11 @@ msgstr "Retiisi"
 msgid "Tomato"
 msgstr "Tomaatti"
 
-msgid "Changed towels in the bathroom"
-msgstr "Vaihdettu käsipyyhkeet"
+msgid "Change towels in the bathroom"
+msgstr ""
 
-msgid "Cleaned the kitchen floor"
-msgstr "Pesty keittiön lattia"
+msgid "Mop the kitchen floor"
+msgstr ""
 
 msgid "Warranty ends"
 msgstr "Takuu päättyy"
@@ -125,8 +126,8 @@ msgstr "Herätyskello"
 msgid "Heat remote control"
 msgstr "Lämpökaukosäädin"
 
-msgid "Lawn mowed in the garden"
-msgstr "Ruoho leikattu puutarhassa"
+msgid "Take out the trash"
+msgstr ""
 
 msgid "Some good snacks"
 msgstr "Hyviä välipaloja"
@@ -183,24 +184,6 @@ msgstr "Lettuja"
 
 msgid "Sugar"
 msgstr "Sokeri"
-
-msgid "Home"
-msgstr "Koti"
-
-msgid "Life"
-msgstr "Elämä"
-
-msgid "Projects"
-msgstr "Projektit"
-
-msgid "Repair the garage door"
-msgstr "Korjaa autotallin ovi"
-
-msgid "Fork and improve grocy"
-msgstr "Forkkaa grocy ja paranna sitä"
-
-msgid "Find a solution for what to do when I forget the door keys"
-msgstr "Mitä tehdä, kun avaimet jääneet kotiin"
 
 msgid "Sweets"
 msgstr "Makeiset"
@@ -268,14 +251,14 @@ msgstr "Espanja"
 msgid "Russian"
 msgstr "Venäjä"
 
-msgid "The thing which happens on the 5th of every month"
-msgstr "Asia, joka tapahtuu joka kuukauden 5. päivänä"
+msgid "Vacuum the living room floor"
+msgstr ""
 
-msgid "The thing which happens daily"
-msgstr "Päivittäiset askareet"
+msgid "Clean the litter box"
+msgstr ""
 
-msgid "The thing which happens on Mondays and Wednesdays"
-msgstr "Asiat/Tehtävät, jotka tehdään maanantaisin ja keskiviikkoisin"
+msgid "Change the bed sheets"
+msgstr ""
 
 msgid "Swedish"
 msgstr "Ruotsi"
@@ -387,13 +370,16 @@ msgid "Finnish"
 msgstr "Suomi"
 
 msgid "Breakfast"
-msgstr ""
+msgstr "Aamiainen"
 
 msgid "Lunch"
-msgstr ""
+msgstr "Lounas"
 
 msgid "Dinner"
-msgstr ""
+msgstr "Päivällinen"
 
 msgid "Catalan"
+msgstr "Katalonialainen"
+
+msgid "Slovenian"
 msgstr ""

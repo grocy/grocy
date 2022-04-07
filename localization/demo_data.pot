@@ -371,3 +371,6 @@ msgstr ""
 
 msgid "Catalan"
 msgstr ""
+
+msgid "Slovenian"
+msgstr ""

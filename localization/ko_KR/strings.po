@@ -250,9 +250,6 @@ msgstr "위치 수정"
 msgid "Edit store"
 msgstr "저장소 수정"
 
-msgid "Record data"
-msgstr "Record data"
-
 msgid "Manage master data"
 msgstr "기초 자료 관리"
 
@@ -695,12 +692,6 @@ msgstr "상태"
 msgid "Below min. stock amount"
 msgstr "최소 재고 미만"
 
-msgid "Expiring soon"
-msgstr "곧 만료 예정"
-
-msgid "Already expired"
-msgstr "이미 만료됨"
-
 msgid "Due soon"
 msgstr "마감 임박"
 
@@ -712,9 +703,6 @@ msgstr "화면 설정"
 
 msgid "Auto reload on external changes"
 msgstr "외부 변경시 자동 재로드"
-
-msgid "Enable night mode"
-msgstr "야간모드 사용"
 
 msgid "Auto enable in time range"
 msgstr "시간 범위에서 자동활성화"
@@ -840,8 +828,8 @@ msgid "Use a specific stock item"
 msgstr "특정 재고 품목 사용"
 
 msgid ""
-"The first item in this list would be picked by the default rule which is "
-"\"Opened first, then first due first, then first in first out\""
+"The first item in this list would be picked by the default rule consume rule"
+" (Opened first, then first due first, then first in first out)"
 msgstr ""
 
 msgid "Mark %1$s of %2$s as open"
@@ -933,9 +921,6 @@ msgid ""
 msgstr ""
 "Use the following (public) URL to share or integrate the calendar in iCal "
 "format"
-
-msgid "Allow partial units in stock"
-msgstr "일부 단위의 재고로 허용"
 
 msgid "Enable tare weight handling"
 msgstr "용기 무게 포함"
@@ -1127,9 +1112,6 @@ msgstr "재고 부족, 그러나 구매 목록에 이미 있음"
 msgid "Not enough in stock"
 msgstr "재고 부족"
 
-msgid "Expiring soon days"
-msgstr "곧 만료"
-
 msgid "Default location"
 msgstr "기본 위치"
 
@@ -1160,9 +1142,6 @@ msgstr "Consume %1$s of %2$s"
 
 msgid "Meal plan"
 msgstr "식단 계획"
-
-msgid "Add recipe on %s"
-msgstr "Add recipe on %s"
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1296,11 +1275,11 @@ msgid "Assignment type"
 msgstr "할당유형"
 
 msgid ""
-"This means the next execution of this chore is scheduled %s day after the "
-"last execution"
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every day"
 msgid_plural ""
-"This means the next execution of this chore is scheduled %s days after the "
-"last execution"
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every %s days"
 msgstr[0] ""
 
 msgid ""
@@ -1585,9 +1564,6 @@ msgstr "Are you sure to delete API key \"%s\"?"
 msgid "Add note"
 msgstr "메모 추가"
 
-msgid "Add note on %s"
-msgstr "%s 메모 추가"
-
 msgid "per day"
 msgstr "per day"
 
@@ -1596,9 +1572,6 @@ msgstr "Only undone items"
 
 msgid "Add product"
 msgstr "제품 생성"
-
-msgid "Add product on %s"
-msgstr " %s제품 생성"
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
 msgstr "Consume all ingredients needed by this weeks recipes or products"
@@ -1628,11 +1601,6 @@ msgstr "스캔 모드가 켜져 있지만 일부 필수 필드를 자동으로 �
 msgid "Is freezer"
 msgstr "냉동고"
 
-msgid ""
-"When moving products from/to a freezer location, the products best before "
-"date is automatically adjusted according to the product settings"
-msgstr "제품을 냉동고에서 냉장고로 제품을 옮기는경우 제품 설정에 따라 유통기한 자동조정"
-
 msgid "This cannot be the same as the \"From\" location"
 msgstr "This cannot be the same as the \"From\" location"
 
@@ -1650,15 +1618,6 @@ msgstr "구매 목록 설정"
 
 msgid "Show a month-view calendar"
 msgstr "월간 일정 보기"
-
-msgid "Edit note on %s"
-msgstr " %s메모 수정"
-
-msgid "Edit product on %s"
-msgstr " %s제품 수정"
-
-msgid "Edit recipe on %s"
-msgstr " %s레시피 수정"
 
 msgid "Desired servings"
 msgstr "원하는 인원분량"
@@ -1711,9 +1670,6 @@ msgstr "칼로리"
 msgid "means %1$s per %2$s"
 msgstr "각 %2$s당 %1$s  "
 
-msgid "Create inverse QU conversion"
-msgstr "Create inverse QU conversion"
-
 msgid "Create recipe"
 msgstr "레시피 생성"
 
@@ -1754,9 +1710,6 @@ msgid ""
 "Based on the prices of the default consume rule (Opened first, then first "
 "due first, then first in first out) for in-stock ingredients and on the last"
 " price for missing ones"
-msgstr ""
-
-msgid "Quantity unit stock cannot be changed after first purchase"
 msgstr ""
 
 msgid "Clear filter"
@@ -1822,9 +1775,6 @@ msgstr ""
 msgid "Journal summary"
 msgstr ""
 
-msgid "Journal summary for this product"
-msgstr ""
-
 msgid "Consume exact amount"
 msgstr ""
 
@@ -1846,9 +1796,6 @@ msgid "Decimal places allowed for amounts"
 msgstr ""
 
 msgid "Decimal places allowed for prices"
-msgstr ""
-
-msgid "Stock entries for this product"
 msgstr ""
 
 msgid "Edit shopping list"
@@ -2160,8 +2107,8 @@ msgid "After merging, this product will be kept"
 msgstr ""
 
 msgid ""
-"After merging, all occurences of this product will be replaced by \"Product "
-"to keep\" (means this product will not exist anymore)"
+"After merging, all occurences of this product will be replaced by the kept "
+"product (means this product will not exist anymore)"
 msgstr ""
 
 msgid "Merge"
@@ -2436,4 +2383,85 @@ msgid ""
 msgstr ""
 
 msgid "Average execution frequency"
+msgstr ""
+
+msgid "Reschedule next execution"
+msgstr ""
+
+msgid "This can only be in the future"
+msgstr ""
+
+msgid "Rescheduled"
+msgstr ""
+
+msgid "Due score"
+msgstr ""
+
+msgid ""
+"The higher this number is, the more ingredients currently in stock are due "
+"soon, overdue or already expired"
+msgstr ""
+
+msgid "Disable own stock"
+msgstr ""
+
+msgid ""
+"When enabled, this product can't have own stock, means it will not be "
+"selectable on purchase (useful for parent products which are just used as a "
+"summary/total view of the child products)"
+msgstr ""
+
+msgid "Out of stock items will be shown at the products default location"
+msgstr ""
+
+msgid "Show a little checkbox next to each ingredient to mark it as done"
+msgstr ""
+
+msgid ""
+"The ingredient is crossed out when clicked, the status is not saved, means "
+"reset when the page is reloaded"
+msgstr ""
+
+msgid ""
+"The parent product %1$s is currently not in stock, %2$s is the current next "
+"sub product based on the default consume rule (Opened first, then first due "
+"first, then first in first out)"
+msgstr ""
+
+msgid "Night mode"
+msgstr ""
+
+msgid "On"
+msgstr ""
+
+msgid "Use system setting"
+msgstr ""
+
+msgid "Off"
+msgstr ""
+
+msgid ""
+"Automatically add products that are below their defined min. stock amount to"
+" the shopping list"
+msgstr ""
+
+msgid "Reassigned"
+msgstr ""
+
+msgid "Default value"
+msgstr ""
+
+msgid "Now / today"
+msgstr ""
+
+msgid "Add meal plan entry"
+msgstr ""
+
+msgid "Edit meal plan entry"
+msgstr ""
+
+msgid "Default consume location"
+msgstr ""
+
+msgid "Stock entries at this location will be consumed first"
 msgstr ""

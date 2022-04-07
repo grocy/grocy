@@ -104,11 +104,11 @@ msgstr "Radieschen"
 msgid "Tomato"
 msgstr "Tomaten"
 
-msgid "Changed towels in the bathroom"
-msgstr "Handtücher im Bad gewechselt"
+msgid "Change towels in the bathroom"
+msgstr "Handtücher im Badezimmer wechseln"
 
-msgid "Cleaned the kitchen floor"
-msgstr "Küchenboden gewischt"
+msgid "Mop the kitchen floor"
+msgstr "Küchenboden wischen"
 
 msgid "Warranty ends"
 msgstr "Garantie endet"
@@ -122,8 +122,8 @@ msgstr "Wecker"
 msgid "Heat remote control"
 msgstr "Fernbedienung Heizung"
 
-msgid "Lawn mowed in the garden"
-msgstr "Rasen im Garten gemäht"
+msgid "Take out the trash"
+msgstr "Müll rausbringen"
 
 msgid "Some good snacks"
 msgstr "Paar gute Snacks"
@@ -180,24 +180,6 @@ msgstr "Pfannkuchen"
 
 msgid "Sugar"
 msgstr "Zucker"
-
-msgid "Home"
-msgstr "Zuhause"
-
-msgid "Life"
-msgstr "Leben"
-
-msgid "Projects"
-msgstr "Projekte"
-
-msgid "Repair the garage door"
-msgstr "Garagentor reparieren"
-
-msgid "Fork and improve grocy"
-msgstr "grocy forken und verbessern"
-
-msgid "Find a solution for what to do when I forget the door keys"
-msgstr "Eine Lösung für \"Haustürschlüssel vergessen\" finden"
 
 msgid "Sweets"
 msgstr "Süßigkeiten"
@@ -265,14 +247,14 @@ msgstr "Spanisch"
 msgid "Russian"
 msgstr "Russisch"
 
-msgid "The thing which happens on the 5th of every month"
-msgstr "Das, was am 5. jedes Monats zu tun ist"
+msgid "Vacuum the living room floor"
+msgstr "Boden im Wohnzimmer saugen"
 
-msgid "The thing which happens daily"
-msgstr "Das, was täglich zu tun ist"
+msgid "Clean the litter box"
+msgstr "Katzenklo sauber machen"
 
-msgid "The thing which happens on Mondays and Wednesdays"
-msgstr "Das, was Montags und Mittwochs zu tun ist"
+msgid "Change the bed sheets"
+msgstr "Bettwäsche wechseln"
 
 msgid "Swedish"
 msgstr "Schwedisch"
@@ -394,3 +376,6 @@ msgstr "Abendessen"
 
 msgid "Catalan"
 msgstr "Katalanisch"
+
+msgid "Slovenian"
+msgstr "Slowenisch"

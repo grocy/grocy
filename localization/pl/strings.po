@@ -282,9 +282,6 @@ msgstr "Edytuj lokalizację"
 msgid "Edit store"
 msgstr "Edytuj sklep"
 
-msgid "Record data"
-msgstr "Zbieraj dane"
-
 msgid "Manage master data"
 msgstr "Zarządzanie danymi"
 
@@ -761,12 +758,6 @@ msgstr "Status"
 msgid "Below min. stock amount"
 msgstr "Poniżej min. ilości zapasów"
 
-msgid "Expiring soon"
-msgstr "Niedługo traci ważność"
-
-msgid "Already expired"
-msgstr "Po terminie ważności"
-
 msgid "Due soon"
 msgstr "Blisko terminu"
 
@@ -778,9 +769,6 @@ msgstr "Zobacz ustawienia"
 
 msgid "Auto reload on external changes"
 msgstr "Automatyczne przeładowanie przy zewnętrznych zmianach"
-
-msgid "Enable night mode"
-msgstr "Włącz tryb nocny"
 
 msgid "Auto enable in time range"
 msgstr "Aktywne w godzinach"
@@ -906,12 +894,9 @@ msgid "Use a specific stock item"
 msgstr "Użyj konkretnej pozycji z zapasów"
 
 msgid ""
-"The first item in this list would be picked by the default rule which is "
-"\"Opened first, then first due first, then first in first out\""
+"The first item in this list would be picked by the default rule consume rule"
+" (Opened first, then first due first, then first in first out)"
 msgstr ""
-"Pierwszy element na tej liście zostanie wybrany domyślną regułą, którą jest "
-"\"Otwarte najpierw, następnie najszybciej przeterminowane, następnie "
-"pierwsze weszło-pierwsze wyszło\""
 
 msgid "Mark %1$s of %2$s as open"
 msgstr "%2$s - %1$s - oznacz jako otwarte"
@@ -1001,9 +986,6 @@ msgid ""
 msgstr ""
 "Użyj tego (publicznego) adresu URL, aby udostępnić lub zintegrować kalendarz"
 " w formacie iCal"
-
-msgid "Allow partial units in stock"
-msgstr "Zezwalaj na częściowe sztuki w zapasach"
 
 msgid "Enable tare weight handling"
 msgstr "Włącz obsługę masy tary"
@@ -1204,9 +1186,6 @@ msgstr "Za mało zapasów, ale już na liście zakupów"
 msgid "Not enough in stock"
 msgstr "Za mało zapasów"
 
-msgid "Expiring soon days"
-msgstr "Dni \"blisko terminu przydatności\""
-
 msgid "Default location"
 msgstr "Domyślne miejsce"
 
@@ -1237,9 +1216,6 @@ msgstr "%2$s - %1$s - spożyj"
 
 msgid "Meal plan"
 msgstr "Plan posiłków"
-
-msgid "Add recipe on %s"
-msgstr "Dodaj przepis %s"
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1380,23 +1356,23 @@ msgid "Assignment type"
 msgstr "Typ przypisania"
 
 msgid ""
-"This means the next execution of this chore is scheduled %s day after the "
-"last execution"
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every day"
 msgid_plural ""
-"This means the next execution of this chore is scheduled %s days after the "
-"last execution"
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every %s days"
 msgstr[0] ""
-"Oznacza to, że następne wykonanie tego obowiązku jest zaplanowane %s dzień "
-"po ostatnim wykonaniu"
+"Oznacza to, że następne wykonanie tego obowiązku jest zaplanowane w tym "
+"samym czasie (bazując na dacie rozpoczęcia) codziennie"
 msgstr[1] ""
-"Oznacza to, że następne wykonanie tego obowiązku jest zaplanowane %s dni po "
-"ostatnim wykonaniu"
+"Oznacza to, że następne wykonanie tego obowiązku jest zaplanowane w tym "
+"samym czasie (bazując na dacie rozpoczęcia) co %s dni"
 msgstr[2] ""
-"Oznacza to, że następne wykonanie tego obowiązku jest zaplanowane %s dni po "
-"ostatnim wykonaniu"
+"Oznacza to, że następne wykonanie tego obowiązku jest zaplanowane w tym "
+"samym czasie (bazując na dacie rozpoczęcia) co %s dni"
 msgstr[3] ""
-"Oznacza to, że następne wykonanie tego obowiązku jest zaplanowane %s dni po "
-"ostatnim wykonaniu"
+"Oznacza to, że następne wykonanie tego obowiązku jest zaplanowane w tym "
+"samym czasie (bazując na dacie rozpoczęcia) co %s dni"
 
 msgid ""
 "This means the next execution of this chore is scheduled %s hour after the "
@@ -1740,9 +1716,6 @@ msgstr "Na pewno chcesz usunąć klucz API \"%s\"?"
 msgid "Add note"
 msgstr "Dodaj notatkę"
 
-msgid "Add note on %s"
-msgstr "Dodaj notatkę do %s"
-
 msgid "per day"
 msgstr "na dzień"
 
@@ -1751,9 +1724,6 @@ msgstr "Tylko nieukończone pozycje"
 
 msgid "Add product"
 msgstr "Dodaj produkt"
-
-msgid "Add product on %s"
-msgstr "Dodaj produkt do %s"
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
 msgstr "Spożyj wszystkie składniki potrzebne do przepisów na ten tydzień"
@@ -1785,13 +1755,6 @@ msgstr ""
 msgid "Is freezer"
 msgstr "Jest mrożonką"
 
-msgid ""
-"When moving products from/to a freezer location, the products best before "
-"date is automatically adjusted according to the product settings"
-msgstr ""
-"Kiedy przenosimy produkt z/do zamrażarki, data minimalnej trwałości jest "
-"automatycznie korygowana zgodnie z ustawieniami produktu"
-
 msgid "This cannot be the same as the \"From\" location"
 msgstr "Nie może być tożsame z lokalizacją \"od\""
 
@@ -1809,15 +1772,6 @@ msgstr "Ustawienia listy zakupów"
 
 msgid "Show a month-view calendar"
 msgstr "Zobacz miesięczny widok kalendarza"
-
-msgid "Edit note on %s"
-msgstr "Edytuj notatkę do %s"
-
-msgid "Edit product on %s"
-msgstr "Edytuj produkt do %s"
-
-msgid "Edit recipe on %s"
-msgstr "Edytuj przepis do %s"
 
 msgid "Desired servings"
 msgstr "Pożądana ilość porcji"
@@ -1870,9 +1824,6 @@ msgstr "Kalorie"
 msgid "means %1$s per %2$s"
 msgstr "oznacza %1$s na %2$s"
 
-msgid "Create inverse QU conversion"
-msgstr "Utwórz odwrotną konwersję ilości"
-
 msgid "Create recipe"
 msgstr "Utwórz przepis"
 
@@ -1918,9 +1869,6 @@ msgstr ""
 "najszybciej przeterminowane, następnie pierwsze weszło-pierwsze wyszło) w "
 "przypadku składników dostępnych w zapasie i ostatniej ceny w przypadku "
 "brakujących"
-
-msgid "Quantity unit stock cannot be changed after first purchase"
-msgstr "Jednostka ilości zapasu nie może być zmieniona po pierwszym zakupie"
 
 msgid "Clear filter"
 msgstr "Wyczyść filtr"
@@ -1985,9 +1933,6 @@ msgstr "Podsumowanie dziennika zapasów"
 msgid "Journal summary"
 msgstr "Dziennik zapasów"
 
-msgid "Journal summary for this product"
-msgstr "Dziennik zapasów dla tego produktu"
-
 msgid "Consume exact amount"
 msgstr "Spożyj dokładną ilość"
 
@@ -2012,9 +1957,6 @@ msgstr "Miejsca dziesiętne zezwolone dla ilości"
 
 msgid "Decimal places allowed for prices"
 msgstr "Miejsca dziesiętne zezwolone dla cen"
-
-msgid "Stock entries for this product"
-msgstr "Wpisy zapasu dla tego produktu"
 
 msgid "Edit shopping list"
 msgstr "Edytuj listę zakupów"
@@ -2204,7 +2146,7 @@ msgid_plural "%s products are due"
 msgstr[0] "%s produkt jest przeterminowany"
 msgstr[1] "%s produkty są przeterminowane"
 msgstr[2] "%s produktów jest przeterminowanych"
-msgstr[3] "%s produkty są przeterminowane"
+msgstr[3] "%s produkty zostaną przeterminowane"
 
 msgid "Due date"
 msgstr "Termin ważności"
@@ -2217,7 +2159,7 @@ msgid_plural "%s products are expired"
 msgstr[0] "%s produkt jest przeterminowany"
 msgstr[1] "%s produkty są przeterminowane"
 msgstr[2] "%s produktów jest przeterminowanych"
-msgstr[3] "%s produkty są przeterminowane"
+msgstr[3] "%s produkty zostaną przeterminowane"
 
 msgid "Expired"
 msgstr "Przeterminowany"
@@ -2376,11 +2318,9 @@ msgid "After merging, this product will be kept"
 msgstr "Po połączeniu, ten produkt zostanie zachowany"
 
 msgid ""
-"After merging, all occurences of this product will be replaced by \"Product "
-"to keep\" (means this product will not exist anymore)"
+"After merging, all occurences of this product will be replaced by the kept "
+"product (means this product will not exist anymore)"
 msgstr ""
-"Po połączeniu wszystkie wystąpienia tego produktu zostaną zastąpione przez "
-"„Produkt do zachowania” (oznacza, że ten produkt już nie będzie istniał)"
 
 msgid "Merge"
 msgstr "Połącz"
@@ -2689,3 +2629,84 @@ msgstr ""
 
 msgid "Average execution frequency"
 msgstr "Średnia częstotliwość wykonywania"
+
+msgid "Reschedule next execution"
+msgstr ""
+
+msgid "This can only be in the future"
+msgstr ""
+
+msgid "Rescheduled"
+msgstr ""
+
+msgid "Due score"
+msgstr ""
+
+msgid ""
+"The higher this number is, the more ingredients currently in stock are due "
+"soon, overdue or already expired"
+msgstr ""
+
+msgid "Disable own stock"
+msgstr ""
+
+msgid ""
+"When enabled, this product can't have own stock, means it will not be "
+"selectable on purchase (useful for parent products which are just used as a "
+"summary/total view of the child products)"
+msgstr ""
+
+msgid "Out of stock items will be shown at the products default location"
+msgstr ""
+
+msgid "Show a little checkbox next to each ingredient to mark it as done"
+msgstr ""
+
+msgid ""
+"The ingredient is crossed out when clicked, the status is not saved, means "
+"reset when the page is reloaded"
+msgstr ""
+
+msgid ""
+"The parent product %1$s is currently not in stock, %2$s is the current next "
+"sub product based on the default consume rule (Opened first, then first due "
+"first, then first in first out)"
+msgstr ""
+
+msgid "Night mode"
+msgstr ""
+
+msgid "On"
+msgstr ""
+
+msgid "Use system setting"
+msgstr ""
+
+msgid "Off"
+msgstr ""
+
+msgid ""
+"Automatically add products that are below their defined min. stock amount to"
+" the shopping list"
+msgstr ""
+
+msgid "Reassigned"
+msgstr ""
+
+msgid "Default value"
+msgstr ""
+
+msgid "Now / today"
+msgstr ""
+
+msgid "Add meal plan entry"
+msgstr ""
+
+msgid "Edit meal plan entry"
+msgstr ""
+
+msgid "Default consume location"
+msgstr ""
+
+msgid "Stock entries at this location will be consumed first"
+msgstr ""

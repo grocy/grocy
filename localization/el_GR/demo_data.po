@@ -106,11 +106,11 @@ msgstr "Ραδίκι"
 msgid "Tomato"
 msgstr "Τομάτα"
 
-msgid "Changed towels in the bathroom"
-msgstr "Άλλαγμα πετσετών στο μπάνιο"
+msgid "Change towels in the bathroom"
+msgstr ""
 
-msgid "Cleaned the kitchen floor"
-msgstr "Καθάρισμα πατώματος κουζίνας"
+msgid "Mop the kitchen floor"
+msgstr ""
 
 msgid "Warranty ends"
 msgstr "Λήξη εγγύησης"
@@ -124,8 +124,8 @@ msgstr "Ξυπνητήρι"
 msgid "Heat remote control"
 msgstr "Τηλεκοντρόλ θέρμανσης"
 
-msgid "Lawn mowed in the garden"
-msgstr "Κούρεμα γρασιδιού στον κήπο"
+msgid "Take out the trash"
+msgstr ""
 
 msgid "Some good snacks"
 msgstr "Μερικά καλά σνακ"
@@ -182,25 +182,6 @@ msgstr "Τηγανήτες"
 
 msgid "Sugar"
 msgstr "Ζάχαρη"
-
-msgid "Home"
-msgstr "Σπίτι"
-
-msgid "Life"
-msgstr "Ζωή"
-
-msgid "Projects"
-msgstr "Σχέδιο"
-
-msgid "Repair the garage door"
-msgstr "Επισκευάστε την πόρτα του γκαράζ"
-
-msgid "Fork and improve grocy"
-msgstr "Fork και Βελτιώστε το grocy"
-
-msgid "Find a solution for what to do when I forget the door keys"
-msgstr ""
-"Βρείτε μια λύση για το τι πρέπει να κάνω όταν ξεχάσω τα κλειδιά της πόρτας"
 
 msgid "Sweets"
 msgstr "Γλυκά"
@@ -268,14 +249,14 @@ msgstr "Ισπανικά"
 msgid "Russian"
 msgstr "Ρώσικα"
 
-msgid "The thing which happens on the 5th of every month"
-msgstr "Το πράγμα που συμβαίνει στις 5 κάθε μήνα"
+msgid "Vacuum the living room floor"
+msgstr ""
 
-msgid "The thing which happens daily"
-msgstr "Το πράγμα που συμβαίνει καθημερινά"
+msgid "Clean the litter box"
+msgstr ""
 
-msgid "The thing which happens on Mondays and Wednesdays"
-msgstr "Αυτό που συμβαίνει Δευτέρα και Τετάρτη"
+msgid "Change the bed sheets"
+msgstr ""
 
 msgid "Swedish"
 msgstr "Σουηδικά"
@@ -396,4 +377,7 @@ msgid "Dinner"
 msgstr "Δείπνο"
 
 msgid "Catalan"
+msgstr ""
+
+msgid "Slovenian"
 msgstr ""

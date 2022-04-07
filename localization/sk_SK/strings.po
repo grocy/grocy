@@ -3,6 +3,7 @@
 # Juraj Smieško <juraj.smiesko@gmail.com>, 2020
 # Jose Riha <jose1711@gmail.com>, 2021
 # Miroslav Ďurian, 2022
+# Bernd Bestel <bernd@berrnd.de>, 2022
 # 
 msgid ""
 msgstr ""
@@ -10,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Miroslav Ďurian, 2022\n"
+"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2022\n"
 "Language-Team: Slovak (Slovakia) (https://www.transifex.com/grocy/teams/93189/sk_SK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -268,9 +269,6 @@ msgstr "Upraviť umiestnenie"
 
 msgid "Edit store"
 msgstr "Upraviť obchod"
-
-msgid "Record data"
-msgstr "Zaznamenať údaje"
 
 msgid "Manage master data"
 msgstr "Spravovať hlavné údaje"
@@ -742,12 +740,6 @@ msgstr "Stav"
 msgid "Below min. stock amount"
 msgstr "Pod min. množstvom zásoby"
 
-msgid "Expiring soon"
-msgstr "Čoskoro vyprší dátum spotreby"
-
-msgid "Already expired"
-msgstr "Po záruke"
-
 msgid "Due soon"
 msgstr "Blížiaci sa termín splnenia"
 
@@ -759,9 +751,6 @@ msgstr "Zobraziť nastavenia"
 
 msgid "Auto reload on external changes"
 msgstr "Automaticky obnoviť pri zmene údajov iným používateľom"
-
-msgid "Enable night mode"
-msgstr "Povoliť tmavý režim"
 
 msgid "Auto enable in time range"
 msgstr "Automaticky povoliť v určený čas"
@@ -887,8 +876,8 @@ msgid "Use a specific stock item"
 msgstr "Použiť požadovanú položku zásob"
 
 msgid ""
-"The first item in this list would be picked by the default rule which is "
-"\"Opened first, then first due first, then first in first out\""
+"The first item in this list would be picked by the default rule consume rule"
+" (Opened first, then first due first, then first in first out)"
 msgstr ""
 
 msgid "Mark %1$s of %2$s as open"
@@ -979,9 +968,6 @@ msgid ""
 msgstr ""
 "Použiť túto (verejnú) URL adresu na zdieľanie alebo integráciu kalendára vo "
 "formáte iCal"
-
-msgid "Allow partial units in stock"
-msgstr "Povoliť čiastkové jednotky v zásobe"
 
 msgid "Enable tare weight handling"
 msgstr "Aktivovať používanie tary"
@@ -1179,9 +1165,6 @@ msgstr "Nedostatočná zásoba, ale už je v nákupnom zozname"
 msgid "Not enough in stock"
 msgstr "Nedostatočná zásoba"
 
-msgid "Expiring soon days"
-msgstr "Dni blížiaceho sa uplynutia dátumu spotreby"
-
 msgid "Default location"
 msgstr "Predvolené umiestnenie"
 
@@ -1214,9 +1197,6 @@ msgstr "Spotrebovať %1$s %2$s"
 
 msgid "Meal plan"
 msgstr "Jedálniček"
-
-msgid "Add recipe on %s"
-msgstr "Pridať recept na %s"
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1329,7 +1309,7 @@ msgid "This cannot be equal to %s"
 msgstr "Hodnota sa nemôže rovnať %s"
 
 msgid "This means 1 %1$s is the same as %2$s %3$s"
-msgstr "To znamená, že 1 %1$s je to isté ako %2$s %3%s"
+msgstr "To znamená, že 1 %1$s je to isté ako %2$s %3$s"
 
 msgid "QU conversions"
 msgstr "Prevod množstevných jednotiek"
@@ -1353,11 +1333,11 @@ msgid "Assignment type"
 msgstr "Typ priradenia"
 
 msgid ""
-"This means the next execution of this chore is scheduled %s day after the "
-"last execution"
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every day"
 msgid_plural ""
-"This means the next execution of this chore is scheduled %s days after the "
-"last execution"
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every %s days"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
@@ -1666,9 +1646,6 @@ msgstr "Naozaj si prajete vymazať API kľúč \"%s\"?"
 msgid "Add note"
 msgstr "Pridať poznámku"
 
-msgid "Add note on %s"
-msgstr "Pridať poznámku na %s"
-
 msgid "per day"
 msgstr "na deň"
 
@@ -1677,9 +1654,6 @@ msgstr "Iba zrušené položky"
 
 msgid "Add product"
 msgstr "Pridať výrobok"
-
-msgid "Add product on %s"
-msgstr "Pridať výrobok na %s"
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
 msgstr ""
@@ -1712,13 +1686,6 @@ msgstr ""
 msgid "Is freezer"
 msgstr "Je mraznička"
 
-msgid ""
-"When moving products from/to a freezer location, the products best before "
-"date is automatically adjusted according to the product settings"
-msgstr ""
-"Ak je výrobok presunutý z/do mrazničky, dátum spotreby výrobku bude "
-"automaticky upravený podľa nastavenia výrobku."
-
 msgid "This cannot be the same as the \"From\" location"
 msgstr "Toto nemôže byť rovnaké ako umiestnenie \"Od\""
 
@@ -1736,15 +1703,6 @@ msgstr "Nastavenia nákupného zoznamu"
 
 msgid "Show a month-view calendar"
 msgstr "Zobraziť kalendár s mesiacmi"
-
-msgid "Edit note on %s"
-msgstr "Upraviť poznámku na %s"
-
-msgid "Edit product on %s"
-msgstr "Upraviť výrobok na %s"
-
-msgid "Edit recipe on %s"
-msgstr "Upraviť recept na %s"
 
 msgid "Desired servings"
 msgstr "Požadované porcie"
@@ -1797,9 +1755,6 @@ msgstr "Kalórie"
 msgid "means %1$s per %2$s"
 msgstr ""
 
-msgid "Create inverse QU conversion"
-msgstr "Vytvoriť opačný prevod jednotiek"
-
 msgid "Create recipe"
 msgstr "Vytvoriť recept"
 
@@ -1840,9 +1795,6 @@ msgid ""
 "Based on the prices of the default consume rule (Opened first, then first "
 "due first, then first in first out) for in-stock ingredients and on the last"
 " price for missing ones"
-msgstr ""
-
-msgid "Quantity unit stock cannot be changed after first purchase"
 msgstr ""
 
 msgid "Clear filter"
@@ -1908,9 +1860,6 @@ msgstr "Sumár denníka zásob"
 msgid "Journal summary"
 msgstr "Sumár denníka"
 
-msgid "Journal summary for this product"
-msgstr "Sumár denníka pre tento výrobok"
-
 msgid "Consume exact amount"
 msgstr "Spotrebovať presné množstvo"
 
@@ -1933,9 +1882,6 @@ msgstr "Desatinné miesta pre množstvá sú povolené"
 
 msgid "Decimal places allowed for prices"
 msgstr "Desatinné miesta pre ceny sú povolené"
-
-msgid "Stock entries for this product"
-msgstr "Záznamy zásob tohto výrobku"
 
 msgid "Edit shopping list"
 msgstr "Upraviť nákupný zoznam"
@@ -2262,8 +2208,8 @@ msgid "After merging, this product will be kept"
 msgstr ""
 
 msgid ""
-"After merging, all occurences of this product will be replaced by \"Product "
-"to keep\" (means this product will not exist anymore)"
+"After merging, all occurences of this product will be replaced by the kept "
+"product (means this product will not exist anymore)"
 msgstr ""
 
 msgid "Merge"
@@ -2553,4 +2499,85 @@ msgid ""
 msgstr ""
 
 msgid "Average execution frequency"
+msgstr ""
+
+msgid "Reschedule next execution"
+msgstr ""
+
+msgid "This can only be in the future"
+msgstr ""
+
+msgid "Rescheduled"
+msgstr ""
+
+msgid "Due score"
+msgstr ""
+
+msgid ""
+"The higher this number is, the more ingredients currently in stock are due "
+"soon, overdue or already expired"
+msgstr ""
+
+msgid "Disable own stock"
+msgstr ""
+
+msgid ""
+"When enabled, this product can't have own stock, means it will not be "
+"selectable on purchase (useful for parent products which are just used as a "
+"summary/total view of the child products)"
+msgstr ""
+
+msgid "Out of stock items will be shown at the products default location"
+msgstr ""
+
+msgid "Show a little checkbox next to each ingredient to mark it as done"
+msgstr ""
+
+msgid ""
+"The ingredient is crossed out when clicked, the status is not saved, means "
+"reset when the page is reloaded"
+msgstr ""
+
+msgid ""
+"The parent product %1$s is currently not in stock, %2$s is the current next "
+"sub product based on the default consume rule (Opened first, then first due "
+"first, then first in first out)"
+msgstr ""
+
+msgid "Night mode"
+msgstr ""
+
+msgid "On"
+msgstr ""
+
+msgid "Use system setting"
+msgstr ""
+
+msgid "Off"
+msgstr ""
+
+msgid ""
+"Automatically add products that are below their defined min. stock amount to"
+" the shopping list"
+msgstr ""
+
+msgid "Reassigned"
+msgstr ""
+
+msgid "Default value"
+msgstr ""
+
+msgid "Now / today"
+msgstr ""
+
+msgid "Add meal plan entry"
+msgstr ""
+
+msgid "Edit meal plan entry"
+msgstr ""
+
+msgid "Default consume location"
+msgstr ""
+
+msgid "Stock entries at this location will be consumed first"
 msgstr ""

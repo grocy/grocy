@@ -3,6 +3,7 @@
 # Michal Petříček <michal@petricek.org>, 2019
 # Ondřej Suk <ondra.suk.55@gmail.com>, 2020
 # Radim Kabeláč <radim.ekk@gmail.com>, 2020
+# Pavel Paseka, 2022
 # 
 msgid ""
 msgstr ""
@@ -10,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Radim Kabeláč <radim.ekk@gmail.com>, 2020\n"
+"Last-Translator: Pavel Paseka, 2022\n"
 "Language-Team: Czech (https://www.transifex.com/grocy/teams/93189/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +36,7 @@ msgid "Tinned food cupboard"
 msgstr "Skříňka s konzervami"
 
 msgid "Fridge"
-msgstr "Lednička"
+msgstr "Chladnička"
 
 msgid "Piece"
 msgid_plural "Pieces"
@@ -118,11 +119,11 @@ msgstr "Ředkev"
 msgid "Tomato"
 msgstr "Rajče"
 
-msgid "Changed towels in the bathroom"
-msgstr "Vyměněny ručníky v koupeně"
+msgid "Change towels in the bathroom"
+msgstr "Vyměnit ručníky v koupelně"
 
-msgid "Cleaned the kitchen floor"
-msgstr "Vytřena podlaha v kuchyni"
+msgid "Mop the kitchen floor"
+msgstr "Vytřít podlahu v kuchyni"
 
 msgid "Warranty ends"
 msgstr "Záruka končí"
@@ -136,8 +137,8 @@ msgstr "Budík"
 msgid "Heat remote control"
 msgstr "Dálkové ovládání k topení"
 
-msgid "Lawn mowed in the garden"
-msgstr "Posekán trávník na zahradě"
+msgid "Take out the trash"
+msgstr "Vynést odpadkový koš"
 
 msgid "Some good snacks"
 msgstr "Nějaké dobroty"
@@ -183,10 +184,10 @@ msgstr "Demo uživatel"
 
 msgid "Gram"
 msgid_plural "Grams"
-msgstr[0] "Gram"
-msgstr[1] "Gramů"
-msgstr[2] "Gramů"
-msgstr[3] "Gramů"
+msgstr[0] "gram"
+msgstr[1] "gramy"
+msgstr[2] "gramů"
+msgstr[3] "gramů"
 
 msgid "Flour"
 msgstr "Mouka"
@@ -196,24 +197,6 @@ msgstr "Palačinky"
 
 msgid "Sugar"
 msgstr "Cukr"
-
-msgid "Home"
-msgstr "Domov"
-
-msgid "Life"
-msgstr "Život"
-
-msgid "Projects"
-msgstr "Projekty"
-
-msgid "Repair the garage door"
-msgstr "Opravit garážová vrata"
-
-msgid "Fork and improve grocy"
-msgstr "Forknout a vylepšit grocy"
-
-msgid "Find a solution for what to do when I forget the door keys"
-msgstr "Najít řešení situace, když si zapomenu klíče od domova"
 
 msgid "Sweets"
 msgstr "Sladkosti"
@@ -240,16 +223,16 @@ msgid "Dishwasher"
 msgstr "Myčka nádobí"
 
 msgid "Liter"
-msgstr "Litr"
+msgstr "litr"
 
 msgid "Liters"
-msgstr "Litry"
+msgstr "litry"
 
 msgid "Bottle"
-msgstr "Láhev"
+msgstr "láhev"
 
 msgid "Bottles"
-msgstr "Láhve"
+msgstr "láhve"
 
 msgid "Milk"
 msgstr "Mléko"
@@ -258,10 +241,10 @@ msgid "Chocolate sauce"
 msgstr "Čokoládová poleva"
 
 msgid "Milliliters"
-msgstr "Mililitry"
+msgstr "mililitry"
 
 msgid "Milliliter"
-msgstr "Mililitr"
+msgstr "mililitr"
 
 msgid "Bottom"
 msgstr "Dno"
@@ -281,14 +264,14 @@ msgstr "Španělština"
 msgid "Russian"
 msgstr "Ruština"
 
-msgid "The thing which happens on the 5th of every month"
-msgstr "Událost opakující se 5. den každý měsíc"
+msgid "Vacuum the living room floor"
+msgstr "Vysát v obývacím pokoji"
 
-msgid "The thing which happens daily"
-msgstr "Událost opakující se každý den"
+msgid "Clean the litter box"
+msgstr "Vyčistit odpadkový koš"
 
-msgid "The thing which happens on Mondays and Wednesdays"
-msgstr "Událost opakující se každé pondělí a středu"
+msgid "Change the bed sheets"
+msgstr "Vyměnit povlečení"
 
 msgid "Swedish"
 msgstr "Švédština"
@@ -310,10 +293,10 @@ msgstr[2] "Plátky"
 msgstr[3] "Plátky"
 
 msgid "Example userentity"
-msgstr "Příklad uživatelské entity"
+msgstr "Příklad uživatelské tabulky"
 
 msgid "This is an example user entity..."
-msgstr "Toto je ukázková položka uživatelské entity"
+msgstr "Toto je ukázková položka uživatelské tabulky"
 
 msgid "Custom field"
 msgstr "Vlastní pole"
@@ -340,10 +323,10 @@ msgid "Stable version"
 msgstr "Stabilní verze"
 
 msgid "Preview version"
-msgstr "Preview verze"
+msgstr "Vývojová verze"
 
 msgid "current release"
-msgstr "aktuální vydání"
+msgstr "Aktuální verze"
 
 msgid "not yet released"
 msgstr "zatím nevydáno"
@@ -393,22 +376,25 @@ msgid "Chinese (China)"
 msgstr "Čínština (Čína)"
 
 msgid "Hebrew (Israel)"
-msgstr "Hebrejsky (Izraeil)"
+msgstr "Hebrejština (Izrael)"
 
 msgid "Tamil"
-msgstr ""
+msgstr "Tamilština"
 
 msgid "Finnish"
-msgstr "Finsky"
+msgstr "Finština"
 
 msgid "Breakfast"
-msgstr ""
+msgstr "Snídaně"
 
 msgid "Lunch"
-msgstr ""
+msgstr "Oběd"
 
 msgid "Dinner"
-msgstr ""
+msgstr "Večeře"
 
 msgid "Catalan"
+msgstr "Katalánština"
+
+msgid "Slovenian"
 msgstr ""

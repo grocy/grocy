@@ -114,11 +114,11 @@ msgstr "Radis"
 msgid "Tomato"
 msgstr "Tomate"
 
-msgid "Changed towels in the bathroom"
-msgstr "Serviettes propres dans la salle de bain"
+msgid "Change towels in the bathroom"
+msgstr ""
 
-msgid "Cleaned the kitchen floor"
-msgstr "Nettoyage du sol de la cuisine"
+msgid "Mop the kitchen floor"
+msgstr ""
 
 msgid "Warranty ends"
 msgstr "Fin de garantie"
@@ -132,8 +132,8 @@ msgstr "Réveil"
 msgid "Heat remote control"
 msgstr "Télécommande du chauffage"
 
-msgid "Lawn mowed in the garden"
-msgstr "Jardin tondu"
+msgid "Take out the trash"
+msgstr ""
 
 msgid "Some good snacks"
 msgstr "Quelques bons gâteaux"
@@ -190,26 +190,6 @@ msgstr "Crêpes"
 
 msgid "Sugar"
 msgstr "Sucre"
-
-msgid "Home"
-msgstr "Domicile"
-
-msgid "Life"
-msgstr "Vie"
-
-msgid "Projects"
-msgstr "Projets"
-
-msgid "Repair the garage door"
-msgstr "Réparer la porte du garage"
-
-msgid "Fork and improve grocy"
-msgstr "Forker et améliorer grocy"
-
-msgid "Find a solution for what to do when I forget the door keys"
-msgstr ""
-"Trouver une solution pour savoir quoi faire quand j'oublie les clefs de la "
-"porte"
 
 msgid "Sweets"
 msgstr "Bonbons"
@@ -277,14 +257,14 @@ msgstr "Espagnol"
 msgid "Russian"
 msgstr "Russe"
 
-msgid "The thing which happens on the 5th of every month"
-msgstr "La chose qui se répète le 5 de chaque mois"
+msgid "Vacuum the living room floor"
+msgstr ""
 
-msgid "The thing which happens daily"
-msgstr "La chose qui se répète chaque jour"
+msgid "Clean the litter box"
+msgstr ""
 
-msgid "The thing which happens on Mondays and Wednesdays"
-msgstr "La chose qui se répète les lundis et mercredis"
+msgid "Change the bed sheets"
+msgstr ""
 
 msgid "Swedish"
 msgstr "Suédois"
@@ -405,4 +385,7 @@ msgid "Dinner"
 msgstr "Dîner"
 
 msgid "Catalan"
+msgstr ""
+
+msgid "Slovenian"
 msgstr ""

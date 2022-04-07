@@ -129,7 +129,7 @@ msgid "Product overview"
 msgstr "Produktübersicht"
 
 msgid "Stock quantity unit"
-msgstr "Mengeneinheit Bestand"
+msgstr "Bestandsmengeneinheit"
 
 msgid "Stock amount"
 msgstr "Bestand"
@@ -144,7 +144,7 @@ msgid "Spoiled"
 msgstr "Verdorben"
 
 msgid "Barcode lookup is disabled"
-msgstr "Barcode-Suche ist deaktiviert"
+msgstr "Barcodesuche ist deaktiviert"
 
 msgid ""
 "will be added to the list of barcodes for the selected product on submit"
@@ -162,22 +162,22 @@ msgid "Tracked time"
 msgstr "Ausführungszeit"
 
 msgid "Chore overview"
-msgstr "Hausarbeit Übersicht"
+msgstr "Hausarbeitenübersicht"
 
 msgid "Tracked count"
 msgstr "Ausführungsanzahl"
 
 msgid "Battery overview"
-msgstr "Batterie Übersicht"
+msgstr "Batterieübersicht"
 
 msgid "Charge cycles count"
 msgstr "Ladezyklen"
 
 msgid "Create shopping list item"
-msgstr "Einkaufszettel Eintrag erstellen"
+msgstr "Einkaufszetteleintrag erstellen"
 
 msgid "Edit shopping list item"
-msgstr "Einkaufszettel Eintrag bearbeiten"
+msgstr "Einkaufszetteleintrag bearbeiten"
 
 msgid "Save"
 msgstr "Speichern"
@@ -207,16 +207,16 @@ msgid "Minimum stock amount"
 msgstr "Mindestbestand"
 
 msgid "Default best before days"
-msgstr "Standard-Haltbarkeit in Tagen"
+msgstr "Standardhaltbarkeit in Tagen"
 
 msgid "Default quantity unit purchase"
-msgstr "Standard Mengeneinheit Einkauf"
+msgstr "Standardeinkaufsmengeneinheit"
 
 msgid "Quantity unit stock"
-msgstr "Mengeneinheit Bestand"
+msgstr "Bestandsmengeneinheit"
 
 msgid "Factor purchase to stock quantity unit"
-msgstr "Faktor Mengeneinheit Einkauf zu Mengeneinheit Bestand"
+msgstr "Faktor Einkaufs- zu Bestandsmengeneinheit"
 
 msgid "Create location"
 msgstr "Standort erstellen"
@@ -259,9 +259,6 @@ msgstr "Standort bearbeiten"
 
 msgid "Edit store"
 msgstr "Geschäft bearbeiten"
-
-msgid "Record data"
-msgstr "Daten erfassen"
 
 msgid "Manage master data"
 msgstr "Stammdaten verwalten"
@@ -455,7 +452,7 @@ msgid "Are you sure to delete recipe ingredient \"%s\"?"
 msgstr "Rezeptzutat \"%s\" wirklich löschen?"
 
 msgid "Are you sure to empty shopping list \"%s\"?"
-msgstr " Einkaufszettel \"%s\" wirklich leeren? "
+msgstr "Einkaufszettel \"%s\" wirklich leeren? "
 
 msgid "Clear list"
 msgstr "Liste leeren"
@@ -507,7 +504,7 @@ msgid ""
 "Are you sure to put all missing ingredients for recipe \"%s\" on the "
 "shopping list?"
 msgstr ""
-"Sicher alle fehlenden Zutaten für Rezept \"%s\" auf die Einkaufsliste zu "
+"Alle fehlenden Zutaten für Rezept \"%s\" wirklich auf den Einkaufszettel "
 "setzen?"
 
 msgid "Added for recipe %s"
@@ -621,7 +618,7 @@ msgid ""
 "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
 " marked with \"only check if any amount is in stock\" will be ignored)?"
 msgstr ""
-"Sicher, dass alle Zutaten die vom Rezept \"%s\" benötigt werden aus dem "
+"Sicher, dass alle Zutaten, die vom Rezept \"%s\" benötigt werden, aus dem "
 "Bestand entfernt werden sollen (Zutaten markiert mit \"Nur prüfen, ob eine "
 "beliebige Menge im Bestand verfügbar ist\" werden ignoriert)?"
 
@@ -636,7 +633,7 @@ msgstr ""
 "entfernen"
 
 msgid "Click to show technical details"
-msgstr "Klick um technische Details anzuzeigen"
+msgstr "Hier klicken, um technische Details anzuzeigen"
 
 msgid "Error while saving, probably this item already exists"
 msgstr "Fehler beim Speichern, möglicherweise existiert das Element bereits"
@@ -730,12 +727,6 @@ msgstr "Status"
 msgid "Below min. stock amount"
 msgstr "Unter Mindestbestand"
 
-msgid "Expiring soon"
-msgstr "Bald ablaufend"
-
-msgid "Already expired"
-msgstr "Bereits abgelaufen"
-
 msgid "Due soon"
 msgstr "Bald fällig"
 
@@ -748,11 +739,8 @@ msgstr "Ansichtseinstellungen"
 msgid "Auto reload on external changes"
 msgstr "Autom. akt. bei externen Änderungen"
 
-msgid "Enable night mode"
-msgstr "Nachtmodus aktivieren"
-
 msgid "Auto enable in time range"
-msgstr "Autom. akt. in diesem Zeitraum"
+msgstr "Autom. in diesem Zeitraum aktivieren"
 
 msgid "From"
 msgstr "Von"
@@ -827,7 +815,7 @@ msgid "Group"
 msgstr "Gruppe"
 
 msgid "This will be used as a headline to group ingredients together"
-msgstr "Dies wird als Überschrift verwendet, um  Zutaten zusammenzufassen"
+msgstr "Dies wird als Überschrift verwendet, um Zutaten zusammenzufassen"
 
 msgid "Journal"
 msgstr "Journal"
@@ -869,17 +857,18 @@ msgid "Add this item to stock"
 msgstr "Diesen Eintrag zum Bestand hinzufügen"
 
 msgid "Adding shopping list item %1$s of %2$s"
-msgstr "Bearbeite Einkausfzettel-Eintrag %1$s von %2$s"
+msgstr "Bearbeite Einkausfzetteleintrag %1$s von %2$s"
 
 msgid "Use a specific stock item"
 msgstr "Einen bestimmten Bestandseintrag verwenden"
 
 msgid ""
-"The first item in this list would be picked by the default rule which is "
-"\"Opened first, then first due first, then first in first out\""
+"The first item in this list would be picked by the default rule consume rule"
+" (Opened first, then first due first, then first in first out)"
 msgstr ""
-"Der erste Eintrag in dieser Liste würde von der Standardregel \"Geöffnete "
-"zuerst, dann zuerst fällige, dann First In - First Out\" ausgewählt werden"
+"Der erste Eintrag in dieser Liste würde von der Standardverbrauchsregel "
+"(Geöffnete zuerst, dann zuerst fällige, dann First In - First Out\") "
+"ausgewählt werden"
 
 msgid "Mark %1$s of %2$s as open"
 msgstr "%1$s %2$s als geöffnet markieren"
@@ -909,16 +898,16 @@ msgid "Chore due"
 msgstr "Hausarbeit fällig"
 
 msgid "Battery charge cycle due"
-msgstr "Battery-Ladezyklus fällig"
+msgstr "Batterieladezyklus fällig"
 
 msgid "Show clock in header"
 msgstr "Uhr in der Kopfzeile anzeigen"
 
 msgid "Stock settings"
-msgstr "Bestand-Einstellungen"
+msgstr "Bestandseinstellungen"
 
 msgid "Shopping list to stock workflow"
-msgstr "Einkaufsliste -> Bestand Workflow"
+msgstr "Einkaufszettel -> Bestand Workflow"
 
 msgid "Skip"
 msgstr "Überspringen"
@@ -934,8 +923,8 @@ msgstr "Die hier aufgeführten Zutaten ergeben diese Menge an Portionen"
 
 msgid "Do not check against the shopping list when adding missing items to it"
 msgstr ""
-"Nicht gegen die bereits auf der Einkaufsliste vorhandene Menge prüfen, wenn "
-"fehlende Zutaten auf die Einkaufsliste gesetzt werden"
+"Nicht gegen die bereits auf dem Einkaufszettel vorhandene Menge prüfen, wenn"
+" diesem fehlende Zutaten hinzugefügt werden"
 
 msgid ""
 "By default the amount to be added to the shopping list is \"needed amount - "
@@ -943,17 +932,17 @@ msgid ""
 "checked against the stock amount, not against what is already on the "
 "shopping list"
 msgstr ""
-"Standardmäßig ist die Menge, die der Einkaufsliste hinzugefügt werden soll, "
-"\"benötigte Menge - Lagerbestand - Menge bereits auf der Einkaufsliste\" - "
-"wenn dies aktiviert ist, wird nur gegen den Lagerbestand geprüft, nicht "
-"gegen das, was bereits auf der Einkaufsliste steht"
+"Standardmäßig ist die Menge, die dem Einkaufszettel hinzugefügt werden soll,"
+" \"benötigte Menge - Lagerbestand - Menge bereits auf dem Einkaufszettel\" -"
+" wenn dies aktiviert ist, wird nur gegen den Lagerbestand geprüft, nicht "
+"gegen das, was bereits auf dem Einkaufszettel steht"
 
 msgid "Picture"
 msgstr "Bild"
 
 msgid "Uncheck ingredients to not put them on the shopping list"
 msgstr ""
-"Entferne den Haken einer Zutat, um diese nicht auf die Einkaufsliste zu "
+"Entferne den Haken einer Zutat, um diese nicht auf den Einkaufszettel zu "
 "übernehmen"
 
 msgid "This is for statistical purposes only"
@@ -975,9 +964,6 @@ msgstr ""
 "Verwende die folgende (öffentliche) URL, um den Kalender im iCal-Format zu "
 "teilen oder zu integrieren"
 
-msgid "Allow partial units in stock"
-msgstr "Teilmengen im Bestand zulassen"
-
 msgid "Enable tare weight handling"
 msgstr "Taragewichtbehandlung aktivieren"
 
@@ -986,10 +972,10 @@ msgid ""
 "always weigh the whole jar, the amount to be posted is then automatically "
 "calculated based on what is in stock and the tare weight defined below"
 msgstr ""
-"Dies ist z.B. für Mehl im Glas nützlich - beim Buchen eines Kaufs/Verbrauchs"
-" oder bei der Inventur musst du dann immer das gesamte Glas wiegen, die zu "
-"buchende Menge wird dann automatisch basierend auf dem Bestand und dem unten"
-" definierten Eigengewicht berechnet"
+"Dies ist z. B. für Mehl im Glas nützlich - beim Buchen eines "
+"Kaufs/Verbrauchs oder bei der Inventur musst du dann immer das gesamte Glas "
+"wiegen, die zu buchende Menge wird dann automatisch basierend auf dem "
+"Bestand und dem unten definierten Eigengewicht berechnet"
 
 msgid "Tare weight"
 msgstr "Taragewicht"
@@ -1037,7 +1023,7 @@ msgstr "Produktanzahl"
 msgid ""
 "Type a new product name or barcode and hit TAB or ENTER to start a workflow"
 msgstr ""
-"Gib einen neuen Produktnamen oder Barcode ein und drücke TAB oder ENTER um "
+"Gib einen neuen Produktnamen oder Barcode ein und drücke TAB oder ENTER, um "
 "einen Workflow zu starten"
 
 msgid ""
@@ -1060,19 +1046,19 @@ msgid "Delete shopping list"
 msgstr "Einkaufszettel löschen"
 
 msgid "Chores settings"
-msgstr "Hausarbeiten-Einstellungen"
+msgstr "Hausarbeiteneinstellungen"
 
 msgid "Batteries settings"
-msgstr "Batterie-Einstellungen"
+msgstr "Batterieeinstellungen"
 
 msgid "Tasks settings"
-msgstr "Aufgaben-Einstellungen"
+msgstr "Aufgabeneinstellungen"
 
 msgid "Create shopping list"
 msgstr "Einkaufszettel erstellen"
 
 msgid "Are you sure to delete shopping list \"%s\"?"
-msgstr " Einkaufszettel \"%s\" wirklich löschen? "
+msgstr "Einkaufszettel \"%s\" wirklich löschen? "
 
 msgid "Average shelf life"
 msgstr "Durchschnittliche Haltbarkeit"
@@ -1175,11 +1161,8 @@ msgstr "Bestand nicht ausreichend, steht aber bereits auf dem Einkaufszettel"
 msgid "Not enough in stock"
 msgstr "Nicht ausreichend im Bestand"
 
-msgid "Expiring soon days"
-msgstr "\"Bald ablaufend\"-Tage"
-
 msgid "Default location"
-msgstr "Standard-Standort"
+msgstr "Standardstandort"
 
 msgid "Default amount for purchase"
 msgstr "Standardmenge für Einkauf"
@@ -1194,8 +1177,8 @@ msgid ""
 "When this is not empty, it will be shown instead of the amount entered above"
 " while the amount there will still be used for stock fulfillment checking"
 msgstr ""
-"Wenn dies nicht leer ist, wird dies anstelle der Menge oben angezeigt, für "
-"die Bestandsprüfung wird trotzdem diese Menge verwendet"
+"Wenn dies nicht leer ist, wird dies anstelle der Menge oben angezeigt, wobei"
+" für die Bestandsprüfung trotzdem diese Menge verwendet wird"
 
 msgid "Track date only"
 msgstr "Nur Datum der Ausführung speichern"
@@ -1210,9 +1193,6 @@ msgstr "Verbrauche %1$s %2$s"
 
 msgid "Meal plan"
 msgstr "Speiseplan"
-
-msgid "Add recipe on %s"
-msgstr "Rezept am %s hinzufügen"
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1267,7 +1247,7 @@ msgstr ""
 "Fälligkeitsdatum wird jeden Tag ab Fälligkeit einen Tag vorgeschoben"
 
 msgid "Location Content Sheet"
-msgstr "Standort-Inhaltsblatt"
+msgstr "Standortinhaltsblatt"
 
 msgid "Print"
 msgstr "Drucken"
@@ -1354,17 +1334,17 @@ msgid "Assignment type"
 msgstr "Zuweisungstyp"
 
 msgid ""
-"This means the next execution of this chore is scheduled %s day after the "
-"last execution"
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every day"
 msgid_plural ""
-"This means the next execution of this chore is scheduled %s days after the "
-"last execution"
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every %s days"
 msgstr[0] ""
-"Das bedeutet, dass eine erneute Ausführung der Hausarbeit %s Tag nach der "
-"letzten Ausführung geplant wird"
+"Das bedeutet, dass eine erneute Ausführung der Hausarbeit jeden Tag zur "
+"gleichen Zeit (basierend auf dem Startzeitpunkt) geplant wird"
 msgstr[1] ""
-"Das bedeutet, dass eine erneute Ausführung der Hausarbeit %s Tage nach der "
-"letzten Ausführung geplant wird"
+"Das bedeutet, dass eine erneute Ausführung der Hausarbeit alle %s Tage zur "
+"gleichen Zeit (basierend auf dem Startzeitpunkt) geplant wird"
 
 msgid ""
 "This means the next execution of this chore is scheduled %s hour after the "
@@ -1456,7 +1436,7 @@ msgid "Assignment"
 msgstr "Zuweisung"
 
 msgid "Consume product on chore execution"
-msgstr "Ein Produkt bei Hausarbeit-Ausführung verbrauchen"
+msgstr "Ein Produkt bei der Ausführung verbrauchen"
 
 msgid "Are you sure to delete user field \"%s\"?"
 msgstr "Benutzerfeld \"%s\" wirklich löschen?"
@@ -1468,7 +1448,7 @@ msgid "Create userentity"
 msgstr "Benutzerentität erstellen"
 
 msgid "Show in sidebar menu"
-msgstr "Im Seitenleisten-Menü anzeigen"
+msgstr "Im Seitenleistenmenü anzeigen"
 
 msgid "Edit userentity"
 msgstr "Benutzerentität bearbeiten"
@@ -1480,7 +1460,7 @@ msgid "Create %s"
 msgstr "%s erstellen"
 
 msgid "Are you sure to delete this userobject?"
-msgstr "Dieses Benutzerobject wirklich löschen?"
+msgstr "Dieses Benutzerobjekt wirklich löschen?"
 
 msgid "Icon CSS class"
 msgstr "Icon CSS-Klasse"
@@ -1521,7 +1501,7 @@ msgid "Say thanks"
 msgstr "Sag Danke"
 
 msgid "Search for recipes containing this product"
-msgstr "Suche nach Rezepten, die dieses Produkt enthalten"
+msgstr "Rezepte mit diesem Produkt suchen"
 
 msgid "Add to shopping list"
 msgstr "Zum Einkaufszettel hinzufügen"
@@ -1567,7 +1547,7 @@ msgid ""
 "this product, means the sub product will never be missing, only this product"
 msgstr ""
 "Wenn aktiviert, werden die Mindestbestände von untergeordneten Produkten "
-"aufsummiert, heißt das untergeordnete Produkt wird nie fehlen, nur dieses"
+"aufsummiert, heißt das untergeordnete Produkt kann nie fehlen, nur dieses"
 
 msgid "Are you sure to remove this conversion?"
 msgstr "Diese Umrechnung wirklich löschen?"
@@ -1616,7 +1596,7 @@ msgid "To location"
 msgstr "Nach Standort"
 
 msgid "There are no units available at this location"
-msgstr "Keine Einheiten an diesem Standort verfügbar"
+msgstr "Keine Bestandseinträge an diesem Standort verfügbar"
 
 msgid "Amount: %1$s; Due on %2$s; Bought on %3$s"
 msgstr "Menge: %1$s; Fällig am %2$s; Gekauft am %3$s "
@@ -1654,12 +1634,10 @@ msgstr ""
 "zugegriffen wird"
 
 msgid "Keep screen on"
-msgstr "Bildschirm eingeschaltet lassen"
+msgstr "Bildschirm an lassen"
 
 msgid "Keep screen on while displaying a \"fullscreen-card\""
-msgstr ""
-"Bildschirm eingeschaltet lassen während eine \"fullscreen-card\" angezeigt "
-"wird"
+msgstr "Bildschirm an lassen während eine \"fullscreen-card\" angezeigt wird"
 
 msgid "A purchased date is required"
 msgstr "Ein Einkaufsdatum ist erforderlich"
@@ -1686,9 +1664,6 @@ msgstr "API-Schlüssel \"%s\" wirklich löschen?"
 msgid "Add note"
 msgstr "Notiz hinzufügen"
 
-msgid "Add note on %s"
-msgstr "Notiz am %s hinzufügen"
-
 msgid "per day"
 msgstr "pro Tag"
 
@@ -1697,9 +1672,6 @@ msgstr "Nur unerledigte Einträge"
 
 msgid "Add product"
 msgstr "Produkt hinzufügen"
-
-msgid "Add product on %s"
-msgstr "Produkt am %s hinzufügen"
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
 msgstr ""
@@ -1716,7 +1688,7 @@ msgid "Meal plan product"
 msgstr "Speiseplan Produkt"
 
 msgid "Scan mode"
-msgstr "Scan-Modus"
+msgstr "Scanmodus"
 
 msgid "on"
 msgstr "an"
@@ -1727,19 +1699,11 @@ msgstr "aus"
 msgid ""
 "Scan mode is on but not all required fields could be populated automatically"
 msgstr ""
-"Scan-Modus ist eingeschaltet, aber nicht alle erforderlichen Felder konnten "
+"Scanmodus ist eingeschaltet, aber nicht alle erforderlichen Felder konnten "
 "automatisch ausgefüllt werden"
 
 msgid "Is freezer"
-msgstr "Ist ein Gefrier-Standort (also z. B. ein Gefrierschrank)"
-
-msgid ""
-"When moving products from/to a freezer location, the products best before "
-"date is automatically adjusted according to the product settings"
-msgstr ""
-"Beim Umlagen von Produkten von/zu einem Gefrier-Standort wird das "
-"Mindesthaltbarkeitsdatum der Produkte automatisch entsprechend den "
-"Produkteinstellungen angepasst"
+msgstr "Ist ein Gefrierstandort (also z. B. ein Gefrierschrank)"
 
 msgid "This cannot be the same as the \"From\" location"
 msgstr "Dies kann nicht derselbe Standort wie \"Von Standort\" sein"
@@ -1754,19 +1718,10 @@ msgid "Are you sure to delete userentity \"%s\"?"
 msgstr "Benutzerentität \"%s\" wirklich löschen?"
 
 msgid "Shopping list settings"
-msgstr "Einkaufszettel-Einstellungen"
+msgstr "Einkaufszetteleinstellungen"
 
 msgid "Show a month-view calendar"
 msgstr "Einen Kalender (Monatsansicht) anzeigen"
-
-msgid "Edit note on %s"
-msgstr "Notiz am %s bearbeiten"
-
-msgid "Edit product on %s"
-msgstr "Produkt am %s bearbeiten"
-
-msgid "Edit recipe on %s"
-msgstr "Rezept am %s bearbeiten"
 
 msgid "Desired servings"
 msgstr "Gewünschte Portionen"
@@ -1775,13 +1730,13 @@ msgid "Base: %s"
 msgstr "Basis: %s"
 
 msgid "Recipes settings"
-msgstr "Rezept-Einstellungen"
+msgstr "Rezepteinstellungen"
 
 msgid "Recipe card"
-msgstr "Rezept-Karte"
+msgstr "Rezeptkarte"
 
 msgid "Group ingredients by their product group"
-msgstr "Zutaten nach Produktgruppen gruppieren"
+msgstr "Zutaten nach Produktgruppe gruppieren"
 
 msgid "Unknown store"
 msgstr "Unbekanntes Geschäft"
@@ -1819,9 +1774,6 @@ msgstr "Kalorien"
 
 msgid "means %1$s per %2$s"
 msgstr "bedeutet %1$s pro %2$s"
-
-msgid "Create inverse QU conversion"
-msgstr "Inverse ME-Umrechnung erstellen"
 
 msgid "Create recipe"
 msgstr "Rezept erstellen"
@@ -1864,14 +1816,9 @@ msgid ""
 "due first, then first in first out) for in-stock ingredients and on the last"
 " price for missing ones"
 msgstr ""
-"Basierend auf den Preisen der Standard-Verbrauchsregel (Geöffnete zuerst, "
+"Basierend auf den Preisen der Standardverbrauchsregel (Geöffnete zuerst, "
 "dann zuerst fällige, dann First In - First Out) für vorrätige Zutaten und "
 "auf dem letzten Preis für fehlende Zutaten"
-
-msgid "Quantity unit stock cannot be changed after first purchase"
-msgstr ""
-"Die Mengeneinheit Bestand kann nach dem ersten Einkauf nicht mehr geändert "
-"werden"
 
 msgid "Clear filter"
 msgstr "Filter zurücksetzen"
@@ -1906,7 +1853,7 @@ msgid "Stack trace"
 msgstr "Stacktrace"
 
 msgid "Easy error info copy & paste (for reporting)"
-msgstr "Easy Fehler-Info copy & paste (für Fehler-Reporting)"
+msgstr "Easy Fehler-Info Copy & Paste (für Fehlerreporting)"
 
 msgid "This page does not exist"
 msgstr "Diese Seite existiert nicht"
@@ -1938,9 +1885,6 @@ msgstr "Bestandsjournal-Zusammenfassung"
 msgid "Journal summary"
 msgstr "Journal-Zusammenfassung"
 
-msgid "Journal summary for this product"
-msgstr "Journal-Zusammenfassung für dieses Produkt"
-
 msgid "Consume exact amount"
 msgstr "Exakte Menge verbrauchen"
 
@@ -1965,9 +1909,6 @@ msgstr "Erlaubte Nachkommastellen für Mengen"
 
 msgid "Decimal places allowed for prices"
 msgstr "Erlaubte Nachkommastellen für Preise"
-
-msgid "Stock entries for this product"
-msgstr "Bestandseinträge für dieses Produkt"
 
 msgid "Edit shopping list"
 msgstr "Einkaufszettel bearbeiten"
@@ -2009,7 +1950,7 @@ msgid "Transaction time"
 msgstr "Transaktionszeit"
 
 msgid "Chore journal"
-msgstr "Hausarbeit-Journal"
+msgstr "Hausarbeitenjournal"
 
 msgid "Track chore execution"
 msgstr "Ausführung erfassen"
@@ -2021,7 +1962,7 @@ msgid "Track charge cycle"
 msgstr "Ladezyklus erfassen"
 
 msgid "Battery journal"
-msgstr "Batterie-Journal"
+msgstr "Batteriejournal"
 
 msgid "This product has a picture"
 msgstr "Dieses Produkt hat ein Bild"
@@ -2063,13 +2004,13 @@ msgstr ""
 "gespeichert"
 
 msgid "Quick consume amount"
-msgstr "Schnell-Verbrauchs-Menge"
+msgstr "Schnellverbrauchsmenge"
 
 msgid ""
 "This amount is used for the \"quick consume/open buttons\" on the stock "
 "overview page (related to quantity unit stock)"
 msgstr ""
-"Diese Menge wird für die \"Schnell-Verbrauch/Öffnen-Buttons\" auf der "
+"Diese Menge wird für die \"Schnellverbrauch/-öffnen Buttons\" auf der "
 "Bestandsübersicht benutzt (bezieht sich auf die Bestandsmengeneinheit)"
 
 msgid "Copy"
@@ -2079,7 +2020,7 @@ msgid "Are you sure to remove this barcode?"
 msgstr "Diesen Barcode wirklich löschen?"
 
 msgid "Due date type"
-msgstr "Fälligkeitsdatum-Typ"
+msgstr "Art des Fälligkeitsdatums"
 
 msgid ""
 "Based on the selected type, the highlighting on the stock overview page will"
@@ -2115,7 +2056,7 @@ msgid "-1 means that this product will be never overdue"
 msgstr "-1 bedeutet, dass dieses Produkt niemals überfällig ist"
 
 msgid "Default due days"
-msgstr "Standard-Fälligkeitstage"
+msgstr "Standardfälligkeitstage"
 
 msgid ""
 "When this product was marked as opened, the due date will be replaced by "
@@ -2128,29 +2069,28 @@ msgstr ""
 "(ein Wert von 0 deaktiviert dies) "
 
 msgid "Default due days after opened"
-msgstr "Standard-Fälligkeitstage nach dem Öffnen"
+msgstr "Standardfälligkeitstage nach dem Öffnen"
 
 msgid ""
 "On moving this product to a freezer location (so when freezing it), the due "
 "date will be replaced by today + this amount of days"
 msgstr ""
-"Wenn dieses Produkt zu einem Gefrier-Standort umgelagert (sprich "
-"eingefroren) wird, wird das Fälligkeitsdatum durch heute + diese Anzahl von "
-"Tagen ersetzt"
+"Wenn dieses Produkt zu einem Gefrierstandort umgelagert (sprich eingefroren)"
+" wird, wird das Fälligkeitsdatum durch heute + diese Anzahl von Tagen "
+"ersetzt"
 
 msgid "Default due days after freezing"
-msgstr "Standard-Fälligkeitstage nach dem Einfrieren"
+msgstr "Standardfälligkeitstage nach dem Einfrieren"
 
 msgid ""
 "On moving this product from a freezer location (so when thawing it), the due"
 " date will be replaced by today + this amount of days"
 msgstr ""
-"Wenn dieses Produkt von einem Gefrier-Standort umgelagert (sprich aufgetaut)"
-" wird, wird das Fälligkeitsdatum durch heute + diese Anzahl von Tagen "
-"ersetzt"
+"Wenn dieses Produkt von einem Gefrierstandort umgelagert (sprich aufgetaut) "
+"wird, wird das Fälligkeitsdatum durch heute + diese Anzahl von Tagen ersetzt"
 
 msgid "Default due days after thawing"
-msgstr "Standard-Fälligkeitstage nach dem Auftauen"
+msgstr "Standardfälligkeitstage nach dem Auftauen"
 
 msgid "Next due date"
 msgstr "Nächstes Fälligkeitsdatum"
@@ -2218,14 +2158,14 @@ msgid ""
 "Automatically do the booking using the last price and the amount of the "
 "shopping list item, if the product has \"Default due days\" set"
 msgstr ""
-"Buchung automatisch ausführen, wenn das Produkt \"Standard-Fälligkeitstage\""
-" hinterlegt hat (als Preis wird der letzte Preis verwendet)"
+"Buchung automatisch ausführen, wenn das Produkt Standardfälligkeitstage "
+"hinterlegt hat (als Preis wird der letzte Preis verwendet)"
 
 msgid ""
 "When moving products from/to a freezer location, the products due date is "
 "automatically adjusted according to the product settings"
 msgstr ""
-"Beim Umlagen von Produkten von/zu einem Gefrier-Standort wird das "
+"Beim Umlagern von Produkten von/zu einem Gefrierstandort wird das "
 "Fälligkeitsdatum der Produkte automatisch entsprechend den "
 "Produkteinstellungen angepasst"
 
@@ -2247,7 +2187,7 @@ msgid "Download file"
 msgstr "Datei herunterladen"
 
 msgid "Use the products \"Quick consume amount\""
-msgstr "Die Schnell-Verbrauchs-Menge des Produkts verwenden"
+msgstr "Die Schnellverbrauchsmenge des Produkts verwenden"
 
 msgid "Disabled"
 msgstr "Deaktiviert"
@@ -2257,7 +2197,7 @@ msgid ""
 "this product - consider disabling it instead, if you want to keep that and "
 "just hide the product."
 msgstr ""
-"Dadruch wird auch der Bestand, das Journal und alle anderen Referenzen "
+"Dadurch wird auch der Bestand, das Journal und alle anderen Referenzen "
 "dieses Produkts entfernt - ziehe stattdessen in Betracht, dieses Produkt zu "
 "deaktivieren, wenn du dies behalten und nur das Produkt ausblenden willst."
 
@@ -2265,7 +2205,7 @@ msgid "Show disabled"
 msgstr "Deaktivierte anzeigen"
 
 msgid "Never show on stock overview"
-msgstr "Nie auf der Bestand-Seite anzeigen"
+msgstr "Nie auf der Bestandsübersicht anzeigen"
 
 msgid "None"
 msgstr "Keine"
@@ -2330,8 +2270,8 @@ msgid "After merging, this product will be kept"
 msgstr "Nach der Zusammenführung wird dieses Produkt erhalten bleiben"
 
 msgid ""
-"After merging, all occurences of this product will be replaced by \"Product "
-"to keep\" (means this product will not exist anymore)"
+"After merging, all occurences of this product will be replaced by the kept "
+"product (means this product will not exist anymore)"
 msgstr ""
 "Nach dem Zusammenführen werden alle Referenzen auf dieses Produkt durch das "
 "zu behaltende Produkt ersetzt (d. h. dieses Produkt existiert dann nicht "
@@ -2351,7 +2291,7 @@ msgid ""
 "below their min. stock amount - enable this to hide this product there "
 "always"
 msgstr ""
-"Die Bestand-Seite listet alle Produkte auf, die derzeit im Bestand oder "
+"Die Bestandsübersicht listet alle Produkte auf, die derzeit im Bestand oder "
 "unter ihrem Mindestbestand sind - aktiviere dies, um dieses Produkt dort nie"
 " anzuzeigen"
 
@@ -2375,8 +2315,8 @@ msgid ""
 "grocycode is a unique referer to this %s in your grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
-"grocycode ist eine eindeutige Referenz zu diesem/dieser %s in dieser grocy-"
-"Instanz - ausgedruckt kann es wie jeder andere Barcode gescannt werden"
+"grocycode ist eine eindeutige Referenz zu diesem/dieser %s in dieser grocy "
+"Instanz - ausgedruckt kann er wie jeder andere Barcode gescannt werden"
 
 # Abbreviation for "due date"
 msgid "DD"
@@ -2386,10 +2326,10 @@ msgid "Print on label printer"
 msgstr "Auf Etikettendrucker drucken"
 
 msgid "Default stock entry label"
-msgstr "Standard Bestandseintrag-Etikett"
+msgstr "Standard Bestandseintragsetikett"
 
 msgid "Stock entry label"
-msgstr "Bestandseintrag-Etikett"
+msgstr "Bestandseintragsetikett"
 
 msgid "No label"
 msgstr "Kein Etikett"
@@ -2401,14 +2341,14 @@ msgid "Label per unit"
 msgstr "Ein Etikett pro Einheit"
 
 msgid "Error while executing WebHook"
-msgstr "Fehler bei WebHook-Ausführung"
+msgstr "Fehler beim Aufruf des WebHooks"
 
 # Example: Print *Product* grocycode on label printer
 msgid "Print %s grocycode on label printer"
 msgstr "%s grocycode auf Etikettendrucker drucken"
 
 msgid "Open stock entry label in new window"
-msgstr "Bestandseintrag-Etikett in neuem Fenster öffnen"
+msgstr "Bestandseintragsetikett in neuem Fenster öffnen"
 
 msgid "Thermal printer"
 msgstr "Thermodrucker"
@@ -2445,8 +2385,7 @@ msgid "Mandatory Userfield"
 msgstr "Erforderliches Benutzerfeld"
 
 msgid "When enabled, then this field must be filled on the destination form"
-msgstr ""
-"Wenn aktiviert, dann muss dieses Feld im Zielformular ausgefüllt werden"
+msgstr "Wenn aktiviert, dann muss dieses Feld ausgefüllt werden"
 
 msgid "In-stock products"
 msgstr "Vorrätige Produkte"
@@ -2461,7 +2400,7 @@ msgid ""
 "When enabled, on moving this product to a freezer location (so when freezing"
 " it), a warning will be shown"
 msgstr ""
-"Wenn aktiviert und wenn dieses Produkt zu einem Gefrier-Standort umgelagert "
+"Wenn aktiviert und wenn dieses Produkt zu einem Gefrierstandort umgelagert "
 "(sprich eingefroren) wird, wird eine entsprechende Warnung angezeigt"
 
 msgid "This product shouldn't be frozen"
@@ -2523,19 +2462,19 @@ msgid "Configure sections"
 msgstr "Abschnitte konfigurieren"
 
 msgid "Meal plan sections"
-msgstr "Speiseplan-Abschnitte"
+msgstr "Speiseplanabschnitte"
 
 msgid "Create meal plan section"
-msgstr "Speiseplan-Abschnitt erstellen"
+msgstr "Speiseplanabschnitt erstellen"
 
 msgid "Sections will be ordered by that number on the meal plan"
 msgstr "Die Abschnitte werden nach dieser Nummer auf dem Speiseplan sortiert"
 
 msgid "Edit meal plan section"
-msgstr "Speiseplan-Abschnitt bearbeiten"
+msgstr "Speiseplanabschnitt bearbeiten"
 
 msgid "Are you sure to delete meal plan section \"%s\"?"
-msgstr "Speiseplan-Abschnitt \"%s\" wirklich löschen?"
+msgstr "Speiseplanabschnitt \"%s\" wirklich löschen?"
 
 msgid "Section"
 msgstr "Abschnitt"
@@ -2635,3 +2574,100 @@ msgstr ""
 
 msgid "Average execution frequency"
 msgstr "Durchschnittliche Ausführungshäufigkeit"
+
+msgid "Reschedule next execution"
+msgstr "Nächste Ausführung umplanen"
+
+msgid "This can only be in the future"
+msgstr "Das kann nur in der Zukunft sein"
+
+msgid "Rescheduled"
+msgstr "Umgeplant"
+
+msgid "Due score"
+msgstr "Fällig.-Punkte"
+
+msgid ""
+"The higher this number is, the more ingredients currently in stock are due "
+"soon, overdue or already expired"
+msgstr ""
+"Je höher diese Zahl ist, desto mehr Zutaten, die derzeit im Bestand sind, "
+"sind bald fällig, überfällig oder bereits abgelaufen"
+
+msgid "Disable own stock"
+msgstr "Eigenen Bestand deaktivieren"
+
+msgid ""
+"When enabled, this product can't have own stock, means it will not be "
+"selectable on purchase (useful for parent products which are just used as a "
+"summary/total view of the child products)"
+msgstr ""
+"Wenn aktiviert, kann dieses Produkt keinen eigenen Bestand haben, bedeutet "
+"es ist unter \"Einkauf\" nicht auswählbar (nützlich für übergeordnete "
+"Produkte, die nur als Zusammenfassung/Gesamtansicht der untergeordneten "
+"Produkte verwendet werden)"
+
+msgid "Out of stock items will be shown at the products default location"
+msgstr ""
+"Nicht vorrätige Artikel werden am Standardstandort des Produkts angezeigt"
+
+msgid "Show a little checkbox next to each ingredient to mark it as done"
+msgstr ""
+"Ein kleines Häkchen neben jeder Zutat anzeigen, um sie als erledigt zu "
+"markieren"
+
+msgid ""
+"The ingredient is crossed out when clicked, the status is not saved, means "
+"reset when the page is reloaded"
+msgstr ""
+"Die Zutat wird durchgestrichen, wenn das Häkchen angeklickt wird, der "
+"Zustand wird nicht gespeichert, d. h. beim Neuladen der Seite zurückgesetzt"
+
+msgid ""
+"The parent product %1$s is currently not in stock, %2$s is the current next "
+"sub product based on the default consume rule (Opened first, then first due "
+"first, then first in first out)"
+msgstr ""
+"Das übergeordnete Produkt %1$s ist derzeit nicht vorrätig, %2$s ist das "
+"aktuelle nächste untergeordnete Produkt, basierend auf der "
+"Standardverbrauchsregel (Geöffnete zuerst, dann zuerst fällige, dann First "
+"In - First Out)"
+
+msgid "Night mode"
+msgstr "Nachtmodus"
+
+msgid "On"
+msgstr "An"
+
+msgid "Use system setting"
+msgstr "Systemeinstellung verwenden"
+
+msgid "Off"
+msgstr "Aus"
+
+msgid ""
+"Automatically add products that are below their defined min. stock amount to"
+" the shopping list"
+msgstr ""
+"Produkte unter Mindestbestand automatisch zum Einkaufszettel hinzufügen"
+
+msgid "Reassigned"
+msgstr "Neu zugewiesen"
+
+msgid "Default value"
+msgstr "Standardwert"
+
+msgid "Now / today"
+msgstr "Jetzt / Heute"
+
+msgid "Add meal plan entry"
+msgstr "Speiseplaneintrag hinzufügen"
+
+msgid "Edit meal plan entry"
+msgstr "Speiseplaneintrag bearbeiten"
+
+msgid "Default consume location"
+msgstr "Standardverbrauchsstandort"
+
+msgid "Stock entries at this location will be consumed first"
+msgstr "Bestandseinträge an diesem Standort werden zuerst verbraucht"

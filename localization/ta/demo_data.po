@@ -104,11 +104,11 @@ msgstr "முள்ளங்கி"
 msgid "Tomato"
 msgstr "தக்காளி"
 
-msgid "Changed towels in the bathroom"
-msgstr "குளியலறையில் உள்ள துண்டுகள் மாற்றப்பட்டன"
+msgid "Change towels in the bathroom"
+msgstr ""
 
-msgid "Cleaned the kitchen floor"
-msgstr "சமையலறையின் தரை சுத்தம் செய்யப்பட்டது"
+msgid "Mop the kitchen floor"
+msgstr ""
 
 msgid "Warranty ends"
 msgstr "உத்தரவாதம் முடிவடைகிறது"
@@ -122,8 +122,8 @@ msgstr "எழுப்பு மணி"
 msgid "Heat remote control"
 msgstr "சூடேற்றும் சாதன ரிமோட் கண்ட்ரோல்"
 
-msgid "Lawn mowed in the garden"
-msgstr "தோட்டத்தில் புல்வெளி வெட்டப்பட்டது"
+msgid "Take out the trash"
+msgstr ""
 
 msgid "Some good snacks"
 msgstr "சில நல்ல தின்பண்டங்கள்"
@@ -180,25 +180,6 @@ msgstr "பான்கேக்குகள்"
 
 msgid "Sugar"
 msgstr "சர்க்கரை"
-
-msgid "Home"
-msgstr "வீடு"
-
-msgid "Life"
-msgstr "வாழ்க்கை"
-
-msgid "Projects"
-msgstr "திட்டங்கள்"
-
-msgid "Repair the garage door"
-msgstr "கேரேஜ் கதவை சரிசெய்யவும்"
-
-msgid "Fork and improve grocy"
-msgstr "குரோசியை மேம்படுத்தவும்"
-
-msgid "Find a solution for what to do when I forget the door keys"
-msgstr ""
-"கதவு விசைகளை நான் மறக்கும்போது என்ன செய்வது என்பதற்கான தீர்வைக் கண்டறியவும்"
 
 msgid "Sweets"
 msgstr "இனிப்புகள்"
@@ -266,14 +247,14 @@ msgstr "எசுப்பானியம்"
 msgid "Russian"
 msgstr "உருசியம்"
 
-msgid "The thing which happens on the 5th of every month"
-msgstr "ஒவ்வொரு மாதமும் 5 ஆம் தேதி நடக்கும் விடயம்"
+msgid "Vacuum the living room floor"
+msgstr ""
 
-msgid "The thing which happens daily"
-msgstr "தினசரி நடக்கும் விடயம்"
+msgid "Clean the litter box"
+msgstr ""
 
-msgid "The thing which happens on Mondays and Wednesdays"
-msgstr "திங்கள் மற்றும் புதன்கிழமைகளில் நடக்கும் விடயம்"
+msgid "Change the bed sheets"
+msgstr ""
 
 msgid "Swedish"
 msgstr "சுவேக மொழி"
@@ -394,4 +375,7 @@ msgid "Dinner"
 msgstr ""
 
 msgid "Catalan"
+msgstr ""
+
+msgid "Slovenian"
 msgstr ""

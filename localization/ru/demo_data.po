@@ -120,11 +120,11 @@ msgstr "Редиска"
 msgid "Tomato"
 msgstr "Помидор"
 
-msgid "Changed towels in the bathroom"
-msgstr "Полотенца в ванной поменяны"
+msgid "Change towels in the bathroom"
+msgstr ""
 
-msgid "Cleaned the kitchen floor"
-msgstr "Пол на кухне чист"
+msgid "Mop the kitchen floor"
+msgstr ""
 
 msgid "Warranty ends"
 msgstr "Гарантия заканчивается"
@@ -138,8 +138,8 @@ msgstr "Часы с будильником"
 msgid "Heat remote control"
 msgstr "Пульт ДУ для печки"
 
-msgid "Lawn mowed in the garden"
-msgstr "Газон в саду пострижен"
+msgid "Take out the trash"
+msgstr ""
 
 msgid "Some good snacks"
 msgstr "Вкусные закуски"
@@ -198,24 +198,6 @@ msgstr "Блины"
 
 msgid "Sugar"
 msgstr "Сахар"
-
-msgid "Home"
-msgstr "Дом"
-
-msgid "Life"
-msgstr "Жизнь"
-
-msgid "Projects"
-msgstr "Проекты"
-
-msgid "Repair the garage door"
-msgstr "Починить дверь гаража"
-
-msgid "Fork and improve grocy"
-msgstr "Форкнуть и сделать grocy лучше"
-
-msgid "Find a solution for what to do when I forget the door keys"
-msgstr "Придумать что делать, когда я забываю ключи от двери"
 
 msgid "Sweets"
 msgstr "Сладости"
@@ -283,14 +265,14 @@ msgstr "Испанский"
 msgid "Russian"
 msgstr "Русский"
 
-msgid "The thing which happens on the 5th of every month"
-msgstr "Что-то, что происходит 5 числа каждого месяца"
+msgid "Vacuum the living room floor"
+msgstr ""
 
-msgid "The thing which happens daily"
-msgstr "Что-то, что происходит каждый день"
+msgid "Clean the litter box"
+msgstr ""
 
-msgid "The thing which happens on Mondays and Wednesdays"
-msgstr "Что-то, что происходит по понедельникам и средам"
+msgid "Change the bed sheets"
+msgstr ""
 
 msgid "Swedish"
 msgstr "Шведский"
@@ -413,4 +395,7 @@ msgid "Dinner"
 msgstr "Ужин"
 
 msgid "Catalan"
+msgstr ""
+
+msgid "Slovenian"
 msgstr ""

@@ -101,11 +101,11 @@ msgstr "小萝卜"
 msgid "Tomato"
 msgstr "西红柿"
 
-msgid "Changed towels in the bathroom"
-msgstr "更换卫生间毛巾"
+msgid "Change towels in the bathroom"
+msgstr ""
 
-msgid "Cleaned the kitchen floor"
-msgstr "清理厨房地板"
+msgid "Mop the kitchen floor"
+msgstr ""
 
 msgid "Warranty ends"
 msgstr "保质期结束"
@@ -119,8 +119,8 @@ msgstr "闹钟"
 msgid "Heat remote control"
 msgstr "加热器遥控器"
 
-msgid "Lawn mowed in the garden"
-msgstr "清理花园草坪"
+msgid "Take out the trash"
+msgstr ""
 
 msgid "Some good snacks"
 msgstr "美味零食"
@@ -176,24 +176,6 @@ msgstr "烤饼"
 
 msgid "Sugar"
 msgstr "糖"
-
-msgid "Home"
-msgstr "主页"
-
-msgid "Life"
-msgstr "生命"
-
-msgid "Projects"
-msgstr "项目"
-
-msgid "Repair the garage door"
-msgstr "修理车库门"
-
-msgid "Fork and improve grocy"
-msgstr "建立分支并完善grocy"
-
-msgid "Find a solution for what to do when I forget the door keys"
-msgstr "寻找解决方法当忘记拿钥匙的时候"
 
 msgid "Sweets"
 msgstr "甜食"
@@ -261,14 +243,14 @@ msgstr "西班牙语"
 msgid "Russian"
 msgstr "俄语"
 
-msgid "The thing which happens on the 5th of every month"
-msgstr "每月5号发生的事情"
+msgid "Vacuum the living room floor"
+msgstr ""
 
-msgid "The thing which happens daily"
-msgstr "每天发生的事情"
+msgid "Clean the litter box"
+msgstr ""
 
-msgid "The thing which happens on Mondays and Wednesdays"
-msgstr "每周一和周三发生的事情"
+msgid "Change the bed sheets"
+msgstr ""
 
 msgid "Swedish"
 msgstr "瑞典语"
@@ -388,4 +370,7 @@ msgid "Dinner"
 msgstr ""
 
 msgid "Catalan"
+msgstr ""
+
+msgid "Slovenian"
 msgstr ""

@@ -1,6 +1,8 @@
+# 
 # Translators:
-# Tuğberk Kaan Duman <kaan@dumanmail.com>, 2019
 # Bernd Bestel <bernd@berrnd.de>, 2019
+# Yigit Sever <yigit@ceng.metu.edu.tr>, 2021
+# Tuğberk Kaan Duman <kaan@dumanmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -8,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2019\n"
+"Last-Translator: Tuğberk Kaan Duman <kaan@dumanmail.com>, 2021\n"
 "Language-Team: Turkish (https://www.transifex.com/grocy/teams/93189/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,37 +24,39 @@ msgstr "Stoklara genel bakış"
 
 msgid "%s product expires"
 msgid_plural "%s products expiring"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s ürünün son kullanma tarihi doluyor"
+msgstr[1] "%s ürünün son kullanma tarihi doluyor"
 
 msgid "within the next day"
 msgid_plural "within the next %s days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "önümüzdeki gün içinde"
+msgstr[1] "önümüzdeki %s gün içinde"
 
 msgid "%s product is already expired"
 msgid_plural "%s products are already expired"
+msgstr[0] "%s ürünün son kullanma tarihi geçti"
+msgstr[1] "%s ürünün son kullanma tarihi geçti"
+
+msgid "%s product is overdue"
+msgid_plural "%s products are overdue"
 msgstr[0] ""
 msgstr[1] ""
 
 msgid "%s product is below defined min. stock amount"
 msgid_plural "%s products are below defined min. stock amount"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s ürün belirlenen en az stok miktarının altında"
+msgstr[1] "%s ürün belirlenen en az stok miktarının altında"
 
 msgid "Product"
 msgstr "Ürün"
 
 msgid "%s Product"
 msgid_plural "%s Products"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ürün"
+msgstr[1] "Ürün"
 
 msgid "Amount"
 msgstr "Miktar"
-
-msgid "Next best before date"
-msgstr "Son kullanma tarihi"
 
 msgid "Logout"
 msgstr "Çıkış yap"
@@ -84,6 +88,9 @@ msgstr "Pil takibi"
 msgid "Locations"
 msgstr "Lokasyonlar"
 
+msgid "Stores"
+msgstr "Market"
+
 msgid "Quantity units"
 msgstr "Miktar birimleri"
 
@@ -91,7 +98,7 @@ msgid "Chores"
 msgstr "Ev işleri"
 
 msgid "Batteries"
-msgstr "Piller"
+msgstr "Pil"
 
 msgid "Chore"
 msgstr "Ev işi"
@@ -184,15 +191,6 @@ msgstr "Lokasyon"
 msgid "Min. stock amount"
 msgstr "Min. stok miktarı"
 
-msgid "QU purchase"
-msgstr "QU satın al"
-
-msgid "QU stock"
-msgstr "QU stok"
-
-msgid "QU factor"
-msgstr "QU faktör"
-
 msgid "Description"
 msgstr "Açıklama"
 
@@ -208,8 +206,8 @@ msgstr "Minimum stok miktarı"
 msgid "Default best before days"
 msgstr "Varsayılan son kullanım tarihi"
 
-msgid "Quantity unit purchase"
-msgstr "Miktar birim alımı"
+msgid "Default quantity unit purchase"
+msgstr "Varsayılan birim satın alma miktarı"
 
 msgid "Quantity unit stock"
 msgstr "Miktar birim stoğu"
@@ -219,6 +217,9 @@ msgstr "Alımı stok miktar birimle çarp"
 
 msgid "Create location"
 msgstr "Lokasyon oluştur"
+
+msgid "Create store"
+msgstr "Market oluştur"
 
 msgid "Create quantity unit"
 msgstr "Miktar birimi oluştur"
@@ -253,8 +254,8 @@ msgstr "Ürünü düzenle"
 msgid "Edit location"
 msgstr "Lokasyonu düzenle"
 
-msgid "Record data"
-msgstr "Veri kaydet"
+msgid "Edit store"
+msgstr "Marketi düzenle"
 
 msgid "Manage master data"
 msgstr "Ana veriyi yönet"
@@ -268,16 +269,8 @@ msgstr "asla"
 msgid "Add products that are below defined min. stock amount"
 msgstr "Tanımlanan min. stok miktarının altındaki ürünleri ekle"
 
-msgid ""
-"For purchases this amount of days will be added to today for the best before"
-" date suggestion"
+msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
 msgstr ""
-"Satın alımlar için bu kadar gün son kullanım tarihi önerisi üzerine bugün "
-"eklenecek"
-
-msgid "This means 1 %s purchased will be converted into %s %s in stock"
-msgstr ""
-"Bu 1 %s satın alımının %s %s stoklarına dönüştürüleceğini ifade ediyor"
 
 msgid "Login"
 msgstr "Giriş yap"
@@ -330,11 +323,14 @@ msgstr "Ürün \"%s\"'i silmek istediğine emin misin?"
 msgid "Are you sure to delete location \"%s\"?"
 msgstr "Lokasyon \"%s\"'i silmek istediğine emin misin?"
 
+msgid "Are you sure to delete store \"%s\"?"
+msgstr "Market \"%s\"i silmek istediğinize emin misiniz?"
+
 msgid "Manage API keys"
 msgstr "API anahtarlarını yönet"
 
-msgid "REST API & data model documentation"
-msgstr "REST API & veri modeli dökümantasyonu"
+msgid "REST API browser"
+msgstr ""
 
 msgid "API keys"
 msgstr "API anahtarları"
@@ -360,15 +356,8 @@ msgstr "Bu %s'in stoklara ekleneceğini ifade ediyor"
 msgid "This means %s will be removed from stock"
 msgstr "Bu %s'in stoklardan silineceğini ifade ediyor"
 
-msgid ""
-"This means it is estimated that a new execution of this chore is tracked %s "
-"days after the last was tracked"
+msgid "Removed %1$s of %2$s from stock"
 msgstr ""
-"Bu ev işinin sonraki takibinin son takipten %s gün sonra olacağının tahmin "
-"edildiğini ifade ediyor"
-
-msgid "Removed %s %s of %s from stock"
-msgstr "%s'ün %s %s'si stoklardan silindi"
 
 msgid "About grocy"
 msgstr "grocy hakkında"
@@ -379,35 +368,23 @@ msgstr "Kapat"
 msgid "Released on"
 msgstr "Yayınlanma tarihi"
 
-msgid "Consume %s %s of %s"
-msgstr "%s'ün %s/%s'sini tüket"
+msgid "Added %1$s of %2$s to stock"
+msgstr "%1$s %2%s stoğa eklendi"
 
-msgid "Added %s %s of %s to stock"
-msgstr "%s'in %s/%s'ü stoklara eklendi"
+msgid "Stock amount of %1$s is now %2$s"
+msgstr ""
 
-msgid "Stock amount of %s is now %s %s"
-msgstr "%s'in stok miktarı şimdi %s %s"
+msgid "Tracked execution of chore %1$s on %2$s"
+msgstr ""
 
-msgid "Tracked execution of chore %s on %s"
-msgstr "%s'in %s üzerindeki uygulaması takip edildi"
-
-msgid "Tracked charge cycle of battery %s on %s"
-msgstr "Pil %s'in %s üzerindeki şarj döngüsü takip edildi"
+msgid "Tracked charge cycle of battery %1$s on %2$s"
+msgstr ""
 
 msgid "Consume all %s which are currently in stock"
 msgstr "%s'in bütün stoklarını tüket"
 
 msgid "All"
 msgstr "Hepsi"
-
-msgid "Track charge cycle of battery %s"
-msgstr "Pil %s'in şarj döngüsünü takip et"
-
-msgid "Track execution of chore %s"
-msgstr "Ev işi %s'in uygulamasını takip et"
-
-msgid "Filter by location"
-msgstr "Lokasyona göre filtrele"
 
 msgid "Search"
 msgstr "Ara"
@@ -429,12 +406,6 @@ msgstr "Bir isim zorunlu"
 
 msgid "A location is required"
 msgstr "Bir lokasyon zorunlu"
-
-msgid "The amount cannot be lower than %s"
-msgstr "Miktar %s'den az olamaz"
-
-msgid "This cannot be negative"
-msgstr "Bu negatif olamaz"
 
 msgid "A quantity unit is required"
 msgstr "Miktar birim zorunlu"
@@ -460,9 +431,6 @@ msgstr "Tarifler"
 msgid "Edit recipe"
 msgstr "Tarifi düzenle"
 
-msgid "New recipe"
-msgstr "Yeni tarif"
-
 msgid "Ingredients list"
 msgstr "Malzeme listesi"
 
@@ -479,7 +447,7 @@ msgid "Are you sure to delete recipe ingredient \"%s\"?"
 msgstr "Tarif malzemesi \"%s\"'i silmek istediğine emin misin?"
 
 msgid "Are you sure to empty shopping list \"%s\"?"
-msgstr ""
+msgstr "Alışveriş listesi \"%s\"i temizlemek istediğinize emin misiniz?"
 
 msgid "Clear list"
 msgstr "Listeyi temizle"
@@ -498,7 +466,11 @@ msgid ""
 msgid_plural ""
 "Not enough in stock, %s ingredients missing but already on the shopping list"
 msgstr[0] ""
+"Stokta yeterince yok, %s malzeme eksik ama alışveriş listesine zaten "
+"eklenmiş"
 msgstr[1] ""
+"Stokta yeterince yok, %s malzeme eksik ama alışveriş listesine zaten "
+"eklenmiş"
 
 msgid "Expand to fullscreen"
 msgstr "Tam ekran yap"
@@ -512,8 +484,8 @@ msgstr "Hazırlanışı"
 msgid "Recipe"
 msgstr "Tarif"
 
-msgid "Not enough in stock, %s missing, %s already on shopping list"
-msgstr "Stokta yeterince %s yok, %s alış veriş listesine eklenmiş"
+msgid "Not enough in stock, %1$s missing, %2$s already on shopping list"
+msgstr ""
 
 msgid "Show notes"
 msgstr "Notları göster"
@@ -576,9 +548,6 @@ msgstr "Son tamamlanma tarih"
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
-msgid "Filter by chore"
-msgstr "Ev işine göre filtrele"
-
 msgid "Chores journal"
 msgstr "Ev işi günlüğü"
 
@@ -600,68 +569,47 @@ msgstr "Fiyat tarihçesi yok"
 msgid "Price"
 msgstr "Fiyat"
 
-msgid "in %s per purchase quantity unit"
-msgstr "%s için her miktar birimini satın al"
-
-msgid "The price cannot be lower than %s"
-msgstr "Fiyat %s'den az olamaz"
-
 msgid "Unit"
 msgstr "Birim"
 
 msgid "%s Unit"
 msgid_plural "%s Units"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s Birim"
+msgstr[1] "%s Birim"
 
 msgid "%s chore is due to be done"
 msgid_plural "%s chores are due to be done"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s ev işinin yapılması gerekli"
+msgstr[1] "%s ev işinin yapılması gerekli"
 
 msgid "%s chore is overdue to be done"
 msgid_plural "%s chores are overdue to be done"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s ev işinin yapılma zamanı geçti"
+msgstr[1] "%s ev işinin yapılma zamanı geçti"
 
 msgid "%s battery is due to be charged"
 msgid_plural "%s batteries are due to be charged"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s pilin şarj edilmesi gerekli"
+msgstr[1] "%s pilin şarj edilmesi gerekli"
 
 msgid "%s battery is overdue to be charged"
 msgid_plural "%s batteries are overdue to be charged"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s pilin şarj edilme zamanı geçti"
+msgstr[1] "%s pilin şarj edilme zamanı geçti"
 
 msgid "in singular form"
 msgstr "tekil formda"
 
-msgid "Never expires"
-msgstr "Son kullanma tarihi asla dolmuyor"
-
-msgid "This cannot be lower than %s"
-msgstr "Bu %s'den az olamaz"
-
-msgid "-1 means that this product never expires"
-msgstr "-1 ürünün son kullanma tarihinin asla dolmadığını ifade eder"
-
 msgid "Quantity unit"
 msgstr "Miktar birimi"
 
-msgid ""
-"Only check if a single unit is in stock (a different quantity can then be "
-"used above)"
+msgid "Only check if any amount is in stock"
 msgstr ""
-"Sadece tek ürün stoklardaysa işaretleyin (farklı miktar daha sonra yukarıdan"
-" kullanılabilir)"
 
 msgid ""
 "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
-" marked with \"check only if a single unit is in stock\" will be ignored)?"
+" marked with \"only check if any amount is in stock\" will be ignored)?"
 msgstr ""
-"\"%s\" için gereken tüm malzemeleri tüketmek istediğine emin misin (\"sadece"
-" tek ürün varsa işaretle\" ile işaretlenmiş ürünler ihmal edilecek)?"
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
 msgstr "Tarif \"%s\"'in tüm malzemeleri stoklardan silindi"
@@ -752,23 +700,17 @@ msgid "Are you sure to delete product group \"%s\"?"
 msgstr "Ürün grubu \"%s\"'i silmek istediğine emin misin?"
 
 msgid "Stay logged in permanently"
-msgstr "Sürekli olarak girişli kal"
+msgstr "Oturum açık kalsın"
 
 msgid "When not set, you will get logged out at latest after 30 days"
 msgstr ""
 "Seçilmediği takdirde, en az 30 gün sonra otomatik olarak çıkış yapacaksınız"
 
-msgid "Filter by status"
-msgstr "Duruma göre filtrele"
+msgid "Status"
+msgstr "Durum"
 
 msgid "Below min. stock amount"
 msgstr "Min. stok miktarının altında"
-
-msgid "Expiring soon"
-msgstr "Son kullanma tarihi yakında doluyor"
-
-msgid "Already expired"
-msgstr "Son kullanma tarihi dolmuş"
 
 msgid "Due soon"
 msgstr "Tamamlanma süresi yakında"
@@ -781,9 +723,6 @@ msgstr "Ayarlara bak"
 
 msgid "Auto reload on external changes"
 msgstr "Dış değişikliklerde otomatik olarak yenile"
-
-msgid "Enable night mode"
-msgstr "Gece modunu aktif et"
 
 msgid "Auto enable in time range"
 msgstr "Zaman aralığında otomatik olarak aktif et"
@@ -806,14 +745,8 @@ msgstr "Ürün fotoğrafı"
 msgid "No file selected"
 msgstr "Hiçbir dosya seçilmedi"
 
-msgid "If you don't select a file, the current picture will not be altered"
-msgstr "Eğer herhangi bir dosya seçmezseniz, şimdiki fotoğraf değişmeyecek"
-
 msgid "Delete"
 msgstr "Sil"
-
-msgid "The current picture will be deleted when you save the product"
-msgstr "Ürünü kaydettiğiniz zaman şimdiki fotoğraf silinecek"
 
 msgid "Select file"
 msgstr "Dosya seç"
@@ -821,14 +754,7 @@ msgstr "Dosya seç"
 msgid "Image of product %s"
 msgstr "%s ürününe ait fotoğraf"
 
-msgid ""
-"This product cannot be deleted because it is in stock, please remove the "
-"stock amount first."
-msgstr ""
-"Bu ürün silinemiyor çünkü stoklarda var, lütfen öncelikle stok miktarını "
-"silin"
-
-msgid "Delete not possible"
+msgid "Deletion not possible"
 msgstr "Silme işlemi mümkün değil"
 
 msgid "Equipment"
@@ -849,24 +775,11 @@ msgstr "Ekipmanı düzenle"
 msgid "Create equipment"
 msgstr "Ekipman oluştur"
 
-msgid ""
-"If you don't select a file, the current instruction manual will not be "
-"altered"
+msgid "The current file will be deleted on save"
 msgstr ""
-"Eğer herhangi bir dosya seçmezseniz, şimdiki kullanım kılavuzu değişmeyecek"
-
-msgid "No instruction manual available"
-msgstr "Herhangi bir kullanım kılavuzu yok"
-
-msgid ""
-"The current instruction manual will be deleted when you save the equipment"
-msgstr "Ekipmanı kaydettiğiniz zaman şimdiki kullanım kılavuzu silinecek"
 
 msgid "No picture available"
 msgstr "Görsel mevcut değil"
-
-msgid "Filter by product group"
-msgstr "Ürün grubuna göre filtrele"
 
 msgid "Presets for new products"
 msgstr "Yeni ürünler için ön tanımlar"
@@ -895,26 +808,11 @@ msgstr "Günlük"
 msgid "Stock journal"
 msgstr "Stok günlüğü"
 
-msgid "Filter by product"
-msgstr "Ürüne göre filtrele"
-
-msgid "Booking time"
-msgstr "Rezervasyon zamanı"
-
-msgid "Booking type"
-msgstr "Rezervasyon türü"
-
-msgid "Undo booking"
-msgstr "Rezervasyonu geri al"
-
 msgid "Undone on"
 msgstr "Tarihinde tamamlanmamış"
 
 msgid "Batteries journal"
 msgstr "Pil günlüğü"
-
-msgid "Filter by battery"
-msgstr "Pile göre filtrele"
 
 msgid "Undo charge cycle"
 msgstr "Şart döngüsünü geri al"
@@ -934,52 +832,34 @@ msgstr "Rezervasyon başarıyla geri alındı"
 msgid "Charge cycle successfully undone"
 msgstr "Şarj döngüsü başarıyla geri alındı"
 
-msgid "This cannot be negative and must be an integral number"
-msgstr "Bu, negatif olamaz ve bir tam sayı olmak zorunda"
-
 msgid "Disable stock fulfillment checking for this ingredient"
 msgstr "Bu malzeme için stok yenilemeyi kapat"
 
 msgid "Add all list items to stock"
 msgstr "Bütün liste maddelerini stoğa ekle"
 
-msgid "Add %s %s of %s to stock"
-msgstr "%s'ün %s/%s'sini stoğa ekle"
+msgid "Add this item to stock"
+msgstr "Bu ürünü stoğa ekle"
 
-msgid "Adding shopping list item %s of %s"
-msgstr "Alışveriş listesi maddelerinin %s/%s'si ekleniyor"
+msgid "Adding shopping list item %1$s of %2$s"
+msgstr ""
 
 msgid "Use a specific stock item"
 msgstr "Spesifik bir stok maddesi kullan"
 
 msgid ""
-"The first item in this list would be picked by the default rule which is "
-"\"First expiring first, then first in first out\""
-msgstr ""
-"Bu listedeki ilk madde ön tanımlı olarak \"Süresi ilk dolan ilk, ondan sonra"
-" ilk giren ilk çıkar\" mantığıyla seçilecektir"
-
-msgid "Mark %s of %s as open"
+"The first item in this list would be picked by the default rule consume rule"
+" (Opened first, then first due first, then first in first out)"
 msgstr ""
 
-msgid ""
-"When a product was marked as opened, the best before date will be replaced "
-"by today + this amount of days (a value of 0 disables this)"
-msgstr ""
-"Ürün açık olarak işaretlendikten sonra, son kullanım tarihi bugün + "
-"belirtilen gün miktarı olarak güncellenecektir (0 değeri bunu kapatır)"
+msgid "Mark %1$s of %2$s as open"
+msgstr "%1$s %2$s'yi açık olarak işaretle"
 
-msgid "Default best before days after opened"
-msgstr "Açıldıktan sonrası için ön tanımlı son kullanım tarihi"
-
-msgid "Marked %s %s of %s as opened"
-msgstr "%s'in %s/%s'ü açık olarak işaretlendi"
+msgid "Marked %1$s of %2$s as opened"
+msgstr "%1$s %2$s açık olarak işaretlendi"
 
 msgid "Mark as opened"
 msgstr "Açıldı olarak işaretle"
-
-msgid "Expires on %s; Bought on %s"
-msgstr "%s'de son kullanım tarihi doluyor; %s'de satın alındı"
 
 msgid "Not opened"
 msgstr "Açılmadı"
@@ -990,8 +870,8 @@ msgstr "Açıldı"
 msgid "%s opened"
 msgstr "%s açıldı"
 
-msgid "Product expires"
-msgstr "Ürünün son kullanma tarihi doluyor"
+msgid "Product due"
+msgstr ""
 
 msgid "Task due"
 msgstr "Görev süresi"
@@ -1011,14 +891,6 @@ msgstr "Stok ayarları"
 msgid "Shopping list to stock workflow"
 msgstr "Alışveriş listesinden stok akışına"
 
-msgid ""
-"Automatically do the booking using the last price and the amount of the "
-"shopping list item, if the product has \"Default best before days\" set"
-msgstr ""
-"Eğer ürünün \"ön tanımlı son kullanım tarihi\" ayarlanmamışsa, otomatik "
-"olarak rezervasyonu son fiyatı ve alışveriş listesindeki madde sayısını baz "
-"alarak yap"
-
 msgid "Skip"
 msgstr "Geç"
 
@@ -1027,9 +899,6 @@ msgstr "Porsiyon"
 
 msgid "Costs"
 msgstr "Maliyet"
-
-msgid "Based on the prices of the last purchase per product"
-msgstr "Satın alınan her ürünün son satın alış fiyatlarına göre"
 
 msgid "The ingredients listed here result in this amount of servings"
 msgstr "Burada listelenen malzemelerle bu kadar porsiyon çıkıyor"
@@ -1073,9 +942,6 @@ msgstr ""
 "Takvimle iCal formatında paylaşmak veya takvime entegre etmek için aşağıdaki"
 " (herkese açık) URL'yi kullanın"
 
-msgid "Allow partial units in stock"
-msgstr "Stoklarda kısmi birimlere izin ver"
-
 msgid "Enable tare weight handling"
 msgstr "Dara ağırlığı yönetimini aktif et"
 
@@ -1102,29 +968,17 @@ msgstr ""
 msgid "You have to select a location"
 msgstr "Bir lokasyon seçmeniz gerekiyor"
 
+msgid "You have to select a store"
+msgstr "Bir market seçmelisiniz"
+
 msgid "List"
 msgstr "Liste"
 
 msgid "Gallery"
 msgstr "Galeri"
 
-msgid "The current picture will be deleted when you save the recipe"
-msgstr "Tarifi kaydettiğiniz zaman şimdiki fotoğraf silinecek"
-
-msgid "Show product details"
-msgstr "Ürün detaylarını göster"
-
-msgid "Stock journal for this product"
-msgstr "Bu ürün için stok günlüğü"
-
-msgid "Show chore details"
-msgstr "Düzenli iş detaylarını göster"
-
-msgid "Journal for this chore"
-msgstr "Bu düzenli iş için günlük"
-
-msgid "Show battery details"
-msgstr "Pil detaylarını göster"
+msgid "The current picture will be deleted on save"
+msgstr ""
 
 msgid "Journal for this battery"
 msgstr "Bu pil için günlük"
@@ -1135,8 +989,8 @@ msgstr "Sistem bilgisi"
 msgid "Changelog"
 msgstr "Değişiklikler"
 
-msgid "will be multiplied a factor of %s to get %s"
-msgstr "%s'yi bulmak için %s'in faktörüyle çarpılacak"
+msgid "will be multiplied by a factor of %1$s to get %2$s"
+msgstr ""
 
 msgid "The given date is earlier than today, are you sure?"
 msgstr "Yazılan tarih bugünden daha önce, emin misiniz?"
@@ -1144,10 +998,9 @@ msgstr "Yazılan tarih bugünden daha önce, emin misiniz?"
 msgid "Product count"
 msgstr "Ürün sayısı"
 
-msgid "Type a new product name or barcode and hit TAB to start a workflow"
+msgid ""
+"Type a new product name or barcode and hit TAB or ENTER to start a workflow"
 msgstr ""
-"İş akışı başlatmak için yeni bir ürün ismi veya barkodu yazın ve TAB tuşuna "
-"basın"
 
 msgid ""
 "This will be used as the default setting when adding this product as a "
@@ -1157,70 +1010,70 @@ msgstr ""
 "kullanılacak"
 
 msgid "Add item"
-msgstr ""
+msgstr "Ürün ekle"
 
 msgid "Selected shopping list"
-msgstr ""
+msgstr "Seçili alışveriş listesi"
 
 msgid "New shopping list"
-msgstr ""
+msgstr "Yeni alışveriş listesi"
 
 msgid "Delete shopping list"
-msgstr ""
+msgstr "Alışveriş listesini sil"
 
 msgid "Chores settings"
-msgstr ""
+msgstr "Ev işleri seçenekleri"
 
 msgid "Batteries settings"
-msgstr ""
+msgstr "Pil seçenekleri"
 
 msgid "Tasks settings"
-msgstr ""
+msgstr "Yapılacaklar seçenekleri"
 
 msgid "Create shopping list"
-msgstr ""
+msgstr "Alışveriş listesi oluştur"
 
 msgid "Are you sure to delete shopping list \"%s\"?"
 msgstr ""
 
 msgid "Average shelf life"
-msgstr ""
+msgstr "Ortalama raf ömrü"
 
 msgid "Spoil rate"
-msgstr ""
+msgstr "Bozulma süresi"
 
 msgid "Show more"
-msgstr ""
+msgstr "Devamını göster"
 
 msgid "Show less"
 msgstr ""
 
-msgid "The amount must be between %s and %s"
-msgstr ""
+msgid "The amount must be between %1$s and %2$s"
+msgstr "Miktar %1$s ile %2$s arasinda olmalı"
 
 msgid "Day of month"
 msgstr ""
 
 msgid "Monday"
-msgstr ""
+msgstr "Pazartesi"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "Salı"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "Çarşamba"
 
 msgid "Thursday"
-msgstr ""
+msgstr "Perşembe"
 
 msgid "Friday"
-msgstr ""
+msgstr "Cuma"
 
 msgid "Saturday"
-msgstr ""
+msgstr "Cumartesi"
 
 msgid "Sunday"
-msgstr ""
+msgstr "Pazar"
 
 msgid "Configure userfields"
 msgstr ""
@@ -1228,41 +1081,38 @@ msgstr ""
 msgid "Userfields"
 msgstr ""
 
-msgid "Filter by entity"
-msgstr ""
-
 msgid "Entity"
-msgstr ""
+msgstr "Nesne"
 
 msgid "Caption"
-msgstr ""
+msgstr "Altyazı"
 
 msgid "Type"
-msgstr ""
+msgstr "Tür"
 
 msgid "Create userfield"
 msgstr ""
 
 msgid "A entity is required"
-msgstr ""
+msgstr "Nesne gerekli"
 
 msgid "A caption is required"
-msgstr ""
+msgstr "Altyazı gerekli"
 
 msgid "A type is required"
-msgstr ""
+msgstr "Tür gerekli"
 
 msgid "Show as column in tables"
 msgstr ""
 
 msgid "This is required and can only contain letters and numbers"
-msgstr ""
+msgstr "Zorunlu ve yalnızca rakam ve harf içerebilir"
 
 msgid "Edit userfield"
 msgstr ""
 
 msgid "Plural forms"
-msgstr ""
+msgstr "Çoğul formlar"
 
 msgid "One plural form per line, the current language requires"
 msgstr ""
@@ -1271,15 +1121,1381 @@ msgid "Plural count"
 msgstr ""
 
 msgid "Plural rule"
-msgstr ""
+msgstr "Çoğul kuralı"
 
 msgid "in plural form"
 msgstr "çoğul formda"
 
 msgid "Not enough in stock, %s ingredient missing"
 msgid_plural "Not enough in stock, %s ingredients missing"
+msgstr[0] "Stokta yeterince %s malzemesi yok"
+msgstr[1] "Stokta yeterince %s malzemesi yok"
+
+msgid "Not enough in stock, but already on the shopping list"
+msgstr "Stokta yok ancak alışveriş listesine eklenmiş"
+
+msgid "Not enough in stock"
+msgstr "Stokta yeterince yok"
+
+msgid "Default location"
+msgstr "Varsayılan yer"
+
+msgid "Default amount for purchase"
+msgstr "Satın almak için varsayılan miktar"
+
+msgid "Default amount for consume"
+msgstr "Tüketmek için varsayılan miktar"
+
+msgid "Variable amount"
+msgstr "Değişken miktar"
+
+msgid ""
+"When this is not empty, it will be shown instead of the amount entered above"
+" while the amount there will still be used for stock fulfillment checking"
+msgstr ""
+
+msgid "Track date only"
+msgstr "Yalnızca tarihi takip et"
+
+msgid "When enabled only the day of an execution is tracked, not the time"
+msgstr ""
+
+msgid "Consume %1$s of %2$s"
+msgstr "%1$s %2$s tüket"
+
+msgid "Meal plan"
+msgstr "Yemek planı"
+
+msgid "%s serving"
+msgid_plural "%s servings"
+msgstr[0] "%s porsiyon"
+msgstr[1] "%s porsiyon"
+
+msgid "Week costs"
+msgstr "Haftalık masraf"
+
+msgid "Configuration"
+msgstr "Kurulum"
+
+msgid "A predefined list of values, one per line"
+msgstr ""
+
+msgid "Products"
+msgstr "Ürünler"
+
+msgid "Marked task %s as completed on %s"
+msgstr ""
+
+msgid "Booking has subsequent dependent bookings, undo not possible"
+msgstr ""
+
+msgid "per serving"
+msgstr "porsiyon başına"
+
+msgid "Never"
+msgstr "Asla"
+
+msgid "Today"
+msgstr "Bugün"
+
+msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
+msgstr ""
+
+msgid "Undo task"
+msgstr "Görevi geri al"
+
+msgid "Due date rollover"
+msgstr ""
+
+msgid ""
+"When enabled the chore can never be overdue, the due date will shift forward"
+" each day when due"
+msgstr ""
+
+msgid "Location Content Sheet"
+msgstr ""
+
+msgid "Print"
+msgstr "Yazdır"
+
+msgid "all locations"
+msgstr "bütün yerler"
+
+msgid ""
+"Here you can print a page per location with the current stock, maybe to hang"
+" it there and note the consumed things on it"
+msgstr ""
+
+msgid "this location"
+msgstr ""
+
+msgid "Consumed amount"
+msgstr "Tüketilen miktar"
+
+msgid "Time of printing"
+msgstr "Yazdırılma tarihi"
+
+msgid "Are you sure to delete equipment \"%s\"?"
+msgstr ""
+
+msgid "Parent product"
+msgstr ""
+
+msgid ""
+"Not possible because this product is already used as a parent product in "
+"another product"
+msgstr ""
+
+msgid "Default conversions"
+msgstr "Varsayılan çevirmeler"
+
+msgid "Factor"
+msgstr ""
+
+msgid "1 %s is the same as..."
+msgstr ""
+
+msgid "Create QU conversion"
+msgstr ""
+
+msgid "Default for QU"
+msgstr ""
+
+msgid "Quantity unit from"
+msgstr ""
+
+msgid "Quantity unit to"
+msgstr ""
+
+msgid "This cannot be equal to %s"
+msgstr "%s'e eşit olamaz"
+
+msgid "This means 1 %1$s is the same as %2$s %3$s"
+msgstr ""
+
+msgid "QU conversions"
+msgstr ""
+
+msgid "Product overrides"
+msgstr ""
+
+msgid "Override for product"
+msgstr ""
+
+msgid "This equals %1$s %2$s"
+msgstr ""
+
+msgid "Edit QU conversion"
+msgstr ""
+
+msgid "An assignment type is required"
+msgstr "Atama türü gerekli"
+
+msgid "Assignment type"
+msgstr "Atama türü"
+
+msgid ""
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every day"
+msgid_plural ""
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every %s days"
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "Consume %s of %s"
+msgid ""
+"This means the next execution of this chore is scheduled %s hour after the "
+"last execution"
+msgid_plural ""
+"This means the next execution of this chore is scheduled %s hours after the "
+"last execution"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid ""
+"This means the next execution of this chore is scheduled every week on the "
+"selected weekdays"
+msgid_plural ""
+"This means the next execution of this chore is scheduled every %s weeks on "
+"the selected weekdays"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid ""
+"This means the next execution of this chore is scheduled on the selected day"
+" every month"
+msgid_plural ""
+"This means the next execution of this chore is scheduled on the selected day"
+" every %s months"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "This means the next execution of this chore is not scheduled"
+msgstr "Ev işinin bir sonraki sırasının planlanmadığı anlamına gelir"
+
+msgid ""
+"This means the next execution of this chore will not be assigned to anyone"
+msgstr "Ev işinin bir sonraki sırasının kimseye atanmayacağı anlamına gelir"
+
+msgid ""
+"This means the next execution of this chore will be assigned to the one who "
+"executed it least"
+msgstr ""
+"Ev işinin bir sonraki sırasının bu işi en az yapana atanacağı anlamına gelir"
+
+msgid "This means the next execution of this chore will be assigned randomly"
+msgstr "Ev işinin bir sonraki sırası rastgele atanacak anlamına gelir"
+
+msgid ""
+"This means the next execution of this chore will be assigned to the next one"
+" in alphabetical order"
+msgstr ""
+
+msgid "Assign to"
+msgstr "Ata"
+
+msgid "This assignment type requires that at least one is assigned"
+msgstr ""
+
+msgid "%s chore is assigned to me"
+msgid_plural "%s chores are assigned to me"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Assigned to me"
+msgstr "Bana atananlar"
+
+msgid "assigned to %s"
+msgstr "%s'e atanmış"
+
+msgid "Assignment"
+msgstr "Atama"
+
+msgid "Consume product on chore execution"
+msgstr "Ev işi tamamlandığında ürünü tüket"
+
+msgid "Are you sure to delete user field \"%s\"?"
+msgstr ""
+
+msgid "Userentities"
+msgstr "Kullanici"
+
+msgid "Create userentity"
+msgstr ""
+
+msgid "Show in sidebar menu"
+msgstr ""
+
+msgid "Edit userentity"
+msgstr ""
+
+msgid "Edit %s"
+msgstr "%s'yi düzenle"
+
+msgid "Create %s"
+msgstr "%s oluştur"
+
+msgid "Are you sure to delete this userobject?"
+msgstr ""
+
+msgid "Icon CSS class"
+msgstr ""
+
+msgid "For example"
+msgstr "Örnek olarak"
+
+msgid "Configure fields"
+msgstr ""
+
+msgid "Quantity unit plural form testing"
+msgstr ""
+
+msgid "Result"
+msgstr "Sonuç"
+
+msgid "Test plural forms"
+msgstr ""
+
+msgid "Scan a barcode"
+msgstr "Barkod okut"
+
+msgid "Error while initializing the barcode scanning library"
+msgstr ""
+
+msgid ""
+"The resulting price of this ingredient will be multiplied by this factor"
+msgstr ""
+
+msgid "Price factor"
+msgstr ""
+
+msgid "Do you find grocy useful?"
+msgstr ""
+
+msgid "Say thanks"
+msgstr "Teşekkür et"
+
+msgid "Search for recipes containing this product"
+msgstr "Bu ürünü içeren tarifleri ara"
+
+msgid "Add to shopping list"
+msgstr "Alışveriş listesine ekle"
+
+msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
+msgstr ""
+
+msgid "Output"
+msgstr "Çıktı"
+
+msgid "Energy (kcal)"
+msgstr "Kalori (kcal)"
+
+msgid "Per stock quantity unit"
+msgstr ""
+
+msgid "Barcode scanner testing"
+msgstr "Barkod okuyucu testi"
+
+msgid "Expected barcode"
+msgstr "Beklenen barkod"
+
+msgid "Scan field"
+msgstr "Tarama alanı"
+
+msgid "Scanned barcodes"
+msgstr "Taranmış barkodlar"
+
+msgid "Hit"
+msgstr "İsabet"
+
+msgid "Miss"
+msgstr "Iska"
+
+msgid "Display recipe"
+msgstr "Tarifi göster"
+
+msgid "Accumulate sub products min. stock amount"
+msgstr ""
+
+msgid ""
+"If enabled, the min. stock amount of sub products will be accumulated into "
+"this product, means the sub product will never be missing, only this product"
+msgstr ""
+
+msgid "Are you sure to remove this conversion?"
+msgstr "Bu çevirmeyi kaldırmak istediğinize emin misiniz?"
+
+msgid "Unit price"
+msgstr "Birim fiyat"
+
+msgid "Total price"
+msgstr "Toplam fiyat"
+
+msgid "in %s and based on the purchase quantity unit"
+msgstr ""
+
+msgid "Unlimited"
+msgstr "Sınırsız"
+
+msgid "Clear"
+msgstr "Temizle"
+
+msgid "Are you sure to remove the included recipe \"%s\"?"
+msgstr ""
+
+msgid "Period interval"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore is scheduled every year on the "
+"same day (based on the start date)"
+msgid_plural ""
+"This means the next execution of this chore is scheduled every %s years on "
+"the same day (based on the start date)"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Transfer"
+msgstr "Taşı"
+
+msgid "From location"
+msgstr "Yerden"
+
+msgid "To location"
+msgstr "Yere"
+
+msgid "There are no units available at this location"
+msgstr ""
+
+msgid "Amount: %1$s; Due on %2$s; Bought on %3$s"
+msgstr ""
+
+msgid "Transfered %1$s of %2$s from %3$s to %4$s"
+msgstr "%1$s %2$s %3$s'ten %4%s'e taşındı"
+
+msgid "Stock entries"
+msgstr ""
+
+msgid "Best before date"
+msgstr "Son kullanma tarihi"
+
+msgid "Purchased date"
+msgstr "Satın alınma tarihi"
+
+msgid "Consume all %s for this stock entry"
+msgstr ""
+
+msgid "The amount cannot be lower than %1$s"
+msgstr ""
+
+msgid "Stock entry successfully updated"
+msgstr ""
+
+msgid "Edit stock entry"
+msgstr ""
+
+msgid ""
+"Camera access is only possible when supported and allowed by your browser "
+"and when grocy is served via a secure (https://) connection"
+msgstr ""
+
+msgid "Keep screen on"
+msgstr "Ekranı açık tut"
+
+msgid "Keep screen on while displaying a \"fullscreen-card\""
+msgstr ""
+
+msgid "A purchased date is required"
+msgstr "Satın alındığı tarih gerekli"
+
+msgid ""
+"When a product is selected, one unit (per serving in stock quantity unit) "
+"will be added to stock on consuming this recipe"
+msgstr ""
+
+msgid "Produces product"
+msgstr "Ürün çıkarır"
+
+msgid "This booking cannot be undone"
+msgstr ""
+
+msgid "Booking does not exist or was already undone"
+msgstr ""
+
+msgid "Are you sure to delete API key \"%s\"?"
+msgstr ""
+
+msgid "Add note"
+msgstr "Not ekle"
+
+msgid "per day"
+msgstr "gün başına"
+
+msgid "Only undone items"
+msgstr ""
+
+msgid "Add product"
+msgstr "Ürün ekle"
+
+msgid "Consume all ingredients needed by this weeks recipes or products"
+msgstr ""
+
+msgid "Meal plan recipe"
+msgstr "Yemek planı tarifi"
+
+msgid "Meal plan note"
+msgstr "Yemek planı notu"
+
+msgid "Meal plan product"
+msgstr "Yemek planı ürünü"
+
+msgid "Scan mode"
+msgstr "Tarama modu"
+
+msgid "on"
+msgstr "açık"
+
+msgid "off"
+msgstr "kapalı"
+
+msgid ""
+"Scan mode is on but not all required fields could be populated automatically"
+msgstr ""
+
+msgid "Is freezer"
+msgstr "Dondurucu mu"
+
+msgid "This cannot be the same as the \"From\" location"
+msgstr ""
+
+msgid "Thawed"
+msgstr "Çözülmüş"
+
+msgid "Frozen"
+msgstr "Donmuş"
+
+msgid "Are you sure to delete userentity \"%s\"?"
+msgstr ""
+
+msgid "Shopping list settings"
+msgstr "Alışveriş listesi seçenekleri"
+
+msgid "Show a month-view calendar"
+msgstr ""
+
+msgid "Desired servings"
+msgstr "Istenen porsiyon"
+
+msgid "Base: %s"
+msgstr ""
+
+msgid "Recipes settings"
+msgstr "Tarif seçenekleri"
+
+msgid "Recipe card"
+msgstr "Tarif kartı"
+
+msgid "Group ingredients by their product group"
+msgstr ""
+
+msgid "Unknown store"
+msgstr "Bilinmeyen market"
+
+msgid "Store"
+msgstr "Market"
+
+msgid "Transaction successfully undone"
+msgstr "Alışveriş başarıyla geri alındı"
+
+msgid "Default store"
+msgstr "Varsayılan market"
+
+msgid "Consume this stock entry"
+msgstr ""
+
+msgid "Mark this stock entry as open"
+msgstr ""
+
+msgid "Mark this item as done"
+msgstr ""
+
+msgid "Edit this item"
+msgstr "Bu maddeyi düzenle"
+
+msgid "Delete this item"
+msgstr "Bu maddeyi sil"
+
+msgid "Show an icon if the product is already on the shopping list"
+msgstr ""
+
+msgid "Calories"
+msgstr "Kalori"
+
+msgid "means %1$s per %2$s"
+msgstr ""
+
+msgid "Create recipe"
+msgstr "Tarif oluştur"
+
+msgid "Save & continue to add ingredients and included recipes"
+msgstr ""
+
+msgid "Save & continue"
+msgstr "Kaydet & devam et"
+
+msgid "Save & return to recipes"
+msgstr "Kaydet & tariflere geri dön"
+
+msgid "Stock value"
+msgstr "Stok değeri"
+
+msgid "Average price"
+msgstr "Ortalama fiyat"
+
+msgid "Active"
+msgstr "Aktif"
+
+msgid "Barcodes"
+msgstr "Barkod"
+
+msgid "Barcode"
+msgstr "Barkod"
+
+msgid "Create Barcode"
+msgstr "Barkod oluştur"
+
+msgid "Barcode for product"
+msgstr "Ürün barkodu"
+
+msgid "Edit Barcode"
+msgstr "Barkodu düzenle"
+
+msgid ""
+"Based on the prices of the default consume rule (Opened first, then first "
+"due first, then first in first out) for in-stock ingredients and on the last"
+" price for missing ones"
+msgstr ""
+
+msgid "Clear filter"
+msgstr "Filtreyi temizle"
+
+msgid "Permissions for user %s"
+msgstr "%s kullanıcısı için izinler"
+
+msgid "Are you sure you want to remove full permissions for yourself?"
+msgstr ""
+
+msgid "Permissions saved"
+msgstr "İzinler kaydedildi"
+
+msgid "You are not allowed to view this page"
+msgstr "Bu sayfaya erişim izniniz yok"
+
+msgid "Page not found"
+msgstr "Sayfa bulunamadı"
+
+msgid "Unauthorized"
+msgstr ""
+
+msgid "Error source"
+msgstr "Hata kaynağı"
+
+msgid "Error message"
+msgstr "Hata mesajı"
+
+msgid "Stack trace"
+msgstr ""
+
+msgid "Easy error info copy & paste (for reporting)"
+msgstr ""
+
+msgid "This page does not exist"
+msgstr "Böyle bir sayfa yok"
+
+msgid "You will be redirected to the default page in %s seconds"
+msgstr "%s saniye içerisinde varsayılan sayfaya yönlendirileceksiniz"
+
+msgid "Server error"
+msgstr "Sunucu hatası"
+
+msgid "A server error occured while processing your request"
+msgstr ""
+
+msgid "If you think this is a bug, please report it"
+msgstr "Bunun bir hata olduğunu düşünüyorsanız lütfen bildirin"
+
+msgid "Language"
+msgstr "Dil"
+
+msgid "User settings"
+msgstr "Kullanıcı ayarları"
+
+msgid "Default"
+msgstr "Varsayılan"
+
+msgid "Stock journal summary"
+msgstr "Stok günlüğü özeti"
+
+msgid "Journal summary"
+msgstr "Günlük özeti"
+
+msgid "Consume exact amount"
+msgstr "Belirli sayıda tüket"
+
+msgid "Value"
+msgstr "Değer"
+
+msgid "%s total value"
+msgstr ""
+
+msgid ""
+"Show purchased date on purchase and inventory page (otherwise the purchased "
+"date defaults to today)"
+msgstr ""
+
+msgid "Common"
+msgstr ""
+
+msgid "Decimal places allowed for amounts"
+msgstr ""
+
+msgid "Decimal places allowed for prices"
+msgstr ""
+
+msgid "Edit shopping list"
+msgstr "Alışveriş listesini düzenle"
+
+msgid "Save & continue to add quantity unit conversions & barcodes"
+msgstr ""
+
+msgid "Save & return to products"
+msgstr "Kaydet & ürünlere geri dön"
+
+msgid "Save & continue to add conversions"
+msgstr ""
+
+msgid "Save & return to quantity units"
+msgstr "Kaydet & miktar birimlerine geri dön"
+
+msgid "price"
+msgstr "fiyat"
+
+msgid "New stock amount"
+msgstr "Yeni stok miktarı"
+
+msgid "Price per stock unit"
+msgstr "Stok birimi başına fiyat"
+
+msgid "Table options"
+msgstr "Tablo seçenekleri"
+
+msgid "This product is currently on a shopping list"
+msgstr "Bu ürün şu an bir alışveriş listesinde"
+
+msgid "Undo transaction"
+msgstr "Alışverişi geri al"
+
+msgid "Transaction type"
+msgstr "Alışveriş türü"
+
+msgid "Transaction time"
+msgstr "Alışveriş süresi"
+
+msgid "Chore journal"
+msgstr "Ev işi günlüğü"
+
+msgid "Track chore execution"
+msgstr ""
+
+msgid "Mark task as completed"
+msgstr "Görevi tamamlandı olarak işaretle"
+
+msgid "Track charge cycle"
+msgstr ""
+
+msgid "Battery journal"
+msgstr "Pil günlüğü"
+
+msgid "This product has a picture"
+msgstr "Bu ürünün resmi var"
+
+msgid "Consume this stock entry as spoiled"
+msgstr ""
+
+msgid "Configure user permissions"
+msgstr "Kullanıcı izinlerini düzenle"
+
+msgid "Show a QR-Code for this API key"
+msgstr ""
+
+msgid ""
+"This is the default quantity unit used when adding this product to the "
+"shopping list"
+msgstr ""
+"Bu ürünü alışveriş listesine eklediğinizde kullanılacak varsayılan miktar"
+
+msgid ""
+"Show a warning when the due date of the purchased product is earlier than "
+"the next due date in stock"
+msgstr ""
+
+msgid "This is due earlier than already in-stock items"
+msgstr ""
+
+msgid ""
+"When enabled, after changing/scanning a product and if all fields could be "
+"automatically populated (by product and/or barcode defaults), the "
+"transaction is automatically submitted"
+msgstr ""
+
+msgid "Quick consume amount"
+msgstr ""
+
+msgid ""
+"This amount is used for the \"quick consume/open buttons\" on the stock "
+"overview page (related to quantity unit stock)"
+msgstr ""
+
+msgid "Copy"
+msgstr "Kopyala"
+
+msgid "Are you sure to remove this barcode?"
+msgstr "Bu barkodu kaldırmak istediğinize emin mısınız?"
+
+msgid "Due date type"
+msgstr ""
+
+msgid ""
+"Based on the selected type, the highlighting on the stock overview page will"
+" be different"
+msgstr ""
+
+msgid ""
+"Means that the product is maybe still safe to be consumed after its due date"
+" is reached"
+msgstr ""
+"Ürünün son kullanma tarihi geçse de belki hala tüketilebilir olduğu anlamına"
+" gelir"
+
+msgid "Expiration date"
+msgstr "Son kullanma tarihi"
+
+msgid ""
+"Means that the product is not safe to be consumed after its due date is "
+"reached"
+msgstr "Ürünün son kullanma tarihi geçince tüketilemez olduğu anlamına gelir"
+
+msgid ""
+"For purchases this amount of days will be added to today for the due date "
+"suggestion"
+msgstr ""
+
+msgid "-1 means that this product will be never overdue"
+msgstr ""
+
+msgid "Default due days"
+msgstr ""
+
+msgid ""
+"When this product was marked as opened, the due date will be replaced by "
+"today + this amount of days, but only if the resulting date is not after the"
+" original due date (a value of 0 disables this)"
+msgstr ""
+
+msgid "Default due days after opened"
+msgstr "Açıldıktan sonra varsayılan bekleme günü"
+
+msgid ""
+"On moving this product to a freezer location (so when freezing it), the due "
+"date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default due days after freezing"
+msgstr "Döndürdüktan sonra varsayılan bekleme günü"
+
+msgid ""
+"On moving this product from a freezer location (so when thawing it), the due"
+" date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default due days after thawing"
+msgstr "Çözdürdükten sonra varsayılan bekleme günü"
+
+msgid "Next due date"
+msgstr ""
+
+msgid "%s product is due"
+msgid_plural "%s products are due"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Due date"
+msgstr ""
+
+msgid "Never overdue"
+msgstr ""
+
+msgid "%s product is expired"
+msgid_plural "%s products are expired"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Expired"
+msgstr "Süresi dolmuş"
+
+msgid "Due soon days"
+msgstr ""
+
+msgid "Add overdue/expired products"
+msgstr ""
+
+msgid ""
+"Products with tare weight enabled are currently not supported for transfer"
+msgstr ""
+
+msgid ""
+"This cannot be lower than %1$s or equal %2$s and needs to be a valid number "
+"with max. %3$s decimal places"
+msgstr ""
+
+msgid ""
+"This must be between %1$s and %2$s, cannot equal %3$s and needs to be a "
+"valid number with max. %4$s decimal places"
+msgstr ""
+
+msgid ""
+"This cannot be lower than %1$s and needs to be a valid number with max. %2$s"
+" decimal places"
+msgstr ""
+
+msgid ""
+"This must between %1$s and %2$s and needs to be a valid number with max. "
+"%3$s decimal places"
+msgstr ""
+
+msgid ""
+"Automatically do the booking using the last price and the amount of the "
+"shopping list item, if the product has \"Default due days\" set"
+msgstr ""
+
+msgid ""
+"When moving products from/to a freezer location, the products due date is "
+"automatically adjusted according to the product settings"
+msgstr ""
+
+msgid "This is the internal field name, e. g. for the API"
+msgstr ""
+
+msgid "This is used to display the field on the frontend"
+msgstr ""
+
+msgid "Multiple Userfields will be ordered by that number on the input form"
+msgstr ""
+
+msgid "Sort number"
+msgstr ""
+
+msgid "Download file"
+msgstr "Dosyayı indir"
+
+msgid "Use the products \"Quick consume amount\""
+msgstr ""
+
+msgid "Disabled"
+msgstr "Devre dışı"
+
+msgid ""
+"This also removes any stock amount, the journal and all other references of "
+"this product - consider disabling it instead, if you want to keep that and "
+"just hide the product."
+msgstr ""
+
+msgid "Show disabled"
+msgstr ""
+
+msgid "Never show on stock overview"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Group by"
+msgstr ""
+
+msgid "Ingredient group"
+msgstr ""
+
+msgid "Reset"
+msgstr "Sıfırla"
+
+msgid "Are you sure to reset the table options?"
+msgstr ""
+
+msgid "Hide/view columns"
+msgstr "Sütunları göster/gizle"
+
+msgid ""
+"A different amount/unit can then be used below while for stock fulfillment "
+"checking it is sufficient when any amount of the product in stock"
+msgstr ""
+
+msgid "Last price (Unit)"
+msgstr ""
+
+msgid "Last price (Total)"
+msgstr ""
+
+msgid "Show header"
+msgstr ""
+
+msgid "Group by product group"
+msgstr ""
+
+msgid "Table"
+msgstr "Tablo"
+
+msgid "Layout type"
+msgstr ""
+
+msgid "Merge this product with another one"
+msgstr ""
+
+msgid "Merge products"
+msgstr ""
+
+msgid "Product to keep"
+msgstr "Tutulacak ürünler"
+
+msgid "Product to remove"
+msgstr "Silinecek ürünler"
+
+msgid "Error while merging"
+msgstr ""
+
+msgid "After merging, this product will be kept"
+msgstr ""
+
+msgid ""
+"After merging, all occurences of this product will be replaced by the kept "
+"product (means this product will not exist anymore)"
+msgstr ""
+
+msgid "Merge"
+msgstr "Birleştir"
+
+msgid "Title"
+msgstr "Başlık"
+
+msgid "Link"
+msgstr "Bağlantı"
+
+msgid ""
+"The stock overview page lists all products which are currently in-stock or "
+"below their min. stock amount - enable this to hide this product there "
+"always"
+msgstr ""
+
+msgid "Print options"
+msgstr "Yazdırma seçenekleri"
+
+msgid "A product or a note is required"
+msgstr "Ürün ya da not gerekli"
+
+msgid "grocycode"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+# Example: Download *Product* grocycode
+msgid "Download %s grocycode"
+msgstr ""
+
+msgid ""
+"grocycode is a unique referer to this %s in your grocy instance - print it "
+"onto a label and scan it like any other barcode"
+msgstr ""
+
+# Abbreviation for "due date"
+msgid "DD"
+msgstr ""
+
+msgid "Print on label printer"
+msgstr ""
+
+msgid "Default stock entry label"
+msgstr ""
+
+msgid "Stock entry label"
+msgstr ""
+
+msgid "No label"
+msgstr ""
+
+msgid "Single label"
+msgstr ""
+
+msgid "Label per unit"
+msgstr ""
+
+msgid "Error while executing WebHook"
+msgstr ""
+
+# Example: Print *Product* grocycode on label printer
+msgid "Print %s grocycode on label printer"
+msgstr ""
+
+msgid "Open stock entry label in new window"
+msgstr ""
+
+msgid "Thermal printer"
+msgstr ""
+
+msgid "Printing"
+msgstr ""
+
+msgid "Connecting to printer..."
+msgstr ""
+
+msgid "Unable to print"
+msgstr ""
+
+msgid "Only done items"
+msgstr ""
+
+msgid "Show only in-stock products"
+msgstr ""
+
+msgid "Product description"
+msgstr ""
+
+# Example: *3.21 USD* per *Pack*
+msgid "%1$s per %2$s"
+msgstr ""
+
+msgid "Mark this item as undone"
+msgstr ""
+
+msgid "Mandatory"
+msgstr ""
+
+msgid "Mandatory Userfield"
+msgstr ""
+
+msgid "When enabled, then this field must be filled on the destination form"
+msgstr ""
+
+msgid "In-stock products"
+msgstr ""
+
+msgid "Timestamp"
+msgstr ""
+
+msgid "Should not be frozen"
+msgstr ""
+
+msgid ""
+"When enabled, on moving this product to a freezer location (so when freezing"
+" it), a warning will be shown"
+msgstr ""
+
+msgid "This product shouldn't be frozen"
+msgstr ""
+
+msgid "Copy all meal plan entries of %s"
+msgstr ""
+
+msgid "A date is required"
+msgstr ""
+
+msgid "Day"
+msgstr ""
+
+msgid "Add recipe"
+msgstr ""
+
+msgid "Copy this day"
+msgstr ""
+
+msgid "Date range"
+msgstr ""
+
+msgid "%s month"
+msgid_plural "%s months"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s year"
+msgid_plural "%s years"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Display product"
+msgstr ""
+
+msgid "Copy recipe"
+msgstr ""
+
+msgid "Copy of %s"
+msgstr ""
+
+msgid "Add decimal separator automatically for price inputs"
+msgstr ""
+
+msgid ""
+"When enabled, you always have to enter the value including decimal places, "
+"the decimal separator will be automatically added based on the amount of "
+"allowed decimal places"
+msgstr ""
+
+msgid "Stock entry"
+msgstr ""
+
+msgid "Configure sections"
+msgstr ""
+
+msgid "Meal plan sections"
+msgstr ""
+
+msgid "Create meal plan section"
+msgstr ""
+
+msgid "Sections will be ordered by that number on the meal plan"
+msgstr ""
+
+msgid "Edit meal plan section"
+msgstr ""
+
+msgid "Are you sure to delete meal plan section \"%s\"?"
+msgstr ""
+
+msgid "Section"
+msgstr ""
+
+msgid "Are you sure to empty the shopping list?"
+msgstr "Alışveriş listesini temizlemek istediğine emin misin?"
+
+msgid "This is the default which will be prefilled on purchase"
+msgstr ""
+
+msgid "Merge chores"
+msgstr ""
+
+msgid "Chore to keep"
+msgstr ""
+
+msgid "After merging, this chore will be kept"
+msgstr ""
+
+msgid "Chore to remove"
+msgstr ""
+
+msgid ""
+"After merging, all occurences of this chore will be replaced by the kept "
+"chore (means this chore will not exist anymore)"
+msgstr ""
+
+msgid "Due today"
+msgstr ""
+
+msgid "%s task is due to be done today"
+msgid_plural "%s tasks are due to be done today"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s chore is due to be done today"
+msgid_plural "%s chores are due to be done today"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s battery is due to be charged today"
+msgid_plural "%s batteries are due to be charged today"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Set to 0 to hide due soon filters/highlighting"
+msgstr ""
+
+msgid "Save & close"
+msgstr ""
+
+msgid "Save & add another task"
+msgstr ""
+
+msgid "Treat opened as out of stock"
+msgstr ""
+
+msgid ""
+"When enabled, opened items will be counted as missing for calculating if "
+"this product is below its minimum stock amount"
+msgstr ""
+
+msgid "Skipped"
+msgstr ""
+
+msgid "Skip next chore schedule"
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+msgid "A start date is required"
+msgstr ""
+
+msgid "Start date"
+msgstr ""
+
+msgid "The start date cannot be changed when the chore was once tracked"
+msgstr ""
+
+msgid "Show the recipe list and the recipe side by side"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore is scheduled dynamically based "
+"on the past average execution frequency"
+msgstr ""
+
+msgid "Average execution frequency"
+msgstr ""
+
+msgid "Reschedule next execution"
+msgstr ""
+
+msgid "This can only be in the future"
+msgstr ""
+
+msgid "Rescheduled"
+msgstr ""
+
+msgid "Due score"
+msgstr ""
+
+msgid ""
+"The higher this number is, the more ingredients currently in stock are due "
+"soon, overdue or already expired"
+msgstr ""
+
+msgid "Disable own stock"
+msgstr ""
+
+msgid ""
+"When enabled, this product can't have own stock, means it will not be "
+"selectable on purchase (useful for parent products which are just used as a "
+"summary/total view of the child products)"
+msgstr ""
+
+msgid "Out of stock items will be shown at the products default location"
+msgstr ""
+
+msgid "Show a little checkbox next to each ingredient to mark it as done"
+msgstr ""
+
+msgid ""
+"The ingredient is crossed out when clicked, the status is not saved, means "
+"reset when the page is reloaded"
+msgstr ""
+
+msgid ""
+"The parent product %1$s is currently not in stock, %2$s is the current next "
+"sub product based on the default consume rule (Opened first, then first due "
+"first, then first in first out)"
+msgstr ""
+
+msgid "Night mode"
+msgstr ""
+
+msgid "On"
+msgstr ""
+
+msgid "Use system setting"
+msgstr ""
+
+msgid "Off"
+msgstr ""
+
+msgid ""
+"Automatically add products that are below their defined min. stock amount to"
+" the shopping list"
+msgstr ""
+
+msgid "Reassigned"
+msgstr ""
+
+msgid "Default value"
+msgstr ""
+
+msgid "Now / today"
+msgstr ""
+
+msgid "Add meal plan entry"
+msgstr ""
+
+msgid "Edit meal plan entry"
+msgstr ""
+
+msgid "Default consume location"
+msgstr ""
+
+msgid "Stock entries at this location will be consumed first"
 msgstr ""

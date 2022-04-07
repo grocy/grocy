@@ -100,11 +100,11 @@ msgstr "蘿蔔"
 msgid "Tomato"
 msgstr "番茄"
 
-msgid "Changed towels in the bathroom"
-msgstr "更換浴室毛巾"
+msgid "Change towels in the bathroom"
+msgstr ""
 
-msgid "Cleaned the kitchen floor"
-msgstr "清理廚房地板"
+msgid "Mop the kitchen floor"
+msgstr ""
 
 msgid "Warranty ends"
 msgstr "保固過期"
@@ -118,8 +118,8 @@ msgstr "鬧鐘"
 msgid "Heat remote control"
 msgstr "暖爐遙控器"
 
-msgid "Lawn mowed in the garden"
-msgstr "清理花園草坪"
+msgid "Take out the trash"
+msgstr ""
 
 msgid "Some good snacks"
 msgstr "美味零食"
@@ -175,24 +175,6 @@ msgstr "鬆餅"
 
 msgid "Sugar"
 msgstr "糖"
-
-msgid "Home"
-msgstr "首頁"
-
-msgid "Life"
-msgstr "生命"
-
-msgid "Projects"
-msgstr "專案"
-
-msgid "Repair the garage door"
-msgstr "修理車庫門"
-
-msgid "Fork and improve grocy"
-msgstr "協助改進 grocy"
-
-msgid "Find a solution for what to do when I forget the door keys"
-msgstr "規劃忘記鑰匙時的解決辦法"
 
 msgid "Sweets"
 msgstr "甜食"
@@ -260,14 +242,14 @@ msgstr "西班牙文"
 msgid "Russian"
 msgstr "俄文"
 
-msgid "The thing which happens on the 5th of every month"
-msgstr "每月 5 號發生的事情"
+msgid "Vacuum the living room floor"
+msgstr ""
 
-msgid "The thing which happens daily"
-msgstr "每天發生的事情"
+msgid "Clean the litter box"
+msgstr ""
 
-msgid "The thing which happens on Mondays and Wednesdays"
-msgstr "每周一與每周三會發生的事情"
+msgid "Change the bed sheets"
+msgstr ""
 
 msgid "Swedish"
 msgstr "瑞典文"
@@ -387,4 +369,7 @@ msgid "Dinner"
 msgstr ""
 
 msgid "Catalan"
+msgstr ""
+
+msgid "Slovenian"
 msgstr ""

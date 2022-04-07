@@ -95,6 +95,10 @@ msgstr "rus"
 msgid "sk_SK"
 msgstr "slo"
 
+# Slovenian
+msgid "sl"
+msgstr ""
+
 # Swedish
 msgid "sv_SE"
 msgstr "sue"

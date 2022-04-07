@@ -98,11 +98,11 @@ msgstr "무"
 msgid "Tomato"
 msgstr "토마토"
 
-msgid "Changed towels in the bathroom"
-msgstr "화장실 수건 교체"
+msgid "Change towels in the bathroom"
+msgstr ""
 
-msgid "Cleaned the kitchen floor"
-msgstr "주방 바닥 청소"
+msgid "Mop the kitchen floor"
+msgstr ""
 
 msgid "Warranty ends"
 msgstr "보증 종료"
@@ -116,8 +116,8 @@ msgstr "알람시계"
 msgid "Heat remote control"
 msgstr "난방 조절"
 
-msgid "Lawn mowed in the garden"
-msgstr "정원 잔디깍기"
+msgid "Take out the trash"
+msgstr ""
 
 msgid "Some good snacks"
 msgstr "간식"
@@ -173,24 +173,6 @@ msgstr "팬케이크"
 
 msgid "Sugar"
 msgstr "설탕"
-
-msgid "Home"
-msgstr "Home"
-
-msgid "Life"
-msgstr "Life"
-
-msgid "Projects"
-msgstr "프로젝트"
-
-msgid "Repair the garage door"
-msgstr "차고문수리"
-
-msgid "Fork and improve grocy"
-msgstr "Fork and improve grocy"
-
-msgid "Find a solution for what to do when I forget the door keys"
-msgstr "Find a solution for what to do when I forget the door keys"
 
 msgid "Sweets"
 msgstr "과자"
@@ -258,14 +240,14 @@ msgstr "스페인어"
 msgid "Russian"
 msgstr "러시아어"
 
-msgid "The thing which happens on the 5th of every month"
-msgstr "매월 5일에 발생하는 일"
+msgid "Vacuum the living room floor"
+msgstr ""
 
-msgid "The thing which happens daily"
-msgstr "매일 발생하는 일"
+msgid "Clean the litter box"
+msgstr ""
 
-msgid "The thing which happens on Mondays and Wednesdays"
-msgstr "월요일과 수요일 발생하는 일"
+msgid "Change the bed sheets"
+msgstr ""
 
 msgid "Swedish"
 msgstr "스웨덴어"
@@ -385,4 +367,7 @@ msgid "Dinner"
 msgstr ""
 
 msgid "Catalan"
+msgstr ""
+
+msgid "Slovenian"
 msgstr ""

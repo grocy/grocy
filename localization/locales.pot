@@ -88,6 +88,10 @@ msgstr ""
 msgid "sk_SK"
 msgstr ""
 
+# Slovenian
+msgid "sl"
+msgstr ""
+
 # Swedish
 msgid "sv_SE"
 msgstr ""

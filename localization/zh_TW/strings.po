@@ -252,9 +252,6 @@ msgstr "編輯位置"
 msgid "Edit store"
 msgstr "編輯店家"
 
-msgid "Record data"
-msgstr "記錄資料"
-
 msgid "Manage master data"
 msgstr "管理主資料"
 
@@ -695,12 +692,6 @@ msgstr "狀態"
 msgid "Below min. stock amount"
 msgstr "小於最低庫存數量"
 
-msgid "Expiring soon"
-msgstr "即將過期"
-
-msgid "Already expired"
-msgstr "已經過期"
-
 msgid "Due soon"
 msgstr "即將到期"
 
@@ -712,9 +703,6 @@ msgstr "顯示設定"
 
 msgid "Auto reload on external changes"
 msgstr "更新時自動重新載入"
-
-msgid "Enable night mode"
-msgstr "開啟夜間模式"
 
 msgid "Auto enable in time range"
 msgstr "在時間範圍內自動啟用"
@@ -840,8 +828,8 @@ msgid "Use a specific stock item"
 msgstr "使用特定的庫存項目"
 
 msgid ""
-"The first item in this list would be picked by the default rule which is "
-"\"Opened first, then first due first, then first in first out\""
+"The first item in this list would be picked by the default rule consume rule"
+" (Opened first, then first due first, then first in first out)"
 msgstr ""
 
 msgid "Mark %1$s of %2$s as open"
@@ -928,9 +916,6 @@ msgid ""
 "Use the following (public) URL to share or integrate the calendar in iCal "
 "format"
 msgstr "使用以下(公開) URL 以 iCal 格式分享或整合日曆"
-
-msgid "Allow partial units in stock"
-msgstr "允許拆分單位庫存"
 
 msgid "Enable tare weight handling"
 msgstr "啟用皮重處理"
@@ -1118,9 +1103,6 @@ msgstr "庫存不足，但已在購物清單中"
 msgid "Not enough in stock"
 msgstr "庫存不足"
 
-msgid "Expiring soon days"
-msgstr "即將過期天數"
-
 msgid "Default location"
 msgstr "預設位置"
 
@@ -1149,9 +1131,6 @@ msgstr "消耗 %2$s 的 %1$s"
 
 msgid "Meal plan"
 msgstr "菜單"
-
-msgid "Add recipe on %s"
-msgstr "在 %s 上增加食譜"
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1281,11 +1260,11 @@ msgid "Assignment type"
 msgstr "分配類型"
 
 msgid ""
-"This means the next execution of this chore is scheduled %s day after the "
-"last execution"
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every day"
 msgid_plural ""
-"This means the next execution of this chore is scheduled %s days after the "
-"last execution"
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every %s days"
 msgstr[0] ""
 
 msgid ""
@@ -1567,9 +1546,6 @@ msgstr "確定要刪除 API 金鑰「%s」嗎？"
 msgid "Add note"
 msgstr "新增備註"
 
-msgid "Add note on %s"
-msgstr "在 %s 上新增備註"
-
 msgid "per day"
 msgstr "每天"
 
@@ -1578,9 +1554,6 @@ msgstr "僅未完成項目"
 
 msgid "Add product"
 msgstr "新增物品"
-
-msgid "Add product on %s"
-msgstr "在 %s 上新增物品"
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
 msgstr "消耗本週食譜或物品所需的所有食材"
@@ -1610,11 +1583,6 @@ msgstr "掃描模式已開啟，但並非所有必填欄位皆可自動填入"
 msgid "Is freezer"
 msgstr "冷凍庫"
 
-msgid ""
-"When moving products from/to a freezer location, the products best before "
-"date is automatically adjusted according to the product settings"
-msgstr "將物品移出/移入冷凍庫位置時，會根據物品設定自動調整賞味期限。"
-
 msgid "This cannot be the same as the \"From\" location"
 msgstr "這不能與「來源」存放位置相同"
 
@@ -1632,15 +1600,6 @@ msgstr "購物清單設定"
 
 msgid "Show a month-view calendar"
 msgstr "顯示月視圖日曆"
-
-msgid "Edit note on %s"
-msgstr "在 %s 上編輯備註"
-
-msgid "Edit product on %s"
-msgstr "在 %s 上編輯物品"
-
-msgid "Edit recipe on %s"
-msgstr "在 %s 上編輯食譜"
 
 msgid "Desired servings"
 msgstr "需要份數"
@@ -1693,9 +1652,6 @@ msgstr "大卡"
 msgid "means %1$s per %2$s"
 msgstr "代表每 %2$s 包含 %1$s"
 
-msgid "Create inverse QU conversion"
-msgstr "新增反向 QU 轉換"
-
 msgid "Create recipe"
 msgstr "新增食譜"
 
@@ -1737,9 +1693,6 @@ msgid ""
 "due first, then first in first out) for in-stock ingredients and on the last"
 " price for missing ones"
 msgstr ""
-
-msgid "Quantity unit stock cannot be changed after first purchase"
-msgstr "庫存數量單位無法於初次購買後更改"
 
 msgid "Clear filter"
 msgstr "清除過濾條件"
@@ -1804,9 +1757,6 @@ msgstr "庫存日誌概要"
 msgid "Journal summary"
 msgstr "日誌概要"
 
-msgid "Journal summary for this product"
-msgstr "此物品的日誌概要"
-
 msgid "Consume exact amount"
 msgstr "消耗精確數量"
 
@@ -1829,9 +1779,6 @@ msgstr "允許數量使用小數"
 
 msgid "Decimal places allowed for prices"
 msgstr "允許價格使用小數"
-
-msgid "Stock entries for this product"
-msgstr "此物品的庫存條目"
 
 msgid "Edit shopping list"
 msgstr "編輯購物清單"
@@ -2142,8 +2089,8 @@ msgid "After merging, this product will be kept"
 msgstr ""
 
 msgid ""
-"After merging, all occurences of this product will be replaced by \"Product "
-"to keep\" (means this product will not exist anymore)"
+"After merging, all occurences of this product will be replaced by the kept "
+"product (means this product will not exist anymore)"
 msgstr ""
 
 msgid "Merge"
@@ -2418,4 +2365,85 @@ msgid ""
 msgstr ""
 
 msgid "Average execution frequency"
+msgstr ""
+
+msgid "Reschedule next execution"
+msgstr ""
+
+msgid "This can only be in the future"
+msgstr ""
+
+msgid "Rescheduled"
+msgstr ""
+
+msgid "Due score"
+msgstr ""
+
+msgid ""
+"The higher this number is, the more ingredients currently in stock are due "
+"soon, overdue or already expired"
+msgstr ""
+
+msgid "Disable own stock"
+msgstr ""
+
+msgid ""
+"When enabled, this product can't have own stock, means it will not be "
+"selectable on purchase (useful for parent products which are just used as a "
+"summary/total view of the child products)"
+msgstr ""
+
+msgid "Out of stock items will be shown at the products default location"
+msgstr ""
+
+msgid "Show a little checkbox next to each ingredient to mark it as done"
+msgstr ""
+
+msgid ""
+"The ingredient is crossed out when clicked, the status is not saved, means "
+"reset when the page is reloaded"
+msgstr ""
+
+msgid ""
+"The parent product %1$s is currently not in stock, %2$s is the current next "
+"sub product based on the default consume rule (Opened first, then first due "
+"first, then first in first out)"
+msgstr ""
+
+msgid "Night mode"
+msgstr ""
+
+msgid "On"
+msgstr ""
+
+msgid "Use system setting"
+msgstr ""
+
+msgid "Off"
+msgstr ""
+
+msgid ""
+"Automatically add products that are below their defined min. stock amount to"
+" the shopping list"
+msgstr ""
+
+msgid "Reassigned"
+msgstr ""
+
+msgid "Default value"
+msgstr ""
+
+msgid "Now / today"
+msgstr ""
+
+msgid "Add meal plan entry"
+msgstr ""
+
+msgid "Edit meal plan entry"
+msgstr ""
+
+msgid "Default consume location"
+msgstr ""
+
+msgid "Stock entries at this location will be consumed first"
 msgstr ""

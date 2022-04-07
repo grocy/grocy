@@ -260,9 +260,6 @@ msgstr "Επεξεργασία τοποθεσίας"
 msgid "Edit store"
 msgstr "Επεξεργασία καταστήματος"
 
-msgid "Record data"
-msgstr "Εγγραφή δεδομένων"
-
 msgid "Manage master data"
 msgstr "Διαχείριση βασικών δεδομένων"
 
@@ -726,12 +723,6 @@ msgstr "Κατάσταση"
 msgid "Below min. stock amount"
 msgstr "Κάτω από ελάχ. ποσό αποθέματος"
 
-msgid "Expiring soon"
-msgstr "Λήγει σύντομα"
-
-msgid "Already expired"
-msgstr "Έχει ήδη λήξει"
-
 msgid "Due soon"
 msgstr "Λήγει σύντομα"
 
@@ -743,9 +734,6 @@ msgstr "Προβολή ρυθμίσεων"
 
 msgid "Auto reload on external changes"
 msgstr "Αυτόματη φόρτωση σε εξωτερικές αλλαγές"
-
-msgid "Enable night mode"
-msgstr "Ενεργοποίηση νυχτερινής λειτουργίας"
 
 msgid "Auto enable in time range"
 msgstr "Αυτόματη ενεργοποίηση στο χρονικό εύρος"
@@ -873,8 +861,8 @@ msgid "Use a specific stock item"
 msgstr "Χρησιμοποιήστε ένα συγκεκριμένο είδος αποθέματος"
 
 msgid ""
-"The first item in this list would be picked by the default rule which is "
-"\"Opened first, then first due first, then first in first out\""
+"The first item in this list would be picked by the default rule consume rule"
+" (Opened first, then first due first, then first in first out)"
 msgstr ""
 
 msgid "Mark %1$s of %2$s as open"
@@ -970,9 +958,6 @@ msgid ""
 msgstr ""
 "ΜπαταρίεςΧρησιμοποιήστε την ακόλουθη (δημόσια) διεύθυνση URL για κοινή χρήση"
 " ή ενοποίηση του ημερολογίου σε μορφή iCal"
-
-msgid "Allow partial units in stock"
-msgstr "Επιτρέψτε μερικές μονάδες σε απόθεμα"
 
 msgid "Enable tare weight handling"
 msgstr "Ενεργοποίηση χειρισμού απόβαρου βάρους"
@@ -1170,9 +1155,6 @@ msgstr "Δεν υπάρχει αρκετό απόθεμα, αλλά ήδη στ�
 msgid "Not enough in stock"
 msgstr "Δεν υπάρχει αρκετό απόθεμα"
 
-msgid "Expiring soon days"
-msgstr "Λήγει σύντομα ημέρες"
-
 msgid "Default location"
 msgstr "Προεπιλεγμένη τοποθεσία"
 
@@ -1206,9 +1188,6 @@ msgstr "Καταναλώστε% 1 $ s από% 2 $ s"
 
 msgid "Meal plan"
 msgstr "Προτίμηση γεύματος"
-
-msgid "Add recipe on %s"
-msgstr "Προσθέστε συνταγή στο% s"
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1346,11 +1325,11 @@ msgid "Assignment type"
 msgstr "Τύπος εργασίας"
 
 msgid ""
-"This means the next execution of this chore is scheduled %s day after the "
-"last execution"
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every day"
 msgid_plural ""
-"This means the next execution of this chore is scheduled %s days after the "
-"last execution"
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every %s days"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -1656,9 +1635,6 @@ msgstr "Είστε βέβαιοι ότι θα διαγράψετε το κλει
 msgid "Add note"
 msgstr "Προσθήκη σημείωσης"
 
-msgid "Add note on %s"
-msgstr "Προσθήκη σημείωσης στο% s"
-
 msgid "per day"
 msgstr "ανά μέρα"
 
@@ -1667,9 +1643,6 @@ msgstr "Αναίρεση μόνο αντικειμένων"
 
 msgid "Add product"
 msgstr "Προσθήκη προϊόντος"
-
-msgid "Add product on %s"
-msgstr "Προσθήκη προϊόντος στο% s"
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
 msgstr ""
@@ -1703,14 +1676,6 @@ msgstr ""
 msgid "Is freezer"
 msgstr "Είναι καταψύκτης"
 
-msgid ""
-"When moving products from/to a freezer location, the products best before "
-"date is automatically adjusted according to the product settings"
-msgstr ""
-"QU απόθεμαΌταν μετακινείτε προϊόντα από / προς μια θέση κατάψυξης, τα "
-"καλύτερα προϊόντα πριν από την ημερομηνία προσαρμόζονται αυτόματα σύμφωνα με"
-" τις ρυθμίσεις του προϊόντος"
-
 msgid "This cannot be the same as the \"From\" location"
 msgstr "Αυτό δεν μπορεί να είναι το ίδιο με την τοποθεσία \"Από\""
 
@@ -1728,15 +1693,6 @@ msgstr "Ρυθμίσεις λίστας αγορών"
 
 msgid "Show a month-view calendar"
 msgstr "Εμφάνιση ημερολογίου μηνιαίας προβολής"
-
-msgid "Edit note on %s"
-msgstr "Επεξεργασία σημείωσης στο% s"
-
-msgid "Edit product on %s"
-msgstr "Επεξεργασία προϊόντος στο% s"
-
-msgid "Edit recipe on %s"
-msgstr "Επεξεργασία συνταγής στο% s"
 
 msgid "Desired servings"
 msgstr "Επιθυμητές μερίδες"
@@ -1789,9 +1745,6 @@ msgstr "Θερμίδες"
 msgid "means %1$s per %2$s"
 msgstr "σημαίνει% 1 $ s ανά% 2 $ s"
 
-msgid "Create inverse QU conversion"
-msgstr "Δημιουργία αντίστροφης μετατροπής QU"
-
 msgid "Create recipe"
 msgstr "Δημιουργήστε συνταγή"
 
@@ -1833,9 +1786,6 @@ msgid ""
 "due first, then first in first out) for in-stock ingredients and on the last"
 " price for missing ones"
 msgstr ""
-
-msgid "Quantity unit stock cannot be changed after first purchase"
-msgstr "Αγορά μονάδας ποσότητας"
 
 msgid "Clear filter"
 msgstr "Απόθεμα μονάδας ποσότητας"
@@ -1900,9 +1850,6 @@ msgstr ""
 msgid "Journal summary"
 msgstr ""
 
-msgid "Journal summary for this product"
-msgstr ""
-
 msgid "Consume exact amount"
 msgstr ""
 
@@ -1924,9 +1871,6 @@ msgid "Decimal places allowed for amounts"
 msgstr ""
 
 msgid "Decimal places allowed for prices"
-msgstr ""
-
-msgid "Stock entries for this product"
 msgstr ""
 
 msgid "Edit shopping list"
@@ -2240,8 +2184,8 @@ msgid "After merging, this product will be kept"
 msgstr ""
 
 msgid ""
-"After merging, all occurences of this product will be replaced by \"Product "
-"to keep\" (means this product will not exist anymore)"
+"After merging, all occurences of this product will be replaced by the kept "
+"product (means this product will not exist anymore)"
 msgstr ""
 
 msgid "Merge"
@@ -2521,4 +2465,85 @@ msgid ""
 msgstr ""
 
 msgid "Average execution frequency"
+msgstr ""
+
+msgid "Reschedule next execution"
+msgstr ""
+
+msgid "This can only be in the future"
+msgstr ""
+
+msgid "Rescheduled"
+msgstr ""
+
+msgid "Due score"
+msgstr ""
+
+msgid ""
+"The higher this number is, the more ingredients currently in stock are due "
+"soon, overdue or already expired"
+msgstr ""
+
+msgid "Disable own stock"
+msgstr ""
+
+msgid ""
+"When enabled, this product can't have own stock, means it will not be "
+"selectable on purchase (useful for parent products which are just used as a "
+"summary/total view of the child products)"
+msgstr ""
+
+msgid "Out of stock items will be shown at the products default location"
+msgstr ""
+
+msgid "Show a little checkbox next to each ingredient to mark it as done"
+msgstr ""
+
+msgid ""
+"The ingredient is crossed out when clicked, the status is not saved, means "
+"reset when the page is reloaded"
+msgstr ""
+
+msgid ""
+"The parent product %1$s is currently not in stock, %2$s is the current next "
+"sub product based on the default consume rule (Opened first, then first due "
+"first, then first in first out)"
+msgstr ""
+
+msgid "Night mode"
+msgstr ""
+
+msgid "On"
+msgstr ""
+
+msgid "Use system setting"
+msgstr ""
+
+msgid "Off"
+msgstr ""
+
+msgid ""
+"Automatically add products that are below their defined min. stock amount to"
+" the shopping list"
+msgstr ""
+
+msgid "Reassigned"
+msgstr ""
+
+msgid "Default value"
+msgstr ""
+
+msgid "Now / today"
+msgstr ""
+
+msgid "Add meal plan entry"
+msgstr ""
+
+msgid "Edit meal plan entry"
+msgstr ""
+
+msgid "Default consume location"
+msgstr ""
+
+msgid "Stock entries at this location will be consumed first"
 msgstr ""

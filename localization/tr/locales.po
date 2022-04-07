@@ -93,6 +93,10 @@ msgstr "Rusça"
 msgid "sk_SK"
 msgstr "Slovak Dili"
 
+# Slovenian
+msgid "sl"
+msgstr ""
+
 # Swedish
 msgid "sv_SE"
 msgstr "İsveççe"

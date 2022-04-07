@@ -1,0 +1,2562 @@
+# 
+# Translators:
+# bostjo g, 2022
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: bostjo g, 2022\n"
+"Language-Team: Slovenian (https://www.transifex.com/grocy/teams/93189/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"X-Domain: grocy/strings\n"
+
+msgid "Stock overview"
+msgstr "Pregled zalog"
+
+msgid "%s product expires"
+msgid_plural "%s products expiring"
+msgstr[0] "%s izdelku izteka rok uporabe"
+msgstr[1] "%s izdelkoma izteka rok uporabe"
+msgstr[2] "%s izdelkom poteka rok uporabe"
+msgstr[3] "%s izdelkom poteka rok uporabe"
+
+msgid "within the next day"
+msgid_plural "within the next %s days"
+msgstr[0] "čez %s dan"
+msgstr[1] "čez %s dni"
+msgstr[2] "čez %s dni"
+msgstr[3] "čez %s dni"
+
+msgid "%s product is already expired"
+msgid_plural "%s products are already expired"
+msgstr[0] "%s izdelku je že potekel rok uporabe"
+msgstr[1] "%s izdelkom je že potekel rok uporabe"
+msgstr[2] "%s izdelkom je že potekel rok uporabe"
+msgstr[3] "%s izdelkom je že potekel rok uporabe"
+
+msgid "%s product is overdue"
+msgid_plural "%s products are overdue"
+msgstr[0] "%s izdelek zamuja"
+msgstr[1] "%s izdelka zamujata"
+msgstr[2] "%s izdelki zamujajo"
+msgstr[3] "%s izdelki zamujajo"
+
+msgid "%s product is below defined min. stock amount"
+msgid_plural "%s products are below defined min. stock amount"
+msgstr[0] "%s izdelek je pod min. količino zaloge"
+msgstr[1] "%s izdelka sta pod min. količino zaloge"
+msgstr[2] "%s izdelkov je pod min. količino zaloge"
+msgstr[3] "%s izdelkov je pod min. količino zaloge"
+
+msgid "Product"
+msgstr "Izdelek"
+
+msgid "%s Product"
+msgid_plural "%s Products"
+msgstr[0] "%s Izdelek"
+msgstr[1] "%s Izdelka"
+msgstr[2] "% Izdelkov"
+msgstr[3] "%s Izdelkov"
+
+msgid "Amount"
+msgstr "Količina"
+
+msgid "Logout"
+msgstr "Odjava"
+
+msgid "Chores overview"
+msgstr "Pregled obveznosti"
+
+msgid "Batteries overview"
+msgstr "Pregled baterij"
+
+msgid "Purchase"
+msgstr "Nakup"
+
+msgid "Consume"
+msgstr "Poraba"
+
+msgid "Inventory"
+msgstr "Zaloga"
+
+msgid "Shopping list"
+msgstr "Nakupovalni seznam"
+
+msgid "Chore tracking"
+msgstr "Spremljanje obveznosti"
+
+msgid "Battery tracking"
+msgstr "Sledenje baterijam"
+
+msgid "Locations"
+msgstr "Lokacije"
+
+msgid "Stores"
+msgstr "Trgovine"
+
+msgid "Quantity units"
+msgstr "Enote količine"
+
+msgid "Chores"
+msgstr "Obveznosti"
+
+msgid "Batteries"
+msgstr "Baterije"
+
+msgid "Chore"
+msgstr "Obveznost"
+
+msgid "Next estimated tracking"
+msgstr "Naslednje ocenjeno sledenje"
+
+msgid "Last tracked"
+msgstr "Nazadnje sledeno"
+
+msgid "Battery"
+msgstr "Baterija"
+
+msgid "Last charged"
+msgstr "Nazadnje napolnjeno"
+
+msgid "Next planned charge cycle"
+msgstr "Naslednji načrtovan cikel polnjenja"
+
+msgid "Best before"
+msgstr "Uporabno do"
+
+msgid "OK"
+msgstr "V redu"
+
+msgid "Product overview"
+msgstr "Pregled izdelka"
+
+msgid "Stock quantity unit"
+msgstr "Enota količine zaloge"
+
+msgid "Stock amount"
+msgstr "Količina zaloge"
+
+msgid "Last purchased"
+msgstr "Nazadnje kupljeno"
+
+msgid "Last used"
+msgstr "Nazadnje uporabljeno"
+
+msgid "Spoiled"
+msgstr "Pokvarjeno"
+
+msgid "Barcode lookup is disabled"
+msgstr "Iskanje črtnih kod je onemogočeno"
+
+msgid ""
+"will be added to the list of barcodes for the selected product on submit"
+msgstr "dodano bo na seznam črtnih kod za izbrani izdelek ob vnosu"
+
+msgid "New amount"
+msgstr "Nova količina"
+
+msgid "Note"
+msgstr "Opomba"
+
+msgid "Tracked time"
+msgstr "Porabljeni čas"
+
+msgid "Chore overview"
+msgstr "Pregled obveznosti"
+
+msgid "Tracked count"
+msgstr "Spremljano število"
+
+msgid "Battery overview"
+msgstr "Pregled baterij"
+
+msgid "Charge cycles count"
+msgstr "Število ciklov polnjenja"
+
+msgid "Create shopping list item"
+msgstr "Ustvari element nakupovalnega seznama"
+
+msgid "Edit shopping list item"
+msgstr "Uredi element nakupovalnega seznama"
+
+msgid "Save"
+msgstr "Shrani"
+
+msgid "Add"
+msgstr "Dodaj"
+
+msgid "Name"
+msgstr "Ime"
+
+msgid "Location"
+msgstr "Lokacija"
+
+msgid "Min. stock amount"
+msgstr "Min. količina zaloge"
+
+msgid "Description"
+msgstr "Opis"
+
+msgid "Create product"
+msgstr "Ustvari produkt"
+
+msgid "Barcode(s)"
+msgstr "Črtne kode"
+
+msgid "Minimum stock amount"
+msgstr "Najmanjša količina zaloge"
+
+msgid "Default best before days"
+msgstr "Privzeto trajanje uporabnosti"
+
+msgid "Default quantity unit purchase"
+msgstr "Privzeta enota količine nakupa"
+
+msgid "Quantity unit stock"
+msgstr "Enota količine zaloge"
+
+msgid "Factor purchase to stock quantity unit"
+msgstr "Faktor nakupa za enoto količine zaloge"
+
+msgid "Create location"
+msgstr "Ustvari lokacijo"
+
+msgid "Create store"
+msgstr "Ustvari trgovino"
+
+msgid "Create quantity unit"
+msgstr "Ustvari enoto količine"
+
+msgid "Period type"
+msgstr "Vrsta periode"
+
+msgid "Period days"
+msgstr "Perioda dni"
+
+msgid "Create chore"
+msgstr "Ustvari obveznost"
+
+msgid "Used in"
+msgstr "Uporabljeno v"
+
+msgid "Create battery"
+msgstr "Ustvari baterijo"
+
+msgid "Edit battery"
+msgstr "Uredi baterijo"
+
+msgid "Edit chore"
+msgstr "Uredi obveznost"
+
+msgid "Edit quantity unit"
+msgstr "Uredi enoto količine"
+
+msgid "Edit product"
+msgstr "Uredi izdelek"
+
+msgid "Edit location"
+msgstr "Uredi lokacijo"
+
+msgid "Edit store"
+msgstr "Uredi trgovino"
+
+msgid "Manage master data"
+msgstr "Upravljaj glavne podatke"
+
+msgid "This will apply to added products"
+msgstr "To bo spremenilo dodane izdelke"
+
+msgid "never"
+msgstr "nikoli"
+
+msgid "Add products that are below defined min. stock amount"
+msgstr "Dodaj izdelke, ki so pod min. količino zaloge"
+
+msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
+msgstr "To pomeni 1 %1$s kupljeno bo pretvorjeno v 2 %2$s 3 %3$s v zalogi"
+
+msgid "Login"
+msgstr "Prijava"
+
+msgid "Username"
+msgstr "Uporabniško ime"
+
+msgid "Password"
+msgstr "Geslo"
+
+msgid "Invalid credentials, please try again"
+msgstr "Napačne poverilnice, poskusite ponovno"
+
+msgid "Are you sure to delete battery \"%s\"?"
+msgstr "Res želiš izbrisati baterijo \" %s \"?"
+
+msgid "Yes"
+msgstr "Da"
+
+msgid "No"
+msgstr "Ne"
+
+msgid "Are you sure to delete chore \"%s\"?"
+msgstr "Res želiš izbrisati obveznost \"%s\"?"
+
+msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
+msgstr "\"%s\" ni možno razrešit kot izdelek, kako bi rad nadaljeval?"
+
+msgid "Create or assign product"
+msgstr "Ustvari ali dodeli izdelek"
+
+msgid "Cancel"
+msgstr "Prekliči"
+
+msgid "Add as new product"
+msgstr "Dodaj kot nov izdelek"
+
+msgid "Add as barcode to existing product"
+msgstr "Dodaj črtno kodo obstoječemu izdelku"
+
+msgid "Add as new product and prefill barcode"
+msgstr "Dodaj kot nov izdelek in vnesi črtno kodo"
+
+msgid "Are you sure to delete quantity unit \"%s\"?"
+msgstr "Ali res želiš izbrisati enoto količine \"%s\"?"
+
+msgid "Are you sure to delete product \"%s\"?"
+msgstr "Ali res želiš izbrisati izdelek \"%s\"?"
+
+msgid "Are you sure to delete location \"%s\"?"
+msgstr "Ali res želiš izbrisati lokacijo \"%s\"?"
+
+msgid "Are you sure to delete store \"%s\"?"
+msgstr "Ali res želiš izbrisati trgovino \"%s\"?"
+
+msgid "Manage API keys"
+msgstr "Upravljaj API ključe"
+
+msgid "REST API browser"
+msgstr "REST API brskalnik"
+
+msgid "API keys"
+msgstr "API ključi"
+
+msgid "Create new API key"
+msgstr "Ustvari nov API ključ"
+
+msgid "API key"
+msgstr "API ključ"
+
+msgid "Expires"
+msgstr "Poteče"
+
+msgid "Created"
+msgstr "Ustvarjeno"
+
+msgid "This product is not in stock"
+msgstr "Ta izdelek ni na zalogi"
+
+msgid "This means %s will be added to stock"
+msgstr "To pomeni %s bo dodan v zalogo"
+
+msgid "This means %s will be removed from stock"
+msgstr "To pomeni %s bo izbrisan iz zaloge"
+
+msgid "Removed %1$s of %2$s from stock"
+msgstr "Izbrisan %1$s količine %2$s iz zaloge"
+
+msgid "About grocy"
+msgstr "O grocy"
+
+msgid "Close"
+msgstr "Zapri"
+
+msgid "Released on"
+msgstr "Izdano na"
+
+msgid "Added %1$s of %2$s to stock"
+msgstr "Dodano %1$s količine %2$s v zalogo"
+
+msgid "Stock amount of %1$s is now %2$s"
+msgstr "Količina zaloge %1$s je sedaj %2$s"
+
+msgid "Tracked execution of chore %1$s on %2$s"
+msgstr "Spremljano izvajanje obveznosti %1$s ob %2$s"
+
+msgid "Tracked charge cycle of battery %1$s on %2$s"
+msgstr "Spremljanje cikla polnjenja baterije %1$s ob %2$s"
+
+msgid "Consume all %s which are currently in stock"
+msgstr "Porabi ves %s ki je trenutno na zalogi"
+
+msgid "All"
+msgstr "Vse"
+
+msgid "Search"
+msgstr "Išči"
+
+msgid "Not logged in"
+msgstr "Neprijavljen"
+
+msgid "You have to select a product"
+msgstr "Moraš izbrati izdelek"
+
+msgid "You have to select a chore"
+msgstr "Moraš izbrati obveznost"
+
+msgid "You have to select a battery"
+msgstr "Moraš izbrati baterijo"
+
+msgid "A name is required"
+msgstr "Ime je obvezno"
+
+msgid "A location is required"
+msgstr "Lokacija je obvezna"
+
+msgid "A quantity unit is required"
+msgstr "Enota količine je obvezna"
+
+msgid "A period type is required"
+msgstr "Vrsta periode je obvezna"
+
+msgid "A best before date is required"
+msgstr "Datum roka trajanja je obvezen"
+
+msgid "Settings"
+msgstr "Nastavitve"
+
+msgid "This can only be before now"
+msgstr "To je lahko samo pred sedaj"
+
+msgid "Calendar"
+msgstr "Koledar"
+
+msgid "Recipes"
+msgstr "Recepti"
+
+msgid "Edit recipe"
+msgstr "Uredi recept"
+
+msgid "Ingredients list"
+msgstr "Seznam sestavin"
+
+msgid "Add recipe ingredient"
+msgstr "Dodaj sestavino receptu"
+
+msgid "Edit recipe ingredient"
+msgstr "Uredi sestavino recepta"
+
+msgid "Are you sure to delete recipe \"%s\"?"
+msgstr "Ali res želiš izbrisati recept \"%s\"?"
+
+msgid "Are you sure to delete recipe ingredient \"%s\"?"
+msgstr "Ali res želiš izbrisati sestavino recepta \"%s\"?"
+
+msgid "Are you sure to empty shopping list \"%s\"?"
+msgstr "Ali res želiš izprazniti nakupovalni seznam \"%s\"?"
+
+msgid "Clear list"
+msgstr "Izprazni seznam"
+
+msgid "Requirements fulfilled"
+msgstr "Zahteve izpolnjene"
+
+msgid "Put missing products on shopping list"
+msgstr "Dodaj manjkajoče izdelke na nakupovalni seznam"
+
+msgid "Enough in stock"
+msgstr "Dovolj na zalogi"
+
+msgid ""
+"Not enough in stock, %s ingredient missing but already on the shopping list"
+msgid_plural ""
+"Not enough in stock, %s ingredients missing but already on the shopping list"
+msgstr[0] ""
+"Ni dovolj na zalogi, %s sestavina manjka, ampak je že na nakupovalnem "
+"seznamu"
+msgstr[1] ""
+"Ni dovolj na zalogi, %s sestavini manjkata, ampak sta že na nakupovalnem "
+"seznamu"
+msgstr[2] ""
+"Ni dovolj na zalogi, %s sestavin manjka, ampak so že na nakupovalnem seznamu"
+msgstr[3] ""
+"Ni dovolj na zalogi, %s sestavin manjka, ampak so že na nakupovalnem seznamu"
+
+msgid "Expand to fullscreen"
+msgstr "Razširi čez cel zaslon"
+
+msgid "Ingredients"
+msgstr "Sestavine"
+
+msgid "Preparation"
+msgstr "Priprava"
+
+msgid "Recipe"
+msgstr "Recept"
+
+msgid "Not enough in stock, %1$s missing, %2$s already on shopping list"
+msgstr "Ni dovolj na zalogi, \"%1$s\" manjka, %2$s že na nakupovalnem seznamu"
+
+msgid "Show notes"
+msgstr "Pokaži opombe"
+
+msgid "Put missing amount on shopping list"
+msgstr "Dodaj manjkajočo količino na nakupovalni seznam"
+
+msgid ""
+"Are you sure to put all missing ingredients for recipe \"%s\" on the "
+"shopping list?"
+msgstr ""
+"Res želiš dodati vse manjkajoče sestavine za recept \"%s\" na nakupovalni "
+"seznam"
+
+msgid "Added for recipe %s"
+msgstr "Dodano za recept %s"
+
+msgid "Manage users"
+msgstr "Upravljaj uporabnike"
+
+msgid "User"
+msgstr "Uporabnik"
+
+msgid "Users"
+msgstr "Uporabniki"
+
+msgid "Are you sure to delete user \"%s\"?"
+msgstr "Res želiš izbrisati uporabnika \"%s\""
+
+msgid "Create user"
+msgstr "Ustvari uporabnika"
+
+msgid "Edit user"
+msgstr "Uredi uporabnika"
+
+msgid "First name"
+msgstr "Ime"
+
+msgid "Last name"
+msgstr "Priimek"
+
+msgid "A username is required"
+msgstr "Uporabniško ime je obvezno"
+
+msgid "Confirm password"
+msgstr "Potrdi geslo"
+
+msgid "Passwords do not match"
+msgstr "Gesli se ne ujemata"
+
+msgid "Change password"
+msgstr "Spremeni geslo"
+
+msgid "Done by"
+msgstr "Naredil"
+
+msgid "Last done by"
+msgstr "Nazadnje naredil"
+
+msgid "Unknown"
+msgstr "Neznano"
+
+msgid "Chores journal"
+msgstr "Dnevnik obveznosti"
+
+msgid "0 means suggestions for the next charge cycle are disabled"
+msgstr "0 pomeni, da so predlogi za naslednji cikel polnjenja onemogočeni"
+
+msgid "Charge cycle interval (days)"
+msgstr "Interval polnilnega cikla (dnevi)"
+
+msgid "Last price"
+msgstr "Zadnja cena"
+
+msgid "Price history"
+msgstr "Zgodovina cene"
+
+msgid "No price history available"
+msgstr "Zgodovina cene ni na voljo"
+
+msgid "Price"
+msgstr "Cena"
+
+msgid "Unit"
+msgstr "Enota"
+
+msgid "%s Unit"
+msgid_plural "%s Units"
+msgstr[0] "%s Enota"
+msgstr[1] "%s Enoti"
+msgstr[2] "%s Enote"
+msgstr[3] "%s Enote"
+
+msgid "%s chore is due to be done"
+msgid_plural "%s chores are due to be done"
+msgstr[0] "%s  obveznosti bo zapadla"
+msgstr[1] "%s obveznosti bosta zapadli"
+msgstr[2] "%s obveznosti bo zapadlo"
+msgstr[3] "%s obveznosti bo zapadlo"
+
+msgid "%s chore is overdue to be done"
+msgid_plural "%s chores are overdue to be done"
+msgstr[0] "%1 obveznost je že zapadla"
+msgstr[1] "%1 obveznosti sta že zapadli"
+msgstr[2] "%1 obveznosti je že zapadlo"
+msgstr[3] "%1 obveznosti je že zapadlo"
+
+msgid "%s battery is due to be charged"
+msgid_plural "%s batteries are due to be charged"
+msgstr[0] "%s baterijo je potrebno napolniti"
+msgstr[1] "%s bateriji je potrebno napolniti"
+msgstr[2] "%s baterij je potrebno napolniti"
+msgstr[3] "%s baterij je potrebno napolniti"
+
+msgid "%s battery is overdue to be charged"
+msgid_plural "%s batteries are overdue to be charged"
+msgstr[0] "%s baterija bi že morala biti napolnjeno"
+msgstr[1] "%s bateriji bi že morale biti napolnjene"
+msgstr[2] "%s baterij bi že moralo biti napolnjeno"
+msgstr[3] "%s baterij bi že moralo biti napolnjeno"
+
+msgid "in singular form"
+msgstr "v ednini"
+
+msgid "Quantity unit"
+msgstr "Enota količine"
+
+msgid "Only check if any amount is in stock"
+msgstr "Samo preveri če je količina na zalogi"
+
+msgid ""
+"Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
+" marked with \"only check if any amount is in stock\" will be ignored)?"
+msgstr ""
+"Ali res želiš porabiti vse sestavine potrebne za recept \"%s\" (sestavine "
+"označene z \"samo preveri če je količina na zalogi\" bodo ignorirane)?"
+
+msgid "Removed all ingredients of recipe \"%s\" from stock"
+msgstr "Vse sestavine recepta \"%s\" so bile odstranjene iz zaloge"
+
+msgid "Consume all ingredients needed by this recipe"
+msgstr "Porabi vse sestavine potrebne za ta recept"
+
+msgid "Click to show technical details"
+msgstr "Klikni za prikaz tehničnih podrobnosti"
+
+msgid "Error while saving, probably this item already exists"
+msgstr "Napaka pri shranjevanju, ta element verjetno že obstaja"
+
+msgid "Error details"
+msgstr "Podrobnosti napake"
+
+msgid "Tasks"
+msgstr "Opravila"
+
+msgid "Show done tasks"
+msgstr "Pokaži zaključena opravila"
+
+msgid "Task"
+msgstr "Opravilo"
+
+msgid "Due"
+msgstr "Rok"
+
+msgid "Assigned to"
+msgstr "Dodeljeno"
+
+msgid "Mark task \"%s\" as completed"
+msgstr "Označi opravilo \"%s\" kot zaključeno"
+
+msgid "Uncategorized"
+msgstr "Nekategorizirano"
+
+msgid "Task categories"
+msgstr "Kategorije opravil"
+
+msgid "Create task"
+msgstr "Ustvari opravilo"
+
+msgid "A due date is required"
+msgstr "Končni datum je obvezen"
+
+msgid "Category"
+msgstr "Kategorija"
+
+msgid "Edit task"
+msgstr "Uredi opravilo"
+
+msgid "Are you sure to delete task \"%s\"?"
+msgstr "Ali res želiš izbrisati opravilo \"%s\"?"
+
+msgid "%s task is due to be done"
+msgid_plural "%s tasks are due to be done"
+msgstr[0] "%s opravilo bo zapadlo"
+msgstr[1] "%s opravili bosta zapadli"
+msgstr[2] "%s opravil bo zapadlo"
+msgstr[3] "%s opravil bo zapadlo"
+
+msgid "%s task is overdue to be done"
+msgid_plural "%s tasks are overdue to be done"
+msgstr[0] "%s opravilo je zapadlo"
+msgstr[1] "%s opravili sta zapadli"
+msgstr[2] "%s opravil je zapadlo"
+msgstr[3] "%s opravil je zapadlo"
+
+msgid "Edit task category"
+msgstr "Uredi kategorijo opravil"
+
+msgid "Create task category"
+msgstr "Ustvari kategorijo opravil"
+
+msgid "Product groups"
+msgstr "Skupine izdelkov"
+
+msgid "Ungrouped"
+msgstr "Negrupirano"
+
+msgid "Create product group"
+msgstr "Ustvari skupino izdelkov"
+
+msgid "Edit product group"
+msgstr "Uredi skupino izdelkov"
+
+msgid "Product group"
+msgstr "Skupina izdelkov"
+
+msgid "Are you sure to delete product group \"%s\"?"
+msgstr "Ali res želiš izbrisati skupino izdelkov \"%s\"?"
+
+msgid "Stay logged in permanently"
+msgstr "Ostani stalno prijavljen"
+
+msgid "When not set, you will get logged out at latest after 30 days"
+msgstr "Če ni nastavljeno, boš odjavljen čez najpozneje 30 dni"
+
+msgid "Status"
+msgstr "Stanje"
+
+msgid "Below min. stock amount"
+msgstr "Pod min. količino zaloge"
+
+msgid "Due soon"
+msgstr "Zapade kmalu"
+
+msgid "Overdue"
+msgstr "Že zapadlo"
+
+msgid "View settings"
+msgstr "Poglej nastavitve"
+
+msgid "Auto reload on external changes"
+msgstr "Samodejno ponovno naloži ob zunanjih spremembah"
+
+msgid "Auto enable in time range"
+msgstr "Samodejno omogoči v časovnem intervalu"
+
+msgid "From"
+msgstr "Od"
+
+msgid "in format"
+msgstr "v obliki"
+
+msgid "To"
+msgstr "K"
+
+msgid "Time range goes over midnight"
+msgstr "Časovni interval gre čez polnoč"
+
+msgid "Product picture"
+msgstr "Slika izdelka"
+
+msgid "No file selected"
+msgstr "Nobena datoteka ni izbrana"
+
+msgid "Delete"
+msgstr "Izbriši"
+
+msgid "Select file"
+msgstr "Izberi datoteko"
+
+msgid "Image of product %s"
+msgstr "Slika izdelka %s"
+
+msgid "Deletion not possible"
+msgstr "Izbris ni mogoč"
+
+msgid "Equipment"
+msgstr "Oprema"
+
+msgid "Instruction manual"
+msgstr "Navodila za uporabo"
+
+msgid "The selected equipment has no instruction manual"
+msgstr "Izbrana oprema nima navodil za uporabo"
+
+msgid "Notes"
+msgstr "Opombe"
+
+msgid "Edit equipment"
+msgstr "Uredi opremo"
+
+msgid "Create equipment"
+msgstr "Ustvari opremo"
+
+msgid "The current file will be deleted on save"
+msgstr "Izbrana datoteka bo izbrisana pri shranjevanju"
+
+msgid "No picture available"
+msgstr "Slike ni na voljo"
+
+msgid "Presets for new products"
+msgstr "Privzete nastavitve za nove izdelke"
+
+msgid "Included recipes"
+msgstr "Vključeni recepti"
+
+msgid "A recipe is required"
+msgstr "Recept je obvezen"
+
+msgid "Add included recipe"
+msgstr "Dodaj vključen recept"
+
+msgid "Edit included recipe"
+msgstr "Uredi vključen recept"
+
+msgid "Group"
+msgstr "Skupina"
+
+msgid "This will be used as a headline to group ingredients together"
+msgstr "To bo uporabljeno kot naslov za zbiranje sestavin v skupino"
+
+msgid "Journal"
+msgstr "Dnevnik"
+
+msgid "Stock journal"
+msgstr "Dnevnik zalog"
+
+msgid "Undone on"
+msgstr "Nedokončan na"
+
+msgid "Batteries journal"
+msgstr "Dnevnik baterij"
+
+msgid "Undo charge cycle"
+msgstr "Razveljavi cikel polnenja"
+
+msgid "Undo chore execution"
+msgstr "Razveljavi izvedbo obveznosti"
+
+msgid "Chore execution successfully undone"
+msgstr "Izvedba obveznosti je bila uspešno razveljavljena"
+
+msgid "Undo"
+msgstr "Razveljavi"
+
+msgid "Booking successfully undone"
+msgstr "Rezervacija je bila uspešno razveljavljena"
+
+msgid "Charge cycle successfully undone"
+msgstr "Cikel polnjenja je bil uspoešno razveljavljen"
+
+msgid "Disable stock fulfillment checking for this ingredient"
+msgstr "Onemogoči preverjanje zalog za to sestavino"
+
+msgid "Add all list items to stock"
+msgstr "Dodaj vse elemente seznama v zalogo"
+
+msgid "Add this item to stock"
+msgstr "Dodaj ta element v seznam"
+
+msgid "Adding shopping list item %1$s of %2$s"
+msgstr "Dodajam element %1$s od %2$s v nakupovalni seznam"
+
+msgid "Use a specific stock item"
+msgstr "Uporabi poseben element zaloge"
+
+msgid ""
+"The first item in this list would be picked by the default rule consume rule"
+" (Opened first, then first due first, then first in first out)"
+msgstr ""
+
+msgid "Mark %1$s of %2$s as open"
+msgstr "Označi %1$s od %2$s kot odprt"
+
+msgid "Marked %1$s of %2$s as opened"
+msgstr "Označen %1$s od %2$s kot odprt"
+
+msgid "Mark as opened"
+msgstr "Označi kot odprt"
+
+msgid "Not opened"
+msgstr "Ni odprt"
+
+msgid "Opened"
+msgstr "Odprt"
+
+msgid "%s opened"
+msgstr "%s odprt"
+
+msgid "Product due"
+msgstr "Izdelek zapade"
+
+msgid "Task due"
+msgstr "Opravilo zapade"
+
+msgid "Chore due"
+msgstr "Obveznost zapade"
+
+msgid "Battery charge cycle due"
+msgstr "Polnilni cikel baterije zapade"
+
+msgid "Show clock in header"
+msgstr "Pokaži uro v glavi"
+
+msgid "Stock settings"
+msgstr "Nastavitve zaloge"
+
+msgid "Shopping list to stock workflow"
+msgstr ""
+
+msgid "Skip"
+msgstr "Preskoči"
+
+msgid "Servings"
+msgstr "Porcije"
+
+msgid "Costs"
+msgstr "Stroški"
+
+msgid "The ingredients listed here result in this amount of servings"
+msgstr "Sestavine naštete tukaj zadostujejo za toliko porcij"
+
+msgid "Do not check against the shopping list when adding missing items to it"
+msgstr ""
+"Ne preverjaj na nakupovalnem seznamu ko dodajaš manjkajoče elemente nanj"
+
+msgid ""
+"By default the amount to be added to the shopping list is \"needed amount - "
+"stock amount - shopping list amount\" - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+msgstr ""
+
+msgid "Picture"
+msgstr "Slika"
+
+msgid "Uncheck ingredients to not put them on the shopping list"
+msgstr "Odznači vse sestavine ki naj ne bodo na nakupovalnem seznamu"
+
+msgid "This is for statistical purposes only"
+msgstr "To je samo za statistične namene"
+
+msgid "You have to select a recipe"
+msgstr "Moraš izbrati recept"
+
+msgid "Key type"
+msgstr "Vrsta ključa"
+
+msgid "Share/Integrate calendar (iCal)"
+msgstr "Deli/Integriraj koledar (iCal)"
+
+msgid ""
+"Use the following (public) URL to share or integrate the calendar in iCal "
+"format"
+msgstr ""
+"Uporabi naslednji (javni) URL za deliti ali intergrirati koledar v iCal "
+"formatu"
+
+msgid "Enable tare weight handling"
+msgstr "Omogoči upravljanje tare za težo"
+
+msgid ""
+"This is useful e.g. for flour in jars - on purchase/consume/inventory you "
+"always weigh the whole jar, the amount to be posted is then automatically "
+"calculated based on what is in stock and the tare weight defined below"
+msgstr ""
+
+msgid "Tare weight"
+msgstr "Teža tare"
+
+msgid ""
+"Tare weight handling enabled - please weigh the whole container, the amount "
+"to be posted will be automatically calculcated"
+msgstr ""
+
+msgid "You have to select a location"
+msgstr "Morate izbrati lokacijo"
+
+msgid "You have to select a store"
+msgstr "Moraš izbrati trgovino"
+
+msgid "List"
+msgstr "Seznam"
+
+msgid "Gallery"
+msgstr "Galerija"
+
+msgid "The current picture will be deleted on save"
+msgstr "Trenutna slika bo izbrisana pri shranjevanju"
+
+msgid "Journal for this battery"
+msgstr "Dnevnik za to baterijo"
+
+msgid "System info"
+msgstr "Sistemske informacije"
+
+msgid "Changelog"
+msgstr "Zgodovina sprememb"
+
+msgid "will be multiplied by a factor of %1$s to get %2$s"
+msgstr "bo pomnoženo z faktorjem %1$s da dobimo %2$s"
+
+msgid "The given date is earlier than today, are you sure?"
+msgstr "Podani datum je pred današnjim, ali si prepričan?"
+
+msgid "Product count"
+msgstr "Količina izdelka"
+
+msgid ""
+"Type a new product name or barcode and hit TAB or ENTER to start a workflow"
+msgstr ""
+"Vnesi novo ime izdelka ali črtno kodo in pritisni TAB ali ENTER za začetek "
+"poteka dela"
+
+msgid ""
+"This will be used as the default setting when adding this product as a "
+"recipe ingredient"
+msgstr ""
+"To bo uporabljeno kot privzeta nastavitev ob dodajanju tega izdelka kot "
+"sestavina recepta"
+
+msgid "Add item"
+msgstr "Dodaj element"
+
+msgid "Selected shopping list"
+msgstr "Izbran nakupovalni seznam"
+
+msgid "New shopping list"
+msgstr "Nov nakupovalni seznam"
+
+msgid "Delete shopping list"
+msgstr "Izbriši nakupovalni seznam"
+
+msgid "Chores settings"
+msgstr "Nastavitve obveznosti"
+
+msgid "Batteries settings"
+msgstr "Nastavitve baterij"
+
+msgid "Tasks settings"
+msgstr "Nastavitve opravil"
+
+msgid "Create shopping list"
+msgstr "Ustvari nakupovalni seznam"
+
+msgid "Are you sure to delete shopping list \"%s\"?"
+msgstr "Ali si prepričan izbrisati nakupovalni seznam \"%s\"?"
+
+msgid "Average shelf life"
+msgstr "Povprečen rok trajanja"
+
+msgid "Spoil rate"
+msgstr "Stopnja kvarjenja"
+
+msgid "Show more"
+msgstr "Pokaži več"
+
+msgid "Show less"
+msgstr "Pokaži manj"
+
+msgid "The amount must be between %1$s and %2$s"
+msgstr "Količina mora bit med %1$s in %2$s"
+
+msgid "Day of month"
+msgstr "Dan v mesecu"
+
+msgid "Monday"
+msgstr "Ponedeljek"
+
+msgid "Tuesday"
+msgstr "Torek"
+
+msgid "Wednesday"
+msgstr "Sreda"
+
+msgid "Thursday"
+msgstr "Četrtek"
+
+msgid "Friday"
+msgstr "Petek"
+
+msgid "Saturday"
+msgstr "Sobota"
+
+msgid "Sunday"
+msgstr "Nedelja"
+
+msgid "Configure userfields"
+msgstr "Nastavi uporabniška polja"
+
+msgid "Userfields"
+msgstr "Uporabniška polja"
+
+msgid "Entity"
+msgstr "Subjekt"
+
+msgid "Caption"
+msgstr "Naslov"
+
+msgid "Type"
+msgstr "Tip"
+
+msgid "Create userfield"
+msgstr "Ustvari uporabniško polje"
+
+msgid "A entity is required"
+msgstr "Subjekt je obvezen"
+
+msgid "A caption is required"
+msgstr "Naslov je obvezen"
+
+msgid "A type is required"
+msgstr "Tip je obvezen"
+
+msgid "Show as column in tables"
+msgstr "Pokaži kot stolpec v tabelah"
+
+msgid "This is required and can only contain letters and numbers"
+msgstr "To je obvezno in lahko vsebuje samo  črke in številke"
+
+msgid "Edit userfield"
+msgstr "Uredi uporabniško polje"
+
+msgid "Plural forms"
+msgstr "Množinske oblike"
+
+msgid "One plural form per line, the current language requires"
+msgstr "Eno množinsko obliko na vrstico, zahteva trenutni jezik"
+
+msgid "Plural count"
+msgstr ""
+
+msgid "Plural rule"
+msgstr ""
+
+msgid "in plural form"
+msgstr "v množinski obliki"
+
+msgid "Not enough in stock, %s ingredient missing"
+msgid_plural "Not enough in stock, %s ingredients missing"
+msgstr[0] "Ni dovolj zaloge, manjka %s sestavina"
+msgstr[1] "Ni dovolj zaloge, manjkata %s sestavini"
+msgstr[2] "Ni dovolj zaloge, manjka %s sestavin"
+msgstr[3] "Ni dovolj zaloge, manjka %s sestavin"
+
+msgid "Not enough in stock, but already on the shopping list"
+msgstr "Ni dovolj zaloge, je pa že na nakupovalnem seznamu"
+
+msgid "Not enough in stock"
+msgstr "Ni dovolj zaloge"
+
+msgid "Default location"
+msgstr "Privzeta lokacija"
+
+msgid "Default amount for purchase"
+msgstr "Privzeta količina za nakup"
+
+msgid "Default amount for consume"
+msgstr "Privzeta količina za porabo"
+
+msgid "Variable amount"
+msgstr "Spremenljiva količina"
+
+msgid ""
+"When this is not empty, it will be shown instead of the amount entered above"
+" while the amount there will still be used for stock fulfillment checking"
+msgstr ""
+
+msgid "Track date only"
+msgstr "Spremljaj samo datum"
+
+msgid "When enabled only the day of an execution is tracked, not the time"
+msgstr "Ko je omogočeno se spremlja samo dan izvedbe, ne pa čas"
+
+msgid "Consume %1$s of %2$s"
+msgstr "Porabi %1$s od %2$s"
+
+msgid "Meal plan"
+msgstr "Načrt obrokov"
+
+msgid "%s serving"
+msgid_plural "%s servings"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "Week costs"
+msgstr "Tedenski stroški"
+
+msgid "Configuration"
+msgstr "Konfiguracija"
+
+msgid "A predefined list of values, one per line"
+msgstr "Predefiniran seznam vrednosti, ena na vrstico"
+
+msgid "Products"
+msgstr "Izdelki"
+
+msgid "Marked task %s as completed on %s"
+msgstr "Označeno opravilo %s kot zaključeno na %s"
+
+msgid "Booking has subsequent dependent bookings, undo not possible"
+msgstr "Rezervacija ima povezane rezervacije, zato razveljavitev ni mogoča"
+
+msgid "per serving"
+msgstr ""
+
+msgid "Never"
+msgstr "Nikoli"
+
+msgid "Today"
+msgstr "Danes"
+
+msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
+msgstr "Nekatere sestavine recepta \"%s\" so na zalogi, ničesar ne bo odstranjeno"
+
+msgid "Undo task"
+msgstr "Razveljavi opravilo"
+
+msgid "Due date rollover"
+msgstr ""
+
+msgid ""
+"When enabled the chore can never be overdue, the due date will shift forward"
+" each day when due"
+msgstr ""
+"Ko je omogočeno, obvenost nikoli ne zapade, datum zapadlosti se bo premaknil"
+" naprej vsakič ko bi zapadel"
+
+msgid "Location Content Sheet"
+msgstr ""
+
+msgid "Print"
+msgstr "Natisni"
+
+msgid "all locations"
+msgstr "vse lokacije"
+
+msgid ""
+"Here you can print a page per location with the current stock, maybe to hang"
+" it there and note the consumed things on it"
+msgstr ""
+
+msgid "this location"
+msgstr "ta lokacija"
+
+msgid "Consumed amount"
+msgstr "Porabljena količina"
+
+msgid "Time of printing"
+msgstr "Čas izpisa"
+
+msgid "Are you sure to delete equipment \"%s\"?"
+msgstr "Ali res želiš izbrisati opremo \" %s \" ?"
+
+msgid "Parent product"
+msgstr "Nadrejeni izdelek"
+
+msgid ""
+"Not possible because this product is already used as a parent product in "
+"another product"
+msgstr ""
+"Ni mogoče, ker je ta izdelek že uporabljen kot nadrejeni izdelek v drugem "
+"izdelku"
+
+msgid "Default conversions"
+msgstr "Privzete pretvorbe"
+
+msgid "Factor"
+msgstr "Faktor"
+
+msgid "1 %s is the same as..."
+msgstr "1%s je isti kot ..."
+
+msgid "Create QU conversion"
+msgstr "Ustvari pretovrbo enote količine"
+
+msgid "Default for QU"
+msgstr "Privzeto za enoto količine"
+
+msgid "Quantity unit from"
+msgstr "Enota količine od"
+
+msgid "Quantity unit to"
+msgstr "Enota količine do"
+
+msgid "This cannot be equal to %s"
+msgstr "To ne more bit enako %s"
+
+msgid "This means 1 %1$s is the same as %2$s %3$s"
+msgstr "To pomeni da 1 %1$s je enako kot %2$s %3$s"
+
+msgid "QU conversions"
+msgstr "Pretvorbe enot količine"
+
+msgid "Product overrides"
+msgstr ""
+
+msgid "Override for product"
+msgstr ""
+
+msgid "This equals %1$s %2$s"
+msgstr "To je enako %1$s %2$s"
+
+msgid "Edit QU conversion"
+msgstr "Uredi pretvorbe enot količin"
+
+msgid "An assignment type is required"
+msgstr "Tip zadolžitve je obvezen"
+
+msgid "Assignment type"
+msgstr "Tip zadolžitve"
+
+msgid ""
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every day"
+msgid_plural ""
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every %s days"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid ""
+"This means the next execution of this chore is scheduled %s hour after the "
+"last execution"
+msgid_plural ""
+"This means the next execution of this chore is scheduled %s hours after the "
+"last execution"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid ""
+"This means the next execution of this chore is scheduled every week on the "
+"selected weekdays"
+msgid_plural ""
+"This means the next execution of this chore is scheduled every %s weeks on "
+"the selected weekdays"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid ""
+"This means the next execution of this chore is scheduled on the selected day"
+" every month"
+msgid_plural ""
+"This means the next execution of this chore is scheduled on the selected day"
+" every %s months"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "This means the next execution of this chore is not scheduled"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore will not be assigned to anyone"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore will be assigned to the one who "
+"executed it least"
+msgstr ""
+
+msgid "This means the next execution of this chore will be assigned randomly"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore will be assigned to the next one"
+" in alphabetical order"
+msgstr ""
+
+msgid "Assign to"
+msgstr "Dodeli osebi"
+
+msgid "This assignment type requires that at least one is assigned"
+msgstr "Zadolžitev tega tipa zahteva vsaj eno dodeljeno osebo"
+
+msgid "%s chore is assigned to me"
+msgid_plural "%s chores are assigned to me"
+msgstr[0] "%s obveznost je dodeljena meni"
+msgstr[1] "%s obveznosti sta dodeljeni meni"
+msgstr[2] "%s obveznosti je dodeljeno meni"
+msgstr[3] "%s obveznosti je dodeljeno meni"
+
+msgid "Assigned to me"
+msgstr "Dodeljeno meni"
+
+msgid "assigned to %s"
+msgstr "Dodeljeno osebi %s"
+
+msgid "Assignment"
+msgstr "Zadolžitev"
+
+msgid "Consume product on chore execution"
+msgstr "Porabi izdelek ob izvedbi obveznosti"
+
+msgid "Are you sure to delete user field \"%s\"?"
+msgstr "Ali res želiš izbrisati uporabniško polje \"%s\""
+
+msgid "Userentities"
+msgstr ""
+
+msgid "Create userentity"
+msgstr ""
+
+msgid "Show in sidebar menu"
+msgstr "Pokaži v stranskem meniju"
+
+msgid "Edit userentity"
+msgstr ""
+
+msgid "Edit %s"
+msgstr "Uredi %s"
+
+msgid "Create %s"
+msgstr "Ustvari %s"
+
+msgid "Are you sure to delete this userobject?"
+msgstr "Ali res želiš izbrisati ta uporabniški objekt ?"
+
+msgid "Icon CSS class"
+msgstr "Ikona CSS razreda"
+
+msgid "For example"
+msgstr "Na primer"
+
+msgid "Configure fields"
+msgstr "Konfiguriraj polja"
+
+msgid "Quantity unit plural form testing"
+msgstr "Test množinske oblike enote količine"
+
+msgid "Result"
+msgstr "Rezultat"
+
+msgid "Test plural forms"
+msgstr "Preizkusi množinskie oblike"
+
+msgid "Scan a barcode"
+msgstr "Poskeniraj črtno kodo"
+
+msgid "Error while initializing the barcode scanning library"
+msgstr "Napaka pri inicializaciji knjižnice za skeniranje črtnih kod"
+
+msgid ""
+"The resulting price of this ingredient will be multiplied by this factor"
+msgstr "Končna cena te sestavine bo pomnožena s tem faktorjem"
+
+msgid "Price factor"
+msgstr "Faktor cene"
+
+msgid "Do you find grocy useful?"
+msgstr "Ali se ti zdi grocy uporaben?"
+
+msgid "Say thanks"
+msgstr "Zahvali se"
+
+msgid "Search for recipes containing this product"
+msgstr "Išči recepte ki vsebujejo ta izdelek"
+
+msgid "Add to shopping list"
+msgstr "Dodaj na seznam nakupov"
+
+msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
+msgstr "Dodano %1$s od %2$s na nakupovalni seznam \"%3$s\""
+
+msgid "Output"
+msgstr ""
+
+msgid "Energy (kcal)"
+msgstr "Energija (kcal)"
+
+msgid "Per stock quantity unit"
+msgstr ""
+
+msgid "Barcode scanner testing"
+msgstr "Testiranje čitalnika črtne kode"
+
+msgid "Expected barcode"
+msgstr "Pričakovana črtna koda"
+
+msgid "Scan field"
+msgstr "Poskeniraj polja"
+
+msgid "Scanned barcodes"
+msgstr "Poskenirane črtne kode"
+
+msgid "Hit"
+msgstr "Zadetek"
+
+msgid "Miss"
+msgstr "Neuspeh"
+
+msgid "Display recipe"
+msgstr "Prikaži recept"
+
+msgid "Accumulate sub products min. stock amount"
+msgstr "Seštej min. količine podizdelkov"
+
+msgid ""
+"If enabled, the min. stock amount of sub products will be accumulated into "
+"this product, means the sub product will never be missing, only this product"
+msgstr ""
+
+msgid "Are you sure to remove this conversion?"
+msgstr "Ali res želiš odstraniti to pretvorbo?"
+
+msgid "Unit price"
+msgstr "Enota cene"
+
+msgid "Total price"
+msgstr "Skupna cena"
+
+msgid "in %s and based on the purchase quantity unit"
+msgstr ""
+
+msgid "Unlimited"
+msgstr "Neomejeno"
+
+msgid "Clear"
+msgstr "Počisti"
+
+msgid "Are you sure to remove the included recipe \"%s\"?"
+msgstr "Ali res želiš odstraniti vključen recept \"%s\"?"
+
+msgid "Period interval"
+msgstr "Interval periode"
+
+msgid ""
+"This means the next execution of this chore is scheduled every year on the "
+"same day (based on the start date)"
+msgid_plural ""
+"This means the next execution of this chore is scheduled every %s years on "
+"the same day (based on the start date)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "Transfer"
+msgstr "Prenos"
+
+msgid "From location"
+msgstr "Iz lokacije"
+
+msgid "To location"
+msgstr "V lokacijo"
+
+msgid "There are no units available at this location"
+msgstr "Ni enot na voljo na tej lokaciji"
+
+msgid "Amount: %1$s; Due on %2$s; Bought on %3$s"
+msgstr "Količina: %1$s; Poteče na %2$s; Kupljeno na %3$s"
+
+msgid "Transfered %1$s of %2$s from %3$s to %4$s"
+msgstr "Prenseno %1$s od %2$s iz %3$s v %4$s"
+
+msgid "Stock entries"
+msgstr "Zapisi zaloge"
+
+msgid "Best before date"
+msgstr "Uporabno pred datumom"
+
+msgid "Purchased date"
+msgstr "Datum nakupa"
+
+msgid "Consume all %s for this stock entry"
+msgstr "Porabi vse %s tega zapisa zaloge"
+
+msgid "The amount cannot be lower than %1$s"
+msgstr "Količina ne more biti manjša kot %1$s"
+
+msgid "Stock entry successfully updated"
+msgstr "Zapis zaloge uspešno posodobljen"
+
+msgid "Edit stock entry"
+msgstr "Uredi zapis zaloge"
+
+msgid ""
+"Camera access is only possible when supported and allowed by your browser "
+"and when grocy is served via a secure (https://) connection"
+msgstr ""
+
+msgid "Keep screen on"
+msgstr "Ohrani zaslon vklopljen"
+
+msgid "Keep screen on while displaying a \"fullscreen-card\""
+msgstr "Ohrani zaslon vklopljen pri prikazu \"celozaslonske kartice\""
+
+msgid "A purchased date is required"
+msgstr "Datum nakupa je obvezen"
+
+msgid ""
+"When a product is selected, one unit (per serving in stock quantity unit) "
+"will be added to stock on consuming this recipe"
+msgstr ""
+
+msgid "Produces product"
+msgstr "Naredi izdelek"
+
+msgid "This booking cannot be undone"
+msgstr "Ta rezervacija ne more biti razveljavljena"
+
+msgid "Booking does not exist or was already undone"
+msgstr "Rezervacija ne obstaja, ali je že bila razveljavljena"
+
+msgid "Are you sure to delete API key \"%s\"?"
+msgstr "Ali si prepričan, da želiš izbrisati API ključ \"%s\" ?"
+
+msgid "Add note"
+msgstr "Dodaj opombo"
+
+msgid "per day"
+msgstr "na dan"
+
+msgid "Only undone items"
+msgstr ""
+
+msgid "Add product"
+msgstr "Dodaj izdelek"
+
+msgid "Consume all ingredients needed by this weeks recipes or products"
+msgstr "Porabi vse sestavine potrebne ta teden za recepte ali izdelke"
+
+msgid "Meal plan recipe"
+msgstr "Recept za načrt obroka"
+
+msgid "Meal plan note"
+msgstr "Opomba načrta obroka"
+
+msgid "Meal plan product"
+msgstr "Izdelek načrta obroka"
+
+msgid "Scan mode"
+msgstr "Način skeniranja"
+
+msgid "on"
+msgstr "vključeno"
+
+msgid "off"
+msgstr "izključeno"
+
+msgid ""
+"Scan mode is on but not all required fields could be populated automatically"
+msgstr ""
+"Način skeniranja je vključen, ampak obvezna polja ne morejo biti avtomatsko "
+"zapolnjena"
+
+msgid "Is freezer"
+msgstr "Je zmrzovalnik"
+
+msgid "This cannot be the same as the \"From\" location"
+msgstr "To ne more biti enako kot lokacija \"Iz\""
+
+msgid "Thawed"
+msgstr "Odtaljeno"
+
+msgid "Frozen"
+msgstr "Zamrznejno"
+
+msgid "Are you sure to delete userentity \"%s\"?"
+msgstr ""
+
+msgid "Shopping list settings"
+msgstr "Nastavitve nakupovalnega seznama"
+
+msgid "Show a month-view calendar"
+msgstr "Prikaži mesečni koledar"
+
+msgid "Desired servings"
+msgstr ""
+
+msgid "Base: %s"
+msgstr "Osnova: %s"
+
+msgid "Recipes settings"
+msgstr "Nastavitve receptov"
+
+msgid "Recipe card"
+msgstr "Kartica recepta"
+
+msgid "Group ingredients by their product group"
+msgstr "Skupine sestavin po njihovih skupinah izdelkov"
+
+msgid "Unknown store"
+msgstr "Neznana trgovina"
+
+msgid "Store"
+msgstr "Trgovina"
+
+msgid "Transaction successfully undone"
+msgstr "Transakcija uspešno razveljavljena"
+
+msgid "Default store"
+msgstr "Privzeta trgovina"
+
+msgid "Consume this stock entry"
+msgstr "Porabi ta zapis zaloge"
+
+msgid "Mark this stock entry as open"
+msgstr "Označi ta zapis zaloge kot odprt"
+
+msgid "Mark this item as done"
+msgstr "Označi ta element kot končan"
+
+msgid "Edit this item"
+msgstr "Uredi ta element"
+
+msgid "Delete this item"
+msgstr "Izbriši ta element"
+
+msgid "Show an icon if the product is already on the shopping list"
+msgstr "Prikaži ikono če je izdelek že na nakupovalnem seznamu"
+
+msgid "Calories"
+msgstr "Kalorije"
+
+msgid "means %1$s per %2$s"
+msgstr "pomeni %1$s na %2$s"
+
+msgid "Create recipe"
+msgstr "Ustvari recept"
+
+msgid "Save & continue to add ingredients and included recipes"
+msgstr "Shrani & nadaljuj dodajanje sestavin in vključenih receptov"
+
+msgid "Save & continue"
+msgstr "Shrani & nadaljuj"
+
+msgid "Save & return to recipes"
+msgstr "Shrani & se vrni k receptom"
+
+msgid "Stock value"
+msgstr "Vrednost zaloge"
+
+msgid "Average price"
+msgstr "Povprečna cena"
+
+msgid "Active"
+msgstr "Aktiven"
+
+msgid "Barcodes"
+msgstr "Črtne kode"
+
+msgid "Barcode"
+msgstr "Črtna koda"
+
+msgid "Create Barcode"
+msgstr "Ustvari črtno kodo"
+
+msgid "Barcode for product"
+msgstr "Črtna koda za izdelek"
+
+msgid "Edit Barcode"
+msgstr "Uredi črtno kodo"
+
+msgid ""
+"Based on the prices of the default consume rule (Opened first, then first "
+"due first, then first in first out) for in-stock ingredients and on the last"
+" price for missing ones"
+msgstr ""
+
+msgid "Clear filter"
+msgstr "Počisti filter"
+
+msgid "Permissions for user %s"
+msgstr "Dovoljenja za uporabnika %s"
+
+msgid "Are you sure you want to remove full permissions for yourself?"
+msgstr "Ali res želiš odstraniti vse pravice za sebe?"
+
+msgid "Permissions saved"
+msgstr "Dovoljenja shranjena"
+
+msgid "You are not allowed to view this page"
+msgstr "Nimaš dovoljenja za ogled te strani"
+
+msgid "Page not found"
+msgstr "Stran ni bila najdena"
+
+msgid "Unauthorized"
+msgstr "Nepooblaščeno"
+
+msgid "Error source"
+msgstr "Izvor napake"
+
+msgid "Error message"
+msgstr "Sporočilo napake"
+
+msgid "Stack trace"
+msgstr "Stack trace"
+
+msgid "Easy error info copy & paste (for reporting)"
+msgstr "Enostavno kopiranje & lepljenje informacij (za poročanje)"
+
+msgid "This page does not exist"
+msgstr "Ta stran ne obstaja"
+
+msgid "You will be redirected to the default page in %s seconds"
+msgstr "Preusmerjen boš na privzeto stran čez %s sekund"
+
+msgid "Server error"
+msgstr "Napaka serverja"
+
+msgid "A server error occured while processing your request"
+msgstr "Med procesiranjem tvojega zahtevka je prišlo do napake na serverju"
+
+msgid "If you think this is a bug, please report it"
+msgstr "Če misliš da je to hrošč, ga prosim sporoči"
+
+msgid "Language"
+msgstr "Jezik"
+
+msgid "User settings"
+msgstr "Uporabniške nastavitve"
+
+msgid "Default"
+msgstr "Privzeto"
+
+msgid "Stock journal summary"
+msgstr "Povzetek dnevnika zaloge"
+
+msgid "Journal summary"
+msgstr "Povzetek dnevnika"
+
+msgid "Consume exact amount"
+msgstr "Porabi točno količino"
+
+msgid "Value"
+msgstr "Vrednost"
+
+msgid "%s total value"
+msgstr "%s skupne količine"
+
+msgid ""
+"Show purchased date on purchase and inventory page (otherwise the purchased "
+"date defaults to today)"
+msgstr ""
+
+msgid "Common"
+msgstr "Skupno"
+
+msgid "Decimal places allowed for amounts"
+msgstr "Dovoljena decimalna mesta za količine"
+
+msgid "Decimal places allowed for prices"
+msgstr "Dovoljena decimalna mesta za cene"
+
+msgid "Edit shopping list"
+msgstr "Uredi seznam nakupov"
+
+msgid "Save & continue to add quantity unit conversions & barcodes"
+msgstr "Shrani & nadaljuj dodajanje pretvorb enot količine & črtnih kod"
+
+msgid "Save & return to products"
+msgstr "Shrani & se vrni k izdelkom"
+
+msgid "Save & continue to add conversions"
+msgstr "Shrani & nadaljuj dodajanje pretvorb"
+
+msgid "Save & return to quantity units"
+msgstr "Shrani & se vrni k enotam količin"
+
+msgid "price"
+msgstr "cena"
+
+msgid "New stock amount"
+msgstr "Količina nove zaloge"
+
+msgid "Price per stock unit"
+msgstr "Cena na enoto zalogo"
+
+msgid "Table options"
+msgstr "Možnosti tabele"
+
+msgid "This product is currently on a shopping list"
+msgstr "Ta izdelek je trenutno na nakupovalnem seznamu"
+
+msgid "Undo transaction"
+msgstr "Razveljavi transakcijo"
+
+msgid "Transaction type"
+msgstr "Tip transakcije"
+
+msgid "Transaction time"
+msgstr "Čas transakcije"
+
+msgid "Chore journal"
+msgstr "Dnevnik obveznosti"
+
+msgid "Track chore execution"
+msgstr "Spremljaj izvedbo obveznosti"
+
+msgid "Mark task as completed"
+msgstr "Označi opravilo kot zaključeno"
+
+msgid "Track charge cycle"
+msgstr "Spremljaj cikel polnjenja"
+
+msgid "Battery journal"
+msgstr "Dnevnik baterije"
+
+msgid "This product has a picture"
+msgstr "Ta izdelek ima sliko"
+
+msgid "Consume this stock entry as spoiled"
+msgstr "Porabi ta zapis zaloge kot pokvarjen"
+
+msgid "Configure user permissions"
+msgstr "Konfiguriraj uporabnikova dovoljenja"
+
+msgid "Show a QR-Code for this API key"
+msgstr "Pokaži QR-kodo za ta API ključ"
+
+msgid ""
+"This is the default quantity unit used when adding this product to the "
+"shopping list"
+msgstr ""
+"To je privzeta enota količine za dodajanje tega izdelka na nakupovalni "
+"seznam"
+
+msgid ""
+"Show a warning when the due date of the purchased product is earlier than "
+"the next due date in stock"
+msgstr ""
+"Prikaži opozorilo ko je datum poteka kupljenega izdelka pred naslednjim "
+"datumom poteka na zalogi"
+
+msgid "This is due earlier than already in-stock items"
+msgstr "To je pred datumom poteka izdelka na zalogi"
+
+msgid ""
+"When enabled, after changing/scanning a product and if all fields could be "
+"automatically populated (by product and/or barcode defaults), the "
+"transaction is automatically submitted"
+msgstr ""
+
+msgid "Quick consume amount"
+msgstr "Hitro porabi količino"
+
+msgid ""
+"This amount is used for the \"quick consume/open buttons\" on the stock "
+"overview page (related to quantity unit stock)"
+msgstr ""
+
+msgid "Copy"
+msgstr "Kopiraj"
+
+msgid "Are you sure to remove this barcode?"
+msgstr "Ali res želiš odstraniti to črtno kodo?"
+
+msgid "Due date type"
+msgstr "Tip datuma poteka"
+
+msgid ""
+"Based on the selected type, the highlighting on the stock overview page will"
+" be different"
+msgstr ""
+
+msgid ""
+"Means that the product is maybe still safe to be consumed after its due date"
+" is reached"
+msgstr ""
+
+msgid "Expiration date"
+msgstr "Datum poteka"
+
+msgid ""
+"Means that the product is not safe to be consumed after its due date is "
+"reached"
+msgstr ""
+
+msgid ""
+"For purchases this amount of days will be added to today for the due date "
+"suggestion"
+msgstr ""
+
+msgid "-1 means that this product will be never overdue"
+msgstr "-1 pomeni da ta izdelek nima datuma poteka"
+
+msgid "Default due days"
+msgstr ""
+
+msgid ""
+"When this product was marked as opened, the due date will be replaced by "
+"today + this amount of days, but only if the resulting date is not after the"
+" original due date (a value of 0 disables this)"
+msgstr ""
+
+msgid "Default due days after opened"
+msgstr ""
+
+msgid ""
+"On moving this product to a freezer location (so when freezing it), the due "
+"date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default due days after freezing"
+msgstr ""
+
+msgid ""
+"On moving this product from a freezer location (so when thawing it), the due"
+" date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default due days after thawing"
+msgstr ""
+
+msgid "Next due date"
+msgstr ""
+
+msgid "%s product is due"
+msgid_plural "%s products are due"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "Due date"
+msgstr ""
+
+msgid "Never overdue"
+msgstr ""
+
+msgid "%s product is expired"
+msgid_plural "%s products are expired"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "Expired"
+msgstr "Poteklo"
+
+msgid "Due soon days"
+msgstr ""
+
+msgid "Add overdue/expired products"
+msgstr ""
+
+msgid ""
+"Products with tare weight enabled are currently not supported for transfer"
+msgstr "Izdelki s taro trenutno niso podprti za prenos"
+
+msgid ""
+"This cannot be lower than %1$s or equal %2$s and needs to be a valid number "
+"with max. %3$s decimal places"
+msgstr ""
+
+msgid ""
+"This must be between %1$s and %2$s, cannot equal %3$s and needs to be a "
+"valid number with max. %4$s decimal places"
+msgstr ""
+
+msgid ""
+"This cannot be lower than %1$s and needs to be a valid number with max. %2$s"
+" decimal places"
+msgstr ""
+
+msgid ""
+"This must between %1$s and %2$s and needs to be a valid number with max. "
+"%3$s decimal places"
+msgstr ""
+
+msgid ""
+"Automatically do the booking using the last price and the amount of the "
+"shopping list item, if the product has \"Default due days\" set"
+msgstr ""
+
+msgid ""
+"When moving products from/to a freezer location, the products due date is "
+"automatically adjusted according to the product settings"
+msgstr ""
+
+msgid "This is the internal field name, e. g. for the API"
+msgstr ""
+
+msgid "This is used to display the field on the frontend"
+msgstr ""
+
+msgid "Multiple Userfields will be ordered by that number on the input form"
+msgstr ""
+
+msgid "Sort number"
+msgstr "Sortiraj število"
+
+msgid "Download file"
+msgstr "Naloži datoteko"
+
+msgid "Use the products \"Quick consume amount\""
+msgstr "Uporabi izdelkov \"Hitro porabi količino\""
+
+msgid "Disabled"
+msgstr "Onemogočeno"
+
+msgid ""
+"This also removes any stock amount, the journal and all other references of "
+"this product - consider disabling it instead, if you want to keep that and "
+"just hide the product."
+msgstr ""
+
+msgid "Show disabled"
+msgstr "Pokaži onemogočeno"
+
+msgid "Never show on stock overview"
+msgstr "Nikoli ne pokaži na pregledu zaloge"
+
+msgid "None"
+msgstr "noben"
+
+msgid "Group by"
+msgstr "Zberi po"
+
+msgid "Ingredient group"
+msgstr "Skupina sestavine"
+
+msgid "Reset"
+msgstr "Ponastavi"
+
+msgid "Are you sure to reset the table options?"
+msgstr "Ali res želiš ponastaviti možnosti tabele?"
+
+msgid "Hide/view columns"
+msgstr "Skrij/prikaži stolpce"
+
+msgid ""
+"A different amount/unit can then be used below while for stock fulfillment "
+"checking it is sufficient when any amount of the product in stock"
+msgstr ""
+
+msgid "Last price (Unit)"
+msgstr "Zadnja cena (Enota)"
+
+msgid "Last price (Total)"
+msgstr "Zadnja cena (Skupaj)"
+
+msgid "Show header"
+msgstr "Pokaži glavo"
+
+msgid "Group by product group"
+msgstr "Zberi po skupinah izdelkov"
+
+msgid "Table"
+msgstr "Tabela"
+
+msgid "Layout type"
+msgstr "Tip ureditve"
+
+msgid "Merge this product with another one"
+msgstr "Združi ta izdelek z drugim"
+
+msgid "Merge products"
+msgstr "Združi izdelke"
+
+msgid "Product to keep"
+msgstr "Izdelek za obdržati"
+
+msgid "Product to remove"
+msgstr "Izdelek za izbris"
+
+msgid "Error while merging"
+msgstr "Napaka pri združevanju"
+
+msgid "After merging, this product will be kept"
+msgstr "Po združevanju ohrani ta izdelek"
+
+msgid ""
+"After merging, all occurences of this product will be replaced by the kept "
+"product (means this product will not exist anymore)"
+msgstr ""
+
+msgid "Merge"
+msgstr "Združi"
+
+msgid "Title"
+msgstr "Naslov"
+
+msgid "Link"
+msgstr "Povezava"
+
+msgid ""
+"The stock overview page lists all products which are currently in-stock or "
+"below their min. stock amount - enable this to hide this product there "
+"always"
+msgstr ""
+
+msgid "Print options"
+msgstr "Možnosti tiskanja"
+
+msgid "A product or a note is required"
+msgstr "Izdelek ali opomba je obvezen"
+
+msgid "grocycode"
+msgstr ""
+
+msgid "Download"
+msgstr "Naloži"
+
+# Example: Download *Product* grocycode
+msgid "Download %s grocycode"
+msgstr "Naloži %s grocycode"
+
+msgid ""
+"grocycode is a unique referer to this %s in your grocy instance - print it "
+"onto a label and scan it like any other barcode"
+msgstr ""
+
+# Abbreviation for "due date"
+msgid "DD"
+msgstr ""
+
+msgid "Print on label printer"
+msgstr "Natisni na tiskalniku nalepk"
+
+msgid "Default stock entry label"
+msgstr "Privzeta nalepka vnosa zaloge"
+
+msgid "Stock entry label"
+msgstr "Nalepka vnosa zaloge"
+
+msgid "No label"
+msgstr "Ni nalepke"
+
+msgid "Single label"
+msgstr "Posamezna nalepka"
+
+msgid "Label per unit"
+msgstr "Nalepka na enoto"
+
+msgid "Error while executing WebHook"
+msgstr ""
+
+# Example: Print *Product* grocycode on label printer
+msgid "Print %s grocycode on label printer"
+msgstr "Natisni %s grocycode na tiskalniku nalepk"
+
+msgid "Open stock entry label in new window"
+msgstr "Odpri nalepko vnosa zaloge v novem oknu"
+
+msgid "Thermal printer"
+msgstr "Termični tiskalnik"
+
+msgid "Printing"
+msgstr "Tiskanje"
+
+msgid "Connecting to printer..."
+msgstr "Povezovanje s tiskalnikom..."
+
+msgid "Unable to print"
+msgstr "Ni možno tiskati"
+
+msgid "Only done items"
+msgstr ""
+
+msgid "Show only in-stock products"
+msgstr "Prikaži samo izdelke na zalogi"
+
+msgid "Product description"
+msgstr "Opis izdelka"
+
+# Example: *3.21 USD* per *Pack*
+msgid "%1$s per %2$s"
+msgstr "%1$s na %2$s"
+
+msgid "Mark this item as undone"
+msgstr "Označi ta element kot ne končan"
+
+msgid "Mandatory"
+msgstr "Obvezno"
+
+msgid "Mandatory Userfield"
+msgstr "Obvezna uporabniška polja"
+
+msgid "When enabled, then this field must be filled on the destination form"
+msgstr "Ko je omogočeno, potem mora biti to polje izpolnjeno na obrazcu cilja"
+
+msgid "In-stock products"
+msgstr "Izdelki na zalogi"
+
+msgid "Timestamp"
+msgstr "Časovna oznaka"
+
+msgid "Should not be frozen"
+msgstr "Ne sme biti zamrznjeno"
+
+msgid ""
+"When enabled, on moving this product to a freezer location (so when freezing"
+" it), a warning will be shown"
+msgstr ""
+
+msgid "This product shouldn't be frozen"
+msgstr "Ta izdelek ne sme biti zamrznjen"
+
+msgid "Copy all meal plan entries of %s"
+msgstr ""
+
+msgid "A date is required"
+msgstr "Datum je obvezen"
+
+msgid "Day"
+msgstr "Dan"
+
+msgid "Add recipe"
+msgstr "Dodaj recept"
+
+msgid "Copy this day"
+msgstr "Kopiraj ta dan"
+
+msgid "Date range"
+msgstr "Časovno obdobje"
+
+msgid "%s month"
+msgid_plural "%s months"
+msgstr[0] "%s mesec"
+msgstr[1] "%s meseca"
+msgstr[2] "%s mesecev"
+msgstr[3] "%s mesecev"
+
+msgid "%s year"
+msgid_plural "%s years"
+msgstr[0] "%s leto"
+msgstr[1] "%s leti"
+msgstr[2] "%s let"
+msgstr[3] "%s let"
+
+msgid "Display product"
+msgstr "Prikaži izdelek"
+
+msgid "Copy recipe"
+msgstr "Kopiraj recept"
+
+msgid "Copy of %s"
+msgstr "Kopiraj %s"
+
+msgid "Add decimal separator automatically for price inputs"
+msgstr "Samodejno dodaj decimalno ločilo za vnose cen"
+
+msgid ""
+"When enabled, you always have to enter the value including decimal places, "
+"the decimal separator will be automatically added based on the amount of "
+"allowed decimal places"
+msgstr ""
+
+msgid "Stock entry"
+msgstr "Element zaloge"
+
+msgid "Configure sections"
+msgstr "Konfiguriraj oddelke"
+
+msgid "Meal plan sections"
+msgstr "Oddelki načrta obrokov"
+
+msgid "Create meal plan section"
+msgstr ""
+
+msgid "Sections will be ordered by that number on the meal plan"
+msgstr ""
+
+msgid "Edit meal plan section"
+msgstr ""
+
+msgid "Are you sure to delete meal plan section \"%s\"?"
+msgstr ""
+
+msgid "Section"
+msgstr "Oddelek"
+
+msgid "Are you sure to empty the shopping list?"
+msgstr "Ali res želiš izprazniti nakupovalni seznam?"
+
+msgid "This is the default which will be prefilled on purchase"
+msgstr "To je privzeta vrednost, ki bo vnaprej vnešena ob nakupu"
+
+msgid "Merge chores"
+msgstr "Združi obveznosti"
+
+msgid "Chore to keep"
+msgstr "Obdržane obveznosti"
+
+msgid "After merging, this chore will be kept"
+msgstr "Ta obveznost bo ostala ohranjena po združitvi"
+
+msgid "Chore to remove"
+msgstr "Obveznost za odstranitev"
+
+msgid ""
+"After merging, all occurences of this chore will be replaced by the kept "
+"chore (means this chore will not exist anymore)"
+msgstr ""
+"Po združitvi bodo vse ponovitve te obveznosti zamenjane z obdržano "
+"obveznostjo (to pomeni da ta obveznost ne bo več obstajala)"
+
+msgid "Due today"
+msgstr "Zapade danes"
+
+msgid "%s task is due to be done today"
+msgid_plural "%s tasks are due to be done today"
+msgstr[0] "%s opravilo zapade danes"
+msgstr[1] "%s opravili zapadeta danes"
+msgstr[2] "%s opravil zapade danes"
+msgstr[3] "%s opravil zapade danes"
+
+msgid "%s chore is due to be done today"
+msgid_plural "%s chores are due to be done today"
+msgstr[0] "%s obveznost zapade danes"
+msgstr[1] "%s obveznosti zapadeta danes"
+msgstr[2] "%s obveznosti zapade danes"
+msgstr[3] "%s obveznosti zapade danes"
+
+msgid "%s battery is due to be charged today"
+msgid_plural "%s batteries are due to be charged today"
+msgstr[0] "%s baterija mora bit napolnjena danes"
+msgstr[1] "%s bateriji morata bit napolnjeni danes"
+msgstr[2] "%s baterij more bit napolnjeno danes"
+msgstr[3] "%s baterij more bit napolnjeno danes"
+
+msgid "Set to 0 to hide due soon filters/highlighting"
+msgstr "Postavi na 0 če želiš skriti filtre/označbe"
+
+msgid "Save & close"
+msgstr "Shrani & zapri"
+
+msgid "Save & add another task"
+msgstr "Shrani in dodaj novo opravilo"
+
+msgid "Treat opened as out of stock"
+msgstr ""
+
+msgid ""
+"When enabled, opened items will be counted as missing for calculating if "
+"this product is below its minimum stock amount"
+msgstr ""
+
+msgid "Skipped"
+msgstr "Preskočeno"
+
+msgid "Skip next chore schedule"
+msgstr "Preskoči naslednj razpored obveznosti"
+
+msgid "Time"
+msgstr "Čas"
+
+msgid "A start date is required"
+msgstr "Zašetni datum je obvezen"
+
+msgid "Start date"
+msgstr "Začetni datum"
+
+msgid "The start date cannot be changed when the chore was once tracked"
+msgstr ""
+"Ni možno spreminjati začetnega datuma, potem ko se obveznost že spremlja"
+
+msgid "Show the recipe list and the recipe side by side"
+msgstr "Prikaži seznam receptov in recept stran ob strani"
+
+msgid ""
+"This means the next execution of this chore is scheduled dynamically based "
+"on the past average execution frequency"
+msgstr ""
+
+msgid "Average execution frequency"
+msgstr "Povprečna frekvenca izvršitve"
+
+msgid "Reschedule next execution"
+msgstr ""
+
+msgid "This can only be in the future"
+msgstr ""
+
+msgid "Rescheduled"
+msgstr ""
+
+msgid "Due score"
+msgstr ""
+
+msgid ""
+"The higher this number is, the more ingredients currently in stock are due "
+"soon, overdue or already expired"
+msgstr ""
+
+msgid "Disable own stock"
+msgstr ""
+
+msgid ""
+"When enabled, this product can't have own stock, means it will not be "
+"selectable on purchase (useful for parent products which are just used as a "
+"summary/total view of the child products)"
+msgstr ""
+
+msgid "Out of stock items will be shown at the products default location"
+msgstr ""
+
+msgid "Show a little checkbox next to each ingredient to mark it as done"
+msgstr ""
+
+msgid ""
+"The ingredient is crossed out when clicked, the status is not saved, means "
+"reset when the page is reloaded"
+msgstr ""
+
+msgid ""
+"The parent product %1$s is currently not in stock, %2$s is the current next "
+"sub product based on the default consume rule (Opened first, then first due "
+"first, then first in first out)"
+msgstr ""
+
+msgid "Night mode"
+msgstr ""
+
+msgid "On"
+msgstr ""
+
+msgid "Use system setting"
+msgstr ""
+
+msgid "Off"
+msgstr ""
+
+msgid ""
+"Automatically add products that are below their defined min. stock amount to"
+" the shopping list"
+msgstr ""
+
+msgid "Reassigned"
+msgstr ""
+
+msgid "Default value"
+msgstr ""
+
+msgid "Now / today"
+msgstr ""
+
+msgid "Add meal plan entry"
+msgstr ""
+
+msgid "Edit meal plan entry"
+msgstr ""
+
+msgid "Default consume location"
+msgstr ""
+
+msgid "Stock entries at this location will be consumed first"
+msgstr ""

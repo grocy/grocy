@@ -1,0 +1,134 @@
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-29 16:33+0000\n"
+"Language-Team: Slovenian (https://www.transifex.com/grocy/teams/93189/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"X-Domain: grocy/permissions\n"
+
+# All permissions
+msgid "ADMIN"
+msgstr ""
+
+# Create users
+msgid "USERS_CREATE"
+msgstr ""
+
+# Edit users (including passwords)
+msgid "USERS_EDIT"
+msgstr ""
+
+# Show users
+msgid "USERS_READ"
+msgstr ""
+
+# Edit own user data / change own password
+msgid "USERS_EDIT_SELF"
+msgstr ""
+
+# Undo charge cycle
+msgid "BATTERIES_UNDO_CHARGE_CYCLE"
+msgstr ""
+
+# Track charge cycle
+msgid "BATTERIES_TRACK_CHARGE_CYCLE"
+msgstr ""
+
+# Track execution
+msgid "CHORE_TRACK_EXECUTION"
+msgstr ""
+
+# Undo execution
+msgid "CHORE_UNDO_EXECUTION"
+msgstr ""
+
+# Edit master data
+msgid "MASTER_DATA_EDIT"
+msgstr ""
+
+# Undo execution
+msgid "TASKS_UNDO_EXECUTION"
+msgstr ""
+
+# Mark completed
+msgid "TASKS_MARK_COMPLETED"
+msgstr ""
+
+# Edit stock entries
+msgid "STOCK_EDIT"
+msgstr ""
+
+# Transfer
+msgid "STOCK_TRANSFER"
+msgstr ""
+
+# Inventory
+msgid "STOCK_INVENTORY"
+msgstr ""
+
+# Consume
+msgid "STOCK_CONSUME"
+msgstr ""
+
+# Open products
+msgid "STOCK_OPEN"
+msgstr ""
+
+# Purchase
+msgid "STOCK_PURCHASE"
+msgstr ""
+
+# Add items
+msgid "SHOPPINGLIST_ITEMS_ADD"
+msgstr ""
+
+# Remove items
+msgid "SHOPPINGLIST_ITEMS_DELETE"
+msgstr ""
+
+# User management
+msgid "USERS"
+msgstr ""
+
+# Stock
+msgid "STOCK"
+msgstr ""
+
+# Shopping list
+msgid "SHOPPINGLIST"
+msgstr ""
+
+# Chores
+msgid "CHORES"
+msgstr ""
+
+# Batteries
+msgid "BATTERIES"
+msgstr ""
+
+# Tasks
+msgid "TASKS"
+msgstr ""
+
+# Recipes
+msgid "RECIPES"
+msgstr ""
+
+# Equipment
+msgid "EQUIPMENT"
+msgstr ""
+
+# Calendar
+msgid "CALENDAR"
+msgstr ""
+
+# Meal plan
+msgid "RECIPES_MEALPLAN"
+msgstr ""

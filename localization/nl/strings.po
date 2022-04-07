@@ -2,7 +2,6 @@
 # Translators:
 # Llewy <carlvanoene@gmail.com>, 2019
 # Adriaan Peeters <apeeters@lashout.net>, 2019
-# Seppe <van.winkel.seppe@me.com>, 2019
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # Jelte L <jelte@ollavogala.org>, 2019
 # Tarik Faik <filoor1@gmail.com>, 2019
@@ -29,6 +28,7 @@
 # mc bloch <transifex@mcbloch.dev>, 2021
 # Gerard stn, 2021
 # Simon Bor <mail@simonbor.nl>, 2022
+# T. van der Nagel, 2022
 # 
 msgid ""
 msgstr ""
@@ -36,7 +36,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Simon Bor <mail@simonbor.nl>, 2022\n"
+"Last-Translator: T. van der Nagel, 2022\n"
 "Language-Team: Dutch (https://www.transifex.com/grocy/teams/93189/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,7 +46,7 @@ msgstr ""
 "X-Domain: grocy/strings\n"
 
 msgid "Stock overview"
-msgstr "Voorraadoverzicht"
+msgstr "Voorraad"
 
 msgid "%s product expires"
 msgid_plural "%s products expiring"
@@ -91,7 +91,7 @@ msgid "Chores overview"
 msgstr "Klusjes"
 
 msgid "Batteries overview"
-msgstr "Overzicht batterijen"
+msgstr "Batterijen"
 
 msgid "Purchase"
 msgstr "Aankoop"
@@ -115,7 +115,7 @@ msgid "Locations"
 msgstr "Locaties"
 
 msgid "Stores"
-msgstr "Winkel"
+msgstr "Winkels"
 
 msgid "Quantity units"
 msgstr "Hoeveelheidseenheden"
@@ -253,7 +253,7 @@ msgid "Create quantity unit"
 msgstr "Maak hoeveelheidseenheid"
 
 msgid "Period type"
-msgstr "Type periode"
+msgstr "Frequentie"
 
 msgid "Period days"
 msgstr "Dagen per periode"
@@ -284,9 +284,6 @@ msgstr "Wijzig locatie"
 
 msgid "Edit store"
 msgstr "Bewerk winkel"
-
-msgid "Record data"
-msgstr "Gegevens opslaan"
 
 msgid "Manage master data"
 msgstr "Beheer masterdata"
@@ -380,7 +377,7 @@ msgid "Created"
 msgstr "Aangemaakt"
 
 msgid "This product is not in stock"
-msgstr "Dit product is niet in voorraad"
+msgstr "Dit product is niet op voorraad"
 
 msgid "This means %s will be added to stock"
 msgstr "%s zal worden toegevoegd aan de voorraad"
@@ -491,7 +488,7 @@ msgid "Put missing products on shopping list"
 msgstr "Voeg ontbrekende producten toe aan boodschappenlijst"
 
 msgid "Enough in stock"
-msgstr "Genoeg in voorraad"
+msgstr "Genoeg voorraad"
 
 msgid ""
 "Not enough in stock, %s ingredient missing but already on the shopping list"
@@ -747,12 +744,6 @@ msgstr "Status"
 msgid "Below min. stock amount"
 msgstr "Onder min. voorraadhoeveelheid"
 
-msgid "Expiring soon"
-msgstr "Verloopt binnenkort"
-
-msgid "Already expired"
-msgstr "Al verlopen"
-
 msgid "Due soon"
 msgstr "Moet binnenkort gedaan worden"
 
@@ -764,9 +755,6 @@ msgstr "Beeldinstellingen"
 
 msgid "Auto reload on external changes"
 msgstr "Auto-vernieuwen bij externe wijzigingen"
-
-msgid "Enable night mode"
-msgstr "Zet nachtmodus aan"
 
 msgid "Auto enable in time range"
 msgstr "Automatisch aanzetten in tijdsspanne"
@@ -893,11 +881,9 @@ msgid "Use a specific stock item"
 msgstr "Gebruik een specifiek voorraaditem"
 
 msgid ""
-"The first item in this list would be picked by the default rule which is "
-"\"Opened first, then first due first, then first in first out\""
+"The first item in this list would be picked by the default rule consume rule"
+" (Opened first, then first due first, then first in first out)"
 msgstr ""
-"Het eerste item in deze lijst wordt gekozen met de standaardregel: \"Als "
-"eerste geopend, daarna als eerste over datum, daarna eerste in eerste uit\""
 
 msgid "Mark %1$s of %2$s as open"
 msgstr "Markeer %1$s %2$s als geopend"
@@ -992,9 +978,6 @@ msgid ""
 msgstr ""
 "Gebruik de volgende (publieke) URL om de agenda te delen of integreren in "
 "iCal formaat"
-
-msgid "Allow partial units in stock"
-msgstr "Sta gedeeltelijke eenheden in voorraad toe"
 
 msgid "Enable tare weight handling"
 msgstr "Gebruik van tarragewicht afhandelen"
@@ -1194,9 +1177,6 @@ msgstr "Niet genoeg op voorraad, maar al op het boodschappenlijstje"
 msgid "Not enough in stock"
 msgstr "Niet genoeg op voorraad"
 
-msgid "Expiring soon days"
-msgstr "Vervalt binnenkort dagen"
-
 msgid "Default location"
 msgstr "Standaardlocatie"
 
@@ -1230,9 +1210,6 @@ msgstr "Verbruik %1$s %2$s"
 
 msgid "Meal plan"
 msgstr "Maaltijdplan"
-
-msgid "Add recipe on %s"
-msgstr "Voeg recept toe op %s"
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1374,11 +1351,11 @@ msgid "Assignment type"
 msgstr "Opdrachttype"
 
 msgid ""
-"This means the next execution of this chore is scheduled %s day after the "
-"last execution"
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every day"
 msgid_plural ""
-"This means the next execution of this chore is scheduled %s days after the "
-"last execution"
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every %s days"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -1632,7 +1609,7 @@ msgid "Best before date"
 msgstr "Tenminste houdbaar tot"
 
 msgid "Purchased date"
-msgstr "Aangeschafte datum"
+msgstr "Aanschafdatum"
 
 msgid "Consume all %s for this stock entry"
 msgstr "Verbruik %s van deze voorraad"
@@ -1685,9 +1662,6 @@ msgstr "Bent u zeker dat u API sleutel “%s” wilt verwijderen?"
 msgid "Add note"
 msgstr "Voeg notitie toe"
 
-msgid "Add note on %s"
-msgstr "Voeg notitie toe aan %s"
-
 msgid "per day"
 msgstr "per dag"
 
@@ -1696,9 +1670,6 @@ msgstr "Alleen nog niet afgehandelde items"
 
 msgid "Add product"
 msgstr "Voeg product toe"
-
-msgid "Add product on %s"
-msgstr "Voeg product toe aan %s"
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
 msgstr ""
@@ -1732,13 +1703,6 @@ msgstr ""
 msgid "Is freezer"
 msgstr "Is diepvries"
 
-msgid ""
-"When moving products from/to a freezer location, the products best before "
-"date is automatically adjusted according to the product settings"
-msgstr ""
-"Bij het verplaatsen van producten van/naar een driepvrieslocatie, zal de "
-"THT-datum automatisch aangepast worden volgens de productinstellingen"
-
 msgid "This cannot be the same as the \"From\" location"
 msgstr "Dit kan niet hetzelfde zijn als de “Van” locatie"
 
@@ -1757,17 +1721,8 @@ msgstr "Instellingen voor het boodschappenlijstje"
 msgid "Show a month-view calendar"
 msgstr "Toon de maandkalender."
 
-msgid "Edit note on %s"
-msgstr "Bewerk notitie over %s"
-
-msgid "Edit product on %s"
-msgstr "Bewerk product over %s"
-
-msgid "Edit recipe on %s"
-msgstr "Bewerk recept over %s"
-
 msgid "Desired servings"
-msgstr "Gewenste aantal porties"
+msgstr "Gewenst aantal porties"
 
 msgid "Base: %s"
 msgstr "Basis: %s"
@@ -1800,7 +1755,7 @@ msgid "Mark this stock entry as open"
 msgstr "Markeer deze voorraad als open"
 
 msgid "Mark this item as done"
-msgstr "Markeer dit item als afgehandeld"
+msgstr "Markeer dit item als gedaan"
 
 msgid "Edit this item"
 msgstr "Wijzig dit item"
@@ -1817,9 +1772,6 @@ msgstr "Calorieën"
 
 msgid "means %1$s per %2$s"
 msgstr "Betekent %1$s per %2$s"
-
-msgid "Create inverse QU conversion"
-msgstr "Maak tegenovergestelde hoeveelheidseenheidsconversie"
 
 msgid "Create recipe"
 msgstr "Maak een recept"
@@ -1863,9 +1815,6 @@ msgid ""
 "due first, then first in first out) for in-stock ingredients and on the last"
 " price for missing ones"
 msgstr ""
-
-msgid "Quantity unit stock cannot be changed after first purchase"
-msgstr "Hoeveelheid itemvoorraad kan niet gewijzigd worden na eerste aankoop"
 
 msgid "Clear filter"
 msgstr "Wis filter"
@@ -1920,7 +1869,7 @@ msgid "Language"
 msgstr "Taal"
 
 msgid "User settings"
-msgstr "Gebruiker instellingen"
+msgstr "Gebruikersinstellingen"
 
 msgid "Default"
 msgstr "Standaard"
@@ -1930,9 +1879,6 @@ msgstr "Samenvatting voorraaddagboek"
 
 msgid "Journal summary"
 msgstr "Dagboeksamenvatting"
-
-msgid "Journal summary for this product"
-msgstr "Dagboeksamenvatting voor dit product"
 
 msgid "Consume exact amount"
 msgstr "Gebruik precies deze hoeveelheid"
@@ -1958,9 +1904,6 @@ msgstr "Decimalen zijn toegestaan in de hoeveelheid"
 
 msgid "Decimal places allowed for prices"
 msgstr "Decimalen zijn toegestaan voor de prijs"
-
-msgid "Stock entries for this product"
-msgstr "Voorraaditems voor dit product"
 
 msgid "Edit shopping list"
 msgstr "Wijzig boodschappenlijst"
@@ -2288,7 +2231,7 @@ msgstr ""
 "product op voorraad is "
 
 msgid "Last price (Unit)"
-msgstr "Laatste prijs (unit)"
+msgstr "Laatste prijs (eenheid)"
 
 msgid "Last price (Total)"
 msgstr "Laatste prijs (totaal)"
@@ -2324,11 +2267,9 @@ msgid "After merging, this product will be kept"
 msgstr "Na samenvoegen wordt dit product bewaard"
 
 msgid ""
-"After merging, all occurences of this product will be replaced by \"Product "
-"to keep\" (means this product will not exist anymore)"
+"After merging, all occurences of this product will be replaced by the kept "
+"product (means this product will not exist anymore)"
 msgstr ""
-"Na samenvoegen wordt dit product overal vervangen door het te bewaren "
-"product (dus dit product zal niet meer bestaan)"
 
 msgid "Merge"
 msgstr "Samenvoegen"
@@ -2419,7 +2360,7 @@ msgid "Only done items"
 msgstr "Alleen afgehandelde items"
 
 msgid "Show only in-stock products"
-msgstr "Toon alleen in-voorraad producten"
+msgstr "Toon alleen producten op voorraad"
 
 msgid "Product description"
 msgstr "Productomschrijving"
@@ -2598,19 +2539,19 @@ msgstr ""
 " berekening als dit product minder dan de minimale voorraad heeft "
 
 msgid "Skipped"
-msgstr ""
+msgstr "Overgeslagen"
 
 msgid "Skip next chore schedule"
 msgstr ""
 
 msgid "Time"
-msgstr ""
+msgstr "Tijd"
 
 msgid "A start date is required"
-msgstr ""
+msgstr "Een startdatum is verplicht"
 
 msgid "Start date"
-msgstr ""
+msgstr "Startdatum"
 
 msgid "The start date cannot be changed when the chore was once tracked"
 msgstr ""
@@ -2624,4 +2565,85 @@ msgid ""
 msgstr ""
 
 msgid "Average execution frequency"
+msgstr ""
+
+msgid "Reschedule next execution"
+msgstr ""
+
+msgid "This can only be in the future"
+msgstr ""
+
+msgid "Rescheduled"
+msgstr ""
+
+msgid "Due score"
+msgstr ""
+
+msgid ""
+"The higher this number is, the more ingredients currently in stock are due "
+"soon, overdue or already expired"
+msgstr ""
+
+msgid "Disable own stock"
+msgstr ""
+
+msgid ""
+"When enabled, this product can't have own stock, means it will not be "
+"selectable on purchase (useful for parent products which are just used as a "
+"summary/total view of the child products)"
+msgstr ""
+
+msgid "Out of stock items will be shown at the products default location"
+msgstr ""
+
+msgid "Show a little checkbox next to each ingredient to mark it as done"
+msgstr ""
+
+msgid ""
+"The ingredient is crossed out when clicked, the status is not saved, means "
+"reset when the page is reloaded"
+msgstr ""
+
+msgid ""
+"The parent product %1$s is currently not in stock, %2$s is the current next "
+"sub product based on the default consume rule (Opened first, then first due "
+"first, then first in first out)"
+msgstr ""
+
+msgid "Night mode"
+msgstr ""
+
+msgid "On"
+msgstr ""
+
+msgid "Use system setting"
+msgstr ""
+
+msgid "Off"
+msgstr ""
+
+msgid ""
+"Automatically add products that are below their defined min. stock amount to"
+" the shopping list"
+msgstr ""
+
+msgid "Reassigned"
+msgstr ""
+
+msgid "Default value"
+msgstr ""
+
+msgid "Now / today"
+msgstr ""
+
+msgid "Add meal plan entry"
+msgstr ""
+
+msgid "Edit meal plan entry"
+msgstr ""
+
+msgid "Default consume location"
+msgstr ""
+
+msgid "Stock entries at this location will be consumed first"
 msgstr ""

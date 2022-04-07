@@ -116,11 +116,11 @@ msgstr "Reďkovka"
 msgid "Tomato"
 msgstr "Paradajka"
 
-msgid "Changed towels in the bathroom"
-msgstr "Vymenené uteráky v kúpeľni"
+msgid "Change towels in the bathroom"
+msgstr ""
 
-msgid "Cleaned the kitchen floor"
-msgstr "Umytá dlážka v kuchyni"
+msgid "Mop the kitchen floor"
+msgstr ""
 
 msgid "Warranty ends"
 msgstr "Záruka končí"
@@ -134,8 +134,8 @@ msgstr "Budík"
 msgid "Heat remote control"
 msgstr "Diaľkové ovládanie klimatizácie"
 
-msgid "Lawn mowed in the garden"
-msgstr "Pokosený trávnik v záhrade"
+msgid "Take out the trash"
+msgstr ""
 
 msgid "Some good snacks"
 msgstr "Nejaká dobrá mňamka"
@@ -194,24 +194,6 @@ msgstr "Palacinky"
 
 msgid "Sugar"
 msgstr "Cukor"
-
-msgid "Home"
-msgstr "Domov"
-
-msgid "Life"
-msgstr "Život"
-
-msgid "Projects"
-msgstr "Projekty"
-
-msgid "Repair the garage door"
-msgstr "Opraviť garážové dvere"
-
-msgid "Fork and improve grocy"
-msgstr "Forknúť a vylepšiť grocy"
-
-msgid "Find a solution for what to do when I forget the door keys"
-msgstr "Nájsť riešenie čo robiť, keď zabudnem kľúče od domu"
 
 msgid "Sweets"
 msgstr "Sladkosti"
@@ -279,14 +261,14 @@ msgstr "Španielčina"
 msgid "Russian"
 msgstr "Ruština"
 
-msgid "The thing which happens on the 5th of every month"
-msgstr "Vec, ktorá sa deje 5. v každom mesiaci"
+msgid "Vacuum the living room floor"
+msgstr ""
 
-msgid "The thing which happens daily"
-msgstr "Vec, ktorá sa deje každý deň"
+msgid "Clean the litter box"
+msgstr ""
 
-msgid "The thing which happens on Mondays and Wednesdays"
-msgstr "Vec, ktorá sa deje každý pondelok a stredu"
+msgid "Change the bed sheets"
+msgstr ""
 
 msgid "Swedish"
 msgstr "Švédčina"
@@ -409,4 +391,7 @@ msgid "Dinner"
 msgstr ""
 
 msgid "Catalan"
+msgstr ""
+
+msgid "Slovenian"
 msgstr ""

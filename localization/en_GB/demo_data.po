@@ -108,11 +108,11 @@ msgstr "Radish"
 msgid "Tomato"
 msgstr "Tomato"
 
-msgid "Changed towels in the bathroom"
-msgstr "Changed towels in the bathroom"
+msgid "Change towels in the bathroom"
+msgstr ""
 
-msgid "Cleaned the kitchen floor"
-msgstr "Cleaned the kitchen floor"
+msgid "Mop the kitchen floor"
+msgstr ""
 
 msgid "Warranty ends"
 msgstr "Warranty ends"
@@ -126,8 +126,8 @@ msgstr "Alarm clock"
 msgid "Heat remote control"
 msgstr "Heat remote control"
 
-msgid "Lawn mowed in the garden"
-msgstr "Lawn mowed in the garden"
+msgid "Take out the trash"
+msgstr ""
 
 msgid "Some good snacks"
 msgstr "Some good snacks"
@@ -184,24 +184,6 @@ msgstr "Pancakes"
 
 msgid "Sugar"
 msgstr "Sugar"
-
-msgid "Home"
-msgstr "Home"
-
-msgid "Life"
-msgstr "Life"
-
-msgid "Projects"
-msgstr "Projects"
-
-msgid "Repair the garage door"
-msgstr "Repair the garage door"
-
-msgid "Fork and improve grocy"
-msgstr "Fork and improve grocy"
-
-msgid "Find a solution for what to do when I forget the door keys"
-msgstr "Find a solution for what to do when I forget the door keys"
 
 msgid "Sweets"
 msgstr "Sweets"
@@ -269,14 +251,14 @@ msgstr "Spanish"
 msgid "Russian"
 msgstr "Russian"
 
-msgid "The thing which happens on the 5th of every month"
-msgstr "The thing which happens on the 5th of every month"
+msgid "Vacuum the living room floor"
+msgstr ""
 
-msgid "The thing which happens daily"
-msgstr "The thing which happens daily"
+msgid "Clean the litter box"
+msgstr ""
 
-msgid "The thing which happens on Mondays and Wednesdays"
-msgstr "The thing which happens on Mondays and Wednesdays"
+msgid "Change the bed sheets"
+msgstr ""
 
 msgid "Swedish"
 msgstr "Swedish"
@@ -397,4 +379,7 @@ msgid "Dinner"
 msgstr "Dinner"
 
 msgid "Catalan"
+msgstr ""
+
+msgid "Slovenian"
 msgstr ""

@@ -109,11 +109,11 @@ msgstr "Retek"
 msgid "Tomato"
 msgstr "Paradicsom"
 
-msgid "Changed towels in the bathroom"
-msgstr "Törölközők cseréje a fürdőszobában"
+msgid "Change towels in the bathroom"
+msgstr ""
 
-msgid "Cleaned the kitchen floor"
-msgstr "Konyhapadló felmosása"
+msgid "Mop the kitchen floor"
+msgstr ""
 
 msgid "Warranty ends"
 msgstr "Garancia lejár"
@@ -127,8 +127,8 @@ msgstr "Ébresztőóra"
 msgid "Heat remote control"
 msgstr "Termosztát"
 
-msgid "Lawn mowed in the garden"
-msgstr "Fűnyírás a kertben"
+msgid "Take out the trash"
+msgstr ""
 
 msgid "Some good snacks"
 msgstr "Néhány jó kis nasi"
@@ -185,24 +185,6 @@ msgstr "Palacsinta"
 
 msgid "Sugar"
 msgstr "Cukor"
-
-msgid "Home"
-msgstr "Otthon"
-
-msgid "Life"
-msgstr "Élet"
-
-msgid "Projects"
-msgstr "Projektek"
-
-msgid "Repair the garage door"
-msgstr "Garázsajtó megjavítása"
-
-msgid "Fork and improve grocy"
-msgstr "Forkold és fejleszd te is Grocyt"
-
-msgid "Find a solution for what to do when I forget the door keys"
-msgstr "Megoldást találni, mit tennék akkor, ha elhagyom a lakáskulcsot"
 
 msgid "Sweets"
 msgstr "Édességek"
@@ -270,14 +252,14 @@ msgstr "Spanyol"
 msgid "Russian"
 msgstr "Orosz"
 
-msgid "The thing which happens on the 5th of every month"
-msgstr "A dolog, amely minden hónap 5. napján megtörténik"
+msgid "Vacuum the living room floor"
+msgstr ""
 
-msgid "The thing which happens daily"
-msgstr "A dolog, amely minden nap megtörténik"
+msgid "Clean the litter box"
+msgstr ""
 
-msgid "The thing which happens on Mondays and Wednesdays"
-msgstr "A dolog, amely minden hétfőn és szerdán megtörténik"
+msgid "Change the bed sheets"
+msgstr ""
 
 msgid "Swedish"
 msgstr "Svéd"
@@ -398,4 +380,7 @@ msgid "Dinner"
 msgstr "Vacsora"
 
 msgid "Catalan"
+msgstr ""
+
+msgid "Slovenian"
 msgstr ""

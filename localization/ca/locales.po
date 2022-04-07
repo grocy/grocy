@@ -1,0 +1,126 @@
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-31 19:11+0000\n"
+"Language-Team: Catalan (https://www.transifex.com/grocy/teams/93189/ca/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ca\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/locales\n"
+
+# Czech
+msgid "cs"
+msgstr ""
+
+# Danish
+msgid "da"
+msgstr ""
+
+# German
+msgid "de"
+msgstr ""
+
+# Greek
+msgid "el_GR"
+msgstr ""
+
+# English
+msgid "en"
+msgstr ""
+
+# English (Great Britain)
+msgid "en_GB"
+msgstr ""
+
+# Spanish
+msgid "es"
+msgstr ""
+
+# French
+msgid "fr"
+msgstr ""
+
+# Hungarian
+msgid "hu"
+msgstr ""
+
+# Italian
+msgid "it"
+msgstr ""
+
+# Japanese
+msgid "ja"
+msgstr ""
+
+# Korean
+msgid "ko_KR"
+msgstr ""
+
+# Dutch
+msgid "nl"
+msgstr ""
+
+# Norwegian
+msgid "no"
+msgstr ""
+
+# Polish
+msgid "pl"
+msgstr ""
+
+# Portuguese (Brazil)
+msgid "pt_BR"
+msgstr ""
+
+# Portuguese (Portugal)
+msgid "pt_PT"
+msgstr ""
+
+# Russian
+msgid "ru"
+msgstr ""
+
+# Slovak
+msgid "sk_SK"
+msgstr ""
+
+# Slovenian
+msgid "sl"
+msgstr ""
+
+# Swedish
+msgid "sv_SE"
+msgstr ""
+
+# Turkish
+msgid "tr"
+msgstr ""
+
+# Chinese (Taiwan)
+msgid "zh_TW"
+msgstr ""
+
+# Chinese (China)
+msgid "zh_CN"
+msgstr ""
+
+# Hebrew (Israel)
+msgid "he_IL"
+msgstr ""
+
+# Tamil
+msgid "ta"
+msgstr ""
+
+# Finnish
+msgid "fi"
+msgstr ""
+
+# Catalan
+msgid "ca"
+msgstr ""

@@ -1,0 +1,130 @@
+# 
+# Translators:
+# Robert Johansson, 2022
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-31 19:11+0000\n"
+"Last-Translator: Robert Johansson, 2022\n"
+"Language-Team: Swedish (Sweden) (https://www.transifex.com/grocy/teams/93189/sv_SE/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sv_SE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/locales\n"
+
+# Czech
+msgid "cs"
+msgstr "cs"
+
+# Danish
+msgid "da"
+msgstr "da"
+
+# German
+msgid "de"
+msgstr "de"
+
+# Greek
+msgid "el_GR"
+msgstr "el_GR"
+
+# English
+msgid "en"
+msgstr "en"
+
+# English (Great Britain)
+msgid "en_GB"
+msgstr "en_GB"
+
+# Spanish
+msgid "es"
+msgstr "es"
+
+# French
+msgid "fr"
+msgstr "fr"
+
+# Hungarian
+msgid "hu"
+msgstr "hu"
+
+# Italian
+msgid "it"
+msgstr "it"
+
+# Japanese
+msgid "ja"
+msgstr "ja"
+
+# Korean
+msgid "ko_KR"
+msgstr "ko_KR"
+
+# Dutch
+msgid "nl"
+msgstr "nl"
+
+# Norwegian
+msgid "no"
+msgstr "no"
+
+# Polish
+msgid "pl"
+msgstr "pl"
+
+# Portuguese (Brazil)
+msgid "pt_BR"
+msgstr "pt_BR"
+
+# Portuguese (Portugal)
+msgid "pt_PT"
+msgstr "pt_PT"
+
+# Russian
+msgid "ru"
+msgstr "ru"
+
+# Slovak
+msgid "sk_SK"
+msgstr "sk_SK"
+
+# Slovenian
+msgid "sl"
+msgstr ""
+
+# Swedish
+msgid "sv_SE"
+msgstr "sv_SE"
+
+# Turkish
+msgid "tr"
+msgstr "tr"
+
+# Chinese (Taiwan)
+msgid "zh_TW"
+msgstr "zh_TW"
+
+# Chinese (China)
+msgid "zh_CN"
+msgstr "zh_CN"
+
+# Hebrew (Israel)
+msgid "he_IL"
+msgstr "he_IL"
+
+# Tamil
+msgid "ta"
+msgstr "ta"
+
+# Finnish
+msgid "fi"
+msgstr "fi"
+
+# Catalan
+msgid "ca"
+msgstr "ca"

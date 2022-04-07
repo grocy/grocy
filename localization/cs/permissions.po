@@ -1,7 +1,6 @@
 # 
 # Translators:
-# Radim Kabeláč <radim.ekk@gmail.com>, 2020
-# Jarda Tesar <intossh@gmail.com>, 2021
+# Pavel Paseka, 2022
 # 
 msgid ""
 msgstr ""
@@ -9,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2020-08-29 16:33+0000\n"
-"Last-Translator: Jarda Tesar <intossh@gmail.com>, 2021\n"
+"Last-Translator: Pavel Paseka, 2022\n"
 "Language-Team: Czech (https://www.transifex.com/grocy/teams/93189/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,120 +19,120 @@ msgstr ""
 
 # All permissions
 msgid "ADMIN"
-msgstr "ADMINISTRATOR"
+msgstr "Administrátor"
 
 # Create users
 msgid "USERS_CREATE"
-msgstr "UZIVATELE_VYTVORIT"
+msgstr "Vytvořit uživatele"
 
 # Edit users (including passwords)
 msgid "USERS_EDIT"
-msgstr "UZIVATELE_EDITACE"
+msgstr "Upravovat uživatele"
 
 # Show users
 msgid "USERS_READ"
-msgstr "UZIVATEL_CTENI"
+msgstr "Zobrazení uživatelů"
 
 # Edit own user data / change own password
 msgid "USERS_EDIT_SELF"
-msgstr "UZIVATELE_EDITOVAT_SEBE"
+msgstr "Smí editovat sebe"
 
 # Undo charge cycle
 msgid "BATTERIES_UNDO_CHARGE_CYCLE"
-msgstr "BATERIE_VRACENI_NABIJECI_CYKLUS"
+msgstr "Odznačit provedení nabíjení/výměny baterií"
 
 # Track charge cycle
 msgid "BATTERIES_TRACK_CHARGE_CYCLE"
-msgstr "BATERIE_SLEDOVANI_NABIJECI_CYKLUS"
+msgstr "Označit provedení nabíjení/výměny baterií"
 
 # Track execution
 msgid "CHORE_TRACK_EXECUTION"
-msgstr "POVINNOST_SLEDOVANI_VYKONANI"
+msgstr "Označit povinnost jako splněnou"
 
 # Undo execution
 msgid "CHORE_UNDO_EXECUTION"
-msgstr "POVINNOST_VYKONANI_VRACENI"
+msgstr "Odznačit povinnost jako splněnou"
 
 # Edit master data
 msgid "MASTER_DATA_EDIT"
-msgstr "ZAKLADNI_DATA_EDIT"
+msgstr "Upravovat Základní data"
 
 # Undo execution
 msgid "TASKS_UNDO_EXECUTION"
-msgstr "UKOL_VYKONANI_VRACENI"
+msgstr "Odznačit úkol jako splněný"
 
 # Mark completed
 msgid "TASKS_MARK_COMPLETED"
-msgstr "UKOLY_OZNACIT_HOTOVO"
+msgstr "Označit úkol jako splněný"
 
 # Edit stock entries
 msgid "STOCK_EDIT"
-msgstr "ZASOBY_EDITACE"
+msgstr "Upravovat stav zásob"
 
 # Transfer
 msgid "STOCK_TRANSFER"
-msgstr "PREVOD_ZASOB"
+msgstr "Převádět zásoby"
 
 # Inventory
 msgid "STOCK_INVENTORY"
-msgstr "ZASOBA_INVENTAR"
+msgstr "Provádět Inventuru zásob"
 
 # Consume
 msgid "STOCK_CONSUME"
-msgstr "ZASOBY_SPOTREBOVAT"
+msgstr "Spotřebovávat zásoby"
 
 # Open products
 msgid "STOCK_OPEN"
-msgstr "ZASOBY_OTEVRIT"
+msgstr "Otevřít balení"
 
 # Purchase
 msgid "STOCK_PURCHASE"
-msgstr "ZASOBA_NAKUP"
+msgstr "Zaznamenat nákup"
 
 # Add items
 msgid "SHOPPINGLIST_ITEMS_ADD"
-msgstr "NAKUPNISEZNAM_POLOZKA_PRIDANO"
+msgstr "Přidat položku nákupního seznamu"
 
 # Remove items
 msgid "SHOPPINGLIST_ITEMS_DELETE"
-msgstr "NAKUPNISEZNAM_POLOZKA_SMAZANO"
+msgstr "Smazat položku nákupního seznamu"
 
 # User management
 msgid "USERS"
-msgstr "UZIVATEL"
+msgstr "Uživatel"
 
 # Stock
 msgid "STOCK"
-msgstr "ZASOBA"
+msgstr "Zásoby"
 
 # Shopping list
 msgid "SHOPPINGLIST"
-msgstr "NAKUPNISEZNAM"
+msgstr "Nákupní seznam"
 
 # Chores
 msgid "CHORES"
-msgstr "POVINOSTI"
+msgstr "Povinnosti"
 
 # Batteries
 msgid "BATTERIES"
-msgstr "BATERIE"
+msgstr "Baterie"
 
 # Tasks
 msgid "TASKS"
-msgstr "UKOL"
+msgstr "Úkoly"
 
 # Recipes
 msgid "RECIPES"
-msgstr "RECEPTY"
+msgstr "Recepty"
 
 # Equipment
 msgid "EQUIPMENT"
-msgstr "VYBAVENI"
+msgstr "Vybavení"
 
 # Calendar
 msgid "CALENDAR"
-msgstr "KALENDAR"
+msgstr "Přístup ke kalendáři"
 
 # Meal plan
 msgid "RECIPES_MEALPLAN"
-msgstr "RECEPTY_STRAVOVACIPLANY"
+msgstr "Jídelníček"

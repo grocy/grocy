@@ -100,11 +100,11 @@ msgstr "だいこん"
 msgid "Tomato"
 msgstr "トマト"
 
-msgid "Changed towels in the bathroom"
-msgstr "浴室のタオルを変更"
+msgid "Change towels in the bathroom"
+msgstr ""
 
-msgid "Cleaned the kitchen floor"
-msgstr "キッチンの床掃除"
+msgid "Mop the kitchen floor"
+msgstr ""
 
 msgid "Warranty ends"
 msgstr "保証終了"
@@ -118,8 +118,8 @@ msgstr "時計のアラーム"
 msgid "Heat remote control"
 msgstr "ヒータのリモコン"
 
-msgid "Lawn mowed in the garden"
-msgstr "庭の芝刈り"
+msgid "Take out the trash"
+msgstr ""
 
 msgid "Some good snacks"
 msgstr "おやつ"
@@ -175,24 +175,6 @@ msgstr "パンケーキ"
 
 msgid "Sugar"
 msgstr "砂糖"
-
-msgid "Home"
-msgstr "家"
-
-msgid "Life"
-msgstr "生活"
-
-msgid "Projects"
-msgstr "プロジェクト"
-
-msgid "Repair the garage door"
-msgstr "ガレージのドアを修復"
-
-msgid "Fork and improve grocy"
-msgstr "grocy をフォークして改善"
-
-msgid "Find a solution for what to do when I forget the door keys"
-msgstr "ドアの鍵を忘れたときの解決策を見つける"
 
 msgid "Sweets"
 msgstr "お菓子"
@@ -260,14 +242,14 @@ msgstr "スペイン語"
 msgid "Russian"
 msgstr "ロシア語"
 
-msgid "The thing which happens on the 5th of every month"
-msgstr "毎月5日に起こること"
+msgid "Vacuum the living room floor"
+msgstr ""
 
-msgid "The thing which happens daily"
-msgstr "毎日起こること"
+msgid "Clean the litter box"
+msgstr ""
 
-msgid "The thing which happens on Mondays and Wednesdays"
-msgstr "月曜日と水曜日に起こること"
+msgid "Change the bed sheets"
+msgstr ""
 
 msgid "Swedish"
 msgstr "スウェーデン語"
@@ -387,4 +369,7 @@ msgid "Dinner"
 msgstr ""
 
 msgid "Catalan"
+msgstr ""
+
+msgid "Slovenian"
 msgstr ""

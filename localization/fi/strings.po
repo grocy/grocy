@@ -9,6 +9,7 @@
 # Matias Käkelä <matias.kakela@gmail.com>, 2020
 # Matti Koskimies <matti@apulanta.fi>, 2021
 # Lauri Niskanen <ape3000@gmail.com>, 2021
+# Markus Laaksonen, 2022
 # 
 msgid ""
 msgstr ""
@@ -16,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Lauri Niskanen <ape3000@gmail.com>, 2021\n"
+"Last-Translator: Markus Laaksonen, 2022\n"
 "Language-Team: Finnish (https://www.transifex.com/grocy/teams/93189/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -263,9 +264,6 @@ msgstr "Muokkaa sijaintia"
 msgid "Edit store"
 msgstr "Muokkaa myymälää"
 
-msgid "Record data"
-msgstr "Tallenna data"
-
 msgid "Manage master data"
 msgstr "Hallitse perustietoja"
 
@@ -339,7 +337,7 @@ msgid "Manage API keys"
 msgstr "Hallitse API-tunnuksia"
 
 msgid "REST API browser"
-msgstr ""
+msgstr "REST API selain"
 
 msgid "API keys"
 msgstr "API-tunnukset"
@@ -721,12 +719,6 @@ msgstr "Tila"
 msgid "Below min. stock amount"
 msgstr "Alle varaston minimimäärän"
 
-msgid "Expiring soon"
-msgstr "Viimeinen käyttöpäivä lähellä"
-
-msgid "Already expired"
-msgstr "Pilaantunut"
-
 msgid "Due soon"
 msgstr "Määräpäivä pian"
 
@@ -738,9 +730,6 @@ msgstr "Näkymäasetukset"
 
 msgid "Auto reload on external changes"
 msgstr "Automaattinen uudelleenlataus ulkoisten muutosten johdosta"
-
-msgid "Enable night mode"
-msgstr "Yötila"
 
 msgid "Auto enable in time range"
 msgstr "Käytä automaattisesti aikavälillä"
@@ -866,11 +855,9 @@ msgid "Use a specific stock item"
 msgstr "Käytä tiettyä varastotuotetta"
 
 msgid ""
-"The first item in this list would be picked by the default rule which is "
-"\"Opened first, then first due first, then first in first out\""
+"The first item in this list would be picked by the default rule consume rule"
+" (Opened first, then first due first, then first in first out)"
 msgstr ""
-"Tämän listan ensimmäinen kohta valittaisiin oletussäännön mukaan, joka on "
-"\"Avattu ensin, sitten ensin vanheneva ensin, sitten ensin lisätty ensin\""
 
 msgid "Mark %1$s of %2$s as open"
 msgstr "Merkitse %1$s kpl tuotetta %2$s avatuksi"
@@ -960,9 +947,6 @@ msgid ""
 msgstr ""
 "Käytä seuraavaa (julkista) URL-osoitetta jakamiseen tai integroi kalenteri "
 "iCal-muodossa"
-
-msgid "Allow partial units in stock"
-msgstr "Salli osittaiset yksiköt varastossa"
 
 msgid "Enable tare weight handling"
 msgstr "Ota taarapainon käsittely käyttöön"
@@ -1159,9 +1143,6 @@ msgstr "Ei tarpeeksi varastossa, mutta lisätty jo kauppalistaan"
 msgid "Not enough in stock"
 msgstr "Ei tarpeeksi varastossa"
 
-msgid "Expiring soon days"
-msgstr "Viimeiset käyttöpäivät"
-
 msgid "Default location"
 msgstr "Oletussijainti"
 
@@ -1192,9 +1173,6 @@ msgstr "Kuluta %1$s tuotteesta %2$s"
 
 msgid "Meal plan"
 msgstr "Ateriasuunnitelma"
-
-msgid "Add recipe on %s"
-msgstr "Lisää resepti %s päivälle"
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1332,13 +1310,17 @@ msgid "Assignment type"
 msgstr "Toimeksiannon tapa"
 
 msgid ""
-"This means the next execution of this chore is scheduled %s day after the "
-"last execution"
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every day"
 msgid_plural ""
-"This means the next execution of this chore is scheduled %s days after the "
-"last execution"
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every %s days"
 msgstr[0] ""
+"Tämä tarkoittaa, että tämän kotityön seuraava suoritus on aikataulutettu "
+"suoritettavaksi joka päivä."
 msgstr[1] ""
+"Tämä tarkoittaa, että tämän kotityön seuraava suoritus on aikataulutettu "
+"suoritettavaksi (aloituspäivän perusteella) joka %s. päivä."
 
 msgid ""
 "This means the next execution of this chore is scheduled %s hour after the "
@@ -1635,9 +1617,6 @@ msgstr "Haluatko varmasti poistaa API-tunnuksen \"%s\"?"
 msgid "Add note"
 msgstr "Lisää huomautus"
 
-msgid "Add note on %s"
-msgstr "Lisää merkintä kohteelle %s"
-
 msgid "per day"
 msgstr "per päivä"
 
@@ -1646,9 +1625,6 @@ msgstr "Vain tekemättömät nimikkeet"
 
 msgid "Add product"
 msgstr "Lisää tuote"
-
-msgid "Add product on %s"
-msgstr "Lisää tuotetta %s"
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
 msgstr ""
@@ -1682,13 +1658,6 @@ msgstr ""
 msgid "Is freezer"
 msgstr "On pakastin"
 
-msgid ""
-"When moving products from/to a freezer location, the products best before "
-"date is automatically adjusted according to the product settings"
-msgstr ""
-"Kun tuote menee pakastimeen tai poistuu sieltä, niin tuotteen parasta ennen "
-"-päiväys muuttuu automaattisesti tuotteen asetusten mukaisesti"
-
 msgid "This cannot be the same as the \"From\" location"
 msgstr "Tämä ei voi olla sama kuin lähtösijainti"
 
@@ -1706,15 +1675,6 @@ msgstr "Ostoslista-asetukset"
 
 msgid "Show a month-view calendar"
 msgstr "Näytä kalenterin kuukausinäkymä"
-
-msgid "Edit note on %s"
-msgstr "%s: muokkaa merkintää "
-
-msgid "Edit product on %s"
-msgstr "%s: muokkaa tuotetta"
-
-msgid "Edit recipe on %s"
-msgstr "%s: muokkaa reseptiä"
 
 msgid "Desired servings"
 msgstr "Toivottu annosmäärä"
@@ -1767,9 +1727,6 @@ msgstr "kcal"
 msgid "means %1$s per %2$s"
 msgstr "tarkoittaa %1$s per %2$s"
 
-msgid "Create inverse QU conversion"
-msgstr "Luo käänteinen yksikkömuunnos"
-
 msgid "Create recipe"
 msgstr "Luo resepti"
 
@@ -1811,9 +1768,6 @@ msgid ""
 "due first, then first in first out) for in-stock ingredients and on the last"
 " price for missing ones"
 msgstr ""
-
-msgid "Quantity unit stock cannot be changed after first purchase"
-msgstr "Varastoyksikköä ei voi muuttaa ensimmäisen oston jälkeen"
 
 msgid "Clear filter"
 msgstr "Tyhjennä filtterit"
@@ -1879,9 +1833,6 @@ msgstr "Varastopäiväkirjan tiivistelmä"
 msgid "Journal summary"
 msgstr "Päiväkirjan tiivistelmä"
 
-msgid "Journal summary for this product"
-msgstr "Päiväkirjan tiivistelmä tälle tuotteelle"
-
 msgid "Consume exact amount"
 msgstr "Kuluta tarkka määrä"
 
@@ -1906,9 +1857,6 @@ msgstr "Desimaalit sallittu määriin"
 
 msgid "Decimal places allowed for prices"
 msgstr "Desimaalit sallittu hintoihin"
-
-msgid "Stock entries for this product"
-msgstr "Tämän tuotteen varastomerkinnät"
 
 msgid "Edit shopping list"
 msgstr "Muokkaa ostoslistaa"
@@ -2252,17 +2200,15 @@ msgid "Product to remove"
 msgstr "Poistettava tuote"
 
 msgid "Error while merging"
-msgstr ""
+msgstr "Virhe yhdistäessä"
 
 msgid "After merging, this product will be kept"
 msgstr "Yhdistämisen jälkeen tämä tuote säilytetään"
 
 msgid ""
-"After merging, all occurences of this product will be replaced by \"Product "
-"to keep\" (means this product will not exist anymore)"
+"After merging, all occurences of this product will be replaced by the kept "
+"product (means this product will not exist anymore)"
 msgstr ""
-"Yhdistämisen jälkeen kaikki tämän tuotteen esiintymät korvaa \"Säilytettävä "
-"tuote\" (eli tätä tuotetta ei enää ole)"
 
 msgid "Merge"
 msgstr "Yhdistä"
@@ -2302,6 +2248,8 @@ msgid ""
 "grocycode is a unique referer to this %s in your grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
+"grocykoodi on uniikki tunniste tätä %s varten grocy instanssissasi - tulosta"
+" se tarralle ja skannaa se kuin mikä tahansa muukin viivakoodi"
 
 # Abbreviation for "due date"
 msgid "DD"
@@ -2317,7 +2265,7 @@ msgid "Stock entry label"
 msgstr ""
 
 msgid "No label"
-msgstr ""
+msgstr "Ei tunnistetta"
 
 msgid "Single label"
 msgstr ""
@@ -2326,7 +2274,7 @@ msgid "Label per unit"
 msgstr ""
 
 msgid "Error while executing WebHook"
-msgstr ""
+msgstr "Virhe suorittaessa WebHook-avainta"
 
 # Example: Print *Product* grocycode on label printer
 msgid "Print %s grocycode on label printer"
@@ -2348,7 +2296,7 @@ msgid "Unable to print"
 msgstr "Ei voida tulostaa"
 
 msgid "Only done items"
-msgstr ""
+msgstr "Vain tehdyt nimikkeet"
 
 msgid "Show only in-stock products"
 msgstr "Näytä vain varastossa olevat"
@@ -2361,7 +2309,7 @@ msgid "%1$s per %2$s"
 msgstr "%1$s per %2$s"
 
 msgid "Mark this item as undone"
-msgstr ""
+msgstr "Merkitse tekemättömäksi"
 
 msgid "Mandatory"
 msgstr "Pakollinen"
@@ -2405,7 +2353,7 @@ msgid "Copy this day"
 msgstr "Kopioi tämä päivä"
 
 msgid "Date range"
-msgstr ""
+msgstr "Ajanjakso"
 
 msgid "%s month"
 msgid_plural "%s months"
@@ -2424,7 +2372,7 @@ msgid "Copy recipe"
 msgstr "Kopioi resepti"
 
 msgid "Copy of %s"
-msgstr ""
+msgstr "Kopio nimikkeestä %s"
 
 msgid "Add decimal separator automatically for price inputs"
 msgstr "Lisää desimaalierotin automaattisesti syötettyihin hintoihin"
@@ -2445,16 +2393,16 @@ msgid "Configure sections"
 msgstr "Määrittele osiot"
 
 msgid "Meal plan sections"
-msgstr ""
+msgstr "Ateriasuunnitelma osiot"
 
 msgid "Create meal plan section"
-msgstr ""
+msgstr "Luo ateriasuunnitelma osio"
 
 msgid "Sections will be ordered by that number on the meal plan"
 msgstr ""
 
 msgid "Edit meal plan section"
-msgstr ""
+msgstr "Muokkaa ateriasuunnitelma osiota"
 
 msgid "Are you sure to delete meal plan section \"%s\"?"
 msgstr ""
@@ -2547,4 +2495,85 @@ msgid ""
 msgstr ""
 
 msgid "Average execution frequency"
+msgstr ""
+
+msgid "Reschedule next execution"
+msgstr ""
+
+msgid "This can only be in the future"
+msgstr ""
+
+msgid "Rescheduled"
+msgstr ""
+
+msgid "Due score"
+msgstr ""
+
+msgid ""
+"The higher this number is, the more ingredients currently in stock are due "
+"soon, overdue or already expired"
+msgstr ""
+
+msgid "Disable own stock"
+msgstr ""
+
+msgid ""
+"When enabled, this product can't have own stock, means it will not be "
+"selectable on purchase (useful for parent products which are just used as a "
+"summary/total view of the child products)"
+msgstr ""
+
+msgid "Out of stock items will be shown at the products default location"
+msgstr ""
+
+msgid "Show a little checkbox next to each ingredient to mark it as done"
+msgstr ""
+
+msgid ""
+"The ingredient is crossed out when clicked, the status is not saved, means "
+"reset when the page is reloaded"
+msgstr ""
+
+msgid ""
+"The parent product %1$s is currently not in stock, %2$s is the current next "
+"sub product based on the default consume rule (Opened first, then first due "
+"first, then first in first out)"
+msgstr ""
+
+msgid "Night mode"
+msgstr ""
+
+msgid "On"
+msgstr ""
+
+msgid "Use system setting"
+msgstr ""
+
+msgid "Off"
+msgstr ""
+
+msgid ""
+"Automatically add products that are below their defined min. stock amount to"
+" the shopping list"
+msgstr ""
+
+msgid "Reassigned"
+msgstr ""
+
+msgid "Default value"
+msgstr ""
+
+msgid "Now / today"
+msgstr ""
+
+msgid "Add meal plan entry"
+msgstr ""
+
+msgid "Edit meal plan entry"
+msgstr ""
+
+msgid "Default consume location"
+msgstr ""
+
+msgid "Stock entries at this location will be consumed first"
 msgstr ""

@@ -7,6 +7,7 @@
 # Alan Pucheta <apucheta@protonmail.com>, 2020
 # Alberto Martin <ami232@gmail.com>, 2021
 # victormce <victormce@gmail.com>, 2021
+# GRBaset, 2022
 # 
 msgid ""
 msgstr ""
@@ -14,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: victormce <victormce@gmail.com>, 2021\n"
+"Last-Translator: GRBaset, 2022\n"
 "Language-Team: Spanish (https://www.transifex.com/grocy/teams/93189/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -110,11 +111,11 @@ msgstr "Rábano"
 msgid "Tomato"
 msgstr "Tomate"
 
-msgid "Changed towels in the bathroom"
-msgstr "Cambiar las toallas del baño"
+msgid "Change towels in the bathroom"
+msgstr ""
 
-msgid "Cleaned the kitchen floor"
-msgstr "Limpiar el suelo de la cocina"
+msgid "Mop the kitchen floor"
+msgstr ""
 
 msgid "Warranty ends"
 msgstr "Final de la garantía"
@@ -128,8 +129,8 @@ msgstr "Despertador"
 msgid "Heat remote control"
 msgstr "Mando a distancia de la calefacción"
 
-msgid "Lawn mowed in the garden"
-msgstr "Cortar el césped del jardín"
+msgid "Take out the trash"
+msgstr ""
 
 msgid "Some good snacks"
 msgstr "Cosas de picar"
@@ -186,24 +187,6 @@ msgstr "Panqueques"
 
 msgid "Sugar"
 msgstr "Azúcar"
-
-msgid "Home"
-msgstr "Inicio"
-
-msgid "Life"
-msgstr "Vida"
-
-msgid "Projects"
-msgstr "Proyectos"
-
-msgid "Repair the garage door"
-msgstr "Reparar la puerta del garaje"
-
-msgid "Fork and improve grocy"
-msgstr "Forkear y mejorar grocy"
-
-msgid "Find a solution for what to do when I forget the door keys"
-msgstr "Encontrar una solución a qué hacer cuando me olvido las llaves"
 
 msgid "Sweets"
 msgstr "Dulces"
@@ -271,14 +254,14 @@ msgstr "Español"
 msgid "Russian"
 msgstr "Ruso"
 
-msgid "The thing which happens on the 5th of every month"
-msgstr "Lo que ocurre el día 5 de cada mes"
+msgid "Vacuum the living room floor"
+msgstr ""
 
-msgid "The thing which happens daily"
-msgstr "Lo que ocurre diariamente"
+msgid "Clean the litter box"
+msgstr ""
 
-msgid "The thing which happens on Mondays and Wednesdays"
-msgstr "Lo que ocurre los lunes y los miércoles"
+msgid "Change the bed sheets"
+msgstr ""
 
 msgid "Swedish"
 msgstr "Sueco"
@@ -399,4 +382,7 @@ msgid "Dinner"
 msgstr "Cena"
 
 msgid "Catalan"
+msgstr "Catalán"
+
+msgid "Slovenian"
 msgstr ""
