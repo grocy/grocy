@@ -63,7 +63,7 @@ abstract class AuthMiddleware extends BaseMiddleware
 				}
 				else
 				{
-					return $response->withHeader('Location', $this->AppContainer->get('UrlManager')->ConstructUrl('/login'));
+					return $response->withStatus(302)->withHeader('Location', $this->AppContainer->get('UrlManager')->ConstructUrl('/login'));
 				}
 			}
 			else
