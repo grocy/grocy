@@ -150,7 +150,7 @@ msgid "Stock quantity unit"
 msgstr "Jednotka množství produktu"
 
 msgid "Stock amount"
-msgstr "Množství zásoby"
+msgstr "Množství v zásobě"
 
 msgid "Last purchased"
 msgstr "Naposledy nakoupeno"
@@ -847,7 +847,7 @@ msgid "Stock journal"
 msgstr "Deník zásob"
 
 msgid "Undone on"
-msgstr "Vrácení zpět zapnuto"
+msgstr "Stav vrácen zpět"
 
 msgid "Batteries journal"
 msgstr "Deník baterií"
@@ -865,7 +865,7 @@ msgid "Undo"
 msgstr "Zrušit"
 
 msgid "Booking successfully undone"
-msgstr "Rezervace úspěšně zrušena"
+msgstr "Stav byl úspěšně vrácen zpět"
 
 msgid "Charge cycle successfully undone"
 msgstr "Výměna baterie zrušena"
@@ -1492,7 +1492,7 @@ msgid "Create %s"
 msgstr "Vytvořit %s"
 
 msgid "Are you sure to delete this userobject?"
-msgstr "Opravdu si přejete smazat objekt definovaný uživatelem?"
+msgstr "Opravdu si přejete smazat položku definovanou uživatelem?"
 
 msgid "Icon CSS class"
 msgstr "CSS třída ikony"
@@ -1693,10 +1693,10 @@ msgid "Produces product"
 msgstr "Recept vyrobí produkt"
 
 msgid "This booking cannot be undone"
-msgstr "Tato rezervace nemůže být zrušena"
+msgstr "Tato akce nemůže být vrácena zpět"
 
 msgid "Booking does not exist or was already undone"
-msgstr "Rezervace již neexistuje, nebo byla zrušena"
+msgstr "Tato akce neexistuje nebo již byla vrácena zpět"
 
 msgid "Are you sure to delete API key \"%s\"?"
 msgstr "Opravdu chcete smazat API klíč „%s“?"
@@ -1791,10 +1791,10 @@ msgid "Default store"
 msgstr "Výchozí obchod"
 
 msgid "Consume this stock entry"
-msgstr "Spotřebovat určitou položku ze zásob"
+msgstr "Spotřebovat všechny jednotky této položky"
 
 msgid "Mark this stock entry as open"
-msgstr "Označit tuto položku zásob jako otevřenou"
+msgstr "Označit nejstarší jednotku zásob jako otevřenou"
 
 msgid "Mark this item as done"
 msgstr "Je/není vybráno"
@@ -2254,7 +2254,7 @@ msgid "Reset"
 msgstr "Resetovat"
 
 msgid "Are you sure to reset the table options?"
-msgstr "Opravdu chcete resetovat nastavení tabulky?"
+msgstr "Opravdu chcete uvést sloupce tabulky do výchozího stavu?"
 
 msgid "Hide/view columns"
 msgstr "Zobrazit/skrýt sloupce"

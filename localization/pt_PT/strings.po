@@ -5,6 +5,7 @@
 # Carlos Pereira <cmp.sta@gmail.com>, 2020
 # Jorge Araújo, 2021
 # Joao Santos <joaocpdsantos@gmail.com>, 2022
+# Luís Neto, 2022
 # 
 msgid ""
 msgstr ""
@@ -12,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Joao Santos <joaocpdsantos@gmail.com>, 2022\n"
+"Last-Translator: Luís Neto, 2022\n"
 "Language-Team: Portuguese (Portugal) (https://www.transifex.com/grocy/teams/93189/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -208,10 +209,10 @@ msgid "Minimum stock amount"
 msgstr "Quantidade mínima de stock"
 
 msgid "Default best before days"
-msgstr "Data de validade padrão"
+msgstr "Data de validade predefinida"
 
 msgid "Default quantity unit purchase"
-msgstr "Unidade de medida da compra padrão"
+msgstr "Unidade de medida da compra predefinida"
 
 msgid "Quantity unit stock"
 msgstr "Unidade de medida do stock"
@@ -615,7 +616,7 @@ msgid "Quantity unit"
 msgstr "Unidade de medida"
 
 msgid "Only check if any amount is in stock"
-msgstr ""
+msgstr "Apenas verificar se há em stock"
 
 msgid ""
 "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
@@ -665,7 +666,7 @@ msgid "Create task"
 msgstr "Criar tarefa"
 
 msgid "A due date is required"
-msgstr "A data de agendamento é obrigatória"
+msgstr "A data limite é obrigatória"
 
 msgid "Category"
 msgstr "Categoria"
@@ -1136,13 +1137,13 @@ msgid "Not enough in stock"
 msgstr "Não há stock suficiente"
 
 msgid "Default location"
-msgstr "Localização padrão"
+msgstr "Localização predefinida"
 
 msgid "Default amount for purchase"
-msgstr "Quantidade padrão para comprar"
+msgstr "Quantidade predefinida para comprar"
 
 msgid "Default amount for consume"
-msgstr "Quantidade padrão para consumir"
+msgstr "Quantidade predefinida para consumir"
 
 msgid "Variable amount"
 msgstr "Quantidade variável"
@@ -1247,7 +1248,7 @@ msgid ""
 msgstr ""
 
 msgid "Default conversions"
-msgstr "Conversão padrão"
+msgstr "Conversão predefinida"
 
 msgid "Factor"
 msgstr "Fator"
@@ -1256,10 +1257,10 @@ msgid "1 %s is the same as..."
 msgstr "1 %s é o mesmo que..."
 
 msgid "Create QU conversion"
-msgstr ""
+msgstr "Criar conversão de UM"
 
 msgid "Default for QU"
-msgstr ""
+msgstr "UM predefinida"
 
 msgid "Quantity unit from"
 msgstr "Unidade de medida de"
@@ -1274,7 +1275,7 @@ msgid "This means 1 %1$s is the same as %2$s %3$s"
 msgstr ""
 
 msgid "QU conversions"
-msgstr ""
+msgstr "Conversões de UM"
 
 msgid "Product overrides"
 msgstr ""
@@ -1283,10 +1284,10 @@ msgid "Override for product"
 msgstr ""
 
 msgid "This equals %1$s %2$s"
-msgstr ""
+msgstr "Isto equivale a %1$s %2$s"
 
 msgid "Edit QU conversion"
-msgstr ""
+msgstr "Editar conversão de UM"
 
 msgid "An assignment type is required"
 msgstr ""
@@ -1499,7 +1500,7 @@ msgid "Total price"
 msgstr "Preço total"
 
 msgid "in %s and based on the purchase quantity unit"
-msgstr ""
+msgstr "em %s e com base na unidade de medida de compra"
 
 msgid "Unlimited"
 msgstr "Ilimitado"
@@ -1675,7 +1676,7 @@ msgid "Transaction successfully undone"
 msgstr ""
 
 msgid "Default store"
-msgstr ""
+msgstr "Loja predefinida"
 
 msgid "Consume this stock entry"
 msgstr ""
@@ -1899,6 +1900,8 @@ msgid ""
 "This is the default quantity unit used when adding this product to the "
 "shopping list"
 msgstr ""
+"Esta é a unidade de quantidade predefinida utilizada quando se adiciona este"
+" produto à lista de compras"
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -1915,7 +1918,7 @@ msgid ""
 msgstr ""
 
 msgid "Quick consume amount"
-msgstr ""
+msgstr "Quantidade de consumo rápido"
 
 msgid ""
 "This amount is used for the \"quick consume/open buttons\" on the stock "
@@ -2063,7 +2066,7 @@ msgid "Download file"
 msgstr ""
 
 msgid "Use the products \"Quick consume amount\""
-msgstr ""
+msgstr "Usar a \"Quantidade de consumo rápido\" do produto"
 
 msgid "Disabled"
 msgstr ""
@@ -2163,7 +2166,7 @@ msgid "Print options"
 msgstr ""
 
 msgid "A product or a note is required"
-msgstr ""
+msgstr "É necessário um produto ou uma nota"
 
 msgid "grocycode"
 msgstr ""
@@ -2270,7 +2273,7 @@ msgid "Copy all meal plan entries of %s"
 msgstr ""
 
 msgid "A date is required"
-msgstr ""
+msgstr "É necessário uma data"
 
 msgid "Day"
 msgstr ""
@@ -2404,7 +2407,7 @@ msgid "Time"
 msgstr ""
 
 msgid "A start date is required"
-msgstr ""
+msgstr "É necessário uma data de início"
 
 msgid "Start date"
 msgstr ""
@@ -2419,9 +2422,11 @@ msgid ""
 "This means the next execution of this chore is scheduled dynamically based "
 "on the past average execution frequency"
 msgstr ""
+"Isto significa que a próxima execução desta tarefa é agendada dinamicamente "
+"com base na média de frequência de execução no passado"
 
 msgid "Average execution frequency"
-msgstr ""
+msgstr "Média de frequência de execução"
 
 msgid "Reschedule next execution"
 msgstr ""
@@ -2487,7 +2492,7 @@ msgid "Reassigned"
 msgstr ""
 
 msgid "Default value"
-msgstr ""
+msgstr "Valor predefinido"
 
 msgid "Now / today"
 msgstr ""
@@ -2499,7 +2504,7 @@ msgid "Edit meal plan entry"
 msgstr ""
 
 msgid "Default consume location"
-msgstr ""
+msgstr "Lugar de consumo predefinido"
 
 msgid "Stock entries at this location will be consumed first"
 msgstr ""

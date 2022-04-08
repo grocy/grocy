@@ -397,4 +397,4 @@ msgid "Catalan"
 msgstr "Katalánština"
 
 msgid "Slovenian"
-msgstr ""
+msgstr "Slovinština"

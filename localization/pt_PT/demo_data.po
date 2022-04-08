@@ -3,6 +3,7 @@
 # Ricardo Rodrigues <fenix999@gmail.com>, 2020
 # Miguel Pereira <miguelpereira.pro@gmail.com>, 2020
 # Joao Santos <joaocpdsantos@gmail.com>, 2022
+# Luís Neto, 2022
 # 
 msgid ""
 msgstr ""
@@ -10,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Joao Santos <joaocpdsantos@gmail.com>, 2022\n"
+"Last-Translator: Luís Neto, 2022\n"
 "Language-Team: Portuguese (Portugal) (https://www.transifex.com/grocy/teams/93189/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -107,10 +108,10 @@ msgid "Tomato"
 msgstr "Tomate"
 
 msgid "Change towels in the bathroom"
-msgstr ""
+msgstr "Mudar as toalhas no quarto-de-banho"
 
 msgid "Mop the kitchen floor"
-msgstr ""
+msgstr "Esfregar o chão da cozinha"
 
 msgid "Warranty ends"
 msgstr "Garantia termina"
@@ -125,7 +126,7 @@ msgid "Heat remote control"
 msgstr "Comando do aquecimento"
 
 msgid "Take out the trash"
-msgstr ""
+msgstr "Levar o lixo para fora"
 
 msgid "Some good snacks"
 msgstr "Alguns bons petiscos"
@@ -250,13 +251,13 @@ msgid "Russian"
 msgstr "Russo"
 
 msgid "Vacuum the living room floor"
-msgstr ""
+msgstr "Aspirar o chão da sala"
 
 msgid "Clean the litter box"
-msgstr ""
+msgstr "Limpar a caixa de areia do gato"
 
 msgid "Change the bed sheets"
-msgstr ""
+msgstr "Mudar os lençóis"
 
 msgid "Swedish"
 msgstr "Sueco"
@@ -321,7 +322,7 @@ msgid "This is a note"
 msgstr "Isto é uma nota"
 
 msgid "Freezer"
-msgstr "Frigorífico"
+msgstr "Congelador"
 
 msgid "Hungarian"
 msgstr "Húngaro"
@@ -380,4 +381,4 @@ msgid "Catalan"
 msgstr "Catalão"
 
 msgid "Slovenian"
-msgstr ""
+msgstr "Esloveno"
