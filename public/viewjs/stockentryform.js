@@ -123,5 +123,8 @@ $("#amount").on("focus", function(e)
 });
 
 Grocy.Components.UserfieldsForm.Load();
-$("#amount").focus();
+setTimeout(function()
+{
+	$('#amount').focus();
+}, 250);
 Grocy.FrontendHelpers.ValidateForm("stockentry-form");
