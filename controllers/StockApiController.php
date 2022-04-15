@@ -130,9 +130,9 @@ class StockApiController extends BaseApiController
 			}
 
 			$transactionType = StockService::TRANSACTION_TYPE_PURCHASE;
-			if (array_key_exists('transaction_type', $requestBody) && !empty($requestBody['transactiontype']))
+			if (array_key_exists('transaction_type', $requestBody) && !empty($requestBody['transaction_type']))
 			{
-				$transactionType = $requestBody['transactiontype'];
+				$transactionType = $requestBody['transaction_type'];
 			}
 
 			$stockLabelType = 0;
