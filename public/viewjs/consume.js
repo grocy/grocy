@@ -390,7 +390,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 						{
 							var stockLocationName = stockLocation.location_name;
 							if (stockLocation.location_id == defaultLocationId) {
-								stockLocationName += +" (" + __t("Default location") + ")";
+								stockLocationName += " (" + __t("Default location") + ")";
 								setDefault = 1;
 								stockAmountAtDefaultLocation += Number.parseFloat(stockLocation.amount);
 							}
