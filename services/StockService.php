@@ -1058,12 +1058,12 @@ class StockService extends BaseService
 				$amount = 0;
 			}
 
-			if ($product->move_on_open)
+			if ($product->move_on_open == 1)
 			{
 				$locationIdTo = $product->default_consume_location_id;
-				if ($locationIdTo && $locationIdTo !== $stockEntry->location_id)
+				if (!empty($locationIdTo) && $locationIdTo != $stockEntry->location_id)
 				{
-					$this->TransferProduct($stockEntry->product_id, $amount, $stockEntry->location_id, $locationIdTo, $stockEntry->stock_id, $transactionId);
+					$this->TransferProduct($stockEntry->product_id, $stockEntry->amount, $stockEntry->location_id, $locationIdTo, $stockEntry->stock_id, $transactionId);
 				}
 			}
 		}
