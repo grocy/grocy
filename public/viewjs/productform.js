@@ -239,18 +239,24 @@ $('#product-form input').keyup(function(event)
 $('#location_id').change(function(event)
 {
 	Grocy.FrontendHelpers.ValidateForm('product-form');
+	updateMoveOnOpen();
 });
 $('#default_consume_location_id').change(function(event) {
+	updateMoveOnOpen();
+});
+
+function updateMoveOnOpen() {
 	var defaultLocation = $("#location_id :selected").val();
 	var consumeLocationLocation = document.getElementById('default_consume_location_id');
-	console.log('defaultLocation', defaultLocation);
-	console.log('consumeLocationLocation', consumeLocationLocation);
+
 	var moveOnOpen = document.getElementById('move_on_open');
 	if (consumeLocationLocation && defaultLocation !== consumeLocationLocation) {
+		moveOnOpen.removeAttribute('checked');
 		moveOnOpen.setAttribute('disabled', "");
 	} else {
 		moveOnOpen.removeAttribute('disabled');
 	}
+}
 });
 
 $('#product-form input').keydown(function(event)
