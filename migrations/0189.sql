@@ -15,7 +15,7 @@ SELECT
 	p.qu_id_stock AS to_qu_id,
 	qu_to.name AS to_qu_name,
 	qu_to.name_plural AS to_qu_name_plural,
-	p.qu_factor_purchase_to_stock AS factor,
+	CASE WHEN p.qu_id_stock = p.qu_id_purchase THEN 1.0 ELSE p.qu_factor_purchase_to_stock END AS factor, -- Enforce a factor of 1 when QU stock = QU purchase
 	'1 product purchase to stock factor' AS source
 FROM products p
 JOIN quantity_units qu_from
