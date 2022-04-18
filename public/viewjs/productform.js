@@ -247,14 +247,13 @@ $('#default_consume_location_id').change(function(event) {
 
 function updateMoveOnOpen() {
 	var defaultLocation = $("#location_id :selected").val();
-	var consumeLocationLocation = document.getElementById('default_consume_location_id');
+	var consumeLocationLocation = $("#default_consume_location_id :selected").val();
 
-	var moveOnOpen = document.getElementById('move_on_open');
-	if (consumeLocationLocation && defaultLocation !== consumeLocationLocation) {
-		moveOnOpen.removeAttribute('checked');
-		moveOnOpen.setAttribute('disabled', "");
+	if (!consumeLocationLocation || defaultLocation === consumeLocationLocation) {
+		document.getElementById("move_on_open").checked = false;
+		$("#move_on_open").attr("disabled", true);
 	} else {
-		moveOnOpen.removeAttribute('disabled');
+		$("#move_on_open").attr("disabled", false);
 	}
 }
 
@@ -573,6 +572,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 	}
 });
 
+updateMoveOnOpen();
 Grocy.FrontendHelpers.ValidateForm("product-form");
 Grocy.Components.ProductPicker.GetPicker().trigger("change");
 
