@@ -373,9 +373,11 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				$(".input-group-productamountpicker").trigger("change");
 
 				var defaultLocationId = productDetails.location.id;
-				if (productDetails.product.default_consume_location_id != null && !productDetails.product.default_consume_location_id.isEmpty())
+				var defaultConsumeLocationId = productDetails.product.default_consume_location_id;
+
+				if (defaultConsumeLocationId != null && !defaultConsumeLocationId.isEmpty())
 				{
-					defaultLocationId = productDetails.product.default_consume_location_id;
+					defaultLocationId = defaultConsumeLocationId;
 				}
 
 				$("#location_id").find("option").remove().end().append("<option></option>");
@@ -386,26 +388,22 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 						var stockAmountAtDefaultLocation = 0;
 						stockLocations.forEach(stockLocation =>
 						{
-							if (stockLocation.location_id == defaultLocationId)
-							{
-								$("#location_id").append($("<option>", {
-									value: stockLocation.location_id,
-									text: stockLocation.location_name + " (" + __t("Default location") + ")"
-								}));
-								$("#location_id").val(defaultLocationId);
-								$("#location_id").trigger('change');
+							var stockLocationName = stockLocation.location_name;
+							if (stockLocation.location_id == defaultLocationId) {
+								stockLocationName += +" (" + __t("Default location") + ")";
 								setDefault = 1;
 								stockAmountAtDefaultLocation += Number.parseFloat(stockLocation.amount);
 							}
-							else
-							{
-								$("#location_id").append($("<option>", {
-									value: stockLocation.location_id,
-									text: stockLocation.location_name
-								}));
-							}
+							$("#location_id").append($("<option>", {
+								value: stockLocation.location_id,
+								text: stockLocationName
+							}));
+							$("#location_id").val(defaultLocationId);
+							$("#location_id").trigger('change');
+							setDefault = 1;
+							stockAmountAtDefaultLocation += Number.parseFloat(stockLocation.amount);
 
-							if (setDefault == 0)
+							if (!setDefault)
 							{
 								$("#location_id").val(defaultLocationId);
 								$("#location_id").trigger('change');

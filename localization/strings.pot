@@ -2326,3 +2326,10 @@ msgstr ""
 
 msgid "Stock entries at this location will be consumed first"
 msgstr ""
+
+msgid "Move on open"
+msgstr ""
+
+
+msgid "When checked, opening the product will move one unit to the default consume location"
+msgstr ""

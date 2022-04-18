@@ -1007,11 +1007,11 @@ class StockService extends BaseService
 				]);
 				$logRow->save();
 
-				$stockEntry->update([
+				$update = [
 					'open' => 1,
 					'opened_date' => date('Y-m-d'),
 					'best_before_date' => $newBestBeforeDate
-				]);
+				];
 
 				$amount -= $stockEntry->amount;
 			}
@@ -1048,15 +1048,20 @@ class StockService extends BaseService
 				]);
 				$logRow->save();
 
-				$stockEntry->update([
+				$update = [
 					'amount' => $amount,
 					'open' => 1,
 					'opened_date' => date('Y-m-d'),
 					'best_before_date' => $newBestBeforeDate
-				]);
+				];
 
 				$amount = 0;
 			}
+			if ($product->move_on_open) {
+				$update['location_id'] = $product->default_consume_location_id ?? $stockEntry->location_id;
+			}
+
+			$stockEntry->update($update);
 		}
 
 		return $transactionId;
