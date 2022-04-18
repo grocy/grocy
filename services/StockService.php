@@ -734,6 +734,12 @@ class StockService extends BaseService
 		}
 		$spoilRate = ($consumeCountSpoiled * 100.0) / $consumeCount;
 
+		$defaultConsumeLocation = null;
+		if (!empty($product->default_consume_location_id))
+		{
+			$defaultConsumeLocation = $this->getDatabase()->locations($product->default_consume_location_id);
+		}
+
 		return [
 			'product' => $product,
 			'product_barcodes' => $productBarcodes,
@@ -758,6 +764,7 @@ class StockService extends BaseService
 			'spoil_rate_percent' => $spoilRate,
 			'is_aggregated_amount' => $stockCurrentRow->is_aggregated_amount,
 			'has_childs' => $this->getDatabase()->products()->where('parent_product_id = :1', $product->id)->count() !== 0,
+			'default_consume_location' => $defaultConsumeLocation
 		];
 	}
 

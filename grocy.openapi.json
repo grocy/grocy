@@ -4797,6 +4797,9 @@
 					"has_childs": {
 						"type": "boolean",
 						"description": "True when the product is a parent product of others"
+					},
+					"default_location": {
+						"$ref": "#/components/schemas/Location"
 					}
 				},
 				"example": {
@@ -4862,7 +4865,8 @@
 						"row_created_timestamp": "2019-05-02 20:12:25"
 					},
 					"average_shelf_life_days": -1,
-					"spoil_rate_percent": 0
+					"spoil_rate_percent": 0,
+					"default_consume_location": null
 				}
 			},
 			"ProductPriceHistory": {

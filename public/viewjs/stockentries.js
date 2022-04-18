@@ -126,10 +126,26 @@ $(document).on('click', '.product-open-button', function(e)
 	Grocy.Api.Post('stock/products/' + productId + '/open', { 'amount': 1, 'stock_entry_id': specificStockEntryId },
 		function(bookingResponse)
 		{
-			button.addClass("disabled");
-			Grocy.FrontendHelpers.EndUiBusy();
-			toastr.success(__t('Marked %1$s of %2$s as opened', 1 + " " + productQuName, productName) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBookingEntry(' + bookingResponse[0].id + ',' + stockRowId + ')"><i class="fa-solid fa-undo"></i> ' + __t("Undo") + '</a>');
-			RefreshStockEntryRow(stockRowId);
+			Grocy.Api.Get('stock/products/' + productId,
+				function(result)
+				{
+					button.addClass("disabled");
+					Grocy.FrontendHelpers.EndUiBusy();
+					toastr.success(__t('Marked %1$s of %2$s as opened', 1 + " " + productQuName, productName) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBookingEntry(' + bookingResponse[0].id + ',' + stockRowId + ')"><i class="fa-solid fa-undo"></i> ' + __t("Undo") + '</a>');
+
+					if (result.product.move_on_open == 1)
+					{
+						toastr.info('<span>' + __t("Moved to %1$s", result.default_consume_location.name) + "</span> <i class='fa-solid fa-exchange-alt'></i>");
+					}
+
+					RefreshStockEntryRow(stockRowId);
+				},
+				function(xhr)
+				{
+					Grocy.FrontendHelpers.EndUiBusy();
+					console.error(xhr);
+				}
+			);
 		},
 		function(xhr)
 		{
