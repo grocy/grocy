@@ -2330,5 +2330,5 @@ msgstr ""
 msgid "Move on open"
 msgstr ""
 
-msgid "When checked, opening the product will move one unit to the default consume location"
+msgid "When enabled, on marking this product as opened, the corresponding amount will be moved to the default consume location"
 msgstr ""
