@@ -2,3 +2,4 @@
 /vendor
 /.release
 embedded.txt
+.DS_Store
