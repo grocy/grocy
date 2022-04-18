@@ -146,6 +146,22 @@
 						$location->id == $product->default_consume_location_id) selected="selected" @endif value="{{ $location->id }}">{{ $location->name }}</option>
 					@endforeach
 				</select>
+				
+				@if(GROCY_FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING)
+				<div class="custom-control custom-checkbox">
+					<input @if($mode=='edit'
+						&&
+						$product->move_on_open == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="move_on_open" name="move_on_open" value="1">
+					<label class="form-check-label custom-control-label"
+						for="move_on_open">{{ $__t('Move on open') }}&nbsp;<i class="fa-solid fa-question-circle text-muted"
+							data-toggle="tooltip"
+							data-trigger="hover click"
+							title="{{ $__t("When enabled, on marking this product as opened, the corresponding amount will be moved to the default consume location")
+							}}"></i>
+					</label>
+				</div>
+				@endif
+				
 			</div>
 			@else
 			<input type="hidden"

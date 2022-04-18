@@ -4481,6 +4481,15 @@
 					"userfields": {
 						"type": "object",
 						"description": "Key/value pairs of userfields"
+					},
+					"should_not_be_frozen": {
+						"type": "integer"
+					},
+					"default_consume_location_id": {
+						"type": "integer"
+					},
+					"move_on_open": {
+						"type": "integer"
 					}
 				},
 				"example": {
@@ -4502,7 +4511,10 @@
 					"tare_weight": "0.0",
 					"not_check_stock_fulfillment_for_recipes": "0",
 					"shopping_location_id": null,
-					"userfields": null
+					"userfields": null,
+					"should_not_be_frozen": "1",
+					"default_consume_location_id": "5",
+					"move_on_open": "1"
 				}
 			},
 			"QuantityUnit": {
@@ -4785,6 +4797,9 @@
 					"has_childs": {
 						"type": "boolean",
 						"description": "True when the product is a parent product of others"
+					},
+					"default_location": {
+						"$ref": "#/components/schemas/Location"
 					}
 				},
 				"example": {
@@ -4850,7 +4865,8 @@
 						"row_created_timestamp": "2019-05-02 20:12:25"
 					},
 					"average_shelf_life_days": -1,
-					"spoil_rate_percent": 0
+					"spoil_rate_percent": 0,
+					"default_consume_location": null
 				}
 			},
 			"ProductPriceHistory": {

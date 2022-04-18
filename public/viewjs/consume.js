@@ -189,6 +189,11 @@ $('#save-mark-as-open-button').on('click', function(e)
 					Grocy.FrontendHelpers.EndUiBusy("consume-form");
 					toastr.success(__t('Marked %1$s of %2$s as opened', parseFloat(jsonForm.amount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }) + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural, true), productDetails.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + result[0].transaction_id + '\')"><i class="fa-solid fa-undo"></i> ' + __t("Undo") + '</a>');
 
+					if (productDetails.product.move_on_open == 1)
+					{
+						toastr.info('<span>' + __t("Moved to %1$s", productDetails.default_consume_location.name) + "</span> <i class='fa-solid fa-exchange-alt'></i>");
+					}
+
 					if (BoolVal(Grocy.UserSettings.stock_default_consume_amount_use_quick_consume_amount))
 					{
 						$('#display_amount').val(productDetails.product.quick_consume_amount);
