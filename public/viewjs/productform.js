@@ -257,7 +257,6 @@ function updateMoveOnOpen() {
 		moveOnOpen.removeAttribute('disabled');
 	}
 }
-});
 
 $('#product-form input').keydown(function(event)
 {
