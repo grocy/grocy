@@ -42,7 +42,16 @@ class LdapAuthMiddleware extends AuthMiddleware
 				$filter = '(&(' . GROCY_LDAP_UID_ATTR . '=' . $postParams['username'] . ')' . GROCY_LDAP_USER_FILTER . ')';
 
 				$search = ldap_search($connect, GROCY_LDAP_BASE_DN, $filter);
+				if ($search === false)
+				{
+					throw new \Exception('LDAP error: ' . ldap_error($connect));
+				}
+
 				$result = ldap_get_entries($connect, $search);
+				if ($result === false)
+				{
+					throw new \Exception('LDAP error: ' . ldap_error($connect));
+				}
 
 				$ldapFirstName = $result[0]['givenname'][0];
 				$ldapLastName = $result[0]['sn'][0];
