@@ -29,7 +29,7 @@
 					{{ $__t('Stock entries') }}
 				</a>
 				<a class="btn btn-outline-secondary m-1 mt-md-0 mb-md-0 float-right show-as-dialog-link"
-					href="{{ $U('/stockentries?embedded&product=') }}{{ $product->id }}">
+					href="{{ $U('/stockjournal?embedded&product=') }}{{ $product->id }}">
 					{{ $__t('Stock journal') }}
 				</a>
 			</div>
