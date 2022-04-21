@@ -139,6 +139,8 @@ $(".calendar").each(function()
 					return false;
 				}
 
+				recipe.name = recipe.name.escapeHTML();
+
 				var internalShadowRecipe = FindObjectInArrayByPropertyValue(internalRecipes, "name", mealPlanEntry.day + "#" + mealPlanEntry.id);
 				var resolvedRecipe = FindObjectInArrayByPropertyValue(recipesResolved, "recipe_id", internalShadowRecipe.id);
 

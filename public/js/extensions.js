@@ -21,6 +21,11 @@ String.prototype.replaceAll = function(search, replacement)
 	return this.replace(new RegExp(search, "g"), replacement);
 };
 
+String.prototype.escapeHTML = function()
+{
+	return this.replace(/[&<>"'`=\/]/g, s => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;', '/': '&#x2F;', '`': '&#x60;', '=': '&#x3D;' })[s]);;
+};
+
 GetUriParam = function(key)
 {
 	var currentUri = window.location.search.substring(1);
